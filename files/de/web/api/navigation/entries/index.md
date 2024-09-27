@@ -1,5 +1,5 @@
 ---
-title: "Navigation: entries()-Methode"
+title: "Navigation: entries() Methode"
 short-title: entries()
 slug: Web/API/Navigation/entries
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`entries()`**-Methode des {{domxref("Navigation")}}-Interfaces gibt ein Array von {{domxref("NavigationHistoryEntry")}}-Objekten zurück, die alle vorhandenen Verlaufseinträge repräsentieren.
+Die **`entries()`**-Methode des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt ein Array von [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekten zurück, die alle vorhandenen Verlaufseinträge darstellen.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von {{domxref("NavigationHistoryEntry")}}-Objekten.
+Ein Array von [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekten.
 
 ### Ausnahmen
 
@@ -36,9 +36,9 @@ Keine.
 let numOfEntries = navigation.entries().length - 1;
 ```
 
-### Ein intelligenter "Zurück"-Button
+### Ein intelligenter Zurück-Button
 
-Ein von der Seite bereitgestellter "Zurück"-Button kann Sie zurückbringen, sogar nach einem Neuladen, indem er die vorherigen Verlaufseinträge überprüft:
+Ein seitenbereitgestellter "Zurück"-Button kann Sie zurückbringen, sogar nach einem Neuladen, indem er die vorherigen Verlaufseinträge durchsucht:
 
 ```js
 backButtonEl.addEventListener("click", () => {
@@ -48,8 +48,8 @@ backButtonEl.addEventListener("click", () => {
   ) {
     navigation.back();
   } else {
-    // Falls der Benutzer auf andere Weise hierher gelangt ist
-    // z.B. durch direktes Eingeben der URL:
+    // If the user arrived here in some other way
+    // e.g. by typing the URL directly:
     navigation.navigate("/product-listing", { history: "replace" });
   }
 });
@@ -65,6 +65,6 @@ backButtonEl.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routenführung: das Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Weiterleitung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicola's [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

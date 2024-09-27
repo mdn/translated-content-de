@@ -8,30 +8,30 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`nextHopProtocol`** Nur-Lese-Eigenschaft ist ein String, der das Netzwerkprotokoll repräsentiert, das zum Abrufen der Ressource verwendet wurde, identifiziert durch die [ALPN-Protokoll-ID (RFC7301)](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids).
+Die schreibgeschützte Eigenschaft **`nextHopProtocol`** ist ein String, der das Netzwerkprotokoll darstellt, das zum Abrufen der Ressource verwendet wurde, wie es durch die [ALPN Protocol ID (RFC7301)](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids) identifiziert wird.
 
-Wenn ein Proxy verwendet wird, gibt diese Eigenschaft, falls eine Tunnelverbindung hergestellt ist, die ALPN-Protokoll-ID des getunnelten Protokolls zurück. Andernfalls gibt diese Eigenschaft die ALPN-Protokoll-ID des ersten Hops zum Proxy zurück.
+Wenn ein Proxy verwendet wird und eine Tunnelverbindung hergestellt wurde, gibt diese Eigenschaft die ALPN Protocol ID des getunnelten Protokolls zurück. Andernfalls gibt diese Eigenschaft die ALPN Protocol ID des ersten Hops zum Proxy zurück.
 
 ## Wert
 
-Die `nextHopProtocol`-Eigenschaft kann die folgenden Werte annehmen:
+Die `nextHopProtocol`-Eigenschaft kann die folgenden Werte haben:
 
-- Ein String, der das Netzwerkprotokoll repräsentiert, das zum Abrufen der Ressource verwendet wurde, identifiziert durch die [ALPN-Protokoll-ID (RFC7301)](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids). Typische Werte sind:
+- Ein String, der das Netzwerkprotokoll darstellt, das zum Abrufen der Ressource verwendet wurde, wie es durch die [ALPN Protocol ID (RFC7301)](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids) identifiziert wird. Typische Werte sind:
   - `"http/0.9"`
   - `"http/1.0"`
   - `"http/1.1"`
   - `"h2"`
   - `"h2c"`
   - `"h3"`
-- Ein leerer String, wenn die Ressource eine Cross-Origin-Anfrage ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Response-Header verwendet wird.
+- Ein leerer String, wenn die Ressource eine Cross-Origin-Anfrage ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header verwendet wird.
 
 ## Beispiele
 
 ### Protokollierung von Ressourcen, die weder HTTP/2 noch HTTP/3 verwenden
 
-Die `nextHopProtocol`-Eigenschaft kann verwendet werden, um Ressourcen zu ermitteln, die die Protokolle HTTP/2 oder HTTP/3 nicht verwenden.
+Die `nextHopProtocol`-Eigenschaft kann verwendet werden, um Ressourcen zu sehen, die die Protokolle HTTP/2 oder HTTP/3 nicht verwenden.
 
-Beispiel mit einem {{domxref("PerformanceObserver")}}, der über neue `resource`-Leistungseinträge informiert, die in der Performance-Zeitachse des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden waren.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge benachrichtigt, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge zuzugreifen, die vor der Erstellung des Observers existieren.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -46,7 +46,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel mit {{domxref("Performance.getEntriesByType()")}}, das nur `resource`-Leistungseinträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitachse des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge anzeigt, die sich zum Zeitpunkt des Methodenaufrufs in der Performance-Zeitleiste des Browsers befinden:
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -60,15 +60,15 @@ resources.forEach((entry) => {
 
 ### Informationen zum Cross-Origin-Netzwerkprotokoll
 
-Wenn der Wert der `nextHopProtocol`-Eigenschaft ein leerer String ist, könnte es sich bei der Ressource um eine Cross-Origin-Anfrage handeln. Um Informationen über das Cross-Origin-Netzwerkprotokoll offenzulegen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Response-Header gesetzt werden.
+Wenn der Wert der `nextHopProtocol`-Eigenschaft ein leerer String ist, könnte die Ressource eine Cross-Origin-Anfrage sein. Um Informationen über das Cross-Origin-Netzwerkprotokoll offenzulegen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt werden.
 
-Zum Beispiel, um `https://developer.mozilla.org` zu erlauben, Informationen über das Netzwerkprotokoll zu sehen, sollte die Cross-Origin-Ressource senden:
+Zum Beispiel, um `https://developer.mozilla.org` den Zugriff auf Netzwerkinformationen zu erlauben, sollte die Cross-Origin-Ressource senden:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org
 ```
 
-## Spezifikationen
+## Specifications
 
 {{Specifications}}
 
@@ -79,5 +79,5 @@ Timing-Allow-Origin: https://developer.mozilla.org
 ## Siehe auch
 
 - {{HTTPHeader("Timing-Allow-Origin")}}
-- {{Glossary("HTTP 2", "HTTP/2")}}
-- {{Glossary("HTTP 3", "HTTP/3")}}
+- [HTTP/2](/de/docs/Glossary/HTTP_2)
+- [HTTP/3](/de/docs/Glossary/HTTP_3)

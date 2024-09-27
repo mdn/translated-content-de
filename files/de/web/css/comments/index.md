@@ -7,30 +7,30 @@ l10n:
 
 {{CSSRef}}
 
-Ein CSS-**Kommentar** wird verwendet, um erläuternde Notizen zum Code hinzuzufügen oder um zu verhindern, dass der Browser bestimmte Teile des Stylesheets interpretiert. Kommentare haben absichtlich keinerlei Einfluss auf das Layout eines Dokuments.
+Ein CSS **Kommentar** wird verwendet, um erläuternde Anmerkungen zum Code hinzuzufügen oder um zu verhindern, dass der Browser bestimmte Teile des Stylesheets interpretiert. Kommentare haben von Natur aus keinen Einfluss auf das Layout eines Dokuments.
 
 ## Syntax
 
-Kommentare können überall dort platziert werden, wo im Stylesheet Leerzeichen zulässig sind. Sie können in einer einzigen Zeile verwendet werden oder sich über mehrere Zeilen erstrecken.
+Kommentare können überall dort platziert werden, wo Leerzeichen in einem Stylesheet zulässig sind. Sie können in einer einzigen Zeile oder über mehrere Zeilen hinweg verwendet werden.
 
 ```css
-/* Kommentar */
+/* Comment */
 ```
 
 ## Beispiele
 
 ```css
-/* Ein einzeiliger Kommentar */
+/* A one-line comment */
 
 /*
-Ein Kommentar
-der sich über
-mehrere Zeilen
-erstreckt
+A comment
+which stretches
+over several
+lines
 */
 
-/* Der folgende Kommentar wird verwendet, um
-   spezifisches Styling zu deaktivieren */
+/* The comment below is used to
+   disable specific styling */
 /*
 span {
   color: blue;
@@ -39,9 +39,9 @@ span {
 */
 ```
 
-## Anmerkungen
+## Hinweise
 
-Das `/* */` Kommentarsyntax wird für sowohl einzeilige als auch mehrzeilige Kommentare verwendet. Es gibt keine andere Möglichkeit, Kommentare in externen Stylesheets zu spezifizieren. Wenn jedoch das {{htmlelement("style")}}-Element verwendet wird, können Sie `<!-- -->` verwenden, um CSS vor älteren Browsern zu verstecken, obwohl dies nicht empfohlen wird. Wie in den meisten Programmiersprachen, die die `/* */`-Kommentarsyntax verwenden, können Kommentare nicht verschachtelt werden. Mit anderen Worten, das erste Auftreten von `*/` nach einem Auftreten von `/*` schließt den Kommentar.
+Die `/* */` Kommentar-Syntax wird sowohl für einzeilige als auch für mehrzeilige Kommentare verwendet. Es gibt keine andere Möglichkeit, Kommentare in externen Stylesheets anzugeben. Wenn jedoch das {{htmlelement("style")}}-Element verwendet wird, können Sie `<!-- -->` verwenden, um CSS vor älteren Browsern zu verbergen, obwohl dies nicht empfohlen wird. Wie bei den meisten Programmiersprachen, die die `/* */` Kommentar-Syntax verwenden, können Kommentare nicht verschachtelt werden. Mit anderen Worten, das erste Auftreten von `*/`, das auf ein Auftreten von `/*` folgt, schließt den Kommentar.
 
 ## Spezifikationen
 
@@ -49,13 +49,13 @@ Das `/* */` Kommentarsyntax wird für sowohl einzeilige als auch mehrzeilige Kom
 
 ## Siehe auch
 
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax) Modul
+- Modul [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax)
 - [Syntax](/de/docs/Web/CSS/Syntax) Leitfaden
 - [Wertedefinitionssyntax](/de/docs/Web/CSS/Value_definition_syntax)
-- [CSS-Fehlerbehandlung](/de/docs/Web/CSS/CSS_syntax/Error_handling)
+- [Fehlerbehandlung in CSS](/de/docs/Web/CSS/CSS_syntax/Error_handling)
 - [Spezifität](/de/docs/Web/CSS/Specificity)
 - [Vererbung](/de/docs/Web/CSS/Inheritance)
 - [Bausteine: die CSS-Kaskade](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance)
 - [Bausteine: Kaskadenschichten](/de/docs/Learn/CSS/Building_blocks/Cascade_layers)
-- [CSS-Kaskade und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
-- [Initiale](/de/docs/Web/CSS/initial_value), [berechnete](/de/docs/Web/CSS/computed_value), [verwendete](/de/docs/Web/CSS/used_value) und [tatsächliche](/de/docs/Web/CSS/actual_value) Werte
+- Modul [CSS-Kaskade und Vererbung](/de/docs/Web/CSS/CSS_cascade)
+- [Initial](/de/docs/Web/CSS/initial_value), [computed](/de/docs/Web/CSS/computed_value), [used](/de/docs/Web/CSS/used_value) und [actual](/de/docs/Web/CSS/actual_value) Werte

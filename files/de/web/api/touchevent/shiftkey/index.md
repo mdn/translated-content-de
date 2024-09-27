@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Die schreibgeschützte **`shiftKey`**-Eigenschaft des `TouchEvent`-Interfaces gibt einen booleschen Wert zurück, der angibt, ob die <kbd>Shift</kbd>-Taste aktiviert ist, wenn das Touch-Ereignis erstellt wird. Ist diese Taste aktiviert, ist der Wert des Attributs `true`. Andernfalls ist er `false`.
+Die schreibgeschützte **`shiftKey`**-Eigenschaft des `TouchEvent`-Interfaces gibt einen booleschen Wert zurück, der angibt, ob die <kbd>Shift</kbd>-Taste aktiviert ist, wenn das Touch-Event erstellt wird. Ist diese Taste aktiviert, ist der Wert des Attributs `true`. Andernfalls ist er `false`.
 
 ## Wert
 
@@ -22,6 +22,6 @@ Das [Beispiel zu TouchEvent.altKey](/de/docs/Web/API/TouchEvent/altKey#examples)
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

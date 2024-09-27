@@ -7,24 +7,24 @@ l10n:
 
 {{CSSRef}}
 
-Das **Modul für CSS logische Eigenschaften und Werte** definiert logische Eigenschaften und Werte, die das Layout durch logische anstelle von physischen Richtungs- und Dimensionszuordnungen steuern können. Logische Eigenschaften definieren richtungsrelative Entsprechungen ihrer entsprechenden physischen Eigenschaften.
+Das Modul **CSS logische Eigenschaften und Werte** definiert logische Eigenschaften und Werte, die das Layout durch logische anstatt physische Richtungs- und Maßzuweisungen steuern können. Logische Eigenschaften definieren richtungsabhängige Entsprechungen zu ihren entsprechenden physischen Eigenschaften.
 
-Der Anfang einer Zeile ist nicht immer die linke Seite einer Zeile. Verschiedene Schriftsysteme operieren in verschiedenen Richtungen. Zum Beispiel:
+Der Anfang einer Zeile ist nicht immer die linke Seite einer Zeile. Verschiedene Schriftsysteme funktionieren in verschiedenen Richtungen. Zum Beispiel:
 
 - Englisch und Portugiesisch werden von links nach rechts geschrieben, wobei neue Zeilen unter den vorherigen hinzugefügt werden.
-- Hebräisch und Arabisch sind von rechts nach links verlaufende Sprachen, wobei auch hier neue Zeilen unter den vorherigen hinzugefügt werden.
-- In einigen Schreibmodi sind die Textzeilen vertikal und werden von oben nach unten geschrieben. Chinesisch, Vietnamesisch, Koreanisch und Japanisch werden traditionell vertikal geschrieben, von oben nach unten, wobei jede neue vertikale Linie links von der vorherigen hinzugefügt wird.
-- Traditionelles Mongolisch ist ebenfalls eine von oben nach unten verlaufende Sprache, jedoch werden neue Zeilen rechts von vorherigen hinzugefügt.
+- Hebräisch und Arabisch sind von rechts nach links verlaufende Sprachen, bei denen neue Zeilen ebenfalls unter den vorherigen hinzugefügt werden.
+- In einigen Schreibmodi sind die Textzeilen vertikal, von oben nach unten geschrieben. Chinesisch, Vietnamesisch, Koreanisch und Japanisch werden traditionell vertikal geschrieben, von oben nach unten, wobei jede neue vertikale Zeile links von der vorherigen hinzugefügt wird.
+- Traditionelles Mongolisch ist ebenfalls eine Sprache von oben nach unten, jedoch werden neue Zeilen rechts von den vorherigen hinzugefügt.
 
-Die in diesem Modul definierten logischen Eigenschaften ermöglichen die Definition von Eigenschaften relativ zur Schreibrichtung des Inhalts, anstatt einer physischen Richtung. Dies bedeutet, dass Inhalte, die in Sprachen mit unterschiedlichen Schreibmodi übersetzt wurden, wie beabsichtigt wiedergegeben werden.
+Die im Modul definierten logischen Eigenschaften ermöglichen es, Eigenschaften relativ zur Schreibrichtung des Inhalts zu definieren, anstatt in einer physischen Richtung. Dies bedeutet, dass in Sprachen mit unterschiedlichen Schreibmodi übersetzte Inhalte wie beabsichtigt dargestellt werden.
 
-Logische Eigenschaften und Werte verwenden die abstrakten Begriffe _Block_ und _Inline_, um die Richtung zu beschreiben, in der sie fließen. Die physische Bedeutung dieser Begriffe hängt vom [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) ab.
+Logische Eigenschaften und Werte verwenden die abstrakten Begriffe _block_ und _inline_, um die Richtung zu beschreiben, in der sie verlaufen. Die physische Bedeutung dieser Begriffe hängt vom [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) ab.
 
-Die **Block-Dimension** steht senkrecht zum Textfluss innerhalb einer Zeile, d. h. die vertikale Dimension in horizontalen Schreibmodi und die horizontale Dimension in vertikalen Schreibmodi. Für normalen englischen Text ist es die vertikale Dimension.
+Die **Blockdimension** ist senkrecht zum Fluss des Textes innerhalb einer Zeile, d.h. die vertikale Dimension in horizontalen Schreibmodi und die horizontale Dimension in vertikalen Schreibmodi. Für Standardtext in Englisch ist es die vertikale Dimension.
 
-Die **Inline-Dimension** verläuft parallel zum Textfluss innerhalb einer Zeile, d.h. die horizontale Dimension in horizontalen Schreibmodi und die vertikale Dimension in vertikalen Schreibmodi. Für normalen englischen Text ist es die horizontale Dimension.
+Die **Inline-Dimension** ist parallel zum Fluss des Textes innerhalb einer Zeile, d.h. die horizontale Dimension in horizontalen Schreibmodi und die vertikale Dimension in vertikalen Schreibmodi. Für Standardtext in Englisch ist es die horizontale Dimension.
 
-CSS wurde ursprünglich nur mit physischen Koordinaten entworfen. Das Modul für logische Eigenschaften und Werte definiert fluss-relative Entsprechungen für viele [Werte](/de/docs/Web/CSS/CSS_Values_and_Units) und [Eigenschaften](/de/docs/Glossary/Property/CSS). Eigenschaften, die einst nur physische Werte akzeptierten (`top`, `bottom`, `left`, `right`), akzeptieren jetzt auch fluss-relative logische Werte (`block-start`, `block-end`, `inline-start`, `inline-end`).
+CSS wurde ursprünglich nur mit physischen Koordinaten entworfen. Das Modul für logische Eigenschaften und Werte definiert Fluss-relative Entsprechungen für viele [Werte](/de/docs/Web/CSS/CSS_Values_and_Units) und [Eigenschaften](/de/docs/Glossary/Property/CSS). Eigenschaften, die einst nur physische Werte akzeptierten (`top`, `bottom`, `left`, `right`), akzeptieren jetzt auch Fluss-relative logische Werte (`block-start`, `block-end`, `inline-start`, `inline-end`).
 
 ## Referenz
 
@@ -86,7 +86,7 @@ CSS wurde ursprünglich nur mit physischen Koordinaten entworfen. Das Modul für
 
 ### Datentypen und Werte
 
-{{glossary("Flow relative values")}}:
+[Fluss-relative Werte](/de/docs/Glossary/Flow_relative_values):
 
 - `block-start`
 - `block-end`
@@ -97,28 +97,28 @@ CSS wurde ursprünglich nur mit physischen Koordinaten entworfen. Das Modul für
 
 ### Glossarbegriffe
 
-- {{glossary("Flow relative values")}}
-- {{glossary("Inset properties")}}
-- {{glossary("Logical properties")}}
-- {{glossary("Physical properties")}}
+- [Fluss-relative Werte](/de/docs/Glossary/Flow_relative_values)
+- [Einsatz-Eigenschaften](/de/docs/Glossary/Inset_properties)
+- [Logische Eigenschaften](/de/docs/Glossary/Logical_properties)
+- [Physische Eigenschaften](/de/docs/Glossary/Physical_properties)
 
 ## Leitfäden
 
-- [Grundkonzepte der logischen Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values)
+- [Grundkonzepte logischer Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values/Basic_concepts_of_logical_properties_and_values)
 
   - : Überblick über fluss-relative Eigenschaften und Werte.
 
-- [Logische Eigenschaften für Größen](/de/docs/Web/CSS/CSS_logical_properties_and_values/Sizing)
+- [Logische Eigenschaften für Größenanpassung](/de/docs/Web/CSS/CSS_logical_properties_and_values/Sizing)
 
-  - : Fluss-relative Zuordnungen zwischen physischen Eigenschaften und logischen Eigenschaften, die für die Größenbestimmung von Elementen auf der Seite verwendet werden.
+  - : Fluss-relative Zuordnungen zwischen physischen Eigenschaften und logischen Eigenschaften zur Größenanpassung von Elementen auf der Seite.
 
 - [Logische Eigenschaften für Ränder, Rahmen und Abstände](/de/docs/Web/CSS/CSS_logical_properties_and_values/Margins_borders_padding)
 
-  - : Fluss-relative Zuordnungen für die verschiedenen Rand-, Rahmen- und Abstands-Eigenschaften und ihre Kurzformate.
+  - : Fluss-relative Zuordnungen für die verschiedenen Rand-, Rahmen- und Abstandseigenschaften und deren Kurznamen.
 
-- [Logische Eigenschaften für Floats und Positionierung](/de/docs/Web/CSS/CSS_logical_properties_and_values/Floating_and_positioning)
+- [Logische Eigenschaften für Schweben und Positionierung](/de/docs/Web/CSS/CSS_logical_properties_and_values/Floating_and_positioning)
 
-  - : Detaillierte Zuordnungen zwischen physischen und logischen Werten für `float` und `clear`, [Inset-Eigenschaften](/de/docs/Glossary/Inset_properties) und `resize`.
+  - : Detaillierte Zuordnungen zwischen den physischen und logischen Werten für `float` und `clear`, [Einsatz-Eigenschaften](/de/docs/Glossary/Inset_properties), und `resize`.
 
 ## Verwandte Konzepte
 
@@ -130,10 +130,10 @@ CSS wurde ursprünglich nur mit physischen Koordinaten entworfen. Das Modul für
 
 [CSS Boxmodell](/de/docs/Web/CSS/CSS_box_model)
 
-- {{CSSxRef("margin")}} Kurzform
-- {{CSSxRef("padding")}} Kurzform
+- {{CSSxRef("margin")}} Kurznamen
+- {{CSSxRef("padding")}} Kurznamen
 
-[CSS Boxgrößenbestimmung](/de/docs/Web/CSS/CSS_box_sizing)
+[CSS Boxgrößen](/de/docs/Web/CSS/CSS_box_sizing)
 
 - {{CSSxRef("max-height")}}
 - {{CSSxRef("max-width")}}
@@ -145,10 +145,10 @@ CSS wurde ursprünglich nur mit physischen Koordinaten entworfen. Das Modul für
 - {{CSSxRef("border-color")}}
 - {{CSSxRef("border-style")}}
 - {{CSSxRef("border-width")}}
-- {{CSSxRef("border")}} Kurzform
+- {{CSSxRef("border")}} Kurznamen
 - {{CSSxRef("border-radius")}}
 
-[CSS Positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout)
+[CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout)
 
 - {{CSSxRef("top")}}
 - {{CSSxRef("right")}}
@@ -161,7 +161,7 @@ CSS wurde ursprünglich nur mit physischen Koordinaten entworfen. Das Modul für
 - {{CSSxRef("text-orientation")}}
 - {{CSSxRef("writing-mode")}}
 
-[CSS Eingrenzung](/de/docs/Web/CSS/CSS_containment)
+[CSS Containment](/de/docs/Web/CSS/CSS_containment)
 
 - {{CSSxRef("contain-intrinsic-block-size")}}
 - {{CSSxRef("contain-intrinsic-inline-size")}}
@@ -183,5 +183,5 @@ CSS wurde ursprünglich nur mit physischen Koordinaten entworfen. Das Modul für
 ## Siehe auch
 
 - [Flusslayout und Schreibmodi](/de/docs/Web/CSS/CSS_flow_layout/Flow_layout_and_writing_modes)
-- [CSS Flexibler Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [CSS Flexibles Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
 - [CSS Raster-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul

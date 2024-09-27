@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`includes()`**-Methode von {{jsxref("TypedArray")}} Instanzen bestimmt, ob ein typisiertes Array einen bestimmten Wert unter seinen Einträgen enthält und gibt entsprechend `true` oder `false` zurück. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.includes()")}}.
+Die **`includes()`**-Methode von {{jsxref("TypedArray")}}-Instanzen bestimmt, ob ein typisiertes Array einen bestimmten Wert unter seinen Einträgen enthält, und gibt entsprechend `true` oder `false` zurück. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.includes()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-includes.html")}}
 
@@ -21,17 +21,17 @@ includes(searchElement, fromIndex)
 ### Parameter
 
 - `searchElement`
-  - : Der Wert, nach dem gesucht wird.
+  - : Der Wert, nach dem gesucht werden soll.
 - `fromIndex` {{optional_inline}}
-  - : Null-basierter Index, bei dem die Suche gestartet werden soll, [in eine ganze Zahl konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Der Null-basierte Index, ab dem die Suche beginnt, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 
 ### Rückgabewert
 
-Ein boolescher Wert, der `true` ist, wenn der Wert `searchElement` innerhalb des typisierten Arrays gefunden wird (oder der Teil des typisierten Arrays, der durch den Index `fromIndex` angegeben wird, falls angegeben).
+Ein boolescher Wert, der `true` ist, wenn der Wert `searchElement` innerhalb des typisierten Arrays gefunden wird (oder im angegebenen Teil des typisierten Arrays, der durch den Index `fromIndex` angegeben ist, falls spezifiziert).
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.includes()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen angewendet werden.
+Siehe {{jsxref("Array.prototype.includes()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 
@@ -43,8 +43,8 @@ uint8.includes(2); // true
 uint8.includes(4); // false
 uint8.includes(3, 3); // false
 
-// NaN-Behandlung (nur relevant für Gleitkomma-Arrays)
-new Uint8Array([NaN]).includes(NaN); // false, da das NaN, das an den Konstruktor übergeben wird, in 0 umgewandelt wird
+// NaN handling (only relevant for floating point arrays)
+new Uint8Array([NaN]).includes(NaN); // false, since the NaN passed to the constructor gets converted to 0
 new Float32Array([NaN]).includes(NaN); // true
 ```
 
@@ -59,7 +59,7 @@ new Float32Array([NaN]).includes(NaN); // true
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.includes` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- Leitfaden zu [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.indexOf()")}}
 - {{jsxref("TypedArray.prototype.find()")}}

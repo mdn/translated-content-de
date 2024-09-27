@@ -7,29 +7,29 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Das `Client`-Interface repräsentiert einen ausführbaren Kontext wie einen {{domxref("Worker")}} oder einen {{domxref("SharedWorker")}}. {{domxref("Window")}}-Clients werden durch das spezifischere {{domxref("WindowClient")}} dargestellt. Sie können `Client`/`WindowClient`-Objekte von Methoden wie {{domxref("Clients.matchAll","Clients.matchAll()")}} und {{domxref("Clients.get","Clients.get()")}} erhalten.
+Das `Client`-Interface repräsentiert einen ausführbaren Kontext wie einen [`Worker`](/de/docs/Web/API/Worker) oder einen [`SharedWorker`](/de/docs/Web/API/SharedWorker). [`Window`](/de/docs/Web/API/Window)-Clients werden durch den spezifischeren [`WindowClient`](/de/docs/Web/API/WindowClient) dargestellt. Sie können `Client`/`WindowClient`-Objekte durch Methoden wie [`Clients.matchAll()`](/de/docs/Web/API/Clients/matchAll) und [`Clients.get()`](/de/docs/Web/API/Clients/get) erhalten.
 
 ## Instanzmethoden
 
-- {{domxref("Client.postMessage()")}}
+- [`Client.postMessage()`](/de/docs/Web/API/Client/postMessage)
   - : Sendet eine Nachricht an den Client.
 
 ## Instanzeigenschaften
 
-- {{domxref("Client.frameType")}} {{ReadOnlyInline}}
-  - : Der Frame-Typ des Clients als Zeichenkette. Es kann `"auxiliary"`, `"top-level"`, `"nested"` oder `"none"` sein.
-- {{domxref("Client.id")}} {{ReadOnlyInline}}
-  - : Die universell eindeutige Kennung des Clients als Zeichenkette.
-- {{domxref("Client.type")}} {{ReadOnlyInline}}
+- [`Client.frameType`](/de/docs/Web/API/Client/frameType) {{ReadOnlyInline}}
+  - : Der Rahmen-Typ des Clients als Zeichenkette. Es kann `"auxiliary"`, `"top-level"`, `"nested"` oder `"none"` sein.
+- [`Client.id`](/de/docs/Web/API/Client/id) {{ReadOnlyInline}}
+  - : Der universell eindeutige Bezeichner des Clients als Zeichenkette.
+- [`Client.type`](/de/docs/Web/API/Client/type) {{ReadOnlyInline}}
   - : Der Typ des Clients als Zeichenkette. Es kann `"window"`, `"worker"` oder `"sharedworker"` sein.
-- {{domxref("Client.url")}} {{ReadOnlyInline}}
+- [`Client.url`](/de/docs/Web/API/Client/url) {{ReadOnlyInline}}
   - : Die URL des Clients als Zeichenkette.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

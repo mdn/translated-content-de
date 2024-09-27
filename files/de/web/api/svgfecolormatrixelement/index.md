@@ -24,8 +24,8 @@ Die **`SVGFEColorMatrixElement`** Schnittstelle entspricht dem {{SVGElement("feC
       <td><code>SVG_FECOLORMATRIX_TYPE_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig, zu
-        versuchen, einen neuen Wert dieses Typs zu definieren oder einen
+        Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig,
+        zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen
         bestehenden Wert auf diesen Typ umzustellen.
       </td>
     </tr>
@@ -54,28 +54,28 @@ Die **`SVGFEColorMatrixElement`** Schnittstelle entspricht dem {{SVGElement("feC
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGFEColorMatrixElement.height")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("height")}} Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEColorMatrixElement.in1")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, der dem {{SVGAttr("in")}} Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEColorMatrixElement.result")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, der dem {{SVGAttr("result")}} Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEColorMatrixElement.type")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedEnumeration")}}, der dem {{SVGAttr("type")}} Attribut des angegebenen Elements entspricht. Es nimmt einen der auf dieser Schnittstelle definierten `SVG_FECOLORMATRIX_TYPE_*` Konstanten an.
-- {{domxref("SVGFEColorMatrixElement.values")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumberList")}}, der dem {{SVGAttr("values")}} Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEColorMatrixElement.width")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("width")}} Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEColorMatrixElement.x")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("x")}} Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEColorMatrixElement.y")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("y")}} Attribut des angegebenen Elements entspricht.
+- [`SVGFEColorMatrixElement.height`](/de/docs/Web/API/SVGFEColorMatrixElement/height) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}} Attribut des angegebenen Elements entspricht.
+- [`SVGFEColorMatrixElement.in1`](/de/docs/Web/API/SVGFEColorMatrixElement/in1) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("in")}} Attribut des angegebenen Elements entspricht.
+- [`SVGFEColorMatrixElement.result`](/de/docs/Web/API/SVGFEColorMatrixElement/result) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("result")}} Attribut des angegebenen Elements entspricht.
+- [`SVGFEColorMatrixElement.type`](/de/docs/Web/API/SVGFEColorMatrixElement/type) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("type")}} Attribut des angegebenen Elements entspricht. Es nimmt einen der `SVG_FECOLORMATRIX_TYPE_*` Konstanten an, die in dieser Schnittstelle definiert sind.
+- [`SVGFEColorMatrixElement.values`](/de/docs/Web/API/SVGFEColorMatrixElement/values) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumberList`](/de/docs/Web/API/SVGAnimatedNumberList), das dem {{SVGAttr("values")}} Attribut des angegebenen Elements entspricht.
+- [`SVGFEColorMatrixElement.width`](/de/docs/Web/API/SVGFEColorMatrixElement/width) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("width")}} Attribut des angegebenen Elements entspricht.
+- [`SVGFEColorMatrixElement.x`](/de/docs/Web/API/SVGFEColorMatrixElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}} Attribut des angegebenen Elements entspricht.
+- [`SVGFEColorMatrixElement.y`](/de/docs/Web/API/SVGFEColorMatrixElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y")}} Attribut des angegebenen Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert aber die ihres übergeordneten Elements, [`SVGElement`](/de/docs/Web/API/SVGElement)_.
 
 ## Spezifikationen
 

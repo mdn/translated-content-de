@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`fontFamily`**-Eigenschaft der {{domxref("CSSFontPaletteValuesRule")}}-Schnittstelle listet die Schriftfamilien auf, auf die die Regel angewendet werden kann. Die Schriftfamilien müssen _benannte_ Familien sein; _generische_ Familien wie `courier` sind nicht gültig.
+Die schreibgeschützte **`fontFamily`**-Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Schnittstelle listet die Schriftfamilien auf, auf die die Regel angewendet werden kann. Die Schriftfamilien müssen _benannte_ Familien sein; _generische_ Familien wie `courier` sind nicht gültig.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein String, der eine durch Leerzeichen getrennte Liste der Schriftfamilien enth�
 
 ## Beispiele
 
-### Lesen der zugeordneten Schriftfamilie
+### Die zugehörige Schriftfamilie lesen
 
-In diesem Beispiel wird zuerst eine {{cssxref("@import")}}- und eine {{cssxref("@font-palette-values")}}-Regel definiert. Anschließend wird die {{cssxref("@font-palette-values")}}-Regel ausgelesen und ihr Name angezeigt. Da diese Regeln in dem zuletzt zum Dokument hinzugefügten Stylesheet existieren, befindet sich die Palette in dem zweiten {{domxref("CSSRule")}}, das vom letzten Stylesheet im Dokument zurückgegeben wird (`document.styleSheets[document.styleSheets.length-1].cssRules`). `rules[1]` gibt also ein {{domxref("CSSFontPaletteValuesRule")}}-Objekt zurück, aus dem wir auf `fontFamily` zugreifen können.
+Dieses Beispiel definiert zunächst eine {{cssxref("@import")}}- und eine {{cssxref("@font-palette-values")}}-Regel. Dann liest es die {{cssxref("@font-palette-values")}}-Regel und zeigt ihren Namen an. Da diese Regeln im letzten zum Dokument hinzugefügten Stylesheet existieren, ist die Palette die zweite [`CSSRule`](/de/docs/Web/API/CSSRule), die vom letzten Stylesheet im Dokument zurückgegeben wird (`document.styleSheets[document.styleSheets.length-1].cssRules`). Daher gibt `rules[1]` ein [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Objekt zurück, aus dem wir auf `fontFamily` zugreifen können.
 
 #### HTML
 

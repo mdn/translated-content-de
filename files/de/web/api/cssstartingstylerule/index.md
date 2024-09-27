@@ -7,23 +7,23 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **`CSSStartingStyleRule`**-Schnittstelle des [CSS-Objektmodells](/de/docs/Web/API/CSS_Object_Model) repräsentiert eine CSS {{CSSxRef("@starting-style")}} At-Regel.
+Das **`CSSStartingStyleRule`** Interface des [CSS Objektmodells](/de/docs/Web/API/CSS_Object_Model) repräsentiert eine CSS {{CSSxRef("@starting-style")}} at-Regel.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinen Vorfahren {{domxref("CSSGroupingRule")}} und {{domxref("CSSRule")}}._
+_Erbt Eigenschaften von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Methoden von seinen Vorfahren {{domxref("CSSGroupingRule")}} und {{domxref("CSSRule")}}._
+_Erbt Methoden von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -31,4 +31,4 @@ _Erbt Methoden von seinen Vorfahren {{domxref("CSSGroupingRule")}} und {{domxref
 
 - {{CSSxRef("@starting-style")}}
 - [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) Modul
-- [Verwendung dynamischer Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [Verwendung von dynamischen Style-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

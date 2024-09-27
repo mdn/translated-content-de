@@ -21,10 +21,10 @@ top: sign(20vh - 100px);
 
 ### Parameter
 
-Die Funktion `sign(x)` akzeptiert nur einen Wert als Parameter.
+Die Funktion `sign(x)` akzeptiert nur einen Wert als ihren Parameter.
 
 - `x`
-  - : Eine Berechnung, die auf eine Zahl aufgelöst wird.
+  - : Eine Berechnung, die zu einer Zahl aufgelöst wird.
 
 ### Rückgabewert
 
@@ -32,8 +32,8 @@ Eine Zahl, die das Vorzeichen von `A` darstellt:
 
 - Wenn `x` positiv ist, wird `1` zurückgegeben.
 - Wenn `x` negativ ist, wird `-1` zurückgegeben.
-- Wenn `x` positiv null ist, wird `0` zurückgegeben.
-- Wenn `x` negativ null ist, wird `-0` zurückgegeben.
+- Wenn `x` positive Null ist, wird `0` zurückgegeben.
+- Wenn `x` negative Null ist, wird `-0` zurückgegeben.
 - Andernfalls wird `NaN` zurückgegeben.
 
 ### Formale Syntax
@@ -44,7 +44,7 @@ Eine Zahl, die das Vorzeichen von `A` darstellt:
 
 ### Hintergrundbildposition
 
-Beispielsweise führen bei {{cssxref("background-position")}} positive Prozentsätze zu einer negativen Länge und umgekehrt, wenn das Hintergrundbild größer als der Hintergrundbereich ist. Daher könnte `sign(10%)` `1` oder `-1` zurückgeben, abhängig davon, wie die Prozentzahl aufgelöst wird! (Oder sogar `0`, wenn sie gegen eine Länge von null aufgelöst wird.)
+Zum Beispiel werden bei {{cssxref("background-position")}} positive Prozentwerte auf eine negative Länge und umgekehrt aufgelöst, wenn das Hintergrundbild größer als der Hintergrundbereich ist. Daher könnte `sign(10%)` `1` oder `-1` zurückgeben, je nachdem, wie der Prozentwert aufgelöst wird! (Oder sogar `0`, wenn es gegen eine Länge von null aufgelöst wird.)
 
 ```css
 div {
@@ -54,7 +54,7 @@ div {
 
 ### Positionsrichtung
 
-Ein weiterer Anwendungsfall ist die Steuerung der {{cssxref("position")}} des Elements. Entweder ein positiver oder ein negativer Wert.
+Ein weiterer Anwendungsfall ist die Steuerung der Position des Elements. Entweder ein positiver oder ein negativer Wert.
 
 ```css
 div {

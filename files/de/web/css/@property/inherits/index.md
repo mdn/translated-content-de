@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`inherits`** [CSS](/de/docs/Web/CSS) Deskriptor ist erforderlich, wenn Sie die {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/At-rule) verwenden und steuert, ob die durch `@property` angegebene Registrierung der benutzerdefinierten Eigenschaft standardmäßig geerbt wird.
+Der **`inherits`** [CSS](/de/docs/Web/CSS) Deskriptor ist erforderlich, wenn die {{cssxref("@property")}} [at-rule](/de/docs/Web/CSS/At-rule) verwendet wird und steuert, ob die durch `@property` angegebene Registrierung der benutzerdefinierten Eigenschaft standardmäßig vererbt wird.
 
 ## Syntax
 
@@ -28,9 +28,9 @@ Der **`inherits`** [CSS](/de/docs/Web/CSS) Deskriptor ist erforderlich, wenn Sie
 ## Werte
 
 - `true`
-  - : Die Eigenschaft wird standardmäßig geerbt.
+  - : Die Eigenschaft wird standardmäßig vererbt.
 - `false`
-  - : Die Eigenschaft wird standardmäßig nicht geerbt.
+  - : Die Eigenschaft wird standardmäßig nicht vererbt.
 
 ## Formale Definition
 
@@ -42,9 +42,9 @@ Der **`inherits`** [CSS](/de/docs/Web/CSS) Deskriptor ist erforderlich, wenn Sie
 
 ## Beispiele
 
-Fügen Sie der `--my-color` [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*) eine Typprüfung als Farbe hinzu, einen Standardwert und verhindern Sie, dass sie ihren Wert erbt:
+Fügen Sie der benutzerdefinierten Eigenschaft `--my-color` eine Typprüfung als Farbe hinzu, einen Standardwert und verhindern Sie, dass der Wert vererbt wird:
 
-Verwendung der [CSS](/de/docs/Web/CSS) {{cssxref('@property')}} [At-Regel](/de/docs/Web/CSS/At-rule):
+Verwendung des [CSS](/de/docs/Web/CSS) {{cssxref('@property')}} [at-rule](/de/docs/Web/CSS/At-rule):
 
 ```css
 @property --my-color {
@@ -54,7 +54,7 @@ Verwendung der [CSS](/de/docs/Web/CSS) {{cssxref('@property')}} [At-Regel](/de/d
 }
 ```
 
-Verwendung von [JavaScript](/de/docs/Web/JavaScript) {{domxref('CSS.registerProperty_static', 'CSS.registerProperty()')}}:
+Verwendung von [JavaScript](/de/docs/Web/JavaScript) [`CSS.registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static):
 
 ```js
 window.CSS.registerProperty({

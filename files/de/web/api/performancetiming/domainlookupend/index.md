@@ -1,5 +1,5 @@
 ---
-title: "PerformanceTiming: Eigenschaft domainLookupEnd"
+title: "PerformanceTiming: domainLookupEnd-Eigenschaft"
 short-title: domainLookupEnd
 slug: Web/API/PerformanceTiming/domainLookupEnd
 l10n:
@@ -9,9 +9,10 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die {{domxref("PerformanceNavigationTiming")}} Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
 
-Die veraltete schreibgeschützte Eigenschaft **`PerformanceTiming.domainLookupEnd`** gibt ein `unsigned long long` zurück, das den Zeitpunkt in Millisekunden seit dem UNIX-Epoch darstellt, zu dem die DNS-Abfrage abgeschlossen ist. Wenn eine dauerhafte Verbindung verwendet wird oder die Informationen im Cache oder in einer lokalen Ressource gespeichert sind, entspricht der Wert dem von {{domxref("PerformanceTiming.fetchStart")}}.
+Die veraltete,
+schreibgeschützte Eigenschaft **`PerformanceTiming.domainLookupEnd`** gibt ein `unsigned long long` zurück, das den Moment darstellt, in Millisekunden seit dem UNIX-Epochenbeginn, an dem die Domain-Abfrage abgeschlossen ist. Wenn eine persistente Verbindung genutzt wird oder die Informationen im Cache oder in einer lokalen Ressource gespeichert sind, wird der Wert derselbe sein wie [`PerformanceTiming.fetchStart`](/de/docs/Web/API/PerformanceTiming/fetchStart).
 
 ## Wert
 
@@ -27,4 +28,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Die {{domxref("PerformanceTiming")}} Schnittstelle, zu der sie gehört.
+- Das [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Interface, zu dem es gehört.

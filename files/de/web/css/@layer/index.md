@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`@layer`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) wird verwendet, um eine Kaskadenschicht zu deklarieren und kann auch verwendet werden, um die Reihenfolge der Priorität im Falle mehrerer Kaskadenschichten zu definieren.
+Die **`@layer`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) wird verwendet, um eine Kaskadenschicht zu deklarieren und kann auch verwendet werden, um die Vorrangreihenfolge im Falle mehrerer Kaskadenschichten festzulegen.
 
 {{EmbedInteractiveExample("pages/tabbed/at-rule-layer.html", "tabbed-standard")}}
 
@@ -26,23 +26,23 @@ Die **`@layer`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) wi
 wobei:
 
 - _layer-name_
-  - : Der Name der Kaskadenschicht ist.
+  - : Der Name der Kaskadenschicht.
 - _rules_
-  - : Das Set von CSS-Regeln in der Kaskadenschicht ist.
+  - : Das Set von CSS-Regeln in der Kaskadenschicht.
 
 ## Beschreibung
 
-Regeln innerhalb einer Kaskadenschicht kaskadieren zusammen und geben Webentwicklern mehr Kontrolle über die Kaskade. Stile, die nicht in einer Schicht definiert sind, überschreiben immer Stile, die in benannten und anonymen Schichten deklariert sind.
+Regeln innerhalb einer Kaskadenschicht kaskadieren zusammen und bieten Webentwicklern mehr Kontrolle über die Kaskade. Stile, die nicht in einer Schicht definiert sind, überschreiben immer Stile, die in benannten und anonymen Schichten deklariert wurden.
 
-Das folgende Diagramm zeigt Schichtprioritäten, bei denen Schichten in der Reihenfolge 1, 2, ..., N deklariert werden.
+Das folgende Diagramm zeigt die Schichtprioritäten, in denen Schichten in der Reihenfolge 1, 2, ..., N deklariert werden.
 
 ![Diagramm, das die Prioritäten von Kaskadenschichten zeigt](https://mdn.github.io/shared-assets/images/diagrams/css/at-rules/layer-cascade.svg)
 
-Die Deklarationsreihenfolge ist entscheidend. Die zuerst deklarierte Schicht hat die niedrigste Priorität, und die zuletzt deklarierte Schicht hat die höchste Priorität. Die Priorität wird jedoch umgekehrt, wenn das [`!important`](/de/docs/Web/CSS/important)-Flag verwendet wird.
+Die Deklarationsreihenfolge ist entscheidend. Die zuerst deklarierte Schicht hat die niedrigste Priorität, und die zuletzt deklarierte Schicht hat die höchste Priorität. Die Priorität wird jedoch umgekehrt, wenn das [`!important`](/de/docs/Web/CSS/important) Kennzeichen verwendet wird.
 
-Die `@layer`-At-Regel wird verwendet, um eine Kaskadenschicht auf eine von drei Arten zu erstellen.
+Die `@layer` At-Regel wird verwendet, um eine Kaskadenschicht auf eine von drei Arten zu erstellen.
 
-Der erste Weg ist die Verwendung einer `@layer`-Block-At-Regel, um eine benannte Kaskadenschicht mit den CSS-Regeln für diese Schicht zu erstellen, wie folgt:
+Die erste Möglichkeit besteht darin, eine `@layer` Block-At-Regel zu verwenden, um eine benannte Kaskadenschicht mit den CSS-Regeln für diese Schicht zu erstellen, wie folgt:
 
 ```css
 @layer utilities {
@@ -56,26 +56,26 @@ Der erste Weg ist die Verwendung einer `@layer`-Block-At-Regel, um eine benannte
 }
 ```
 
-Der zweite Weg ist die Verwendung einer `@layer`-Statement-At-Regel, um eine oder mehrere durch Komma getrennte benannte Kaskadenschichten zu erstellen, ohne irgendwelche Stile zuzuweisen. Dies kann eine einzelne Schicht sein, wie unten gezeigt:
+Die zweite Möglichkeit besteht darin, eine `@layer` Anweisungs-At-Regel zu verwenden, um eine oder mehrere durch Kommas getrennte benannte Kaskadenschichten zu erstellen, ohne ihnen Stile zuzuweisen. Dies kann eine einzelne Schicht sein, wie unten gezeigt:
 
 ```css
 @layer utilities;
 ```
 
-Mehrere Schichten können gleichzeitig definiert werden, wie unten gezeigt:
+Es können mehrere Schichten gleichzeitig definiert werden, wie unten gezeigt:
 
 ```css
 @layer theme, layout, utilities;
 ```
 
-Dies ist nützlich, weil die anfängliche Reihenfolge, in der Schichten deklariert werden, anzeigt, welche Schicht Priorität hat. Wie bei Deklarationen gewinnt die zuletzt aufgelistete Schicht, wenn Deklarationen in mehreren Schichten gefunden werden. Daher würde in dem obigen Beispiel, wenn eine konkurrierende Regel in `theme` und `utilities` gefunden wird, die in `utilities` gewinnen und angewendet werden.
+Dies ist nützlich, da die anfängliche Reihenfolge, in der Schichten deklariert werden, angibt, welche Schicht Vorrang hat. Wie bei Deklarationen wird die letzte aufgeführte Schicht gewinnen, wenn Deklarationen in mehreren Schichten gefunden werden. Daher würde im vorherigen Beispiel, wenn eine konkurrierende Regel in `theme` und `utilities` gefunden wird, die in `utilities` gewinnen und angewendet werden.
 
-Eine Regel in `utilities` würde _auch dann angewendet_, wenn sie eine niedrigere Spezifität hat als die Regel in `theme`. Dies liegt daran, dass, sobald die Schichtreihenfolge festgelegt wurde, Spezifität und Erscheinungsreihenfolge ignoriert werden. Dies ermöglicht die Erstellung einfacherer CSS-Selektoren, da Sie nicht sicherstellen müssen, dass ein Selektor eine ausreichend hohe Spezifität aufweist, um konkurrierende Regeln zu überschreiben; Sie müssen lediglich sicherstellen, dass er in einer späteren Schicht erscheint.
+Eine Regel in `utilities` würde _selbst wenn sie eine geringere Spezifität als die Regel in `theme` hätte_ angewendet werden. Dies liegt daran, dass einmal die Schichtreihenfolge festgelegt ist, Spezifität und Erscheinungsreihenfolge ignoriert werden. Dies ermöglicht die Erstellung einfacherer CSS-Selektoren, da Sie nicht sicherstellen müssen, dass ein Selektor eine ausreichend hohe Spezifität hat, um konkurrierende Regeln zu überschreiben; alles, was Sie sicherstellen müssen, ist, dass er in einer späteren Schicht erscheint.
 
 > [!NOTE]
-> Nachdem Sie Ihre Schichtnamen deklariert haben und damit deren Reihenfolge festgelegt ist, können Sie der Schicht durch erneutes Deklarieren des Namens CSS-Regeln hinzufügen. Die Stile werden dann der Schicht hinzugefügt und die Schichtreihenfolge wird nicht geändert.
+> Wenn Sie Ihre Schichtnamen deklariert haben und damit ihre Reihenfolge festgelegt haben, können Sie CSS-Regeln zur Schicht hinzufügen, indem Sie den Namen erneut deklarieren. Die Stile werden dann an die Schicht angehängt und die Schichtreihenfolge wird nicht verändert.
 
-Der dritte Weg ist die Erstellung einer unbenannten Schicht durch eine `@layer`-Block-At-Regel ohne Einbeziehung eines Schichtnamens. Zum Beispiel:
+Die dritte Möglichkeit besteht darin, eine unbenannte Schicht mithilfe einer `@layer` Block-At-Regel zu erstellen, ohne einen Schichtnamen einzuschließen. Beispiel:
 
 ```css
 @layer {
@@ -85,9 +85,9 @@ Der dritte Weg ist die Erstellung einer unbenannten Schicht durch eine `@layer`-
 }
 ```
 
-Dies erstellt eine _anonyme Kaskadenschicht_. Diese Schicht funktioniert genauso wie benannte Schichten, jedoch können später keine Regeln ihr zugewiesen werden. Die Reihenfolge der Priorität für anonyme Schichten ist die Reihenfolge, in der Schichten deklariert werden, unabhängig davon, ob benannt oder nicht, und niedriger als die Stile, die außerhalb einer Schicht deklariert sind.
+Dies erstellt eine _anonyme Kaskadenschicht_. Diese Schicht funktioniert auf dieselbe Weise wie benannte Schichten; jedoch können Regeln ihr später nicht zugewiesen werden. Die Reihenfolge der Priorität für anonyme Schichten entspricht der Reihenfolge, in der Schichten deklariert werden, unabhängig davon, ob sie benannt sind oder nicht, und sie sind niedriger als die Stile, die außerhalb einer Schicht deklariert sind.
 
-Eine andere Möglichkeit, eine Kaskadenschicht zu erstellen, besteht darin, {{cssxref("@import")}} zu verwenden. In diesem Fall wären die Regeln im importierten Stylesheet. Denken Sie daran, dass die `@import`-At-Regel allen anderen Regeltypen vorausgehen muss, außer `@charset`- und `@layer`-Regeln.
+Eine weitere Möglichkeit, eine Kaskadenschicht zu erstellen, ist die Verwendung von {{cssxref("@import")}}. In diesem Fall würden die Regeln im importierten Stylesheet stehen. Denken Sie daran, dass die `@import` At-Regel allen anderen Regeltypen vorausgehen muss, außer `@charset` und `@layer` Regeln.
 
 ```css
 @import "theme.css" layer(utilities);
@@ -95,7 +95,7 @@ Eine andere Möglichkeit, eine Kaskadenschicht zu erstellen, besteht darin, {{cs
 
 ### Verschachtelung von Schichten
 
-Schichten können verschachtelt werden. Zum Beispiel:
+Schichten können verschachtelt sein. Beispiel:
 
 ```css
 @layer framework {
@@ -104,7 +104,7 @@ Schichten können verschachtelt werden. Zum Beispiel:
 }
 ```
 
-Um Regeln zur `layout`-Schicht innerhalb von `framework` hinzuzufügen, verbinden Sie die beiden Namen mit einem `.`.
+Um Regeln zur `layout` Schicht innerhalb von `framework` hinzuzufügen, verbinden Sie die beiden Namen mit einem `.`.
 
 ```css
 @layer framework.layout {
@@ -124,9 +124,9 @@ Um Regeln zur `layout`-Schicht innerhalb von `framework` hinzuzufügen, verbinde
 
 Im folgenden Beispiel werden zwei CSS-Regeln erstellt. Eine für das {{htmlelement("p")}}-Element außerhalb jeder Schicht und eine innerhalb einer Schicht namens `type` für `.box p`.
 
-Ohne Schichten hätte der Selektor `.box p` die höchste Spezifität, und daher würde der Text `Hello, world!` in Grün angezeigt. Da die `type`-Schicht vor der anonymen Schicht kommt, die erstellt wurde, um nicht-Schichtinhalte zu halten, wird der Text lila.
+Ohne Schichten hätte der Selektor `.box p` die höchste Spezifität, und daher würde der Text `Hello, world!` in Grün angezeigt. Da die `type` Schicht vor der anonymen Schicht erstellt wird, die nicht-schichtdefinierte Inhalte enthält, wird der Text lila dargestellt.
 
-Beachten Sie auch die Reihenfolge. Auch wenn wir den nicht geschichteten Stil zuerst deklarieren, wird er _nach_ den Schichtstilen angewendet.
+Beachten Sie auch die Reihenfolge. Auch wenn wir den nicht-schichtigen Stil zuerst deklarieren, wird er trotzdem _nach_ den Schichtstilen angewendet.
 
 #### HTML
 
@@ -158,15 +158,15 @@ p {
 
 ### Zuweisung von Regeln zu bestehenden Schichten
 
-Im folgenden Beispiel werden zwei Schichten ohne angewendete Regeln erstellt, dann werden CSS-Regeln auf die beiden Schichten angewendet. Die `base`-Schicht definiert eine `color`, `border`, `font-size` und `padding`. Die `special`-Schicht definiert eine andere Farbe. Da `special` zuletzt kommt, wenn die Schichten definiert wurden, wird die von ihm bereitgestellte Farbe verwendet und der Text wird in `rebeccapurple` angezeigt. Alle anderen Regeln aus `base` gelten jedoch weiterhin.
+Im folgenden Beispiel werden zwei Schichten erstellt, ohne dass ihnen Regeln zugewiesen werden. Dann werden CSS-Regeln auf die beiden Schichten angewendet. Die `base` Schicht definiert eine `color`, `border`, `font-size` und `padding`. Die `special` Schicht definiert eine andere Farbe. Da `special` zuletzt deklariert wurde, wird die von ihr bereitgestellte Farbe verwendet, und der Text wird mit `rebeccapurple` angezeigt. Alle anderen Regeln von `base` gelten weiterhin.
 
 #### HTML
 
 ```html
 <div class="item">
-  Ich werde in <code>color: rebeccapurple</code> angezeigt, weil die
-  <code>special</code>-Schicht nach der <code>base</code>-Schicht kommt. Mein grüner
-  Rand, Schriftgröße und Padding kommen aus der <code>base</code>-Schicht.
+  I am displayed in <code>color: rebeccapurple</code> because the
+  <code>special</code> layer comes after the <code>base</code> layer. My green
+  border, font-size, and padding come from the <code>base</code> layer.
 </div>
 ```
 
@@ -206,8 +206,8 @@ Im folgenden Beispiel werden zwei Schichten ohne angewendete Regeln erstellt, da
 ## Siehe auch
 
 - [`@import`](/de/docs/Web/CSS/@import)
-- {{domxref("CSSLayerBlockRule")}}
-- {{domxref("CSSLayerStatementRule")}}
+- [`CSSLayerBlockRule`](/de/docs/Web/API/CSSLayerBlockRule)
+- [`CSSLayerStatementRule`](/de/docs/Web/API/CSSLayerStatementRule)
 - [`!important`](/de/docs/Web/CSS/important)
 - [`revert-layer`](/de/docs/Web/CSS/revert-layer)
 - [Einführung in die CSS-Kaskade](/de/docs/Web/CSS/Cascade)

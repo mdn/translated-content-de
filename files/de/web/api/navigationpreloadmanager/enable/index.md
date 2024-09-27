@@ -1,5 +1,5 @@
 ---
-title: "NavigationPreloadManager: enable()-Methode"
+title: "NavigationPreloadManager: enable() Methode"
 short-title: enable()
 slug: Web/API/NavigationPreloadManager/enable
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`enable()`**-Methode der Schnittstelle {{domxref("NavigationPreloadManager")}} wird verwendet, um das Preloading von Ressourcen zu aktivieren, die vom Service Worker verwaltet werden. Sie gibt ein Promise zurück, das sich mit `undefined` auflöst.
+Die **`enable()`**-Methode der [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager)-Schnittstelle wird verwendet, um das Preloading von Ressourcen zu aktivieren, die vom Service Worker verwaltet werden. Sie gibt ein Promise zurück, das mit `undefined` erfüllt wird.
 
-Die Methode sollte im `activate`-Event-Handler des Service Workers aufgerufen werden, um sicherzustellen, dass sie vor dem Auslösen eines `fetch`-Event-Handlers aufgerufen wird.
+Die Methode sollte im `activate`-Event-Handler des Service Workers aufgerufen werden, was sicherstellt, dass sie aufgerufen wird, bevor ein `fetch`-Event-Handler ausgelöst werden kann.
 
 ## Syntax
 
@@ -24,16 +24,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich mit {{jsxref('undefined')}} auflöst.
+Ein {{jsxref("Promise")}}, das mit {{jsxref('undefined')}} erfüllt wird.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Es gibt keinen aktiven Worker, der mit der Registrierung assoziiert ist, zu der dieses {{domxref("NavigationPreloadManager")}} gehört.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Es gibt keinen aktiven Worker, der mit der Registrierung verbunden ist, zu der dieser [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager) gehört.
 
 ## Beispiele
 
-Der folgende Code zeigt, wie das Preloading aktiviert wird, nachdem zunächst mithilfe von {{domxref("ServiceWorkerRegistration.navigationPreload")}} getestet wurde, dass es unterstützt wird.
+Der untenstehende Code zeigt, wie das Preloading aktiviert werden kann, nachdem zunächst mit [`ServiceWorkerRegistration.navigationPreload`](/de/docs/Web/API/ServiceWorkerRegistration/navigationPreload) getestet wurde, ob es unterstützt wird.
 
 ```js
 addEventListener("activate", (event) => {
@@ -52,10 +52,10 @@ addEventListener("activate", (event) => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-{{domxref("NavigationPreloadManager.disable()")}}
+[`NavigationPreloadManager.disable()`](/de/docs/Web/API/NavigationPreloadManager/disable)

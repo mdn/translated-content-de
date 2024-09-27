@@ -7,14 +7,14 @@ l10n:
 
 {{APIRef("Permissions API")}}{{AvailableInWorkers}}
 
-Die **`Permissions`**-Schnittstelle der [Permissions API](/de/docs/Web/API/Permissions_API) bietet die grundlegenden Funktionalitäten der Berechtigungs-API, wie Methoden zum Abfragen und Widerrufen von Berechtigungen.
+Die **`Permissions`**-Schnittstelle der [Permissions API](/de/docs/Web/API/Permissions_API) bietet die grundlegende Funktionalität der Berechtigungs-API, wie Methoden zum Abfragen und Widerrufen von Berechtigungen.
 
 ## Instanzmethoden
 
-- {{domxref("Permissions.query","Permissions.query()")}}
-  - : Gibt den Benutzerberechtigungsstatus für eine bestimmte API zurück.
-- {{domxref("Permissions.revoke","Permissions.revoke()")}} {{Deprecated_Inline}}
-  - : Widerruft die derzeit für eine bestimmte API festgelegte Berechtigung.
+- [`Permissions.query()`](/de/docs/Web/API/Permissions/query)
+  - : Gibt den Berechtigungsstatus des Benutzers für eine gegebene API zurück.
+- [`Permissions.revoke()`](/de/docs/Web/API/Permissions/revoke) {{Deprecated_Inline}}
+  - : Widerruft die derzeit für eine gegebene API gesetzte Berechtigung.
 
 ## Beispiel
 
@@ -25,7 +25,7 @@ navigator.permissions.query({ name: "geolocation" }).then((result) => {
   } else if (result.state === "prompt") {
     showButtonToEnableLocalNews();
   }
-  // Nicht tun, wenn die Berechtigung abgelehnt wurde.
+  // Don't do anything if the permission was denied.
 });
 ```
 

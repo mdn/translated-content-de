@@ -1,5 +1,5 @@
 ---
-title: "TextMetrics: Eigenschaft emHeightAscent"
+title: "TextMetrics: emHeightAscent-Eigenschaft"
 short-title: emHeightAscent
 slug: Web/API/TextMetrics/emHeightAscent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft `emHeightAscent` des {{domxref("TextMetrics")}}-Interfaces gibt die Entfernung von der horizontalen Linie, die durch die {{domxref("CanvasRenderingContext2D.textBaseline")}}-Eigenschaft angegeben wird, zur Oberseite des _em_-Quadrats im Linienkasten, in CSS-Pixeln, zurück.
+Die schreibgeschützte `emHeightAscent`-Eigenschaft der [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Schnittstelle gibt die Entfernung von der horizontalen Linie, die durch die [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline)-Eigenschaft angegeben wird, bis zur Oberseite des _em_-Quadrats im Zeilenfeld in CSS-Pixel an.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Eine Zahl, in CSS-Pixeln.
 ```js
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
-const text = ctx.measureText("foo"); // gibt ein TextMetrics-Objekt zurück
+const text = ctx.measureText("foo"); // returns TextMetrics object
 
 text.emHeightAscent; // 7.59765625;
 ```
@@ -34,4 +34,4 @@ text.emHeightAscent; // 7.59765625;
 
 ## Siehe auch
 
-- {{domxref("TextMetrics")}}
+- [`TextMetrics`](/de/docs/Web/API/TextMetrics)

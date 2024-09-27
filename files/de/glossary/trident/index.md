@@ -7,14 +7,14 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Trident** (oder _MSHTML_) war die proprietäre {{Glossary("Engine/Rendering", "Render-Engine")}}, die den {{Glossary("Microsoft Internet Explorer", "Internet Explorer")}} antrieb. Ein {{Glossary("fork", "Fork")}} namens _EdgeHTML_ ersetzte Trident im Nachfolger des Internet Explorers, {{Glossary("Microsoft Edge", "Edge")}} (später als "Microsoft Edge Legacy" bezeichnet).
+**Trident** (oder _MSHTML_) war die proprietäre [Rendering-Engine](/de/docs/Glossary/Engine/Rendering), die den [Internet Explorer](/de/docs/Glossary/Microsoft_Internet_Explorer) angetrieben hat. Ein [Fork](/de/docs/Glossary/fork) namens _EdgeHTML_ ersetzte Trident im Nachfolger des Internet Explorers, [Edge](/de/docs/Glossary/Microsoft_Edge) (später als "Microsoft Edge Legacy" bezeichnet).
 
-Trident wird in Microsoft Edge verwendet, wenn der 'IE-Modus' aktiviert ist, eine Funktion, die es Edge ermöglicht, Webseiten mit Trident für die Kompatibilität mit älteren Websites darzustellen. Trident wird nur bis 2029 Sicherheitsupdates erhalten, um die Nutzung im IE-Modus zu unterstützen.
+Trident wird in Microsoft Edge verwendet, wenn der 'IE-Modus' aktiviert ist, eine Funktion, die es Edge ermöglicht, Webseiten mit Trident für die Kompatibilität mit älteren Websites zu rendern. Trident wird nur bis 2029 Sicherheitsupdates erhalten, um die Nutzung im IE-Modus zu unterstützen.
 
 ## Siehe auch
 
 - [Trident](<https://en.wikipedia.org/wiki/Trident_(software)>) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Microsoft Internet Explorer")}}
-  - {{Glossary("Microsoft Edge")}}
-  - {{Glossary("Engine/Rendering", "Render-Engine")}}
+  - [Microsoft Internet Explorer](/de/docs/Glossary/Microsoft_Internet_Explorer)
+  - [Microsoft Edge](/de/docs/Glossary/Microsoft_Edge)
+  - [Rendering-Engine](/de/docs/Glossary/Engine/Rendering)

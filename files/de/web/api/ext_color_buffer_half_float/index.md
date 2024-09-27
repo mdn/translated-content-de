@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`EXT_color_buffer_half_float`**-Erweiterung ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und fügt die Möglichkeit hinzu, auf 16-Bit-Gleitkomma-Farbpuffer zu rendern.
+Die **`EXT_color_buffer_half_float`**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und fügt die Fähigkeit hinzu, zu 16-Bit-Floating-Point-Farbpuffern zu rendern.
 
-WebGL-Erweiterungen sind verfügbar über die Methode {{domxref("WebGLRenderingContext.getExtension()")}}. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist sowohl für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}}- als auch {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}}-Kontexte verfügbar. Auf WebGL 2 ist sie eine Alternative zur Verwendung der {{domxref("EXT_color_buffer_float")}}-Erweiterung auf Plattformen, die 16-Bit-Gleitkomma-Render-Ziele, aber keine 32-Bit-Gleitkomma-Render-Ziele unterstützen.
+> Diese Erweiterung ist sowohl für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}}- als auch für {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}}-Kontexte verfügbar. In WebGL 2 ist sie eine Alternative zur Nutzung der [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float)-Erweiterung auf Plattformen, die 16-Bit-Floating-Point-Render-Ziele unterstützen, aber keine 32-Bit-Floating-Point-Render-Ziele.
 >
-> Die {{domxref("OES_texture_half_float")}}-Erweiterung aktiviert implizit diese Erweiterung.
+> Die [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float)-Erweiterung aktiviert diese Erweiterung implizit.
 
 ## Konstanten
 
 - `ext.RGBA16F_EXT`
-  - : RGBA 16-Bit-Gleitkomma-Farb-renderbares Format.
+  - : RGBA 16-Bit-Floating-Point-Farbrenderformat.
 - `ext.RGB16F_EXT`
-  - : RGB 16-Bit-Gleitkomma-Farb-renderbares Format.
+  - : RGB 16-Bit-Floating-Point-Farbrenderformat.
 - `ext.FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT`
   - : ?
 - `ext.UNSIGNED_NORMALIZED_EXT`
@@ -30,9 +30,9 @@ WebGL-Erweiterungen sind verfügbar über die Methode {{domxref("WebGLRenderingC
 
 ## Erweiterte Methoden
 
-Diese Erweiterung erweitert {{domxref("WebGLRenderingContext.renderbufferStorage()")}}:
+Diese Erweiterung erweitert [`WebGLRenderingContext.renderbufferStorage()`](/de/docs/Web/API/WebGLRenderingContext/renderbufferStorage):
 
-- Der Parameter `internalformat` akzeptiert nun `ext.RGBA16F_EXT` und `ext.RGBA16F_EXT`.
+- Der `internalformat`-Parameter akzeptiert nun `ext.RGBA16F_EXT` und `ext.RGBA16F_EXT`.
 
 ## Beispiele
 
@@ -52,6 +52,6 @@ gl.renderbufferStorage(gl.RENDERBUFFER, ext.RGBA16F_EXT, 256, 256);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLRenderingContext.renderbufferStorage()")}}
-- {{domxref("OES_texture_half_float")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLRenderingContext.renderbufferStorage()`](/de/docs/Web/API/WebGLRenderingContext/renderbufferStorage)
+- [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float)

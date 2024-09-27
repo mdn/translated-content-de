@@ -1,5 +1,5 @@
 ---
-title: "CSSRuleList: Methode item()"
+title: "CSSRuleList: Die item()-Methode"
 short-title: item()
 slug: Web/API/CSSRuleList/item
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **`item()`** Methode der {{domxref("CSSRuleList")}} Schnittstelle gibt das {{domxref("CSSRule")}} Objekt am angegebenen `index` oder `null` zurück, wenn der angegebene `index` nicht existiert.
+Die **`item()`**-Methode der [`CSSRuleList`](/de/docs/Web/API/CSSRuleList)-Schnittstelle gibt das [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekt an dem angegebenen `index` zurück oder `null`, wenn der angegebene `index` nicht existiert.
 
 ## Syntax
 
@@ -19,21 +19,21 @@ item(index)
 ### Parameter
 
 - `index`
-  - : Ein ganzzahliger Wert.
+  - : Eine ganze Zahl.
 
 ### Rückgabewert
 
-Ein {{domxref("CSSRule")}}.
+Eine [`CSSRule`](/de/docs/Web/API/CSSRule).
 
 ## Beispiele
 
-Im folgenden Beispiel nehmen wir an, dass die `myRules`-Liste nur drei Elemente enthält.
+Im folgenden Beispiel gehen wir davon aus, dass die `myRules`-Liste nur drei Elemente enthält.
 
 ```js
 let myRules = document.styleSheets[0].cssRules;
-console.log(myRules.item(0)); // Gibt das erste CSSRule-Element aus dieser Liste aus
+console.log(myRules.item(0)); // Logs the first CSSRule item from this list
 
-// Der Zugriff auf nicht existierende Elemente mit dieser Methode gibt null statt undefined zurück
+// Accessing non-existing items using this method will return null instead of undefined
 console.log(myRules.item(5)); // null
 console.log(myRules[5]); // undefined
 ```

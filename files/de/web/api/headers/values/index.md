@@ -1,5 +1,5 @@
 ---
-title: "Headers: values()-Methode"
+title: "Headers: Methode values()"
 short-title: values()
 slug: Web/API/Headers/values
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`Headers.values()`**-Methode gibt einen
-{{jsxref("Iteration_protocols", 'iterator')}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Werte zu durchlaufen. Die Werte sind {{jsxref("String")}}-Objekte.
+Die **`Headers.values()`**-Methode gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Werte durchzugehen. Die Werte sind {{jsxref("String")}}-Objekte.
 
 ## Syntax
 
@@ -23,17 +22,17 @@ Keine.
 
 ### Rückgabewert
 
-Gibt einen {{jsxref("Iteration_protocols", "iterator")}} zurück.
+Gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück.
 
 ## Beispiele
 
 ```js
-// Erstellen eines Test-Headers-Objekts
+// Create a test Headers object
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "text/xml");
 myHeaders.append("Vary", "Accept-Language");
 
-// Anzeigen der Werte
+// Display the values
 for (const value of myHeaders.values()) {
   console.log(value);
 }

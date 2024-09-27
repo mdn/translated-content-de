@@ -1,5 +1,5 @@
 ---
-title: "IDBDatabase: Methode createObjectStore()"
+title: "IDBDatabase: createObjectStore()-Methode"
 short-title: createObjectStore()
 slug: Web/API/IDBDatabase/createObjectStore
 l10n:
@@ -8,16 +8,11 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die Methode **`createObjectStore()`** der
-{{domxref("IDBDatabase")}}-Schnittstelle erstellt und gibt ein neues {{domxref("IDBObjectStore")}} zurück.
+Die **`createObjectStore()`**-Methode des [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Interfaces erstellt und gibt einen neuen [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) zurück.
 
-Die Methode erfordert den Namen des Speichers sowie ein Parameterobjekt, das Ihnen ermöglicht,
-wichtige optionale Eigenschaften zu definieren. Sie können die Eigenschaft nutzen, um individuelle
-Objekte im Speicher eindeutig zu identifizieren. Da die Eigenschaft ein Bezeichner ist, sollte sie
-für jedes Objekt einzigartig sein, und jedes Objekt sollte diese Eigenschaft haben.
+Die Methode nimmt den Namen des Speichers sowie ein Parameterobjekt an, das es Ihnen ermöglicht, wichtige optionale Eigenschaften zu definieren. Sie können die Eigenschaft verwenden, um einzelne Objekte im Speicher eindeutig zu identifizieren. Da die Eigenschaft ein Identifikator ist, sollte sie für jedes Objekt eindeutig sein, und jedes Objekt sollte diese Eigenschaft haben.
 
-Diese Methode kann _nur_ innerhalb einer [`versionchange`](/de/docs/Web/API/IDBDatabase/versionchange_event)
-Transaktion aufgerufen werden.
+Diese Methode kann _nur_ innerhalb einer [`versionchange`](/de/docs/Web/API/IDBDatabase/versionchange_event)-Transaktion aufgerufen werden.
 
 ## Syntax
 
@@ -29,72 +24,58 @@ createObjectStore(name, options)
 ### Parameter
 
 - `name`
-  - : Der Name des neuen zu erstellenden Objektspeichers. Beachten Sie, dass es möglich ist,
-    einen Objektspeicher mit einem leeren Namen zu erstellen.
+  - : Der Name des neuen zu erstellenden Objektspeichers. Beachten Sie, dass es möglich ist, einen Objektspeicher mit einem leeren Namen zu erstellen.
 - `options` {{optional_inline}}
 
-  - : Ein Optionen-Objekt, dessen Attribute optionale Parameter für die Methode sind. Es
-    beinhaltet die folgenden Eigenschaften:
+  - : Ein Optionsobjekt, dessen Attribute optionale Parameter der Methode sind. Es umfasst die folgenden Eigenschaften:
     - `keyPath` {{optional_inline}}
-      - : Der [key path](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_path),
-        der vom neuen Objektspeicher verwendet werden soll. Falls leer oder nicht angegeben,
-        wird der Objektspeicher ohne einen `keyPath` erstellt und nutzt
-        [out-of-line keys](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#out-of-line_key).
-        Sie können auch ein Array als `keyPath` übergeben.
+      - : Der [Schlüsselpfad](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_path), der vom neuen Objektspeicher verwendet werden soll. Wenn leer oder nicht angegeben, wird der Objektspeicher ohne Schlüsselpfad erstellt und verwendet [out-of-line keys](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#out-of-line_key). Sie können auch ein Array als `keyPath` übergeben.
     - `autoIncrement` {{optional_inline}}
-      - : Wenn `true`, hat der Objektspeicher einen [key generator](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_generator).
-        Standardmäßig auf <code>false</code> gesetzt.
+      - : Falls `true`, hat der Objektspeicher einen [Schlüsselgenerator](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_generator). Standardmäßig ist er auf <code>false</code> gesetzt.
 
 ### Rückgabewert
 
-Ein neues {{domxref("IDBObjectStore")}}.
+Ein neuer [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore).
 
 ### Ausnahmen
 
-Diese Methode kann eine {{domxref("DOMException")}} mit einem `name` von
-einem der folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) mit einem `name` von einem der folgenden Typen auslösen:
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Methode nicht aus einem
-    `versionchange`-Transaktions-Callback aufgerufen wurde.
-- `TransactionInactiveError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn eine Anforderung an eine Quellendatenbank gestellt wird, die nicht existiert
-    (zum Beispiel, wenn die Datenbank gelöscht oder entfernt wurde). In Firefox vor Version 41
-    wurde in diesem Fall auch ein `InvalidStateError` ausgelöst, was
-    irreführend war; dies wurde nun behoben (siehe [Firefox Bug 1176165](https://bugzil.la/1176165)).
-- `ConstraintError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn ein Objektspeicher mit dem angegebenen Namen (basierend auf einem Groß-/Kleinschreibung-sensitiven Vergleich)
-    bereits in der verbundenen Datenbank existiert.
-- `InvalidAccessError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `autoIncrement` auf true gesetzt ist und `keyPath`
-    entweder ein leerer String ist oder ein Array enthält, das einen leeren String enthält.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird geworfen, wenn die Methode nicht aus einem `versionchange`-Transaktions-Callback aufgerufen wurde.
+- `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird geworfen, wenn eine Anfrage an eine Quelldatenbank gestellt wird, die nicht existiert (zum Beispiel, wenn die Datenbank gelöscht oder entfernt wurde). In Firefox vor Version 41 wurde in diesem Fall ebenfalls ein `InvalidStateError` ausgelöst, was irreführend war; dies wurde nun behoben (siehe [Firefox-Bug 1176165](https://bugzil.la/1176165)).
+- `ConstraintError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird geworfen, wenn ein Objektspeicher mit dem gegebenen Namen (basierend auf einem case-sensitiven Vergleich) bereits in der verbundenen Datenbank existiert.
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird geworfen, wenn `autoIncrement` auf true gesetzt ist und `keyPath` entweder ein leerer String oder ein Array mit einem leeren String enthält.
 
 ## Beispiele
 
 ```js
-// Lassen Sie uns unsere Datenbank öffnen
+// Let us open our database
 const request = window.indexedDB.open("toDoList", 4);
 
-// Dieser Handler wird aufgerufen, wenn eine neue Version der Datenbank
-// erstellt wird, entweder wenn zuvor keine erstellt wurde
-// oder wenn eine neue Versionsnummer über den Aufruf von
-// window.indexedDB.open() übermittelt wird.
-// Dieser Handler wird nur in neueren Browsern unterstützt.
+// This handler is called when a new version of the database
+// is created, either when one has not been created before
+// or when a new version number is submitted by calling
+// window.indexedDB.open().
+// This handler is only supported in recent browsers.
 request.onupgradeneeded = (event) => {
   const db = event.target.result;
 
   db.onerror = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Fehler beim Laden der Datenbank.";
+      "Error loading database.";
   };
 
-  // Erstellen Sie einen Objektspeicher für diese Datenbank
+  // Create an objectStore for this database
 
   const objectStore = db.createObjectStore("toDoList", {
     keyPath: "taskTitle",
   });
 
-  // Definieren Sie, welche Datenelemente der Objektspeicher enthalten wird
+  // define what data items the objectStore will contain
 
   objectStore.createIndex("hours", "hours", { unique: false });
   objectStore.createIndex("minutes", "minutes", { unique: false });
@@ -105,7 +86,7 @@ request.onupgradeneeded = (event) => {
   objectStore.createIndex("notified", "notified", { unique: false });
 
   note.appendChild(document.createElement("li")).textContent =
-    "Objektspeicher erstellt.";
+    "Object store created.";
 };
 ```
 
@@ -113,16 +94,16 @@ request.onupgradeneeded = (event) => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Bereichs von Schlüsseln: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursors: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Sehen Sie sich das Beispiel live an](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- [Using IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwenden von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live anzeigen](https://mdn.github.io/dom-examples/to-do-notifications/)).

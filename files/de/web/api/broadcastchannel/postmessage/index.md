@@ -8,7 +8,11 @@ l10n:
 
 {{APIRef("BroadCastChannel API")}} {{AvailableInWorkers}}
 
-Die **`postMessage()`**-Methode der {{domxref("BroadcastChannel")}}-Schnittstelle sendet eine Nachricht, die jegliche Art von {{jsxref("Object")}} sein kann, an jeden Listener in jedem {{glossary("browsing context")}} mit dem gleichen {{glossary("origin")}}. Die Nachricht wird als ein {{domxref("BroadcastChannel/message_event", "message")}}-Ereignis übermittelt, das an jedes an den Kanal gebundene {{domxref("BroadcastChannel")}} gerichtet ist.
+Die **`postMessage()`**-Methode des [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Interfaces sendet eine Nachricht,
+die von irgendeiner Art von {{jsxref("Object")}} sein kann,
+an jeden Listener in jedem [Browsing-Kontext](/de/docs/Glossary/browsing_context) mit demselben [Origin](/de/docs/Glossary/origin).
+Die Nachricht wird als [`message`](/de/docs/Web/API/BroadcastChannel/message_event)-Ereignis
+gesendet, das auf jedes an den Kanal gebundene [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) abzielt.
 
 ## Syntax
 
@@ -19,7 +23,8 @@ postMessage(message)
 ### Parameter
 
 - `message`
-  - : Daten, die an das andere Fenster gesendet werden sollen. Die Daten werden mithilfe des [structured clone algorithm](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) serialisiert. Das bedeutet, dass Sie eine Vielzahl von Datenobjekten sicher an das Ziel-Fenster übergeben können, ohne sie selbst serialisieren zu müssen.
+  - : Daten, die an das andere Fenster gesendet werden sollen. Die Daten werden mit dem [structured clone algorithm](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) serialisiert.
+    Dies bedeutet, dass Sie eine Vielzahl von Datenobjekten sicher an das Ziel-Fenster übergeben können, ohne sie selbst serialisieren zu müssen.
 
 ### Rückgabewert
 
@@ -27,9 +32,9 @@ Keiner.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das {{domxref("BroadcastChannel")}} bereits geschlossen wurde.
-- `DataCloneError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) bereits geschlossen wurde.
+- `DataCloneError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn ein Teil der Eingabedaten nicht serialisierbar ist.
 
 ## Spezifikationen
@@ -42,4 +47,4 @@ Keiner.
 
 ## Siehe auch
 
-- {{domxref("BroadcastChannel")}}, die Schnittstelle, zu der sie gehört.
+- [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel), das Interface, zu dem es gehört.

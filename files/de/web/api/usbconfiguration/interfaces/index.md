@@ -1,5 +1,5 @@
 ---
-title: "USBConfiguration: Eigenschaft interfaces"
+title: "USBConfiguration: interfaces Eigenschaft"
 short-title: interfaces
 slug: Web/API/USBConfiguration/interfaces
 l10n:
@@ -8,13 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
-Die **`interfaces`** schreibgeschützte Eigenschaft des
-{{domxref("USBConfiguration")}}-Interfaces gibt ein Array zurück, das Instanzen des
-{{domxref('USBInterface')}} enthält, die jede von dieser Konfiguration unterstützte Schnittstelle beschreiben.
+Die **`interfaces`** schreibgeschützte Eigenschaft des [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Interfaces gibt ein Array zurück, das Instanzen von [`USBInterface`](/de/docs/Web/API/USBInterface) enthält, die jede von dieser Konfiguration unterstützte Schnittstelle beschreiben.
 
 ## Wert
 
-Ein Array, das Instanzen von {{domxref('USBInterface')}} enthält.
+Ein Array, das Instanzen von [`USBInterface`](/de/docs/Web/API/USBInterface) enthält.
 
 ## Spezifikationen
 

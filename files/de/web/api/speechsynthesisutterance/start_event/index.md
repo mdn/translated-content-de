@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`start`**-Ereignis des {{domxref("SpeechSynthesisUtterance")}}-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn das gesprochene Wort begonnen hat.
+Das **`start`**-Ereignis des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn das Aussprechen der Äußerung begonnen hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("start", (event) => {});
@@ -22,22 +22,22 @@ onstart = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("SpeechSynthesisEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("SpeechSynthesisEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der Elternschnittstelle {{domxref("Event")}} verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften stehen Eigenschaften der Oberflächen-Interface, [`Event`](/de/docs/Web/API/Event), zur Verfügung._
 
-- {{domxref("SpeechSynthesisEvent.charIndex", "charIndex")}} {{ReadOnlyInline}}
-  - : Gibt die Indexposition des Zeichens in der {{domxref("SpeechSynthesisUtterance.text")}} zurück, das gesprochen wurde, als das Ereignis ausgelöst wurde.
-- {{domxref("SpeechSynthesisEvent.elapsedTime", "elapsedTime")}} {{ReadOnlyInline}}
-  - : Gibt die verstrichene Zeit in Sekunden zurück, nachdem die {{domxref("SpeechSynthesisUtterance.text")}} zu sprechen begonnen hat, die das Ereignis ausgelöst hat.
-- {{domxref("SpeechSynthesisEvent.name", "name")}} {{ReadOnlyInline}}
-  - : Gibt den Namen zurück, der mit bestimmten Arten von Ereignissen verbunden ist, die auftreten, während die {{domxref("SpeechSynthesisUtterance.text")}} gesprochen wird: den Namen des [SSML](https://www.w3.org/TR/speech-synthesis/#S3.3.2)-Markers, der im Fall eines {{domxref("SpeechSynthesisUtterance.mark_event", "mark")}}-Ereignisses erreicht wurde, oder die Art der Grenze, die im Fall eines {{domxref("SpeechSynthesisUtterance.boundary_event", "boundary")}}-Ereignisses erreicht wurde.
-- {{domxref("SpeechSynthesisEvent.utterance", "utterance")}} {{ReadOnlyInline}}
-  - : Gibt die {{domxref("SpeechSynthesisUtterance")}}-Instanz zurück, auf der das Ereignis ausgelöst wurde.
+- [`charIndex`](/de/docs/Web/API/SpeechSynthesisEvent/charIndex) {{ReadOnlyInline}}
+  - : Gibt die Indexposition des Zeichens im [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zurück, das gesprochen wurde, als das Ereignis ausgelöst wurde.
+- [`elapsedTime`](/de/docs/Web/API/SpeechSynthesisEvent/elapsedTime) {{ReadOnlyInline}}
+  - : Gibt die vergangene Zeit in Sekunden zurück, nachdem das [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zu sprechen begonnen wurde, zu der das Ereignis ausgelöst wurde.
+- [`name`](/de/docs/Web/API/SpeechSynthesisEvent/name) {{ReadOnlyInline}}
+  - : Gibt den Namen zurück, der mit bestimmten Ereignissen verknüpft ist, die auftreten, während das [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) gesprochen wird: Der Name des [SSML](https://www.w3.org/TR/speech-synthesis/#S3.3.2)-Markers, der im Fall eines [`mark`](/de/docs/Web/API/SpeechSynthesisUtterance/mark_event)-Ereignisses erreicht wurde, oder die Art der Grenze, die im Fall eines [`boundary`](/de/docs/Web/API/SpeechSynthesisUtterance/boundary_event)-Ereignisses erreicht wurde.
+- [`utterance`](/de/docs/Web/API/SpeechSynthesisEvent/utterance) {{ReadOnlyInline}}
+  - : Gibt die [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Instanz zurück, auf der das Ereignis ausgelöst wurde.
 
 ## Beispiele
 

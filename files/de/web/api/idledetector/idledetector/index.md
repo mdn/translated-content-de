@@ -1,5 +1,5 @@
 ---
-title: "IdleDetector: IdleDetector()-Konstruktor"
+title: "IdleDetector: IdleDetector() Konstruktor"
 short-title: IdleDetector()
 slug: Web/API/IdleDetector/IdleDetector
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}
 
-Der **`IdleDetector()`**-Konstruktor erstellt ein neues {{domxref("IdleDetector")}}-Objekt, das Ereignisse bereitstellt, die anzeigen, wann der Benutzer nicht mehr mit seinem Gerät interagiert oder der Bildschirm gesperrt ist.
+Der **`IdleDetector()`** Konstruktor erstellt ein neues [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Objekt, das Ereignisse bereitstellt, die anzeigen, wenn der Benutzer nicht mehr mit seinem Gerät interagiert oder der Bildschirm gesperrt ist.
 
 ## Syntax
 
@@ -24,6 +24,6 @@ Keine.
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

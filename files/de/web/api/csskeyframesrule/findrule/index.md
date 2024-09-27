@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM") }}
 
-Die **`findRule()`** Methode der {{domxref("CSSKeyframeRule")}} Schnittstelle findet die {{domxref("CSSKeyFrameRule")}}, die dem angegebenen Keyframe-Selektor entspricht.
+Die **`findRule()`** Methode der [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Schnittstelle findet die [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyFrameRule), die mit dem angegebenen Keyframe-Selektor übereinstimmt.
 
 ## Syntax
 
@@ -20,21 +20,21 @@ findRule(select)
 
 - `select`
 
-  - : Ein String, der den Keyframe-Selektor der zu findenden Regel enthält. Dieser muss sein:
+  - : Ein String, der den Keyframe-Selektor der zu findenden Regel enthält, welcher sein muss:
 
     - eine durch Kommas getrennte Liste von Prozentwerten zwischen 0% und 100%;
-    - oder die Schlüsselwörter `from` oder `to`
+    - oder, die Schlüsselwörter `from` oder `to`
 
-    Beachten Sie, dass die Anzahl und Reihenfolge der Werte im angegebenen Keyframe-Selektor mit denen der anvisierten Keyframe-Regel(n) übereinstimmen müssen. Leerzeichen werden ignoriert.
+    Beachten Sie, dass die Anzahl und Reihenfolge der Werte im angegebenen Keyframe-Selektor mit denen der anvisierten Keyframe-Regel(n) übereinstimmen müssen. Leerzeichen werden nicht berücksichtigt.
 
 ### Rückgabewert
 
-Eine {{domxref("CSSKeyframeRule")}}, die die letzte übereinstimmende Regel ist. Wenn keine Regeln gefunden werden, wird nichts zurückgegeben.
+Eine [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule), die die letzte übereinstimmende Regel ist. Wenn keine Regeln gefunden werden, wird nichts zurückgegeben.
 
 ## Beispiele
 
-Das CSS enthält eine Keyframes-At-Regel. Diese wird die erste {{domxref("CSSRule")}} sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
-`myRules[0]` gibt ein {{domxref("CSSKeyframesRule")}}-Objekt zurück. Der Aufruf von findRule("to") gibt ein {{domxref("CSSKeyframeRule")}} zurück, das die zweite Regel darstellt.
+Das CSS enthält eine @keyframes-Regel. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
+`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück. Der Aufruf von findRule("to") gibt eine [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule) zurück, die die zweite Regel darstellt.
 
 ```css
 @keyframes slidein {

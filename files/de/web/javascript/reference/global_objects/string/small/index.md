@@ -7,10 +7,10 @@ l10n:
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`small()`**-Methode von {{jsxref("String")}}-Werten erstellt eine Zeichenkette, die diese Zeichenkette in ein {{HTMLElement("small")}}-Element (`<small>str</small>`) einbettet, wodurch diese Zeichenkette in einer kleinen Schrift angezeigt wird.
+Die **`small()`**-Methode von {{jsxref("String")}}-Werten erstellt einen `String`, der diesen `String` in einem {{HTMLElement("small")}}-Element (`<small>str</small>`) einbettet, was dazu führt, dass dieser `String` in einer kleinen Schriftart angezeigt wird.
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
+> Alle [HTML-Verpackungsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
 
 ## Syntax
 
@@ -24,13 +24,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die mit einem `<small>`-Starttag beginnt, gefolgt vom Text `str` und einem `</small>`-Endtag.
+Ein `String`, der mit einem `<small>`-Start-Tag beginnt, dann den Text `str` und dann einen `</small>`-End-Tag enthält.
 
 ## Beispiele
 
 ### Verwendung von small()
 
-Der folgende Code erstellt eine HTML-Zeichenkette und ersetzt dann den Body des Dokuments damit:
+Der folgende Code erzeugt einen HTML-String und ersetzt dann den Body des Dokuments damit:
 
 ```js
 const contentString = "Hello, world";
@@ -38,13 +38,13 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.small();
 ```
 
-Dies erstellt das folgende HTML:
+Dies erzeugt den folgenden HTML-Code:
 
 ```html
 <small>Hello, world</small>
 ```
 
-Anstatt `small()` zu verwenden und direkt HTML-Text zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
+Statt `small()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
 
 ```js
 const contentString = "Hello, world";
@@ -64,5 +64,5 @@ document.body.appendChild(elem);
 ## Siehe auch
 
 - [Polyfill von `String.prototype.small` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
+- [HTML-Verpackungsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
 - {{HTMLElement("small")}}

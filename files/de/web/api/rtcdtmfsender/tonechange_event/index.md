@@ -1,5 +1,5 @@
 ---
-title: "RTCDTMFSender: tonechange Ereignis"
+title: "RTCDTMFSender: tonechange-Ereignis"
 short-title: tonechange
 slug: Web/API/RTCDTMFSender/tonechange_event
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`tonechange`**-Ereignis wird an einen {{domxref("RTCDTMFSender")}} durch die [WebRTC API](/de/docs/Web/API/WebRTC_API) gesendet, um anzuzeigen, wann {{Glossary("DTMF")}}-Töne, die zuvor zur Übertragung in die Warteschlange gestellt wurden (durch Aufrufen von {{domxref("RTCDTMFSender.insertDTMF()")}}), beginnen und enden.
+Das **`tonechange`**-Ereignis wird von der [WebRTC API](/de/docs/Web/API/WebRTC_API) an einen [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) gesendet, um anzuzeigen, wann [DTMF](/de/docs/Glossary/DTMF)-Töne, die zuvor zum Senden in die Warteschlange gestellt wurden (durch Aufrufen von [`RTCDTMFSender.insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF)), beginnen und enden.
 
-Um zu bestimmen, welcher Ton zu spielen begonnen hat oder ob ein Ton das Spielen beendet hat, prüfen Sie den Wert der {{domxref("RTCDTMFToneChangeEvent.tone", "tone")}}-Eigenschaft des Ereignisses.
+Um festzustellen, welcher Ton zu spielen begonnen hat oder ob ein Ton aufgehört hat zu spielen, überprüfen Sie den Wert der [`tone`](/de/docs/Web/API/RTCDTMFToneChangeEvent/tone)-Eigenschaft des Ereignisses.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling aus.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Ereignisketten aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("tonechange", (event) => {});
@@ -26,22 +26,22 @@ ontonechange = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("RTCDTMFToneChangeEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`RTCDTMFToneChangeEvent`](/de/docs/Web/API/RTCDTMFToneChangeEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("RTCDTMFToneChangeEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den Eigenschaften von {{domxref("Event")}}, bietet diese Schnittstelle die folgenden:_
+_Zusätzlich zu den Eigenschaften von [`Event`](/de/docs/Web/API/Event) bietet dieses Interface Folgendes:_
 
-- {{domxref("RTCDTMFToneChangeEvent.tone")}} {{ReadOnlyInline}}
-  - : Ein String, der den Ton angibt, der zu spielen begonnen hat, oder ein leerer String (`""`), wenn der vorherige Ton das Spielen beendet hat.
+- [`RTCDTMFToneChangeEvent.tone`](/de/docs/Web/API/RTCDTMFToneChangeEvent/tone) {{ReadOnlyInline}}
+  - : Ein String, der den Ton angibt, der zu spielen begonnen hat, oder ein leerer String (`""`), wenn der vorherige Ton fertig gespielt hat.
 
 ## Beispiele
 
-Dieses Beispiel etabliert einen Handler für das `tonechange`-Ereignis, der ein Element aktualisiert, um den aktuell abgespielten Ton in seinem Inhalt anzuzeigen oder, wenn alle Töne abgespielt wurden, den String "\<none>".
+Dieses Beispiel setzt einen Handler für das `tonechange`-Ereignis, der ein Element aktualisiert, um den aktuell gespielten Ton in seinem Inhalt anzuzeigen, oder, falls alle Töne gespielt wurden, den String "\<none>".
 
-Dies kann mit {{domxref("EventTarget.addEventListener", "addEventListener()")}} durchgeführt werden:
+Dies kann mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) erreicht werden:
 
 ```js
 dtmfSender.addEventListener(
@@ -58,7 +58,7 @@ dtmfSender.addEventListener(
 );
 ```
 
-Sie können auch direkt die `ontonechange`-Ereignishandler-Eigenschaft setzen:
+Sie können auch einfach die `ontonechange`-Ereignis-Handler-Eigenschaft direkt setzen:
 
 ```js
 dtmfSender.ontonechange = (ev) => {

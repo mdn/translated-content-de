@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}{{AvailableInWorkers("worker")}}
 
-Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/CSP) in einem Worker verletzt wird.
+Das **`securitypolicyviolation`** Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/CSP) in einem Worker verletzt wird.
 
-Der Handler kann mit der `onsecuritypolicyviolation` Ereignishandler-Eigenschaft oder mittels {{domxref("EventTarget.addEventListener()")}} zugewiesen werden.
+Der Handler kann über die `onsecuritypolicyviolation` Ereignis-Handler-Eigenschaft oder mithilfe von [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zugewiesen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("securitypolicyviolation", (event) => {});
@@ -24,13 +24,13 @@ onsecuritypolicyviolation = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("SecurityPolicyViolationEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("SecurityPolicyViolationEvent")}}
 
 ## Beispiele
 
-Der folgende Code zeigt, wie Sie eine Ereignis-Handler-Funktion mittels der `onsecuritypolicyviolation`-Ereignishandler-Eigenschaft hinzufügen oder die `addEventListener()`-Methode aufrufen könnten.
+Der untenstehende Code zeigt, wie Sie möglicherweise eine Ereignis-Handler-Funktion mit der `onsecuritypolicyviolation` Ereignis-Handler-Eigenschaft hinzufügen oder die `addEventListener()` Methode aufrufen.
 
 ```js
 self.onsecuritypolicyviolation = (e) => {
@@ -38,7 +38,7 @@ self.onsecuritypolicyviolation = (e) => {
 };
 
 self.addEventListener("securitypolicyviolation", (e) => {
-  // Handle SecurityPolicyViolationEvent e hier
+  // Handle SecurityPolicyViolationEvent e here
 });
 ```
 
@@ -52,6 +52,6 @@ self.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- Das {{domxref("Document/securitypolicyviolation_event", "securitypolicyviolation")}}-Ereignis der {{domxref("Document")}} Schnittstelle
-- Das {{domxref("Element/securitypolicyviolation_event", "securitypolicyviolation")}}-Ereignis der {{domxref("Element")}} Schnittstelle
+- Das [`securitypolicyviolation`](/de/docs/Web/API/Document/securitypolicyviolation_event) Ereignis der [`Document`](/de/docs/Web/API/Document) Schnittstelle
+- Das [`securitypolicyviolation`](/de/docs/Web/API/Element/securitypolicyviolation_event) Ereignis der [`Element`](/de/docs/Web/API/Element) Schnittstelle
 - [HTTP > Content Security Policy](/de/docs/Web/HTTP/CSP)

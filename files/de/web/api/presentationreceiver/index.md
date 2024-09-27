@@ -7,12 +7,12 @@ l10n:
 
 {{securecontext_header}}{{SeeCompatTable}}{{APIRef("Presentation API")}}
 
-Die **`PresentationReceiver`**-Schnittstelle der [Presentation API](/de/docs/Web/API/Presentation_API) bietet einem empfangenden Browsing-Kontext eine Möglichkeit, auf steuernde Browsing-Kontexte zuzugreifen und mit ihnen zu kommunizieren.
+Das **`PresentationReceiver`**-Interface der [Presentation API](/de/docs/Web/API/Presentation_API) bietet eine Möglichkeit für einen empfangenden Browsing-Kontext, auf steuernde Browsing-Kontexte zuzugreifen und mit ihnen zu kommunizieren.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref('PresentationReceiver.connectionList')}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem {{domxref('PresentationConnectionList')}}-Objekt aufgelöst wird, das eine Liste von _eingehenden Präsentationsverbindungen_ enthält.
+- [`PresentationReceiver.connectionList`](/de/docs/Web/API/PresentationReceiver/connectionList) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem [`PresentationConnectionList`](/de/docs/Web/API/PresentationConnectionList)-Objekt aufgelöst wird, das eine Liste von _eingehenden Präsentationsverbindungen_ enthält.
 
 ## Spezifikationen
 

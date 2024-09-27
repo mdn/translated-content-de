@@ -1,5 +1,5 @@
 ---
-title: "Dokument: readystatechange-Ereignis"
+title: "Document: readystatechange-Ereignis"
 short-title: readystatechange
 slug: Web/API/Document/readystatechange_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`readystatechange`**-Ereignis wird ausgelöst, wenn sich das {{domxref("Document.readyState", "readyState")}}-Attribut eines Dokuments geändert hat.
+Das **`readystatechange`**-Ereignis wird ausgelöst, wenn sich das [`readyState`](/de/docs/Web/API/Document/readyState)-Attribut eines Dokuments geändert hat.
 
-Dieses Ereignis kann nicht abgebrochen werden und propagiert nicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js
 addEventListener("readystatechange", (event) => {});
@@ -24,11 +24,11 @@ onreadystatechange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Livbeispiel
+### Live-Beispiel
 
 #### HTML
 
@@ -38,7 +38,7 @@ Ein generisches {{domxref("Event")}}.
 </div>
 
 <div class="event-log">
-  <label for="eventLog">Ereignisprotokoll:</label>
+  <label for="eventLog">Event log:</label>
   <textarea
     readonly
     class="event-log-contents"

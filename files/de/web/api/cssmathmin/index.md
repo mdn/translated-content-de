@@ -7,31 +7,31 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSMathMin`** Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die CSS-Funktion {{CSSXref('min','min()')}}. Sie erbt Eigenschaften und Methoden von ihrem übergeordneten {{domxref('CSSNumericValue')}}.
+Die **`CSSMathMin`** Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die CSS {{CSSXref('min','min()')}} Funktion. Sie erbt Eigenschaften und Methoden von ihrem Elternteil [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("CSSMathMin.CSSMathMin", "CSSMathMin()")}} {{Experimental_Inline}}
+- [`CSSMathMin()`](/de/docs/Web/API/CSSMathMin/CSSMathMin) {{Experimental_Inline}}
   - : Erstellt ein neues `CSSMathMin` Objekt.
 
 ## Instanz-Eigenschaften
 
-- {{domxref('CSSMathMin.values')}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref('CSSNumericArray')}}-Objekt zurück, das ein oder mehrere {{domxref('CSSNumericValue')}}-Objekte enthält.
+- [`CSSMathMin.values`](/de/docs/Web/API/CSSMathMin/values) {{ReadOnlyInline}}
+  - : Gibt ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray) Objekt zurück, das ein oder mehrere [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Objekte enthält.
 
 ## Statische Methoden
 
-_Die Schnittstelle kann auch Methoden von ihrer übergeordneten Schnittstelle {{domxref("CSSMathValue")}} erben._
+_Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
 
 ## Instanz-Methoden
 
-_Die Schnittstelle kann auch Methoden von ihrer übergeordneten Schnittstelle {{domxref("CSSMathValue")}} erben._
+_Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
 
 ## Beispiele
 
-To do
+In Bearbeitung
 
 ## Spezifikationen
 

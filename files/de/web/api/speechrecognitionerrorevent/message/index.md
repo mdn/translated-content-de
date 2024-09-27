@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`message`**-Eigenschaft des schreibgeschützten {{domxref("SpeechRecognitionErrorEvent")}}-Interfaces gibt eine Nachricht zurück, die den Fehler detaillierter beschreibt.
+Die schreibgeschützte **`message`**-Eigenschaft des [`SpeechRecognitionErrorEvent`](/de/docs/Web/API/SpeechRecognitionErrorEvent)-Interfaces gibt eine Nachricht zurück, die den Fehler ausführlicher beschreibt.
 
 ## Wert
 
-Ein String, der mehr Details über den aufgetretenen Fehler enthält.
-Beachten Sie, dass die Spezifikation die genaue Formulierung dieser Nachrichten nicht definiert — dies bleibt den Implementierern überlassen.
+Ein String, der mehr Details über den aufgetretenen Fehler enthält. Beachten Sie, dass die Spezifikation die genaue Wortwahl dieser Nachrichten nicht definiert — dies ist den Implementierern überlassen.
 
 ## Beispiele
 
@@ -21,8 +20,8 @@ Beachten Sie, dass die Spezifikation die genaue Formulierung dieser Nachrichten 
 const recognition = new SpeechRecognition();
 
 recognition.onerror = (event) => {
-  console.log(`Spracherkennungsfehler erkannt: ${event.error}`);
-  console.log(`Zusätzliche Informationen: ${event.message}`);
+  console.log(`Speech recognition error detected: ${event.error}`);
+  console.log(`Additional information: ${event.message}`);
 };
 ```
 
@@ -30,7 +29,7 @@ recognition.onerror = (event) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -1,36 +1,29 @@
 ---
-title: Verwenden von WebRTC Encoded Transforms
+title: Verwendung von WebRTC Encoded Transforms
 slug: Web/API/WebRTC_API/Using_Encoded_Transforms
 l10n:
-  sourceCommit: c29cee3dcb0d0e66093dd0c18aa82e0eab9d6d14
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{DefaultAPISidebar("WebRTC")}}
 
-WebRTC Encoded Transforms bieten einen Mechanismus zur Einführung einer leistungsstarken [Stream API](/de/docs/Web/API/Streams_API) zum Modifizieren von enkodierten Video- und Audio-Frames in den eingehenden und ausgehenden WebRTC-Pipelines.
-Dies ermöglicht Anwendungsfälle wie die Ende-zu-Ende-Verschlüsselung von enkodierten Frames durch Drittanbietercode.
+WebRTC Encoded Transforms bieten einen Mechanismus zur Integration einer leistungsstarken [Stream-API](/de/docs/Web/API/Streams_API) zur Modifikation kodierter Video- und Audio-Frames in die eingehenden und ausgehenden WebRTC-Pipelines. Dies ermöglicht Anwendungsfälle wie die Ende-zu-Ende-Verschlüsselung von kodierten Frames durch Drittanbieter-Code.
 
-Die API definiert Objekte sowohl für den Hauptthread als auch für den Worker.
-Die Hauptthread-Schnittstelle ist eine {{domxref("RTCRtpScriptTransform")}} Instanz, die bei der Konstruktion den {{domxref("Worker")}} angibt, der den Transformator-Code implementieren soll.
-Die Transformation im Worker wird in die eingehende oder ausgehende WebRTC-Pipeline eingefügt, indem der `RTCRtpScriptTransform` zum {{domxref("RTCRtpReceiver.transform")}} oder {{domxref("RTCRtpSender.transform")}} hinzugefügt wird.
+Die API definiert Objekte sowohl für den Haupt-Thread als auch für Worker-Seiten. Die Haupt-Thread-Schnittstelle ist eine [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)-Instanz, die bei der Konstruktion den [`Worker`](/de/docs/Web/API/Worker) spezifiziert, der den Transformer-Code implementieren soll. Der im Worker laufende Transformator wird in die eingehende oder ausgehende WebRTC-Pipeline eingefügt, indem das `RTCRtpScriptTransform` dem [`RTCRtpReceiver.transform`](/de/docs/Web/API/RTCRtpReceiver/transform) oder [`RTCRtpSender.transform`](/de/docs/Web/API/RTCRtpSender/transform) hinzugefügt wird.
 
-Ein entsprechendes {{domxref("RTCRtpScriptTransformer")}} Objekt wird im Worker-Thread erstellt, das über eine {{domxref("ReadableStream")}} `readable` Eigenschaft, eine {{domxref("WritableStream")}} `writable` Eigenschaft und ein `options` Objekt verfügt, das vom zugehörigen {{domxref("RTCRtpScriptTransform")}} Konstruktor übergeben wird.
-Enkodierte Video-Frames ({{domxref("RTCEncodedVideoFrame")}}) oder Audio-Frames ({{domxref("RTCEncodedAudioFrame")}}) aus der WebRTC-Pipeline werden zur Verarbeitung auf `readable` enqueuet.
+Ein entsprechendes [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)-Objekt wird im Worker-Thread erstellt, das eine [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Eigenschaft `readable`, eine [`WritableStream`](/de/docs/Web/API/WritableStream)-Eigenschaft `writable` und ein `options`-Objekt enthält, das vom zugehörigen [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)-Konstruktor übergeben wird. Kodierte Video-Frames ([`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame)) oder Audio-Frames ([`RTCEncodedAudioFrame`](/de/docs/Web/API/RTCEncodedAudioFrame)) aus der WebRTC-Pipeline werden zur Verarbeitung in `readable` eingereiht.
 
-Der `RTCRtpScriptTransformer` wird als `transformer` Eigenschaft des {{domxref("DedicatedWorkerGlobalScope/rtctransform_event", "rtctransform")}} Ereignisses verfügbar gemacht, das global im Worker ausgelöst wird, wann immer ein enkodierter Frame zur Verarbeitung enqueued wird (und zunächst beim Erstellen des entsprechenden {{domxref("RTCRtpScriptTransform")}}).
-Der Worker-Code muss einen Handler für das Ereignis implementieren, der enkodierte Frames von `transformer.readable` liest, diese bei Bedarf modifiziert und sie in der gleichen Reihenfolge ohne Duplikate zu `transformer.writable` schreibt.
+Der `RTCRtpScriptTransformer` wird dem Code als `transformer`-Eigenschaft des [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event)-Ereignisses zur Verfügung gestellt, das im worker global scope ausgelöst wird, wann immer ein kodierter Frame zur Verarbeitung eingereiht wird (und initial bei der Konstruktion des entsprechenden [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)). Der Worker-Code muss einen Ereignishandler implementieren, der kodierte Frames aus `transformer.readable` liest, sie bei Bedarf ändert und sie in der gleichen Reihenfolge und ohne Duplizierung nach `transformer.writable` schreibt.
 
-Während die Schnittstelle keine weiteren Einschränkungen für die Implementierung auferlegt, ist ein natürlicher Weg, die Frames zu transformieren, eine [Pipe Chain](/de/docs/Web/API/Streams_API/Concepts#pipe_chains) zu erstellen, die Frames auf dem `event.transformer.readable` Stream durch einen {{DOMxRef("TransformStream")}} zum `event.transformer.writable` Stream sendet.
-Wir können die `event.transformer.options` Eigenschaft verwenden, um jeglichen Transformcode zu konfigurieren, der davon abhängt, ob der Transformator eingehende Frames vom Paketierer oder ausgehende Frames von einem Codec enqueueet.
+Obwohl die Schnittstelle keine weiteren Einschränkungen für die Implementierung vorgibt, ist ein natürlicher Weg, die Frames zu transformieren, eine [pipe chain](/de/docs/Web/API/Streams_API/Concepts#pipe_chains) zu erstellen, die die eingereihten Frames im `event.transformer.readable`-Stream durch einen [`TransformStream`](/de/docs/Web/API/TransformStream) an den `event.transformer.writable`-Stream sendet. Wir können die `event.transformer.options`-Eigenschaft verwenden, um Transformationscode zu konfigurieren, der davon abhängt, ob der Transformator eingehende Frames vom Paketierer oder ausgehende Frames von einem Codec einreiht.
 
-Die {{domxref("RTCRtpScriptTransformer")}} Schnittstelle bietet auch Methoden, die beim Senden von enkodiertem Video verwendet werden können, um den Codec dazu zu bringen, einen "Key"-Frame zu generieren, und beim Empfangen von Video, um zu verlangen, dass ein neuer Key-Frame gesendet wird.
-Diese können nützlich sein, um einem Empfänger zu ermöglichen, das Video schneller zu sehen, wenn (zum Beispiel) er einer Konferenz beitritt, während Delta-Frames gesendet werden.
+Die [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)-Schnittstelle bietet auch Methoden, die verwendet werden können, um beim Senden kodierter Videos den Codec dazu zu bringen, einen "Schlüssel"-Frame zu generieren, und beim Empfangen von Video einen neuen Schlüssel-Frame anzufordern. Diese können nützlich sein, um einem Empfänger das schnellere Anzeigen des Videos zu ermöglichen, wenn (zum Beispiel) er sich einem Konferenzanruf anschließt, während Delta-Frames gesendet werden.
 
-Die folgenden Beispiele bieten spezifische Beispiele, wie man das Framework mit einer auf einem {{DOMxRef("TransformStream")}} basierenden Implementierung verwendet.
+Die folgenden Beispiele bieten detailliertere Beispiele zur Verwendung des Frameworks mit einer Implementierung basierend auf [`TransformStream`](/de/docs/Web/API/TransformStream).
 
-## Testen ob enkodierte Transformationen unterstützt werden
+## Überprüfen, ob codierte Transformationen unterstützt werden
 
-Testen Sie, ob [enkodierte Transformationen unterstützt werden](#browserkompatibilität), indem Sie das Vorhandensein von {{domxref("RTCRtpSender.transform")}} (oder {{domxref("RTCRtpReceiver.transform")}}) prüfen:
+Überprüfen, ob [codierte Transformationen unterstützt werden](#browser-kompatibilität), indem Sie auf das Vorhandensein von [`RTCRtpSender.transform`](/de/docs/Web/API/RTCRtpSender/transform) (oder [`RTCRtpReceiver.transform`](/de/docs/Web/API/RTCRtpReceiver/transform)) testen:
 
 ```js
 const supportsEncodedTransforms =
@@ -39,15 +32,13 @@ const supportsEncodedTransforms =
 
 ## Hinzufügen einer Transformation für ausgehende Frames
 
-Eine im Worker laufende Transformation wird in die ausgehende WebRTC-Pipeline eingefügt, indem der entsprechende `RTCRtpScriptTransform` dem {{domxref("RTCRtpSender.transform")}} für einen ausgehenden Track zugewiesen wird.
+Eine Transformation, die in einem Worker läuft, wird in die ausgehende WebRTC-Pipeline eingefügt, indem ihr entsprechendes `RTCRtpScriptTransform` dem [`RTCRtpSender.transform`](/de/docs/Web/API/RTCRtpSender/transform) für eine ausgehende Spur zugewiesen wird.
 
-Dieses Beispiel zeigt, wie Sie Video von der Webcam eines Benutzers über WebRTC streamen und dabei eine WebRTC-encoded Transformation hinzufügen, um die ausgehenden Streams zu modifizieren.
-Der Code geht davon aus, dass es eine {{domxref("RTCPeerConnection")}} namens `peerConnection` gibt, die bereits mit einem Remote-Peer verbunden ist.
+Dieses Beispiel zeigt, wie Sie Videos vom Webcam eines Nutzers über WebRTC streamen und dabei eine WebRTC-kodierte Transformation hinzufügen, um die ausgehenden Streams zu modifizieren. Der Code geht davon aus, dass eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `peerConnection` bereits mit einem entfernten Peer verbunden ist.
 
-Zuerst holen wir uns einen {{domxref("MediaStreamTrack")}}, indem wir {{domxref("MediaDevices/getUserMedia", "getUserMedia()")}} verwenden, um einen Video-{{domxref("MediaStream")}} von einem Mediengerät zu erhalten, und dann die {{domxref("MediaStream.getTracks()")}} Methode, um den ersten {{domxref("MediaStreamTrack")}} im Stream zu holen.
+Zuerst holen wir uns eine [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), indem wir [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) verwenden, um einen Video-`MediaStream` von einem Mediengerät zu erhalten, und dann die Methode [`MediaStream.getTracks()`](/de/docs/Web/API/MediaStream/getTracks), um die erste `MediaStreamTrack` im Stream zu erhalten.
 
-Der Track wird der Peer-Verbindung mit {{domxref("RTCPeerConnection/addTrack()", "addTrack()")}} hinzugefügt, was damit beginnt, ihn an den Remote-Peer zu streamen.
-Die `addTrack()` Methode gibt den {{domxref("RTCRtpSender")}} zurück, der verwendet wird, um den Track zu senden.
+Der Track wird der Peer-Verbindung mit [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) hinzugefügt, wodurch das Streaming zum entfernten Peer gestartet wird. Die Methode `addTrack()` gibt den [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) zurück, der zur Übertragung des Tracks verwendet wird.
 
 ```js
 // Get Video stream and MediaTrack
@@ -56,8 +47,7 @@ const [track] = stream.getTracks();
 const videoSender = peerConnection.addTrack(track, stream);
 ```
 
-Ein `RTCRtpScriptTransform` wird dann unter Angabe eines Worker-Skripts, das die Transformation definiert, und eines optionalen Objekts, das verwendet werden kann, um beliebige Nachrichten an den Worker zu übermitteln (in diesem Fall haben wir eine `name` Eigenschaft mit dem Wert "senderTransform" verwendet, um dem Worker mitzuteilen, dass diese Transformation dem ausgehenden Stream hinzugefügt wird) konstruiert.
-Wir fügen die Transformation zur ausgehenden Pipeline hinzu, indem wir sie der {{domxref("RTCRtpSender.transform")}} Eigenschaft zuweisen.
+Ein `RTCRtpScriptTransform` wird dann unter Verwendung eines Worker-Skripts konstruiert, das die Transformation definiert, und eines optionalen Objekts, das verwendet werden kann, um beliebige Nachrichten an den Worker zu übermitteln (in diesem Fall haben wir eine `name`-Eigenschaft mit dem Wert "senderTransform" verwendet, um dem Worker mitzuteilen, dass diese Transformation zum ausgehenden Stream hinzugefügt wird). Wir fügen die Transformation der ausgehenden Pipeline hinzu, indem wir sie der [`RTCRtpSender.transform`](/de/docs/Web/API/RTCRtpSender/transform)-Eigenschaft zuweisen.
 
 ```js
 // Create a worker containing a TransformStream
@@ -67,20 +57,17 @@ videoSender.transform = new RTCRtpScriptTransform(worker, {
 });
 ```
 
-Der Abschnitt [Verwenden separater Sender- und Empfängertransformationen](#verwenden_separater_sender-_und_empfängertransformationen) unten zeigt, wie der `name` in einem Worker verwendet werden könnte.
+Der Abschnitt [Verwendung getrennter Sender- und Empfänger-Transformationen](#verwendung_getrennter_sender-_und_empfänger-transformationen) unten zeigt, wie der `name` in einem Worker verwendet werden könnte.
 
-Beachten Sie, dass Sie die Transformation jederzeit hinzufügen können, aber indem Sie sie direkt nach dem Aufruf von `addTrack()` hinzufügen, wird die Transformation den ersten enkodierten Frame erhalten, der gesendet wird.
+Beachten Sie, dass Sie die Transformation jederzeit hinzufügen können. Indem Sie sie jedoch direkt nach dem Aufruf von `addTrack()` hinzufügen, erhält die Transformation den ersten kodierten Frame, der gesendet wird.
 
 ## Hinzufügen einer Transformation für eingehende Frames
 
-Eine im Worker laufende Transformation wird in die eingehende WebRTC-Pipeline eingefügt, indem der entsprechende `RTCRtpScriptTransform` dem {{domxref("RTCRtpReceiver.transform")}} für einen eingehenden Track zugewiesen wird.
+Eine Transformation, die in einem Worker läuft, wird in die eingehende WebRTC-Pipeline eingefügt, indem ihr entsprechendes `RTCRtpScriptTransform` dem [`RTCRtpReceiver.transform`](/de/docs/Web/API/RTCRtpReceiver/transform) für eine eingehende Spur zugewiesen wird.
 
-Dieses Beispiel zeigt, wie Sie eine Transformation hinzufügen, um einen eingehenden Stream zu modifizieren.
-Der Code geht davon aus, dass es eine {{domxref("RTCPeerConnection")}} namens `peerConnection` gibt, die bereits mit einem Remote-Peer verbunden ist.
+Dieses Beispiel zeigt, wie Sie eine Transformation hinzufügen, um einen eingehenden Stream zu modifizieren. Der Code geht davon aus, dass eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) namens `peerConnection` bereits mit einem entfernten Peer verbunden ist.
 
-Zuerst fügen wir einen `RTCPeerConnection` [`track` Event](/de/docs/Web/API/RTCPeerConnection/track_event) Handler hinzu, um das Ereignis zu erfassen, wenn der Peer beginnt, einen neuen Track zu empfangen.
-Im Handler konstruieren wir einen `RTCRtpScriptTransform` und fügen ihn `event.receiver.transform` hinzu (`event.receiver` ist ein {{domxref("RTCRtpReceiver")}}).
-Wie im vorherigen Abschnitt nimmt der Konstruktor ein Objekt mit `name` Eigenschaft, aber hier verwenden wir `receiverTransform` als Wert, um dem Worker mitzuteilen, dass Frames eingehend sind.
+Zuerst fügen wir einen `RTCPeerConnection` [`track`-Ereignis](/de/docs/Web/API/RTCPeerConnection/track_event)-Handler hinzu, um das Ereignis abzufangen, wenn der Peer beginnt, eine neue Spur zu empfangen. Innerhalb des Handlers konstruieren wir ein `RTCRtpScriptTransform` und fügen es zu `event.receiver.transform` hinzu (`event.receiver` ist ein [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)). Wie im vorherigen Abschnitt nimmt der Konstruktor ein Objekt mit der `name`-Eigenschaft, aber hier verwenden wir `receiverTransform` als Wert, um dem Worker mitzuteilen, dass Frames eingehen.
 
 ```js
 peerConnection.ontrack = (event) => {
@@ -92,22 +79,19 @@ peerConnection.ontrack = (event) => {
 };
 ```
 
-Beachten Sie erneut, dass Sie den Transformstream jederzeit hinzufügen können.
-Das Hinzufügen im `track` Event-Handler stellt jedoch sicher, dass der Transformstream den ersten enkodierten Frame für den Track erhält.
+Beachten Sie erneut, dass Sie den Transformations-Stream jederzeit hinzufügen können. Durch das Hinzufügen im `track`-Ereignis-Handler wird jedoch sichergestellt, dass der Transformations-Stream den ersten kodierten Frame für die Spur erhält.
 
 ## Worker-Implementierung
 
-Das Worker-Skript muss einen Handler für das {{domxref("DedicatedWorkerGlobalScope/rtctransform_event", "rtctransform")}} Ereignis implementieren, indem eine [Pipe-Chain](/de/docs/Web/API/Streams_API/Concepts#pipe_chains) erstellt wird, die den `event.transformer.readable` ({{DOMxRef("ReadableStream")}}) Stream durch einen {{DOMxRef("TransformStream")}} zum `event.transformer.writable` ({{DOMxRef("WritableStream")}}) Stream leitet.
+Das Worker-Skript muss einen Handler für das [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event)-Ereignis implementieren und eine [pipe chain](/de/docs/Web/API/Streams_API/Concepts#pipe_chains) erstellen, die den `event.transformer.readable`-Stream ([`ReadableStream`](/de/docs/Web/API/ReadableStream)) durch einen [`TransformStream`](/de/docs/Web/API/TransformStream) an den `event.transformer.writable`-Stream ([`WritableStream`](/de/docs/Web/API/WritableStream)) leitet.
 
-Ein Worker könnte das Transformieren von eingehenden oder ausgehenden enkodierten Frames oder beides unterstützen, und die Transformation könnte festcodiert oder zur Laufzeit mit Informationen aus der Webanwendung konfiguriert werden.
+Ein Worker kann das Transformieren von ein- oder ausgehenden kodierten Frames oder beides unterstützen, und die Transformation kann hart kodiert oder zur Laufzeit mit Informationen konfiguriert werden, die von der Webanwendung übermittelt werden.
 
-### Basis WebRTC Encoded Transform
+### Einfache WebRTC-kodierte Transformation
 
-Das folgende Beispiel zeigt eine einfache WebRTC Encoded Transform, die alle Bits in enqueueten Frames negiert.
-Es verwendet oder benötigt keine Optionen, die vom Hauptthread übergeben werden, da derselbe Algorithmus in der Sender-Pipeline verwendet werden kann, um die Bits zu negieren und in der Empfänger-Pipeline, um sie wiederherzustellen.
+Das folgende Beispiel zeigt eine einfache WebRTC-kodierte Transformation, die alle Bits in eingereihten Frames negiert. Es verwendet keine Optionen, die vom Haupt-Thread übermittelt werden, da derselbe Algorithmus sowohl in der Sender-Pipeline zum negieren der Bits als auch in der Empfänger-Pipeline zur Wiederherstellung der Bits verwendet werden kann.
 
-Der Code implementiert einen Event-Handler für das `rtctransform` Ereignis.
-Dieser konstruiert einen {{DOMxRef("TransformStream")}}, leitet dann durch ihn mit {{domxref("ReadableStream.pipeThrough()")}} und leitet schließlich zu `event.transformer.writable` mit {{domxref("ReadableStream.pipeTo()")}}.
+Der Code implementiert einen Ereignishandler für das `rtctransform`-Ereignis. Dieser konstruiert einen [`TransformStream`](/de/docs/Web/API/TransformStream), leitet dann durch ihn hindurch mit [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) und leitet schließlich zu `event.transformer.writable` mit [`ReadableStream.pipeTo()`](/de/docs/Web/API/ReadableStream/pipeTo).
 
 ```js
 addEventListener("rtctransform", (event) => {
@@ -137,25 +121,17 @@ addEventListener("rtctransform", (event) => {
 });
 ```
 
-Die Implementierung der WebRTC encoded Transform ist ähnlich wie ein "generischer" {{DOMxRef("TransformStream")}}, aber mit einigen wichtigen Unterschieden.
-Wie der generische Stream nimmt der [Konstruktor](/de/docs/Web/API/TransformStream/TransformStream#parameters) ein Objekt, das eine _optionale_ [`start()`](/de/docs/Web/API/TransformStream/TransformStream#startcontroller) Methode definiert, die beim Erstellen aufgerufen wird, eine [`flush()`](/de/docs/Web/API/TransformStream/TransformStream#flushcontroller) Methode, die aufgerufen wird, wenn der Stream kurz vor dem Schließen steht, und eine [`transform()`](/de/docs/Web/API/TransformStream/TransformStream#transformchunk_controller) Methode, die jedes Mal aufgerufen wird, wenn es einen zu verarbeitenden Chunk gibt.
-Im Gegensatz zum generischen Konstruktor werden alle `writableStrategy` oder `readableStrategy` Eigenschaften, die im Konstruktorobjekt übergeben werden, ignoriert, und die Warteschlangenstrategie wird vollständig vom Benutzeragenten verwaltet.
+Die Implementierung der WebRTC-kodierten Transformation ist ähnlich einer "generischen" [`TransformStream`](/de/docs/Web/API/TransformStream), weist aber einige wichtige Unterschiede auf. Wie der generische Stream nimmt sein [Konstruktor](/de/docs/Web/API/TransformStream/TransformStream#parameters) ein Objekt, das eine _optionale_ [`start()`](/de/docs/Web/API/TransformStream/TransformStream#startcontroller)-Methode, die bei der Konstruktion aufgerufen wird, eine [`flush()`](/de/docs/Web/API/TransformStream/TransformStream#flushcontroller)-Methode, die aufgerufen wird, wenn der Stream geschlossen werden soll, und eine [`transform()`](/de/docs/Web/API/TransformStream/TransformStream#transformchunk_controller)-Methode, die immer dann aufgerufen wird, wenn es ein Chunk zu verarbeiten gibt, definiert. Im Gegensatz zum generischen Konstruktor werden alle `writableStrategy`- oder `readableStrategy`-Eigenschaften, die im Konstruktor-Objekt übergeben werden, ignoriert, und die Warteschlangenstrategie wird vollständig vom Benutzer-Agenten verwaltet.
 
-Die `transform()` Methode unterscheidet sich auch darin, dass sie entweder ein {{domxref("RTCEncodedVideoFrame")}} oder {{domxref("RTCEncodedAudioFrame")}} und nicht einen generischen "Chunk" erhält.
-Der hier gezeigte Code für die Methode ist nicht bemerkenswert, außer dass er zeigt, wie man den Frame in eine Form konvertiert, in der man ihn modifizieren und danach in der Stream-Warteschlange wieder einreihen kann.
+Die `transform()`-Methode unterscheidet sich auch darin, dass sie entweder ein [`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame) oder [`RTCEncodedAudioFrame`](/de/docs/Web/API/RTCEncodedAudioFrame) empfängt, anstelle eines generischen "Chunks". Der hier gezeigte tatsächliche Code für die Methode ist nicht bemerkenswert, außer dass er demonstriert, wie man den Frame in eine Form umwandelt, in der man ihn modifizieren und anschließend im Stream einreihen kann.
 
-### Verwenden separater Sender- und Empfängertransformationen
+### Verwendung getrennter Sender- und Empfänger-Transformationen
 
-Das vorherige Beispiel funktioniert, wenn die Transformationsfunktion beim Senden und Empfangen dieselbe ist, aber in vielen Fällen werden die Algorithmen unterschiedlich sein.
-Sie könnten separate Worker-Skripte für Sender und Empfänger verwenden oder beide Fälle in einem Worker wie unten gezeigt behandeln.
+Das vorherige Beispiel funktioniert, wenn die Transformationsfunktion beim Senden und Empfangen identisch ist, aber in vielen Fällen werden die Algorithmen unterschiedlich sein. Sie könnten separate Worker-Skripte für Sender und Empfänger verwenden oder beide Fälle in einem Worker behandeln, wie unten gezeigt.
 
-Wenn der Worker sowohl für den Sender als auch für den Empfänger verwendet wird, muss er wissen, ob der aktuelle enkodierte Frame ausgehend von einem Codec oder eingehend von einem Paketierer ist.
-Diese Information kann mit der zweiten Option im [`RTCRtpScriptTransform` Konstruktor](/de/docs/Web/API/RTCRtpScriptTransform/RTCRtpScriptTransform) angegeben werden.
-Zum Beispiel können wir einen separaten `RTCRtpScriptTransform` für den Sender und den Empfänger definieren, denselben Worker übergeben und ein Optionsobjekt mit der Eigenschaft `name`, die angibt, ob die Transformation beim Sender oder Empfänger verwendet wird (wie in den vorhergehenden Abschnitten gezeigt).
-Die Information ist dann im Worker in `event.transformer.options` verfügbar.
+Wenn der Worker sowohl für Sender als auch Empfänger verwendet wird, muss er wissen, ob der aktuelle kodierte Frame aus einem Codec kommt oder vom Paketierer kommt. Diese Information kann mit der zweiten Option im [`RTCRtpScriptTransform`-Konstruktor](/de/docs/Web/API/RTCRtpScriptTransform/RTCRtpScriptTransform) spezifiziert werden. Zum Beispiel können wir ein separates `RTCRtpScriptTransform` für den Sender und Empfänger definieren, den gleichen Worker verwenden und ein Options-Objekt mit der Eigenschaft `name` übergeben, welches angibt, ob die Transformation im Sender oder im Empfänger verwendet wird (wie in den vorhergehenden Abschnitten gezeigt). Diese Information ist dann im Worker in `event.transformer.options` verfügbar.
 
-In diesem Beispiel implementieren wir den `onrtctransform` Ereignis-Handler im globalen dedizierten Workererweiterungsobjekt.
-Der Wert der `name` Eigenschaft wird verwendet, um zu bestimmen, welchen `TransformStream` zu konstruieren (die eigentlichen Konstruktormethoden werden nicht gezeigt).
+In diesem Beispiel implementieren wir den `onrtctransform`-Ereignishandler im globalen dedizierten Worker-Scope-Objekt. Der Wert der `name`-Eigenschaft wird verwendet, um zu bestimmen, welcher `TransformStream` konstruiert werden soll (die eigentlichen Konstruktormethoden werden hier nicht gezeigt).
 
 ```js
 // Code to instantiate transform and attach them to sender/receiver pipelines.
@@ -172,18 +148,15 @@ onrtctransform = (event) => {
 };
 ```
 
-Beachten Sie, dass der Code zum Erstellen der Pipe-Chain der gleiche ist wie im vorherigen Beispiel.
+Beachten Sie, dass der Code zur Erstellung der pipe chain derselbe ist wie im vorherigen Beispiel.
 
-### Laufzeitkommunikation mit der Transformation
+### Kommunikation zur Laufzeit mit der Transformation
 
-Der [`RTCRtpScriptTransform` Konstruktor](/de/docs/Web/API/RTCRtpScriptTransform/RTCRtpScriptTransform) erlaubt es Ihnen, Optionen und Übertragungsobjekte an den Worker zu übergeben.
-Im vorherigen Beispiel haben wir statische Informationen übergeben, aber manchmal möchten Sie möglicherweise den Transformationsalgorithmus im Worker zur Laufzeit ändern oder Informationen vom Worker zurückerhalten.
-Zum Beispiel könnte ein WebRTC-Konferenzanruf, der Verschlüsselung unterstützt, einen neuen Schlüssel in den Algorithmus einfügen müssen, der von der Transformation verwendet wird.
+Der [`RTCRtpScriptTransform`-Konstruktor](/de/docs/Web/API/RTCRtpScriptTransform/RTCRtpScriptTransform) ermöglicht es, Optionen und Übertragungsobjekte an den Worker zu übergeben. Im vorherigen Beispiel haben wir statische Informationen übermittelt, aber manchmal möchten Sie den Transformationsalgorithmus im Worker zur Laufzeit ändern oder Informationen vom Worker zurückerhalten. Zum Beispiel könnte ein WebRTC-Konferenzanruf, der Verschlüsselung unterstützt, einen neuen Schlüssel zu dem im Transformationsalgorithmus verwendeten Algorithmus hinzufügen müssen.
 
-Während es möglich ist, Informationen zwischen dem Worker, der den Transformationscode ausführt, und dem Hauptthread mit {{domxref("Worker.postMessage()")}} zu teilen, ist es im Allgemeinen einfacher, einen {{domxref("MessageChannel")}} als [`RTCRtpScriptTransform` Konstruktor](/de/docs/Web/API/RTCRtpScriptTransform/RTCRtpScriptTransform) Option zu teilen, da der Kanal-Kontext dann direkt im `event.transformer.options` verfügbar ist, wenn ein neuer enkodierter Rahmen behandelt wird.
+Während es möglich ist, Informationen zwischen dem Worker, der den Transformationscode ausführt, und dem Haupt-Thread unter Verwendung von [`Worker.postMessage()`](/de/docs/Web/API/Worker/postMessage) zu teilen, ist es im Allgemeinen einfacher, einen [`MessageChannel`](/de/docs/Web/API/MessageChannel) als Option im [`RTCRtpScriptTransform`-Konstruktor](/de/docs/Web/API/RTCRtpScriptTransform/RTCRtpScriptTransform) zu teilen, weil dann der Kontext des Kanals direkt im `event.transformer.options` verfügbar ist, wenn Sie einen neuen kodierten Frame behandeln.
 
-Der Code unten erstellt einen {{domxref("MessageChannel")}} und [überträgt](/de/docs/Web/API/Web_Workers_API/Transferable_objects) seinen zweiten Port an den Worker.
-Der Hauptthread und die Transformation können anschließend über die ersten und zweiten Ports kommunizieren.
+Der folgende Code erstellt einen [`MessageChannel`](/de/docs/Web/API/MessageChannel) und [überträgt](/de/docs/Web/API/Web_Workers_API/Transferable_objects) seinen zweiten Port an den Worker. Der Haupt-Thread und die Transformation können anschließend über die ersten und zweiten Ports kommunizieren.
 
 ```js
 // Create a worker containing a TransformStream
@@ -205,9 +178,7 @@ channel.port1.postMessage("A message for the worker");
 channel.port1.start();
 ```
 
-Im Worker ist der Port als `event.transformer.options.port` verfügbar.
-Der Code unten zeigt, wie Sie auf das `message` Ereignis des Ports hören könnten, um Nachrichten vom Hauptthread zu erhalten.
-Sie können auch den Port verwenden, um Nachrichten zurück an den Hauptthread zu senden.
+Im Worker ist der Port als `event.transformer.options.port` verfügbar. Der folgende Code zeigt, wie Sie auf das `message`-Ereignis des Ports hören könnten, um Nachrichten vom Haupt-Thread zu erhalten. Sie können den Port auch verwenden, um Nachrichten zurück an den Haupt-Thread zu senden.
 
 ```js
 event.transformer.options.port.onmessage = (event) => {
@@ -216,21 +187,15 @@ event.transformer.options.port.onmessage = (event) => {
 };
 ```
 
-### Auslösen eines Key-Frames
+### Auslösen eines Schlüssel-Frames
 
-Rohvideo wird selten gesendet oder gespeichert, da es viel Platz und Bandbreite beansprucht, um jedes Frame als vollständiges Bild darzustellen.
-Stattdessen erzeugen Codecs periodisch einen "Key-Frame", der ausreichend Information enthält, um ein vollständiges Bild zu konstruieren, und zwischen den Key-Frames werden "Delta-Frames" gesendet, die nur die Änderungen seit dem letzten Delta-Frame enthalten.
-Obwohl dies wesentlich effizienter ist als das Senden von Rohvideo, bedeutet es, dass, um das mit einem bestimmten Delta-Frame verbundene Bild anzuzeigen, der letzte Key-Frame und alle nachfolgenden Delta-Frames benötigt werden.
+Unkodiertes Video wird selten gesendet oder gespeichert, da es viel Platz und Bandbreite benötigt, um jedes Frame als vollständiges Bild zu repräsentieren. Stattdessen generieren Codecs periodisch einen "Schlüssel"-Frame, der genügend Informationen enthält, um ein vollständiges Bild zu konstruieren, und zwischen den Schlüssel-Frames werden "Delta-Frames" gesendet, die nur die Änderungen seit dem letzten Delta-Frame beinhalten. Während dies viel effizienter ist als das Senden von unkodiertem Video, bedeutet es auch, dass, um das Bild zu einem bestimmten Delta-Frame anzuzeigen, Sie den letzten Schlüssel-Frame und alle nachfolgenden Delta-Frames benötigen.
 
-Das kann zu Verzögerungen für neue Benutzer führen, die einer WebRTC-Konferenzanwendung beitreten, da sie erst Video anzeigen können, wenn sie den ersten Key-Frame erhalten haben.
-Ebenso würde ein Empfangsteilnehmer erst in der Lage sein, Video anzuzeigen, wenn er den ersten Key-Frame empfängt, der mit seinem Schlüssel verschlüsselt ist, wenn ein enkodierter Transform zur Verschlüsselung von Frames verwendet wurde.
+Dies kann eine Verzögerung für neue Benutzer bei einem WebRTC-Konferenz-Anruf verursachen, da sie das Video erst anzeigen können, nachdem sie ihren ersten Schlüssel-Frame erhalten haben. Ebenso, wenn eine kodierte Transformation verwendet wurde, um Frames zu verschlüsseln, wäre der Empfänger nicht in der Lage, das Video anzuzeigen, bis er seinen ersten Schlüssel-Frame erhält, der mit seinem Schlüssel verschlüsselt wurde.
 
-Um sicherzustellen, dass ein neuer Key-Frame so früh wie möglich gesendet werden kann, wenn er benötigt wird, hat das {{domxref("RTCRtpScriptTransformer")}} Objekt im `event.transformer` zwei Methoden: {{domxref("RTCRtpScriptTransformer.generateKeyFrame()")}}, die den Codec dazu bringt, einen Key-Frame zu generieren, und {{domxref("RTCRtpScriptTransformer.sendKeyFrameRequest()")}}, die ein Empfänger verwenden kann, um einen Key-Frame vom Sender zu verlangen.
+Um sicherzustellen, dass ein neuer Schlüssel-Frame so früh wie möglich gesendet werden kann, wenn er benötigt wird, hat das [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)-Objekt in `event.transformer` zwei Methoden: [`RTCRtpScriptTransformer.generateKeyFrame()`](/de/docs/Web/API/RTCRtpScriptTransformer/generateKeyFrame), welche den Codec dazu veranlasst, einen Schlüssel-Frame zu generieren, und [`RTCRtpScriptTransformer.sendKeyFrameRequest()`](/de/docs/Web/API/RTCRtpScriptTransformer/sendKeyFrameRequest), die ein Empfänger verwenden kann, um einen Schlüssel-Frame vom Sender anzufordern.
 
-Das folgende Beispiel zeigt, wie der Hauptthread einen Verschlüsselungsschlüssel an eine Sendertransformation übermitteln und den Codec dazu bringen könnte, einen Key-Frame zu generieren.
-Beachten Sie, dass der Hauptthread keinen direkten Zugriff auf das {{domxref("RTCRtpScriptTransformer")}} Objekt hat, also muss er den Schlüssel und die restriktionskennzeichner ("rid") an den Worker übergeben (die "rid" ist eine Stream-ID, die den Encoder angibt, der den Key-Frame generieren muss).
-Hier machen wir das mit einem `MessageChannel`, unter Verwendung desselben Musters wie im vorherigen Abschnitt.
-Der Code geht davon aus, dass es bereits eine Peer-Verbindung gibt, und dass `videoSender` ein {{domxref("RTCRtpSender")}} ist.
+Das untenstehende Beispiel zeigt, wie der Haupt-Thread einen Verschlüsselungsschlüssel an eine Sender-Transformation übergeben und den Codec veranlassen kann, einen Schlüssel-Frame zu generieren. Beachten Sie, dass der Haupt-Thread keinen direkten Zugriff auf das [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)-Objekt hat, daher muss er den Schlüssel und die Restriktionskennung ("rid") an den Worker übermitteln (die "rid" ist eine Stream-ID, die den Encoder angibt, der den Schlüssel-Frame generieren muss). Hier tun wir das mit einem `MessageChannel`, unter Verwendung des gleichen Musters wie im vorherigen Abschnitt. Der Code geht davon aus, dass bereits eine Peer-Verbindung besteht und dass `videoSender` ein [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) ist.
 
 ```js
 const worker = new Worker("worker.js");
@@ -250,8 +215,7 @@ channel.port1.postMessage({
 });
 ```
 
-Der {{domxref("DedicatedWorkerGlobalScope/rtctransform_event", "rtctransform")}} Event-Handler im Worker erhält den Port und nutzt ihn, um auf `message` Ereignisse vom Hauptthread zu hören.
-Wenn ein Ereignis empfangen wird, erhält er die `rid` und `key` und ruft dann `generateKeyFrame()` auf.
+Der [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event)-Ereignishandler im Worker erhält den Port und verwendet ihn, um auf `message`-Ereignisse vom Haupt-Thread zu hören. Wenn ein Ereignis empfangen wird, erhält er die `rid` und `key`-Werte und ruft anschließend `generateKeyFrame()` auf.
 
 ```js
 event.transformer.options.port.onmessage = (event) => {
@@ -264,8 +228,7 @@ event.transformer.options.port.onmessage = (event) => {
 };
 ```
 
-Der Code für einen Empfänger, um einen neuen Key-Frame anzufordern, wäre fast identisch, nur dass "rid" nicht angegeben wird.
-Hier ist der Code nur für den Portnachrichten-Handler:
+Der Code für einen Empfänger, um einen neuen Schlüssel-Frame anzufordern, wäre fast identisch, mit Ausnahme, dass die "rid" nicht angegeben wird. Hier ist der Code nur für den Port-Nachrichten-Handler:
 
 ```js
 event.transformer.options.port.onmessage = (event) => {
@@ -277,17 +240,17 @@ event.transformer.options.port.onmessage = (event) => {
 };
 ```
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("RTCRtpScriptTransform")}}
-- {{domxref("RTCRtpReceiver.transform")}}
-- {{domxref("RTCRtpSender.transform")}}
-- {{domxref("DedicatedWorkerGlobalScope.rtctransform_event", "rtctransform")}} Ereignis
-- {{domxref("RTCTransformEvent")}}
-- {{domxref("RTCRtpScriptTransformer")}}
-- {{domxref("RTCEncodedVideoFrame")}}
-- {{domxref("RTCEncodedAudioFrame")}}
+- [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)
+- [`RTCRtpReceiver.transform`](/de/docs/Web/API/RTCRtpReceiver/transform)
+- [`RTCRtpSender.transform`](/de/docs/Web/API/RTCRtpSender/transform)
+- [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event) Ereignis
+- [`RTCTransformEvent`](/de/docs/Web/API/RTCTransformEvent)
+- [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)
+- [`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame)
+- [`RTCEncodedAudioFrame`](/de/docs/Web/API/RTCEncodedAudioFrame)

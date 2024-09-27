@@ -7,10 +7,10 @@ l10n:
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`italics()`**-Methode von {{jsxref("String")}}-Werten erzeugt einen String, der diesen String in ein {{HTMLElement("i")}}-Element einbettet (`<i>str</i>`), wodurch dieser String kursiv dargestellt wird.
+Die **`italics()`**-Methode von {{jsxref("String")}}-Werten erstellt eine Zeichenkette, die diese Zeichenkette in ein {{HTMLElement("i")}}-Element (`<i>str</i>`) einbettet, wodurch diese Zeichenkette kursiv angezeigt wird.
 
 > [!NOTE]
-> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
+> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
 
 ## Syntax
 
@@ -24,13 +24,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der mit einem `<i>`-Start-Tag beginnt, dann den Text `str` enthält und mit einem `</i>`-End-Tag endet.
+Eine Zeichenkette, die mit einem `<i>`-Start-Tag beginnt, dann den Text `str` enthält, und dann ein `</i>`-End-Tag.
 
 ## Beispiele
 
 ### Verwendung von italics()
 
-Der folgende Code erstellt einen HTML-String und ersetzt damit den Body des Dokuments:
+Der unten stehende Code erstellt eine HTML-Zeichenkette und ersetzt dann den Body des Dokuments damit:
 
 ```js
 const contentString = "Hello, world";
@@ -38,13 +38,13 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.italics();
 ```
 
-Dies wird das folgende HTML erzeugen:
+Dies erzeugt folgendes HTML:
 
 ```html
 <i>Hello, world</i>
 ```
 
-Anstatt `italics()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
+Statt `italics()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
 
 ```js
 const contentString = "Hello, world";

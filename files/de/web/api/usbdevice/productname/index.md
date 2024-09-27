@@ -8,7 +8,8 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`productName`** des {{domxref("USBDevice")}}-Interfaces ist der vom Hersteller definierte Name, der ein USB-Gerät identifiziert.
+Die **`productName`**-Eigenschaft (nur lesbar) des
+[`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces ist der vom Hersteller definierte Name, der ein USB-Gerät identifiziert.
 
 ## Wert
 

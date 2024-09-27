@@ -1,5 +1,5 @@
 ---
-title: "CSSScopeRule: Eigenschaft start"
+title: "CSSScopeRule: start-Eigenschaft"
 short-title: start
 slug: Web/API/CSSScopeRule/start
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`start`**-Eigenschaft der {{domxref("CSSScopeRule")}}-Schnittstelle gibt einen String zurück, der den Wert des scope root der `@scope`-Regel enthält.
+Die **`start`**-Eigenschaft der [`CSSScopeRule`](/de/docs/Web/API/CSSScopeRule)-Schnittstelle gibt einen String zurück, der den Wert des `@scope`-Regelsatzes im Scope-Root enthält.
 
 ## Wert
 
-Ein String, oder `null`, wenn die `@scope`-Regel keinen scope root definiert hat.
+Ein String oder `null`, wenn der `@scope`-Regelsatz keinen Scope-Root definiert hat.
 
 ## Beispiel
 
-Ein Beispiel finden Sie auf der Hauptseite von {{domxref("CSSScopeRule")}}.
+Sehen Sie sich die Hauptseite der [`CSSScopeRule`](/de/docs/Web/API/CSSScopeRule) für ein Beispiel an.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 

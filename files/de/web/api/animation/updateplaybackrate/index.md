@@ -1,5 +1,5 @@
 ---
-title: "Animation: updatePlaybackRate() Methode"
+title: "Animation: updatePlaybackRate()-Methode"
 short-title: updatePlaybackRate()
 slug: Web/API/Animation/updatePlaybackRate
 l10n:
@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("Web Animations")}}
 
-Die **`updatePlaybackRate()`** Methode der [Web Animations API](/de/docs/Web/API/Web_Animations_API)'s
-{{domxref("Animation")}}-Schnittstelle legt die Geschwindigkeit einer Animation fest, nachdem zunächst die Wiedergabeposition synchronisiert wurde.
+Die **`updatePlaybackRate()`**-Methode der [Web Animations API](/de/docs/Web/API/Web_Animations_API) der [`Animation`](/de/docs/Web/API/Animation)-Schnittstelle setzt die Geschwindigkeit einer Animation, nachdem zunächst ihre Wiedergabeposition synchronisiert wurde.
 
-In einigen Fällen kann eine Animation auf einem separaten Thread oder Prozess laufen und wird weiterhin aktualisiert, auch wenn langlaufendes JavaScript den Hauptthread verzögert. In einem solchen Fall kann das direkte Setzen der {{domxref("Animation.playbackRate", "playbackRate")}} bei der Animation dazu führen, dass die Wiedergabeposition der Animation springt, da ihre Wiedergabeposition auf dem Hauptthread von der Position, an der sie derzeit läuft, abweichen kann.
+In manchen Fällen kann eine Animation in einem separaten Thread oder Prozess laufen und wird weiterhin aktualisiert, selbst wenn langlaufendes JavaScript den Haupt-Thread blockiert. In solchen Fällen kann das direkte Setzen der [`playbackRate`](/de/docs/Web/API/Animation/playbackRate) der Animation dazu führen, dass die Wiedergabeposition der Animation springt, da ihre Wiedergabeposition im Haupt-Thread von der aktuellen Wiedergabeposition abweichen kann.
 
-`updatePlaybackRate()` ist eine asynchrone Methode, die die Geschwindigkeit einer Animation festlegt, nachdem sie mit ihrer aktuellen Wiedergabeposition synchronisiert wurde, um sicherzustellen, dass die resultierende Geschwindigkeitsänderung keinen plötzlichen Sprung verursacht. Nach dem Aufruf von `updatePlaybackRate()` wird die {{domxref("Animation.playbackRate", "playbackRate")}} der Animation _nicht_ sofort aktualisiert. Sie wird aktualisiert, sobald das {{domxref("Animation.ready", "ready")}}-Versprechen der Animation erfüllt ist.
+`updatePlaybackRate()` ist eine asynchrone Methode, die die Geschwindigkeit einer Animation nach der Synchronisierung mit ihrer aktuellen Wiedergabeposition festlegt, um sicherzustellen, dass die resultierende Änderung der Geschwindigkeit keinen abrupten Sprung erzeugt. Nach dem Aufruf von `updatePlaybackRate()` wird die [`playbackRate`](/de/docs/Web/API/Animation/playbackRate) der Animation _nicht_ sofort aktualisiert. Sie wird aktualisiert, sobald das [`ready`](/de/docs/Web/API/Animation/ready)-Versprechen der Animation aufgelöst wird.
 
 ## Syntax
 
@@ -24,7 +23,7 @@ updatePlaybackRate(playbackRate)
 ### Parameter
 
 - `playbackRate`
-  - : Die neue Geschwindigkeit, die festgelegt werden soll. Dies kann eine positive Zahl sein (um die Animation zu beschleunigen oder zu verlangsamen), eine negative Zahl (um sie rückwärts laufen zu lassen) oder null (um die Animation effektiv anzuhalten).
+  - : Die neue zu setzende Geschwindigkeit. Dies kann eine positive Zahl sein (um die Animation zu beschleunigen oder zu verlangsamen), eine negative Zahl (um sie rückwärts abzuspielen) oder Null (um die Animation effektiv zu pausieren).
 
 ### Rückgabewert
 
@@ -32,8 +31,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Eine Geschwindigkeitsauswahlkomponente würde von einer reibungslosen Aktualisierung durch
-`updatePlaybackRate()` profitieren, wie im Folgenden demonstriert:
+Eine Geschwindigkeitsauswahl-Komponente würde von einer sanften Aktualisierung von `updatePlaybackRate()` profitieren, wie unten demonstriert:
 
 ```js
 speedSelector.addEventListener("input", (evt) => {
@@ -55,6 +53,6 @@ speedSelector.addEventListener("input", (evt) => {
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("Animation.playbackRate")}} — lesen Sie die aktuelle Wiedergaberate zurück oder legen Sie diese auf synchrone Weise fest.
-- {{domxref("Animation.reverse()")}} — invertiert die Wiedergaberate und startet die Wiedergabe bei Bedarf neu.
-- {{domxref("Animation")}} — enthält weitere Methoden und Eigenschaften, die Sie zur Steuerung von Webseitenanimationen verwenden können.
+- [`Animation.playbackRate`](/de/docs/Web/API/Animation/playbackRate) — lesen Sie die aktuelle Wiedergabegeschwindigkeit aus oder setzen Sie sie auf synchronisierte Weise.
+- [`Animation.reverse()`](/de/docs/Web/API/Animation/reverse) — kehrt die Wiedergabegeschwindigkeit um und startet die Wiedergabe bei Bedarf neu.
+- [`Animation`](/de/docs/Web/API/Animation) — enthält weitere Methoden und Eigenschaften, die Sie zur Steuerung von Webseiten-Animationen verwenden können.

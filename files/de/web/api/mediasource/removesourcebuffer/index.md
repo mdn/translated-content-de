@@ -1,14 +1,14 @@
 ---
-title: "MediaSource: removeSourceBuffer()-Methode"
+title: "MediaSource: removeSourceBuffer() Methode"
 short-title: removeSourceBuffer()
 slug: Web/API/MediaSource/removeSourceBuffer
 l10n:
-  sourceCommit: 84f8672adab0fdb783d02676c42a2b7ae16b3606
+  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
 ---
 
-{{APIRef("Media Source Extensions")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`removeSourceBuffer()`**-Methode der {{domxref("MediaSource")}}-Schnittstelle entfernt den angegebenen {{domxref("SourceBuffer")}} aus der {{domxref("SourceBufferList")}}, die mit diesem `MediaSource`-Objekt verknüpft ist.
+Die **`removeSourceBuffer()`** Methode der [`MediaSource`](/de/docs/Web/API/MediaSource) Schnittstelle entfernt den angegebenen [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) aus der [`SourceBufferList`](/de/docs/Web/API/SourceBufferList), die mit diesem `MediaSource`-Objekt verknüpft ist.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ removeSourceBuffer(sourceBuffer)
 ### Parameter
 
 - `sourceBuffer`
-  - : Das {{domxref("SourceBuffer")}}-Objekt, das entfernt werden soll.
+  - : Das [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) Objekt, das entfernt werden soll.
 
 ### Rückgabewert
 
@@ -27,8 +27,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `NotFoundError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der angegebene sourceBuffer nicht in {{domxref("MediaSource.sourceBuffers")}} existiert.
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der bereitgestellte sourceBuffer nicht in [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) vorhanden ist.
 
 ## Beispiele
 
@@ -50,5 +50,5 @@ mediaSource.removeSourceBuffer(mediaSource.sourceBuffers[0]);
 
 ## Siehe auch
 
-- {{domxref("SourceBuffer")}}
-- {{domxref("SourceBufferList")}}
+- [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)
+- [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)

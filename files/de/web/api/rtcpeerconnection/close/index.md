@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: close()-Methode"
+title: "RTCPeerConnection: close() Methode"
 short-title: close()
 slug: Web/API/RTCPeerConnection/close
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`close()`**-Methode der {{domxref("RTCPeerConnection")}}-Schnittstelle schließt die aktuelle Peer-Verbindung.
+Die **`close()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Schnittstelle schließt die aktuelle Peer-Verbindung.
 
 ## Syntax
 
@@ -18,11 +18,13 @@ close()
 
 _Diese Methode hat keine Parameter und gibt nichts zurück._
 
-Der Aufruf dieser Methode beendet den ICE-Agent der RTCPeerConnection, stoppt jegliche laufende ICE-Verarbeitung und alle aktiven Streams. Dies gibt auch alle vom ICE-Agenten genutzten Ressourcen frei, einschließlich TURN-Berechtigungen. Alle {{domxref("RTCRtpSender")}}-Objekte gelten als gestoppt, sobald dies zurückkehrt (sie können sich noch im Prozess des Anhaltens befinden, aber für alle praktischen Zwecke sind sie gestoppt).
+Das Aufrufen dieser Methode beendet den ICE-Agent der `RTCPeerConnection`, beendet jegliche laufende ICE-Verarbeitung und alle aktiven Streams.
+Dies gibt auch alle vom ICE-Agent verwendeten Ressourcen frei, einschließlich TURN-Berechtigungen.
+Alle [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) Objekte gelten als gestoppt, sobald diese Methode zurückkehrt (sie können sich noch im Prozess des Anhaltens befinden, aber für alle praktischen Zwecke sind sie gestoppt).
 
-Sobald diese Methode zurückkehrt, befindet sich der Signalisierungsstatus, wie er von {{domxref("RTCPeerConnection.signalingState")}} zurückgegeben wird, im Zustand `closed`.
+Sobald diese Methode zurückkehrt, ist der Signalisierungsstatus, wie von [`RTCPeerConnection.signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) zurückgegeben, `closed`.
 
-Stellen Sie sicher, dass Sie alle Verweise auf die vorherige {{domxref("RTCPeerConnection")}} löschen, bevor Sie versuchen, einen neuen zu erstellen, der mit demselben entfernten Peer verbunden wird, da dies sonst je nach Browser zu einigen Fehlern führen könnte.
+Stellen Sie sicher, dass Sie alle Referenzen zur vorherigen [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) löschen, bevor Sie versuchen, eine neue zu erstellen, die sich mit demselben entfernten Peer verbindet, da dies je nach Browser zu einigen Fehlern führen kann.
 
 ## Beispiel
 
@@ -32,7 +34,7 @@ const dc = pc.createDataChannel("my channel");
 
 dc.onmessage = (event) => {
   console.log(`received: ${event.data}`);
-  pc.close(); // Wir haben entschieden, nach der ersten empfangenen Nachricht zu schließen
+  pc.close(); // We decided to close after the first received message
 };
 
 dc.onopen = () => {
@@ -55,5 +57,5 @@ dc.onclose = () => {
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCPeerConnection")}}
-- {{domxref("RTCPeerConnection.signalingState")}}
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)
+- [`RTCPeerConnection.signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState)

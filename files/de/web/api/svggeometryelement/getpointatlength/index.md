@@ -1,5 +1,5 @@
 ---
-title: "SVGGeometryElement: getPointAtLength() Methode"
+title: "SVGGeometryElement: getPointAtLength()-Methode"
 short-title: getPointAtLength()
 slug: Web/API/SVGGeometryElement/getPointAtLength
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die Methode **`SVGGeometryElement.getPointAtLength()`** gibt den Punkt an einer bestimmten Entfernung entlang des Pfades zurück.
+Die Methode **`SVGGeometryElement.getPointAtLength()`** gibt den Punkt an einer gegebenen Entfernung entlang des Weges zurück.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ getPointAtLength(distance)
 ### Parameter
 
 - `distance`
-  - : Ein Gleitkommawert, der sich auf die Entfernung entlang des Pfades bezieht.
+  - : Ein Float, der sich auf die Entfernung entlang des Pfads bezieht.
 
 ### Rückgabewert
 
-Ein {{domxref("DOMPoint")}}, der den Punkt an einer bestimmten Entfernung entlang des Pfades angibt.
+Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint), der den Punkt an einer bestimmten Entfernung entlang des Pfads angibt.
 
 ## Spezifikationen
 

@@ -2,100 +2,100 @@
 title: Funktionen und Klassen, die Webarbeitern zur Verfügung stehen
 slug: Web/API/Web_Workers_API/Functions_and_classes_available_to_workers
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: 8b6cec0ceff01e7a9d6865cf5306788e15cce4b8
 ---
 
 {{DefaultAPISidebar("Web Workers API")}}
 
-Zusätzlich zum standardmäßigen [JavaScript](/de/docs/Web/JavaScript)-Funktionsumfang (wie {{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("Object")}}, {{jsxref("JSON")}} usw.) stehen Arbeitern eine Vielzahl von Funktionen aus dem DOM zur Verfügung. Dieser Artikel bietet eine Liste dieser Funktionen.
+Zusätzlich zu dem Standardset von [JavaScript](/de/docs/Web/JavaScript)-Funktionen (wie {{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("Object")}}, {{jsxref("JSON")}} usw.) gibt es eine Vielzahl von Funktionen, die den Arbeitern aus dem DOM zur Verfügung stehen. Dieser Artikel bietet eine Liste dieser Funktionen.
 
 ## Arbeiterkontexte & Funktionen
 
-**Arbeiter laufen in einem anderen globalen Kontext als das aktuelle Fenster!** Während {{domxref("Window")}} nicht direkt für Arbeiter verfügbar ist, sind viele der gleichen Methoden in einem gemeinsamen Mixin (`WindowOrWorkerGlobalScope`) definiert und werden Arbeitern durch ihre eigenen {{domxref("WorkerGlobalScope")}}-abgeleiteten Kontexte zur Verfügung gestellt:
+**Arbeiter laufen in einem anderen globalen Kontext als das aktuelle Fenster!** Während [`Window`](/de/docs/Web/API/Window) nicht direkt für Arbeiter verfügbar ist, sind viele der gleichen Methoden in einem gemeinsamen Mixin (`WindowOrWorkerGlobalScope`) definiert und werden Arbeitern durch ihre eigenen auf [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) basierenden Kontexte zur Verfügung gestellt:
 
-- {{domxref("DedicatedWorkerGlobalScope")}} für dedizierte Arbeiter
-- {{domxref("SharedWorkerGlobalScope")}} für geteilte Arbeiter
-- {{domxref("ServiceWorkerGlobalScope")}} für [Service-Worker](/de/docs/Web/API/Service_Worker_API)
+- [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) für dedizierte Arbeiter
+- [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) für gemeinsam genutzte Arbeiter
+- [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) für [Service-Arbeiter](/de/docs/Web/API/Service_Worker_API)
 
-Einige der Funktionen (ein Teil), die allen Arbeitern und dem Haupt-Thread gemeinsam sind (aus `WindowOrWorkerGlobalScope`), sind:
+Einige der Funktionen (ein Teilbereich), die allen Arbeitern und dem Hauptthread gemeinsam sind (aus `WindowOrWorkerGlobalScope`), sind:
 
-- {{domxref("WorkerGlobalScope.atob()", "atob()")}}
-- {{domxref("WorkerGlobalScope.btoa()", "btoa()")}}
-- {{domxref("clearInterval()")}}
-- {{domxref("clearTimeout()")}}
-- {{domxref("createImageBitmap()")}}
-- {{domxref("WorkerGlobalScope.dump()", "dump()")}} {{non-standard_inline}}
-- {{domxref("WorkerGlobalScope/fetch", "fetch()")}}
-- {{domxref("queueMicrotask()")}}
-- {{domxref("reportError()")}}
-- {{domxref("setInterval()")}}
-- {{domxref("setTimeout()")}}
-- {{domxref("structuredClone()")}}
-- {{domxref("DedicatedWorkerGlobalScope.requestAnimationFrame()", "requestAnimationFrame()")}} (nur dedizierte Arbeiter)
-- {{domxref("DedicatedWorkerGlobalScope.cancelAnimationFrame()", "cancelAnimationFrame()")}} (nur dedizierte Arbeiter)
+- [`atob()`](/de/docs/Web/API/WorkerGlobalScope/atob)
+- [`btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa)
+- [`clearInterval()`](/de/docs/Web/API/ClearInterval)
+- [`clearTimeout()`](/de/docs/Web/API/ClearTimeout)
+- [`createImageBitmap()`](/de/docs/Web/API/CreateImageBitmap)
+- [`dump()`](/de/docs/Web/API/WorkerGlobalScope/dump) {{non-standard_inline}}
+- [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)
+- [`queueMicrotask()`](/de/docs/Web/API/WorkerGlobalScope/queueMicrotask)
+- [`reportError()`](/de/docs/Web/API/WorkerGlobalScope/reportError)
+- [`setInterval()`](/de/docs/Web/API/SetInterval)
+- [`setTimeout()`](/de/docs/Web/API/SetTimeout)
+- [`structuredClone()`](/de/docs/Web/API/WorkerGlobalScope/structuredClone)
+- [`requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame) (nur dedizierte Arbeiter)
+- [`cancelAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/cancelAnimationFrame) (nur dedizierte Arbeiter)
 
 Die folgenden Funktionen sind **nur** für Arbeiter verfügbar:
 
-- {{domxref("WorkerGlobalScope.importScripts", "WorkerGlobalScope.importScripts()")}} (alle Arbeiter)
-- {{domxref("DedicatedWorkerGlobalScope.postMessage")}} (nur dedizierte Arbeiter)
+- [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) (alle Arbeiter)
+- [`DedicatedWorkerGlobalScope.postMessage`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) (nur dedizierte Arbeiter)
 
-## In Arbeitern verfügbare Web-APIs
+## Web-APIs, die in Arbeitern verfügbar sind
 
 > [!NOTE]
-> Wenn eine aufgeführte API von einer Plattform in einer bestimmten Version unterstützt wird, kann im Allgemeinen davon ausgegangen werden, dass sie in Webarbeitern verfügbar ist. Sie können die Unterstützung für ein bestimmtes Objekt/eine Funktion auch mit der Seite testen: <https://worker-playground.glitch.me/>
+> Wenn eine aufgeführte API von einer Plattform in einer bestimmten Version unterstützt wird, kann allgemein davon ausgegangen werden, dass sie in Web-Arbeitern verfügbar ist. Sie können die Unterstützung für ein bestimmtes Objekt/eine Funktion auch auf der Seite testen: <https://worker-playground.glitch.me/>
 
 Die folgenden Web-APIs sind für Arbeiter verfügbar:
 
-- {{domxref("Background Fetch API", "", "", "nocode")}}
-- {{domxref("Background Synchronization API", "", "", "nocode")}}
-- {{domxref("Barcode Detection API", "", "", "nocode")}}
-- {{domxref("Broadcast Channel API", "", "", "nocode")}}
-- {{domxref("Canvas API", "", "", "nocode")}}
-- {{domxref("Channel Messaging API", "", "", "nocode")}}
-- {{domxref("Console API", "", "", "nocode")}}
-- {{domxref("Compression Streams API", "", "", "nocode")}}
-- {{domxref("CSS Font Loading API", "", "", "nocode")}}
-- {{domxref("CustomEvent")}}
-- {{domxref("Encoding API", "", "", "nocode")}} (z.B. {{domxref("TextEncoder")}}, {{domxref("TextDecoder")}})
-- {{domxref("Fetch API", "", "", "nocode")}}
-- {{domxref("File API", "", "", "nocode")}}
-- {{domxref("File System API", "", "", "nocode")}}
-- {{domxref("Idle Detection API", "", "", "nocode")}}
-- {{domxref("IndexedDB API", "", "", "nocode")}}
-- {{domxref("Media Capabilities API", "", "", "nocode")}}
-- {{domxref("Media Source Extensions API", "", "", "nocode")}} (nur dedizierte Arbeiter)
-- {{domxref("Network Information API", "", "", "nocode")}}
-- {{domxref("Notifications API", "", "", "nocode")}}
-- {{domxref("Payment Handler API", "", "", "nocode")}}
-- {{domxref("Performance API", "", "", "nocode")}}
-- {{domxref("Permissions API", "", "", "nocode")}}
-- {{domxref("Prioritized Task Scheduling API", "", "", "nocode")}}
-- {{domxref("Push API", "", "", "nocode")}}
-- {{domxref("Server-sent events", "", "", "nocode")}}
-- {{domxref("Service Worker API", "", "", "nocode")}}
-- {{domxref("Streams API", "", "", "nocode")}}
-- {{domxref("Trusted Types API", "", "", "nocode")}}
-- {{domxref("URL API", "", "", "nocode")}} (z.B. {{domxref("URL")}})
-- {{domxref("URL Pattern API", "", "", "nocode")}}
-- {{domxref("User-Agent Client Hints API", "", "", "nocode")}}
-- {{domxref("WebCodecs API", "", "", "nocode")}}
-- {{domxref("Web Crypto API", "", "", "nocode")}} (z.B. {{domxref("Crypto")}})
-- {{domxref("Web Locks API", "", "", "nocode")}}
-- {{domxref("Web Serial API", "", "", "nocode")}}
-- {{domxref("Web Periodic Background Synchronization API", "", "", "nocode")}}
-- {{domxref("WebGPU API", "", "", "nocode")}}
-- {{domxref("WebUSB API", "", "", "nocode")}}
-- {{domxref("WebSockets API", "", "", "nocode")}}
-- {{domxref("XMLHttpRequest API", "", "", "nocode")}}
+- [Background Fetch API](/de/docs/Web/API/Background_Fetch_API)
+- [Background Synchronization API](/de/docs/Web/API/Background_Synchronization_API)
+- [Barcode Detection API](/de/docs/Web/API/Barcode_Detection_API)
+- [Broadcast Channel API](/de/docs/Web/API/Broadcast_Channel_API)
+- [Canvas API](/de/docs/Web/API/Canvas_API)
+- [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API)
+- [Console API](/de/docs/Web/API/Console_API)
+- [Compression Streams API](/de/docs/Web/API/Compression_Streams_API)
+- [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API)
+- [`CustomEvent`](/de/docs/Web/API/CustomEvent)
+- [Encoding API](/de/docs/Web/API/Encoding_API) (z.B. [`TextEncoder`](/de/docs/Web/API/TextEncoder), [`TextDecoder`](/de/docs/Web/API/TextDecoder))
+- [Fetch API](/de/docs/Web/API/Fetch_API)
+- [File API](/de/docs/Web/API/File_API)
+- [File System API](/de/docs/Web/API/File_System_API)
+- [Idle Detection API](/de/docs/Web/API/Idle_Detection_API)
+- [IndexedDB API](/de/docs/Web/API/IndexedDB_API)
+- [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API)
+- [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API) (nur dedizierte Arbeiter)
+- [Network Information API](/de/docs/Web/API/Network_Information_API)
+- [Notifications API](/de/docs/Web/API/Notifications_API)
+- [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
+- [Performance API](/de/docs/Web/API/Performance_API)
+- [Permissions API](/de/docs/Web/API/Permissions_API)
+- [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API)
+- [Push API](/de/docs/Web/API/Push_API)
+- [Server-sent events](/de/docs/Web/API/Server-sent_events)
+- [Service Worker API](/de/docs/Web/API/Service_Worker_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
+- [Trusted Types API](/de/docs/Web/API/Trusted_Types_API)
+- [URL API](/de/docs/Web/API/URL_API) (z.B. [`URL`](/de/docs/Web/API/URL))
+- [URL Pattern API](/de/docs/Web/API/URL_Pattern_API)
+- [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
+- [WebCodecs API](/de/docs/Web/API/WebCodecs_API)
+- [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) (z.B. [`Crypto`](/de/docs/Web/API/Crypto))
+- [Web Locks API](/de/docs/Web/API/Web_Locks_API)
+- [Web Serial API](/de/docs/Web/API/Web_Serial_API)
+- [Web Periodic Background Synchronization API](/de/docs/Web/API/Web_Periodic_Background_Synchronization_API)
+- [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- [WebUSB API](/de/docs/Web/API/WebUSB_API)
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [XMLHttpRequest API](/de/docs/Web/API/XMLHttpRequest_API)
 
-Arbeiter können auch andere Arbeiter starten, daher sind diese APIs ebenfalls verfügbar:
+Arbeiter können auch andere Arbeiter erzeugen, daher sind diese APIs ebenfalls verfügbar:
 
-- {{domxref("Worker")}}
-- {{domxref("WorkerGlobalScope")}}
-- {{domxref("WorkerLocation")}}
-- {{domxref("WorkerNavigator")}}
+- [`Worker`](/de/docs/Web/API/Worker)
+- [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
+- [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)
+- [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)
 
 ## Siehe auch
 
-- [Verwendung von Webworkern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
-- {{domxref("Worker")}}
+- [Verwendung von Web-Arbeitern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [`Worker`](/de/docs/Web/API/Worker)

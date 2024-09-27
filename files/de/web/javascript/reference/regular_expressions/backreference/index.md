@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar}}
 
-Ein **Rückverweis** bezieht sich auf die Teilausgabe einer vorherigen [Erfassungsgruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) und stimmt mit demselben Text wie diese Gruppe überein. Für [benannte Erfassungsgruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) können Sie die Syntax des [benannten Rückverweises](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference) bevorzugen.
+Ein **Rückverweis** bezieht sich auf den Teilstring einer vorherigen [Fanggruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) und stimmt mit dem gleichen Text wie diese Gruppe überein. Für [benannte Fanggruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) können Sie die Syntax für [benannte Rückverweise](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference) verwenden.
 
 ## Syntax
 
@@ -15,36 +15,36 @@ Ein **Rückverweis** bezieht sich auf die Teilausgabe einer vorherigen [Erfassun
 \N
 ```
 
-> **Note:** `N` ist kein Zeichenliterale.
+> **Note:** `N` ist kein Literalkennzeichen.
 
 ### Parameter
 
 - `N`
-  - : Eine positive ganze Zahl, die sich auf die Nummer einer Erfassungsgruppe bezieht.
+  - : Eine positive ganze Zahl, die sich auf die Nummer einer Fanggruppe bezieht.
 
 ## Beschreibung
 
-Ein Rückverweis ist eine Möglichkeit, denselben Text wie zuvor von einer Erfassungsgruppe erfasst zu matchen. Erfassungsgruppen werden ab 1 gezählt, sodass auf das Ergebnis der ersten Erfassungsgruppe mit `\1` verwiesen werden kann, auf das zweite mit `\2` und so weiter. `\0` ist eine [Zeichenescape-Sequenz](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) für das NUL-Zeichen.
+Ein Rückverweis ist eine Möglichkeit, den gleichen Text wie zuvor von einer Fanggruppe gematcht zu matchen. Fanggruppen werden ab 1 gezählt, sodass auf das Ergebnis der ersten Fanggruppe mit `\1`, auf das der zweiten mit `\2` usw. verwiesen werden kann. `\0` ist ein [Zeichen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) für das NUL-Zeichen.
 
-Bei [Groß-/Kleinschreibung-unabhängigen](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase) Matches kann der Rückverweis Text mit unterschiedlicher Groß-/Kleinschreibung im Vergleich zum Originaltext matchen.
+Bei [unempfindlichem](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase) Matching kann der Rückverweis auf Text mit unterschiedlicher Groß-/Kleinschreibung zum Originaltext verweisen.
 
 ```js
 /(b)\1/i.test("bB"); // true
 ```
 
-Der Rückverweis muss sich auf eine vorhandene Erfassungsgruppe beziehen. Wenn die angegebene Nummer größer ist als die Gesamtanzahl der Erfassungsgruppen, wird ein Syntaxfehler ausgelöst.
+Der Rückverweis muss sich auf eine existierende Fanggruppe beziehen. Wenn die angegebene Nummer größer als die Gesamtanzahl der Fanggruppen ist, wird ein Syntaxfehler ausgelöst.
 
 ```js-nolint example-bad
 /(a)\2/u; // SyntaxError: Invalid regular expression: Invalid escape
 ```
 
-Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden ungültige Rückverweise zu einer [veralteten oktalen Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#escape_sequences). Dies ist eine [veraltete Syntax für die Webkompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), auf die Sie sich nicht verlassen sollten.
+Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden ungültige Rückverweise zu einer [veralteten oktalen Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#escape_sequences). Dies ist eine [veraltete Syntax für die Web-Kompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp) und sollte nicht mehr verwendet werden.
 
 ```js
 /(a)\2/.test("a\x02"); // true
 ```
 
-Wenn die referenzierte Erfassungsgruppe nicht übereinstimmt (zum Beispiel, weil sie zu einer nicht übereinstimmenden Alternative in einer [Disjunktion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction) gehört), oder die Gruppe noch nicht übereingestimmt hat (zum Beispiel, weil sie rechts vom Rückverweis liegt), ist der Rückverweis immer erfolgreich (als ob er mit der leeren Zeichenfolge übereinstimmt).
+Wenn die referenzierte Fanggruppe nicht gematcht wird (zum Beispiel, weil sie zu einer nicht gematchten Alternative in einer [Disjunktion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction) gehört), oder die Gruppe noch nicht gematcht wurde (zum Beispiel, weil sie rechts vom Rückverweis liegt), ist der Rückverweis immer erfolgreich (als ob er mit der leeren Zeichenkette übereinstimmt).
 
 ```js
 /(?:a|(b))\1c/.test("ac"); // true
@@ -55,7 +55,7 @@ Wenn die referenzierte Erfassungsgruppe nicht übereinstimmt (zum Beispiel, weil
 
 ### Paarung von Anführungszeichen
 
-Die folgende Funktion stimmt mit den Mustern `title='xxx'` und `title="xxx"` in einem String überein. Um sicherzustellen, dass die Anführungszeichen übereinstimmen, verwenden wir einen Rückverweis, um auf das erste Anführungszeichen zu verweisen. Der Zugriff auf die zweite Erfassungsgruppe (`[2]`) gibt den String zwischen den übereinstimmenden Anführungszeichen zurück:
+Die folgende Funktion findet die Muster `title='xxx'` und `title="xxx"` in einem String. Um sicherzustellen, dass die Anführungszeichen übereinstimmen, nutzen wir einen Rückverweis, um auf das erste Anführungszeichen zu verweisen. Der Zugriff auf die zweite Fanggruppe (`[2]`) gibt den String zwischen den übereinstimmenden Anführungszeichen zurück:
 
 ```js
 function parseTitle(metastring) {
@@ -67,9 +67,9 @@ parseTitle("title='foo' lang='en'"); // 'foo'
 parseTitle('title="Named capturing groups\' advantages"'); // "Named capturing groups' advantages"
 ```
 
-### Übereinstimmung doppelter Wörter
+### Matching von doppelten Wörtern
 
-Die folgende Funktion findet doppelte Wörter in einem String (die normalerweise Tippfehler sind). Beachten Sie, dass sie die `\w` [Zeichenklassen-Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape) verwendet, die nur englische Buchstaben, aber keine akzentuierten Buchstaben oder andere Alphabete matcht. Wenn Sie generischere Übereinstimmungen wünschen, könnten Sie den String nach Leerzeichen [teilen](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split) und über das resultierende Array iterieren.
+Die folgende Funktion findet doppelte Wörter in einem String (die normalerweise Tippfehler sind). Beachten Sie, dass sie die `\w` [Zeichenklassen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape) verwendet, die nur englische Buchstaben, jedoch keine Akzentzeichen oder andere Alphabete matcht. Wenn Sie ein allgemeineres Matching wünschen, sollten Sie den String möglicherweise anhand von Leerzeichen [splitten](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split) und über das resultierende Array iterieren.
 
 ```js
 function findDuplicates(text) {
@@ -94,6 +94,6 @@ findDuplicates("Hello hellos"); // undefined
 
 - [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) Leitfaden
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Erfassungsgruppe: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)
-- [Benannte Erfassungsgruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
+- [Fanggruppe: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)
+- [Benannte Fanggruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
 - [Benannter Rückverweis: `\k<name>`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference)

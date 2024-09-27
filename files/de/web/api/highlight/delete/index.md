@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`delete()`**-Methode der {{domxref("Highlight")}}-Schnittstelle entfernt ein angegebenes {{domxref("Range")}}-Objekt aus einem `Highlight`-Objekt.
+Die **`delete()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle entfernt ein angegebenes [`Range`](/de/docs/Web/API/Range)-Objekt aus einem `Highlight`-Objekt.
 
-`Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies vergleichbar mit der Verwendung von {{jsxref("Set.delete()")}}.
+`Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ähnelt diese Verwendung dem {{jsxref("Set.delete()")}}.
 
 ## Syntax
 
@@ -21,15 +21,15 @@ delete(range)
 ### Parameter
 
 - `range`
-  - : Das {{domxref("Range")}}-Objekt, das aus dem `Highlight` entfernt werden soll.
+  - : Das [`Range`](/de/docs/Web/API/Range)-Objekt, das aus dem `Highlight` entfernt werden soll.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn `range` bereits in `Highlight` war; andernfalls `false`.
+Gibt `true` zurück, wenn `range` bereits im `Highlight` war; andernfalls `false`.
 
 ## Beispiele
 
-Das folgende Codebeispiel zeigt, wie man ein neues Highlight mit zwei Bereichen erstellt und dann einen davon löscht:
+Der folgende Code-Schnipsel zeigt, wie ein neues Highlight mit zwei Bereichen erstellt und dann einer von ihnen gelöscht wird:
 
 ```js
 const range1 = new Range();
@@ -52,5 +52,5 @@ console.log(highlight.size); // 1
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "Die CSS Custom Highlight API", "", "nocode")}}
-- [CSS Custom Highlight API: Die Zukunft der Hervorhebung von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textranges im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

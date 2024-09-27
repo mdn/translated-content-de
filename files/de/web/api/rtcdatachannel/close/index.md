@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannel: close()-Methode"
+title: "RTCDataChannel: close() Methode"
 short-title: close()
 slug: Web/API/RTCDataChannel/close
 l10n:
@@ -8,24 +8,19 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCDataChannel.close()`**-Methode schließt den
-{{domxref("RTCDataChannel")}}. Beide Peers dürfen diese Methode aufrufen, um die Schließung des Kanals einzuleiten.
+Die **`RTCDataChannel.close()`**-Methode schließt das [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel). Beide Peers dürfen diese Methode aufrufen, um die Schließung des Kanals einzuleiten.
 
-Die Schließung des Datenkanals erfolgt nicht sofort. Der Großteil des Schließvorgangs wird asynchron durchgeführt; Sie können erkennen, wann der Kanal vollständig geschlossen ist, indem Sie auf ein {{DOMxRef("RTCDataChannel.close_event", "close")}}-Ereignis auf dem Datenkanal achten.
+Das Schließen des Datenkanals erfolgt nicht sofort. Der Großteil des Prozesses zum Schließen der Verbindung wird asynchron behandelt; Sie können feststellen, wann der Kanal vollständig geschlossen ist, indem Sie auf ein [`close`](/de/docs/Web/API/RTCDataChannel/close_event)-Ereignis auf dem Datenkanal achten.
 
-Die Abfolge der Ereignisse, die als Reaktion auf den Aufruf dieser Methode auftreten:
+Die Abfolge der Ereignisse, die als Reaktion auf den Aufruf dieser Methode stattfindet:
 
-1. {{domxref("RTCDataChannel.readyState")}} wird auf `closing` gesetzt.
-2. Eine Hintergrundaufgabe wird eingerichtet, um die restlichen Schritte unten zu bearbeiten, und `close()` kehrt zum Aufrufer zurück.
-3. Die Transportschicht verarbeitet alle gepufferten Nachrichten; die Protokollschicht entscheidet, ob sie gesendet oder verworfen werden sollen.
+1. [`RTCDataChannel.readyState`](/de/docs/Web/API/RTCDataChannel/readyState) wird auf `closing` gesetzt.
+2. Eine Hintergrundaufgabe wird eingerichtet, um die folgenden Schritte zu bearbeiten, und `close()` kehrt zum Aufrufer zurück.
+3. Die Transportschicht bearbeitet alle gepufferten Nachrichten; die Protokollebene entscheidet, ob sie gesendet oder verworfen werden.
 4. Der zugrunde liegende Datentransport wird geschlossen.
-5. Die {{domxref("RTCDataChannel.readyState")}}-Eigenschaft wird auf
-   `closed` gesetzt.
-6. Wenn der Transport mit einem Fehler geschlossen wurde,
-   wird dem `RTCDataChannel` ein
-   {{DOMxRef("RTCDataChannel.error_event", "error")}}-Ereignis gesendet
-   mit seinem {{DOMxRef("DOMException.name", "name")}} auf `NetworkError` gesetzt.
-7. Ein {{domxref("RTCDataChannel.close_event", "close")}}-Ereignis wird an den Kanal gesendet.
+5. Die Eigenschaft [`RTCDataChannel.readyState`](/de/docs/Web/API/RTCDataChannel/readyState) wird auf `closed` gesetzt.
+6. Wenn der Transport mit einem Fehler geschlossen wurde, wird dem `RTCDataChannel` ein [`error`](/de/docs/Web/API/RTCDataChannel/error_event)-Ereignis mit dem [`name`](/de/docs/Web/API/DOMException/name) `NetworkError` gesendet.
+7. Ein [`close`](/de/docs/Web/API/RTCDataChannel/close_event)-Ereignis wird an den Kanal gesendet.
 
 ## Syntax
 
@@ -49,7 +44,7 @@ const dc = pc.createDataChannel("my channel");
 
 dc.onmessage = (event) => {
   console.log(`received: ${event.data}`);
-  dc.close(); // Wir haben uns entschieden, nach der ersten empfangenen Nachricht zu schließen
+  dc.close(); // We decided to close after the first received message
 };
 
 dc.onopen = () => {
@@ -60,7 +55,7 @@ dc.onclose = () => {
   console.log("datachannel close");
 };
 
-// Jetzt die Verbindung aushandeln und so weiter…
+// Now negotiate the connection and so forth…
 ```
 
 ## Spezifikationen
@@ -74,6 +69,6 @@ dc.onclose = () => {
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCDataChannel")}}
-- {{domxref("RTCDataChannel.readyState")}}
-- {{DOMxRef("RTCDataChannel.close_event", "close")}}-Ereignis
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
+- [`RTCDataChannel.readyState`](/de/docs/Web/API/RTCDataChannel/readyState)
+- [`close`](/de/docs/Web/API/RTCDataChannel/close_event)-Ereignis

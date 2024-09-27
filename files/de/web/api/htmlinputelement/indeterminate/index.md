@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`indeterminate`**-Eigenschaft der {{domxref("HTMLInputElement")}}-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob das Kontrollkästchen im _indeterminate_-Zustand ist. Ein Beispiel hierfür ist ein "Alle auswählen/abwählen"-Kontrollkästchen, das im indeterminate-Zustand sein kann, wenn einige, aber nicht alle seiner Unterelemente aktiviert sind. Der `indeterminate`-Zustand kann nur über JavaScript gesetzt werden und ist nur für [`checkbox`](/de/docs/Web/HTML/Element/input/checkbox)-Steuerelemente relevant.
+Die **`indeterminate`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt einen boolean-Wert zurück, der anzeigt, ob die Checkbox im _unbestimmten_ Zustand ist. Beispielsweise kann eine „Alles auswählen/alles abwählen“-Checkbox im unbestimmten Zustand sein, wenn einige, aber nicht alle ihrer Untersteuerungen aktiviert sind. Der `indeterminate`-Zustand kann nur über JavaScript gesetzt werden und ist nur für [`checkbox`](/de/docs/Web/HTML/Element/input/checkbox)-Steuerelemente relevant.
 
-Er steht in keinem Zusammenhang mit der {{domxref("HTMLInputElement.checked")}}-Eigenschaft, und ein indeterminates Kontrollkästchen kann entweder aktiviert oder deaktiviert sein. Der indeterminate-Zustand beeinflusst nur das Erscheinungsbild des Kontrollkästchens (siehe Beispiel unten), nicht seine Anwesenheit beim Absenden (dies wird durch das `checked`-Attribut gesteuert).
+Er ist nicht verwandt mit der [`HTMLInputElement.checked`](/de/docs/Web/API/HTMLInputElement/checked)-Eigenschaft, und eine unbestimmte Checkbox kann entweder aktiviert oder deaktiviert sein. Im unbestimmten Zustand beeinträchtigt dies nur das Erscheinungsbild der Checkbox (siehe Beispiel unten), nicht deren Vorhandensein bei der Übermittlung (was durch das Aktiviertsein gesteuert wird).
 
 ## Wert
 
-Ein boolescher Wert.
+Ein boolean.
 
 ## Beispiele
 
 ```html
 <input type="checkbox" id="indeterminate-checkbox" />
-<label for="indeterminate-checkbox">Indeterminates Kontrollkästchen</label>
+<label for="indeterminate-checkbox">Indeterminate checkbox</label>
 ```
 
 ```js
@@ -34,14 +34,14 @@ checkbox.indeterminate = true;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLInputElement")}}
-- {{domxref("HTMLInputElement.checked")}}
+- [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
+- [`HTMLInputElement.checked`](/de/docs/Web/API/HTMLInputElement/checked)
 - {{HTMLElement("input")}}
-- [Indeterminate-Zustand bei Kontrollkästchen](/de/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes)
-- CSS {{cssxref(":indeterminate")}}-Eigenschaft
+- [Unbestimmte Zustands-Checkboxen](/de/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes)
+- CSS-{{cssxref(":indeterminate")}}-Eigenschaft

@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die {{domxref("Element")}}-Methode **`removeAttribute()`** entfernt das Attribut mit dem angegebenen Namen aus dem Element.
+Die Methode **`removeAttribute()`** des [`Element`](/de/docs/Web/API/Element) entfernt das Attribut mit dem angegebenen Namen vom Element.
 
 ## Syntax
 
@@ -19,22 +19,22 @@ removeAttribute(attrName)
 ### Parameter
 
 - `attrName`
-  - : Ein String, der den Namen des Attributs angibt, das vom Element entfernt werden soll. Wenn das angegebene Attribut nicht existiert, gibt `removeAttribute()` ohne Fehler zurück.
+  - : Ein String, der den Namen des Attributs angibt, das vom Element entfernt werden soll. Wenn das angegebene Attribut nicht existiert, kehrt `removeAttribute()` zurück, ohne einen Fehler zu erzeugen.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
-## Anwendungshinweise
+## Hinweise zur Verwendung
 
-Sie sollten `removeAttribute()` anstelle des direktes Setzens des Attributwerts auf `null` oder durch Nutzung von {{domxref("Element.setAttribute", "setAttribute()")}} verwenden. Viele Attribute verhalten sich nicht wie erwartet, wenn Sie sie auf `null` setzen.
+Sie sollten `removeAttribute()` verwenden, anstatt den Attributwert entweder direkt oder mit [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) auf `null` zu setzen. Viele Attribute werden nicht wie erwartet funktionieren, wenn Sie sie auf `null` setzen.
 
 ## Beispiele
 
 ```js
-// Gegeben: <div id="div1" disabled width="200px">
+// Given: <div id="div1" disabled width="200px">
 document.getElementById("div1").removeAttribute("disabled");
-// Jetzt: <div id="div1" width="200px">
+// Now: <div id="div1" width="200px">
 ```
 
 ## Spezifikationen
@@ -47,7 +47,7 @@ document.getElementById("div1").removeAttribute("disabled");
 
 ## Siehe auch
 
-- {{domxref("Element.hasAttribute()")}}
-- {{domxref("Element.getAttribute()")}}
-- {{domxref("Element.setAttribute()")}}
-- {{domxref("Element.toggleAttribute()")}}
+- [`Element.hasAttribute()`](/de/docs/Web/API/Element/hasAttribute)
+- [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute)
+- [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute)
+- [`Element.toggleAttribute()`](/de/docs/Web/API/Element/toggleAttribute)

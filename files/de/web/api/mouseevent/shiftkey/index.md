@@ -1,5 +1,5 @@
 ---
-title: "MouseEvent: shiftKey Eigenschaft"
+title: "MouseEvent: shiftKey-Eigenschaft"
 short-title: shiftKey
 slug: Web/API/MouseEvent/shiftKey
 l10n:
@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`MouseEvent.shiftKey`** schreibgeschützte Eigenschaft ist ein boolescher Wert, der angibt, ob die <kbd>Umschalt</kbd>-Taste gedrückt war oder nicht, als ein bestimmtes Mausereignis auftrat.
+Die schreibgeschützte Eigenschaft **`MouseEvent.shiftKey`** ist ein boolescher Wert, der anzeigt, ob die <kbd>Umschalt</kbd>-Taste gedrückt war oder nicht, als ein bestimmtes Mausereignis auftrat.
 
 ## Wert
 
-Ein boolescher Wert, bei dem `true` anzeigt, dass die Taste gedrückt ist, und `false` anzeigt, dass die Taste _nicht_ gedrückt ist.
+Ein boolescher Wert, wobei `true` anzeigt, dass die Taste gedrückt ist, und `false` anzeigt, dass die Taste _nicht_ gedrückt ist.
 
 ## Beispiele
 
-Dieses Beispiel protokolliert die `shiftKey`-Eigenschaft, wenn Sie ein {{domxref("Element/click_event", "Click")}}-Ereignis auslösen.
+Dieses Beispiel protokolliert die `shiftKey`-Eigenschaft, wenn Sie ein [`click`](/de/docs/Web/API/Element/click_event)-Ereignis auslösen.
 
 ### HTML
 
 ```html
-<p>Klicken Sie irgendwo, um die <code>shiftKey</code>-Eigenschaft zu testen.</p>
+<p>Click anywhere to test the <code>shiftKey</code> property.</p>
 <p id="log"></p>
 ```
 
@@ -50,4 +50,4 @@ function logKey(e) {
 
 ## Siehe auch
 
-- {{ domxref("MouseEvent") }}
+- [`MouseEvent`](/de/docs/Web/API/MouseEvent)

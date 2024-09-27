@@ -8,18 +8,18 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`tagName`**-Eigenschaft der {{domxref("Element")}}-Schnittstelle ist schreibgeschützt und gibt den Tag-Namen des Elements zurück, auf dem sie aufgerufen wird.
+Die **`tagName`** Eigenschaft der [`Element`](/de/docs/Web/API/Element) Schnittstelle ist schreibgeschützt und gibt den Tag-Namen des Elements zurück, auf dem sie aufgerufen wird.
 
-Zum Beispiel ist, wenn das Element ein {{HTMLElement("img")}} ist, seine `tagName`-Eigenschaft `IMG` (für HTML-Dokumente; sie kann für XML/XHTML-Dokumente unterschiedlich geschrieben werden). Hinweis: Sie können die {{domxref("Element.localName", "localName")}}-Eigenschaft verwenden, um den lokalen Namen des Elements zuzugreifen – der in diesem Beispiel `img` (in Kleinbuchstaben) ist.
+Zum Beispiel, wenn das Element ein {{HTMLElement("img")}} ist, ist seine `tagName` Eigenschaft `IMG` (für HTML-Dokumente; sie kann anders geschrieben sein für XML/XHTML-Dokumente). Hinweis: Sie können die [`localName`](/de/docs/Web/API/Element/localName) Eigenschaft verwenden, um auf den lokalen Namen des Elements zuzugreifen – der in diesem Beispiel `img` (kleingeschrieben) ist.
 
 ## Wert
 
-Ein String, der den Tag-Namen des Elements angibt. Die Groß- und Kleinschreibung dieses Strings hängt vom Dokumenttyp ab:
+Ein String, der den Tag-Namen des Elements angibt. Die Groß-/Kleinschreibung dieses Strings hängt vom Dokumenttyp ab:
 
-- Für DOM-Bäume, die HTML-Dokumente repräsentieren, wird der zurückgegebene Tag-Name immer in der kanonischen Großbuchstabenform bereitgestellt. Zum Beispiel gibt `tagName`, auf ein {{HTMLElement("div")}}-Element aufgerufen, `"DIV"` zurück.
-- Die Tag-Namen von Elementen in einem XML-DOM-Baum werden in der gleichen Schreibweise zurückgegeben, in der sie in der Original-XML-Datei geschrieben sind. Wenn ein XML-Dokument ein Tag `"<SomeTag>"` enthält, dann ist der Wert der `tagName`-Eigenschaft `"SomeTag"`.
+- Für DOM-Bäume, die HTML-Dokumente repräsentieren, ist der zurückgegebene Tag-Name immer in der kanonischen Großbuchstabenform. Zum Beispiel, `tagName` auf einem {{HTMLElement("div")}} Element aufgerufen, gibt `"DIV"` zurück.
+- Die Tag-Namen von Elementen in einem XML DOM-Baum werden in der gleichen Groß-/Kleinschreibung zurückgegeben, in der sie im Original-XML-Dokument geschrieben sind. Wenn ein XML-Dokument einen Tag `"<SomeTag>"` enthält, dann ist der Wert der `tagName` Eigenschaft `"SomeTag"`.
 
-Für {{domxref("Element")}}-Objekte ist der Wert von `tagName` derselbe wie der Wert der {{domxref("Node.nodeName", "nodeName")}}-Eigenschaft, die das Elementobjekt von {{domxref("Node")}} erbt.
+Für [`Element`](/de/docs/Web/API/Element) Objekte ist der Wert von `tagName` derselbe wie der Wert der [`nodeName`](/de/docs/Web/API/Node/nodeName) Eigenschaft, die das Elementobjekt von [`Node`](/de/docs/Web/API/Node) erbt.
 
 ## Beispiele
 
@@ -36,7 +36,7 @@ const span = document.getElementById("born");
 console.log(span.tagName);
 ```
 
-In XHTML (oder jedem anderen XML-Format) wird die originale Groß- und Kleinschreibung beibehalten, sodass `"span"` ausgegeben würde, falls der ursprüngliche Tag-Name in Kleinbuchstaben erstellt wurde. In HTML würde stattdessen `"SPAN"` ausgegeben, unabhängig von der beim Erstellen des Originaldokuments verwendeten Groß- und Kleinschreibung.
+In XHTML (oder einem anderen XML-Format) wird die ursprüngliche Groß-/Kleinschreibung beibehalten, so dass `"span"` ausgegeben würde, wenn der ursprüngliche Tag-Name in Kleinbuchstaben erstellt wurde. In HTML wird stattdessen `"SPAN"` ausgegeben, unabhängig von der bei der Erstellung des Dokuments verwendeten Groß-/Kleinschreibung.
 
 ## Spezifikationen
 
@@ -48,4 +48,4 @@ In XHTML (oder jedem anderen XML-Format) wird die originale Groß- und Kleinschr
 
 ## Siehe auch
 
-- {{domxref("Element.localName")}}
+- [`Element.localName`](/de/docs/Web/API/Element/localName)

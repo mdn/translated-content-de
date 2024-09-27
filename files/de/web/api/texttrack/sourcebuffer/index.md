@@ -1,6 +1,6 @@
 ---
-title: "TextTrack: QuellePuffer-Eigenschaft"
-short-title: QuellePuffer
+title: "TextTrack: sourceBuffer-Eigenschaft"
+short-title: sourceBuffer
 slug: Web/API/TextTrack/sourceBuffer
 l10n:
   sourceCommit: e04f4a4a2cb4d0d445793858e257e0539d1d56b4
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}
 
-Die schreibgeschützte **`sourceBuffer`**-Eigenschaft der {{domxref("TextTrack")}}-Schnittstelle gibt den {{domxref("SourceBuffer")}} zurück, der die Spur erstellt hat, oder null, wenn die Spur nicht von einem {{domxref("SourceBuffer")}} erstellt wurde oder der {{domxref("SourceBuffer")}} aus dem {{domxref("MediaSource.sourceBuffers")}}-Attribut seiner übergeordneten Medienquelle entfernt wurde.
+Die schreibgeschützte **`sourceBuffer`**-Eigenschaft der [`TextTrack`](/de/docs/Web/API/TextTrack)-Schnittstelle gibt den [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) zurück, der den Track erstellt hat, oder null, wenn der Track nicht von einem [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) erstellt wurde oder der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) aus dem Attribut [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) seiner übergeordneten Medienquelle entfernt wurde.
 
 ## Wert
 
-Ein {{domxref("SourceBuffer")}} oder null.
+Ein [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) oder null.
 
 ## Spezifikationen
 

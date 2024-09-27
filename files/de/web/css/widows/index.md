@@ -1,5 +1,5 @@
 ---
-title: Hurenkinder
+title: widows
 slug: Web/CSS/widows
 l10n:
   sourceCommit: c77cfcd17e85db6c1b93160c70668f2ff6c2809c
@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`widows`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Mindestanzahl der Zeilen in einem Block-Container fest, die oben auf einer [Seite](/de/docs/Web/CSS/CSS_paged_media), Region oder [Spalte](/de/docs/Web/CSS/CSS_multicol_layout) angezeigt werden müssen.
+Die **`widows`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Mindestanzahl von Zeilen in einem Block-Container fest, die oben auf einer [Seite](/de/docs/Web/CSS/CSS_paged_media), einem Bereich oder einer [Spalte](/de/docs/Web/CSS/CSS_multicol_layout) angezeigt werden müssen.
 
-In der Typografie ist ein _Hurenkind_ die letzte Zeile eines Absatzes, die alleine oben auf einer Seite erscheint. (Der Absatz wird von einer vorherigen Seite fortgesetzt.)
+In der Typografie ist eine _Widow_ die letzte Zeile eines Absatzes, die allein oben auf einer Seite erscheint. (Der Absatz wird von einer vorherigen Seite fortgesetzt.)
 
 ## Syntax
 
 ```css
-/* <integer> Werte */
+/* <integer> values */
 widows: 2;
 widows: 3;
 
-/* Globale Werte */
+/* Global values */
 widows: inherit;
 widows: initial;
 widows: revert;
@@ -29,9 +29,9 @@ widows: unset;
 ### Werte
 
 - {{cssxref("&lt;integer&gt;")}}
-  - : Die Mindestanzahl der Zeilen, die nach einem Fragmentierungsumbruch oben in einem neuen Fragment allein stehen können. Der Wert muss positiv sein.
+  - : Die Mindestanzahl von Zeilen, die nach einem Fragmentierungsbruch alleine oben in einem neuen Fragment bleiben können. Der Wert muss positiv sein.
 
-## Formale Definition
+## Formaler Definition
 
 {{CSSInfo}}
 
@@ -41,7 +41,7 @@ widows: unset;
 
 ## Beispiele
 
-### Kontrolle von Hurenkindern in Spalten
+### Steuern von Spalten-Widows
 
 #### HTML
 
@@ -92,4 +92,4 @@ p:first-child {
 ## Siehe auch
 
 - {{cssxref("orphans")}}
-- [Paginierte Medien](/de/docs/Web/CSS/CSS_paged_media)
+- [Seitenmedien](/de/docs/Web/CSS/CSS_paged_media)

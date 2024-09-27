@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Die **`request`**-Eigenschaft der {{domxref("IDBCursor")}}-Schnittstelle ist eine schreibgeschützte Eigenschaft und gibt das {{domxref("IDBRequest")}}-Objekt zurück, das verwendet wurde, um den Cursor zu erhalten.
+Die **`request`** schreibgeschützte Eigenschaft des [`IDBCursor`](/de/docs/Web/API/IDBCursor)-Interfaces gibt das [`IDBRequest`](/de/docs/Web/API/IDBRequest) zurück, das verwendet wird, um den Cursor zu erhalten.
 
 ## Wert
 
-Eine Instanz des {{domxref("IDBRequest")}}-Objekts.
+Eine Instanz des [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekts.
 
 ## Beispiele
 
-Wenn Sie einen Cursor öffnen, ist dann die `request`-Eigenschaft auf diesem Cursor-Objekt verfügbar, um Ihnen mitzuteilen, von welchem Anforderungsobjekt der Cursor stammt. Zum Beispiel:
+Wenn Sie einen Cursor öffnen, steht die `request`-Eigenschaft in diesem Cursor-Objekt zur Verfügung, um Ihnen mitzuteilen, von welchem Request-Objekt der Cursor stammt. Zum Beispiel:
 
 ```js
 function displayData() {
@@ -52,9 +52,9 @@ function displayData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Schlüsselspektrums: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursors: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einstellen eines Schlüsselsbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

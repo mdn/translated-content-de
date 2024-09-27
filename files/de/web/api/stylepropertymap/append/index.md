@@ -1,5 +1,5 @@
 ---
-title: "StylePropertyMap: append()-Methode"
+title: "StylePropertyMap: append() Methode"
 short-title: append()
 slug: Web/API/StylePropertyMap/append
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`append()`**-Methode des
-{{domxref("StylePropertyMap")}}-Interfaces fügt den übergebenen CSS-Wert der
-`StylePropertyMap` mit der angegebenen Eigenschaft hinzu.
+Die **`append()`**-Methode der [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Schnittstelle fügt den übergebenen CSS-Wert mit der angegebenen Eigenschaft zum `StylePropertyMap` hinzu.
 
 ## Syntax
 
@@ -21,25 +19,23 @@ append(property, value)
 ### Parameter
 
 - `property`
-  - : Ein Identifikator, der das stilistische Merkmal angibt (z. B. Schriftart, Breite, Hintergrundfarbe), das hinzugefügt werden soll.
+  - : Ein Bezeichner, der das stilistische Merkmal angibt (z.B. Schriftart, Breite, Hintergrundfarbe), das hinzugefügt werden soll.
 - `value`
   - : Der Wert, den die angegebene Eigenschaft haben soll.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein Wert ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie ein zusätzlicher Hintergrundbildwert zur
-{{cssxref('background-image')}}-Eigenschaft des Elements hinzugefügt wird, indem
-{{domxref('HTMLElement.attributeStyleMap')}} verwendet wird.
+Dieses Beispiel zeigt, wie ein zusätzlicher Wert für das Hintergrundbild zur {{cssxref('background-image')}}-Eigenschaft des Elements hinzugefügt wird, indem [`HTMLElement.attributeStyleMap`](/de/docs/Web/API/HTMLElement/attributeStyleMap) verwendet wird.
 
 ```js
-// Holen Sie sich das Button-Element
+// get the button element
 const buttonEl = document.querySelector("button");
 
-// Fügen Sie einen weiteren Wert zur background-image-Eigenschaft hinzu, die im Attribut gesetzt ist
+// append another value to the background-image property set on the attribute
 buttonEl.attributeStyleMap.append(
   "background-image",
   "linear-gradient(180deg, blue, black)",

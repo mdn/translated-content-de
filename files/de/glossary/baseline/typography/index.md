@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-Die **Grundlinie** ist ein Begriff in der europäischen und westasiatischen Typografie und bezeichnet eine imaginäre Linie, auf der die meisten Zeichen einer Schriftart ruhen.
+Die **Grundlinie** ist ein Begriff, der in der europäischen und westasiatischen Typografie verwendet wird und eine imaginäre Linie beschreibt, auf der die meisten Zeichen einer Schriftart ruhen.
 
-Ostasiatische Schriften haben keine Grundlinie; jedes Glyph sitzt in einem quadratischen Kasten, ohne Ober- oder Unterlängen. Wenn sie mit Schriften mit einer niedrigen Grundlinie gemischt werden, sollten ostasiatische Zeichen so gesetzt werden, dass der Boden des Zeichens zwischen der Grundlinie und der Unterlängenhöhe liegt.
+Ostasiatische Schriftsysteme haben keine Grundlinie; jedes Glyph sitzt in einem quadratischen Kasten, ohne Auf- oder Abstriche. Wenn sie mit Schriften mit niedriger Grundlinie gemischt werden, sollten ostasiatische Zeichen so gesetzt werden, dass der untere Teil des Zeichens zwischen der Grundlinie und der Höhe des Abstrichs liegt.
 
 ## Siehe auch
 
-- [CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment#types_of_alignment)
-- [Grundlinie (Typografie)](<https://en.wikipedia.org/wiki/Baseline_(typography)>) auf Wikipedia
+- [CSS-Boxausrichtung](/de/docs/Web/CSS/CSS_box_alignment#types_of_alignment)
+- [Baseline (Typografie)](<https://en.wikipedia.org/wiki/Baseline_(typography)>) auf Wikipedia

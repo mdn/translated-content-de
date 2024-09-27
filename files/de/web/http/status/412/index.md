@@ -1,5 +1,5 @@
 ---
-title: 412 Vorbedingung nicht erfüllt
+title: 412 Precondition Failed
 slug: Web/HTTP/Status/412
 l10n:
   sourceCommit: ba53fe04589c36a2210d7549c003f3016093ef8e
@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`412 Vorbedingung nicht erfüllt`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Zugriff auf die Zielressource verweigert wurde.
-Dies passiert bei [bedingten Anfragen](/de/docs/Web/HTTP/Conditional_requests) für andere Methoden als {{HTTPMethod("GET")}} oder {{HTTPMethod("HEAD")}}, wenn die Bedingung, die durch die Header {{HTTPHeader("If-Unmodified-Since")}} oder {{HTTPHeader("If-Match")}} definiert ist, nicht erfüllt wird.
-In diesem Fall kann die Anfrage (in der Regel ein Upload oder eine Änderung einer Ressource) nicht durchgeführt werden und diese Fehlermeldung wird zurückgesendet.
+Der HTTP-Statuscode **`412 Precondition Failed`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) gibt an, dass der Zugriff auf die Zielressource verweigert wurde.
+Dies tritt bei [bedingten Anfragen](/de/docs/Web/HTTP/Conditional_requests) bei Methoden außer {{HTTPMethod("GET")}} oder {{HTTPMethod("HEAD")}} auf, wenn die Bedingung, die durch die {{HTTPHeader("If-Unmodified-Since")}} oder {{HTTPHeader("If-Match")}} Header definiert ist, nicht erfüllt wird.
+In diesem Fall kann die Anfrage (normalerweise ein Upload oder eine Änderung einer Ressource) nicht durchgeführt werden und diese Fehlermeldung wird zurückgesendet.
 
 ## Status
 
@@ -26,22 +26,22 @@ ETag: "33a64df551425fcc55e4d42a148795d9f25f89d4"
 ETag: W/"0815"
 ```
 
-### Vermeidung von Kollisionen
+### Vermeidung von "mid-air collisions"
 
-Mit Hilfe der Header `ETag` und {{HTTPHeader("If-Match")}} können Sie Konflikte oder Kollisionen vermeiden.
-Zum Beispiel wird beim Bearbeiten von Wiki-Seiten der Inhalt gehasht und in erfolgreichen Antworten in einem `ETag` platziert:
+Mit Hilfe der `ETag`- und {{HTTPHeader("If-Match")}}-Header können Sie Konflikte oder "mid-air collisions" vermeiden.
+Zum Beispiel werden beim Bearbeiten von Wikiseiten Inhalte gehasht und in einer `ETag` in erfolgreichen Antworten gespeichert:
 
 ```http
 ETag: "33a64df551425fcc55e4d42a148795d9f25f89d4"
 ```
 
-Beim Speichern von Änderungen an einer Wiki-Seite (Datenübertragung) enthält die {{HTTPMethod("POST")}}-Anfrage den {{HTTPHeader("If-Match")}}-Header mit den `ETag`-Werten, die der Client bei der letzten Bearbeitung gespeichert hat, um die Aktualität der Ressource auf dem Server zu überprüfen:
+Beim Speichern von Änderungen an einer Wikiseite (Posten von Daten) enthält die {{HTTPMethod("POST")}}-Anfrage den {{HTTPHeader("If-Match")}}-Header mit den `ETag`-Werten, die der Client vom letzten Editieren gepeichert hat, um die Aktualität der Ressource auf dem Server zu überprüfen:
 
 ```http
 If-Match: "33a64df551425fcc55e4d42a148795d9f25f89d4"
 ```
 
-Wenn die Hashes nicht übereinstimmen, wurde das Dokument zwischenzeitlich bearbeitet und es wird ein `412 Vorbedingung nicht erfüllt`-Fehler geworfen.
+Wenn die Hashes nicht übereinstimmen, wurde das Dokument in der Zwischenzeit bearbeitet und ein `412 Precondition Failed`-Fehler wird ausgelöst.
 
 ## Spezifikationen
 

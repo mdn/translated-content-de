@@ -8,19 +8,21 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`sampleSize`**-Eigenschaftswörterbuch von {{domxref("MediaTrackSettings")}} ist eine Ganzzahl, die die lineare Sample-Größe (in Bits pro Sample) angibt, für die der {{domxref("MediaStreamTrack")}} derzeit konfiguriert ist. Dies ermöglicht Ihnen zu bestimmen, welcher Wert ausgewählt wurde, um Ihren spezifizierten Einschränkungen für diesen Eigenschaftswert zu entsprechen, wie in der von Ihnen bereitgestellten {{domxref("MediaTrackConstraints.sampleSize")}}-Eigenschaft beschrieben, als Sie entweder {{domxref("MediaDevices.getUserMedia", "getUserMedia()")}} oder {{domxref("MediaStreamTrack.applyConstraints()")}} aufgerufen haben.
+Die **`sampleSize`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs ist eine Ganzzahl, die die lineare Abtastgröße (in Bits pro Abtastwert) angibt, für die der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) derzeit konfiguriert ist. Dies ermöglicht es Ihnen festzustellen, welcher Wert ausgewählt wurde, um Ihren angegebenen Einschränkungen für den Wert dieser Eigenschaft zu entsprechen, wie in der von Ihnen bereitgestellten [`MediaTrackConstraints.sampleSize`](/de/docs/Web/API/MediaTrackConstraints/sampleSize)-Eigenschaft beschrieben, wenn Sie entweder [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) aufrufen.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von {{domxref("MediaTrackSupportedConstraints.sampleSize")}} überprüfen, wie er durch einen Aufruf von {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser jegliche Ihnen unbekannte Einschränkungen ignorieren.
+Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.sampleSize`](/de/docs/Web/API/MediaTrackSupportedConstraints/sampleSize) prüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle nicht bekannten Einschränkungen ignorieren.
 
 ## Wert
 
-Ein Ganzzahlwert, der angibt, wie viele Bits jedes Audiosample darstellt. Die am häufigsten verwendete Sample-Größe seit vielen Jahren beträgt 16 Bits pro Sample, was unter anderem für CD-Audio verwendet wurde. Andere häufige Sample-Größen sind 8 (für geringeren Bandbreitenbedarf) und 24 (für hochauflösendes professionelles Audio).
+Ein ganzzahliger Wert, der angibt, durch wie viele Bits jede Audio-Abtastung dargestellt wird. Die am häufigsten verwendete Abtastgröße seit vielen Jahren beträgt 16 Bits pro Abtastung, die unter anderem für CD-Audio verwendet wurde. Andere übliche Abtastgrößen sind 8 (für reduzierte Bandbreitenanforderungen) und 24 (für hochauflösendes professionelles Audio).
 
-Jeder Audiokanal auf der Spur benötigt `sampleSize`-Bits. Das bedeutet, dass ein bestimmtes Sample tatsächlich (`sampleSize` / 8) \* {{domxref("MediaTrackSettings.channelCount","channelCount")}} Bytes an Daten verwendet. Zum Beispiel erfordert 16-Bit-Stereo-Audio (16/8)\*2 oder 4 Bytes pro Sample.
+Jeder Audiokanal auf der Spur benötigt sampleSize Bits.
+Das bedeutet, dass eine bestimmte Abtastung tatsächlich (`sampleSize` / 8) \* [`channelCount`](/de/docs/Web/API/MediaTrackSettings/channelCount) Bytes Daten verwendet.
+Zum Beispiel erfordert 16-Bit-Stereo-Audio (16/8)\*2 oder 4 Bytes pro Abtastung.
 
 ## Beispiele
 
-Siehe das [Constraint-Übungsbeispiel](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das [Constraint-Testgerät](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser)-Beispiel.
 
 ## Spezifikationen
 
@@ -34,5 +36,5 @@ Siehe das [Constraint-Übungsbeispiel](/de/docs/Web/API/Media_Capture_and_Stream
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
-- {{domxref("MediaTrackConstraints.sampleSize")}}
-- {{domxref("MediaTrackSettings")}}
+- [`MediaTrackConstraints.sampleSize`](/de/docs/Web/API/MediaTrackConstraints/sampleSize)
+- [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)

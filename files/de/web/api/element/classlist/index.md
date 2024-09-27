@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.classList`** ist eine schreibgeschützte Eigenschaft, die eine dynamische {{domxref("DOMTokenList")}}-Sammlung der `class`-Attribute des Elements zurückgibt. Diese kann verwendet werden, um die Klassenliste zu manipulieren.
+Die **`Element.classList`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die eine dynamische [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Sammlung der `class`-Attribute des Elements zurückgibt. Diese kann dann verwendet werden, um die Klassenliste zu manipulieren.
 
-Die Verwendung von `classList` ist eine praktische Alternative zum Zugriff auf die Klassenliste eines Elements als durch Leerzeichen getrennte Zeichenkette über {{domxref("element.className")}}.
+Die Verwendung von `classList` ist eine bequeme Alternative zum Zugriff auf die Liste von Klassen eines Elements als leerzeichengetrennten String über [`element.className`](/de/docs/Web/API/Element/className).
 
 ## Wert
 
-Eine {{domxref("DOMTokenList")}}, die den Inhalt des `class`-Attributs des Elements darstellt. Wenn das `class`-Attribut nicht gesetzt oder leer ist, wird eine leere `DOMTokenList` zurückgegeben, d.h. eine `DOMTokenList` mit der `length`-Eigenschaft gleich `0`.
+Eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList), die den Inhalt des `class`-Attributs des Elements darstellt. Wenn das `class`-Attribut nicht gesetzt oder leer ist, gibt es eine leere `DOMTokenList` zurück, d.h. eine `DOMTokenList` mit der `length`-Eigenschaft gleich `0`.
 
-Obwohl die `classList`-Eigenschaft selbst schreibgeschützt ist, können Sie die zugehörige `DOMTokenList` mithilfe der {{domxref("DOMTokenList/add", "add()")}}, {{domxref("DOMTokenList/remove", "remove()")}}, {{domxref("DOMTokenList/replace", "replace()")}} und {{domxref("DOMTokenList/toggle", "toggle()")}} Methoden modifizieren.
+Obwohl die `classList`-Eigenschaft selbst schreibgeschützt ist, können Sie ihre zugehörige `DOMTokenList` mit den Methoden [`add()`](/de/docs/Web/API/DOMTokenList/add), [`remove()`](/de/docs/Web/API/DOMTokenList/remove), [`replace()`](/de/docs/Web/API/DOMTokenList/replace) und [`toggle()`](/de/docs/Web/API/DOMTokenList/toggle) ändern.
 
-Sie können testen, ob das Element eine bestimmte Klasse enthält, indem Sie die Methode {{domxref("DOMTokenList/contains", "classList.contains()")}} verwenden.
+Sie können testen, ob das Element eine gegebene Klasse enthält, indem Sie die Methode [`classList.contains()`](/de/docs/Web/API/DOMTokenList/contains) verwenden.
 
 ## Beispiele
 
@@ -26,35 +26,35 @@ Sie können testen, ob das Element eine bestimmte Klasse enthält, indem Sie die
 const div = document.createElement("div");
 div.className = "foo";
 
-// unser Anfangszustand: <div class="foo"></div>
+// our starting state: <div class="foo"></div>
 console.log(div.outerHTML);
 
-// verwenden Sie die classList-API, um Klassen zu entfernen und hinzuzufügen
+// use the classList API to remove and add classes
 div.classList.remove("foo");
 div.classList.add("anotherclass");
 
 // <div class="anotherclass"></div>
 console.log(div.outerHTML);
 
-// wenn sichtbar gesetzt ist, entfernen Sie es, andernfalls fügen Sie es hinzu
+// if visible is set remove it, otherwise add it
 div.classList.toggle("visible");
 
-// sichtbar je nach Testbedingung hinzufügen/entfernen, i kleiner als 10
+// add/remove visible, depending on test conditional, i less than 10
 div.classList.toggle("visible", i < 10);
 
 // false
 console.log(div.classList.contains("foo"));
 
-// mehrere Klassen hinzufügen oder entfernen
+// add or remove multiple classes
 div.classList.add("foo", "bar", "baz");
 div.classList.remove("foo", "bar", "baz");
 
-// mehrere Klassen mit Spread-Syntax hinzufügen oder entfernen
+// add or remove multiple classes using spread syntax
 const cls = ["foo", "bar"];
 div.classList.add(...cls);
 div.classList.remove(...cls);
 
-// Klasse "foo" durch Klasse "bar" ersetzen
+// replace class "foo" with class "bar"
 div.classList.replace("foo", "bar");
 ```
 
@@ -68,6 +68,6 @@ div.classList.replace("foo", "bar");
 
 ## Siehe auch
 
-- {{domxref("element.className")}}
-- {{domxref("DOMTokenList")}}
-- [`classList.js`](https://github.com/eligrey/classList.js) (ein plattformübergreifender JavaScript-Polyfill, der `element.classList` vollständig implementiert)
+- [`element.className`](/de/docs/Web/API/Element/className)
+- [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)
+- [`classList.js`](https://github.com/eligrey/classList.js) (ein plattformübergreifendes JavaScript-Polyfill, das `element.classList` vollständig implementiert)

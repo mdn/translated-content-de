@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Sendet eine einzelne Nachricht von den Hintergrundskripten der Erweiterung (oder anderen privilegierten Skripten, wie Pop-up-Skripten oder Optionsseitenskripten) an alle [Inhalts-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) oder Erweiterungsseiten/Iframes, die zur Erweiterung gehören und im angegebenen Tab ausgeführt werden.
+Sendet eine einzelne Nachricht von den Hintergrundskripten der Erweiterung (oder anderen privilegierten Skripten, wie Pop-ups oder Optionsseitenskripten) an beliebige [Inhalts-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) oder Erweiterungsseiten/Iframes, die zur Erweiterung gehören und im angegebenen Tab ausgeführt werden.
 
-Die Nachricht wird im Erweiterungskontext von allen Zuhörern des {{WebExtAPIRef("runtime.onMessage")}}-Ereignisses empfangen. Zuhörer können dann optional eine Rückmeldung an den Absender zurücksenden.
+Die Nachricht wird im Erweiterungskontext von allen Listeners des {{WebExtAPIRef("runtime.onMessage")}}-Ereignisses empfangen. Die Listener können optional etwas als Antwort an den Absender zurücksenden.
 
 Dies ist eine asynchrone Funktion, die ein {{jsxref("Promise")}} zurückgibt.
 
@@ -31,25 +31,25 @@ const sending = browser.tabs.sendMessage(
 - `tabId`
   - : `integer`. ID des Tabs, dessen Inhalts-Skripte wir eine Nachricht senden möchten.
 - `message`
-  - : `any`. Ein Objekt, das serialisierbar ist (siehe [Datenklon-Algorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)).
+  - : `any`. Ein Objekt, das serialisierbar ist (siehe [Datenklonierungs-Algorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)).
 - `options` {{optional_inline}}
 
   - : `object`.
 
     - `frameId` {{optional_inline}}
-      - : `integer`. Sendet die Nachricht an einen speziellen Frame, identifiziert durch `frameId`, anstatt an alle Frames im Tab. Ob das Inhalts-Skript in allen Frames ausgeführt wird, hängt von der `all_frames`-Einstellung im [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts)-Abschnitt der `manifest.json` ab.
+      - : `integer`. Sendet die Nachricht an einen bestimmten Frame, der durch `frameId` identifiziert wird, anstatt an alle Frames im Tab. Ob das Inhalts-Skript in allen Frames ausgeführt wird, hängt von der `all_frames`-Einstellung im [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts)-Abschnitt von `manifest.json` ab.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit dem Antwortobjekt erfüllt wird, das vom Handler der Nachricht im Inhalts-Skript gesendet wird, oder ohne Argumente, wenn das Inhalts-Skript keine Rückmeldung gesendet hat.
+Ein {{jsxref("Promise")}}, das mit dem Antwortobjekt erfüllt wird, das vom Handler der Nachricht im Inhalts-Skript gesendet wird, oder ohne Argumente, wenn das Inhalts-Skript keine Antwort gesendet hat.
 
 Wenn ein Fehler beim Verbinden mit dem angegebenen Tab oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
-Wenn mehrere Frames auf die Nachricht antworten, wird das Promise mit einer der Antworten aufgelöst.
+Wenn mehrere Frames auf die Nachricht antworten, wird das Promise mit einer der Antworten gelöst.
 
 ## Beispiele
 
-Hier ist ein Beispiel für ein Hintergrundskript, das beim Anklicken der Browser-Aktion eine Nachricht an die Inhalts-Skripte im aktiven Tab sendet. Das Hintergrundskript erwartet auch, dass das Inhalts-Skript eine Rückmeldung sendet:
+Hier ist ein Beispiel für ein Hintergrundskript, das eine Nachricht an die inaktive Tab ausgeführten Inhalts-Skripte sendet, wenn der Benutzer auf die Browseraktion klickt. Das Hintergrundskript erwartet außerdem, dass das Inhalts-Skript eine Antwort sendet:
 
 ```js
 // background-script.js
@@ -102,7 +102,7 @@ browser.runtime.onMessage.addListener((request) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-sendMessage) API. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-sendMessage)-API von Chromium. Diese Dokumentation leitet sich von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

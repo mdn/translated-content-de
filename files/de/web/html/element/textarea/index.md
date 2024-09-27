@@ -7,18 +7,18 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<textarea>`** [HTML](/de/docs/Web/HTML) Element repräsentiert ein mehrzeiliges Nur-Text-Bearbeitungssteuerfeld, das nützlich ist, wenn Sie Benutzern die Eingabe einer größeren Menge an freiformatiertem Text erlauben möchten, zum Beispiel einen Kommentar auf einem Bewertungs- oder Feedbackformular.
+Das **`<textarea>`**-Element in [HTML](/de/docs/Web/HTML) repräsentiert ein mehrzeiliges Klartext-Bearbeitungsfeld. Es ist nützlich, wenn Sie Benutzern erlauben möchten, eine größere Menge an freien Text einzugeben, beispielsweise einen Kommentar zu einer Bewertung oder ein Feedback-Formular.
 
 {{EmbedInteractiveExample("pages/tabbed/textarea.html", "tabbed-standard")}}
 
-Das obige Beispiel zeigt eine Reihe von Funktionen von `<textarea>`:
+Das obige Beispiel demonstriert eine Reihe von Merkmalen des `<textarea>`:
 
-- Ein `id`-Attribut, um das `<textarea>` mit einem {{htmlelement("label")}} Element zu verknüpfen, um es zugänglich zu machen.
-- Ein `name`-Attribut, um den Namen des zugehörigen Datenpunkts festzulegen, der an den Server gesendet wird, wenn das Formular abgeschickt wird.
-- `rows`- und `cols`-Attribute, um eine exakte Größe für das `<textarea>` anzugeben. Diese festzulegen ist eine gute Idee für Konsistenz, da sich die Browser-Standardwerte unterscheiden können.
-- Standardinhalt, der zwischen den öffnenden und schließenden Tags eingegeben wird. `<textarea>` unterstützt das `value`-Attribut nicht.
+- Ein `id`-Attribut, um das `<textarea>` mit einem {{htmlelement("label")}}-Element für Barrierefreiheit zu verbinden.
+- Ein `name`-Attribut, um den Namen des zugehörigen Datenpunkts festzulegen, der beim Absenden des Formulars an den Server übermittelt wird.
+- `rows`- und `cols`-Attribute, um eine genaue Größe für das `<textarea>` festzulegen. Es ist ratsam, diese zu setzen, um Konsistenz zu gewährleisten, da die Standardeinstellungen der Browser variieren können.
+- Standardinhalt, der zwischen den öffnenden und schließenden Tags eingefügt wird. `<textarea>` unterstützt nicht das `value`-Attribut.
 
-Das `<textarea>` Element akzeptiert auch mehrere Attribute, die für Formular-`<input>`s üblich sind, wie `autocapitalize`, `autocomplete`, `autofocus`, `disabled`, `placeholder`, `readonly` und `required`.
+Das `<textarea>`-Element akzeptiert auch mehrere Attribute, die bei Formular-`<input>`s üblich sind, wie `autocapitalize`, `autocomplete`, `autofocus`, `disabled`, `placeholder`, `readonly` und `required`.
 
 ## Attribute
 
@@ -26,87 +26,87 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 
 - `autocapitalize`
 
-  - : Kontrolliert, ob eingegebener Text automatisch großgeschrieben wird und wenn ja, in welcher Weise. Weitere Informationen finden Sie auf der Seite zum globalen Attribut [`autocapitalize`](/de/docs/Web/HTML/Global_attributes/autocapitalize).
+  - : Steuert, ob eingegebener Text automatisch großgeschrieben wird und, falls ja, auf welche Weise. Weitere Informationen finden Sie auf der Seite des globalen Attributs [`autocapitalize`](/de/docs/Web/HTML/Global_attributes/autocapitalize).
 
 - [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)
 
-  - : Dieses Attribut gibt an, ob der Wert des Steuerfelds vom Browser automatisch vervollständigt werden kann. Mögliche Werte sind:
+  - : Dieses Attribut gibt an, ob der Wert der Steuerung automatisch vom Browser vervollständigt werden kann. Mögliche Werte sind:
 
-    - `off`: Der Benutzer muss explizit einen Wert in dieses Feld für jede Verwendung eingeben oder das Dokument bietet seine eigene Autovervollständigungsmethode; der Browser vervollständigt den Eintrag nicht automatisch.
-    - `on`: Der Browser kann den Wert basierend auf Werten automatisch vervollständigen, die der Benutzer bei früheren Verwendungen eingegeben hat.
-    - [`<token-list>`](/de/docs/Web/HTML/Attributes/autocomplete#token_list_tokens): Eine geordnete Menge von Leerzeichen-getrennten Autofill-Detail-Token, optional vorangestellt durch ein Sektions-Token, ein Abrechnungs- oder Versandgruppen-Token und/oder ein Token, das den Typ des Empfängers identifiziert.
+    - `off`: Der Benutzer muss für jede Verwendung explizit einen Wert in dieses Feld eingeben, oder das Dokument stellt seine eigene Autovervollständigungsmethode bereit; der Browser vervollständigt die Eingabe nicht automatisch.
+    - `on`: Der Browser kann den Wert basierend auf den Werten, die der Benutzer bei früheren Verwendungen eingegeben hat, automatisch vervollständigen.
+    - [`<token-list>`](/de/docs/Web/HTML/Attributes/autocomplete#token_list_tokens): Ein geordneter Satz von durch Leerzeichen getrennten Autofill-Detail-Token, möglicherweise vorangestellt durch ein Abschnitts-Token, ein Rechnungs- oder Versandgruppen-Token und/oder ein Token, das den Typ des Empfängers identifiziert.
 
-    `<textarea>` Elemente, die das `autocomplete` Attribut nicht spezifizieren, erben den `autocomplete` `on` oder `off` Status des Formularbesitzers des `<textarea>`. Der Formularbesitzer ist entweder das {{HTMLElement("form")}} Element, von dem dieses `<textarea>` Element ein Nachfahre ist, oder das Formularelement, dessen `id` durch das `form` Attribut des Input-Elements angegeben ist. Weitere Informationen finden Sie im Attribut [`autocomplete`](/de/docs/Web/HTML/Element/form#autocomplete) in {{HTMLElement("form")}}.
+    `textarea`-Elemente, die das `autocomplete`-Attribut nicht angeben, erben den Status `on` oder `off`, der beim Formularbesitzer des `<textarea>` gesetzt ist. Der Formularbesitzer ist entweder das {{HTMLElement("form")}}-Element, dessen Nachfolger dieses `<textarea>`-Element ist, oder das Formularelement, dessen `id` durch das `form`-Attribut des Eingangselements angegeben wurde. Weitere Informationen finden Sie im [`autocomplete`-Attribut](/de/docs/Web/HTML/Element/form#autocomplete) in {{HTMLElement("form")}}.
 
 - `autocorrect` {{non-standard_inline}}
 
-  - : Ein String, der angibt, ob die automatische Rechtschreibkorrektur und Textsubstitutionen (falls konfiguriert) aktiviert werden sollen, während der Benutzer dieses `textarea` bearbeitet. Erlaubte Werte sind:
+  - : Ein String, der angibt, ob die automatische Rechtschreibkorrektur und die Verarbeitung von Textsubstitutionen (sofern konfiguriert) aktiviert werden sollen, während der Benutzer dieses `textarea` bearbeitet. Erlaubte Werte sind:
 
     - `on`
-      - : Aktiviert automatische Rechtschreibkorrektur und Textsubstitutionen.
+      - : Automatische Rechtschreibkorrektur und Textsubstitutionen aktivieren.
     - `off`
-      - : Deaktiviert automatische Rechtschreibkorrektur und Textsubstitutionen.
+      - : Automatische Rechtschreibkorrektur und Textsubstitutionen deaktivieren.
 
 - `autofocus`
-  - : Dieses boolesche Attribut lässt Sie angeben, dass ein Formularelement bei Laden der Seite den Eingabefokus haben soll. Nur ein formularassoziiertes Element in einem Dokument kann dieses Attribut spezifiziert haben.
+  - : Dieses boolesche Attribut ermöglicht es, dass ein Formularelement beim Laden der Seite den Eingabefokus erhält. Es kann nur ein Formular-zugehöriges Element in einem Dokument dieses Attribut spezifiziert haben.
 - `cols`
-  - : Die sichtbare Breite des Textsteuerelements in durchschnittlichen Zeichenbreiten. Wenn es spezifiziert ist, muss es eine positive Ganzzahl sein. Wenn es nicht spezifiziert ist, beträgt der Standardwert `20`.
+  - : Die sichtbare Breite der Textsteuerung in durchschnittlichen Zeichenbreiten. Wenn es angegeben ist, muss es eine positive ganze Zahl sein. Wenn es nicht angegeben ist, beträgt der Standardwert `20`.
 - [`dirname`](/de/docs/Web/HTML/Attributes/dirname)
-  - : Dieses Attribut wird verwendet, um die Textausrichtung der Elementinhalte anzugeben. Weitere Informationen finden Sie im Attribut [`dirname`](/de/docs/Web/HTML/Attributes/dirname).
+  - : Dieses Attribut wird verwendet, um die Textrichtung des Inhalts des Elements anzuzeigen. Weitere Informationen finden Sie auf der Seite des [`dirname`-Attributs](/de/docs/Web/HTML/Attributes/dirname).
 - [`disabled`](/de/docs/Web/HTML/Attributes/disabled)
-  - : Dieses boolesche Attribut zeigt an, dass der Benutzer nicht mit dem Steuerelement interagieren kann. Wenn dieses Attribut nicht angegeben ist, erbt das Steuerelement seine Einstellung vom enthaltenden Element, zum Beispiel {{ HTMLElement("fieldset") }}; wenn es kein enthaltendes Element gibt, wenn das `disabled` Attribut gesetzt ist, wird das Steuerelement aktiviert.
+  - : Dieses boolesche Attribut zeigt an, dass der Benutzer nicht mit der Steuerung interagieren kann. Wenn dieses Attribut nicht angegeben ist, erbt die Steuerung ihre Einstellung vom umgebenden Element, z.B. {{ HTMLElement("fieldset")}}; wenn kein umgebendes Element existiert, wenn das `disabled`-Attribut gesetzt ist, wird die Steuerung aktiviert.
 - `form`
-  - : Das Formularelement, dem das `<textarea>` Element zugeordnet ist (sein "Formularbesitzer"). Der Wert des Attributs muss die `id` eines Formularelements im selben Dokument sein. Wenn dieses Attribut nicht angegeben ist, muss das `<textarea>` Element ein Nachfahre eines Formularelements sein. Dieses Attribut ermöglicht es Ihnen, `<textarea>` Elemente überall innerhalb eines Dokuments zu platzieren, nicht nur als Nachkommen von Formularelementen.
+  - : Das Formular-Element, mit dem das `<textarea>`-Element verbunden ist (sein "Formularbesitzer"). Der Wert des Attributs muss die `id` eines Formular-Elements im selben Dokument sein. Ist dieses Attribut nicht angegeben, muss das `<textarea>`-Element ein Nachfolger eines Formular-Elements sein. Dieses Attribut ermöglicht es Ihnen, `<textarea>`-Elemente überall im Dokument zu platzieren, nicht nur als Nachfolger von Formular-Elementen.
 - [`maxlength`](/de/docs/Web/HTML/Attributes/maxlength)
-  - : Die maximale Zeichenlänge (gemessen in UTF-16 Codeeinheiten), die der Benutzer eingeben kann. Wenn dieser Wert nicht angegeben ist, kann der Benutzer eine unbegrenzte Anzahl von Zeichen eingeben.
+  - : Die maximale Zeichenlänge (gemessen in UTF-16-Codeeinheiten), die der Benutzer eingeben kann. Wenn dieser Wert nicht angegeben ist, kann der Benutzer eine unbegrenzte Anzahl von Zeichen eingeben.
 - [`minlength`](/de/docs/Web/HTML/Attributes/minlength)
-  - : Die minimale Zeichenlänge (gemessen in UTF-16 Codeeinheiten), die der Benutzer eingeben sollte.
+  - : Die minimal erforderliche Zeichenlänge (gemessen in UTF-16-Codeeinheiten), die der Benutzer eingeben soll.
 - `name`
-  - : Der Name des Steuerelements.
+  - : Der Name der Steuerung.
 - [`placeholder`](/de/docs/Web/HTML/Attributes/placeholder)
 
-  - : Ein Hinweis für den Benutzer, was in das Steuerelement eingegeben werden kann. Zeilenumbrüche oder Zeilenvorschübe innerhalb des Platzhalters müssen als Zeilenumbrüche behandelt werden, wenn der Hinweis angezeigt wird.
+  - : Ein Hinweis für den Benutzer, was in die Steuerung eingegeben werden kann. Wagenrücklauf oder Zeilenumbruch innerhalb des Platzhaltertextes müssen als Zeilenumbrüche behandelt werden, wenn der Hinweis gerendert wird.
 
     > [!NOTE]
-    > Platzhalter sollten nur verwendet werden, um ein Beispiel des Datentyps zu zeigen, der in ein Formular eingegeben werden sollte; sie sind _kein_ Ersatz für ein ordentliches {{HTMLElement("label")}} Element, das mit der Eingabe verbunden ist. Siehe [`<input>` labels](/de/docs/Web/HTML/Element/input#labels) für eine ausführliche Erklärung.
+    > Platzhalter sollten nur verwendet werden, um ein Beispiel für die Art von Daten zu zeigen, die in ein Formular eingegeben werden sollten; sie sind _kein_ Ersatz für ein richtiges {{HTMLElement("label")}}-Element, das mit der Eingabe verbunden ist. Sehen Sie sich [`<input>`-Labels](/de/docs/Web/HTML/Element/input#labels) für eine vollständige Erklärung an.
 
 - [`readonly`](/de/docs/Web/HTML/Attributes/readonly)
-  - : Dieses boolesche Attribut zeigt an, dass der Benutzer den Wert des Steuerelements nicht ändern kann. Im Gegensatz zum `disabled` Attribut verhindert das `readonly` Attribut nicht, dass der Benutzer auf das Steuerelement klickt oder es auswählt. Der Wert eines Nur-Lese-Steuerelements wird dennoch mit dem Formular abgesendet.
+  - : Dieses boolesche Attribut zeigt an, dass der Benutzer den Wert der Steuerung nicht ändern kann. Im Gegensatz zum `disabled`-Attribut verhindert das `readonly`-Attribut nicht, dass der Benutzer auf die Steuerung klickt oder sie auswählt. Der Wert einer schreibgeschützten Steuerung wird dennoch mit dem Formular übermittelt.
 - [`required`](/de/docs/Web/HTML/Attributes/required)
-  - : Dieses Attribut spezifiziert, dass der Benutzer einen Wert eingeben muss, bevor ein Formular abgesendet werden kann.
+  - : Dieses Attribut gibt an, dass der Benutzer einen Wert eingeben muss, bevor er ein Formular absendet.
 - `rows`
-  - : Die Anzahl der sichtbaren Textzeilen für das Steuerelement. Wenn es spezifiziert ist, muss es eine positive Ganzzahl sein. Wenn es nicht spezifiziert ist, beträgt der Standardwert 2.
+  - : Die Anzahl der sichtbaren Textzeilen für die Steuerung. Wenn es angegeben ist, muss es eine positive ganze Zahl sein. Wenn es nicht angegeben ist, beträgt der Standardwert 2.
 - [`spellcheck`](/de/docs/Web/HTML/Global_attributes#spellcheck)
 
-  - : Gibt an, ob das `<textarea>` der Rechtschreibprüfung durch den zugrundeliegenden Browser/OS unterliegt. Der Wert kann sein:
+  - : Gibt an, ob das `<textarea>` einer Rechtschreibprüfung durch den zugrunde liegenden Browser/Betriebssystem unterliegt. Der Wert kann sein:
 
     - `true`: Gibt an, dass das Element auf Rechtschreibung und Grammatik überprüft werden muss.
-    - `default`: Gibt an, dass das Element gemäß einem Standardverhalten agieren soll, möglicherweise basierend auf dem `spellcheck`-Wert des übergeordneten Elements.
+    - `default`: Gibt an, dass das Element entsprechend einem Standardverhalten handeln soll, möglicherweise basierend auf dem `spellcheck`-Wert des übergeordneten Elements.
     - `false`: Gibt an, dass das Element nicht auf Rechtschreibung überprüft werden soll.
 
 - `wrap`
 
-  - : Gibt an, wie das Steuerelement den Wert für die Formularübertragung umbrechen soll. Mögliche Werte sind:
+  - : Gibt an, wie die Steuerung den Wert zur Formularübermittlung umschließen soll. Mögliche Werte sind:
 
-    - `hard`: Der Browser fügt automatisch Zeilenumbrüche (CR+LF) ein, sodass jede Zeile nicht länger als die Breite des Steuerelements ist; das [`cols`](#cols) Attribut muss spezifiziert sein, damit dies wirksam wird.
-    - `soft`: Der Browser stellt sicher, dass alle Zeilenumbrüche im eingegebenen Wert ein `CR+LF`-Paar sind, aber es werden keine zusätzlichen Zeilenumbrüche in den Wert eingefügt.
-    - `off` {{non-standard_inline}}: Wie `soft`, aber ändert das Erscheinungsbild in `white-space: pre`, sodass Zeilenabschnitte, die die `cols` überschreiten, nicht umgebrochen werden und das `<textarea>` horizontal scrollbar wird.
+    - `hard`: Der Browser fügt Zeilenumbrüche (CR+LF) automatisch ein, so dass jede Zeile nicht länger als die Breite der Steuerung ist; das [`cols`](#cols)-Attribut muss angegeben sein, damit dies wirksam wird.
+    - `soft`: Der Browser stellt sicher, dass alle Zeilenumbrüche im eingegebenen Wert ein `CR+LF`-Paar sind, aber es werden keine zusätzlichen Zeilenumbrüche zum Wert hinzugefügt.
+    - `off` {{non-standard_inline}}: Wie `soft`, jedoch ändert sich das Erscheinungsbild zu `white-space: pre`, sodass Zeilenabschnitte, die `cols` überschreiten, nicht umbrochen werden und das `<textarea>` horizontal scrollbar wird.
 
     Wenn dieses Attribut nicht angegeben ist, ist `soft` der Standardwert.
 
 ## Styling mit CSS
 
-`<textarea>` ist ein [ersetztes Element](/de/docs/Web/CSS/Replaced_element) — es hat intrinsische Dimensionen, wie ein Rasterbild. Standardmäßig ist sein {{cssxref("display")}} Wert `inline-block`. Im Vergleich zu anderen Formularelementen ist es relativ einfach zu stylen, wobei sein Box-Modell, seine Schriftarten, Farbpaletten usw. mit regulärem CSS leicht manipulierbar sind.
+`<textarea>` ist ein [ersetztes Element](/de/docs/Web/CSS/Replaced_element) — es hat intrinsische Abmessungen, ähnlich einem Rasterbild. Standardmäßig hat es den {{cssxref("display")}}-Wert `inline-block`. Im Vergleich zu anderen Formularelementen ist es relativ einfach zu stylen, da man sein Box-Modell, die Schriftarten, das Farbschema usw. mithilfe normaler CSS-Regeln leicht anpassen kann.
 
 [Styling von HTML-Formularen](/de/docs/Learn/Forms/Styling_web_forms) bietet einige nützliche Tipps zum Stylen von `<textarea>`s.
 
-### Inkonsistenz der Basislinie
+### Grundlinien-Inkonsistenz
 
-Die HTML-Spezifikation definiert nicht, wo die Basislinie eines `<textarea>` ist, daher setzen verschiedene Browser sie an unterschiedlichen Positionen. Bei Gecko wird die `<textarea>`-Basislinie auf der Basislinie der ersten Zeile des Textareas gesetzt, bei einem anderen Browser könnte sie am unteren Rand des `<textarea>`-Rahmens gesetzt sein. Verwenden Sie nicht {{cssxref("vertical-align", "vertical-align: baseline")}} darauf; das Verhalten ist unvorhersehbar.
+Die HTML-Spezifikation definiert nicht, wo die Grundlinie eines `<textarea>` ist, daher setzen verschiedene Browser sie an unterschiedliche Positionen. Für Gecko wird die `<textarea>`-Grundlinie auf die Grundlinie der ersten Zeile des Textareas gesetzt; in einem anderen Browser kann sie am unteren Rand des `<textarea>`-Rahmens gesetzt sein. Verwenden Sie nicht {{cssxref("vertical-align", "vertical-align: baseline")}} darauf; das Verhalten ist unvorhersehbar.
 
-### Steuerung, ob ein Textarea veränderbar ist
+### Steuerung der Größenanpassbarkeit eines Textareas
 
-In den meisten Browsern sind `<textarea>`s veränderbar — Sie werden den Ziehgriff in der rechten unteren Ecke bemerken, der zum Ändern der Größe des Elements auf der Seite verwendet werden kann. Dies wird durch die {{ cssxref("resize") }} CSS-Eigenschaft gesteuert — das Resizing ist standardmäßig aktiviert, aber Sie können es explizit deaktivieren, indem Sie einen `resize` Wert von `none` verwenden:
+In den meisten Browsern sind `<textarea>`s größenanpassbar — Sie bemerken den Ziehgriff in der rechten unteren Ecke, mit dem Sie die Größe des Elements auf der Seite verändern können. Dies wird durch die {{ cssxref("resize") }} CSS-Eigenschaft gesteuert — das Anpassen ist standardmäßig aktiviert, aber Sie können es explizit deaktivieren, indem Sie einen `resize`-Wert von `none` verwenden:
 
 ```css
 textarea {
@@ -114,9 +114,9 @@ textarea {
 }
 ```
 
-### Styling von gültigen und ungültigen Werten
+### Styling gültiger und ungültiger Werte
 
-Gültige und ungültige Werte eines `<textarea>` Elements (z. B. diejenigen innerhalb und außerhalb der durch `minlength`, `maxlength` oder `required` gesetzten Grenzen) können unter Verwendung der Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}} hervorgehoben werden. Zum Beispiel, um Ihrer Textarea je nach Gültigkeit einen anderen Rand zu geben:
+Gültige und ungültige Werte eines `<textarea>`-Elements (z.B. solche, die innerhalb und außerhalb der durch `minlength`, `maxlength` oder `required` gesetzten Grenzen liegen) können mit den Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}} hervorgehoben werden. Beispielsweise können Sie Ihrem Textarea einen anderen Rahmen geben, abhängig davon, ob es gültig oder ungültig ist:
 
 ```css
 textarea:invalid {
@@ -130,9 +130,9 @@ textarea:valid {
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
-Das folgende Beispiel zeigt eine Textarea mit einer festgelegten Anzahl von Zeilen und Spalten, etwas Standardinhalt und CSS-Stilen, die verhindern, dass Benutzer das Element auf mehr als 500px in der Breite und 130px in der Höhe vergrößern können:
+Das folgende Beispiel zeigt ein Textarea mit einer festgelegten Anzahl von Zeilen und Spalten, etwas Standardinhalt und CSS-Stilen, die verhindern, dass Benutzer das Element auf mehr als 500 Pixel Breite und 130 Pixel Höhe anpassen:
 
 ```html
 <textarea name="textarea" rows="5" cols="15">Write something here</textarea>
@@ -151,7 +151,7 @@ textarea {
 
 ### Beispiel mit "minlength" und "maxlength"
 
-Dieses Beispiel hat eine Mindest- und Höchstanzahl von Zeichen — von 10 bzw. 20. Probieren Sie es aus.
+Dieses Beispiel hat eine minimale und maximale Anzahl von Zeichen — von 10 bzw. 20. Testen Sie es und sehen Sie.
 
 ```html
 <textarea name="textarea" rows="5" cols="30" minlength="10" maxlength="20">
@@ -170,7 +170,7 @@ textarea {
 
 {{EmbedLiveSample('Example using "minlength" and "maxlength"')}}
 
-Beachten Sie, dass `minlength` den Benutzer nicht daran hindert, Zeichen zu entfernen, sodass die eingegebene Anzahl unter das Minimum fällt, aber es macht den eingegebenen Wert der `<textarea>` ungültig. Beachten Sie auch, dass selbst wenn Sie einen `minlength` Wert festgelegt haben (z. B. 3), ein leeres `<textarea>` immer noch als gültig betrachtet wird, es sei denn, Sie haben auch das `required` Attribut gesetzt.
+Beachten Sie, dass `minlength` den Benutzer nicht daran hindert, Zeichen zu entfernen, sodass die Anzahl der eingegebenen Zeichen unter das Minimum fällt, aber es macht den in das `<textarea>` eingegebenen Wert ungültig. Beachten Sie auch, dass ein `<textarea>` selbst dann als gültig betrachtet wird, wenn mit einem `minlength`-Wert von (z.B. 3) konfiguriert, es sei denn, Sie haben auch das `required`-Attribut gesetzt.
 
 ### Beispiel mit "placeholder"
 
@@ -196,13 +196,13 @@ textarea {
 {{EmbedLiveSample('Example using "placeholder"')}}
 
 > [!NOTE]
-> Platzhalter sollten nur verwendet werden, um ein Beispiel des Datentyps zu zeigen, der in ein Formular eingegeben werden sollte; sie sind _kein_ Ersatz für ein ordentliches {{HTMLElement("label")}} Element, das mit der Eingabe verbunden ist. Siehe [`<input>` labels](/de/docs/Web/HTML/Element/input#labels) für eine ausführliche Erklärung.
+> Platzhalter sollten nur verwendet werden, um ein Beispiel für die Art von Daten zu zeigen, die in ein Formular eingegeben werden sollten; sie sind _kein_ Ersatz für ein richtiges {{HTMLElement("label")}}-Element, das mit der Eingabe verbunden ist. Sehen Sie sich [`<input>`-Labels](/de/docs/Web/HTML/Element/input#labels) für eine vollständige Erklärung an.
 
 ### Deaktivierte und schreibgeschützte Textareas
 
-Dieses Beispiel zeigt zwei `<textarea>`s — eine ist [`readonly`](/de/docs/Web/HTML/Attributes/readonly) und eine ist [`disabled`](/de/docs/Web/HTML/Attributes/disabled).
-Sie können den Inhalt keines der beiden Elemente bearbeiten, aber das `readonly` Element ist fokussierbar und sein Wert wird in Formularen eingesendet.
-Der Wert des `disabled` Elements wird nicht eingesendet und es ist nicht fokussierbar.
+Dieses Beispiel zeigt zwei `<textarea>`s — eines ist [`readonly`](/de/docs/Web/HTML/Attributes/readonly) und eines ist [`disabled`](/de/docs/Web/HTML/Attributes/disabled).
+Sie können den Inhalt keines der beiden Elemente bearbeiten, aber das `readonly`-Element ist fokussierbar und sein Wert wird in Formularen übermittelt.
+Der Wert des `disabled`-Elements wird nicht übermittelt und es ist nicht fokussierbar.
 
 ```html
 <textarea name="textarea" rows="5" cols="30" readonly>
@@ -237,29 +237,28 @@ textarea {
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließende Inhalte</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierung von Inhalten</a
         >,
-        <a
-          href="/de/docs/Web/HTML/Content_categories#interactive_content"
-          >Interaktiver Inhalt</a
+        <a href="/de/docs/Web/HTML/Content_categories#interactive_content"
+          >Interaktive Inhalte</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#form_listed"
-          >gelisteter Inhalt</a
+          >gelistet</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#form_labelable"
-          >etikettierter Inhalt</a
+          >kennzeichnend</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#form_resettable"
-          >zurücksetzbarer Inhalt</a
+          >zurücksetzbar</a
         >, und
         <a href="/de/docs/Web/HTML/Content_categories#form_submittable"
-          >übermittelbarer Inhalt</a
+          >übermittelbar</a
         >
         <a href="/de/docs/Web/HTML/Content_categories#form-associated_"
-          >formular-assoziiertes</a
+          >formularassoziiertes</a
         >
         Element.
       </td>
@@ -270,14 +269,14 @@ textarea {
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phraseninhalt</a
+          >Phrasierungsinhalt</a
         >
         akzeptiert.
       </td>
@@ -287,7 +286,7 @@ textarea {
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/textbox_role"
-            >textbox</a
+            >Textbox</a
           ></code
         >
       </td>
@@ -298,7 +297,7 @@ textarea {
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLTextAreaElement")}}</td>
+      <td>[`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)</td>
     </tr>
   </tbody>
 </table>

@@ -7,10 +7,10 @@ l10n:
 
 {{AddonSidebar}}
 
-Erweiterungen, die WebExtension-APIs verwenden, bieten mehrere Benutzeroberflächenoptionen, damit ihre Funktionalität dem Benutzer verfügbar gemacht werden kann. Eine Zusammenfassung dieser Optionen finden Sie unten, mit einer ausführlicheren Einführung zu jeder Benutzeroberflächenoption in diesem Abschnitt.
+Erweiterungen, die WebExtension-APIs verwenden, bieten verschiedene Benutzeroberflächen-Optionen, damit deren Funktionalität den Benutzern zur Verfügung gestellt werden kann. Eine Zusammenfassung dieser Optionen wird unten bereitgestellt, mit einer detaillierteren Einführung zu jeder Benutzeroberflächen-Option in diesem Abschnitt.
 
 > [!NOTE]
-> Für Ratschläge zur Verwendung dieser UI-Komponenten, um eine großartige Benutzererfahrung in Ihrer Erweiterung zu schaffen, lesen Sie bitte den Artikel zu den [Best Practices der Benutzererfahrung](https://extensionworkshop.com/documentation/develop/user-experience-best-practices/).
+> Für Ratschläge zur Verwendung dieser UI-Komponenten, um ein großartiges Benutzererlebnis in Ihrer Erweiterung zu schaffen, lesen Sie bitte den Artikel [Best Practices für Benutzererfahrung](https://extensionworkshop.com/documentation/develop/user-experience-best-practices/).
 
 <table class="standard-table">
   <thead>
@@ -25,37 +25,34 @@ Erweiterungen, die WebExtension-APIs verwenden, bieten mehrere Benutzeroberfläc
       <td>
         <a
           href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button"
-          >Toolbar-Button</a
+          >Symbolleisten-Schaltfläche</a
         >
-        (Browseraktion)
+        (browser action)
       </td>
       <td>
-        Ein Button in der Browser-Toolbar, der beim Klicken ein Ereignis an die
-        Erweiterung sendet. Standardmäßig ist der Button in allen Tabs sichtbar.
+        Eine Schaltfläche auf der Browser-Symbolleiste, die ein Ereignis an die Erweiterung sendet, wenn sie angeklickt wird. Standardmäßig ist die Schaltfläche in allen Tabs sichtbar.
       </td>
       <td>
         <img
-          alt="Beispiel, das einen Toolbar-Button (Browseraktion) zeigt."
+          alt="Beispiel einer Symbolleisten-Schaltfläche (browser action)."
           src="browser-action.png"
         />
       </td>
     </tr>
     <tr>
       <td>
-        Toolbar-Button mit einem
+        Symbolleisten-Schaltfläche mit einem
         <a
           href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups"
           >Popup</a
         >
       </td>
       <td>
-        Ein Popup auf einem Button in der Browser-Toolbar, das geöffnet wird, wenn der Button
-        geklickt wird. Das Popup ist in einem HTML-Dokument definiert, das die Benutzerinteraktion
-        verarbeitet.
+        Ein Popup auf einer Schaltfläche in der Browser-Symbolleiste, das sich öffnet, wenn die Schaltfläche angeklickt wird. Das Popup wird in einem HTML-Dokument definiert, das die Benutzerinteraktion verarbeitet.
       </td>
       <td>
         <img
-          alt="Beispiel des Pop-ups auf einem Toolbar-Button"
+          alt="Beispiel eines Pop-ups auf einer Symbolleisten-Schaltfläche"
           src="popup-shadow.png"
         />
       </td>
@@ -64,37 +61,34 @@ Erweiterungen, die WebExtension-APIs verwenden, bieten mehrere Benutzeroberfläc
       <td>
         <a
           href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions"
-          >Adressleisten-Button</a
+          >Adressleisten-Schaltfläche</a
         >
-        (Seitenaktion)
+        (page action)
       </td>
       <td>
-        Ein Button in der Adressleiste des Browsers, der beim Klicken ein Ereignis an die
-        Erweiterung sendet. Standardmäßig ist der Button in allen Tabs verborgen.
+        Eine Schaltfläche in der Browser-Adressleiste, die ein Ereignis an die Erweiterung sendet, wenn sie angeklickt wird. Standardmäßig ist die Schaltfläche in allen Tabs verborgen.
       </td>
       <td>
         <img
-          alt="Beispiel, das einen Adressleisten-Button (Seitenaktion) zeigt"
+          alt="Beispiel einer Adressleisten-Schaltfläche (page action)"
           src="address_bar_button.png"
         />
       </td>
     </tr>
     <tr>
       <td>
-        Adressleisten-Button mit einem
+        Adressleisten-Schaltfläche mit einem
         <a
           href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups"
           >Popup</a
         >
       </td>
       <td>
-        Ein Popup auf einem Button in der Adressleiste des Browsers, das geöffnet wird, wenn der
-        Button geklickt wird. Das Popup ist in einem HTML-Dokument definiert, das die
-        Benutzerinteraktion verarbeitet.
+        Ein Popup auf einer Schaltfläche in der Browser-Adressleiste, das sich öffnet, wenn die Schaltfläche angeklickt wird. Das Popup wird in einem HTML-Dokument definiert, das die Benutzerinteraktion verarbeitet.
       </td>
       <td>
         <img
-          alt="Beispiel eines Popups auf dem Adressleisten-Button"
+          alt="Beispiel eines Pop-ups auf der Adressleisten-Schaltfläche"
           src="page_action_popup.png"
         />
       </td>
@@ -103,18 +97,15 @@ Erweiterungen, die WebExtension-APIs verwenden, bieten mehrere Benutzeroberfläc
       <td>
         <a
           href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Context_menu_items"
-          >Kontextmenü-Eintrag</a
+          >Kontextmenüeintrag</a
         >
       </td>
       <td>
-        Menüeinträge, Kontrollkästchen und Optionsfelder in einem oder mehreren
-        Kontextmenüs des Browsers. Zudem können Menüs durch das Hinzufügen von
-        Trennlinien strukturiert werden. Wenn Menüeinträge angeklickt werden, wird ein Ereignis
-        an die Erweiterung gesendet.
+        Menüeinträge, Kontrollkästchen und Optionsfelder in einem oder mehreren Kontextmenüs des Browsers. Menüs können auch durch Trennlinien strukturiert werden. Wenn Menüeinträge angeklickt werden, wird ein Ereignis an die Erweiterung gesendet.
       </td>
       <td>
         <img
-          alt="Beispiel von Kontextmenü-Einträgen, die von einer WebExtension hinzugefügt wurden, aus dem Kontextmenü-Demo-Beispiel"
+          alt="Beispiel von Kontextmenüeinträgen, die von einer WebExtension hinzugefügt wurden, aus dem Kontextmenü-Demo-Beispiel"
           src="context_menu_example.png"
         />
       </td>
@@ -128,11 +119,7 @@ Erweiterungen, die WebExtension-APIs verwenden, bieten mehrere Benutzeroberfläc
       </td>
       <td>
         <p>
-          Ein HTML-Dokument, das neben einer Webseite angezeigt wird, mit der Möglichkeit für
-          einzigartigen Inhalt pro Seite. Die Seitenleiste wird geöffnet, wenn die
-          Erweiterung installiert ist, und berücksichtigt dann die
-          Sichtbarkeitsauswahl des Benutzers für die Seitenleiste. Die Benutzerinteraktion innerhalb
-          der Seitenleiste wird durch ihr HTML-Dokument verarbeitet.
+          Ein HTML-Dokument, das neben einer Webseite angezeigt wird, mit der Option für einzigartigen Inhalt pro Seite. Die Seitenleiste wird geöffnet, wenn die Erweiterung installiert wird und befolgt dann die Sichtbarkeitseinstellungen der Benutzer. Die Benutzerinteraktion innerhalb der Seitenleiste wird durch das HTML-Dokument verarbeitet.
         </p>
       </td>
       <td><img alt="Beispiel einer Seitenleiste" src="bookmarks-sidebar.png" /></td>
@@ -141,17 +128,15 @@ Erweiterungen, die WebExtension-APIs verwenden, bieten mehrere Benutzeroberfläc
       <td>
         <a
           href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages"
-          >Optionsseite</a
+          >Einstellungsseite</a
         >
       </td>
       <td>
-        Eine Seite, die es Ihnen ermöglicht, Präferenzen für Ihre Erweiterung zu definieren, die
-        Ihre Benutzer ändern können. Der Benutzer kann auf diese Seite über den Add-ons-Manager
-        des Browsers zugreifen.
+        Eine Seite, auf der Sie Präferenzen für Ihre Erweiterung definieren können, die Ihre Benutzer ändern können. Der Benutzer kann auf diese Seite über den Add-ons-Manager des Browsers zugreifen.
       </td>
       <td>
         <img
-          alt="Beispiel, das den Optionsseiteninhalt zeigt, der im Beispiel der Lieblingsfarben hinzugefügt wurde."
+          alt="Beispiel des Inhalts der Einstellungen-Seite, hinzugefügt im Beispiel für Lieblingsfarben."
           src="options_page.png"
         />
       </td>
@@ -164,12 +149,11 @@ Erweiterungen, die WebExtension-APIs verwenden, bieten mehrere Benutzeroberfläc
         >
       </td>
       <td>
-        Verwenden Sie in Ihrer Erweiterung enthaltene Webseiten, um Formulare, Hilfe oder
-        jeglichen anderen benötigten Inhalt innerhalb von Fenstern oder Tabs bereitzustellen.
+        Verwenden Sie Webseiten, die in Ihrer Erweiterung enthalten sind, um Formulare, Hilfe oder andere benötigte Inhalte innerhalb von Fenstern oder Tabs bereitzustellen.
       </td>
       <td>
         <img
-          alt="Beispiel einer einfachen gebündelten Seite, die als separates Panel angezeigt wird."
+          alt="Beispiel einer einfachen gebündelten Seite, die als abgetrenntes Panel angezeigt wird."
           src="bundled_page_as_panel_small.png"
         />
       </td>
@@ -182,14 +166,11 @@ Erweiterungen, die WebExtension-APIs verwenden, bieten mehrere Benutzeroberfläc
         >
       </td>
       <td>
-        Vorübergehende Benachrichtigungen, die dem Benutzer über den
-        Benachrichtigungsmechanismus des zugrunde liegenden Betriebssystems angezeigt werden. Sendet
-        ein Ereignis an die Erweiterung, wenn der Benutzer auf eine Benachrichtigung klickt oder wenn
-        eine Benachrichtigung schließt (entweder automatisch oder auf Wunsch des Benutzers).
+        Temporäre Benachrichtigungen, die dem Benutzer über den Benachrichtigungsmechanismus des zugrundeliegenden Betriebssystems angezeigt werden. Sendet ein Ereignis an die Erweiterung, wenn der Benutzer auf eine Benachrichtigung klickt oder wenn eine Benachrichtigung geschlossen wird (entweder automatisch oder auf Wunsch des Benutzers).
       </td>
       <td>
         <img
-          alt="Beispiel einer von einer Erweiterung ausgelösten Systembenachrichtigung"
+          alt="Beispiel einer durch eine Erweiterung ausgelösten Systembenachrichtigung"
           src="notify-shadowed.png"
         />
       </td>
@@ -202,12 +183,11 @@ Erweiterungen, die WebExtension-APIs verwenden, bieten mehrere Benutzeroberfläc
         >
       </td>
       <td>
-        Bieten Sie benutzerdefinierte Vorschläge für die Adressleiste an, wenn der Benutzer ein
-        Schlüsselwort eingibt.
+        Bieten Sie benutzerdefinierte Adressleiste-Vorschläge an, wenn der Benutzer ein Schlüsselwort eingibt.
       </td>
       <td>
         <img
-          alt="Beispiel, das das Ergebnis der Anpassung der Adressleistensuche durch die firefox_code_search WebExtension zeigt."
+          alt="Beispiel, das das Ergebnis der Anpassung der Adressleisten-Vorschläge durch die WebExtension firefox_code_search zeigt."
           src="omnibox_example_small.png"
         />
       </td>
@@ -216,12 +196,11 @@ Erweiterungen, die WebExtension-APIs verwenden, bieten mehrere Benutzeroberfläc
       <td>
         <a
           href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/devtools_panels"
-          >Entwicklerwerkzeuge-Panel</a
+          >Entwicklerwerkzeug-Panel</a
         >
       </td>
       <td>
-        Ein Tab mit einem zugeordneten HTML-Dokument, das in den Entwicklerwerkzeugen des Browsers
-        angezeigt wird.
+        Ein Tab mit einem zugeordneten HTML-Dokument, das in den Entwicklerwerkzeugen des Browsers angezeigt wird.
       </td>
       <td>
         <img
@@ -233,10 +212,10 @@ Erweiterungen, die WebExtension-APIs verwenden, bieten mehrere Benutzeroberfläc
   </tbody>
 </table>
 
-Die folgenden Anleitungen bieten Schritt-für-Schritt-Anleitungen zur Erstellung einiger dieser Benutzeroberflächenoptionen:
+Die folgenden Anleitungen bieten schrittweise Anweisungen zum Erstellen einiger dieser Benutzeroberflächen-Optionen:
 
 - [Richtlinien zur Barrierefreiheit](https://extensionworkshop.com/documentation/develop/build-an-accessible-extension/)
-- [Hinzufügen eines Buttons zur Toolbar](/de/docs/Mozilla/Add-ons/WebExtensions/Add_a_button_to_the_toolbar)
+- [Eine Schaltfläche zur Symbolleiste hinzufügen](/de/docs/Mozilla/Add-ons/WebExtensions/Add_a_button_to_the_toolbar)
 - [Browserstile](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles)
-- [Erweiterung der Entwicklerwerkzeuge](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools)
-- [Erstellen einer Einstellungsseite](/de/docs/Mozilla/Add-ons/WebExtensions/Implement_a_settings_page)
+- [Die Entwicklerwerkzeuge erweitern](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools)
+- [Eine Einstellungsseite implementieren](/de/docs/Mozilla/Add-ons/WebExtensions/Implement_a_settings_page)

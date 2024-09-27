@@ -7,19 +7,19 @@ l10n:
 
 {{AddonSidebar}}
 
-Dies ist ein String und repräsentiert den Typ der zu erstellenden Benachrichtigung. Es gibt vier Arten von Benachrichtigungen: "basic", "image", "list" und "progress".
+Dies ist ein String und repräsentiert den Typ der Benachrichtigung, die erstellt werden soll. Es gibt vier Arten von Benachrichtigungen: "basic", "image", "list", "progress".
 
-Dies wird als `type`-Eigenschaft in {{WebExtAPIRef("notifications.create()")}} und {{WebExtAPIRef("notifications.update()")}} an {{WebExtAPIRef("notifications.NotificationOptions", "NotificationOptions")}} übergeben.
+Dies wird an {{WebExtAPIRef("notifications.create()")}} und {{WebExtAPIRef("notifications.update()")}} als Eigenschaft `type` von {{WebExtAPIRef("notifications.NotificationOptions", "NotificationOptions")}} übergeben.
 
 ## Typ
 
-Die Werte dieses Typs sind Strings. Mögliche Werte sind:
+Werte dieses Typs sind Strings. Mögliche Werte sind:
 
-- `"basic"`: die Benachrichtigung umfasst:
+- `"basic"`: Die Benachrichtigung enthält:
 
   - einen Titel (`NotificationOptions.title`)
   - eine Nachricht (`NotificationOptions.message`)
-  - ein Icon (`NotificationOptions.iconUrl`) {{optional_inline}}
+  - ein Symbol (`NotificationOptions.iconUrl`) {{optional_inline}}
   - eine zusätzliche Nachricht (`NotificationOptions.contextMessage`) {{optional_inline}}
   - bis zu zwei Schaltflächen (`NotificationOptions.buttons`) {{optional_inline}}
 
@@ -33,7 +33,7 @@ Die Werte dieses Typs sind Strings. Mögliche Werte sind:
 
 - `"progress"`: alles in `"basic"` und zusätzlich:
 
-  - einen Fortschrittsindikator (`NotificationOptions.progress`)
+  - einen Fortschrittsanzeiger (`NotificationOptions.progress`)
 
 Derzeit unterstützt Firefox hier nur "basic".
 
@@ -44,4 +44,4 @@ Derzeit unterstützt Firefox hier nur "basic".
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der API [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) von Chromium.
+> Diese API basiert auf Chromiums [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API.

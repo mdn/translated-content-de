@@ -8,7 +8,7 @@ l10n:
 
 {{SecureContext_Header}}{{APIRef("Web NFC API")}}{{SeeCompatTable}}
 
-Der **`NDEFReader()`** Konstruktor der {{domxref("NDEFReader")}}-Schnittstelle gibt ein neues `NDEFReader`-Objekt zurück, das verwendet wird, um NDEF-Nachrichten von kompatiblen NFC-Geräten, z.B. NDEF-Tags, innerhalb des magnetischen Induktionsfeldes des Lesegeräts zu lesen.
+Der **`NDEFReader()`** Konstruktor der [`NDEFReader`](/de/docs/Web/API/NDEFReader) Schnittstelle gibt ein neues `NDEFReader` Objekt zurück, das verwendet wird, um NDEF-Nachrichten von kompatiblen NFC-Geräten, z.B. NDEF-Tags, innerhalb des Magnetfelds des Lesegeräts zu lesen.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neuer {{DOMxRef("NDEFReader")}}.
+Ein neues [`NDEFReader`](/de/docs/Web/API/NDEFReader).
 
 ## Spezifikationen
 

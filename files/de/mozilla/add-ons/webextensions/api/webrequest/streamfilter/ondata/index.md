@@ -7,18 +7,18 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein Event-Handler, der wiederholt aufgerufen wird, wenn Antwortdaten verfügbar sind. Dem Handler wird ein [`Event`-Objekt](/de/docs/Web/API/Event) mit einer `data`-Eigenschaft übergeben. Die `data`-Eigenschaft enthält ein Datenstück der Antwort als {{jsxref("ArrayBuffer")}}.
+Ein Ereignis-Handler, der wiederholt aufgerufen wird, wenn Antwortdaten verfügbar sind. Dem Handler wird ein [`Event`-Objekt](/de/docs/Web/API/Event) mit einer `data`-Eigenschaft übergeben. Die `data`-Eigenschaft enthält ein Datenstück der Antwort als {{jsxref("ArrayBuffer")}}.
 
-Um die Daten zu dekodieren, verwenden Sie entweder {{domxref("TextDecoder")}} oder {{domxref("Blob")}}.
+Um die Daten zu dekodieren, verwenden Sie entweder [`TextDecoder`](/de/docs/Web/API/TextDecoder) oder [`Blob`](/de/docs/Web/API/Blob).
 
-Ohne einen `ondata`-Listener erhalten Sie den ursprünglichen Antwortinhalt nicht, und der Ausgabestream bleibt leer, es sei denn, {{WebEXTAPIRef("webRequest.StreamFilter.write", "write")}} wird aufgerufen.
+Ohne einen `ondata` Listener erhalten Sie den ursprünglichen Antwortkörper nicht und der Ausgabestream ist leer, es sei denn, {{WebEXTAPIRef("webRequest.StreamFilter.write", "write")}} wird aufgerufen.
 
 ## Beispiele
 
-Dieses Beispiel fügt einen `ondata`-Listener hinzu, der "Example" in der Antwort durch "WebExtension Example" ersetzt, indem die Methode {{jsxref("String.prototype.replaceAll()", "replaceAll()")}} verwendet wird.
+Dieses Beispiel fügt einen `ondata` Listener hinzu, der "Example" in der Antwort durch "WebExtension Example" ersetzt, indem die Methode {{jsxref("String.prototype.replaceAll()", "replaceAll()")}} verwendet wird.
 
 > [!NOTE]
-> Dieses Beispiel funktioniert nur für Vorkommen von "Example", die vollständig innerhalb eines Datenstücks enthalten sind, und nicht für solche, die sich über zwei Stücke erstrecken (was bei großen Dokumenten ~0,1 % der Fälle vorkommen kann). Außerdem bezieht es sich nur auf UTF-8-kodierte Dokumente. Eine reale Implementierung müsste komplexer sein.
+> Dieses Beispiel funktioniert nur für Vorkommen von "Example", die vollständig innerhalb eines Datenstücks enthalten sind, und nicht für solche, die sich über zwei Stücke erstrecken (was bei großen Dokumenten ungefähr in 0,1 % der Fälle passieren kann). Zusätzlich behandelt es nur UTF-8-kodierte Dokumente. Eine echte Implementierung müsste komplexer sein.
 
 ```js
 function listener(details) {
@@ -28,17 +28,17 @@ function listener(details) {
 
   filter.ondata = (event) => {
     let str = decoder.decode(event.data, { stream: true });
-    // Ändern Sie einfach jede Instanz von Example in der HTTP-Antwort
-    // zu WebExtension Example.
-    // Beachten Sie, dass dies möglicherweise nicht wie erwartet funktioniert, da das Ende von str auch
-    // "<h1>Examp" sein kann (weil es nicht der vollständige Antwort ist). Es ist daher besser,
-    // zuerst die vollständige Antwort zu erhalten und dann den Ersatz durchzuführen.
+    // Just change any instance of Example in the HTTP response
+    // to WebExtension Example.
+    // Note that this will maybe not work as expected because the ending of the str can also
+    // be "<h1>Examp" (because it is not the full response). So, it is better
+    // to get the full response first and then doing the replace.
     str = str.replaceAll("Example", "WebExtension Example");
     filter.write(encoder.encode(str));
-    // Wenn Sie filter.disconnect(); hier ausführen würden, würden Sie nur
-    // das erste Stück verarbeiten und den Rest unverändert durchlassen. Beachten Sie
-    // dass dies mehrbyteiger Zeichen, die an der Stückgrenze auftreten,
-    // zerstören würde!
+    // Doing filter.disconnect(); here would make us process only
+    // the first chunk, and let the rest through unchanged. Note
+    // that this would break multi-byte characters that occur on
+    // the chunk boundary!
   };
 
   filter.onstop = (event) => {
@@ -53,7 +53,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Ein weiteres Beispiel zum Umgang mit großen Dokumenten:
+Ein weiteres Beispiel für die Handhabung großer Dokumente:
 
 ```js
 function listener(details) {
@@ -76,7 +76,7 @@ function listener(details) {
         str += decoder.decode(data[i], { stream });
       }
     }
-    str = str.replaceAll("Example", "WebExtension $&");
+    str = str.replaceAll("Example", "WebExtension ![](1-e6b1889d.md)");
     filter.write(encoder.encode(str));
     filter.close();
   };
@@ -89,7 +89,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Hier ist eine weitere Version:
+Hier ist eine andere Version:
 
 ```js
 function listener(details) {
@@ -109,7 +109,7 @@ function listener(details) {
     }
     str += decoder.decode(); // end-of-stream
 
-    str = str.replaceAll("Example", "WebExtension $&");
+    str = str.replaceAll("Example", "WebExtension ![](2-29c21e23.md)");
     filter.write(encoder.encode(str));
     filter.close();
   };
@@ -139,7 +139,7 @@ function listener(details) {
     data.push(decoder.decode());
 
     let str = data.join("");
-    str = str.replaceAll("Example", "WebExtension $&");
+    str = str.replaceAll("Example", "WebExtension ![](3-2a757ac6.md)");
     filter.write(encoder.encode(str));
     filter.close();
   };
@@ -152,7 +152,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Dieses Beispiel verwendet ein {{domxref("Blob")}}:
+Dieses Beispiel verwendet ein [`Blob`](/de/docs/Web/API/Blob):
 
 ```js
 function listener(details) {
@@ -167,7 +167,7 @@ function listener(details) {
   filter.onstop = async (event) => {
     const blob = new Blob(data, { type: "text/html" });
     let str = await blob.text();
-    str = str.replaceAll("Example", "WebExtension $&");
+    str = str.replaceAll("Example", "WebExtension ![](4-5d88cc17.md)");
     filter.write(encoder.encode(str));
     filter.close();
   };
@@ -180,7 +180,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Dieses Beispiel nutzt das Interface {{domxref("DOMParser")}}:
+Dieses Beispiel nutzt die [`DOMParser`](/de/docs/Web/API/DOMParser) Schnittstelle:
 
 ```js
 function listener(details) {
@@ -199,7 +199,10 @@ function listener(details) {
     const doc = parser.parseFromString(str, blob.type);
     const nodes = doc.querySelectorAll("title, h1");
     for (const node of nodes) {
-      node.innerText = node.innerText.replaceAll("Example", "WebExtension $&");
+      node.innerText = node.innerText.replaceAll(
+        "Example",
+        "WebExtension ![](5-c22c64ab.md)",
+      );
     }
     filter.write(encoder.encode(doc.documentElement.outerHTML));
     filter.close();
@@ -213,7 +216,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Dieses Beispiel kombiniert alle Puffer in einem einzigen Puffer:
+Dieses Beispiel kombiniert alle Puffer in einen einzigen Puffer:
 
 ```js
 function listener(details) {
@@ -238,7 +241,7 @@ function listener(details) {
       writeOffset += buffer.length;
     }
     let str = decoder.decode(combinedArray);
-    str = str.replaceAll("Example", "WebExtension $&");
+    str = str.replaceAll("Example", "WebExtension ![](6-6e12caed.md)");
     filter.write(encoder.encode(str));
     filter.close();
   };
@@ -268,7 +271,7 @@ function listener(details) {
     const blob = new Blob(data, { type: "text/html" });
     const buffer = await blob.arrayBuffer();
     let str = decoder.decode(buffer);
-    str = str.replaceAll("Example", "WebExtension $&");
+    str = str.replaceAll("Example", "WebExtension ![](7-361d626d.md)");
     filter.write(encoder.encode(str));
     filter.close();
   };
@@ -281,7 +284,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Dieses Beispiel zeigt, wie man erkennt, ob es sich um das letzte Stück in der Antwort handelt:
+Dieses Beispiel zeigt, wie man erkennen kann, ob es sich um das letzte Stück in der Antwort handelt:
 
 ```js
 function listener(details) {
@@ -300,7 +303,7 @@ function listener(details) {
   };
 
   filter.onstop = (event) => {
-    str = str.replaceAll("Example", "WebExtension $&");
+    str = str.replaceAll("Example", "WebExtension ![](8-cb068d97.md)");
     filter.write(encoder.encode(str));
     filter.close();
   };

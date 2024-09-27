@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`EncodedAudioChunk`**-Schnittstelle der {{domxref('WebCodecs API','','',' ')}} repräsentiert einen Block von kodierten Audiodaten.
+Die **`EncodedAudioChunk`**-Schnittstelle der [WebCodecs-API](/de/docs/Web/API/WebCodecs_API) repräsentiert ein Stück kodierter Audiodaten.
 
 ## Konstruktor
 
-- {{domxref("EncodedAudioChunk.EncodedAudioChunk", "EncodedAudioChunk()")}}
+- [`EncodedAudioChunk()`](/de/docs/Web/API/EncodedAudioChunk/EncodedAudioChunk)
   - : Erstellt ein neues `EncodedAudioChunk`-Objekt.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("EncodedAudioChunk.type")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die angibt, ob dieser Datenblock ein Schlüsselblock ist.
-- {{domxref("EncodedAudioChunk.timestamp")}} {{ReadOnlyInline}}
-  - : Gibt eine Ganzzahl zurück, die den Zeitstempel des Audios in Mikrosekunden repräsentiert.
-- {{domxref("EncodedAudioChunk.duration")}} {{ReadOnlyInline}}
-  - : Gibt eine Ganzzahl zurück, die die Dauer des Audios in Mikrosekunden repräsentiert.
-- {{domxref("EncodedAudioChunk.byteLength")}} {{ReadOnlyInline}}
-  - : Gibt eine Ganzzahl zurück, die die Länge des Audios in Bytes repräsentiert.
+- [`EncodedAudioChunk.type`](/de/docs/Web/API/EncodedAudioChunk/type) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der angibt, ob dieser Datenblock ein Schlüsselblock ist.
+- [`EncodedAudioChunk.timestamp`](/de/docs/Web/API/EncodedAudioChunk/timestamp) {{ReadOnlyInline}}
+  - : Gibt eine Ganzzahl zurück, die den Zeitstempel des Audios in Mikrosekunden darstellt.
+- [`EncodedAudioChunk.duration`](/de/docs/Web/API/EncodedAudioChunk/duration) {{ReadOnlyInline}}
+  - : Gibt eine Ganzzahl zurück, die die Dauer des Audios in Mikrosekunden darstellt.
+- [`EncodedAudioChunk.byteLength`](/de/docs/Web/API/EncodedAudioChunk/byteLength) {{ReadOnlyInline}}
+  - : Gibt eine Ganzzahl zurück, die die Länge des Audios in Bytes darstellt.
 
 ## Instanz-Methoden
 
-- {{domxref("EncodedAudioChunk.copyTo()")}}
+- [`EncodedAudioChunk.copyTo()`](/de/docs/Web/API/EncodedAudioChunk/copyTo)
   - : Kopiert die kodierten Audiodaten.
 
 ## Spezifikationen

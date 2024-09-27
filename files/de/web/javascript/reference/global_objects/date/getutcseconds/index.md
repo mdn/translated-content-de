@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`getUTCSeconds()`** von {{jsxref("Date")}}-Instanzen gibt die Sekunden im angegebenen Datum gemäß der Weltzeit zurück.
+Die **`getUTCSeconds()`** Methode von {{jsxref("Date")}} Instanzen gibt die Sekunden des angegebenen Datums gemäß der Weltzeit zurück.
 
 {{EmbedInteractiveExample("pages/js/date-getutcseconds.html", "shorter")}}
 
@@ -23,13 +23,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert zwischen 0 und 59, der die Sekunden für das angegebene Datum gemäß Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl zwischen 0 und 59, die die Sekunden für das angegebene Datum gemäß der Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 
 ### Verwendung von getUTCSeconds()
 
-Im folgenden Beispiel wird der Sekundenanteil der aktuellen Zeit der Variablen `seconds` zugewiesen.
+Das folgende Beispiel weist der Variablen `seconds` den Sekundenanteil der aktuellen Zeit zu.
 
 ```js
 const today = new Date();

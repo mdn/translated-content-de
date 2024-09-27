@@ -8,12 +8,11 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte **`message`**-Eigenschaft des
-{{domxref("DOMException")}}-Interfaces liefert einen String, der eine Nachricht oder Beschreibung darstellt, die mit dem angegebenen [Fehlernamen](/de/docs/Web/API/DOMException#error_names) verbunden ist.
+Die **`message`** schreibgeschützte Eigenschaft der [`DOMException`](/de/docs/Web/API/DOMException)-Schnittstelle gibt einen Zeichenfolgenwert zurück, der eine Nachricht oder Beschreibung darstellt, die mit dem gegebenen [Fehlernamen](/de/docs/Web/API/DOMException#error_names) verbunden ist.
 
 ## Wert
 
-Ein String.
+Ein Zeichenfolgenwert.
 
 ## Spezifikationen
 

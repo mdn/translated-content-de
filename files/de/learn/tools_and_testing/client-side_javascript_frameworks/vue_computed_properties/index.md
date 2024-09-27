@@ -1,5 +1,5 @@
 ---
-title: Verwendung von Vue-berechneten Eigenschaften
+title: Verwenden von Vue computed properties
 slug: Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_computed_properties
 l10n:
   sourceCommit: bb026bcb88b7f45374d602301b7b0db5a49ff303
@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_styling","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_conditional_rendering", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}
 
-In diesem Artikel fügen wir einen Zähler hinzu, der die Anzahl der erledigten Aufgaben anzeigt, indem wir eine Funktion von Vue namens berechnete Eigenschaften verwenden. Diese funktionieren ähnlich wie Methoden, werden jedoch nur erneut ausgeführt, wenn sich eine ihrer Abhängigkeiten ändert.
+In diesem Artikel fügen wir einen Zähler hinzu, der die Anzahl der erledigten Aufgaben anzeigt, indem wir eine Funktion von Vue verwenden, die als computed properties bezeichnet wird. Diese funktionieren ähnlich wie Methoden, werden jedoch nur erneut ausgeführt, wenn sich eine ihrer Abhängigkeiten ändert.
 
 <table>
   <tbody>
@@ -17,58 +17,57 @@ In diesem Artikel fügen wir einen Zähler hinzu, der die Anzahl der erledigten 
         <p>
           Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn/HTML">HTML</a>,
           <a href="/de/docs/Learn/CSS">CSS</a> und
-          <a href="/de/docs/Learn/JavaScript">JavaScript</a>,
-          Kenntnis des
+          <a href="/de/docs/Learn/JavaScript">JavaScript</a>, Kenntnisse über das
           <a
             href="/de/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line"
-            >Terminals/Befehlszeile</a
+            >Terminal/Kommandozeile</a
           >.
         </p>
         <p>
-          Vue-Komponenten werden als Kombination von JavaScript-Objekten geschrieben, die die Daten der App verwalten, und einer HTML-basierten Template-Syntax, die der zugrunde liegenden DOM-Struktur zugeordnet ist. Für die Installation und die Nutzung einiger der fortschrittlicheren Funktionen von Vue (wie Single File Components oder Render-Funktionen) benötigen Sie ein Terminal mit installiertem Node + npm.
+          Vue-Komponenten werden als Kombination aus JavaScript-Objekten geschrieben, die die Daten der App verwalten, und einer HTML-basierten Templatesyntax, die auf die zugrunde liegende DOM-Struktur abbildet. Für die Installation und um einige der fortgeschritteneren Funktionen von Vue zu verwenden (wie Single File Components oder Renderfunktionen), benötigen Sie ein Terminal mit installiertem Node + npm.
         </p>
       </td>
     </tr>
     <tr>
-      <th scope="row">Zielsetzung:</th>
-      <td>Erlernen, wie man Vue-berechnete Eigenschaften verwendet.</td>
+      <th scope="row">Ziel:</th>
+      <td>Lernen, wie man Vue computed properties verwendet.</td>
     </tr>
   </tbody>
 </table>
 
-## Verwendung von berechneten Eigenschaften
+## Verwenden von computed properties
 
-Das Ziel hier ist es, eine Zusammenfassungszählung unserer Aufgabenliste hinzuzufügen. Dies kann für Nutzer nützlich sein und dient auch dazu, die Liste für unterstützende Technologien zu kennzeichnen. Wenn wir 2 von 5 Elementen in unserer Aufgabenliste erledigt haben, könnte unsere Zusammenfassung "2 Elemente von 5 abgeschlossen" lauten. Obwohl es verlockend sein könnte, so etwas zu tun:
+Das Ziel hier ist es, eine Zusammenfassungszählung unserer To-Do-Liste hinzuzufügen. Dies kann für Benutzer nützlich sein und auch dazu dienen, die Liste für unterstützende Technologie zu kennzeichnen. Wenn wir 2 von 5 Aufgaben in unserer To-Do-Liste erledigt haben, könnte unsere Zusammenfassung "2 von 5 Aufgaben erledigt" lauten. Auch wenn es verlockend sein könnte, so etwas zu tun:
 
 ```vue
 <h2>
-  \{{ToDoItems.filter(item =&gt; item.done).length}} von
-  \{{ToDoItems.length}} erledigte Elemente
+  \{{ToDoItems.filter(item =&gt; item.done).length}} out of
+  \{{ToDoItems.length}} items completed
 </h2>
 ```
 
-wird dies bei jedem Rendern neu berechnet. Bei einer kleinen App wie dieser spielt das wahrscheinlich keine große Rolle. Bei größeren Apps oder wenn der Ausdruck komplizierter ist, könnte dies jedoch ein ernstes Leistungsproblem verursachen.
+Würde dies bei jedem Rendern neu berechnet werden. Für eine kleine App wie diese macht das wahrscheinlich nicht viel aus. Für größere Apps oder wenn der Ausdruck komplizierter ist, könnte das jedoch ein ernstzunehmendes Leistungsproblem verursachen.
 
-Eine bessere Lösung ist es, die [berechneten Eigenschaften von Vue](https://vuejs.org/guide/essentials/computed.html) zu verwenden. Berechnete Eigenschaften funktionieren ähnlich wie Methoden, werden jedoch nur erneut ausgeführt, wenn sich eine ihrer Abhängigkeiten ändert. In unserem Fall würde dies nur dann erneut ausgeführt, wenn sich das Array `ToDoItems` ändert.
+Eine bessere Lösung ist die Verwendung von Vues [computed properties](https://vuejs.org/guide/essentials/computed.html). Computed properties funktionieren ähnlich wie Methoden, werden jedoch nur erneut ausgeführt, wenn sich eine ihrer Abhängigkeiten ändert. In unserem Fall würde dies nur dann erneut ausgeführt, wenn sich das `ToDoItems`-Array ändert.
 
-Um eine berechnete Eigenschaft zu erstellen, müssen wir eine `computed` Eigenschaft zu unserem Komponentenobjekt hinzufügen, ähnlich wie die `methods` Eigenschaft, die wir zuvor verwendet haben.
+Um eine computed property zu erstellen, müssen wir eine `computed`-Eigenschaft zu unserem Komponentenobjekt hinzufügen, ähnlich wie die `methods`-Eigenschaft, die wir zuvor verwendet haben.
 
-## Hinzufügen eines Zusammenfassungszählers
+## Hinzufügen eines Zähler-Summenzählers
 
-Fügen Sie den folgenden Code zu Ihrem `App`-Komponentenobjekt hinzu, unterhalb der `methods` Eigenschaft. Die Listen-Zusammenfassungsmethode ermittelt die Anzahl der fertigen `ToDoItems` und gibt einen String zurück, der dies meldet.
+Fügen Sie den folgenden Code Ihrem `App`-Komponentenobjekt unterhalb der `methods`-Eigenschaft hinzu. Die Listenzusammenfassungsmethode ermittelt die Anzahl der abgeschlossenen `ToDoItems` und gibt einen String zurück, der dies ausgibt.
 
 ```js
 computed: {
   listSummary() {
     const numberFinishedItems = this.ToDoItems.filter((item) =>item.done).length
-    return `${numberFinishedItems} von ${this.ToDoItems.length} erledigte Elemente`
+    return `${numberFinishedItems} out of ${this.ToDoItems.length} items completed`
   }
 }
 ```
 
-Nun können wir `\{{listSummary}}` direkt zu unserem Template hinzufügen; wir fügen dies innerhalb eines `<h2>`-Elementes ein, direkt über unserem `<ul>`. Wir fügen auch ein `id` und ein `aria-labelledby` Attribut hinzu, um den Inhalt des `<h2>` als Beschriftung für das `<ul>` Element zuzuweisen.
+Nun können wir `\{{listSummary}}` direkt zu unserem Template hinzufügen; wir fügen dies innerhalb eines `<h2>`-Elements direkt über unserem `<ul>` hinzu. Wir fügen auch eine `id` und ein `aria-labelledby`-Attribut hinzu, um den Inhalt des `<h2>` als Beschriftung für das `<ul>`-Element festzulegen.
 
-Fügen Sie das beschriebene `<h2>` hinzu und aktualisieren Sie das `<ul>` in Ihrem `App`-Template wie folgt:
+Fügen Sie das beschriebene `<h2>` hinzu und aktualisieren Sie das `<ul>` innerhalb des Templates Ihrer `App` wie folgt:
 
 ```vue
 <h2 id="list-summary">\{{listSummary}}</h2>
@@ -82,15 +81,15 @@ Fügen Sie das beschriebene `<h2>` hinzu und aktualisieren Sie das `<ul>` in Ihr
 </ul>
 ```
 
-Sie sollten nun die Zusammenfassungsliste in Ihrer App sehen und die Gesamtanzahl der Elemente aktualisiert sich, wenn Sie weitere Aufgaben hinzufügen! Wenn Sie jedoch versuchen, einige Elemente abzuhaken und wieder abzuwählen, wird ein Fehler sichtbar. Derzeit verfolgen wir die "done"-Daten in keiner Weise, sodass sich die Anzahl der erledigten Elemente nicht ändert.
+Sie sollten nun die Listenzusammenfassung in Ihrer App sehen und die Gesamtanzahl der Elemente wird aktualisiert, sobald Sie weitere Aufgaben hinzufügen! Wenn Sie jedoch einige Aufgaben markieren und entmarkieren, werden Sie einen Fehler feststellen. Derzeit verfolgen wir die "erledigt"-Daten tatsächlich nicht, daher ändert sich die Anzahl der erledigten Aufgaben nicht.
 
-## Verfolgen von Änderungen an "done"
+## Verfolgen von Änderungen an "erledigt"
 
-Wir können Ereignisse verwenden, um das Aktualisieren des Kontrollkästchens zu erfassen und unsere Liste entsprechend zu verwalten.
+Wir können Ereignisse nutzen, um die Aktualisierung der Checkbox zu erfassen und unsere Liste entsprechend zu verwalten.
 
-Da wir uns nicht auf das Drücken einer Schaltfläche verlassen, um die Änderung auszulösen, können wir einen `@change` Ereignishandler an jedes Kontrollkästchen anhängen, anstatt `v-model` zu verwenden.
+Da wir uns nicht auf das Drücken eines Knopfes verlassen, um die Änderung auszulösen, können wir stattdessen einen `@change`-Ereignishandler an jede Checkbox anhängen, anstatt `v-model` zu verwenden.
 
-Aktualisieren Sie das `<input>` Element in `ToDoItem.vue`, um so auszusehen:
+Aktualisieren Sie das `<input>`-Element in `ToDoItem.vue` wie folgt.
 
 ```vue
 <input
@@ -101,9 +100,9 @@ Aktualisieren Sie das `<input>` Element in `ToDoItem.vue`, um so auszusehen:
   @change="$emit('checkbox-changed')" />
 ```
 
-Da wir nur mitteilen müssen, dass das Kontrollkästchen aktiviert wurde, können wir `$emit()` direkt einfügen.
+Da wir nur aussenden müssen, dass die Checkbox aktiviert wurde, können wir `$emit()` inline einfügen.
 
-In `App.vue`, fügen Sie eine neue Methode namens `updateDoneStatus()` hinzu, unterhalb Ihrer `addToDo()` Methode. Diese Methode sollte einen Parameter übernehmen: die _id_ des Aufgabenitems. Wir möchten das Element mit der entsprechenden `id` finden und seinen `done` Status in das Gegenteil seines aktuellen Status ändern:
+In `App.vue` fügen Sie eine neue Methode namens `updateDoneStatus()` unterhalb Ihrer `addToDo()`-Methode hinzu. Diese Methode sollte einen Parameter haben: die ID des ToDo-Items. Wir wollen das Element mit der passenden `id` finden und seinen `done`-Status auf das Gegenteil seines aktuellen Status ändern:
 
 ```js
 updateDoneStatus(toDoId) {
@@ -112,7 +111,7 @@ updateDoneStatus(toDoId) {
 }
 ```
 
-Wir möchten diese Methode ausführen, wann immer ein `ToDoItem` ein `checkbox-changed`-Ereignis auslöst und dessen `item.id` als Parameter übergeben. Aktualisieren Sie Ihren `<to-do-item></to-do-item>` Aufruf wie folgt:
+Wir möchten diese Methode jedes Mal ausführen, wenn ein `ToDoItem` ein `checkbox-changed`-Ereignis aussendet, und seine `item.id` als Parameter übergeben. Aktualisieren Sie Ihren `<to-do-item></to-do-item>`-Aufruf wie folgt:
 
 ```vue
 <to-do-item
@@ -123,12 +122,12 @@ Wir möchten diese Methode ausführen, wann immer ein `ToDoItem` ein `checkbox-c
 </to-do-item>
 ```
 
-Wenn Sie nun ein `ToDoItem` abhaken, sollten Sie sehen, dass sich die Zusammenfassung entsprechend aktualisiert!
+Nun, wenn Sie ein `ToDoItem` aktivieren, sollten Sie die Zusammenfassung entsprechend aktualisiert sehen!
 
-![Unsere App, mit einem hinzugefügten Zähler für erledigte Aufgaben. Derzeit lautet sie 3 von 5 erledigten Elementen](todo-counter.png)
+![Unsere App mit einem hinzugefügten Zähler für erledigte Aufgaben. Es werden aktuell 3 von 5 Aufgaben als erledigt angezeigt](todo-counter.png)
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir eine berechnete Eigenschaft verwendet, um unserer App ein nettes kleines Feature hinzuzufügen. Wir haben jedoch noch größere Themen vor uns – im nächsten Artikel werden wir uns die bedingte Darstellung ansehen und erforschen, wie wir sie nutzen können, um ein Bearbeitungsformular anzuzeigen, wenn wir bestehende Aufgaben bearbeiten möchten.
+In diesem Artikel haben wir eine computed property verwendet, um unserer App ein nettes kleines Feature hinzuzufügen. Wir haben jedoch größere Herausforderungen zu bewältigen — im nächsten Artikel werden wir uns mit der bedingten Darstellung befassen und wie wir sie verwenden können, um ein Bearbeitungsformular anzuzeigen, wenn wir bestehende Aufgaben bearbeiten möchten.
 
 {{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_styling","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_conditional_rendering", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}

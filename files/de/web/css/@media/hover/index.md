@@ -7,36 +7,36 @@ l10n:
 
 {{CSSRef}}
 
-Die **`hover`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, ob der _primäre_ Eingabemechanismus des Benutzers über Elemente schweben kann.
+Die **`hover`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, ob das _primäre_ Eingabemechanismus des Benutzers über Elemente schweben kann.
 
 ## Syntax
 
-Die `hover`-Funktion wird als Schlüsselwortwert aus der unten stehenden Liste angegeben.
+Das `hover`-Feature wird als Schlüsselwortwert aus der folgenden Liste angegeben.
 
 - `none`
-  - : Der primäre Eingabemechanismus kann überhaupt nicht schweben oder nicht bequem schweben (z. B. emulieren viele mobile Geräte das Schweben, wenn der Benutzer einen umständlichen langen Tap ausführt), oder es gibt keinen primären Zeige-Eingabemechanismus.
+  - : Das primäre Eingabemechanismus kann überhaupt nicht schweben oder nicht bequem schweben (z.B. viele mobile Geräte emulieren das Schweben, wenn der Benutzer einen unbequemen langen Tastendruck ausführt), oder es gibt keinen primären Zeigegeräte-Eingabemechanismus.
 - `hover`
-  - : Der primäre Eingabemechanismus kann bequem über Elementen schweben.
+  - : Das primäre Eingabemechanismus kann bequem über Elementen schweben.
 
 ## Beispiele
 
 ### HTML
 
 ```html
-<a href="#">Versuchen Sie, über mich zu schweben!</a>
+<a href="#">Try hovering over me!</a>
 ```
 
 ### CSS
 
 ```css
-/* Standard-Hover-Effekt */
+/* default hover effect */
 a:hover {
   color: black;
   background: yellow;
 }
 
 @media (hover: hover) {
-  /* wenn Hover unterstützt wird */
+  /* when hover is supported */
   a:hover {
     color: white;
     background: black;
@@ -58,5 +58,5 @@ a:hover {
 
 ## Siehe auch
 
-- [Medienabfragen verwenden](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - [@media](/de/docs/Web/CSS/@media)

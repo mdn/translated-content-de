@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feFlood>`** SVG-Filter-Primitive füllt die Filter-Subregion mit der Farbe und Deckkraft, die durch {{SVGAttr("flood-color")}} und {{SVGAttr("flood-opacity")}} definiert sind.
+Der **`<feFlood>`** SVG-Filter-Primitive füllt die Filter-Subregion mit der Farbe und Deckkraft, die durch {{SVGAttr("flood-color")}} und {{SVGAttr("flood-opacity")}} definiert sind.
 
 ## Verwendungskontext
 
@@ -20,7 +20,7 @@ Das **`<feFlood>`** SVG-Filter-Primitive füllt die Filter-Subregion mit der Far
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFEFloodElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGFEFloodElement`](/de/docs/Web/API/SVGFEFloodElement) Schnittstelle.
 
 ## Beispiel
 
@@ -58,7 +58,7 @@ Dieses Element implementiert die {{domxref("SVGFEFloodElement")}} Schnittstelle.
 
 ## Siehe auch
 
-- [SVG-Filter-Primitive Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
+- [SVG-Filter-Primitiv-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}

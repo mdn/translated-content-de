@@ -7,16 +7,16 @@ l10n:
 
 {{CSSRef}}
 
-Die **`filter`** [CSS](/de/docs/Web/CSS)-Eigenschaft wendet grafische Effekte wie Unschärfe oder Farbverschiebung auf ein Element an. Filter werden häufig verwendet, um die Darstellung von Bildern, Hintergründen und Rändern anzupassen.
+Die **`filter`** [CSS](/de/docs/Web/CSS) Eigenschaft wendet grafische Effekte wie Unschärfe oder Farbverschiebung auf ein Element an. Filter werden häufig verwendet, um die Darstellung von Bildern, Hintergründen und Rändern anzupassen.
 
-Es stehen mehrere [Funktionen](#funktionen), wie `blur()` und `contrast()`, zur Verfügung, um vordefinierte Effekte zu erzielen.
+Mehrere [Funktionen](#funktionen), wie `blur()` und `contrast()`, stehen zur Verfügung, um vordefinierte Effekte zu erzielen.
 
 {{EmbedInteractiveExample("pages/css/filter.html")}}
 
 ## Syntax
 
 ```css
-/* <filter-function> Werte */
+/* <filter-function> values */
 filter: blur(5px);
 filter: brightness(0.4);
 filter: contrast(200%);
@@ -31,14 +31,14 @@ filter: sepia(60%);
 /* URL */
 filter: url("filters.svg#filter-id");
 
-/* Mehrere Filter */
+/* Multiple filters */
 filter: contrast(175%) brightness(3%);
 filter: drop-shadow(3px 3px red) sepia(100%) drop-shadow(-3px -3px blue);
 
-/* Kein Filter verwenden */
+/* Use no filter */
 filter: none;
 
-/* Globale Werte */
+/* Global values */
 filter: inherit;
 filter: initial;
 filter: revert;
@@ -46,13 +46,13 @@ filter: revert-layer;
 filter: unset;
 ```
 
-Mit einer Funktion verwenden Sie Folgendes:
+Mit einer Funktion verwenden Sie folgendes:
 
 ```css-nolint
 filter: <filter-function> [<filter-function>]* | none;
 ```
 
-Sie können `url()` verwenden, um auf ein [SVG-Filter-Element](/de/docs/Web/SVG/Element/filter) zu verweisen. Für einen Verweis auf ein SVG {{SVGElement("filter")}}-Element verwenden Sie die folgende Syntax:
+Sie können `url()` verwenden, um auf ein [SVG-Filter-Element](/de/docs/Web/SVG/Element/filter) zu verweisen. Für einen Verweis auf ein SVG {{SVGElement("filter")}} Element verwenden Sie die folgende Syntax:
 
 ```css
 filter: url(file.svg#filter-element-id);
@@ -60,9 +60,9 @@ filter: url(file.svg#filter-element-id);
 
 ## Funktionen
 
-Die `filter`-Eigenschaft wird als `none` oder als eine oder mehrere der unten aufgelisteten Funktionen angegeben. Wenn der Parameter für eine Funktion ungültig ist, gibt die Funktion `none` zurück. Sofern nicht anders angegeben, akzeptieren die Funktionen, die einen Wert in Prozentangaben verwenden (wie bei `34%`), auch den Wert als Dezimalzahl (wie bei `0.34`).
+Die Eigenschaft `filter` wird als `none` oder als eine oder mehrere der unten aufgelisteten Funktionen angegeben. Wenn der Parameter für eine Funktion ungültig ist, gibt die Funktion `none` zurück. Soweit nicht anders angegeben, akzeptieren die Funktionen, die einen Wert mit einem Prozentzeichen angegeben haben (wie in `34%`), auch den Wert als Dezimalzahl (wie in `0.34`).
 
-Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Filter in der angegebenen Reihenfolge angewendet.
+Wenn die Werte der `filter`-Eigenschaft mehrere Funktionen enthalten, werden die Filter in der Reihenfolge angewendet.
 
 - {{cssxref("filter-function/blur", "blur()")}}
 
@@ -74,7 +74,7 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
 
 - {{cssxref("filter-function/brightness", "brightness()")}}
 
-  - : Wendet einen linearen Multiplikator auf das Eingabebild an, wodurch es heller oder dunkler erscheint. Werte sind lineare Multiplikatoren des Effekts, wobei `0%` ein vollständig schwarzes Bild erzeugt, `100%` keine Wirkung hat und Werte über `100%` das Bild aufhellen.
+  - : Wendet einen linearen Multiplikator auf das Eingabebild an, wodurch es mehr oder weniger hell erscheint. Werte sind lineare Multiplikatoren für den Effekt, bei `0%` wird ein komplett schwarzes Bild erstellt, `100%` hat keine Auswirkung, und Werte über `100%` machen das Bild heller.
 
     ```css
     filter: brightness(2);
@@ -82,7 +82,7 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
 
 - {{cssxref("filter-function/contrast", "contrast()")}}
 
-  - : Passt den Kontrast des Eingabebildes an. Ein Wert von `0%` macht das Bild grau, `100%` hat keine Wirkung und Werte über `100%` erzeugen einen Kontrast.
+  - : Passt den Kontrast des Eingabebildes an. Ein Wert von `0%` macht das Bild grau, `100%` hat keinen Effekt, und Werte über `100%` erzeugen mehr Kontrast.
 
     ```css
     filter: contrast(200%);
@@ -90,7 +90,7 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
 
 - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}
 
-  - : Wendet den Parameter `<shadow>` als Schlagschatten an, der den Konturen des Bildes folgt. Das Schatten-Syntax ist ähnlich wie `<box-shadow>` (definiert im [CSS-Hintergründe und Rahmenmodul](/de/docs/Web/CSS/CSS_backgrounds_and_borders)), mit der Ausnahme, dass das `inset`-Schlüsselwort und der `spread`-Parameter nicht erlaubt sind. Wie bei allen `filter`-Eigenschaftswerten werden alle Filter nach der `drop-shadow()` auf den Schatten angewendet.
+  - : Wendet den Parameter `<shadow>` als Schlagschatten an, der den Konturen des Bildes folgt. Die Schattensyntax ist ähnlich wie bei `<box-shadow>` (definiert im [CSS Backgrounds and Borders Module](/de/docs/Web/CSS/CSS_backgrounds_and_borders)), mit der Ausnahme, dass das Schlüsselwort `inset` und der Parameter `spread` nicht erlaubt sind. Wie bei allen `filter`-Eigenschaftswerten werden Filter nach dem `drop-shadow()` auf den Schatten angewendet.
 
     ```css
     filter: drop-shadow(16px 16px 10px black);
@@ -98,7 +98,7 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
 
 - {{cssxref("filter-function/grayscale", "grayscale()")}}
 
-  - : Konvertiert das Bild in Graustufen. Ein Wert von `100%` ist vollständig grau. Der Anfangswert von `0%` lässt die Eingabe unverändert. Werte zwischen `0%` und `100%` erzeugen lineare Multiplikatoren des Effekts.
+  - : Wandelt das Bild in Graustufen um. Ein Wert von `100%` ist komplett in Graustufen. Der Anfangswert von `0%` lässt die Eingabe unverändert. Werte zwischen `0%` und `100%` erzeugen lineare Multiplikatoren für den Effekt.
 
     ```css
     filter: grayscale(100%);
@@ -106,7 +106,7 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
 
 - {{cssxref("filter-function/hue-rotate", "hue-rotate()")}}
 
-  - : Wendet eine Farbtondrehung an. Der `<angle>`-Wert definiert die Anzahl der Grad um den Farbtonfarbkreis, bei denen die Eingabemuster angepasst werden. Ein Wert von `0deg` lässt die Eingabe unverändert.
+  - : Wendet eine Farbtondrehung an. Der `<angle>`-Wert definiert die Anzahl der Grade um den farbigen Kreis, um den die Eingabenproben angepasst werden. Ein Wert von `0deg` lässt die Eingabe unverändert.
 
     ```css
     filter: hue-rotate(90deg);
@@ -114,7 +114,7 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
 
 - {{cssxref("filter-function/invert", "invert()")}}
 
-  - : Kehrt die Muster im Eingabebild um. Ein Wert von `100%` kehrt das Bild vollständig um. Ein Wert von `0%` lässt die Eingabe unverändert. Werte zwischen `0%` und `100%` haben lineare Multiplikatoren des Effekts.
+  - : Kehrt die Proben im Eingabebild um. Ein Wert von `100%` kehrt das Bild vollständig um. Ein Wert von `0%` lässt die Eingabe unverändert. Werte zwischen `0%` und `100%` haben lineare Multiplikatoren für den Effekt.
 
     ```css
     filter: invert(100%);
@@ -130,7 +130,7 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
 
 - {{cssxref("filter-function/saturate", "saturate()")}}
 
-  - : Sättigt das Bild, wobei `0%` vollständig ungesättigt ist, `100%` das Bild unverändert lässt und Werte über `100%` die Sättigung erhöhen.
+  - : Sättigt das Bild, wobei `0%` vollständig entsättigt ist, `100%` das Bild unverändert lässt und Werte über `100%` die Sättigung erhöhen.
 
     ```css
     filter: saturate(200%);
@@ -138,15 +138,15 @@ Wenn die `filter`-Eigenschaftswerte mehrere Funktionen enthalten, werden die Fil
 
 - {{cssxref("filter-function/sepia", "sepia()")}}
 
-  - : Konvertiert das Bild in Sepia, wobei ein Wert von `100%` das Bild vollständig in Sepia färbt und `0%` keine Änderung bewirkt.
+  - : Wandelt das Bild in Sepia um, wobei ein Wert von `100%` das Bild vollständig in Sepia umsetzt und `0%` keine Änderung bewirkt.
 
     ```css
     filter: sepia(100%);
     ```
 
-## Funktionen kombinieren
+## Kombinieren von Funktionen
 
-Sie können beliebig viele Funktionen kombinieren, um die Darstellung zu manipulieren. Die Filter werden in der deklarierten Reihenfolge angewendet. Das folgende Beispiel verbessert den Kontrast und die Helligkeit des Bildes:
+Sie können eine beliebige Anzahl von Funktionen kombinieren, um die Darstellung zu manipulieren. Die Filter werden in der angegebenen Reihenfolge angewendet. Das folgende Beispiel verbessert den Kontrast und die Helligkeit des Bildes:
 
 ```css
 filter: contrast(175%) brightness(103%);
@@ -154,9 +154,9 @@ filter: contrast(175%) brightness(103%);
 
 ### Interpolation
 
-Wenn sie animiert wird, und sowohl die Anfangs- als auch die Endfilter eine Funktionsliste gleicher Länge ohne {{cssxref("url_value", "&lt;url&gt;")}} in derselben Reihenfolge haben, wird jede ihrer Filterfunktionen gemäß den spezifischen Regeln der Filterfunktion {{Glossary("interpolation", "interpoliert")}}.
+Bei Animationen, wenn sowohl der Anfangs- als auch der Endfilter eine Funktionsliste der gleichen Länge haben, ohne {{cssxref("url_value", "&lt;url&gt;")}} in derselben Reihenfolge, werden jede ihrer Filterfunktionen gemäß den spezifischen Regeln der Filterfunktion [interpoliert](/de/docs/Glossary/interpolation).
 
-Wenn die Filterlisten unterschiedliche Längen haben, werden die fehlenden entsprechenden Filterfunktionen aus der längeren Liste an das Ende der kürzeren Liste hinzugefügt. Die hinzugefügten Funktionen verwenden ihre anfänglichen, filterlosen Änderungswerte. Alle aufgeführten Filter werden dann gemäß den spezifischen Regeln der Filterfunktion interpoliert. Andernfalls wird diskrete Interpolation verwendet.
+Wenn die Filterlisten unterschiedliche Längen haben, werden die fehlenden äquivalenten Filterfunktionen aus der längeren Liste zum Ende der kürzeren Liste hinzugefügt. Die hinzugefügten Funktionen verwenden ihre anfänglichen, nicht verändernden Filterwerte. Alle aufgelisteten Filter werden dann gemäß den spezifischen Regeln der Filterfunktion interpoliert. Andernfalls wird eine diskrete Interpolation verwendet.
 
 ## Formale Definition
 
@@ -170,28 +170,28 @@ Wenn die Filterlisten unterschiedliche Längen haben, werden die fehlenden entsp
 
 ### Anwenden von Filterfunktionen
 
-Die `filter`-Eigenschaft wird auf das zweite Bild angewendet und graut sowie verwischt sowohl das Bild als auch seinen Rand.
+Die `filter`-Eigenschaft wird auf das zweite Bild angewendet, wodurch sowohl das Bild als auch sein Rand grau und unscharf werden.
 
 ```css
 img {
   border: 5px solid yellow;
 }
-/* Das zweite Bild um 40% grauen und um 5px verwischen */
+/* Gray the second image by 40% and blur by 5px */
 img:nth-of-type(2) {
   filter: grayscale(0.4) blur(5px);
 }
 ```
 
 ```html
-<img src="pencil.jpg" alt="Originalbild ist scharf" />
-<img src="pencil.jpg" alt="Das Bild und der Rand sind verwischt und gedämpft" />
+<img src="pencil.jpg" alt="Original image is sharp" />
+<img src="pencil.jpg" alt="The image and border are blurred and muted" />
 ```
 
 {{EmbedLiveSample('Applying_filter_functions','100%','229px')}}
 
-### Wiederholen von Filterfunktionen
+### Wiederholung von Filterfunktionen
 
-Filterfunktionen werden in der Reihenfolge ihres Auftretens angewendet. Die gleiche Filterfunktion kann wiederholt werden.
+Filterfunktionen werden in der Reihenfolge ihrer Erscheinung angewendet. Die gleiche Filterfunktion kann wiederholt werden.
 
 ```css
 #MDN-logo {
@@ -221,7 +221,7 @@ Filterfunktionen werden in der Reihenfolge ihres Auftretens angewendet. Die glei
 
 {{EmbedLiveSample('Repeating_filter_functions','100%','229px')}}
 
-Die Filter werden in der Reihenfolge angewendet. Deshalb haben die Schlagschatten nicht dieselbe Farbe: Der Farbton des ersten Schlagschattens wird durch die `hue-rotate()`-Funktion geändert, der zweite jedoch nicht.
+Die Filter werden in Reihenfolge angewendet. Deshalb haben die Schlagschatten nicht die gleiche Farbe: Der Farbton des ersten Schattens wird durch die `hue-rotate()`-Funktion verändert, der des zweiten jedoch nicht.
 
 ## Spezifikationen
 
@@ -234,7 +234,7 @@ Die Filter werden in der Reihenfolge angewendet. Deshalb haben die Schlagschatte
 ## Siehe auch
 
 - CSS {{cssxref("backdrop-filter")}} Eigenschaft
-- CSS-[Kompositing und Mischung](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul, einschließlich der CSS-Eigenschaften {{cssxref("background-blend-mode")}} und {{cssxref("mix-blend-mode")}}.
-- Die CSS-Eigenschaft {{cssxref("mask")}}
-- [SVG](/de/docs/Web/SVG), einschließlich des SVG-Elements {{SVGElement("filter")}} und des SVG-Attributs {{SVGAttr("filter")}}.
+- CSS [Compositing und Blending](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul, einschließlich der CSS {{cssxref("background-blend-mode")}} und {{cssxref("mix-blend-mode")}} Eigenschaften.
+- Die CSS {{cssxref("mask")}} Eigenschaft
+- [SVG](/de/docs/Web/SVG), einschließlich des SVG {{SVGElement("filter")}} Elements und des SVG {{SVGAttr("filter")}} Attributs.
 - [Anwenden von SVG-Effekten auf HTML-Inhalte](/de/docs/Web/SVG/Applying_SVG_effects_to_HTML_content)

@@ -7,11 +7,11 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die statische Methode **`WebAssembly.compileStreaming()`** kompiliert ein [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module) direkt aus einer gestreamten zugrunde liegenden Quelle. Diese Funktion ist nützlich, wenn es notwendig ist, ein Modul zu kompilieren, bevor es instanziiert werden kann (ansonsten sollte die Funktion [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static) verwendet werden).
+Die **statische Methode `WebAssembly.compileStreaming()`** kompiliert ein [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module) direkt aus einer gestreamten zugrunde liegenden Quelle. Diese Funktion ist nützlich, wenn es notwendig ist, ein Modul zu kompilieren, bevor es instanziiert werden kann (ansonsten sollte die Funktion [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static) verwendet werden).
 
 > [!NOTE]
-> Webseiten, die über eine strikte [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) verfügen, könnten die Kompilierung und Ausführung von WebAssembly-Modulen blockieren.
-> Weitere Informationen zur Erlaubnis von WebAssembly-Komponenten und -Ausführung finden Sie unter [script-src CSP](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
+> Webseiten, die eine strikte [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) haben, könnten verhindern, dass WebAssembly Module kompiliert und ausgeführt werden.
+> Für weitere Informationen darüber, wie Sie die Kompilierung und Ausführung von WebAssembly erlauben können, siehe die [script-src CSP](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
 
 ## Syntax
 
@@ -22,7 +22,7 @@ WebAssembly.compileStreaming(source)
 ### Parameter
 
 - `source`
-  - : Ein [`Response`](/de/docs/Web/API/Response)-Objekt oder ein Versprechen, das mit einem solchen erfüllt wird, das die zugrunde liegende Quelle eines gestreamten und zu kompilierenden Wasm-Moduls darstellt.
+  - : Ein [`Response`](/de/docs/Web/API/Response)-Objekt oder ein Promise, das mit einem solchen erfüllt wird und die zugrunde liegende Quelle eines Wasm-Moduls darstellt, das Sie streamen und kompilieren möchten.
 
 ### Rückgabewert
 
@@ -30,16 +30,16 @@ Ein `Promise`, das mit einem [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScr
 
 ### Ausnahmen
 
-- Wenn `source` kein [`Response`](/de/docs/Web/API/Response) oder `Promise` ist, das mit einem `Response` erfüllt wird, wird das Versprechen mit einem {{jsxref("TypeError")}} abgelehnt.
-- Wenn die Kompilierung fehlschlägt, wird das Versprechen mit einem [`WebAssembly.CompileError`](/de/docs/WebAssembly/JavaScript_interface/CompileError) abgelehnt.
-- Wenn der `source`-Versprechung ein Fehler unterläuft, wird das Versprechen mit dem Fehler abgelehnt.
-- Wenn das `Result` der `source` über einen Fehler verfügt (z.B. ungültiger MIME-Typ), wird das Versprechen mit einem Fehler abgelehnt.
+- Wenn `source` kein [`Response`](/de/docs/Web/API/Response) oder ein `Promise` ist, das zu einem `Response` aufgelöst wird, wird das Promise mit einem {{jsxref("TypeError")}} abgelehnt.
+- Wenn die Kompilierung fehlschlägt, wird das Promise mit einem [`WebAssembly.CompileError`](/de/docs/WebAssembly/JavaScript_interface/CompileError) abgelehnt.
+- Wenn `source` ein `Promise` ist, das abgelehnt wird, wird das Promise mit dem Fehler abgelehnt.
+- Wenn das `Result` der `source` einen Fehler aufweist (z.B. schlechter MIME-Typ), wird das Promise mit einem Fehler abgelehnt.
 
 ## Beispiele
 
-### Streaming kompilieren
+### Kompilierung im Streaming
 
-Das folgende Beispiel (siehe unser [compile-streaming.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/compile-streaming.html) Demo auf GitHub, und [sehen Sie es live](https://mdn.github.io/webassembly-examples/js-api-examples/compile-streaming.html) ebenfalls) streamt direkt ein Wasm-Modul aus einer zugrunde liegenden Quelle und kompiliert es dann zu einem [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module)-Objekt. Da die `compileStreaming()`-Funktion ein Versprechen für ein [`Response`](/de/docs/Web/API/Response)-Objekt akzeptiert, können Sie ihr direkt ein `Promise` von einem Aufruf von [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben, ohne darauf zu warten, dass das Versprechen erfüllt wird.
+Das folgende Beispiel (siehe unser [compile-streaming.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/compile-streaming.html) Demo auf GitHub und [live ansehen](https://mdn.github.io/webassembly-examples/js-api-examples/compile-streaming.html)) streamt ein Wasm-Modul direkt aus einer zugrunde liegenden Quelle und kompiliert es dann zu einem [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module)-Objekt. Da die Funktion `compileStreaming()` ein Promise für ein [`Response`](/de/docs/Web/API/Response)-Objekt akzeptiert, können Sie ihr direkt ein `Promise` vom Aufruf von [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben, ohne auf die Erfüllung des Promises zu warten.
 
 ```js
 const importObject = {
@@ -51,8 +51,8 @@ WebAssembly.compileStreaming(fetch("simple.wasm"))
   .then((instance) => instance.exports.exported_func());
 ```
 
-Das resultierende Modul-Instanz wird dann mit
-[`WebAssembly.instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static) instanziiert, und die exportierte Funktion wird aufgerufen.
+Das resultierende Modul wird dann mit
+[`WebAssembly.instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static) instanziiert und die exportierte Funktion aufgerufen.
 
 ## Spezifikationen
 
@@ -66,4 +66,4 @@ Das resultierende Modul-Instanz wird dann mit
 
 - [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Die WebAssembly-JavaScript-API verwenden](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)

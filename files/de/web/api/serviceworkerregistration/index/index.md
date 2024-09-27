@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerRegistration: Eigenschaft index"
+title: "ServiceWorkerRegistration: index-Eigenschaft"
 short-title: index
 slug: Web/API/ServiceWorkerRegistration/index
 l10n:
@@ -8,27 +8,25 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`index`**-Eigenschaft mit Schreibschutz der
-{{domxref("ServiceWorkerRegistration")}}-Schnittstelle gibt eine Referenz auf die
-{{domxref('ContentIndex')}}-Schnittstelle zurück, die das Indexieren von offline Inhalten ermöglicht.
+Die **`index`** Schreibgeschütz-Eigenschaft des [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt eine Referenz auf das [`ContentIndex`](/de/docs/Web/API/ContentIndex)-Interface zurück, die das Indizieren von Offline-Inhalten ermöglicht.
 
 ## Wert
 
-Ein {{domxref('ContentIndex')}} Objekt.
+Ein [`ContentIndex`](/de/docs/Web/API/ContentIndex)-Objekt.
 
 ## Beispiele
 
-Sie können auf die Eigenschaft sowohl von Ihrem Hauptskript als auch vom registrierten Service Worker aus zugreifen.
+Sie können die Eigenschaft sowohl von Ihrem Hauptskript als auch vom registrierten Service Worker aus aufrufen.
 
-Hier ein Beispiel aus dem Hauptskript:
+Hier ist ein Beispiel aus dem Hauptskript:
 
 ```js
-// Registrierung referenzieren
+// reference registration
 const registration = await navigator.serviceWorker.ready;
 
-// Funktionsprüfung
+// feature detection
 if ("index" in registration) {
-  // Funktionalität der Content Index API
+  // Content Index API functionality
   const contentIndex = registration.index;
 }
 ```
@@ -36,7 +34,7 @@ if ("index" in registration) {
 Vom [Service Worker](/de/docs/Web/API/ServiceWorker):
 
 ```js
-// Service Worker Skript
+// service worker script
 
 const contentIndex = self.registration.index;
 ```
@@ -45,7 +43,7 @@ const contentIndex = self.registration.index;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

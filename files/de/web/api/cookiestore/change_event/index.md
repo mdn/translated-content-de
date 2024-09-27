@@ -1,5 +1,5 @@
 ---
-title: "CookieStore: change Ereignis"
+title: "CookieStore: change Event"
 short-title: change
 slug: Web/API/CookieStore/change_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}
 
-Ein `change` Ereignis wird bei einem {{domxref("CookieStore")}} Objekt ausgelöst, wenn eine Änderung an einem Cookie vorgenommen wird.
+Ein `change`-Ereignis wird bei einem [`CookieStore`](/de/docs/Web/API/CookieStore)-Objekt ausgelöst, wenn eine Änderung an einem Cookie vorgenommen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 cookieStore.addEventListener("change", (event) => { })
@@ -22,13 +22,13 @@ cookieStore.onchange = (event) => { }
 
 ## Ereignistyp
 
-Ein {{domxref("CookieChangeEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`CookieChangeEvent`](/de/docs/Web/API/CookieChangeEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("CookieChangeEvent")}}
 
 ## Beispiele
 
-Um informiert zu werden, wenn sich ein Cookie geändert hat, können Sie mit {{domxref("EventTarget.addEventListener", "addEventListener()")}} einen Handler zur `cookieStore` Instanz hinzufügen, wie hier:
+Um informiert zu werden, wenn sich ein Cookie ändert, können Sie einen Handler zur `cookieStore`-Instanz hinzufügen, indem Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, wie hier:
 
 ```js
 cookieStore.addEventListener("change", (event) => {
@@ -36,7 +36,7 @@ cookieStore.addEventListener("change", (event) => {
 });
 ```
 
-Alternativ können Sie die `onchange` Ereignishandler-Eigenschaft verwenden, um einen Handler für das `change` Ereignis festzulegen:
+Alternativ können Sie die `onchange`-Ereignis-Handler-Eigenschaft verwenden, um einen Handler für das `change`-Ereignis festzulegen:
 
 ```js
 cookieStore.onchange = (event) => {

@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Die **`margin-inline-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Inline-Startabstand eines Elements, welcher sich je nach Schreibrichtung des Elements, der Richtung und der Textausrichtung auf einen physischen Rand bezieht. Sie entspricht der Eigenschaft {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, oder {{cssxref("margin-left")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
+Die **`margin-inline-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Inline-Anfangsrand eines Elements, der je nach Schreibmodus des Elements, dessen Richtung und Textausrichtung auf einen physischen Rand abgebildet wird. Sie entspricht der {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}} oder {{cssxref("margin-left")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
 {{EmbedInteractiveExample("pages/css/margin-inline-start.html")}}
 
 ## Syntax
 
 ```css
-/* <length> Werte */
-margin-inline-start: 10px; /* Eine absolute Länge */
-margin-inline-start: 1em; /* relativ zur Textgröße */
-margin-inline-start: 5%; /* relativ zur Breite des nächstgelegenen Blockcontainers */
+/* <length> values */
+margin-inline-start: 10px; /* An absolute length */
+margin-inline-start: 1em; /* relative to the text size */
+margin-inline-start: 5%; /* relative to the nearest block container's width */
 
-/* Schlüsselwortwerte */
+/* Keyword values */
 margin-inline-start: auto;
 
-/* Globale Werte */
+/* Global values */
 margin-inline-start: inherit;
 margin-inline-start: initial;
 margin-inline-start: revert;
@@ -30,11 +30,11 @@ margin-inline-start: revert-layer;
 margin-inline-start: unset;
 ```
 
-Es bezieht sich auf {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, und {{cssxref("margin-inline-end")}}, die die anderen Abstände des Elements definieren.
+Sie bezieht sich auf {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, und {{cssxref("margin-inline-end")}}, die die anderen Ränder des Elements definieren.
 
 ### Werte
 
-Die `margin-inline-start` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("margin-left")}} Eigenschaft an.
+Die `margin-inline-start` Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("margin-left")}} Eigenschaft.
 
 ## Formale Definition
 
@@ -46,7 +46,7 @@ Die `margin-inline-start` Eigenschaft nimmt die gleichen Werte wie die {{cssxref
 
 ## Beispiele
 
-### Einstellen des Inline-Startabstands
+### Einstellen des Inline-Anfangsrands
 
 #### HTML
 
@@ -86,7 +86,7 @@ div {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
 - {{cssxref("margin-inline-end")}}
 - Die zugeordneten physischen Eigenschaften: {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, {{cssxref("margin-bottom")}}, und {{cssxref("margin-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

@@ -1,5 +1,5 @@
 ---
-title: "Document: createTouch()-Methode"
+title: "Document: createTouch() Methode"
 short-title: createTouch()
 slug: Web/API/Document/createTouch
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}{{Deprecated_Header}}{{Non-standard_header}}
 
-Die **`Document.createTouch()`**-Methode erstellt und gibt ein neues {{DOMxRef("Touch")}}-Objekt zurück.
+Die **`Document.createTouch()`** Methode erstellt und gibt ein neues [`Touch`](/de/docs/Web/API/Touch)-Objekt zurück.
 
 > [!NOTE]
-> Verwenden Sie den {{domxref("TouchEvent.TouchEvent", "TouchEvent()")}}-Konstruktor.
+> Verwenden Sie den [`TouchEvent()`](/de/docs/Web/API/TouchEvent/TouchEvent)-Konstruktor.
 
 ## Syntax
 
@@ -25,50 +25,46 @@ createTouch(view, target, identifier, pageX, pageY, screenX, screenY)
 > Alle Parameter sind optional.
 
 - `view`
-  - : Das {{DOMxRef("window")}}, in dem die Berührung stattgefunden hat.
+  - : Das [`window`](/de/docs/Web/API/Window), in dem die Berührung aufgetreten ist.
 - `target`
-  - : Das {{DOMxRef("EventTarget")}} für die Berührung.
+  - : Das [`EventTarget`](/de/docs/Web/API/EventTarget) für die Berührung.
 - `identifier`
-  - : Der Wert für {{DOMxRef("Touch.identifier")}}.
+  - : Der Wert für [`Touch.identifier`](/de/docs/Web/API/Touch/identifier).
 - `pageX`
-  - : Der Wert für {{DOMxRef("Touch.pageX")}}.
+  - : Der Wert für [`Touch.pageX`](/de/docs/Web/API/Touch/pageX).
 - `pageY`
-  - : Der Wert für {{DOMxRef("Touch.pageY")}}.
+  - : Der Wert für [`Touch.pageY`](/de/docs/Web/API/Touch/pageY).
 - `screenX`
-  - : Der Wert für {{DOMxRef("Touch.screenX")}}.
+  - : Der Wert für [`Touch.screenX`](/de/docs/Web/API/Touch/screenX).
 - `screenY`
-  - : Der Wert für {{DOMxRef("Touch.screenY")}}.
+  - : Der Wert für [`Touch.screenY`](/de/docs/Web/API/Touch/screenY).
 
 > [!NOTE]
-> Frühere Versionen dieser Methode enthielten die folgenden zusätzlichen Parameter,
-> diese Parameter sind jedoch in keiner der unten aufgeführten Standards enthalten.
-> Folglich sollten diese Parameter als veraltet betrachtet und nicht verwendet werden.
+> Frühere Versionen dieser Methode enthielten die folgenden zusätzlichen Parameter, aber diese Parameter sind in keiner der unten aufgeführten Standards enthalten. Folglich sollten diese Parameter als veraltet angesehen und nicht verwendet werden.
 
 - `clientX`
-  - : Der Wert für {{DOMxRef("Touch.clientX")}}.
+  - : Der Wert für [`Touch.clientX`](/de/docs/Web/API/Touch/clientX).
 - `clientY`
-  - : Der Wert für {{DOMxRef("Touch.clientY")}}.
+  - : Der Wert für [`Touch.clientY`](/de/docs/Web/API/Touch/clientY).
 - `radiusX`
-  - : Der Wert für {{DOMxRef("Touch.radiusX")}}.
+  - : Der Wert für [`Touch.radiusX`](/de/docs/Web/API/Touch/radiusX).
 - `radiusY`
-  - : Der Wert für {{DOMxRef("Touch.radiusY")}}.
+  - : Der Wert für [`Touch.radiusY`](/de/docs/Web/API/Touch/radiusY).
 - `rotationAngle`
-  - : Der Wert für {{DOMxRef("Touch.rotationAngle")}}.
+  - : Der Wert für [`Touch.rotationAngle`](/de/docs/Web/API/Touch/rotationAngle).
 - `force`
-  - : Der Wert für {{DOMxRef("Touch.force")}}.
+  - : Der Wert für [`Touch.force`](/de/docs/Web/API/Touch/force).
 
 ### Rückgabewert
 
 - `touch`
-  - : Ein {{DOMxRef("Touch")}}-Objekt, das entsprechend den Eingabeparametern konfiguriert ist.
+  - : Ein [`Touch`](/de/docs/Web/API/Touch)-Objekt, das entsprechend den Eingabeparametern konfiguriert ist.
 
 ## Beispiele
 
-Dieses Beispiel veranschaulicht die Verwendung der `Document.createTouch()`-Methode zur
-Erstellung von {{DOMxRef("Touch")}}-Objekten.
+Dieses Beispiel veranschaulicht die Verwendung der `Document.createTouch()` Methode, um [`Touch`](/de/docs/Web/API/Touch)-Objekte zu erstellen.
 
-Im folgenden Code-Snippet werden zwei {{DOMxRef("Touch")}}-Objekte für das
-`target`-Element erstellt.
+Im folgenden Codebeispiel werden zwei [`Touch`](/de/docs/Web/API/Touch)-Objekte für das `target`-Element erstellt.
 
 ```js
 const target = document.getElementById("target");
@@ -79,15 +75,15 @@ const touch2 = document.createTouch(window, target, 2, 25, 30, 45, 50);
 
 ## Spezifikationen
 
-Dieses Feature ist Teil keiner aktuellen Spezifikation und wird nicht mehr als Standard verfolgt.
+Dieses Feature ist nicht Teil einer aktuellen Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Touch-Ereignisse](/de/docs/Web/API/Touch_events)
-- {{DOMxRef("TouchList")}}
-- {{DOMxRef("Touch")}}
-- {{DOMxRef("Document.createTouchList()")}}
+- [Touch Events](/de/docs/Web/API/Touch_events)
+- [`TouchList`](/de/docs/Web/API/TouchList)
+- [`Touch`](/de/docs/Web/API/Touch)
+- [`Document.createTouchList()`](/de/docs/Web/API/Document/createTouchList)

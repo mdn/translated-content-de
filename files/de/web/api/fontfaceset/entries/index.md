@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`entries()`** Methode der {{domxref("FontFaceSet")}} Schnittstelle gibt ein neues {{jsxref("Iterator")}} Objekt zurück, das ein Array von `[value,value]` für jedes Element im `FontFaceSet` enthält.
+Die **`entries()`** Methode der [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Schnittstelle gibt ein neues {{jsxref("Iterator")}} Objekt zurück, das ein Array von `[value,value]` für jedes Element im `FontFaceSet` enthält.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Iterator-Objekt, das ein Array von `[value, value]` für jedes Element im `CustomStateSet` in Einfügereihenfolge enthält.
+Ein neues Iterator-Objekt, das ein Array von `[value, value]` für jedes Element in der `CustomStateSet`, in Einfügereihenfolge, enthält.
 
 ## Spezifikationen
 

@@ -8,30 +8,26 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`matches`** schreibgeschützte Eigenschaft der
-{{DOMxRef("MediaQueryListEvent")}}-Schnittstelle ist ein boolescher Wert, der
-`true` ist, wenn das {{DOMxRef("document")}} derzeit die Medienabfrageliste erfüllt,
-oder `false` andernfalls.
+Die **`matches`** schreibgeschützte Eigenschaft der [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)-Schnittstelle ist ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Media Query-Liste übereinstimmt, oder `false`, wenn nicht.
 
 ## Wert
 
-Ein boolescher Wert; gibt `true` zurück, wenn das {{DOMxRef("document")}}
-derzeit die Medienabfrageliste erfüllt, `false` andernfalls.
+Ein boolescher Wert; gibt `true` zurück, wenn das [`document`](/de/docs/Web/API/Document) derzeit mit der Media Query-Liste übereinstimmt, `false`, wenn nicht.
 
 ## Beispiele
 
 ```js
-const para = document.querySelector("p"); // Dies ist das UI-Element, in dem der Text angezeigt wird
+const para = document.querySelector("p"); // This is the UI element where to display the text
 const mql = window.matchMedia("(max-width: 600px)");
 
 mql.addEventListener("change", (event) => {
   if (event.matches) {
-    // Der Ansichtsbereich ist 600 Pixel breit oder weniger
-    para.textContent = "Dies ist ein schmaler Bildschirm — weniger als 600px breit.";
+    // The viewport is 600 pixels wide or less
+    para.textContent = "This is a narrow screen — less than 600px wide.";
     document.body.style.backgroundColor = "red";
   } else {
-    // Der Ansichtsbereich ist mehr als 600 Pixel breit
-    para.textContent = "Dies ist ein breiter Bildschirm — mehr als 600px breit.";
+    // The viewport is more than 600 pixels wide
+    para.textContent = "This is a wide screen — more than 600px wide.";
     document.body.style.backgroundColor = "blue";
   }
 });
@@ -47,8 +43,8 @@ mql.addEventListener("change", (event) => {
 
 ## Siehe auch
 
-- [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Medienabfragen im Code verwenden](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
-- {{DOMxRef("window.matchMedia()")}}
-- {{DOMxRef("MediaQueryList")}}
-- {{DOMxRef("MediaQueryListEvent")}}
+- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
+- [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
+- [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

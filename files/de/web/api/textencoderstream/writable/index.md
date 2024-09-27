@@ -3,20 +3,20 @@ title: "TextEncoderStream: writable-Eigenschaft"
 short-title: writable
 slug: Web/API/TextEncoderStream/writable
 l10n:
-  sourceCommit: cb904d0a6e21bd40f31b31d71c0c3bd85622c01c
+  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
 ---
 
-{{APIRef("Encoding API")}}
+{{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`writable`**-Eigenschaft der {{domxref("TextEncoderStream")}}-Schnittstelle gibt einen {{domxref("WritableStream")}} zurück.
+Die **`writable`** schreibgeschützte Eigenschaft der [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream) Schnittstelle gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück.
 
 ## Wert
 
-Ein {{domxref("WritableStream")}}.
+Ein [`WritableStream`](/de/docs/Web/API/WritableStream).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein `WritableStream` aus einem `TextEncoderStream`-Objekt zurückgegeben wird.
+Das folgende Beispiel zeigt, wie man einen `WritableStream` von einem `TextEncoderStream`-Objekt zurückgibt.
 
 ```js
 stream = new TextEncoderStream();

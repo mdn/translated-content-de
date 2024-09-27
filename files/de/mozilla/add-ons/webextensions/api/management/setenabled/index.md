@@ -9,13 +9,13 @@ l10n:
 
 Aktiviert oder deaktiviert das angegebene Add-on.
 
-Diese Funktion muss in der Regel im Kontext einer Benutzeraktion aufgerufen werden, wie z. B. dem Klick auf einen Button. Der Browser kann auch den Benutzer bitten, die Änderung zu bestätigen.
+Diese Funktion muss normalerweise im Kontext einer Benutzeraktion aufgerufen werden, wie z.B. dem Klick-Handler für einen Button. Der Browser kann den Benutzer auch bitten, die Änderung zu bestätigen.
 
 Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 Es handelt sich um eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
-Die Funktion erlaubt das Aktivieren/Deaktivieren von Theme-Add-ons, gibt jedoch einen Fehler zurück, wenn sie verwendet wird, um andere Arten von Web-Erweiterungen zu aktivieren oder zu deaktivieren.
+Die Funktion ermöglicht das Aktivieren/Deaktivieren von Design-Add-ons, gibt jedoch einen Fehler zurück, wenn sie zum Aktivieren oder Deaktivieren anderer Arten von Web-Erweiterungen verwendet wird.
 
 ## Syntax
 
@@ -29,13 +29,13 @@ let settingEnabled = browser.management.setEnabled(
 ### Parameter
 
 - `id`
-  - : `string`. ID des Add-ons, das aktiviert/deaktiviert werden soll.
+  - : `string`. ID des zu aktivierenden/deaktivierenden Add-ons.
 - `enabled`
-  - : `boolean`. Ob das Add-on aktiviert oder deaktiviert werden soll.
+  - : `boolean`. Gibt an, ob das Add-on aktiviert oder deaktiviert werden soll.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, ohne Argumente, wenn das Add-on deaktiviert oder aktiviert wurde.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Add-on deaktiviert oder aktiviert wurde.
 
 ## Browser-Kompatibilität
 
@@ -43,7 +43,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das e
 
 ## Beispiele
 
-Aktivieren/Deaktivieren für das Add-on mit der ID "my-add-on" umschalten:
+Aktivierung/Deaktivierung für das Add-on mit der ID "my-add-on" umschalten:
 
 ```js
 let id = "my-add-on";
@@ -61,7 +61,7 @@ toggleEnabled(id);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-setEnabled) API von Chromium. Diese Dokumentation leitet sich von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-setEnabled) API von Chromium. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

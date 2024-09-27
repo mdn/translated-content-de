@@ -7,36 +7,36 @@ l10n:
 
 {{APIRef("Screen Orientation API")}}
 
-Die **`ScreenOrientation`**-Schnittstelle der [Screen Orientation API](/de/docs/Web/API/Screen_Orientation_API) liefert Informationen über die aktuelle Ausrichtung des Dokuments.
+Die **`ScreenOrientation`**-Schnittstelle der [Screen Orientation API](/de/docs/Web/API/Screen_Orientation_API) liefert Informationen über die aktuelle Orientierung des Dokuments.
 
-Ein **`ScreenOrientation`**-Instanzobjekt kann über die Eigenschaft {{domxref("screen.orientation")}} abgerufen werden.
+Ein **`ScreenOrientation`**-Instanzobjekt kann über die [`screen.orientation`](/de/docs/Web/API/Screen/orientation)-Eigenschaft abgerufen werden.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{DOMxRef("ScreenOrientation.type")}} {{ReadOnlyInline}}
-  - : Gibt den aktuellen Ausrichtungstyp des Dokuments zurück, einer von `portrait-primary`, `portrait-secondary`, `landscape-primary` oder `landscape-secondary`.
-- {{DOMxRef("ScreenOrientation.angle")}} {{ReadOnlyInline}}
-  - : Gibt den aktuellen Ausrichtungswinkel des Dokuments zurück.
+- [`ScreenOrientation.type`](/de/docs/Web/API/ScreenOrientation/type) {{ReadOnlyInline}}
+  - : Gibt den aktuellen Orientierungstyp des Dokuments zurück, einer von `portrait-primary`, `portrait-secondary`, `landscape-primary` oder `landscape-secondary`.
+- [`ScreenOrientation.angle`](/de/docs/Web/API/ScreenOrientation/angle) {{ReadOnlyInline}}
+  - : Gibt den aktuellen Orientierungswinkel des Dokuments zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{DOMxRef("ScreenOrientation.lock()")}}
-  - : Sperrt die Ausrichtung des enthaltenen Dokuments auf seine Standardausrichtung und gibt ein {{JSxRef("Promise")}} zurück.
-- {{DOMxRef("ScreenOrientation.unlock()")}}
-  - : Entsperrt die Ausrichtung des enthaltenen Dokuments von seiner Standardausrichtung.
+- [`ScreenOrientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock)
+  - : Sperrt die Orientierung des enthaltenden Dokuments auf die Standardausrichtung und gibt ein {{JSxRef("Promise")}} zurück.
+- [`ScreenOrientation.unlock()`](/de/docs/Web/API/ScreenOrientation/unlock)
+  - : Entsperrt die Orientierung des enthaltenden Dokuments von der Standardausrichtung.
 
 ## Ereignisse
 
-Hören Sie diese Ereignisse mit `addEventListener()` oder durch Zuweisen eines Ereignislisteners zur `oneventname`-Eigenschaft dieser Schnittstelle ab.
+Diese Ereignisse können mit `addEventListener()` oder durch Zuweisen eines Event-Listeners zur `oneventname`-Eigenschaft dieser Schnittstelle überwacht werden.
 
-- {{DOMxRef("ScreenOrientation.change_event", "change")}}
-  - : Wird immer dann ausgelöst, wenn sich die Bildschirmausrichtung ändert.
+- [`change`](/de/docs/Web/API/ScreenOrientation/change_event)
+  - : Wird ausgelöst, wenn der Bildschirm die Orientierung ändert.
 
 ## Beispiel
 
-Im folgenden Beispiel horchen wir auf ein {{DOMxRef("ScreenOrientation.change_event", "change")}}-Ereignis der Ausrichtung und protokollieren den neuen {{DOMxRef("ScreenOrientation.type", "screen orientation type", "", "nocode")}} und den {{DOMxRef("ScreenOrientation.angle", "angle", "", "nocode")}}.
+Im folgenden Beispiel hören wir auf ein Orientierung-[`change`](/de/docs/Web/API/ScreenOrientation/change_event)-Ereignis und protokollieren den neuen [Bildschirmorientierungstyp](/de/docs/Web/API/ScreenOrientation/type) und [Winkel](/de/docs/Web/API/ScreenOrientation/angle).
 
 ```js
 screen.orientation.addEventListener("change", (event) => {

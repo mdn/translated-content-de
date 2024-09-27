@@ -7,16 +7,16 @@ l10n:
 
 {{AddonSidebar}}
 
-Der `DoubleDelta`-Typ der {{WebExtAPIRef("downloads")}} API repräsentiert den Unterschied zwischen zwei Doubles.
+Der `DoubleDelta`-Typ der {{WebExtAPIRef("downloads")}} API repräsentiert die Differenz zwischen zwei `doubles`.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `current` {{optional_inline}}
-  - : Eine `number`, die den aktuellen Double-Wert darstellt.
+  - : Eine `number`, die den aktuellen `double`-Wert darstellt.
 - `previous` {{optional_inline}}
-  - : Eine `number`, die den vorherigen Double-Wert darstellt.
+  - : Eine `number`, die den vorherigen `double`-Wert darstellt.
 
 ## Browser-Kompatibilität
 

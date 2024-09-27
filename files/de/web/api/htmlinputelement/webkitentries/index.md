@@ -8,20 +8,25 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die schreibgeschützte **`webkitEntries`**-Eigenschaft der {{domxref("HTMLInputElement")}}-Schnittstelle enthält ein Array von Dateisystemeinträgen (als Objekte basierend auf {{domxref("FileSystemEntry")}}), die Dateien und/oder Verzeichnisse repräsentieren, die vom Benutzer über ein {{HTMLElement("input")}}-Element des Typs `file` ausgewählt wurden, jedoch nur, wenn diese Auswahl über Drag-and-Drop vorgenommen wurde: Die Auswahl einer Datei im Dialog lässt die Eigenschaft leer.
+Die schreibgeschützte **`webkitEntries`**
+Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Interface enthält ein Array von Dateisystemeinträgen (als Objekte basierend auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)), die Dateien
+und/oder Verzeichnisse darstellen, die vom Benutzer über ein {{HTMLElement("input")}} Element vom Typ `file` ausgewählt wurden, aber nur, wenn diese Auswahl über Drag-and-Drop vorgenommen wurde:
+die Auswahl einer Datei im Dialog lässt die Eigenschaft leer.
 
-Das Array kann nur Verzeichnisse enthalten, wenn die Eigenschaft {{domxref("HTMLInputElement.webkitdirectory", "webkitdirectory")}} `true` ist. Dies bedeutet, dass das `<input>`-Element so konfiguriert wurde, dass es dem Benutzer erlaubt, Verzeichnisse auszuwählen.
+Das Array kann nur Verzeichnisse enthalten, wenn die
+[`webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory) Eigenschaft
+`true` ist. Das bedeutet, dass das `<input>` Element so konfiguriert wurde, dass der Benutzer Verzeichnisse auswählen kann.
 
 > [!NOTE]
-> Diese Eigenschaft wird in der Spezifikation `webkitEntries` genannt, da sie ihren Ursprung in einer Google Chrome-spezifischen API hat. Es ist wahrscheinlich, dass sie irgendwann umbenannt wird.
+> Diese Eigenschaft wird in der Spezifikation `webkitEntries` genannt, weil sie ihren Ursprung als Google Chrome-spezifische API hat. Möglicherweise wird sie eines Tages umbenannt.
 
 ## Wert
 
-Ein Array von Objekten basierend auf {{domxref("FileSystemEntry")}}, wobei jedes einen ausgewählten File im {{HTMLElement("input")}}-Element repräsentiert. Genauer gesagt werden Dateien durch {{domxref("FileSystemFileEntry")}}-Objekte repräsentiert, und, wenn sie erlaubt sind, Verzeichnisse durch {{domxref("FileSystemDirectoryEntry")}}-Objekte.
+Ein Array von Objekten basierend auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry), wobei jedes Objekt eine Datei darstellt, die im {{HTMLElement("input")}} Element ausgewählt ist. Genauer gesagt, werden Dateien durch [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) Objekte repräsentiert, und, wenn sie erlaubt sind, Verzeichnisse durch [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) Objekte.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie man ein Dateiauswahl-`<input>`-Element erstellt und die ausgewählten Dateien verarbeitet.
+Dieses Beispiel zeigt, wie man ein Datei-Auswahl-`<input>`-Element erstellt und die ausgewählten Dateien verarbeitet.
 
 ### HTML
 
@@ -39,13 +44,13 @@ document.getElementById("files").addEventListener("change", (event) => {
 });
 ```
 
-Jedes Mal, wenn ein {{domxref("HTMLElement/change_event", "change")}}-Ereignis auftritt, durchläuft dieser Code die ausgewählten Dateien, erhält ihre {{domxref("FileSystemEntry")}}-basierten Objekte und führt Aktionen darüber aus.
+Jedes Mal, wenn ein [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignis eintritt, durchläuft dieser Code die ausgewählten Dateien, erhält ihre auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) basierenden Objekte und verarbeitet sie.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -53,6 +58,6 @@ Jedes Mal, wenn ein {{domxref("HTMLElement/change_event", "change")}}-Ereignis a
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
 - [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
-- {{domxref("HTMLInputElement")}}
-- {{domxref("FileSystemEntry")}}
-- {{domxref("FileSystem")}}
+- [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
+- [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)
+- [`FileSystem`](/de/docs/Web/API/FileSystem)

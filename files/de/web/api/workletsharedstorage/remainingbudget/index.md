@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`remainingBudget()`**-Methode der {{domxref("WorkletSharedStorage")}}-Schnittstelle gibt das verbleibende Navigationsbudget für den aktuellen Ursprung zurück.
+Die **`remainingBudget()`**-Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Schnittstelle gibt das verbleibende Navigationsbudget für den aktuellen Ursprung zurück.
 
-Das Navigationsbudget ist die Anzahl der Entropie-Bits, die innerhalb eines {{htmlelement("fencedframe")}} aufgrund der {{domxref("WindowSharedStorage.selectURL()")}}-Aufrufe pro Ursprung alle 24 Stunden erlaubt sind. Dies ist nicht gleichbedeutend mit der Anzahl der Navigationen, sondern basiert auf der Anzahl der potenziellen Navigationen bei jedem Aufruf. Jedes Mal, wenn eine `selectURL()`-Navigation erfolgt, verringert sich das entsprechende Ursprungsbudget um den Logarithmus (Basis 2) der Anzahl der URL-Auswahlmöglichkeiten.
+Das Navigationsbudget ist die Anzahl der Entropie-Bits, die innerhalb eines {{htmlelement("fencedframe")}} durch die [`WindowSharedStorage.selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL)-Aufrufe pro Ursprung alle 24 Stunden erlaubt sind. Dies ist nicht dasselbe wie die Anzahl der Navigationsvorgänge, sondern basiert auf der Anzahl der potenziellen Navigationen in jedem Aufruf. Jedes Mal, wenn eine `selectURL()`-Navigation erfolgt, verringert sich das Budget des entsprechenden Ursprungs um den Logarithmus (Basis 2) der Anzahl der URL-Auswahlen.
 
-Das Navigationsbudget ist ein Mechanismus, der entwickelt wurde, um die Rate des Lecks von domänenübergreifenden Daten zu den Zielseiten, die in [fenced frames](/de/docs/Web/API/Fenced_frame_API) navigiert werden, zu begrenzen.
+Das Navigationsbudget ist ein Mechanismus, der entwickelt wurde, um die Geschwindigkeit der Datenübertragung über Seiten hinweg, zu denen in [Fenced Frames](/de/docs/Web/API/Fenced_frame_API) navigiert wird, zu begrenzen.
 
 ## Syntax
 
@@ -26,17 +26,17 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer Zahl erfüllt wird, die das verbleibende Navigationsbudget darstellt.
+Ein {{jsxref("Promise")}}, der mit einer Zahl erfüllt wird, die das verbleibende Navigationsbudget darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das Worklet-Modul noch nicht mit {{domxref("Worklet.addModule", "addModule()")}} hinzugefügt wurde oder wenn die aufrufende Seite die Shared Storage API nicht in einem erfolgreichen [Privacy Sandbox-Einschreibungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) integriert hat.
+  - : Wird ausgelöst, wenn das Worklet-Modul noch nicht mit [`addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde oder wenn die aufrufende Seite die Shared Storage API nicht im Rahmen eines erfolgreichen [Privacy Sandbox-Registrierungsprozesses](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) enthält.
 
 ## Beispiele
 
 ```js
-// remainingBudget() verfügbar innerhalb eines Shared Storage Worklet-Moduls
+// remainingBudget() available inside a shared storage worklet module
 
 async function retrieveBudget() {
   const budget = await this.sharedStorage.remainingBudget();

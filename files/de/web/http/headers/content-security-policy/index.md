@@ -7,18 +7,18 @@ l10n:
 
 {{HTTPSidebar}}
 
-Das HTTP-Header **`Content-Security-Policy`** ermöglicht es Website-Administratoren, die Ressourcen zu kontrollieren, die der User-Agent für eine gegebene Seite laden darf. Mit einigen Ausnahmen betreffen Richtlinien hauptsächlich die Angabe von Server-Ursprüngen und Skript-Endpunkten. Dies hilft, Cross-Site-Scripting-Angriffe abzuwehren ({{Glossary("Cross-site_scripting")}}).
+Der HTTP-Antwortheader **`Content-Security-Policy`** ermöglicht es Website-Administratoren, die Ressourcen zu kontrollieren, die der Benutzeragent für eine bestimmte Seite laden darf. Mit einigen Ausnahmen beziehen sich Richtlinien hauptsächlich auf die Angabe von Serverursprüngen und Skriptendpunkten. Dies hilft, Cross-Site-Scripting-Angriffe abzuwehren ([Cross-site_scripting](/de/docs/Glossary/Cross-site_scripting)).
 
-Für weitere Informationen lesen Sie den einführenden Artikel zur [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP).
+Weitere Informationen finden Sie im einführenden Artikel zur [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>{{Glossary("Response header")}}</td>
+      <td>[Antwortheader](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -30,183 +30,189 @@ Für weitere Informationen lesen Sie den einführenden Artikel zur [Content Secu
 Content-Security-Policy: <policy-directive>; <policy-directive>
 ```
 
-wobei `<policy-directive>` besteht aus:
-`<directive> <value>` ohne interne Interpunktion.
+wobei `<policy-directive>` aus Folgendem besteht:
+`<directive> <value>` ohne interne Zeichensetzung.
 
-## Direktiven
+## Richtlinien
 
-### Fetch-Direktiven
+### Fetch-Richtlinien
 
-{{Glossary("Fetch directive","Fetch directives")}} kontrollieren die Orte, von denen bestimmte Ressourcentypen geladen werden dürfen.
+[Fetch-Richtlinien](/de/docs/Glossary/Fetch_directive) kontrollieren die Orte, von denen bestimmte Ressourcentypen geladen werden dürfen.
 
 - {{CSP("child-src")}}
 
-  - : Definiert die gültigen Quellen für [Web Workers](/de/docs/Web/API/Web_Workers_API) und geschachtelte Browsing-Kontexte, die mit Elementen wie {{HTMLElement("frame")}} und {{HTMLElement("iframe")}} geladen werden.
+  - : Definiert die gültigen Quellen für [Web Worker](/de/docs/Web/API/Web_Workers_API) und verschachtelte Browsing-Kontexte, die mit Elementen wie {{HTMLElement("frame")}} und {{HTMLElement("iframe")}} geladen werden.
 
     > [!WARNING]
-    > Anstatt **`child-src`**,
-    > wenn Sie geschachtelte Browsing-Kontexte und Worker regulieren möchten,
-    > sollten Sie die Direktiven {{CSP("frame-src")}} und {{CSP("worker-src")}} verwenden.
+    > Statt **`child-src`** zu verwenden,
+    > sollten Sie die Richtlinien {{CSP("frame-src")}} und {{CSP("worker-src")}} verwenden, um verschachtelte Browsing-Kontexte und Worker zu regulieren.
 
 - {{CSP("connect-src")}}
-  - : Beschränkt die URLs, die über Skript-Schnittstellen geladen werden können.
+  - : Beschränkt die URLs, die über Skriptschnittstellen geladen werden können.
 - {{CSP("default-src")}}
-  - : Dient als Fallback für die anderen {{Glossary("Fetch directive", "fetch directives")}}.
+  - : Dient als Fallback für die anderen [Fetch-Richtlinien](/de/docs/Glossary/Fetch_directive).
 - {{CSP("fenced-frame-src")}} {{experimental_inline}}
-  - : Legt gültige Quellen für geschachtelte Browsing-Kontexte fest, die in {{HTMLElement("fencedframe")}}-Elementen geladen sind.
+  - : Gibt gültige Quellen für verschachtelte Browsing-Kontexte an, die in {{HTMLElement("fencedframe")}}-Elemente geladen werden.
 - {{CSP("font-src")}}
-  - : Legt gültige Quellen für Fonts fest, die mit {{cssxref("@font-face")}} geladen werden.
+  - : Gibt gültige Quellen für Schriftarten an, die mit {{cssxref("@font-face")}} geladen werden.
 - {{CSP("frame-src")}}
-  - : Legt gültige Quellen für geschachtelte Browsing-Kontexte fest, die in Elementen wie {{HTMLElement("frame")}} und {{HTMLElement("iframe")}} geladen sind.
+  - : Gibt gültige Quellen für verschachtelte Browsing-Kontexte an, die in Elementen wie
+    {{HTMLElement("frame")}} und {{HTMLElement("iframe")}} geladen werden.
 - {{CSP("img-src")}}
-  - : Legt gültige Quellen für Bilder und Favicons fest.
+  - : Gibt gültige Quellen von Bildern und Favicons an.
 - {{CSP("manifest-src")}}
-  - : Legt gültige Quellen für Anwendungsmanifest-Dateien fest.
+  - : Gibt gültige Quellen von Anwendungsmanifestdateien an.
 - {{CSP("media-src")}}
-  - : Legt gültige Quellen zum Laden von Medien mit den Elementen {{HTMLElement("audio")}}, {{HTMLElement("video")}} und {{HTMLElement("track")}} fest.
+  - : Gibt gültige Quellen für das Laden von Medien mit den {{HTMLElement("audio")}},
+    {{HTMLElement("video")}} und {{HTMLElement("track")}}-Elementen an.
 - {{CSP("object-src")}}
 
-  - : Legt gültige Quellen für die Elemente {{HTMLElement("object")}} und {{HTMLElement("embed")}} fest.
+  - : Gibt gültige Quellen für die {{HTMLElement("object")}} und {{HTMLElement("embed")}}-Elemente an.
 
     > [!NOTE]
-    > Elemente, die von `object-src` kontrolliert werden, gelten möglicherweise
-    > zufällig als veraltete HTML-Elemente und erhalten keine neuen standardisierten
-    > Funktionen (wie die Sicherheitsattribute `sandbox` oder `allow`
-    > für `<iframe>`). Daher wird **empfohlen**, diese Fetch-Direktive einzuschränken (z.B. explizit `object-src 'none'` festzulegen, wenn
-    > möglich).
+    > Elemente, die von `object-src` kontrolliert werden, werden möglicherweise
+    > zufällig als Legacy-HTML-Elemente betrachtet und erhalten keine neuen standardisierten
+    > Funktionen (wie z. B. die Sicherheitsattribute `sandbox` oder `allow`
+    > für `<iframe>`). Daher wird **empfohlen**, diese Fetch-Richtlinie zu
+    > beschränken (z. B. explizit `object-src 'none'` zu setzen, wenn möglich).
 
 - {{CSP("prefetch-src")}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Legt gültige Quellen fest, die vorab geladen oder vorausgerechnet werden sollen.
+  - : Gibt gültige Quellen an, die vorab geladen oder gerendert werden sollen.
 - {{CSP("script-src")}}
-  - : Legt gültige Quellen für JavaScript- und WebAssembly-Ressourcen fest.
+  - : Gibt gültige Quellen für JavaScript- und WebAssembly-Ressourcen an.
 - {{CSP("script-src-elem")}}
-  - : Legt gültige Quellen für JavaScript-{{HTMLElement("script")}}-Elemente fest.
+  - : Gibt gültige Quellen für JavaScript-{{HTMLElement("script")}}-Elemente an.
 - {{CSP("script-src-attr")}}
-  - : Legt gültige Quellen für JavaScript-Inline-Ereignishandler fest.
+  - : Gibt gültige Quellen für JavaScript-Inline-Ereignishandler an.
 - {{CSP("style-src")}}
-  - : Legt gültige Quellen für Stylesheets fest.
+  - : Gibt gültige Quellen für Stylesheets an.
 - {{CSP("style-src-elem")}}
-  - : Legt gültige Quellen für Stylesheets {{HTMLElement("style")}}-Elemente und
-    {{HTMLElement("link")}}-Elemente mit `rel="stylesheet"` fest.
+  - : Gibt gültige Quellen für Stylesheets {{HTMLElement("style")}}-Elemente und
+    {{HTMLElement("link")}}-Elemente mit `rel="stylesheet"` an.
 - {{CSP("style-src-attr")}}
-  - : Legt gültige Quellen für inline angewendete Stile auf einzelne DOM-Elemente fest.
+  - : Gibt gültige Quellen für Inline-Stile an, die auf einzelne DOM-Elemente angewendet werden.
 - {{CSP("worker-src")}}
-  - : Legt gültige Quellen für {{domxref("Worker")}}, {{domxref("SharedWorker")}} oder
-    {{domxref("ServiceWorker")}}-Skripte fest.
+  - : Gibt gültige Quellen für [`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker) oder
+    [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Skripte an.
 
-### Dokument-Direktiven
+### Dokumentrichtlinien
 
-Dokument-Direktiven regeln die Eigenschaften eines Dokuments oder des [Worker](/de/docs/Web/API/Web_Workers_API)-Umfelds, auf das eine Richtlinie angewendet wird.
+Dokumentrichtlinien steuern die Eigenschaften eines Dokuments oder [Arbeitsbereichs](/de/docs/Web/API/Web_Workers_API), für das eine Richtlinie gilt.
 
 - {{CSP("base-uri")}}
-  - : Beschränkt die URLs, die in einem {{HTMLElement("base")}}-Element eines Dokuments verwendet werden können.
+  - : Beschränkt die URLs, die im {{HTMLElement("base")}}-Element eines Dokuments verwendet werden können.
 - {{CSP("sandbox")}}
-  - : Aktiviert eine Sandbox für die angeforderte Ressource, ähnlich dem
+  - : Aktiviert einen Sandbox-Modus für die angeforderte Ressource, ähnlich dem
     {{HTMLElement("iframe")}}-Attribut [`sandbox`](/de/docs/Web/HTML/Element/iframe#sandbox).
 
-### Navigations-Direktiven
+### Navigationsrichtlinien
 
-Navigations-Direktiven regeln, zu welchen Orten ein Benutzer navigieren oder ein Formular übermitteln kann.
+Navigationsrichtlinien bestimmen, wohin ein Benutzer navigieren oder ein Formular absenden kann, zum Beispiel.
 
 - {{CSP("form-action")}}
-  - : Beschränkt die URLs, die als Ziel eines Formularübermittlungen aus einem
+  - : Beschränkt die URLs, die als Ziel von Formularübermittlungen aus einem
     bestimmten Kontext verwendet werden können.
 - {{CSP("frame-ancestors")}}
-  - : Gibt gültige Eltern an, die eine Seite mit {{HTMLElement("frame")}},
-    {{HTMLElement("iframe")}}, {{HTMLElement("object")}} oder {{HTMLElement("embed")}} einbetten können.
+  - : Gibt gültige Eltern an, die eine Seite mithilfe von {{HTMLElement("frame")}},
+    {{HTMLElement("iframe")}}, {{HTMLElement("object")}} oder {{HTMLElement("embed")}} einbetten dürfen.
 
-### Berichterstattungs-Direktiven
+### Berichterstellungsrichtlinien
 
-Berichterstattungs-Direktiven kontrollieren die Ziel-URL für Berichte über Verstöße gegen CSP in `Content-Security-Policy` und {{HTTPHeader("Content-Security-Policy-Report-Only")}}.
+Berichterstellungsrichtlinien steuern die Ziel-URL für CSP-Verletzungsberichte in `Content-Security-Policy` und {{HTTPHeader("Content-Security-Policy-Report-Only")}}.
 
 - {{CSP("report-to")}}
 
-  - : Stellt dem Browser ein Token bereit, das den Berichts-Endpunkt oder die Gruppe von Endpunkten identifiziert, an die Informationen über CSP-Verstöße gesendet werden sollen.
-    Die Endpunkte, die das Token darstellt, werden durch andere HTTP-Header bereitgestellt, wie {{HTTPHeader("Reporting-Endpoints")}} und {{HTTPHeader("Report-To")}} {{deprecated_inline}}.
+  - : Stellt dem Browser ein Token zur Verfügung, das den Berichts-Endpunkt oder die Endpunktgruppe identifiziert, an die CSP-Verletzungsinformationen gesendet werden sollen.
+    Die Endpunkte, die durch das Token repräsentiert werden, werden durch andere HTTP-Header bereitgestellt, wie z. B. {{HTTPHeader("Reporting-Endpoints")}} und {{HTTPHeader("Report-To")}} {{deprecated_inline}}.
 
     > [!WARNING]
-    > Diese Direktive soll [`report-uri`](#report-uri) ersetzen; in Browsern, die `report-to` unterstützen, wird die `report-uri`-Direktive ignoriert.
-    > Bis jedoch `report-to` breit unterstützt wird, sollten Sie beide Header angeben, wie gezeigt (wobei `endpoint_name` der Name eines separat bereitgestellten Endpunkts ist):
+    > Diese Richtlinie soll [`report-uri`](#report-uri) ersetzen; in Browsern, die `report-to` unterstützen, wird die `report-uri`-Richtlinie ignoriert.
+    > Bis jedoch `report-to` umfassend unterstützt wird, sollten Sie beide Header wie gezeigt angeben (wobei `endpoint_name` der Name eines separat bereitgestellten Endpunkts ist):
     >
     > ```http
     > Content-Security-Policy: …; report-uri https://endpoint.example.com; report-to endpoint_name
     > ```
 
-### Andere Direktiven
+### Weitere Richtlinien
 
 - {{CSP("require-trusted-types-for")}} {{experimental_inline}}
-  - : Erzwingt [Trusted Types](https://w3c.github.io/trusted-types/dist/spec/) an den DOM XSS Injektionsstellen.
+  - : Erzwingt [Trusted Types](https://w3c.github.io/trusted-types/dist/spec/) an den DOM-XSS-Injektionsstellen.
 - {{CSP("trusted-types")}} {{experimental_inline}}
-  - : Wird verwendet, um eine Zulassungsliste von [Trusted Types](https://w3c.github.io/trusted-types/dist/spec/) Richtlinien zu spezifizieren. Trusted Types ermöglicht es Anwendungen, DOM XSS Injektionsstellen so zu sperren, dass sie nur nicht manipulierbare, typisierte Werte anstelle von Strings akzeptieren.
+  - : Wird verwendet, um eine Positivliste von [Trusted Types](https://w3c.github.io/trusted-types/dist/spec/)
+    Richtlinien anzugeben. Trusted Types ermöglicht es Anwendungen, DOM-XSS-Injektionsstellen zu sperren, sodass nur nicht fälschbare, getypte Werte anstelle von Strings akzeptiert werden.
 - {{CSP("upgrade-insecure-requests")}}
-  - : Weist User Agents an, alle unsicheren URLs einer Website (die über HTTP bereitgestellt werden) so zu behandeln, als wären sie durch sichere URLs (die über HTTPS bereitgestellt werden) ersetzt. Diese Direktive ist für Websites mit einer großen Anzahl unsicherer Legacy-URLs gedacht, die umgeschrieben werden müssen.
+  - : Weist Benutzeragenten an, alle unsicheren URLs einer Website (die über HTTP bereitgestellt werden) so zu behandeln, als seien sie durch sichere URLs (die über HTTPS bereitgestellt werden) ersetzt worden.
+    Diese Richtlinie ist für Websites mit einer großen Anzahl unsicherer Legacy-URLs gedacht, die umgeschrieben werden müssen.
 
-### Veraltete Direktiven
+### Veraltete Richtlinien
 
 - {{CSP("block-all-mixed-content")}} {{deprecated_inline}}
 
   - : Verhindert das Laden von Assets über HTTP, wenn die Seite über HTTPS geladen wird.
 
 - {{CSP("report-uri")}} {{deprecated_inline}}
-  - : Übermittelt dem Browser eine URL, an die Berichte über CSP-Verstöße gesendet werden sollen. Dies wurde durch die [`report-to`](#report-to)-Direktive ersetzt.
+  - : Gibt dem Browser eine URL an, an die CSP-Verletzungsberichte gesendet werden sollen.
+    Dies wurde durch die [`report-to`](#report-to)-Richtlinie ersetzt.
 
 ## Werte
 
-Eine Übersicht der erlaubten Werte ist unten aufgeführt. Für detaillierte Referenzen siehe [CSP Source Values](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) und die Dokumentation zu einzelnen Direktiven.
+Ein Überblick über die erlaubten Werte ist unten aufgeführt.
+Eine detaillierte Referenz finden Sie unter [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) und in der Dokumentation zu den einzelnen Richtlinien.
 
 ### Schlüsselwortwerte
 
 - `'none'`
-  - : Erlaubt das Laden von keinen Ressourcen.
+  - : Lässt das Laden von Ressourcen nicht zu.
 - `'self'`
-  - : Erlaubt nur Ressourcen vom aktuellen Ursprung.
+  - : Erlaubt nur Ressourcen aus dem aktuellen Ursprung.
 - `'strict-dynamic'`
-  - : Das Vertrauen, das einem Skript auf der Seite aufgrund eines begleitenden Nonce oder Hash gewährt wird, wird auf die von ihm geladenen Skripte erweitert.
+  - : Das Vertrauen, das einem Skript auf der Seite aufgrund einer begleitenden Nonce oder eines Hashs gewährt wird, wird auf die von ihm geladenen Skripte ausgedehnt.
 - `'report-sample'`
-  - : Fordert einen Abschnitt des fehlerhaften Codes im Bericht über den Verstoß an.
+  - : Erfordert, dass ein Beispiel des verletzenden Codes in den Verletzungsbericht aufgenommen wird.
 - `'inline-speculation-rules'`
-  - : Erlaubt die Einbeziehung von [spekulativen Regeln](/de/docs/Web/API/Speculation_Rules_API) in Skripte (siehe auch [`<script type="speculationrules">`](/de/docs/Web/HTML/Element/script/type/speculationrules)).
+  - : Ermöglicht die Einbeziehung von [Spekulationsregeln](/de/docs/Web/API/Speculation_Rules_API) in Skripte (siehe auch [`<script type="speculationrules">`](/de/docs/Web/HTML/Element/script/type/speculationrules)).
 
-### Unsafe-Schlüsselwortwerte
+### Unsichere Schlüsselwortwerte
 
 - `'unsafe-inline'`
-  - : Erlaubt die Nutzung von Inline-Ressourcen.
+  - : Erlaubt die Verwendung von Inline-Ressourcen.
 - `'unsafe-eval'`
-  - : Erlaubt die Nutzung dynamischer Codeauswertung wie {{jsxref("Global_Objects/eval", "eval")}}, {{domxref("setTimeout()")}} und `window.execScript` {{non-standard_inline}}.
+  - : Erlaubt die Verwendung dynamischer Codeauswertung wie {{jsxref("Global_Objects/eval", "eval")}}, [`setTimeout()`](/de/docs/Web/API/SetTimeout) und `window.execScript` {{non-standard_inline}}.
 - `'unsafe-hashes'`
-  - : Erlaubt die Aktivierung spezifischer Inline-Ereignishandler.
+  - : Ermöglicht die Aktivierung bestimmter Inline-Ereignishandler.
 - `'wasm-unsafe-eval'`
-  - : Erlaubt das Laden und Ausführen von WebAssembly-Modulen ohne die Notwendigkeit, auch unsichere JavaScript-Ausführung über `'unsafe-eval'` zu erlauben. Die einfachen Anführungszeichen sind erforderlich.
+  - : Ermöglicht das Laden und Ausführen von WebAssembly-Modulen, ohne die unsichere JavaScript-Ausführung über `'unsafe-eval'` zuzulassen.
+    Die einfachen Anführungszeichen sind erforderlich.
 
 ### Hostwerte
 
 - Host
 
-  - Erlaubt das Laden von Ressourcen nur von einem bestimmten Host, optional mit Schema, Port und Pfad. Zum Beispiel, `example.com`, `*.example.com`, `https://*.example.com:12/path/to/file.js`.
-  - Pfadteile im CSP, die mit `/` enden, stimmen mit jedem Pfad überein, dessen Präfix sie sind. Zum Beispiel, `example.com/api/` stimmt mit URLs wie `example.com/api/users/new` überein.
-  - Andere Pfadteile im CSP stimmen genau überein; zum Beispiel, `example.com/file.js` wird mit `http://example.com/file.js` und `https://example.com/file.js` übereinstimmen, aber nicht mit `https://example.com/file.js/file2.js`.
+  - Lässt das Laden von Ressourcen nur von einem bestimmten Host zu, mit optionalem Schema, Port und Pfad. Zum Beispiel `example.com`, `*.example.com`, `https://*.example.com:12/path/to/file.js`.
+  - Pfadteile im CSP, die mit `/` enden, stimmen mit jedem Pfad überein, für den sie ein Präfix sind. Beispielsweise stimmt `example.com/api/` mit URLs wie `example.com/api/users/new` überein.
+  - Andere Pfadteile im CSP sind genau, z. B. `example.com/file.js` stimmt mit `http://example.com/file.js` und `https://example.com/file.js` überein, aber nicht mit `https://example.com/file.js/file2.js`.
 
 - Schema
-  - Erlaubt das Laden von Ressourcen nur über ein spezifisches Schema, sollte immer mit `:` enden. Zum Beispiel, `https:`, `http:`, `data:`, etc.
+  - Lässt das Laden von Ressourcen nur über ein bestimmtes Schema zu, sollte immer mit `:` enden. Zum Beispiel `https:`, `http:`, `data:`, etc.
 
 ### Andere Werte
 
 - `'nonce-*'`
-  - : Ein kryptographischer Nonce (der nur einmal verwendet wird), um Skripte zu erlauben. Der Server muss bei jeder Übertragung einer Richtlinie einen einzigartigen Nonce-Wert generieren. Es ist entscheidend, einen Nonce bereitzustellen, der nicht erraten werden kann, da das Umgehen der Richtlinie einer Ressource sonst trivial wäre. Dies wird in Verbindung mit dem [Skript-Tag-Nonce-Attribut](/de/docs/Web/HTML/Element/script#nonce) verwendet. Zum Beispiel, `nonce-DhcnhD3khTMePgXwdayK9BsMqXjhguVV`.
+  - : Eine kryptografische Nonce (nur einmal verwendet), um Skripte zu erlauben. Der Server muss einen eindeutigen Nonce-Wert generieren, jedes Mal, wenn er eine Richtlinie sendet. Es ist entscheidend, eine Nonce bereitzustellen, die nicht erraten werden kann, da das Umgehen der Richtlinie einer Ressource sonst trivial ist. Dies wird in Verbindung mit dem [Nonce-Attribut des Skript-Tags](/de/docs/Web/HTML/Element/script#nonce) verwendet. Zum Beispiel `nonce-DhcnhD3khTMePgXwdayK9BsMqXjhguVV`.
 - `'sha*-*'`
-  - : sha256, sha384 oder sha512. Gefolgt von einem Bindestrich und dann dem sha\*-Wert. Zum Beispiel, `sha256-jzgBGA4UWFFmpOBq0JpdsySukE1FrEN5bUpoK8Z29fY=`.
+  - : sha256, sha384 oder sha512. Gefolgt von einem Bindestrich und dann dem sha\*-Wert. Zum Beispiel `sha256-jzgBGA4UWFFmpOBq0JpdsySukE1FrEN5bUpoK8Z29fY=`.
 
-## CSP in Workern
+## CSP in Arbeitern
 
-[Worker](/de/docs/Web/API/Worker) werden im Allgemeinen _nicht_ von der Content Security Policy des Dokuments (oder übergeordneten Workern), das sie erstellt hat, regiert. Um eine Content Security Policy für den Worker festzulegen, setzen Sie einen `Content-Security-Policy`-Antwort-Header für die Anfrage, die das Worker-Skript selbst angefordert hat.
+[Arbeiter](/de/docs/Web/API/Worker) werden im Allgemeinen _nicht_ von der Inhaltsrichtlinie des Dokuments (oder des Elternarbeiters) geregelt, der sie erstellt hat. Um eine Inhaltsrichtlinie für den Arbeiter festzulegen, muss ein `Content-Security-Policy`-Antwortheader für die Anfrage gesetzt werden, die das Arbeiterskript selbst angefordert hat.
 
-Die Ausnahme hiervon besteht, wenn der Ursprung des Worker-Skripts ein global eindeutiger Identifikator ist (zum Beispiel, wenn seine URL ein Schema von data oder blob hat). In diesem Fall erbt der Worker die Content Security Policy des Dokuments oder Workers, das ihn erstellt hat.
+Die Ausnahme davon ist, wenn der Ursprung des Arbeiterskripts ein global einzigartiger Bezeichner ist (zum Beispiel, wenn seine URL ein Schema von Daten oder Blob aufweist). In diesem Fall erbt der Arbeiter die Inhaltsrichtlinie des Dokuments oder Arbeiters, der ihn erstellt hat.
 
-## Mehrere Content Security Policies
+## Mehrere Inhaltsrichtlinien
 
-Der CSP-Mechanismus erlaubt es, dass für eine Ressource mehrere Richtlinien angegeben werden, einschließlich über den `Content-Security-Policy`-Header, den {{HTTPHeader("Content-Security-Policy-Report-Only")}}-Header und ein {{HTMLElement("meta")}}-Element.
+Der CSP-Mechanismus erlaubt es, mehrere Richtlinien für eine Ressource anzugeben, einschließlich über den `Content-Security-Policy`-Header, den {{HTTPHeader("Content-Security-Policy-Report-Only")}}-Header und ein {{HTMLElement("meta")}}-Element.
 
-Sie können den `Content-Security-Policy`-Header mehrmals verwenden, wie im folgenden Beispiel. Achten Sie besonders auf die {{CSP("connect-src")}}-Direktive hier. Auch wenn die zweite Richtlinie die Verbindung erlauben würde, enthält die erste Richtlinie `connect-src 'none'`. Das Hinzufügen zusätzlicher Richtlinien kann die Fähigkeiten der geschützten Ressource nur weiter einschränken, was bedeutet, dass keine Verbindung erlaubt wird und als die strengste Richtlinie `connect-src 'none'` durchgesetzt wird.
+Sie können den `Content-Security-Policy`-Header mehrmals verwenden, wie im folgenden Beispiel. Achten Sie besonders auf die {{CSP("connect-src")}}-Richtlinie hier. Auch wenn die zweite Richtlinie die Verbindung erlauben würde, enthält die erste Richtlinie `connect-src 'none'`. Das Hinzufügen zusätzlicher Richtlinien kann nur die Fähigkeiten der geschützten Ressource weiter einschränken, was bedeutet, dass keine Verbindung erlaubt wird und als strengste Richtlinie `connect-src 'none'` durchgesetzt wird.
 
 ```http
 Content-Security-Policy: default-src 'self' http://example.com;
@@ -217,15 +223,15 @@ Content-Security-Policy: connect-src http://example.com/;
 
 ## Beispiele
 
-### Unsicheren Inline-Code deaktivieren und nur HTTPS-Ressourcen zulassen
+### Unsicheres Inline-Code deaktivieren und nur HTTPS-Ressourcen zulassen
 
-Dieser HTTP-Header setzt die Standardrichtlinie auf das Laden von Ressourcen (Bilder, Schriften, Skripte etc.) nur über HTTPS. Weil die `unsafe-inline` und `unsafe-eval` Direktiven nicht gesetzt sind, werden Inline-Skripte blockiert.
+Dieser HTTP-Header setzt die Standardrichtlinie, um nur das Laden von Ressourcen (Bilder, Schriftarten, Skripte, etc.) über HTTPS zuzulassen. Da die Direktiven `unsafe-inline` und `unsafe-eval` nicht gesetzt sind, werden Inline-Skripte blockiert.
 
 ```http
 Content-Security-Policy: default-src https:
 ```
 
-Die gleichen Einschränkungen können mit dem HTML-Element {{htmlelement("meta")}} angewendet werden.
+Die gleichen Beschränkungen können mit dem HTML-{{htmlelement("meta")}}-Element angewendet werden.
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src https:" />
@@ -233,31 +239,31 @@ Die gleichen Einschränkungen können mit dem HTML-Element {{htmlelement("meta")
 
 ### Inline-Code und HTTPS-Ressourcen zulassen, aber Plugins deaktivieren
 
-Diese Richtlinie könnte auf einer bestehenden Website verwendet werden, die zu viel Inline-Code nutzt, um sie zu korrigieren, um sicherzustellen, dass Ressourcen nur über HTTPS geladen werden und Plugins deaktiviert werden:
+Diese Richtlinie könnte für eine vorhandene Website verwendet werden, die zu viel Inline-Code verwendet, um diesen zu beheben, um sicherzustellen, dass Ressourcen nur über HTTPS geladen werden und Plugins deaktiviert sind:
 
 ```http
 Content-Security-Policy: default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'
 ```
 
-### Verstöße melden, aber beim Testen nicht durchsetzen
+### Berichte erstellen, aber Verstöße beim Testen nicht erzwingen
 
-Dieses Beispiel legt die gleichen Einschränkungen wie das vorherige Beispiel fest, verwendet jedoch den Header {{httpheader("Content-Security-Policy-Report-Only")}} und die Direktive {{CSP("report-to")}}. Dieser Ansatz wird während des Testens verwendet, um Verstöße zu melden, aber den Code nicht daran zu hindern, ausgeführt zu werden.
+Dieses Beispiel setzt die gleichen Beschränkungen wie das vorherige Beispiel, verwendet jedoch den {{httpheader("Content-Security-Policy-Report-Only")}}-Header und die {{CSP("report-to")}}-Richtlinie. Dieser Ansatz wird während des Testens verwendet, um Verstöße zu melden, aber den Code nicht zu blockieren.
 
-Endpunkte (URLs), an die Berichte gesendet werden sollen, werden mit dem HTTP-Antwort-Header {{HTTPHeader("Reporting-Endpoints")}} definiert.
+Endpunkte (URLs), an die Berichte gesendet werden sollen, werden unter Verwendung des {{HTTPHeader("Reporting-Endpoints")}}-HTTP-Antwortheaders definiert.
 
 ```http
 Reporting-Endpoints: csp-endpoint="https://example.com/csp-reports"
 ```
 
-Ein bestimmter Endpunkt wird dann in der CSP-Richtlinie mit der Direktive {{CSP("report-to")}} als Berichts-Ziel ausgewählt.
+Ein bestimmter Endpunkt wird dann als Berichtsziel in der CSP-Richtlinie unter Verwendung der {{CSP("report-to")}}-Richtlinie ausgewählt.
 
 ```http
 Content-Security-Policy-Report-Only: default-src https:; report-uri /csp-violation-report-url/; report-to csp-endpoint
 ```
 
-Beachten Sie, dass die {{CSP("report-uri")}} {{deprecated_inline}}-Direktive auch oben angegeben ist, weil `report-to` noch nicht breit von den Browsern unterstützt wird.
+Beachten Sie, dass die {{CSP("report-uri")}} {{deprecated_inline}}-Richtlinie auch oben angegeben ist, weil `report-to` noch nicht umfassend von den Browsern unterstützt wird.
 
-Weitere Beispiele finden Sie unter [Content Security Policy (CSP) implementation](/de/docs/Web/Security/Practical_implementation_guides/CSP).
+Sehen Sie sich [Content Security Policy (CSP)-Implementierung](/de/docs/Web/Security/Practical_implementation_guides/CSP) für weitere Beispiele an.
 
 ## Spezifikationen
 
@@ -270,8 +276,7 @@ Weitere Beispiele finden Sie unter [Content Security Policy (CSP) implementation
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy-Report-Only")}}
-- [Learn about: Content Security Policy](/de/docs/Web/HTTP/CSP)
+- [Erfahren Sie mehr über: Content Security Policy](/de/docs/Web/HTTP/CSP)
 - [Content Security in WebExtensions](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy)
-- [Adopting a strict policy](https://csp.withgoogle.com/docs/strict-csp.html)
-- [CSP Evaluator](https://github.com/google/csp-evaluator) - Ihre
-  Content Security Policy evaluieren
+- [Eine strikte Richtlinie annehmen](https://csp.withgoogle.com/docs/strict-csp.html)
+- [CSP Evaluator](https://github.com/google/csp-evaluator) - Bewerten Sie Ihre Content Security Policy

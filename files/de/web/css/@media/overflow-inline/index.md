@@ -7,16 +7,16 @@ l10n:
 
 {{CSSRef}}
 
-Das **`overflow-inline`** [CSS](/de/docs/Web/CSS) [Medienfeature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, wie das Ausgabegerät mit Inhalten umgeht, die entlang der Inline-Achse des initialen [enthältenden Blocks](/de/docs/Web/CSS/Containing_block) überlaufen.
+Das **`overflow-inline`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, wie das Ausgabegerät mit Inhalten umgeht, die den initialen [Enthaltenden Block](/de/docs/Web/CSS/Containing_block) entlang der Inline-Achse überfließen.
 
 ## Syntax
 
-Das `overflow-inline` Feature wird als Schlüsselwortwert aus der unten stehenden Liste angegeben.
+Das `overflow-inline` Feature wird als Schlüsselwortwert angegeben, der aus der unten stehenden Liste ausgewählt wird.
 
 - `none`
-  - : Inhalt, der die Inline-Achse überläuft, wird nicht angezeigt.
+  - : Inhalte, die die Inline-Achse überfließen, werden nicht angezeigt.
 - `scroll`
-  - : Inhalt, der die Inline-Achse überläuft, kann durch Scrollen sichtbar gemacht werden.
+  - : Inhalte, die die Inline-Achse überfließen, können durch Scrollen sichtbar gemacht werden.
 
 ## Beispiele
 
@@ -57,6 +57,6 @@ p {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

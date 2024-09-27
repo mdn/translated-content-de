@@ -1,5 +1,5 @@
 ---
-title: Haupt-Thread
+title: Main thread
 slug: Glossary/Main_thread
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **Haupt-Thread** ist der Ort, an dem ein Browser Benutzerevents verarbeitet und rendert. Standardmäßig verwendet der Browser einen einzigen Thread, um den gesamten JavaScript-Code auf Ihrer Seite auszuführen, sowie um das Layout, Reflows und die Speicherbereinigung durchzuführen. Das bedeutet, dass lang laufende JavaScript-Funktionen den Thread blockieren können, was zu einer nicht reagierenden Seite und einer schlechten Benutzererfahrung führt.
+Der **Main-Thread** ist der Bereich, in dem ein Browser Benutzereignisse verarbeitet und darstellt. Standardmäßig verwendet der Browser einen einzigen Thread, um den gesamten JavaScript-Code Ihrer Seite auszuführen und führt ebenfalls Layout-Berechnungen, Neudarstellungen und Speicherbereinigung durch. Dies bedeutet, dass lang laufende JavaScript-Funktionen den Thread blockieren können, was zu einer nicht reagierenden Seite und einer schlechten Benutzererfahrung führt.
 
-Sofern Sie nicht gezielt einen [Web Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers) verwenden, wie z.B. einen [Service Worker](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers), läuft JavaScript auf dem Haupt-Thread. Daher kann ein Skript leicht Verzögerungen in der Eventverarbeitung oder beim Rendern verursachen. Je weniger Arbeit für den Haupt-Thread erforderlich ist, desto eher kann er auf Benutzerevents reagieren, rendern und allgemein reaktionsfähig für den Benutzer sein.
+Sofern nicht absichtlich ein [Web Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers) wie ein [Service Worker](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers) verwendet wird, läuft JavaScript im Main-Thread, sodass ein Skript leicht Verzögerungen in der Ereignisverarbeitung oder Darstellung verursachen kann. Je weniger Arbeit vom Main-Thread verlangt wird, desto mehr kann dieser auf Benutzereignisse reagieren, rendern und generell benutzerfreundlich sein.
 
 ## Siehe auch
 
@@ -17,4 +17,4 @@ Sofern Sie nicht gezielt einen [Web Worker](/de/docs/Web/API/Web_Workers_API/Usi
 - [Web Worker API](/de/docs/Web/API/Web_Workers_API)
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Thread")}}
+  - [Thread](/de/docs/Glossary/Thread)

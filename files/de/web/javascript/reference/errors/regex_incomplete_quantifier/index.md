@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: unvollständiger Quantor in regulärem Ausdruck"
+title: "SyntaxError: unvollständiger Quantifizierer in regulärem Ausdruck"
 slug: Web/JavaScript/Reference/Errors/Regex_incomplete_quantifier
 l10n:
   sourceCommit: 6aaba8ce85edc3a92fd5e804002cc609c31ce73f
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "unvollständiger Quantor in regulärem Ausdruck" tritt auf, wenn ein regulärer Ausdruck ein `{` enthält, das jedoch keinen gültigen [Quantor](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) einleitet.
+Die JavaScript-Ausnahme "unvollständiger Quantifizierer in regulärem Ausdruck" tritt auf, wenn ein regulärer Ausdruck ein `{` enthält, das jedoch keinen gültigen [Quantifizierer](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) einleitet.
 
 ## Nachricht
 
@@ -23,9 +23,9 @@ SyntaxError: Invalid regular expression: incomplete {} quantifier for Unicode pa
 
 ## Was ist schiefgelaufen?
 
-Ein `{` Zeichen in einem regulären Ausdrucksmuster leitet einen [Quantor](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) ein. Ein gültiger Quantor hat die Form `{n}`, `{n,}` oder `{n,m}`, wobei `n` und `m` nicht-negative ganze Zahlen sind und `m` nicht kleiner als `n` ist. Wenn das `{` Zeichen keinen gültigen Quantor einleitet, tritt ein `SyntaxError` auf.
+Ein `{`-Zeichen in einem regulären Ausdruck leitet einen [Quantifizierer](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) ein. Ein gültiger Quantifizierer hat die Form `{n}`, `{n,}` oder `{n,m}`, wobei `n` und `m` nicht negative ganze Zahlen sind und `m` nicht kleiner als `n` ist. Wenn das `{`-Zeichen keinen gültigen Quantifizierer einleitet, tritt ein `SyntaxError` auf.
 
-Im Unicode-unabhängigen Modus führt diese Syntax dazu, dass das `{` zu einem wörtlichen Zeichen wird, anstatt einen Fehler zu erzeugen. Dies ist jedoch eine [veraltete Syntax](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), auf die Sie sich nicht verlassen sollten.
+Im Unicode-unabhängigen Modus wird diese Syntax dazu führen, dass das `{` zu einem literalen Zeichen wird, anstatt einen Fehler zu erzeugen, aber dies ist eine [veraltete Syntax](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp) und sollte vermieden werden.
 
 ## Beispiele
 
@@ -50,4 +50,4 @@ Im Unicode-unabhängigen Modus führt diese Syntax dazu, dass das `{` zu einem w
 ## Siehe auch
 
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Quantor: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)
+- [Quantifizierer: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)

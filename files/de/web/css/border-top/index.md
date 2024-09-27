@@ -7,29 +7,29 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-top`** [Kurzform](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des oberen [Rahmens](/de/docs/Web/CSS/border) eines Elements.
+Die **`border-top`** [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des oberen [Rahmens](/de/docs/Web/CSS/border) eines Elements.
 
 {{EmbedInteractiveExample("pages/css/border-top.html")}}
 
-Wie bei allen Kurzform-Eigenschaften legt `border-top` immer die Werte aller Eigenschaften fest, die es setzen kann, auch wenn sie nicht spezifiziert sind. Es setzt diejenigen, die nicht spezifiziert sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+Wie bei allen Kurzschreibweisen setzt `border-top` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Nicht angegebene Werte werden auf ihre Standardwerte gesetzt. Betrachten Sie den folgenden Code:
 
 ```css
 border-top-style: dotted;
 border-top: thick green;
 ```
 
-Dies entspricht tatsächlich diesem Beispiel:
+Es ist tatsächlich dasselbe wie dieser:
 
 ```css
 border-top-style: dotted;
 border-top: none thick green;
 ```
 
-Der Wert von {{cssxref("border-top-style")}}, der vor `border-top` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-top-style")}} `none` ist, führt das Nicht-Angaben des `border-style`-Teils zu keinem Rahmen.
+Der Wert von {{cssxref("border-top-style")}}, der vor `border-top` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-top-style")}} `none` ist, führt das Nichtangeben des Teils `border-style` zu keinem Rahmen.
 
-## Zusammengesetzte Eigenschaften
+## Konstituierende Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - [`border-top-color`](/de/docs/Web/CSS/border-top-color)
 - [`border-top-style`](/de/docs/Web/CSS/border-top-style)
@@ -42,7 +42,7 @@ border-top: 1px;
 border-top: 2px dotted;
 border-top: medium dashed green;
 
-/* Globale Werte */
+/* Global values */
 border-top: inherit;
 border-top: initial;
 border-top: revert;
@@ -50,7 +50,7 @@ border-top: revert-layer;
 border-top: unset;
 ```
 
-Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
+Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -76,7 +76,7 @@ Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angege
 #### HTML
 
 ```html
-<div>Dieses Feld hat einen Rahmen auf der oberen Seite.</div>
+<div>This box has a border on the top side.</div>
 ```
 
 #### CSS
@@ -92,7 +92,7 @@ div {
 }
 ```
 
-#### Ergebnisse
+#### Ergebnis
 
 {{EmbedLiveSample('Applying_a_top_border')}}
 

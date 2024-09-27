@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLPreElement`** Schnittstelle stellt spezifische Eigenschaften und Methoden zur Verfügung (über die der {{domxref("HTMLElement")}} Schnittstelle hinaus, die ihr ebenfalls durch Vererbung zur Verfügung stehen), um einen Block von vorformatiertem Text ({{HtmlElement("pre")}}) zu manipulieren.
+Die **`HTMLPreElement`** Schnittstelle bietet spezifische Eigenschaften und Methoden (zusätzlich zu denen der [`HTMLElement`](/de/docs/Web/API/HTMLElement) Schnittstelle, die sie ebenfalls durch Vererbung zur Verfügung hat) zur Manipulation eines Blocks von vorformatiertem Text ({{HtmlElement("pre")}}).
 
 {{InheritanceDiagram}}
 
-## Instanzen-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLPreElement.width")}} {{deprecated_inline}}
-  - : Ein `long`-Wert, der das veraltete [`width`](/de/docs/Web/HTML/Element/pre#width)-Attribut widerspiegelt, das eine festgelegte Größe für das {{HTMLElement("pre")}} Element enthält.
+- [`HTMLPreElement.width`](/de/docs/Web/API/HTMLPreElement/width) {{deprecated_inline}}
+  - : Ein `long`-Wert, der das veraltete [`width`](/de/docs/Web/HTML/Element/pre#width)-Attribut widerspiegelt und eine feste Längenangabe für das {{HTMLElement("pre")}}-Element enthält.
 
-## Instanzen-Methoden
+## Instanzmethoden
 
-_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, {{domxref("HTMLElement")}}._
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 

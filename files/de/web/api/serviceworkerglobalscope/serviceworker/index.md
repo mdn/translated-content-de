@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerGlobalScope: serviceWorker-Eigenschaft"
+title: "ServiceWorkerGlobalScope: Eigenschaft serviceWorker"
 short-title: serviceWorker
 slug: Web/API/ServiceWorkerGlobalScope/serviceWorker
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die **`serviceWorker`** schreibgeschützte Eigenschaft des {{domxref("ServiceWorkerGlobalScope")}}-Interfaces gibt eine Referenz auf das {{domxref("ServiceWorker")}}-Objekt zurück, das den Service Worker repräsentiert.
+Die schreibgeschützte **`serviceWorker`**-Eigenschaft der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle gibt eine Referenz auf das [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) Objekt zurück, das den Service Worker repräsentiert.
 
 ## Wert
 
-Ein {{domxref("ServiceWorker")}}-Objekt.
+Ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) Objekt.
 
 ## Spezifikationen
 
@@ -24,4 +24,4 @@ Ein {{domxref("ServiceWorker")}}-Objekt.
 
 ## Siehe auch
 
-- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`has()`** Methode von {{jsxref("WeakSet")}} Instanzen gibt ein boolean zurück, welches anzeigt, ob ein Objekt in diesem `WeakSet` existiert oder nicht.
+Die **`has()`**-Methode von {{jsxref("WeakSet")}}-Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Objekt in diesem `WeakSet` vorhanden ist oder nicht.
 
 {{EmbedInteractiveExample("pages/js/weakset-prototype-has.html")}}
 
@@ -20,25 +20,25 @@ has(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, dessen Vorhandensein im `WeakSet` getestet werden soll.
+  - : Der zu testende Wert auf Vorhandensein im `WeakSet`.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn ein Element mit dem angegebenen Wert im `WeakSet`-Objekt existiert; andernfalls `false`. Gibt immer `false` zurück, wenn `value` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
+Gibt `true` zurück, wenn ein Element mit dem angegebenen Wert im `WeakSet`-Objekt vorhanden ist; andernfalls `false`. Gibt immer `false` zurück, wenn `value` kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist.
 
 ## Beispiele
 
-### Verwendung der `has()` Methode
+### Verwendung der `has()`-Methode
 
 ```js
 const ws = new WeakSet();
 const obj = {};
 ws.add(window);
 
-ws.has(window); // gibt true zurück
-ws.has(obj); // gibt false zurück
+ws.has(window); // returns true
+ws.has(obj); // returns false
 
-// Speichern eines nicht registrierten Symbols
+// Storing a non-registered symbol
 const sym = Symbol("foo");
 ws.add(sym);
 ws.add(Symbol.iterator);

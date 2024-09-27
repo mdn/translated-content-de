@@ -8,14 +8,11 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte **`phone`**-Eigenschaft des
-{{domxref('PaymentAddress')}}-Interfaces gibt eine Zeichenfolge zurück, die die Telefonnummer
-des Empfängers oder der Kontaktperson enthält.
+Die schreibgeschützte **`phone`**-Eigenschaft des [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Interfaces gibt einen String zurück, der die Telefonnummer des Empfängers oder der Kontaktperson enthält.
 
 ## Wert
 
-Eine Zeichenfolge, die die Telefonnummer des Empfängers der
-Sendung oder der verantwortlichen Partei für die Zahlung enthält. Wenn keine Telefonnummer verfügbar ist, ist dieser Wert eine leere Zeichenfolge.
+Ein String, der die Telefonnummer des Empfängers der Sendung oder der verantwortlichen Partei für die Zahlung enthält. Wenn keine Telefonnummer verfügbar ist, ist dieser Wert ein leerer String.
 
 ## Browser-Kompatibilität
 

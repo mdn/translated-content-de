@@ -8,7 +8,9 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Payment Handler API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte Eigenschaft **`topOrigin`** des {{domxref("PaymentRequestEvent")}}-Interfaces gibt den Ursprung des obersten Zahlungsempfängers zurück, an dem das {{domxref("PaymentRequest")}}-Objekt initialisiert wurde.
+Die schreibgeschützte Eigenschaft **`topOrigin`** des
+[`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Interfaces gibt den obersten Zahlungspfad-Origin zurück, bei dem
+das [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekt initialisiert wurde.
 
 ## Wert
 
@@ -32,7 +34,7 @@ self.addEventListener("paymentrequest", (e) => {
 
 ## Siehe auch
 
-- [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
+- [Übersicht über webbasiere Zahlungsanwendungen](https://web.dev/articles/web-based-payment-apps-overview)
 - [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
 - [Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)

@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`TreeWalker.root`** gibt den Root-{{domxref("Node")}} zurück, den der {{domxref("TreeWalker")}} durchquert.
+Die schreibgeschützte **`TreeWalker.root`** Eigenschaft gibt den Wurzel-[`Node`](/de/docs/Web/API/Node) zurück, den der [`TreeWalker`](/de/docs/Web/API/TreeWalker) durchläuft.
 
 ## Wert
 
-Ein {{domxref("Node")}}-Objekt.
+Ein [`Node`](/de/docs/Web/API/Node)-Objekt.
 
 ## Beispiele
 
@@ -27,7 +27,7 @@ const treeWalker = document.createTreeWalker(
   },
   false,
 );
-root = treeWalker.root; // document.body in diesem Fall
+root = treeWalker.root; // document.body in this case
 ```
 
 ## Spezifikationen
@@ -40,4 +40,4 @@ root = treeWalker.root; // document.body in diesem Fall
 
 ## Siehe auch
 
-- Die {{domxref("TreeWalker")}}-Schnittstelle.
+- Das [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Interface.

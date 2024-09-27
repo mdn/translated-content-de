@@ -3,22 +3,22 @@ title: "GPURenderPassEncoder: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPURenderPassEncoder/label
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`label`** der {{domxref("GPURenderPassEncoder")}}-Schnittstelle ist ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in {{domxref("GPUError")}}-Meldungen oder Konsole-Warnungen.
+Die **`label`**-Eigenschaft des [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Interfaces ist eine schreibgeschützte Zeichenkette, die ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann festgelegt werden, indem eine `label`-Eigenschaft im Deskriptorobjekt bereitgestellt wird, das im ursprünglichen Aufruf von {{domxref("GPUCommandEncoder.beginRenderPass()")}} übergeben wird, oder Sie können es direkt am `GPURenderPassEncoder`-Objekt abrufen und setzen.
+Dieses Label kann durch Angabe einer `label`-Eigenschaft im Deskriptorobjekt gesetzt werden, das im ursprünglichen Aufruf von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) übergeben wird. Alternativ können Sie es direkt am `GPURenderPassEncoder`-Objekt abrufen und setzen.
 
 ## Wert
 
-Ein String. Wenn kein Labelwert zuvor festgelegt wurde, gibt das Abrufen des Labels einen leeren String zurück.
+Eine Zeichenkette. Wenn vorher kein Labelwert gesetzt wurde, dann wird ein leerer String zurückgegeben, wenn das Label abgerufen wird.
 
 ## Beispiele
 
-Festlegen und Abrufen eines Labels über `GPURenderPassEncoder.label`:
+Setzen und Abrufen eines Labels über `GPURenderPassEncoder.label`:
 
 ```js
 const commandEncoder = device.createCommandEncoder();
@@ -40,7 +40,7 @@ passEncoder.label = "myrenderpassencoder";
 console.log(passEncoder.label); // "myrenderpassencoder"
 ```
 
-Festlegen eines Labels über den ursprünglichen Aufruf von {{domxref("GPUCommandEncoder.beginRenderPass()")}} und anschließendes Abrufen über `GPURenderPassEncoder.label`:
+Setzen eines Labels über den ursprünglichen Aufruf von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) und anschließendes Abrufen über `GPURenderPassEncoder.label`:
 
 ```js
 const commandEncoder = device.createCommandEncoder();

@@ -7,13 +7,13 @@ l10n:
 
 {{DefaultAPISidebar("WebRTC")}}
 
-Das {{domxref("RTCDataChannel")}}-Interface ist eine Funktion der [WebRTC API](/de/docs/Web/API/WebRTC_API), die es Ihnen ermöglicht, zwischen zwei Peers einen Kanal zu öffnen, über den Sie beliebige Daten senden und empfangen können. Die API ist absichtlich ähnlich der [WebSocket API](/de/docs/Web/API/WebSockets_API) gestaltet, sodass dasselbe Programmiermodell für beide verwendet werden kann.
+Das [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Interface ist eine Funktion der [WebRTC API](/de/docs/Web/API/WebRTC_API), mit der Sie einen Kanal zwischen zwei Peers öffnen können, über den Sie beliebige Daten senden und empfangen können. Die API ist absichtlich dem [WebSocket API](/de/docs/Web/API/WebSockets_API) ähnlich, sodass für beide das gleiche Programmiermodell verwendet werden kann.
 
-In diesem Beispiel werden wir eine {{domxref("RTCDataChannel")}}-Verbindung zwischen zwei Elementen auf derselben Seite öffnen. Während dies offensichtlich ein konstruiertes Szenario ist, ist es nützlich, um den Ablauf des Verbindens zweier Peers zu demonstrieren. Wir werden die Mechanik des Verbindens und Übertragens sowie Empfangens von Daten abdecken, aber die Teile über das Auffinden und Verbinden mit einem entfernten Computer sparen wir uns für ein anderes Beispiel auf.
+In diesem Beispiel werden wir eine [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Verbindung zwischen zwei Elementen auf derselben Seite herstellen. Obwohl dies offensichtlich ein konstruiertes Szenario ist, ist es nützlich, um den Ablauf der Verbindung zweier Peers zu demonstrieren. Wir werden die Mechanik der Verbindungsherstellung und der Datenübertragung sowie des Empfangs behandeln, die Details zur Lokalisierung und Verbindung zu einem entfernten Computer sparen wir uns jedoch für ein anderes Beispiel auf.
 
 ## Das HTML
 
-Zuerst werfen wir einen kurzen Blick auf das [erforderliche HTML](https://github.com/mdn/samples-server/blob/master/s/webrtc-simple-datachannel/index.html). Es ist nichts unglaublich Kompliziertes dabei. Zuerst haben wir ein paar Buttons zum Herstellen und Trennen der Verbindung:
+Werfen wir zunächst einen kurzen Blick auf das [HTML, das benötigt wird](https://github.com/mdn/samples-server/blob/master/s/webrtc-simple-datachannel/index.html). Es gibt hier nichts unglaublich Kompliziertes. Zuerst haben wir ein paar Tasten zum Herstellen und Beenden der Verbindung:
 
 ```html
 <button id="connectButton" name="connectButton" class="buttonleft">
@@ -28,7 +28,7 @@ Zuerst werfen wir einen kurzen Blick auf das [erforderliche HTML](https://github
 </button>
 ```
 
-Dann gibt es ein Feld, das das Texteingabefeld enthält, in das der Benutzer eine Nachricht eingeben kann, um sie zu übertragen, mit einem Button zum Senden des eingegebenen Textes. Diese {{HTMLElement("div")}} wird der erste Peer im Kanal sein.
+Dann gibt es ein Feld, das das Text-Eingabefeld enthält, in das der Benutzer eine Nachricht eingeben kann, die gesendet werden soll, mit einem Button zum Senden des eingegebenen Textes. Dieses {{HTMLElement("div")}} wird der erste Peer im Kanal sein.
 
 ```html
 <div class="messagebox">
@@ -60,11 +60,11 @@ Schließlich gibt es das kleine Feld, in das wir die Nachrichten einfügen werde
 
 ## Der JavaScript-Code
 
-Während Sie sich den [Code selbst auf GitHub](https://github.com/mdn/samples-server/blob/master/s/webrtc-simple-datachannel/main.js) ansehen können, werden wir unten die Teile des Codes überprüfen, die die eigentliche Arbeit erledigen.
+Während Sie sich einfach [den Code selbst auf GitHub ansehen können](https://github.com/mdn/samples-server/blob/master/s/webrtc-simple-datachannel/main.js), werden wir unten die Teile des Codes besprechen, die die Hauptarbeit leisten.
 
-### Starten
+### Das Startup
 
-Wenn das Skript ausgeführt wird, richten wir einen {{domxref("Window/load_event", "load")}}-Event-Listener ein, sodass unsere `startup()`-Funktion aufgerufen wird, sobald die Seite vollständig geladen ist.
+Wenn das Skript ausgeführt wird, richten wir einen [`load`](/de/docs/Web/API/Window/load_event)-Ereignislistener ein, damit, sobald die Seite vollständig geladen ist, unsere `startup()`-Funktion aufgerufen wird.
 
 ```js
 let connectButton = null;
@@ -73,11 +73,11 @@ let sendButton = null;
 let messageInputBox = null;
 let receiveBox = null;
 
-let localConnection = null; // RTCPeerConnection für unsere "lokale" Verbindung
-let remoteConnection = null; // RTCPeerConnection für die "entfernte"
+let localConnection = null; // RTCPeerConnection for our "local" connection
+let remoteConnection = null; // RTCPeerConnection for the "remote"
 
-let sendChannel = null; // RTCDataChannel für den lokalen (Sender)
-let receiveChannel = null; // RTCDataChannel für den entfernten (Empfänger)
+let sendChannel = null; // RTCDataChannel for the local (sender)
+let receiveChannel = null; // RTCDataChannel for the remote (receiver)
 
 function startup() {
   connectButton = document.getElementById("connectButton");
@@ -86,7 +86,7 @@ function startup() {
   messageInputBox = document.getElementById("message");
   receiveBox = document.getElementById("receivebox");
 
-  // Event-Listener für Benutzeroberflächen-Widgets festlegen
+  // Set event listeners for user interface widgets
 
   connectButton.addEventListener("click", connectPeers, false);
   disconnectButton.addEventListener("click", disconnectPeers, false);
@@ -94,16 +94,16 @@ function startup() {
 }
 ```
 
-Das ist ziemlich einfach. Wir deklarieren Variablen und holen Referenzen zu allen Seitenelementen, die wir benötigen, und setzen dann [Event-Listener](/de/docs/Web/API/EventTarget/addEventListener) für die drei Buttons.
+Dies ist recht einfach. Wir deklarieren Variablen und greifen auf alle Seitenelemente zu, auf die wir zugreifen müssen, und setzen dann [Event-Listener](/de/docs/Web/API/EventTarget/addEventListener) auf die drei Buttons.
 
-### Eine Verbindung herstellen
+### Verbindung herstellen
 
-Wenn der Benutzer auf den "Connect"-Button klickt, wird die Methode `connectPeers()` aufgerufen. Wir werden diese Methode aufteilen und sie Stück für Stück betrachten, um Klarheit zu schaffen.
+Wenn der Benutzer auf die Schaltfläche "Verbinden" klickt, wird die Methode `connectPeers()` aufgerufen. Wir werden dies aufteilen und uns den Code schrittweise der Klarheit halber ansehen.
 
 > [!NOTE]
-> Auch wenn beide Enden unserer Verbindung auf derselben Seite sind, werden wir das, das die Verbindung startet, als das "lokale" erklären, und das andere als das "entfernte" Ende.
+> Obwohl sich beide Enden unserer Verbindung auf derselben Seite befinden, bezeichnen wir das, das die Verbindung herstellt, als das "lokale" Ende und das andere als das "entfernte" Ende.
 
-#### Das lokale Peer einrichten
+#### Einrichtung des lokalen Peers
 
 ```js
 localConnection = new RTCPeerConnection();
@@ -113,25 +113,25 @@ sendChannel.onopen = handleSendChannelStatusChange;
 sendChannel.onclose = handleSendChannelStatusChange;
 ```
 
-Der erste Schritt besteht darin, das "lokale" Ende der Verbindung zu erstellen. Dies ist das Peer, das die Verbindungsanfrage sendet. Der nächste Schritt ist die Erstellung des {{domxref("RTCDataChannel")}} durch den Aufruf von {{domxref("RTCPeerConnection.createDataChannel()")}} und die Einrichtung von Event-Listenern zur Überwachung des Kanals, damit wir wissen, wann er geöffnet und geschlossen wird (das heißt, wenn der Kanal in dieser Peer-Verbindung verbunden oder getrennt ist).
+Der erste Schritt besteht darin, das "lokale" Ende der Verbindung einzurichten. Dies ist der Peer, der die Verbindungsanfrage senden wird. Der nächste Schritt besteht darin, das [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zu erstellen, indem [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) aufgerufen und Event-Listener eingerichtet werden, um den Kanal zu überwachen, damit wir wissen, wann es geöffnet und geschlossen wird (d. h., wenn der Kanal innerhalb dieser Peer-Verbindung verbunden oder getrennt ist).
 
-Es ist wichtig zu beachten, dass jedes Ende des Kanals sein eigenes {{domxref("RTCDataChannel")}}-Objekt hat.
+Es ist wichtig im Hinterkopf zu behalten, dass jedes Ende des Kanals sein eigenes [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekt hat.
 
-#### Das entfernte Peer einrichten
+#### Einrichtung des entfernten Peers
 
 ```js
 remoteConnection = new RTCPeerConnection();
 remoteConnection.ondatachannel = receiveChannelCallback;
 ```
 
-Das entfernte Ende wird ähnlich eingerichtet, außer dass wir hier kein {{domxref("RTCDataChannel")}} explizit selbst erstellen müssen, da wir über den oben eingerichteten Kanal verbunden werden. Stattdessen richten wir einen {{domxref("RTCPeerConnection.datachannel_event", "datachannel")}}-Event-Handler ein; dieser wird aufgerufen, wenn der Datenkanal geöffnet ist; dieser Handler wird ein `RTCDataChannel`-Objekt empfangen; Sie werden das unten sehen.
+Das entfernte Ende wird ähnlich eingerichtet, außer dass wir nicht explizit ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) selbst erstellen müssen, da wir durch das oben erstellte Kanal verbunden werden. Stattdessen richten wir einen [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event) Event-Handler ein; dieser wird aufgerufen, wenn der Datenkanal geöffnet wird; dieser Handler erhält ein `RTCDataChannel`-Objekt, wie Sie unten sehen werden.
 
-#### ICE-Kandidaten einrichten
+#### Einrichtung der ICE-Kandidaten
 
-Der nächste Schritt ist, jede Verbindung mit ICE-Kandidaten-Listenern einzurichten; diese werden aufgerufen, wenn es einen neuen ICE-Kandidaten gibt, um dem anderen Ende darüber Bescheid zu sagen.
+Der nächste Schritt besteht darin, jede Verbindung mit ICE-Kandidaten-Listenern einzurichten; diese werden aufgerufen, wenn es einen neuen ICE-Kandidaten gibt, um der anderen Seite darüber zu informieren.
 
 > [!NOTE]
-> In einem realen Szenario, in dem die beiden Peers nicht im selben Kontext laufen, ist der Prozess ein bisschen komplizierter; jede Seite bietet einen vorgeschlagenen Verbindungsweg an (zum Beispiel UDP, UDP mit einem Relay, TCP usw.), indem sie {{domxref("RTCPeerConnection.addIceCandidate()")}} aufruft, und sie gehen hin und her, bis eine Einigung erreicht ist. Aber hier akzeptieren wir einfach das erste Angebot auf jeder Seite, da keine tatsächliche Vernetzung beteiligt ist.
+> In einem realen Szenario, in dem die beiden Peers nicht im gleichen Kontext laufen, ist der Prozess etwas komplizierter; jede Seite bietet, nacheinander, einen Vorschlag, wie sie sich verbinden können (z. B. UDP, UDP mit einem Relay, TCP, usw.) durch den Aufruf von [`RTCPeerConnection.addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate), und sie wechseln sich ab, bis eine Einigung erzielt wird. Aber hier akzeptieren wir einfach das erste Angebot auf jeder Seite, da keine tatsächliche Vernetzung beteiligt ist.
 
 ```js
 localConnection.onicecandidate = (e) =>
@@ -143,11 +143,11 @@ remoteConnection.onicecandidate = (e) =>
   localConnection.addIceCandidate(e.candidate).catch(handleAddCandidateError);
 ```
 
-Wir konfigurieren jedes {{domxref("RTCPeerConnection")}}, um einen Event-Handler für das {{domxref("RTCPeerConnection.icecandidate_event", "icecandidate")}}-Event zu haben.
+Wir konfigurieren jedes [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), um einen Event-Handler für das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event) Ereignis zu besitzen.
 
-#### Den Verbindungsversuch starten
+#### Start des Verbindungsversuchs
 
-Das Letzte, was wir tun müssen, um die Verbindung unserer Peers zu beginnen, ist ein Verbindungsangebot zu erstellen.
+Die letzte Sache, die wir tun müssen, um unsere Peers zu verbinden, ist das Erstellen eines Verbindungsangebots.
 
 ```js
 localConnection
@@ -164,22 +164,22 @@ localConnection
   .catch(handleCreateDescriptionError);
 ```
 
-Gehen wir das Zeile für Zeile durch und entschlüsseln, was das bedeutet.
+Gehen wir dies Zeile für Zeile durch und entschlüsseln, was es bedeutet.
 
-1. Zuerst rufen wir die Methode {{domxref("RTCPeerConnection.createOffer()")}} auf, um ein {{Glossary("SDP")}} (Session Description Protocol)-Blob zu erstellen, das die Verbindung beschreibt, die wir erstellen möchten. Diese Methode akzeptiert optional ein Objekt mit Einschränkungen, die erfüllt sein müssen, damit die Verbindung Ihren Anforderungen entspricht, z.B. ob die Verbindung Audio, Video oder beides unterstützen soll. In unserem einfachen Beispiel haben wir keine Einschränkungen.
-2. Wenn das Angebot erfolgreich erstellt wurde, geben wir das Blob an die Methode {{domxref("RTCPeerConnection.setLocalDescription()")}} der lokalen Verbindung weiter. Dies konfiguriert das lokale Ende der Verbindung.
-3. Der nächste Schritt ist das Verbinden des lokalen Peers mit dem entfernten, indem wir dem entfernten Peer darüber informieren. Dies geschieht durch den Aufruf von {{domxref("RTCPeerConnection.setRemoteDescription()", "remoteConnection.setRemoteDescription()")}}. Jetzt kennt die `remoteConnection` die Verbindung, die aufgebaut wird. In einer realen Anwendung würde dies einen Signalisierungsserver erfordern, um das Beschreibungsobjekt auszutauschen.
-4. Das bedeutet, es ist an der Zeit, dass der entfernte Peer antwortet. Er tut dies durch den Aufruf seiner Methode {{domxref("RTCPeerConnection.createAnswer", "createAnswer()")}}. Dies generiert ein SDP-Blob, das die Verbindung beschreibt, die der entfernte Peer bereit und in der Lage ist, aufzubauen. Diese Konfiguration liegt irgendwo in der Schnittmenge der Optionen, die beide Peers unterstützen können.
-5. Sobald die Antwort erstellt wurde, wird sie in die `remoteConnection` durch den Aufruf von {{domxref("RTCPeerConnection.setLocalDescription()")}} übermittelt. Das etabliert das Ende der Verbindung des entfernten Peers (das für den entfernten Peer sein lokales Ende ist. Diese Sachen können verwirrend sein, aber man gewöhnt sich daran). Auch dies würde normalerweise durch einen Signalisierungsserver ausgetauscht.
-6. Schließlich wird die Remote-Beschreibung der lokalen Verbindung gesetzt, um sich auf den entfernten Peer zu beziehen, indem die {{domxref("RTCPeerConnection.setRemoteDescription()")}} der lokalen Verbindung aufgerufen wird.
-7. Die `catch()`-Anrufe rufen eine Routine auf, die alle auftretenden Fehler behandelt.
+1. Zuerst rufen wir die Methode [`RTCPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) auf, um einen [SDP](/de/docs/Glossary/SDP) (Session Description Protocol) Blob zu erstellen, der die Verbindung beschreibt, die wir herstellen möchten. Diese Methode akzeptiert optional ein Objekt mit Einschränkungen, die erfüllt werden müssen, damit die Verbindung Ihren Anforderungen entspricht, wie z. B. ob die Verbindung Audio, Video oder beides unterstützen soll. In unserem einfachen Beispiel haben wir keine Einschränkungen.
+2. Wenn das Angebot erfolgreich erstellt wird, übergeben wir den Blob an die Methode [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) der lokalen Verbindung. Dies konfiguriert das lokale Ende der Verbindung.
+3. Der nächste Schritt besteht darin, den lokalen Peer mit dem entfernten zu verbinden, indem man ihm darüber informiert. Dies geschieht durch den Aufruf von [`remoteConnection.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription). Jetzt kennt die `remoteConnection` die Verbindung, die aufgebaut wird. In einer realen Anwendung wäre dafür ein Signalisierungsserver erforderlich, um das Beschreibungsobjekt auszutauschen.
+4. Das bedeutet, dass es an der Zeit ist, dass der entfernte Peer antwortet. Dies geschieht durch den Aufruf seiner Methode [`createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer). Dies generiert einen SDP-Blob, der die Verbindung beschreibt, die der entfernte Peer bereit und in der Lage ist zu etablieren. Diese Konfiguration liegt irgendwo in der Schnittmenge der Optionen, die beide Peers unterstützen können.
+5. Sobald die Antwort erstellt wurde, wird sie in die `remoteConnection` durch den Aufruf von [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) übergeben. Dies stellt das Ende der Verbindung des entfernten (das für den entfernten Peer sein lokales Ende ist) her. Das kann verwirrend sein, aber man gewöhnt sich daran. Wiederum würde dies normalerweise durch einen Signalisierungsserver ausgetauscht.
+6. Schließlich wird die Remote-Beschreibung der lokalen Verbindung gesetzt, um auf den entfernten Peer zu verweisen, indem die Methode `RTCPeerConnection.setRemoteDescription()` von `localConnection` aufgerufen wird.
+7. Die `catch()`-Aufrufe aktivieren eine Routine, die alle aufgetretenen Fehler behandelt.
 
 > [!NOTE]
-> Noch einmal, dieser Prozess ist keine realistische Implementierung; im normalen Gebrauch gibt es zwei Codeblöcke, die auf zwei Maschinen laufen, interagieren und die Verbindung aushandeln. Ein Nebenkanal, der üblicherweise als "Signalisierungsserver" bezeichnet wird, wird normalerweise verwendet, um die Beschreibung (die in **application/sdp**-Form ist) zwischen den beiden Peers auszutauschen.
+> Auch dieser Prozess ist keine realitätsnahe Umsetzung; im normalen Gebrauch gibt es zwei Codeblöcke, die auf zwei Maschinen laufen, die miteinander interagieren und die Verbindung aushandeln. Ein Nebenkanal, oft als "Signalisierungsserver" bezeichnet, wird normalerweise verwendet, um die Beschreibung (die in **application/sdp**-Form vorliegt) zwischen den beiden Peers auszutauschen.
 
-#### Erfolgreiche Peer-Verbindung handhaben
+#### Behandlung erfolgreicher Peer-Verbindungen
 
-Wenn jede Seite der Peer-to-Peer-Verbindung erfolgreich verbunden ist, wird das entsprechende {{domxref("RTCPeerConnection")}}'s {{domxref("RTCPeerConnection.icecandidate_event", "icecandidate")}}-Event ausgelöst. Diese Handler können tun, was notwendig ist, aber in diesem Beispiel müssen wir nur die Benutzeroberfläche aktualisieren:
+Wenn jede Seite der Peer-to-Peer-Verbindung erfolgreich verknüpft ist, wird das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event) Ereignis des entsprechenden [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ausgelöst. Diese Handler können tun, was auch immer nötig ist, aber in diesem Beispiel müssen wir nur die Benutzeroberfläche aktualisieren:
 
 ```js
 function handleCreateDescriptionError(error) {
@@ -199,11 +199,11 @@ function handleAddCandidateError() {
 }
 ```
 
-Das Einzige, was wir hier tun, ist den "Connect"-Button zu deaktivieren, wenn der lokale Peer verbunden ist und den "Disconnect"-Button zu aktivieren, wenn der entfernte Peer verbindet.
+Das Einzige, das wir hier tun, ist den "Verbinden"-Button zu deaktivieren, wenn der lokale Peer verbunden ist, und den "Trennen"-Button zu aktivieren, wenn der entfernte Peer verbunden ist.
 
-#### Den Datenkanal verbinden
+#### Verbindung des Datenkanals
 
-Sobald das {{domxref("RTCPeerConnection")}} geöffnet ist, wird das {{domxref("RTCPeerConnection.datachannel_event", "datachannel")}}-Event an den Remote gesendet, um den Datenkanal zu öffnen. Dies ruft unsere Methode `receiveChannelCallback()` auf, die folgendermaßen aussieht:
+Sobald die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) geöffnet ist, wird das [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event) Ereignis an den entfernten Peer gesandt, um den Prozess des Öffnens des Datenkanals abzuschließen; dies ruft unsere `receiveChannelCallback()`-Methode auf, die so aussieht:
 
 ```js
 function receiveChannelCallback(event) {
@@ -214,13 +214,13 @@ function receiveChannelCallback(event) {
 }
 ```
 
-Das {{domxref("RTCPeerConnection.datachannel_event", "datachannel")}}-Event enthält in seiner Channel-Eigenschaft einen Verweis auf ein {{domxref("RTCDataChannel")}}, das das Ende des Kanals des entfernten Peers darstellt. Dies wird gespeichert und wir setzen auf diesem Kanal Event-Listener für die Events, die wir handhaben wollen. Sobald dies erledigt ist, wird unsere Methode `handleReceiveMessage()` jedes Mal aufgerufen, wenn Daten vom entfernten Peer empfangen werden, und die Methode `handleReceiveChannelStatusChange()` wird jedes Mal aufgerufen, wenn sich der Verbindungsstatus des Kanals ändert, sodass wir reagieren können, wenn der Kanal vollständig geöffnet wird und wenn er geschlossen wird.
+Das [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignis enthält in seiner Kanal-Eigenschaft eine Referenz zu einem [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), das das Ende des entfernten Peers des Kanals darstellt. Dies wird gespeichert, und wir richten auf dem Kanal Event-Listener für die Ereignisse ein, die wir handhaben möchten. Sobald dies geschehen ist, wird unsere `handleReceiveMessage()`-Methode jedes Mal aufgerufen, wenn der entfernte Peer Daten empfängt, und die `handleReceiveChannelStatusChange()`-Methode wird aufgerufen, wenn sich der Verbindungsstatus des Kanals ändert, um zu reagieren, wenn der Kanal vollständig geöffnet oder geschlossen wird.
 
-### Umgang mit Statusänderungen des Kanals
+### Behandlung von Kanalstatusänderungen
 
-Sowohl unsere lokalen als auch entfernten Peers verwenden eine einzige Methode zur Handhabung von Ereignissen, die eine Änderung im Status der Verbindung des Kanals anzeigen.
+Sowohl unsere lokalen als auch entfernten Peers verwenden eine einzige Methode, um Ereignisse zu behandeln, die eine Änderung des Status der Kanalverbindung anzeigen.
 
-Wenn beim lokalen Peer ein Öffnungs- oder Schließereignis auftritt, wird die Methode `handleSendChannelStatusChange()` aufgerufen:
+Wenn der lokale Peer ein offenes oder geschlossenes Ereignis erlebt, wird die Methode `handleSendChannelStatusChange()` aufgerufen:
 
 ```js
 function handleSendChannelStatusChange(event) {
@@ -243,11 +243,11 @@ function handleSendChannelStatusChange(event) {
 }
 ```
 
-Wenn sich der Zustand des Kanals in "open" geändert hat, bedeutet das, dass wir den Link zwischen den beiden Peers vollständig hergestellt haben. Die Benutzeroberfläche wird entsprechend aktualisiert, indem das Texteingabefeld für die zu sendende Nachricht aktiviert wird, das Eingabefeld fokussiert wird, sodass der Benutzer sofort mit dem Schreiben beginnen kann, die Buttons "Send" und "Disconnect" aktiviert werden, da sie jetzt benutzt werden können, und der Button "Connect" deaktiviert wird, da er nicht mehr benötigt wird, wenn die Verbindung geöffnet ist.
+Wenn sich der Status des Kanals in "geöffnet" geändert hat, zeigt dies an, dass wir die Verbindung zwischen den beiden Peers beendet haben. Die Benutzeroberfläche wird dementsprechend aktualisiert, indem das Text-Eingabefeld für die zu sendende Nachricht aktiviert, das Eingabefeld fokussiert, damit der Benutzer sofort mit der Eingabe beginnen kann, die "Senden"- und "Trennen"-Buttons aktiviert werden, da sie nun verwendbar sind und der "Verbinden"-Button deaktiviert wird, da er nicht benötigt wird, wenn die Verbindung geöffnet ist.
 
-Wenn sich der Zustandswechsel in "closed" geändert hat, geschieht das Gegenteil: Das Eingabefeld und der "Send"-Button werden deaktiviert, der "Connect"-Button wird aktiviert, sodass der Benutzer eine neue Verbindung herstellen kann, wenn er dies wünscht, und der "Disconnect"-Button wird deaktiviert, da er bei keiner bestehenden Verbindung nicht nützlich ist.
+Wenn sich der Status in "geschlossen" geändert hat, erfolgt die gegenteilige Aktion: das Eingabefeld und der "Senden"-Button werden deaktiviert, der "Verbinden"-Button wird aktiviert, sodass der Benutzer bei Bedarf eine neue Verbindung öffnen kann, und der "Trennen"-Button wird deaktiviert, da er nicht nützlich ist, wenn keine Verbindung besteht.
 
-Das Beispiel des entfernten Peers in unserer Demo hingegen ignoriert die Statusänderungsereignisse, mit Ausnahme des Loggens des Ereignisses in der Konsole:
+Der entfernte Peer unseres Beispiels ignoriert hingegen die Statusänderungsevents, außer dass er das Ereignis in die Konsole protokolliert:
 
 ```js
 function handleReceiveChannelStatusChange(event) {
@@ -259,11 +259,11 @@ function handleReceiveChannelStatusChange(event) {
 }
 ```
 
-Die Methode `handleReceiveChannelStatusChange()` erhält als Eingabeparameter das aufgetretene Ereignis; dies wird ein {{domxref("RTCDataChannelEvent")}} sein.
+Die Methode `handleReceiveChannelStatusChange()` erhält als Eingabeparameter das aufgetretene Ereignis; dies wird ein [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent) sein.
 
-### Nachrichten senden
+### Senden von Nachrichten
 
-Wenn der Benutzer den "Send"-Button drückt, wird die von uns als Handler für das {{domxref("Element/click_event", "click")}}-Event des Buttons eingerichtete Methode `sendMessage()` aufgerufen. Diese Methode ist einfach genug:
+Wenn der Benutzer den "Senden"-Button drückt, wird die Methode `sendMessage()` aufgerufen, die wir als Handler für das [`click`](/de/docs/Web/API/Element/click_event)-Ereignis des Buttons festgelegt haben. Diese Methode ist einfach genug:
 
 ```js
 function sendMessage() {
@@ -275,11 +275,11 @@ function sendMessage() {
 }
 ```
 
-Zuerst wird der Text der Nachricht von der [`value`](/de/docs/Web/HTML/Element/input#value)-Eigenschaft des Eingabefelds abgerufen. Dann wird diese Nachricht an den entfernten Peer durch den Aufruf von {{domxref("RTCDataChannel.send", "sendChannel.send()")}} gesendet. Das ist alles, was es dazu zu sagen gibt! Der Rest dieser Methode ist nur etwas Benutzererfahrungssüße – das Eingabefeld wird geleert und erneut fokussiert, damit der Benutzer sofort mit dem Schreiben einer weiteren Nachricht beginnen kann.
+Zuerst wird der Text der Nachricht aus dem [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut des Eingabefelds geholt. Dieser wird dann an den entfernten Peer gesendet, indem [`sendChannel.send()`](/de/docs/Web/API/RTCDataChannel/send) aufgerufen wird. Das ist alles! Der Rest dieser Methode ist nur etwas Benutzererfahrungssüße – das Eingabefeld wird geleert und neu fokussiert, damit der Benutzer sofort mit der Eingabe einer weiteren Nachricht beginnen kann.
 
-### Nachrichten empfangen
+### Empfangen von Nachrichten
 
-Wenn ein "message"-Event im Remote-Kanal auftritt, wird unsere `handleReceiveMessage()`-Methode als Event-Handler aufgerufen.
+Wenn ein "Nachricht"-Ereignis auf dem entfernten Kanal auftritt, wird unsere Methode `handleReceiveMessage()` als Ereignishandler aufgerufen.
 
 ```js
 function handleReceiveMessage(event) {
@@ -291,20 +291,20 @@ function handleReceiveMessage(event) {
 }
 ```
 
-Diese Methode führt einige grundlegende {{Glossary("DOM")}}-Injection durch; sie erstellt ein neues {{HTMLElement("p")}} (Paragraphen-)Element und erstellt dann einen neuen {{domxref("Text")}}-Knoten, der den Nachrichtentext enthält, der in der `data`-Eigenschaft des Ereignisses empfangen wird. Dieser Textknoten wird als Kind des neuen Elements hinzugefügt, das dann in den `receiveBox`-Block eingefügt wird, wodurch er im Browserfenster gezeichnet wird.
+Diese Methode führt eine grundlegende [DOM](/de/docs/Glossary/DOM)-Injection durch; sie erstellt ein neues {{HTMLElement("p")}} (Absatz)-Element, dann einen neuen [`Text`](/de/docs/Web/API/Text)-Knoten, der den Nachrichtentext enthält, der im `data`-Eigenschaft des Ereignisses empfangen wird. Dieser Textknoten wird als Kind des neuen Elements angehängt, das dann in den `receiveBox`-Block eingefügt wird und dadurch dazu führt, dass er im Browserfenster gezeichnet wird.
 
-### Peers trennen
+### Trennen der Peers
 
-Wenn der Benutzer auf den "Disconnect"-Button klickt, wird die Methode `disconnectPeers()` aufgerufen, die zuvor als Handler für diesen Button festgelegt wurde.
+Wenn der Benutzer auf die Schaltfläche "Trennen" klickt, wird die zuvor als Handler für diese Schaltfläche festgelegte Methode `disconnectPeers()` aufgerufen.
 
 ```js
 function disconnectPeers() {
-  // Das RTCDataChannel schließen, falls sie geöffnet sind.
+  // Close the RTCDataChannels if they're open.
 
   sendChannel.close();
   receiveChannel.close();
 
-  // Die RTCPeerConnections schließen
+  // Close the RTCPeerConnections
 
   localConnection.close();
   remoteConnection.close();
@@ -314,7 +314,7 @@ function disconnectPeers() {
   localConnection = null;
   remoteConnection = null;
 
-  // Benutzeroberflächenelemente aktualisieren
+  // Update user interface elements
 
   connectButton.disabled = false;
   disconnectButton.disabled = true;
@@ -325,13 +325,13 @@ function disconnectPeers() {
 }
 ```
 
-Dies beginnt mit dem Schließen jedes Peers {{domxref("RTCDataChannel")}}, dann werden ebenso jedes {{domxref("RTCPeerConnection")}} geschlossen. Anschließend werden alle gespeicherten Referenzen auf diese Objekte auf `null` gesetzt, um eine versehentliche Wiederverwendung zu vermeiden, und die Benutzeroberfläche wird aktualisiert, um zu reflektieren, dass die Verbindung geschlossen wurde.
+Dies beginnt mit dem Schließen des [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) jedes Peers, dann auf ähnliche Weise jede [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection). Dann werden alle gespeicherten Referenzen zu diesen Objekten auf `null` gesetzt, um eine versehentliche Wiederverwendung zu vermeiden, und die Benutzeroberfläche wird aktualisiert, um widerzuspiegeln, dass die Verbindung geschlossen wurde.
 
 ## Nächste Schritte
 
-Werfen Sie einen Blick auf den [webrtc-simple-datachannel](https://github.com/mdn/samples-server/tree/master/s/webrtc-simple-datachannel) Quellcode, verfügbar auf GitHub.
+Werfen Sie einen Blick auf den Quellcode von [webrtc-simple-datachannel](https://github.com/mdn/samples-server/tree/master/s/webrtc-simple-datachannel), der auf GitHub verfügbar ist.
 
 ## Siehe auch
 
 - [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling).
-- Das Muster [Perfekte Verhandlung](/de/docs/Web/API/WebRTC_API/Perfect_negotiation).
+- Das [Perfekte Verhandlungs](/de/docs/Web/API/WebRTC_API/Perfect_negotiation)-Muster.

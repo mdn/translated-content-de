@@ -22,7 +22,7 @@ new Uint8ClampedArray(buffer, byteOffset)
 new Uint8ClampedArray(buffer, byteOffset, length)
 ```
 
-> **Note:** `Uint8ClampedArray()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
+> **Note:** `Uint8ClampedArray()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -34,32 +34,32 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten, ein Uint8ClampedArray zu erstellen
+### Verschiedene Methoden zur Erstellung eines Uint8ClampedArray
 
 ```js
-// Aus einer Länge
+// From a length
 const uint8c = new Uint8ClampedArray(2);
 uint8c[0] = 42;
 uint8c[1] = 1337;
 console.log(uint8c[0]); // 42
-console.log(uint8c[1]); // 255 (geklammert)
+console.log(uint8c[1]); // 255 (clamped)
 console.log(uint8c.length); // 2
 console.log(uint8c.BYTES_PER_ELEMENT); // 1
 
-// Aus einem Array
+// From an array
 const x = new Uint8ClampedArray([21, 31]);
 console.log(x[1]); // 31
 
-// Aus einem anderen TypedArray
+// From another TypedArray
 const y = new Uint8ClampedArray(x);
 console.log(y[0]); // 21
 
-// Aus einem ArrayBuffer
+// From an ArrayBuffer
 const buffer = new ArrayBuffer(8);
 const z = new Uint8ClampedArray(buffer, 1, 4);
 console.log(z.byteOffset); // 1
 
-// Aus einem Iterable
+// From an iterable
 const iterable = (function* () {
   yield* [1, 2, 3];
 })();
@@ -79,7 +79,7 @@ console.log(uint8cFromIterable);
 ## Siehe auch
 
 - [Polyfill von `Uint8ClampedArray` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Anleitung
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

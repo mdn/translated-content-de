@@ -1,5 +1,5 @@
 ---
-title: Verwendung von z-index
+title: Verwenden von z-index
 slug: Web/CSS/CSS_positioned_layout/Understanding_z-index/Using_z-index
 l10n:
   sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
@@ -7,26 +7,26 @@ l10n:
 
 {{CSSRef}}
 
-Der erste Artikel dieses Leitfadens, [Stapelung ohne die z-index-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_without_z-index), erklärt, wie die Stapelung standardmäßig angeordnet ist. Wenn Sie eine benutzerdefinierte Stapelreihenfolge erstellen möchten, können Sie die {{cssxref("z-index")}}-Eigenschaft auf einem [positionierten](/de/docs/Web/CSS/position#types_of_positioning) Element verwenden.
+Der erste Artikel dieses Leitfadens, [Stapeln ohne die z-index-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_without_z-index), erklärt, wie das Stapeln standardmäßig arrangiert ist. Wenn Sie eine benutzerdefinierte Stapelreihenfolge erstellen möchten, können Sie die {{cssxref("z-index")}}-Eigenschaft auf ein [positioniertes](/de/docs/Web/CSS/position#types_of_positioning) Element anwenden.
 
-Die `z-index`-Eigenschaft kann mit einem ganzzahligen Wert angegeben werden (positiv, null oder negativ), der die Position des Elements entlang einer imaginären z-Achse darstellt. Wenn Sie mit dem Begriff 'z-Achse' nicht vertraut sind, stellen Sie sich die Seite als Stapel von Schichten vor, wobei jede Schicht eine Nummer hat. Schichten werden in numerischer Reihenfolge gerendert, wobei größere Zahlen über kleineren Zahlen liegen (_X_ steht für eine beliebige positive ganze Zahl):
+Die `z-index`-Eigenschaft kann mit einem ganzzahligen Wert (positiv, null oder negativ) angegeben werden, der die Position des Elements entlang einer imaginären Z-Achse darstellt. Wenn Sie mit dem Begriff 'Z-Achse' nicht vertraut sind, stellen Sie sich die Seite als einen Stapel von Schichten vor, von denen jede eine Nummer hat. Schichten werden in numerischer Reihenfolge gerendert, wobei größere Zahlen über kleineren Zahlen liegen (_X_ stellt eine beliebige positive Ganzzahl dar):
 
-| Schicht       | Beschreibung                          |
-| ------------- | ------------------------------------- |
-| Unterste Schicht | Am weitesten vom Betrachter entfernt |
-| Schicht -X    | Schichten mit negativen `z-index`-Werten |
-| Schicht 0     | Standard Rendering-Schicht            |
-| Schicht X     | Schichten mit positiven `z-index`-Werten |
-| Oberste Schicht | Am nächsten beim Betrachter          |
+| Schicht          | Beschreibung                             |
+| ---------------- | ---------------------------------------- |
+| Unterste Schicht | Am weitesten vom Beobachter entfernt     |
+| Schicht -X       | Schichten mit negativen `z-index`-Werten |
+| Schicht 0        | Standard-Rendering-Schicht               |
+| Schicht X        | Schichten mit positiven `z-index`-Werten |
+| Oberste Schicht  | Am nächsten zum Beobachter               |
 
 > [!NOTE]
 >
-> - Wenn keine `z-index`-Eigenschaft angegeben ist, werden Elemente auf der Standard Rendering-Schicht (Schicht 0) gerendert.
-> - Wenn mehrere Elemente denselben `z-index`-Wert haben (d.h. sie befinden sich auf derselben Schicht), gelten die in dem Abschnitt [Stapelung ohne die z-index-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_without_z-index) erklärten Stapelregeln.
+> - Wenn keine `z-index`-Eigenschaft angegeben ist, werden Elemente auf der Standard-Rendering-Schicht (Schicht 0) gerendert.
+> - Wenn mehrere Elemente denselben `z-index`-Wert haben (d. h. sie sich auf derselben Schicht befinden), gelten die Stapelregeln, die im Abschnitt [Stapeln ohne die z-index-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_without_z-index) erklärt werden.
 
 ## Beispiel
 
-In diesem Beispiel wird die Stapelreihenfolge der Schichten mit `z-index` neu angeordnet. Der `z-index` von DIV #5 hat keine Wirkung, da es kein positioniertes Element ist.
+In diesem Beispiel wird die Stapelreihenfolge der Schichten mit `z-index` neu angeordnet. Der `z-index` von DIV #5 hat keine Wirkung, da es sich um kein positioniertes Element handelt.
 
 ### HTML
 
@@ -128,9 +128,9 @@ strong {
 
 ## Siehe auch
 
-- [Stapelung ohne die z-index-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_without_z-index): Die Stapelregeln, die gelten, wenn `z-index` nicht verwendet wird.
-- [Stapelung von schwebenden Elementen](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_floating_elements): Wie schwebende Elemente in der Stapelung behandelt werden.
-- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context): Hinweise zum Stapelkontext.
-- [Stapelkontext Beispiel 1](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_1): 2-Ebenen-HTML-Hierarchie, z-index auf der letzten Ebene
-- [Stapelkontext Beispiel 2](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_2): 2-Ebenen-HTML-Hierarchie, z-index auf allen Ebenen
-- [Stapelkontext Beispiel 3](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_3): 3-Ebenen-HTML-Hierarchie, z-index auf der zweiten Ebene
+- [Stapeln ohne die z-index-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_without_z-index): Die Stapelregeln, die gelten, wenn `z-index` nicht verwendet wird.
+- [Stapeln schwebender Elemente](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_floating_elements): Wie schwebende Elemente im Zusammenhang mit dem Stapeln behandelt werden.
+- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context): Anmerkungen zum Stapelkontext.
+- [Stapelkontext Beispiel 1](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_1): 2-Ebenen HTML-Hierarchie, z-index auf der letzten Ebene
+- [Stapelkontext Beispiel 2](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_2): 2-Ebenen HTML-Hierarchie, z-index auf allen Ebenen
+- [Stapelkontext Beispiel 3](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_3): 3-Ebenen HTML-Hierarchie, z-index auf der zweiten Ebene

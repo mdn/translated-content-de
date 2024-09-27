@@ -8,18 +8,19 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
-Die **`HTMLTableElement.cellPadding`**-Eigenschaft repräsentiert den Abstand um die einzelnen Zellen der Tabelle.
+Die **`HTMLTableElement.cellPadding`**-Eigenschaft gibt das
+Innenabstand um die einzelnen Zellen der Tabelle an.
 
 ## Wert
 
-Ein String, der Pixel (z.B. `"10"`) oder einen Prozentwert (z.B. `"10%"`) darstellt.
+Ein String, der Pixel (z. B. `"10"`) oder einen Prozentsatz (z. B. `"10%"`) darstellt.
 
-Wenn der Wert auf `null` gesetzt wird, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `elt.cellPadding = null` gleichbedeutend mit `elt.cellPadding = ""` ist.
+Wenn auf den Wert `null` gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `elt.cellPadding = null` äquivalent zu `elt.cellPadding = ""` ist.
 
 ## Beispiele
 
 ```js
-// Setzen Sie den Zellabstand auf 10 Pixel
+// Set cell padding to 10 pixels
 let t = document.getElementById("TableA");
 t.cellPadding = "10";
 ```

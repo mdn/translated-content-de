@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("IndexedDB")}}{{deprecated_header}}{{non-standard_header}}
 
-Die **`locale`** schreibgeschützte Eigenschaft der {{domxref("IDBIndex")}} Schnittstelle gibt die Sprache des Index zurück (zum Beispiel `en-US` oder `pl`), wenn bei seiner Erstellung ein `locale`-Wert angegeben wurde (siehe den [`options`](/de/docs/Web/API/IDBObjectStore/createIndex#options) Parameter bei [`IDBObjectStore.createIndex()`](/de/docs/Web/API/IDBObjectStore/createIndex).) Beachten Sie, dass diese Eigenschaft immer die aktuelle Sprache zurückgibt, die in diesem Index verwendet wird; mit anderen Worten, sie gibt niemals `"auto"` zurück.
+Die schreibgeschützte **`locale`**-Eigenschaft der [`IDBIndex`](/de/docs/Web/API/IDBIndex)-Schnittstelle gibt das Gebietsschema des Indexes zurück (zum Beispiel `en-US` oder `pl`), wenn bei seiner Erstellung ein `locale`-Wert angegeben wurde (siehe den [`options`](/de/docs/Web/API/IDBObjectStore/createIndex#options)-Parameter von [`IDBObjectStore.createIndex()`](/de/docs/Web/API/IDBObjectStore/createIndex).) Beachten Sie, dass diese Eigenschaft immer das aktuelle Gebietsschema des Indexes zurückgibt, mit anderen Worten, sie gibt niemals `"auto"` zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Im folgenden Beispiel öffnen wir eine Transaktion und einen Objekt-Store und holen dann den Index `lName` aus einer einfachen Kontaktdatenbank. Anschließend öffnen wir einen einfachen Cursor auf dem Index mit {{domxref("IDBIndex.openCursor")}} — dies funktioniert genauso wie das direkte Öffnen eines Cursors auf einem `ObjectStore` mit {{domxref("IDBObjectStore.openCursor")}}, außer dass die zurückgegebenen Datensätze basierend auf dem Index und nicht auf dem Primärschlüssel sortiert sind.
+Im folgenden Beispiel öffnen wir eine Transaktion und einen Objektspeicher und holen dann den Index `lName` aus einer einfachen Kontaktdatenbank. Anschließend öffnen wir einen einfachen Cursor auf dem Index mit [`IDBIndex.openCursor`](/de/docs/Web/API/IDBIndex/openCursor) – dies funktioniert genauso wie das Öffnen eines Cursors direkt auf einem `ObjectStore` mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), mit dem Unterschied, dass die zurückgegebenen Datensätze basierend auf dem Index und nicht auf dem Primärschlüssel sortiert sind.
 
 Der `locale`-Wert wird in die Konsole protokolliert.
 
@@ -59,7 +59,7 @@ function displayDataByIndex() {
 
 ## Spezifikationen
 
-Derzeit Teil keiner Spezifikation.
+Derzeit nicht Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -68,9 +68,9 @@ Derzeit Teil keiner Spezifikation.
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwenden von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Bereichs von Schlüsseln: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwenden von Cursors: {{domxref("IDBCursor")}}
+- Beginnen von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

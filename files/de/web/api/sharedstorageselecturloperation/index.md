@@ -7,56 +7,56 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`SharedStorageSelectURLOperation`**-Schnittstelle der {{domxref("Shared Storage API", "Shared Storage API", "", "nocode")}} repräsentiert eine [URL-Auswahl-Ausgabesperre](/de/docs/Web/API/Shared_Storage_API#url_selection) Operation.
+Das **`SharedStorageSelectURLOperation`** Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert eine [URL-Auswahl-Ausgabestation](/de/docs/Web/API/Shared_Storage_API#url_selection) Operation.
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
-- {{domxref("SharedStorageSelectURLOperation.run", "run()")}} {{Experimental_Inline}}
-  - : Definiert die Struktur, der die `run()`-Methode innerhalb einer URL-Auswahl-Ausgabesperre-Operation entsprechen sollte.
+- [`run()`](/de/docs/Web/API/SharedStorageSelectURLOperation/run) {{Experimental_Inline}}
+  - : Definiert die Struktur, der die `run()`-Methode innerhalb einer URL-Auswahl-Ausgabestation-Operation entsprechen sollte.
 
 ## Beispiele
 
-In diesem Beispiel wird eine Klasse namens `SelectURLOperation` in einem Worklet definiert und mit {{domxref("SharedStorageWorkletGlobalScope.register()")}} unter dem Namen `ab-testing` registriert. `SharedStorageSelectURLOperation` definiert die Struktur, der diese Klasse entsprechen muss, im Wesentlichen die Parameter, die für die `run()`-Methode erforderlich sind. Abgesehen von dieser Anforderung kann die Funktionalität der Klasse flexibel definiert werden.
+In diesem Beispiel wird eine Klasse namens `SelectURLOperation` in einem Worklet definiert und mit [`SharedStorageWorkletGlobalScope.register()`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) unter dem Namen `ab-testing` registriert. `SharedStorageSelectURLOperation` definiert die Struktur, der diese Klasse entsprechen muss und legt im Wesentlichen die Parameter fest, die für die `run()`-Methode erforderlich sind. Abgesehen von dieser Anforderung kann die Funktionalität der Klasse flexibel definiert werden.
 
 ```js
 // ab-testing-worklet.js
 class SelectURLOperation {
   async run(urls, data) {
-    // Die Experimentgruppe des Benutzers aus dem Shared Storage lesen
+    // Read the user's experiment group from Shared Storage
     const experimentGroup = await this.sharedStorage.get("ab-testing-group");
 
-    // Die Gruppennummer zurückgeben
+    // Return the group number
     return experimentGroup;
   }
 }
 
-// Die Operation registrieren
+// Register the operation
 register("ab-testing", SelectURLOperation);
 ```
 
 > [!NOTE]
-> Es ist möglich, mehrere Operationen im selben Shared Storage Worklet-Modulskript mit unterschiedlichen Namen zu definieren und zu registrieren; siehe {{domxref("SharedStorageOperation")}} für ein Beispiel.
+> Es ist möglich, mehrere Operationen im gleichen Shared Storage Worklet-Modulskript mit unterschiedlichen Namen zu definieren und zu registrieren; siehe [`SharedStorageOperation`](/de/docs/Web/API/SharedStorageOperation) für ein Beispiel.
 
-Im Hauptbrowserkontext wird die `ab-testing`-Operation mit der {{domxref("WindowSharedStorage.selectURL()")}}-Methode aufgerufen:
+Im Haupt-Browsing-Kontext wird die `ab-testing`-Operation mit der [`WindowSharedStorage.selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL) Methode aufgerufen:
 
 ```js
-// Weise einem Benutzer zufällig eine Gruppe 0 oder 1 zu
+// Randomly assigns a user to a group 0 or 1
 function getExperimentGroup() {
   return Math.round(Math.random());
 }
 
 async function injectContent() {
-  // Das Shared Storage Worklet registrieren
+  // Register the Shared Storage worklet
   await window.sharedStorage.worklet.addModule("ab-testing-worklet.js");
 
-  // Benutzer einer zufälligen Gruppe (0 oder 1) zuweisen und im Shared Storage speichern
+  // Assign user to a random group (0 or 1) and store it in Shared Storage
   window.sharedStorage.set("ab-testing-group", getExperimentGroup(), {
     ignoreIfPresent: true,
   });
 
-  // Die URL-Auswahl-Operation ausführen
+  // Run the URL selection operation
   const fencedFrameConfig = await window.sharedStorage.selectURL(
     "ab-testing",
     [
@@ -68,20 +68,20 @@ async function injectContent() {
     },
   );
 
-  // Die gewählte URL in einen eingeschlossenen Frame rendern
+  // Render the chosen URL into a fenced frame
   document.getElementById("content-slot").config = fencedFrameConfig;
 }
 
 injectContent();
 ```
 
-Für weitere Details zu diesem Beispiel und Links zu anderen Beispielen siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) Hauptseite.
+Weitere Details zu diesem Beispiel und Links zu anderen Beispielen finden Sie auf der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) Startseite.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

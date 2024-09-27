@@ -7,21 +7,21 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine statische Methode (oder _statische Funktion_) ist eine {{Glossary("method")}}, die als Mitglied eines {{Glossary("object")}} definiert ist, aber direkt vom Konstruktor eines API-Objekts zugänglich ist, anstatt von einer Objektinstanz, die über den Konstruktor erstellt wurde.
+Eine statische Methode (oder _statische Funktion_) ist eine [Methode](/de/docs/Glossary/method), die als Mitglied eines [Objekts](/de/docs/Glossary/object) definiert ist, aber direkt vom Konstruktor eines API-Objekts aus zugänglich ist, anstatt von einer Objektinstanz, die über den Konstruktor erstellt wurde.
 
-In einer [Web-API](/de/docs/Web/API) ist eine statische Methode eine, die durch ein Interface definiert ist, aber aufgerufen werden kann, ohne zuerst ein Objekt dieses Typs zu instanziieren.
+In einer [Web-API](/de/docs/Web/API) ist eine statische Methode eine, die durch eine Schnittstelle definiert ist, aber ohne vorherige Instanziierung eines Objekts dieses Typs aufgerufen werden kann.
 
 Methoden, die auf Objektinstanzen aufgerufen werden, nennt man _Instanzmethoden_.
 
 ## Beispiele
 
-In der [Notifications API](/de/docs/Web/API/Notifications_API) wird die {{domxref("Notification/requestPermission_static", "Notification.requestPermission()")}} Methode direkt auf dem eigentlichen {{domxref("Notification")}} Konstruktor aufgerufen — sie ist eine statische Methode:
+In der [Notifications-API](/de/docs/Web/API/Notifications_API) wird die Methode [`Notification.requestPermission()`](/de/docs/Web/API/Notification/requestPermission_static) auf dem eigentlichen [`Notification`](/de/docs/Web/API/Notification) Konstruktor selbst aufgerufen — es ist eine statische Methode:
 
 ```js
 let promise = Notification.requestPermission();
 ```
 
-Die {{domxref("Notification.close()")}} Methode hingegen ist eine Instanzmethode — sie wird auf einer spezifischen Notification-Objektinstanz aufgerufen, um die Systembenachrichtigung, die sie repräsentiert, zu schließen:
+Die Methode [`Notification.close()`](/de/docs/Web/API/Notification/close) hingegen ist eine Instanzmethode — sie wird auf einem spezifischen Benachrichtigungsobjekt aufgerufen, um die von ihr repräsentierte Systembenachrichtigung zu schließen:
 
 ```js
 let myNotification = new Notification("This is my notification");
@@ -31,8 +31,8 @@ myNotification.close();
 
 ## Siehe auch
 
-- [Statische Methode](https://www.techopedia.com/definition/24034/static-method-java) auf Techopedia
+- [Static Method](https://www.techopedia.com/definition/24034/static-method-java) auf Techopedia
 - [static](/de/docs/Web/JavaScript/Reference/Classes/static)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Object")}}
-  - {{Glossary("Method")}}
+  - [Objekt](/de/docs/Glossary/Object)
+  - [Methode](/de/docs/Glossary/Method)

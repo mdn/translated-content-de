@@ -7,23 +7,23 @@ l10n:
 
 {{AddonSidebar}}
 
-Dieser Wert wird verwendet, um eine Fehlermeldung von einer asynchronen API zu melden, wenn der asynchronen API eine Rückruffunktion gegeben wird. Dies ist nützlich für Erweiterungen, die die rückrufbasierte Version der WebExtension-APIs verwenden.
+Dieser Wert wird verwendet, um eine Fehlermeldung einer asynchronen API zu melden, wenn der asynchronen API ein Rückruf übergeben wird. Dies ist nützlich für Erweiterungen, die die rückrufbasierte Version der WebExtension-APIs verwenden.
 
-Sie müssen diese Eigenschaft nicht überprüfen, wenn Sie die auf Versprechen basierende Version der APIs verwenden: Stattdessen übergeben Sie dem Versprechen einen Fehler-Handler:
+Es ist nicht erforderlich, diese Eigenschaft zu überprüfen, wenn Sie die auf Promises basierende Version der APIs verwenden: Übergeben Sie stattdessen einen Fehlerbehandlungsmechanismus an das Promise:
 
 ```js
 const gettingCookies = browser.cookies.getAll();
 gettingCookies.then(onGot, onError);
 ```
 
-Die Eigenschaft `runtime.lastError` wird gesetzt, wenn eine asynchrone Funktion einen Fehlerzustand hat, den sie ihrem Aufrufer melden muss.
+Die Eigenschaft `runtime.lastError` wird gesetzt, wenn eine asynchrone Funktion einen Fehlerzustand aufweist, den sie an ihren Aufrufer melden muss.
 
-Wenn Sie eine asynchrone Funktion aufrufen, die möglicherweise `lastError` setzt, sollten Sie erwarten, den Fehler zu überprüfen, wenn Sie das Ergebnis der Funktion behandeln. Wenn `lastError` gesetzt wurde und Sie ihn nicht innerhalb der Rückruffunktion überprüfen, wird ein Fehler ausgelöst.
+Wenn Sie eine asynchrone Funktion aufrufen, die möglicherweise `lastError` setzt, sollten Sie den Fehler überprüfen, wenn Sie das Ergebnis der Funktion verarbeiten. Wenn `lastError` gesetzt wurde und Sie ihn innerhalb der Rückruffunktion nicht überprüfen, wird ein Fehler ausgelöst.
 
 ## Syntax
 
 ```js-nolint
-let myError = browser.runtime.lastError;  // null oder Error-Objekt
+let myError = browser.runtime.lastError;  // null or Error object
 ```
 
 ### Wert
@@ -32,7 +32,7 @@ Ein {{jsxref("Error")}}-Objekt, das den Fehler darstellt. Die {{jsxref("Error.me
 
 ## Beispiele
 
-Setzen Sie ein Cookie, indem Sie einen Rückruf verwenden, um das neue Cookie zu protokollieren oder einen Fehler zu melden:
+Setzen Sie ein Cookie und verwenden Sie einen Rückruf, um das neue Cookie zu protokollieren oder einen Fehler zu melden:
 
 ```js
 function logCookie(c) {
@@ -46,7 +46,7 @@ function logCookie(c) {
 browser.cookies.set({ url: "https://developer.mozilla.org/" }, logCookie);
 ```
 
-Dasselbe, aber mit einem Versprechen, um das Ergebnis von `setCookie()` zu bearbeiten:
+Dasselbe, aber unter Verwendung eines Promises zur Handhabung des Ergebnisses von `setCookie()`:
 
 ```js
 function logCookie(c) {
@@ -64,7 +64,7 @@ const setCookie = browser.cookies.set({
 setCookie.then(logCookie, logError);
 ```
 
-> **Hinweis:** `runtime.lastError` ist ein Alias für {{WebExtAPIRef("extension.lastError")}}. Sie werden zusammen gesetzt, und die Überprüfung von einem der beiden wird funktionieren.
+> **Note:** `runtime.lastError` ist ein Alias für {{WebExtAPIRef("extension.lastError")}}. Sie werden zusammen gesetzt, und die Überprüfung von einem der beiden funktioniert.
 
 ## Browser-Kompatibilität
 
@@ -73,4 +73,35 @@ setCookie.then(logCookie, logError);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#property-lastError) API von Chromium. Diese Dokumentation stammt von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#property-lastError)-API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+
+<!--
+// Urheberrecht 2015 The Chromium Authors. Alle Rechte vorbehalten.
+//
+// Weiterverbreitung und Verwendung in Quell- und Binärformen, mit oder ohne
+// Modifizierung, sind unter den folgenden Bedingungen erlaubt:
+//
+//    * Weiterverbreitungen des Quellcodes müssen den obigen Urheberrechtshinweis,
+// diese Liste von Bedingungen und den folgenden Haftungsausschluss enthalten.
+//    * Weiterverbreitungen in binärer Form müssen den obigen Urheberrechtshinweis,
+// diese Liste von Bedingungen und den folgenden Haftungsausschluss
+// in der Dokumentation und/oder anderen Materialien, die mit der
+// Verteilung geliefert werden, enthalten.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die von
+// dieser Software abgeleitet wurden, zu bewerben oder zu bewerben,
+// ohne vorherige schriftliche Genehmigung.
+//
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITARBEITERN
+// "WIE BESEHEN" ZUR VERFÜGUNG GESTELLT. JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE GARANTIEN,
+// EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE IMPLIZIERTEN GARANTIEN DER
+// MARKTGÄNGIGKEIT UND DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, WERDEN ABGELEHNT.
+// IN KEINEM FALL HAFTET DER RECHTSINHABER ODER DIE MITARBEITER FÜR DIREKTE,
+// INDIREKTE, ZUFÄLLIGE, BESONDERE, EXEMPLARISCHE ODER FOLGESCHÄDEN
+// (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZWAREN
+// ODER DIENSTLEISTUNGEN; NUTZUNGSAUSFALL, DATEN ODER GEWINNE ODER
+// GESCHÄFTSUNTERBRECHUNG) AUS WELCHER URSACHE AUCH IMMER, OB IN VERTRAG,
+// STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT
+// ODER ANDERWEITIG), DIE AUS DER NUTZUNG DER SOFTWARE ENTSTEHEN, SELBST WENN
+// AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
+-->

@@ -8,17 +8,17 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`hostname`**-Eigenschaft eines {{domxref("WorkerLocation")}}-Objekts gibt den {{domxref("URL.hostname", "hostname")}}-Teil des Speicherorts des Workers zurück.
+Die **`hostname`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt den [`hostname`](/de/docs/Web/API/URL/hostname)-Teil des Standorts des Workers zurück.
 
 ## Wert
 
-Ein String.
+Ein string.
 
 ## Beispiele
 
 ```js
-// In einem Web Worker, auf der Seite http://localhost:8080/
-const result = location.hostname; // Gibt 'localhost' zurück
+// In a Web worker, on the page http://localhost:8080/
+const result = location.hostname; // Returns 'localhost'
 ```
 
 ## Spezifikationen
@@ -31,4 +31,4 @@ const result = location.hostname; // Gibt 'localhost' zurück
 
 ## Siehe auch
 
-- Das {{domxref("WorkerLocation")}}-Interface, zu dem es gehört.
+- Die [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Schnittstelle, zu der es gehört.

@@ -1,5 +1,5 @@
 ---
-title: "Fenster: getScreenDetails()-Methode"
+title: "Window: Methode getScreenDetails()"
 short-title: getScreenDetails()
 slug: Web/API/Window/getScreenDetails
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`getScreenDetails()`**-Methode der {{domxref("Window")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einer {{domxref("ScreenDetails")}}-Objektinstanz erfüllt wird, welche die Details aller auf dem Gerät des Benutzers verfügbaren Bildschirme darstellt.
+Die **`getScreenDetails()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz eines [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objekts erfüllt wird, welches die Details aller für das Gerät des Benutzers verfügbaren Bildschirme repräsentiert.
 
 ## Syntax
 
@@ -22,23 +22,23 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer {{domxref("ScreenDetails")}}-Objektinstanz erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit einer Instanz eines [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objekts erfüllt wird.
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn eine {{httpheader("Permissions-Policy/window-management", "window-management")}} [Permissions-Policy](/de/docs/Web/HTTP/Permissions_Policy) gesetzt ist, die die Nutzung der [Window Management API](/de/docs/Web/API/Window_Management_API) blockiert, oder wenn der Benutzer die Berechtigungsanfrage des Browsers zur Nutzung der API ausdrücklich abgelehnt hat.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn eine {{httpheader("Permissions-Policy/window-management", "window-management")}} [Permissions-Policy](/de/docs/Web/HTTP/Permissions_Policy) festgelegt ist, die die Nutzung der [Window Management API](/de/docs/Web/API/Window_Management_API) blockiert, oder wenn der Benutzer die Berechtigungsanfrage des Browsers zur Nutzung der API ausdrücklich abgelehnt hat.
 
 ## Beispiele
 
-Wenn `getScreenDetails()` aufgerufen wird, wird der Benutzer um Erlaubnis gebeten, Fenster auf allen seinen Bildschirmen zu verwalten (der Status dieser Berechtigung kann mit {{domxref("Permissions.query()")}} abgefragt werden, um `window-management` zu prüfen). Wenn die Erlaubnis erteilt wird, enthält das resultierende {{domxref("ScreenDetails")}}-Objekt Details zu allen Bildschirmen, die auf dem System des Benutzers verfügbar sind.
+Wenn `getScreenDetails()` aufgerufen wird, wird der Benutzer um Erlaubnis gebeten, Fenster auf allen seinen Bildschirmen zu verwalten (der Status dieser Berechtigung kann mit [`Permissions.query()`](/de/docs/Web/API/Permissions/query) abgefragt werden, um `window-management` zu überprüfen). Vorausgesetzt, sie erteilen die Erlaubnis, enthält das resultierende [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objekt Details zu allen Bildschirmen, die dem System des Benutzers zur Verfügung stehen.
 
-Im folgenden Beispiel wird auf jedem verfügbaren Bildschirm ein Fenster in voller Größe geöffnet.
+Das folgende Beispiel öffnet ein Fenster in voller Größe auf jedem verfügbaren Bildschirm.
 
 ```js
 const screenDetails = await window.getScreenDetails();
 
-// Öffnet ein Fenster in voller Größe auf jedem verfügbaren Bildschirm des Geräts
+// Open a full-size window on each screen available to the device
 for (const screen of screenDetails.screens) {
   window.open(
     "https://example.com",
@@ -52,7 +52,7 @@ for (const screen of screenDetails.screens) {
 ```
 
 > [!NOTE]
-> Siehe [Multi-Window-Lernumgebung](https://mdn.github.io/dom-examples/window-management-api/) für ein vollständiges Beispiel (sehen Sie sich auch den [Quellcode](https://github.com/mdn/dom-examples/tree/main/window-management-api) an).
+> Sehen Sie sich [Multi-window learning environment](https://mdn.github.io/dom-examples/window-management-api/) für ein vollständiges Beispiel an (sehen Sie auch den [Quellcode](https://github.com/mdn/dom-examples/tree/main/window-management-api)).
 
 ## Spezifikationen
 

@@ -37,7 +37,7 @@ l10n:
 
 Der Name des Entwicklers der Erweiterung und die URL seiner Homepage, vorgesehen zur Anzeige in der Benutzeroberfläche des Browsers.
 
-Das Objekt und beide seiner Eigenschaften sind optional. Die "name"- und "url"-Eigenschaften überschreiben, wenn vorhanden, die [author](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/author) und [homepage_url](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url) Schlüssel jeweils. Dieses Objekt erlaubt es nur, einen einzelnen Entwicklernamen und eine URL anzugeben.
+Das Objekt und beide seiner Eigenschaften sind optional. Die Eigenschaften "name" und "url" überschreiben, wenn vorhanden, die Schlüssel [author](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/author) und [homepage_url](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url). Dieses Objekt erlaubt nur die Angabe eines einzigen Entwicklernamen und einer URL.
 
 Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 

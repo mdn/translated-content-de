@@ -8,13 +8,13 @@ l10n:
 
 {{ApiRef("HTML DOM")}}{{Deprecated_header}}{{non-standard_header}}
 
-Die **`Navigator.doNotTrack`**-Eigenschaft gibt die Do Not Track-Einstellung des Benutzers zurück, die anzeigt, ob der Benutzer Webseiten und Werbetreibende darum bittet, ihn nicht zu verfolgen.
+Die **`Navigator.doNotTrack`**-Eigenschaft gibt die Do Not Track-Einstellung des Nutzers zurück, die anzeigt, ob der Nutzer von Websites und Werbeanbietern nicht verfolgt werden möchte.
 
-Der Wert der Eigenschaft entspricht dem Wert des {{httpheader("DNT")}} HTTP-Headers, also Werte wie `"1"`, `"0"` oder `null`.
+Der Wert der Eigenschaft entspricht dem des {{httpheader("DNT")}} HTTP-Headers, d.h. Werte von `"1"`, `"0"` oder `null`.
 
-Die gesamte DNT-Spezifikation (Do Not Track) wurde eingestellt. Das Mechanismus-Design war fehlerhaft, da es sich um ein kooperatives Merkmal zwischen Benutzern, Webseiten und Browsern handelte. Die Idee ist, dass der Benutzer der _Website_ mitteilt, ihn nicht zu verfolgen, und die _Website_ würde dem entsprechen. Es gibt jedoch keine strikte Durchsetzung dieser Richtlinie, sodass Werbeseiten den DNT-Header ignorierten und Benutzer trotzdem verfolgten. Das Feature ist daher nutzlos. Darüber hinaus ist es schädlich, da es mehr Nutzer [Fingerabdruck](/de/docs/Glossary/Fingerprinting) im Header hinterlässt, der dazu verwendet werden kann, Benutzer noch mehr zu verfolgen.
+Die gesamte DNT (Do Not Track)-Spezifikation wurde eingestellt. Das Mechanismusdesign war fehlerhaft, da es sich um eine kooperative Funktion zwischen Nutzern, Websites und Browsern handelte. Die Idee ist, dass der Nutzer der _Website_ mitteilt, ihn nicht zu verfolgen, und die _Website_ dem nachkommt. Es gibt jedoch keine strenge Durchsetzung dieser Richtlinie, sodass Werbeseiten den DNT-Header ignorierten und Nutzer dennoch verfolgten. Das Feature ist daher nutzlos. Darüber hinaus ist es schädlich, da es mehr Nutzer-[Fingerabdrücke](/de/docs/Glossary/Fingerprinting) im Header hinterlässt, die benutzt werden können, um Nutzer noch mehr zu verfolgen.
 
-Browser erkunden andere durchsetzbarere Datenschutzfunktionen, wie etwa [global privacy control](/de/docs/Web/API/Navigator/globalPrivacyControl), Einschränkungen von Drittanbieter-Cookies und mehr.
+Browser erforschen andere durchsetzbarere Datenschutzfunktionen, wie z. B. [global privacy control](/de/docs/Web/API/Navigator/globalPrivacyControl), Einschränkungen für Drittanbieter-Cookies und mehr.
 
 ## Wert
 
@@ -24,7 +24,7 @@ Ein String oder `null`.
 
 ```js
 console.log(navigator.doNotTrack);
-// gibt "1" aus, wenn DNT aktiviert ist; "0", wenn der Benutzer sich für das Tracking entschieden hat; andernfalls null
+// prints "1" if DNT is enabled; "0" if the user opted-in for tracking; otherwise null
 ```
 
 ## Spezifikationen

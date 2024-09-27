@@ -7,8 +7,7 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Das HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`fenced-frame-src`**-Direktive spezifiziert gültige Quellen für verschachtelte Browsing-Kontexte, die in {{HTMLElement("fencedframe")}}-Elementen geladen werden.
+Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP) **`fenced-frame-src`** Direktive spezifiziert gültige Quellen für eingebettete Browsing-Kontexte, die in {{HTMLElement("fencedframe")}} Elementen geladen werden.
 
 <table class="properties">
   <tbody>
@@ -18,14 +17,12 @@ Das HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
     </tr>
     <tr>
       <th scope="row">Direktivtyp</th>
-      <td>{{Glossary("Fetch directive")}}</td>
+      <td>[Fetch-Direktive](/de/docs/Glossary/Fetch_directive)</td>
     </tr>
     <tr>
       <th scope="row">Fallback</th>
       <td>
-        Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
-        {{CSP("frame-src")}}-Direktive (die auf die
-        {{CSP("child-src")}}-Direktive zurückfällt).
+        Wenn diese Direktive fehlt, wird der User-Agent nach der {{CSP("frame-src")}} Direktive suchen (die auf die {{CSP("child-src")}} Direktive zurückfällt).
       </td>
     </tr>
   </tbody>
@@ -42,26 +39,26 @@ Content-Security-Policy: fenced-frame-src <source> <source>;
 
 ### Quellen
 
-`<source>`s für `fenced-frame-src` sind eingeschränkter als für {{CSP("frame-src")}}. Es können nur die folgenden Quellenausdrücke verwendet werden:
+`<source>`s für `fenced-frame-src` sind stärker eingeschränkt als für {{CSP("frame-src")}}. Nur die folgenden Quellenausdrücke können verwendet werden:
 
-- Die schema-Quelle `"https:"`
-- Die host-Quelle `"https://*:*"`
+- Die Schemenquelle `"https:"`
+- Die Hostquelle `"https://*:*"`
 - Der String `"*"`
 
 > [!NOTE]
-> Sehen Sie die vollständige Liste der [CSP Source Values](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources).
+> Siehe die vollständige Liste der [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources).
 
 ## Beispiele
 
-### Verstöße
+### Verletzungsfälle
 
-Gegeben diesen CSP-Header:
+Gegebenenfalls dieser CSP-Header:
 
 ```http
 Content-Security-Policy: fenced-frame-src https://example.com/
 ```
 
-Die folgenden Quellen werden in einem Fenced Frame nicht geladen:
+Die folgenden Quellen werden in einem gefensterten Rahmen nicht geladen:
 
 - `https://not-example.com/` (Domain stimmt nicht überein)
 - `https://example.org/` (TLD stimmt nicht überein)
@@ -70,7 +67,7 @@ Die folgenden Quellen werden in einem Fenced Frame nicht geladen:
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

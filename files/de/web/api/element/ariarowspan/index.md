@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaRowSpan`**-Eigenschaft der {{domxref("Element")}}-Schnittstelle spiegelt den Wert des [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowspan)-Attributs wider, welches die Anzahl der Zeilen definiert, die von einer Zelle oder Gitterzelle innerhalb einer Tabelle, eines Gitters oder Baumgitters überspannt werden.
+Die **`ariaRowSpan`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-rowspan`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowspan)-Attributs wider, welches die Anzahl der von einer Zelle oder Gitterzelle innerhalb einer Tabelle, eines Gitters oder Baumgitters überspannten Zeilen definiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der eine ganze Zahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-rowspan`-Attribut auf dem Element mit der ID `spanning-heading` auf "3" gesetzt. Mithilfe von `ariaRowSpan` aktualisieren wir den Wert auf "2".
+In diesem Beispiel ist das `aria-rowspan`-Attribut des Elements mit der ID `spanning-heading` auf "3" gesetzt. Mithilfe von `ariaRowSpan` aktualisieren wir den Wert auf "2".
 
 ```html
 <table>
@@ -50,4 +50,4 @@ console.log(el.ariaRowSpan);
 
 ## Siehe auch
 
-- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+- [ARIA: table Rolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)

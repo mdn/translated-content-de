@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Der **`Accelerometer()`** Konstruktor erstellt ein neues {{domxref("Accelerometer")}} Objekt, das die Beschleunigung des Geräts entlang aller drei Achsen zum Zeitpunkt des Auslesens zurückgibt.
+Der **`Accelerometer()`** Konstruktor erstellt ein neues [`Accelerometer`](/de/docs/Web/API/Accelerometer) Objekt, das die Beschleunigung des Geräts entlang aller drei Achsen zum Zeitpunkt des Ablesens zurückgibt.
 
 ## Syntax
 
@@ -21,17 +21,17 @@ new Accelerometer(options)
 
 - `options` {{optional_inline}}
 
-  - : Optionen sind wie folgt:
+  - : Die Optionen sind wie folgt:
 
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl von Abtastungen pro Sekunde, was bedeutet, wie oft pro Sekunde das {{domxref('sensor.reading_event', 'reading')}}-Ereignis aufgerufen wird. Es kann eine ganze Zahl oder eine Dezimalzahl verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Abtastfrequenz hängt von der Gerätehardware ab und kann daher geringer sein als angefordert.
+      - : Die gewünschte Anzahl von Proben pro Sekunde, d.h. die Anzahl der Aufrufe des [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignisses pro Sekunde. Es kann eine ganze Zahl oder Dezimalzahl verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Abtastfrequenz hängt von der Gerätehardware ab und kann daher geringer sein als angefordert.
     - `referenceFrame` {{optional_inline}}
       - : Entweder `'device'` oder `'screen'`. Der Standardwert ist `'device'`.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die Nutzung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
 
 ## Spezifikationen
 
@@ -43,4 +43,4 @@ new Accelerometer(options)
 
 ## Siehe auch
 
-- {{domxref('sensor.reading_event', 'reading')}}-Ereignis
+- [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis

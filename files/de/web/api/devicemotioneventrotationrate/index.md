@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Ein **`DeviceMotionEventRotationRate`**-Interface der {{domxref("Device Orientation Events", "", "", "nocode")}} liefert Informationen über die Geschwindigkeit, mit der sich das Gerät um alle drei Achsen dreht.
+Ein **`DeviceMotionEventRotationRate`**-Interface der [Device Orientation Events](/de/docs/Web/API/Device_Orientation_Events) liefert Informationen über die Geschwindigkeit, mit der sich das Gerät um alle drei Achsen dreht.
 
 ## Instanzeigenschaften
 
-- {{ domxref("DeviceMotionEventRotationRate.alpha") }} {{ReadOnlyInline}}
-  - : Die Rotationsrate um die Z-Achse, in Grad pro Sekunde.
-- {{ domxref("DeviceMotionEventRotationRate.beta") }} {{ReadOnlyInline}}
-  - : Die Rotationsrate um die X-Achse, in Grad pro Sekunde.
-- {{ domxref("DeviceMotionEventRotationRate.gamma") }} {{ReadOnlyInline}}
-  - : Die Rotationsrate um die Y-Achse, in Grad pro Sekunde.
+- [`DeviceMotionEventRotationRate.alpha`](/de/docs/Web/API/DeviceMotionEventRotationRate/alpha) {{ReadOnlyInline}}
+  - : Die Rotationsmenge um die Z-Achse, in Grad pro Sekunde.
+- [`DeviceMotionEventRotationRate.beta`](/de/docs/Web/API/DeviceMotionEventRotationRate/beta) {{ReadOnlyInline}}
+  - : Die Rotationsmenge um die X-Achse, in Grad pro Sekunde.
+- [`DeviceMotionEventRotationRate.gamma`](/de/docs/Web/API/DeviceMotionEventRotationRate/gamma) {{ReadOnlyInline}}
+  - : Die Rotationsmenge um die Y-Achse, in Grad pro Sekunde.
 
 ## Spezifikationen
 

@@ -7,12 +7,12 @@ l10n:
 
 {{APIRef("SVG")}}{{deprecated_header}}
 
-Die **`SVGRenderingIntent`** Schnittstelle definiert die aufgezählte Liste der möglichen Werte für {{SVGAttr("rendering-intent")}} Attribute oder Deskriptoren.
+Die **`SVGRenderingIntent`**-Schnittstelle definiert die aufgezählte Liste möglicher Werte für {{SVGAttr("rendering-intent")}} Attribute oder Deskriptoren.
 
 {{InheritanceDiagram}}
 
 > [!WARNING]
-> Diese Schnittstelle wurde in der SVG 2-Spezifikation entfernt.
+> Diese Schnittstelle wurde in der SVG-2-Spezifikation entfernt.
 
 ## Konstanten
 
@@ -27,9 +27,9 @@ Die **`SVGRenderingIntent`** Schnittstelle definiert die aufgezählte Liste der 
       <td><code>RENDERING_INTENT_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig,
-        zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen
-        bestehenden Wert in diesen Typ zu ändern.
+        Der Typ gehört nicht zu den vordefinierten Typen. Es ist ungültig,
+        zu versuchen, einen neuen Wert dieses Typs zu definieren oder
+        einen bestehenden Wert auf diesen Typ zu ändern.
       </td>
     </tr>
     <tr>

@@ -3,12 +3,12 @@ title: "TextDecoderStream: ignoreBOM-Eigenschaft"
 short-title: ignoreBOM
 slug: Web/API/TextDecoderStream/ignoreBOM
 l10n:
-  sourceCommit: fafe14e30746524b128e4efabcd11d8f57fa0571
+  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
 ---
 
-{{APIRef("Encoding API")}}
+{{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die **`ignoreBOM`** schreibgeschützte Eigenschaft der {{domxref("TextDecoderStream")}}-Schnittstelle ist ein {{jsxref('Boolean')}}, der anzeigt, ob das [Byte-Order-Mark](https://www.w3.org/International/questions/qa-byte-order-mark) in die Ausgabe einbezogen oder übersprungen wird.
+Die schreibgeschützte Eigenschaft **`ignoreBOM`** der [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream)-Schnittstelle ist ein {{jsxref('Boolean')}}, der angibt, ob das [Byte-Order-Mark](https://www.w3.org/International/questions/qa-byte-order-mark) in die Ausgabe einbezogen oder übersprungen wird.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Die **`ignoreBOM`** schreibgeschützte Eigenschaft der {{domxref("TextDecoderStr
 
 ```js
 stream = new TextDecoderStream();
-console.log(stream.ignoreBOM); // gibt false zurück
+console.log(stream.ignoreBOM); // returns false
 ```
 
 ## Spezifikationen

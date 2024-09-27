@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`isConfigSupported()`** statische Methode der {{domxref("VideoDecoder")}}-Schnittstelle prüft, ob die angegebene Konfiguration unterstützt wird (das heißt, ob {{domxref("VideoDecoder")}}-Objekte erfolgreich mit der gegebenen Konfiguration konfiguriert werden können).
+Die **`isConfigSupported()`** statische Methode der Schnittstelle [`VideoDecoder`](/de/docs/Web/API/VideoDecoder) prüft, ob die gegebene Konfiguration unterstützt wird (das heißt, ob [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Objekte erfolgreich mit der gegebenen Konfiguration konfiguriert werden können).
 
 ## Syntax
 
@@ -19,25 +19,25 @@ VideoDecoder.isConfigSupported(config)
 ### Parameter
 
 - `config`
-  - : Das Wörterbuch-Objekt, das von {{domxref("VideoDecoder.configure")}} akzeptiert wird.
+  - : Das Wörterbuchobjekt, das von [`VideoDecoder.configure`](/de/docs/Web/API/VideoDecoder/configure) akzeptiert wird.
 
 ### Rückgabewert
 
 Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das die folgenden Mitglieder enthält:
 
 - `supported`
-  - : Ein Boolean-Wert, der `true` ist, wenn die angegebene Konfiguration vom Decoder unterstützt wird.
+  - : Ein boolescher Wert, der `true` ist, wenn die gegebene Konfiguration vom Decoder unterstützt wird.
 - `config`
-  - : Eine Kopie der angegebenen Konfiguration mit allen vom Decoder erkannten Feldern.
+  - : Eine Kopie der gegebenen Konfiguration mit allen vom Decoder erkannten Feldern.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die bereitgestellte `config` ungültig ist; das heißt, wenn erforderliche Werte fehlen (wie ein leeres `codec`-Feld) oder ungültige Werte vorhanden sind (wie ein negativer `codedWidth`).
+  - : Wird ausgelöst, wenn die bereitgestellte `config` ungültig ist; das heißt, wenn erforderliche Werte fehlen (wie ein leeres `codec`-Feld) oder ungültige Werte vorhanden sind (wie eine negative `codedWidth`).
 
 ## Beispiele
 
-Das folgende Beispiel prüft, ob der Browser beschleunigte und unbeschleunigte Versionen mehrerer Videocodecs unterstützt.
+Das folgende Beispiel testet, ob der Browser beschleunigte und unbeschleunigte Versionen mehrerer Video-Codecs unterstützt.
 
 ```js
 const codecs = ["avc1.42001E", "vp8", "vp09.00.10.08", "av01.0.04M.08"];
@@ -68,8 +68,8 @@ for (const config of configs) {
 
 ## Spezifikationen
 
-{{Spezifikationen}}
+{{Specifications}}
 
 ## Browser-Kompatibilität
 
-{{Kompat}}
+{{Compat}}

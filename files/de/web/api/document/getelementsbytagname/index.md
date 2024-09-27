@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getElementsByTagName`**-Methode der
-{{domxref("Document")}}-Schnittstelle gibt eine
-{{domxref("HTMLCollection")}} von Elementen mit dem angegebenen Tag-Namen zurück.
+Die **`getElementsByTagName`**-Methode des
+[`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine
+[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von Elementen mit dem angegebenen Tag-Namen zurück.
 
-Das gesamte Dokument wird durchsucht, einschließlich des Wurzelknotens. Die zurückgegebene `HTMLCollection` ist live, was bedeutet, dass sie sich automatisch aktualisiert, um mit dem DOM-Baum synchron zu bleiben, ohne dass `document.getElementsByTagName()` erneut aufgerufen werden muss.
+Das gesamte Dokument wird durchsucht, einschließlich des Wurzelknotens. Die zurückgegebene `HTMLCollection` ist dynamisch, was bedeutet, dass sie sich automatisch aktualisiert, um mit dem DOM-Baum synchron zu bleiben, ohne dass `document.getElementsByTagName()` erneut aufgerufen werden muss.
 
 ## Syntax
 
@@ -23,24 +23,18 @@ getElementsByTagName(name)
 ### Parameter
 
 - `name`
-  - : Ein Zeichenfolgenwert, der den Namen der Elemente darstellt. Die spezielle
-    Zeichenfolge `*` repräsentiert alle Elemente.
+  - : Ein String, der den Namen der Elemente darstellt. Der spezielle
+    String `*` repräsentiert alle Elemente.
 
 ### Rückgabewert
 
-Eine live {{domxref("HTMLCollection")}} der gefundenen Elemente in der Reihenfolge, in der sie im Baum erscheinen.
+Eine dynamische [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von gefundenen Elementen in der Reihenfolge, in der sie im Baum erscheinen.
 
 ## Beispiele
 
-Im folgenden Beispiel beginnt `getElementsByTagName()` von einem bestimmten
-Elternelement und durchsucht rekursiv von oben nach unten durch das DOM ab diesem Elternelement, um eine Sammlung aller Nachkommenelemente zu erstellen, die dem Tag-`name`-Parameter entsprechen. Dies demonstriert sowohl
-`document.getElementsByTagName()` als auch die funktional identische
-{{domxref("Element.getElementsByTagName()")}}, die die Suche bei einem bestimmten
-Element innerhalb des DOM-Baums startet.
+Im folgenden Beispiel beginnt `getElementsByTagName()` bei einem bestimmten übergeordneten Element und durchsucht rekursiv von oben nach unten das DOM von diesem übergeordneten Element aus, wobei eine Sammlung aller Nachfahr-Elemente erstellt wird, die mit dem Tag-`name`-Parameter übereinstimmen. Dies demonstriert sowohl `document.getElementsByTagName()` als auch die funktional identische [`Element.getElementsByTagName()`](/de/docs/Web/API/Element/getElementsByTagName), die die Suche an einem bestimmten Element innerhalb des DOM-Baums startet.
 
-Das Klicken auf die Schaltflächen verwendet `getElementsByTagName()`, um die Nachkommen
-von Absatzelementen eines bestimmten Elternteils zu zählen (entweder das Dokument selbst oder eines von zwei
-geschachtelten {{HTMLElement("div")}}-Elementen).
+Das Klicken auf die Schaltflächen verwendet `getElementsByTagName()`, um die Nachfolge-Absatz-Elemente eines bestimmten übergeordneten Elements zu zählen (entweder das Dokument selbst oder eines von zwei geschachtelten {{HTMLElement("div")}}-Elementen).
 
 ```html-nolint
 <!doctype html>
@@ -107,13 +101,10 @@ geschachtelten {{HTMLElement("div")}}-Elementen).
 
 ## Hinweise
 
-Wenn `getElementsByTagName()` bei einem HTML-Dokument aufgerufen wird, wandelt es sein Argument vor dem Fortfahren in Kleinbuchstaben um. Dies ist unerwünscht, wenn versucht wird, {{Glossary("camel_case", "camel case")}} SVG-Elemente in einem Teilbaum eines HTML-Dokuments abzugleichen.
-{{Domxref("document.getElementsByTagNameNS()")}} ist in diesem Fall nützlich. Siehe auch
-[Firefox-Bug 499656](https://bugzil.la/499656).
+Bei einem Aufruf auf einem HTML-Dokument wandelt `getElementsByTagName()` sein Argument in Kleinbuchstaben um, bevor es fortfährt. Dies ist unerwünscht, wenn versucht wird, [camelCase](/de/docs/Glossary/camel_case) SVG-Elemente in einem Unterbaum in einem HTML-Dokument abzugleichen. [`document.getElementsByTagNameNS()`](/de/docs/Web/API/Document/getElementsByTagNameNS) ist in diesem Fall nützlich. Siehe auch [Firefox-Bug 499656](https://bugzil.la/499656).
 
-`document.getElementsByTagName()` ähnelt
-{{domxref("Element.getElementsByTagName()")}}, außer dass seine Suche das
-gesamte Dokument umfasst.
+`document.getElementsByTagName()` ist ähnlich wie
+[`Element.getElementsByTagName()`](/de/docs/Web/API/Element/getElementsByTagName), außer dass sich seine Suche über das gesamte Dokument erstreckt.
 
 ## Spezifikationen
 
@@ -125,10 +116,7 @@ gesamte Dokument umfasst.
 
 ## Siehe auch
 
-- {{domxref("Element.getElementsByTagName()")}}
-- {{domxref("document.getElementById()")}}, um einen Verweis auf ein Element anhand seiner
-  `id` zu erhalten
-- {{domxref("document.getElementsByName()")}}, um einen Verweis auf ein Element anhand
-  seines `name` zu erhalten
-- {{domxref("document.querySelector()")}} für leistungsstarke Selektoren über Abfragen wie
-  `'div.myclass'`
+- [`Element.getElementsByTagName()`](/de/docs/Web/API/Element/getElementsByTagName)
+- [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um eine Referenz zu einem Element nach seiner `id` zurückzugeben
+- [`document.getElementsByName()`](/de/docs/Web/API/Document/getElementsByName), um eine Referenz zu einem Element nach seinem `name` zurückzugeben
+- [`document.querySelector()`](/de/docs/Web/API/Document/querySelector) für leistungsfähige Selektoren über Abfragen wie `'div.myclass'`

@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der Begriff **CSS-Pixel** ist gleichbedeutend mit der CSS-Einheit für absolute Länge _px_ — die [normativ definiert](https://drafts.csswg.org/css-values/#absolute-lengths) ist als genau 1/96 eines CSS-Zolls (_in_).
+Der Begriff **CSS-Pixel** ist gleichbedeutend mit der CSS-Einheit der absoluten Länge _px_ — die [normativ definiert](https://drafts.csswg.org/css-values/#absolute-lengths) ist als genau 1/96 eines CSS-Zolls (_in_).
 
 ## Siehe auch
 
-- [CSS Length Explained](https://hacks.mozilla.org/2013/09/css-length-explained/) auf dem MDN Hacks Blog
+- [CSS Length Explained](https://hacks.mozilla.org/2013/09/css-length-explained/) im MDN Hacks Blog

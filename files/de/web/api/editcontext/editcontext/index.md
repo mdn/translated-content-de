@@ -1,5 +1,5 @@
 ---
-title: "EditContext: EditContext() Konstruktor"
+title: "EditContext: EditContext()-Konstruktor"
 short-title: EditContext()
 slug: Web/API/EditContext/EditContext
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Der **`EditContext()`** Konstruktor gibt ein neues {{DOMxRef("EditContext")}}-Objekt zurück.
+Der **`EditContext()`**-Konstruktor gibt ein neues [`EditContext`](/de/docs/Web/API/EditContext)-Objekt zurück.
 
 ## Syntax
 
@@ -22,17 +22,17 @@ new EditContext(options)
 - `options` {{optional_inline}}
   - : Ein optionales Objekt mit den folgenden Eigenschaften:
     - `text`
-      - : Ein String zur Festlegung des anfänglichen Textes des `EditContext`.
+      - : Ein String, um den anfänglichen Text des `EditContext` festzulegen.
     - `selectionStart`
-      - : Eine Zahl, um den anfänglichen Beginn der Auswahl des `EditContext` festzulegen.
+      - : Eine Zahl, um den anfänglichen Auswahlstart des `EditContext` festzulegen.
     - `selectionEnd`
-      - : Eine Zahl, um das anfängliche Ende der Auswahl des `EditContext` festzulegen.
+      - : Eine Zahl, um das anfängliche Auswahlende des `EditContext` festzulegen.
 
 ## Beispiele
 
-### Initialisierung eines `EditContext`-Objekts
+### Instanziierung eines `EditContext`-Objekts
 
-Im folgenden Beispiel wird ein neues `EditContext`-Objekt mit dem anfänglichen Text "Hello world!" und der anfänglichen Auswahl, die den gesamten Text umfasst, erstellt.
+Das folgende Beispiel erstellt ein neues `EditContext`-Objekt mit dem anfänglichen Text "Hello world!" und der anfänglichen Auswahl, die den gesamten Text abdeckt.
 
 ```html
 <div id="editor"></div>
@@ -65,4 +65,4 @@ console.log(
 
 ## Siehe auch
 
-- Die {{DOMxRef("EditContext")}}-Schnittstelle, zu der es gehört.
+- Die [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle, zu der es gehört.

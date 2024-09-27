@@ -9,15 +9,13 @@ l10n:
 {{APIRef("Web Speech API")}}
 
 Die **`text`**-Eigenschaft der
-{{domxref("SpeechSynthesisUtterance")}}-Schnittstelle ruft den Text ab und legt ihn fest, der synthetisiert wird, wenn die Äußerung gesprochen wird.
+[`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Schnittstelle erhält und setzt den Text, der synthetisiert wird, wenn die Äußerung gesprochen wird.
 
-Der Text kann als Klartext oder als gut geformtes [SSML](https://www.w3.org/TR/speech-synthesis/)-Dokument bereitgestellt werden.
-Die SSML-Tags werden von Geräten entfernt, die SSML nicht unterstützen.
+Der Text kann als Klartext oder als gut geformtes [SSML](https://www.w3.org/TR/speech-synthesis/)-Dokument bereitgestellt werden. Geräte, die SSML nicht unterstützen, werden die SSML-Tags entfernen.
 
 ## Wert
 
-Ein String, der den zu synthetisierenden Text darstellt.
-Die maximale Länge des Textes, der in jeder Äußerung gesprochen werden kann, beträgt 32.767 Zeichen.
+Ein String, der den zu synthetisierenden Text darstellt. Die maximale Länge des Textes, der in jeder Äußerung gesprochen werden kann, beträgt 32.767 Zeichen.
 
 ## Beispiele
 

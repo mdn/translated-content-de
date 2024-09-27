@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Classes")}}
 
-**Öffentliche Felder** sind beschreibbare, durchsuchbare und konfigurierbare Eigenschaften. Im Gegensatz zu ihren privaten Gegenstücken nehmen sie daher an der Prototyp-Vererbung teil.
+**Öffentliche Felder** sind schreibbare, aufzählbare und konfigurierbare Eigenschaften. Daher nehmen sie, im Gegensatz zu ihren privaten Gegenstücken, an der Prototypvererbung teil.
 
 ## Syntax
 
@@ -20,23 +20,23 @@ class ClassWithField {
 }
 ```
 
-Es gibt einige zusätzliche Syntaxbeschränkungen:
+Es gibt einige zusätzliche Syntaxeinschränkungen:
 
 - Der Name einer statischen Eigenschaft (Feld oder Methode) kann nicht `prototype` sein.
-- Der Name eines Klassenfeldes (statisch oder instanziiert) kann nicht `constructor` sein.
+- Der Name eines Klassenfelds (statisch oder instanz) kann nicht `constructor` sein.
 
 ## Beschreibung
 
-Diese Seite führt öffentliche Instanzfelder detailliert ein.
+Diese Seite führt öffentliche Instanzfelder im Detail ein.
 
-- Für öffentliche statische Felder, siehe [`static`](/de/docs/Web/JavaScript/Reference/Classes/static).
-- Für private Felder, siehe [private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties).
-- Für öffentliche Methoden, siehe [Methodendefinitionen](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions).
-- Für öffentliche Zugriffsmethoden, siehe [getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [setter](/de/docs/Web/JavaScript/Reference/Functions/set).
+- Für öffentliche statische Felder siehe [`static`](/de/docs/Web/JavaScript/Reference/Classes/static).
+- Für private Felder siehe [private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties).
+- Für öffentliche Methoden siehe [Methodendefinitionen](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions).
+- Für öffentliche Zugriffs-Methoden siehe [getter](/de/docs/Web/JavaScript/Reference/Functions/get) und [setter](/de/docs/Web/JavaScript/Reference/Functions/set).
 
-Öffentliche Instanzfelder existieren in jeder erstellten Instanz einer Klasse. Durch die Deklaration eines öffentlichen Feldes können Sie sicherstellen, dass das Feld immer vorhanden ist und die Klassendefinition wird selbstdokumentierend.
+Öffentliche Instanzfelder existieren in jeder erstellten Instanz einer Klasse. Durch die Deklaration eines öffentlichen Feldes können Sie sicherstellen, dass das Feld immer vorhanden ist und die Klassendefinition selbstdokumentierender ist.
 
-Öffentliche Instanzfelder werden entweder zur Laufzeit im Basisklassenkonstruktor (bevor der Konstruktor-Body ausgeführt wird) oder direkt nach der Rückkehr von `super()` in einer Unterklasse hinzugefügt. Felder ohne Initialisierer werden auf `undefined` gesetzt. Ähnlich wie Eigenschaften können Feldnamen berechnet werden.
+Öffentliche Instanzfelder werden entweder während der Konstruktion in der Basisklasse hinzugefügt (bevor der Konstruktor-Body ausgeführt wird) oder direkt nach der Rückgabe von `super()` in einer Unterklasse. Felder ohne Initialisierer werden auf `undefined` gesetzt. Wie Eigenschaften können Feldnamen berechnet werden.
 
 ```js
 const PREFIX = "prefix";
@@ -54,7 +54,7 @@ console.log(instance.fieldWithInitializer); // "instance field"
 console.log(instance.prefixField); // "prefixed field"
 ```
 
-Berechnete Feldnamen werden nur einmal zur [Definition der Klasse](/de/docs/Web/JavaScript/Reference/Classes#evaluation_order) ausgewertet. Das bedeutet, dass jede Klasse immer eine feste Menge von Feldnamen hat und zwei Instanzen nicht unterschiedliche Feldnamen über berechnete Namen haben können. Der `this`-Wert im berechneten Ausdruck ist das `this`, das die Klassendefinition umgibt, und die Referenz auf den Namen der Klasse führt zu einem {{jsxref("ReferenceError")}}, da die Klasse noch nicht initialisiert ist. {{jsxref("Operators/await", "await")}} und {{jsxref("Operators/yield", "yield")}} funktionieren in diesem Ausdruck wie erwartet.
+Berechnete Feldnamen werden nur einmal, zur [Zeit der Klassendefinition](/de/docs/Web/JavaScript/Reference/Classes#evaluation_order), evaluiert. Dies bedeutet, dass jede Klasse immer eine feste Menge an Feldnamen hat und zwei Instanzen nicht unterschiedliche Feldnamen durch berechnete Namen haben können. Der `this`-Wert im berechneten Ausdruck ist das `this`, welches die Klassendefinition umgibt, und die Referenz auf den Klassennamen führt zu einem {{jsxref("ReferenceError")}}, weil die Klasse noch nicht initialisiert ist. {{jsxref("Operators/await", "await")}} und {{jsxref("Operators/yield", "yield")}} funktionieren in diesem Ausdruck wie erwartet.
 
 ```js
 class C {
@@ -63,10 +63,10 @@ class C {
 
 console.log(new C());
 console.log(new C());
-// Beide Instanzen haben denselben Feldnamen
+// Both instances have the same field name
 ```
 
-Im Feldinitialisierer bezieht sich [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) auf die im Bau befindliche Klasseninstanz, und [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) bezieht sich auf die `prototype`-Eigenschaft der Basisklasse, die die Instanzmethoden der Basisklasse enthält, aber nicht deren Instanzfelder.
+Im Feldinitialisierer bezieht sich [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) auf die im Bau befindliche Klasseninstanz und [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) bezieht sich auf die `prototype`-Eigenschaft der Basisklasse, die die Instanzmethoden der Basisklasse enthält, nicht aber deren Instanzfelder.
 
 ```js
 class Base {
@@ -89,7 +89,7 @@ console.log(base.anotherBaseField); // "base field"
 console.log(sub.subField); // "base method output"
 ```
 
-Der Feldinitialisierungs-Ausdruck wird jedes Mal ausgewertet, wenn eine neue Instanz erstellt wird. (Da der `this`-Wert für jede Instanz unterschiedlich ist, kann der Initialisierungs-Ausdruck auf instanzspezifische Eigenschaften zugreifen.)
+Der Feldinitialisierungs-Ausdruck wird jedes Mal ausgewertet, wenn eine neue Instanz erstellt wird. (Da der `this`-Wert für jede Instanz unterschiedlich ist, kann der Initialisierungs-Ausdruck instanzspezifische Eigenschaften zugreifen.)
 
 ```js
 class C {
@@ -101,9 +101,9 @@ const instance2 = new C();
 console.log(instance1.obj === instance2.obj); // false
 ```
 
-Der Ausdruck wird synchron ausgewertet. Sie können nicht {{jsxref("Operators/await", "await")}} oder {{jsxref("Operators/yield", "yield")}} im Initialisierungs-Ausdruck verwenden. (Betrachten Sie den Initialisierungs-Ausdruck als implizit in eine Funktion verpackt.)
+Der Ausdruck wird synchron ausgewertet. Sie können nicht {{jsxref("Operators/await", "await")}} oder {{jsxref("Operators/yield", "yield")}} im Initialisierungs-Ausdruck verwenden. (Betrachten Sie den Initialisierungs-Ausdruck als implizit in eine Funktion eingewickelt.)
 
-Da Instanzfelder einer Klasse hinzugefügt werden, bevor der jeweilige Konstruktor ausgeführt wird, können Sie in den Konstruktor auf die Werte der Felder zugreifen. Allerdings hat der Konstruktor der Basisklasse keinen Zugriff auf die Felder der abgeleiteten Klasse, da die Instanzfelder einer abgeleiteten Klasse erst nach der Rückkehr von `super()` definiert werden.
+Da Instanzfelder einer Klasse hinzugefügt werden, bevor der jeweilige Konstruktor ausgeführt wird, können Sie innerhalb des Konstruktors auf die Werte der Felder zugreifen. Da jedoch Instanzfelder einer abgeleiteten Klasse nach der Rückgabe von `super()` definiert werden, hat der Konstruktor der Basisklasse keinen Zugriff auf die Felder der abgeleiteten Klasse.
 
 ```js
 class Base {
@@ -127,7 +127,7 @@ const instance = new Derived();
 console.log(instance.field); // 2
 ```
 
-Felder werden nacheinander hinzugefügt. Feldinitialisierer können sich auf Feldwerte oberhalb beziehen, aber nicht darunter. Alle Instanz- und statischen Methoden werden vorher hinzugefügt und sind zugänglich, obwohl ihr Aufruf möglicherweise nicht wie erwartet funktioniert, wenn sie sich auf Felder unterhalb des initialisierten beziehen.
+Felder werden einzeln hinzugefügt. Feldinitialisierer können auf Feldwerte über ihnen verweisen, jedoch nicht darunter. Alle Instanz- und statischen Methoden werden zuvor hinzugefügt und können aufgerufen werden, obwohl ihre Ausführung möglicherweise nicht wie erwartet funktioniert, wenn sie auf Felder unter dem gerade initialisierten verweisen.
 
 ```js
 class C {
@@ -143,9 +143,9 @@ console.log(instance.b); // undefined
 ```
 
 > [!NOTE]
-> Dies ist wichtiger bei [privaten Feldern](/de/docs/Web/JavaScript/Reference/Classes/Private_properties), da der Zugriff auf ein nicht initialisiertes privates Feld einen {{jsxref("TypeError")}} wirft, selbst wenn das private Feld darunter deklariert ist. (Wenn das private Feld nicht deklariert ist, wäre es ein früher {{jsxref("SyntaxError")}}.)
+> Dies ist bei [privaten Feldern](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) wichtiger, da der Zugriff auf ein nicht initialisiertes privates Feld einen {{jsxref("TypeError")}} wirft, auch wenn das private Feld darunter deklariert ist. (Wenn das private Feld nicht deklariert ist, würde dies zu einem frühen {{jsxref("SyntaxError")}} führen.)
 
-Da Klassenfelder mit dem [`[[DefineOwnProperty]]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty)-Semantik (was im Wesentlichen {{jsxref("Object.defineProperty()")}} ist) hinzugefügt werden, rufen Felddeklarationen in abgeleiteten Klassen keine Setter in der Basisklasse auf. Dieses Verhalten unterscheidet sich von der Verwendung von `this.field = …` im Konstruktor.
+Da Klassenfelder mit dem [`[[DefineOwnProperty]]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/defineProperty)-Semantik (was im Wesentlichen {{jsxref("Object.defineProperty()")}} ist) hinzugefügt werden, lösen Felddeklarationen in abgeleiteten Klassen keine Setter in der Basisklasse aus. Dieses Verhalten unterscheidet sich von der Verwendung von `this.field = …` im Konstruktor.
 
 ```js
 class Base {
@@ -158,7 +158,7 @@ class DerivedWithField extends Base {
   field = 1;
 }
 
-const instance = new DerivedWithField(); // Kein Log
+const instance = new DerivedWithField(); // No log
 
 class DerivedWithConstructor extends Base {
   constructor() {
@@ -167,33 +167,33 @@ class DerivedWithConstructor extends Base {
   }
 }
 
-const instance2 = new DerivedWithConstructor(); // Loggt 1
+const instance2 = new DerivedWithConstructor(); // Logs 1
 ```
 
 > [!NOTE]
-> Bevor die Klassenfeldspezifikation mit der `[[DefineOwnProperty]]`-Semantik finalisiert wurde, transformierten die meisten Transpiler, einschließlich [Babel](https://babeljs.io/) und [tsc](https://www.typescriptlang.org/), Klassenfelder in die `DerivedWithConstructor`-Form, was nach der Standardisierung der Klassenfelder zu subtilen Fehlern geführt hat.
+> Bevor die Klassenfeldspezifikation mit der `[[DefineOwnProperty]]`-Semantik abgeschlossen wurde, transformierten die meisten Transpiler, einschließlich [Babel](https://babeljs.io/) und [tsc](https://www.typescriptlang.org/), Klassenfelder in die `DerivedWithConstructor`-Form, was nach der Standardisierung der Klassenfelder subtile Bugs verursachte.
 
 ## Beispiele
 
 ### Verwendung von Klassenfeldern
 
-Klassenfelder können nicht von Argumenten des Konstruktors abhängen, daher werten sich Feldinitialisierer normalerweise auf denselben Wert für jede Instanz aus (es sei denn, derselbe Ausdruck kann sich jedes Mal zu unterschiedlichen Werten auswerten, wie z.B. {{jsxref("Date.now()")}} oder Objektinitialisierer).
+Klassenfelder können nicht von Konstruktorargumenten abhängig sein, daher bewerten Feldinitialisierer normalerweise denselben Wert für jede Instanz (es sei denn, derselbe Ausdruck kann jedes Mal zu unterschiedlichen Werten führen, wie {{jsxref("Date.now()")}} oder Objektinitialisierer).
 
 ```js example-bad
 class Person {
-  name = nameArg; // nameArg ist außerhalb des Bereichs des Konstruktors
+  name = nameArg; // nameArg is out of scope of the constructor
   constructor(nameArg) {}
 }
 ```
 
 ```js example-good
 class Person {
-  // Alle Instanzen von Person werden denselben Namen haben
+  // All instances of Person will have the same name
   name = "Dragomir";
 }
 ```
 
-Allerdings ist selbst die Deklaration eines leeren Klassenfeldes vorteilhaft, da sie auf die Existenz des Feldes hinweist, was Typprüfern sowie menschlichen Lesern ermöglicht, die Struktur der Klasse statisch zu analysieren.
+Selbst das Deklarieren eines leeren Klassenfeldes ist jedoch vorteilhaft, da es auf das Vorhandensein des Feldes hinweist, was es Typprüfungen und menschlichen Lesern ermöglicht, die Struktur der Klasse statisch zu analysieren.
 
 ```js
 class Person {
@@ -206,7 +206,7 @@ class Person {
 }
 ```
 
-Der obenstehende Code scheint redundant, aber betrachten Sie den Fall, bei dem `this` dynamisch mutiert wird: die explizite Felddeklaration macht deutlich, welche Felder definitiv in der Instanz vorhanden sein werden.
+Der obige Code wirkt sich wiederholend aus, aber bedenken Sie den Fall, in dem `this` dynamisch verändert wird: die explizite Felddeklaration macht deutlich, welche Felder definitiv in der Instanz vorhanden sein werden.
 
 ```js
 class Person {
@@ -218,7 +218,7 @@ class Person {
 }
 ```
 
-Da Initialisierer ausgewertet werden, nachdem die Basisklasse ausgeführt wurde, können Sie auf Eigenschaften zugreifen, die durch den Basisklassenkonstruktor erstellt wurden.
+Da Initialisierer ausgewertet werden, nachdem die Basisklasse ausgeführt wurde, können Sie auf Eigenschaften zugreifen, die vom Konstruktor der Basisklasse erstellt wurden.
 
 ```js
 class Person {
@@ -251,5 +251,5 @@ console.log(new Professor("Radev", 54).name); // "Professor Radev"
 - [Klassen](/de/docs/Web/JavaScript/Reference/Classes)
 - [Private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties)
 - {{jsxref("Statements/class", "class")}}
-- [Die Semantik aller JS-Klassenelemente](https://rfrn.org/~shu/2018/05/02/the-semantics-of-all-js-class-elements.html) von Shu-yu Guo (2018)
-- [Öffentliche und private Klassenfelder](https://v8.dev/features/class-fields) auf v8.dev (2018)
+- [The semantics of all JS class elements](https://rfrn.org/~shu/2018/05/02/the-semantics-of-all-js-class-elements.html) von Shu-yu Guo (2018)
+- [Public and private class fields](https://v8.dev/features/class-fields) auf v8.dev (2018)

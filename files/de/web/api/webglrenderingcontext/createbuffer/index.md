@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: createBuffer()-Methode"
+title: "WebGLRenderingContext: createBuffer() Methode"
 short-title: createBuffer()
 slug: Web/API/WebGLRenderingContext/createBuffer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.createBuffer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert einen {{domxref("WebGLBuffer")}}, der Daten wie Vertices oder Farben speichert.
+Die **`WebGLRenderingContext.createBuffer()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) erzeugt und initialisiert einen [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), der Daten wie beispielsweise Vertex- oder Farbinformationen speichert.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLBuffer")}}, der Daten wie Vertices oder Farben speichert.
+Ein [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), der Daten wie beispielsweise Vertex- oder Farbinformationen speichert.
 
 ## Beispiele
 
-### Erstellen eines Buffers
+### Einen Buffer erstellen
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -44,7 +44,7 @@ const buffer = gl.createBuffer();
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindBuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteBuffer()")}}
-- {{domxref("WebGLRenderingContext.isBuffer()")}}
-- Andere Buffer: {{domxref("WebGLFramebuffer")}}, {{domxref("WebGLRenderbuffer")}}
+- [`WebGLRenderingContext.bindBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindBuffer)
+- [`WebGLRenderingContext.deleteBuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteBuffer)
+- [`WebGLRenderingContext.isBuffer()`](/de/docs/Web/API/WebGLRenderingContext/isBuffer)
+- Andere Buffers: [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)

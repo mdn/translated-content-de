@@ -7,30 +7,30 @@ l10n:
 
 {{APIRef("SVG")}}{{Deprecated_Header}}
 
-Die **`SVGGlyphRefElement`**-Schnittstelle entspricht den {{SVGElement("glyphRef")}}-Elementen.
+Das **`SVGGlyphRefElement`** Interface entspricht den {{SVGElement("glyphRef")}} Elementen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, {{domxref("SVGElement")}}._
+_Dieses Interface erbt auch Eigenschaften von seinem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGGlyphRefElement.glyphRef")}} {{Deprecated_Inline}}
-  - : Ein String, der dem {{SVGAttr("glyphRef")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGGlyphRefElement.format")}} {{Deprecated_Inline}}
-  - : Ein String, der dem {{SVGAttr("format")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGGlyphRefElement.x")}} {{Deprecated_Inline}}
-  - : Ein Float, der dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGGlyphRefElement.y")}} {{Deprecated_Inline}}
-  - : Ein Float, der dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGGlyphRefElement.dx")}} {{Deprecated_Inline}}
-  - : Ein Float, der dem {{SVGAttr("dx")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGGlyphRefElement.dy")}} {{Deprecated_Inline}}
-  - : Ein Float, der dem {{SVGAttr("dy")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGGlyphRefElement.glyphRef`](/de/docs/Web/API/SVGGlyphRefElement/glyphRef) {{Deprecated_Inline}}
+  - : Ein String, der dem {{SVGAttr("glyphRef")}} Attribut des gegebenen Elements entspricht.
+- [`SVGGlyphRefElement.format`](/de/docs/Web/API/SVGGlyphRefElement/format) {{Deprecated_Inline}}
+  - : Ein String, der dem {{SVGAttr("format")}} Attribut des gegebenen Elements entspricht.
+- [`SVGGlyphRefElement.x`](/de/docs/Web/API/SVGGlyphRefElement/x) {{Deprecated_Inline}}
+  - : Ein Float, der dem {{SVGAttr("x")}} Attribut des gegebenen Elements entspricht.
+- [`SVGGlyphRefElement.y`](/de/docs/Web/API/SVGGlyphRefElement/y) {{Deprecated_Inline}}
+  - : Ein Float, der dem {{SVGAttr("y")}} Attribut des gegebenen Elements entspricht.
+- [`SVGGlyphRefElement.dx`](/de/docs/Web/API/SVGGlyphRefElement/dx) {{Deprecated_Inline}}
+  - : Ein Float, der dem {{SVGAttr("dx")}} Attribut des gegebenen Elements entspricht.
+- [`SVGGlyphRefElement.dy`](/de/docs/Web/API/SVGGlyphRefElement/dy) {{Deprecated_Inline}}
+  - : Ein Float, der dem {{SVGAttr("dy")}} Attribut des gegebenen Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine Methoden, erbt aber Methoden von ihrem Elternteil, {{domxref("SVGElement")}}._
+_Dieses Interface hat keine eigenen Methoden, erbt jedoch Methoden von seinem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

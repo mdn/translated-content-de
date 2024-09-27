@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Verschiebt eine oder mehrere kontextbezogene Identitäten an eine neue Position innerhalb der Liste der kontextbezogenen Identitäten.
+Verschiebt eine oder mehrere kontextuelle Identitäten an eine neue Position innerhalb der Liste der kontextuellen Identitäten.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -15,7 +15,7 @@ Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/R
 
 ```js-nolint
 let moveContainers = browser.contextualIdentities.move(
-  cookieStoreIds,                  // string oder Array von string
+  cookieStoreIds,                  // string or array of string
   position                         // integer
 )
 ```
@@ -23,26 +23,26 @@ let moveContainers = browser.contextualIdentities.move(
 ### Parameter
 
 - `cookieStoreIds`
-  - : `string` oder `array` von `string`. Eine geordnete Liste der Cookie-Store-IDs der kontextbezogenen Identität, die verschoben werden sollen.
+  - : `string` oder `array` von `string`. Eine geordnete Liste der Cookie Store-IDs kontextueller Identitäten, die verschoben werden sollen.
 - `position`
-  - : `integer`. Die Position, zu der `cookieStoreIds` in der Liste der kontextbezogenen Identitäten verschoben werden soll. Nullbasiert; `0` gibt die erste Position an. `-1` gibt an, dass die Elemente an das Ende der Liste verschoben werden.
+  - : `integer`. Die Position, an die `cookieStoreIds` in der Liste der kontextuellen Identitäten verschoben werden sollen. Nullbasiert; `0` bedeutet die erste Position. `-1` bedeutet, dass die Elemente ans Ende der Liste verschoben werden.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, wenn die kontextbezogenen Identitäten neu geordnet sind. Das Versprechen wird abgelehnt, wenn die Anforderung für eine ungültige Verschiebung erfolgt oder die Funktion für kontextbezogene Identitäten nicht aktiviert ist.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, wenn die kontextuellen Identitäten neu geordnet sind. Das Promise wird abgelehnt, wenn die Anfrage für einen ungültigen Verschiebevorgang ist oder die Funktion der kontextuellen Identitäten nicht aktiviert ist.
 
 ## Beispiele
 
-Dieses Beispiel verschiebt die erste Identität ans Ende und dann wieder zurück an den Anfang.
+Dieses Beispiel verschiebt die erste Identität an das Ende und dann zurück an den Anfang.
 
 ```js
 let identities = await browser.contextualIdentities.query({});
 let firstId = identities[0].cookieStoreId;
 
-// Verschiebt die erste Identität ans Ende.
+// Moves first identity to the end.
 await browser.contextualIdentities.move(firstId, -1);
 
-// Verschiebt die Identität wieder an den Anfang.
+// Move identity to the start again.
 await browser.contextualIdentities.move(firstId, 0);
 ```
 
@@ -51,37 +51,37 @@ Eine andere Möglichkeit, die erste Identität ans Ende zu verschieben, besteht 
 ```js
 let identities = await browser.contextualIdentities.query({});
 let ids = identities.map((identity) => identity.cookieStoreId);
-// Erstellen Sie ein Array ohne das erste Element:
+// Create an array without the first item:
 let otherIds = ids.slice(1);
 
-// Verschiebt andere Identitäten an den Anfang,
-// wodurch die erste Identität effektiv ans Ende verschoben wird.
+// Move other identities to the start,
+// effectively putting the first identity at the end.
 await browser.contextualIdentities.move(otherIds, 0);
 ```
 
-Dieses Beispiel verschiebt die "Personal"-Identität vor "Work". Das Beispiel geht davon aus, dass Container mit diesen Namen existieren. Dies ist möglicherweise nicht der Fall in angepassten oder lokalisierten (nicht englischen) Firefox-Instanzen.
+Dieses Beispiel verschiebt die "Personal"-Identität vor "Work". Das Beispiel setzt voraus, dass Container mit diesen Namen existieren. Dies könnte in angepassten oder lokalisierten (nicht-englischen) Firefox-Instanzen nicht der Fall sein.
 
 ```js
 let identities = await browser.contextualIdentities.query({});
 
-// Finden Sie den Index und die ID des Containers mit dem Namen "Personal".
+// Find the index and ID of the container with the name "Personal".
 let personalIndex = identities.findIndex((ci) => ci.name === "Personal");
 if (personalIndex === -1) {
   throw new Error("Personal container not found");
 }
 let personalId = identities[personalIndex].cookieStoreId;
 
-// Finden Sie den Index des Containers mit dem Namen "Work".
+// Find the index of the container with the name "Work".
 let workIndex = identities.findIndex((identity) => identity.name === "Work");
 if (workIndex === -1) {
   throw new Error("Work container not found!");
 }
 
 if (personalIndex < workIndex) {
-  // Wenn die Personal-Identität verschoben wird, werden alle folgenden
-  // Identitäten um eins nach links verschoben. Um die
-  // Personal-Identität vor der Work-Identität zu platzieren,
-  // sollten wir daher eins abziehen.
+  // When the Personal identity moves, all following
+  // identities shift to the left by one. To place
+  // the Personal identity before the Work identity,
+  // we should therefore subtract one.
   workIndex--;
 }
 await browser.contextualIdentities.move(personalId, workIndex);

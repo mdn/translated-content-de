@@ -9,13 +9,13 @@ l10n:
 
 CSS **physische Eigenschaften** definieren Positionen basierend auf physikalischen Richtungen oder Elementseiten. Zum Beispiel:
 
-- Die {{Glossary("inset properties")}} {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und {{cssxref("left")}} beziehen sich auf die physischen Abmessungen des Ansichtsfensters.
-- Eigenschaften wie {{cssxref("margin-top")}}, {{cssxref("border-right")}}, {{cssxref("padding-bottom")}} und {{cssxref("border-bottom-left-radius")}} verweisen auf spezifische Seiten eines Elements und gestalten Merkmale in dieser physischen Richtung.
+- Die [inset properties](/de/docs/Glossary/inset_properties) {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und {{cssxref("left")}} beziehen sich auf die physischen Abmessungen des Viewports.
+- Eigenschaften wie {{cssxref("margin-top")}}, {{cssxref("border-right")}}, {{cssxref("padding-bottom")}} und {{cssxref("border-bottom-left-radius")}} beziehen sich auf bestimmte Seiten eines Elements und gestalten Eigenschaften nach dieser physikalischen Richtung.
 
-Dies steht im Gegensatz zu {{glossary("logical properties")}}, die relativ zum Inhaltfluss sind und Richtungs-Schlüsselwörter relativ zu den Block- und Inline-Achsen verwenden.
+Dies steht im Gegensatz zu [logischen Eigenschaften](/de/docs/Glossary/logical_properties), die relativ zum Inhaltsfluss sind und Richtungsbegriffe relativ zu den Block- und Inline-Achsen verwenden.
 
 ## Siehe auch
 
-- [CSS-Positionierungs-Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
-- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul
-- [CSS-Box-Größenanpassung](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- [CSS positioned layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- [CSS box model](/de/docs/Web/CSS/CSS_box_model) Modul
+- [CSS box sizing](/de/docs/Web/CSS/CSS_box_sizing) Modul

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`startTime`**-Eigenschaft der {{domxref("TextTrackCue")}}-Schnittstelle gibt die Startzeit des Cues zurück und legt sie fest.
+Die **`startTime`**-Eigenschaft des [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Interfaces gibt die Startzeit des Cues zurück und legt sie fest.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Zahl, die die Startzeit in Sekunden darstellt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neuer {{domxref("VTTCue")}} (der von `TextTrackCue` erbt) erstellt, der bei 0,1 Sekunden beginnt und bei 0,9 Sekunden endet. Die `startTime`-Eigenschaft wird dann in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) (das von `TextTrackCue` erbt) erstellt, das bei 0,1 Sekunden beginnt und bei 0,9 Sekunden endet. Die `startTime`-Eigenschaft wird dann in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");
@@ -32,6 +32,6 @@ track.addCue(cue1);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

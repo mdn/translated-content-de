@@ -8,18 +8,18 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`min`**-Eigenschaft der {{domxref("HTMLInputElement")}}-Schnittstelle spiegelt das [`min`](/de/docs/Web/HTML/Element/input#min)-Attribut des {{HTMLElement("input")}}-Elements wider, das im Allgemeinen den minimal gültigen Wert für eine numerische oder Datum-Zeit-Eingabe definiert. Wenn das Attribut nicht explizit gesetzt ist, ist die `min`-Eigenschaft ein leerer String.
+Die **`min`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle spiegelt das `min`-Attribut des {{HTMLElement("input")}}-Elements wider, das im Allgemeinen den minimal gültigen Wert für eine numerische oder zeitliche Eingabe definiert. Wenn das Attribut nicht explizit gesetzt ist, ist die `min`-Eigenschaft ein leerer String.
 
 ## Wert
 
-Ein String, der den `min`-Wert des Elements oder einen leeren String darstellt, wenn kein `min` explizit festgelegt ist.
+Ein String, der den `min`-Wert des Elements darstellt, oder ein leerer String, wenn kein `min` explizit gesetzt ist.
 
 ## Beispiel
 
 ```js
 const inputElement = document.querySelector("#range");
-console.log(inputElement.min); // der aktuelle Wert des min-Attributs
-inputElement.min = 0; // setzt den min-Wert auf "0"
+console.log(inputElement.min); // the current value of the min attribute
+inputElement.min = 0; // sets the min value to "0"
 ```
 
 ## Spezifikationen
@@ -33,6 +33,6 @@ inputElement.min = 0; // setzt den min-Wert auf "0"
 ## Siehe auch
 
 - {{HTMLElement("input")}} vom Typ {{HTMLElement("input/range", "range")}}, {{HTMLElement("input/number", "number")}}, {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, und {{HTMLElement("input/time", "time")}}
-- {{domxref("HTMLInputElement.max")}}
-- {{domxref("HTMLInputElement.value")}}
-- {{domxref("HTMLInputElement.type")}}
+- [`HTMLInputElement.max`](/de/docs/Web/API/HTMLInputElement/max)
+- [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value)
+- [`HTMLInputElement.type`](/de/docs/Web/API/HTMLInputElement/type)

@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`isochronousTransferOut()`**-Methode der
-{{domxref("USBDevice")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("USBIsochronousOutTransferResult")}} aufgelöst wird, wenn zeitkritische Informationen vom USB-Gerät übertragen wurden.
+Die **`isochronousTransferOut()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`USBIsochronousOutTransferResult`](/de/docs/Web/API/USBIsochronousOutTransferResult) aufgelöst wird, wenn zeitkritische Informationen vom USB-Gerät übertragen wurden.
 
 ## Syntax
 
@@ -20,15 +19,15 @@ isochronousTransferOut(endpointNumber, data, packetLengths)
 ### Parameter
 
 - `endpointNumber`
-  - : Die Nummer eines gerätespezifischen Endpunkts (Puffer).
+  - : Die Nummer eines gerätespezifischen Endpunktes (Buffer).
 - `data`
-  - : Ein {{jsxref("TypedArray")}}, das die an das Gerät zu sendenden Daten enthält.
+  - : Ein {{jsxref("TypedArray")}}, das die zu sendenden Daten an das Gerät enthält.
 - `packetLengths`
   - : Ein Array von Längen für die zu übertragenden Pakete.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{domxref("USBIsochronousOutTransferResult")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einem [`USBIsochronousOutTransferResult`](/de/docs/Web/API/USBIsochronousOutTransferResult) aufgelöst wird.
 
 ## Spezifikationen
 

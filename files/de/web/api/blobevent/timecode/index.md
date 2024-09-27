@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Die **`timecode`** schreibgeschützte Eigenschaft der {{domxref("BlobEvent")}}-Schnittstelle zeigt die Differenz zwischen dem Zeitstempel des ersten Datenblocks und dem Zeitstempel des ersten Blocks im ersten `BlobEvent` an, das von diesem Rekorder erzeugt wird.
+Die schreibgeschützte **`timecode`**-Eigenschaft der Schnittstelle [`BlobEvent`](/de/docs/Web/API/BlobEvent) gibt die Differenz zwischen dem Zeitstempel des ersten Datenstücks und dem Zeitstempel des ersten Stücks im ersten von diesem Recorder erzeugten `BlobEvent` an.
 
-Beachten Sie, dass der `timecode` im ersten erzeugten `BlobEvent` nicht unbedingt null sein muss.
+Beachten Sie, dass der `timecode` im ersten erzeugten `BlobEvent` nicht Null sein muss.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Spezifikationen
 

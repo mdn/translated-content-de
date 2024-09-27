@@ -7,45 +7,45 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der Programmierung bezieht sich **Semantik** auf die _Bedeutung_ eines Codeabschnitts — zum Beispiel "Welche Wirkung hat das Ausführen dieser Zeile JavaScript?", oder "Welche Funktion oder Rolle hat dieses HTML-Element?" (statt "Wie sieht es aus?").
+Im Programmieren bezieht sich **Semantik** auf die _Bedeutung_ eines Code-Schnipsels – zum Beispiel "welchen Effekt hat das Ausführen dieser Zeile JavaScript?" oder "welchen Zweck oder welche Rolle hat dieses HTML-Element?" (anstatt "wie sieht es aus?").
 
 ## Semantik in JavaScript
 
-Betrachten Sie in JavaScript eine Funktion, die einen String-Parameter annimmt und ein {{htmlelement("li")}}-Element mit diesem String als `textContent` zurückgibt. Müssten Sie den Code ansehen, um zu verstehen, was die Funktion macht, wenn sie `build('Peach')` oder `createLiWithContent('Peach')` genannt wird?
+Betrachten Sie in JavaScript eine Funktion, die einen Zeichenfolgenparameter entgegennimmt und ein {{htmlelement("li")}}-Element mit dieser Zeichenfolge als `textContent` zurückgibt. Müssten Sie den Code ansehen, um zu verstehen, was die Funktion macht, wenn sie `build('Peach')` oder `createLiWithContent('Peach')` genannt wird?
 
 ## Semantik in CSS
 
-Betrachten Sie in CSS das Styling einer Liste mit `li`-Elementen, die verschiedene Obstsorten darstellen. Wüssten Sie, welcher Teil des DOMs mit `div > ul > li` oder `.fruits__item` ausgewählt wird?
+Betrachten Sie in CSS das Styling einer Liste mit `li`-Elementen, die verschiedene Obstsorten repräsentieren. Würden Sie wissen, welcher Teil des DOM mit `div > ul > li` oder `.fruits__item` ausgewählt wird?
 
 ## Semantik in HTML
 
-Im HTML ist zum Beispiel das {{htmlelement("Heading_Elements", "h1")}}-Element ein semantisches Element, das dem umschlossenen Text die Rolle (oder Bedeutung) eines "übergeordneten Überschriftenlevels auf Ihrer Seite" verleiht.
+Im HTML ist zum Beispiel das {{htmlelement("Heading_Elements", "h1")}}-Element ein semantisches Element, das dem umschlossenen Text die Rolle (oder Bedeutung) "eine oberste Überschrift auf Ihrer Seite" gibt.
 
 ```html
-<h1>Dies ist eine übergeordnete Überschrift</h1>
+<h1>This is a top level heading</h1>
 ```
 
-Standardmäßig wird in den meisten Browsern das {{htmlelement("Heading_Elements", "h1")}} von der [User-Agent-Stylesheet](/de/docs/Web/CSS/Cascade#user-agent_stylesheets) mit einer großen Schriftgröße versehen, um es _wie_ eine Überschrift aussehen zu lassen (obwohl Sie es auch anders gestalten könnten, wie Sie möchten).
+Standardmäßig wird ein {{htmlelement("Heading_Elements", "h1")}} in den meisten [User-Agent-Stylesheets](/de/docs/Web/CSS/Cascade#user-agent_stylesheets) des Browsers mit einer großen Schriftgröße gestylt, um es wie eine Überschrift _aussehen_ zu lassen (obwohl Sie es so gestalten könnten, dass es aussieht, wie Sie möchten).
 
-Andererseits könnten Sie jedes Element _wie_ eine übergeordnete Überschrift erscheinen lassen. Betrachten Sie das Folgende:
+Andererseits könnten Sie jedes Element so gestalten, dass es wie eine oberste Überschrift _aussieht_. Betrachten Sie das folgende Beispiel:
 
 ```html
-<span style="font-size: 32px; margin: 21px 0;">Keine übergeordnete Überschrift!</span>
+<span style="font-size: 32px; margin: 21px 0;">Not a top-level heading!</span>
 ```
 
-Dies wird es wie eine übergeordnete Überschrift erscheinen lassen, aber es hat keinen semantischen Wert, daher erhält es keine der oben beschriebenen zusätzlichen Vorteile. Es ist daher eine gute Idee, das richtige HTML-Element für die jeweilige Aufgabe zu verwenden.
+Dies wird es so darstellen, dass es wie eine oberste Überschrift aussieht, aber es hat keinen semantischen Wert, daher erhält es keine zusätzlichen Vorteile, wie oben beschrieben. Es ist daher ratsam, das richtige HTML-Element für den richtigen Zweck zu verwenden.
 
-HTML sollte kodiert werden, um die _Daten_ zu repräsentieren, die ausgefüllt werden sollen und nicht basierend auf seiner standardmäßigen Darstellungsstil. Die Darstellung (wie es aussehen sollte) ist die alleinige Verantwortung von [CSS](/de/docs/Web/CSS).
+HTML sollte so codiert werden, dass es die _Daten_ darstellt, die gefüllt werden, und nicht auf der Basis seines standardmäßigen Präsentationsstylings. Die Präsentation (wie es aussehen soll) ist die alleinige Verantwortung von [CSS](/de/docs/Web/CSS).
 
-Einige der Vorteile, semantisches Markup zu schreiben, sind:
+Einige der Vorteile des Schreibens von semantischem Markup sind wie folgt:
 
-- Suchmaschinen werden den Inhalt als wichtige Schlüsselwörter betrachten, um das Suchranking der Seite zu beeinflussen (siehe {{glossary("SEO")}})
-- Screenreader können es als Wegweiser nutzen, um sehbehinderten Nutzern zu helfen, eine Seite zu navigieren
-- Das Auffinden von Blöcken mit bedeutungsvollem Code ist deutlich einfacher als das Durchsuchen endloser `div`s mit oder ohne semantische oder namensräumliche Klassen
-- Es suggeriert dem Entwickler die Art der Daten, die ausgefüllt werden
-- Semantische Benennung spiegelt die richtige Benennung von benutzerdefinierten Elementen/Komponenten wider
+- Suchmaschinen betrachten den Inhalt als wichtige Schlüsselwörter, um das Suchranking der Seite zu beeinflussen (siehe [SEO](/de/docs/Glossary/SEO))
+- Screenreader können es als Wegweiser nutzen, um sehbehinderten Nutzern das Navigieren auf einer Seite zu erleichtern
+- Das Finden von sinnvollen Codeblöcken ist wesentlich einfacher als das Durchsuchen von endlosen `div`s mit oder ohne semantische oder benannte Klassen
+- Es schlägt dem Entwickler den Typ der Daten vor, die gefüllt werden
+- Semantische Benennung spiegelt die korrekte Benennung benutzerdefinierter Elemente/Komponenten wider
 
-Wenn Sie sich überlegen, welches Markup Sie verwenden sollen, fragen Sie sich: "Welche(s) Element(e) beschreiben/repräsentieren die Daten, die ich ausfüllen werde, am besten?" Zum Beispiel, ist es eine Liste von Daten?; geordnet, ungeordnet?; ist es ein Artikel mit Abschnitten und einem Nebenbereich mit verwandten Informationen?; listet es Definitionen auf?; ist es eine Figur oder ein Bild, das eine Bildunterschrift benötigt?; sollte es zusätzlich zum globalen seitenweiten Header und Footer einen Header und einen Footer haben?; usw.
+Wenn Sie darüber nachdenken, welches Markup zu verwenden ist, fragen Sie sich: "Welche(s) Element(e) beschreiben/stellen die Daten, die ich füllen werde, am besten dar?" Zum Beispiel, ist es eine Liste von Daten?; geordnet, ungeordnet?; ist es ein Artikel mit Abschnitten und einer Seite mit verbundenen Informationen?; werden Definitionen aufgelistet?; ist es eine Abbildung oder ein Bild, das eine Bildunterschrift benötigt?; sollte es zusätzlich zum globalen seitenweiten Header und Footer einen Header und einen Footer haben?; etc.
 
 ## Semantische Elemente
 
@@ -68,8 +68,8 @@ Dies sind _einige_ der ungefähr 100 semantischen [Elemente](/de/docs/Web/HTML/E
 
 ## Siehe auch
 
-- [HTML-Elementreferenz](/de/docs/Web/HTML/Element#inline_text_semantics) auf MDN
-- [Verwendung von HTML-Abschnitten und -Konturen](/de/docs/Web/HTML/Element/Heading_Elements#usage_notes) auf MDN
-- [Die Bedeutung der Semantik in der Informatik](https://en.wikipedia.org/wiki/Semantics#Computer_science) auf Wikipedia
-- Verwandte Glossareinträge:
-  - {{Glossary("SEO")}}
+- [HTML-Element-Referenz](/de/docs/Web/HTML/Element#inline_text_semantics) auf MDN
+- [Verwendung von HTML-Bereichen und Umrissen](/de/docs/Web/HTML/Element/Heading_Elements#usage_notes) auf MDN
+- [Die Bedeutung von Semantik in der Informatik](https://en.wikipedia.org/wiki/Semantics#Computer_science) auf Wikipedia
+- Verwandte Glossarbegriffe:
+  - [SEO](/de/docs/Glossary/SEO)

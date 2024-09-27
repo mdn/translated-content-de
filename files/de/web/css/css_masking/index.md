@@ -1,5 +1,5 @@
 ---
-title: CSS-Maskierung
+title: CSS Maskierung
 slug: Web/CSS/CSS_masking
 l10n:
   sourceCommit: 8d4fb1e2934111a13989d2796152dc601468e7b5
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Maskierungsmodul**, das Maskierung und Zuschneiden für das teilweise oder vollständige Verbergen von visuellen Elementen definiert.
+Das **CSS Maskierungs**-Modul definiert Maskierung und Clipping für das teilweise oder vollständige Verbergen von Teilen visueller Elemente.
 
 ## Referenz
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die schreibgeschützte **`WebGLActiveInfo.name`**-Eigenschaft stellt den Namen der angeforderten Daten dar, die durch den Aufruf der Methoden {{domxref("WebGLRenderingContext.getActiveAttrib()", "getActiveAttrib()")}} oder {{domxref("WebGLRenderingContext.getActiveUniform()", "getActiveUniform()")}} zurückgegeben werden.
+Die schreibgeschützte **`WebGLActiveInfo.name`**-Eigenschaft repräsentiert den Namen der angeforderten Daten, die durch Aufrufen der Methoden [`getActiveAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getActiveAttrib) oder [`getActiveUniform()`](/de/docs/Web/API/WebGLRenderingContext/getActiveUniform) zurückgegeben werden.
 
 ## Beispiele
 
@@ -30,4 +30,4 @@ activeUniform.name;
 
 ## Siehe auch
 
-- {{domxref("WebGLActiveInfo")}}
+- [`WebGLActiveInfo`](/de/docs/Web/API/WebGLActiveInfo)

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`logicalSurface`**-Eigenschaft des {{domxref("MediaTrackSupportedConstraints")}}-Wörterbuchs gibt an, ob die {{domxref("MediaTrackConstraints.logicalSurface", "logicalSurface")}}-Einschränkung vom Benutzeragenten und dem Gerät, auf dem der Inhalt verwendet wird, unterstützt wird.
+Die **`logicalSurface`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs gibt an, ob die [`logicalSurface`](/de/docs/Web/API/MediaTrackConstraints/logicalSurface)-Einschränkung vom Benutzeragenten und dem Gerät, auf dem der Inhalt verwendet wird, unterstützt wird.
 
-Die Liste der unterstützten Einschränkungen wird durch Aufrufen von {{domxref("MediaDevices.getSupportedConstraints","navigator.mediaDevices.getSupportedConstraints()")}} abgerufen.
+Die Liste der unterstützten Einschränkungen wird durch Aufrufen von [`navigator.mediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) abgerufen.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ isLogicalSurfaceSupported = supportedConstraints.logicalSurface
 
 ### Wert
 
-Ein boolescher Wert, der `true` ist, wenn die {{domxref("MediaTrackConstraints.logicalSurface", "logicalSurface")}}-Einschränkung vom Gerät und Benutzeragenten unterstützt wird.
+Ein booleanischer Wert, der `true` ist, wenn die [`logicalSurface`](/de/docs/Web/API/MediaTrackConstraints/logicalSurface)-Einschränkung vom Gerät und Benutzeragenten unterstützt wird.
 
 ## Beispiel
 
-Diese Methode richtet das Einschränkungsobjekt ein, das die Optionen für den Aufruf von {{domxref("MediaDevices.getDisplayMedia", "getDisplayMedia()")}} spezifiziert. Es fügt die `logicalSurface`-Einschränkung hinzu (die anfordert, dass nur logische Anzeigeflächen—die möglicherweise nicht vollständig auf dem Bildschirm sichtbar sind—unter den dem Benutzer zur Verfügung stehenden Optionen enthalten sind), nur wenn bekannt ist, dass sie vom Browser unterstützt wird. Die Erfassung wird dann durch Aufrufen von `getDisplayMedia()` gestartet und der zurückgegebene Stream wird an das Videoelement gebunden, das durch die Variable `videoElem` referenziert wird.
+Diese Methode richtet das Einschränkungsobjekt ein, das die Optionen für den Aufruf von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) spezifiziert. Sie fügt die `logicalSurface`-Einschränkung hinzu (fordert an, dass nur logische Anzeigeflächen—solche, die möglicherweise nicht vollständig auf dem Bildschirm sichtbar sind—unter den dem Benutzer verfügbaren Optionen enthalten sind), nur wenn bekannt ist, dass sie vom Browser unterstützt wird. Das Erfassen wird dann durch Aufruf von `getDisplayMedia()` gestartet, und der zurückgegebene Stream wird an das durch die Variable `videoElem` referenzierte Videoelement angehängt.
 
 ```js
 async function capture() {
@@ -60,7 +60,7 @@ async function capture() {
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
 - [Verwendung der Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
-- {{domxref("MediaDevices.getDisplayMedia()")}}
-- {{domxref("MediaStreamTrack.getConstraints()")}}
-- {{domxref("MediaStreamTrack.applyConstraints()")}}
-- {{domxref("MediaStreamTrack.getSettings()")}}
+- [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
+- [`MediaStreamTrack.getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints)
+- [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints)
+- [`MediaStreamTrack.getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings)

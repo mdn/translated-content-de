@@ -1,5 +1,5 @@
 ---
-title: "CSSTranslate: y Eigenschaft"
+title: "CSSTranslate: y-Eigenschaft"
 short-title: "y"
 slug: Web/API/CSSTranslate/y
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`y`**-Eigenschaft der {{domxref("CSSTranslate")}}-Schnittstelle ruft das Ordinat oder die y-Achse des Übersetzungsvektors ab und setzt diese.
+Die **`y`**-Eigenschaft der [`CSSTranslate`](/de/docs/Web/API/CSSTranslate)-Schnittstelle erhält und setzt die Ordinate oder y-Achse des Übersetzungvektors.
 
 ## Wert
 
@@ -16,12 +16,12 @@ Ein {{cssxref('length-percentage')}}
 
 ## Beispiele
 
-In Bearbeitung
+Zu tun
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

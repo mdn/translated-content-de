@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`get()`** Methode von {{jsxref("WeakMap")}} Instanzen gibt ein bestimmtes Element aus diesem `WeakMap` zurück.
+Die **`get()`**-Methode von {{jsxref("WeakMap")}}-Instanzen gibt ein bestimmtes Element aus diesem `WeakMap` zurück.
 
 {{EmbedInteractiveExample("pages/js/weakmap-prototype-get.html")}}
 
@@ -28,14 +28,14 @@ Das mit dem angegebenen Schlüssel im `WeakMap`-Objekt verknüpfte Element. Wenn
 
 ## Beispiele
 
-### Verwendung der get() Methode
+### Verwendung der get()-Methode
 
 ```js
 const wm = new WeakMap();
 wm.set(window, "foo");
 
-wm.get(window); // Gibt "foo" zurück.
-wm.get("baz"); // Gibt undefined zurück.
+wm.get(window); // Returns "foo".
+wm.get("baz"); // Returns undefined.
 ```
 
 ## Spezifikationen

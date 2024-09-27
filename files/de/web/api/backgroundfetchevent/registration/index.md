@@ -1,5 +1,5 @@
 ---
-title: "BackgroundFetchEvent: Eigenschaft registration"
+title: "BackgroundFetchEvent: registration-Eigenschaft"
 short-title: registration
 slug: Web/API/BackgroundFetchEvent/registration
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`registration`** schreibgeschützte Eigenschaft der {{domxref("BackgroundFetchEvent")}} Schnittstelle gibt ein {{domxref("BackgroundFetchRegistration")}} Objekt zurück.
+Die **`registration`** schreibgeschützte Eigenschaft der [`BackgroundFetchEvent`](/de/docs/Web/API/BackgroundFetchEvent)-Schnittstelle gibt ein [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Objekt zurück.
 
 ## Wert
 
-Ein {{domxref("BackgroundFetchRegistration")}}.
+Ein [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration).
 
 ## Beispiele
 
-In diesem Beispiel, wenn der Benutzer auf die Benutzeroberfläche klickt, die den Download-Fortschritt anzeigt, wird das {{domxref("ServiceWorkerGlobalScope/backgroundfetchclick_event", "backgroundfetchclick")}}-Ereignis ausgelöst. Die aktuelle {{domxref("BackgroundFetchRegistration")}} wird durch Aufruf von `event.registration` zurückgegeben.
+In diesem Beispiel wird das [`backgroundfetchclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchclick_event)-Ereignis ausgelöst, wenn der Nutzer auf die Benutzeroberfläche klickt, die den Download-Fortschritt anzeigt. Die aktuelle [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) wird durch Aufruf von `event.registration` zurückgegeben.
 
 ```js
 addEventListener("backgroundfetchclick", (event) => {

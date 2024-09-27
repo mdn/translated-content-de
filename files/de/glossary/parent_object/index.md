@@ -1,5 +1,5 @@
 ---
-title: Elternobjekt
+title: Übergeordnetes Objekt
 slug: Glossary/Parent_object
 l10n:
   sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das {{glossary("object")}}, zu dem eine gegebene {{glossary("property")}} oder {{glossary("method")}} gehört.
+Das [Objekt](/de/docs/Glossary/object), zu dem eine bestimmte [Eigenschaft](/de/docs/Glossary/property) oder [Methode](/de/docs/Glossary/method) gehört.
 
 ## Siehe auch
 

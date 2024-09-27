@@ -1,5 +1,5 @@
 ---
-title: "AudioWorkletNode: processorerror-Ereignis"
+title: "AudioWorkletNode: processorerror Ereignis"
 short-title: processorerror
 slug: Web/API/AudioWorkletNode/processorerror_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{ APIRef("Web Audio API") }}{{SecureContext_Header}}
 
-Das `processorerror`-Ereignis wird ausgelöst, wenn der zugrunde liegende {{domxref("AudioWorkletProcessor")}} hinter dem Node eine Ausnahme in seinem Konstruktor, der {{domxref("AudioWorkletProcessor.process", "process")}}-Methode oder in einer benutzerdefinierten Klassenmethode wirft.
+Das `processorerror`-Ereignis wird ausgelöst, wenn der zugrunde liegende [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) hinter dem Knoten in seinem Konstruktor, der [`process`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode oder einer benutzerdefinierten Klassenmethode eine Ausnahme verursacht.
 
-Sobald eine Ausnahme ausgelöst wird, gibt der Prozessor (und somit der Node) während seiner gesamten Lebensdauer Stille aus.
+Sobald eine Ausnahme ausgelöst wird, wird der Prozessor (und somit der Knoten) während seiner gesamten Lebensdauer Stille ausgeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("processorerror", (event) => { })
@@ -24,11 +24,11 @@ onprocessorerror = (event) => { }
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Um informiert zu werden, wenn der Prozessor eine Ausnahme wirft, können Sie einen Handler zu Ihrer {{domxref("AudioWorkletNode")}}-Instanz hinzufügen, indem Sie {{domxref("EventTarget.addEventListener", "addEventListener()")}} wie folgt verwenden:
+Um informiert zu werden, wenn der Prozessor eine Ausnahme auslöst, können Sie Ihrer [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Instanz einen Handler mittels [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzufügen, wie folgt:
 
 ```js
 whiteNoiseNode.addEventListener("processorerror", (event) => {
@@ -54,4 +54,4 @@ whiteNoiseNode.onprocessorerror = (event) => {
 
 ## Siehe auch
 
-- [Using the Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

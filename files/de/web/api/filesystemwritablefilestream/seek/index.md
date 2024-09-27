@@ -1,5 +1,5 @@
 ---
-title: "FileSystemWritableFileStream: Methode seek()"
+title: "FileSystemWritableFileStream: seek() Methode"
 short-title: seek()
 slug: Web/API/FileSystemWritableFileStream/seek
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`seek()`**-Methode der Schnittstelle {{domxref("FileSystemWritableFileStream")}} aktualisiert den aktuellen Dateizeiger-Versatz auf die beim Aufruf der Methode angegebene Position (in Bytes).
+Die **`seek()`** Methode der [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream)-Schnittstelle aktualisiert den aktuellen Dateizeiger-Versatz auf die Position (in Byte), die beim Aufrufen der Methode angegeben wurde.
 
 ## Syntax
 
@@ -27,20 +27,20 @@ Ein {{jsxref('Promise')}}, das `undefined` zurückgibt.
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn {{domxref('PermissionStatus.state')}} nicht `granted` ist.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) nicht `granted` ist.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `position` keine Zahl oder nicht definiert ist.
+  - : Wird ausgelöst, wenn `position` keine Zahl ist oder nicht definiert wurde.
 
 ## Beispiele
 
-Die folgende asynchrone Funktion öffnet den 'Datei speichern'-Auswahldialog, der ein {{domxref('FileSystemFileHandle')}} zurückgibt, sobald eine Datei ausgewählt wurde. Daraus wird ein schreibbarer Stream mit der Methode {{domxref('FileSystemFileHandle.createWritable()')}} erstellt.
+Die folgende asynchrone Funktion öffnet den 'Datei speichern'-Auswahldialog, der einen [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) zurückgibt, sobald eine Datei ausgewählt wurde. Daraus wird mithilfe der Methode [`FileSystemFileHandle.createWritable()`](/de/docs/Web/API/FileSystemFileHandle/createWritable) ein beschreibbarer Stream erstellt.
 
-Dann schreiben wir in den Stream:
+Anschließend schreiben wir in den Stream:
 
 1. Ein Textstring wird in den Stream geschrieben.
-2. Die Methode `seek()` wird verwendet, um den Cursor an den Anfang des Streams zu setzen.
-3. Ein zweiter Textstring wird an den Anfang des Streams geschrieben und überschreibt den ersten Schreibvorgang.
+2. Die `seek()`-Methode wird verwendet, um den Cursor an den Anfang des Streams zu setzen.
+3. Ein zweiter Textstring wird an den Anfang des Streams geschrieben, wodurch der erste Schreibvorgang überschrieben wird.
 
 Der Stream wird dann geschlossen.
 
@@ -79,4 +79,4 @@ Wenn Sie die obige Funktion ausführen und dann die erstellte Datei auf der Fest
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [Das File System Access API: Vereinfachter Zugriff auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

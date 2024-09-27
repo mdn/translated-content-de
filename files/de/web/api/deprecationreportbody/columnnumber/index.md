@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die **`columnNumber`**-Schreibgeschützte Eigenschaft des {{domxref("DeprecationReportBody")}}-Interfaces gibt die Spalte in der Quelldatei zurück, in der das veraltete Feature verwendet wurde.
+Die schreibgeschützte Eigenschaft **`columnNumber`** des [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Interfaces gibt die Spalte in der Quelldatei zurück, in der das veraltete Feature verwendet wurde.
 
 > [!NOTE]
-> Diese Eigenschaft ist besonders nützlich in Kombination mit {{domxref("DeprecationReportBody.sourceFile")}} und {{domxref("DeprecationReportBody.lineNumber")}}, da sie die Lokalisierung der Spalte in der entsprechenden Datei und Zeile ermöglicht, in der der Fehler aufgetreten ist.
+> Diese Eigenschaft ist besonders nützlich in Verbindung mit [`DeprecationReportBody.sourceFile`](/de/docs/Web/API/DeprecationReportBody/sourceFile) und [`DeprecationReportBody.lineNumber`](/de/docs/Web/API/DeprecationReportBody/lineNumber), da sie die Lokalisierung der Spalte in der Datei und Zeile ermöglicht, in der der Fehler aufgetreten ist.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein Integer oder `null`, wenn die Spalte nicht bekannt ist.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen {{domxref("ReportingObserver")}}, um Veraltungsmeldungen zu beobachten, und geben anschließend den Wert von `columnNumber` in der Konsole aus.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltungsberichte zu beobachten, und geben dann den Wert von `columnNumber` in der Konsole aus.
 
 ```js
 let options = {

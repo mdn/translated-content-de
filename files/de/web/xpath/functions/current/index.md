@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `current` kann verwendet werden, um den Kontextknoten in einer XSLT-Anweisung zu erhalten.
+Die `current` Funktion kann verwendet werden, um den Kontextknoten in einer XSLT-Anweisung zu erhalten.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ Eine Knotenmenge, die nur den aktuellen Knoten enthält.
 
 ## Beschreibung
 
-Diese Funktion ist eine XSLT-spezifische Erweiterung von XPath. Sie ist nicht Teil der Kernbibliothek von XPath-Funktionen.
+Diese Funktion ist eine XSLT-spezifische Erweiterung für XPath. Sie ist nicht Teil der Kernfunktionalität der XPath-Bibliothek.
 
-Für einen äußersten Ausdruck (einen Ausdruck, der nicht innerhalb eines anderen Ausdrucks vorkommt) ist der aktuelle Knoten immer derselbe wie der Kontextknoten (der durch die `.`- oder `self`-Syntax zurückgegeben wird). Die folgenden zwei sind semantisch äquivalent.
+Für einen äußersten Ausdruck (ein Ausdruck, der nicht innerhalb eines anderen Ausdrucks auftritt) ist der aktuelle Knoten immer derselbe wie der Kontextknoten (der durch die `.` oder `self`-Syntax zurückgegeben wird). Die folgenden zwei sind semantisch gleichwertig.
 
 ```xml
 <xsl:value-of select="current()"/>
@@ -33,7 +33,7 @@ Für einen äußersten Ausdruck (einen Ausdruck, der nicht innerhalb eines ander
 <xsl:value-of select="."/>
 ```
 
-In einem inneren Ausdruck (z.B. in eckigen Klammern) bleibt der aktuelle Knoten derselbe, wie er in einem äußersten Ausdruck wäre. Innerhalb aller folgenden drei Ausdrücke gibt die Funktion `current` (nicht die gesamten Ausdrücke) denselben Knoten zurück. Darüber hinaus sind die letzten beiden semantisch äquivalent.
+In einem inneren Ausdruck (z.B. in eckigen Klammern) bleibt der aktuelle Knoten derselbe, wie er es in einem äußersten Ausdruck wäre. Daher gibt innerhalb all der folgenden drei Ausdrücke die `current` Funktion (nicht die gesamten Ausdrücke) denselben Knoten zurück. Außerdem sind die beiden letzteren semantisch gleichwertig.
 
 ```xml
 <xsl:value-of select="current()"/>
@@ -48,25 +48,25 @@ In einem inneren Ausdruck (z.B. in eckigen Klammern) bleibt der aktuelle Knoten 
 <xsl:value-of select="foo/bar[$current = X]"/>
 ```
 
-Und der folgende Code ist ebenfalls semantisch äquivalent zu den letzten beiden, da die `.` in einem äußersten Ausdruck vorkommt.
+Und der nächste Code ist auch semantisch gleichwertig mit den beiden letzteren, da die `.` in einem äußersten Ausdruck vorkommt.
 
 ```xml
 <xsl:variable name="current" select="."/>
 <xsl:value-of select="foo/bar[$current = X]"/>
 ```
 
-Aber die `.` bezieht sich immer auf den engsten Kontext. Somit gilt in
+Aber die `.` bezieht sich immer auf den engsten Kontext. So wird in
 
 ```xml
 <xsl:value-of select="foo/bar[. = X]"/>
 ```
 
-dass `.` den `bar`-Knoten zurückgibt, der möglicherweise von dem aktuellen Knoten abweicht.
+die `.` den `bar` Knoten zurückgeben, der sich möglicherweise vom aktuellen Knoten unterscheidet.
 
 ## Spezifikationen
 
 [XSLT 1.0 12.4](https://www.w3.org/TR/1999/REC-xslt-19991116/#function-current)
 
-## Gecko-Unterstützung
+## Browser-Kompatibilität
 
 Unterstützt.

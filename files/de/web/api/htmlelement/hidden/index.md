@@ -8,45 +8,45 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die {{domxref("HTMLElement")}}-Eigenschaft **`hidden`** spiegelt den Wert des [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden)-Attributs des Elements wider.
+Die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Eigenschaft **`hidden`** spiegelt den Wert des [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden)-Attributs des Elements wider.
 
 ## Wert
 
-Dieses Attribut kann einen der drei folgenden Werte haben:
+Dieses Attribut kann einen von drei Werten haben:
 
 - `true`
-  - : Das Element ist versteckt.
+  - : Das Element ist verborgen.
 - `false`
-  - : Das Element ist nicht versteckt. Dies ist der Standardwert für das Attribut.
+  - : Das Element ist nicht verborgen. Dies ist der Standardwert für das Attribut.
 - `"until-found"`
-  - : Das Element ist _versteckt, bis es gefunden wird_. Das bedeutet, dass es versteckt ist, aber angezeigt wird, wenn es durch eine Seitensuche oder durch Fragmentnavigation erreicht wird.
+  - : Das Element ist _verborgen bis es gefunden wird_, was bedeutet, dass es verborgen ist, aber enthüllt wird, wenn es über die Seitensuche gefunden oder über die Fragmentnavigation erreicht wird.
 
-Einzelheiten zur Verwendung dieses Attributs finden Sie auf der Seite für das [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden)-HTML-Attribut, das diese Eigenschaft widerspiegelt.
+Für Details zur Verwendung dieses Attributs siehe die Seite zum [`hidden`](/de/docs/Web/HTML/Global_attributes/hidden)-HTML-Attribut, das diese Eigenschaft widerspiegelt.
 
 ## Beispiele
 
-Hier ist ein Beispiel, bei dem ein versteckter Block verwendet wird, um eine "Danke"-Nachricht zu enthalten, die angezeigt wird, nachdem ein Benutzer einer ungewöhnlichen Anfrage zugestimmt hat.
+Hier ist ein Beispiel, bei dem ein verborgener Block verwendet wird, um eine 'Danke'-Nachricht zu enthalten, die angezeigt wird, nachdem ein Benutzer einer ungewöhnlichen Anfrage zugestimmt hat.
 
 ### HTML
 
-Das HTML enthält zwei Bereiche: ein Willkommenspanel, das die Benutzer auffordert, der Großartigkeit zuzustimmen, und ein Folgepanel, das zunächst versteckt ist.
+Das HTML enthält zwei Bereiche: ein Willkommensfeld, das die Benutzer auffordert, großartig zu sein, und ein Nachfolgefeld, das anfänglich verborgen ist.
 
 ```html
 <div id="welcome" class="panel">
-  <h1>Willkommen bei Foobar.com!</h1>
-  <p>Durch Klicken auf "OK" stimmen Sie zu, heute großartig zu sein!</p>
+  <h1>Welcome to Foobar.com!</h1>
+  <p>By clicking "OK" you agree to be awesome today!</p>
   <button class="button" id="okButton">OK</button>
 </div>
 
 <div id="awesome" class="panel" hidden>
-  <h1>Danke!</h1>
-  <p>Danke, dass Sie zugestimmt haben, heute großartig zu sein!</p>
+  <h1>Thanks!</h1>
+  <p>Thanks for agreeing to be awesome today!</p>
 </div>
 ```
 
 ### CSS
 
-Der Inhalt wird mit dem folgenden CSS gestaltet.
+Der Inhalt wird mit dem untenstehenden CSS gestaltet.
 
 ```css
 .panel {
@@ -78,7 +78,7 @@ h1 {
 
 ### JavaScript
 
-Das JavaScript fügt einen Event-Listener zum "OK"-Button hinzu, der das "welcome"-Panel ausblendet und das "awesome"-Panel anzeigt:
+Das JavaScript fügt einen Ereignislistener zum "OK"-Button hinzu, der das "Willkommen"-Feld verbirgt und das "Großartig"-Feld anzeigt:
 
 ```js
 document.getElementById("okButton").addEventListener(
@@ -105,5 +105,5 @@ document.getElementById("okButton").addEventListener(
 
 ## Siehe auch
 
-- [hidden](/de/docs/Web/HTML/Global_attributes#hidden) Attribut
+- [hidden](/de/docs/Web/HTML/Global_attributes#hidden)-Attribut
 - {{cssxref("display")}}

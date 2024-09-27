@@ -8,29 +8,30 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`hostname`**-Eigenschaft des {{domxref("URL")}}-Interfaces ist ein String, der den {{glossary("domain name")}} der URL enthält.
+Die **`hostname`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces
+ist eine Zeichenkette, die den [Domainnamen](/de/docs/Glossary/domain_name) der URL enthält.
 
 ## Wert
 
-Ein String.
+Eine Zeichenkette.
 
 ## Beispiele
 
 ```js
 const url = new URL(
-  "https://developer.mozilla.org/de/docs/Web/API/URL/hostname",
+  "https://developer.mozilla.org/en-US/docs/Web/API/URL/hostname",
 );
-console.log(url.hostname); // Protokolliert: 'developer.mozilla.org'
+console.log(url.hostname); // Logs: 'developer.mozilla.org'
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Das dazugehörige {{domxref("URL")}}-Interface.
+- Das [`URL`](/de/docs/Web/API/URL)-Interface, zu dem es gehört.

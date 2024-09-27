@@ -7,14 +7,14 @@ l10n:
 
 {{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`RTCIdentityAssertion`**-Schnittstelle der [WebRTC API](/de/docs/Web/API/WebRTC_API) repräsentiert die Identität eines entfernten Peers der aktuellen Verbindung. Wenn noch kein Peer gesetzt und verifiziert wurde, gibt diese Schnittstelle `null` zurück. Nachdem sie einmal gesetzt wurde, kann sie nicht mehr geändert werden.
+Das **`RTCIdentityAssertion`** Interface der [WebRTC API](/de/docs/Web/API/WebRTC_API) repräsentiert die Identität eines entfernten Peers der aktuellen Verbindung. Wenn noch kein Peer gesetzt und verifiziert wurde, gibt dieses Interface `null` zurück. Einmal gesetzt, kann es nicht geändert werden.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("RTCIdentityAssertion.idp")}} {{Experimental_Inline}}
+- [`RTCIdentityAssertion.idp`](/de/docs/Web/API/RTCIdentityAssertion/idp) {{Experimental_Inline}}
   - : Gibt den Anbieter der Identitätsbehauptung an.
-- {{domxref("RTCIdentityAssertion.name")}} {{Experimental_Inline}}
-  - : Gibt den Namen des Identitätsbehauptungsanbieters an.
+- [`RTCIdentityAssertion.name`](/de/docs/Web/API/RTCIdentityAssertion/name) {{Experimental_Inline}}
+  - : Gibt den Namen des Anbieters der Identitätsbehauptung an.
 
 ## Spezifikationen
 

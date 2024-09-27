@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`valueOf()`**-Methode von {{jsxref("String")}}-Werten gibt diesen Zeichenfolgenwert zurück.
+Die **`valueOf()`**-Methode von {{jsxref("String")}}-Werten gibt diesen String-Wert zurück.
 
 {{EmbedInteractiveExample("pages/js/string-valueof.html")}}
 
@@ -23,11 +23,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenfolge, die den primitiven Wert eines gegebenen {{jsxref("String")}}-Objekts darstellt.
+Ein String, der den primitiven Wert eines gegebenen {{jsxref("String")}}-Objekts darstellt.
 
 ## Beschreibung
 
-Die `valueOf()`-Methode von {{jsxref("String")}} gibt den primitiven Wert eines {{jsxref("String")}}-Objekts als Zeichenfolgen-Datentyp zurück. Dieser Wert ist äquivalent zu {{jsxref("String.prototype.toString()")}}.
+Die `valueOf()`-Methode von {{jsxref("String")}} gibt den primitiven Wert eines {{jsxref("String")}}-Objekts als String-Datentyp zurück. Dieser Wert ist gleichwertig mit {{jsxref("String.prototype.toString()")}}.
 
 Diese Methode wird normalerweise intern von JavaScript aufgerufen und nicht explizit im Code.
 

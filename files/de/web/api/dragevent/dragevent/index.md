@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Dieser Konstruktor wird verwendet, um ein synthetisches {{domxref("DragEvent")}} Objekt zu erstellen.
+Dieser Konstruktor wird verwendet, um ein synthetisches [`DragEvent`](/de/docs/Web/API/DragEvent)-Objekt zu erstellen.
 
-Obwohl diese Schnittstelle einen Konstruktor hat, ist es nicht möglich, ein nützliches {{domxref("DataTransfer")}} Objekt aus einem Skript zu erstellen, da {{domxref("DataTransfer")}} Objekte ein Verarbeitungs- und Sicherheitsmodell haben, das vom Browser während Drag-and-Drop-Operationen koordiniert wird.
+Obwohl dieses Interface einen Konstruktor hat, ist es nicht möglich, ein nützliches [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt über ein Skript zu erstellen, da [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekte ein Verarbeitungs- und Sicherheitsmodell haben, das vom Browser während Drag-and-Drop-Vorgängen koordiniert wird.
 
-Diese Schnittstelle erbt Eigenschaften von {{domxref("MouseEvent")}} und {{domxref("Event")}}.
+Dieses Interface erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent) und
+[`Event`](/de/docs/Web/API/Event).
 
 ## Syntax
 
@@ -25,7 +26,7 @@ new DragEvent(type, dragEventInit)
 
 - `type`
 
-  - : Ein String, der den Namen des Ereignisses repräsentiert (siehe [DragEvent Ereignistypen](/de/docs/Web/API/DragEvent#event_types)).
+  - : Ein String, der den Namen des Events repräsentiert (siehe [DragEvent-Typen](/de/docs/Web/API/DragEvent#event_types)).
 
 - `eventInitDict` {{optional_inline}}
 
@@ -33,7 +34,7 @@ new DragEvent(type, dragEventInit)
 
     - `dataTransfer` {{optional_inline}}
 
-      - : Ein {{domxref("DataTransfer")}}. Standardmäßig `null`.
+      - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer). Standardmäßig `null`.
 
 ## Spezifikationen
 

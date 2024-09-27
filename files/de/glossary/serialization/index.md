@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der Prozess, bei dem ein Objekt oder eine Datenstruktur in ein Format übersetzt wird, das für den Transfer über ein Netzwerk oder zur Speicherung (z. B. in einem Array-Puffer oder Dateiformat) geeignet ist.
+Der Prozess, bei dem ein Objekt oder eine Datenstruktur in ein Format übersetzt wird, das für die Übertragung über ein Netzwerk oder zur Speicherung (z.B. in einem Array-Buffer oder Dateiformat) geeignet ist.
 
-Im {{Glossary("JavaScript")}} können Sie beispielsweise ein Objekt in einen {{Glossary("JSON")}}-{{Glossary("string")}} serialisieren, indem Sie die {{Glossary("function")}} {{jsxref("JSON.stringify()")}} aufrufen.
+In [JavaScript](/de/docs/Glossary/JavaScript) können Sie beispielsweise ein Objekt in einen [JSON](/de/docs/Glossary/JSON)-[String](/de/docs/Glossary/string) serialisieren, indem Sie die [Funktion](/de/docs/Glossary/function) {{jsxref("JSON.stringify()")}} aufrufen.
 
-{{Glossary("CSS")}}-Werte werden serialisiert, indem die Funktion {{domxref("CSSStyleDeclaration.getPropertyValue()")}} aufgerufen wird.
+[CSS](/de/docs/Glossary/CSS)-Werte werden serialisiert, indem die Funktion [`CSSStyleDeclaration.getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue) aufgerufen wird.
 
 ## Siehe auch
 
-- [Serialisierung](https://en.wikipedia.org/wiki/Serialization) auf Wikipedia
+- [Serialization](https://en.wikipedia.org/wiki/Serialization) auf Wikipedia

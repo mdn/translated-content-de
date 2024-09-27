@@ -1,5 +1,5 @@
 ---
-title: "Ereignis: composed-Eigenschaft"
+title: "Event: composed-Eigenschaft"
 short-title: composed
 slug: Web/API/Event/composed
 l10n:
@@ -9,23 +9,23 @@ l10n:
 {{APIRef("Shadow DOM")}}{{AvailableInWorkers}}
 
 Die schreibgeschützte **`composed`**-Eigenschaft des
-{{domxref("Event")}}-Interfaces gibt einen booleschen Wert zurück, der angibt, ob das Ereignis die Grenze des Shadow DOMs überschreiten und in das Standard-DOM gelangen wird.
+[`Event`](/de/docs/Web/API/Event)-Interfaces gibt einen boolean-Wert zurück, der anzeigt, ob das Event die Schatten-DOM-Grenze überschreitet und in den Standard-DOM gelangt.
 
-Alle vom User Agent ausgelösten UI-Ereignisse sind composed (Klick/Berührung/Mausüber/Copy/Paste, etc.). Die meisten anderen Arten von Ereignissen sind nicht composed und geben daher `false` zurück. Dies schließt z.B. synthetische Ereignisse ein, die ohne ihre `composed`-Option auf `true` gesetzt erstellt wurden.
+Alle vom UA gesendeten UI-Events sind `composed` (click/touch/mouseover/copy/paste, etc.). Die meisten anderen Arten von Events sind nicht `composed` und geben daher `false` zurück. Zum Beispiel betrifft dies synthetische Events, die ohne die Einstellung ihrer `composed`-Option auf `true` erstellt werden.
 
-Eine Propagation erfolgt nur, wenn die {{domxref("Event.bubbles", "bubbles")}}-Eigenschaft ebenfalls `true` ist. Beim Capturing werden jedoch auch composed-Ereignisse am Host behandelt, als ob sie sich in der `AT_TARGET`-Phase befänden. Sie können den Pfad, den das Ereignis von der Shadow-Wurzel bis zur DOM-Wurzel nimmt, durch Aufrufen von {{domxref("Event.composedPath", "composedPath()")}} bestimmen.
+Die Weiterleitung erfolgt nur, wenn die [`bubbles`](/de/docs/Web/API/Event/bubbles)-Eigenschaft ebenfalls `true` ist. Jedoch werden nur die `composed`-Events, die abgefangen werden, beim Host behandelt, als wären sie in der `AT_TARGET`-Phase. Sie können den Pfad bestimmen, dem das Event durch das Schatten-Root zum DOM-Root folgt, indem Sie [`composedPath()`](/de/docs/Web/API/Event/composedPath) aufrufen.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn das Ereignis vom Shadow DOM in das Standard-DOM übergeht, nachdem es die Shadow-Wurzel erreicht hat. (Das heißt, der erste Knoten im Shadow DOM, in dem das Ereignis zu propagieren begann.)
+Ein boolean-Wert, der `true` ist, wenn das Event von der Schatten-DOM in den Standard-DOM übergeht, nachdem es das Schatten-Root erreicht hat. (Das heißt, der erste Knoten im Schatten-DOM, in dem das Event mit der Weiterleitung begann.)
 
-Wenn dieser Wert `false` ist, wird die Shadow-Wurzel der letzte Knoten sein, dem das Ereignis angeboten wird.
+Wenn dieser Wert `false` ist, wird das Schatten-Root der letzte Knoten sein, dem das Event angeboten wird.
 
 ## Beispiele
 
-In diesem [Beispiel](https://mdn.github.io/web-components-examples/composed-composed-path/) definieren wir zwei einfache benutzerdefinierte Elemente, `<open-shadow>` und `<closed-shadow>`, die beide den Inhalt ihres Textattributs nehmen und ihn als Textinhalt eines `<p>`-Elements in das Shadow DOM des Elements einfügen. Der einzige Unterschied zwischen den beiden ist, dass ihre Shadow-Wurzeln mit ihren Modi `open` und `closed` angehängt werden.
+In diesem [Beispiel](https://mdn.github.io/web-components-examples/composed-composed-path/) definieren wir zwei triviale benutzerdefinierte Elemente, `<open-shadow>` und `<closed-shadow>`, die beide den Inhalt ihres Textattributs in das Schatten-DOM des Elements einfügen, und zwar als Textinhalt eines `<p>`-Elements. Der einzige Unterschied zwischen den beiden ist, dass ihre Schatten-Roots mit ihren Modi auf `open` bzw. `closed` gesetzt sind.
 
-Die beiden Definitionen sehen folgendermaßen aus:
+Die beiden Definitionen sehen so aus:
 
 ```js
 customElements.define(
@@ -65,14 +65,14 @@ customElements.define(
 );
 ```
 
-Wir fügen dann jeweils ein Element in unsere Seite ein:
+Wir fügen dann jeweils ein Element auf unserer Seite ein:
 
 ```html
 <open-shadow text="I have an open shadow root"></open-shadow>
 <closed-shadow text="I have a closed shadow root"></closed-shadow>
 ```
 
-Dann fügen wir einen Klick-Ereignislistener auf dem `<html>`-Element hinzu:
+Dann binden wir einen Klick-Event-Listener am `<html>`-Element ein:
 
 ```js
 document.querySelector("html").addEventListener("click", (e) => {
@@ -81,29 +81,31 @@ document.querySelector("html").addEventListener("click", (e) => {
 });
 ```
 
-Wenn Sie auf das `<open-shadow>`-Element und dann auf das `<closed-shadow>`-Element klicken, werden Sie zwei Dinge bemerken.
+Wenn Sie das `<open-shadow>`-Element und dann das `<closed-shadow>`-Element anklicken, bemerken Sie zwei Dinge.
 
-1. Die `composed`-Eigenschaft gibt `true` zurück, weil das `click`-Ereignis immer in der Lage ist, Shadow-Grenzen zu überschreiten.
-2. Ein Unterschied im Wert von `composedPath` für die beiden Elemente.
+1. Die `composed`-Eigenschaft gibt `true` zurück, weil das
+   `click`-Event immer in der Lage ist, Schatten-Grenzen zu überschreiten.
+2. Ein Unterschied im Wert von `composedPath` für die beiden
+   Elemente.
 
-Der composed-Pfad des `<open-shadow>`-Elements ist dieser:
+Der `composedPath` des `<open-shadow>`-Elements ist:
 
 ```plain
 Array [ p, ShadowRoot, open-shadow, body, html, HTMLDocument https://mdn.github.io/web-components-examples/composed-composed-path/, Window ]
 ```
 
-Im Gegensatz dazu ist der composed-Pfad des `<closed-shadow>`-Elements wie folgt:
+Während der `composedPath` des `<closed-shadow>`-Elements wie folgt ist:
 
 ```plain
 Array [ closed-shadow, body, html, HTMLDocument https://mdn.github.io/web-components-examples/composed-composed-path/, Window ]
 ```
 
-Im zweiten Fall propagieren die Ereignislistener nur bis zum `<closed-shadow>`-Element selbst, aber nicht zu den Knoten innerhalb der Shadow-Grenze.
+Im zweiten Fall propagieren die Event-Listener nur bis zum `<closed-shadow>`-Element selbst, aber nicht zu den Knoten innerhalb der Schatten-Grenze.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

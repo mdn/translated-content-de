@@ -14,15 +14,15 @@ Der `CreateDetails`-Typ wird verwendet, um die Eigenschaften eines neuen Lesezei
 Ein {{jsxref("object")}}, das eine Kombination der folgenden Felder enthält:
 
 - `index` {{optional_inline}}
-  - : Eine Ganzzahl ({{jsxref("Number")}}), die die Position angibt, an der das neue Lesezeichen unter seinem übergeordneten Element platziert werden soll. Ein Wert von 0 setzt es an den Anfang der Liste.
+  - : Eine ganze Zahl {{jsxref("Number")}}, die die Position angibt, an der das neue Lesezeichen unter seinem übergeordneten Element platziert werden soll. Ein Wert von 0 setzt es an den Anfang der Liste.
 - `parentId` {{optional_inline}}
-  - : Ein {{jsxref("string")}}, das die ID des übergeordneten Ordners angibt, in den das neue Lesezeichen oder der Lesezeichenordner platziert werden soll. In Chrome und Firefox ist der Standardordner der "Weitere Lesezeichen"-Ordner im Lesezeichenmenü.
+  - : Ein {{jsxref("string")}}, das die ID des übergeordneten Ordners angibt, in den das neue Lesezeichen oder der neue Lesezeichenordner gelegt werden soll. In Chrome und Firefox ist der Standard der Ordner "Weitere Lesezeichen" im Lesezeichenmenü.
 - `title` {{optional_inline}}
-  - : Ein {{jsxref("string")}}, der den Titel für das Lesezeichen oder den Namen des zu erstellenden Ordners angibt. Wenn dies nicht angegeben wird, ist der Titel `""`.
+  - : Ein {{jsxref("string")}}, der den Titel für das Lesezeichen oder den Namen des zu erstellenden Ordners angibt. Falls dies nicht angegeben ist, lautet der Titel `""`.
 - `type` {{optional_inline}}
-  - : Ein {{WebExtAPIRef("bookmarks.BookmarkTreeNodeType")}}-Objekt, das angibt, ob es sich um ein Lesezeichen, einen Ordner oder ein Trennzeichen handelt. Standardmäßig wird `"bookmark"` verwendet, es sei denn `url` wird weggelassen, in diesem Fall wird `"folder"` verwendet.
+  - : Ein {{WebExtAPIRef("bookmarks.BookmarkTreeNodeType")}}-Objekt, das angibt, ob es sich um ein Lesezeichen, einen Ordner oder ein Trennzeichen handelt. Der Standardwert ist `"bookmark"`, es sei denn, `url` wird weggelassen. In diesem Fall ist der Standardwert `"folder"`.
 - `url` {{optional_inline}}
-  - : `string`. Ein {{jsxref("string")}}, das die URL der zu speichernden Seite angibt. Wenn dies weggelassen wird oder `null` ist, wird stattdessen ein Ordner erstellt.
+  - : `string`. Ein {{jsxref("string")}}, der die URL der Seite angibt, die als Lesezeichen gespeichert werden soll. Wenn dies weggelassen wird oder `null` ist, wird stattdessen ein Ordner erstellt, anstatt eines Lesezeichens.
 
 ## Browser-Kompatibilität
 
@@ -31,7 +31,7 @@ Ein {{jsxref("object")}}, das eine Kombination der folgenden Felder enthält:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#type-CreateDetails). Diese Dokumentation basiert auf [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#type-CreateDetails)-API von Chromium. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

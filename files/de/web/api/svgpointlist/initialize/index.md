@@ -1,5 +1,5 @@
 ---
-title: "SVGPointList: initialize()-Methode"
+title: "SVGPointList: initialize() Methode"
 short-title: initialize()
 slug: Web/API/SVGPointList/initialize
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`initialize()`**-Methode des {{domxref("SVGPointList")}}-Interfaces löscht die Liste und fügt dann ein einzelnes neues {{domxref("SVGPoint")}}-Objekt zur Liste hinzu.
+Die **`initialize()`**-Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle löscht die Liste und fügt ein einzelnes neues [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt zur Liste hinzu.
 
 ## Syntax
 
@@ -19,20 +19,20 @@ initialize(obj)
 ### Parameter
 
 - `obj`
-  - : Ein {{domxref("SVGPoint")}}-Objekt, das die Koordinaten des Punkts enthält, der hinzugefügt wird, wenn die Liste initialisiert wird.
+  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, das die Koordinaten des Punkts enthält, der zur Liste hinzugefügt wird, wenn diese initialisiert wird.
 
 ### Rückgabewert
 
-Das hinzugefügte {{domxref("SVGPoint")}}-Objekt.
+Das hinzugefügte [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
 
 ### Ausnahmen
 
-- `NoModificationAllowedError` {{domxref("DOMException")}}
+- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Liste schreibgeschützt ist.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine SVG, die ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Das Zurückgeben von {{domxref("SVGPointList.length")}} ergibt den Wert `5`. Nach dem Aufruf von `initialize()` ergibt das Zurückgeben von {{domxref("SVGPointList.length")}} den Wert `1`.
+Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Das Zurückgeben von [`SVGPointList.length`](/de/docs/Web/API/SVGPointList/length) ergibt den Wert `5`. Nach dem Aufrufen von `initialize()`, ergibt das Zurückgeben von [`SVGPointList.length`](/de/docs/Web/API/SVGPointList/length) den Wert `1`.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">

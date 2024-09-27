@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: addTransceiver()-Methode"
+title: "RTCPeerConnection: Methode addTransceiver()"
 short-title: addTransceiver()
 slug: Web/API/RTCPeerConnection/addTransceiver
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`addTransceiver()`**-Methode des {{domxref("RTCPeerConnection")}}-Interfaces erstellt einen neuen {{domxref("RTCRtpTransceiver")}} und fügt ihn der Menge von Transceivern hinzu, die mit der `RTCPeerConnection` assoziiert sind. Jeder Transceiver repräsentiert einen bidirektionalen Stream, der sowohl einen {{domxref("RTCRtpSender")}} als auch einen {{domxref("RTCRtpReceiver")}} enthält.
+Die **`addTransceiver()`** Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Schnittstellen erstellt einen neuen [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) und fügt ihn zu der Menge von Transceivern hinzu, die mit der `RTCPeerConnection` assoziiert sind. Jeder Transceiver repräsentiert einen bidirektionalen Stream, mit sowohl einem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) als auch einem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), die damit verbunden sind.
 
 ## Syntax
 
@@ -20,40 +20,38 @@ addTransceiver(trackOrKind, init)
 ### Parameter
 
 - `trackOrKind`
-  - : Ein {{domxref("MediaStreamTrack")}}, der mit dem Transceiver assoziiert wird, oder ein String, der als {{domxref("MediaStreamTrack.kind", "kind")}} des Empfängers-{{domxref("RTCRtpReceiver.track", "track")}} und damit auch des {{domxref("RTCRtpReceiver")}} selbst verwendet wird.
+  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der mit dem Transceiver assoziiert werden soll, oder ein String, der als [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) des Empfängers [`track`](/de/docs/Web/API/RTCRtpReceiver/track) und damit des [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) selbst verwendet wird.
 - `init` {{optional_inline}}
-  - : Ein Objekt zum Spezifizieren von Optionen beim Erstellen des neuen Transceivers.
-    Mögliche Werte sind:
+  - : Ein Objekt zur Angabe von Optionen beim Erstellen des neuen Transceivers. Mögliche Werte sind:
     - `direction` {{optional_inline}}
-      - : Die bevorzugte Ausrichtung des neuen Transceivers. Dieser Wert wird verwendet, um die neue {{domxref("RTCRtpTransceiver")}}-Objekteigenschaft {{domxref("RTCRtpTransceiver.direction")}} zu initialisieren.
+      - : Die bevorzugte Richtung des neuen Transceivers. Dieser Wert wird verwendet, um die neue [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) Objekt-Eigenschaft [`RTCRtpTransceiver.direction`](/de/docs/Web/API/RTCRtpTransceiver/direction) zu initialisieren.
     - `sendEncodings` {{optional_inline}}
-      - : Ein Array von Codierungen, die beim Senden von RTP-Medien vom {{domxref("RTCRtpSender")}} erlaubt sind.
-        Dies entspricht dem [`parameter.encodings`](/de/docs/Web/API/RTCRtpSender/setParameters#encodings)-Array, das an {{domxref("RTCRtpSender.setParameters()")}} übergeben wird.
+      - : Ein Array von Kodierungen, die beim Senden von RTP-Medien vom [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) erlaubt sind. Dies ist dasselbe wie das [`parameter.encodings`](/de/docs/Web/API/RTCRtpSender/setParameters#encodings) Array, das an [`RTCRtpSender.setParameters()`](/de/docs/Web/API/RTCRtpSender/setParameters) übergeben wird.
     - `streams` {{optional_inline}}
-      - : Eine Liste von {{domxref("MediaStream")}}-Objekten, die dem {{domxref("RTCRtpReceiver")}}-Transceiver hinzugefügt werden; wenn das Track-Event des {{domxref("RTCPeerConnection")}} der entfernten Gegenstelle ausgelöst wird, sind dies die Streams, die durch dieses Event spezifiziert werden.
+      - : Eine Liste von [`MediaStream`](/de/docs/Web/API/MediaStream) Objekten, die dem Transceiver's [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) hinzugefügt werden sollen; wenn das [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) des entfernten Peers das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event) Ereignis auslöst, sind dies die Streams, die durch dieses Ereignis spezifiziert werden.
 
 ### Rückgabewert
 
-Das {{domxref("RTCRtpTransceiver")}}-Objekt, das zum Austausch der Mediendaten verwendet wird.
+Das [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) Objekt, das verwendet wird, um die Mediendaten auszutauschen.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
 
-  - : Wird ausgelöst, wenn `trackOrKind` weder `"audio"` noch `"video"` ist.
+  - : Wird ausgelöst, wenn `trackOrKind` weder `"audio"` noch `"video"` war.
 
-    Falls das `sendEncodings`-Argument verwendet wird, kann dieser Fehler auch ausgelöst werden, wenn es ein schlecht formatiertes `rid`-Element gibt, einige, aber nicht alle Codierungen ein `rid`-Element enthalten oder verschiedene Codierungen denselben `rid`-Wert haben.
+    Wenn das Argument `sendEncodings` verwendet wird, kann dieser Fehler auch ausgelöst werden, wenn es ein schlecht formatiertes `rid` Mitglied gibt, einige, aber nicht alle Kodierungen ein `rid` Mitglied enthalten oder verschiedene Kodierungen denselben `rid` Wert haben.
 
 - {{jsxref("RangeError")}}
 
-  - : Wird ausgelöst, wenn eine der `sendEncodings`-Codierungen einen `maxFramerate`-Wert kleiner als 0.0 oder einen `scaleResolutionDownBy`-Wert kleiner als 1.0 hat.
+  - : Wird ausgelöst, wenn eine der `sendEncodings` Kodierungen einen `maxFramerate` Wert kleiner als 0,0 oder einen `scaleResolutionDownBy` Wert kleiner als 1,0 hat.
 
-- `InvalidStateError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird ausgelöst, wenn die Methode aufgerufen wird, während die zugehörige Verbindung geschlossen ist.
+  - : Wird ausgelöst, wenn die Methode aufgerufen wird, während die zugeordnete Verbindung geschlossen ist.
 
-- `InvalidAccessError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das `sendEncodings`-Argument verwendet wird und ein schreibgeschützter Parameter außer `rid` enthält.
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das `sendEncodings` Argument verwendet wird und einen schreibgeschützten Parameter außer `rid` enthält.
 
 ## Spezifikationen
 
@@ -67,5 +65,5 @@ Das {{domxref("RTCRtpTransceiver")}}-Objekt, das zum Austausch der Mediendaten v
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
 - [Einführung in das Echtzeit-Transportprotokoll (RTP)](/de/docs/Web/API/WebRTC_API/Intro_to_RTP)
-- {{domxref("RTCPeerConnection.addTrack()")}} erstellt ebenfalls Transceiver
-- {{domxref("RTCRtpReceiver")}} und {{domxref("RTCRtpSender")}}
+- [`RTCPeerConnection.addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) erstellt ebenfalls Transceiver
+- [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) und [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)

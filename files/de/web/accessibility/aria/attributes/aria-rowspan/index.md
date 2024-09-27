@@ -7,30 +7,30 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das Attribut `aria-rowspan` definiert die Anzahl der Zeilen, die von einer Zelle oder Gridzelle innerhalb einer Tabelle, eines Grids oder Baumgrids überspannt werden.
+Das Attribut `aria-rowspan` definiert die Anzahl der Zeilen, die von einer Zelle oder Grid-Zelle innerhalb einer Tabelle, eines Grids oder eines Baumgrids überspannt werden.
 
 ## Beschreibung
 
-Ähnlich dem `rowspan`-Attribut der {{HTMLElement('td')}}- und {{HTMLElement('th')}}-Elemente, jedoch für Zellen und Gridzellen, die nicht in einer nativen Tabelle enthalten sind, definiert das `aria-rowspan`-Attribut die Anzahl der Zeilen, die von einer `cell` oder `gridcell` innerhalb einer `table`, `grid` oder `treegrid` überspannt werden.
+Ähnlich dem `rowspan`-Attribut der {{HTMLElement('td')}}- und {{HTMLElement('th')}}-Elemente, jedoch für Zellen und Grid-Zellen, die sich nicht in einer nativen Tabelle befinden, definiert das Attribut `aria-rowspan` die Anzahl der Zeilen, die von einer `cell` oder `gridcell` innerhalb einer `table`, `grid` oder `treegrid` überspannt werden.
 
-Dieses Attribut ist für Zellen und Gridzellen gedacht, die **nicht** Teil eines HTML-{{HTMLElement('table')}} sind. Wenn eine Zelle in einer semantischen `<table>` verschachtelt ist, sollte das `rowspan`-Attribut verwendet werden, wenn ein <td> oder <th> mehr als eine Zeile überspannt. Wenn beide vorhanden sind, hat `rowspan` Vorrang vor `aria-rowspan`. Aber wie alle ARIA-Attribute beeinflusst `aria-rowspan` nur den Accessibility-Tree. Es ändert nichts am Layout.
+Dieses Attribut ist für Zellen und Grid-Zellen gedacht, die **nicht** Teil einer HTML {{HTMLElement('table')}} sind. Wenn eine Zelle in einer semantischen `<table>` eingebettet ist, sollte das `rowspan`-Attribut verwendet werden, wenn ein <td> oder <th> mehr als eine Zeile überspannt. Wenn beide vorhanden sind, hat `rowspan` Vorrang vor `aria-rowspan`. Aber wie alle ARIA-Attribute beeinflusst `aria-rowspan` nur den Zugänglichkeitsbaum. Es ändert nicht Ihr Layout.
 
 > [!NOTE]
-> ARIA verändert den Accessibility-Tree und die Art und Weise, wie unterstützende Technologien Inhalte Ihren Benutzern präsentieren. ARIA ändert nichts an der Funktion, dem Verhalten oder dem Aussehen eines Elements. Bei der Verwendung von nicht-semantischen Elementen müssen Sie CSS verwenden, um Layout und Aussehen zu verwalten.
+> ARIA verändert den Zugänglichkeitsbaum und wie Hilfstechnologien Inhalte Ihren Benutzern präsentieren. ARIA ändert nichts an der Funktion, dem Verhalten oder dem Aussehen eines Elements. Wenn Sie nicht-semantische Elemente verwenden, müssen Sie CSS nutzen, um das Layout und Aussehen zu steuern.
 
-Der Wert von `aria-rowspan` ist eine ganze Zahl größer oder gleich 0 und kleiner als der Wert, der dazu führen würde, dass die Zelle oder Gridzelle mit der nächsten Zelle oder Gridzelle in derselben Spalte überlappt. Wird der Wert auf `0` gesetzt, bedeutet dies, dass die Zelle oder Gridzelle alle verbleibenden Zeilen in der Zeilengruppe überspannen soll. Der Standardwert ist `1`.
+Der Wert von `aria-rowspan` ist eine Ganzzahl, die größer oder gleich 0 ist und kleiner als der Wert, der dazu führen würde, dass die Zelle oder Grid-Zelle die nächste Zelle oder Grid-Zelle in derselben Spalte überlappt. Der Wert `0` besagt, dass die Zelle oder Grid-Zelle alle verbleibenden Zeilen in der Zeilengruppe überspannen soll. Der Standardwert ist `1`.
 
 ## Werte
 
 - `<integer>`
-  - : Eine ganze Zahl größer oder gleich `0` und kleiner, die dazu führen würde, dass eine Zelle mit der nächsten Zelle in derselben Spalte überlappt.
+  - : Eine Ganzzahl, die größer oder gleich `0` ist und kleiner als der Wert, der dazu führen würde, dass eine Zelle die nächste Zelle in derselben Spalte überlappt.
 
 ## Zugehörige Schnittstellen
 
-- {{domxref("Element.ariaRowSpan")}}
-  - : Die [`ariaRowSpan`](/de/docs/Web/API/Element/ariaRowSpan)-Eigenschaft, Teil der {{domxref("Element")}}-Schnittstelle, spiegelt den Wert des `aria-rowspan`-Attributs wider.
-- {{domxref("ElementInternals.ariaRowSpan")}}
-  - : Die [`ariaRowSpan`](/de/docs/Web/API/ElementInternals/ariaRowSpan)-Eigenschaft, Teil der {{domxref("ElementInternals")}}-Schnittstelle, spiegelt den Wert des `aria-rowspan`-Attributs wider.
+- [`Element.ariaRowSpan`](/de/docs/Web/API/Element/ariaRowSpan)
+  - : Die Eigenschaft [`ariaRowSpan`](/de/docs/Web/API/Element/ariaRowSpan), Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-rowspan`-Attributs wider.
+- [`ElementInternals.ariaRowSpan`](/de/docs/Web/API/ElementInternals/ariaRowSpan)
+  - : Die Eigenschaft [`ariaRowSpan`](/de/docs/Web/API/ElementInternals/ariaRowSpan), Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-rowspan`-Attributs wider.
 
 ## Zugehörige Rollen
 
@@ -38,7 +38,7 @@ Verwendet in Rollen:
 
 - [`cell`](/de/docs/Web/Accessibility/ARIA/Roles/cell_role)
 
-Vererbt in Rollen:
+Übernommen in Rollen:
 
 - [`columnheader`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role)
 - [`rowheader`](/de/docs/Web/Accessibility/ARIA/Roles/rowheader_role)

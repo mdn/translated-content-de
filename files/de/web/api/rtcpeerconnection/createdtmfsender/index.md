@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}{{Deprecated_Header}}{{non-standard_header}}
 
-Die **`createDTMFSender()`** Methode der {{domxref("RTCPeerConnection")}} Schnittstelle erstellt ein neues {{domxref("RTCDTMFSender")}} Objekt, das mit dem angegebenen {{domxref("MediaStreamTrack")}} verknüpft ist und verwendet werden kann, um DTMF-Töne über die Verbindung zu senden.
+Die **`createDTMFSender()`**-Methode der Schnittstelle [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellt ein neues [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Objekt, das mit dem angegebenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) verknüpft ist und zum Senden von DTMF-Tönen über die Verbindung verwendet werden kann.
 
-Diese Methode ist veraltet und sollte nicht verwendet werden. Stattdessen sollte die {{domxref("RTCRtpSender.dtmf")}} Eigenschaft verwendet werden, um auf den DTMF-Sender zuzugreifen, der mit einem bestimmten Sender verknüpft ist.
+Diese Methode ist veraltet und sollte nicht mehr verwendet werden. Stattdessen sollte die [`RTCRtpSender.dtmf`](/de/docs/Web/API/RTCRtpSender/dtmf)-Eigenschaft verwendet werden, um auf den DTMF-Sender zuzugreifen, der mit einem bestimmten Sender verknüpft ist.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ createDTMFSender(track)
 ### Parameter
 
 - `track`
-  - : Ein {{domxref("MediaStreamTrack")}} Objekt, das den Track darstellt, mit dem der neue DTMF-Sender verknüpft werden soll.
+  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt, das den Track darstellt, der mit dem neuen DTMF-Sender verknüpft werden soll.
 
 ### Rückgabewert
 
-Ein neues {{domxref("RTCDTMFSender")}} Objekt.
+Ein neues [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Objekt.
 
 ## Beispiele
 
@@ -39,7 +39,7 @@ navigator.getUserMedia({ audio: true }, (stream) => {
 });
 ```
 
-Dies könnte umgeschrieben werden, um die {{domxref("RTCRtpSender.dtmf")}} Eigenschaft zu verwenden:
+Dies könnte umgeschrieben werden, indem die [`RTCRtpSender.dtmf`](/de/docs/Web/API/RTCRtpSender/dtmf)-Eigenschaft verwendet wird:
 
 ```js
 navigator.getUserMedia({ audio: true }, (stream) => {
@@ -52,7 +52,7 @@ navigator.getUserMedia({ audio: true }, (stream) => {
 
 ## Spezifikationen
 
-Dieses Feature ist nicht standardisiert und Teil keiner Spezifikation.
+Diese Funktion ist nicht standardisiert und Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -61,6 +61,6 @@ Dieses Feature ist nicht standardisiert und Teil keiner Spezifikation.
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCDTMFSender")}}
-- {{domxref("RTCRtpSender")}}
-- {{domxref("RTCPeerConnection")}}
+- [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)
+- [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)

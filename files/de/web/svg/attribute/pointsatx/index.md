@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`pointsAtX`** repräsentiert die x-Position im Koordinatensystem, das durch das Attribut {{SVGAttr("primitiveUnits")}} auf dem {{SVGElement("filter")}}-Element festgelegt wird, an dem die Lichtquelle ausgerichtet ist.
+Das **`pointsAtX`**-Attribut repräsentiert die x-Koordinate im Koordinatensystem, das durch das Attribut {{SVGAttr("primitiveUnits")}} auf dem {{SVGElement("filter")}}-Element festgelegt wird, an dem sich der Punkt befindet, auf den die Lichtquelle zeigt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -48,7 +48,7 @@ svg {
 
 {{EmbedLiveSample("Example", "220", "220")}}
 
-## Hinweise zur Verwendung
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

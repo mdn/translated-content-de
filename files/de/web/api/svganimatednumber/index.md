@@ -1,5 +1,5 @@
 ---
-title: SVGAnimierteZahl
+title: SVGAnimatedNumber
 slug: Web/API/SVGAnimatedNumber
 l10n:
   sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## SVG-Schnittstelle für animierte Zahlen
+## SVG-animierte Zahl-Schnittstelle
 
-Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute des Grundtyps [\<Number>](/de/docs/Web/SVG/Content_type#number) verwendet, die animiert werden können.
+Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute des Basistyps [\<Number>](/de/docs/Web/SVG/Content_type#number) verwendet, die animiert werden können.
 
 ### Schnittstellenübersicht
 
@@ -33,18 +33,18 @@ Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute des Grundtyps [\<Numbe
       </td>
     </tr>
     <tr>
-      <th scope="row">Normativer Dokument</th>
+      <th scope="row">Normatives Dokument</th>
       <td>
         <a
           href="https://www.w3.org/TR/SVG11/types.html#InterfaceSVGAnimatedNumber"
-          >SVG 1.1 (2. Ausgabe)</a
+          >SVG 1.1 (2nd Edition)</a
         >
       </td>
     </tr>
   </tbody>
 </table>
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 <table class="no-markdown">
   <thead>
@@ -72,7 +72,7 @@ Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute des Grundtyps [\<Numbe
   </tbody>
 </table>
 
-## Instanzmethoden
+## Instanz-Methoden
 
 Die `SVGAnimatedNumber`-Schnittstelle bietet keine spezifischen Methoden.
 

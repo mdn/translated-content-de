@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("HTML DOM")}}{{Non-standard_Header}}
 
-Gibt die Build-Kennung des Browsers zurück. In modernen Browsern gibt diese Eigenschaft nun einen festen Zeitstempel als Datenschutzmaßnahme zurück, z.B. `20181001000000` ab Firefox 64.
+Gibt den Build-Bezeichner des Browsers zurück. In modernen Browsern gibt diese Eigenschaft nun als Datenschutzmaßnahme einen festen Zeitstempel zurück, z.B. `20181001000000` in Firefox ab Version 64.
 
 ## Wert
 
-Ein String, der die Build-Kennung der Anwendung darstellt. Die Build-ID hat das Format `YYYYMMDDHHMMSS`.
+Ein String, der den Build-Bezeichner der Anwendung darstellt. Die Build-ID hat das Format `YYYYMMDDHHMMSS`.
 
 ## Beispiele
 
@@ -22,7 +22,7 @@ console.log(navigator.buildID);
 
 ## Spezifikationen
 
-Nicht Teil eines öffentlichen Standards.
+Teil keiner öffentlichen Norm.
 
 ## Browser-Kompatibilität
 

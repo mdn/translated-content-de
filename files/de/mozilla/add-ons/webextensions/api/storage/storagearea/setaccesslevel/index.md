@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Legt das Zugriffslevel für den Speicherbereich fest.
+Setzt die Zugriffsberechtigung für den Speicherbereich.
 
-Diese Methode wird nur für den `storage.session` StorageArea unterstützt.
+Diese Methode wird nur für den `storage.session` Speicherbereich unterstützt.
 
-Im Gegensatz zu anderen Speicherbereichen ist `storage.session` nur für privilegierte (vertrauenswürdige) Erweiterungskontexte verfügbar. Diese `setAccessLevel`-Methode wird verwendet, um den Sitzungs-Speicherbereich auch für Inhalts-Skripte zugänglich zu machen. Standardmäßig sind alle anderen Speicherbereiche für alle Erweiterungskontexte verfügbar, einschließlich Inhalts-Skripte.
+Im Gegensatz zu anderen Speicherbereichen ist `storage.session` nur für privilegierte (vertrauenswürdige) Erweiterungskontexte verfügbar. Diese `setAccessLevel`-Methode wird verwendet, um den Sitzungsspeicherbereich auch für Inhalts-Skripte zugänglich zu machen. Standardmäßig sind alle anderen Speicherbereiche für alle Erweiterungskontexte zugänglich, einschließlich Inhalts-Skripte.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,7 +23,7 @@ await browser.storage.<storageType>.setAccessLevel(
 )
 ```
 
-`<storageType>` kann der {{WebExtAPIRef("storage.session")}} Speicher-Typ sein.
+`<storageType>` kann der {{WebExtAPIRef("storage.session")}} Speichertyp sein.
 
 ### Parameter
 
@@ -33,7 +33,7 @@ await browser.storage.<storageType>.setAccessLevel(
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das ohne Argumente erfüllt wird, wenn die Operation erfolgreich war. Wenn die Operation fehlschlug, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein {{jsxref("Promise")}}, das ohne Argumente erfüllt wird, wenn der Vorgang erfolgreich war. Wenn der Vorgang fehlschlug, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 {{WebExtExamples}}
 
@@ -42,4 +42,4 @@ Ein {{jsxref("Promise")}}, das ohne Argumente erfüllt wird, wenn die Operation 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API. Diese Dokumentation stammt von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API. Diese Dokumentation ist von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code abgeleitet.

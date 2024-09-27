@@ -9,15 +9,16 @@ l10n:
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript/Create_the_Canvas_and_draw_on_it", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls")}}
 
-Dies ist der **2. Schritt** von 10 des [Gamedev Canvas Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie können den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, unter [Gamedev-Canvas-workshop/lesson2.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson02.html) finden.
+Dies ist der **2. Schritt** von 10 des [Gamedev Canvas Tutorials](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript). Sie finden den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, bei [Gamedev-Canvas-workshop/lesson2.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson02.html).
 
-Sie wissen bereits, wie man einen Ball zeichnet, da Sie den vorherigen Artikel bearbeitet haben. Lassen Sie uns den Ball nun bewegen. Technisch gesehen werden wir den Ball auf dem Bildschirm zeichnen, ihn löschen und dann bei jedem Frame in einer leicht anderen Position erneut zeichnen, um den Eindruck einer Bewegung zu erzeugen — genau wie bei der Bewegung in Filmen.
+Sie wissen bereits, wie man einen Ball zeichnet, nachdem Sie den vorherigen Artikel bearbeitet haben. Lassen Sie uns nun den Ball bewegen. Technisch gesehen werden wir den Ball auf dem Bildschirm zeichnen, ihn löschen und dann bei jedem Frame in einer etwas anderen Position neu zeichnen, um den Eindruck einer Bewegung zu erzeugen — genau wie die Bewegung in Filmen funktioniert.
 
 ## Definieren einer Zeichenschleife
 
-Um das Canvas-Zeichnen kontinuierlich bei jedem Frame zu aktualisieren, müssen wir eine Zeichenfunktion definieren, die immer wieder ausgeführt wird, wobei die Variablenwerte jedes Mal unterschiedlich sind, um Sprite-Positionen usw. zu ändern. Sie können eine Funktion immer wieder mit einer JavaScript-Timing-Funktion ausführen. Später im Tutorial werden wir sehen, wie {{domxref("window.requestAnimationFrame()", "requestAnimationFrame()")}} beim Zeichnen hilft, aber wir beginnen zunächst mit {{domxref("setInterval()")}}, um etwas Schleifenlogik zu erstellen.
+Um die Darstellung auf der Leinwand in jedem Frame ständig zu aktualisieren, müssen wir eine Zeichenfunktion definieren, die immer wieder mit unterschiedlichen Variablenwerten ausgeführt wird, um Sprite-Positionen usw. zu ändern. Sie können eine Funktion mit einer JavaScript-Timer-Funktion immer wieder ausführen.
+Später im Tutorial werden wir sehen, wie [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) beim Zeichnen hilft, aber wir beginnen zunächst mit [`setInterval()`](/de/docs/Web/API/SetInterval), um eine Schleifenlogik zu erstellen.
 
-Löschen Sie den gesamten JavaScript-Code, den Sie derzeit in Ihrer HTML-Datei haben, mit Ausnahme der ersten beiden Zeilen, und fügen Sie darunter Folgendes hinzu. Die `draw()`-Funktion wird innerhalb von `setInterval` alle 10 Millisekunden ausgeführt:
+Löschen Sie alle JavaScript-Inhalte, die Sie derzeit in Ihrer HTML-Datei haben, bis auf die ersten zwei Zeilen, und fügen Sie die folgenden darunter hinzu. Die `draw()`-Funktion wird alle 10 Millisekunden innerhalb von `setInterval` ausgeführt:
 
 ```js
 function draw() {
@@ -26,7 +27,7 @@ function draw() {
 setInterval(draw, 10);
 ```
 
-Dank der unendlichen Natur von `setInterval` wird die `draw()`-Funktion alle 10 Millisekunden aufgerufen, für immer oder bis wir sie stoppen. Lassen Sie uns jetzt den Ball zeichnen — fügen Sie das Folgende innerhalb Ihrer `draw()`-Funktion hinzu:
+Dank der unendlichen Natur von `setInterval` wird die `draw()`-Funktion alle 10 Millisekunden für immer aufgerufen, oder bis wir sie stoppen. Nun lassen Sie uns den Ball zeichnen — fügen Sie das Folgende in Ihre `draw()`-Funktion ein:
 
 ```js
 ctx.beginPath();
@@ -36,20 +37,20 @@ ctx.fill();
 ctx.closePath();
 ```
 
-Versuchen Sie nun Ihren aktualisierten Code — der Ball sollte bei jedem Frame neu gezeichnet werden.
+Versuchen Sie jetzt Ihren aktualisierten Code — der Ball sollte in jedem Frame neu gezeichnet werden.
 
-## Ihn in Bewegung setzen
+## Den Ball in Bewegung setzen
 
-Derzeit bemerken Sie möglicherweise nicht, dass der Ball ständig neu gezeichnet wird, da er sich nicht bewegt. Ändern wir das. Anstatt einer fest codierten Position bei (50,50) definieren wir zuerst einen Ausgangspunkt im unteren mittleren Teil der Canvas in Variablen namens `x` und `y` und verwenden diese dann, um die Position zu definieren, an der der Kreis gezeichnet wird.
+Im Moment wird Ihnen nicht auffallen, dass der Ball ständig neu gezeichnet wird, da er sich nicht bewegt. Ändern wir das. Anstatt einer fest codierten Position bei (50,50) definieren wir zuerst einen Startpunkt am unteren mittleren Teil der Leinwand in Variablen namens `x` und `y` und verwenden diese dann, um die Position zu definieren, an der der Kreis gezeichnet wird.
 
-Fügen Sie zunächst die folgenden zwei Zeilen oberhalb Ihrer `draw()`-Funktion hinzu, um `x` und `y` zu definieren:
+Fügen Sie zuerst die folgenden zwei Zeilen über Ihrer `draw()`-Funktion hinzu, um `x` und `y` zu definieren:
 
 ```js
 let x = canvas.width / 2;
 let y = canvas.height - 30;
 ```
 
-Aktualisieren Sie als Nächstes die `draw()`-Funktion, um die x- und y-Variablen in der {{domxref("CanvasRenderingContext2D.arc()", "arc()")}}-Methode zu verwenden, wie in der folgenden hervorgehobenen Zeile gezeigt:
+Aktualisieren Sie als nächstes die `draw()`-Funktion, um die x- und y-Variablen in der [`arc()`](/de/docs/Web/API/CanvasRenderingContext2D/arc)-Methode zu verwenden, wie in der folgenden hervorgehobenen Zeile gezeigt:
 
 ```js
 function draw() {
@@ -61,14 +62,14 @@ function draw() {
 }
 ```
 
-Jetzt kommt der wichtige Teil: Wir wollen nach jedem gezeichneten Frame einen kleinen Wert zu `x` und `y` hinzufügen, um den Eindruck zu erwecken, dass sich der Ball bewegt. Definieren wir diese kleinen Werte als `dx` und `dy` und setzen ihre Werte auf 2 bzw. -2. Fügen Sie folgendes unterhalb Ihrer x- und y-Variablendefinitionen hinzu:
+Jetzt kommt der wichtige Teil: Wir möchten jedem Frame nach dem Zeichnen einen kleinen Wert zu `x` und `y` hinzufügen, damit es so aussieht, als bewege sich der Ball. Lassen Sie uns diese kleinen Werte als `dx` und `dy` definieren und ihre Werte jeweils auf 2 und -2 setzen. Fügen Sie das folgende unterhalb Ihrer Definitionen der x- und y-Variablen hinzu:
 
 ```js
 let dx = 2;
 let dy = -2;
 ```
 
-Als letztes müssen `x` und `y` in jedem Frame mit unseren `dx`- und `dy`-Variablen aktualisiert werden, sodass der Ball in jeder Aktualisierung an der neuen Position gezeichnet wird. Fügen Sie die folgenden zwei neuen Zeilen, wie unten angegeben, Ihrer `draw()`-Funktion hinzu:
+Das Letzte, was zu tun ist, ist `x` und `y` bei jedem Frame mit unseren `dx` und `dy` Variablen zu aktualisieren, damit der Ball bei jedem Update in der neuen Position gezeichnet wird. Fügen Sie die folgenden zwei neuen Zeilen, die unten angegeben sind, in Ihre `draw()`-Funktion ein:
 
 ```js
 function draw() {
@@ -82,15 +83,15 @@ function draw() {
 }
 ```
 
-Speichern Sie Ihren Code erneut und probieren Sie es in Ihrem Browser aus. Dies funktioniert gut, obwohl es scheint, dass der Ball eine Spur hinterlässt:
+Speichern Sie Ihren Code erneut und probieren Sie ihn in Ihrem Browser aus. Dies funktioniert in Ordnung, obwohl es scheint, dass der Ball eine Spur hinter sich lässt:
 
-![Eine blaue Linie, die angibt, wo der Ball gewesen ist](ball-trail.png)
+![Eine blaue Linie zeigt an, wo der Ball gewesen ist](ball-trail.png)
 
-## Das Canvas vor jedem Frame löschen
+## Die Leinwand vor jedem Frame bereinigen
 
-Der Ball hinterlässt eine Spur, weil wir bei jedem Frame einen neuen Kreis malen, ohne den vorherigen zu entfernen. Keine Sorge, denn es gibt eine Methode zum Löschen von Canvas-Inhalten: {{domxref("CanvasRenderingContext2D.clearRect()", "clearRect()")}}. Diese Methode nimmt vier Parameter: die x- und y-Koordinaten der oberen linken Ecke eines Rechtecks und die x- und y-Koordinaten der unteren rechten Ecke eines Rechtecks. Der gesamte Bereich, der von diesem Rechteck abgedeckt wird, wird von allen zuvor dort gemalten Inhalten befreit.
+Der Ball hinterlässt eine Spur, weil wir in jedem Frame einen neuen Kreis zeichnen, ohne den vorherigen zu entfernen. Keine Sorge, denn es gibt eine Methode zum Löschen des Canvas-Inhalts: [`clearRect()`](/de/docs/Web/API/CanvasRenderingContext2D/clearRect). Diese Methode nimmt vier Parameter an: die x- und y-Koordinaten der oberen linken Ecke eines Rechtecks sowie die x- und y-Koordinaten der unteren rechten Ecke eines Rechtecks. Der gesamte Bereich, der von diesem Rechteck abgedeckt wird, wird von jeglichem zuvor dort gemalten Inhalt befreit.
 
-Fügen Sie die folgende neue, hervorgehobene Zeile zur `draw()`-Funktion hinzu:
+Fügen Sie die folgende hervorgehobene neue Zeile zur `draw()`-Funktion hinzu:
 
 ```js
 function draw() {
@@ -105,13 +106,13 @@ function draw() {
 }
 ```
 
-Speichern Sie Ihren Code und probieren Sie es erneut aus. Diesmal werden Sie sehen, dass der Ball sich ohne eine Spur bewegt. Alle 10 Millisekunden wird das Canvas gelöscht, der blaue Kreis (unser Ball) an einer vorgegebenen Position gezeichnet und die `x`- und `y`-Werte für den nächsten Frame aktualisiert.
+Speichern Sie Ihren Code und probieren Sie es erneut, und dieses Mal werden Sie sehen, dass sich der Ball ohne eine Spur bewegt. Alle 10 Millisekunden wird der Canvas geleert, der blaue Kreis (unser Ball) wird an einer bestimmten Position gezeichnet und die `x`- und `y`-Werte werden für den nächsten Frame aktualisiert.
 
-## Unseren Code aufräumen
+## Unseren Code bereinigen
 
-Wir werden in den nächsten Artikeln mehr und mehr Befehle zur `draw()`-Funktion hinzufügen, daher ist es gut, sie so minimal und sauber wie möglich zu halten. Beginnen wir damit, den Ball-Zeichencode in eine separate Funktion zu verschieben.
+Wir werden in den nächsten Artikeln immer mehr Befehle zur `draw()`-Funktion hinzufügen, daher ist es gut, sie so minimal und sauber wie möglich zu halten. Beginnen wir damit, den Zeichencode für den Ball in eine separate Funktion zu verschieben.
 
-Ersetzen Sie die bestehende draw()-Funktion mit den folgenden zwei Funktionen:
+Ersetzen Sie die bestehende `draw()`-Funktion durch die folgenden zwei Funktionen:
 
 ```js
 function drawBall() {
@@ -130,13 +131,13 @@ function draw() {
 }
 ```
 
-## Ihren Code vergleichen
+## Vergleichen Sie Ihren Code
 
-Sie können den fertigen Code für diesen Artikel im untenstehenden Live-Demo prüfen und damit spielen, um besser zu verstehen, wie er funktioniert.
+Sie können den fertigen Code für diesen Artikel im Live-Demo unten überprüfen und damit spielen, um besser zu verstehen, wie er funktioniert.
 
 > [!NOTE]
 > Live-Beispiele laufen automatisch auf diesen Seiten, daher haben wir einen "Spiel starten"-Button hinzugefügt.
-> Dies ist nützlich, um zu vermeiden, dass Spiele automatisch starten und zu oft Warnungen oder andere Ereignisse auslösen.
+> Dies ist nützlich, um zu verhindern, dass Spiele automatisch starten und zu oft Warnungen oder andere Ereignisse auslösen.
 
 ```html
 <canvas id="myCanvas" width="480" height="320"></canvas>
@@ -192,6 +193,6 @@ document.getElementById("runButton").addEventListener("click", function () {
 
 ## Nächste Schritte
 
-Wir haben unseren Ball gezeichnet und ihn in Bewegung gesetzt, aber er verschwindet weiterhin vom Rand der Canvas. Im dritten Kapitel werden wir erkunden, wie man ihn [von den Wänden abprallen lässt](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls).
+Wir haben unseren Ball gezeichnet und ihn in Bewegung gebracht, aber er verschwindet immer wieder vom Rand der Leinwand. Im dritten Kapitel werden wir untersuchen, wie wir ihn dazu bringen, [von den Wänden abzuprallen](/de/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls).
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript/Create_the_Canvas_and_draw_on_it", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls")}}

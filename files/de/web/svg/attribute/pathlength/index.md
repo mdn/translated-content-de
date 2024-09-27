@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das **`pathLength`**-Attribut ermöglicht es Autoren, eine Gesamtlänge für den Pfad in Benutzereinheiten anzugeben. Dieser Wert wird dann verwendet, um die Abstandberechnungen des Browsers mit denen des Autors abzustimmen, indem alle Abstandberechnungen mithilfe des Verhältnisses `pathLength` / (_berechneter Wert der Pfadlänge_) skaliert werden.
+Das **`pathLength`**-Attribut ermöglicht es Autoren, eine Gesamtlänge für den Pfad in Benutzereinheiten festzulegen. Dieser Wert wird dann verwendet, um die Entfernungsberechnungen des Browsers mit denen des Autors zu kalibrieren, indem alle Entfernungsberechnungen mit dem Verhältnis `pathLength` / (_berechneter Wert der Pfadlänge_) skaliert werden.
 
-Dies kann die tatsächlich gerenderten Längen von Pfaden beeinflussen; einschließlich Textpfaden, Animationspfaden und verschiedenen Strichoperationen. Grundsätzlich alle Berechnungen, die die Länge des Pfades erfordern. Zum Beispiel geht {{SVGAttr('stroke-dasharray')}} davon aus, dass der Anfang des Pfades 0 ist und der Endpunkt den im `pathLength`-Attribut definierten Wert hat.
+Dies kann die tatsächlich gerenderten Längen von Pfaden beeinflussen; einschließlich Textpfaden, Animationspfaden und verschiedenen Strichoperationen. Im Wesentlichen alle Berechnungen, die die Länge des Pfads erfordern. {{SVGAttr('stroke-dasharray')}} nimmt zum Beispiel an, dass der Anfang des Pfads 0 ist und der Endpunkt den im `pathLength`-Attribut definierten Wert hat.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -42,19 +42,19 @@ svg {
     }
   </style>
 
-  <!-- Kein pathLength, die tatsächliche Länge des Pfades wird verwendet. In diesem Fall 100 Benutzereinheiten -->
+  <!-- No pathLength, the real length of the path is used. In that case, 100 user units -->
   <path d="M 0,10 h100" />
 
-  <!-- Berechnen Sie alles, als ob die Pfadlänge 90 Benutzereinheiten lang wäre -->
+  <!-- compute everything like if the path length was 90 user units long -->
   <path d="M 0,20 h100" pathLength="90" />
 
-  <!-- Berechnen Sie alles, als ob die Pfadlänge 50 Benutzereinheiten lang wäre -->
+  <!-- compute everything like if the path length was 50 user units long -->
   <path d="M 0,30 h100" pathLength="50" />
 
-  <!-- Berechnen Sie alles, als ob die Pfadlänge 30 Benutzereinheiten lang wäre -->
+  <!-- compute everything like if the path length was 30 user units long -->
   <path d="M 0,40 h100" pathLength="30" />
 
-  <!-- Berechnen Sie alles, als ob die Pfadlänge 10 Benutzereinheiten lang wäre -->
+  <!-- compute everything like if the path length was 10 user units long -->
   <path d="M 0,50 h100" pathLength="10" />
 </svg>
 ```
@@ -63,7 +63,7 @@ svg {
 
 ## circle
 
-Für {{SVGElement('circle')}} ermöglicht `pathLength` Autoren, eine Gesamtlänge für den Kreis in Benutzereinheiten anzugeben.
+Für {{SVGElement('circle')}} ermöglicht `pathLength` den Autoren, eine Gesamtlänge für den Kreis in Benutzereinheiten festzulegen.
 
 <table class="properties">
   <tbody>
@@ -88,7 +88,7 @@ Für {{SVGElement('circle')}} ermöglicht `pathLength` Autoren, eine Gesamtläng
 
 ## ellipse
 
-Für {{SVGElement('ellipse')}} ermöglicht `pathLength` Autoren, eine Gesamtlänge für die Ellipse in Benutzereinheiten anzugeben.
+Für {{SVGElement('ellipse')}} ermöglicht `pathLength` den Autoren, eine Gesamtlänge für die Ellipse in Benutzereinheiten festzulegen.
 
 <table class="properties">
   <tbody>
@@ -113,7 +113,7 @@ Für {{SVGElement('ellipse')}} ermöglicht `pathLength` Autoren, eine Gesamtlän
 
 ## line
 
-Für {{SVGElement('line')}} ermöglicht `pathLength` Autoren, eine Gesamtlänge für die Linie in Benutzereinheiten anzugeben.
+Für {{SVGElement('line')}} ermöglicht `pathLength` den Autoren, eine Gesamtlänge für die Linie in Benutzereinheiten festzulegen.
 
 <table class="properties">
   <tbody>
@@ -138,7 +138,7 @@ Für {{SVGElement('line')}} ermöglicht `pathLength` Autoren, eine Gesamtlänge 
 
 ## path
 
-Für {{SVGElement('path')}} ermöglicht `pathLength` Autoren, eine Gesamtlänge für den Pfad in Benutzereinheiten anzugeben.
+Für {{SVGElement('path')}} ermöglicht `pathLength` den Autoren, eine Gesamtlänge für den Pfad in Benutzereinheiten festzulegen.
 
 <table class="properties">
   <tbody>
@@ -163,7 +163,7 @@ Für {{SVGElement('path')}} ermöglicht `pathLength` Autoren, eine Gesamtlänge 
 
 ## polygon
 
-Für {{SVGElement('polygon')}} ermöglicht `pathLength` Autoren, eine Gesamtlänge für die Form in Benutzereinheiten anzugeben.
+Für {{SVGElement('polygon')}} ermöglicht `pathLength` den Autoren, eine Gesamtlänge für die Form in Benutzereinheiten festzulegen.
 
 <table class="properties">
   <tbody>
@@ -188,7 +188,7 @@ Für {{SVGElement('polygon')}} ermöglicht `pathLength` Autoren, eine Gesamtlän
 
 ## polyline
 
-Für {{SVGElement('polyline')}} ermöglicht `pathLength` Autoren, eine Gesamtlänge für die Form in Benutzereinheiten anzugeben.
+Für {{SVGElement('polyline')}} ermöglicht `pathLength` den Autoren, eine Gesamtlänge für die Form in Benutzereinheiten festzulegen.
 
 <table class="properties">
   <tbody>
@@ -213,7 +213,7 @@ Für {{SVGElement('polyline')}} ermöglicht `pathLength` Autoren, eine Gesamtlä
 
 ## rect
 
-Für {{SVGElement('rect')}} ermöglicht `pathLength` Autoren, eine Gesamtlänge für das Rechteck in Benutzereinheiten anzugeben.
+Für {{SVGElement('rect')}} ermöglicht `pathLength` den Autoren, eine Gesamtlänge für das Rechteck in Benutzereinheiten festzulegen.
 
 <table class="properties">
   <tbody>

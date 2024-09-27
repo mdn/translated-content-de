@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Daten-Eigenschaft **`Number.MAX_VALUE`** stellt den maximal darstellbaren numerischen Wert in JavaScript dar.
+Die statische Daten-Eigenschaft **`Number.MAX_VALUE`** repräsentiert den größten numerischen Wert, der in JavaScript darstellbar ist.
 
 {{EmbedInteractiveExample("pages/js/number-maxvalue.html")}}
 

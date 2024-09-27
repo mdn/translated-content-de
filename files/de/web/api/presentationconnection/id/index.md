@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Presentation API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`id`**-Attribut gibt die [Präsentationskennung](https://www.w3.org/TR/presentation-api/#dfn-presentation-identifier) einer [Präsentationsverbindung](https://www.w3.org/TR/presentation-api/#dfn-presentation-connection) an.
+Das **`id`**-Attribut gibt den [Präsentationsbezeichner](https://www.w3.org/TR/presentation-api/#dfn-presentation-identifier) einer [Präsentationsverbindung](https://www.w3.org/TR/presentation-api/#dfn-presentation-connection) an.
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 

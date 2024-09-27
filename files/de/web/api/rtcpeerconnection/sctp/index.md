@@ -8,14 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`sctp`**-Schreibgeschützte Eigenschaft der {{domxref("RTCPeerConnection")}}-Schnittstelle gibt ein {{domxref("RTCSctpTransport")}}-Objekt zurück, das den {{Glossary("SCTP")}}-Transport beschreibt, über den SCTP-Daten gesendet und empfangen werden.
-Wenn SCTP nicht ausgehandelt wurde, ist dieser Wert `null`.
+Die **`sctp`** schreibgeschützte Eigenschaft des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Interfaces gibt ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport) Objekt zurück, das den [SCTP](/de/docs/Glossary/SCTP)-Transport beschreibt, über den SCTP-Daten gesendet und empfangen werden. Falls SCTP nicht ausgehandelt wurde, ist dieser Wert `null`.
 
-Der SCTP-Transport wird zum Senden und Empfangen von Daten für alle {{domxref("RTCDataChannel")}}s auf der Peer-Verbindung verwendet.
+Der SCTP-Transport wird für das Senden und Empfangen von Daten auf allen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)s der Peer-Verbindung verwendet.
 
 ## Wert
 
-Ein {{domxref("RTCSctpTransport")}}-Objekt, das den von der {{domxref("RTCPeerConnection")}} für das Senden und Empfangen auf ihren Datenkanälen verwendeten SCTP-Transport beschreibt, oder `null`, wenn die SCTP-Aushandlung nicht stattgefunden hat.
+Ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport) Objekt, das den SCTP-Transport beschreibt, welcher von der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) für das Senden und Empfangen auf seinen Datenkanälen verwendet wird, oder `null`, falls keine SCTP-Aushandlung stattgefunden hat.
 
 ## Beispiel
 
@@ -47,6 +46,6 @@ const maxMessageSize = sctp.maxMessageSize;
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCPeerConnection")}}
-- {{domxref("RTCDataChannel")}}
-- {{Glossary("SCTP")}}
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
+- [SCTP](/de/docs/Glossary/SCTP)

@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{SeeCompatTable}}
 
-Das **`SpeechGrammar`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Reihe von Wörtern oder Wortmustern, die der Erkennungsdienst erkennen soll.
+Die **`SpeechGrammar`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Menge von Wörtern oder Wortmustern, die der Erkennungsdienst erkennen soll.
 
-Grammatik wird mit dem [JSpeech-Grammatik-Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert. Andere Formate könnten in Zukunft ebenfalls unterstützt werden.
+Grammatik wird unter Verwendung des [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert. Andere Formate könnten in der Zukunft ebenfalls unterstützt werden.
 
 ## Konstruktor
 
-- {{domxref("SpeechGrammar.SpeechGrammar()", "SpeechGrammar()")}} {{Non-standard_Inline}} {{Experimental_Inline}}
+- [`SpeechGrammar()`](/de/docs/Web/API/SpeechGrammar/SpeechGrammar) {{Non-standard_Inline}} {{Experimental_Inline}}
   - : Erstellt ein neues `SpeechGrammar`-Objekt.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("SpeechGrammar.src")}} {{Experimental_Inline}}
-  - : Setzt und gibt eine Zeichenkette zurück, die die Grammatik innerhalb der `SpeechGrammar`-Objektinstanz enthält.
-- {{domxref("SpeechGrammar.weight")}} {{Optional_Inline}} {{Experimental_Inline}}
+- [`SpeechGrammar.src`](/de/docs/Web/API/SpeechGrammar/src) {{Experimental_Inline}}
+  - : Setzt und gibt einen String zurück, der die Grammatik aus der `SpeechGrammar`-Objektinstanz enthält.
+- [`SpeechGrammar.weight`](/de/docs/Web/API/SpeechGrammar/weight) {{Optional_Inline}} {{Experimental_Inline}}
   - : Setzt und gibt das Gewicht des `SpeechGrammar`-Objekts zurück.
 
 ## Beispiele
@@ -33,8 +33,8 @@ const speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
 recognition.grammars = speechRecognitionList;
 
-console.log(speechRecognitionList[0].src); // sollte dasselbe zurückgeben wie der Inhalt der grammar-Variablen
-console.log(speechRecognitionList[0].weight); // sollte 1 zurückgeben - dasselbe wie das in addFromString gesetzte Gewicht.
+console.log(speechRecognitionList[0].src); // should return the same as the contents of the grammar variable
+console.log(speechRecognitionList[0].weight); // should return 1 - the same as the weight set in addFromString.
 ```
 
 ## Spezifikationen

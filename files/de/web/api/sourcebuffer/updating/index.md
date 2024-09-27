@@ -3,12 +3,12 @@ title: "SourceBuffer: updating-Eigenschaft"
 short-title: updating
 slug: Web/API/SourceBuffer/updating
 l10n:
-  sourceCommit: b6425e5198569cb42e88e32c2eb9edc97bc43b0f
+  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
 ---
 
-{{APIRef("Media Source Extensions")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`updating`** schreibgeschützte Eigenschaft des {{domxref("SourceBuffer")}}-Interfaces gibt an, ob der `SourceBuffer` derzeit aktualisiert wird – das heißt, ob eine {{domxref("SourceBuffer.appendBuffer()")}}- oder {{domxref("SourceBuffer.remove()")}}-Operation derzeit im Gange ist.
+Die schreibgeschützte Eigenschaft **`updating`** des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces zeigt an, ob der `SourceBuffer` momentan aktualisiert wird, d.h., ob eine [`SourceBuffer.appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer)- oder [`SourceBuffer.remove()`](/de/docs/Web/API/SourceBuffer/remove)-Operation gerade ausgeführt wird.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein boolescher Wert.
 
 ## Beispiele
 
-TBD
+Wird noch festgelegt
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ TBD
 
 ## Siehe auch
 
-- {{domxref("MediaSource")}}
-- {{domxref("SourceBufferList")}}
+- [`MediaSource`](/de/docs/Web/API/MediaSource)
+- [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)

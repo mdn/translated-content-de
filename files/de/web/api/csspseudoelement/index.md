@@ -7,26 +7,26 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}
 
-Das **`CSSPseudoElement`**-Interface repräsentiert ein Pseudoelement, das das Ziel eines Ereignisses sein oder mit der {{DOMxRef('Web Animations API', '', '', 'true')}} animiert werden kann. Instanzen dieses Interfaces können durch Aufruf von {{DOMxRef('Element.pseudo()')}} erhalten werden.
+Die **`CSSPseudoElement`**-Schnittstelle repräsentiert ein Pseudo-Element, das das Ziel eines Ereignisses sein oder mit der [Web Animations API](/de/docs/Web/API/Web_Animations_API) animiert werden kann. Instanzen dieser Schnittstelle können durch Aufrufen von [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo) erhalten werden.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-- {{DOMxRef('CSSPseudoElement.element')}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Gibt das ursprüngliche/elterliche {{DOMxRef('Element')}} des Pseudoelements zurück.
-- {{DOMxRef('CSSPseudoElement.type')}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Gibt den Pseudoelement-Selektor als Zeichenkette zurück.
+- [`CSSPseudoElement.element`](/de/docs/Web/API/CSSPseudoElement/element) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Gibt das ursprüngliche/übergeordnete [`Element`](/de/docs/Web/API/Element) des Pseudo-Elements zurück.
+- [`CSSPseudoElement.type`](/de/docs/Web/API/CSSPseudoElement/type) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Gibt den Pseudo-Element-Selektor als Zeichenfolge zurück.
 
 ## Instanzmethoden
 
-_`CSSPseudoElement` erweitert {{DOMxRef('EventTarget')}}, daher erbt es die folgenden Methoden:_
+_`CSSPseudoElement` erweitert [`EventTarget`](/de/docs/Web/API/EventTarget), daher erbt es die folgenden Methoden:_
 
 ## Beispiele
 
 ### Einfaches Beispiel mit Element.pseudo
 
-Unter Verwendung von Pseudoelementen werden die meisten modernen Browser automatisch Anführungszeichen um Text innerhalb eines {{HTMLElement('q')}}-Elements hinzufügen. (Eine Stilregel kann erforderlich sein, um Anführungszeichen in älteren Browsern hinzuzufügen.) Das untenstehende Beispiel demonstriert die grundlegenden Eigenschaften des `CSSPseudoElement`-Objekts, das das eröffnende Anführungszeichen darstellt.
+Bei der Verwendung von Pseudo-Elementen fügen die meisten modernen Browser automatisch Anführungszeichen um den Text innerhalb eines {{HTMLElement('q')}}-Elements hinzu. (In älteren Browsern kann eine Stilregel erforderlich sein, um Anführungszeichen hinzuzufügen.) Das untenstehende Beispiel zeigt die grundlegenden Eigenschaften des `CSSPseudoElement`-Objekts, welches das öffnende Anführungszeichen repräsentiert.
 
 ```js
 const element = document.querySelector("q");
@@ -39,12 +39,12 @@ console.log(cssPseudoElement.type); // Outputs '::before'
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{DOMxRef('Element.pseudo()')}}
-- {{DOMxRef('Web Animations API', '', '', 'true')}}
-- {{DOMxRef('Element.animate()')}}
+- [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo)
+- [Web Animations API](/de/docs/Web/API/Web_Animations_API)
+- [`Element.animate()`](/de/docs/Web/API/Element/animate)

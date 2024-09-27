@@ -1,5 +1,5 @@
 ---
-title: "ContactsManager: select()-Methode"
+title: "ContactsManager: select() Methode"
 short-title: select()
 slug: Web/API/ContactsManager/select
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Contact Picker API")}}{{SeeCompatTable}}
 
-Die **`select()`**-Methode der
-{{domxref("ContactsManager")}}-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das, wenn es aufgelöst wird, dem Benutzer einen Kontaktpicker präsentiert, mit dem er Kontakt(e) auswählen kann, die er teilen möchte. Diese Methode erfordert eine Benutzerinteraktion, damit das {{jsxref('Promise')}} aufgelöst wird.
+Die **`select()`**-Methode der [`ContactsManager`](/de/docs/Web/API/ContactsManager)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das dem Benutzer, wenn es aufgelöst wird, einen Kontaktwähler präsentiert, mit dem dieser Kontakt(e) auswählen kann, die er teilen möchte. Diese Methode erfordert eine Benutzeraktion, damit das {{jsxref('Promise')}} aufgelöst wird.
 
 ## Syntax
 
@@ -22,56 +21,56 @@ select(properties, options)
 
 - `properties`
 
-  - : Ein Array von {{jsxref('String', 'Strings')}}, die definieren, welche Informationen von einem Kontakt abgerufen werden sollen. Erlaubte Werte sind wie folgt:
+  - : Ein Array von {{jsxref('String', 'strings')}}, das definiert, welche Informationen von einem Kontakt abgerufen werden sollen. Erlaubte Werte sind wie folgt:
 
     - `'name'`: Der Name des Kontakts.
     - `'tel'`: Die Telefonnummer(n) des Kontakts.
     - `'email'`: Die E-Mail-Adresse des Kontakts.
     - `'address'`: Die Postadresse des Kontakts.
-    - `'icon'`: Das Avatar des Kontakts.
+    - `'icon'`: Der Avatar des Kontakts.
 
 - `options` {{optional_inline}}
 
   - : Optionen sind wie folgt:
 
     - `multiple`
-      - : Ein Boolean, der die Auswahl mehrerer Kontakte ermöglicht. Standardmäßig ist dies `false`.
+      - : Ein Boolean, der die Auswahl mehrerer Kontakte erlaubt. Der Standardwert ist `false`.
 
 ### Rückgabewert
 
-Gibt ein {{jsxref('Promise')}} zurück, das mit einem Array von Objekten aufgelöst wird, die Kontaktinformationen enthalten. Jedes Objekt repräsentiert einen einzelnen Kontakt und kann folgende Eigenschaften enthalten:
+Gibt ein {{jsxref('Promise')}} zurück, das mit einem Array von Objekten gelöst wird, die Kontaktinformationen enthalten. Jedes Objekt repräsentiert einen einzelnen Kontakt und kann die folgenden Eigenschaften enthalten:
 
 - `address`
-  - : Ein {{jsxref("Array")}} von {{domxref("ContactAddress")}}-Objekten, die jeweils spezifische Details einer eindeutigen physischen Adresse enthalten.
+  - : Ein {{jsxref("Array")}} von [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Objekten, die jeweils die Details einer einzigartigen physischen Adresse enthalten.
 - `email`
-  - : Ein Array von Strings, die E-Mail-Adressen enthalten.
+  - : Ein Array von Zeichenketten, die E-Mail-Adressen enthalten.
 - `icon`
-  - : Ein Array von {{domxref("Blob")}}-Objekten, die Bilder einer Person enthalten.
+  - : Ein Array von [`Blob`](/de/docs/Web/API/Blob)-Objekten, die Bilder einer Person enthalten.
 - `name`
-  - : Ein Array von Strings, die jeweils einen eindeutigen Namen einer Person enthalten.
+  - : Ein Array von Zeichenketten, die jeweils einen einzigartigen Namen einer Person enthalten.
 - `tel`
-  - : Ein Array von Strings, die jeweils eine eindeutige Telefonnummer einer Person enthalten.
+  - : Ein Array von Zeichenketten, die jeweils eine einzigartige Telefonnummer einer Person enthalten.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn der Browsing-Kontext nicht auf oberster Ebene ist, wenn der Kontaktpicker ein Flag zeigt, das einen bereits vorhandenen Kontaktpicker anzeigt, da immer nur ein Picker gleichzeitig existieren kann, oder wenn das Starten eines Kontaktpickers fehlschlug.
-- `SecurityError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn der Browsing-Kontext nicht auf der obersten Ebene ist, wenn der Kontaktwähler eine Markierung zeigt, die einen bereits bestehenden Kontaktwähler kennzeichnet, da immer nur ein Wähler existieren kann, oder wenn das Starten eines Kontaktwählers fehlgeschlagen ist.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn die Methode nicht durch [Benutzeraktivierung](/de/docs/Web/Security/User_activation) ausgelöst wird.
 - {{jsxref("TypeError")}}
-  - : Wird zurückgegeben, wenn `properties` leer ist oder wenn einer der angegebenen Eigenschaften nicht unterstützt wird.
+  - : Wird zurückgegeben, wenn `properties` leer ist oder wenn eine der angegebenen Eigenschaften nicht unterstützt wird.
 
 ## Sicherheit
 
-{{Glossary("Transient activation")}} ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+[Vorübergehende Aktivierung](/de/docs/Glossary/Transient_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit dieses Feature funktioniert.
 
 ## Beispiele
 
 ### Einfaches Beispiel
 
-Das folgende Beispiel legt ein Array von Eigenschaften fest, die für jeden Kontakt abgerufen werden sollen, sowie ein Optionsobjekt, das die Auswahl mehrerer Kontakte erlaubt.
+Das folgende Beispiel legt ein Array von Eigenschaften fest, die für jeden Kontakt abgerufen werden sollen, und setzt ein Optionsobjekt, um die Auswahl mehrerer Kontakte zu ermöglichen.
 
-Eine asynchrone Funktion wird dann definiert, die die `select()`-Methode verwendet, um dem Benutzer ein Kontaktpicker-Interface zu präsentieren und die ausgewählten Ergebnisse zu verarbeiten. `handleResults()` ist eine vom Entwickler definierte Funktion.
+Eine asynchrone Funktion wird dann definiert, die die `select()`-Methode verwendet, um dem Benutzer eine Kontaktwähler-Schnittstelle zu präsentieren und die ausgewählten Ergebnisse zu verarbeiten. `handleResults()` ist eine vom Entwickler definierte Funktion.
 
 ```js
 const props = ["name", "email", "tel", "address", "icon"];
@@ -82,14 +81,14 @@ async function getContacts() {
     const contacts = await navigator.contacts.select(props, opts);
     handleResults(contacts);
   } catch (ex) {
-    // Behandeln Sie hier alle Fehler.
+    // Handle any errors here.
   }
 }
 ```
 
-### Auswahl nur mit unterstützten Eigenschaften
+### Auswahl Nur Unterstützter Eigenschaften
 
-Im folgenden Beispiel wird {{domxref("ContactsManager.getProperties", "getProperties()")}} verwendet, um sicherzustellen, dass nur unterstützte Eigenschaften übergeben werden. Andernfalls könnte `select()` einen {{jsxref("TypeError")}} auslösen. `handleResults()` ist eine vom Entwickler definierte Funktion.
+Das folgende Beispiel verwendet [`getProperties()`](/de/docs/Web/API/ContactsManager/getProperties), um sicherzustellen, dass nur unterstützte Eigenschaften übergeben werden. Andernfalls könnte `select()` einen {{jsxref("TypeError")}} auslösen. `handleResults()` ist eine vom Entwickler definierte Funktion.
 
 ```js
 const supportedProperties = await navigator.contacts.getProperties();
@@ -99,7 +98,7 @@ async function getContacts() {
     const contacts = await navigator.contacts.select(supportedProperties);
     handleResults(contacts);
   } catch (ex) {
-    // Behandeln Sie hier alle Fehler.
+    // Handle any errors here.
   }
 }
 ```

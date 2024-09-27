@@ -1,5 +1,5 @@
 ---
-title: "CSSStyleDeclaration: Methode getPropertyPriority()"
+title: "CSSStyleDeclaration: getPropertyPriority()-Methode"
 short-title: getPropertyPriority()
 slug: Web/API/CSSStyleDeclaration/getPropertyPriority
 l10n:
@@ -8,8 +8,9 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **CSSStyleDeclaration.getPropertyPriority()** Methoden-Schnittstelle gibt
-einen String zurück, der alle explizit gesetzten Prioritäten für die CSS-Eigenschaft angibt.
+Die **CSSStyleDeclaration.getPropertyPriority()**-Methoden-Schnittstelle gibt
+einen String zurück, der alle explizit gesetzten Prioritäten der CSS-Eigenschaft
+bereitstellt.
 
 ## Syntax
 
@@ -20,12 +21,12 @@ getPropertyPriority(property)
 ### Parameter
 
 - `property`
-  - : Ein String, der den Namen der zu überprüfenden Eigenschaft darstellt.
+  - : Ein String, der den Namen der zu prüfenden Eigenschaft darstellt.
 
 ### Rückgabewert
 
-Ein String, der die Priorität (z. B. `"important"`) angibt, falls eine existiert.
-Falls keine existiert, wird der leere String zurückgegeben.
+Ein String, der die Priorität (z.B. `"important"`) darstellt, falls eine vorhanden ist.
+Wenn keine vorhanden ist, wird der leere String zurückgegeben.
 
 ## Beispiele
 

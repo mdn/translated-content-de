@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`compositionstart`** Ereignis wird ausgelöst, wenn ein Textkompositionssystem wie ein {{glossary("input method editor")}} eine neue Kompositionssitzung startet.
+Das **`compositionstart`** Ereignis wird ausgelöst, wenn ein Textkompositionssystem, wie ein [Eingabemethoden-Editor](/de/docs/Glossary/input_method_editor), eine neue Kompositionssitzung startet.
 
-Beispielsweise könnte dieses Ereignis ausgelöst werden, nachdem ein Benutzer beginnt, ein chinesisches Schriftzeichen mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) {{glossary("IME")}} einzugeben.
+Beispielsweise könnte dieses Ereignis ausgelöst werden, nachdem ein Benutzer beginnt, ein chinesisches Zeichen mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) [IME](/de/docs/Glossary/IME) einzugeben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("compositionstart", (event) => {});
@@ -24,18 +24,18 @@ oncompositionstart = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("CompositionEvent")}}. Erbt von {{domxref("UIEvent")}} und {{domxref("Event")}}.
+Ein [`CompositionEvent`](/de/docs/Web/API/CompositionEvent). Erbt von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("CompositionEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften ihres Elternteils, {{domxref("UIEvent")}}, und ihres Vorfahren — {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihrem Vorfahren — [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("CompositionEvent.data")}} {{ReadOnlyInline}}
-  - : Gibt die durch die Eingabemethode erzeugten Zeichen zurück, die das Ereignis ausgelöst haben; variiert je nach Art des Ereignisses, das das `CompositionEvent`-Objekt erzeugt hat.
-- {{domxref("CompositionEvent.locale")}} {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt die Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Komposition mit IME verbunden ist).
+- [`CompositionEvent.data`](/de/docs/Web/API/CompositionEvent/data) {{ReadOnlyInline}}
+  - : Gibt die von der Eingabemethode generierten Zeichen zurück, die das Ereignis ausgelöst haben; sie variiert je nach Art des Ereignisses, das das `CompositionEvent`-Objekt erzeugt hat.
+- [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale) {{ReadOnlyInline}} {{deprecated_inline}}
+  - : Gibt das Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Layout-Gebietsschema der Tastatur, wenn die Komposition mit IME verbunden ist).
 
 ## Beispiele
 
@@ -47,27 +47,27 @@ inputElement.addEventListener("compositionstart", (event) => {
 });
 ```
 
-### Live-Beispiel
+### Lebendiges Beispiel
 
 #### HTML
 
 ```html
 <div class="control">
   <label for="example">
-    Fokussieren Sie die Texteingabekontrolle, öffnen Sie dann Ihr IME und beginnen Sie mit der Eingabe.
+    Focus the text-input control, then open your IME and begin typing.
   </label>
   <input type="text" id="example" name="example" />
 </div>
 
 <div class="event-log">
-  <label for="eventLog">Ereignisprotokoll:</label>
+  <label for="eventLog">Event log:</label>
   <textarea
     readonly
     class="event-log-contents"
     rows="8"
     cols="25"
     id="eventLog"></textarea>
-  <button class="clear-log">Löschen</button>
+  <button class="clear-log">Clear</button>
 </div>
 ```
 
@@ -140,4 +140,4 @@ inputElement.addEventListener("compositionend", handleEvent);
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("Element/compositionend_event", "compositionend")}}, {{domxref("Element/compositionupdate_event", "compositionupdate")}}.
+- Verwandte Ereignisse: [`compositionend`](/de/docs/Web/API/Element/compositionend_event), [`compositionupdate`](/de/docs/Web/API/Element/compositionupdate_event).

@@ -7,26 +7,26 @@ l10n:
 
 {{APIRef("XMLSerializer")}}
 
-Das `XMLSerializer`-Interface bietet die Methode {{domxref("XMLSerializer.serializeToString", "serializeToString()")}} zum Erstellen eines XML-Strings, der einen {{Glossary("DOM")}}-Baum darstellt.
+Das `XMLSerializer`-Interface stellt die [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString)-Methode zur Verfügung, um einen XML-String zu erstellen, der einen [DOM](/de/docs/Glossary/DOM)-Baum darstellt.
 
 > [!NOTE]
-> Der resultierende XML-String ist nicht garantiert wohlgeformtes XML.
+> Der resultierende XML-String muss nicht zwingend wohlgeformtes XML sein.
 
 ## Konstruktor
 
-- {{domxref("XMLSerializer.XMLSerializer", "XMLSerializer()")}}
+- [`XMLSerializer()`](/de/docs/Web/API/XMLSerializer/XMLSerializer)
   - : Erstellt ein neues `XMLSerializer`-Objekt.
 
 ## Instanzmethoden
 
-- {{domxref("XMLSerializer.serializeToString", "serializeToString()")}}
-  - : Gibt den serialisierten Teilbaum eines Strings zurück.
+- [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString)
+  - : Gibt den serialisierten Teilbaum als String zurück.
 
 ## Beispiele
 
-### XML in einen String serialisieren
+### Serialisierung von XML in einen String
 
-Dieses Beispiel serialisiert einfach ein gesamtes Dokument in einen String, der XML enthält.
+Dieses Beispiel serialisiert ein ganzes Dokument in einen String, der XML enthält.
 
 ```js
 const s = new XMLSerializer();
@@ -34,33 +34,33 @@ const str = s.serializeToString(document);
 saveXML(str);
 ```
 
-Dies beinhaltet das Erstellen eines neuen `XMLSerializer`-Objekts, anschließend wird das {{domxref("Document")}}, das serialisiert werden soll, an {{domxref("XMLSerializer.serializeToString", "serializeToString()")}} übergeben, welches das XML-Äquivalent des Dokuments zurückgibt. `saveXML()` repräsentiert eine Funktion, die den serialisierten String dann speichern würde.
+Dies beinhaltet das Erstellen eines neuen `XMLSerializer`-Objekts und anschließend das Übergeben des zu serialisierenden [`Document`](/de/docs/Web/API/Document) an [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString), welches das XML-Äquivalent des Dokuments zurückgibt. `saveXML()` repräsentiert eine Funktion, die dann den serialisierten String speichert.
 
-### Einfügen von Knoten in einen DOM basierend auf XML
+### Einfügen von Knoten in ein DOM basierend auf XML
 
-Dieses Beispiel verwendet die Methode {{domxref("Element.insertAdjacentHTML()")}}, um einen neuen DOM-{{domxref("Node")}} in den Body des {{domxref("Document")}} einzufügen, basierend auf XML, das durch die Serialisierung eines {{domxref("Element")}}-Objekts erstellt wurde.
+Dieses Beispiel verwendet die [`Element.insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML)-Methode, um ein neues DOM-[`Node`](/de/docs/Web/API/Node) in den Body des [`Document`](/de/docs/Web/API/Document) einzufügen, basierend auf XML, das durch Serialisieren eines [`Element`](/de/docs/Web/API/Element)-Objekts erstellt wurde.
 
 > [!NOTE]
-> In der Praxis sollten Sie stattdessen normalerweise die Methode {{domxref("Document.importNode", "importNode()")}} aufrufen, um den neuen Knoten in den DOM zu importieren, und dann eine der folgenden Methoden aufrufen, um den Knoten zum DOM-Baum hinzuzufügen:
+> In der Praxis sollten Sie normalerweise stattdessen die [`importNode()`](/de/docs/Web/API/Document/importNode)-Methode aufrufen, um den neuen Knoten in das DOM zu importieren, und dann eine der folgenden Methoden aufrufen, um den Knoten zum DOM-Baum hinzuzufügen:
 >
-> - Die Methoden {{domxref("Element.append()")}}/{{domxref("Element.prepend()")}} und {{domxref("Document.append()")}}/{{domxref("Document.prepend()")}}.
-> - Die Methode {{domxref("Element.replaceWith")}} (um einen vorhandenen Knoten durch den neuen zu ersetzen)
-> - Die Methode {{domxref("Element.insertAdjacentElement()")}},
+> - Die [`Element.append()`](/de/docs/Web/API/Element/append)/[`Element.prepend()`](/de/docs/Web/API/Element/prepend) und [`Document.append()`](/de/docs/Web/API/Document/append)/[`Document.prepend()`](/de/docs/Web/API/Document/prepend)-Methoden.
+> - Die [`Element.replaceWith`](/de/docs/Web/API/Element/replaceWith)-Methode (um einen vorhandenen Knoten durch den neuen zu ersetzen).
+> - Die [`Element.insertAdjacentElement()`](/de/docs/Web/API/Element/insertAdjacentElement)-Methode.
 
-Da `insertAdjacentHTML()` einen String und keinen `Node` als zweiten Parameter akzeptiert, wird `XMLSerializer` verwendet, um den Knoten zuerst in einen String zu konvertieren.
+Da `insertAdjacentHTML()` einen String und keinen `Node` als seinen zweiten Parameter akzeptiert, wird `XMLSerializer` zuerst verwendet, um den Knoten in einen String zu konvertieren.
 
 ```js
 const inp = document.createElement("input");
 const XMLS = new XMLSerializer();
-const inp_xmls = XMLS.serializeToString(inp); // Zuerst den DOM-Knoten in einen String umwandeln
+const inp_xmls = XMLS.serializeToString(inp); // First convert DOM node into a string
 
-// Fügen Sie den neu erstellten Knoten in den Body des Dokuments ein
+// Insert the newly created node into the document's body
 document.body.insertAdjacentHTML("afterbegin", inp_xmls);
 ```
 
-Der Code erstellt ein neues {{HTMLElement("input")}}-Element durch Aufruf von {{domxref("Document.createElement()")}}, und serialisiert es dann mithilfe von {{domxref("XMLSerializer.serializeToString", "serializeToString()")}} in XML.
+Der Code erstellt ein neues {{HTMLElement("input")}}-Element, indem er [`Document.createElement()`](/de/docs/Web/API/Document/createElement) aufruft, und serialisiert es dann mit [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString) in XML.
 
-Sobald dies erledigt ist, wird `insertAdjacentHTML()` verwendet, um das `<input>`-Element in den DOM einzufügen.
+Sobald dies geschehen ist, wird `insertAdjacentHTML()` verwendet, um das `<input>`-Element in das DOM einzufügen.
 
 ## Spezifikationen
 
@@ -72,5 +72,5 @@ Sobald dies erledigt ist, wird `insertAdjacentHTML()` verwendet, um das `<input>
 
 ## Siehe auch
 
-- [XML parsen und serialisieren](/de/docs/Web/XML/Parsing_and_serializing_XML)
-- {{domxref("DOMParser")}}
+- [Parsing und Serialisierung von XML](/de/docs/Web/XML/Parsing_and_serializing_XML)
+- [`DOMParser`](/de/docs/Web/API/DOMParser)

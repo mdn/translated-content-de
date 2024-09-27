@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getElementsByClassName`** Methode des
-{{domxref("Document")}} Interfaces gibt ein array-ähnliches Objekt
+Die **`getElementsByClassName`** Methode der
+[`Document`](/de/docs/Web/API/Document) Schnittstelle gibt ein array-ähnliches Objekt
 aller Kindelemente zurück, die alle angegebenen Klassennamen besitzen.
 
 Wenn die Methode auf das
-{{domxref("document")}} Objekt aufgerufen wird, wird das gesamte Dokument durchsucht, einschließlich des
-Wurzelelements. Sie können auch {{domxref("Element.getElementsByClassName", "getElementsByClassName()")}} auf jedes Element anwenden; es werden nur die Elemente zurückgegeben, die Nachfolger des angegebenen Wurzelelements mit den vorgegebenen Klassennamen sind.
+[`document`](/de/docs/Web/API/Document) Objekt angewendet wird, wird das gesamte Dokument durchsucht, einschließlich des
+Wurzelknotens. Sie können auch [`getElementsByClassName()`](/de/docs/Web/API/Element/getElementsByClassName) auf jedem Element aufrufen; es werden nur Elemente zurückgegeben, die Nachfahren des angegebenen Wurzelelements mit den gegebenen Klassennamen sind.
 
 > [!WARNING]
-> Dies ist ein live {{domxref("HTMLCollection")}}. Änderungen im DOM werden
-> in der Sammlung reflektiert, sobald sie auftreten. Wenn ein durch dieses Array ausgewähltes Element nicht mehr für den Selektor qualifiziert ist, wird es automatisch entfernt. Seien Sie sich dessen für Iterationszwecke bewusst.
+> Dies ist eine live [`HTMLCollection`](/de/docs/Web/API/HTMLCollection). Änderungen im DOM werden
+> in der Sammlung reflektiert, sobald sie auftreten. Wenn ein Element, das von dieser Sammlung ausgewählt wurde, nicht mehr den Selektorbedingungen entspricht, wird es automatisch entfernt. Seien Sie sich dessen bei Iterationen bewusst.
 
 ## Syntax
 
@@ -29,42 +29,41 @@ getElementsByClassName(names)
 ### Parameter
 
 - `names`
-  - : Ein String, der den/die Klassennamen repräsentiert, der/die übereinstimmen soll(en); mehrere Klassennamen werden durch Leerzeichen getrennt.
+  - : Ein String, der den/die Klassennamen darstellt, die übereinstimmen sollen; mehrere Klassennamen sind durch Leerzeichen getrennt.
 
 ### Rückgabewert
 
-Eine live {{domxref("HTMLCollection")}} der gefundenen Elemente.
+Eine live [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der gefundenen Elemente.
 
 ## Beispiele
 
-Alle Elemente abrufen, die die Klasse 'test' haben:
+Holen Sie alle Elemente, die eine Klasse 'test' haben:
 
 ```js
 document.getElementsByClassName("test");
 ```
 
-Alle Elemente abrufen, die sowohl die Klassen 'red' als auch 'test' haben:
+Holen Sie alle Elemente, die sowohl die Klassen 'red' als auch 'test' haben:
 
 ```js
 document.getElementsByClassName("red test");
 ```
 
-Alle Elemente abrufen, die die Klasse 'test' haben, innerhalb eines Elements, das die ID
-'main' hat:
+Holen Sie alle Elemente, die eine Klasse 'test' haben, innerhalb eines Elements mit der ID 'main':
 
 ```js
 document.getElementById("main").getElementsByClassName("test");
 ```
 
-Das erste Element mit der Klasse 'test' abrufen oder `undefined`, wenn es kein
-passendes Element gibt:
+Holen Sie das erste Element mit der Klasse 'test', oder `undefined`, wenn kein
+passendes Element vorhanden ist:
 
 ```js
 document.getElementsByClassName("test")[0];
 ```
 
-Wir können auch Methoden von Array.prototype auf jede {{domxref("HTMLCollection")}} anwenden, indem wir die `HTMLCollection` als _this_-Wert der Methode übergeben. Hier finden
-wir alle div-Elemente, die die Klasse 'test' haben:
+Wir können auch Methoden von Array.prototype auf jede [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) anwenden, indem wir die `HTMLCollection` als _this_ Wert der Methode übergeben. Hier
+finden wir alle `div` Elemente, die eine Klasse 'test' haben:
 
 ```js
 const testElements = document.getElementsByClassName("test");
@@ -74,28 +73,28 @@ const testDivs = Array.prototype.filter.call(
 );
 ```
 
-### Das erste Element mit der Klasse 'test' abrufen
+### Das erste Element mit der Klasse 'test' erhalten
 
 Dies ist die am häufigsten verwendete Methode der Operation.
 
 ```html
-<html lang="de">
+<html lang="en">
   <body>
     <div id="parent-id">
-      <p>hallo welt 1</p>
-      <p class="test">hallo welt 2</p>
-      <p>hallo welt 3</p>
-      <p>hallo welt 4</p>
+      <p>hello world 1</p>
+      <p class="test">hello world 2</p>
+      <p>hello world 3</p>
+      <p>hello world 4</p>
     </div>
 
     <script>
       const parentDOM = document.getElementById("parent-id");
 
-      const test = parentDOM.getElementsByClassName("test"); // eine Liste von passenden Elementen, nicht das Element selbst
+      const test = parentDOM.getElementsByClassName("test"); // a list of matching elements, *not* the element itself
       console.log(test); // HTMLCollection[1]
 
-      const testTarget = parentDOM.getElementsByClassName("test")[0]; // das erste Element, wie gewünscht
-      console.log(testTarget); // <p class="test">hallo welt 2</p>
+      const testTarget = parentDOM.getElementsByClassName("test")[0]; // the first element, as we wanted
+      console.log(testTarget); // <p class="test">hello world 2</p>
     </script>
   </body>
 </html>
@@ -104,8 +103,8 @@ Dies ist die am häufigsten verwendete Methode der Operation.
 ### Beispiel für mehrere Klassen
 
 `document.getElementsByClassName` funktioniert sehr ähnlich wie
-`document.querySelector` und `document.querySelectorAll`. Es werden nur die
-Elemente ausgewählt, die ALLE angegebenen Klassennamen besitzen.
+`document.querySelector` und `document.querySelectorAll`. Es werden nur
+Elemente ausgewählt, die ALLE der angegebenen Klassennamen besitzen.
 
 #### HTML
 
@@ -120,14 +119,14 @@ Elemente ausgewählt, die ALLE angegebenen Klassennamen besitzen.
 #### JavaScript
 
 ```js
-// getElementsByClassName wählt nur Elemente aus, die beide angegebenen Klassen haben
+// getElementsByClassName only selects elements that have both given classes
 const allOrangeJuiceByClass = document.getElementsByClassName("orange juice");
 let result = "document.getElementsByClassName('orange juice')";
 for (let i = 0; i < allOrangeJuiceByClass.length; i++) {
   result += `\n  ${allOrangeJuiceByClass[i].textContent}`;
 }
 
-// querySelector wählt nur vollständige Matches aus
+// querySelector only selects full complete matches
 const allOrangeJuiceQuery = document.querySelectorAll(".orange.juice");
 result += "\n\ndocument.querySelectorAll('.orange.juice')";
 for (let i = 0; i < allOrangeJuiceQuery.length; i++) {

@@ -1,5 +1,5 @@
 ---
-title: "SVGLengthList: removeItem() Methode"
+title: "SVGLengthList: removeItem()-Methode"
 short-title: removeItem()
 slug: Web/API/SVGLengthList/removeItem
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`removeItem()`**-Methode der {{domxref("SVGLengthList")}}-Schnittstelle entfernt ein vorhandenes Element an dem angegebenen Index aus der Liste.
+Die **`removeItem()`**-Methode der [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Schnittstelle entfernt ein bestehendes Element an dem angegebenen Index aus der Liste.
 
 ## Syntax
 
@@ -19,22 +19,22 @@ removeItem(index)
 ### Parameter
 
 - `index`
-  - : Eine nicht-negative Ganzzahl, die den Index des zu löschenden Elements angibt.
+  - : Eine nicht-negative ganze Zahl, die den Index des zu löschenden Elements angibt.
 
 ### Rückgabewert
 
-Das {{domxref("SVGLength")}}, das aus der Liste entfernt wurde.
+Das [`SVGLength`](/de/docs/Web/API/SVGLength), das aus der Liste entfernt wurde.
 
 ### Ausnahmen
 
-- {{domxref("DOMException")}} `NoModificationAllowedError`
+- [`DOMException`](/de/docs/Web/API/DOMException) `NoModificationAllowedError`
   - : Wird ausgelöst, wenn die Liste schreibgeschützt ist.
-- {{domxref("DOMException")}} `IndexSizeError`
-  - : Wird ausgelöst, wenn der Index außerhalb der Grenzen der Liste liegt.
+- [`DOMException`](/de/docs/Web/API/DOMException) `IndexSizeError`
+  - : Wird ausgelöst, wenn der Index außerhalb der Listengrenzen liegt.
 
 ## Beispiele
 
-Sehen Sie sich {{domxref("SVGLengthList")}} für ein vollständiges Beispiel an.
+Sehen Sie [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) für ein vollständiges Beispiel.
 
 ## Spezifikationen
 

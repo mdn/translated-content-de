@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: attachInternals() Methode"
+title: "HTMLElement: attachInternals()-Methode"
 short-title: attachInternals()
 slug: Web/API/HTMLElement/attachInternals
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`HTMLElement.attachInternals()`** Methode gibt ein {{domxref("ElementInternals")}}-Objekt zurück.
-Diese Methode ermöglicht es einem [benutzerdefinierten Element](/de/docs/Web/API/Web_components/Using_custom_elements), an HTML-Formularen teilzunehmen. Das `ElementInternals`-Interface bietet Werkzeuge zum Arbeiten mit diesen Elementen, auf die gleiche Weise wie mit jedem standardmäßigen HTML-Formularelement, und stellt auch das [Accessibility Object Model](https://wicg.github.io/aom/explainer.html) dem Element zur Verfügung.
+Die **`HTMLElement.attachInternals()`**-Methode gibt ein [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Objekt zurück. Diese Methode ermöglicht es einem [benutzerdefinierten Element](/de/docs/Web/API/Web_components/Using_custom_elements), an HTML-Formularen teilzunehmen. Die `ElementInternals`-Schnittstelle bietet Werkzeuge zum Arbeiten mit diesen Elementen in gleicher Weise wie mit jedem standardmäßigen HTML-Formularelement und stellt dem Element auch das [Accessibility Object Model](https://wicg.github.io/aom/explainer.html) zur Verfügung.
 
 ## Syntax
 
@@ -23,20 +22,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("ElementInternals")}}-Objekt.
+Ein [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Objekt.
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Element kein benutzerdefiniertes Element ist.
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die "internals"-Funktionalität im Rahmen der Elementdefinition deaktiviert wurde.
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn diese Methode zweimal am selben Element aufgerufen wird.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die "internals"-Funktionalität als Teil der Elementdefinition deaktiviert wurde.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn diese Methode zweimal auf dasselbe Element aufgerufen wird.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein benutzerdefiniertes form-assoziiertes Element mit `HTMLElement.attachInternals` erstellt wird. Die {{domxref("ElementInternals.form")}}-Eigenschaft wird dann in die Konsole ausgegeben, um zu demonstrieren, dass wir ein {{domxref("ElementInternals")}}-Objekt haben.
+Das folgende Beispiel demonstriert, wie Sie ein benutzerdefiniertes formularassoziiertes Element mit `HTMLElement.attachInternals` erstellen. Die [`ElementInternals.form`](/de/docs/Web/API/ElementInternals/form)-Eigenschaft wird anschließend an die Konsole ausgegeben, um zu zeigen, dass wir ein [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Objekt besitzen.
 
 ```js
 class CustomCheckbox extends HTMLElement {

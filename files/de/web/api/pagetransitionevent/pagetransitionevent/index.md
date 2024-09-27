@@ -1,5 +1,5 @@
 ---
-title: "PageTransitionEvent: Konstruktor PageTransitionEvent()"
+title: "PageTransitionEvent: PageTransitionEvent() Konstruktor"
 short-title: PageTransitionEvent()
 slug: Web/API/PageTransitionEvent/PageTransitionEvent
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Der **`PageTransitionEvent()`**-Konstruktor erstellt ein neues {{domxref("PageTransitionEvent")}}-Objekt, das von den {{domxref("Window/pageshow_event", "pageshow")}}- oder {{domxref("Window/pagehide_event", "pagehide")}}-Ereignissen verwendet wird. Diese werden am {{domxref("window")}}-Objekt ausgelöst, wenn eine Seite geladen oder entladen wird.
+Der **`PageTransitionEvent()`** Konstruktor erstellt ein neues [`PageTransitionEvent`](/de/docs/Web/API/PageTransitionEvent)-Objekt, das von den [`pageshow`](/de/docs/Web/API/Window/pageshow_event)- oder [`pagehide`](/de/docs/Web/API/Window/pagehide_event)-Ereignissen verwendet wird, die beim [`window`](/de/docs/Web/API/Window)-Objekt ausgelöst werden, wenn eine Seite geladen oder entladen wird.
 
 > [!NOTE]
-> Ein Webentwickler muss diesen Konstruktor normalerweise nicht aufrufen, da der Browser diese Objekte selbst erstellt, wenn {{domxref("Window/pageshow_event", "pageshow")}}- oder {{domxref("Window/pagehide_event", "pagehide")}}-Ereignisse ausgelöst werden.
+> Ein Webentwickler muss diesen Konstruktor normalerweise nicht aufrufen, da der Browser diese Objekte selbst erstellt, wenn [`pageshow`](/de/docs/Web/API/Window/pageshow_event)- oder [`pagehide`](/de/docs/Web/API/Window/pagehide_event)-Ereignisse ausgelöst werden.
 
 ## Syntax
 
@@ -23,15 +23,15 @@ new PageTransitionEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es wird zwischen Groß- und Kleinschreibung unterschieden und Browser setzen es auf `pageshow` oder `pagehide`.
+    Es ist groß- und kleinschreibungssensitiv und Browser setzen es auf `pageshow` oder `pagehide`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgende Eigenschaft hat:
+  - : Ein Objekt, das _zusätzlich zu den im [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgende Eigenschaft hat:
     - `persisted` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob das Dokument aus einem Cache geladen wird.
+      - : Ein boolean der angibt, ob das Dokument aus einem Cache geladen wird.
 
 ### Rückgabewert
 
-Ein neues {{domxref("PageTransitionEvent")}}-Objekt.
+Ein neues [`PageTransitionEvent`](/de/docs/Web/API/PageTransitionEvent)-Objekt.
 
 ## Spezifikationen
 
@@ -43,5 +43,5 @@ Ein neues {{domxref("PageTransitionEvent")}}-Objekt.
 
 ## Siehe auch
 
-- [`pageshow`](/de/docs/Web/API/Window/pageshow_event) Ereignis
-- [`pagehide`](/de/docs/Web/API/Window/pagehide_event) Ereignis
+- [`pageshow`](/de/docs/Web/API/Window/pageshow_event)-Ereignis
+- [`pagehide`](/de/docs/Web/API/Window/pagehide_event)-Ereignis

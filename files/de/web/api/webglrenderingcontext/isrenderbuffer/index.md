@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode isRenderbuffer()"
+title: "WebGLRenderingContext: isRenderbuffer() Methode"
 short-title: isRenderbuffer()
 slug: Web/API/WebGLRenderingContext/isRenderbuffer
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.isRenderbuffer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn der übergebene {{domxref("WebGLRenderbuffer")}} gültig ist, und `false` andernfalls.
+Die **`WebGLRenderingContext.isRenderbuffer()`** Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) gültig ist, und `false`, wenn nicht.
 
 ## Syntax
 
@@ -19,15 +20,15 @@ isRenderbuffer(renderbuffer)
 ### Parameter
 
 - `renderbuffer`
-  - : Ein {{domxref("WebGLRenderbuffer")}}, der überprüft werden soll.
+  - : Ein [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer), der überprüft werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob der Renderbuffer gültig ist oder nicht.
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), das angibt, ob das Renderbuffer gültig ist oder nicht.
 
 ## Beispiele
 
-### Überprüfen eines Renderbuffers
+### Überprüfung eines Renderbuffers
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -41,13 +42,13 @@ gl.isRenderbuffer(renderbuffer);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.createRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteRenderbuffer()")}}
-- Andere Buffer: {{domxref("WebGLBuffer")}}, {{domxref("WebGLFramebuffer")}}
+- [`WebGLRenderingContext.bindRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindRenderbuffer)
+- [`WebGLRenderingContext.createRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/createRenderbuffer)
+- [`WebGLRenderingContext.deleteRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteRenderbuffer)
+- Andere Puffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)

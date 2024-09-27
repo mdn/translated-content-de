@@ -7,37 +7,35 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Die [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) Schnittstelle **`XRSystem`** bietet Methoden, mit denen Sie Zugriff auf ein {{domxref("XRSession")}}-Objekt erhalten, das eine WebXR-Sitzung darstellt. Mit dieser `XRSession` können Sie mit dem Augmented Reality (AR)- oder Virtual Reality (VR)-Gerät interagieren.
+Das [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) Interface **`XRSystem`** bietet Methoden, die Ihnen den Zugriff auf ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt ermöglichen, das eine WebXR-Session repräsentiert. Mit dieser `XRSession` können Sie mit dem Gerät für Augmented Reality (AR) oder Virtual Reality (VR) interagieren.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Obwohl `XRSystem` direkt keine Eigenschaften bietet, erbt es Eigenschaften von seiner übergeordneten Schnittstelle, {{domxref("EventTarget")}}._
+_Während `XRSystem` direkt keine Eigenschaften anbietet, erbt es Eigenschaften von seinem Eltern-Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Instanz-Methoden
 
-_Neben der Vererbung von Methoden seiner übergeordneten Schnittstelle, {{domxref("EventTarget")}}, umfasst die `XRSystem`-Schnittstelle die folgenden Methoden:_
+_Neben der Vererbung von Methoden seines Eltern-Interfaces, [`EventTarget`](/de/docs/Web/API/EventTarget), beinhaltet das `XRSystem` Interface die folgenden Methoden:_
 
-- {{DOMxRef("XRSystem.isSessionSupported", "isSessionSupported()")}} {{Experimental_Inline}}
-  - : Gibt ein Versprechen zurück, das sich in `true` auflöst, wenn der Browser den angegebenen Sitzungsmodus unterstützt.
-    Löst sich in `false` auf, wenn der spezifizierte Modus nicht unterstützt wird.
-- {{DOMxRef("XRSystem.requestSession", "requestSession()")}} {{Experimental_Inline}}
-  - : Gibt ein Versprechen zurück, das sich zu einem neuen {{DOMxRef("XRSession")}} mit dem angegebenen Sitzungsmodus auflöst.
+- [`isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) {{Experimental_Inline}}
+  - : Gibt ein Promise zurück, das auf `true` aufgelöst wird, wenn der Browser den angegebenen Sitzungsmodus unterstützt. Es wird auf `false` aufgelöst, wenn der spezifizierte Modus nicht unterstützt wird.
+- [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) {{Experimental_Inline}}
+  - : Gibt ein Promise zurück, das auf eine neue [`XRSession`](/de/docs/Web/API/XRSession) mit dem angegebenen Sitzungsmodus aufgelöst wird.
 
 ## Ereignisse
 
-- {{domxref("XRSystem.devicechange_event", "devicechange")}} {{Experimental_Inline}}
-  - : Wird gesendet, wenn sich die Menge der verfügbaren XR-Geräte geändert hat.
-    Auch über den `ondevicechange` Ereignis-Handler verfügbar.
+- [`devicechange`](/de/docs/Web/API/XRSystem/devicechange_event) {{Experimental_Inline}}
+  - : Wird gesendet, wenn sich die Menge der verfügbaren XR-Geräte geändert hat. Auch verfügbar über den `ondevicechange` Ereignis-Handler.
 
-## Hinweise zur Verwendung
+## Nutzungshinweise
 
-Diese Schnittstelle war in früheren Versionen der Spezifikation als `XR` bekannt; wenn Sie Verweise auf `XR` im Code oder in der Dokumentation sehen, ersetzen Sie diese durch `XRSystem`.
+Dieses Interface war zuvor als `XR` in früheren Versionen der Spezifikation bekannt; wenn Sie Verweise auf `XR` in Code oder Dokumentation sehen, ersetzen Sie dies durch `XRSystem`.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie sowohl {{domxref("XRSystem.isSessionSupported", "isSessionSupported()")}} als auch {{domxref("XRSystem.requestSession", "requestSession()")}} verwendet werden.
+Das folgende Beispiel zeigt, wie sowohl [`isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) als auch [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) verwendet werden.
 
 ```js
 if (navigator.xr) {
@@ -63,18 +61,18 @@ function onButtonClicked() {
 }
 ```
 
-Dieser Code beginnt damit zu überprüfen, ob WebXR verfügbar ist, indem er nach der {{domxref("navigator.xr")}}-Eigenschaft sucht. Wenn sie gefunden wird, wissen wir, dass WebXR vorhanden ist, und fahren fort, indem wir einen Handler für den Button einrichten, den der Benutzer anklicken kann, um den immersiven VR-Modus ein- und auszuschalten.
+Dieser Code beginnt damit, zu überprüfen, ob WebXR verfügbar ist, indem die [`navigator.xr`](/de/docs/Web/API/Navigator/xr)-Eigenschaft gesucht wird. Wenn sie gefunden wird, wissen wir, dass WebXR vorhanden ist, und fahren mit der Einrichtung eines Handlers für den Button fort, den der Benutzer klicken kann, um den immersiven VR-Modus ein- und auszuschalten.
 
-Wir wissen jedoch noch nicht, ob der gewünschte immersive Modus verfügbar ist. Um dies festzustellen, rufen wir `isSessionSupported()` auf und übergeben die gewünschte Sitzungsoption, bevor wir den Button `immersiveButton` aktivieren, den der Benutzer dann verwenden kann, um in den immersiven Modus zu wechseln, wenn der immersive VR-Modus verfügbar ist. Ist der immersive VR-Modus nicht verfügbar, wird der Button deaktiviert, um seine Verwendung zu verhindern.
+Wir wissen jedoch noch nicht, ob der gewünschte immersive Modus verfügbar ist. Um dies zu bestimmen, rufen wir `isSessionSupported()` auf, indem wir die gewünschte Sitzungsoption übergeben, bevor der Button, `immersiveButton`, aktiviert wird, den der Benutzer dann verwenden kann, um in den immersiven Modus zu wechseln, nur wenn der immersive VR-Modus verfügbar ist. Wenn der immersive VR-Modus nicht verfügbar ist, wird der Button deaktiviert, um seine Verwendung zu verhindern.
 
-Die Funktion `onButtonClicked()` überprüft, ob bereits eine Sitzung läuft. Wenn dies nicht der Fall ist, verwenden wir `requestSession()`, um eine zu starten, und sobald das zurückgegebene Versprechen erfüllt wird, rufen wir eine Funktion `onSessionStarted()` auf, um unsere Sitzung für das Rendering und so weiter einzurichten.
+Die Funktion `onButtonClicked()` prüft, ob bereits eine Sitzung läuft. Wenn nicht, verwenden wir `requestSession()`, um eine zu starten, und sobald das zurückgegebene Promise aufgelöst ist, rufen wir eine Funktion `onSessionStarted()` auf, um unsere Sitzung für das Rendering und so weiter einzurichten.
 
-Wenn andererseits bereits eine laufende XR-Sitzung besteht, rufen wir stattdessen {{domxref("XRSession.end", "end()")}} auf, um die aktuelle Sitzung zu beenden. Wenn die aktuelle Sitzung endet, wird das {{domxref("XRSession.end_event", "end")}}-Ereignis gesendet, setzen Sie also `xrSession` in seinem Handler auf `null`, um zu vermerken, dass wir keine laufende Sitzung mehr haben. Auf diese Weise wird, wenn der Benutzer den Button erneut klickt, eine neue Sitzung gestartet.
+Wenn andererseits bereits eine laufende XR-Session vorhanden ist, rufen wir stattdessen [`end()`](/de/docs/Web/API/XRSession/end) auf, um die aktuelle Sitzung zu beenden. Wenn die aktuelle Sitzung endet, wird das [`end`](/de/docs/Web/API/XRSession/end_event)-Ereignis gesendet, daher setzen Sie `xrSession` in dessen Handler auf `null`, um festzuhalten, dass wir keine laufende Sitzung mehr haben. Auf diese Weise wird eine neue Sitzung gestartet, wenn der Benutzer erneut auf den Button klickt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

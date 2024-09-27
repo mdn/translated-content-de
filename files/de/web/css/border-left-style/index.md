@@ -12,12 +12,12 @@ Die **`border-left-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Liniens
 {{EmbedInteractiveExample("pages/css/border-left-style.html")}}
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie Grenzen unterschiedlichen Stils in den Ecken verbunden werden.
+> Die Spezifikation definiert nicht, wie sich Rahmen unterschiedlicher Stile in den Ecken verbinden.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 border-left-style: none;
 border-left-style: hidden;
 border-left-style: dotted;
@@ -29,7 +29,7 @@ border-left-style: ridge;
 border-left-style: inset;
 border-left-style: outset;
 
-/* Globale Werte */
+/* Global values */
 border-left-style: inherit;
 border-left-style: initial;
 border-left-style: revert;
@@ -37,7 +37,7 @@ border-left-style: revert-layer;
 border-left-style: unset;
 ```
 
-Die `border-left-style` Eigenschaft wird als ein einzelnes {{cssxref("line-style")}} Schlüsselwort angegeben.
+Die Eigenschaft `border-left-style` wird als einzelnes {{cssxref("line-style")}} Schlüsselwort angegeben.
 
 ## Formale Definition
 
@@ -77,7 +77,7 @@ Die `border-left-style` Eigenschaft wird als ein einzelnes {{cssxref("line-style
 #### CSS
 
 ```css
-/* Definiere das Aussehen der Tabelle */
+/* Define look of the table */
 table {
   border-width: 2px;
   background-color: #52e385;
@@ -87,7 +87,7 @@ td {
   padding: 3px;
 }
 
-/* border-left-style Beispielklassen */
+/* border-left-style example classes */
 .b1 {
   border-left-style: none;
 }
@@ -134,5 +134,5 @@ td {
 
 ## Siehe auch
 
-- Die anderen stilbezogenen Rand-Eigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-right-style")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-style")}}.
-- Die anderen linken Rand-Eigenschaften: {{Cssxref("border-left")}}, {{Cssxref("border-left-color")}}, und {{Cssxref("border-left-width")}}.
+- Die anderen stilbezogenen Randeigenschaften: {{Cssxref("border-bottom-style")}}, {{Cssxref("border-right-style")}}, {{Cssxref("border-top-style")}}, und {{Cssxref("border-style")}}.
+- Die anderen linken Rand bezogenen Eigenschaften: {{Cssxref("border-left")}}, {{Cssxref("border-left-color")}}, und {{Cssxref("border-left-width")}}.

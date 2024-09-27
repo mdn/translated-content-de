@@ -1,5 +1,5 @@
 ---
-title: Clip
+title: clip
 slug: Web/SVG/Attribute/clip
 l10n:
   sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
@@ -9,7 +9,7 @@ l10n:
 
 Das **`clip`**-Attribut ist ein Präsentationsattribut, das den sichtbaren Bereich eines Elements definiert.
 
-Dieses Attribut hat dieselben Parameterwerte wie die für die CSS-Eigenschaft {{cssxref("clip")}}. Einheitlose Werte, die aktuelle Benutzerkoordinaten anzeigen, sind für die Koordinatenwerte auf dem `rect()` zulässig. Der Wert `auto` definiert einen Clipping-Pfad entlang der Begrenzungen des vom angegebenen Element erstellten Ansichtsfensters.
+Dieses Attribut hat dieselben Parameterwerte wie die für die CSS-Eigenschaft {{cssxref("clip")}} definierten. Werteinheitenlose Werte, die die aktuellen Benutzerkoordinaten anzeigen, sind bei den Koordinatenwerten auf dem `rect()` zulässig. Der Wert `auto` definiert einen Clipping-Pfad entlang der Begrenzungen des von dem gegebenen Element erstellten Viewports.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -46,7 +46,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-## Hinweise zur Verwendung
+## Verwendungshinweise
 
 > [!WARNING]
 > Diese Eigenschaft ist veraltet. Verwenden Sie stattdessen {{cssxref("clip-path")}}.
@@ -68,7 +68,7 @@ svg {
   </tbody>
 </table>
 
-Der Wert `auto` definiert einen Clipping-Pfad entlang der Begrenzungen des vom angegebenen Element erstellten Ansichtsfensters. Der Wert `rect()` definiert ein Clipping-Rechteck nach folgendem Syntax: `rect(<top>, <right>, <bottom>, <left>)`. Die Werte `<top>` und `<bottom>` geben Versätze von der _oberen Rahmenecke_ des Element-Ansichtsfensters an, während `<right>` und `<left>` Versätze von der _linken Rahmenecke_ des Element-Ansichtsfensters angeben.
+Der Wert `auto` definiert einen Clipping-Pfad entlang der Begrenzungen des von dem gegebenen Element erstellten Viewports. Der Wert `rect()` definiert ein Clipping-Rechteck nach dem folgenden Syntaxschema: `rect(<top>, <right>, <bottom>, <left>)`. Die Werte `<top>` und `<bottom>` geben Versätze von der _oberen Randkante_ des Element-Viewports an, während `<right>` und `<left>` Versätze von der _linken Randkante_ des Element-Viewports angeben.
 
 ## Spezifikationen
 

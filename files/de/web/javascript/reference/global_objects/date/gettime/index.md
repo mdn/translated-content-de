@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getTime()`**-Methode von Instanzen des {{jsxref("Date")}} gibt die Anzahl der Millisekunden für dieses Datum seit der [Epoche](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück, die als Mitternacht zu Beginn des 1. Januar 1970 UTC definiert ist.
+Die **`getTime()`** Methode von {{jsxref("Date")}} Instanzen gibt die Anzahl der Millisekunden für dieses Datum seit dem [Epoch](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück, welcher als Mitternacht am Beginn des 1. Januar 1970 UTC definiert ist.
 
 {{EmbedInteractiveExample("pages/js/date-gettime.html", "shorter")}}
 
@@ -23,11 +23,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zahl, die den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date), in Millisekunden, dieses Datums repräsentiert. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine Zahl, die den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date), in Millisekunden, dieses Datums darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beschreibung
 
-`Date`-Objekte werden im Wesentlichen durch einen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) dargestellt, und diese Methode ermöglicht es Ihnen, den Zeitstempel abzurufen. Sie können diese Methode verwenden, um einem anderen {{jsxref("Date")}}-Objekt ein Datum und eine Uhrzeit zuzuweisen. Diese Methode ist funktionell äquivalent zur {{jsxref("Date/valueof", "valueOf()")}}-Methode.
+`Date` Objekte werden grundsätzlich durch einen [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) repräsentiert, und diese Methode ermöglicht es Ihnen, den Zeitstempel abzurufen. Sie können diese Methode verwenden, um einem anderen {{jsxref("Date")}} Objekt ein Datum und eine Uhrzeit zuzuweisen. Diese Methode ist funktional äquivalent zur {{jsxref("Date/valueof", "valueOf()")}} Methode.
 
 ## Beispiele
 
@@ -36,15 +36,15 @@ Eine Zahl, die den [Zeitstempel](/de/docs/Web/JavaScript/Reference/Global_Object
 Erstellen eines Date-Objekts mit dem identischen Zeitwert.
 
 ```js
-// Da der Monat nullbasiert ist, ist der Geburtstag am 10. Januar 1995
+// Since month is zero based, birthday will be January 10, 1995
 const birthday = new Date(1994, 12, 10);
 const copy = new Date();
 copy.setTime(birthday.getTime());
 ```
 
-### Messung der Ausführungszeit
+### Messen der Ausführungszeit
 
-Das Subtrahieren von zwei aufeinanderfolgenden `getTime()`-Aufrufen auf neu erstellten {{jsxref("Date")}}-Objekten gibt die Zeitspanne zwischen diesen beiden Aufrufen an. Dies kann verwendet werden, um die Ausführungszeit einiger Operationen zu berechnen. Siehe auch {{jsxref("Date.now()")}}, um die Instanziierung unnötiger {{jsxref("Date")}}-Objekte zu vermeiden.
+Subtrahieren von zwei aufeinanderfolgenden `getTime()` Aufrufen auf neu erzeugten {{jsxref("Date")}} Objekten, gibt die Zeitspanne zwischen diesen zwei Aufrufen an. Dies kann verwendet werden, um die Ausführungszeit einiger Operationen zu berechnen. Siehe auch {{jsxref("Date.now()")}}, um die Instanziierung überflüssiger {{jsxref("Date")}} Objekte zu vermeiden.
 
 ```js
 let end, start;
@@ -59,7 +59,7 @@ console.log(`Operation took ${end.getTime() - start.getTime()} msec`);
 ```
 
 > [!NOTE]
-> In Browsern, die das Feature der hochauflösenden Zeit der {{domxref("Performance API", "", "", "nocode")}} unterstützen, kann {{domxref("Performance.now()")}} zuverlässigere und genauere Messungen der verstrichenen Zeit als {{jsxref("Date.now()")}} bereitstellen.
+> In Browsern, die das [Performance API](/de/docs/Web/API/Performance_API)'s High-Resolution-Time-Feature unterstützen, kann [`Performance.now()`](/de/docs/Web/API/Performance/now) verlässlichere und präzisere Messungen der verstrichenen Zeit bieten als {{jsxref("Date.now()")}}.
 
 ## Spezifikationen
 

@@ -7,39 +7,39 @@ l10n:
 
 {{APIRef("Screen Capture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`CaptureController`**-Interface bietet Methoden, die verwendet werden können, um eine Aufnahmesitzung weiter zu manipulieren, unabhängig von deren Initiierung über {{domxref("MediaDevices.getDisplayMedia()")}}.
+Die **`CaptureController`**-Schnittstelle bietet Methoden, die verwendet werden können, um eine Aufnahmesitzung weiter zu manipulieren, unabhängig von ihrer Initiierung über [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia).
 
-Ein `CaptureController`-Objekt wird mit einer Aufnahmesitzung verbunden, indem es in einen {{domxref("MediaDevices.getDisplayMedia", "getDisplayMedia()")}}-Aufruf als Wert der `controller`-Eigenschaft des Optionsobjekts übergeben wird.
+Ein `CaptureController`-Objekt ist mit einer Aufnahmesitzung verbunden, indem es in einem Aufruf von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) als Wert der `controller`-Eigenschaft des Optionsobjekts übergeben wird.
 
 ## Konstruktor
 
-- {{ domxref("CaptureController.CaptureController", "CaptureController()") }} {{Experimental_Inline}}
+- [`CaptureController()`](/de/docs/Web/API/CaptureController/CaptureController) {{Experimental_Inline}}
   - : Erstellt eine neue Instanz eines `CaptureController`-Objekts.
 
 ## Instanzmethoden
 
-- {{ domxref("CaptureController.setFocusBehavior", "setFocusBehavior()") }} {{Experimental_Inline}}
-  - : Kontrolliert, ob der erfasste Tab oder das Fenster fokussiert wird oder ob der Fokus bei dem Tab verbleibt, der die aufzeichnende App enthält.
+- [`setFocusBehavior()`](/de/docs/Web/API/CaptureController/setFocusBehavior) {{Experimental_Inline}}
+  - : Steuert, ob der aufgenommene Tab oder das Fenster fokussiert wird oder ob der Fokus bei dem Tab mit der aufnehmenden App bleibt.
 
 ## Beispiele
 
 ```js
-// Erstellen Sie eine neue CaptureController-Instanz
+// Create a new CaptureController instance
 const controller = new CaptureController();
 
-// Fordern Sie den Benutzer auf, einen Tab, ein Fenster oder den Bildschirm zu teilen.
+// Prompt the user to share a tab, window, or screen.
 const stream = await navigator.mediaDevices.getDisplayMedia({ controller });
 
-// Abfragen des displaySurface-Wertes des erfassten Videotracks
+// Query the displaySurface value of the captured video track
 const [track] = stream.getVideoTracks();
 const displaySurface = track.getSettings().displaySurface;
 
 if (displaySurface == "browser") {
-  // Den erfassten Tab fokussieren.
+  // Focus the captured tab.
   controller.setFocusBehavior("focus-captured-surface");
 } else if (displaySurface == "window") {
-  // Den Fokus nicht auf das erfasste Fenster verschieben.
-  // Die fokussierende Seite bleibt fokussiert.
+  // Do not move focus to the captured window.
+  // Keep the capturing page focused.
   controller.setFocusBehavior("no-focus-change");
 }
 ```
@@ -55,5 +55,5 @@ if (displaySurface == "browser") {
 ## Siehe auch
 
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
-- {{domxref("MediaDevices.getDisplayMedia()")}}
+- [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
 - [Besseres Bildschirmteilen mit bedingtem Fokus](https://developer.chrome.com/docs/web-platform/conditional-focus/)

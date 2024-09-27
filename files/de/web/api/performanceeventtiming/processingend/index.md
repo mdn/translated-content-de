@@ -10,31 +10,31 @@ l10n:
 
 Die schreibgeschützte **`processingEnd`**-Eigenschaft gibt die Zeit zurück, zu der der letzte Ereignishandler die Ausführung beendet hat.
 
-Sie ist gleich {{domxref("PerformanceEventTiming.processingStart")}}, wenn keine solchen Ereignishandler vorhanden sind.
+Sie ist gleich [`PerformanceEventTiming.processingStart`](/de/docs/Web/API/PerformanceEventTiming/processingStart), wenn es keine solchen Ereignishandler gibt.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}-Zeitstempel.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Zeitstempel.
 
 ## Beispiele
 
 ### Verwendung der processingEnd-Eigenschaft
 
-Die `processingEnd`-Eigenschaft kann verwendet werden, wenn man Ereignis-Timing-Einträge beobachtet ({{domxref("PerformanceEventTiming")}}). Zum Beispiel, um Eingabeverzögerungen oder Ereignisverarbeitungszeiten zu berechnen.
+Die `processingEnd`-Eigenschaft kann verwendet werden, wenn man Ereignis-Timing-Einträge beobachtet ([`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)). Zum Beispiel, um die Eingabeverzögerung oder die Zeiten der Ereignisverarbeitung zu berechnen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
   list.getEntries().forEach((entry) => {
-    // Gesamtdauer
+    // Full duration
     const duration = entry.duration;
-    // Eingabeverzögerung (vor der Verarbeitung des Ereignisses)
+    // Input delay (before processing event)
     const delay = entry.processingStart - entry.startTime;
-    // Synchrone Ereignisverarbeitungszeit
-    // (zwischen Start und Ende des Dispatch)
+    // Synchronous event processing time
+    // (between start and end dispatch)
     const time = entry.processingEnd - entry.processingStart;
   });
 });
-// Registrieren des Beobachters für Ereignisse
+// Register the observer for events
 observer.observe({ type: "event", buffered: true });
 ```
 
@@ -48,4 +48,4 @@ observer.observe({ type: "event", buffered: true });
 
 ## Siehe auch
 
-- {{domxref("PerformanceEventTiming.processingStart")}}
+- [`PerformanceEventTiming.processingStart`](/de/docs/Web/API/PerformanceEventTiming/processingStart)

@@ -9,22 +9,22 @@ l10n:
 {{APIRef}}
 
 Die **`ImageBitmapRenderingContext.canvas`**-Eigenschaft, Teil der
-[Canvas-API](/de/docs/Web/API/Canvas_API), ist eine schreibgeschützte Referenz auf das
-{{domxref("HTMLCanvasElement")}}- oder {{domxref("OffscreenCanvas")}}-Objekt, das mit dem gegebenen Kontext verbunden ist.
+[Canvas API](/de/docs/Web/API/Canvas_API), ist eine schreibgeschützte Referenz auf das
+[`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) Objekt, das mit dem gegebenen Kontext assoziiert ist.
 
 ## Wert
 
-Ein {{domxref("HTMLCanvasElement")}}- oder {{domxref("OffscreenCanvas")}}-Objekt.
+Ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) Objekt.
 
 ## Beispiele
 
-Gegeben dieses {{HTMLElement("canvas")}}-Element:
+Gegeben dieses {{HTMLElement("canvas")}} Element:
 
 ```html
 <canvas id="canvas"></canvas>
 ```
 
-Sie können innerhalb des `ImageBitmapRenderingContext` eine Referenz auf das Canvas-Element über die `canvas`-Eigenschaft erhalten:
+Sie können eine Referenz auf das Canvas-Element innerhalb des `ImageBitmapRenderingContext` durch Verwendung der `canvas`-Eigenschaft erhalten:
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -42,5 +42,5 @@ console.log(ctx.canvas === canvas); // true
 
 ## Siehe auch
 
-- {{domxref("ImageBitmapRenderingContext")}}-Schnittstelle
-- [Canvas-API](/de/docs/Web/API/Canvas_API)
+- [`ImageBitmapRenderingContext`](/de/docs/Web/API/ImageBitmapRenderingContext) Schnittstelle
+- [Canvas API](/de/docs/Web/API/Canvas_API)

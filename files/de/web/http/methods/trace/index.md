@@ -7,39 +7,36 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die **`TRACE`** HTTP-Methode führt einen Nachrichtenschleifentest entlang des Pfades zur Zielressource durch.
+Die **`TRACE`** HTTP-Methode führt einen Nachrichtenschleifen-Test entlang des Pfades zur Zielressource durch.
 
-Der endgültige Empfänger der Anfrage sollte die Nachricht so, wie sie empfangen wurde (ausschließlich etwaiger Felder, die sensible Daten enthalten könnten), als Nachrichtenkörper einer {{HTTPStatus("200", "200 OK")}}-Antwort mit einem {{HTTPHeader("Content-Type")}} von `message/http` an den Client zurücksenden.
-Der endgültige Empfänger ist entweder der Ursprungsserver oder der erste Server, der einen {{HTTPHeader("Max-Forwards")}}-Wert von `0` in der Anfrage erhält.
+Der endgültige Empfänger der Anfrage sollte die Nachricht so, wie sie empfangen wurde (mit Ausnahme von Feldern, die sensible Daten enthalten könnten), als Nachrichtentext einer {{HTTPStatus("200", "200 OK")}}-Antwort mit einem {{HTTPHeader("Content-Type")}} von `message/http` an den Client zurücksenden. Der endgültige Empfänger ist entweder der Ursprungsserver oder der erste Server, der einen {{HTTPHeader("Max-Forwards")}}-Wert von `0` in der Anfrage erhält.
 
-Der Client darf im Antrag keinen {{Glossary("HTTP Content", "content")}} senden oder Header generieren, die sensible Daten wie Benutzeranmeldedaten oder Cookies enthalten könnten.
-Nicht alle Server implementieren die `TRACE`-Methode, und einige Serverbesitzer haben historisch die Verwendung der `TRACE`-Methode aus Sicherheitsgründen untersagt.
-In solchen Fällen wird eine {{HTTPStatus("405", "405 Method Not Allowed")}} [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) gesendet.
+Der Client darf keinen [Inhalt](/de/docs/Glossary/HTTP_Content) in der Anfrage senden oder Header generieren, die sensible Daten wie Benutzeranmeldedaten oder Cookies enthalten könnten. Nicht alle Server implementieren die `TRACE`-Methode, und einige Serverinhaber haben historisch die Verwendung der `TRACE`-Methode aus Sicherheitsgründen untersagt. In solchen Fällen wird eine {{HTTPStatus("405", "405 Method Not Allowed")}} [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) gesendet.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anfrage hat Body</th>
+      <th scope="row">Anfrage hat einen Körper</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Erfolgreiche Antwort hat Body</th>
+      <th scope="row">Erfolgreiche Antwort hat einen Körper</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Safe/HTTP", "Safe")}}</th>
+      <th scope="row">[Sicher](/de/docs/Glossary/Safe/HTTP)</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Idempotent")}}</th>
+      <th scope="row">[Idempotent](/de/docs/Glossary/Idempotent)</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Cacheable")}}</th>
+      <th scope="row">[Cacheable](/de/docs/Glossary/Cacheable)</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">In <a href="/de/docs/Learn/Forms">HTML-Formularen</a> erlaubt</th>
+      <th scope="row">Erlaubt in <a href="/de/docs/Learn/Forms">HTML-Formularen</a></th>
       <td>Nein</td>
     </tr>
   </tbody>
@@ -52,11 +49,11 @@ TRACE <request-target>["?"<query>] HTTP/1.1
 ```
 
 - `<request-target>`
-  - : Identifiziert die Zielressource der Anfrage, wenn sie mit den im {{HTTPHeader("Host")}}-Header bereitgestellten Informationen kombiniert wird.
-    Dies ist ein absoluter Pfad (z. B. `/path/to/file.html`) in Anfragen an einen Ursprungsserver und eine absolute URL in Anfragen an Proxys (z. B. `http://www.example.com/path/to/file.html`).
+  - : Identifiziert die Zielressource der Anfrage in Kombination mit den Informationen, die im {{HTTPHeader("Host")}}-Header bereitgestellt werden.
+    Dies ist ein absoluter Pfad (z.B. `/path/to/file.html`) bei Anfragen an einen Ursprungsserver und eine absolute URL bei Anfragen an Proxys (z.B. `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
-  - : Eine optionale Abfragekomponente, die durch ein Fragezeichen `?` eingeleitet wird.
-    Wird häufig verwendet, um identifizierende Informationen in Form von `key=value`-Paaren zu tragen.
+  - : Ein optionaler Abfrage-Komponent, der durch ein Fragezeichen `?` eingeleitet wird.
+    Wird oft verwendet, um identifizierende Informationen in Form von `key=value`-Paaren zu übertragen.
 
 ## Beispiele
 
@@ -68,7 +65,7 @@ Eine `TRACE`-Anfrage kann mit `curl` durchgeführt werden:
 curl -v -X TRACE example.com
 ```
 
-Dies führt zu der folgenden HTTP-Anfrage:
+Dies ergibt die folgende HTTP-Anfrage:
 
 ```http
 TRACE / HTTP/1.1
@@ -77,7 +74,7 @@ User-Agent: curl/8.7.1
 Accept: */*
 ```
 
-Eine {{HTTPStatus("200", "200 OK")}}-Antwort mit den Anforderungs-Headern im Antwortkörper wird an den Client zurückgesendet:
+Eine {{HTTPStatus("200", "200 OK")}}-Antwort mit den Anfrage-Headern im Antworttext wird an den Client zurückgesendet:
 
 ```http
 HTTP/1.1 200 OK

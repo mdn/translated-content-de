@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`stdDeviation`** Attribut definiert die Standardabweichung für die Unschärfeoperation.
+Das **`stdDeviation`** Attribut definiert die Standardabweichung für die Weichzeichnungsoperation.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feGaussianBlur")}}
 
@@ -51,7 +51,7 @@ svg {
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -78,9 +78,9 @@ svg {
 
 - `<number-optional-number>`
 
-  - : Wenn zwei Zahlen angegeben sind, stellt die erste Zahl eine Standardabweichung entlang der x-Achse dar. Der zweite Wert stellt eine Standardabweichung entlang der y-Achse dar. Wenn eine Zahl angegeben ist, wird dieser Wert sowohl für X als auch für Y verwendet.
+  - : Wenn zwei Zahlen angegeben sind, repräsentiert die erste Zahl einen Standardabweichungswert entlang der x-Achse. Die zweite Zahl repräsentiert die Standardabweichung entlang der y-Achse. Wenn nur eine Zahl angegeben ist, wird dieser Wert für sowohl X als auch Y verwendet.
 
-    Ein negativer Wert ist verboten. Ein Wert von null deaktiviert den Effekt der angegebenen Filterprimitive (d. h. das Ergebnis ist das Filtereingabebild). Wenn `stdDeviation` nur in X oder Y auf 0 gesetzt ist, wird der Unschärfeeffekt nur in der Richtung angewendet, die einen Wert ungleich null hat.
+    Ein negativer Wert ist verboten. Ein Wert von Null deaktiviert den Effekt der angegebenen Filter-Primitiv (d.h. das Ergebnis ist das Filtereingabebild). Wenn `stdDeviation` nur in einer der Dimensionen X oder Y gleich 0 ist, dann wird die Weichzeichnung nur in die Richtung angewendet, die einen von Null verschiedenen Wert hat.
 
 ## Spezifikationen
 

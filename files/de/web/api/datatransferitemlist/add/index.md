@@ -1,5 +1,5 @@
 ---
-title: "DataTransferItemList: add()-Methode"
+title: "DataTransferItemList: add() Methode"
 short-title: add()
 slug: Web/API/DataTransferItemList/add
 l10n:
@@ -8,9 +8,8 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransferItemList.add()`**-Methode erstellt ein neues
-{{domxref("DataTransferItem")}} mit den angegebenen Daten und fügt es zur Drag-Datenliste hinzu. Das Element kann eine {{domxref("File")}} oder eine Zeichenkette eines bestimmten Typs sein. Wenn das Element erfolgreich zur Liste hinzugefügt wurde, wird das neu erstellte
-{{domxref("DataTransferItem")}}-Objekt zurückgegeben.
+Die **`DataTransferItemList.add()`** Methode erstellt ein neues
+[`DataTransferItem`](/de/docs/Web/API/DataTransferItem) mit den angegebenen Daten und fügt es der Drag-Datenliste hinzu. Das Element kann eine [`File`](/de/docs/Web/API/File) oder eine Zeichenkette eines bestimmten Typs sein. Wenn das Element erfolgreich zur Liste hinzugefügt wird, wird das neu erstellte [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekt zurückgegeben.
 
 ## Syntax
 
@@ -22,26 +21,24 @@ add(file)
 ### Parameter
 
 - `data`
-  - : Eine Zeichenkette, die die Daten des Drag-Elements darstellt.
+  - : Ein String, der die Daten des Drag-Elements darstellt.
 - `type`
-  - : Eine Zeichenkette mit dem Typ des Drag-Elements. Einige Beispieltypen sind
-    `text/html` und `text/plain`.
+  - : Ein String des Typs des Drag-Elements. Einige Beispieltypen sind `text/html` und `text/plain`.
 - `file`
-  - : Ein {{domxref("File")}}-Objekt. Ein Typ muss in diesem Fall nicht angegeben werden.
+  - : Ein [`File`](/de/docs/Web/API/File)-Objekt. In diesem Fall muss kein Typ angegeben werden.
 
 ### Rückgabewert
 
-Ein {{domxref("DataTransferItem")}}, das die angegebenen Daten enthält. Wenn das Drag-Element nicht erstellt werden konnte (zum Beispiel, wenn das zugehörige {{domxref("DataTransfer")}}-Objekt keinen Datenspeicher hat), wird `null` zurückgegeben.
+Ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) mit den angegebenen Daten. Falls das Drag-Element nicht erstellt werden konnte (zum Beispiel, wenn das zugehörige [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt keinen Datenspeicher hat), wird `null` zurückgegeben.
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Zeichenketten-Parameter `data` angegeben wurde und die Liste bereits ein
-    Element enthält, dessen {{domxref("DataTransferItem.kind","kind")}} `"Plain Unicode string"` ist und dessen Typ dem angegebenen Typ-Parameter entspricht.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der String `data`-Parameter angegeben wurde und die Liste bereits ein Element enthält, dessen [`kind`](/de/docs/Web/API/DataTransferItem/kind) `"Plain Unicode string"` ist und dessen Typ gleich dem angegebenen Typ-Parameter ist.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der `add()`-Methode.
+Dieses Beispiel zeigt die Verwendung der `add()` Methode.
 
 ### HTML
 
@@ -52,14 +49,15 @@ Dieses Beispiel zeigt die Verwendung der `add()`-Methode.
     ondragstart="dragstart_handler(event);"
     ondragend="dragend_handler(event);"
     draggable="true">
-    Wählen Sie dieses Element aus, ziehen Sie es in die Ablagezone und lassen Sie die Auswahl los, um das Element zu verschieben.
+    Select this element, drag it to the Drop Zone and then release the selection
+    to move the element.
   </p>
 </div>
 <div
   id="target"
   ondrop="drop_handler(event);"
   ondragover="dragover_handler(event);">
-  Ablagezone
+  Drop Zone
 </div>
 ```
 

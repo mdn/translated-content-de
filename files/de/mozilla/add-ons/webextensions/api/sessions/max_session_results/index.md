@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Dieser Wert repräsentiert die maximale Anzahl von Sitzungen, die durch einen Aufruf von {{WebExtAPIRef("sessions.getRecentlyClosed()")}} zurückgegeben werden. Er ist für WebExtension-Code schreibgeschützt und ist auf 25 eingestellt.
+Dieser Wert repräsentiert die maximale Anzahl von Sitzungen, die durch einen Aufruf von {{WebExtAPIRef("sessions.getRecentlyClosed()")}} zurückgegeben werden. Er ist schreibgeschützt für WebExtension-Code und ist auf 25 festgelegt.
 
 ## Browser-Kompatibilität
 

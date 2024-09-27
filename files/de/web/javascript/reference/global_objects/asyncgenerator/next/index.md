@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`next()`** Methode von {{jsxref("AsyncGenerator")}} Instanzen gibt den nächsten Wert in der Sequenz zurück.
+Die **`next()`**-Methode von {{jsxref("AsyncGenerator")}}-Instanzen gibt den nächsten Wert in der Sequenz zurück.
 
 ## Syntax
 
@@ -19,18 +19,18 @@ next(value)
 ### Parameter
 
 - `value` {{optional_inline}}
-  - : Ein optionaler Wert, der verwendet wird, um den internen Zustand des Generators zu ändern. Ein Wert, der an die `next()` Methode übergeben wird, wird von `yield` empfangen.
+  - : Ein optionaler Wert, der verwendet wird, um den internen Zustand des Generators zu ändern. Ein an die `next()`-Methode übergebener Wert wird von `yield` empfangen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der beim Auflösen ein {{jsxref("Object")}} mit zwei Eigenschaften zurückgibt:
+Ein {{jsxref("Promise")}}, das, wenn es aufgelöst wird, ein {{jsxref("Object")}} mit zwei Eigenschaften zurückgibt:
 
 - `done`
   - : Ein boolescher Wert:
-    - `true`, wenn der Generator jenseits des Endes seines Kontrollflusses ist. In diesem Fall gibt `value` den _Rückgabewert_ des Generators an (der undefiniert sein kann).
-    - `false`, wenn der Generator in der Lage ist, weitere Werte zu produzieren.
+    - `true`, wenn der Generator über das Ende seines Kontrollflusses hinaus ist. In diesem Fall gibt `value` den _Rückgabewert_ des Generators an (der undefiniert sein kann).
+    - `false`, wenn der Generator in der Lage ist, weitere Werte zu erzeugen.
 - `value`
-  - : Ein beliebiger JavaScript-Wert, der vom Generator geliefert oder zurückgegeben wurde.
+  - : Jeder von dem Generator zurückgegebene oder erzeugte JavaScript-Wert.
 
 ## Beispiele
 
@@ -39,8 +39,8 @@ Ein {{jsxref("Promise")}}, der beim Auflösen ein {{jsxref("Object")}} mit zwei 
 Das folgende Beispiel zeigt einen einfachen Generator und das Objekt, das die `next`-Methode zurückgibt:
 
 ```js
-// Eine asynchrone Aufgabe. Stellen Sie sich vor, dass sie in der Praxis
-// etwas Nützlicheres macht.
+// An async task. Pretend it's doing something more useful
+// in practice.
 function delayedValue(time, value) {
   return new Promise((resolve, reject) => {
     setTimeout(() => resolve(value), time);
@@ -65,11 +65,11 @@ asyncGen.next().then((res) => console.log(res)); // { value: undefined, done: tr
 In diesem Beispiel wird `next` mit einem Wert aufgerufen.
 
 > [!NOTE]
-> Der erste Aufruf protokolliert nichts, da der Generator anfangs nichts ausgegeben hat.
+> Der erste Aufruf protokolliert nichts, da der Generator zunächst nichts liefert.
 
 ```js
-// Eine asynchrone Aufgabe. Stellen Sie sich vor, dass sie in der Praxis
-// etwas Nützlicheres macht.
+// An async task. Pretend it's doing something more useful
+// in practice.
 function sleep(time) {
   return new Promise((resolve, reject) => {
     setTimeout(resolve, time);
@@ -86,9 +86,9 @@ async function* createAsyncGenerator() {
 
 async function main() {
   const asyncGen = createAsyncGenerator();
-  // Keine Ausgabe in diesem Schritt: der erste Wert, der durch `next` gesendet wird, geht verloren
+  // No log at this step: the first value sent through `next` is lost
   console.log(await asyncGen.next(1)); // { value: undefined, done: false }
-  // Gibt 2 aus: der durch `next` gesendete Wert
+  // Logs 2: the value sent through `next`
   console.log(await asyncGen.next(2)); // { value: undefined, done: false }
 }
 

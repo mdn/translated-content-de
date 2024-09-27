@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein Prototyp ist ein Modell, das das Erscheinungsbild und Verhalten einer Anwendung oder eines Produkts früh im Entwicklungszyklus darstellt.
+Ein Prototyp ist ein Modell, das das Aussehen und Verhalten einer Anwendung oder eines Produkts früh im Entwicklungszyklus zeigt.
 
 Siehe [Inheritance and the prototype chain](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 

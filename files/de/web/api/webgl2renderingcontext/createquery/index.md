@@ -9,7 +9,7 @@ l10n:
 {{APIRef("WebGL")}}
 
 Die **`WebGL2RenderingContext.createQuery()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert
-{{domxref("WebGLQuery")}}-Objekte, die Möglichkeiten bieten, asynchron Informationen abzufragen.
+[`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekte, die Möglichkeiten bieten, Informationen asynchron abzufragen.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLQuery")}}-Objekt.
+Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt.
 
 ## Beispiele
 
-`gl` muss ein {{domxref("WebGL2RenderingContext")}} sein.
+`gl` muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein.
 `WebGLQuery`-Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
@@ -44,4 +44,4 @@ const query = gl.createQuery();
 
 ## Siehe auch
 
-- {{domxref("WebGLQuery")}}
+- [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)

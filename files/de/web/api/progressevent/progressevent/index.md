@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}}
 
-Der **`ProgressEvent()`** Konstruktor gibt ein neues {{domxref("ProgressEvent")}} Objekt zurück, das den aktuellen Abschluss eines langen Prozesses darstellt.
+Der **`ProgressEvent()`** Konstruktor gibt ein neues [`ProgressEvent`](/de/docs/Web/API/ProgressEvent)-Objekt zurück, das den aktuellen Abschluss eines langen Prozesses darstellt.
 
 ## Syntax
 
@@ -20,24 +20,24 @@ new ProgressEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses.
-    Er ist groß- und kleinschreibungssensitiv und Browser setzen ihn auf `loadstart`, `progress`, `abort`, `error`, `load`, `timeout` oder `loadend`.
+  - : Ein Zeichenfolgenwert mit dem Namen des Ereignisses.
+    Es ist groß- und kleinschreibungssensitiv und Browser setzen es auf `loadstart`, `progress`, `abort`, `error`, `load`, `timeout` oder `loadend`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `lengthComputable` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob die gesamte zu erledigende Arbeit und die bereits vom zugrunde liegenden Prozess geleistete Arbeit berechenbar ist. Mit anderen Worten, es gibt an, ob der Fortschritt messbar ist oder nicht. Standardwert ist `false`.
+      - : Ein boolescher Wert, der angibt, ob die gesamte zu erledigende Arbeit und die bereits erledigte Arbeit des zugrunde liegenden Prozesses berechenbar sind. Anders ausgedrückt, es zeigt an, ob der Fortschritt messbar ist oder nicht. Es ist standardmäßig `false`.
     - `loaded` {{optional_inline}}
-      - : Eine Zahl, die die bereits vom zugrunde liegenden Prozess geleistete Arbeit darstellt. Das Verhältnis der geleisteten Arbeit kann mit der Eigenschaft und `ProgressEvent.total` berechnet werden. Beim Herunterladen einer Ressource über HTTP repräsentiert dies nur den Teil des Inhalts selbst, nicht Header und andere Overhead. Standardwert ist `0`.
+      - : Eine Zahl, die die von dem zugrunde liegenden Prozess bereits geleistete Arbeit darstellt. Das Verhältnis der geleisteten Arbeit kann mit dieser Eigenschaft und `ProgressEvent.total` berechnet werden. Beim Herunterladen einer Ressource über HTTP stellt dies nur den Teil des Inhalts selbst dar, nicht jedoch die Header und andere Overheads. Es ist standardmäßig `0`.
     - `total` {{optional_inline}}
-      - : Eine Zahl, die die Gesamtmenge der Arbeit darstellt, die der zugrunde liegende Prozess auszuführen im Begriff ist. Beim Herunterladen einer Ressource über HTTP repräsentiert dies nur den Inhalt selbst, nicht Header und andere Overhead. Standardwert ist `0`.
+      - : Eine Zahl, die die Gesamtmenge der Arbeit darstellt, die der zugrunde liegende Prozess noch zu leisten hat. Beim Herunterladen einer Ressource über HTTP stellt dies nur den Inhalt selbst dar, nicht jedoch die Header und andere Overheads. Es ist standardmäßig `0`.
 
 ### Rückgabewert
 
-Ein neues {{domxref("ProgressEvent")}} Objekt.
+Ein neues [`ProgressEvent`](/de/docs/Web/API/ProgressEvent)-Objekt.
 
 ## Beispiel
 
-Das Beispiel demonstriert, wie ein `ProgressEvent` mit einem Konstruktor erstellt wird. Dies ist besonders nützlich, um den Fortschritt von Prozessen wie Datei-Uploads, Downloads oder anderen lang andauernden Aufgaben zu verfolgen.
+Das Beispiel zeigt, wie ein `ProgressEvent` mithilfe eines Konstruktors erstellt wird. Dies ist besonders nützlich, um den Fortschritt von Prozessen wie Datei-Uploads, Downloads oder anderen lang andauernden Aufgaben zu verfolgen.
 
 ```js
 function updateProgress(loaded, total) {
@@ -67,4 +67,4 @@ updateProgress(50, 100);
 
 ## Siehe auch
 
-- Das {{domxref("ProgressEvent")}} Interface, zu dem es gehört.
+- Die [`ProgressEvent`](/de/docs/Web/API/ProgressEvent) Schnittstelle, zu der es gehört.

@@ -1,5 +1,5 @@
 ---
-title: "CSSNumericValue: min()-Methode"
+title: "CSSNumericValue: min() Methode"
 short-title: min()
 slug: Web/API/CSSNumericValue/min
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`min()`**-Methode der
-{{domxref("CSSNumericValue")}}-Schnittstelle gibt den niedrigsten Wert unter den übergebenen Werten zurück. Die übergebenen Werte müssen vom gleichen Typ sein.
+Die **`min()`** Methode der
+[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Schnittstelle gibt den niedrigsten Wert von den übergebenen Werten zurück. Die übergebenen Werte müssen vom gleichen Typ sein.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ min(number1, /* …, */ numberN)
 ### Parameter
 
 - `number1`, …, `numberN`
-  - : Entweder eine Zahl oder ein {{domxref('CSSNumericValue')}}.
+  - : Entweder eine Zahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ### Rückgabewert
 
-Ein {{domxref('CSSUnitValue')}}.
+Ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue).
 
 ### Ausnahmen
 
@@ -33,13 +33,13 @@ Ein {{domxref('CSSUnitValue')}}.
 
 ## Beispiele
 
-Wie bereits erwähnt, müssen alle übergebenen Werte vom gleichen Typ und Wert sein. Einige der folgenden Beispiele veranschaulichen, was passiert, wenn sie es nicht sind.
+Wie bereits erwähnt, müssen alle übergebenen Werte vom gleichen Typ und Wert sein. Einige der folgenden Beispiele veranschaulichen, was passiert, wenn dies nicht der Fall ist.
 
 ```js
-// Gibt "1cm" aus
+// Prints "1cm"
 console.log(CSS.cm("1").min(CSS.cm("2")).toString());
 
-// Gibt "max(1cm, 0.393701in)" aus
+// Prints "max(1cm, 0.393701in)"
 console.log(CSS.cm("1").max(CSS.in("0.393701")).toString());
 ```
 

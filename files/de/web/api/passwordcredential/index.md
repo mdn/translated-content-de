@@ -7,28 +7,28 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Credential Management API")}}{{securecontext_header}}
 
-Das **`PasswordCredential`** Interface der [Credential Management API](/de/docs/Web/API/Credential_Management_API) bietet Informationen über ein Benutzername/Passwort-Paar. In unterstützenden Browsern kann eine Instanz dieser Klasse im `credential`-Mitglied des `init`-Objekts für globales {{domxref("Window/fetch", "fetch()")}} übergeben werden.
+Die **`PasswordCredential`**-Schnittstelle der [Credential Management API](/de/docs/Web/API/Credential_Management_API) bietet Informationen über ein Benutzername/Passwort-Paar. In unterstützenden Browsern kann eine Instanz dieser Klasse im `credential`-Mitglied des `init`-Objekts für globales [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben werden.
 
 > [!NOTE]
-> Dieses Interface ist auf Kontexte der obersten Ebene beschränkt und kann nicht von einem {{HTMLElement("iframe")}} verwendet werden.
+> Diese Schnittstelle ist auf oberste Ebenen beschränkt und kann nicht von einem {{HTMLElement("iframe")}} aus verwendet werden.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("PasswordCredential.PasswordCredential()","PasswordCredential()")}} {{Experimental_Inline}}
-  - : Erstellt ein neues `PasswordCredential` Objekt.
+- [`PasswordCredential()`](/de/docs/Web/API/PasswordCredential/PasswordCredential) {{Experimental_Inline}}
+  - : Erstellt ein neues `PasswordCredential`-Objekt.
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Vorfahren, {{domxref("Credential")}}._
+_Erbt Eigenschaften von seinem Vorfahren, [`Credential`](/de/docs/Web/API/Credential)._
 
-- {{domxref("PasswordCredential.iconURL")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der eine URL enthält, die auf ein Bild für ein Icon verweist. Dieses Bild ist zur Anzeige in einem Anmelde-Auswahl-Dialog gedacht. Die URL muss ohne Authentifizierung zugänglich sein.
-- {{domxref("PasswordCredential.name")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein menschenlesbarer String, der einen öffentlichen Namen zur Anzeige in einem Anmelde-Auswahl-Dialog bietet.
-- {{domxref("PasswordCredential.password")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der das Passwort der Anmeldeinformation enthält.
+- [`PasswordCredential.iconURL`](/de/docs/Web/API/PasswordCredential/iconURL) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein String, der eine URL enthält, die auf ein Bild für ein Symbol verweist. Dieses Bild ist für die Anzeige in einem Anmeldewähler vorgesehen. Die URL muss ohne Authentifizierung zugänglich sein.
+- [`PasswordCredential.name`](/de/docs/Web/API/PasswordCredential/name) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein menschenlesbarer String, der einen öffentlichen Namen für die Anzeige in einem Anmeldewähler bereitstellt.
+- [`PasswordCredential.password`](/de/docs/Web/API/PasswordCredential/password) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein String, der das Passwort der Berechtigung enthält.
 
 ## Instanz-Methoden
 

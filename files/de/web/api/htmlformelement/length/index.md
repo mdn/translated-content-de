@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormElement.length`**
-schreibgeschützte Eigenschaft gibt die Anzahl der Steuerelemente im {{HTMLElement("form")}}
+Die **`HTMLFormElement.length`**-
+schreibgeschützte Eigenschaft gibt die Anzahl der Steuerungselemente im {{HTMLElement("form")}}
 Element zurück.
 
-Sie können die Liste der Steuerelemente des Formulars mit der
-{{domxref("HTMLFormElement.elements", "elements")}} Eigenschaft abrufen.
+Sie können auf die Liste der Steuerelemente des Formulars über die
+[`elements`](/de/docs/Web/API/HTMLFormElement/elements)-Eigenschaft zugreifen.
 
-Dies schließt sowohl Elemente ein, die Nachkommen des `<form>`
-Elements sind, als auch Elemente, die mithilfe ihrer
-`form` Eigenschaft Mitglieder des Formulars gemacht werden.
+Dies umfasst sowohl Elemente, die Nachkommen des `<form>`
+Elements sind, als auch Elemente, die durch ihre
+`form`-Eigenschaft Mitglieder des Formulars geworden sind.
 
-Elemente, die für diese Eigenschaft berücksichtigt werden: {{HTMLElement("button")}},
+Elemente, die für diese Eigenschaft berücksichtigt werden, sind: {{HTMLElement("button")}},
 {{HTMLElement("fieldset")}}, {{HTMLElement("input")}} (mit der Ausnahme,
-dass alle, deren Typ "image" ist, aus historischen Gründen weggelassen werden),
+dass solche mit dem Typ "image" aus historischen Gründen ausgeschlossen sind),
 {{HTMLElement("object")}}, {{HTMLElement("output")}}, {{HTMLElement("select")}},
 und {{HTMLElement("textarea")}}.
 
@@ -33,7 +33,7 @@ Eine Zahl.
 
 ```js
 if (document.getElementById("form1").length > 1) {
-  // mehr als ein Formularsteuerelement hier
+  // more than one form control here
 }
 ```
 
@@ -41,6 +41,6 @@ if (document.getElementById("form1").length > 1) {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

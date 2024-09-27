@@ -7,18 +7,18 @@ l10n:
 
 {{MathMLRef}}{{Non-standard_header}}
 
-Das **`href`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) erstellt einen Hyperlink auf dem MathML-Element, der auf die angegebene URL verweist.
+Das **`href`**-[Globalattribut](/de/docs/Web/MathML/Global_attributes) erstellt einen Hyperlink auf dem MathML-Element, der auf die angegebene URL verweist.
 
 ## Beispiel
 
 ```html
-<!-- Machen Sie diese mathematische Gleichung zu einem Link zum Wikipedia-Artikel
-     über den Satz von Pythagoras. -->
+<!-- Make this math equation a link to Wikipedia's article
+     about the Pythagorean theorem. -->
 <math href="https://en.wikipedia.org/wiki/Pythagorean_theorem">
   <mi>c</mi>
   <mo>=</mo>
-  <!-- Machen Sie diese Quadratwurzel zu einem Link zur entsprechenden
-       Berechnung in SageMath. -->
+  <!-- Make this square root a link to corresponding
+       SageMath's calculation. -->
   <msqrt href="https://sagecell.sagemath.org/?z=eJwrLiwq0TCOM9I2iTPSBAAeqgPO">
     <msup>
       <mn>3</mn>
@@ -37,7 +37,7 @@ Das **`href`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) erstell
 
 ## Spezifikationen
 
-Das `href`-Attribut ist in keiner browserorientierten Spezifikation definiert, aber Sie finden eine Beschreibung in [MathML 4](https://w3c.github.io/mathml/#interf_link).
+Das `href`-Attribut ist in keiner browserorientierten Spezifikation definiert, aber Sie können eine Beschreibung in [MathML 4](https://w3c.github.io/mathml/#interf_link) finden.
 
 ## Browser-Kompatibilität
 

@@ -7,26 +7,26 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Konstruktor** gehört zu einer bestimmten Klasse von {{glossary("object","Objekten")}}, die instanziiert wird. Der Konstruktor initialisiert dieses Objekt und kann Zugang zu seinen privaten Informationen bieten. Das Konzept eines Konstruktors kann auf die meisten {{glossary("OOP","objektorientierten Programmiersprachen")}} angewendet werden. Im Wesentlichen wird ein Konstruktor in {{glossary("JavaScript")}} normalerweise bei der Erstellung einer {{glossary("class","Klasse")}} deklariert.
+Ein **Konstruktor** gehört zu einer bestimmten Klasse von [Objekten](/de/docs/Glossary/object), die instanziiert wird. Der Konstruktor initialisiert dieses Objekt und kann den Zugriff auf dessen private Informationen ermöglichen. Das Konzept eines Konstruktors kann auf die meisten [objektorientierten Programmier](/de/docs/Glossary/OOP)-Sprachen angewendet werden. Im Wesentlichen wird ein Konstruktor in [JavaScript](/de/docs/Glossary/JavaScript) normalerweise bei der Instanzierung einer [Klasse](/de/docs/Glossary/class) deklariert.
 
 ## Syntax
 
 ```js
-// Dies ist eine generische Standard-Konstruktor-Klasse Default
+// This is a generic default constructor class Default
 function Default() {}
 
-// Dies ist eine überladene Konstruktor-Klasse Overloaded
-// mit Parameterargumenten
+// This is an overloaded constructor class Overloaded
+// with parameter arguments
 function Overloaded(arg1, arg2, /* …, */ argN) {}
 ```
 
-Um den Konstruktor der Klasse in JavaScript aufzurufen, verwenden Sie einen `new` Operator, um eine neue {{glossary("object reference","Objektreferenz")}} einer {{glossary("variable","Variable")}} zuzuweisen.
+Um den Konstruktor der Klasse in JavaScript aufzurufen, verwenden Sie einen `new` Operator, um eine neue [Objektreferenz](/de/docs/Glossary/object_reference) einer [Variable](/de/docs/Glossary/variable) zuzuweisen.
 
 ```js
 function Default() {}
 
-// Eine neue Referenz eines Default-Objekts, das einer
-// lokalen Variable defaultReference zugewiesen wird
+// A new reference of a Default object assigned to a
+// local variable defaultReference
 const defaultReference = new Default();
 ```
 

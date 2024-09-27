@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`after()`**-Methode der {{domxref("CharacterData")}}-Schnittstelle fügt eine Menge von {{domxref("Node")}}-Objekten oder Strings in die Kinderliste des Elternobjekts ein, direkt nach dem Objekt selbst.
+Die **`after()`**-Methode der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle fügt eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Kindliste des Elternobjekts, direkt nach dem Objekt selbst, ein.
 
-Strings werden als {{domxref("Text")}}-Knoten eingefügt; der String wird als Argument an den {{domxref("Text/Text", "Text()")}}-Konstruktor übergeben.
+Zeichenfolgen werden als [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt; die Zeichenfolge wird als Argument an den Konstruktor [`Text()`](/de/docs/Web/API/Text/Text) übergeben.
 
 ## Syntax
 
@@ -21,16 +21,16 @@ after(...nodes)
 ### Parameter
 
 - `nodes`
-  - : Eine Menge von {{domxref("Node")}}-Objekten oder Strings, die eingefügt werden sollen.
+  - : Eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
-  - : Ausgelöst, wenn die neuen Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden können, d.h., wenn eine der folgenden Bedingungen erfüllt ist:
-    - Wenn das Einfügen eines der hinzugefügten Knoten zu einem Zyklus führen würde, d.h., wenn einer von ihnen ein Vorfahre dieses {{domxref("CharacterData")}}-Knotens ist.
-    - Wenn einer der hinzugefügten Knoten kein {{domxref("DocumentFragment")}}, kein {{domxref("DocumentType")}}, kein {{domxref("Element")}} oder keine {{domxref("CharacterData")}} ist.
-    - Wenn dieser {{domxref("CharacterData")}}-Knoten tatsächlich ein {{domxref("Text")}}-Knoten ist und sein Elternknoten ein {{domxref("Document")}} ist.
-    - Wenn der Elternknoten dieses {{domxref("CharacterData")}}-Knotens ein {{domxref("Document")}} ist und einer der einzufügenden Knoten ein {{domxref("DocumentFragment")}} mit mehr als einem {{domxref("Element")}}-Kind oder einem {{domxref("Text")}}-Kind ist.
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die neuen Knoten nicht an der angegebenen Stelle in der Hierarchie eingefügt werden können, d.h. wenn eine der folgenden Bedingungen erfüllt ist:
+    - Wenn das Einfügen eines der hinzugefügten Knoten zu einem Zyklus führen würde, d.h. wenn einer von ihnen ein Vorfahre dieses [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens ist.
+    - Wenn einer der hinzugefügten Knoten kein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), kein [`DocumentType`](/de/docs/Web/API/DocumentType), kein [`Element`](/de/docs/Web/API/Element) oder keine [`CharacterData`](/de/docs/Web/API/CharacterData) ist.
+    - Wenn dieser [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten tatsächlich ein [`Text`](/de/docs/Web/API/Text)-Knoten ist und sein Elternteil ein [`Document`](/de/docs/Web/API/Document) ist.
+    - Wenn das Elternteil dieses [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens ein [`Document`](/de/docs/Web/API/Document) ist und einer der einzufügenden Knoten ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) mit mehr als einem [`Element`](/de/docs/Web/API/Element)-Kind oder einem [`Text`](/de/docs/Web/API/Text)-Kind ist.
 
 ## Beispiele
 
@@ -49,7 +49,7 @@ h1TextNode.data;
 
 > [!NOTE]
 > Wenn Sie stattdessen Text an den aktuellen Knoten anhängen möchten,
-> ermöglicht Ihnen die [`appendData()`](/de/docs/Web/API/CharacterData/appendData)-Methode, die Daten des aktuellen Knotens zu erweitern.
+> können Sie mit der [`appendData()`](/de/docs/Web/API/CharacterData/appendData)-Methode Daten an den aktuellen Knoten anhängen.
 
 ## Spezifikationen
 
@@ -61,10 +61,10 @@ h1TextNode.data;
 
 ## Siehe auch
 
-- {{domxref("CharacterData.appendData()")}}
-- {{domxref("CharacterData.before()")}}
-- {{domxref("DocumentType.after()")}}
-- {{domxref("Element.after()")}}
-- {{domxref("Element.append()")}}
-- {{domxref("Node.appendChild()")}}
-- {{domxref("Element.insertAdjacentElement()")}}
+- [`CharacterData.appendData()`](/de/docs/Web/API/CharacterData/appendData)
+- [`CharacterData.before()`](/de/docs/Web/API/CharacterData/before)
+- [`DocumentType.after()`](/de/docs/Web/API/DocumentType/after)
+- [`Element.after()`](/de/docs/Web/API/Element/after)
+- [`Element.append()`](/de/docs/Web/API/Element/append)
+- [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild)
+- [`Element.insertAdjacentElement()`](/de/docs/Web/API/Element/insertAdjacentElement)

@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`appendData()`**-Methode der {{domxref("CharacterData")}}-Schnittstelle
-fügt die bereitgestellten Daten am Ende der aktuellen Daten des Knotens hinzu.
+Die **`appendData()`**-Methode des [`CharacterData`](/de/docs/Web/API/CharacterData)-Interfaces fügt die angegebenen Daten am Ende der aktuellen Daten des Knotens hinzu.
 
 ## Syntax
 
@@ -20,7 +19,7 @@ appendData(data)
 ### Parameter
 
 - `data`
-  - : Die Daten, die dem aktuellen Knoten hinzugefügt werden sollen.
+  - : Die Daten, die zum aktuellen Knoten hinzugefügt werden sollen.
 
 ### Rückgabewert
 
@@ -45,11 +44,11 @@ textnode.appendData(" - appended text.");
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("CharacterData.deleteData()")}}, {{domxref("CharacterData.insertData()")}}, {{domxref("CharacterData.replaceData()")}}
-- {{domxref("CharacterData.data")}}
+- [`CharacterData.deleteData()`](/de/docs/Web/API/CharacterData/deleteData), [`CharacterData.insertData()`](/de/docs/Web/API/CharacterData/insertData), [`CharacterData.replaceData()`](/de/docs/Web/API/CharacterData/replaceData)
+- [`CharacterData.data`](/de/docs/Web/API/CharacterData/data)

@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements vermischt werden soll.
+Die **`mix-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Inhalt eines Elements mit dem Inhalt des übergeordneten Elements und dem Hintergrund des Elements gemischt werden soll.
 
 {{EmbedInteractiveExample("pages/css/mix-blend-mode.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 mix-blend-mode: normal;
 mix-blend-mode: multiply;
 mix-blend-mode: screen;
@@ -34,7 +34,7 @@ mix-blend-mode: luminosity;
 mix-blend-mode: plus-darker;
 mix-blend-mode: plus-lighter;
 
-/* Globale Werte */
+/* Global values */
 mix-blend-mode: inherit;
 mix-blend-mode: initial;
 mix-blend-mode: revert;
@@ -47,9 +47,9 @@ mix-blend-mode: unset;
 - {{cssxref("&lt;blend-mode&gt;")}}
   - : Der anzuwendende Mischmodus.
 - `plus-darker`
-  - : Vermischen unter Verwendung des [Kompositionsoperators _plus-darker_](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_darker).
+  - : Mischen mit dem [_plus-darker_ Compositing-Operator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_darker).
 - `plus-lighter`
-  - : Vermischen unter Verwendung des [Kompositionsoperators _plus-lighter_](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Überblendungseffekte (verhindert unerwünschtes Blinken, wenn zwei überlagernde Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
+  - : Mischen mit dem [_plus-lighter_ Compositing-Operator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Nützlich für Übergangseffekte (verhindert unerwünschtes Blinken, wenn zwei überlagernde Elemente ihre Deckkraft in entgegengesetzte Richtungen animieren).
 
 ## Formale Definition
 
@@ -61,13 +61,13 @@ mix-blend-mode: unset;
 
 ## Beispiele
 
-### Wirkung verschiedener mix-blend-mode-Werte
+### Effekt verschiedener mix-blend-mode-Werte
 
 ```html hidden
 <div class="grid">
   <div class="col">
     <div class="note">
-      Isolierte Vermischung (keine Vermischung mit dem Hintergrund)
+      Blending in isolation (no blending with the background)
     </div>
     <div class="row isolate">
       <div class="cell">
@@ -320,7 +320,7 @@ mix-blend-mode: unset;
       </div>
     </div>
 
-    <div class="note">Globale Vermischung (Vermischung mit dem Hintergrund)</div>
+    <div class="note">Blending globally (blend with the background)</div>
     <div class="row">
       <div class="cell">
         normal
@@ -700,7 +700,7 @@ body {
 
 {{EmbedLiveSample("Effect_of_different_mix-blend-mode_values", "100%", "1600px")}}
 
-### Verwenden von mix-blend-mode mit HTML
+### Verwendung von mix-blend-mode mit HTML
 
 #### HTML
 
@@ -748,7 +748,7 @@ body {
 
 {{EmbedLiveSample("Using_mix-blend-mode_with_HTML", "100%", "180")}}
 
-### Verwenden von mix-blend-mode mit SVG
+### Verwendung von mix-blend-mode mit SVG
 
 #### SVG
 
@@ -777,7 +777,7 @@ circle {
 
 {{EmbedLiveSample("Using_mix-blend-mode_with_SVG", "100%", "180")}}
 
-### Verwenden von mix-blend-mode mit Text
+### Verwendung von mix-blend-mode mit Text
 
 Dieses Beispiel verwendet `mix-blend-mode`, um die Textfarbe mit der Hintergrundfarbe des übergeordneten Elements zu mischen.
 

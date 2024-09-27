@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der {{glossary("cryptography","Kryptographie")}} ist **Chiffretext** eine verschlüsselte Nachricht, die Informationen vermittelt, aber nicht lesbar ist, es sei denn, sie wird mit dem richtigen {{glossary("cipher","Chiffre")}} und dem richtigen Geheimnis (in der Regel ein {{glossary("key","Schlüssel")}}) entschlüsselt, wobei der ursprüngliche {{glossary("Plaintext","Klartext")}} wiederhergestellt wird. Die Sicherheit eines Chiffretextes und damit die Geheimhaltung der darin enthaltenen Informationen hängt davon ab, eine sichere Chiffre zu verwenden und den Schlüssel geheim zu halten.
+In der [Kryptographie](/de/docs/Glossary/cryptography) ist **Chiffretext** eine verschlüsselte Nachricht, die Informationen enthält, aber nicht lesbar ist, es sei denn, sie wird mit dem richtigen [Cipher](/de/docs/Glossary/cipher) und dem richtigen Geheimnis (in der Regel ein [Schlüssel](/de/docs/Glossary/key)) [entschlüsselt](/de/docs/Glossary/decryption), um den ursprünglichen [Klartext](/de/docs/Glossary/Plaintext) zu reproduzieren. Die Sicherheit eines Chiffretextes und damit die Geheimhaltung der darin enthaltenen Informationen hängen davon ab, dass ein sicheres Cipher verwendet wird und der Schlüssel geheim bleibt.
 
 ## Siehe auch
 

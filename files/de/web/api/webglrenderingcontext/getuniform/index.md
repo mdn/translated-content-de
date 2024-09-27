@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: getUniform()-Methode"
+title: "WebGLRenderingContext: getUniform() Methode"
 short-title: getUniform()
 slug: Web/API/WebGLRenderingContext/getUniform
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.getUniform()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt den Wert einer Uniform-Variablen an einem angegebenen Ort zurück.
+Die **`WebGLRenderingContext.getUniform()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt den Wert einer Uniform-Variablen an einer bestimmten Position zurück.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ getUniform(program, location)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}, das das Uniform-Attribut enthält.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das das Uniform-Attribut enthält.
 - `location`
-  - : Ein {{domxref("WebGLUniformLocation")}}-Objekt, das den Ort des Uniform-Attributs enthält, das abgerufen werden soll.
+  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation) Objekt, das die Position des abzurufenden Uniform-Attributs enthält.
 
 ### Rückgabewert
 
@@ -40,15 +40,15 @@ Der zurückgegebene Typ hängt vom Uniform-Typ ab:
     </tr>
     <tr>
       <td><code>boolean</code></td>
-      <td>{{domxref("WebGL_API/Types", "GLBoolean")}}</td>
+      <td>[`GLBoolean`](/de/docs/Web/API/WebGL_API/Types)</td>
     </tr>
     <tr>
       <td><code>int</code></td>
-      <td>{{domxref("WebGL_API/Types", "GLint")}}</td>
+      <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
     </tr>
     <tr>
       <td><code>float</code></td>
-      <td>{{domxref("WebGL_API/Types", "GLfloat")}}</td>
+      <td>[`GLfloat`](/de/docs/Web/API/WebGL_API/Types)</td>
     </tr>
     <tr>
       <td><code>vec2</code></td>
@@ -62,7 +62,7 @@ Der zurückgegebene Typ hängt vom Uniform-Typ ab:
       <td><code>bvec2</code></td>
       <td>
         {{jsxref("Array")}} von
-        {{domxref("WebGL_API/Types", "GLBoolean")}} (mit 2
+        [`GLBoolean`](/de/docs/Web/API/WebGL_API/Types) (mit 2
         Elementen)
       </td>
     </tr>
@@ -78,7 +78,7 @@ Der zurückgegebene Typ hängt vom Uniform-Typ ab:
       <td><code>bvec3</code></td>
       <td>
         {{jsxref("Array")}} von
-        {{domxref("WebGL_API/Types", "GLBoolean")}} (mit 3
+        [`GLBoolean`](/de/docs/Web/API/WebGL_API/Types) (mit 3
         Elementen)
       </td>
     </tr>
@@ -94,7 +94,7 @@ Der zurückgegebene Typ hängt vom Uniform-Typ ab:
       <td><code>bvec4</code></td>
       <td>
         {{jsxref("Array")}} von
-        {{domxref("WebGL_API/Types", "GLBoolean")}} (mit 4
+        [`GLBoolean`](/de/docs/Web/API/WebGL_API/Types) (mit 4
         Elementen)
       </td>
     </tr>
@@ -112,18 +112,18 @@ Der zurückgegebene Typ hängt vom Uniform-Typ ab:
     </tr>
     <tr>
       <td><code>sampler2D</code></td>
-      <td>{{domxref("WebGL_API/Types", "GLint")}}</td>
+      <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
     </tr>
     <tr>
       <td><code>samplerCube</code></td>
-      <td>{{domxref("WebGL_API/Types", "GLint")}}</td>
+      <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
     </tr>
     <tr>
       <th colspan="2">Zusätzlich verfügbar in WebGL 2</th>
     </tr>
     <tr>
       <td><code>uint</code></td>
-      <td>{{domxref("WebGL_API/Types", "GLuint")}}</td>
+      <td>[`GLuint`](/de/docs/Web/API/WebGL_API/Types)</td>
     </tr>
     <tr>
       <td><code>uvec2</code></td>
@@ -163,7 +163,7 @@ Der zurückgegebene Typ hängt vom Uniform-Typ ab:
     </tr>
     <tr>
       <td>jeder Sampler-Typ</td>
-      <td>{{domxref("WebGL_API/Types", "GLint")}}</td>
+      <td>[`GLint`](/de/docs/Web/API/WebGL_API/Types)</td>
     </tr>
   </tbody>
 </table>
@@ -185,5 +185,5 @@ gl.getUniform(program, loc);
 
 ## Siehe auch
 
-- {{domxref("WebGLUniformLocation")}}
-- {{domxref("WebGLRenderingContext.getActiveUniform()")}}
+- [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation)
+- [`WebGLRenderingContext.getActiveUniform()`](/de/docs/Web/API/WebGLRenderingContext/getActiveUniform)

@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode isTexture()"
+title: "WebGLRenderingContext: isTexture()-Methode"
 short-title: isTexture()
 slug: Web/API/WebGLRenderingContext/isTexture
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.isTexture()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn die übergebene {{domxref("WebGLTexture")}} gültig ist, und `false` andernfalls.
+Die **`WebGLRenderingContext.isTexture()`**-Methode des [WebGL-API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) gültig ist, und `false` andernfalls.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ isTexture(texture)
 ### Parameter
 
 - `texture`
-  - : Eine {{domxref("WebGLTexture")}}, die überprüft werden soll.
+  - : Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture), das überprüft werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob die Textur gültig ist oder nicht.
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die Textur gültig ist oder nicht.
 
 ## Beispiele
 
-### Eine Textur überprüfen
+### Überprüfung einer Textur
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -41,13 +41,13 @@ gl.isTexture(texture);
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindTexture()")}}
-- {{domxref("WebGLRenderingContext.createTexture()")}}
-- {{domxref("WebGLRenderingContext.deleteTexture()")}}
-- {{domxref("WebGLRenderingContext.texImage2D()")}}
+- [`WebGLRenderingContext.bindTexture()`](/de/docs/Web/API/WebGLRenderingContext/bindTexture)
+- [`WebGLRenderingContext.createTexture()`](/de/docs/Web/API/WebGLRenderingContext/createTexture)
+- [`WebGLRenderingContext.deleteTexture()`](/de/docs/Web/API/WebGLRenderingContext/deleteTexture)
+- [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D)

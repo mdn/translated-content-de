@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Erhält die URL für das HTML-Dokument, das als Popup für diese Page-Action festgelegt ist.
+Erhält die URL für das als Popup für diese Seitenaktion festgelegte HTML-Dokument.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -38,7 +38,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Fügen Sie ein Kontextmenüelement hinzu, das die Popup-URL für den aktuellen Tab protokolliert. Beachten Sie, dass Sie die `contextMenus` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in Ihrem [Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) benötigen, um Kontextmenüeinträge zu erstellen.
+Fügen Sie ein Kontextmenüelement hinzu, das die Popup-URL für den aktuellen Tab protokolliert. Beachten Sie, dass Sie die `contextMenus` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in Ihrem [Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) benötigen, um Kontextmenüelemente zu erstellen.
 
 ```js
 function gotPopup(popupURL) {
@@ -61,7 +61,7 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-getPopup)-API von Chromium. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-getPopup). Diese Dokumentation ist aus [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`deref()`** Methode von Instanzen des {{jsxref("WeakRef")}} gibt den Zielwert dieses `WeakRef` zurück, oder `undefined`, wenn der Zielwert bereits von der Speicherbereinigung entfernt wurde.
+Die **`deref()`**-Methode von {{jsxref("WeakRef")}}-Instanzen gibt den Zielwert dieses `WeakRef` zurück oder `undefined`, wenn der Zielwert durch die Speicherbereinigung entfernt wurde.
 
 ## Syntax
 
@@ -21,26 +21,26 @@ Keine.
 
 ### Rückgabewert
 
-Der Zielwert des WeakRef, der entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist. Gibt `undefined` zurück, wenn der Wert von der Speicherbereinigung entfernt wurde.
+Der Zielwert des WeakRef, der entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) ist. Gibt `undefined` zurück, wenn der Wert durch die Speicherbereinigung entfernt wurde.
 
 ## Beschreibung
 
-Siehe den Abschnitt [Anmerkungen zu WeakRefs](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef#notes_on_weakrefs) auf der Seite {{jsxref("WeakRef")}} für einige wichtige Hinweise.
+Sehen Sie sich den Abschnitt [Hinweise zu WeakRefs](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef#notes_on_weakrefs) auf der {{jsxref("WeakRef")}}-Seite für einige wichtige Hinweise an.
 
 ## Beispiele
 
 ### Verwendung von deref()
 
-Siehe den Abschnitt [Beispiele](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef#examples) auf der Seite {{jsxref("WeakRef")}} für das vollständige Beispiel.
+Sehen Sie sich den Abschnitt [Beispiele](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef#examples) auf der {{jsxref("WeakRef")}}-Seite für das vollständige Beispiel an.
 
 ```js
 const tick = () => {
-  // Holen Sie das Element von der schwachen Referenz, falls es noch existiert
+  // Get the element from the weak reference, if it still exists
   const element = this.ref.deref();
   if (element) {
     element.textContent = ++this.count;
   } else {
-    // Das Element existiert nicht mehr
+    // The element doesn't exist anymore
     console.log("The element is gone.");
     this.stop();
     this.ref = null;

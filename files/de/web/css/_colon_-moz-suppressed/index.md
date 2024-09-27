@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die **`:-moz-suppressed`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente selektiert, die Bilder darstellen, die unterdrückt wurden, weil das Laden von Bildern von der angegebenen Seite blockiert wurde.
+Die **`:-moz-suppressed`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente abgleicht, die Bilder darstellen, welche unterdrückt wurden, weil das Laden von Bildern von der angegebenen Seite blockiert wurde.
 
 > [!NOTE]
 > Dieser Selektor ist hauptsächlich für die Verwendung durch Theme-Entwickler gedacht.
@@ -22,7 +22,7 @@ Die **`:-moz-suppressed`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/C
 
 ## Beispiele
 
-### Gestaltung blockierter Elemente
+### Elemente, die blockiert wurden, stylen
 
 ```css
 :-moz-suppressed {

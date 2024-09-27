@@ -1,5 +1,5 @@
 ---
-title: "MediaDeviceInfo: Eigenschaft kind"
+title: "MediaDeviceInfo: kind-Eigenschaft"
 short-title: kind
 slug: Web/API/MediaDeviceInfo/kind
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`kind`** der {{domxref("MediaDeviceInfo")}}-Schnittstelle gibt einen Aufzählungswert zurück, der entweder `"videoinput"`, `"audioinput"` oder `"audiooutput"` ist.
+Die **`kind`**-Schreibgeschützte Eigenschaft der [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Schnittstelle gibt einen enumerierten Wert zurück, der entweder `"videoinput"`, `"audioinput"` oder `"audiooutput"` ist.
 
 ## Wert
 
@@ -18,6 +18,6 @@ Einer von `"videoinput"`, `"audioinput"` oder `"audiooutput"`.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Screen Capture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der {{domxref("CaptureController")}} Konstruktor erstellt eine neue `CaptureController` Objektinstanz.
+Der [`CaptureController`](/de/docs/Web/API/CaptureController) Konstruktor erstellt eine neue Instanz eines `CaptureController` Objekts.
 
 ## Syntax
 
@@ -23,22 +23,22 @@ Keine.
 ## Beispiele
 
 ```js
-// Erstellen Sie eine neue CaptureController-Instanz
+// Create a new CaptureController instance
 const controller = new CaptureController();
 
-// Fordern Sie den Benutzer auf, einen Tab, ein Fenster oder den Bildschirm zu teilen.
+// Prompt the user to share a tab, window, or screen.
 const stream = await navigator.mediaDevices.getDisplayMedia({ controller });
 
-// Abfragen des displaySurface-Werts des erfassten Videotracks
+// Query the displaySurface value of the captured video track
 const [track] = stream.getVideoTracks();
 const displaySurface = track.getSettings().displaySurface;
 
 if (displaySurface == "browser") {
-  // Fokussieren Sie den erfassten Tab.
+  // Focus the captured tab.
   controller.setFocusBehavior("focus-captured-surface");
 } else if (displaySurface == "window") {
-  // Den Fokus nicht auf das erfasste Fenster verschieben.
-  // Die fokussierende Seite bleibt unverändert.
+  // Do not move focus to the captured window.
+  // Keep the capturing page focused.
   controller.setFocusBehavior("no-focus-change");
 }
 ```
@@ -54,5 +54,5 @@ if (displaySurface == "browser") {
 ## Siehe auch
 
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
-- {{domxref("MediaDevices.getDisplayMedia()")}}
+- [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
 - [Besseres Bildschirmteilen mit bedingtem Fokus](https://developer.chrome.com/docs/web-platform/conditional-focus/)

@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Periodic Background Sync")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Der **`PeriodicSyncEvent()`** Konstruktor erstellt ein neues {{domxref("PeriodicSyncEvent")}} Objekt. Dieser Konstruktor wird normalerweise nicht verwendet. Der Browser erstellt diese Objekte selbst und übergibt sie an den {{domxref('ServiceWorkerGlobalScope.periodicsync_event', 'onperiodicsync')}} Callback.
+Der **`PeriodicSyncEvent()`** Konstruktor
+erstellt ein neues [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent)-Objekt. Dieser Konstruktor wird in der Regel nicht verwendet. Der Browser erstellt diese Objekte selbst und stellt sie dem [`onperiodicsync`](/de/docs/Web/API/ServiceWorkerGlobalScope/periodicsync_event)-Callback zur Verfügung.
 
 ## Syntax
 
@@ -19,19 +20,21 @@ new PeriodicSyncEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Es ist groß- und kleinschreibungssensitiv und Browser setzen es auf `periodicsync`.
+  - : Ein String mit dem Namen des Ereignisses.
+    Es ist case-sensitiv und Browser setzen es auf `periodicsync`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das, _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_, die folgenden Eigenschaften haben kann:
     - `tag`
       - : Der Tag, der auf das Sync-Ereignis verweist.
 
 ### Rückgabewert
 
-Ein neues {{domxref("PeriodicSyncEvent")}} Objekt, das mit den angegebenen Eingaben konfiguriert ist.
+Ein neues [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent)-Objekt, das mit den gegebenen Eingaben konfiguriert wurde.
 
 ## Beispiele
 
-Dieses Beispiel konstruiert ein neues {{domxref('PeriodicSyncEvent')}} mit dem relevanten zugeordneten Tag.
+Dieses Beispiel erstellt ein neues [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent) mit dem entsprechenden
+zugehörigen Tag.
 
 ```js
 const psEvent = new ExtendableEvent("periodicsync", { tag: "unique-tag" });
@@ -47,5 +50,5 @@ const psEvent = new ExtendableEvent("periodicsync", { tag: "unique-tag" });
 
 ## Siehe auch
 
-- [Richer offline experiences with the Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
-- [A Periodic Background Sync demo app](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)
+- [Umfassendere Offline-Erfahrungen mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
+- [Eine Demo-App für Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Insertable Streams for MediaStreamTrack API")}}{{SeeCompatTable}}{{Non-standard_Header}}
 
-Der **`MediaStreamTrackGenerator()`** Konstruktor erstellt ein neues {{domxref("MediaStreamTrackGenerator")}} Objekt, das einen Strom von Medienframes konsumiert und einen {{domxref("MediaStreamTrack")}} bereitstellt.
+Der **`MediaStreamTrackGenerator()`** Konstruktor erstellt ein neues [`MediaStreamTrackGenerator`](/de/docs/Web/API/MediaStreamTrackGenerator) Objekt, das einen Strom von Medien-Frames konsumiert und einen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) bereitstellt.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ new MediaStreamTrackGenerator(options)
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das die Eigenschaft `kind` enthält, die eine der folgenden Zeichenfolgen ist:
+  - : Ein Objekt, das die Eigenschaft `kind` enthält, welche einer der folgenden Strings ist:
     - `"audio"`
-      - : Gibt an, dass der Stream {{domxref("AudioTrack")}} Objekte akzeptiert.
+      - : Gibt an, dass der Stream [`AudioTrack`](/de/docs/Web/API/AudioTrack) Objekte akzeptiert.
     - `"video"`
-      - : Gibt an, dass der Stream {{domxref("VideoTrack")}} Objekte akzeptiert.
+      - : Gibt an, dass der Stream [`VideoTrack`](/de/docs/Web/API/VideoTrack) Objekte akzeptiert.
 
 ### Ausnahmen
 

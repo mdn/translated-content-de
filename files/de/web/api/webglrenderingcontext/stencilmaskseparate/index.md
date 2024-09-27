@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: stencilMaskSeparate()-Methode"
+title: "WebGLRenderingContext: stencilMaskSeparate() Methode"
 short-title: stencilMaskSeparate()
 slug: Web/API/WebGLRenderingContext/stencilMaskSeparate
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.stencilMaskSeparate()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) steuert das Aktivieren und Deaktivieren des Schreibens von einzelnen Bits in den Stencil-Ebenen für die Vorder- und/oder Rückseite.
+Die **`WebGLRenderingContext.stencilMaskSeparate()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) steuert das Aktivieren und Deaktivieren des Schreibens einzelner Bits in den Stencil-Ebenen für Vorder- und/oder Rückseite.
 
-Die {{domxref("WebGLRenderingContext.stencilMask()")}}-Methode kann sowohl die Vorder- als auch die Rückseiten-Stencil-Schreibmasken gleichzeitig auf einen Wert setzen.
+Die [`WebGLRenderingContext.stencilMask()`](/de/docs/Web/API/WebGLRenderingContext/stencilMask)-Methode kann sowohl die Vorder- als auch die Rückseiten-Stencil-Schreibmasken gleichzeitig auf einen Wert setzen.
 
 ## Syntax
 
@@ -22,18 +22,18 @@ stencilMaskSeparate(face, mask)
 
 - `face`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der angibt, ob die Schreibmaske für die Vorder- und/oder Rückseite des Stencils aktualisiert wird. Die möglichen Werte sind:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, ob die Vorder- und/oder Rückseiten-Stencil-Schreibmaske aktualisiert wird. Die möglichen Werte sind:
 
     - `gl.FRONT`
     - `gl.BACK`
     - `gl.FRONT_AND_BACK`
 
 - `mask`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der eine Bitmaske angibt, um das Schreiben einzelner Bits in den Stencil-Ebenen zu aktivieren oder zu deaktivieren. Standardmäßig ist die Maske vollständig auf 1 gesetzt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), das eine Bitmaske angibt, die das Schreiben einzelner Bits in den Stencil-Ebenen aktiviert oder deaktiviert. Standardmäßig ist die Maske auf alle 1 gesetzt.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -41,8 +41,7 @@ Kein ({{jsxref("undefined")}}).
 gl.stencilMaskSeparate(gl.FRONT, 110101);
 ```
 
-Um die aktuellen Stencil-Masken zu erhalten, können die Konstanten `STENCIL_WRITEMASK`,
-`STENCIL_BACK_WRITEMASK` oder `STENCIL_BITS` abgefragt werden.
+Um die aktuellen Stencil-Masken abzurufen, fragen Sie die Konstanten `STENCIL_WRITEMASK`, `STENCIL_BACK_WRITEMASK` oder `STENCIL_BITS` ab.
 
 ```js
 gl.getParameter(gl.STENCIL_WRITEMASK);
@@ -63,6 +62,6 @@ gl.getParameter(gl.STENCIL_BITS);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.colorMask()")}}
-- {{domxref("WebGLRenderingContext.depthMask()")}}
-- {{domxref("WebGLRenderingContext.stencilMask()")}}
+- [`WebGLRenderingContext.colorMask()`](/de/docs/Web/API/WebGLRenderingContext/colorMask)
+- [`WebGLRenderingContext.depthMask()`](/de/docs/Web/API/WebGLRenderingContext/depthMask)
+- [`WebGLRenderingContext.stencilMask()`](/de/docs/Web/API/WebGLRenderingContext/stencilMask)

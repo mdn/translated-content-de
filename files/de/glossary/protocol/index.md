@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Protokoll** ist ein System von Regeln, die definieren, wie Daten innerhalb oder zwischen Computern ausgetauscht werden. Die Kommunikation zwischen Geräten erfordert, dass sich die Geräte auf das Format der auszutauschenden Daten einigen. Das Regelwerk, das ein Format definiert, wird als Protokoll bezeichnet.
+Ein **Protokoll** ist ein System von Regeln, das definiert, wie Daten innerhalb von oder zwischen Computern ausgetauscht werden. Für die Kommunikation zwischen Geräten ist es erforderlich, dass die Geräte sich auf das Format der auszutauschenden Daten einigen. Der Satz von Regeln, der ein Format definiert, wird als Protokoll bezeichnet.
 
 ## Siehe auch
 
 - [Kommunikationsprotokoll](https://en.wikipedia.org/wiki/Communications_protocol) auf Wikipedia
-- [RFC Offizielle Internet-Protokollstandards](https://www.rfc-editor.org/standards)
-- [HTTP Übersicht](/de/docs/Web/HTTP/Overview)
+- [RFC Offizielle Internet-Protokoll-Standards](https://www.rfc-editor.org/standards)
+- [HTTP-Übersicht](/de/docs/Web/HTTP/Overview)
 - Verwandte Glossarbegriffe:
-  - {{glossary("TCP")}}
-  - {{glossary("Packet")}}
+  - [TCP](/de/docs/Glossary/TCP)
+  - [Paket](/de/docs/Glossary/Packet)

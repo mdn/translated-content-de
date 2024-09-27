@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`expires`**-Eigenschaft der {{domxref("RTCCertificate")}}-Schnittstelle gibt das Ablaufdatum des Zertifikats zurück.
+Die schreibgeschützte **`expires`**-Eigenschaft der [`RTCCertificate`](/de/docs/Web/API/RTCCertificate)-Schnittstelle gibt das Ablaufdatum des Zertifikats zurück.
 
-Standardmäßig wird ein neues Zertifikat mit `expires` konfiguriert, das auf einen Wert von 2592000000 Millisekunden, also 30 Tagen, eingestellt ist. Die Ablaufzeit kann maximal 31536000000 Millisekunden, oder 365 Tage, betragen. Es ist auch nützlich zu beachten, dass Browser die Ablaufzeit von Zertifikaten weiter einschränken können, wenn sie dies wünschen.
+Standardmäßig wird ein neues Zertifikat mit einem auf 2592000000 Millisekunden oder 30 Tage eingestellten `expires`-Wert konfiguriert. Die Ablaufzeit kann 31536000000 Millisekunden oder 365 Tage nicht überschreiten. Es ist auch nützlich zu beachten, dass Browser die Ablaufzeit von Zertifikaten weiter einschränken können, wenn sie dies wünschen.
 
 ## Wert
 
@@ -26,7 +26,7 @@ RTCPeerConnection.generateCertificate({
   publicExponent: new Uint8Array([1, 0, 1]),
 }).then((cert) => {
   const pc = new RTCPeerConnection({ certificates: [cert] });
-  console.log(cert.expires); // 2592000000 (30 Tage, der Standard)
+  console.log(cert.expires); // 2592000000 (30 days, the default)
 });
 ```
 
@@ -40,4 +40,4 @@ RTCPeerConnection.generateCertificate({
 
 ## Siehe auch
 
-- {{domxref("RTCPeerConnection.generateCertificate_static", "RTCPeerConnection.generateCertificate()")}}
+- [`RTCPeerConnection.generateCertificate()`](/de/docs/Web/API/RTCPeerConnection/generateCertificate_static)

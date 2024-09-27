@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar}}
 
-Eine **Disjunktion** spezifiziert mehrere Alternativen. Wenn eine Alternative mit der Eingabe übereinstimmt, wird die gesamte Disjunktion als passend betrachtet.
+Eine **Disjunktion** gibt mehrere Alternativen an. Wenn eine Alternative mit der Eingabe übereinstimmt, führt dies dazu, dass die gesamte Disjunktion übereinstimmt.
 
 ## Syntax
 
@@ -19,38 +19,38 @@ alternative1|alternative2|alternative3|…
 ### Parameter
 
 - `alternativeN`
-  - : Ein alternatives Muster, bestehend aus einer Folge von [Atomen und Assertions](/de/docs/Web/JavaScript/Reference/Regular_expressions#assertions). Wenn eine Alternative erfolgreich übereinstimmt, wird die gesamte Disjunktion als passend betrachtet.
+  - : Ein alternatives Muster, bestehend aus einer Sequenz von [Atomen und Assertions](/de/docs/Web/JavaScript/Reference/Regular_expressions#assertions). Das erfolgreiche Abgleichen einer Alternative führt dazu, dass die gesamte Disjunktion übereinstimmt.
 
 ## Beschreibung
 
-Der `|`-Regulärausdrucksoperator trennt zwei oder mehr _Alternativen_. Das Muster versucht zuerst, die erste Alternative zu finden; wenn dies fehlschlägt, versucht es, die zweite zu finden, und so weiter. Zum Beispiel wird hier `"a"` statt `"ab"` gefunden, da die erste Alternative bereits erfolgreich übereinstimmt:
+Der `|` reguläre Ausdrucksoperator trennt zwei oder mehr _Alternativen_. Das Muster versucht zuerst, mit der ersten Alternative übereinzustimmen; wenn dies fehlschlägt, versucht es, mit der zweiten übereinzustimmen, und so weiter. Zum Beispiel stimmt das Folgende mit `"a"` anstelle von `"ab"` überein, da die erste Alternative bereits erfolgreich übereinstimmt:
 
 ```js
 /a|ab/.exec("abc"); // ['a']
 ```
 
-Der `|`-Operator hat die niedrigste Priorität in einem Regulärausdruck. Wenn Sie eine Disjunktion als Teil eines größeren Musters verwenden möchten, müssen Sie sie [gruppieren](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group).
+Der `|` Operator hat die niedrigste Priorität in einem regulären Ausdruck. Wenn Sie eine Disjunktion als Teil eines größeren Musters verwenden möchten, müssen Sie sie [gruppieren](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group).
 
-Wenn eine gruppierte Disjunktion noch Ausdrücke danach hat, beginnt das Matching, indem die erste Alternative ausgewählt wird und versucht wird, den Rest des Regulärausdrucks zu finden. Wenn der Rest des Regulärausdrucks nicht übereinstimmt, versucht der Matcher stattdessen die nächste Alternative. Zum Beispiel:
+Wenn eine gruppierte Disjunktion nach ihr weitere Ausdrücke hat, beginnt das Matching, indem die erste Alternative ausgewählt wird und versucht wird, den Rest des regulären Ausdrucks abzugleichen. Wenn der Rest des regulären Ausdrucks nicht übereinstimmt, versucht der Matcher stattdessen die nächste Alternative. Zum Beispiel,
 
 ```js
 /(?:(a)|(ab))(?:(c)|(bc))/.exec("abc"); // ['abc', 'a', undefined, undefined, 'bc']
-// Nicht ['abc', undefined, 'ab', 'c', undefined]
+// Not ['abc', undefined, 'ab', 'c', undefined]
 ```
 
-Dies liegt daran, dass durch die Auswahl von `a` in der ersten Alternative es möglich ist, `bc` in der zweiten Alternative auszuwählen, was zu einem erfolgreichen Match führt. Dieser Prozess wird _Backtracking_ genannt, da der Matcher zuerst ein Stück über die Disjunktion hinaus geht und dann zu ihr zurückkommt, wenn das folgende Matching fehlschlägt.
+Dies liegt daran, dass durch die Auswahl von `a` in der ersten Alternative `bc` in der zweiten Alternative ausgewählt werden kann und das Ganze zu einem erfolgreichen Match führt. Dieser Prozess wird _Backtracking_ genannt, weil der Matcher zunächst über die Disjunktion hinausgeht und dann zu ihr zurückkehrt, wenn das nachfolgende Match fehlschlägt.
 
-Beachten Sie auch, dass alle erfassten Klammern innerhalb einer Alternative, die nicht übereinstimmt, `undefined` im resultierenden Array erzeugen.
+Beachten Sie auch, dass Klammern, die innerhalb einer Alternative erfasst werden und die nicht übereinstimmen, `undefined` im resultierenden Array erzeugen.
 
-Eine Alternative kann leer sein, in diesem Fall entspricht sie dem leeren String (mit anderen Worten, sie stimmt immer überein).
+Eine Alternative kann leer sein, in diesem Fall stimmt sie mit dem leeren String überein (mit anderen Worten, sie stimmt immer überein).
 
-Alternativen werden immer von links nach rechts versucht, unabhängig von der Richtung des Matching (die bei einem [Lookbehind-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion) umgekehrt ist).
+Alternativen werden immer von links nach rechts versucht, unabhängig von der Richtung des Matchings (die in einem [Lookbehind](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion) umgekehrt ist).
 
 ## Beispiele
 
-### Dateiendungen abgleichen
+### Dateierweiterungen abgleichen
 
-Im folgenden Beispiel werden Dateiendungen verglichen, wobei derselbe Code wie im Artikel zur [Eingabegrenzen-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion#matching_file_extensions) verwendet wird:
+Das folgende Beispiel stimmt mit Dateierweiterungen überein, mit demselben Code wie der Artikel zur [Eingangsgrenzen-Assertion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion#matching_file_extensions):
 
 ```js
 function isImage(filename) {

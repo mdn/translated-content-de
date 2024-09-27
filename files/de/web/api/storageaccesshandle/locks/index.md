@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Storage Access API")}}
 
-Die **`locks`**-Eigenschaft der {{domxref("StorageAccessHandle")}}-Schnittstelle gibt ein unpartitioniertes Sitzungs-{{domxref("LockManager")}}-Objekt zurück, wenn der Zugriff gewährt wurde, und wirft andernfalls eine `SecurityError`-{{DOMxRef("DOMException")}}.
+Die **`locks`**-Eigenschaft des [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle)-Interfaces gibt ein nicht partitioniertes Sitzungs-[`LockManager`](/de/docs/Web/API/LockManager)-Objekt zurück, wenn der Zugriff gewährt wurde, und wirft andernfalls einen `SecurityError`-`DOMException`-Fehler.
 
 ## Wert
 
-Ein {{domxref("LockManager")}}-Objekt.
+Ein [`LockManager`](/de/docs/Web/API/LockManager)-Objekt.
 
 ## Beispiele
 
@@ -31,7 +31,7 @@ document.requestStorageAccess({ locks: true }).then(
 ```
 
 > [!NOTE]
-> Weitere Informationen finden Sie unter [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein umfassenderes Beispiel.
+> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
 
 ## Spezifikationen
 
@@ -43,5 +43,5 @@ document.requestStorageAccess({ locks: true }).then(
 
 ## Siehe auch
 
-- {{domxref("Document.requestStorageAccess()")}}
+- [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
 - [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)

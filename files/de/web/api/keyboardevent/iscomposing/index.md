@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`KeyboardEvent.isComposing`** gibt einen booleschen Wert zurück, der angibt, ob das Ereignis innerhalb einer Kompositionssitzung ausgelöst wird, d.h. nach {{domxref("Element/compositionstart_event", "compositionstart")}} und vor {{domxref("Element/compositionend_event", "compositionend")}}.
+Die **`KeyboardEvent.isComposing`** schreibgeschützte Eigenschaft gibt einen booleschen Wert zurück, der angibt, ob das Ereignis innerhalb einer Kompositionssitzung ausgelöst wird, d.h. nach [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event) und vor [`compositionend`](/de/docs/Web/API/Element/compositionend_event).
 
 ## Wert
 
-Ein Boolescher Wert.
+Ein boolescher Wert.
 
 ## Beispiele
 
@@ -31,5 +31,5 @@ console.log(kbdEvent.isComposing); // return false
 
 ## Siehe auch
 
-- {{domxref("Element/compositionstart_event", "compositionstart")}} und {{domxref("Element/compositionend_event", "compositionend")}}
-- {{domxref("KeyboardEvent")}}
+- [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event) und [`compositionend`](/de/docs/Web/API/Element/compositionend_event)
+- [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)

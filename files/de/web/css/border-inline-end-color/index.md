@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-inline-end-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe der logischen Inline-Ende-Grenze eines Elements, die je nach Schreibrichtung, Richtung und Textorientierung des Elements einer physischen Rahmenfarbe zugeordnet wird. Sie entspricht der {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
+Die **`border-inline-end-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe des logischen Inline-End-Randes eines Elements, welche je nach Schreibmodus des Elements, Richtung und Textausrichtung auf eine physische Randfarbe abgebildet wird. Sie entspricht der Eigenschaft {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}} oder {{cssxref("border-left-color")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
 {{EmbedInteractiveExample("pages/css/border-inline-end-color.html")}}
 
@@ -17,7 +17,7 @@ Die **`border-inline-end-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert 
 border-inline-end-color: rebeccapurple;
 border-inline-end-color: #663399;
 
-/* Globale Werte */
+/* Global values */
 border-inline-end-color: inherit;
 border-inline-end-color: initial;
 border-inline-end-color: revert;
@@ -25,7 +25,7 @@ border-inline-end-color: revert-layer;
 border-inline-end-color: unset;
 ```
 
-Verwandte Eigenschaften sind {{cssxref("border-block-start-color")}}, {{cssxref("border-block-end-color")}}, und {{cssxref("border-inline-start-color")}}, die die anderen Rahmenfarben des Elements definieren.
+Verwandte Eigenschaften sind {{cssxref("border-block-start-color")}}, {{cssxref("border-block-end-color")}} und {{cssxref("border-inline-start-color")}}, die die anderen Randfarben des Elements definieren.
 
 ### Werte
 
@@ -46,7 +46,7 @@ Verwandte Eigenschaften sind {{cssxref("border-block-start-color")}}, {{cssxref(
 
 ```html
 <div>
-  <p class="exampleText">Beispieltext</p>
+  <p class="exampleText">Example text</p>
 </div>
 ```
 
@@ -78,6 +78,6 @@ div {
 
 ## Siehe auch
 
-- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft wird einer der physikalischen Rahmeneigenschaften zugeordnet: {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}}.
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- Diese Eigenschaft wird auf eine der physischen Rand-Eigenschaften abgebildet: {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}} oder {{cssxref("border-left-color")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

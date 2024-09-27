@@ -1,5 +1,5 @@
 ---
-title: "<wbr>: Das Zeilenbruch-Möglichkeit-Element"
+title: "<wbr>: Das Line Break Opportunity-Element"
 slug: Web/HTML/Element/wbr
 l10n:
   sourceCommit: 0af6781c93ffe3d011a060b4e517187cf780e93a
@@ -7,23 +7,23 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<wbr>`** [HTML](/de/docs/Web/HTML) Element repräsentiert eine Wortbruch-Möglichkeit – eine Position im Text, an der der Browser optional einen Zeilenumbruch vornehmen kann, obwohl die Zeilenumbruchregeln ansonsten an dieser Stelle keinen Umbruch erzeugen würden.
+Das **`<wbr>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Gelegenheit für einen Zeilenumbruch—eine Position im Text, an der der Browser optional eine Zeile umbrechen kann, obwohl seine Zeilenumbruchsregeln an dieser Stelle keinen Umbruch erzeugen würden.
 
 {{EmbedInteractiveExample("pages/tabbed/wbr.html", "tabbed-shorter")}}
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Hinweise
 
-Auf UTF-8-kodierten Seiten verhält sich `<wbr>` wie der `U+200B ZERO-WIDTH SPACE` Codepunkt. Insbesondere verhält es sich wie ein Unicode bidi BN Codepunkt, was bedeutet, dass es keinen Einfluss auf die {{Glossary("bidi")}}-Reihenfolge hat: `<div dir=rtl>123,<wbr>456</div>` zeigt, wenn es nicht auf zwei Zeilen umgebrochen ist, `123,456` und nicht `456,123`.
+Auf UTF-8 kodierten Seiten verhält sich `<wbr>` wie der `U+200B ZERO-WIDTH SPACE` Codepunkt. Insbesondere verhält es sich wie ein Unicode-bidi-BN-Codepunkt, was bedeutet, dass es keinen Einfluss auf die [bidi](/de/docs/Glossary/bidi)-Anordnung hat: `<div dir=rtl>123,<wbr>456</div>` zeigt, wenn es nicht auf zwei Zeilen aufgeteilt wird, `123,456` an und nicht `456,123`.
 
-Aus dem gleichen Grund führt das `<wbr>` Element an der Zeilenbruchstelle keinen Bindestrich ein. Um einen Bindestrich nur am Ende einer Zeile erscheinen zu lassen, verwenden Sie stattdessen das weiche Bindestrich-Zeichen-Entity (`&shy;`).
+Aus dem gleichen Grund führt das `<wbr>`-Element keinen Bindestrich an der Zeilenumbruchstelle ein. Um einen Bindestrich nur am Ende einer Zeile erscheinen zu lassen, verwenden Sie stattdessen das Soft-Hyphen-Zeichen-Entity (`&shy;`).
 
 ## Beispiele
 
-_Der Yahoo Style Guide_ empfiehlt, [eine URL _vor_ Satzzeichen zu brechen](https://web.archive.org/web/20121105171040/http://styleguide.yahoo.com/editing/treat-abbreviations-capitalization-and-titles-consistently/website-names-and-addresses), um zu vermeiden, dass ein Satzzeichen am Ende der Zeile bleibt, das der Leser fälschlicherweise als Ende der URL betrachten könnte.
+_Der Yahoo Style Guide_ empfiehlt, [eine URL _vor_ einem Satzzeichen umzubrechen](https://web.archive.org/web/20121105171040/http://styleguide.yahoo.com/editing/treat-abbreviations-capitalization-and-titles-consistently/website-names-and-addresses), um zu vermeiden, dass ein Satzzeichen am Zeilenende stehen bleibt, das der Leser möglicherweise für das Ende der URL hält.
 
 ```html
 <p>
@@ -47,7 +47,7 @@ _Der Yahoo Style Guide_ empfiehlt, [eine URL _vor_ Satzzeichen zu brechen](https
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließendes Inhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phrasierungsinhalt</a
@@ -60,7 +60,7 @@ _Der Yahoo Style Guide_ empfiehlt, [eine URL _vor_ Satzzeichen zu brechen](https
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Start-Tag haben und darf kein End-Tag haben.</td>
+      <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -85,7 +85,7 @@ _Der Yahoo Style Guide_ empfiehlt, [eine URL _vor_ Satzzeichen zu brechen](https
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLElement")}}</td>
+      <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
 </table>
@@ -103,4 +103,4 @@ _Der Yahoo Style Guide_ empfiehlt, [eine URL _vor_ Satzzeichen zu brechen](https
 - {{cssxref("overflow-wrap")}}
 - {{cssxref("word-break")}}
 - {{cssxref("hyphens")}}
-- Das {{HTMLElement("br")}} Element
+- Das {{HTMLElement("br")}}-Element

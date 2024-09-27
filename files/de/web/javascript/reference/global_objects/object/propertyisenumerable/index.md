@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`propertyIsEnumerable()`** von Instanzen von {{jsxref("Object")}} gibt einen booleschen Wert zurück, der angibt, ob die angegebene Eigenschaft eine [enumerable own](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) Eigenschaft dieses Objektes ist.
+Die **`propertyIsEnumerable()`** Methode von {{jsxref("Object")}} Instanzen gibt einen booleschen Wert zurück, der angibt, ob die angegebene Eigenschaft eine [enumerierbare eigene](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) Eigenschaft dieses Objekts ist.
 
 {{EmbedInteractiveExample("pages/js/object-prototype-propertyisenumerable.html", "taller")}}
 
@@ -24,11 +24,11 @@ propertyIsEnumerable(prop)
 
 ### Rückgabewert
 
-Ein boolescher Wert, der angibt, ob die angegebene Eigenschaft aufzählbar ist und eine eigene Eigenschaft des Objekts ist.
+Ein boolescher Wert, der angibt, ob die angegebene Eigenschaft enumerierbar und eine eigene Eigenschaft des Objekts ist.
 
 ## Beschreibung
 
-Alle Objekte, die von `Object.prototype` erben (d. h. alle außer [`null`-Prototyp-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)) erben die Methode `propertyIsEnumerable()`. Diese Methode bestimmt, ob die angegebene Eigenschaft, sei es ein String oder Symbol, eine aufzählbare eigene Eigenschaft des Objekts ist. Wenn das Objekt die angegebene Eigenschaft nicht besitzt, gibt diese Methode `false` zurück.
+Alle Objekte, die von `Object.prototype` erben (das heißt, alle außer [`null`-Prototyp-Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)), erben die `propertyIsEnumerable()` Methode. Diese Methode bestimmt, ob die angegebene Eigenschaft, String oder Symbol, eine enumerierbare eigene Eigenschaft des Objekts ist. Wenn das Objekt die angegebene Eigenschaft nicht besitzt, gibt diese Methode `false` zurück.
 
 Diese Methode ist äquivalent zu [`Object.getOwnPropertyDescriptor(obj, prop)?.enumerable ?? false`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor).
 
@@ -50,7 +50,7 @@ a.propertyIsEnumerable(0); // true
 
 ### Benutzerdefinierte vs. eingebaute Objekte
 
-Die meisten eingebauten Eigenschaften sind standardmäßig nicht aufzählbar, während benutzerdefinierte Objekteigenschaften oft aufzählbar sind, es sei denn, sie werden ausdrücklich anders angegeben.
+Die meisten eingebauten Eigenschaften sind standardmäßig nicht enumerierbar, während benutzererstellte Objekteigenschaften oft enumerierbar sind, es sei denn, sie sind ausdrücklich anders gekennzeichnet.
 
 ```js
 const a = ["is enumerable"];
@@ -64,7 +64,7 @@ globalThis.propertyIsEnumerable("Math"); // false
 
 ### Direkte vs. geerbte Eigenschaften
 
-Nur aufzählbare eigene Eigenschaften bewirken, dass `propertyIsEnumerable()` `true` zurückgibt, obwohl alle aufzählbaren Eigenschaften, einschließlich geerbter, durch die [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife besucht werden.
+Nur enumerierbare, eigene Eigenschaften verursachen, dass `propertyIsEnumerable()` `true` zurückgibt, obwohl alle enumerierbaren Eigenschaften, einschließlich geerbter, durch die [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) Schleife besucht werden.
 
 ```js
 const o1 = {
@@ -75,7 +75,7 @@ Object.defineProperty(o1, "nonEnumerableInherited", {
   enumerable: false,
 });
 const o2 = {
-  // o1 ist das Prototyp von o2
+  // o1 is the prototype of o2
   __proto__: o1,
   enumerableOwn: "is enumerable",
 };
@@ -90,9 +90,9 @@ o2.propertyIsEnumerable("enumerableOwn"); // true
 o2.propertyIsEnumerable("nonEnumerableOwn"); // false
 ```
 
-### Testen von Symboleigenschaften
+### Testen von Symbol-Eigenschaften
 
-{{jsxref("Symbol")}} Eigenschaften werden auch von `propertyIsEnumerable()` unterstützt. Beachten Sie, dass die meisten Aufzählungsmethoden nur String-Eigenschaften besuchen; die Aufzählbarkeit von Symboleigenschaften ist nur nützlich bei Verwendung von {{jsxref("Object.assign()")}} oder [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax). Für mehr Informationen siehe [Enumerability and ownership of properties](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties).
+{{jsxref("Symbol")}}-Eigenschaften werden ebenfalls von `propertyIsEnumerable()` unterstützt. Beachten Sie, dass die meisten Enumerationsmethoden nur String-Eigenschaften besuchen; die Enumerierbarkeit von Symbol-Eigenschaften ist nur nützlich bei Verwendung von {{jsxref("Object.assign()")}} oder [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax). Für mehr Informationen siehe [Enumerability and ownership of properties](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties).
 
 ```js
 const sym = Symbol("enumerable");
@@ -109,9 +109,9 @@ o.propertyIsEnumerable(sym); // true
 o.propertyIsEnumerable(sym2); // false
 ```
 
-### Verwendung mit null-Prototyp-Objekten
+### Verwendung mit Null-Prototyp-Objekten
 
-Da `null`-Prototyp-Objekte nicht von `Object.prototype` erben, erben sie die Methode `propertyIsEnumerable()` nicht. Sie müssen `Object.prototype.propertyIsEnumerable` mit dem Objekt als `this` aufrufen.
+Da `null`-Prototyp-Objekte nicht von `Object.prototype` erben, erben sie nicht die `propertyIsEnumerable()` Methode. Sie müssen `Object.prototype.propertyIsEnumerable` mit dem Objekt als `this` aufrufen.
 
 ```js
 const o = {
@@ -123,7 +123,7 @@ o.propertyIsEnumerable("enumerableOwn"); // TypeError: o.propertyIsEnumerable is
 Object.prototype.propertyIsEnumerable.call(o, "enumerableOwn"); // true
 ```
 
-Alternativ können Sie {{jsxref("Object.getOwnPropertyDescriptor()")}} verwenden, was auch hilft, zwischen nicht existierenden Eigenschaften und tatsächlich nicht aufzählbaren Eigenschaften zu unterscheiden.
+Alternativ können Sie {{jsxref("Object.getOwnPropertyDescriptor()")}} stattdessen verwenden, was auch hilft, zwischen nicht vorhandenen Eigenschaften und tatsächlich nicht enumerierbaren Eigenschaften zu unterscheiden.
 
 ```js
 const o = {

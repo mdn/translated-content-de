@@ -7,32 +7,28 @@ l10n:
 
 {{CSSRef}}
 
-Die **`perspective()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die den Abstand zwischen dem
-Benutzer und der z=0-Ebene festlegt, die Perspektive, aus der der Betrachter wäre, wenn die 2-dimensionale Schnittstelle
-3-dimensional wäre. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`perspective()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die den Abstand zwischen dem Benutzer und der z=0 Ebene festlegt, die Perspektive, aus der der Betrachter wäre, wenn die 2-dimensionale Schnittstelle 3-dimensional wäre. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-perspective.html")}}
 
-Die `perspective()` Transformationsfunktion ist Teil des {{cssxref('transform')}} Werts, der auf das
-Element angewendet wird, das transformiert wird. Dies unterscheidet sich von den {{cssxref('perspective')}} und {{cssxref('perspective-origin')}} Eigenschaften, die dem Elternteil eines Kindes zugeordnet sind, das im 3-dimensionalen Raum transformiert wird.
+Die `perspective()` Transformationsfunktion ist Teil des {{cssxref('transform')}}-Werts, der auf das transformierte Element angewendet wird. Dies unterscheidet sich von den Eigenschaften {{cssxref('perspective')}} und {{cssxref('perspective-origin')}},
+die am übergeordneten Element eines in einem 3-dimensionalen Raum transformierten Kindes angebracht sind.
 
 ## Syntax
 
-Der Perspektivenabstand, der von `perspective()` verwendet wird, wird durch einen {{cssxref("&lt;length&gt;")}} Wert angegeben,
-der den Abstand zwischen dem Benutzer und der z=0-Ebene darstellt,
-oder durch `none`. Die z=0-Ebene ist die Ebene, in der alles
-in einer 2-dimensionalen Ansicht erscheint, oder der Bildschirm.
+Der Perspektivabstand, der von `perspective()` verwendet wird, wird durch einen {{cssxref("&lt;length&gt;")}}-Wert spezifiziert, der den Abstand zwischen dem Benutzer und der z=0 Ebene darstellt, oder durch `none`.
+Die z=0 Ebene ist die Ebene, auf der alles in einer 2-dimensionalen Ansicht erscheint, oder der Bildschirm.
 Negative Werte sind Syntaxfehler.
-Werte kleiner als `1px` (einschließlich null) werden auf `1px` begrenzt.
-Werte, die nicht `none` sind, bewirken,
-dass Elemente mit positiven z-Positionen größer erscheinen,
+Werte kleiner als `1px` (einschließlich Null) werden auf `1px` beschränkt.
+Werte, die nicht `none` sind, lassen
+Elemente mit positiven z-Positionen größer erscheinen,
 und Elemente mit negativen z-Positionen kleiner erscheinen.
-Elemente mit z-Positionen, die gleich oder größer als der Perspektivenwert sind,
-verschwinden, als wären sie hinter dem Benutzer.
-Große Perspektivenwerte stellen eine kleine Transformation dar;
-kleine Werte von `perspective()` stellen eine große Transformation dar;
-`perspective(none)` stellt eine Perspektive aus unendlicher Entfernung
-und keine Transformation dar.
+Elemente mit z-Positionen, die gleich oder größer als der Perspektivwert sind,
+verschwinden, als ob sie sich hinter dem Benutzer befinden.
+Große Werte der Perspektive repräsentieren eine kleine Transformation;
+kleine Werte von `perspective()` repräsentieren eine große Transformation;
+`perspective(none)` repräsentiert die Perspektive aus unendlicher Entfernung
+und keine Transformation.
 
 ```css
 perspective(d)
@@ -41,8 +37,7 @@ perspective(d)
 ### Werte
 
 - _d_
-  - : Ist ein {{cssxref("&lt;length&gt;")}} der den Abstand vom Benutzer zur z=0-Ebene darstellt. Wenn dieser 0 oder ein
-    negativer Wert ist, wird keine Perspektiventransformation angewendet.
+  - : Ist eine {{cssxref("&lt;length&gt;")}}, die den Abstand vom Benutzer zur z=0 Ebene darstellt. Wenn es 0 oder ein negativer Wert ist, wird keine Perspektivtransformation angewendet.
 
 <table class="standard-table">
   <thead>
@@ -57,11 +52,11 @@ perspective(d)
     <tr>
       <td colspan="2">
         <p>
-          Diese Transformation wird auf den 3D-Raum angewendet und kann nicht auf der Ebene dargestellt werden.
+          Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
         </p>
       </td>
       <td>
-        Diese Transformation ist keine lineare Transformation in ℝ^3 und kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden.
+        Diese Transformation ist keine lineare Transformation in ℝ^3 und kann nicht mit einer Matrix in kartesischen Koordinaten dargestellt werden.
       </td>
       <td>
         <math display="block">
@@ -77,21 +72,21 @@ perspective(d)
 ### HTML
 
 ```html
-<p>Ohne Perspektive:</p>
+<p>Without perspective:</p>
 <div class="no-perspective-box">
   <div class="face front">A</div>
   <div class="face top">B</div>
   <div class="face left">C</div>
 </div>
 
-<p>Mit Perspektive (9cm):</p>
+<p>With perspective (9cm):</p>
 <div class="perspective-box-far">
   <div class="face front">A</div>
   <div class="face top">B</div>
   <div class="face left">C</div>
 </div>
 
-<p>Mit Perspektive (4cm):</p>
+<p>With perspective (4cm):</p>
 <div class="perspective-box-closer">
   <div class="face front">A</div>
   <div class="face top">B</div>
@@ -145,7 +140,7 @@ p + div {
 }
 ```
 
-### Ergebnis
+### Resultat
 
 {{ EmbedLiveSample('Examples', '250', '350') }}
 
@@ -161,7 +156,7 @@ p + div {
 
 - {{cssxref("transform")}}
 - {{cssxref("&lt;transform-function&gt;")}}
-- Individuelle Transformations-Eigenschaften:
+- Einzelne Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}

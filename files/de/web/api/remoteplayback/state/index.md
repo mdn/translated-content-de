@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Remote Playback API")}}
 
-Die schreibgeschützte **`state`**-Eigenschaft der {{domxref("RemotePlayback")}}-Schnittstelle gibt den aktuellen Zustand der `RemotePlayback`-Verbindung zurück.
+Die **`state`**-Eigenschaft des [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Interfaces (nur lesbar) gibt den aktuellen Zustand der `RemotePlayback`-Verbindung zurück.
 
 ## Wert
 
-Einer der folgenden:
+Einer von:
 
 - `"connecting"`
-  - : Der Benutzeragent versucht, die Fernwiedergabe mit dem ausgewählten Gerät zu initiieren.
+  - : Der Benutzeragent versucht, die Fernwiedergabe mit dem ausgewählten Gerät zu starten.
 - `"connected"`
-  - : Der Übergang von der lokalen zur Fernwiedergabe ist erfolgt. Alle Befehle werden nun auf dem Ferngerät ausgeführt.
+  - : Der Wechsel von der lokalen zur Fernwiedergabe hat stattgefunden. Alle Befehle werden nun auf dem Ferngerät ausgeführt.
 - `"disconnected"`
-  - : Die Fernwiedergabe wurde nicht initiiert, das Initiieren ist fehlgeschlagen oder wurde gestoppt.
+  - : Die Fernwiedergabe wurde nicht gestartet, ist fehlgeschlagen oder wurde beendet.
 
 ## Beispiele
 

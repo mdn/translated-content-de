@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Counter Styles")}}
 
-Die **`system`**-Eigenschaft der {{domxref("CSSCounterStyleRule")}}-Schnittstelle ruft den Wert des {{cssxref("@counter-style/system", "system")}} Deskriptors ab und setzt diesen. Wenn das Deskriptor keinen Wert hat, gibt dieses Attribut einen leeren String zurück.
+Die **`system`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle ruft den Wert des {{cssxref("@counter-style/system", "system")}}-Deskriptors ab und setzt ihn. Wenn der Deskriptor keinen Wert gesetzt hat, gibt dieses Attribut einen leeren String zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel, und das Abrufen von `system` gibt uns den Wert "fixed" zurück.
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel, und das Zurückgeben von `system` gibt uns den Wert "fixed".
 
 ```css
 @counter-style box-corner {

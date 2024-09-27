@@ -8,12 +8,7 @@ l10n:
 
 {{APIRef("Network Information API")}} {{AvailableInWorkers}}
 
-Die **`downlink`** schreibgeschützte Eigenschaft des
-{{domxref("NetworkInformation")}}-Interfaces gibt die effektive Bandbreitenschätzung in
-Megabit pro Sekunde zurück, gerundet auf das nächste Vielfache von 25 Kilobit pro Sekunde. Dieser
-Wert basiert auf kürzlich beobachtetem Anwendungsdurchsatz über kürzlich aktive
-Verbindungen, wobei Verbindungen zu einem privaten Adressraum ausgeschlossen sind. In Abwesenheit von
-aktuellen Bandbreitenmessdaten wird der Attributwert durch die Eigenschaften der zugrunde liegenden Verbindungstechnologie bestimmt.
+Die schreibgeschützte Eigenschaft **`downlink`** des [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Interfaces gibt die effektive Bandbreitenschätzung in Megabit pro Sekunde zurück. Diese Angabe wird auf das nächste Vielfache von 25 Kilobit pro Sekunde gerundet. Der Wert basiert auf dem kürzlich beobachteten Datendurchsatz auf Anwendungsebene über kürzlich aktive Verbindungen, ausgenommen Verbindungen zu einem privaten Adressraum. Bei fehlenden aktuellen Bandbreitenmessdaten wird der Attributwert durch die Eigenschaften der zugrunde liegenden Verbindungstechnologie bestimmt.
 
 ## Wert
 

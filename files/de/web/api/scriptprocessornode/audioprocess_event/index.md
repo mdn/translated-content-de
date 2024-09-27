@@ -8,58 +8,51 @@ l10n:
 
 {{APIRef("Web Audio API")}}{{Deprecated_Header}}
 
-Das `audioprocess`-Ereignis der {{domxref("ScriptProcessorNode")}}-Schnittstelle wird ausgelöst, wenn ein Eingabepuffer eines Script-Prozessors bereit zum Verarbeiten ist.
+Das `audioprocess`-Ereignis der [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode)-Schnittstelle wird ausgelöst, wenn ein Eingabepuffer eines Script-Processors zur Verarbeitung bereit ist.
 
 > [!NOTE]
-> Dieses Feature wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und die {{domxref("AudioWorkletNode")}}-Schnittstelle ersetzt.
+> Diese Funktion wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und die [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Schnittstelle ersetzt.
 
-Dieses Ereignis kann nicht abgebrochen werden und steigt nicht auf.
+Dieses Ereignis ist nicht abbruchbar und propagiert nicht.
 
 ## Ereignistyp
 
-Ein {{domxref("AudioProcessingEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("AudioProcessingEvent")}}
 
-## Ereignis-Eigenschaften
+## Ereigniseigenschaften
 
-_Setzt auch die von seinem Elternteil geerbten Eigenschaften um, {{domxref("Event")}}._
+_Implementiert auch die von seinem Elternteil vererbten Eigenschaften, [`Event`](/de/docs/Web/API/Event)._
 
 - `playbackTime` {{ReadOnlyInline}}
-  - : Ein Double, das die Zeit repräsentiert, wann das Audio abgespielt wird,
-    wie durch die Zeit von {{domxref("BaseAudioContext/currentTime", "AudioContext.currentTime")}} definiert.
+  - : Ein Double, das die Zeit darstellt, zu der das Audio abgespielt wird, wie durch die Zeit von [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) definiert.
 - `inputBuffer` {{ReadOnlyInline}}
-  - : Ein {{domxref("AudioBuffer")}}, das den Puffer enthält, der die zu verarbeitenden Audioeingabedaten enthält.
-    Die Anzahl der Kanäle ist als Parameter `numberOfInputChannels`
-    der Fabrikmethode {{domxref("BaseAudioContext/createScriptProcessor", "AudioContext.createScriptProcessor()")}} definiert.
-    Beachten Sie, dass der zurückgegebene <code>AudioBuffer</code> nur im Gültigkeitsbereich des Ereignishandlers gültig ist.
+  - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der den Puffer darstellt, der die zu verarbeitenden Eingabedaten enthält. Die Anzahl der Kanäle wird als Parameter `numberOfInputChannels` der Factory-Methode [`AudioContext.createScriptProcessor()`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) definiert. Beachten Sie, dass der zurückgegebene <code>AudioBuffer</code> nur im Rahmen des Ereignishandlers gültig ist.
 - `outputBuffer` {{ReadOnlyInline}}
-  - : Ein {{domxref("AudioBuffer")}}, der der Puffer ist, in den die Audioausgabedaten geschrieben werden sollten.
-    Die Anzahl der Kanäle ist als Parameter <code>numberOfOutputChannels</code>
-    der Fabrikmethode {{domxref("BaseAudioContext/createScriptProcessor", "AudioContext.createScriptProcessor()")}} definiert.
-    Beachten Sie, dass der zurückgegebene <code>AudioBuffer</code> nur im Gültigkeitsbereich des Ereignishandlers gültig ist.
+  - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der der Puffer ist, in den die Ausgabedaten geschrieben werden sollten. Die Anzahl der Kanäle wird als Parameter, <code>numberOfOutputChannels</code>, der Factory-Methode [`AudioContext.createScriptProcessor()`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) definiert. Beachten Sie, dass der zurückgegebene <code>AudioBuffer</code> nur im Rahmen des Ereignishandlers gültig ist.
 
 ## Beispiele
 
 ```js
 scriptNode.addEventListener("audioprocess", (audioProcessingEvent) => {
-  // Der Eingabepuffer ist ein Lied, das wir zuvor geladen haben
+  // The input buffer is a song we loaded earlier
   const inputBuffer = audioProcessingEvent.inputBuffer;
 
-  // Der Ausgabepuffer enthält die Samples, die modifiziert und abgespielt werden
+  // The output buffer contains the samples that will be modified and played
   const outputBuffer = audioProcessingEvent.outputBuffer;
 
-  // Schleife durch die Ausgabekanäle (in diesem Fall gibt es nur einen)
+  // Loop through the output channels (in this case there is only one)
   for (let channel = 0; channel < outputBuffer.numberOfChannels; channel++) {
     const inputData = inputBuffer.getChannelData(channel);
     const outputData = outputBuffer.getChannelData(channel);
 
-    // Schleife durch die 4096 Samples
+    // Loop through the 4096 samples
     for (let sample = 0; sample < inputBuffer.length; sample++) {
-      // mache die Ausgabe gleich der Eingabe
+      // make output equal to the same as the input
       outputData[sample] = inputData[sample];
 
-      // füge jedem Ausgabesample Rauschen hinzu
+      // add noise to each output sample
       outputData[sample] += (Math.random() * 2 - 1) * 0.2;
     }
   }
@@ -76,9 +69,9 @@ scriptNode.onaudioprocess = (audioProcessingEvent) => {
 
 ## Spezifikationen
 
-Seit der Veröffentlichung der [Web Audio API specification](https://www.w3.org/TR/webaudio/#ScriptProcessorNode) am 29. August 2014 wurde dieses Feature als veraltet erklärt. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Seit der Veröffentlichung der [Web Audio API Specification](https://www.w3.org/TR/webaudio/#ScriptProcessorNode) am 29. August 2014 ist diese Funktion veraltet. Sie steht nicht mehr auf dem Weg, ein Standard zu werden.
 
-Es wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und die {{domxref("AudioWorkletNode")}}-Schnittstelle ersetzt.
+Sie wurde durch [AudioWorklets](/de/docs/Web/API/AudioWorklet) und die [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Schnittstelle ersetzt.
 
 ## Browser-Kompatibilität
 

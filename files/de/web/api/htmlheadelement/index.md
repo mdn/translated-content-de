@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLHeadElement`**-Interface enthält die beschreibenden Informationen oder Metadaten für ein Dokument. Dieses Objekt erbt alle Eigenschaften und Methoden, die im {{domxref("HTMLElement")}}-Interface beschrieben sind.
+Das **`HTMLHeadElement`**-Interface enthält die beschreibenden Informationen oder Metadaten für ein Dokument. Dieses Objekt erbt alle Eigenschaften und Methoden, die im [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interface beschrieben sind.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLHeadElement.profile")}} {{deprecated_inline}}
-  - : Ein String, der die URIs von einem oder mehreren Metadatenprofilen (durch Leerzeichen getrennt) darstellt.
+- [`HTMLHeadElement.profile`](/de/docs/Web/API/HTMLHeadElement/profile) {{deprecated_inline}}
+  - : Ein String, der die URIs eines oder mehrerer Metadatenprofile darstellt (durch Leerzeichen getrennt).
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 

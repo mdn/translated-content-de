@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Der **`CountQueuingStrategy()`** Konstruktor erstellt und gibt eine Instanz des `CountQueuingStrategy`-Objekts zurück.
+Der **`CountQueuingStrategy()`** Konstruktor
+erstellt und gibt eine neue Instanz eines `CountQueuingStrategy`-Objekts zurück.
 
 ## Syntax
 
@@ -21,11 +22,11 @@ new CountQueuingStrategy(options)
 - `options`
   - : Ein Objekt mit der folgenden Eigenschaft:
     - `highWaterMark`
-      - : Die Gesamtanzahl der Chunks, die in der internen Warteschlange enthalten sein können, bevor Backpressure angewendet wird.
+      - : Die Gesamtanzahl der Chunks, die in der internen Warteschlange enthalten sein können, bevor Gegendruck angewendet wird.
 
 ### Rückgabewert
 
-Eine Instanz des {{domxref("CountQueuingStrategy")}}-Objekts.
+Eine Instanz des [`CountQueuingStrategy`](/de/docs/Web/API/CountQueuingStrategy)-Objekts.
 
 ### Ausnahmen
 
@@ -38,7 +39,7 @@ const queuingStrategy = new CountQueuingStrategy({ highWaterMark: 1 });
 
 const writableStream = new WritableStream(
   {
-    // Sink implementieren
+    // Implement the sink
     write(chunk) {
       // …
     },
@@ -46,7 +47,7 @@ const writableStream = new WritableStream(
       // …
     },
     abort(err) {
-      console.log("Sink-Fehler:", err);
+      console.log("Sink error:", err);
     },
   },
   queuingStrategy,
@@ -59,10 +60,10 @@ const size = queuingStrategy.size();
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("CountQueuingStrategy")}}
+- [`CountQueuingStrategy`](/de/docs/Web/API/CountQueuingStrategy)

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Zeigt einen oder mehrere Tabs an, die zuvor durch einen Aufruf von {{WebExtAPIRef("tabs.hide")}} versteckt wurden.
+Zeigt einen oder mehrere Tabs an, die zuvor durch einen Aufruf von {{WebExtAPIRef("tabs.hide")}} verborgen wurden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,11 +22,11 @@ let showing = browser.tabs.show(
 ### Parameter
 
 - `tabIds`
-  - : `integer` oder `array` von `integer`. Die IDs des Tabs oder der Tabs, die angezeigt werden sollen.
+  - : `integer` oder `array` von `integer`. Die IDs des oder der anzuzeigenden Tabs.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung zurückgewiesen.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird. Falls ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

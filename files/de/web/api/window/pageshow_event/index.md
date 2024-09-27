@@ -1,5 +1,5 @@
 ---
-title: "Fenster: pageshow-Ereignis"
+title: "Window: pageshow Ereignis"
 short-title: pageshow
 slug: Web/API/Window/pageshow_event
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Das **`pageshow`**-Ereignis wird an ein {{domxref("Window")}} gesendet, wenn der Browser das Dokument des Fensters aufgrund einer Navigation anzeigt.
+Das **`pageshow`** Ereignis wird an ein [`Window`](/de/docs/Web/API/Window) gesendet, wenn der Browser das Dokument des Fensters aufgrund von Navigation anzeigt.
 
-Dies umfasst:
+Dazu gehören:
 
-- Das erstmalige Laden der Seite
-- Die Navigation zur Seite von einer anderen Seite im selben Fenster oder Tab
-- Das Wiederherstellen einer eingefrorenen Seite auf mobilen Betriebssystemen
-- Das Zurückkehren zur Seite mittels der Vorwärts- oder Rückwärts-Tasten des Browsers
+- Initiales Laden der Seite
+- Navigation zur Seite von einer anderen Seite im gleichen Fenster oder Tab
+- Wiederherstellung einer eingefrorenen Seite auf mobilen Betriebssystemen
+- Rückkehr zur Seite mit den Vorwärts- oder Rückwärtsschaltflächen des Browsers
 
 > [!NOTE]
-> Beim erstmaligen Laden der Seite wird das `pageshow`-Ereignis _nach_ dem {{domxref("Window/load_event", "load")}}-Ereignis ausgelöst.
+> Während des initialen Seitenladens wird das `pageshow` Ereignis _nach_ dem [`load`](/de/docs/Web/API/Window/load_event) Ereignis ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("pageshow", (event) => {});
@@ -31,26 +31,26 @@ onpageshow = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("PageTransitionEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`PageTransitionEvent`](/de/docs/Web/API/PageTransitionEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("PageTransitionEvent")}}
 
 ## Ereigniseigenschaften
 
-- {{domxref("PageTransitionEvent.persisted")}} {{ReadOnlyInline}}
+- [`PageTransitionEvent.persisted`](/de/docs/Web/API/PageTransitionEvent/persisted) {{ReadOnlyInline}}
   - : Gibt an, ob das Dokument aus einem Cache geladen wird.
 
-## Ereignis-Handler-Aliase
+## Ereignishandler-Aliase
 
-Zusätzlich zur `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `onpageshow` auch auf den folgenden Zielen verfügbar:
+Neben der `Window`-Schnittstelle ist die Ereignishandler-Eigenschaft `onpageshow` auch auf folgenden Zielen verfügbar:
 
-- {{domxref("HTMLBodyElement")}}
-- {{domxref("HTMLFrameSetElement")}}
-- {{domxref("SVGSVGElement")}}
+- [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
+- [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
+- [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)
 
 ## Beispiele
 
-Dieses Beispiel richtet Ereignis-Handler für Ereignisse ein, die im Array `events` aufgeführt sind. Der Handler `eventLogger()` protokolliert die Art des aufgetretenen Ereignisses in der Konsole und umfasst den Wert des {{domxref("PageTransitionEvent.persisted", "persisted")}}-Flags bei `pageshow`- und `pagehide`-Ereignissen.
+Dieses Beispiel richtet Ereignishandler für Ereignisse ein, die im Array `events` aufgelistet sind. Der Handler `eventLogger()` protokolliert den Typ des aufgetretenen Ereignisses in der Konsole und enthält den Wert des [`persisted`](/de/docs/Web/API/PageTransitionEvent/persisted) Flags bei `pageshow` und `pagehide` Ereignissen.
 
 ### JavaScript
 
@@ -78,9 +78,9 @@ events.forEach((eventName) => window.addEventListener(eventName, eventLogger));
 
 ```html
 <p>
-  Öffnen Sie die Konsole und beobachten Sie die Ausgabe, während Sie zu und von dieser Seite navigieren.
-  Versuchen Sie, neue Seiten in diesem Tab zu laden, dann navigieren Sie vorwärts und rückwärts
-  durch die Historie und beachten Sie die Ausgabe der Ereignisse im Log.
+  Open the console and watch the output as you navigate to and from this page.
+  Try loading new pages into this tab, then navigating forward and backward
+  through history, noting the events' output to the log.
 </p>
 ```
 
@@ -92,10 +92,10 @@ events.forEach((eventName) => window.addEventListener(eventName, eventLogger));
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Window.pagehide_event", "pagehide")}}
+- [`pagehide`](/de/docs/Web/API/Window/pagehide_event)

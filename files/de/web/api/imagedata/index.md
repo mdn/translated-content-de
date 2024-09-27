@@ -7,25 +7,25 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`ImageData`**-Schnittstelle repräsentiert die zugrunde liegenden Pixeldaten eines Bereichs eines {{HTMLElement("canvas")}}-Elements.
+Die **`ImageData`** Schnittstelle repräsentiert die zugrunde liegenden Pixeldaten eines Bereichs eines {{HTMLElement("canvas")}} Elements.
 
-Sie wird erstellt mithilfe des {{domxref("ImageData.ImageData", "ImageData()")}}-Konstruktors oder Erstellermethoden des mit einem Canvas verbundenen {{domxref("CanvasRenderingContext2D")}}-Objekts: {{domxref("CanvasRenderingContext2D.createImageData", "createImageData()")}} und {{domxref("CanvasRenderingContext2D.getImageData", "getImageData()")}}. Sie kann auch verwendet werden, um einen Teil des Canvas festzulegen, indem {{domxref("CanvasRenderingContext2D.putImageData", "putImageData()")}} verwendet wird.
+Sie wird erzeugt mit dem [`ImageData()`](/de/docs/Web/API/ImageData/ImageData) Konstruktor oder Methoden zum Erstellen auf dem [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) Objekt, das mit einem Canvas verbunden ist: [`createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData) und [`getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData). Sie kann auch verwendet werden, um einen Teil des Canvas mit [`putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData) zu setzen.
 
 ## Konstruktoren
 
-- {{domxref("ImageData.ImageData", "ImageData()")}}
-  - : Erstellt ein `ImageData`-Objekt aus einem gegebenen {{jsxref("Uint8ClampedArray")}} und der Größe des darin enthaltenen Bildes. Wenn kein Array angegeben ist, erzeugt es ein Bild eines transparenten schwarzen Rechtecks. Beachten Sie, dass dies die gebräuchlichste Methode ist, um ein solches Objekt in Workern zu erstellen, da {{domxref("CanvasRenderingContext2D.createImageData", "createImageData()")}} dort nicht verfügbar ist.
+- [`ImageData()`](/de/docs/Web/API/ImageData/ImageData)
+  - : Erstellt ein `ImageData` Objekt aus einem gegebenen {{jsxref("Uint8ClampedArray")}} und der Größe des enthaltenen Bildes. Wenn kein Array angegeben wird, erzeugt es ein Bild eines transparenten schwarzen Rechtecks. Beachten Sie, dass dies die häufigste Methode ist, um ein solches Objekt in Arbeitern zu erstellen, da [`createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData) dort nicht verfügbar ist.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("ImageData.data")}} {{ReadOnlyInline}}
-  - : Ein {{jsxref("Uint8ClampedArray")}}, der ein eindimensionales Array darstellt und die Daten in der RGBA-Reihenfolge mit Ganzzahlen zwischen `0` und `255` (einschließlich) enthält. Die Reihenfolge erfolgt zeilenweise vom oben linken Pixel bis zum unten rechten.
-- {{domxref("ImageData.colorSpace")}} {{ReadOnlyInline}}
-  - : Ein String, der den Farbraum der Bilddaten angibt.
-- {{domxref("ImageData.height")}} {{ReadOnlyInline}}
-  - : Ein `unsigned long`, der die tatsächliche Höhe, in Pixeln, des `ImageData` darstellt.
-- {{domxref("ImageData.width")}} {{ReadOnlyInline}}
-  - : Ein `unsigned long`, der die tatsächliche Breite, in Pixeln, des `ImageData` darstellt.
+- [`ImageData.data`](/de/docs/Web/API/ImageData/data) {{ReadOnlyInline}}
+  - : Ein {{jsxref("Uint8ClampedArray")}}, das ein eindimensionales Array darstellt und die Daten in der RGBA-Reihenfolge enthält, mit ganzzahligen Werten zwischen `0` und `255` (einschließlich). Die Reihenfolge verläuft zeilenweise vom oberen linken Pixel zum unteren rechten.
+- [`ImageData.colorSpace`](/de/docs/Web/API/ImageData/colorSpace) {{ReadOnlyInline}}
+  - : Ein Zeichenfolgenwert, der den Farbraum der Bilddaten angibt.
+- [`ImageData.height`](/de/docs/Web/API/ImageData/height) {{ReadOnlyInline}}
+  - : Ein `unsigned long`, der die tatsächliche Höhe in Pixeln der `ImageData` darstellt.
+- [`ImageData.width`](/de/docs/Web/API/ImageData/width) {{ReadOnlyInline}}
+  - : Ein `unsigned long`, der die tatsächliche Breite in Pixeln der `ImageData` darstellt.
 
 ## Spezifikationen
 
@@ -37,5 +37,5 @@ Sie wird erstellt mithilfe des {{domxref("ImageData.ImageData", "ImageData()")}}
 
 ## Siehe auch
 
-- {{domxref("CanvasRenderingContext2D")}}
-- Das {{HTMLElement("canvas")}}-Element und seine zugehörige Schnittstelle, {{domxref("HTMLCanvasElement")}}.
+- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das {{HTMLElement("canvas")}} Element und seine zugehörige Schnittstelle, [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement).

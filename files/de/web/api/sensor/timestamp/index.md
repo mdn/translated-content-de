@@ -8,18 +8,18 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die schreibgeschützte **`timestamp`**-Eigenschaft des {{domxref("Sensor")}}-Interfaces gibt den Zeitstempel der letzten Sensorlesung zurück.
+Die schreibgeschützte **`timestamp`**-Eigenschaft des [`Sensor`](/de/docs/Web/API/Sensor)-Interfaces gibt den Zeitstempel der neuesten Sensormessung zurück.
 
-Da {{domxref('Sensor')}} eine Basisklasse ist, kann `timestamp` nur aus einer ihrer abgeleiteten Klassen gelesen werden.
+Da [`Sensor`](/de/docs/Web/API/Sensor) eine Basisklasse ist, kann `timestamp` nur von einer ihrer abgeleiteten Klassen gelesen werden.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

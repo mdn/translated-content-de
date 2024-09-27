@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.getVertexAttribOffset()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt die Adresse eines angegebenen Vertex-Attributs zurück.
+Die **`WebGLRenderingContext.getVertexAttribOffset()`**-Methode
+der [WebGL API](/de/docs/Web/API/WebGL_API) gibt die Adresse eines
+angegebenen Vertex-Attributs zurück.
 
 ## Syntax
 
@@ -19,13 +21,13 @@ getVertexAttribOffset(index, pname)
 ### Parameter
 
 - `index`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, das den Index des Vertex-Attributs angibt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des Vertex-Attributs angibt.
 - `pname`
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das `gl.VERTEX_ATTRIB_ARRAY_POINTER` sein muss.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der `gl.VERTEX_ATTRIB_ARRAY_POINTER` sein muss.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API/Types", "GLintptr")}}, der die Adresse des Vertex-Attributs angibt.
+Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der die Adresse des Vertex-Attributs angibt.
 
 ## Beispiele
 
@@ -43,4 +45,4 @@ gl.getVertexAttribOffset(i, gl.VERTEX_ATTRIB_ARRAY_POINTER);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.vertexAttribPointer()")}}
+- [`WebGLRenderingContext.vertexAttribPointer()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer)

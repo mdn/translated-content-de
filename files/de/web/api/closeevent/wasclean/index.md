@@ -3,12 +3,12 @@ title: "CloseEvent: wasClean-Eigenschaft"
 short-title: wasClean
 slug: Web/API/CloseEvent/wasClean
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
 ---
 
-{{APIRef("Websockets API")}}
+{{APIRef("Websockets API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`wasClean`** des {{domxref("CloseEvent")}}-Interfaces gibt `true` zurück, wenn die Verbindung sauber geschlossen wurde.
+Die **`wasClean`** schreibgeschützte Eigenschaft der [`CloseEvent`](/de/docs/Web/API/CloseEvent) Schnittstelle gibt `true` zurück, wenn die Verbindung sauber geschlossen wurde.
 
 ## Wert
 

@@ -7,73 +7,105 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCDataChannel`** Schnittstelle repräsentiert einen Netzwerkkanal, der für bidirektionale Peer-to-Peer-Übertragungen beliebiger Daten verwendet werden kann. Jeder Datenkanal ist mit einem {{DOMxRef("RTCPeerConnection")}} assoziiert, und jede Peer-Verbindung kann theoretisch bis zu 65.534 Datenkanäle haben (die tatsächliche Begrenzung kann je nach Browser variieren).
+Die **`RTCDataChannel`**-Schnittstelle repräsentiert einen Netzwerkkanal, der für bidirektionale Peer-to-Peer-Übertragungen beliebiger Daten verwendet werden kann. Jeder Datenkanal ist mit einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden, und jede Peer-Verbindung kann theoretisch bis zu 65.534 Datenkanäle haben (das tatsächliche Limit kann je nach Browser variieren).
 
-Um einen Datenkanal zu erstellen und einen entfernten Peer aufzufordern, sich anzuschließen, rufen Sie die Methode {{DOMxRef("RTCPeerConnection.createDataChannel", "createDataChannel()")}} von {{DOMxRef("RTCPeerConnection")}} auf. Der Peer, der eingeladen wird, Daten auszutauschen, erhält ein {{DOMxRef("RTCPeerConnection.datachannel_event", "datachannel")}} Ereignis (vom Typ {{DOMxRef("RTCDataChannelEvent")}}), um ihm mitzuteilen, dass der Datenkanal zur Verbindung hinzugefügt wurde.
+Um einen Datenkanal zu erstellen und einen Remote-Peer einzuladen, müssen Sie die Methode [`createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) aufrufen. Der Peer, der eingeladen wird, Daten auszutauschen, erhält ein [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignis (vom Typ [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent)), das signalisiert, dass der Datenkanal zur Verbindung hinzugefügt wurde.
 
-`RTCDataChannel` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
+`RTCDataChannel` ist ein [transferierbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von {{DOMxRef("EventTarget")}}._
+_Erbt auch Eigenschaften von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{DOMxRef("RTCDataChannel.binaryType", "binaryType")}}
-  - : Ein String, der den Typ des Objekts angibt, das zur Darstellung von binären Daten verwendet werden soll, die im `RTCDataChannel` empfangen werden. Die Werte sind dieselben wie bei der {{DOMxRef("WebSocket.binaryType")}}-Eigenschaft erlaubt: `blob` wenn {{DOMxRef("Blob")}} Objekte verwendet werden, oder `arraybuffer` wenn {{jsxref("ArrayBuffer")}} Objekte verwendet werden. Der Standardwert ist `blob`.
-- {{DOMxRef("RTCDataChannel.bufferedAmount", "bufferedAmount")}} {{ReadOnlyInline}}
-  - : Gibt die Anzahl der Bytes Daten zurück, die derzeit zur Übertragung über den Datenkanal in der Warteschlange stehen.
-- {{DOMxRef("RTCDataChannel.bufferedAmountLowThreshold", "bufferedAmountLowThreshold")}}
-  - : Gibt die Anzahl der Bytes an gepufferten ausgehenden Daten an, die als "gering" betrachtet werden. Der Standardwert ist 0.
-- {{DOMxRef("RTCDataChannel.id", "id")}} {{ReadOnlyInline}}
-  - : Gibt eine ID-Nummer (zwischen 0 und 65.534) zurück, die den `RTCDataChannel` eindeutig identifiziert.
-- {{DOMxRef("RTCDataChannel.label", "label")}} {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der einen Namen enthält, der den Datenkanal beschreibt. Diese Bezeichnungen müssen nicht eindeutig sein.
-- {{DOMxRef("RTCDataChannel.maxPacketLifeTime", "maxPacketLifeTime")}} {{ReadOnlyInline}}
-  - : Gibt die Zeit in Millisekunden zurück, die dem Browser zur Verfügung steht, um zu versuchen, eine Nachricht zu übertragen, wie bei der Erstellung des Datenkanals festgelegt, oder `null`.
-- {{DOMxRef("RTCDataChannel.maxRetransmits", "maxRetransmits")}} {{ReadOnlyInline}}
-  - : Gibt die maximale Anzahl der Versuche zurück, die der Browser unternehmen soll, um eine Nachricht erneut zu übertragen, bevor er aufgibt, wie bei der Erstellung des Datenkanals festgelegt, oder `null`, was anzeigt, dass es kein Maximum gibt.
-- {{DOMxRef("RTCDataChannel.negotiated", "negotiated")}} {{ReadOnlyInline}}
-  - : Gibt an, ob die Verbindung des `RTCDataChannel`'s von der Web-App (`true`) oder von der WebRTC-Schicht (`false`) verhandelt wurde. Der Standardwert ist `false`.
-- {{DOMxRef("RTCDataChannel.ordered", "ordered")}} {{ReadOnlyInline}}
-  - : Gibt an, ob der Datenkanal die geordnete Zustellung von Nachrichten garantiert; der Standardwert ist `true`, was bedeutet, dass der Datenkanal tatsächlich geordnet ist.
-- {{DOMxRef("RTCDataChannel.protocol", "protocol")}} {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der den Namen des verwendeten Subprotokolls enthält. Wenn beim Erstellen des Datenkanals kein Protokoll angegeben wurde, dann ist der Wert dieser Eigenschaft der leere String (`""`).
-- {{DOMxRef("RTCDataChannel.readyState", "readyState")}} {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der den Status der zugrunde liegenden Datenverbindung des Datenkanals angibt. Es kann einen der folgenden Werte haben: `connecting`, `open`, `closing` oder `closed`.
+- [`binaryType`](/de/docs/Web/API/RTCDataChannel/binaryType)
+  - : Ein String, der den Typ des Objekts angibt,
+    das verwendet werden soll, um binäre Daten darzustellen, die auf dem `RTCDataChannel` empfangen wurden.
+    Die Werte sind dieselben wie bei der Eigenschaft [`WebSocket.binaryType`](/de/docs/Web/API/WebSocket/binaryType) erlaubt:
+    `blob`, wenn [`Blob`](/de/docs/Web/API/Blob)-Objekte verwendet werden,
+    oder `arraybuffer`, wenn {{jsxref("ArrayBuffer")}}-Objekte verwendet werden.
+    Der Standard ist `blob`.
+- [`bufferedAmount`](/de/docs/Web/API/RTCDataChannel/bufferedAmount) {{ReadOnlyInline}}
+  - : Gibt die Anzahl der Bytes an Daten zurück,
+    die derzeit in der Warteschlange stehen, um über den Datenkanal gesendet zu werden.
+- [`bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold)
+  - : Gibt die Anzahl der Bytes ausgehender Daten in der Warteschlange an, die als "niedrig" gelten.
+    Der Standardwert ist 0.
+- [`id`](/de/docs/Web/API/RTCDataChannel/id) {{ReadOnlyInline}}
+  - : Gibt eine ID-Nummer (zwischen 0 und 65.534) zurück,
+    die den `RTCDataChannel` eindeutig identifiziert.
+- [`label`](/de/docs/Web/API/RTCDataChannel/label) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der einen Namen enthält, der den Datenkanal beschreibt.
+    Diese Labels müssen nicht eindeutig sein.
+- [`maxPacketLifeTime`](/de/docs/Web/API/RTCDataChannel/maxPacketLifeTime) {{ReadOnlyInline}}
+  - : Gibt die Menge an Zeit in Millisekunden zurück,
+    die dem Browser erlaubt ist, zu versuchen, eine Nachricht zu übertragen,
+    wie beim Erstellen des Datenkanals festgelegt,
+    oder `null`.
+- [`maxRetransmits`](/de/docs/Web/API/RTCDataChannel/maxRetransmits) {{ReadOnlyInline}}
+  - : Gibt die maximale Anzahl an Versuchen zurück,
+    die der Browser unternehmen sollte, um eine Nachricht erneut zu übertragen, bevor er aufgibt,
+    wie beim Erstellen des Datenkanals festgelegt,
+    oder `null`, was anzeigt, dass es kein Maximum gibt.
+- [`negotiated`](/de/docs/Web/API/RTCDataChannel/negotiated) {{ReadOnlyInline}}
+  - : Gibt an,
+    ob die Verbindung des `RTCDataChannel` von der Web-App
+    (`true`)
+    oder von der WebRTC-Schicht (`false`) ausgehandelt wurde.
+    Der Standardwert ist `false`.
+- [`ordered`](/de/docs/Web/API/RTCDataChannel/ordered) {{ReadOnlyInline}}
+  - : Gibt an, ob der Datenkanal eine geordnete Zustellung von Nachrichten garantiert;
+    der Standardwert ist `true`, was darauf hinweist, dass der Datenkanal tatsächlich geordnet ist.
+- [`protocol`](/de/docs/Web/API/RTCDataChannel/protocol) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der den Namen des verwendeten Unterprotokolls enthält.
+    Wenn beim Erstellen des Datenkanals kein Protokoll angegeben wurde,
+    ist der Wert dieser Eigenschaft der leere String (`""`).
+- [`readyState`](/de/docs/Web/API/RTCDataChannel/readyState) {{ReadOnlyInline}}
+  - : Gibt einen String zurück,
+    der den Zustand der zugrunde liegenden Datenverbindung des Datenkanals anzeigt.
+    Er kann einen der folgenden Werte haben:
+    `connecting`, `open`, `closing` oder `closed`.
 
 ### Veraltete Eigenschaften
 
-- {{DOMxRef("RTCDataChannel.reliable", "reliable")}} {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
+- [`reliable`](/de/docs/Web/API/RTCDataChannel/reliable) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
   - : Gibt an, ob der Datenkanal _zuverlässig_ ist.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt auch Methoden von {{DOMxRef("EventTarget")}}._
+_Erbt auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{DOMxRef("RTCDataChannel.close", "close()")}}
-  - : Schließt den `RTCDataChannel`. Beide Peers dürfen diese Methode aufrufen, um die Schließung des Kanals einzuleiten.
-- {{DOMxRef("RTCDataChannel.send", "send()")}}
-  - : Sendet Daten über den Datenkanal an den entfernten Peer.
+- [`close()`](/de/docs/Web/API/RTCDataChannel/close)
+  - : Schließt den `RTCDataChannel`.
+    Es ist beiden Peers erlaubt, diese Methode aufzurufen,
+    um die Schließung des Kanals einzuleiten.
+- [`send()`](/de/docs/Web/API/RTCDataChannel/send)
+  - : Sendet Daten über den Datenkanal an den Remote-Peer.
 
 ## Ereignisse
 
-- {{domxref("RTCDataChannel.bufferedamountlow_event", "bufferedamountlow")}}
-  - : Gesendet, wenn die Anzahl der Bytes von Daten im ausgehenden Datenpuffer unter den durch {{domxref("RTCDataChannel.bufferedAmountLowThreshold", "bufferedAmountLowThreshold")}} angegebenen Wert fällt.
-- {{domxref("RTCDataChannel.close_event", "close")}}
-  - : Gesendet, wenn der zugrunde liegende Datentransport geschlossen wird.
-- {{domxref("RTCDataChannel.closing_event", "closing")}}
-  - : Gesendet, wenn der zugrunde liegende Datentransport kurz davor ist, zu schließen.
-- {{domxref("RTCDataChannel.error_event", "error")}}
-  - : Gesendet, wenn ein Fehler auf dem Datenkanal auftritt.
-- {{domxref("RTCDataChannel.message_event", "message")}}
-  - : Gesendet, wenn eine Nachricht vom entfernten Peer empfangen wurde. Der Inhalt der Nachricht kann in der Eigenschaft {{domxref("MessageEvent.data", "data")}} des Ereignisses gefunden werden.
-- {{domxref("RTCDataChannel.open_event", "open")}}
-  - : Gesendet, wenn der Datenkanal erstmals geöffnet wird oder wenn die zugrunde liegende Verbindung eines bestehenden Datenkanals wieder geöffnet wird.
+- [`bufferedamountlow`](/de/docs/Web/API/RTCDataChannel/bufferedamountlow_event)
+  - : Wird gesendet,
+    wenn die Anzahl der Bytes an Daten in der ausgehenden Datenwarteschlange
+    unter den durch [`bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold) angegebenen Wert fällt.
+- [`close`](/de/docs/Web/API/RTCDataChannel/close_event)
+  - : Wird gesendet, wenn der zugrunde liegende Datentransport geschlossen wird.
+- [`closing`](/de/docs/Web/API/RTCDataChannel/closing_event)
+  - : Wird gesendet, wenn der zugrunde liegende Datentransport beginnt zu schließen.
+- [`error`](/de/docs/Web/API/RTCDataChannel/error_event)
+  - : Wird gesendet, wenn ein Fehler auf dem Datenkanal auftritt.
+- [`message`](/de/docs/Web/API/RTCDataChannel/message_event)
+  - : Wird gesendet, wenn eine Nachricht vom Remote-Peer empfangen wurde.
+    Der Inhalt der Nachricht kann
+    in der [`data`](/de/docs/Web/API/MessageEvent/data)-Eigenschaft des Ereignisses gefunden werden.
+- [`open`](/de/docs/Web/API/RTCDataChannel/open_event)
+  - : Wird gesendet, wenn der Datenkanal erstmals geöffnet wird,
+    oder wenn die zugrunde liegende Verbindung eines bestehenden Datenkanals wieder geöffnet wird.
 
 ## Datenformat
 
-Das zugrunde liegende Datenformat wird durch die IEEE-Spezifikation [SDP Offer/Answer Procedures for SCTP over DTLS Transport(RFC 8841)](https://datatracker.ietf.org/doc/rfc8841/) definiert. Das aktuelle Format spezifiziert sein Protokoll entweder als `"UDP/DTLS/SCTP"` (UDP, das DTLS, das SCTP trägt) oder `"TCP/DTLS/SCTP"` (TCP, das DTLS, das SCTP trägt). Ältere Browser können möglicherweise nur `"DTLS/SCTP"` spezifizieren.
+Das zugrunde liegende Datenformat wird durch die IEEE-Spezifikation [SDP Offer/Answer Procedures for SCTP über DTLS Transport (RFC 8841)](https://datatracker.ietf.org/doc/rfc8841/) definiert. Das aktuelle Format gibt sein Protokoll entweder als `"UDP/DTLS/SCTP"` (UDP trägt DTLS, das SCTP trägt) oder `"TCP/DTLS/SCTP"` (TCP trägt DTLS, das SCTP trägt) an. Ältere Browser könnten nur `"DTLS/SCTP"` angeben.
 
 ## Beispiel
 

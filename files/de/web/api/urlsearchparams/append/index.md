@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`append()`**-Methode des {{domxref("URLSearchParams")}}-Interfaces fügt ein angegebenes Schlüssel/Wert-Paar als neuen Suchparameter hinzu.
+Die **`append()`**-Methode der Schnittstelle [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) fügt ein angegebenes Schlüssel/Wert-Paar als neuen Suchparameter hinzu.
 
-Wie im unten stehenden Beispiel gezeigt, erscheint derselbe Schlüssel, wenn er mehrmals hinzugefügt wird, mehrfach in der Parameterzeichenfolge, jeweils für jeden Wert.
+Wie im folgenden Beispiel gezeigt wird, erscheint der gleiche Schlüssel, wenn er mehrfach hinzugefügt wird, mehrmals in der Parameterzeichenfolge, jeweils mit dem entsprechenden Wert.
 
 ## Syntax
 
@@ -35,9 +35,9 @@ Keiner ({{jsxref("undefined")}}).
 let url = new URL("https://example.com?foo=1&bar=2");
 let params = new URLSearchParams(url.search);
 
-//Fügen Sie einen zweiten foo-Parameter hinzu.
+//Add a second foo parameter.
 params.append("foo", 4);
-//Die Abfragezeichenfolge ist jetzt: 'foo=1&bar=2&foo=4'
+//Query string is now: 'foo=1&bar=2&foo=4'
 ```
 
 ## Spezifikationen
@@ -50,5 +50,5 @@ params.append("foo", 4);
 
 ## Siehe auch
 
-- {{domxref("URL")}}
+- [`URL`](/de/docs/Web/API/URL)
 - [Google Developers: Easy URL manipulation with URLSearchParams](https://developer.chrome.com/blog/urlsearchparams/)

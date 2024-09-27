@@ -8,20 +8,20 @@ l10n:
 {{CSSRef}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Wo möglich, sollten Autoren die neuere {{cssxref("clip-path")}} Eigenschaft verwenden.
+> Wo möglich, wird Autoren empfohlen, stattdessen die neuere Eigenschaft {{cssxref("clip-path")}} zu verwenden.
 
-Die **`clip`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert einen sichtbaren Teil eines Elements. Die `clip` Eigenschaft gilt nur für absolut positionierte Elemente — das heißt, Elemente mit {{cssxref("position","position:absolute")}} oder {{cssxref("position","position:fixed")}}.
+Die **`clip`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert einen sichtbaren Bereich eines Elements. Die `clip`-Eigenschaft gilt nur für absolut positionierte Elemente — also Elemente mit {{cssxref("position","position:absolute")}} oder {{cssxref("position","position:fixed")}}.
 
 ## Syntax
 
 ```css
-/* Schlüsselwort-Wert */
+/* Keyword value */
 clip: auto;
 
-/* <shape> Werte */
+/* <shape> values */
 clip: rect(1px, 10em, 3rem, 2ch);
 
-/* Globale Werte */
+/* Global values */
 clip: inherit;
 clip: initial;
 clip: revert;
@@ -33,12 +33,12 @@ clip: unset;
 
 - {{cssxref("shape")}}
 
-  - : Eine rechteckige {{cssxref("shape")}} der Form `rect(<top>, <right>, <bottom>, <left>)`. Die `<top>` und `<bottom>` Werte sind Offsets vom _inneren oberen Rand des Rahmens_ des Kastens, während `<right>` und `<left>` Offsets vom _inneren linken Rand des Rahmens_ des Kastens sind — das heißt, dem Umfang des Padding-Box.
+  - : Eine rechteckige {{cssxref("shape")}} in der Form `rect(<top>, <right>, <bottom>, <left>)`. Die Werte `<top>` und `<bottom>` sind Versätze von der _inneren oberen Rahmenkante_ des Kastens, während `<right>` und `<left>` Versätze von der _inneren linken Rahmenkante_ des Kastens sind — das heißt, vom Umfang der Pufferzone.
 
-    Die `<top>`, `<right>`, `<bottom>`, und `<left>` Werte können entweder eine {{cssxref("&lt;length&gt;")}} oder `auto` sein. Wenn der Wert einer Seite `auto` ist, wird das Element bis zum _inneren Rand des Rahmens_ dieser Seite abgeschnitten.
+    Die Werte `<top>`, `<right>`, `<bottom>`, und `<left>` können entweder eine {{cssxref("&lt;length&gt;")}} oder `auto` sein. Wenn der Wert irgendeiner Seite `auto` ist, wird das Element auf die innere Rahmenkante dieser Seite beschnitten.
 
 - `auto`
-  - : Das Element wird nicht abgeschnitten (Standard). Dies ist unterschiedlich zu `rect(auto, auto, auto, auto)`, das zum inneren Rand des Rahmens des Elements schneidet.
+  - : Das Element wird nicht beschnitten (Standard). Dies unterscheidet sich von `rect(auto, auto, auto, auto)`, das auf die inneren Rahmenkanten des Elements zuschneidet.
 
 ## Formale Definition
 
@@ -50,17 +50,17 @@ clip: unset;
 
 ## Beispiele
 
-### Ein Bild zuschneiden
+### Beschneiden eines Bildes
 
 ```html
 <p class="dotted-border">
-  <img src="macarons.png" alt="Originalgrafik" />
-  <img id="top-left" src="macarons.png" alt="Grafik oben links zugeschnitten" />
-  <img id="middle" src="macarons.png" alt="Grafik zur Mitte hin zugeschnitten" />
+  <img src="macarons.png" alt="Original graphic" />
+  <img id="top-left" src="macarons.png" alt="Graphic clipped to upper left" />
+  <img id="middle" src="macarons.png" alt="Graphic clipped towards middle" />
   <img
     id="bottom-right"
     src="macarons.png"
-    alt="Grafik unten rechts zugeschnitten" />
+    alt="Graphic clipped to bottom right" />
 </p>
 ```
 

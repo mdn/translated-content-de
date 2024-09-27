@@ -1,5 +1,5 @@
 ---
-title: 416 Bereich Nicht Erfüllbar
+title: 416 Range Not Satisfiable
 slug: Web/HTTP/Status/416
 l10n:
   sourceCommit: ba53fe04589c36a2210d7549c003f3016093ef8e
@@ -7,11 +7,11 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`416 Range Not Satisfiable`** ([Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses)) zeigt an, dass ein Server die angeforderten Bereiche nicht bereitstellen konnte. Der wahrscheinlichste Grund für diese Antwort ist, dass das Dokument solche [Bereiche](/de/docs/Web/HTTP/Range_requests) nicht enthält oder dass der Wert des {{HTTPHeader("Range")}} Headers, obwohl syntaktisch korrekt, keinen Sinn ergibt.
+Der HTTP-**`416 Range Nicht Erfüllbar`**-[Client-Fehlerantwortstatuscode](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass ein Server die angeforderten Bereiche nicht bedienen konnte. Der wahrscheinlichste Grund für diese Antwort ist, dass das Dokument solche [Bereiche](/de/docs/Web/HTTP/Range_requests) nicht enthält, oder dass der Wert des {{HTTPHeader("Range")}}-Headers zwar syntaktisch korrekt, aber nicht sinnvoll ist.
 
-Die `416` Antwortnachricht sollte einen {{HTTPHeader("Content-Range")}} enthalten, der einen unerfüllbaren Bereich angibt (das ist ein `'*'`), gefolgt von einem `'/'` und der aktuellen Länge der Ressource, z.B. `Content-Range: bytes */12777`.
+Die `416`-Antwortnachricht sollte einen {{HTTPHeader("Content-Range")}} enthalten, der einen nicht erfüllten Bereich angibt (das ist ein `'*'`), gefolgt von einem `'/'` und der aktuellen Länge der Ressource, z.B. `Content-Range: bytes */12777`.
 
-Wenn dieser Fehler auftritt, brechen Browser typischerweise entweder die Operation ab (zum Beispiel wird ein Download als nicht fortsetzbar betrachtet) oder fordern das gesamte Dokument erneut an, ohne Bereiche.
+Beim Auftreten dieses Fehlers brechen Browser normalerweise die Operation ab (zum Beispiel wird ein Download als nicht fortsetzbar angesehen) oder fordern das gesamte Dokument erneut ohne Bereiche an.
 
 ## Status
 
@@ -21,9 +21,10 @@ Wenn dieser Fehler auftritt, brechen Browser typischerweise entweder die Operati
 
 ## Beispiele
 
-### Fehlgebildete Bereichsanfrage
+### Fehlformatierte Bereichsanfrage
 
-Die folgende Anfrage fordert einen Bereich von 1000-1999 Bytes aus einer Textdatei an. Die erste Positionseinheit (1000) ist größer als die tatsächliche Ressource auf dem Server (800 Bytes):
+Die folgende Anfrage verlangt einen Bereich von 1000-1999 Bytes aus einer Textdatei.
+Die erste Positionsangabe (1000) ist größer als die tatsächliche Ressource auf dem Server (800 Bytes):
 
 ```http
 GET /files/prose.txt HTTP/1.1
@@ -31,7 +32,7 @@ Host: example.com
 Range: bytes=1000-1999
 ```
 
-Der Server unterstützt Bereichsanfragen und sendet die aktuelle Länge der ausgewählten Darstellung im {{HTTPHeader("Content-Range")}} Header zurück:
+Der Server unterstützt Bereichsanfragen und sendet die aktuelle Länge der ausgewählten Darstellung im {{HTTPHeader("Content-Range")}}-Header zurück:
 
 ```http
 HTTP/1.1 416 Range Not Satisfiable

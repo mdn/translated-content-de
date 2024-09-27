@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`map()`**-Methode von {{jsxref("TypedArray")}}-Instanzen erstellt ein neues typisiertes Array, das mit den Ergebnissen eines bereitgestellten Funktionsaufrufs für jedes Element im aufrufenden typisierten Array gefüllt ist. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.map()")}}.
+Die Methode **`map()`** von {{jsxref("TypedArray")}} Instanzen erstellt ein neues typisiertes Array, das mit den Ergebnissen einer bereitgestellten Funktion gefüllt ist, die auf jedes Element des aufrufenden typisierten Arrays angewendet wird. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.map()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-map.html", "shorter")}}
 
@@ -21,7 +21,7 @@ map(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Der Rückgabewert wird als ein einzelnes Element im neuen typisierten Array hinzugefügt. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Ihr Rückgabewert wird als einzelnes Element in das neue typisierte Array hinzugefügt. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
     - `index`
@@ -33,34 +33,34 @@ map(callbackFn, thisArg)
 
 ### Rückgabewert
 
-Ein neues typisiertes Array, bei dem jedes Element das Ergebnis der Callback-Funktion ist.
+Ein neues typisiertes Array, bei dem jedes Element das Ergebnis der Rückruffunktion ist.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.map()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.map()")}}. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 
 ### Abbilden eines typisierten Arrays auf ein typisiertes Array von Quadratwurzeln
 
-Der folgende Code nimmt ein typisiertes Array und erstellt ein neues typisiertes Array mit den Quadratwurzeln der Zahlen im ersten typisierten Array.
+Der folgende Code nimmt ein typisiertes Array und erstellt ein neues typisiertes Array, das die Quadratwurzeln der Zahlen im ersten typisierten Array enthält.
 
 ```js
 const numbers = new Uint8Array([1, 4, 9]);
 const roots = numbers.map(Math.sqrt);
-// roots ist jetzt: Uint8Array [1, 2, 3],
-// numbers ist immer noch Uint8Array [1, 4, 9]
+// roots is now: Uint8Array [1, 2, 3],
+// numbers is still Uint8Array [1, 4, 9]
 ```
 
-### Abbilden eines typisierten Arrays von Zahlen mit einer Funktion mit einem Argument
+### Abbilden eines typisierten Arrays von Zahlen mit einer Funktion, die ein Argument enthält
 
-Der folgende Code zeigt, wie `map()` funktioniert, wenn eine Funktion, die ein Argument erfordert, damit verwendet wird. Das Argument wird automatisch jedem Element des typisierten Arrays zugewiesen, während `map()` das originale typisierte Array durchläuft.
+Der folgende Code zeigt, wie `map()` funktioniert, wenn eine Funktion, die ein Argument erfordert, damit verwendet wird. Das Argument wird jedem Element des typisierten Arrays automatisch zugewiesen, da `map()` durch das ursprüngliche typisierte Array schleift.
 
 ```js
 const numbers = new Uint8Array([1, 4, 9]);
 const doubles = numbers.map((num) => num * 2);
-// doubles ist jetzt Uint8Array [2, 8, 18]
-// numbers ist immer noch Uint8Array [1, 4, 9]
+// doubles is now Uint8Array [2, 8, 18]
+// numbers is still Uint8Array [1, 4, 9]
 ```
 
 ## Spezifikationen
@@ -74,7 +74,7 @@ const doubles = numbers.map((num) => num * 2);
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.map` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.forEach()")}}
 - {{jsxref("TypedArray.from()")}}

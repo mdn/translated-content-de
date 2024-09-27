@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wenn Ihre Erweiterung eine [Optionenseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) definiert hat, öffnet diese Methode sie.
+Wenn Ihre Erweiterung eine [Optionsseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) definiert hat, öffnet diese Methode sie.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, ohne Argumente, wenn die Optionenseite erfolgreich erstellt wurde, oder abgelehnt mit einer Fehlermeldung, wenn der Vorgang fehlgeschlagen ist.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die Optionsseite erfolgreich erstellt wurde, oder mit einer Fehlermeldung abgelehnt wird, wenn der Vorgang fehlgeschlagen ist.
 
 ## Browser-Kompatibilität
 
@@ -31,7 +31,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das e
 
 ## Beispiele
 
-Öffnen Sie die Optionenseite, wenn der Benutzer auf das Symbol einer Browseraktion klickt:
+Öffnen Sie die Optionsseite, wenn der Benutzer auf das Symbol einer Browseraktion klickt:
 
 ```js
 function onOpened() {

@@ -1,5 +1,5 @@
 ---
-title: "RTCAudioSourceStats: Eigenschaft timestamp"
+title: "RTCAudioSourceStats: timestamp-Eigenschaft"
 short-title: timestamp
 slug: Web/API/RTCAudioSourceStats/timestamp
 l10n:
@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`timestamp`**-Eigenschaft des {{domxref("RTCAudioSourceStats")}}-Wörterbuchs ist ein {{domxref("DOMHighResTimeStamp")}}-Objekt, das die Zeit angibt, zu der die Daten im Objekt erfasst wurden.
+Die **`timestamp`**-Eigenschaft des [`RTCAudioSourceStats`](/de/docs/Web/API/RTCAudioSourceStats) Dictionaries ist ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das die Zeit angibt, zu der die Daten im Objekt erfasst wurden.
 
-Die Zeit wird in Millisekunden angegeben, die seit dem ersten Moment des 1. Januars 1970, UTC, vergangen sind (auch bekannt als [Unix-Zeit](/de/docs/Glossary/Unix_time)).
+Die Zeit wird in Millisekunden angegeben, die seit dem ersten Moment des 1. Januar 1970, UTC, vergangen sind (auch bekannt als [Unix-Zeit](/de/docs/Glossary/Unix_time)).
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}-Wert, der die Zeit angibt, zu der die durch die Statistiken in diesem Objekt beschriebene Aktivität aufgezeichnet wurde, in Millisekunden seit dem Beginn des 1. Januars 1970, UTC.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert, der angibt, wann die durch die Statistiken in diesem Objekt beschriebenen Aktivitäten erfasst wurden, in Millisekunden seit dem Beginn des 1. Januar 1970, UTC.
 
-Der Wert sollte innerhalb von wenigen Millisekunden genau sein, kann jedoch aufgrund von Hardware- oder Betriebssystembeschränkungen oder aufgrund von [Fingerabdruckschutz](/de/docs/Glossary/Fingerprinting) in Form reduzierter Taktpräzision oder -genauigkeit ungenau sein.
+Der Wert sollte innerhalb weniger Millisekunden genau sein, kann jedoch aufgrund von Hardware- oder Betriebssystembeschränkungen oder aufgrund von [Fingerprinting](/de/docs/Glossary/Fingerprinting)-Schutz in Form von reduzierter Präzision oder Genauigkeit der Uhr nicht ganz präzise sein.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -7,26 +7,26 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Beim Laden einer Medienressource zur Verwendung durch ein {{HTMLElement("audio")}}- oder {{HTMLElement("video")}}-Element wird das **`TimeRanges`**-Interface genutzt, um die Zeitbereiche der Medienressource darzustellen, die gepuffert, abgespielt und suchbar sind.
+Beim Laden einer Medienressource zur Verwendung durch ein {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Element wird das **`TimeRanges`** Interface verwendet, um die Zeitbereiche der Medienressource darzustellen, die gepuffert wurden, die abgespielt wurden und die ansteuerbar sind.
 
-Ein `TimeRanges`-Objekt enthält einen oder mehrere Zeitbereiche, die jeweils durch einen Startzeit- und einen Endzeitpunkt festgelegt sind. Sie greifen auf jeden Zeitbereich mittels der `start()`- und `end()`-Methoden zu, indem Sie die Indexnummer des gewünschten Zeitbereichs übergeben.
+Ein `TimeRanges` Objekt umfasst einen oder mehrere Zeitbereiche, die jeweils durch einen Startzeitversatz und einen Endzeitversatz spezifiziert sind. Sie referenzieren jeden Zeitbereich, indem Sie die Methoden `start()` und `end()` verwenden und die Indexnummer des Zeitbereichs übergeben, den Sie abrufen möchten.
 
-## Normalisierte TimeRanges-Objekte
+## Normalisierte TimeRanges Objekte
 
-Mehrere Mitglieder von {{domxref("HTMLMediaElement")}}-Objekten geben ein **normalisiertes TimeRanges-Objekt** zurück — welches [in der Spezifikation beschrieben wird](https://html.spec.whatwg.org/multipage/media.html#normalised-timeranges-object) und folgende Merkmale aufweist:
+Mehrere Mitglieder von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) Objekten geben ein **normalisiertes TimeRanges Objekt** zurück — welches [die Spezifikation beschreibt](https://html.spec.whatwg.org/multipage/media.html#normalised-timeranges-object) mit den folgenden Merkmalen:
 
-_Die Zeitbereiche in einem solchen Objekt sind geordnet, überlappen sich nicht und berühren sich nicht (angrenzende Bereiche werden zu einem größeren Bereich zusammengefasst). Ein Bereich kann leer sein (bezieht sich nur auf einen einzelnen Moment in der Zeit)._
+_Die Bereiche in einem solchen Objekt sind geordnet, überschneiden sich nicht und berühren sich nicht (benachbarte Bereiche werden zu einem größeren zusammengefasst). Ein Bereich kann leer sein (nur einen einzelnen Moment in der Zeit referenzieren)._
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("TimeRanges.length")}} {{ReadOnlyInline}}
-  - : Gibt einen `unsigned long` zurück, der die Anzahl der durch das Zeitbereichsobjekt dargestellten Zeitbereiche repräsentiert.
+- [`TimeRanges.length`](/de/docs/Web/API/TimeRanges/length) {{ReadOnlyInline}}
+  - : Gibt ein `unsigned long` zurück, das die Anzahl der durch das Zeitbereichsobjekt dargestellten Zeitbereiche repräsentiert.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("TimeRanges.start()")}}
-  - : Gibt die Zeit für den Start des Bereichs mit dem angegebenen Index zurück.
-- {{domxref("TimeRanges.end()")}}
+- [`TimeRanges.start()`](/de/docs/Web/API/TimeRanges/start)
+  - : Gibt die Zeit für den Beginn des Bereichs mit dem angegebenen Index zurück.
+- [`TimeRanges.end()`](/de/docs/Web/API/TimeRanges/end)
   - : Gibt die Zeit für das Ende des angegebenen Bereichs zurück.
 
 ## Spezifikationen

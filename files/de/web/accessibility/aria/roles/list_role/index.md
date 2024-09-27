@@ -1,5 +1,5 @@
 ---
-title: "ARIA: list-Rolle"
+title: "ARIA: list Rolle"
 slug: Web/Accessibility/ARIA/Roles/list_role
 l10n:
   sourceCommit: 194bd13942ad0c532c92d364e0d5d0c36732d98c
@@ -7,7 +7,7 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die ARIA `list`-Rolle kann verwendet werden, um eine Liste von Elementen zu identifizieren. Sie wird normalerweise in Verbindung mit der `listitem`-Rolle verwendet, die einen Listeneintrag innerhalb der Liste identifiziert.
+Die ARIA `list`-Rolle kann verwendet werden, um eine Liste von Elementen zu identifizieren. Sie wird normalerweise in Verbindung mit der `listitem`-Rolle verwendet, die ein Listenobjekt innerhalb der Liste identifiziert.
 
 ```html
 <div role="list">
@@ -19,23 +19,23 @@ Die ARIA `list`-Rolle kann verwendet werden, um eine Liste von Elementen zu iden
 
 ## Beschreibung
 
-Jegliche Inhalte, die aus einem äußeren Container mit einer Liste von Elementen bestehen, können durch Verwendung der `list`- und `listitem`-Container für unterstützende Technologien identifiziert werden. Eine `list` kann nur null oder mehr `listitem`-Kinder enthalten.
+Jeder Inhalt, der aus einem äußeren Container mit einer Liste von Elementen darin besteht, kann mit Hilfe der `list`- und `listitem`-Container für unterstützende Technologien identifiziert werden. Eine `list` kann nur null oder mehr `listitem`-Kinder enthalten.
 
-Es gibt keine festen Regeln, welche Elemente Sie zur Markierung der Liste und der Listeneinträge verwenden sollten, aber Sie sollten sicherstellen, dass die Listeneinträge im Kontext einer Liste sinnvoll sind, z. B. eine Einkaufsliste, Rezeptschritte, Wegbeschreibungen.
+Es gibt keine festen Regeln darüber, welche Elemente Sie verwenden sollten, um die Liste und die Listenelemente zu markieren, aber Sie sollten sicherstellen, dass die Listenelemente im Kontext einer Liste sinnvoll sind, z.B. eine Einkaufsliste, Rezeptschritte, Fahranweisungen.
 
 > [!NOTE]
-> Beste Praktiken besagen, dass Sie über ARIA-Rollen hinaus die entsprechenden semantischen HTML-Elemente zur Markierung von Listen und Listeneinträgen verwenden sollten — {{HTMLElement("ul")}}, {{HTMLElement("ol")}} und {{HTMLElement("li")}}. Siehe [Beste Praktiken](#beste_praktiken) für ein vollständiges Beispiel.
+> Best Practices empfehlen, die entsprechenden semantischen HTML-Elemente statt ARIA-Rollen zu verwenden, um Listen und Listenelemente zu markieren — {{HTMLElement("ul")}}, {{HTMLElement("ol")}} und {{HTMLElement("li")}}. Sehen Sie sich [Best Practices](#best_practices) für ein vollständiges Beispiel an.
 
-### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, Status und Eigenschaften
 
-- [`listitem`](/de/docs/Web/Accessibility/ARIA/Roles/listitem_role)-Rolle
-  - : Ein einzelner Eintrag in einer Liste. Elemente mit der Rolle `listitem` können nur in einem Element mit der Rolle `list` gefunden werden.
+- [`listitem`](/de/docs/Web/Accessibility/ARIA/Roles/listitem_role) Rolle
+  - : Ein einzelnes Element in einer Liste. Elemente mit der Rolle `listitem` können nur in einem Element mit der Rolle `list` gefunden werden.
 
-## Beste Praktiken
+## Best Practices
 
-Verwenden Sie `role="list"` und `role="listitem"` nur, wenn Sie es müssen — zum Beispiel, wenn Sie keine Kontrolle über Ihr HTML haben, aber in der Lage sind, die Zugänglichkeit im Nachhinein dynamisch mit JavaScript zu verbessern.
+Verwenden Sie `role="list"` und `role="listitem"` nur bei Notwendigkeit — zum Beispiel, wenn Sie keine Kontrolle über Ihr HTML haben, aber die Barrierefreiheit nachträglich mit JavaScript dynamisch verbessern können.
 
-Im Gegensatz zu den HTML {{HTMLElement("ol")}} und {{HTMLElement("ul")}}, unterscheidet die ARIA `list`-Rolle nicht zwischen geordneten und ungeordneten Listen. Wenn möglich, sollten Sie die entsprechenden semantischen HTML-Elemente zur Markierung einer Liste ({{HTMLElement("ol")}} und {{HTMLElement("ul")}}) und Listeneinträgen ({{HTMLElement("li")}}) verwenden. Beispielsweise sollte unser obiges Beispiel wie folgt umgeschrieben werden:
+Im Gegensatz zu den HTML-Elementen {{HTMLElement("ol")}} und {{HTMLElement("ul")}} unterscheidet die ARIA `list`-Rolle nicht zwischen geordneten und ungeordneten Listen. Wenn möglich, sollten Sie die entsprechenden semantischen HTML-Elemente verwenden, um eine Liste ({{HTMLElement("ol")}} und {{HTMLElement("ul")}}) und Listenelemente ({{HTMLElement("li")}}) zu markieren. Unser obiges Beispiel sollte zum Beispiel wie folgt umgeschrieben werden:
 
 ```html
 <ul>
@@ -45,7 +45,7 @@ Im Gegensatz zu den HTML {{HTMLElement("ol")}} und {{HTMLElement("ul")}}, unters
 </ul>
 ```
 
-oder verwenden Sie eine geordnete Liste, wenn die Reihenfolge der Listeneinträge wichtig ist:
+Oder verwenden Sie eine geordnete Liste, wenn die Reihenfolge der Listenelemente wichtig ist:
 
 ```html
 <ol>
@@ -58,10 +58,10 @@ oder verwenden Sie eine geordnete Liste, wenn die Reihenfolge der Listeneinträg
 > [!NOTE]
 > Die ARIA `list` / `listitem`-Rollen unterscheiden nicht zwischen geordneten und ungeordneten Listen.
 
-Nebenbei bemerkt, beachten Sie, dass wenn Sie die semantischen HTML-Elemente `<ol>` oder `<ul>` verwenden und eine Rolle von [`presentation`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role) anwenden, jedes Kind-`<li>`-Element die `presentation`-Rolle erbt, da ARIA erfordert, dass die `listitem`-Elemente das übergeordnete `list`-Element haben. Somit werden die `<li>`-Elemente nicht an unterstützende Technologien übermittelt, aber die innerhalb dieser `<li>`-Elemente enthaltenen Elemente, einschließlich verschachtelter Listen, sind für unterstützende Technologien sichtbar.
+Nebenbei bemerkt, beachten Sie, dass wenn Sie die semantischen HTML-Elemente `<ol>` oder `<ul>` verwenden und eine Rolle von [`presentation`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role) anwenden, jedes untergeordnete `<li>`-Element die `presentation`-Rolle erbt, weil ARIA verlangt, dass `listitem`-Elemente ein `list`-Elternteil haben. So werden die `<li>`-Elemente nicht für unterstützende Technologien sichtbar gemacht, aber Elemente, die innerhalb dieser `<li>`-Elemente enthalten sind, einschließlich verschachtelter Listen, sind für unterstützende Technologien sichtbar.
 
 > [!NOTE]
-> Wenn Sie eine Liste von Elementen markieren, die als Registerkarten-Schnittstelle fungieren soll, sollten Sie stattdessen die Rollen [`tab`](/de/docs/Web/Accessibility/ARIA/Roles/tab_role), [`tabpanel`](/de/docs/Web/Accessibility/ARIA/Roles/tabpanel_role) und [`tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role) verwenden.
+> Wenn Sie eine Liste von Elementen markieren, die als Registerkarten-Schnittstelle fungieren soll, sollten Sie stattdessen die [`tab`](/de/docs/Web/Accessibility/ARIA/Roles/tab_role), [`tabpanel`](/de/docs/Web/Accessibility/ARIA/Roles/tabpanel_role) und [`tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role) Rollen verwenden.
 
 ## Spezifikationen
 
@@ -73,6 +73,6 @@ Nebenbei bemerkt, beachten Sie, dass wenn Sie die semantischen HTML-Elemente `<o
 - Das {{HTMLElement("ol")}}-Element
 - Das {{HTMLElement("li")}}-Element
 - [ARIA: listitem-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/listitem_role)
-- [ARIA-Listen-Beispiele](https://www.scottohara.me/blog/2018/05/26/aria-lists.html) — von Scott O'Hara
+- [ARIA-Listenbeispiele](https://www.scottohara.me/blog/2018/05/26/aria-lists.html) — von Scott O'Hara
 - [Accessibility Object Model](https://wicg.github.io/aom/spec/)
 - [ARIA in HTML](https://w3c.github.io/html-aria/)

@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`echoCancellation`**-Eigenschaft des {{domxref("MediaTrackConstraints")}}-Wörterbuchs ist ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean), der die angeforderten oder zwingenden Einschränkungen beschreibt, die auf den Wert der einschränkbaren Eigenschaft {{domxref("MediaTrackSettings.echoCancellation", "echoCancellation")}} angewendet werden.
+Die **`echoCancellation`**-Eigenschaft des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainBoolean`](/de/docs/Web/API/MediaTrackConstraints#constrainboolean), der die angeforderten oder obligatorischen Einschränkungen beschreibt, die dem Wert der [`echoCancellation`](/de/docs/Web/API/MediaTrackSettings/echoCancellation)-Einschränkbare Eigenschaft auferlegt werden.
 
-Wenn nötig, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von {{domxref("MediaTrackSupportedConstraints.echoCancellation")}} überprüfen, der durch einen Aufruf von {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegeben wird. In der Regel ist dies jedoch nicht erforderlich, da Browser alle Einschränkungen ignorieren, die ihnen unbekannt sind.
+Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.echoCancellation`](/de/docs/Web/API/MediaTrackSupportedConstraints/echoCancellation) überprüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Normalerweise ist dies jedoch nicht erforderlich, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
 
-Da {{Glossary("RTP")}} diese Informationen nicht enthält, werden Spuren, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) {{domxref("RTCPeerConnection")}} verbunden sind, diese Eigenschaft niemals enthalten.
+Da [RTP](/de/docs/Glossary/RTP) diese Informationen nicht enthält, werden Spuren im Zusammenhang mit einer [WebRTC](/de/docs/Web/API/WebRTC_API)-[`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) diese Eigenschaft niemals enthalten.
 
 ## Wert
 
-Wenn dieser Wert ein einfaches `true` oder `false` ist, wird der Benutzeragent versuchen, Medien mit aktivierter oder deaktivierter Echounterdrückung wie angegeben zu erhalten, wenn möglich, aber nicht fehlschlagen, falls dies nicht möglich ist. Wenn der Wert stattdessen als Objekt mit einem `exact`-Feld angegeben wird, zeigt der boolesche Wert dieses Felds eine erforderliche Einstellung für die Echounterdrückungsfunktion an; wenn diese nicht erfüllt werden kann, führt die Anfrage zu einem Fehler.
+Wenn dieser Wert ein einfaches `true` oder `false` ist, wird der Benutzeragent versuchen, Medien mit aktivierter oder deaktivierter Echounterdrückung wie spezifiziert zu erhalten, wenn möglich, aber er wird nicht fehlschlagen, wenn dies nicht möglich ist. Wenn stattdessen der Wert als ein Objekt mit einem `exact`-Feld angegeben wird, gibt der Boolean-Wert dieses Feldes eine erforderliche Einstellung für die Echounterdrückungsfunktion an; wenn diese nicht erfüllt werden kann, führt die Anfrage zu einem Fehler.
 
 ## Beispiele
 
-Siehe das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel im [Constraint Übungsleitfaden](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -34,7 +34,7 @@ Siehe das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Str
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
-- {{domxref("MediaTrackConstraints")}}
-- {{domxref("MediaDevices.getSupportedConstraints()")}}
-- {{domxref("MediaTrackSupportedConstraints")}}
-- {{domxref("MediaStreamTrack")}}
+- [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
+- [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
+- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
+- [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

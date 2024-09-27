@@ -7,45 +7,45 @@ l10n:
 
 {{DefaultAPISidebar("Web Audio API")}}
 
-Es gibt kein strikt richtig oder falsch beim Schreiben von kreativem Code. Solange Sie Sicherheit, Leistung und Barrierefreiheit beachten, können Sie Ihren eigenen Stil anpassen. In diesem Artikel teilen wir eine Reihe von _Best Practices_—Richtlinien, Tipps und Tricks für die Arbeit mit der Web Audio API.
+Es gibt keinen strikt richtigen oder falschen Weg beim Schreiben von kreativem Code. Solange Sie Sicherheit, Leistung und Barrierefreiheit berücksichtigen, können Sie Ihren eigenen Stil einbringen. In diesem Artikel teilen wir eine Reihe von _Best Practices_ — Richtlinien, Tipps und Tricks zur Arbeit mit der Web Audio API.
 
 ## Laden von Sounds/Dateien
 
-Es gibt vier Hauptmethoden, um Sound mit der Web Audio API zu laden, und es kann etwas verwirrend sein, welche Sie verwenden sollten.
+Es gibt vier Hauptmöglichkeiten, um mit der Web Audio API Sound zu laden, und es kann etwas verwirrend sein, welche Sie verwenden sollten.
 
-Wenn Sie mit Dateien arbeiten, schauen Sie entweder auf das Abrufen der Datei von einem {{domxref("HTMLMediaElement")}} (z.B. ein {{htmlelement("audio")}}- oder {{htmlelement("video")}}-Element) oder darauf, die Datei abzurufen und in einen Puffer zu dekodieren. Beide sind legitime Arbeitsweisen, jedoch ist es üblicher, die erstere Methode bei der Arbeit mit vollständigen Tracks zu verwenden und die letztere bei kürzeren, mehr sampleähnlichen Tracks.
+Wenn Sie mit Dateien arbeiten, ziehen Sie entweder in Betracht, die Datei aus einem [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) (d. h. ein {{htmlelement("audio")}} oder {{htmlelement("video")}} Element) zu entnehmen, oder Sie möchten die Datei abrufen und in einen Puffer dekodieren. Beide sind legitime Arbeitsmethoden, jedoch ist es üblicher, die erste Methode bei voll langen Tracks zu verwenden und die letztere bei kürzeren, mehr sample-ähnlichen Tracks.
 
-Medienelemente unterstützen Streaming standardmäßig. Der Ton beginnt zu spielen, wenn der Browser feststellt, dass er den Rest der Datei laden kann, bevor das Abspielen abgeschlossen ist. Ein Beispiel, wie man dies mit der Web Audio API verwenden kann, finden Sie im [Tutorial zur Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API).
+Media-Elemente haben von Haus aus Streaming-Unterstützung. Das Audio wird gestartet, wenn der Browser entscheidet, dass er den Rest der Datei laden kann, bevor das Abspielen beendet ist. Ein Beispiel, wie man das mit der Web Audio API nutzt, finden Sie im [Tutorial zur Nutzung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API).
 
-Sie haben jedoch mehr Kontrolle, wenn Sie einen Pufferknoten verwenden. Sie müssen die Datei anfordern und warten, bis sie geladen ist ([dieser Abschnitt unseres fortgeschrittenen Artikels](/de/docs/Web/API/Web_Audio_API/Advanced_techniques#dial-up_—_loading_a_sound_sample) zeigt einen guten Weg, dies zu tun), aber dann haben Sie direkten Zugriff auf die Daten, was mehr Präzision und genauere Manipulation bedeutet.
+Sie haben jedoch mehr Kontrolle, wenn Sie einen Buffer Node verwenden. Sie müssen die Datei anfordern und warten, bis sie geladen ist ([dieser Abschnitt unseres fortgeschrittenen Artikels](/de/docs/Web/API/Web_Audio_API/Advanced_techniques#dial-up_—_loading_a_sound_sample) zeigt eine gute Möglichkeit, dies zu tun), aber dann haben Sie direkten Zugriff auf die Daten, was mehr Präzision und präzisere Manipulation bedeutet.
 
-Wenn Sie mit Audio von der Kamera oder dem Mikrofon des Nutzers arbeiten wollen, können Sie darauf über die [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) und die {{domxref("MediaStreamAudioSourceNode")}}-Schnittstelle zugreifen. Dies ist gut für WebRTC und Situationen, in denen Sie möglicherweise Audio aufnehmen oder analysieren wollen.
+Wenn Sie mit Audio von der Kamera oder dem Mikrofon des Benutzers arbeiten möchten, können Sie darauf über die [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) und die [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode) Schnittstelle zugreifen. Dies ist gut für WebRTC und Situationen, in denen Sie möglicherweise Audio aufnehmen oder analysieren möchten.
 
-Die letzte Möglichkeit ist, Ihren eigenen Sound zu erzeugen, was entweder mit einem {{domxref("OscillatorNode")}} oder durch das Erstellen eines Puffers und dessen Befüllen mit eigenen Daten geschehen kann. Schauen Sie sich das [Tutorial zur Erstellung Ihres eigenen Instruments](/de/docs/Web/API/Web_Audio_API/Advanced_techniques) an, um Informationen zur Erzeugung von Klängen mit Oszillatoren und Puffern zu erhalten.
+Die letzte Möglichkeit besteht darin, Ihren eigenen Sound zu erzeugen, was entweder mit einem [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) oder durch Erstellen eines Puffers und Füllen mit eigenen Daten geschehen kann. Schauen Sie sich das [Tutorial hier zur Erstellung eigener Instrumente](/de/docs/Web/API/Web_Audio_API/Advanced_techniques) an, um Informationen zur Erstellung von Sounds mit Oszillatoren und Puffern zu erhalten.
 
-## Unterstützung über verschiedene Browser und ältere Versionen
+## Unterstützung über Browser hinweg und für ältere Versionen
 
-Die Spezifikation der Web Audio API entwickelt sich ständig weiter und wie die meisten Dinge im Web, gibt es einige Probleme mit der konsistenten Funktionsweise über verschiedene Browser hinweg. Hier werden wir uns Optionen ansehen, um sich mit plattformübergreifenden Problemen auseinanderzusetzen.
+Die Spezifikation für die Web Audio API entwickelt sich ständig weiter und wie bei den meisten Dingen im Web gibt es einige Probleme mit ihrer einheitlichen Funktionsweise über verschiedene Browser hinweg. Hier betrachten wir Optionen zur Umgehung von Cross-Browser-Problemen.
 
-Es gibt das npm-Paket [`standardized-audio-context`](https://github.com/chrisguttandin/standardized-audio-context), das API-Funktionalität konsistent über verschiedene Browser hinweg definiert und dabei Lücken füllt, sobald sie entdeckt werden. Es ist ständig in der Entwicklung und bemüht sich, mit der aktuellen Spezifikation Schritt zu halten.
+Es gibt das [`standardized-audio-context`](https://github.com/chrisguttandin/standardized-audio-context) npm-Paket, das die API-Funktionalität konsistent über Browser hinweg schafft und Lücken schließt, sobald sie entdeckt werden. Es ist ständig in Entwicklung und bemüht sich, der aktuellen Spezifikation zu entsprechen.
 
-Es gibt auch die Option von Bibliotheken, von denen es einige gibt, abhängig von Ihrem Anwendungsfall. Eine gute Allrounder-Option ist [howler.js](https://howlerjs.com/). Es bietet plattformübergreifende Unterstützung und einen nützlichen Funktionsumfang. Obwohl es nicht die gesamte Bandbreite von Filtern und anderen Effekten bietet, die die Web Audio API mit sich bringt, können Sie das meiste damit tun, was Sie wollen.
+Es gibt auch die Option von Bibliotheken, von denen es je nach Anwendungsfall einige gibt. Für eine gute Allround-Lösung ist [howler.js](https://howlerjs.com/) eine gute Wahl. Es bietet Unterstützung für mehrere Browser und eine nützliche Untermenge von Funktionen. Obwohl es nicht das gesamte Spektrum an Filtern und anderen Effekten der Web Audio API nutzt, können Sie das meiste tun, was Sie möchten.
 
-Wenn Sie nach einer Option zur Klangerzeugung oder einer instrumentenbasierten Lösung suchen, ist [tone.js](https://tonejs.github.io/) eine großartige Bibliothek. Sie bietet fortgeschrittene Terminplanungsfunktionen, Synthesizer und Effekte sowie intuitive musikalische Abstraktionen, die auf der Web Audio API basieren.
+Wenn Sie nach Sounderstellung oder einer eher instrumentenbasierten Option suchen, ist [tone.js](https://tonejs.github.io/) eine großartige Bibliothek. Sie bietet erweiterte Planungsfähigkeiten, Synthesizer und Effekte sowie intuitive musikalische Abstraktionen, die auf der Web Audio API aufgebaut sind.
 
-[R-audio](https://github.com/bbc/r-audio) von der [Forschungs- und Entwicklungsabteilung der BBC](https://medium.com/bbc-product-technology/r-audio-declarative-reactive-and-flexible-web-audio-graphs-in-react-102c44a1c69c) ist eine Bibliothek von React-Komponenten, die darauf abzielen, eine "intuitivere, deklarative Schnittstelle zur Web Audio zu bieten". Wenn Sie es gewohnt sind, JSX zu schreiben, könnte es sich lohnen, es sich anzusehen.
+[R-audio](https://github.com/bbc/r-audio), aus der [Forschungs- und Entwicklungsabteilung der BBC](https://medium.com/bbc-product-technology/r-audio-declarative-reactive-and-flexible-web-audio-graphs-in-react-102c44a1c69c), ist eine Bibliothek von React-Komponenten, die darauf abzielt, eine "intuitivere, deklarative Schnittstelle zu Web Audio" bereitzustellen. Wenn Sie an das Schreiben von JSX gewöhnt sind, könnte es sich lohnen, sich das anzusehen.
 
 ## Autoplay-Richtlinie
 
-Browser haben angefangen, eine Autoplay-Richtlinie zu implementieren, die im Allgemeinen so zusammengefasst werden kann:
+Browser beginnen, eine Autoplay-Richtlinie umzusetzen, die im Allgemeinen folgendermaßen zusammengefasst werden kann:
 
-> "Erstellen oder Fortsetzen eines Kontextes innerhalb einer Nutzeraktion".
+> „Kontext innerhalb einer Benutzeraktion erstellen oder fortsetzen“.
 
-Aber was bedeutet das in der Praxis? Eine Nutzeraktion wird als ein vom Nutzer initiierter Event interpretiert, normalerweise ein `click`-Event. Browseranbieter haben entschieden, dass Web Audio-Kontexte nicht automatisch Audio abspielen dürfen; sie sollten stattdessen durch einen Nutzer gestartet werden. Dies liegt daran, dass automatisch abgespieltes Audio wirklich störend und aufdringlich sein kann. Aber wie gehen wir damit um?
+Aber was bedeutet das in der Praxis? Eine Benutzeraktion wurde als ein vom Benutzer initiierter Event interpretiert, normalerweise ein `click` Event. Browseranbieter entschieden, dass Web Audio-Kontexte Audio nicht automatisch abspielen dürfen; sie sollten stattdessen vom Benutzer gestartet werden. Dies liegt daran, dass automatisch abgespieltes Audio wirklich störend und aufdringlich sein kann. Aber wie gehen wir damit um?
 
-Wenn Sie einen Audiokontext erstellen (entweder offline oder online), wird er mit einem `state` erstellt, der `suspended`, `running` oder `closed` sein kann.
+Wenn Sie einen Audiokontext erstellen (entweder offline oder online), wird dieser mit einem `state` erstellt, der `suspended`, `running` oder `closed` sein kann.
 
-Wenn Sie mit einem {{domxref("AudioContext")}} arbeiten, sollte der Status automatisch auf `running` gesetzt werden, wenn Sie den Audiokontext innerhalb eines `click`-Events erstellen. Hier ist ein einfaches Beispiel für die Erstellung des Kontexts innerhalb eines `click`-Events:
+Wenn Sie mit einem [`AudioContext`](/de/docs/Web/API/AudioContext) arbeiten, wird der Status automatisch auf `running` gesetzt, wenn Sie den Audiokontext innerhalb eines `click` Events erstellen. Hier ist ein einfaches Beispiel für die Erstellung des Kontexts innerhalb eines `click` Events:
 
 ```js
 const button = document.querySelector("button");
@@ -53,13 +53,13 @@ button.addEventListener(
   "click",
   () => {
     const audioCtx = new AudioContext();
-    // Machen Sie etwas mit dem Audiokontext
+    // Do something with the audio context
   },
   false,
 );
 ```
 
-Wenn Sie den Kontext jedoch außerhalb einer Nutzeraktion erstellen, wird sein Status auf `suspended` gesetzt und muss nach einer Nutzerinteraktion gestartet werden. Wir können das gleiche Klick-Event-Beispiel hier verwenden, den Status des Kontexts überprüfen und ihn starten, falls er angehalten ist, unter Verwendung der [`resume()`](/de/docs/Web/API/AudioContext/resume)-Methode.
+Wenn Sie den Kontext jedoch außerhalb einer Benutzeraktion erstellen, wird sein Status auf `suspended` gesetzt, und er muss nach Benutzerinteraktion gestartet werden. Wir können dasselbe Click-Event-Beispiel hier verwenden, um den Status des Kontextes zu testen und ihn zu starten, falls er auf „suspended“ gesetzt ist, indem wir die [`resume()`](/de/docs/Web/API/AudioContext/resume) Methode verwenden.
 
 ```js
 const audioCtx = new AudioContext();
@@ -68,7 +68,7 @@ const button = document.querySelector("button");
 button.addEventListener(
   "click",
   () => {
-    // Überprüfen, ob der Kontext im angehaltenen Zustand ist (Autoplay-Richtlinie)
+    // check if context is in suspended state (autoplay policy)
     if (audioCtx.state === "suspended") {
       audioCtx.resume();
     }
@@ -77,30 +77,30 @@ button.addEventListener(
 );
 ```
 
-Sie können stattdessen mit einem {{domxref("OfflineAudioContext")}} arbeiten. In diesem Fall können Sie den angehaltenen Audiokontext mit der [`startRendering()`](/de/docs/Web/API/OfflineAudioContext/startRendering)-Methode fortsetzen.
+Möglicherweise arbeiten Sie stattdessen mit einem [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext), in welchem Fall Sie den suspendierten Audiokontext mit der Methode [`startRendering()`](/de/docs/Web/API/OfflineAudioContext/startRendering) fortsetzen können.
 
 ## Benutzerkontrolle
 
-Wenn Ihre Webseite oder Anwendung Ton enthält, sollten Sie dem Nutzer die Kontrolle darüber geben, sonst wird es wieder lästig. Dies kann durch Play/Stop- und Lautstärke/Stummschaltsteuerungen erreicht werden. Das [Tutorial zur Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API) behandelt, wie dies gemacht wird.
+Wenn Ihre Website oder Anwendung Sound enthält, sollten Sie dem Benutzer die Kontrolle darüber geben, andernfalls wird er wieder störend. Dies kann durch Play/Stop- und Lautstärke/Stummsteuerungen erreicht werden. Das [Tutorial zur Nutzung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API) erklärt, wie das geht.
 
-Wenn Sie Schaltflächen haben, die Audio ein- und ausschalten, ist die Verwendung des ARIA-Attributs [`role="switch"`](/de/docs/Web/Accessibility/ARIA/Roles/switch_role) eine gute Option, um assistiven Technologien mitzuteilen, was der genaue Zweck der Schaltfläche ist, und so die App barrierefreier zu machen. Es gibt [ein Demobeispiel, wie man es verwendet](https://codepen.io/Wilto/pen/ZoGoQm?editors=1100).
+Wenn Sie Schaltflächen haben, die Audio ein- und ausschalten, ist die Verwendung des ARIA-Attributs [`role="switch"`](/de/docs/Web/Accessibility/ARIA/Roles/switch_role) eine gute Option, um unterstützender Technologie zu signalisieren, was der genaue Zweck der Schaltfläche ist und somit die Anwendung zugänglicher zu machen. Es gibt [hier eine Demo, wie man es benutzt](https://codepen.io/Wilto/pen/ZoGoQm?editors=1100).
 
-Da Sie mit vielen sich ändernden Werten innerhalb der Web Audio API arbeiten und Nutzern Kontrolle darüber geben wollen, ist [`<input type="range">`](/de/docs/Web/HTML/Element/input/range) oft eine gute Wahl als Steuerung. Es ist eine gute Option, da Sie Mindest- und Höchstwerte sowie Schritte mit dem [`step`](/de/docs/Web/HTML/Element/input#step)-Attribut festlegen können.
+Da Sie mit vielen sich ändernden Werten innerhalb der Web Audio API arbeiten und den Benutzern die Kontrolle darüber geben möchten, ist [`<input type="range">`](/de/docs/Web/HTML/Element/input/range) oft eine gute Wahl als Steuerungsmöglichkeit. Es ist eine gute Option, da Sie Mindest- und Höchstwerte sowie Inkremente mit dem [`step`](/de/docs/Web/HTML/Element/input#step) Attribut festlegen können.
 
-## AudioParam-Werte setzen
+## Einstellen von AudioParam-Werten
 
-Es gibt zwei Möglichkeiten, Werte von {{domxref("AudioNode")}} zu manipulieren, die selbst Objekte des Typs {{domxref("AudioParam")}} sind. Die erste Möglichkeit ist das direkte Setzen des Wertes über die Eigenschaft. Wenn wir zum Beispiel den `gain`-Wert eines {{domxref("GainNode")}} ändern wollen, würden wir dies so tun:
+Es gibt zwei Möglichkeiten, [`AudioNode`](/de/docs/Web/API/AudioNode) Werte zu manipulieren, die selbst Objekte vom Typ [`AudioParam`](/de/docs/Web/API/AudioParam) Schnittstelle sind. Die erste besteht darin, den Wert direkt über die Eigenschaft einzustellen. Wenn wir zum Beispiel den `gain` Wert eines [`GainNode`](/de/docs/Web/API/GainNode) ändern möchten, würden wir dies so tun:
 
 ```js
 gainNode.gain.value = 0.5;
 ```
 
-Dies setzt unsere Lautstärke auf die Hälfte. Wenn Sie jedoch eine der definierten Methoden des `AudioParam` verwenden, um diese Werte zu setzen, haben diese Vorrang vor dem oben genannten Setzen der Eigenschaft. Wenn Sie beispielsweise möchten, dass der `gain`-Wert in 2 Sekunden auf 1 erhöht wird, können Sie dies so tun:
+Dies setzt unsere Lautstärke auf die Hälfte. Wenn Sie jedoch eine der durch `AudioParam` definierten Methoden verwenden, um diese Werte festzulegen, haben diese Vorrang vor der obigen Eigenschaftseinstellung. Wenn Sie zum Beispiel möchten, dass der `gain` Wert in 2 Sekunden auf 1 angehoben wird, können Sie dies tun:
 
 ```js
 gainNode.gain.setValueAtTime(1, audioCtx.currentTime + 2);
 ```
 
-Dies überschreibt das vorherige Beispiel (wie es sollte), auch wenn es später in Ihrem Code vorkommt.
+Es wird das vorherige Beispiel (wie es sein sollte) überschreiben, selbst wenn es später in Ihrem Code erscheinen sollte.
 
-Unter Berücksichtigung dessen, wenn Ihre Webseite oder Anwendung Timing und Planung erfordert, ist es am besten, sich an die {{domxref("AudioParam")}}-Methoden zum Setzen von Werten zu halten. Wenn Sie sicher sind, dass dies nicht der Fall ist, ist das Setzen mit der `value`-Eigenschaft in Ordnung.
+Wenn Sie dies berücksichtigen, ist es am besten, wenn Ihre Website oder Anwendung Timing und Planung erfordert, die [`AudioParam`](/de/docs/Web/API/AudioParam) Methoden zum Einstellen von Werten zu verwenden. Wenn Sie sicher sind, dass dies nicht erforderlich ist, ist das Einstellen über die `value` Eigenschaft in Ordnung.

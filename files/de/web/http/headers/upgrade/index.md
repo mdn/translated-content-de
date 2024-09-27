@@ -7,32 +7,32 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP 1.1 (nur) `Upgrade`-Header kann verwendet werden, um eine bereits etablierte Client/Server-Verbindung zu einem anderen Protokoll (über dasselbe Transportprotokoll) zu aktualisieren. Beispielsweise kann ein Client damit eine Verbindung von HTTP 1.1 auf HTTP 2.0 oder eine HTTP- oder HTTPS-Verbindung in einen WebSocket upgraden.
+Der HTTP 1.1 (nur) `Upgrade`-Header kann verwendet werden, um eine bereits etablierte Client/Server-Verbindung auf ein anderes Protokoll (über das gleiche Transportprotokoll) zu upgraden. Zum Beispiel kann ein Client eine Verbindung von HTTP 1.1 auf HTTP 2.0 oder eine HTTP- bzw. HTTPS-Verbindung in einen WebSocket aufrüsten.
 
 > [!WARNING]
-> HTTP/2 untersagt ausdrücklich die Verwendung dieses Mechanismus/Headers; er ist spezifisch für HTTP/1.1.
+> HTTP/2 verbietet ausdrücklich die Verwendung dieses Mechanismus/Headers; es ist spezifisch für HTTP/1.1.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request header")}},
-        {{Glossary("Response header")}}
+        [Request-Header](/de/docs/Glossary/Request_header),
+        [Response-Header](/de/docs/Glossary/Response_header)
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja</td>
     </tr>
   </tbody>
 </table>
 
-## Übersicht
+## Überblick
 
-Das `Upgrade`-Header-Feld kann von Clients verwendet werden, um einen Server einzuladen, zu einem (oder mehreren) der aufgelisteten Protokolle in absteigender Präferenzreihenfolge zu wechseln.
+Das `Upgrade`-Headerfeld kann von Clients verwendet werden, um einen Server einzuladen, zu einem oder mehreren der aufgeführten Protokolle in absteigender Präferenzreihenfolge zu wechseln.
 
-Zum Beispiel könnte der Client eine `GET`-Anfrage senden, wie gezeigt, und dabei die bevorzugten Protokolle zum Wechsel auflisten (in diesem Fall "example/1" und "foo/2"):
+Zum Beispiel könnte der Client eine `GET`-Anfrage wie gezeigt senden und die bevorzugten Protokolle zur Umstellung auflisten (in diesem Fall "example/1" und "foo/2"):
 
 ```http
 GET /index.html HTTP/1.1
@@ -41,13 +41,13 @@ Connection: upgrade
 Upgrade: example/1, foo/2
 ```
 
-> **Hinweis:** `Connection: upgrade` muss gesetzt werden, wann immer `Upgrade` gesendet wird.
+> **Hinweis:** `Connection: upgrade` muss gesetzt sein, wann immer `Upgrade` gesendet wird.
 
-Der Server kann die Anfrage aus irgendeinem Grund ignorieren, in diesem Fall sollte er einfach antworten, als ob der `Upgrade`-Header nicht gesendet worden wäre (zum Beispiel mit einem {{HTTPStatus(200, "200 OK")}}).
+Der Server kann die Anfrage aus beliebigen Gründen ignorieren und sollte dann so antworten, als wäre der `Upgrade`-Header nicht gesendet worden (zum Beispiel mit einem {{HTTPStatus(200, "200 OK")}}).
 
-Wenn der Server beschließt, die Verbindung zu upgraden, muss er:
+Wenn der Server entscheidet, die Verbindung zu upgraden, muss er:
 
-1. Einen {{HTTPStatus(101, "101 Switching Protocols")}}-Antwortstatus mit einem `Upgrade`-Header zurücksenden, der das Protokoll bzw. die Protokolle angibt, zu denen gewechselt wird. Zum Beispiel:
+1. Einen {{HTTPStatus(101, "101 Switching Protocols")}}-Antwortstatus mit einem `Upgrade`-Header zurückschicken, der das oder die Protokolle angibt, zu denen gewechselt wird. Zum Beispiel:
 
    ```http
    HTTP/1.1 101 Switching Protocols
@@ -55,9 +55,9 @@ Wenn der Server beschließt, die Verbindung zu upgraden, muss er:
    Connection: Upgrade
    ```
 
-2. Eine Antwort auf die ursprüngliche Anfrage _unter Verwendung des neuen Protokolls_ senden (der Server darf nur zu einem Protokoll wechseln, mit dem er die ursprüngliche Anfrage abschließen kann).
+2. Eine Antwort auf die ursprüngliche Anfrage _mit dem neuen Protokoll_ senden (der Server darf nur zu einem Protokoll wechseln, mit dem er die ursprüngliche Anfrage abschließen kann).
 
-Ein Server kann den Header auch als Teil einer {{HTTPStatus("426")}} `Upgrade Required`-Antwort senden, um anzuzeigen, dass der Server die Anfrage mit dem aktuellen Protokoll nicht ausführen wird, dies aber möglicherweise tut, wenn das Protokoll geändert wird. Der Client kann dann eine Protokolländerung mit dem oben beschriebenen Prozess anfordern.
+Ein Server kann auch den Header als Teil einer {{HTTPStatus("426")}} `Upgrade Required`-Antwort senden, um anzuzeigen, dass der Server die Anfrage nicht mit dem aktuellen Protokoll ausführen wird, dies aber möglicherweise tut, wenn das Protokoll geändert wird. Der Client kann dann einen Protokollwechsel wie oben beschrieben anfordern.
 
 Weitere Details und Beispiele finden Sie im Thema [Protokoll-Upgrade-Mechanismus](/de/docs/Web/HTTP/Protocol_upgrade_mechanism).
 
@@ -68,10 +68,10 @@ Connection: upgrade
 Upgrade: protocol_name[/protocol_version]
 ```
 
-Hinweise:
+Anmerkungen:
 
 - Der {{HTTPHeader("Connection")}}-Header mit dem Typ `upgrade` muss _immer_ mit dem `Upgrade`-Header gesendet werden (wie oben gezeigt).
-- Protokolle werden kommasepariert in absteigender Präferenzreihenfolge aufgelistet. Die Protokollversion ist optional. Zum Beispiel:
+- Protokolle werden kommasepariert in absteigender Präferenzreihenfolge aufgeführt. Die Protokollversion ist optional. Zum Beispiel:
 
 ```http
 Connection: upgrade
@@ -80,8 +80,8 @@ Upgrade: a_protocol/1, example, another_protocol/2.2
 
 ## Direktiven
 
-- beliebige durch Kommas getrennte Liste von Protokollnamen (jeweils mit optionaler Protokollversion)
-  - : Ein oder mehrere Protokollnamen mit optionaler Version (durch "/" getrennt). Die Protokolle sind in der Reihenfolge absteigender Präferenz aufgeführt.
+- jede kommaseparierte Liste von Protokollnamen (jeweils mit optionaler Protokollversion)
+  - : Ein oder mehrere Protokollnamen mit optionaler Version ("/"-getrennt). Die Protokolle werden in absteigender Präferenzreihenfolge aufgelistet.
 
 ## Beispiele
 
@@ -99,7 +99,7 @@ Upgrade: websocket
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

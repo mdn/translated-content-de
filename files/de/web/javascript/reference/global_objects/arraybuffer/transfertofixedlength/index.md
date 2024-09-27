@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`transferToFixedLength()`**-Methode von {{jsxref("ArrayBuffer")}}-Instanzen erstellt einen neuen nicht resizebaren `ArrayBuffer` mit denselben Byte-Inhalten wie dieser Puffer und trennt dann diesen Puffer.
+Die **`transferToFixedLength()`**-Methode von {{jsxref("ArrayBuffer")}}-Instanzen erstellt einen neuen nicht-resizierbaren `ArrayBuffer` mit dem gleichen Byte-Inhalt wie dieser Puffer und trennt dann diesen Puffer.
 
 ## Syntax
 
@@ -19,26 +19,26 @@ transferToFixedLength(newByteLength)
 ### Parameter
 
 - `newByteLength`
-  - : Der {{jsxref("ArrayBuffer/byteLength", "byteLength")}} des neuen `ArrayBuffer`. Standardmäßig der `byteLength` dieses `ArrayBuffer`.
-    - Wenn `newByteLength` kleiner ist als der `byteLength` dieses `ArrayBuffer`, werden die "überflüssigen" Bytes verworfen.
-    - Wenn `newByteLength` größer ist als der `byteLength` dieses `ArrayBuffer`, werden die zusätzlichen Bytes mit Nullen gefüllt.
+  - : Die {{jsxref("ArrayBuffer/byteLength", "byteLength")}} des neuen `ArrayBuffer`. Standardmäßig die `byteLength` dieses `ArrayBuffer`.
+    - Ist `newByteLength` kleiner als die `byteLength` dieses `ArrayBuffer`, werden die "überlaufenden" Bytes verworfen.
+    - Ist `newByteLength` größer als die `byteLength` dieses `ArrayBuffer`, werden die zusätzlichen Bytes mit Nullen gefüllt.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("ArrayBuffer")}}-Objekt. Sein Inhalt wird auf den Inhalt dieses `ArrayBuffer` initialisiert und zusätzliche Bytes, falls vorhanden, werden mit Nullen gefüllt. Der neue `ArrayBuffer` ist immer nicht resizebar. Der ursprüngliche `ArrayBuffer` wird getrennt.
+Ein neuer {{jsxref("ArrayBuffer")}}-Objekt. Sein Inhalt wird mit dem Inhalt dieses `ArrayBuffer` initialisiert, und zusätzliche Bytes, falls vorhanden, werden mit Nullen gefüllt. Der neue `ArrayBuffer` ist immer nicht-resizierbar. Der ursprüngliche `ArrayBuffer` wird getrennt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn dieser `ArrayBuffer` bereits getrennt ist.
+  - : Ausgelöst, wenn dieser `ArrayBuffer` bereits getrennt ist.
 
 ## Beschreibung
 
-Im Gegensatz zu {{jsxref("ArrayBuffer/transfer", "transfer()")}} erstellt `transferToFixedLength()` immer einen nicht resizebaren `ArrayBuffer`. Dies bedeutet, dass `newByteLength` größer sein kann als der `maxByteLength`, selbst wenn dieser `ArrayBuffer` resizebar ist. Siehe [Übertragen von ArrayBuffers](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer#transferring_arraybuffers) für weitere Informationen.
+Im Gegensatz zu {{jsxref("ArrayBuffer/transfer", "transfer()")}} erstellt `transferToFixedLength()` immer einen nicht-resizierbaren `ArrayBuffer`. Das bedeutet, `newByteLength` kann größer sein als `maxByteLength`, selbst wenn dieser `ArrayBuffer` resizierbar ist. Siehe [Übertragung von ArrayBuffers](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer#transferring_arraybuffers) für weitere Informationen.
 
 ## Beispiele
 
-### Übertragen eines resizebaren ArrayBuffer in eine feste Länge
+### Übertragen eines resizierbaren ArrayBuffer auf feste Länge
 
 ```js
 const buffer = new ArrayBuffer(8, { maxByteLength: 16 });
@@ -54,7 +54,7 @@ console.log(view2[1]); // 2
 console.log(view2[7]); // 4
 ```
 
-Mit `transferToFixedLength` kann `newByteLength` größer als der `maxByteLength` des ursprünglichen `ArrayBuffer` sein.
+Mit `transferToFixedLength` kann `newByteLength` größer sein als die `maxByteLength` des ursprünglichen `ArrayBuffer`.
 
 ```js
 const buffer = new ArrayBuffer(8, { maxByteLength: 16 });

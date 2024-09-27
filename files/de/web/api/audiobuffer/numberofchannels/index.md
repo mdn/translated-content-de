@@ -8,11 +8,12 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `numberOfChannels`-Eigenschaft des {{ domxref("AudioBuffer") }}-Interfaces gibt eine Ganzzahl zurück, die die Anzahl der diskreten Audiokanäle darstellt, die durch die im Puffer gespeicherten PCM-Daten beschrieben werden.
+Die `numberOfChannels`-Eigenschaft der [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)
+Schnittstelle gibt eine ganze Zahl zurück, die die Anzahl der diskreten Audiokanäle darstellt, die durch die im Puffer gespeicherten PCM-Daten beschrieben werden.
 
 ## Wert
 
-Eine Ganzzahl.
+Eine ganze Zahl.
 
 ## Beispiele
 
@@ -20,20 +21,20 @@ Eine Ganzzahl.
 // Stereo
 const channels = 2;
 
-// Erstellen Sie einen leeren zweisekündigen Stereo-Puffer bei der
-// Abtastrate des AudioContext
+// Create an empty two second stereo buffer at the
+// sample rate of the AudioContext
 const frameCount = audioCtx.sampleRate * 2.0;
 const myArrayBuffer = audioCtx.createBuffer(2, frameCount, audioCtx.sampleRate);
 
 button.onclick = () => {
-  // Füllen Sie den Puffer mit weißem Rauschen;
-  // einfach Zufallswerte zwischen -1,0 und 1,0
+  // Fill the buffer with white noise;
+  // just random values between -1.0 and 1.0
   for (let channel = 0; channel < channels; channel++) {
-    // Das gibt uns den tatsächlichen ArrayBuffer, der die Daten enthält
+    // This gives us the actual ArrayBuffer that contains the data
     const nowBuffering = myArrayBuffer.getChannelData(channel);
     for (let i = 0; i < frameCount; i++) {
-      // Math.random() ist in [0; 1,0]
-      // Audio muss in [-1,0; 1,0] sein
+      // Math.random() is in [0; 1.0]
+      // audio needs to be in [-1.0; 1.0]
       nowBuffering[i] = Math.random() * 2 - 1;
     }
   }

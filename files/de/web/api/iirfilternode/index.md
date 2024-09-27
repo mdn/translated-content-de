@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die **`IIRFilterNode`**-Schnittstelle der [Web Audio API](/de/docs/Web/API/Web_Audio_API) ist ein {{domxref("AudioNode")}} Prozessor, der eine allgemeine **[Infinite Impulse Response](https://en.wikipedia.org/wiki/Infinite_impulse_response)** (IIR) Filter implementiert; dieser Filtertyp kann auch zur Implementierung von Tonkontrollgeräten und grafischen Equalizern verwendet werden. Er erlaubt die Spezifikation der Parameter der Filterantwort, damit er nach Bedarf abgestimmt werden kann.
+Die **`IIRFilterNode`**-Schnittstelle der [Web Audio API](/de/docs/Web/API/Web_Audio_API) ist ein [`AudioNode`](/de/docs/Web/API/AudioNode)-Prozessor, der eine allgemeine **[unendliche Impulsantwort](https://en.wikipedia.org/wiki/Infinite_impulse_response)** (IIR)-Filter implementiert; dieser Filtertyp kann auch verwendet werden, um Tonsteuergeräte und grafische Equalizer zu implementieren. Er ermöglicht es, die Parameter der Filterantwort anzugeben, sodass diese nach Bedarf angepasst werden kann.
 
 {{InheritanceDiagram}}
 
@@ -22,12 +22,12 @@ Die **`IIRFilterNode`**-Schnittstelle der [Web Audio API](/de/docs/Web/API/Web_A
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalzählmodus</th>
+      <th scope="row">Kanalanzahlmodus</th>
       <td><code>"max"</code></td>
     </tr>
     <tr>
-      <th scope="row">Anzahl der Kanäle</th>
-      <td>Gleich wie beim Eingang</td>
+      <th scope="row">Kanalanzahl</th>
+      <td>Gleich wie am Eingang</td>
     </tr>
     <tr>
       <th scope="row">Kanalinterpretation</th>
@@ -36,40 +36,40 @@ Die **`IIRFilterNode`**-Schnittstelle der [Web Audio API](/de/docs/Web/API/Web_A
   </tbody>
 </table>
 
-Typischerweise ist es am besten, die {{domxref("BiquadFilterNode")}}-Schnittstelle zu verwenden, um Filter höherer Ordnung zu implementieren. Es gibt mehrere Gründe dafür:
+Typischerweise ist es am besten, die [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode)-Schnittstelle zur Implementierung höherer Ordnung Filter zu verwenden. Es gibt mehrere Gründe dafür:
 
-- Biquad-Filter sind typischerweise weniger empfindlich gegenüber numerischen Eigenheiten.
+- Biquadratische Filter sind im Allgemeinen weniger anfällig für numerische Eigenheiten.
 - Die Filterparameter von Biquad-Filtern können automatisiert werden.
-- Alle geraden IIR-Filter können mit {{domxref("BiquadFilterNode")}} erstellt werden.
+- Alle IIR-Filter gerader Ordnung können mit [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) erstellt werden.
 
-Wenn Sie jedoch einen ungeraden IIR-Filter erstellen müssen, benötigen Sie `IIRFilterNode`. Diese Schnittstelle kann auch nützlich sein, wenn Sie keine Automatisierung benötigen oder aus anderen Gründen.
+Wenn Sie jedoch einen IIR-Filter ungerader Ordnung erstellen müssen, müssen Sie `IIRFilterNode` verwenden. Diese Schnittstelle kann auch nützlich sein, wenn Sie keine Automatisierung benötigen oder aus anderen Gründen.
 
 > [!NOTE]
-> Sobald der Knoten erstellt wurde, können seine Koeffizienten nicht mehr geändert werden.
+> Sobald der Node erstellt wurde, können Sie seine Koeffizienten nicht mehr ändern.
 
-`IIRFilterNode`s haben eine Nachlaufzeit-Referenz; sie geben weiterhin nicht-stille Audiodaten mit null Eingaben aus. Als IIR-Filter setzt sich die nicht-null Eingabe unendlich fort, kann aber in der Praxis nach einer endlichen Zeit begrenzt werden, wenn die Ausgabe null ausreichend nahekommt. Die tatsächliche Dauer hängt von den angegebenen Filterkoeffizienten ab.
+`IIRFilterNode`s haben eine Nachlaufzeit-Referenz; sie geben weiterhin nicht-stille Audioausgabe mit null Eingabe aus. Als IIR-Filter setzt die nicht-null Eingabe für immer fort, aber dies kann nach einer gewissen endlichen Zeit begrenzt werden, wenn die Ausgabe nahe genug an null kommt. Die tatsächlich benötigte Zeit hängt von den bereitgestellten Filterkoeffizienten ab.
 
 ## Konstruktor
 
-- {{domxref("IIRFilterNode.IIRFilterNode", "IIRFilterNode()")}}
+- [`IIRFilterNode()`](/de/docs/Web/API/IIRFilterNode/IIRFilterNode)
   - : Erstellt eine neue Instanz eines IIRFilterNode-Objekts.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle hat keine eigenen Eigenschaften; sie erbt jedoch Eigenschaften von ihrem Elternteil, {{domxref("AudioNode")}}_.
+_Diese Schnittstelle hat keine eigenen Eigenschaften; sie erbt jedoch Eigenschaften von ihrem Eltern-Interface, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von ihrem Elternteil, {{domxref("AudioNode")}}. Sie hat auch die folgenden zusätzlichen Methoden:_
+_Erbt Methoden von ihrem Eltern-Interface, [`AudioNode`](/de/docs/Web/API/AudioNode). Sie hat auch die folgenden zusätzlichen Methoden:_
 
-- {{domxref("IIRFilterNode.getFrequencyResponse", "getFrequencyResponse()")}}
-  - : Verwendet die aktuellen Parameter des Filters, um die Antwort für die in dem bereitgestellten Frequenzarray angegebenen Frequenzen zu berechnen.
+- [`getFrequencyResponse()`](/de/docs/Web/API/IIRFilterNode/getFrequencyResponse)
+  - : Verwendet die aktuellen Parametereinstellungen des Filters, um die Antwort für die in dem bereitgestellten Frequenzarray angegebenen Frequenzen zu berechnen.
 
 ## Beispiele
 
-Sie finden ein einfaches IIR-Filter-Demo live [auf Codepen](https://codepen.io/Rumyra/pen/oPxvYB/). Sehen Sie sich auch den [Quellcode auf GitHub](https://github.com/mdn/webaudio-examples/tree/main/iirfilter-node) an. Es enthält einige unterschiedliche Koeffizientenwerte für verschiedene Tiefpassfrequenzen — Sie können den Wert der Konstanten `filterNumber` auf einen Wert zwischen 0 und 3 ändern, um die verschiedenen verfügbaren Effekte auszuprobieren.
+Sie finden eine einfache IIR-Filter-Demo live [auf Codepen](https://codepen.io/Rumyra/pen/oPxvYB/). Siehe auch den [Quellcode auf GitHub](https://github.com/mdn/webaudio-examples/tree/main/iirfilter-node). Es enthält einige verschiedene Koeffizientenwerte für verschiedene Tiefpassfrequenzen – Sie können den Wert der `filterNumber`-Konstante auf einen Wert zwischen 0 und 3 ändern, um die verschiedenen verfügbaren Effekte zu überprüfen.
 
-Sehen Sie sich auch unseren [Verwendung von IIR-Filtern](/de/docs/Web/API/Web_Audio_API/Using_IIR_filters) Leitfaden für eine vollständige Erklärung an.
+Siehe auch unseren [Verwendung von IIR-Filtern](/de/docs/Web/API/Web_Audio_API/Using_IIR_filters)-Leitfaden für eine vollständige Erklärung.
 
 ## Spezifikationen
 
@@ -82,5 +82,5 @@ Sehen Sie sich auch unseren [Verwendung von IIR-Filtern](/de/docs/Web/API/Web_Au
 ## Siehe auch
 
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- {{domxref("AudioNode")}}
-- {{domxref("BiquadFilterNode")}}
+- [`AudioNode`](/de/docs/Web/API/AudioNode)
+- [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode)

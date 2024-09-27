@@ -1,5 +1,5 @@
 ---
-title: Verwendung des Document Object Models
+title: Verwenden des Document Object Model
 slug: Web/API/Document_Object_Model/Using_the_Document_Object_Model
 l10n:
   sourceCommit: 1f44fd905e4acbe867ca945b26a8b06ddb646328
@@ -7,11 +7,11 @@ l10n:
 
 {{DefaultAPISidebar("DOM")}}
 
-Das _Document Object Model_ (DOM) ist eine API zur Manipulation von DOM-Bäumen von HTML- und XML-Dokumenten (unter anderen baumartigen Dokumenten). Diese API ist die Grundlage für die Beschreibung einer Seite und dient als Basis für das Scripting im Web.
+Das _Document Object Model_ (DOM) ist eine API zur Manipulation von DOM-Bäumen von HTML- und XML-Dokumenten (neben anderen baumartigen Dokumenten). Diese API ist die Grundlage für die Beschreibung einer Seite und dient als Basis für Scripting im Web.
 
 ## Was ist ein DOM-Baum?
 
-Ein **DOM-Baum** ist eine [Baumstruktur](https://en.wikipedia.org/wiki/Tree_structure), deren Knoten den Inhalt eines HTML- oder XML-Dokuments darstellen. Jedes HTML- oder XML-Dokument hat eine DOM-Baum-Darstellung. Betrachten Sie zum Beispiel folgendes Dokument:
+Ein **DOM-Baum** ist eine [Baumstruktur](https://en.wikipedia.org/wiki/Tree_structure), deren Knoten den Inhalt eines HTML- oder XML-Dokuments darstellen. Jedes HTML- oder XML-Dokument hat eine DOM-Baum-Darstellung. Zum Beispiel betrachten Sie das folgende Dokument:
 
 ```html
 <html lang="en">
@@ -25,21 +25,21 @@ Ein **DOM-Baum** ist eine [Baumstruktur](https://en.wikipedia.org/wiki/Tree_stru
 </html>
 ```
 
-Es hat einen DOM-Baum, der wie folgt aussieht:
+Es hat einen DOM-Baum, der so aussieht:
 
-![Der DOM als baumartige Darstellung eines Dokuments, das eine Wurzel und Knotenelemente mit Inhalten hat](using_the_w3c_dom_level_1_core-doctree.jpg)
+![Das DOM als baumartige Darstellung eines Dokuments mit einer Wurzel und Knoten-Elementen, die Inhalte enthalten](using_the_w3c_dom_level_1_core-doctree.jpg)
 
-Obwohl der obige Baum dem DOM-Baum des oben genannten Dokuments ähnelt, ist er nicht identisch, da [der tatsächliche DOM-Baum Leerzeichen bewahrt](/de/docs/Web/API/Document_Object_Model/Whitespace).
+Obwohl der obige Baum dem DOM-Baum des obigen Dokuments ähnlich ist, ist er nicht identisch, da [der tatsächliche DOM-Baum Leerzeichen bewahrt](/de/docs/Web/API/Document_Object_Model/Whitespace).
 
-Wenn ein Webbrowser ein HTML-Dokument analysiert, erstellt er einen DOM-Baum und verwendet ihn anschließend zur Anzeige des Dokuments.
+Wenn ein Webbrowser ein HTML-Dokument analysiert, erstellt er einen DOM-Baum und verwendet ihn dann zur Anzeige des Dokuments.
 
 ## Was macht die Document API?
 
-Die Document API, manchmal auch DOM API genannt, ermöglicht es Ihnen, einen DOM-Baum in _beliebiger Weise zu verändern_. Sie erlaubt es Ihnen, jedes HTML- oder XML-Dokument von Grund auf neu zu erstellen oder den Inhalt eines gegebenen HTML- oder XML-Dokuments zu ändern. Autoren von Webseiten können das DOM eines Dokuments mit JavaScript bearbeiten, indem sie auf die `document`-Eigenschaft des globalen Objekts zugreifen. Dieses `document`-Objekt implementiert die {{domxref("Document")}}-Schnittstelle.
+Die Document API, auch manchmal DOM API genannt, ermöglicht es Ihnen, einen DOM-Baum auf _jede gewünschte Weise_ zu ändern. Sie erlaubt es Ihnen, jedes HTML- oder XML-Dokument von Grund auf neu zu erstellen oder jeden Inhalt eines gegebenen HTML- oder XML-Dokuments zu ändern. Autoren von Webseiten können das DOM eines Dokuments mit JavaScript bearbeiten, indem sie auf die `document`-Eigenschaft des globalen Objekts zugreifen. Dieses `document`-Objekt implementiert das [`Document`](/de/docs/Web/API/Document)-Interface.
 
 ## Lesen und Ändern des Baums
 
-Angenommen, der Autor möchte den Header des obigen Dokuments ändern und statt eines Paragraphen zwei schreiben. Das folgende Skript erfüllt diese Aufgabe:
+Angenommen, der Autor möchte die Überschrift des obigen Dokuments ändern und zwei Absätze anstelle eines schreiben. Das folgende Skript würde die Aufgabe erledigen:
 
 ### HTML
 
@@ -60,30 +60,30 @@ Angenommen, der Autor möchte den Header des obigen Dokuments ändern und statt 
 
 ```js
 function change() {
-  // document.getElementsByTagName("h2") gibt eine NodeList der <h2>
-  // Elemente im Dokument zurück, und das erste ist Nummer 0:
+  // document.getElementsByTagName("h2") returns a NodeList of the <h2>
+  // elements in the document, and the first is number 0:
   const header = document.getElementsByTagName("h2").item(0);
 
-  // Das firstChild des Headers ist ein Textknoten:
+  // The firstChild of the header is a Text node:
   header.firstChild.data = "A dynamic document";
 
-  // Jetzt ist der Header "A dynamic document".
+  // Now header is "A dynamic document".
 
-  // Zugriff auf den ersten Paragraphen
+  // Access the first paragraph
   const para = document.getElementsByTagName("p").item(0);
   para.firstChild.data = "This is the first paragraph.";
 
-  // Erstellen eines neuen Textknotens für den zweiten Absatz
+  // Create a new Text node for the second paragraph
   const newText = document.createTextNode("This is the second paragraph.");
 
-  // Erstellen eines neuen Elements für den zweiten Absatz
+  // Create a new Element to be the second paragraph
   const newElement = document.createElement("p");
 
-  // Den Text in den Paragraphen einfügen
+  // Put the text in the paragraph
   newElement.appendChild(newText);
 
-  // Den Paragraphen ans Ende des Dokuments anhängen,
-  // indem er dem body angehängt wird (welches das übergeordnete Element von para ist)
+  // Put the paragraph on the end of the document by appending it to
+  // the body (which is the parent of para)
   para.parentNode.appendChild(newElement);
 }
 ```
@@ -115,9 +115,9 @@ root.appendChild(head);
 root.appendChild(body);
 ```
 
-## Wie kann ich mehr erfahren?
+## Wie kann ich mehr lernen?
 
-Da Sie nun mit den grundlegenden Konzepten des DOM vertraut sind, möchten Sie möglicherweise mehr über die fundamentalen Funktionen der Document API erfahren, indem Sie [lernen, wie man eine HTML-Tabelle mit JavaScript und DOM-Schnittstellen durchläuft](/de/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces).
+Jetzt, da Sie mit den grundlegenden Konzepten des DOM vertraut sind, möchten Sie vielleicht mehr über die grundlegenden Funktionen der Document API lernen, indem Sie [eine Anleitung zum Durchlaufen einer HTML-Tabelle mit JavaScript und DOM-Interfaces](/de/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces) lesen.
 
 ## Siehe auch
 

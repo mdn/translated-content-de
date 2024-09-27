@@ -1,14 +1,14 @@
 ---
-title: "GPUDevice: Methode popErrorScope()"
+title: "GPUDevice: popErrorScope() Methode"
 short-title: popErrorScope()
 slug: Web/API/GPUDevice/popErrorScope
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`popErrorScope()`**-Methode der {{domxref("GPUDevice")}}-Schnittstelle entfernt einen bestehenden GPU-Fehlerbereich aus dem Fehlerbereichstapel (ursprünglich mit {{domxref("GPUDevice.pushErrorScope()")}} hinzugefügt) und gibt ein {{jsxref("Promise")}} zurück, das sich zu einem Objekt auflöst, das den im Bereich erfassten ersten Fehler beschreibt, oder `null`, wenn kein Fehler aufgetreten ist.
+Die **`popErrorScope()`** Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice) Schnittstelle entfernt einen bestehenden GPU-Fehlerbereich aus dem Fehlerbereich-Stack (ursprünglich mit [`GPUDevice.pushErrorScope()`](/de/docs/Web/API/GPUDevice/pushErrorScope) hinzugefügt) und gibt ein {{jsxref("Promise")}} zurück, das in ein Objekt aufgelöst wird, welches den ersten im Bereich erfassten Fehler beschreibt, oder `null`, wenn kein Fehler aufgetreten ist.
 
 ## Syntax
 
@@ -22,34 +22,34 @@ Keine.
 
 ### Rückgabewert
 
-ein {{jsxref("Promise")}}, das sich zu einem Objekt auflöst, das den im Bereich erfassten ersten Fehler beschreibt. Dies kann ein Typ von:
+Ein {{jsxref("Promise")}}, das in ein Objekt aufgelöst wird, welches den ersten im Bereich erfassten Fehler beschreibt. Dies kann vom Typ sein:
 
-- {{domxref("GPUInternalError")}}
-- {{domxref("GPUOutOfMemoryError")}}
-- {{domxref("GPUValidationError")}}
+- [`GPUInternalError`](/de/docs/Web/API/GPUInternalError)
+- [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError)
+- [`GPUValidationError`](/de/docs/Web/API/GPUValidationError)
 
-Wenn kein Fehler aufgetreten ist, wird es zu `null` aufgelöst.
+Falls kein Fehler aufgetreten ist, wird es in `null` aufgelöst.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet einen Fehlerbereich, um einen vermuteten Validierungsfehler zu erfassen und protokolliert diesen in der Konsole.
+Das folgende Beispiel verwendet einen Fehlerbereich, um einen vermuteten Validierungsfehler zu erfassen und ihn in der Konsole zu protokollieren.
 
 ```js
 device.pushErrorScope("validation");
 
 let sampler = device.createSampler({
-  maxAnisotropy: 0, // Ungültig, maxAnisotropy muss mindestens 1 sein.
+  maxAnisotropy: 0, // Invalid, maxAnisotropy must be at least 1.
 });
 
 device.popErrorScope().then((error) => {
   if (error) {
     sampler = null;
-    console.error(`Beim Erstellen des Samplers ist ein Fehler aufgetreten: ${error.message}`);
+    console.error(`An error occurred while creating sampler: ${error.message}`);
   }
 });
 ```
 
-Siehe [WebGPU Fehlerbehandlungs-Best-Practices](https://toji.dev/webgpu-best-practices/error-handling) für viele weitere Beispiele und Informationen.
+Siehe [WebGPU Error Handling best practices](https://toji.dev/webgpu-best-practices/error-handling) für viele weitere Beispiele und Informationen.
 
 ## Spezifikationen
 

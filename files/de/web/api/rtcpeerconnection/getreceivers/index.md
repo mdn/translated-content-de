@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: Methode getReceivers()"
+title: "RTCPeerConnection: getReceivers()-Methode"
 short-title: getReceivers()
 slug: Web/API/RTCPeerConnection/getReceivers
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`getReceivers()`**-Methode der Schnittstelle {{domxref("RTCPeerConnection")}} gibt ein Array von {{domxref("RTCRtpReceiver")}}-Objekten zurück, von denen jedes einen RTP-Empfänger repräsentiert.
-Jeder RTP-Empfänger verwaltet den Empfang und die Dekodierung von Daten für ein {{domxref("MediaStreamTrack")}} auf einer {{domxref("RTCPeerConnection")}}.
+Die **`getReceivers()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt ein Array von [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekten zurück, von denen jedes einen RTP-Empfänger repräsentiert. Jeder RTP-Empfänger verwaltet den Empfang und die Dekodierung von Daten für ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) auf einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
 
 ## Syntax
 
@@ -19,12 +18,11 @@ getReceivers()
 
 ### Rückgabewert
 
-Ein Array von {{domxref("RTCRtpReceiver")}}-Objekten, jeweils eines für jede Spur auf der Verbindung.
-Das Array ist leer, wenn keine RTP-Empfänger auf der Verbindung vorhanden sind.
+Ein Array von [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekten, jeweils eines für jeden Track auf der Verbindung. Das Array ist leer, wenn keine RTP-Empfänger auf der Verbindung vorhanden sind.
 
-Die Reihenfolge der zurückgegebenen `RTCRtpReceiver`-Instanzen ist in der Spezifikation nicht definiert und kann sich von einem Aufruf der `getReceivers()`-Methode zum nächsten ändern.
+Die Reihenfolge der zurückgegebenen `RTCRtpReceiver`-Instanzen ist durch die Spezifikation nicht definiert und kann sich von einem Aufruf von `getReceivers()` zum nächsten ändern.
 
-Das Array enthält keine Empfänger, die mit Transceivern verknüpft sind, die gestoppt wurden (nach dem Angebot/Antwort-Prinzip).
+Das Array beinhaltet keine Empfänger, die mit Transceivern assoziiert sind, die [gestoppt](/de/docs/Web/API/RTCRtpTransceiver/currentDirection) wurden (nach einem Offer/Answer).
 
 ## Beispiel
 
@@ -41,4 +39,4 @@ tbd
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCRtpSender")}}
+- [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)

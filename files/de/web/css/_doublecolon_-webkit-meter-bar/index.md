@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}{{deprecated_header}}
 
-Das **`::-webkit-meter-bar`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Glossary/Pseudo-element) ist eine [WebKit-Erweiterung](/de/docs/Web/CSS/WebKit_Extensions), die den Hintergrund eines {{HTMLElement("meter")}}-Elements darstellt. Es wird verwendet, um Stile auf den Container eines Messgeräts anzuwenden.
+Das **`::-webkit-meter-bar`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Glossary/Pseudo-element) ist eine [WebKit-Erweiterung](/de/docs/Web/CSS/WebKit_Extensions), die den Hintergrund eines {{HTMLElement("meter")}}-Elements darstellt. Es wird verwendet, um das Auswählen und Anwenden von Stilen auf den Container eines Messgeräts zu ermöglichen.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Das **`::-webkit-meter-bar`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/
 
 ## Spezifikationen
 
-Kein Bestandteil eines Standards.
+Teil keines Standards.
 
 ## Beispiele
 
@@ -28,7 +28,7 @@ Kein Bestandteil eines Standards.
 ```html
 Normal: <meter min="0" max="10" value="6">Score 6/10</meter>
 <br />
-Gestylt: &nbsp;&nbsp;<meter id="styled" min="0" max="10" value="6">
+Styled: &nbsp;&nbsp;<meter id="styled" min="0" max="10" value="6">
   Score 6/10
 </meter>
 ```
@@ -45,8 +45,8 @@ meter {
 
 ```css
 .safari meter {
-  /* Setzt das Standardaussehen nur für Safari zurück */
-  /* .safari-Klasse wird über JavaScript hinzugefügt */
+  /* Reset the default appearance for Safari only */
+  /* .safari class is added via JavaScript */
   -webkit-appearance: none;
 }
 
@@ -60,10 +60,9 @@ meter {
 ### JavaScript
 
 ```js
-// Safari erfordert, dass <meter>-Elemente ein `appearance` von `none` haben,
-// um benutzerdefinierte Stile mit `::-webkit-meter-*`-Selektoren zu ermöglichen,
-// aber `appearance: none` beeinträchtigt die Darstellung in Chrome.
-// Daher müssen wir überprüfen, ob der Browser auf Safari basiert.
+// Safari requires <meter> elements to have an `appearance` of `none` for custom styling
+// using `::-webkit-meter-*` selectors, but `appearance: none` breaks rendering on Chrome.
+// Therefore, we must check if the browser is Safari-based.
 
 const is_safari =
   navigator.userAgent.includes("AppleWebKit/") &&
@@ -84,7 +83,7 @@ if (is_safari) {
 
 ## Siehe auch
 
-- Die Pseudo-Elemente, die von WebKit/Blink zur Stilgestaltung anderer Teile eines {{htmlelement("meter")}}-Elements verwendet werden, sind wie folgt:
+- Die Pseudo-Elemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{htmlelement("meter")}}-Elements zu stylen, sind folgende:
 
   - {{cssxref("::-webkit-meter-inner-element")}}
   - {{cssxref("::-webkit-meter-even-less-good-value")}}

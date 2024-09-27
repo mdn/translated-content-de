@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `unparsed-entity-url()` gibt den URI der nicht geparsten Entität mit dem angegebenen Namen zurück. Dies sind Nicht-XML-Daten, die in der DTD des Quelldokuments referenziert werden.
+Die Funktion `unparsed-entity-url()` liefert die URI der nicht-geparsten Entität mit dem angegebenen Namen. Dies sind nicht-XML-Daten, die in der DTD des Quelldokuments referenziert werden.
 
 ## Syntax
 
@@ -17,11 +17,11 @@ string unparsed-entity-url(string)
 
 ### Parameter
 
-Der Name der nicht geparsten Entität. Wenn das Argument kein String ist, wird es unter Anwendung der Regeln der Funktion string() konvertiert. Der Name sollte ein XML-Name sein.
+Der Name der nicht-geparsten Entität. Wenn das Argument kein String ist, wird es mit den Regeln der `string()`-Funktion umgewandelt. Der Name sollte ein XML Name sein.
 
 ### Rückgabewert
 
-Der URI der in der DTD abgerufenen nicht geparsten Entität, sofern sie existiert. Andernfalls ein leerer String.
+Die URI der nicht-geparsten Entität, die aus der DTD abgerufen wurde, falls vorhanden. Andernfalls ein leerer String.
 
 ## Spezifikationen
 

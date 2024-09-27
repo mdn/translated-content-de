@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`reload()`** Methode der {{DOMXref("Location")}} Schnittstelle lädt die aktuelle URL neu, ähnlich wie die Aktualisieren-Schaltfläche.
+Die **`reload()`** Methode der [`Location`](/de/docs/Web/API/Location) Schnittstelle lädt die aktuelle URL neu, ähnlich wie die Aktualisieren-Schaltfläche.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ reload()
 ### Parameter
 
 - `forceGet` {{non-standard_inline}}
-  - : Übergeben Sie `true`, um ein Neuladen zu erzwingen, das den Cache umgeht. Standardmäßig ist dies `false`. Nur in Firefox unterstützt.
+  - : Übergeben Sie `true`, um ein Neuladen zu erzwingen, das den Cache umgeht. Der Standardwert ist `false`. Wird nur in Firefox unterstützt.
 
 ### Rückgabewert
 
@@ -27,13 +27,13 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{Glossary("origin")}} des Skripts, das die Methode aufruft, nicht dem {{Glossary("Same-origin policy", "same origin")}} der Seite entspricht, die ursprünglich vom {{domxref("Location")}} Objekt beschrieben wurde, hauptsächlich wenn das Skript auf einer anderen Domain gehostet wird.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der [origin](/de/docs/Glossary/origin) des Skripts, das die Methode aufruft, nicht der [same origin](/de/docs/Glossary/Same-origin_policy) der Seite entspricht, die ursprünglich durch das [`Location`](/de/docs/Web/API/Location) Objekt beschrieben wurde, hauptsächlich wenn das Skript in einer anderen Domain gehostet wird.
 
 ## Beispiele
 
 ```js
-// Lädt die aktuelle Seite neu
+// reload the current page
 window.location.reload();
 ```
 
@@ -47,6 +47,6 @@ window.location.reload();
 
 ## Siehe auch
 
-- Die {{domxref("Location")}} Schnittstelle, zu der sie gehört.
-- Ähnliche Methoden: {{domxref("Location.assign()")}} und
-  {{domxref("Location.replace()")}}.
+- Die [`Location`](/de/docs/Web/API/Location) Schnittstelle, zu der es gehört.
+- Ähnliche Methoden: [`Location.assign()`](/de/docs/Web/API/Location/assign) und
+  [`Location.replace()`](/de/docs/Web/API/Location/replace).

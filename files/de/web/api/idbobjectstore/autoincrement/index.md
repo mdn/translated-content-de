@@ -9,46 +9,47 @@ l10n:
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
 Die **`autoIncrement`** schreibgeschützte Eigenschaft der
-{{domxref("IDBObjectStore")}}-Schnittstelle gibt den Wert des Autoinkrement-Flags
-für diesen Objektspeicher zurück.
+[`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Schnittstelle gibt den Wert des Auto-Increment-Flags
+für diesen Objekt-Store zurück.
 
-Beachten Sie, dass jeder Objektspeicher seinen eigenen separaten Autoinkrementzähler hat.
+Beachten Sie, dass jeder Objekt-Store seinen eigenen separaten Auto-Increment-Zähler hat.
 
 ## Wert
 
 Ein boolescher Wert:
 
-| Wert    | Bedeutung                                 |
-| ------- | ----------------------------------------- |
-| `true`  | Der Objektspeicher inkrementiert automatisch. |
-| `false` | Der Objektspeicher inkrementiert nicht automatisch. |
+| Wert    | Bedeutung                                  |
+| ------- | ------------------------------------------ |
+| `true`  | Der Objekt-Store auto-inkrementiert.       |
+| `false` | Der Objekt-Store auto-inkrementiert nicht. |
 
 ## Beispiele
 
-Im folgenden Code-Snippet öffnen wir eine Lese-/Schreib-Transaktion auf unserer Datenbank und fügen
-einige Daten zu einem Objektspeicher mit `add()` hinzu. Nachdem der Objektspeicher erstellt wurde, protokollieren wir `objectStore.autoIncrement` in
-die Konsole. Für ein vollständiges funktionierendes Beispiel, siehe
-unsere [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App
+Im folgenden Code-Schnipsel öffnen wir eine Lese-/Schreib-Transaktion auf unserer Datenbank und fügen
+einige Daten zu einem Objekt-Store mit `add()` hinzu. Nachdem der Objekt-Store erstellt wurde,
+loggen wir `objectStore.autoIncrement` in
+der Konsole. Für ein vollständiges Arbeitsbeispiel, siehe
+unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App
 ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
-// Lassen Sie uns unsere Datenbank öffnen
+// Let us open our database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
 DBOpenRequest.onsuccess = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Datenbank initialisiert.";
+    "Database initialized.";
 
-  // Speichern Sie das Ergebnis des Öffnens der Datenbank in der db-Variable.
-  // Dies wird unten oft verwendet
+  // store the result of opening the database in the db variable.
+  // This is used a lot below
   db = DBOpenRequest.result;
 
-  // Führen Sie die Funktion addData() aus, um die Daten zur Datenbank hinzuzufügen
+  // Run the addData() function to add the data to the database
   addData();
 };
 
 function addData() {
-  // Erstellen Sie ein neues Objekt, das bereit ist, in die IDB eingefügt zu werden
+  // Create a new object ready to insert into the IDB
   const newItem = [
     {
       taskTitle: "Walk dog",
@@ -61,31 +62,31 @@ function addData() {
     },
   ];
 
-  // Öffnen Sie eine Lese-/Schreib-Transaktion der Datenbank, bereit zum Hinzufügen der Daten
+  // open a read/write db transaction, ready for adding the data
   const transaction = db.transaction(["toDoList"], "readwrite");
 
-  // Berichten Sie über den Erfolg des Abschlusses der Transaktion, wenn alles erledigt ist
+  // report on the success of the transaction completing, when everything is done
   transaction.oncomplete = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion abgeschlossen.";
+      "Transaction completed.";
   };
 
   transaction.onerror = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion aufgrund eines Fehlers nicht geöffnet. Doppelte Elemente sind nicht erlaubt.";
+      "Transaction not opened due to error. Duplicate items not allowed.";
   };
 
-  // Erstellen Sie einen Objektspeicher auf der Transaktion
+  // create an object store on the transaction
   const objectStore = transaction.objectStore("toDoList");
   console.log(objectStore.autoIncrement);
 
-  // Machen Sie eine Anfrage, um unser newItem-Objekt zum Objektspeicher hinzuzufügen
+  // Make a request to add our newItem object to the object store
   const objectStoreRequest = objectStore.add(newItem[0]);
 
   objectStoreRequest.onsuccess = (event) => {
-    // Berichten Sie über den Erfolg unserer Anfrage
+    // report the success of our request
     note.appendChild(document.createElement("li")).textContent =
-      "Anfrage erfolgreich.";
+      "Request successful.";
   };
 }
 ```
@@ -101,9 +102,9 @@ function addData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Schlüsselspektrums: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursoren: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einstellen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Änderungen an Ihren Daten vornehmen: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

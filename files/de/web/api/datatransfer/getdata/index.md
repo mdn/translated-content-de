@@ -8,9 +8,12 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`DataTransfer.getData()`**-Methode ruft Ziehdaten (als Zeichenkette) für den angegebenen Typ ab. Falls die Ziehoperation keine Daten beinhaltet, gibt diese Methode eine leere Zeichenkette zurück.
+Die **`DataTransfer.getData()`**
+Methode ruft Drag-Daten (als Zeichenkette) für den angegebenen Typ ab.
+Falls der Drag-Vorgang keine Daten enthält, gibt diese Methode eine leere
+Zeichenkette zurück.
 
-Beispieldatentypen sind `text/plain` und `text/uri-list`.
+Beispielhafte Datentypen sind `text/plain` und `text/uri-list`.
 
 ## Syntax
 
@@ -21,25 +24,28 @@ getData(format)
 ### Parameter
 
 - `format`
-  - : Ein String, der den Typ der abzurufenden Daten darstellt.
+  - : Eine Zeichenkette, die den abzurufenden Datentyp angibt.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die die Ziehdaten für das angegebene `format` darstellt. Falls die Ziehoperation keine Daten oder keine Daten für das angegebene `format` enthält, gibt diese Methode eine leere Zeichenkette zurück.
+Eine Zeichenkette, die die Drag-Daten für das angegebene `format` darstellt. Wenn der Drag-Vorgang keine Daten hat oder der Vorgang keine Daten für das angegebene `format` hat, gibt diese Methode eine leere Zeichenkette zurück.
 
-### Einschränkungen
+### Hinweise
 
 - Datenverfügbarkeit
 
-  - : Die [HTML Drag and Drop Spezifikation](https://www.w3.org/TR/2011/WD-html5-20110113/dnd.html#drag-data-store-mode) legt einen `drag data store mode` fest.
-    Dies kann zu unerwartetem Verhalten führen,
-    indem **`DataTransfer.getData()`** keinen erwarteten Wert zurückgibt, da nicht alle Browser diese Einschränkung erzwingen.
+  - : Die [HTML Drag and Drop Specification](https://www.w3.org/TR/2011/WD-html5-20110113/dnd.html#drag-data-store-mode) legt einen `drag data store mode` fest.
+    Dies kann zu unerwartetem Verhalten führen, indem
+    **`DataTransfer.getData()`** keinen erwarteten
+    Wert zurückgibt, da nicht alle Browser diese Einschränkung durchsetzen.
 
-    Während der `dragstart` und `drop` Events ist es sicher, auf die Daten zuzugreifen. Für alle anderen Events sollten die Daten als nicht verfügbar betrachtet werden. Trotzdem können die Elemente und ihre Formate noch aufgezählt werden.
+    Während der `dragstart`- und `drop`-Ereignisse ist es sicher, auf die Daten zuzugreifen. Für alle anderen Ereignisse sollten die Daten als nicht verfügbar betrachtet werden. Dennoch können die Elemente und ihre Formate weiterhin aufgelistet werden.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der `getData()`- und {{domxref("DataTransfer.setData()","setData()")}}-Methoden des {{domxref("DataTransfer")}}-Objekts.
+Dieses Beispiel zeigt die Verwendung der `DataTransfer`-Objekts
+`getData()`- und
+[`setData()`](/de/docs/Web/API/DataTransfer/setData)-Methoden.
 
 ### HTML
 
@@ -93,13 +99,13 @@ function drop(dropevent) {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
 - [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Zieh-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
+- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
 - [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)

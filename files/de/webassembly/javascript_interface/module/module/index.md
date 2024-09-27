@@ -1,5 +1,5 @@
 ---
-title: WebAssembly.Module()-Konstruktor
+title: WebAssembly.Module() Konstruktor
 slug: WebAssembly/JavaScript_interface/Module/Module
 l10n:
   sourceCommit: 0865cb85617d68725d2e11d4ea8eb48c099c7fb3
@@ -7,18 +7,18 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Ein **`WebAssembly.Module()`**-Konstruktor erstellt ein neues Modulobjekt, das zustandslosen WebAssembly-Code enthält, der vom Browser bereits kompiliert wurde und effizient [mit Worker geteilt](/de/docs/Web/API/Worker/postMessage) und mehrfach instanziiert werden kann.
+Ein **`WebAssembly.Module()`** Konstruktor erzeugt ein neues Modulobjekt, das zustandslos WebAssembly-Code enthält, der bereits vom Browser kompiliert wurde. Dieser Code kann effizient mit `Workers` geteilt und mehrfach instanziiert werden.
 
-Die `WebAssembly.Module()`-Konstruktorfunktion kann aufgerufen werden, um gegebenen WebAssembly-Binärcode synchron zu kompilieren. Der Hauptweg, um ein `Module` zu erhalten, besteht jedoch in einer asynchronen Kompilierungsfunktion wie [`WebAssembly.compile()`](/de/docs/WebAssembly/JavaScript_interface/compile_static).
+Die `WebAssembly.Module()` Konstruktionsfunktion kann aufgerufen werden, um gegebenen WebAssembly-Binärcode synchron zu kompilieren. Der primäre Weg, um ein `Modul` zu erhalten, ist jedoch eine asynchrone Kompilierungsfunktion wie [`WebAssembly.compile()`](/de/docs/WebAssembly/JavaScript_interface/compile_static).
 
 > [!NOTE]
-> Webseiten mit strikter [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) könnten WebAssembly daran hindern, Module zu kompilieren und auszuführen.
-> Weitere Informationen zum Zulassen von WebAssembly-Kompilierung und -Ausführung finden Sie unter [script-src CSP](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
+> Webseiten mit strenger [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) können die Kompilierung und Ausführung von WebAssembly-Modulen blockieren.
+> Weitere Informationen zum Zulassen der Kompilierung und Ausführung von WebAssembly finden Sie unter [script-src CSP](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
 
 ## Syntax
 
 > [!WARNING]
-> Da die Kompilierung von großen Modulen kostspielig sein kann, sollten Entwickler den `Module()`-Konstruktor nur verwenden, wenn eine synchrone Kompilierung absolut erforderlich ist; die asynchrone Methode [`WebAssembly.compileStreaming()`](/de/docs/WebAssembly/JavaScript_interface/compileStreaming_static) sollte in allen anderen Fällen verwendet werden.
+> Da die Kompilierung großer Module aufwendig sein kann, sollten Entwickler den `Module()` Konstruktor nur dann verwenden, wenn eine synchrone Kompilierung unbedingt erforderlich ist. In allen anderen Fällen sollte die asynchrone Methode [`WebAssembly.compileStreaming()`](/de/docs/WebAssembly/JavaScript_interface/compileStreaming_static) verwendet werden.
 
 ```js-nolint
 new WebAssembly.Module(bufferSource)
@@ -27,13 +27,15 @@ new WebAssembly.Module(bufferSource)
 ### Parameter
 
 - `bufferSource`
-  - : Ein [typisiertes Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) oder [ArrayBuffer](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), das den Binärcode des zu kompilierenden Wasm-Moduls enthält.
+  - : Ein [Typed Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) oder [ArrayBuffer](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), das den Binärcode des zu kompilierenden Wasm-Moduls enthält.
 
 #### Ausnahmen
 
-- Wenn der Parameter nicht den richtigen Typ oder die richtige Struktur hat, wird ein {{jsxref("TypeError")}} ausgelöst.
-- Wenn die Kompilierung fehlschlägt, lehnt der Konstruktor mit einem [`WebAssembly.CompileError`](/de/docs/WebAssembly/JavaScript_interface/CompileError) ab.
-- Einige Browser können einen {{jsxref("RangeError")}} auslösen, da sie die Kompilierung und Instanziierung von Wasm mit großen Puffern im UI-Thread verbieten.
+- Wenn der Parameter nicht den richtigen Typ oder die richtige Struktur aufweist, wird ein
+  {{jsxref("TypeError")}} ausgelöst.
+- Bei einem Kompilierungsfehler lehnt der Konstruktor mit einem
+  [`WebAssembly.CompileError`](/de/docs/WebAssembly/JavaScript_interface/CompileError) ab.
+- Einige Browser können einen {{jsxref("RangeError")}} auslösen, da sie die Kompilierung und Instanziierung von Wasm mit großen Buffern im UI-Thread verbieten.
 
 ## Beispiele
 
@@ -72,6 +74,6 @@ fetch("simple.wasm")
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
+- [WebAssembly](/de/docs/WebAssembly) Überblicksseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
 - [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

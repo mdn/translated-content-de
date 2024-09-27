@@ -1,5 +1,5 @@
 ---
-title: "PushManager: getSubscription()-Methode"
+title: "PushManager: getSubscription() Methode"
 short-title: getSubscription()
 slug: Web/API/PushManager/getSubscription
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`PushManager.getSubscription()`**-Methode der {{domxref("PushManager")}}-Schnittstelle ruft ein bestehendes Push-Abonnement ab.
+Die **`PushManager.getSubscription()`** Methode des [`PushManager`](/de/docs/Web/API/PushManager) Interface ruft ein bestehendes Push-Abonnement ab.
 
-Sie gibt ein {{jsxref("Promise")}} zurück, das zu einem {{domxref("PushSubscription")}}-Objekt aufgelöst wird, das Details eines bestehenden Abonnements enthält. Falls kein bestehendes Abonnement existiert, wird es zu einem `null`-Wert aufgelöst.
+Sie gibt ein {{jsxref("Promise")}} zurück, das auf ein [`PushSubscription`](/de/docs/Web/API/PushSubscription) Objekt aufgelöst wird, das Details eines bestehenden Abonnements enthält. Wenn kein bestehendes Abonnement vorhanden ist, wird auf einen `null` Wert aufgelöst.
 
 ## Syntax
 
@@ -24,42 +24,42 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem {{domxref("PushSubscription")}}-Objekt oder `null` aufgelöst wird.
+Ein {{jsxref("Promise")}}, das auf ein [`PushSubscription`](/de/docs/Web/API/PushSubscription) Objekt oder `null` aufgelöst wird.
 
 ## Beispiele
 
-Dieser Codeausschnitt stammt aus einem [Beispiel für Push-Messaging und Benachrichtigungen](https://github.com/GoogleChrome/samples/tree/gh-pages/push-messaging-and-notifications). (Es ist keine Live-Demo verfügbar.)
+Dieser Codeausschnitt stammt von einem [Beispiel für Push-Nachrichten und Benachrichtigungen](https://github.com/GoogleChrome/samples/tree/gh-pages/push-messaging-and-notifications). (Es ist keine Live-Demo verfügbar.)
 
 ```js
-// Wir benötigen die Service Worker-Registrierung, um ein Abonnement zu überprüfen
+// We need the service worker registration to check for a subscription
 navigator.serviceWorker.ready.then((serviceWorkerRegistration) => {
-  // Haben wir bereits ein Push-Nachrichten-Abonnement?
+  // Do we already have a push message subscription?
   serviceWorkerRegistration.pushManager
     .getSubscription()
     .then((subscription) => {
-      // Aktivieren Sie jede UI, die das Abonnieren/Abbestellen von
-      // Push-Nachrichten ermöglicht.
+      // Enable any UI which subscribes / unsubscribes from
+      // push messages.
       const pushButton = document.querySelector(".js-push-button");
       pushButton.disabled = false;
 
       if (!subscription) {
-        // Wir sind nicht für Push abonniert, daher die UI
-        // einstellen, um dem Nutzer das Aktivieren von Push zu ermöglichen
+        // We aren't subscribed to push, so set UI
+        // to allow the user to enable push
         return;
       }
 
-      // Halten Sie Ihren Server mit der neuesten subscriptionId synchron
+      // Keep your server in sync with the latest subscriptionId
       sendSubscriptionToServer(subscription);
 
       showCurlCommand(subscription);
 
-      // Setzen Sie Ihre UI, um anzuzeigen, dass sie für
-      // Push-Nachrichten abonniert sind
-      pushButton.textContent = "Push-Nachrichten deaktivieren";
+      // Set your UI to show they have subscribed for
+      // push messages
+      pushButton.textContent = "Disable Push Messages";
       isPushEnabled = true;
     })
     .catch((err) => {
-      console.error(`Fehler bei getSubscription(): ${err}`);
+      console.error(`Error during getSubscription(): ${err}`);
     });
 });
 ```

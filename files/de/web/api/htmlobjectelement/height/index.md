@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`height`**-Eigenschaft der {{domxref("HTMLObjectElement")}}-Schnittstelle gibt einen String zurück, der das [`height`](/de/docs/Web/HTML/Element/object#height)-HTML-Attribut widerspiegelt. Dieses Attribut spezifiziert die angezeigte Höhe der Ressource in CSS-Pixeln.
+Die **`height`**-Eigenschaft des
+[`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt einen String zurück,
+der das HTML-Attribut [`height`](/de/docs/Web/HTML/Element/object#height) widerspiegelt und die
+angezeigte Höhe der Ressource in CSS-Pixeln angibt.
 
 ## Wert
 
@@ -24,9 +27,9 @@ Ein String.
 
 ## Siehe auch
 
-- {{domxref("HTMLCanvasElement.height")}}
-- {{domxref("HTMLEmbedElement.height")}}
-- {{domxref("HTMLIFrameElement.height")}}
-- {{domxref("HTMLImageElement.height")}}
-- {{domxref("HTMLSourceElement.height")}}
-- {{domxref("HTMLVideoElement.height")}}
+- [`HTMLCanvasElement.height`](/de/docs/Web/API/HTMLCanvasElement/height)
+- [`HTMLEmbedElement.height`](/de/docs/Web/API/HTMLEmbedElement/height)
+- [`HTMLIFrameElement.height`](/de/docs/Web/API/HTMLIFrameElement/height)
+- [`HTMLImageElement.height`](/de/docs/Web/API/HTMLImageElement/height)
+- [`HTMLSourceElement.height`](/de/docs/Web/API/HTMLSourceElement/height)
+- [`HTMLVideoElement.height`](/de/docs/Web/API/HTMLVideoElement/height)

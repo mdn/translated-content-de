@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die Eigenschaft `-webkit-mask-repeat-y` legt fest, ob und wie ein Maskenbild vertikal wiederholt (gekachelt) wird.
+Die `-webkit-mask-repeat-y`-Eigenschaft legt fest, ob und wie ein Maskenbild vertikal wiederholt (gekachelt) wird.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 -webkit-mask-repeat-y: repeat;
 -webkit-mask-repeat-y: no-repeat;
 -webkit-mask-repeat-y: space;
 -webkit-mask-repeat-y: round;
 
-/* Mehrere Werte */
+/* Multiple values */
 -webkit-mask-repeat-y: repeat, no-repeat, space;
 
-/* Globale Werte */
+/* Global values */
 -webkit-mask-repeat-y: inherit;
 -webkit-mask-repeat-y: initial;
 -webkit-mask-repeat-y: revert;
@@ -34,13 +34,13 @@ Die Eigenschaft `-webkit-mask-repeat-y` legt fest, ob und wie ein Maskenbild ver
 - repeat
   - : Das Maskenbild wird vertikal wiederholt.
 - no-repeat
-  - : Das Maskenbild wird nicht vertikal wiederholt; nur eine Kopie des Maskenbildes wird in vertikaler Richtung gezeichnet. Der vertikale Rest des maskierten Inhalts des Elements wird nicht angezeigt.
+  - : Das Maskenbild wird vertikal nicht wiederholt; nur eine Kopie des Maskenbildes wird in vertikaler Richtung gezeichnet. Der vertikale Rest des maskierten Inhalts wird nicht angezeigt.
 - repeat
   - : Das Maskenbild wird vertikal wiederholt.
 - space
-  - : Das Bild wird so oft wie möglich ohne Zuschnitt wiederholt. Die ersten und letzten Bilder sind am oberen und unteren Rand des Elements fixiert, und der Zwischenraum wird gleichmäßig zwischen den Bildern verteilt. Die Eigenschaft {{cssxref("mask-position")}} wird ignoriert, es sei denn, nur ein Bild kann ohne Zuschnitt angezeigt werden. Der einzige Fall, bei dem es mit space zu einem Zuschnitt kommt, ist, wenn nicht genug Platz ist, um ein Bild anzuzeigen.
+  - : Das Bild wird so oft wie möglich ohne Zuschneiden wiederholt. Die ersten und letzten Bilder werden an den oberen und unteren Rand des Elements angeheftet, und der freie Raum wird gleichmäßig zwischen den Bildern verteilt. Die {{cssxref("mask-position")}}-Eigenschaft wird ignoriert, es sei denn, es kann nur ein Bild ohne Zuschneiden angezeigt werden. Die einzige Situation, in der beim Verwenden von `space` Zuschneiden auftritt, ist, wenn nicht genug Platz vorhanden ist, um ein Bild anzuzeigen.
 - round
-  - : Wenn der erlaubte vertikale Raum größer wird, dehnen sich die wiederholten Bilder (ohne Lücken) so lange, bis Platz für ein weiteres Bild da ist. Wenn das nächste Bild hinzugefügt wird, komprimieren sich alle aktuellen Bilder, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Höhe von 260px, das dreimal wiederholt wird, könnte sich bis zu einer Höhe von jeweils 300px dehnen, und dann wird ein weiteres Bild hinzugefügt. Sie komprimieren sich dann auf eine Höhe von 225px.
+  - : Wenn der verfügbare vertikale Platz größer wird, strecken sich die wiederholten Bilder (ohne Lücken), bis Platz für ein weiteres Bild ist. Wenn das neue Bild hinzugefügt wird, komprimieren alle aktuellen Bilder, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Höhe von 260px, dreifach wiederholt, könnte sich dehnen, bis jede Wiederholung 300px hoch ist, und dann wird ein weiteres Bild hinzugefügt. Sie werden dann auf eine Höhe von 225px komprimiert.
 
 ## Formale Definition
 
@@ -55,7 +55,7 @@ Die Eigenschaft `-webkit-mask-repeat-y` legt fest, ob und wie ein Maskenbild ver
 
 ## Beispiele
 
-### Verwendung eines sich wiederholenden oder nicht wiederholenden Maskenbildes
+### Verwendung eines wiederholenden oder nicht wiederholenden Maskenbildes
 
 ```css
 .exampleone {
@@ -71,7 +71,7 @@ Die Eigenschaft `-webkit-mask-repeat-y` legt fest, ob und wie ein Maskenbild ver
 
 ### Verwendung mehrerer Maskenbilder
 
-Sie können für jedes Maskenbild einen anderen `<repeat-style>` angeben, getrennt durch Kommas:
+Sie können für jedes Maskenbild eine andere `<repeat-style>` angeben, getrennt durch Kommas:
 
 ```css
 .examplethree {
@@ -80,11 +80,11 @@ Sie können für jedes Maskenbild einen anderen `<repeat-style>` angeben, getren
 }
 ```
 
-Jedes Bild wird mit dem entsprechenden Wiederholungsstil vom ersten bis zum letzten angegebenen Bild abgestimmt.
+Jedes Bild wird mit dem entsprechenden Wiederholungsstil abgeglichen, vom ersten bis zum letzten angegebenen Stil.
 
 ## Spezifikationen
 
-Kein Teil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

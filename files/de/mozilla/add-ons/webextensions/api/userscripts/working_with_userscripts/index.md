@@ -7,19 +7,19 @@ l10n:
 
 {{AddonSidebar}}
 
-Durch die Implementierung von userScripts können Erweiterungsentwickler anpassen, wie Websites aussehen und/oder funktionieren, um den Benutzeranforderungen besser gerecht zu werden.
+Durch die Implementierung von userScripts können Erweiterungsentwickler anpassen, wie Webseiten aussehen und/oder funktionieren, um den Benutzerbedürfnissen besser zu entsprechen.
 
-Implementieren Sie userScripts in Ihrer Erweiterung mit den folgenden Schritten:
+Implementieren Sie userScripts in Ihrer Erweiterung mithilfe der folgenden Schritte:
 
-1. Definieren Sie das Skript im Manifest der Erweiterung mit dem Schlüssel `"user_scripts"`.
-2. Registrieren Sie das userScript
-3. Implementieren Sie die userScript-Funktionen
+1. Definieren Sie das Skript im Manifest der Erweiterung mithilfe des Schlüssels `"user_scripts"`.
+2. Registrieren Sie das userScript.
+3. Implementieren Sie die Funktionen des userScripts.
 
-Lassen Sie uns die Prozesse anhand einer kleinen Beispiel-Web-Erweiterung durchgehen, die diesen Prozess veranschaulicht. Das Beispiel ist im [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub verfügbar.
+Lassen Sie uns die Prozesse anhand einer kleinen Beispiel-Web-Erweiterung durchgehen, die den Prozess veranschaulicht. Das Beispiel ist im [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub verfügbar.
 
 ## userScripts Manifest
 
-Ein User-Skript wird durch den Inhalt des [user_scripts](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/user_scripts) Schlüssels des Manifests der Erweiterung identifiziert. Die Mindestinformationen für den `user_scripts` Schlüssel wären:
+Ein userScript wird durch den Inhalt des Schlüssels [user_scripts](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/user_scripts) im Manifest der Erweiterung identifiziert. Die Mindestinformationen für den Schlüssel `user_scripts` wären:
 
 ```json
   "user_scripts": {
@@ -31,21 +31,21 @@ Die Eigenschaft "api_script" gibt den Pfad zur JavaScript-Datei an, die den Code
 
 ## Laden Sie die Beispiel-Erweiterung
 
-Sobald Sie das Beispiel heruntergeladen haben:
+Nachdem Sie das Beispiel heruntergeladen haben:
 
-Navigieren Sie zu about:debugging, klicken Sie auf **Load Temporary Add-on…** und doppelklicken Sie auf das Manifest der Erweiterung.
+Navigieren Sie zu about:debugging, klicken Sie auf **Temporäres Add-on laden…** und doppelklicken Sie auf das Manifest der Erweiterung.
 
-Der im Beispiel enthaltene Standardcode ermöglicht es Ihnen, ein `userScript` zu laden, das den Inhalt von Seiten "verschlingt", die dem Eintrag Hosts entsprechen. Nehmen Sie alle gewünschten Änderungen vor, bevor Sie unten im Panel auf die Schaltfläche **Register script** klicken.
+Der im Beispiel enthaltene Standardcode ermöglicht das Laden eines `userScript`, das den Inhalt von Seiten "verzehrt", die dem Hosts-Eintrag entsprechen. Nehmen Sie alle gewünschten Änderungen vor, bevor Sie unten im Panel auf die Schaltfläche **Skript registrieren** klicken.
 
-Im folgenden Bild wird die Erweiterung den Inhalt von Seiten "verschlingen", deren Domainname auf .org endet. Dies ist das Standardverhalten für diese Erweiterung.
+Im folgenden Bild wird die Erweiterung den Inhalt von Seiten verzehren, deren Domainname mit .org endet. Dies ist das Standardverhalten für diese Erweiterung.
 
-![User-Skript-Beispiel](userscriptexample.png)
+![Beispiel User Script](userscriptexample.png)
 
-Nichts wird passieren, bis Sie auf die Schaltfläche **Register script** klicken. Die Schaltfläche implementiert das User-Skript entsprechend den Einstellungen in diesem Dialog. Das bedeutet, dass Sie mit dem Verhalten des Skripts experimentieren können, ohne selbst eine Erweiterung implementieren zu müssen.
+Es passiert nichts, bis Sie auf die Schaltfläche **Skript registrieren** klicken. Die Schaltfläche implementiert das userScript gemäß den Einstellungen in diesem Dialog. Das bedeutet, dass Sie mit dem Verhalten des Skripts experimentieren können, ohne selbst eine Erweiterung implementieren zu müssen.
 
 ## Registrieren Sie das userScript
 
-Bevor ein userScript ausgeführt werden kann, muss es mit der Methode `userScripts.register()` registriert werden. Hier ist der Code zum Registrieren der Beispiel-Erweiterung:
+Bevor ein userScript ausgeführt werden kann, muss es mit der Methode `userScripts.register()` registriert werden. Hier ist der Code, um die Beispielerweiterung zu registrieren:
 
 ```js
 async function registerScript() {
@@ -94,13 +94,13 @@ async function registerScript() {
 }
 ```
 
-Dieser Code initialisiert zuerst das Objekt `params`, um Werte an die [userScripts.register](/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts/register) Methode zu übergeben.
+Dieser Code initialisiert zuerst das params-Objekt, um Werte an die Methode [userScripts.register](/de/docs/Mozilla/Add-ons/WebExtensions/API/userScripts/register) zu übergeben.
 
-## Implementieren Sie die userScript-Funktionen
+## Implementieren Sie die Funktionen des userScripts
 
-Sobald das Skript registriert ist, navigieren Sie zu einer Seite, deren Domainname auf .org endet, und Sie werden so etwas sehen:
+Sobald das Skript registriert ist, navigieren Sie zu einer Seite, deren Domainname mit .org endet, und Sie werden etwas wie dies sehen:
 
-![Statusmeldung, die anzeigt, dass Websites, die auf .org enden, "verschlungen" wurden: "This page has been eaten. {"OldStoredValue:" "website address", "NewStoredValue:" "website address"}"](user_script_in_action.png)
+![Statusmeldung, die anzeigt, dass Webseiten mit der Endung .org "verzehrt" wurden: "Diese Seite wurde verzehrt. {"OldStoredValue:" "Website-Adresse", "NewStoredValue:" "Website-Adresse"}"](user_script_in_action.png)
 
 ## Siehe auch
 

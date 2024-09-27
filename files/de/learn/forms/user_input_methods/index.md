@@ -1,61 +1,61 @@
 ---
-title: Methoden und Steuerungen für Benutzereingaben
+title: Methoden zur Benutzereingabe und Steuerungen
 slug: Learn/Forms/User_input_methods
 l10n:
-  sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{LearnSidebar}}
 
-Webformulare erfordern Benutzereingaben. Beim Entwerfen von Webformularen oder im Grunde genommen von beliebigen Webinhalten ist es wichtig zu berücksichtigen, wie Benutzer mit ihren Geräten und Browsern interagieren. Web-Benutzereingaben gehen über einfache Maus- und Tastatureingaben hinaus: Denken Sie beispielsweise an Touchscreens.
+Webformulare erfordern Benutzereingaben. Bei der Gestaltung von Webformularen oder allgemein von Webinhalten ist es wichtig zu überlegen, wie Benutzer mit ihren Geräten und Browsern interagieren. Die Benutzereingabe im Web geht über einfache Maus und Tastatur hinaus: Denken Sie zum Beispiel an Touchscreens.
 
-In diesem Artikel betrachten wir die verschiedenen Möglichkeiten, wie Benutzer mit Formularen und anderen Webinhalten interagieren können, und geben Empfehlungen zur Verwaltung von Benutzereingaben, praxisnahe Beispiele und Links zu weiteren Informationen.
+In diesem Artikel werfen wir einen Blick auf die verschiedenen Möglichkeiten, wie Benutzer mit Formularen und anderen Webinhalten interagieren, und geben Empfehlungen zur Verwaltung von Benutzereingaben, praxisnahe Beispiele und Links zu weiterführenden Informationen.
 
-Wenn Sie komplexere und interaktive Formulare oder andere UI-Funktionen entwickeln, gibt es viele HTML-Elemente und JavaScript-APIs, die Sie möglicherweise untersuchen möchten. Zum Beispiel könnten Sie benutzerdefinierte Formularsteuerelemente erstellen wollen, die nicht-semantische Elemente erfordern, um inhaltlich bearbeitbar zu sein. Vielleicht möchten Sie Touch-Events unterstützen, die Ausrichtung des Bildschirms ermitteln oder kontrollieren, ein Formular bildschirmfüllend machen oder Drag-and-Drop-Funktionen ermöglichen. Diese Anleitung stellt all diese Funktionen vor und leitet Sie zu weiteren Informationen zu jedem Thema.
+Wenn Sie komplexere und interaktive Formulare oder andere UI-Funktionen entwickeln, gibt es viele HTML-Elemente und JavaScript-APIs, die Sie untersuchen sollten. Beispielsweise möchten Sie möglicherweise benutzerdefinierte Formularsteuerungen erstellen, die nicht-semantische Elemente erfordern, um inhaltlich bearbeitbar zu sein. Vielleicht möchten Sie Touch-Ereignisse unterstützen, die Orientierung des Bildschirms bestimmen oder steuern, ein Formular im Vollbildmodus anzeigen lassen oder Drag-and-Drop-Funktionen aktivieren. Dieser Leitfaden stellt all diese Funktionen vor und verweist auf weiterführende Informationen zu jedem Thema.
 
-Um eine gute Benutzererfahrung für die größtmögliche Anzahl von Benutzern zu bieten, müssen Sie mehrere Eingabemethoden unterstützen, einschließlich Maus, Tastatur, Fingerberührung und so weiter. Die verfügbaren Eingabemechanismen hängen von den Fähigkeiten des Geräts ab, auf dem die Anwendung ausgeführt wird.
+Um ein gutes Benutzererlebnis für die größtmögliche Anzahl von Benutzern zu bieten, müssen Sie mehrere Eingabemethoden unterstützen, einschließlich Maus, Tastatur, Fingerberührung usw. Verfügbare Eingabemechanismen hängen von den Fähigkeiten des Geräts ab, auf dem die Anwendung ausgeführt wird.
 
-Sie sollten immer auf die Zugänglichkeit der Tastatur achten – viele Webbenutzer navigieren nur mit der Tastatur durch Websites und Apps, und sie von Ihren Funktionen auszuschließen, ist keine gute Idee.
+Sie sollten stets die Tastaturzugänglichkeit berücksichtigen — viele Webbenutzer navigieren nur mit der Tastatur durch Websites und Apps, und sie von Ihrer Funktionalität auszuschließen, ist eine schlechte Idee.
 
 ## Behandelte Themen
 
-- Um Touchscreen-Displays zu unterstützen, interpretieren [Touch-Events](/de/docs/Web/API/Touch_events) die Fingeraktivität auf berührungsbasierten Benutzeroberflächen von Mobilgeräten bis hin zu Kühlschrank-Panels oder Museumskiosk-Displays.
-- Die [Fullscreen API](/de/docs/Web/API/Fullscreen_API) ermöglicht es Ihnen, Ihre Inhalte im Vollbildmodus anzuzeigen, was erforderlich ist, wenn Ihr Formular auf einem Kühlschrank oder Museumskiosk bedient wird.
-- Wenn Sie ein benutzerdefiniertes Formularsteuerelement erstellen müssen, wie z.B. einen Rich-Text-Editor, ermöglicht das Attribut [`contentEditable`](/de/docs/Web/HTML/Global_attributes/contenteditable), bearbeitbare Steuerelemente aus normalerweise nicht bearbeitbaren HTML-Elementen zu erstellen.
-- Die [Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) ermöglicht es Benutzern, Elemente auf der Seite zu ziehen und an verschiedenen Stellen abzulegen. Dies kann das Benutzererlebnis verbessern, wenn es um das Auswählen von Dateien zum Hochladen oder das Umordnen von Inhaltsmodulen auf einer Seite geht.
-- Wenn die Bildschirmausrichtung für Ihr Layout wichtig ist, können Sie [CSS-Media-Queries](/de/docs/Web/CSS/@media/orientation) verwenden, um Ihre Formulare basierend auf der Ausrichtung des Browsers zu stylen, oder sogar die [Screen Orientation API](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation) verwenden, um den Zustand der Bildschirmausrichtung abzulesen und andere Aktionen auszuführen.
+- Um Touchscreen-Displays zu unterstützen, interpretieren [Touch-Ereignisse](/de/docs/Web/API/Touch_events) die Fingeraktivitäten auf Touch-basierten Benutzeroberflächen von Mobilgeräten über Kühlschrankpanels bis hin zu Museumskiosken.
+- Die [Fullscreen API](/de/docs/Web/API/Fullscreen_API) ermöglicht die Anzeige Ihrer Inhalte im Vollbildmodus, was erforderlich ist, wenn Ihr Formular auf einem Kühlschrank oder Museumskiosk bereitgestellt wird.
+- Wenn Sie eine benutzerdefinierte Formularsteuerung erstellen müssen, wie beispielsweise einen Rich-Text-Editor, ermöglicht Ihnen das [`contentEditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Attribut, bearbeitbare Steuerungen aus normalerweise nicht bearbeitbaren HTML-Elementen zu erstellen.
+- Die [Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) erlaubt es Benutzern, Elemente auf einer Seite zu ziehen und an verschiedenen Orten abzulegen. Dies kann die Benutzererfahrung verbessern, wenn es darum geht, Dateien für den Upload auszuwählen oder Inhaltsmodule innerhalb einer Seite neu zu ordnen.
+- Wenn die Bildschirmorientierung für Ihr Layout wichtig ist, können Sie [CSS-Media-Queries](/de/docs/Web/CSS/@media/orientation) verwenden, um Ihre Formulare basierend auf der Browserorientierung zu stylen, oder sogar die [Screen Orientation API](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation) nutzen, um den Bildschirmorientierungszustand zu lesen und andere Aktionen auszuführen.
 
-Die folgenden Abschnitte bieten eine Reihe von Empfehlungen und Best Practices, um es der größtmöglichen Anzahl von Benutzern zu ermöglichen, Ihre Websites und Anwendungen zu nutzen.
+Die folgenden Abschnitte bieten eine Reihe von Empfehlungen und Best Practices, um es der größtmöglichen Anzahl von Benutzern zu ermöglichen, Ihre Websites und Anwendungen zu verwenden.
 
-## Unterstützung von gängigen Eingabemechanismen
+## Unterstützung gängiger Eingabemechanismen
 
 ### Tastatur
 
-Die meisten Benutzer werden eine Tastatur verwenden, um Daten in Ihre Formularsteuerelemente einzugeben. Einige werden auch die Tastatur verwenden, um zu diesen Formularsteuerelementen zu navigieren. Um zugänglich zu sein und ein besseres Benutzererlebnis zu bieten, ist es wichtig, alle Formularsteuerelemente ordnungsgemäß zu [beschriften](/de/docs/Learn/Forms/Your_first_form#the_label_input_and_textarea_elements). Wenn jedes Formularsteuerelement korrekt mit einem {{htmlelement("label")}} verknüpft ist, ist Ihr Formular für alle vollständig zugänglich, insbesondere für alle, die Ihr Formular mit einer Tastatur, einem Screenreader und möglicherweise ohne Bildschirm navigieren.
+Die meisten Benutzer werden eine Tastatur verwenden, um Daten in Ihre Formularsteuerungen einzugeben. Einige werden auch die Tastatur verwenden, um zu diesen Formularsteuerungen zu navigieren. Um zugänglich zu sein und eine bessere Benutzererfahrung zu bieten, ist es wichtig, [alle Formularsteuerungen korrekt zu beschriften](/de/docs/Learn/Forms/Your_first_form#the_label_input_and_textarea_elements). Wenn jede Formularsteuerung korrekt mit einem {{htmlelement("label")}} verbunden ist, wird Ihr Formular für alle vollständig zugänglich sein, insbesondere für alle, die Ihr Formular mit einer Tastatur, einem Screenreader und möglicherweise ganz ohne Bildschirm navigieren.
 
-Wenn Sie zusätzliche Tastaturunterstützung hinzufügen möchten, z.B. die Validierung eines Formularsteuerelements, wenn eine bestimmte Taste gedrückt wird, können Sie Ereignis-Listener verwenden, um Tastaturereignisse zu erfassen und darauf zu reagieren. Zum Beispiel, wenn Sie Steuerelemente hinzufügen möchten, wenn eine beliebige Taste gedrückt wird, müssen Sie einen Ereignis-Listener auf dem `window`-Objekt hinzufügen:
+Falls Sie zusätzliche Tastaturunterstützung hinzufügen möchten, wie z.B. die Validierung einer Formularsteuerung, wenn eine bestimmte Taste gedrückt wird, können Sie Ereignislistener verwenden, um Tastaturereignisse zu erfassen und darauf zu reagieren. Zum Beispiel, wenn Sie Steuerungen hinzufügen möchten, wenn eine beliebige Taste gedrückt wird, müssen Sie einen Ereignislistener für das Window-Objekt hinzufügen:
 
 ```js
 window.addEventListener("keydown", handleKeyDown, true);
 window.addEventListener("keyup", handleKeyUp, true);
 ```
 
-`handleKeyDown` und `handleKeyUp` sind Funktionen, die die Steuerungslogik definieren, die ausgeführt wird, wenn die `keydown`- und `keyup`-Ereignisse ausgelöst werden.
+`handleKeyDown` und `handleKeyUp` sind Funktionen, die die Steuerungslogik definieren, die bei Auslösen der `keydown`- und `keyup`-Ereignisse ausgeführt wird.
 
 > [!NOTE]
-> Sehen Sie sich das [Events reference](/de/docs/Web/Events) und den {{domxref("KeyboardEvent")}}-Leitfaden an, um mehr über Tastaturereignisse zu erfahren.
+> Schauen Sie sich die [Ereignisreferenz](/de/docs/Web/Events) und den [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent) Leitfaden an, um mehr über Tastaturereignisse zu erfahren.
 
 ### Maus
 
-Sie können auch Maus- und andere Zeigegeräte-Ereignisse erfassen. Die Ereignisse, die auftreten, wenn der Benutzer mit einem Zeigegerät wie einer Maus interagiert, werden durch die {{domxref("MouseEvent")}}-DOM-Schnittstelle dargestellt. Häufige Mausereignisse sind [`click`](/de/docs/Web/API/Element/click_event), [`dblclick`](/de/docs/Web/API/Element/dblclick_event), [`mouseup`](/de/docs/Web/API/Element/mouseup_event) und [`mousedown`](/de/docs/Web/API/Element/mousedown_event). Die Liste aller Ereignisse, die die Maus-Ereignisschnittstelle verwenden, finden Sie im [Events reference](/de/docs/Web/Events).
+Sie können auch Maus- und andere Zeigereignisse erfassen. Die Ereignisse, die auftreten, wenn der Benutzer mit einem Zeigegerät wie einer Maus interagiert, werden durch das [`MouseEvent`](/de/docs/Web/API/MouseEvent) DOM-Interface dargestellt. Häufige Mausereignisse umfassen [`click`](/de/docs/Web/API/Element/click_event), [`dblclick`](/de/docs/Web/API/Element/dblclick_event), [`mouseup`](/de/docs/Web/API/Element/mouseup_event) und [`mousedown`](/de/docs/Web/API/Element/mousedown_event). Die Liste aller Ereignisse, die das Mouse Event Interface verwenden, ist in der [Ereignisreferenz](/de/docs/Web/Events) angegeben.
 
-Wenn das Eingabegerät eine Maus ist, können Sie die Benutzereingabe auch über die Pointer Lock API steuern und Drag & Drop implementieren (siehe unten). Sie können auch [CSS verwenden, um Zeigegeräte](/de/docs/Learn/CSS/CSS_layout/Media_queries#use_of_pointing_devices)-Unterstützung zu testen.
+Wenn das Eingabegerät eine Maus ist, können Sie auch die Benutzereingaben über die Pointer Lock API steuern und Drag & Drop implementieren (siehe unten). Sie können auch [CSS verwenden, um den Test auf Zeigegeräte](/de/docs/Learn/CSS/CSS_layout/Media_queries#use_of_pointing_devices) zu unterstützen.
 
 ### Fingerberührung
 
-Um zusätzliche Unterstützung für Touchscreen-Geräte bereitzustellen, ist es eine gute Praxis, die unterschiedlichen Fähigkeiten in Bezug auf Bildschirmauflösung und Benutzereingaben zu berücksichtigen. [Touch-Events](/de/docs/Web/API/Touch_events) können Ihnen helfen, interaktive Elemente und gängige Interaktionsgesten auf Touchscreen-Geräten zu implementieren.
+Um zusätzliche Unterstützung für Touchscreen-Geräte zu bieten, ist es eine gute Praxis, die unterschiedlichen Möglichkeiten in Bezug auf Bildschirmauflösung und Benutzereingaben zu berücksichtigen. [Touch-Ereignisse](/de/docs/Web/API/Touch_events) können Ihnen helfen, interaktive Elemente und gängige Interaktionsgesten auf Touchscreen-Geräten zu implementieren.
 
-Wenn Sie Touch-Events verwenden möchten, müssen Sie Ereignis-Listener hinzufügen und Handler-Funktionen angeben, die aufgerufen werden, wenn das Ereignis ausgelöst wird:
+Wenn Sie Touch-Ereignisse verwenden möchten, müssen Sie Ereignislistener hinzufügen und Handlerfunktionen angeben, die aufgerufen werden, wenn das Ereignis ausgelöst wird:
 
 ```js
 element.addEventListener("touchstart", handleStart, false);
@@ -64,36 +64,36 @@ element.addEventListener("touchend", handleEnd, false);
 element.addEventListener("touchmove", handleMove, false);
 ```
 
-wobei `element` das DOM-Element ist, auf dem Sie die Touch-Events registrieren möchten.
+wobei `element` das DOM-Element ist, auf dem Sie die Touch-Ereignisse registrieren möchten.
 
 > [!NOTE]
-> Weitere Informationen darüber, was Sie mit Touch-Events tun können, finden Sie in unserem [Touch-Events-Leitfaden](/de/docs/Web/API/Touch_events).
+> Für weitere Informationen darüber, was Sie mit Touch-Ereignissen tun können, lesen Sie unseren [Leitfaden für Touch-Ereignisse](/de/docs/Web/API/Touch_events).
 
-### Pointer-Ereignisse
+### Zeigerereignisse
 
-Mäuse sind nicht die einzigen Zeigegeräte. Die Geräte Ihres Benutzers können mehrere Eingabeformen unterstützen, wie Maus-, Fingerberührungs- und Stifteingaben. Jeder dieser Zeigegeräte hat eine unterschiedliche Größe. Die [Pointer Events API](/de/docs/Web/API/Pointer_events) kann hilfreich sein, wenn Sie Ereignisse über Geräte hinweg verwalten müssen, indem sie die Handhabung eines jeden normalisiert. Ein Zeiger kann jeden Kontaktpunkt auf dem Bildschirm darstellen, der durch einen Mauscursor, Stift, Berührung (einschließlich Multitouch) oder ein anderes Eingabezeigegerät hergestellt wird.
+Mäuse sind nicht die einzigen Zeigegeräte. Die Geräte Ihrer Benutzer können mehrere Eingabeformen beinhalten, wie Maus, Fingerberührung und Stifteingabe. Jeder dieser Zeiger hat eine unterschiedliche Größe. Die [Pointer Events API](/de/docs/Web/API/Pointer_events) kann sehr nützlich sein, wenn Sie Ereignisse geräteübergreifend verwalten müssen, indem Sie die Handhabung jedes einzelnen normalisieren. Ein Zeiger kann jeder Kontaktpunkt auf dem Bildschirm sein, der durch einen Mauszeiger, Stift, Berührung (einschließlich Mehrfachberührung) oder ein anderes Zeigereingabegerät hergestellt wird.
 
-Die Ereignisse zur Verarbeitung generischer Zeigereingaben ähneln denen für die Maus: `pointerdown`, `pointermove`, `pointerup`, `pointerover`, `pointerout` usw. Die [`PointerEvent`-Schnittstelle](/de/docs/Web/API/PointerEvent) bietet alle Details, die Sie über das Zeigegerät erfassen möchten, einschließlich seiner Größe, seines Drucks und seines Winkels.
+Die Ereignisse zur Handhabung generischer Zeigereingaben ähneln denen für die Maus: `pointerdown`, `pointermove`, `pointerup`, `pointerover`, `pointerout` usw. Das [`PointerEvent` Interface](/de/docs/Web/API/PointerEvent) bietet alle Details, die Sie über das Zeigereingabegerät erfassen möchten, einschließlich seiner Größe, seines Drucks und seines Winkels.
 
 ## Steuerungen implementieren
 
-### Bildschirmausrichtung
+### Bildschirmorientierung
 
-Wenn Sie leicht unterschiedliche Layouts benötigen, je nachdem, ob der Benutzer sich im Hoch- oder Querformat befindet, können Sie [CSS-Media-Queries](/de/docs/Learn/CSS/CSS_layout/Media_queries#media_feature_rules) verwenden, um CSS für unterschiedliche Layouts oder Steuerelementbreiten basierend auf der Größe oder Ausrichtung des Bildschirms beim [Styling von Webformularen](/de/docs/Learn/Forms/Styling_web_forms) zu definieren.
+Wenn Sie leicht unterschiedliche Layouts benötigen, je nachdem, ob der Benutzer im Hoch- oder Querformat ist, können Sie mit [CSS Media Queries](/de/docs/Learn/CSS/CSS_layout/Media_queries#media_feature_rules) CSS für verschiedene Layouts oder Formsteuerungsbreiten basierend auf der Größe oder Orientierung des Bildschirms beim [Stylen von Webformularen](/de/docs/Learn/Forms/Styling_web_forms) definieren.
 
-Wenn die Bildschirmausrichtung für Ihr Formular wichtig ist, können Sie den Zustand der Bildschirmausrichtung ablesen, informiert werden, wenn sich dieser Zustand ändert, und in der Lage sein, die Bildschirmausrichtung auf einen bestimmten Zustand (normalerweise Hoch- oder Querformat) zu sperren mittels der [Screen Orientation API](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation).
+Wenn die Bildschirmorientierung für Ihr Formular wichtig ist, können Sie den Bildschirmorientierungszustand lesen, informiert werden, wenn sich dieser Zustand ändert, und die Bildschirmorientierung auf einen bestimmten Zustand (normalerweise Hoch- oder Querformat) durch die [Screen Orientation API](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation) sperren.
 
-- Orientierungsdaten können über {{domxref("screenOrientation.type")}} oder mit CSS über das [`orientation`](/de/docs/Web/CSS/@media/orientation)-Medienmerkmal abgerufen werden.
-- Wenn sich die Bildschirmausrichtung ändert, wird das {{domxref("ScreenOrientation.change_event", "change")}}-Ereignis auf dem Bildschirmobjekt ausgelöst.
-- Das Sperren der Bildschirmausrichtung ist durch Aufrufen der {{domxref("ScreenOrientation.lock()")}}-Methode möglich.
-- Die {{domxref("ScreenOrientation.unlock()")}}-Methode entfernt alle zuvor gesetzten Bildschirmsperren.
+- Die Orientierungsdaten können über [`screenOrientation.type`](/de/docs/Web/API/ScreenOrientation/type) oder mit CSS durch die [`orientation`](/de/docs/Web/CSS/@media/orientation) Medienfunktion abgerufen werden.
+- Wenn sich die Bildschirmorientierung ändert, wird das [`change`](/de/docs/Web/API/ScreenOrientation/change_event) Ereignis auf dem Bildschirmobjekt ausgelöst.
+- Das Sperren der Bildschirmorientierung ist möglich, indem Sie die [`ScreenOrientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock) Methode aufrufen.
+- Die [`ScreenOrientation.unlock()`](/de/docs/Web/API/ScreenOrientation/unlock) Methode hebt alle zuvor gesetzten Bildschirmsperren auf.
 
 > [!NOTE]
-> Weitere Informationen über die Screen Orientation API finden Sie in [Managing screen orientation](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation).
+> Weitere Informationen zur Screen Orientation API finden Sie in [Managing screen orientation](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation).
 
-### Vollbild
+### Vollbildmodus
 
-Wenn Sie Ihr Formular im Vollbildmodus präsentieren müssen, z. B. wenn Ihr Formular auf einem Museumskiosk, einer Mautstelle oder wirklich einer beliebig öffentlich angezeigten Benutzeroberfläche angezeigt wird, können Sie dies tun, indem Sie {{domxref("Element.requestFullscreen()")}} auf diesem Element aufrufen:
+Falls Sie Ihr Formular im Vollbildmodus präsentieren müssen, wie zum Beispiel auf einem Museumskiosk, einer Mautstelle oder wirklich jeder öffentlich angezeigten Benutzeroberfläche, können Sie dies tun, indem Sie [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) auf diesem Element aufrufen:
 
 ```js
 const elem = document.getElementById("myForm");
@@ -103,13 +103,13 @@ if (elem.requestFullscreen) {
 ```
 
 > [!NOTE]
-> Um mehr über die Hinzufügung von Vollbildfunktionen zu Ihrer Anwendung zu erfahren, lesen Sie unsere Dokumentation über [die Verwendung des Vollbildmodus](/de/docs/Web/API/Fullscreen_API).
+> Um mehr darüber zu erfahren, wie Sie die Vollbildfunktionalität zu Ihrer Anwendung hinzufügen, lesen Sie unsere Dokumentation über [die Verwendung des Vollbildmodus](/de/docs/Web/API/Fullscreen_API).
 
 ### Drag & Drop
 
-Eine häufige Benutzerinteraktion ist das physische Ziehen von Elementen, die an anderer Stelle auf dem Bildschirm abgelegt werden können. Drag and Drop kann das Benutzererlebnis verbessern, wenn es um das Auswählen von Dateien zum Hochladen oder das Umordnen von Inhaltsmodulen auf einer Seite geht. Dafür gibt es eine API!
+Eine häufige Benutzerinteraktion ist das physische Ziehen von Elementen, um sie an anderer Stelle auf dem Bildschirm abzulegen. Drag and drop kann die Benutzererfahrung verbessern, wenn es darum geht, Dateien für den Upload auszuwählen oder Inhaltsmodule innerhalb einer Seite neu zu ordnen. Dafür gibt es eine API!
 
-Die [Drag & Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)-API ermöglicht es Benutzern, ein Element mit der Maus zu klicken und gedrückt zu halten, es an eine andere Position zu ziehen und die Maustaste loszulassen, um das Element dort abzulegen.
+Die [Drag & Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API) API ermöglicht es Benutzern, ein Element anzuklicken und die Maustaste gedrückt zu halten, es an einen anderen Ort zu ziehen und die Maustaste loszulassen, um das Element dort abzulegen.
 
 Hier ist ein Beispiel, das es erlaubt, einen Inhaltsteil zu ziehen.
 
@@ -123,17 +123,17 @@ Hier ist ein Beispiel, das es erlaubt, einen Inhaltsteil zu ziehen.
 
 in dem wir:
 
-- Das [`draggable`](/de/docs/Web/HTML/Global_attributes#draggable)-Attribut auf `true` für das Element setzen, das Sie ziehbar machen möchten.
-- Einen Listener für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis hinzufügen und die Ziehdaten innerhalb dieses Listeners festlegen.
+- Das [`draggable`](/de/docs/Web/HTML/Global_attributes#draggable) Attribut auf `true` für das Element setzen, das ziehbar gemacht werden soll.
+- Ein Listener für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignis hinzufügen und die Ziehdaten innerhalb dieses Listeners festlegen.
 
 > [!NOTE]
 > Weitere Informationen finden Sie in der [MDN Drag & Drop Dokumentation](/de/docs/Web/API/HTML_Drag_and_Drop_API).
 
 ### contentEditable
 
-Im Allgemeinen sollten Sie ein {{HTMLElement("textarea")}} oder einen entsprechenden {{HTMLElement("input")}}-Typ innerhalb eines {{HTMLElement("form")}} verwenden, um Daten von Benutzern zu sammeln, zusammen mit einem beschreibenden {{HTMLElement("label")}}. Aber diese Elemente erfüllen möglicherweise nicht Ihre Anforderungen. Zum Beispiel erfassen Rich-Text-Editoren Kursiv-, fettgedruckten und normalen Text, aber kein nativer Formularkontrollgriff erfasst Rich-Text. Dieser Anwendungsfall erfordert, dass Sie eine benutzerdefinierte Steuerung erstellen, die sowohl stilisierbar als auch editierbar ist. Dafür gibt es ein Attribut!
+Im Allgemeinen sollten Sie ein {{HTMLElement("textarea")}} oder einen geeigneten {{HTMLElement("input")}} Typ innerhalb eines {{HTMLElement("form")}} verwenden, um Daten von Benutzern zu sammeln, zusammen mit einem beschreibenden {{HTMLElement("label")}}. Aber diese Elemente erfüllen möglicherweise nicht Ihre Anforderungen. Beispielsweise erfassen Rich-Text-Editoren kursiven, fetten und normalen Text, aber keine native Formularsteuerung erfasst Rich-Text. Dieser Anwendungsfall erfordert, dass Sie eine benutzerdefinierte Steuerung erstellen, die sowohl stilisierbar als auch bearbeitbar ist. Dafür gibt es ein Attribut!
 
-Jedes DOM-Element kann direkt bearbeitbar gemacht werden, indem das [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable)-Attribut verwendet wird.
+Jedes DOM-Element kann direkt bearbeitbar gemacht werden, indem das [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable) Attribut verwendet wird.
 
 ```css hidden
 div {
@@ -147,35 +147,35 @@ div {
 <div contenteditable="true">This text can be edited by the user.</div>
 ```
 
-Das `contenteditable`-Attribut fügt das Element automatisch zur Standardeinfügereihenfolge des Dokuments hinzu, was bedeutet, dass das [`tabindex`](/de/docs/Web/HTML/Global_attributes#tabindex)-Attribut nicht hinzugefügt werden muss. Wenn Sie jedoch nicht-semantische Elemente zur Dateneingabe verwenden, wenn Sie [Ihre eigenen Formularsteuerelemente erstellen](/de/docs/Learn/Forms/How_to_build_custom_form_controls), müssen Sie JavaScript und [ARIA](/de/docs/Web/Accessibility/ARIA) hinzufügen, um das Element mit Formularsteuerungsfunktionalität für alles andere auszustatten.
+Das `contenteditable` Attribut fügt das Element automatisch der Standard-Tabulatorreihenfolge des Dokuments hinzu, das bedeutet, dass das [`tabindex`](/de/docs/Web/HTML/Global_attributes#tabindex) Attribut nicht hinzugefügt werden muss. Wenn Sie jedoch nicht-semantische Elemente für die Dateneingabe verwenden, wenn Sie [eigene Formularsteuerungen erstellen](/de/docs/Learn/Forms/How_to_build_custom_form_controls), müssen Sie JavaScript und [ARIA](/de/docs/Web/Accessibility/ARIA) hinzufügen, um das Element mit Formularsteuerungsfunktionalität für alles andere auszustatten.
 
-Um eine gute Benutzererfahrung zu bieten, muss jedes benutzerdefinierte Formularsteuerelement, das Sie erstellen, zugänglich sein und wie native Formularsteuerelemente funktionieren:
+Um ein gutes Benutzererlebnis zu gewährleisten, muss jede benutzerdefinierte Formularsteuerung, die Sie erstellen, zugänglich sein und wie native Formularsteuerungen funktionieren:
 
-- Die [`role`](/de/docs/Web/Accessibility/ARIA/Roles), [label](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) und [description](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) des Elements müssen mit ARIA hinzugefügt werden.
-- Alle Benutzereingabemethoden müssen unterstützt werden, einschließlich [Tastatur](#tastatur), [Maus](#maus), [Berührung](#fingerberührung) und [Zeiger](#pointer-ereignisse)-Ereignisse, die alle oben beschrieben wurden.
-- JavaScript ist erforderlich, um Funktionalitäten wie [Validierung](/de/docs/Learn/Forms/Form_validation), [Übermittlung](/de/docs/Learn/Forms/Sending_and_retrieving_form_data) und [Speicherung](/de/docs/Learn/Forms/Sending_forms_through_JavaScript) von benutzeraktualisierten Inhalten zu handhaben.
+- Die [Rolle](/de/docs/Web/Accessibility/ARIA/Roles), [Beschriftung](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) und [Beschreibung](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) des Elements müssen mit ARIA hinzugefügt werden.
+- Alle Benutzereingabemethoden müssen unterstützt werden, einschließlich [Tastatur](#tastatur), [Maus](#maus), [Berührung](#fingerberührung) und [Zeiger](#zeigerereignisse) Ereignisse, die alle oben beschrieben sind.
+- JavaScript ist erforderlich, um Funktionalitäten wie [Validierung](/de/docs/Learn/Forms/Form_validation), [Übermittlung](/de/docs/Learn/Forms/Sending_and_retrieving_form_data) und [Speicherung](/de/docs/Learn/Forms/Sending_forms_through_JavaScript) von vom Benutzer aktualisierten Inhalten zu verwalten.
 
 {{EmbedLiveSample("contentEditable")}}
 
 > [!NOTE]
-> Beispiele und andere Ressourcen finden Sie im [Content Editable guide](/de/docs/Web/HTML/Global_attributes/contenteditable).
+> Beispiele und andere Ressourcen sind im [Leitfaden für Content Editing](/de/docs/Web/HTML/Global_attributes/contenteditable) zu finden.
 
 ## Tutorials
 
-- [Touch events Guide](/de/docs/Web/API/Touch_events)
-- [Managing screen orientation](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
-- [Using fullscreen mode](/de/docs/Web/API/Fullscreen_API)
-- [Drag Operations Guide](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Form validation](/de/docs/Learn/Forms/Form_validation)
-- [Sending forms through JavaScript](/de/docs/Learn/Forms/Sending_forms_through_JavaScript)
+- [Leitfaden zu Touch Events](/de/docs/Web/API/Touch_events)
+- [Verwaltung der Bildschirmorientierung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
+- [Verwendung des Vollbildmodus](/de/docs/Web/API/Fullscreen_API)
+- [Leitfaden zu Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Versenden von Formularen mit JavaScript](/de/docs/Learn/Forms/Sending_forms_through_JavaScript)
 
 ## Referenz
 
-- {{domxref("MouseEvent")}}-Schnittstelle
-- {{domxref("KeyboardEvent")}}-Schnittstelle
-- [Touch events](/de/docs/Web/API/Touch_events) API
+- [`MouseEvent`](/de/docs/Web/API/MouseEvent) Interface
+- [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent) Interface
+- [Touch Events](/de/docs/Web/API/Touch_events) API
 - [Pointer Lock](/de/docs/Web/API/Pointer_Lock_API) API
 - [Screen Orientation](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation) API
 - [Fullscreen](/de/docs/Web/API/Fullscreen_API) API
 - [Drag & Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API) API
-- HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)
+- HTML [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Attribut

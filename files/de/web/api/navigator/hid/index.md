@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebHID API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`Navigator.hid`** gibt ein {{domxref("HID")}}-Objekt zurück, das Methoden zum Verbinden mit HID-Geräten, zum Auflisten angeschlossener HID-Geräte und Ereignishandler für verbundene HID-Geräte bereitstellt.
+Die schreibgeschützte Eigenschaft **`Navigator.hid`** gibt ein [`HID`](/de/docs/Web/API/HID)-Objekt zurück, das Methoden zur Verbindung mit HID-Geräten, zur Auflistung angeschlossener HID-Geräte und Ereignishandler für verbundene HID-Geräte bereitstellt.
 
-Wenn eine definierte [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) die Nutzung von WebHID blockiert, wird die `Navigator.hid`-Eigenschaft nicht verfügbar sein.
+Wenn eine definierte [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) die Nutzung von WebHID blockiert, wird die Eigenschaft `Navigator.hid` nicht verfügbar sein.
 
 ## Wert
 
-Ein {{domxref("HID")}}-Objekt.
+Ein [`HID`](/de/docs/Web/API/HID)-Objekt.
 
 ## Spezifikationen
 

@@ -9,7 +9,7 @@ l10n:
 
 Wird ausgelöst, wenn ein Fehler beim Auswerten der PAC-Datei oder des `onRequest`-Listeners auftritt.
 
-Der Fehler kann durch das Werfen von Ausnahmen oder durch das Zurückgeben eines ungültigen Wertes im proxy.onRequest-Ereignishandler ausgelöst werden.
+Der Fehler kann durch Werfen oder Zurückgeben eines ungültigen Werts im proxy.onRequest-Event-Handler ausgelöst werden.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, diesem Ereignis zuzuhören. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
@@ -34,10 +34,10 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
 
     - `newState`
-      - : `Objekt`. Ein [Error](/de/docs/Web/JavaScript/Reference/Global_Objects/Error)-Objekt, das den Fehler darstellt.
+      - : `Object`. Ein [Error](/de/docs/Web/JavaScript/Reference/Global_Objects/Error)-Objekt, das den Fehler repräsentiert.
 
 {{WebExtExamples}}
 

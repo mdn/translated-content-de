@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`**-Methode des {{domxref("HTMLTextAreaElement")}}-Interfaces führt die gleichen Gültigkeitsprüfungs-Schritte aus wie die {{domxref("HTMLTextAreaElement.checkValidity", "checkValidity()")}}-Methode. Zusätzlich zeigt der Browser, falls das {{domxref("HTMLElement/invalid_event", "ungültige")}} Ereignis nicht abgebrochen wird, das Problem dem Benutzer an.
+Die **`reportValidity()`**-Methode des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces führt die gleichen Gültigkeitsprüfungs-Schritte aus wie die [`checkValidity()`](/de/docs/Web/API/HTMLTextAreaElement/checkValidity)-Methode. Wenn zusätzlich das [`invalid`](/de/docs/Web/API/HTMLElement/invalid_event)-Ereignis nicht abgebrochen wird, zeigt der Browser dem Benutzer das Problem an.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufweist; andernfalls `false`.
+Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme hat; andernfalls wird `false` zurückgegeben.
 
 ## Spezifikationen
 
@@ -34,9 +34,9 @@ Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufwe
 
 ## Siehe auch
 
-- {{domxref("HTMLTextAreaElement.checkValidity()")}}
+- [`HTMLTextAreaElement.checkValidity()`](/de/docs/Web/API/HTMLTextAreaElement/checkValidity)
 - {{HTMLElement("textarea")}}
 - {{HTMLElement("form")}}
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudo-Klassen
+- [Leitfaden: Eingeschränkte Validierung](/de/docs/Web/HTML/Constraint_validation)
+- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

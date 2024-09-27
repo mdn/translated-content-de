@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`active`** schreibgeschützte Eigenschaft der {{domxref("ServiceWorkerRegistration")}}-Schnittstelle gibt einen Service Worker zurück, dessen {{domxref("ServiceWorker.state")}} entweder `activating` oder `activated` ist. Diese Eigenschaft ist anfänglich auf `null` gesetzt.
+Die **`active`** schreibgeschützte Eigenschaft der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle gibt einen Service Worker zurück, dessen [`ServiceWorker.state`](/de/docs/Web/API/ServiceWorker/state) `activating` oder `activated` ist. Diese Eigenschaft ist anfänglich auf `null` gesetzt.
 
-Ein aktiver Worker steuert einen {{domxref("Client")}}, wenn die URL des Clients innerhalb des Geltungsbereichs der Registrierung fällt (die `scope`-Option, die beim ersten Aufruf von {{domxref("ServiceWorkerContainer.register")}} festgelegt wurde).
+Ein aktiver Worker kontrolliert einen [`Client`](/de/docs/Web/API/Client), wenn die URL des Clients innerhalb des Gültigkeitsbereichs der Registrierung liegt (die `scope`-Option, die beim ersten Aufruf von [`ServiceWorkerContainer.register`](/de/docs/Web/API/ServiceWorkerContainer/register) festgelegt wird).
 
 > [!NOTE]
-> Sobald ein aktiver Worker `activating` ist, verhindern weder ein Laufzeitskriptfehler noch eine erzwungene Beendigung des aktiven Workers das Erreichen des `activated`-Status.
+> Sobald ein aktiver Worker `activating` ist, verhindert weder ein Laufzeitskriptfehler noch eine erzwungene Beendigung des aktiven Workers, dass dieser `activated` wird.
 
 ## Wert
 
-Eine Eigenschaft des {{domxref("ServiceWorker")}}-Objekts, falls es sich derzeit im `activating`- oder `activated`-Zustand befindet.
+Die Eigenschaft eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekts, wenn es sich derzeit im `activating`- oder `activated`-Zustand befindet.
 
 ## Spezifikationen
 

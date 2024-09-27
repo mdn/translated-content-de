@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}{{seecompattable}}
 
-Die **`position-try-order`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, verschiedene Fallback-Optionen anzugeben, die zu einem verfügbaren position-try Fallback führen, um die Position eines anchor-positionierten Elements festzulegen, anstatt dessen anfängliche Positionseinstellungen zu verwenden.
+Die **`position-try-order`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, verschiedene Rückfalloptionen anzugeben, die dazu führen, dass eine verfügbare Position-Try-Rückfalloption verwendet wird, um die Position eines Anker-positionierten Elements festzulegen, anstatt seiner anfänglichen Positionseinstellungen.
 
 > [!NOTE]
-> Es gibt auch eine Kurzschreibweise — {{cssxref("position-try")}}, die verwendet werden kann, um `position-try-order` und {{cssxref("position-try-fallbacks")}} Werte in einer einzigen Deklaration anzugeben.
+> Es gibt auch eine Kurzschreibweise — {{cssxref("position-try")}}, mit der `position-try-order` und {{cssxref("position-try-fallbacks")}} Werte in einer einzigen Deklaration angegeben werden können.
 
 ## Syntax
 
 ```css
-/* Schlüsselwörter */
+/* Keywords */
 position-try-order: normal;
 position-try-order: most-height;
 position-try-order: most-width;
 position-try-order: most-block-size;
 position-try-order: most-inline-size;
 
-/* Globale Werte */
+/* Global values */
 position-try-order: inherit;
 position-try-order: initial;
 position-try-order: revert;
@@ -32,30 +32,30 @@ position-try-order: unset;
 
 ### Werte
 
-Die Eigenschaft `position-try-order` kann entweder als das Schlüsselwort `normal` oder als ein `<try-size>` angegeben werden.
+Die Eigenschaft `position-try-order` kann entweder als Schlüsselwortwert `normal` oder als `<try-size>` angegeben werden.
 
 - `normal`
-  - : Der Standardwert. Keine position-try Fallback-Optionen werden ausprobiert, wenn das Element erstmals angezeigt wird.
+  - : Der Standardwert. Es werden keine Position-Try-Rückfalloptionen ausprobiert, wenn das Element zuerst angezeigt wird.
 - `<try-size>`
-  - : Definiert die verschiedenen Fallback-Optionen zur Größe, die Kriterien festlegen, welche Fallback-Option auf das anchor-positionierte Element angewendet werden soll, wenn es erstmals gerendert wird. Verfügbare Werte sind:
+  - : Definiert die verschiedenen Try-Size-Rückfalloptionen, die Kriterien festlegen, was Try-Rückfall auf das Anker-positionierte Element angewendet werden soll, wenn es erstmals gerendert wird. Verfügbare Werte sind:
     - `most-height`
-      - : Die position try Fallback-Option wird angewendet, die dem enthaltenden Block des Elements die größte Höhe gibt.
+      - : Die Position-Try-Rückfalloption, die die Höhe des enthaltenden Blocks des Elements maximiert, wird angewendet.
     - `most-width`
-      - : Die position try Fallback-Option wird angewendet, die dem enthaltenden Block des Elements die größte Breite gibt.
+      - : Die Position-Try-Rückfalloption, die die Breite des enthaltenden Blocks des Elements maximiert, wird angewendet.
     - `most-block-size`
-      - : Die position try Fallback-Option wird angewendet, die dem enthaltenden Block des Elements die größte Größe in Blockrichtung gibt.
+      - : Die Position-Try-Rückfalloption, die die größte Größe in Blockrichtung des enthaltenden Blocks des Elements maximiert, wird angewendet.
     - `most-inline-size`
-      - : Die position try Fallback-Option wird angewendet, die dem enthaltenden Block des Elements die größte Größe in Inline-Richtung gibt.
+      - : Die Position-Try-Rückfalloption, die die größte Größe in Inlinerichtung des enthaltenden Blocks des Elements maximiert, wird angewendet.
 
 ## Beschreibung
 
-Die Eigenschaft `position-try-order` hat einen leicht anderen Fokus als die übrigen Funktionen der position-try Funktionalitäten, da sie Fallback-Optionen verwendet, wenn das positionierte Element erstmals angezeigt wird, anstatt beim Scrollen. Beispielsweise möchten Sie das Element möglicherweise an einem Ort mit mehr verfügbarer Höhe oder Breite als die Standard-Startposition anzeigen.
+Die Eigenschaft `position-try-order` hat einen leicht anderen Fokus als die restlichen Position-Try-Funktionalitäten, da sie Position-Try-Rückfalloptionen nutzt, wenn das positionierte Element zuerst angezeigt wird, anstatt wenn es gescrollt wird. Zum Beispiel möchten Sie das Element möglicherweise zuerst in einem Bereich anzeigen, der mehr verfügbare Höhe oder Breite als die Standardanfangsposition hat.
 
-Der Browser testet die verfügbaren position-try Fallback-Optionen, um herauszufinden, welche dem anchor-positionierten Element im angegebenen Dimensionierungsbereich den meisten Platz bietet. Diese Option wird dann angewendet, und die ursprüngliche Stilgebung des Elements wird überschrieben.
+Der Browser testet die verfügbaren Position-Try-Rückfalloptionen, um herauszufinden, welche die meiste Fläche in der angegebenen Dimension für das Anker-positionierte Element bietet. Diese Option wird dann angewendet und überschreibt das anfängliche Styling des Elements.
 
-Wenn keine position try Fallback-Option verfügbar ist, die mehr Breite/Höhe als die dem Element zugewiesene anfängliche Positionierung bietet, wird keine position try Option angewendet. Im Effekt verhält es sich, als ob `position-try-order` auf `normal` gesetzt wäre.
+Wenn keine Position-Try-Rückfalloption verfügbar ist, die mehr Breite/Höhe als die anfängliche Positionierung des Elements bietet, wird keine Position-Try-Option angewendet. Im Grunde ist das Verhalten so, als wäre `position-try-order` auf `normal` gesetzt.
 
-Für detaillierte Informationen zu Anker-Funktionen und der Verwendung von position try Optionen, siehe die [CSS Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul-Startseite und die Anleitung [Overflow behandeln: Try-Fallbacks und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding).
+Für detaillierte Informationen über Anker-Funktionen und Position-Try-Option-Nutzung siehe die [CSS Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul-Landingpage und den [Überlauf verarbeiten: Try Rückfälle und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) Leitfaden.
 
 ## Formale Definition
 
@@ -67,24 +67,24 @@ Für detaillierte Informationen zu Anker-Funktionen und der Verwendung von posit
 
 ## Beispiele
 
-### Grundlegende Verwendung von `position-try-order`
+### Grundlegende Nutzung von `position-try-order`
 
-Diese Demo zeigt die Wirkung von `position-try-order`.
+Dieses Demo zeigt die Auswirkung von `position-try-order`.
 
 #### HTML
 
-Das HTML umfasst zwei {{htmlelement("div")}} Elemente, die zu einem Anker und einem anchor-positionierten Element werden, sowie ein `<form>`, das Radiobuttons enthält, mit denen Sie verschiedene Werte von `position-try-order` auswählen können.
+Das HTML beinhaltet zwei {{htmlelement("div")}}-Elemente, die zu einem Anker und einem Anker-positionierten Element werden, sowie ein `<form>`, das Radiobuttons enthält, mit denen Sie verschiedene Werte von `position-try-order` auswählen können.
 
 ```html
 <div class="anchor">⚓︎</div>
 
 <div class="infobox">
-  <p>Dies ist ein Informationsfeld.</p>
+  <p>This is an information box.</p>
 </div>
 
 <form>
   <fieldset>
-    <legend>Wählen Sie eine Try-Reihenfolge</legend>
+    <legend>Choose a try order</legend>
     <div>
       <label for="radio-normal">normal</label>
       <input
@@ -108,7 +108,7 @@ Das HTML umfasst zwei {{htmlelement("div")}} Elemente, die zu einem Anker und ei
 
 #### CSS
 
-Im CSS erhält der Anker einen {{cssxref("anchor-name")}} und hat einen großen {{cssxref("margin")}}, um ihn zur oberen Mitte des Ansichtsfensters zu positionieren:
+Im CSS erhält der Anker einen {{cssxref("anchor-name")}} und hat einen großen {{cssxref("margin")}}, um ihn zum oberen Zentrum des Viewports zu positionieren:
 
 ```css hidden
 .anchor {
@@ -148,7 +148,7 @@ form {
 }
 ```
 
-Wir fügen dann eine benutzerdefinierte Positionierungsoption namens `--custom-bottom` hinzu, die das Element unter dem Anker positioniert und ihm einen entsprechenden Abstand gibt:
+Wir fügen dann eine benutzerdefinierte Positionsoption namens `--custom-bottom` hinzu, die das Element unterhalb des Ankers positioniert und ihm einen entsprechenden Rand gibt:
 
 ```css
 @position-try --custom-bottom {
@@ -158,7 +158,7 @@ Wir fügen dann eine benutzerdefinierte Positionierungsoption namens `--custom-b
 }
 ```
 
-Wir positionieren das Element zunächst über seinem Anker und geben ihm dann unsere benutzerdefinierte Positionierungsoption mit der Kurzschreibweise `position-try`, die auch die `position-try-order` Eigenschaft auf `normal` setzt:
+Wir positionieren das Element zunächst über seinem Anker und geben ihm dann unsere benutzerdefinierte Positionsoption mit Hilfe der `position-try` Kurzschreibweise, die auch die Eigenschaft `position-try-order` auf `normal` setzt:
 
 ```css
 .infobox {
@@ -175,7 +175,7 @@ Wir positionieren das Element zunächst über seinem Anker und geben ihm dann un
 
 #### JavaScript
 
-Schließlich fügen wir etwas JavaScript hinzu. Dadurch wird ein [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignishandler auf die Radio-Buttons gesetzt, sodass bei Auswahl eines neuen Wertes dieser Wert auf die `position-try-order` Eigenschaft des Infoboxes angewendet wird.
+Schließlich fügen wir etwas JavaScript hinzu. Dies setzt einen [`change`](/de/docs/Web/API/HTMLElement/change_event) Ereignishandler für die Radiobuttons, sodass, wenn ein neuer Wert ausgewählt wird, dieser Wert auf die Eigenschaft `position-try-order` der Infobox angewendet wird.
 
 ```js
 const infobox = document.querySelector(".infobox");
@@ -196,7 +196,7 @@ function setTryOrder(e) {
 
 {{ EmbedLiveSample("Basic `position-try-order` usage", "100%", "310") }}
 
-Probieren Sie aus, die `most-height` Reihenfolge auszuwählen. Dies hat den Effekt, dass `--custom-bottom` als position try Fallback-Option angewendet wird, die das Element unter dem Anker positioniert. Dies tritt auf, weil unter dem Anker mehr vertikaler Platz vorhanden ist als darüber.
+Versuchen Sie, die `most-height` Order-Option zu wählen. Dies hat die Wirkung, `--custom-bottom` als eine Position-Try-Rückfalloption anzuwenden, die das Element unter dem Anker positioniert. Dies geschieht, weil es mehr vertikalen Platz unterhalb des Ankers gibt als darüber.
 
 ## Spezifikationen
 
@@ -210,7 +210,7 @@ Probieren Sie aus, die `most-height` Reihenfolge auszuwählen. Dies hat den Effe
 
 - {{cssxref("position-try")}}
 - {{cssxref("position-try-fallbacks")}}
-- Die {{cssxref("@position-try")}} At-Regel
+- Die {{cssxref("@position-try")}} at-rule
 - [CSS Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [Verwendung der CSS Anker-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Leitfaden
-- [Overflow behandeln: Try-Fallbacks und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) Leitfaden
+- [CSS Anker-Positionierung verwenden](/de/docs/Web/CSS/CSS_anchor_positioning/Using) Leitfaden
+- [Überlauf verarbeiten: Try Rückfälle und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding) Leitfaden

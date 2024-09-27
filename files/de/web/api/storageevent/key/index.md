@@ -1,5 +1,5 @@
 ---
-title: "StorageEvent: key-Eigenschaft"
+title: "StorageEvent: key Eigenschaft"
 short-title: key
 slug: Web/API/StorageEvent/key
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`key`**-Eigenschaft der {{domxref("StorageEvent")}}-Schnittstelle gibt den Schlüssel für das Speicherobjekt zurück, das geändert wurde.
+Die **`key`** Eigenschaft der [`StorageEvent`](/de/docs/Web/API/StorageEvent) Schnittstelle gibt den Schlüssel des Speicherobjekts zurück, das geändert wurde.
 
 ## Wert
 
-Ein String, der den Schlüssel für das Speicherobjekt enthält, das geändert wurde.
+Ein String, der den Schlüssel des Speicherobjekts enthält, das geändert wurde.
 
 ## Spezifikationen
 
@@ -24,4 +24,4 @@ Ein String, der den Schlüssel für das Speicherobjekt enthält, das geändert w
 
 ## Siehe auch
 
-- {{domxref("Web Storage API", "", "", "nocode")}}
+- [Web Storage API](/de/docs/Web/API/Web_Storage_API)

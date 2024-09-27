@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Ruby-Layout**-Modul bietet das Render-Modell und die Formatierungssteuerungen im Zusammenhang mit der Anzeige von Ruby-Annotation. Ruby-Annotation ist eine Form der Interlinear-Annotation, bestehend aus kurzen Textabschnitten neben dem Basisteil des Textes. Sie werden typischerweise in ostasiatischen Dokumenten verwendet, um die Aussprache anzuzeigen oder eine kurze Annotation bereitzustellen.
+Das **CSS-Ruby-Layout**-Modul bietet das Rendering-Modell und die Formatierungssteuerungen, die mit der Anzeige von Ruby-Anmerkungen verbunden sind. Ruby-Anmerkung ist eine Form von Zwischenzeilenanmerkung, die aus kurzen Textabschnitten neben dem Haupttext besteht. Sie werden typischerweise in ostasiatischen Dokumenten verwendet, um die Aussprache anzugeben oder eine kurze Anmerkung bereitzustellen.
 
 ## Referenz
 

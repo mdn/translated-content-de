@@ -1,5 +1,5 @@
 ---
-title: "DeviceOrientationEvent: Absolute-Eigenschaft"
+title: "DeviceOrientationEvent: absolute-Eigenschaft"
 short-title: absolute
 slug: Web/API/DeviceOrientationEvent/absolute
 l10n:
@@ -8,13 +8,12 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die **`absolute`** schreibgeschützte Eigenschaft des {{domxref("DeviceOrientationEvent")}}-Interfaces gibt an, ob das Gerät Orientierungsdaten absolut bereitstellt (also in Bezug auf das Koordinatensystem der Erde) oder ein willkürlich vom Gerät bestimmtes Koordinatensystem verwendet.
-Weitere Details finden Sie unter [Erläuterung von Orientierungs- und Bewegungsdaten](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained).
+Die **`absolute`**-Eigenschaft der [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent)-Schnittstelle gibt an, ob das Gerät Orientierungsdaten absolut bereitstellt (d. h. in Bezug auf das Koordinatenrahmen der Erde) oder unter Verwendung eines beliebigen, vom Gerät bestimmten Rahmens. Weitere Informationen finden Sie unter [Orientation and motion data explained](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained).
 
 ## Wert
 
-- `true`, wenn die Orientierungsdaten in `instanceOfDeviceOrientationEvent` als Differenz zwischen dem Erdkoordinatensystem und dem Gerätekoordinatensystem bereitgestellt werden.
-- `false`, wenn die Orientierungsdaten in Bezug auf ein vom Gerät bestimmtes willkürliches Koordinatensystem bereitgestellt werden.
+- `true`, wenn die Orientierungsdaten in `instanceOfDeviceOrientationEvent` als Unterschied zwischen dem Koordinatenrahmen der Erde und dem Koordinatenrahmen des Geräts bereitgestellt werden.
+- `false`, wenn die Orientierungsdaten in Bezug auf einen beliebigen, vom Gerät bestimmten Koordinatenrahmen bereitgestellt werden.
 
 ## Spezifikationen
 
@@ -26,7 +25,7 @@ Weitere Details finden Sie unter [Erläuterung von Orientierungs- und Bewegungsd
 
 ## Siehe auch
 
-- {{domxref("Device orientation events/Detecting device orientation", "Erkennung der Geräteausrichtung", "", "nocode")}}
-- {{domxref("Device orientation events/Orientation and motion data explained", "Erläuterung von Orientierungs- und Bewegungsdaten", "", "nocode")}}
-- {{domxref("Window.deviceorientation_event", "deviceorientation")}}-Ereignis
-- {{domxref("Window.deviceorientationabsolute_event", "deviceorientationabsolute")}}-Ereignis
+- [Detecting device orientation](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [Orientation and motion data explained](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)
+- [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event) Ereignis
+- [`deviceorientationabsolute`](/de/docs/Web/API/Window/deviceorientationabsolute_event) Ereignis

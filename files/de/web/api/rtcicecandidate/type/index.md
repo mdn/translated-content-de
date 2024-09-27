@@ -8,36 +8,32 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`type`**-Eigenschaft des **{{domxref("RTCIceCandidate")}}**-Interfaces gibt den Typ des Kandidaten an, den das Objekt darstellt.
+Die **[`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)**-Schnittstelle hat die schreibgeschützte Eigenschaft **`type`**, die den Typ des Kandidaten angibt, den das Objekt darstellt.
 
-Der Wert des `type`-Feldes wird aus dem `candidateInfo`-Optionsobjekt festgelegt, das dem {{domxref("RTCIceCandidate.RTCIceCandidate", "RTCIceCandidate()")}}-Konstruktor übergeben wird. Sie können den Wert von `type` nicht direkt im Optionsobjekt angeben, aber sein Wert wird automatisch aus der `candidate` a-line des Objekts (das `cand-type`-Feld) extrahiert, sofern es richtig formatiert ist.
+Der Wert des `type`-Feldes wird aus dem `candidateInfo`-Optionsobjekt entnommen, das dem [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate)-Konstruktor übergeben wird. Sie können den Wert von `type` nicht direkt im Optionsobjekt angeben, aber sein Wert wird automatisch aus der `candidate` a-line des Objekts extrahiert (das `cand-type`-Feld), sofern es korrekt formatiert ist.
 
 ## Wert
 
-Ein String, dessen Wert einer der unten definierten ist. Diese Kanditatentypen sind in der Reihenfolge ihrer Priorität aufgelistet; je höher sie in der Liste stehen, desto effizienter sind sie.
+Ein String, dessen Wert einer der unten definierten ist. Diese Kandidatentypen sind in Reihenfolge der Priorität aufgelistet; je weiter oben in der Liste, desto effizienter sind sie.
 
 - `host`
-  - : Der Kandidat ist ein Host-Kandidat, dessen IP-Adresse, wie in der {{domxref("RTCIceCandidate.address")}}-Eigenschaft angegeben, tatsächlich die echte Adresse des Remote-Peers ist.
+  - : Der Kandidat ist ein Host-Kandidat, dessen IP-Adresse, wie in der [`RTCIceCandidate.address`](/de/docs/Web/API/RTCIceCandidate/address)-Eigenschaft angegeben, tatsächlich die echte Adresse des entfernten Peers ist.
 - `srflx`
-  - : Der Kandidat ist ein serverreflexiver Kandidat; die `ip` und der Port
-    sind eine Bindung, die von einem NAT-Agenten zugewiesen wurde, als er ein
-    Paket durch das NAT an einen Server gesendet hat. Sie können vom {{Glossary("STUN")}}-Server und {{Glossary("TURN")}}-Server gelernt werden, um den Peer des Kandidaten anonym darzustellen.
+  - : Der Kandidat ist ein serverreflexiver Kandidat; die `ip` und der Port sind eine Zuordnung, die von einem NAT für einen Agenten bereitgestellt wird, wenn er ein Paket durch das NAT an einen Server sendet. Sie können vom [STUN](/de/docs/Glossary/STUN)-Server und [TURN](/de/docs/Glossary/TURN)-Server gelernt werden, um den Peer des Kandidaten anonym darzustellen.
 - `prflx`
-  - : Der Kandidat ist ein Peerreflexiver Kandidat; die `ip` und der Port
-    sind eine Bindung, die von einem NAT zugewiesen wurde, als es eine STUN-Anfrage gesendet hat, um den Peer des Kandidaten anonym darzustellen.
+  - : Der Kandidat ist ein peerreflexiver Kandidat; die `ip` und der Port sind eine Zuordnung, die von einem NAT erstellt wird, wenn ein STUN-Request gesendet wird, um den Peer des Kandidaten anonym darzustellen.
 - `relay`
-  - : Der Kandidat ist ein Relay-Kandidat, der von einem {{Glossary("TURN")}}-Server erhalten wurde. Die IP-Adresse des Relay-Kandidaten ist eine Adresse, die der TURN-Server verwendet, um die Medien zwischen den beiden Peers weiterzuleiten.
+  - : Der Kandidat ist ein Relay-Kandidat, der von einem [TURN](/de/docs/Glossary/TURN)-Server erhalten wurde. Die IP-Adresse des Relay-Kandidaten ist eine Adresse, die der TURN-Server verwendet, um die Medien zwischen den beiden Peers weiterzuleiten.
 
-Wenn `type` `null` ist, fehlte diese Information in der
-a-line des {{domxref("RTCIceCandidate.candidate", "candidate")}}, was dazu führen wird, dass
-{{domxref("RTCPeerConnection.addIceCandidate()")}} eine `OperationError`-Ausnahme auslöst.
+Wenn `type` `null` ist, fehlte diese Information in der a-line des
+[`candidate`](/de/docs/Web/API/RTCIceCandidate/candidate), was dazu führen wird, dass
+[`RTCPeerConnection.addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) eine
+`OperationError`-Ausnahme auslöst.
 
 ## Beispiele
 
-In diesem Beispiel wird der `type` des Kandidaten verwendet, um
-eine angepasste Benutzeroberfläche für Host-Kandidaten bereitzustellen (bei denen die
-{{domxref("RTCIceCandidate/address", "ip")}} direkt auf den Remote-Peer verweist und nicht
-auf einen Vermittler).
+In diesem Beispiel wird der `type` des Kandidaten verwendet, um eine angepasste Benutzeroberfläche für Host-Kandidaten zu präsentieren (also diejenigen, bei denen die
+[`ip`](/de/docs/Web/API/RTCIceCandidate/address) direkt auf den entfernten Peer verweist, anstatt auf einen Zwischenserver).
 
 ```js
 if (candidate.type === "host") {
@@ -57,7 +53,7 @@ if (candidate.type === "host") {
 
 ## Siehe auch
 
-- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
+- [WebRTC API](/de/docs/Web/API/WebRTC_API)
 - [Einführung in WebRTC-Protokolle](/de/docs/Web/API/WebRTC_API/Protocols)
 - [WebRTC-Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity)
-- {{domxref("RTCIceCandidate.tcpType")}}
+- [`RTCIceCandidate.tcpType`](/de/docs/Web/API/RTCIceCandidate/tcpType)

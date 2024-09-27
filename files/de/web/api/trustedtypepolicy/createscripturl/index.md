@@ -1,5 +1,5 @@
 ---
-title: "TrustedTypePolicy: createScriptURL()-Methode"
+title: "TrustedTypePolicy: Methode createScriptURL()"
 short-title: createScriptURL()
 slug: Web/API/TrustedTypePolicy/createScriptURL
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`createScriptURL()`**-Methode der {{domxref("TrustedTypePolicy")}}-Schnittstelle erstellt ein {{domxref("TrustedScriptURL")}}-Objekt mithilfe einer von {{domxref("TrustedTypePolicyFactory.createPolicy()")}} erstellten Richtlinie.
+Die **`createScriptURL()`**-Methode des [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy)-Interfaces erstellt ein [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekt mithilfe einer durch [`TrustedTypePolicyFactory.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) erstellten Richtlinie.
 
 ## Syntax
 
@@ -20,22 +20,22 @@ createScriptURL(input, args)
 ### Parameter
 
 - `input`
-  - : Ein String, der den String enthält, der durch die Richtlinie bereinigt werden soll.
+  - : Ein String, der den zu bereinigenden String durch die Richtlinie enthält.
 - `args` {{optional_inline}}
-  - : Zusätzliche Argumente, die an die durch {{domxref("TrustedTypePolicy")}} dargestellte Funktion übergeben werden.
+  - : Zusätzliche Argumente, die an die durch [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) repräsentierte Funktion übergeben werden.
 
 ### Rückgabewert
 
-Ein {{domxref("TrustedScriptURL")}}-Objekt.
+Ein [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn {{domxref("TrustedTypePolicy")}} keine Funktion zum Ausführen auf dem Input enthält.
+  - : Wird ausgelöst, wenn [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) keine Funktion zum Ausführen des Eingangs enthält.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein String, der die URL zu einer externen Ressource enthält, als Input für `createScriptURL()` verwendet. Die Richtlinie kann überprüfen, ob es sich um eine erlaubte URL handelt, bevor diese in eine Injektionsstelle eingefügt wird, die das Ausführen dieses externen Skripts verursachen könnte.
+Im untenstehenden Beispiel wird ein String, der die URL zu einer externen Ressource enthält, als Eingabe für `createScriptURL()` verwendet. Die Richtlinie kann überprüfen, ob dies eine zulässige URL ist, bevor sie in eine Injektionssenke eingefügt wird, was dazu führen könnte, dass dieses externe Skript ausgeführt wird.
 
 ```js
 const escaped = escapeURLPolicy.createScriptURL(
@@ -47,6 +47,6 @@ const escaped = escapeURLPolicy.createScriptURL(
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

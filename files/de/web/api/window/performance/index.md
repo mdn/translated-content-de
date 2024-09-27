@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`performance`**-Eigenschaft der {{domxref("Window")}}-Schnittstelle gibt ein {{domxref("Performance")}}-Objekt zurück, das verwendet werden kann, um Leistungsinformationen über den im Fensterbereich laufenden Code zu sammeln.
+Die **`performance`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt ein [`Performance`](/de/docs/Web/API/Performance)-Objekt zurück, mit dem Leistungsinformationen über Code, der im Bereich des Fensters ausgeführt wird, gesammelt werden können.
 
-Leistungseinträge sind kontextbezogen. Wenn Sie ein Markierung auf dem Hauptthread (oder einem anderen Worker) erstellen, können Sie es nicht in einem Worker-Thread sehen und umgekehrt.
+Leistungseinträge sind pro Kontext. Wenn Sie eine Markierung im Haupt-Thread (oder einem anderen Worker) erstellen, können Sie sie nicht in einem Worker-Thread sehen und umgekehrt.
 
 ## Wert
 
-Ein {{domxref("Performance")}}-Objekt, das Zugriff auf leistungs- und zeitbezogene Informationen über den im Fensterbereich laufenden Code bietet.
+Ein [`Performance`](/de/docs/Web/API/Performance)-Objekt, das Zugriff auf leistungs- und zeitbezogene Informationen über Code bietet, der im Bereich des Fensters ausgeführt wird.
 
 ## Spezifikationen
 
@@ -26,4 +26,4 @@ Ein {{domxref("Performance")}}-Objekt, das Zugriff auf leistungs- und zeitbezoge
 
 ## Siehe auch
 
-- {{domxref("WorkerGlobalScope.performance")}}
+- [`WorkerGlobalScope.performance`](/de/docs/Web/API/WorkerGlobalScope/performance)

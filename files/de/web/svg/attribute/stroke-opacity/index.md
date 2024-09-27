@@ -1,5 +1,5 @@
 ---
-title: Strich-undurchsichtigkeit
+title: stroke-opacity
 slug: Web/SVG/Attribute/stroke-opacity
 l10n:
   sourceCommit: 4d2346118b6ef233ce9a2b91b95a0295ebe145e2
@@ -7,12 +7,12 @@ l10n:
 
 {{SVGRef}}
 
-Das **`stroke-opacity`**-Attribut ist ein Präsentationsattribut, das die Deckkraft des Farbservers (_Farbe_, _Verlauf_, _Muster_ usw.) definiert, der auf den Strich einer Form angewendet wird.
+Das Attribut **`stroke-opacity`** ist ein Präsentationsattribut, das die Opazität des Mal-Servers (_Farbe_, _Gradient_, _Muster_ usw.) definiert, der auf den Umriss einer Form angewendet wird.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `stroke-opacity` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-opacity')}} für mehr Informationen.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -38,23 +38,23 @@ svg {
 
 ```html
 <svg viewBox="0 0 40 10" xmlns="http://www.w3.org/2000/svg">
-  <!-- Standard Strich-undurchsichtigkeit: 1 -->
+  <!-- Default stroke opacity: 1 -->
   <circle cx="5" cy="5" r="4" stroke="green" />
 
-  <!-- Strich-undurchsichtigkeit als Zahl -->
+  <!-- Stroke opacity as a number -->
   <circle cx="15" cy="5" r="4" stroke="green" stroke-opacity="0.7" />
 
-  <!-- Strich-undurchsichtigkeit als Prozentsatz -->
+  <!-- Stroke opacity as a percentage -->
   <circle cx="25" cy="5" r="4" stroke="green" stroke-opacity="50%" />
 
-  <!-- Strich-undurchsichtigkeit als CSS-Eigenschaft -->
+  <!-- Stroke opacity as a CSS property -->
   <circle cx="35" cy="5" r="4" stroke="green" style="stroke-opacity: .3;" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -80,7 +80,7 @@ svg {
   </tbody>
 </table>
 
-Es ist wichtig zu wissen, dass der Strich teilweise die Füllung einer Form überdeckt. Ein Strich mit einer Undurchsichtigkeit ungleich `1` wird die darunterliegende Füllung teilweise sichtbar machen. Um diesen Effekt zu vermeiden, ist es möglich, eine globale Undurchsichtigkeit mit dem {{SVGAttr('opacity')}}-Attribut anzuwenden oder den Strich hinter der Füllung mit dem {{SVGAttr('paint-order')}}-Attribut anzuordnen.
+Es ist wichtig zu wissen, dass der Umriss teilweise die Füllung einer Form überdeckt. Ein Umriss mit einer Opazität, die von `1` abweicht, zeigt teilweise die darunterliegende Füllung. Um diesen Effekt zu vermeiden, kann eine globale Opazität mit dem Attribut {{SVGAttr('opacity')}} angewendet werden oder der Umriss kann hinter die Füllung mit dem Attribut {{SVGAttr('paint-order')}} gelegt werden.
 
 ## Spezifikationen
 

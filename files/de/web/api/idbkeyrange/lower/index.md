@@ -1,5 +1,5 @@
 ---
-title: "IDBKeyRange: lower-Eigenschaft"
+title: "IDBKeyRange: lower Eigenschaft"
 short-title: lower
 slug: Web/API/IDBKeyRange/lower
 l10n:
@@ -8,28 +8,23 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`lower`** schreibgeschützte Eigenschaft der
-{{domxref("IDBKeyRange")}}-Schnittstelle gibt die untere Grenze des Schlüsselbereichs zurück.
+Die schreibgeschützte Eigenschaft **`lower`** des [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)-Interfaces gibt die untere Grenze des Schlüsselbereichs zurück.
 
 ## Wert
 
 Die untere Grenze des Schlüsselbereichs (kann jeden
-Typ haben).
+Typ haben.)
 
 ## Beispiele
 
-Das folgende Beispiel veranschaulicht, wie Sie einen Schlüsselbereich verwenden würden. Hier erklären wir `keyRangeValue = IDBKeyRange.upperBound("F", "W", true, true);` — ein
-Bereich, der alles zwischen "F" und "W" enthält, aber diese nicht einschließt — da sowohl die obere als auch die untere Grenze als offen (`true`) erklärt wurden. Wir öffnen eine
-Transaktion (mithilfe von {{domxref("IDBTransaction")}}) und einen Objekt-Speicher und öffnen einen Cursor
-mit {{domxref("IDBObjectStore.openCursor")}}, wobei `keyRangeValue` als
-optionalem Schlüsselbereichswert deklariert wird.
+Das folgende Beispiel veranschaulicht, wie Sie einen Schlüsselbereich verwenden würden. Hier deklarieren wir `keyRangeValue = IDBKeyRange.upperBound("F", "W", true, true);` — ein Bereich, der alles zwischen "F" und "W" enthält, jedoch diese nicht einschließt, da sowohl die obere als auch die untere Grenze als offen (`true`) erklärt wurden. Wir öffnen eine Transaktion (mit [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)) und einen Objektspeicher und öffnen einen Cursor mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), wobei wir `keyRangeValue` als optionalen Schlüsselbereichswert deklarieren.
 
-Nach der Erklärung des Schlüsselbereichs protokollieren wir den Wert seiner `lower`-Eigenschaft in die Konsole, der als "F" erscheinen sollte.
+Nachdem der Schlüsselbereich deklariert ist, protokollieren wir den Wert seiner `lower`-Eigenschaft in die Konsole, der als "F" erscheinen sollte.
 
 > [!NOTE]
 > Für ein vollständigeres Beispiel, das es Ihnen ermöglicht, mit
-> dem Schlüsselbereich zu experimentieren, werfen Sie einen Blick auf unser [IDBKeyRange-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbkeyrange) Repo.
-> (Sehen Sie sich das Beispiel auch [live](https://mdn.github.io/dom-examples/indexeddb-examples/idbkeyrange/) an.
+> dem Schlüsselbereich zu experimentieren, schauen Sie sich unser [IDBKeyRange-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbkeyrange)-Repo an.
+> (Sehen Sie sich das Beispiel auch [live an](https://mdn.github.io/dom-examples/indexeddb-examples/idbkeyrange/)).
 
 ```js
 function displayData() {
@@ -65,9 +60,9 @@ function displayData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Bereichs von Schlüsseln: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursors: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Sehen Sie sich das Beispiel live an](https://mdn.github.io/dom-examples/to-do-notifications/)).

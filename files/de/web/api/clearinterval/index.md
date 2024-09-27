@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers}}
 
-Die globale **`clearInterval()`** Methode storniert eine zeitlich festgelegte, wiederkehrende Aktion, die zuvor durch einen Aufruf von {{domxref("setInterval", "setInterval()")}} eingerichtet wurde. Wenn der übergebene Parameter keine zuvor eingerichtete Aktion identifiziert, führt diese Methode nichts aus.
+Die globale **`clearInterval()`**-Methode beendet eine zeitgesteuerte, wiederholende Aktion, die zuvor durch einen Aufruf von [`setInterval()`](/de/docs/Web/API/SetInterval) eingerichtet wurde. Wenn der übergebene Parameter keine zuvor eingerichtete Aktion identifiziert, bewirkt diese Methode nichts.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ clearInterval(intervalID)
 ### Parameter
 
 - `intervalID`
-  - : Der Bezeichner der wiederkehrenden Aktion, die Sie abbrechen möchten. Diese ID wurde durch den entsprechenden Aufruf von `setInterval()` zurückgegeben.
+  - : Der Bezeichner der wiederholten Aktion, die Sie abbrechen möchten. Diese ID wurde durch den entsprechenden Aufruf von `setInterval()` zurückgegeben.
 
-Es ist erwähnenswert, dass der Pool von IDs, der von {{domxref("setInterval", "setInterval()")}} und {{domxref("setTimeout()")}} verwendet wird, geteilt wird, was bedeutet, dass Sie technisch gesehen `clearInterval()` und {{domxref("clearTimeout", "clearTimeout()")}} austauschbar verwenden können. Aus Gründen der Klarheit sollten Sie dies jedoch vermeiden.
+Es ist erwähnenswert, dass der Pool von IDs, der durch [`setInterval()`](/de/docs/Web/API/SetInterval) und [`setTimeout()`](/de/docs/Web/API/SetTimeout) verwendet wird, geteilt wird, was bedeutet, dass Sie `clearInterval()` und [`clearTimeout()`](/de/docs/Web/API/ClearTimeout) technisch austauschbar verwenden können. Aus Gründen der Klarheit sollten Sie dies jedoch vermeiden.
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Siehe die [`setInterval()` Beispiele](/de/docs/Web/API/setInterval#examples).
+Siehe die [`setInterval()`-Beispiele](/de/docs/Web/API/setInterval#examples).
 
 ## Spezifikationen
 
@@ -41,7 +41,7 @@ Siehe die [`setInterval()` Beispiele](/de/docs/Web/API/setInterval#examples).
 
 ## Siehe auch
 
-- {{domxref("setTimeout()")}}
-- {{domxref("setInterval()")}}
-- {{domxref("clearTimeout()")}}
-- {{domxref("Window.requestAnimationFrame()")}}
+- [`setTimeout()`](/de/docs/Web/API/SetTimeout)
+- [`setInterval()`](/de/docs/Web/API/SetInterval)
+- [`clearTimeout()`](/de/docs/Web/API/ClearTimeout)
+- [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)

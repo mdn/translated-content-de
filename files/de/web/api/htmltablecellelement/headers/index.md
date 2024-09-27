@@ -8,12 +8,12 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`headers`**-Eigenschaft des {{domxref("HTMLTableCellElement")}}-Interfaces
-enthält eine Liste von IDs der {{HTMLElement("th")}}-Elemente, die _Headers_ für diese spezifische Zelle sind.
+Die **`headers`**-Eigenschaft der [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Schnittstelle
+enthält eine Liste von IDs von {{HTMLElement("th")}}-Elementen, die _Header_ für diese spezielle Zelle sind.
 
 ## Wert
 
-Ein String, der leerzeichengetrennte IDs enthält.
+Ein String, der durch Leerzeichen getrennte IDs enthält.
 
 ## Beispiele
 
@@ -24,17 +24,17 @@ Dieses Beispiel listet die ID der zuletzt angeklickten Zelle der Tabelle auf:
 ```html
 <table>
   <tr>
-    <th rowspan="2" id="h">Hausaufgaben (ID = h)</th>
-    <th colspan="3" id="e">Prüfungen (ID = e)</th>
-    <th colspan="3" id="p">Projekte (ID = p)</th>
+    <th rowspan="2" id="h">Homework (ID = h)</th>
+    <th colspan="3" id="e">Exams (ID = e)</th>
+    <th colspan="3" id="p">Projects (ID = p)</th>
   </tr>
   <tr>
     <th id="e1" headers="e">1 (ID = e1)</th>
     <th id="e2" headers="e">2 (ID = e2)</th>
-    <th id="ef" headers="e">Finale (ID = ef)</th>
+    <th id="ef" headers="e">Final (ID = ef)</th>
     <th id="p1" headers="p">1 (ID = p1)</th>
     <th id="p2" headers="p">2 (ID = p2)</th>
-    <th id="pf" headers="p">Finale (ID = pf)</th>
+    <th id="pf" headers="p">Final (ID = pf)</th>
   </tr>
   <tr>
     <td headers="h">15%</td>
@@ -46,7 +46,7 @@ Dieses Beispiel listet die ID der zuletzt angeklickten Zelle der Tabelle auf:
     <td headers="p pf">15%</td>
   </tr>
 </table>
-IDs der Headers der zuletzt angeklickten Zelle: <output>none</output>.
+IDs of headers of the last clicked cell: <output>none</output>.
 ```
 
 ```css hidden

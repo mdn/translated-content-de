@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSMathNegate`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) negiert den Wert, der an sie übergeben wird. Sie erbt Eigenschaften und Methoden von ihrem Elternteil {{domxref('CSSNumericValue')}}.
+Die **`CSSMathNegate`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) negiert den übergebenen Wert. Sie erbt Eigenschaften und Methoden von ihrem Elternteil [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("CSSMathNegate.CSSMathNegate", "CSSMathNegate()")}}
-  - : Erzeugt ein neues `CSSMathNegate`-Objekt.
+- [`CSSMathNegate()`](/de/docs/Web/API/CSSMathNegate/CSSMathNegate)
+  - : Erstellt ein neues `CSSMathNegate`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref('CSSMathNegate.value')}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref('CSSNumericValue')}}-Objekt zurück.
+- [`CSSMathNegate.value`](/de/docs/Web/API/CSSMathNegate/value) {{ReadOnlyInline}}
+  - : Gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück.
 
 ## Statische Methoden
 
-_Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle {{domxref("CSSMathValue")}} erben._
+_Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
 
 ## Instanzmethoden
 
-_Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle {{domxref("CSSMathValue")}} erben._
+_Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle [`CSSMathValue`](/de/docs/Web/API/CSSMathValue) erben._
 
 ## Beispiele
 
@@ -37,6 +37,6 @@ To do
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

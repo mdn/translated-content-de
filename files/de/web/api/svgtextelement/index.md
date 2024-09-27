@@ -13,11 +13,11 @@ Die **`SVGTextElement`**-Schnittstelle entspricht den {{SVGElement("text")}}-Ele
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von ihrer Elternschnittstelle {{domxref("SVGTextPositioningElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, sondern erbt Eigenschaften von ihrer übergeordneten Schnittstelle, [`SVGTextPositioningElement`](/de/docs/Web/API/SVGTextPositioningElement)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer Elternschnittstelle {{domxref("SVGTextPositioningElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, sondern erbt Methoden von ihrer übergeordneten Schnittstelle, [`SVGTextPositioningElement`](/de/docs/Web/API/SVGTextPositioningElement)._
 
 ## Spezifikationen
 

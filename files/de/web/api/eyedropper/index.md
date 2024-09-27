@@ -1,5 +1,5 @@
 ---
-title: Pipette
+title: EyeDropper
 slug: Web/API/EyeDropper
 l10n:
   sourceCommit: 9fb6c9e56c6db295967384730feeb941509ac743
@@ -7,30 +7,30 @@ l10n:
 
 {{securecontext_header}}{{APIRef("EyeDropper API")}}{{SeeCompatTable}}
 
-Die **`EyeDropper`**-Schnittstelle repräsentiert eine Instanz eines Pipettenwerkzeugs, das geöffnet und vom Benutzer verwendet werden kann, um Farben vom Bildschirm auszuwählen.
+Das **`EyeDropper`**-Interface repräsentiert eine Instanz eines Pipettenwerkzeugs, das geöffnet und vom Benutzer verwendet werden kann, um Farben vom Bildschirm auszuwählen.
 
 ## Konstruktor
 
-- {{DOMxRef("EyeDropper.EyeDropper", "EyeDropper()")}} {{Experimental_Inline}}
+- [`EyeDropper()`](/de/docs/Web/API/EyeDropper/EyeDropper) {{Experimental_Inline}}
   - : Gibt eine neue `EyeDropper`-Instanz zurück.
 
 ## Instanzmethoden
 
-_Die `EyeDropper`-Schnittstelle erbt keine Methoden_.
+_Das `EyeDropper`-Interface erbt keine Methoden._
 
-- {{DOMxRef("EyeDropper.open()")}} {{Experimental_Inline}}
-  - : Gibt ein Promise zurück, das auf ein Objekt auflöst, das Zugang zur ausgewählten Farbe gewährt.
+- [`EyeDropper.open()`](/de/docs/Web/API/EyeDropper/open) {{Experimental_Inline}}
+  - : Gibt ein Promise zurück, das auf ein Objekt auflöst, das Zugriff auf die ausgewählte Farbe gibt.
 
 ## Beispiele
 
-### Öffnen des Pipettenwerkzeugs und Abtasten einer Farbe
+### Öffnen des Pipettenwerkzeugs und Probenahme einer Farbe
 
-Dieses Beispiel zeigt, wie ein Pipettenwerkzeug geöffnet wird und darauf gewartet wird, dass der Benutzer entweder ein Pixel vom Bildschirm auswählt oder <kbd>Escape</kbd> drückt, um den Pipettenmodus zu beenden.
+Dieses Beispiel zeigt, wie ein Pipettenwerkzeug geöffnet wird und der Benutzer entweder einen Pixel vom Bildschirm auswählt oder <kbd>Escape</kbd> drückt, um den Pipettenmodus abzubrechen.
 
 #### HTML
 
 ```html
-<button id="start-button">Pipette öffnen</button> <span id="result"></span>
+<button id="start-button">Open the eyedropper</button> <span id="result"></span>
 ```
 
 #### JavaScript
@@ -65,12 +65,12 @@ document.getElementById("start-button").addEventListener("click", () => {
 
 ### Abbrechen des Pipettenmodus
 
-Dieses Beispiel zeigt, dass der Pipettenmodus auch abgebrochen werden kann, bevor der Benutzer eine Farbe ausgewählt oder <kbd>Escape</kbd> gedrückt hat.
+Dieses Beispiel zeigt, dass der Pipettenmodus auch abgebrochen werden kann, bevor der Benutzer eine Farbe ausgewählt hat oder <kbd>Escape</kbd> gedrückt wurde.
 
 #### HTML
 
 ```html
-<button id="start-button">Pipette öffnen</button> <span id="result"></span>
+<button id="start-button">Open the eyedropper</button> <span id="result"></span>
 ```
 
 #### JavaScript

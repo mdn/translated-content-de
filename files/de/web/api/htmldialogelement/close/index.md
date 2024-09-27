@@ -1,5 +1,5 @@
 ---
-title: "HTMLDialogElement: close()-Methode"
+title: "HTMLDialogElement: close() Methode"
 short-title: close()
 slug: Web/API/HTMLDialogElement/close
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`close()`**-Methode der {{domxref("HTMLDialogElement")}}-Schnittstelle schließt das {{htmlelement("dialog")}}. Ein optionaler String kann als Argument übergeben werden, um den `returnValue` des Dialogs zu aktualisieren.
+Die **`close()`** Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Schnittstelle schließt das {{htmlelement("dialog")}}.
+Ein optionaler String kann als Argument übergeben werden, um den `returnValue` des Dialogs zu aktualisieren.
 
 ## Syntax
 
@@ -20,7 +21,7 @@ close(returnValue)
 ### Parameter
 
 - `returnValue` {{optional_inline}}
-  - : Ein String, der einen aktualisierten Wert für den {{domxref("HTMLDialogElement.returnValue")}} des Dialogs darstellt.
+  - : Ein String, der einen aktualisierten Wert für den [`HTMLDialogElement.returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue) des Dialogs darstellt.
 
 ### Rückgabewert
 
@@ -28,16 +29,17 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken einen {{htmlelement("dialog")}} mit einem Formular über die `showModal()`-Methode öffnet. Von dort aus können Sie den _X_-Button klicken, um den Dialog zu schließen (über die Methode `HTMLDialogElement.close()`), oder das Formular über den Absenden-Button einreichen.
+Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmlelement("dialog")}} öffnet, das ein Formular über die `showModal()` Methode enthält.
+Von dort aus können Sie auf die _X_ Taste klicken, um den Dialog zu schließen (über die `HTMLDialogElement.close()` Methode) oder das Formular über den Senden-Button absenden.
 
 ```html
-<!-- Einfaches Pop-up-Dialogfeld, das ein Formular enthält -->
+<!-- Simple pop-up dialog box, containing a form -->
 <dialog id="favDialog">
   <form method="dialog">
     <button id="close" aria-label="close" formnovalidate>X</button>
     <section>
       <p>
-        <label for="favAnimal">Lieblingstier:</label>
+        <label for="favAnimal">Favorite animal:</label>
         <select id="favAnimal" name="favAnimal">
           <option></option>
           <option>Brine shrimp</option>
@@ -47,14 +49,14 @@ Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken einen {{htm
       </p>
     </section>
     <menu>
-      <button type="reset">Zurücksetzen</button>
-      <button type="submit">Bestätigen</button>
+      <button type="reset">Reset</button>
+      <button type="submit">Confirm</button>
     </menu>
   </form>
 </dialog>
 
 <menu>
-  <button id="updateDetails">Details aktualisieren</button>
+  <button id="updateDetails">Update details</button>
 </menu>
 
 <script>
@@ -66,19 +68,19 @@ Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken einen {{htm
 
     function openCheck(dialog) {
       if (dialog.open) {
-        console.log("Dialog geöffnet");
+        console.log("Dialog open");
       } else {
-        console.log("Dialog geschlossen");
+        console.log("Dialog closed");
       }
     }
 
-    // Der Update-Button öffnet einen modalen Dialog
+    // Update button opens a modal dialog
     updateButton.addEventListener("click", () => {
       dialog.showModal();
       openCheck(dialog);
     });
 
-    // Der Schließen-Button des Formulars schließt das Dialogfeld
+    // Form close button closes the dialog box
     closeButton.addEventListener("click", () => {
       dialog.close("animalNotChosen");
       openCheck(dialog);
@@ -87,7 +89,8 @@ Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken einen {{htm
 </script>
 ```
 
-Wenn der "X"-Button den `type="submit"` gehabt hätte, wäre der Dialog geschlossen worden, ohne dass JavaScript erforderlich wäre. Eine Formulareinreichung schließt das `<dialog>`, in dem es eingebettet ist, wenn [die Methode des Formulars `dialog` ist](/de/docs/Web/HTML/Element/form#method), sodass kein "Schließen"-Button erforderlich ist.
+Wenn die "X" Taste vom `type="submit"` wäre, würde der Dialog geschlossen, ohne dass JavaScript erforderlich wäre.
+Eine Formularübermittlung schließt das `<dialog>`, in dem es eingebettet ist, wenn die [Methode des Formulars `dialog`](/de/docs/Web/HTML/Element/form#method) ist, sodass kein "Schließen"-Button erforderlich ist.
 
 ### Ergebnis
 

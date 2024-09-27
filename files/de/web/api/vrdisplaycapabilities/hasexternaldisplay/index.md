@@ -1,5 +1,5 @@
 ---
-title: "VRDisplayCapabilities: hasExternalDisplay Eigenschaft"
+title: "VRDisplayCapabilities: hasExternalDisplay-Eigenschaft"
 short-title: hasExternalDisplay
 slug: Web/API/VRDisplayCapabilities/hasExternalDisplay
 l10n:
@@ -11,10 +11,10 @@ l10n:
 > [!NOTE]
 > Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
-Die schreibgeschützte **`hasExternalDisplay`**-Eigenschaft der {{domxref("VRDisplayCapabilities")}}-Schnittstelle gibt `true` zurück, wenn das VR-Display getrennt vom Hauptdisplay des Geräts ist.
+Die schreibgeschützte **`hasExternalDisplay`**-Eigenschaft der [`VRDisplayCapabilities`](/de/docs/Web/API/VRDisplayCapabilities)-Schnittstelle gibt `true` zurück, wenn das VR-Display von dem Hauptdisplay des Geräts getrennt ist.
 
 > [!NOTE]
-> Wenn die Anzeige von VR-Inhalten andere Inhalte auf dem Gerät verdecken würde, wird `false` zurückgegeben. In diesem Fall sollte die Anwendung nicht versuchen, VR-Inhalte zu spiegeln oder die Nicht-VR-Benutzeroberfläche zu aktualisieren, da diese Inhalte nicht sichtbar sein werden.
+> Wenn das Präsentieren von VR-Inhalten andere Inhalte auf dem Gerät verdecken würde, wird `false` zurückgegeben, in welchem Fall die Anwendung nicht versuchen sollte, VR-Inhalte zu spiegeln oder nicht-VR-Benutzeroberflächen zu aktualisieren, da diese Inhalte nicht sichtbar sein werden.
 
 ## Wert
 
@@ -26,9 +26,9 @@ Siehe [`VRDisplayCapabilities`](/de/docs/Web/API/VRDisplayCapabilities#examples)
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg zu einem Standard.
+Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/), oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verlassen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Anleitung zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden von Meta zur Portierung von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 

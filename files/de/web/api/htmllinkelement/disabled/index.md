@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`disabled`**-Eigenschaft des {{domxref("HTMLLinkElement")}}-Interfaces ist ein boolescher Wert, der angibt, ob der Link deaktiviert ist. Es wirkt sich nur auf Style-Sheet-Links aus (wenn die `rel`-Eigenschaft auf `stylesheet` gesetzt ist).
+Die **`disabled`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein boolescher Wert, der angibt, ob der Link deaktiviert ist. Sie hat nur eine Wirkung bei Stylesheet-Links (`rel`-Eigenschaft auf `stylesheet` gesetzt).
 
-Wenn das `disabled`-Attribut beim Laden im HTML angegeben ist, wird das Stylesheet während des Seitenladevorgangs nicht geladen. Stattdessen wird das Stylesheet erst geladen, wenn die `disabled`-Eigenschaft auf `false` gesetzt oder entfernt wird. Wird die `disabled`-Eigenschaft mittels JavaScript gesetzt, wird das Stylesheet aus der {{domxref("Document.styleSheets")}}-Liste des Dokuments entfernt.
+Wenn das `disabled`-Attribut im HTML beim Laden spezifiziert ist, wird das Stylesheet während des Seitenladens nicht geladen. Stattdessen wird das Stylesheet nur geladen, wenn die `disabled`-Eigenschaft auf `false` gesetzt oder entfernt wird. Wenn die `disabled`-Eigenschaft mit JavaScript gesetzt wird, wird das Stylesheet aus der [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets)-Liste des Dokuments entfernt.
 
-Sie spiegelt das `disabled`-Attribut des {{HTMLElement("link")}}-Elements wider.
+Es spiegelt das `disabled`-Attribut des {{HTMLElement("link")}}-Elements wider.
 
 ## Wert
 
@@ -31,12 +31,12 @@ Ein boolescher Wert.
 
 ```js
 const el = document.getElementById("el");
-console.log(el.disabled); // Ausgabe: true
+console.log(el.disabled); // Output: true
 
-// Setzen Sie die disabled-Eigenschaft auf true, um das Stylesheet zu aktivieren
+// Set the disabled property to true to enable the stylesheet
 
 el.disabled = false;
-console.log(el.disabled); // Ausgabe: false
+console.log(el.disabled); // Output: false
 ```
 
 ## Spezifikationen
@@ -49,5 +49,5 @@ console.log(el.disabled); // Ausgabe: false
 
 ## Siehe auch
 
-- {{domxref("HTMLScriptElement.integrity")}}
+- [`HTMLScriptElement.integrity`](/de/docs/Web/API/HTMLScriptElement/integrity)
 - [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)

@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
-Die **`frame`**-Eigenschaft des {{domxref("HTMLTableElement")}}-Interfaces ist ein String, der angibt, welche der äußeren Rahmen der Tabelle gezeichnet werden sollen.
+Die **`frame`**-Eigenschaft des [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Interfaces
+ist ein String, der angibt, welche der äußeren Ränder der Tabelle gezeichnet werden sollen.
 
 ## Wert
 
@@ -23,7 +24,7 @@ Einer der folgenden:
 - `"hsides"`
   - : Nur oben und unten
 - `"vsides"`
-  - : Nur rechte und linke Seiten
+  - : Nur rechte und linke Seite
 - `"lhs"`
   - : Nur linke Seite
 - `"rhs"`
@@ -36,7 +37,7 @@ Einer der folgenden:
 ## Beispiele
 
 ```js
-// Setzt den Rahmen von TableA auf 'border'
+// Set the frame of TableA to 'border'
 const t = document.getElementById("TableA");
 t.frame = "border";
 t.border = "2px";
@@ -46,6 +47,6 @@ t.border = "2px";
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

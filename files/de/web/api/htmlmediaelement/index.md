@@ -7,189 +7,189 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLMediaElement`**-Interface erweitert {{domxref("HTMLElement")}} um diejenigen Eigenschaften und Methoden, die benötigt werden, um grundlegende medienbezogene Funktionen zu unterstützen, die für Audio und Video gemeinsam sind.
+Das **`HTMLMediaElement`** Interface erweitert [`HTMLElement`](/de/docs/Web/API/HTMLElement) um die Eigenschaften und Methoden, die notwendig sind, um grundlegende medienbezogene Fähigkeiten zu unterstützen, die für Audio und Video üblich sind.
 
-Sowohl die {{domxref("HTMLVideoElement")}}- als auch die {{domxref("HTMLAudioElement")}}-Elemente erben von diesem Interface.
+Die [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) und [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement) Elemente erben beide von diesem Interface.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface erbt auch Eigenschaften von seinen Vorfahren {{domxref("HTMLElement")}}, {{domxref("Element")}}, {{domxref("Node")}} und {{domxref("EventTarget")}}._
+_Dieses Interface erbt auch Eigenschaften von seinen Vorfahren [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`Element`](/de/docs/Web/API/Element), [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("HTMLMediaElement.audioTracks")}}
-  - : Ein {{domxref("AudioTrackList")}}, das die {{domxref("AudioTrack")}}-Objekte auflistet, die im Element enthalten sind.
-- {{domxref("HTMLMediaElement.autoplay")}}
+- [`HTMLMediaElement.audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks)
+  - : Eine [`AudioTrackList`](/de/docs/Web/API/AudioTrackList), die die [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekte im Element auflistet.
+- [`HTMLMediaElement.autoplay`](/de/docs/Web/API/HTMLMediaElement/autoplay)
 
-  - : Ein boolescher Wert, der das [`autoplay`](/de/docs/Web/HTML/Element/video#autoplay)-HTML-Attribut widerspiegelt und anzeigt, ob die Wiedergabe automatisch starten sollte, sobald genügend Medien verfügbar sind, um dies ohne Unterbrechung zu tun.
+  - : Ein boolescher Wert, der das [`autoplay`](/de/docs/Web/HTML/Element/video#autoplay) HTML-Attribut widerspiegelt, das angibt, ob die Wiedergabe automatisch beginnen soll, sobald genügend Medien verfügbar sind, um dies ohne Unterbrechung zu tun.
 
     > [!NOTE]
-    > Das automatische Abspielen von Audio, wenn der Benutzer es nicht erwartet oder wünscht, ist eine schlechte Benutzererfahrung und sollte in den meisten Fällen vermieden werden, obwohl es Ausnahmen gibt. Siehe den [Leitfaden zur automatischen Wiedergabe für Medien- und Web-Audio-APIs](/de/docs/Web/Media/Autoplay_guide) für weitere Informationen. Beachten Sie, dass Browser Anfragen zur automatischen Wiedergabe ignorieren können. Sie sollten sicherstellen, dass Ihr Code nicht von der Funktionalität der automatischen Wiedergabe abhängt.
+    > Das automatische Abspielen von Audio, wenn der Benutzer es nicht erwartet oder erwünscht, ist eine schlechte Benutzererfahrung und sollte in den meisten Fällen vermieden werden, obwohl es Ausnahmen gibt. Siehe den [Autoplay-Leitfaden für Medien und Web Audio APIs](/de/docs/Web/Media/Autoplay_guide) für weitere Informationen. Beachten Sie, dass Browser Autoplay-Anfragen ignorieren können, weshalb Sie sicherstellen sollten, dass Ihr Code nicht von der Funktionalität des Autoplay abhängt.
 
-- {{domxref("HTMLMediaElement.buffered")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("TimeRanges")}}-Objekt zurück, das die Bereiche der Medienquelle angibt, die der Browser im Moment gepuffert hat (falls vorhanden), wenn die `buffered`-Eigenschaft aufgerufen wird.
-- {{domxref("HTMLMediaElement.controls")}}
-  - : Ein boolescher Wert, der das [`controls`](/de/docs/Web/HTML/Element/video#controls)-HTML-Attribut widerspiegelt und anzeigt, ob Benutzeroberflächenelemente zur Steuerung der Ressource angezeigt werden sollen.
-- {{domxref("HTMLMediaElement.controlsList")}} {{ReadOnlyInline}}
-  - : Gibt eine {{domxref("DOMTokenList")}} zurück, die dem Benutzeragenten hilft, auszuwählen, welche Steuerungselemente beim Anzeigen der eigenen Steuerungselemente des Medien-Elements angezeigt werden sollen. Die `DOMTokenList` nimmt einen oder mehrere der drei möglichen Werte an: `nodownload`, `nofullscreen` und `noremoteplayback`.
-- {{domxref("HTMLMediaElement.crossOrigin")}}
+- [`HTMLMediaElement.buffered`](/de/docs/Web/API/HTMLMediaElement/buffered) {{ReadOnlyInline}}
+  - : Gibt ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt zurück, das die Bereiche der Medienquelle anzeigt, die der Browser gepuffert hat (falls vorhanden), zu dem Zeitpunkt, zu dem auf die `buffered`-Eigenschaft zugegriffen wird.
+- [`HTMLMediaElement.controls`](/de/docs/Web/API/HTMLMediaElement/controls)
+  - : Ein boolescher Wert, der das [`controls`](/de/docs/Web/HTML/Element/video#controls) HTML-Attribut widerspiegelt und angibt, ob Benutzeroberfläche-Elemente zum Steuern der Ressource angezeigt werden sollen.
+- [`HTMLMediaElement.controlsList`](/de/docs/Web/API/HTMLMediaElement/controlsList) {{ReadOnlyInline}}
+  - : Gibt eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) zurück, die dem Benutzeragenten hilft, auszuwählen, welche Steuerungen auf dem Media-Element angezeigt werden sollen, wenn der Benutzeragent seine eigenen Steuerungen anzeigt. Die `DOMTokenList` kann einen oder mehrere der folgenden Werte enthalten: `nodownload`, `nofullscreen`, und `noremoteplayback`.
+- [`HTMLMediaElement.crossOrigin`](/de/docs/Web/API/HTMLMediaElement/crossOrigin)
   - : Ein String, der die [CORS-Einstellung](/de/docs/Web/HTML/Attributes/crossorigin) für dieses Media-Element angibt.
-- {{domxref("HTMLMediaElement.currentSrc")}} {{ReadOnlyInline}}
+- [`HTMLMediaElement.currentSrc`](/de/docs/Web/API/HTMLMediaElement/currentSrc) {{ReadOnlyInline}}
   - : Gibt einen String mit der absoluten URL der ausgewählten Medienressource zurück.
-- {{domxref("HTMLMediaElement.currentTime")}}
-  - : Ein Gleitkommawert doppelter Präzision, der die aktuelle Wiedergabezeit in Sekunden angibt. Wenn die Medienwiedergabe nicht gestartet wurde und die Medien nicht gesprungen sind, ist dieser Wert die anfängliche Wiedergabezeit der Medien. Das Setzen dieses Wertes springt zu der neuen Zeit in den Medien. Die Zeit wird relativ zur Zeitleiste der Medien angegeben.
-- {{domxref("HTMLMediaElement.defaultMuted")}}
-  - : Ein boolescher Wert, der das [`muted`](/de/docs/Web/HTML/Element/video#muted)-HTML-Attribut widerspiegelt, und angibt, ob die Audiowiedergabe der Medien standardmäßig stummgeschaltet sein sollte.
-- {{domxref("HTMLMediaElement.defaultPlaybackRate")}}
-  - : Ein `double`, der die Standardwiedergabegeschwindigkeit der Medien angibt.
-- {{domxref("HTMLMediaElement.disableRemotePlayback")}}
-  - : Ein boolescher Wert, der den Status der Fernwiedergabe setzt oder zurückgibt und anzeigt, ob das Medienelement eine Benutzeroberfläche für die Fernwiedergabe haben darf.
-- {{domxref("HTMLMediaElement.duration")}} {{ReadOnlyInline}}
-  - : Ein schreibgeschützter Gleitkommawert doppelter Präzision, der die Gesamtdauer des Mediums in Sekunden angibt. Wenn keine Mediadaten verfügbar sind, wird der Wert `NaN` zurückgegeben. Wenn die Medien eine unbestimmte Länge haben (wie Live-Streaming-Medien, ein WebRTC-Anruf oder ähnliches), ist der Wert `+Infinity`.
-- {{domxref("HTMLMediaElement.ended")}} {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob die Wiedergabe im Medienelement beendet ist.
-- {{domxref("HTMLMediaElement.error")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("MediaError")}}-Objekt für den letzten Fehler zurück oder `null`, wenn es keinen Fehler gab.
-- {{domxref("HTMLMediaElement.loop")}}
-  - : Ein boolescher Wert, der das [`loop`](/de/docs/Web/HTML/Element/video#loop)-HTML-Attribut widerspiegelt und angibt, ob das Medienelement beim Erreichen des Endes neu starten soll.
-- {{domxref("HTMLMediaElement.mediaKeys")}} {{ReadOnlyInline}} {{SecureContext_Inline}}
-  - : Gibt ein {{domxref("MediaKeys")}}-Objekt zurück, das einen Satz von Schlüsseln darstellt, den das Element zur Entschlüsselung von Mediendaten während der Wiedergabe verwenden kann. Falls kein Schlüssel verfügbar ist, kann es `null` sein.
-- {{domxref("HTMLMediaElement.muted")}}
-  - : Ein boolescher Wert, der angibt, ob der Ton stummgeschaltet ist. `true`, wenn der Ton stummgeschaltet ist, und `false` andernfalls.
-- {{domxref("HTMLMediaElement.networkState")}} {{ReadOnlyInline}}
-  - : Gibt einen `unsigned short` (Aufzählung) zurück, der den aktuellen Status des Abrufs der Medien über das Netzwerk angibt.
-- {{domxref("HTMLMediaElement.paused")}} {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob das Medienelement angehalten ist.
-- {{domxref("HTMLMediaElement.playbackRate")}}
-  - : Ein `double`, der die Rate angibt, mit der die Medienwiedergabe abgespielt wird.
-- {{domxref("HTMLMediaElement.played")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref('TimeRanges')}}-Objekt zurück, das die Zeitbereiche enthält, die der Browser von der Medienquelle abgespielt hat, sofern vorhanden.
-- {{domxref("HTMLMediaElement.preload")}}
-  - : Ein String, der das [`preload`](/de/docs/Web/HTML/Element/video#preload)-HTML-Attribut widerspiegelt und angibt, welche Daten vorgeladen werden sollen, falls vorhanden. Mögliche Werte sind: `none`, `metadata`, `auto`.
-- {{domxref("HTMLMediaElement.preservesPitch")}}
-  - : Ein boolescher Wert, der bestimmt, ob die Tonhöhe des Klangs erhalten bleibt. Wenn auf `false` gesetzt, wird die Tonhöhe an die Geschwindigkeit des Audios angepasst.
-- {{domxref("HTMLMediaElement.readyState")}} {{ReadOnlyInline}}
-  - : Gibt einen `unsigned short` (Aufzählung) zurück, der den Bereitschaftszustand des Mediums angibt.
-- {{domxref("HTMLMediaElement.remote")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("RemotePlayback")}}-Objekt zurück, das mit dem Medienelement verknüpft ist.
-- {{domxref("HTMLMediaElement.seekable")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref('TimeRanges')}}-Objekt zurück, das die Zeitbereiche enthält, zu denen der Benutzer springen kann, sofern vorhanden.
-- {{domxref("HTMLMediaElement.seeking")}} {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der anzeigt, ob die Medien in den Prozess des Suchens nach einer neuen Position sind.
-- {{domxref("HTMLMediaElement.sinkId")}} {{ReadOnlyInline}} {{SecureContext_Inline}}
-  - : Gibt einen String zurück, der die eindeutige ID des Audiogeräts ist, das die Ausgabe liefert, oder einen leeren String, wenn das Standard-Audiogerät des Benutzeragenten verwendet wird.
-- {{domxref("HTMLMediaElement.src")}}
-  - : Ein String, der das [`src`](/de/docs/Web/HTML/Element/video#src)-HTML-Attribut widerspiegelt und die URL einer zu verwendenden Medienressource enthält.
-- {{domxref("HTMLMediaElement.srcObject")}}
-  - : Ein {{domxref('MediaStream')}} stellt die Medien dar, die im aktuellen `HTMLMediaElement` abgespielt wurden oder werden, oder `null`, wenn nicht zugewiesen.
-- {{domxref("HTMLMediaElement.textTracks")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref('TextTrackList')}}-Objekt zurück, das die Liste der im Element enthaltenen {{domxref("TextTrack")}}-Objekte enthält.
-- {{domxref("HTMLMediaElement.videoTracks")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref('VideoTrackList')}}-Objekt zurück, das die Liste der im Element enthaltenen {{domxref("VideoTrack")}}-Objekte enthält.
-- {{domxref("HTMLMediaElement.volume")}}
-  - : Ein `double`, das die Lautstärke des Audios angibt, von 0,0 (stumm) bis 1,0 (am lautesten).
+- [`HTMLMediaElement.currentTime`](/de/docs/Web/API/HTMLMediaElement/currentTime)
+  - : Ein Gleitkommawert doppelter Genauigkeit, der die aktuelle Wiedergabezeit in Sekunden angibt; wenn das Medium noch nicht zu spielen begonnen hat und nicht gesucht wurde, ist dieser Wert die Anfangsspielzeit des Mediums. Beim Setzen dieses Wertes wird das Medium auf die neue Zeit gesucht. Die Zeit ist relativ zur Zeitleiste des Mediums angegeben.
+- [`HTMLMediaElement.defaultMuted`](/de/docs/Web/API/HTMLMediaElement/defaultMuted)
+  - : Ein boolescher Wert, der das [`muted`](/de/docs/Web/HTML/Element/video#muted) HTML-Attribut widerspiegelt und angibt, ob die Audioausgabe des Media-Elements standardmäßig stummgeschaltet sein soll.
+- [`HTMLMediaElement.defaultPlaybackRate`](/de/docs/Web/API/HTMLMediaElement/defaultPlaybackRate)
+  - : Ein `double`, der die Standardwiedergabegeschwindigkeit für das Medium angibt.
+- [`HTMLMediaElement.disableRemotePlayback`](/de/docs/Web/API/HTMLMediaElement/disableRemotePlayback)
+  - : Ein boolescher Wert, der den Status der Fernwiedergabe festlegt oder zurückgibt und angibt, ob das Media-Element eine Remote-Wiedergabe-Benutzeroberfläche haben darf.
+- [`HTMLMediaElement.duration`](/de/docs/Web/API/HTMLMediaElement/duration) {{ReadOnlyInline}}
+  - : Ein schreibgeschützter Gleitkommawert doppelter Genauigkeit, der die Gesamtdauer des Mediums in Sekunden angibt. Wenn keine Mediendaten verfügbar sind, ist der zurückgegebene Wert `NaN`. Wenn das Medium von unbestimmter Länge ist (wie z.B. gestreamte Live-Medien, Medien eines WebRTC-Anrufs oder ähnliches), ist der Wert `+Infinity`.
+- [`HTMLMediaElement.ended`](/de/docs/Web/API/HTMLMediaElement/ended) {{ReadOnlyInline}}
+  - : Gibt einen booleschen Wert zurück, der angibt, ob das Media-Element die Wiedergabe abgeschlossen hat.
+- [`HTMLMediaElement.error`](/de/docs/Web/API/HTMLMediaElement/error) {{ReadOnlyInline}}
+  - : Gibt ein [`MediaError`](/de/docs/Web/API/MediaError)-Objekt für den letzten Fehler zurück oder `null`, wenn kein Fehler aufgetreten ist.
+- [`HTMLMediaElement.loop`](/de/docs/Web/API/HTMLMediaElement/loop)
+  - : Ein boolescher Wert, der das [`loop`](/de/docs/Web/HTML/Element/video#loop) HTML-Attribut widerspiegelt und angibt, ob das Media-Element von vorne beginnen soll, wenn es das Ende erreicht.
+- [`HTMLMediaElement.mediaKeys`](/de/docs/Web/API/HTMLMediaElement/mediaKeys) {{ReadOnlyInline}} {{SecureContext_Inline}}
+  - : Gibt ein [`MediaKeys`](/de/docs/Web/API/MediaKeys)-Objekt zurück, das ein Satz von Schlüsseln ist, die das Element zur Entschlüsselung von Mediendaten während der Wiedergabe verwenden kann. Wenn kein Schlüssel verfügbar ist, kann es `null` sein.
+- [`HTMLMediaElement.muted`](/de/docs/Web/API/HTMLMediaElement/muted)
+  - : Ein boolescher Wert, der festlegt, ob der Ton stummgeschaltet ist. `true` wenn der Ton stummgeschaltet ist, andernfalls `false`.
+- [`HTMLMediaElement.networkState`](/de/docs/Web/API/HTMLMediaElement/networkState) {{ReadOnlyInline}}
+  - : Gibt einen `unsigned short` (Enumeration) zurück, der den aktuellen Status des Abrufens der Medien über das Netzwerk angibt.
+- [`HTMLMediaElement.paused`](/de/docs/Web/API/HTMLMediaElement/paused) {{ReadOnlyInline}}
+  - : Gibt einen booleschen Wert zurück, der angibt, ob das Media-Element pausiert ist.
+- [`HTMLMediaElement.playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate)
+  - : Ein `double`, der die Wiedergabegeschwindigkeit des Mediums angibt.
+- [`HTMLMediaElement.played`](/de/docs/Web/API/HTMLMediaElement/played) {{ReadOnlyInline}}
+  - : Gibt ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt zurück, das die Bereiche der Medienquelle enthält, die der Browser abgespielt hat, falls vorhanden.
+- [`HTMLMediaElement.preload`](/de/docs/Web/API/HTMLMediaElement/preload)
+  - : Ein String, der das [`preload`](/de/docs/Web/HTML/Element/video#preload) HTML-Attribut widerspiegelt und angibt, welche Daten vorab geladen werden sollen, falls vorhanden. Mögliche Werte sind: `none`, `metadata`, `auto`.
+- [`HTMLMediaElement.preservesPitch`](/de/docs/Web/API/HTMLMediaElement/preservesPitch)
+  - : Ein boolescher Wert, der bestimmt, ob die Tonhöhe des Sounds beibehalten werden soll. Wird er auf `false` gesetzt, passt sich die Tonhöhe der Geschwindigkeit des Audios an.
+- [`HTMLMediaElement.readyState`](/de/docs/Web/API/HTMLMediaElement/readyState) {{ReadOnlyInline}}
+  - : Gibt einen `unsigned short` (Enumeration) zurück, der den Bereitschaftszustand des Mediums angibt.
+- [`HTMLMediaElement.remote`](/de/docs/Web/API/HTMLMediaElement/remote) {{ReadOnlyInline}}
+  - : Gibt eine Instanz des [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Objekts zurück, das mit dem Media-Element verknüpft ist.
+- [`HTMLMediaElement.seekable`](/de/docs/Web/API/HTMLMediaElement/seekable) {{ReadOnlyInline}}
+  - : Gibt ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt zurück, das die Zeitbereiche enthält, die der Benutzer ansteuern kann, falls vorhanden.
+- [`HTMLMediaElement.seeking`](/de/docs/Web/API/HTMLMediaElement/seeking) {{ReadOnlyInline}}
+  - : Gibt einen booleschen Wert zurück, der angibt, ob das Medium gerade dabei ist, an eine neue Position zu springen.
+- [`HTMLMediaElement.sinkId`](/de/docs/Web/API/HTMLMediaElement/sinkId) {{ReadOnlyInline}} {{SecureContext_Inline}}
+  - : Gibt einen String zurück, der die eindeutige ID des Audiogeräts ist, das den Ausgang liefert, oder einen leeren String, wenn das Standard-Audiogerät des Benutzeragenten verwendet wird.
+- [`HTMLMediaElement.src`](/de/docs/Web/API/HTMLMediaElement/src)
+  - : Ein String, der das [`src`](/de/docs/Web/HTML/Element/video#src) HTML-Attribut widerspiegelt und die URL einer zu verwendenden Medienressource enthält.
+- [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)
+  - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der das Medium repräsentiert, das im aktuellen `HTMLMediaElement` abgespielt wird oder wurde, oder `null`, falls nicht zugewiesen.
+- [`HTMLMediaElement.textTracks`](/de/docs/Web/API/HTMLMediaElement/textTracks) {{ReadOnlyInline}}
+  - : Gibt ein [`TextTrackList`](/de/docs/Web/API/TextTrackList)-Objekt zurück, das die Liste der [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekte im Element enthält.
+- [`HTMLMediaElement.videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks) {{ReadOnlyInline}}
+  - : Gibt ein [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Objekt zurück, das die Liste der [`VideoTrack`](/de/docs/Web/API/VideoTrack)-Objekte im Element enthält.
+- [`HTMLMediaElement.volume`](/de/docs/Web/API/HTMLMediaElement/volume)
+  - : Ein `double`, das die Lautstärke des Audios angibt, von 0.0 (lautlos) bis 1.0 (am lautesten).
 
 ## Veraltete Eigenschaften
 
-Diese Eigenschaften sind veraltet und sollten nicht verwendet werden, auch wenn ein Browser sie noch unterstützt.
+Diese Eigenschaften sind veraltet und sollten nicht verwendet werden, selbst wenn ein Browser sie noch unterstützt.
 
-- {{domxref("HTMLMediaElement.controller")}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Ein {{domxref("MediaController")}}-Objekt, das den dem Element zugewiesenen Mediencontroller darstellt, oder `null`, wenn keiner zugewiesen ist.
-- {{domxref("HTMLMediaElement.mediaGroup")}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Ein String, der das `mediagroup`-HTML-Attribut widerspiegelt und den Namen der Gruppe von Elementen angibt, zu denen es gehört. Eine Gruppe von Medienelementen teilt einen gemeinsamen {{domxref('MediaController')}}.
-- {{domxref("HTMLMediaElement.mozAudioCaptured")}} {{ReadOnlyInline}} {{Non-standard_Inline}} {{Deprecated_Inline}}
-  - : Gibt einen booleschen Wert zurück. Bezieht sich auf die Erfassung von Audiostreams.
-- {{domxref("HTMLMediaElement.mozFragmentEnd")}} {{Non-standard_Inline}} {{Deprecated_Inline}}
-  - : Ein `double`, das Zugang zur Fragmentendzeit bietet, wenn das Medienelement eine Fragment-URI für `currentSrc` hat, andernfalls entspricht es der Medienlänge.
+- [`HTMLMediaElement.controller`](/de/docs/Web/API/HTMLMediaElement/controller) {{Deprecated_Inline}} {{Non-standard_Inline}}
+  - : Ein [`MediaController`](/de/docs/Web/API/MediaController)-Objekt, das den dem Element zugewiesenen Medien-Controller darstellt, oder `null`, wenn keiner zugewiesen ist.
+- [`HTMLMediaElement.mediaGroup`](/de/docs/Web/API/HTMLMediaElement/mediaGroup) {{Deprecated_Inline}} {{Non-standard_Inline}}
+  - : Ein String, der das `mediagroup` HTML-Attribut widerspiegelt und den Namen der Mediengruppe angibt, zu der es gehört. Eine Gruppe von Medienelementen teilt einen gemeinsamen [`MediaController`](/de/docs/Web/API/MediaController).
+- [`HTMLMediaElement.mozAudioCaptured`](/de/docs/Web/API/HTMLMediaElement/mozAudioCaptured) {{ReadOnlyInline}} {{Non-standard_Inline}} {{Deprecated_Inline}}
+  - : Gibt einen booleschen Wert zurück. Bezieht sich auf die Aufnahme von Audiostreams.
+- [`HTMLMediaElement.mozFragmentEnd`](/de/docs/Web/API/HTMLMediaElement/mozFragmentEnd) {{Non-standard_Inline}} {{Deprecated_Inline}}
+  - : Ein `double`, das auf die Fragmentendzeit zugreift, wenn das Media-Element eine Fragment-URI für `currentSrc` hat, andernfalls ist es gleich der Mediendauer.
 
 ## Instanz-Methoden
 
-_Dieses Interface erbt auch Methoden von seinen Vorfahren {{domxref("HTMLElement")}}, {{domxref("Element")}}, {{domxref("Node")}} und {{domxref("EventTarget")}}._
+_Dieses Interface erbt auch Methoden von seinen Vorfahren [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`Element`](/de/docs/Web/API/Element), [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("HTMLMediaElement.addTextTrack()")}}
-  - : Fügt dem Medienelement ein neues {{domxref("TextTrack")}}-Objekt hinzu (wie z. B. eine Spur für Untertitel). Dies ist nur eine programmatische Schnittstelle und beeinflusst nicht das DOM.
-- {{domxref("HTMLMediaElement.captureStream()")}}
-  - : Gibt {{domxref("MediaStream")}} zurück und erfasst einen Stream des Medieninhalts.
-- {{domxref("HTMLMediaElement.canPlayType()")}}
-  - : Wenn ein String angegeben wird, der einen MIME-Medientyp angibt (potenziell mit dem [`codecs`-Parameter](/de/docs/Web/Media/Formats/codecs_parameter) eingeschlossen), gibt `canPlayType()` den String `probably` zurück, wenn das Medium abspielbar sein sollte, `maybe`, wenn es nicht genug Informationen gibt, um zu bestimmen, ob das Medium abgespielt wird oder nicht, oder einen leeren String, wenn das Medium nicht abgespielt werden kann.
-- {{domxref("HTMLMediaElement.fastSeek()")}}
-  - : Springt schnell zur angegebenen Zeit mit niedriger Präzision.
-- {{domxref("HTMLMediaElement.load()")}}
-  - : Setzt die Medien an den Anfang zurück und wählt die beste verfügbare Quelle aus den angegebenen Quellen mithilfe des [`src`](/de/docs/Web/HTML/Element/video#src)-Attributs oder des {{HTMLElement("source")}}-Elements aus.
-- {{domxref("HTMLMediaElement.pause()")}}
-  - : Pausiert die Medienwiedergabe.
-- {{domxref("HTMLMediaElement.play()")}}
-  - : Startet die Wiedergabe der Medien.
-- {{domxref("HTMLMediaElement.seekToNextFrame()")}} {{Deprecated_Inline}} {{non-standard_inline}}
-  - : Springt zum nächsten Frame im Medium. Diese nicht-standardisierte, experimentelle Methode ermöglicht es, das Lesen und Rendern von Medien manuell in eine benutzerdefinierte Geschwindigkeit zu steuern oder das Medium frame-by-frame zu durchlaufen, um Filterungen oder andere Operationen durchzuführen.
-- {{domxref("HTMLMediaElement.setMediaKeys()")}} {{SecureContext_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück. Setzt die {{domxref("MediaKeys")}}-Schlüssel, die beim Entschlüsseln von Medien während der Wiedergabe verwendet werden.
-- {{domxref("HTMLMediaElement.setSinkId()")}} {{SecureContext_Inline}}
-  - : Setzt die ID des Audiogeräts, das für die Ausgabe zu verwenden ist, und gibt ein {{jsxref("Promise")}} zurück. Dies funktioniert nur, wenn die Anwendung autorisiert ist, das angegebene Gerät zu verwenden.
+- [`HTMLMediaElement.addTextTrack()`](/de/docs/Web/API/HTMLMediaElement/addTextTrack)
+  - : Fügt einem Media-Element ein neues [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt (wie eine Spur für Untertitel) hinzu. Dies ist eine rein programmgesteuerte Schnittstelle und beeinflusst nicht den DOM.
+- [`HTMLMediaElement.captureStream()`](/de/docs/Web/API/HTMLMediaElement/captureStream)
+  - : Gibt [`MediaStream`](/de/docs/Web/API/MediaStream) zurück und erfasst einen Stream des Medieninhalts.
+- [`HTMLMediaElement.canPlayType()`](/de/docs/Web/API/HTMLMediaElement/canPlayType)
+  - : Angesichts eines Strings, der einen MIME-Mediatype spezifiziert (möglicherweise mit dem [`codecs`-Parameter](/de/docs/Web/Media/Formats/codecs_parameter)), gibt `canPlayType()` den String `probably` zurück, wenn das Medium abspielbar sein sollte, `maybe`, wenn es nicht genügend Informationen gibt, um zu bestimmen, ob das Medium abgespielt werden kann oder nicht, oder einen leeren String, wenn das Medium nicht abgespielt werden kann.
+- [`HTMLMediaElement.fastSeek()`](/de/docs/Web/API/HTMLMediaElement/fastSeek)
+  - : Sucht schnell zur angegebenen Zeit mit niedriger Präzision.
+- [`HTMLMediaElement.load()`](/de/docs/Web/API/HTMLMediaElement/load)
+  - : Setzt das Medium auf den Anfang zurück und wählt die beste verfügbare Quelle basierend auf den mit dem [`src`](/de/docs/Web/HTML/Element/video#src)-Attribut oder dem {{HTMLElement("source")}}-Element bereitgestellten Quellen aus.
+- [`HTMLMediaElement.pause()`](/de/docs/Web/API/HTMLMediaElement/pause)
+  - : Pausiert die Wiedergabe des Mediums.
+- [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play)
+  - : Beginnt mit der Wiedergabe des Mediums.
+- [`HTMLMediaElement.seekToNextFrame()`](/de/docs/Web/API/HTMLMediaElement/seekToNextFrame) {{Deprecated_Inline}} {{non-standard_inline}}
+  - : Sucht zum nächsten Frame im Medium. Diese nicht standardisierte, experimentelle Methode ermöglicht es, die Wiedergabe und Darstellung von Medien manuell in einer benutzerdefinierten Geschwindigkeit zu steuern oder Frame für Frame durch die Medien zu navigieren, um Filterungen oder andere Operationen durchzuführen.
+- [`HTMLMediaElement.setMediaKeys()`](/de/docs/Web/API/HTMLMediaElement/setMediaKeys) {{SecureContext_Inline}}
+  - : Gibt {{jsxref("Promise")}} zurück. Setzt die [`MediaKeys`](/de/docs/Web/API/MediaKeys) ein, die bei der Entschlüsselung von Medien während der Wiedergabe verwendet werden sollen.
+- [`HTMLMediaElement.setSinkId()`](/de/docs/Web/API/HTMLMediaElement/setSinkId) {{SecureContext_Inline}}
+  - : Setzt die ID des Audiogeräts ein, das für die Ausgabe verwendet werden soll, und gibt ein {{jsxref("Promise")}} zurück. Dies funktioniert nur, wenn die Anwendung autorisiert ist, das angegebene Gerät zu verwenden.
 
 ## Veraltete Methoden
 
-_Diese Methoden sind veraltet und sollten nicht verwendet werden, auch wenn ein Browser sie noch unterstützt._
+_Diese Methoden sind veraltet und sollten nicht verwendet werden, selbst wenn ein Browser sie noch unterstützt._
 
-- {{domxref("HTMLMediaElement.captureStream", "HTMLMediaElement.mozCaptureStream()")}} {{Non-standard_Inline}}
-  - : Das mit Firefox präfixierte Äquivalent von {{domxref("HTMLMediaElement.captureStream()")}}. Siehe deren [Browser-Kompatibilität](/de/docs/Web/API/HTMLMediaElement/captureStream#browser_compatibility) für Details.
-- {{domxref("HTMLMediaElement.mozCaptureStreamUntilEnded()")}} {{Non-standard_Inline}} {{Deprecated_Inline}}
-  - : \[Beschreibung eingeben]
-- {{domxref("HTMLMediaElement.mozGetMetadata()")}} {{Non-standard_Inline}} {{Deprecated_Inline}}
-  - : Gibt {{jsxref('Object')}} zurück, das Eigenschaften enthält, die Metadaten der wiedergegebenen Medienressource als `{key: value}`-Paare darstellen. Eine separate Kopie der Daten wird jedes Mal zurückgegeben, wenn die Methode aufgerufen wird. Diese Methode muss nach dem [`loadedmetadata`](/de/docs/Web/API/HTMLMediaElement/loadedmetadata_event)-Ereignis aufgerufen werden.
+- [`HTMLMediaElement.mozCaptureStream()`](/de/docs/Web/API/HTMLMediaElement/captureStream) {{Non-standard_Inline}}
+  - : Die Firefox-präfixierte Entsprechung von [`HTMLMediaElement.captureStream()`](/de/docs/Web/API/HTMLMediaElement/captureStream). Siehe deren [Browser-Kompatibilität](/de/docs/Web/API/HTMLMediaElement/captureStream#browser_compatibility) für Details.
+- [`HTMLMediaElement.mozCaptureStreamUntilEnded()`](/de/docs/Web/API/HTMLMediaElement/mozCaptureStreamUntilEnded) {{Non-standard_Inline}} {{Deprecated_Inline}}
+  - : [Beschreibung eingeben]
+- [`HTMLMediaElement.mozGetMetadata()`](/de/docs/Web/API/HTMLMediaElement/mozGetMetadata) {{Non-standard_Inline}} {{Deprecated_Inline}}
+  - : Gibt {{jsxref('Object')}} zurück, das Eigenschaften enthält, die Metadaten der abspielenden Medienressource als `{key: value}` Paare darstellen. Eine separate Kopie der Daten wird bei jedem Aufruf der Methode zurückgegeben. Diese Methode muss nach dem [`loadedmetadata`](/de/docs/Web/API/HTMLMediaElement/loadedmetadata_event)-Ereignis aufgerufen werden.
 
 ## Ereignisse
 
-_Erbt Ereignisse von seinem Elternteil {{domxref("HTMLElement")}}._
+_Erbt Ereignisse von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)_.
 
-Hören Sie diese Ereignisse mit {{domxref("EventTarget.addEventListener", "addEventListener()")}} ab oder weisen Sie einen Ereignis-Listener der `oneventname`-Eigenschaft dieser Schnittstelle zu.
+Hören Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisung eines Ereignis-Listeners zur `oneventname`-Eigenschaft dieser Schnittstelle.
 
-- {{domxref("HTMLMediaElement.abort_event", 'abort')}}
-  - : Wird ausgelöst, wenn die Ressourcen nicht vollständig geladen wurden, jedoch nicht aufgrund eines Fehlers.
-- {{domxref("HTMLMediaElement.canplay_event", 'canplay')}}
-  - : Wird ausgelöst, wenn der Benutzeragent das Medium abspielen kann, aber nicht genug Daten geladen hat, um das Medium bis zu seinem Ende ohne weitere Pufferung von Inhalten abzuspielen.
-- {{domxref("HTMLMediaElement.canplaythrough_event", 'canplaythrough')}}
-  - : Wird ausgelöst, wenn der Benutzeragent das Medium abspielen kann und genug Daten geladen hat, um das Medium bis zu seinem Ende ohne weitere Pufferung von Inhalten abzuspielen.
-- {{domxref("HTMLMediaElement.durationchange_event", 'durationchange')}}
-  - : Wird ausgelöst, wenn die Eigenschaft `duration` aktualisiert wurde.
-- {{domxref("HTMLMediaElement.emptied_event", 'emptied')}}
-  - : Wird ausgelöst, wenn die Medien leer geworden sind; beispielsweise, wenn die Medien bereits geladen (oder teilweise geladen) sind und die {{domxref("HTMLMediaElement.load()")}}-Methode aufgerufen wird, um sie neu zu laden.
-- {{domxref("HTMLMediaElement.encrypted_event", 'encrypted')}}
-  - : Wird ausgelöst, wenn Initialisierungsdaten in den Medien gefunden werden, die darauf hinweisen, dass sie verschlüsselt sind.
-- {{domxref("HTMLMediaElement.ended_event", 'ended')}}
-  - : Wird ausgelöst, wenn die Wiedergabe stoppt, weil das Ende des Mediums (\<audio> oder \<video>) erreicht ist oder weil keine weiteren Daten zur Verfügung stehen.
-- {{domxref("HTMLMediaElement.error_event", 'error')}}
-  - : Wird ausgelöst, wenn die Ressource aufgrund eines Fehlers nicht geladen werden konnte.
-- {{domxref("HTMLMediaElement.loadeddata_event", 'loadeddata')}}
-  - : Wird ausgelöst, wenn der erste Frame der Medien geladen ist.
-- {{domxref("HTMLMediaElement.loadedmetadata_event", 'loadedmetadata')}}
-  - : Wird ausgelöst, wenn die Metadaten geladen sind.
-- {{domxref("HTMLMediaElement.loadstart_event", 'loadstart')}}
-  - : Wird ausgelöst, wenn der Browser begonnen hat, eine Ressource zu laden.
-- {{domxref("HTMLMediaElement.pause_event", 'pause')}}
-  - : Wird ausgelöst, wenn eine Anforderung, die Wiedergabe zu pausieren, verarbeitet wird und die Aktivität ihren pausierten Zustand erreicht hat, was meist auftritt, wenn die {{domxref("HTMLMediaElement.pause()")}}-Methode des Mediums aufgerufen wird.
-- {{domxref("HTMLMediaElement.play_event", 'play')}}
-  - : Wird ausgelöst, wenn die `paused`-Eigenschaft von `true` auf `false` geändert wird, infolge der {{domxref("HTMLMediaElement.play()")}}-Methode oder des `autoplay`-Attributs.
-- {{domxref("HTMLMediaElement.playing_event", "playing")}}
-  - : Wird ausgelöst, wenn die Wiedergabe bereit ist, zu starten, nachdem sie angehalten oder aufgrund von Datenmangel verzögert wurde.
-- {{domxref("HTMLMediaElement.progress_event", "progress")}}
-  - : Wird regelmäßig ausgelöst, während der Browser eine Ressource lädt.
-- {{domxref("HTMLMediaElement.ratechange_event", 'ratechange')}}
-  - : Wird ausgelöst, wenn sich die Wiedergabegeschwindigkeit geändert hat.
-- {{domxref("HTMLMediaElement.seeked_event", 'seeked')}}
-  - : Wird ausgelöst, wenn ein Suchvorgang abgeschlossen ist.
-- {{domxref("HTMLMediaElement.seeking_event", 'seeking')}}
-  - : Wird ausgelöst, wenn ein Suchvorgang beginnt.
-- {{domxref("HTMLMediaElement.stalled_event", 'stalled')}}
-  - : Wird ausgelöst, wenn der Benutzeragent versucht, Mediendaten abzurufen, diese aber unerwartet nicht erhält.
-- {{domxref("HTMLMediaElement.suspend_event", 'suspend')}}
-  - : Wird ausgelöst, wenn das Laden der Mediendaten ausgesetzt wurde.
-- {{domxref("HTMLMediaElement.timeupdate_event", 'timeupdate')}}
-  - : Wird ausgelöst, wenn die Zeit, die durch die {{domxref("HTMLMediaElement.currentTime", "currentTime")}}-Eigenschaft angegeben wird, aktualisiert wurde.
-- {{domxref("HTMLMediaElement.volumechange_event", 'volumechange')}}
-  - : Wird ausgelöst, wenn sich die Lautstärke geändert hat.
-- {{domxref("HTMLMediaElement.waiting_event", 'waiting')}}
-  - : Wird ausgelöst, wenn die Wiedergabe aufgrund eines vorübergehenden Mangels an Daten gestoppt wurde.
+- [`abort`](/de/docs/Web/API/HTMLMediaElement/abort_event)
+  - : Ausgelöst, wenn die Ressource nicht vollständig geladen wurde, aber nicht aufgrund eines Fehlers.
+- [`canplay`](/de/docs/Web/API/HTMLMediaElement/canplay_event)
+  - : Ausgelöst, wenn der Benutzeragent die Medien abspielen kann, aber schätzt, dass **nicht** genügend Daten geladen wurden, um die Medien bis zum Ende abzuspielen, ohne für weiteres Puffern von Inhalten anhalten zu müssen.
+- [`canplaythrough`](/de/docs/Web/API/HTMLMediaElement/canplaythrough_event)
+  - : Ausgelöst, wenn der Benutzeragent die Medien abspielen kann und schätzt, dass genügend Daten geladen wurden, um die Medien bis zum Ende abzuspielen, ohne für weiteres Puffern von Inhalten anhalten zu müssen.
+- [`durationchange`](/de/docs/Web/API/HTMLMediaElement/durationchange_event)
+  - : Ausgelöst, wenn die Eigenschaft duration aktualisiert wurde.
+- [`emptied`](/de/docs/Web/API/HTMLMediaElement/emptied_event)
+  - : Ausgelöst, wenn das Medium leer geworden ist; zum Beispiel, wenn das Medium bereits geladen (oder teilweise geladen) war und die [`HTMLMediaElement.load()`](/de/docs/Web/API/HTMLMediaElement/load)-Methode aufgerufen wird, um es erneut zu laden.
+- [`encrypted`](/de/docs/Web/API/HTMLMediaElement/encrypted_event)
+  - : Ausgelöst, wenn Initialisierungsdaten im Medium gefunden werden, was darauf hinweist, dass es verschlüsselt ist.
+- [`ended`](/de/docs/Web/API/HTMLMediaElement/ended_event)
+  - : Ausgelöst, wenn die Wiedergabe stoppt, weil das Ende des Mediums (`<audio>` oder `<video>`) erreicht wurde oder weil keine weiteren Daten verfügbar sind.
+- [`error`](/de/docs/Web/API/HTMLMediaElement/error_event)
+  - : Ausgelöst, wenn die Ressource aufgrund eines Fehlers nicht geladen werden konnte.
+- [`loadeddata`](/de/docs/Web/API/HTMLMediaElement/loadeddata_event)
+  - : Ausgelöst, wenn der erste Frame des Mediums vollständig geladen wurde.
+- [`loadedmetadata`](/de/docs/Web/API/HTMLMediaElement/loadedmetadata_event)
+  - : Ausgelöst, wenn die Metadaten geladen wurden.
+- [`loadstart`](/de/docs/Web/API/HTMLMediaElement/loadstart_event)
+  - : Ausgelöst, wenn der Browser begonnen hat, eine Ressource zu laden.
+- [`pause`](/de/docs/Web/API/HTMLMediaElement/pause_event)
+  - : Ausgelöst, wenn ein Antrag auf Anhalten der Wiedergabe bearbeitet wurde und die Aktivität in ihren pausierten Zustand übergegangen ist, was am häufigsten vorkommt, wenn die [`HTMLMediaElement.pause()`](/de/docs/Web/API/HTMLMediaElement/pause)-Methode des Mediums aufgerufen wird.
+- [`play`](/de/docs/Web/API/HTMLMediaElement/play_event)
+  - : Ausgelöst, wenn die `paused`-Eigenschaft von `true` in `false` geändert wird, als Ergebnis der [`HTMLMediaElement.play()`](/de/docs/Web/API/HTMLMediaElement/play)-Methode oder des `autoplay`-Attributs.
+- [`playing`](/de/docs/Web/API/HTMLMediaElement/playing_event)
+  - : Ausgelöst, wenn die Wiedergabe nach einer Pause oder Verzögerung aufgrund fehlender Daten startbereit ist.
+- [`progress`](/de/docs/Web/API/HTMLMediaElement/progress_event)
+  - : Periodisch ausgelöst, während der Browser eine Ressource lädt.
+- [`ratechange`](/de/docs/Web/API/HTMLMediaElement/ratechange_event)
+  - : Ausgelöst, wenn sich die Wiedergabegeschwindigkeit geändert hat.
+- [`seeked`](/de/docs/Web/API/HTMLMediaElement/seeked_event)
+  - : Ausgelöst, wenn eine Suchoperation abgeschlossen ist.
+- [`seeking`](/de/docs/Web/API/HTMLMediaElement/seeking_event)
+  - : Ausgelöst, wenn eine Suchoperation beginnt.
+- [`stalled`](/de/docs/Web/API/HTMLMediaElement/stalled_event)
+  - : Ausgelöst, wenn der Benutzeragent versucht, Mediendaten abzurufen, aber die Daten unerwartet nicht verfügbar sind.
+- [`suspend`](/de/docs/Web/API/HTMLMediaElement/suspend_event)
+  - : Ausgelöst, wenn das Laden der Mediendaten unterbrochen wurde.
+- [`timeupdate`](/de/docs/Web/API/HTMLMediaElement/timeupdate_event)
+  - : Ausgelöst, wenn sich die durch die [`currentTime`](/de/docs/Web/API/HTMLMediaElement/currentTime)-Eigenschaft angegebene Zeit aktualisiert hat.
+- [`volumechange`](/de/docs/Web/API/HTMLMediaElement/volumechange_event)
+  - : Ausgelöst, wenn sich die Lautstärke geändert hat.
+- [`waiting`](/de/docs/Web/API/HTMLMediaElement/waiting_event)
+  - : Ausgelöst, wenn die Wiedergabe aufgrund eines vorübergehenden Mangels an Daten gestoppt hat.
 
 ## Spezifikationen
 
@@ -203,12 +203,12 @@ Hören Sie diese Ereignisse mit {{domxref("EventTarget.addEventListener", "addEv
 
 ### Referenzen
 
-- {{HTMLElement("video")}}- und {{HTMLElement("audio")}}-HTML-Elemente
-- {{domxref("HTMLVideoElement")}}- und {{domxref("HTMLAudioElement")}}-Interfaces, abgeleitet von `HTMLMediaElement`
+- {{HTMLElement("video")}} und {{HTMLElement("audio")}} HTML-Elemente
+- [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) und [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement) Schnittstellen, abgeleitet von `HTMLMediaElement`
 
 ### Leitfäden
 
 - [Web-Medientechnologien](/de/docs/Web/Media)
-- Lernbereich: [Video- und Audioinhalt](/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content)
-- [Leitfaden zu Medientypen und -formaten](/de/docs/Web/Media/Formats)
-- [Umgang mit Problemen bei der Medienunterstützung in Webinhalten](/de/docs/Web/Media/Formats/Support_issues)
+- Lernbereich: [Video- und Audioinhalte](/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content)
+- [Leitfaden für Medientypen und -formate](/de/docs/Web/Media/Formats)
+- [Umgang mit Medienunterstützungsproblemen in Web-Inhalten](/de/docs/Web/Media/Formats/Support_issues)

@@ -2,7 +2,7 @@
 title: SVGAElement
 slug: Web/API/SVGAElement
 l10n:
-  sourceCommit: 2d8a8df333e65582086870bfa1bcce40735c0013
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("SVG")}}
@@ -13,56 +13,56 @@ Das **`SVGAElement`**-Interface bietet Zugriff auf die Eigenschaften eines {{SVG
 
 ## Instanzeigenschaften
 
-_Dieses Interface erbt auch Eigenschaften von seinem Eltern-Interface, {{domxref("SVGGraphicsElement")}}._
+_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten Element, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
-- {{domxref("SVGAElement.download")}}
-  - : Siehe {{domxref("HTMLAnchorElement.download")}}.
-- {{domxref("SVGAElement.hash")}}
-  - : Ein String, der den Fragment-Bezeichner darstellt, einschließlich des führenden Gitterzeichens ('`#`'), falls vorhanden, in der referenzierten URL.
-- {{domxref("SVGAElement.host")}}
-  - : Ein String, der den Hostnamen und Port (falls es sich nicht um den Standardport handelt) in der referenzierten URL darstellt.
-- {{domxref("SVGAElement.hostname")}}
+- [`SVGAElement.download`](/de/docs/Web/API/SVGAElement/download)
+  - : Siehe [`HTMLAnchorElement.download`](/de/docs/Web/API/HTMLAnchorElement/download).
+- [`SVGAElement.hash`](/de/docs/Web/API/SVGAElement/hash)
+  - : Ein String, der den Fragmentbezeichner inklusive des führenden Hash-Zeichens (`#`), falls vorhanden, in der referenzierten URL darstellt.
+- [`SVGAElement.host`](/de/docs/Web/API/SVGAElement/host)
+  - : Ein String, der den Hostnamen und den Port (falls es nicht der Standardport ist) in der referenzierten URL darstellt.
+- [`SVGAElement.hostname`](/de/docs/Web/API/SVGAElement/hostname)
   - : Ein String, der den Hostnamen in der referenzierten URL darstellt.
-- {{domxref("SVGAElement.href")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, das das {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}} Attribut widerspiegelt.
-- {{domxref("SVGAElement.hreflang")}}
+- [`SVGAElement.href`](/de/docs/Web/API/SVGAElement/href) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das das {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}} Attribut widerspiegelt.
+- [`SVGAElement.hreflang`](/de/docs/Web/API/SVGAElement/hreflang)
   - : Ein String, der das `hreflang`-Attribut widerspiegelt und die Sprache der verlinkten Ressource angibt.
-- {{domxref("SVGAElement.origin")}} {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der den Ursprung der URL enthält, d.h. ihr Schema, ihre Domain und ihren Port.
-- {{domxref("SVGAElement.pathname")}}
-  - : Ein String, der ein anfängliches `'/'` gefolgt vom Pfad der URL enthält, ohne die Abfragezeichenfolge oder das Fragment.
-- {{domxref("SVGAElement.password")}}
-  - : Ein String, der das vor dem Domainnamen angegebene Passwort enthält.
-- {{domxref("SVGAElement.ping")}}
-  - : Ein String, der das ping-Attribut widerspiegelt und eine durch Leerzeichen getrennte Liste von URLs enthält, an die beim Folgen des Hyperlinks {{HTTPMethod("POST")}}-Anfragen mit dem Körper `PING` von dem Browser (im Hintergrund) gesendet werden. Typischerweise für Tracking verwendet.
-- {{domxref("SVGAElement.port")}}
-  - : Ein String, der die Port-Komponente, falls vorhanden, der referenzierten URL darstellt.
-- {{domxref("SVGAElement.protocol")}}
-  - : Ein String, der die Protokoll-Komponente, einschließlich dem folgenden Doppelpunkt ('`:`'), der referenzierten URL darstellt.
-- {{domxref("SVGAElement.referrerPolicy")}}
-  - : Siehe {{domxref("HTMLAnchorElement.referrerPolicy")}}.
-- {{domxref("SVGAElement.rel")}}
-  - : Siehe {{domxref("HTMLAnchorElement.rel")}}.
-- {{domxref("SVGAElement.relList")}}
-  - : Siehe {{domxref("HTMLAnchorElement.relList")}}.
-- {{domxref("SVGAElement.search")}}
-  - : Ein String, der das Such-Element, einschließlich vorangestelltem Fragezeichen ('`?`'), falls vorhanden, der referenzierten URL darstellt.
-- {{domxref("SVGAElement.target")}} {{ReadOnlyInline}}
-  - : Es entspricht dem {{SVGAttr("target")}}-Attribut des betreffenden Elements.
-- {{domxref("SVGAElement.text")}} {{deprecated_inline}}
-  - : Ein String, der ein Synonym für die {{domxref("Node.textContent")}}-Eigenschaft ist.
-- {{domxref("SVGAElement.type")}}
+- [`SVGAElement.origin`](/de/docs/Web/API/SVGAElement/origin) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der den Ursprung der URL enthält, das heißt, ihr Schema, ihre Domain und ihren Port.
+- [`SVGAElement.pathname`](/de/docs/Web/API/SVGAElement/pathname)
+  - : Ein String, der ein anfängliches `/` gefolgt vom Pfad der URL enthält, ohne die Abfragezeichenfolge oder den Fragment.
+- [`SVGAElement.password`](/de/docs/Web/API/SVGAElement/password)
+  - : Ein String, der das Passwort enthält, das vor dem Domainnamen angegeben wurde.
+- [`SVGAElement.ping`](/de/docs/Web/API/SVGAElement/ping)
+  - : Ein String, der das ping-Attribut widerspiegelt und eine durch Leerzeichen getrennte Liste von URLs enthält, an die, wenn der Hyperlink gefolgt wird, {{HTTPMethod("POST")}}-Anfragen mit dem Body `PING` vom Browser (im Hintergrund) gesendet werden. Typischerweise zur Verfolgung verwendet.
+- [`SVGAElement.port`](/de/docs/Web/API/SVGAElement/port)
+  - : Ein String, der die Portkomponente (falls vorhanden) der referenzierten URL darstellt.
+- [`SVGAElement.protocol`](/de/docs/Web/API/SVGAElement/protocol)
+  - : Ein String, der die Protokollkomponente inklusive des abschließenden Doppelpunkts (`:`) der referenzierten URL darstellt.
+- [`SVGAElement.referrerPolicy`](/de/docs/Web/API/SVGAElement/referrerPolicy)
+  - : Siehe [`HTMLAnchorElement.referrerPolicy`](/de/docs/Web/API/HTMLAnchorElement/referrerPolicy).
+- [`SVGAElement.rel`](/de/docs/Web/API/SVGAElement/rel)
+  - : Siehe [`HTMLAnchorElement.rel`](/de/docs/Web/API/HTMLAnchorElement/rel).
+- [`SVGAElement.relList`](/de/docs/Web/API/SVGAElement/relList)
+  - : Siehe [`HTMLAnchorElement.relList`](/de/docs/Web/API/HTMLAnchorElement/relList).
+- [`SVGAElement.search`](/de/docs/Web/API/SVGAElement/search)
+  - : Ein String, der das Suchelement inklusive des führenden Fragezeichens (`?`), falls vorhanden, der referenzierten URL darstellt.
+- [`SVGAElement.target`](/de/docs/Web/API/SVGAElement/target) {{ReadOnlyInline}}
+  - : Es entspricht dem {{SVGAttr("target")}}-Attribut des gegebenen Elements.
+- [`SVGAElement.text`](/de/docs/Web/API/SVGAElement/text) {{deprecated_inline}}
+  - : Ein String, der ein Synonym für die [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft ist.
+- [`SVGAElement.type`](/de/docs/Web/API/SVGAElement/type)
   - : Ein String, der das `type`-Attribut widerspiegelt und den MIME-Typ der verlinkten Ressource angibt.
-- {{domxref("SVGAElement.username")}}
-  - : Ein String, der den vor dem Domainnamen angegebenen Benutzernamen enthält.
+- [`SVGAElement.username`](/de/docs/Web/API/SVGAElement/username)
+  - : Ein String, der den Benutzernamen enthält, der vor dem Domainnamen angegeben wurde.
 
 ## Instanzmethoden
 
-_Dieses Interface verfügt über keine Methoden, erbt aber Methoden von seinem Eltern-Interface, {{domxref("SVGGraphicsElement")}}._
+_Dieses Interface hat keine eigenen Methoden, erbt aber Methoden von seinem übergeordneten Element, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
 ## Beispiel
 
-Im folgenden Beispiel wird das {{SVGAttr("target")}}-Attribut des {{SVGElement("a")}}-Elements auf `_blank` gesetzt und wenn der Link geklickt wird, wird protokolliert, ob die Bedingung erfüllt ist oder nicht.
+Im folgenden Beispiel wird das {{SVGAttr("target")}}-Attribut des {{SVGElement("a")}}-Elements auf `_blank` gesetzt und beim Klicken auf den Link wird protokolliert, ob die Bedingung erfüllt ist oder nicht.
 
 ```js
 const linkRef = document.querySelector("a");
@@ -88,4 +88,4 @@ linkRef.onclick = () => {
 
 ## Siehe auch
 
-- SVG {{SVGElement("a")}} Element
+- SVG {{SVGElement("a")}}-Element

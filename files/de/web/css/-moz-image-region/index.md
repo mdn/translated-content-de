@@ -7,20 +7,20 @@ l10n:
 
 {{CSSRef}}{{Non-standard_Header}}
 
-Für bestimmte XUL-Elemente und Pseudo-Elemente, die ein Bild aus der {{CSSxRef("list-style-image")}}-Eigenschaft verwenden, gibt diese Eigenschaft eine Region des Bildes an, die anstelle des gesamten Bildes verwendet wird. Dies ermöglicht es, dass Elemente verschiedene Teile desselben Bildes verwenden, um die Performance zu verbessern.
+Für bestimmte XUL-Elemente und Pseudo-Elemente, die ein Bild aus der {{CSSxRef("list-style-image")}}-Eigenschaft verwenden, gibt diese Eigenschaft einen Bereich des Bildes an, der anstelle des gesamten Bildes verwendet wird. Dies ermöglicht es Elementen, unterschiedliche Teile desselben Bildes zu nutzen, um die Leistung zu verbessern.
 
-Die Syntax ähnelt der {{CSSxRef("clip")}}-Eigenschaft. Alle vier Werte sind relativ zur oberen linken Ecke des Bildes.
+Die Syntax ist der Eigenschaft {{CSSxRef("clip")}} ähnlich. Alle vier Werte beziehen sich auf die obere linke Ecke des Bildes.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwert */
+/* Keyword value */
 -moz-image-region: auto;
 
-/* <shape>-Wert */
+/* <shape> value */
 -moz-image-region: rect(0, 8px, 4px, 4px);
 
-/* Globale Werte */
+/* Global values */
 -moz-image-region: inherit;
 -moz-image-region: initial;
 -moz-image-region: unset;
@@ -29,9 +29,9 @@ Die Syntax ähnelt der {{CSSxRef("clip")}}-Eigenschaft. Alle vier Werte sind rel
 ### Werte
 
 - `auto`
-  - : Definiert automatisch die Region des zu verwendenden Bildes.
+  - : Definiert automatisch den Bereich des Bildes, der verwendet werden soll.
 - [`<shape>`](/de/docs/Web/CSS/shape)
-  - : Eine Form, die den zu verwendenden Teil des Bildes definiert. Die `rect()`-Funktion definiert ein Rechteck, das als Form verwendet wird. Ihre Parameter definieren die Versätze der oberen, rechten, unteren und linken Kanten des Bildes in dieser Reihenfolge.
+  - : Eine Form, die den zu verwendenden Teil des Bildes definiert. Die Funktion `rect()` definiert ein Rechteck als Form. Ihre Parameter legen die Abstände der Kanten des Bildes von oben, rechts, unten und links fest, in dieser Reihenfolge.
 
 ## Formale Definition
 
@@ -46,16 +46,16 @@ Die Syntax ähnelt der {{CSSxRef("clip")}}-Eigenschaft. Alle vier Werte sind rel
 
 ## Beispiele
 
-### Zuschneiden eines Bildes
+### Ein Bild beschneiden
 
 ```css
 #example-button {
-  /* zeigt nur den 4x4 Bereich aus der oberen linken Ecke dieses Bildes an */
+  /* display only the 4x4 area from the top left of this image */
   list-style-image: url("chrome://example/skin/example.png");
   -moz-image-region: rect(0px, 4px, 4px, 0px);
 }
 #example-button:hover {
-  /* verwendet den 4x4 Bereich rechts vom ersten für den Schwebebutton */
+  /* use the 4x4 area to the right of the first for the hovered button */
   -moz-image-region: rect(0px, 8px, 4px, 4px);
 }
 ```

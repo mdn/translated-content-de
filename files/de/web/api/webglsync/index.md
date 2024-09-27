@@ -11,20 +11,20 @@ Die **`WebGLSync`**-Schnittstelle ist Teil der [WebGL 2](/de/docs/Web/API/WebGL_
 
 {{InheritanceDiagram}}
 
-Beim Arbeiten mit `WebGLSync`-Objekten sind die folgenden Methoden des {{domxref("WebGL2RenderingContext")}} nützlich:
+Bei der Arbeit mit `WebGLSync`-Objekten sind die folgenden Methoden des [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) nützlich:
 
-- {{domxref("WebGL2RenderingContext.fenceSync()")}}
-- {{domxref("WebGL2RenderingContext.deleteSync()")}}
-- {{domxref("WebGL2RenderingContext.isSync()")}}
-- {{domxref("WebGL2RenderingContext.clientWaitSync()")}}
-- {{domxref("WebGL2RenderingContext.waitSync()")}}
-- {{domxref("WebGL2RenderingContext.getSyncParameter()")}}
+- [`WebGL2RenderingContext.fenceSync()`](/de/docs/Web/API/WebGL2RenderingContext/fenceSync)
+- [`WebGL2RenderingContext.deleteSync()`](/de/docs/Web/API/WebGL2RenderingContext/deleteSync)
+- [`WebGL2RenderingContext.isSync()`](/de/docs/Web/API/WebGL2RenderingContext/isSync)
+- [`WebGL2RenderingContext.clientWaitSync()`](/de/docs/Web/API/WebGL2RenderingContext/clientWaitSync)
+- [`WebGL2RenderingContext.waitSync()`](/de/docs/Web/API/WebGL2RenderingContext/waitSync)
+- [`WebGL2RenderingContext.getSyncParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getSyncParameter)
 
 ## Beispiele
 
 ### Erstellen eines `WebGLSync`-Objekts
 
-In diesem Beispiel muss `gl` ein {{domxref("WebGL2RenderingContext")}} sein. `WebGLSync`-Objekte sind in WebGL 1 nicht verfügbar.
+In diesem Beispiel muss `gl` ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein. `WebGLSync`-Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
 const sync = gl.fenceSync(gl.SYNC_GPU_COMMANDS_COMPLETE, 0);
@@ -40,4 +40,4 @@ const sync = gl.fenceSync(gl.SYNC_GPU_COMMANDS_COMPLETE, 0);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.finish()")}}
+- [`WebGLRenderingContext.finish()`](/de/docs/Web/API/WebGLRenderingContext/finish)

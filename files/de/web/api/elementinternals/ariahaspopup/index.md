@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaHasPopup`**-Eigenschaft der {{domxref("ElementInternals")}}-Schnittstelle spiegelt den Wert des [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup)-Attributs wider, das die Verfügbarkeit und den Typ eines interaktiven Popup-Elements angibt, wie beispielsweise ein Menü oder ein Dialog, das durch ein Element ausgelöst werden kann.
+Die **`ariaHasPopup`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup)-Attributs wider, welches die Verfügbarkeit und den Typ eines interaktiven Popup-Elements, wie z.B. Menü oder Dialog, angibt, das von einem Element ausgelöst werden kann.
 
 > [!NOTE]
-> Das Festlegen von ARIA-Attributen auf `ElementInternals` ermöglicht es, standardmäßige Semantik bei einem benutzerdefinierten Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, aber es wird sichergestellt, dass die standardmäßige Semantik erhalten bleibt, falls der Autor diese Attribute löscht oder es versäumt, sie hinzuzufügen. Weitere Informationen finden Sie in der [Accessibility Object Model Erläuterung](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Durch das Setzen von `aria`-Attributen auf `ElementInternals` können Standardsemantiken auf einem benutzerdefinierten Element definiert werden. Diese können durch benutzerspezifizierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken beibehalten werden, falls der Benutzer diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 

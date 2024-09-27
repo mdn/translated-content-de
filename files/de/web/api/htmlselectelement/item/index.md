@@ -1,5 +1,5 @@
 ---
-title: "HTMLSelectElement: Methode item()"
+title: "HTMLSelectElement: item()-Methode"
 short-title: item()
 slug: Web/API/HTMLSelectElement/item
 l10n:
@@ -8,30 +8,25 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die Methode **`HTMLSelectElement.item()`** gibt das
-{{domxref("Element")}} zurück, das dem {{domxref("HTMLOptionElement")}} entspricht, dessen
-Position in der Optionsliste dem im Parameter angegebenen Index entspricht, oder
-`null`, wenn es keines gibt.
+Die **`HTMLSelectElement.item()`**-Methode gibt das [`Element`](/de/docs/Web/API/Element) zurück, das dem [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) entspricht, dessen Position in der Optionsliste dem im Parameter angegebenen Index entspricht, oder `null`, wenn keine vorhanden sind.
 
-Im JavaScript ist die Verwendung der Array-Klammer-Syntax mit einem `unsigned long`, wie
-`selectElt[index]`, äquivalent zu
-`selectElt.namedItem(index)`.
+In JavaScript ist die Verwendung der Arrayklammernsyntax mit einem `unsigned long`, wie `selectElt[index]`, gleichbedeutend mit `selectElt.namedItem(index)`.
 
 ## Syntax
 
 ```js-nolint
 item(index)
-// oder collection[index]
+// or collection[index]
 ```
 
 ### Parameter
 
 - `index`
-  - : Eine nicht-negative Ganzzahl, die die Position der Option in der Liste darstellt.
+  - : Eine nicht-negative ganze Zahl, die die Position der Option in der Liste darstellt.
 
 ### Rückgabewert
 
-Ein {{domxref("HTMLOptionElement")}} oder `null`.
+Ein [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) oder `null`.
 
 ## Beispiele
 
@@ -49,7 +44,7 @@ Ein {{domxref("HTMLOptionElement")}} oder `null`.
 ### JavaScript
 
 ```js
-// Gibt das HTMLOptionElement zurück, das #o2 darstellt
+// Returns the HTMLOptionElement representing #o2
 elem1 = document.forms[0]["myFormControl"][1];
 ```
 
@@ -63,4 +58,4 @@ elem1 = document.forms[0]["myFormControl"][1];
 
 ## Siehe auch
 
-- {{domxref("HTMLSelectElement")}}, das es implementiert.
+- [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement), das es implementiert.

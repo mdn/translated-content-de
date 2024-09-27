@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: releaseInterface() Methode"
+title: "USBDevice: Methode releaseInterface()"
 short-title: releaseInterface()
 slug: Web/API/USBDevice/releaseInterface
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`releaseInterface()`**-Methode der {{domxref("USBDevice")}}-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn eine beanspruchte Schnittstelle aus dem exklusiven Zugriff freigegeben wird.
+Die **`releaseInterface()`**-Methode des
+[`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn ein beanspruchtes Interface von exklusivem Zugriff freigegeben wird.
 
 ## Syntax
 
@@ -19,7 +20,7 @@ releaseInterface(interfaceNumber)
 ### Parameter
 
 - `interfaceNumber`
-  - : Der gerätespezifische Index der aktuell beanspruchten Schnittstelle.
+  - : Der gerätespezifische Index des aktuell beanspruchten Interfaces.
 
 ### Rückgabewert
 
@@ -29,6 +30,6 @@ Ein {{jsxref("promise")}}.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

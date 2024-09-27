@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Die **`blocking`**-Eigenschaft der {{domxref("HTMLLinkElement")}}-Schnittstelle ist ein String, der angibt, dass bestimmte Vorgänge beim Abrufen einer externen Ressource blockiert werden sollen.
+Die **`blocking`**-Eigenschaft der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Schnittstelle ist ein String, der angibt, dass bestimmte Operationen beim Abrufen einer externen Ressource blockiert werden sollten.
 
 Sie spiegelt das `blocking`-Attribut des {{HTMLElement("link")}}-Elements wider.
 
 ## Wert
 
-Ein String. Muss eine durch Leerzeichen getrennte Liste von unten aufgeführten Blocking-Tokens sein, die die Vorgänge angeben, die blockiert werden sollen:
+Ein String. Muss eine durch Leerzeichen getrennte Liste der unten aufgeführten Blockierungs-Token sein, die die zu blockierenden Operationen angeben:
 
 - `render`
-  - : Das Rendern von Inhalten auf dem Bildschirm wird blockiert.
+  - : Die Darstellung des Inhalts auf dem Bildschirm wird blockiert.
 
 ## Beispiele
 
@@ -32,7 +32,7 @@ Ein String. Muss eine durch Leerzeichen getrennte Liste von unten aufgeführten 
 
 ```js
 const el = document.getElementById("el");
-console.log(el.blocking); // Ausgabe: "render"
+console.log(el.blocking); // Output: "render"
 ```
 
 ## Spezifikationen
@@ -45,5 +45,5 @@ console.log(el.blocking); // Ausgabe: "render"
 
 ## Siehe auch
 
-- {{domxref("HTMLScriptElement.blocking")}}
-- {{domxref("HTMLStyleElement.blocking")}}
+- [`HTMLScriptElement.blocking`](/de/docs/Web/API/HTMLScriptElement/blocking)
+- [`HTMLStyleElement.blocking`](/de/docs/Web/API/HTMLStyleElement/blocking)

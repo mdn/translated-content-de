@@ -1,5 +1,5 @@
 ---
-title: "Element: Methode replaceWith()"
+title: "Element: replaceWith()-Methode"
 short-title: replaceWith()
 slug: Web/API/Element/replaceWith
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die Methode **`Element.replaceWith()`** ersetzt dieses `Element` in der Kindliste seines Elternteils durch eine Reihe von {{domxref("Node")}}-Objekten oder Strings. Strings werden als gleichwertige {{domxref("Text")}}-Knoten eingefügt.
+Die **`Element.replaceWith()`**-Methode ersetzt dieses
+`Element` in der Kinderliste seines Elternteils mit einer Menge von
+[`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen. Zeichenfolgen werden als entsprechende [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
 ## Syntax
 
@@ -21,7 +23,7 @@ replaceWith(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Reihe von {{domxref("Node")}}-Objekten oder Strings, die ersetzt werden sollen.
+  - : Eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen zum Ersetzen.
 
 ### Rückgabewert
 
@@ -29,8 +31,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
-  - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
 
 ## Beispiele
 
@@ -48,9 +50,10 @@ console.log(div.outerHTML);
 // "<div><span></span></div>"
 ```
 
-### `replaceWith()` ist nicht skopierbar
+### `replaceWith()` ist unscoopable
 
-Die Methode `replaceWith()` ist nicht im `with`-Statement skopiert. Siehe {{jsxref("Symbol.unscopables")}} für weitere Informationen.
+Die `replaceWith()`-Methode wird nicht in die `with`
+Anweisung eingeschlossen. Weitere Informationen finden Sie unter {{jsxref("Symbol.unscopables")}}.
 
 ```js
 with (node) {
@@ -69,7 +72,7 @@ with (node) {
 
 ## Siehe auch
 
-- {{domxref("Node.replaceChild()")}}
-- {{domxref("NodeList")}}
-- {{domxref("CharacterData.replaceWith()")}}
-- {{domxref("DocumentType.replaceWith()")}}
+- [`Node.replaceChild()`](/de/docs/Web/API/Node/replaceChild)
+- [`NodeList`](/de/docs/Web/API/NodeList)
+- [`CharacterData.replaceWith()`](/de/docs/Web/API/CharacterData/replaceWith)
+- [`DocumentType.replaceWith()`](/de/docs/Web/API/DocumentType/replaceWith)

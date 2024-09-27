@@ -1,5 +1,5 @@
 ---
-title: "XSLTProcessor: XSLTProcessor()-Konstruktor"
+title: "XSLTProcessor: XSLTProcessor() Konstruktor"
 short-title: XSLTProcessor()
 slug: Web/API/XSLTProcessor/XSLTProcessor
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XSLT")}}
 
-Der **`XSLTProcessor()`**-Konstruktor erstellt eine neue Instanz des {{domxref("XSLTProcessor")}}-Objekts.
+Der **`XSLTProcessor()`**-Konstruktor erstellt eine neue [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Objektinstanz.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Eine neue Instanz des {{domxref("XSLTProcessor")}}-Objekts.
+Eine neue [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Objektinstanz.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

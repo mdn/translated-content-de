@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`dur`** Attribut gibt die einfache Dauer einer Animation an.
+Das **`dur`**-Attribut gibt die einfache Dauer einer Animation an.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
@@ -51,7 +51,7 @@ svg {
 
 {{EmbedLiveSample("Example", "220", "150")}}
 
-## Anmerkungen zur Verwendung
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -78,20 +78,20 @@ svg {
 </table>
 
 - `<clock-value>`
-  - : Dieser Wert gibt die Länge der einfachen Dauer an. Der Wert muss größer als 0 sein und kann in Stunden (`h`), Minuten (`m`), Sekunden (`s`) oder Millisekunden (`ms`) angegeben werden. Es ist möglich, diese Zeitangaben zu kombinieren, um komplexere Dauern wie `hh:mm:ss.iii` oder `mm:ss.iii` zu erstellen.
+  - : Dieser Wert gibt die Länge der einfachen Dauer an. Der Wert muss größer als 0 sein und kann in Stunden (`h`), Minuten (`m`), Sekunden (`s`) oder Millisekunden (`ms`) angegeben werden. Es ist möglich, diese Zeitdarstellungen zu kombinieren, um komplexe Dauern wie `hh:mm:ss.iii` oder `mm:ss.iii` zu erstellen.
 - `media`
-  - : Dieser Wert gibt die einfache Dauer als intrinsische Mediendauer an. Dies ist nur gültig für Elemente, die Medien definieren.
-    (Bei [Animationselementen](/de/docs/Web/SVG/Element#animation_elements) wird das Attribut ignoriert, wenn `media` angegeben ist.)
+  - : Dieser Wert legt die einfache Dauer als die intrinsische Media-Dauer fest. Dies ist nur für Elemente gültig, die Medien definieren.
+    (Für [Animationselemente](/de/docs/Web/SVG/Element#animation_elements) wird das Attribut ignoriert, wenn `media` angegeben ist.)
 - `indefinite`
   - : Dieser Wert gibt die einfache Dauer als unbestimmt an.
 
 > [!NOTE]
-> Die {{Glossary("interpolation")}} funktioniert nicht, wenn die einfache Dauer unbestimmt ist (dies kann jedoch immer noch für {{SVGElement("set")}} Elemente nützlich sein).
+> Die [Interpolation](/de/docs/Glossary/interpolation) funktioniert nicht, wenn die einfache Dauer unbestimmt ist (obwohl sie dennoch für {{SVGElement("set")}}-Elemente nützlich sein kann).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

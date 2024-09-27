@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: fehlender formaler Parameter"
+title: "SyntaxError: missing formal parameter"
 slug: Web/JavaScript/Reference/Errors/Missing_formal_parameter
 l10n:
   sourceCommit: d71b141d2d18b96639547856714df19cefacfebf
@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "fehlender formaler Parameter" tritt auf, wenn Ihrer Funktionsdeklaration gültige Parameter fehlen.
+Die JavaScript-Ausnahme "missing formal parameter" tritt auf, wenn Ihre Funktionsdeklaration keine gültigen Parameter enthält.
 
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: missing formal parameter (Firefox)
@@ -23,15 +23,15 @@ SyntaxError: Unexpected string literal "x". Expected a parameter pattern or a ')
 
 ## Was ist schiefgelaufen?
 
-"Formaler Parameter" ist eine elegante Art zu sagen "Funktionsparameter". Ihrer Funktionsdeklaration fehlen gültige Parameter. In der Deklaration einer Funktion müssen die Parameter [Identifikatoren](/de/docs/Glossary/Identifier) sein, nicht irgendein Wert wie Zahlen, Zeichenfolgen oder Objekte. Funktionen deklarieren und Funktionen aufrufen sind zwei separate Schritte. Deklarationen erfordern Identifikatoren als Parameter, und nur beim Aufrufen (Ausführen) der Funktion geben Sie die Werte an, die die Funktion verwenden soll.
+"Formal parameter" ist ein anderer Ausdruck für "Funktionsparameter". Ihre Funktionsdeklaration fehlt gültige Parameter. In der Deklaration einer Funktion müssen die Parameter [Bezeichner](/de/docs/Glossary/Identifier) sein, nicht irgendwelche Werte wie Zahlen, Zeichenfolgen oder Objekte. Das Deklarieren von Funktionen und das Aufrufen von Funktionen sind zwei separate Schritte. Deklarationen erfordern Bezeichner als Parameter, und nur beim Aufrufen (Invokation) der Funktion, liefern Sie die Werte, die die Funktion verwenden soll.
 
-In [JavaScript](/de/docs/Glossary/JavaScript) können Identifikatoren nur alphanumerische Zeichen (oder "$" oder "\_") enthalten und dürfen nicht mit einer Ziffer beginnen. Ein Identifikator unterscheidet sich von einer **Zeichenfolge** darin, dass eine Zeichenfolge Daten ist, während ein Identifikator Teil des Codes ist.
+In [JavaScript](/de/docs/Glossary/JavaScript) können Bezeichner nur alphanumerische Zeichen (oder "$" oder "\_") enthalten und dürfen nicht mit einer Ziffer beginnen. Ein Bezeichner unterscheidet sich von einer **Zeichenkette** darin, dass eine Zeichenkette Daten ist, während ein Bezeichner Teil des Codes ist.
 
 ## Beispiele
 
-### Geben Sie gültige Funktionsparameter an
+### Richtige Funktionsparameter bereitstellen
 
-Funktionsparameter müssen Identifikatoren sein, wenn eine Funktion eingerichtet wird. Alle diese Funktionsdeklarationen schlagen fehl, da sie Werte für ihre Parameter angeben:
+Funktionsparameter müssen bei der Einrichtung einer Funktion Bezeichner sein. Alle diese Funktionsdeklarationen schlagen fehl, da sie Werte für ihre Parameter bereitstellen:
 
 ```js-nolint example-bad
 function square(3) {
@@ -50,7 +50,7 @@ function log({ obj: "value"}) {
 // SyntaxError: missing formal parameter
 ```
 
-Sie müssen Identifikatoren in Funktionsdeklarationen verwenden:
+Sie müssen Bezeichner in Funktionsdeklarationen verwenden:
 
 ```js example-good
 function square(number) {

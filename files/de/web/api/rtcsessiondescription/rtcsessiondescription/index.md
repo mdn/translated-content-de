@@ -3,19 +3,17 @@ title: "RTCSessionDescription: RTCSessionDescription() Konstruktor"
 short-title: RTCSessionDescription()
 slug: Web/API/RTCSessionDescription/RTCSessionDescription
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: b913cece0d35b5a7d1b5d3f4c628dcbbddfc7435
 ---
 
 {{APIRef("WebRTC")}}{{deprecated_header}}
 
-Der **`RTCSessionDescription()`** Konstruktor erzeugt eine neue
-{{domxref("RTCSessionDescription")}} mit ihren Eigenschaften, die wie im angegebenen Objekt beschrieben initialisiert werden.
+Der **`RTCSessionDescription()`** Konstruktor erstellt eine neue
+[`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription) mit ihren Eigenschaften, wie im angegebenen Objekt beschrieben, initialisiert.
 
 > [!NOTE]
-> Dieser Konstruktor wurde als veraltet eingestuft, da
-> {{domxref("RTCPeerConnection.setLocalDescription()")}} und andere Methoden, die SDP als Eingabe akzeptieren, nun direkt ein Objekt akzeptieren, das dem
-> `RTCSessionDescriptionInit`-Wörterbuch entspricht. Sie müssen also keine
-> `RTCSessionDescription` selbst instanziieren.
+> Dieser Konstruktor wurde veraltet, da
+> [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) und andere Methoden, die SDP als Eingabe akzeptieren, jetzt direkt ein Objekt mit den Eigenschaften [`type`](/de/docs/Web/API/RTCSessionDescription/type) und [`sdp`](/de/docs/Web/API/RTCSessionDescription/sdp) annehmen. Daher müssen Sie selbst keine `RTCSessionDescription` mehr instanziieren.
 
 ## Syntax
 
@@ -25,14 +23,14 @@ new RTCSessionDescription(options)
 
 ### Werte
 
-- `options` {{optional_inline}}
+- `options`
 
-  - : Ein Objekt, das die Standardwerte für die Sitzungsbeschreibung bereitstellt; das Objekt entspricht dem `RTCSessionDescriptionInit`-Wörterbuch. Dieses Wörterbuch hat die folgenden Eigenschaften:
+  - : Ein Objekt, das die Standardwerte für die Sitzungsbeschreibung bereitstellt. Es sollte die folgenden Eigenschaften enthalten:
 
     - `type`
-      - : **Erforderlich.** Ein String, der verwendet wird, um die `type`-Eigenschaft des neuen `RTCSessionDescription`-Objekts festzulegen.
-    - `sdp`
-      - : Ein String, der eine {{Glossary("SDP")}}-Nachricht beschreibt. Dieser Wert ist standardmäßig ein leerer String (`""`) und darf nicht `null` sein.
+      - : **Erforderlich.** Ein Zeichenkette, die verwendet wird, um die `type`-Eigenschaft des neuen `RTCSessionDescription`-Objekts festzulegen. Muss einer der gültigen [`RTCSessionDescription.type`](/de/docs/Web/API/RTCSessionDescription/type) Werte sein.
+    - `sdp` {{optional_inline}}
+      - : Eine Zeichenkette, die eine [SDP](/de/docs/Glossary/SDP)-Nachricht beschreibt, die die Sitzung beschreibt. Dieser Wert ist standardmäßig eine leere Zeichenkette (`""`) und darf nicht `null` sein.
 
 ## Beispiel
 
@@ -41,9 +39,7 @@ Dieses Beispiel verwendet den Konstruktor, um ein SDP-Angebot in ein
 
 > [!NOTE]
 > Dies ist jedoch nicht mehr notwendig;
-> {{domxref("RTCPeerConnection.setLocalDescription()")}} und andere Methoden, die SDP als Eingabe akzeptieren, akzeptieren nun direkt ein Objekt, das dem
-> `RTCSessionDescriptionInit`-Wörterbuch entspricht, sodass Sie keine
-> `RTCSessionDescription` selbst instanziieren müssen.
+> [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) und andere Methoden, die SDP als Eingabe akzeptieren, akzeptieren jetzt direkt einfache Objekte, sodass Sie selbst keine `RTCSessionDescription` mehr instanziieren müssen.
 
 ```js
 navigator.getUserMedia({ video: true }, (stream) => {
@@ -65,7 +61,7 @@ navigator.getUserMedia({ video: true }, (stream) => {
 
 ## Spezifikationen
 
-Dieses Feature ist Teil keiner aktuellen Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+{{Specifications}}
 
 ## Browser-Kompatibilität
 
@@ -74,4 +70,4 @@ Dieses Feature ist Teil keiner aktuellen Spezifikation. Es ist nicht mehr auf de
 ## Siehe auch
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCSessionDescription")}}
+- [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)

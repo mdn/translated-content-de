@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`stop-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe, die für ein SVG {{SVGElement("stop")}} Element innerhalb eines Verlaufs verwendet werden soll. Wenn sie vorhanden ist, überschreibt sie das {{SVGAttr("stop-color")}} Attribut des Elements.
+Die **`stop-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe, die für ein SVG {{SVGElement("stop")}} Element innerhalb eines Gradienten verwendet werden soll. Wenn vorhanden, überschreibt sie das {{SVGAttr("stop-color")}} Attribut des Elements.
 
 > [!NOTE]
 > Die `stop-color` Eigenschaft gilt nur für {{SVGElement('stop')}} Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.
@@ -15,12 +15,12 @@ Die **`stop-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe, di
 ## Syntax
 
 ```css
-/* <color> Werte */
+/* <color> values */
 stop-color: red;
 stop-color: hsl(120deg 75% 25% / 60%);
 stop-color: currentcolor;
 
-/* Globale Werte */
+/* Global values */
 stop-color: inherit;
 stop-color: initial;
 stop-color: revert;
@@ -32,7 +32,7 @@ stop-color: unset;
 
 - {{cssxref("color_value", "&lt;color>")}}
 
-  - : Die Farbe der Füllung. Dies kann ein beliebiger gültiger CSS {{cssxref("color_value", "&lt;color>")}} Wert sein.
+  - : Die Farbe der Füllung. Dies kann ein beliebiger gültiger CSS-Wert für {{cssxref("color_value", "&lt;color>")}} sein.
 
 ## Formale Definition
 
@@ -44,13 +44,13 @@ stop-color: unset;
 
 ## Beispiele
 
-### Definieren der Farbverlaufsstops von SVG-Verläufen
+### Definieren der Farbverläufe von SVG-Gradienten
 
-Dieses Beispiel demonstriert den grundlegenden Anwendungsfall von `stop-color` und wie die CSS-Eigenschaft `stop-color` das `stop-color` Attribut überschreibt.
+Dieses Beispiel demonstriert den grundlegenden Anwendungsfall von `stop-color` und wie die CSS `stop-color` Eigenschaft Vorrang vor dem `stop-color` Attribut hat.
 
 #### HTML
 
-Wir haben ein SVG mit drei {{SVGElement("rect")}} Quadraten und drei {{SVGElement("linearGradient")}} Elementen. Jeder Verlauf hat vier {{SVGElement("stop")}} Elemente, die Verläufe erzeugen, die von schwarz zu weiß und dann von weiß zu grau gehen; der einzige Unterschied zwischen ihnen ist der `id` Wert.
+Wir haben ein SVG mit drei {{SVGElement("rect")}} Quadraten und drei {{SVGElement("linearGradient")}} Elementen. Jeder Gradient hat vier {{SVGElement("stop")}} Elemente, die Verläufe erzeugen, die von schwarz zu weiß und dann von weiß zu grau gehen; der einzige Unterschied zwischen ihnen ist der `id` Wert.
 
 ```html
 <svg viewBox="0 0 264 100" xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +82,7 @@ Wir haben ein SVG mit drei {{SVGElement("rect")}} Quadraten und drei {{SVGElemen
 
 #### CSS
 
-Wir fügen eine {{cssxref("stroke")}} und {{cssxref("stroke-width")}} hinzu, um das Rechteck zu umranden. Wir definieren die Farben der ersten und letzten Stops in jedem Verlauf, indem wir ihre `stop-color` Attributwerte mit der `stop-color` Eigenschaft überschreiben. Verschiedene CSS {{cssxref("color_value", "&lt;color>")}} Syntaxen werden gezeigt.
+Wir fügen einen {{cssxref("stroke")}} und {{cssxref("stroke-width")}} hinzu, um die Rechtecke zu umreißen. Wir definieren die Farben der ersten und letzten Stops in jedem Verlauf und überschreiben ihre `stop-color` Attributwerte mit der `stop-color` Eigenschaft. Verschiedene CSS-Syntaxen für {{cssxref("color_value", "&lt;color>")}} werden gezeigt.
 
 ```css hidden
 svg {
@@ -139,7 +139,7 @@ rect {
 ## Siehe auch
 
 - SVG {{SVGAttr("stop-color")}} Attribut
-- Präsentationseigenschaften: `stop-color`, {{cssxref("clip-rule")}}, {{cssxref("color-interpolation-filters")}}, {{cssxref("fill-opacity")}}, {{cssxref("fill-rule")}}, {{cssxref("fill")}}, {{cssxref("marker-end")}}, {{cssxref("marker-mid")}}, {{cssxref("marker-start")}}, {{cssxref("shape-rendering")}}, {{cssxref("stop-opacity")}}, {{cssxref("stroke")}}, {{cssxref("stroke-dasharray")}}, {{cssxref("stroke-dashoffset")}}, {{cssxref("stroke-linecap")}}, {{cssxref("stroke-linejoin")}}, {{cssxref("stroke-miterlimit")}}, {{cssxref("stroke-opacity")}}, {{cssxref("stroke-width")}}, {{cssxref("text-anchor")}}, und {{cssxref("vector-effect")}}
+- Präsentationsattribute: `stop-color`, {{cssxref("clip-rule")}}, {{cssxref("color-interpolation-filters")}}, {{cssxref("fill-opacity")}}, {{cssxref("fill-rule")}}, {{cssxref("fill")}}, {{cssxref("marker-end")}}, {{cssxref("marker-mid")}}, {{cssxref("marker-start")}}, {{cssxref("shape-rendering")}}, {{cssxref("stop-opacity")}}, {{cssxref("stroke")}}, {{cssxref("stroke-dasharray")}}, {{cssxref("stroke-dashoffset")}}, {{cssxref("stroke-linecap")}}, {{cssxref("stroke-linejoin")}}, {{cssxref("stroke-miterlimit")}}, {{cssxref("stroke-opacity")}}, {{cssxref("stroke-width")}}, {{cssxref("text-anchor")}}, und {{cssxref("vector-effect")}}
 - {{cssxref("opacity")}}
 - {{cssxref("background-color")}}
 - {{cssxref("color_value", "&lt;color>")}}

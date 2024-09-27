@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-**Bild-Sprites** werden in zahlreichen Webanwendungen verwendet, in denen mehrere Bilder genutzt werden. Anstatt jedes Bild als separate Bilddatei einzubinden, ist es speicher- und bandbreiteneffizienter, sie als ein einzelnes Bild zu senden. Dabei wird die Position des Hintergrunds genutzt, um zwischen den einzelnen Bildern in derselben Bilddatei zu unterscheiden, wodurch die Anzahl der HTTP-Anfragen reduziert wird.
+**Bild-Sprites** werden in zahlreichen Web-Apps verwendet, die mehrere Bilder nutzen. Anstatt jedes Bild als separate Bilddatei einzubinden, ist es viel speicher- und bandbreitenschonender, diese als ein einziges Bild zu senden; dabei nutzt man die Hintergrundposition, um zwischen den einzelnen Bildern in derselben Bilddatei zu unterscheiden, wodurch die Anzahl der HTTP-Anfragen reduziert wird.
 
 > [!NOTE]
-> Bei Verwendung von HTTP/2 kann es tatsächlich bandbreitenschonender sein, mehrere kleine Anfragen zu verwenden.
+> Bei der Verwendung von HTTP/2 kann es in der Tat bandbreitenschonender sein, mehrere kleine Anfragen zu verwenden.
 
 ## Implementierung
 
-Angenommen, jedem Element mit der Klasse `toolbtn` wird ein Bild zugewiesen:
+Angenommen, jedem Element mit der Klasse `toolbtn` wird ein Bild gegeben:
 
 ```css
 .toolbtn {
@@ -25,7 +25,7 @@ Angenommen, jedem Element mit der Klasse `toolbtn` wird ein Bild zugewiesen:
 }
 ```
 
-Eine Hintergrundposition kann entweder als zwei x, y Werte nach dem {{cssxref("url_value", "&lt;url&gt;")}} im Hintergrund hinzugefügt werden oder als {{cssxref("background-position")}}. Zum Beispiel:
+Eine Hintergrundposition kann entweder als zwei x, y-Werte nach dem {{cssxref("url_value", "&lt;url&gt;")}} im Hintergrund hinzugefügt werden oder als {{cssxref("background-position")}}. Zum Beispiel:
 
 ```css
 #btn1 {
@@ -37,7 +37,7 @@ Eine Hintergrundposition kann entweder als zwei x, y Werte nach dem {{cssxref("u
 }
 ```
 
-Dies würde den Startpunkt des Hintergrundbildes für das Element mit der ID `btn1` um 20 Pixel nach links verschieben und das Element mit der ID `btn2` um 40 Pixel nach links verschieben (vorausgesetzt, dass sie die Klasse `toolbtn` zugewiesen haben und von der oben genannten Bildregel betroffen sind).
+Dies würde den Startpunkt des Hintergrundbildes für das Element mit der ID `btn1` um 20 Pixel nach links verschieben und das Element mit der ID `btn2` um 40 Pixel nach links (vorausgesetzt, sie haben die Klasse `toolbtn` zugewiesen und werden von der obigen Bildregel beeinflusst).
 
 Ähnlich können Sie auch Hover-Zustände erstellen mit:
 
@@ -49,4 +49,4 @@ Dies würde den Startpunkt des Hintergrundbildes für das Element mit der ID `bt
 
 ## Siehe auch
 
-- [Voll funktionsfähige Demo bei CSS Tricks](https://css-tricks.com/snippets/css/perfect-css-sprite-sliding-doors-button/)
+- [Vollständig funktionierendes Demo bei CSS Tricks](https://css-tricks.com/snippets/css/perfect-css-sprite-sliding-doors-button/)

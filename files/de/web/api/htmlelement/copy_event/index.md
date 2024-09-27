@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: copy Ereignis"
+title: "HTMLElement: copy event"
 short-title: copy
 slug: Web/API/HTMLElement/copy_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Das **`copy`** Ereignis wird ausgelöst, wenn der Benutzer über die Benutzeroberfläche des Browsers eine Kopieraktion initiiert.
+Das **`copy`**-Ereignis wird ausgelöst, wenn der Benutzer eine Kopieraktion über die Benutzeroberfläche des Browsers initiiert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("copy", (event) => {});
@@ -22,16 +22,16 @@ oncopy = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ClipboardEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ClipboardEvent")}}
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternteil {{domxref("Event")}}_.
+_Erbt auch Eigenschaften von seinem Elternobjekt [`Event`](/de/docs/Web/API/Event)_.
 
-- {{domxref("ClipboardEvent.clipboardData")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("DataTransfer")}}-Objekt, das die von der vom Benutzer initiierten {{domxref("HTMLElement/cut_event", "cut")}}, `copy` oder {{domxref("HTMLElement/paste_event", "paste")}} Operation betroffenen Daten sowie deren MIME-Typ enthält.
+- [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) {{ReadOnlyInline}}
+  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die vom Benutzer initiierten Daten der [`cut`](/de/docs/Web/API/HTMLElement/cut_event), `copy` oder [`paste`](/de/docs/Web/API/HTMLElement/paste_event)-Operation sowie dessen MIME-Typ enthält.
 
 ## Beispiel
 
@@ -40,12 +40,12 @@ Dieses Beispiel blockiert jeden Kopier- und Einfügeversuch aus dem {{htmlElemen
 ### HTML
 
 ```html
-<h3>Interagieren Sie mit diesem Textfeld:</h3>
+<h3>Play with this text area:</h3>
 <textarea id="editor" rows="3">
-Versuchen Sie, Text in dieses Feld zu kopieren und einzufügen!
+Try copying and pasting text into this field!
 </textarea>
 
-<h3>Logbuch:</h3>
+<h3>Log:</h3>
 <p id="log"></p>
 ```
 
@@ -85,5 +85,5 @@ editor.onpaste = logPaste;
 ## Siehe auch
 
 - Verwandte Ereignisse
-  - {{domxref("HTMLElement.cut_event", "cut")}} Ereignis
-  - {{domxref("HTMLElement.paste_event", "paste")}} Ereignis
+  - [`cut`](/de/docs/Web/API/HTMLElement/cut_event) Ereignis
+  - [`paste`](/de/docs/Web/API/HTMLElement/paste_event) Ereignis

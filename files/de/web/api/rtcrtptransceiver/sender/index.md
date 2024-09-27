@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`sender`**-Eigenschaft der WebRTC-Schnittstelle {{domxref("RTCRtpTransceiver")}} gibt den {{domxref("RTCRtpSender")}} an, der für das Kodieren und Senden ausgehender Mediendaten für den Stream des Transceivers verantwortlich ist.
+Die schreibgeschützte **`sender`**-Eigenschaft der [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Schnittstelle von WebRTC gibt den [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) an, der für das Kodieren und Senden von ausgehenden Mediendaten des Streams des Transceivers verantwortlich ist.
 
 ## Wert
 
-Ein {{domxref("RTCRtpSender")}}-Objekt, das verwendet wird, um Medien zu kodieren und zu senden, deren Medien-ID mit dem aktuellen Wert von {{domxref("RTCRtpTransceiver.mid", "mid")}} übereinstimmt.
+Ein [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekt, das verwendet wird, um Medien zu kodieren und zu senden, deren Medien-ID mit dem aktuellen Wert von [`mid`](/de/docs/Web/API/RTCRtpTransceiver/mid) übereinstimmt.
 
 ## Spezifikationen
 
@@ -25,4 +25,4 @@ Ein {{domxref("RTCRtpSender")}}-Objekt, das verwendet wird, um Medien zu kodiere
 ## Siehe auch
 
 - [Einführung in das Real-time Transport Protocol (RTP)](/de/docs/Web/API/WebRTC_API/Intro_to_RTP)
-- {{domxref("RTCRtpSender")}}
+- [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)

@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die **`FileSystemFileEntry`**-Schnittstelle der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction) repräsentiert eine Datei in einem Dateisystem. Sie bietet Eigenschaften, die die Attribute der Datei beschreiben, sowie die {{domxref("FileSystemFileEntry.file", "file()")}}-Methode, die ein {{domxref("File")}}-Objekt erstellt, das zum Lesen der Datei verwendet werden kann.
+Die **`FileSystemFileEntry`**-Schnittstelle der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction) repräsentiert eine Datei in einem Dateisystem. Sie bietet Eigenschaften, die die Attribute der Datei beschreiben, sowie die Methode [`file()`](/de/docs/Web/API/FileSystemFileEntry/file), die ein [`File`](/de/docs/Web/API/File)-Objekt erstellt, das zum Lesen der Datei verwendet werden kann.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt die Eigenschaften ihrer Elternschnittstelle, {{domxref("FileSystemEntry")}}, hat jedoch keine Eigenschaften, die für diese Schnittstelle einzigartig sind._
+_Erbt die Eigenschaften der übergeordneten Schnittstelle [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry), hat jedoch keine Eigenschaften, die für diese Schnittstelle einzigartig sind._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("FileSystemFileEntry.createWriter", "createWriter()")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Gibt ein {{domxref("FileWriter")}}-Objekt zurück, das verwendet werden kann, um Daten in die durch den Verzeichniseintrag repräsentierte Datei zu schreiben.
-- {{domxref("FileSystemFileEntry.file", "file()")}}
-  - : Erstellt ein neues {{domxref("File")}}-Objekt, das verwendet werden kann, um die Datei zu lesen.
+- [`createWriter()`](/de/docs/Web/API/FileSystemFileEntry/createWriter) {{deprecated_inline}} {{non-standard_inline}}
+  - : Gibt ein [`FileWriter`](/de/docs/Web/API/FileWriter)-Objekt zurück, das verwendet werden kann, um Daten in die durch den Verzeichniseintrag repräsentierte Datei zu schreiben.
+- [`file()`](/de/docs/Web/API/FileSystemFileEntry/file)
+  - : Erstellt ein neues [`File`](/de/docs/Web/API/File)-Objekt, das zum Lesen der Datei verwendet werden kann.
 
 ## Spezifikationen
 

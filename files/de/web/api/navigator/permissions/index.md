@@ -1,5 +1,5 @@
 ---
-title: "Navigator: permissions Eigenschaft"
+title: "Navigator: permissions-Eigenschaft"
 short-title: permissions
 slug: Web/API/Navigator/permissions
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Permissions API")}}
 
-Die **`permissions`** schreibgeschützte Eigenschaft des {{domxref("Navigator")}}-Interface gibt ein
-{{domxref("Permissions")}}-Objekt zurück, das verwendet werden kann, um den Berechtigungsstatus der von der [Permissions API](/de/docs/Web/API/Permissions_API) abgedeckten APIs abzufragen und zu aktualisieren.
+Die **`permissions`** Leseeigenschaft der [`Navigator`](/de/docs/Web/API/Navigator) Schnittstelle gibt ein
+[`Permissions`](/de/docs/Web/API/Permissions) Objekt zurück, das verwendet werden kann, um den Berechtigungsstatus von APIs zu abzufragen und zu aktualisieren, die von der [Permissions API](/de/docs/Web/API/Permissions_API) abgedeckt werden.
 
 ## Wert
 
-Ein {{domxref("Permissions")}}-Objekt.
+Ein [`Permissions`](/de/docs/Web/API/Permissions) Objekt.
 
 ## Beispiele
 
@@ -24,7 +24,7 @@ navigator.permissions.query({ name: "geolocation" }).then((result) => {
   } else if (result.state === "prompt") {
     showButtonToEnableMap();
   }
-  // Tun Sie nichts, wenn die Berechtigung verweigert wurde.
+  // Don't do anything if the permission was denied.
 });
 ```
 
@@ -39,4 +39,4 @@ navigator.permissions.query({ name: "geolocation" }).then((result) => {
 ## Siehe auch
 
 - [Permissions API](/de/docs/Web/API/Permissions_API)
-- {{domxref("Navigator")}}
+- [`Navigator`](/de/docs/Web/API/Navigator)

@@ -1,5 +1,5 @@
 ---
-title: "StyleSheetList: item()-Methode"
+title: "StyleSheetList: item() Methode"
 short-title: item()
 slug: Web/API/StyleSheetList/item
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`item()`**-Methode der {{domxref("StyleSheetList")}}-Schnittstelle gibt ein einzelnes {{domxref("CSSStyleSheet")}}-Objekt zurück.
+Die **`item()`** Methode des [`StyleSheetList`](/de/docs/Web/API/StyleSheetList) Interfaces gibt ein einzelnes [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) Objekt zurück.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ item(index)
 ### Parameter
 
 - `index`
-  - : Ein Integer, der den Index des zurückzugebenden Elements in der Sammlung darstellt.
+  - : Ein Ganzzahlwert, der den Index des Elements in der Sammlung darstellt, das zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("CSSStyleSheet")}}-Objekt oder `null`, falls für diesen Index keines existiert.
+Ein [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) Objekt oder `null`, wenn für diesen Index keines existiert.
 
 ## Beispiele
 
-Im folgenden Beispiel gibt eine for-Schleife jedes einzelne {{domxref("CSSStyleSheet")}}-Objekt in der Konsole aus, indem `item` mit dem Wert von `i` aufgerufen wird.
+Im folgenden Beispiel druckt eine for-Schleife jedes einzelne [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) Objekt auf die Konsole, indem `item` mit dem Wert von `i` aufgerufen wird.
 
 ```js
 let list = document.styleSheets;

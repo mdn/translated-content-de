@@ -7,29 +7,29 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`AuthenticatorAssertionResponse`**-Schnittstelle der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) enthält eine [digitale Signatur](/de/docs/Glossary/Signature/Security) aus dem privaten Schlüssel eines bestimmten WebAuthn-Anmeldedatensatzes. Der Server der vertrauenden Partei kann diese Signatur verifizieren, um einen Benutzer zu authentifizieren, zum Beispiel, wenn er sich anmeldet.
+Das **`AuthenticatorAssertionResponse`**-Interface der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) enthält eine [digitale Signatur](/de/docs/Glossary/Signature/Security) aus dem privaten Schlüssel eines bestimmten WebAuthn-Zertifikats. Der Server der vertrauenden Partei kann diese Signatur überprüfen, um einen Benutzer zu authentifizieren, zum Beispiel, wenn er sich anmeldet.
 
-Ein `AuthenticatorAssertionResponse`-Objekt ist in der {{domxref("PublicKeyCredential.response", "response")}}-Eigenschaft eines {{domxref("PublicKeyCredential")}}-Objektes verfügbar, das von einem erfolgreichen {{domxref("CredentialsContainer.get()", "navigator.credentials.get()")}}-Aufruf zurückgegeben wird.
+Eine `AuthenticatorAssertionResponse`-Objektinstanz ist in der [`response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft eines [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekts verfügbar, das von einem erfolgreichen Rückruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) zurückgegeben wurde.
 
-Diese Schnittstelle erbt von {{domxref("AuthenticatorResponse")}}.
+Dieses Interface erbt von [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse).
 
 {{InheritanceDiagram}}
 
 > [!NOTE]
-> Diese Schnittstelle ist auf Top-Level-Kontexte beschränkt. Die Verwendung innerhalb eines {{HTMLElement("iframe")}}-Elements wird keine Wirkung haben.
+> Dieses Interface ist auf kontextübergreifende Verwendung beschränkt. Die Nutzung innerhalb eines {{HTMLElement("iframe")}}-Elements hat keine Wirkung.
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von ihrem Elternteil {{domxref("AuthenticatorResponse")}}._
+_Erbt auch Eigenschaften von seinem Elternteil, [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse)._
 
-- {{domxref("AuthenticatorAssertionResponse.authenticatorData")}} {{ReadOnlyInline}}
-  - : Ein {{jsxref("ArrayBuffer")}}, der Informationen vom Authentifikator enthält, wie den Relying Party ID Hash (rpIdHash), einen Signaturzähler, Test der Benutzeranwesenheit und Benutzerverifizierungs-Flags und alle vom Authentifikator verarbeiteten Erweiterungen.
-- {{domxref("AuthenticatorResponse.clientDataJSON")}} {{ReadOnlyInline}}
-  - : Enthält die JSON-kompatible Serialisierung der Daten, die vom Browser an den Authentifikator weitergegeben werden, um sich mit diesen Anmeldedaten zu authentifizieren — d.h., wenn {{domxref("CredentialsContainer.get()")}} mit einer `publicKey`-Option aufgerufen wird. Diese Daten enthalten einige Informationen aus den Optionen, die in den `get()`-Aufruf übergeben werden, und einige Informationen, die vom Browser kontrolliert werden.
-- {{domxref("AuthenticatorAssertionResponse.signature")}} {{ReadOnlyInline}}
-  - : Eine Assertion-Signatur über {{domxref("AuthenticatorAssertionResponse.authenticatorData")}} und {{domxref("AuthenticatorResponse.clientDataJSON")}}. Die Assertion-Signatur wird mit dem privaten Schlüssel des Schlüsselpaares erstellt, das während des ursprünglichen {{domxref("CredentialsContainer.create()","navigator.credentials.create()")}}-Aufrufs erstellt wurde, und mit dem öffentlichen Schlüssel desselben Schlüsselpaares verifiziert.
-- {{domxref("AuthenticatorAssertionResponse.userHandle")}} {{ReadOnlyInline}}
-  - : Ein {{jsxref("ArrayBuffer")}}, der einen undurchsichtigen Benutzeridentifikator enthält, der als `user.id` in den Optionen spezifiziert ist, die an den ursprünglichen {{domxref("CredentialsContainer.create()","navigator.credentials.create()")}}-Aufruf übergeben werden.
+- [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData) {{ReadOnlyInline}}
+  - : Ein {{jsxref("ArrayBuffer")}}, das Informationen vom Authenticator enthält, wie z.B. den Relying Party ID Hash (rpIdHash), einen Signaturzähler, Test der Benutzerpräsenz und Benutzerverifikationsflaggen sowie alle vom Authenticator verarbeiteten Erweiterungen.
+- [`AuthenticatorResponse.clientDataJSON`](/de/docs/Web/API/AuthenticatorResponse/clientDataJSON) {{ReadOnlyInline}}
+  - : Enthält die JSON-kompatible Serialisierung der Daten, die vom Browser an den Authenticator übergeben wurden, um sich mit diesem Zertifikat zu authentifizieren — z.B., wenn [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einer `publicKey`-Option aufgerufen wird. Diese Daten enthalten einige Informationen aus den Optionen, die im `get()`-Aufruf übergeben wurden, sowie einige Informationen, die vom Browser kontrolliert werden.
+- [`AuthenticatorAssertionResponse.signature`](/de/docs/Web/API/AuthenticatorAssertionResponse/signature) {{ReadOnlyInline}}
+  - : Eine Assertions-Signatur über [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData) und [`AuthenticatorResponse.clientDataJSON`](/de/docs/Web/API/AuthenticatorResponse/clientDataJSON). Die Assertions-Signatur wird mit dem privaten Schlüssel des Schlüsselpaares erstellt, das während des ursprünglichen [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create)-Aufrufs erstellt wurde, und mit dem öffentlichen Schlüssel desselben Schlüsselpaares überprüft.
+- [`AuthenticatorAssertionResponse.userHandle`](/de/docs/Web/API/AuthenticatorAssertionResponse/userHandle) {{ReadOnlyInline}}
+  - : Ein {{jsxref("ArrayBuffer")}}, das einen undurchsichtigen Benutzerbezeichner enthält, der als `user.id` in den Optionen angegeben ist, die beim ursprünglichen [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create)-Aufruf übergeben wurden.
 
 ## Instanz-Methoden
 
@@ -49,5 +49,5 @@ Siehe [Benutzeranmeldung mit der WebAuthn API](/de/docs/Web/API/CredentialsConta
 
 ## Siehe auch
 
-- {{domxref("AuthenticatorAttestationResponse")}}: die Schnittstelle für den Typ der Antwort, der bei der Erstellung eines neuen Anmeldedatensatzes gegeben wird
-- {{domxref("AuthenticatorResponse")}}: die übergeordnete Schnittstelle
+- [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse): das Interface für die Art von Antwort, die beim Erstellen eines neuen Zertifikats gegeben wird
+- [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse): das Eltern-Interface

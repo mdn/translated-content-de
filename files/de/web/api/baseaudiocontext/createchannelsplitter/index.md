@@ -1,5 +1,5 @@
 ---
-title: "BaseAudioContext: createChannelSplitter()-Methode"
+title: "BaseAudioContext: Methode createChannelSplitter()"
 short-title: createChannelSplitter()
 slug: Web/API/BaseAudioContext/createChannelSplitter
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `createChannelSplitter()`-Methode der {{domxref("BaseAudioContext")}}-Schnittstelle wird verwendet, um einen {{domxref("ChannelSplitterNode")}} zu erstellen, der dazu dient, die einzelnen Kanäle eines Audiostreams zuzugreifen und getrennt zu verarbeiten.
+Die Methode `createChannelSplitter()` des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Interfaces wird verwendet, um einen [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode) zu erstellen, der dazu dient, die einzelnen Kanäle eines Audiostreams zu erreichen und separat zu verarbeiten.
 
 > [!NOTE]
-> Der {{domxref("ChannelSplitterNode.ChannelSplitterNode", "ChannelSplitterNode()")}}-Konstruktor ist die empfohlene Methode zum Erstellen eines {{domxref("ChannelSplitterNode")}}; siehe [Erstellen eines AudioNodes](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der Konstruktor [`ChannelSplitterNode()`](/de/docs/Web/API/ChannelSplitterNode/ChannelSplitterNode) ist die empfohlene Methode zum Erstellen eines [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode); siehe [Erstellung eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -26,11 +26,11 @@ createChannelSplitter(numberOfOutputs)
 
 ### Rückgabewert
 
-Ein {{domxref("ChannelSplitterNode")}}.
+Ein [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode).
 
 ## Beispiele
 
-Das folgende einfache Beispiel zeigt, wie Sie einen Stereo-Track (z.B. ein Musikstück) trennen und den linken und rechten Kanal unterschiedlich verarbeiten könnten. Um sie zu verwenden, müssen Sie die zweiten und dritten Parameter der {{domxref("AudioNode/connect", "AudioNode.connect(AudioNode)")}}-Methode nutzen, die es Ihnen ermöglichen, den Index des Kanals, von dem verbunden werden soll, und den Index des Kanals, zu dem verbunden werden soll, anzugeben.
+Das folgende einfache Beispiel zeigt, wie Sie einen Stereotrack (zum Beispiel ein Musikstück) trennen und den linken und den rechten Kanal unterschiedlich verarbeiten können. Um sie zu verwenden, müssen Sie die zweiten und dritten Parameter der [`AudioNode.connect(AudioNode)`](/de/docs/Web/API/AudioNode/connect)-Methode verwenden, die es Ihnen ermöglichen, den Index des Kanals anzugeben, von dem aus verbunden werden soll, sowie den Index des Kanals, mit dem verbunden werden soll.
 
 ```js
 const ac = new AudioContext();
@@ -41,21 +41,21 @@ ac.decodeAudioData(someStereoBuffer, (data) => {
   source.connect(splitter);
   const merger = ac.createChannelMerger(2);
 
-  // Reduzieren Sie die Lautstärke nur des linken Kanals
+  // Reduce the volume of the left channel only
   const gainNode = ac.createGain();
   gainNode.gain.setValueAtTime(0.5, ac.currentTime);
   splitter.connect(gainNode, 0);
 
-  // Verbinden Sie den Splitter zurück mit dem zweiten Eingang des Mergers: wir
-  // vertauschen die Kanäle effektiv, hier wird das Stereo-Bild umgekehrt.
+  // Connect the splitter back to the second input of the merger: we
+  // effectively swap the channels, here, reversing the stereo image.
   gainNode.connect(merger, 0, 1);
   splitter.connect(merger, 1, 0);
 
   const dest = ac.createMediaStreamDestination();
 
-  // Da wir einen ChannelMergerNode verwendet haben, haben wir jetzt einen Stereo
-  // MediaStream, den wir verwenden können, um das Web Audio-Graph zu WebRTC,
-  // MediaRecorder, etc. zu leiten.
+  // Because we have used a ChannelMergerNode, we now have a stereo
+  // MediaStream we can use to pipe the Web Audio graph to WebRTC,
+  // MediaRecorder, etc.
   merger.connect(dest);
 });
 ```

@@ -7,22 +7,22 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`scriptlevel`** [Globale Attribut](/de/docs/Web/MathML/Global_attributes) setzt die [math-depth](/de/docs/Web/CSS/math-depth) eines MathML-Elements. Es ermöglicht das Überschreiben von Regeln des [Benutzeragenten-Stylesheets](/de/docs/Web/CSS/Cascade#user-agent_stylesheets), die die automatische Berechnung der [Schriftgröße](/de/docs/Web/CSS/font-size) in MathML-Formeln definieren.
+Das **`scriptlevel`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) setzt die [math-depth](/de/docs/Web/CSS/math-depth) eines MathML-Elements. Es ermöglicht das Überschreiben der Regeln aus dem [User-Agent-Stylesheet](/de/docs/Web/CSS/Cascade#user-agent_stylesheets), die die automatische Berechnung der [font-size](/de/docs/Web/CSS/font-size) innerhalb von MathML-Formeln definieren.
 
 ## Beispiel
 
 ```html
-<!-- math-depth ist standardmäßig auf 0 auf der <math>-Wurzel. -->
+<!-- math-depth defaults to 0 on the <math> root. -->
 <math style="font-size: 64pt">
   <msubsup>
-    <!-- math-depth und font-size bleiben auf der Basis unverändert. -->
+    <!-- math-depth and font-size remain unchanged on the base. -->
     <mtext>BASE</mtext>
-    <!-- math-depth erhöht sich standardmäßig um 1 innerhalb des Subskripts,
-         daher wird es um 1 erhöht und die Schriftgröße einmal verkleinert. -->
+    <!-- math-depth defaults to add(1) within the subscript, so it
+         is incremented by 1 and the font-size is scaled down once. -->
     <mtext>SUBSCRIPT</mtext>
-    <!-- math-depth erhöht sich standardmäßig auch um 1 innerhalb des Superskripts,
-         aber das scriptlevel-Attribut gibt an, es um 2 zu erhöhen,
-         sodass die Schriftgröße tatsächlich zweimal verkleinert wird. -->
+    <!-- math-depth defaults to add(1) within the superscript too, but
+         the scriptlevel attribute tells to increment it by 2 instead,
+         so the font-size is actually scaled down twice. -->
     <mtext scriptlevel="+2">SUPERSCRIPT</mtext>
   </msubsup>
 </math>
@@ -31,21 +31,21 @@ Das **`scriptlevel`** [Globale Attribut](/de/docs/Web/MathML/Global_attributes) 
 ## Syntax
 
 ```html-nolint
-<math scriptlevel="-1"> <!-- verringert math-depth um 1 -->
-<math scriptlevel="+2"> <!-- erhöht math-depth um 2 -->
-<math scriptlevel="0"> <!-- setzt math-depth auf 0 zurück -->
+<math scriptlevel="-1"> <!-- decrease math-depth by 1 -->
+<math scriptlevel="+2"> <!-- increase math-depth by 2 -->
+<math scriptlevel="0"> <!-- reset math-depth to 0 -->
 ```
 
 ### Werte
 
-Wenn `<U>` eine vorzeichenlose [Ganzzahl](/de/docs/Web/CSS/integer) ist (d.h. ohne Vorzeichen), dann sind die akzeptierten Werte:
+Wenn `<U>` eine nicht signierte [Ganzzahl](/de/docs/Web/CSS/integer) ist (d. h. mit entferntem Vorzeichen), dann sind die akzeptierten Werte:
 
 - `<U>`
-  - : Setzt die `math-depth` auf den Wert `<U>`. Dadurch wird die `font-size` des Elements auf den gleichen Wert wie bei Elementen in der angegebenen Tiefe gesetzt.
+  - : Setzt die `math-depth` auf den Wert `<U>`. Dies setzt die `font-size` des Elements auf denselben Wert wie die der Elemente in der angegebenen Tiefe.
 - `+<U>`
-  - : Setzt die `math-depth` auf den Wert `add(<U>)`. Dadurch wird die `font-size` des Elements `<U>`-mal verkleinert.
+  - : Setzt die `math-depth` auf den Wert `add(<U>)`. Dies verkleinert die `font-size` auf dem Element um `<U>`-mal.
 - `-<U>`
-  - : Setzt die `math-depth` auf den Wert `add(-<U>)`. Dadurch wird die `font-size` des Elements `<U>`-mal vergrößert.
+  - : Setzt die `math-depth` auf den Wert `add(-<U>)`. Dies vergrößert die `font-size` auf dem Element um `<U>`-mal.
 
 ## Spezifikationen
 

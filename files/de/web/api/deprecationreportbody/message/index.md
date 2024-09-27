@@ -1,6 +1,6 @@
 ---
-title: "DeprecationReportBody: Nachricht-Eigenschaft"
-short-title: Nachricht
+title: "DeprecationReportBody: message-Eigenschaft"
+short-title: message
 slug: Web/API/DeprecationReportBody/message
 l10n:
   sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die **`message`** schreibgeschützte Eigenschaft des {{domxref("DeprecationReportBody")}}-Interfaces gibt eine menschenlesbare Beschreibung der Veraltung zurück. Diese entspricht typischerweise der Nachricht, die ein Browser in seiner DevTools-Konsole in Bezug auf ein veraltetes Feature anzeigt.
+Die **`message`**-Eigenschaft des schreibgeschützten [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Interfaces gibt eine menschenlesbare Beschreibung der Veraltung zurück. Diese entspricht typischerweise der Nachricht, die ein Browser in seiner DevTools-Konsole in Bezug auf ein veraltetes Feature anzeigt.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen {{domxref("ReportingObserver")}}, um Veraltungsberichte zu beobachten, und drucken dann den Wert von `message` in die Konsole.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltungsberichte zu beobachten, und geben dann den Wert von `message` in der Konsole aus.
 
 ```js
 let options = {
@@ -35,6 +35,6 @@ let observer = new ReportingObserver((reports, observer) => {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

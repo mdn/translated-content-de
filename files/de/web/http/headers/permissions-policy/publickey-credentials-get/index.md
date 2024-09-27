@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Header-Direktive `publickey-credentials-get` steuert, ob das aktuelle Dokument Zugriff auf die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) erhält, um Public-Key-Anmeldeinformationen abzurufen, d. h. über {{domxref("CredentialsContainer.get","navigator.credentials.get({publicKey})")}}.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `publickey-credentials-get`-Direktive steuert, ob das aktuelle Dokument auf die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) zugreifen darf, um öffentliche Schlüsselanmeldeinformationen abzurufen, d. h. über [`navigator.credentials.get({publicKey})`](/de/docs/Web/API/CredentialsContainer/get).
 
-Insbesondere wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, wird das von `navigator.credentials.get({publicKey})` zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError` {{domxref("DOMException")}} abgelehnt.
+Insbesondere, wenn eine definierte Richtlinie die Verwendung dieses Features blockiert, wird das von `navigator.credentials.get({publicKey})` zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: publickey-credentials-get=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features erteilt ist. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standardzulassungsliste für `publickey-credentials-get` ist `self`.
+Die Standardliste für `publickey-credentials-get` ist `self`.
 
 ## Spezifikationen
 
@@ -35,6 +35,6 @@ Die Standardzulassungsliste für `publickey-credentials-get` ist `self`.
 ## Siehe auch
 
 - {{HTTPHeader("Permissions-Policy")}}-Header
-- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)
 - [Web Authentication API](/de/docs/Web/API/Web_Authentication_API)
-- {{DOMxRef("PublicKeyCredential")}}-Schnittstelle
+- [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle

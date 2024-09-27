@@ -1,5 +1,5 @@
 ---
-title: "AudioParam: Methode exponentialRampToValueAtTime()"
+title: "AudioParam: exponentialRampToValueAtTime()-Methode"
 short-title: exponentialRampToValueAtTime()
 slug: Web/API/AudioParam/exponentialRampToValueAtTime
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`exponentialRampToValueAtTime()`** Methode der {{domxref("AudioParam")}}-Schnittstelle plant eine allmähliche exponentielle Änderung des Wertes des {{domxref("AudioParam")}}. Die Änderung beginnt zur für das _vorherige_ Ereignis angegebenen Zeit, folgt einer exponentiellen Rampe zum neuen Wert, der im `value`-Parameter angegeben ist, und erreicht den neuen Wert zur im `endTime`-Parameter angegebenen Zeit.
+Die **`exponentialRampToValueAtTime()`**-Methode der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle plant eine allmähliche exponentielle Änderung des Wertes des [`AudioParam`](/de/docs/Web/API/AudioParam). Die Änderung beginnt zum Zeitpunkt des vorherigen Ereignisses, folgt einer exponentiellen Rampe zum neuen Wert, der im `value`-Parameter angegeben ist, und erreicht den neuen Wert zum Zeitpunkt, der im `endTime`-Parameter angegeben ist.
 
 > [!NOTE]
-> Exponentielle Rampen gelten als nützlicher beim Ändern
-> von Frequenzen oder Wiedergaberaten als lineare Rampen, aufgrund der Funktionsweise des menschlichen Ohrs.
+> Exponentielle Rampen gelten als nützlicher beim Ändern von
+> Frequenzen oder Wiedergaberaten als lineare Rampen, aufgrund der Funktionsweise des menschlichen Ohrs.
 
 ## Syntax
 
@@ -23,17 +23,17 @@ exponentialRampToValueAtTime(value, endTime)
 ### Parameter
 
 - `value`
-  - : Eine Gleitkommazahl, die den Wert darstellt, auf den das `AudioParam` zu dem angegebenen Zeitpunkt ansteigen wird.
+  - : Eine Gleitkommazahl, die den Wert darstellt, auf den das `AudioParam` bis zu dem angegebenen Zeitpunkt ansteigen wird.
 - `endTime`
-  - : Ein Double, das die genaue Zeit (in Sekunden) nach Beginn des Ansteigens darstellt, zu der die Änderung des Wertes aufhören wird.
+  - : Eine Gleitkommazahl, die die genaue Zeit (in Sekunden) darstellt, nachdem die Rampe beginnt, zu der die Änderung des Wertes stoppt.
 
 ### Rückgabewert
 
-Eine Referenz zu diesem `AudioParam`-Objekt. In einigen älteren Implementierungen dieser Schnittstelle geben Browser {{jsxref('undefined')}} zurück.
+Ein Verweis auf dieses `AudioParam`-Objekt. In einigen Browsern geben ältere Implementierungen dieser Schnittstelle {{jsxref('undefined')}} zurück.
 
 ## Beispiele
 
-In diesem Beispiel haben wir eine Medienquelle mit zwei Steuerknöpfen (siehe das [audio-param Repository](https://github.com/mdn/webaudio-examples/tree/main/audio-param) für den Quellcode, oder [sehen Sie das Beispiel live an](https://mdn.github.io/webaudio-examples/audio-param/).) Wenn diese Tasten gedrückt werden, wird `exponentialRampToValueAtTime()` verwendet, um den Gain-Wert auf 1.0 hoch- und auf 0 herunterzufahren. Dies ist ziemlich nützlich für Einblend-/Ausblendeffekte:
+In diesem Beispiel haben wir eine Medienquelle mit zwei Steuertasten (sehen Sie sich den [audio-param Repo](https://github.com/mdn/webaudio-examples/tree/main/audio-param) für den Quellcode an oder [sehen Sie sich das Beispiel live an](https://mdn.github.io/webaudio-examples/audio-param/).) Wenn diese Tasten gedrückt werden, wird `exponentialRampToValueAtTime()` verwendet, um den Gain-Wert auf 1.0 anzuheben und auf 0 abzusenken. Dies ist ziemlich nützlich für Einblende-/Ausblendeffekte:
 
 ```js
 // create audio context
@@ -69,8 +69,8 @@ expRampMinus.onclick = () => {
 ```
 
 > [!NOTE]
-> Ein Wert von 0.01 wurde für den Wert verwendet, auf den in der
-> letzten Funktion heruntergefahren werden soll, anstatt 0, da ein _ungültiger oder illegaler String_-Fehler auftritt, wenn 0 verwendet wird — der Wert muss positiv sein.
+> Ein Wert von 0.01 wurde für den Wert verwendet, um in der
+> letzten Funktion abzusinken, anstatt 0, da ein _ungültiger oder illegaler Zeichenfolgen_-Fehler ausgelöst wird, wenn 0 verwendet wird — der Wert muss positiv sein.
 
 ## Spezifikationen
 

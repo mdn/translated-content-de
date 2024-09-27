@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Das `MediaElementAudioSourceNode`-Interface repräsentiert eine Audioquelle, die aus einem HTML-{{ htmlelement("audio") }} oder {{ htmlelement("video") }}-Element besteht. Es ist ein {{domxref("AudioNode")}}, das als Audioquelle fungiert.
+Das `MediaElementAudioSourceNode`-Interface stellt eine Audioquelle dar, die aus einem HTML-{{ htmlelement("audio") }}- oder {{ htmlelement("video") }}-Element besteht. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode), das als Audioquelle fungiert.
 
-Ein `MediaElementAudioSourceNode` hat keine Eingänge und genau einen Ausgang und wird mittels der Methode {{domxref("AudioContext.createMediaElementSource()")}} erstellt. Die Anzahl der Kanäle im Ausgang entspricht der Anzahl der Kanäle des Audios, auf das sich das bei der Erstellung des Knotens verwendete {{domxref("HTMLMediaElement")}} bezieht, oder ist 1, wenn das {{domxref("HTMLMediaElement")}} kein Audio hat.
+Ein `MediaElementAudioSourceNode` hat keine Eingänge und genau einen Ausgang und wird mit der Methode [`AudioContext.createMediaElementSource()`](/de/docs/Web/API/AudioContext/createMediaElementSource) erstellt. Die Anzahl der Kanäle im Ausgang entspricht der Anzahl der Kanäle des Audios, das durch das [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) referenziert wird, das bei der Erstellung des Knotens verwendet wird, oder beträgt 1, wenn das [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) keinen Ton hat.
 
 {{InheritanceDiagram}}
 
@@ -26,7 +26,7 @@ Ein `MediaElementAudioSourceNode` hat keine Eingänge und genau einen Ausgang un
     <tr>
       <th scope="row">Anzahl der Kanäle</th>
       <td>
-        2 (beachten Sie, dass {{domxref("AudioNode.channelCount")}} nur für das Hoch- und Heruntermischen von {{domxref("AudioNode")}}-Eingängen verwendet wird, und <code>MediaElementAudioSourceNode</code> keine Eingänge hat)
+        2 (aber beachten Sie, dass [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) nur zum Hochmischen und Heruntermischen von [`AudioNode`](/de/docs/Web/API/AudioNode)-Eingängen verwendet wird und <code>MediaElementAudioSourceNode</code> keine Eingänge hat)
       </td>
     </tr>
   </tbody>
@@ -34,23 +34,23 @@ Ein `MediaElementAudioSourceNode` hat keine Eingänge und genau einen Ausgang un
 
 ## Konstruktor
 
-- {{domxref("MediaElementAudioSourceNode.MediaElementAudioSourceNode", "MediaElementAudioSourceNode()")}}
+- [`MediaElementAudioSourceNode()`](/de/docs/Web/API/MediaElementAudioSourceNode/MediaElementAudioSourceNode)
   - : Erstellt eine neue `MediaElementAudioSourceNode`-Objektinstanz.
 
 ## Instanz-Eigenschaften
 
-_Übernimmt Eigenschaften von seinem Eltern, {{domxref("AudioNode")}}_.
+_Erbt Eigenschaften von seinem Elternknoten, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
-- {{domxref("MediaElementAudioSourceNode.mediaElement", "mediaElement")}} {{ReadOnlyInline}}
-  - : Das {{domxref("HTMLMediaElement")}}, das beim Erstellen dieses `MediaStreamAudioSourceNode` verwendet wurde.
+- [`mediaElement`](/de/docs/Web/API/MediaElementAudioSourceNode/mediaElement) {{ReadOnlyInline}}
+  - : Das [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement), das beim Erstellen dieses `MediaStreamAudioSourceNode` verwendet wurde.
 
 ## Instanz-Methoden
 
-_Übernimmt Methoden von seinem Eltern, {{domxref("AudioNode")}}_.
+_Erbt Methoden von seinem Elternknoten, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 ## Beispiel
 
-Siehe [`AudioContext.createMediaElementSource()`](/de/docs/Web/API/AudioContext/createMediaElementSource#examples) für ein Beispielcode.
+Siehe [`AudioContext.createMediaElementSource()`](/de/docs/Web/API/AudioContext/createMediaElementSource#examples) für Beispielcode.
 
 ## Spezifikationen
 

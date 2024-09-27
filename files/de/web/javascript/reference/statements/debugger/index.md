@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Die **`debugger`** Anweisung ruft jegliche verfügbare Debugging-Funktionalität auf, wie zum Beispiel das Setzen eines Haltepunkts. Wenn keine Debugging-Funktionalität verfügbar ist, hat diese Anweisung keine Auswirkung.
+Die **`debugger`**-Anweisung aktiviert jegliche verfügbare Debugging-Funktionalität, wie zum Beispiel das Setzen eines Breakpoints. Falls keine Debugging-Funktionalität verfügbar ist, hat diese Anweisung keine Wirkung.
 
 ## Syntax
 
@@ -17,20 +17,20 @@ debugger;
 
 ## Beispiele
 
-### Verwendung der debugger-Anweisung
+### Verwenden der `debugger`-Anweisung
 
-Das folgende Beispiel zeigt Code, in dem eine `debugger` Anweisung eingefügt wurde, um einen Debugger (falls vorhanden) aufzurufen, wenn die Funktion aufgerufen wird.
+Das folgende Beispiel zeigt Code, in dem eine `debugger`-Anweisung eingefügt wurde, um einen Debugger (falls vorhanden) zu aktivieren, wenn die Funktion aufgerufen wird.
 
 ```js
 function potentiallyBuggyCode() {
   debugger;
-  // möglicherweise fehlerhaften Code untersuchen, durchgehen usw.
+  // do potentially buggy stuff to examine, step through, etc.
 }
 ```
 
-Wenn der Debugger aufgerufen wird, wird die Ausführung an der `debugger` Anweisung pausiert. Es ist wie ein Haltepunkt im Skriptcode.
+Wenn der Debugger aktiviert wird, wird die Ausführung an der `debugger`-Anweisung pausiert. Es ist wie ein Breakpoint im Quellcode des Skripts.
 
-![Ein Browser mit geöffneten Entwicklerwerkzeugen im Debugger-Panel zeigt, wie die Ausführung an der debugger-Anweisung pausiert wird, um eine genaue Untersuchung von Variablen, Bereichen, Ereignissen usw. zu ermöglichen.](screen_shot_2014-02-07_at_9.14.35_am.png)
+![Ein Browser mit geöffneten Entwicklerwerkzeugen im Debugger-Panel, das zeigt, wie die Ausführung an der debugger-Anweisung pausiert, um eine genaue Untersuchung von Variablen, Bereichen, Ereignissen usw. zu ermöglichen.](screen_shot_2014-02-07_at_9.14.35_am.png)
 
 ## Spezifikationen
 
@@ -42,4 +42,4 @@ Wenn der Debugger aufgerufen wird, wird die Ausführung an der `debugger` Anweis
 
 ## Siehe auch
 
-- [Der Firefox JavaScript Debugger¶](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html) in den Firefox-Quellendokumenten
+- [Der Firefox JavaScript Debugger¶](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html) in den Firefox-Quelldokumentationen

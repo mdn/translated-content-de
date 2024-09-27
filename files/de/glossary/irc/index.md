@@ -7,6 +7,6 @@ l10n:
 
 {{GlossarySidebar}}
 
-**IRC** (_Internet Relay Chat_) ist ein weltweites Chatsystem, das eine Internetverbindung und einen IRC-Client erfordert, der Nachrichten über den IRC-Server sendet und empfängt.
+**IRC** (_Internet Relay Chat_) ist ein weltweites Chatsystem, das eine Internetverbindung und einen IRC-Client erfordert, welcher Nachrichten über den IRC-Server sendet und empfängt.
 
-In den späten 1980er Jahren von Jarkko Oikarinen entwickelt, verwendet IRC {{glossary("TCP")}} und ist ein offenes Protokoll. Der IRC-Server sendet Nachrichten an alle, die mit einem der vielen IRC-Kanäle verbunden sind (jeder mit einer eigenen ID).
+In den späten 1980er Jahren von Jarkko Oikarinen entworfen, verwendet IRC [TCP](/de/docs/Glossary/TCP) und ist ein offenes Protokoll. Der IRC-Server sendet Nachrichten an alle, die mit einem der vielen IRC-Kanäle (jeder mit einer eigenen ID) verbunden sind.

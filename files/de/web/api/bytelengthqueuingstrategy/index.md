@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`ByteLengthQueuingStrategy`** Schnittstelle der [Streams API](/de/docs/Web/API/Streams_API) bietet eine integrierte Strategie zur Byte-Längenwarteschlange, die beim Erstellen von Streams verwendet werden kann.
+Das **`ByteLengthQueuingStrategy`** Interface der [Streams API](/de/docs/Web/API/Streams_API) bietet eine eingebaute Warteschlangen-Strategie basierend auf der Byte-Länge, die beim Erstellen von Streams verwendet werden kann.
 
 ## Konstruktor
 
-- {{domxref("ByteLengthQueuingStrategy.ByteLengthQueuingStrategy", "ByteLengthQueuingStrategy()")}}
-  - : Erstellt eine neue Instanz des `ByteLengthQueuingStrategy`-Objekts.
+- [`ByteLengthQueuingStrategy()`](/de/docs/Web/API/ByteLengthQueuingStrategy/ByteLengthQueuingStrategy)
+  - : Erstellt eine neue Instanz eines `ByteLengthQueuingStrategy` Objekts.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("ByteLengthQueuingStrategy.highWaterMark")}} {{ReadOnlyInline}}
-  - : Die Gesamtanzahl an Bytes, die in der internen Warteschlange enthalten sein können, bevor [Backpressure](/de/docs/Web/API/Streams_API/Concepts#backpressure) angewendet wird.
+- [`ByteLengthQueuingStrategy.highWaterMark`](/de/docs/Web/API/ByteLengthQueuingStrategy/highWaterMark) {{ReadOnlyInline}}
+  - : Die Gesamtanzahl der Bytes, die in der internen Warteschlange enthalten sein können, bevor [Gegendruck](/de/docs/Web/API/Streams_API/Concepts#backpressure) angewendet wird.
 
 ## Instanz-Methoden
 
-- {{domxref("ByteLengthQueuingStrategy.size()")}}
-  - : Gibt die `byteLength`-Eigenschaft des angegebenen Chunks zurück.
+- [`ByteLengthQueuingStrategy.size()`](/de/docs/Web/API/ByteLengthQueuingStrategy/size)
+  - : Gibt die `byteLength` Eigenschaft des gegebenen Chunks zurück.
 
 ## Beispiele
 
@@ -57,6 +57,6 @@ const size = queueingStrategy.size(chunk);
 
 ## Siehe auch
 
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
-- [Interne Warteschlangen und Warteschlangenstrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies)
-- {{domxref("ByteLengthQueuingStrategy.ByteLengthQueuingStrategy", "ByteLengthQueuingStrategy()")}} Konstruktor
+- [Streams API](/de/docs/Web/API/Streams_API)
+- [Interne Warteschlangen und Warteschlangen-Strategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies)
+- [`ByteLengthQueuingStrategy()`](/de/docs/Web/API/ByteLengthQueuingStrategy/ByteLengthQueuingStrategy) Konstruktor

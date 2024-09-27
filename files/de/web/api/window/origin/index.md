@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`origin`**-Eigenschaft des {{domxref("Window")}}-Interfaces gibt den Ursprung des globalen Bereichs als Zeichenkette zurück.
+Die schreibgeschützte **`origin`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt den Ursprung des globalen Scopes zurück, als Zeichenkette serialisiert.
 
 ## Wert
 
@@ -16,13 +16,13 @@ Eine Zeichenkette.
 
 ## Beispiele
 
-Ausgeführt im Fensterscope, wird das folgende Snippet den Ursprung des globalen Bereichs des Dokuments in die Konsole protokollieren.
+Ausgeführt innerhalb des Fenster-Scopes, wird das folgende Snippet den Ursprung des globalen Scopes des Dokuments in der Konsole protokollieren.
 
 ```js
-console.log(window.origin); // Gibt auf dieser Seite 'https://developer.mozilla.org' zurück
+console.log(window.origin); // On this page returns 'https://developer.mozilla.org'
 ```
 
-Wenn der Ursprung kein Schema/Host/Port-Tupel ist (z. B. wenn Sie versuchen, es lokal auszuführen, also über eine `file://` URL), wird `origin` die Zeichenkette `"null"` zurückgeben.
+Wenn der Ursprung kein Schema/Host/Port-Tupel ist (angenommen, Sie führen es lokal aus, z.B. über eine `file://`-URL), gibt `origin` die Zeichenkette `"null"` zurück.
 
 ## Spezifikationen
 
@@ -35,4 +35,4 @@ Wenn der Ursprung kein Schema/Host/Port-Tupel ist (z. B. wenn Sie versuchen, es 
 ## Siehe auch
 
 - [`WorkerGlobalScope.origin`](/de/docs/Web/API/WorkerGlobalScope/origin)
-- {{Glossary("origin")}} Glossareintrag
+- [origin](/de/docs/Glossary/origin) Glossarbegriff

@@ -7,15 +7,15 @@ l10n:
 
 {{JSRef}}
 
-Die **`buffer`** Zugriffs-Property von {{jsxref("TypedArray")}} Instanzen gibt den {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück, der bei der Erstellung dieses typisierten Arrays referenziert wurde.
+Die **`buffer`**-Zugriffsproperty von {{jsxref("TypedArray")}}-Instanzen gibt den {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}} zurück, auf den bei der Konstruktion dieses typisierten Arrays verwiesen wird.
 
 {{EmbedInteractiveExample("pages/js/typedarray-buffer.html", "shorter")}}
 
 ## Beschreibung
 
-Die `buffer` Eigenschaft ist eine Zugriffs-Property, deren Set-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn das _TypedArray_ erstellt wird und kann nicht geändert werden. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
+Die `buffer`-Property ist eine Zugriffsproperty, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Property nur lesen können. Der Wert wird festgelegt, wenn der _TypedArray_ konstruiert wird und kann nicht geändert werden. _TypedArray_ ist eines der [TypedArray-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_objects).
 
-Da ein typisiertes Array eine _Ansicht_ auf einen Puffer ist, kann der zugrunde liegende Puffer länger sein als das typisierte Array selbst.
+Da ein typisiertes Array eine _Ansicht_ eines Buffers ist, kann der zugrunde liegende Buffer länger sein als das typisierte Array selbst.
 
 ## Beispiele
 
@@ -27,7 +27,7 @@ const uint16 = new Uint16Array(buffer);
 uint16.buffer; // ArrayBuffer { byteLength: 8 }
 ```
 
-### Zugriff auf den zugrunde liegenden Puffer aus einer geschnittenen Array-Ansicht
+### Zugriff auf den zugrunde liegenden Buffer von einer gesliceten Array-Ansicht
 
 ```js
 const buffer = new ArrayBuffer(1024);
@@ -41,7 +41,7 @@ console.log(arr.buffer === buffer); // true
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`downloadRequest`** des {{domxref("NavigateEvent")}}-Interfaces gibt den Dateinamen der Datei zurück, die für den Download angefordert wurde, falls es sich um eine Download-Navigation handelt (z. B. ein {{htmlelement("a")}}- oder {{htmlelement("area")}}-Element mit einem `download`-Attribut), oder `null` andernfalls.
+Die schreibgeschützte Eigenschaft **`downloadRequest`** des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt den Dateinamen der Datei zurück, die für den Download angefordert wurde, im Falle einer Download-Navigation (z.B. ein {{htmlelement("a")}}- oder {{htmlelement("area")}}-Element mit einem `download`-Attribut), oder `null` andernfalls.
 
 ## Wert
 
-Ein String, der den Dateinamen der angeforderten Datei für den Download enthält, oder `null`.
+Ein String, der den Dateinamen der angeforderten Datei enthält, oder `null`.
 
 ## Beispiele
 
 ```js
 navigation.addEventListener("navigate", (event) => {
-  // Bei einigen Navigationsvorgängen, z. B. Cross-Origin-Navigationen,
-  // können wir nicht eingreifen. Lassen Sie den Browser diese normal behandeln.
+  // Some navigations, e.g. cross-origin navigations, we
+  // cannot intercept. Let the browser handle those normally.
   if (!event.canIntercept) {
     return;
   }
 
-  // Keine Fragment-Navigationen oder Downloads abfangen.
+  // Don't intercept fragment navigations or downloads.
   if (event.hashChange || event.downloadRequest !== null) {
     return;
   }
@@ -51,6 +51,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne clientseitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Live-Demo zur Navigation API](https://gigantic-honored-octagon.glitch.me/)

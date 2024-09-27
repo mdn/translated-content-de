@@ -1,5 +1,5 @@
 ---
-title: History-API
+title: History API
 slug: Web/API/History_API
 l10n:
   sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
@@ -7,60 +7,60 @@ l10n:
 
 {{DefaultAPISidebar("History API")}}
 
-Die **History-API** bietet Zugriff auf den Sitzungsverlauf des Browsers (nicht zu verwechseln mit [WebExtensions History](/de/docs/Mozilla/Add-ons/WebExtensions/API/history)) über das globale Objekt {{DOMxRef("Window.history","history")}}. Sie stellt nützliche Methoden und Eigenschaften zur Verfügung, mit denen Sie vorwärts und rückwärts durch den Verlauf des Benutzers navigieren und den Inhalt des Verlaufstapels manipulieren können.
+Die **History API** bietet Zugriff auf den Sitzungsverlauf des Browsers (nicht zu verwechseln mit [WebExtensions history](/de/docs/Mozilla/Add-ons/WebExtensions/API/history)) über das globale Objekt [`history`](/de/docs/Web/API/Window/history). Sie stellt nützliche Methoden und Eigenschaften bereit, die es Ihnen ermöglichen, durch den Verlauf des Benutzers zu navigieren und den Inhalt des Verlaufstapels zu manipulieren.
 
 > [!NOTE]
-> Diese API ist nur im Hauptthread verfügbar ({{domxref("Window")}}). Sie kann in {{domxref("Worker")}}- oder {{domxref("Worklet")}}-Kontexten nicht aufgerufen werden.
+> Diese API ist nur im Haupt-Thread verfügbar ([`Window`](/de/docs/Web/API/Window)). Sie kann nicht in den Kontexten [`Worker`](/de/docs/Web/API/Worker) oder [`Worklet`](/de/docs/Web/API/Worklet) verwendet werden.
 
 ## Konzepte und Nutzung
 
-Das Navigieren durch den Verlauf des Benutzers erfolgt mithilfe der Methoden {{DOMxRef("History.back","back()")}}, {{DOMxRef("History.forward","forward()")}} und {{DOMxRef("History.go","go()")}}.
+Durch den Verlauf des Benutzers bewegen Sie sich mit den Methoden [`back()`](/de/docs/Web/API/History/back), [`forward()`](/de/docs/Web/API/History/forward) und [`go()`](/de/docs/Web/API/History/go).
 
-### Vorwärts- und Rückwärtsnavigation
+### Vor- und zurückbewegen
 
-Um rückwärts durch den Verlauf zu navigieren:
+Um im Verlauf zurückzugehen:
 
 ```js
 history.back();
 ```
 
-Dies funktioniert genau so, als ob der Benutzer auf die <kbd><strong>Zurück</strong></kbd>-Schaltfläche in der Browser-Symbolleiste klickt.
+Dies wirkt genau so, als ob der Benutzer auf die <kbd><strong>Zurück</strong></kbd>-Schaltfläche in der Browser-Symbolleiste geklickt hätte.
 
-Ebenso können Sie vorwärts navigieren (als ob der Benutzer auf die <kbd><strong>Vorwärts</strong></kbd>-Schaltfläche klickt), so:
+Ähnlich können Sie vorwärts gehen (als ob der Benutzer auf die <kbd><strong>Vorwärts</strong></kbd>-Schaltfläche geklickt hätte), so:
 
 ```js
 history.forward();
 ```
 
-### Navigation zu einem bestimmten Punkt im Verlauf
+### Zu einem bestimmten Punkt im Verlauf gehen
 
-Sie können die Methode {{DOMxRef("History.go","go()")}} verwenden, um eine bestimmte Seite aus dem Sitzungsverlauf zu laden, die durch ihre relative Position zur aktuellen Seite identifiziert wird. (Die relative Position der aktuellen Seite ist `0`.)
+Sie können die Methode [`go()`](/de/docs/Web/API/History/go) verwenden, um eine bestimmte Seite aus dem Sitzungsverlauf zu laden, die durch ihre relative Position zur aktuellen Seite identifiziert wird. (Die relative Position der aktuellen Seite ist `0`.)
 
-Um eine Seite zurück zu navigieren (entspricht dem Aufruf von {{DOMxRef("History.back","back()")}}):
+Um eine Seite zurückzugehen (entspricht dem Aufruf von [`back()`](/de/docs/Web/API/History/back)):
 
 ```js
 history.go(-1);
 ```
 
-Um eine Seite vorwärts zu navigieren, genau wie bei {{DOMxRef("History.forward","forward()")}}:
+Um eine Seite vorwärts zu gehen, genau wie bei einem Aufruf von [`forward()`](/de/docs/Web/API/History/forward):
 
 ```js
 history.go(1);
 ```
 
-Ebenso können Sie zwei Seiten vorwärts navigieren, indem Sie `2` übergeben, und so weiter.
+Ähnlich können Sie zwei Seiten vorwärts gehen, indem Sie `2` übergeben, und so weiter.
 
-Eine weitere Verwendung der `go()`-Methode besteht darin, die aktuelle Seite zu aktualisieren, indem entweder `0` übergeben wird oder ohne Argument aufgerufen wird:
+Eine weitere Verwendung der Methode `go()` besteht darin, die aktuelle Seite durch das Übergeben von `0` oder durch Aufruf ohne Argumente zu aktualisieren:
 
 ```js
-// Die folgenden Anweisungen
-// haben beide den Effekt,
-// die Seite zu aktualisieren
+// The following statements
+// both have the effect of
+// refreshing the page
 history.go(0);
 history.go();
 ```
 
-Die Anzahl der Seiten im Verlaufstapel können Sie durch den Wert der Eigenschaft `length` ermitteln:
+Sie können die Anzahl der Seiten im Verlaufstapel bestimmen, indem Sie den Wert der Eigenschaft `length` ansehen:
 
 ```js
 const numberOfEntries = history.length;
@@ -68,14 +68,14 @@ const numberOfEntries = history.length;
 
 ## Schnittstellen
 
-- {{domxref("History")}}
-  - : Ermöglicht die Manipulation des _Sitzungsverlaufs_ des Browsers (das heißt, die in dem Tab oder Frame besuchten Seiten, in dem die aktuelle Seite geladen ist).
-- {{domxref("PopStateEvent")}}
-  - : Die Schnittstelle des Ereignisses {{domxref("Window.popstate_event", "popstate")}}.
+- [`History`](/de/docs/Web/API/History)
+  - : Ermöglicht die Manipulation des Browser-_Sitzungsverlaufs_ (das heißt, der besuchten Seiten im Tab oder Rahmen, in dem die aktuelle Seite geladen ist).
+- [`PopStateEvent`](/de/docs/Web/API/PopStateEvent)
+  - : Die Schnittstelle des [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignisses.
 
 ## Beispiele
 
-Das folgende Beispiel weist einen Listener für das Ereignis {{domxref("Window.popstate_event", "popstate")}} zu. Es illustriert dann einige der Methoden des History-Objekts, um innerhalb des Browserverlaufs des aktuellen Tabs hinzuzufügen, zu ersetzen und zu navigieren.
+Das folgende Beispiel weist einen Listener für das [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis zu. Es illustriert dann einige der Methoden des History-Objekts, um innerhalb des Browser-Verlaufs des aktuellen Tabs hinzuzufügen, zu ersetzen und zu bewegen.
 
 ```js
 window.addEventListener("popstate", (event) => {
@@ -102,5 +102,5 @@ history.go(2); // alerts "location: http://example.com/example.html?page=3, stat
 
 ## Siehe auch
 
-- {{domxref("window.history", "history")}} globales Objekt
-- {{domxref("Window/popstate_event", "popstate")}} Ereignis
+- [`history`](/de/docs/Web/API/Window/history) globales Objekt
+- [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignis

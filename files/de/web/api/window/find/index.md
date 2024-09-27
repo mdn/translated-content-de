@@ -10,9 +10,9 @@ l10n:
 
 > [!NOTE]
 > Die Unterstützung für `Window.find()` könnte sich in zukünftigen
-> Versionen von Gecko ändern. Siehe [Firefox Bug 672395](https://bugzil.la/672395).
+> Versionen von Gecko ändern. Siehe [Firefox Fehler 672395](https://bugzil.la/672395).
 
-Die **`Window.find()`**-Methode findet einen String nacheinander in einem Fenster.
+Die **`Window.find()`**-Methode sucht sequenziell nach einem String in einem Fenster.
 
 ## Syntax
 
@@ -25,21 +25,21 @@ find(aString, aCaseSensitive, aBackwards, aWrapAround, aWholeWord, aSearchInFram
 - `aString`
   - : Der Textstring, nach dem gesucht werden soll.
 - `aCaseSensitive`
-  - : Ein boolescher Wert. Wenn `true`, wird eine groß-/kleinbuchstabenempfindliche Suche festgelegt.
+  - : Ein boolescher Wert. Wenn `true`, wird eine groß- und kleinschreibungssensitive Suche durchgeführt.
 - `aBackwards`
-  - : Ein boolescher Wert. Wenn `true`, wird eine rückwärtsgerichtete Suche festgelegt.
+  - : Ein boolescher Wert. Wenn `true`, wird eine Rückwärtssuche durchgeführt.
 - `aWrapAround`
-  - : Ein boolescher Wert. Wenn `true`, wird eine Endlossuche festgelegt.
+  - : Ein boolescher Wert. Wenn `true`, wird eine Umrundungssuche durchgeführt.
 - `aWholeWord`
-  - : Ein boolescher Wert. Wenn `true`, wird eine Suche nach ganzen Wörtern festgelegt.
+  - : Ein boolescher Wert. Wenn `true`, wird eine Suche nach ganzen Wörtern durchgeführt.
 - `aSearchInFrames`
-  - : Ein boolescher Wert. Wenn `true`, wird eine Suche in Frames festgelegt.
+  - : Ein boolescher Wert. Wenn `true`, wird in Frames gesucht.
 - `aShowDialog`
   - : Ein boolescher Wert. Wenn `true`, wird ein Suchdialog angezeigt.
 
 ### Rückgabewert
 
-`true` wenn der String gefunden wird; andernfalls `false`.
+`true`, wenn der String gefunden wird; andernfalls `false`.
 
 ## Beispiele
 
@@ -56,12 +56,12 @@ function findString(text) {
 ### HTML
 
 ```html
-<p>Äpfel, Bananen und Orangen.</p>
-<button type="button" onClick='findString("Apples")'>Suche nach Äpfeln</button>
+<p>Apples, Bananas, and Oranges.</p>
+<button type="button" onClick='findString("Apples")'>Search for Apples</button>
 <button type="button" onClick='findString("Bananas")'>
-  Suche nach Bananen
+  Search for Bananas
 </button>
-<button type="button" onClick='findString("Orange")'>Suche nach Orange</button>
+<button type="button" onClick='findString("Orange")'>Search for Orange</button>
 
 <p id="output"></p>
 ```
@@ -70,14 +70,15 @@ function findString(text) {
 
 {{EmbedLiveSample("Examples")}}
 
-## Hinweise
+## Anmerkungen
 
-In einigen Browsern markiert (hervorhebt) `Window.find()` den gefundenen Inhalt auf der Seite.
+In einigen Browsern hebt `Window.find()` den gefundenen Inhalt auf der
+Seite hervor.
 
 ## Spezifikationen
 
 Dies ist nicht Teil einer Spezifikation.
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

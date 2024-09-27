@@ -8,18 +8,19 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`sentAlert`**-Eigenschaft eines
-{{domxref("RTCError")}} Objekts gibt die {{Glossary("DTLS")}}-Alarmnummer an, die beim
-Senden von Daten an den entfernten Peer aufgetreten ist, wenn der Fehler einen ausgehenden DTLS-Fehler darstellt.
+Die schreibgeschützte **`sentAlert`**-Eigenschaft in einem
+[`RTCError`](/de/docs/Web/API/RTCError)-Objekt gibt die [DTLS](/de/docs/Glossary/DTLS)-Alarmnummer an, die auftrat,
+während Daten an den entfernten Peer gesendet wurden, falls der Fehler einen ausgehenden DTLS-Fehler darstellt.
 
 ## Wert
 
-Ein vorzeichenloser Ganzzahlenwert, der die DTLS-Alarmnummer angibt, die dem gesendeten DTLS-Fehler entspricht, welcher durch dieses `RTCError`-Objekt dargestellt wird. Diese Eigenschaft ist `null`, wenn {{domxref("RTCError.errorDetail", "errorDetail")}} nicht `dtls-failure` ist.
+Ein nicht vorzeichenbehafteter Ganzzahlwert, der die DTLS-Alarmnummer angibt, die dem DTLS-Fehler entspricht,
+der an den entfernten Peer gesendet wurde, wie durch dieses `RTCError`-Objekt repräsentiert. Diese Eigenschaft ist `null`, wenn [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) nicht `dtls-failure` ist.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

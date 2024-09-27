@@ -7,30 +7,30 @@ l10n:
 
 {{FirefoxSidebar}}
 
-Es gibt eine Reihe von Änderungen im kommenden Firefox 3, die sich auf Ihre Website oder Webanwendung auswirken können, sowie neue Funktionen, die Sie möglicherweise nutzen möchten. Dieser Artikel dient als Ausgangspunkt, um Ihre Inhalte so zu aktualisieren, dass Sie die Möglichkeiten von Firefox 3 optimal nutzen können.
+Es gibt eine Reihe von Änderungen im kommenden Firefox 3, die Ihre Website oder Webanwendung betreffen könnten, sowie neue Funktionen, die Sie nutzen möchten. Dieser Artikel dient als Ausgangspunkt, wenn Sie daran arbeiten, Ihre Inhalte zu aktualisieren, um die Vorteile von Firefox 3 bestmöglich zu nutzen.
 
 ## DOM-Änderungen
 
-Knoten von externen Dokumenten sollten mit [`document.importNode()`](/de/docs/Web/API/Document/importNode) geklont (oder mit [`document.adoptNode()`](/de/docs/Web/API/Document/adoptNode) übernommen) werden, bevor sie in das aktuelle Dokument eingefügt werden können. Weitere Informationen zu den Problemen mit [`Node.ownerDocument`](/de/docs/Web/API/Node/ownerDocument) finden Sie in den
+Knoten aus externen Dokumenten sollten mit [`document.importNode()`](/de/docs/Web/API/Document/importNode) geklont (oder mit [`document.adoptNode()`](/de/docs/Web/API/Document/adoptNode) übernommen) werden, bevor sie in das aktuelle Dokument eingefügt werden können. Weitere Informationen zu den Problemen mit [`Node.ownerDocument`](/de/docs/Web/API/Node/ownerDocument) finden Sie in den
 [W3C DOM FAQ](https://www.w3.org/DOM/faq.html#ownerdoc).
 
-Firefox erzwingt diese Regel derzeit nicht (während der Entwicklung von Firefox 3 wurde sie eine Zeit lang durchgesetzt, aber zu viele Websites funktionierten nicht mehr, wenn diese Regel erzwungen wurde). Wir ermutigen Webentwickler, ihren Code zu korrigieren und diese Regel zu befolgen, um die zukünftige Kompatibilität zu verbessern.
+Firefox erzwingt diese Regel derzeit nicht (während der Entwicklung von Firefox 3 wurde dies vorübergehend durchgesetzt, aber zu viele Sites brachen zusammen, als diese Regel angewendet wurde). Wir ermutigen Webentwickler, ihren Code zu korrigieren, um diese Regel für eine bessere zukünftige Kompatibilität zu befolgen.
 
 ## HTML-Änderungen
 
-### Änderungen bei der Vererbung von Zeichensätzen
+### Änderungen am Zeichensatzvererbung
 
-Firefox 3 schließt einen Sicherheitsfehler in Frames und Iframes, der es ihnen ermöglichte, den Zeichensatz des Elternteils zu übernehmen. Dies konnte in bestimmten Fällen Probleme verursachen. Jetzt dürfen Frames den Zeichensatz des Elternteils nur dann erben, wenn sowohl der Frame als auch der Elternteil vom selben Server geladen wurden. Wenn Sie Seiten haben, die davon ausgehen, dass Frames, die von anderen Servern geladen werden, den gleichen Zeichensatz erben, sollten Sie den HTML-Code der Frames aktualisieren, um ihren Zeichensatz explizit anzugeben.
+Firefox 3 behebt einen Sicherheitsfehler in Frames und Iframes, durch den sie den Zeichensatz der übergeordneten Seite erben konnten. Dies könnte in bestimmten Fällen Probleme verursachen. Jetzt dürfen Frames den Zeichensatz des übergeordneten Dokuments nur erben, wenn sowohl der Frame als auch das übergeordnete Dokument vom selben Server geladen wurden. Wenn Sie Seiten haben, die davon ausgehen, dass von anderen Servern geladene Frames denselben Zeichensatz erben, sollten Sie das HTML der Frames aktualisieren, um den Zeichensatz explizit anzugeben.
 
-### Änderung am SCRIPT-Element
+### Änderung des SCRIPT-Elements
 
-Das `<script>`-Element in `text/html`-Dokumenten erfordert nun in HTML 4-Dokumenten einen abschließenden `</script>`, auch wenn Sie keinen Inhalt dazwischen einfügen. Während Sie in früheren Versionen von Firefox Folgendes tun konnten:
+Das `<script>`-Element in `text/html`-Dokumenten erfordert nun in HTML-4-Dokumenten ein schließendes `</script>`, auch wenn Sie keinen Inhalt dazwischen einfügen. Während in früheren Versionen von Firefox folgendes möglich war:
 
 ```html
 <script … />
 ```
 
-muss das Markup nun den HTML-Spezifikationen entsprechen (wenn es tatsächlich HTML ist), und daher müssen Sie es tatsächlich schließen, wie folgt:
+Muss das Markup jetzt den HTML-Spezifikationen entsprechen (wenn es wirklich HTML ist), und daher müssen Sie es tatsächlich schließen, wie folgt:
 
 ```html
 <script …></script>
@@ -42,30 +42,30 @@ Dies verbessert sowohl die Kompatibilität als auch die Sicherheit.
 
 ### Änderung der Schriftgröße basierend auf em, ex Einheiten
 
-Schriftgrößenwerte in em- und ex-Einheiten wurden früher von der Mindesteinstellungen der Schriftgröße des Benutzers beeinflusst: wenn eine Schrift aufgrund der Mindestschriftgröße größer angezeigt wurde, wurden die em- und ex-Einheiten für die Einstellungen der Schriftgröße entsprechend vergrößert. Dies war inkonsistent mit der Art und Weise, wie prozentbasierte Schriftgrößen sich verhalten.
+Schriftgrößen in em und ex Einheiten wurden früher durch die Mindestschriftgrößeneinstellung des Benutzers beeinflusst: Wenn eine Schriftart aufgrund der Mindestschriftgröße größer angezeigt wurde, würden die Schriftgrößeinstellungen basierend auf diesem Wert entsprechend erweitert. Dies war inkonsistent mit der Art und Weise, wie prozentual basierte Schriftgrößen behandelt wurden.
 
-Schriftgrößenwerte in em- und ex-Einheiten basieren jetzt auf einer "beabsichtigten Schriftgröße", die nicht von der Mindestschriftgröße des Benutzers beeinflusst wird. Mit anderen Worten, die Schriftgrößen werden immer entsprechend den Absichten des Designers berechnet und erst danach für die Mindestschriftgröße angepasst.
+Schriftgrößen in em und ex Einheiten basieren jetzt auf einer "beabsichtigten Schriftgröße“, die nicht von der Mindestschriftgröße des Benutzers beeinflusst wird. Mit anderen Worten, Schriftgrößen werden immer nach der Absicht des Designers berechnet und erst danach auf die Mindestschriftgröße angepasst.
 
-Siehe [Firefox-Bug 434718](https://bugzil.la/434718), insbesondere seinen NICHT EIN FALL FÜR DIE BUG-VORLAGE - Der folgende Link verweist auf eine Bugzilla-Anhangdatei, nicht auf einen Bugzilla-Bug; wenn Sie die Anhangsnummer als Bugnummer verwenden, wird es unsinnig [Anhang 322943](https://bug434718.bmoattachments.org/attachment.cgi?id=322943) NICHT EIN FALL FÜR DIE BUG-VORLAGE für eine Demonstration (muss mit einer Mindestschriftgröße >= 6 betrachtet werden, um den Unterschied zu sehen: die beiden Boxenkaskaden verhalten sich in Firefox 2 unterschiedlich, weil die em-basierte Schriftgröße von der Mindestschriftgröße "abprallt").
+Siehe [Firefox Bug 434718](https://bugzil.la/434718), insbesondere den Kommentar - Der folgende Link verweist auf einen Bugzilla-Anhang, nicht auf einen Bugzilla-Fehler; wenn Sie die Anhangsnummer als Fehlernummer verwenden, ergibt das keinen Sinn [Anhang 322943](https://bug434718.bmoattachments.org/attachment.cgi?id=322943) für eine Demonstration (muss mit einer Mindestschriftgröße >= 6 betrachtet werden, um den Unterschied zu sehen: die beiden Boxkaskaden verhalten sich in Firefox 2 unterschiedlich, weil die em-basierte Schriftgröße von der Mindestschriftgröße „abprallt“).
 
 ## Sicherheitsänderungen
 
 ### Chrome-Zugriff
 
-In früheren Versionen von Firefox konnte jede Webseite Skripte oder Bilder von Chrome mit dem `chrome://`-Protokoll laden. Unter anderem machte es dies möglich, die Präsenz von Add-ons zu erkennen — was genutzt werden konnte, um die Sicherheit eines Nutzers zu gefährden, indem Add-ons umgangen wurden, die dem Browser Sicherheitsfunktionen hinzufügen.
+In früheren Versionen von Firefox konnte jede Webseite Skripte oder Bilder von Chrome mit dem `chrome://`-Protokoll laden. Unter anderem ermöglichte dies Webseiten, die Präsenz von Add-ons zu erkennen – was verwendet werden könnte, um die Sicherheit eines Benutzers zu gefährden, indem Add-ons umgangen werden, die dem Browser Sicherheitsfunktionen hinzufügen.
 
-Firefox 3 erlaubt es Webinhalten nur, auf Elemente in den `chrome://browser/` und `chrome://toolkit/` Bereichen zuzugreifen. Diese Dateien sind für den Zugriff durch Webinhalte vorgesehen. Auf alle anderen Chrome-Inhalte wird der Zugriff durch das Web nun blockiert.
+Firefox 3 erlaubt es Webinhalten nur, auf Objekte in den Bereichen `chrome://browser/` und `chrome://toolkit/` zuzugreifen. Diese Dateien sollen von Webinhalten zugänglich sein. Alle anderen Chrome-Inhalte sind nun vom Zugriff durch das Web blockiert.
 
-Es gibt jedoch eine Möglichkeit, dass Erweiterungen ihren Inhalt webzugänglich machen können. Sie können ein spezielles Flag in ihrer `chrome.manifest`-Datei angeben, so:
+Es gibt jedoch eine Möglichkeit für Erweiterungen, ihre Inhalte für das Web zugänglich zu machen. Sie können ein spezielles Flag in ihrer `chrome.manifest`-Datei angeben, wie folgt:
 
 ```plain
 content mypackage location/ contentaccessible=yes
 ```
 
-Dies sollte nicht oft notwendig sein, es steht jedoch für die seltenen Fälle, in denen es nötig ist, zur Verfügung. Beachten Sie, dass Firefox den Benutzer möglicherweise darauf hinweist, dass Ihre Erweiterung das `contentaccessible`-Flag auf diese Weise verwendet, da es ein potenzielles Sicherheitsrisiko darstellt.
+Dies sollte in der Regel nicht oft erforderlich sein, aber es steht für die seltenen Fälle zur Verfügung, in denen es benötigt wird. Beachten Sie, dass Firefox möglicherweise den Benutzer darauf hinweisen wird, dass Ihre Erweiterung das `contentaccessible`-Flag auf diese Weise verwendet, da dies ein potenzielles Sicherheitsrisiko darstellt.
 
 > [!NOTE]
-> Da Firefox 2 das `contentaccessible`-Flag nicht versteht (es ignoriert die gesamte Zeile, die das Flag enthält), sollten Sie, wenn Sie Ihr Add-on sowohl mit Firefox 2 als auch mit Firefox 3 kompatibel machen möchten, Folgendes tun:
+> Da Firefox 2 das `contentaccessible`-Flag nicht versteht (es wird die gesamte Zeile mit dem Flag ignorieren), sollten Sie, wenn Ihr Add-on sowohl mit Firefox 2 als auch mit Firefox 3 kompatibel sein soll, etwas Ähnliches tun:
 >
 > ```bash
 > content mypackage location/
@@ -75,22 +75,22 @@ Dies sollte nicht oft notwendig sein, es steht jedoch für die seltenen Fälle, 
 
 ### Datei-Upload-Felder
 
-In früheren Versionen von Firefox gab es Fälle, in denen beim Upload eines Benutzers die gesamte Pfadangabe der Datei für die Webanwendung zugänglich war. Dieses Datenschutzproblem wurde in Firefox 3 behoben; jetzt ist nur noch der Dateiname selbst für die Webanwendung zugänglich.
+In früheren Versionen von Firefox gab es Fälle, in denen bei der Übertragung einer Datei der gesamte Pfad der Datei für die Webanwendung verfügbar war. Dieses Datenschutzproblem wurde in Firefox 3 behoben; jetzt ist nur noch der Dateiname selbst für die Webanwendung verfügbar.
 
 ### Verwendung von Remote-JARs in Frames
 
-Es ist nicht mehr erlaubt, Code in JAR-Dateien zu verwenden, die von anderen Domains geladen werden; dies mildert einen [potenziellen Angriffsvektor](https://www.mozilla.org/en-US/security/advisories/mfsa2008-23/).
+Die Verwendung von Code in JAR-Dateien, die von anderen Domains geladen werden, ist in Frames nicht mehr erlaubt; dies verringert ein [potenzielles Angriffsszenario](https://www.mozilla.org/en-US/security/advisories/mfsa2008-23/).
 
-### Änderungen der Same-Origin-Policy für file:-URIs
+### Änderungen an der Same-Origin-Policy für file:-URIs
 
 Die Same-Origin-Policy für file:-URIs hat sich in Firefox 3 geändert. Dies kann sich auf Ihre Inhalte auswirken; bitte lesen Sie [Same-Origin-Policy für file:-URIs](/de/docs/Web/Security/Same-origin_policy#file_origins) für Details.
 
 ## JavaScript-Änderungen
 
-Firefox 3 unterstützt [JavaScript 1.8](/de/docs/New_in_JavaScript_1.8). Eine wichtige Änderung, die Updates Ihrer Website oder Anwendung erfordern könnte, ist, dass das veraltete und nicht standardisierte `Script`-Objekt nicht mehr unterstützt wird. Dies ist nicht der `<script>`-Tag, sondern ein JavaScript-Objekt, das nie standardisiert wurde. Es ist unwahrscheinlich, dass Sie es jemals verwendet haben, also ist wahrscheinlich alles in Ordnung.
+Firefox 3 unterstützt [JavaScript 1.8](/de/docs/New_in_JavaScript_1.8). Eine wichtige Änderung, die Aktualisierungen Ihrer Website oder Anwendung erfordern kann, ist, dass das veraltete und nicht standardisierte `Script`-Objekt nicht mehr unterstützt wird. Dies ist nicht der `<script>`-Tag, sondern ein JavaScript-Objekt, das nie standardisiert wurde. Es ist unwahrscheinlich, dass Sie dies jemals verwendet haben, sodass Sie wahrscheinlich keine Probleme haben werden.
 
 ## Siehe auch
 
 - [Firefox 3 für Entwickler](/de/docs/Mozilla/Firefox/Releases/3)
 - [Neu in JavaScript 1.8](/de/docs/New_in_JavaScript_1.8)
-- [Aktualisieren von Erweiterungen für Firefox 3](/de/docs/Mozilla/Firefox/Releases/3/Updating_extensions)
+- [Aktualisierung von Erweiterungen für Firefox 3](/de/docs/Mozilla/Firefox/Releases/3/Updating_extensions)

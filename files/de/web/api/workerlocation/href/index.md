@@ -8,17 +8,17 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`href`**-Eigenschaft eines {{domxref("WorkerLocation")}}-Objekts gibt eine Zeichenfolge zurück, die die serialisierte {{domxref("URL")}} für den Standort des Workers enthält.
+Die **`href`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt einen String zurück, der die serialisierte [`URL`](/de/docs/Web/API/URL) für den Standort des Workers enthält.
 
 ## Wert
 
-Eine Zeichenfolge.
+Ein String.
 
 ## Beispiele
 
 ```js
-// In einem Webworker, auf der Seite https://developer.mozilla.org/de/docs/Web
-const result = location.href; // Gibt 'https://developer.mozilla.org/de/docs/Web' zurück
+// In a Web worker, on the page https://developer.mozilla.org/en-US/docs/Web
+const result = location.href; // Returns 'https://developer.mozilla.org/en-US/docs/Web'
 ```
 
 ## Spezifikationen
@@ -31,4 +31,4 @@ const result = location.href; // Gibt 'https://developer.mozilla.org/de/docs/Web
 
 ## Siehe auch
 
-- Das {{domxref("WorkerLocation")}}-Interface, zu dem es gehört.
+- Die [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Schnittstelle, zu der sie gehört.

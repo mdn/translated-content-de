@@ -7,23 +7,23 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Internationalisierung**, häufig abgekürzt als "i18n", ist die Praxis, ein System so zu entwerfen, dass es sich leicht an verschiedene Zielgruppen anpassen lässt, die in Region, Sprache oder Kultur variieren können.
+**Internationalisierung**, oft abgekürzt als "i18n", ist die Praxis, ein System so zu entwerfen, dass es leicht für verschiedene Zielgruppen angepasst werden kann, die sich in Region, Sprache oder Kultur unterscheiden können.
 
-Der ergänzende Prozess, ein System für eine spezifische Zielgruppe anzupassen, wird {{glossary("Localization")}} genannt.
+Der ergänzende Prozess der Anpassung eines Systems für eine spezifische Zielgruppe wird [Lokalisierung](/de/docs/Glossary/Localization) genannt.
 
 Internationalisierung umfasst unter anderem die Anpassung an Unterschiede in:
 
 - Schriftsystemen
-- Maßeinheiten (Währung, °C/°F, km/Meilen, etc.)
+- Maßeinheiten (Währung, °C/°F, km/Miles, etc.)
 - Zeit- und Datumsformate
-- Tastaturlayouts
+- Tastaturbelegungen
 
-Die Arbeit des [Unicode-Konsortiums](https://home.unicode.org/) ist ein grundlegender Bestandteil der Internationalisierung. Unicode unterstützt nicht nur Variationen der Schriftsysteme weltweit, sondern auch kulturelle Variationen wie Währungen und Zeit-/Datumsformate.
+Die Arbeit des [Unicode-Konsortiums](https://home.unicode.org/) ist ein wesentlicher Bestandteil der Internationalisierung. Unicode unterstützt nicht nur Variationen unter den Schriftsystemen der Welt, sondern auch kulturelle Variationen wie Währungen und Zeit-/Datumsformate.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{glossary("Localization")}}
+  - [Lokalisierung](/de/docs/Glossary/Localization)
 - [W3C Internationalization Activity](https://www.w3.org/International/)
 - [Unicode-Konsortium](https://home.unicode.org/)
 - [JavaScript Internationalization API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl)

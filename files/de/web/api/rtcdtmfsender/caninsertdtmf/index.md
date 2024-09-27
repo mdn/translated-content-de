@@ -1,5 +1,5 @@
 ---
-title: "RTCDTMFSender: canInsertDTMF-Eigenschaft"
+title: "RTCDTMFSender: canInsertDTMF Eigenschaft"
 short-title: canInsertDTMF
 slug: Web/API/RTCDTMFSender/canInsertDTMF
 l10n:
@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`canInsertDTMF`** des {{domxref("RTCDTMFSender")}}-Interfaces gibt einen booleschen Wert zurück, der angibt, ob der `RTCDTMFSender` in der Lage ist, DTMF-Töne über die {{domxref("RTCPeerConnection")}} zu senden.
+Die schreibgeschützte Eigenschaft **`canInsertDTMF`** des [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob der `RTCDTMFSender` in der Lage ist, DTMF-Töne über die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu senden.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn der `RTCDTMFSender` in der Lage ist, DTMF-Töne zu senden, oder `false`, wenn dies nicht der Fall ist.
+Ein boolescher Wert, der `true` ist, wenn der `RTCDTMFSender` in der Lage ist, DTMF-Töne zu senden, oder `false`, wenn er es nicht ist.
 
 ## Beispiele
 
-### Nutzung von canInsertDTMF zur Überprüfung der DTMF-Unterstützung
+### Verwendung von canInsertDTMF zur Überprüfung der DTMF-Unterstützung
 
-Dieses Beispiel zeigt, wie die Eigenschaft `canInsertDTMF` verwendet wird, um die Unterstützung von DTMF in einer WebRTC-Verbindung zu überprüfen und dann Töne zu senden, wenn dies unterstützt wird.
+Dieses Beispiel zeigt, wie die `canInsertDTMF` Eigenschaft verwendet wird, um die DTMF-Unterstützung in einer WebRTC-Verbindung zu überprüfen und dann Töne zu senden, wenn dies unterstützt wird.
 
-Der Code prüft zuerst, ob die Eigenschaft `canInsertDTMF` definiert ist, und verwendet sie dann, um zu überprüfen, ob das Einfügen von DTMF-Tönen unterstützt wird. Wenn die Funktion unterstützt wird, wird {{domxref("RTCDTMFSender.insertDTMF()")}} aufgerufen, um einen Ton einzufügen.
+Der Code prüft zuerst, ob die `canInsertDTMF` Eigenschaft definiert ist, und verwendet sie dann, um zu überprüfen, ob das Einfügen von DTMF-Tönen unterstützt wird. Wenn die Funktion unterstützt wird, wird [`RTCDTMFSender.insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) aufgerufen, um einen Ton einzufügen.
 
 ```js
 if (sender.dtmf.canInsertDTMF) {
   const duration = 500;
   sender.dtmf.insertDTMF("1234", duration);
 } else {
-  console.log("DTMF-Funktion nicht verfügbar");
+  console.log("DTMF function not available");
 }
 ```
 
@@ -43,7 +43,7 @@ if (sender.dtmf.canInsertDTMF) {
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
 - [Verwendung von DTMF mit WebRTC](/de/docs/Web/API/WebRTC_API/Using_DTMF)
-- {{domxref("RTCDTMFSender.insertDTMF()")}}
-- {{domxref("RTCPeerConnection")}}
-- {{domxref("RTCDTMFSender")}}
-- {{domxref("RTCRtpSender")}}
+- [`RTCDTMFSender.insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF)
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)
+- [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)
+- [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)

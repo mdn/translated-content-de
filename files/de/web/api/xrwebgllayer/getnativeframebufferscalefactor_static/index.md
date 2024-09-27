@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die statische Methode **`XRWebGLLayer.getNativeFramebufferScaleFactor()`** gibt einen Gleitkomma-Skalierungsfaktor zurück, mit dem man die angegebene Auflösung der {{domxref("XRSession")}} multiplizieren kann, um die native Auflösung des Framebuffers des WebXR-Geräts zu erhalten.
+Die statische Methode **`XRWebGLLayer.getNativeFramebufferScaleFactor()`** gibt einen Gleitkomma-Skalierungsfaktor zurück, mit dem Sie die angegebene Auflösung der [`XRSession`](/de/docs/Web/API/XRSession) multiplizieren können, um die native Auflösung des Framebuffers des WebXR-Geräts zu erhalten.
 
-Diese Information kann beim Erstellen eines neuen `XRWebGLLayer` verwendet werden, um den `framebufferScaleFactor` im `layerInit` Konfigurationsobjekt festzulegen, das beim Aufruf des `XRWebGLLayer()` Konstruktors angegeben wird. Siehe die [Hinweise zur Nutzung](#hinweise_zur_nutzung) und [Beispiele](#beispiele) für Details.
+Diese Information kann beim Erstellen einer neuen `XRWebGLLayer` verwendet werden, um den `framebufferScaleFactor` im `layerInit`-Konfigurationsobjekt zu konfigurieren, das beim Aufrufen des `XRWebGLLayer()`-Konstruktors angegeben wird. Weitere Details finden Sie in den [Anmerkungen zur Verwendung](#anmerkungen_zur_verwendung) und den [Beispielen](#beispiele).
 
-Wenn der Skalierungsfaktor 1,0 beträgt, sind die Framebuffer-Pixel und die nativen Display-Pixel gleich groß. Falls der Skalierungsfaktor größer als null ist, ist der Framebuffer kleiner als die nativen Dimensionen des Displays, was dazu führt, dass die Ausgabe nach dem Rendern in den Framebuffer für die Anzeige auf dem Bildschirm hochskaliert wird. Wenn der Skalierungsfaktor kleiner als null ist, ist der Framebuffer _größer_ als die native Auflösung des Displays, wodurch der Inhalt des Framebuffers für die Anzeige auf dem XR-Gerät verkleinert wird. Dies kann in Anzeigekonfigurationen auftreten, die Superscaling- oder Antialiasing-Techniken verwenden, um die wahrgenommene Bildqualität zu verbessern.
+Wenn der Skalierungsfaktor 1,0 beträgt, sind die Pixel des Framebuffers und die nativen Display-Pixel gleich groß. Ist der Skalierungsfaktor größer als null, ist der Framebuffer kleiner als die nativen Abmessungen des Displays, was dazu führt, dass die Ausgabe nach dem Rendern in den Framebuffer zur Anzeige auf dem Bildschirm hochskaliert wird. Ist der Skalierungsfaktor kleiner als null, ist der Framebuffer _größer_ als die native Auflösung des Displays, was dazu führt, dass die Inhalte des Framebuffers zur Anzeige auf dem XR-Gerät verkleinert werden. Dies kann in Display-Umgebungen vorkommen, die Super-Scaling- oder Anti-Aliasing-Techniken verwenden, um die wahrgenommene Bildqualität zu verbessern.
 
 ## Syntax
 
@@ -23,37 +23,37 @@ XRWebGLLayer.getNativeFramebufferScaleFactor(session)
 ### Parameter
 
 - `session`
-  - : Die {{domxref("XRSession")}}, für die der native Framebuffer-Skalierungsfaktor zurückgegeben werden soll.
+  - : Die [`XRSession`](/de/docs/Web/API/XRSession), für die der native Framebuffer-Skalierungsfaktor zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Ein Gleitkommawert, der, wenn er mit den empfohlenen Framebuffer-Dimensionen der {{domxref("XRSession")}} multipliziert wird, zur nativen Framebuffer-Auflösung des XR-Geräts führt. Wenn die Sitzung beendet ist, gibt diese Funktion 0,0 zurück.
+Ein Gleitkommawert, der - multipliziert mit den empfohlenen Framebuffer-Maßen der [`XRSession`](/de/docs/Web/API/XRSession) - zur nativen Framebuffer-Auflösung des XR-Geräts führt. Wenn die Sitzung beendet wurde, gibt diese Funktion 0,0 zurück.
 
-## Hinweise zur Nutzung
+## Anmerkungen zur Verwendung
 
-Der von dieser Funktion zurückgegebene Skalierungsfaktor beträgt 1,0, wenn die native Auflösung des XR-Geräts und die Auflösung des Geräts übereinstimmen. In jedem Fall wird durch Multiplikation der von der `XRSession` identifizierten empfohlenen Auflösung mit diesem Wert die tatsächliche native Auflösung der XR-Hardware erreicht.
+Der von dieser Funktion zurückgegebene Skalierungsfaktor beträgt 1,0, wenn die native Auflösung des XR-Geräts und die Auflösung des XR-Geräts übereinstimmen. In jedem Fall führt die Multiplikation der empfohlenen Auflösung, wie sie von der `XRSession` identifiziert wurde, mit diesem Wert zur tatsächlichen nativen Auflösung der XR-Hardware.
 
-Die empfohlene WebGL-Framebuffer-Auflösung ist die bestmögliche Schätzung der benötigten Auflösung, um alle vom Gerät benötigten {{domxref("XRView")}}s aufzunehmen und gleichzeitig typischen Anwendungen ein akzeptables Gleichgewicht zwischen Bildqualität und Leistung zu bieten.
+Die empfohlene WebGL-Framebuffer-Auflösung ist die bestmögliche Schätzung der notwendigen Auflösung, um alle vom Gerät benötigten [`XRView`](/de/docs/Web/API/XRView)s zu enthalten und gleichzeitig typischen Anwendungen ein akzeptables Gleichgewicht zwischen Bildqualität und Leistung zu bieten.
 
-Beispielsweise nehmen wir ein Gerät an, das einen 2560x1440 Pixel Framebuffer verwendet (der zur Darstellung von zwei Ansichten, für das linke und rechte Auge, nebeneinander verwendet wird, jeweils mit einer Auflösung von 1280x1440 Pixeln). Ein Framebuffer, der in voller Größe so aussieht:
+Betrachten Sie beispielsweise ein Gerät, das einen 2560x1440 Pixel großen Framebuffer verwendet (der zum Rendern von zwei Ansichten, für das linke und rechte Auge, nebeneinander jeweils mit einer Auflösung von 1280x1440 Pixeln verwendet wird). Betrachten Sie einen Framebuffer, der in voller Größe so aussieht:
 
-![Diagramm, das zeigt, wie ein Framebuffer zwischen den Blickpunkten zweier Augen aufgeteilt ist](twoviewsoneframebuffer.svg)
+![Diagramm, das zeigt, wie ein Framebuffer zwischen den Ansichten der beiden Augen aufgeteilt ist](twoviewsoneframebuffer.svg)
 
-Wenn bei diesem Gerät festgestellt wird, dass aufgrund von GPU-Beschränkungen die Bildqualität reduziert werden muss, um die Leistung auf ein akzeptables Niveau zu steigern, könnte der Browser beschließen, die Auflösung zu halbieren. In diesem Fall beträgt der von `XRWebGLLayer.getNativeFramebufferScaleFactor()` zurückgegebene Wert 2,0. Diese Methode der Aufteilung des Framebuffers zwischen Ansichten wird im folgenden Diagramm gezeigt.
+Wenn bei diesem Gerät aufgrund von GPU-Beschränkungen festgestellt wird, dass der Browser die Bildqualität zur Verbesserung der Leistung auf ein akzeptables Niveau reduzieren muss, könnte er sich entscheiden, die Auflösung zu halbieren. In diesem Fall beträgt der von `XRWebGLLayer.getNativeFramebufferScaleFactor()` zurückgegebene Wert 2,0. Diese Methode der Aufteilung des Framebuffers zwischen Ansichten wird im folgenden Diagramm gezeigt.
 
-![Diagramm, das den Framebuffer als auf die halbe Auflösung skaliert zeigt](twoviewsoneframe-scaledby2.svg)
+![Diagramm, das den Framebuffer als auf halbe Auflösung skaliert zeigt](twoviewsoneframe-scaledby2.svg)
 
-Jetzt sind die Breite und Höhe des Framebuffers 50 % von dem, was sie zuvor waren, was zu einer Gesamt-Framebuffer-Größe von 1280 x 720 Pixeln führt, wobei jede Hälfte des Puffers für die Augen 640x720 Pixel beträgt. Jetzt können wir die Koordinaten jedes der Viewports sehen, die diese beiden Ansichten repräsentieren:
+Jetzt sind Breite und Höhe des Framebuffers 50 % dessen, was sie vorher waren, was zu einer Gesamtgröße des Framebuffers von 1280 mal 720 Pixel führt, wobei jede Hälfte des Puffers für ein Auge 640x720 Pixel beträgt. Nun können wir die Koordinaten jeder der Viewports erkennen, die diese beiden Ansichten darstellen:
 
 ![Framebuffer und Viewports mit Koordinaten](twoviewsviewportcoords-scaledby2.svg)
 
-Da jedes Auge die Hälfte des Framebuffers erhält, ist das Ergebnis, dass das linke Auge einen 640x720 Abschnitt des Puffers mit den Koordinaten `x` und `y` bei 0, der Breite bei 640 und der Höhe bei 720 erhält. Das rechte Auge erhält die andere Hälfte des Framebuffers, wobei sein Viewport-`x` bei 639 gesetzt ist.
+Da jedes Auge die Hälfte des Framebuffers erhält, ergibt sich, dass das linke Auge einen 640x720 Abschnitt des Puffers mit den Viewport-Koordinaten `x` und `y` bei 0, der Breite bei 640 und der Höhe bei 720 erhält. Das rechte Auge erhält die andere Hälfte des Framebuffers, wobei dessen Viewport `x` bei 639 liegt.
 
-Beim [Rendern eines Frames für diese Szene](/de/docs/Web/API/XRWebGLLayer#rendering_every_view_in_a_frame) erhalten wir den Viewport für die Ansicht und wenden ihn auf WebGL an, bevor wir die Szene rendern. Dies stellt sicher, dass die gerenderte Szene nicht nur den erforderlichen Blickpunkt widerspiegelt (der durch die Positions- und Orientierungsdaten in der Pose definiert ist), sondern dass die gerenderte Ausgabe innerhalb des korrekten Abschnitts des Framebuffers für das Auge, das wir zeichnen, eingegrenzt wird, unabhängig von jeglichen Skalierungen, die durchgeführt werden.
+Beim [Rendern eines Frames für diese Szene](/de/docs/Web/API/XRWebGLLayer#rendering_every_view_in_a_frame) erhalten wir den Viewport für die Ansicht und wenden ihn auf WebGL an, bevor wir die Szene rendern. Dies stellt sicher, dass die Szene, die wir rendern, nicht nur mit dem erforderlichen Standpunkt (der durch die Positions- und Orientierungsdaten im Pose definiert ist) übereinstimmt, sondern dass die gerenderte Ausgabe innerhalb des korrekten Abschnitts des Framebuffers für das Auge, das wir zeichnen, bleibt, unabhängig davon, welche Skalierung durchgeführt wird.
 
 ## Beispiele
 
-In diesem Beispiel fordern wir einen Framebuffer mit der nativen Auflösung des Geräts an, ungeachtet eventueller Leistungsbedenken:
+In diesem Beispiel fordern wir einen Framebuffer in der nativen Auflösung des Geräts an, unabhängig von Leistungsüberlegungen:
 
 ```js
 function requestNativeScaleWebGLLayer(gl, xrSession) {
@@ -67,13 +67,13 @@ function requestNativeScaleWebGLLayer(gl, xrSession) {
 }
 ```
 
-Dies beginnt mit dem Aufruf der [WebGL-Rendering-Kontextfunktion](/de/docs/Web/API/WebGLRenderingContext) {{domxref("WebGLRenderingContext.makeXRCompatible", "makeXRCompatible()")}}. Wenn das zurückgegebene {{jsxref("promise")}} aufgelöst wird, setzen wir den Aufruf der statischen Funktion `XRWebGLLayer`'s `getNativeFramebufferScaleFactor()` fort, um den Skalierungsfaktor zur Erreichung der nativen Auflösung zu erhalten, und übergeben diesen dann dem {{domxref("XRWebGLLayer.XRWebGLLayer", "WebGLLayer()")}} Konstruktor als Wert der `framebufferScaleFactor` Eigenschaft im `layerInit` Konfigurationsobjekt.
+Dies beginnt mit dem Aufruf der [WebGL-Rendering-Kontext](/de/docs/Web/API/WebGLRenderingContext)-Funktion [`makeXRCompatible()`](/de/docs/Web/API/WebGLRenderingContext/makeXRCompatible). Wenn das zurückgegebene {{jsxref("promise")}} aufgelöst wird, fahren wir fort, indem wir die statische Funktion `XRWebGLLayer`'s `getNativeFramebufferScaleFactor()` aufrufen, um den Skalierungsfaktor zu erhalten, der benötigt wird, um die native Auflösung zu erreichen, und übergeben diese dann in den [`WebGLLayer()`](/de/docs/Web/API/XRWebGLLayer/XRWebGLLayer)-Konstruktor als Wert der `framebufferScaleFactor`-Eigenschaft im `layerInit`-Konfigurationsobjekt.
 
-Das bringt uns ein neues {{domxref("XRWebGLLayer")}} Objekt, das eine Rendering-Oberfläche darstellt, die wir für die {{domxref("XRSession")}} verwenden können; wir setzen es als die Rendering-Oberfläche für `xrSession` durch den Aufruf ihrer {{domxref("XRSession.updateRenderState", "updateRenderState()")}} Methode und übergeben den neuen `glLayer` unter Verwendung der {{domxref("XRRenderState")}} Wörterbuchs {{domxref("XRRenderState.baseLayer")}} Eigenschaft. Das Ergebnis ist ein Rendering-Kontext, der wie das untenstehende Diagramm aussieht:
+Das bringt uns ein neues [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Objekt, das eine Renderingoberfläche darstellt, die wir für die [`XRSession`](/de/docs/Web/API/XRSession) verwenden können; wir setzen sie als Renderingoberfläche für `xrSession`, indem wir die Methode [`updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) aufrufen und das neue `glLayer` mit Hilfe der [`XRRenderState`](/de/docs/Web/API/XRRenderState)-Wörterbuchs [`XRRenderState.baseLayer`](/de/docs/Web/API/XRRenderState/baseLayer)-Eigenschaft übergeben. Das Ergebnis ist ein Rendering-Kontext, der wie das untenstehende Diagramm aussieht:
 
 ![Framebuffer und Viewports mit Koordinaten](twoviewsviewportcoords.svg)
 
-Jedes Mal, wenn die {{domxref("XRViewerPose")}}'s {{domxref("XRViewerPose.views", "views")}} zum Rendern durchgegangen werden, erhält die Render-Schleife eine {{domxref("XRView")}} für das linke Auge, die ihre obere linke Ecke bei (0, 0) hat, mit einer Breite und Höhe von 1280x1440 Pixeln. Das rechte Auge, das es erhält, hat seine obere linke Ecke bei 1280, 0 und dieselbe Breite und Höhe: 1280x1440.
+Jedes Mal, wenn die [`XRViewerPose`](/de/docs/Web/API/XRViewerPose)'s [`views`](/de/docs/Web/API/XRViewerPose/views) für das Rendern durchlaufen werden, erhält die Rendering-Schleife eine [`XRView`](/de/docs/Web/API/XRView) für das linke Auge, das seine obere linke Ecke bei (0, 0) hat mit einer Breite und Höhe von 1280x1440 Pixeln. Das rechte Auge, das es erhält, hat seine obere linke Ecke bei 1280, 0 mit der gleichen Breite und Höhe: 1280x1440.
 
 ## Spezifikationen
 
@@ -86,4 +86,4 @@ Jedes Mal, wenn die {{domxref("XRViewerPose")}}'s {{domxref("XRViewerPose.views"
 ## Siehe auch
 
 - [WebXR Device API](/de/docs/Web/API/WebXR_Device_API)
-- [WebXR Performance Guide](/de/docs/Web/API/WebXR_Device_API/Performance)
+- [WebXR Leistungsleitfaden](/de/docs/Web/API/WebXR_Device_API/Performance)

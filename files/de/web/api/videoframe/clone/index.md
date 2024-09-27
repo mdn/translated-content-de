@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`clone()`**-Methode des {{domxref("VideoFrame")}}-Interfaces erstellt ein neues `VideoFrame`-Objekt, das auf die gleiche Medienressource wie das Original verweist.
+Die **`clone()`**-Methode der [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Schnittstelle erstellt ein neues `VideoFrame`-Objekt, das auf die gleiche Medienressource wie das Original verweist.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues geklontes {{domxref("VideoFrame")}}-Objekt.
+Ein neues, geklontes [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekt.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das `VideoFrame`-Objekt [transferiert](/de/docs/Web/API/Web_Workers_API/Transferable_objects) wurde.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das `VideoFrame`-Objekt [übertragen](/de/docs/Web/API/Web_Workers_API/Transferable_objects) wurde.
 
 ## Beispiele
 

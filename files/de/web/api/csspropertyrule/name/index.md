@@ -1,5 +1,5 @@
 ---
-title: "CSSPropertyRule: Eigenschaft name"
+title: "CSSPropertyRule: name-Eigenschaft"
 short-title: name
 slug: Web/API/CSSPropertyRule/name
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Properties and Values API")}}
 
-Die schreibgeschützte **`name`** Eigenschaft der {{domxref("CSSPropertyRule")}} Schnittstelle repräsentiert den Eigenschaftsnamen, also die Serialisierung des Namens, der der benutzerdefinierten Eigenschaft in der Präambel der {{cssxref("@property")}} Regel gegeben wurde.
+Die schreibgeschützte **`name`**-Eigenschaft der [`CSSPropertyRule`](/de/docs/Web/API/CSSPropertyRule)-Schnittstelle repräsentiert den Eigenschaftsnamen, dies ist die Serialisierung des Namens, der der benutzerdefinierten Eigenschaft in der Präambel der {{cssxref("@property")}}-Regel gegeben wurde.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Dieses Stylesheet enthält eine einzige {{cssxref("@property")}} Regel. Die erste zurückgegebene {{domxref("CSSRule")}} wird eine `CSSPropertyRule` sein, die diese Regel repräsentiert. Die `name` Eigenschaft gibt den String `"--property-name"` zurück, welcher der benutzerdefinierten Eigenschaft in CSS zugewiesen wurde.
+Dieses Stylesheet enthält eine einzelne {{cssxref("@property")}}-Regel. Die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) wird eine `CSSPropertyRule` sein, die diese Regel darstellt. Die `name`-Eigenschaft gibt den String `"--property-name"` zurück, welcher der benutzerdefinierten Eigenschaft in CSS gegeben wurde.
 
 ```css
 @property --property-name {
@@ -28,7 +28,7 @@ Dieses Stylesheet enthält eine einzige {{cssxref("@property")}} Regel. Die erst
 
 ```js
 let myRules = document.styleSheets[0].cssRules;
-console.log(myRules[0].name); //der String "--property-name"
+console.log(myRules[0].name); //the string "--property-name"
 ```
 
 ## Spezifikationen

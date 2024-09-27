@@ -7,32 +7,32 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Das **`MIDIOutput`**-Interface der {{domxref('Web MIDI API','','',' ')}} bietet Methoden, um Nachrichten zur Warteschlange eines Ausgabegeräts hinzuzufügen sowie die Warteschlange von Nachrichten zu löschen.
+Die **`MIDIOutput`**-Schnittstelle der [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) bietet Methoden, um Nachrichten zur Warteschlange eines Ausgabegeräts hinzuzufügen und die Warteschlange von Nachrichten zu leeren.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Dieses Interface implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von {{domxref("MIDIPort")}}._
+_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, sondern erbt Eigenschaften von [`MIDIPort`](/de/docs/Web/API/MIDIPort)._
 
 ## Instanzmethoden
 
-_Dieses Interface erbt auch Methoden von {{domxref("MIDIPort")}}._
+_Diese Schnittstelle erbt auch Methoden von [`MIDIPort`](/de/docs/Web/API/MIDIPort)._
 
-- {{domxref("MIDIOutput.send()")}}
-  - : Fügt eine Nachricht zur Warteschlange hinzu, die an den MIDI-Port gesendet werden soll.
-- {{domxref("MIDIOutput.clear()")}}
+- [`MIDIOutput.send()`](/de/docs/Web/API/MIDIOutput/send)
+  - : Platziert eine Nachricht in der Warteschlange, die an den MIDI-Port gesendet werden soll.
+- [`MIDIOutput.clear()`](/de/docs/Web/API/MIDIOutput/clear)
   - : Löscht alle ausstehenden Sendedaten aus der Warteschlange.
 
 ## Beispiele
 
-Das folgende Beispiel sendet ein mittleres C sofort auf MIDI-Kanal 1.
+Das folgende Beispiel sendet sofort ein mittleres C auf MIDI-Kanal 1.
 
 ```js
 function sendMiddleC(midiAccess, portID) {
-  const noteOnMessage = [0x90, 60, 0x7f]; // Note an, mittleres C, volle Anschlagstärke
+  const noteOnMessage = [0x90, 60, 0x7f]; // note on, middle C, full velocity
   const output = midiAccess.outputs.get(portID);
-  output.send(noteOnMessage); // sendet die Nachricht.
+  output.send(noteOnMessage); // sends the message.
 }
 ```
 

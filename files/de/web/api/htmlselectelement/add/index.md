@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLSelectElement.add()`**-Methode fügt ein Element zur Sammlung von `option`-Elementen dieses `select`-Elements hinzu.
+Die **`HTMLSelectElement.add()`**-Methode fügt ein Element zur Sammlung der `option`-Elemente für dieses `select`-Element hinzu.
 
 ## Syntax
 
@@ -20,10 +20,13 @@ add(item, before)
 ### Parameter
 
 - `item`
-  - : Ein {{domxref("HTMLOptionElement")}} oder
-    {{domxref("HTMLOptGroupElement")}}
+  - : Ein [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) oder
+    [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement)
 - `before` {{optional_inline}}
-  - : Ein Element der Sammlung oder ein Index vom Typ _long_, das darstellt, dass das _Item_ eingefügt werden soll. Wenn dieser Parameter `null` ist (oder der Index nicht existiert), wird das neue Element am Ende der Sammlung angefügt.
+  - : Ein Element der Sammlung oder ein Index vom Typ
+    _long_, der angibt, vor welchem _item_ das neue Element eingefügt werden soll. Wenn dieser
+    Parameter `null` ist (oder der Index nicht existiert), wird das neue Element
+    am Ende der Sammlung angehängt.
 
 ### Rückgabewert
 
@@ -31,12 +34,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
-  - : Wird ausgelöst, wenn das an die Methode übergebene _item_ ein Vorfahre des {{domxref("HTMLSelectElement")}} ist.
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das an die Methode übergebene _item_ ein Vorfahre des [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) ist.
 
 ## Beispiele
 
-### Erstellen von Elementen von Scratch
+### Elemente von Grund auf neu erstellen
 
 ```js
 const sel = document.createElement("select");
@@ -53,7 +56,7 @@ sel.add(opt1, null);
 sel.add(opt2, null);
 
 /*
-  Produziert gedanklich das folgende:
+  Produces the following, conceptually:
 
   <select>
     <option value="1">Option: Value 1</option>
@@ -62,14 +65,14 @@ sel.add(opt2, null);
 */
 ```
 
-Der Before-Parameter ist optional. Somit ist folgendes akzeptiert.
+Der `before`-Parameter ist optional. Daher wird Folgendes akzeptiert.
 
 ```js
 sel.add(opt1);
 sel.add(opt2);
 ```
 
-### Anfügen an eine bestehende Sammlung
+### An eine bestehende Sammlung anhängen
 
 ```js
 const sel = document.getElementById("existingList");
@@ -81,14 +84,14 @@ opt.text = "Option: Value 3";
 sel.add(opt, null);
 
 /*
-  Nimmt das bestehende folgende Select-Objekt:
+  Takes the existing following select object:
 
   <select id="existingList">
     <option value="1">Option: Value 1</option>
     <option value="2">Option: Value 2</option>
   </select>
 
-  Und ändert es zu:
+  And changes it to:
 
   <select id="existingList">
     <option value="1">Option: Value 1</option>
@@ -98,13 +101,13 @@ sel.add(opt, null);
 */
 ```
 
-Der Before-Parameter ist optional. Somit ist folgendes akzeptiert.
+Der `before`-Parameter ist optional. Daher wird Folgendes akzeptiert.
 
 ```js
 sel.add(opt);
 ```
 
-### Einfügen in eine bestehende Sammlung
+### In eine bestehende Sammlung einfügen
 
 ```js
 const sel = document.getElementById("existingList");
@@ -116,14 +119,14 @@ opt.text = "Option: Value 3";
 sel.add(opt, sel.options[1]);
 
 /*
-  Nimmt das bestehende folgende Select-Objekt:
+  Takes the existing following select object:
 
   <select id="existingList">
     <option value="1">Option: Value 1</option>
     <option value="2">Option: Value 2</option>
   </select>
 
-  Und ändert es zu:
+  And changes it to:
 
   <select id="existingList">
     <option value="1">Option: Value 1</option>
@@ -137,6 +140,6 @@ sel.add(opt, sel.options[1]);
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

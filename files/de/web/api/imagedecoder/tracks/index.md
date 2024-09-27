@@ -1,5 +1,5 @@
 ---
-title: "ImageDecoder: tracks-Eigenschaft"
+title: "ImageDecoder: Eigenschaft tracks"
 short-title: tracks
 slug: Web/API/ImageDecoder/tracks
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`tracks`** schreibgeschützte Eigenschaft des {{domxref("ImageDecoder")}}-Interfaces gibt eine Liste der Tracks in den kodierten Bilddaten zurück.
+Die **`tracks`** schreibgeschützte Eigenschaft des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces gibt eine Liste der Tracks in den codierten Bilddaten zurück.
 
 ## Wert
 
-Ein {{domxref("ImageTrackList")}}.
+Ein [`ImageTrackList`](/de/docs/Web/API/ImageTrackList).
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Wert von `tracks` in die Konsole ausgegeben. Dies wird ein {{domxref("ImageTrackList")}}-Objekt sein.
+Das folgende Beispiel gibt den Wert von `tracks` in der Konsole aus. Dies wird ein [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Objekt sein.
 
 ```js
 console.log(imageDecoder.tracks);

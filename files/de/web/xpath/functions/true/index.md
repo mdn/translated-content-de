@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `true` gibt einen booleschen Wert von true zurück.
+Die `true` Funktion gibt einen booleschen Wert von true zurück.
 
 ## Syntax
 

@@ -1,5 +1,5 @@
 ---
-title: "PictureInPictureEvent: pictureInPictureWindow-Eigenschaft"
+title: "PictureInPictureEvent: Eigenschaft pictureInPictureWindow"
 short-title: pictureInPictureWindow
 slug: Web/API/PictureInPictureEvent/pictureInPictureWindow
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die schreibgeschützte **`pictureInPictureWindow`**-Eigenschaft des {{domxref("PictureInPictureEvent")}}-Interfaces gibt das {{domxref("PictureInPictureWindow")}} zurück, auf das sich das Ereignis bezieht.
+Die schreibgeschützte **`pictureInPictureWindow`**-Eigenschaft des [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent)-Interfaces gibt das [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow) zurück, auf das sich das Ereignis bezieht.
 
 ## Wert
 
-Ein {{domxref("PictureInPictureWindow")}}.
+Ein [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow).
 
 ## Spezifikationen
 

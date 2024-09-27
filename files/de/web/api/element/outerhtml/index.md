@@ -8,31 +8,22 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Das **`outerHTML`**-Attribut der {{ domxref("Element") }}
-DOM-Schnittstelle erhält das serialisierte HTML-Fragment, das das Element einschließlich seiner
-Nachkommen beschreibt. Es kann auch gesetzt werden, um das Element durch Knoten zu ersetzen, die aus der angegebenen Zeichenkette geparst werden.
+Das **`outerHTML`**-Attribut der [`Element`](/de/docs/Web/API/Element)-DOM-Schnittstelle erhält das serialisierte HTML-Fragment, das das Element einschließlich seiner Nachkommen beschreibt. Es kann auch gesetzt werden, um das Element mit Knoten aus dem angegebenen String zu ersetzen.
 
-Um nur die HTML-Darstellung der Inhalte eines Elements zu erhalten oder um die
-Inhalte eines Elements zu ersetzen, verwenden Sie stattdessen die {{domxref("Element.innerHTML", "innerHTML")}}-Eigenschaft.
+Um nur die HTML-Darstellung der Inhalte eines Elements zu erhalten oder um den Inhalt eines Elements zu ersetzen, verwenden Sie stattdessen die [`innerHTML`](/de/docs/Web/API/Element/innerHTML)-Eigenschaft.
 
 ## Wert
 
-Das Auslesen des Wertes von `outerHTML` gibt eine Zeichenkette zurück,
-die eine HTML-Serialisierung des `element` und seiner Nachkommen enthält.
-Das Setzen des Wertes von `outerHTML` ersetzt das Element und all seine
-Nachkommen durch einen neuen DOM-Baum, der durch Parsen des angegebenen
-`htmlString` erstellt wird.
+Das Lesen des Werts von `outerHTML` gibt einen String zurück, der eine HTML-Serialisierung des `Elements` und seiner Nachkommen enthält. Das Setzen des Werts von `outerHTML` ersetzt das Element und alle seine Nachkommen durch einen neuen DOM-Baum, der durch das Parsen des angegebenen `htmlString` erstellt wird.
 
-Wenn der Wert `null` gesetzt wird, wird dieser `null`-Wert in die leere Zeichenkette (`""`) umgewandelt, sodass `elt.outerHTML = null` gleichbedeutend mit `elt.outerHTML = ""` ist.
+Wenn der Wert auf `null` gesetzt wird, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `elt.outerHTML = null` gleichbedeutend ist mit `elt.outerHTML = ""`.
 
 ### Ausnahmen
 
-- `SyntaxError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn ein Versuch unternommen wurde, `outerHTML` mit einem HTML-String zu setzen, der nicht
-    gültig ist.
-- `NoModificationAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn ein Versuch unternommen wurde, `outerHTML` auf einem Element zu setzen, das ein direktes
-    Kind eines {{domxref("Document")}} ist, wie z.B. {{domxref("Document.documentElement")}}.
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn versucht wurde, `outerHTML` mit einem ungültigen HTML-String zu setzen.
+- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn versucht wurde, `outerHTML` auf einem Element zu setzen, das ein direktes Kind eines [`Document`](/de/docs/Web/API/Document) ist, wie z.B. [`Document.documentElement`](/de/docs/Web/API/Document/documentElement).
 
 ## Beispiele
 
@@ -53,8 +44,8 @@ Wenn der Wert `null` gesetzt wird, wird dieser `null`-Wert in die leere Zeichenk
 const d = document.getElementById("d");
 console.log(d.outerHTML);
 
-// Die Zeichenkette '<div id="d"><p>Content</p><p>Further Elaborated</p></div>'
-// wird im Konsolenfenster ausgegeben
+// The string '<div id="d"><p>Content</p><p>Further Elaborated</p></div>'
+// is written to the console window
 ```
 
 ### Ersetzen eines Knotens durch Setzen der outerHTML-Eigenschaft
@@ -73,44 +64,41 @@ console.log(d.outerHTML);
 const container = document.getElementById("container");
 const d = document.getElementById("d");
 
-console.log(container.firstElementChild.nodeName); // protokolliert "DIV"
+console.log(container.firstElementChild.nodeName); // logs "DIV"
 
 d.outerHTML = "<p>This paragraph replaced the original div.</p>";
 
-console.log(container.firstElementChild.nodeName); // protokolliert "P"
+console.log(container.firstElementChild.nodeName); // logs "P"
 
-// Das #d-div ist nicht mehr Teil des Dokumentbaums,
-// der neue Absatz hat es ersetzt.
+// The #d div is no longer part of the document tree,
+// the new paragraph replaced it.
 ```
 
-## Anmerkungen
+## Hinweise
 
-Wenn das Element keinen übergeordneten Knoten hat, wird das Setzen seiner `outerHTML`-Eigenschaft es
-oder seine Nachkommen nicht ändern. Zum Beispiel:
+Wenn das Element keinen übergeordneten Knoten hat, ändert das Setzen seiner `outerHTML`-Eigenschaft weder dieses noch seine Nachkommen. Zum Beispiel:
 
 ```js
 const div = document.createElement("div");
 div.outerHTML = '<div class="test">test</div>';
-console.log(div.outerHTML); // Ausgabe: "<div></div>"
+console.log(div.outerHTML); // output: "<div></div>"
 ```
 
-Außerdem, während das Element im Dokument ersetzt wird, wird die Variable, deren
-`outerHTML`-Eigenschaft gesetzt wurde, weiterhin eine Referenz auf das ursprüngliche
-Element halten:
+Außerdem, während das Element im Dokument ersetzt wird, hält die Variable, deren `outerHTML`-Eigenschaft gesetzt wurde, weiterhin eine Referenz auf das ursprüngliche Element:
 
 ```js
 const p = document.querySelector("p");
-console.log(p.nodeName); // zeigt: "P"
+console.log(p.nodeName); // shows: "P"
 p.outerHTML = "<div>This div replaced a paragraph.</div>";
-console.log(p.nodeName); // immer noch "P";
+console.log(p.nodeName); // still "P";
 ```
 
-Der zurückgegebene Wert wird HTML-escaped Attribute enthalten:
+Der zurückgegebene Wert enthält HTML-escapete Attribute:
 
 ```js
 const anc = document.createElement("a");
 anc.href = "https://developer.mozilla.org?a=b&c=d";
-console.log(anc.outerHTML); // Ausgabe: "<a href='https://developer.mozilla.org?a=b&amp;c=d'></a>"
+console.log(anc.outerHTML); // output: "<a href='https://developer.mozilla.org?a=b&amp;c=d'></a>"
 ```
 
 ## Spezifikationen
@@ -123,6 +111,6 @@ console.log(anc.outerHTML); // Ausgabe: "<a href='https://developer.mozilla.org?
 
 ## Siehe auch
 
-- Serialisieren von DOM-Bäumen in XML-Zeichenketten: {{domxref("XMLSerializer")}}
-- Parsen von XML oder HTML in DOM-Bäume: {{domxref("DOMParser")}}
-- {{domxref("HTMLElement.outerText")}}
+- Serialisierung von DOM-Bäumen in XML-Strings: [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)
+- Parsen von XML oder HTML in DOM-Bäume: [`DOMParser`](/de/docs/Web/API/DOMParser)
+- [`HTMLElement.outerText`](/de/docs/Web/API/HTMLElement/outerText)

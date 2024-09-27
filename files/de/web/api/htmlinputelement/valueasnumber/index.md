@@ -1,33 +1,33 @@
 ---
-title: "HTMLInputElement: Eigenschaft valueAsNumber"
+title: "HTMLInputElement: valueAsNumber Eigenschaft"
 short-title: valueAsNumber
 slug: Web/API/HTMLInputElement/valueAsNumber
 l10n:
   sourceCommit: 3a5e079301779c589f35b35620b12a7a73c42fa2
 ---
 
-{{APIRef("HTML DOM")}}
+{{ APIRef("HTML DOM") }}
 
-Die **`valueAsNumber`** Eigenschaft des {{DOMxRef("HTMLInputElement")}}-Interface stellt den aktuellen Wert des {{htmlelement("input")}}-Elements als Zahl dar oder `NaN`, wenn die Umwandlung in einen numerischen Wert nicht möglich ist.
+Die **`valueAsNumber`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle repräsentiert den aktuellen Wert des {{htmlelement("input")}}-Elements als Zahl oder `NaN`, wenn eine Umwandlung in einen numerischen Wert nicht möglich ist.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, um beispielsweise basierend auf einer Bedingung einen Standardnummernwert festzulegen.
+Diese Eigenschaft kann auch direkt gesetzt werden, um beispielsweise einen Standardwert basierend auf einer Bedingung festzulegen.
 
 ## Wert
 
-Eine Zahl, die den Wert des Elements darstellt, oder `NaN`, wenn die numerische Umwandlung unmöglich ist.
+Eine Zahl, die den Wert des Elements darstellt, oder `NaN`, wenn eine numerische Umwandlung unmöglich ist.
 
 ## Beispiele
 
-### Abrufen eines Zahlenwerts
+### Abrufen eines Zahlenwertes
 
-In diesem Beispiel wird der aktuelle Wert des {{HTMLElement("input/number", "number")}}-Eingabefelds beim Ändern angezeigt.
+In diesem Beispiel zeigt das Log den aktuellen Wert des {{HTMLElement("input/number", "number")}}-Eingabefeldes an, wenn er geändert wird.
 
 #### HTML
 
-Wir binden ein {{htmlelement("input")}} des Typs `number` und ein zugehöriges {{htmlelement("label")}} ein, mit einem {{htmlelement("pre")}}-Container für unsere Ausgabe.
+Wir fügen ein {{htmlelement("input")}} vom Typ `number` und ein zugehöriges {{htmlelement("label")}} sowie einen {{htmlelement("pre")}}-Container für unsere Ausgabe ein.
 
 ```html
-<label for="number">Wählen Sie eine Zahl zwischen 1 und 10:</label>
+<label for="number">Pick a number between 1 and 10:</label>
 
 <input name="number" id="number" min="1" max="10" type="number" />
 
@@ -36,7 +36,7 @@ Wir binden ein {{htmlelement("input")}} des Typs `number` und ein zugehöriges {
 
 #### JavaScript
 
-Das {{domxref("HTMLElement.innerText", "innerText")}} des `<pre>`-Elements wird jedes Mal auf den aktuellen Wert des `<input>` aktualisiert, wenn ein {{domxref("HTMLElement/change_event", "change")}}-Ereignis ausgelöst wird.
+Das [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<pre>`-Elements wird jedes Mal auf den aktuellen Wert des `<input>` aktualisiert, wenn ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis ausgelöst wird.
 
 ```js
 const logElement = document.getElementById("log");
@@ -59,18 +59,18 @@ inputElement.addEventListener("change", () => {
 
 {{EmbedLiveSample("Retrieving a number value", "", 100)}}
 
-Wenn Sie die Nummer im Widget löschen, ist das Ergebnis `NaN`.
+Wenn Sie die Zahl im Widget löschen, ist das Ergebnis `NaN`.
 
-### Abrufen eines Datumswerts als Zahl
+### Abrufen eines Datumswertes als Zahl
 
-Dieses Beispiel demonstriert die `valueAsNumber` Eigenschaft eines `<input>` mit dem Typ {{HTMLElement("input/datetime-local", "datetime-local")}}.
+Dieses Beispiel demonstriert die `valueAsNumber`-Eigenschaft eines `<input>`-Elements mit dem Typ {{HTMLElement("input/datetime-local", "datetime-local")}}.
 
 #### HTML
 
-Wir binden ein `<input>` des Typs `datetime-local` ein:
+Wir fügen ein `<input>` vom Typ `datetime-local` ein:
 
 ```html
-<label for="date">Wählen Sie ein Datum und eine Uhrzeit:</label>
+<label for="date">Pick a date and time:</label>
 
 <input name="date" id="date" type="datetime-local" />
 
@@ -79,7 +79,7 @@ Wir binden ein `<input>` des Typs `datetime-local` ein:
 
 #### JavaScript
 
-Wenn kein Datum oder keine Uhrzeit ausgewählt ist, wird der leere String als `NaN` aufgelöst. Jedes Mal, wenn eine Auswahl getroffen wird, wird ein {{domxref("HTMLElement/change_event", "change")}}-Ereignis ausgelöst, das den `<pre>`-Inhalt aktualisiert und den {{DOMXref("HTMLInputElement.value")}} des Formularelements im Vergleich zu diesem Wert als Zahl anzeigt.
+Wenn kein Datum oder keine Uhrzeit ausgewählt ist, wird der leere String zu `NaN`. Jedes Mal, wenn eine Auswahl getroffen wird, wird ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis ausgelöst, das den `<pre>`-Inhalt aktualisiert und den [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value) des Formularelements im Vergleich zu diesem Wert als Zahl anzeigt.
 
 ```js
 const logElement = document.getElementById("log");
@@ -116,5 +116,5 @@ inputElement.addEventListener("change", () => {
 ## Siehe auch
 
 - {{HTMLElement("input")}}
-- {{DOMXref("HTMLInputElement.value")}}
-- {{DOMXref("HTMLInputElement.valueAsDate")}}
+- [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value)
+- [`HTMLInputElement.valueAsDate`](/de/docs/Web/API/HTMLInputElement/valueAsDate)

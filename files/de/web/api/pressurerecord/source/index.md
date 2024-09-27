@@ -12,18 +12,18 @@ Die schreibgeschützte **`source`**-Eigenschaft ist ein String, der die Ursprung
 
 ## Wert
 
-Ein String, der die Ursprungsquelle angibt, von der der Datensatz stammt. Die aktuelle Version der Compute Pressure API-Spezifikation unterstützt zwei Hauptquellentypen:
+Ein String, der die Ursprungsquelle angibt, von der der Datensatz stammt. Die aktuelle Version der Compute Pressure API-Spezifikation unterstützt zwei Hauptquellenarten:
 
 - `"thermals"` repräsentiert den globalen thermischen Zustand des gesamten Systems.
-- `"cpu"` repräsentiert den durchschnittlichen Druck der zentralen Verarbeitungseinheit (CPU) über alle ihre Kerne hinweg. Dieser Zustand kann von anderen Apps und Websites als der beobachtenden Website beeinflusst werden.
+- `"cpu"` repräsentiert den durchschnittlichen Druck der zentralen Verarbeitungseinheit (CPU) über alle ihre Kerne. Dieser Zustand kann von anderen Apps und Seiten als der beobachtenden Seite beeinflusst werden.
 
-Verwenden Sie den statischen Hinweis {{domxref("PressureObserver.knownSources_static", "PressureObserver.knownSources")}}, um zu sehen, welche Quellentypen von Ihrem Browser unterstützt werden. Beachten Sie, dass die Verfügbarkeit auch von Ihrem Betriebssystem und Ihrer Hardware abhängen kann. Rufen Sie {{domxref("PressureObserver.observe()", "observe()")}} auf und prüfen Sie einen `NotSupportedError`, um festzustellen, ob eine Druckbeobachtung möglich ist.
+Verwenden Sie den statischen Hinweis [`PressureObserver.knownSources`](/de/docs/Web/API/PressureObserver/knownSources_static), um zu sehen, welche Quellentypen von Ihrem Browser unterstützt werden. Beachten Sie, dass die Verfügbarkeit auch von Ihrem Betriebssystem und Ihrer Hardware abhängen kann. Rufen Sie [`observe()`](/de/docs/Web/API/PressureObserver/observe) auf und prüfen Sie auf einen `NotSupportedError`, um zu sehen, ob der Druckbeobachtung möglich ist.
 
 ## Beispiele
 
 ### Verwendung der `source`-Eigenschaft
 
-Im folgenden Beispiel protokollieren wir den Wert der `source`-Eigenschaft im Rückruf des Druckbeobachters.
+Im folgenden Beispiel protokollieren wir den Wert der `source`-Eigenschaft im Rückruf der Druckbeobachtung.
 
 ```js
 function callback(records) {

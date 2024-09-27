@@ -7,10 +7,10 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn {{WebExtAPIRef('storage.StorageArea.set','storageArea.set')}}, {{WebExtAPIRef('storage.StorageArea.remove','storageArea.remove')}} oder {{WebExtAPIRef('storage.StorageArea.clear','storageArea.clear')}} auf einem Speicherbereich ausgeführt wird und Details nur der geänderten Schlüssel zurückgibt. Ein Callback wird nur aufgerufen, wenn es Änderungen an den zugrunde liegenden Daten gibt.
+Wird ausgelöst, wenn {{WebExtAPIRef('storage.StorageArea.set','storageArea.set')}}, {{WebExtAPIRef('storage.StorageArea.remove','storageArea.remove')}}, oder {{WebExtAPIRef('storage.StorageArea.clear','storageArea.clear')}} in einem Speicherbereich ausgeführt wird und gibt Details nur der geänderten Schlüssel zurück. Ein Rückruf wird nur dann aufgerufen, wenn es Änderungen an den zugrunde liegenden Daten gibt.
 
 > [!NOTE]
-> In Firefox umfassen die zurückgegebenen Informationen alle Schlüssel innerhalb des Speicherbereichs, gegen den {{WebExtAPIRef('storage.StorageArea.set','storageArea.set')}} ausgeführt wurde, unabhängig davon, ob sie geändert wurden oder nicht. Auch kann ein Callback aufgerufen werden, wenn es keine Änderung an den zugrunde liegenden Daten gibt. Details der geänderten Elemente werden ermittelt, indem das {{WebExtAPIRef('storage.StorageChange')}}-Objekt jedes zurückgegebenen Schlüssels untersucht wird. Siehe [Firefox Bug 1833153](https://bugzil.la/1833153).
+> In Firefox enthält die zurückgegebene Information alle Schlüssel innerhalb des Speicherbereichs, gegen den {{WebExtAPIRef('storage.StorageArea.set','storageArea.set')}} ausgeführt wurde, unabhängig davon, ob sie geändert wurden oder nicht. Auch kann ein Rückruf aufgerufen werden, wenn es keine Änderungen an den zugrunde liegenden Daten gibt. Details der geänderten Elemente finden Sie, indem Sie jedes zurückgegebene Schlüssel-{{WebExtAPIRef('storage.StorageChange')}}-Objekt untersuchen. Siehe [Firefox Bug 1833153](https://bugzil.la/1833153).
 
 ## Syntax
 
@@ -23,11 +23,11 @@ browser.storage.onChanged.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt diesem Ereignis einen Zuhörer hinzu.
 - `removeListener(listener)`
-  - : Hört auf, diesem Ereignis zuzuhören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Zuhörer.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es registriert ist, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, `false` andernfalls.
 
 ## addListener-Syntax
 
@@ -35,12 +35,12 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
 
     - `changes`
-      - : `object`. Objekt, das die Änderung beschreibt. Der Name jeder Eigenschaft ist der Name jedes Schlüssels. Der Wert jedes Schlüssels ist ein {{WebExtAPIRef('storage.StorageChange')}}-Objekt, das die Änderung dieses Elements beschreibt.
+      - : `object`. Objekt, das die Änderung beschreibt. Der Name jeder Eigenschaft ist der Name jedes Schlüssels. Der Wert jedes Schlüssels ist ein {{WebExtAPIRef('storage.StorageChange')}}-Objekt, das die Änderung des jeweiligen Elements beschreibt.
     - `areaName`
-      - : `string`. Der Name des Speicherbereichs (`"sync"`, `"local"` oder `"managed"`), auf den die Änderungen angewendet wurden.
+      - : `string`. Der Name des Speicherbereichs (`"sync"`, `"local"`, oder `"managed"`), in dem die Änderungen vorgenommen wurden.
 
 ## Browser-Kompatibilität
 
@@ -50,9 +50,9 @@ Ereignisse haben drei Funktionen:
 
 ```js
 /*
-Protokolliere den geänderten Speicherbereich,
-und protokolliere dann für jedes geänderte Element
-dessen alten Wert und neuen Wert.
+Log the storage area that changed,
+then for each item changed,
+log its old value and its new value.
 */
 function logStorageChange(changes, area) {
   console.log(`Change in storage area: ${area}`);
@@ -72,7 +72,7 @@ browser.storage.onChanged.addListener(logStorageChange);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#event-onChanged) API. Diese Dokumentation stammt aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#event-onChanged) API. Diese Dokumentation stammt aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

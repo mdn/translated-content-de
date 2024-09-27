@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Force Touch Events")}}{{Non-standard_header}}
 
-**`MouseEvent.WEBKIT_FORCE_AT_MOUSE_DOWN`** ist eine proprietäre, WebKit-spezifische, statische Zahlen-Eigenschaft, deren Wert die minimale erforderliche Kraft für einen normalen Klick ist.
+**`MouseEvent.WEBKIT_FORCE_AT_MOUSE_DOWN`** ist eine proprietäre, WebKit-spezifische, statische numerische Eigenschaft, deren Wert die minimale Kraft darstellt, die für einen normalen Klick erforderlich ist.
 
 Da `WEBKIT_FORCE_AT_MOUSE_DOWN` eine statische Eigenschaft von `MouseEvent` ist, verwenden Sie sie immer als `MouseEvent.WEBKIT_FORCE_AT_MOUSE_DOWN` und nicht als Eigenschaft einer `MouseEvent`-Instanz.
 
 ## Spezifikationen
 
-_Nicht Teil einer offiziellen Spezifikation._ Apple hat [eine Beschreibung in der Mac Developer Library](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/SafariJSProgTopics/RespondingtoForceTouchEventsfromJavaScript.html).
+_Nicht Teil einer Spezifikation._ Apple hat [eine Beschreibung in der Mac Developer Library](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/SafariJSProgTopics/RespondingtoForceTouchEventsfromJavaScript.html).
 
 ## Siehe auch
 
-- {{domxref("MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN_static", "MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN")}}
-- {{domxref("MouseEvent.webkitForce")}}
+- [`MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN`](/de/docs/Web/API/MouseEvent/WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN_static)
+- [`MouseEvent.webkitForce`](/de/docs/Web/API/MouseEvent/webkitForce)

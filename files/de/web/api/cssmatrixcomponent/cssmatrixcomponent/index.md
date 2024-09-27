@@ -9,8 +9,8 @@ l10n:
 {{APIRef("CSS Typed Object Model API")}}
 
 Der **`CSSMatrixComponent()`** Konstruktor
-erstellt ein neues {{domxref("CSSMatrixComponent")}} Objekt, das die [matrix()](/de/docs/Web/CSS/transform-function/matrix) und [matrix3d()](/de/docs/Web/CSS/transform-function/matrix3d) Werte der
-einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS darstellt.
+erstellt ein neues [`CSSMatrixComponent`](/de/docs/Web/API/CSSMatrixComponent) Objekt, das die [matrix()](/de/docs/Web/CSS/transform-function/matrix) und [matrix3d()](/de/docs/Web/CSS/transform-function/matrix3d) Werte der
+einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS repräsentiert.
 
 ## Syntax
 
@@ -21,8 +21,8 @@ new CSSMatrixComponent(matrix, options)
 
 ### Parameter
 
-- {{domxref('CSSMatrixComponent.matrix','matrix')}}
-  - : Eine 2D- oder 3D-Matrix.
+- [`matrix`](/de/docs/Web/API/CSSMatrixComponent/matrix)
+  - : Eine 2d oder 3d Matrix.
 
 ## Beispiele
 

@@ -2,7 +2,7 @@
 title: CSSMathValue
 slug: Web/API/CSSMathValue
 l10n:
-  sourceCommit: ecc46f2c8d6e09f0aa6e1b3f5194abfcf462e603
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
@@ -13,34 +13,34 @@ Die **`CSSMathValue`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/W
 
 ## Schnittstellen basierend auf CSSMathValue
 
-Nachfolgend ist eine Liste von Schnittstellen basierend auf der CSSMathValue-Schnittstelle.
+Nachfolgend finden Sie eine Liste von Schnittstellen, die auf der CSSMathValue-Schnittstelle basieren.
 
-- {{domxref('CSSMathInvert')}}
-- {{domxref('CSSMathMax')}}
-- {{domxref('CSSMathMin')}}
-- {{domxref('CSSMathNegate')}}
-- {{domxref('CSSMathProduct')}}
-- {{domxref('CSSMathSum')}}
+- [`CSSMathInvert`](/de/docs/Web/API/CSSMathInvert)
+- [`CSSMathMax`](/de/docs/Web/API/CSSMathMax)
+- [`CSSMathMin`](/de/docs/Web/API/CSSMathMin)
+- [`CSSMathNegate`](/de/docs/Web/API/CSSMathNegate)
+- [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct)
+- [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)
 
 ## Instanzeigenschaften
 
-- {{domxref('CSSMathValue.operator')}}
+- [`CSSMathValue.operator`](/de/docs/Web/API/CSSMathValue/operator)
   - : Gibt den Operator an, den der aktuelle Subtyp darstellt.
 
 ## Statische Methoden
 
-_Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle erben, {{domxref("CSSNumericValue")}}._
+_Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) erben._
 
 ## Instanzmethoden
 
-_Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle erben, {{domxref("CSSNumericValue")}}._
+_Die Schnittstelle kann auch Methoden von ihrer Elternschnittstelle [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) erben._
 
 ## Beispiele
 
-Wir erstellen ein Element mit einer [`width`](/de/docs/Web/CSS/width), die durch eine [`calc()`](/de/docs/Web/CSS/calc)-Funktion bestimmt wird, und {{domxref("console/log_static", "console.log()")}} dann den `operator`.
+Wir erstellen ein Element mit einer [`width`](/de/docs/Web/CSS/width), die mittels einer [`calc()`](/de/docs/Web/CSS/calc)-Funktion bestimmt wird, und verwenden dann [`console.log()`](/de/docs/Web/API/Console/log_static) für den `operator`.
 
 ```html
-<div>hat Breite</div>
+<div>has width</div>
 ```
 
 Wir weisen eine `width` mit einer Berechnung zu
@@ -63,7 +63,7 @@ console.log(styleMap.get("width").values[1].value); // -20
 
 {{EmbedLiveSample("Examples", 120, 300)}}
 
-Der `CSSMathValue.operator` gibt '`sum`' zurück, weil `styleMap.get('width').values[1].value );` `-20` ist: Hinzufügen einer negativen Zahl.
+Der `CSSMathValue.operator` gibt `"sum"` zurück, weil `styleMap.get("width").values[1].value );` `-20` ist: Eine negative Zahl wird hinzugefügt.
 
 ## Spezifikationen
 

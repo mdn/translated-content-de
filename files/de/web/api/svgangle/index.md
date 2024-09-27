@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das `SVGAngle` Interface wird verwendet, um einen Wert zu repräsentieren, der entweder ein {{cssxref("&lt;angle&gt;")}} oder ein {{cssxref("&lt;number&gt;")}} Wert sein kann.
+Das `SVGAngle`-Interface wird verwendet, um einen Wert darzustellen, der ein {{cssxref("&lt;angle&gt;")}} oder ein {{cssxref("&lt;number&gt;")}} sein kann.
 
-Das `SVGAngle`, das von {{domxref("SVGAnimatedAngle.animVal")}} und {{domxref("SVGAnimatedAngle.baseVal")}} zurückgegeben wird, ist schreibgeschützt. Hingegen ist das `SVGAngle`, das von {{domxref("SVGSVGElement.createSVGAngle()")}} zurückgegeben wird, beschreibbar. Wenn es als schreibgeschützt bezeichnet ist, führt ein Versuch, das Objekt zu ändern, zu einer Ausnahme.
+Das von [`SVGAnimatedAngle.animVal`](/de/docs/Web/API/SVGAnimatedAngle/animVal) und [`SVGAnimatedAngle.baseVal`](/de/docs/Web/API/SVGAnimatedAngle/baseVal) zurückgegebene `SVGAngle` ist schreibgeschützt, aber das von [`SVGSVGElement.createSVGAngle()`](/de/docs/Web/API/SVGSVGElement/createSVGAngle) zurückgegebene `SVGAngle` ist beschreibbar. Wenn es als schreibgeschützt gekennzeichnet ist, führt der Versuch, das Objekt zu ändern, zu einer ausgelösten Ausnahme.
 
-Ein `SVGAngle` Objekt kann mit einem bestimmten Element verknüpft sein. Das verknüpfte Element wird verwendet, um zu bestimmen, welches Inhaltsattribut des Elements aktualisiert werden soll, wenn das Objekt ein Attribut widerspiegelt. Sofern nicht anders beschrieben, ist ein `SVGAngle` Objekt mit keinem Element verknüpft.
+Ein `SVGAngle`-Objekt kann mit einem bestimmten Element verknüpft sein. Das verknüpfte Element wird verwendet, um zu bestimmen, welcher Inhaltsattribut des Elements aktualisiert werden soll, wenn das Objekt ein Attribut widerspiegelt. Wenn nicht anders beschrieben, ist ein `SVGAngle`-Objekt nicht mit einem Element verknüpft.
 
-Jedes `SVGAngle` Objekt arbeitet in einem von zwei Modi:
+Jedes `SVGAngle`-Objekt arbeitet in einem von zwei Modi:
 
-1. **_Reflektieren Sie den Basiswert_** eines reflektierten animierbaren Attributs (wird durch das {{domxref("SVGAnimatedAngle.baseVal", "baseVal")}} Mitglied eines {{domxref("SVGAnimatedAngle")}} exponiert),
-2. **_Seien Sie getrennt_,** was der Fall bei `SVGAngle` Objekten ist, die mit {{domxref("SVGSVGElement.createSVGAngle()")}} erstellt wurden.
+1. **_Den Basiswert widerspiegeln_** eines widerspiegelten animierbaren Attributs (ausgewiesen durch das [`baseVal`](/de/docs/Web/API/SVGAnimatedAngle/baseVal) Mitglied eines [`SVGAnimatedAngle`](/de/docs/Web/API/SVGAnimatedAngle)),
+2. **_Von einem Element entkoppelt sein_**, was für `SVGAngle`-Objekte gilt, die mit [`SVGSVGElement.createSVGAngle()`](/de/docs/Web/API/SVGSVGElement/createSVGAngle) erstellt wurden.
 
 ## Konstanten
 
@@ -25,51 +25,51 @@ Jedes `SVGAngle` Objekt arbeitet in einem von zwei Modi:
 - `SVG_ANGLETYPE_UNSPECIFIED`
   - : Ein einheitenloser {{cssxref("&lt;number&gt;")}}, der als Wert in Grad interpretiert wird.
 - `SVG_ANGLETYPE_DEG`
-  - : Ein {{cssxref("&lt;angle&gt;")}} mit einer `deg` Einheit.
+  - : Ein {{cssxref("&lt;angle&gt;")}} mit der Einheit `deg`.
 - `SVG_ANGLETYPE_RAD`
-  - : Ein {{cssxref("&lt;angle&gt;")}} mit einer `rad` Einheit.
+  - : Ein {{cssxref("&lt;angle&gt;")}} mit der Einheit `rad`.
 - `SVG_ANGLETYPE_GRAD`
-  - : Ein {{cssxref("&lt;angle&gt;")}} mit einer `grad` Einheit.
+  - : Ein {{cssxref("&lt;angle&gt;")}} mit der Einheit `grad`.
 
 ## Instanz-Eigenschaften
 
 - `unitType`
-  - : Der Typ des Wertes, wie durch eine der `SVG_ANGLETYPE_*` Konstanten definiert, die in diesem Interface definiert sind.
+  - : Der Typ des Wertes, wie er durch eine der auf diesem Interface definierten `SVG_ANGLETYPE_*`-Konstanten angegeben ist.
 - `value`
 
-  - : Der Wert als Gleitkommawert, in Benutzereinheiten. Das Setzen dieses Attributs führt dazu, dass `valueInSpecifiedUnits` und `valueAsString` automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
+  - : Der Wert als Gleitkommawert, in Benutzereinheiten. Wenn dieses Attribut gesetzt wird, werden `valueInSpecifiedUnits` und `valueAsString` automatisch aktualisiert, um diese Einstellung widerzuspiegeln.
 
-    **Ausnahmen beim Setzen:** Ein {{domxref("DOMException")}} mit dem Code `NO_MODIFICATION_ALLOWED_ERR` wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+    **Ausnahmen beim Setzen:** Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `NO_MODIFICATION_ALLOWED_ERR` wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
 
 - `valueInSpecifiedUnits`
 
-  - : Der Wert als Gleitkommawert, in den durch `unitType` ausgedrückten Einheiten. Das Setzen dieses Attributs wird dazu führen, dass `value` und `valueAsString` automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
+  - : Der Wert als Gleitkommawert in den von `unitType` angegebenen Einheiten. Wenn dieses Attribut gesetzt wird, werden `value` und `valueAsString` automatisch aktualisiert, um diese Einstellung widerzuspiegeln.
 
-    **Ausnahmen beim Setzen:** Ein {{domxref("DOMException")}} mit dem Code `NO_MODIFICATION_ALLOWED_ERR` wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+    **Ausnahmen beim Setzen:** Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `NO_MODIFICATION_ALLOWED_ERR` wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
 
 - `valueAsString`
 
-  - : Der Wert als Zeichenfolgenwert, in den durch `unitType` ausgedrückten Einheiten. Das Setzen dieses Attributs führt dazu, dass `value`, `valueInSpecifiedUnits` und `unitType` automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
+  - : Der Wert als Zeichenkettenwert in den von `unitType` angegebenen Einheiten. Wenn dieses Attribut gesetzt wird, werden `value`, `valueInSpecifiedUnits` und `unitType` automatisch aktualisiert, um diese Einstellung widerzuspiegeln.
 
     **Ausnahmen beim Setzen:**
 
-    Ein {{domxref("DOMException")}} mit dem Code `SYNTAX_ERR` wird ausgelöst, wenn die zugewiesene Zeichenfolge nicht als gültiger {{cssxref("&lt;angle&gt;")}} geparst werden kann.
+    Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `SYNTAX_ERR` wird ausgelöst, wenn die zugewiesene Zeichenkette nicht als gültiger {{cssxref("&lt;angle&gt;")}} geparst werden kann.
 
-    Ein {{domxref("DOMException")}} mit dem Code `NO_MODIFICATION_ALLOWED_ERR` wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+    Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `NO_MODIFICATION_ALLOWED_ERR` wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
 
 ## Instanz-Methoden
 
 - `newValueSpecifiedUnits`
 
-  - : Setzt den Wert als Zahl mit einer zugehörigen Einheit `unitType` zurück und ersetzt so die Werte aller Attribute im Objekt.
+  - : Setzt den Wert als Zahl mit einem zugeordneten unitType zurück und ersetzt dabei die Werte aller Attribute des Objekts.
 
     **Ausnahmen:**
 
-    - Ein {{domxref("DOMException")}} mit dem Code `NOT_SUPPORTED_ERR` wird ausgelöst, wenn `unitType` `SVG_ANGLETYPE_UNKNOWN` ist oder kein gültiger Einheitstypkonstant (einer der anderen `SVG_ANGLETYPE_*` Konstanten, die in diesem Interface definiert sind).
-    - Ein {{domxref("DOMException")}} mit dem Code `NO_MODIFICATION_ALLOWED_ERR` wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+    - Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `NOT_SUPPORTED_ERR` wird ausgelöst, wenn `unitType` `SVG_ANGLETYPE_UNKNOWN` ist oder kein gültiger Einheitstyp ist (einer der anderen auf diesem Interface definierten `SVG_ANGLETYPE_*` Konstanten).
+    - Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `NO_MODIFICATION_ALLOWED_ERR` wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
 
 - `convertToSpecifiedUnits`
-  - : Bewahrt den gleichen zugrunde liegenden gespeicherten Wert, setzt jedoch die gespeicherte Einheitenkennung auf den angegebenen `unitType` zurück. Die Objektattribute `unitType`, `valueInSpecifiedUnits` und `valueAsString` können durch diese Methode verändert werden.
+  - : Bewahrt den gleichen zugrunde liegenden gespeicherten Wert bei, setzt aber die gespeicherte Einheitenkennung auf den angegebenen `unitType` zurück. Die Objektattribute `unitType`, `valueInSpecifiedUnits` und `valueAsString` könnten durch diese Methode modifiziert werden.
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getUint32()`** Methode von {{jsxref("DataView")}} Instanzen liest 4 Bytes beginnend am angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 32-Bit-Ganzzahl ohne Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
+Die **`getUint32()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 4 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 32-Bit-unsigned Integer. Es besteht keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem innerhalb der Grenzen liegenden Offset abgerufen werden.
 
 {{EmbedInteractiveExample("pages/js/dataview-getuint32.html")}}
 
@@ -21,18 +21,18 @@ getUint32(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Anfang der Ansicht, von dem die Daten gelesen werden.
+  - : Der Offset in Bytes vom Start der Ansicht, von dem die Daten gelesen werden sollen.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im [Little- oder Big-Endian-Format](/de/docs/Glossary/Endianness) gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness) Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert von 0 bis 4294967295, einschließlich.
+Ein Integer von 0 bis 4294967295, einschließlich.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so eingestellt ist, dass er über das Ende der Ansicht hinaus lesen würde.
+  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass er über das Ende der Ansicht hinaus lesen würde.
 
 ## Beispiele
 
@@ -54,7 +54,7 @@ console.log(dataview.getUint32(1)); // 16909060
 
 ## Siehe auch
 
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Uint32Array")}}

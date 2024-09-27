@@ -1,5 +1,5 @@
 ---
-title: "Ereignis: Bubbles-Eigenschaft"
+title: "Event: bubbles-Eigenschaft"
 short-title: bubbles
 slug: Web/API/Event/bubbles
 l10n:
@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`bubbles`** schreibgeschützte Eigenschaft der {{domxref("Event")}}-Schnittstelle gibt an, ob das Ereignis durch den DOM-Baum nach oben übertragen wird oder nicht.
+Die schreibgeschützte Eigenschaft **`bubbles`** des [`Event`](/de/docs/Web/API/Event)-Interfaces gibt an, ob das Ereignis durch den DOM-Baum aufsteigt oder nicht.
 
 > [!NOTE]
-> Weitere Informationen zu Event-Bubbling finden Sie unter [Event bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling).
+> Weitere Informationen zum Thema "Ereignisaufstieg" finden Sie unter [Event bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling).
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn das Ereignis durch den DOM-Baum nach oben übertragen wird.
+Ein boolescher Wert, der `true` ist, wenn das Ereignis durch den DOM-Baum aufsteigt.
 
 ## Beispiel
 
 ```js
 function handleInput(e) {
-  // Überprüfen, ob das Ereignis weitergeleitet wird
+  // Check whether the event bubbles passes the event along
   if (!e.bubbles) {
     passItOn(e);
   }
 
-  // Bereits in der Übertragung
+  // Already bubbling
   doOutput(e);
 }
 ```
@@ -41,6 +41,6 @@ function handleInput(e) {
 
 ## Siehe auch
 
-- {{domxref("Event.stopPropagation", "stopPropagation()")}}, um die weitere Ausbreitung des aktuellen Ereignisses in den Erfassungs- und Übertragungsphasen zu verhindern
-- {{domxref("Event.stopImmediatePropagation", "stopImmediatePropagation()")}}, um zu verhindern, dass weitere Listener für dasselbe Ereignis auf derselben Ebene im DOM aufgerufen werden
-- {{domxref("Event.preventDefault", "preventDefault()")}}, um die Weiterleitung fortzusetzen, aber zu verhindern, dass der Browser seine Standardaktion ausführt, falls keine Listener das Ereignis behandeln
+- [`stopPropagation()`](/de/docs/Web/API/Event/stopPropagation), um die weitere Ausbreitung des aktuellen Ereignisses in den Erfassungs- und Aufstiegsphasen zu verhindern
+- [`stopImmediatePropagation()`](/de/docs/Web/API/Event/stopImmediatePropagation), um keine weiteren Listener für dasselbe Ereignis auf derselben Ebene im DOM aufzurufen
+- [`preventDefault()`](/de/docs/Web/API/Event/preventDefault), um die Fortsetzung der Ausbreitung zu ermöglichen, aber dem Browser die Ausführung seiner Standardaktion zu verwehren, falls keine Listener das Ereignis bearbeiten

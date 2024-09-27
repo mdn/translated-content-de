@@ -1,5 +1,5 @@
 ---
-title: "Document: firstElementChild-Eigenschaft"
+title: "Document: firstElementChild Eigenschaft"
 short-title: firstElementChild
 slug: Web/API/Document/firstElementChild
 l10n:
@@ -8,10 +8,9 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`Document.firstElementChild`**
-gibt das erste Kind-`Element` des Dokuments zurück oder `null`, wenn keine Kindelemente vorhanden sind.
+Die **`Document.firstElementChild`**-Eigenschaft ist schreibgeschützt und gibt das erste Kindelement des Dokuments als [`Element`](/de/docs/Web/API/Element) zurück, oder `null`, wenn keine Kindelemente vorhanden sind.
 
-Für HTML-Dokumente ist dies normalerweise das einzige Kind, das Wurzel-`<html>`-Element.
+Für HTML-Dokumente ist dies normalerweise das einzige Kindelement, das Wurzelelement `<html>`.
 
 Siehe [`Element.firstElementChild`](/de/docs/Web/API/Element/firstElementChild) für das erste Kindelement spezifischer Elemente innerhalb eines Dokuments.
 

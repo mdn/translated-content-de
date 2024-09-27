@@ -7,14 +7,14 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP {{HTTPHeader("Permissions-Policy")}} Header `fullscreen` Direktive steuert, ob das aktuelle Dokument erlaubt ist, {{domxref('Element.requestFullscreen()')}} zu verwenden.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `fullscreen`-Direktive steuert, ob das aktuelle Dokument die Verwendung von [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) erlaubt ist.
 
-Standardmäßig können Dokumente auf oberster Ebene und ihre Child-Frames mit demselben Ursprung den Vollbildmodus anfordern und betreten. Diese Direktive erlaubt oder verhindert, dass Cross-Origin-Frames den Vollbildmodus verwenden. Dies schließt auch Frames mit demselben Ursprung ein.
+Standardmäßig können Top-Level-Dokumente und deren gleichen Ursprungs-Kinderrahmen den Vollbildmodus anfordern und betreten. Diese Direktive erlaubt oder verhindert, dass fremdherkunftliche Rahmen den Vollbildmodus verwenden. Dies schließt Rahmen des gleichen Ursprungs ein.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden {{domxref('Element.requestFullscreen', "requestFullscreen()")}} Aufrufe ein {{jsxref('Promise')}} zurückgeben, das mit einem {{jsxref('TypeError')}} fehlschlägt.
+Speziell dort, wo eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von [`requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) ein {{jsxref('Promise')}} zurückgeben, das mit einem {{jsxref('TypeError')}} fehlschlägt.
 
 > [!NOTE]
-> Wenn sowohl diese Direktive (d. h. über das `allow` Attribut) als auch das `allowfullscreen` Attribut auf einem `<iframe>` Element vorhanden sind, hat diese Direktive Vorrang.
+> Wenn sowohl diese Direktive (d.h. über das `allow`-Attribut) als auch das `allowfullscreen`-Attribut auf einem `<iframe>`-Element vorhanden sind, hat diese Direktive Vorrang.
 
 ## Syntax
 
@@ -23,37 +23,37 @@ Permissions-Policy: fullscreen=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, denen die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `fullscreen` ist `self`.
+Die standardmäßige Erlaubnisliste für `fullscreen` ist `self`.
 
 ## Beispiele
 
 ### Allgemeines Beispiel
 
-SecureCorp Inc. möchte die Fullscreen-API in allen Browsing-Kontexten außer für ihren eigenen Ursprung und für Ursprünge, die `https://example.com` sind, deaktivieren. Sie kann dies tun, indem sie den folgenden HTTP-Antwort-Header liefert, um eine Berechtigungsrichtlinie zu definieren:
+SecureCorp Inc. möchte die Fullscreen-API in allen Browsing-Kontexten deaktivieren, außer für den eigenen Ursprung und solche, deren Ursprung `https://example.com` ist. Es kann dies tun, indem es den folgenden HTTP-Antwortheader sendet, um eine Berechtigungsrichtlinie zu definieren:
 
 ```http
 Permissions-Policy: fullscreen=(self "https://example.com")
 ```
 
-### Mit einem \<iframe> Element
+### Mit einem \<iframe>-Element
 
-FastCorp Inc. möchte `fullscreen` für alle Cross-Origin-Kind-Frames deaktivieren, mit Ausnahme eines bestimmten `<iframe>`. Sie kann dies tun, indem sie den folgenden HTTP-Antwort-Header liefert, um eine Berechtigungsrichtlinie zu definieren:
+FastCorp Inc. möchte `fullscreen` für alle fremdherkunftlichen Kinderrahmen deaktivieren, außer für ein bestimmtes `<iframe>`. Es kann dies tun, indem es den folgenden HTTP-Antwortheader sendet, um eine Berechtigungsrichtlinie zu definieren:
 
 ```http
 Permissions-Policy: fullscreen=(self)
 ```
 
-Dann fügen Sie ein {{HTMLElement('iframe','allow','#Attributes')}} Attribut zum `<iframe>` Element hinzu:
+Dann fügen Sie ein {{HTMLElement('iframe','allow','#Attributes')}}-Attribut auf dem `<iframe>`-Element hinzu:
 
 ```html
 <iframe src="https://other.com/videoplayer" allow="fullscreen"></iframe>
 ```
 
-Iframe-Attribute können Funktionen in bestimmten Frames selektiv aktivieren und in anderen nicht, auch wenn diese Frames Dokumente vom selben Ursprung enthalten.
+Iframe-Attribute können selektiv Funktionen in bestimmten Rahmen aktivieren und in anderen nicht, selbst wenn diese Rahmen Dokumente vom gleichen Ursprung enthalten.
 
 ## Spezifikationen
 
@@ -65,5 +65,5 @@ Iframe-Attribute können Funktionen in bestimmten Frames selektiv aktivieren und
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}} Header
+- {{HTTPHeader("Permissions-Policy")}}-Header
 - [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)

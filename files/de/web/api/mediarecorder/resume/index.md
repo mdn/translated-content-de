@@ -1,5 +1,5 @@
 ---
-title: "MediaRecorder: resume()-Methode"
+title: "MediaRecorder: resume() Methode"
 short-title: resume()
 slug: Web/API/MediaRecorder/resume
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Die **`resume()`**-Methode der Schnittstelle {{domxref("MediaRecorder")}} wird verwendet, um die Medienaufnahme fortzusetzen, wenn sie zuvor pausiert wurde.
+Die **`resume()`**-Methode des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces wird verwendet, um die Medienaufnahme fortzusetzen, wenn sie zuvor pausiert wurde.
 
-Wenn der {{domxref("MediaRecorder.state")}} bereits "recording" ist, hat das Aufrufen von `resume()` keine Auswirkung.
+Wenn der [`MediaRecorder.state`](/de/docs/Web/API/MediaRecorder/state) bereits "recording" ist, hat ein Aufruf von `resume()` keine Wirkung.
 
-Wenn die `resume()`-Methode aufgerufen wird, stellt der Browser eine Aufgabe in die Warteschlange, die die folgenden Schritte ausführt:
+Wenn die `resume()`-Methode aufgerufen wird, reiht der Browser einen Task ein, der die folgenden Schritte ausführt:
 
-1. Wenn {{domxref("MediaRecorder.state")}} "inactive" ist, wird eine DOM-`InvalidStateError`-Exception ausgelöst und diese Schritte werden beendet. Wenn {{domxref("MediaRecorder.state")}} nicht "inactive" ist, gehen Sie zum nächsten Schritt über.
-2. Setzen Sie {{domxref("MediaRecorder.state")}} auf "recording".
-3. Fahren Sie fort, Daten in das aktuelle {{domxref("Blob")}} zu sammeln.
+1. Wenn [`MediaRecorder.state`](/de/docs/Web/API/MediaRecorder/state) "inactive" ist, wird eine `InvalidStateError`-Ausnahme des DOM ausgelöst und diese Schritte beendet. Wenn [`MediaRecorder.state`](/de/docs/Web/API/MediaRecorder/state) nicht "inactive" ist, fahren Sie mit dem nächsten Schritt fort.
+2. Setzen Sie [`MediaRecorder.state`](/de/docs/Web/API/MediaRecorder/state) auf "recording".
+3. Fahren Sie fort, Daten in das aktuelle [`Blob`](/de/docs/Web/API/Blob) zu sammeln.
 4. Lösen Sie ein `resume`-Ereignis aus.
 
 ## Syntax
@@ -35,8 +35,8 @@ Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Ausgelöst, wenn der `MediaRecorder` derzeit "inactive" ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der `MediaRecorder` derzeit `"inactive"` ist.
 
 ## Beispiele
 
@@ -44,10 +44,10 @@ Keine ({{jsxref("undefined")}}).
 pause.onclick = () => {
   if (MediaRecorder.state === "recording") {
     mediaRecorder.pause();
-    // Aufnahme pausiert
+    // recording paused
   } else if (MediaRecorder.state === "paused") {
     mediaRecorder.resume();
-    // Aufnahme fortgesetzt
+    // resume recording
   }
 };
 ```
@@ -63,6 +63,7 @@ pause.onclick = () => {
 ## Siehe auch
 
 - [Verwendung der MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API)
-- [Web Diktiergerät](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder + getUserMedia + Web Audio API Visualisierungsdemo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
+- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder +
+  getUserMedia + Visualisierungs-Demo der Web Audio API, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
 - [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
-- {{domxref("Navigator.getUserMedia")}}
+- [`Navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia)

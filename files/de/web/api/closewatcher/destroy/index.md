@@ -1,5 +1,5 @@
 ---
-title: "CloseWatcher: destroy()-Methode"
+title: "CloseWatcher: destroy() Methode"
 short-title: destroy()
 slug: Web/API/CloseWatcher/destroy
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{SeeCompatTable}}
 
-Die **`destroy()`**-Methode der Schnittstelle {{domxref("CloseWatcher")}} deaktiviert den Close Watcher. Diese Methode sollte aufgerufen werden, wenn das relevante UI-Element auf eine andere Weise als durch Schließen entfernt wird.
+Die **`destroy()`**-Methode der [`CloseWatcher`](/de/docs/Web/API/CloseWatcher) Schnittstelle deaktiviert den Close Watcher. Diese sollte aufgerufen werden, wenn das relevante UI-Element auf eine andere Weise abgebaut wird als durch Schließen.
 
-Nach der Deaktivierung wird dieser `CloseWatcher` keine `cancel`- oder `close`-Ereignisse mehr empfangen, und es wird möglich sein, neue unabhängige `CloseWatcher`-Instanzen zu erstellen.
+Nach der Deaktivierung empfängt dieser `CloseWatcher` keine `cancel`- oder `close`-Ereignisse mehr, und es wird möglich sein, neue unabhängige `CloseWatcher`-Instanzen zu erstellen.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Verwendung der `destroy()`-Methode
+### Verwendung der `destroy()` Methode
 
 Verwenden Sie die `destroy()`-Methode, um die Watcher-Instanz zur Bereinigung zu entsorgen.
 

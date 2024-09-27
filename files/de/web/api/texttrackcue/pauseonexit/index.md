@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`pauseOnExit`**-Eigenschaft des {{domxref("TextTrackCue")}}-Interfaces gibt das Flag zurück oder setzt es, das angibt, ob die Wiedergabe des Mediums pausieren soll, wenn das Ende des Bereichs erreicht ist, auf den sich dieser Cue bezieht.
+Die **`pauseOnExit`**-Eigenschaft der [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Schnittstelle gibt das Flag zurück oder setzt dieses, das anzeigt, ob die Wiedergabe des Mediums pausieren soll, wenn das Ende des Bereichs erreicht ist, auf den dieser Cue angewendet wird.
 
 ## Wert
 
-Ein {{jsxref("Boolean")}}, true, wenn das Medium pausieren wird.
+Ein {{jsxref("Boolean")}}, der wahr ist, wenn das Medium pausiert.
 
 ## Beispiele
 

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte {{domxref("XRRigidTransform")}}-Eigenschaft **`orientation`** ist ein {{domxref("DOMPointReadOnly")}}, der ein normalisiertes {{Glossary("quaternion")}} enthält (auch als **Einheitsquaternion** oder **[Versor](https://en.wikipedia.org/wiki/Versor)** bezeichnet), welches die Rotationskomponente der durch das Objekt repräsentierten Transformation angibt. Falls Sie ein Quaternion mit einer Länge ungleich genau 1,0 Meter spezifizieren, wird es für Sie normalisiert.
+Die schreibgeschützte [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Eigenschaft **`orientation`** ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der ein normales [Quaternion](/de/docs/Glossary/quaternion) (auch **Einheitsquaternion** oder **[Versor](https://en.wikipedia.org/wiki/Versor)** genannt) enthält. Dieses gibt den Rotationsanteil der durch das Objekt dargestellten Transformation an. Falls Sie ein Quaternion angeben, dessen Länge nicht genau 1,0 Meter beträgt, wird es für Sie normalisiert.
 
 ## Wert
 
-Ein {{domxref("DOMPointReadOnly")}} Objekt, das eine Einheitsquaternion enthält, die die Orientierungs-Komponente der Transformation bereitstellt. Als Einheitsquaternion hat das zurückgegebene Quaternion immer eine Länge von 1,0 Meter.
+Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Objekt, das ein Einheitsquaternion enthält, das die Orientierungs-Komponente der Transformation liefert. Als Einheitsquaternion beträgt die Länge des zurückgegebenen Quaternions immer 1,0 Meter.
 
 ## Beispiele
 
-Um einen Referenzraum zu erstellen, der so ausgerichtet ist, dass er direkt nach oben schaut und sich 2 Meter über dem Bodenniveau befindet:
+Um einen Referenzraum zu erstellen, der so ausgerichtet ist, dass er direkt nach oben schaut und sich 2 Meter über dem Boden befindet:
 
 ```js
 xrReferenceSpace = refSpace.getOffsetReferenceSpace(
@@ -24,7 +24,7 @@ xrReferenceSpace = refSpace.getOffsetReferenceSpace(
 );
 ```
 
-Das hier angegebene Einheitsquaternion ist \[0.0, 1.0, 0.0, 1.0], um anzugeben, dass das Objekt direkt entlang der _y_-Achse ausgerichtet sein soll.
+Das hier angegebene Einheitsquaternion ist \[0.0, 1.0, 0.0, 1.0], um anzugeben, dass das Objekt direkt entlang der _y_-Achse ausgerichtet sein sollte.
 
 ## Spezifikationen
 
@@ -37,5 +37,5 @@ Das hier angegebene Einheitsquaternion ist \[0.0, 1.0, 0.0, 1.0], um anzugeben, 
 ## Siehe auch
 
 - [Bewegung, Orientierung und Bewegung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion)
-- [Einheitsquaternionen](https://en.wikipedia.org/wiki/Versor)
+- [Einheitsquaternions](https://en.wikipedia.org/wiki/Versor)
 - [Quaternionen und räumliche Rotation](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation)

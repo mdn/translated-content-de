@@ -8,11 +8,13 @@ l10n:
 
 {{APIRef("Web Share API")}}{{securecontext_header}}
 
-Die **`share()`** Methode der {{domxref("Navigator")}}-Schnittstelle ruft den nativen Freigabemechanismus des Geräts auf, um Daten wie Text, URLs oder Dateien zu teilen. Die verfügbaren _Freigabeziele_ hängen vom Gerät ab, können aber die Zwischenablage, Kontakte und E-Mail-Anwendungen, Websites, Bluetooth usw. umfassen.
+Die **`share()`**-Methode des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces ruft den nativen Freigabemechanismus des Geräts auf, um Daten wie Text, URLs oder Dateien zu teilen. Die verfügbaren _Freigabezielorte_ hängen vom Gerät ab, umfassen aber möglicherweise die Zwischenablage, Kontakte und E-Mail-Anwendungen, Websites, Bluetooth usw.
 
-Die Methode löst ein {{jsxref("Promise")}} mit `undefined` auf. Unter Windows geschieht dies, wenn das Freigabe-Popup gestartet wird, während unter Android das Promise aufgelöst wird, sobald die Daten erfolgreich an das _Freigabeziel_ übermittelt wurden.
+Die Methode löst ein {{jsxref("Promise")}} mit `undefined` auf.
+Unter Windows geschieht dies, wenn das Freigabepopup gestartet wird, während unter Android das Versprechen aufgelöst wird, sobald die Daten erfolgreich an das _Freigabeziel_ übergeben wurden.
 
-Die [Web Share API](/de/docs/Web/API/Web_Share_API) wird durch die [web-share](/de/docs/Web/HTTP/Headers/Permissions-Policy/web-share) Berechtigungspolitik gesteuert. Die `share()`-Methode wird Ausnahmen werfen, wenn die Erlaubnis unterstützt wird, aber nicht erteilt wurde.
+Die [Web Share API](/de/docs/Web/API/Web_Share_API) wird über die [web-share](/de/docs/Web/HTTP/Headers/Permissions-Policy/web-share) Berechtigungsrichtlinie gesteuert.
+Die `share()`-Methode wird Ausnahmen werfen, wenn die Berechtigung unterstützt, aber nicht gewährt wurde.
 
 ## Syntax
 
@@ -24,50 +26,51 @@ navigator.share(data)
 
 - `data` {{optional_inline}}
 
-  - : Ein Objekt, das zu teilende Daten enthält.
+  - : Ein Objekt, das die freizugebenden Daten enthält.
 
-    Eigenschaften, die dem Benutzeragenten unbekannt sind, werden ignoriert; Freigabedaten werden nur auf Eigenschaften geprüft, die vom Benutzeragenten verstanden werden. Alle Eigenschaften sind optional, aber mindestens eine bekannte Dateneigenschaft muss angegeben werden.
+    Eigenschaften, die dem Benutzeragent unbekannt sind, werden ignoriert; Freigabedaten werden nur auf Eigenschaften hin betrachtet, die vom Benutzeragent verstanden werden.
+    Alle Eigenschaften sind optional, aber mindestens eine bekannte Dateneigenschaft muss angegeben werden.
 
     Mögliche Werte sind:
 
     - `url` {{optional_inline}}
-      - : Ein String, der eine zu teilende URL repräsentiert.
+      - : Eine Zeichenkette, die eine zu teilende URL darstellt.
     - `text` {{optional_inline}}
-      - : Ein String, der zu teilenden Text repräsentiert.
+      - : Eine Zeichenkette, die einen zu teilenden Text darstellt.
     - `title` {{optional_inline}}
-      - : Ein String, der einen zu teilenden Titel repräsentiert. Kann vom Ziel ignoriert werden.
+      - : Eine Zeichenkette, die einen zu teilenden Titel darstellt. Kann von dem Ziel ignoriert werden.
     - `files` {{optional_inline}}
-      - : Ein Array von {{domxref("File")}}-Objekten, die zu teilende Dateien repräsentieren. Siehe [unten](#teilbare_dateitypen) für teilbare Dateitypen.
+      - : Ein Array von [`File`](/de/docs/Web/API/File)-Objekten, die die zu teilenden Dateien darstellen. Siehe [unten](#freigegebene_dateitypen) für die freigegebenen Dateitypen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` auflöst oder mit einer der [Ausnahmen](#ausnahmen) abgelehnt wird, die unten angegeben sind.
+Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst oder mit einer der unten angegebenen [Ausnahmen](#ausnahmen) abgelehnt wird.
 
 ### Ausnahmen
 
 Das {{jsxref("Promise")}} kann mit einem der folgenden `DOMException`-Werte abgelehnt werden:
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Das Dokument ist nicht vollständig aktiv oder andere Freigabevorgänge sind in Bearbeitung.
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Eine `web-share` [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) wurde verwendet, um die Nutzung dieser Funktion zu blockieren, das Fenster hat keine {{Glossary("transient activation")}}, oder eine Dateifreigabe wird aus Sicherheitsgründen blockiert.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Das Dokument ist nicht vollständig aktiv oder andere Freigabeoperationen sind im Gange.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Eine `web-share` [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) wurde verwendet, um die Nutzung dieser Funktion zu blockieren, das Fenster hat keine [vorübergehende Aktivierung](/de/docs/Glossary/transient_activation) oder eine Dateifreigabe wird aus Sicherheitsgründen blockiert.
 - {{jsxref("TypeError")}}
 
   - : Die angegebenen Freigabedaten können nicht validiert werden. Mögliche Gründe sind:
 
-    - Der `data`-Parameter wurde vollständig weggelassen oder enthält nur Eigenschaften mit unbekannten Werten. Beachten Sie, dass alle Eigenschaften, die vom Benutzeragenten nicht erkannt werden, ignoriert werden.
+    - Der `data`-Parameter wurde vollständig weggelassen oder enthält nur Eigenschaften mit unbekannten Werten. Beachten Sie, dass alle vom Benutzeragent nicht erkannten Eigenschaften ignoriert werden.
     - Eine URL ist schlecht formatiert.
-    - Dateien werden angegeben, aber die Implementierung unterstützt keine Dateifreigabe.
-    - Das Teilen der angegebenen Daten würde vom Benutzeragenten als „feindliches Teilen“ betrachtet werden.
+    - Dateien sind angegeben, aber die Implementierung unterstützt keine Dateifreigabe.
+    - Die Freigabe der angegebenen Daten würde vom Benutzeragent als "feindliche Freigabe" betrachtet werden.
 
-- `AbortError` {{domxref("DOMException")}}
-  - : Der Benutzer hat die Freigabeoperation abgebrochen oder es sind keine Freigabeziele verfügbar.
-- `DataError` {{domxref("DOMException")}}
+- `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Der Benutzer hat die Freigabeoperation abgebrochen oder es sind keine Freigabezielorte verfügbar.
+- `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Es gab ein Problem beim Starten des Freigabeziels oder beim Übertragen der Daten.
 
-## Teilbare Dateitypen
+## Freigegebene Dateitypen
 
-Die folgende Liste enthält üblicherweise teilbare Dateitypen. Sie sollten jedoch immer mit {{domxref("navigator.canShare()")}} prüfen, ob das Teilen erfolgreich wäre.
+Im Folgenden finden Sie eine Liste der normalerweise freigegebenen Dateitypen. Sie sollten jedoch immer mit [`navigator.canShare()`](/de/docs/Web/API/Navigator/canShare) testen, ob die Freigabe erfolgreich wäre.
 
 - Anwendung
   - `.pdf` - `application/pdf`
@@ -118,20 +121,21 @@ Die folgende Liste enthält üblicherweise teilbare Dateitypen. Sie sollten jedo
 
 ## Sicherheit
 
-Diese Methode erfordert, dass das aktuelle Dokument die [web-share](/de/docs/Web/HTTP/Headers/Permissions-Policy/web-share) Berechtigungspolitik und {{Glossary("transient activation")}} hat. (Sie muss durch ein UI-Ereignis wie einen Button-Klick ausgelöst werden und kann nicht zu beliebigen Zeitpunkten durch ein Skript gestartet werden.) Darüber hinaus muss die Methode gültige Daten angeben, die von der nativen Implementierung zum Teilen unterstützt werden.
+Diese Methode erfordert, dass das aktuelle Dokument die [web-share](/de/docs/Web/HTTP/Headers/Permissions-Policy/web-share) Berechtigungsrichtlinie und [vorübergehende Aktivierung](/de/docs/Glossary/transient_activation) hat. (Es muss durch ein UI-Ereignis wie einen Button-Klick ausgelöst werden und kann nicht beliebig durch ein Skript gestartet werden.) Darüber hinaus muss die Methode gültige Daten angeben, die vom nativen System für die Freigabe unterstützt werden.
 
 ## Beispiele
 
 ### Teilen einer URL
 
-Das folgende Beispiel zeigt, wie ein Button-Klick die Web Share API aufruft, um die URL von MDN zu teilen. Dies stammt aus unserem [Web Share Test](https://mdn.github.io/dom-examples/web-share/) ([siehe den Quellcode](https://github.com/mdn/dom-examples/blob/main/web-share/index.html)).
+Das folgende Beispiel zeigt einen Button-Klick, der die Web Share API aktiviert, um die URL von MDN zu teilen.
+Dies stammt aus unserem [Web Share Test](https://mdn.github.io/dom-examples/web-share/) ([Quellcode ansehen](https://github.com/mdn/dom-examples/blob/main/web-share/index.html)).
 
 #### HTML
 
-Das HTML erstellt lediglich einen Button, um die Freigabe auszulösen, und einen Absatz, um das Ergebnis des Tests anzuzeigen.
+Das HTML erstellt lediglich einen Button, um die Freigabe auszulösen, und einen Absatz, in dem das Ergebnis des Tests angezeigt wird.
 
 ```html
-<p><button>Teilen Sie MDN!</button></p>
+<p><button>Share MDN!</button></p>
 <p class="result"></p>
 ```
 
@@ -140,48 +144,48 @@ Das HTML erstellt lediglich einen Button, um die Freigabe auszulösen, und einen
 ```js
 const shareData = {
   title: "MDN",
-  text: "Lernen Sie Webentwicklung bei MDN!",
+  text: "Learn web development on MDN!",
   url: "https://developer.mozilla.org",
 };
 
 const btn = document.querySelector("button");
 const resultPara = document.querySelector(".result");
 
-// Share muss durch "user activation" ausgelöst werden
+// Share must be triggered by "user activation"
 btn.addEventListener("click", async () => {
   try {
     await navigator.share(shareData);
-    resultPara.textContent = "MDN erfolgreich geteilt";
+    resultPara.textContent = "MDN shared successfully";
   } catch (err) {
-    resultPara.textContent = `Fehler: ${err}`;
+    resultPara.textContent = `Error: ${err}`;
   }
 });
 ```
 
 #### Ergebnis
 
-Klicken Sie auf den Button, um das Freigabedialogfeld auf Ihrer Plattform zu starten. Unter dem Button erscheint ein Text, der anzeigt, ob die Freigabe erfolgreich war oder ein Fehlercode bereitgestellt wird.
+Klicken Sie auf den Button, um den Freigabedialog Ihrer Plattform zu starten. Unter dem Button erscheint ein Text, der angibt, ob die Freigabe erfolgreich war oder einen Fehlercode liefert.
 
 {{EmbedLiveSample('Teilen einer URL','','','','','','web-share')}}
 
 ### Teilen von Dateien
 
-Um Dateien zu teilen, testen Sie zuerst und rufen Sie {{domxref("navigator.canShare()")}} auf. Fügen Sie dann die Liste der Dateien in den Aufruf von `navigator.share()` ein.
+Zum Teilen von Dateien testen Sie zuerst mit [`navigator.canShare()`](/de/docs/Web/API/Navigator/canShare) und führen dann `navigator.share()` mit der Liste der Dateien aus.
 
 #### HTML
 
 ```html
 <div>
-  <label for="files">Wählen Sie Bilder zum Teilen aus:</label>
+  <label for="files">Select images to share:</label>
   <input id="files" type="file" accept="image/*" multiple />
 </div>
-<button id="share" type="button">Teilen Sie Ihre Bilder!</button>
+<button id="share" type="button">Share your images!</button>
 <output id="output"></output>
 ```
 
 #### JavaScript
 
-Beachten Sie, dass das Datenobjekt, das an `navigator.canShare()` übergeben wird, nur die Eigenschaft `files` enthält, da `title` und `text` keine Rolle spielen sollten.
+Beachten Sie, dass das dem `navigator.canShare()` übergebene Datenobjekt nur die Eigenschaft `files` enthält, da die `title` und `text` keine Rolle spielen.
 
 ```js
 const input = document.getElementById("files");
@@ -191,14 +195,14 @@ document.getElementById("share").addEventListener("click", async () => {
   const files = input.files;
 
   if (files.length === 0) {
-    output.textContent = "Keine Dateien ausgewählt.";
+    output.textContent = "No files selected.";
     return;
   }
 
-  // Die Funktionserkennung von navigator.canShare() impliziert auch
-  // das gleiche für navigator.share()
+  // feature detecting navigator.canShare() also implies
+  // the same for the navigator.share()
   if (!navigator.canShare) {
-    output.textContent = `Ihr Browser unterstützt die Web Share API nicht.`;
+    output.textContent = `Your browser doesn't support the Web Share API.`;
     return;
   }
 
@@ -206,22 +210,22 @@ document.getElementById("share").addEventListener("click", async () => {
     try {
       await navigator.share({
         files,
-        title: "Bilder",
-        text: "Schöne Bilder",
+        title: "Images",
+        text: "Beautiful images",
       });
-      output.textContent = "Geteilt!";
+      output.textContent = "Shared!";
     } catch (error) {
-      output.textContent = `Fehler: ${error.message}`;
+      output.textContent = `Error: ${error.message}`;
     }
   } else {
-    output.textContent = `Ihr System unterstützt das Teilen dieser Dateien nicht.`;
+    output.textContent = `Your system doesn't support sharing these files.`;
   }
 });
 ```
 
 #### Ergebnis
 
-{{EmbedLiveSample('Files Teilen')}}
+{{EmbedLiveSample('Teilen von Dateien')}}
 
 ## Spezifikationen
 
@@ -233,5 +237,5 @@ document.getElementById("share").addEventListener("click", async () => {
 
 ## Siehe auch
 
-- {{domxref("navigator.canShare()")}}
-- <https://wpt.live/web-share/> (Web-Plattform-Tests)
+- [`navigator.canShare()`](/de/docs/Web/API/Navigator/canShare)
+- <https://wpt.live/web-share/> (Webplattformtests)

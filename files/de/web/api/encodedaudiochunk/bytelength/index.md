@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`byteLength`**-Eigenschaft der {{domxref("EncodedAudioChunk")}}-Schnittstelle, die nur lesbar ist, gibt die Länge der kodierten Audiodaten in Bytes zurück.
+Die schreibgeschützte Eigenschaft **`byteLength`** des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces gibt die Länge der codierten Audiodaten in Bytes zurück.
 
 ## Wert
 
-Ein ganzzahliger Wert.
+Ein Ganzzahl.
 
 ## Beispiele
 
-Im folgenden Beispiel wird die `byteLength` in die Konsole ausgegeben.
+Im folgenden Beispiel wird die `byteLength` in der Konsole ausgegeben.
 
 ```js
 const init = {
@@ -34,6 +34,6 @@ console.log(chunk.byteLength); //352800
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

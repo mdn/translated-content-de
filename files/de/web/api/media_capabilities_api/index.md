@@ -7,37 +7,37 @@ l10n:
 
 {{DefaultAPISidebar("Media Capabilities API")}}
 
-Die **Media Capabilities API** ermöglicht es Entwicklern, die Dekodierungs- und Kodierungsfähigkeiten des Geräts zu bestimmen. Sie stellt Informationen darüber bereit, ob Medien unterstützt werden und ob die Wiedergabe reibungslos und energieeffizient sein sollte, mit Echtzeitrückmeldungen zur Wiedergabe, um adaptives Streaming besser zu ermöglichen, und bietet Zugriff auf Informationen zu Anzeigeeigenschaften.
+Die **Media Capabilities API** ermöglicht es Entwicklern, die Dekodierungs- und Kodierungsfähigkeiten des Geräts zu bestimmen. Sie stellt Informationen bereit, wie z.B. ob Medien unterstützt werden und ob die Wiedergabe reibungslos und energieeffizient sein sollte, mit Echtzeitrückmeldungen über die Wiedergabe, um adaptives Streaming besser zu ermöglichen, und Zugriff auf Informationen zu Anzeigeeigenschaften.
 
 ## Konzepte
 
-Es gibt eine Vielzahl von Video- und Audiocodecs. Verschiedene Browser unterstützen unterschiedliche Medientypen, und es werden ständig neue Medientypen entwickelt. Mit der Media Capabilities API können Entwickler sicherstellen, dass jeder Benutzer die beste Bitrate und Speicherersparnis für seinen Browser, sein Gerät und seine Betriebssystemfähigkeiten erhält.
+Es gibt eine Vielzahl von Video- und Audiocodecs. Unterschiedliche Browser unterstützen verschiedene Medientypen, und neue Medientypen werden ständig entwickelt. Mit der Media Capabilities API können Entwickler sicherstellen, dass jeder Nutzer den besten Kompromiss zwischen Bitrate und Speicherersparnis für die Fähigkeiten seines Browsers, Geräts und Betriebssystems erhält.
 
-Ob ein Gerät Hardware- oder Software-Dekodierung verwendet, beeinflusst, wie reibungslos und energieeffizient die Videodekodierung ist und wie effizient die Wiedergabe sein wird. Die Media Capabilities API ermöglicht es, zu bestimmen, welche Codecs unterstützt werden und wie leistungsfähig eine Mediendatei sowohl in Bezug auf die Geschmeidigkeit als auch die Energieeffizienz sein wird.
+Ob ein Gerät Hardware- oder Softwaredekodierung verwendet, wirkt sich darauf aus, wie reibungslos und energieeffizient die Videodekodierung ist und wie effizient die Wiedergabe sein wird. Die Media Capabilities API ermöglicht es zu bestimmen, welche Codecs unterstützt werden und wie leistungsfähig eine Mediendatei ist, sowohl in Bezug auf Glätte als auch auf Energieeffizienz.
 
-Die Media Capabilities API bietet leistungsstärkere Funktionen als beispielsweise {{DOMxref("MediaRecorder.isTypeSupported_static", "MediaRecorder.isTypeSupported()")}} oder {{DOMxRef("HTMLMediaElement.canPlayType()")}}, die nur die allgemeine Browserunterstützung adressieren, nicht die Leistung. Die API bietet auch Möglichkeiten, auf Anzeigeeigenschaften wie unterstützte Farbgamuts, Fähigkeiten im dynamischen Bereich und Echtzeitrückmeldungen zur Wiedergabe zuzugreifen.
+Die Media Capabilities API bietet leistungsstärkere Funktionen als zum Beispiel [`MediaRecorder.isTypeSupported()`](/de/docs/Web/API/MediaRecorder/isTypeSupported_static) oder [`HTMLMediaElement.canPlayType()`](/de/docs/Web/API/HTMLMediaElement/canPlayType), die sich nur auf allgemeine Browserunterstützung beziehen, nicht auf die Leistung. Die API bietet auch Möglichkeiten, auf Informationen zu Anzeigeeigenschaften wie unterstützten Farbgamuts, Dynamikumfangfähigkeiten und Echtzeitrückmeldungen über die Wiedergabe zuzugreifen.
 
-Um Unterstützung, Geschmeidigkeit und Energieeffizienz für das Kodieren und Dekodieren von Video- oder Audiomaterial zu testen, verwenden Sie die Methoden {{DOMxRef("MediaCapabilities")}} der Schnittstelle {{DOMxRef("MediaCapabilities.encodingInfo()", "encodingInfo()")}} und {{DOMxRef("MediaCapabilities.decodingInfo()", "decodingInfo()")}}.
+Um Unterstützung, Glätte und Energieeffizienz für die Kodierung und Dekodierung von Video- oder Audioinhalten zu testen, verwenden Sie die Methoden [`encodingInfo()`](/de/docs/Web/API/MediaCapabilities/encodingInfo) und [`decodingInfo()`](/de/docs/Web/API/MediaCapabilities/decodingInfo) der [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities) Schnittstelle.
 
-Informationen zu Medienfähigkeiten ermöglichen es Webseiten, adaptives Streaming zu aktivieren, um die Qualität der Inhalte basierend auf der tatsächlich vom Nutzer wahrgenommenen Qualität zu ändern und in Echtzeit auf eine erhöhte CPU/GPU-Nutzung zu reagieren.
+Informationen zu Medienfähigkeiten ermöglichen es Websites, adaptives Streaming zu ermöglichen, um die Qualität von Inhalten basierend auf der tatsächlich wahrgenommenen Qualität durch den Benutzer zu ändern, und in Echtzeit auf eine hohe CPU-/GPU-Auslastung zu reagieren.
 
 ## Schnittstellen
 
-- {{DOMxRef("MediaCapabilities")}}
-  - : Bietet Informationen über die Dekodierungsfähigkeiten des Geräts, Systems und Browsers basierend auf Codecs, Profil, Auflösung und Bitraten. Die Informationen können verwendet werden, um dem Nutzer optimale Medienstreams bereitzustellen und zu bestimmen, ob die Wiedergabe reibungslos und energieeffizient sein sollte.
+- [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)
+  - : Stellt Informationen über die Dekodierungsfähigkeiten des Geräts, Systems und Browsers basierend auf Codecs, Profilen, Auflösungen und Bitraten bereit. Die Informationen können genutzt werden, um dem Benutzer optimale Medienstreams bereitzustellen und zu bestimmen, ob die Wiedergabe reibungslos und energieeffizient sein sollte.
 
-### Erweiterungen zu anderen Schnittstellen
+### Erweiterungen anderer Schnittstellen
 
-- {{domxref("Navigator.mediaCapabilities")}} {{readonlyinline}}
-  - : Ein {{domxref("MediaCapabilities")}}-Objekt, das Informationen über die Dekodierungs- und Kodierungsfähigkeiten für ein bestimmtes Medienformat und die Ausgabefähigkeiten bereitstellen kann.
-- {{DOMxRef("WorkerNavigator.mediaCapabilities")}} {{readonlyinline}}
-  - : Ein {{domxref("MediaCapabilities")}}-Objekt, das Informationen über die Dekodierungs- und Kodierungsfähigkeiten für ein bestimmtes Medienformat und die Ausgabefähigkeiten bereitstellen kann.
+- [`Navigator.mediaCapabilities`](/de/docs/Web/API/Navigator/mediaCapabilities) {{readonlyinline}}
+  - : Ein [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities) Objekt, das Informationen über die Dekodierungs- und Kodierungsfähigkeiten für ein bestimmtes Medienformat und die Ausgabefähigkeiten bereitstellen kann.
+- [`WorkerNavigator.mediaCapabilities`](/de/docs/Web/API/WorkerNavigator/mediaCapabilities) {{readonlyinline}}
+  - : Ein [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities) Objekt, das Informationen über die Dekodierungs- und Kodierungsfähigkeiten für ein bestimmtes Medienformat und die Ausgabefähigkeiten bereitstellen kann.
 
 ## Beispiele
 
-### Unterstützung von Audiodateien und erwartete Leistung erkennen
+### Unterstützungsfähigkeit von Audiodateien und erwartete Leistung erkennen
 
-Dieses Beispiel definiert eine Audiokonfiguration und prüft dann, ob der User-Agent das Dekodieren dieser Medienkonfiguration unterstützt und ob sie sich in Bezug auf Geschmeidigkeit und Energieeffizienz gut verhält.
+Dieses Beispiel definiert eine Audiokonfiguration und prüft, ob der Benutzeragent die Dekodierung dieser Medienkonfiguration unterstützt und ob sie in Bezug auf Glätte und Energieeffizienz gut funktionieren wird.
 
 ```js
 if ("mediaCapabilities" in navigator) {
@@ -76,6 +76,6 @@ if ("mediaCapabilities" in navigator) {
 
 ## Siehe auch
 
-- Die Methode [canPlayType()](/de/docs/Web/API/HTMLMediaElement/canPlayType) von [HTMLMediaElement](/de/docs/Web/API/HTMLMediaElement)
-- Die Methode [isTypeSupported()](/de/docs/Web/API/MediaSource/isTypeSupported_static) von [MediaSource](/de/docs/Web/API/MediaSource)
+- Methode [canPlayType()](/de/docs/Web/API/HTMLMediaElement/canPlayType) des [HTMLMediaElement](/de/docs/Web/API/HTMLMediaElement)
+- Methode [isTypeSupported()](/de/docs/Web/API/MediaSource/isTypeSupported_static) des [MediaSource](/de/docs/Web/API/MediaSource)
 - [Verwendung der Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API/Using_the_Media_Capabilities_API)

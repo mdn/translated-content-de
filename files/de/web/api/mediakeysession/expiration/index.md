@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`expiration`**-Schreibgeschützte Eigenschaft der {{domxref('MediaKeySession')}}-Schnittstelle gibt die Zeit zurück, nach der die Schlüssel in der aktuellen Sitzung nicht mehr zur Entschlüsselung von Mediendaten verwendet werden können, oder NaN, falls keine solche Zeit existiert.
+Die **`expiration`** Eigenschaft, die schreibgeschützt ist, des [`MediaKeySession`](/de/docs/Web/API/MediaKeySession) Interface gibt die Zeit zurück, nach der die Schlüssel in der aktuellen Sitzung nicht mehr zur Entschlüsselung von Mediendaten verwendet werden können, oder NaN, wenn keine solche Zeit existiert.
 
-Dieser Wert wird durch das CDM bestimmt und in Millisekunden seit dem 1. Januar 1970, UTC, gemessen.
-Dieser Wert kann sich während der Lebensdauer einer Sitzung ändern, zum Beispiel, wenn eine Aktion den Beginn eines Fensters auslöst.
+Dieser Wert wird vom CDM bestimmt und in Millisekunden seit dem 1. Januar 1970, UTC gemessen.
+Dieser Wert kann sich während der Lebensdauer einer Sitzung ändern, zum Beispiel wenn eine Aktion den Beginn eines Fensters auslöst.
 
 ## Wert
 

@@ -1,5 +1,5 @@
 ---
-title: Konvertieren
+title: Convert
 slug: WebAssembly/Reference/Numeric/Convert
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,20 +7,20 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`convert`**-Anweisungen werden verwendet, um ganze Zahlen in Fließkommazahlen umzuwandeln. Es gibt signierte und unsignierte Versionen dieser Anweisung.
+Die **`convert`**-Anweisungen werden verwendet, um Ganzzahlen in Fließkommazahlen umzuwandeln. Es gibt signierte und unsignierte Versionen dieser Anweisung.
 
 {{EmbedInteractiveExample("pages/wat/convert.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; push ein i32 auf den Stapel
+;; push an i32 onto the stack
 i32.const 10
 
-;; konvertiere von signiertem i32 zu f32
+;; convert from signed i32 to f32
 f32.convert_i32_s
 
-;; das oberste Element auf dem Stapel wird nun der Wert 10 vom Typ f32 sein
+;; the top item on the stack will now be the value 10 of type f32
 ```
 
 | Anweisung           | Binärer Opcode |

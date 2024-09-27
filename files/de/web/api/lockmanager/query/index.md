@@ -1,5 +1,5 @@
 ---
-title: "LockManager: query()-Methode"
+title: "LockManager: query() Methode"
 short-title: query()
 slug: Web/API/LockManager/query
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Locks API")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`query()`**-Methode der {{domxref("LockManager")}}-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem Objekt aufgelöst wird, das Informationen über gehaltene und ausstehende Sperren enthält.
+Die **`query()`** Methode der [`LockManager`](/de/docs/Web/API/LockManager)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem Objekt aufgelöst wird, welches Informationen über gehaltene und ausstehende Sperren enthält.
 
 ## Syntax
 
@@ -22,30 +22,30 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das mit einem Objekt aufgelöst wird, das einen Snapshot des Zustands des {{domxref("LockManager")}} enthält. Das Objekt hat folgende Eigenschaften:
+Ein {{jsxref('Promise')}} das mit einem Objekt aufgelöst wird, welches einen Schnappschuss des [`LockManager`](/de/docs/Web/API/LockManager)-Zustands enthält. Das Objekt hat folgende Eigenschaften:
 
 - `held`
   - : Ein Array von `LockInfo`-Objekten für gehaltene Sperren.
 - `pending`
   - : Ein Array von `LockInfo`-Objekten für ausstehende Sperranfragen.
 
-Das `LockInfo`-Objekt kann folgende Eigenschaften haben:
+Das `LockInfo`-Objekt kann die folgenden Eigenschaften haben:
 
 - `name`
-  - : Der Name, der bei der Anforderung der Sperre an {{domxref("LockManager.request()")}} übergeben wurde.
+  - : Der Name, der an [`LockManager.request()`](/de/docs/Web/API/LockManager/request) übergeben wurde, als die Sperre angefordert wurde.
 - `mode`
-  - : Der Zugriffsmodus, der bei der Anforderung der Sperre an {{domxref("LockManager.request()")}} übergeben wurde. Der Modus ist entweder `"exclusive"` oder `"shared"`.
+  - : Der Zugriffsmodus, der an [`LockManager.request()`](/de/docs/Web/API/LockManager/request) übergeben wurde, als die Sperre angefordert wurde. Der Modus ist entweder `"exclusive"` oder `"shared"`.
 - `clientId`
-  - : Die eindeutige Identität des Kontexts, in dem {{domxref("LockManager.request()")}} aufgerufen wird. Dies ist derselbe Wert wie {{domxref("Client.id")}}.
+  - : Die eindeutige Identität des Kontexts, in dem [`LockManager.request()`](/de/docs/Web/API/LockManager/request) aufgerufen wird. Dies ist derselbe Wert wie [`Client.id`](/de/docs/Web/API/Client/id).
 
 ### Ausnahmen
 
-Diese Methode kann ein Promise zurückgeben, das mit einem {{domxref("DOMException")}} der folgenden Typen abgelehnt wird:
+Diese Methode kann ein Promise zurückgeben, das mit einer [`DOMException`](/de/docs/Web/API/DOMException) eines der folgenden Typen abgelehnt wird:
 
-- `InvalidStateError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Dokument der Umgebung nicht vollständig aktiv ist.
-- `SecurityError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn ein Sperr-Manager für die aktuelle Umgebung nicht erlangt werden kann.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn ein Lock-Manager für die aktuelle Umgebung nicht erhalten werden kann.
 
 ## Beispiele
 

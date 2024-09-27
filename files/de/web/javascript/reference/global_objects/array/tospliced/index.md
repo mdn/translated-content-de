@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toSpliced()`**-Methode von {{jsxref("Array")}} Instanzen ist die [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Version der {{jsxref("Array/splice", "splice()")}} Methode. Sie gibt ein neues Array mit einigen entfernten und/oder an einem bestimmten Index ersetzten Elementen zurück.
+Die **`toSpliced()`**-Methode von {{jsxref("Array")}} Instanzen ist die [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Version der {{jsxref("Array/splice", "splice()")}}-Methode. Sie gibt ein neues Array zurück, bei dem einige Elemente an einem bestimmten Index entfernt und/oder ersetzt wurden.
 
 ## Syntax
 
@@ -23,25 +23,25 @@ toSpliced(start, deleteCount, item1, item2, /* …, */ itemN)
 
 - `start`
 
-  - : Nullbasierter Index, an dem das Array geändert werden soll, [in eine Ganzzahl konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
-    - Ein negativer Index zählt rückwärts vom Ende des Arrays – wenn `-array.length <= start < 0`, wird `start + array.length` verwendet.
-    - Wenn `start < -array.length` oder `start` weggelassen wird, wird `0` verwendet.
-    - Wenn `start >= array.length`, wird kein Element gelöscht, aber die Methode wird wie eine Hinzufügemethode funktionieren, die so viele Elemente hinzufügt, wie angegeben.
+  - : Index (nullbasiert), an dem die Änderung des Arrays beginnt, [umgewandelt in eine Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+    - Ein negativer Index zählt vom Ende des Arrays zurück — wenn `-array.length <= start < 0`, wird `start + array.length` verwendet.
+    - Ist `start < -array.length` oder wird `start` weggelassen, wird `0` verwendet.
+    - Wenn `start >= array.length`, wird kein Element gelöscht, aber die Methode verhält sich als Hinzufügungsfunktion und fügt so viele Elemente hinzu, wie übergeben werden.
 
 - `deleteCount` {{optional_inline}}
 
-  - : Eine Ganzzahl, die die Anzahl der Elemente im Array angibt, die ab `start` entfernt werden sollen.
+  - : Eine Ganzzahl, die angibt, wie viele Elemente im Array ab `start` entfernt werden sollen.
 
-    Wenn `deleteCount` weggelassen wird oder wenn sein Wert größer oder gleich der Anzahl der Elemente nach der durch `start` angegebenen Position ist, werden alle Elemente von `start` bis zum Ende des Arrays gelöscht. Wenn Sie jedoch irgendwelche `itemN`-Parameter übergeben möchten, sollten Sie `Infinity` als `deleteCount` übergeben, um alle Elemente nach `start` zu löschen, da ein explizites `undefined` in `0` [konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) wird.
+    Wenn `deleteCount` weggelassen wird oder sein Wert größer oder gleich der Anzahl der Elemente nach der durch `start` angegebenen Position ist, werden alle Elemente von `start` bis zum Ende des Arrays gelöscht. Wenn Sie jedoch irgendeinen `itemN`-Parameter übergeben möchten, sollten Sie `Infinity` als `deleteCount` angeben, um alle Elemente nach `start` zu löschen, da ein explizites `undefined` in `0` [umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) wird.
 
     Wenn `deleteCount` `0` oder negativ ist, werden keine Elemente entfernt.
     In diesem Fall sollten Sie mindestens ein neues Element angeben (siehe unten).
 
 - `item1`, …, `itemN` {{optional_inline}}
 
-  - : Die hinzuzufügenden Elemente beginnen bei `start`.
+  - : Die Elemente, die ab `start` zum Array hinzugefügt werden sollen.
 
-    Wenn Sie keine Elemente angeben, wird `toSpliced()` nur Elemente aus dem Array entfernen.
+    Wenn Sie keine Elemente angeben, entfernt `toSpliced()` nur Elemente aus dem Array.
 
 ### Rückgabewert
 
@@ -49,40 +49,40 @@ Ein neues Array, das aus allen Elementen vor `start`, `item1`, `item2`, …, `it
 
 ## Beschreibung
 
-Die `toSpliced()`-Methode, ähnlich wie `splice()`, erledigt mehrere Dinge gleichzeitig: Sie entfernt die angegebene Anzahl an Elementen aus dem Array, beginnend bei einem bestimmten Index, und fügt dann die angegebenen Elemente am gleichen Index ein. Sie gibt jedoch ein neues Array zurück, anstatt das ursprüngliche Array zu modifizieren. Die gelöschten Elemente werden daher nicht von dieser Methode zurückgegeben.
+Die `toSpliced()`-Methode, ähnlich wie `splice()`, führt mehrere Aufgaben zugleich aus: Sie entfernt die angegebene Anzahl an Elementen aus dem Array ab einem bestimmten Index und fügt dann die angegebenen Elemente an demselben Index ein. Sie gibt jedoch ein neues Array zurück, anstatt das Original-Array zu ändern. Die gelöschten Elemente werden daher nicht von dieser Methode zurückgegeben.
 
-Die `toSpliced()`-Methode erzeugt niemals ein [dünn besetztes Array](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays). Wenn das Quellarray dünn besetzt ist, werden die leeren Plätze im neuen Array mit `undefined` ersetzt.
+Die `toSpliced()`-Methode erzeugt niemals ein [spärliches Array](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays). Wenn das Quell-Array spärlich ist, werden die leeren Stellen im neuen Array mit `undefined` ersetzt.
 
-Die `toSpliced()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integer-gekennzeichnete Eigenschaften hat.
+Die `toSpliced()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet nur, dass der `this`-Wert eine `length`-Eigenschaft und integer-nummerierte Eigenschaften hat.
 
 ## Beispiele
 
 ### Löschen, Hinzufügen und Ersetzen von Elementen
 
-Sie können `toSpliced()` verwenden, um Elemente in einem Array zu löschen, hinzuzufügen und zu ersetzen und effizienter als mit `slice()` und `concat()` ein neues Array zu erzeugen.
+Sie können `toSpliced()` verwenden, um Elemente in einem Array zu löschen, hinzuzufügen und zu ersetzen, und effizienter ein neues Array zu erstellen als mit `slice()` und `concat()`.
 
 ```js
 const months = ["Jan", "Mar", "Apr", "May"];
 
-// Einfügen eines Elements an Index 1
+// Inserting an element at index 1
 const months2 = months.toSpliced(1, 0, "Feb");
 console.log(months2); // ["Jan", "Feb", "Mar", "Apr", "May"]
 
-// Löschen von zwei Elementen ab Index 2
+// Deleting two elements starting from index 2
 const months3 = months2.toSpliced(2, 2);
 console.log(months3); // ["Jan", "Feb", "May"]
 
-// Ersetzen eines Elements an Index 1 durch zwei neue Elemente
+// Replacing one element at index 1 with two new elements
 const months4 = months3.toSpliced(1, 1, "Feb", "Mar");
 console.log(months4); // ["Jan", "Feb", "Mar", "May"]
 
-// Ursprüngliches Array wird nicht modifiziert
+// Original array is not modified
 console.log(months); // ["Jan", "Mar", "Apr", "May"]
 ```
 
-### Verwendung von toSpliced() auf dünn besetzten Arrays
+### Verwendung von toSpliced() auf spärlichen Arrays
 
-Die `toSpliced()`-Methode erzeugt immer ein dicht besetztes Array.
+Die `toSpliced()`-Methode erstellt immer ein dichtes Array.
 
 ```js
 const arr = [1, , 3, 4, , 6];
@@ -91,7 +91,7 @@ console.log(arr.toSpliced(1, 2)); // [1, 4, undefined, 6]
 
 ### Aufrufen von toSpliced() auf Nicht-Array-Objekten
 
-Die `toSpliced()`-Methode liest die `length`-Eigenschaft von `this`. Sie liest dann die integer-gekennzeichneten benötigten Eigenschaften und schreibt sie in das neue Array.
+Die `toSpliced()`-Methode liest die `length`-Eigenschaft von `this`. Sie liest dann die benötigten integer-nummerierten Eigenschaften aus und schreibt sie in das neue Array.
 
 ```js
 const arrayLike = {
@@ -114,7 +114,7 @@ console.log(Array.prototype.toSpliced.call(arrayLike, 0, 1, 2, 3));
 
 ## Siehe auch
 
-- [Polyfill von `Array.prototype.toSpliced` in `core-js`](https://github.com/zloirock/core-js#change-array-by-copy)
+- [Polyfill für `Array.prototype.toSpliced` in `core-js`](https://github.com/zloirock/core-js#change-array-by-copy)
 - {{jsxref("Array.prototype.splice()")}}
 - {{jsxref("Array.prototype.toReversed()")}}
 - {{jsxref("Array.prototype.toSorted()")}}

@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef}}{{deprecated_header}}
 
-Die **`Window.blur()`**-Methode hat keine Funktion.
+Die **`Window.blur()`**-Methode tut nichts.
 
 > [!NOTE]
-> Historisch gesehen war diese Methode das programmgesteuerte Äquivalent zum Entfernen des Fokus durch den Benutzer vom aktuellen Fenster. Dieses Verhalten wurde entfernt, da feindliche Websites diese Funktionalität missbrauchten. In Firefox können Sie das alte Verhalten mit der `dom.disable_window_flip` Einstellung aktivieren.
+> Historisch gesehen war diese Methode das programmgesteuerte Äquivalent dazu, dass der Benutzer den Fokus vom aktuellen Fenster weg verschiebt. Dieses Verhalten wurde entfernt, da feindselige Websites diese Funktionalität missbrauchten. In Firefox können Sie das alte Verhalten mit der Einstellung `dom.disable_window_flip` aktivieren.
 
 ## Syntax
 

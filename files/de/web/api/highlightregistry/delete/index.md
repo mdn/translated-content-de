@@ -1,5 +1,5 @@
 ---
-title: "HighlightRegistry: delete()-Methode"
+title: "HighlightRegistry: delete() Methode"
 short-title: delete()
 slug: Web/API/HighlightRegistry/delete
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`delete()`**-Methode der {{domxref("HighlightRegistry")}}-Schnittstelle entfernt ein benanntes {{domxref("Highlight")}}-Objekt aus der `HighlightRegistry`.
+Die **`delete()`** Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle entfernt ein benanntes [`Highlight`](/de/docs/Web/API/Highlight)-Objekt aus der `HighlightRegistry`.
 
-`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Map.delete()")}}.
+`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich der Verwendung von {{jsxref("Map.delete()")}}.
 
 ## Syntax
 
@@ -21,15 +21,15 @@ delete(customHighlightName)
 ### Parameter
 
 - `customHighlightName`
-  - : Der Name, als {{jsxref("String")}}, des zu entfernenden {{domxref("Highlight")}}-Objekts aus der `HighlightRegistry`.
+  - : Der Name, als {{jsxref("String")}}, des [`Highlight`](/de/docs/Web/API/Highlight)-Objekts, das aus der `HighlightRegistry` entfernt werden soll.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn ein `Highlight`-Objekt unter dem angegebenen Namen in der `HighlightRegistry` enthalten war; andernfalls `false`.
+Gibt `true` zurück, wenn ein `Highlight`-Objekt unter dem angegebenen Namen in der `HighlightRegistry` war; andernfalls `false`.
 
 ## Beispiele
 
-Der folgende Codeausschnitt registriert ein Highlight im Register und löscht es dann:
+Das folgende Codebeispiel registriert ein Highlight im Verzeichnis und löscht es dann:
 
 ```js
 const myHighlight = new Highlight(range1, range2);
@@ -50,5 +50,5 @@ CSS.highlights.delete("my-highlight"); // true
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "The CSS Custom Highlight API", "", "nocode")}}
-- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

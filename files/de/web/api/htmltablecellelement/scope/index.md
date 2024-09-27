@@ -8,31 +8,31 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`scope`**-Eigenschaft der {{domxref("HTMLTableCellElement")}}-Schnittstelle gibt den Anwendungsbereich einer {{HTMLElement("th")}}-Zelle an.
+Die **`scope`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces gibt den Geltungsbereich einer {{HTMLElement("th")}}-Zelle an.
 
-Kopfzellen können mit dem `scope`-Attribut so konfiguriert werden, dass sie auf eine bestimmte Zeile oder Spalte oder auf die noch nicht zugewiesenen Zellen innerhalb der aktuellen Zeilengruppe (das heißt, dasselbe übergeordnete {{HTMLElement("thead")}}, {{HTMLElement("tbody")}} oder {{HTMLElement("tfoot")}}-Element) angewendet werden. Wenn kein Wert für `scope` angegeben ist, wird die Kopfzelle nicht direkt mit Zellen in dieser Weise verknüpft. Erlaubte Werte für `scope` sind:
+Kopfzellen können mithilfe des `scope`-Attributs so konfiguriert werden, dass sie für eine bestimmte Zeile oder Spalte gelten oder für die noch nicht erfassten Zellen innerhalb der aktuellen Zeilengruppe (d. h. dasselbe übergeordnete {{HTMLElement("thead")}}, {{HTMLElement("tbody")}} oder {{HTMLElement("tfoot")}}-Element). Wenn kein Wert für `scope` angegeben wird, ist der Kopf nicht direkt mit Zellen in dieser Weise verbunden. Zulässige Werte für `scope` sind:
 
 > [!NOTE]
-> Diese Eigenschaft hat keine visuelle Wirkung in Browsern. Sie fügt semantische Informationen hinzu, um unterstützenden Technologien wie Bildschirmlesern zu helfen, die Tabelle auf eine kohärentere Weise zu präsentieren.
+> Diese Eigenschaft hat keine visuelle Wirkung in Browsern. Sie fügt semantische Informationen hinzu, um unterstützende Technologien wie Bildschirmleser dabei zu helfen, die Tabelle auf verständlichere Weise darzustellen.
 
 ## Wert
 
 Einer der folgenden Werte:
 
 - `col`
-  - : Die Kopfzelle gilt für die folgenden Zellen in derselben Spalte (oder Spalten, wenn auch `colspan` verwendet wird), bis entweder das Ende der Spalte erreicht ist oder eine andere `<th>` in der Spalte einen neuen Anwendungsbereich festlegt.
+  - : Die Kopfzelle gilt für die folgenden Zellen in derselben Spalte (oder Spalten, wenn `colspan` ebenfalls verwendet wird), bis entweder das Ende der Spalte erreicht ist oder ein weiteres `<th>` in der Spalte einen neuen Geltungsbereich festlegt.
 - `colgroup`
-  - : Die Kopfzelle gilt für alle Zellen in der aktuellen Spaltengruppe, die noch keinen Anwendungsbereich haben. Dieser Wert ist nur erlaubt, wenn sich die Zelle in einer Spaltengruppe befindet.
+  - : Die Kopfzelle gilt für alle Zellen in der aktuellen Spaltengruppe, die noch keinen angewendeten Bereich haben. Dieser Wert ist nur erlaubt, wenn sich die Zelle in einer Spaltengruppe befindet.
 - `row`
-  - : Die Kopfzelle gilt für die folgenden Zellen in derselben Zeile (oder Zeilen, wenn auch `rowspan` verwendet wird), bis entweder das Ende der Zeile erreicht ist oder eine andere `<th>` in derselben Zeile einen neuen Anwendungsbereich festlegt.
+  - : Die Kopfzelle gilt für die folgenden Zellen in derselben Zeile (oder Reihen, wenn `rowspan` ebenfalls verwendet wird), bis entweder das Ende der Zeile erreicht ist oder ein weiteres `<th>` in derselben Zeile einen neuen Geltungsbereich festlegt.
 - `rowgroup`
-  - : Die Kopfzelle gilt für alle Zellen in der aktuellen Zeilengruppe, die noch keinen Anwendungsbereich haben. Dieser Wert ist nur erlaubt, wenn sich die Zelle in einer Zeilengruppe befindet.
+  - : Die Kopfzelle gilt für alle Zellen in der aktuellen Zeilengruppe, die noch keinen angewendeten Bereich haben. Dieser Wert ist nur erlaubt, wenn sich die Zelle in einer Zeilengruppe befindet.
 - Der leere String (`""`)
-  - : Die Kopfzelle hat keinen vordefinierten Anwendungsbereich; der Benutzeragent wird den Anwendungsbereich anhand kontextueller Hinweise festlegen.
+  - : Die Kopfzelle hat keinen vordefinierten Bereich; der Benutzeragent wird den Bereich basierend auf kontextuellen Hinweisen festlegen.
 
 ## Beispiele
 
-Dieses Beispiel fügt eine Beschriftung für alle Zellnummern der ersten Zeile des `tbody` hinzu.
+Dieses Beispiel fügt allen Zellenummern der ersten Zeile des `tbody` eine Beschriftung hinzu.
 
 ### HTML
 

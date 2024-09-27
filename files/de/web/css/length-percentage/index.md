@@ -1,5 +1,5 @@
 ---
-title: <Länge-Prozentsatz>
+title: <length-percentage>
 slug: Web/CSS/length-percentage
 l10n:
   sourceCommit: 73091fbe590d96857d743eaeec5aee4a8101994f
@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<length-percentage>`** [CSS](/de/docs/Web/CSS)-[Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen Wert, der entweder eine {{Cssxref("length")}} oder ein {{Cssxref("percentage")}} sein kann.
+Der **`<length-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen Wert, der entweder eine {{Cssxref("length")}} oder ein {{Cssxref("percentage")}} sein kann.
 
 ## Syntax
 
-Für Details zu den einzelnen erlaubten Syntaxen dieses Typs beziehen Sie sich bitte auf die Dokumentation zu {{Cssxref("length")}} und {{Cssxref("percentage")}}.
+Verweisen Sie auf die Dokumentation für {{Cssxref("length")}} und {{Cssxref("percentage")}}, um Details zu den einzelnen erlaubten Syntaxen dieses Typs zu erhalten.
 
 ## Formale Syntax
 
@@ -19,9 +19,9 @@ Für Details zu den einzelnen erlaubten Syntaxen dieses Typs beziehen Sie sich b
 
 ## Beispiele
 
-### Beispiele für Länge-Prozentsatz
+### Beispiele für length-percentage
 
-Das folgende einfache Beispiel demonstriert mehrere Eigenschaften, die `<length-percentage>`-Werte nutzen.
+Das folgende einfache Beispiel demonstriert mehrere Eigenschaften, die `<length-percentage>` Werte verwenden.
 
 #### HTML
 
@@ -58,7 +58,7 @@ p {
 
 ### Verwendung in calc()
 
-Wenn ein `<length-percentage>` als zulässiger Typ angegeben wird, bedeutet dies, dass der Prozentsatz in eine Länge aufgelöst wird und daher in einem {{cssxref("calc", "calc()")}}-Ausdruck verwendet werden kann. Daher sind alle folgenden Werte für {{cssxref("width")}} akzeptabel:
+Wo ein `<length-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz zu einer Länge aufgelöst wird und daher in einem {{cssxref("calc", "calc()")}} Ausdruck verwendet werden kann. Daher sind alle folgenden Werte für {{cssxref("width")}} akzeptabel:
 
 ```css example-good
 width: 200px;
@@ -78,4 +78,4 @@ width: calc(100% - 200px);
 
 - {{cssxref("&lt;percentage&gt;")}}
 - {{cssxref("&lt;length&gt;")}}
-- [CSS Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)
+- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)

@@ -7,26 +7,26 @@ l10n:
 
 {{CSSRef}}
 
-Die **`margin-bottom`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt den [Randbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) an der Unterseite eines Elements. Ein positiver Wert platziert es weiter entfernt von seinen Nachbarn, während ein negativer Wert es näher platziert.
+Die **`margin-bottom`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den [Randbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) am unteren Rand eines Elements fest. Ein positiver Wert platziert es weiter von seinen Nachbarn entfernt, während ein negativer Wert es näher platziert.
 
 {{EmbedInteractiveExample("pages/css/margin-bottom.html")}}
 
-![Die Auswirkung der CSS-Eigenschaft margin-bottom auf das Element-Box](margin-bottom.svg)
+![Die Wirkung der CSS-Eigenschaft margin-bottom auf das Element-Box](margin-bottom.svg)
 
-Diese Eigenschaft hat keinen Effekt auf _nicht-[ersetzte](/de/docs/Web/CSS/Replaced_element)_ Inline-Elemente, wie zum Beispiel {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
+Diese Eigenschaft hat keine Wirkung auf _nicht-[ersetzte](/de/docs/Web/CSS/Replaced_element)_ Inline-Elemente, wie zum Beispiel {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
 
 ## Syntax
 
 ```css
-/* <length> Werte */
-margin-bottom: 10px; /* Eine absolute Länge */
-margin-bottom: 1em; /* relativ zur Schriftgröße */
-margin-bottom: 5%; /* relativ zur Breite des nächstgelegenen Blockcontainers */
+/* <length> values */
+margin-bottom: 10px; /* An absolute length */
+margin-bottom: 1em; /* relative to the text size */
+margin-bottom: 5%; /* relative to the nearest block container's width */
 
-/* Schlüsselwortwerte */
+/* Keyword values */
 margin-bottom: auto;
 
-/* Globale Werte */
+/* Global values */
 margin-bottom: inherit;
 margin-bottom: initial;
 margin-bottom: revert;
@@ -34,14 +34,14 @@ margin-bottom: revert-layer;
 margin-bottom: unset;
 ```
 
-Die `margin-bottom` Eigenschaft wird als das Schlüsselwort `auto`, oder als ein `<length>`, oder ein `<percentage>` angegeben. Ihr Wert kann positiv, null oder negativ sein.
+Die `margin-bottom` Eigenschaft wird als das Schlüsselwort `auto`, oder eine `<length>`, oder ein `<percentage>` angegeben. Ihr Wert kann positiv, null oder negativ sein.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
   - : Die Größe des Randes als fester Wert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Randes als Prozentsatz, relativ zur Inlinegröße (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/Containing_block).
+  - : Die Größe des Randes als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Containing_block).
 - `auto`
   - : Der Browser wählt einen geeigneten Wert aus. Siehe {{cssxref("margin")}}.
 
@@ -55,7 +55,7 @@ Die `margin-bottom` Eigenschaft wird als das Schlüsselwort `auto`, oder als ein
 
 ## Beispiele
 
-### Setzen von positiven und negativen Unterrändern
+### Positive und negative untere Ränder setzen
 
 #### HTML
 
@@ -69,7 +69,7 @@ Die `margin-bottom` Eigenschaft wird als das Schlüsselwort `auto`, oder als ein
 
 #### CSS
 
-CSS für divs, um margin-bottom und Höhe festzulegen
+CSS für Divs, um margin-bottom und Höhe festzulegen
 
 ```css
 .box0 {
@@ -87,7 +87,7 @@ CSS für divs, um margin-bottom und Höhe festzulegen
 }
 ```
 
-Einige Definitionen für Container und divs, um die Auswirkungen der Ränder klarer sichtbar zu machen
+Einige Definitionen für Container und Divs, damit die Auswirkungen von Rändern deutlicher sichtbar sind
 
 ```css
 .container {
@@ -115,5 +115,5 @@ div {
 
 ## Siehe auch
 
-- {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, und {{cssxref("margin-left")}} sowie die Kurzform {{cssxref("margin")}}
-- Die zugeordneten logischen Eigenschaften: {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}}, und {{cssxref("margin-inline-end")}} sowie die Kurzformen {{cssxref("margin-block")}} und {{cssxref("margin-inline")}}
+- {{cssxref("margin-top")}}, {{cssxref("margin-right")}}, und {{cssxref("margin-left")}} sowie die {{cssxref("margin")}} Kurzschreibweise
+- Die zugeordneten logischen Eigenschaften: {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}}, und {{cssxref("margin-inline-end")}} sowie die Kurzschreibweisen {{cssxref("margin-block")}} und {{cssxref("margin-inline")}}

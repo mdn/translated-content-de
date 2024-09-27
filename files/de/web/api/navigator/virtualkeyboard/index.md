@@ -8,13 +8,14 @@ l10n:
 
 {{APIRef("VirtualKeyboard")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`virtualKeyboard`** der {{domxref("navigator")}}-Schnittstelle liefert eine Referenz auf das {{domxref("VirtualKeyboard")}} Instanzobjekt.
+Die **`virtualKeyboard`** schreibgeschützte Eigenschaft
+der [`navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt eine Referenz auf das [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard)-Instanzobjekt zurück.
 
-Die {{domxref("VirtualKeyboard_API", "VirtualKeyboard-API", "", "nocode")}} gibt Entwicklern die Kontrolle über das Layout ihrer Anwendungen, wenn die Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten, bei denen eine Hardwaretastatur möglicherweise nicht verfügbar ist, ein- und ausgeblendet wird.
+Die [VirtualKeyboard API](/de/docs/Web/API/VirtualKeyboard_API) gibt Entwicklern die Kontrolle über das Layout ihrer Anwendungen, wenn die Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten, auf denen möglicherweise keine Hardwaretastatur verfügbar ist, erscheint und verschwindet.
 
 ## Wert
 
-Ein {{domxref("VirtualKeyboard")}} Objekt, das Sie verwenden können, um das automatische Verhalten der virtuellen Tastatur zu deaktivieren, die virtuelle Tastatur programmgesteuert ein- oder auszublenden und die aktuelle Position und Größe der virtuellen Tastatur abzurufen.
+Ein [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard)-Objekt, mit dem Sie das automatische Verhalten der Bildschirmtastatur deaktivieren, die Bildschirmtastatur programmatisch ein- oder ausblenden und die aktuelle Position und Größe der Bildschirmtastatur abrufen können.
 
 ## Spezifikationen
 

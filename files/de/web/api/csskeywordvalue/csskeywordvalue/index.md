@@ -1,5 +1,5 @@
 ---
-title: "CSSKeywordValue: CSSKeywordValue()-Konstruktor"
+title: "CSSKeywordValue: CSSKeywordValue() Konstruktor"
 short-title: CSSKeywordValue()
 slug: Web/API/CSSKeywordValue/CSSKeywordValue
 l10n:
@@ -9,8 +9,8 @@ l10n:
 {{APIRef("CSS Typed Object Model API")}}
 
 Der **`CSSKeywordValue()`**-Konstruktor
-erstellt ein neues {{domxref("CSSKeywordValue")}}-Objekt, das CSS-Schlüsselwörter und
-andere Bezeichner darstellt.
+erstellt ein neues [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)-Objekt, das CSS-Schlüsselwörter und
+andere Bezeichner repräsentiert.
 
 ## Syntax
 
@@ -21,19 +21,19 @@ new CSSKeywordValue(val)
 ### Parameter
 
 - `value`
-  - : Legt den Wert des neuen `CSSKeywordValue` fest oder gibt ihn zurück.
+  - : Setzt oder gibt den Wert des neuen `CSSKeywordValue` zurück.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der Parameter `value` nicht angegeben ist oder nicht vom Typ {{jsxref('String')}} ist.
+  - : Wird ausgelöst, wenn der `value`-Parameter nicht angegeben ist oder nicht vom Typ {{jsxref('String')}} ist.
 
 ## Beispiele
 
-Das folgende Beispiel setzt die CSS-{{cssxref('display')}}-Eigenschaft auf ihre Standardwerte zurück
-und setzt das inline
+Das folgende Beispiel setzt die CSS-Eigenschaft {{cssxref('display')}} auf ihre Standardwerte zurück,
+indem das inline
 [`style`](/de/docs/Web/HTML/Global_attributes/style)-Attribut
-auf `style="display: initial"`, wenn es im [Entwicklerwerkzeug-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html) angezeigt wird.
+auf `style="display: initial"` gesetzt wird, wenn es im [Entwicklerwerkzeuge-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html) betrachtet wird.
 
 ```css hidden
 #myElement {
@@ -43,8 +43,8 @@ auf `style="display: initial"`, wenn es im [Entwicklerwerkzeug-Inspektor](https:
 
 ```html hidden
 <div id="myElement">
-  Überprüfen Sie die Entwicklerwerkzeuge, um die Protokollierung in der Konsole zu sehen und das
-  style-Attribut auf diesem div zu inspizieren.
+  Check the developer tools to see the log in the console and to inspect the
+  style attribute on this div.
 </div>
 ```
 
@@ -63,6 +63,6 @@ console.dir(keyword);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -8,14 +8,14 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`Selection.focusNode`** gibt den
-{{domxref("Node")}} zurück, in dem die Auswahl endet.
+Die **`Selection.focusNode`** schreibgeschützte Eigenschaft gibt den
+[`Node`](/de/docs/Web/API/Node) zurück, in dem die Auswahl endet.
 
-Ein Benutzer kann eine Auswahl von links nach rechts (in Dokumentreihenfolge) oder von rechts nach links (entgegengesetzt zur Dokumentreihenfolge) vornehmen. Der Fokus ist der Punkt, an dem der Benutzer die Auswahl beendet hat. Dies kann veranschaulicht werden, indem Sie die <kbd>Shift</kbd>-Taste gedrückt halten und die Pfeiltasten auf Ihrer Tastatur verwenden, um die aktuelle Auswahl zu ändern. Der Fokus der Auswahl bewegt sich, aber der Anker der Auswahl, das andere Ende der Auswahl, bewegt sich nicht.
+Ein Benutzer kann eine Auswahl von links nach rechts (in Dokumentenreihenfolge) oder von rechts nach links (umgekehrte Dokumentenreihenfolge) treffen. Der Fokus ist dort, wo der Benutzer die Auswahl beendet hat. Dies kann visualisiert werden, indem Sie die <kbd>Shift</kbd>-Taste gedrückt halten und die Pfeiltasten auf Ihrer Tastatur verwenden, um die aktuelle Auswahl zu ändern. Der Fokus der Auswahl bewegt sich, aber der Anker der Auswahl, das andere Ende der Auswahl, bewegt sich nicht.
 
 ## Wert
 
-Ein {{domxref("Node")}}-Objekt.
+Ein [`Node`](/de/docs/Web/API/Node)-Objekt.
 
 ## Spezifikationen
 
@@ -27,4 +27,4 @@ Ein {{domxref("Node")}}-Objekt.
 
 ## Siehe auch
 
-- {{domxref("Selection")}}, das Interface, zu dem es gehört.
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der sie gehört.

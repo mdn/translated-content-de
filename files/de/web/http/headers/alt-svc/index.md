@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Alt-Svc`** HTTP-Header erlaubt einem Server anzugeben, dass eine andere Netzwerkadresse (der "alternative Dienst") als autoritativ für diese Herkunft behandelt werden kann, wenn in Zukunft Anfragen gestellt werden.
+Der **`Alt-Svc`** HTTP-Header ermöglicht es einem Server anzugeben, dass eine andere Netzwerkadresse (der "alternative Dienst") als autoritativ für diese Herkunft betrachtet werden kann, wenn zukünftige Anfragen gestellt werden.
 
-Dies ermöglicht es, neue Protokollversionen zu bewerben, ohne die laufenden Anfragen zu beeinflussen, und kann auch Servern helfen, den Datenverkehr zu verwalten. Die Verwendung eines alternativen Dienstes ist für den Endbenutzer nicht sichtbar; sie ändert weder die URL noch die Herkunft der Anfrage und verursacht keine zusätzlichen Roundtrips.
+Dies ermöglicht es, neue Protokollversionen anzukündigen, ohne laufende Anfragen zu beeinflussen, und kann auch Servern bei der Verkehrslenkung helfen. Die Nutzung eines alternativen Dienstes ist für den Endbenutzer nicht sichtbar; sie ändert weder die URL noch die Herkunft der Anfrage und führt auch nicht zu zusätzlichen Netzwerk-Rundgängen.
 
 ## Syntax
 
@@ -20,21 +20,21 @@ Alt-Svc: <protocol-id>=<alt-authority>; ma=<max-age>; persist=1
 ```
 
 - `clear`
-  - : Der spezielle Wert `clear` zeigt an, dass die Herkunft anfordert, dass alle alternativen Dienste für diese Herkunft ungültig gemacht werden.
+  - : Der spezielle Wert `clear` zeigt an, dass die Herkunft verlangt, dass alle alternativen Dienste für diese Herkunft ungültig gemacht werden.
 - `<protocol-id>`
-  - : Der {{Glossary("ALPN")}}-Protokoll-Identifier. Beispiele sind `h2` für HTTP/2 und `h3-25` für Entwurf 25 des HTTP/3-Protokolls.
+  - : Der [ALPN](/de/docs/Glossary/ALPN)-Protokollbezeichner. Beispiele sind `h2` für HTTP/2 und `h3-25` für den Entwurf 25 des HTTP/3-Protokolls.
 - `<alt-authority>`
-  - : Der zitierte String, der die alternative Autorität spezifiziert. Er besteht aus einer optionalen Host-Überschreibung, einem Doppelpunkt und einer obligatorischen Portnummer.
+  - : Der angegebene Zeichenfolgenwert, der die alternative Autorität spezifiziert, besteht aus einem optionalen Host-Override, einem Doppelpunkt und einer obligatorischen Portnummer.
 - `ma=<max-age>` {{optional_inline}}
-  - : Die Anzahl von Sekunden, für die der alternative Dienst als frisch betrachtet wird.
-    Wenn weggelassen, beträgt der Standardwert 24 Stunden.
-    Einträge für alternative Dienste können bis zu _\<max-age>_ Sekunden, abzüglich des Alters der Antwort (vom {{httpheader("Age")}}-Header) im Cache gespeichert werden.
-    Sobald der zwischengespeicherte Eintrag abläuft, kann der Client diesen alternativen Dienst nicht mehr für neue Verbindungen verwenden.
+  - : Die Anzahl der Sekunden, für die der alternative Dienst als frisch betrachtet wird.
+    Wird sie weggelassen, beträgt der Standardwert 24 Stunden.
+    Alternative Dienst-Einträge können bis zu _\<max-age>_ Sekunden zwischengespeichert werden, abzüglich des Alters der Antwort (vom {{httpheader("Age")}} Header).
+    Sobald der zwischengespeicherte Eintrag abläuft, kann der Client diesen alternativen Dienst für neue Verbindungen nicht mehr verwenden.
 - `persist=1` {{optional_inline}}
-  - : Normalerweise werden zwischengespeicherte Einträge für alternative Dienste bei Änderungen an der Netzwerkkonfiguration gelöscht.
+  - : Normalerweise werden zwischengespeicherte Einträge für alternative Dienste bei Änderungen der Netzwerkkonfiguration gelöscht.
     Die Verwendung des Parameters `persist=1` fordert, dass der Eintrag durch solche Änderungen nicht gelöscht wird.
 
-Mehrere Einträge können in einem einzigen `Alt-Svc`-Header durch Kommas getrennt angegeben werden.
+Mehrere Einträge können mittels Komma als Trennzeichen in einem einzelnen `Alt-Svc`-Header angegeben werden.
 In diesem Fall werden frühere Einträge als bevorzugter betrachtet.
 
 ## Beispiel
@@ -56,4 +56,4 @@ Alt-Svc: h3-25=":443"; ma=3600, h2=":443"; ma=3600
 
 ## Siehe auch
 
-- [Alternative Services](https://www.mnot.net/blog/2016/03/09/alt-svc) (Artikel über `Alt-Svc` von Mark Nottingham, Vorsitzender der HTTP Working Group)
+- [Alternative Services](https://www.mnot.net/blog/2016/03/09/alt-svc) (Artikel über `Alt-Svc` von Mark Nottingham, Vorsitzender der HTTP-Arbeitsgruppe)

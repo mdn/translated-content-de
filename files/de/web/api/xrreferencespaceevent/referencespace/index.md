@@ -1,5 +1,5 @@
 ---
-title: "XRReferenceSpaceEvent: Eigenschaft referenceSpace"
+title: "XRReferenceSpaceEvent: referenceSpace-Eigenschaft"
 short-title: referenceSpace
 slug: Web/API/XRReferenceSpaceEvent/referenceSpace
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`referenceSpace`** des {{domxref("XRReferenceSpaceEvent")}} gibt den Referenzraum an, der der Ursprung des Ereignisses ist.
+Die schreibgeschützte [`XRReferenceSpaceEvent`](/de/docs/Web/API/XRReferenceSpaceEvent) Eigenschaft **`referenceSpace`** gibt den Referenzraum an, der der Ursprung des Ereignisses ist.
 
 ## Wert
 
-Ein {{domxref("XRReferenceSpace")}}, der die Quelle des Ereignisses angibt.
+Ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace), das die Quelle des Ereignisses angibt.
 
 ## Beispiele
 

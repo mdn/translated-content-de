@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Der **`RTCIceCandidate()`** Konstruktor erstellt und gibt ein neues {{domxref("RTCIceCandidate")}}-Objekt zurück, das konfiguriert werden kann, um einen einzelnen {{Glossary("ICE")}}-Kandidaten darzustellen.
+Der **`RTCIceCandidate()`** Konstruktor erstellt und gibt ein neues [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) Objekt zurück, das konfiguriert werden kann, um einen einzelnen [ICE](/de/docs/Glossary/ICE) Kandidaten darzustellen.
 
 ## Syntax
 
@@ -21,101 +21,96 @@ new RTCIceCandidate(candidateInfo)
 
 - `candidateInfo` {{optional_inline}}
 
-  - : Ein optionales Objekt, das bereitgestellt werden kann, um den Kandidaten zu konfigurieren.
-    Das Objekt hat die folgenden Eigenschaften:
+  - : Ein optionales Objekt, das bereitgestellt werden kann, um den Kandidaten zu konfigurieren. Das Objekt hat folgende Eigenschaften:
 
-    <!-- The spec calls this object an RTCIceCandidateInit -->
+    <!-- Die Spezifikation nennt dieses Objekt RTCIceCandidateInit -->
 
     - `candidate` {{optional_inline}}
 
-      - : Ein String, der die Eigenschaften des Kandidaten beschreibt, direkt aus dem [SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp)-Attribut `"candidate"` entnommen.
-        Der Kandidaten-String spezifiziert die Netzwerkverbindungsinformationen für den Kandidaten.
-        Wenn der `candidate` ein leerer String (`""`) ist, wurde das Ende der Kandidatenliste erreicht; dieser Kandidat wird als "end-of-candidates"-Marker bezeichnet.
+      - : Ein String, der die Eigenschaften des Kandidaten beschreibt, direkt entnommen aus dem [SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp) Attribut `"candidate"`.
+        Der Kandidaten-String gibt die Netzwerkverbindungsinformationen für den Kandidaten an.
+        Wenn der `candidate` ein leerer String (`""`) ist, wurde das Ende der Kandidatenliste erreicht; dieser Kandidat ist als "end-of-candidates" Marker bekannt.
 
-        Die Syntax des Kandidaten-Strings wird in {{RFC(5245, "", 15.1)}} beschrieben. Für eine a-line (Attributlinie), die so aussieht:
+        Die Syntax des Kandidaten-Strings wird in {{RFC(5245, "", 15.1)}} beschrieben. Für eine a-line (Attributzeile), die so aussieht:
 
         ```plain
         a=candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host
         ```
 
-        wird der entsprechende Wert des `candidate`-Strings
-        `"candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host"` sein.
+        wird der entsprechende `candidate`-String den Wert `"candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host"` haben.
 
-        Der {{Glossary("user agent")}} bevorzugt immer Kandidaten mit der höchsten {{domxref("RTCIceCandidate.priority", "priority")}}, sofern alle anderen Faktoren gleich sind.
-        In dem obigen Beispiel ist die Priorität `2043278322`. Die Attribute sind alle durch ein einzelnes Leerzeichen getrennt und in einer bestimmten Reihenfolge.
+        Der [user agent](/de/docs/Glossary/user_agent) bevorzugt stets Kandidaten mit der höchsten [`priority`](/de/docs/Web/API/RTCIceCandidate/priority), wenn alles andere gleich ist.
+        Im obigen Beispiel beträgt die Priorität `2043278322`. Die Attribute sind alle durch ein einzelnes Leerzeichen getrennt und in einer bestimmten Reihenfolge.
         Die vollständige Liste der Attribute für diesen Beispielkandidaten ist:
 
-        - {{domxref("RTCIceCandidate.foundation", "foundation")}} = 4234997325
-        - {{domxref("RTCIceCandidate.component", "component")}} = `"rtp"` (die Zahl 1 wird als dieser String kodiert; 2 wird zu `"rtcp"`)
-        - {{domxref("RTCIceCandidate.protocol", "protocol")}} = `"udp"`
-        - {{domxref("RTCIceCandidate.priority", "priority")}} = 2043278322
-        - {{domxref("RTCIceCandidate/address", "ip")}} = `"192.0.2.172"`
-        - {{domxref("RTCIceCandidate.port", "port")}} = 44323
-        - {{domxref("RTCIceCandidate.type", "type")}} = `"host"`
+        - [`foundation`](/de/docs/Web/API/RTCIceCandidate/foundation) = 4234997325
+        - [`component`](/de/docs/Web/API/RTCIceCandidate/component) = `"rtp"` (die Zahl 1 wird zu diesem String kodiert; 2 wird zu `"rtcp"`)
+        - [`protocol`](/de/docs/Web/API/RTCIceCandidate/protocol) = `"udp"`
+        - [`priority`](/de/docs/Web/API/RTCIceCandidate/priority) = 2043278322
+        - [`ip`](/de/docs/Web/API/RTCIceCandidate/address) = `"192.0.2.172"`
+        - [`port`](/de/docs/Web/API/RTCIceCandidate/port) = 44323
+        - [`type`](/de/docs/Web/API/RTCIceCandidate/type) = `"host"`
 
-        Weitere Informationen finden Sie in {{domxref("RTCIceCandidate.candidate")}}.
+        Weitere Informationen finden Sie in [`RTCIceCandidate.candidate`](/de/docs/Web/API/RTCIceCandidate/candidate).
 
         > [!NOTE]
-        > Aus Gründen der Abwärtskompatibilität mit älteren Versionen der WebRTC-Spezifikation akzeptiert der Konstruktor diesen String auch direkt als Argument.
+        > Zur Rückwärtskompatibilität mit älteren Versionen der WebRTC-Spezifikation akzeptiert der Konstruktor diesen String auch direkt als Argument.
 
     - `sdpMid` {{optional_inline}}
 
-      - : Ein String, der das Identifikations-Tag des Medienstreams enthält, mit dem der Kandidat verknüpft ist, oder `null`, wenn kein zugeordneter Medienstream vorhanden ist. Der Standardwert ist `null`.
+      - : Ein String, der das Identifikations-Tag des Medienstreams enthält, mit dem der Kandidat verknüpft ist, oder `null`, wenn kein zugehöriger Medienstream vorhanden ist. Der Standardwert ist `null`.
 
-        Weitere Informationen finden Sie in {{domxref("RTCIceCandidate.sdpMid")}}.
+        Weitere Informationen finden Sie in [`RTCIceCandidate.sdpMid`](/de/docs/Web/API/RTCIceCandidate/sdpMid).
 
     - `sdpMLineIndex` {{optional_inline}}
 
-      - : Eine nummerische Eigenschaft, die den nullbasierten Index der m-line enthält, mit dem der Kandidat innerhalb der [SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp) der Medienbeschreibung verknüpft ist, oder `null`, wenn eine solche Zuordnung nicht existiert. Der Standardwert ist `null`.
+      - : Eine numerische Eigenschaft, die den nullbasierten Index der m-line enthält, mit der der Kandidat innerhalb der [SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp) der Medienbeschreibung verknüpft ist, oder `null`, wenn keine solche Verknüpfung existiert. Der Standardwert ist `null`.
 
-        Weitere Informationen finden Sie in {{domxref("RTCIceCandidate.sdpMLineIndex")}}.
+        Weitere Informationen finden Sie in [`RTCIceCandidate.sdpMLineIndex`](/de/docs/Web/API/RTCIceCandidate/sdpMLineIndex).
 
     - `usernameFragment` {{optional_inline}}
 
-      - : Ein String, der das Benutzername-Fragment (in der Regel als "ufrag" oder "ice-ufrag" bezeichnet) enthält.
-        Dieses Fragment identifiziert zusammen mit dem ICE-Passwort ("ice-pwd") eindeutig eine einzelne laufende ICE-Interaktion (einschließlich jeder Kommunikation mit dem {{Glossary("STUN")}}-Server).
+      - : Ein String, der das Benutzername-Fragment enthält (gewöhnlich in Kurzform als "ufrag" oder "ice-ufrag" bezeichnet).
+        Dieses Fragment, zusammen mit dem ICE-Passwort ("ice-pwd"), identifiziert eindeutig eine einzelne laufende ICE-Interaktion (einschließlich jeglicher Kommunikation mit dem [STUN](/de/docs/Glossary/STUN) Server).
 
         Der String wird von WebRTC zu Beginn der Sitzung generiert.
-        Er kann bis zu 256 Zeichen lang sein, und mindestens 24 Bits müssen zufällige Daten enthalten.
-        Es gibt keinen Standardwert und er ist nicht vorhanden, es sei denn, er wird ausdrücklich gesetzt.
+        Er kann bis zu 256 Zeichen lang sein, und mindestens 24 Bit müssen zufällige Daten enthalten.
+        Er hat keinen Standardwert und ist nicht vorhanden, es sei denn, er wird explizit gesetzt.
 
-        Weitere Informationen finden Sie in {{domxref("RTCIceCandidate.usernameFragment")}}.
+        Weitere Informationen finden Sie in [`RTCIceCandidate.usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment).
 
 ### Rückgabewert
 
-Ein neu erstelltes {{domxref("RTCIceCandidate")}}-Objekt.
+Ein neu erstelltes [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) Objekt.
 
 Wenn `candidateInfo` bereitgestellt wird, wird das neue `RTCIceCandidate` wie folgt initialisiert:
 
-- Jedes Mitglied des `RTCIceCandidate`-Objekts wird auf den Wert der Eigenschaft mit demselben Namen aus `candidateInfo` initialisiert.
-  Dies umfasst die {{domxref("RTCIceCandidate.candidate", "candidate")}}, {{domxref("RTCIceCandidate.sdpMid", "sdpMid")}}, {{domxref("RTCIceCandidate.sdpMLineIndex", "sdpMLineIndex")}}, und {{domxref("RTCIceCandidate.usernameFragment", "usernameFragment")}}-Eigenschaften.
-- Der `candidate`-String (der SDP-Text ist) wird geparst; jede gefundene Eigenschaft wird im entsprechenden Feld im `RTCIceCandidate` gespeichert.
-  Wenn eines der Felder ungültig ist, wird das Parsen des Strings stillschweigend abgebrochen, ohne eine Ausnahme auszulösen.
-  Der Standardwert für `candidate` ist der leere String, was anzeigt, dass der Kandidat eine "end-of-candidates"-Nachricht ist.
-- Die folgenden Felder werden auf `null` initialisiert, wenn sie nicht in der {{domxref("RTCIceCandidate.candidate")}}-Eigenschaft enthalten sind:
-  {{domxref("RTCIceCandidate.foundation", "foundation")}},
-  {{domxref("RTCIceCandidate.component", "component")}},
-  {{domxref("RTCIceCandidate.priority", "priority")}}, {{domxref("RTCIceCandidate/address","address")}}, {{domxref("RTCIceCandidate.protocol", "protocol")}},
-  {{domxref("RTCIceCandidate.port", "port")}}, {{domxref("RTCIceCandidate.type", "type")}}, {{domxref("RTCIceCandidate.tcpType", "tcpType")}},
-  {{domxref("RTCIceCandidate.relatedAddress", "relatedAddress")}}, und {{domxref("RTCIceCandidate.relatedPort", "relatedPort")}}.
+- Jedes Mitglied des `RTCIceCandidate`-Objekts wird auf den Wert der Eigenschaft mit dem gleichen Namen aus `candidateInfo` initialisiert. Dies schließt die Eigenschaften [`candidate`](/de/docs/Web/API/RTCIceCandidate/candidate), [`sdpMid`](/de/docs/Web/API/RTCIceCandidate/sdpMid), [`sdpMLineIndex`](/de/docs/Web/API/RTCIceCandidate/sdpMLineIndex) und [`usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment) ein.
+- Der `candidate`-String (der SDP-Text ist) wird geparst; jede gefundene Eigenschaft wird im entsprechenden Feld im `RTCIceCandidate` gespeichert. Wenn eines der Felder ungültig ist, wird das Parsen des Strings stillschweigend abgebrochen, ohne eine Ausnahme zu werfen.
+  Der Standardwert von `candidate` ist der leere String, der anzeigt, dass der Kandidat eine "end-of-candidates" Nachricht ist.
+- Die folgenden Felder werden auf `null` initialisiert, wenn sie nicht in der [`RTCIceCandidate.candidate`](/de/docs/Web/API/RTCIceCandidate/candidate) Eigenschaft enthalten sind: [`foundation`](/de/docs/Web/API/RTCIceCandidate/foundation),
+  [`component`](/de/docs/Web/API/RTCIceCandidate/component),
+  [`priority`](/de/docs/Web/API/RTCIceCandidate/priority), [`address`](/de/docs/Web/API/RTCIceCandidate/address), [`protocol`](/de/docs/Web/API/RTCIceCandidate/protocol),
+  [`port`](/de/docs/Web/API/RTCIceCandidate/port), [`type`](/de/docs/Web/API/RTCIceCandidate/type), [`tcpType`](/de/docs/Web/API/RTCIceCandidate/tcpType),
+  [`relatedAddress`](/de/docs/Web/API/RTCIceCandidate/relatedAddress), und [`relatedPort`](/de/docs/Web/API/RTCIceCandidate/relatedPort).
 
 > [!NOTE]
-> Das Parsen des `candidate`-Strings erfolgt unter Verwendung der [candidate-attribute grammar](https://w3c.github.io/webrtc-pc/#candidate-attribute-grammar) aus der WebRTC-Spezifikation.
+> Das Parsen des `candidate`-Strings erfolgt mithilfe der [candidate-attribute grammar](https://w3c.github.io/webrtc-pc/#candidate-attribute-grammar) aus der WebRTC-Spezifikation.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die angegebenen Werte von `candidateInfo` in **beiden** den Eigenschaften `sdpMid` und `sdpMLineIndex` `null` sind.
+  - : Wird geworfen, wenn das angegebene `candidateInfo` in **beiden** Eigenschaften `sdpMid` und `sdpMLineIndex` den Wert `null` hat.
 
-## Hinweise zur Verwendung
+## Verwendungshinweise
 
-Dieser Konstruktor validiert nicht vollständig das angegebene `candidateInfo`-Objekt oder den String.
+Dieser Konstruktor führt keine vollständige Validierung des angegebenen `candidateInfo` Objekts oder Strings durch.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

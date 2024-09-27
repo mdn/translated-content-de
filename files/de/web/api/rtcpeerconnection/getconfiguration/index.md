@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: Methode getConfiguration()"
+title: "RTCPeerConnection: getConfiguration()-Methode"
 short-title: getConfiguration()
 slug: Web/API/RTCPeerConnection/getConfiguration
 l10n:
@@ -8,11 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`getConfiguration()`**-Methode der {{domxref("RTCPeerConnection")}}-Schnittstelle gibt ein Objekt zurück, das die aktuelle Konfiguration der {{domxref("RTCPeerConnection")}} angibt, auf der die Methode aufgerufen wird.
+Die **`getConfiguration()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt ein Objekt zurück, das die aktuelle Konfiguration der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), auf der die Methode aufgerufen wird, anzeigt.
 
-Die zurückgegebene Konfiguration ist die zuletzt angewendete Konfiguration über {{domxref("RTCPeerConnection.setConfiguration","setConfiguration()")}}, oder wenn
-`setConfiguration()` nicht aufgerufen wurde, die Konfiguration, mit der die `RTCPeerConnection` erstellt wurde.
-Die Konfiguration enthält eine Liste der von der Verbindung verwendeten ICE-Server, Informationen zu Transport-Richtlinien und Identitätsinformationen.
+Die zurückgegebene Konfiguration ist die zuletzt über [`setConfiguration()`](/de/docs/Web/API/RTCPeerConnection/setConfiguration) angewendete Konfiguration oder, wenn `setConfiguration()` noch nicht aufgerufen wurde, die Konfiguration, mit der die `RTCPeerConnection` erstellt wurde. Die Konfiguration umfasst eine Liste der ICE-Server, die von der Verbindung verwendet werden, Informationen über Transport-Richtlinien und Identitätsinformationen.
 
 ## Syntax
 
@@ -26,8 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Objekt, das die aktuelle Konfiguration der {{domxref("RTCPeerConnection")}} beschreibt.
-Siehe [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection#parameters) für weitere Informationen zu den erlaubten Optionen.
+Ein Objekt, das die aktuelle Konfiguration der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) beschreibt. Weitere Informationen zu den zulässigen Optionen finden Sie unter [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection#parameters).
 
 ## Beispiele
 
@@ -49,9 +46,9 @@ if (configuration.certificates?.length === 0) {
 }
 ```
 
-Dieses Beispiel holt sich die aktuelle Konfiguration der {{domxref("RTCPeerConnection")}}, untersucht dann, ob sie bereits Zertifikate hat, indem geprüft wird, ob (a) die Konfiguration einen Wert für `certificates` hat und (b) ob die Länge davon null ist.
+Dieses Beispiel ruft die aktuelle Konfiguration der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ab und prüft dann, ob es Zertifikate gibt, indem es untersucht, ob (a) die Konfiguration einen Wert für `certificates` hat und (b) ob deren Länge null ist.
 
-Wenn festgestellt wird, dass keine Zertifikate vorhanden sind, wird {{domxref("RTCPeerConnection.generateCertificate_static", "RTCPeerConnection.generateCertificate()")}} aufgerufen, um ein neues Zertifikat zu erstellen; wir stellen einen Fulfillment-Handler bereit, der ein neues Array mit dem neu erstellten Zertifikat zur aktuellen Konfiguration hinzufügt und es an {{domxref("RTCPeerConnect.setConfiguration", "setConfiguration()")}} übergibt, um das Zertifikat zur Verbindung hinzuzufügen.
+Wenn festgestellt wird, dass keine Zertifikate vorhanden sind, wird [`RTCPeerConnection.generateCertificate()`](/de/docs/Web/API/RTCPeerConnection/generateCertificate_static) aufgerufen, um ein neues Zertifikat zu erstellen. Wir stellen einen Fulfillment-Handler bereit, der ein neues Array mit dem neu erstellten Zertifikat zur aktuellen Konfiguration hinzufügt und es mit [`setConfiguration()`](/de/docs/Web/API/RTCPeerConnect/setConfiguration) an die Verbindung weitergibt, um das Zertifikat hinzuzufügen.
 
 ## Spezifikationen
 
@@ -63,6 +60,6 @@ Wenn festgestellt wird, dass keine Zertifikate vorhanden sind, wird {{domxref("R
 
 ## Siehe auch
 
-- {{domxref("RTCPeerConnection.setConfiguration()")}}
-- {{domxref("RTCPeerConnection.RTCPeerConnection", "RTCPeerConnection()")}}
-- {{domxref("RTCPeerConnection")}}
+- [`RTCPeerConnection.setConfiguration()`](/de/docs/Web/API/RTCPeerConnection/setConfiguration)
+- [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection)
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)

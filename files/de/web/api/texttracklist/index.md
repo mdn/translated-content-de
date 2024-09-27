@@ -7,62 +7,62 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`TextTrackList`**-Schnittstelle wird verwendet, um eine Liste der für das zugehörige Video- oder Audioelement definierten Textspuren darzustellen, wobei jede Spur durch ein separates {{domxref("textTrack")}}-Objekt in der Liste repräsentiert wird.
+Die **`TextTrackList`**-Schnittstelle wird verwendet, um eine Liste der Textspuren darzustellen, die für das zugehörige Video- oder Audioelement definiert sind, wobei jede Spur durch ein separates [`textTrack`](/de/docs/Web/API/TextTrack)-Objekt in der Liste repräsentiert wird.
 
-Textspuren können einem Medienelement deklarativ mithilfe des {{HTMLElement("track")}}-Elements oder programmatisch mit der Methode {{domxref('HTMLMediaElement.addTextTrack()')}} hinzugefügt werden.
+Textspuren können einem Mediaelement deklarativ mittels des {{HTMLElement("track")}}-Elements oder programmatisch mittels der Methode [`HTMLMediaElement.addTextTrack()`](/de/docs/Web/API/HTMLMediaElement/addTextTrack) hinzugefügt werden.
 
-Eine Instanz dieses Objekts kann über die {{domxref('HTMLMediaElement.textTracks', 'textTracks')}}-Eigenschaft eines {{domxref('HTMLMediaElement')}}-Objekts abgerufen werden.
+Eine Instanz dieses Objekts kann über die [`textTracks`](/de/docs/Web/API/HTMLMediaElement/textTracks)-Eigenschaft eines [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekts abgerufen werden.
 
-Für ein gegebenes {{domxref('HTMLMediaElement')}}-Objekt _media_ können die einzelnen Tracks mit folgenden Methoden aufgerufen werden:
+Für ein gegebenes [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekt _media_ können die einzelnen Spuren folgendermaßen abgerufen werden:
 
 - `media.TextTracks[n]`, um die n-te Textspur aus der Liste der Textspuren des Objekts zu erhalten
-- die [`media.textTracks.getTrackById()`](/de/docs/Web/API/TextTrackList/getTrackById) Methode
+- die Methode [`media.textTracks.getTrackById()`](/de/docs/Web/API/TextTrackList/getTrackById)
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, {{domxref("EventTarget")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("TextTrackList.length", "length")}} {{ReadOnlyInline}}
+- [`length`](/de/docs/Web/API/TextTrackList/length) {{ReadOnlyInline}}
   - : Die Anzahl der Spuren in der Liste.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch Methoden von ihrer Elternschnittstelle, {{domxref("EventTarget")}}._
+_Diese Schnittstelle erbt auch Methoden von ihrer Elternschnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("TextTrackList.getTrackById", "getTrackById()")}}
-  - : Gibt die {{domxref("TextTrack")}} zurück, die innerhalb der `TextTrackList` gefunden wurde und deren {{domxref("TextTrack.id", "id")}} mit dem angegebenen String übereinstimmt. Wenn keine Übereinstimmung gefunden wird, wird `null` zurückgegeben.
+- [`getTrackById()`](/de/docs/Web/API/TextTrackList/getTrackById)
+  - : Gibt die [`TextTrack`](/de/docs/Web/API/TextTrack) zurück, die in der `TextTrackList` gefunden wurde, deren [`id`](/de/docs/Web/API/TextTrack/id) mit dem angegebenen String übereinstimmt. Wenn keine Übereinstimmung gefunden wird, wird `null` zurückgegeben.
 
 ## Ereignisse
 
 - [`addtrack`](/de/docs/Web/API/TextTrackList/addtrack_event)
-  - : Wird ausgelöst, wenn eine neue Textspur zum Medienelement hinzugefügt wurde.
-    Auch über die `onaddtrack`-Eigenschaft verfügbar.
+  - : Wird ausgelöst, wenn eine neue Textspur zum Mediaelement hinzugefügt wurde.
+    Auch über die Eigenschaft `onaddtrack` verfügbar.
 - [`change`](/de/docs/Web/API/TextTrackList/change_event)
-  - : Wird ausgelöst, wenn eine Textspur aktiv oder inaktiv gemacht wurde.
-    Auch über die `onchange`-Eigenschaft verfügbar.
+  - : Wird ausgelöst, wenn eine Textspur aktiv oder inaktiv geschaltet wurde.
+    Auch über die Eigenschaft `onchange` verfügbar.
 - [`removetrack`](/de/docs/Web/API/TextTrackList/removetrack_event)
-  - : Wird ausgelöst, wenn eine neue Textspur vom Medienelement entfernt wurde.
-    Auch über die `onremovetrack`-Eigenschaft verfügbar.
+  - : Wird ausgelöst, wenn eine neue Textspur vom Mediaelement entfernt wurde.
+    Auch über die Eigenschaft `onremovetrack` verfügbar.
 
-## Anwendungshinweise
+## Hinweise zur Verwendung
 
-Zusätzlich zur direkten Zugänglichkeit der Textspuren auf einem Medienelement ermöglicht `TextTrackList` das Setzen von Ereignis-Handlern für die Ereignisse {{domxref("TextTrackList/addtrack_event", "addtrack")}} und {{domxref("TextTrackList/removetrack_event", "removetrack")}}, damit Sie erkennen können, wann Spuren zum oder vom Datenstrom des Medienelements hinzugefügt oder entfernt werden.
+Zusätzlich zur direkten Zugriffsmöglichkeit auf die Textspuren auf einem Mediaelement erlaubt `TextTrackList` das Setzen von Ereignishandlern für die Ereignisse [`addtrack`](/de/docs/Web/API/TextTrackList/addtrack_event) und [`removetrack`](/de/docs/Web/API/TextTrackList/removetrack_event), sodass Sie erkennen können, wann Spuren zum oder vom Stream des Mediaelements hinzugefügt oder entfernt werden.
 
 ## Beispiele
 
-### Abrufen der Textspurliste eines Videoelements
+### Abrufen der Textspur-Liste eines Videoelements
 
-Um die `TextTrackList` eines Medienelements zu erhalten, verwenden Sie dessen {{domxref("HTMLMediaElement.textTracks", "textTracks")}}-Eigenschaft.
+Um die `TextTrackList` eines Mediaelements zu erhalten, verwenden Sie dessen [`textTracks`](/de/docs/Web/API/HTMLMediaElement/textTracks)-Eigenschaft.
 
 ```js
 const textTracks = document.querySelector("video").textTracks;
 ```
 
-### Überwachen von Änderungen der Spuranzahl
+### Überwachen von Änderungen in der Anzahl der Spuren
 
-In diesem Beispiel haben wir eine App, die Informationen über die Anzahl der verfügbaren Kanäle anzeigt. Um diese aktuell zu halten, werden Handler für die Ereignisse {{domxref("TextTrackList/addtrack_event", "addtrack")}} und {{domxref("TextTrackList/removetrack_event", "removetrack")}} eingerichtet.
+In diesem Beispiel haben wir eine App, die Informationen über die Anzahl der verfügbaren Kanäle anzeigt. Um sie auf dem neuesten Stand zu halten, werden Handler für die Ereignisse [`addtrack`](/de/docs/Web/API/TextTrackList/addtrack_event) und [`removetrack`](/de/docs/Web/API/TextTrackList/removetrack_event) eingerichtet.
 
 ```js
 textTracks.onaddtrack = updateTrackCount;

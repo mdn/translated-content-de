@@ -7,30 +7,30 @@ l10n:
 
 {{CSSRef}}
 
-Die **`atan()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine trigonometrische Funktion, die den inversen Tangens einer Zahl zwischen `-∞` und `+∞` zurückgibt. Die Funktion enthält eine einzelne Berechnung, die die Anzahl der Bogenmaß-Radianten darstellt, die einem {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` entsprechen.
+Die **`atan()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine trigonometrische Funktion, die den Arkustangens einer Zahl zwischen `-∞` und `+∞` zurückgibt. Die Funktion enthält eine einzelne Berechnung, die die Anzahl der Bogenmaßzahlen zurückgibt, die ein {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` darstellen.
 
 ## Syntax
 
 ```css
-/* Einzelne <number>-Werte */
+/* Single <number> values */
 transform: rotate(atan(1));
 transform: rotate(atan(4 * 50));
 
-/* Andere Werte */
+/* Other values */
 transform: rotate(atan(pi / 2));
 transform: rotate(atan(e * 3));
 ```
 
 ### Parameter
 
-Die `atan(number)` Funktion akzeptiert nur einen Wert als Parameter.
+Die Funktion `atan(number)` akzeptiert nur einen Wert als Parameter.
 
 - `number`
   - : Eine Berechnung, die sich zu einer {{cssxref("&lt;number&gt;")}} zwischen `-∞` und `+∞` auflöst.
 
 ### Rückgabewert
 
-Der inverse Tangens einer `number` wird immer einen {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` zurückgeben.
+Der Arkustangens einer `number` gibt immer ein {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` zurück.
 
 - Wenn `number` `0⁻` ist, ist das Ergebnis `0⁻`.
 - Wenn `number` `+∞` ist, ist das Ergebnis `90deg`.
@@ -38,11 +38,11 @@ Der inverse Tangens einer `number` wird immer einen {{cssxref("&lt;angle&gt;")}}
 
 Das bedeutet:
 
-- `atan(-infinity)` entspricht `-90deg`.
-- `atan(-1)` entspricht `-45deg`
-- `atan(0)` entspricht `0deg`
-- `atan(1)` entspricht `45deg`
-- `atan(infinity)` entspricht `90deg`.
+- `atan(-infinity)` repräsentiert `-90deg`.
+- `atan(-1)` repräsentiert `-45deg`.
+- `atan(0)` repräsentiert `0deg`.
+- `atan(1)` repräsentiert `45deg`.
+- `atan(infinity)` repräsentiert `90deg`.
 
 ### Formale Syntax
 
@@ -50,9 +50,9 @@ Das bedeutet:
 
 ## Beispiele
 
-### Elemente rotieren lassen
+### Elemente drehen
 
-Die `atan()` Funktion kann verwendet werden, um Elemente mit {{cssxref("transform-function/rotate", "rotate")}} zu drehen, da sie einen {{cssxref("&lt;angle&gt;")}} zurückgibt.
+Die `atan()` Funktion kann verwendet werden, um Elemente mit {{cssxref("transform-function/rotate", "rotate")}} zu drehen, da sie ein {{cssxref("&lt;angle&gt;")}} zurückgibt.
 
 #### HTML
 

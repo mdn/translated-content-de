@@ -32,8 +32,8 @@ Das **CSS positioniertes Layout**-Modul definiert, wie Elemente auf einer Websei
 
 ## Leitfäden
 
-- [Verständnis von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
-  - : Stellt das Konzept des Stapelkontexts vor und erklärt, wie Z-Ordnung funktioniert, mit mehreren Beispielen.
+- [Verstehen von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
+  - : Stellt das Konzept des Stapelkontexts vor und erklärt, wie die Z-Anordnung funktioniert, mit mehreren Beispielen.
 
 ## Spezifikationen
 

@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`name`**-Schreibgeschützte Eigenschaft des {{domxref("FileSystemHandle")}}-Interfaces gibt den Namen des Eintrags zurück, der durch den Handle dargestellt wird.
+Die schreibgeschützte **`name`**-Eigenschaft der [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Schnittstelle gibt den Namen des durch den Handle dargestellten Eintrags zurück.
 
 ## Wert
 
@@ -16,14 +16,14 @@ Ein String.
 
 ## Beispiele
 
-Die folgende Funktion ermöglicht es dem Benutzer, eine Datei aus dem Dateiauswahlfenster zu wählen und die `name`-Eigenschaft abzurufen.
+Die folgende Funktion ermöglicht es dem Benutzer, eine Datei aus dem Dateiauswahldialog auszuwählen und die `name`-Eigenschaft abzurufen.
 
 ```js
-// Speichern Sie eine Referenz zu unserem Datei-Handle
+// store a reference to our file handle
 let fileHandle;
 
 async function getFile() {
-  // Dateiauswahl öffnen
+  // open file picker
   [fileHandle] = await window.showOpenFilePicker();
 
   const fileName = fileHandle.name;
@@ -41,4 +41,4 @@ async function getFile() {
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [The File System Access API: Vereinfachung des Zugriffs auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

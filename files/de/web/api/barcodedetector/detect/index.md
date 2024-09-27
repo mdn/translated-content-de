@@ -1,5 +1,5 @@
 ---
-title: "BarcodeDetector: detect()-Methode"
+title: "BarcodeDetector: detect() Methode"
 short-title: detect()
 slug: Web/API/BarcodeDetector/detect
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{securecontext_header}}{{APIRef("Barcode Detector API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
 Die **`detect()`**-Methode der
-{{domxref("BarcodeDetector")}}-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von erkannten Barcodes innerhalb eines Bildes erfüllt wird.
+[`BarcodeDetector`](/de/docs/Web/API/BarcodeDetector)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von erkannten Barcodes in einem Bild erfüllt wird.
 
 ## Syntax
 
@@ -20,33 +20,31 @@ detect(imageBitmapSource)
 ### Parameter
 
 - `imageBitmapSource`
-  - : Empfängt eine Bildquelle als Parameter. Dies kann ein {{domxref("HTMLImageElement")}}, ein {{domxref("SVGImageElement")}}, ein {{domxref("HTMLVideoElement")}}, ein {{domxref("HTMLCanvasElement")}}, ein {{domxref("ImageBitmap")}}, ein {{domxref("OffscreenCanvas")}}, ein {{domxref("VideoFrame")}}, ein {{domxref('Blob')}} vom Typ Bild oder ein {{domxref('ImageData')}}-Objekt sein.
+  - : Empfängt eine Bildquelle als Parameter. Dies kann ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), ein [`SVGImageElement`](/de/docs/Web/API/SVGImageElement), ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement), ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement), ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap), ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas), ein [`VideoFrame`](/de/docs/Web/API/VideoFrame), ein [`Blob`](/de/docs/Web/API/Blob) vom Typ Bild oder ein [`ImageData`](/de/docs/Web/API/ImageData)-Objekt sein.
 
 ### Rückgabewert
 
 Gibt ein {{jsxref('Promise')}} zurück, das mit einem Array von
-`DetectedBarcode`-Objekten erfüllt wird, die folgende Eigenschaften aufweisen:
+`DetectedBarcode`-Objekten mit den folgenden Eigenschaften erfüllt wird:
 
 - `boundingBox`
-  - : Ein {{domxref('DOMRectReadOnly')}}, welches die
-    Dimensionen eines Rechtecks zurückgibt, das das Ausmaß eines erkannten Barcodes darstellt und mit dem Bild ausgerichtet ist.
+  - : Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly), das die
+    Abmessungen eines Rechtecks zurückgibt, das den Umfang eines erkannten Barcodes im Bild darstellt.
 - `cornerPoints`
-  - : Die x- und y-Koordinaten der vier Eckpunkte des
-    erkannten Barcodes relativ zum Bild, beginnend mit der oberen linken Ecke im Uhrzeigersinn. Dies muss aufgrund von Perspektivverzerrungen innerhalb des Bildes nicht quadratisch sein.
+  - : Die x- und y-Koordinaten der vier Eckpunkte des erkannten Barcodes relativ zum Bild, beginnend mit der oberen linken Ecke im Uhrzeigersinn. Dies kann aufgrund von perspektivischen Verzerrungen im Bild nicht quadratisch sein.
 - `format`
-  - : Das erkannte Barcode-Format. (Für eine vollständige Liste der Formate siehe
-    das [unterstützte Barcode-Format](/de/docs/Web/API/Barcode_Detection_API#supported_barcode_formats)).
+  - : Das erkannte Barcode-Format. (Eine vollständige Liste der Formate finden Sie unter den [unterstützten Barcode-Formaten](/de/docs/Web/API/Barcode_Detection_API#supported_barcode_formats)).
 - `rawValue`
-  - : Ein String, der aus den Barcode-Daten dekodiert wurde.
+  - : Ein aus den Barcode-Daten dekodierter String.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn kein Parameter angegeben ist oder der `type` nicht vom Typ eines `ImageBitmapSource` ist.
-- `SecurityError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der `imageBitmapSource` einen Ursprung hat, der nicht mit dem Ursprung des Dokuments übereinstimmt, oder wenn der `imageBitmapSource` ein {{domxref('HTMLCanvasElement')}} ist und dessen [origin-clean](https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-origin-clean) Flag auf `false` gesetzt ist.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der `imageBitmapSource` ein {{domxref('HTMLImageElement')}} ist und nicht vollständig dekodiert ist oder das Dekodieren fehlgeschlagen ist, oder wenn es sich um ein {{domxref('HTMLVideoElement')}} handelt und dessen {{domxref('HTMLMediaElement.readyState', 'readyState')}} `HAVE_NOTHING` oder `HAVE_METADATA` ist.
+  - : Wird ausgelöst, wenn kein Parameter angegeben ist oder der `type` nicht der eines `ImageBitmapSource` ist.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `imageBitmapSource` einen Ursprung hat, der nicht mit dem Ursprungsdokument übereinstimmt, oder wenn `imageBitmapSource` ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) ist und dessen [origin-clean](https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-origin-clean)-Flag auf `false` gesetzt ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `imageBitmapSource` ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) ist und nicht vollständig dekodiert wurde oder die Dekodierung fehlgeschlagen ist, oder wenn es ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) ist und dessen [`readyState`](/de/docs/Web/API/HTMLMediaElement/readyState) `HAVE_NOTHING` oder `HAVE_METADATA` ist.
 
 ## Beispiele
 

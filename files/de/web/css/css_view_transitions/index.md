@@ -1,5 +1,5 @@
 ---
-title: CSS-Ansichtstransitionen
+title: CSS View Transitions
 slug: Web/CSS/CSS_view_transitions
 l10n:
   sourceCommit: ef793e5764cf3b6371f275233a8e278e692d2ff8
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Ansichtstransitionen**-Modul definiert das Verhalten der [View Transition API](/de/docs/Web/API/View_Transitions_API), die es Entwicklern ermöglicht, animierte Übergänge zwischen verschiedenen Zuständen innerhalb eines Dokuments und zwischen Dokumenten zu erstellen. Dieses Modul definiert auch die CSS-Eigenschaften und Pseudo-Elemente zur Gestaltung dieser Übergänge.
+Das **CSS view transitions**-Modul definiert das Verhalten der [View Transition API](/de/docs/Web/API/View_Transitions_API), die es Entwicklern ermöglicht, animierte Übergänge zwischen verschiedenen Zuständen innerhalb eines Dokuments und zwischen Dokumenten zu erstellen. Dieses Modul definiert auch die CSS-Eigenschaften und Pseudo-Elemente zur Gestaltung dieser Übergänge.
 
 ## Referenz
 
@@ -16,12 +16,12 @@ Das **CSS-Ansichtstransitionen**-Modul definiert das Verhalten der [View Transit
 - {{cssxref("view-transition-name")}} {{experimental_inline}}
 
 > [!NOTE]
-> Dieses Modul definiert auch die `view-transition-class`-Eigenschaft, aber sie wird derzeit in keinem Browser unterstützt.
+> Dieses Modul definiert auch die `view-transition-class`-Eigenschaft, jedoch wird sie derzeit in keinem Browser unterstützt.
 
 ### At-Regeln und Deskriptoren
 
 - {{cssxref("@view-transition")}}
-  - [`navigation`](/de/docs/Web/CSS/@view-transition#navigation)-Deskriptor
+  - [`navigation`](/de/docs/Web/CSS/@view-transition#navigation) Deskriptor
 
 ### Selektoren und Pseudo-Elemente
 
@@ -32,39 +32,39 @@ Das **CSS-Ansichtstransitionen**-Modul definiert das Verhalten der [View Transit
 - {{cssxref("::view-transition-old()")}} {{experimental_inline}}
 
 > [!NOTE]
-> Dieses Modul definiert auch die `:active-view-transition` und `:active-view-transition-type()` Pseudo-Klassen, aber sie werden derzeit in keinem Browser unterstützt.
+> Dieses Modul definiert auch die `:active-view-transition` und `:active-view-transition-type()` Pseudoklassen, jedoch werden sie derzeit in keinem Browser unterstützt.
 
 ### Schnittstellen
 
-- {{domxref("CSSViewTransitionRule")}}
-- {{domxref("ViewTransition")}}
-  - {{domxref("ViewTransition.skipTransition()")}} Methode
-  - {{domxref("ViewTransition.updateCallbackDone")}}
-  - {{domxref("ViewTransition.ready")}}
-  - {{domxref("ViewTransition.finished")}}
-- {{domxref("Document.startViewTransition()")}} Methode
+- [`CSSViewTransitionRule`](/de/docs/Web/API/CSSViewTransitionRule)
+- [`ViewTransition`](/de/docs/Web/API/ViewTransition)
+  - [`ViewTransition.skipTransition()`](/de/docs/Web/API/ViewTransition/skipTransition) Methode
+  - [`ViewTransition.updateCallbackDone`](/de/docs/Web/API/ViewTransition/updateCallbackDone)
+  - [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready)
+  - [`ViewTransition.finished`](/de/docs/Web/API/ViewTransition/finished)
+- [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) Methode
 
 ## Leitfäden
 
-- [Verwendung der View Transitions API](/de/docs/Web/API/View_Transitions_API/Using)
+- [Using the View Transitions API](/de/docs/Web/API/View_Transitions_API/Using)
 
-  - : Erklärt, wie Sie Ansichtstransitionen erstellen und Übergangsanimationen anpassen, einschließlich der Manipulation aktiver Ansichtstransitionen.
+  - : Erklärt, wie View-Übergänge erstellt und Übergangsanimationen angepasst werden, einschließlich der Manipulation aktiver View-Übergänge.
 
 ## Verwandte Konzepte
 
-- {{domxref("PageRevealEvent", "pagereveal")}} Ereignis
-- {{domxref("PageSwapEvent", "pageswap")}} Ereignis
-- {{domxref("Document.visibilityState")}}
+- [`pagereveal`](/de/docs/Web/API/PageRevealEvent) Ereignis
+- [`pageswap`](/de/docs/Web/API/PageSwapEvent) Ereignis
+- [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState)
 
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) Modul
+- [CSS Animationen](/de/docs/Web/CSS/CSS_animations) Modul
 
   - {{cssxref("animation")}}
   - {{cssxref("@keyframes")}}
-  - {{domxref("CSSKeyframesRule")}}
-  - {{domxref("CSSStyleRule")}}
-  - [Web-Animations-API](/de/docs/Web/API/Web_Animations_API)
+  - [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)
+  - [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule)
+  - [Web animations API](/de/docs/Web/API/Web_Animations_API)
 
-- [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) Modul
+- [CSS Transforms](/de/docs/Web/CSS/CSS_transforms) Modul
 
   - {{cssxref("transform")}}
   - {{cssxref("transform-function")}}
@@ -76,5 +76,5 @@ Das **CSS-Ansichtstransitionen**-Modul definiert das Verhalten der [View Transit
 ## Siehe auch
 
 - [Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements)
-- [Funktionale Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes#functional_pseudo-classes)
-- [CSS-Grundlagen: Pseudo-Klassen und Pseudo-Elemente](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)
+- [Funktionale Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes#functional_pseudo-classes)
+- [CSS-Bausteine: Pseudoklassen und Pseudo-Elemente](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)

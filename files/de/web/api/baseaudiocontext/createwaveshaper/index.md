@@ -8,10 +8,10 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `createWaveShaper()`-Methode der {{ domxref("BaseAudioContext") }}-Schnittstelle erstellt einen {{ domxref("WaveShaperNode") }}, der eine nichtlineare Verzerrung darstellt. Sie wird verwendet, um Verzerrungseffekte auf Ihr Audio anzuwenden.
+Die `createWaveShaper()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle erstellt einen [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode), der eine nicht-lineare Verzerrung darstellt. Er wird verwendet, um Verzerrungseffekte auf Ihr Audio anzuwenden.
 
 > [!NOTE]
-> Der {{domxref("WaveShaperNode.WaveShaperNode", "WaveShaperNode()")}}-Konstruktor ist der empfohlene Weg, um einen {{domxref("WaveShaperNode")}} zu erstellen; siehe [Creating an AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`WaveShaperNode()`](/de/docs/Web/API/WaveShaperNode/WaveShaperNode)-Konstruktor ist der empfohlene Weg, um einen [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode) zu erstellen; siehe [Creating an AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -25,16 +25,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("WaveShaperNode")}}.
+Ein [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Grundnutzung eines AudioContext zur Erstellung eines WaveShaper-Knotens. Für vollständigere praktische Beispiele bzw. Informationen schauen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines WaveShaper-Nodes. Für umfassendere Anwendungsbeispiele/informationen schauen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
 
 > [!NOTE]
-> Sigmoid-Funktionen werden häufig für Verzerrungskurven verwendet
-> aufgrund ihrer natürlichen Eigenschaften. Ihre S-Form hilft zum Beispiel dabei, ein
-> sanfter klingendes Ergebnis zu erzeugen. Wir haben den untenstehenden Verzerrungskurvencode auf [Stack Overflow](https://stackoverflow.com/questions/22312841/waveshaper-node-in-webaudio-how-to-emulate-distortion) gefunden.
+> Sigmoidfunktionen werden häufig für Verzerrungskurven verwendet
+> wegen ihrer natürlichen Eigenschaften. Ihre S-Form hilft beispielsweise, ein
+> weicher klingendes Ergebnis zu erzeugen. Wir haben den untenstehenden Verzerrungskurven-Code auf [Stack Overflow](https://stackoverflow.com/questions/22312841/waveshaper-node-in-webaudio-how-to-emulate-distortion) gefunden.
 
 ```js
 const audioCtx = new AudioContext();
@@ -71,4 +71,4 @@ distortion.oversample = "4x";
 
 ## Siehe auch
 
-- [Using the Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

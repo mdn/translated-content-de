@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`HTMLProgressElement.labels`** gibt eine {{domxref("NodeList")}} der mit dem {{HTMLElement("progress")}}-Element verbundenen {{HTMLElement("label")}}-Elemente zurück.
+Die **`HTMLProgressElement.labels`** schreibgeschützte Eigenschaft gibt eine [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem {{HTMLElement("progress")}}-Element verknüpft sind.
 
 ## Wert
 
-Eine {{domxref("NodeList")}}, die die mit dem `<progress>`-Element verbundenen `<label>`-Elemente enthält.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<progress>`-Element verknüpft sind.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ Eine {{domxref("NodeList")}}, die die mit dem `<progress>`-Element verbundenen `
 window.addEventListener("DOMContentLoaded", () => {
   const progress = document.getElementById("test");
   for (const label of progress.labels) {
-    console.log(label.textContent); // "Label 1" und "Label 2"
+    console.log(label.textContent); // "Label 1" and "Label 2"
   }
 });
 ```

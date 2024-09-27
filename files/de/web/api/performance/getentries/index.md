@@ -1,5 +1,5 @@
 ---
-title: "Performance: Methode getEntries()"
+title: "Performance: getEntries()-Methode"
 short-title: getEntries()
 slug: Web/API/Performance/getEntries
 l10n:
@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`getEntries()`**-Methode gibt ein Array aller {{domxref("PerformanceEntry")}}-Objekte zurück, die derzeit in der Performance-Timeline vorhanden sind.
+Die **`getEntries()`**-Methode gibt ein Array aller [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte zurück, die derzeit in der Performance-Zeitleiste vorhanden sind.
 
-Wenn Sie nur an Performance-Einträgen bestimmter Typen oder mit bestimmten Namen interessiert sind, sehen Sie sich {{domxref("Performance.getEntriesByType", "getEntriesByType()")}} und {{domxref("Performance.getEntriesByName", "getEntriesByName()")}} an.
+Wenn Sie sich nur für Performance-Einträge bestimmter Typen oder mit bestimmten Namen interessieren, schauen Sie sich [`getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) und [`getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName) an.
 
 > [!NOTE]
-> Diese Methode benachrichtigt Sie nicht über neue Performance-Einträge; Sie erhalten nur Einträge, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Timeline vorhanden sind.
-> Um Benachrichtigungen über Einträge zu erhalten, sobald diese verfügbar werden, verwenden Sie einen {{domxref("PerformanceObserver")}}.
+> Diese Methode benachrichtigt Sie nicht über neue Performance-Einträge; Sie erhalten nur die Einträge, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste vorhanden sind.
+> Um Benachrichtigungen über Einträge zu erhalten, sobald sie verfügbar werden, verwenden Sie einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver).
 
-Die folgenden Eintragstypen werden von dieser Methode überhaupt nicht unterstützt und werden nicht zurückgegeben, selbst wenn Einträge dieser Typen vorhanden sein könnten:
+Die folgenden Eintragstypen werden von dieser Methode überhaupt nicht unterstützt und werden auch dann nicht zurückgegeben, wenn Einträge für diese Typen existieren könnten:
 
-- `"element"` ({{domxref("PerformanceElementTiming")}})
-- `"event"` ({{domxref("PerformanceEventTiming")}})
-- `"largest-contentful-paint"` ({{domxref("LargestContentfulPaint")}})
-- `"layout-shift"` ({{domxref("LayoutShift")}})
-- `"longtask"` ({{domxref("PerformanceLongTaskTiming")}})
+- `"element"` ([`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming))
+- `"event"` ([`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming))
+- `"largest-contentful-paint"` ([`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint))
+- `"layout-shift"` ([`LayoutShift`](/de/docs/Web/API/LayoutShift))
+- `"longtask"` ([`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming))
 
-Um auf Einträge dieser Typen zuzugreifen, müssen Sie stattdessen einen {{domxref("PerformanceObserver")}} verwenden.
+Um Einträge dieser Typen zu erhalten, müssen Sie stattdessen einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) verwenden.
 
 ## Syntax
 
@@ -38,16 +38,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von {{domxref("PerformanceEntry")}}-Objekten. Die Elemente werden in chronologischer Reihenfolge basierend auf den {{domxref("PerformanceEntry.startTime","startTime")}} der Einträge sein.
+Ein {{jsxref("Array")}} von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten. Die Elemente werden in chronologischer Reihenfolge basierend auf der [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) der Einträge sein.
 
 ## Beispiele
 
-### Loggen aller Performance-Markierungen und -Messungen
+### Protokollierung aller Performance-Markierungen und Messungen
 
-Angenommen, Sie haben Ihre eigenen {{domxref("PerformanceMark")}}- und {{domxref("PerformanceMeasure")}}-Objekte an geeigneten Stellen in Ihrem Code erstellt, könnten Sie alle im Konsolenprotokoll wie folgt festhalten:
+Wenn Sie Ihre eigenen [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)- und [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekte an geeigneten Stellen in Ihrem Code erstellt haben, möchten Sie möglicherweise alle in der Konsole so protokollieren:
 
 ```js
-// Beispiel für Markierungen/Messungen
+// Example markers/measures
 performance.mark("login-started");
 performance.mark("login-finished");
 performance.mark("form-sent");
@@ -76,5 +76,5 @@ entries.forEach((entry) => {
 
 ## Siehe auch
 
-- {{domxref("Performance.getEntriesByType()")}}
-- {{domxref("Performance.getEntriesByName()")}}
+- [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType)
+- [`Performance.getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName)

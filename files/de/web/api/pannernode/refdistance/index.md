@@ -1,5 +1,5 @@
 ---
-title: "PannerNode: refDistance-Eigenschaft"
+title: "PannerNode: Eigenschaft refDistance"
 short-title: refDistance
 slug: Web/API/PannerNode/refDistance
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `refDistance`-Eigenschaft des {{ domxref("PannerNode") }} Interface ist ein Fließkommawert, der die Referenzentfernung für die Reduzierung der Lautstärke darstellt, wenn sich die Audioquelle vom Hörer entfernt – also die Entfernung, bei der die Lautstärkereduzierung wirksam wird. Dieser Wert wird von allen Distanzmodellen verwendet.
+Die `refDistance`-Eigenschaft des [`PannerNode`](/de/docs/Web/API/PannerNode)-Interfaces ist ein Gleitkommawert, der die Referenzdistanz für die Verringerung der Lautstärke darstellt, wenn sich die Audioquelle weiter vom Zuhörer entfernt – also die Entfernung, bei der die Lautstärkereduzierung zu wirken beginnt. Dieser Wert wird von allen Distanzmodellen verwendet.
 
 Der Standardwert der `refDistance`-Eigenschaft ist `1`.
 
@@ -23,25 +23,25 @@ Eine nicht-negative Zahl. Wenn der Wert auf weniger als 0 gesetzt wird, wird ein
 
 ## Beispiele
 
-Dieses Beispiel demonstriert, wie unterschiedliche Werte von `refDistance` beeinflussen, wie die Lautstärke eines Tons abnimmt, während er sich vom Hörer entfernt. Im Gegensatz zu {{ domxref("PannerNode.rolloffFactor", "rolloffFactor") }} verzögert die Änderung dieses Wertes auch das Abklingen der Lautstärke, bis der Ton den Referenzpunkt überschreitet.
+Dieses Beispiel zeigt, wie verschiedene Werte von `refDistance` beeinflussen, wie die Lautstärke eines Tons abnimmt, wenn er sich vom Zuhörer entfernt. Anders als bei [`rolloffFactor`](/de/docs/Web/API/PannerNode/rolloffFactor) verzögert das Ändern dieses Werts auch die Lautstärkeabnahme, bis sich der Ton über den Referenzpunkt hinaus bewegt.
 
 ```js
 const context = new AudioContext();
-// alle unsere Testtöne dauern so viele Sekunden
+// all our test tones will last this many seconds
 const NOTE_LENGTH = 6;
-// so weit werden wir den Ton bewegen
+// this is how far we'll move the sound
 const Z_DISTANCE = 20;
 
-// diese Funktion erstellt ein Graph für den Testton mit einem gegebenen refDistance
-// und plant, ihn entlang der Z-Achse (in die Tiefe) vom Hörer weg zu bewegen
-// zum angegebenen Startzeitpunkt, was zu einer Abnahme der Lautstärke (Decay) führt
+// this function creates a graph for the test tone with a given refDistance
+// and schedules it to move away from the listener along the Z (depth-wise) axis
+// at the given start time, resulting in a decrease in volume (decay)
 const scheduleTestTone = (refDistance, startTime) => {
   const osc = new OscillatorNode(context);
 
   const panner = new PannerNode(context);
   panner.refDistance = refDistance;
 
-  // setze die anfängliche Z-Position und plane dann die Rampe
+  // set the initial Z position, then schedule the ramp
   panner.positionZ.setValueAtTime(0, startTime);
   panner.positionZ.linearRampToValueAtTime(Z_DISTANCE, startTime + NOTE_LENGTH);
 
@@ -51,17 +51,17 @@ const scheduleTestTone = (refDistance, startTime) => {
   osc.stop(startTime + NOTE_LENGTH);
 };
 
-// dieser Ton sollte sofort und ziemlich schnell abklingen
+// this tone should decay immediately and fairly quickly
 scheduleTestTone(1, context.currentTime);
-// dieser Ton sollte langsamer und später als der vorherige abklingen
+// this tone should decay slower and later than the previous one
 scheduleTestTone(4, context.currentTime + NOTE_LENGTH);
-// dieser Ton sollte nur leicht abklingen und erst ziemlich spät damit beginnen
+// this tone should decay only slightly, and only start decaying fairly late
 scheduleTestTone(7, context.currentTime + NOTE_LENGTH * 2);
 ```
 
-Nach dem Ausführen dieses Codes sollten die resultierenden Wellenformen folgendermaßen aussehen:
+Nach dem Ausführen dieses Codes sollten die resultierenden Wellenformen in etwa so aussehen:
 
-![Eine Wellenformvisualisierung von drei Oszillatortönen, die mit Web Audio erzeugt wurden. Jeder Oszillator entfernt sich mit derselben Geschwindigkeit vom Hörer, aber mit unterschiedlichen refDistances, die den resultierenden Lautstärkeabfall beeinflussen.](screen_shot_2018-10-11_at_23.14.32.png)
+![Eine Wellenformvisualisierung von drei Oszillatortönen, die im Web Audio produziert wurden. Jeder Oszillator bewegt sich mit derselben Geschwindigkeit vom Zuhörer weg, aber unterschiedliche refDistances beeinflussen die resultierende Lautstärkeabnahme.](screen_shot_2018-10-11_at_23.14.32.png)
 
 ## Spezifikationen
 
@@ -74,4 +74,4 @@ Nach dem Ausführen dieses Codes sollten die resultierenden Wellenformen folgend
 ## Siehe auch
 
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- [Grundlagen der Web Audio-Raumklangverarbeitung](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics)
+- [Grundlagen der Web Audio Raumbearbeitung](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics)

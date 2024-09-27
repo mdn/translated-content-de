@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Der **`OfflineAudioContext()`**-Konstruktor – Teil der [Web Audio API](/de/docs/Web/API/Web_Audio_API) – erstellt und gibt eine neue Instanz eines {{domxref("OfflineAudioContext")}}-Objekts zurück, das dann verwendet werden kann, um Audio in einen {{domxref("AudioBuffer")}} zu rendern, anstatt zu einem Audio-Ausgabegerät.
+Der **`OfflineAudioContext()`** Konstruktor—Teil der [Web Audio API](/de/docs/Web/API/Web_Audio_API)—erstellt und gibt eine neue [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)-Objektinstanz zurück, die dann verwendet werden kann, um Audio in ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) zu rendern, anstatt es auf ein Audioausgabegerät zu senden.
 
 ## Syntax
 
@@ -20,22 +20,22 @@ new OfflineAudioContext(numberOfChannels, length, sampleRate)
 
 ### Parameter
 
-Sie können die Parameter für den `OfflineAudioContext()`-Konstruktor entweder als die gleiche Menge von Parametern wie die Eingaben in die {{domxref("BaseAudioContext.createBuffer")}}-Methode angeben oder diese Parameter in einem `options`-Objekt übergeben. In beiden Fällen sind die einzelnen Parameter identisch.
+Sie können die Parameter für den `OfflineAudioContext()`-Konstruktor entweder als die gleiche Menge von Parametern angeben, wie sie Eingaben für die [`BaseAudioContext.createBuffer`](/de/docs/Web/API/BaseAudioContext/createBuffer)-Methode sind, oder indem Sie diese Parameter in einem `options`-Objekt übergeben. In beiden Fällen sind die einzelnen Parameter gleich.
 
 - `numberOfChannels`
-  - : Ein Integer, der die Anzahl der Kanäle angibt, die der resultierende {{domxref("AudioBuffer")}} haben soll.
+  - : Eine Ganzzahl, die die Anzahl der Kanäle angibt, die das resultierende [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) haben sollte.
 - `length`
-  - : Ein Integer, der die Größe des Puffers angibt, der für den Audiokontext erstellt werden soll, in Sample-Frames, wobei ein Sample-Frame eine Einheit ist, die eine einzelne Probe von Audiodaten für jeden Kanal in den Audiodaten enthalten kann. Zum Beispiel hätte ein 5-Sekunden-Puffer mit einer `sampleRate` von 48000Hz eine Länge von `5 * 48000 = 240000` Sample-Frames.
+  - : Eine Ganzzahl, die die Größe des Puffers angibt, der für den Audio-Kontext erstellt werden soll, in Sample-Frames, wobei ein Sample-Frame eine Einheit ist, die eine einzelne Probe von Audiodaten für jeden Kanal in den Audiodaten enthalten kann. Zum Beispiel hätte ein 5-Sekunden-Puffer mit einer `sampleRate` von 48000Hz eine Länge von `5 * 48000 = 240000` Sample-Frames.
 - `sampleRate`
-  - : Die Abtastrate der linearen Audiodaten in Sample-Frames pro Sekunde. Alle Benutzeragenten müssen einen Bereich von 8000Hz bis 96000Hz unterstützen und können einen breiteren Bereich unterstützen. Die am häufigsten verwendete Rate ist 44100Hz, was die Abtastrate ist, die von CD-Audio verwendet wird.
+  - : Die Abtastrate der linearen Audiodaten in Sample-Frames pro Sekunde. Alle User Agents müssen einen Bereich von 8000Hz bis 96000Hz unterstützen und können möglicherweise einen größeren Bereich unterstützen. Die am häufigsten verwendete Rate ist 44100Hz, die auch die Abtastrate für CD-Audio ist.
 
-Es ist wichtig zu beachten, dass, obwohl Sie einen neuen {{domxref("AudioContext")}} mit dem {{domxref("AudioContext.AudioContext()", "AudioContext()")}}-Konstruktor ohne Argumente erstellen können, der `OfflineAudioContext()`-Konstruktor drei Argumente erfordert, da er einen `AudioBuffer` erstellen muss. Dies funktioniert genau auf die gleiche Weise wie bei der Erstellung eines neuen {{domxref("AudioBuffer")}} mit der {{domxref("BaseAudioContext.createBuffer")}}-Methode. Für weitere Details lesen Sie [Audio buffers: frames, samples and channels](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#audio_buffers_frames_samples_and_channels) aus unserem [Grundkonzepte](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API)-Leitfaden.
+Es ist wichtig zu beachten, dass, während Sie ein neues [`AudioContext`](/de/docs/Web/API/AudioContext) mit dem [`AudioContext()`](/de/docs/Web/API/AudioContext/AudioContext)-Konstruktor ohne Argumente erstellen können, der `OfflineAudioContext()`-Konstruktor drei Argumente erfordert, da er ein `AudioBuffer` erstellen muss. Dies funktioniert genauso wie beim Erstellen eines neuen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) mit der [`BaseAudioContext.createBuffer`](/de/docs/Web/API/BaseAudioContext/createBuffer)-Methode. Für mehr Details lesen Sie [Audio buffers: frames, samples and channels](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#audio_buffers_frames_samples_and_channels) aus unserem [Grundlagen](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API)-Leitfaden.
 
 ### Rückgabewert
 
-Ein neues {{domxref("OfflineAudioContext")}}-Objekt, dessen zugehöriger `AudioBuffer` wie gewünscht konfiguriert ist.
+Ein neues [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)-Objekt, dessen zugehöriges `AudioBuffer` wie gewünscht konfiguriert ist.
 
-Wie ein regulärer `AudioContext` kann ein `OfflineAudioContext` das Ziel von Ereignissen sein, daher implementiert er das {{domxref("EventTarget")}}-Interface.
+Wie ein regulärer `AudioContext` kann ein `OfflineAudioContext` das Ziel von Ereignissen sein, und implementiert daher die [`EventTarget`](/de/docs/Web/API/EventTarget)-Schnittstelle.
 
 ## Beispiele
 
@@ -49,8 +49,7 @@ const source = offlineCtx.createBufferSource();
 // …
 ```
 
-Für ein vollständiges funktionierendes Beispiel sehen Sie unser [offline-audio-context-promise](https://mdn.github.io/webaudio-examples/offline-audio-context-promise/)
-GitHub-Repository (sehen Sie sich auch den [Quellcode](https://github.com/mdn/webaudio-examples/blob/main/offline-audio-context-promise/index.html) an.)
+Für ein vollständiges Arbeitsbeispiel, sehen Sie unser [offline-audio-context-promise](https://mdn.github.io/webaudio-examples/offline-audio-context-promise/) GitHub-Repository (siehe auch den [Quellcode](https://github.com/mdn/webaudio-examples/blob/main/offline-audio-context-promise/index.html).)
 
 ## Spezifikationen
 

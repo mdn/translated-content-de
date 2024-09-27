@@ -1,6 +1,6 @@
 ---
-title: "HTMLScriptElement: Integritäts-Eigenschaft"
-short-title: Integrität
+title: "HTMLScriptElement: integrity-Eigenschaft"
+short-title: integrity
 slug: Web/API/HTMLScriptElement/integrity
 l10n:
   sourceCommit: 49d15be653576c5f73ec527ee976c5881171b53c
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`integrity`**-Eigenschaft der {{domxref("HTMLScriptElement")}}-Schnittstelle ist ein String, der Inline-Metadaten enthält, die ein Browser verwenden kann, um zu überprüfen, ob eine abgerufene Ressource ohne unerwartete Manipulation geliefert wurde.
+Die **`integrity`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces ist ein String, der Inline-Metadaten enthält, die ein Browser verwenden kann, um zu überprüfen, dass eine abgerufene Ressource ohne unerwartete Manipulation geliefert wurde.
 
 Sie spiegelt das `integrity`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
@@ -29,7 +29,7 @@ Ein String.
 
 ```js
 const el = document.getElementById("el");
-console.log(el.integrity); // Ausgabe: "sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
+console.log(el.integrity); // Output: "sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
 ```
 
 ## Spezifikationen
@@ -42,5 +42,5 @@ console.log(el.integrity); // Ausgabe: "sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/
 
 ## Siehe auch
 
-- {{domxref("HTMLLinkElement.integrity")}}
+- [`HTMLLinkElement.integrity`](/de/docs/Web/API/HTMLLinkElement/integrity)
 - [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)

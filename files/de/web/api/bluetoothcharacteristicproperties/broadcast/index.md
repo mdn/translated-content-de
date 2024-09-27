@@ -1,5 +1,5 @@
 ---
-title: "BluetoothCharacteristicProperties: broadcast-Eigenschaft"
+title: "BluetoothCharacteristicProperties: Broadcast-Eigenschaft"
 short-title: broadcast
 slug: Web/API/BluetoothCharacteristicProperties/broadcast
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Bluetooth API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`broadcast`**-Eigenschaft der
-{{domxref("BluetoothCharacteristicProperties")}}-Schnittstelle gibt einen
-`boolean` zurück, der `true` ist, wenn der Broadcast des Merkmalwerts mit dem Server Characteristic Configuration Descriptor erlaubt ist.
+Die **`broadcast`** schreibgeschützte Eigenschaft des
+[`BluetoothCharacteristicProperties`](/de/docs/Web/API/BluetoothCharacteristicProperties) Interfaces gibt einen
+`boolean` zurück, der `true` ist, wenn die Übertragung des Merkmalwertes mithilfe des Server Characteristic Configuration Descriptors erlaubt ist.
 
 ## Wert
 

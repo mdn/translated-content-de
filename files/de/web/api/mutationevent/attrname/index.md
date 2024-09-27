@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}{{Deprecated_Header}}
 
-Die **`attrName`** schreibgeschützte Eigenschaft des {{domxref("MutationEvent")}}-Interfaces gibt einen String mit dem Namen des Knotens zurück, der vom `DOMAttrModified`-Ereignis betroffen ist. Für andere Ereignisse hat sie keine Bedeutung und wird dann auf den leeren String (`""`) gesetzt.
+Die schreibgeschützte Eigenschaft **`attrName`** des [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Interfaces gibt einen String zurück, der den Namen des Knotens enthält, der vom `DOMAttrModified`-Ereignis betroffen ist. Bei anderen Ereignissen hat es keine Bedeutung und wird auf den leeren String (`""`) gesetzt.
 
 ## Wert
 

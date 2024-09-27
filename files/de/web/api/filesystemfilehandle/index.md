@@ -7,32 +7,32 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Das **`FileSystemFileHandle`**-Interface der {{domxref("File System API", "File System API", "", "nocode")}} stellt einen Verweis auf einen Eintrag im Dateisystem dar. Auf das Interface wird über die Methode {{domxref('window.showOpenFilePicker()')}} zugegriffen.
+Die **`FileSystemFileHandle`**-Schnittstelle der [File System API](/de/docs/Web/API/File_System_API) repräsentiert ein Handle zu einem Dateisystemeintrag. Die Schnittstelle wird über die Methode [`window.showOpenFilePicker()`](/de/docs/Web/API/Window/showOpenFilePicker) aufgerufen.
 
-Beachten Sie, dass Lese- und Schreibvorgänge von Dateizugriffsberechtigungen abhängig sind, die nach einem Seitenneuladen nicht mehr bestehen, wenn keine weiteren Tabs für diesen Ursprung geöffnet bleiben. Die Methode {{domxref("FileSystemHandle.queryPermission()", "queryPermission")}} des {{domxref("FileSystemHandle")}}-Interfaces kann verwendet werden, um den Berechtigungszustand zu überprüfen, bevor auf eine Datei zugegriffen wird.
+Beachten Sie, dass Lese- und Schreiboperationen von Dateizugriffsberechtigungen abhängen, die nach einem Seiten-Refresh nicht bestehen bleiben, wenn keine weiteren Tabs für diesen Ursprung geöffnet bleiben. Die [`queryPermission`](/de/docs/Web/API/FileSystemHandle/queryPermission)-Methode der [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Schnittstelle kann genutzt werden, um den Berechtigungsstatus zu überprüfen, bevor auf eine Datei zugegriffen wird.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von der übergeordneten Schnittstelle, {{DOMxRef("FileSystemHandle")}}._
+_Erbt Eigenschaften von ihrem Elternteil, [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von der übergeordneten Schnittstelle, {{DOMxRef("FileSystemHandle")}}._
+_Erbt Methoden von ihrem Elternteil, [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)._
 
-- {{domxref('FileSystemFileHandle.getFile', 'getFile()')}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das zu einem {{domxref('File')}}-Objekt aufgelöst wird, das den Zustand auf der Festplatte des durch die Verweisung repräsentierten Eintrags darstellt.
-- {{domxref('FileSystemFileHandle.createSyncAccessHandle', 'createSyncAccessHandle()')}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das zu einem {{domxref('FileSystemSyncAccessHandle')}}-Objekt aufgelöst wird, das zum synchronen Lesen von und Schreiben in eine Datei verwendet werden kann. Die synchrone Natur dieser Methode bringt Leistungsverbesserungen mit sich, ist aber nur innerhalb von dedizierten [Web Workern](/de/docs/Web/API/Web_Workers_API) nutzbar.
-- {{domxref('FileSystemFileHandle.createWritable', 'createWritable()')}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das zu einem neu erstellten {{domxref('FileSystemWritableFileStream')}}-Objekt aufgelöst wird, das zum Schreiben in eine Datei verwendet werden kann.
+- [`getFile()`](/de/docs/Web/API/FileSystemFileHandle/getFile)
+  - : Gibt ein {{jsxref('Promise')}} zurück, das zu einem [`File`](/de/docs/Web/API/File)-Objekt aufgelöst wird und den Zustand auf der Festplatte des durch das Handle dargestellten Eintrags repräsentiert.
+- [`createSyncAccessHandle()`](/de/docs/Web/API/FileSystemFileHandle/createSyncAccessHandle)
+  - : Gibt ein {{jsxref('Promise')}} zurück, das zu einem [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Objekt aufgelöst wird, welches genutzt werden kann, um synchron von einer Datei zu lesen und zu schreiben. Die synchrone Natur dieser Methode bietet Leistungsvorteile, kann jedoch nur innerhalb dedizierter [Web Workers](/de/docs/Web/API/Web_Workers_API) genutzt werden.
+- [`createWritable()`](/de/docs/Web/API/FileSystemFileHandle/createWritable)
+  - : Gibt ein {{jsxref('Promise')}} zurück, das zu einem neu erstellten [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream)-Objekt aufgelöst wird, das genutzt werden kann, um in eine Datei zu schreiben.
 
 ## Beispiele
 
 ### Lesen einer Datei
 
-Die folgende asynchrone Funktion zeigt einen Dateiauswahldialog an und verwendet, nachdem eine Datei ausgewählt wurde, die `getFile()`-Methode, um den Inhalt abzurufen.
+Die folgende asynchrone Funktion zeigt einen Dateiauswahldialog an und nutzt die Methode `getFile()`, um den Inhalt abzurufen, sobald eine Datei ausgewählt wurde.
 
 ```js
 async function getTheFile() {
@@ -57,9 +57,9 @@ async function getTheFile() {
 }
 ```
 
-### Schreiben einer Datei
+### Schreiben in eine Datei
 
-Die folgende asynchrone Funktion schreibt den angegebenen Inhalt in den Dateihandle und damit auf die Festplatte.
+Die folgende asynchrone Funktion schreibt den angegebenen Inhalt in das Datei-Handle und somit auf die Festplatte.
 
 ```js
 async function writeFile(fileHandle, contents) {
@@ -76,13 +76,13 @@ async function writeFile(fileHandle, contents) {
 
 ### Synchrones Lesen und Schreiben einer Datei
 
-Die folgende asynchrone Ereignisbehandlungsfunktion befindet sich innerhalb eines Web Workers. Bei Empfang einer Nachricht von dem Hauptthread wird sie:
+Der folgende asynchrone Ereignishandler befindet sich innerhalb eines Web Workers. Beim Empfang einer Nachricht vom Hauptthread:
 
-- Erstellt einen synchronen Dateizugriffs-Handle.
-- Ermittelt die Größe der Datei und erstellt einen {{jsxref("ArrayBuffer")}}, um sie zu enthalten.
-- Liest den Dateiinhalt in den Puffer.
-- Kodiert die Nachricht und schreibt sie an das Ende der Datei.
-- Sichert die Änderungen auf der Festplatte und schließt den Zugriffs-Handle.
+- Erstellt er ein synchrones Dateizugriffshandle.
+- Holt die Größe der Datei und erstellt einen {{jsxref("ArrayBuffer")}}, um diese zu speichern.
+- Liest den Dateiinhalte in den Buffer.
+- Kodiert die Nachricht und schreibt sie ans Ende der Datei.
+- Speichert die Änderungen auf der Festplatte und schließt das Zugriffshandle.
 
 ```js
 onmessage = async (e) => {
@@ -115,7 +115,7 @@ onmessage = async (e) => {
 ```
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation wurden {{domxref("FileSystemSyncAccessHandle.close()", "close()")}}, {{domxref("FileSystemSyncAccessHandle.flush()", "flush()")}}, {{domxref("FileSystemSyncAccessHandle.getSize()", "getSize()")}} und {{domxref("FileSystemSyncAccessHandle.truncate()", "truncate()")}} fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Alle aktuellen Browser, die diese Methoden unterstützen, implementieren sie jedoch als synchrone Methoden.
+> In früheren Versionen der Spezifikation wurden [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Alle aktuellen Browser, die diese Methoden unterstützen, implementieren sie jedoch als synchrone Methoden.
 
 ## Spezifikationen
 

@@ -9,48 +9,48 @@ l10n:
 
 Ein **`DOMRect`** beschreibt die Größe und Position eines Rechtecks.
 
-Die Art des vom `DOMRect` dargestellten Kastens wird durch die Methode oder Eigenschaft bestimmt, die ihn zurückgegeben hat. Zum Beispiel spezifiziert {{domxref("Range.getBoundingClientRect()")}} das Rechteck, das den Inhalt des Bereichs mit solchen Objekten umgibt.
+Die Art der Box, die durch das `DOMRect` dargestellt wird, ist durch die Methode oder Eigenschaft spezifiziert, die es zurückgibt. Zum Beispiel gibt [`Range.getBoundingClientRect()`](/de/docs/Web/API/Range/getBoundingClientRect) das Rechteck an, das den Inhalt der Range mit solchen Objekten umfasst.
 
-Es erbt von seinem Elternteil, {{domxref("DOMRectReadOnly")}}.
+Es erbt von seinem Elternteil, [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("DOMRect.DOMRect", "DOMRect()")}}
+- [`DOMRect()`](/de/docs/Web/API/DOMRect/DOMRect)
   - : Erstellt ein neues `DOMRect`-Objekt.
 
 ## Instanz-Eigenschaften
 
-_`DOMRect` erbt Eigenschaften von seinem Elternteil, {{domxref("DOMRectReadOnly")}}. Der Unterschied ist, dass sie nicht mehr schreibgeschützt sind._
+_`DOMRect` erbt Eigenschaften von seinem Elternteil, [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly). Der Unterschied ist, dass sie nicht mehr schreibgeschützt sind._
 
-- {{domxref("DOMRectReadOnly.x")}}
+- [`DOMRectReadOnly.x`](/de/docs/Web/API/DOMRectReadOnly/x)
   - : Die x-Koordinate des Ursprungs des `DOMRect` (typischerweise die obere linke Ecke des Rechtecks).
-- {{domxref("DOMRectReadOnly.y")}}
+- [`DOMRectReadOnly.y`](/de/docs/Web/API/DOMRectReadOnly/y)
   - : Die y-Koordinate des Ursprungs des `DOMRect` (typischerweise die obere linke Ecke des Rechtecks).
-- {{domxref("DOMRectReadOnly.width")}}
+- [`DOMRectReadOnly.width`](/de/docs/Web/API/DOMRectReadOnly/width)
   - : Die Breite des `DOMRect`.
-- {{domxref("DOMRectReadOnly.height")}}
+- [`DOMRectReadOnly.height`](/de/docs/Web/API/DOMRectReadOnly/height)
   - : Die Höhe des `DOMRect`.
-- {{domxref("DOMRectReadOnly.top")}}
+- [`DOMRectReadOnly.top`](/de/docs/Web/API/DOMRectReadOnly/top)
   - : Gibt den oberen Koordinatenwert des `DOMRect` zurück (hat denselben Wert wie `y` oder `y + height`, wenn `height` negativ ist).
-- {{domxref("DOMRectReadOnly.right")}}
-  - : Gibt den rechten Koordinatenwert des `DOMRect` zurück (hat denselben Wert wie `x + width`, oder `x`, wenn `width` negativ ist).
-- {{domxref("DOMRectReadOnly.bottom")}}
-  - : Gibt den unteren Koordinatenwert des `DOMRect` zurück (hat denselben Wert wie `y + height`, oder `y`, wenn `height` negativ ist).
-- {{domxref("DOMRectReadOnly.left")}}
-  - : Gibt den linken Koordinatenwert des `DOMRect` zurück (hat denselben Wert wie `x`, oder `x + width`, wenn `width` negativ ist).
+- [`DOMRectReadOnly.right`](/de/docs/Web/API/DOMRectReadOnly/right)
+  - : Gibt den rechten Koordinatenwert des `DOMRect` zurück (hat denselben Wert wie `x + width` oder `x`, wenn `width` negativ ist).
+- [`DOMRectReadOnly.bottom`](/de/docs/Web/API/DOMRectReadOnly/bottom)
+  - : Gibt den unteren Koordinatenwert des `DOMRect` zurück (hat denselben Wert wie `y + height` oder `y`, wenn `height` negativ ist).
+- [`DOMRectReadOnly.left`](/de/docs/Web/API/DOMRectReadOnly/left)
+  - : Gibt den linken Koordinatenwert des `DOMRect` zurück (hat denselben Wert wie `x` oder `x + width`, wenn `width` negativ ist).
 
 ## Statische Methoden
 
-_`DOMRect` kann auch statische Methoden von seinem Elternteil, {{domxref("DOMRectReadOnly")}}, erben._
+_`DOMRect` kann auch statische Methoden von seinem Elternteil, [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly), erben._
 
-- {{domxref("DOMRect/fromRect_static", "DOMRect.fromRect()")}}
-  - : Erstellt ein neues `DOMRect`-Objekt mit einer gegebenen Position und Abmessungen.
+- [`DOMRect.fromRect()`](/de/docs/Web/API/DOMRect/fromRect_static)
+  - : Erstellt ein neues `DOMRect`-Objekt mit einer gegebenen Position und Dimensionen.
 
 ## Instanz-Methoden
 
-_`DOMRect` kann Methoden von seinem Elternteil, {{domxref("DOMRectReadOnly")}}, erben._
+_`DOMRect` kann Methoden von seinem Elternteil, [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly), erben._
 
 ## Spezifikationen
 
@@ -62,4 +62,4 @@ _`DOMRect` kann Methoden von seinem Elternteil, {{domxref("DOMRectReadOnly")}}, 
 
 ## Siehe auch
 
-- {{domxref("DOMPoint")}}
+- [`DOMPoint`](/de/docs/Web/API/DOMPoint)

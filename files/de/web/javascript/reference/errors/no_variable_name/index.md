@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: fehlender Variablenname"
+title: "SyntaxError: missing variable name"
 slug: Web/JavaScript/Reference/Errors/No_variable_name
 l10n:
   sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "fehlender Variablenname" ist ein häufiger Fehler. Sie wird normalerweise durch das Weglassen eines Variablennamens oder einen typografischen Fehler verursacht.
+Die JavaScript-Ausnahme "missing variable name" ist ein häufiger Fehler. Sie wird normalerweise durch das Auslassen eines Variablennamens oder einen typografischen Fehler verursacht.
 
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: missing variable name (Firefox)
@@ -20,11 +20,11 @@ SyntaxError: Unexpected token '='. Expected a parameter pattern or a ')' in para
 
 {{jsxref("SyntaxError")}}
 
-## Was ist schief gelaufen?
+## Was ist schiefgelaufen?
 
 Einer Variablen fehlt ein Name. Die Ursache ist höchstwahrscheinlich ein Tippfehler oder ein vergessener Variablenname. Stellen Sie sicher, dass Sie den Namen der Variablen vor dem `=`-Zeichen angegeben haben.
 
-Wenn mehrere Variablen gleichzeitig deklariert werden, stellen Sie sicher, dass die vorherigen Zeilen/Deklarationen nicht mit einem Komma anstelle eines Semikolons enden.
+Wenn Sie mehrere Variablen gleichzeitig deklarieren, stellen Sie sicher, dass die vorherigen Zeilen/Deklarationen nicht mit einem Komma statt einem Semikolon enden.
 
 ## Beispiele
 
@@ -34,7 +34,7 @@ Wenn mehrere Variablen gleichzeitig deklariert werden, stellen Sie sicher, dass 
 const = "foo";
 ```
 
-Es ist leicht zu vergessen, Ihrer Variablen einen Namen zuzuweisen!
+Es ist leicht, zu vergessen, Ihrem Variable einen Namen zuzuweisen!
 
 ```js example-good
 const description = "foo";
@@ -42,16 +42,16 @@ const description = "foo";
 
 ### Reservierte Schlüsselwörter können keine Variablennamen sein
 
-Es gibt einige Variablennamen, die [reservierte Schlüsselwörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#keywords) sind. Sie können diese nicht verwenden. Entschuldigung :(
+Es gibt einige Variablennamen, die [reservierte Schlüsselwörter](/de/docs/Web/JavaScript/Reference/Lexical_grammar#keywords) sind. Diese können Sie nicht verwenden. Leider :(
 
 ```js-nolint example-bad
 const debugger = "whoop";
 // SyntaxError: missing variable name
 ```
 
-### Deklaration mehrerer Variablen
+### Mehrere Variablen deklarieren
 
-Achten Sie besonders auf Kommas, wenn Sie mehrere Variablen deklarieren. Gibt es ein überschüssiges Komma oder haben Sie Kommas anstelle von Semikolons verwendet? Haben Sie daran gedacht, allen Ihren `const`-Variablen Werte zuzuweisen?
+Achten Sie besonders auf Kommas, wenn Sie mehrere Variablen deklarieren. Gibt es ein überflüssiges Komma oder wurden Kommas statt Semikolons verwendet? Haben Sie daran gedacht, allen Ihren `const`-Variablen Werte zuzuweisen?
 
 ```js-nolint example-bad
 let x, y = "foo",
@@ -76,14 +76,14 @@ const second = document.getElementById("two");
 
 ### Arrays
 
-{{jsxref("Array")}}-Literale in JavaScript benötigen eckige Klammern um die Werte. Das funktioniert nicht:
+{{jsxref("Array")}}-Literale in JavaScript benötigen eckige Klammern um die Werte. Dies wird nicht funktionieren:
 
 ```js-nolint example-bad
 const arr = 1,2,3,4,5;
 // SyntaxError: missing variable name
 ```
 
-Das wäre korrekt:
+Dies wäre korrekt:
 
 ```js example-good
 const arr = [1, 2, 3, 4, 5];

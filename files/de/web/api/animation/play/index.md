@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`play()`**-Methode der [Web Animations API](/de/docs/Web/API/Web_Animations_API) der {{ domxref("Animation") }}-Schnittstelle startet oder setzt die Wiedergabe einer Animation fort. Wenn die Animation beendet ist, startet ein Aufruf von `play()` die Animation neu und spielt sie von Anfang an ab.
+Die **`play()`**-Methode der [`Animation`](/de/docs/Web/API/Animation)-Schnittstelle der [Web Animations API](/de/docs/Web/API/Web_Animations_API) startet oder setzt die Wiedergabe einer Animation fort. Wenn die Animation beendet ist, startet der Aufruf von `play()` die Animation erneut und spielt sie von Anfang an ab.
 
 ## Syntax
 
@@ -22,14 +22,14 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im Beispiel [Growing/Shrinking Alice Game](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) bewirkt ein Klick oder Tipp auf den Kuchen, dass Alices Wachstumsanimation (`aliceChange`) vorwärts abgespielt wird, wodurch sie größer wird, und löst auch die Animation des Kuchens aus. Zwei `Animation.play()`-Aufrufe, ein `EventListener`:
+Im [Wachstums-/Schrumpfungs-Alice-Spiel](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010)-Beispiel führt das Klicken oder Tippen auf den Kuchen dazu, dass die Wachstumsanimation von Alice (`aliceChange`) vorwärts abgespielt wird, wodurch sie größer wird, und löst zudem die Animation des Kuchens aus. Zwei `Animation.play()`s, ein `EventListener`:
 
 ```js
-// Der Kuchen hat seine eigene Animation:
+// The cake has its own animation:
 const nommingCake = document
   .getElementById("eat-me_sprite")
   .animate(
@@ -41,19 +41,19 @@ const nommingCake = document
     },
   );
 
-// Pause der Kuchenanimation, damit sie nicht sofort abspielt.
+// Pause the cake's animation so it doesn't play immediately.
 nommingCake.pause();
 
-// Diese Funktion wird ausgeführt, wenn ein Benutzer klickt oder tippt
+// This function will play when ever a user clicks or taps
 const growAlice = () => {
-  // Alices Animation abspielen.
+  // Play Alice's animation.
   aliceChange.play();
 
-  // Die Kuchenanimation abspielen.
+  // Play the cake's animation.
   nommingCake.play();
 };
 
-// Wenn ein Benutzer die Maus gedrückt hält oder tippt, rufen Sie growAlice auf, um alle Animationen abzuspielen.
+// When a user holds their mouse down or taps, call growAlice to make all the animations play.
 cake.addEventListener("mousedown", growAlice, false);
 cake.addEventListener("touchstart", growAlice, false);
 ```
@@ -69,8 +69,8 @@ cake.addEventListener("touchstart", growAlice, false);
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("Animation")}} für andere Methoden und Eigenschaften, die Sie zur Steuerung der Web-Animation verwenden können.
-- {{domxref("Animation.pause()")}} um eine Animation zu pausieren.
-- {{domxref("Animation.reverse()")}} um eine Animation rückwärts abzuspielen.
-- {{domxref("Animation.finish()")}} um eine Animation zu beenden.
-- {{domxref("Animation.cancel()")}} um eine Animation abzubrechen.
+- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, die Sie zur Steuerung von Webseiten-Animationen verwenden können.
+- [`Animation.pause()`](/de/docs/Web/API/Animation/pause), um eine Animation zu pausieren.
+- [`Animation.reverse()`](/de/docs/Web/API/Animation/reverse), um eine Animation rückwärts abzuspielen.
+- [`Animation.finish()`](/de/docs/Web/API/Animation/finish), um eine Animation zu beenden.
+- [`Animation.cancel()`](/de/docs/Web/API/Animation/cancel), um eine Animation abzubrechen.

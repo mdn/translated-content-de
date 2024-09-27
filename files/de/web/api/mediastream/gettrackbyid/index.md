@@ -1,5 +1,5 @@
 ---
-title: "MediaStream: Methode getTrackById()"
+title: "MediaStream: getTrackById()-Methode"
 short-title: getTrackById()
 slug: Web/API/MediaStream/getTrackById
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`getTrackById()`** Methode der {{domxref("MediaStream")}} Schnittstelle
-gibt ein {{domxref("MediaStreamTrack")}} Objekt zurück, das den Track mit der angegebenen ID-Zeichenkette repräsentiert. Existiert kein Track mit der angegebenen ID, gibt diese Methode `null` zurück.
+Die **`getTrackById()`**-Methode der [`MediaStream`](/de/docs/Web/API/MediaStream)-Schnittstelle
+gibt ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt zurück, das die Spur mit der angegebenen ID-Zeichenkette darstellt. Wenn es keine Spur mit der angegebenen ID gibt, gibt diese Methode `null` zurück.
 
 ## Syntax
 
@@ -20,18 +20,18 @@ getTrackById(id)
 ### Parameter
 
 - `id`
-  - : Eine Zeichenkette, die den zurückzugebenden Track identifiziert.
+  - : Eine Zeichenkette, die die zurückzugebende Spur identifiziert.
 
 ### Rückgabewert
 
-Wenn ein Track gefunden wird, für den {{domxref("MediaStreamTrack.id")}} mit der angegebenen
-`id` Zeichenkette übereinstimmt, wird dieses {{domxref("MediaStreamTrack")}} Objekt zurückgegeben.
+Wenn eine Spur gefunden wird, für die [`MediaStreamTrack.id`](/de/docs/Web/API/MediaStreamTrack/id) mit der angegebenen
+`id`-Zeichenkette übereinstimmt, wird dieses [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt zurückgegeben.
 Andernfalls ist der zurückgegebene Wert `null`.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Kommentartrack in einem Video aktiviert, indem das Audiolevel des
-Hauptaudiotracks auf 50% reduziert wird und dann der Kommentartrack aktiviert wird.
+Dieses Beispiel aktiviert eine Kommentatorspur in einem Video, indem der Audiopegel der
+Haupttonspur auf 50 % abgesenkt und dann die Kommentatorspur aktiviert wird.
 
 ```js
 stream.getTrackById("primary-audio-track").applyConstraints({ volume: 0.5 });
@@ -48,5 +48,5 @@ stream.getTrackById("commentary-track").enabled = true;
 
 ## Siehe auch
 
-- {{domxref("MediaStream")}}
-- {{domxref("MediaStreamTrack.id")}}
+- [`MediaStream`](/de/docs/Web/API/MediaStream)
+- [`MediaStreamTrack.id`](/de/docs/Web/API/MediaStreamTrack/id)

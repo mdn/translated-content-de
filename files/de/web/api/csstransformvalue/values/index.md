@@ -1,5 +1,5 @@
 ---
-title: "CSSTransformValue: Methode values()"
+title: "CSSTransformValue: values() Methode"
 short-title: values()
 slug: Web/API/CSSTransformValue/values
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`CSSTransformValue.values()`** Methode gibt ein neues _Array-Iterator_-Objekt zurück, das die Werte für jeden Index im CSSTransformValue-Objekt enthält.
+Die **`CSSTransformValue.values()`** gibt ein neues _Array-Iterator_-Objekt zurück, das die Werte für jeden Index im `CSSTransformValue`-Objekt enthält.
 
 ## Syntax
 

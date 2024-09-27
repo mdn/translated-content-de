@@ -1,5 +1,5 @@
 ---
-title: "VTTCue: Eigenschaft region"
+title: "VTTCue: region Eigenschaft"
 short-title: region
 slug: Web/API/VTTCue/region
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`region`**-Eigenschaft des {{domxref("VTTCue")}}-Interfaces gibt die {{domxref("VTTRegion")}} zurück, zu der dieses Cue gehört, und legt sie fest.
+Die **`region`**-Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue)-Interfaces gibt die [`VTTRegion`](/de/docs/Web/API/VTTRegion) zurück, zu der dieser Cue gehört, und legt sie fest.
 
 ## Wert
 
-Ein {{domxref("VTTRegion")}}-Objekt.
+Ein [`VTTRegion`](/de/docs/Web/API/VTTRegion)-Objekt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neuer {{domxref("VTTCue")}} erstellt, und der Wert von `region` wird in die Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `region` in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

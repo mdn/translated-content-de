@@ -49,7 +49,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

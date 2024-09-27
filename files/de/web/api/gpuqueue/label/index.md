@@ -3,29 +3,29 @@ title: "GPUQueue: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUQueue/label
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`label`**-Eigenschaft der {{domxref("GPUQueue")}}-Schnittstelle ist ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in {{domxref("GPUError")}}-Meldungen oder Konsolenwarnungen.
+Die **`label`** schreibgeschützte Eigenschaft der [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Schnittstelle ist ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
 
-Sie können es direkt auf dem `GPUQueue`-Objekt abrufen und setzen.
+Sie können es direkt auf dem `GPUQueue`-Objekt abrufen und festlegen.
 
 ## Wert
 
-Ein String. Wenn zuvor kein Labelwert gesetzt wurde, gibt das Abrufen des Labels einen leeren String zurück.
+Ein String. Wenn zuvor kein Labelwert festgelegt wurde, gibt das Abrufen des Labels einen leeren String zurück.
 
 ## Beispiele
 
-Einstellen und Abrufen eines Labels über `GPUQueue.label`:
+Festlegen und Abrufen eines Labels über `GPUQueue.label`:
 
 ```js
 device.queue.label = "myqueue";
 console.log(device.queue.label); // "myqueue"
 ```
 
-Sie können das Label der Queue auch zum Zeitpunkt der Geräteanforderung setzen, so:
+Sie können das Label der Warteschlange auch direkt beim Anfordern des Geräts festlegen, wie in diesem Beispiel:
 
 ```js
 const device = adapter.requestDevice({

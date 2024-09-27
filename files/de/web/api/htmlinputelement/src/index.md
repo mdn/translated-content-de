@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: src-Eigenschaft"
+title: "HTMLInputElement: src Eigenschaft"
 short-title: src
 slug: Web/API/HTMLInputElement/src
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`src`**-Eigenschaft des {{DOMxRef("HTMLInputElement")}}-Interfaces gibt die Quelle eines Bilds an, das als grafische Sende-Schaltfläche angezeigt werden soll. Sie spiegelt das [`src`](/de/docs/Web/HTML/Element/input#src)-Attribut des {{htmlelement("input")}}-Elements wider.
+Die **`src`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt die Quelle eines Bildes an, das als grafischer Sende-Button angezeigt werden soll. Sie spiegelt das [`src`](/de/docs/Web/HTML/Element/input#src)-Attribut des {{htmlelement("input")}}-Elements wider.
 
-Die `src`-Eigenschaft ist nur für den Typ [`image`](/de/docs/Web/HTML/Element/input/image) gültig.
+Die `src`-Eigenschaft ist nur für den [`image`](/de/docs/Web/HTML/Element/input/image)-Typ gültig.
 
 ## Wert
 
@@ -33,7 +33,7 @@ console.log(input.src);
 
 ## Siehe auch
 
-- {{DOMXref("HTMLButtonElement")}}
+- [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)
 - {{HTMLElement("button")}}
 - {{HTMLElement("input")}}
 - {{HTMLElement("img")}}

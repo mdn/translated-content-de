@@ -1,6 +1,6 @@
 ---
-title: "Request: Umleitungs-Eigenschaft"
-short-title: Umleitung
+title: "Request: redirect-Eigenschaft"
+short-title: redirect
 slug: Web/API/Request/redirect
 l10n:
   sourceCommit: 954612667bafd71241a93e8554e8f11afc474ff3
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte Eigenschaft **`redirect`** der {{domxref("Request")}}-Schnittstelle enthält den Modus, wie Umleitungen gehandhabt werden.
+Die **`redirect`** schreibgeschützte Eigenschaft des [`Request`](/de/docs/Web/API/Request)-Interfaces enthält den Modus, wie Umleitungen gehandhabt werden.
 
 ## Wert
 
-Ein `RequestRedirect`-Enum-Wert, der einer der folgenden Zeichenfolgen sein kann:
+Ein `RequestRedirect`-Enum-Wert, der einer der folgenden Strings sein kann:
 
 - `follow`
 - `error`
 - `manual`
 
-Wenn beim Erstellen der Anfrage nicht angegeben, nimmt sie den Standardwert `follow` an.
+Falls nicht spezifiziert, wenn die Anfrage erstellt wird, erhält er den Standardwert `follow`.
 
 ## Beispiele
 
-Im folgenden Codeausschnitt erstellen wir eine neue Anfrage mit dem Konstruktor {{domxref("Request.Request", "Request()")}} (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern den `redirect`-Wert der Anfrage in einer Variablen:
+Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und speichern dann den `redirect`-Wert der Anfrage in einer Variablen:
 
 ```js
 const myRequest = new Request("flowers.jpg");

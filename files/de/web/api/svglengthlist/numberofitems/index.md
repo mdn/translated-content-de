@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`numberOfItems`**-Eigenschaft der {{domxref("SVGLengthList")}}-Schnittstelle gibt die Anzahl der Elemente in der Liste zurück. {{domxref("SVGLengthList.length", "length")}} ist ein Alias davon.
+Die **`numberOfItems`**-Eigenschaft des [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Interfaces gibt die Anzahl der Elemente in der Liste zurück. [`length`](/de/docs/Web/API/SVGLengthList/length) ist ein Alias dafür.
 
 ## Wert
 
-Eine nicht-negative ganze Zahl, die die Anzahl der Elemente in der Liste darstellt.
+Eine nicht-negative Ganzzahl, die die Anzahl der Elemente in der Liste darstellt.
 
 ## Beispiele
 
-Siehe {{domxref("SVGLengthList")}} für ein vollständiges Beispiel.
+Siehe [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) für ein vollständiges Beispiel.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

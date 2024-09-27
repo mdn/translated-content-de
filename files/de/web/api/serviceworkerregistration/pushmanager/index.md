@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerRegistration: pushManager Eigenschaft"
+title: "ServiceWorkerRegistration: pushManager-Eigenschaft"
 short-title: pushManager
 slug: Web/API/ServiceWorkerRegistration/pushManager
 l10n:
@@ -8,22 +8,19 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushManager`** schreibgeschützte Eigenschaft des
-{{domxref("ServiceWorkerRegistration")}} Interfaces liefert eine Referenz auf das
-{{domxref("PushManager")}} Interface zur Verwaltung von Push-Abonnements; dies umfasst
-die Unterstützung für das Abonnieren, das Abrufen eines aktiven Abonnements und den Zugriff auf den Status der Push-Berechtigung.
+Die schreibgeschützte Eigenschaft **`pushManager`** der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle gibt eine Referenz auf die [`PushManager`](/de/docs/Web/API/PushManager)-Schnittstelle zum Verwalten von Push-Abonnements zurück; dies umfasst die Unterstützung für das Abonnieren, das Abrufen eines aktiven Abonnements und den Zugriff auf den Push-Berechtigungsstatus.
 
 ## Wert
 
-Ein {{domxref("PushManager")}} Objekt.
+Ein [`PushManager`](/de/docs/Web/API/PushManager)-Objekt.
 
 ## Beispiele
 
 ```js
 this.onpush = (event) => {
   console.log(event.data);
-  // Von hier aus können wir die Daten in IndexedDB schreiben,
-  // an beliebige offene Fenster senden, eine Benachrichtigung anzeigen, usw.
+  // From here we can write the data to IndexedDB, send it to any open
+  // windows, display a notification, etc.
 };
 
 navigator.serviceWorker
@@ -33,14 +30,15 @@ navigator.serviceWorker
       (pushSubscription) => {
         console.log(pushSubscription.subscriptionId);
         console.log(pushSubscription.endpoint);
-        // Die für den Anwendungsserver benötigten Details des Push-Abonnements
-        // sind nun verfügbar und können z.B. mit der fetch() API an ihn gesendet werden.
+        // The push subscription details needed by the application
+        // server are now available, and can be sent to it using,
+        // for example, the fetch() API.
       },
       (error) => {
-        // Während der Entwicklung hilft es oft, Fehler im
-        // Konsolenprotokoll zu verzeichnen. In einer Produktionsumgebung
-        // könnte es sinnvoll sein, Informationen über Fehler auch
-        // an den Anwendungsserver zurückzumelden.
+        // During development it often helps to log errors to the
+        // console. In a production environment it might make sense to
+        // also report information about errors back to the
+        // application server.
         console.error(error);
       },
     );

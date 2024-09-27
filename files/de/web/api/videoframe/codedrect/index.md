@@ -1,5 +1,5 @@
 ---
-title: "VideoFrame: codedRect-Eigenschaft"
+title: "VideoFrame: codedRect Eigenschaft"
 short-title: codedRect
 slug: Web/API/VideoFrame/codedRect
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`codedRect`**-Eigenschaft der {{domxref("VideoFrame")}}-Schnittstelle gibt ein {{domxref("DOMRectReadOnly")}}-Objekt zurück, dessen Breite und Höhe der {{domxref("VideoFrame.codedWidth")}} und {{domxref("VideoFrame.codedHeight")}} entsprechen.
+Die **`codedRect`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) mit der Breite und Höhe zurück, die [`VideoFrame.codedWidth`](/de/docs/Web/API/VideoFrame/codedWidth) und [`VideoFrame.codedHeight`](/de/docs/Web/API/VideoFrame/codedHeight) entsprechen.
 
 ## Wert
 
-Ein {{domxref("DOMRectReadOnly")}}.
+Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly).
 
 ## Beispiele
 
@@ -26,6 +26,6 @@ console.log(VideoFrame.codedRect);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, das bestimmt, ob das FTP-Protokoll im Browser aktiviert ist.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das bestimmt, ob das FTP-Protokoll im Browser aktiviert ist.
 
-Der zugrunde liegende Wert ist ein boolescher Wert.
+Der zugrunde liegende Wert ist ein Boolescher Wert.
 
 > [!NOTE]
-> Ab Version 88 von Firefox ist diese Einstellung nur lesbar.
+> Ab der Firefox-Version 88 ist diese Einstellung schreibgeschützt.
 
 ## Browser-Kompatibilität
 
@@ -20,7 +20,7 @@ Der zugrunde liegende Wert ist ein boolescher Wert.
 
 ## Beispiele
 
-Einstellung umschalten:
+Die Einstellung umschalten:
 
 ```js
 function toggleAllowFtp() {

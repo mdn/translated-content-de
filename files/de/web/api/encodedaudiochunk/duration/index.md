@@ -1,5 +1,5 @@
 ---
-title: "EncodedAudioChunk: Eigenschaft duration"
+title: "EncodedAudioChunk: duration-Eigenschaft"
 short-title: duration
 slug: Web/API/EncodedAudioChunk/duration
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`duration`** des {{domxref("EncodedAudioChunk")}}-Interfaces gibt eine Ganzzahl zurück, die die Dauer des Audios in Mikrosekunden angibt.
+Die **`duration`** schreibgeschützte Eigenschaft des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces gibt eine Ganzzahl zurück, die die Dauer des Audiosignals in Mikrosekunden angibt.
 
 ## Wert
 

@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Kleiner oder gleich (`<=`)** Operator gibt `true` zurück, wenn der linke Operand kleiner oder gleich dem rechten Operand ist, und `false` andernfalls.
+Der **kleiner oder gleich (`<=`)** Operator gibt `true` zurück, wenn der linke Operand kleiner oder gleich dem rechten Operand ist, und `false` ansonsten.
 
 {{EmbedInteractiveExample("pages/js/expressions-less-than-or-equal.html")}}
 
@@ -19,23 +19,23 @@ x <= y
 
 ## Beschreibung
 
-Die Operanden werden mit demselben Algorithmus wie der [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) Operator verglichen, wobei die Operanden vertauscht und das Ergebnis negiert wird. `x <= y` ist im Allgemeinen gleichwertig mit `!(y < x)`, außer in zwei Fällen, in denen `x <= y` und `x > y` beide `false` sind:
+Die Operanden werden mit dem gleichen Algorithmus wie beim [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) Operator verglichen, wobei die Operanden vertauscht und das Ergebnis negiert wird. `x <= y` ist im Allgemeinen äquivalent zu `!(y < x)`, außer in zwei Fällen, in denen sowohl `x <= y` als auch `x > y` `false` sind:
 
 - Wenn einer der Operanden in ein BigInt konvertiert wird, während der andere in einen String konvertiert wird, der nicht in einen BigInt-Wert umgewandelt werden kann (es wird ein [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Invalid_BigInt_syntax) ausgelöst, wenn er an [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) übergeben wird).
-- Wenn einer der Operanden in `NaN` umgewandelt wird. (Zum Beispiel Strings, die nicht in Zahlen konvertiert werden können, oder `undefined`.)
+- Wenn einer der Operanden in `NaN` konvertiert wird. (Zum Beispiel Strings, die nicht in Zahlen umgewandelt werden können, oder `undefined`.)
 
-Darüber hinaus wird `x <= y` vor `y` in einen primitiven Wert umgewandelt, während `y < x` `y` vor `x` in einen primitiven Wert umwandelt. Da Umwandlungen Nebenwirkungen haben können, kann die Reihenfolge der Operanden wichtig sein.
+Zusätzlich zwingt `x <= y` `x`, vor `y` in ein einfaches Element umgewandelt zu werden, während `y < x` `y` vor `x` in ein einfaches Element umwandelt. Da die Umwandlung Nebeneffekte haben kann, kann die Reihenfolge der Operanden von Bedeutung sein.
 
-`x <= y` ist im Allgemeinen gleichwertig mit `x < y || x == y`, außer in einigen Fällen:
+`x <= y` ist im Allgemeinen äquivalent zu `x < y || x == y`, außer in einigen Fällen:
 
-- Wenn eine der beiden `x` oder `y` `null` ist und die andere etwas ist, das nicht `null` ist und bei [numerischer Umwandlung](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) zu 0 wird (einschließlich `0`, `0n`, `false`, `""`, `"0"`, `new Date(0)` etc.): `x <= y` ist `true`, während `x < y || x == y` `false` ist.
-- Wenn eine der beiden `x` oder `y` `undefined` ist und die andere `null` oder `undefined` ist: `x <= y` ist `false`, während `x == y` `true` ist.
+- Wenn eines von `x` oder `y` `null` ist und das andere etwas, das nicht `null` ist und zu 0 wird, wenn es [numerisch erzwungen](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) wird (einschließlich `0`, `0n`, `false`, `""`, `"0"`, `new Date(0)`, etc.): `x <= y` ist `true`, während `x < y || x == y` `false` ist.
+- Wenn eines von `x` oder `y` `undefined` ist und das andere eines von `null` oder `undefined`: `x <= y` ist `false`, während `x == y` `true` ist.
 - Wenn `x` und `y` dasselbe Objekt sind, das nach dem ersten Schritt von [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) zu `NaN` wird (wie `new Date(NaN)`): `x <= y` ist `false`, während `x == y` `true` ist.
-- Wenn `x` und `y` unterschiedliche Objekte sind, die nach dem ersten Schritt von [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) denselben Wert annehmen: `x <= y` ist `true`, während `x < y || x == y` `false` ist.
+- Wenn `x` und `y` unterschiedliche Objekte sind, die nach dem ersten Schritt von [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) denselben Wert ergeben: `x <= y` ist `true`, während `x < y || x == y` `false` ist.
 
 ## Beispiele
 
-### String zu String Vergleich
+### String-zu-String-Vergleich
 
 ```js
 "a" <= "b"; // true
@@ -43,7 +43,7 @@ Darüber hinaus wird `x <= y` vor `y` in einen primitiven Wert umgewandelt, wäh
 "a" <= "3"; // false
 ```
 
-### String zu Zahl Vergleich
+### String-zu-Zahl-Vergleich
 
 ```js
 "5" <= 3; // false
@@ -54,7 +54,7 @@ Darüber hinaus wird `x <= y` vor `y` in einen primitiven Wert umgewandelt, wäh
 5 <= "hello"; // false
 ```
 
-### Zahl zu Zahl Vergleich
+### Zahl-zu-Zahl-Vergleich
 
 ```js
 5 <= 3; // false
@@ -62,7 +62,7 @@ Darüber hinaus wird `x <= y` vor `y` in einen primitiven Wert umgewandelt, wäh
 3 <= 5; // true
 ```
 
-### Zahl zu BigInt Vergleich
+### Zahl-zu-BigInt-Vergleich
 
 ```js
 5n <= 3; // false

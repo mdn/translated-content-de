@@ -7,13 +7,13 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Browser aufhört, ein Menü anzuzeigen: zum Beispiel, weil der Benutzer außerhalb des Menüs geklickt oder ein Element ausgewählt hat.
+Wird ausgelöst, wenn der Browser ein Menü nicht mehr anzeigt: z.B. weil der Benutzer außerhalb des Menüs geklickt hat oder einen Menüpunkt ausgewählt hat.
 
-Es wird nur für Menüs ausgelöst, die mithilfe der {{WebExtAPIRef("menus")}} API selbst manipuliert werden können: dies schließt das Kontextmenü, das Werkzeugmenü des Browsers und das Lesezeichenmenü ein.
+Es wird nur für Menüs ausgelöst, die mit der {{WebExtAPIRef("menus")}} API selbst manipuliert werden können: Dazu gehören das Kontextmenü, das Werkzeuge-Menü des Browsers und das Lesezeichenmenü.
 
 Dies wird höchstwahrscheinlich in Kombination mit den APIs {{WebExtAPIRef("menus.onShown")}} und {{WebExtAPIRef("menus.refresh()")}} verwendet: Eine Erweiterung kann das Menü aktualisieren, wenn es angezeigt wird, und die Änderungen rückgängig machen, wenn es ausgeblendet wird.
 
-Firefox stellt dieses Ereignis über den `contextMenus`-Namensraum sowie den `menus`-Namensraum zur Verfügung.
+Firefox bietet dieses Ereignis sowohl über den `contextMenus`-Namensraum als auch über den `menus`-Namensraum an.
 
 ## Syntax
 
@@ -26,13 +26,13 @@ browser.menus.onHidden.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Beendet das Zuhören bei diesem Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, `false` andernfalls.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 

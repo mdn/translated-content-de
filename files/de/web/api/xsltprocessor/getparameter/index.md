@@ -1,5 +1,5 @@
 ---
-title: "XSLTProcessor: Methode getParameter()"
+title: "XSLTProcessor: getParameter() Methode"
 short-title: getParameter()
 slug: Web/API/XSLTProcessor/getParameter
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XSLT")}}
 
-Die `getParameter()` Methode des {{domxref("XSLTProcessor")}} Interfaces gibt den Wert eines Parameters (`<xsl:param>`) aus dem im Prozessor importierten Stylesheet zurück.
+Die `getParameter()`-Methode des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor) Interface gibt den Wert eines Parameters (`<xsl:param>`) aus dem im Prozessor importierten Stylesheet zurück.
 
 ## Syntax
 
@@ -19,22 +19,22 @@ getParameter(namespaceURI, localName)
 ### Parameter
 
 - `namespaceURI`
-  - : Der Namespace, der mit dem Parameternamen verbunden ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null) Wert wird genauso wie der leere String (`""`) behandelt.
+  - : Der Namespace, der mit dem Parameternamen assoziiert ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null) Wert wird wie die leere Zeichenkette (`""`) behandelt.
 - `localName`
   - : Der Name des Parameters im zugehörigen Namespace.
 
 ### Rückgabewert
 
-Ein Objekt, das der dem Parameter zugeordnete Wert ist. Es kann jeden Typ haben.
+Ein Objekt, das der mit dem Parameter assoziierte Wert ist. Es kann von jedem Typ sein.
 
 > [!NOTE]
-> Firefox unterstützt jede Art von Parameter. Chrome, Edge und Safari unterstützen nur String-Parameter.
+> Firefox unterstützt alle Arten von Parametern. Chrome, Edge und Safari unterstützen nur Parameter vom Typ String.
 
 ## Beispiele
 
 ### Verwendung von getParameter()
 
-Dieses Beispiel zeigt, wie `getParameter()` verwendet wird, um den Wert eines Parameters zu überprüfen, der das Verhalten einer XSLT-Transformation steuert.
+Dieses Beispiel zeigt, wie `getParameter()` verwendet wird, um den Wert eines Parameters zu prüfen, der das Verhalten einer XSLT-Transformation steuert.
 
 ```js
 const xsltProcessor = new XSLTProcessor();
@@ -46,13 +46,13 @@ console.log(xsltProcessor.getParameter(null, "foo")); // "bar"
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("XSLTProcessor.setParameter()")}}
-- {{domxref("XSLTProcessor.removeParameter()")}}
-- {{domxref("XSLTProcessor.clearParameters()")}}
-- {{domxref("XSLTProcessor.reset()")}}
+- [`XSLTProcessor.setParameter()`](/de/docs/Web/API/XSLTProcessor/setParameter)
+- [`XSLTProcessor.removeParameter()`](/de/docs/Web/API/XSLTProcessor/removeParameter)
+- [`XSLTProcessor.clearParameters()`](/de/docs/Web/API/XSLTProcessor/clearParameters)
+- [`XSLTProcessor.reset()`](/de/docs/Web/API/XSLTProcessor/reset)

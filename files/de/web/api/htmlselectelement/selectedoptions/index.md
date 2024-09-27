@@ -8,28 +8,40 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **schreibgeschützte** Eigenschaft **`selectedOptions`** des {{domxref("HTMLSelectElement")}} enthält eine Liste der {{HTMLElement("option")}}-Elemente, die im {{HTMLElement("select")}}-Element derzeit ausgewählt sind. Die Liste der ausgewählten Optionen ist ein {{domxref("HTMLCollection")}}-Objekt mit einem Eintrag pro aktuell ausgewählter Option.
+Die **schreibgeschützte** [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Eigenschaft
+**`selectedOptions`** enthält eine Liste der
+{{HTMLElement("option")}}-Elemente, die innerhalb des {{HTMLElement("select")}}-Elements
+enthalten sind und derzeit ausgewählt sind. Die Liste der ausgewählten Optionen ist ein
+[`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Objekt mit einem Eintrag pro aktuell ausgewählter Option.
 
-Eine Option wird als ausgewählt betrachtet, wenn sie ein {{domxref("HTMLOptionElement.selected")}}-Attribut besitzt.
+Eine Option wird als ausgewählt betrachtet, wenn sie ein [`HTMLOptionElement.selected`](/de/docs/Web/API/HTMLOptionElement/selected)
+Attribut hat.
 
 ## Wert
 
-Eine {{domxref("HTMLCollection")}}, die jedes aktuell ausgewählte {{domxref("HTMLOptionElement")}} auflistet, das entweder ein Kind des {{domxref("HTMLSelectElement")}} oder eines {{domxref("HTMLOptGroupElement")}} innerhalb des `<select>`-Elements ist.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die jedes derzeit ausgewählte
+[`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) auflistet, das entweder ein Kind des
+[`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) oder eines [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement) innerhalb des
+`<select>`-Elements ist.
 
-Mit anderen Worten: Jede Option innerhalb des `<select>`-Elements kann Teil der Ergebnisse sein, aber Optionsgruppen sind nicht in der Liste enthalten.
+Mit anderen Worten, jedes innerhalb des `<select>`-Elements enthaltene Optionselement kann
+Teil der Ergebnisse sein, aber Optionsgruppen sind nicht in der Liste enthalten.
 
-Wenn keine Optionen derzeit ausgewählt sind, ist die Sammlung leer und hat eine {{domxref("HTMLCollection.length", "Länge")}} von 0.
+Wenn derzeit keine Optionen ausgewählt sind, ist die Sammlung leer und gibt eine
+[`length`](/de/docs/Web/API/HTMLCollection/length) von 0 zurück.
 
 ## Beispiele
 
-In diesem Beispiel wird ein {{HTMLElement("select")}}-Element mit mehreren Optionen verwendet, um dem Benutzer die Bestellung verschiedener Speisen zu ermöglichen.
+In diesem Beispiel wird ein {{HTMLElement("select")}}-Element mit einer Anzahl von Optionen verwendet,
+um dem Benutzer die Auswahl von verschiedenen Lebensmitteln zu ermöglichen.
 
 ### HTML
 
-Das HTML, das das Auswahlfeld und die {{HTMLElement("option")}}-Elemente erstellt, die jede der Essensauswahlen repräsentieren, sieht folgendermaßen aus:
+Der HTML-Code, der das Auswahlfeld und die {{HTMLElement("option")}}-Elemente
+für jede der Lebensmitteloptionen erstellt, sieht folgendermaßen aus:
 
 ```html
-<label for="foods">Was möchten Sie essen?</label><br />
+<label for="foods">What do you want to eat?</label><br />
 <select id="foods" name="foods" size="7" multiple>
   <option value="1">Burrito</option>
   <option value="2">Cheeseburger</option>
@@ -38,15 +50,19 @@ Das HTML, das das Auswahlfeld und die {{HTMLElement("option")}}-Elemente erstell
   <option value="5">Taco</option>
 </select>
 <br />
-<button name="order" id="order">Jetzt bestellen</button>
+<button name="order" id="order">Order Now</button>
 <p id="output"></p>
 ```
 
-Das `<select>`-Element ist so eingestellt, dass mehrere Elemente ausgewählt werden können und es ist 7 Zeilen hoch. Beachten Sie auch den {{HTMLElement("button")}}, dessen Rolle es ist, das Abrufen der {{domxref("HTMLCollection")}} der ausgewählten Elemente mit der `selected`-Eigenschaft auszulösen.
+Das `<select>`-Element ist so konfiguriert, dass es die Auswahl mehrerer Elemente zulässt,
+und es ist 7 Zeilen hoch. Beachten Sie auch den {{HTMLElement("button")}}, dessen Aufgabe es ist,
+das Abrufen der [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der ausgewählten Elemente mit der
+`selected`-Eigenschaft auszulösen.
 
 ### JavaScript
 
-Der JavaScript-Code, der den Ereignishandler für die Schaltfläche sowie den Ereignishandler selbst erstellt, sieht folgendermaßen aus:
+Der JavaScript-Code, der den Ereignishandler für den Button sowie den
+Ereignishandler selbst einrichtet, sieht folgendermaßen aus:
 
 ```js
 let orderButton = document.getElementById("order");
@@ -61,21 +77,21 @@ orderButton.addEventListener(
 
     for (let i = 0; i < collection.length; i++) {
       if (output === "") {
-        output = "Ihre Bestellung für die folgenden Artikel wurde aufgegeben: ";
+        output = "Your order for the following items has been placed: ";
       }
       output += collection[i].label;
 
       if (i === collection.length - 2 && collection.length < 3) {
-        output += " und ";
+        output += " and ";
       } else if (i < collection.length - 2) {
         output += ", ";
       } else if (i === collection.length - 2) {
-        output += ", und ";
+        output += ", and ";
       }
     }
 
     if (output === "") {
-      output = "Sie haben nichts bestellt!";
+      output = "You didn't order anything!";
     }
 
     outputBox.textContent = output;
@@ -84,11 +100,15 @@ orderButton.addEventListener(
 );
 ```
 
-Dieses Skript richtet einen {{domxref("Element/click_event", "Klick")}}-Ereignis-Listener auf der Schaltfläche "Jetzt bestellen" ein. Beim Klicken ruft der Ereignishandler die Liste der ausgewählten Optionen mit `selectedOptions` ab und durchläuft die Optionen in der Liste. Ein String wird konstruiert, um die bestellten Artikel aufzulisten, mit Logik, um die Liste unter Verwendung korrekter deutscher Grammatikregeln zu erstellen (einschließlich eines [Oxford-Kommas](https://de.wikipedia.org/wiki/Oxford-Komma)).
+Dieses Skript richtet einen [`click`](/de/docs/Web/API/Element/click_event)-Ereignislistener auf dem "Order Now"-Button ein. Wird
+geklickt, ruft der Ereignishandler die Liste der ausgewählten Optionen mit
+`selectedOptions` ab und iteriert dann über die Optionen in der Liste. Ein String wird
+erstellt, um die bestellten Artikel aufzulisten, mit einer Logik, die die Liste gemäß den englischen
+Grammatikregeln (einschließlich eines [seriellen Kommas](https://en.wikipedia.org/wiki/Serial_comma)) erstellt.
 
 ### Ergebnis
 
-Der resultierende Inhalt sieht in Aktion so aus:
+Das resultierende Layout sieht in Aktion so aus:
 
 {{EmbedLiveSample("Examples", 600, 250)}}
 
@@ -102,4 +122,4 @@ Der resultierende Inhalt sieht in Aktion so aus:
 
 ## Siehe auch
 
-- [Dropdown-Steuerelemente](/de/docs/Learn/Forms/Other_form_controls#drop-down_controls)
+- [Drop-down-Steuerelemente](/de/docs/Learn/Forms/Other_form_controls#drop-down_controls)

@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die schreibgeschützte Eigenschaft **`altitudeAccuracy`** des {{domxref("GeolocationCoordinates")}}-Interfaces ist ein streng positiver `double`, der die Genauigkeit der in Metern ausgedrückten `altitude` mit einem 95%igen Konfidenzintervall darstellt. Dieser Wert ist `null`, wenn die Implementierung die Messung der Höhe nicht unterstützt.
+Die schreibgeschützte Eigenschaft **`altitudeAccuracy`** des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates) Interfaces ist ein strikt positiver `double`, der die Genauigkeit der `altitude` mit einem Konfidenzmaß von 95% in Metern darstellt. Dieser Wert ist `null`, wenn die Implementierung die Höhenmessung nicht unterstützt.
 
 ## Wert
 
-Ein positiver `double`, der die Genauigkeit der in Metern ausgedrückten `altitude` mit einem 95%igen Konfidenzintervall darstellt.
+Ein positiver `double`, der die Genauigkeit der `altitude` mit einem Konfidenzmaß von 95% in Metern darstellt.
 
 ## Spezifikationen
 
@@ -24,5 +24,5 @@ Ein positiver `double`, der die Genauigkeit der in Metern ausgedrückten `altitu
 
 ## Siehe auch
 
-- [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- {{domxref("GeolocationCoordinates")}}
+- [Verwendung der Geolocation-API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
+- [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)

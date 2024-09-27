@@ -8,12 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Der **`RTCTrackEvent()`** Konstruktor erstellt und gibt ein neues {{domxref("RTCTrackEvent")}} Objekt zurück,
-das konfiguriert ist, um die Spur zu beschreiben, die zur {{domxref("RTCPeerConnection")}} hinzugefügt wurde.
+Der **`RTCTrackEvent()`** Konstruktor erstellt und gibt ein neues [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent) Objekt zurück, das so konfiguriert ist, dass es die Spur beschreibt, die zur [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt wurde.
 
-Im Allgemeinen werden Sie diesen Konstruktor nicht verwenden müssen, da `RTCTrackEvent`
-Objekte von WebRTC erstellt und dem `RTCPeerConnector` in Ihrem
-{{domxref("RTCPeerConnection.track_event", "ontrack")}} Event-Handler entsprechend übergeben werden.
+In der Regel werden Sie diesen Konstruktor nicht verwenden müssen, da `RTCTrackEvent` Objekte von WebRTC erstellt und entsprechend an den [`ontrack`](/de/docs/Web/API/RTCPeerConnection/track_event) Ereignishandler Ihres `RTCPeerConnector` geliefert werden.
 
 ## Syntax
 
@@ -27,21 +24,20 @@ new RTCTrackEvent(type, options)
   - : Ein String mit dem Namen des Ereignisses.
     Es ist case-sensitiv und Browser setzen es immer auf `track`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den im {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `receiver`
-      - : Der {{domxref("RTCRtpReceiver")}}, der verwendet wird, um die Mediendaten der Spur zu empfangen.
+      - : Der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), der verwendet wird, um die Medien der Spur zu empfangen.
     - `streams` {{optional_inline}}
-      - : Ein Array von {{domxref("MediaStream")}} Objekten, die jeweils einen der Streams repräsentieren, die zur entsprechenden Spur des Ereignisses gehören.
-        Es standardmäßig auf ein leeres Array gesetzt.
+      - : Ein Array von [`MediaStream`](/de/docs/Web/API/MediaStream) Objekten, das jeweils einen der Streams darstellt, die die entsprechende Spur des Ereignisses umfassen.
+        Standardmäßig ist es ein leeres Array.
     - `track`
-      - : Der {{domxref("MediaStreamTrack")}}, mit dem das Ereignis verknüpft ist.
+      - : Der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), mit dem das Ereignis verknüpft ist.
     - `transceiver`
-      - : Der {{domxref("RTCRtpTransceiver")}}, der mit dem Ereignis assoziiert ist.
+      - : Der [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver), der mit dem Ereignis verbunden ist.
 
 ### Rückgabewert
 
-Ein neues {{domxref("RTCTrackEvent")}}, das eine Spur beschreibt, die der
-`RTCPeerConnection` hinzugefügt wurde.
+Ein neues [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent), das eine Spur beschreibt, die zur `RTCPeerConnection` hinzugefügt wurde.
 
 ## Spezifikationen
 

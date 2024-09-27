@@ -1,5 +1,5 @@
 ---
-title: "Kreisel: x Eigenschaft"
+title: "Gyroscope: x-Eigenschaft"
 short-title: x
 slug: Web/API/Gyroscope/x
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`x`** schreibgeschützte Eigenschaft der
-{{domxref("Gyroscope")}} Schnittstelle gibt eine Zahl zurück, die die
-Winkelgeschwindigkeit des Geräts entlang seiner x-Achse angibt.
+Die **`x`**-Eigenschaft des [`Gyroscope`](/de/docs/Web/API/Gyroscope)-Interfaces gibt eine Zahl zurück, die die Winkelgeschwindigkeit des Geräts entlang seiner x-Achse angibt.
 
 ## Wert
 
@@ -18,8 +16,7 @@ Ein {{jsxref('Number')}}.
 
 ## Beispiele
 
-Das Gyroskop wird typischerweise im {{domxref('Sensor.reading_event', 'reading')}} Ereignis-Callback ausgelesen.
-Im folgenden Beispiel geschieht dies sechzig Mal pro Sekunde.
+Das Gyroskop wird typischerweise im Callback des [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignisses abgerufen. Im folgenden Beispiel geschieht dies sechzig Mal pro Sekunde.
 
 ```js
 let gyroscope = new Gyroscope({ frequency: 60 });

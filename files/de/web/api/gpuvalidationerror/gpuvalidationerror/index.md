@@ -3,12 +3,13 @@ title: "GPUValidationError: GPUValidationError() Konstruktor"
 short-title: GPUValidationError()
 slug: Web/API/GPUValidationError/GPUValidationError
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Der **`GPUValidationError()`** Konstruktor erstellt eine neue Instanz des {{domxref("GPUValidationError")}} Objekts.
+Der **`GPUValidationError()`** Konstruktor erstellt eine neue
+[`GPUValidationError`](/de/docs/Web/API/GPUValidationError) Objektinstanz.
 
 ## Syntax
 
@@ -19,23 +20,23 @@ new GPUValidationError(message)
 ### Parameter
 
 - `message`
-  - : Ein String, der eine menschenlesbare Nachricht bereitstellt, die erklärt, warum der Fehler aufgetreten ist.
+  - : Ein String, der eine für Menschen lesbare Nachricht bereitstellt, die erklärt, warum der Fehler aufgetreten ist.
 
 ## Beispiele
 
-Ein Entwickler würde den Konstruktor nicht manuell verwenden, um ein `GPUValidationError` Objekt zu erstellen. Der Benutzeragent verwendet diesen Konstruktor, um ein entsprechendes Objekt zu erstellen, wenn ein Validierungsfehler durch {{domxref("GPUDevice.popErrorScope")}} oder das {{domxref("GPUDevice.uncapturederror_event", "uncapturederror")}} Ereignis auftritt.
+Ein Entwickler würde den Konstruktor nicht manuell verwenden, um ein `GPUValidationError` Objekt zu erstellen. Der User-Agent verwendet diesen Konstruktor, um ein entsprechendes Objekt zu erstellen, wenn ein Validierungsfehler durch [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) oder das [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event) Ereignis auftritt.
 
-Ein spezifisches Beispiel für eine `GPUValidationError` Objektinstanz finden Sie auf der Hauptseite [`GPUValidationError`](/de/docs/Web/API/GPUValidationError#examples).
+Siehe die Hauptseite [`GPUValidationError`](/de/docs/Web/API/GPUValidationError#examples) für ein spezifisches Beispiel, das eine `GPUValidationError` Objektinstanz beinhaltet.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebGPU Fehlerbehandlung beste Praktiken](https://toji.dev/webgpu-best-practices/error-handling)
+- [WebGPU-Fehlerbehandlungs-Best Practices](https://toji.dev/webgpu-best-practices/error-handling)

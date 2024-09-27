@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: restartIce()-Methode"
+title: "RTCPeerConnection: restartIce() Methode"
 short-title: restartIce()
 slug: Web/API/RTCPeerConnection/restartIce
 l10n:
@@ -8,14 +8,17 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`restartIce()`**-Methode der {{domxref("RTCPeerConnection")}}-Schnittstelle ermöglicht es einer Webanwendung, zu verlangen, dass das Sammeln von {{Glossary("ICE")}}-Kandidaten an beiden Enden der Verbindung erneut durchgeführt wird. Dies vereinfacht den Prozess, indem dieselbe Methode sowohl vom Anrufer als auch vom Empfänger verwendet werden kann, um einen ICE-Neustart zu initiieren.
+Die **`restartIce()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle ermöglicht es einer Webanwendung, dass das Sammeln von [ICE](/de/docs/Glossary/ICE)-Kandidaten auf beiden Seiten der Verbindung erneut durchgeführt wird.
+Dies vereinfacht den Prozess, indem die gleiche Methode entweder vom Anrufer oder vom Empfänger verwendet werden kann, um einen ICE-Neustart auszulösen.
 
-Nachdem `restartIce()` zurückkehrt, wird das Angebot, das durch den nächsten Aufruf von {{domxref("RTCPeerConnection.createOffer", "createOffer()")}} zurückgegeben wird, automatisch konfiguriert, um den ICE-Neustart sowohl beim lokalen Peer (sobald der lokale Peer gesetzt wurde) als auch beim Remote-Peer auszulösen, sobald das Angebot über Ihren Signalisierungsmechanismus gesendet und der Remote-Peer seine Beschreibung ebenfalls gesetzt hat.
+Nach der Rückgabe von `restartIce()` wird das Angebot, das durch den nächsten Aufruf von [`createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) zurückgegeben wird, automatisch so konfiguriert, dass ein ICE-Neustart sowohl beim lokalen Peer (sobald der lokale Peer gesetzt wurde) als auch beim entfernten Peer ausgelöst wird, sobald das Angebot über Ihren Signalisierungsmechanismus übermittelt und der entfernte Peer ebenfalls seine Beschreibung gesetzt hat.
 
-`restartIce()` löst das
-{{domxref("RTCPeerConnection.negotiationneeded_event", "negotiationneeded")}}-Ereignis auf dem `RTCPeerConnection` aus, um die Anwendung darüber zu informieren, dass sie eine Verhandlung über ihren Signalisierungskanal durchführen sollte.
+`restartIce()` bewirkt, dass das
+[`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis auf der `RTCPeerConnection` ausgelöst wird, um die Anwendung zu informieren, dass sie eine Verhandlung über ihren Signalisierungskanal durchführen sollte.
 
-Wenn die Verhandlung nicht abgeschlossen werden kann – entweder aufgrund eines Rollbacks oder weil eingehende Angebote gerade verhandelt werden – speichert das {{domxref("RTCPeerConnection")}}, dass Sie einen ICE-Neustart angefordert haben. Das nächste Mal, wenn sich der {{domxref("RTCPeerConnection.signalingState", "signalingState")}} der Verbindung auf `stable` ändert, wird das {{domxref("RTCPeerConnection.negotiationneeded_event", "negotiationneeded")}}-Ereignis ausgelöst. Dieser Prozess wird fortgesetzt, bis ein ICE-Neustart erfolgreich abgeschlossen wurde.
+Wenn die Verhandlung aus irgendeinem Grund—entweder aufgrund eines Rollbacks oder weil eingehende Angebote gerade verhandelt werden—nicht abgeschlossen werden kann, wird die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) sich merken, dass Sie einen ICE-Neustart angefordert haben.
+Beim nächsten Übergang des [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) der Verbindung in den `stable`-Zustand wird das [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis ausgelöst.
+Dieser Prozess wird fortgesetzt, bis ein ICE-Neustart erfolgreich abgeschlossen wurde.
 
 ## Syntax
 
@@ -31,38 +34,41 @@ Keine.
 
 Keiner ({{jsxref("undefined")}}).
 
-## Hinweise zur Verwendung
+## Anwendungshinweise
 
-Nach dem Aufruf von `restartIce()` wird das nächste mit {{domxref("RTCPeerConnection.createOffer", "createOffer()")}} erstellte Angebot einen ICE-Neustart initiieren, sobald es über Ihren Signalisierungsmechanismus an den Remote-Peer gesendet wird. Ein Neustart von ICE setzt im Wesentlichen ICE zurück, sodass alle neuen Kandidaten unter Verwendung neuer Anmeldeinformationen erstellt werden. Bestehende Medienübertragungen werden während dieses Prozesses nicht unterbrochen.
+Nach dem Aufruf von `restartIce()` wird das nächste Angebot, das mit [`createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) erstellt wird, einen ICE-Neustart auslösen, sobald es über Ihren Signalisierungsmechanismus an den entfernten Peer gesendet wird.
+Das Neustarten von ICE setzt im Wesentlichen ICE zurück, sodass alle neuen Kandidaten mit neuen Anmeldedaten erstellt werden.
+Bestehende Medienübertragungen werden während dieses Prozesses ununterbrochen fortgesetzt.
 
-Für Details darüber, wie der ICE-Neustart funktioniert, siehe [ICE-Neustart](/de/docs/Web/API/WebRTC_API/Session_lifetime#ice_restart) und {{RFC(5245, "ICE-Spezifikation", "9.1.1.1")}}.
+Für Details darüber, wie der ICE-Neustart funktioniert, siehe [ICE-Neustart](/de/docs/Web/API/WebRTC_API/Session_lifetime#ice_restart) und {{RFC(5245, "ICE specification", "9.1.1.1")}}.
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen Handler für das {{domxref("RTCPeerConnection.iceconnectionstatechange_event", "iceconnectionstatechange")}}-Ereignis, der einen Übergang in den Zustand `failed` behandelt, indem er ICE neustartet, um einen neuen Versuch zu unternehmen.
+Dieses Beispiel erstellt einen Handler für das [`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event)-Ereignis, der einen Übergang in den Zustand `failed` behandelt, indem er ICE neu startet, um es erneut zu versuchen.
 
 ```js
 pc.addEventListener("iceconnectionstatechange", (event) => {
   if (pc.iceConnectionState === "failed") {
-    /* möglicherweise die Verbindung in irgendeiner Weise neu konfigurieren */
-    /* dann ICE-Neustart anfordern */
+    /* possibly reconfigure the connection in some way here */
+    /* then request ICE restart */
     pc.restartIce();
   }
 });
 ```
 
-Mit diesem Code wird ein Übergang in den Zustand `failed` während der ICE-Verhandlung ein {{domxref("RTCPeerConnection.negotiationneeded_event", "negotiationneeded")}}-Ereignis auslösen, woraufhin Ihr Code wie üblich neu verhandeln sollte. Da Sie jedoch `restartIce()` aufgerufen haben, wird Ihr Aufruf von {{domxref("RTCPeerConnection.createOffer", "createOffer()")}}, der im Handler für `negotiationneeded` erfolgt, einen ICE-Neustart anstelle einer regulären Neuverhandlung auslösen.
+Mit diesem Code ausgelöst verursacht ein Übergang in den Zustand `failed` während der ICE-Verhandlung ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis, auf das Ihr Code wie üblich erneut verhandeln sollte.
+Da Sie jedoch `restartIce()` aufgerufen haben, wird Ihr Aufruf von [`createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer), der im Handler für `negotiationneeded` erfolgt, einen ICE-Neustart statt einer regulären Neuverhandlung auslösen.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [Lebenszyklus einer WebRTC-Sitzung](/de/docs/Web/API/WebRTC_API/Session_lifetime)
-- [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling)
+- [Lebensdauer einer WebRTC-Sitzung](/de/docs/Web/API/WebRTC_API/Session_lifetime)
+- [Signalisierung und Videotelefonie](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling)

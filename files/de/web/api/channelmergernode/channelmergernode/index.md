@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Der **`ChannelMergerNode()`** Konstruktor erstellt eine neue Instanz eines {{domxref("ChannelMergerNode")}} Objekts.
+Der **`ChannelMergerNode()`** Konstruktor erstellt eine neue Instanz des [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode)-Objekts.
 
 ## Syntax
 
@@ -20,31 +20,25 @@ new ChannelMergerNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein {{domxref("BaseAudioContext")}}, das den Audiokontext darstellt, mit dem der Knoten verknüpft werden soll.
+  - : Ein [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext), das den Audiokontext repräsentiert, mit dem der Knoten verbunden werden soll.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die Eigenschaften definiert, die Sie dem `ChannelMergerNode` zuweisen möchten:
+  - : Ein Objekt, das die Eigenschaften definiert, die der `ChannelMergerNode` haben soll:
     - `numberOfInputs` {{optional_inline}}
-      - : Eine Zahl, die die Anzahl der Eingänge definiert, die der {{domxref("ChannelMergerNode")}} haben soll. Wenn nicht angegeben, wird der Standardwert 6 verwendet.
+      - : Eine Zahl, die die Anzahl der Eingänge definiert, die der [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode) haben soll. Wenn nicht angegeben, wird der Standardwert 6 verwendet.
     - `channelCount` {{optional_inline}}
-      - : Ein Integer, der bestimmt, wie viele Kanäle verwendet werden, wenn [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) Verbindungen zu Eingängen des Knotens herstellt.
-        (Siehe {{domxref("AudioNode.channelCount")}} für weitere Informationen.)
-        Seine Nutzung und genaue Definition hängen vom Wert von `channelCountMode` ab.
+      - : Ein ganzzahliger Wert, der bestimmt, wie viele Kanäle beim [Hochmischen und Heruntermischen](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu beliebigen Eingängen des Knotens verwendet werden. (Siehe [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Seine Verwendung und genaue Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode` {{optional_inline}}
-      - : Ein String, der beschreibt, wie Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe {{domxref("AudioNode.channelCountMode")}} für weitere Informationen, einschließlich der Standardwerte.)
+      - : Ein String, der beschreibt, wie die Kanäle zwischen den Eingängen und Ausgängen des Knotens abgestimmt werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich Standardwerten.)
     - `channelInterpretation` {{optional_inline}}
-      - : Ein String, der die Bedeutung der Kanäle beschreibt.
-        Diese Interpretation definiert, wie Audio
-        [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) durchgeführt wird.
-        Die möglichen Werte sind `"speakers"` oder `"discrete"`.
-        (Siehe {{domxref("AudioNode.channelCountMode")}} für weitere Informationen, einschließlich der Standardwerte.)
+      - : Ein String, der die Bedeutung der Kanäle beschreibt. Diese Interpretation wird definieren, wie das Audio [hochgemixt und heruntergemixt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) wird. Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich Standardwerten.)
 
 ### Rückgabewert
 
-Eine neue Instanz eines {{domxref("ChannelMergerNode")}} Objekts.
+Eine neue Instanz des [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode)-Objekts.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn eine Option wie `channelCount` oder `channelCountMode` einen ungültigen Wert erhalten hat.
 
 ## Beispiele

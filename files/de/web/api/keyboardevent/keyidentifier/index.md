@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("UI Events")}}{{non-standard_header}}{{deprecated_header}}
 
-Die veraltete, schreibgeschützte **`KeyboardEvent.keyIdentifier`**-Eigenschaft gibt einen "Tastaturbezeichner"-String zurück, der zur Bestimmung der gedrückten Taste verwendet werden kann. Der nicht veraltete Ersatz ist {{domxref("KeyboardEvent.key")}}.
+Die veraltete, schreibgeschützte Eigenschaft **`KeyboardEvent.keyIdentifier`** gibt einen "Tastatur-Identifikator"-String zurück, der verwendet werden kann, um festzustellen, welche Taste gedrückt wurde. Der nicht veraltete Ersatz ist [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key).
 
 ## Spezifikationen
 
-_Teil keiner aktuellen Spezifikation._ Diese Eigenschaft war Teil eines [alten Entwurfs der DOM Level 3 Events-Spezifikation](https://www.w3.org/TR/2009/WD-DOM-Level-3-Events-20090908/#events-Events-KeyboardEvent-keyIdentifier), wurde jedoch in späteren Entwürfen zugunsten von {{domxref("KeyboardEvent.key")}} entfernt.
+_Nicht Teil einer aktuellen Spezifikation._ Diese Eigenschaft war Teil eines [alten Entwurfs der DOM Level 3 Events Spezifikation](https://www.w3.org/TR/2009/WD-DOM-Level-3-Events-20090908/#events-Events-KeyboardEvent-keyIdentifier), wurde aber in späteren Entwürfen zugunsten von [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) entfernt.
 
 ## Browser-Kompatibilität
 

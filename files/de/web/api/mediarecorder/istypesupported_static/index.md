@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Die **`isTypeSupported()`** statische Methode des {{domxref("MediaRecorder")}}-Interfaces gibt ein {{jsxref("Boolean")}} zurück, das `true` ist, wenn der angegebene MIME-Medientyp einer ist, den der Benutzeragent erfolgreich aufnehmen können sollte.
+Die **`isTypeSupported()`** statische Methode der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Schnittstelle gibt einen {{jsxref("Boolean")}} zurück, der `true` ist, wenn der angegebene MIME-Mediatyp einer ist, den der Benutzeragent erfolgreich aufnehmen können sollte.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ MediaRecorder.isTypeSupported(mimeType)
 ### Parameter
 
 - `mimeType`
-  - : Der zu überprüfende MIME-Medientyp.
+  - : Der zu überprüfende MIME-Mediatyp.
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, `true` wenn die {{domxref("MediaRecorder")}}-Implementierung in der Lage ist, {{domxref("Blob")}}-Objekte für den angegebenen MIME-Typ aufzuzeichnen.
-Die Aufnahme kann dennoch fehlschlagen, wenn nicht genügend Ressourcen zur Unterstützung des Aufnahme- und Kodierungsprozesses vorhanden sind.
-Wenn der Wert `false` ist, kann der Benutzeragent das angegebene Format nicht aufzeichnen.
+Ein {{jsxref("Boolean")}}, `true`, wenn die [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Implementierung in der Lage ist, [`Blob`](/de/docs/Web/API/Blob)-Objekte für den angegebenen MIME-Typ aufzunehmen.
+Die Aufnahme kann dennoch fehlschlagen, wenn nicht genügend Ressourcen zur Unterstützung des Aufnahme- und Kodierungsprozesses verfügbar sind.
+Wenn der Wert `false` ist, ist der Benutzeragent nicht in der Lage, das angegebene Format aufzunehmen.
 
 ## Beispiele
 
@@ -62,7 +62,7 @@ for (const type of types) {
 - [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API)
 - [Verwendung der MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API)
 - [Leitfaden zu Medientypen und Formaten im Web](/de/docs/Web/Media/Formats)
-- [Codecs in gemeinsamen Medientypen](/de/docs/Web/Media/Formats/codecs_parameter)
-- {{domxref("MediaStreamTrack")}}
-- {{domxref("MediaStream")}}
-- {{domxref("MediaCapabilities")}}
+- [Codecs in häufigen Medientypen](/de/docs/Web/Media/Formats/codecs_parameter)
+- [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)
+- [`MediaStream`](/de/docs/Web/API/MediaStream)
+- [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)

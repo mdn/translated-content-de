@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`chOff`**-Eigenschaft des {{domxref("HTMLTableCellElement")}}-Interfaces tut nichts. Sie spiegelt das `charoff`-Attribut des Zellelements wider.
+Die **`chOff`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces tut nichts. Sie spiegelt das `charoff`-Attribut des Zellelements wider.
 
 > [!NOTE]
-> Diese Eigenschaft war dazu gedacht, an der Fähigkeit mitzuwirken, Tabelleninhalte an einem bestimmten Zeichen (typischerweise dem Dezimalpunkt) auszurichten, wurde jedoch nie von Browsern implementiert.
+> Diese Eigenschaft wurde entwickelt, um eine Möglichkeit zu bieten, den Inhalt von Tabellenzellen an einem bestimmten Zeichen (typischerweise dem Dezimalpunkt) auszurichten, wurde jedoch nie von Browsern implementiert.
 >
-> Um eine solche Ausrichtung zu erzielen, achten Sie auf die Unterstützung eines Zeichenfolgenwerts mit der {{cssxref("text-align")}}-CSS-Eigenschaft.
+> Um eine solche Ausrichtung zu erreichen, achten Sie darauf, ob die Unterstützung eines Zeichenfolgenwerts mit der {{cssxref("text-align")}} CSS-Eigenschaft gegeben ist.
 
 ## Wert
 

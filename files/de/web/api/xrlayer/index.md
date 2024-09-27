@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Das **`XRLayer`**-Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) ist die Basisklasse für WebXR Layer-Typen. Es erbt Methoden von {{domxref("EventTarget")}}.
+Das **`XRLayer`** Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) ist die Basisklasse für WebXR-Schichttypen. Es erbt Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget).
 
 {{InheritanceDiagram}}
 
 ## Schnittstellen basierend auf `XRLayer`
 
-Nachfolgend finden Sie eine Liste von Schnittstellen, die auf dem <code>XRLayer</code>-Interface basieren.
+Nachfolgend ist eine Liste von Schnittstellen, die auf dem <code>XRLayer</code>-Interface basieren.
 
-- {{domxref("XRCompositionLayer")}}
-- {{domxref("XRWebGLLayer")}}
+- [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)
+- [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)
 
 ## Instanzmethoden
 
-_Erbt Methoden von seinem Elternteil, {{domxref("EventTarget")}}_.
+_Erbt Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
 ## Spezifikationen
 
@@ -32,6 +32,6 @@ _Erbt Methoden von seinem Elternteil, {{domxref("EventTarget")}}_.
 
 ## Siehe auch
 
-- {{domxref("XRCompositionLayer")}}
-- {{domxref("XRWebGLLayer")}}
-- {{domxref("EventTarget")}}
+- [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)
+- [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)
+- [`EventTarget`](/de/docs/Web/API/EventTarget)

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Console API")}}{{Non-standard_header}} {{AvailableInWorkers}}
 
-Die **`console.timeStamp()`** statische Methode fügt einen einzelnen Marker zum Performance-Tool des Browsers hinzu ([Firefox](https://profiler.firefox.com/docs/#/), [Chrome](https://developer.chrome.com/docs/devtools/performance/reference)). Dies ermöglicht es Ihnen, einen Punkt in Ihrem Code mit den anderen Ereignissen in der Zeitleiste, wie z.B. Layout- und Zeichen-Ereignissen, in Verbindung zu bringen.
+Die statische Methode **`console.timeStamp()`** fügt dem Performance-Tool des Browsers ([Firefox](https://profiler.firefox.com/docs/#/), [Chrome](https://developer.chrome.com/docs/devtools/performance/reference)) einen einzelnen Marker hinzu. Dies ermöglicht es Ihnen, einen Punkt in Ihrem Code mit den anderen Ereignissen auf der Zeitleiste zu korrelieren, wie z.B. Layout- und Malereignisse.
 
-Sie können optional ein Argument angeben, um den Zeitstempel zu kennzeichnen. Dieses Label wird dann neben dem Marker angezeigt.
+Sie können optional ein Argument angeben, um den Zeitstempel zu beschriften, und diese Beschriftung wird dann neben dem Marker angezeigt.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ timeStamp(label)
 ### Parameter
 
 - `label` {{Optional_Inline}}
-  - : Kennzeichnung für den Zeitstempel.
+  - : Beschriftung für den Zeitstempel.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Browser-Kompatibilität
 
@@ -33,7 +33,7 @@ Kein ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- {{domxref("console/time_static", "console.time()")}}
-- {{domxref("console/timeLog_static", "console.timeLog()")}}
-- {{domxref("console/timeEnd_static", "console.timeEnd()")}}
-- [Hinzufügen von Markierungen mit der Console-API](https://web.archive.org/web/20211207010020/https://firefox-source-docs.mozilla.org/devtools-user/performance/waterfall/index.html#adding-markers-with-the-console-api)
+- [`console.time()`](/de/docs/Web/API/Console/time_static)
+- [`console.timeLog()`](/de/docs/Web/API/Console/timeLog_static)
+- [`console.timeEnd()`](/de/docs/Web/API/Console/timeEnd_static)
+- [Hinzufügen von Markern mit der Console API](https://web.archive.org/web/20211207010020/https://firefox-source-docs.mozilla.org/devtools-user/performance/waterfall/index.html#adding-markers-with-the-console-api)

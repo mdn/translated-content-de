@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef}}
 
-Die **`BeforeUnloadEvent`**-Schnittstelle repräsentiert das Ereignisobjekt für das {{domxref("Window/beforeunload_event", "beforeunload")}}-Ereignis, welches ausgelöst wird, wenn das aktuelle Fenster, das darin enthaltene Dokument und die zugehörigen Ressourcen entladen werden sollen.
+Die **`BeforeUnloadEvent`**-Schnittstelle repräsentiert das Ereignisobjekt für das [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)-Ereignis, das ausgelöst wird, wenn das aktuelle Fenster, das darin enthaltene Dokument und die zugehörigen Ressourcen entladen werden sollen.
 
-Siehe die {{domxref("Window/beforeunload_event", "beforeunload")}}-Ereignisreferenz für detaillierte Anleitungen zur Verwendung dieses Ereignisses.
+Sehen Sie die [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)-Ereignisreferenz für detaillierte Anleitungen zur Verwendung dieses Ereignisses.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{DOMxRef("Event")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("BeforeUnloadEvent.returnValue", "returnValue")}} {{Deprecated_Inline}}
-  - : Wenn auf einen [truthy](/de/docs/Glossary/Truthy)-Wert gesetzt, wird ein vom Browser gesteuertes Bestätigungsdialogfeld ausgelöst, das Benutzer fragt, ob sie die Seite wirklich verlassen möchten, wenn sie versuchen, sie zu schließen oder neu zu laden. Dies ist eine veraltete Funktion, und es ist best practice, den Dialog durch Aufrufen von `event.preventDefault()` zu aktivieren, während `returnValue` ebenfalls gesetzt wird, um Altfälle zu unterstützen.
+- [`returnValue`](/de/docs/Web/API/BeforeUnloadEvent/returnValue) {{Deprecated_Inline}}
+  - : Wenn auf einen [truthy](/de/docs/Glossary/Truthy)-Wert festgelegt wird, löst es ein von Browsern gesteuertes Bestätigungsdialogfeld aus, das Benutzer fragt, ob sie die Seite verlassen möchten, wenn sie versuchen, sie zu schließen oder neu zu laden. Dies ist eine veraltete Funktion, und es ist Best Practice, den Dialog auszulösen, indem `event.preventDefault()` aufgerufen wird, während auch `returnValue` gesetzt wird, um ältere Fälle zu unterstützen.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seinem Elternteil, {{DOMxRef("Event")}}._
+_Erbt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 ## Spezifikationen
 
@@ -34,4 +34,4 @@ _Erbt Methoden von seinem Elternteil, {{DOMxRef("Event")}}._
 
 ## Siehe auch
 
-- {{domxref("Window/beforeunload_event", "beforeunload")}}-Ereignis
+- [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) Ereignis

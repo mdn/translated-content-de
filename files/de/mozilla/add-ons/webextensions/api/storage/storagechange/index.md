@@ -11,12 +11,12 @@ l10n:
 
 ## Typ
 
-`StorageChange` Objekte enthalten die folgenden Eigenschaften:
+`StorageChange`-Objekte enthalten die folgenden Eigenschaften:
 
 - `oldValue` {{optional_inline}}
-  - : Der alte Wert des Elements, falls ein alter Wert vorhanden war. Dies kann jeden Datentyp annehmen.
+  - : Der alte Wert des Elements, falls ein alter Wert vorhanden war. Dies kann jeder beliebige Datentyp sein.
 - `newValue` {{optional_inline}}
-  - : Der neue Wert des Elements, falls ein neuer Wert vorhanden ist. Dies kann jeden Datentyp annehmen.
+  - : Der neue Wert des Elements, falls ein neuer Wert vorhanden ist. Dies kann jeder beliebige Datentyp sein.
 
 ## Browser-Kompatibilität
 
@@ -25,7 +25,7 @@ l10n:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#type-StorageChange) API von Chromium. Diese Dokumentation leitet sich von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code ab.
+> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#type-StorageChange)-API. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

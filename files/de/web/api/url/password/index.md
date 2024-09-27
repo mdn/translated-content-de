@@ -3,29 +3,28 @@ title: "URL: password-Eigenschaft"
 short-title: password
 slug: Web/API/URL/password
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: b8bda1c6c29b0c4c7432b76584e5438f4ac2905b
 ---
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`password`**-Eigenschaft des {{domxref("URL")}} Interfaces ist ein String, der das Passwort enthält, das vor dem Domainnamen angegeben wurde.
+Die **`password`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces
+ist ein String, der das vor dem Domainnamen angegebene Passwort enthält.
 
-Wenn es gesetzt wird, ohne zuerst die {{domxref("URL.username", "username")}}-Eigenschaft zu setzen, schlägt es stillschweigend fehl.
-
-## Wert
+## Value
 
 Ein String.
 
-## Beispiele
+## Examples
 
 ```js
 const url = new URL(
-  "https://anonymous:flabada@developer.mozilla.org/de/docs/Web/API/URL/password",
+  "https://anonymous:flabada@developer.mozilla.org/en-US/docs/Web/API/URL/password",
 );
-console.log(url.password); // Gibt "flabada" aus
+console.log(url.password); // Logs "flabada"
 ```
 
-## Spezifikationen
+## Specifications
 
 {{Specifications}}
 
@@ -35,4 +34,4 @@ console.log(url.password); // Gibt "flabada" aus
 
 ## Siehe auch
 
-- Das zugehörige {{domxref("URL")}} Interface.
+- Das [`URL`](/de/docs/Web/API/URL)-Interface, zu dem es gehört.

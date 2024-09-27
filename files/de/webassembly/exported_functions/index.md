@@ -7,22 +7,22 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Exportierte WebAssembly-Funktionen sind die Repräsentation von WebAssembly-Funktionen in JavaScript. Dieser Artikel beschreibt, was sie sind, ein wenig genauer.
+Exportierte WebAssembly-Funktionen sind die Art und Weise, wie WebAssembly-Funktionen in JavaScript dargestellt werden. Dieser Artikel beschreibt sie etwas ausführlicher.
 
 ## Exportierte… Was?
 
-Exportierte WebAssembly-Funktionen sind im Grunde nur JavaScript-Wrapper, die WebAssembly-Funktionen in JavaScript darstellen. Wenn Sie diese aufrufen, gibt es im Hintergrund einige Aktivitäten, um die Argumente in Typen umzuwandeln, mit denen Wasm arbeiten kann (zum Beispiel die Umwandlung von JavaScript-Zahlen in Int32). Die Argumente werden an die Funktion innerhalb Ihres Wasm-Moduls übergeben, die Funktion wird aufgerufen und das Ergebnis wird umgewandelt und an JavaScript zurückgegeben.
+Exportierte WebAssembly-Funktionen sind im Grunde nur JavaScript-Wrapper, die WebAssembly-Funktionen in JavaScript repräsentieren. Bei einem Aufruf wird im Hintergrund etwas ausgeführt, um die Argumente in Typen zu konvertieren, mit denen Wasm arbeiten kann (zum Beispiel die Umwandlung von JavaScript-Zahlen in Int32), die Argumente werden an die Funktion innerhalb Ihres Wasm-Moduls übergeben, die Funktion wird aufgerufen und das Ergebnis wird konvertiert und an JavaScript zurückgegeben.
 
 Sie können exportierte WebAssembly-Funktionen auf zwei Arten abrufen:
 
-- Durch Aufrufen von [`Table.prototype.get()`](/de/docs/WebAssembly/JavaScript_interface/Table/get) auf einer vorhandenen Tabelle.
-- Durch Zugriff auf eine Funktion, die von einer Wasm-Modulinstanz über [`Instance.exports`](/de/docs/WebAssembly/JavaScript_interface/Instance/exports) exportiert wurde.
+- Durch Aufruf von [`Table.prototype.get()`](/de/docs/WebAssembly/JavaScript_interface/Table/get) auf einer bestehenden Tabelle.
+- Durch Zugriff auf eine Funktion, die aus einer Wasm-Modulinstanz über [`Instance.exports`](/de/docs/WebAssembly/JavaScript_interface/Instance/exports) exportiert wird.
 
-In beiden Fällen erhalten Sie die gleiche Art von Wrapper für die zugrunde liegende Funktion. Aus JavaScript-Sicht ist es, als ob jede Wasm-Funktion _auch_ eine JavaScript-Funktion ist - sie sind jedoch durch das exportierte Wasm-Funktionsobjekt gekapselt und es gibt nur begrenzte Möglichkeiten, auf sie zuzugreifen.
+In beiden Fällen erhalten Sie dieselbe Art von Wrapper für die zugrunde liegende Funktion. Aus der Sicht von JavaScript ist es so, als ob jede Wasm-Funktion _auch_ eine JavaScript-Funktion wäre — sie sind jedoch durch die exportierte Wasm-Funktionsobjektinstanz kapselt und es gibt nur begrenzte Zugriffsmöglichkeiten.
 
 ## Ein Beispiel
 
-Lassen Sie uns ein Beispiel betrachten, um die Dinge zu klären (Sie können dies auf GitHub als [table-set.html](https://github.com/mdn/webassembly-examples/blob/main/other-examples/table-set.html) finden; sehen Sie es auch [live in Aktion](https://mdn.github.io/webassembly-examples/other-examples/table-set.html), und schauen Sie sich die Wasm-[Textdarstellung](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/table.wat) an):
+Schauen wir uns ein Beispiel an, um die Sache zu klären (Sie finden dies auf GitHub als [table-set.html](https://github.com/mdn/webassembly-examples/blob/main/other-examples/table-set.html); sehen Sie es sich [auch live an](https://mdn.github.io/webassembly-examples/other-examples/table-set.html), und schauen Sie sich die Wasm-[Textrepräsentation](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/table.wat) an):
 
 ```js
 const otherTable = new WebAssembly.Table({ element: "anyfunc", initial: 2 });
@@ -38,24 +38,24 @@ WebAssembly.instantiateStreaming(fetch("table.wasm")).then((obj) => {
 });
 ```
 
-Hier erstellen wir eine Tabelle (`otherTable`) aus JavaScript mit dem [`WebAssembly.Table`](/de/docs/WebAssembly/JavaScript_interface/Table) Konstruktor, dann laden wir `table.wasm` in unsere Seite mit der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static) Methode.
+Hier erstellen wir eine Tabelle (`otherTable`) aus JavaScript mithilfe des [`WebAssembly.Table`](/de/docs/WebAssembly/JavaScript_interface/Table)-Konstruktors, dann laden wir `table.wasm` in unsere Seite mit der Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static).
 
-Wir rufen dann die Funktion ab, die aus dem Modul exportiert wird, beziehen die Funktionen, auf die es verweist, über [`tbl.get()`](/de/docs/WebAssembly/JavaScript_interface/Table/get) und protokollieren das Ergebnis der Ausführung jeder einzelnen in die Konsole. Anschließend verwenden wir `set()`, um der Tabelle `otherTable` die gleichen Funktionsreferenzen wie der Tabelle `tbl` zu geben.
+Wir rufen dann die aus dem Modul exportierte Funktion ab, holen die Funktionen ab, auf die sie über [`tbl.get()`](/de/docs/WebAssembly/JavaScript_interface/Table/get) verweist, und protokollieren das Ergebnis jedes Aufrufs in die Konsole. Anschließend verwenden wir `set()`, um die Tabelle `otherTable` mit Referenzen zu denselben Funktionen wie die Tabelle `tbl` zu füllen.
 
-Um dies zu beweisen, rufen wir diese Referenzen dann aus `otherTable` zurück und drucken deren Ergebnisse ebenfalls in die Konsole, was die gleichen Ergebnisse liefert.
+Um dies zu beweisen, rufen wir diese Referenzen dann aus `otherTable` wieder ab und geben ihre Ergebnisse auch in die Konsole aus, was dieselben Ergebnisse liefert.
 
-## Sie sind echte Funktionen
+## Es sind echte Funktionen
 
-Im vorherigen Beispiel ist der Rückgabewert jedes [`Table.prototype.get()`](/de/docs/WebAssembly/JavaScript_interface/Table/get) Aufrufs eine exportierte WebAssembly-Funktion — genau das, worüber wir gesprochen haben.
+Im vorherigen Beispiel ist der Rückgabewert jedes Aufrufs von [`Table.prototype.get()`](/de/docs/WebAssembly/JavaScript_interface/Table/get) eine exportierte WebAssembly-Funktion — genau das, worüber wir gesprochen haben.
 
-Es ist erwähnenswert, dass dies echte JavaScript-Funktionen sind, zusätzlich dazu, dass sie Wrapper für WebAssembly-Funktionen sind. Wenn Sie das obige Beispiel in einem [WebAssembly-kompatiblen Browser](/de/docs/WebAssembly#browser_compatibility) laden und die folgenden Zeilen in Ihrer Konsole ausführen:
+Es ist erwähnenswert, dass dies echte JavaScript-Funktionen sind, zusätzlich zu ihren Funktionen als Wrapper für WebAssembly-Funktionen. Wenn Sie das obige Beispiel in einem [WebAssembly-kompatiblen Browser](/de/docs/WebAssembly#browser_compatibility) laden und die folgenden Zeilen in Ihrer Konsole ausführen:
 
 ```js
 const testFunc = otherTable.get(0);
 typeof testFunc;
 ```
 
-erhalten Sie das Ergebnis `function` zurückgegeben. Sie können dann so ziemlich alles mit dieser Funktion tun, was Sie auch mit anderen [Funktionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Function) in JavaScript tun können — [`call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`bind()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) usw. `testFunc.toString()` gibt ein interessantes Ergebnis zurück:
+erhalten Sie das Ergebnis `function` zurück. Sie können dann so ziemlich alles mit dieser Funktion machen, was Sie auch mit anderen [Funktionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Function) in JavaScript tun können — [`call()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`bind()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) usw. `testFunc.toString()` liefert ein interessantes Ergebnis:
 
 ```plain
 function 0() {
@@ -63,10 +63,10 @@ function 0() {
 }
 ```
 
-Dies gibt einen weiteren Einblick in ihre Wrapper-artige Natur.
+Dies gibt Ihnen eine bessere Vorstellung von ihrer Wrapper-Natur.
 
-Einige andere Besonderheiten, die bei exportierten WebAssembly-Funktionen zu beachten sind:
+Einige weitere Besonderheiten, die bei exportierten WebAssembly-Funktionen zu beachten sind:
 
-- Ihre [length](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length) Eigenschaft ist die Anzahl der deklarierten Argumente in der Wasm-Funktionssignatur.
-- Ihre [name](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/name) Eigenschaft ist das `toString()` Ergebnis des Funktionsindex im Wasm-Modul.
-- Wenn Sie versuchen, eine exportierte Wasm-Funktion aufzurufen, die einen i64-Typ Wert entgegennimmt oder zurückgibt, wird derzeit ein Fehler angezeigt, da JavaScript derzeit keine präzise Möglichkeit hat, einen i64 darzustellen. Die Lösung besteht darin, BigInt-Werte zu verwenden, die ganze Zahlen beliebiger Größe darstellen, sodass sie 64-Bit-Zahlen korrekt darstellen können.
+- Ihre [length](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length)-Eigenschaft ist die Anzahl der deklarierten Argumente in der Wasm-Funktionssignatur.
+- Ihre [name](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/name)-Eigenschaft ist das `toString()`-Ergebnis des Funktionsindexes im Wasm-Modul.
+- Wenn Sie versuchen, eine exportierte Wasm-Funktion aufzurufen, die einen i64-Typwert annimmt oder zurückgibt, wird derzeit ein Fehler ausgelöst, da JavaScript derzeit keine präzise Möglichkeit hat, einen i64 darzustellen. Die Lösung besteht darin, BigInt-Werte zu verwenden, die Ganzzahlen beliebiger Größe repräsentieren und daher 64-Bit-Ganzzahlen korrekt darstellen können.

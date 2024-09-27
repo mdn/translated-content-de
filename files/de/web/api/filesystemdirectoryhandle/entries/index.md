@@ -8,11 +8,10 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`entries()`**-Methode der
-{{domxref("FileSystemDirectoryHandle")}}-Schnittstelle gibt einen neuen asynchronen Iterator
+Die **`entries()`**-Methode des
+[`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Interfaces gibt einen neuen asynchronen Iterator
 für die Iteration der Schlüssel-Wert-Paare der Einträge innerhalb des `FileSystemDirectoryHandle`
-zurück, auf dem diese Methode aufgerufen wird. Die Schlüssel-Wert-Paare sind
-in der Form eines Arrays wie `[key, value]`.
+zurück, auf dem diese Methode aufgerufen wird. Die Schlüssel-Wert-Paare liegen in Form eines Arrays wie `[key, value]` vor.
 
 ## Syntax
 
@@ -30,10 +29,10 @@ Ein neuer asynchroner Iterator, der die Schlüssel-Wert-Paare jedes Eintrags inn
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{domxref('PermissionStatus.state')}} für das Handle im `read`-Modus nicht `'granted'` ist.
-- `NotFoundError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der aktuelle Eintrag nicht gefunden wird.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für den Handle im `read`-Modus nicht `'granted'` ist.
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn der aktuelle Eintrag nicht gefunden wird.
 
 ## Beispiele
 

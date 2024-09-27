@@ -1,5 +1,5 @@
 ---
-title: "ImageBitmap: width Eigenschaft"
+title: "ImageBitmap: width-Eigenschaft"
 short-title: width
 slug: Web/API/ImageBitmap/width
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Canvas API")}}
 
-Die schreibgeschützte **`ImageBitmap.width`** Eigenschaft gibt die Breite des {{domxref("ImageBitmap")}} Objekts in CSS-Pixeln zurück.
+Die schreibgeschützte **`ImageBitmap.width`**-Eigenschaft gibt die Breite des [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)-Objekts in CSS-Pixeln zurück.
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 
-## Browser compatibility
+## Browser-Kompatibilität
 
 {{Compat}}

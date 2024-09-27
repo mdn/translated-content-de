@@ -1,5 +1,5 @@
 ---
-title: "TreeWalker: firstChild()-Methode"
+title: "TreeWalker: firstChild() Methode"
 short-title: firstChild()
 slug: Web/API/TreeWalker/firstChild
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`TreeWalker.firstChild()`**-Methode bewegt den aktuellen
-{{domxref("Node")}} zum ersten _sichtbaren_ Kind des aktuellen Knotens und gibt das gefundene Kind zurück. Wenn kein solches Kind existiert, gibt sie `null` zurück und der aktuelle Knoten wird nicht verändert.
+Die **`TreeWalker.firstChild()`** Methode bewegt den aktuellen
+[`Node`](/de/docs/Web/API/Node) zum ersten _sichtbaren_ Kind des aktuellen Knotens und gibt das gefundene Kind zurück. Wenn kein solches Kind existiert, gibt sie `null` zurück und der aktuelle Knoten wird nicht verändert.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("Node")}}-Objekt oder `null`.
+Ein [`Node`](/de/docs/Web/API/Node) Objekt oder `null`.
 
 ## Beispiele
 
@@ -38,7 +38,7 @@ const treeWalker = document.createTreeWalker(
   },
   false,
 );
-const node = treeWalker.firstChild(); // gibt das erste Kind des Wurzelelements zurück oder null, falls keines vorhanden
+const node = treeWalker.firstChild(); // returns the first child of the root element, or null if none
 ```
 
 ## Spezifikationen
@@ -51,4 +51,4 @@ const node = treeWalker.firstChild(); // gibt das erste Kind des Wurzelelements 
 
 ## Siehe auch
 
-- Das zugehörige {{domxref("TreeWalker")}}-Interface.
+- Die [`TreeWalker`](/de/docs/Web/API/TreeWalker) Schnittstelle, zu der sie gehört.

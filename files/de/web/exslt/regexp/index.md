@@ -7,6 +7,6 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-Das EXSLT-Paket für reguläre Ausdrücke bietet Funktionen, die das Testen, Abgleichen und Ersetzen von Texten mit regulären Ausdrücken im JavaScript-Stil ermöglichen. Der Namensraum für das Paket für reguläre Ausdrücke ist `http://exslt.org/regular-expressions`.
+Das EXSLT-Paket für reguläre Ausdrücke bietet Funktionen, die das Testen, Vergleichen und Ersetzen von Text mit regulären Ausdrücken im JavaScript-Stil ermöglichen. Der Namensraum für das Paket der regulären Ausdrücke ist `http://exslt.org/regular-expressions`.
 
 {{SubpagesWithSummaries}}

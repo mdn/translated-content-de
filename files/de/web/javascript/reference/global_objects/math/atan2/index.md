@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Math.atan2()`** statische Methode gibt den Winkel in der Ebene (in Radiant) zwischen der positiven x-Achse und dem Strahl von (0, 0) zu dem Punkt (x, y) für `Math.atan2(y, x)` zurück.
+Die statische Methode **`Math.atan2()`** gibt den Winkel in der Ebene (in Bogenmaß) zwischen der positiven x-Achse und dem Strahl von (0, 0) zum Punkt (x, y) für `Math.atan2(y, x)` zurück.
 
 {{EmbedInteractiveExample("pages/js/math-atan2.html")}}
 
@@ -20,40 +20,40 @@ Math.atan2(y, x)
 ### Parameter
 
 - `y`
-  - : Die y-Koordinate des Punktes.
+  - : Die y-Koordinate des Punkts.
 - `x`
-  - : Die x-Koordinate des Punktes.
+  - : Die x-Koordinate des Punkts.
 
 ### Rückgabewert
 
-Der Winkel in Radiant (zwischen -π und π, inklusive) zwischen der positiven x-Achse und dem Strahl von (0, 0) zu dem Punkt (x, y).
+Der Winkel in Bogenmaß (zwischen -π und π, einschließlich) zwischen der positiven x-Achse und dem Strahl von (0, 0) zum Punkt (x, y).
 
 ## Beschreibung
 
-Die `Math.atan2()` Methode misst den gegen den Uhrzeigersinn gerichteten Winkel θ, in Radiant, zwischen der positiven x-Achse und dem Punkt `(x, y)`. Beachten Sie, dass die Argumente dieser Funktion zuerst die y-Koordinate und dann die x-Koordinate übergeben.
+Die Methode `Math.atan2()` misst den gegen den Uhrzeigersinn gerichteten Winkel θ in Bogenmaß zwischen der positiven x-Achse und dem Punkt `(x, y)`. Beachten Sie, dass die Argumente dieser Funktion zuerst die y-Koordinate und dann die x-Koordinate übergeben.
 
 ![Ein einfaches Diagramm, das den von atan2(y, x) zurückgegebenen Winkel zeigt](atan2.png)
 
-`Math.atan2()` erhält separate `x` und `y` Argumente, während [`Math.atan()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/atan) das Verhältnis dieser beiden Argumente erhält. `Math.atan2(y, x)` unterscheidet sich von `Math.atan(y / x)` in den folgenden Fällen:
+`Math.atan2()` wird mit separaten `x`- und `y`-Argumenten aufgerufen, während [`Math.atan()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/atan) den Quotienten dieser beiden Argumente erhält. `Math.atan2(y, x)` unterscheidet sich in den folgenden Fällen von `Math.atan(y / x)`:
 
-| `x`                  | `y`         | `Math.atan2(y, x)` | `Math.atan(y / x)` |
-| -------------------- | ----------- | ------------------ | ------------------ |
-| `Infinity`           | `Infinity`  | π / 4              | `NaN`              |
-| `Infinity`           | `-Infinity` | -π / 4             | `NaN`              |
-| `-Infinity`          | `Infinity`  | 3π / 4             | `NaN`              |
-| `-Infinity`          | `-Infinity` | -3π / 4            | `NaN`              |
-| 0                    | 0           | 0                  | `NaN`              |
-| 0                    | -0          | -0                 | `NaN`              |
+| `x`                       | `y`         | `Math.atan2(y, x)` | `Math.atan(y / x)` |
+| ------------------------- | ----------- | ------------------ | ------------------ |
+| `Infinity`                | `Infinity`  | π / 4              | `NaN`              |
+| `Infinity`                | `-Infinity` | -π / 4             | `NaN`              |
+| `-Infinity`               | `Infinity`  | 3π / 4             | `NaN`              |
+| `-Infinity`               | `-Infinity` | -3π / 4            | `NaN`              |
+| 0                         | 0           | 0                  | `NaN`              |
+| 0                         | -0          | -0                 | `NaN`              |
 | < 0 (einschließlich `-0`) | 0           | π                  | 0                  |
 | < 0 (einschließlich `-0`) | -0          | -π                 | 0                  |
-| `-Infinity`          | > 0         | π                  | -0                 |
-| -0                   | > 0         | π / 2              | -π / 2             |
-| `-Infinity`          | < 0         | -π                 | 0                  |
-| -0                   | < 0         | -π / 2             | π / 2              |
+| `-Infinity`               | > 0         | π                  | -0                 |
+| -0                        | > 0         | π / 2              | -π / 2             |
+| `-Infinity`               | < 0         | -π                 | 0                  |
+| -0                        | < 0         | -π / 2             | π / 2              |
 
-Zusätzlich würde `Math.atan2()` für Punkte im zweiten und dritten Quadranten (`x < 0`) einen Winkel kleiner als <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> oder größer als <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math> ausgeben.
+Zusätzlich würde `Math.atan2()` für Punkte im zweiten und dritten Quadranten (`x < 0`) einen Winkel ausgeben, der kleiner ist als <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> oder größer als <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math>.
 
-Da `atan2()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.atan2()` und nicht als Methode eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktor).
+Da `atan2()` eine statische Methode von `Math` ist, wird sie immer als `Math.atan2()` verwendet und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -66,7 +66,7 @@ Math.atan2(15, 90); // 0.16514867741462683
 
 ### Unterschied zwischen Math.atan2(y, x) und Math.atan(y / x)
 
-Das folgende Skript gibt alle Eingaben aus, die einen Unterschied zwischen `Math.atan2(y, x)` und `Math.atan(y / x)` erzeugen.
+Das folgende Skript druckt alle Eingaben, die einen Unterschied zwischen `Math.atan2(y, x)` und `Math.atan(y / x)` erzeugen.
 
 ```js
 const formattedNumbers = new Map([
@@ -88,7 +88,7 @@ function format(template, ...args) {
     ...args.map((num) =>
       (Object.is(num, -0)
         ? "-0"
-        : (formattedNumbers.get(num) ?? String(num))
+        : formattedNumbers.get(num) ?? String(num)
       ).padEnd(5),
     ),
   );

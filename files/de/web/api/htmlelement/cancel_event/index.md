@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: cancel Ereignis"
+title: "HTMLElement: cancel event"
 short-title: cancel
 slug: Web/API/HTMLElement/cancel_event
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef}}
 
-Das **`cancel`** Ereignis wird von {{HTMLElement("input")}} und {{HTMLElement("dialog")}} Elementen ausgelöst. Das Ereignis wird ausgelöst, wenn der Benutzer den aktuell geöffneten Dialog durch Schließen mit der <kbd>Esc</kbd>-Taste abbricht. Es wird auch vom [Dateieingabefeld](/de/docs/Web/HTML/Element/input/file) ausgelöst, wenn der Benutzer den Dateiauswahldialog über die <kbd>Esc</kbd>-Taste oder die Abbrechen-Schaltfläche abbricht und wenn der Benutzer dieselben Dateien erneut auswählt, die zuvor ausgewählt wurden.
+Das **`cancel`** Ereignis wird von {{HTMLElement("input")}} und {{HTMLElement("dialog")}} Elementen ausgelöst. Das Ereignis wird ausgelöst, wenn der Benutzer das derzeit geöffnete Dialogfeld durch Schließen mit der <kbd>Esc</kbd>-Taste abbricht. Es wird auch vom [Dateieingabefeld](/de/docs/Web/HTML/Element/input/file) ausgelöst, wenn der Benutzer den Dateiauswahldialog über die <kbd>Esc</kbd>-Taste oder die Abbrechen-Schaltfläche abbricht und wenn der Benutzer dieselben Dateien erneut auswählt, die zuvor ausgewählt wurden.
 
 Dieses Ereignis wird nicht gebubbelt.
 
-Wenn ein `<dialog>` mit der <kbd>Esc</kbd>-Taste geschlossen wird, werden sowohl das `cancel` als auch das {{domxref("HTMLDialogElement/close_event", "close")}} Ereignis ausgelöst.
+Wenn ein `<dialog>` mit der <kbd>Esc</kbd>-Taste geschlossen wird, werden sowohl das `cancel`- als auch das [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis ausgelöst.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("cancel", (event) => {});
@@ -26,20 +26,20 @@ oncancel = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Einen Dialog abbrechen
+### Abbrechen eines Dialogs
 
 #### HTML
 
 ```html
 <dialog class="example-dialog">
-  <button class="close" type="reset">Schließen</button>
+  <button class="close" type="reset">Close</button>
 </dialog>
 
-<button class="open-dialog">Dialog öffnen</button>
+<button class="open-dialog">Open dialog</button>
 
 <div class="result"></div>
 ```
@@ -82,7 +82,7 @@ closeButton.addEventListener("click", () => {
 
 {{ EmbedLiveSample('Canceling a dialog', '100%', '100px') }}
 
-### Ein Eingabeelement abbrechen
+### Abbrechen eines Eingabeelements
 
 #### HTML
 
@@ -121,13 +121,13 @@ elem.addEventListener("change", () => {
 
 {{ EmbedLiveSample('Canceling an input element', '100%', '100px') }}
 
-Öffnen Sie den Dateiauswahldialog und schließen Sie ihn dann mit der Escape-Taste oder der Abbrechen-Schaltfläche. Beide Aktionen lösen das Abbrechen-Ereignis aus. Versuchen Sie auch, eine lokale Datei auf Ihrem Computer auszuwählen; öffnen Sie dann das Dateiauswahlfenster erneut und wählen Sie dieselbe Datei erneut aus. Auch dies löst das Abbrechen-Ereignis aus.
+Öffnen Sie den Dateiauswahldialog und schließen Sie dann den Auswahldialog mit der Escape-Taste oder der Abbrechen-Schaltfläche. Beide Aktionen sorgen dafür, dass das cancel-Ereignis ausgelöst wird. Versuchen Sie auch, eine lokale Datei auf Ihrem Computer auszuwählen; öffnen Sie dann erneut das Dateiauswahlfenster und wählen Sie dieselbe Datei erneut aus. Auch dies verursacht das Auslösen des cancel-Ereignisses.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -135,4 +135,4 @@ elem.addEventListener("change", () => {
 
 - HTML {{HTMLElement("input")}} Element
 - HTML {{HTMLElement("dialog")}} Element
-- {{domxref("HTMLDialogElement/close_event", "close")}}
+- [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)

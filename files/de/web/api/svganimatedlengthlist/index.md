@@ -1,5 +1,5 @@
 ---
-title: SVGAnimierteLängenliste
+title: SVGAnimatedLengthList
 slug: Web/API/SVGAnimatedLengthList
 l10n:
   sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## Schnittstelle für animierte Längenlisten in SVG
+## Schnittstelle für animierte SVG-Längenlisten
 
-Die `SVGAnimatedLengthList` Schnittstelle wird für Attribute vom Typ {{ domxref("SVGLengthList") }} verwendet, die animiert werden können.
+Die `SVGAnimatedLengthList`-Schnittstelle wird für Attribute vom Typ [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) verwendet, die animiert werden können.
 
 ### Schnittstellenübersicht
 
@@ -28,11 +28,11 @@ Die `SVGAnimatedLengthList` Schnittstelle wird für Attribute vom Typ {{ domxref
       <td>
         <ul>
           <li>
-            readonly {{ domxref("SVGLengthList") }}
+            readonly [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)
             <code>baseVal</code>
           </li>
           <li>
-            readonly {{ domxref("SVGLengthList") }}
+            readonly [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)
             <code>animVal</code>
           </li>
         </ul>
@@ -63,21 +63,21 @@ Die `SVGAnimatedLengthList` Schnittstelle wird für Attribute vom Typ {{ domxref
   <tbody>
     <tr>
       <td><code>baseVal</code></td>
-      <td>{{ domxref("SVGLengthList") }}</td>
+      <td>[`SVGLengthList`](/de/docs/Web/API/SVGLengthList)</td>
       <td>
-        Der Basiswert des angegebenen Attributs vor der Anwendung von Animationen.
+        Der Basiswert des gegebenen Attributs vor der Anwendung von Animationen.
       </td>
     </tr>
     <tr>
       <td><code>animVal</code></td>
-      <td>{{ domxref("SVGLengthList") }}</td>
+      <td>[`SVGLengthList`](/de/docs/Web/API/SVGLengthList)</td>
       <td>
-        Ein schreibgeschütztes {{ domxref("SVGLengthList") }} Objekt, das den
-        aktuell animierten Wert des angegebenen Attributs darstellt. Falls das angegebene Attribut
-        derzeit nicht animiert wird, hat das
-        {{ domxref("SVGLengthList") }} denselben Inhalt wie
-        <code>baseVal</code>. Das durch <code>animVal</code> referenzierte Objekt wird
-        immer von dem durch <code>baseVal</code> referenzierten Objekt unterschieden sein, selbst
+        Eine schreibgeschützte [`SVGLengthList`](/de/docs/Web/API/SVGLengthList), die den
+        aktuellen animierten Wert des gegebenen Attributs darstellt. Wenn das gegebene Attribut
+        derzeit nicht animiert wird, hat die
+        [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) denselben Inhalt wie
+        <code>baseVal</code>. Das von <code>animVal</code> referenzierte Objekt
+        wird immer ein anderes sein als das von <code>baseVal</code> referenzierte, selbst
         wenn das Attribut nicht animiert ist.
       </td>
     </tr>
@@ -86,7 +86,7 @@ Die `SVGAnimatedLengthList` Schnittstelle wird für Attribute vom Typ {{ domxref
 
 ## Instanz-Methoden
 
-Die `SVGAnimatedLengthList` Schnittstelle bietet keine spezifischen Methoden.
+Die `SVGAnimatedLengthList`-Schnittstelle bietet keine spezifischen Methoden.
 
 ## Spezifikationen
 

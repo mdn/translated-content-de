@@ -12,13 +12,13 @@ Die **`ruby-align`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Verteilun
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 ruby-align: start;
 ruby-align: center;
 ruby-align: space-between;
 ruby-align: space-around;
 
-/* Globale Werte */
+/* Global values */
 ruby-align: inherit;
 ruby-align: initial;
 ruby-align: revert;
@@ -33,9 +33,9 @@ ruby-align: unset;
 - `center`
   - : Ist ein Schlüsselwort, das angibt, dass das Ruby in der Mitte des Basistextes ausgerichtet wird.
 - `space-between`
-  - : Ist ein Schlüsselwort, das angibt, dass der zusätzliche Raum zwischen den Elementen des Rubys verteilt wird.
+  - : Ist ein Schlüsselwort, das angibt, dass der zusätzliche Raum zwischen den Elementen des Ruby verteilt wird.
 - `space-around`
-  - : Ist ein Schlüsselwort, das angibt, dass der zusätzliche Raum zwischen den Elementen des Rubys und um sie herum verteilt wird.
+  - : Ist ein Schlüsselwort, das angibt, dass der zusätzliche Raum zwischen den Elementen des Ruby und darum verteilt wird.
 
 ## Formale Definition
 
@@ -47,7 +47,7 @@ ruby-align: unset;
 
 ## Beispiele
 
-### Ruby am Anfang des Basistextes ausgerichtet
+### Ruby, das am Anfang des Basistextes ausgerichtet ist
 
 #### HTML
 
@@ -70,7 +70,7 @@ ruby {
 
 {{EmbedLiveSample("Ruby_aligned_at_the_start_of_the_base_text", 180, 40)}}
 
-### Ruby in der Mitte des Basistextes ausgerichtet
+### Ruby, das in der Mitte des Basistextes ausgerichtet ist
 
 #### HTML
 
@@ -149,5 +149,5 @@ ruby {
 
 ## Siehe auch
 
-- HTML Ruby-Elemente: {{HTMLElement("ruby")}}, {{HTMLElement("rt")}}, {{HTMLElement("rp")}}, und {{HTMLElement("rtc")}}.
-- CSS Ruby-Eigenschaften: {{cssxref("ruby-position")}}, {{cssxref("ruby-merge")}}.
+- HTML-Ruby-Elemente: {{HTMLElement("ruby")}}, {{HTMLElement("rt")}}, {{HTMLElement("rp")}}, und {{HTMLElement("rtc")}}.
+- CSS-Ruby-Eigenschaften: {{cssxref("ruby-position")}}, {{cssxref("ruby-merge")}}.

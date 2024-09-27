@@ -3,12 +3,14 @@ title: "MediaSource: Methode addSourceBuffer()"
 short-title: addSourceBuffer()
 slug: Web/API/MediaSource/addSourceBuffer
 l10n:
-  sourceCommit: ce85e3fb7865330e4ac2a6dad25db5cf5d27ea74
+  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
 ---
 
-{{APIRef("Media Source Extensions")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`addSourceBuffer()`**-Methode des {{domxref("MediaSource")}}-Interfaces erstellt einen neuen {{domxref("SourceBuffer")}} des angegebenen {{Glossary("MIME-Typ")}} und fügt ihn der `MediaSource`-{{domxref("MediaSource.sourceBuffers", "sourceBuffers")}}-Liste hinzu. Der neue `SourceBuffer` wird ebenfalls zurückgegeben.
+Die **`addSourceBuffer()`**-Methode des
+[`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces erstellt ein neues [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) mit dem angegebenen [MIME-Typ](/de/docs/Glossary/MIME_type) und fügt es der `MediaSource`-[`sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers)-Liste hinzu. Das neue
+`SourceBuffer` wird ebenfalls zurückgegeben.
 
 ## Syntax
 
@@ -19,30 +21,30 @@ addSourceBuffer(mimeType)
 ### Parameter
 
 - `mimeType`
-  - : Ein String, der den MIME-Typ des zu erstellenden und der {{domxref("MediaSource")}} hinzuzufügenden {{domxref("SourceBuffer")}} angibt.
+  - : Ein String, der den MIME-Typ des zu erstellenden und hinzuzufügenden [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) zur [`MediaSource`](/de/docs/Web/API/MediaSource) angibt.
 
 ### Rückgabewert
 
-Ein {{domxref("SourceBuffer")}}-Objekt, das den neuen Quellpuffer repräsentiert, der erstellt und der Medienquelle hinzugefügt wurde.
+Ein [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekt, das den neuen Quellpuffer darstellt, der erstellt und zur Mediendatei hinzugefügt wurde.
 
 ### Ausnahmen
 
-- `InvalidAccessError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der für `mimeType` angegebene Wert ein leerer String ist, anstatt ein gültiger MIME-Typ.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die {{domxref("MediaSource")}} nicht im `"open"` {{domxref("MediaSource.readyState", "readyState")}}-Zustand ist.
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der angegebene `mimeType` vom {{Glossary("user agent")}} nicht unterstützt wird oder nicht mit den MIME-Typen anderer bereits in der `MediaSource` enthaltenen {{domxref("SourceBuffer")}}-Objekte kompatibel ist.
-- `QuotaExceededError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der User-Agent keine weiteren `SourceBuffer`-Objekte verarbeiten kann oder die Erstellung eines neuen `SourceBuffer` mit dem angegebenen `mimeType` zu einer [nicht unterstützten Konfiguration von `SourceBuffer`-Objekten](https://w3c.github.io/media-source/#sourcebuffer-configuration) führen würde.
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der angegebene Wert für `mimeType` ein leerer String anstelle eines gültigen MIME-Typs ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die [`MediaSource`](/de/docs/Web/API/MediaSource) nicht im `"open"`-Zustand (`readyState`) ist.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der angegebene `mimeType` vom [User-Agent](/de/docs/Glossary/user_agent) nicht unterstützt wird oder nicht mit den MIME-Typen anderer [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte kompatibel ist, die bereits in der `sourceBuffers`-Liste der Medienquelle enthalten sind.
+- `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der User-Agent keine weiteren `SourceBuffer`-Objekte verarbeiten kann oder die Erstellung eines neuen `SourceBuffer` mit dem angegebenen `mimeType` zu einer [nicht unterstützten Konfiguration von `SourceBuffer`s](https://w3c.github.io/media-source/#sourcebuffer-configuration) führen würde.
 
 ## Beispiele
 
-Der folgende Ausschnitt stammt aus einem einfachen Beispiel, das von Nick Desaulniers geschrieben wurde ([sehen Sie sich die vollständige Demo live an](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html) oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die hier nicht definierte Funktion `getMediaSource()` gibt eine `MediaSource` zurück.
+Der folgende Ausschnitt stammt aus einem einfachen Beispiel, geschrieben von Nick Desaulniers ([sehen Sie sich die vollständige Demo live an](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html), oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt eine `MediaSource` zurück.
 
 ```js
 const assetURL = "frag_bunny.mp4";
-// Müssen speziell für Blink bezüglich Codecs sein
+// Need to be specific for Blink regarding codecs
 // ./mp4info frag_bunny.mp4 | grep Codec
 const mimeCodec = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
 const mediaSource = getMediaSource();
@@ -52,7 +54,7 @@ if ("MediaSource" in window && MediaSource.isTypeSupported(mimeCodec)) {
   mediaSource.addEventListener("sourceopen", sourceOpen);
   video.src = URL.createObjectURL(mediaSource);
 } else {
-  console.error("Nicht unterstützter MIME-Typ oder Codec: ", mimeCodec);
+  console.error("Unsupported MIME type or codec: ", mimeCodec);
 }
 
 function sourceOpen() {
@@ -79,5 +81,5 @@ function sourceOpen() {
 
 ## Siehe auch
 
-- {{domxref("SourceBuffer")}}
-- {{domxref("SourceBufferList")}}
+- [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)
+- [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)

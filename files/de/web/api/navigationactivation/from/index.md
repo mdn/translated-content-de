@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`from`**-Eigenschaft der {{domxref("NavigationActivation")}}-Schnittstelle enthält ein {{domxref("NavigationHistoryEntry")}}-Objekt, das den Verlaufseintrag für das ausgehende („from“) Dokument in der Navigation darstellt.
+Die **`from`**-Eigenschaft der [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt enthält, das den Verlaufseintrag für das ausgehende ("from") Dokument in der Navigation darstellt.
 
 ## Wert
 
-Ein {{domxref("NavigationHistoryEntry")}}-Objekt oder `null`, wenn das ausgehende Dokument:
+Ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt oder `null`, wenn das ausgehende Dokument:
 
 - Nicht gleichen Ursprungs wie das eingehende Dokument ist.
-- Das initiale `about:blank`-Dokument ist.
+- Das anfängliche `about:blank`-Dokument ist.
 
 ## Beispiele
 
-Siehe die Hauptseite der {{domxref("NavigationActivation")}}.
+Siehe die Hauptseite von [`NavigationActivation`](/de/docs/Web/API/NavigationActivation).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

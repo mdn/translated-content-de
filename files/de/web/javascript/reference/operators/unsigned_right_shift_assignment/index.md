@@ -1,5 +1,5 @@
 ---
-title: Unsigned-Rechtsverschiebungszuweisung (>>>=)
+title: Unsigned right shift assignment (>>>=)
 slug: Web/JavaScript/Reference/Operators/Unsigned_right_shift_assignment
 l10n:
   sourceCommit: 71cf0cb885d46d83af054ae4df350248e246f006
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Unsigned-Rechtsverschiebungszuweisungsoperator (`>>>=`)** führt eine [Unsigned-Rechtsverschiebung](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift) auf die beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
+Der **Unsigned Right Shift Assignment (`>>>=`)**-Operator führt einen [Unsigned Right Shift](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift) auf die beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
 {{EmbedInteractiveExample("pages/js/expressions-unsigned-right-shift-assignment.html")}}
 
@@ -23,7 +23,7 @@ x >>>= y
 
 ## Beispiele
 
-### Verwendung der Unsigned-Rechtsverschiebungszuweisung
+### Verwendung des Unsigned Right Shift Assignment
 
 ```js
 let a = 5; // (00000000000000000000000000000101)
@@ -47,4 +47,4 @@ c >>>= 2n; // 1n
 ## Siehe auch
 
 - [Zuweisungsoperatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
-- [Unsigned-Rechtsverschiebung (`>>>`)](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift)
+- [Unsigned Right Shift (`>>>`)](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift)

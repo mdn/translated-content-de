@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`readable`**-Eigenschaft der {{domxref("WebTransportBidirectionalStream")}}-Schnittstelle gibt eine {{domxref("WebTransportReceiveStream")}}-Instanz zurück, die verwendet werden kann, um eingehende Daten zuverlässig zu lesen.
+Die schreibgeschützte Eigenschaft **`readable`** des [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Interfaces gibt eine Instanz von [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream) zurück, die genutzt werden kann, um eingehende Daten zuverlässig zu lesen.
 
 ## Wert
 
-Ein {{domxref("WebTransportReceiveStream")}}.
+Ein [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream).
 
 ## Beispiele
 
-Siehe die Hauptseite der {{domxref("WebTransportBidirectionalStream")}}-Schnittstelle.
+Siehe die Hauptseite des [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Interfaces.
 
 ## Spezifikationen
 
@@ -29,6 +29,6 @@ Siehe die Hauptseite der {{domxref("WebTransportBidirectionalStream")}}-Schnitts
 ## Siehe auch
 
 - [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

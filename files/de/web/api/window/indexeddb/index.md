@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("IndexedDB")}}
 
-Die schreibgeschützte **`indexedDB`**-Eigenschaft der {{domxref("Window")}}-Schnittstelle bietet eine Möglichkeit für Anwendungen, asynchron auf die Funktionen von indizierten Datenbanken zuzugreifen.
+Die schreibgeschützte **`indexedDB`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces bietet Anwendungen einen Mechanismus, um asynchron auf die Fähigkeiten von indizierten Datenbanken zuzugreifen.
 
 ## Wert
 
-Ein {{domxref("IDBFactory")}}-Objekt.
+Ein [`IDBFactory`](/de/docs/Web/API/IDBFactory)-Objekt.
 
 ## Beispiele
 
-Der folgende Code erstellt eine Anfrage, um eine Datenbank asynchron zu öffnen, wobei die Datenbank geöffnet wird, wenn der `onsuccess`-Handler der Anfrage ausgelöst wird:
+Der folgende Code erstellt eine Anfrage, um eine Datenbank asynchron zu öffnen. Die Datenbank wird geöffnet, wenn der `onsuccess`-Handler der Anfrage ausgelöst wird:
 
 ```js
 let db;
@@ -39,9 +39,9 @@ function openDB() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Beginnen von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Bereichs von Schlüsseln: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursors: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einen Bereich von Schlüsseln festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die _schreibgeschützte_ **`data`**-Eigenschaft des {{DOMxRef("XRCPUDepthInformation")}}-Interfaces ist ein {{jsxref("ArrayBuffer")}}, der Tiefenpufferinformationen im Rohformat enthält.
+Die _schreibgeschützte_ **`data`**-Eigenschaft der [`XRCPUDepthInformation`](/de/docs/Web/API/XRCPUDepthInformation)-Schnittstelle ist ein {{jsxref("ArrayBuffer")}}, der Tiefenpufferinformationen im Rohformat enthält.
 
-Die Daten sind zeilenweise ohne Auffüllung gespeichert, wobei jeder Eintrag der Entfernung von der Nahplane der Ansicht zur Umgebung des Benutzers entspricht, in nicht spezifizierten Einheiten. Die Größe jedes Dateneintrags und der Typ werden durch {{domxref("XRSession.depthDataFormat", "depthDataFormat")}} bestimmt. Die Werte können von nicht spezifizierten Einheiten in Meter umgewandelt werden, indem sie mit {{domxref("XRDepthInformation.rawValueToMeters", "rawValueToMeters")}} multipliziert werden. Die {{domxref("XRDepthInformation.normDepthBufferFromNormView", "normDepthBufferFromNormView")}}-Eigenschaft kann verwendet werden, um von normalisierten Ansichtskoordinaten (ein Ursprung in der oberen linken Ecke der Ansicht, mit der X-Achse nach rechts und der Y-Achse nach unten wachsend) in das Koordinatensystem des Tiefenpuffers zu transformieren.
+Die Daten sind im Zeilen-Major-Format ohne Padding gespeichert, wobei jeder Eintrag der Entfernung von der Nahplane der Ansicht zur Umgebung des Nutzers entspricht, in nicht spezifizierten Einheiten. Die Größe jedes Dateneintrags und der Typ wird durch [`depthDataFormat`](/de/docs/Web/API/XRSession/depthDataFormat) bestimmt. Die Werte können von nicht spezifizierten Einheiten in Meter umgerechnet werden, indem sie mit [`rawValueToMeters`](/de/docs/Web/API/XRDepthInformation/rawValueToMeters) multipliziert werden. Die Eigenschaft [`normDepthBufferFromNormView`](/de/docs/Web/API/XRDepthInformation/normDepthBufferFromNormView) kann verwendet werden, um von normalisierten Ansichtskonfigurationen (ein Ursprung in der oberen linken Ecke der Ansicht, mit der X-Achse nach rechts und der Y-Achse nach unten wachsend) in das Koordinatensystem des Tiefenpuffers zu transformieren.
 
 ## Wert
 
@@ -18,9 +18,9 @@ Ein {{jsxref("ArrayBuffer")}}.
 
 ## Beispiele
 
-Verwenden Sie {{domxref("XRFrame.getDepthInformation()")}} um Tiefeninformationen zu erhalten. Das zurückgegebene `XRCPUDepthInformation`-Objekt wird den `data`-Puffer enthalten.
+Verwenden Sie [`XRFrame.getDepthInformation()`](/de/docs/Web/API/XRFrame/getDepthInformation), um Tiefeninformationen zu erhalten. Das zurückgegebene `XRCPUDepthInformation`-Objekt enthält den `data`-Puffer.
 
-Für CPU-Tiefeninformationen und einen Puffer im Format "luminance-alpha":
+Für CPU-Tiefeninformationen und einen Puffer mit dem Format "luminance-alpha":
 
 ```js
 const uint16 = new Uint16Array(depthInfo.data);
@@ -30,12 +30,12 @@ const depthInMeters = uint16[index] * depthInfo.rawValueToMeters;
 
 (Verwenden Sie {{jsxref("Float32Array")}} für ein "float32"-Datenformat.)
 
-Beachten Sie, dass die Tiefe in Metern in Tiefenpufferkoordinaten vorliegt. Zusätzliche Schritte sind erforderlich, um sie in normalisierte Ansichtskoordinaten umzuwandeln, oder die Methode {{domxref("XRCPUDepthInformation.getDepthInMeters()")}} kann verwendet werden.
+Beachten Sie, dass die Tiefe in Metern in Tiefenpuffer-Koordinaten angegeben ist. Zusätzliche Schritte sind erforderlich, um sie in normalisierte Ansichtskonfigurationen umzuwandeln, oder die Methode [`XRCPUDepthInformation.getDepthInMeters()`](/de/docs/Web/API/XRCPUDepthInformation/getDepthInMeters) kann verwendet werden.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

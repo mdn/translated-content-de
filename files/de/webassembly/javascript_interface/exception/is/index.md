@@ -7,12 +7,13 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`is()`** Prototyp-Methode des [`Exception`](/de/docs/WebAssembly/JavaScript_interface/Exception)-Objekts kann verwendet werden, um zu testen, ob die `Exception` mit einem gegebenen Tag übereinstimmt.
+Die **`is()`** Prototyp-Methode des [`Exception`](/de/docs/WebAssembly/JavaScript_interface/Exception) Objekts kann verwendet werden, um zu testen, ob die `Exception` einem gegebenen Tag entspricht.
 
-Diese Methode könnte verwendet werden, um sicherzustellen, dass ein Tag korrekt ist, bevor es an [`Exception.prototype.getArg()`](/de/docs/WebAssembly/JavaScript_interface/Exception/getArg) übergeben wird, um die übergebenen Werte zu erhalten. Es kann bei Tags verwendet werden, die in JavaScript erstellt wurden, oder solche, die im WebAssembly-Code erstellt und nach JavaScript exportiert wurden.
+Die Methode könnte verwendet werden, um zu testen, ob ein Tag korrekt ist, bevor es an [`Exception.prototype.getArg()`](/de/docs/WebAssembly/JavaScript_interface/Exception/getArg) übergeben wird, um die übergebenen Werte abzurufen.
+Sie kann für Tags verwendet werden, die in JavaScript erstellt oder im WebAssembly-Code erstellt und nach JavaScript exportiert wurden.
 
 > [!NOTE]
-> Es reicht nicht aus, dass das Tag eine identische Abfolge von Datentypen aufweist – es muss die gleiche _Identität_ (das gleiche Tag) sein, das zur Erstellung der Ausnahme verwendet wurde.
+> Es reicht nicht aus, dass das Tag dieselbe Sequenz von Datentypen hat — es muss dieselbe _Identität_ (dasselbe Tag) wie bei der Erstellung der Ausnahme besitzen.
 
 ## Syntax
 
@@ -23,36 +24,36 @@ is(tag)
 ### Parameter
 
 - `tag`
-  - : Ein [`WebAssembly.Tag`](/de/docs/WebAssembly/JavaScript_interface/Tag), das geprüft werden kann, um den Typ der Ausnahme zu verifizieren.
+  - : Ein [`WebAssembly.Tag`](/de/docs/WebAssembly/JavaScript_interface/Tag), der überprüft werden kann, um den Typ der Ausnahme zu verifizieren.
 
 ### Rückgabewert
 
-Ein boolean `true`, wenn das angegebene Tag mit der Ausnahme übereinstimmt, andernfalls `false`.
+Ein boolescher Wert `true`, wenn das angegebene Tag mit der Ausnahme übereinstimmt, andernfalls `false`.
 
 ## Beispiele
 
 Der folgende Code zeigt, wie `is()` verwendet wird, um zu überprüfen, ob ein Tag mit einer [`Exception`](/de/docs/WebAssembly/JavaScript_interface/Exception) übereinstimmt.
 
 ```js
-// Tag erstellen und zur Erstellung einer Ausnahme verwenden
+// Create tag and use it to create an exception
 const tag1 = new WebAssembly.Tag({ parameters: ["i32", "f64"] });
 const exception1 = new WebAssembly.Exception(tag1, [42, 42.3]);
 
-// Überprüfen, dass "tag1" mit dieser Ausnahme übereinstimmt
+// Verify that "tag1" matches this exception
 console.log(`Tag1: ${exception1.is(tag1)}`);
 
-// Log-Ausgabe:
+// Log output:
 // Tag1: true
 ```
 
-Wir können auch zeigen, dass diese Ausnahme nicht mit einem anderen Tag übereinstimmt, selbst wenn das Tag mit denselben Parametern erstellt wird.
+Wir können auch demonstrieren, dass diese Ausnahme nicht mit einem anderen Tag übereinstimmt, selbst wenn das Tag mit denselben Parametern erstellt wird.
 
 ```js
-// Ein neues Tag (mit denselben Parametern) erstellen und überprüfen, dass es nicht mit der Ausnahme übereinstimmt
+// Create a new tag (with same parameters) and verify it does not match the exception
 const tag2 = new WebAssembly.Tag({ parameters: ["i32", "f64"] });
 console.log(`Tag2: ${exception1.is(tag2)}`);
 
-// Log-Ausgabe:
+// Log output:
 // Tag2: false
 ```
 
@@ -66,6 +67,6 @@ console.log(`Tag2: ${exception1.is(tag2)}`);
 
 ## Siehe auch
 
-- [Überblick über WebAssembly](/de/docs/WebAssembly)
+- [WebAssembly](/de/docs/WebAssembly) Überblick
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
 - [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

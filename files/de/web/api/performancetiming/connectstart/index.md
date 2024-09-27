@@ -1,5 +1,5 @@
 ---
-title: "PerformanceTiming: Eigenschaft connectStart"
+title: "PerformanceTiming: connectStart-Eigenschaft"
 short-title: connectStart
 slug: Web/API/PerformanceTiming/connectStart
 l10n:
@@ -9,9 +9,13 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die Schnittstelle {{domxref("PerformanceNavigationTiming")}}.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)
+> Schnittstelle.
 
-Die veraltete, schreibgeschützte Eigenschaft **`PerformanceTiming.connectStart`** gibt ein `unsigned long long` zurück, das den Zeitpunkt in Millisekunden seit der UNIX-Epoche darstellt, an dem die Anfrage zum Öffnen einer Verbindung an das Netzwerk gesendet wird. Wenn die Transportschicht einen Fehler meldet und die Verbindungsherstellung erneut gestartet wird, wird die Zeit des letzten Verbindungsaufbaus angegeben. Bei Verwendung einer persistenten Verbindung wird der Wert derselbe sein wie {{domxref("PerformanceTiming.fetchStart")}}.
+Die veraltete, schreibgeschützte Eigenschaft
+**`PerformanceTiming.connectStart`**
+gibt ein `unsigned long long` zurück, das den Moment in Millisekunden seit dem UNIX-Epoch darstellt, an dem die Anforderung zur Öffnung einer Verbindung an das Netzwerk gesendet wird. Wenn die Transportschicht einen Fehler meldet und die Verbindungsherstellung erneut gestartet wird, wird die Zeit des letzten Verbindungsaufbaus angegeben. Wenn eine persistente Verbindung verwendet wird, ist der Wert derselbe wie
+[`PerformanceTiming.fetchStart`](/de/docs/Web/API/PerformanceTiming/fetchStart).
 
 ## Wert
 
@@ -27,4 +31,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Die {{domxref("PerformanceTiming")}}-Schnittstelle, zu der sie gehört.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Schnittstelle, zu der es gehört.

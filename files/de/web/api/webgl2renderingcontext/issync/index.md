@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: isSync() Methode"
+title: "WebGL2RenderingContext: isSync()-Methode"
 short-title: isSync()
 slug: Web/API/WebGL2RenderingContext/isSync
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.isSync()`** Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein gültiges {{domxref("WebGLSync")}} Objekt ist.
+Die **`WebGL2RenderingContext.isSync()`**-Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein gültiges [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt ist.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ isSync(sync)
 ### Parameter
 
 - `sync`
-  - : Ein {{domxref("WebGLSync")}} Objekt, das geprüft werden soll.
+  - : Ein [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt, das getestet werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API/Types", "GLboolean")}}, das angibt, ob das gegebene Objekt ein gültiges {{domxref("WebGLSync")}} Objekt ist (`true`) oder nicht (`false`).
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das gegebene Objekt ein gültiges [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt (`true`) ist oder nicht (`false`).
 
 ## Beispiele
 
-`gl` muss ein {{domxref("WebGL2RenderingContext")}} sein. `WebGLSync` Objekte sind in WebGL 1 nicht verfügbar.
+`gl` muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein. `WebGLSync`-Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
 const sync = gl.fenceSync(gl.SYNC_GPU_COMMANDS_COMPLETE, 0);
@@ -47,4 +47,4 @@ gl.isSync(sync);
 
 ## Siehe auch
 
-- {{domxref("WebGLSync")}}
+- [`WebGLSync`](/de/docs/Web/API/WebGLSync)

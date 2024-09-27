@@ -1,5 +1,5 @@
 ---
-title: "Location: Eigenschaft pathname"
+title: "Location: pathname-Eigenschaft"
 short-title: pathname
 slug: Web/API/Location/pathname
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{ApiRef("Location")}}
 
-Die **`pathname`**-Eigenschaft des {{domxref("Location")}}
-Interfaces ist ein String, der den Pfad der URL für die Location enthält. Wenn kein Pfad vorhanden ist, wird `pathname` leer sein: andernfalls enthält `pathname` ein anfängliches '/' gefolgt vom Pfad der URL, ohne die Abfragezeichenkette oder das Fragment.
+Die **`pathname`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein String, der den Pfad der URL für den Standort enthält. Wenn kein Pfad vorhanden ist, wird `pathname` leer sein; andernfalls enthält `pathname` ein initiales '/' gefolgt vom Pfad der URL, ohne die Abfragezeichenfolge oder das Fragment.
 
 ## Wert
 
@@ -18,8 +17,8 @@ Ein String.
 ## Beispiele
 
 ```js
-// Angenommen, wir befinden uns auf der URL https://developer.mozilla.org/de/docs/Web/API/Location/pathname#examples
-console.log(location.pathname); // '/de/docs/Web/API/Location/pathname'
+// Let's say we are on the URL https://developer.mozilla.org/en-US/docs/Web/API/Location/pathname#examples
+console.log(location.pathname); // '/en-US/docs/Web/API/Location/pathname'
 ```
 
 ## Spezifikationen

@@ -1,5 +1,5 @@
 ---
-title: "Element: Eigenschaft childElementCount"
+title: "Element: childElementCount-Eigenschaft"
 short-title: childElementCount
 slug: Web/API/Element/childElementCount
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`Element.childElementCount`** schreibgeschützte Eigenschaft gibt die Anzahl der Kind-Elemente dieses Elements zurück.
+Die **`Element.childElementCount`** schreibgeschützte Eigenschaft gibt die Anzahl der Kindelemente dieses Elements zurück.
 
 ## Beispiele
 
@@ -29,5 +29,5 @@ if (sidebar.childElementCount > 0) {
 
 ## Siehe auch
 
-- {{domxref("Document.childElementCount")}}
-- {{domxref("DocumentFragment.childElementCount")}}
+- [`Document.childElementCount`](/de/docs/Web/API/Document/childElementCount)
+- [`DocumentFragment.childElementCount`](/de/docs/Web/API/DocumentFragment/childElementCount)

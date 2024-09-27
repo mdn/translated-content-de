@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: ungültiger Dezimal-Entkomma in regulärem Ausdruck"
+title: "SyntaxError: ungültiger Dezimaler Entsprung in regulärem Ausdruck"
 slug: Web/JavaScript/Reference/Errors/Regex_invalid_decimal_escape
 l10n:
   sourceCommit: 6aaba8ce85edc3a92fd5e804002cc609c31ce73f
@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "ungültiger Dezimal-Entkomma in regulärem Ausdruck" tritt auf, wenn eine veraltete [Oktal-Entkomma-Sequenz](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#escape_sequences) in einem [unicode-bewussten](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) regulären Ausdrucksmuster verwendet wird.
+Die JavaScript-Ausnahme "ungültiger Dezimaler Entsprung in regulärem Ausdruck" tritt auf, wenn eine veraltete [oktale Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#escape_sequences) in einem [Unicode-bewussten](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) regulären Ausdrucksmuster verwendet wird.
 
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: Invalid regular expression: /\00/u: Invalid decimal escape (V8-based)
@@ -23,9 +23,9 @@ SyntaxError: Invalid regular expression: invalid octal escape for Unicode patter
 
 ## Was ist schiefgelaufen?
 
-In einem regulären Ausdruck ist `\0`, gefolgt von einer weiteren Ziffer, eine _veraltete Oktal-Entkomma-Sequenz_. Die gleiche Syntax ist in Vorlagen-Strings und strikten String-Literalen verboten. In Regexes ist dieses Feature in den unicode-bewussten Modi (`u` und `v`) deaktiviert. `\0`, _nicht_ gefolgt von einer weiteren Ziffer, ist eine gültige Entkomma-Sequenz, die das Null-Zeichen (U+0000) darstellt.
+In einem regulären Ausdruck ist `\0`, gefolgt von einer anderen Ziffer, eine _veraltete oktale Escape-Sequenz_. Die gleiche Syntax ist in Template-Strings und strikten Modus-String-Literalen verboten. In regulären Ausdrücken wird dieses Feature in den Unicode-bewussten Modi (`u` und `v`) deaktiviert. `\0`, _nicht_ gefolgt von einer anderen Ziffer, ist eine gültige Escape-Sequenz, die das Nullzeichen (U+0000) darstellt.
 
-`\` gefolgt von einer Ziffer ungleich null ist ein [Backreferenz](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference) und ist im unicode-bewussten Modus ungültig, wenn es sich nicht auf eine Erfassungsgruppe bezieht; siehe [ungültiger Identitätsentkomma](/de/docs/Web/JavaScript/Reference/Errors/Regex_invalid_identity_escape) für weitere Informationen.
+`\` gefolgt von einer Nicht-Null-Ziffer ist ein [Rückverweis](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference) und ist im Unicode-bewussten Modus ungültig, wenn er sich nicht auf eine erfassende Gruppe bezieht; siehe [ungültiger Identitätsentsprung](/de/docs/Web/JavaScript/Reference/Errors/Regex_invalid_identity_escape) für weitere Informationen.
 
 ## Beispiele
 
@@ -39,14 +39,14 @@ In einem regulären Ausdruck ist `\0`, gefolgt von einer weiteren Ziffer, eine _
 ### Gültige Fälle
 
 ```js example-good
-// Wenn Sie NULL gefolgt von einer Ziffer erfassen möchten, verwenden Sie eine Zeichenklasse
+// If you want to match NULL followed by a digit, use a character class
 /[\0]0/u;
-// Wenn Sie ein Zeichen nach seinem Zeichenwert erfassen möchten, verwenden Sie \x
+// If you want to match a character by its character value, use \x
 /\x01/u;
 ```
 
 ## Siehe auch
 
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Entkomma-Sequenzen](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences)
-- [Zeichenentkomma: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
+- [Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences)
+- [Zeichenentsprung: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)

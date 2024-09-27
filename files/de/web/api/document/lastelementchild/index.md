@@ -1,5 +1,5 @@
 ---
-title: "Dokument: lastElementChild-Eigenschaft"
+title: "Document: lastElementChild-Eigenschaft"
 short-title: lastElementChild
 slug: Web/API/Document/lastElementChild
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`Document.lastElementChild`** gibt das letzte Kind-{{domxref("Element")}} des Dokuments zurück oder `null`, wenn keine Kindelemente vorhanden sind.
+Die schreibgeschützte Eigenschaft **`Document.lastElementChild`** gibt das letzte Kindelement des Dokuments zurück, ein [`Element`](/de/docs/Web/API/Element), oder `null`, wenn keine Kindelemente vorhanden sind.
 
-Bei HTML-Dokumenten handelt es sich dabei in der Regel um das einzige Kindelement, das Wurzel-`<html>`-Element.
+Bei HTML-Dokumenten ist dies in der Regel das einzige Kindelement, das Wurzel-`<html>`-Element.
 
-Siehe {{domxref("Element.lastElementChild")}} für das letzte Kindelement bestimmter Elemente innerhalb eines Dokuments.
+Siehe [`Element.lastElementChild`](/de/docs/Web/API/Element/lastElementChild) für das letzte Kindelement bestimmter Elemente innerhalb eines Dokuments.
 
 ## Wert
 
@@ -22,17 +22,17 @@ Das Wurzel-`<html>`-Element.
 
 ```js
 document.lastElementChild;
-// gibt das Wurzel-<html>-Element zurück, das einzige Kindelement des Dokuments
+// returns the root <html> element, the only child of the document
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Element.lastElementChild")}}
+- [`Element.lastElementChild`](/de/docs/Web/API/Element/lastElementChild)

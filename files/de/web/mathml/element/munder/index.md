@@ -7,14 +7,14 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<munder>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um einen Akzent oder ein Limit unter einem Ausdruck anzubringen. Es verwendet die folgende Syntax: `<munder> base underscript </munder>`
+Das **`<munder>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um ein Akzent oder ein Limit unter einem Ausdruck hinzuzufügen. Es verwendet die folgende Syntax: `<munder> base underscript </munder>`
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie das folgende Attribut:
 
 - `accentunder`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob das Unterskript als Akzent behandelt werden sollte (d. h., größer und näher an den Basis-Ausdruck gezeichnet).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob das Unterskript als Akzent behandelt werden soll (d. h. größer und näher an der Basisausdruck gezeichnet).
 
 ## Beispiele
 
@@ -45,5 +45,5 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 ## Siehe auch
 
-- {{ MathMLElement("mover") }} (Überschrift)
-- {{ MathMLElement("munderover") }} (Unterskript-Überskript-Paar)
+- {{ MathMLElement("mover") }} (Overscript)
+- {{ MathMLElement("munderover") }} (Unterscript-Overscript-Paar)

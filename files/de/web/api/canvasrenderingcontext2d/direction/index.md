@@ -19,7 +19,7 @@ Mögliche Werte:
 - `"rtl"`
   - : Die Textrichtung ist von rechts nach links.
 - `"inherit"`
-  - : Die Textrichtung wird vom {{HTMLElement("canvas")}}-Element oder dem {{domxref("Document")}} geerbt, je nach Situation. Standardwert.
+  - : Die Textrichtung wird vom {{HTMLElement("canvas")}}-Element oder dem [`Document`](/de/docs/Web/API/Document) entsprechend vererbt. Standardwert.
 
 Der Standardwert ist `"inherit"`.
 
@@ -27,7 +27,7 @@ Der Standardwert ist `"inherit"`.
 
 ### Ändern der Textrichtung
 
-Dieses Beispiel zeichnet zwei Textstücke. Das erste ist von links nach rechts und das zweite von rechts nach links. Beachten Sie, dass "Hi!" in `ltr` zu "!Hi" in `rtl` wird.
+Dieses Beispiel zeichnet zwei Textstücke. Das erste ist von links nach rechts, und das zweite ist von rechts nach links. Beachten Sie, dass "Hi!" in `ltr` zu "!Hi" in `rtl` wird.
 
 #### HTML
 
@@ -61,4 +61,4 @@ ctx.fillText("Hi!", 150, 130);
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Eigenschaft definiert: {{domxref("CanvasRenderingContext2D")}}
+- Das Interface, das diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

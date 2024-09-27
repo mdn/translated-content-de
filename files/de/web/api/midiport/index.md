@@ -7,70 +7,70 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Das **`MIDIPort`**-Interface der {{domxref('Web MIDI API','','',' ')}} repräsentiert einen MIDI-Eingangs- oder Ausgangsanschluss.
+Die **`MIDIPort`**-Schnittstelle der [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) repräsentiert einen MIDI-Ein- oder -Ausgangsport.
 
-Eine `MIDIPort`-Instanz wird erstellt, wenn ein neues MIDI-Gerät angeschlossen wird. Daher hat es keinen Konstruktor.
+Eine Instanz von `MIDIPort` wird erstellt, wenn ein neues MIDI-Gerät verbunden wird. Daher besitzt sie keinen Konstruktor.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- {{domxref("MIDIPort.id")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die die eindeutige ID des Anschlusses enthält.
-- {{domxref("MIDIPort.manufacturer")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die den Hersteller des Anschlusses enthält.
-- {{domxref("MIDIPort.name")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die den Systemnamen des Anschlusses enthält.
-- {{domxref("MIDIPort.type")}} {{ReadOnlyInline}}
+- [`MIDIPort.id`](/de/docs/Web/API/MIDIPort/id) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der die eindeutige ID des Ports enthält.
+- [`MIDIPort.manufacturer`](/de/docs/Web/API/MIDIPort/manufacturer) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der den Hersteller des Ports enthält.
+- [`MIDIPort.name`](/de/docs/Web/API/MIDIPort/name) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der den Systemnamen des Ports enthält.
+- [`MIDIPort.type`](/de/docs/Web/API/MIDIPort/type) {{ReadOnlyInline}}
 
-  - : Gibt eine Zeichenkette zurück, die den Typ des Anschlusses enthält, einer von:
+  - : Gibt einen String zurück, der den Typ des Ports enthält, einer von:
 
     - `"input"`
-      - : Das `MIDIPort` ist ein Eingangsanschluss.
+      - : Der `MIDIPort` ist ein Eingangsport.
     - `"output"`
-      - : Das `MIDIPort` ist ein Ausgangsanschluss.
+      - : Der `MIDIPort` ist ein Ausgangsport.
 
-- {{domxref("MIDIPort.version")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die die Version des Anschlusses enthält.
-- {{domxref("MIDIPort.state")}} {{ReadOnlyInline}}
+- [`MIDIPort.version`](/de/docs/Web/API/MIDIPort/version) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der die Version des Ports enthält.
+- [`MIDIPort.state`](/de/docs/Web/API/MIDIPort/state) {{ReadOnlyInline}}
 
-  - : Gibt eine Zeichenkette zurück, die den Zustand des Anschlusses enthält, einer von:
+  - : Gibt einen String zurück, der den Zustand des Ports enthält, einer von:
 
     - `"disconnected"`
-      - : Das Gerät, das dieses `MIDIPort` repräsentiert, ist vom System getrennt.
+      - : Das Gerät, das dieser `MIDIPort` repräsentiert, ist vom System getrennt.
     - `"connected"`
-      - : Das Gerät, das dieses `MIDIPort` repräsentiert, ist derzeit verbunden.
+      - : Das Gerät, das dieser `MIDIPort` repräsentiert, ist derzeit verbunden.
 
-- {{domxref("MIDIPort.connection")}} {{ReadOnlyInline}}
+- [`MIDIPort.connection`](/de/docs/Web/API/MIDIPort/connection) {{ReadOnlyInline}}
 
-  - : Gibt eine Zeichenkette zurück, die den Verbindungszustand des Anschlusses enthält, einer von:
+  - : Gibt einen String zurück, der den Verbindungszustand des Ports enthält, einer von:
 
     - `"open"`
-      - : Das Gerät, das dieses `MIDIPort` repräsentiert, wurde geöffnet und ist verfügbar.
+      - : Das Gerät, das dieser `MIDIPort` repräsentiert, wurde geöffnet und ist verfügbar.
     - `"closed"`
-      - : Das Gerät, das dieses `MIDIPort` repräsentiert, wurde nicht geöffnet oder wurde geschlossen.
+      - : Das Gerät, das dieser `MIDIPort` repräsentiert, wurde nicht geöffnet oder wurde geschlossen.
     - `"pending"`
-      - : Das Gerät, das dieses `MIDIPort` repräsentiert, wurde geöffnet, aber anschließend getrennt.
+      - : Das Gerät, das dieser `MIDIPort` repräsentiert, wurde geöffnet, hat sich aber danach getrennt.
 
 ## Instanz-Methoden
 
-_Dieses Interface erbt auch Methoden von {{domxref("EventTarget")}}._
+_Diese Schnittstelle erbt auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("MIDIPort.open()")}}
-  - : Macht das mit diesem `MIDIPort` verbundene MIDI-Gerät ausdrücklich verfügbar und gibt ein {{jsxref("Promise")}} zurück, das sich auflöst, sobald der Zugriff auf den Anschluss erfolgreich war.
-- {{domxref("MIDIPort.close()")}}
-  - : Macht das mit diesem `MIDIPort` verbundene MIDI-Gerät nicht mehr verfügbar, indem der {{domxref("MIDIPort.state","Zustand")}} von `"open"` in `"closed"` geändert wird. Dies gibt ein {{jsxref("Promise")}} zurück, das sich auflöst, sobald der Anschluss geschlossen wurde.
+- [`MIDIPort.open()`](/de/docs/Web/API/MIDIPort/open)
+  - : Macht das mit diesem `MIDIPort` verbundene MIDI-Gerät ausdrücklich verfügbar und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Zugriff auf den Port erfolgreich war.
+- [`MIDIPort.close()`](/de/docs/Web/API/MIDIPort/close)
+  - : Macht das mit diesem `MIDIPort` verbundene MIDI-Gerät nicht verfügbar und ändert den [`state`](/de/docs/Web/API/MIDIPort/state) von `"open"` auf `"closed"`. Dies gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Port geschlossen wurde.
 
 ## Ereignisse
 
-- {{domxref("MIDIPort.statechange_event", "statechange")}}
-  - : Wird aufgerufen, wenn sich ein bestehender Anschluss in seinem Zustand oder seiner Verbindung ändert.
+- [`statechange`](/de/docs/Web/API/MIDIPort/statechange_event)
+  - : Wird aufgerufen, wenn ein bestehender Port seinen Zustand oder seine Verbindung ändert.
 
 ## Beispiele
 
-### Anschlüsse und deren Informationen auflisten
+### Ports und deren Informationen auflisten
 
-Das folgende Beispiel listet Eingangs- und Ausgangsanschlüsse auf und zeigt Informationen über sie mithilfe von Eigenschaften von `MIDIPort` an.
+Das folgende Beispiel listet Eingangs- und Ausgangsports und zeigt Informationen über sie mithilfe der Eigenschaften von `MIDIPort`.
 
 ```js
 function listInputsAndOutputs(midiAccess) {
@@ -90,9 +90,9 @@ function listInputsAndOutputs(midiAccess) {
 }
 ```
 
-### Verfügbare Anschlüsse zu einer Auswahl-Liste hinzufügen
+### Verfügbare Ports zu einer Auswahlliste hinzufügen
 
-Das folgende Beispiel nimmt die Liste der Eingangsanschlüsse und fügt sie einer Auswahl-Liste hinzu, damit ein Nutzer das gewünschte Gerät auswählen kann.
+Das folgende Beispiel nimmt die Liste der Eingangsports und fügt sie einer Auswahlliste hinzu, damit ein Benutzer das Gerät auswählen kann, das er verwenden möchte.
 
 ```js
 inputs.forEach((port, key) => {

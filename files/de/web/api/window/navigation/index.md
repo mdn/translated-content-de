@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`navigation`**-Eigenschaft der {{domxref("Window")}}-Schnittstelle gibt das mit dem aktuellen `window` assoziierte {{domxref("Navigation")}}-Objekt zurück.
+Die **`navigation`** schreibgeschützte Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt das mit dem aktuellen `window` verbundene [`Navigation`](/de/docs/Web/API/Navigation)-Objekt zurück.
 
-Dies ist der Einstiegspunkt für die {{domxref("Navigation API", "", "", "nocode")}}.
+Dies ist der Einstiegspunkt für die [Navigation API](/de/docs/Web/API/Navigation_API).
 
 ## Wert
 
-Eine Instanz des {{domxref("Navigation")}}-Objekts.
+Eine Instanz des [`Navigation`](/de/docs/Web/API/Navigation)-Objekts.
 
 ## Beispiele
 
@@ -32,6 +32,6 @@ let currentNavEntries = window.navigation.entries();
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)
+- [Modernes Client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

@@ -1,5 +1,5 @@
 ---
-title: "StylePropertyMapReadOnly: entries()-Methode"
+title: "StylePropertyMapReadOnly: entries() Methode"
 short-title: entries()
 slug: Web/API/StylePropertyMapReadOnly/entries
 l10n:
@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`StylePropertyMapReadOnly.entries()`**-Methode gibt ein Array von eigenen aufzählbaren `[key, value]` Paaren eines gegebenen Objekts zurück, in der gleichen Reihenfolge, wie sie von einer {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird (der Unterschied besteht darin, dass eine for-in Schleife auch Eigenschaften in der Prototypenkette aufzählt).
+Die **`StylePropertyMapReadOnly.entries()`** Methode gibt ein
+Array der eigenen aufzählbaren Eigenschaften `[key, value]` eines Objekts zurück, in
+derselben Reihenfolge wie bei einer {{jsxref("Statements/for...in", "for...in")}} Schleife
+(die Differenz besteht darin, dass eine for-in Schleife auch die Eigenschaften in der Prototyp-Kette aufzählt).
 
 ## Syntax
 
@@ -22,23 +25,24 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von eigenen aufzählbaren `[key, value]` Paaren des gegebenen `StylePropertyMapReadOnly`-Objekts.
+Ein Array der eigenen aufzählbaren Eigenschaften `[key, value]` des gegebenen `StylePropertyMapReadOnly` Objekts.
 
 ## Beispiele
 
-Hier ist ein Beispiel für die Verwendung der `StylePropertyMapReadOnly.entries()`-Methode auf den berechneten Stilen eines Elements.
+Hier zeigt sich ein Beispiel der Verwendung der `StylePropertyMapReadOnly.entries()` Methode
+auf die berechneten Stile eines Elements.
 
 ```js
-// ein DOM-Element abrufen
+// grab a DOM element
 const buttonEl = document.querySelector("button");
 
-// wir können alle berechneten Stile mit `computedStyleMap` abrufen
+// we can retrieve all computed styles with `computedStyleMap`
 const allComputedStyles = buttonEl.computedStyleMap();
 
-// entries gibt ein iterierbares Objekt der Einträge zurück
+// entries returns an iterable of the items
 const iterableStyles = allComputedStyles.entries();
 
-// gibt ein Zweielemente-Array mit align-content als erstem Element und CSSStyleValue als zweitem zurück
+// returns a two item array with align-content as the first item and CSSStyleValue as the second
 console.log(iterableStyles.next().value);
 ```
 

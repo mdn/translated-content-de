@@ -8,17 +8,17 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die **`scripts`**-Eigenschaft der schnittstelle {{domxref("PerformanceLongAnimationFrameTiming")}} gibt ein Array von {{domxref("PerformanceScriptTiming")}}-Objekten zurück.
+Die schreibgeschützte **`scripts`**-Eigenschaft des [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Interfaces gibt ein Array von [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Objekten zurück.
 
-Eine Zuordnung zu Skripten erfolgt nur für Skripte, die im Hauptthread einer Seite ausgeführt werden, einschließlich `<iframe>`s mit derselben Herkunft. Cross-Origin-`<iframe>`s, [Web Worker](/de/docs/Web/API/Web_Workers_API), [Service Worker](/de/docs/Web/API/Service_Worker_API) und [Erweiterungs](/de/docs/Mozilla/Add-ons/WebExtensions)-Code werden jedoch keine Skriptzuordnung in langen Animationsrahmen haben, selbst wenn sie die Dauer eines solchen Rahmens beeinflussen.
+Skriptattribution wird nur für Skripte bereitgestellt, die im Hauptthread einer Seite ausgeführt werden, einschließlich gleich-originärer `<iframe>`s. Allerdings werden fremde `<iframe>`s, [Web Worker](/de/docs/Web/API/Web_Workers_API), [Service Worker](/de/docs/Web/API/Service_Worker_API) und [Erweiterungs](/de/docs/Mozilla/Add-ons/WebExtensions)-Code keine Skripattribution in langen Animationsrahmen haben, selbst wenn sie die Dauer eines solchen beeinflussen.
 
 ## Wert
 
-Ein Array von {{domxref("PerformanceScriptTiming")}}-Objekten.
+Ein Array von [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Objekten.
 
 ## Beispiele
 
-Sehen Sie [Lange Animationsrahmen-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
 
 ## Spezifikationen
 
@@ -30,5 +30,5 @@ Sehen Sie [Lange Animationsrahmen-Timing](/de/docs/Web/API/Performance_API/Long_
 
 ## Siehe auch
 
-- [Langes Animationsrahmen-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
-- {{domxref("PerformanceScriptTiming")}}
+- [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)

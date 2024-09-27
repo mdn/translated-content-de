@@ -1,5 +1,5 @@
 ---
-title: OES_texture_half_float_linear Erweiterung
+title: OES_texture_half_float_linear-Erweiterung
 short-title: OES_texture_half_float_linear
 slug: Web/API/OES_texture_half_float_linear
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`OES_texture_half_float_linear`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht lineare Filterung mit Halb-Float-Pixeltypen für Texturen.
+Die **`OES_texture_half_float_linear`**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und erlaubt lineares Filtern mit halben Gleitkomma-Pixeltypen für Texturen.
 
-WebGL-Erweiterungen sind über die Methode {{domxref("WebGLRenderingContext.getExtension()")}} verfügbar. Weitere Informationen finden Sie unter [Using Extensions](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind verfügbar über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension). Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} Kontexte verfügbar. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung im WebGL2-Kontext standardmäßig verfügbar und die Erweiterung wird nicht benötigt.
+> Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}}-Kontexte verfügbar. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung standardmäßig im WebGL2-Kontext verfügbar und die Erweiterung wird nicht benötigt.
 
-## Lineare Filterung
+## Lineares Filtern
 
-Die {{domxref("OES_texture_half_float")}} Erweiterung allein erlaubt keine lineare Filterung mit Halb-Float-Texturen. Diese Erweiterung ermöglicht diese Fähigkeit.
+Die [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float)-Erweiterung allein erlaubt kein lineares Filtern mit halben Gleitkomma-Texturen. Diese Erweiterung ermöglicht diese Fähigkeit.
 
-Mit Hilfe dieser Erweiterung können Sie nun den Vergrößerungs- oder Verkleinerungsfilter in der {{domxref("WebGLRenderingContext.texParameter()")}} Methode auf eines von `gl.LINEAR`, `gl.LINEAR_MIPMAP_NEAREST`, `gl.NEAREST_MIPMAP_LINEAR` oder `gl.LINEAR_MIPMAP_LINEAR` setzen und Halb-Float-Texturen verwenden.
+Mit Hilfe dieser Erweiterung können Sie nun den Vergrößerungs- oder Verkleinerungsfilter in der Methode [`WebGLRenderingContext.texParameter()`](/de/docs/Web/API/WebGLRenderingContext/texParameter) auf einen der folgenden Werte setzen: `gl.LINEAR`, `gl.LINEAR_MIPMAP_NEAREST`, `gl.NEAREST_MIPMAP_LINEAR` oder `gl.LINEAR_MIPMAP_LINEAR`, und halbe Gleitkomma-Texturen verwenden.
 
 ## Beispiele
 
@@ -51,9 +51,9 @@ gl.texImage2D(
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLRenderingContext.texImage2D()")}}
-- {{domxref("WebGLRenderingContext.texSubImage2D()")}}
-- {{domxref("OES_texture_float")}}
-- {{domxref("OES_texture_float_linear")}}
-- {{domxref("OES_texture_half_float")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D)
+- [`WebGLRenderingContext.texSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texSubImage2D)
+- [`OES_texture_float`](/de/docs/Web/API/OES_texture_float)
+- [`OES_texture_float_linear`](/de/docs/Web/API/OES_texture_float_linear)
+- [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float)

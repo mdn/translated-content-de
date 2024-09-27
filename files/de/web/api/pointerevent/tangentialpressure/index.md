@@ -8,31 +8,30 @@ l10n:
 
 {{ APIRef("Pointer Events") }}
 
-Die schreibgeschützte Eigenschaft **`tangentialPressure`** der
-{{domxref("PointerEvent")}}-Schnittstelle repräsentiert den normierten tangentialen Druck der Zeigereingabe (auch bekannt als Barrel-Druck oder [Zylinderbelastung](https://en.wikipedia.org/wiki/Cylinder_stress)).
+Die schreibgeschützte Eigenschaft **`tangentialPressure`** der [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle repräsentiert den normierten tangentialen Druck des Zeigereingangs (auch bekannt als Barrel-Druck oder [Zylinder-Spannung](https://en.wikipedia.org/wiki/Cylinder_stress)).
 
 ## Wert
 
-Ein `float`, der den normierten tangentialen Druck der Zeigereingabe im Bereich von `-1` bis `1` inklusive darstellt, wobei `0` die neutrale Position des Steuerungselements ist.
+Ein `float`, der den normierten tangentialen Druck des Zeigereingangs im Bereich von `-1` bis `1` inklusive darstellt, wobei `0` die Neutralposition der Steuerung bezeichnet.
 
-Beachten Sie, dass einige Hardware möglicherweise nur positive Werte im Bereich von `0` bis `1` unterstützt. Für Hardware, die keinen tangentialen Druck unterstützt, beträgt der Wert `0`.
+Beachten Sie, dass einige Hardwaregeräte möglicherweise nur positive Werte im Bereich von `0` bis `1` unterstützen. Bei Hardware, die keinen tangentialen Druck unterstützt, wird der Wert `0` sein.
 
 ## Beispiele
 
-In diesem Beispiel, wenn ein {{domxref("Element/pointerdown_event", "pointerdown")}}-Ereignis ausgelöst wird, werden je nach Wert der `tangentialPressure`-Eigenschaft des Ereignisses unterschiedliche Funktionen aufgerufen.
+In diesem Code-Ausschnitt werden bei einem [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignis unterschiedliche Funktionen aufgerufen, abhängig vom Wert der `tangentialPressure`-Eigenschaft des Ereignisses.
 
 ```js
 someElement.addEventListener(
   "pointerdown",
   (event) => {
     if (event.tangentialPressure === 0) {
-      // Kein Druck
+      // No pressure
       process_no_tanPressure(event);
     } else if (event.tangentialPressure === 1) {
-      // Maximaler Druck
+      // Maximum pressure
       process_max_tanPressure(event);
     } else {
-      // Standard
+      // Default
       process_tanPressure(event);
     }
   },
@@ -50,4 +49,4 @@ someElement.addEventListener(
 
 ## Siehe auch
 
-- {{ domxref("Touch.force") }}
+- [`Touch.force`](/de/docs/Web/API/Touch/force)

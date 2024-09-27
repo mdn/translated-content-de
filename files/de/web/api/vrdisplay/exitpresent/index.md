@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`exitPresent()`**-Methode der {{domxref("VRDisplay")}} Schnittstelle stoppt die Darstellung einer Szene durch das `VRDisplay`.
+Die **`exitPresent()`** Methode des [`VRDisplay`](/de/docs/Web/API/VRDisplay) Interfaces beendet die Darstellung einer Szene durch das `VRDisplay`.
 
 > [!NOTE]
-> Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
+> Diese Methode gehörte zur alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
 
 ## Syntax
 
@@ -25,26 +25,26 @@ Keine.
 
 ### Rückgabewert
 
-Ein Promise, das aufgelöst wird, sobald die Präsentation beendet ist. Wenn das `VRDisplay` bei Aufruf von `exitPresent()` nicht darstellt, wird das Promise abgelehnt.
+Ein Promise, das aufgelöst wird, sobald die Präsentation beendet ist. Wenn das `VRDisplay` nicht präsentiert, wenn `exitPresent()` aufgerufen wird, wird das Promise abgelehnt.
 
 ## Beispiele
 
 ```js
 if (navigator.getVRDisplays) {
-  console.log("WebVR 1.1 unterstützt");
-  // Dann die an den Computer angeschlossenen Displays abrufen
+  console.log("WebVR 1.1 supported");
+  // Then get the displays attached to the computer
   navigator.getVRDisplays().then((displays) => {
-    // Wenn ein Display verfügbar ist, es zur Darstellung der Szene verwenden
+    // If a display is available, use it to present the scene
     if (displays.length > 0) {
       vrDisplay = displays[0];
-      console.log("Display gefunden");
-      // Starten der Präsentation, wenn die Schaltfläche geklickt wird: Es kann nur als Antwort auf eine Benutzeraktion aufgerufen werden
+      console.log("Display found");
+      // Starting the presentation when the button is clicked: It can only be called in response to a user gesture
       btn.addEventListener("click", () => {
         if (btn.textContent === "Start VR display") {
           vrDisplay.requestPresent([{ source: canvas }]).then(() => {
-            console.log("Präsentation auf WebVR Display gestartet");
+            console.log("Presenting to WebVR display");
 
-            // Setzen der Canvas-Größe auf die Größe des vrDisplay Viewports
+            // Set the canvas size to the size of the vrDisplay viewport
 
             const leftEye = vrDisplay.getEyeParameters("left");
             const rightEye = vrDisplay.getEyeParameters("right");
@@ -56,7 +56,7 @@ if (navigator.getVRDisplays) {
               rightEye.renderHeight,
             );
 
-            // normale Präsentation stoppen und VR-Präsentation starten
+            // stop the normal presentation, and start the vr presentation
             window.cancelAnimationFrame(normalSceneFrame);
             drawVRScene();
 
@@ -64,11 +64,11 @@ if (navigator.getVRDisplays) {
           });
         } else {
           vrDisplay.exitPresent();
-          console.log("Präsentation auf WebVR Display gestoppt");
+          console.log("Stopped presenting to WebVR display");
 
           btn.textContent = "Start VR display";
 
-          // VR-Präsentation stoppen und normale Präsentation starten
+          // Stop the VR presentation, and start the normal presentation
           vrDisplay.cancelAnimationFrame(vrSceneFrame);
           drawScene();
         }
@@ -79,13 +79,13 @@ if (navigator.getVRDisplays) {
 ```
 
 > [!NOTE]
-> Sie können diesen vollständigen Code unter [raw-webgl-example](https://github.com/mdn/webvr-tests/blob/main/webvr/raw-webgl-example/webgl-demo.js) einsehen.
+> Sie können diesen vollständigen Code unter [raw-webgl-example](https://github.com/mdn/webvr-tests/blob/main/webvr/raw-webgl-example/webgl-demo.js) sehen.
 
 ## Spezifikationen
 
-Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Methode gehörte zur alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den Leitfaden [Metas Porting von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/), oder [Three.js](https://threejs.org/), oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Anleitung zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 

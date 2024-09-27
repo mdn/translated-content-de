@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die **`console.timeEnd()`** statische Methode stoppt einen Timer, der zuvor durch den Aufruf von {{domxref("console/time_static", "console.time()")}} gestartet wurde.
+Die **`console.timeEnd()`** statische Methode stoppt einen Timer, der zuvor durch Aufruf von [`console.time()`](/de/docs/Web/API/Console/time_static) gestartet wurde.
 
 Siehe [Timer](/de/docs/Web/API/console#timers) in der Dokumentation für Details und Beispiele.
 
@@ -22,11 +22,11 @@ timeEnd(label)
 ### Parameter
 
 - `label` {{optional_inline}}
-  - : Ein String, der den Namen des zu stoppenden Timers repräsentiert. Nach dem Stoppen wird die verstrichene Zeit automatisch in der Konsole zusammen mit einem Hinweis angezeigt, dass die Zeit abgelaufen ist. Wenn weggelassen, wird der Standardname "default" verwendet.
+  - : Ein String, der den Namen des zu stoppenden Timers darstellt. Sobald gestoppt, wird die verstrichene Zeit automatisch in der Konsole angezeigt, zusammen mit einem Indikator, dass die Zeit beendet ist. Wenn weggelassen, wird das Label "default" verwendet.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -38,11 +38,11 @@ alert("Do a bunch of other stuff…");
 console.timeEnd("answer time");
 ```
 
-Die Ausgabe des obigen Beispiels zeigt die Zeit, die der Benutzer benötigt, um das erste Alarmfenster zu schließen, gefolgt von der kumulativen Zeit, die benötigt wurde, um beide Alarme zu schließen:
+Die Ausgabe aus dem obigen Beispiel zeigt die Zeit, die der Benutzer benötigt hat, um das erste Alert-Fenster zu schließen, gefolgt von der Gesamtzeit, die benötigt wurde, um beide Alerts zu schließen:
 
 ![Timer-Ausgabe in der Firefox-Konsole](timer_output.png)
 
-Beachten Sie, dass der Name des Timers angezeigt wird, wenn der Timer-Wert mit `console.timeLog()` protokolliert wird und erneut, wenn er gestoppt wird. Zusätzlich enthält der Aufruf von `console.timeEnd()` die zusätzliche Information „timer ended“, um klarzumachen, dass der Timer keine Zeit mehr verfolgt.
+Beachten Sie, dass der Name des Timers angezeigt wird, wenn der Timer-Wert mit `console.timeLog()` protokolliert wird und erneut, wenn er gestoppt wird. Zusätzlich hat der Aufruf von `console.timeEnd()` die zusätzliche Information "timer ended", um deutlich zu machen, dass der Timer keine Zeit mehr aufzeichnet.
 
 ## Spezifikationen
 
@@ -54,8 +54,8 @@ Beachten Sie, dass der Name des Timers angezeigt wird, wenn der Timer-Wert mit `
 
 ## Siehe auch
 
-- Siehe {{domxref("console/timeLog_static", "console.timeLog()")}} für zusätzliche Beispiele
-- {{domxref("console/time_static", "console.time()")}}
-- [Microsoft Edges Dokumentation zu `console.timeEnd()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#timeend)
-- [Node.JS Dokumentation zu `console.timeEnd()`](https://nodejs.org/docs/latest/api/console.html#consoletimeendlabel)
-- [Google Chromes Dokumentation zu `console.timeEnd()`](https://developer.chrome.com/docs/devtools/console/api/#timeend)
+- Siehe [`console.timeLog()`](/de/docs/Web/API/Console/timeLog_static) für zusätzliche Beispiele
+- [`console.time()`](/de/docs/Web/API/Console/time_static)
+- [Microsoft Edge-Dokumentation für `console.timeEnd()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#timeend)
+- [Node.JS-Dokumentation für `console.timeEnd()`](https://nodejs.org/docs/latest/api/console.html#consoletimeendlabel)
+- [Google Chrome-Dokumentation für `console.timeEnd()`](https://developer.chrome.com/docs/devtools/console/api/#timeend)

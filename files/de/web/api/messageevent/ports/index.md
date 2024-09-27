@@ -1,5 +1,5 @@
 ---
-title: "MessageEvent: ports-Eigenschaft"
+title: "MessageEvent: Ports-Eigenschaft"
 short-title: ports
 slug: Web/API/MessageEvent/ports
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`ports`** schreibgeschützte Eigenschaft der {{domxref("MessageEvent")}}-Schnittstelle ist ein Array von {{domxref("MessagePort")}}-Objekten. Diese repräsentieren die Ports, die mit dem Kanal verknüpft sind, über den die Nachricht gesendet wird (wo zutreffend, beispielsweise bei der Kanalnachrichtenübermittlung oder beim Senden einer Nachricht an einen gemeinsam genutzten Worker).
+Die **`ports`** schreibgeschützte Eigenschaft des [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Interfaces ist ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports repräsentieren, die mit dem Kanal assoziiert sind, durch den die Nachricht gesendet wird (wo zutreffend, z.B. in der Kanalnachrichtenübertragung oder beim Senden einer Nachricht an einen Shared Worker).
 
 ## Wert
 
-Ein Array von {{domxref("MessagePort")}}-Objekten.
+Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten.
 
 ## Beispiele
 
@@ -25,7 +25,7 @@ onconnect = (e) => {
     port.postMessage(workerResult);
   });
 
-  port.start(); // Erforderlich bei der Verwendung von addEventListener. Andernfalls wird es implizit durch den onmessage-Setter aufgerufen.
+  port.start(); // Required when using addEventListener. Otherwise called implicitly by onmessage setter.
 };
 ```
 
@@ -39,4 +39,4 @@ onconnect = (e) => {
 
 ## Siehe auch
 
-- {{domxref("ExtendableMessageEvent")}} — ähnlich dieser Schnittstelle, jedoch in Schnittstellen verwendet, die den Autoren mehr Flexibilität bieten müssen.
+- [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent) — ähnlich diesem Interface, aber in Interfaces verwendet, die den Autoren mehr Flexibilität bieten müssen.

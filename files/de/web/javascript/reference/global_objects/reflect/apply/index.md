@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Reflect.apply()`**-Methode ruft eine Zielfunktion mit den angegebenen Argumenten auf.
+Die **`Reflect.apply()`** statische Methode ruft eine Ziel-Funktion mit den angegebenen Argumenten auf.
 
 {{EmbedInteractiveExample("pages/js/reflect-apply.html", "taller")}}
 
@@ -20,7 +20,7 @@ Reflect.apply(target, thisArgument, argumentsList)
 ### Parameter
 
 - `target`
-  - : Die Zielfunktion, die aufgerufen werden soll.
+  - : Die Ziel-Funktion, die aufgerufen werden soll.
 - `thisArgument`
   - : Der Wert von `this`, der für den Aufruf von `target` bereitgestellt wird.
 - `argumentsList`
@@ -28,7 +28,7 @@ Reflect.apply(target, thisArgument, argumentsList)
 
 ### Rückgabewert
 
-Das Ergebnis des Aufrufs der angegebenen `target`-Funktion mit dem spezifizierten `this`-Wert und den Argumenten.
+Das Ergebnis des Aufrufs der gegebenen `target`-Funktion mit dem angegebenen `this`-Wert und den Argumenten.
 
 ### Ausnahmen
 
@@ -37,7 +37,7 @@ Das Ergebnis des Aufrufs der angegebenen `target`-Funktion mit dem spezifizierte
 
 ## Beschreibung
 
-`Reflect.apply()` bietet die reflektierende Semantik eines Funktionsaufrufs. Das bedeutet, `Reflect.apply(target, thisArgument, argumentsList)` ist semantisch gleichwertig mit:
+`Reflect.apply()` bietet die reflektierende Semantik eines Funktionsaufrufs. Das heißt, `Reflect.apply(target, thisArgument, argumentsList)` ist semantisch äquivalent zu:
 
 ```js
 Math.floor.apply(null, [1.75]);
@@ -46,10 +46,10 @@ Reflect.apply(Math.floor, null, [1.75]);
 
 Die einzigen Unterschiede sind:
 
-- `Reflect.apply()` nimmt die aufzurufende Funktion als `target`-Parameter anstelle des `this`-Kontexts.
-- `Reflect.apply()` löst einen Fehler aus, wenn `argumentsList` weggelassen wird, anstatt standardmäßig ohne Parameter aufzurufen.
+- `Reflect.apply()` nimmt die Funktion, die aufgerufen werden soll, als `target`-Parameter statt des `this`-Kontexts.
+- `Reflect.apply()` löst eine Ausnahme aus, wenn `argumentsList` weggelassen wird, anstatt standardmäßig ohne Parameter aufzurufen.
 
-`Reflect.apply()` ruft die `[[Call]]`-Methode [Internmethode des Objekts](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
+`Reflect.apply()` ruft die `[[Call]]` [objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
 ## Beispiele
 

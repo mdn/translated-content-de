@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`split()`**-Methode von {{jsxref("String")}}-Werten nimmt ein Muster, teilt diesen String in eine geordnete Liste von Substrings, indem sie nach dem Muster sucht, platziert diese Substrings in ein Array und gibt das Array zurück.
+Die **`split()`**-Methode von {{jsxref("String")}}-Werten nimmt ein Muster auf und teilt diesen String in eine geordnete Liste von Substrings, indem sie nach dem Muster sucht. Diese Substrings werden in ein Array eingefügt und das Array wird zurückgegeben.
 
 {{EmbedInteractiveExample("pages/js/string-split.html", "taller")}}
 
@@ -21,62 +21,59 @@ split(separator, limit)
 ### Parameter
 
 - `separator`
-  - : Das Muster, das beschreibt, wo jede Teilung erfolgen soll. Kann `undefined`, ein String oder ein Objekt mit einer [`Symbol.split`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/split)-Methode sein — das typische Beispiel ist ein {{jsxref("RegExp", "regulärer Ausdruck", "", 1)}}. Das Weglassen von `separator` oder das Übergeben von `undefined` führt dazu, dass `split()` ein Array mit dem aufrufenden String als einziges Element zurückgibt. Alle Werte, die nicht `undefined` oder Objekte mit einer `[Symbol.split]()`-Methode sind, werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion).
+  - : Das Muster, das beschreibt, wo jede Trennung erfolgen soll. Kann `undefined`, ein String oder ein Objekt mit einer [`Symbol.split`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/split)-Methode sein — das typische Beispiel ist ein {{jsxref("RegExp", "regulärer Ausdruck", "", 1)}}. Wenn `separator` weggelassen oder `undefined` übergeben wird, führt `split()` dazu, dass ein Array mit dem aufrufenden String als einziges Element zurückgegeben wird. Alle Werte, die weder `undefined` noch Objekte mit einer `[Symbol.split]()`-Methode sind, werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion).
 - `limit` {{optional_inline}}
-  - : Eine nicht-negative Ganzzahl, die ein Limit für die Anzahl der Substrings angibt, die im Array enthalten sein sollen. Wenn angegeben, teilt die Methode den String bei jedem Auftreten des angegebenen `separator`, stoppt jedoch, wenn `limit`-Einträge im Array platziert worden sind. Jeglicher Text, der übrig bleibt, wird im Array überhaupt nicht berücksichtigt.
-    - Das Array kann weniger Einträge als `limit` enthalten, wenn das Ende des Strings erreicht wird, bevor das Limit erreicht ist.
+  - : Eine nicht-negative ganze Zahl, die eine Begrenzung für die Anzahl der in das Array aufzunehmenden Substrings angibt. Wenn angegeben, teilt die Funktion den String bei jedem Vorkommen des angegebenen `separator`, stoppt jedoch, wenn `limit` Einträge in das Array eingefügt wurden. Jeder übriggebliebene Text wird überhaupt nicht in das Array aufgenommen.
+    - Das Array kann weniger Einträge als `limit` enthalten, wenn das Ende des Strings erreicht ist, bevor das Limit erreicht wird.
     - Wenn `limit` `0` ist, wird `[]` zurückgegeben.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Strings, die an jedem Punkt geteilt wurden, wo der `separator` im gegebenen String auftritt.
+Ein {{jsxref("Array")}} von Strings, das an jedem Punkt, an dem der `separator` im gegebenen String auftritt, getrennt wird.
 
 ## Beschreibung
 
-Wenn `separator` ein nicht-leerer String ist, wird der Zielstring durch alle Vorkommen des `separator` geteilt, ohne dass `separator` in die Ergebnisse übernommen wird. Beispielsweise könnte ein String mit tabulatorgetrennten Werten (TSV) durch Übergeben eines Tabulatorzeichens als Trennzeichen geparst werden, wie `myString.split("\t")`. Wenn `separator` mehrere Zeichen enthält, muss diese gesamte Zeichenfolge gefunden werden, um eine Teilung vorzunehmen. Wenn `separator` am Anfang (oder Ende) des Strings auftritt, hat es dennoch die Wirkung der Teilung, was dazu führt, dass ein leerer (d.h. null Länge) String an der ersten (oder letzten) Position des zurückgegebenen Arrays erscheint. Wenn `separator` nicht in `str` vorkommt, enthält das zurückgegebene Array ein Element, das aus dem gesamten String besteht.
+Wenn `separator` ein nicht-leerer String ist, wird der Ziel-String durch alle Übereinstimmungen des `separator` geteilt, ohne dass `separator` in den Ergebnissen enthalten ist. Beispielsweise könnte ein String mit tabulatorgetrennten Werten (TSV) geparst werden, indem ein Tab-Zeichen als Separator übergeben wird, wie `myString.split("\t")`. Wenn `separator` mehrere Zeichen enthält, muss diese gesamte Zeichenfolge gefunden werden, um zu teilen. Wenn `separator` am Anfang (oder Ende) des Strings erscheint, hat es dennoch die Wirkung des Teilens, wodurch ein leerer (d.h. null Länge) String an der ersten (oder letzten) Position des zurückgegebenen Arrays erscheint. Wenn `separator` nicht in `str` vorkommt, enthält das zurückgegebene Array ein Element, das aus dem gesamten String besteht.
 
-Wenn `separator` ein leerer String (`""`) ist, wird `str` in ein Array mit jedem seiner UTF-16-"Zeichen" umgewandelt, ohne leere Strings an beiden Enden des resultierenden Strings.
+Wenn `separator` ein leerer String (`""`) ist, wird `str` in ein Array von jedem seiner UTF-16-"Zeichen" umgewandelt, ohne leere Strings an beiden Enden des resultierenden Strings.
 
-> **Hinweis:** `"".split("")` ist daher der einzige Weg, ein leeres Array zu erzeugen, wenn ein String als `separator` übergeben wird und `limit` nicht `0` ist.
+> **Hinweis:** `"".split("")` ist daher der einzige Weg, ein leeres Array zu erzeugen, wenn ein String als `separator` übergeben und `limit` nicht `0` ist.
 
 > [!WARNING]
-> Wenn der leere String (`""`) als Trennzeichen verwendet wird, wird der String **nicht** durch _vom Benutzer wahrgenommene Zeichen_ ([Grapheme-Cluster](https://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries)) oder Unicode-Zeichen (Codepunkte) geteilt, sondern durch UTF-16-Codeeinheiten. Dies zerstört [Surrogat-Paare](https://unicode.org/faq/utf_bom.html#utf16-2). Siehe ["Wie konvertiert man einen String in ein Zeichen-Array in JavaScript?" auf StackOverflow](https://stackoverflow.com/questions/4547609/how-to-get-character-array-from-a-string/34717402#34717402).
+> Wenn der leere String (`""`) als Separator verwendet wird, wird der String **nicht** durch _vom Benutzer wahrgenommene Zeichen_ ([Graphemcluster](https://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries)) oder Unicode-Zeichen (Codepunkte), sondern durch UTF-16-Codeeinheiten geteilt. Dies zerstört [Surrogatpaare](https://unicode.org/faq/utf_bom.html#utf16-2). Siehe ["How do you get a string to a character array in JavaScript?" auf StackOverflow](https://stackoverflow.com/questions/4547609/how-to-get-character-array-from-a-string/34717402#34717402).
 
-Wenn `separator` ein regulärer Ausdruck ist, der leere Strings trifft, hängt es davon ab, ob das Match durch UTF-16-Codeeinheiten oder Unicode-Codepunkte geteilt wird, ob der Regexp [Unicode-fähig](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist oder nicht.
+Wenn `separator` ein reguläres Ausdruck ist, das leere Strings trifft, hängt es davon ab, ob das Muster in UTF-16-Codeeinheiten oder Unicode-Codepunkten geteilt wird, ob der Regex [Unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist.
 
 ```js
 "😄😄".split(/(?:)/); // [ "\ud83d", "\ude04", "\ud83d", "\ude04" ]
 "😄😄".split(/(?:)/u); // [ "😄", "😄" ]
 ```
 
-Wenn `separator` ein regulärer Ausdruck mit Erfassungsgruppen ist, werden jedes Mal, wenn `separator` übereinstimmt, die erfassten Gruppen (einschließlich aller `undefined`-Ergebnisse) in das Ausgabe-Array eingefügt. Dieses Verhalten wird durch die Methode [`Symbol.split`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/split) des Regexp spezifiziert.
+Wenn `separator` ein regulärer Ausdruck mit Gruppen ist, dann werden jedes Mal, wenn `separator` übereinstimmt, die erfassten Gruppen (einschließlich aller `undefined`-Ergebnisse) in das Ausgabe-Array eingefügt. Dieses Verhalten wird von der [`Symbol.split`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/split)-Methode des regulären Ausdrucks spezifiziert.
 
-Wenn `separator` ein Objekt mit einer [`Symbol.split`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/split)-Methode ist, wird diese Methode mit dem Zielstring und `limit` als Argumente aufgerufen, und `this` auf das Objekt gesetzt. Ihr Rückgabewert wird der Rückgabewert von `split`.
+Wenn `separator` ein Objekt mit einer [`Symbol.split`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/split)-Methode ist, wird diese Methode mit dem Zielstring und `limit` als Argumente aufgerufen, und `this` wird auf das Objekt gesetzt. Sein Rückgabewert wird der Rückgabewert von `split`.
 
-Jeder andere Wert wird vor der Verwendung als Separator in einen String umgewandelt.
+Jeder andere Wert wird in einen String umgewandelt, bevor er als Separator verwendet wird.
 
 ## Beispiele
 
 ### Verwendung von split()
 
-Wenn der String leer ist und ein nicht-leeres Trennzeichen angegeben wird, gibt `split()` `[""]` zurück. Wenn sowohl der String als auch das Trennzeichen leere Strings sind, wird ein leeres Array zurückgegeben.
+Wenn der String leer ist und ein nicht-leerer Separator angegeben wird, gibt `split()` `[""]` zurück. Wenn sowohl der String als auch der Separator leere Strings sind, wird ein leeres Array zurückgegeben.
 
 ```js
 const emptyString = "";
 
-// String ist leer und Trennzeichen ist nicht leer
+// string is empty and separator is non-empty
 console.log(emptyString.split("a"));
 // [""]
 
-// String und Trennzeichen sind beide leere Strings
+// string and separator are both empty strings
 console.log(emptyString.split(emptyString));
 // []
 ```
 
-Das folgende Beispiel definiert eine Funktion, die einen String in ein Array von Strings aufteilt,
-unter Verwendung des `separator`. Nach dem Teilen des Strings gibt die Funktion
-Meldungen aus, die den ursprünglichen String (vor der Teilung), das verwendete Trennzeichen,
-die Anzahl der Elemente im Array und die einzelnen Array-Elemente anzeigen.
+Das folgende Beispiel definiert eine Funktion, die einen String mit `separator` in ein Array von Strings aufteilt. Nachdem der String aufgeteilt wurde, gibt die Funktion Nachrichten aus, die den ursprünglichen String (vor der Aufteilung), den verwendeten Separator, die Anzahl der Elemente im Array und die einzelnen Array-Elemente anzeigen.
 
 ```js
 function splitString(stringToSplit, separator) {
@@ -119,11 +116,9 @@ The separator is: ","
 The array has 12 elements: Jan / Feb / Mar / Apr / May / Jun / Jul / Aug / Sep / Oct / Nov / Dec
 ```
 
-### Entfernung von Leerzeichen aus einem String
+### Entfernen von Leerzeichen aus einem String
 
-Im folgenden Beispiel sucht `split()` nach null oder mehr Leerzeichen, gefolgt von einem Semikolon, gefolgt von null oder mehr Leerzeichen — und entfernt, wenn gefunden, die Leerzeichen und
-das Semikolon aus dem String. `nameList` ist das Array, das als Ergebnis
-von `split()` zurückgegeben wird.
+Im folgenden Beispiel sucht `split()` nach null oder mehr Leerzeichen, gefolgt von einem Semikolon, gefolgt von null oder mehr Leerzeichen - und entfernt, wenn gefunden, die Leerzeichen und das Semikolon aus dem String. `nameList` ist das Array, das als Ergebnis von `split()` zurückgegeben wird.
 
 ```js
 const names = "Harry Trump ;Fred Barney; Helen Rigby ; Bill Abel ;Chris Hand ";
@@ -136,18 +131,16 @@ const nameList = names.split(re);
 console.log(nameList);
 ```
 
-Dies protokolliert zwei Zeilen; die erste Zeile protokolliert den Originalstring, und die zweite Zeile protokolliert
-das resultierende Array.
+Dies protokolliert zwei Zeilen; die erste Zeile protokolliert den ursprünglichen String, und die zweite Zeile protokolliert das resultierende Array.
 
 ```plain
 Harry Trump ;Fred Barney; Helen Rigby ; Bill Abel ;Chris Hand
 [ "Harry Trump", "Fred Barney", "Helen Rigby", "Bill Abel", "Chris Hand", "" ]
 ```
 
-### Zurückgeben einer begrenzten Anzahl von Teilen
+### Rückgabe einer begrenzten Anzahl von Aufteilungen
 
-Im folgenden Beispiel sucht `split()` nach Leerzeichen in einem String und gibt
-die ersten 3 Funde zurück.
+Im folgenden Beispiel sucht `split()` nach Leerzeichen in einem String und gibt die ersten 3 gefundenen Aufteilungen zurück.
 
 ```js
 const myString = "Hello World. How are you doing?";
@@ -156,9 +149,9 @@ const splits = myString.split(" ", 3);
 console.log(splits); // [ "Hello", "World.", "How" ]
 ```
 
-### Aufteilung mit einem `RegExp`, um Teile des Trennzeichens im Ergebnis zu inkludieren
+### Aufteilung mit einem `RegExp`, um Teile des Separators im Ergebnis einzuschließen
 
-Wenn `separator` ein regulärer Ausdruck ist, der Erfassungsklammern `( )` enthält, werden die übereinstimmenden Ergebnisse in das Array aufgenommen.
+Wenn `separator` ein regulärer Ausdruck ist, der erfassende Klammern `( )` enthält, werden übereinstimmende Ergebnisse im Array aufgenommen.
 
 ```js
 const myString = "Hello 1 word. Sentence number 2.";
@@ -174,7 +167,7 @@ console.log(splits);
 
 Ein Objekt mit einer `Symbol.split`-Methode kann als Splitter mit benutzerdefiniertem Verhalten verwendet werden.
 
-Das folgende Beispiel teilt einen String unter Verwendung eines internen Zustands, der aus einer inkrementierenden Zahl besteht:
+Das folgende Beispiel teilt einen String unter Verwendung eines internen Zustands, der aus einer hochzählenden Zahl besteht:
 
 ```js
 const splitByNumber = {
@@ -200,12 +193,12 @@ const myString = "a1bc2c5d3e4f";
 console.log(myString.split(splitByNumber)); // [ "a", "bc", "c5d", "e", "f" ]
 ```
 
-Das folgende Beispiel verwendet einen internen Zustand, um bestimmtes Verhalten zu erzwingen und ein "gültiges" Ergebnis sicherzustellen.
+Das folgende Beispiel verwendet einen internen Zustand, um bestimmtes Verhalten zu erzwingen und sicherzustellen, dass ein "gültiges" Ergebnis erzeugt wird.
 
 ```js
 const DELIMITER = ";";
 
-// Die Befehle teilen, aber alle ungültigen oder unnötigen Werte entfernen.
+// Split the commands, but remove any invalid or unnecessary values.
 const splitCommands = {
   [Symbol.split](str, lim) {
     const results = [];
@@ -225,7 +218,7 @@ const splitCommands = {
 
       switch (subString) {
         case "light on":
-          // Wenn der `on`-Zustand bereits true ist, nichts tun.
+          // If the `on` state is already true, do nothing.
           if (!state.on) {
             state.on = true;
             results.push(subString);
@@ -233,7 +226,7 @@ const splitCommands = {
           break;
 
         case "light off":
-          // Wenn der `on`-Zustand bereits false ist, nichts tun.
+          // If the `on` state is already false, do nothing.
           if (state.on) {
             state.on = false;
             results.push(subString);
@@ -241,7 +234,7 @@ const splitCommands = {
           break;
 
         case "brightness up":
-          // Helligkeitsmaximum erzwingen.
+          // Enforce a brightness maximum.
           if (state.brightness.current < state.brightness.max) {
             state.brightness.current += 1;
             results.push(subString);
@@ -249,7 +242,7 @@ const splitCommands = {
           break;
 
         case "brightness down":
-          // Helligkeitsminimum erzwingen.
+          // Enforce a brightness minimum.
           if (state.brightness.current > state.brightness.min) {
             state.brightness.current -= 1;
             results.push(subString);
@@ -265,7 +258,7 @@ const splitCommands = {
       matchPos = str.indexOf(DELIMITER, pos);
     }
 
-    // Wenn wir früh aufgrund der Erreichung des Teilungs-`lim` unterbrochen haben, keine verbleibenden Befehle hinzufügen.
+    // If we broke early due to reaching the split `lim`, don't add the remaining commands.
     if (results.length < lim) {
       results.push(str.slice(pos).trim());
     }
@@ -289,9 +282,9 @@ console.log(commands.split(splitCommands, 3)); // ["light on", "brightness up", 
 
 ## Siehe auch
 
-- [Polyfill von `String.prototype.split` in `core-js` mit Fixes und Implementierung moderner Verhaltensweisen wie `Symbol.split` Unterstützung](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
+- [Polyfill von `String.prototype.split` in `core-js` mit Korrekturen und Implementierung moderner Verhaltensweisen wie `Symbol.split`-Unterstützung](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
 - {{jsxref("String.prototype.charAt()")}}
 - {{jsxref("String.prototype.indexOf()")}}
 - {{jsxref("String.prototype.lastIndexOf()")}}
 - {{jsxref("Array.prototype.join()")}}
-- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions)-Anleitung
+- [Leitfaden für reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions)

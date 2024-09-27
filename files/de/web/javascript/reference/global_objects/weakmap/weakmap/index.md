@@ -16,12 +16,12 @@ new WeakMap()
 new WeakMap(iterable)
 ```
 
-> **Note:** `WeakMap()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `WeakMap()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `iterable`
-  - : Ein [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) oder ein anderes [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols), das ein zwei-elementiges array-ähnliches Objekt erzeugt, dessen erstes Element als `WeakMap`-Schlüssel verwendet wird und dessen zweites Element der mit diesem Schlüssel assoziierte Wert ist. Jedes Paar aus Schlüssel und Wert wird zu der neuen `WeakMap` hinzugefügt. null wird als undefined behandelt.
+  - : Ein [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) oder ein anderes [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols), das ein zwei-elementiges array-ähnliches Objekt erzeugt, dessen erstes Element als `WeakMap`-Schlüssel verwendet wird und dessen zweites Element der mit diesem Schlüssel zu verknüpfende Wert ist. Jedes Schlüssel-Wert-Paar wird zur neuen `WeakMap` hinzugefügt. null wird wie undefined behandelt.
 
 ## Beispiele
 
@@ -37,17 +37,17 @@ const o3 = window;
 
 wm1.set(o1, 37);
 wm1.set(o2, "azerty");
-wm2.set(o1, o2); // ein Wert kann alles sein, einschließlich eines Objekts oder einer Funktion
+wm2.set(o1, o2); // a value can be anything, including an object or a function
 wm2.set(o3, undefined);
-wm2.set(wm1, wm2); // Schlüssel und Werte können beliebige Objekte sein, sogar WeakMaps!
+wm2.set(wm1, wm2); // keys and values can be any objects. Even WeakMaps!
 
 wm1.get(o2); // "azerty"
-wm2.get(o2); // undefined, weil es keinen Schlüssel für o2 in wm2 gibt
-wm2.get(o3); // undefined, weil das der gesetzte Wert ist
+wm2.get(o2); // undefined, because there is no key for o2 on wm2
+wm2.get(o3); // undefined, because that is the set value
 
 wm1.has(o2); // true
 wm2.has(o2); // false
-wm2.has(o3); // true (auch wenn der Wert selbst 'undefined' ist)
+wm2.has(o3); // true (even if the value itself is 'undefined')
 
 wm3.set(o1, 37);
 wm3.get(o1); // 37
@@ -68,7 +68,7 @@ wm1.has(o1); // false
 ## Siehe auch
 
 - [Polyfill von `WeakMap` in `core-js`](https://github.com/zloirock/core-js#weakmap)
-- [`WeakMap` im JavaScript Guide](/de/docs/Web/JavaScript/Guide/Keyed_collections#weakmap_object)
+- [`WeakMap` im JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide/Keyed_collections#weakmap_object)
 - [Verbergen von Implementierungsdetails mit ECMAScript 6 WeakMaps](https://fitzgen.com/2014/01/13/hiding-implementation-details-with-e6-weakmaps.html)
 - {{jsxref("Map")}}
 - {{jsxref("Set")}}

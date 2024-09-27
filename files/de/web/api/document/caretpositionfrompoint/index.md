@@ -1,5 +1,5 @@
 ---
-title: "Dokument: caretPositionFromPoint()-Methode"
+title: "Document: caretPositionFromPoint()-Methode"
 short-title: caretPositionFromPoint()
 slug: Web/API/Document/caretPositionFromPoint
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM View")}}
 
-Die **`caretPositionFromPoint()`**-Methode des {{domxref("Document")}}-Interfaces gibt ein {{domxref('CaretPosition')}}-Objekt zurück, das den DOM-Knoten zusammen mit dem Caret und dem Zeichenoffset des Carets innerhalb dieses Knotens enthält.
+Die **`caretPositionFromPoint()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Objekt zurück, das den DOM-Knoten sowie die Einfügemarke und deren Zeichenoffset innerhalb dieses Knotens enthält.
 
 ## Syntax
 
@@ -25,17 +25,17 @@ caretPositionFromPoint(x, y)
 
 ### Rückgabewert
 
-Ein {{domxref('CaretPosition')}}-Objekt.
+Ein [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Objekt.
 
 ## Beispiele
 
-Klicken Sie irgendwo in den **Demo**-Absatz unten, um an der Stelle, an der Sie klicken, einen Zeilenumbruch einzufügen. Der Code dafür befindet sich unter der Demo.
+Klicken Sie irgendwo im **Demo**-Absatz unten, um an der Stelle, auf die Sie klicken, einen Zeilenumbruch einzufügen. Der Code dazu befindet sich unter der Demo.
 
 ### Demo
 
 {{EmbedLiveSample('Examples')}}
 
-Der untenstehende Code überprüft zuerst die Unterstützung von `document.caretPositionFromPoint`, aber falls der Browser dies nicht unterstützt, wird stattdessen {{domxref("Document.caretRangeFromPoint", "document.caretRangeFromPoint")}} geprüft und verwendet.
+Der folgende Code überprüft zuerst die Unterstützung von `document.caretPositionFromPoint`, aber wenn der Browser dies nicht unterstützt, prüft der Code stattdessen auf [`document.caretRangeFromPoint`](/de/docs/Web/API/Document/caretRangeFromPoint) und verwendet dies alternativ.
 
 ### JavaScript
 
@@ -50,15 +50,15 @@ function insertBreakAtPoint(e) {
     textNode = range.offsetNode;
     offset = range.offset;
   } else if (document.caretRangeFromPoint) {
-    // Verwenden Sie die proprietäre WebKit-Fallback-Methode
+    // Use WebKit-proprietary fallback method
     range = document.caretRangeFromPoint(e.clientX, e.clientY);
     textNode = range.startContainer;
     offset = range.startOffset;
   } else {
-    // Keine der Methoden wird unterstützt, nichts tun
+    // Neither method is supported, do nothing
     return;
   }
-  // Nur TEXT_NODEs teilen
+  // Only split TEXT_NODEs
   if (textNode?.nodeType === 3) {
     let replacement = textNode.splitText(offset);
     let br = document.createElement("br");
@@ -76,11 +76,11 @@ for (const paragraph of paragraphs) {
 let message = document.getElementById("message");
 if (document.caretPositionFromPoint) {
   message.textContent =
-    "Dieser Browser unterstützt die Standardmethode document.caretPositionFromPoint";
+    "This browser supports the standard document.caretPositionFromPoint";
   message.classList.add("supported");
 } else if (document.caretRangeFromPoint) {
   message.textContent =
-    "Dieser Browser unterstützt die nicht standardisierte Methode document.caretRangeFromPoint";
+    "This browser supports the non-standard document.caretRangeFromPoint";
   message.classList.add("supported");
 }
 ```
@@ -89,7 +89,7 @@ if (document.caretPositionFromPoint) {
 
 ```html hidden
 <div id="message">
-  Dieser Browser unterstützt weder document.caretRangeFromPoint noch
+  This browser supports neither document.caretRangeFromPoint nor
   document.caretPositionFromPoint
 </div>
 ```
@@ -128,4 +128,4 @@ if (document.caretPositionFromPoint) {
 
 ## Siehe auch
 
-- {{domxref('CaretPosition')}}
+- [`CaretPosition`](/de/docs/Web/API/CaretPosition)

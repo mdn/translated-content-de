@@ -1,6 +1,6 @@
 ---
-title: "MIDIPort: Verbindungs-Eigenschaft"
-short-title: Verbindung
+title: "MIDIPort: connection Eigenschaft"
+short-title: connection
 slug: Web/API/MIDIPort/connection
 l10n:
   sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
@@ -8,22 +8,22 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die schreibgeschützte Eigenschaft **`connection`** der Schnittstelle {{domxref("MIDIPort")}} gibt den Verbindungsstatus des Ports zurück.
+Die schreibgeschützte Eigenschaft **`connection`** des [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Interfaces gibt den Verbindungsstatus des Ports zurück.
 
 ## Wert
 
 Gibt einen String zurück, der den Verbindungsstatus des Ports enthält, einer von:
 
 - `"open"`
-  - : Das Gerät, das diesen `MIDIPort` repräsentiert, wurde geöffnet und ist verfügbar.
+  - : Das Gerät, das dieser `MIDIPort` repräsentiert, wurde geöffnet und ist verfügbar.
 - `"closed"`
-  - : Das Gerät, das diesen `MIDIPort` repräsentiert, wurde nicht geöffnet oder wurde geschlossen.
+  - : Das Gerät, das dieser `MIDIPort` repräsentiert, wurde nicht geöffnet oder ist geschlossen.
 - `"pending"`
-  - : Das Gerät, das diesen `MIDIPort` repräsentiert, wurde geöffnet, ist aber anschließend getrennt worden.
+  - : Das Gerät, das dieser `MIDIPort` repräsentiert, wurde geöffnet, aber anschließend getrennt.
 
 ## Beispiele
 
-Das folgende Beispiel iteriert über alle Eingabeports und druckt den Verbindungsstatus jedes einzelnen in die Konsole.
+Das folgende Beispiel durchläuft alle Eingangsports und gibt den Verbindungsstatus jedes einzelnen in der Konsole aus.
 
 ```js
 for (const entry of midiAccess.inputs) {
@@ -36,6 +36,6 @@ for (const entry of midiAccess.inputs) {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

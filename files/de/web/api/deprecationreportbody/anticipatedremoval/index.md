@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die **`anticipatedRemoval`** schreibgeschützte Eigenschaft der Schnittstelle {{domxref("DeprecationReportBody")}} gibt das Datum zurück, an dem die Browserversion, die das Feature entfernt, veröffentlicht wird. Dieser Wert kann verwendet werden, um Warnungen zu priorisieren. Wenn diese Eigenschaft `null` zurückgibt, weil das Datum unbekannt ist, sollte die Veraltung als von geringer Priorität betrachtet werden.
+Die **`anticipatedRemoval`**-Eigenschaft der [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Schnittstelle gibt das Datum zurück, an dem die Browserversion, die das Feature entfernt, ausgeliefert wird. Dieser Wert kann zur Priorisierung von Warnungen genutzt werden. Wenn diese Eigenschaft `null` zurückgibt, weil das Datum unbekannt ist, sollte die Veraltung als niedrige Priorität betrachtet werden.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein {{jsxref("date")}}-Objekt oder `null`, wenn das Datum nicht bekannt ist.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen {{domxref("ReportingObserver")}}, um Veraltungsmeldungen zu beobachten und geben dann den Wert von `anticipatedRemoval` in der Konsole aus.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltungsberichte zu beobachten und anschließend den Wert von `anticipatedRemoval` in die Konsole zu drucken.
 
 ```js
 let options = {

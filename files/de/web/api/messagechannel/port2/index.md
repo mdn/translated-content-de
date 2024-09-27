@@ -8,20 +8,15 @@ l10n:
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Die **`port2`** schreibgeschützte Eigenschaft der
-{{domxref("MessageChannel")}}-Schnittstelle gibt den zweiten Port des Nachrichtenkanals zurück — den Port, der mit dem Kontext am anderen Ende des Kanals verbunden ist und an den die Nachricht ursprünglich gesendet wird.
+Die **`port2`** schreibgeschützte Eigenschaft des [`MessageChannel`](/de/docs/Web/API/MessageChannel)-Interfaces gibt den zweiten Port des Nachrichtenkanals zurück — der Port, der an den Kontext am anderen Ende des Kanals angeschlossen ist, an den die Nachricht anfänglich gesendet wird.
 
 ## Wert
 
-Ein {{domxref("MessagePort")}}-Objekt, das den zweiten Port des Kanals darstellt, den Port, der mit dem Kontext am anderen Ende des Kanals verbunden ist.
+Ein [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt, das den zweiten Port des Kanals repräsentiert, also den Port, der an den Kontext am anderen Ende des Kanals angeschlossen ist.
 
 ## Beispiele
 
-Im folgenden Codeblock sehen Sie, wie ein neuer Kanal mithilfe des
-{{domxref("MessageChannel.MessageChannel", "MessageChannel()")}}-Konstruktors erstellt wird. Sobald das IFrame geladen ist, übergeben wir `port2` an das IFrame
-mithilfe von {{domxref("MessagePort.postMessage")}} zusammen mit einer Nachricht. Der
-`handleMessage`-Handler reagiert dann auf eine Nachricht, die vom IFrame zurückgesendet wird (mithilfe von {{domxref("MessagePort.message_event", "onmessage")}}), und setzt diese in einen Absatz ein.
-{{domxref("MessageChannel.port1", "port1")}} wird beobachtet, um zu überprüfen, wann die Nachricht ankommt.
+Im folgenden Codeblock sehen Sie, wie ein neuer Kanal mit dem [`MessageChannel()`](/de/docs/Web/API/MessageChannel/MessageChannel)-Konstruktor erstellt wird. Sobald das IFrame geladen ist, übergeben wir `port2` an das IFrame mithilfe von [`MessagePort.postMessage`](/de/docs/Web/API/MessagePort/postMessage) zusammen mit einer Nachricht. Der `handleMessage`-Handler reagiert dann auf eine zurückgesendete Nachricht vom IFrame (unter Verwendung von [`onmessage`](/de/docs/Web/API/MessagePort/message_event)) und fügt sie in einen Absatz ein. [`port1`](/de/docs/Web/API/MessageChannel/port1) wird überwacht, um zu überprüfen, wann die Nachricht ankommt.
 
 ```js
 const channel = new MessageChannel();
@@ -42,16 +37,16 @@ function handleMessage(e) {
 }
 ```
 
-Ein vollständiges funktionierendes Beispiel finden Sie in unserem [Channel Messaging Basic Demo](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub ([führen Sie es auch live aus](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
+Für ein vollständig funktionierendes Beispiel siehe unser [Grundlagendemo zur Nachrichtenübermittlung im Kanal](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub ([auch live ausführen](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Verwendung der Kanal-Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwendung der Nachrichtenübermittlung im Kanal](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

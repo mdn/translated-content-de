@@ -11,48 +11,48 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 57 (auch be
 
 ## Firefox 57 === Firefox Quantum
 
-Firefox 57 hat den Freigabenamen **Quantum** erhalten, nach dem [Firefox Quantum](https://wiki.mozilla.org/Quantum) Ingenieurprojekt, das darauf abzielt, Firefox von Grund auf neu zu entwickeln und damit erhebliche Verbesserungen in Leistung, Stabilität und visueller Erscheinung mitzubringen. Dies ist die erste Version von Firefox, die einige dieser Verbesserungen enthält, daher wollten wir diesen Anlass markieren.
+Firefox 57 hat den Veröffentlichungsnamen **Quantum** erhalten, nach dem [Firefox Quantum](https://wiki.mozilla.org/Quantum)-Ingenieurprojekt, das darauf abzielte, Firefox von Grund auf neu zu entwickeln und dabei bedeutende Verbesserungen in Bezug auf Leistung, Stabilität und visuelle Darstellung zu bieten. Dies ist die erste Version von Firefox, die einige dieser Verbesserungen liefert, daher wollten wir diesen Anlass markieren.
 
 > [!NOTE]
-> Um mehr über die Quantum-Funktionen in dieser Version zu erfahren, lesen Sie [Firefox Quantum Developer Edition: Der schnellste Firefox aller Zeiten mit Photon UI und besseren Werkzeugen](https://hacks.mozilla.org/2017/09/firefox-quantum-developer-edition-fastest-firefox-ever/) von Dan Callahan.
+> Um mehr über die Quantum-Funktionen in dieser Version zu erfahren, lesen Sie [Firefox Quantum Developer Edition: der schnellste Firefox aller Zeiten mit Photon-UI und besseren Werkzeugen](https://hacks.mozilla.org/2017/09/firefox-quantum-developer-edition-fastest-firefox-ever/) von Dan Callahan.
 
-[Firefox's neue parallele CSS-Engine](https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/) — auch bekannt als **Quantum CSS** oder **Stylo** — ist standardmäßig in Firefox 57 für Desktop aktiviert, mobile Versionen von Firefox folgen später. Entwickler sollten nichts Wesentliches bemerken, abgesehen von einer Vielzahl an Leistungsverbesserungen. Es gibt jedoch einige kleinere funktionale Unterschiede bei Stylo, die implementiert wurden, um nicht-standardmäßiges Gecko-Verhalten zu korrigieren, das beseitigt werden sollte. Wir werden solche Unterschiede auf Referenzseiten und in den Versionshinweisen entsprechend berichten (siehe [Quantum CSS notes](#quantum_css_notizen)).
+[Firefox's neuer paralleler CSS-Engine](https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/) — auch bekannt als **Quantum CSS** oder **Stylo** — ist standardmäßig in Firefox 57 für Desktop aktiviert, mit mobilen Versionen von Firefox, die später folgen werden. Entwickler sollten nichts wesentlich anderes bemerken, abgesehen von einer Vielzahl von Leistungsverbesserungen. Es gibt jedoch eine Reihe von kleineren funktionalen Unterschieden in Stylo, die implementiert wurden, um nicht-standardmäßiges Gecko-Verhalten zu korrigieren, das beseitigt werden sollte. Wir werden über solche Unterschiede auf Referenzseiten und in den Versionshinweisen entsprechend berichten (siehe [Quantum CSS Anmerkungen](#quantum_css_anmerkungen)).
 
 ## Änderungen für Webentwickler
 
-### Entwicklerwerkzeuge
+### Entwicklertools
 
 _Keine Änderungen._
 
 ### HTML
 
-- Die [date](/de/docs/Web/HTML/Element/input/date) und [time](/de/docs/Web/HTML/Element/input/time) {{htmlelement("input")}} Typen sind jetzt in allen Builds aktiviert ([Firefox Bug 1399036](https://bugzil.la/1399036)).
+- Die [date](/de/docs/Web/HTML/Element/input/date) und [time](/de/docs/Web/HTML/Element/input/time) {{htmlelement("input")}} Typen sind jetzt in allen Builds aktiviert ([Firefox Fehler 1399036](https://bugzil.la/1399036)).
 
 ### CSS
 
-- Die Werte `minimal-ui` und `standalone` der [`display-mode`](/de/docs/Web/CSS/@media/display-mode) Media Query werden nun unterstützt ([Firefox Bug 1369815](https://bugzil.la/1369815)). Siehe auch das [Web App Manifest `display` Feld](/de/docs/Web/Manifest#display).
-- Die Eigenschaften `grid-row-gap` und `grid-column-gap` werden nicht mehr durch das {{CSSxRef("grid")}} Kurzschreibweise zurückgesetzt ([Firefox Bug 1387410](https://bugzil.la/1387410)).
-- Die Einstellung `layout.css.clip-path-shapes.enabled` wurde entfernt ([Firefox Bug 1399767](https://bugzil.la/1399767)). Diese Einstellung erlaubte das Deaktivieren der Unterstützung von {{CSSxRef("&lt;basic-shape&gt;")}} in {{CSSxRef("clip-path")}}. Diese Unterstützung wurde in Firefox 54 eingeführt und kann nicht mehr deaktiviert werden.
+- Die `minimal-ui`- und `standalone`-Werte der [`display-mode`](/de/docs/Web/CSS/@media/display-mode) Media Query werden jetzt unterstützt ([Firefox Fehler 1369815](https://bugzil.la/1369815)). Siehe auch das [Web App Manifest `display` Feld](/de/docs/Web/Manifest#display).
+- Die Eigenschaften `grid-row-gap` und `grid-column-gap` werden nicht mehr durch die {{CSSxRef("grid")}} Kurzform zurückgesetzt ([Firefox Fehler 1387410](https://bugzil.la/1387410)).
+- Die `layout.css.clip-path-shapes.enabled` Präferenz wurde entfernt ([Firefox Fehler 1399767](https://bugzil.la/1399767)). Diese Präferenz erlaubte es, die Unterstützung für {{CSSxRef("&lt;basic-shape&gt;")}} in {{CSSxRef("clip-path")}} zu deaktivieren. Diese Unterstützung wurde in Firefox 54 bereitgestellt und kann nicht mehr deaktiviert werden.
 
-#### Quantum CSS Notizen
+#### Quantum CSS Anmerkungen
 
 Folgende Fehler wurden in Quantum behoben:
 
-- Radiale Gradientenwerte wie `radial-gradient(circle gold,red)` funktionieren im alten Gecko-Stilsystem, obwohl sie es nicht sollten, weil das Komma zwischen `circle` und `gold` fehlt ([Firefox Bug 1383323](https://bugzil.la/1383323)).
-- Wenn Sie ein außerhalb des Bildschirms befindliches Element auf den Bildschirm animieren, aber eine Verzögerung angeben, wird Gecko auf einigen Plattformen nicht neu gezeichnet, z.B. Windows ([Firefox Bug 1383239](https://bugzil.la/1383239)).
-- In Gecko können {{htmlelement("details")}}-Elemente nicht standardmäßig durch das `open` Attribut geöffnet werden, wenn sie eine {{CSSxRef("animation")}} haben, die auf ihnen aktiv ist ([Firefox Bug 1382124](https://bugzil.la/1382124)).
-- In Gecko funktionieren {{CSSxRef("transition", "transitions")}} nicht, wenn von einem {{CSSxRef("text-shadow")}} mit Farbe zu einem `text-shadow` ohne Farbe gewechselt wird ([Firefox Bug 726550](https://bugzil.la/726550)).
-- Das Abbrechen einer füllenden Animation (z.B. mit `animation-fill-mode: forwards` gesetzt) kann eine Transition auslösen, die auf demselben Element gesetzt ist, allerdings nur einmal ([siehe Firefox Bug 1192592](https://bugzil.la/1192592) und [diese Testfälle](https://bug1192592.bmoattachments.org/attachment.cgi?id=8843824) für weitere Informationen). Im Allgemeinen sollten deklarative Animationen keine Transitionen auslösen.
-- Animationen, die em-Einheiten verwenden, werden nicht von Änderungen der {{CSSxRef("font-size")}} auf dem übergeordneten Element der Animationen betroffen, während sie es sollten ([Firefox Bug 1254424](https://bugzil.la/1254424)).
-- Gecko geht auch anders mit der Vererbung von `font-size` um als Quantum CSS, was bedeutet, dass für einige Spracheinstellungen vererbte Schriftgrößen kleiner als erwartet ausfallen (siehe [Firefox Bug 1391341](https://bugzil.la/1391341)).
-- Gecko verwendet denselben Mechanismus beim Parsen eines url-tokens, wenn `domain()` oder `url-prefix()` URL-Matching-Funktionen für eine {{CSSxRef("@document", "@-moz-document")}} Regel geparst werden. Quantum CSS verwendet nicht denselben Mechanismus und betrachtet Token nicht als ungültig, wenn sie Klammern oder Anführungszeichen enthalten ([Firefox Bug 1362333](https://bugzil.la/1362333)).
-- In Gecko, wenn Sie eine Systemschriftart als den Wert eines 2D-Kontext-Schriftart-Parameters auf einem Canvas setzen (z.B. `menu`), schlägt das Zurückholen des Schriftwerts fehl, da nichts zurückgegeben wird. Dies wurde in Quantum behoben. ([Firefox Bug 1374885](https://bugzil.la/1374885)).
-- In Gecko, wenn Sie einen losgelösten Teilbaum erstellen (z.B. ein {{htmlelement("div")}}, das mit {{DOMxRef("Document.createElement","createElement()")}} erstellt wurde und noch nicht in das DOM eingefügt ist), wird das Wurzelelement des Teilbaumes als Block-Level-Element gesetzt. In Quantum CSS wird dies gemäß Spezifikation als inline gesetzt ([Firefox Bug 1374994](https://bugzil.la/1374994)).
-- In Gecko werden {{CSSxRef("calc", "calc()")}} Ausdrücke abgelehnt — was den Wert ungültig macht —, wenn sie als Radiuskomponente einer {{CSSxRef("gradient/radial-gradient")}} Funktion verwendet werden ([Firefox Bug 1376019](https://bugzil.la/1376019)).
-- In Gecko wird `calc(1*2*3)` nicht erfolgreich geparst; Quantum CSS behebt dies ([Firefox Bug 1379467](https://bugzil.la/1379467)).
-- In Quantum CSS wird [`calc()` überall unterstützt, wo die Spezifikation es erklärt](https://drafts.csswg.org/css-values-3/#calc-notation) ([Firefox Bug 1350857](https://bugzil.la/1350857)). In Gecko nicht.
-- Gecko hat einen Fehler, bei dem {{CSSxRef("::before")}} und {{CSSxRef("::after")}} Pseudo-Elemente noch generiert werden, auch wenn der {{CSSxRef("content")}} Eigenschaftswert auf `normal` oder `none` gesetzt ist. Laut Spezifikation sollten sie es nicht sein ([Firefox Bug 1387931](https://bugzil.la/1387931)).
-- Ein weiterer Gecko-Fehler bedeutet, dass die {{CSSxRef("background-position")}} Eigenschaft nicht zwischen zwei Werten übergehen kann, die unterschiedliche Anzahlen von {{CSSxRef("&lt;position&gt;")}} Werten enthalten, z.B. `background-position: 10px 10px;` und `background-position: 20px 20px, 30px 30px;` ([siehe Firefox Bug 1390446](https://bugzil.la/1390446)).
+- Radiale Gradient-Werte wie `radial-gradient(circle gold,red)` funktionieren im alten Gecko Stil-System, obwohl sie nicht sollten, weil das Komma zwischen `circle` und `gold` fehlt ([Firefox Fehler 1383323](https://bugzil.la/1383323)).
+- Wenn Sie ein Element außerhalb des Sichtbereichs animieren, um es auf den Sichtbereich zu bringen, aber eine Verzögerung angeben, führt Gecko auf einigen Plattformen keine Neuzeichnung durch, z.B. Windows ([Firefox Fehler 1383239](https://bugzil.la/1383239)).
+- In Gecko können {{htmlelement("details")}}-Elemente nicht standardmäßig durch das `open`-Attribut geöffnet werden, wenn sie eine aktive {{CSSxRef("animation")}} haben ([Firefox Fehler 1382124](https://bugzil.la/1382124)).
+- In Gecko funktionieren {{CSSxRef("transition", "Transitions")}} nicht, wenn sie von einem {{CSSxRef("text-shadow")}} mit einer angegebenen Farbe zu einem `text-shadow` ohne angegebene Farbe übergehen ([Firefox Fehler 726550](https://bugzil.la/726550)).
+- In Gecko kann das Abbrechen einer füllenden Animation (z.B. mit `animation-fill-mode: forwards` gesetzt) eine Übergangsanimation am selben Element auslösen, aber nur einmal (siehe [Firefox Fehler 1192592](https://bugzil.la/1192592) und [diese Testfälle](https://bug1192592.bmoattachments.org/attachment.cgi?id=8843824) für weitere Informationen). Im Allgemeinen sollten deklarative Animationen keine Übergänge auslösen.
+- Animationen, die `em`-Einheiten verwenden, sind nicht von Änderungen der {{CSSxRef("font-size")}} auf dem übergeordneten Element des animierten Elements in Gecko betroffen, obwohl sie das sollten ([Firefox Fehler 1254424](https://bugzil.la/1254424)).
+- Gecko behandelt auch die `font-size`-Vererbung anders als Quantum CSS, was bedeutet, dass in einigen Spracheinstellungen vererbte Schriftgrößen kleiner sind als erwartet (siehe [Firefox Fehler 1391341](https://bugzil.la/1391341)).
+- Gecko verwendet denselben Mechanismus beim Parsen eines url-tokens wie beim Parsen der `domain()` oder `url-prefix()` URL-Matching-Funktionen für eine {{CSSxRef("@document", "@-moz-document")}} Regel. Quantum CSS verwendet nicht denselben Mechanismus und betrachtet Tokens nicht als ungültig, wenn sie Klammern oder Anführungszeichen enthalten ([Firefox Fehler 1362333](https://bugzil.la/1362333)).
+- In Gecko schlägt das Abrufen des Schriftwerts fehl (es wird nichts zurückgegeben), wenn Sie eine Systemschriftart als Wert eines Canvas 2D-Kontextes [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font) (z.B. `menu`) setzen. Dies wurde in Quantum behoben. ([Firefox Fehler 1374885](https://bugzil.la/1374885)).
+- In Gecko wird ein getrenntes Teilbaum (z.B. ein {{htmlelement("div")}}, das mit [`createElement()`](/de/docs/Web/API/Document/createElement) erstellt wurde und noch nicht in das DOM eingefügt ist) als Block-Element gesetzt. In Quantum CSS wird dies als Inline-Element gemäß Spezifikation gesetzt ([Firefox Fehler 1374994](https://bugzil.la/1374994)).
+- In Gecko werden {{CSSxRef("calc", "calc()")}}-Ausdrücke abgelehnt — wodurch der Wert ungültig wird — wenn sie als Radiuskomponente einer {{CSSxRef("gradient/radial-gradient")}} Funktion verwendet werden ([Firefox Fehler 1376019](https://bugzil.la/1376019)).
+- In Gecko wird `calc(1*2*3)` nicht erfolgreich geparst; Quantum CSS behebt dies ([Firefox Fehler 1379467](https://bugzil.la/1379467)).
+- In Quantum CSS wird [`calc()` überall dort unterstützt, wo die Spezifikation erklärt, dass es unterstützt werden sollte](https://drafts.csswg.org/css-values-3/#calc-notation) ([Firefox Fehler 1350857](https://bugzil.la/1350857)). In Gecko nicht.
+- Gecko hat einen Fehler, bei dem die {{CSSxRef("::before")}} und {{CSSxRef("::after")}} Pseudo-Elemente auch dann noch generiert werden, wenn der {{CSSxRef("content")}}-Eigenschaftswert auf `normal` oder `none` gesetzt ist. Laut Spezifikation sollten sie das nicht ([Firefox Fehler 1387931](https://bugzil.la/1387931)).
+- Ein weiterer Gecko-Fehler bedeutet, dass die {{CSSxRef("background-position")}}-Eigenschaft nicht zwischen zwei Werten mit unterschiedlicher Anzahl von {{CSSxRef("&lt;position&gt;")}}-Werten übergehen kann, zum Beispiel `background-position: 10px 10px;` und `background-position: 20px 20px, 30px 30px;` (siehe [Firefox Fehler 1390446](https://bugzil.la/1390446)).
 
 ### SVG
 
@@ -60,67 +60,67 @@ _Keine Änderungen._
 
 ### JavaScript
 
-- Die nicht standardisierte {{JSxRef("Statements/for_each...in", "for each...in")}} Schleife, die ursprünglich Teil von EcmaScript für XML (E4X) war, wurde entfernt. Bitte verwenden Sie stattdessen {{JSxRef("Statements/for...of", "for...of")}} und sehen Sie [Warnung: JavaScript 1.6's for-each-in Schleifen sind veraltet](/de/docs/Web/JavaScript/Reference/Errors/For-each-in_loops_are_deprecated) für Hilfe bei der Migration. ([Firefox Bug 1083470](https://bugzil.la/1083470)).
-- Die Methoden {{JSxRef("Object.prototype.watch()")}} und {{JSxRef("Object.unwatch", "unwatch()")}} sind veraltet, geben jetzt eine Warnung aus, wenn sie verwendet werden, und werden bald entfernt ([Firefox Bug 934669](https://bugzil.la/934669)).
-- Die nicht standardisierten {{JSxRef("Iterator")}} und {{JSxRef("StopIteration")}} Objekte sowie das Legacy-Iterationsprotokoll wurden entfernt ([Firefox Bug 1098412](https://bugzil.la/1098412)).
-- Async-Generator ist jetzt aktiviert ([Firefox Bug 1352312](https://bugzil.la/1352312)).
-- Die Syntax for await (... of ...) ist jetzt aktiviert ([Firefox Bug 1352312](https://bugzil.la/1352312)).
+- Die nicht standardmäßige {{JSxRef("Statements/for_each...in", "for each...in")}} Schleife, ursprünglich Teil von EcmaScript für XML (E4X), wurde entfernt. Bitte verwenden Sie stattdessen {{JSxRef("Statements/for...of", "for...of")}} und siehe [Warnung: JavaScript 1.6's for-each-in Schleifen sind veraltet](/de/docs/Web/JavaScript/Reference/Errors/For-each-in_loops_are_deprecated) für Hilfe bei der Migration. ([Firefox Fehler 1083470](https://bugzil.la/1083470)).
+- Die Methoden {{JSxRef("Object.prototype.watch()")}} und {{JSxRef("Object.unwatch", "unwatch()")}} sind veraltet, werfen nun eine Warnung bei Verwendung und werden bald entfernt ([Firefox Fehler 934669](https://bugzil.la/934669)).
+- Die nicht standardmäßigen {{JSxRef("Iterator")}} und {{JSxRef("StopIteration")}} Objekte sowie das veraltete Iterationsprotokoll wurden entfernt ([Firefox Fehler 1098412](https://bugzil.la/1098412)).
+- Async Generator ist jetzt aktiviert ([Firefox Fehler 1352312](https://bugzil.la/1352312)).
+- Für das await (... of ...) Syntax ist jetzt aktiviert ([Firefox Fehler 1352312](https://bugzil.la/1352312)).
 
 ### APIs
 
 #### Neue APIs
 
-- Die {{DOMxRef("PerformanceObserver")}} API ist jetzt standardmäßig aktiviert ([Firefox Bug 1386021](https://bugzil.la/1386021)).
-- Die Schnittstellen {{DOMxRef("AbortController")}} und {{DOMxRef("AbortSignal")}} (bekannt als die Abort API) wurden hinzugefügt, um DOM-Anfragen (wie [fetch requests](/de/docs/Web/API/Window/fetch)) abzubrechen, wenn gewünscht ([Firefox Bug 1378342](https://bugzil.la/1378342)).
-- \[2] Die [Storage API](/de/docs/Web/API/Storage_API) ist implementiert und standardmäßig aktiviert ([Firefox Bug 1399038](https://bugzil.la/1399038)).
+- Die [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) API ist jetzt standardmäßig aktiviert ([Firefox Fehler 1386021](https://bugzil.la/1386021)).
+- Die [`AbortController`](/de/docs/Web/API/AbortController) und [`AbortSignal`](/de/docs/Web/API/AbortSignal) Schnittstellen (bekannt als die Abort-API) wurden hinzugefügt, die das Abbrechen von DOM-Anfragen (wie [fetch-Anfragen](/de/docs/Web/API/Window/fetch)) ermöglichen, wenn gewünscht ([Firefox Fehler 1378342](https://bugzil.la/1378342)).
+- \[2] Die [Storage API](/de/docs/Web/API/Storage_API) ist implementiert und standardmäßig aktiviert ([Firefox Fehler 1399038](https://bugzil.la/1399038)).
 
 #### DOM
 
-- Die Eigenschaft {{DOMxRef("Selection.type")}} der [Selection API](/de/docs/Web/API/Selection) ist jetzt implementiert ([Firefox Bug 1359157](https://bugzil.la/1359157)).
-- {{DOMxRef("Document.createEvent", "Document.createEvent('FocusEvent')")}} wird jetzt unterstützt ([Firefox Bug 1388069](https://bugzil.la/1388069)).
-- Die Eigenschaft `files` der Schnittstelle {{DOMxRef("HTMLInputElement")}} ist jetzt setzbar ([Firefox Bug 1384030](https://bugzil.la/1384030)).
-- Die Methode `HTMLDocument.getSelection()` wurde in die {{DOMxRef("Document/getSelection","Document")}} Schnittstelle verschoben, damit sie auch in XML-Dokumenten verfügbar ist ([Firefox Bug 718711](https://bugzil.la/718711)).
-- Das `messageerror` Ereignis ist jetzt implementiert und kann durch Ereignishandler, die auf Nachrichtenziele implementiert sind, ausgelöst werden — siehe das `messageerror` Ereignis von {{DOMxRef("MessagePort.messageerror_event", "MessagePort")}}, {{DOMxRef("DedicatedWorkerGlobalScope.messageerror_event", "DedicatedWorkerGlobalScope")}}, {{DOMxRef("Worker.messageerror_event", "Worker")}}, {{DOMxRef("BroadcastChannel.messageerror_event", "BroadcastChannel")}}, und {{DOMxRef("Window.messageerror_event", "Window")}} ([Firefox Bug 1359017](https://bugzil.la/1359017)).
-- Wenn {{DOMxRef("Headers")}} Werte iteriert werden, werden sie automatisch lexikographisch sortiert, und Werte von doppelten Headernamen werden kombiniert ([Firefox Bug 1396848](https://bugzil.la/1396848)).
+- Die [`Selection.type`](/de/docs/Web/API/Selection/type) Eigenschaft der [Selection API](/de/docs/Web/API/Selection) ist jetzt implementiert ([Firefox Fehler 1359157](https://bugzil.la/1359157)).
+- [`Document.createEvent('FocusEvent')`](/de/docs/Web/API/Document/createEvent) wird jetzt unterstützt ([Firefox Fehler 1388069](https://bugzil.la/1388069)).
+- Die `files`-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Schnittstelle ist jetzt änderbar ([Firefox Fehler 1384030](https://bugzil.la/1384030)).
+- Die `HTMLDocument.getSelection()` Methode wurde auf die [`Document`](/de/docs/Web/API/Document/getSelection) Schnittstelle verschoben, sodass sie für XML-Dokumente verfügbar ist ([Firefox Fehler 718711](https://bugzil.la/718711)).
+- Das `messageerror`-Ereignis ist jetzt implementiert, und kann Code ausführen lassen, wenn es durch Ereignishandler auf Nachrichtenzielen ausgeführt wird — siehe das `messageerror`-Ereignis von [`MessagePort`](/de/docs/Web/API/MessagePort/messageerror_event), [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope/messageerror_event), [`Worker`](/de/docs/Web/API/Worker/messageerror_event), [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel/messageerror_event), und [`Window`](/de/docs/Web/API/Window/messageerror_event) ([Firefox Fehler 1359017](https://bugzil.la/1359017)).
+- Wenn [`Headers`](/de/docs/Web/API/Headers) Werte iteriert werden, werden sie automatisch in lexikographischer Reihenfolge sortiert, und Werte von doppelten Header-Namen werden kombiniert ([Firefox Fehler 1396848](https://bugzil.la/1396848)).
 
-#### DOM-Ereignisse
+#### DOM Ereignisse
 
 _Keine Änderungen._
 
 #### Medien und WebRTC
 
-- Die Unterstützung für Nachrichten beliebiger Größe (bis zu 1GiB, obwohl 256kiB interoperabler ist) wird jetzt auf {{DOMxRef("RTCDataChannel")}} durch die Verwendung des End-of-Record (EOR) Flags auf SCTP-Nachrichten unterstützt. Siehe [Verständnis von Nachrichtengrößenbeschränkungen](/de/docs/Web/API/WebRTC_API/Using_data_channels#understanding_message_size_limits) für weitere Informationen ([Firefox Bug 979417](https://bugzil.la/979417)).
+- Unterstützung für Nachrichten beliebiger Größe (bis zu 1 GiB, obwohl 256 KiB interoperabler ist) wird jetzt auf [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) durch Verwendung des End-of-Record (EOR)-Flags auf SCTP-Nachrichten unterstützt. Siehe [Verstehen der Nachrichtenbegrenzungen](/de/docs/Web/API/WebRTC_API/Using_data_channels#understanding_message_size_limits) für weitere Informationen ([Firefox Fehler 979417](https://bugzil.la/979417)).
 
   > [!NOTE]
-  > Da Firefox das SCTP ndata Protokoll, das die Möglichkeit bietet, SCTP-Nachrichten von mehreren Quellen zu verschachteln, noch nicht unterstützt, kann das Senden großer Datenobjekte erhebliche Verzögerungen im gesamten anderen SCTP-Verkehr verursachen. Siehe [Firefox Bug 1381145](https://bugzil.la/1381145), um den Fortschritt bei der Implementierung und Bereitstellung der ndata-Unterstützung in Firefox zu verfolgen.
+  > Da Firefox das SCTP ndata-Protokoll, das die Möglichkeit bietet, SCTP-Nachrichten aus mehreren Quellen zu mischen, noch nicht unterstützt, kann das Senden großer Datenobjekte erhebliche Verzögerungen bei allen anderen SCTP-Verkehr verursachen. Siehe [Firefox Fehler 1381145](https://bugzil.la/1381145) um den Fortschritt bei der Implementierung und Bereitstellung der ndata-Unterstützung in Firefox zu verfolgen.
 
-- Die Methode {{DOMxRef("RTCDataChannel.send()")}} kann jetzt eine `TypeError` Ausnahme auslösen, wenn die Größe der Nachricht, die Sie zu senden versuchen, nicht mit dem empfangenden {{Glossary("user agent")}} kompatibel ist (dies ist Teil von [Firefox Bug 979417](https://bugzil.la/979417) implementiert).
-- Die [MediaStream Aufnahme-API](/de/docs/Web/API/MediaStream_Recording_API) wurde aktualisiert, sodass {{domxref("MediaRecorder/error_event", "error")}} Ereignisse, die Berichte über Probleme senden, die während der Aufnahme auftreten, jetzt vom Typ {{DOMxRef("MediaRecorderErrorEvent")}} sind, anstatt generische Ereignisse zu sein.
-- Die Dokumentation zu {{DOMxRef("OfflineAudioContext")}} wurde aktualisiert, da die Eingaben des Konstruktors jetzt in einem Objekt angegeben werden können, anstelle einer Liste von Parametern ([Firefox Bug 1388591](https://bugzil.la/1388591)).
-- Die Web Audio API unterstützt jetzt richtig Mehrkanal-Ausgabe ([Firefox Bug 1378070](https://bugzil.la/1378070)).
+- Die [`RTCDataChannel.send()`](/de/docs/Web/API/RTCDataChannel/send) Methode kann jetzt eine `TypeError` Ausnahme werfen, wenn die Größe der Nachricht, die Sie senden möchten, nicht mit dem empfangenden [User Agent](/de/docs/Glossary/user_agent) kompatibel ist (dies ist als Teil von [Firefox Fehler 979417](https://bugzil.la/979417) implementiert).
+- Die [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API) wurde so aktualisiert, dass [`error`](/de/docs/Web/API/MediaRecorder/error_event) Ereignisse, die zum Melden von Problemen, die während der Aufnahme auftreten, gesendet werden, jetzt vom Typ [`MediaRecorderErrorEvent`](/de/docs/Web/API/MediaRecorderErrorEvent) sind, anstatt generische Ereignisse zu sein.
+- Die Dokumentation zu [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) wurde aktualisiert, da die Eingaben des Konstruktors jetzt in einem Objekt statt als Liste von Parametern angegeben werden können ([Firefox Fehler 1388591](https://bugzil.la/1388591)).
+- Die Web Audio API unterstützt jetzt korrekt Mehrkanal-Ausgabe ([Firefox Fehler 1378070](https://bugzil.la/1378070)).
 
 ### Sicherheit
 
-- `resource://` URLs leaken keine Informationen mehr ([Firefox Bug 863246](https://bugzil.la/863246))
-- Daten-URLs werden jetzt als einzigartige, undurchsichtige Ursprünge behandelt, anstatt den Ursprung des Einstellungsobjekts zu erben, das für die Navigation verantwortlich ist ([Firefox Bug 1324406](https://bugzil.la/1324406)).
+- `resource://` URLs leaken keine Informationen mehr ([Firefox Fehler 863246](https://bugzil.la/863246))
+- Data-URLs werden jetzt als einzigartige undurchsichtige Ursprünge behandelt, anstatt den Ursprung des Einstellungsobjekts zu erben, das für die Navigation verantwortlich ist ([Firefox Fehler 1324406](https://bugzil.la/1324406)).
 
 ### Plugins
 
 _Keine Änderungen._
 
-### Sonstiges
+### Andere
 
-- Firefox [headless Modus](/de/docs/Mozilla/Firefox/Headless_mode) enthält nun ein `-screenshot` Flag, das es Ihnen ermöglicht, direkt über die Kommandozeile Screenshots von Webseiten zu machen ([Firefox Bug 1378010](https://bugzil.la/1378010)).
+- Der [Headless-Modus von Firefox](/de/docs/Mozilla/Firefox/Headless_mode) umfasst jetzt ein `-screenshot`-Flag, das es Ihnen ermöglicht, Screenshots von Websites direkt über die Befehlszeile zu erstellen ([Firefox Fehler 1378010](https://bugzil.la/1378010)).
 
-## Entfernt aus der Webplattform
+## Entfernungen aus der Web-Plattform
 
 ### HTML
 
-- `<link rel="preload">` (siehe [Preloading content with rel="preload"](/de/docs/Web/HTML/Attributes/rel/preload)) wurde in Firefox 57 aufgrund verschiedener Webkompatibilitätsprobleme deaktiviert (z.B. [Firefox Bug 1405761](https://bugzil.la/1405761)). Eine verbesserte Version, die für nicht-cachbare Ressourcen funktioniert, wird voraussichtlich in Firefox 58 implementiert.
+- `<link rel="preload">` (siehe [Preloading-Inhalt mit rel="preload"](/de/docs/Web/HTML/Attributes/rel/preload)) wurde in Firefox 57 aufgrund verschiedener Webkompatibilitätsprobleme deaktiviert (z.B. [Firefox Fehler 1405761](https://bugzil.la/1405761)). Eine verbesserte Version, die für nicht zwischenspeicherbare Ressourcen funktioniert, wird voraussichtlich in Firefox 58 erscheinen.
 
 ### APIs
 
-- Mozillas proprietäre [Social API](/de/docs/Archive/Social_API) wurde vollständig entfernt ([Firefox Bug 1388902](https://bugzil.la/1388902)).
+- Mozillas proprietäre [Soziale API](/de/docs/Archive/Social_API) wurde komplett entfernt ([Firefox Fehler 1388902](https://bugzil.la/1388902)).
 
 ### SVG
 
@@ -129,7 +129,7 @@ _Keine Änderungen._
 ## Änderungen für Add-on- und Mozilla-Entwickler
 
 > [!NOTE]
-> Ab Firefox 57 wurde jegliche Unterstützung für XPCOM-basierte Add-ons entfernt. Alle Erweiterungen müssen in die neuen [Browsererweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions) (auch bekannt als WebExtensions) umgewandelt werden, sonst funktionieren sie nicht.
+> Ab Firefox 57 wurde die gesamte Unterstützung für XPCOM-basierte Add-ons entfernt. Alle Erweiterungen müssen in die neuen [Browsererweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions) (auch bekannt als WebExtensions) konvertiert werden, oder sie werden nicht funktionieren.
 
 ### WebExtensions
 
@@ -137,7 +137,7 @@ Die folgenden APIs wurden hinzugefügt oder erweitert:
 
 - [`bookmarks`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks)
 
-  - Unterstützung für Trennzeichen durch [`bookmarks.BookmarkTreeNodeType`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks/BookmarkTreeNodeType)
+  - Unterstützung für Separatoren durch [`bookmarks.BookmarkTreeNodeType`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks/BookmarkTreeNodeType)
 
 - [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action)
 
@@ -191,11 +191,11 @@ Die folgenden APIs wurden hinzugefügt oder erweitert:
 
 - [`proxy`](/de/docs/Mozilla/Add-ons/WebExtensions/API/proxy)
 
-  - `FindProxyForURL()` kann nun ein Objekt zurückgeben
+  - `FindProxyForURL()` kann jetzt ein Objekt zurückgeben
 
 - [`runtime`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime)
 
-  - Unterstützung für [`runtime.openOptionsPage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/openOptionsPage) auf Android
+  - [`runtime.openOptionsPage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/openOptionsPage) Unterstützung auf Android
 
 - [`sessions`](/de/docs/Mozilla/Add-ons/WebExtensions/API/sessions)
 

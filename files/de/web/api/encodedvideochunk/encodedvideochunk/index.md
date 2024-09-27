@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`EncodedVideoChunk()`** Konstruktor erstellt ein neues {{domxref("EncodedVideoChunk")}} Objekt, das ein Stück eines kodierten Videos darstellt.
+Der **`EncodedVideoChunk()`** Konstruktor erzeugt ein neues [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Objekt, das einen Abschnitt von kodiertem Video darstellt.
 
 ## Syntax
 
@@ -21,23 +21,23 @@ new EncodedVideoChunk(options)
 - `options`
   - : Ein Objekt, das die folgenden Mitglieder enthält:
     - `type`
-      - : Gibt an, ob das Chunk ein Schlüssel-Chunk ist, das nicht auf andere Frames für die Kodierung angewiesen ist. Eines von:
+      - : Gibt an, ob der Abschnitt ein Schlüsselabschnitt ist, der nicht auf andere Frames für die Kodierung angewiesen ist. Einer von:
         - `"key"`
-          - : Die Daten sind ein Schlüssel-Chunk.
+          - : Die Daten sind ein Schlüsselabschnitt.
         - `"delta"`
-          - : Die Daten sind kein Schlüssel-Chunk.
+          - : Die Daten sind kein Schlüsselabschnitt.
     - `timestamp`
       - : Ein Integer, der den Zeitstempel des Videos in Mikrosekunden darstellt.
     - `duration`
       - : Ein Integer, der die Länge des Videos in Mikrosekunden darstellt.
     - `data`
-      - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}} mit den Videodaten.
+      - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}, das die Videodaten enthält.
     - `transfer`
-      - : Ein Array von {{jsxref("ArrayBuffer")}}s, das `EncodedVideoChunk` abtrennen und in Besitz nehmen wird. Wenn das Array den {{jsxref("ArrayBuffer")}} enthält, der `data` unterstützt, wird `EncodedVideoChunk` diesen Puffer direkt verwenden, anstatt ihn zu kopieren.
+      - : Ein Array von {{jsxref("ArrayBuffer")}}s, die `EncodedVideoChunk` abtrennen und in Besitz nehmen wird. Wenn das Array den {{jsxref("ArrayBuffer")}} enthält, der `data` unterstützt, wird `EncodedVideoChunk` diesen Puffer direkt verwenden, anstatt ihn zu kopieren.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues `EncodedVideoChunk` erstellt.
+Im folgenden Beispiel wird ein neues `EncodedVideoChunk` erzeugt.
 
 ```js
 const init = {

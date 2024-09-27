@@ -1,5 +1,5 @@
 ---
-title: "HTMLSelectElement: size Eigenschaft"
+title: "HTMLSelectElement: size-Eigenschaft"
 short-title: size
 slug: Web/API/HTMLSelectElement/size
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`size`** Eigenschaft des {{DOMxRef("HTMLSelectElement")}}-Interfaces gibt die Anzahl der Optionen oder Zeilen an, die gleichzeitig sichtbar sein sollten. Sie spiegelt das [`size`](/de/docs/Web/HTML/Element/select#size) Attribut des {{htmlelement("select")}} Elements wider. Wenn es weggelassen wird, ist der Wert `0`.
+Die **`size`**-Eigenschaft des [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Interfaces legt die Anzahl der Optionen oder Zeilen fest, die auf einmal sichtbar sein sollten. Sie spiegelt das [`size`](/de/docs/Web/HTML/Element/select#size)-Attribut des {{htmlelement("select")}}-Elements wider. Wenn es weggelassen wird, beträgt der Wert `0`.
 
 > [!NOTE]
-> Während standardmäßig ein `<select>` nur eine einzelne Zeile anzeigt, es sei denn, {{DOMxRef("HTMLSelectElement.multiple", "multiple")}} ist wahr, in welchem Fall vier Zeilen angezeigt werden, ist der Standardwert für die `size` Eigenschaft `0`.
+> Standardmäßig zeigt ein `<select>` eine einzelne Zeile an, es sei denn, [`multiple`](/de/docs/Web/API/HTMLSelectElement/multiple) ist wahr, in diesem Fall werden vier Zeilen angezeigt. Der Standardwert für die `size`-Eigenschaft ist `0`.
 
 ## Wert
 
@@ -36,5 +36,5 @@ console.log(selectElement.size);
 
 - {{HTMLElement("select")}}
 - {{HTMLElement("options")}}
-- {{DOMXref("HTMLSelectElement.selectedOptions")}}
-- {{DOMXref("HTMLSelectElement.length")}}
+- [`HTMLSelectElement.selectedOptions`](/de/docs/Web/API/HTMLSelectElement/selectedOptions)
+- [`HTMLSelectElement.length`](/de/docs/Web/API/HTMLSelectElement/length)

@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Access-Control-Allow-Methods`** Antwort-Header spezifiziert eine oder mehrere erlaubte Methoden, wenn auf eine Ressource als Antwort auf eine {{glossary("preflight request")}} zugegriffen wird.
+Der **`Access-Control-Allow-Methods`** Antwort-Header gibt eine oder mehrere Methoden an, die beim Zugriff auf eine Ressource als Antwort auf eine [Voranfrage](/de/docs/Glossary/preflight_request) zulässig sind.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>{{Glossary("Response header")}}</td>
+      <th scope="row">Header-Typ</th>
+      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -32,9 +32,9 @@ Access-Control-Allow-Methods: *
 ## Direktiven
 
 - \<method>
-  - : Eine durch Kommas getrennte Liste der erlaubten [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods).
+  - : Eine kommagetrennte Liste der zulässigen [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods).
 - `*` (Wildcard)
-  - : Der Wert `*` zählt nur als spezieller Wildcard-Wert für Anfragen ohne Anmeldeinformationen (Anfragen ohne [HTTP-Cookies](/de/docs/Web/HTTP/Cookies) oder HTTP-Authentifizierungsinformationen). Bei Anfragen mit Anmeldeinformationen wird es als der literale Methodenname `*` ohne spezielle Semantik behandelt.
+  - : Der Wert `*` zählt nur als spezieller Wildcard-Wert für Anfragen ohne Anmeldeinformationen (Anfragen ohne [HTTP-Cookies](/de/docs/Web/HTTP/Cookies) oder HTTP-Authentifizierungsinformationen). Bei Anfragen mit Anmeldeinformationen wird es als der wörtliche Methodenname `*` ohne spezielle Semantik behandelt.
 
 ## Beispiele
 

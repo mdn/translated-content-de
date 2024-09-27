@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die [CSS](/de/docs/Web/CSS) **`place-items`** [abkürzende Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) ermöglicht es Ihnen, Elemente gleichzeitig in Block- und Inline-Richtung in einem relevanten Layoutsystem wie [Grid](/de/docs/Web/CSS/CSS_grid_layout) oder [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) auszurichten (d.h. die Eigenschaften {{CSSxRef("align-items")}} und {{CSSxRef("justify-items")}}). Wenn der zweite Wert nicht gesetzt ist, wird der erste Wert auch für diesen verwendet.
+Die [CSS](/de/docs/Web/CSS) **`place-items`** [Kurzform-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) erlaubt es, Elemente gleichzeitig sowohl entlang der Block- als auch der Inline-Richtung auszurichten (d. h. die Eigenschaften {{CSSxRef("align-items")}} und {{CSSxRef("justify-items")}}) in einem relevanten Layoutsystem wie [Grid](/de/docs/Web/CSS/CSS_grid_layout) oder [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout). Wenn der zweite Wert nicht gesetzt ist, wird der erste Wert auch für diesen verwendet.
 
 {{EmbedInteractiveExample("pages/css/place-items.html")}}
 
-## Bestandteile der Eigenschaften
+## Bestandeigenschaften
 
-Diese Eigenschaft ist eine Abkürzung für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - [`align-items`](/de/docs/Web/CSS/align-items)
 - [`justify-items`](/de/docs/Web/CSS/justify-items)
@@ -21,7 +21,7 @@ Diese Eigenschaft ist eine Abkürzung für die folgenden CSS-Eigenschaften:
 ## Syntax
 
 ```css
-/* Positionsausrichtung */
+/* Positional alignment */
 place-items: center;
 place-items: normal start;
 place-items: center normal;
@@ -33,13 +33,13 @@ place-items: flex-start legacy;
 place-items: flex-end normal;
 place-items: anchor-center;
 
-/* Baseline-Ausrichtung */
+/* Baseline alignment */
 place-items: baseline normal;
 place-items: first baseline legacy;
 place-items: last baseline normal;
 place-items: stretch legacy;
 
-/* Globale Werte */
+/* Global values */
 place-items: inherit;
 place-items: initial;
 place-items: revert;
@@ -51,7 +51,7 @@ place-items: unset;
 
 Eine der folgenden Formen:
 
-- Ein einzelner {{cssxref("align-items")}}-Wert, der zur Ausrichtung in beiden Richtungen, Block- und Inline-Richtung, verwendet wird.
+- Ein einzelner {{cssxref("align-items")}}-Wert, der zur Ausrichtung in beiden Block- und Inline-Richtungen verwendet wird.
 - Ein {{cssxref("align-items")}}-Wert, der die Ausrichtung in der Blockrichtung festlegt, gefolgt von einem {{cssxref("justify-items")}}-Wert, der die Ausrichtung in der Inline-Richtung festlegt.
 
 ## Formale Definition
@@ -66,7 +66,7 @@ Eine der folgenden Formen:
 
 ### Platzierung von Elementen in einem Flex-Container
 
-In Flexbox gelten {{cssxref("justify-self")}} oder {{cssxref("justify-items")}} nicht, da auf der Hauptachse die Elemente als Gruppe behandelt werden. Daher wird der zweite Wert ignoriert.
+In Flexbox gelten {{cssxref("justify-self")}} oder {{cssxref("justify-items")}} nicht, da auf der Hauptachse Elemente als Gruppe behandelt werden. Daher wird der zweite Wert ignoriert.
 
 ```css hidden
 div > div {
@@ -168,7 +168,7 @@ values.addEventListener("change", (evt) => {
 #container {
   height: 200px;
   width: 240px;
-  place-items: stretch; /* Sie können diesen Wert ändern, indem Sie eine andere Option in der Liste auswählen */
+  place-items: stretch; /* You can change this value by selecting another option in the list */
   background-color: #8c8c8c;
   display: flex;
 }
@@ -180,7 +180,7 @@ values.addEventListener("change", (evt) => {
 
 ### Platzierung von Elementen in einem Grid-Container
 
-Der folgende Grid-Container enthält Elemente, die kleiner sind als die Rasterbereiche, in denen sie sich befinden. Daher verschiebt `place-items` sie in den Block- und Inline-Abmessungen.
+Der folgende Grid-Container enthält Elemente, die kleiner sind als die Gitterbereiche, in denen sie platziert sind. Daher wird `place-items` sie in den Block- und Inline-Dimensionen verschieben.
 
 ```css hidden
 div > div {
@@ -280,7 +280,7 @@ values.addEventListener("change", (evt) => {
 #gridcontainer {
   height: 200px;
   width: 240px;
-  place-items: stretch; /* Sie können diesen Wert ändern, indem Sie eine andere Option in der Liste auswählen */
+  place-items: stretch; /* You can change this value by selecting another option in the list */
   background-color: #8c8c8c;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`ImageTrack`** Interface der {{domxref('WebCodecs API','','','true')}} repräsentiert eine einzelne Bildspur.
+Das **`ImageTrack`** Interface der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) repräsentiert eine einzelne Bildspur.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-- {{domxref("ImageTrack.animated")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`ImageTrack.animated`](/de/docs/Web/API/ImageTrack/animated) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt einen {{jsxref("boolean")}} zurück, der angibt, ob die Spur animiert ist und daher mehrere Frames hat.
-- {{domxref("ImageTrack.frameCount")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Ganzzahl zurück, die die Anzahl der Frames in der Spur angibt.
-- {{domxref("ImageTrack.repetitionCount")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Ganzzahl zurück, die angibt, wie oft die Animation wiederholt wird.
-- {{domxref("ImageTrack.selected")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`ImageTrack.frameCount`](/de/docs/Web/API/ImageTrack/frameCount) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt eine ganze Zahl zurück, die die Anzahl der Frames in der Spur angibt.
+- [`ImageTrack.repetitionCount`](/de/docs/Web/API/ImageTrack/repetitionCount) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt eine ganze Zahl zurück, die angibt, wie oft die Animation wiederholt wird.
+- [`ImageTrack.selected`](/de/docs/Web/API/ImageTrack/selected) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt einen {{jsxref("boolean")}} zurück, der angibt, ob die Spur zur Dekodierung ausgewählt ist.
 
 ## Spezifikationen

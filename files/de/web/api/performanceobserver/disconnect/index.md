@@ -1,5 +1,5 @@
 ---
-title: "PerformanceObserver: disconnect()-Methode"
+title: "PerformanceObserver: disconnect() Methode"
 short-title: disconnect()
 slug: Web/API/PerformanceObserver/disconnect
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`disconnect()`**-Methode der {{domxref('PerformanceObserver')}}-Schnittstelle wird verwendet, um den Performance-Observer daran zu hindern, weitere {{domxref("PerformanceEntry","Leistungseintrag", '', 'true')}}-Ereignisse zu empfangen.
+Die **`disconnect()`** Methode der [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Schnittstelle wird verwendet, um den Performance Observer daran zu hindern, weitere [Performance-Entry](/de/docs/Web/API/PerformanceEntry)-Ereignisse zu empfangen.
 
 ## Syntax
 
@@ -22,20 +22,20 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Stoppen eines Performance-Observers
+### Einen Performance Observer stoppen
 
-Das folgende Beispiel trennt den Performance-Observer, um zu verhindern, dass weitere Leistungseintragsereignisse empfangen werden.
+Das folgende Beispiel trennt den Performance Observer, um das Empfangen weiterer Performance-Entry-Ereignisse zu deaktivieren.
 
 ```js
 const observer = new PerformanceObserver((list, obj) => {
   list.getEntries().forEach((entry) => {
-    // Bearbeiten von "measure"-Ereignissen
+    // Process "measure" events
     // …
-    // Deaktivieren weiterer Performance-Ereignisse
+    // Disable additional performance events
     observer.disconnect();
   });
 });

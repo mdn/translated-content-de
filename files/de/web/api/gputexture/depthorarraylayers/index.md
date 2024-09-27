@@ -1,25 +1,25 @@
 ---
-title: "GPUTexture: depthOrArrayLayers-Eigenschaft"
+title: "GPUTexture: depthOrArrayLayers Eigenschaft"
 short-title: depthOrArrayLayers
 slug: Web/API/GPUTexture/depthOrArrayLayers
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`depthOrArrayLayers`** der {{domxref("GPUTexture")}}-Schnittstelle repräsentiert die Tiefe oder die Anzahl der Ebenen der `GPUTexture`.
+Die **`depthOrArrayLayers`** schreibgeschützte Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture) Schnittstelle gibt die Tiefe oder Anzahl der Schichten der `GPUTexture` an.
 
-Diese wird basierend auf der `size`-Eigenschaft im Deskriptorobjekt festgelegt, das beim ursprünglichen Aufruf von {{domxref("GPUDevice.createTexture()")}} übergeben wird.
+Dieser Wert wird basierend auf der `size` Eigenschaft im Deskriptionsobjekt festgelegt, das beim ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wurde.
 
 ## Wert
 
 Eine Zahl. Diese repräsentiert:
 
-- Die Tiefe in Pixeln im Falle von Texturen mit einer `"3d"`-{{domxref("GPUTexture.dimension")}}.
-- Die Anzahl der Ebenen im Falle von geschichteten Texturen mit einer `"2d"`-{{domxref("GPUTexture.dimension")}}.
+- Die Tiefe in Pixeln im Fall von Texturen mit einer `"3d"` [`GPUTexture.dimension`](/de/docs/Web/API/GPUTexture/dimension).
+- Die Anzahl der Schichten im Fall von geschichteten Texturen mit einer `"2d"` [`GPUTexture.dimension`](/de/docs/Web/API/GPUTexture/dimension).
 
-In Fällen, in denen die `GPUTexture` keine Tiefe oder Ebenen hat, ist der Wert 1.
+In Fällen, in denen die `GPUTexture` keine Tiefe oder Schichten hat, ist der Wert 1.
 
 ## Beispiele
 
@@ -40,7 +40,7 @@ console.log(test.depthOrArrayLayers); // 1
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

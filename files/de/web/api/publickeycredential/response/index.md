@@ -8,52 +8,39 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die schreibgeschützte **`response`**-Eigenschaft der
-{{domxref("PublicKeyCredential")}}-Schnittstelle ist ein {{domxref("AuthenticatorResponse")}}
-Objekt, das vom Authenticator an den Benutzeragenten zur Erstellung/Abrufung
-von Anmeldeinformationen gesendet wird. Die in dieser Antwort enthaltenen Informationen werden vom Server der vertrauenden Partei verwendet, um die Legitimität der Anforderung zu überprüfen.
+Die **`response`** schreibgeschützte Eigenschaft der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) Schnittstelle ist ein [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse)-Objekt, das vom Authenticator an den User-Agent zur Erstellung oder Abrufung von Anmeldeinformationen gesendet wird. Die in dieser Antwort enthaltenen Informationen werden vom Server der vertrauenden Partei verwendet, um zu überprüfen, ob die Anfrage legitim ist.
 
 Eine `AuthenticatorResponse` ist entweder:
 
-- eine {{domxref("AuthenticatorAttestationResponse")}} (wenn das
-  `PublicKeyCredential` über
-  {{domxref("CredentialsContainer.create()")}} erstellt wird)
-- eine {{domxref("AuthenticatorAssertionResponse")}} (wenn das
-  `PublicKeyCredential` über
-  {{domxref("CredentialsContainer.get()")}} abgerufen wird).
+- eine [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse) (wenn das `PublicKeyCredential` über [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) erstellt wird)
+- eine [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) (wenn das `PublicKeyCredential` über [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get) erhalten wird).
 
-Um die _Erstellung_ von Anmeldeinformationen zu validieren, benötigt der Server der vertrauenden Partei sowohl:
+Um die _Erstellung_ von Anmeldeinformationen zu validieren, benötigt der Server der vertrauenden Partei beide:
 
 - diese Antwort
-- die Erweiterungen des Clients (gegeben durch
-  {{domxref("PublicKeyCredential.getClientExtensionResults()")}}), um die
-  Anforderung zu validieren.
+- die Erweiterungen des Clients (gegeben durch [`PublicKeyCredential.getClientExtensionResults()`](/de/docs/Web/API/PublicKeyCredential/getClientExtensionResults)), um die Anfrage zu validieren.
 
 > [!NOTE]
-> Bei der Validierung des Abrufs bestehender Anmeldeinformationen sind das
-> gesamte `PublicKeyCredential`-Objekt und die Client-Erweiterungen für den Server der
-> vertrauenden Partei erforderlich.
+> Beim Validieren des Abrufs bestehender Anmeldeinformationen sind das gesamte `PublicKeyCredential`-Objekt und die Erweiterungen des Clients für den Server der vertrauenden Partei erforderlich.
 
 > [!NOTE]
-> Diese Eigenschaft kann nur in Kontexten auf oberster Ebene verwendet werden und
-> steht beispielsweise in einem {{HTMLElement("iframe")}} nicht zur Verfügung.
+> Diese Eigenschaft kann nur in Top-Level-Kontexten verwendet werden und ist zum Beispiel in einem {{HTMLElement("iframe")}} nicht verfügbar.
 
 ## Wert
 
-Ein {{domxref("AuthenticatorResponse")}}-Objekt, das die Daten enthält, die ein Skript der vertrauenden Partei erhält und das an den Server der vertrauenden Partei gesendet werden sollte, um die Anforderung zur Erstellung oder zum Abruf zu validieren. Dieses Objekt enthält Daten vom Client
-({{domxref("AuthenticatorResponse/clientDataJSON")}}) und vom Authenticator.
+Ein [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse)-Objekt, das die Daten enthält, die das Skript der vertrauenden Partei empfängt und an den Server der vertrauenden Partei gesendet werden sollten, um die Anfrage zur Erstellung oder zum Abrufen zu validieren. Dieses Objekt enthält Daten vom Client ([`AuthenticatorResponse/clientDataJSON`](/de/docs/Web/API/AuthenticatorResponse/clientDataJSON)) und vom Authenticator.
 
 ## Beispiele
 
 ```js
 const options = {
-  challenge: new Uint8Array(16) /* vom Server */,
+  challenge: new Uint8Array(16) /* from the server */,
   rp: {
     name: "Example CORP",
     id: "login.example.com",
   },
   user: {
-    id: new Uint8Array(16) /* vom Server */,
+    id: new Uint8Array(16) /* from the server */,
     name: "canand@example.com",
     displayName: "Carina Anand",
   },

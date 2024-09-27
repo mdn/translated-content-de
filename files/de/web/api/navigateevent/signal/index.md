@@ -8,15 +8,16 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`signal`**-Eigenschaft der {{domxref("NavigateEvent")}}-Schnittstelle gibt ein {{domxref("AbortSignal")}} zurück, das abgebrochen wird, wenn die Navigation abgebrochen wird (z. B. durch das Drücken der "Stopp"-Schaltfläche des Browsers oder durch den Beginn einer anderen Navigation, die die laufende Navigation abbricht).
+Die **`signal`**-Eigenschaft des schreibgeschützten
+[`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück, das abgebrochen wird, wenn die Navigation abgebrochen wird (z.B. durch Drücken des "Stop"-Buttons im Browser oder wenn eine andere Navigation beginnt und die laufende somit abbricht).
 
 ## Wert
 
-Ein {{domxref("AbortSignal")}}-Objekt.
+Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekt.
 
 ## Beispiele
 
-Die allgemeine Idee hier ist, dass die `signal`-Eigenschaft an einen zugehörigen {{domxref("Window/fetch", "fetch()")}}-Vorgang übergeben werden kann, sodass, falls die Navigation abgebrochen wird, der `fetch()`-Vorgang sicher abgebrochen werden kann, um zu vermeiden, dass Bandbreite für unnötige Datenabrufe verschwendet wird.
+Die grundlegende Idee hierbei ist, dass die `signal`-Eigenschaft an eine zugehörige [`fetch()`](/de/docs/Web/API/Window/fetch)-Operation übergeben werden kann, so dass, wenn die Navigation abgebrochen wird, die `fetch()`-Operation sicher abgebrochen werden kann, um Bandbreite bei nicht mehr benötigten Abrufen zu sparen.
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -33,7 +34,7 @@ navigation.addEventListener("navigate", (event) => {
 ```
 
 > [!NOTE]
-> Siehe [Beispiel: Nächste/Vorherige Schaltflächen](https://github.com/WICG/navigation-api#example-nextprevious-buttons) für ein ausführlicheres Beispiel.
+> Siehe [Beispiel: Vorwärts-/Rückwärts-Buttons](https://github.com/WICG/navigation-api#example-nextprevious-buttons) für ein detaillierteres Beispiel.
 
 ## Spezifikationen
 
@@ -45,6 +46,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Routinge: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

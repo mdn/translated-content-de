@@ -1,5 +1,5 @@
 ---
-title: "MediaStream: removetrack-Ereignis"
+title: "MediaStream: removetrack Ereignis"
 short-title: removetrack
 slug: Web/API/MediaStream/removetrack_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`removetrack`**-Ereignis wird ausgelöst, wenn ein neues {{domxref("MediaStreamTrack")}}-Objekt aus einem {{domxref("MediaStream")}} entfernt wurde.
+Das **`removetrack`** Ereignis wird ausgelöst, wenn ein neues [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt von einem [`MediaStream`](/de/docs/Web/API/MediaStream) entfernt wurde.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht stornierbar und wird nicht geblubbert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("removetrack", (event) => {});
@@ -24,20 +24,20 @@ onremovetrack = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("MediaStreamTrackEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MediaStreamTrackEvent`](/de/docs/Web/API/MediaStreamTrackEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MediaStreamTrackEvent")}}
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, {{domxref("Event")}}._
+_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("MediaStreamTrackEvent.track")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("MediaStreamTrack")}}-Objekt, das den aus dem Stream entfernten Track darstellt.
+- [`MediaStreamTrackEvent.track`](/de/docs/Web/API/MediaStreamTrackEvent/track) {{ReadOnlyInline}}
+  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt, das den Track darstellt, der vom Stream entfernt wurde.
 
 ## Beispiele
 
-Verwendung von `addEventListener()`:
+Verwenden von `addEventListener()`:
 
 ```js
 const stream = new MediaStream();
@@ -47,7 +47,7 @@ stream.addEventListener("removetrack", (event) => {
 });
 ```
 
-Verwendung der Eigenschaft `onremovetrack`:
+Verwenden der `onremovetrack` Ereignishandlereigenschaft:
 
 ```js
 const stream = new MediaStream();
@@ -68,7 +68,7 @@ stream.onremovetrack = (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`addtrack`](/de/docs/Web/API/MediaStream/addtrack_event)
-- Dieses Ereignis bei [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) Ziel: [`removetrack`](/de/docs/Web/API/AudioTrackList/removetrack_event)
-- Dieses Ereignis bei [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) Ziel: [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)
+- Dieses Ereignis auf [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) zielt auf: [`removetrack`](/de/docs/Web/API/AudioTrackList/removetrack_event)
+- Dieses Ereignis auf [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) zielt auf: [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

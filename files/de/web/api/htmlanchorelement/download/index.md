@@ -8,11 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLAnchorElement.download`**-Eigenschaft ist ein
-String, der anzeigt, dass die verlinkte Ressource heruntergeladen und nicht im Browser angezeigt werden soll. Der Wert, falls vorhanden, gibt den Standarddateinamen an, der zur Kennzeichnung der Ressource in einem lokalen Dateisystem verwendet werden soll. Wenn der Name kein gültiger Dateiname im zugrunde liegenden Betriebssystem ist, wird der Browser ihn anpassen.
+Die Eigenschaft **`HTMLAnchorElement.download`** ist ein
+String, der anzeigt, dass die verlinkte Ressource zum Download bestimmt ist und nicht zur Anzeige im Browser. Der Wert, sofern vorhanden, gibt den
+standardmäßigen Dateinamen an, der zur Beschriftung der Ressource im lokalen Dateisystem verwendet werden soll. Wenn der Name im zugrunde liegenden Betriebssystem kein gültiger Dateiname ist, wird der Browser ihn anpassen.
 
 > [!NOTE]
-> Dieser Wert wird möglicherweise nicht für den Download verwendet. Dieser Wert kann nicht verwendet werden, um zu bestimmen, ob der Download erfolgen wird.
+> Dieser Wert könnte nicht für den Download verwendet werden. Dieser Wert kann nicht
+> verwendet werden, um festzustellen, ob der Download tatsächlich erfolgt.
 
 ## Wert
 
@@ -22,6 +24,6 @@ Ein String.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

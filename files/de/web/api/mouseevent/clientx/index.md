@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`clientX`** des {{domxref("MouseEvent")}}-Interfaces liefert die horizontale Koordinate innerhalb des Anwendungs-{{glossary("viewport")}}, an der das Ereignis aufgetreten ist (im Gegensatz zur Koordinate innerhalb der Seite).
+Die **`clientX`**-Eigenschaft des schreibgeschützten [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces gibt die horizontale Koordinate innerhalb des Anwendungs-[viewports](/de/docs/Glossary/viewport) an, an der das Ereignis ausgelöst wurde (im Gegensatz zur Koordinate innerhalb der Seite).
 
-Zum Beispiel führt ein Klick auf den linken Rand des Viewports immer zu einem Mausereignis mit einem `clientX`-Wert von `0`, unabhängig davon, ob die Seite horizontal gescrollt ist.
+Zum Beispiel führt ein Klick auf den linken Rand des Viewports stets zu einem Mausereignis mit einem `clientX`-Wert von `0`, unabhängig davon, ob die Seite horizontal gescrollt ist.
 
 ## Wert
 
-Ein `double`-Gleitkommawert in Pixeln.
+Ein `double` Gleitkommawert in Pixeln.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Koordinaten Ihrer Maus an, wann immer Sie das {{domxref("Element/mousemove_event", "mousemove")}}-Ereignis auslösen.
+Dieses Beispiel zeigt die Koordinaten Ihrer Maus, wenn Sie das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis auslösen.
 
 ### HTML
 
 ```html
-<p>Bewegen Sie Ihre Maus, um ihre Position zu sehen.</p>
+<p>Move your mouse to see its position.</p>
 <p id="screen-log"></p>
 ```
 
@@ -54,7 +54,7 @@ function logKey(e) {
 
 ## Siehe auch
 
-- {{ domxref("MouseEvent") }}
-- {{domxref("MouseEvent.clientY","clientY")}}
-- {{domxref("MouseEvent.screenX","screenX")}} / {{domxref("MouseEvent.screenY","screenY")}}
+- [`MouseEvent`](/de/docs/Web/API/MouseEvent)
+- [`clientY`](/de/docs/Web/API/MouseEvent/clientY)
+- [`screenX`](/de/docs/Web/API/MouseEvent/screenX) / [`screenY`](/de/docs/Web/API/MouseEvent/screenY)
 - [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)

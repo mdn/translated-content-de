@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`fingerprintAlgorithm`** Eigenschaft des {{domxref("RTCCertificateStats")}} Wörterbuchs ist ein String, der den Namen der Hash-Funktion enthält, die verwendet wird, um den {{domxref("RTCCertificateStats.fingerprint", "Fingerabdruck")}} Wert im zugehörigen {{domxref("RTCCertificate")}} zu erzeugen.
+Die **`fingerprintAlgorithm`**-Eigenschaft des [`RTCCertificateStats`](/de/docs/Web/API/RTCCertificateStats)-Wörterbuchs ist ein String, der den Namen der Hash-Funktion enthält, die zur Erzeugung des [`fingerprint`](/de/docs/Web/API/RTCCertificateStats/fingerprint)-Werts im zugehörigen [`RTCCertificate`](/de/docs/Web/API/RTCCertificate) verwendet wird.
 
 ## Wert
 
-Ein String, der den Namen der Hash-Funktion enthält, die verwendet wurde, um den Fingerabdruck des zugehörigen Zertifikats zu erstellen.
+Ein String, der den Namen der Hash-Funktion enthält, die zum Erstellen des Fingerprints des zugehörigen Zertifikats verwendet wird.
 
-Erlaubte Werte sind: `"sha-1"`, `"sha-224"`, `"sha-256"`, `"sha-384"`, `"sha-512"`, `"md5"`, `"md2"`. <!-- aus [RFC4572, Abschnitt 5](https://www.rfc-editor.org/rfc/rfc4572#section-5) -->
+Zulässige Werte sind: `"sha-1"`, `"sha-224"`, `"sha-256"`, `"sha-384"`, `"sha-512"`, `"md5"`, `"md2"`. <!-- from [RFC4572, Section 5](https://www.rfc-editor.org/rfc/rfc4572#section-5) -->
 
 ## Spezifikationen
 

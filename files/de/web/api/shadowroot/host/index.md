@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Shadow DOM")}}
 
-Die schreibgeschützte **`host`**-Eigenschaft des {{domxref("ShadowRoot")}} gibt eine Referenz auf das DOM-Element zurück, an das das `ShadowRoot` angehängt ist.
+Die schreibgeschützte **`host`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) gibt eine Referenz auf das DOM-Element zurück, an das das `ShadowRoot` angefügt ist.
 
 ## Wert
 
-Ein DOM {{domxref('Element')}}.
+Ein DOM [`Element`](/de/docs/Web/API/Element).
 
 ## Beispiele
 
@@ -22,7 +22,7 @@ let shadow = customElem.shadowRoot;
 
 // ...
 
-// gibt das ursprüngliche Host-Element später zurück
+// return the original host element some time later
 let hostElem = shadow.host;
 ```
 

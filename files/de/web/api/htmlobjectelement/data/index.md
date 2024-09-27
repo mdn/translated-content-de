@@ -1,6 +1,6 @@
 ---
-title: "HTMLObjectElement: Daten Eigenschaft"
-short-title: Daten
+title: "HTMLObjectElement: data property"
+short-title: data
 slug: Web/API/HTMLObjectElement/data
 l10n:
   sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`data`**-Eigenschaft der
-{{domxref("HTMLObjectElement")}}-Schnittstelle gibt einen String zurück, der das [`data`](/de/docs/Web/HTML/Element/object#data) HTML-Attribut widerspiegelt und die Adresse der Ressource angibt.
+Die **`data`**-Eigenschaft des
+[`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt einen Zeichenfolgenwert zurück, der das HTML-Attribut [`data`](/de/docs/Web/HTML/Element/object#data) widerspiegelt und die Adresse der Ressourcendaten angibt.
 
 ## Wert
 
-Ein String.
+Eine Zeichenfolge.
 
 ## Spezifikationen
 

@@ -1,20 +1,20 @@
 ---
-title: Erstellen und Auslösen von Ereignissen
+title: Erstellen und Auslösen von Events
 slug: Web/Events/Creating_and_triggering_events
 l10n:
-  sourceCommit: 0c163056cfe83fba519b757f15d2e20f83eddaff
+  sourceCommit: a66fcacdcb4f39c64854d9db351b4669ee4ea69a
 ---
 
-Dieser Artikel zeigt, wie Sie DOM-Ereignisse erstellen und auslösen können. Solche Ereignisse werden üblicherweise als **synthetische Ereignisse** bezeichnet, im Gegensatz zu den Ereignissen, die vom Browser selbst ausgelöst werden.
+Dieser Artikel zeigt, wie Sie DOM-Events erstellen und versenden können. Solche Events werden im Allgemeinen als **synthetische Events** bezeichnet, im Gegensatz zu den vom Browser selbst ausgelösten Events.
 
-## Erstellen von benutzerdefinierten Ereignissen
+## Erstellen von benutzerdefinierten Events
 
-Ereignisse können mit dem [`Event`](/de/docs/Web/API/Event)-Konstruktor wie folgt erstellt werden:
+Events können mit dem [`Event`](/de/docs/Web/API/Event)-Konstruktor wie folgt erstellt werden:
 
 ```js
 const event = new Event("build");
 
-// Hören Sie auf das Ereignis.
+// Listen for the event.
 elem.addEventListener(
   "build",
   (e) => {
@@ -23,24 +23,24 @@ elem.addEventListener(
   false,
 );
 
-// Lösen Sie das Ereignis aus.
+// Dispatch the event.
 elem.dispatchEvent(event);
 ```
 
-Das obige Code-Beispiel verwendet die Methode [EventTarget.dispatchEvent()](/de/docs/Web/API/EventTarget/dispatchEvent).
+Das obige Codebeispiel verwendet die Methode [EventTarget.dispatchEvent()](/de/docs/Web/API/EventTarget/dispatchEvent).
 
-Dieser Konstruktor wird in den meisten modernen Browsern unterstützt. Für einen umfangreicheren Ansatz lesen Sie weiter unten [die altmodische Methode](#die_altmodische_methode).
+Dieser Konstruktor wird in den meisten modernen Browsern unterstützt. Für einen ausführlicheren Ansatz siehe [die altmodische Methode](#die_altmodische_methode) unten.
 
-### Hinzufügen benutzerdefinierter Daten – CustomEvent()
+### Hinzufügen von benutzerdefinierten Daten – CustomEvent()
 
-Um mehr Daten an das Ereignisobjekt hinzuzufügen, existiert die [CustomEvent](/de/docs/Web/API/CustomEvent)-Schnittstelle und die **detail**-Eigenschaft kann verwendet werden, um benutzerdefinierte Daten zu übergeben.
-Zum Beispiel könnte das Ereignis wie folgt erstellt werden:
+Um dem Event-Objekt weitere Daten hinzuzufügen, existiert die [CustomEvent](/de/docs/Web/API/CustomEvent)-Schnittstelle, und die **detail**-Eigenschaft kann verwendet werden, um benutzerdefinierte Daten zu übergeben.
+Das Event könnte zum Beispiel wie folgt erstellt werden:
 
 ```js
 const event = new CustomEvent("build", { detail: elem.dataset.time });
 ```
 
-Dies ermöglicht dann den Zugriff auf die zusätzlichen Daten im Ereignis-Listener:
+Dies ermöglicht es Ihnen dann, auf die zusätzlichen Daten im Event-Listener zuzugreifen:
 
 ```js
 function eventHandler(e) {
@@ -50,31 +50,31 @@ function eventHandler(e) {
 
 ### Die altmodische Methode
 
-Der ältere Ansatz zur Erstellung von Ereignissen verwendet APIs, die von Java inspiriert sind. Das Folgende zeigt ein Beispiel mit {{domxref("document.createEvent()")}}:
+Der ältere Ansatz zur Erstellung von Events verwendet APIs, die von Java inspiriert sind. Das folgende Beispiel zeigt [`document.createEvent()`](/de/docs/Web/API/Document/createEvent):
 
 ```js
-// Erstellen Sie das Ereignis.
+// Create the event.
 const event = document.createEvent("Event");
 
-// Definieren Sie, dass der Ereignisname 'build' ist.
-event.initEvent("build", true, true);
+// Define that the event name is 'build'.
+event.initEvent("build");
 
-// Hören Sie auf das Ereignis.
+// Listen for the event.
 elem.addEventListener(
   "build",
   (e) => {
-    // e.target entspricht elem
+    // e.target matches elem
   },
   false,
 );
 
-// target kann ein beliebiges Element oder ein anderes EventTarget sein.
+// target can be any Element or other EventTarget.
 elem.dispatchEvent(event);
 ```
 
-### Ereignis-Bubbling
+### Event-Bubbling
 
-Oftmals ist es wünschenswert, ein Ereignis aus einem Kind-Element auszulösen und von einem Vorfahren auffangen zu lassen; optional mit Daten:
+Es ist oft wünschenswert, ein Event von einem Kindelement auszulösen und von einem übergeordneten Element auffangen zu lassen; optional mit Daten:
 
 ```html
 <form>
@@ -86,22 +86,22 @@ Oftmals ist es wünschenswert, ein Ereignis aus einem Kind-Element auszulösen u
 const form = document.querySelector("form");
 const textarea = document.querySelector("textarea");
 
-// Erstellen Sie ein neues Ereignis, erlauben Sie Bubbling und übergeben Sie beliebige Daten, die Sie an die "detail"-Eigenschaft übergeben möchten
+// Create a new event, allow bubbling, and provide any data you want to pass to the "detail" property
 const eventAwesome = new CustomEvent("awesome", {
   bubbles: true,
   detail: { text: () => textarea.value },
 });
 
-// Das Formelement hört auf das benutzerdefinierte "awesome"-Ereignis und gibt dann die Ausgabe der übergebenen text()-Methode in die Konsole aus
+// The form element listens for the custom "awesome" event and then consoles the output of the passed text() method
 form.addEventListener("awesome", (e) => console.log(e.detail.text()));
 
-// Während der Benutzer tippt, löst das Textarea-Element innerhalb des Formulars das Ereignis aus und nutzt sich selbst als Ausgangspunkt
+// As the user types, the textarea inside the form dispatches/triggers the event to fire, and uses itself as the starting point
 textarea.addEventListener("input", (e) => e.target.dispatchEvent(eventAwesome));
 ```
 
-### Erstellen und Auslösen von Ereignissen dynamisch
+### Dynamisches Erstellen und Versenden von Events
 
-Elemente können auf Ereignisse hören, die noch nicht erstellt wurden:
+Elemente können auf Events hören, die noch nicht erstellt wurden:
 
 ```html
 <form>
@@ -116,8 +116,8 @@ const textarea = document.querySelector("textarea");
 form.addEventListener("awesome", (e) => console.log(e.detail.text()));
 
 textarea.addEventListener("input", function () {
-  // Erstellen und Auslösen/Auslösen eines Ereignisses im Handumdrehen
-  // Hinweis: Optional haben wir auch den "function expression" (anstelle des "arrow function expression") genutzt, sodass "this" das Element repräsentiert
+  // Create and dispatch/trigger an event on the fly
+  // Note: Optionally, we've also leveraged the "function expression" (instead of the "arrow function expression") so "this" will represent the element
   this.dispatchEvent(
     new CustomEvent("awesome", {
       bubbles: true,
@@ -127,9 +127,9 @@ textarea.addEventListener("input", function () {
 });
 ```
 
-## Auslösen integrierter Ereignisse
+## Auslösen von eingebauten Events
 
-Dieses Beispiel demonstriert das Simulieren eines Klicks (d. h. das programmgesteuerte Erzeugen eines Klickereignisses) auf ein Kontrollkästchen unter Verwendung von DOM-Methoden. [Sehen Sie sich das Beispiel in Aktion an.](https://mdn.dev/archives/media/samples/domref/dispatchEvent.html)
+Dieses Beispiel demonstriert, wie man einen Klick (also programmgesteuertes Generieren eines Klick-Events) auf eine Checkbox mithilfe von DOM-Methoden simulieren kann. [Sehen Sie sich das Beispiel in Aktion an.](https://mdn.dev/archives/media/samples/domref/dispatchEvent.html)
 
 ```js
 function simulateClick() {
@@ -142,10 +142,10 @@ function simulateClick() {
   const cancelled = !cb.dispatchEvent(event);
 
   if (cancelled) {
-    // Ein Handler hat preventDefault aufgerufen.
+    // A handler called preventDefault.
     alert("cancelled");
   } else {
-    // Keiner der Handler hat preventDefault aufgerufen.
+    // None of the handlers called preventDefault.
     alert("not cancelled");
   }
 }
@@ -154,15 +154,15 @@ function simulateClick() {
 ## Siehe auch
 
 - [CustomEvent()](/de/docs/Web/API/CustomEvent/CustomEvent)
-- {{domxref("document.createEvent()")}}
-- {{domxref("Event.initEvent()")}}
-- {{domxref("EventTarget.dispatchEvent()")}}
-- {{domxref("EventTarget.addEventListener()")}}
+- [`document.createEvent()`](/de/docs/Web/API/Document/createEvent)
+- [`Event.initEvent()`](/de/docs/Web/API/Event/initEvent)
+- [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent)
+- [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)
 
 <section id="Quick_links">
   <ol>
-    <li><a href="/de/docs/Learn/JavaScript/Building_blocks/Events">Einführung in Ereignisse</a></li>
-    <li><a href="/de/docs/Web/Events/Event_handlers">Ereignis-Handler (Überblick)</a></li>
-    <li><a href="/de/docs/Web/Events">Ereignisreferenz</a></li>
+    <li><a href="/de/docs/Learn/JavaScript/Building_blocks/Events">Einführung in Events</a></li>
+    <li><a href="/de/docs/Web/Events/Event_handlers">Event-Handler (Übersicht)</a></li>
+    <li><a href="/de/docs/Web/Events">Event-Referenz</a></li>
   </ol>
 </section>

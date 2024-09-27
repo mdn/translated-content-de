@@ -1,5 +1,5 @@
 ---
-title: "FileSystemDirectoryHandle: keys()-Methode"
+title: "FileSystemDirectoryHandle: keys() Methode"
 short-title: keys()
 slug: Web/API/FileSystemDirectoryHandle/keys
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`keys()`**-Methode der Schnittstelle {{domxref("FileSystemDirectoryHandle")}} gibt einen neuen asynchronen Iterator zurück, der zur Iteration der Schlüssel der Einträge innerhalb des `FileSystemDirectoryHandle` dient, auf dem diese Methode aufgerufen wird.
+Die Methode **`keys()`** der Schnittstelle [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) gibt einen neuen asynchronen Iterator zurück, der zur Iteration der Schlüssel der Einträge innerhalb des `FileSystemDirectoryHandle` verwendet wird, auf dem diese Methode aufgerufen wird.
 
 ## Syntax
 
@@ -26,14 +26,14 @@ Ein neuer asynchroner Iterator, der die Schlüssel jedes Eintrags innerhalb des 
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{domxref('PermissionStatus.state')}} für den Handle im `read`-Modus nicht `'granted'` ist.
-- `NotFoundError` {{domxref("DOMException")}}
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für den Handle im `read` Modus nicht `'granted'` ist.
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der aktuelle Eintrag nicht gefunden wird.
 
 ## Beispiele
 
-Die Verwendung der `for await...of`-Schleife kann den Iterationsprozess vereinfachen.
+Die Verwendung der `for await...of` Schleife kann den Iterationsprozess vereinfachen.
 
 ```js
 const dirHandle = await window.showDirectoryPicker();

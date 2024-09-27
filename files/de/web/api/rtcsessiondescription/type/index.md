@@ -23,9 +23,9 @@ sessionDescription.type = value
 Die möglichen Werte sind:
 
 - `"answer"`
-  - : Der SDP, der in der {{domxref("RTCSessionDescription.sdp", "sdp")}} Eigenschaft enthalten ist, ist die endgültige Wahl im Austausch. Mit anderen Worten, diese Sitzungsbeschreibung beschreibt die vereinbarte Konfiguration und wird gesendet, um die Verhandlung abzuschließen.
+  - : Das in der [`sdp`](/de/docs/Web/API/RTCSessionDescription/sdp)-Eigenschaft enthaltene SDP ist die endgültige Wahl im Austausch. Mit anderen Worten, diese Sitzungsbeschreibung beschreibt die vereinbarte Konfiguration und wird gesendet, um die Verhandlung abzuschließen.
 - `"offer"`
-  - : Das Sitzungsbeschreibungsobjekt beschreibt den anfänglichen Vorschlag in einem Angebot/Antwort-Austausch. Der Sitzungsverhandlungsprozess beginnt mit einem Angebot, das vom Anrufer an den Angerufenen gesendet wird.
+  - : Das Sitzungsbeschreibungsobjekt beschreibt den ersten Vorschlag in einem Angebot/Antwort-Austausch. Der Sitzungsverhandlungsprozess beginnt mit einem Angebot, das vom Anrufer an den Angerufenen gesendet wird.
 - `"pranswer"`
   - : Das Sitzungsbeschreibungsobjekt beschreibt eine vorläufige Antwort; das heißt, eine Antwort auf ein vorheriges Angebot, die nicht die endgültige Antwort ist. Es wird normalerweise von älterer Hardware verwendet.
 - `"rollback"`
@@ -34,7 +34,7 @@ Die möglichen Werte sind:
 ## Beispiel
 
 ```js
-// Die Remote-Beschreibung wurde zuvor auf pc, einem RTCPeerConnection, gesetzt
+// The remote description has been set previously on pc, a RTCPeerConnection
 
 alert(pc.remoteDescription.type);
 ```

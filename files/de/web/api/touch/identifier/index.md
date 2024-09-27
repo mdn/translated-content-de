@@ -1,5 +1,5 @@
 ---
-title: "Touch: identifier-Eigenschaft"
+title: "Touch: identifier Eigenschaft"
 short-title: identifier
 slug: Web/API/Touch/identifier
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Die **`Touch.identifier`** gibt einen Wert zurück, der diesen Berührungspunkt auf der Touch-Oberfläche eindeutig identifiziert. Dieser Wert bleibt für jedes Ereignis, das die Bewegung dieses Fingers (oder Stylus) auf der Oberfläche betrifft, konsistent, bis er von der Oberfläche abgehoben wird.
+Der **`Touch.identifier`** gibt einen Wert zurück, der diesen Berührungspunkt auf der Berührungsoberfläche eindeutig identifiziert. Dieser Wert bleibt für jedes Ereignis, das mit der Bewegung dieses Fingers (oder Stylus) auf der Oberfläche zusammenhängt, gleich, bis er von der Oberfläche gehoben wird.
 
 ## Wert
 
-Ein `long`, das die eindeutige ID des {{ domxref("Touch") }}-Objekts darstellt.
+Ein `long`, der die eindeutige ID des [`Touch`](/de/docs/Web/API/Touch)-Objekts darstellt.
 
 ## Beispiele
 
@@ -20,9 +20,8 @@ Ein `long`, das die eindeutige ID des {{ domxref("Touch") }}-Objekts darstellt.
 someElement.addEventListener(
   "touchmove",
   (e) => {
-    // Iterieren Sie durch die Liste der Berührungspunkte,
-    // die sich seit dem letzten Ereignis geändert haben und
-    // geben Sie die Kennung jedes Berührungspunktes aus.
+    // Iterate through the list of touch points that changed
+    // since the last event and print each touch point's identifier.
     for (let i = 0; i < e.changedTouches.length; i++) {
       console.log(
         `changedTouches[${i}].identifier = ${e.changedTouches[i].identifier}`,

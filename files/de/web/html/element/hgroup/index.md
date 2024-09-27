@@ -1,5 +1,5 @@
 ---
-title: "<hgroup>: Das Heading Group-Element"
+title: "<hgroup>: Das Headergruppen-Element"
 slug: Web/HTML/Element/hgroup
 l10n:
   sourceCommit: 4a93b09e58da589b7af14cbbe30fc7f337a1ad50
@@ -7,19 +7,19 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<hgroup>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Überschrift und verwandte Inhalte. Es gruppiert ein einzelnes [`<h1>–<h6>`](/de/docs/Web/HTML/Element/Heading_Elements)-Element mit einem oder mehreren [`<p>`](/de/docs/Web/HTML/Element/p).
+Das **`<hgroup>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Überschrift und verwandte Inhalte. Es gruppiert ein einzelnes [`<h1>–<h6>`](/de/docs/Web/HTML/Element/Heading_Elements)-Element mit einem oder mehreren [`<p>`](/de/docs/Web/HTML/Element/p)-Elementen.
 
 {{EmbedInteractiveExample("pages/tabbed/hgroup.html", "tabbed-standard")}}
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Verwendungshinweise
 
-Das `<hgroup>`-Element ermöglicht die Gruppierung einer Überschrift mit jeglichen sekundären Inhalten, wie z.B. Unterüberschriften, einem alternativen Titel oder Slogan. Jeder dieser Inhaltstypen wird als ein `<p>`-Element innerhalb des `<hgroup>` dargestellt.
+Das `<hgroup>`-Element ermöglicht die Gruppierung einer Überschrift mit jeglichen sekundären Inhalten, wie z.B. Unterüberschriften, einem alternativen Titel oder Slogan. Jeder dieser Inhaltstypen wird als `<p>`-Element innerhalb des `<hgroup>` dargestellt.
 
-Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentengliederung einer Webseite. Vielmehr trägt die einzige zugelassene Überschrift innerhalb des `<hgroup>` zur Dokumentengliederung bei.
+Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentgliederung einer Webseite. Vielmehr trägt die innerhalb des `<hgroup>` erlaubte Überschrift zur Dokumentgliederung bei.
 
 ## Beispiele
 
@@ -57,12 +57,12 @@ Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentengliederung einer Web
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließende Inhalte</a
-        >, Überschrifteninhalte, fühlbare Inhalte.
+          >Flussinhalt</a
+        >, Überschrifteninhalt, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         Null oder mehr {{HTMLElement("p")}}-Elemente, gefolgt von einem
         {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}},
@@ -76,13 +76,12 @@ Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentengliederung einer Web
       <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Erlaubte Elternelemente</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >fließende Inhalte</a
-        >
-        akzeptiert.
+          >Flussinhalt</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
@@ -101,7 +100,7 @@ Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentengliederung einer Web
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLElement")}}</td>
+      <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
 </table>
@@ -116,5 +115,5 @@ Das `<hgroup>` selbst hat keinen Einfluss auf die Dokumentengliederung einer Web
 
 ## Siehe auch
 
-- Andere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("nav")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
-- [Abschnitte und Gliederungen eines HTML-Dokuments](/de/docs/Web/HTML/Element/Heading_Elements).
+- Andere bereichsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("nav")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
+- [Bereiche und Gliederungen eines HTML-Dokuments](/de/docs/Web/HTML/Element/Heading_Elements).

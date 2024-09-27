@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: ungültiges Zeichen in einer Klasse im regulären Ausdruck"
+title: "SyntaxError: ungültiges Zeichen in Klasse im regulären Ausdruck"
 slug: Web/JavaScript/Reference/Errors/Regex_invalid_char_in_class
 l10n:
   sourceCommit: 50d5e7cdb972c64a8f02a34a229bbc5ed7305c24
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "ungültiges Zeichen in einer Klasse im regulären Ausdruck" tritt auf, wenn ein Zeichen in einer [`v`-Modus-Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) erscheint, das nicht erlaubterweise wörtlich vorkommen darf.
+Die JavaScript-Ausnahme "ungültiges Zeichen in Klasse im regulären Ausdruck" tritt auf, wenn ein Zeichen in einem [`v`-Modus Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) erscheint, das dort nicht buchstäblich vorkommen darf.
 
 ## Meldung
 
@@ -23,7 +23,7 @@ SyntaxError: Invalid regular expression: invalid class set character (Safari)
 
 ## Was ist schiefgelaufen?
 
-Normalerweise können Zeichenklassen fast alle Zeichen wörtlich enthalten. Der `v`-Modus hat jedoch die Syntax der Zeichenklasse verfeinert, und um Raum für zukünftige Syntax-Erweiterungen zu schaffen, sind einige Syntax-Zeichen verboten, wörtlich in einer Zeichenklasse aufzutreten. Dazu gehören: `(`, `)`, `[`, `]`, `{`, `}`, `/`, `-`, `|`. Wenn Sie diese wörtlichen Zeichen abgleichen möchten, müssen Sie sie maskieren; zum Beispiel: `/[\|]/v`.
+Normalerweise können Zeichenklassen fast alle Zeichen wörtlich enthalten. Der `v` Modus hat jedoch die Syntax der Zeichenklassen anspruchsvoller gemacht, und um Raum für zukünftige Syntaxerweiterungen zu lassen, sind einige Syntaxzeichen davon ausgeschlossen, wörtlich in einer Zeichenklasse zu erscheinen. Dazu gehören: `(`, `)`, `[`, `]`, `{`, `}`, `/`, `-`, `|`. Wenn Sie diese Zeichen wörtlich abgleichen möchten, müssen Sie sie escapen; zum Beispiel: `/[\|]/v`.
 
 ## Beispiele
 
@@ -35,7 +35,7 @@ Normalerweise können Zeichenklassen fast alle Zeichen wörtlich enthalten. Der 
 
 ### Gültige Fälle
 
-<!-- Hinweis: die {} müssen zweimal maskiert werden, einmal für Yari -->
+<!-- Hinweis: die {} müssen doppelt escaped werden, einmal für Yari -->
 
 ```js example-good
 /[\(\)\\{\\}]/v;

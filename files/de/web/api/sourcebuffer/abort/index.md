@@ -1,14 +1,14 @@
 ---
-title: "SourceBuffer: Methode abort()"
+title: "SourceBuffer: abort()-Methode"
 short-title: abort()
 slug: Web/API/SourceBuffer/abort
 l10n:
-  sourceCommit: 23e1a97d50050a3b3518a4b2f67ccf42e5fd75b7
+  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
 ---
 
-{{APIRef("Media Source Extensions")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`abort()`**-Methode des {{domxref("SourceBuffer")}}-Interfaces bricht das aktuelle Segment ab und setzt den Segmentparser zurück.
+Die **`abort()`**-Methode des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces bricht das aktuelle Segment ab und setzt den Segmentparser zurück.
 
 ## Syntax
 
@@ -26,14 +26,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die {{domxref("MediaSource.readyState")}}-Eigenschaft der übergeordneten Medienquelle nicht gleich `open` ist oder dieses `SourceBuffer` aus der {{domxref("MediaSource")}} entfernt wurde.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Eigenschaft [`MediaSource.readyState`](/de/docs/Web/API/MediaSource/readyState) der übergeordneten Medienquelle nicht `open` ist oder wenn dieser `SourceBuffer` von der [`MediaSource`](/de/docs/Web/API/MediaSource) entfernt wurde.
 
 ## Beispiele
 
-Die Spezifikationsbeschreibung von `abort()` ist etwas verwirrend – betrachten Sie zum Beispiel Schritt 1 von [Parser-Zustand zurücksetzen](https://w3c.github.io/media-source/index.html#sourcebuffer-reset-parser-state). Die MSE-API ist vollständig asynchron, aber dieser Schritt scheint eine synchrone (blockierende) Operation vorzuschlagen, was keinen Sinn ergibt.
+Die Spezifikationsbeschreibung von `abort()` ist etwas verwirrend — betrachten Sie beispielsweise Schritt 1 von [reset parser state](https://w3c.github.io/media-source/index.html#sourcebuffer-reset-parser-state). Die MSE API ist vollständig asynchron, aber dieser Schritt scheint eine synchrone (blockierende) Operation vorzuschlagen, was keinen Sinn ergibt.
 
-Dennoch können aktuelle Implementierungen in bestimmten Situationen nützlich sein, wenn Sie die aktuelle Append- (oder sonstige) Operation auf einem SourceBuffer stoppen und dann sofort wieder Operationen darauf ausführen möchten. Betrachten Sie zum Beispiel diesen Code:
+Trotzdem können aktuelle Implementierungen in bestimmten Situationen nützlich sein, wenn Sie den aktuellen Append- (oder was auch immer) Vorgang auf einem Sourcebuffer stoppen und dann sofort wieder mit Operationen darauf beginnen möchten. Betrachten Sie zum Beispiel diesen Code:
 
 ```js
 sourceBuffer.addEventListener("updateend", (ev) => {
@@ -43,7 +43,7 @@ sourceBuffer.addEventListener("updateend", (ev) => {
 sourceBuffer.appendBuffer(buf);
 ```
 
-Angenommen, nach dem Aufruf von `appendBuffer`, ABER bevor das `updateend`-Ereignis ausgelöst wird (d. h. ein Puffer wird angefügt, aber die Operation ist noch nicht abgeschlossen), "scrubbt" ein Benutzer im Video und sucht nach einem neuen Zeitpunkt. In diesem Fall möchten Sie manuell `abort()` auf dem SourceBuffer aufrufen, um das Dekodieren des aktuellen Puffers zu stoppen, dann das neu angeforderte Segment abrufen und anhängen, das mit der aktuellen neuen Position des Videos zusammenhängt.
+Angenommen, nach dem Aufruf von `appendBuffer`, ABER bevor das `updateend`-Ereignis ausgelöst wird (d. h. ein Puffer wird angehängt, aber die Operation ist noch nicht abgeschlossen), "scrubbt" ein Benutzer das Video, indem er zu einem neuen Zeitpunkt springt. In diesem Fall möchten Sie manuell `abort()` auf dem Sourcebuffer aufrufen, um die Dekodierung des aktuellen Puffers zu stoppen, und dann das neu angeforderte Segment abrufen und anhängen, das sich auf die aktuelle neue Position des Videos bezieht.
 
 ## Spezifikationen
 
@@ -55,5 +55,5 @@ Angenommen, nach dem Aufruf von `appendBuffer`, ABER bevor das `updateend`-Ereig
 
 ## Siehe auch
 
-- {{domxref("MediaSource")}}
-- {{domxref("SourceBufferList")}}
+- [`MediaSource`](/de/docs/Web/API/MediaSource)
+- [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)

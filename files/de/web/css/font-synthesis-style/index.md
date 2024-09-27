@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-synthesis-style`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen anzugeben, ob der Browser einen schrägen Schriftschnitt synthetisieren darf, wenn dieser in einer Schriftfamilie fehlt.
+Die **`font-synthesis-style`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, festzulegen, ob der Browser die schrägen Schriftarten synthetisieren darf, wenn sie in einer Schriftfamilie fehlen.
 
-Es ist oft praktisch, die Kurzschreibweise {{cssxref("font-synthesis")}} zu verwenden, um alle Schriftsynthetisierungswerte zu steuern.
+Es ist oft praktisch, die Kurzschreibweiseigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Werte der Schriftartensynthese zu steuern.
 
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 font-synthesis-style: auto;
 font-synthesis-style: none;
 
-/* Globale Werte */
+/* Global values */
 font-synthesis-style: inherit;
 font-synthesis-style: initial;
 font-synthesis-style: revert;
@@ -29,9 +29,9 @@ font-synthesis-style: unset;
 ### Werte
 
 - `auto`
-  - : Gibt an, dass der fehlende schräge Schriftschnitt bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass die fehlende schräge Schriftart bei Bedarf vom Browser synthetisiert werden kann.
 - `none`
-  - : Gibt an, dass die Synthese des fehlenden schrägen Schriftschnitts durch den Browser nicht erlaubt ist.
+  - : Gibt an, dass die Synthetisierung der fehlenden schrägen Schriftart durch den Browser nicht erlaubt ist.
 
 ## Formale Definition
 
@@ -43,9 +43,9 @@ font-synthesis-style: unset;
 
 ## Beispiele
 
-### Deaktivieren der Synthese des schrägen Schriftschnitts
+### Deaktivierung der Synthese von schrägen Schriftarten
 
-Dieses Beispiel zeigt, wie die Synthese des schrägen Schriftschnitts durch den Browser in der `Montserrat`-Schriftart ausgeschaltet wird.
+Dieses Beispiel zeigt, wie die Synthese der schrägen Schriftart durch den Browser in der `Montserrat` Schriftart deaktiviert wird.
 
 #### HTML
 
@@ -82,7 +82,7 @@ Dieses Beispiel zeigt, wie die Synthese des schrägen Schriftschnitts durch den 
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

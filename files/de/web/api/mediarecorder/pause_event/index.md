@@ -1,5 +1,5 @@
 ---
-title: "MediaRecorder: pause Ereignis"
+title: "MediaRecorder: pause Event"
 short-title: pause
 slug: Web/API/MediaRecorder/pause_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Das **`pause`** Ereignis der {{domxref("MediaRecorder")}} Schnittstelle wird ausgelöst, wenn {{domxref("MediaRecorder.pause()")}} aufgerufen wird.
+Das **`pause`**-Ereignis des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces wird ausgelöst, wenn [`MediaRecorder.pause()`](/de/docs/Web/API/MediaRecorder/pause) aufgerufen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("pause", (event) => {});
@@ -22,7 +22,7 @@ onpause = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
@@ -30,21 +30,21 @@ Ein generisches {{domxref("Event")}}.
 pause.onclick = () => {
   if (mediaRecorder.state === "recording") {
     mediaRecorder.pause();
-    // Aufnahme pausiert
+    // recording paused
   } else if (mediaRecorder.state === "paused") {
     mediaRecorder.resume();
-    // Aufnahme fortsetzen
+    // resume recording
   }
 };
 
 mediaRecorder.onpause = () => {
-  // Tun Sie etwas als Reaktion darauf,
-  // dass die Aufnahme pausiert wird
+  // do something in response to
+  // recording being paused
 };
 
 mediaRecorder.onresume = () => {
-  // Tun Sie etwas als Reaktion darauf,
-  // dass die Aufnahme fortgesetzt wird
+  // do something in response to
+  // recording being resumed
 };
 ```
 
@@ -59,6 +59,7 @@ mediaRecorder.onresume = () => {
 ## Siehe auch
 
 - [Verwendung der MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API)
-- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder + getUserMedia + Web Audio API Visualisierungs-Demo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
+- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder +
+  getUserMedia + Web Audio API Visualisierungs-Demo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quellcode auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
 - [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
-- {{domxref("Navigator.getUserMedia")}}
+- [`Navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia)

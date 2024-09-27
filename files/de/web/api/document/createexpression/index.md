@@ -1,5 +1,5 @@
 ---
-title: "Document: Methode createExpression()"
+title: "Document: createExpression()-Methode"
 short-title: createExpression()
 slug: Web/API/Document/createExpression
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Diese Methode kompiliert eine {{DOMxRef("XPathExpression")}}, die dann für (wiederholte) Auswertungen verwendet werden kann.
+Diese Methode kompiliert ein [`XPathExpression`](/de/docs/Web/API/XPathExpression), das dann für (wiederholte) Auswertungen verwendet werden kann.
 
-Sie müssen diese Methode auf dem gleichen Dokument aufrufen, auf dem Sie den Ausdruck ausführen.
+Sie müssen diese Methode auf demselben Dokument aufrufen, auf das Sie den Ausdruck anwenden möchten.
 
 ## Syntax
 
@@ -23,31 +23,31 @@ createExpression(xpathText, namespaceURLMapper)
 - `xpathText`
   - : Ein String, der den zu kompilierenden XPath-Ausdruck darstellt.
 - `namespaceURLMapper`
-  - : Eine Funktion, die ein Namespace-Präfix auf eine Namespace-URL abbildet (oder null, wenn keine benötigt wird).
+  - : Eine Funktion, die ein Namensraum-Präfix einer Namensraum-URL zuordnet (oder null, wenn keine benötigt wird).
 
 ### Rückgabewert
 
-{{DOMxRef("XPathExpression")}}
+[`XPathExpression`](/de/docs/Web/API/XPathExpression)
 
 ## Beispiele
 
 ```js
 const xpathExpr = document.createExpression("//div");
-const xpathResult = xpathExpr.evaluate(document); // gibt ein XPathResult-Objekt zurück
+const xpathResult = xpathExpr.evaluate(document); // returns an XPathResult object
 const nodeContext = document.querySelector("nav");
-// Wiederverwendung der XPathExpression "xpathExpr"
-const otherResult = xpathExpr.evaluate(nodeContext); // gibt ein XPathResult-Objekt zurück
+// Re-using the XPathExpression "xpathExpr"
+const otherResult = xpathExpr.evaluate(nodeContext); // returns an XPathResult object
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{DOMxRef("Document.evaluate()")}}
-- {{DOMxRef("XPathExpression")}}
+- [`Document.evaluate()`](/de/docs/Web/API/Document/evaluate)
+- [`XPathExpression`](/de/docs/Web/API/XPathExpression)

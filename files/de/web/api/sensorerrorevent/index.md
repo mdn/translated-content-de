@@ -7,19 +7,19 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`SensorErrorEvent`**-Schnittstelle der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) bietet Informationen über Fehler, die von einem {{domxref('Sensor')}} oder einer abgeleiteten Schnittstelle ausgelöst werden.
+Die **`SensorErrorEvent`**-Schnittstelle der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) liefert Informationen über Fehler, die von einem [`Sensor`](/de/docs/Web/API/Sensor) oder einer abgeleiteten Schnittstelle ausgelöst werden.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("SensorErrorEvent.SensorErrorEvent", "SensorErrorEvent()")}}
+- [`SensorErrorEvent()`](/de/docs/Web/API/SensorErrorEvent/SensorErrorEvent)
   - : Erstellt ein neues `SensorErrorEvent`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref('SensorErrorEvent.error')}} {{ReadOnlyInline}}
-  - : Gibt das {{domxref('DOMException')}}-Objekt zurück, das im Konstruktor des Events übergeben wurde.
+- [`SensorErrorEvent.error`](/de/docs/Web/API/SensorErrorEvent/error) {{ReadOnlyInline}}
+  - : Gibt das [`DOMException`](/de/docs/Web/API/DOMException)-Objekt zurück, das im Konstruktor des Ereignisses übergeben wurde.
 
 ## Spezifikationen
 

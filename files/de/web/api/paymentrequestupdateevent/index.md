@@ -7,30 +7,30 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Das **`PaymentRequestUpdateEvent`**-Interface wird für Ereignisse verwendet, die an eine {{domxref("PaymentRequest")}}-Instanz gesendet werden, wenn Änderungen an versandbezogenen Informationen für eine ausstehende {{domxref("PaymentRequest")}} vorgenommen werden. Diese Ereignisse sind:
+Das **`PaymentRequestUpdateEvent`**-Interface wird für Ereignisse verwendet, die an eine [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Instanz gesendet werden, wenn Änderungen an versandbezogenen Informationen für eine ausstehende [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) stattfinden. Diese Ereignisse sind:
 
-- {{domxref("PaymentRequest.shippingaddresschange_event", "shippingaddresschange")}}
+- [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event)
   - : Wird ausgelöst, wenn der Benutzer seine Versandadresse ändert.
-- {{domxref("PaymentRequest.shippingoptionchange_event", "shippingoptionchange")}}
+- [`shippingoptionchange`](/de/docs/Web/API/PaymentRequest/shippingoptionchange_event)
   - : Wird ausgelöst, wenn der Benutzer eine Versandoption ändert.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("PaymentRequestUpdateEvent.PaymentRequestUpdateEvent()","PaymentRequestUpdateEvent()")}}
+- [`PaymentRequestUpdateEvent()`](/de/docs/Web/API/PaymentRequestUpdateEvent/PaymentRequestUpdateEvent)
   - : Erstellt ein neues `PaymentRequestUpdateEvent`-Objekt.
 
 ## Instanz-Eigenschaften
 
-_Bietet nur die von seinem übergeordneten Interface, {{domxref("Event")}}, geerbten Eigenschaften._
+_Bietet nur die Eigenschaften, die von seiner Elternschnittstelle [`Event`](/de/docs/Web/API/Event) geerbt werden._
 
 ## Instanz-Methoden
 
-_Zusätzlich zu den von der übergeordneten Schnittstelle {{domxref("Event")}} geerbten Methoden bietet `PaymentRequestUpdateEvent` die folgenden Methoden:_
+_Zusätzlich zu Methoden, die von der Elternschnittstelle [`Event`](/de/docs/Web/API/Event) geerbt werden, bietet `PaymentRequestUpdateEvent` die folgenden Methoden:_
 
-- {{domxref("PaymentRequestUpdateEvent.updateWith()")}}
-  - : Wenn der Ereignishandler feststellt, dass Informationen in der Zahlungsanforderung geändert werden müssen oder neue Informationen hinzugefügt werden müssen, ruft er `updateWith()` mit den zu ersetzenden oder hinzuzufügenden Informationen auf.
+- [`PaymentRequestUpdateEvent.updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith)
+  - : Wenn der Ereignis-Handler feststellt, dass Informationen im Zahlungsantrag geändert oder neue Informationen hinzugefügt werden müssen, ruft er `updateWith()` mit den zu ersetzenden oder hinzuzufügenden Informationen auf.
 
 ## Spezifikationen
 

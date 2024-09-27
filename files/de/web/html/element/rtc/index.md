@@ -7,13 +7,13 @@ l10n:
 
 {{HTMLSidebar}}{{deprecated_header}}
 
-Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Anmerkungen von Zeichen, die in einer Ruby von {{HTMLElement("rb")}}-Elementen innerhalb eines {{HTMLElement("ruby")}}-Elements dargestellt werden. {{HTMLElement("rb")}}-Elemente können sowohl Aussprache- ({{HTMLElement("rt")}}) als auch semantische (`<rtc>`) Anmerkungen haben.
+Das **`<rtc>`** [HTML](/de/docs/Web/HTML)-Element umfasst semantische Anmerkungen von Zeichen, die in einer Ruby von {{HTMLElement("rb")}}-Elementen präsentiert werden, die innerhalb eines {{HTMLElement("ruby")}}-Elements verwendet werden. {{HTMLElement("rb")}} kann sowohl Aussprache- ({{HTMLElement("rt")}}) als auch semantische (`<rtc>`) Anmerkungen haben.
 
 {{EmbedInteractiveExample("pages/tabbed/rtc.html", "tabbed-standard")}}
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Beispiele
 
@@ -54,10 +54,10 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasing-Inhalt</a
         >
         oder {{HTMLElement("rt")}}-Elemente.
       </td>
@@ -65,23 +65,23 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das schließende Tag kann weggelassen werden, wenn es direkt von einem
-        {{HTMLElement("rb")}}, <code>&lt;rtc&gt;</code>- oder
-        {{HTMLElement("rt")}}-Element-Öffnungstag oder von seinem
-        übergeordneten Schließtag gefolgt wird.
+        Das schließende Tag kann weggelassen werden, wenn es unmittelbar von einem
+        {{HTMLElement("rb")}}, <code>&lt;rtc&gt;</code> oder
+        {{HTMLElement("rt")}}-Element-Öffnungstag oder von seinem Eltern-
+        schließenden Tag gefolgt wird.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>Ein {{HTMLElement("ruby")}}-Element.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLElement")}}</td>
+      <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
 </table>

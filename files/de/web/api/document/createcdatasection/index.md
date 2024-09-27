@@ -3,12 +3,12 @@ title: "Dokument: createCDATASection()-Methode"
 short-title: createCDATASection()
 slug: Web/API/Document/createCDATASection
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("DOM")}}
 
-Die Methode **`createCDATASection()`** erstellt einen neuen CDATA-Abschnittsknoten und gibt ihn zurück.
+Die **`createCDATASection()`**-Methode erstellt einen neuen CDATA-Abschnittsknoten und gibt diesen zurück.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ createCDATASection(data)
 ### Parameter
 
 - `data`
-  - : Ein String, der die Daten enthält, die dem CDATA-Abschnitt hinzugefügt werden sollen.
+  - : Ein Zeichenkette, die die dem CDATA-Abschnitt hinzuzufügenden Daten enthält.
 
 ### Rückgabewert
 
-Ein [CDATA-Abschnittsknoten](/de/docs/Web/API/CDATASection).
+Ein [CDATA-Abschnitt](/de/docs/Web/API/CDATASection)-Knoten.
 
 ## Beispiele
 
@@ -37,8 +37,13 @@ console.log(new XMLSerializer().serializeToString(docu));
 
 ## Hinweise
 
-- Dies funktioniert nur mit XML- und nicht mit HTML-Dokumenten (da HTML-Dokumente CDATA-Abschnitte nicht unterstützen); ein Versuch, dies in einem HTML-Dokument zu verwenden, führt zu einem `NOT_SUPPORTED_ERR`.
-- Es wird eine `NS_ERROR_DOM_INVALID_CHARACTER_ERR`-Ausnahme ausgelöst, wenn versucht wird, die abschließende CDATA-Sequenz ("`]]>`") als Teil der Daten einzureichen. Daher kann benutzergestellte und unescape-Daten nicht sicher ohne die Erzeugung einer Ausnahme durch diese Methode verwendet werden ({{domxref("document.createTextNode","createTextNode()")}} kann oft stattdessen verwendet werden).
+- Dies funktioniert nur mit XML- und nicht mit HTML-Dokumenten (da HTML-Dokumente keine
+  CDATA-Abschnitte unterstützen); der Versuch, dies bei einem HTML-Dokument durchzuführen, wird
+  einen `NOT_SUPPORTED_ERR` auslösen.
+- Es wird eine `NS_ERROR_DOM_INVALID_CHARACTER_ERR`-Ausnahme ausgelöst, wenn versucht wird,
+  die Abschlusssequenz des CDATA-Abschnitts (`]]>`) als Teil der Daten einzureichen, sodass
+  nicht escapte, benutzerbereitgestellte Daten nicht sicher verwendet werden können, ohne dass
+  diese Methode diese Ausnahme auslöst ([`createTextNode()`](/de/docs/Web/API/Document/createTextNode) kann oft anstelle dessen verwendet werden).
 
 ## Spezifikationen
 

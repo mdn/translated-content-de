@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Enumerieren Sie die Slots eines Moduls. Diese Funktion gibt ein Array zurück, das einen Eintrag für jeden Slot enthält. Jeder Eintrag enthält den Namen des Slots und, falls der Slot ein Token enthält, Informationen über das Token.
+Enumerieren Sie die Slots eines Moduls. Diese Funktion gibt ein Array zurück, das einen Eintrag für jeden Slot enthält. Jeder Eintrag enthält den Namen des Slots und, wenn der Slot ein Token enthält, Informationen über das Token.
 
 Sie können dies nur für ein Modul aufrufen, das in Firefox installiert ist.
 
@@ -24,7 +24,7 @@ let getting = browser.pkcs11.getModuleSlots(
 ### Parameter
 
 - `name`
-  - : `string`. Name des Moduls. Dies muss mit der `name`-Eigenschaft im [PKCS #11-Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#pkcs_11_manifests) für das Modul übereinstimmen.
+  - : `string`. Name des Moduls. Dies muss mit der `name`-Eigenschaft im [PKCS #11 Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#pkcs_11_manifests) für das Modul übereinstimmen.
 
 ### Rückgabewert
 
@@ -40,15 +40,15 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 - `manufacturer`
   - : `string`. Name des Herstellers des Tokens.
 - `HWVersion`
-  - : `string`. Hardware-Version, als PKCS #11 Versionsnummer (zwei 32-Bit Ganzzahlen, getrennt durch einen Punkt, wie "1.0").
+  - : `string`. Hardware-Version, als PKCS #11 Versionsnummer (zwei 32-Bit Ganzzahlen, getrennt durch einen Punkt, wie "1.0".
 - `FWVersion`
-  - : `string`. Firmware-Version, als PKCS #11 Versionsnummer (zwei 32-Bit Ganzzahlen, getrennt durch einen Punkt, wie "1.0").
+  - : `string`. Firmware-Version, als PKCS #11 Versionsnummer (zwei 32-Bit Ganzzahlen, getrennt durch einen Punkt, wie "1.0".
 - `serial`
   - : `string`. Seriennummer, deren Format durch die Tokenspezifikation definiert ist.
 - `isLoggedIn`
   - : `boolean`: `true`, wenn das Token bereits angemeldet ist, `false` andernfalls.
 
-Wenn das Modul nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung zurückgewiesen.
+Wenn das Modul nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -56,7 +56,7 @@ Wenn das Modul nicht gefunden werden konnte oder ein anderer Fehler auftritt, wi
 
 ## Beispiele
 
-Installiert ein Modul, listet dann dessen Slots auf und listet die Tokens, die sie enthalten, auf:
+Installiert ein Modul, listet dann dessen Slots und die darin enthaltenen Tokens auf:
 
 ```js
 function onInstalled() {

@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Background Sync")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`sync`**-Eigenschaft der Schnittstelle {{domxref("ServiceWorkerRegistration")}} ist eine schreibgeschützte Eigenschaft, welche eine Referenz auf die {{domxref("SyncManager")}}-Schnittstelle zurückgibt, die Hintergrundsynchronisationsprozesse verwaltet.
+Die schreibgeschützte **`sync`**-Eigenschaft des [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt eine Referenz auf das [`SyncManager`](/de/docs/Web/API/SyncManager)-Interface zurück, das Hintergrundsynchronisationsprozesse verwaltet.
 
 ## Wert
 
-Ein {{domxref("SyncManager")}}-Objekt.
+Ein [`SyncManager`](/de/docs/Web/API/SyncManager)-Objekt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

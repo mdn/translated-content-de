@@ -1,5 +1,5 @@
 ---
-title: "MediaTrackSettings: Eigenschaft suppressLocalAudioPlayback"
+title: "MediaTrackSettings: suppressLocalAudioPlayback-Eigenschaft"
 short-title: suppressLocalAudioPlayback
 slug: Web/API/MediaTrackSettings/suppressLocalAudioPlayback
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{SeeCompatTable}}
 
-Die **`suppressLocalAudioPlayback`**-Eigenschaft des {{domxref("MediaTrackSettings")}}-Wörterbuchs steuert, ob das Audio, das in einem Tab abgespielt wird, weiterhin über die lokalen Lautsprecher eines Nutzers ausgegeben wird, wenn der Tab erfasst wird.
+Die **`suppressLocalAudioPlayback`**-Eigenschaft des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs steuert, ob das Audio, das in einem Tab abgespielt wird, weiterhin über die lokalen Lautsprecher eines Benutzers abgespielt wird, wenn der Tab erfasst wird.
 
-Zum Beispiel, wenn Sie einen Videoanruf an ein externes AV-System in einem Konferenzraum übertragen, möchten Sie, dass das Audio über das AV-System und nicht über die lokalen Lautsprecher abgespielt wird. Auf diese Weise wird das Audio lauter und klarer und ist auch mit dem Konferenzvideo synchron.
+Zum Beispiel in Fällen, in denen Sie einen Videoanruf an ein externes AV-System in einem Konferenzraum übertragen, möchten Sie, dass das Audio über das AV-System abgespielt wird und nicht über die lokalen Lautsprecher. Auf diese Weise ist das Audio lauter und klarer und auch synchron zum Konferenzvideo.
 
 ## Wert
 
-Der Wert von `suppressLocalAudioPlayback` ist ein Boolean – `true` aktiviert die Unterdrückung der lokalen Audiowiedergabe, und `false` deaktiviert sie.
+Der Wert von `suppressLocalAudioPlayback` ist ein boolescher Wert — `true` aktiviert die Unterdrückung der lokalen Audiowiedergabe und `false` deaktiviert sie.
 
 ## Beispiele
 
-Die folgende Funktion richtet das Constraints-Objekt ein, das die Optionen für den Aufruf von {{domxref("MediaDevices.getDisplayMedia", "getDisplayMedia()")}} angibt. Sie fügt die Bedingung `suppressLocalAudioPlayback` hinzu (um zu verlangen, dass erfasstes Audio nicht über die lokalen Lautsprecher des Nutzers abgespielt wird), nur wenn bekannt ist, dass sie vom Browser unterstützt wird. Das Aufzeichnen wird dann durch den Aufruf von `getDisplayMedia()` gestartet und der zurückgegebene Stream wird dem über die Variable `videoElem` referenzierten Videoelement zugewiesen.
+Die folgende Funktion richtet das Constraints-Objekt ein, das die Optionen für den Aufruf von [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) angibt. Sie fügt die `suppressLocalAudioPlayback`-Einschränkung hinzu (fordert, dass erfasstes Audio nicht über die lokalen Lautsprecher des Benutzers abgespielt wird), nur wenn bekannt ist, dass sie vom Browser unterstützt wird. Die Erfassung wird dann durch Aufruf von `getDisplayMedia()` gestartet, und der zurückgegebene Stream wird dem durch die Variable `videoElem` referenzierten Videoelement zugeordnet.
 
 ```js
 async function capture() {
@@ -53,7 +53,7 @@ async function capture() {
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
 - [Verwendung der Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
-- {{domxref("MediaDevices.getDisplayMedia()")}}
-- {{domxref("MediaStreamTrack.getConstraints()")}}
-- {{domxref("MediaStreamTrack.applyConstraints()")}}
-- {{domxref("MediaStreamTrack.getSettings()")}}
+- [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
+- [`MediaStreamTrack.getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints)
+- [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints)
+- [`MediaStreamTrack.getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings)

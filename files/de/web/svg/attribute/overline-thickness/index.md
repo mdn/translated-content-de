@@ -1,5 +1,5 @@
 ---
-title: Überstrichdicke
+title: overline-thickness
 slug: Web/SVG/Attribute/overline-thickness
 l10n:
   sourceCommit: 829db137a01feb14af7beaec178a3ea0118b4777
@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das `overline-thickness` Attribut repräsentiert die ideale Dicke des Überstrichs. Die Überstrichdicke wird im Koordinatensystem der Schrift ausgedrückt.
+Das Attribut `overline-thickness` repräsentiert die ideale Dicke der Überlinie. Die Dicke der Überlinie wird im Koordinatensystem der Schriftart ausgedrückt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -19,7 +19,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   <tbody>
     <tr>
       <th scope="row">Kategorien</th>
-      <td><em>Keine</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Wert</th>

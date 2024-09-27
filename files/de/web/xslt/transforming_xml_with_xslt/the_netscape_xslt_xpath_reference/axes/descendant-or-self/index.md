@@ -7,4 +7,4 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Achse descendant-or-self bezeichnet den Kontextknoten und alle seine Nachkommen. Attribut- und Namespace-Knoten sind **nicht** enthalten - der Elternteil eines Attributknotens ist ein Elementknoten, aber Attributknoten sind nicht die Kinder ihrer Eltern.
+Die Achse `descendant-or-self` bezeichnet den Kontextknoten und alle seine Nachfahren. Attribut- und Namespace-Knoten sind **nicht** enthalten - das übergeordnete Element eines Attributknotens ist ein Elementknoten, jedoch sind Attributknoten nicht die Kinder ihrer Eltern.

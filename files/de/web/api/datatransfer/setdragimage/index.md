@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Wenn ein Drag-Ereignis auftritt, wird ein transparentes Bild vom Drag-Ziel (das Element, bei dem das {{domxref("HTMLElement/dragstart_event", "dragstart")}}-Ereignis ausgelöst wird) generiert und folgt während des Drags dem Mauszeiger. Dieses Bild wird automatisch erstellt, daher müssen Sie es nicht selbst erstellen. Falls jedoch ein benutzerdefiniertes Bild gewünscht ist, kann die **`DataTransfer.setDragImage()`**-Methode verwendet werden, um das benutzerdefinierte Bild festzulegen. Das Bild ist typischerweise ein {{HTMLElement("img")}}-Element, kann aber auch ein {{HTMLElement("canvas")}} oder ein beliebiges anderes sichtbares Element sein.
+Wenn ein Ziehvorgang stattfindet, wird ein durchsichtiges Bild vom Ziehziel (dem Element, bei dem das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignis ausgelöst wird) erstellt und folgt dem Mauszeiger während des Ziehens. Dieses Bild wird automatisch erstellt, sodass Sie es nicht selbst erstellen müssen. Wenn jedoch ein benutzerdefiniertes Bild gewünscht wird, kann die **`DataTransfer.setDragImage()`**-Methode verwendet werden, um das benutzerdefinierte Bild festzulegen, das verwendet werden soll. Das Bild wird typischerweise ein {{HTMLElement("img")}}-Element sein, es kann jedoch auch ein {{HTMLElement("canvas")}} oder ein beliebiges anderes sichtbares Element sein.
 
-Die `x`- und `y`-Koordinaten der Methode definieren, wie das Bild relativ zum Mauszeiger erscheinen soll. Diese Koordinaten definieren den Versatz in das Bild, wo sich der Mauszeiger befinden soll. Um das Bild z.B. so anzuzeigen, dass der Zeiger in der Mitte ist, verwenden Sie Werte, die die Hälfte der Breite und Höhe des Bildes sind.
+Die `x`- und `y`-Koordinaten der Methode definieren, wie das Bild relativ zum Mauszeiger angezeigt werden soll. Diese Koordinaten bestimmen den Versatz im Bild, an dem sich der Mauszeiger befinden soll. Um das Bild beispielsweise so anzuzeigen, dass der Zeiger in der Mitte ist, verwenden Sie Werte, die die Hälfte der Breite und Höhe des Bildes betragen.
 
-Diese Methode muss im {{domxref("HTMLElement/dragstart_event", "dragstart")}}-Ereignishandler aufgerufen werden.
+Diese Methode muss im [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignishandler aufgerufen werden.
 
 ## Syntax
 
@@ -24,24 +24,24 @@ setDragImage(imgElement, xOffset, yOffset)
 
 - `imgElement`
 
-  - : Ein Bild-{{domxref("Element")}}-Element, das als Rückmeldungsbild für den Drag verwendet werden soll.
+  - : Ein Bild-`Element`, das für das Ziehfeedbackbild verwendet werden soll.
 
-    Wenn das {{domxref("Element")}} ein img-Element ist, setzen Sie den Drag-Daten-Store-Bitmap auf das Bild des Elements (in seiner intrinsischen Größe); andernfalls setzen Sie den Drag-Daten-Store-Bitmap auf ein Bild, das aus dem angegebenen Element generiert wird (der genaue Mechanismus hierzu ist derzeit nicht spezifiziert).
+    Wenn das [`Element`](/de/docs/Web/API/Element) ein img-Element ist, dann setzen Sie das Drag-Datenspeicher-Bitmap auf das Bild des Elements (in seiner intrinsischen Größe); andernfalls setzen Sie das Drag-Datenspeicher-Bitmap auf ein von dem gegebenen Element generiertes Bild (der genaue Mechanismus dafür ist derzeit nicht spezifiziert).
 
-    Hinweis: Wenn das {{domxref("Element")}} ein bestehendes {{domxref("HTMLElement")}} ist, muss es im Ansichtsbereich sichtbar sein, um als Drag-Rückmeldungsbild angezeigt zu werden. Alternativ können Sie ein neues DOM-Element erstellen, das speziell für diesen Zweck außerhalb des Bildschirms sein könnte.
+    Hinweis: Wenn das [`Element`](/de/docs/Web/API/Element) ein vorhandenes [`HTMLElement`](/de/docs/Web/API/HTMLElement) ist, muss es im Viewport sichtbar sein, um als Ziehfeedbackbild angezeigt zu werden. Alternativ können Sie ein neues DOM-Element erstellen, das speziell für diesen Zweck außerhalb des Bildschirms sein kann.
 
 - `xOffset`
-  - : Ein `long`, der den horizontalen Offset innerhalb des Bildes angibt.
+  - : Ein `long`, der den horizontalen Versatz innerhalb des Bildes angibt.
 - `yOffset`
-  - : Ein `long`, der den vertikalen Offset innerhalb des Bildes angibt.
+  - : Ein `long`, der den vertikalen Versatz innerhalb des Bildes angibt.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+None ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie die `setDragImage()`-Methode verwendet wird. Beachten Sie, dass sich das Beispiel auf eine Bilddatei namens `example.gif` bezieht. Wenn diese Datei vorhanden ist, wird sie als Drag-Bild verwendet, und wenn diese Datei nicht vorhanden ist, verwendet der Browser sein Standard-Drag-Bild.
+Dieses Beispiel zeigt, wie die `setDragImage()`-Methode verwendet wird. Beachten Sie, dass sich das Beispiel auf eine Bilddatei namens `example.gif` bezieht. Wenn diese Datei vorhanden ist, wird sie als Ziehbild verwendet, und wenn diese Datei nicht vorhanden ist, verwendet der Browser sein Standard-Ziehbild.
 
 [demo](https://codepen.io/webgeeker/full/KBzrxE/)
 
@@ -49,7 +49,7 @@ Dieses Beispiel zeigt, wie die `setDragImage()`-Methode verwendet wird. Beachten
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Beispiel von DataTransfer.setDragImage()</title>
+    <title>Example of DataTransfer.setDragImage()</title>
     <meta name="viewport" content="width=device-width" />
     <style>
       div {
@@ -67,11 +67,11 @@ Dieses Beispiel zeigt, wie die `setDragImage()`-Methode verwendet wird. Beachten
     <script>
       function dragStartHandler(ev) {
         console.log("dragStart");
-        // Setzen Sie das Format und die Daten des Drags. Verwenden Sie die ID des Ereignisziels für die Daten
+        // Set the drag's format and data. Use the event target's id for the data
         ev.dataTransfer.setData("text/plain", ev.target.id);
-        // Erstellen Sie ein Bild und verwenden Sie es für das Drag-Bild
-        // HINWEIS: Ändern Sie "example.gif" in ein vorhandenes Bild oder das Bild wird nicht
-        // erstellt und das Standard-Drag-Bild wird verwendet.
+        // Create an image and use it for the drag image
+        // NOTE: change "example.gif" to an existing image or the image will not
+        // be created and the default drag image will be used.
         const img = new Image();
         img.src = "example.gif";
         ev.dataTransfer.setDragImage(img, 10, 10);
@@ -85,24 +85,25 @@ Dieses Beispiel zeigt, wie die `setDragImage()`-Methode verwendet wird. Beachten
       function dropHandler(ev) {
         console.log("Drop");
         ev.preventDefault();
-        // Holen Sie die Daten, die die ID des Zielorts sind
+        // Get the data, which is the id of the drop target
         const data = ev.dataTransfer.getData("text");
         ev.target.appendChild(document.getElementById(data));
       }
     </script>
   </head>
   <body>
-    <h1>Beispiel von <code>DataTransfer.setDragImage()</code></h1>
+    <h1>Example of <code>DataTransfer.setDragImage()</code></h1>
     <div>
       <p id="source" ondragstart="dragStartHandler(event);" draggable="true">
-        Wählen Sie dieses Element aus, ziehen Sie es zur Drop-Zone und lassen Sie dann die Auswahl los, um das Element zu verschieben.
+        Select this element, drag it to the Drop Zone and then release the
+        selection to move the element.
       </p>
     </div>
     <div
       id="target"
       ondrop="dropHandler(event);"
       ondragover="dragOverHandler(event);">
-      Drop-Zone
+      Drop Zone
     </div>
   </body>
 </html>
@@ -118,7 +119,7 @@ Dieses Beispiel zeigt, wie die `setDragImage()`-Methode verwendet wird. Beachten
 
 ## Siehe auch
 
-- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
 - [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
 - [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
 - [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)

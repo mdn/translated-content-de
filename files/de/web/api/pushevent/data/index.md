@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte Eigenschaft `data` der **`PushEvent`**-Schnittstelle gibt eine Referenz auf ein {{domxref("PushMessageData")}}-Objekt zurück, das Daten enthält, die an das {{domxref("PushSubscription")}} gesendet wurden.
+Die schreibgeschützte `data`-Eigenschaft der **`PushEvent`**-Schnittstelle gibt eine Referenz auf ein [`PushMessageData`](/de/docs/Web/API/PushMessageData)-Objekt zurück, das die an das [`PushSubscription`](/de/docs/Web/API/PushSubscription) gesendeten Daten enthält.
 
 ## Wert
 
-Ein {{domxref("PushMessageData")}}-Objekt oder `null`, wenn kein `data`-Element übergeben wird, wenn die Ereignisinstanz initialisiert wird.
+Ein [`PushMessageData`](/de/docs/Web/API/PushMessageData)-Objekt oder `null`, wenn während der Initialisierung der Ereignisinstanz kein `data`-Mitglied übergeben wird.
 
 ## Beispiele
 
-Das folgende Beispiel nimmt Daten von einem PushEvent und zeigt sie auf allen Clients der Service Workers an.
+Das folgende Beispiel entnimmt die Daten aus einem PushEvent und zeigt sie in allen Clients der Service Worker an.
 
 ```js
 self.addEventListener("push", (event) => {

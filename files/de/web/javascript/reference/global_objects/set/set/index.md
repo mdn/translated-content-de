@@ -18,17 +18,15 @@ new Set()
 new Set(iterable)
 ```
 
-> **Note:** `Set()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
+> **Note:** `Set()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `iterable` {{optional_inline}}
 
-  - : Wenn ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Statements/for...of) übergeben wird, werden alle seine Elemente dem neuen
-    `Set` hinzugefügt.
+  - : Wenn ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Statements/for...of) übergeben wird, werden alle seine Elemente dem neuen `Set` hinzugefügt.
 
-    Wenn Sie diesen Parameter nicht angeben oder sein Wert `null` ist, ist das neue
-    `Set` leer.
+    Wenn Sie diesen Parameter nicht angeben oder sein Wert `null` ist, ist das neue `Set` leer.
 
 ### Rückgabewert
 

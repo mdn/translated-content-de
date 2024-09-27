@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: Fehlende ] nach Elementliste"
+title: "SyntaxError: fehlendes ] nach Elementliste"
 slug: Web/JavaScript/Reference/Errors/Missing_bracket_after_list
 l10n:
   sourceCommit: e3faa375b0179de77a5eff00074e3d168a0a904c
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Ausnahmefehler "missing ] after element list" tritt auf, wenn ein Fehler in der Syntax der Array-Initialisierung vorliegt. Wahrscheinlich fehlt eine schließende eckige Klammer (`]`) oder ein Komma (`,`).
+Der JavaScript-Ausnahmefehler „fehlendes ] nach Elementliste“ tritt auf, wenn ein Fehler in der Syntax der Array-Initialisierung vorliegt. Höchstwahrscheinlich fehlt eine schließende eckige Klammer (`]`) oder ein Komma (`,`).
 
 ## Meldung
 
@@ -22,7 +22,7 @@ SyntaxError: Unexpected token ';'. Expected either a closing ']' or a ',' follow
 
 ## Was ist schiefgelaufen?
 
-Es gibt einen Fehler in der Array-Initialisierungssyntax. Wahrscheinlich fehlt eine schließende eckige Klammer (`]`) oder ein Komma (`,`).
+Es gibt einen Fehler in der Syntax der Array-Initialisierung. Höchstwahrscheinlich fehlt eine schließende eckige Klammer (`]`) oder ein Komma (`,`).
 
 ## Beispiele
 

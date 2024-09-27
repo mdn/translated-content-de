@@ -8,27 +8,27 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`workerStart`**-Eigenschaft der {{domxref("PerformanceResourceTiming")}}-Schnittstelle gibt ein {{domxref("DOMHighResTimeStamp")}} unmittelbar vor der Übertragung des {{domxref("FetchEvent")}} zurück, wenn ein Service Worker-Thread bereits läuft, oder unmittelbar bevor der Service Worker-Thread gestartet wird, falls er noch nicht läuft. Wenn die Ressource nicht von einem Service Worker abgefangen wird, liefert die Eigenschaft immer den Wert 0 zurück.
+Die **`workerStart`** schreibgeschützte Eigenschaft des [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Interfaces gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar vor dem Dispatch des [`FetchEvent`](/de/docs/Web/API/FetchEvent) zurück, wenn ein Service Worker-Thread bereits läuft, oder unmittelbar bevor der Service Worker-Thread gestartet wird, wenn er noch nicht läuft. Wenn die Ressource nicht von einem Service Worker abgefangen wird, gibt die Eigenschaft immer 0 zurück.
 
 ## Wert
 
-Die `workerStart`-Eigenschaft kann folgende Werte annehmen:
+Die `workerStart`-Eigenschaft kann die folgenden Werte haben:
 
-- Ein {{domxref("DOMHighResTimeStamp")}}.
+- Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 - `0`, wenn kein Service Worker verwendet wird.
-- `0`, wenn es sich um eine Cross-Origin-Anfrage handelt und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Response-Header verwendet wird.
+- `0`, wenn die Ressource eine Cross-Origin-Anforderung ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Response-Header verwendet wird.
 
 ## Beispiele
 
-### Messung der Bearbeitungszeit des ServiceWorkers
+### Messung der ServiceWorker-Bearbeitungszeit
 
-Die `workerStart`- und {{domxref("PerformanceResourceTiming.fetchStart", "fetchStart")}}-Eigenschaften können verwendet werden, um die Bearbeitungszeit eines {{domxref("ServiceWorker")}} zu messen.
+Die `workerStart`- und [`fetchStart`](/de/docs/Web/API/PerformanceResourceTiming/fetchStart)-Eigenschaften können verwendet werden, um die Bearbeitungszeit eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) zu messen.
 
 ```js
 const workerProcessingTime = entry.fetchStart - entry.workerStart;
 ```
 
-Beispiel mit einem {{domxref("PerformanceObserver")}}, der über neue `resource`-Performance-Einträge benachrichtigt, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden sind.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge informiert, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -45,7 +45,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel mit {{domxref("Performance.getEntriesByType()")}}, das nur `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -59,11 +59,11 @@ resources.forEach((entry) => {
 });
 ```
 
-### Cross-Origin-Zeitinformationen
+### Informationen zur Cross-Origin-Zeiterfassung
 
-Wenn der Wert der `workerStart`-Eigenschaft `0` ist, könnte es sich bei der Ressource um eine Cross-Origin-Anfrage handeln. Um Cross-Origin-Zeitinformationen anzuzeigen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Response-Header gesetzt werden.
+Wenn der Wert der `workerStart`-Eigenschaft `0` ist, könnte die Ressource eine Cross-Origin-Anforderung sein. Um Informationen zur Cross-Origin-Zeiterfassung anzuzeigen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Response-Header gesetzt werden.
 
-Um beispielsweise `https://developer.mozilla.org` zu erlauben, Zeitressourcen zu sehen, sollte die Cross-Origin-Ressource senden:
+Zum Beispiel, um `https://developer.mozilla.org` den Zugriff auf Zeitressourcen zu erlauben, sollte die Cross-Origin-Ressource senden:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org

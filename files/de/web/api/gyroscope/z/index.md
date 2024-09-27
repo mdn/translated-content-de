@@ -1,5 +1,5 @@
 ---
-title: "Gyroskop: z-Eigenschaft"
+title: "Gyroscope: z-Eigenschaft"
 short-title: z
 slug: Web/API/Gyroscope/z
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die schreibgeschützte Eigenschaft **`z`** des
-{{domxref("Gyroscope")}}-Interfaces gibt eine Zahl zurück, die die
+Die schreibgeschützte **`z`**-Eigenschaft des
+[`Gyroscope`](/de/docs/Web/API/Gyroscope)-Interfaces gibt eine Nummer zurück, die die
 Winkelgeschwindigkeit des Geräts entlang seiner z-Achse angibt.
 
 ## Wert
 
-Eine {{jsxref('Number')}}.
+Ein {{jsxref('Number')}}.
 
 ## Beispiele
 
-Das Gyroskop wird typischerweise im {{domxref('Sensor.reading_event', 'lese')}}-Ereignis-Callback gelesen.
-Im untenstehenden Beispiel geschieht dies sechzig Mal pro Sekunde.
+Das Gyroskop wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback ausgelesen.
+Im folgenden Beispiel erfolgt dies sechzig Mal pro Sekunde.
 
 ```js
 let gyroscope = new Gyroscope({ frequency: 60 });
@@ -36,6 +36,6 @@ gyroscope.start();
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

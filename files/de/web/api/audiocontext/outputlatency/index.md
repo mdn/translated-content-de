@@ -8,9 +8,11 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte Eigenschaft **`outputLatency`** der {{domxref("AudioContext")}}-Schnittstelle bietet eine Schätzung der Ausgangslatenz des aktuellen Audiokontextes.
+Die schreibgeschützte Eigenschaft **`outputLatency`** der
+[`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle bietet eine Schätzung der Ausgangslatenz
+des aktuellen Audio-Kontexts.
 
-Dies ist die Zeit in Sekunden, die zwischen dem Moment vergeht, in dem der Browser einen Audio-Puffer aus einem Audio-Graph an das Audiosubsystem des Host-Systems zur Wiedergabe übergibt, und dem Zeitpunkt, an dem das erste Sample im Puffer tatsächlich vom Audioausgabegerät verarbeitet wird.
+Dies ist die Zeit, in Sekunden, die zwischen dem Übergeben eines Audio-Puffers eines Audio-Diagramms vom Browser an das Audio-Untersystem des Host-Systems zum Abspielen liegt und dem Zeitpunkt, zu dem die erste Probe im Puffer tatsächlich vom Audioausgabegerät verarbeitet wird.
 
 Sie variiert je nach Plattform und verfügbarer Hardware.
 
@@ -29,7 +31,7 @@ console.log(audioCtx.outputLatency);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

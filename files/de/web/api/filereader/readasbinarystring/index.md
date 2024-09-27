@@ -9,11 +9,11 @@ l10n:
 {{APIRef("File API")}}{{AvailableInWorkers}}{{Deprecated_Header}}
 
 > [!NOTE]
-> Diese Methode ist zugunsten von {{DOMxRef("FileReader.readAsArrayBuffer","readAsArrayBuffer()")}} veraltet.
+> Diese Methode ist zugunsten von [`readAsArrayBuffer()`](/de/docs/Web/API/FileReader/readAsArrayBuffer) veraltet.
 
-Die **`readAsBinaryString()`**-Methode der {{domxref("FileReader")}}-Schnittstelle wird verwendet, um mit dem Lesen der Inhalte des angegebenen {{domxref("Blob")}} oder {{domxref("File")}} zu beginnen. Wenn die Leseoperation abgeschlossen ist, wird die {{domxref("FileReader.readyState","readyState")}}-Eigenschaft `DONE`, und das {{domxref("FileReader/loadend_event", "loadend")}}-Ereignis wird ausgelöst. Zu diesem Zeitpunkt enthält die {{domxref("FileReader.result","result")}}-Eigenschaft die rohen Binärdaten aus der Datei.
+Die **`readAsBinaryString()`**-Methode des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces wird verwendet, um das Lesen des Inhalts des angegebenen [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File) zu starten. Wenn der Lesevorgang abgeschlossen ist, wird die [`readyState`](/de/docs/Web/API/FileReader/readyState)-Eigenschaft auf `DONE` gesetzt, und das [`loadend`](/de/docs/Web/API/FileReader/loadend_event)-Ereignis wird ausgelöst. Zu diesem Zeitpunkt enthält die [`result`](/de/docs/Web/API/FileReader/result)-Eigenschaft die rohen Binärdaten aus der Datei.
 
-Beachten Sie, dass diese Methode einmal aus der File API-Spezifikation entfernt wurde, aber für die Rückwärtskompatibilität neu eingeführt wurde. Es wird empfohlen, {{domxref("FileReader.readAsArrayBuffer()")}} zu verwenden.
+Beachten Sie, dass diese Methode einst aus der File API Spezifikation entfernt, aber aus Gründen der Rückwärtskompatibilität wieder eingeführt wurde. Die Verwendung von [`FileReader.readAsArrayBuffer()`](/de/docs/Web/API/FileReader/readAsArrayBuffer) wird empfohlen.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ readAsBinaryString(blob)
 ### Parameter
 
 - `blob`
-  - : Das {{domxref("Blob")}} oder {{domxref("File")}}, aus dem gelesen werden soll.
+  - : Der [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File), von dem gelesen werden soll.
 
 ### Rückgabewert
 
@@ -68,4 +68,4 @@ canvas.toBlob((blob) => {
 
 ## Siehe auch
 
-- {{domxref("FileReader")}}
+- [`FileReader`](/de/docs/Web/API/FileReader)

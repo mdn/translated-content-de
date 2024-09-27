@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die **`charAt()`** Methode von {{jsxref("String")}} Werten gibt eine neue Zeichenkette zurück, die aus der einzelnen UTF-16-Code-Einheit an dem angegebenen Index besteht.
+Die **`charAt()`**-Methode von {{jsxref("String")}}-Werten gibt einen neuen String zurück, der aus einer einzelnen UTF-16-Code-Einheit an dem angegebenen Index besteht.
 
-`charAt()` ordnet die Zeichenkette immer als eine Sequenz von [UTF-16-Code-Einheiten](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters), sodass es einzelne Surrogate zurückgeben kann. Um den vollständigen Unicode-Codepunkt an dem angegebenen Index zu erhalten, verwenden Sie {{jsxref("String.prototype.codePointAt()")}} und {{jsxref("String.fromCodePoint()")}}.
+`charAt()` indexiert den String immer als eine Sequenz aus [UTF-16-Code-Einheiten](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters), daher kann es einzelne Surrogate zurückgeben. Um den vollständigen Unicode-Codepunkt am gegebenen Index zu erhalten, verwenden Sie {{jsxref("String.prototype.codePointAt()")}} und {{jsxref("String.fromCodePoint()")}}.
 
 {{EmbedInteractiveExample("pages/js/string-charat.html", "shorter")}}
 
@@ -22,33 +22,33 @@ charAt(index)
 ### Parameter
 
 - `index`
-  - : Index des Zeichens, das zurückgegeben werden soll, beginnend bei null. [In eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) — `undefined` wird in 0 umgewandelt.
+  - : Nullbasierter Index des Zeichens, das zurückgegeben werden soll. [In eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) — `undefined` wird in 0 umgewandelt.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die das Zeichen (genau eine UTF-16-Code-Einheit) am angegebenen `index` darstellt. Wenn `index` außerhalb des Bereichs von `0` – `str.length - 1` liegt, gibt `charAt()` eine leere Zeichenkette zurück.
+Ein String, der das Zeichen (genau eine UTF-16-Code-Einheit) am angegebenen `index` darstellt. Wenn `index` außerhalb des Bereichs von `0` – `str.length - 1` liegt, gibt `charAt()` einen leeren String zurück.
 
 ## Beschreibung
 
-Zeichen in einer Zeichenkette werden von links nach rechts indiziert. Der Index des ersten Zeichens ist `0`, und der Index des letzten Zeichens in einer Zeichenkette namens `str` ist `str.length - 1`.
+Zeichen in einem String werden von links nach rechts indiziert. Der Index des ersten Zeichens ist `0`, und der Index des letzten Zeichens in einem String namens `str` ist `str.length - 1`.
 
-Unicode-Codepunkte reichen von `0` bis `1114111` (`0x10FFFF`). `charAt()` gibt immer ein Zeichen zurück, dessen Wert kleiner als `65536` ist, da die höheren Codepunkte durch _ein Paar_ 16-Bit-Surrogat-Pseud-Zeichen dargestellt werden. Daher ist es notwendig, um ein vollständiges Zeichen mit einem Wert größer als `65535` zu erhalten, nicht nur `charAt(i)`, sondern auch `charAt(i + 1)` abzurufen (als ob man eine Zeichenkette mit zwei Zeichen manipuliert), oder stattdessen {{jsxref("String/codePointAt", "codePointAt(i)")}} und {{jsxref("String.fromCodePoint()")}} zu verwenden. Für Informationen über Unicode siehe [UTF-16-Zeichen, Unicode-Codepunkte und Grapheme-Clustern](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters).
+Unicode-Codepunkte reichen von `0` bis `1114111` (`0x10FFFF`). `charAt()` gibt immer ein Zeichen zurück, dessen Wert kleiner als `65536` ist, da die höheren Codepunkte durch _ein Paar_ von 16-Bit-Surrogat-Pseudo-Zeichen dargestellt werden. Daher ist es notwendig, um ein vollständiges Zeichen mit einem Wert größer als `65535` zu erhalten, nicht nur `charAt(i)`, sondern auch `charAt(i + 1)` (als ob man einen String mit zwei Zeichen manipuliert) zu verwenden oder {{jsxref("String/codePointAt", "codePointAt(i)")}} und {{jsxref("String.fromCodePoint()")}} zu verwenden. Weitere Informationen zu Unicode finden Sie unter [UTF-16-Zeichen, Unicode-Codepunkte und Graphem-Cluster](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters).
 
-`charAt()` ist sehr ähnlich zu der Verwendung von [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation), um ein Zeichen am angegebenen Index zuzugreifen. Die Hauptunterschiede sind:
+`charAt()` ist sehr ähnlich zur Verwendung der [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation), um auf ein Zeichen an dem angegebenen Index zuzugreifen. Die Hauptunterschiede sind:
 
-- `charAt()` versucht, `index` in eine Ganzzahl umzuwandeln, während Klammernotation dies nicht tut und `index` direkt als Eigenschaftsname verwendet.
-- `charAt()` gibt eine leere Zeichenkette zurück, wenn `index` außerhalb des Bereichs liegt, während Klammernotation `undefined` zurückgibt.
+- `charAt()` versucht, `index` in eine ganze Zahl umzuwandeln, während die Klammernotation dies nicht tut und `index` direkt als Eigenschaftsname verwendet.
+- `charAt()` gibt einen leeren String zurück, wenn `index` außerhalb des Bereichs liegt, während die Klammernotation `undefined` zurückgibt.
 
 ## Beispiele
 
 ### Verwendung von charAt()
 
-Das folgende Beispiel zeigt Zeichen an verschiedenen Positionen in der Zeichenkette `"Brave new world"`:
+Das folgende Beispiel zeigt Zeichen an verschiedenen Stellen im String `"Brave new world"`:
 
 ```js
 const anyString = "Brave new world";
 console.log(`The character at index 0   is '${anyString.charAt()}'`);
-// Kein Index angegeben, 0 als Standard verwendet
+// No index was provided, used 0 as default
 
 console.log(`The character at index 0   is '${anyString.charAt(0)}'`);
 console.log(`The character at index 1   is '${anyString.charAt(1)}'`);
@@ -58,7 +58,7 @@ console.log(`The character at index 4   is '${anyString.charAt(4)}'`);
 console.log(`The character at index 999 is '${anyString.charAt(999)}'`);
 ```
 
-Diese Zeilen zeigen folgendes an:
+Diese Zeilen zeigen Folgendes an:
 
 ```plain
 The character at index 0   is 'B'
@@ -75,11 +75,11 @@ The character at index 999 is ''
 
 ```js
 const str = "𠮷𠮾";
-console.log(str.charAt(0)); // "\ud842", das ist kein gültiges Unicode-Zeichen
-console.log(str.charAt(1)); // "\udfb7", das ist kein gültiges Unicode-Zeichen
+console.log(str.charAt(0)); // "\ud842", which is not a valid Unicode character
+console.log(str.charAt(1)); // "\udfb7", which is not a valid Unicode character
 ```
 
-Um den vollständigen Unicode-Codepunkt am angegebenen Index zu erhalten, verwenden Sie eine Indexierungsmethode, die nach Unicode-Codepunkten unterteilt, wie {{jsxref("String.prototype.codePointAt()")}} und [Zeichenketten spreads](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) in ein Array von Unicode-Codepunkten.
+Um den vollständigen Unicode-Codepunkt am gegebenen Index zu erhalten, verwenden Sie eine Indexierungsmethode, die nach Unicode-Codepunkten aufteilt, wie beispielsweise {{jsxref("String.prototype.codePointAt()")}} und [Strings zerlegen](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) in ein Array von Unicode-Codepunkten.
 
 ```js
 const str = "𠮷𠮾";
@@ -88,7 +88,7 @@ console.log([...str][0]); // "𠮷"
 ```
 
 > [!NOTE]
-> Vermeiden Sie die erneute Implementierung der obigen Lösungen mit `charAt()`. Die Erkennung von einzelnen Surrogaten und deren Paarung ist komplex, und integrierte APIs können leistungsfähiger sein, da sie die interne Darstellung der Zeichenkette direkt verwenden. Installieren Sie bei Bedarf ein Polyfill für die oben genannten APIs.
+> Vermeiden Sie es, die obigen Lösungen unter Verwendung von `charAt()` nachzubauen. Die Erkennung von einzelnen Surrogaten und deren Paarbildung ist komplex, und eingebaute APIs können leistungsfähiger sein, da sie die interne Darstellung des Strings direkt nutzen. Installieren Sie bei Bedarf ein Polyfill für die oben genannten APIs.
 
 ## Spezifikationen
 
@@ -106,4 +106,4 @@ console.log([...str][0]); // "𠮷"
 - {{jsxref("String.prototype.codePointAt()")}}
 - {{jsxref("String.prototype.split()")}}
 - {{jsxref("String.fromCodePoint()")}}
-- [JavaScript has a Unicode problem](https://mathiasbynens.be/notes/javascript-unicode) von Mathias Bynens (2013)
+- [JavaScript hat ein Unicode-Problem](https://mathiasbynens.be/notes/javascript-unicode) von Mathias Bynens (2013)

@@ -1,5 +1,5 @@
 ---
-title: "Storage: Methode getItem()"
+title: "Storage: getItem()-Methode"
 short-title: getItem()
 slug: Web/API/Storage/getItem
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`getItem()`**-Methode der {{domxref("Storage")}}
-Schnittstelle gibt, wenn ein Schlüsselname übergeben wird, den Wert dieses Schlüssels zurück oder `null`, wenn der Schlüssel im angegebenen `Storage`-Objekt nicht existiert.
+Die **`getItem()`**-Methode der [`Storage`](/de/docs/Web/API/Storage)-Schnittstelle gibt, wenn sie mit einem Schlüsselnamen aufgerufen wird, den Wert dieses Schlüssels zurück oder `null`, falls der Schlüssel im angegebenen `Storage`-Objekt nicht existiert.
 
 ## Syntax
 
@@ -20,15 +19,16 @@ getItem(keyName)
 ### Parameter
 
 - `keyName`
-  - : Ein Zeichenfolgenwert, der den Namen des Schlüssels enthält, dessen Wert Sie abrufen möchten.
+  - : Ein String, der den Namen des Schlüssels enthält, dessen Wert Sie abrufen möchten.
 
 ### Rückgabewert
 
-Eine Zeichenfolge, die den Wert des Schlüssels enthält. Wenn der Schlüssel nicht existiert, wird `null` zurückgegeben.
+Ein String, der den Wert des Schlüssels enthält. Wenn der Schlüssel nicht existiert,
+wird `null` zurückgegeben.
 
 ## Beispiele
 
-Die folgende Funktion ruft drei Datenobjekte aus dem lokalen Speicher ab und verwendet sie, um benutzerdefinierte Stile auf einer Seite festzulegen.
+Die folgende Funktion ruft drei Datenobjekte aus dem lokalen Speicher ab und verwendet sie dann, um benutzerdefinierte Stile auf einer Seite festzulegen.
 
 ```js
 function setStyles() {
@@ -47,7 +47,7 @@ function setStyles() {
 ```
 
 > [!NOTE]
-> Um dies in einem realen Beispiel zu sehen, schauen Sie sich unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/) an.
+> Um dies in einem realen Beispiel zu sehen, besuchen Sie unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
 
 ## Spezifikationen
 

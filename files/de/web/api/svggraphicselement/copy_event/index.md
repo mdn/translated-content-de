@@ -1,6 +1,6 @@
 ---
-title: "SVGGraphicsElement: Kopieren-Ereignis"
-short-title: Kopieren
+title: "SVGGraphicsElement: copy-Ereignis"
+short-title: copy
 slug: Web/API/SVGGraphicsElement/copy_event
 l10n:
   sourceCommit: 511b483843fa33373dd26eabc28beee59b995d01
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das **`copy`**-Ereignis wird auf {{domxref("SVGGraphicsElement", "SVGGraphicsElements")}} ausgelöst, wenn der Benutzer über die Benutzeroberfläche des Browsers eine Kopieraktion initiiert.
+Das **`copy`**-Ereignis wird auf [`SVGGraphicsElements`](/de/docs/Web/API/SVGGraphicsElement) ausgelöst, wenn der Benutzer eine Kopieraktion über die Benutzeroberfläche des Browsers initiiert.
 
-Die Standardaktion des Ereignisses besteht darin, die Auswahl (falls vorhanden) in die Zwischenablage zu kopieren.
+Die Standardaktion des Ereignisses ist das Kopieren der Auswahl (falls vorhanden) in die Zwischenablage.
 
-Ein Ereignishandler kann den Inhalt der Zwischenablage _verändern_, indem er {{domxref("DataTransfer.setData", "setData(format, data)")}} auf der {{domxref("ClipboardEvent.clipboardData")}}-Eigenschaft des Ereignisses aufruft und die Standardaktion des Ereignisses mit [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbricht.
+Ein Handler für dieses Ereignis kann den Inhalt der Zwischenablage _ändern_, indem er die Methode [`setData(format, data)`](/de/docs/Web/API/DataTransfer/setData) auf der [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData)-Eigenschaft des Ereignisses aufruft und die Standardaktion des Ereignisses mit [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbricht.
 
-Der Handler kann jedoch nicht die Daten der Zwischenablage _lesen_.
+Der Handler kann die Daten der Zwischenablage jedoch nicht _lesen_.
 
-Es ist möglich, ein [synthetisches](/de/docs/Web/Events/Creating_and_triggering_events) `copy`-Ereignis zu erzeugen und auszulösen, aber dies hat keine Auswirkungen auf die Systemzwischenablage.
+Es ist möglich, ein [synthetisches](/de/docs/Web/Events/Creating_and_triggering_events) `copy`-Ereignis zu erstellen und auszulösen, dies wirkt sich jedoch nicht auf die Systemzwischenablage aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("copy", (event) => {});
@@ -30,7 +30,7 @@ oncopy = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ClipboardEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ClipboardEvent")}}
 
@@ -91,6 +91,6 @@ document.querySelector("text").addEventListener("copy", (evt) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`cut`](/de/docs/Web/API/SVGGraphicsElement/cut_event), [`paste`](/de/docs/Web/API/SVGGraphicsElement/paste_event)
-- Dieses Ereignis auf HTML-{{domxref("Element")}}-Zielen: [`copy`](/de/docs/Web/API/Element/copy_event)
-- Dieses Ereignis auf {{domxref("Document")}}-Zielen: [`copy`](/de/docs/Web/API/Document/copy_event)
-- Dieses Ereignis auf {{domxref("Window")}}-Zielen: [`copy`](/de/docs/Web/API/Window/copy_event)
+- Dieses Ereignis auf HTML [`Element`](/de/docs/Web/API/Element)-Zielen: [`copy`](/de/docs/Web/API/Element/copy_event)
+- Dieses Ereignis auf [`Document`](/de/docs/Web/API/Document)-Zielen: [`copy`](/de/docs/Web/API/Document/copy_event)
+- Dieses Ereignis auf [`Window`](/de/docs/Web/API/Window)-Zielen: [`copy`](/de/docs/Web/API/Window/copy_event)

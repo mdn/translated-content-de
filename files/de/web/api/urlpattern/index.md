@@ -7,48 +7,48 @@ l10n:
 
 {{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`URLPattern`**-Schnittstelle der {{domxref("URL Pattern API", "", "", "nocode")}} gleicht URLs oder Teile von URLs mit einem Muster ab. Das Muster kann Erfassungsgruppen enthalten, die Teile der übereinstimmenden URL extrahieren.
+Das **`URLPattern`** Interface der [URL Pattern API](/de/docs/Web/API/URL_Pattern_API) vergleicht URLs oder Teile von URLs mit einem Muster. Das Muster kann Erfassungsgruppen enthalten, die Teile der passenden URL extrahieren.
 
-Weitere Informationen zur Syntax von Mustern finden Sie auf der API-Übersichtsseite: {{domxref("URL Pattern API", "", "", "nocode")}}.
+Weitere Informationen über die Syntax von Mustern finden Sie auf der API-Übersichtsseite: [URL Pattern API](/de/docs/Web/API/URL_Pattern_API).
 
 ## Konstruktor
 
-- {{domxref("URLPattern.URLPattern", "URLPattern()")}} {{Experimental_Inline}}
-  - : Gibt ein neues `URLPattern`-Objekt basierend auf dem gegebenen Muster und der Basis-URL zurück.
+- [`URLPattern()`](/de/docs/Web/API/URLPattern/URLPattern) {{Experimental_Inline}}
+  - : Gibt ein neues `URLPattern` Objekt zurück, basierend auf dem gegebenen Muster und der Basis-URL.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("URLPattern.hash", "hash")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`hash`](/de/docs/Web/API/URLPattern/hash) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Ein String, der ein Muster enthält, um den _Hash_-Teil
-    einer URL abzugleichen.
-- {{domxref("URLPattern.hostname", "hostname")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der ein Muster enthält, um den _Hostname_-
-    Teil einer URL abzugleichen.
-- {{domxref("URLPattern.password", "password")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der ein Muster enthält, um den _Passwort_-
-    Teil einer URL abzugleichen.
-- {{domxref("URLPattern.pathname", "pathname")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der ein Muster enthält, um den _Pfadnamen_-
-    Teil einer URL abzugleichen.
-- {{domxref("URLPattern.port", "port")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der ein Muster enthält, um den _Port_-
-    Teil einer URL abzugleichen.
-- {{domxref("URLPattern.protocol", "protocol")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der ein Muster enthält, um den _Protokoll_-
-    Teil einer URL abzugleichen.
-- {{domxref("URLPattern.search", "search")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der ein Muster enthält, um den _Such_-Teil
-    einer URL abzugleichen.
-- {{domxref("URLPattern.username", "username")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der ein Muster enthält, um den _Benutzernamen_-
-    Teil einer URL abzugleichen.
+    einer URL zu vergleichen.
+- [`hostname`](/de/docs/Web/API/URLPattern/hostname) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein String, der ein Muster enthält, um den _Hostname_-Teil
+    einer URL zu vergleichen.
+- [`password`](/de/docs/Web/API/URLPattern/password) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein String, der ein Muster enthält, um den _Password_-Teil
+    einer URL zu vergleichen.
+- [`pathname`](/de/docs/Web/API/URLPattern/pathname) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein String, der ein Muster enthält, um den _Pathname_-Teil
+    einer URL zu vergleichen.
+- [`port`](/de/docs/Web/API/URLPattern/port) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein String, der ein Muster enthält, um den _Port_-Teil
+    einer URL zu vergleichen.
+- [`protocol`](/de/docs/Web/API/URLPattern/protocol) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein String, der ein Muster enthält, um den _Protocol_-Teil
+    einer URL zu vergleichen.
+- [`search`](/de/docs/Web/API/URLPattern/search) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein String, der ein Muster enthält, um den _Search_-Teil
+    einer URL zu vergleichen.
+- [`username`](/de/docs/Web/API/URLPattern/username) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein String, der ein Muster enthält, um den _Username_-Teil
+    einer URL zu vergleichen.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("URLPattern.exec", "exec()")}} {{Experimental_Inline}}
-  - : Gibt ein Objekt mit den übereinstimmenden Teilen der URL oder `null` zurück, wenn die URL nicht übereinstimmt.
-- {{domxref("URLPattern.test", "test()")}} {{Experimental_Inline}}
-  - : Gibt `true` zurück, wenn die URL mit dem gegebenen Muster übereinstimmt, andernfalls `false`.
+- [`exec()`](/de/docs/Web/API/URLPattern/exec) {{Experimental_Inline}}
+  - : Gibt ein Objekt mit den passenden Teilen der URL oder `null` zurück, wenn die URL nicht passt.
+- [`test()`](/de/docs/Web/API/URLPattern/test) {{Experimental_Inline}}
+  - : Gibt `true` zurück, wenn die URL dem gegebenen Muster entspricht, andernfalls `false`.
 
 ## Spezifikationen
 
@@ -62,5 +62,5 @@ Weitere Informationen zur Syntax von Mustern finden Sie auf der API-Übersichtss
 
 - Ein Polyfill von `URLPattern` ist verfügbar
   [auf GitHub](https://github.com/kenchris/urlpattern-polyfill)
-- Die von URLPattern verwendete Mustersyntax ist ähnlich der Syntax, die von
+- Die Mustersyntax, die von URLPattern verwendet wird, ist ähnlich der Syntax, die von
   [path-to-regexp](https://github.com/pillarjs/path-to-regexp) verwendet wird.

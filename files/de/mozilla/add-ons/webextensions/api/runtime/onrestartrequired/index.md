@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn eine App oder das Gerät, auf dem sie ausgeführt wird, neu gestartet werden muss. Die App sollte alle ihre Fenster so bald wie möglich schließen, um den Neustart zu ermöglichen. Wenn die App nichts unternimmt, wird nach einer Kulanzfrist von 24 Stunden ein Neustart erzwungen. Derzeit wird dieses Ereignis nur für ChromeOS-Kiosk-Apps ausgelöst.
+Wird ausgelöst, wenn eine App oder das Gerät, auf dem sie läuft, neu gestartet werden muss. Die App sollte alle ihre Fenster so schnell wie möglich schließen, um den Neustart zu ermöglichen. Wenn die App nichts unternimmt, wird nach einer 24-stündigen Karenzzeit ein Neustart erzwungen. Derzeit wird dieses Ereignis nur für ChromeOS-Kiosk-Apps ausgelöst.
 
 ## Syntax
 
@@ -22,20 +22,20 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, dieses Ereignis abzuhören. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, sonst `false`.
 
-## Syntax von addListener
+## addListener-Syntax
 
 ### Parameter
 
 - `function`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Die Funktion erhält dieses Argument:
 
     - `reason`
-      - : Ein {{WebExtAPIRef('runtime.OnRestartRequiredReason')}} Wert – der Grund, warum das Ereignis ausgelöst wird.
+      - : Ein {{WebExtAPIRef('runtime.OnRestartRequiredReason')}}-Wert — der Grund, warum das Ereignis ausgelöst wird.
 
 ## Browser-Kompatibilität
 
@@ -49,31 +49,22 @@ Ereignisse haben drei Funktionen:
 > Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onRestartRequired)-API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Urheberrecht 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Weiterverbreitung und Nutzung in Quell- und Binärform, mit oder ohne
+// Änderungen, sind unter den folgenden Bedingungen erlaubt:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverbreitungen des Quellcodes müssen den obigen Urheberrechtshinweis,
+// diesen Bedingungen sowie den folgenden Haftungsausschluss enthalten.
+//    * Weiterverbreitungen in binärer Form müssen den obigen
+// Urheberrechtshinweis, diese Bedingungen sowie den folgenden Haftungsausschluss
+// in der Dokumentation und/oder anderen Materialien, die mit der
+// Verbreitung einhergehen, enthalten.
+//    * Weder der Name Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die aus
+// dieser Software hervorgehen, zu unterstützen oder zu bewerben, ohne vorherige
+// schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITARBEITERN
+// "WIE BESEHEN" BEREITGESTELLT, UND JEGLICHE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE STILLSCHWEIGENDEN GARANTIEN DER MARKTGÄNGIGKEIT UND DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK, WERDEN ABGELEHNT. IN KEINEM FALL SIND DIE RECHTSINHABER ODER MITARBEITER HAFTBAR FÜR JEGLICHE DIREKTEN, INDIREKTEN, UNFALL-, SONDER-, EXEMPLARISCHEN ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATENVERLUST ODER GEWINNVERLUST; GESCHÄFTSUNTERBRECHUNG) JEDOCH VERURSACHT UND UNTER JEGLICHER THEORIE DER HAFTUNG, OB IN VERTRAG, STRIKTER HAFTUNG ODER DELIKT (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUF IRGENDEINE WEISE AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

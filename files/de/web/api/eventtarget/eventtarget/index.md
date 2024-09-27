@@ -1,5 +1,5 @@
 ---
-title: "EventTarget: EventTarget() Konstruktor"
+title: "EventTarget: EventTarget()-Konstruktor"
 short-title: EventTarget()
 slug: Web/API/EventTarget/EventTarget
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Der **`EventTarget()`** Konstruktor erstellt eine neue Instanz des {{domxref("EventTarget")}} Objekts.
+Der **`EventTarget()`**-Konstruktor erstellt eine neue Instanz eines [`EventTarget`](/de/docs/Web/API/EventTarget)-Objekts.
 
 > [!NOTE]
-> Es ist ziemlich selten, diesen Konstruktor explizit aufzurufen. Meistens wird dieser Konstruktor innerhalb des Konstruktors eines Objekts verwendet, das die {{domxref("EventTarget")}} Schnittstelle erweitert, indem das [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) Schlüsselwort verwendet wird.
+> Es ist ziemlich selten, diesen Konstruktor explizit aufzurufen. Meistens wird dieser Konstruktor im Konstruktor eines Objekts verwendet, das die [`EventTarget`](/de/docs/Web/API/EventTarget)-Schnittstelle erweitert und das `super`-Schlüsselwort verwendet.
 
 ## Syntax
 
@@ -25,13 +25,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine neue Instanz des {{domxref("EventTarget")}} Objekts.
+Eine neue Instanz des [`EventTarget`](/de/docs/Web/API/EventTarget)-Objekts.
 
 ## Beispiele
 
-### Implementierung eines Zählers
+### Implementieren eines Zählers
 
-Dieses Beispiel implementiert eine `Counter` Klasse mit den Methoden `increment()` und `decrement()`. Es löst ein benutzerdefiniertes `"valuechange"` Ereignis aus, wenn eine dieser Methoden aufgerufen wird.
+Dieses Beispiel implementiert eine `Counter`-Klasse mit den Methoden `increment()` und `decrement()`. Es löst ein benutzerdefiniertes Ereignis `"valuechange"` aus, wenn eine dieser Methoden aufgerufen wird.
 
 #### HTML
 
@@ -96,4 +96,4 @@ document.querySelector("#dec").addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("EventTarget")}}
+- [`EventTarget`](/de/docs/Web/API/EventTarget)

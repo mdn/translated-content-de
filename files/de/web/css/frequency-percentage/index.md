@@ -7,17 +7,17 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<frequency-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen Wert, der entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}} sein kann. Frequenzwerte, z.B. die Tonhöhe einer Sprechstimme, werden derzeit in keiner CSS-Eigenschaft verwendet.
+Der **`<frequency-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen Wert, der entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}} sein kann. Frequenzwerte, z.B. die Tonhöhe einer Sprechstimme, werden derzeit in keinen CSS-Eigenschaften verwendet.
 
 ## Syntax
 
-Der Wert eines `<frequency-percentage>` ist entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}}; Details zu ihren Syntaxen finden Sie auf den jeweiligen Referenzseiten.
+Der Wert eines `<frequency-percentage>` ist entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}}; beachten Sie deren jeweilige Referenzseiten für Details zu ihren Syntaxen.
 
 ## Beschreibung
 
 ### Verwendung in calc()
 
-Wo ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz in eine Frequenz aufgelöst wird und daher in einem [`calc()`](/de/docs/Web/CSS/calc)-Ausdruck verwendet werden kann.
+Wo ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz zu einer Frequenz aufgelöst wird und daher in einem [`calc()`](/de/docs/Web/CSS/calc) Ausdruck verwendet werden kann.
 
 ## Formale Syntax
 
@@ -25,36 +25,36 @@ Wo ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies
 
 ## Beispiele
 
-### Gültige Prozentwerte
+### Gültige Prozentsatzwerte
 
 ```plain example-good
-90% Positiver Prozentsatz
-+90% Positiver Prozentsatz mit führendem +
--90% Negativer Prozentsatz — nicht gültig für alle Eigenschaften, die Prozentwerte verwenden
+90% Positive percentage
++90% Positive percentage with leading +
+-90% Negative percentage — not valid for all properties that use percentages
 ```
 
-### Ungültige Prozentwerte
+### Ungültige Prozentsatzwerte
 
 ```plain example-bad
-90 % Kein Leerzeichen zwischen der Zahl und der Einheit erlaubt
+90 % No space is allowed between the number and the unit
 ```
 
 ### Gültige Frequenzwerte
 
 ```plain example-good
-12Hz     Positive Ganzzahl
-4.3Hz    Nicht-Ganzzahl
-14KhZ    Die Einheit ist nicht groß-/klein-schreibungssensitiv, obwohl nicht-SI-Kapitalisierungen nicht empfohlen werden.
-+0Hz     Null, mit einem führenden + und einer Einheit
--0kHz    Null, mit einem führenden - und einer Einheit
+12Hz     Positive integer
+4.3Hz    Non-integer
+14KhZ    The unit is case-insensitive, though non-SI capitalization is not recommended.
++0Hz     Zero, with a leading + and a unit
+-0kHz    Zero, with a leading - and a unit
 ```
 
 ### Ungültige Frequenzwerte
 
 ```plain example-bad
-12.0     Dies ist eine <number>, keine <frequency>, da eine Einheit fehlt.
-7 Hz     Kein Leerzeichen zwischen der Zahl und der Einheit erlaubt.
-0        Obwohl einheitliche Null ein zulässiger <length> ist, ist es eine ungültige <frequency>.
+12.0     This is a <number>, not an <frequency>, because it is missing a unit.
+7 Hz     No space is allowed between the number and the unit.
+0        Although unitless zero is an allowable <length>, it's an invalid <frequency>.
 ```
 
 ## Spezifikationen

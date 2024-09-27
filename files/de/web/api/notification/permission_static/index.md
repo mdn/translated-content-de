@@ -1,6 +1,6 @@
 ---
-title: "Notification: statische Eigenschaft permission"
-short-title: Berechtigung
+title: "Notification: permission statische Eigenschaft"
+short-title: permission
 slug: Web/API/Notification/permission_static
 l10n:
   sourceCommit: e4c0939929e1b3e1fa3fd3da82b827fca3ed4c79
@@ -8,37 +8,37 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`permission`** schreibgeschützte statische Eigenschaft des {{domxref("Notification")}}-Interfaces zeigt die aktuelle Berechtigung an, die vom Benutzer für den aktuellen Ursprung erteilt wurde, um Webbenachrichtigungen anzuzeigen.
+Die **`permission`** schreibgeschützte statische Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle zeigt die aktuelle Berechtigung an, die vom Benutzer für den aktuellen Ursprung zum Anzeigen von Webbenachrichtigungen erteilt wurde.
 
 ## Wert
 
 Ein String, der die aktuelle Berechtigung darstellt. Der Wert kann sein:
 
 - `granted`
-  - : Der Benutzer hat ausdrücklich die Berechtigung für den aktuellen Ursprung erteilt, Systembenachrichtigungen anzuzeigen.
+  - : Der Benutzer hat die Berechtigung für den aktuellen Ursprung zum Anzeigen von Systembenachrichtigungen ausdrücklich erteilt.
 - `denied`
-  - : Der Benutzer hat ausdrücklich die Berechtigung für den aktuellen Ursprung verweigert, Systembenachrichtigungen anzuzeigen.
+  - : Der Benutzer hat die Berechtigung für den aktuellen Ursprung zum Anzeigen von Systembenachrichtigungen ausdrücklich verweigert.
 - `default`
-  - : Die Entscheidung des Benutzers ist unbekannt; in diesem Fall verhält sich die Anwendung so, als ob die Berechtigung `denied` wäre.
+  - : Die Entscheidung des Benutzers ist unbekannt; in diesem Fall verhält sich die Anwendung, als ob die Berechtigung `denied` wäre.
 
 ## Beispiele
 
-Das folgende Beispiel könnte verwendet werden, wenn Sie zuerst prüfen möchten, ob Benachrichtigungen unterstützt werden, dann prüfen, ob die Berechtigung für den aktuellen Ursprung erteilt wurde, um Benachrichtigungen zu senden, und dann die Berechtigung anfordern, falls erforderlich, bevor eine Benachrichtigung gesendet wird.
+Der folgende Ausschnitt könnte verwendet werden, um zuerst zu überprüfen, ob Benachrichtigungen unterstützt werden, dann zu prüfen, ob die Berechtigung für den aktuellen Ursprung zum Senden von Benachrichtigungen erteilt wurde, dann bei Bedarf die Berechtigung anzufordern, bevor eine Benachrichtigung gesendet wird.
 
 ```js
 function notifyMe() {
   if (!("Notification" in window)) {
-    // Prüfen, ob der Browser Benachrichtigungen unterstützt
-    alert("Dieser Browser unterstützt keine Desktop-Benachrichtigungen");
+    // Check if the browser supports notifications
+    alert("This browser does not support desktop notification");
   } else if (Notification.permission === "granted") {
-    // Prüfen, ob die Benachrichtigungsberechtigung bereits erteilt wurde;
-    // wenn ja, erstellen Sie eine Benachrichtigung
+    // Check whether notification permissions have already been granted;
+    // if so, create a notification
     const notification = new Notification("Hi there!");
     // …
   } else if (Notification.permission !== "denied") {
-    // Wir müssen den Benutzer um Erlaubnis bitten
+    // We need to ask the user for permission
     Notification.requestPermission().then((permission) => {
-      // Wenn der Benutzer zustimmt, erstellen wir eine Benachrichtigung
+      // If the user accepts, let's create a notification
       if (permission === "granted") {
         const notification = new Notification("Hi there!");
         // …
@@ -46,8 +46,8 @@ function notifyMe() {
     });
   }
 
-  // Schließlich, wenn der Benutzer Benachrichtigungen abgelehnt hat, 
-  // und Sie respektvoll sein möchten, gibt es keinen Grund, ihn weiter zu belästigen.
+  // At last, if the user has denied notifications, and you
+  // want to be respectful there is no need to bother them anymore.
 }
 ```
 
@@ -61,7 +61,7 @@ function notifyMe() {
 
 ## Siehe auch
 
-- [Benachrichtigungen API](/de/docs/Web/API/Notifications_API)
-- [Verwendung der Benachrichtigungen API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
-- [Berechtigungen API](/de/docs/Web/API/Permissions_API)
-- [Verwendung der Berechtigungen API](/de/docs/Web/API/Permissions_API/Using_the_Permissions_API)
+- [Notifications API](/de/docs/Web/API/Notifications_API)
+- [Verwendung der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
+- [Permissions API](/de/docs/Web/API/Permissions_API)
+- [Verwendung der Permissions API](/de/docs/Web/API/Permissions_API/Using_the_Permissions_API)

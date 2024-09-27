@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die **`toJSON()`** Methode des {{domxref("CSPViolationReportBody")}} Interfaces ist ein _Serializer_, der eine JSON-Darstellung des `CSPViolationReportBody` Objekts zurückgibt.
+Die **`toJSON()`**-Methode des [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Interfaces ist ein _Serializer_, der eine JSON-Darstellung des `CSPViolationReportBody`-Objekts zurückgibt.
 
-Das Vorhandensein einer `toJSON()` Methode ermöglicht es, `CSPViolationReportBody` Objekte mit der Methode {{jsxref("JSON.stringify()")}} in eine Zeichenkette umzuwandeln.
+Die Existenz einer `toJSON()`-Methode ermöglicht es, `CSPViolationReportBody`-Objekte mithilfe der {{jsxref("JSON.stringify()")}}-Methode in einen String umzuwandeln.
 
-Dies wird von der Reporting API verwendet, um eine serialisierte Version eines Verletzungsberichts zu erstellen, die an einen Reporting-Endpunkt gesendet wird.
+Dies wird von der Reporting-API verwendet, um eine serialisierte Version eines Verstoßberichts zu erstellen, der an einen Reporting-Endpunkt gesendet werden soll.
 
 ## Syntax
 
@@ -26,19 +26,19 @@ Keine.
 
 ### Rückgabewert
 
-Ein JSON-Objekt, das die Serialisierung des {{domxref("CSPViolationReportBody")}} Objekts ist.
+Ein JSON-Objekt, das die Serialisierung des [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Objekts darstellt.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen {{domxref("ReportingObserver")}}, um CSP-Verletzungsberichte zu beobachten, und geben dann eine JSON-Darstellung des ersten Eintrags zurück.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um CSP-Verstoßberichte zu beobachten, und geben dann eine JSON-Darstellung des ersten Eintrags zurück.
 
 ```js
 const observer = new ReportingObserver(
   (reports, observer) => {
     const firstReport = reports[0];
-    // JSON-Objekt protokollieren
+    // Log JSON object
     console.log(firstReport.toJSON());
-    // JSON-Objekt als Zeichenkette protokollieren
+    // Log JSON object as a string
     console.log(JSON.stringify(firstReport));
   },
   {
@@ -50,9 +50,10 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Wir rufen `toJSON()` auf dem `firstReport` auf, welches eine {{domxref("Report")}} Instanz ist. Dies führt dazu, dass `toJSON()` in diesem Interface aufgerufen wird, um den `body` des Berichts zu serialisieren.
+Wir rufen `toJSON()` auf `firstReport` auf, das eine Instanz von [`Report`](/de/docs/Web/API/Report) ist. Dadurch wird die in diesem Interface definierte `toJSON()` aufgerufen, um den `body` des Berichts zu serialisieren.
 
-Zum Zweck der Demonstration rufen wir ebenfalls `JSON.stringify()` auf `firstReport` auf, um eine Zeichenkette zu erstellen, die die JSON-Daten enthält. Beim Senden oder Speichern von Berichtsinformationen ist es üblicher, dies zu tun, als `toJSON()` direkt zu verwenden.
+Für Demonstrationszwecke rufen wir auch `JSON.stringify()` auf `firstReport` auf, um einen String zu erzeugen, der die JSON-Daten enthält.
+Beim Senden oder Speichern von Berichtsinformationen ist es üblicher, dies zu tun, als `toJSON()` direkt zu verwenden.
 
 ## Spezifikationen
 

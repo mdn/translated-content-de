@@ -8,21 +8,17 @@ l10n:
 
 {{APIRef("DOM XPath")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`numberValue`** der
-{{domxref("XPathResult")}}-Schnittstelle gibt den numerischen Wert eines Ergebnisses zurück, dessen
-{{domxref("XPathResult.resultType")}} `NUMBER_TYPE` ist.
+Die schreibgeschützte **`numberValue`**-Eigenschaft des [`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt den numerischen Wert eines Ergebnisses zurück, wenn [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `NUMBER_TYPE` ist.
 
 ## Wert
 
-Der Rückgabewert ist der numerische Wert des von
-{{domxref("Document.evaluate()")}} zurückgegebenen `XPathResult`.
+Der Rückgabewert ist der numerische Wert des von [`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegebenen `XPathResult`.
 
 ### Ausnahmen
 
 #### TYPE_ERR
 
-Falls {{domxref("XPathResult.resultType")}} nicht `NUMBER_TYPE` ist, wird eine
-{{domxref("XPathException")}} vom Typ `TYPE_ERR` ausgelöst.
+Sollte [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `NUMBER_TYPE` sein, wird eine [`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 
@@ -31,8 +27,8 @@ Das folgende Beispiel zeigt die Verwendung der `numberValue`-Eigenschaft.
 ### HTML
 
 ```html
-<div>XPath Beispiel</div>
-<div>Anzahl der &lt;div&gt;s: <output></output></div>
+<div>XPath example</div>
+<div>Number of &lt;div&gt;s: <output></output></div>
 ```
 
 ### JavaScript

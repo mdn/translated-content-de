@@ -8,18 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`submitter`**-Eigenschaft, die auf der
-{{domxref("SubmitEvent")}}-Schnittstelle zu finden ist, gibt das Absende-Button oder ein anderes Element an,
-das aufgerufen wurde, um das Formular abzuschicken.
+Die schreibgeschützte **`submitter`**-Eigenschaft der [`SubmitEvent`](/de/docs/Web/API/SubmitEvent)-Schnittstelle gibt das Absende-Button oder ein anderes Element an, das aufgerufen wurde, um das Formular abzusenden.
 
 ## Wert
 
-Ein Element, das das Element angibt, welches das
-{{domxref("HTMLFormElement.submit_event", "submit")}}-Ereignis an das Formular gesendet hat. Während dies
-oft ein {{HTMLElement("input")}}-Element ist, dessen [`type`](/de/docs/Web/HTML/Element/input#type) `submit` ist, oder ein {{HTMLElement("button")}}-Element, dessen [`type`](/de/docs/Web/HTML/Element/input#type) `submit` ist, könnte es ein anderes Element sein, das einen
-Absendevorgang initiiert hat.
+Ein Element, das das Element angibt, welches das [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis an das Formular gesendet hat. Dies ist oft ein {{HTMLElement("input")}}-Element, dessen [`type`](/de/docs/Web/HTML/Element/input#type) auf `submit` gesetzt ist, oder ein {{HTMLElement("button")}}-Element, dessen [`type`](/de/docs/Web/HTML/Element/input#type) auf `submit` gesetzt ist. Es könnte jedoch auch ein anderes Element sein, welches einen Übermittlungsvorgang eingeleitet hat.
 
-Wenn das Abschicken nicht durch eine Art Button ausgelöst wurde, ist der Wert von `submitter` `null`.
+Wenn die Übermittlung nicht durch einen Button ausgelöst wurde, ist der Wert von `submitter` `null`.
 
 ## Beispiele
 

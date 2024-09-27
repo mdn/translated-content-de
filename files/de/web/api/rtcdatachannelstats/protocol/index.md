@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`protocol`**-Eigenschaft des {{domxref("RTCDataChannelStats")}}-Wörterbuchs gibt einen String zurück, der das {{domxref("RTCDataChannel.protocol", "Protokoll")}} des zugehörigen Datenkanals enthält.
+Die **`protocol`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats) Wörterbuchs gibt einen String zurück, der das [`protocol`](/de/docs/Web/API/RTCDataChannel/protocol) des zugehörigen Datenkanals enthält.
 
-Der Wert wird von der Webseite oder App definiert, wenn der Datenkanal erstellt wird.
+Der Wert wird von der Website oder App definiert, wenn sie den Datenkanal erstellt.
 
 ## Wert
 
-Ein String, der denselben Wert wie die {{domxref("RTCDataChannel.protocol")}}-Eigenschaft des zugehörigen Datenkanals enthält.
+Ein String, der denselben Wert enthält wie die [`RTCDataChannel.protocol`](/de/docs/Web/API/RTCDataChannel/protocol) Eigenschaft des zugehörigen Datenkanals.
 
 Wenn kein Protokoll definiert wurde, ist dies der leere String ("").
 
@@ -22,10 +22,10 @@ Wenn kein Protokoll definiert wurde, ist dies der leere String ("").
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("RTCDataChannel.protocol")}}
+- [`RTCDataChannel.protocol`](/de/docs/Web/API/RTCDataChannel/protocol)

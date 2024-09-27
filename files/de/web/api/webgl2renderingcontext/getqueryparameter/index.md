@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode getQueryParameter()"
+title: "WebGL2RenderingContext: getQueryParameter()-Methode"
 short-title: getQueryParameter()
 slug: Web/API/WebGL2RenderingContext/getQueryParameter
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.getQueryParameter()`**-Methode des
-[WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt Parameterinformationen eines {{domxref("WebGLQuery")}}-Objekts zurück.
+Die **`WebGL2RenderingContext.getQueryParameter()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt Parameterinformationen eines [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekts zurück.
 
 ## Syntax
 
@@ -20,20 +19,19 @@ getQueryParameter(query, pname)
 ### Parameter
 
 - `query`
-  - : Ein {{domxref("WebGLQuery")}}-Objekt.
+  - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt.
 - `pname`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das angibt, welche Informationen zurückgegeben werden sollen. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, welche Informationen zurückgegeben werden sollen. Mögliche Werte:
 
     - `gl.QUERY_RESULT`
-      - : Gibt ein {{domxref("WebGL_API/Types", "GLuint")}} zurück, das das Abfrageergebnis enthält.
+      - : Gibt einen [`GLuint`](/de/docs/Web/API/WebGL_API/Types) zurück, der das Abfrageergebnis enthält.
     - `gl.QUERY_RESULT_AVAILABLE`
-      - : Gibt ein {{domxref("WebGL_API/Types", "GLboolean")}} zurück, das angibt, ob ein Abfrageergebnis verfügbar ist oder nicht.
+      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das anzeigt, ob ein Abfrageergebnis verfügbar ist oder nicht.
 
 ### Rückgabewert
 
-Abhängig vom `pname`-Parameter, entweder ein {{domxref("WebGL_API/Types", "GLuint")}} oder ein
-{{domxref("WebGL_API/Types", "GLboolean")}}.
+Abhängig vom `pname`-Parameter, entweder ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types) oder ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types).
 
 ## Beispiele
 
@@ -54,4 +52,4 @@ const result = gl.getQueryParameter(query, gl.QUERY_RESULT);
 
 ## Siehe auch
 
-- {{domxref("WebGLQuery")}}
+- [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)

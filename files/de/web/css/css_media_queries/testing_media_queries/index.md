@@ -1,5 +1,5 @@
 ---
-title: Medienabfragen programmatisch testen
+title: Medientypen programmatisch testen
 slug: Web/CSS/CSS_media_queries/Testing_media_queries
 l10n:
   sourceCommit: f7daf15512ea736498837b68bcc36d82d6a323f4
@@ -7,69 +7,69 @@ l10n:
 
 {{CSSRef}}
 
-Das {{Glossary("DOM")}} bietet Funktionen, mit denen die Ergebnisse einer {{Glossary("media query", "Medienabfrage")}} programmatisch getestet werden können, über die {{domxref("MediaQueryList")}}-Schnittstelle und deren Methoden und Eigenschaften. Sobald Sie ein `MediaQueryList`-Objekt erstellt haben, können Sie das Ergebnis der [Abfrage](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) überprüfen oder Benachrichtigungen erhalten, wenn sich das Ergebnis ändert.
+Das [DOM](/de/docs/Glossary/DOM) stellt Funktionen zur Verfügung, die das Ergebnis einer [Media Query](/de/docs/Glossary/media_query) programmatisch testen können, über das [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Interface und dessen Methoden und Eigenschaften. Sobald Sie ein `MediaQueryList`-Objekt erstellt haben, können Sie das Ergebnis der [Abfrage](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) überprüfen oder Benachrichtigungen erhalten, wenn sich das Ergebnis ändert.
 
-## Erstellen einer Medienabfrageliste
+## Erstellen einer Media Query-Liste
 
-Bevor Sie die Ergebnisse einer Medienabfrage auswerten können, müssen Sie das {{domxref("MediaQueryList")}}-Objekt erstellen, das die Abfrage darstellt. Verwenden Sie dazu die Methode {{domxref("window.matchMedia")}}.
+Bevor Sie die Ergebnisse einer Media Query auswerten können, müssen Sie das [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt erstellen, das die Abfrage darstellt. Nutzen Sie dafür die Methode [`window.matchMedia`](/de/docs/Web/API/Window/matchMedia).
 
-Zum Beispiel, um eine Abfrageliste einzurichten, die bestimmt, ob sich das Gerät in [Hoch- oder Querformat](/de/docs/Web/CSS/@media/orientation) befindet:
+Zum Beispiel, um eine Abfrageliste zu erstellen, die bestimmt, ob das Gerät im Landschafts- oder Hochformat [orientiert](/de/docs/Web/CSS/@media/orientation) ist:
 
 ```js
 const mediaQueryList = window.matchMedia("(orientation: portrait)");
 ```
 
-## Überprüfen des Ergebnisses einer Abfrage
+## Überprüfen des Abfrageergebnisses
 
-Sobald Sie Ihre Medienabfrageliste erstellt haben, können Sie das Ergebnis der Abfrage überprüfen, indem Sie den Wert ihrer [`matches`](/de/docs/Web/API/MediaQueryList/matches)-Eigenschaft betrachten:
+Sobald Sie Ihre Media Query-Liste erstellt haben, können Sie das Ergebnis der Abfrage überprüfen, indem Sie den Wert der [`matches`](/de/docs/Web/API/MediaQueryList/matches)-Eigenschaft betrachten:
 
 ```js
 if (mediaQueryList.matches) {
-  /* Der Viewport befindet sich derzeit im Hochformat */
+  /* The viewport is currently in portrait orientation */
 } else {
-  /* Der Viewport befindet sich derzeit nicht im Hochformat, also im Querformat */
+  /* The viewport is not currently in portrait orientation, therefore landscape */
 }
 ```
 
-## Erhalten von Abfrage-Benachrichtigungen
+## Empfang von Abfragebenachrichtigungen
 
-Wenn Sie Änderungen am ausgewerteten Ergebnis der Abfrage fortlaufend überwachen müssen, ist es effizienter, einen [Listener](/de/docs/Web/API/EventTarget/addEventListener) zu registrieren, als das Abfrageergebnis abzufragen. Um dies zu tun, rufen Sie die Methode {{domxref("EventTarget.addEventListener", "addEventListener()")}} auf dem {{domxref("MediaQueryList")}}-Objekt auf und übergeben Sie eine Callback-Funktion, die aufgerufen wird, wenn sich der Status der Medienabfrage ändert (z.B. wenn der Test der Medienabfrage von `true` auf `false` umschlägt):
+Wenn Sie laufend über Änderungen des ausgewerteten Abfrageergebnisses informiert werden müssen, ist es effizienter, einen [Listener](/de/docs/Web/API/EventTarget/addEventListener) zu registrieren, als das Ergebnis der Abfrage abzufragen. Rufen Sie dazu die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf dem [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt auf und übergeben Sie eine Callback-Funktion, die bei Änderung des Status der Media Query (z.B. der Wechsel von `true` zu `false`) aufgerufen wird:
 
 ```js
-// Erstellen der Abfrageliste.
+// Create the query list.
 const mediaQueryList = window.matchMedia("(orientation: portrait)");
 
-// Definieren einer Callback-Funktion für den Event-Listener.
+// Define a callback function for the event listener.
 function handleOrientationChange(mql) {
   // …
 }
 
-// Ausführen des Orientierungswechsel-Handlers einmal.
+// Run the orientation change handler once.
 handleOrientationChange(mediaQueryList);
 
-// Fügen Sie die Callback-Funktion als Listener zur Abfrageliste hinzu.
+// Add the callback function as a listener to the query list.
 mediaQueryList.addEventListener("change", handleOrientationChange);
 ```
 
-Dieser Code erstellt die auf Orientierung testende Medienabfrageliste und fügt ihr einen Ereignis-Listener hinzu. Nach der Definition des Listeners rufen wir den Listener auch direkt auf. Dies lässt unseren Listener Anpassungen basierend auf der aktuellen Geräteausrichtung vornehmen; andernfalls könnte unser Code annehmen, dass sich das Gerät im Hochformat befindet, obwohl es tatsächlich im Querformat ist.
+Dieser Code erstellt die Abfrageliste zum Testen der Orientierung und fügt dieser einen Event-Listener hinzu. Nachdem der Listener definiert wurde, rufen wir diesen auch direkt auf. Dies führt dazu, dass unser Listener Anpassungen basierend auf der aktuellen Geräteausrichtung vornimmt; andernfalls könnte unser Code davon ausgehen, dass das Gerät im Hochformat gestartet wird, auch wenn es tatsächlich im Querformat ist.
 
-Die Funktion `handleOrientationChange()` würde das Ergebnis der Abfrage untersuchen und das machen, was wir bei einer Änderung der Ausrichtung tun müssen:
+Die Funktion `handleOrientationChange()` würde das Ergebnis der Abfrage betrachten und das tun, was wir bei einer Orientierungsänderung benötigen:
 
 ```js
 function handleOrientationChange(evt) {
   if (evt.matches) {
-    /* Der Viewport befindet sich derzeit im Hochformat */
+    /* The viewport is currently in portrait orientation */
   } else {
-    /* Der Viewport befindet sich derzeit im Querformat */
+    /* The viewport is currently in landscape orientation */
   }
 }
 ```
 
-Oben definieren wir den Parameter als `evt` - ein Ereignisobjekt vom Typ {{domxref("MediaQueryListEvent")}}, das auch die Eigenschaften {{domxref("MediaQueryListEvent.media","media")}} und {{domxref("MediaQueryListEvent.matches","matches")}} enthält, so dass Sie diese Merkmale der `MediaQueryList` abfragen können, indem Sie direkt darauf zugreifen oder auf das Ereignisobjekt zugreifen.
+Oben wird der Parameter als `evt` definiert — ein Ereignisobjekt vom Typ [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent), das auch die Eigenschaften [`media`](/de/docs/Web/API/MediaQueryListEvent/media) und [`matches`](/de/docs/Web/API/MediaQueryListEvent/matches) beinhaltet, sodass Sie diese Funktionen des `MediaQueryList` direkt oder über das Ereignisobjekt abfragen können.
 
-## Beenden von Abfrage-Benachrichtigungen
+## Beenden von Abfragebenachrichtigungen
 
-Um keine Benachrichtigungen über Änderungen des Werts Ihrer Medienabfrage mehr zu erhalten, rufen Sie {{domxref("EventTarget.removeEventListener", "removeEventListener()")}} auf dem `MediaQueryList` auf und übergeben Sie ihm den Namen der zuvor definierten Callback-Funktion:
+Um keine Benachrichtigungen mehr über Änderungen am Wert Ihrer Media Query zu erhalten, rufen Sie [`removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) auf der `MediaQueryList` auf und übergeben Sie den Namen der zuvor definierten Callback-Funktion:
 
 ```js
 mediaQueryList.removeEventListener("change", handleOrientationChange);
@@ -81,9 +81,9 @@ mediaQueryList.removeEventListener("change", handleOrientationChange);
 
 ## Siehe auch
 
-- [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [CSS-Medienabfragen](/de/docs/Web/CSS/CSS_media_queries) Modul
-- [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model) Modul
-- {{domxref("window.matchMedia()")}}
-- {{domxref("MediaQueryList")}}
-- {{domxref("MediaQueryListEvent")}}
+- [Media queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [CSS media queries](/de/docs/Web/CSS/CSS_media_queries) Modul
+- [CSS Objektmodell](/de/docs/Web/API/CSS_Object_Model) Modul
+- [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
+- [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
+- [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

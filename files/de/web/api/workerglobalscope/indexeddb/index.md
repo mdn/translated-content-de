@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("IndexedDB")}}{{AvailableInWorkers("worker")}}
 
-Die **`indexedDB`** schreibgeschützte Eigenschaft der {{domxref("WorkerGlobalScope")}}-Schnittstelle bietet Arbeitern eine Möglichkeit, asynchron auf die Funktionen von indizierten Datenbanken zuzugreifen.
+Die **`indexedDB`** schreibgeschützte Eigenschaft der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle bietet einen Mechanismus für Worker, um asynchron auf die Funktionen von indizierten Datenbanken zuzugreifen.
 
 ## Wert
 
-Ein {{domxref("IDBFactory")}}-Objekt.
+Ein [`IDBFactory`](/de/docs/Web/API/IDBFactory)-Objekt.
 
 ## Beispiele
 
-Der folgende Code erstellt eine Anfrage zum asynchronen Öffnen einer Datenbank. Die Datenbank wird geöffnet, wenn der `onsuccess`-Handler der Anfrage ausgelöst wird:
+Der folgende Code erstellt eine Anfrage zum asynchronen Öffnen einer Datenbank, wonach die Datenbank geöffnet wird, wenn der `onsuccess`-Handler der Anfrage ausgelöst wird:
 
 ```js
 let db;
@@ -39,9 +39,9 @@ function openDB() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Schlüsselbereichs: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursoren: {{domxref("IDBCursor")}}
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einstellen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

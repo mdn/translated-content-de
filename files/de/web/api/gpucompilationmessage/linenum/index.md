@@ -1,42 +1,29 @@
 ---
-title: "GPUCompilationMessage: lineNum-Eigenschaft"
+title: "GPUCompilationMessage: lineNum Eigenschaft"
 short-title: lineNum
 slug: Web/API/GPUCompilationMessage/lineNum
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`lineNum`** schreibgeschützte Eigenschaft der {{domxref("GPUCompilationMessage")}}-Schnittstelle ist eine Zahl, die die Zeilennummer im Shader-Code darstellt, auf die sich die Nachricht bezieht.
+Die schreibgeschützte **`lineNum`**-Eigenschaft der [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Schnittstelle ist eine Zahl, die die Zeilennummer im Shader-Code darstellt, auf die sich die Nachricht bezieht.
 
 ## Wert
 
 Eine Zahl.
 
-Beachten Sie:
+Beachten Sie, dass:
 
-- Wenn sich die Nachricht auf eine Teilzeichenkette bezieht, bezieht sich `lineNum` auf die Zeilennummer, bei der die Teilzeichenkette beginnt.
-- Wenn die Nachricht sich nicht auf eine spezifische Zeile des Codes bezieht (vielleicht bezieht sie sich auf den gesamten Shader-Code), wird `lineNum` 0 sein.
-- Die Werte beginnen mit eins — ein Wert von 1 bezieht sich auf die erste Zeile des Codes.
-- Zeilen werden durch Zeilenumbrüche abgegrenzt. In WGSL wird eine [spezifische Liste von Zeichen](https://gpuweb.github.io/gpuweb/wgsl/#line-break) als Zeilenumbrüche definiert.
+- Wenn die Nachricht einem Substring entspricht, bezieht sich `lineNum` auf die Zeilennummer, auf der der Substring beginnt.
+- Falls die Nachricht sich nicht auf eine bestimmte Codezeile bezieht (vielleicht bezieht sie sich auf den gesamten Shader-Code), wird `lineNum` 0 sein.
+- Die Werte beginnen bei eins – ein Wert von 1 bezieht sich auf die erste Codezeile.
+- Zeilen werden durch Zeilenumbrüche begrenzt. In WGSL wird eine [spezifische Liste von Zeichen](https://gpuweb.github.io/gpuweb/wgsl/#line-break) als Zeilenumbrüche definiert.
 
 ## Beispiele
 
-```js
-  // ...
-  const shaderModule = device.createShaderModule({
-    code: shaders,
-  });
-
-  const shaderInfo = await shaderModule.getCompilationInfo();
-  const firstMessage = shaderInfo.messages[0];
-  console.log(firstMessage.lineNum);
-  // ...
-}
-```
-
-Siehe die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel.
+Siehe die Hauptseite zu [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel.
 
 ## Spezifikationen
 

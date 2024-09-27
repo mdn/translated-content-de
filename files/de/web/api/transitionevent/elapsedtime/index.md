@@ -1,5 +1,5 @@
 ---
-title: "TransitionEvent: elapsedTime-Eigenschaft"
+title: "TransitionEvent: Eigenschaft elapsedTime"
 short-title: elapsedTime
 slug: Web/API/TransitionEvent/elapsedTime
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{ apiref("CSSOM") }}
 
 Die schreibgeschützte Eigenschaft **`TransitionEvent.elapsedTime`** ist ein
-`float`, der die Zeit in Sekunden angibt, die die Animation gelaufen ist, als dieses Ereignis ausgelöst wurde. Dieser Wert wird nicht durch die {{cssxref("transition-delay")}}-Eigenschaft beeinflusst.
+`float`, der die Zeit in Sekunden angibt, wie lange die Animation zum Zeitpunkt des Eintreffens dieses Ereignisses bereits läuft. Dieser Wert wird nicht durch die Eigenschaft {{cssxref("transition-delay")}} beeinflusst.
 
 ## Wert
 

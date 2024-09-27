@@ -1,5 +1,5 @@
 ---
-title: Bildschirmorientierungs-API
+title: Screen Orientation API
 slug: Web/API/Screen_Orientation_API
 l10n:
   sourceCommit: 6d194a9afcce7beef0082c1dc50644bd0fcda635
@@ -7,11 +7,11 @@ l10n:
 
 {{DefaultAPISidebar("Screen Orientation API")}}
 
-Die **Bildschirmorientierungs-API** liefert Informationen über die Ausrichtung des Bildschirms.
+Die **Screen Orientation API** bietet Informationen über die Ausrichtung des Bildschirms.
 
 ## Schnittstellen
 
-- {{DOMxRef("ScreenOrientation")}}
+- [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)
 
 ## Spezifikationen
 

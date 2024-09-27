@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Konstante** ist ein Wert, den der Programmierer nicht ändern kann, zum Beispiel Zahlen (1, 2, 42). Mit {{glossary("variable","Variablen")}} hingegen kann der Programmierer einem bereits verwendeten Variablennamen einen neuen {{glossary("value", "Wert")}} zuweisen.
+Eine **Konstante** ist ein Wert, den der Programmierer nicht ändern kann, zum Beispiel Zahlen (1, 2, 42). Bei [Variablen](/de/docs/Glossary/variable) hingegen kann der Programmierer einem bereits verwendeten Variablennamen einen neuen [Wert](/de/docs/Glossary/value) zuweisen.
 
-Wie Variablen sind einige Konstanten an Bezeichner gebunden. Zum Beispiel könnte der Bezeichner `pi` an den Wert 3.14… gebunden sein.
+Wie bei Variablen sind einige Konstanten an Bezeichner gebunden. Zum Beispiel könnte der Bezeichner `pi` an den Wert 3,14... gebunden sein.
 
 ## Siehe auch
 

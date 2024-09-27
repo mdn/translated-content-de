@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef}}
 
-Die schreibgeschützte **`Window.navigator`**-Eigenschaft gibt eine Referenz auf das {{domxref("Navigator")}}-Objekt zurück, das Methoden und Eigenschaften zur Anwendung, die das Skript ausführt, enthält.
+Die schreibgeschützte Eigenschaft **`Window.navigator`** gibt eine Referenz auf das [`Navigator`](/de/docs/Web/API/Navigator)-Objekt zurück, das Methoden und Eigenschaften über die Anwendung enthält, die das Skript ausführt.
 
 ## Wert
 
-Das {{domxref("navigator")}}-Objekt.
+Das [`navigator`](/de/docs/Web/API/Navigator)-Objekt.
 
 ## Beispiele
 
-### Beispiel 1: Browser erkennen und eine Zeichenkette zurückgeben
+### Beispiel 1: Browser erkennen und einen String zurückgeben
 
 ```js
 function getBrowserName(userAgent) {
-  // Die Reihenfolge ist hier wichtig, und es kann zu falschen positiven Ergebnissen für nicht gelistete Browser führen.
+  // The order matters here, and this may report false positives for unlisted browsers.
 
   if (userAgent.includes("Firefox")) {
     // "Mozilla/5.0 (X11; Linux i686; rv:104.0) Gecko/20100101 Firefox/104.0"
@@ -39,17 +39,17 @@ function getBrowserName(userAgent) {
     return "Microsoft Edge (Chromium)";
   } else if (userAgent.includes("Chrome")) {
     // "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36"
-    return "Google Chrome oder Chromium";
+    return "Google Chrome or Chromium";
   } else if (userAgent.includes("Safari")) {
     // "Mozilla/5.0 (iPhone; CPU iPhone OS 15_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6 Mobile/15E148 Safari/604.1"
     return "Apple Safari";
   } else {
-    return "unbekannt";
+    return "unknown";
   }
 }
 
 const browserName = getBrowserName(navigator.userAgent);
-console.log(`Sie verwenden: ${browserName}`);
+console.log(`You are using: ${browserName}`);
 ```
 
 ## Spezifikationen

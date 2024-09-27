@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`transition`**-Eigenschaft des {{domxref("Navigation")}}-Interfaces ist eine schreibgeschützte Eigenschaft, die ein {{domxref("NavigationTransition")}}-Objekt zurückgibt, das den Status einer laufenden Navigation darstellt und zur Verfolgung verwendet werden kann.
+Die schreibgeschützte Eigenschaft **`transition`** des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt ein [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Objekt zurück, das den Status einer laufenden Navigation darstellt, der zur Nachverfolgung verwendet werden kann.
 
 ## Wert
 
-Ein {{domxref("NavigationTransition")}}-Objekt oder `null`, wenn derzeit keine Navigation im Gange ist.
+Ein [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Objekt oder `null`, wenn derzeit keine Navigation im Gange ist.
 
 ## Beispiele
 
@@ -36,6 +36,6 @@ async function handleTransition() {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne client-seitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Erläuterung zur Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

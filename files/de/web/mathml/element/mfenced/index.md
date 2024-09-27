@@ -2,26 +2,26 @@
 title: <mfenced>
 slug: Web/MathML/Element/mfenced
 l10n:
-  sourceCommit: 34c43aca36f776c824e698dfd07e3ece34cc6f00
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{MathMLRef}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Das **`<mfenced>`** [MathML](/de/docs/Web/MathML) Element ermöglicht es, benutzerdefinierte öffnende und schließende Klammern (wie Klammern) und Trennzeichen (wie Kommas oder Semikolons) zu einem Ausdruck hinzuzufügen.
+Das **`<mfenced>`** [MathML](/de/docs/Web/MathML)-Element bietet die Möglichkeit, benutzerdefinierte öffnende und schließende Klammern (z. B. runde Klammern) und Trenner (z. B. Kommas oder Semikolons) zu einem Ausdruck hinzuzufügen.
 
 > [!NOTE]
-> Historisch gesehen wurde das `<mfenced>` Element als Kurzform für das Schreiben von geordneten Ausdrücken definiert und entsprach einer erweiterten Form, die {{MathMLElement("mrow")}} und {{MathMLElement("mo")}} Elemente beinhaltete. Heutzutage wird empfohlen, stattdessen diese gleichwertige Form zu verwenden.
+> Historisch gesehen wurde das `<mfenced>`-Element als Kurzschreibweise für geschlossene Ausdrücke definiert und war gleichbedeutend mit einer erweiterten Form, die die {{MathMLElement("mrow")}} und {{MathMLElement("mo")}}-Elemente umfasst. Heutzutage wird empfohlen, stattdessen diese äquivalente Form zu verwenden.
 
 ## Attribute
 
 Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes).
 
 - `close`
-  - : Eine Zeichenfolge für das schließende Trennzeichen. Der Standardwert ist `")"` und jegliche Leerzeichen werden entfernt.
+  - : Ein String für das schließende Trennzeichen. Der Standardwert ist `")"` und jeder Leerraum wird entfernt.
 - `open`
-  - : Eine Zeichenfolge für das öffnende Trennzeichen. Der Standardwert ist `"("` und jegliche Leerzeichen werden entfernt.
+  - : Ein String für das öffnende Trennzeichen. Der Standardwert ist `"("` und jeder Leerraum wird entfernt.
 - `separators`
-  - : Eine Abfolge von null oder mehr Zeichen, die für unterschiedliche Trennzeichen verwendet werden, optional durch Leerzeichen getrennt, welches ignoriert wird. Der Standardwert ist ",". Durch die Angabe von mehr als einem Zeichen ist es möglich, unterschiedliche Trennzeichen für jedes Argument im Ausdruck festzulegen. Wenn zu viele Trennzeichen angegeben sind, wird der Überschuss ignoriert. Wenn zu wenige Trennzeichen im Ausdruck vorhanden sind, wird das zuletzt angegebene Trennzeichen wiederholt.
+  - : Eine Folge von null oder mehr Zeichen, die als unterschiedliche Trennzeichen verwendet werden, optional durch Leerzeichen getrennt, die ignoriert werden. Der Standardwert ist ",". Durch die Angabe von mehr als einem Zeichen ist es möglich, verschiedene Trennzeichen für jedes Argument im Ausdruck festzulegen. Wenn es zu viele Trennzeichen gibt, werden alle Überschüsse ignoriert. Wenn es in dem Ausdruck zu wenige Trennzeichen gibt, wird das zuletzt angegebene Trennzeichen wiederholt.
 
 ## Beispiele
 
@@ -39,13 +39,13 @@ Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/d
 </math>
 ```
 
-Beispielhafte Darstellung: ![{a;b;c,d,e}](mfenced01.png)
+Beispielabbildung: ![{a;b;c,d,e}](mfenced01.png)
 
 Darstellung in Ihrem Browser:
 
 {{ EmbedLiveSample('mfenced_example1', 700, 200, "", "") }}
 
-### Der gesamte Überschuss wird ignoriert (`,`)
+### Alle Überschüsse werden ignoriert (`,`)
 
 ```html
 <math display="block">
@@ -59,7 +59,7 @@ Darstellung in Ihrem Browser:
 </math>
 ```
 
-Beispielhafte Darstellung: ![[a|b|c|d|e]](mfenced02.png)
+Beispielabbildung: ![[a|b|c|d|e]](mfenced02.png)
 
 Darstellung in Ihrem Browser:
 
@@ -67,8 +67,8 @@ Darstellung in Ihrem Browser:
 
 ## Spezifikationen
 
-Das `<mfenced>` Element ist in keinem browserorientierten Standard definiert, Sie finden jedoch eine Beschreibung in [MathML 4](https://w3c.github.io/mathml/#presm_mfenced).
+Das `<mfenced>`-Element ist in keiner browserorientierten Spezifikation definiert, aber eine Beschreibung finden Sie in [MathML 4](https://w3c.github.io/mathml/#presm_mfenced).
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

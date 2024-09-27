@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mask-composite`** [CSS](/de/docs/Web/CSS) Eigenschaft repräsentiert eine Zusammensetzungsoperation, die auf die aktuelle Maskenschicht mit den darunterliegenden Maskenschichten angewendet wird.
+Die **`mask-composite`** [CSS](/de/docs/Web/CSS) Eigenschaft stellt eine Compositing-Operation dar, die auf die aktuelle Maskenschicht mit den darunterliegenden Maskenschichten angewendet wird.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 mask-composite: add;
 mask-composite: subtract;
 mask-composite: intersect;
 mask-composite: exclude;
 
-/* Globale Werte */
+/* Global values */
 mask-composite: inherit;
 mask-composite: initial;
 mask-composite: revert;
@@ -26,18 +26,18 @@ mask-composite: revert-layer;
 mask-composite: unset;
 ```
 
-Eines oder mehrere der unten aufgeführten Schlüsselwortwerte, durch Kommata getrennt.
+Einer oder mehrere der unten aufgeführten Schlüsselwortwerte, getrennt durch Kommata.
 
 ### Werte
 
-Für die Zusammensetzung wird die aktuelle Maskenschicht als _source_ bezeichnet, während alle darunterliegenden Schichten als _destination_ bezeichnet werden.
+Für die Komposition wird die aktuelle Maskenschicht als _Quelle_ bezeichnet, während alle darunterliegenden Schichten als _Ziel_ bezeichnet werden.
 
 - `add`
   - : Die Quelle wird über das Ziel gelegt.
 - `subtract`
-  - : Die Quelle wird dort platziert, wo sie außerhalb des Ziels liegt.
+  - : Die Quelle wird dort platziert, wo sie außerhalb des Ziels fällt.
 - `intersect`
-  - : Die Teile der Quelle, die das Ziel überlappen, ersetzen das Ziel.
+  - : Die Teile der Quelle, die sich mit dem Ziel überlappen, ersetzen das Ziel.
 - `exclude`
   - : Die nicht überlappenden Bereiche von Quelle und Ziel werden kombiniert.
 
@@ -51,7 +51,7 @@ Für die Zusammensetzung wird die aktuelle Maskenschicht als _source_ bezeichnet
 
 ## Beispiele
 
-### Zusammensetzung von Maskenschichten mit Addition
+### Maskenschichten mit Addition kombinieren
 
 {{EmbedGHLiveSample("css-examples/masking/mask-composite.html", '100%', 550)}}
 

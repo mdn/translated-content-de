@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("worker")}}
 
-Die **`gpu`**-Schreibgeschützte Eigenschaft des {{domxref("WorkerNavigator")}}-Interfaces gibt das {{domxref("GPU")}}-Objekt für den aktuellen Worker-Kontext zurück. Dies ist der Einstiegspunkt für die {{domxref("WebGPU_API", "WebGPU API", "", "nocode")}}.
+Die **`gpu`** schreibgeschützte Eigenschaft des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces gibt das [`GPU`](/de/docs/Web/API/GPU)-Objekt für den aktuellen Worker-Kontext zurück, welches der Einstiegspunkt für die [WebGPU API](/de/docs/Web/API/WebGPU_API) ist.
 
 ## Wert
 
-Ein {{domxref("GPU")}}-Objekt.
+Ein [`GPU`](/de/docs/Web/API/GPU)-Objekt.
 
 ## Beispiele
 
 ```js
-// Kann innerhalb eines Web Workers ausgeführt werden
+// Can be run inside a web worker
 async function init() {
   if (!navigator.gpu) {
     throw Error("WebGPU not supported.");
@@ -44,4 +44,4 @@ async function init() {
 
 ## Siehe auch
 
-- {{domxref("WebGPU_API", "WebGPU API", "", "nocode")}}
+- [WebGPU API](/de/docs/Web/API/WebGPU_API)

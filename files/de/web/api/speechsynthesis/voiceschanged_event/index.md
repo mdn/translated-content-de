@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`voiceschanged`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn sich die Liste der {{domxref("SpeechSynthesisVoice")}}-Objekte ändert, die von der Methode {{domxref("SpeechSynthesis.getVoices()")}} zurückgegeben würden (wenn das `voiceschanged`-Ereignis ausgelöst wird).
+Das **`voiceschanged`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn sich die Liste der [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekte, die von der Methode [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) zurückgegeben würde, ändert (wenn das `voiceschanged`-Ereignis ausgelöst wird).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("voiceschanged", (event) => {});
@@ -22,11 +22,11 @@ onvoiceschanged = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{DOMxRef("Event")}} ohne zusätzliche Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beispiele
 
-Dies könnte verwendet werden, um eine Liste von Stimmen, zwischen denen der Benutzer wählen kann, neu zu füllen, wenn das Ereignis ausgelöst wird. Sie können das `voiceschanged`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
+Dies könnte verwendet werden, um eine Liste von Stimmen, zwischen denen der Benutzer wählen kann, neu zu erstellen, wenn das Ereignis ausgelöst wird. Sie können das `voiceschanged`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
 const synth = window.speechSynthesis;
@@ -43,7 +43,7 @@ synth.addEventListener("voiceschanged", () => {
 });
 ```
 
-Oder verwenden Sie die `onvoiceschanged`-Ereignis-Handler-Eigenschaft:
+Oder Sie verwenden die `onvoiceschanged`-Ereignis-Handler-Eigenschaft:
 
 ```js
 const synth = window.speechSynthesis;

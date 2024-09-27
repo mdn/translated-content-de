@@ -1,5 +1,5 @@
 ---
-title: "Element: before()-Methode"
+title: "Element: before() Methode"
 short-title: before()
 slug: Web/API/Element/before
 l10n:
@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.before()`**-Methode fügt eine Reihe von {{domxref("Node")}}-Objekten oder Zeichenfolgen in die Kindliste des Elternteils dieses `Element` ein, direkt vor diesem `Element`. Zeichenfolgen werden als äquivalente {{domxref("Text")}}-Knoten eingefügt.
+Die **`Element.before()`** Methode fügt eine Reihe von
+[`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Kindliste des Elternteils dieses
+`Element`s ein, unmittelbar vor diesem `Element`.
+Zeichenfolgen werden als äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
 ## Syntax
 
@@ -21,7 +24,7 @@ before(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Reihe von {{domxref("Node")}}-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -29,7 +32,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
 
 ## Beispiele
@@ -61,7 +64,7 @@ console.log(container.outerHTML);
 // "<div>Text<p></p></div>"
 ```
 
-### Einfügen eines Elements und Text
+### Einfügen eines Elements und Textes
 
 ```js
 let container = document.createElement("div");
@@ -85,11 +88,11 @@ console.log(container.outerHTML);
 
 ## Siehe auch
 
-- {{domxref("Element.after()")}}
-- {{domxref("Element.append()")}}
-- {{domxref("Element.insertAdjacentElement()")}}
-- {{domxref("CharacterData.before()")}}
-- {{domxref("DocumentType.before()")}}
-- {{domxref("Node.appendChild()")}}
-- {{domxref("Node.insertBefore()")}}
-- {{domxref("NodeList")}}
+- [`Element.after()`](/de/docs/Web/API/Element/after)
+- [`Element.append()`](/de/docs/Web/API/Element/append)
+- [`Element.insertAdjacentElement()`](/de/docs/Web/API/Element/insertAdjacentElement)
+- [`CharacterData.before()`](/de/docs/Web/API/CharacterData/before)
+- [`DocumentType.before()`](/de/docs/Web/API/DocumentType/before)
+- [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild)
+- [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore)
+- [`NodeList`](/de/docs/Web/API/NodeList)

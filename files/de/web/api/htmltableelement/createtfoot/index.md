@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableElement: Methode createTFoot()"
+title: "HTMLTableElement: createTFoot() Methode"
 short-title: createTFoot()
 slug: Web/API/HTMLTableElement/createTFoot
 l10n:
@@ -9,12 +9,14 @@ l10n:
 {{APIRef("HTML DOM")}}
 
 Die **`createTFoot()`** Methode von
-{{domxref("HTMLTableElement")}} Objekten gibt das {{HTMLElement("tfoot")}}-Element
-zurück, das mit einem gegebenen {{HtmlElement("table")}} verknüpft ist. Falls im Table kein Footer vorhanden ist, wird dieser durch die Methode erstellt und anschließend zurückgegeben.
+[`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) Objekten gibt das {{HTMLElement("tfoot")}} Element
+zurück, das mit einem gegebenen {{HtmlElement("table")}} verbunden ist. Wenn kein Footer in der Tabelle
+vorhanden ist, erstellt diese Methode ihn und gibt ihn dann zurück.
 
 > [!NOTE]
-> Falls kein Footer existiert, fügt `createTFoot()` direkt einen neuen
-> Footer in die Tabelle ein. Der Footer muss nicht separat hinzugefügt werden, wie es der Fall wäre, wenn {{domxref("Document.createElement()")}} verwendet worden wäre, um das neue `<tfoot>`-Element zu erstellen.
+> Wenn kein Footer vorhanden ist, fügt `createTFoot()` einen neuen
+> Footer direkt in die Tabelle ein. Der Footer muss nicht separat hinzugefügt werden, wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um
+> das neue `<tfoot>` Element zu erstellen.
 
 ## Syntax
 
@@ -28,7 +30,7 @@ Keine.
 
 ### Rückgabewert
 
-{{domxref("HTMLTableSectionElement")}}
+[`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)
 
 ## Beispiele
 
@@ -41,6 +43,6 @@ let myfoot = mytable.createTFoot();
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

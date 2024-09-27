@@ -1,6 +1,6 @@
 ---
 title: "NotificationEvent: notification-Eigenschaft"
-short-title: Benachrichtigung
+short-title: notification
 slug: Web/API/NotificationEvent/notification
 l10n:
   sourceCommit: 28848ba41c082db2a8c55e85c804bd06363afb57
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{AvailableInWorkers("service")}}
 
-Die **`notification`** schreibgeschützte Eigenschaft der {{domxref("NotificationEvent")}}-Schnittstelle gibt die Instanz der {{domxref("Notification")}} zurück, die geklickt wurde, um das Ereignis auszulösen. Die {{domxref("Notification")}} bietet schreibgeschützten Zugriff auf viele Eigenschaften, die beim Erstellen der Benachrichtigung festgelegt wurden, wie die Attribute `tag` und `data`, die Ihnen ermöglichen, Informationen für die spätere Verwendung im `notificationclick`-Ereignis zu speichern.
+Die schreibgeschützte **`notification`**-Eigenschaft des [`NotificationEvent`](/de/docs/Web/API/NotificationEvent)-Interfaces gibt die Instanz der [`Notification`](/de/docs/Web/API/Notification) zurück, die angeklickt wurde, um das Ereignis auszulösen. Die [`Notification`](/de/docs/Web/API/Notification) bietet schreibgeschützten Zugriff auf viele Eigenschaften, die zum Zeitpunkt der Instanziierung der Benachrichtigung festgelegt wurden, wie z.B. die `tag`- und `data`-Attribute, die es Ihnen ermöglichen, Informationen für den späteren Gebrauch im `notificationclick`-Ereignis zu speichern.
 
 ## Wert
 
-Ein {{domxref("Notification")}}-Objekt.
+Ein [`Notification`](/de/docs/Web/API/Notification)-Objekt.
 
 ## Beispiele
 

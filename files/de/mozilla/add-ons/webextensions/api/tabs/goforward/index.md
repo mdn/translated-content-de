@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Navigieren Sie zur nächsten Seite in der Chronik des Tabs, falls verfügbar.
+Navigieren Sie zur nächsten Seite in der Verlauf des Tabs, falls verfügbar.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,7 +23,7 @@ let goingForward = browser.tabs.goForward(
 ### Parameter
 
 - `tabId` {{optional_inline}}
-  - : `integer`. Die ID des Tabs, zu dem navigiert werden soll. Standardmäßig wird der aktive Tab des aktuellen Fensters verwendet.
+  - : `integer`. Die ID des Tabs, der navigiert werden soll. Standardmäßig der aktive Tab des aktuellen Fensters.
 - `callback` {{optional_inline}}
   - : `function`. Wenn die Seitennavigation abgeschlossen ist, wird diese Funktion ohne Parameter aufgerufen.
 
@@ -37,7 +37,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das e
 
 ## Beispiele
 
-Gehen Sie zur nächsten Seite im aktuellen Tab:
+Gehen Sie im aktuellen Tab zur nächsten Seite:
 
 ```js
 function onGoForward() {
@@ -55,7 +55,7 @@ goingForward.then(onGoForward, onError);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getZoomSettings) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getZoomSettings) API. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

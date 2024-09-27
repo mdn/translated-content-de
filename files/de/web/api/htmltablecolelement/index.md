@@ -7,30 +7,30 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLTableColElement`**-Schnittstelle bietet Eigenschaften zum Manipulieren einzelner oder gruppierter Tabellenspalteneinstellungen.
+Die **`HTMLTableColElement`** Schnittstelle bietet Eigenschaften zur Manipulation einzelner oder gruppierter Tabellenspaltenelemente.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, {{domxref("HTMLElement")}}_.
+_Übernimmt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)_.
 
-- {{domxref("HTMLTableColElement.align")}} {{deprecated_inline}}
-  - : Ein String, der die horizontale Ausrichtung der Zelleninhalte in der Spalte angibt.
-- {{domxref("HTMLTableColElement.ch")}} {{deprecated_inline}}
-  - : Ein String, der das Ausrichtungszeichen für Zelleninhalte repräsentiert.
-- {{domxref("HTMLTableColElement.chOff")}} {{deprecated_inline}}
-  - : Ein String, der den Versatz für das Ausrichtungszeichen repräsentiert.
-- {{domxref("HTMLTableColElement.span")}}
-  - : Eine positive Zahl, die das [`span`](/de/docs/Web/HTML/Element/col#span) HTML-Attribut widerspiegelt und die Anzahl der Spalten angibt, auf die die Attribute dieses Objekts angewendet werden sollen.
-- {{domxref("HTMLTableColElement.vAlign")}} {{deprecated_inline}}
-  - : Ein String, der die vertikale Ausrichtung der Zelleninhalte in der Spalte angibt.
-- {{domxref("HTMLTableColElement.width")}} {{deprecated_inline}}
-  - : Ein String, der die Standardbreite der Spalte repräsentiert.
+- [`HTMLTableColElement.align`](/de/docs/Web/API/HTMLTableColElement/align) {{deprecated_inline}}
+  - : Ein String, der die horizontale Ausrichtung der Zellen-Daten in der Spalte angibt.
+- [`HTMLTableColElement.ch`](/de/docs/Web/API/HTMLTableColElement/ch) {{deprecated_inline}}
+  - : Ein String, der das Ausrichtungszeichen für Zellen-Daten darstellt.
+- [`HTMLTableColElement.chOff`](/de/docs/Web/API/HTMLTableColElement/chOff) {{deprecated_inline}}
+  - : Ein String, der den Versatz für das Ausrichtungszeichen darstellt.
+- [`HTMLTableColElement.span`](/de/docs/Web/API/HTMLTableColElement/span)
+  - : Eine positive Zahl, die das [`span`](/de/docs/Web/HTML/Element/col#span) HTML-Attribut widerspiegelt und die Anzahl der Spalten angibt, auf die die Attribute dieses Objekts angewendet werden.
+- [`HTMLTableColElement.vAlign`](/de/docs/Web/API/HTMLTableColElement/vAlign) {{deprecated_inline}}
+  - : Ein String, der die vertikale Ausrichtung der Zellen-Daten in der Spalte angibt.
+- [`HTMLTableColElement.width`](/de/docs/Web/API/HTMLTableColElement/width) {{deprecated_inline}}
+  - : Ein String, der die Standardbreite der Spalte darstellt.
 
 ## Instanzmethoden
 
-_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, {{domxref("HTMLElement")}}_.
+_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)_.
 
 ## Spezifikationen
 

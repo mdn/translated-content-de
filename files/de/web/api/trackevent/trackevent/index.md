@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Der **`TrackEvent()`** Konstruktor
-erstellt und gibt ein neues {{domxref("TrackEvent")}}-Objekt zurück, das ein Ereignis beschreibt, welches
-in einer Liste von Tracks ({{domxref("AudioTrackList")}},
-{{domxref("VideoTrackList")}} oder {{domxref("TextTrackList")}}) aufgetreten ist.
+Der **`TrackEvent()`** Konstruktor erstellt und gibt ein neues [`TrackEvent`](/de/docs/Web/API/TrackEvent)-Objekt zurück, das ein Ereignis beschreibt, das in einer Liste von Tracks aufgetreten ist ([`AudioTrackList`](/de/docs/Web/API/AudioTrackList), [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) oder [`TextTrackList`](/de/docs/Web/API/TextTrackList)).
 
 ## Syntax
 
@@ -23,17 +20,15 @@ new TrackEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses.
-    Es ist Groß- und Kleinschreibung empfindlich und Browser setzen es auf `addtrack` oder `removetrack`.
+  - : Ein String mit dem Namen des Ereignisses. Es ist groß- und kleinschreibungssensitiv und wird von Browsern auf `addtrack` oder `removetrack` gesetzt.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das, _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_, die folgenden Eigenschaften haben kann:
     - `track` {{optional_inline}}
-      - : Die Spur, auf die sich das Ereignis bezieht; standardmäßig ist dies `null`, sollte jedoch entsprechend dem Spurtyp auf einen {{domxref("VideoTrack")}}, {{domxref("AudioTrack")}} oder
-        {{domxref("TextTrack")}} gesetzt werden.
+      - : Der Track, auf den sich das Ereignis bezieht; standardmäßig `null`, sollte aber entsprechend dem Typ des Tracks auf [`VideoTrack`](/de/docs/Web/API/VideoTrack), [`AudioTrack`](/de/docs/Web/API/AudioTrack) oder [`TextTrack`](/de/docs/Web/API/TextTrack) gesetzt werden.
 
 ### Rückgabewert
 
-Ein neues {{domxref("TrackEvent")}} Objekt, initialisiert wie durch die Eingaben zum Konstruktor beschrieben.
+Ein neues [`TrackEvent`](/de/docs/Web/API/TrackEvent)-Objekt, initialisiert entsprechend den Eingaben des Konstruktors.
 
 ## Spezifikationen
 

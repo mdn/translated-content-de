@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das `change`-Ereignis wird ausgelöst, wenn eine Videospur aktiv oder inaktiv geschaltet wird, zum Beispiel durch Ändern der [`selected`](/de/docs/Web/API/VideoTrack/selected)-Eigenschaft der Spur.
+Das `change`-Ereignis wird ausgelöst, wenn ein Videospur aktiv oder inaktiv gemacht wird, beispielsweise durch Ändern der [`selected`](/de/docs/Web/API/VideoTrack/selected)-Eigenschaft der Spur.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("change", (event) => {});
@@ -22,7 +22,7 @@ onchange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{DOMxRef("Event")}} ohne zusätzliche Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beispiele
 
@@ -34,7 +34,7 @@ videoElement.videoTracks.addEventListener("change", (event) => {
   console.log(`'${event.type}' event fired`);
 });
 
-// Das Ändern des Werts von `selected` löst das `change`-Ereignis aus
+// changing the value of `selected` will trigger the `change` event
 const toggleTrackButton = document.querySelector(".toggle-track");
 toggleTrackButton.addEventListener("click", () => {
   const track = videoElement.videoTracks[0];
@@ -42,15 +42,15 @@ toggleTrackButton.addEventListener("click", () => {
 });
 ```
 
-Verwendung der `onchange`-Ereignis-Handler-Eigenschaft:
+Verwendung der `onchange` Ereignis-Handler-Eigenschaft:
 
 ```js
 const videoElement = document.querySelector("video");
 videoElement.videoTracks.onchange = (event) => {
   console.log(`'${event.type}' event fired`);
-});
+};
 
-// Das Ändern des Werts von `selected` löst das `change`-Ereignis aus
+// changing the value of `selected` will trigger the `change` event
 const toggleTrackButton = document.querySelector(".toggle-track");
 toggleTrackButton.addEventListener("click", () => {
   const track = videoElement.videoTracks[0];
@@ -69,6 +69,6 @@ toggleTrackButton.addEventListener("click", () => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event), [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)
-- Dieses Ereignis in [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) zielt auf: [`change`](/de/docs/Web/API/AudioTrackList/change_event)
+- Dieses Ereignis bei [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) Ziele: [`change`](/de/docs/Web/API/AudioTrackList/change_event)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

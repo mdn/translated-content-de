@@ -1,5 +1,5 @@
 ---
-title: "DocumentType: Methode replaceWith()"
+title: "DocumentType: replaceWith()-Methode"
 short-title: replaceWith()
 slug: Web/API/DocumentType/replaceWith
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DocumentType.replaceWith()`**-Methode ersetzt den Dokumenttyp mit einer Reihe von angegebenen Knoten.
+Die **`DocumentType.replaceWith()`**-Methode ersetzt den Dokumenttyp durch eine Reihe gegebener Knoten.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ replaceWith(node1, node2, /* …, */ nodeN)
 ### Parameter
 
 - `node1`, …, `nodeN`
-  - : Eine Reihe von Knoten, mit denen der {{domxref("DocumentType")}} ersetzt wird.
+  - : Eine Menge von Knoten, mit denen der [`DocumentType`](/de/docs/Web/API/DocumentType) ersetzt wird.
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
 
 ## Beispiele
@@ -56,6 +56,6 @@ document.doctype.replaceWith(svg_dt);
 
 ## Siehe auch
 
-- {{domxref("CharacterData.replaceWith()")}}
-- {{domxref("Element.replaceWith()")}}
-- {{domxref("CharacterData.replaceWith()")}}
+- [`CharacterData.replaceWith()`](/de/docs/Web/API/CharacterData/replaceWith)
+- [`Element.replaceWith()`](/de/docs/Web/API/Element/replaceWith)
+- [`CharacterData.replaceWith()`](/de/docs/Web/API/CharacterData/replaceWith)

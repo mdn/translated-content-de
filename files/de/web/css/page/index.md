@@ -1,5 +1,5 @@
 ---
-title: Seite
+title: page
 slug: Web/CSS/page
 l10n:
   sourceCommit: 80291cd55771c14c0ad6005a013cc8e656d62771
@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}
 
-Die **`page`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um eine benannte Seite zu spezifizieren, eine spezifische Art von Seite, die durch die {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/At-rule) definiert ist.
+Die **`page`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) wird verwendet, um eine benannte Seite festzulegen, also eine spezifische Art von Seite, die durch das {{cssxref("@page")}}-[At-Regel](/de/docs/Web/CSS/At-rule) definiert ist.
 
-Wenn es mehrere Selektoren gibt, die nacheinander eine benannte Seite verwenden, kann ein erzwungener Seitenumbruch mit [`break-after`](/de/docs/Web/CSS/break-after) erforderlich sein.
+Wenn es mehrere Selektoren gibt, die nacheinander eine benannte Seite verwenden, kann ein erzwungener Seitenumbruch mit [`break-after`](/de/docs/Web/CSS/break-after) notwendig sein.
 
 ## Syntax
 
 ```css
-/* eine benannte Seite festlegen */
+/* set a named page */
 page: exampleName;
 page: chapterIntro;
 
-/* Benannte Seite von Vorfahren verwenden */
-page: auto; /* Standardwert */
+/* Use ancestors named page */
+page: auto; /* default value */
 
-/* Globale Werte */
+/* Global values */
 page: inherit;
 page: initial;
 page: revert;
@@ -32,9 +32,9 @@ page: unset;
 ### Werte
 
 - `auto`
-  - : Standardwert. Verwenden Sie den Wert des nächsten Vorfahren mit einem nicht-`auto` Wert. Wenn kein Vorfahre einen benannten Seitenwert gesetzt hat, ist der verwendete Wert für auto der leere String.
+  - : Standardwert. Verwenden Sie den Wert des nächsten Vorfahren mit einem Nicht-`auto`-Wert. Wenn kein Vorfahre einen benannten Seitenwert hat, ist der verwendete Wert für auto der leere String.
 - {{cssxref("custom-ident")}}
-  - : Groß-/Kleinschreibungsempfindlicher Name, definiert in einer [`@page`](/de/docs/Web/CSS/@page) At-Regel.
+  - : Groß-/Kleinschreibung wird beachtet, Name wird in einem [`@page`](/de/docs/Web/CSS/@page)-Pseudoregler definiert.
 
 ## Formale Definition
 
@@ -50,69 +50,69 @@ page: unset;
 
 #### HTML
 
-Es gibt zwei Teile in diesem HTML:
+Dieser HTML-Code besteht aus zwei Teilen:
 
-- Die Drucksteuerungen
-- Der Inhalt, der gedruckt werden soll
+- Den Drucksteuerungen
+- Dem zu druckenden Inhalt
 
-Die Drucksteuerungen erlauben es dem Benutzer auszuwählen, wie die `section`s im `article` gedruckt werden.
+Die Drucksteuerungen ermöglichen es dem Benutzer, auszuwählen, wie die `section`s im `article` gedruckt werden sollen.
 
 ```html
-<!-- Druckoptionen -->
+<!-- print options -->
 <fieldset id="printStyle">
-  <legend>Wie möchten Sie drucken</legend>
+  <legend>How would you like to print</legend>
   <label for="single"
-    ><input type="radio" id="single" name="type" value="single" checked />Keine
-    Seiten</label
+    ><input type="radio" id="single" name="type" value="single" checked />No
+    Pages</label
   >
   <label for="double"
-    ><input type="radio" id="grouped" name="type" value="grouped" />Seiten mit
-    gruppierten Kapiteln</label
+    ><input type="radio" id="grouped" name="type" value="grouped" />Pages with
+    Grouped Chapters</label
   >
   <label for="double"
-    ><input type="radio" id="paged" name="type" value="paged" />Kapitel
-    paginiert</label
+    ><input type="radio" id="paged" name="type" value="paged" />Chapters
+    Paged</label
   >
-  <button id="print">Drucken</button>
+  <button id="print">Print</button>
 </fieldset>
-<!-- Zu druckender Inhalt -->
+<!-- Content to be printed -->
 <article id="print-area" data-print="single">
   <section id="toc">
-    <h2>Inhaltsverzeichnis</h2>
+    <h2>Table of contents</h2>
     <ul>
-      <li>Vorwort</li>
-      <li>Einführung</li>
-      <li>Kapitel Eins - benannte Seiten</li>
-      <li>Kapitel Zwei - Seitenorientierung</li>
-      <li>Kapitel Drei - Seitenränder</li>
-      <li>Fazit</li>
+      <li>Foreword</li>
+      <li>Introduction</li>
+      <li>Chapter One - named pages</li>
+      <li>Chapter Two - page orientation</li>
+      <li>Chapter Three - page margins</li>
+      <li>Conclusion</li>
     </ul>
   </section>
   <section id="foreword">
-    <h2>Vorwort</h2>
+    <h2>Foreword</h2>
     <p>
-      Dieses Buch handelt davon, wie die CSS <code>@page</code> At-Regel beim
-      Drucken von HTML-Büchern helfen kann.
+      This book is all about how the CSS <code>@page</code> at-rule can help
+      with printing HTML books.
     </p>
   </section>
   <section id="introduction">
-    <h2>Einführung</h2>
+    <h2>Introduction</h2>
     <p>
-      Dieses Buch ist ein Konzept, um zu zeigen, wie ein <em>HTML</em>-Dokument
-      einfach auf Seiten gedruckt werden kann.
+      This book is a concept to show how an <em>HTML</em> document can easily be
+      printed out in pages.
     </p>
   </section>
   <section id="chapter1" class="chapter">
-    <h2>Benannte Seiten</h2>
+    <h2>Named pages</h2>
     <p>Lorem ipsum</p>
   </section>
   <section id="chapter2" class="chapter">
-    <h2>Seitenorientierung</h2>
+    <h2>Page Orientation</h2>
     <p>Lorem ipsum</p>
   </section>
   <section id="chapter3" class="chapter">
-    <h2>Seitenränder</h2>
-    <p>Es gibt 16 Seitenränder, die eingestellt werden können:</p>
+    <h2>Page Margins</h2>
+    <p>There are 16 page margins that can be set:</p>
     <ul>
       <li>@top-left-corner</li>
       <li>@top-left</li>
@@ -131,11 +131,11 @@ Die Drucksteuerungen erlauben es dem Benutzer auszuwählen, wie die `section`s i
       <li>@bottom-right</li>
       <li>@bottom-right-corner</li>
     </ul>
-    <p>Sie können verwendet werden, um anzuzeigen, was in diesen Teilen des Randes erscheint</p>
+    <p>They can be used to show what appears in these parts of the margin</p>
   </section>
   <section id="conclusion">
-    <h2>Fazit</h2>
-    <p>Nun machen Sie sich daran, Bücher zu schreiben.</p>
+    <h2>Conclusion</h2>
+    <p>Now go ahead and write books.</p>
   </section>
 </article>
 ```
@@ -152,48 +152,48 @@ fieldset {
 }
 ```
 
-Der erste Teil des CSS richtet die **benannten** Seiten ein, diese beinhalten die Größe und Orientierung sowie einige Inhalte, die in den [`@top-center` Rand](/de/docs/Web/CSS/@page#margin_at-rules) der gedruckten Seiten eingefügt werden.
+Der erste Teil des CSS definiert die **benannten** Seiten, diese beinhalten Größe und Ausrichtung und auch einige Inhalte, die in den [`@top-center`-Rand](/de/docs/Web/CSS/@page#margin_at-rules) der gedruckten Seiten eingefügt werden.
 
 ```css
 @page toc {
   size: a4 portrait;
   @top-center {
-    content: "Inhaltsverzeichnis";
+    content: "Table of contents";
   }
 }
 
 @page foreword {
   size: a4 portrait;
   @top-center {
-    content: "Vorwort";
+    content: "Foreword";
   }
 }
 
 @page introduction {
   size: a4 portrait;
   @top-center {
-    content: "Einführung";
+    content: "Introduction";
   }
 }
 
 @page conclusion {
   size: a4 portrait;
   @top-center {
-    content: "Fazit";
+    content: "Conclusion";
   }
 }
 
 @page chapter {
   size: a4 landscape;
   @top-center {
-    content: "Kapitel";
+    content: "Chapter";
   }
 }
 ```
 
-Der nächste Teil des CSS verwendet [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors), um die in den benannten `@page`-Regeln definierten Druckdimensionen, -orientierungen und -ränder auf Elemente mit der `page` Eigenschaft anzuwenden, die im vorherigen CSS-Abschnitt definiert wurden.
+Der nächste Teil des CSS verwendet [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors), um die Druckabmessungen, Ausrichtung und Ränder, definiert in den benannten `@page`-Regeln, auf Elemente anzuwenden, die die `page`-Eigenschaft verwenden.
 
-Die Abschnitte mit `class="chapter"` sind aufeinanderfolgend und erscheinen als eine Seite. Die `break-after: page;`-Eigenschaft wird verwendet, um sie aufzuteilen, wodurch jedes Kapitel auf eine separat gedruckte Seite verteilt wird.
+Die Abschnitte mit `class="chapter"` sind aufeinanderfolgend und erscheinen als eine Seite. `break-after: page;` wird verwendet, um sie zu trennen, sodass jedes Kapitel auf eine separat gedruckte Seite aufgeteilt wird.
 
 ```css
 @media print {
@@ -243,7 +243,7 @@ Die Abschnitte mit `class="chapter"` sind aufeinanderfolgend und erscheinen als 
 
 #### JavaScript
 
-Das JavaScript aktualisiert den Wert des `data-print` Attributs, welches das Attribut ist, auf das die benannte Seite angewendet wird, wenn eine andere Druckoption ausgewählt wird:
+Das JavaScript aktualisiert den Wert des `data-print`-Attributs, welches das Attribut ist, auf dem die benannte Seite angewendet wird, wenn Sie eine andere Druckoption auswählen:
 
 ```js
 const printArea = document.querySelector("#print-area");
@@ -265,7 +265,7 @@ printButton.addEventListener("click", () => {
 
 #### Ergebnis
 
-Was gedruckt wird und was im Druckvorschau-Dialog angezeigt wird, ändert sich je nachdem, welcher Radio-Button für den Druckstil ausgewählt ist.
+Was gedruckt wird und was im Druckvorschau-Dialog angezeigt wird, ändert sich je nachdem, welche Radiobutton-Option für den Druckstil ausgewählt ist.
 
 {{ EmbedLiveSample('Named page example', '100%', 520) }}
 

@@ -1,20 +1,20 @@
 ---
-title: "GPUCompilationMessage: Länge Eigenschaft"
-short-title: Länge
+title: "GPUCompilationMessage: length-Eigenschaft"
+short-title: length
 slug: Web/API/GPUCompilationMessage/length
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`length`** schreibgeschützte Eigenschaft der {{domxref("GPUCompilationMessage")}}-Schnittstelle ist eine Zahl, die die Länge des Substrings darstellt, auf den sich die Nachricht bezieht.
+Die **`length`** schreibgeschützte Eigenschaft des [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Interfaces ist eine Zahl, die die Länge des Substrings darstellt, dem die Nachricht entspricht.
 
 ## Wert
 
 Eine Zahl.
 
-Genauer gesagt ist `length` die Anzahl der UTF-16 Code-Einheiten im Shader-Code-Substring, auf den sich die Nachricht bezieht. Wenn sich die Nachricht auf einen einzelnen Punkt anstatt auf einen Substring bezieht, beträgt `length` 0.
+Genauer gesagt ist `length` die Anzahl der UTF-16-Codeeinheiten im Shader-Code-Substring, dem die Nachricht entspricht. Wenn die Nachricht einem einzelnen Punkt statt einem Substring entspricht, ist `length` 0.
 
 ## Beispiele
 
@@ -31,7 +31,7 @@ Genauer gesagt ist `length` die Anzahl der UTF-16 Code-Einheiten im Shader-Code-
 }
 ```
 
-Sehen Sie sich die Hauptseite zu [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel an.
+Siehe die Hauptseite von [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel.
 
 ## Spezifikationen
 

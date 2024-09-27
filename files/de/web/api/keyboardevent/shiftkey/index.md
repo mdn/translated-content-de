@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`KeyboardEvent.shiftKey`** ist ein Boolean-Wert, der anzeigt, ob die <kbd>Shift</kbd>-Taste gedrückt wurde (`true`) oder nicht (`false`), als das Ereignis auftrat.
+Die schreibgeschützte Eigenschaft **`KeyboardEvent.shiftKey`** ist ein boolescher Wert, der angibt, ob die <kbd>Shift</kbd>-Taste (`true`) gedrückt wurde oder nicht (`false`), als das Ereignis auftrat.
 
-Das Drücken der Shift-Taste kann auch das {{domxref("KeyboardEvent/key", "key")}} des Ereignisses ändern. Zum Beispiel erzeugt das Drücken von <kbd>B</kbd> `key: "b"`, während das gleichzeitige Drücken von <kbd>Shift</kbd> `key: "B"` erzeugt.
+Das Drücken der Shift-Taste kann auch das [`key`](/de/docs/Web/API/KeyboardEvent/key) des Ereignisses ändern. Zum Beispiel erzeugt das Drücken von <kbd>B</kbd> `key: "b"`, während das gleichzeitige Drücken von <kbd>Shift</kbd> `key: "B"` erzeugt.
 
 ## Wert
 
-Ein Boolean-Wert.
+Ein boolescher Wert.
 
 ## Beispiele
 
@@ -47,8 +47,8 @@ Ein Boolean-Wert.
 
   <body onkeypress="showChar(event);">
     <p>
-      Drücken Sie eine beliebige Zeichentaste, mit oder ohne Halten der SHIFT-Taste.<br />
-      Sie können auch die SHIFT-Taste zusammen mit der ALT-Taste verwenden.
+      Press any character key, with or without holding down the SHIFT key.<br />
+      You can also use the SHIFT key together with the ALT key.
     </p>
   </body>
 </html>
@@ -64,4 +64,4 @@ Ein Boolean-Wert.
 
 ## Siehe auch
 
-- {{ domxref("KeyboardEvent") }}
+- [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)

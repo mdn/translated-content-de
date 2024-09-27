@@ -1,5 +1,5 @@
 ---
-title: "NavigationTransition: Eigenschaft finished"
+title: "NavigationTransition: finished-Eigenschaft"
 short-title: finished
 slug: Web/API/NavigationTransition/finished
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`finished`** schreibgeschützte Eigenschaft der {{domxref("NavigationTransition")}} Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das gleichzeitig erfüllt wird, wenn das {{domxref("Navigation/navigatesuccess_event", "navigatesuccess")}}-Ereignis ausgelöst wird, oder abgelehnt wird, wenn das {{domxref("Navigation/navigateerror_event", "navigateerror")}}-Ereignis ausgelöst wird.
+Die schreibgeschützte Eigenschaft **`finished`** des [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das zur gleichen Zeit erfüllt wird, wenn das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Ereignis ausgelöst wird, oder es wird zur gleichen Zeit abgelehnt, wenn das [`navigateerror`](/de/docs/Web/API/Navigation/navigateerror_event)-Ereignis ausgelöst wird.
 
 ## Wert
 
@@ -19,8 +19,8 @@ Ein {{jsxref("Promise")}}, das sich zu `undefined` auflöst.
 ```js
 async function cleanupNavigation() {
   await navigation.transition.finished;
-  // Navigation wurde erfolgreich abgeschlossen
-  // Bereinigung jeglicher laufender Überwachung
+  // Navigation has completed successfully
+  // Cleanup any ongoing monitoring
 }
 ```
 
@@ -28,12 +28,12 @@ async function cleanupNavigation() {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärungsdokument](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Erläuterung der Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)

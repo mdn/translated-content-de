@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die Methode **`NodeIterator.previousNode()`** gibt den vorherigen Knoten in der durch den {{domxref("NodeIterator")}} dargestellten Menge zurück und bewegt den Iterator innerhalb der Menge rückwärts.
+Die **`NodeIterator.previousNode()`**-Methode gibt den vorherigen Knoten in der Menge zurück, die durch den [`NodeIterator`](/de/docs/Web/API/NodeIterator) dargestellt wird, und bewegt die Position des Iterators innerhalb der Menge rückwärts.
 
 Diese Methode gibt `null` zurück, wenn der aktuelle Knoten der erste Knoten in der Menge ist.
 
-In alten Browsern, wie in alten Versionen der Spezifikationen angegeben, kann die Methode den `INVALID_STATE_ERR` {{domxref("DOMException")}} auslösen, wenn diese Methode nach der {{domxref("NodeIterator.detach()")}}-Methode aufgerufen wird. Neuere Browser lösen diesen Fehler nie aus.
+In alten Browsern, wie in früheren Versionen der Spezifikationen angegeben, kann die Methode den `INVALID_STATE_ERR`-[`DOMException`](/de/docs/Web/API/DOMException) auslösen, wenn diese Methode nach der [`NodeIterator.detach()`](/de/docs/Web/API/NodeIterator/detach)-Methode aufgerufen wird. In neueren Browsern wird dies nie ausgelöst.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("Node")}}, der den Knoten vor dem aktuellen Knoten in der durch diesen `NodeIterator` dargestellten Menge repräsentiert, oder `null`, wenn der aktuelle Knoten der erste Knoten in der Menge ist.
+Ein [`Node`](/de/docs/Web/API/Node), der den Knoten vor dem aktuellen Knoten in der durch diesen `NodeIterator` dargestellten Menge darstellt, oder `null`, wenn der aktuelle Knoten der erste Knoten in der Menge ist.
 
 ## Beispiele
 
@@ -40,8 +40,8 @@ const nodeIterator = document.createNodeIterator(
     },
   },
 );
-currentNode = nodeIterator.nextNode(); // gibt den nächsten Knoten zurück
-previousNode = nodeIterator.previousNode(); // gleiches Ergebnis, da wir zum vorherigen Knoten zurückgegangen sind
+currentNode = nodeIterator.nextNode(); // returns the next node
+previousNode = nodeIterator.previousNode(); // same result, since we backtracked to the previous node
 ```
 
 ## Spezifikationen
@@ -54,4 +54,4 @@ previousNode = nodeIterator.previousNode(); // gleiches Ergebnis, da wir zum vor
 
 ## Siehe auch
 
-- Das zugehörige Interface: {{domxref("NodeIterator")}}.
+- Die Schnittstelle, zu der sie gehört: [`NodeIterator`](/de/docs/Web/API/NodeIterator).

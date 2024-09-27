@@ -9,11 +9,11 @@ l10n:
 {{APIRef("HTML Drag and Drop API")}}
 
 Die schreibgeschützte **`length`**-Eigenschaft der
-{{domxref("DataTransferItemList")}}-Schnittstelle gibt die Anzahl der Elemente zurück, die sich derzeit in der Drag-Element-Liste befinden.
+[`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Schnittstelle gibt die Anzahl der Elemente in der Drag-Item-Liste zurück.
 
 ## Wert
 
-Die Anzahl der Drag-Daten-Elemente in der Liste oder 0, wenn die Liste leer oder deaktiviert ist. Die Drag-Element-Liste wird als deaktiviert betrachtet, wenn das {{domxref("DataTransfer")}}-Objekt der Elementliste nicht mit einem Drag-Daten-Speicher verknüpft ist.
+Die Anzahl der Drag-Datenobjekte in der Liste oder 0, wenn die Liste leer oder deaktiviert ist. Die Drag-Item-Liste gilt als deaktiviert, wenn das `DataTransfer`-Objekt der Elementliste nicht mit einem Drag-Daten-Speicher verknüpft ist.
 
 ## Beispiele
 
@@ -85,14 +85,15 @@ function dragend_handler(ev) {
     ondragstart="dragstart_handler(event);"
     ondragend="dragend_handler(event);"
     draggable="true">
-    Wählen Sie dieses Element aus, ziehen Sie es in die Ablagefläche und lassen Sie die Auswahl los, um das Element zu verschieben.
+    Select this element, drag it to the Drop Zone and then release the selection
+    to move the element.
   </p>
 </div>
 <div
   id="target"
   ondrop="drop_handler(event);"
   ondragover="dragover_handler(event);">
-  Ablagefläche
+  Drop Zone
 </div>
 ```
 

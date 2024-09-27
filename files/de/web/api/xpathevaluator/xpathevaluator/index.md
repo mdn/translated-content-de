@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef('DOM XPath')}}
 
-Der **`XPathEvaluator()`**-Konstruktor erstellt einen neuen {{domxref("XPathEvaluator")}}.
+Der **`XPathEvaluator()`**-Konstruktor erzeugt einen neuen [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator).
 
 ## Syntax
 
@@ -22,19 +22,19 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues {{domxref("XPathEvaluator")}}-Objekt.
+Ein neues [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator)-Objekt.
 
 ## Beispiele
 
 ### Zählen der Anzahl der `<div>`-Elemente
 
-Das folgende Beispiel zeigt die Nutzung der `XPathEvaluator`-Schnittstelle.
+Das folgende Beispiel zeigt die Verwendung der `XPathEvaluator`-Schnittstelle.
 
 #### HTML
 
 ```html
-<div>XPath-Beispiel</div>
-<div>Anzahl der &lt;div&gt;-Elemente: <output></output></div>
+<div>XPath example</div>
+<div>Number of &lt;div&gt; elements: <output></output></div>
 ```
 
 #### JavaScript

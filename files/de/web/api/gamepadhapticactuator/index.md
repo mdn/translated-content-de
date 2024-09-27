@@ -7,25 +7,25 @@ l10n:
 
 {{APIRef("Gamepad API")}}{{securecontext_header}}
 
-Die **`GamepadHapticActuator`**-Schnittstelle der [Gamepad API](/de/docs/Web/API/Gamepad_API) repräsentiert Hardware im Controller, die entworfen wurde, um dem Benutzer haptisches Feedback zu geben (falls verfügbar), am häufigsten Vibrationshardware.
+Das **`GamepadHapticActuator`**-Interface der [Gamepad API](/de/docs/Web/API/Gamepad_API) repräsentiert Hardware im Controller, die darauf ausgelegt ist, dem Benutzer haptisches Feedback zu geben (falls verfügbar), am häufigsten Vibrationshardware.
 
-Diese Schnittstelle ist über die Eigenschaft {{domxref("Gamepad.hapticActuators")}} zugänglich.
+Dieses Interface ist über die [`Gamepad.hapticActuators`](/de/docs/Web/API/Gamepad/hapticActuators)-Eigenschaft zugänglich.
 
 ## Instanzeigenschaften
 
-- {{domxref("GamepadHapticActuator.effects")}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt ein Array von Aufzählungswerten zurück, die die verschiedenen haptischen Effekte darstellen, die der Aktuator unterstützt.
-- {{domxref("GamepadHapticActuator.type")}} {{deprecated_inline}} {{ReadOnlyInline}} {{non-standard_inline}}
-  - : Gibt einen Aufzählungswert zurück, der den Typ der haptischen Hardware darstellt. Diese Eigenschaft ist veraltet: Verwenden Sie `GamepadHapticActuator.effects`, um die Unterstützung von Effekten zu erkennen.
+- [`GamepadHapticActuator.effects`](/de/docs/Web/API/GamepadHapticActuator/effects) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Gibt ein Array von aufgezählten Werten zurück, die die verschiedenen haptischen Effekte darstellen, die der Aktuator unterstützt.
+- [`GamepadHapticActuator.type`](/de/docs/Web/API/GamepadHapticActuator/type) {{deprecated_inline}} {{ReadOnlyInline}} {{non-standard_inline}}
+  - : Gibt einen aufgezählten Wert zurück, der den Typ der haptischen Hardware darstellt. Diese Eigenschaft ist veraltet: Verwenden Sie `GamepadHapticActuator.effects`, um die Unterstützung von Effekten zu erkennen.
 
 ## Instanzmethoden
 
-- {{domxref("GamepadHapticActuator.playEffect()")}} {{ReadOnlyInline}}
-  - : Lässt die Hardware einen spezifischen Vibrationseffekt abspielen.
-- {{domxref("GamepadHapticActuator.pulse()")}} {{ReadOnlyInline}}
-  - : Lässt die Hardware mit einer bestimmten Intensität für eine festgelegte Dauer pulsieren.
-- {{domxref("GamepadHapticActuator.reset()")}} {{ReadOnlyInline}}
-  - : Stoppt die Hardware, einen aktiven Vibrationseffekt abzuspielen.
+- [`GamepadHapticActuator.playEffect()`](/de/docs/Web/API/GamepadHapticActuator/playEffect) {{ReadOnlyInline}}
+  - : Veranlasst die Hardware, einen bestimmten Vibrationseffekt abzuspielen.
+- [`GamepadHapticActuator.pulse()`](/de/docs/Web/API/GamepadHapticActuator/pulse) {{ReadOnlyInline}}
+  - : Lässt die Hardware mit einer bestimmten Intensität für eine angegebene Dauer pulsieren.
+- [`GamepadHapticActuator.reset()`](/de/docs/Web/API/GamepadHapticActuator/reset) {{ReadOnlyInline}}
+  - : Stoppt die Hardware beim Abspielen eines aktiven Vibrationseffekts.
 
 ## Beispiele
 

@@ -7,17 +7,17 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn die HTTP-Antwortheader für eine Anfrage empfangen werden. Verwenden Sie dieses Ereignis, um HTTP-Antwortheader zu ändern.
+Ausgelöst, wenn die HTTP-Antwortheader für eine Anfrage empfangen werden. Verwenden Sie dieses Ereignis, um HTTP-Antwortheader zu ändern.
 
-Um die Antwortheader zusammen mit den anderen Anfragedaten an den Listener weiterzugeben, geben Sie `"responseHeaders"` im `extraInfoSpec`-Array an.
+Um die Antwortheader zusammen mit den anderen Anfragedaten an den Listener zu übergeben, geben Sie `"responseHeaders"` im `extraInfoSpec`-Array an.
 
-Wenn Sie `"blocking"` verwenden, müssen Sie die [„webRequestBlocking“-API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) in Ihrem manifest.json haben.
+Wenn Sie `"blocking"` verwenden, müssen Sie die [API-Berechtigung "webRequestBlocking"](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) in Ihrer manifest.json haben.
 
-Es ist möglich, dass Erweiterungen widersprüchliche Anfragen stellen. Wenn zwei Erweiterungen `onHeadersReceived` für dieselbe Anfrage lauschen und `responseHeaders` zurückgeben, um denselben Header zu setzen (zum Beispiel `Set-Cookie`), der in der ursprünglichen Antwort nicht vorhanden ist, wird nur eine der Änderungen erfolgreich sein.
+Es ist möglich, dass Erweiterungen widersprüchliche Anfragen stellen. Wenn zwei Erweiterungen `onHeadersReceived` für dieselbe Anfrage abhören und `responseHeaders` zurückgeben, um denselben Header (z. B. `Set-Cookie`) zu setzen, der in der ursprünglichen Antwort nicht vorhanden ist, wird nur eine der Änderungen erfolgreich sein.
 
-Der `Content-Security-Policy`-Header wird jedoch anders behandelt; seine Werte werden kombiniert, um alle angegebenen Richtlinien anzuwenden. Wenn jedoch zwei Erweiterungen einen CSP-Wert einstellen, der im Konflikt steht, macht der CSP-Dienst die Einschränkung strenger, um den Konflikt zu lösen. Wenn zum Beispiel eine Erweiterung `img-src: example.com` und eine andere Erweiterung `img-src: example.org` setzt, lautet das Ergebnis `img-src: 'none'`. Zusammengeführte Änderungen neigen immer dazu, restriktiver zu sein, obwohl eine Erweiterung den ursprünglichen CSP-Header entfernen kann.
+Der `Content-Security-Policy`-Header wird jedoch anders behandelt; seine Werte werden kombiniert, um alle angegebenen Richtlinien anzuwenden. Wenn jedoch zwei Erweiterungen einen CSP-Wert setzen, der in Konflikt steht, macht der CSP-Dienst die Einschränkung strenger, um den Konflikt zu lösen. Wenn eine Erweiterung z. B. `img-src: example.com` setzt und eine andere Erweiterung `img-src: example.org`, dann ist das Ergebnis `img-src: 'none'`. Zusammengeführte Modifikationen neigen stets dazu, restriktiver zu sein, obwohl eine Erweiterung den ursprünglichen CSP-Header entfernen kann.
 
-Wenn Sie die Header sehen möchten, die vom System verarbeitet werden, ohne das Risiko, dass eine andere Erweiterung sie ändert, verwenden Sie {{WebExtAPIRef("webRequest.onResponseStarted")}}, obwohl Sie Header bei diesem Ereignis nicht ändern können.
+Wenn Sie die Header sehen möchten, die vom System verarbeitet werden, ohne das Risiko, dass eine andere Erweiterung sie ändert, verwenden Sie {{WebExtAPIRef("webRequest.onResponseStarted")}}, obwohl Sie bei diesem Ereignis keine Header ändern können.
 
 ## Syntax
 
@@ -36,9 +36,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener, filter, extraInfoSpec)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -46,12 +46,12 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Die Funktion erhält dieses Argument:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
 
     - `details`
-      - : [`object`](#details_2). Details der Anfrage. Dies schließt die Antwortheader ein, wenn Sie `"responseHeaders"` in `extraInfoSpec` enthalten haben.
+      - : [`object`](#details_2). Details der Anfrage. Dies umfasst die Antwortheader, wenn Sie `"responseHeaders"` in `extraInfoSpec` enthalten haben.
 
-    Gibt zurück: {{WebExtAPIRef('webRequest.BlockingResponse')}}. Wenn `"blocking"` im Parameter `extraInfoSpec` angegeben wird, gibt der Ereignis-Listener ein `BlockingResponse`-Objekt zurück und kann seine `responseHeaders`-Eigenschaft festlegen. In Firefox kann der Rückgabewert ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) sein, der in ein `BlockingResponse` aufgelöst wird.
+    Rückgabewert: {{WebExtAPIRef('webRequest.BlockingResponse')}}. Wenn `"blocking"` im `extraInfoSpec`-Parameter angegeben ist, gibt der Ereignis-Listener ein `BlockingResponse`-Objekt zurück und kann seine `responseHeaders`-Eigenschaft festlegen. In Firefox kann der Rückgabewert ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) sein, der in ein `BlockingResponse`-Objekt aufgelöst wird.
 
 - `filter`
   - : {{WebExtAPIRef('webRequest.RequestFilter')}}. Eine Reihe von Filtern, die die Ereignisse einschränken, die an diesen Listener gesendet werden.
@@ -59,20 +59,20 @@ Ereignisse haben drei Funktionen:
 
   - : `array` von `string`. Zusätzliche Optionen für das Ereignis. Sie können einen der folgenden Werte übergeben:
 
-    - `"blocking"`, um die Anfrage synchron zu machen, damit Sie Anfrage- und Antwortheader ändern können.
-    - `"responseHeaders"`, um die Antwortheader im `details`-Objekt einzuschließen, das an den Listener übergeben wird.
+    - `"blocking"` um die Anfrage synchron auszuführen, damit Sie Anforderungs- und Antwortheader ändern können
+    - `"responseHeaders"` um die Antwortheader im `details`-Objekt, das an den Listener übergeben wird, einzuschließen
 
 ## Zusätzliche Objekte
 
 ### details
 
 - `cookieStoreId`
-  - : `string`. Wenn die Anfrage von einem Tab stammt, der in einer kontextuellen Identität geöffnet ist, die Cookie Store-ID der kontextuellen Identität. Siehe [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities) für weitere Informationen.
+  - : `string`. Wenn die Anfrage von einem Tab in einer kontextuellen Identität stammt, die Cookie Store-ID der kontextuellen Identität. Weitere Informationen finden Sie unter [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
 - `documentUrl`
-  - : `string`. URL des Dokuments, in dem die Ressource geladen wird. Zum Beispiel, wenn die Webseite bei "https://example.com" ein Bild oder ein Iframe enthält, dann ist die `documentUrl` für das Bild oder das Iframe "https://example.com". Für ein Top-Level-Dokument ist `documentUrl` undefiniert.
+  - : `string`. URL des Dokuments, in dem die Ressource geladen wird. Zum Beispiel, wenn die Webseite unter "https://example.com" ein Bild oder ein iframe enthält, dann ist die `documentUrl` für das Bild oder iframe "https://example.com". Bei einem Top-Level-Dokument ist `documentUrl` undefiniert.
 - `frameAncestors`
 
-  - : `array`. Informationen für jedes Dokument in der Frame-Hierarchie bis hin zum Top-Level-Dokument. Das erste Element im Array enthält Informationen über das unmittelbare Eltern-Dokument des angeforderten Dokuments, und das letzte Element enthält Informationen über das Top-Level-Dokument. Wenn die Ladung für das Top-Level-Dokument erfolgt, dann ist dieses Array leer.
+  - : `array`. Informationen zu jedem Dokument in der Rahmenhierarchie bis zum obersten Dokument. Das erste Element im Array enthält Informationen über das unmittelbare übergeordnete Dokument des angeforderten Dokuments und das letzte Element enthält Informationen über das oberste Dokument. Wenn der Ladeprozess für das oberste Dokument ist, dann ist dieses Array leer.
 
     - `url`
       - : `string`. Die URL, von der das Dokument geladen wurde.
@@ -80,26 +80,26 @@ Ereignisse haben drei Funktionen:
       - : `integer`. Die `frameId` des Dokuments. `details.frameAncestors[0].frameId` ist dasselbe wie `details.parentFrameId`.
 
 - `frameId`
-  - : `integer`. Null, wenn die Anfrage im Hauptframe stattfindet; ein positiver Wert ist die ID eines Unterrahmens, in dem die Anfrage stattfindet. Wenn das Dokument eines (Unter-)Frames geladen wird (`type` ist `main_frame` oder `sub_frame`), gibt `frameId` die ID dieses Rahmens an, nicht die ID des äußeren Rahmens. Frame-IDs sind innerhalb eines Tabs eindeutig.
+  - : `integer`. Null, wenn die Anfrage im Hauptframe erfolgt; ein positiver Wert ist die ID eines Unterrahmens, in dem die Anfrage erfolgt. Wenn das Dokument eines (Unter-) Rahmens geladen wird (`type` ist `main_frame` oder `sub_frame`), gibt `frameId` die ID dieses Rahmens an, nicht die ID des äußeren Rahmens. Frame-IDs sind einzigartig innerhalb eines Tabs.
 - `fromCache`
-  - : `boolean`. Ob die Antwort vom Platten-Cache abgerufen wurde.
+  - : `boolean`. Ob die Antwort aus dem Cache geholt wird.
 - `incognito`
   - : `boolean`. Ob die Anfrage aus einem privaten Browserfenster stammt.
 - `ip`
   - : `string`. Die IP-Adresse des Servers, an den die Anfrage gesendet wurde. Es kann sich um eine wörtliche IPv6-Adresse handeln.
 - `method`
-  - : `string`. Standard-HTTP-Methode: zum Beispiel "GET" oder "POST".
+  - : `string`. Standard HTTP-Methode: z. B. "GET" oder "POST".
 - `originUrl`
 
   - : `string`. URL der Ressource, die die Anfrage ausgelöst hat. Zum Beispiel, wenn "https://example.com" einen Link enthält und der Benutzer auf den Link klickt, dann ist die `originUrl` für die resultierende Anfrage "https://example.com".
 
-    Die `originUrl` ist oft, aber nicht immer dieselbe wie die `documentUrl`. Zum Beispiel, wenn eine Seite ein Iframe enthält und das Iframe einen Link enthält, der ein neues Dokument in das Iframe lädt, dann ist die `documentUrl` für die resultierende Anfrage das übergeordnete Dokument des Iframes, aber die `originUrl` ist die URL des Dokuments im Iframe, das den Link enthielt.
+    `originUrl` ist oft, aber nicht immer, dasselbe wie `documentUrl`. Wenn eine Seite z. B. ein iframe enthält und das iframe einen Link enthält, der ein neues Dokument im iframe lädt, dann ist `documentUrl` für die resultierende Anfrage das übergeordnete Dokument des iframes, aber `originUrl` ist die URL des Dokuments im iframe, das den Link enthielt.
 
 - `parentFrameId`
-  - : `integer`. ID des Rahmens, der den Rahmen enthält, der die Anfrage gesendet hat. Setzt auf -1, wenn kein übergeordneter Rahmen existiert.
+  - : `integer`. ID des Rahmens, der den Rahmen enthält, der die Anfrage gesendet hat. Auf -1 gesetzt, wenn kein übergeordneter Rahmen existiert.
 - `proxyInfo`
 
-  - : `object`. Diese Eigenschaft ist nur vorhanden, wenn die Anfrage über einen Proxy gesendet wird. Es enthält die folgenden Eigenschaften:
+  - : `object`. Diese Eigenschaft ist nur vorhanden, wenn die Anfrage über einen Proxy geleitet wird. Sie enthält die folgenden Eigenschaften:
 
     - `host`
       - : `string`. Der Hostname des Proxy-Servers.
@@ -109,8 +109,8 @@ Ereignisse haben drei Funktionen:
 
       - : `string`. Der Typ des Proxy-Servers. Einer von:
 
-        - "http": HTTP-Proxy (oder SSL-CONNECT für HTTPS)
-        - "https": HTTP-Proxierung über TLS-Verbindung zum Proxy
+        - "http": HTTP-Proxy (oder SSL CONNECT für HTTPS)
+        - "https": HTTP-Proxying über TLS-Verbindung zum Proxy
         - "socks": SOCKS v5 Proxy
         - "socks4": SOCKS v4 Proxy
         - "direct": kein Proxy
@@ -119,62 +119,62 @@ Ereignisse haben drei Funktionen:
     - `username`
       - : `string`. Benutzername für den Proxy-Dienst.
     - `proxyDNS`
-      - : `boolean`. Wahr, wenn der Proxy die Domain-Namen-Auflösung basierend auf dem bereitgestellten Hostnamen durchführt, was bedeutet, dass der Client keine eigene DNS-Suche durchführen sollte.
+      - : `boolean`. True, wenn der Proxy die Auflösung des Domänennamens basierend auf dem bereitgestellten Hostnamen übernimmt, was bedeutet, dass der Client keine eigene DNS-Abfrage durchführen sollte.
     - `failoverTimeout`
-      - : `integer`. Failover-Timeout in Sekunden. Wenn die Proxy-Verbindung fehlschlägt, wird der Proxy für diesen Zeitraum nicht wieder verwendet.
+      - : `integer`. Failover-Timeout in Sekunden. Wenn die Proxy-Verbindung fehlschlägt, wird der Proxy für diesen Zeitraum nicht mehr verwendet.
 
 - `requestId`
-  - : `string`. Die ID der Anfrage. Anfragen-IDs sind innerhalb einer Browsersitzung eindeutig, sodass Sie sie verwenden können, um verschiedene Ereignisse zu verknüpfen, die mit derselben Anfrage verbunden sind.
+  - : `string`. Die ID der Anfrage. Anfrage-IDs sind innerhalb einer Browsersitzung eindeutig, sodass Sie sie verwenden können, um verschiedene Ereignisse mit derselben Anfrage in Verbindung zu bringen.
 - `responseHeaders` {{optional_inline}}
-  - : {{WebExtAPIRef('webRequest.HttpHeaders')}}. Die für diese Anfrage empfangenen HTTP-Antwortheader.
+  - : {{WebExtAPIRef('webRequest.HttpHeaders')}}. Die HTTP-Antwortheader, die für diese Anfrage empfangen wurden.
 - `statusCode`
-  - : `integer`. Standard-HTTP-Statuscode, der vom Server zurückgegeben wird.
+  - : `integer`. Standard HTTP-Statuscode, der vom Server zurückgegeben wird.
 - `statusLine`
-  - : `string`. HTTP-Statuszeile der Antwort oder der 'HTTP/0.9 200 OK' String für HTTP/0.9-Antworten (das heißt, Antworten, denen eine Statuszeile fehlt).
+  - : `string`. HTTP-Statuszeile der Antwort oder die Zeichenfolge 'HTTP/0.9 200 OK' für HTTP/0.9-Antworten (d. h. Antworten, die keine Statuszeile enthalten).
 - `tabId`
-  - : `integer`. ID des Tabs, in dem die Anfrage erfolgt. Setzt auf -1, wenn die Anfrage nicht mit einem Tab verknüpft ist.
+  - : `integer`. ID des Tabs, in dem die Anfrage stattfindet. Auf -1 gesetzt, wenn die Anfrage nicht mit einem Tab verbunden ist.
 - `thirdParty`
-  - : `boolean`. Gibt an, ob die Anfrage und die Inhaltsfenster-Hierarchie Dritter sind.
+  - : `boolean`. Gibt an, ob die Anfrage und ihre Inhaltsfensterhierarchie von Drittparteien stammen.
 - `timeStamp`
-  - : `number`. Die Zeit, zu der dieses Ereignis ausgelöst wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+  - : `number`. Der Zeitpunkt, zu dem dieses Ereignis ausgelöst wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
 - `type`
-  - : {{WebExtAPIRef('webRequest.ResourceType')}}. Der Typ der angeforderten Ressource: zum Beispiel "image", "script", "stylesheet".
+  - : {{WebExtAPIRef('webRequest.ResourceType')}}. Der Typ der angeforderten Ressource: z. B. "image", "script", "stylesheet".
 - `url`
   - : `string`. Ziel der Anfrage.
 - `urlClassification`
 
-  - : `object`. Die Art des Trackings, das mit der Anfrage verbunden ist, wenn die Anfrage durch [Firefox Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) klassifiziert wird. Dies ist ein Objekt mit folgenden Eigenschaften:
+  - : `object`. Der Typ der Nachverfolgung, der mit der Anfrage verbunden ist, wenn die Anfrage von [Firefox Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) klassifiziert wird. Dies ist ein Objekt mit den folgenden Eigenschaften:
 
     - `firstParty`
-      - : `array` von `strings`. Klassifikationsflaggen für die First-Party der Anfrage.
+      - : `array` von `strings`. Klassifizierungsflags für das First-Party der Anfrage.
     - `thirdParty`
-      - : `array` von `strings`. Klassifikationsflaggen für die Drittparteien der Anfrage oder der Fensterhierarchie.
+      - : `array` von `strings`. Klassifizierungsflags für Drittparteien der Anfrage oder ihrer Fensterhierarchie.
 
-    Die Klassifikationsflaggen umfassen:
+    Die Klassifizierungsflags umfassen:
 
-    - `fingerprinting` und `fingerprinting_content`: zeigt an, dass die Anfrage beim Fingerprinting beteiligt ist ("eine Herkunft, die Fingerprinting festgestellt wurde").
-      - `fingerprinting` zeigt an, dass die Domain in der Kategorie Fingerprinting und Tracking ist. Beispiele für diese Art von Domain umfassen Werbetreibende, die ein Profil mit dem besuchenden Benutzer verknüpfen möchten.
-      - `fingerprinting_content` zeigt an, dass die Domain in der Fingerprinting-Kategorie, aber nicht in der Tracking-Kategorie ist. Beispiele für diese Art von Domain umfassen Zahlungsanbieter, die Fingerprinting-Techniken verwenden, um den besuchenden Benutzer zu Identifizierungszwecken zu erkennen.
-    - `cryptomining` und `cryptomining_content`: ähnlich der Fingerprinting-Kategorie, aber für cryptomining Ressourcen.
-    - `tracking`, `tracking_ad`, `tracking_analytics`, `tracking_social` und `tracking_content`: gibt an, dass die Anfrage am Tracking beteiligt ist. `tracking` ist eine allgemeine Tracking-Anfrage, die Suffixe `ad`, `analytics`, `social` und `content` identifizieren den Typ des Trackers.
-    - `any_basic_tracking`: ein Metaflag, das Tracking- und Fingerprinting-Flaggen kombiniert, mit Ausnahme von `tracking_content` und `fingerprinting_content`.
-    - `any_strict_tracking`: ein Metaflag, das alle Tracking- und Fingerprinting-Flaggen kombiniert.
-    - `any_social_tracking`: ein Metaflag, das alle sozialen Tracking-Flaggen kombiniert.
+    - `fingerprinting` und `fingerprinting_content`: zeigt an, dass die Anfrage in Fingerprinting involviert ist ("eine Herkunft, die beim Fingerprinting gefunden wird").
+      - `fingerprinting` zeigt an, dass die Domäne in der Fingerprinting- und Tracking-Kategorie ist. Beispiele für diese Art von Domänen umfassen Werbetreibende, die ein Profil mit dem besuchenden Benutzer verknüpfen möchten.
+      - `fingerprinting_content` zeigt an, dass die Domäne in der Fingerprinting-, aber nicht in der Tracking-Kategorie ist. Beispiele für diese Art von Domänen umfassen Zahlungsdienstleister, die Fingerprinting-Techniken verwenden, um den besuchenden Benutzer zu Identifikationszwecken gegen Betrug zu identifizieren.
+    - `cryptomining` und `cryptomining_content`: ähnlich wie die Fingerprinting-Kategorie, jedoch für Cryptomining-Ressourcen.
+    - `tracking`, `tracking_ad`, `tracking_analytics`, `tracking_social` und `tracking_content`: zeigt an, dass die Anfrage in Nachverfolgung involviert ist. `tracking` ist jede generische Nachverfolgungsanfrage, die Suffixe `ad`, `analytics`, `social` und `content` identifizieren den Typ des Trackers.
+    - `any_basic_tracking`: ein Metaflag, das Track- und Fingerprint-Flags kombiniert, mit Ausnahme von `tracking_content` und `fingerprinting_content`.
+    - `any_strict_tracking`: ein Metaflag, das alle Track- und Fingerprint-Flags kombiniert.
+    - `any_social_tracking`: ein Metaflag, das alle sozialen Tracking-Flags kombiniert.
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Beispiele
 
-Dieser Code setzt ein zusätzliches Cookie beim Anfordern einer Ressource von der Ziel-URL:
+Dieser Code setzt ein zusätzliches Cookie, wenn eine Ressource von der Ziel-URL angefordert wird:
 
 ```js
 let targetPage =
   "https://developer.mozilla.org/en-US/Firefox/Developer_Edition";
 
-// Fügen Sie den neuen Header zum Original-Array hinzu
-// und geben Sie es zurück.
+// Add the new header to the original array,
+// and return it.
 function setCookie(e) {
   const setMyCookie = {
     name: "Set-Cookie",
@@ -184,8 +184,8 @@ function setCookie(e) {
   return { responseHeaders: e.responseHeaders };
 }
 
-// Lauschen Sie auf onHeaderReceived für die Zielseite.
-// Setzen Sie "blocking" und "responseHeaders".
+// Listen for onHeaderReceived for the target page.
+// Set "blocking" and "responseHeaders".
 browser.webRequest.onHeadersReceived.addListener(
   setCookie,
   { urls: [targetPage] },
@@ -193,15 +193,15 @@ browser.webRequest.onHeadersReceived.addListener(
 );
 ```
 
-Dieser Code tut dasselbe wie das vorherige Beispiel, außer dass der Listener asynchron ist und ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt, das mit den neuen Headern aufgelöst wird:
+Dieser Code macht dasselbe wie das vorherige Beispiel, außer dass der Listener asynchron ist und ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt, das mit den neuen Headern aufgelöst wird:
 
 ```js
 const targetPage =
   "https://developer.mozilla.org/en-US/Firefox/Developer_Edition";
 
-// Geben Sie ein Promise zurück, das einen Timer setzt.
-// Wenn der Timer startet, lösen Sie das Versprechen mit
-// einem modifizierten Satz von Antwortheadern auf.
+// Return a Promise that sets a timer.
+// When the timer fires, resolve the promise with
+// modified set of response headers.
 function setCookieAsync(e) {
   const asyncSetCookie = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -217,8 +217,8 @@ function setCookieAsync(e) {
   return asyncSetCookie;
 }
 
-// Lauschen Sie auf onHeaderReceived für die Zielseite.
-// Setzen Sie "blocking" und "responseHeaders".
+// Listen for onHeaderReceived for the target page.
+// Set "blocking" and "responseHeaders".
 browser.webRequest.onHeadersReceived.addListener(
   setCookieAsync,
   { urls: [targetPage] },
@@ -229,7 +229,7 @@ browser.webRequest.onHeadersReceived.addListener(
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#event-onHeadersReceived) API von Chromium. Diese Dokumentation stammt aus [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#event-onHeadersReceived) API von Chromium. Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -238,25 +238,28 @@ browser.webRequest.onHeadersReceived.addListener(
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Redistributions von Quellcode müssen den oben genannten Urheberrechtshinweis,
+// diese Liste von Bedingungen und den folgenden Haftungsausschluss enthalten.
+//    * Redistributionen in binärer Form müssen den oben genannten
+// Urheberrechtshinweis, diese Liste von Bedingungen und den folgenden Haftungsausschluss
+// in der Dokumentation und/oder anderen Materialien, die mit der
+// Verteilung bereitgestellt werden, enthalten.
+//    * Weder der Name Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die aus
+// dieser Software abgeleitet werden, zu unterstützen oder zu bewerben,
+// ohne vorherige ausdrückliche schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN INHABERN DES URHEBERRECHTS UND DEN MITWIRKENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICH ODER STILLSCHWEIGEND
+// GEWÄHRLEISTETEN GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE
+// STILLSCHWEIGENDEN GARANTIEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN
+// BESTIMMTEN ZWECK SIND AUSGESCHLOSSEN. IN KEINEM FALL SOLLEN DIE INHABER
+// DES URHEBERRECHTS ODER MITWIRKENDE FÜR JEGLICHE DIREKTEN, INDIREKTEN,
+// ZUFÄLLIGEN, BESONDEREN, EXEMPLARISCHEN ODER FOLGESCHÄDEN HAFTBAR SEIN
+// (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZWAREN
+// ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUSTEN, DATEN ODER GEWINNEN; ODER
+// GESCHÄFTSUNTERBRECHUNGEN), UNABHÄNGIG VON DER URSACHE UND DER HAFTUNGSTHEORIE,
+// OB AUS VERTRAG, HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH
+// FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHEN,
+// SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

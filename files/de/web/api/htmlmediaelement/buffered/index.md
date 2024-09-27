@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`buffered`**-Eigenschaft von {{domxref("HTMLMediaElement")}}-Objekten gibt ein neues statisches [normiertes `TimeRanges`-Objekt](/de/docs/Web/API/TimeRanges#normalized_timeranges_objects) zurück, das die Bereiche der Mediendatei darstellt, die der User Agent gepuffert hat, wenn auf die `buffered`-Eigenschaft zugegriffen wird.
+Die **`buffered`**-Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten gibt ein neues, statisches [normalisiertes `TimeRanges`-Objekt](/de/docs/Web/API/TimeRanges#normalized_timeranges_objects) zurück, das die Bereiche der Medienressource repräsentiert, die der User-Agent zu dem Zeitpunkt, an dem auf die `buffered`-Eigenschaft zugegriffen wird, gepuffert hat.
 
 ## Wert
 
-Ein neues statisches [normiertes TimeRanges-Objekt](/de/docs/Web/API/TimeRanges#normalized_timeranges_objects), das die Bereiche der Mediendatei darstellt, die der User Agent gepuffert hat, wenn auf die `buffered`-Eigenschaft zugegriffen wird.
+Ein neues, statisches [normalisiertes `TimeRanges`-Objekt](/de/docs/Web/API/TimeRanges#normalized_timeranges_objects), das die Bereiche der Medienressource repräsentiert, die der User-Agent zu dem Zeitpunkt, an dem auf die `buffered`-Eigenschaft zugegriffen wird, gepuffert hat.
 
 ## Beispiele
 
@@ -31,4 +31,4 @@ console.log(obj.buffered); // TimeRanges { length: 0 }
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement")}}: Schnittstelle, die benutzt wird, um die `HTMLMediaElement.buffered`-Eigenschaft zu definieren
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die verwendet wird, um die `HTMLMediaElement.buffered`-Eigenschaft zu definieren.

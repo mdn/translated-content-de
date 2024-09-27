@@ -1,14 +1,14 @@
 ---
-title: "GPURenderPassEncoder: setPipeline()-Methode"
+title: "GPURenderPassEncoder: Methode setPipeline()"
 short-title: setPipeline()
 slug: Web/API/GPURenderPassEncoder/setPipeline
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setPipeline()`**-Methode der {{domxref("GPURenderPassEncoder")}}-Schnittstelle legt die zu verwendende {{domxref("GPURenderPipeline")}} für nachfolgende Render-Pass-Befehle fest.
+Die **`setPipeline()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle legt die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) fest, die für die nachfolgenden Render-Pass-Befehle verwendet wird.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setPipeline(pipeline)
 ### Parameter
 
 - `pipeline`
-  - : Die {{domxref("GPURenderPipeline")}}, die für nachfolgende Render-Pass-Befehle verwendet werden soll.
+  - : Die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline), die für die nachfolgenden Render-Pass-Befehle verwendet wird.
 
 ### Rückgabewert
 
@@ -27,25 +27,25 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`setPipeline()`** aufgerufen wird, andernfalls wird ein {{domxref("GPUValidationError")}} erzeugt und der {{domxref("GPURenderPassEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`setPipeline()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Wenn die {{domxref("GPURenderPipeline")}} in die Tiefenkomponente des Tiefen-/Stencil-Anhangs schreibt, ist `depthReadOnly` (wie im Deskriptor des ursprünglichen {{domxref("GPUCommandEncoder.beginRenderPass()")}}-Aufrufs angegeben) `true`.
-- Wenn die {{domxref("GPURenderPipeline")}} in die Stencil-Komponente des Tiefen-/Stencil-Anhangs schreibt, ist `stencilReadOnly` (wie im Deskriptor des ursprünglichen {{domxref("GPUCommandEncoder.beginRenderPass()")}}-Aufrufs angegeben) `true`.
+- Wenn die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) an die Tiefenkomponente des Depth/Stencil-Attachments schreibt, ist `depthReadOnly` (wie im Deskriptor des ursprünglichen Aufrufs von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) angegeben) `true`.
+- Wenn die [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) an die Stencil-Komponente des Depth/Stencil-Attachments schreibt, ist `stencilReadOnly` (wie im Deskriptor des ursprünglichen Aufrufs von [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) angegeben) `true`.
 
 ## Beispiele
 
-In unserem [Grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen {{domxref("GPUCommandEncoder")}} aufgezeichnet. Die meisten dieser Befehle stammen vom `GPURenderPassEncoder`, der über {{domxref("GPUCommandEncoder.beginRenderPass()")}} erstellt wird. `setPipeline()` wird an einer geeigneten Stelle aufgerufen, um die Render-Pipeline festzulegen.
+In unserem [Grundlegendes Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen vom `GPURenderPassEncoder`, der über [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellt wurde. `setPipeline()` wird an einer geeigneten Stelle aufgerufen, um die Render-Pipeline festzulegen.
 
 ```js
 // ...
 
 const renderPipeline = device.createRenderPipeline(pipelineDescriptor);
 
-// Erstellen Sie den GPUCommandEncoder, um Befehle an die GPU auszugeben
-// Hinweis: render pass descriptor, command encoder usw. werden nach Gebrauch zerstört, ein neuer ist für jedes Frame erforderlich.
+// Create GPUCommandEncoder to issue commands to the GPU
+// Note: render pass descriptor, command encoder, etc. are destroyed after use, fresh one needed for each frame.
 const commandEncoder = device.createCommandEncoder();
 
-// Erstellen Sie GPURenderPassDescriptor, um WebGPU anzuweisen, in welche Textur gezeichnet werden soll, und beginnen Sie dann mit dem Render-Pass
+// Create GPURenderPassDescriptor to tell WebGPU which texture to draw into, then initiate render pass
 const renderPassDescriptor = {
   colorAttachments: [
     {
@@ -59,15 +59,15 @@ const renderPassDescriptor = {
 
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 
-// Zeichnen Sie das Dreieck
+// Draw the triangle
 passEncoder.setPipeline(renderPipeline);
 passEncoder.setVertexBuffer(0, vertexBuffer);
 passEncoder.draw(3);
 
-// Beenden Sie den Render-Pass
+// End the render pass
 passEncoder.end();
 
-// Beenden Sie das Frame, indem Sie ein Array von Command-Buffern zur Ausführung an die Command-Queue übergeben
+// End frame by passing array of command buffers to command queue for execution
 device.queue.submit([commandEncoder.finish()]);
 
 // ...

@@ -13,14 +13,14 @@ l10n:
 Reason: CORS disabled
 ```
 
-## Was ist schiefgelaufen?
+## Was ist schief gelaufen?
 
-Es wurde eine Anfrage versucht, die {{Glossary("CORS")}} verwenden muss, aber CORS ist im Browser des Nutzers deaktiviert. In diesem Fall muss der Nutzer CORS in seinem Browser wieder einschalten.
+Ein Request, der [CORS](/de/docs/Glossary/CORS) verwenden muss, wurde versucht, aber CORS ist im Browser des Benutzers deaktiviert. Wenn dies passiert, muss der Benutzer CORS in seinem Browser wieder aktivieren.
 
-In Firefox ist die Einstellung, die CORS deaktiviert, `content.cors.disable`. Wenn diese auf `true` gesetzt ist, wird CORS deaktiviert, sodass in diesem Fall CORS-Anfragen immer mit diesem Fehler fehlschlagen.
+In Firefox ist die Einstellung, die CORS deaktiviert, `content.cors.disable`. Wenn diese auf `true` gesetzt ist, wird CORS deaktiviert, sodass in diesem Fall CORS-Anfragen stets mit diesem Fehler fehlschlagen.
 
 ## Siehe auch
 
 - [CORS-Fehler](/de/docs/Web/HTTP/CORS/Errors)
-- Glossar: {{Glossary("CORS")}}
-- [Einführung in CORS](/de/docs/Web/HTTP/CORS)
+- Glossar: [CORS](/de/docs/Glossary/CORS)
+- [CORS-Einführung](/de/docs/Web/HTTP/CORS)

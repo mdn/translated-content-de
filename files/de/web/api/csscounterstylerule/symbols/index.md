@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSS Counter Styles")}}
 
-Die **`symbols`**-Eigenschaft der {{domxref("CSSCounterStyleRule")}}-Schnittstelle erhält und setzt den Wert des {{cssxref("@counter-style/symbols","symbols")}}-Deskriptors. Wenn der Deskriptor keinen Wert zugewiesen hat, gibt dieses Attribut eine leere Zeichenfolge zurück.
+Die **`symbols`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle ruft den Wert des {{cssxref("@counter-style/symbols", "symbols")}} Deskriptors ab oder setzt diesen. Wenn das Deskriptor keinen Wert hat, gibt dieses Attribut einen leeren String zurück.
 
 ## Wert
 
-Eine Zeichenkette
+Ein String
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript stellt `myRules[0]` diese `@counter-style`-Regel dar, und die Abfrage von `symbols` gibt uns den Wert "◰ ◳ ◲ ◱" zurück.
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel, und das Abfragen von `symbols` gibt uns den Wert "◰ ◳ ◲ ◱" zurück.
 
 ```css
 @counter-style box-corner {

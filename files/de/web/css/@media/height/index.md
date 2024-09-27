@@ -1,5 +1,5 @@
 ---
-title: Höhe
+title: height
 slug: Web/CSS/@media/height
 l10n:
   sourceCommit: 421deed53984505909884b3b290002b228d29e7b
@@ -7,38 +7,38 @@ l10n:
 
 {{CSSRef}}
 
-Die **`height`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um Stile basierend auf der Höhe des {{glossary("Viewports")}} (oder des Seite-Box, für [seitengestaltete Medien](/de/docs/Web/CSS/CSS_paged_media)) anzuwenden.
+Die **`height`** [CSS](/de/docs/Web/CSS) [Media-Funktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um Styles basierend auf der Höhe des [Viewports](/de/docs/Glossary/viewport) (oder der Seitenbox, für [paginierte Medien](/de/docs/Web/CSS/CSS_paged_media)) anzuwenden.
 
 ## Syntax
 
-Die `height`-Funktion wird als ein {{cssxref("&lt;length&gt;")}}-Wert angegeben, der die Höhe des Viewports darstellt. Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die Präfixe **`min-height`** und **`max-height`** verwenden können, um minimale bzw. maximale Werte abzufragen.
+Die `height`-Funktion wird als {{cssxref("&lt;length&gt;")}}-Wert angegeben, der die Höhe des Viewports repräsentiert. Es handelt sich um eine Bereichs-Funktion, was bedeutet, dass Sie auch die vorangestellten Varianten **`min-height`** und **`max-height`** verwenden können, um Mindest- und Höchstwerte abzufragen.
 
 ## Beispiele
 
 ### HTML
 
 ```html
-<div>Beobachten Sie dieses Element, während Sie die Höhe Ihres Viewports ändern.</div>
+<div>Watch this element as you resize your viewport's height.</div>
 ```
 
 ### CSS
 
 ```css
-/* Exakte Höhe */
+/* Exact height */
 @media (height: 360px) {
   div {
     color: red;
   }
 }
 
-/* Minimale Höhe */
+/* Minimum height */
 @media (min-height: 25rem) {
   div {
     background: yellow;
   }
 }
 
-/* Maximale Höhe */
+/* Maximum height */
 @media (max-height: 40rem) {
   div {
     border: 2px solid blue;
@@ -60,5 +60,5 @@ Die `height`-Funktion wird als ein {{cssxref("&lt;length&gt;")}}-Wert angegeben,
 
 ## Siehe auch
 
-- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwenden von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - [@media](/de/docs/Web/CSS/@media)

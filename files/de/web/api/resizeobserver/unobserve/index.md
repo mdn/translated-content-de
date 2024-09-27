@@ -1,5 +1,5 @@
 ---
-title: "ResizeObserver: unobserve()-Methode"
+title: "ResizeObserver: unobserve() Methode"
 short-title: unobserve()
 slug: Web/API/ResizeObserver/unobserve
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Resize Observer API")}}
 
-Die **`unobserve()`**-Methode der
-{{domxref("ResizeObserver")}}-Schnittstelle beendet die Beobachtung eines angegebenen
-{{domxref('Element')}} oder {{domxref('SVGElement')}}.
+Die **`unobserve()`**-Methode der [`ResizeObserver`](/de/docs/Web/API/ResizeObserver)-Schnittstelle beendet die Beobachtung eines angegebenen [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement).
 
 ## Syntax
 
@@ -21,7 +19,7 @@ unobserve(target)
 ### Parameter
 
 - `target`
-  - : Ein Verweis auf ein {{domxref('Element')}} oder {{domxref('SVGElement')}}, das nicht mehr beobachtet werden soll.
+  - : Ein Verweis auf ein [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement), das nicht mehr beobachtet werden soll.
 
 ### Rückgabewert
 
@@ -33,14 +31,13 @@ Keine.
 
 ## Beispiele
 
-Das folgende Beispiel stammt aus dem Beispiel [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html)
-([Quellcode ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)):
+Der folgende Ausschnitt stammt aus dem [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([siehe Quelle](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)) Beispiel:
 
 ```js
 const resizeObserver = new ResizeObserver((entries) => {
   for (const entry of entries) {
     if (entry.contentBoxSize) {
-      // Überprüfung für Chrome, da ein nicht standardmäßiges Array verwendet wird
+      // Checking for chrome as using a non-standard array
       if (entry.contentBoxSize[0]) {
         h1Elem.style.fontSize = `${Math.max(
           1.5,

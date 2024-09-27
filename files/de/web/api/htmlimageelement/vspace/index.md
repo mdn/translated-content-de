@@ -1,5 +1,5 @@
 ---
-title: "HTMLImageElement: vspace Eigenschaft"
+title: "HTMLImageElement: vspace-Eigenschaft"
 short-title: vspace
 slug: Web/API/HTMLImageElement/vspace
 l10n:
@@ -8,26 +8,19 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die _veraltete_ **`vspace`**-Eigenschaft der
-{{domxref("HTMLImageElement")}}-Schnittstelle gibt an, wie viele Pixel an leerem Raum
-oben und unten um das {{HTMLElement("img")}}-Element beim Layout der Seite freigelassen
-werden sollen.
+Die _veraltete_ **`vspace`**-Eigenschaft des
+[`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt die Anzahl der Pixel an, die leer gelassen werden sollen, um oben und unten am {{HTMLElement("img")}}-Element leeren Raum zu schaffen, wenn die Seite gestaltet wird.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Höhe in Pixeln des vertikalen Randes angibt, der auf
-die oberen und unteren Seiten des Bildes angewendet werden soll.
+Ein ganzzahliger Wert, der die Höhe des vertikalen Abstands in Pixeln angibt, der auf die oberen und unteren Seiten des Bildes angewendet werden soll.
 
-## Nutzungshinweise
+## Gebrauchshinweise
 
-Der für `vspace` angegebene Wert wird auf die {{cssxref("margin-top")}}
-und {{cssxref("margin-bottom")}} Eigenschaften abgebildet, um die Höhe dieser Ränder
-in Pixeln festzulegen.
+Der angegebene Wert für `vspace` wird den {{cssxref("margin-top")}} und {{cssxref("margin-bottom")}} Eigenschaften zugeordnet, um die Höhe dieser Abstände in Pixeln festzulegen.
 
 > [!WARNING]
-> Diese Eigenschaft ist veraltet. Stattdessen sollten Sie die CSS-
-> {{cssxref("margin")}}-Eigenschaft und ihre Langformen verwenden, um Ränder um
-> ein `<img>` festzulegen.
+> Diese Eigenschaft ist veraltet. Stattdessen sollten Sie die CSS-Eigenschaft {{cssxref("margin")}} und ihre Formen zur Einzeldeklaration verwenden, um Abstände um ein `<img>` festzulegen.
 
 ## Spezifikationen
 

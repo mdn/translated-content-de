@@ -1,5 +1,5 @@
 ---
-title: "FileSystemEntry: Methode getParent()"
+title: "FileSystemEntry: getParent()-Methode"
 short-title: getParent()
 slug: Web/API/FileSystemEntry/getParent
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die Methode **`getParent()`** des {{domxref("FileSystemEntry")}}-Interfaces erhält ein
-{{domxref("FileSystemDirectoryEntry")}}.
+Die Methode **`getParent()`** des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Interfaces erhält ein
+[`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry).
 
 ## Syntax
 
@@ -21,9 +21,11 @@ getParent(successCallback)
 ### Parameter
 
 - `successCallback`
-  - : Eine Funktion, die aufgerufen wird, wenn das übergeordnete Verzeichniseintrag abgerufen wurde. Der Callback erhält einen einzelnen Eingabeparameter: ein {{domxref("FileSystemDirectoryEntry")}}-Objekt, das das übergeordnete Verzeichnis darstellt. Das übergeordnete Verzeichnis des Stammverzeichnisses wird als das Stammverzeichnis selbst betrachtet. Achten Sie darauf, dies zu berücksichtigen.
+  - : Eine Funktion, die aufgerufen wird, wenn der Elterndirectory-Eintrag abgerufen wurde. Der
+    Callback erhält einen einzigen Eingabeparameter: ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)-Objekt, das das Elterndirectory darstellt. Das Elterndirectory des Stammverzeichnisses wird als das Stammverzeichnis selbst betrachtet, achten Sie also darauf.
 - `errorCallback` {{optional_inline}}
-  - : Ein optionaler Callback, der ausgeführt wird, wenn ein Fehler auftritt. Es gibt einen einzigen Parameter: ein {{domxref("DOMException")}}, das beschreibt, was schiefgelaufen ist.
+  - : Ein optionaler Callback, der ausgeführt wird, wenn ein Fehler auftritt. Es gibt einen einzigen
+    Parameter: ein [`DOMException`](/de/docs/Web/API/DOMException), das beschreibt, was schiefgelaufen ist.
 
 ### Rückgabewert
 
@@ -32,15 +34,18 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `FileError.INVALID_STATE_ERR`
-  - : Der Vorgang ist fehlgeschlagen, weil der Status des Dateisystems dies nicht zulässt. Dies kann beispielsweise passieren, wenn der zwischengespeicherte Status des Dateisystems vom tatsächlichen Status des Dateisystems abweicht.
+  - : Der Vorgang ist fehlgeschlagen, weil der Zustand des Dateisystems es nicht erlaubt. Dies kann
+    passieren, zum Beispiel wenn der zwischengespeicherte Zustand des Dateisystems vom tatsächlichen Zustand
+    des Dateisystems abweicht.
 - `FileError.NOT_FOUND_ERR`
   - : Der angegebene Pfad konnte nicht gefunden werden.
 - `FileError.SECURITY_ERR`
-  - : Sicherheitsbeschränkungen verbieten das Abrufen der Informationen des übergeordneten Verzeichnisses.
+  - : Sicherheitsbeschränkungen verbieten es, die Informationen des Elterndirectories zu erhalten.
 
 ## Beispiele
 
-In diesem Beispiel wird die Datei, die durch die Variable `fileEntry` angegeben wird, in `"newname.html"` umbenannt.
+Dieses Beispiel benennt die Datei um, die durch die Variable `fileEntry` spezifiziert wird, zu
+`"newname.html"`.
 
 ```js
 fileEntry.getParent(
@@ -57,11 +62,13 @@ fileEntry.getParent(
 );
 ```
 
-Dies wird erreicht, indem zunächst ein {{domxref("FileSystemDirectoryEntry")}}-Objekt abgerufen wird, das das Verzeichnis darstellt, in dem sich die Datei derzeit befindet. Anschließend wird {{domxref("FileSystemEntry.moveTo", "moveTo()")}} verwendet, um die Datei innerhalb dieses Verzeichnisses umzubenennen.
+Dies wird erreicht, indem zunächst ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)-Objekt abgerufen wird, das das Verzeichnis darstellt, in dem sich die Datei derzeit befindet. Dann wird [`moveTo()`](/de/docs/Web/API/FileSystemEntry/moveTo) verwendet, um die Datei in diesem
+Verzeichnis umzubenennen.
 
 ## Verwendung von Promises
 
-Derzeit gibt es keine {{jsxref("Promise")}}-basierte Version dieser Methode. Sie können jedoch eine einfache Hilfsfunktion erstellen, um sie anzupassen, wie folgt:
+Derzeit gibt es keine auf {{jsxref("Promise")}} basierende Version dieser Methode. Sie können
+jedoch eine einfache Hilfsfunktion erstellen, um sie anzupassen, wie dies:
 
 ```js
 function getParentPromise(entry) {
@@ -71,7 +78,7 @@ function getParentPromise(entry) {
 }
 ```
 
-Ein ähnlicher Ansatz kann auch an anderen Stellen der File and Directory Entries API verwendet werden.
+Ein ähnlicher Ansatz kann an anderer Stelle in der File and Directory Entries API verfolgt werden.
 
 ## Spezifikationen
 

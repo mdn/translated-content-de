@@ -1,5 +1,5 @@
 ---
-title: "Element: clientLeft-Eigenschaft"
+title: "Element: Eigenschaft clientLeft"
 short-title: clientLeft
 slug: Web/API/Element/clientLeft
 l10n:
@@ -8,15 +8,16 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die Breite des linken Rahmens eines Elements in Pixeln. Sie beinhaltet die Breite der vertikalen Bildlaufleiste, wenn die Textrichtung des Elements von rechts nach links ist und ein Überlauf dazu führt, dass eine linke vertikale Bildlaufleiste angezeigt wird. `clientLeft` schließt nicht den linken Rand oder das linke Padding ein. `clientLeft` ist schreibgeschützt.
+Die Breite des linken Randes eines Elements in Pixeln. Sie beinhaltet die Breite des vertikalen Scrollbalkens, wenn die Textrichtung des Elements von rechts nach links ist und ein Überlauf verursacht wird, der einen linken vertikalen Scrollbalken erzeugt. `clientLeft` schließt nicht den linken Außenabstand (margin) oder die linke Innenablage (padding) ein. `clientLeft` ist schreibgeschützt.
 
 > [!NOTE]
-> Diese Eigenschaft rundet den Wert auf eine ganze Zahl. Wenn Sie einen Dezimalwert benötigen, verwenden Sie {{ domxref("element.getBoundingClientRect()") }}.
+> Diese Eigenschaft rundet den Wert auf eine ganze Zahl. Wenn Sie
+> einen gebrochenen Wert benötigen, verwenden Sie [`element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
 
 > [!NOTE]
 > Wenn ein Element
 > `display: inline` hat, gibt `clientLeft` `0` zurück,
-> unabhängig vom Rahmen des Elements.
+> unabhängig vom Rand des Elements.
 
 ## Wert
 
@@ -24,7 +25,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Im folgenden Beispiel hat der Client-Bereich einen weißen Hintergrund und einen 24px schwarzen `border-left`. Der `clientLeft`-Wert ist der Abstand von dort, wo der Randbereich (gelb) endet und die Padding- und Inhaltsbereiche (weiß) beginnen: das heißt, 24px.
+Im folgenden Beispiel hat der Client-Bereich einen weißen Hintergrund und einen 24px schwarzen `border-left`. Der `clientLeft`-Wert ist der Abstand von der Stelle, an der der Randbereich (gelb) endet und die Innenablage und der Inhaltsbereich (weiß) beginnen: das heißt, 24px.
 
 ### HTML
 

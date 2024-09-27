@@ -8,14 +8,15 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das `readystatechange`-Ereignis wird ausgelöst, wann immer sich die {{domxref("XMLHttpRequest.readyState", "readyState")}}-Eigenschaft des {{domxref("XMLHttpRequest")}} ändert.
+Das `readystatechange`-Ereignis wird ausgelöst, wann immer sich die [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState)-Eigenschaft des [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) ändert.
 
 > [!WARNING]
-> Dies sollte nicht mit synchronen Anfragen verwendet werden und darf nicht aus nativen Code aufgerufen werden.
+> Dies sollte nicht mit synchronen Anfragen verwendet werden und darf
+> nicht aus nativen Code verwendet werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("readystatechange", (event) => {});
@@ -25,7 +26,7 @@ onreadystatechange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{DOMxRef("Event")}} ohne zusätzliche Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beispiele
 
@@ -36,14 +37,14 @@ const url = "https://developer.mozilla.org/";
 
 xhr.open(method, url, true);
 xhr.onreadystatechange = () => {
-  // Bei lokalen Dateien ist der Status bei Erfolg 0 in Mozilla Firefox
+  // In local files, status is 0 upon success in Mozilla Firefox
   if (xhr.readyState === XMLHttpRequest.DONE) {
     const status = xhr.status;
     if (status === 0 || (status >= 200 && status < 400)) {
-      // Die Anfrage wurde erfolgreich abgeschlossen
+      // The request has been completed successfully
       console.log(xhr.responseText);
     } else {
-      // Oh nein! Es gab einen Fehler bei der Anfrage!
+      // Oh no! There has been an error with the request!
     }
   }
 };

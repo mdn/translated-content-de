@@ -8,7 +8,10 @@ l10n:
 
 {{ApiRef("Location")}}
 
-Die **`host`**-Eigenschaft der {{domxref("Location")}}-Schnittstelle ist ein String, der den Host enthält, also den _Hostname_ und dann, wenn der _Port_ der URL nicht leer ist, einen `':'` und den _Port_ der URL.
+Die **`host`**-Eigenschaft der [`Location`](/de/docs/Web/API/Location)
+Schnittstelle ist ein String, der den Host enthält, also den
+_Hostnamen_, und, wenn der _Port_ der URL nicht leer ist, einen
+`':'`, gefolgt vom _Port_ der URL.
 
 ## Wert
 
@@ -24,7 +27,7 @@ console.log(anchor.host === "developer.mozilla.org");
 
 anchor.href = "https://developer.mozilla.org:443/en-US/Location.host";
 console.log(anchor.host === "developer.mozilla.org");
-// Die Portnummer ist nicht enthalten, weil 443 der Standardport des Schemas ist
+// The port number is not included because 443 is the scheme's default port
 
 anchor.href = "https://developer.mozilla.org:4097/en-US/Location.host";
 console.log(anchor.host === "developer.mozilla.org:4097");
@@ -34,6 +37,6 @@ console.log(anchor.host === "developer.mozilla.org:4097");
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

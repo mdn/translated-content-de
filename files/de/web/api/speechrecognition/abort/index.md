@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: abort()-Methode"
+title: "SpeechRecognition: abort() Methode"
 short-title: abort()
 slug: Web/API/SpeechRecognition/abort
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`abort()`**-Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) stoppt den Sprachkennung-Dienst vom Abhören eingehender Audiodaten und versucht nicht, ein {{domxref("SpeechRecognitionResult")}} zurückzugeben.
+Die **`abort()`**-Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) stoppt den Spracherkennungsdienst und verhindert, dass eingehende Audiodaten weiter verarbeitet werden. Es wird kein [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) zurückgegeben.
 
 ## Syntax
 

@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `function-available` ermittelt, ob eine gegebene Funktion verfügbar ist, und gibt boolean true oder false zurück.
+Die Funktion `function-available` ermittelt, ob eine gegebene Funktion verfügbar ist, und gibt boolean `true` oder `false` zurück.
 
 ## Syntax
 

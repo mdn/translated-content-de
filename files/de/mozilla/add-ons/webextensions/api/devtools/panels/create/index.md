@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Fügt ein neues Panel zu den DevTools hinzu.
+Fügt den Devtools ein neues Panel hinzu.
 
-Diese Funktion nimmt einen Titel, eine URL zu einer Symboldatei und eine URL zu einer HTML-Datei entgegen. Sie erstellt ein neues Panel in den DevTools, dessen Inhalt durch die HTML-Datei spezifiziert wird. Sie gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das sich in ein [`ExtensionPanel`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionPanel)-Objekt auflöst, das das neue Panel repräsentiert.
+Diese Funktion erfordert: einen Titel, eine URL zu einer Icon-Datei und eine URL zu einer HTML-Datei. Sie erstellt ein neues Panel in den Devtools, dessen Inhalt durch die HTML-Datei festgelegt ist. Sie gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das zu einem [`ExtensionPanel`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionPanel)-Objekt aufgelöst wird, das das neue Panel repräsentiert.
 
 ## Syntax
 
@@ -24,15 +24,15 @@ let creating = browser.devtools.panels.create(
 ### Parameter
 
 - `title`
-  - : `string`. Der Titel des Panels. Dieser erscheint in der Reihe von Tabs oben im DevTools-Fenster und ist die Hauptmethode, mit der der Benutzer Ihr Panel identifizieren kann.
+  - : `string`. Der Titel des Panels. Dieser wird in der Zeile der Tabs oben im Devtools-Fenster angezeigt und ist die Hauptmöglichkeit, wie der Benutzer Ihr Panel identifizieren kann.
 - `iconPath`
-  - : `string`. Spezifiziert ein Symbol, das neben dem Titel angezeigt wird. Es wird als URL zu einer Bilddatei bereitgestellt, die mit Ihrer Erweiterung gebündelt wurde. Chromium-basierte Browser und Safari lösen diese URL als absolut auf, während Firefox diese URL relativ zur aktuellen Erweiterungsseite auflöst (es sei denn, es wird als absolute URL ausgedrückt, z. B. "/icons/panel.png").
+  - : `string`. Gibt ein Icon an, das neben dem Titel angezeigt wird. Es wird als URL zu einer Bilddatei bereitgestellt, die mit Ihrer Erweiterung gebündelt wurde. Auf Chromium-basierten Browsern und Safari wird diese URL als absolut aufgelöst, während Firefox diese URL relativ zur aktuellen Erweiterungsseite auflöst (es sei denn, sie wird als absolute URL angegeben, z.B. "/icons/panel.png").
 - `pagePath`
-  - : `string`. Spezifiziert eine HTML-Datei, die den Inhalt des Panels definiert. Sie wird als URL zu einer HTML-Datei bereitgestellt, die mit Ihrer Erweiterung gebündelt ist. Die URL kann als absolute URL oder relativ zur aktuellen Erweiterungsseite aufgelöst werden. Sehen Sie die Kompatibilitätsdaten für weitere Informationen. Die HTML-Datei kann CSS und JavaScript-Dateien beinhalten, genau wie eine normale Webseite. Das im Panel laufende JavaScript kann die DevTools-APIs nutzen. Siehe [Erweitern der Entwicklerwerkzeuge](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools).
+  - : string. Gibt eine HTML-Datei an, die den Inhalt des Panels definiert. Es wird als URL zu einer HTML-Datei bereitgestellt, die mit Ihrer Erweiterung gebündelt wurde. Die URL kann als absolute URL oder relativ zur aktuellen Erweiterungsseite aufgelöst werden. Siehe die Daten zur Browser-Kompatibilität für weitere Informationen. Die HTML-Datei kann CSS- und JavaScript-Dateien enthalten, genau wie eine normale Webseite. Das im Panel ausgeführte JavaScript kann die Devtools-APIs verwenden. Siehe [Erweiterung der Entwicklerwerkzeuge](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools).
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das sich in ein [`ExtensionPanel`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionPanel)-Objekt auflöst, das das neue Panel repräsentiert.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem [`ExtensionPanel`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionPanel)-Objekt erfüllt wird, das das neue Panel repräsentiert.
 
 ## Browser-Kompatibilität
 
@@ -40,7 +40,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das s
 
 ## Beispiele
 
-Erstellen Sie ein neues Panel und fügen Sie Listener für seine onShown- und onHidden-Ereignisse hinzu:
+Erstellen Sie ein neues Panel und fügen Sie Listener zu dessen onShown- und onHidden-Ereignissen hinzu:
 
 ```js
 function handleShown() {
@@ -66,4 +66,4 @@ browser.devtools.panels
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API.
+> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API von Chromium.

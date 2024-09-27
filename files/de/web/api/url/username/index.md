@@ -1,5 +1,5 @@
 ---
-title: "URL: username-Eigenschaft"
+title: "URL: username Eigenschaft"
 short-title: username
 slug: Web/API/URL/username
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`username`**-Eigenschaft des {{domxref("URL")}}-Interfaces
+Die **`username`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces
 ist ein String, der den Benutzernamen enthält, der vor dem Domainnamen angegeben wird.
 
 ## Wert
@@ -19,9 +19,9 @@ Ein String.
 
 ```js
 const url = new URL(
-  "https://anonymous:flabada@developer.mozilla.org/de/docs/Web/API/URL/username",
+  "https://anonymous:flabada@developer.mozilla.org/en-US/docs/Web/API/URL/username",
 );
-console.log(url.username); // Gibt "anonymous" aus
+console.log(url.username); // Logs "anonymous"
 ```
 
 ## Spezifikationen
@@ -34,4 +34,4 @@ console.log(url.username); // Gibt "anonymous" aus
 
 ## Siehe auch
 
-- Das zugehörige {{domxref("URL")}}-Interface.
+- Das [`URL`](/de/docs/Web/API/URL)-Interface, zu dem es gehört.

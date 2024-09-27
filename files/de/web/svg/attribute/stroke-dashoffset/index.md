@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`stroke-dashoffset`** Attribut ist ein Präsentationsattribut, das einen Versatz bei der Darstellung des zugehörigen Strichmusters definiert.
+Das Attribut **`stroke-dashoffset`** ist ein Präsentationsattribut, das einen Versatz bei der Darstellung des zugehörigen Strichmusters definiert.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `stroke-dashoffset` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-dashoffset')}} für mehr Informationen.
@@ -38,15 +38,15 @@ svg {
 
 ```html
 <svg viewBox="-3 0 33 10" xmlns="http://www.w3.org/2000/svg">
-  <!-- Kein Strichmuster -->
+  <!-- No dash array -->
   <line x1="0" y1="1" x2="30" y2="1" stroke="black" />
 
-  <!-- Kein Strich-Versatz -->
+  <!-- No dash offset -->
   <line x1="0" y1="3" x2="30" y2="3" stroke="black" stroke-dasharray="3 1" />
 
   <!--
-  Der Beginn der Berechnung des Strichmusters
-  wird um 3 Benutzereinheiten gezogen
+  The start of the dash array computation
+  is pulled by 3 user units
   -->
   <line
     x1="0"
@@ -58,8 +58,8 @@ svg {
     stroke-dashoffset="3" />
 
   <!--
-  Der Beginn der Berechnung des Strichmusters
-  wird um 3 Benutzereinheiten verschoben
+  The start of the dash array computation
+  is pushed by 3 user units
   -->
   <line
     x1="0"
@@ -71,9 +71,9 @@ svg {
     stroke-dashoffset="-3" />
 
   <!--
-  Der Beginn der Berechnung des Strichmusters
-  wird um 1 Benutzereinheit gezogen, was
-  zur gleichen Darstellung wie im vorherigen Beispiel führt
+  The start of the dash array computation
+  is pulled by 1 user units which ends up
+  in the same rendering as the previous example
   -->
   <line
     x1="0"
@@ -85,8 +85,8 @@ svg {
     stroke-dashoffset="1" />
 
   <!--
-  Die folgenden roten Linien heben den
-  Versatz des Strichmusters für jede Linie hervor
+  the following red lines highlight the
+  offset of the dash array for each line
   -->
   <path d="M0,5 h-3 M0,7 h3 M0,9 h-1" stroke="rgb(255 0 0 / 50%)" />
 </svg>
@@ -94,7 +94,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 200)}}
 
-## Nutzungs-hinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -125,7 +125,7 @@ svg {
   </tbody>
 </table>
 
-Der Versatz wird normalerweise in Benutzereinheiten ausgedrückt, die in Bezug auf die {{SVGAttr('pathLength')}} aufgelöst werden. Wird jedoch ein [\<percentage>](/de/docs/Web/SVG/Content_type#percentage) verwendet, wird der Wert als Prozentsatz des aktuellen Ansichtsfensters aufgelöst.
+Der Versatz wird normalerweise in Benutzereinheiten ausgedrückt, die relativ zum {{SVGAttr('pathLength')}} aufgelöst werden. Wird jedoch ein [\<percentage>](/de/docs/Web/SVG/Content_type#percentage) verwendet, wird der Wert als Prozentsatz des aktuellen Ansichtsbereichs aufgelöst.
 
 ## Spezifikationen
 

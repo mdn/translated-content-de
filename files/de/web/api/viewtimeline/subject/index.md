@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Animations")}}{{SeeCompatTable}}
 
-Die **`subject`** schreibgeschützte Eigenschaft des {{domxref("ViewTimeline")}}-Interfaces gibt eine Referenz auf das Subjektelement zurück, dessen Sichtbarkeit innerhalb des nächstgelegenen vorfahrbaren Scroll-Elements (Scroller) den Fortschritt der Timeline steuert.
+Die schreibgeschützte **`subject`**-Eigenschaft der [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)-Schnittstelle gibt eine Referenz auf das Subjekt-Element zurück, dessen Sichtbarkeit innerhalb seines nächstgelegenen übergeordneten scrollbaren Elements (Scroller) den Fortschritt der Zeitleiste steuert.
 
 ## Wert
 
-Ein {{domxref("Element")}}.
+Ein [`Element`](/de/docs/Web/API/Element).
 
 ## Beispiele
 
-Siehe die Hauptseite von {{domxref("ViewTimeline")}} für ein Beispiel.
+Siehe die Hauptseite von [`ViewTimeline`](/de/docs/Web/API/ViewTimeline) für ein Beispiel.
 
 ## Spezifikationen
 
@@ -29,6 +29,6 @@ Siehe die Hauptseite von {{domxref("ViewTimeline")}} für ein Beispiel.
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS scroll-driven animations](/de/docs/Web/CSS/CSS_scroll-driven_animations)
-- {{domxref("ViewTimeline")}}
-- {{domxref("AnimationTimeline")}}, {{domxref("ScrollTimeline")}}
+- [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)
+- [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)

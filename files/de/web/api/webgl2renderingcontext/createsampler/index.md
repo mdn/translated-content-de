@@ -10,7 +10,7 @@ l10n:
 
 Die **`WebGL2RenderingContext.createSampler()`**-Methode der
 [WebGL 2 API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert
-{{domxref("WebGLSampler")}}-Objekte.
+[`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekte.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLSampler")}}-Objekt.
+Ein [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt.
 
 ## Beispiele
 
-`gl` muss ein {{domxref("WebGL2RenderingContext")}} sein.
+`gl` muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein.
 `WebGLSampler`-Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
@@ -39,10 +39,10 @@ const sampler = gl.createSampler();
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLSampler")}}
+- [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)

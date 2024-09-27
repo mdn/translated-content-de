@@ -1,5 +1,5 @@
 ---
-title: "BluetoothRemoteGATTCharacteristic: Eigenschaft value"
+title: "BluetoothRemoteGATTCharacteristic: value Eigenschaft"
 short-title: value
 slug: Web/API/BluetoothRemoteGATTCharacteristic/value
 l10n:
@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`BluetoothRemoteGATTCharacteristic.value`** schreibgeschützte
-Eigenschaft gibt den aktuell zwischengespeicherten Charakteristik-Wert zurück. Dieser Wert wird aktualisiert, wenn der Wert der Charakteristik gelesen oder über eine Benachrichtigung oder Anzeige aktualisiert wird.
+Die schreibgeschützte **`BluetoothRemoteGATTCharacteristic.value`**-Eigenschaft gibt den derzeit zwischengespeicherten Wert der Charakteristik zurück. Dieser Wert wird aktualisiert, wenn der Wert der Charakteristik gelesen oder über eine Benachrichtigung oder Indikation aktualisiert wird.
 
 ## Wert
 
-Der aktuell zwischengespeicherte Charakteristik-Wert.
+Der derzeit zwischengespeicherte Wert der Charakteristik.
 
 ## Spezifikationen
 

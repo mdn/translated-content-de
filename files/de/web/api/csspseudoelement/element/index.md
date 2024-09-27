@@ -1,6 +1,6 @@
 ---
-title: "CSSPseudoElement: Elementeigenschaft"
-short-title: Element
+title: "CSSPseudoElement: element-Eigenschaft"
+short-title: element
 slug: Web/API/CSSPseudoElement/element
 l10n:
   sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
@@ -8,30 +8,27 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}
 
-Die **`element`** schreibgeschützte Eigenschaft der
-{{DOMxRef('CSSPseudoElement')}}-Schnittstelle gibt eine Referenz auf das Ursprungs-Element
-des Pseudo-Elements zurück, mit anderen Worten, auf sein übergeordnetes Element.
+Die schreibgeschützte **`element`**-Eigenschaft der [`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement)-Schnittstelle gibt eine Referenz auf das Ursprungselement des Pseudo-Elements zurück, mit anderen Worten auf sein Eltern-Element.
 
 ## Wert
 
-Ein {{DOMxRef('Element')}}, das das Ursprungs-Element des Pseudo-Elements darstellt.
+Ein [`Element`](/de/docs/Web/API/Element), das das Ursprungselement des Pseudo-Elements repräsentiert.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Beziehung zwischen
-`CSSPseudoElement.element` und {{DOMxRef('Element.pseudo()')}}:
+Das folgende Beispiel zeigt die Beziehung zwischen `CSSPseudoElement.element` und [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo):
 
 ```js
 const myElement = document.querySelector("q");
 const cssPseudoElement = myElement.pseudo("::after");
 const originatingElement = cssPseudoElement.element;
 
-console.log(myElement === originatingElement); // Gibt true aus
-console.log(myElement.parentElement === originatingElement); // Gibt false aus
-console.log(myElement.lastElementChild === cssPseudoElement); // Gibt false aus
-console.log(myElement.lastChild === cssPseudoElement); // Gibt false aus
-console.log(myElement.nextElementSibling === cssPseudoElement); // Gibt false aus
-console.log(myElement.nextSibling === cssPseudoElement); // Gibt false aus
+console.log(myElement === originatingElement); // Outputs true
+console.log(myElement.parentElement === originatingElement); // Outputs false
+console.log(myElement.lastElementChild === cssPseudoElement); // Outputs false
+console.log(myElement.lastChild === cssPseudoElement); // Outputs false
+console.log(myElement.nextElementSibling === cssPseudoElement); // Outputs false
+console.log(myElement.nextSibling === cssPseudoElement); // Outputs false
 ```
 
 ## Spezifikationen
@@ -44,4 +41,4 @@ console.log(myElement.nextSibling === cssPseudoElement); // Gibt false aus
 
 ## Siehe auch
 
-- {{DOMxRef('Element.pseudo()')}}
+- [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo)

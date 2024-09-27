@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Der Grund, warum das {{WebExtAPIRef("runtime.onRestartRequired", "onRestartRequired")}}-Ereignis ausgelöst wird.
+Der Grund, warum das {{WebExtAPIRef("runtime.onRestartRequired", "onRestartRequired")}} Ereignis ausgelöst wird.
 
 ## Typ
 
@@ -15,7 +15,7 @@ Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 
 - `"app_update"`: Die Anwendung wird auf eine neuere Version aktualisiert.
 - `"os_update"`: Der Browser/Das Betriebssystem wird auf eine neuere Version aktualisiert.
-- `"periodic"`: Das System ist länger als die im Unternehmensrichtlinie festgelegte Betriebszeit in Betrieb.
+- `"periodic"`: Das System läuft länger als die in der Unternehmensrichtlinie festgelegte zulässige Betriebszeit.
 
 ## Browser-Kompatibilität
 
@@ -24,7 +24,7 @@ Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-OnRestartRequiredReason) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-OnRestartRequiredReason) API. Diese Dokumentation ist aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

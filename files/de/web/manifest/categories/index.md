@@ -2,27 +2,20 @@
 title: Kategorien
 slug: Web/Manifest/categories
 l10n:
-  sourceCommit: b3518a84f7c578b434e3c38ff7933ae03ac73966
+  sourceCommit: 54dbdfc6be6e1cb62b1c10e23356e895953fb196
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}
 
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Type</th>
-      <td><code>Array</code> von <code>String</code>s</td>
-    </tr>
-  </tbody>
-</table>
+Das `categories`-Mitglied ist ein Array von Zeichenketten, das die Namen von Kategorien definiert, denen die Anwendung angeblich angehört.
 
-Das `categories`-Mitglied ist ein Array von Strings, das die Namen von Kategorien definiert, denen die Anwendung angeblich angehört. Es gibt keine standardisierte Liste möglicher Werte, aber das W3C pflegt [eine Liste bekannter Kategorien](https://github.com/w3c/manifest/wiki/Categories).
+Es gibt keine standardisierte Liste möglicher Werte, aber das W3C pflegt [eine Liste bekannter Kategorien](https://github.com/w3c/manifest/wiki/Categories).
 
-> [!NOTE] `categories` dienen nur als Hinweise für Kataloge oder Stores, die Webanwendungen auflisten. Ähnlich wie Suchmaschinen und Meta-Keywords sind Kataloge und Stores frei, diese zu ignorieren.
+> **Note:** `categories` werden nur als Hinweise für Kataloge oder Stores verwendet, die Webanwendungen auflisten. Wie Suchmaschinen und Metaschlüsselwörter können Kataloge und Stores sie ignorieren.
 
-> [!NOTE] Werte von `categories` werden von den Stores und Katalogen vor der Verarbeitung in Kleinbuchstaben umgewandelt, sodass "News" und "news" als gleicher Wert behandelt werden. Entwicklern wird empfohlen, von Anfang an Kleinbuchstaben zu verwenden.
+> **Note:** `categories`-Werte werden von den Stores und Katalogen vor der Verarbeitung in Kleinbuchstaben umgewandelt, sodass "News" und "news" als derselbe Wert behandelt werden. Es wird empfohlen, von Anfang an Kleinbuchstaben zu verwenden.
 
-## Beispiel
+## Beispiele
 
 ```json
 "categories": ["books", "education", "medical"]
@@ -34,4 +27,4 @@ Das `categories`-Mitglied ist ein Array von Strings, das die Namen von Kategorie
 
 ## Browser-Kompatibilität
 
-{{Compat}}
+Dieses Manifestmitglied wird von App-Stores und Katalogen verwendet, wenn Web-Apps veröffentlicht und aufgelistet werden, daher ist die Browser-Kompatibilität nicht anwendbar. Browser können diese Informationen zwar parsen, aber es ist optional und beeinträchtigt nicht die Kernfunktionalität einer Web-App.

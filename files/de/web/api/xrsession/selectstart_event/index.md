@@ -1,5 +1,5 @@
 ---
-title: "XRSession: selectstart-Ereignis"
+title: "XRSession: selectstart Ereignis"
 short-title: selectstart
 slug: Web/API/XRSession/selectstart_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das [WebXR](/de/docs/Web/API/WebXR_Device_API) **`selectstart`**-Ereignis wird an eine {{domxref("XRSession")}} gesendet, wenn der Benutzer eine [primäre Aktion](/de/docs/Web/API/WebXR_Device_API/Inputs#primary_action) auf einer seiner Eingabequellen beginnt.
+Das [WebXR](/de/docs/Web/API/WebXR_Device_API) **`selectstart`** Ereignis wird an eine [`XRSession`](/de/docs/Web/API/XRSession) gesendet, wenn der Benutzer mit einer ihrer Eingabequellen eine [Hauptaktion](/de/docs/Web/API/WebXR_Device_API/Inputs#primary_action) beginnt.
 
-Das {{domxref("Element.beforexrselect_event", "beforexrselect")}}-Ereignis wird vor diesem Ereignis ausgelöst und kann verhindern, dass dieses Ereignis ausgelöst wird.
+Das [`beforexrselect`](/de/docs/Web/API/Element/beforexrselect_event) wird vor diesem Ereignis ausgelöst und kann verhindern, dass dieses Ereignis ausgelöst wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("selectstart", (event) => {});
@@ -24,46 +24,46 @@ onselectstart = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("XRInputSourceEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("XRInputSourceEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, {{domxref("Event")}}, verfügbar._
+_Zusätzlich zu den unten aufgelisteten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref("XRInputSourceEvent.frame", "frame")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("XRFrame")}}-Objekt, das die benötigten Informationen über den Ereignisrahmen bereitstellt, in dem das Ereignis aufgetreten ist. Dieser Rahmen könnte in der Vergangenheit gerendert worden sein, anstatt ein aktueller Rahmen zu sein. Da dies ein _Ereignis_rahmen und kein _Animations_rahmen ist, können Sie nicht {{domxref("XRFrame.getViewerPose", "XRFrame.getViewerPose()")}} darauf aufrufen; verwenden Sie stattdessen {{domxref("XRFrame.getPose", "getPose()")}}.
-- {{domxref("XRInputSourceEvent.inputSource", "inputSource")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("XRInputSource")}}-Objekt, das angibt, welche Eingabequelle das Eingabeereignis generiert hat.
+- [`frame`](/de/docs/Web/API/XRInputSourceEvent/frame) {{ReadOnlyInline}}
+  - : Ein [`XRFrame`](/de/docs/Web/API/XRFrame) Objekt, das die benötigten Informationen über den Ereignisrahmen bereitstellt, während dessen das Ereignis auftrat. Dieser Rahmen könnte in der Vergangenheit gerendert worden sein, anstatt ein aktueller Rahmen zu sein. Da dies ein _Ereignis_-Rahmen ist und kein _Animations_-Rahmen, können Sie darauf nicht [`XRFrame.getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) aufrufen; verwenden Sie stattdessen [`getPose()`](/de/docs/Web/API/XRFrame/getPose).
+- [`inputSource`](/de/docs/Web/API/XRInputSourceEvent/inputSource) {{ReadOnlyInline}}
+  - : Ein [`XRInputSource`](/de/docs/Web/API/XRInputSource) Objekt, das angibt, welche Eingabequelle das Eingabeereignis erzeugt hat.
 
 ## Beschreibung
 
 ### Auslöser
 
-Ausgelöst, wenn der Benutzer Auslöser oder Tasten drückt, ein Touchpad berührt, einen Befehl spricht oder eine erkennbare Geste mit einem Videotracking-System oder einem Handcontroller mit Beschleunigungsmesser ausführt.
+Wird ausgelöst, wenn der Benutzer Abzüge oder Tasten drückt, ein Touchpad antippt, einen Befehl ausspricht oder eine erkennbare Geste ausführt, wenn er ein Videosystem zur Nachverfolgung oder einen tragbaren Controller mit einem Beschleunigungsmesser verwendet.
 
 ### Anwendungsfälle
 
-Die Ereignisse `selectstart` und {{domxref("XRSession.selectend_event", "selectend")}} informieren Sie, wann Sie dem Benutzer etwas anzeigen sollten, das darauf hinweist, dass die primäre Aktion gerade stattfindet. Dies könnte das Zeichnen eines Controllers mit der aktivierten Taste in einer neuen Farbe sein oder das Anzeigen des zu erfassenden und bewegenden Objekts, beginnend mit `selectstart` und endend mit `selectend`.
+Die Ereignisse `selectstart` und [`selectend`](/de/docs/Web/API/XRSession/selectend_event) weisen darauf hin, wann Sie dem Benutzer etwas anzeigen sollten, das darauf hinweist, dass die Hauptaktion im Gange ist. Dies könnte darin bestehen, einen Controller mit der aktivierten Taste in einer neuen Farbe zu zeichnen, oder das anvisierte Objekt zu zeigen, das ergriffen und bewegt wird, beginnend wenn `selectstart` eintrifft und endend, wenn `selectend` empfangen wird.
 
-Das {{domxref("XRSession.select_event", "select")}}-Ereignis informiert Ihren Code darüber, dass der Benutzer die gewünschte Aktion abgeschlossen hat. Dies kann so einfach sein wie das Werfen eines Objekts oder das Betätigen des Abzugs einer Waffe in einem Spiel, oder so komplex wie das Platzieren eines gezogenen Objekts an einem neuen Ort.
+Das [`select`](/de/docs/Web/API/XRSession/select_event) Ereignis teilt Ihrem Code mit, dass der Benutzer die Aktion abgeschlossen hat, die er ausführen wollte. Dies könnte so einfach sein wie das Werfen eines Objekts oder das Ziehen des Abzugs einer Waffe in einem Spiel, oder so umfassend wie das Platzieren eines gezogenen Objekts an einem neuen Ort.
 
-Wenn Ihre primäre Aktion eine einfache Auslöseaktion ist und Sie nichts animieren müssen, während der Auslöser betätigt ist, können Sie die Ereignisse `selectstart` und `selectend` ignorieren und auf das Startereignis reagieren.
+Wenn Ihre Hauptaktion eine einfache Auslöseraktion ist und Sie nichts animieren müssen, während der Auslöser aktiviert ist, können Sie die `selectstart` und `selectend` Ereignisse ignorieren und auf das Startevent reagieren.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet {{domxref("EventTarget.addEventListener", "addEventListener()")}}, um Handler für die Auswahlereignisse zu etablieren: `selectstart`, {{domxref("XRSession.selectend_event", "selectend")}}, und {{domxref("XRSession.select_event", "select")}}. Dieses Snippet ist der Kern eines Ereignishandlers, der es dem Benutzer ermöglicht, Objekte in der Szene zu greifen und zu bewegen.
+Im folgenden Beispiel wird [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwendet, um Handler für die Auswahlereignisse festzulegen: `selectstart`, [`selectend`](/de/docs/Web/API/XRSession/selectend_event) und [`select`](/de/docs/Web/API/XRSession/select_event). Dieses Snippet bildet den Kern eines Ereignishandlers, der es dem Benutzer ermöglicht, Objekte in der Szene zu greifen und zu bewegen.
 
-In diesem Fall wird eine einzige Funktion verwendet, um alle drei Ereignisse zu behandeln, sodass sie bestimmten Code gemeinsam nutzen, der unabhängig davon gleich ist, welches der drei Ereignisse empfangen wird. Erst nach Abschluss dieser Aufgaben gibt die Funktion `onSelectionEvent()` die Aktion an eine spezialisierte Funktion weiter, um die Dinge zu bearbeiten.
+In diesem Fall wird eine einzelne Funktion verwendet, um alle drei Ereignisse zu behandeln, wodurch sie bestimmten gemeinsamen Code nutzen können, unabhängig davon, welches der drei Ereignisse empfangen wird. Erst nach Abschluss dieser Aufgaben delegiert die Funktion `onSelectionEvent()` die Aktion an eine spezialisierte Funktion zur Bearbeitung.
 
-Nach der Überprüfung, ob das empfangene Ereignis ein `tracked-pointer`-Ereignis ist (die einzige Art, die wir hier behandeln), wird die Pose des Zielstrahls mit {{domxref("XRFrame.getPose", "getPose()")}} abgerufen.
+Nach der Überprüfung, ob das empfangene Ereignis ein `tracked-pointer` Ereignis ist (die einzige Art, die hier behandelt wird), wird die Zielstrahlenposition mithilfe von [`getPose()`](/de/docs/Web/API/XRFrame/getPose) abgerufen.
 
-Wenn die Zielstrahlpose erfolgreich abgerufen wurde, verwendet der Code den Wert der {{domxref("Event")}}-Eigenschaft {{domxref("Event.type", "type")}}, um die Kontrolle an eine geeignete Funktion weiterzuleiten, die das eingetroffene Ereignis behandelt:
+Wenn die Zielstrahlenposition erfolgreich abgerufen wurde, verwendet der Code anschließend den Wert der [`type`](/de/docs/Web/API/Event/type) Eigenschaft des [`Event`](/de/docs/Web/API/Event) Objekts, um die Kontrolle an eine geeignete Funktion zur Behandlung des eingetroffenen Ereignisses zu übergeben:
 
-- Für `selectstart`-Ereignisse wird eine `myBeginTracking()`-Funktion mit der {{domxref("XRRigidTransform.matrix", "matrix")}} der Zielstrahlpose aufgerufen. Die Funktion `myBeginTracking()` würde vermutlich die Präsentation des Objekt-Ziehprozesses starten, indem sie die Transformation verwendet, um einen Treffer-Test durchzuführen und zu bestimmen, welches Objekt aufgenommen werden soll. `myBeginTracking()` gibt ein Objekt zurück, das das Objekt darstellt, das der Benutzer begonnen hat zu ziehen.
-- Bei Empfang eines `select`-Ereignisses wird die `myDropObject()`-Funktion mit dem Zielobjekt und der aktuellen Transformation der Zielstrahlpose als Eingaben aufgerufen. Dies platziert das Objekt an seiner neuen Position in der Welt und löst etwaige Effekte aus, wie das Planen einer Animation eines Spritzers, wenn es ins Wasser fällt, etc.
-- Das `selectend`-Ereignis führt dazu, dass eine `myStopTracking()`-Funktion mit dem gezogenen Objekt und der finalen Transformation der Zielstrahlpose aufgerufen wird.
+- Für `selectstart` Ereignisse wird eine `myBeginTracking()` Funktion mit der [`matrix`](/de/docs/Web/API/XRRigidTransform/matrix) der Zielstrahlenposition aufgerufen. Die `myBeginTracking()` Funktion würde vermutlich mit der Präsentation des Objekt-Ziehungsprozesses beginnen, indem sie die Transformation verwendet, um einen Hit-Test durchzuführen und zu bestimmen, welches Objekt aufgehoben werden soll. `myBeginTracking()` gibt ein Objekt zurück, das das Objekt darstellt, das der Benutzer zu ziehen begonnen hat.
+- Beim Empfang eines `select` Ereignisses wird die Funktion `myDropObject()` mit dem Zielobjekt und der aktuellen Zielstrahlenpositionstransformation als Eingaben aufgerufen. Dieses platziert das Objekt an seiner neuen Position in der Welt und löst alle Effekte aus, die auftreten könnten, wie z.B. das Planen einer Animation eines Spritzers, wenn es ins Wasser fallen gelassen wird, usw.
+- Das `selectend` Ereignis führt zur Aufrufe einer `myStopTracking()` Funktion mit dem objekt, das gezogen wird, und der abschließenden Zielstrahlenpositionstransformation.
 
 ```js
 xrSession.addEventListener("selectstart", onSelectionEvent);
@@ -97,7 +97,7 @@ function onSelectionEvent(event) {
 }
 ```
 
-Sie können auch einen Handler für `selectend`-Ereignisse einrichten, indem Sie die `onselectend`-Ereignishandler-Eigenschaft des {{domxref("XRSession")}}-Objekts auf eine Funktion setzen, die das Ereignis behandelt:
+Sie können auch einen Handler für `selectend` Ereignisse einrichten, indem Sie die `onselectend` Ereignishandlereigenschaft des [`XRSession`](/de/docs/Web/API/XRSession) Objekts auf eine Funktion setzen, die das Ereignis behandelt:
 
 ```js
 xrSession.onselectstart = onSelectionEvent;
@@ -115,5 +115,5 @@ xrSession.onselectend = onSelectionEvent;
 
 ## Siehe auch
 
-- {{domxref("XRSession.select_event", "select")}} und {{domxref("XRSession.selectend_event", "selectend")}}
-- {{domxref("Element.beforexrselect_event", "beforexrselect")}}
+- [`select`](/de/docs/Web/API/XRSession/select_event) und [`selectend`](/de/docs/Web/API/XRSession/selectend_event)
+- [`beforexrselect`](/de/docs/Web/API/Element/beforexrselect_event)

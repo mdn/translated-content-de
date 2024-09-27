@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Math.hypot()`** gibt die Quadratwurzel der Summe der Quadrate ihrer Argumente zurück. Das heißt,
+Die statische Methode **`Math.hypot()`** gibt die Quadratwurzel der Summe der Quadrate ihrer Argumente zurück. Das bedeutet:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -33,19 +33,19 @@ Math.hypot(value1, value2, /* …, */ valueN)
 
 ### Rückgabewert
 
-Die Quadratwurzel der Summe der Quadrate der angegebenen Argumente. Gibt {{jsxref("Infinity")}} zurück, wenn eines der Argumente ±Infinity ist. Andernfalls, wenn mindestens eines der Argumente `NaN` ist oder in `NaN` umgewandelt wird, wird {{jsxref("NaN")}} zurückgegeben. Gibt `0` zurück, wenn keine Argumente angegeben werden oder alle Argumente ±0 sind.
+Die Quadratwurzel der Summe der Quadrate der angegebenen Argumente. Gibt {{jsxref("Infinity")}} zurück, wenn eines der Argumente ±Infinity ist. Andernfalls, wenn mindestens eines der Argumente {{jsxref("NaN")}} ist oder in {{jsxref("NaN")}} konvertiert wird, gibt es {{jsxref("NaN")}} zurück. Gibt `0` zurück, wenn keine Argumente angegeben sind oder alle Argumente ±0 sind.
 
 ## Beschreibung
 
-Das Berechnen der Hypotenuse eines rechtwinkligen Dreiecks oder der Größe einer komplexen Zahl erfolgt mit der Formel `Math.sqrt(v1*v1 + v2*v2)`, wobei v1 und v2 die Längen der Schenkel des Dreiecks oder die realen und komplexen Komponenten der komplexen Zahl sind. Die entsprechende Distanz in 2 oder mehr Dimensionen kann durch Hinzufügen weiterer Quadrate unter der Quadratwurzel berechnet werden: `Math.sqrt(v1*v1 + v2*v2 + v3*v3 + v4*v4)`.
+Die Berechnung der Hypotenuse eines rechtwinkligen Dreiecks oder die Größe einer komplexen Zahl verwendet die Formel `Math.sqrt(v1*v1 + v2*v2)`, wobei v1 und v2 die Längen der Beine des Dreiecks oder die realen und komplexen Komponenten der komplexen Zahl sind. Die entsprechende Distanz in 2 oder mehr Dimensionen kann durch Hinzufügen weiterer Quadrate unter der Quadratwurzel berechnet werden: `Math.sqrt(v1*v1 + v2*v2 + v3*v3 + v4*v4)`.
 
-Diese Funktion vereinfacht und beschleunigt diese Berechnung; Sie rufen `Math.hypot(v1, v2)` oder `Math.hypot(v1, /* …, */, vN)` auf.
+Diese Funktion macht diese Berechnung einfacher und schneller; Sie rufen `Math.hypot(v1, v2)` oder `Math.hypot(v1, /* …, */, vN)` auf.
 
-`Math.hypot` vermeidet auch Überlauf-/Unterlaufprobleme, wenn die Größe Ihrer Zahlen sehr groß ist. Die größte Zahl, die Sie in JS darstellen können, ist [`Number.MAX_VALUE`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_VALUE), die etwa 10<sup>308</sup> beträgt. Wenn Ihre Zahlen größer als etwa 10<sup>154</sup> sind, führt das Quadrieren dieser Zahlen zu Infinity. Zum Beispiel, `Math.sqrt(1e200*1e200 + 1e200*1e200) = Infinity`. Wenn Sie stattdessen `hypot()` verwenden, erhalten Sie eine bessere Antwort: `Math.hypot(1e200, 1e200) = 1.4142...e+200`. Dies gilt auch für sehr kleine Zahlen. `Math.sqrt(1e-200*1e-200 + 1e-200*1e-200) = 0`, aber `Math.hypot(1e-200, 1e-200) = 1.4142...e-200`.
+`Math.hypot` vermeidet auch Überlauf-/Unterlaufprobleme, wenn die Größe Ihrer Zahlen sehr groß ist. Die größte Zahl, die Sie in JS darstellen können, ist [`Number.MAX_VALUE`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_VALUE), die ungefähr 10<sup>308</sup> beträgt. Wenn Ihre Zahlen größer als etwa 10<sup>154</sup> sind, führt die Quadrierung zu Infinity. Zum Beispiel, `Math.sqrt(1e200*1e200 + 1e200*1e200) = Infinity`. Wenn Sie stattdessen `hypot()` verwenden, erhalten Sie eine bessere Antwort: `Math.hypot(1e200, 1e200) = 1.4142...e+200`. Dies gilt auch für sehr kleine Zahlen. `Math.sqrt(1e-200*1e-200 + 1e-200*1e-200) = 0`, aber `Math.hypot(1e-200, 1e-200) = 1.4142...e-200`.
 
-Mit einem Argument ist `Math.hypot()` äquivalent zu [`Math.abs()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/abs). [`Math.hypot.length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length) ist 2, was schwach signalisiert, dass es entworfen wurde, um mindestens zwei Parameter zu handhaben.
+Mit einem Argument ist `Math.hypot()` äquivalent zu [`Math.abs()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/abs). [`Math.hypot.length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length) ist 2, was schwach signalisiert, dass es für mindestens zwei Parameter ausgelegt ist.
 
-Da `hypot()` eine statische Methode von `Math` ist, verwenden Sie es immer als `Math.hypot()` anstelle als eine Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `hypot()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.hypot()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -57,9 +57,9 @@ Math.hypot(3, 4, 5); // 7.0710678118654755
 Math.hypot(); // 0
 Math.hypot(NaN); // NaN
 Math.hypot(NaN, Infinity); // Infinity
-Math.hypot(3, 4, "foo"); // NaN, da +'foo' => NaN
+Math.hypot(3, 4, "foo"); // NaN, since +'foo' => NaN
 Math.hypot(3, 4, "5"); // 7.0710678118654755, +'5' => 5
-Math.hypot(-3); // 3, dasselbe wie Math.abs(-3)
+Math.hypot(-3); // 3, the same as Math.abs(-3)
 ```
 
 ## Spezifikationen

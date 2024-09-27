@@ -7,16 +7,16 @@ l10n:
 
 {{SeeCompatTable}}{{securecontext_header}}{{APIRef("Presentation API")}}
 
-Die **`Presentation`** kann im Kontext als zwei mögliche Benutzeragenten definiert werden: _steuernder Benutzeragent_ und _empfangender Benutzeragent_.
+Die **`Presentation`** kann im Kontext als zwei mögliche User Agents definiert werden: _Controlling user agent_ und _Receiving user agent_.
 
-Im steuernden Browsing-Kontext bietet das `Presentation`-Interface einen Mechanismus, um das standardmäßige Browserverhalten, Präsentationen auf einem externen Bildschirm zu starten, zu überschreiben. Im empfangenden Browsing-Kontext stellt das `Presentation`-Interface den Zugang zu den verfügbaren Präsentationsverbindungen bereit.
+Im steuernden Browsing-Kontext bietet das `Presentation`-Interface einen Mechanismus, um das standardmäßige Verhalten des Browsers, eine Präsentation auf einem externen Bildschirm zu starten, zu überschreiben. Im empfangenden Browsing-Kontext bietet das `Presentation`-Interface den Zugriff auf die verfügbaren Präsentationsverbindungen.
 
 ## Instanz-Eigenschaften
 
-- {{DOMxRef("Presentation.defaultRequest")}} {{Experimental_Inline}}
-  - : In einem [steuernden Benutzeragenten](https://www.w3.org/TR/presentation-api/#dfn-controlling-user-agent) _MUSS_ das Attribut `defaultRequest` die [Standard-Präsentationsanfrage](https://www.w3.org/TR/presentation-api/#dfn-default-presentation-request) zurückgeben, falls vorhanden, andernfalls `null`. In einem [empfangenden Browsing-Kontext](https://www.w3.org/TR/presentation-api/#dfn-receiving-browsing-context) _MUSS_ es `null` zurückgeben.
-- {{DOMxRef("Presentation.receiver")}} {{Experimental_Inline}}
-  - : In einem [empfangenden Benutzeragenten](https://www.w3.org/TR/presentation-api/#dfn-receiving-user-agent) _MUSS_ das Attribut `receiver` die {{DOMxRef("PresentationReceiver")}}-Instanz zurückgeben, die mit dem [empfangenden Browsing-Kontext](https://www.w3.org/TR/presentation-api/#dfn-receiving-browsing-context) verbunden ist und vom [empfangenden Benutzeragenten](https://www.w3.org/TR/presentation-api/#dfn-receiving-user-agent) erstellt wurde, wenn der [empfangende Browsing-Kontext](https://www.w3.org/TR/presentation-api/#dfn-receiving-browsing-context) erstellt wird.
+- [`Presentation.defaultRequest`](/de/docs/Web/API/Presentation/defaultRequest) {{Experimental_Inline}}
+  - : In einem [controlling user agent](https://www.w3.org/TR/presentation-api/#dfn-controlling-user-agent) _MUSS_ das `defaultRequest`-Attribut die [default presentation request](https://www.w3.org/TR/presentation-api/#dfn-default-presentation-request) zurückgeben, falls vorhanden, andernfalls `null`. In einem [receiving browsing context](https://www.w3.org/TR/presentation-api/#dfn-receiving-browsing-context) _MUSS_ es `null` zurückgeben.
+- [`Presentation.receiver`](/de/docs/Web/API/Presentation/receiver) {{Experimental_Inline}}
+  - : In einem [receiving user agent](https://www.w3.org/TR/presentation-api/#dfn-receiving-user-agent) _MUSS_ das `receiver`-Attribut die [`PresentationReceiver`](/de/docs/Web/API/PresentationReceiver)-Instanz zurückgeben, die mit dem [receiving browsing context](https://www.w3.org/TR/presentation-api/#dfn-receiving-browsing-context) verbunden ist und von dem [receiving user agent](https://www.w3.org/TR/presentation-api/#dfn-receiving-user-agent) erstellt wurde, wenn der [receiving browsing context](https://www.w3.org/TR/presentation-api/#dfn-receiving-browsing-context) erstellt wird.
 
 ## Instanz-Methoden
 

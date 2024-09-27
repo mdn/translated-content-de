@@ -1,30 +1,30 @@
 ---
-title: Kommentar
+title: Comment
 slug: Web/API/Comment
 l10n:
-  sourceCommit: e811fc31b67e145c5882e8e3f128d1938c627a51
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{ ApiRef("DOM") }}
 
-Die **`Comment`**-Schnittstelle steht für textuelle Anmerkungen innerhalb von Markup; obwohl sie normalerweise nicht visuell dargestellt werden, sind solche Kommentare im Quelltext einsehbar.
+Das **`Comment`**-Interface repräsentiert textuelle Notationen innerhalb von Markup. Obwohl sie in der Regel nicht visuell angezeigt werden, sind solche Kommentare im Quellansichtsmodus lesbar.
 
-Kommentare werden in HTML und XML als Inhalt zwischen '`<!--`' und '`-->`' dargestellt. In XML, wie innerhalb von SVG- oder MathML-Markup, kann die Zeichenfolge '`--`' nicht innerhalb eines Kommentars verwendet werden.
+Kommentare werden in HTML und XML als Inhalt zwischen `<!--` und `-->` dargestellt. In XML, wie innerhalb von SVG- oder MathML-Markup, darf die Zeichenfolge `--` nicht in einem Kommentar verwendet werden.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle hat keine spezifischen Eigenschaften, erbt jedoch die ihrer übergeordneten Schnittstelle {{domxref("CharacterData")}} und indirekt die von {{domxref("Node")}}._
+_Dieses Interface hat keine spezifischen Eigenschaften, erbt jedoch die von seinem Elternteil [`CharacterData`](/de/docs/Web/API/CharacterData) und indirekt die von [`Node`](/de/docs/Web/API/Node)._
 
 ## Konstruktor
 
-- {{ domxref("Comment.Comment()", "Comment()") }}
-  - : Gibt ein neues `Comment`-Objekt mit dem Parameter als seinen Textinhalt zurück. Wenn nicht vorhanden, ist der Standardwert der leere String, `''`.
+- [`Comment()`](/de/docs/Web/API/Comment/Comment)
+  - : Gibt ein neues `Comment`-Objekt mit dem Parameter als seinem Textinhalt zurück. Wenn dieser nicht vorhanden ist, ist der Standardwert der leere String `''`.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine spezifische Methode, erbt jedoch die ihrer übergeordneten Schnittstelle {{domxref("CharacterData")}} und indirekt die von {{domxref("Node")}}._
+_Dieses Interface hat keine spezifischen Methoden, erbt jedoch die von seinem Elternteil [`CharacterData`](/de/docs/Web/API/CharacterData) und indirekt die von [`Node`](/de/docs/Web/API/Node)._
 
 ## Spezifikationen
 
@@ -36,4 +36,4 @@ _Diese Schnittstelle hat keine spezifische Methode, erbt jedoch die ihrer überg
 
 ## Siehe auch
 
-- [Die DOM API](/de/docs/Web/API/Document_Object_Model)
+- [Die DOM-API](/de/docs/Web/API/Document_Object_Model)

@@ -7,38 +7,38 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Die Cross-Origin Resource Policy (CORP) wird durch den {{httpheader("Cross-Origin-Resource-Policy")}} Antwort-Header festgelegt, der es Websites und Anwendungen ermöglicht, sich gegen Schwachstellen bei bestimmten Cross-Origin-Anfragen zu schützen (wie jene, die durch {{htmlelement("script")}} und {{htmlelement("img")}} Elemente gemacht werden).
+Die Cross-Origin Resource Policy (CORP) wird durch den {{httpheader("Cross-Origin-Resource-Policy")}} Antwort-Header festgelegt, der es Websites und Anwendungen ermöglicht, sich gegen Schwachstellen im Zusammenhang mit bestimmten Cross-Origin-Anfragen (wie denen, die von {{htmlelement("script")}}- und {{htmlelement("img")}}-Elementen gestellt werden) zu schützen.
 
 ## Problem
 
-Einige Side-Channel-Hardware-Schwachstellen (auch bekannt als Cross-site Leaks oder XS-Leaks), wie [Meltdown](<https://en.wikipedia.org/wiki/Meltdown_(security_vulnerability)>) und [Spectre](<https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)>), nutzen eine Race-Condition, die im Rahmen der spekulativen Ausführungsfunktion moderner Prozessoren entsteht. Diese Funktionalität ist darauf ausgelegt, die Leistung zu verbessern, kann jedoch manipuliert werden, um sensible Daten offenzulegen.
+Einige Seitenkanal-Hardware-Schwachstellen (auch als Cross-site Leaks oder XS-Leaks bekannt), wie [Meltdown](<https://de.wikipedia.org/wiki/Meltdown_(Sicherheitslücke)>) und [Spectre](<https://de.wikipedia.org/wiki/Spectre_(Sicherheitslücke)>), nutzen eine Race-Condition aus, die als Teil der spekulativen Ausführungsfunktion von modernen Prozessoren entsteht. Diese Funktion ist dazu gedacht, die Leistung zu verbessern, kann jedoch manipuliert werden, um sensible Daten offenzulegen.
 
 ## Lösung
 
-Verwenden Sie `Cross-Origin-Resource-Policy`, um [`no-cors`](/de/docs/Web/API/RequestInit#mode) Cross-Origin-Anfragen an bestimmte Ressourcen zu blockieren. Da diese Richtlinie über einen Antwort-Header ausgedrückt wird, wird die tatsächliche Anfrage nicht verhindert. Stattdessen verhindert der Browser, dass das Ergebnis offengelegt wird, indem er den Antwortinhalt ausblendet.
+Verwenden Sie `Cross-Origin-Resource-Policy`, um [`no-cors`](/de/docs/Web/API/RequestInit#mode) Cross-Origin-Anfragen zu bestimmten Ressourcen zu blockieren. Da diese Richtlinie über einen Antwort-Header ausgedrückt wird, wird die eigentliche Anfrage nicht verhindert. Stattdessen verhindert der Browser, dass das Ergebnis durch Strippen des Antwortkörpers offengelegt wird.
 
 Die möglichen Werte sind:
 
 - `same-origin`
-  - : Beschränkt den Ressourcenzugriff auf Anfragen, die vom selben Ursprung kommen. Dies wird für URLs empfohlen, die mit sensiblen Benutzerinformationen oder privaten APIs antworten.
+  - : Beschränkt den Ressourcenzugang auf Anfragen, die von demselben Ursprung kommen. Dies wird für URLs empfohlen, die mit sensiblen Benutzerdaten oder privaten APIs antworten.
 - `same-site`
-  - : Beschränkt den Ressourcenzugriff auf Anfragen, die von der gleichen Website kommen. Dies wird für Antworten von Ursprüngen empfohlen, deren Funktionalität über mehrere andere Ursprünge derselben Site geteilt wird. Beispiele sind ein Unternehmens-CDN, das statische Ressourcen liefert, und eine Single-Sign-On (SSO) App, die die Authentifizierung verwaltet.
+  - : Beschränkt den Ressourcenzugang auf Anfragen, die von derselben Seite kommen. Dies wird für Antworten von Ursprüngen empfohlen, deren Funktionalität über mehrere andere Ursprünge derselben Seite geteilt wird. Beispiele umfassen ein Firmencdn, das statische Ressourcen bereitstellt, und eine Single Sign-On (SSO) App, die die Authentifizierung übernimmt.
 - `cross-origin`
-  - : Ermöglicht den Zugriff auf Ressourcen durch Cross-Origin-Anfragen. Dies wird nur für Antworten von weit verbreiteten Ursprüngen empfohlen, wie öffentliche CDNs oder Widgets. Dies ist der Standardwert, wenn `Cross-Origin-Resource-Policy` nicht festgelegt ist.
+  - : Erlaubt den Zugriff auf Ressourcen durch Cross-Origin-Anfragen. Dies wird nur für Antworten von weithin genutzten Ursprüngen wie öffentlichen CDNs oder Widgets empfohlen. Dies ist der Standardwert, wenn `Cross-Origin-Resource-Policy` nicht gesetzt ist.
 
-Setzen Sie den restriktivsten Wert, der für Ihre Website möglich ist.
+Setzen Sie den restriktivsten möglichen Wert für Ihre Website.
 
-Falls Ihre Website Zugriff auf Cross-Origin-Ressourcen benötigt, entscheiden Sie sich für einen besseren Standard, indem Sie einen {{httpheader("Cross-Origin-Embedder-Policy")}} Header zusammen mit den zugehörigen Anfragen senden. Dies verhindert das Laden von Cross-Origin-Ressourcen, die nicht explizit einen `Cross-Origin-Resource-Policy: cross-origin` Header senden.
+Wenn Ihre Website wiederum Zugriff auf Cross-Origin-Ressourcen benötigt, entscheiden Sie sich für einen besseren Standard, indem Sie einen {{httpheader("Cross-Origin-Embedder-Policy")}} Header zusammen mit den zugehörigen Anfragen senden. Dies verhindert das Laden von Cross-Origin-Ressourcen, die nicht explizit auch einen `Cross-Origin-Resource-Policy: cross-origin` Header senden.
 
 ## Beispiele
 
-Weisen Sie Browser an, Cross-Origin-Anfragen im `no-cors` Modus zu verweigern:
+Weisen Sie Browser an, Cross-Origin-Anfragen im `no-cors`-Modus zu verbieten:
 
 ```http
 Cross-Origin-Resource-Policy: same-origin
 ```
 
-Weisen Sie Browser an, den Zugriff auf Cross-Origin-Ressourcen zu erlauben, einschließlich des Zugriffs auf Funktionen mit ungedrosselten Timern (wie {{jsxref("SharedArrayBuffer")}} Objekte oder {{domxref("Performance.now()")}}):
+Weisen Sie Browser an, Cross-Origin-Ressourcenzugriff zu erlauben, einschließlich des Zugriffs auf Funktionen mit nicht gedrosselten Timern (wie {{jsxref("SharedArrayBuffer")}} Objekte oder [`Performance.now()`](/de/docs/Web/API/Performance/now)):
 
 ```http
 Cross-Origin-Resource-Policy: same-origin
@@ -49,7 +49,7 @@ Dies erlaubt auch das Einbetten solcher Ressourcen.
 
 ## Siehe auch
 
-- [Consider deploying Cross-Origin Resource Policy](https://resourcepolicy.fyi/)
+- [Erwägen Sie die Bereitstellung der Cross-Origin Resource Policy](https://resourcepolicy.fyi/)
 - [XS-Leaks Wiki](https://xsleaks.dev/)
 - [`Access-Control-Allow-Origin`](/de/docs/Web/HTTP/Headers/Access-Control-Allow-Origin)
 - [`Cross-Origin-Embedder-Policy`](/de/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy)

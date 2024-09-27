@@ -2,46 +2,46 @@
 title: SVGLengthList
 slug: Web/API/SVGLengthList
 l10n:
-  sourceCommit: 2e433570adf8491df7fb14511f46504e37d0bf77
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{APIRef("SVG")}}
 
-Die `SVGLengthList`-Schnittstelle definiert eine Liste von {{ domxref("SVGLength") }}-Objekten. Sie wird für die Eigenschaften {{domxref("SVGAnimatedLengthList.baseVal", "baseVal")}} und {{domxref("SVGAnimatedLengthList.animVal", "animVal")}} von {{domxref("SVGAnimatedLengthList")}} verwendet.
+Die `SVGLengthList`-Schnittstelle definiert eine Liste von [`SVGLength`](/de/docs/Web/API/SVGLength)-Objekten. Sie wird für die Eigenschaften [`baseVal`](/de/docs/Web/API/SVGAnimatedLengthList/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLengthList/animVal) von [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList) verwendet.
 
-Ein `SVGLengthList`-Objekt kann als schreibgeschützt festgelegt werden, was bedeutet, dass Versuche, das Objekt zu ändern, eine Ausnahme auslösen.
+Ein `SVGLengthList`-Objekt kann als schreibgeschützt definiert werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
 
-Ein `SVGLengthList`-Objekt ist indizierbar und kann wie ein Array zugegriffen werden.
+Ein `SVGLengthList`-Objekt ist indexierbar und kann wie ein Array angesprochen werden.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("SVGLengthList.length", "length")}}
+- [`length`](/de/docs/Web/API/SVGLengthList/length)
   - : Die Anzahl der Elemente in der Liste.
-- {{domxref("SVGLengthList.numberOfItems", "numberOfItems")}}
+- [`numberOfItems`](/de/docs/Web/API/SVGLengthList/numberOfItems)
   - : Die Anzahl der Elemente in der Liste.
 
 ## Instanz-Methoden
 
-- {{domxref("SVGLengthList.appendItem", "appendItem()")}}
+- [`appendItem()`](/de/docs/Web/API/SVGLengthList/appendItem)
   - : Fügt ein neues Element am Ende der Liste ein.
-- {{domxref("SVGLengthList.clear", "clear()")}}
-  - : Löscht alle bestehenden Elemente aus der Liste, sodass eine leere Liste entsteht.
-- {{domxref("SVGLengthList.initialize", "initialize()")}}
-  - : Löscht alle bestehenden Elemente aus der Liste und initialisiert die Liste neu, um das durch den Parameter angegebene Einzelobjekt zu halten.
-- {{domxref("SVGLengthList.getItem", "getItem()")}}
+- [`clear()`](/de/docs/Web/API/SVGLengthList/clear)
+  - : Entfernt alle vorhandenen Elemente aus der Liste, sodass eine leere Liste entsteht.
+- [`initialize()`](/de/docs/Web/API/SVGLengthList/initialize)
+  - : Entfernt alle vorhandenen Elemente aus der Liste und initialisiert die Liste neu, um das durch den Parameter angegebene einzelne Element zu halten.
+- [`getItem()`](/de/docs/Web/API/SVGLengthList/getItem)
   - : Gibt das angegebene Element aus der Liste zurück.
-- {{domxref("SVGLengthList.insertItemBefore", "insertItemBefore()")}}
-  - : Fügt ein neues Element an der angegebenen Position in die Liste ein.
-- {{domxref("SVGLengthList.removeItem", "removeItem()")}}
-  - : Entfernt ein bestehendes Element aus der Liste.
-- {{domxref("SVGLengthList.replaceItem", "replaceItem()")}}
-  - : Ersetzt ein bestehendes Element in der Liste durch ein neues Element.
+- [`insertItemBefore()`](/de/docs/Web/API/SVGLengthList/insertItemBefore)
+  - : Fügt ein neues Element in die Liste an der angegebenen Position ein.
+- [`removeItem()`](/de/docs/Web/API/SVGLengthList/removeItem)
+  - : Entfernt ein vorhandenes Element aus der Liste.
+- [`replaceItem()`](/de/docs/Web/API/SVGLengthList/replaceItem)
+  - : Ersetzt ein vorhandenes Element in der Liste durch ein neues Element.
 
 ## Beispiele
 
 ### Verwendung von SVGLengthList
 
-Ein `SVGLengthList`-Objekt kann von einem {{domxref("SVGAnimatedLengthList")}}-Objekt abgerufen werden, welches von vielen animierbaren Längenattributen, wie {{domxref("SVGTextPositioningElement.x")}}, abgerufen werden kann.
+Ein `SVGLengthList`-Objekt kann aus einem [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList)-Objekt abgerufen werden, das selbst aus vielen animierbaren Längenattributen abrufbar ist, wie z.B. [`SVGTextPositioningElement.x`](/de/docs/Web/API/SVGTextPositioningElement/x).
 
 #### HTML
 
@@ -112,7 +112,7 @@ document
 
 ## Siehe auch
 
-- {{domxref("SVGNumberList")}}
-- {{domxref("SVGPointList")}}
-- {{domxref("SVGStringList")}}
-- {{domxref("SVGTransformList")}}
+- [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)
+- [`SVGPointList`](/de/docs/Web/API/SVGPointList)
+- [`SVGStringList`](/de/docs/Web/API/SVGStringList)
+- [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)

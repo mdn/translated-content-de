@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode invalidateSubFramebuffer()"
+title: "WebGL2RenderingContext: invalidateSubFramebuffer()-Methode"
 short-title: invalidateSubFramebuffer()
 slug: Web/API/WebGL2RenderingContext/invalidateSubFramebuffer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode **`WebGL2RenderingContext.invalidateSubFramebuffer()`** des [WebGL 2 API](/de/docs/Web/API/WebGL_API) invalidiert Teile des Inhalts von Anhängen in einem Framebuffer.
+Die **`WebGL2RenderingContext.invalidateSubFramebuffer()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) invalidiert Teile der Inhalte von Attachments in einem Framebuffer.
 
 ## Syntax
 
@@ -20,18 +20,18 @@ invalidateSubFramebuffer(target, attachments, x, y, width, height)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Bindepunkt (target) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindepunkt (Target) angibt. Mögliche Werte:
 
     - `gl.FRAMEBUFFER`
-      - : Sammlung von Datenpufferspeichern für Farb-, Alpha-, Tiefen- und Stencil-Puffer, die zum Rendern eines Bildes verwendet werden.
+      - : Sammlung von Pufferspeicher für Farbe, Alpha, Tiefe und Stencil-Puffer, die zur Darstellung eines Bildes verwendet werden.
     - `gl.DRAW_FRAMEBUFFER`
       - : Entspricht `gl.FRAMEBUFFER`.
     - `gl.READ_FRAMEBUFFER`
-      - : Wird als Quelle für Lesevorgänge verwendet.
+      - : Wird als Quelle für Leseoperationen verwendet.
 
 - `attachments`
 
-  - : Ein {{jsxref("Array")}} von {{domxref("WebGL_API/Types", "GLenum")}}, das die zu invalidierenden Befestigungspunkte angibt. Mögliche Werte:
+  - : Ein {{jsxref("Array")}} von [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die zu invalidierenden Attachment-Punkte angibt. Mögliche Werte:
 
     - `gl.COLOR_ATTACHMENT{0-15}`
       - : Invalidiert einen der Farb-Puffer des Framebuffers.
@@ -43,13 +43,13 @@ invalidateSubFramebuffer(target, attachments, x, y, width, height)
       - : Invalidiert sowohl den Tiefen- als auch den Stencil-Puffer des Framebuffers.
 
 - `x`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der den linken Ursprung des Pixelrechtecks angibt, das invalidiert werden soll.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den linken Ursprung des zu invalidierenden Pixel-Rechtecks angibt.
 - `y`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der den unteren Ursprung des Pixelrechtecks angibt, das invalidiert werden soll.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den unteren Ursprung des zu invalidierenden Pixel-Rechtecks angibt.
 - `width`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, der die Breite des Pixelrechtecks angibt, das invalidiert werden soll.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite des zu invalidierenden Pixel-Rechtecks angibt.
 - `height`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, der die Höhe des Pixelrechtecks angibt, das invalidiert werden soll.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe des zu invalidierenden Pixel-Rechtecks angibt.
 
 ### Rückgabewert
 
@@ -78,4 +78,4 @@ gl.invalidateSubFramebuffer(
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.invalidateFramebuffer()")}}
+- [`WebGL2RenderingContext.invalidateFramebuffer()`](/de/docs/Web/API/WebGL2RenderingContext/invalidateFramebuffer)

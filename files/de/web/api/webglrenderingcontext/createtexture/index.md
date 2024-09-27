@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode createTexture()"
+title: "WebGLRenderingContext: createTexture()-Methode"
 short-title: createTexture()
 slug: Web/API/WebGLRenderingContext/createTexture
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.createTexture()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein {{domxref("WebGLTexture")}}-Objekt.
+Die **`WebGLRenderingContext.createTexture()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLTexture")}}-Objekt, an das Bilder gebunden werden können.
+Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt, an das Bilder gebunden werden können.
 
 ## Beispiele
 
-Siehe auch das [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial) zum [Verwenden von Texturen in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL).
+Siehe auch das [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial) zur [Verwendung von Texturen in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL).
 
 ### Erstellen einer Textur
 
@@ -46,7 +46,7 @@ const texture = gl.createTexture();
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindTexture()")}}
-- {{domxref("WebGLRenderingContext.deleteTexture()")}}
-- {{domxref("WebGLRenderingContext.isTexture()")}}
-- {{domxref("WebGLRenderingContext.texImage2D()")}}
+- [`WebGLRenderingContext.bindTexture()`](/de/docs/Web/API/WebGLRenderingContext/bindTexture)
+- [`WebGLRenderingContext.deleteTexture()`](/de/docs/Web/API/WebGLRenderingContext/deleteTexture)
+- [`WebGLRenderingContext.isTexture()`](/de/docs/Web/API/WebGLRenderingContext/isTexture)
+- [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D)

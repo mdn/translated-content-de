@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`desiredSize`** schreibgeschützte Eigenschaft der {{domxref("ReadableByteStreamController")}}-Schnittstelle gibt die Anzahl der Bytes zurück, die benötigt werden, um die interne Warteschlange des Streams auf die "gewünschte Größe" zu füllen.
+Die **`desiredSize`**-Eigenschaft des [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController)-Interfaces ist eine schreibgeschützte Eigenschaft, die die Anzahl von Bytes zurückgibt, die benötigt werden, um die interne Warteschlange des Streams auf die "gewünschte Größe" zu füllen.
 
-Der Wert wird vom Stream verwendet, um eine bevorzugte Flussrate zur zugrunde liegenden Quelle anzuzeigen. Quellen, die Drosselung oder Pausierung ihres Datenzuflusses unterstützen (nicht alle tun dies!), sollten den Zufluss so steuern, dass `desiredSize` des Stream-Puffers positiv und so nah wie möglich bei Null gehalten wird.
+Der Wert wird vom Stream verwendet, um eine bevorzugte Flussrate zur zugrunde liegenden Quelle anzugeben. Quellen, die Drosselung oder das Anhalten ihres Datenzuflusses unterstützen (nicht alle tun dies!), sollten den Zufluss so steuern, dass die `desiredSize` des Stream-Puffers positiv und so nah wie möglich bei null bleibt.
 
 Die `desiredSize` wird verwendet, um [Gegendruck](/de/docs/Web/API/Streams_API/Concepts#backpressure) von nachgelagerten Verbrauchern anzuwenden.
 
 ## Wert
 
-Ein ganzzahliger Wert. Beachten Sie, dass dieser Wert negativ sein kann, wenn die Warteschlange überfüllt ist.
+Ein Integer. Beachten Sie, dass dieser Wert negativ sein kann, wenn die Warteschlange überfüllt ist.
 
-Der Wert wird `null` sein, wenn der Stream einen Fehler aufweist, und `0`, wenn er geschlossen ist.
+Der Wert wird `null` sein, wenn der Stream einen Fehler hat, und `0`, wenn er geschlossen ist.
 
 ## Beispiele
 
-Das Beispiel [Ein lesbarer Stream mit einer zugrunde liegenden Push-Quelle und Unterstützung für Gegendruck](https://streams.spec.whatwg.org/#example-rs-push-backpressure) in der Spezifikation bietet ein gutes Beispiel dafür, wie `desiredSize` verwendet wird, um manuell zu erkennen, wann der Stream voll ist und Gegendruck angewendet werden kann.
+Das Beispiel [A readable stream with an underlying push source and backpressure support](https://streams.spec.whatwg.org/#example-rs-push-backpressure) im Standard bietet ein gutes Beispiel dafür, wie `desiredSize` verwendet wird, um manuell zu erkennen, wenn der Stream voll ist und Gegendruck anzuwenden.
 
-Während das Beispiel eine Standardquelle verwendet, sind die Konzepte genau die gleichen wie bei lesbaren Bytequellen.
+Während das Beispiel eine Standardquelle verwendet, sind die Konzepte genau gleich wie für lesbare Bytequellen.
 
 ## Spezifikationen
 
@@ -36,5 +36,5 @@ Während das Beispiel eine Standardquelle verwendet, sind die Konzepte genau die
 
 ## Siehe auch
 
-- [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
-- {{domxref("ReadableByteStreamController")}}
+- [Verwendung von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController)

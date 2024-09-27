@@ -8,33 +8,36 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`lowerOpen`** des
-{{domxref("IDBKeyRange")}}-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob der
-untere Grenzwert im Schlüsselbereich enthalten ist oder nicht.
+Die schreibgeschützte **`lowerOpen`**-Eigenschaft des
+[`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob der
+untere Grenzwert im Schlüsselbereich enthalten ist.
 
 ## Wert
 
 Ein boolescher Wert:
 
-| Wert    | Bedeutung                                              |
-| ------- | ------------------------------------------------------ |
-| `true`  | Der untere Grenzwert ist nicht im Schlüsselbereich enthalten. |
-| `false` | Der untere Grenzwert ist im Schlüsselbereich enthalten.     |
+| Wert    | Bedeutung                                                     |
+| ------- | ------------------------------------------------------------- |
+| `true`  | Der untere Grenzwert ist im Schlüsselbereich nicht enthalten. |
+| `false` | Der untere Grenzwert ist im Schlüsselbereich enthalten.       |
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Sie einen Schlüsselbereich verwenden würden. Hier deklarieren wir `keyRangeValue = IDBKeyRange.upperBound("F", "W", true, true);` — ein
-Bereich, der alles zwischen "F" und "W" umfasst, diese jedoch nicht einschließt — da sowohl die obere als auch die untere Grenze als offen (`true`) deklariert wurden. Wir öffnen eine
-Transaktion (mit {{domxref("IDBTransaction")}}) und einen Objektspeicher und öffnen einen Cursor mit {{domxref("IDBObjectStore.openCursor")}}, wobei `keyRangeValue` als
-optionaler Schlüsselbereichswert angegeben ist.
+Das folgende Beispiel veranschaulicht, wie Sie einen Schlüsselbereich nutzen würden. Hier
+deklarieren wir `keyRangeValue = IDBKeyRange.upperBound("F", "W", true, true);` — einen
+Bereich, der alles zwischen "F" und "W" enthält, jedoch diese nicht — da sowohl die
+oberen als auch die unteren Grenzen als offen (`true`) deklariert wurden. Wir öffnen eine
+Transaktion (mit [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)) und einen Objektspeicher und öffnen einen Cursor
+mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), wobei wir `keyRangeValue` als
+seinen optionalen Schlüsselbereichswert deklarieren.
 
-Nach der Deklaration des Schlüsselbereichs protokollieren wir den Wert seiner `lowerOpen`-Eigenschaft in der
-Konsole, der als "true" erscheinen sollte: Die untere Grenze ist offen und wird daher nicht im
+Nach der Deklaration des Schlüsselbereichs protokollieren wir den Wert seiner `lowerOpen`-Eigenschaft
+in der Konsole, der als "true" erscheinen sollte: Die untere Grenze ist offen und wird daher nicht im
 Bereich enthalten sein.
 
 > [!NOTE]
-> Für ein umfassenderes Beispiel, das es Ihnen ermöglicht, mit dem
-> Schlüsselbereich zu experimentieren, werfen Sie einen Blick auf unser [IDBKeyRange-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbkeyrange) Repo ([sehen Sie das Beispiel auch live an](https://mdn.github.io/dom-examples/indexeddb-examples/idbkeyrange/).
+> Für ein vollständigeres Beispiel, das Ihnen erlaubt, mit dem
+> Schlüsselbereich zu experimentieren, werfen Sie einen Blick auf unser [IDBKeyRange-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbkeyrange) Repository ([sehen Sie sich das Beispiel auch live an](https://mdn.github.io/dom-examples/indexeddb-examples/idbkeyrange/).)
 
 ```js
 function displayData() {
@@ -61,16 +64,16 @@ function displayData() {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwenden von Transaktionen: {{domxref("IDBTransaction")}}
-- Einstellen eines Schlüsselbereichs: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwenden von Cursoren: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einen Schlüsselbereich festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

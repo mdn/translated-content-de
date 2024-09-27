@@ -1,5 +1,5 @@
 ---
-title: arabische Form
+title: arabic-form
 slug: Web/SVG/Attribute/arabic-form
 l10n:
   sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`arabic-form`**-Attribut gibt an, welche der vier möglichen Formen ein arabisches Glyph darstellt.
+Das **`arabic-form`** Attribut gibt an, welche der vier möglichen Formen ein arabisches Glyph darstellt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -36,13 +36,13 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `initial`
-  - : Dieser Wert gibt an, dass das Glyph die Anfangsform darstellt.
+  - : Dieser Wert zeigt an, dass das Glyph die Anfangsform darstellt.
 - `medial`
-  - : Dieser Wert gibt an, dass das Glyph die mittlere Form darstellt.
+  - : Dieser Wert zeigt an, dass das Glyph die mittlere Form darstellt.
 - `terminal`
-  - : Dieser Wert gibt an, dass das Glyph die Endform darstellt.
+  - : Dieser Wert zeigt an, dass das Glyph die Endform darstellt.
 - `isolated`
-  - : Dieser Wert gibt an, dass das Glyph die isolierte Form darstellt.
+  - : Dieser Wert zeigt an, dass das Glyph die isolierte Form darstellt.
 
 ## Spezifikationen
 

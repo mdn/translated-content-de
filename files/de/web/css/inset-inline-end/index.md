@@ -7,28 +7,28 @@ l10n:
 
 {{CSSRef}}
 
-Die **`inset-inline-end`**-Eigenschaft von [CSS](/de/docs/Web/CSS) definiert den logischen Inline-End-Versatz eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements einer physischen Verschiebung zugeordnet wird. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`inset-inline-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Inline-End-Offset eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements auf einen physischen Versatz abgebildet wird. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}} Eigenschaft, je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Diese {{glossary("inset properties", "Versatzeigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
+Diese [Inset-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Wirkung auf nicht-positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-inline-end.html")}}
 
 ## Syntax
 
 ```css
-/* <length>-Werte */
+/* <length> values */
 inset-inline-end: 3px;
 inset-inline-end: 2.4em;
 inset-inline-end: calc(anchor(self-start) + 5px);
 inset-inline-end: anchor(--myAnchor 50%);
 
-/* <percentage>-Werte bezogen auf die Breite oder Höhe des umschließenden Blocks */
+/* <percentage>s of the width or height of the containing block */
 inset-inline-end: 10%;
 
-/* Schlüsselwort-Wert */
+/* Keyword value */
 inset-inline-end: auto;
 
-/* Globale Werte */
+/* Global values */
 inset-inline-end: inherit;
 inset-inline-end: initial;
 inset-inline-end: revert;
@@ -40,7 +40,7 @@ Die Kurzform für {{cssxref("inset-inline-start")}} und `inset-inline-end` ist {
 
 ### Werte
 
-Die `inset-inline-end`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}} Eigenschaft an.
+Die `inset-inline-end` Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("left")}} Eigenschaft.
 
 ## Formale Definition
 
@@ -52,7 +52,7 @@ Die `inset-inline-end`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("l
 
 ## Beispiele
 
-### Inline-End-Versatz festlegen
+### Inline End-Versatz einstellen
 
 #### HTML
 
@@ -93,6 +93,6 @@ div {
 
 ## Siehe auch
 
-- Die Eigenschaften, die andere Versätze definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, und {{cssxref("inset-inline-start")}}
-- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
+- Die Eigenschaften, die andere Insets definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}} und {{cssxref("inset-inline-start")}}
+- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und {{cssxref("left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

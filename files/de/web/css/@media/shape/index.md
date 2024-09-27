@@ -7,16 +7,16 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Das `shape` [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Form des Geräts zu überprüfen und rechteckige von runden Anzeigen zu unterscheiden.
+Das `shape` [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Form des Geräts zu testen und rechteckige von runden Displays zu unterscheiden.
 
 ## Syntax
 
-Das diskrete Feature `shape` wird als einer von zwei zulässigen Zeichenfolgen angegeben: entweder `rect`, das einen rechteckigen Bildschirm darstellt, oder `round`, das einen kreisförmigen, ovalen oder elliptischen Bildschirm repräsentiert.
+Das diskrete `shape`-Feature wird als einer von zwei akzeptablen Zeichenfolgen angegeben, entweder `rect`, was einen rechteckigen Bildschirm darstellt, oder `round`, was einen kreisförmigen, ovalen oder elliptischen Bildschirm darstellt.
 
 - `rect`
-  - : Die Form ist ein achsenparalleles Rechteck oder Quadrat oder eine ähnliche Form wie ein abgerundetes Rechteck, für das traditionelle Designs geeignet sind.
+  - : Die Form ist ein achsensymmetrisches Rechteck oder Quadrat oder eine ähnliche Form wie ein abgerundetes Rechteck, für die traditionelle Designs geeignet sind.
 - `round`
-  - : Die Form ist abgerundet oder eine dem Kreis ähnliche Form wie ein Oval oder eine Ellipse, für die eindeutig abgerundete Designs geeignet sind.
+  - : Die Form ist abgerundet oder ähnelt dem Kreis, wie ein Oval oder eine Ellipse, für die eindeutig abgerundete Designs geeignet sind.
 
 ## Beispiele
 
@@ -50,7 +50,7 @@ h1 {
 
 ### Benutzerdefiniertes Stylesheet
 
-Dieses HTML wendet ein spezielles Stylesheet für Geräte mit runden Bildschirmen an.
+Dieses HTML wird ein spezielles Stylesheet für Geräte mit runden Bildschirmen anwenden.
 
 ```html
 <head>
@@ -73,5 +73,5 @@ Es gibt keinen Browser, der dieses Feature implementiert.
 
 ## Siehe auch
 
-- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwenden von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - [@media](/de/docs/Web/CSS/@media)

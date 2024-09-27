@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`height`**-Eigenschaft der Schnittstelle {{domxref("SVGImageElement")}} ist schreibgeschützt und gibt ein {{domxref("SVGAnimatedLength")}} zurück, das dem {{SVGAttr("height")}}-Attribut des gegebenen {{SVGElement("image")}}-Elements entspricht.
+Die **`height`** Leseeigenschaft des [`SVGImageElement`](/de/docs/Web/API/SVGImageElement)-Interfaces gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem {{SVGAttr("height")}}-Attribut des gegebenen {{SVGElement("image")}}-Elements entspricht.
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedLength")}}.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Spezifikationen
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`imageIndex`**-Eigenschaft des {{domxref("XRWebGLSubImage")}}-Interfaces ist eine Zahl, die den Versatz in das Texturarray darstellt, wenn die Ebene mit `texture-array` angefordert wurde; [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) andernfalls.
+Die schreibgeschützte **`imageIndex`**-Eigenschaft des [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Interfaces ist eine Zahl, die den Versatz im Textur-Array darstellt, wenn die Ebene mit `texture-array` angefordert wurde; andernfalls [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Zahl oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn 
 
 ### Verwendung von `imageIndex`
 
-Die `imageIndex`-Eigenschaft kann an {{domxref("WebGL2RenderingContext.framebufferTextureLayer()")}} übergeben werden, um die Tiefen- und Farbtexturen mit dem korrekten Ebenenindex an einen Framebuffer anzuhängen.
+Die `imageIndex`-Eigenschaft kann an [`WebGL2RenderingContext.framebufferTextureLayer()`](/de/docs/Web/API/WebGL2RenderingContext/framebufferTextureLayer) übergeben werden, um die Tiefen- und Farbtexturen an einen Framebuffer mit dem korrekten Schichteindex zu binden.
 
 ```js
 const xrGlBinding = new XRWebGLBinding(xrSession, gl);
@@ -67,4 +67,4 @@ function onXRFrame(time, xrFrame) {
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.framebufferTextureLayer()")}}
+- [`WebGL2RenderingContext.framebufferTextureLayer()`](/de/docs/Web/API/WebGL2RenderingContext/framebufferTextureLayer)

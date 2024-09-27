@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`throw()`** von {{jsxref("Generator")}} Instanzen wirkt, als ob eine `throw`-Anweisung im Körper des Generators an der aktuellen angehaltenen Stelle eingefügt wird. Dies informiert den Generator über einen Fehlerzustand und ermöglicht es ihm, den Fehler zu behandeln oder aufzuräumen und sich zu schließen.
+Die Methode **`throw()`** von {{jsxref("Generator")}}-Instanzen wirkt so, als ob eine `throw`-Anweisung an der aktuellen angehaltenen Position im Körper des Generators eingefügt wird, was den Generator über eine Fehlerbedingung informiert und ihm ermöglicht, den Fehler zu behandeln oder Bereinigungen durchzuführen und sich selbst zu schließen.
 
 ## Syntax
 
-<!-- Wir fügen normalerweise das "generatorInstance" Subjekt für Methoden nicht hinzu. Aber hier ist es notwendig, weil "throw" ein Schlüsselwort ist, sonst wäre es ungültige Syntax. -->
+<!-- Wir fügen normalerweise nicht das "generatorInstance"-Subjekt für Methoden hinzu. Hier ist es jedoch notwendig, weil "throw" ein Schlüsselwort ist, was andernfalls ungültige Syntax wäre. -->
 
 ```js-nolint
 generatorInstance.throw(exception)
@@ -20,32 +20,32 @@ generatorInstance.throw(exception)
 ### Parameter
 
 - `exception`
-  - : Die zu werfende Ausnahme. Für Debugging-Zwecke ist es nützlich, sie zu einem `instanceof` {{jsxref("Error")}} zu machen.
+  - : Die Ausnahme, die ausgelöst werden soll. Aus Debugging-Zwecken ist es nützlich, sie zu einem `instanceof` {{jsxref("Error")}} zu machen.
 
 ### Rückgabewert
 
-Wenn die geworfene Ausnahme durch einen [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) abgefangen wird und der Generator fortgesetzt wird, um weitere Werte zu liefern, wird ein {{jsxref("Object")}} mit zwei Eigenschaften zurückgegeben:
+Wenn die ausgelöste Ausnahme durch ein [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) abgefangen wird und der Generator fortfährt, um weitere Werte zu liefern, wird ein {{jsxref("Object")}} mit zwei Eigenschaften zurückgegeben:
 
 - `done`
-  - : Ein boolescher Wert:
+  - : Ein boolean-Wert:
     - `true`, wenn der Kontrollfluss der Generatorfunktion das Ende erreicht hat.
     - `false`, wenn die Generatorfunktion in der Lage ist, weitere Werte zu produzieren.
 - `value`
-  - : Der Wert, der aus dem nächsten `yield` Ausdruck abgeleitet wird.
+  - : Der Wert, der aus dem nächsten `yield`-Ausdruck resultiert.
 
 ### Ausnahmen
 
-Wenn die geworfene Ausnahme nicht von einem `try...catch` abgefangen wird, wird die an `throw()` übergebene `exception` aus der Generatorfunktion geworfen.
+Wenn die ausgelöste Ausnahme nicht durch ein `try...catch` abgefangen wird, wird die an `throw()` übergebene `exception` aus der Generatorfunktion herausgeworfen.
 
 ## Beschreibung
 
-Die `throw()` Methode bewirkt, wenn sie aufgerufen wird, dass eine `throw exception;` Anweisung im Körper des Generators an der aktuellen angehaltenen Stelle eingefügt wird, wobei `exception` die an die `throw()` Methode übergebene Ausnahme ist. Daher führt ein typischer Ablauf, wenn `throw(exception)` aufgerufen wird, dazu, dass der Generator auslöst. Wenn der `yield` Ausdruck jedoch in einem `try...catch` Block eingeschlossen ist, kann der Fehler abgefangen werden und der Kontrollfluss kann entweder nach der Fehlerbehandlung fortgesetzt oder ordnungsgemäß beendet werden.
+Die `throw()`-Methode, wenn sie aufgerufen wird, kann als ob eine `throw exception;`-Anweisung im Körper des Generators an der aktuellen angehaltenen Position eingefügt wird, aufgefasst werden, wobei `exception` die an die `throw()`-Methode übergebene Ausnahme ist. In einem typischen Ablauf wird das Aufrufen von `throw(exception)` dazu führen, dass der Generator wirft. Wenn jedoch der `yield`-Ausdruck in einem `try...catch`-Block eingeschlossen ist, kann der Fehler abgefangen werden und der Kontrollfluss kann entweder nach der Fehlerbehandlung fortgesetzt oder sanft beendet werden.
 
 ## Beispiele
 
 ### Verwendung von throw()
 
-Das folgende Beispiel zeigt einen einfachen Generator und einen Fehler, der unter Verwendung der `throw` Methode geworfen wird. Ein Fehler kann wie üblich von einem {{jsxref("Statements/try...catch", "try...catch")}} Block abgefangen werden.
+Das folgende Beispiel zeigt einen einfachen Generator und einen Fehler, der mit der `throw`-Methode ausgelöst wird. Ein Fehler kann wie üblich durch einen {{jsxref("Statements/try...catch", "try...catch")}}-Block abgefangen werden.
 
 ```js
 function* gen() {

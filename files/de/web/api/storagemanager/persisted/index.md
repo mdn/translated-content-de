@@ -1,5 +1,5 @@
 ---
-title: "StorageManager: persisted() Methode"
+title: "StorageManager: persisted()-Methode"
 short-title: persisted()
 slug: Web/API/StorageManager/persisted
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Storage")}} {{AvailableInWorkers}}
 
-Die **`persisted()`** Methode der {{domxref("StorageManager")}} Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das sich zu `true` auflöst, wenn der Speicherbereich Ihrer Website persistent ist.
+Die **`persisted()`**-Methode der [`StorageManager`](/de/docs/Web/API/StorageManager)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das zu `true` aufgelöst wird, wenn der Speicherbereich Ihrer Website persistent ist.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das sich zu einem {{jsxref('Boolean')}} auflöst.
+Ein {{jsxref('Promise')}}, das zu einem {{jsxref('Boolean')}} aufgelöst wird.
 
 ### Ausnahmen
 
 - `TypeError`
-  - : Wird ausgelöst, wenn das Abrufen eines lokalen Speichers nicht möglich war. Zum Beispiel, wenn der aktuelle Ursprung ein undurchsichtiger Ursprung ist oder der Benutzer den Speicher deaktiviert hat.
+  - : Wird ausgelöst, wenn der Zugriff auf ein lokales Speicherfach fehlschlug. Zum Beispiel, wenn der aktuelle Ursprung ein undurchsichtiger Ursprung ist oder wenn der Benutzer den Speicher deaktiviert hat.
 
 ## Beispiel
 

@@ -1,5 +1,5 @@
 ---
-title: "XRView: Eigenschaft recommendedViewportScale"
+title: "XRView: recommendedViewportScale-Eigenschaft"
 short-title: recommendedViewportScale
 slug: Web/API/XRView/recommendedViewportScale
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`recommendedViewportScale`**-Eigenschaft der {{domxref("XRView")}}-Schnittstelle ist der empfohlene Viewport-Skalierungswert, den Sie für {{domxref("XRView.requestViewportScale()")}} verwenden können, falls der Benutzeragent eine solche Empfehlung hat; [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) andernfalls.
+Die schreibgeschützte **`recommendedViewportScale`**-Eigenschaft der [`XRView`](/de/docs/Web/API/XRView)-Schnittstelle ist der empfohlene Viewport-Skalierungswert, den Sie für [`XRView.requestViewportScale()`](/de/docs/Web/API/XRView/requestViewportScale) verwenden können, falls der Benutzeragent eine solche Empfehlung hat; andernfalls [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
 
 ## Wert
 
-Eine Zahl größer als 0.0 und kleiner oder gleich 1.0; oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn der Benutzeragent keine empfohlene Skalierung bereitstellt.
+Eine Zahl größer als 0,0 und kleiner oder gleich 1,0; oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn der Benutzeragent keine empfohlene Skalierung bereitstellt.
 
 ## Beispiele
 
 ### Dynamische Viewport-Skalierung
 
-Dynamische Viewport-Skalierung ermöglicht es Anwendungen, nur einen Teil des verfügbaren {{domxref("XRWebGLLayer.framebuffer", "framebuffer")}} zu nutzen. Die Funktion ist möglicherweise nicht auf allen Systemen verfügbar, da sie von der Treiberunterstützung abhängt. Daher sollten Sie sicherstellen, dass {{domxref("XRView.requestViewportScale")}} existiert, bevor Sie es aufrufen.
+Dynamische Viewport-Skalierung ermöglicht es Anwendungen, nur einen Teil des verfügbaren [`framebuffer`](/de/docs/Web/API/XRWebGLLayer/framebuffer) zu nutzen. Diese Funktion ist möglicherweise nicht auf allen Systemen verfügbar, da sie von der Treiberunterstützung abhängt. Daher sollten Sie sicherstellen, dass [`XRView.requestViewportScale`](/de/docs/Web/API/XRView/requestViewportScale) existiert, bevor Sie es aufrufen.
 
 ```js
 for (const view of pose.views) {
@@ -39,4 +39,4 @@ for (const view of pose.views) {
 
 ## Siehe auch
 
-- {{domxref("XRView.requestViewportScale()")}}
+- [`XRView.requestViewportScale()`](/de/docs/Web/API/XRView/requestViewportScale)

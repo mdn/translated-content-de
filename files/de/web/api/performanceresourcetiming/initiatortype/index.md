@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`initiatorType`** ist ein String, der das Webplattform-Feature darstellt, das das Laden der Ressource initiiert hat.
+Die schreibgeschützte Eigenschaft **`initiatorType`** ist ein String, der die Webplattform-Funktion repräsentiert, die das Laden der Ressource initiiert hat.
 
 > [!NOTE]
-> Diese Eigenschaft repräsentiert nicht den Typ des abgerufenen Inhalts. Eine `.css`-Datei kann über ein {{HTMLElement("link")}}-Element abgerufen werden, was zu einem `initiatorType` von `link` führt. Wenn Bilder mit `background: url()` in einer CSS-Datei geladen werden, wird der `initiatorType` `css` sein und nicht `img`.
+> Diese Eigenschaft repräsentiert nicht den Typ des abgerufenen Inhalts. Eine `.css`-Datei kann mit einem {{HTMLElement("link")}}-Element abgerufen werden, was zu einem `initiatorType` von `link` führt. Beim Laden von Bildern mit `background: url()` in einer CSS-Datei ist der `initiatorType` `css` und nicht `img`.
 
 ## Wert
 
-Die `initiatorType`-Eigenschaft kann die folgenden Werte haben, oder `other`, wenn keine der Bedingungen zutrifft.
+Die Eigenschaft `initiatorType` kann die folgenden Werte haben oder `other`, wenn keine der Bedingungen zutrifft.
 
 - `audio`
   - : Wenn die Anforderung durch das `src`-Attribut eines {{HTMLElement("audio")}}-Elements initiiert wurde.
 - `beacon`
-  - : Wenn die Anforderung durch die {{domxref("navigator.sendBeacon()")}}-Methode initiiert wurde.
+  - : Wenn die Anforderung durch eine [`navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon)-Methode initiiert wurde.
 - `body`
   - : Wenn die Anforderung durch das `background`-Attribut eines {{HTMLElement("body")}}-Elements initiiert wurde.
 - `css`
@@ -30,7 +30,7 @@ Die `initiatorType`-Eigenschaft kann die folgenden Werte haben, oder `other`, we
 - `embed`
   - : Wenn die Anforderung durch das `src`-Attribut eines {{HTMLElement("embed")}}-Elements initiiert wurde.
 - `fetch`
-  - : Wenn die Anforderung durch die {{domxref("Window/fetch", "fetch()")}}-Methode initiiert wurde.
+  - : Wenn die Anforderung durch eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Methode initiiert wurde.
 - `frame`
   - : Wenn die Anforderung durch das Laden eines {{HTMLElement("frame")}}-Elements initiiert wurde.
 - `iframe`
@@ -58,15 +58,15 @@ Die `initiatorType`-Eigenschaft kann die folgenden Werte haben, oder `other`, we
 - `video`
   - : Wenn die Anforderung durch das `poster` oder `src` eines {{HTMLElement("video")}}-Elements initiiert wurde.
 - `xmlhttprequest`
-  - : Wenn die Anforderung durch ein {{domxref("XMLHttpRequest")}} initiiert wurde.
+  - : Wenn die Anforderung durch ein [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) initiiert wurde.
 
 ## Beispiele
 
-### Filtern von Ressourcen
+### Ressourcen filtern
 
-Die `initiatorType`-Eigenschaft kann verwendet werden, um nur bestimmte Ressourcentiming-Einträge zu erhalten. Beispielsweise nur die, die durch {{HTMLElement("script")}}-Elemente initiiert wurden.
+Die Eigenschaft `initiatorType` kann verwendet werden, um nur bestimmte Einträge der Ressourcentiming zu erhalten. Zum Beispiel nur diejenigen, die durch {{HTMLElement("script")}}-Elemente initiiert wurden.
 
-Beispiel mit einem {{domxref("PerformanceObserver")}}, der über neue `resource`-Performance-Einträge benachrichtigt, sobald sie in der Performance-Zeitachse des Browsers erfasst werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Observers zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge informiert, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge von vor der Erzeugung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -79,7 +79,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel unter Verwendung von {{domxref("Performance.getEntriesByType()")}}, das nur `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitachse des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
 
 ```js
 const scripts = performance.getEntriesByType("resource").filter((entry) => {

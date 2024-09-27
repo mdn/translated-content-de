@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte **`timestamp`**-Eigenschaft der {{domxref("VRFrameData")}}-Schnittstelle gibt einen ständig zunehmenden Zeitstempelwert zurück, der die Zeit angibt, zu der ein Frame-Update stattgefunden hat.
+Die **`timestamp`**-Nur-Lese-Eigenschaft der [`VRFrameData`](/de/docs/Web/API/VRFrameData)-Schnittstelle gibt einen ständig zunehmenden Zeitstempelwert zurück, der die Zeit angibt, zu der ein Bildaktualisierung stattgefunden hat.
 
 > [!NOTE]
-> Diese Eigenschaft war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR-Device-API](https://immersive-web.github.io/webxr/) ersetzt.
+> Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
-Zeitstempel sind nützlich, um festzustellen, ob Positionsstatusdaten von der Hardware aktualisiert wurden. Da die Werte monoton ansteigen, können sie verglichen werden, um die Reihenfolge der Updates zu bestimmen – neuere Werte sind immer größer als oder gleich älteren Werten.
+Zeitstempel sind nützlich, um festzustellen, ob Zustandsdaten der Position von der Hardware aktualisiert wurden. Da die Werte monoton zunehmen, können sie verglichen werden, um die Reihenfolge der Updates zu bestimmen — neuere Werte sind immer größer oder gleich älteren Werten.
 
-Der Zeitstempel beginnt bei 0, wenn {{domxref("VRDisplay.getFrameData()")}} zum ersten Mal für ein bestimmtes {{domxref("VRDisplay")}} aufgerufen wird.
+Der Zeitstempel beginnt bei 0, wenn [`VRDisplay.getFrameData()`](/de/docs/Web/API/VRDisplay/getFrameData) zum ersten Mal für ein bestimmtes [`VRDisplay`](/de/docs/Web/API/VRDisplay) aufgerufen wird.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}-Objekt.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ let vrDisplay;
 navigator.getVRDisplays().then((displays) => {
   vrDisplay = displays[0];
   console.log("Display found");
-  // Starten der Präsentation, wenn der Button angeklickt wird: Es kann nur als Reaktion auf eine Benutzeraktion aufgerufen werden
+  // Starting the presentation when the button is clicked: It can only be called in response to a user gesture
   btn.addEventListener("click", () => {
     vrDisplay.requestPresent([{ source: canvas }]).then(() => {
       drawVRScene();
@@ -38,30 +38,30 @@ navigator.getVRDisplays().then((displays) => {
   });
 });
 
-// WebVR: Zeichnen der Szene für das WebVR-Display.
+// WebVR: Draw the scene for the WebVR display.
 function drawVRScene() {
-  // WebVR: Anfordern des nächsten Frames der Animation
+  // WebVR: Request the next frame of the animation
   vrSceneFrame = vrDisplay.requestAnimationFrame(drawVRScene);
 
-  // FrameData mit den Daten des nächsten anzuzeigenden Frames befüllen
+  // Populate frameData with the data of the next frame to display
   vrDisplay.getFrameData(frameData);
 
-  // Erfassen des aktuellen Zeitstempels bei jedem Durchlauf der Render-Schleife
-  // und etwas damit tun
+  // grab the current timestamp on each run of the rendering loop
+  // and do something with it
   framedata.timestamp;
 
   // …
 
-  // WebVR: Gibt an, dass wir bereit sind, das gerenderte Frame auf dem VR-Display zu präsentieren
+  // WebVR: Indicates that we are ready to present the rendered frame to the VR display
   vrDisplay.submitFrame();
 }
 ```
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR-Device-API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr darauf ausgelegt, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu setzen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den Leitfaden [Meta's Porting from WebVR to WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden zur Portierung von WebVR auf WebXR von Meta](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 
@@ -69,4 +69,4 @@ Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundam
 
 ## Siehe auch
 
-- [WebVR-API](/de/docs/Web/API/WebVR_API)
+- [WebVR API](/de/docs/Web/API/WebVR_API)

@@ -1,5 +1,5 @@
 ---
-title: "<em>: Das Hervorhebungselement"
+title: "<em>: Das Emphasis-Element"
 slug: Web/HTML/Element/em
 l10n:
   sourceCommit: 20ddfa26482697dff78a9af0a63b609a4d67284d
@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<em>`**-[HTML](/de/docs/Web/HTML)-Element markiert Text, der eine betonte Hervorhebung hat. Das `<em>`-Element kann verschachtelt werden, wobei jede Verschachtelungsebene auf einen höheren Grad der Hervorhebung hinweist.
+Das **`<em>`** [HTML](/de/docs/Web/HTML) Element markiert Text, der eine betonte Hervorhebung hat. Das `<em>`-Element kann verschachtelt werden, wobei jede Verschachtelungsebene ein höheres Maß an Hervorhebung anzeigt.
 
 {{EmbedInteractiveExample("pages/tabbed/em.html", "tabbed-shorter")}}
 
@@ -17,17 +17,17 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 ## Verwendungshinweise
 
-Das `<em>`-Element wird für Wörter verwendet, die im Vergleich zum umgebenden Text eine betonte Hervorhebung haben. Dies beschränkt sich oft auf ein Wort oder Worte eines Satzes und beeinflusst die Bedeutung des Satzes selbst.
+Das `<em>`-Element wird für Wörter verwendet, die eine betonte Hervorhebung im Vergleich zum umgebenden Text haben, was oft auf ein Wort oder Wörter eines Satzes beschränkt ist und die Bedeutung des Satzes selbst beeinflusst.
 
-Typischerweise wird dieses Element kursiv dargestellt. Es sollte jedoch nicht verwendet werden, um eine kursive Formatierung anzuwenden; verwenden Sie hierfür die CSS-Eigenschaft {{cssxref("font-style")}}. Verwenden Sie das {{HTMLElement("cite")}}-Element, um den Titel eines Werkes (Buch, Theaterstück, Lied, etc.) zu markieren. Verwenden Sie das {{HTMLElement("i")}}-Element, um Text zu markieren, der in einem alternativen Ton oder Modus dargestellt wird, was viele gängige Situationen für Kursivschrift abdeckt, wie wissenschaftliche Namen oder Worte in anderen Sprachen. Verwenden Sie das {{HTMLElement("strong")}}-Element, um Text zu markieren, der eine größere Bedeutung hat als der umgebende Text.
+Typischerweise wird dieses Element kursiv dargestellt. Es sollte jedoch nicht verwendet werden, um eine Kursivdarstellung anzuwenden; hierfür sollte die CSS {{cssxref("font-style")}}-Eigenschaft verwendet werden. Verwenden Sie das {{HTMLElement("cite")}}-Element, um den Titel eines Werks (Buch, Theaterstück, Lied, etc.) zu kennzeichnen. Verwenden Sie das {{HTMLElement("i")}}-Element, um Text zu kennzeichnen, der in einem alternativen Ton oder in einer anderen Stimmung steht, was viele übliche Situationen für Kursivschrift abdeckt, wie wissenschaftliche Namen oder Wörter in anderen Sprachen. Verwenden Sie das {{HTMLElement("strong")}}-Element, um Text hervorzuheben, der wichtiger ist als der umgebende Text.
 
 ### \<i> vs. \<em>
 
-Einige Entwickler könnten verwirrt sein, wie mehrere Elemente scheinbar ähnliche visuelle Ergebnisse erzeugen. `<em>` und `<i>` sind ein häufiges Beispiel, da beide Text kursiv darstellen. Wo liegt der Unterschied? Welches sollten Sie verwenden?
+Einige Entwickler könnten verwirrt sein, weil mehrere Elemente scheinbar ähnliche visuelle Ergebnisse liefern. `<em>` und `<i>` sind ein häufiges Beispiel, da beide Texte kursiv darstellen. Was ist der Unterschied? Welches sollte man verwenden?
 
-Standardmäßig ist das visuelle Ergebnis dasselbe. Der semantische Unterschied ist jedoch vorhanden. Das `<em>`-Element repräsentiert die betonte Hervorhebung seines Inhalts, während das `<i>`-Element Text repräsentiert, der vom normalen Prosatext abgesetzt ist, wie ein Fremdwort, Gedanken einer fiktionalen Figur oder wenn der Text sich auf die Definition eines Wortes bezieht, statt seine semantische Bedeutung darzustellen. (Der Titel eines Werkes, wie der Name eines Buches oder Films, sollte `<cite>` verwenden.)
+Standardmäßig ist das visuelle Ergebnis dasselbe. Der semantische Unterschied besteht jedoch darin, dass das `<em>`-Element eine betonte Hervorhebung seines Inhalts darstellt, während das `<i>`-Element Text darstellt, der vom normalen Textsatz abhebt, wie z. B. ein fremdes Wort, Gedanken einer fiktiven Figur oder wenn der Text auf die Definition eines Wortes verweist statt dessen semantische Bedeutung darzustellen. (Der Titel eines Werks, wie der Name eines Buches oder Films, sollte `<cite>` verwenden.)
 
-Das bedeutet, dass das richtige zu verwendende Element von der Situation abhängt. Keines ist für rein dekorative Zwecke gedacht, dafür ist das CSS-Styling da.
+Das richtige Element zu verwenden, hängt also von der Situation ab. Keines davon dient rein dekorativen Zwecken; dafür ist die CSS-Stilgebung gedacht.
 
 Beispiele für `<em>` könnten sein:
 
@@ -38,7 +38,7 @@ Beispiele für `<em>` könnten sein:
 
 {{EmbedLiveSample('em-example', "", 85)}}
 
-Eine Person oder Software, die den Text liest, würde die in Kursivschrift geschriebenen Wörter mit Betonung, unter Verwendung von verbalem Stress, aussprechen.
+Eine Person oder Software, die den Text liest, würde die kursiv geschriebenen Wörter betont aussprechen und dabei den verbalen Akzent setzen.
 
 Beispiele für `<i>` könnten sein:
 
@@ -49,11 +49,11 @@ Beispiele für `<i>` könnten sein:
 
 {{EmbedLiveSample('i-example', "", 85)}}
 
-Hier gibt es keinen zusätzlichen Nachdruck oder Bedeutung auf das Wort "Queen Mary". Es wird lediglich angegeben, dass das Objekt in Frage kein Königreich namens Mary ist, sondern ein Schiff namens "Queen Mary".
+Hier gibt es keine zusätzliche Hervorhebung oder Bedeutung für das Wort "Queen Mary". Es wird lediglich angezeigt, dass es sich bei dem Objekt nicht um eine Königin namens Mary, sondern um ein Schiff namens "Queen Mary" handelt.
 
 ## Beispiele
 
-In diesem Beispiel wird das `<em>`-Element verwendet, um einen impliziten oder expliziten Kontrast zwischen zwei Zutatenlisten hervorzuheben:
+In diesem Beispiel wird das `<em>`-Element verwendet, um einen impliziten oder expliziten Gegensatz zwischen zwei Zutatenlisten hervorzuheben:
 
 ```html
 <p>
@@ -72,46 +72,59 @@ In diesem Beispiel wird das `<em>`-Element verwendet, um einen impliziten oder e
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließender Inhalt</a>,
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phrasing-Inhalt</a>, fühlbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
+          >Fließender Inhalt</a
+        >,
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
+          >Phrasierung</a
+        >, fühlender Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phrasing-Inhalt</a>.
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
+          >Phrasierung</a
+        >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl Start- als auch End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das öffnende als auch das schließende Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phrasing-Inhalt</a> akzeptiert.
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
+          >Phrasierung</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
-        <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles#structural_roles_with_html_equivalents">emphasis</a></code>
+        <code
+          ><a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles#structural_roles_with_html_equivalents">Emphasis</a
+          ></code
+        >
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Alle</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        {{domxref("HTMLElement")}} Bis Gecko 1.9.2 (Firefox 4)
-        inklusive, implementiert Firefox die
-        {{domxref("HTMLSpanElement")}}-Schnittstelle für dieses Element.
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis zu Gecko 1.9.2 (Firefox 4)
+        inklusive implementiert Firefox die
+        [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)-Schnittstelle für dieses Element.
       </td>
     </tr>
   </tbody>

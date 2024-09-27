@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`line-height-step`** [CSS](/de/docs/Web/CSS)-Eigenschaft setzt die Schrittgröße für die Höhen der Linienboxen. Wenn die Eigenschaft gesetzt ist, werden die Höhen der Linienboxen auf das nächste Vielfache der Einheit aufgerundet.
+Die **`line-height-step`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Schritteinheit für Linienboxhöhen fest. Wenn die Eigenschaft gesetzt ist, werden die Höhen der Linienboxen auf das nächste Vielfache der Einheit aufgerundet.
 
 ## Syntax
 
 ```css
-/* Punktwerte */
+/* Point values */
 line-height-step: 18pt;
 
-/* Globale Werte */
+/* Global values */
 line-height-step: inherit;
 line-height-step: initial;
 line-height-step: revert;
@@ -23,14 +23,14 @@ line-height-step: revert-layer;
 line-height-step: unset;
 ```
 
-Die `line-height-step`-Eigenschaft wird als eines der folgenden festgelegt:
+Die Eigenschaft `line-height-step` wird als eine der folgenden Optionen angegeben:
 
 - eine `<length>`.
 
 ### Werte
 
 - `<length>`
-  - : Die angegebene {{cssxref("&lt;length&gt;")}} wird in die Berechnung der Schrittgröße der Linienboxhöhe einbezogen.
+  - : Das angegebene {{cssxref("&lt;length&gt;")}} wird bei der Berechnung des Linienboxhöhe-Schritts verwendet.
 
 ## Formale Definition
 
@@ -42,9 +42,9 @@ Die `line-height-step`-Eigenschaft wird als eines der folgenden festgelegt:
 
 ## Beispiele
 
-### Schrittgröße für die Höhe der Linienbox festlegen
+### Einstellung der Schritteinheit für Linienboxhöhen
 
-Im folgenden Beispiel wird die Höhe der Linienbox in jedem Absatz auf die Schrittgröße aufgerundet. Die Linienbox in `<h1>` passt nicht in eine Schrittgröße und nimmt daher zwei ein, wird jedoch innerhalb dieser zwei Schrittgrößen zentriert.
+Im folgenden Beispiel wird die Höhe der Linienbox in jedem Absatz auf die Schritteinheit aufgerundet. Die Linienbox in `<h1>` passt nicht in eine Schritteinheit und belegt deshalb zwei, ist aber dennoch innerhalb der zwei Schritteinheiten zentriert.
 
 ```css
 :root {
@@ -58,9 +58,9 @@ h1 {
 }
 ```
 
-Das Ergebnis dieser Regeln wird im folgenden Screenshot gezeigt:
+Das Ergebnis dieser Regeln ist im folgenden Screenshot zu sehen:
 
-![Wie die Eigenschaft line-height-step das Aussehen von Text beeinflusst.](line-grid-center.png)
+![Wie die line-height-step-Eigenschaft das Erscheinungsbild von Text beeinflusst.](line-grid-center.png)
 
 ## Spezifikationen
 

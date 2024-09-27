@@ -7,11 +7,11 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Header-Direktive `storage-access` steuert, ob ein in einem Drittanbieterkontext (d. h. eingebettet in einem {{htmlelement("iframe")}}) geladenes Dokument die {{domxref("Storage Access API", "Storage Access API", "", "nocode")}} verwenden darf, um Zugriff auf unpartitionierte Cookies anzufordern.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} `storage-access`-Direktive steuert, ob ein Dokument, das in einem Drittanbieter-Kontext geladen wird (z.B. eingebettet in einem {{htmlelement("iframe")}}), die [Storage Access API](/de/docs/Web/API/Storage_Access_API) verwenden darf, um Zugang zu unpartitionierten Cookies zu beantragen.
 
-Dies ist relevant für User Agents, die standardmäßig den Zugriff auf unpartitionierte Cookies von in einem Drittanbieterkontext geladenen Websites blockieren, um die Privatsphäre zu verbessern (zum Beispiel, um Tracking zu verhindern).
+Dies ist relevant für Benutzeragenten, die standardmäßig den Zugriff auf unpartitionierte Cookies durch in einem Drittanbieter-Kontext geladene Seiten blockieren, um die Privatsphäre zu verbessern (zum Beispiel, um Tracking zu verhindern).
 
-Insbesondere bei einer definierten Richtlinie, die die Nutzung dieser Funktion blockiert, werden {{domxref("Document.requestStorageAccess()")}}-Aufrufe ein {{jsxref("Promise")}} zurückgeben, das mit einem {{domxref("DOMException")}} vom Typ `NotAllowedError` ablehnt.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, werden Anrufe an [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) des Typs `NotAllowedError` abgelehnt wird.
 
 ## Syntax
 
@@ -20,17 +20,17 @@ Permissions-Policy: storage-access=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wurde. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Warteliste für `storage-access` ist `*`.
+Die standardmäßige Erlaubnisliste für `storage-access` ist `*`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Presentation API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`start()`**-Eigenschaft des {{domxref("PresentationRequest")}}-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einer {{domxref("PresentationConnection")}} aufgelöst wird, nachdem der User-Agent den Benutzer auffordert, ein Display auszuwählen und die Erlaubnis zur Nutzung dieses Displays zu erteilen.
+Die **`start()`**-Eigenschaft der [`PresentationRequest`](/de/docs/Web/API/PresentationRequest)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einer [`PresentationConnection`](/de/docs/Web/API/PresentationConnection) aufgelöst wird, nachdem der Benutzeragent den Benutzer auffordert, ein Display auszuwählen und die Erlaubnis zur Nutzung dieses Displays zu erteilen.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer {{domxref("PresentationConnection")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einer [`PresentationConnection`](/de/docs/Web/API/PresentationConnection) aufgelöst wird.
 
 ## Sicherheit
 
-[Flüchtige Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+Eine [vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`getHours()`** von {{jsxref("Date")}}-Instanzen gibt die Stunden für dieses Datum gemäß der lokalen Zeit zurück.
+Die **`getHours()`**-Methode von {{jsxref("Date")}}-Instanzen gibt die Stunden für dieses Datum entsprechend der lokalen Zeit zurück.
 
 {{EmbedInteractiveExample("pages/js/date-gethours.html", "shorter")}}
 
@@ -23,13 +23,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert zwischen 0 und 23, der die Stunden für das angegebene Datum gemäß der lokalen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl, zwischen 0 und 23, die die Stunden für das angegebene Datum entsprechend der lokalen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 
 ### Verwendung von getHours()
 
-Die Variable `hours` hat den Wert `23`, basierend auf dem Wert des {{jsxref("Date")}}-Objekts `xmas95`.
+Die `hours`-Variable hat den Wert `23`, basierend auf dem Wert des {{jsxref("Date")}}-Objekts `xmas95`.
 
 ```js
 const xmas95 = new Date("1995-12-25T23:15:30");

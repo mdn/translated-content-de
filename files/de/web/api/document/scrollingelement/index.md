@@ -1,5 +1,5 @@
 ---
-title: "Dokument: scrollingElement-Eigenschaft"
+title: "Document: scrollingElement-Eigenschaft"
 short-title: scrollingElement
 slug: Web/API/Document/scrollingElement
 l10n:
@@ -8,14 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`scrollingElement`**-Schreibgeschützte Eigenschaft der
-{{domxref("Document")}}-Schnittstelle gibt eine Referenz auf das {{domxref("Element")}} zurück, das das Dokument scrollt. Im Standardmodus ist dies das Wurzelelement des Dokuments, {{domxref("document.documentElement")}}.
+Die schreibgeschützte **`scrollingElement`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine Referenz auf das [`Element`](/de/docs/Web/API/Element) zurück, das das Dokument scrollt. Im Standardmodus ist dies das Wurzelelement des Dokuments, [`document.documentElement`](/de/docs/Web/API/Document/documentElement).
 
-Im Quirks-Modus gibt das `scrollingElement`-Attribut das HTML-`body`-Element zurück, wenn es existiert und _nicht_ [potenziell scrollbar](https://drafts.csswg.org/cssom-view/#potentially-scrollable) ist, andernfalls gibt es `null` zurück. Dies mag überraschend erscheinen, ist aber sowohl gemäß der Spezifikation als auch in Browsern korrekt.
+Im Quirks-Modus gibt das `scrollingElement`-Attribut das HTML-`body`-Element zurück, wenn es existiert und _nicht_ [potenziell scrollbar](https://drafts.csswg.org/cssom-view/#potentially-scrollable) ist, andernfalls gibt es `null` zurück. Dies mag überraschend erscheinen, entspricht jedoch sowohl der Spezifikation als auch den Browsern.
 
 ## Wert
 
-Das {{domxref("Element")}}, das das Dokument scrollt, üblicherweise das Wurzelelement (außer es ist nicht im Standardmodus).
+Das [`Element`](/de/docs/Web/API/Element), das das Dokument scrollt, normalerweise das Wurzelelement (es sei denn, es befindet sich nicht im Standardmodus).
 
 ## Beispiele
 

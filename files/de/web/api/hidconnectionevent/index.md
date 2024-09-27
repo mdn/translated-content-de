@@ -7,25 +7,25 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Das **`HIDConnectionEvent`** Interface der [WebHID API](/de/docs/Web/API/WebHID_API) repräsentiert HID-Verbindungsereignisse und ist der Ereignistyp, der an {{domxref("HID/connect_event", "connect")}} und {{domxref("HID/disconnect_event", "disconnect")}} Ereignis-Handler übergeben wird, wenn sich der Verbindungsstatus eines Geräts ändert.
+Die **`HIDConnectionEvent`** Schnittstelle der [WebHID API](/de/docs/Web/API/WebHID_API) repräsentiert HID-Verbindungsereignisse und ist der Ereignistyp, der an [`connect`](/de/docs/Web/API/HID/connect_event)- und [`disconnect`](/de/docs/Web/API/HID/disconnect_event)-Ereignishandler übergeben wird, wenn sich der Verbindungsstatus eines Geräts ändert.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("HIDConnectionEvent.HIDConnectionEvent", "HIDConnectionEvent()")}} {{Experimental_Inline}}
+- [`HIDConnectionEvent()`](/de/docs/Web/API/HIDConnectionEvent/HIDConnectionEvent) {{Experimental_Inline}}
   - : Gibt ein neues `HIDConnectionEvent`-Objekt zurück. Typischerweise wird dieser Konstruktor nicht verwendet, da Ereignisse erstellt werden, wenn sich der Verbindungsstatus eines Geräts ändert.
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface erbt auch Eigenschaften von {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("HIDConnectionEvent.device")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die {{domxref("HIDDevice")}} Instanz zurück, die das mit dem Verbindungsereignis verknüpfte Gerät repräsentiert.
+- [`HIDConnectionEvent.device`](/de/docs/Web/API/HIDConnectionEvent/device) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt die [`HIDDevice`](/de/docs/Web/API/HIDDevice) Instanz zurück, die das Gerät repräsentiert, das mit dem Verbindungsereignis verbunden ist.
 
 ## Beispiele
 
-Im folgenden Beispiel werden Ereignis-Listener für `connect` und `disconnect` Ereignisse registriert, und dann wird der {{domxref("HIDDevice.productName")}} in die Konsole ausgegeben.
+Im folgenden Beispiel werden Ereignislistener für `connect`- und `disconnect`-Ereignisse registriert und der [`HIDDevice.productName`](/de/docs/Web/API/HIDDevice/productName) wird in die Konsole ausgegeben.
 
 ```js
 navigator.hid.addEventListener("connect", ({ device }) => {

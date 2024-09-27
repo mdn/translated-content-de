@@ -1,5 +1,5 @@
 ---
-title: "Fenster: atob()-Methode"
+title: "Window: atob() Methode"
 short-title: atob()
 slug: Web/API/Window/atob
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`atob()`**-Methode der {{domxref("Window")}}-Schnittstelle dekodiert eine Zeichenfolge von Daten, die mit {{glossary("Base64")}}-Kodierung kodiert wurde. Sie können die {{domxref("Window.btoa()")}}-Methode verwenden, um Daten zu kodieren und zu übertragen, die andernfalls Kommunikationsprobleme verursachen könnten. Danach können Sie diese übertragen und die `atob()`-Methode verwenden, um die Daten wieder zu dekodieren. Beispielsweise können Sie Steuerzeichen wie {{Glossary("ASCII")}}-Werte von 0 bis 31 kodieren, übertragen und dekodieren.
+Die **`atob()`** Methode des [`Window`](/de/docs/Web/API/Window) Interfaces dekodiert einen Datenstring, der mit [Base64](/de/docs/Glossary/Base64) kodiert wurde. Sie können die [`Window.btoa()`](/de/docs/Web/API/Window/btoa) Methode verwenden, um Daten zu kodieren und zu übertragen, die ansonsten Kommunikationsprobleme verursachen könnten. Anschließend können Sie diese übertragen und die `atob()` Methode verwenden, um die Daten wieder zu dekodieren. Beispielsweise können Sie Steuerzeichen wie [ASCII](/de/docs/Glossary/ASCII) Werte 0 bis 31 kodieren, übertragen und dekodieren.
 
-Zur Verwendung mit beliebigen Unicode-Zeichenketten siehe _Das "Unicode-Problem"_ im {{Glossary("Base64")}} Glossar-Eintrag.
+Für die Verwendung mit beliebigen Unicode-Strings siehe _Das "Unicode-Problem"_ im [Base64](/de/docs/Glossary/Base64) Glossareintrag.
 
 ## Syntax
 
@@ -21,15 +21,15 @@ atob(encodedData)
 ### Parameter
 
 - `encodedData`
-  - : Eine Binärzeichenfolge (d.h. eine Zeichenfolge, bei der jedes Zeichen der Zeichenfolge als Byte von Binärdaten behandelt wird), die base64-kodierte Daten enthält.
+  - : Ein binärer String (d. h. ein String, bei dem jedes Zeichen im String als Byte binärer Daten behandelt wird), der base64-kodierte Daten enthält.
 
 ### Rückgabewert
 
-Eine ASCII-Zeichenfolge, die dekodierte Daten aus `encodedData` enthält.
+Ein ASCII-String, der dekodierte Daten aus `encodedData` enthält.
 
 ### Ausnahmen
 
-- `InvalidCharacterError` {{domxref("DOMException")}}
+- `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `encodedData` kein gültiges Base64 ist.
 
 ## Beispiele
@@ -49,7 +49,7 @@ const decodedData = window.atob(encodedData); // decode the string
 
 ## Siehe auch
 
-- [Ein Polyfill von `atob`](https://github.com/zloirock/core-js#base64-utility-methods) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar
+- [Ein Polyfill von `atob`](https://github.com/zloirock/core-js#base64-utility-methods) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar.
 - [`data` URLs](/de/docs/Web/URI/Schemes/data)
-- {{domxref("WorkerGlobalScope.atob()")}}: die gleiche Methode, aber in Worker-Bereichen.
-- {{domxref("Window.btoa()")}}
+- [`WorkerGlobalScope.atob()`](/de/docs/Web/API/WorkerGlobalScope/atob): die gleiche Methode, aber in Worker-Kontexten.
+- [`Window.btoa()`](/de/docs/Web/API/Window/btoa)

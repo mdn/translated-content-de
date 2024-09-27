@@ -3,18 +3,19 @@ title: "AbortSignal: timeout() statische Methode"
 short-title: timeout()
 slug: Web/API/AbortSignal/timeout_static
 l10n:
-  sourceCommit: 15f0b5552bc9c2ea1f32b0cd5ee840a7d43c887e
+  sourceCommit: 9ffa9c1e2757231b3796522e8f55bd5e0eda635e
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **statische Methode `AbortSignal.timeout()`** gibt ein {{domxref("AbortSignal")}} zurück, das nach einer angegebenen Zeit automatisch abbricht.
+Die **`AbortSignal.timeout()`** statische Methode gibt ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück, das nach einer bestimmten Zeit automatisch abbricht.
 
-Das Signal wird bei einem Timeout mit einem `TimeoutError`-{{domxref("DOMException")}} abgebrochen oder mit einem `AbortError`-{{domxref("DOMException")}}, wenn die Stopp-Schaltfläche des Browsers gedrückt wird (oder eine andere eingebaute "Stopp"-Operation). Dies ermöglicht es Benutzeroberflächen, Zeitüberschreitungsfehler, die typischerweise eine Benachrichtigung des Benutzers erfordern, von benutzerinduzierter Unterbrechung zu unterscheiden, die dies nicht tun.
+Das Signal bricht bei einem Timeout mit einem `TimeoutError` [`DOMException`](/de/docs/Web/API/DOMException) ab oder mit einem `AbortError` [`DOMException`](/de/docs/Web/API/DOMException), wenn der Browser-Stop-Button gedrückt wird (oder eine andere eingebaute "Stop"-Operation).
+Dies ermöglicht es Benutzeroberflächen, Timeout-Fehler, die typischerweise eine Benachrichtigung des Benutzers erfordern, von durch den Benutzer ausgelösten Abbrüchen zu unterscheiden, die nicht erfordern.
 
-Der Timeout basiert auf der aktiven und nicht der abgelaufenen Zeit und wird effektiv pausiert, wenn der Code in einem angehaltenen Worker ausgeführt wird oder während das Dokument in einem Back-Forward-Cache ("[bfcache](https://web.dev/articles/bfcache)") ist.
+Das Timeout basiert auf der aktiven anstatt der vergangenen Zeit und wird effektiv pausiert, wenn der Code in einem unterbrochenen Worker läuft oder während das Dokument in einem Vorwärts-Rückwärts-Cache ("[bfcache](https://web.dev/articles/bfcache)") ist.
 
-Um mehrere Signale zu kombinieren, können Sie {{domxref("AbortSignal/any_static", "AbortSignal.any()")}} verwenden, z. B. um einen Download direkt abzubrechen, entweder mit einem Timeout-Signal oder durch Aufruf von {{domxref("AbortController.abort()")}}.
+Um mehrere Signale zu kombinieren, können Sie [`AbortSignal.any()`](/de/docs/Web/API/AbortSignal/any_static) verwenden, beispielsweise um einen Download direkt entweder mit einem Timeout-Signal abzubrechen oder indem Sie [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) aufrufen.
 
 ## Syntax
 
@@ -25,18 +26,19 @@ AbortSignal.timeout(time)
 ### Parameter
 
 - `time`
-  - : Die "aktive" Zeit in Millisekunden, bevor das zurückgegebene {{domxref("AbortSignal")}} abbricht.
+  - : Die "aktive" Zeit in Millisekunden, bevor das zurückgegebene [`AbortSignal`](/de/docs/Web/API/AbortSignal) abbricht.
+    Der Wert muss im Bereich zwischen 0 und {{jsxref("Number.MAX_SAFE_INTEGER")}} liegen.
 
 ### Rückgabewert
 
-Ein {{domxref("AbortSignal")}}.
+Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal).
 
-Das Signal wird mit seiner {{domxref("AbortSignal.reason")}}-Eigenschaft auf einen `TimeoutError`-{{domxref("DOMException")}} bei Timeout oder einen `AbortError`-{{domxref("DOMException")}} gesetzt, wenn der Vorgang vom Benutzer ausgelöst wurde.
+Das Signal wird mit seiner [`AbortSignal.reason`](/de/docs/Web/API/AbortSignal/reason) Eigenschaft abgebrochen, die bei einem Timeout auf einen `TimeoutError` [`DOMException`](/de/docs/Web/API/DOMException) gesetzt ist, oder auf einen `AbortError` [`DOMException`](/de/docs/Web/API/DOMException), wenn die Operation vom Benutzer ausgelöst wurde.
 
 ## Beispiele
 
-Unten ist ein einfaches Beispiel für eine Fetch-Operation, die nach 5 Sekunden fehlschlägt, wenn sie nicht erfolgreich ist.
-Beachten Sie, dass dies auch fehlschlagen kann, wenn die Methode nicht unterstützt wird, wenn eine Browser-"Stopp"-Taste gedrückt wird, oder aus einem anderen Grund.
+Unten ist ein einfaches Beispiel zu sehen, das eine `fetch`-Operation zeigt, die abbricht, wenn sie nach 5 Sekunden nicht erfolgreich ist.
+Beachten Sie, dass dies auch fehlschlagen kann, wenn die Methode nicht unterstützt wird, wenn ein Browser "Stop"-Button gedrückt wird oder aus einem anderen Grund.
 
 ```js
 const url = "https://path_to_large_file.mp4";
@@ -47,16 +49,16 @@ try {
   // …
 } catch (err) {
   if (err.name === "TimeoutError") {
-    console.error("Timeout: Es dauerte mehr als 5 Sekunden, um das Ergebnis zu erhalten!");
+    console.error("Timeout: It took more than 5 seconds to get the result!");
   } else if (err.name === "AbortError") {
     console.error(
-      "Fetch durch Benutzeraktion abgebrochen (Browser-Stopp-Taste, Tab schließen usw.).",
+      "Fetch aborted by user action (browser stop button, closing tab, etc.",
     );
   } else if (err.name === "TypeError") {
-    console.error("AbortSignal.timeout() Methode wird nicht unterstützt");
+    console.error("AbortSignal.timeout() method is not supported");
   } else {
-    // Ein Netzwerkfehler oder ein anderes Problem.
-    console.error(`Fehler: Typ: ${err.name}, Nachricht: ${err.message}`);
+    // A network error, or some other problem.
+    console.error(`Error: type: ${err.name}, message: ${err.message}`);
   }
 }
 ```

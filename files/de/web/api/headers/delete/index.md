@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`delete()`**-Methode der {{domxref("Headers")}}-Schnittstelle löscht einen Header aus dem aktuellen `Headers`-Objekt.
+Die **`delete()`**-Methode des [`Headers`](/de/docs/Web/API/Headers)-Interfaces löscht einen Header aus dem aktuellen `Headers`-Objekt.
 
-Aus Sicherheitsgründen können einige Header nur durch den User Agent kontrolliert werden. Zu diesen
-Headern gehören die {{Glossary("Forbidden_header_name", "verbotenen Header-Namen")}} und {{Glossary("Forbidden_response_header_name", "verbotenen Antwort-Header-Namen")}}.
+Aus Sicherheitsgründen können einige Header nur vom Benutzeragenten gesteuert werden. Diese Header umfassen die [verbotenen Header-Namen](/de/docs/Glossary/Forbidden_header_name) und [verbotenen Antwort-Header-Namen](/de/docs/Glossary/Forbidden_response_header_name).
 
 ## Syntax
 
@@ -30,24 +29,24 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Ein leeres `Headers`-Objekt zu erstellen, ist einfach:
+Ein leeres `Headers`-Objekt zu erstellen ist einfach:
 
 ```js
-const myHeaders = new Headers(); // Derzeit leer
+const myHeaders = new Headers(); // Currently empty
 ```
 
-Sie können einen Header hinzufügen, indem Sie {{domxref("Headers.append")}} verwenden:
+Sie könnten diesem mit [`Headers.append`](/de/docs/Web/API/Headers/append) einen Header hinzufügen:
 
 ```js
 myHeaders.append("Content-Type", "image/jpeg");
-myHeaders.get("Content-Type"); // Gibt 'image/jpeg' zurück
+myHeaders.get("Content-Type"); // Returns 'image/jpeg'
 ```
 
 Sie können ihn dann wieder löschen:
 
 ```js
 myHeaders.delete("Content-Type");
-myHeaders.get("Content-Type"); // Gibt null zurück, da er gelöscht wurde
+myHeaders.get("Content-Type"); // Returns null, as it has been deleted
 ```
 
 ## Spezifikationen

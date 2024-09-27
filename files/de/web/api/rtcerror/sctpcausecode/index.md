@@ -1,5 +1,5 @@
 ---
-title: "RTCError: Eigenschaft sctpCauseCode"
+title: "RTCError: sctpCauseCode-Eigenschaft"
 short-title: sctpCauseCode
 slug: Web/API/RTCError/sctpCauseCode
 l10n:
@@ -9,17 +9,16 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die schreibgeschützte **`sctpCauseCode`**-Eigenschaft in einem
-{{domxref("RTCError")}}-Objekt liefert den {{Glossary("SCTP")}}-Ursachencode, der erklärt,
+[`RTCError`](/de/docs/Web/API/RTCError)-Objekt liefert den [SCTP](/de/docs/Glossary/SCTP)-Fehlercode, der erklärt,
 warum die SCTP-Verhandlung fehlgeschlagen ist, falls der `RTCError` einen SCTP-Fehler darstellt.
 
 ## Wert
 
-Ein ganzzahliger, unsignierter Wert, der den SCTP-Ursachencode angibt, der erklärt, warum der Fehler
-aufgetreten ist. Diese Eigenschaft ist `null`, wenn es sich nicht um einen SCTP-Fehler handelt, wobei seine
-{{domxref("RTCError.errorDetail", "errorDetail")}}-Eigenschaft auf
+Ein `unsigned long integer`-Wert, der den SCTP-Fehlercode angibt, der erklärt, warum der Fehler aufgetreten ist. Diese Eigenschaft ist `null`, wenn der Fehler kein SCTP-Fehler ist und seine
+[`errorDetail`](/de/docs/Web/API/RTCError/errorDetail)-Eigenschaft auf
 `sctp-failure` gesetzt ist.
 
-Die standardmäßigen SCTP-Fehlerursachencodes, nummeriert von 1-13, sind in der SCTP-Spezifikation definiert: {{RFC(4960, "", "3.3.10")}}.
+Die standardmäßigen SCTP-Fehlercodes, nummeriert von 1 bis 13, sind in der SCTP-Spezifikation definiert: {{RFC(4960, "", "3.3.10")}}.
 
 ## Spezifikationen
 

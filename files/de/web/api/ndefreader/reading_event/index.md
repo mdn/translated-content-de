@@ -1,6 +1,6 @@
 ---
-title: "NDEFReader: Leseereignis"
-short-title: Leseereignis
+title: "NDEFReader: reading Ereignis"
+short-title: reading
 slug: Web/API/NDEFReader/reading_event
 l10n:
   sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
@@ -8,11 +8,11 @@ l10n:
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Das `reading` Ereignis der {{DOMxRef("NDEFReader")}}-Schnittstelle wird ausgelöst, wann immer eine neue Lesung von kompatiblen NFC-Geräten (z. B. NFC-Tags, die NDEF unterstützen) verfügbar ist, wenn sich diese Geräte im magnetischen Induktionsfeld des Lesegeräts befinden.
+Das `reading`-Ereignis der [`NDEFReader`](/de/docs/Web/API/NDEFReader)-Schnittstelle wird immer dann ausgelöst, wenn eine neue Lesung von kompatiblen NFC-Geräten (z. B. NFC-Tags, die NDEF unterstützen) verfügbar ist, wenn sich diese Geräte im magnetischen Induktionsfeld des Lesegeräts befinden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("reading", (event) => {});
@@ -22,29 +22,29 @@ onreading = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Ereignisse sowohl mit den `onreading`- als auch `onreadingerror`-Ereignishandlern verarbeitet werden können.
+Das folgende Beispiel zeigt, wie Ereignisse sowohl über die `onreading`- als auch `onreadingerror`-Ereignis-Handler verarbeitet werden können.
 
 ```js
 const ndef = new NDEFReader();
 ndef
   .scan()
   .then(() => {
-    console.log("Scan erfolgreich gestartet.");
+    console.log("Scan started successfully.");
     ndef.onreadingerror = (event) => {
       console.log(
-        "Fehler! Daten können nicht vom NFC-Tag gelesen werden. Ein anderes versuchen?",
+        "Error! Cannot read data from the NFC tag. Try a different one?",
       );
     };
     ndef.onreading = (event) => {
-      console.log("NDEF-Nachricht gelesen.");
+      console.log("NDEF message read.");
     };
   })
   .catch((error) => {
-    console.log(`Fehler! Der Scan konnte nicht gestartet werden: ${error}.`);
+    console.log(`Error! Scan failed to start: ${error}.`);
   });
 ```
 
@@ -58,4 +58,4 @@ ndef
 
 ## Siehe auch
 
-- {{DOMxRef("NDEFReader.readingerror_event", "readingerror")}} Ereignis
+- [`readingerror`](/de/docs/Web/API/NDEFReader/readingerror_event) Ereignis

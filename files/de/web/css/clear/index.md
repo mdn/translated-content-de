@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`clear`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob ein Element unter (freigeräumt) [schwebende](/de/docs/Web/CSS/float) Elemente verschoben werden muss, die ihm vorausgehen. Die `clear`-Eigenschaft gilt sowohl für schwebende als auch nicht-schwebende Elemente.
+Die **`clear`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein Element unter (geklärt) den vorangehenden [schwebenden](/de/docs/Web/CSS/float) Elementen verschoben werden muss. Die `clear` Eigenschaft gilt für schwebende und nicht-schwebende Elemente.
 
 {{EmbedInteractiveExample("pages/css/clear.html")}}
 
-Wenn sie auf nicht-schwebende Blöcke angewendet wird, verschiebt sie die [Rahmenkante](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area) des Elements nach unten, bis sie unter dem [Randbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) aller relevanten Float-Elemente liegt. Der obere Rand des nicht-schwebenden Blocks kollabiert.
+Wenn sie auf nicht-schwebende Blöcke angewendet wird, verschiebt sie die [Randkante](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#border_area) des Elements nach unten, bis sie unter der [Randkante](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) aller relevanten Schweb-Elemente liegt. Der obere Rand des nicht-schwebenden Blocks kollabiert.
 
-Vertikale Ränder zwischen zwei schwebenden Elementen hingegen werden nicht kollabieren. Wenn sie auf schwebende Elemente angewendet wird, wird der Randbereich des unteren Elements unter den Randbereich aller relevanten Float-Elemente verschoben. Dies beeinflusst die Position späterer Float-Elemente, da spätere Float-Elemente nicht höher positioniert werden können als frühere.
+Vertikale Ränder zwischen zwei schwebenden Elementen werden hingegen nicht kollabieren. Wenn sie auf schwebende Elemente angewendet wird, wird die Randkante des unteren Elements unter die Randkante aller relevanten Schweb-Elemente verschoben. Dies beeinflusst die Position späterer Schwebelemente, da spätere Schwebelemente nicht höher als frühere positioniert werden können.
 
-Die Float-Elemente, die freigeräumt werden müssen, sind die früheren innerhalb desselben [Block-Formatierungskontexts](/de/docs/Web/CSS/CSS_display/Block_formatting_context).
+Die Schwebelemente, die geklärt werden müssen, sind die früheren Schwebelemente innerhalb desselben [Block-Formatierungskontexts](/de/docs/Web/CSS/CSS_display/Block_formatting_context).
 
 > [!NOTE]
-> Wenn ein Element nur schwebende Elemente enthält, kollabiert seine Höhe auf Null. Wenn Sie möchten, dass es immer die Größe ändern kann, damit es schwebende Elemente darin enthält, setzen Sie den Wert der [`display`](/de/docs/Web/CSS/display)-Eigenschaft des Elements auf [`flow-root`](/de/docs/Web/CSS/display#flow-root).
+> Wenn ein Element nur schwebende Elemente enthält, reduziert sich seine Höhe auf nichts. Wenn Sie möchten, dass es immer die Möglichkeit hat, schwebende Elemente in sich zu enthalten, setzen Sie den Wert der [`display`](/de/docs/Web/CSS/display) Eigenschaft des Elements auf [`flow-root`](/de/docs/Web/CSS/display#flow-root).
 >
 > ```css
 > #container {
@@ -29,7 +29,7 @@ Die Float-Elemente, die freigeräumt werden müssen, sind die früheren innerhal
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 clear: none;
 clear: left;
 clear: right;
@@ -37,7 +37,7 @@ clear: both;
 clear: inline-start;
 clear: inline-end;
 
-/* Globale Werte */
+/* Global values */
 clear: inherit;
 clear: initial;
 clear: revert;
@@ -48,17 +48,17 @@ clear: unset;
 ### Werte
 
 - `none`
-  - : Ein Schlüsselwort, das angibt, dass das Element nicht nach unten verschoben wird, um vorbeilaufende Float-Elemente freizuräumen.
+  - : Ist ein Schlüsselwort, das angibt, dass das Element _nicht_ nach unten verschoben wird, um an den schwebenden Elementen vorbeizukommen.
 - `left`
-  - : Ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um vorbeilaufende _linke_ Float-Elemente freizuräumen.
+  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um an _linken_ Schweb-Elementen vorbeizukommen.
 - `right`
-  - : Ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um vorbeilaufende _rechte_ Float-Elemente freizuräumen.
+  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um an _rechten_ Schweb-Elementen vorbeizukommen.
 - `both`
-  - : Ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um sowohl _linke_ als auch _rechte_ Float-Elemente freizuräumen.
+  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um an _beiden_ linke und rechte Schweb-Elementen vorbeizukommen.
 - `inline-start`
-  - : Ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um Float-Elemente an der _Startseite seines enthaltenen Blocks_ freizuräumen, das heißt, die _linken_ Float-Elemente bei ltr-Skripten und die _rechten_ bei rtl-Skripten.
+  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um Schweb-Elemente auf der _Startseite seines umgebenden Blocks_ zu klären, das heißt die _linken_ Schweb-Elemente bei ltr-Skripten und die _rechten_ Schweb-Elemente bei rtl-Skripten.
 - `inline-end`
-  - : Ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um Float-Elemente an der _Endseite seines enthaltenen Blocks_ freizuräumen, das heißt, die _rechten_ Float-Elemente bei ltr-Skripten und die _linken_ bei rtl-Skripten.
+  - : Ist ein Schlüsselwort, das angibt, dass das Element nach unten verschoben wird, um Schweb-Elemente auf der _Endseite seines umgebenden Blocks_ zu klären, das heißt die _rechten_ Schweb-Elemente bei ltr-Skripten und die _linken_ Schweb-Elemente bei rtl-Skripten.
 
 ## Formale Definition
 
@@ -81,7 +81,7 @@ clear: unset;
     diam. Duis mattis varius dui. Suspendisse eget dolor.
   </p>
   <p class="red">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-  <p class="left">Dieser Absatz räumt links frei.</p>
+  <p class="left">This paragraph clears left.</p>
 </div>
 ```
 
@@ -127,7 +127,7 @@ p {
     diam. Duis mattis varius dui. Suspendisse eget dolor.
   </p>
   <p class="red">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-  <p class="right">Dieser Absatz räumt rechts frei.</p>
+  <p class="right">This paragraph clears right.</p>
 </div>
 ```
 
@@ -177,7 +177,7 @@ p {
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus sit amet
     diam. Duis mattis varius dui. Suspendisse eget dolor.
   </p>
-  <p class="both">Dieser Absatz räumt beide frei.</p>
+  <p class="both">This paragraph clears both.</p>
 </div>
 ```
 
@@ -222,4 +222,4 @@ p {
 
 ## Siehe auch
 
-- [Grundlegendes CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
+- [CSS Grundlegendes Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)

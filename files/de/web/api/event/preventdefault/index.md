@@ -1,5 +1,5 @@
 ---
-title: "Ereignis: preventDefault()-Methode"
+title: "Event: preventDefault() Methode"
 short-title: preventDefault()
 slug: Web/API/Event/preventDefault
 l10n:
@@ -8,11 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`preventDefault()`**-Methode der {{domxref("Event")}}-Schnittstelle teilt dem {{Glossary("user agent")}} mit, dass die Standardaktion des Ereignisses nicht wie gewohnt ausgeführt werden soll, wenn das Ereignis nicht explizit behandelt wird.
+Die **`preventDefault()`**-Methode der [`Event`](/de/docs/Web/API/Event)-Schnittstelle teilt dem [User Agent](/de/docs/Glossary/user_agent) mit, dass, wenn das Ereignis nicht explizit behandelt wird, seine Standardaktion nicht wie gewöhnlich durchgeführt werden sollte.
 
-Das Ereignis wird wie gewohnt weitergeleitet, es sei denn, einer seiner Ereignis-Listener ruft {{domxref("Event.stopPropagation", "stopPropagation()")}} oder {{domxref("Event.stopImmediatePropagation", "stopImmediatePropagation()")}} auf, wodurch die Ausbreitung sofort beendet wird.
+Das Ereignis wird wie gewohnt weitergegeben, es sei denn, einer seiner Ereignis-Listener ruft
+[`stopPropagation()`](/de/docs/Web/API/Event/stopPropagation)
+oder [`stopImmediatePropagation()`](/de/docs/Web/API/Event/stopImmediatePropagation) auf, von denen jede die Weiterleitung sofort beendet.
 
-Wie unten angegeben, hat das Aufrufen von **`preventDefault()`** für ein nicht abbrechbares Ereignis, das beispielsweise über {{domxref("EventTarget.dispatchEvent()")}} gesendet wird, ohne `cancelable: true` festzulegen, keine Wirkung.
+Wie unten angemerkt, hat der Aufruf von **`preventDefault()`** für ein nicht abbrechbares Ereignis, wie eines, das über [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ohne Angabe von `cancelable: true` ausgelöst wird, keine Wirkung.
 
 ## Syntax
 
@@ -22,9 +24,9 @@ event.preventDefault()
 
 ## Beispiele
 
-### Standardmäßige Klickverarbeitung blockieren
+### Blockieren der standardmäßigen Klickbehandlung
 
-Das Umschalten eines Kontrollkästchens ist die Standardaktion beim Klicken auf ein Kontrollkästchen. Dieses Beispiel demonstriert, wie verhindert werden kann, dass dies geschieht:
+Das Umschalten eines Kontrollkästchens ist die Standardaktion des Klickens auf ein Kontrollkästchen. Dieses Beispiel zeigt, wie man verhindert, dass dies passiert:
 
 #### JavaScript
 
@@ -34,7 +36,7 @@ const checkbox = document.querySelector("#id-checkbox");
 checkbox.addEventListener("click", checkboxClick, false);
 
 function checkboxClick(event) {
-  const warn = "preventDefault() lässt Sie dies nicht aktivieren!\n";
+  const warn = "preventDefault() won't let you check this!\n";
   document.getElementById("output-box").innerText += warn;
   event.preventDefault();
 }
@@ -43,10 +45,10 @@ function checkboxClick(event) {
 #### HTML
 
 ```html
-<p>Bitte klicken Sie auf das Kontrollkästchen.</p>
+<p>Please click on the checkbox control.</p>
 
 <form>
-  <label for="id-checkbox">Kontrollkästchen:</label>
+  <label for="id-checkbox">Checkbox:</label>
   <input type="checkbox" id="id-checkbox" />
 </form>
 
@@ -57,17 +59,17 @@ function checkboxClick(event) {
 
 {{EmbedLiveSample("Blocking_default_click_handling")}}
 
-### Tastenanschläge daran hindern, ein Eingabefeld zu erreichen
+### Verhindern, dass Tastenanschläge ein Bearbeitungsfeld erreichen
 
-Das folgende Beispiel zeigt, wie ungültige Texteingaben daran gehindert werden können, das Eingabefeld mit `preventDefault()` zu erreichen. Heutzutage sollten Sie normalerweise [native HTML-Formularvalidierung](/de/docs/Learn/Forms/Form_validation) verwenden.
+Das folgende Beispiel zeigt, wie ungültige Texteingaben am Erreichen des Eingabefelds durch `preventDefault()` gehindert werden können. Heutzutage sollten Sie stattdessen in der Regel [native HTML-Formularvalidierung](/de/docs/Learn/Forms/Form_validation) verwenden.
 
 #### HTML
 
-Das untenstehende HTML-Formular erfasst Benutzereingaben. Da wir nur an Tastenanschlägen interessiert sind, deaktivieren wir `autocomplete`, um zu verhindern, dass der Browser das Eingabefeld mit zwischengespeicherten Werten füllt.
+Das HTML-Formular unten erfasst Benutzereingaben. Da wir nur an Tastenanschlägen interessiert sind, deaktivieren wir `autocomplete`, um zu verhindern, dass der Browser das Eingabefeld mit zwischengespeicherten Werten ausfüllt.
 
 ```html
 <div class="container">
-  <p>Bitte geben Sie Ihren Namen nur mit Kleinbuchstaben ein.</p>
+  <p>Please enter your name using lowercase letters only.</p>
 
   <form>
     <input type="text" id="my-textbox" autocomplete="off" />
@@ -77,7 +79,7 @@ Das untenstehende HTML-Formular erfasst Benutzereingaben. Da wir nur an Tastenan
 
 #### CSS
 
-Wir verwenden ein wenig CSS für das Warnfeld, das wir anzeigen, wenn der Benutzer eine ungültige Taste drückt:
+Wir verwenden ein wenig CSS für die Warnbox, die wir zeichnen, wenn der Benutzer eine ungültige Taste drückt:
 
 ```css
 .warning {
@@ -92,14 +94,14 @@ Wir verwenden ein wenig CSS für das Warnfeld, das wir anzeigen, wenn der Benutz
 
 #### JavaScript
 
-Hier ist der JavaScript-Code, der die Aufgabe erledigt. Zuerst hören Sie auf {{domxref("Element/keydown_event", "keydown")}}-Ereignisse:
+Und hier ist der JavaScript-Code, der die Aufgabe erledigt. Zuerst hören wir auf [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignisse:
 
 ```js
 const myTextbox = document.getElementById("my-textbox");
 myTextbox.addEventListener("keydown", checkName, false);
 ```
 
-Die `checkName()`-Funktion, die die gedrückte Taste überprüft und entscheidet, ob sie zulässig ist:
+Die `checkName()`-Funktion, die die gedrückte Taste betrachtet und entscheidet, ob sie erlaubt werden soll:
 
 ```js
 function checkName(evt) {
@@ -107,12 +109,12 @@ function checkName(evt) {
   const lowerCaseAlphabet = "abcdefghijklmnopqrstuvwxyz";
   if (!lowerCaseAlphabet.includes(key)) {
     evt.preventDefault();
-    displayWarning(`Bitte verwenden Sie nur Kleinbuchstaben.\nGedrückte Taste: ${key}\n`);
+    displayWarning(`Please use lowercase letters only.\nKey pressed: ${key}\n`);
   }
 }
 ```
 
-Die `displayWarning()`-Funktion zeigt eine Problembenachrichtigung an. Es ist keine elegante Funktion, erfüllt aber für die Zwecke dieses Beispiels ihren Zweck:
+Die `displayWarning()`-Funktion präsentiert eine Benachrichtigung über ein Problem. Es ist keine elegante Funktion, erfüllt jedoch den Zweck für dieses Beispiel:
 
 ```js
 let warningTimeout;
@@ -125,7 +127,7 @@ function displayWarning(msg) {
   if (document.body.contains(warningBox)) {
     clearTimeout(warningTimeout);
   } else {
-    // warningBox nach myTextbox einfügen
+    // insert warningBox after myTextbox
     myTextbox.parentNode.insertBefore(warningBox, myTextbox.nextSibling);
   }
 
@@ -140,16 +142,16 @@ function displayWarning(msg) {
 
 {{ EmbedLiveSample('Stopping_keystrokes_from_reaching_an_edit_field', 600, 200) }}
 
-## Hinweise
+## Anmerkungen
 
-Das Aufrufen von `preventDefault()` während einer beliebigen Phase des Ereignisflusses storniert das Ereignis, was bedeutet, dass keine Standardaktion, die normalerweise von der Implementierung als Ergebnis des Ereignisses ausgeführt würde, stattfinden wird.
+Das Aufrufen von `preventDefault()` während jeder Phase des Ereignisflusses bricht das Ereignis ab, was bedeutet, dass jede normalerweise als Ergebnis des Ereignisses durchgeführte Standardaktion nicht ausgeführt wird.
 
-Sie können {{domxref("Event.cancelable")}} verwenden, um zu überprüfen, ob das Ereignis abbrechbar ist. Das Aufrufen von `preventDefault()` für ein nicht abbrechbares Ereignis hat keine Auswirkung.
+Sie können [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) verwenden, um zu überprüfen, ob das Ereignis abbrechbar ist. Der Aufruf von `preventDefault()` für ein nicht abbrechbares Ereignis hat keine Wirkung.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

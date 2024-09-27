@@ -1,5 +1,5 @@
 ---
-title: Prefers-Kontrast
+title: prefers-contrast
 slug: Web/CSS/@media/prefers-contrast
 l10n:
   sourceCommit: eb20a5272772231852864ddc71b9710de0fa1d4f
@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Das **`prefers-contrast`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu erkennen, ob der Benutzer verlangt hat, dass der Webinhalt mit einem niedrigeren oder höheren Kontrast dargestellt wird.
+Das **`prefers-contrast`** [CSS](/de/docs/Web/CSS) [Medien-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu erkennen, ob der Benutzer angefordert hat, dass der Webinhalt mit einem niedrigeren oder höheren Kontrast dargestellt wird.
 
 ## Syntax
 
 - `no-preference`
-  - : Zeigt an, dass der Benutzer keine Präferenz dem System mitgeteilt hat. Dieser Schlüsselwortwert wird im booleschen Kontext als false ausgewertet.
+  - : Gibt an, dass der Benutzer keine Präferenz im System festgelegt hat. Dieser Schlüsselwortwert wird im booleschen Kontext als falsch bewertet.
 - `more`
-  - : Zeigt an, dass der Benutzer dem System mitgeteilt hat, dass er eine Schnittstelle mit einem höheren Kontrast bevorzugt.
+  - : Gibt an, dass der Benutzer dem System mitgeteilt hat, dass er eine Schnittstelle mit einem höheren Kontrast bevorzugt.
 - `less`
-  - : Zeigt an, dass der Benutzer dem System mitgeteilt hat, dass er eine Schnittstelle mit einem geringeren Kontrast bevorzugt.
+  - : Gibt an, dass der Benutzer dem System mitgeteilt hat, dass er eine Schnittstelle mit einem niedrigeren Kontrast bevorzugt.
 - `custom`
-  - : Zeigt an, dass der Benutzer dem System mitgeteilt hat, eine spezielle Farbpalette zu verwenden, und der durch diese Farben implizierte Kontrast entspricht weder `more` noch `less`. Dieser Wert wird mit der Farbpalette übereinstimmen, die von Benutzern von [`forced-colors: active`](/de/docs/Web/CSS/@media/forced-colors) angegeben wurde.
+  - : Gibt an, dass der Benutzer dem System mitgeteilt hat, eine spezifische Farbpalette zu verwenden, deren Kontrast weder `more` noch `less` entspricht. Dieser Wert wird mit der vom Benutzer angegebenen Farbpalette übereinstimmen, wenn [`forced-colors: active`](/de/docs/Web/CSS/@media/forced-colors) verwendet wird.
 
 ## Benutzerpräferenzen
 
-Verschiedene Betriebssysteme unterstützen solche Präferenzen und Benutzeragenten werden wahrscheinlich auf die vom Betriebssystem bereitgestellten Einstellungen zurückgreifen.
+Verschiedene Betriebssysteme unterstützen solche Präferenzen, und Benutzeragenten werden wahrscheinlich auf die vom Betriebssystem bereitgestellten Einstellungen zurückgreifen.
 
 ## Beispiele
 

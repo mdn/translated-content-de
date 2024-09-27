@@ -1,6 +1,6 @@
 ---
-title: "WorkerNavigator: Verbindungseigenschaft"
-short-title: Verbindung
+title: "WorkerNavigator: connection-Eigenschaft"
+short-title: connection
 slug: Web/API/WorkerNavigator/connection
 l10n:
   sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Network Information API")}}{{AvailableInWorkers("worker")}}
 
-Die **`connection`** schreibgeschützte Eigenschaft der {{domxref("WorkerNavigator")}}-Schnittstelle gibt ein {{domxref("NetworkInformation")}}-Objekt zurück, das Informationen über die Verbindung des Systems enthält, wie z.B. die aktuelle Bandbreite des Geräts des Benutzers oder ob die Verbindung limitiert ist.
-Dies könnte verwendet werden, um hochauflösenden oder niedrigauflösenden Inhalt basierend auf der Verbindung des Nutzers auszuwählen.
+Die schreibgeschützte **`connection`**-Eigenschaft des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces gibt ein [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Objekt zurück, das Informationen über die Verbindung des Systems enthält, wie zum Beispiel die aktuelle Bandbreite des Geräts oder ob die Verbindung gedrosselt ist.
+Dies könnte verwendet werden, um hochauflösende Inhalte oder niedrigauflösende Inhalte basierend auf der Verbindung des Benutzers auszuwählen.
 
 ## Wert
 
-Ein {{domxref("NetworkInformation")}}-Objekt.
+Ein [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Objekt.
 
 ## Spezifikationen
 

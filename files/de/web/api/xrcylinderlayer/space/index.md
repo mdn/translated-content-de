@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`space`**-Eigenschaft der {{domxref("XRCylinderLayer")}}-Schnittstelle repräsentiert die räumliche Beziehung der Ebene zur physischen Umgebung des Nutzers.
+Die **`space`**-Eigenschaft der Schnittstelle [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer) repräsentiert die räumliche Beziehung der Ebene zur physischen Umgebung des Nutzers.
 
 ## Wert
 
-Ein {{domxref("XRSpace")}}.
+Ein [`XRSpace`](/de/docs/Web/API/XRSpace).
 
 ## Beispiele
 
-### Aktualisieren des Raumbezugs der Zylinderebene
+### Aktualisierung des `space` der Zylinder-Ebene
 
-Die Methode {{domxref("XRWebGLBinding.createCylinderLayer()")}} erstellt eine Zylinderebene und erfordert eine `space`-Eigenschaft. Die `XRCylinderLayer.space`-Eigenschaft kann nach der Erstellung der Ebene verwendet werden, um den genutzten Raum abzurufen oder auf einen neuen zu setzen.
+Die Methode [`XRWebGLBinding.createCylinderLayer()`](/de/docs/Web/API/XRWebGLBinding/createCylinderLayer) erstellt eine Zylinder-Ebene und erfordert die Angabe einer `space`-Eigenschaft. Die Eigenschaft `XRCylinderLayer.space` kann nach der Erstellung der Ebene verwendet werden, um den verwendeten Raum zu erhalten oder ihn auf einen neuen festzulegen.
 
 ```js
 const cylinderLayer = xrGlBinding.createCylinderLayer({
@@ -40,5 +40,5 @@ cylinderLayer.space = someOtherSpace;
 
 ## Siehe auch
 
-- {{domxref("XRSpace")}}
-- {{domxref("XRWebGLBinding.createCylinderLayer()")}}
+- [`XRSpace`](/de/docs/Web/API/XRSpace)
+- [`XRWebGLBinding.createCylinderLayer()`](/de/docs/Web/API/XRWebGLBinding/createCylinderLayer)

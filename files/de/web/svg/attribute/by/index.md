@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`by`**-Attribut gibt einen relativen Offsetwert für ein Attribut an, das während einer Animation geändert wird.
+Das **`by`**-Attribut gibt einen relativen Versatzwert für ein Attribut an, das während einer Animation modifiziert wird.
 
-Der Startwert für das Attribut wird entweder durch die Angabe als Wert für das im {{SVGAttr("attributeName")}} oder {{SVGAttr("from")}} spezifizierte Attribut angegeben.
+Der Startwert für das Attribut wird entweder angegeben, indem er als Wert für das Attribut im {{SVGAttr("attributeName")}} oder im {{SVGAttr("from")}}-Attribut angegeben wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -56,7 +56,7 @@ svg {
   </tbody>
 </table>
 
-Der genaue Wertetyp für dieses Attribut hängt vom Wert des Attributs ab, das animiert wird.
+Der genaue Werttyp für dieses Attribut hängt vom Wert des Attributs ab, das animiert wird.
 
 Wenn eine Liste von Werten über das {{SVGAttr("values")}}-Attribut definiert wird, wird das `by`-Attribut ignoriert.
 

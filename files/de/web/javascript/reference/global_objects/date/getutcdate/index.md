@@ -23,13 +23,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine Ganzzahl zwischen 1 und 31, die den Tag des Monats für das angegebene Datum gemäß der Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl zwischen 1 und 31, die den Monatstag für das angegebene Datum gemäß der Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 
 ### Verwendung von getUTCDate()
 
-Das folgende Beispiel weist den Tag des Monats des aktuellen Datums der Variablen `dayOfMonth` zu.
+Das folgende Beispiel weist die Tag des Monats des aktuellen Datums der Variable `dayOfMonth` zu.
 
 ```js
 const today = new Date();

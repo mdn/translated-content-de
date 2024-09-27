@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`cssText`**-Eigenschaft der {{domxref("CSSStyleDeclaration")}} Schnittstelle gibt den Text der **inline**-Stildeklaration des Elements zurück oder legt ihn fest.
+Die **`cssText`**-Eigenschaft des [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Interfaces gibt den Text der **inline**-Stildeklaration des Elements zurück oder setzt ihn.
 
-Um eine **Stylesheet**-Regel dynamisch festzulegen, siehe [Verwendung dynamischer Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information).
+Um eine **Stylesheet**-Regel dynamisch setzen zu können, siehe [Verwendung dynamischer Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information).
 
-Nicht zu verwechseln mit der Stylesheet-Stilregel {{domxref("CSSRule.cssText")}}.
+Nicht zu verwechseln mit der Stile-Definition eines Stylesheets [`CSSRule.cssText`](/de/docs/Web/API/CSSRule/cssText).
 
 ## Wert
 

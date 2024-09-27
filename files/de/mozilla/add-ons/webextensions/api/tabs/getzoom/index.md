@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft den aktuellen Zoomfaktor für den angegebenen Tab ab.
+Erhält den aktuellen Zoomfaktor für den angegebenen Tab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,11 +26,11 @@ let gettingZoom = browser.tabs.getZoom(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit dem aktuellen Zoomfaktor des Tabs erfüllt wird, als eine Zahl zwischen 0.3 und 5. Wenn der Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit dem aktuellen Zoomfaktor des Tabs erfüllt wird, als eine Zahl zwischen 0,3 und 5. Wenn der Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Den Zoomfaktor für den aktuellen Tab abrufen:
+Erhalten Sie den Zoomfaktor für den aktuellen Tab:
 
 ```js
 function onGot(zoom) {
@@ -45,7 +45,7 @@ let gettingZoom = browser.tabs.getZoom();
 gettingZoom.then(onGot, onError);
 ```
 
-Den Zoomfaktor für den Tab mit der ID 2 abrufen:
+Erhalten Sie den Zoomfaktor für den Tab mit der ID 2:
 
 ```js
 function onGot(zoom) {
@@ -67,7 +67,7 @@ gettingZoom.then(onGot, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getZoom)-API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getZoom) API von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

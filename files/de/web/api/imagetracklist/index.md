@@ -7,23 +7,23 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`ImageTrackList`**-Schnittstelle der {{domxref('WebCodecs API','','','true')}} repräsentiert eine Liste von Bildspuren.
+Die **`ImageTrackList`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) repräsentiert eine Liste von Image-Tracks.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("ImageTrackList.ready")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, sobald die `ImageTrackList` mit {{domxref("ImageTrack","tracks")}} gefüllt wurde.
-- {{domxref("ImageTrackList.length")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`ImageTrackList.ready`](/de/docs/Web/API/ImageTrackList/ready) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, sobald die `ImageTrackList` mit [`tracks`](/de/docs/Web/API/ImageTrack) gefüllt wurde.
+- [`ImageTrackList.length`](/de/docs/Web/API/ImageTrackList/length) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt eine ganze Zahl zurück, die die Länge der `ImageTrackList` angibt.
-- {{domxref("ImageTrackList.selectedIndex")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`ImageTrackList.selectedIndex`](/de/docs/Web/API/ImageTrackList/selectedIndex) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt eine ganze Zahl zurück, die den Index des `selectedTrack` angibt.
-- {{domxref("ImageTrackList.selectedTrack")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die ausgewählte {{domxref("ImageTrack")}} zurück.
+- [`ImageTrackList.selectedTrack`](/de/docs/Web/API/ImageTrackList/selectedTrack) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt den ausgewählten [`ImageTrack`](/de/docs/Web/API/ImageTrack) zurück.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

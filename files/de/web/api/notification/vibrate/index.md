@@ -1,5 +1,5 @@
 ---
-title: "Benachrichtigung: Eigenschaft vibrate"
+title: "Notification: Eigenschaft vibrate"
 short-title: vibrate
 slug: Web/API/Notification/vibrate
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`vibrate`** schreibgeschützte Eigenschaft des {{domxref("Notification")}}-Interfaces legt ein [Vibrationsmuster](/de/docs/Web/API/Vibration_API#vibration_patterns) für die Vibrationstechnik des Geräts fest, das ausgeführt wird, wenn die Benachrichtigung ausgelöst wird. Dies wird in der `vibrate`-Option des {{domxref("Notification.Notification","Notification()")}}-Konstruktors angegeben.
+Die **`vibrate`**-Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle gibt ein [Vibrationsmuster](/de/docs/Web/API/Vibration_API#vibration_patterns) an, das von der Vibrationshardware des Geräts ausgeführt wird, wenn die Benachrichtigung ausgelöst wird. Dies wird in der `vibrate`-Option des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
 
 ## Wert
 
-Ein [Vibrationsmuster](/de/docs/Web/API/Vibration_API#vibration_patterns), wie im [Vibration API spec](https://w3c.github.io/vibration/) angegeben.
+Ein [Vibrationsmuster](/de/docs/Web/API/Vibration_API#vibration_patterns), wie im [Vibration API-Spezifikation](https://w3c.github.io/vibration/) angegeben.
 
 ## Beispiele
 
-Der folgende Codeausschnitt soll eine Benachrichtigung erstellen, die auch eine Gerätevibration auslöst; ein einfaches `options`-Objekt wird erstellt und anschließend die Benachrichtigung mit dem `Notification()`-Konstruktor ausgelöst.
+Der folgende Code-Snippet soll eine Benachrichtigung erzeugen, die auch die Vibration des Geräts auslöst; ein einfaches `options`-Objekt wird erstellt und dann durch den `Notification()`-Konstruktor die Benachrichtigung ausgelöst.
 
 ```js
 const options = {

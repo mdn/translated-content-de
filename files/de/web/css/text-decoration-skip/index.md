@@ -7,27 +7,27 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`text-decoration-skip`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, welche Teile des Inhalts eines Elements von einer Textdekoration, die das Element betrifft, übersprungen werden müssen. Sie steuert alle durch das Element gezogenen Textdekorationen und auch alle durch seine Vorfahren gezogenen Textdekorationen.
+Die **`text-decoration-skip`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, über welche Teile des Inhalts eines Elements eine auf das Element wirkende Textdekoration überspringen muss. Sie steuert alle von dem Element gezeichneten Textdekorationen sowie alle von seinen Vorfahren gezeichneten Textdekorationen.
 
 > [!NOTE]
-> Die meisten anderen Browser unterstützen zunehmend die einfachere {{cssxref("text-decoration-skip-ink")}} Eigenschaft.
+> Die meisten anderen Browser nähern sich an, die einfachere Eigenschaft {{cssxref("text-decoration-skip-ink")}} zu unterstützen.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 text-decoration-skip: none;
 text-decoration-skip: objects;
 text-decoration-skip: spaces;
 text-decoration-skip: edges;
 text-decoration-skip: box-decoration;
 
-/* Mehrere Schlüsselwörter */
+/* Multiple keywords */
 text-decoration-skip: objects spaces;
 text-decoration-skip: leading-spaces trailing-spaces;
 text-decoration-skip: objects edges box-decoration;
 
-/* Globale Werte */
+/* Global values */
 text-decoration-skip: inherit;
 text-decoration-skip: initial;
 text-decoration-skip: revert;
@@ -38,23 +38,23 @@ text-decoration-skip: unset;
 ### Werte
 
 - `none`
-  - : Nichts wird übersprungen. Somit wird die Textdekoration für alle Textinhalte und über alle atomaren Inline-Boxen hinweg gezeichnet.
+  - : Es wird nichts übersprungen. Somit wird die Textdekoration für alle Textinhalte und über atomare Inline-Level-Boxen hinweg gezeichnet.
 - `objects`
-  - : Die gesamte Margin-Box des Elements wird übersprungen, wenn es sich um ein atomares Inline-Element wie ein Bild oder ein Inline-Block handelt.
+  - : Der gesamte Randbereich des Elements wird übersprungen, wenn es sich um ein atomares Inline-Element wie ein Bild oder Inline-Block handelt.
 - `spaces`
-  - : Alle Abstände werden übersprungen: alle [Unicode-Leerzeichen](https://www.unicode.org/reports/tr44/#White_Space) und alle Worttrenner, plus jeglicher angrenzender {{cssxref("letter-spacing")}} oder {{cssxref("word-spacing")}}.
+  - : Alle Abstände werden übersprungen: alle [Unicode-Leerzeichen](https://www.unicode.org/reports/tr44/#White_Space) und alle Worttrenner sowie alle angrenzenden {{cssxref("letter-spacing")}} oder {{cssxref("word-spacing")}}.
 - `leading-spaces`
   - : Dasselbe wie `spaces`, außer dass nur führende Leerzeichen übersprungen werden.
 - `trailing-spaces`
   - : Dasselbe wie `spaces`, außer dass nur nachfolgende Leerzeichen übersprungen werden.
 - `edges`
 
-  - : Der Anfang und das Ende der Textdekoration werden leicht (z. B. um die Hälfte der Linienstärke) vom Inhalt des dekorierenden Kastens eingerückt. Somit erhalten angrenzende Elemente separate Unterstreichungen. (Dies ist im Chinesischen wichtig, wo Unterstreichung eine Form der Interpunktion darstellt.)
+  - : Der Anfang und das Ende der Textdekoration sind leicht (zum Beispiel um die Hälfte der Linienstärke) vom Inhaltsrand der dekorierenden Box eingerückt. So erhalten angrenzende Elemente separate Unterstreichungen. (Dies ist im Chinesischen wichtig, wo Unterstreichungen eine Form der Interpunktion darstellen.)
 
     ![Ein Beispiel für "text-decoration-skip: edges;".](decoration-skip-edges.png)
 
 - `box-decoration`
-  - : Die Textdekoration wird über die Rand-, Rahmen- und Innenabstandsbereiche der Box hinweg übersprungen. Dies hat nur Auswirkungen auf Dekorationen, die von einem Vorfahren auferlegt werden; eine _dekorierende Box_ zeichnet niemals über ihre eigene Boxdekoration.
+  - : Die Textdekoration wird über den Rand-, Rahmen- und Pufferbereichen der Box übersprungen. Dies hat nur Auswirkungen auf Dekorationen, die von einem Vorfahren auferlegt werden; eine _dekorierende Box_ zeichnet niemals über ihre eigene Boxdekoration.
 
 ## Formale Definition
 
@@ -66,7 +66,7 @@ text-decoration-skip: unset;
 
 ## Beispiele
 
-### Kanten überspringen
+### Edges überspringen
 
 #### HTML
 

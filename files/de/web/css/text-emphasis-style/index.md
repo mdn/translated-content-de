@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Die **`text-emphasis-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Erscheinungsbild von Hervorhebungszeichen fest. Sie kann auch mit der {{cssxref("text-emphasis")}} Kurzschreibweise gesetzt und zurückgesetzt werden.
+Die **`text-emphasis-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Erscheinungsbild von Betonungszeichen fest. Sie kann auch über den Kurzbefehl {{cssxref("text-emphasis")}} gesetzt und zurückgesetzt werden.
 
 {{EmbedInteractiveExample("pages/css/text-emphasis-style.html")}}
 
 ## Syntax
 
 ```css
-/* Initialwert */
-text-emphasis-style: none; /* Keine Hervorhebungszeichen */
+/* Initial value */
+text-emphasis-style: none; /* No emphasis marks */
 
-/* <string> Werte */
+/* <string> values */
 text-emphasis-style: "x";
 text-emphasis-style: "\25B2";
 text-emphasis-style: "*";
 
-/* Schlüsselwortwerte */
+/* Keyword values */
 text-emphasis-style: filled;
 text-emphasis-style: open;
 text-emphasis-style: dot;
@@ -32,7 +32,7 @@ text-emphasis-style: triangle;
 text-emphasis-style: filled sesame;
 text-emphasis-style: open sesame;
 
-/* Globale Werte */
+/* Global values */
 text-emphasis-style: inherit;
 text-emphasis-style: initial;
 text-emphasis-style: revert;
@@ -43,9 +43,9 @@ text-emphasis-style: unset;
 ### Werte
 
 - `none`
-  - : Keine Hervorhebungszeichen.
+  - : Keine Betonungszeichen.
 - `filled`
-  - : Die Form ist mit einer Vollfarbe gefüllt. Wenn weder `filled` noch `open` vorhanden ist, ist dies der Standard.
+  - : Die Form ist mit einer Vollfarbe ausgefüllt. Falls weder `filled` noch `open` vorhanden ist, ist dies der Standard.
 - `open`
   - : Die Form ist hohl.
 - `dot`
@@ -53,13 +53,13 @@ text-emphasis-style: unset;
 - `circle`
   - : Zeigt große Kreise als Zeichen an. Der gefüllte Kreis ist `'●'` (`U+25CF`), und der offene Kreis ist `'○'` (`U+25CB`).
 - `double-circle`
-  - : Zeigt Doppelpunkte als Zeichen an. Der gefüllte Doppelkreis ist `'◉'` (`U+25C9`), und der offene Doppelkreis ist `'◎'` (`U+25CE`).
+  - : Zeigt doppelte Kreise als Zeichen an. Der gefüllte Doppelkreis ist `'◉'` (`U+25C9`), und der offene Doppelkreis ist `'◎'` (`U+25CE`).
 - `triangle`
   - : Zeigt Dreiecke als Zeichen an. Das gefüllte Dreieck ist `'▲'` (`U+25B2`), und das offene Dreieck ist `'△'` (`U+25B3`).
 - `sesame`
   - : Zeigt Sesamzeichen an. Der gefüllte Sesam ist `'﹅'` (`U+FE45`), und der offene Sesam ist `'﹆'` (`U+FE46`).
 - `<string>`
-  - : Zeigt den angegebenen String als Zeichen an. Autoren sollten nicht mehr als ein _Zeichen_ in `<string>` angeben. Das UA kann Strings abschneiden oder ignorieren, die aus mehr als einem Graphemschlüssel bestehen.
+  - : Zeigt die angegebene Zeichenfolge als Zeichen an. Autoren sollten nicht mehr als ein _Zeichen_ in `<string>` angeben. Das UA kann Zeichenfolgen, die aus mehr als einem Graphem-Cluster bestehen, abschneiden oder ignorieren.
 
 ## Formale Definition
 
@@ -91,4 +91,4 @@ h2 {
 ## Siehe auch
 
 - Die verwandten Eigenschaften {{cssxref('text-emphasis-color')}}, {{cssxref('text-emphasis')}}.
-- Die {{cssxref('text-emphasis-position')}} Eigenschaft, die es ermöglicht, die Position der Hervorhebungszeichen zu definieren.
+- Die {{cssxref('text-emphasis-position')}} Eigenschaft, die es ermöglicht, die Position der Betonungszeichen zu definieren.

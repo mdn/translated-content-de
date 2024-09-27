@@ -8,9 +8,11 @@ l10n:
 
 {{APIRef("UI Events")}}{{Non-standard_Header}}
 
-Die schreibgeschützte **`MouseEvent.layerX`**-Eigenschaft gibt die horizontale Koordinate des Ereignisses relativ zur aktuellen Ebene zurück.
+Die schreibgeschützte Eigenschaft **`MouseEvent.layerX`** gibt die
+horizontale Koordinate des Ereignisses relativ zur aktuellen Ebene zurück.
 
-Diese Eigenschaft berücksichtigt das Scrollen der Seite und gibt einen Wert relativ zum gesamten Dokument zurück, es sei denn, das Ereignis tritt innerhalb eines positionierten Elements auf; in diesem Fall ist der zurückgegebene Wert relativ zur oberen linken Ecke des positionierten Elements.
+Diese Eigenschaft berücksichtigt das Scrollen der Seite und gibt einen Wert relativ zum
+gesamten Dokument zurück, es sei denn, das Ereignis tritt innerhalb eines positionierten Elements auf. In diesem Fall ist der zurückgegebene Wert relativ zur oberen linken Ecke des positionierten Elements.
 
 ## Wert
 
@@ -63,22 +65,28 @@ Ein ganzzahliger Wert in Pixeln für die x-Koordinate des Mauszeigers, wenn das 
   </head>
 
   <body onmousedown="showCoords(event)">
-    <p>Um die Mauskoordinaten anzuzeigen, klicken Sie bitte irgendwo auf die Seite.</p>
+    <p>To display the mouse coordinates please click anywhere on the page.</p>
 
     <div id="d1">
       <span>
-        Dies ist ein nicht positioniertes div, sodass ein Klick darauf fast die gleichen layerX/layerY-Werte wie pageX/PageY zurückgibt.
+        This is an un-positioned div so clicking it will return layerX/layerY
+        values almost the same as pageX/PageY values.
       </span>
     </div>
 
     <div id="d2">
       <span>
-        Dies ist ein positioniertes div, sodass ein Klick darauf layerX/layerY-Werte zurückgibt, die relativ zur oberen linken Ecke dieses positionierten Elements sind.
-        Beachten Sie, dass die pageX\pageY-Eigenschaften weiterhin die absolute Position im Dokument, einschließlich des Scrollens der Seite, zurückgeben.
+        This is a positioned div so clicking it will return layerX/layerY values
+        that are relative to the top-left corner of this positioned element.
+        Note the pageX\pageY properties still return the absolute position in
+        the document, including page scrolling.
       </span>
 
       <span>
-        Scrollen Sie die Seite weiter! Dies ist ein positioniertes div, sodass ein Klick darauf layerX/layerY-Werte zurückgibt, die relativ zur oberen linken Ecke dieses positionierten Elements sind. Beachten Sie, dass die pageX\pageY-Eigenschaften weiterhin die absolute Position im Dokument, einschließlich des Scrollens der Seite, zurückgeben.
+        Make the page scroll more! This is a positioned div so clicking it will
+        return layerX/layerY values that are relative to the top-left corner of
+        this positioned element. Note the pageX\pageY properties still return
+        the absolute position in the document, including page scrolling.
       </span>
     </div>
 

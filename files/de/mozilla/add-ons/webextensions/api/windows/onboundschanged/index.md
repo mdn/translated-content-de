@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn ein Fenster in der Größe verändert oder verschoben wird. Dieses Ereignis wird ausgelöst, wenn die neuen Grenzen festgelegt sind. Es wird nicht für in Fortschritt befindliche Änderungen ausgelöst.
+Wird ausgelöst, wenn ein Fenster in der Größe verändert oder verschoben wird. Dieses Ereignis wird ausgelöst, wenn die neuen Grenzen festgelegt werden. Es wird nicht für Änderungen ausgelöst, die noch im Gange sind.
 
 ## Syntax
 
@@ -22,24 +22,24 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener-Syntax
+## Syntax von addListener
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
 
     - `window`
-      - : Ein {{WebExtAPIRef('windows.Window')}} Objekt, das Details des Fensters enthält, das in der Größe verändert oder verschoben wurde.
+      - : Ein {{WebExtAPIRef('windows.Window')}}-Objekt, das Details des Fensters enthält, das in der Größe verändert oder verschoben wurde.
 
 ## Beispiele
 
-Protokollieren Sie die IDs von Fenstern, die verschoben oder in der Größe verändert werden:
+Protokollieren Sie die IDs der Fenster, die verschoben oder in der Größe verändert werden:
 
 ```js
 browser.windows.onBoundsChanged.addListener((window) => {
@@ -54,7 +54,7 @@ browser.windows.onBoundsChanged.addListener((window) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#event-onBoundsChanged) API. Diese Dokumentation ist abgeleitet von [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#event-onBoundsChanged) API von Chromium. Diese Dokumentation stammt aus [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

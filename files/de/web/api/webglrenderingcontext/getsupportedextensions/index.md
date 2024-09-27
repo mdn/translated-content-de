@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode getSupportedExtensions()"
+title: "WebGLRenderingContext: getSupportedExtensions() Methode"
 short-title: getSupportedExtensions()
 slug: Web/API/WebGLRenderingContext/getSupportedExtensions
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.getSupportedExtensions()`**-Methode
+Die **`WebGLRenderingContext.getSupportedExtensions()`** Methode
 gibt eine Liste aller unterstützten [WebGL](/de/docs/Web/API/WebGL_API)
 Erweiterungen zurück.
 
@@ -36,12 +36,12 @@ const extensions = gl.getSupportedExtensions();
 // Array [ 'ANGLE_instanced_arrays', 'EXT_blend_minmax', … ]
 ```
 
-Siehe auch die {{domxref("WebGLRenderingContext.getExtension()")}}-Methode, um ein
-bestimmtes Erweiterungsobjekt zu erhalten.
+Siehe auch die [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) Methode, um ein
+spezifisches Erweiterungsobjekt zu erhalten.
 
 ## WebGL-Erweiterungen
 
-Erweiterungen für die WebGL-API sind im [WebGL Extension Registry](https://registry.khronos.org/webgl/extensions/) registriert. Sie sind auch [hier](/de/docs/Web/API/WebGL_API#extensions) aufgelistet.
+Erweiterungen für die WebGL API sind im [WebGL Extension Registry](https://registry.khronos.org/webgl/extensions/) registriert. Sie sind auch [hier](/de/docs/Web/API/WebGL_API#extensions) aufgelistet.
 
 ## Spezifikationen
 
@@ -53,5 +53,5 @@ Erweiterungen für die WebGL-API sind im [WebGL Extension Registry](https://regi
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
 - [webglreport.com](https://webglreport.com/)

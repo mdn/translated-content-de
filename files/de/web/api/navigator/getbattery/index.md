@@ -8,9 +8,11 @@ l10n:
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Die **`getBattery()`** Methode liefert Informationen über den Akku des Systems. Sie gibt ein Versprechen zurück, das mit einem {{domxref("BatteryManager")}}-Objekt erfüllt wird, welches einige Eigenschaften bereitstellt, um den Batteriestatus abzufragen. Außerdem können einige Ereignisse gehandhabt werden, um den Batteriezustand zu überwachen. Dies implementiert die {{domxref("Battery Status API", "", "", "nocode")}}; siehe diese Dokumentation für zusätzliche Details, eine Anleitung zur Nutzung der API und Beispielcode.
+Die **`getBattery()`** Methode liefert Informationen über den Akkustand des Systems.
+Sie gibt ein Battery-Versprechen zurück, das mit einem [`BatteryManager`](/de/docs/Web/API/BatteryManager) Objekt aufgelöst wird, das einige Eigenschaften bereitstellt, um den Akkustatus zu ermitteln, sowie einige Ereignisse, die Sie nutzen können, um den Akkustatus zu überwachen.
+Dies implementiert die [Battery Status API](/de/docs/Web/API/Battery_Status_API); für weitere Details, einen Leitfaden zur Verwendung der API und Beispielcode siehe diese Dokumentation.
 
-Seit Chrome 103 wird die `Navigator.getBattery()` Methode der {{domxref("Battery Status API", "", "", "nocode")}} nur im sicheren Kontext bereitgestellt.
+Seit Chrome 103 wird die `Navigator.getBattery()` Methode der [Battery Status API](/de/docs/Web/API/Battery_Status_API) nur noch in sicheren Kontexten bereitgestellt.
 
 > [!NOTE]
 > Der Zugriff auf diese Funktion kann durch die {{HTTPHeader("Permissions-Policy")}} Direktive {{HTTPHeader("Permissions-Policy/battery", "battery")}} gesteuert werden.
@@ -27,20 +29,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das mit einem {{DOMxRef("BatteryManager")}}-Objekt erfüllt wird, das Sie verwenden können, um Informationen über den Batteriezustand zu erhalten.
+Ein {{JSxRef("Promise")}}, das mit einem [`BatteryManager`](/de/docs/Web/API/BatteryManager) Objekt erfüllt wird, das Sie verwenden können, um Informationen über den Zustand des Akkus zu erhalten.
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Die Nutzung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Verwendung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Der Benutzeragent stellt keine Batterieinformationen für unsichere Kontexte bereit und diese Methode wurde aus einem unsicheren Kontext aufgerufen.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Der User Agent gibt keine Akkuinformationen an unsichere Kontexte weiter und diese Methode wurde von einem unsicheren Kontext aus aufgerufen.
 
 ## Beispiele
 
-Dieses Beispiel ruft den aktuellen Ladezustand der Batterie ab und erstellt einen Handler für das {{domxref("BatteryManager/chargingchange_event", "chargingchange")}}-Ereignis, sodass der Ladezustand immer dann aufgezeichnet wird, wenn er sich ändert.
+Dieses Beispiel ermittelt den aktuellen Ladezustand des Akkus und definiert einen Handler für das [`chargingchange`](/de/docs/Web/API/BatteryManager/chargingchange_event) Ereignis, sodass der Ladezustand jedes Mal aufgezeichnet wird, wenn er sich ändert.
 
 ```js
 let batteryIsCharging = false;
@@ -54,7 +56,7 @@ navigator.getBattery().then((battery) => {
 });
 ```
 
-Für weitere Beispiele und Details siehe {{domxref("Battery Status API", "", "", "nocode")}}.
+Für weitere Beispiele und Details siehe [Battery Status API](/de/docs/Web/API/Battery_Status_API).
 
 ## Spezifikationen
 
@@ -66,5 +68,5 @@ Für weitere Beispiele und Details siehe {{domxref("Battery Status API", "", "",
 
 ## Siehe auch
 
-- {{domxref("Battery Status API", "", "", "nocode")}}
+- [Battery Status API](/de/docs/Web/API/Battery_Status_API)
 - {{HTTPHeader("Permissions-Policy")}} {{HTTPHeader("Permissions-Policy/battery", "battery")}} Direktive

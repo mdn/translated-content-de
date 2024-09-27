@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef}}{{ Non-standard_header() }}{{deprecated_header}}
 
-Die veraltete und nicht standardisierte Methode `back()` in der {{domxref("window")}}-Schnittstelle kehrt zum vorherigen Element in der Historie zurück. Dies war eine spezifische Methode von Firefox und wurde in Firefox 31 entfernt.
+Die veraltete und nicht standardisierte Methode `back()` auf der [`window`](/de/docs/Web/API/Window)-Schnittstelle versetzt das Fenster zum vorherigen Element in der Historie zurück. Dies war eine Firefox-spezifische Methode und wurde in Firefox 31 entfernt.
 
 > [!NOTE]
-> Verwenden Sie stattdessen die standardisierte Methode {{domxref("history.back")}}.
+> Verwenden Sie stattdessen die standardisierte [`history.back`](/de/docs/Web/API/History/back)-Methode.
 
 ## Syntax
 
@@ -25,11 +25,11 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses einfache Beispiel verarbeitet einen Klick auf einen "Zurück"-Button durch Aufrufen von `back()`.
+Dieses einfache Beispiel behandelt einen Klick auf eine "Zurück"-Schaltfläche durch Aufruf von `back()`.
 
 ```js
 function handleMyBackButton() {
@@ -41,13 +41,13 @@ function handleMyBackButton() {
 
 ## Spezifikationen
 
-Dies ist Teil keiner Spezifikation.
+Dies ist kein Teil irgendeiner Spezifikation.
 
 ## Browser-Kompatibilität
 
-Diese nicht standardisierte Methode wurde nur in Firefox implementiert und in Firefox 31 entfernt.
+Diese nicht-standardisierte Methode wurde nur in Firefox implementiert und in Firefox 31 entfernt\.
 
 ## Siehe auch
 
-- {{domxref("History.back()")}}
-- {{domxref("History.forward()")}}
+- [`History.back()`](/de/docs/Web/API/History/back)
+- [`History.forward()`](/de/docs/Web/API/History/forward)

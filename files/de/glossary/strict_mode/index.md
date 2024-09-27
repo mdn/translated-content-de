@@ -1,5 +1,5 @@
 ---
-title: Strikter Modus
+title: Strict mode
 slug: Glossary/Strict_mode
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **strikter Modus** von JavaScript ist eine Möglichkeit, sich für eine eingeschränkte Variante von JavaScript zu entscheiden, indem man sich damit implizit gegen den "{{Glossary("Sloppy_mode", "schlampigen Modus")}}" entscheidet. Der strikte Modus ist nicht nur ein Teilmenge: er hat _absichtlich_ eine andere Semantik als normaler Code.
+Das **Strict mode** von JavaScript ist eine Möglichkeit, eine eingeschränkte Variante von JavaScript zu verwenden, indem man sich damit implizit gegen den "[sloppy mode](/de/docs/Glossary/Sloppy_mode)" entscheidet. Strict mode ist nicht nur ein Teilbereich: Es hat _absichtlich_ andere Semantiken als normaler Code.
 
-Der strikte Modus für ein ganzes Script wird aktiviert, indem die Anweisung `"use strict";` vor allen anderen Anweisungen eingefügt wird.
+Strict mode für ein ganzes Skript wird aktiviert, indem die Anweisung `"use strict";` vor jeglichen anderen Anweisungen eingefügt wird.
 
 ## Siehe auch
 
-- [Strikter Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)
+- [Strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Sloppy mode")}}
+  - [Sloppy mode](/de/docs/Glossary/Sloppy_mode)

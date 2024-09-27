@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`forEach()`**-Methode von {{jsxref("Map")}}-Instanzen führt eine bereitgestellte Funktion einmal pro Schlüssel/Wert-Paar in dieser Map in Einfügereihenfolge aus.
+Die **`forEach()`**-Methode von {{jsxref("Map")}}-Instanzen führt eine bereitgestellte Funktion einmal pro Schlüssel/Wert-Paar in dieser Map in der Einfügereihenfolge aus.
 
 {{EmbedInteractiveExample("pages/js/map-prototype-foreach.html")}}
 
@@ -27,9 +27,9 @@ forEach(callbackFn, thisArg)
     - `key`
       - : Schlüssel jeder Iteration.
     - `map`
-      - : Die zu durchlaufende Map.
+      - : Die iterierte Map.
 - `thisArg` {{optional_inline}}
-  - : Ein Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird.
+  - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird.
 
 ### Rückgabewert
 
@@ -37,22 +37,21 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Die Methode `forEach` führt das bereitgestellte `callback` einmal für jeden existierenden Schlüssel der Map aus. Sie wird nicht für gelöschte Schlüssel aufgerufen. Sie wird jedoch für vorhandene Werte ausgeführt, die den Wert `undefined` haben.
+Die Methode `forEach` führt die bereitgestellte `callback` einmal für jeden vorhandenen Schlüssel der Map aus. Sie wird nicht für gelöschte Schlüssel aufgerufen. Sie wird jedoch für Werte ausgeführt, die vorhanden sind, aber den Wert `undefined` haben.
 
 `callback` wird mit **drei Argumenten** aufgerufen:
 
 - dem `value` des Eintrags
 - dem `key` des Eintrags
-- dem **`Map`-Objekt**, das durchlaufen wird
+- dem durchlaufenen **`Map`-Objekt**
 
-Wenn ein `thisArg`-Parameter an `forEach` übergeben wird, wird er an `callback` übergeben, um als sein `this`-Wert verwendet zu werden. Andernfalls wird der Wert `undefined` als `this`-Wert übergeben. Der letztendlich von `callback` beobachtbare `this`-Wert wird gemäß
-[den üblichen Regeln zur Bestimmung des von einer Funktion gesehenen `this`](/de/docs/Web/JavaScript/Reference/Operators/this) bestimmt.
+Wenn ein `thisArg`-Parameter an `forEach` übergeben wird, wird er beim Aufruf an `callback` übergeben und als dessen `this`-Wert verwendet. Andernfalls wird der Wert `undefined` als `this`-Wert verwendet. Der letztlich von `callback` beobachtbare `this`-Wert wird gemäß [den üblichen Regeln zur Bestimmung des `this`-Werts einer Funktion](/de/docs/Web/JavaScript/Reference/Operators/this) bestimmt.
 
-Jeder Wert wird einmal besucht, außer im Fall, dass er gelöscht und erneut hinzugefügt wurde, bevor `forEach` abgeschlossen ist. `callback` wird nicht für Werte aufgerufen, die vor dem Besuch gelöscht wurden. Neue Werte, die hinzugefügt werden, bevor `forEach` abgeschlossen ist, werden besucht.
+Jeder Wert wird einmal besucht, es sei denn, er wurde gelöscht und erneut hinzugefügt, bevor `forEach` abgeschlossen ist. `callback` wird nicht für Werte aufgerufen, die vor ihrem Besuch gelöscht wurden. Vor Abschluss von `forEach` hinzugefügte neue Werte werden besucht.
 
 ## Beispiele
 
-### Der Inhalt eines Map-Objekts ausgeben
+### Den Inhalt eines Map-Objekts ausgeben
 
 Der folgende Code protokolliert eine Zeile für jedes Element in einem `Map`-Objekt:
 
@@ -65,7 +64,7 @@ new Map([
   ["bar", {}],
   ["baz", undefined],
 ]).forEach(logMapElements);
-// Protokolliert:
+// Logs:
 // "map.get('foo') = 3"
 // "map.get('bar') = [object Object]"
 // "map.get('baz') = undefined"

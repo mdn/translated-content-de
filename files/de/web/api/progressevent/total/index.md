@@ -1,5 +1,5 @@
 ---
-title: "ProgressEvent: total Eigenschaft"
+title: "ProgressEvent: total-Eigenschaft"
 short-title: total
 slug: Web/API/ProgressEvent/total
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}}
 
-Die schreibgeschützte Eigenschaft **`ProgressEvent.total`** ist eine 64-Bit-Ganzzahl ohne Vorzeichen, die die Gesamtgröße in Bytes der Daten angibt, die übertragen oder verarbeitet werden.
+Die schreibgeschützte Eigenschaft **`ProgressEvent.total`** ist eine 64-Bit große vorzeichenlose Ganzzahl, die die Gesamtgröße in Bytes der Daten angibt, die übertragen oder verarbeitet werden.
 
-Beim Herunterladen einer Ressource mit HTTP wird dieser Wert aus dem `Content-Length` Antwort-Header entnommen. Er zählt nur den Körper der HTTP-Nachricht und schließt Header und andere Overhead-Daten nicht ein.
+Beim Herunterladen einer Ressource über HTTP wird dieser Wert aus dem `Content-Length`-Antwortheader entnommen. Es zählt nur den Körper der HTTP-Nachricht und schließt Header und andere Überköpfe nicht ein.
 
-Wenn die {{domxref("ProgressEvent.lengthComputable", "lengthComputable")}}-Eigenschaft des Ereignisses `false` ist, ist dieser Wert bedeutungslos und sollte ignoriert werden.
+Wenn die [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable)-Eigenschaft des Ereignisses `false` ist, ist dieser Wert bedeutungslos und sollte ignoriert werden.
 
 ## Wert
 
@@ -28,4 +28,4 @@ Eine Ganzzahl.
 
 ## Siehe auch
 
-- Das {{domxref("ProgressEvent")}} Interface, zu dem es gehört.
+- Die [`ProgressEvent`](/de/docs/Web/API/ProgressEvent) Schnittstelle, zu der sie gehört.

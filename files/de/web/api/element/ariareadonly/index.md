@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaReadOnly`**-Eigenschaft der {{domxref("Element")}}-Schnittstelle spiegelt den Wert des [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-readonly)-Attributs wider, welches angibt, dass das Element nicht bearbeitbar ist, aber anderweitig bedienbar ist.
+Die **`ariaReadOnly`** Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-readonly)-Attributs wider, welches angibt, dass das Element nicht editierbar ist, aber ansonsten bedienbar.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit ein HTML-{{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese eingebaute Semantik haben und keine ARIA-Attribute benötigen.
+> Wo möglich, verwenden Sie ein HTML {{htmlelement("input")}}-Element mit `type="text"` oder ein {{htmlelement("textarea")}}, da diese über eingebaute Semantik verfügen und keine ARIA-Attribute benötigen.
 
 ## Wert
 
@@ -20,14 +20,14 @@ Ein String mit einem der folgenden Werte:
 - `"true"`
   - : Der Benutzer kann den Wert des Elements nicht ändern.
 - `"false"`
-  - : Der Benutzer kann den Wert des Elements setzen.
+  - : Der Benutzer kann den Wert des Elements einstellen.
 
 ## Beispiele
 
-In diesem Beispiel ist das `aria-readonly`-Attribut auf dem Element mit der ID `txtBoxInput` auf "true" gesetzt, was anzeigt, dass diese Eingabe derzeit nur lesbar ist. Mit `ariaReadOnly` aktualisieren wir den Wert auf "false".
+In diesem Beispiel wird das `aria-readonly`-Attribut des Elements mit der ID `txtBoxInput` auf "true" gesetzt, was anzeigt, dass diese Eingabe derzeit schreibgeschützt ist. Mit `ariaReadOnly` aktualisieren wir den Wert auf "false".
 
 ```html
-<div id="txtboxMultilineLabel">Geben Sie die Tags für den Artikel ein</div>
+<div id="txtboxMultilineLabel">Enter the tags for the article</div>
 <div
   role="textbox"
   id="txtBoxInput"
@@ -48,7 +48,7 @@ console.log(el.ariaReadOnly); // "false"
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

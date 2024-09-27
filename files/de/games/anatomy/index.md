@@ -7,267 +7,267 @@ l10n:
 
 {{GamesSidebar}}
 
-Dieser Artikel betrachtet die Anatomie und den Arbeitsablauf eines durchschnittlichen Videospiels aus einer technischen Perspektive, in Bezug darauf, wie die Hauptschleife ablaufen sollte. Er hilft Anfängern der modernen Spieleentwicklung zu verstehen, welche Anforderungen beim Erstellen eines Spiels bestehen und wie Webstandards wie JavaScript als Werkzeuge dienen können. Auch erfahrene Spieleprogrammierer, die neu in der Webentwicklung sind, könnten davon profitieren.
+Dieser Artikel betrachtet die Anatomie und den Arbeitsablauf eines durchschnittlichen Videospiels aus technischer Sicht, insbesondere wie die Hauptschleife ablaufen sollte. Er hilft Anfängern in der modernen Spieleentwicklung zu verstehen, was beim Erstellen eines Spiels erforderlich ist und wie sich Webstandards wie JavaScript als Werkzeuge eignen. Auch erfahrene Spielprogrammierer, die neu in der Webentwicklung sind, könnten davon profitieren.
 
 ## Präsentieren, akzeptieren, interpretieren, berechnen, wiederholen
 
-Das Ziel jedes Videospiels ist es, dem / den Benutzer(n) eine Situation zu **präsentieren**, ihre Eingaben zu **akzeptieren**, diese Signale in Aktionen zu **interpretieren** und eine neue Situation zu **berechnen**, die aus diesen Aktionen resultiert. Spiele durchlaufen diese Phasen ständig, immer wieder, bis eine Endbedingung eintritt (wie zum Beispiel Gewinnen, Verlieren oder Beenden, um schlafen zu gehen). Nicht überraschend, entspricht dieses Muster dem, wie eine Spiel-Engine programmiert wird.
+Das Ziel jedes Videospiels ist es, dem Benutzer eine Situation zu **präsentieren**, seine Eingabe zu **akzeptieren**, diese Signale in Aktionen zu **interpretieren** und eine neue Situation zu **berechnen**, die sich aus diesen Handlungen ergibt. Spiele durchlaufen ständig diese Phasen, immer und immer wieder, bis eine Endbedingung eintritt (wie Gewinnen, Verlieren oder Beenden, um schlafen zu gehen). Überraschenderweise entspricht dieses Muster der Programmierung einer Spiel-Engine.
 
 Die Details hängen vom Spiel ab.
 
-Einige Spiele treiben diesen Zyklus durch Benutzereingaben an. Stellen Sie sich vor, Sie entwickeln ein Spiel vom Typ _"Finde die Unterschiede zwischen diesen beiden ähnlichen Bildern"_. Diese Spiele **präsentieren** dem Benutzer zwei Bilder; sie **akzeptieren** seinen Klick (oder seine Berührung); sie **interpretieren** die Eingabe als Erfolg, Misserfolg, Pause, Menüinteraktion usw.; schließlich **berechnen** sie eine aktualisierte Szene, die sich aus dieser Eingabe ergibt. Die Spielschleife wird durch die Eingabe des Benutzers vorangetrieben und ruht, bis dieser sie bereitstellt. Dies ist eher ein rundenbasierter Ansatz, der nicht bei jedem Frame eine ständige Aktualisierung erfordert, sondern nur, wenn der Spieler reagiert.
+Einige Spiele steuern diesen Zyklus durch Benutzereingaben. Stellen Sie sich vor, Sie entwickeln ein Spiel vom Typ "_Finde die Unterschiede zwischen diesen beiden ähnlichen Bildern_". Diese Spiele **präsentieren** dem Nutzer zwei Bilder; sie **akzeptieren** ihren Klick (oder Berührung); sie **interpretieren** die Eingabe als Erfolg, Misserfolg, Pause, Menüinteraktion usw.; schließlich **berechnen** sie eine aktualisierte Szene, die aus dieser Eingabe resultiert. Die Spielschleife wird durch die Eingabe des Benutzers vorangebracht und ruht, bis er sie bereitstellt. Dies ist eher ein rundenbasierter Ansatz, der kein ständiges Update jedes Bildes erfordert, sondern nur dann, wenn der Spieler reagiert.
 
-Andere Spiele verlangen Kontrolle über jeden kleinsten individuellen Zeitabschnitt. Die gleichen Prinzipien wie oben gelten mit einem kleinen Twist: jedes Bild einer Animation schreitet im Zyklus voran und jede Änderung in der Benutzereingabe wird beim ersten verfügbaren Zug erkannt. Dieses Modell „einmal pro Frame“ wird in etwas namens **Hauptschleife** implementiert. Wenn Ihre Spielschleife auf Zeit basiert, dann wird dies die Autorität sein, der Ihre Simulationen folgen werden.
+Andere Spiele verlangen die Kontrolle über jede der kleinstmöglichen einzelnen Zeitscheiben. Die gleichen Prinzipien wie oben gelten mit einer kleinen Drehung: Jedes Animationsbild führt den Zyklus weiter, und jede Änderung der Benutzereingabe wird bei der ersten verfügbaren Gelegenheit erfasst. Dieses einmal-pro-Bild-Modell wird in etwas implementiert, das als **Hauptschleife** bezeichnet wird. Wenn Ihre Spielschleife auf Zeit basiert, wird dies ihre Autorität sein, an die sich Ihre Simulationen halten müssen.
 
-Aber eventuell braucht sie keine Kontrolle pro Frame. Ihre Spielschleife könnte ähnlich dem Beispiel _Finde die Unterschiede_ sein und sich auf Eingabeereignisse stützen. Eventuell benötigt sie sowohl Eingaben als auch simulierte Zeit. Es könnte sogar auf etwas völlig anderem basieren.
+Aber möglicherweise benötigt es keine Kontrolle pro Bild. Ihre Spielschleife könnte ähnlich dem Beispiel _Finde die Unterschiede_ sein und sich auf Eingabereignisse stützen. Es könnte sowohl Eingaben als auch simulierte Zeit erfordern. Es könnte sogar auf etwas ganz anderem beruhen.
 
-Moderne JavaScript - wie in den nächsten Abschnitten beschrieben - macht es glücklicherweise einfach, eine effiziente, einmal-pro-Frame ausführende Hauptschleife zu entwickeln. Natürlich wird Ihr Spiel nur so optimiert sein, wie Sie es gestalten. Wenn etwas so aussieht, als sollte es an ein weniger häufiges Ereignis angehängt werden, dann ist es oft eine gute Idee, es aus der Hauptschleife herauszunehmen (aber nicht immer).
+Moderne JavaScript — wie in den folgenden Abschnitten beschrieben — macht es glücklicherweise einfach, eine effiziente, einmal-pro-Bild auszuführende Hauptschleife zu entwickeln. Natürlich wird Ihr Spiel nur so optimiert sein, wie Sie es gestalten. Wenn etwas so aussieht, als sollte es an ein selteneres Ereignis gebunden werden, ist es oft eine gute Idee, es aus der Hauptschleife herauszunehmen (aber nicht immer).
 
-## Eine Hauptschleife in JavaScript erstellen
+## Aufbau einer Hauptschleife in JavaScript
 
-JavaScript funktioniert am besten mit Ereignissen und Rückruffunktionen. Moderne Browser streben danach, Methoden genau dann aufzurufen, wenn sie benötigt werden, und ruhen (oder führen ihre anderen Aufgaben aus) in den Zwischenräumen. Es ist eine ausgezeichnete Idee, Ihren Code an den geeigneten Momenten zu verknüpfen. Überlegen Sie, ob Ihre Funktion wirklich in einem strikten Zeitintervall, bei jedem Frame oder nur nach einem anderen Ereignis aufgerufen werden muss. Wenn Sie dem Browser spezifisch mitteilen, wann Ihre Funktion aufgerufen werden muss, ermöglicht dies dem Browser, zu optimieren, wann sie aufgerufen wird. Außerdem wird es wahrscheinlich Ihre Aufgabe erleichtern.
+JavaScript funktioniert am besten mit Ereignissen und Rückruffunktionen. Moderne Browser bemühen sich, Methoden genau dann aufzurufen, wenn sie benötigt werden, und in den Lücken im Leerlauf (oder erledigen ihre anderen Aufgaben). Es ist eine ausgezeichnete Idee, Ihren Code an die Momente anzuhängen, die für ihn geeignet sind. Überlegen Sie, ob Ihre Funktion wirklich in einem strengen Zeitintervall, jedes Bild oder nur nach einem anderen Ereignis aufgerufen werden muss. Genauer mit dem Browser darüber zu sein, wann Ihre Funktion aufgerufen werden muss, ermöglicht es dem Browser, den Aufruf zu optimieren. Es wird Ihnen wahrscheinlich auch die Arbeit erleichtern.
 
-Einige Codes müssen frameweise ausgeführt werden, warum also diese Funktion nicht an die Neuzeichenplanung des Browsers anhängen? Im Web wird {{ domxref("window.requestAnimationFrame()") }} die Grundlage der meisten gut programmierten pro-Frame Hauptschleifen sein. Eine Rückruffunktion muss übergeben werden, wenn diese aufgerufen wird. Diese Rückruffunktion wird zu einem geeigneten Zeitpunkt vor dem nächsten Neuzeichnen ausgeführt. Hier ist ein Beispiel für eine einfache Hauptschleife:
+Einige Codes müssen Bild für Bild ausgeführt werden, warum also diese Funktion nicht an den Neuzeichenplan des Browsers anhängen? Im Web wird [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) die Grundlage der meisten gut programmierten Hauptschleifen sein, die pro Bild laufen. Eine Rückruffunktion muss übergeben werden, wenn sie aufgerufen wird. Diese Rückruffunktion wird zu einem geeigneten Zeitpunkt vor dem nächsten Neuzeichnen ausgeführt. Hier ist ein Beispiel für eine einfache Hauptschleife:
 
 ```js
 window.main = () => {
   window.requestAnimationFrame(main);
 
-  // Was auch immer Ihre Hauptschleife erledigen muss
+  // Whatever your main loop needs to do
 };
 
-main(); // Startet den Zyklus
+main(); // Start the cycle
 ```
 
 > [!NOTE]
-> In jeder der hier besprochenen `main()`-Methoden planen wir ein neues `requestAnimationFrame`, bevor wir den Schleifeninhalt ausführen. Das ist kein Zufall und wird als Best Practice angesehen. Das frühe Aufrufen des nächsten `requestAnimationFrame` stellt sicher, dass der Browser es rechtzeitig erhält, um entsprechend zu planen, selbst wenn Ihr aktueller Frame sein VSync-Fenster verpasst.
+> In jeder der hier besprochenen `main()`-Methoden planen wir einen neuen `requestAnimationFrame`, bevor wir unsere Schleifeninhalte ausführen. Das ist kein Zufall und es wird als bewährte Praxis angesehen. Das frühzeitige Aufrufen des nächsten `requestAnimationFrame` stellt sicher, dass der Browser ihn rechtzeitig erhält, um entsprechend zu planen, selbst wenn Ihr aktuelles Bild sein VSync-Fenster verpasst.
 
-Das obige Code-Stück hat zwei Anweisungen. Die erste Anweisung erstellt eine Funktion als globale Variable namens `main()`. Diese Funktion erledigt einige Aufgaben und weist den Browser auch an, sich im nächsten Frame mit `window.requestAnimationFrame()` erneut aufzurufen. Die zweite Anweisung ruft die `main()`-Funktion auf, die in der ersten Anweisung definiert wurde. Da `main()` einmal in der zweiten Anweisung aufgerufen wird und jedes seiner Aufrufe sich selbst in die Warteschlange der nächsten Frame-Aufgaben stellt, ist `main()` mit Ihrer Bildrate synchronisiert.
+Der obige Code-Ausschnitt enthält zwei Anweisungen. Die erste Anweisung erstellt eine Funktion als globale Variable namens `main()`. Diese Funktion erledigt einige Aufgaben und teilt dem Browser außerdem mit, sich mit `window.requestAnimationFrame()` beim nächsten Bild selbst aufzurufen. Die zweite Anweisung ruft die `main()`-Funktion auf, die in der ersten Anweisung definiert wird. Da `main()` einmal in der zweiten Anweisung aufgerufen wird und jeder Aufruf es in die Warteschlange der Dinge setzt, die als nächstes Bild erledigt werden müssen, ist `main()` mit Ihrer Bildrate synchronisiert.
 
-Natürlich ist diese Schleife nicht perfekt. Bevor wir Möglichkeiten zur Veränderung diskutieren, lassen Sie uns besprechen, was sie bereits gut macht.
+Natürlich ist diese Schleife nicht perfekt. Bevor wir Wege diskutieren, sie zu ändern, lassen Sie uns darüber sprechen, was sie bereits gut macht.
 
-Die Hauptschleife auf den Zeitpunkt abzustimmen, wenn der Browser auf das Display malt, ermöglicht es Ihnen, Ihre Schleife so häufig auszuführen, wie der Browser malen möchte. Sie erhalten die Kontrolle über jeden Animationsrahmen. Es ist auch sehr einfach, weil `main()` die einzige Funktion ist, die geschleift wird. Ein Ego-Shooter (oder ein ähnliches Spiel) präsentiert pro Frame eine neue Szene. Glatter und reaktionsschneller kann es nicht sein.
+Die Hauptschleife auf den Zeitpunkt zu timen, zu dem der Browser auf das Display zeichnet, ermöglicht es Ihnen, Ihre Schleife so oft auszuführen, wie der Browser zeichnen möchte. Sie erhalten Kontrolle über jedes Animationsbild. Es ist auch sehr einfach, da `main()` die einzige Funktion ist, die geschleift wird. Ein Ego-Shooter (oder ein ähnliches Spiel) präsentiert einmal pro Bild eine neue Szene. Sie können wirklich nicht glatter und reaktionsschneller werden als das.
 
-Aber gehen Sie nicht sofort davon aus, dass Animationen eine Frame-für-Frame-Kontrolle erfordern. Einfache Animationen können leicht durchgeführt und sogar GPU-beschleunigt mit CSS-Animationen und anderen im Browser enthaltenen Werkzeugen ausgeführt werden. Es gibt viele davon, und sie werden Ihnen das Leben erleichtern.
+Aber nehmen Sie nicht sofort an, dass Animationen Kontrolle Bild für Bild erfordern. Einfache Animationen können leicht ausgeführt werden, sogar GPU-beschleunigt, mit CSS-Animationen und anderen im Browser enthaltenen Werkzeugen. Es gibt viele davon und sie werden Ihnen das Leben erleichtern.
 
-## Eine bessere Hauptschleife in JavaScript erstellen
+## Aufbau einer besseren Hauptschleife in JavaScript
 
-Es gibt zwei offensichtliche Probleme mit unserer vorherigen Hauptschleife: `main()` verschmutzt das {{ domxref("window") }}-Objekt (wo alle globalen Variablen gespeichert sind), und der Beispielcode hat uns keinen Weg gelassen, die Schleife zu stoppen, es sei denn, der gesamte Tab wird geschlossen oder aktualisiert. Für das erste Problem: Wenn die Hauptschleife einfach laufen soll und Sie keinen einfachen (direkten) Zugriff darauf benötigen, könnten Sie sie als Eine sofort aufgerufene Funktionsausdruck (IIFE) erstellen.
+Es gibt zwei offensichtliche Probleme mit unserer vorherigen Hauptschleife: `main()` verschmutzt das [`window`](/de/docs/Web/API/Window)-Objekt (wo alle globalen Variablen gespeichert sind) und der Beispielcode ließ uns keine Möglichkeit, die Schleife zu _stoppen_, es sei denn, der gesamte Tab wird geschlossen oder aktualisiert. Für das erste Problem, wenn Sie möchten, dass die Hauptschleife einfach läuft und Sie keinen einfachen (direkten) Zugang dazu benötigen, könnten Sie sie als Immediately-Invoked Function Expression (IIFE) erstellen.
 
 <!-- prettier-ignore-start -->
 ```js
 /*
- * Mit dem Semikolon zu beginnen, ist für den Fall notwendig, dass irgendeine Zeile Code über diesem Beispiel
- * sich auf die automatische Semikolon-Einfügung (ASI) verlässt. Der Browser könnte versehentlich
- * denken, dieses ganze Beispiel setze die vorherige Zeile fort. Das führende Semikolon
- * markiert den Beginn unserer neuen Zeile, wenn die vorherige nicht leer war oder terminiert wurde.
+ * Starting with the semicolon is in case whatever line of code above this example
+ * relied on automatic semicolon insertion (ASI). The browser could accidentally
+ * think this whole example continues from the previous line. The leading semicolon
+ * marks the beginning of our new line if the previous one was not empty or terminated.
  */
 
 ;(() => {
   function main() {
     window.requestAnimationFrame(main);
 
-    // Ihre Hauptschleifeninhalte
+    // Your main loop contents
   }
 
-  main(); // Starten Sie den Zyklus
+  main(); // Start the cycle
 })();
 ```
 <!-- prettier-ignore-end -->
 
-Wenn der Browser auf diese IIFE stößt, wird er Ihre Hauptschleife definieren und sie sofort für den nächsten Frame in die Warteschlange stellen. Sie wird keinem Objekt zugeordnet, und `main` (oder `main()` für Methoden) wird ein gültiger unbenutzter Name im Rest der Anwendung sein, frei, als etwas anderes definiert zu werden.
+Wenn der Browser auf dieses IIFE trifft, wird er Ihre Hauptschleife definieren und sofort für das nächste Bild in die Warteschlange stellen. Es wird an keinem Objekt angehängt und `main` (oder `main()` für Methoden) wird ein gültiger, ungenutzter Name im Rest der Anwendung sein, frei, als etwas anderes definiert zu werden.
 
 > [!NOTE]
 > In der Praxis ist es üblicher, das nächste `requestAnimationFrame()` mit einer if-Anweisung zu verhindern, anstatt `cancelAnimationFrame()` aufzurufen.
 
-Für das zweite Problem, das Stoppen der Hauptschleife, müssen Sie den Aufruf von `main()` mit {{ domxref("window.cancelAnimationFrame()") }} absagen. Sie müssen `cancelAnimationFrame()` das von `requestAnimationFrame()` gegebene ID-Token übergeben, als es zuletzt aufgerufen wurde. Nehmen wir an, die Funktionen und Variablen Ihres Spiels basieren auf einem Namensraum, den Sie `MyGame` genannt haben. Wenn wir unser letztes Beispiel erweitern, würde die Hauptschleife jetzt wie folgt aussehen:
+Beim zweiten Problem, dem Stoppen der Hauptschleife, müssen Sie den Aufruf von `main()` mit [`window.cancelAnimationFrame()`](/de/docs/Web/API/Window/cancelAnimationFrame) abbrechen. Sie müssen `cancelAnimationFrame()` das von `requestAnimationFrame()` zurückgegebene ID-Token übergeben, wenn es das letzte Mal aufgerufen wurde. Nehmen wir an, dass die Funktionen und Variablen Ihres Spiels auf einem Namespace basieren, den Sie `MyGame` genannt haben. Indem wir unser letztes Beispiel erweitern, sieht die Hauptschleife jetzt so aus:
 
 <!-- prettier-ignore-start -->
 ```js
 /*
- * Mit dem Semikolon zu beginnen, ist für den Fall notwendig, dass irgendeine Zeile Code über diesem Beispiel
- * sich auf die automatische Semikolon-Einfügung (ASI) verlässt. Der Browser könnte versehentlich
- * denken, dieses ganze Beispiel setze die vorherige Zeile fort. Das führende Semikolon
- * markiert den Beginn unserer neuen Zeile, wenn die vorherige nicht leer war oder terminiert wurde.
+ * Starting with the semicolon is in case whatever line of code above this example
+ * relied on automatic semicolon insertion (ASI). The browser could accidentally
+ * think this whole example continues from the previous line. The leading semicolon
+ * marks the beginning of our new line if the previous one was not empty or terminated.
  *
- * Wir nehmen auch an, dass MyGame zuvor definiert wurde.
+ * Let us also assume that MyGame is previously defined.
  */
 
 ;(() => {
   function main() {
     MyGame.stopMain = window.requestAnimationFrame(main);
 
-    // Ihre Hauptschleifeninhalte
+    // Your main loop contents
   }
 
-  main(); // Starten Sie den Zyklus
+  main(); // Start the cycle
 })();
 ```
 <!-- prettier-ignore-end -->
 
-Wir haben jetzt eine Variable in unserem `MyGame`-Namensraum deklariert, die wir `stopMain` nennen und die die ID enthält, die von unserem Hauptschleifen-Aufruf von `requestAnimationFrame()` am meisten zurückgegeben wurde. Zu jedem Zeitpunkt können wir die Hauptschleife stoppen, indem wir dem Browser mitteilen, das Ersuchen zu annullieren, das unserem Token entspricht.
+Wir haben jetzt eine Variable in unserem `MyGame`-Namespace deklariert, die wir `stopMain` nennen und die die ID enthält, die aus dem letzte Aufruf der Hauptschleife an `requestAnimationFrame()` zurückgegeben wurde. Zu jedem Zeitpunkt können wir die Hauptschleife stoppen, indem wir dem Browser sagen, die Anfrage zu stornieren, die unserem Token entspricht.
 
 ```js
 window.cancelAnimationFrame(MyGame.stopMain);
 ```
 
-Der Schlüssel zum Programmieren einer Hauptschleife in JavaScript liegt darin, sie an das Ereignis anzuhängen, das Ihre Aktionen steuern soll, und darauf zu achten, wie die verschiedenen beteiligten Systeme zusammenspielen. Sie können mehrere Komponenten haben, die von mehreren verschiedenen Ereignistypen gesteuert werden. Dies fühlt sich wie unnötige Komplexität an, könnte aber eine gute Optimierung sein (natürlich nicht unbedingt). Das Problem ist, dass Sie keine typische Hauptschleife programmieren. In JavaScript verwenden Sie die Hauptschleife des Browsers und versuchen, dies effektiv zu tun.
+Der Schlüssel zur Programmierung einer Hauptschleife in JavaScript besteht darin, sie an das Ereignis zu binden, das Ihre Aktion antreiben soll, und darauf zu achten, wie die verschiedenen beteiligten Systeme miteinander in Wechselwirkung stehen. Sie könnten mehrere Komponenten haben, die von verschiedenen Arten von Ereignissen angetrieben werden. Dies fühlt sich an wie unnötige Komplexität, aber es könnte einfach eine gute Optimierung sein (nicht unbedingt, natürlich). Das Problem ist, dass Sie keine typische Hauptschleife programmieren. In JavaScript verwenden Sie die Hauptschleife des Browsers und versuchen dies effektiv zu tun.
 
-## Eine mehr optimierte Hauptschleife in JavaScript erstellen
+## Aufbau einer optimierteren Hauptschleife in JavaScript
 
-Letztendlich läuft im Browser eine eigene Hauptschleife, und Ihr Code existiert in einigen ihrer Phasen. Die oben beschriebenen Abschnitte beschreiben Hauptschleifen, die versuchen, die Kontrolle nicht vom Browser wegzunehmen. Diese Hauptmethoden hängen sich an `window.requestAnimationFrame()` an, was den Browser um Kontrolle über den anstehenden Frame bittet. Es liegt am Browser, wie er diese Anfragen in Bezug auf ihre Hauptschleife behandelt. Die [W3C-Spezifikation für requestAnimationFrame](https://www.w3.org/TR/animation-timing/) definiert nicht wirklich, wann die Browser die requestAnimationFrame-Rückrufe ausführen müssen. Dies kann von Vorteil sein, weil es den Browseranbietern erlaubt, mit den Lösungen zu experimentieren, die sie für die besten halten, und im Laufe der Zeit Feinabstimmungen vorzunehmen.
+Letztlich läuft der Browser in JavaScript seine eigene Hauptschleife, und Ihr Code existiert in einigen seiner Phasen. Die obigen Abschnitte beschreiben Hauptschleifen, die versuchen, die Kontrolle nicht vom Browser zu entreißen. Diese Hauptmethoden binden sich an `window.requestAnimationFrame()`, das den Browser um Kontrolle über das kommende Bild bittet. Es liegt am Browser, wie diese Anfragen mit ihrer Hauptschleife in Beziehung stehen. Die [W3C-Spezifikation für requestAnimationFrame](https://www.w3.org/TR/animation-timing/) definiert nicht wirklich genau, wann die Browser die requestAnimationFrame-Rückrufe durchführen müssen. Dies kann ein Vorteil sein, da es Browseranbietern Freiheit lässt, mit den Lösungen zu experimentieren, die sie für am besten halten, und diese im Laufe der Zeit anzupassen.
 
-Moderne Versionen von Firefox und Google Chrome (und wahrscheinlich andere) _versuchen_, die requestAnimationFrame-Rückrufe an ihren Hauptthread zu Beginn des Zeitabschnitts eines Frames zu binden. Der Hauptthread des Browsers _versucht_ somit wie folgt auszusehen:
+Moderne Versionen von Firefox und Google Chrome (und wahrscheinlich andere) _versuchen_, `requestAnimationFrame`-Rückrufe an ihren Hauptthread ganz am Anfang einer Bildzeitscheibe zu binden. Der Hauptthread des Browsers _versucht_ folglich, wie folgt auszusehen:
 
-1. Ein neues Frame starten (während das vorherige Frame von der Anzeige gehandhabt wird).
-2. Gehe die Liste der requestAnimationFrame-Rückrufe durch und rufe sie auf.
-3. Führe die Müllabfuhr und andere per-Frame-Aufgaben aus, wenn die oben genannten Rückrufe aufhören, den Hauptthread zu kontrollieren.
-4. Schlafen (es sei denn, ein Ereignis unterbricht das Nickerchen des Browsers), bis der Monitor für Ihr Bild bereit ist ([VSync](https://www.techopedia.com/definition/92/vertical-sync-vsync)) und wiederholen.
+1. Starten Sie ein neues Bild (während das vorherige Bild von der Anzeige gehandhabt wird).
+2. Gehen Sie die Liste der `requestAnimationFrame`-Rückrufe durch und führen Sie sie aus.
+3. Führen Sie die Speicherbereinigung und andere pro Bild Aufgaben durch, wenn die obigen Rückrufe den Hauptthread nicht mehr kontrollieren.
+4. Schlafen (es sei denn, ein Ereignis unterbricht den Schlaf des Browsers) bis der Monitor bereit für Ihr Bild ist ([VSync](https://www.techopedia.com/definition/92/vertical-sync-vsync)) und wiederholen Sie dies.
 
-Man kann die Entwicklung von Echtzeitanwendungen so betrachten, dass man ein Zeitbudget hat, um die Arbeit zu erledigen. All die oben genannten Schritte müssen alle 16,5 Millisekunden stattfinden, um mit einem 60-Hz-Display Schritt zu halten. Browser rufen Ihren Code so früh wie möglich auf, um ihm maximale Rechenzeit zu geben. Ihr Hauptthread wird oft Workloads starten, die nicht einmal auf dem Hauptthread sind (wie etwa Rasterisierung oder Shader in WebGL). Lange Berechnungen können auf einem Web Worker oder einer GPU parallel zum Hauptthread-Browser ausgeführt werden, um die Müllabfuhr, seine anderen Aufgaben zu verwalten oder asynchrone Ereignisse zu behandeln.
+Sie können sich die Entwicklung von Echtzeitanwendungen vorstellen, als hätten Sie ein Zeitbudget für Arbeit. Alle oben genannten Schritte müssen alle 16,5 Millisekunden stattfinden, um mit einem 60-Hz-Display Schritt zu halten. Browser rufen Ihren Code so früh wie möglich auf, um ihm maximalen Rechenaufwand zu geben. Ihr Hauptthread startet oft Arbeitslasten, die nicht einmal auf dem Hauptthread sind (wie Rasterung oder Shader in WebGL). Lange Berechnungen können auf einem Web Worker oder einer GPU parallel erfolgen, während der Browser seinen Hauptthread verwendet, um Speicherbereinigung zu verwalten, seine anderen Aufgaben zu erledigen oder asynchrone Ereignisse zu behandeln.
 
-Während wir beim Thema der Zeitbudgetierung sind, verfügen viele Web-Browser über ein Tool namens _High Resolution Time_. Das {{jsxref("Date")}}-Objekt ist nicht mehr die anerkannte Methode zum Timing von Ereignissen, weil es sehr ungenau ist und durch die Systemuhr verändert werden kann. Die High Resolution Time hingegen zählt die Anzahl der Millisekunden seit `navigationStart` (wenn das vorherige Dokument entladen wird). Dieser Wert wird als Dezimalzahl zurückgegeben, die auf Tausendstel einer Millisekunde genau ist. Sie wird als {{ domxref("DOMHighResTimeStamp") }} bezeichnet, aber im Wesentlichen ist sie eine Fließkommazahl.
+Während wir beim Thema Zeitbudgetierung sind, haben viele Webbrowser ein Tool namens _High Resolution Time_. Das {{jsxref("Date")}}-Objekt wird nicht mehr als anerkannte Methode zum Timing von Ereignissen angesehen, da es sehr ungenau ist und von der Systemuhr manipuliert werden kann. High Resolution Time hingegen zählt die Anzahl der Millisekunden seit `navigationStart` (wenn das vorherige Dokument entladen wird). Dieser Wert wird als Dezimalzahl zurückgegeben, die auf tausendstel Millisekunde genau ist. Sie ist als [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) bekannt, aber für alle praktischen Zwecke betrachten Sie es als Gleitkommazahl.
 
 > [!NOTE]
-> Systeme (Hardware oder Software), die nicht in der Lage sind, eine Genauigkeit im Mikrosekundenbereich zu bieten, dürfen eine Genauigkeit im Millisekundenbereich als Minimum bieten. Sie sollten eine Genauigkeit von 0,001 ms bieten, wenn sie dazu in der Lage sind.
+> Systeme (Hardware oder Software), die nicht in der Lage sind, Mikrosekunden-Genauigkeit zu liefern, können Millisekunden-Genauigkeit als Minimum bieten. Sie sollten jedoch 0,001ms Genauigkeit bieten, wenn sie dazu in der Lage sind.
 
-Dieser Wert ist allein nicht sehr nützlich, da er relativ zu einem eher uninteressanten Ereignis ist, aber er kann von einem anderen Zeitstempel subtrahiert werden, um genau und präzise zu bestimmen, wie viel Zeit zwischen diesen beiden Punkten vergangen ist. Um einen dieser Zeitstempel zu erhalten, können Sie `window.performance.now()` aufrufen und das Ergebnis als Variable speichern.
+Dieser Wert ist allein nicht allzu nützlich, da er relativ zu einem ziemlich uninteressanten Ereignis ist, kann jedoch von einem anderen Zeitstempel subtrahiert werden, um genau und präzise zu bestimmen, wie viel Zeit zwischen diesen beiden Punkten vergangen ist. Um einen dieser Zeitstempel zu erhalten, können Sie `window.performance.now()` aufrufen und das Ergebnis als Variable speichern.
 
 ```js
 const tNow = window.performance.now();
 ```
 
-Zurück zum Thema der Hauptschleife. Oft möchten Sie wissen, wann Ihre Hauptfunktion aufgerufen wurde. Da dies üblich ist, übergibt `window.requestAnimationFrame()` immer eine `DOMHighResTimeStamp` an Rückrufe als Argument bei ihrer Ausführung. Dies führt zu einer weiteren Verbesserung unserer vorherigen Hauptschleifen.
+Zurück zum Thema der Hauptschleife. Sie werden oft wissen wollen, wann Ihre Hauptfunktion aufgerufen wurde. Da dies üblich ist, stellt `window.requestAnimationFrame()` stets einen `DOMHighResTimeStamp` für Rückrufe als Argument zur Verfügung, wenn sie ausgeführt werden. Dies führt zu einer weiteren Verbesserung unserer vorherigen Hauptschleifen.
 
 <!-- prettier-ignore-start -->
 ```js
 /*
- * Mit dem Semikolon zu beginnen, ist für den Fall notwendig, dass irgendeine Zeile Code über diesem Beispiel
- * sich auf die automatische Semikolon-Einfügung (ASI) verlässt. Der Browser könnte versehentlich
- * denken, dieses ganze Beispiel setze die vorherige Zeile fort. Das führende Semikolon
- * markiert den Beginn unserer neuen Zeile, wenn die vorherige nicht leer war oder terminiert wurde.
+ * Starting with the semicolon is in case whatever line of code above this example
+ * relied on automatic semicolon insertion (ASI). The browser could accidentally
+ * think this whole example continues from the previous line. The leading semicolon
+ * marks the beginning of our new line if the previous one was not empty or terminated.
  *
- * Wir nehmen auch an, dass MyGame zuvor definiert wurde.
+ * Let us also assume that MyGame is previously defined.
  */
 
 ;(() => {
   function main(tFrame) {
     MyGame.stopMain = window.requestAnimationFrame(main);
 
-    // Ihre Hauptschleifeninhalte
-    // tFrame, aus "function main(tFrame)", ist jetzt ein DOMHighResTimeStamp, der von rAF bereitgestellt wird.
+    // Your main loop contents
+    // tFrame, from "function main(tFrame)", is now a DOMHighResTimeStamp provided by rAF.
   }
 
-  main(); // Starten Sie den Zyklus
+  main(); // Start the cycle
 })();
 ```
 <!-- prettier-ignore-end -->
 
-Weitere Optimierungen sind möglich, und es hängt wirklich davon ab, was Ihr Spiel zu erreichen versucht. Ihr Spielgenre wird offensichtlich einen Unterschied machen, aber es könnte sogar subtiler sein. Sie könnten jedes Pixel einzeln auf einer Leinwand zeichnen oder DOM-Elemente (einschließlich mehrerer WebGL-Leinwände mit transparenten Hintergründen, wenn Sie möchten) in eine komplexe Hierarchie schichten. Jeder dieser Wege wird zu unterschiedlichen Möglichkeiten und Einschränkungen führen.
+Weitere Optimierungen sind möglich und es hängt wirklich davon ab, was Ihr Spiel erreichen möchte. Ihr Spielgenre wird offensichtlich einen Unterschied machen, aber es könnte noch subtiler sein. Sie könnten jeden Pixel einzeln auf einer Leinwand zeichnen oder Sie könnten DOM-Elemente (einschließlich mehrerer WebGL-Leinwände mit transparenten Hintergründen, wenn Sie möchten) in eine komplexe Hierarchie schichten. Jeder dieser Wege wird zu unterschiedlichen Möglichkeiten und Einschränkungen führen.
 
-## Es ist Entscheidungszeit
+## Es ist Entscheidung… Zeit
 
-Sie müssen harte Entscheidungen über Ihre Hauptschleife treffen: wie Sie die genaue Zeitfortschreitung simulieren. Wenn Sie eine Kontrolle pro Frame verlangen, müssen Sie bestimmen, wie häufig Ihr Spiel aktualisiert und gezeichnet wird. Sie könnten sogar wollen, dass Aktualisierungen und Zeichnungen mit unterschiedlichen Raten erfolgen. Sie müssen auch berücksichtigen, wie anmutig Ihr Spiel scheitern wird, wenn das System des Benutzers nicht mit der Arbeitslast Schritt halten kann. Lassen Sie uns zunächst annehmen, dass Sie die Benutzereingaben verarbeiten und den Spielzustand jedes Mal aktualisieren, wenn Sie zeichnen. Wir werden später abzweigen.
+Sie müssen schwierige Entscheidungen über Ihre Hauptschleife treffen: wie man den genauen Verlauf der Zeit simuliert. Wenn Sie eine Kontrolle pro Bild verlangen, dann müssen Sie bestimmen, wie häufig Ihr Spiel aktualisiert und gezeichnet wird. Sie könnten sogar möchten, dass Aktualisieren und Zeichnen mit unterschiedlichen Raten geschieht. Sie müssen auch berücksichtigen, wie Ihr Spiel abstürzt, wenn das System des Nutzers mit der Arbeitslast nicht Schritt halten kann. Gehen wir davon aus, dass Sie Benutzereingaben behandeln und den Spielstatus jedes Mal, wenn Sie zeichnen, aktualisieren. Wir werden später verzweigen.
 
 > [!NOTE]
-> Die Änderung, wie Ihre Hauptschleife mit der Zeit umgeht, ist überall eine Albtraum bei der Fehlersuche. Denken Sie sorgfältig über Ihre Bedürfnisse nach, bevor Sie an Ihrer Hauptschleife arbeiten.
+> Die Änderung der Art und Weise, wie Ihre Hauptschleife mit der Zeit umgeht, ist überall ein Debugging-Alptraum. Überlegen Sie sorgfältig Ihre Anforderungen, bevor Sie an Ihrer Hauptschleife arbeiten.
 
-### Wie die meisten Browser-Spiele aussehen sollten
+### Wie die meisten Browserspiele aussehen sollten
 
-Wenn Ihr Spiel die maximale Bildwiederholrate aller unterstützten Hardware erreichen kann, dann ist Ihre Aufgabe ziemlich einfach. Sie können aktualisieren, rendern und dann nichts tun, bis VSync.
+Wenn Ihr Spiel die maximale Bildwiederholrate jeder von Ihnen unterstützten Hardware erreichen kann, dann ist Ihre Aufgabe ziemlich einfach. Sie können aktualisieren, rendern und dann nichts tun bis VSync.
 
 <!-- prettier-ignore-start -->
 ```js
 /*
- * Mit dem Semikolon zu beginnen, ist für den Fall notwendig, dass irgendeine Zeile Code über diesem Beispiel
- * sich auf die automatische Semikolon-Einfügung (ASI) verlässt. Der Browser könnte versehentlich
- * denken, dieses ganze Beispiel setze die vorherige Zeile fort. Das führende Semikolon
- * markiert den Beginn unserer neuen Zeile, wenn die vorherige nicht leer war oder terminiert wurde.
+ * Starting with the semicolon is in case whatever line of code above this example
+ * relied on automatic semicolon insertion (ASI). The browser could accidentally
+ * think this whole example continues from the previous line. The leading semicolon
+ * marks the beginning of our new line if the previous one was not empty or terminated.
  *
- * Wir nehmen auch an, dass MyGame zuvor definiert wurde.
+ * Let us also assume that MyGame is previously defined.
  */
 
 ;(() => {
   function main(tFrame) {
     MyGame.stopMain = window.requestAnimationFrame(main);
 
-    update(tFrame); // Rufen Sie Ihre Aktualisierungsmethode auf. In unserem Fall geben wir ihr den rAF-Zeitstempel.
+    update(tFrame); // Call your update method. In our case, we give it rAF's timestamp.
     render();
   }
 
-  main(); // Starten Sie den Zyklus
+  main(); // Start the cycle
 })();
 ```
 <!-- prettier-ignore-end -->
 
-Wenn die maximale Bildwiederholrate nicht erreicht werden kann, könnten Qualitätseinstellungen angepasst werden, um innerhalb Ihres Zeitbudgets zu bleiben. Das bekannteste Beispiel für dieses Konzept ist das Spiel von id Software, RAGE. Dieses Spiel entzog dem Benutzer die Kontrolle, um seine Berechnungszeit auf etwa 16 ms (oder etwa 60 fps) zu halten. Wenn die Berechnung zu lange dauerte, würde die gerenderte Auflösung abnehmen, Texturen und andere Assets würden nicht geladen oder gezeichnet werden und so weiter. Diese (nicht-web) Fallstudie traf ein paar Annahmen und Abwägungen:
+Wenn die maximale Bildwiederholrate nicht erreicht werden kann, könnten die Qualitätseinstellungen angepasst werden, um unter Ihrem Zeitbudget zu bleiben. Das berühmteste Beispiel für dieses Konzept ist das Spiel von id Software, RAGE. Dieses Spiel entzog dem Benutzer die Kontrolle, um seine Berechnungszeit bei etwa 16ms (oder etwa 60fps) zu halten. Wenn die Berechnung zu lange dauerte, verringerte sich die Auflösung, Texturen und andere Assets wurden nicht geladen oder gezeichnet und so weiter. Diese (nicht-webbasierte) Fallstudie machte einige Annahmen und Kompromisse:
 
-- Jeder Animationsrahmen berücksichtigt die Benutzereingaben.
-- Kein Rahmen muss extrapoliert (erraten) werden, weil jeder Zeichenvorgang seine eigene Aktualisierung hat.
-- Simulationssysteme können im Grunde davon ausgehen, dass jede vollständige Aktualisierung \~16 ms auseinanderliegt.
-- Dem Benutzer die Kontrolle über Qualitätseinstellungen zu geben, wäre ein Albtraum.
-- Verschiedene Monitoreingaben bei unterschiedlichen Raten: 30 FPS, 75 FPS, 100 FPS, 120 FPS, 144 FPS usw.
-- Systeme, die nicht mit 60 FPS Schritt halten können, verlieren visuelle Qualität, um das Spiel bei optimaler Geschwindigkeit laufen zu lassen (am Ende scheitert es vollständig, wenn die Qualität zu niedrig wird).
+- Jedes Animationsbild berücksichtigt Benutzereingaben.
+- Kein Bild muss extrapoliert (geschätzt) werden, da jeder Zeichenvorgang sein eigenes Update hat.
+- Simulationssysteme können im Wesentlichen davon ausgehen, dass jedes vollständige Update \~16ms auseinander liegt.
+- Dem Benutzer die Kontrolle über die Qualitätseinstellungen zu geben wäre ein Albtraum.
+- Unterschiedliche Monitoreingaben mit unterschiedlichen Raten: 30 FPS, 75 FPS, 100 FPS, 120 FPS, 144 FPS, etc.
+- Systeme, die 60 FPS nicht halten können, verlieren an visueller Qualität, um das Spiel in optimalem Tempo zu halten (schließlich scheitert es, wenn die Qualität zu gering wird).
 
-### Andere Wege, um den Anforderungen an variable Bildwiederholraten gerecht zu werden
+### Andere Wege, um variable Bildwiederholraten zu handhaben
 
-Andere Methoden zur Lösung des Problems existieren.
+Andere Methoden zur Bewältigung des Problems existieren.
 
-Eine häufige Technik besteht darin, die Simulation mit einer konstanten Frequenz zu aktualisieren und dann so viel (oder so wenig) der tatsächlichen Frames wie möglich zu zeichnen. Die Update-Methode kann ohne Rücksicht auf das, was der Benutzer sieht, weiterlaufen. Die Zeichenmethode kann die letzte Aktualisierung und den Zeitpunkt, zu dem sie stattfand, betrachten. Da das Zeichnen weiß, wann es darstellt, und die Simulationszeit für die letzte Aktualisierung, kann es ein plausibles Bild vorhersehen, das dem Benutzer gezeigt wird. Es spielt keine Rolle, ob dies häufiger als die offizielle Aktualisierungsschleife ist (oder sogar seltener). Die Update-Methode setzt Kontrollpunkte und, so oft, wie es das System erlaubt, zeichnet die Render-Methode Augenblicke der Zeit um sie herum. Es gibt viele Möglichkeiten, die Update-Methode in Web-Standards zu trennen:
+Eine häufige Technik ist es, die Simulation mit einer konstanten Frequenz zu aktualisieren und dann so viele (oder so wenige) der tatsächlichen Bilder wie möglich zu zeichnen. Die Aktualisierungsmethode kann weiterlaufen, ohne sich darum zu kümmern, was der Benutzer sieht. Die Zeichnen-Methode kann die letzte Aktualisierung betrachten und wann sie stattgefunden hat. Da Zeichnen weiß, wann es darstellt, und die Simulationszeit für die letzte Aktualisierung, kann sie einen plausiblen Rahmen voraussagen, um ihn dem Benutzer zu zeigen. Es spielt keine Rolle, ob dies häufiger ist als die offizielle Aktualisierungsschleife (oder sogar weniger oft). Die Aktualisierungsmethode setzt Kontrollpunkte und die Render-Methode zeichnet, so häufig das System erlaubt, Momente der Zeit um sie herum. Es gibt viele Möglichkeiten, die Aktualisierungsmethode in Webstandards zu trennen:
 
-- Zeichnen auf `requestAnimationFrame` und Aktualisieren auf ein {{ domxref("setInterval()") }} oder {{ domxref("setTimeout()") }}.
+- Zeichnen auf `requestAnimationFrame` und Aktualisieren auf einem [`setInterval()`](/de/docs/Web/API/SetInterval) oder [`setTimeout()`](/de/docs/Web/API/SetTimeout).
 
-  - Das verbraucht Rechenzeit, auch wenn es nicht fokussiert oder minimiert ist, blockiert den Hauptthread und ist wahrscheinlich ein Überbleibsel traditioneller Spielschleifen (aber es ist einfach.)
+  - Dies verbraucht Prozessorzeit, auch wenn es nicht im Vordergrund oder minimiert ist, belastet den Hauptthread und ist wahrscheinlich ein Überbleibsel traditioneller Spielschleifen (aber es ist einfach).
 
-- Zeichnen auf `requestAnimationFrame` und aktualisieren auf einem `setInterval` oder `setTimeout` in einem [Web Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers).
+- Zeichnen auf `requestAnimationFrame` und Aktualisieren auf einem `setInterval` oder `setTimeout` in einem [Web Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers).
 
-  - Das ist dasselbe wie oben, außer dass das Aktualisieren nicht den Hauptthread blockiert (noch wird es vom Hauptthread blockiert). Das ist eine komplexere Lösung und könnte zu viel Overhead für einfache Aktualisierungen sein.
+  - Dies ist dasselbe wie oben, außer dass die Aktualisierung den Hauptthread nicht belastet (und umgekehrt). Dies ist eine komplexere Lösung und könnte zu viel Aufwand für einfache Aktualisierungen sein.
 
-- Zeichnen auf `requestAnimationFrame` und verwenden, um einen Web Worker mit der Aktualisierungsmethode mit der Anzahl der zu berechnenden Ticks, falls vorhanden, anzustoßen.
+- Zeichnen auf `requestAnimationFrame` und Verwendung dieses, um einen Web Worker mit der Aktualisierungsmethode mit der Anzahl der zu berechnenden Ticks, falls vorhanden, zu stupsen.
 
-  - Das ruht, bis `requestAnimationFrame` aufgerufen wird und verunreinigt nicht den Hauptthread, plus man verlässt sich nicht auf altmodische Methoden. Wieder, das ist etwas komplexer als die beiden vorherigen Optionen, und _jede_ Aktualisierung zu beginnen, wird blockiert, bis der Browser sich entscheidet, rAF-Rückrufe auszuführen.
+  - Dies schläft, bis `requestAnimationFrame` aufgerufen wird und verschmutzt nicht den Hauptthread, plus man verlässt sich nicht auf altmodische Methoden. Wiederum ist dies ein wenig komplexer als die vorherigen beiden Optionen, und das _Starten_ jeder Aktualisierung wird blockiert, bis der Browser sich entschließt, rAF-Rückrufe auszuführen.
 
 Jede dieser Methoden hat ähnliche Kompromisse:
 
-- Benutzer können Rendering-Frames überspringen oder zusätzliche interpolieren, je nach Leistung.
-- Sie können darauf zählen, dass alle Benutzer nicht-kosmetische Variablen mit der gleichen konstanten Frequenz aktualisieren, abzüglich Hänger.
-- Viel komplizierter zu programmieren als die einfachen Schleifen, die wir vorher gesehen haben.
-- Benutzereingaben werden vollständig ignoriert, bis zur nächsten Aktualisierung (selbst wenn der Benutzer ein schnelles Gerät hat).
-- Die obligatorische Interpolation hat ein Leistungsprämie.
+- Benutzer können Frames überspringen oder zusätzliche interpolieren, je nach Leistung.
+- Sie können sich darauf verlassen, dass alle Benutzer nicht-kosmetische Variablen mit der gleichen konstanten Frequenz minus Aussetzer aktualisieren.
+- Deutlich komplizierter zu programmieren als die grundlegenden Schleifen, die wir zuvor gesehen haben.
+- Benutzereingaben werden vollständig ignoriert, bis zur nächsten Aktualisierung (auch wenn das Gerät des Nutzers schnell ist).
+- Die obligatorische Interpolation hat eine Leistungseinbuße.
 
-Eine separate Aktualisieren- und Zeichenmethode könnte wie das folgende Beispiel aussehen. Der Übersichtlichkeit halber basiert das Beispiel auf dem dritten Punkt, nur ohne die Verwendung von Web Workern für Lesbarkeit (und, ehrlich gesagt, die Schreibbarkeit).
+Eine separate Aktualisieren- und Zeichnen-Methode könnte wie das folgende Beispiel aussehen. Zum Zwecke der Demonstration basiert das Beispiel auf dem dritten Aufzählungspunkt, nur ohne Web Workers zur Lesbarkeit (und, seien wir ehrlich, zur Schreibbarkeit).
 
 > [!WARNING]
-> Dieses Beispiel, insbesondere, bedarf einer technischen Überprüfung.
+> Dieses Beispiel bedarf speziell der technischen Überprüfung.
 
 <!-- prettier-ignore-start -->
 ```js
 /*
- * Mit dem Semikolon zu beginnen, ist für den Fall notwendig, dass irgendeine Zeile Code über diesem Beispiel
- * sich auf die automatische Semikolon-Einfügung (ASI) verlässt. Der Browser könnte versehentlich
- * denken, dieses ganze Beispiel setze die vorherige Zeile fort. Das führende Semikolon
- * markiert den Beginn unserer neuen Zeile, wenn die vorherige nicht leer war oder terminiert wurde.
+ * Starting with the semicolon is in case whatever line of code above this example
+ * relied on automatic semicolon insertion (ASI). The browser could accidentally
+ * think this whole example continues from the previous line. The leading semicolon
+ * marks the beginning of our new line if the previous one was not empty or terminated.
  *
- * Wir nehmen auch an, dass MyGame zuvor definiert wurde.
+ * Let us also assume that MyGame is previously defined.
  *
- * MyGame.lastRender hält den zuletzt bereitgestellten requestAnimationFrame-Zeitstempel fest.
- * MyGame.lastTick hält die letzte Aktualisierungszeit fest. Erhöht sich immer um tickLength.
- * MyGame.tickLength ist, wie häufig sich der Spielstatus aktualisiert. Es ist 20 Hz (50ms) hier.
+ * MyGame.lastRender keeps track of the last provided requestAnimationFrame timestamp.
+ * MyGame.lastTick keeps track of the last update time. Always increments by tickLength.
+ * MyGame.tickLength is how frequently the game state updates. It is 20 Hz (50ms) here.
  *
- * timeSinceTick ist die Zeit zwischen dem requestAnimationFrame-Rückruf und der letzten Aktualisierung.
- * numTicks ist, wie viele Aktualisierungen zwischen diesen beiden gerenderten Frames geschehen sind.
+ * timeSinceTick is the time between requestAnimationFrame callback and last update.
+ * numTicks is how many updates should have happened between these two rendered frames.
  *
- * render() wird tFrame übergeben, weil davon ausgegangen wird, dass die Render-Methode berechnet,
- *           wie lange es her ist, seit dem zuletzt übergebenen Aktualisierungstick zu extrapolieren
- *           (rein kosmetisch für schnelle Geräte). Es zeichnet die Szene.
+ * render() is passed tFrame because it is assumed that the render method will calculate
+ *          how long it has been since the most recently passed update tick for
+ *          extrapolation (purely cosmetic for fast devices). It draws the scene.
  *
- * update() berechnet den Spielstatus zu einem bestimmten Zeitpunkt. Es sollte immer
- *          um tickLength erhöht werden. Es ist die Autorität für den Spielstatus. Es wird der DOMHighResTimeStamp
- *          für die Zeit übergeben, die es darstellt (was, wie gesagt, immer die letzte Aktualisierung
- *          + MyGame.tickLength ist, es sei denn, eine Pause-Funktion wird hinzugefügt, etc.)
+ * update() calculates the game state as of a given point in time. It should always
+ *          increment by tickLength. It is the authority for game state. It is passed
+ *          the DOMHighResTimeStamp for the time it represents (which, again, is always
+ *          last update + MyGame.tickLength unless a pause feature is added, etc.)
  *
- * setInitialState() führt die verbleibenden Aufgaben aus, bevor die Hauptschleife laufen muss.
- *                   Es ist nur eine generische Beispiel-Funktion, die Sie hinzugefügt haben könnten.
+ * setInitialState() Performs whatever tasks are leftover before the main loop must run.
+ *                   It is just a generic example function that you might have added.
  */
 
 ;(() => {
@@ -276,10 +276,10 @@ Eine separate Aktualisieren- und Zeichenmethode könnte wie das folgende Beispie
     const nextTick = MyGame.lastTick + MyGame.tickLength;
     let numTicks = 0;
 
-    // Wenn tFrame < nextTick ist, dann müssen 0 Ticks aktualisiert werden (0 ist Standard für numTicks).
-    // Wenn tFrame = nextTick, dann muss 1 Tick aktualisiert werden (und so weiter).
-    // Hinweis: Wie wir in der Zusammenfassung erwähnen, sollten Sie verfolgen, wie groß numTicks ist.
-    // Wenn es groß ist, dann war entweder Ihr Spiel eingeschlafen oder die Maschine kann nicht Schritt halten.
+    // If tFrame < nextTick then 0 ticks need to be updated (0 is default for numTicks).
+    // If tFrame = nextTick then 1 tick needs to be updated (and so forth).
+    // Note: As we mention in summary, you should keep track of how large numTicks is.
+    // If it is large, then either your game was asleep, or the machine cannot keep up.
     if (tFrame > nextTick) {
       const timeSinceTick = tFrame - MyGame.lastTick;
       numTicks = Math.floor(timeSinceTick / MyGame.tickLength);
@@ -292,41 +292,41 @@ Eine separate Aktualisieren- und Zeichenmethode könnte wie das folgende Beispie
 
   function queueUpdates(numTicks) {
     for (let i = 0; i < numTicks; i++) {
-      MyGame.lastTick += MyGame.tickLength; // Nun ist lastTick dieser Tick.
+      MyGame.lastTick += MyGame.tickLength; // Now lastTick is this tick.
       update(MyGame.lastTick);
     }
   }
 
   MyGame.lastTick = performance.now();
-  MyGame.lastRender = MyGame.lastTick; // Angenommen, der erste Zeichen war bei der ersten Aktualisierung.
-  MyGame.tickLength = 50; // Dies legt Ihre Simulation auf 20Hz (50ms) fest.
+  MyGame.lastRender = MyGame.lastTick; // Pretend the first draw was on first update.
+  MyGame.tickLength = 50; // This sets your simulation to run at 20Hz (50ms)
 
   setInitialState();
-  main(performance.now()); // Starten Sie den Zyklus
+  main(performance.now()); // Start the cycle
 })();
 ```
 <!-- prettier-ignore-end -->
 
-Eine andere Alternative besteht darin, bestimmte Dinge weniger oft zu erledigen. Wenn ein Teil Ihrer Aktualisierungsschleife schwer zu berechnen, aber zeitunempfindlich ist, können Sie in Betracht ziehen, seine Frequenz zu reduzieren und, idealerweise, ihn auf Abschnitte über diesen verlängerten Zeitraum zu verteilen. Ein implizites Beispiel dafür fand sich auf dem Artillery Blog für Artillery Games, wo sie [ihren Müllerzeugungsrate anpassen](https://web.archive.org/web/20161021030645/http://blog.artillery.com/2012/10/browser-garbage-collection-and-framerate.html) um Müllsammlung zu optimieren. Offensichtlich ist das Aufräumen von Ressourcen nicht zeitkritisch (insbesondere, wenn das Aufräumen störender ist als der Müll selbst).
+Eine weitere Alternative ist es, bestimmte Dinge seltener zu tun. Wenn ein Teil Ihrer Aktualisierungsschleife schwierig zu berechnen, aber unempfindlich gegen die Zeit ist, könnten Sie in Betracht ziehen, seine Frequenz zurückzuschrauben und idealerweise über diesen verlängerten Zeitraum in Stücke zu verteilen. Ein implizites Beispiel dafür fand sich im The Artillery Blog für Artillery Games, wo sie [ihre Rate der Müllgenerierung anpassen](https://web.archive.org/web/20161021030645/http://blog.artillery.com/2012/10/browser-garbage-collection-and-framerate.html), um die Müllsammlung zu optimieren. Offensichtlich ist das Aufräumen von Ressourcen nicht zeitkritisch (insbesondere wenn das Aufräumen störender ist als der Müll selbst).
 
-Dies könnte auch auf einige Ihrer eigenen Aufgaben zutreffen. Dies sind gute Kandidaten, um gedrosselt zu werden, wenn verfügbare Ressourcen ein Anliegen werden.
+Dies kann auch für einige Ihrer eigenen Aufgaben gelten. Diese sind gute Kandidaten, um gedrosselt zu werden, wenn verfügbare Ressourcen zu einem Problem werden.
 
 ## Zusammenfassung
 
-Ich möchte klarstellen, dass jede der obigen oder keine von ihnen das Beste für Ihr Spiel sein könnte. Die richtige Entscheidung hängt ganz von den Kompromissen ab, die Sie bereit (und nicht bereit) sind einzugehen. Das Hauptanliegen ist, zu einer anderen Option zu wechseln. Glücklicherweise habe ich damit keine Erfahrung, aber ich habe gehört, dass es ein schmerzhaftes Spiel von Whack-a-Mole ist.
+Ich möchte klarstellen, dass jeder der oben genannten Punkte, oder keiner von ihnen, das Beste für Ihr Spiel sein könnte. Die richtige Entscheidung hängt völlig von den Kompromissen ab, die Sie bereit (und nicht bereit) sind einzugehen. Die Sorge ist vor allem das Wechseln zu einer anderen Option. Glücklicherweise habe ich keine Erfahrung damit, aber ich habe gehört, es sei ein qualvolles Spiel von Whack-a-Mole.
 
-Eine wichtige Sache, die man auf verwalteten Plattformen, wie dem Web, beachten sollte, ist, dass sich Ihr Loop möglicherweise für signifikante Zeiträume aufhört auszuführen. Dies könnte vorkommen, wenn der Benutzer Ihren Tab unselektiert und der Browser sein `requestAnimationFrame`-Rückrufintervall verlangsamt (oder verlangsamt). Sie haben viele Möglichkeiten, mit dieser Situation umzugehen, und dies könnte davon abhängen, ob Ihr Spiel ein Einzelspieler- oder Mehrspielerspiel ist. Einige Auswahlmöglichkeiten sind:
+Eine wichtige Erinnerung für verwaltete Plattformen wie das Web ist, dass Ihre Schleife die Ausführung für bedeutende Zeitabschnitte stoppen kann. Dies könnte auftreten, wenn der Benutzer Ihren Tab abwählt und der Browser seine `requestAnimationFrame`-Intervall-Rückrufe schläft (oder verlangsamt). Sie haben viele Möglichkeiten, mit dieser Situation umzugehen, und dies könnte davon abhängen, ob Ihr Spiel Einzelspieler oder Mehrspieler ist. Einige Möglichkeiten sind:
 
-- Die Lücke als "Pause" betrachten und die Zeit überspringen.
+- Betrachten Sie die Lücke als "Pause" und überspringen Sie die Zeit.
 
   - Sie können sich wahrscheinlich vorstellen, wie problematisch dies für die meisten Mehrspieler-Spiele ist.
 
-- Sie können die Lücke simulieren, um aufzuholen.
+- Sie können die Lücke simulieren, um aufzuschließen.
 
-  - Dies kann bei langen Ausfällen und/oder komplexen Aktualisierungen zu einem Problem werden.
+  - Das kann ein Problem für lange Unterbrechungen und/oder komplexe Aktualisierungen sein.
 
-- Sie können den Spielstatus von einem Peer oder dem Server wiederherstellen.
+- Sie können den Spielzustand von einem Peerspieler oder dem Server wiederherstellen.
 
-  - Das ist unwirksam, wenn Ihre Peers oder Server auch veraltet sind, oder sie existieren nicht, weil das Spiel im Einzelspieler-Modus ist und keinen Server hat.
+  - Dies ist ineffektiv, wenn Ihre Peers oder der Server ebenfalls veraltete Daten haben oder sie nicht existieren, weil das Spiel ein Einzelspielermodus ist und keinen Server hat.
 
-Sobald Ihre Hauptschleife entwickelt wurde und Sie sich für einen Satz von Annahmen und Kompromissen entschieden haben, die zu Ihrem Spiel passen, geht es nur noch darum, Ihre Entscheidungen zu nutzen, um anwendbare Physik, KI, Sounds, Netzwerksynchronisation und was auch immer Ihr Spiel erfordern könnte, zu berechnen.
+Sobald Ihre Hauptschleife entwickelt wurde und Sie eine Reihe von Annahmen und Kompromissen getroffen haben, die zu Ihrem Spiel passen, liegt es nun daran, Ihre Entscheidungen zu verwenden, um anwendbare Physik, KI, Klänge, Netzwerksynchronisation und alles andere zu berechnen, was Ihr Spiel erfordern könnte.

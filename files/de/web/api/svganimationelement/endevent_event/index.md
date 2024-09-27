@@ -1,5 +1,5 @@
 ---
-title: "SVGAnimationElement: endEvent Ereignis"
+title: "SVGAnimationElement: endEvent-Ereignis"
 short-title: endEvent
 slug: Web/API/SVGAnimationElement/endEvent_event
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das **`endEvent`**-Ereignis der {{domxref("SVGAnimationElement")}}-Schnittstelle wird ausgelöst, wenn das aktive Ende der Animation erreicht ist.
+Das **`endEvent`**-Ereignis des [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)-Interfaces wird ausgelöst, wenn das aktive Ende der Animation erreicht ist.
 
 > [!NOTE]
-> Dieses Ereignis wird nicht am einfachen Ende jeder Animationswiederholung ausgelöst. Es kann sowohl im Verlauf des normalen (d. h. geplanten oder interaktiven) Zeitachsenablaufs als auch im Fall, dass das Element mit einer DOM-Methode beendet wurde, ausgelöst werden.
+> Dieses Ereignis wird nicht am einfachen Ende jeder Animationswiederholung ausgelöst. Es kann sowohl im Laufe des normalen (d.h. zeitlich geplanten oder interaktiven) Zeitachsenabspielens als auch im Fall, dass das Element mit einer DOM-Methode beendet wurde, ausgelöst werden.
 
 Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandler-Eigenschaft.
 
 ```js
 addEventListener("endEvent", (event) => {});
@@ -27,16 +27,16 @@ onend = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("TimeEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`TimeEvent`](/de/docs/Web/API/TimeEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("TimeEvent")}}
 
 ## Ereigniseigenschaften
 
-- {{domxref("TimeEvent.detail")}} {{ReadOnlyInline}}
-  - : Ein `long`, das einige Detailinformationen über das Ereignis angibt, abhängig vom Ereignistyp. Für diesen Ereignistyp gibt es die Wiederholungszahl der Animation an.
-- {{domxref("TimeEvent.view")}} {{ReadOnlyInline}}
-  - : Ein {{glossary("WindowProxy")}}, das das Fenster identifiziert, aus dem das Ereignis erzeugt wurde.
+- [`TimeEvent.detail`](/de/docs/Web/API/TimeEvent/detail) {{ReadOnlyInline}}
+  - : Ein `long`, das einige Detailinformationen über das Ereignis angibt, abhängig vom Ereignistyp. Für diesen Ereignistyp zeigt es die Wiederholungsnummer für die Animation an.
+- [`TimeEvent.view`](/de/docs/Web/API/TimeEvent/view) {{ReadOnlyInline}}
+  - : Ein [WindowProxy](/de/docs/Glossary/WindowProxy), der das Fenster identifiziert, aus dem das Ereignis generiert wurde.
 
 ## Beispiele
 
@@ -102,9 +102,9 @@ btn.addEventListener("click", () => {
 
 {{EmbedLiveSample('Animated_circle', '100%', '300')}}
 
-### Äquivalente Ereignis-Handler-Eigenschaft
+### Äquivalent zur Ereignisbehandler-Eigenschaft
 
-Beachten Sie, dass Sie auch einen Ereignis-Listener für das `end`-Ereignis mit der `onend`-Ereignis-Handler-Eigenschaft erstellen können:
+Beachten Sie, dass Sie auch einen Ereignislistener für das `end`-Ereignis mit der `onend`-Ereignisbehandler-Eigenschaft erstellen können:
 
 ```js
 animateElem.onend = () => {
@@ -123,5 +123,5 @@ animateElem.onend = () => {
 ## Siehe auch
 
 - [SVG-Animation mit SMIL](/de/docs/Web/SVG/SVG_animation_with_SMIL)
-- {{domxref("SVGAnimationElement.beginEvent_event", "beginEvent")}} Ereignis
-- {{domxref("SVGAnimationElement.repeatEvent_event", "repeatEvent")}} Ereignis
+- [`beginEvent`](/de/docs/Web/API/SVGAnimationElement/beginEvent_event) Ereignis
+- [`repeatEvent`](/de/docs/Web/API/SVGAnimationElement/repeatEvent_event) Ereignis

@@ -7,13 +7,13 @@ l10n:
 
 {{AddonSidebar}}
 
-Setzt den Titel der Seitenaktion. Der Titel wird in einem Tooltip angezeigt, wenn der Benutzer über die Seitenaktion fährt.
+Setzt den Titel der Page Action. Der Titel wird in einem Tooltip angezeigt, wenn der Benutzer über die Page Action fährt.
 
 ## Syntax
 
 ```js-nolint
 browser.pageAction.setTitle(
-  details // Objekt
+  details // object
 )
 ```
 
@@ -37,7 +37,7 @@ browser.pageAction.setTitle(
 
 ## Beispiele
 
-Wann immer ein Tab aktualisiert wird, zeigen Sie die Seitenaktion für diesen Tab an und setzen Sie den Titel so, dass die ID des Tabs angezeigt wird:
+Sobald ein Tab aktualisiert wird, wird die Page Action für diesen Tab angezeigt, und der Titel wird festgelegt, um die ID des Tabs anzuzeigen:
 
 ```js
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
@@ -52,7 +52,7 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-setTitle) API. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-setTitle) API. Diese Dokumentation stammt aus [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

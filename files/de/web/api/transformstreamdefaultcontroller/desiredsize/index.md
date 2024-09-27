@@ -1,5 +1,5 @@
 ---
-title: "TransformStreamDefaultController: desiredSize Eigenschaft"
+title: "TransformStreamDefaultController: desiredSize-Eigenschaft"
 short-title: desiredSize
 slug: Web/API/TransformStreamDefaultController/desiredSize
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`desiredSize`** schreibgeschützte Eigenschaft des {{domxref("TransformStreamDefaultController")}}-Interfaces gibt die gewünschte Größe an, um die Warteschlange des zugeordneten {{domxref("ReadableStream")}} zu füllen.
+Die schreibgeschützte **`desiredSize`**-Eigenschaft der [`TransformStreamDefaultController`](/de/docs/Web/API/TransformStreamDefaultController)-Schnittstelle gibt die gewünschte Größe zurück, um die Warteschlange des zugehörigen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zu füllen.
 
-Die interne Warteschlange eines `ReadableStream` enthält Chunks, die eingereiht, aber noch nicht gelesen wurden. Der Browser bestimmt die **gewünschte Größe**, um den Stream zu füllen, und dieser Wert wird durch die `desiredSize`-Eigenschaft zurückgegeben.
+Die interne Warteschlange eines `ReadableStream` enthält Chunks, die eingereiht, aber noch nicht gelesen wurden. Der Browser bestimmt die **gewünschte Größe** für die Füllung des Streams, und dies ist der Wert, der von der `desiredSize`-Eigenschaft zurückgegeben wird.
 
-Wenn die `desiredSize` `0` ist, ist die Warteschlange voll. Daher können Sie diese Information verwenden, um [manuell Gegendruck anzuwenden](/de/docs/Web/API/Streams_API/Concepts#backpressure), um die Warteschlange zu verwalten.
+Wenn die `desiredSize` `0` ist, dann ist die Warteschlange voll. Daher können Sie diese Information nutzen, um [manuell Gegendruck anzuwenden](/de/docs/Web/API/Streams_API/Concepts#backpressure), um die Warteschlange zu verwalten.
 
 ## Wert
 
@@ -30,6 +30,6 @@ console.log(controller.desiredSize);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

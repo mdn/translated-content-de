@@ -1,5 +1,5 @@
 ---
-title: "XRPose: Eigenschaft angularVelocity"
+title: "XRPose: angularVelocity-Eigenschaft"
 short-title: angularVelocity
 slug: Web/API/XRPose/angularVelocity
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft `angularVelocity` der Schnittstelle {{DOMxRef("XRPose")}} ist ein {{DOMxRef("DOMPointReadOnly")}}, der die Winkelgeschwindigkeit in Radiant pro Sekunde relativ zum Basis-{{DOMxRef("XRSpace")}} beschreibt.
+Die schreibgeschützte Eigenschaft `angularVelocity` der [`XRPose`](/de/docs/Web/API/XRPose)-Schnittstelle ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die Winkelgeschwindigkeit in Bogenmaß pro Sekunde relativ zum Basis-[`XRSpace`](/de/docs/Web/API/XRSpace) beschreibt.
 
 ## Wert
 
-Ein {{DOMxRef("DOMPointReadOnly")}}, der die Winkelgeschwindigkeit in Radiant pro Sekunde relativ zum Basis-{{DOMxRef("XRSpace")}} beschreibt. Gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück, wenn der Benutzeragent diesen Wert nicht bereitstellen kann.
+Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die Winkelgeschwindigkeit in Bogenmaß pro Sekunde relativ zum Basis-[`XRSpace`](/de/docs/Web/API/XRSpace) beschreibt. Gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück, wenn der Benutzeragent diesen Wert nicht bereitstellen kann.
 
 ## Spezifikationen
 
@@ -24,4 +24,4 @@ Ein {{DOMxRef("DOMPointReadOnly")}}, der die Winkelgeschwindigkeit in Radiant pr
 
 ## Siehe auch
 
-- {{domxref("XRPose.linearVelocity")}}
+- [`XRPose.linearVelocity`](/de/docs/Web/API/XRPose/linearVelocity)

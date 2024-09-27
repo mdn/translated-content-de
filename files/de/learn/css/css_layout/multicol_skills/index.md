@@ -7,20 +7,20 @@ l10n:
 
 {{LearnSidebar}}
 
-Das Ziel dieses Fähigkeits-Tests ist es, zu beurteilen, ob Sie das [CSS-Mehrspaltenlayout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout) verstehen, einschließlich der {{CSSxRef("column-count")}}, {{CSSxRef("column-width")}}, {{CSSxRef("column-gap")}}, {{CSSxRef("column-span")}} und {{CSSxRef("column-rule")}} Eigenschaften und Werte. Sie werden drei kleine Aufgaben durchgehen, die verschiedene Elemente des gerade behandelten Materials verwenden.
+Das Ziel dieses Fähigkeitstests ist es zu bewerten, ob Sie das [CSS Mehrspalten-Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout) verstehen, einschließlich der Eigenschaften und Werte von {{CSSxRef("column-count")}}, {{CSSxRef("column-width")}}, {{CSSxRef("column-gap")}}, {{CSSxRef("column-span")}} und {{CSSxRef("column-rule")}}. Sie werden durch drei kleine Aufgaben arbeiten, die verschiedene Elemente des gerade behandelten Materials verwenden.
 
 > [!NOTE]
 > Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Wenn Sie nicht weiterkommen, können Sie sich an uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) wenden.
 
 ## Aufgabe 1
 
 In dieser Aufgabe möchten wir, dass Sie drei Spalten erstellen, mit einem Abstand von 50px zwischen jeder Spalte.
 
-Ihr Endergebnis sollte wie das unten stehende Bild aussehen:
+Ihr Endergebnis sollte dem Bild unten entsprechen:
 
-![Drei Spalten Text](multicol-task1.png)
+![Drei Textspalten](multicol-task1.png)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -32,11 +32,11 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie Spalten erstellen, die eine Mindestbreite von 200px haben. Fügen Sie dann eine 5px graue Linie zwischen jeder Spalte hinzu, wobei 10px Abstand zwischen dem Rand der Linie und dem Spalteninhalt gelassen werden.
+In dieser Aufgabe möchten wir, dass Sie Spalten erstellen, die eine Mindestbreite von 200px haben. Fügen Sie dann eine 5px graue Linie zwischen den Spalten hinzu und stellen Sie sicher, dass 10px Abstand zwischen dem Rand der Linie und dem Spalteninhalt vorhanden sind.
 
-Ihr Endergebnis sollte wie das unten stehende Bild aussehen:
+Ihr Endergebnis sollte dem Bild unten entsprechen:
 
-![Drei Spalten Text mit einer grauen Linie dazwischen.](multicol-task2.png)
+![Drei Textspalten mit einer grauen Linie dazwischen.](multicol-task2.png)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -48,9 +48,9 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 3
 
-In dieser Aufgabe möchten wir, dass das Element, das die Überschrift und Unterüberschrift enthält, über alle Spalten hinweg spannt, so dass es wie das unten stehende Bild aussieht:
+In dieser Aufgabe möchten wir, dass Sie das Element, das die Überschrift und die Unterüberschrift enthält, über alle Spalten spannen lassen, sodass es wie das Bild unten aussieht:
 
-![Drei Spalten Text mit einer Überschrift und Unterüberschrift, die in der Mitte über alle drei Spalten spannt.](multicol-task3.png)
+![Drei Textspalten mit einer Überschrift und Unterüberschrift, die in der Mitte über alle drei Spalten reicht.](multicol-task3.png)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 

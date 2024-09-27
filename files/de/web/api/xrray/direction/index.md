@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`direction`**-Eigenschaft der {{DOMxRef("XRRay")}}-Schnittstelle ist ein {{domxref("DOMPointReadOnly")}}, der den dreidimensionalen Richtungsvektor des Strahls darstellt, normalisiert zu einem [Einheitsvektor](https://en.wikipedia.org/wiki/Unit_vector) mit einer Länge von 1,0.
+Die _schreibgeschützte_ **`direction`**-Eigenschaft der [`XRRay`](/de/docs/Web/API/XRRay)-Schnittstelle ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der den 3-dimensionalen Richtungsvektor des Strahls darstellt, normalisiert auf einen [Einheitsvektor](https://de.wikipedia.org/wiki/Einheitsvektor) mit einer Länge von 1,0.
 
 ## Wert
 
-Ein {{domxref("DOMPointReadOnly")}}-Objekt.
+Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Objekt.
 
 ## Beispiele
 
 ### Verwendung der `direction`-Eigenschaft
 
-Die `direction`-Eigenschaft enthält den normalisierten dreidimensionalen Richtungsvektor des Strahls.
+Die `direction`-Eigenschaft enthält den normalisierten 3-dimensionalen Richtungsvektor des Strahls.
 
 ```js
 let origin = { x: 10.0, y: 10.0, z: 10.0, w: 1.0 };
@@ -39,4 +39,4 @@ ray.direction;
 
 ## Siehe auch
 
-- {{domxref("DOMPointReadOnly")}}
+- [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)

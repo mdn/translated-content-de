@@ -23,14 +23,14 @@ let gettingIsShown = browser.pageAction.isShown(
 
 - `details`
 
-  - : `object`. Ein Objekt, das die zu prüfende `tabId` enthält.
+  - : `object`. Ein Objekt, das die zu überprüfende `tabId` enthält.
 
     - `tabId`
-      - : `integer`. ID des zu prüfenden Tabs.
+      - : `integer`. ID des zu überprüfenden Tabs.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Page-Action der Erweiterung für den angegebenen Tab angezeigt wird, und andernfalls mit `false`.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Page-Action der Erweiterung für den angegebenen Tab angezeigt wird, und mit `false` andernfalls.
 
 ## Browser-Kompatibilität
 

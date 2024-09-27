@@ -1,5 +1,5 @@
 ---
-title: "MIDIMessageEvent: MIDIMessageEvent()-Konstruktor"
+title: "MIDIMessageEvent: MIDIMessageEvent() Konstruktor"
 short-title: MIDIMessageEvent()
 slug: Web/API/MIDIMessageEvent/MIDIMessageEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Der **`MIDIMessageEvent()`**-Konstruktor erstellt ein neues {{domxref("MIDIMessageEvent")}}-Objekt. Typischerweise wird dieser Konstruktor nicht verwendet, da Ereignisse erstellt werden, wenn ein {{domxref("MIDIInput")}} den Empfang eines oder mehrerer MIDI-Nachrichten abgeschlossen hat.
+Der **`MIDIMessageEvent()`** Konstruktor erstellt ein neues [`MIDIMessageEvent`](/de/docs/Web/API/MIDIMessageEvent)-Objekt. Normalerweise wird dieser Konstruktor nicht verwendet, da Ereignisse erzeugt werden, wenn ein [`MIDIInput`](/de/docs/Web/API/MIDIInput) das Empfangen von einem oder mehreren MIDI-Nachrichten abschließt.
 
 ## Syntax
 
@@ -20,20 +20,21 @@ new MIDIMessageEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein Zeichenfolgenwert mit dem Namen des Ereignisses. Es ist groß-/klein-schreibungssensitiv und Browser setzen es immer auf `MIDIMessageEvent`.
+  - : Ein String mit dem Namen des Ereignisses.
+    Es ist Groß-/Kleinschreibung-sensitiv und von Browsern immer auf `MIDIMessageEvent` gesetzt.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den Eigenschaften, die in {{domxref("Event/Event", "Event()")}} definiert sind_, die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das, _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_, die folgenden Eigenschaften haben kann:
     - `data`
       - : Eine {{jsxref("Uint8Array")}}-Instanz, die die Datenbytes der MIDI-Nachricht enthält.
 
 ### Rückgabewert
 
-Ein neues {{domxref("MIDIMessageEvent")}}-Objekt.
+Ein neues [`MIDIMessageEvent`](/de/docs/Web/API/MIDIMessageEvent)-Objekt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

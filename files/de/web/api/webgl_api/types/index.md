@@ -7,11 +7,11 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}
 
-Die folgenden Typen werden in [WebGL](/de/docs/Web/API/WebGL_API)-Schnittstellen verwendet.
+Die folgenden Typen werden in [WebGL](/de/docs/Web/API/WebGL_API) Schnittstellen verwendet.
 
 ## WebGL 1
 
-Diese Typen werden innerhalb eines {{domxref("WebGLRenderingContext")}} verwendet.
+Diese Typen werden innerhalb eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) verwendet.
 
 <table class="no-markdown">
   <thead>
@@ -39,8 +39,8 @@ Diese Typen werden innerhalb eines {{domxref("WebGLRenderingContext")}} verwende
       <td><code>GLbitfield</code></td>
       <td><code>unsigned long</code></td>
       <td>
-        Ein Bitfeld, das mehrere logische Bits speichert. Wird beispielsweise in
-        {{domxref("WebGLRenderingContext.clear()")}} verwendet.
+        Ein Bitfeld, das mehrere, logische Bits speichert. Wird beispielsweise in
+        [`WebGLRenderingContext.clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) verwendet.
       </td>
     </tr>
     <tr>
@@ -61,7 +61,7 @@ Diese Typen werden innerhalb eines {{domxref("WebGLRenderingContext")}} verwende
     <tr>
       <td><code>GLsizei</code></td>
       <td><code>long</code></td>
-      <td>Wird für Größen verwendet (z.B. Breite und Höhe des Zeichnungspuffers).</td>
+      <td>Wird für Größen verwendet (z.B. Breite und Höhe des Zeichenpuffers).</td>
     </tr>
     <tr>
       <td><code>GLintptr</code></td>
@@ -76,17 +76,17 @@ Diese Typen werden innerhalb eines {{domxref("WebGLRenderingContext")}} verwende
     <tr>
       <td><code>GLubyte</code></td>
       <td><code>octet</code></td>
-      <td>8-Bit vorzeichenlose Ganzzahl.</td>
+      <td>8-Bit Nicht-Vorzeichen-Ganzzahl.</td>
     </tr>
     <tr>
       <td><code>GLushort</code></td>
       <td><code>unsigned short</code></td>
-      <td>16-Bit vorzeichenlose Ganzzahl.</td>
+      <td>16-Bit Nicht-Vorzeichen-Ganzzahl.</td>
     </tr>
     <tr>
       <td><code>GLuint</code></td>
       <td><code>unsigned long</code></td>
-      <td>32-Bit vorzeichenlose Ganzzahl.</td>
+      <td>32-Bit Nicht-Vorzeichen-Ganzzahl.</td>
     </tr>
     <tr>
       <td><code>GLfloat</code></td>
@@ -96,26 +96,26 @@ Diese Typen werden innerhalb eines {{domxref("WebGLRenderingContext")}} verwende
     <tr>
       <td><code>GLclampf</code></td>
       <td><code>unrestricted float</code></td>
-      <td>Geklammerte 32-Bit IEEE-Gleitkommazahl.</td>
+      <td>Begrenzte 32-Bit IEEE-Gleitkommazahl.</td>
     </tr>
   </tbody>
 </table>
 
 ## WebGL 2
 
-Diese Typen werden innerhalb eines {{domxref("WebGL2RenderingContext")}} verwendet. Alle WebGL 1-Typen werden ebenfalls verwendet.
+Diese Typen werden innerhalb eines [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) verwendet. Alle WebGL 1-Typen werden ebenfalls verwendet.
 
-| Typ       | Web IDL-Typ  | Beschreibung                   |
-| --------- | ------------ | ----------------------------- |
-| `GLint64` | `long long`  | Signierte 64-Bit Ganzzahl.    |
+| Typ       | Web IDL-Typ | Beschreibung                         |
+| --------- | ----------- | ------------------------------------ |
+| `GLint64` | `long long` | Vorzeichenbehaftete 64-Bit-Ganzzahl. |
 
 ## WebGL-Erweiterungen
 
 Diese Typen werden innerhalb von [WebGL-Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) verwendet.
 
-| Typ           | Web IDL-Typ  | Beschreibung                     |
-| ------------- | ------------ | ------------------------------- |
-| `GLuint64EXT` | `long long`  | Nicht signierte 64-Bit Ganzzahl. |
+| Typ           | Web IDL-Typ | Beschreibung                      |
+| ------------- | ----------- | --------------------------------- |
+| `GLuint64EXT` | `long long` | Nicht-Vorzeichen-64-Bit-Ganzzahl. |
 
 ## Spezifikationen
 
@@ -123,4 +123,4 @@ Diese Typen werden innerhalb von [WebGL-Erweiterungen](/de/docs/Web/API/WebGL_AP
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext")}}
+- [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)

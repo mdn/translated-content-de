@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`supportedContentEncodings`** schreibgeschützte statische Eigenschaft der
-{{domxref("PushManager")}}-Schnittstelle gibt ein Array von unterstützten Inhaltskodierungen zurück, die verwendet werden können, um die Nutzlast einer Push-Nachricht zu verschlüsseln.
+Die **`supportedContentEncodings`** schreibgeschützte, statische Eigenschaft des
+[`PushManager`](/de/docs/Web/API/PushManager)-Interfaces gibt ein Array der unterstützten Inhaltskodierungen zurück, die zur Verschlüsselung der Nutzlast einer Push-Nachricht verwendet werden können.
 
 ## Wert
 
@@ -19,6 +19,6 @@ Ein Array von Zeichenfolgen.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

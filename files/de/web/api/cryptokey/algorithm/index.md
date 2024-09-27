@@ -1,14 +1,14 @@
 ---
-title: "CryptoKey: algorithm-Eigenschaft"
+title: "CryptoKey: algorithm Eigenschaft"
 short-title: algorithm
 slug: Web/API/CryptoKey/algorithm
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: cc27a64bb555b250cf0984a3a744e5fd251e3565
 ---
 
-{{APIRef("Web Crypto API")}}{{SecureContext_Header}}
+{{APIRef("Web Crypto API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`algorithm`**-Eigenschaft der {{DOMxRef("CryptoKey")}}-Schnittstelle gibt ein Objekt zurück, das den Algorithmus beschreibt, für den dieser Schlüssel verwendet werden kann, sowie die zugehörigen zusätzlichen Parameter.
+Die schreibgeschützte **`algorithm`**-Eigenschaft der [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Schnittstelle gibt ein Objekt zurück, das den Algorithmus beschreibt, für den dieser Schlüssel verwendet werden kann, sowie alle zugehörigen zusätzlichen Parameter.
 
 Das zurückgegebene Objekt hängt von dem Algorithmus ab, der zur Erzeugung des Schlüssels verwendet wurde.
 
@@ -26,9 +26,9 @@ Ein Objekt entsprechend:
 ```js
 const rawKey = window.crypto.getRandomValues(new Uint8Array(16));
 
-// Importieren Sie einen AES-Geheimschlüssel aus einem ArrayBuffer, der die Rohbytes enthält.
-// Nimmt einen ArrayBuffer-String, der die Bytes enthält, und gibt ein Promise zurück,
-// das aufgelöst wird zu einem CryptoKey, der den Geheimschlüssel darstellt.
+// Import an AES secret key from an ArrayBuffer containing the raw bytes.
+// Takes an ArrayBuffer string containing the bytes, and returns a Promise
+// that will resolve to a CryptoKey representing the secret key.
 function importSecretKey(rawKey) {
   return window.crypto.subtle.importKey("raw", rawKey, "AES-GCM", true, [
     "encrypt",

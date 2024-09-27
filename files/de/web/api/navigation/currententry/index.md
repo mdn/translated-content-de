@@ -8,30 +8,30 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`currentEntry`** schreibgeschützte Eigenschaft des {{domxref("Navigation")}}-Interfaces gibt ein {{domxref("NavigationHistoryEntry")}}-Objekt zurück, das den Ort repräsentiert, zu dem der Benutzer momentan navigiert ist.
+Die schreibgeschützte **`currentEntry`**-Eigenschaft der [`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle gibt ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt zurück, das den Ort darstellt, zu dem der Benutzer sich gerade navigiert hat.
 
 ## Wert
 
-Ein {{domxref("NavigationHistoryEntry")}}-Objekt.
+Ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt.
 
 ## Beispiele
 
 ```js
 function initHomeBtn() {
-  // Holen Sie den Schlüssel des zuerst geladenen Eintrags,
-  // damit der Benutzer immer zu dieser Ansicht zurückkehren kann.
+  // Get the key of the first loaded entry
+  // so the user can always go back to this view.
   const { key } = navigation.currentEntry;
   backToHomeButton.onclick = () => {
     navigation.traverseTo(key);
   };
 }
-// Abfangen von Navigationsereignissen, wie z.B. Link-Klicks, und
-// sie durch einseitige Navigationen ersetzen
+// Intercept navigate events, such as link clicks, and
+// replace them with single-page navigations
 navigation.addEventListener("navigate", (event) => {
   event.intercept({
     async handler() {
-      // Zu einer anderen Ansicht navigieren,
-      // aber der "Home"-Button wird immer funktionieren.
+      // Navigate to a different view,
+      // but the "home" button will always work.
     },
   });
 });
@@ -47,6 +47,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation-API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

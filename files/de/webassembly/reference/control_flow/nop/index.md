@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-**`nop`** steht für No-Operation. Es macht buchstäblich nichts.
+**`nop`** steht für "no-operation". Es tut buchstäblich nichts.
 
 {{EmbedInteractiveExample("pages/wat/nop.html", "tabbed-shorter")}}
 
@@ -17,6 +17,6 @@ l10n:
 nop
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `nop`       | `0x01`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `nop`     | `0x01`         |

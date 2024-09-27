@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `concat` verkettet zwei oder mehr Zeichenketten und gibt die resultierende Zeichenkette zurück.
+Die Funktion `concat` führt die Verkettung von zwei oder mehr Zeichenfolgen durch und gibt die resultierende Zeichenfolge zurück.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ concat( string1, string2 [,stringn]* )
 ### Parameter
 
 - `stringn`
-  - : Diese Funktion akzeptiert zwei oder mehr Argumente. Jedes dieser Argumente ist eine Zeichenkette.
+  - : Diese Funktion akzeptiert zwei oder mehr Argumente. Jedes dieser Argumente ist eine Zeichenfolge.
 
 ### Rückgabewert
 
-Eine einzelne Zeichenkette, die die Verkettung aller Zeichenketten ist, die der Funktion als Argumente übergeben werden.
+Eine einzelne Zeichenfolge, die die Verkettung aller an die Funktion übergebenen Zeichenfolgen ist.
 
 ## Spezifikationen
 

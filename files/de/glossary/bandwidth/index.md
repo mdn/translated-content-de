@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Bandbreite** ist das Maß dafür, wie viel Information in einem bestimmten Zeitraum durch eine Datenverbindung übertragen werden kann. Sie wird üblicherweise in Vielfachen von Bits pro Sekunde (bps) gemessen, zum Beispiel Megabits pro Sekunde (Mbps) oder Gigabits pro Sekunde (Gbps).
+**Bandbreite** ist das Maß dafür, wie viele Informationen in einer bestimmten Zeit durch eine Datenverbindung fließen können. Sie wird normalerweise in Vielfachen von Bits pro Sekunde (bps) gemessen, zum Beispiel Megabits pro Sekunde (Mbps) oder Gigabits pro Sekunde (Gbps).
 
 ## Siehe auch
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`ArrayBuffer.isView()`** bestimmt, ob der übergebene Wert eine der Ansichten eines `ArrayBuffer` ist, wie zum Beispiel [Typed Array Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) oder ein {{jsxref("DataView")}}.
+Die statische Methode **`ArrayBuffer.isView()`** bestimmt, ob der übergebene Wert eine der `ArrayBuffer`-Sichten ist, wie z.B. [Typed Array Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) oder ein {{jsxref("DataView")}}.
 
 {{EmbedInteractiveExample("pages/js/arraybuffer-isview.html", "shorter")}}
 
@@ -24,7 +24,7 @@ ArrayBuffer.isView(value)
 
 ### Rückgabewert
 
-`true`, wenn das gegebene Argument eine der {{jsxref("ArrayBuffer")}} Ansichten ist; andernfalls `false`.
+`true`, wenn das übergebene Argument eine der {{jsxref("ArrayBuffer")}}-Sichten ist; andernfalls `false`.
 
 ## Beispiele
 

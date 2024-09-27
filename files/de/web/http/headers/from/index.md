@@ -7,21 +7,21 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`From`**-Request-Header enthält eine Internet-E-Mail-Adresse für einen menschlichen Benutzer, der den anfordernden Benutzer-Agenten kontrolliert.
+Der **`From`**-Anforderungsheader enthält eine Internet-E-Mail-Adresse für eine menschliche Person, die den anfordernden Benutzeragenten kontrolliert.
 
-Wenn Sie einen automatisierten Benutzer-Agenten (z.B. einen Crawler) betreiben, muss der `From`-Header gesendet werden, damit Sie kontaktiert werden können, wenn auf den Servern Probleme auftreten, beispielsweise wenn der Roboter eine übermäßige Anzahl von unerwünschten oder ungültigen Anfragen sendet.
+Wenn Sie einen robotischen Benutzeragenten betreiben (z.B. einen Crawler), muss der `From`-Header gesendet werden, damit Sie kontaktiert werden können, falls Probleme auf Servern auftreten, wie z.B. wenn der Roboter übermäßige, unerwünschte oder ungültige Anfragen sendet.
 
 > [!WARNING]
-> Sie dürfen den `From`-Header nicht für den Zugriffsschutz oder die Authentifizierung verwenden.
+> Sie dürfen den `From`-Header nicht für Zugangskontrollen oder Authentifizierung verwenden.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request header")}}</td>
+      <td>[Anforderungsheader](/de/docs/Glossary/Request_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -36,7 +36,7 @@ From: <email>
 ## Direktiven
 
 - \<email>
-  - : Eine maschinenlesbare E-Mail-Adresse.
+  - : Eine maschinell nutzbare E-Mail-Adresse.
 
 ## Beispiele
 

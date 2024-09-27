@@ -9,30 +9,30 @@ l10n:
 
 Die **`GeolocationCoordinates`**-Schnittstelle repräsentiert die Position und Höhe des Geräts auf der Erde sowie die Genauigkeit, mit der diese Eigenschaften berechnet werden. Die geografischen Positionsinformationen werden in Form von World Geodetic System-Koordinaten (WGS84) bereitgestellt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Die `GeolocationCoordinates`-Schnittstelle erbt keine Eigenschaften._
 
-- {{domxref("GeolocationCoordinates.latitude")}} {{ReadOnlyInline}}
-  - : Gibt einen `double`-Wert zurück, der die Breitenlage der Position in Dezimalgrad darstellt.
-- {{domxref("GeolocationCoordinates.longitude")}} {{ReadOnlyInline}}
-  - : Gibt einen `double`-Wert zurück, der die Längenlage der Position in Dezimalgrad darstellt.
-- {{domxref("GeolocationCoordinates.altitude")}} {{ReadOnlyInline}}
-  - : Gibt einen `double`-Wert zurück, der die Höhe der Position in Metern relativ zum nominalen Meeresspiegel darstellt. Dieser Wert kann `null` sein, wenn die Implementierung die Daten nicht bereitstellen kann.
-- {{domxref("GeolocationCoordinates.accuracy")}} {{ReadOnlyInline}}
-  - : Gibt einen `double`-Wert zurück, der die Genauigkeit der Eigenschaften `latitude` und `longitude` in Metern angibt.
-- {{domxref("GeolocationCoordinates.altitudeAccuracy")}} {{ReadOnlyInline}}
-  - : Gibt einen `double`-Wert zurück, der die Genauigkeit der `altitude` in Metern angibt. Dieser Wert kann `null` sein, wenn die Implementierung die Daten nicht bereitstellen kann.
-- {{domxref("GeolocationCoordinates.heading")}} {{ReadOnlyInline}}
-  - : Gibt einen `double`-Wert zurück, der die Richtung angibt, in die das Gerät zeigt. Dieser Wert, der in Grad angegeben ist, gibt an, wie weit das Gerät vom wahren Norden abweicht. `0` Grad entspricht dem wahren Norden, und die Richtung wird im Uhrzeigersinn bestimmt (das heißt, Osten ist `90` Grad und Westen ist `270` Grad). Wenn die `speed` `0` ist oder das Gerät keine `heading`-Informationen bereitstellen kann, ist `heading` `null`.
-- {{domxref("GeolocationCoordinates.speed")}} {{ReadOnlyInline}}
-  - : Gibt einen `double`-Wert zurück, der die Geschwindigkeit des Geräts in Metern pro Sekunde angibt. Dieser Wert kann `null` sein.
+- [`GeolocationCoordinates.latitude`](/de/docs/Web/API/GeolocationCoordinates/latitude) {{ReadOnlyInline}}
+  - : Gibt ein `double` zurück, das die Breite der Position in Dezimalgrad darstellt.
+- [`GeolocationCoordinates.longitude`](/de/docs/Web/API/GeolocationCoordinates/longitude) {{ReadOnlyInline}}
+  - : Gibt ein `double` zurück, das die Länge der Position in Dezimalgrad darstellt.
+- [`GeolocationCoordinates.altitude`](/de/docs/Web/API/GeolocationCoordinates/altitude) {{ReadOnlyInline}}
+  - : Gibt ein `double` zurück, das die Höhe der Position in Metern relativ zum mittleren Meeresspiegel darstellt. Dieser Wert kann `null` sein, wenn die Implementierung die Daten nicht bereitstellen kann.
+- [`GeolocationCoordinates.accuracy`](/de/docs/Web/API/GeolocationCoordinates/accuracy) {{ReadOnlyInline}}
+  - : Gibt ein `double` zurück, das die Genauigkeit der Eigenschaften `latitude` und `longitude` in Metern ausdrückt.
+- [`GeolocationCoordinates.altitudeAccuracy`](/de/docs/Web/API/GeolocationCoordinates/altitudeAccuracy) {{ReadOnlyInline}}
+  - : Gibt ein `double` zurück, das die Genauigkeit der `altitude` in Metern ausdrückt. Dieser Wert kann `null` sein, wenn die Implementierung die Daten nicht bereitstellen kann.
+- [`GeolocationCoordinates.heading`](/de/docs/Web/API/GeolocationCoordinates/heading) {{ReadOnlyInline}}
+  - : Gibt ein `double` zurück, das die Richtung angibt, in die das Gerät zeigt. Dieser Wert, in Grad angegeben, zeigt an, wie weit das Gerät von Nord entfernt ist. `0` Grad repräsentiert Nord, und die Richtung wird im Uhrzeigersinn bestimmt (was bedeutet, dass Osten `90` Grad und Westen `270` Grad sind). Wenn die `speed` `0` ist oder das Gerät keine `heading`-Informationen liefern kann, ist `heading` `null`.
+- [`GeolocationCoordinates.speed`](/de/docs/Web/API/GeolocationCoordinates/speed) {{ReadOnlyInline}}
+  - : Gibt ein `double` zurück, das die Geschwindigkeit des Geräts in Metern pro Sekunde darstellt. Dieser Wert kann `null` sein.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Die `GeolocationCoordinates`-Schnittstelle erbt keine Methoden._
 
-- {{domxref("GeolocationCoordinates.toJSON()")}}
+- [`GeolocationCoordinates.toJSON()`](/de/docs/Web/API/GeolocationCoordinates/toJSON)
   - : Gibt eine JSON-Darstellung des `GeolocationCoordinates`-Objekts zurück und ermöglicht die Serialisierung mit {{jsxref("JSON.stringify()")}}.
 
 ## Spezifikationen
@@ -46,4 +46,4 @@ _Die `GeolocationCoordinates`-Schnittstelle erbt keine Methoden._
 ## Siehe auch
 
 - [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- {{domxref("Geolocation")}}
+- [`Geolocation`](/de/docs/Web/API/Geolocation)

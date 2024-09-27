@@ -1,5 +1,5 @@
 ---
-title: "ResizeObserver: disconnect()-Methode"
+title: "ResizeObserver: disconnect() Methode"
 short-title: disconnect()
 slug: Web/API/ResizeObserver/disconnect
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Resize Observer API")}}
 
-Die **`disconnect()`**-Methode der {{domxref("ResizeObserver")}}-Schnittstelle beendet die Beobachtung aller beobachteten {{domxref('Element')}}- oder {{domxref('SVGElement')}}-Ziele.
+Die **`disconnect()`** Methode der [`ResizeObserver`](/de/docs/Web/API/ResizeObserver) Schnittstelle beendet die Beobachtung aller beobachteten [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement) Ziele.
 
 ## Syntax
 

@@ -7,14 +7,14 @@ l10n:
 
 {{SVGRef}}
 
-Das **`marker-mid`** Attribut definiert den Pfeilkopf oder Polymarker, der an allen inneren Eckpunkten der gegebenen [Form](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
+Das **`marker-mid`** Attribut definiert den Pfeilspitzen- oder Polymarker, der an allen inneren Scheitelpunkten der angegebenen [Form](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
 
-Der Marker wird auf jedem Eckpunkt außer dem ersten und letzten Eckpunkt der [Pfaddaten](/de/docs/Web/SVG/Attribute/d#path_commands) gerendert.
+Der Marker wird an jedem Scheitelpunkt gerendert, mit Ausnahme des ersten und letzten Scheitelpunkts der [Pfaddaten](/de/docs/Web/SVG/Attribute/d#path_commands).
 
 > [!NOTE]
 > Als Präsentationsattribut kann `marker-mid` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('marker-mid')}} für mehr Informationen.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("circle")}}
 - {{SVGElement("ellipse")}}
@@ -51,7 +51,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -71,9 +71,9 @@ svg {
 </table>
 
 - `none`
-  - : Gibt an, dass kein Markersymbol an den angegebenen Eckpunkten gezeichnet wird.
+  - : Zeigt an, dass kein Markersymbol an den angegebenen Scheitelpunkten gezeichnet wird.
 - `<marker-ref>`
-  - : Dieser Wert ist ein Verweis auf ein {{SVGElement("marker")}}-Element, das an den angegebenen Eckpunkten gezeichnet wird. Wenn die Referenz ungültig ist, wird kein Marker gezeichnet.
+  - : Dieser Wert ist ein Verweis auf ein {{SVGElement("marker")}} Element, welches an den angegebenen Scheitelpunkten gezeichnet wird. Falls der Verweis ungültig ist, wird kein Marker gezeichnet.
 
 ## Spezifikationen
 

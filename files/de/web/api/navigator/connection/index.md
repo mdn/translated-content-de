@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Network Information API")}}
 
-Die **`connection`** schreibgeschützte Eigenschaft des {{domxref("Navigator")}}-Interfaces gibt ein {{domxref("NetworkInformation")}}-Objekt zurück, das Informationen über die Verbindung des Systems enthält, wie die aktuelle Bandbreite des Geräts des Benutzers oder ob die Verbindung gemessen wird.
+Die **`connection`** schreibgeschützte Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt ein [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Objekt zurück, das Informationen über die Verbindung des Systems enthält, wie zum Beispiel die aktuelle Bandbreite des Geräts des Benutzers oder ob die Verbindung gedrosselt ist.
 
-Dies könnte verwendet werden, um hochauflösende oder niedrigauflösende Inhalte basierend auf der Verbindung des Benutzers auszuwählen.
+Dies könnte verwendet werden, um basierend auf der Verbindung des Benutzers hochauflösende oder niedrigauflösende Inhalte auszuwählen.
 
 ## Wert
 
-Ein {{domxref("NetworkInformation")}}-Objekt.
+Ein [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Objekt.
 
 ## Spezifikationen
 
@@ -26,4 +26,4 @@ Ein {{domxref("NetworkInformation")}}-Objekt.
 
 ## Siehe auch
 
-- [Online und Offline-Ereignisse](/de/docs/Web/API/Navigator/onLine)
+- [Online- und Offline-Ereignisse](/de/docs/Web/API/Navigator/onLine)

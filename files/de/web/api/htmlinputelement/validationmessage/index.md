@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`validationMessage`** Lese-only-Eigenschaft des {{domxref("HTMLInputElement")}}-Interfaces gibt eine Zeichenkette zurück, die eine lokalisierte Nachricht darstellt, welche die Validierungseinschränkungen beschreibt, die das {{htmlelement("input")}}-Steuerelement nicht erfüllt (falls vorhanden).
+Die schreibgeschützte **`validationMessage`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt eine Zeichenfolge zurück, die eine lokalisierte Nachricht darstellt, welche die Validierungsbeschränkungen beschreibt, die das {{htmlelement("input")}}-Steuerelement nicht erfüllt (falls vorhanden).
 
-Wenn das `<input>`-Element kein Kandidat für die Einschränkungsvalidierung ist ({{domxref("HTMLInputElement.willValidate")}} ist `false`), oder es seine Einschränkungen erfüllt, ist der Wert die leere Zeichenkette (`""`).
+Wenn das `<input>`-Element kein Kandidat für die Einschränkungsvalidierung ist ([`HTMLInputElement.willValidate`](/de/docs/Web/API/HTMLInputElement/willValidate) ist `false`), oder es seine Beschränkungen erfüllt, ist der Wert die leere Zeichenfolge (`""`).
 
-Wenn das Element ein Kandidat für die Einschränkungsvalidierung ist (`willValidate` ist `true`) und die Einschränkungen nicht erfüllt sind (die `valid`-Eigenschaft des {{domxref("HTMLInputElement.validity")}}-Objekts ist `false`), ist der Wert die Fehlermeldung, die dem Benutzer während der Validierung angezeigt würde.
+Falls das Element ein Kandidat für die Einschränkungsvalidierung ist (`willValidate` ist `true`) und die Beschränkungen nicht erfüllt sind (die `valid`-Eigenschaft des [`HTMLInputElement.validity`](/de/docs/Web/API/HTMLInputElement/validity)-Objekts ist `false`), ist der Wert die Fehlermeldung, die dem Nutzer während der Validierung angezeigt werden würde.
 
 ## Wert
 
-Eine Zeichenkette.
+Eine Zeichenfolge.
 
 ## Beispiel
 
@@ -36,12 +36,12 @@ const errorMessage = input.validationMessage;
 ## Siehe auch
 
 - {{HTMLelement("input")}}
-- {{domxref("HTMLInputElement")}}
-- {{domxref("HTMLInputElement.willValidate")}}
-- {{domxref("HTMLInputElement.validity")}}
-- {{domxref("HTMLInputElement.checkValidity()")}}
-- {{domxref("HTMLInputElement.reportValidity()")}}
-- {{domxref("HTMLInputElement.setCustomValidity()")}}
+- [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
+- [`HTMLInputElement.willValidate`](/de/docs/Web/API/HTMLInputElement/willValidate)
+- [`HTMLInputElement.validity`](/de/docs/Web/API/HTMLInputElement/validity)
+- [`HTMLInputElement.checkValidity()`](/de/docs/Web/API/HTMLInputElement/checkValidity)
+- [`HTMLInputElement.reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity)
+- [`HTMLInputElement.setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity)
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
 - CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudo-Klassen

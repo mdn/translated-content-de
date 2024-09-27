@@ -1,5 +1,5 @@
 ---
-title: Formular zum Aktualisieren eines Buches
+title: Aktualisieren Sie das Book-Formular
 slug: Learn/Server-side/Express_Nodejs/forms/Update_Book_form
 l10n:
   sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
@@ -7,11 +7,11 @@ l10n:
 
 {{LearnSidebar}}
 
-Dieser letzte Unterartikel zeigt, wie man eine Seite definiert, um `Book`-Objekte zu aktualisieren. Die Formularhandhabung beim Aktualisieren eines Buches ist der bei der Erstellung eines Buches sehr ähnlich, mit der Ausnahme, dass Sie das Formular in der `GET`-Route mit Werten aus der Datenbank füllen müssen.
+Dieser letzte Unterartikel zeigt, wie Sie eine Seite definieren, um `Book`-Objekte zu aktualisieren. Die Formularbearbeitung beim Aktualisieren eines Buches ähnelt der beim Erstellen eines Buches, außer dass Sie das Formular in der `GET`-Route mit Werten aus der Datenbank ausfüllen müssen.
 
 ## Controller—GET-Route
 
-Öffnen Sie **/controllers/bookController.js**. Finden Sie die exportierte `book_update_get()` Controller-Methode und ersetzen Sie sie durch den folgenden Code.
+Öffnen Sie **/controllers/bookController.js**. Suchen Sie die exportierte `book_update_get()` Controller-Methode und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Display book update form on GET.
@@ -44,18 +44,18 @@ exports.book_update_get = asyncHandler(async (req, res, next) => {
 });
 ```
 
-Der Controller erhält die ID des zu aktualisierenden `Book` aus dem URL-Parameter (`req.params.id`). Er wartet auf das Erfüllen des Versprechens, das von `Promise.all()` zurückgegeben wird, um den angegebenen `Book` Datensatz (mit aufgefüllten genre- und autor-Feldern) und alle `Author`- und `Genre`-Datensätze zu erhalten.
+Der Controller erhält die ID des zu aktualisierenden `Book` aus dem URL-Parameter (`req.params.id`). Er `awaitet` auf das von `Promise.all()` zurückgegebene Versprechen, um den angegebenen `Book`-Datensatz zu erhalten (einschließlich der Felder Genre und Autor) sowie alle `Author`- und `Genre`-Datensätze.
 
-Wenn die Operationen abgeschlossen sind, prüft die Funktion, ob Bücher gefunden wurden, und wenn keine gefunden wurden, wird ein Fehler "Book not found" an die Fehlerbehandlungsmiddleware gesendet.
+Wenn die Operationen abgeschlossen sind, überprüft die Funktion, ob Bücher gefunden wurden, und wenn keine gefunden wurden, sendet sie den Fehler "Buch nicht gefunden" an die Fehlerbehandlungsmiddleware.
 
 > [!NOTE]
-> Keine Bücher zu finden, ist **kein Fehler** bei einer Suche — aber es ist einer für diese Anwendung, weil wir wissen, dass es einen passenden Buchdatensatz geben muss! Der obige Code vergleicht (`book===null`) im Callback, aber es könnte genauso gut die Methode [orFail()](<https://mongoosejs.com/docs/api/query.html#Query.prototype.orFail()>) zur Anfrage daisy chainen.
+> Das Nichtfinden von Büchern ist **kein Fehler** für eine Suche – aber in dieser Anwendung ist es das, weil wir wissen, dass es einen passenden Buchdatensatz geben muss! Der obige Code vergleicht in der Rückruffunktion (`book===null`), aber man könnte genauso gut die Methode [orFail()](<https://mongoosejs.com/docs/api/query.html#Query.prototype.orFail()>) an die Abfrage anhängen.
 
-Wir markieren dann die aktuell ausgewählten Genres als überprüft und rendern dann die **book_form.pug**-Ansicht, wobei Variablen für `title`, book, alle `authors` und alle `genres` übergeben werden.
+Wir markieren dann die derzeit ausgewählten Genres als geprüft und rendern die Ansicht **book_form.pug**, wobei Variablen für `title`, das Buch, alle `authors` und alle `genres` übergeben werden.
 
 ## Controller—POST-Route
 
-Finden Sie die exportierte `book_update_post()` Controller-Methode und ersetzen Sie sie durch den folgenden Code.
+Suchen Sie die exportierte `book_update_post()` Controller-Methode und ersetzen Sie sie durch den folgenden Code.
 
 ```js
 // Handle book update on POST.
@@ -133,16 +133,15 @@ exports.book_update_post = [
 ];
 ```
 
-Dies ist der POST-Route sehr ähnlich, die bei der Erstellung eines `Book` verwendet wird.
-Zuerst validieren und bereinigen wir die Buchdaten aus dem Formular und verwenden sie, um ein neues `Book`-Objekt zu erstellen (wobei wir seinen `_id`-Wert auf die ID des zu aktualisierenden Objekts setzen). Wenn es Fehler bei der Validierung der Daten gibt, rendern wir das Formular erneut und zeigen zusätzlich die vom Benutzer eingegebenen Daten, die Fehler und die Listen der Genres und Autoren an. Wenn es keine Fehler gibt, rufen wir `Book.findByIdAndUpdate()` auf, um das `Book`-Dokument zu aktualisieren und leiten dann zu dessen Detailseite weiter.
+Dies ist der POST-Route beim Erstellen eines `Book` sehr ähnlich. Zuerst validieren und bereinigen wir die Buchdaten aus dem Formular und verwenden diese, um ein neues `Book`-Objekt zu erstellen (mit der `_id` auf die ID des zu aktualisierenden Objekts gesetzt). Wenn es beim Validieren der Daten Fehler gibt, rendern wir das Formular neu und zeigen zusätzlich die vom Benutzer eingegebenen Daten, die Fehler sowie Listen der Genres und Autoren an. Gibt es keine Fehler, dann rufen wir `Book.findByIdAndUpdate()` auf, um das `Book`-Dokument zu aktualisieren, und leiten dann zur Detailseite weiter.
 
 ## Ansicht
 
-Es ist nicht erforderlich, die Ansicht für das Formular (**/views/book_form.pug**) zu ändern, da dieselbe Vorlage sowohl für das Erstellen als auch für das Aktualisieren des Buches funktioniert.
+Es ist nicht nötig, die Ansicht für das Formular (**/views/book_form.pug**) zu ändern, da dieselbe Vorlage sowohl für das Erstellen als auch für das Aktualisieren des Buches funktioniert.
 
-## Einen Aktualisierungs-Button hinzufügen
+## Aktualisieren Sie die Schaltfläche hinzufügen
 
-Öffnen Sie die **book_detail.pug**-Ansicht und stellen Sie sicher, dass es am Ende der Seite Links sowohl zum Löschen als auch zum Aktualisieren von Büchern gibt, wie unten gezeigt.
+Öffnen Sie die Ansicht **book_detail.pug** und stellen Sie sicher, dass am Seitenende Links sowohl zum Löschen als auch zum Aktualisieren von Büchern vorhanden sind, wie unten gezeigt.
 
 ```pug
   hr
@@ -152,19 +151,19 @@ Es ist nicht erforderlich, die Ansicht für das Formular (**/views/book_form.pug
     a(href=book.url+'/update') Update Book
 ```
 
-Sie sollten nun in der Lage sein, Bücher von der _Book detail_-Seite zu aktualisieren.
+Sie sollten nun in der Lage sein, Bücher von der _Book detail_-Seite aus zu aktualisieren.
 
 ## Wie sieht es aus?
 
-Führen Sie die Anwendung aus, öffnen Sie Ihren Browser unter `http://localhost:3000/`, wählen Sie den _All books_ Link, und wählen Sie dann ein bestimmtes Buch. Wählen Sie schließlich den _Update Book_ Link.
+Führen Sie die Anwendung aus, öffnen Sie Ihren Browser unter `http://localhost:3000/`, wählen Sie den Link _All books_, und wählen Sie dann ein bestimmtes Buch aus. Wählen Sie schließlich den Link _Update Book_.
 
-Das Formular sollte genau wie die Seite „Create book“ aussehen, nur mit dem Titel „Update book“ und vorausgefüllten Datensatzwerten.
+Das Formular sollte genauso aussehen wie die Seite _Create book_, nur mit einem Titel 'Update book' und vorab mit Datensatzwerten ausgefüllt.
 
-![Der Abschnitt "Buch aktualisieren" der Anwendung Local Library. Die linke Spalte hat eine vertikale Navigationsleiste. Die rechte Spalte enthält ein Formular zum Aktualisieren des Buches mit einer Überschrift, die "Update book" lautet. Es gibt fünf Eingabefelder mit den Bezeichnungen Title, Author, Summary, ISBN, Genre. Genre ist ein Optionsfeld mit Kontrollkästchen. Es gibt einen Button mit der Beschriftung "Submit" am Ende.](locallibary_express_book_update_noerrors.png)
+![Der Abschnitt zum Aktualisieren von Büchern der Local Library-Anwendung. Die linke Spalte hat eine vertikale Navigationsleiste. Die rechte Spalte enthält ein Formular zum Aktualisieren des Buches mit einer Überschrift, die 'Buch aktualisieren' lautet. Es gibt fünf Eingabefelder mit den Bezeichnungen Titel, Autor, Zusammenfassung, ISBN, Genre. Genre ist ein Auswahlfeld mit Kontrollkästchenoptionen. Am Ende befindet sich eine Schaltfläche mit der Aufschrift 'Absenden'.](locallibary_express_book_update_noerrors.png)
 
 > [!NOTE]
-> Die anderen Seiten zum Aktualisieren von Objekten können auf ähnliche Weise implementiert werden. Wir haben das als Herausforderung überlassen.
+> Die anderen Seiten zum Aktualisieren von Objekten können auf ähnliche Weise implementiert werden. Wir haben das als Herausforderung belassen.
 
 ## Nächste Schritte
 
-- Zurück zu [Express Tutorial Teil 6: Arbeiten mit Formularen](/de/docs/Learn/Server-side/Express_Nodejs/forms).
+- Kehren Sie zurück zu [Express Tutorial Part 6: Arbeiten mit Formularen](/de/docs/Learn/Server-side/Express_Nodejs/forms).

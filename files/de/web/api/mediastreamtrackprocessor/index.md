@@ -7,21 +7,21 @@ l10n:
 
 {{APIRef("Insertable Streams for MediaStreamTrack API")}}
 
-Die **`MediaStreamTrackProcessor`**-Schnittstelle der [Insertable Streams für die MediaStreamTrack API](/de/docs/Web/API/Insertable_Streams_for_MediaStreamTrack_API) verwendet die Quelle eines {{domxref("MediaStreamTrack")}}-Objekts und erzeugt einen Strom von Medienbildern.
+Die **`MediaStreamTrackProcessor`**-Schnittstelle der [Insertable Streams for MediaStreamTrack API](/de/docs/Web/API/Insertable_Streams_for_MediaStreamTrack_API) verarbeitet die Quelle eines [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekts und erzeugt einen Stream von Medienframes.
 
 ## Konstruktor
 
-- {{domxref("MediaStreamTrackProcessor.MediaStreamTrackProcessor", "MediaStreamTrackProcessor()")}}
+- [`MediaStreamTrackProcessor()`](/de/docs/Web/API/MediaStreamTrackProcessor/MediaStreamTrackProcessor)
   - : Erstellt ein neues `MediaStreamTrackProcessor`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("MediaStreamTrackProcessor.readable")}}
-  - : Gibt einen {{domxref("ReadableStream")}} zurück.
+- [`MediaStreamTrackProcessor.readable`](/de/docs/Web/API/MediaStreamTrackProcessor/readable)
+  - : Gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück.
 
 ## Beispiele
 
-Das folgende Beispiel stammt aus dem Artikel [Insertable streams for MediaStreamTrack](https://developer.chrome.com/docs/capabilities/web-apis/mediastreamtrack-insertable-media-processing) und demonstriert eine Barcode-Scanner-Anwendung, die den über {{domxref("MediaStreamTrackProcessor.readable")}} zugänglichen Strom transformiert, indem der Barcode hervorgehoben wird.
+Das folgende Beispiel stammt aus dem Artikel [Insertable streams for MediaStreamTrack](https://developer.chrome.com/docs/capabilities/web-apis/mediastreamtrack-insertable-media-processing) und demonstriert eine Barcode-Scanner-Anwendung, die den über [`MediaStreamTrackProcessor.readable`](/de/docs/Web/API/MediaStreamTrackProcessor/readable) zugegriffenen Stream transformiert, indem sie den Barcode hervorhebt.
 
 ```js
 const stream = await getUserMedia({ video: true });

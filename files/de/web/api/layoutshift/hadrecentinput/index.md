@@ -1,5 +1,5 @@
 ---
-title: "LayoutShift: Eigenschaft hadRecentInput"
+title: "LayoutShift: hadRecentInput-Eigenschaft"
 short-title: hadRecentInput
 slug: Web/API/LayoutShift/hadRecentInput
 l10n:
@@ -8,24 +8,24 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`hadRecentInput`** der {{domxref("LayoutShift")}}-Schnittstelle gibt `true` zurück, wenn {{domxref("LayoutShift.lastInputTime", "lastInputTime")}} weniger als 500 Millisekunden in der Vergangenheit liegt.
+Die schreibgeschützte Eigenschaft **`hadRecentInput`** des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Interfaces gibt `true` zurück, wenn [`lastInputTime`](/de/docs/Web/API/LayoutShift/lastInputTime) weniger als 500 Millisekunden in der Vergangenheit liegt.
 
-Layout-Verschiebungen sind nur ein Problem, wenn der Benutzer sie nicht erwartet. Daher werden Layout-Verschiebungen, die durch Benutzerinteraktionen entstehen (wie das Erweitern eines UI-Elements), häufig nicht in die Layout-Verschiebungsmetriken einbezogen. Die Eigenschaft `hadRecentInput` ermöglicht es Ihnen, diese Verschiebungen auszuschließen.
+Layout-Verschiebungen (Layout Shifts) sind nur dann ein Problem, wenn der Benutzer sie nicht erwartet. Layout-Verschiebungen, die durch Benutzerinteraktionen (wie das Erweitern eines UI-Elements durch den Benutzer) verursacht werden, werden oft nicht in die Layout-Verschiebungsmetriken einbezogen. Die Eigenschaft `hadRecentInput` ermöglicht es, diese Verschiebungen auszuschließen.
 
 ## Wert
 
-Ein boolescher Wert, der `true` zurückgibt, wenn {{domxref("LayoutShift.lastInputTime", "lastInputTime")}} weniger als 500 Millisekunden in der Vergangenheit liegt; andernfalls `false`.
+Ein Boolean, der `true` zurückgibt, wenn [`lastInputTime`](/de/docs/Web/API/LayoutShift/lastInputTime) weniger als 500 Millisekunden in der Vergangenheit liegt; andernfalls `false`.
 
 ## Beispiele
 
-### Ignorieren von kürzlichen Benutzereingaben für Layout-Verschiebungsscores
+### Ignorieren von kürzlich erfolgten Benutzereingaben für Layoutverschiebungspunkte
 
 Das folgende Beispiel zeigt, wie die Eigenschaft `hadRecentInput` verwendet wird, um nur Layout-Verschiebungen ohne kürzliche Benutzereingaben zu zählen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
   for (const entry of list.getEntries()) {
-    // Zähle nur Layout-Verschiebungen ohne kürzliche Benutzereingaben
+    // Count layout shifts without recent user input only
     if (!entry.hadRecentInput) {
       console.log("LayoutShift value:", entry.value);
       if (entry.sources) {
@@ -52,4 +52,4 @@ observer.observe({ type: "layout-shift", buffered: true });
 
 ## Siehe auch
 
-- {{domxref("LayoutShift.lastInputTime")}}
+- [`LayoutShift.lastInputTime`](/de/docs/Web/API/LayoutShift/lastInputTime)

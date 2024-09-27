@@ -1,5 +1,5 @@
 ---
-title: "Fehler: columnNumber"
+title: "Error: columnNumber"
 slug: Web/JavaScript/Reference/Global_Objects/Error/columnNumber
 l10n:
   sourceCommit: 5c3c25fd4f2fbd7a5f01727a65c2f70d73f1880a
@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}} {{Non-standard_Header}}
 
-Die **`columnNumber`** Dateneigenschaft einer {{jsxref("Error")}} Instanz enthält die Spaltennummer in der Zeile der Datei, die diesen Fehler ausgelöst hat.
+Die **`columnNumber`** Daten-Eigenschaft einer {{jsxref("Error")}}-Instanz enthält die Spaltennummer in der Zeile der Datei, die diesen Fehler verursacht hat.
 
 ## Wert
 
-Eine positive ganze Zahl.
+Eine positive Ganzzahl.
 
 {{js_property_attributes(1, 0, 1)}}
 

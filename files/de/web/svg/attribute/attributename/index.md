@@ -41,7 +41,7 @@ svg {
 
 {{EmbedLiveSample("Example", "400", "250")}}
 
-## Hinweise zur Verwendung
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -69,4 +69,4 @@ svg {
 
 ## Siehe auch
 
-- [SMIL-Animationsspezifikation](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#AccumulateAttribute)
+- [SMIL Animation specification](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#AccumulateAttribute)

@@ -1,5 +1,5 @@
 ---
-title: "PushMessageData: json() Methode"
+title: "PushMessageData: json()-Methode"
 short-title: json()
 slug: Web/API/PushMessageData/json
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die **`json()`** Methode der {{domxref("PushMessageData")}} Schnittstelle extrahiert Push-Nachrichtendaten, indem sie diese als [JSON](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON)-String analysiert und das Ergebnis zurückgibt.
+Die **`json()`**-Methode des [`PushMessageData`](/de/docs/Web/API/PushMessageData)-Interfaces extrahiert Push-Nachrichtendaten, indem sie diese als [JSON](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON)-String parst und das Ergebnis zurückgibt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Das Ergebnis der Analyse der Push-Ereignisdaten als JSON. Dies könnte alles sein, was durch JSON dargestellt werden kann — ein Objekt, ein Array, ein String, eine Zahl…
+Das Ergebnis der Verarbeitung von Push-Event-Daten als JSON. Dies könnte alles sein, was durch JSON dargestellt werden kann — ein Objekt, ein Array, ein String, eine Zahl…
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ Das Ergebnis der Analyse der Push-Ereignisdaten als JSON. Dies könnte alles sei
 self.addEventListener("push", (event) => {
   const myData = event.data.json();
 
-  // führen Sie etwas mit Ihren Daten aus
+  // do something with your data
 });
 ```
 

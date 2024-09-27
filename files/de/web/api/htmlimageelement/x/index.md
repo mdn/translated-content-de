@@ -8,38 +8,32 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte {{domxref("HTMLImageElement")}}-Eigenschaft
-**`x`** gibt die x-Koordinate des linken Randes des
-{{HTMLElement("img")}}-Elements relativ zum Ursprung des Wurzelelements an.
+Die schreibgeschützte [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Eigenschaft **`x`** gibt die x-Koordinate des linken Randes des {{HTMLElement("img")}}-Elementes relativ zum Ursprung des Wurzelelements an.
 
-Die `x`- und {{domxref("HTMLImageElement.y", "y")}}-Eigenschaften sind nur für ein Bild gültig, wenn dessen {{cssxref("display")}}-Eigenschaft den berechneten Wert
-`table-column` oder `table-column-group` hat. Mit anderen Worten: Es hat einen dieser Werte explizit gesetzt, oder es hat ihn von einem enthaltenen
-Element geerbt oder befindet sich in einer Spalte, die entweder durch {{HTMLElement("col")}}
-oder {{HTMLElement("colgroup")}} beschrieben wird.
+Die `x`- und [`y`](/de/docs/Web/API/HTMLImageElement/y)-Eigenschaften sind nur für ein Bild gültig, wenn dessen {{cssxref("display")}}-Eigenschaft den berechneten Wert `table-column` oder `table-column-group` hat. Das bedeutet: Sie hat entweder einen dieser Werte explizit gesetzt, oder sie hat ihn von einem enthaltenen Element geerbt, oder indem sie sich in einer durch {{HTMLElement("col")}} oder {{HTMLElement("colgroup")}} beschriebenen Spalte befindet.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Entfernung in Pixeln vom linken Rand des nächstgelegenen Wurzelelements des Elements bis zum linken Rand des Rahmenkastens des {{HTMLElement("img")}}-Elements angibt. Das nächstgelegene Wurzelelement ist das äußerste {{HTMLElement("html")}}-Element, das das Bild enthält. Wenn sich das Bild in einem {{HTMLElement("iframe")}} befindet, ist dessen `x` relativ zu diesem Rahmen.
+Ein ganzzahliger Wert, der die Entfernung in Pixeln vom linken Rand des nächsten Wurzelelements bis zum linken Rand der Rahmenbox des {{HTMLElement("img")}}-Elements angibt. Das nächste Wurzelelement ist das äußerste {{HTMLElement("html")}}-Element, das das Bild enthält. Befindet sich das Bild in einem {{HTMLElement("iframe")}}, ist sein `x` relativ zu diesem Frame.
 
-Im untenstehenden Diagramm ist der linke Rand des blauen Polsterbereichs zu sehen. Der von `x` zurückgegebene Wert wäre also der Abstand von diesem Punkt zum
-linken Rand des Inhaltsbereichs.
+In der untenstehenden Grafik ist der linke Rand des blauen Padding-Bereichs der linke Rand der Border-Box. Der von `x` zurückgegebene Wert wäre also der Abstand von diesem Punkt bis zum linken Rand des Inhaltsbereichs.
 
-![Diagramm, das die Beziehungen zwischen den verschiedenen Boxen eines Elements zeigt](boxmodel-3.png)
+![Diagramm, das die Beziehungen zwischen den verschiedenen Boxen zeigt, die mit einem Element assoziiert sind](boxmodel-3.png)
 
 > [!NOTE]
 > Die `x`-Eigenschaft ist nur gültig, wenn der berechnete
 > Wert der {{cssxref("display")}}-Eigenschaft des Bildes entweder
-> `table-column` oder `table-column-group` ist; mit anderen Worten, wenn einer dieser Werte direkt auf das {{HTMLElement("img")}} gesetzt ist oder sie von einem
-> enthaltenen Element geerbt wurden oder durch die Positionierung in einer Spalte, die entweder durch {{HTMLElement("col")}} oder {{HTMLElement("colgroup")}} beschrieben wird.
+> `table-column` oder `table-column-group` ist; das heißt, einer dieser Werte
+> ist direkt auf dem {{HTMLElement("img")}} gesetzt oder sie werden von einem
+> enthaltenen Element geerbt oder dadurch, dass sie sich in einer durch {{HTMLElement("col")}} oder {{HTMLElement("colgroup")}} beschriebenen Spalte befinden.
 
 ## Beispiel
 
-Das folgende Beispiel demonstriert die Verwendung der `HTMLImageElement`-Eigenschaften
-`x` und {{domxref("HTMLImageElement.y", "y")}}.
+Das folgende Beispiel zeigt die Verwendung der `HTMLImageElement`-Eigenschaften `x` und [`y`](/de/docs/Web/API/HTMLImageElement/y).
 
 ### HTML
 
-In diesem Beispiel sehen wir eine Tabelle, die Informationen über Benutzer einer Website anzeigt, einschließlich ihrer Benutzer-ID, ihres vollständigen Namens und ihres Avatar-Bildes.
+In diesem Beispiel sehen wir eine Tabelle, die Informationen über Benutzer einer Website zeigt, einschließlich ihrer Benutzer-ID, ihres vollständigen Namens und ihres Avatar-Bildes.
 
 ```html
 <table id="userinfo">
@@ -64,7 +58,7 @@ In diesem Beispiel sehen wir eine Tabelle, die Informationen über Benutzer eine
 
 ### JavaScript
 
-Der JavaScript-Code, der das Bild aus der Tabelle abruft und dessen `x`- und `y`-Werte ermittelt, ist unten.
+Der JavaScript-Code, der das Bild aus der Tabelle abruft und seine `x`- und `y`-Werte ermittelt, ist unten zu sehen.
 
 ```js
 const logBox = document.querySelector("pre");
@@ -81,16 +75,15 @@ log(`Image's global X: ${image.x}`);
 log(`Image's global Y: ${image.y}`);
 ```
 
-Hierbei wird die {{HTMLElement("table")}}'s {{domxref("HTMLTableElement.rows", "rows")}}-Eigenschaft verwendet, um eine Liste der Reihen in der Tabelle abzurufen, aus der die Reihe 1 (was aufgrund des nullbasierten Indexes die zweite Reihe von oben bedeutet) nachgeschlagen wird. Dann wird das {{HTMLElement("tr")}} (Tabellenreihe)-Element anhand der {{domxref("HTMLTableRowElement.cells", "cells")}}-Eigenschaft betrachtet, um eine Liste der Zellen in dieser Reihe zu erhalten. Aus dieser Reihe wird die dritte Zelle genommen (wobei 2 als nullbasierter Versatz angegeben wird).
+Dies verwendet die [`rows`](/de/docs/Web/API/HTMLTableElement/rows)-Eigenschaft des {{HTMLElement("table")}}s, um eine Liste der Reihen in der Tabelle zu erhalten, aus der Zeile 1 gesucht wird (dies bedeutet, da es sich um einen nullbasierten Index handelt, die zweite Zeile von oben). Dann wird auf diese {{HTMLElement("tr")}} (Tabellenzeile) die [`cells`](/de/docs/Web/API/HTMLTableRowElement/cells)-Eigenschaft angewendet, um eine Liste der Zellen in dieser Zeile zu erhalten. Die dritte Zelle wird dann aus dieser Zeile entnommen (erneut wird als nullbasierter Index 2 angegeben).
 
-Von dort aus kann das `<img>`-Element selbst aus der Zelle abgerufen werden, indem man {{domxref("Element.querySelector", "querySelector()")}} auf das
-{{domxref("HTMLTableCellElement")}} aufruft, das diese Zelle repräsentiert.
+Von dort aus können wir das `<img>`-Element selbst aus der Zelle abrufen, indem wir [`querySelector()`](/de/docs/Web/API/Element/querySelector) auf das [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement) aufrufen, das diese Zelle repräsentiert.
 
-Schließlich können die Werte der `HTMLImageElement`-Eigenschaften `x` und `y` nachgeschlagen und angezeigt werden.
+Schließlich können wir die Werte der `HTMLImageElement`-Eigenschaften `x` und `y` ermitteln und anzeigen.
 
 ### CSS
 
-Das CSS, das das Erscheinungsbild der Tabelle definiert:
+Das CSS, das das Aussehen der Tabelle definiert:
 
 ```css
 .group1 {
@@ -116,7 +109,7 @@ td > img {
 
 ### Ergebnis
 
-Die resultierende Tabelle sieht folgendermaßen aus:
+Die resultierende Tabelle sieht so aus:
 
 {{EmbedLiveSample("Example", 600, 200)}}
 

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Popover API")}}
 
-Die **`newState`**-Eigenschaft der {{domxref("ToggleEvent")}}-Schnittstelle ist eine schreibgeschützte Eigenschaft, die einen String darstellt, der den Zustand angibt, zu dem das Element wechselt.
+Die **`newState`**-Eigenschaft der [`ToggleEvent`](/de/docs/Web/API/ToggleEvent)-Schnittstelle ist eine schreibgeschützte Zeichenkette, die den Zustand darstellt, zu dem das Element wechselt.
 
 ## Wert
 
-Ein String. Mögliche Werte sind `"open"` (das Popover wird angezeigt) oder `"closed"` (das Popover wird ausgeblendet).
+Eine Zeichenkette. Mögliche Werte sind `"open"` (das Popover wird angezeigt) oder `"closed"` (das Popover wird versteckt).
 
 ## Beispiele
 
@@ -23,9 +23,9 @@ const popover = document.getElementById("mypopover");
 
 popover.addEventListener("beforetoggle", (event) => {
   if (event.newState === "open") {
-    console.log("Popover ist im Begriff angezeigt zu werden");
+    console.log("Popover is being shown");
   } else {
-    console.log("Popover ist im Begriff ausgeblendet zu werden");
+    console.log("Popover is being hidden");
   }
 });
 ```
@@ -34,7 +34,7 @@ popover.addEventListener("beforetoggle", (event) => {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 

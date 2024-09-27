@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`keys()`** Methode der {{domxref("URLSearchParams")}}-Schnittstelle gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, der es ermöglicht, durch alle in diesem Objekt enthaltenen Schlüssel zu iterieren. Die Schlüssel sind Zeichenfolgen.
+Die **`keys()`** Methode des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)
+Interfaces gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, der die Iteration
+durch alle in diesem Objekt enthaltenen Schlüssel ermöglicht. Die Schlüssel sind Strings.
 
 ## Syntax
 
@@ -27,10 +29,10 @@ Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
 ## Beispiele
 
 ```js
-// Erstellen Sie ein Test-URLSearchParams-Objekt
+// Create a test URLSearchParams object
 const searchParams = new URLSearchParams("key1=value1&key2=value2");
 
-// Zeigen Sie die Schlüssel an
+// Display the keys
 for (const key of searchParams.keys()) {
   console.log(key);
 }
@@ -53,4 +55,4 @@ key2
 
 ## Siehe auch
 
-- Die {{domxref("URL")}} Schnittstelle.
+- Das [`URL`](/de/docs/Web/API/URL) Interface.

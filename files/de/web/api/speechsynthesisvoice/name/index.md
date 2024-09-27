@@ -8,9 +8,8 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`name`** Nur-Lese-Eigenschaft der
-{{domxref("SpeechSynthesisVoice")}} Schnittstelle gibt einen menschenlesbaren Namen zurück,
-der die Stimme darstellt.
+Die **`name`**-Schreibeigenschaft des
+[`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt einen menschenlesbaren Namen zurück, der die Stimme repräsentiert.
 
 ## Wert
 
@@ -37,7 +36,7 @@ for (const voice of voices) {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 

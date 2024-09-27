@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{deprecated_header}}{{Non-standard_header}}
 
-Die **`emma`**-Eigenschaft der Schnittstelle {{domxref("SpeechRecognitionEvent")}} ist eine schreibgeschützte Eigenschaft, die eine Extensible MultiModal Annotation Markup Language (EMMA) — XML — Darstellung des Ergebnisses zurückgibt.
+Die **`emma`** schreibgeschützte Eigenschaft des [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent) Interface gibt eine Extensible MultiModal Annotation Markup Language (EMMA) — XML — Darstellung des Ergebnisses zurück.
 
 > [!NOTE]
 > EMMA ist in der Spezifikation [EMMA: Extensible MultiModal Annotation markup language](https://www.w3.org/TR/emma/) definiert. Sie können mehrere EMMA-Beispiele in der Spezifikation sehen.
 
 ## Wert
 
-Ein gültiges XML-Dokument. Der genaue Inhalt kann je nach Benutzeragenten und Erkennungsmaschinen variieren, aber alle unterstützenden Implementierungen werden ein gültiges XML-Dokument mit einem EMMA-Namespace bereitstellen. Wenn das Spracherkennungssystem keine EMMA-Daten liefert, gibt der Benutzeragent `null` zurück.
+Ein gültiges XML-Dokument. Der genaue Inhalt kann je nach Benutzeragent und Erkennungsmaschine variieren, aber alle unterstützenden Implementierungen geben ein gültiges XML-Dokument mit einem EMMA-Namensraum zurück. Wenn das Spracherkennungssystem keine EMMA-Daten liefert, gibt der Benutzeragent `null` zurück.
 
 ## Beispiele
 

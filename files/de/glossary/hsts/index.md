@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**HTTP Strict Transport Security** ermöglicht es einer Website, dem Browser mitzuteilen, dass die Seite niemals über HTTP geladen werden sollte und alle Versuche, auf die Seite über HTTP zuzugreifen, automatisch in HTTPS-Anfragen umgewandelt werden sollten. Es besteht aus einem HTTP-Header, {{HTTPHeader("Strict-Transport-Security")}}, der vom Server mit der Ressource gesendet wird.
+**HTTP Strict Transport Security** ermöglicht es einer Website, dem Browser mitzuteilen, dass sie niemals über HTTP geladen werden sollte und alle Versuche, die Seite über HTTP zu laden, automatisch in HTTPS-Anfragen umgewandelt werden sollen. Es besteht aus einem HTTP-Header, {{HTTPHeader("Strict-Transport-Security")}}, der vom Server mit der Ressource gesendet wird.
 
-Mit anderen Worten, es sagt dem Browser, dass die Umstellung des Protokolls von HTTP zu HTTPS in einer URL funktioniert (und sicherer ist) und bittet den Browser, dies bei jeder Anfrage zu tun.
+Mit anderen Worten weist es den Browser an, dass das Ändern des Protokolls von HTTP zu HTTPS in einer URL funktioniert (und sicherer ist) und fordert den Browser auf, dies für jede Anfrage durchzuführen.
 
 ## Siehe auch
 

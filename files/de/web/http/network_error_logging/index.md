@@ -1,5 +1,5 @@
 ---
-title: Netzwerkfehlerprotokollierung
+title: Network Error Logging
 slug: Web/HTTP/Network_Error_Logging
 l10n:
   sourceCommit: ae86913908651e6008079242691e06b5e01d1c78
@@ -7,35 +7,35 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die Netzwerkfehlerprotokollierung ist ein Mechanismus, der über den {{HTTPHeader("NEL")}} HTTP _[Antwort-Header](/de/docs/Glossary/Response_header)_ konfiguriert werden kann. Dieser experimentelle Header ermöglicht es Websites und Anwendungen, Berichte über fehlgeschlagene (und, falls gewünscht, erfolgreiche) Netzwerkabrufe von unterstützenden Browsern zu erhalten.
+Network Error Logging ist ein Mechanismus, der über den {{HTTPHeader("NEL")}} HTTP-_Antwortheader_ konfiguriert werden kann. Dieser experimentelle Header ermöglicht es Websites und Anwendungen, Berichte über fehlgeschlagene (und, falls gewünscht, erfolgreiche) Netzwerkabrufe von unterstützenden Browsern zu erhalten.
 
-Berichte werden an eine Berichtsgruppe gesendet, die in einem {{HTTPHeader("Report-To")}} Header definiert ist.
+Berichte werden an eine Berichtgruppe gesendet, die innerhalb eines {{HTTPHeader("Report-To")}} Headers definiert ist.
 
 ## Verwendung
 
-Webanwendungen melden sich mit dem NEL-Header für dieses Verhalten an, der ein _[JSON-codiertes](/de/docs/Glossary/Response_header)_ Objekt ist:
+Webanwendungen melden sich für dieses Verhalten mit dem NEL-Header an, bei dem es sich um ein _[JSON-codiertes](/de/docs/Glossary/Response_header)_ Objekt handelt:
 
 ```http
 NEL: { "report_to": "nel",
        "max_age": 31556952 }
 ```
 
-Ein von dem Browser als sicher betrachteter Ursprung ist erforderlich.
+Ein Ursprung, der vom Browser als sicher gilt, ist erforderlich.
 
 Die folgenden Objektschlüssel können im NEL-Header angegeben werden:
 
 - report_to
-  - : Die [Reporting-API](/de/docs/Web/API/Reporting_API)-Gruppe, an die Netzwerkfehlerberichte gesendet werden sollen (siehe unten).
+  - : Die [Reporting API](/de/docs/Web/API/Reporting_API)-Gruppe, an die Netzwerkausfallberichte gesendet werden sollen (siehe unten).
 - max_age
-  - : Gibt die Lebensdauer der Richtlinie in Sekunden an (ähnlich wie z.B. HSTS-Richtlinien zeitlich begrenzt sind). Die referenzierte Berichtsgruppe sollte eine Lebensdauer haben, die mindestens so lange ist wie die der NEL-Richtlinie.
+  - : Gibt die Lebensdauer der Richtlinie in Sekunden an (ähnlich wie z.B. HSTS-Richtlinien zeitlich begrenzt sind). Die referenzierte Berichtgruppe sollte eine Lebensdauer haben, die mindestens so lang wie die NEL-Richtlinie ist.
 - include_subdomains
-  - : Wenn wahr, gilt die Richtlinie für alle Subdomains unter dem Ursprung, für den der Richtlinien-Header festgelegt ist. Die Berichtsgruppe sollte ebenfalls so festgelegt werden, dass sie Subdomains einbezieht, falls diese Option aktiviert werden soll.
+  - : Wenn wahr, gilt die Richtlinie für alle Subdomains unter dem Ursprung, für den der Richtlinienheader festgelegt ist. Die Berichtgruppe sollte ebenfalls so eingestellt sein, dass Subdomains eingeschlossen werden, wenn diese Option aktiviert sein soll.
 - success_fraction
-  - : Fließkommawert zwischen 0 und 1, der den Anteil der **erfolgreichen** Netzwerk-Anfragen angibt, die gemeldet werden sollen. Standardmäßig ist dieser Wert 0, sodass keine erfolgreichen Netzwerk-Anfragen gemeldet werden, wenn der Schlüssel nicht im JSON-Payload vorhanden ist.
+  - : Gleitkommazahl zwischen 0 und 1, die den Anteil erfolgreicher Netzwerkanfragen angibt, der gemeldet werden soll. Standardmäßig 0, sodass keine erfolgreichen Netzwerkanfragen gemeldet werden, wenn der Schlüssel nicht im JSON-Payload vorhanden ist.
 - failure_fraction
-  - : Fließkommawert zwischen 0 und 1, der den Anteil der **fehlgeschlagenen** Netzwerk-Anfragen angibt, die gemeldet werden sollen. Standardmäßig ist dieser Wert 1, sodass alle fehlgeschlagenen Netzwerk-Anfragen gemeldet werden, wenn der Schlüssel nicht im JSON-Payload vorhanden ist.
+  - : Gleitkommazahl zwischen 0 und 1, die den Anteil fehlgeschlagener Netzwerkanfragen angibt, der gemeldet werden soll. Standardmäßig 1, sodass alle fehlgeschlagenen Netzwerkanfragen gemeldet werden, wenn der Schlüssel nicht im JSON-Payload vorhanden ist.
 
-Die oben genannte Berichtsgruppe wird in üblicher Weise innerhalb des {{HTTPHeader("Report-To")}} Headers definiert, zum Beispiel:
+Die oben referenzierte Berichtgruppe wird auf die übliche Weise innerhalb des {{HTTPHeader("Report-To")}} Headers definiert, zum Beispiel:
 
 ```http
 Report-To: { "group": "nel",
@@ -48,9 +48,9 @@ Report-To: { "group": "nel",
 
 ## Fehlerberichte
 
-In diesen Beispielen wird der Inhalt der Reporting-API-Antwort gezeigt. Der oberste **`"body"`**-Schlüssel enthält den Netzwerkfehlerbericht.
+In diesen Beispielen wird der Inhalt der Reporting API-Antwort angezeigt. Der oberste **`"body"`**-Schlüssel enthält den Netzwerkausfallbericht.
 
-### HTTP 400 (Fehler in der Anfrage)
+### HTTP 400 (Ungültige Anfrage) Antwort
 
 ```json
 {
@@ -74,7 +74,7 @@ In diesen Beispielen wird der Inhalt der Reporting-API-Antwort gezeigt. Der ober
 
 ### DNS-Name nicht aufgelöst
 
-Beachten Sie, dass die Phase in diesem Bericht auf `dns` gesetzt ist und keine `server_ip` verfügbar ist, die einbezogen werden kann.
+Beachten Sie, dass die Phase in diesem Bericht auf `dns` gesetzt ist und keine `server_ip` zur Verfügung steht, um sie einzuschließen.
 
 ```json
 {
@@ -96,24 +96,24 @@ Beachten Sie, dass die Phase in diesem Bericht auf `dns` gesetzt ist und keine `
 }
 ```
 
-Die Art des Netzwerkfehlers kann eine der folgenden vordefinierten Werte aus der Spezifikation sein, aber Browser können eigene Fehlertypen hinzufügen und senden:
+Der Typ des Netzwerkausfalls kann einer der folgenden vordefinierten Werte aus der Spezifikation sein, aber Browser können eigene Fehlertypen hinzufügen und senden:
 
 - `dns.unreachable`
-  - : Der DNS-Server des Nutzers ist nicht erreichbar
+  - : Der DNS-Server des Benutzers ist nicht erreichbar
 - `dns.name_not_resolved`
-  - : Der DNS-Server des Nutzers hat geantwortet, war jedoch nicht in der Lage, eine IP-Adresse für die angeforderte URI aufzulösen.
+  - : Der DNS-Server des Benutzers hat geantwortet, konnte jedoch keine IP-Adresse für die angeforderte URI auflösen.
 - `dns.failed`
-  - : Die Anfrage an den DNS-Server ist aus Gründen fehlgeschlagen, die nicht von den vorherigen Fehlern abgedeckt sind (z.B. SERVFAIL)
+  - : Anfrage an den DNS-Server ist aus Gründen fehlgeschlagen, die nicht durch vorherige Fehler abgedeckt sind (z.B. SERVFAIL)
 - `dns.address_changed`
-  - : Aus Sicherheitsgründen, wenn die IP-Adresse des Servers, der den ursprünglichen Bericht geliefert hat, sich von der aktuellen IP-Adresse des Servers zum Zeitpunkt der Fehlergenerierung unterscheidet, werden die Berichtsdaten heruntergestuft, um nur Informationen über dieses Problem zu enthalten und der Typ wird auf `dns.address_changed` gesetzt.
+  - : Aus Sicherheitsgründen wird, wenn die Server-IP-Adresse, die den ursprünglichen Bericht geliefert hat, von der aktuellen Server-IP-Adresse zum Zeitpunkt der Fehlergenerierung abweicht, die Berichtsdaten auf Informationen zu diesem Problem herabgestuft und der Typ auf `dns.address_changed` gesetzt.
 - `tcp.timed_out`
-  - : TCP-Verbindung zum Server hat ein Zeitlimit überschritten
+  - : Die TCP-Verbindung zum Server ist abgelaufen
 - `tcp.closed`
   - : Die TCP-Verbindung wurde vom Server geschlossen
 - `tcp.reset`
   - : Die TCP-Verbindung wurde zurückgesetzt
 - `tcp.refused`
-  - : Die TCP-Verbindung wurde vom Server verweigert
+  - : Die TCP-Verbindung wurde vom Server abgelehnt
 - `tcp.aborted`
   - : Die TCP-Verbindung wurde abgebrochen
 - `tcp.address_invalid`
@@ -121,17 +121,17 @@ Die Art des Netzwerkfehlers kann eine der folgenden vordefinierten Werte aus der
 - `tcp.address_unreachable`
   - : Die IP-Adresse ist nicht erreichbar
 - `tcp.failed`
-  - : Die TCP-Verbindung ist aufgrund von Gründen fehlgeschlagen, die nicht von den vorherigen Fehlern abgedeckt sind
+  - : Die TCP-Verbindung ist aus Gründen fehlgeschlagen, die nicht durch vorherige Fehler abgedeckt sind
 - `http.error`
-  - : Der User-Agent hat erfolgreich eine Antwort erhalten, aber sie hatte einen [4xx](https://httpwg.org/specs/rfc9110.html#status.4xx) oder [5xx](https://httpwg.org/specs/rfc9110.html#status.5xx) Statuscode
+  - : Der Benutzeragent hat erfolgreich eine Antwort erhalten, aber sie hatte einen [4xx](https://httpwg.org/specs/rfc9110.html#status.4xx) oder [5xx](https://httpwg.org/specs/rfc9110.html#status.5xx) Statuscode
 - `http.protocol.error`
-  - : Die Verbindung wurde wegen eines HTTP-Protokollfehlers abgebrochen
+  - : Die Verbindung wurde aufgrund eines HTTP-Protokollfehlers abgebrochen
 - `http.response.invalid`
-  - : Die Antwort ist leer, hat ein Inhaltslängen-Missverhältnis, hat eine falsche Codierung und/oder andere Bedingungen, die den User-Agent daran hindern, die Antwort zu verarbeiten
+  - : Antwort ist leer, hat eine Inhalt-Längen-Unstimmigkeit, unsachgemäße Kodierung und/oder andere Bedingungen, die den Benutzeragent daran hindern, die Antwort zu verarbeiten
 - `http.response.redirect_loop`
   - : Die Anfrage wurde aufgrund einer erkannten Umleitungsschleife abgebrochen
 - `http.failed`
-  - : Die Verbindung ist aufgrund von Fehlern im HTTP-Protokoll fehlgeschlagen, die nicht von den vorherigen Fehlern abgedeckt sind
+  - : Die Verbindung schlug aufgrund von Fehlern im HTTP-Protokoll fehl, die nicht durch vorherige Fehler abgedeckt sind
 
 ## Spezifikationen
 

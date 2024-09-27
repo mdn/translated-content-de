@@ -1,5 +1,5 @@
 ---
-title: "ShadowRoot: Eigenschaft styleSheets"
+title: "ShadowRoot: styleSheets-Eigenschaft"
 short-title: styleSheets
 slug: Web/API/ShadowRoot/styleSheets
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`styleSheets`** schreibgeschützte Eigenschaft der {{domxref("ShadowRoot")}}-Schnittstelle gibt eine {{domxref('StyleSheetList')}} von {{domxref('CSSStyleSheet')}}-Objekten zurück, für Stylesheets, die explizit in einen Shadow-Dom eingefügt oder eingebettet sind.
+Die **`styleSheets`** schreibgeschützte Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces gibt eine [`StyleSheetList`](/de/docs/Web/API/StyleSheetList) von [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekten zurück, für Stylesheets, die explizit in einen Shadow-Baum verlinkt oder eingebettet sind.
 
 ## Wert
 
-Eine {{domxref('StyleSheetList')}} von {{domxref('CSSStyleSheet')}}-Objekten.
+Eine [`StyleSheetList`](/de/docs/Web/API/StyleSheetList) von [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekten.
 
 ## Beispiele
 
@@ -26,6 +26,6 @@ let styleSheets = shadow.styleSheets;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

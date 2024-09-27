@@ -8,16 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte {{domxref("XRViewerPose")}}-Eigenschaft **`views`** gibt ein Array zurück, das jede {{domxref("XRView")}} enthält, die gerendert werden muss, um die Szene vollständig aus dem durch die Betrachterpose definierten Standpunkt darzustellen. Für monokulare Geräte enthält dieses Array eine einzelne Ansicht.
+Die schreibgeschützte [`XRViewerPose`](/de/docs/Web/API/XRViewerPose)-Eigenschaft **`views`**
+gibt ein Array zurück, das alle [`XRView`](/de/docs/Web/API/XRView) enthält, die gerendert werden müssen, um die Szene vollständig aus der vom Viewer-Pose definierten Perspektive darzustellen. Bei monokularen Geräten enthält dieses Array nur eine Ansicht.
 
 > [!WARNING]
-> Es gibt keine Garantie dafür, dass die Anzahl der Ansichten über die Lebensdauer einer {{domxref("XRSession")}} konstant bleibt. Für jeden Frame sollten Sie stets die aktuelle Länge dieses Arrays verwenden, anstatt den Wert zwischenzuspeichern.
+> Es gibt keine Garantie, dass die Anzahl der Ansichten über die Lebensdauer einer [`XRSession`](/de/docs/Web/API/XRSession) konstant bleibt. Für jeden Frame sollten Sie immer die aktuelle Länge dieses Arrays verwenden, anstatt den Wert zwischenzuspeichern.
 
-Stereoansichten erfordern zwei Ansichten, um korrekt gerendert zu werden, wobei die Ansicht des linken Auges ihre {{domxref("XRView.eye", "eye")}} auf den String `left` gesetzt hat und die Ansicht des rechten Auges den Wert `right`.
+Stereoansichten erfordern zwei Ansichten, um korrekt gerendert zu werden, wobei die Ansicht des linken Auges den [`eye`](/de/docs/Web/API/XRView/eye)-Wert `left` und die Ansicht des rechten Auges den Wert `right` hat.
 
 ## Wert
 
-Ein Array von {{domxref("XRView")}}-Objekten, eines für jede in der Szene für die aktuelle Betrachterpose verfügbare Ansicht. Die Länge dieses Arrays kann über die Lebensdauer der {{domxref("XRSession")}} variieren (zum Beispiel, wenn der Betrachter den Stereomodus auf seinem XR-Ausgabegerät aktiviert oder deaktiviert).
+Ein Array von [`XRView`](/de/docs/Web/API/XRView)-Objekten, eines für jede verfügbare Ansicht als Teil der Szene für die aktuelle Viewer-Pose. Die Länge dieses Arrays kann sich potenziell über die Lebensdauer der [`XRSession`](/de/docs/Web/API/XRSession) ändern (zum Beispiel, wenn der Benutzer den Stereo-Modus auf seinem XR-Ausgabegerät aktiviert oder deaktiviert).
 
 ## Beispiele
 

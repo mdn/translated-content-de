@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableColElement: Eigenschaft chOff"
+title: "HTMLTableColElement: chOff-Eigenschaft"
 short-title: chOff
 slug: Web/API/HTMLTableColElement/chOff
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`chOff`**-Eigenschaft der {{domxref("HTMLTableColElement")}}-Schnittstelle tut nichts. Sie spiegelt das `charoff`-Attribut des {{HTMLElement("col")}}-Elements wider.
+Die **`chOff`**-Eigenschaft der Schnittstelle [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement) hat keine Funktion. Sie spiegelt das `charoff`-Attribut des {{HTMLElement("col")}}-Elements wider.
 
 > [!NOTE]
-> Diese Eigenschaft wurde entwickelt, um die Möglichkeit zu bieten, Tabellenzellinhalte an einem bestimmten Zeichen (typischerweise der Dezimalpunkt) auszurichten, wurde jedoch nie von Browsern implementiert.
+> Diese Eigenschaft war dazu gedacht, an der Möglichkeit teilzunehmen, Tabellenzelleninhalte an einem bestimmten Zeichen (typischerweise dem Dezimalpunkt) auszurichten, wurde jedoch nie von den Browsern implementiert.
 >
-> Um eine solche Ausrichtung zu erreichen, sollten Sie auf die Unterstützung eines String-Wertes mit der {{cssxref("text-align")}} CSS-Eigenschaft achten.
+> Um eine solche Ausrichtung zu erreichen, achten Sie auf die Unterstützung eines Zeichenkettenwerts mit der {{cssxref("text-align")}} CSS-Eigenschaft.
 
 ## Wert
 

@@ -1,14 +1,14 @@
 ---
-title: "Element: computedStyleMap()-Methode"
+title: "Element: computedStyleMap() Methode"
 short-title: computedStyleMap()
 slug: Web/API/Element/computedStyleMap
 l10n:
-  sourceCommit: 8d202854ade7328f827da2951bc714455f78674f
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`computedStyleMap()`**-Methode des {{domxref("Element")}}-Interfaces gibt ein {{domxref("StylePropertyMapReadOnly")}}-Interface zurück, das eine schreibgeschützte Darstellung eines CSS-Deklarationsblocks bietet und eine Alternative zu {{domxref("CSSStyleDeclaration")}} darstellt.
+Die **`computedStyleMap()`** Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt eine [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Schnittstelle zurück, die eine schreibgeschützte Darstellung eines CSS-Deklarationsblocks bietet, der eine Alternative zur [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) darstellt.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("StylePropertyMapReadOnly")}}-Interface.
+Eine [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Schnittstelle.
 
 ## Beispiele
 
-Wir beginnen mit etwas einfachem HTML: einem Absatz mit einem Link und einer Definitionsliste, zu der wir alle CSS-Eigenschaft/Wert-Paare hinzufügen werden.
+Wir beginnen mit etwas einfachem HTML: einem Absatz mit einem Link und einer Definitionsliste, zu der wir alle CSS-Eigenschafts-/Wertpaare hinzufügen werden.
 
 ```html
 <p>
@@ -44,39 +44,37 @@ a {
 }
 ```
 
-Wir fügen JavaScript hinzu, um unseren Link zu erfassen und eine Definitionsliste aller CSS-Eigenschaftswerte unter Verwendung von `computedStyleMap()` zurückzugeben.
+Wir fügen JavaScript hinzu, um unseren Link zu erfassen und eine Definitionsliste aller CSS-Eigenschaftswerte mit `computedStyleMap().` zurückzugeben.
 
 ```js
-// Holen Sie sich das Element
+// get the element
 const myElement = document.querySelector("a");
 
-// Holen Sie sich das <dl>, das wir befüllen werden
+// get the <dl> we'll be populating
 const stylesList = document.querySelector("#regurgitation");
 
-// Abrufen aller berechneten Stile mit computedStyleMap()
+// Retrieve all computed styles with computedStyleMap()
 const allComputedStyles = myElement.computedStyleMap();
 
-// Iterieren Sie durch die Karte aller Eigenschaften und Werte und fügen Sie ein <dt> und <dd> für jede hinzu
+// iterate through the map of all the properties and values, adding a <dt> and <dd> for each
 for (const [prop, val] of allComputedStyles) {
-  // Eigenschaften
+  // properties
   const cssProperty = document.createElement("dt");
   cssProperty.appendChild(document.createTextNode(prop));
   stylesList.appendChild(cssProperty);
 
-  // Werte
+  // values
   const cssValue = document.createElement("dd");
   cssValue.appendChild(document.createTextNode(val));
   stylesList.appendChild(cssValue);
 }
 ```
 
-In [Browsern, die `computedStyleMap()` unterstützen](#browser-kompatibilität),
-sehen Sie eine Liste aller CSS-Eigenschaften und -Werte.
-In anderen Browsern sehen Sie einfach nur einen Link.
+In [Browsern, die `computedStyleMap()` unterstützen](#browser-kompatibilität), sehen Sie eine Liste aller CSS-Eigenschaften und Werte. In anderen Browsern sehen Sie nur einen Link.
 
 {{EmbedLiveSample("Examples", 300, 300)}}
 
-Haben Sie bemerkt, wie viele Standard-CSS-Eigenschaften ein Link hat? Aktualisieren Sie das '`a`' in den '`p`', und Sie werden einen Unterschied in den standardmäßig berechneten Werten von `margin-top` und `margin-bottom` bemerken.
+Haben Sie bemerkt, wie viele Standard-CSS-Eigenschaften ein Link hatte? Aktualisieren Sie `document.querySelector("a")` zu `document.querySelector("p")`, und Sie werden einen Unterschied bei den standardmäßig berechneten Werten von `margin-top` und `margin-bottom` bemerken.
 
 ## Spezifikationen
 

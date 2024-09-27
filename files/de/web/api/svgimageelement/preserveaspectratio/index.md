@@ -8,14 +8,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`preserveAspectRatio`**-Eigenschaft der {{domxref("SVGImageElement")}}-Schnittstelle gibt ein
-{{domxref("SVGAnimatedPreserveAspectRatio")}} zurück, das dem
-{{SVGAttr("preserveAspectRatio")}}-Attribut des gegebenen {{SVGElement("image")}}
-Elements entspricht.
+Die schreibgeschützte **`preserveAspectRatio`**-Eigenschaft des [`SVGImageElement`](/de/docs/Web/API/SVGImageElement)-Interfaces gibt ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspectRatio) zurück, das dem {{SVGAttr("preserveAspectRatio")}}-Attribut des angegebenen {{SVGElement("image")}}-Elements entspricht.
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedPreserveAspectRatio")}}.
+Ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspectRatio).
 
 ## Spezifikationen
 

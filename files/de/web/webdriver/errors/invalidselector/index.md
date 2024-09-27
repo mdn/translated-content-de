@@ -1,5 +1,5 @@
 ---
-title: Ungültiger Selektor
+title: Ungültiger selector
 slug: Web/WebDriver/Errors/InvalidSelector
 l10n:
   sourceCommit: ac24a64c0ab26d0185c7b768aca130f490ea8487
@@ -7,17 +7,17 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Errors")}}
 
-Der **ungültiger Selektor**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn ein Befehl zum Abrufen eines Elements mit einer unbekannten [Webelement](/de/docs/Web/WebDriver/WebElement)-Selektorstrategie verwendet wird.
+Der **ungültige selector**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn ein Befehl zur Elementabfrage mit einer unbekannten [Webelement](/de/docs/Web/WebDriver/WebElement)-Selector-Strategie verwendet wird.
 
-Die verfügbaren Selektorstrategien sind [CSS](/de/docs/Web/WebDriver/WebElement#css-selector), [Linktext](/de/docs/Web/WebDriver/WebElement#link-text-selector), [Teil-Linktext](/de/docs/Web/WebDriver/WebElement#partial-link-text-selector), [Tag-Name](/de/docs/Web/WebDriver/WebElement#tag-name-selector) und [XPath](/de/docs/Web/WebDriver/WebElement#tag-name-selector). Jede andere Selektorstrategie wird mit diesem Fehler abgelehnt.
+Die verfügbaren Selector-Strategien sind [CSS](/de/docs/Web/WebDriver/WebElement#css-selector), [Link-Text](/de/docs/Web/WebDriver/WebElement#link-text-selector), [Partieller Link-Text](/de/docs/Web/WebDriver/WebElement#partial-link-text-selector), [Tag-Name](/de/docs/Web/WebDriver/WebElement#tag-name-selector) und [XPath](/de/docs/Web/WebDriver/WebElement#tag-name-selector). Jede andere Selector-Strategie wird mit diesem Fehler abgelehnt.
 
 ## Siehe auch
 
 - [Liste der WebDriver-Fehler](/de/docs/Web/WebDriver/Errors)
-- [WebElement](/de/docs/Web/WebDriver/WebElement)
+- [Webelement](/de/docs/Web/WebDriver/WebElement)
 - Befehle zur Elementabfrage:
 
-  - [Find Element](/de/docs/Web/WebDriver/Commands/FindElement)
-  - [Find Elements](/de/docs/Web/WebDriver/Commands/FindElements)
-  - [Find Element From Element](/de/docs/Web/WebDriver/Commands/FindElementFromElement)
-  - [Find Elements From Element](/de/docs/Web/WebDriver/Commands/FindElementsFromElement)
+  - [Element finden](/de/docs/Web/WebDriver/Commands/FindElement)
+  - [Elemente finden](/de/docs/Web/WebDriver/Commands/FindElements)
+  - [Element von Element finden](/de/docs/Web/WebDriver/Commands/FindElementFromElement)
+  - [Elemente von Element finden](/de/docs/Web/WebDriver/Commands/FindElementsFromElement)

@@ -8,27 +8,17 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `sampleRate`-Eigenschaft des {{domxref("BaseAudioContext")}}-Interfaces gibt eine Fließkommazahl zurück, die die Abtastrate in Abtastungen pro Sekunde darstellt, die von allen Knoten in diesem Audio-Kontext verwendet wird. Diese Einschränkung bedeutet, dass Abtastratenkonverter nicht unterstützt werden.
+Die `sampleRate`-Eigenschaft des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Interfaces gibt eine Fließkommazahl zurück, die die Abtastrate in Samples pro Sekunde darstellt, die von allen Knoten in diesem Audio-Kontext verwendet wird. Diese Einschränkung bedeutet, dass Abtastratenwandler nicht unterstützt werden.
 
 ## Wert
 
-Eine Fließkommazahl, die die Abtastrate des Audio-Kontexts in Abtastungen pro
-Sekunde angibt.
+Eine Fließkommazahl, die die Abtastrate des Audio-Kontextes in Samples pro Sekunde angibt.
 
 ## Beispiele
 
 > [!NOTE]
-> Für eine vollständige Implementierung des Web Audio-Beispiels sehen Sie sich eines unserer
-> Web Audio Demos im [MDN GitHub-Repo](https://github.com/mdn/webaudio-examples) an. Versuchen Sie, `audioCtx.sampleRate` in Ihre Browser-Konsole einzugeben.
-
-```js
-const audioCtx = new AudioContext();
-// Ältere WebKit/Blink-Browser erfordern ein Präfix
-
-// …
-
-console.log(audioCtx.sampleRate);
-```
+> Für eine vollständige Implementierung eines Web Audio-Beispiels sehen Sie sich eines unserer
+> Web Audio-Demos im [MDN GitHub-Repo](https://github.com/mdn/webaudio-examples) an. Versuchen Sie, `audioCtx.sampleRate` in Ihre Browserkonsole einzugeben.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "VideoDecoder: decode()-Methode"
+title: "VideoDecoder: decode() Methode"
 short-title: decode()
 slug: Web/API/VideoDecoder/decode
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`decode()`**-Methode der {{domxref("VideoDecoder")}}-Schnittstelle stellt eine Steuerungsnachricht in die Warteschlange, um einen gegebenen Videodatenblock zu dekodieren.
+Die **`decode()`**-Methode des [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Interfaces reiht eine Kontrollnachricht ein, um ein gegebenes Videostück zu dekodieren.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ decode(chunk)
 ### Parameter
 
 - `chunk`
-  - : Ein {{domxref("EncodedVideoChunk")}}-Objekt, das einen kodierten Videodatenblock darstellt.
+  - : Ein [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Objekt, das ein Stück kodierten Videos repräsentiert.
 
 ### Rückgabewert
 
@@ -27,14 +27,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{domxref("VideoDecoder.state","state")}} nicht `configured` ist.
-- `DataError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der `chunk` nicht dekodiert werden kann, weil er zum Dekodieren auf andere Frames angewiesen ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der [`state`](/de/docs/Web/API/VideoDecoder/state) nicht `configured` ist.
+- `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der `chunk` nicht dekodiert werden kann, weil er für die Dekodierung auf andere Frames angewiesen ist.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie die `decode()`-Methode verwendet wird, um {{domxref("EncodedVideoChunk")}}-Objekte, die aus kodierten Videodaten erstellt wurden, zu dekodieren.
+Das folgende Beispiel zeigt, wie die `decode()`-Methode verwendet wird, um [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Objekte zu dekodieren, die aus kodierten Videodaten erstellt wurden.
 
 ```js
 const responses = await downloadVideoChunksFromServer(timestamp);

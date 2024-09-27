@@ -7,12 +7,12 @@ l10n:
 
 {{JSRef}}
 
-Das **`Float16Array`** typisierte Array repräsentiert ein Array von 16-Bit-Gleitkommazahlen in der Byte-Reihenfolge der Plattform. Wenn Kontrolle über die Byte-Reihenfolge benötigt wird, verwenden Sie stattdessen {{jsxref("DataView")}}. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden Initialisierungsdaten explizit bereitgestellt. Einmal festgelegt, können Sie auf die Elemente im Array entweder über die Methoden des Objekts oder mithilfe der Standard-Array-Indizierungs-Syntax (das heißt mit Klammernotation) zugreifen.
+Das getypte Array **`Float16Array`** repräsentiert ein Array von 16-Bit-Gleitkommazahlen in der Byte-Reihenfolge der Plattform. Wenn Kontrolle über die Byte-Reihenfolge erforderlich ist, verwenden Sie stattdessen {{jsxref("DataView")}}. Die Inhalte werden auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Einmal erstellt, können Sie auf Elemente im Array mit den Methoden des Objekts oder mit der Standard-Array-Indizierungs-Syntax (d. h. unter Verwendung der Klammernotation) zugreifen.
 
-`Float16Array` ist eine Unterklasse der verborgenen {{jsxref("TypedArray")}} Klasse.
+`Float16Array` ist eine Unterklasse der versteckten {{jsxref("TypedArray")}} Klasse.
 
 > [!NOTE]
-> Die Unterstützung für Float16 ist nicht universell, sowohl in der JavaScript-API als auch in der zugrunde liegenden CPU-Architektur. Die Verwendung kann auf einigen Plattformen zu einer langsameren Leistung führen. Es ist vorgesehen für die Interaktion mit hochoptimierten und leistungsorientierten Systemen wie [float-basierten Leinwänden](https://github.com/w3c/ColorWeb-CG/blob/main/canvas_float.md), WebGPU, WebGL und Deep-Learning-Modellen einschließlich [stable diffusion](https://github.com/huggingface/blog/blob/main/stable_diffusion.md).
+> Float16-Unterstützung ist weder in der JavaScript-API noch in der zugrunde liegenden CPU-Architektur universell. Die Verwendung kann auf einigen Plattformen zu einer langsameren Leistung führen. Es ist für die Interaktion mit hochoptimierten und leistungsempfindlichen Systemen wie [float-backed-Leinwänden](https://github.com/w3c/ColorWeb-CG/blob/main/canvas_float.md), WebGPU, WebGL und tiefem Lernen, einschließlich [stable diffusion](https://github.com/huggingface/blog/blob/main/stable_diffusion.md) gedacht.
 
 ## Konstruktor
 
@@ -21,18 +21,18 @@ Das **`Float16Array`** typisierte Array repräsentiert ein Array von 16-Bit-Glei
 
 ## Statische Eigenschaften
 
-_Erbt auch statische Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt auch statische Eigenschaften von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Float16Array.BYTES_PER_ELEMENT")}}
   - : Gibt einen Zahlenwert der Elementgröße zurück. `2` im Fall von `Float16Array`.
 
 ## Statische Methoden
 
-_Erbt statische Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt statische Methoden von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt auch Instanzeigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt auch Instanz-Eigenschaften von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
 Diese Eigenschaften sind auf `Float16Array.prototype` definiert und werden von allen `Float16Array`-Instanzen geteilt.
 
@@ -41,36 +41,36 @@ Diese Eigenschaften sind auf `Float16Array.prototype` definiert und werden von a
 - {{jsxref("Object/constructor", "Float16Array.prototype.constructor")}}
   - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Float16Array`-Instanzen ist der Anfangswert der {{jsxref("Float16Array/Float16Array", "Float16Array")}} Konstruktor.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Instanzmethoden von seinem Elternteil {{jsxref("TypedArray")}}_.
+_Erbt Instanz-Methoden von seinem übergeordneten {{jsxref("TypedArray")}}_.
 
 ## Beispiele
 
-### Verschiedene Methoden zur Erstellung eines Float16Array
+### Verschiedene Möglichkeiten zur Erstellung eines Float16Array
 
 ```js
-// Aus einer Länge
+// From a length
 const float16 = new Float16Array(2);
 float16[0] = 42;
 console.log(float16[0]); // 42
 console.log(float16.length); // 2
 console.log(float16.BYTES_PER_ELEMENT); // 2
 
-// Aus einem Array
+// From an array
 const x = new Float16Array([21, 31]);
 console.log(x[1]); // 31
 
-// Aus einem anderen TypedArray
+// From another TypedArray
 const y = new Float16Array(x);
 console.log(y[0]); // 21
 
-// Aus einem ArrayBuffer
+// From an ArrayBuffer
 const buffer = new ArrayBuffer(32);
 const z = new Float16Array(buffer, 4, 4);
 console.log(z.byteOffset); // 4
 
-// Aus einem iterablen Objekt
+// From an iterable
 const iterable = (function* () {
   yield* [1, 2, 3];
 })();
@@ -89,7 +89,7 @@ console.log(float16FromIterable);
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [Leitfaden zu JavaScript-typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

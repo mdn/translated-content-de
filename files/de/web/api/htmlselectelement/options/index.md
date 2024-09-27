@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`HTMLSelectElement.options`** gibt eine {{domxref("HTMLOptionsCollection")}} der im {{HTMLElement("select")}}-Element enthaltenen {{HTMLElement("option")}}-Elemente zurück.
+Die schreibgeschützte Eigenschaft **`HTMLSelectElement.options`** gibt eine [`HTMLOptionsCollection`](/de/docs/Web/API/HTMLOptionsCollection) der {{HTMLElement("option")}}-Elemente zurück, die vom {{HTMLElement("select")}}-Element enthalten werden.
 
 ## Wert
 
-Eine {{domxref("HTMLOptionsCollection")}}, die die `<option>`-Elemente enthält, die im `<select>`-Element enthalten sind.
+Eine [`HTMLOptionsCollection`](/de/docs/Web/API/HTMLOptionsCollection), die die `<option>`-Elemente enthält, die vom `<select>`-Element enthalten werden.
 
 ## Beispiele
 
@@ -32,12 +32,12 @@ Eine {{domxref("HTMLOptionsCollection")}}, die die `<option>`-Elemente enthält,
 window.addEventListener("DOMContentLoaded", () => {
   const select = document.getElementById("test");
   for (const option of select.options) {
-    console.log(option.label); // "Option 1" und "Option 2"
+    console.log(option.label); // "Option 1" and "Option 2"
   }
 });
 ```
 
-{{EmbedLiveSample("Examples", "100%", 30)}}
+{{EmbedLiveSample("Beispiele", "100%", 30)}}
 
 ## Spezifikationen
 

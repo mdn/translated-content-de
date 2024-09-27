@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Die maximale Anzahl der Aufrufe, die `{{WebExtAPIRef("webRequest.handlerBehaviorChanged", "handlerBehaviorChanged()")}}` innerhalb eines 10-Minuten-Zeitraums getätigt werden kann.
+Die maximale Anzahl von Malen, die `{{WebExtAPIRef("webRequest.handlerBehaviorChanged", "handlerBehaviorChanged()")}}` innerhalb einer Zeitspanne von 10 Minuten aufgerufen werden kann.
 
 Diese Eigenschaft ist schreibgeschützt.
 
@@ -18,7 +18,7 @@ Diese Eigenschaft ist schreibgeschützt.
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#property-MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES) API von Chromium. Diese Dokumentation stammt aus [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#property-MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES) API. Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

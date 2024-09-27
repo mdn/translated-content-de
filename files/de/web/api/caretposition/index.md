@@ -7,21 +7,21 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die Schnittstelle `CaretPosition` repräsentiert die Textposition des Cursors, einen Indikator für die Einfügestelle im Text. Sie können eine `CaretPosition` mit der Methode {{domxref("Document.caretPositionFromPoint()")}} abrufen.
+Die Schnittstelle `CaretPosition` stellt die Caret-Position dar, einen Indikator für den Texteinfügepunkt. Sie können eine `CaretPosition` mit der Methode [`Document.caretPositionFromPoint()`](/de/docs/Web/API/Document/caretPositionFromPoint) erhalten.
 
 ## Instanz-Eigenschaften
 
 _Diese Schnittstelle erbt keine Eigenschaften._
 
-- {{domxref("CaretPosition.offsetNode")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("Node")}} zurück, das den gefundenen Knoten an der Position des Cursors enthält.
-- {{domxref("CaretPosition.offset")}} {{ReadOnlyInline}}
-  - : Gibt einen `long` zurück, der den Zeichenoffset im Knoten der Cursorposition darstellt.
+- [`CaretPosition.offsetNode`](/de/docs/Web/API/CaretPosition/offsetNode) {{ReadOnlyInline}}
+  - : Gibt einen [`Node`](/de/docs/Web/API/Node) zurück, der den gefundenen Knoten an der Caret-Position enthält.
+- [`CaretPosition.offset`](/de/docs/Web/API/CaretPosition/offset) {{ReadOnlyInline}}
+  - : Gibt ein `long` zurück, das den Zeichenoffset im Caret-Positionsknoten darstellt.
 
 ## Instanz-Methoden
 
-- {{domxref("CaretPosition.getClientRect")}}
-  - : Gibt das Client-Rechteck für den Cursorbereich zurück.
+- [`CaretPosition.getClientRect`](/de/docs/Web/API/CaretPosition/getClientRect)
+  - : Gibt das Client-Rechteck für den Caret-Bereich zurück.
 
 ## Spezifikationen
 
@@ -33,6 +33,6 @@ _Diese Schnittstelle erbt keine Eigenschaften._
 
 ## Siehe auch
 
-- {{domxref("Document.caretPositionFromPoint()")}}
-- {{domxref("Range")}}
-- {{domxref("Node")}}
+- [`Document.caretPositionFromPoint()`](/de/docs/Web/API/Document/caretPositionFromPoint)
+- [`Range`](/de/docs/Web/API/Range)
+- [`Node`](/de/docs/Web/API/Node)

@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Operator der strikten Ungleichheit (`!==`)** überprüft, ob seine beiden Operanden
-ungleich sind und gibt ein Boolean-Ergebnis zurück. Im Gegensatz zum [Ungleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Inequality)
-betrachtet der Operator der strikten Ungleichheit Operanden unterschiedlicher Typen immer als unterschiedlich.
+Der **strikte Ungleichheitsoperator (`!==`)** überprüft, ob seine beiden Operanden
+nicht gleich sind und gibt ein Boolesches Ergebnis zurück. Im Gegensatz zum [Ungleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Inequality)
+betrachtet der strikte Ungleichheitsoperator Operanden unterschiedlichen Typs immer als unterschiedlich.
 
 {{EmbedInteractiveExample("pages/js/expressions-strict-inequality.html")}}
 
@@ -21,10 +21,10 @@ x !== y
 
 ## Beschreibung
 
-Der Operator der strikten Ungleichheit überprüft, ob seine Operanden ungleich sind.
+Der strikte Ungleichheitsoperator überprüft, ob seine Operanden nicht gleich sind.
 Er ist die Negation des
-[Operators der strikten Gleichheit](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality),
-so dass die folgenden zwei Zeilen immer das gleiche Ergebnis liefern:
+[strikten Gleichheitsoperators](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality),
+daher führen die folgenden beiden Zeilen immer zum gleichen Ergebnis:
 
 ```js
 x !== y;
@@ -32,11 +32,11 @@ x !== y;
 !(x === y);
 ```
 
-Details des Vergleichsalgorithmus finden Sie auf der Seite des
-[Operators der strikten Gleichheit](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality).
+Für Details des Vergleichsalgorithmus, siehe die Seite für den
+[strikten Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality).
 
-Wie der Operator der strikten Gleichheit betrachtet auch der Operator der strikten Ungleichheit
-Operanden unterschiedlichen Typs immer als unterschiedlich:
+Wie der strikte Gleichheitsoperator wird auch der strikte Ungleichheitsoperator
+Operanden unterschiedlichen Typs immer als unterschiedlich betrachten:
 
 ```js
 3 !== "3"; // true

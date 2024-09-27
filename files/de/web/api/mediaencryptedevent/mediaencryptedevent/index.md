@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}
 
-Der **`MediaEncryptedEvent`** Konstruktor erstellt ein neues {{domxref("MediaEncryptedEvent")}} Objekt.
+Der **`MediaEncryptedEvent`**-Konstruktor erstellt ein neues [`MediaEncryptedEvent`](/de/docs/Web/API/MediaEncryptedEvent)-Objekt.
 
 > [!NOTE]
 > In der Regel müssen Sie diesen Konstruktor in Ihrem Code nicht aufrufen, da solche Ereignisse normalerweise vom Browser bei Bedarf generiert werden.
@@ -23,17 +23,18 @@ new MediaEncryptedEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Es ist groß- und kleinschreibungssensitiv und wird von Browsern immer auf `encrypted` gesetzt.
+  - : Ein String mit dem Namen des Ereignisses.
+    Es ist case-sensitiv und Browser setzen es immer auf `encrypted`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das zusätzlich zu den im {{domxref("Event/Event", "Event()")}} definierten Eigenschaften folgende Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `initDataType`
-      - : Ein String mit dem Typ der Initialisierungsdaten, die in diesem Objekt enthalten sind.
+      - : Ein String mit dem Typ der in diesem Objekt enthaltenen Initialisierungsdaten.
     - `message`
-      - : Ein {{jsxref("ArrayBuffer")}} mit den Initialisierungsdaten oder `null`, falls keine vorhanden sind.
+      - : Ein {{jsxref("ArrayBuffer")}} mit den Initialisierungsdaten oder `null`, wenn keine vorhanden sind.
 
 ### Rückgabewert
 
-Ein neues {{domxref("MediaEncryptedEvent")}} Objekt.
+Ein neues [`MediaEncryptedEvent`](/de/docs/Web/API/MediaEncryptedEvent)-Objekt.
 
 ## Spezifikationen
 

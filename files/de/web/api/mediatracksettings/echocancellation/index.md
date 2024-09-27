@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`echoCancellation`**-Attribut des {{domxref("MediaTrackSettings")}}-Wörterbuchs ist ein Boolean-Wert, der angibt, ob die Echokompensation für einen Audiotrack aktiviert ist oder nicht. Dies ermöglicht es Ihnen zu bestimmen, welcher Wert ausgewählt wurde, um Ihren angegebenen Einschränkungen für den Wert dieser Eigenschaft gerecht zu werden, wie im {{domxref("MediaTrackConstraints.echoCancellation")}}-Attribut beschrieben, das Sie beim Aufruf von entweder {{domxref("MediaDevices.getUserMedia", "getUserMedia()")}} oder {{domxref("MediaStreamTrack.applyConstraints()")}} bereitgestellt haben.
+Das **`echoCancellation`**-Attribut des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs ist ein boolescher Wert, der angibt, ob die Echounterdrückung bei einer Audiospur aktiviert ist oder nicht. Damit können Sie feststellen, welcher Wert ausgewählt wurde, um die von Ihnen angegebenen Einschränkungen für den Wert dieser Eigenschaft einzuhalten, wie in der [`MediaTrackConstraints.echoCancellation`](/de/docs/Web/API/MediaTrackConstraints/echoCancellation)-Eigenschaft beschrieben, die Sie beim Aufruf von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) angegeben haben.
 
-Echokompensation ist eine Funktion, die versucht, Echogeräusche in einer Zweiwege-Audioverbindung zu verhindern, indem versucht wird, das Übersprechen zwischen dem Ausgabegerät des Benutzers und dessen Eingabegerät zu reduzieren oder zu eliminieren. Zum Beispiel könnte es einen Filter anwenden, der den auf den Lautsprechern erzeugten Ton negiert, um zu verhindern, dass dieser in die vom Mikrofon erzeugte Eingabespur aufgenommen wird.
+Echounterdrückung ist eine Funktion, die versucht, Echoeffekte in einer Zwei-Wege-Audioverbindung zu verhindern, indem sie versucht, Übersprechen zwischen dem Ausgabegerät und dem Eingabegerät des Benutzers zu reduzieren oder zu beseitigen. Zum Beispiel könnte ein Filter angewendet werden, der verhindert, dass der auf den Lautsprechern erzeugte Ton in die von dem Mikrofon erzeugte Eingabespur aufgenommen wird.
 
-Wenn nötig, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von {{domxref("MediaTrackSupportedConstraints.echoCancellation")}} prüfen, wie er von einem Aufruf von {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegeben wird. In der Regel ist dies jedoch nicht nötig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
+Bei Bedarf können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.echoCancellation`](/de/docs/Web/API/MediaTrackSupportedConstraints/echoCancellation) überprüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
 
-Da das {{Glossary("RTP")}} diese Information nicht enthält, werden Tracks, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) {{domxref("RTCPeerConnection")}} verbunden sind, diese Eigenschaft niemals einschließen.
+Da [RTP](/de/docs/Glossary/RTP) diese Informationen nicht umfasst, werden Spuren, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API)-[`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden sind, diese Eigenschaft niemals umfassen.
 
 ## Wert
 
-Ein Boolean-Wert, der `true` ist, wenn der Track die Funktionalität der Echokompensation aktiviert hat, oder `false`, wenn die Echokompensation deaktiviert ist.
+Ein boolescher Wert, der `true` ist, wenn die Spur über eine aktivierte Echounterdrückungsfunktionalität verfügt, oder `false`, wenn die Echounterdrückung deaktiviert ist.
 
 ## Beispiele
 
-Siehe das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel im [Constraint-Übungsleitfaden](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -36,5 +36,5 @@ Siehe das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Str
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
-- {{domxref("MediaTrackConstraints.echoCancellation")}}
-- {{domxref("MediaTrackSettings")}}
+- [`MediaTrackConstraints.echoCancellation`](/de/docs/Web/API/MediaTrackConstraints/echoCancellation)
+- [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)

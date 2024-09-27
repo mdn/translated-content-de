@@ -7,47 +7,47 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`ImageDecoder`**-Schnittstelle der {{domxref('WebCodecs API','','','true')}} bietet eine Möglichkeit, kodierte Bilddaten zu entpacken und zu dekodieren.
+Die **`ImageDecoder`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) bietet eine Möglichkeit, codierte Bilddaten zu entpacken und zu decodieren.
 
 ## Konstruktor
 
-- {{domxref("ImageDecoder.ImageDecoder", "ImageDecoder()")}} {{Experimental_Inline}}
+- [`ImageDecoder()`](/de/docs/Web/API/ImageDecoder/ImageDecoder) {{Experimental_Inline}}
   - : Erstellt ein neues `ImageDecoder`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("ImageDecoder.complete")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen booleschen Wert zurück, der anzeigt, ob die kodierten Daten vollständig gepuffert sind.
-- {{domxref("ImageDecoder.completed")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`ImageDecoder.complete`](/de/docs/Web/API/ImageDecoder/complete) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen booleschen Wert zurück, der anzeigt, ob die codierten Daten vollständig gepuffert sind.
+- [`ImageDecoder.completed`](/de/docs/Web/API/ImageDecoder/completed) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald `complete` wahr ist.
-- {{domxref("ImageDecoder.tracks")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein {{domxref("ImageTrackList")}}-Objekt zurück, das die verfügbaren Spuren auflistet und eine Methode zum Auswählen einer zu dekodierenden Spur bereitstellt.
-- {{domxref("ImageDecoder.type")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen String zurück, der den [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) widerspiegelt, der während der Konstruktion konfiguriert wurde.
+- [`ImageDecoder.tracks`](/de/docs/Web/API/ImageDecoder/tracks) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt ein [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Objekt zurück, das die verfügbaren Tracks auflistet und eine Methode zum Auswählen eines Tracks zum Decodieren bietet.
+- [`ImageDecoder.type`](/de/docs/Web/API/ImageDecoder/type) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen String zurück, der den während der Konstruktion konfigurierten [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) widerspiegelt.
 
 ## Statische Methoden
 
-- {{domxref("ImageDecoder.isTypeSupported_static", "ImageDecoder.isTypeSupported()")}} {{Experimental_Inline}}
-  - : Zeigt an, ob der bereitgestellte [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) für das Entpacken und Dekodieren unterstützt wird.
+- [`ImageDecoder.isTypeSupported()`](/de/docs/Web/API/ImageDecoder/isTypeSupported_static) {{Experimental_Inline}}
+  - : Zeigt an, ob der angegebene [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) zum Entpacken und Decodieren unterstützt wird.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("ImageDecoder.close()")}} {{Experimental_Inline}}
+- [`ImageDecoder.close()`](/de/docs/Web/API/ImageDecoder/close) {{Experimental_Inline}}
   - : Beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
-- {{domxref("ImageDecoder.decode()")}} {{Experimental_Inline}}
-  - : Stellt eine Steuerungsnachricht in die Warteschlange, um das Bild eines Frames zu dekodieren.
-- {{domxref("ImageDecoder.reset()")}} {{Experimental_Inline}}
+- [`ImageDecoder.decode()`](/de/docs/Web/API/ImageDecoder/decode) {{Experimental_Inline}}
+  - : Stellt eine Steuerungsnachricht in die Warteschlange, um das Bild zu decodieren.
+- [`ImageDecoder.reset()`](/de/docs/Web/API/ImageDecoder/reset) {{Experimental_Inline}}
   - : Bricht alle ausstehenden `decode()`-Operationen ab.
 
 ## Beispiele
 
-Gegeben sei ein {{HTMLElement("canvas")}}-Element:
+Gegeben ein {{HTMLElement("canvas")}}-Element:
 
 ```html
 <canvas></canvas>
 ```
 
-Der folgende Code dekodiert ein animiertes Bild und rendert es auf dieser Leinwand:
+Der folgende Code decodiert und rendert ein animiertes Bild auf diese Leinwand:
 
 ```js
 let imageDecoder = null;
@@ -61,16 +61,16 @@ function renderImage(result) {
 
   const track = imageDecoder.tracks.selectedTrack;
 
-  // Wir überprüfen hier 'complete', da 'frameCount' nicht stabil ist, bis alle
-  // Daten empfangen wurden. Dies kann dazu führen, dass wir einen RangeError
-  // während des decode()-Aufrufs unten erhalten, der behandelt werden muss.
+  // We check complete here since `frameCount` won't be stable until all
+  // data has been received. This may cause us to receive a RangeError
+  // during the decode() call below which needs to be handled.
   if (imageDecoder.complete) {
     if (track.frameCount === 1) return;
 
     if (imageIndex + 1 >= track.frameCount) imageIndex = 0;
   }
 
-  // Dekodiert den nächsten Frame im Voraus, damit er rechtzeitig bereitsteht.
+  // Decode the next frame ahead of display so it's ready in time.
   imageDecoder
     .decode({ frameIndex: ++imageIndex })
     .then((nextResult) =>
@@ -79,9 +79,9 @@ function renderImage(result) {
       }, result.image.duration / 1000.0),
     )
     .catch((e) => {
-      // Wir können dazu kommen, dass wir einen imageIndex anfordern, der
-      // über das Ende hinausgeht, da wir einen ReadableStream von fetch()
-      // verwenden. Wenn dies passiert, einfach wiederholen.
+      // We can end up requesting an imageIndex past the end since
+      // we're using a ReadableStream from fetch(), when this happens
+      // just wrap around.
       if (e instanceof RangeError) {
         imageIndex = 0;
         imageDecoder.decode({ frameIndex: imageIndex }).then(renderImage);

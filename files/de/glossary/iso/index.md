@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**ISO** (International Organization for Standardization) ist eine globale Vereinigung, die einheitliche Kriterien entwickelt, die die Unternehmen in jeder großen Branche koordinieren.
+**ISO** (International Organization for Standardization, Internationale Organisation für Normung) ist eine globale Vereinigung, die einheitliche Kriterien entwickelt, um die Unternehmen in jeder bedeutenden Branche zu koordinieren.
 
 ## Siehe auch
 

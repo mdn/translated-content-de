@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`getIdentityAssertion()`**-Methode der Schnittstelle {{domxref("RTCPeerConnection")}} initiiert das Sammeln einer Identitätsbehauptung.
-Dies hat nur dann Auswirkungen, wenn der {{domxref("RTCPeerConnection.signalingState", "signalingState")}} nicht auf `"closed"` gesetzt ist.
+Die **`getIdentityAssertion()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle initiiert das Sammeln einer Identitätsbestätigung.
+Dies hat nur eine Wirkung, wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) nicht `"closed"` ist.
 
-Die Methode gibt ein JavaScript {{jsxref("Promise")}} zurück, das sich zu einer als String kodierten Identitätsbehauptung auflöst.
+Die Methode gibt ein JavaScript-{{jsxref("Promise")}} zurück, das zu einer als Zeichenkette codierten Identitätsbestätigung aufgelöst wird.
 
-Es wird nicht erwartet, dass die Anwendung, die mit dem `RTCPeerConnection` arbeitet, dies explizit aufruft; ein expliziter Aufruf ermöglicht lediglich, den Bedarf vorwegzunehmen.
+Es wird nicht erwartet, dass die Anwendung, die sich mit der `RTCPeerConnection` befasst, dies manuell durchführt; ein expliziter Aufruf ermöglicht lediglich, den Bedarf vorwegzunehmen.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ Es wird nicht erwartet, dass die Anwendung, die mit dem `RTCPeerConnection` arbe
 getIdentityAssertion()
 ```
 
-_Für diese Methode gibt es weder Parameter noch einen Rückgabewert._
+_Diese Methode hat weder Parameter noch einen Rückgabewert._
 
 ## Beispiel
 

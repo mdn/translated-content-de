@@ -1,5 +1,5 @@
 ---
-title: "RTCRtpSender: Die Methode replaceTrack()"
+title: "RTCRtpSender: Methode replaceTrack()"
 short-title: replaceTrack()
 slug: Web/API/RTCRtpSender/replaceTrack
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Methode **`replaceTrack()`** des {{domxref("RTCRtpSender")}} ersetzt den aktuell als Quelle des Senders verwendeten Track durch einen neuen {{domxref("MediaStreamTrack")}}.
+Die Methode **`replaceTrack()`** des [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) ersetzt den derzeit verwendeten Track als Quelle des Senders durch einen neuen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack).
 
-Der neue Track muss von der gleichen Medienart sein (Audio, Video usw.) und das Wechseln des Tracks sollte keine Verhandlung erfordern.
+Der neue Track muss die gleiche Art von Medien (Audio, Video, etc.) haben, und das Umschalten des Tracks sollte keine Verhandlung erfordern.
 
-Zu den Anwendungsfällen für `replaceTrack()` gehört das häufige Bedürfnis, zwischen der hinteren und der vorderen Kamera eines Telefons zu wechseln. Mit `replaceTrack()` können Sie ein Track-Objekt für jede Kamera haben und bei Bedarf zwischen beiden wechseln. Siehe das Beispiel [Wechsel zwischen Videokameras](#wechsel_zwischen_videokameras) unten.
+Einer der Anwendungsfälle für `replaceTrack()` ist der häufige Bedarf, zwischen der Rück- und Frontkamera eines Telefons zu wechseln. Mit `replaceTrack()` können Sie ein Track-Objekt für jede Kamera haben und bei Bedarf zwischen diesen wechseln. Siehe das Beispiel [Wechsel der Videokameras](#wechsel_der_videokameras) unten.
 
 ## Syntax
 
@@ -23,49 +23,48 @@ replaceTrack(newTrack)
 ### Parameter
 
 - `newTrack` {{optional_inline}}
-  - : Ein {{domxref("MediaStreamTrack")}}, der den Track angibt, mit dem der aktuelle Quellentrack des `RTCRtpSender` ersetzt werden soll. Die {{domxref("MediaStreamTrack.kind", "Art")}} des neuen Tracks muss mit der des aktuellen Tracks übereinstimmen, ansonsten schlägt die Anfrage zum Ersetzen des Tracks fehl.
+  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der den Track angibt, mit dem der aktuelle Quellentrack des `RTCRtpSender` ersetzt werden soll. Der neue Track muss die gleiche [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) haben wie der aktuelle Track, andernfalls schlägt die Ersetzung fehl.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das erfüllt wird, sobald der Track erfolgreich ersetzt wurde. Das Promise wird abgelehnt, wenn der Track aus irgendeinem Grund nicht ersetzt werden kann; dies liegt häufig daran, dass die Änderung eine Neukodierungsverhandlung erfordern würde, was nicht erlaubt ist (siehe [Dinge, die Verhandlung erfordern](#dinge,_die_verhandlung_erfordern)).
+Ein {{jsxref("Promise")}}, das erfüllt wird, sobald der Track erfolgreich ersetzt wurde. Das Promise wird abgelehnt, wenn der Track aus irgendeinem Grund nicht ersetzt werden kann; häufig ist dies der Fall, weil die Änderung eine Neuaushandlung des Codecs erfordern würde, was nicht erlaubt ist (siehe [Dinge, die Verhandlung erfordern](#dinge,_die_verhandlung_erfordern)).
 
-Wenn `newTrack` weggelassen wurde oder `null` war, stoppt `replaceTrack()` den Sender. In diesem Fall ist keine Verhandlung erforderlich.
+Wenn `newTrack` ausgelassen oder `null` war, stoppt `replaceTrack()` den Sender. Eine Verhandlung ist in diesem Fall nicht erforderlich.
 
-Wenn das Promise erfüllt wird, erhält der Erfüllungs-Handler den Wert `undefined`.
+Wenn das Promise erfüllt wird, erhält der Erfüllungs-Handler einen Wert von `undefined`.
 
 ### Ausnahmen
 
-Wenn das zurückgegebene Promise abgelehnt wird, wird dem Ablehnungs-Handler eine der folgenden Ausnahmen zur Verfügung gestellt:
+Wenn das zurückgegebene Promise abgelehnt wird, wird dem Ablehnungs-Handler eine der folgenden Ausnahmen bereitgestellt:
 
-- `InvalidModificationError` {{domxref("DOMException")}}
+- `InvalidModificationError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn das Ersetzen des aktuellen Tracks des `RTCRtpSender` durch den neuen eine Verhandlung erfordern würde.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn der Track, auf dem diese Methode aufgerufen wurde, gestoppt und nicht aktiv ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn der Track, auf dem diese Methode aufgerufen wurde, gestoppt ist, anstatt zu laufen.
 - {{jsxref("TypeError")}}
-  - : Wird zurückgegeben, wenn die `Art` des neuen Tracks nicht mit der des ursprünglichen Tracks übereinstimmt.
+  - : Wird zurückgegeben, wenn die `kind` des neuen Tracks nicht mit der des ursprünglichen Tracks übereinstimmt.
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 ### Dinge, die Verhandlung erfordern
 
-Die meisten Track-Ersetzungen können ohne Neuverhandlung durchgeführt werden. Tatsächlich können sogar Änderungen, die erheblich erscheinen, ohne Verhandlung durchgeführt werden. Einige Änderungen können jedoch eine Verhandlung erfordern und somit `replaceTrack()` zum Scheitern bringen:
+Die meisten Track-Ersetzungen können ohne Neuaushandlung durchgeführt werden. Tatsächlich können selbst Änderungen, die riesig erscheinen, ohne Verhandlung durchgeführt werden. Einige Änderungen können jedoch eine Verhandlung erfordern und somit `replaceTrack()` fehlschlagen lassen:
 
-- Der neue Track hat eine Auflösung, die außerhalb der mit dem Peer vereinbarten Dimensionen liegt; jedoch erlauben es die meisten Browser-Endpunkte, die Auflösung zu ändern.
-- Die Bildrate des neuen Tracks ist so hoch, dass die Codec-Blockrate überschritten wird.
-- Der neue Track ist ein Video-Track und sein Rohzustand oder vorcodierter Zustand unterscheidet sich von dem des ursprünglichen Tracks.
-- Der neue Track ist ein Audio-Track mit einer anderen Anzahl von Kanälen als der ursprüngliche.
-- Medienquellen, die eingebettete Encoder — wie Hardware-Encoder — haben, können möglicherweise den vereinbarten Codec nicht bereitstellen. Softwarequellen implementieren den vereinbarten Codec möglicherweise nicht.
+- Der neue Track hat eine Auflösung, die außerhalb der mit dem Gegenüber verhandelten Dimensionen liegt; jedoch erlauben die meisten Browser-Endpunkte Auflösungsänderungen.
+- Die Bildrate des neuen Tracks ist so hoch, dass die Blockrate des Codecs überschritten wird.
+- Der neue Track ist ein Videotrack und sein roher oder vorcodierter Zustand unterscheidet sich von dem des ursprünglichen Tracks.
+- Der neue Track ist ein Audiotrack mit einer anderen Anzahl von Kanälen als der ursprüngliche.
+- Medienquellen, die über integrierte Encoder verfügen — wie Hardware-Encoder — können den verhandelten Codec möglicherweise nicht bereitstellen. Software-Quellen implementieren den verhandelten Codec möglicherweise nicht.
 
 ## Beispiele
 
-### Wechsel zwischen Videokameras
+### Wechsel der Videokameras
 
 ```js
 const localConnection = new RTCPeerConnection();
 const remoteConnection = new RTCPeerConnection();
-// Die Konfiguration dieser für die Verwendung der WebRTC-API kann unter
-// https://developer.mozilla.org/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample
-// erkundet werden
+// Configuring these to use the WebRTC API can be explored at
+// https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample
 const connections = [localConnection, remoteConnection];
 function setCamera(selectedCamera) {
   navigator.mediaDevices

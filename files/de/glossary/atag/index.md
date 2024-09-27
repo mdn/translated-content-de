@@ -1,5 +1,5 @@
 ---
-title: Richtlinien für die Zugänglichkeit von Autorentools (ATAG)
+title: ATAG
 slug: Glossary/ATAG
 l10n:
   sourceCommit: 66de1f47585ccf1539d5c1cd2b051de7bc19f59d
@@ -7,20 +7,20 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Richtlinien für die Zugänglichkeit von Autorentools (Authoring Tool Accessibility Guidelines, ATAG)** ist eine Empfehlung des {{Glossary("W3C")}} für den Aufbau von zugänglichen Autorentools, die zugängliche Inhalte erzeugen.
+**Authoring Tool [Accessibility](/de/docs/Glossary/Accessibility) Guidelines (ATAG)** ist eine [W3C](/de/docs/Glossary/W3C)-Empfehlung für die Entwicklung von barrierefreien Autorentools, die barrierefreien Inhalt erstellen.
 
 Autorentools sind Softwareanwendungen, die Menschen zur Erstellung von Webinhalten nutzen. ATAG erklärt, wie man:
 
-- die Autorentools selbst **zugänglich** macht, sodass Menschen mit Behinderungen Webinhalte erstellen können
-- Autoren dabei hilft, zugänglichere Webinhalte zu erstellen — insbesondere: die Produktion von Inhalten zu ermöglichen, zu unterstützen und zu fördern, die den {{glossary("WCAG", "Web Content Accessibility Guidelines")}} (WCAG) entsprechen.
+- die Autorentools selbst **zugänglich** macht, damit Menschen mit Behinderungen Webinhalte erstellen können
+- Autoren unterstützt, barrierefreiere Webinhalte zu erstellen – im Speziellen: die Produktion von Inhalten zu ermöglichen, zu unterstützen und zu fördern, die den [Web Content Accessibility Guidelines](/de/docs/Glossary/WCAG) (WCAG) entsprechen.
 
 ## Siehe auch
 
-- [ATAG im Rahmen der Web Accessibility Initiative (WAI)](<https://en.wikipedia.org/wiki/Web_Accessibility_Initiative#Authoring_Tool_Accessibility_Guidelines_(ATAG)>) auf Wikipedia
-- [Übersicht über die Richtlinien für die Zugänglichkeit von Autorentools (ATAG)](https://www.w3.org/WAI/standards-guidelines/atag/)
-- [Empfehlung 2.0 der Richtlinien für die Zugänglichkeit von Autorentools (ATAG)](https://www.w3.org/TR/ATAG20/)
+- [ATAG als Teil der Web Accessibility Initiative (WAI)](<https://en.wikipedia.org/wiki/Web_Accessibility_Initiative#Authoring_Tool_Accessibility_Guidelines_(ATAG)>) auf Wikipedia
+- [Überblick über die Authoring Tool Accessibility Guidelines (ATAG)](https://www.w3.org/WAI/standards-guidelines/atag/)
+- [Empfehlung der Authoring Tool Accessibility Guidelines (ATAG) 2.0](https://www.w3.org/TR/ATAG20/)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Accessibility")}}
-  - {{Glossary("WAI")}}
-  - {{Glossary("WCAG")}}
-  - {{Glossary("UAAG")}}
+  - [Accessibility](/de/docs/Glossary/Accessibility)
+  - [WAI](/de/docs/Glossary/WAI)
+  - [WCAG](/de/docs/Glossary/WCAG)
+  - [UAAG](/de/docs/Glossary/UAAG)

@@ -1,5 +1,5 @@
 ---
-title: Lernen Sie, HTML mit CSS zu stylen
+title: HTML mit CSS gestalten lernen
 slug: Learn/CSS
 l10n:
   sourceCommit: 26e2f9883e0e73def04c0e86fec6da3ec42e66b3
@@ -7,52 +7,52 @@ l10n:
 
 {{LearnSidebar}}
 
-Cascading Style Sheets — oder {{glossary("CSS")}} — ist die erste Technologie, die Sie nach {{glossary("HTML")}} erlernen sollten. Während HTML verwendet wird, um die Struktur und Semantik Ihres Inhalts zu definieren, wird CSS verwendet, um ihn zu stylen und zu layouten. Zum Beispiel können Sie CSS verwenden, um die Schriftart, Farbe, Größe und den Abstand Ihres Inhalts zu ändern, ihn in mehrere Spalten aufzuteilen oder Animationen und andere dekorative Features hinzuzufügen.
+Cascading Style Sheets — oder [CSS](/de/docs/Glossary/CSS) — ist die erste Technologie, die Sie nach [HTML](/de/docs/Glossary/HTML) erlernen sollten. Während HTML verwendet wird, um die Struktur und Semantik Ihres Inhalts zu definieren, wird CSS verwendet, um ihn zu gestalten und anzuordnen. Zum Beispiel können Sie mit CSS die Schriftart, Farbe, Größe und den Abstand Ihres Inhalts ändern, ihn in mehrere Spalten aufteilen oder Animationen und andere dekorative Funktionen hinzufügen.
 
 ## Voraussetzungen
 
-Sie sollten die Grundlagen von HTML lernen, bevor Sie sich mit CSS beschäftigen. Wir empfehlen, dass Sie zuerst unser Modul [Einführung in HTML](/de/docs/Learn/HTML/Introduction_to_HTML) durchlaufen.
+Sie sollten die Grundlagen von HTML erlernen, bevor Sie sich an CSS versuchen. Wir empfehlen, zuerst unser Modul [Einführung in HTML](/de/docs/Learn/HTML/Introduction_to_HTML) durchzuarbeiten.
 
-Sobald Sie die Grundlagen von HTML verstanden haben, empfehlen wir, dass Sie HTML und CSS gleichzeitig weiter lernen, indem Sie zwischen den beiden Themen hin und her wechseln. Dies liegt daran, dass HTML viel interessanter und viel unterhaltsamer zu lernen ist, wenn Sie CSS anwenden. Und Sie können CSS nicht lernen, ohne HTML zu kennen.
+Sobald Sie die Grundlagen von HTML verstanden haben, empfehlen wir, HTML und CSS gleichzeitig weiter zu erlernen und zwischen den beiden Themen zu wechseln. Dies liegt daran, dass HTML weitaus interessanter und viel mehr Spaß macht, wenn Sie CSS anwenden, und Sie können CSS nicht ohne Kenntnisse in HTML erlernen.
 
-Bevor Sie mit diesem Thema beginnen, sollten Sie auch mit der Nutzung von Computern und der passiven Nutzung des Webs (d. h. nur ansehen und den Inhalt konsumieren) vertraut sein. Sie sollten eine grundlegende Arbeitsumgebung eingerichtet haben, wie im Modul [Installation grundlegender Software](/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software) beschrieben, und wissen, wie man Dateien erstellt und verwaltet, wie im Modul [Umgang mit Dateien](/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files) beschrieben — beides Teile unseres Einsteiger-Moduls [Einführung in das Web](/de/docs/Learn/Getting_started_with_the_web).
+Vor Beginn dieses Themas sollten Sie auch mit der Verwendung von Computern und der passiven Nutzung des Webs (d.h. einfaches Anschauen und Konsumieren der Inhalte) vertraut sein. Sie sollten eine grundlegende Arbeitsumgebung eingerichtet haben, wie im Abschnitt [Installation grundlegender Software](/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software) erläutert, und verstehen, wie Dateien erstellt und verwaltet werden, wie im Abschnitt [Umgang mit Dateien](/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files) erklärt — beides Teile unseres Moduls [Erste Schritte mit dem Web](/de/docs/Learn/Getting_started_with_the_web) für absolute Anfänger.
 
-Es wird außerdem empfohlen, dass Sie das Modul [Einführung in das Web](/de/docs/Learn/Getting_started_with_the_web) bearbeiten, bevor Sie mit diesem Thema fortfahren, insbesondere wenn Sie absolut neu in der Webentwicklung sind. Vieles, was in seinem Artikel [CSS-Grundlagen](/de/docs/Learn/Getting_started_with_the_web/CSS_basics) behandelt wird, ist auch in unserem Modul [Erste Schritte mit CSS](/de/docs/Learn/CSS/First_steps) enthalten, wenn auch detaillierter.
+Es wird auch empfohlen, das Modul [Erste Schritte mit dem Web](/de/docs/Learn/Getting_started_with_the_web) zu durchlaufen, bevor Sie mit diesem Thema fortfahren, insbesondere wenn Sie neu in der Webentwicklung sind. Vieles, was im Artikel [CSS-Grundlagen](/de/docs/Learn/Getting_started_with_the_web/CSS_basics) behandelt wird, ist auch in unserem Modul [CSS erste Schritte](/de/docs/Learn/CSS/First_steps) abgedeckt, jedoch in wesentlich detaillierterer Form.
 
 ## Module
 
-Dieses Thema enthält die folgenden Module, in einer vorgeschlagenen Reihenfolge, um sie durchzuarbeiten. Sie sollten mit dem ersten Modul beginnen.
+Dieses Thema enthält die folgenden Module in einer empfohlenen Reihenfolge zur Bearbeitung. Sie sollten mit dem ersten beginnen.
 
-- [Erste Schritte mit CSS](/de/docs/Learn/CSS/First_steps)
+- [CSS erste Schritte](/de/docs/Learn/CSS/First_steps)
 
-  - : CSS (Cascading Style Sheets) wird verwendet, um Webseiten zu stylen und zu layouten — zum Beispiel, um die Schriftart, Farbe, Größe und den Abstand Ihres Inhalts zu ändern, ihn in mehrere Spalten aufzuteilen oder Animationen und andere dekorative Features hinzuzufügen. Dieses Modul bietet einen sanften Einstieg auf dem Weg zur CSS-Meisterschaft mit den Grundlagen der Funktionsweise, wie die Syntax aussieht und wie Sie anfangen können, es zu verwenden, um HTML zu stylen.
+  - : CSS (Cascading Style Sheets) wird verwendet, um Webseiten zu gestalten und anzuordnen — zum Beispiel, um die Schriftart, Farbe, Größe und den Abstand Ihres Inhalts zu ändern, ihn in mehrere Spalten aufzuteilen oder Animationen und andere dekorative Funktionen hinzuzufügen. Dieses Modul bietet einen sanften Einstieg in Ihren Weg zur CSS-Meisterschaft mit den Grundlagen, wie es funktioniert, wie die Syntax aussieht und wie Sie es verwenden können, um Gestaltung zu HTML hinzuzufügen.
 
-- [Bausteine von CSS](/de/docs/Learn/CSS/Building_blocks)
+- [CSS Bausteine](/de/docs/Learn/CSS/Building_blocks)
 
-  - : Dieses Modul setzt dort an, wo [Erste Schritte mit CSS](/de/docs/Learn/CSS/First_steps) aufgehört hat — jetzt haben Sie sich mit der Sprache und ihrer Syntax vertraut gemacht und haben einige grundlegende Erfahrungen gesammelt. Es ist an der Zeit, tiefer einzutauchen. Dieses Modul befasst sich mit der Kaskade und Vererbung, allen verfügbaren Selektortypen, Einheiten, Größenänderung, Styling von Hintergründen und Rahmen, Debugging und vielem mehr.
+  - : Dieses Modul setzt dort an, wo [CSS erste Schritte](/de/docs/Learn/CSS/First_steps) aufgehört hat — jetzt, da Sie mit der Sprache und ihrer Syntax vertraut sind und einige grundlegende Erfahrungen mit der Verwendung gesammelt haben, ist es Zeit, etwas tiefer zu gehen. Dieses Modul befasst sich mit dem Kaskaden- und Vererbungskonzept, allen verfügbaren Selektorenarten, Einheiten, Größenbestimmung, Gestaltung von Hintergründen und Rändern, Debugging und vielem mehr.
 
-    Das Ziel hier ist es, Ihnen ein Werkzeugkasten zum Schreiben kompetenten CSS zur Verfügung zu stellen und Ihnen alle wesentlichen Theorien zu vermitteln, bevor Sie zu spezifischeren Disziplinen wie [Textstyling](/de/docs/Learn/CSS/Styling_text) und [CSS-Layout](/de/docs/Learn/CSS/CSS_layout) übergehen.
+    Das Ziel ist hier, Ihnen ein Toolkit zum kompetenten Schreiben von CSS bereitzustellen und alle wesentlichen Theorien zu verstehen, bevor es weitergeht zu spezifischeren Disziplinen wie [Textgestaltung](/de/docs/Learn/CSS/Styling_text) und [CSS-Layout](/de/docs/Learn/CSS/CSS_layout).
 
-- [CSS-Textstyling](/de/docs/Learn/CSS/Styling_text)
+- [CSS Textgestaltung](/de/docs/Learn/CSS/Styling_text)
 
-  - : Mit den Grundlagen der CSS-Sprache im Gepäck ist das nächste CSS-Thema, auf das Sie sich konzentrieren sollten, das Styling von Text — eine der häufigsten Aufgaben, die Sie mit CSS erledigen werden. Hier betrachten wir die Grundlagen des Textstylings, einschließlich der Einstellung von Schriftarten, Fettdruck, Kursivschrift, Zeilen- und Buchstabenabständen, Schlagschatten und anderen Texteigenschaften. Wir schließen das Modul ab, indem wir uns mit der Anwendung von benutzerdefinierten Schriftarten auf Ihre Seite und dem Styling von Listen und Links beschäftigen.
+  - : Mit den Grundlagen der CSS-Sprache, die abgedeckt wurden, konzentriert sich das nächste CSS-Thema auf die Textgestaltung — eines der häufigsten Dinge, die Sie mit CSS tun werden. Hier betrachten wir die Grundlagen der Textgestaltung, einschließlich Schriftart, Fettdruck, Kursivschrift, Zeilen- und Buchstabenabstand, Schlagschatten und andere Texteigenschaften. Wir schließen das Modul ab, indem wir uns der Anwendung benutzerdefinierter Schriftarten auf Ihre Seite und der Gestaltung von Listen und Links widmen.
 
 - [CSS-Layout](/de/docs/Learn/CSS/CSS_layout)
-  - : An diesem Punkt haben wir uns bereits mit den Grundlagen von CSS befasst, wie man Text stylt und wie man die Boxen stylt und manipuliert, in denen Ihre Inhalte enthalten sind. Jetzt ist es an der Zeit zu lernen, wie man Ihre Boxen im richtigen Verhältnis zum Ansichtsfenster und zueinander platziert. Wir haben die notwendigen Voraussetzungen besprochen, sodass wir nun tief in das CSS-Layout eintauchen können, indem wir uns verschiedene Anzeigeeinstellungen, moderne Layout-Tools wie Flexbox, CSS-Grid und Positionierung sowie einige ältere Techniken ansehen, die Sie möglicherweise noch kennen sollten.
+  - : An diesem Punkt haben wir bereits die CSS-Grundlagen, wie man Text gestaltet und wie man die Boxen, in denen Ihr Inhalt sitzt, gestaltet und manipuliert. Jetzt ist es an der Zeit zu lernen, wie man Ihre Boxen an den richtigen Platz im Verhältnis zum Ansichtsfenster und zueinander platziert. Wir haben die notwendigen Voraussetzungen abgedeckt, damit wir nun tief in das CSS-Layout eintauchen können, verschiedene Anzeigeeinstellungen, moderne Layout-Tools wie Flexbox, CSS-Grid und Positionierung sowie einige der älteren Techniken, die Sie möglicherweise noch kennen möchten.
 
-## Lösung häufiger CSS-Probleme
+## Häufige CSS-Probleme lösen
 
-[Verwenden Sie CSS, um häufige Probleme zu lösen](/de/docs/Learn/CSS/Howto) bietet Links zu Inhalten, die erklären, wie CSS verwendet wird, um sehr häufige Probleme bei der Erstellung einer Webseite zu lösen.
+[CSS verwenden, um häufige Probleme zu lösen](/de/docs/Learn/CSS/Howto) bietet Links zu Inhalten, die erklären, wie man CSS verwendet, um sehr häufige Probleme bei der Erstellung einer Webseite zu lösen.
 
-Von Anfang an werden Sie hauptsächlich Farben auf HTML-Elemente und deren Hintergründe anwenden; die Größe, Form und Position von Elementen ändern; und Ränder auf Elementen hinzufügen und definieren. Aber es gibt nicht viel, was Sie nicht tun können, wenn Sie ein solides Verständnis selbst der Grundlagen von CSS haben. Eines der besten Dinge am Lernen von CSS ist, dass Sie, sobald Sie die Grundlagen kennen, normalerweise ein ziemlich gutes Gefühl dafür haben, was getan werden kann und was nicht, selbst wenn Sie nicht wissen, wie es noch gemacht wird!
+Von Anfang an werden Sie hauptsächlich Farben auf HTML-Elemente und deren Hintergründe anwenden; die Größe, Form und Position von Elementen ändern; und Rahmen auf Elemente hinzufügen und definieren. Aber es gibt nicht viel, was Sie nicht tun können, sobald Sie ein solides Verständnis der Grundlagen von CSS haben. Eines der besten Dinge beim Erlernen von CSS ist, dass Sie, sobald Sie die Grundlagen kennen, normalerweise ein gutes Gefühl dafür haben, was möglich ist und was nicht, auch wenn Sie noch nicht wissen, wie man es macht!
 
 ## "CSS ist seltsam"
 
-CSS funktioniert etwas anders als die meisten Programmiersprachen und Designwerkzeuge, auf die Sie stoßen werden. Warum funktioniert es so, wie es funktioniert? Im folgenden Video gibt Miriam Suzanne eine hilfreiche Erklärung, warum CSS so funktioniert, wie es funktioniert, und warum es sich so entwickelt hat, wie es ist:
+CSS funktioniert etwas anders als die meisten Programmiersprachen und Design-Tools, auf die Sie stoßen werden. Warum funktioniert es so, wie es funktioniert? Im folgenden Video gibt Miriam Suzanne eine nützliche Erklärung dafür, warum CSS funktioniert, wie es funktioniert und warum es sich so entwickelt hat:
 
 {{EmbedYouTube("aHUtMbJw8iA")}}
 
 ## Siehe auch
 
 - [CSS auf MDN](/de/docs/Web/CSS)
-  - : Der Haupteinstiegspunkt für CSS-Dokumentation auf MDN, wo Sie detaillierte Referenzdokumentationen für alle Funktionen der CSS-Sprache finden. Möchten Sie alle Werte wissen, die eine Eigenschaft annehmen kann? Dies ist ein guter Ort, um danach zu suchen.
+  - : Der Haupteinstiegspunkt für CSS-Dokumentation auf MDN, wo Sie ausführliche Referenzdokumentation zu allen Funktionen der CSS-Sprache finden. Möchten Sie wissen, welche Werte eine Eigenschaft annehmen kann? Dies ist ein guter Ort, um danach zu suchen.

@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **WEBGL_lose_context** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt Funktionen bereit, um das Verlieren und Wiederherstellen eines {{domxref("WebGLRenderingContext")}} zu simulieren.
+Die **WEBGL_lose_context** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und bietet Funktionen, um das Verlieren und Wiederherstellen eines [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) zu simulieren.
 
-WebGL-Erweiterungen sind über die Methode {{domxref("WebGLRenderingContext.getExtension()")}} verfügbar. Weitere Informationen finden Sie unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist sowohl für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} als auch für {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} Kontexte verfügbar.
+> Diese Erweiterung ist in sowohl {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} als auch {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} Kontexten verfügbar.
 
 ## Instanzmethoden
 
-- {{domxref("WEBGL_lose_context.loseContext()")}}
-  - : Simuliert das Verlieren des Kontextes.
-- {{domxref("WEBGL_lose_context.restoreContext()")}}
-  - : Simuliert das Wiederherstellen des Kontextes.
+- [`WEBGL_lose_context.loseContext()`](/de/docs/Web/API/WEBGL_lose_context/loseContext)
+  - : Simuliert das Verlieren des Kontexts.
+- [`WEBGL_lose_context.restoreContext()`](/de/docs/Web/API/WEBGL_lose_context/restoreContext)
+  - : Simuliert das Wiederherstellen des Kontexts.
 
 ## Beispiele
 
-Mit dieser Erweiterung können Sie die Ereignisse [`webglcontextlost`](/de/docs/Web/API/HTMLCanvasElement/webglcontextlost_event) und [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event) simulieren:
+Mit dieser Erweiterung können Sie die [`webglcontextlost`](/de/docs/Web/API/HTMLCanvasElement/webglcontextlost_event) und [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event) Ereignisse simulieren:
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -36,18 +36,18 @@ canvas.addEventListener("webglcontextlost", (event) => {
 
 gl.getExtension("WEBGL_lose_context").loseContext();
 
-// Ein WebGLContextEvent-Ereignis mit dem Typ "webglcontextlost" wird protokolliert.
+// WebGLContextEvent event with type "webglcontextlost" is logged.
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.isContextLost()")}}
+- [`WebGLRenderingContext.isContextLost()`](/de/docs/Web/API/WebGLRenderingContext/isContextLost)
 - Ereignisse: [`webglcontextlost`](/de/docs/Web/API/HTMLCanvasElement/webglcontextlost_event), [`webglcontextrestored`](/de/docs/Web/API/HTMLCanvasElement/webglcontextrestored_event), [`webglcontextcreationerror`](/de/docs/Web/API/HTMLCanvasElement/webglcontextcreationerror_event)

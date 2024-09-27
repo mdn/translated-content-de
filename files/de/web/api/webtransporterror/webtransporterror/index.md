@@ -1,5 +1,5 @@
 ---
-title: "WebTransportError: WebTransportError()-Konstruktor"
+title: "WebTransportError: WebTransportError() Konstruktor"
 short-title: WebTransportError()
 slug: Web/API/WebTransportError/WebTransportError
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Der **`WebTransportError()`**-Konstruktor erstellt eine neue Instanz des {{domxref("WebTransportError")}}-Objekts.
+Der **`WebTransportError()`** Konstruktor erstellt eine neue [`WebTransportError`](/de/docs/Web/API/WebTransportError) Objektinstanz.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ new WebTransportError(init)
     - `message`
       - : Ein String, der den aufgetretenen Fehler beschreibt.
     - `streamErrorCode`
-      - : Eine Zahl im Bereich von 0-255, die den Anwendungsprotokoll-Fehlercode für diesen Fehler angibt.
+      - : Eine Zahl im Bereich 0-255, die den Anwendungsprotokoll-Fehlercode für diesen Fehler angibt.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell nutzen. Ein neues `WebTransportError`-Objekt wird erstellt, wenn ein Fehler im Zusammenhang mit WebTransport auftritt, zum Beispiel ein Serverfehler oder ein Netzwerkverbindungsproblem.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `WebTransportError` Objekt wird erstellt, wenn ein Fehler im Zusammenhang mit WebTransport auftritt, z. B. ein Serverfehler oder ein Netzwerkverbindungsproblem.
 
 ```js
 const url = "notaurl";
@@ -61,7 +61,7 @@ async function initTransport(url) {
 
 ## Siehe auch
 
-- [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
-- [WebTransport over HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)
+- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
+- [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

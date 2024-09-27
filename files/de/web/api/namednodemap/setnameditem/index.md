@@ -1,5 +1,5 @@
 ---
-title: "NamedNodeMap: Methode setNamedItem()"
+title: "NamedNodeMap: setNamedItem() Methode"
 short-title: setNamedItem()
 slug: Web/API/NamedNodeMap/setNamedItem
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`setNamedItem()`**-Methode der {{domxref("NamedNodeMap")}}-Schnittstelle fügt das durch seinen Namen identifizierte {{domxref("Attr")}} der Map hinzu. Wenn bereits ein {{domxref("Attr")}} mit demselben Namen in der Map vorhanden ist, wird es _ersetzt_.
+Die **`setNamedItem()`**-Methode der [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Schnittstelle fügt das durch seinen Namen identifizierte [`Attr`](/de/docs/Web/API/Attr) dem Map hinzu. Wenn bereits ein [`Attr`](/de/docs/Web/API/Attr) mit demselben Namen im Map vorhanden ist, wird es _ersetzt_.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setNamedItem(attr)
 ### Parameter
 
 - `attr`
-  - : das Attribut, das in die Map eingefügt werden soll.
+  - : Das Attribut, das in das Map eingefügt werden soll.
 
 ### Rückgabewert
 
@@ -27,8 +27,8 @@ Gibt das alte Attribut zurück, wenn es ersetzt wurde, oder `null`, wenn das Att
 
 ### Ausnahmen
 
-- `InUseAttributeError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das Attribut noch Teil einer anderen Map ist.
+- `InUseAttributeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das Attribut noch Teil eines anderen Maps ist.
 
 ## Beispiel
 
@@ -42,19 +42,19 @@ const span = document.querySelector("span");
 const pre = document.querySelector("pre");
 const attrMap = pre.attributes;
 
-let result = `Das '<pre>'-Element enthält anfänglich ${attrMap.length} Attribute.\n\n`;
+let result = `The '<pre>' element initially contains ${attrMap.length} attributes.\n\n`;
 
-result += "Wir entfernen `one` aus `<span>` und fügen es zu `<pre>` hinzu.\n";
+result += "We remove `one` from `<span>` and adds it to `<pre>`.\n";
 const one = span.attributes.removeNamedItem("one");
 attrMap.setNamedItem(one);
-result += `Das '<pre>'-Element enthält jetzt ${pre.attributes.length} Attribute.\n\n`;
+result += `The '<pre>' element now contains ${pre.attributes.length} attributes.\n\n`;
 
-result += "Wir holen 'two' von '<span>' und versuchen, es zu `<pre>` hinzuzufügen.\n";
+result += "We get 'two' from '<span>' and try to adds it to '<pre>'.\n";
 const two = span.attributes.getNamedItem("two");
 try {
   attrMap.setNamedItem(two);
 } catch (error) {
-  result += `Eine Ausnahme wurde ausgelöst: ${error.name}.\n`;
+  result += `An exception has been raised: ${error.name}.\n`;
 }
 
 pre.textContent = result;

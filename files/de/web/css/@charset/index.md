@@ -7,17 +7,17 @@ l10n:
 
 {{CSSRef}}
 
-Die **`@charset`** [CSS](/de/docs/Web/CSS) Regel gibt die Zeichencodierung an, die im Stylesheet verwendet wird. Diese Syntax ist nützlich, wenn nicht-{{Glossary("ASCII")}}-Zeichen in einigen CSS-Eigenschaften wie {{ cssxref("content") }} verwendet werden. Obwohl das erste Zeichen in `@charset` das `@`-Symbol ist, handelt es sich nicht um eine [At-Regel](/de/docs/Web/CSS/At-rule). Es ist eine spezifische Byte-Sequenz, die nur am Anfang eines Stylesheets stehen darf. Keine anderen Zeichen außer dem Unicode-Byte-Order-Mark sind davor erlaubt. Es folgt auch nicht den normalen CSS-Syntaxregeln wie der Verwendung von Anführungszeichen oder Leerzeichen.
+Die **`@charset`** [CSS](/de/docs/Web/CSS)-Regel gibt die im Stylesheet verwendete Zeichenkodierung an. Diese Syntax ist nützlich, wenn in einigen CSS-Eigenschaften, wie z.B. {{ cssxref("content") }}, nicht-[ASCII](/de/docs/Glossary/ASCII)-Zeichen verwendet werden. Obwohl das erste Zeichen in `@charset` das `@`-Symbol ist, handelt es sich nicht um eine [At-Regel](/de/docs/Web/CSS/At-rule). Es ist eine spezifische Byte-Sequenz, die nur ganz am Anfang eines Stylesheets platziert werden kann. Keine anderen Zeichen, außer das Unicode-Byte-Order-Mark, sind davor erlaubt. Es folgt auch nicht den normalen CSS-Syntaxregeln wie der Verwendung von Anführungszeichen oder Leerzeichen.
 
-Wenn ein `@charset` nicht als Zeichensatzerklärung erkannt wird, wird es als normale At-Regel geparst. Das [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax) Modul hebt dieses Fallback-Verhalten auf und definiert es als nicht erkannte Legacy-Regel, die fallen gelassen werden soll, wenn ein Stylesheet grammatikalisch überprüft wird.
+Wenn ein `@charset` nicht als Charset-Deklaration erkannt wird, wird es als normale At-Regel geparst. Das [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax)-Modul veraltet dieses Fallback-Verhalten und definiert es als unerkannte Legacy-Regel, die verworfen werden soll, wenn ein Stylesheet einer Grammatikprüfung unterzogen wird.
 
-Da es mehrere Möglichkeiten gibt, die Zeichencodierung eines Stylesheets zu definieren, wird der Browser die folgenden Methoden in der folgenden Reihenfolge ausprobieren (und stoppen, sobald eine ein Ergebnis liefert):
+Da es mehrere Möglichkeiten gibt, die Zeichenkodierung eines Stylesheets zu definieren, wird der Browser die folgenden Methoden in der folgenden Reihenfolge versuchen (und aufhören, sobald eine ein Ergebnis liefert):
 
-1. Der Wert des [Unicode-Byte-Order](https://en.wikipedia.org/wiki/Byte_order_mark)-Zeichens, das am Anfang der Datei steht.
-2. Der im `charset`-Attribut des `Content-Type:` HTTP-Headers oder das Äquivalent im verwendeten Protokoll für das Servern des Stylesheets angegebene Wert.
-3. Die `@charset` CSS-Deklaration.
-4. Verwenden Sie die Zeichencodierung, die durch das referenzierende Dokument definiert wird: das `charset`-Attribut des {{ HTMLElement("link") }}-Elements. Diese Methode ist veraltet und sollte nicht verwendet werden.
-5. Annehmen, dass das Dokument UTF-8 ist.
+1. Der Wert des [Unicode-Byte-Order](https://en.wikipedia.org/wiki/Byte_order_mark)-Zeichens, das am Anfang der Datei platziert wird.
+2. Der Wert, der durch das `charset`-Attribut des `Content-Type:`-HTTP-Headers oder das Äquivalent im Protokoll, das zum Bereitstellen des Stylesheets verwendet wird, angegeben wird.
+3. Die `@charset`-CSS-Deklaration.
+4. Verwenden Sie die Zeichenkodierung, die im verweisenden Dokument definiert ist: das `charset`-Attribut des {{ HTMLElement("link") }}-Elements. Diese Methode ist veraltet und sollte nicht verwendet werden.
+5. Annahme, dass das Dokument UTF-8 ist.
 
 ## Syntax
 
@@ -33,21 +33,21 @@ Da es mehrere Möglichkeiten gibt, die Zeichencodierung eines Stylesheets zu def
 ```
 
 - _charset_
-  - : Ein {{cssxref("&lt;string&gt;")}}, das die zu verwendende Zeichencodierung angibt. Es muss der Name einer web-sicheren Zeichencodierung sein, die im [IANA-Register](https://www.iana.org/assignments/character-sets/character-sets.xhtml) definiert ist, und muss doppelt in Anführungszeichen gesetzt werden, genau einem Leerzeichen (U+0020) folgen und sofort mit einem Semikolon beendet werden. Wenn mehrere Namen mit einer Codierung assoziiert sind, darf nur der als _bevorzugt_ markierte verwendet werden.
+  - : Ein {{cssxref("&lt;string&gt;")}}, der die zu verwendende Zeichenkodierung angibt. Es muss der Name einer web-sicheren Zeichenkodierung sein, die im [IANA-Register](https://www.iana.org/assignments/character-sets/character-sets.xhtml) definiert ist, und muss in doppelte Anführungszeichen gesetzt werden, wobei genau ein Leerzeichen (U+0020) folgt und sofort mit einem Semikolon abgeschlossen wird. Wenn mehrere Namen mit einer Kodierung verbunden sind, darf nur derjenige verwendet werden, der mit _preferred_ gekennzeichnet ist.
 
 ## Beispiele
 
-### Gültige und ungültige Zeichensatzerklärungen
+### Gültige und ungültige Charset-Deklarationen
 
 ```css-nolint example-good
-@charset "UTF-8"; /* Setzen Sie die Codierung des Stylesheets auf Unicode UTF-8 */
+@charset "UTF-8"; /* Set the encoding of the style sheet to Unicode UTF-8 */
 ```
 
 ```css-nolint example-bad
-@charset 'iso-8859-15'; /* Ungültig, falsche Anführungszeichen verwendet */
-@charset  "UTF-8"; /* Ungültig, mehr als ein Leerzeichen */
- @charset "UTF-8"; /* Ungültig, da ist ein Zeichen (ein Leerzeichen) vor den Deklarationen */
-@charset UTF-8; /* Ungültig, der Zeichensatz ist ein CSS <string> und erfordert doppelte Anführungszeichen */
+@charset 'iso-8859-15'; /* Invalid, wrong quotes used */
+@charset  "UTF-8"; /* Invalid, more than one space */
+ @charset "UTF-8"; /* Invalid, there is a character (a space) before the declarations */
+@charset UTF-8; /* Invalid, the charset is a CSS <string> and requires double-quotes */
 ```
 
 ## Spezifikationen

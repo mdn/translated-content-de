@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM XPath")}}
 
-Die **`iterateNext()`**-Methode der {{domxref("XPathResult")}}-Schnittstelle iteriert über ein Knoten-Set-Ergebnis und gibt den nächsten Knoten daraus zurück oder `null`, wenn keine weiteren Knoten vorhanden sind.
+Die **`iterateNext()`**-Methode der [`XPathResult`](/de/docs/Web/API/XPathResult)-Schnittstelle iteriert über ein Knoten-Set-Ergebnis und gibt den nächsten Knoten daraus zurück oder `null`, wenn keine weiteren Knoten vorhanden sind.
 
 ## Syntax
 
@@ -22,27 +22,27 @@ Keine.
 
 ### Rückgabewert
 
-Der nächste {{domxref("Node")}} innerhalb des Knoten-Sets des `XPathResult`.
+Der nächste [`Node`](/de/docs/Web/API/Node) innerhalb des Knotensets des `XPathResult`.
 
 ### Ausnahmen
 
 #### TYPE_ERR
 
-Falls {{domxref("XPathResult.resultType")}} nicht `UNORDERED_NODE_ITERATOR_TYPE` oder `ORDERED_NODE_ITERATOR_TYPE` ist, wird eine {{domxref("XPathException")}} vom Typ `TYPE_ERR` ausgelöst.
+Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `UNORDERED_NODE_ITERATOR_TYPE` oder `ORDERED_NODE_ITERATOR_TYPE` ist, wird eine [`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
 
 #### INVALID_STATE_ERR
 
-Falls das Dokument seit der Rückgabe des Ergebnisses verändert wurde, wird eine {{domxref("XPathException")}} vom Typ `INVALID_STATE_ERR` ausgelöst.
+Falls das Dokument seit der Rückgabe des Ergebnisses verändert wurde, wird eine [`XPathException`](/de/docs/Web/API/XPathException) vom Typ `INVALID_STATE_ERR` ausgelöst.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Verwendung der `iterateNext()`-Methode.
+Das folgende Beispiel zeigt die Verwendung der Methode `iterateNext()`.
 
 ### HTML
 
 ```html
-<div>XPath-Beispiel</div>
-<div>Tag-Namen der übereinstimmenden Knoten: <output></output></div>
+<div>XPath example</div>
+<div>Tag names of the matched nodes: <output></output></div>
 ```
 
 ### JavaScript

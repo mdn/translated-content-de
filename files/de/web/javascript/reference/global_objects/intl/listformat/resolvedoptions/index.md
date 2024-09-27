@@ -8,7 +8,7 @@ l10n:
 {{JSRef}}
 
 Die **`resolvedOptions()`**-Methode von {{jsxref("Intl.ListFormat")}}-Instanzen
-gibt ein neues Objekt mit Eigenschaften zurück, die die beim Erstellen dieses `Intl.ListFormat`-Objekts berechneten Lokalisierungs- und Formatierungsoptionen widerspiegeln.
+gibt ein neues Objekt mit Eigenschaften zurück, die die während der Konstruktion dieses `Intl.ListFormat`-Objekts berechneten Locale- und Stilformatierungsoptionen widerspiegeln.
 
 {{EmbedInteractiveExample("pages/js/intl-listformat-prototype-resolvedoptions.html")}}
 
@@ -24,18 +24,18 @@ Keine.
 
 ### Rückgabewert
 
-Ein Objekt mit Eigenschaften, die die bei der Konstruktion des gegebenen {{jsxref("Intl.ListFormat")}}-Objekts berechneten Lokalisierungs- und Formatierungsoptionen widerspiegeln.
+Ein Objekt mit Eigenschaften, die die während der Konstruktion des gegebenen {{jsxref("Intl.ListFormat")}}-Objekts berechneten Locale- und Formatierungsoptionen widerspiegeln.
 
 ## Beschreibung
 
-Das von `resolvedOptions()` zurückgegebene Objekt hat die folgenden Eigenschaften:
+Das durch `resolvedOptions()` zurückgegebene Objekt hat die folgenden Eigenschaften:
 
 - `locale`
-  - : Das BCP 47-Sprachkennungsetikett für die tatsächlich verwendete Lokale. Wenn in der Eingabe des BCP 47-Sprachkennungsetiketts Unicode-Erweiterungswerte angefordert wurden, die zu dieser Lokale führten, sind die angeforderten und unterstützten Schlüssel-Wert-Paare für diese Lokale in `locale` enthalten.
+  - : Der BCP 47-Sprachcode für das tatsächlich verwendete Locale. Wenn im Eingabe-BCP 47-Sprachcode Unicode-Erweiterungswerte angefordert wurden, die zu diesem Locale führten, sind die angeforderten und für dieses Locale unterstützten Schlüssel-Wert-Paare in `locale` enthalten.
 - `style`
-  - : Der in dem `options`-Argument des Konstruktors angegebene Wert oder der Standardwert (`"long"`). Der Wert ist entweder `"long"`, `"short"` oder `"narrow"`.
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument des Konstruktors bereitgestellt wurde, oder der Standardwert (`"long"`). Der Wert ist entweder `"long"`, `"short"` oder `"narrow"`.
 - `type`
-  - : Der in dem `options`-Argument des Konstruktors angegebene Wert oder der Standardwert (`"conjunction"`). Der Wert ist entweder `"conjunction"`, `"disjunction"` oder `"unit"`.
+  - : Der Wert, der für diese Eigenschaft im `options`-Argument des Konstruktors bereitgestellt wurde, oder der Standardwert (`"conjunction"`). Der Wert ist entweder `"conjunction"`, `"disjunction"` oder `"unit"`.
 
 ## Beispiele
 
@@ -44,10 +44,10 @@ Das von `resolvedOptions()` zurückgegebene Objekt hat die folgenden Eigenschaft
 ```js
 const deListFormatter = new Intl.ListFormat("de-DE", { style: "short" });
 
-const usedOptions = deListFormatter.resolvedOptions();
+const usedOptions = de.resolvedOptions();
 console.log(usedOptions.locale); // "de-DE"
 console.log(usedOptions.style); // "short"
-console.log(usedOptions.type); // "conjunction" (der Standardwert)
+console.log(usedOptions.type); // "conjunction" (the default value)
 ```
 
 ## Spezifikationen

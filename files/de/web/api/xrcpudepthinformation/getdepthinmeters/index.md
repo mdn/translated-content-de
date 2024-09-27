@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die Methode **`getDepthInMeters()`** des {{DOMxRef("XRCPUDepthInformation")}}-Interfaces gibt die Tiefe in Metern an den Koordinaten (x, y) in normalisierten Ansichtskoordinaten zurück (Ursprung in der oberen linken Ecke).
+Die **`getDepthInMeters()`** Methode der Schnittstelle [`XRCPUDepthInformation`](/de/docs/Web/API/XRCPUDepthInformation) gibt die Tiefe in Metern bei (x, y) in normalisierten Ansichtskoordinaten zurück (Ursprung in der linken oberen Ecke).
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Ein {{jsxref("RangeError")}} wird ausgelöst, wenn `x` oder `y` größer als 1,0 oder kleiner als 0,0 sind.
+- Ein {{jsxref("RangeError")}} wird ausgelöst, wenn `x` oder `y` größer als 1.0 oder kleiner als 0.0 sind.
 
 ## Beispiele
 

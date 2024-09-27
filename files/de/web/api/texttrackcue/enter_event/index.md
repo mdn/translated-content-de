@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Das **`enter`** Ereignis wird ausgelöst, wenn ein Cue aktiv wird. Im Falle von Untertiteln oder einer Bildunterschrift ist dies, wenn es über die Medien angezeigt wird.
+Das **`enter`** Ereignis wird ausgelöst, wenn ein Cue aktiv wird. Im Fall von Untertiteln oder einer Bildunterschrift ist dies, wenn sie über dem Medium angezeigt werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js
 addEventListener("enter", (event) => {});
@@ -22,11 +22,11 @@ onenter = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{DOMxRef("Event")}} ohne zusätzliche Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beispiel
 
-Im folgenden Beispiel wird `cue1` in die Konsole ausgegeben, wenn es das aktive Cue ist.
+Im folgenden Beispiel wird `cue1` an die Konsole ausgegeben, wenn es das aktive Cue ist.
 
 ```js
 cue1.addEventListener("enter", (event) => {

@@ -1,5 +1,5 @@
 ---
-title: "Window: languagechange Ereignis"
+title: "Window: languagechange-Ereignis"
 short-title: languagechange
 slug: Web/API/Window/languagechange_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das **`languagechange`** Ereignis wird am globalen Scope-Objekt ausgelöst, wenn sich die bevorzugte Sprache des Benutzers ändert.
+Das **`languagechange`**-Ereignis wird an das globale Scope-Objekt gesendet, wenn sich die bevorzugte Sprache des Benutzers ändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungseigenschaft.
 
 ```js
 addEventListener("languagechange", (event) => {});
@@ -21,19 +21,19 @@ onlanguagechange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Aliase für Ereignis-Handler
+## Ereignis-Handler-Aliase
 
-Neben der `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `onlanguagechange` auch auf folgenden Zielen verfügbar:
+Zusätzlich zur `Window`-Schnittstelle ist die Ereignisbehandlungseigenschaft `onlanguagechange` auch auf den folgenden Zielen verfügbar:
 
-- {{domxref("HTMLBodyElement")}}
-- {{domxref("HTMLFrameSetElement")}}
-- {{domxref("SVGSVGElement")}}
+- [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
+- [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
+- [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)
 
 ## Beispiele
 
-Sie können das `languagechange` Ereignis in einer {{domxref("EventTarget/addEventListener", "addEventListener")}}-Methode verwenden:
+Sie können das `languagechange`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
 window.addEventListener("languagechange", () => {
@@ -41,7 +41,7 @@ window.addEventListener("languagechange", () => {
 });
 ```
 
-Oder verwenden Sie die `onlanguagechange` Ereignis-Handler-Eigenschaft:
+Oder verwenden Sie die `onlanguagechange`-Ereignisbehandlungseigenschaft:
 
 ```js
 window.onlanguagechange = (event) => {
@@ -59,6 +59,6 @@ window.onlanguagechange = (event) => {
 
 ## Siehe auch
 
-- {{domxref("navigator.language")}}
-- {{domxref("navigator.languages")}}
-- {{domxref("navigator")}}
+- [`navigator.language`](/de/docs/Web/API/Navigator/language)
+- [`navigator.languages`](/de/docs/Web/API/Navigator/languages)
+- [`navigator`](/de/docs/Web/API/Navigator)

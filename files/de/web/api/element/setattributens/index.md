@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-`setAttributeNS` fügt ein neues Attribut hinzu oder ändert den Wert eines Attributs mit dem angegebenen Namensraum und Namen.
+`setAttributeNS` fügt ein neues Attribut hinzu oder ändert den Wert eines Attributs mit dem angegebenen Namespace und Namen.
 
-Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines bestimmten Namensraums angeben müssen, verwenden Sie stattdessen die {{domxref("Element.setAttribute()", "setAttribute()")}} Methode.
+Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines bestimmten Namespace angeben müssen, verwenden Sie stattdessen die [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) Methode.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ setAttributeNS(namespace, name, value)
 ### Parameter
 
 - `namespace`
-  - : Ein String, der den Namensraum des Attributs angibt.
+  - : Ein String, der den Namespace des Attributs angibt.
 - `name`
-  - : Ein String, der das Attribut anhand seines qualifizierten Namens identifiziert; das heißt, ein Namensraum-Präfix gefolgt von einem Doppelpunkt und einem lokalen Namen.
+  - : Ein String, der das Attribut mit seinem qualifizierten Namen identifiziert, also ein Namespace-Prefix gefolgt von einem Doppelpunkt und einem lokalen Namen.
 - `value`
   - : Der gewünschte String-Wert des neuen Attributs.
 
@@ -44,7 +44,7 @@ d.setAttributeNS(
 
 ## Hinweise
 
-`setAttributeNS` ist die einzige Methode für attributierte Namensräume, die den voll qualifizierten Namen erwartet, d.h. `"namespace:localname"`.
+`setAttributeNS` ist die einzige Methode für Namespaced-Attribute, die den voll qualifizierten Namen erwartet, d.h. `"namespace:localname"`.
 
 ## Spezifikationen
 
@@ -56,6 +56,6 @@ d.setAttributeNS(
 
 ## Siehe auch
 
-- {{domxref("Element.hasAttributeNS()")}}
-- {{domxref("Element.getAttributeNS()")}}
-- {{domxref("Element.removeAttributeNS()")}}
+- [`Element.hasAttributeNS()`](/de/docs/Web/API/Element/hasAttributeNS)
+- [`Element.getAttributeNS()`](/de/docs/Web/API/Element/getAttributeNS)
+- [`Element.removeAttributeNS()`](/de/docs/Web/API/Element/removeAttributeNS)

@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`addTrack()`**-Methode der {{domxref("MediaStream")}}-Schnittstelle fügt dem Stream einen neuen Track hinzu. Der Track wird als Parameter vom Typ {{domxref("MediaStreamTrack")}} angegeben.
+Die **`addTrack()`**-Methode der [`MediaStream`](/de/docs/Web/API/MediaStream)-Schnittstelle fügt dem Stream einen neuen Track hinzu. Der Track wird als Parameter des Typs [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) spezifiziert.
 
 > [!NOTE]
-> Wenn der angegebene Track bereits im Track-Set des Streams vorhanden ist, hat diese Methode keine Wirkung.
+> Wenn der angegebene Track bereits in der Track-Menge des Streams enthalten ist, hat diese Methode keine Wirkung.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ addTrack(track)
 ### Parameter
 
 - `track`
-  - : Ein {{domxref("MediaStreamTrack")}}, der dem Stream hinzugefügt werden soll.
+  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der dem Stream hinzugefügt werden soll.
 
 ### Rückgabewert
 
@@ -40,4 +40,4 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- {{domxref("MediaStream")}}, die Schnittstelle, zu der es gehört.
+- [`MediaStream`](/de/docs/Web/API/MediaStream), die Schnittstelle, zu der sie gehört.

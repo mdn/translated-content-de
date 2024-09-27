@@ -1,5 +1,5 @@
 ---
-title: "MediaStream: getTracks() Methode"
+title: "MediaStream: Methode getTracks()"
 short-title: getTracks()
 slug: Web/API/MediaStream/getTracks
 l10n:
@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`getTracks()`** Methode der {{domxref("MediaStream")}} Schnittstelle gibt eine Sequenz zurück, die alle {{domxref("MediaStreamTrack")}} Objekte in diesem Stream's [track set](https://www.w3.org/TR/mediacapture-streams/#track-set) repräsentiert, unabhängig vom {{domxref("MediaStreamTrack.kind")}}.
+Die Methode **`getTracks()`** der
+[`MediaStream`](/de/docs/Web/API/MediaStream)-Schnittstelle gibt eine Sequenz zurück, die alle
+[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte in diesem
+Stream's [Track-Set](https://www.w3.org/TR/mediacapture-streams/#track-set) darstellt, unabhängig von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind).
 
 ## Syntax
 
@@ -22,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von {{domxref("MediaStreamTrack")}} Objekten.
+Ein Array von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekten.
 
 ## Beispiele
 
@@ -31,7 +34,7 @@ navigator.mediaDevices
   .getUserMedia({ audio: false, video: true })
   .then((mediaStream) => {
     document.querySelector("video").srcObject = mediaStream;
-    // Stoppen Sie den Stream nach 5 Sekunden
+    // Stop the stream after 5 seconds
     setTimeout(() => {
       const tracks = mediaStream.getTracks();
       tracks[0].stop();

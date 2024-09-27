@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`timestamp`**-Eigenschaft des {{domxref("RTCCodecStats")}}-Wörterbuchs ist ein {{domxref("DOMHighResTimeStamp")}}-Objekt, das die Zeit angibt, zu der die Daten im Objekt erfasst wurden.
+Die **`timestamp`**-Eigenschaft des [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Wörterbuchs ist ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das die Zeit angibt, zu der die Daten in dem Objekt erfasst wurden.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}-Wert, der die Zeit angibt, zu der die durch die Statistiken in diesem Objekt beschriebene Aktivität aufgezeichnet wurde, in Millisekunden seit dem Beginn des 1. Januar 1970, UTC.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert, der die Zeit angibt, zu der die Aktivität, die durch die Statistiken in diesem Objekt beschrieben wird, aufgezeichnet wurde, in Millisekunden seit dem Beginn des 1. Januar 1970, UTC.
 
-Der Wert sollte auf einige Millisekunden genau sein, kann jedoch aufgrund von Hardware- oder Betriebssystemeinschränkungen oder aufgrund von [Fingerabdruckschutz](/de/docs/Glossary/Fingerprinting) in Form von verringerter Taktgenauigkeit oder -präzision möglicherweise nicht vollständig präzise sein.
+Der Wert sollte innerhalb von wenigen Millisekunden genau sein, kann aber aufgrund von Hardware- oder Betriebssystembeschränkungen oder wegen [Fingerprinting](/de/docs/Glossary/Fingerprinting)-Schutz in Form von reduzierter Taktpräzision oder Genauigkeit möglicherweise nicht vollständig präzise sein.
 
 ## Spezifikationen
 

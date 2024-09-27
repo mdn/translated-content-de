@@ -11,26 +11,26 @@ Die **`MIDIInput`**-Schnittstelle der [Web MIDI API](/de/docs/Web/API/Web_MIDI_A
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, sondern erbt Eigenschaften von {{domxref("MIDIPort")}}._
+_Diese Schnittstelle implementiert keine speziellen Eigenschaften, erbt jedoch Eigenschaften von [`MIDIPort`](/de/docs/Web/API/MIDIPort)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, sondern erbt Methoden von {{domxref("MIDIPort")}}._
+_Diese Schnittstelle implementiert keine speziellen Methoden, erbt jedoch Methoden von [`MIDIPort`](/de/docs/Web/API/MIDIPort)._
 
 ### Ereignisse
 
-- {{domxref("MIDIInput.midimessage_event", "midimessage")}}
+- [`midimessage`](/de/docs/Web/API/MIDIInput/midimessage_event)
   - : Wird ausgelöst, wenn der aktuelle Port eine MIDI-Nachricht empfängt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Name jedes `MIDIInput` in der Konsole ausgegeben. Danach wird auf allen Eingangsports nach `midimessage`-Ereignissen gehört. Wenn eine Nachricht empfangen wird, wird die {{domxref("MIDIMessageEvent.data")}}-Eigenschaft in der Konsole ausgegeben.
+Im folgenden Beispiel wird der Name jedes `MIDIInput` in die Konsole ausgegeben. Dann wird auf allen Eingangsports auf `midimessage`-Ereignisse gehört. Wenn eine Nachricht empfangen wird, wird die [`MIDIMessageEvent.data`](/de/docs/Web/API/MIDIMessageEvent/data)-Eigenschaft in die Konsole ausgegeben.
 
 ```js
 inputs.forEach((input) => {
-  console.log(input.name); /* geerbte Eigenschaft von MIDIPort */
+  console.log(input.name); /* inherited property from MIDIPort */
   input.onmidimessage = (message) => {
     console.log(message.data);
   };

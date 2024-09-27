@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`valueOf()`**-Methode der {{jsxref("Boolean")}}-Werte gibt den primitiven Wert eines
+Die **`valueOf()`**-Methode von {{jsxref("Boolean")}}-Werten gibt den primitiven Wert eines
 {{jsxref("Boolean")}}-Objekts zurück.
 
 {{EmbedInteractiveExample("pages/js/boolean-valueof.html")}}
@@ -28,7 +28,8 @@ Der primitive Wert des angegebenen {{jsxref("Boolean")}}-Objekts.
 
 ## Beschreibung
 
-Die `valueOf()`-Methode von {{jsxref("Boolean")}} gibt den primitiven Wert eines `Boolean`-Objekts oder eines literalen `Boolean` als booleschen Datentyp zurück.
+Die `valueOf()`-Methode von {{jsxref("Boolean")}} gibt den primitiven Wert
+eines `Boolean`-Objekts oder eines literalen `Boolean` als Boolean-Datentyp zurück.
 
 Diese Methode wird normalerweise intern von JavaScript aufgerufen und nicht explizit im Code.
 
@@ -38,7 +39,7 @@ Diese Methode wird normalerweise intern von JavaScript aufgerufen und nicht expl
 
 ```js
 x = new Boolean();
-myVar = x.valueOf(); // weist myVar den Wert false zu
+myVar = x.valueOf(); // assigns false to myVar
 ```
 
 ## Spezifikationen

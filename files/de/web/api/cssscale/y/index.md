@@ -8,17 +8,15 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`y`**-Eigenschaft der
-{{domxref("CSSScale")}}-Schnittstelle ruft die Ordinate oder y-Achse des
-Verschiebungsvektors ab oder legt diese fest.
+Die **`y`**-Eigenschaft des [`CSSScale`](/de/docs/Web/API/CSSScale)-Interfaces gibt die Ordinate oder y-Achse des Translationsvektors an und setzt sie.
 
 ## Wert
 
-Ein Gleitkommawert oder ein {{domxref("CSSNumericValue")}}
+Ein doppelter Integer oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
 
 ## Beispiele
 
-In Bearbeitung
+Zu erledigen
 
 ## Spezifikationen
 

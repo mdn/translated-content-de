@@ -1,5 +1,5 @@
 ---
-title: 451 Nicht verfügbar aus rechtlichen Gründen
+title: 451 Unavailable For Legal Reasons
 slug: Web/HTTP/Status/451
 l10n:
   sourceCommit: 4dec42ed700040565e8af0e14ff104054ebc20f5
@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`451 Nicht verfügbar aus rechtlichen Gründen`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Benutzer eine Ressource angefordert hat, die aus rechtlichen Gründen nicht verfügbar ist, wie etwa eine Webseite, für die eine rechtliche Verfügung erlassen wurde.
+Der HTTP-Statuscode **`451 Unavailable For Legal Reasons`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Benutzer eine Ressource angefordert hat, die aus rechtlichen Gründen nicht verfügbar ist, wie z.B. eine Webseite, gegen die rechtliche Schritte unternommen wurden.
 
 ## Status
 
@@ -19,12 +19,12 @@ Der HTTP-Statuscode **`451 Nicht verfügbar aus rechtlichen Gründen`** [Client-
 
 ### Antwort mit Link-Header
 
-Dieses Beispiel einer Antwort stammt aus der IETF RFC (siehe unten) und enthält einen Verweis auf [Das Leben des Brian von Monty Python](https://en.wikipedia.org/wiki/Monty_Python's_Life_of_Brian).
+Dieses Beispielantwort stammt aus der IETF RFC (siehe unten) und enthält eine Referenz zu [Monty Python's Life of Brian](https://en.wikipedia.org/wiki/Monty_Python's_Life_of_Brian).
 
 > [!NOTE]
-> Der {{HTTPHeader("Link")}} Header könnte auch eine `rel="blocked-by"` Relation enthalten, die die Entität identifiziert, die die Blockierung implementiert, und nicht irgendeine andere Entität, die diese anordnet.
+> Der {{HTTPHeader("Link")}}-Header könnte auch eine `rel="blocked-by"` Relation enthalten, die die Entität identifiziert, die die Blockierung durchführt, jedoch nicht die Entität, die sie veranlasst hat.
 
-Jeder Versuch, die Entität zu identifizieren, die letztendlich dafür verantwortlich ist, dass die Ressource nicht verfügbar ist, gehört in den Antwortkörper, nicht in den `rel="blocked-by"` Link. Dies schließt den Namen der Person oder Organisation ein, die eine rechtliche Forderung gestellt hat, die zur Entfernung des Inhalts führte.
+Jeder Versuch, die Entität zu identifizieren, die letztlich für die Nichtverfügbarkeit der Ressource verantwortlich ist, sollte im Antwortkörper erfolgen, nicht in dem `rel="blocked-by"` Link. Dazu gehört der Name der Person oder Organisation, die eine rechtliche Forderung gestellt hat, die zur Entfernung des Inhalts geführt hat.
 
 ```http
 HTTP/1.1 451 Unavailable For Legal Reasons
@@ -51,4 +51,4 @@ Content-Type: text/html
 
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
 - [Wikipedia: HTTP 451](https://en.wikipedia.org/wiki/HTTP_451)
-- [Wikipedia: Fahrenheit 451](https://en.wikipedia.org/wiki/Fahrenheit_451) (die diesem Statuscode seine Nummer gab)
+- [Wikipedia: Fahrenheit 451](https://en.wikipedia.org/wiki/Fahrenheit_451) (welches dieser Statuscode seine Nummer verdankt)

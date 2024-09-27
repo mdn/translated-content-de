@@ -1,5 +1,5 @@
 ---
-title: "WorkerGlobalScope: Eigenschaft crossOriginIsolated"
+title: "WorkerGlobalScope: crossOriginIsolated-Eigenschaft"
 short-title: crossOriginIsolated
 slug: Web/API/WorkerGlobalScope/crossOriginIsolated
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die **`crossOriginIsolated`** schreibgeschützte Eigenschaft des {{domxref("WorkerGlobalScope")}}-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob sich die Website in einem Zustand mit Cross-Origin-Isolation befindet. Dieser Zustand mindert das Risiko von Seitenkanalangriffen und ermöglicht einige Fähigkeiten:
+Die **`crossOriginIsolated`** schreibgeschützte Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob sich die Website in einem status der Cross-Origin-Isolation befindet. Dieser Status reduziert das Risiko von Seitenkanalangriffen und ermöglicht einige zusätzliche Fähigkeiten:
 
-- {{JSxRef("SharedArrayBuffer")}} kann erstellt und über einen {{DOMxRef("DedicatedWorkerGlobalScope.postMessage()")}}- oder einen {{DOMxRef("MessagePort.postMessage()")}}-Aufruf gesendet werden.
-- {{DOMxRef("Performance.now()")}} bietet eine bessere Genauigkeit.
-- {{DOMxRef("Performance.measureUserAgentSpecificMemory()")}} kann aufgerufen werden.
+- {{JSxRef("SharedArrayBuffer")}} kann erstellt und über einen Anruf von [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) oder [`MessagePort.postMessage()`](/de/docs/Web/API/MessagePort/postMessage) gesendet werden.
+- [`Performance.now()`](/de/docs/Web/API/Performance/now) bietet eine bessere Genauigkeit.
+- [`Performance.measureUserAgentSpecificMemory()`](/de/docs/Web/API/Performance/measureUserAgentSpecificMemory) kann aufgerufen werden.
 
 Eine Website befindet sich in einem Zustand der Cross-Origin-Isolation, wenn der Antwort-Header {{HTTPHeader("Cross-Origin-Opener-Policy")}} den Wert `same-origin` und der {{HTTPHeader("Cross-Origin-Embedder-Policy")}}-Header den Wert `require-corp` oder `credentialless` hat.
 

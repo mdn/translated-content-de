@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("View Transitions API")}}
 
-Die **`finished`** schreibgeschützte Eigenschaft der {{domxref("ViewTransition")}}-Schnittstelle ist ein {{jsxref("Promise")}}, das erfüllt wird, sobald die Übergangsanimation abgeschlossen ist und die neue Seitenansicht für den Benutzer sichtbar und interaktiv ist.
+Die schreibgeschützte **`finished`**-Eigenschaft der [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Schnittstelle ist ein {{jsxref("Promise")}}, das erfüllt wird, sobald die Übergangsanimation abgeschlossen ist und die neue Seitenansicht für den Benutzer sichtbar und interaktiv ist.
 
-`finished` wird nur im Falle eines gleichen Dokuments (SPA) Übergangs abgelehnt, wenn der an {{domxref("Document.startViewTransition()", "document.startViewTransition()")}} übergebene Rückruf eine Ausnahme auslöst oder ein versprochenes Ergebnis zurückgibt, das abgelehnt wird. Dies würde darauf hinweisen, dass der neue Zustand der Seite nicht erstellt wurde.
+`finished` wird nur im Fall eines Übergangs innerhalb desselben Dokuments (SPA) abgelehnt, wenn der an [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) übergebene Callback eine Ausnahme auslöst oder ein Promise zurückgibt, das abgelehnt wird. Dies würde darauf hinweisen, dass der neue Zustand der Seite nicht erstellt wurde.
 
-Wenn eine Übergangsanimation zu starten fehlschlägt oder während des Übergangs unter Verwendung von {{domxref("ViewTransition.skipTransition()")}} übersprungen wird, wird der Endzustand dennoch erreicht, daher wird `finished` dennoch erfüllt.
+Wenn eine Übergangsanimation nicht gestartet oder während des Übergangs mit [`ViewTransition.skipTransition()`](/de/docs/Web/API/ViewTransition/skipTransition) übersprungen wird, wird der Endzustand dennoch erreicht, daher wird `finished` weiterhin erfüllt.
 
 ## Wert
 
@@ -22,7 +22,7 @@ Ein Promise.
 
 ### Unterschiedliche Übergänge für unterschiedliche Navigationen
 
-Manchmal erfordern bestimmte Navigationen speziell zugeschnittene Übergänge. Beispielsweise kann eine „Zurück“-Navigation einen anderen Übergang als eine „Vorwärts“-Navigation erfordern. Der beste Weg, solche Fälle zu handhaben, besteht darin, einen Klassennamen auf dem `<html>`-Element zu setzen, den Übergang zu handhaben – die korrekte Animation unter Verwendung eines maßgeschneiderten Selektors anzuwenden – und dann den Klassennamen zu entfernen, nachdem der Übergang abgeschlossen ist.
+Manchmal erfordern bestimmte Navigationen speziell angepasste Übergänge. Zum Beispiel könnte eine "Zurück"-Navigation einen anderen Übergang als eine "Vorwärts"-Navigation wünschen. Der beste Weg, solche Fälle zu handhaben, besteht darin, einen Klassennamen auf dem `<html>`-Element zu setzen, den Übergang zu handhaben — die korrekte Animation mit einem angepassten Selektor anzuwenden — und dann den Klassennamen zu entfernen, sobald der Übergang abgeschlossen ist.
 
 ```js
 async function handleTransition() {
@@ -42,16 +42,16 @@ async function handleTransition() {
 }
 ```
 
-> **Note:** `isBackNavigation` ist keine eingebaute Funktionalität; es ist eine theoretische Funktion, die mit der [Navigation API](/de/docs/Web/API/Navigation_API) oder ähnlich implementiert werden könnte.
+> **Note:** `isBackNavigation` ist keine eingebaute Funktion; es ist eine theoretische Funktion, die mithilfe der [Navigation API](/de/docs/Web/API/Navigation_API) oder ähnlich implementiert werden könnte.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Smooth and simple transitions with the View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Sanfte und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)

@@ -1,6 +1,6 @@
 ---
-title: "HTMLInputElement: Gültigkeitseigenschaft"
-short-title: Gültigkeit
+title: "HTMLInputElement: validity-Eigenschaft"
+short-title: validity
 slug: Web/API/HTMLInputElement/validity
 l10n:
   sourceCommit: 2b29051262aa05ce9a630d0dd2d6958f493abe19
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`validity`** schreibgeschützte Eigenschaft des {{domxref("HTMLInputElement")}}-Interfaces gibt ein {{domxref("ValidityState")}}-Objekt zurück, das die Gültigkeitszustände dieses Elements darstellt.
+Die **`validity`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die Gültigkeitszustände dieses Elements darstellt. Diese Eigenschaft ist nur lesbar.
 
 ## Wert
 
-Ein {{domxref("ValidityState")}}-Objekt.
+Ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Gültigkeitsstatus eines Eingabeelements abgerufen und verarbeitet, falls es nicht gültig ist:
+Das folgende Beispiel ermittelt den Gültigkeitszustand eines Eingabeelements und verarbeitet es, falls es ungültig ist:
 
 ```js
 const input = document.getElementById("myInput");
 const validityState = input.validity;
 if (!validityState.valid) {
-  // Testen Sie jeden Gültigkeitszustand
+  // Test each validity state
 }
 ```
 
@@ -36,8 +36,8 @@ if (!validityState.valid) {
 
 ## Siehe auch
 
-- {{domxref("HTMLInputElement.checkValidity()")}}
+- [`HTMLInputElement.checkValidity()`](/de/docs/Web/API/HTMLInputElement/checkValidity)
 - {{HTMLElement("input")}}
 - {{HTMLElement("form")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Eingeschränkte Validierung](/de/docs/Web/HTML/Constraint_validation)
+- [Erfahren Sie mehr: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

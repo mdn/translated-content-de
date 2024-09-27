@@ -1,6 +1,6 @@
 ---
-title: "ServiceWorkerContainer: Fehlerereignis"
-short-title: Fehler
+title: "ServiceWorkerContainer: error event"
+short-title: error
 slug: Web/API/ServiceWorkerContainer/error_event
 l10n:
   sourceCommit: bc0237f139ee3a9db67a669ae1b6bf45ebba7f94
@@ -12,7 +12,7 @@ Das `error`-Ereignis wird ausgelöst, wenn ein Fehler im Service Worker auftritt
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -22,7 +22,7 @@ onerror = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 

@@ -1,5 +1,5 @@
 ---
-title: "Navigator: javaEnabled()-Methode"
+title: "Navigator: javaEnabled() Methode"
 short-title: javaEnabled()
 slug: Web/API/Navigator/javaEnabled
 l10n:
@@ -28,7 +28,7 @@ Der boolesche Wert `false`.
 
 ```js
 if (window.navigator.javaEnabled()) {
-  // Code wird niemals ausgeführt; die Bedingung ist immer false
+  // code will never be executed; the condition is always false
 }
 ```
 

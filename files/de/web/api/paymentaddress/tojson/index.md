@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`toJSON()`**-Methode des {{domxref("PaymentAddress")}}-Interfaces ist ein standardisierter Serializer, der eine JSON-Darstellung der Eigenschaften des PaymentAddress-Objekts zurückgibt.
+Die **`toJSON()`**-Methode der [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Schnittstelle ist ein standardmäßiger Serializer, der eine JSON-Darstellung der Eigenschaften des PaymentAddress-Objekts zurückgibt.
 
 ## Syntax
 

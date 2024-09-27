@@ -7,24 +7,24 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`max`** Anweisungen werden verwendet, um die höhere von zwei Zahlen zu erhalten.
+Die **`max`**-Anweisungen werden verwendet, um die größere von zwei Zahlen zu ermitteln.
 
 {{EmbedInteractiveExample("pages/wat/max.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; zwei Zahlen auf den Stapel laden
+;; load two numbers onto the stack
 f32.const 10
 f32.const 3
 
-;; höhere Zahl erhalten
+;; get higher number
 f32.max
 
-;; das oberste Element auf dem Stapel wird nun 10 sein
+;; the top item on the stack will now be 10
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `f32.max`   | `0x97`         |
-| `f64.max`   | `0xa5`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `f32.max` | `0x97`         |
+| `f64.max` | `0xa5`         |

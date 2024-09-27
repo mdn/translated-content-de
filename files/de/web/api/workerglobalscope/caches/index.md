@@ -8,15 +8,16 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{securecontext_header}}{{AvailableInWorkers("worker")}}
 
-Die **`caches`** schreibgeschützte Eigenschaft der {{domxref("WorkerGlobalScope")}}-Schnittstelle gibt das mit dem aktuellen Kontext verknüpfte {{domxref("CacheStorage")}}-Objekt zurück. Dieses Objekt ermöglicht Funktionen wie das Speichern von Assets zur offline Verwendung und das Erstellen benutzerdefinierter Antworten auf Anfragen.
+Die **`caches`** schreibgeschützte Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt das [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt zurück, das mit dem aktuellen Kontext verbunden ist.
+Dieses Objekt ermöglicht Funktionen wie das Speichern von Assets zur offline Nutzung und das Erstellen benutzerdefinierter Antworten auf Anfragen.
 
 ## Wert
 
-Ein {{domxref("CacheStorage")}}-Objekt.
+Ein [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Sie einen Cache in einem [Service Worker](/de/docs/Web/API/Service_Worker_API)-Kontext nutzen würden, um Assets offline zu speichern.
+Das folgende Beispiel zeigt, wie Sie einen Cache im Kontext eines [Service Workers](/de/docs/Web/API/Service_Worker_API) verwenden, um Assets offline zu speichern.
 
 ```js
 self.addEventListener("install", (event) => {
@@ -52,5 +53,5 @@ self.addEventListener("install", (event) => {
 ## Siehe auch
 
 - [Service Workers](/de/docs/Web/API/Service_Worker_API)
-- {{domxref("CacheStorage")}}
-- {{domxref("Cache")}}
+- [`CacheStorage`](/de/docs/Web/API/CacheStorage)
+- [`Cache`](/de/docs/Web/API/Cache)

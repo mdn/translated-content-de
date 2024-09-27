@@ -1,5 +1,5 @@
 ---
-title: "Selection: selectAllChildren() Methode"
+title: "Selection: selectAllChildren()-Methode"
 short-title: selectAllChildren()
 slug: Web/API/Selection/selectAllChildren
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.selectAllChildren()`** Methode fügt alle Kinder des angegebenen Knotens zur Auswahl hinzu. Die vorherige Auswahl geht verloren.
+Die **`Selection.selectAllChildren()`**-Methode fügt alle Kinder des angegebenen Knotens zur Auswahl hinzu. Die vorherige Auswahl geht verloren.
 
 ## Syntax
 
@@ -66,4 +66,4 @@ button.addEventListener("click", (e) => {
 
 ## Siehe auch
 
-- {{domxref("Selection")}}, das Interface, zu dem es gehört.
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der es gehört.

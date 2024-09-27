@@ -7,14 +7,14 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut {{SVGAttr("target")}} auf dem SVG-Element {{SVGElement("a")}} funktioniert in Mozilla Firefox 1.5 nicht. Wenn SVG-Dokumente innerhalb eines übergeordneten HTML-Dokuments mit dem Tag eingebettet werden:
+Das {{SVGAttr("target")}}-Attribut auf dem SVG-{{SVGElement("a")}}-Element funktioniert in Mozilla Firefox 1.5 nicht. Wenn SVG-Dokumente mithilfe des Tags in ein übergeordnetes HTML-Dokument eingebettet werden:
 
 page1.html:
 
 ```html
 <html lang="en">
   <body>
-    <p>Dies ist ein SVG-Button:</p>
+    <p>This is a SVG button:</p>
     <object width="100" height="50" type="image/svg+xml" data="button.svg" />
   </body>
 </html>
@@ -33,11 +33,11 @@ button.svg:
 </svg>
 ```
 
-Die Spezifikation besagt, dass der Browser zum HTML-Dokument page2.html navigieren sollte, wenn auf die Button-Grafiken geklickt wird. Allerdings funktioniert `target` nicht mit Mozillas Implementierung des SVG `<a>`-Elements in Firefox 1.5. (Das Problem wird in Firefox 2.0 behoben sein.)
+Die Spezifikation besagt, dass der Browser zum HTML-Dokument page2.html navigieren sollte, wenn die Schaltflächengrafik angeklickt wird. Allerdings funktioniert `target` nicht mit Mozillas Implementierung des SVG-`<a>`-Elements in Firefox 1.5. (Das Problem wird in Firefox 2.0 behoben.)
 
-Das resultierende Verhalten in Moz SVG ist jedoch, dass page2.html in den Frame geladen wird, in dem sich der SVG-Button befand (d.h. page2.html wird jetzt innerhalb eines 100x50 Pixel großen Frames in page1.html eingebettet).
+Jedenfalls ist das resultierende Verhalten in Moz SVG, dass page2.html in den Frame geladen wird, in dem sich die SVG-Schaltfläche befand (d.h. Sie hätten nun page2.html eingebettet in einem 100x50 Pixel großen Frame innerhalb von page1.html).
 
-Um dies zu umgehen, ist ein wenig unschönes JavaScript-Hacking erforderlich:
+Um dies zu umgehen, ist ein wenig unschönes JavaScript-Hacken erforderlich:
 
 button.svg:
 
@@ -52,4 +52,4 @@ button.svg:
 
 ## Beispiel
 
-Ein Beispiel für diese Lösung finden Sie unter [www.codedread.com](https://www.codedread.com/).
+Ein Beispiel für diese Lösung in der Praxis finden Sie unter [www.codedread.com](https://www.codedread.com/).

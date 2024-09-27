@@ -8,29 +8,26 @@ l10n:
 
 {{APIRef("Web Audio API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`port`**-Eigenschaft der
-Schnittstelle {{domxref("AudioWorkletNode")}} gibt den zugehörigen
-{{domxref("MessagePort")}} zurück. Sie kann verwendet werden, um zwischen dem Knoten und seinem
-zugehörigen {{domxref("AudioWorkletProcessor")}} zu kommunizieren.
+Die schreibgeschützte **`port`**-Eigenschaft der [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Schnittstelle gibt den zugehörigen [`MessagePort`](/de/docs/Web/API/MessagePort) zurück. Sie kann verwendet werden, um zwischen dem Knoten und seinem zugehörigen [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) zu kommunizieren.
 
 > [!NOTE]
 > Der Port am anderen Ende des Kanals ist
-> über die {{domxref("AudioWorkletProcessor.port", "port")}}-Eigenschaft des
+> über die [`port`](/de/docs/Web/API/AudioWorkletProcessor/port)-Eigenschaft des
 > Prozessors verfügbar.
 
 ## Wert
 
-Das {{domxref("MessagePort")}}-Objekt, das den
-`AudioWorkletNode` und seinen zugehörigen `AudioWorkletProcessor` verbindet.
+Das [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt, das den
+`AudioWorkletNode` mit seinem zugehörigen `AudioWorkletProcessor` verbindet.
 
 ## Beispiele
 
-Um die bidirektionale Kommunikationsfähigkeit zu demonstrieren, erstellen wir einen
-`AudioWorkletProcessor`, der Stille ausgibt und auf Ping-Anfragen von seinem
-`AudioWorkletNode` antwortet.
+Um die bidirektionalen Kommunikationsfähigkeiten zu demonstrieren, erstellen wir einen
+`AudioWorkletProcessor`, der Stille ausgibt und auf Ping-Anfragen
+von seinem `AudioWorkletNode` antwortet.
 
 Zuerst müssen wir einen benutzerdefinierten `AudioWorkletProcessor` definieren und registrieren.
-Beachten Sie, dass dies in einer separaten Datei erfolgen sollte.
+Beachten Sie, dass dies in einer separaten Datei geschehen sollte.
 
 ```js
 // ping-pong-processor.js
@@ -50,22 +47,23 @@ class PingPongProcessor extends AudioWorkletProcessor {
 registerProcessor("ping-pong-processor", PingPongProcessor);
 ```
 
-Nun werden wir in unserer Hauptskriptdatei den Prozessor laden, eine Instanz von
-`AudioWorkletNode` erstellen, indem wir den Namen des Prozessors übergeben, und den Knoten mit
-einem Audiografen verbinden.
+Nun laden wir in unserem Hauptskripten-Datei den Prozessor, erstellen eine Instanz von
+`AudioWorkletNode`, indem wir den Namen des Prozessors übergeben, und verbinden den Knoten mit
+einem Audiographen.
 
 ```js
 const audioContext = new AudioContext();
 await audioContext.audioWorklet.addModule("ping-pong-processor.js");
 const pingPongNode = new AudioWorkletNode(audioContext, "ping-pong-processor");
-// sendet die Nachricht mit dem String 'ping'
-// an den AudioWorkletProcessor vom AudioWorkletNode jede Sekunde
+// send the message containing 'ping' string
+// to the AudioWorkletProcessor from the AudioWorkletNode every second
 setInterval(() => pingPongNode.port.postMessage("ping"), 1000);
 pingPongNode.port.onmessage = (e) => console.log(e.data);
 pingPongNode.connect(audioContext.destination);
 ```
 
-Dies wird jede Sekunde die Zeichenfolgen `"ping"` und `"pong"` in die Konsole ausgeben.
+Dies wird die Zeichenfolgen `"ping"` und `"pong"` jede Sekunde in die Konsole
+ausgeben.
 
 ## Spezifikationen
 

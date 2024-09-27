@@ -1,5 +1,5 @@
 ---
-title: CSS-Übergänge
+title: CSS transitions
 slug: Web/CSS/CSS_transitions
 l10n:
   sourceCommit: e21c6c187a1049d29f69eeeedfcfb4843b01569a
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Übergangsmodul** ermöglicht die Erstellung allmählicher Übergänge zwischen den Werten spezifischer CSS-Eigenschaften. Das Verhalten dieser Übergänge kann durch die Angabe ihrer Ablaufkurve, Dauer und anderer Attribute gesteuert werden.
+Das **CSS transitions** Modul ermöglicht Ihnen, schrittweise Übergänge zwischen den Werten bestimmter CSS-Eigenschaften zu erstellen. Das Verhalten dieser Übergänge kann durch die Angabe ihrer `easing function`, Dauer und anderer Attribute gesteuert werden.
 
 ## Referenz
 
@@ -23,9 +23,9 @@ Das **CSS-Übergangsmodul** ermöglicht die Erstellung allmählicher Übergänge
 
 - {{cssxref("@starting-style")}}
 
-## Anleitungen
+## Leitfäden
 
-- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [Using CSS transitions](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
   - : Schritt-für-Schritt-Anleitung zur Erstellung von Übergängen mit CSS. Dieser Artikel beschreibt jede relevante CSS-Eigenschaft und erklärt, wie sie miteinander interagieren.
 
 ## Spezifikationen
@@ -34,4 +34,4 @@ Das **CSS-Übergangsmodul** ermöglicht die Erstellung allmählicher Übergänge
 
 ## Siehe auch
 
-- In Bezug auf CSS-Übergänge bieten [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) eine feinere Kontrolle über animierte Eigenschaften.
+- Im Zusammenhang mit CSS transitions bieten [CSS animations](/de/docs/Web/CSS/CSS_animations) eine feinere Steuerung über animierte Eigenschaften.

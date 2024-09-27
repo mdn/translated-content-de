@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Visual Viewport")}}
 
-Die schreibgeschützte Eigenschaft **`pageTop`** des {{domxref("VisualViewport")}}-Interfaces gibt die y-Koordinate des oberen Randes des visuellen Viewports relativ zum Ursprung des initialen enthaltenden Blocks in CSS-Pixeln zurück oder `0`, wenn das aktuelle Dokument nicht vollständig aktiv ist.
+Die schreibgeschützte Eigenschaft **`pageTop`** des [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Interfaces gibt die y-Koordinate der oberen Kante des visuellen Viewports relativ zum Ursprung des initialen umschließenden Blocks in CSS-Pixeln zurück oder `0`, wenn das aktuelle Dokument nicht vollständig aktiv ist.
 
 ## Wert
 

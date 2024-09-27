@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("SVG")}}{{deprecated_header}}
 
-Das **`SVGVKernElement`** Interface entspricht den {{SVGElement("vkern")}}-Elementen.
+Die **`SVGVKernElement`**-Schnittstelle entspricht den {{SVGElement("vkern")}}-Elementen.
 
-Ein objektorientierter Zugriff auf die Attribute des {{SVGElement("vkern")}}-Elements über das SVG DOM ist nicht möglich.
+Der objektorientierte Zugriff auf die Attribute des {{SVGElement("vkern")}}-Elements über das SVG-DOM ist nicht möglich.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von seinem Elterninterface, {{domxref("SVGElement")}}._
+_Diese Schnittstelle hat keine Eigenschaften, erbt jedoch Eigenschaften von ihrem übergeordneten Element, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Instanz-Methoden
 
-_Dieses Interface hat keine eigenen Methoden, erbt jedoch Methoden von seinem Elterninterface, {{domxref("SVGElement")}}._
+_Diese Schnittstelle hat keine Methoden, erbt jedoch Methoden von ihrem übergeordneten Element, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

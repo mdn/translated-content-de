@@ -1,5 +1,5 @@
 ---
-title: "WorkerNavigator: clearAppBadge()-Methode"
+title: "WorkerNavigator: clearAppBadge() Methode"
 short-title: clearAppBadge()
 slug: Web/API/WorkerNavigator/clearAppBadge
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Badging API")}}{{securecontext_header}}
 
-Die **`clearAppBadge()`**-Methode der {{domxref("WorkerNavigator")}}-Schnittstelle entfernt ein Abzeichen auf dem Symbol der aktuellen App, indem es auf `nichts` gesetzt wird. Der Wert `nichts` bedeutet, dass kein Abzeichen derzeit gesetzt ist, und der Status des Abzeichens ist _gelöscht_.
+Die **`clearAppBadge()`**-Methode der [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Schnittstelle löscht ein Abzeichen auf dem Symbol der aktuellen App, indem es auf `nothing` gesetzt wird. Der Wert `nothing` bedeutet, dass derzeit kein Abzeichen gesetzt ist, und der Status des Abzeichens ist _gelöscht_.
 
 ## Syntax
 
@@ -22,20 +22,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, der sich mit {{jsxref("undefined")}} erfüllt.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Dokument nicht vollständig aktiv ist.
-- `SecurityError` {{domxref("DOMException")}}
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) blockiert wurde.
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{domxref('PermissionStatus.state')}} nicht `granted` ist.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) nicht `granted` ist.
 
 ## Beispiele
 
-Sobald alle Nachrichten in einer Anwendung gelesen wurden, rufen Sie `clearAppBadge()` auf, um das Abzeichen zu entfernen und die Benachrichtigung zu löschen.
+Sobald alle Nachrichten in einer Anwendung gelesen wurden, rufen Sie `clearAppBadge()` auf, um das Abzeichen zu löschen und die Benachrichtigung zu entfernen.
 
 ```js
 navigator.clearAppBadge();

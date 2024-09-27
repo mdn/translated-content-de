@@ -1,5 +1,5 @@
 ---
-title: Kurzname
+title: short_name
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/short_name
 l10n:
   sourceCommit: d86e14de2e66319fc0a0ec0539a05400dea5a453
@@ -28,7 +28,7 @@ l10n:
   </tbody>
 </table>
 
-Kurzer Name für die Erweiterung. Falls angegeben, wird dieser in Kontexten verwendet, in denen das [name](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name) Feld zu lang ist. Es wird empfohlen, dass der Kurzname nicht mehr als 12 Zeichen umfasst. Wenn das Kurzname-Feld nicht in der manifest.json enthalten ist, wird stattdessen der Name verwendet und möglicherweise gekürzt.
+Kurzname für die Erweiterung. Falls angegeben, wird dieser in Kontexten verwendet, in denen das [name](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name)-Feld zu lang ist. Es wird empfohlen, dass der Kurzname nicht länger als 12 Zeichen ist. Wenn das Kurzname-Feld nicht in der manifest.json enthalten ist, wird stattdessen der Name verwendet und möglicherweise gekürzt.
 
 Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 

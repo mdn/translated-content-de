@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DOMPointReadOnly`**-Schnittstelle besitzt die
-**`x`**-Eigenschaft, die die horizontale Koordinate, x, für einen
+Die **`DOMPointReadOnly`**-Schnittstelle
+enthält die **`x`**-Eigenschaft, die die horizontale Koordinate, x, für einen
 schreibgeschützten Punkt im Raum hält. Diese Eigenschaft kann in dieser
 schreibgeschützten Version des `DOMPoint`-Objekts nicht durch JavaScript-Code geändert werden.
 
-Im Allgemeinen bedeuten positive Werte von `x`, dass sie nach rechts zeigen, und negative Werte von
-`x`, dass sie nach links zeigen, vorausgesetzt, es gab keine Transformationen, die zu einer Umkehrung geführt haben.
+Im Allgemeinen bedeuten positive Werte von `x` nach rechts, und negative Werte von `x` bedeuten nach links, vorausgesetzt, es wurden keine Transformationen vorgenommen, die zu einer Umkehrung geführt haben.
 
 ## Wert
 
-Ein Gleitkommawert mit doppelter Genauigkeit, der den Wert der x-Koordinate für den
-Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich oder ungültig sein darf (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
+Ein doppelt präziser Gleitkommawert, der den Wert der x-Koordinate für den
+Punkt angibt. Dieser Wert ist **uneingeschränkt**, was bedeutet, dass er
+unendlich oder ungültig sein darf (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
 
 ## Spezifikationen
 
@@ -31,6 +31,6 @@ Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich
 
 ## Siehe auch
 
-- Die anderen Koordinateneigenschaften: {{domxref("DOMPointReadOnly.y", "y")}},
-  {{domxref("DOMPointReadOnly.z", "z")}}, und der Perspektivwert,
-  {{domxref("DOMPointReadOnly.w", "w")}}.
+- Die anderen Koordinateneigenschaften: [`y`](/de/docs/Web/API/DOMPointReadOnly/y),
+  [`z`](/de/docs/Web/API/DOMPointReadOnly/z), und der Perspektivenwert,
+  [`w`](/de/docs/Web/API/DOMPointReadOnly/w).

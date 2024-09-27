@@ -1,5 +1,5 @@
 ---
-title: "RTCVideoSourceStats: framesPerSecond Eigenschaft"
+title: "RTCVideoSourceStats: `framesPerSecond`-Eigenschaft"
 short-title: framesPerSecond
 slug: Web/API/RTCVideoSourceStats/framesPerSecond
 l10n:
@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`framesPerSecond`**-Eigenschaft des {{domxref("RTCVideoSourceStats")}}-Wörterbuchs gibt die Anzahl der Bilder an, die in der letzten Sekunde von dieser Videoquelle stammen.
+Die **`framesPerSecond`**-Eigenschaft des [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats)-Wörterbuchs gibt die Anzahl der Frames an, die in der letzten Sekunde von dieser Videoquelle stammen.
 
-Die Eigenschaft ist im ersten Lebenssekunde des Statistik-Objekts nicht definiert.
+Die Eigenschaft ist im ersten Lebenssekunde des Statistikobjekts nicht definiert.
 
 ## Wert
 
-Eine Zahl, die die von dieser Quelle in der letzten Sekunde stammenden Bilder angibt.
+Eine Zahl, die die Anzahl der Frames angibt, die in der letzten Sekunde von dieser Quelle stammen.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie das Statistik-Objekt, das von `RTCRtpSender.getStats()` zurückgegeben wird, durchlaufen könnten, um die Videorquellenstatistiken zu erhalten und dann die `framesPerSecond`-Eigenschaft zu extrahieren.
+Dieses Beispiel zeigt, wie Sie das Statistikobjekt durchlaufen könnten, das von `RTCRtpSender.getStats()` zurückgegeben wird, um die Videoquellenstatistiken zu erhalten und dann die `framesPerSecond` extrahieren.
 
 ```js
-// wo sender ein RTCRtpSender ist
+// where sender is an RTCRtpSender
 const stats = await sender.getStats();
 let videoSourceStats = null;
 
@@ -32,8 +32,8 @@ stats.forEach((report) => {
   }
 });
 
-// Beachten Sie, dass der Test bedingt ist, falls das Statistik-Objekt
-// keine Videorquellenstatistiken enthält
+// Note, test is conditional in case the stats object
+// does not include video source stats
 const fps = videoSourceStats?.framesPerSecond;
 ```
 

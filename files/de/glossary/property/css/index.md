@@ -1,5 +1,5 @@
 ---
-title: Eigenschaft (CSS)
+title: Property (CSS)
 slug: Glossary/Property/CSS
 l10n:
   sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
@@ -7,20 +7,20 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **CSS-Eigenschaft** ist ein Merkmal (wie Farbe), dessen zugeordneter Wert einen Aspekt definiert, wie der Browser das Element anzeigen soll.
+Eine **CSS-Eigenschaft** ist ein Merkmal (wie Farbe), dessen zugehöriger Wert einen Aspekt definiert, wie der Browser das Element darstellen soll.
 
 Hier ist ein Beispiel für eine CSS-Regel:
 
 ```css
-/* "div" ist ein Selektor, der angibt, dass alle div-Elemente */
-/* im Dokument durch diese Regel gestylt werden */
+/* "div" is a selector indicating that all the div elements */
+/* in the document will be styled by that rule */
 div {
-  /* Die Eigenschaft "color" mit dem Wert "black" gibt an, */
-  /* dass der Text die Farbe Schwarz hat */
+  /* The property "color" with the value "black" indicates */
+  /* that the text will have the color black */
   color: black;
 
-  /* Die Eigenschaft "background-color" mit dem Wert "white" gibt an, */
-  /* dass die Hintergrundfarbe der Elemente Weiß ist */
+  /* The property "background-color" with the value "white" indicates */
+  /* that the background color of the elements will be white */
   background-color: white;
 }
 ```
@@ -28,5 +28,5 @@ div {
 ## Siehe auch
 
 - [CSS lernen](/de/docs/Learn/CSS)
-- [Der CSS-Referenz auf MDN](/de/docs/Web/CSS/Reference)
+- [Das CSS-Referenz auf MDN](/de/docs/Web/CSS/Reference)
 - [Aktuelle Arbeiten der CSS-Arbeitsgruppe](https://www.w3.org/Style/CSS/current-work)

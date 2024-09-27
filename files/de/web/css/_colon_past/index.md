@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`:past`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) Selektor ist eine zeitdimensionale Pseudoklasse, die für jedes Element passt, das vollständig vor einem Element erscheint, das zu {{cssxref(":current")}} passt. Zum Beispiel in einem Video mit Untertiteln, die durch [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt werden.
+Der **`:past`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) Selektor ist eine zeitdimensionale Pseudoklasse, die für jedes Element übereinstimmt, das vollständig vor einem Element erscheint, das zu {{cssxref(":current")}} passt. Zum Beispiel in einem Video mit Untertiteln, die durch [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt werden.
 
 ```css
 :past(p, span) {

@@ -7,55 +7,55 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`NavigateEvent`**-Schnittstelle der {{domxref("Navigation API", "Navigation API", "", "nocode")}} ist das Ereignisobjekt für das {{domxref("Navigation/navigate_event", "navigate")}}-Ereignis, welches ausgelöst wird, wenn [eine beliebige Art von Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) initiiert wird (dies schließt die Verwendung von {{domxref("History API", "History API", "", "nocode")}}-Funktionen wie {{domxref("History.go()")}} ein). `NavigateEvent` bietet Zugriff auf Informationen über diese Navigation und ermöglicht es Entwicklern, das Navigationshandling abzufangen und zu steuern.
+Die **`NavigateEvent`**-Schnittstelle der [Navigation API](/de/docs/Web/API/Navigation_API) ist das Ereignisobjekt für das [`navigate`](/de/docs/Web/API/Navigation/navigate_event)-Ereignis, das ausgelöst wird, wenn [jede Art der Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) initiiert wird (dies schließt die Nutzung von Funktionen der [History API](/de/docs/Web/API/History_API) wie [`History.go()`](/de/docs/Web/API/History/go) ein). `NavigateEvent` bietet Zugriff auf Informationen über diese Navigation und erlaubt Entwicklern, die Navigation zu unterbrechen und zu steuern.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("NavigateEvent.NavigateEvent", "NavigateEvent()")}} {{Experimental_Inline}}
-  - : Erstellt eine neue Instanz des `NavigateEvent`-Objekts.
+- [`NavigateEvent()`](/de/docs/Web/API/NavigateEvent/NavigateEvent) {{Experimental_Inline}}
+  - : Erstellt eine neue Instanz eines `NavigateEvent`-Objekts.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{DOMxRef("Event")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("NavigateEvent.canIntercept", "canIntercept")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt `true` zurück, wenn die Navigation abgefangen werden kann, oder `false`, wenn nicht (zum Beispiel kann eine Cross-Origin-Navigation nicht abgefangen werden).
-- {{domxref("NavigateEvent.destination", "destination")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein {{domxref("NavigationDestination")}}-Objekt zurück, das das Ziel der Navigation darstellt.
-- {{domxref("NavigateEvent.downloadRequest", "downloadRequest")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den Dateinamen der angeforderten Datei im Falle einer Download-Navigation zurück (z. B. bei einem {{htmlelement("a")}} oder {{htmlelement("area")}}-Element mit einem `download`-Attribut), oder `null` andernfalls.
-- {{domxref("NavigateEvent.formData", "formData")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt das {{domxref("FormData")}}-Objekt zurück, das die übermittelten Daten im Falle einer `POST`-Formularübermittlung darstellt, oder `null` andernfalls.
-- {{domxref("NavigateEvent.hashChange", "hashChange")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt `true` zurück, wenn es sich um eine Fragmentnavigation handelt (d. h. zu einem Fragmentbezeichner im selben Dokument), oder `false` andernfalls.
-- {{domxref("NavigateEvent.info", "info")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den `info`-Datensatz zurück, der von der initiierenden Navigationsoperation übergeben wurde (z. B. {{domxref("Navigation.back()")}} oder {{domxref("Navigation.navigate()")}}), oder `undefined`, wenn keine `info`-Daten übergeben wurden.
-- {{domxref("NavigateEvent.navigationType", "navigationType")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`canIntercept`](/de/docs/Web/API/NavigateEvent/canIntercept) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt `true` zurück, wenn die Navigation abgefangen werden kann, oder `false` andernfalls (z. B. kann eine cross-origin Navigation nicht abgefangen werden).
+- [`destination`](/de/docs/Web/API/NavigateEvent/destination) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt ein [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Objekt zurück, das das Ziel der Navigation darstellt.
+- [`downloadRequest`](/de/docs/Web/API/NavigateEvent/downloadRequest) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt den Dateinamen der angeforderten Datei im Fall einer Download-Navigation zurück (z. B. ein {{htmlelement("a")}}- oder {{htmlelement("area")}}-Element mit einem `download`-Attribut), oder `null` andernfalls.
+- [`formData`](/de/docs/Web/API/NavigateEvent/formData) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt das [`FormData`](/de/docs/Web/API/FormData)-Objekt zurück, das die im Fall einer `POST`-Formularübermittlung übermittelten Daten darstellt, oder `null` andernfalls.
+- [`hashChange`](/de/docs/Web/API/NavigateEvent/hashChange) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt `true` zurück, wenn es sich bei der Navigation um eine Fragmentnavigation (d.h. zu einem Fragmentbezeichner im gleichen Dokument) handelt, andernfalls `false`.
+- [`info`](/de/docs/Web/API/NavigateEvent/info) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt den `info`-Datenwert zurück, der durch die initiierte Navigationsoperation übergeben wurde (z. B. [`Navigation.back()`](/de/docs/Web/API/Navigation/back) oder [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate)), oder `undefined`, wenn keine `info`-Daten übergeben wurden.
+- [`navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt den Typ der Navigation zurück — `push`, `reload`, `replace` oder `traverse`.
-- {{domxref("NavigateEvent.signal", "signal")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein {{domxref("AbortSignal")}} zurück, das abgebrochen wird, wenn die Navigation abgebrochen wird (z. B. durch das Drücken der "Stopp"-Taste des Browsers oder das Starten einer anderen Navigation, die die laufende Navigation somit abbricht).
-- {{domxref("NavigateEvent.userInitiated", "userInitiated")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt `true` zurück, wenn die Navigation vom Benutzer initiiert wurde (z. B. durch Anklicken eines Links, das Absenden eines Formulars oder das Drücken der "Zurück"/"Vorwärts"-Tasten des Browsers), oder `false` andernfalls.
+- [`signal`](/de/docs/Web/API/NavigateEvent/signal) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück, das abgebrochen wird, wenn die Navigation storniert wird (z. B. durch das Drücken des "Stop"-Buttons des Browsers, oder eine andere Navigation, die startet und die laufende somit abbricht).
+- [`userInitiated`](/de/docs/Web/API/NavigateEvent/userInitiated) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt `true` zurück, wenn die Navigation durch den Benutzer initiiert wurde (z. B. durch Klicken auf einen Link, Senden eines Formulars oder Drücken der "Zurück"/"Vor"-Buttons des Browsers), andernfalls `false`.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Methoden von seinem Elternteil, {{DOMxRef("Event")}}._
+_Erbt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("NavigateEvent.intercept", "intercept()")}} {{Experimental_Inline}}
-  - : Fängt diese Navigation ab und verwandelt sie in eine gleichseitige Navigation zur {{domxref("NavigationDestination.url", "destination")}} URL. Es kann eine Handlerfunktion akzeptieren, die definiert, wie das Navigationsverhalten sein soll, sowie `focusReset`- und `scroll`-Optionen, um das Verhalten nach Wunsch zu steuern.
-- {{domxref("NavigateEvent.scroll", "scroll()")}} {{Experimental_Inline}}
-  - : Kann aufgerufen werden, um das vom Browser gesteuerte Scrollverhalten, das als Reaktion auf die Navigation auftritt, manuell auszulösen, wenn Sie möchten, dass es vor dem Abschluss des Navigationshandlings geschieht.
+- [`intercept()`](/de/docs/Web/API/NavigateEvent/intercept) {{Experimental_Inline}}
+  - : Fängt diese Navigation ab und verwandelt sie in eine Navigation im gleichen Dokument zur [`destination`](/de/docs/Web/API/NavigationDestination/url)-URL. Es kann eine Handler-Funktion akzeptieren, die das Verhalten der Navigationsbehandlung definiert, sowie `focusReset`- und `scroll`-Optionen, um das Verhalten nach Bedarf zu steuern.
+- [`scroll()`](/de/docs/Web/API/NavigateEvent/scroll) {{Experimental_Inline}}
+  - : Kann aufgerufen werden, um das browsergesteuerte Scrollverhalten, das als Reaktion auf die Navigation auftritt, manuell auszulösen, wenn Sie es passieren lassen möchten, bevor die Navigationsbehandlung abgeschlossen ist.
 
 ## Beispiele
 
-### Verarbeitung einer Navigation mit `intercept()`
+### Handhabung einer Navigation mit `intercept()`
 
 ```js
 navigation.addEventListener("navigate", (event) => {
-  // Gehe frühzeitig zurück, wenn diese Navigation nicht abgefangen werden soll,
-  // z. B. wenn die Navigation Cross-Origin oder eine Download-Anfrage ist
+  // Exit early if this navigation shouldn't be intercepted,
+  // e.g. if the navigation is cross-origin, or a download request
   if (shouldNotIntercept(event)) return;
 
   const url = new URL(event.destination.url);
@@ -63,11 +63,11 @@ navigation.addEventListener("navigate", (event) => {
   if (url.pathname.startsWith("/articles/")) {
     event.intercept({
       async handler() {
-        // Die URL hat sich bereits geändert, also zeigen Sie einen Platzhalter an, während
-        // der neuen Inhalt abrufbar ist, z. B. einen Spinner oder eine Ladeanzeige
+        // The URL has already changed, so show a placeholder while
+        // fetching the new content, such as a spinner or loading page
         renderArticlePagePlaceholder();
 
-        // Rufen Sie den neuen Inhalt ab und zeigen Sie ihn an, sobald er verfügbar ist
+        // Fetch the new content and display when ready
         const articleContent = await getArticleContent(url.pathname);
         renderArticlePage(articleContent);
       },
@@ -77,11 +77,11 @@ navigation.addEventListener("navigate", (event) => {
 ```
 
 > [!NOTE]
-> Bevor die Navigation API verfügbar war, musste man, um etwas Ähnliches zu erreichen, alle Klickereignisse auf Links überwachen, `e.preventDefault()` ausführen, den entsprechenden {{domxref("History.pushState()")}}-Aufruf durchführen und dann die Seitenansicht basierend auf der neuen URL einrichten. Und dies würde nicht alle Navigationsvorgänge behandeln — nur vom Benutzer initiierte Linkklicks.
+> Bevor die Navigation API verfügbar war, müssten Sie alle Klickereignisse auf Links überwachen, `e.preventDefault()` ausführen, den entsprechenden [`History.pushState()`](/de/docs/Web/API/History/pushState)-Aufruf durchführen und dann die Seitenansicht basierend auf der neuen URL einrichten. Und dies würde nicht alle Navigationen behandeln — nur vom Benutzer initiierte Link-Klicks.
 
-### Scrollen mit `scroll()` behandeln
+### Handhabung des Scrollens mit `scroll()`
 
-In diesem Beispiel des Abfangens einer Navigation beginnt die `handler()`-Funktion mit dem Abrufen und Rendern von einigen Artikelinhalten, und danach werden einige sekundäre Inhalte abgerufen und angezeigt. Es macht Sinn, die Seite auf die Hauptartikelinhalte zu scrollen, sobald diese verfügbar sind, damit der Benutzer damit interagieren kann, anstatt darauf zu warten, dass auch die sekundären Inhalte gerendert werden. Um dies zu erreichen, haben wir einen {{domxref("NavigateEvent.scroll", "scroll()")}}-Aufruf zwischen den beiden eingefügt.
+In diesem Beispiel einer abgefangenen Navigation beginnt die `handler()`-Funktion mit dem Abrufen und Rendern einiger Artikelinhalte und ruft dann einige sekundäre Inhalte ab und rendert diese. Es macht Sinn, die Seite auf den Hauptartikel-Inhalt zu scrollen, sobald dieser verfügbar ist, damit der Benutzer damit interagieren kann, anstatt zu warten, bis auch der sekundäre Inhalt gerendert ist. Um dies zu erreichen, haben wir zwischen den beiden einen [`scroll()`](/de/docs/Web/API/NavigateEvent/scroll)-Aufruf hinzugefügt.
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -108,12 +108,12 @@ navigation.addEventListener("navigate", (event) => {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Moderne clientseitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Erklärung der Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

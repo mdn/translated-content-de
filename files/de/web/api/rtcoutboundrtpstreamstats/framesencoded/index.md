@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`framesEncoded`**-Eigenschaft des {{domxref("RTCOutboundRtpStreamStats")}}-Wörterbuchs gibt die gesamte Anzahl der Frames an, die von diesem {{domxref("RTCRtpSender")}} für diese Medienquelle kodiert wurden.
+Die **`framesEncoded`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs gibt die Gesamtzahl der Frames an, die von diesem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) für diese Medienquelle kodiert wurden.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Gesamtanzahl der Videoframes angibt, die dieser Sender bisher für diesen Stream kodiert hat.
+Ein ganzzahliger Wert, der die Gesamtzahl der Videoframes angibt, die dieser Sender bisher für diesen Stream kodiert hat.
 
 > [!NOTE]
 > Diese Eigenschaft ist nur für Videostreams gültig.
@@ -21,6 +21,6 @@ Ein ganzzahliger Wert, der die Gesamtanzahl der Videoframes angibt, die dieser S
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

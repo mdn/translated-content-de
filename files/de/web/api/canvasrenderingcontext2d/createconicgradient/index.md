@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.createConicGradient()`** Methode der Canvas 2D API erzeugt einen Farbverlauf um einen Punkt mit gegebenen Koordinaten.
+Die **`CanvasRenderingContext2D.createConicGradient()`**-Methode der Canvas 2D API erstellt einen Farbverlauf um einen Punkt mit angegebenen Koordinaten.
 
-Diese Methode gibt einen konischen {{domxref("CanvasGradient")}} zurück. Um auf eine Form angewendet zu werden, muss der Farbverlauf zuerst den Eigenschaften {{domxref("CanvasRenderingContext2D.fillStyle", "fillStyle")}} oder {{domxref("CanvasRenderingContext2D.strokeStyle", "strokeStyle")}} zugewiesen werden.
+Diese Methode gibt einen konischen [`CanvasGradient`](/de/docs/Web/API/CanvasGradient) zurück. Um auf eine Form angewendet zu werden, muss der Farbverlauf zunächst den Eigenschaften [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) zugewiesen werden.
 
 > [!NOTE]
-> Die Farbverlaufkoordinaten sind global, d.h. relativ zum aktuellen Koordinatensystem. Wenn sie auf eine Form angewendet werden, sind die Koordinaten NICHT relativ zu den Koordinaten der Form.
+> Farbverlaufkoordinaten sind global, d.h., relativ zum aktuellen Koordinatenraum. Wenn auf eine Form angewendet, sind die Koordinaten NICHT relativ zu den Koordinaten der Form.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ createConicGradient(startAngle, x, y)
 ### Parameter
 
 - `startAngle`
-  - : Der Winkel, bei dem der Farbverlauf beginnt, in Bogenmaß. Der Winkel startet von einer horizontalen Linie rechts vom Zentrum und verläuft im Uhrzeigersinn.
+  - : Der Winkel, bei dem der Farbverlauf beginnt, in Radiant. Der Winkel beginnt von einer Linie, die horizontal rechts vom Zentrum verläuft, und schreitet im Uhrzeigersinn fort.
 - `x`
   - : Die x-Achsen-Koordinate des Zentrums des Farbverlaufs.
 - `y`
@@ -32,14 +32,14 @@ createConicGradient(startAngle, x, y)
 
 ### Rückgabewert
 
-- {{domxref("CanvasGradient")}}
+- [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)
   - : Ein konischer `CanvasGradient`.
 
 ## Beispiele
 
 ### Füllen eines Rechtecks mit einem konischen Farbverlauf
 
-Dieses Beispiel initialisiert einen konischen Farbverlauf mit der Methode `createConicGradient()`. Fünf Farbstufen um die mittlere Koordinate werden dann erstellt. Schließlich wird der Farbverlauf dem Canvas-Kontext zugewiesen und auf ein gefülltes Rechteck angewendet.
+Dieses Beispiel initialisiert einen konischen Farbverlauf mit der `createConicGradient()`-Methode. Fünf Farbstopps werden um die Zentrumskoordinate herum erstellt. Schließlich wird der Farbverlauf dem Canvas-Kontext zugewiesen und in einem gefüllten Rechteck angezeigt.
 
 #### HTML
 
@@ -53,19 +53,19 @@ Dieses Beispiel initialisiert einen konischen Farbverlauf mit der Methode `creat
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// Einen konischen Farbverlauf erstellen
-// Der Startwinkel ist 0
-// Die zentrale Position ist 100, 100
+// Create a conic gradient
+// The start angle is 0
+// The center position is 100, 100
 const gradient = ctx.createConicGradient(0, 100, 100);
 
-// Fünf Farbstufen hinzufügen
+// Add five color stops
 gradient.addColorStop(0, "red");
 gradient.addColorStop(0.25, "orange");
 gradient.addColorStop(0.5, "yellow");
 gradient.addColorStop(0.75, "green");
 gradient.addColorStop(1, "blue");
 
-// Setzen Sie den Füllstil und zeichnen Sie ein Rechteck
+// Set the fill style and draw a rectangle
 ctx.fillStyle = gradient;
 ctx.fillRect(20, 20, 200, 200);
 ```
@@ -84,7 +84,7 @@ ctx.fillRect(20, 20, 200, 200);
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasGradient")}}
-- {{domxref("CanvasRenderingContext2D.createLinearGradient()")}}
-- {{domxref("CanvasRenderingContext2D.createRadialGradient()")}}
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)
+- [`CanvasRenderingContext2D.createLinearGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createLinearGradient)
+- [`CanvasRenderingContext2D.createRadialGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createRadialGradient)

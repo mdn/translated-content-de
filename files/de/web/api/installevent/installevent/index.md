@@ -1,5 +1,5 @@
 ---
-title: "InstallEvent: InstallEvent() Konstruktor"
+title: "InstallEvent: InstallEvent()-Konstruktor"
 short-title: InstallEvent()
 slug: Web/API/InstallEvent/InstallEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{Deprecated_Header}}{{Non-standard_header}}
 
-Der **`InstallEvent()`** Konstruktor erstellt ein neues {{domxref("InstallEvent")}} Objekt.
+Der **`InstallEvent()`**-Konstruktor erstellt ein neues [`InstallEvent`](/de/docs/Web/API/InstallEvent)-Objekt.
 
 ## Syntax
 
@@ -20,17 +20,17 @@ new InstallEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er unterscheidet zwischen Groß- und Kleinschreibung, und Browser setzen ihn immer auf `install`.
+    Es ist case-sensitive und Browser setzen es immer auf `install`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ beliebige benutzerdefinierte Einstellungen enthalten kann, die Sie auf das Ereignisobjekt anwenden möchten. Derzeit sind keine möglichen Optionen obligatorisch, aber dies wurde aus Gründen der zukünftigen Kompatibilität definiert.
+  - : Ein Objekt, das, _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_, beliebige benutzerdefinierte Einstellungen enthalten kann, die Sie auf das Ereignisobjekt anwenden möchten. Derzeit sind keine Optionen zwingend erforderlich, dies wurde jedoch für zukünftige Kompatibilität festgelegt.
 
 ### Rückgabewert
 
-Ein neues {{domxref("InstallEvent")}} Objekt.
+Ein neues [`InstallEvent`](/de/docs/Web/API/InstallEvent)-Objekt.
 
 ## Spezifikationen
 
-_Dieses Feature befindet sich nicht mehr auf dem Standardpfad._
+_Diese Funktion ist nicht mehr im Standardverlauf enthalten._
 
 ## Browser-Kompatibilität
 

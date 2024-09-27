@@ -1,5 +1,5 @@
 ---
-title: Attribut
+title: attribute
 slug: Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference/Axes/attribute
 l10n:
   sourceCommit: b6f343538eac4a803943b4e99b0c0545b372645a
@@ -7,4 +7,4 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Achse "attribute" gibt die Attribute des Kontextknotens an. Nur Elemente haben Attribute. Diese Achse kann mit dem At-Zeichen (`@`) abgekürzt werden.
+Die Achse `attribute` zeigt die Attribute des Kontextknotens an. Nur Elemente haben Attribute. Diese Achse kann durch das At-Zeichen (`@`) abgekürzt werden.

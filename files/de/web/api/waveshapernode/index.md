@@ -7,9 +7,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`WaveShaperNode`**-Schnittstelle repräsentiert einen nichtlinearen Verzerrer.
+Das **`WaveShaperNode`**-Interface repräsentiert einen nichtlinearen Verzerrer.
 
-Es handelt sich um einen {{domxref("AudioNode")}}, der eine Kurve verwendet, um eine Waveshaping-Verzerrung auf das Signal anzuwenden. Neben offensichtlichen Verzerrungseffekten wird es häufig verwendet, um dem Signal ein warmes Gefühl hinzuzufügen.
+Es handelt sich um einen [`AudioNode`](/de/docs/Web/API/AudioNode), der eine Kurve verwendet, um dem Signal eine Wave-Shaping-Verzerrung hinzuzufügen. Neben offensichtlichen Verzerrungseffekten wird es oft verwendet, um dem Signal eine warme Note zu verleihen.
 
 Ein `WaveShaperNode` hat immer genau einen Eingang und einen Ausgang.
 
@@ -26,15 +26,15 @@ Ein `WaveShaperNode` hat immer genau einen Eingang und einen Ausgang.
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalanzahlmodus</th>
+      <th scope="row">Kanalzahlmodus</th>
       <td><code>"max"</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalanzahl</th>
-      <td><code>2</code> (wird im Standardmodus nicht verwendet)</td>
+      <th scope="row">Anzahl der Kanäle</th>
+      <td><code>2</code> (nicht verwendet im Standardkanalzählmodus)</td>
     </tr>
     <tr>
-      <th scope="row">Kanalauslegung</th>
+      <th scope="row">Kanalinterpretation</th>
       <td><code>"speakers"</code></td>
     </tr>
   </tbody>
@@ -42,21 +42,21 @@ Ein `WaveShaperNode` hat immer genau einen Eingang und einen Ausgang.
 
 ## Konstruktor
 
-- {{domxref("WaveShaperNode.WaveShaperNode", "WaveShaperNode()")}}
+- [`WaveShaperNode()`](/de/docs/Web/API/WaveShaperNode/WaveShaperNode)
   - : Erstellt eine neue Instanz eines `WaveShaperNode`-Objekts.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("AudioNode")}}_.
+_Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
-- {{domxref("WaveShaperNode.curve")}}
+- [`WaveShaperNode.curve`](/de/docs/Web/API/WaveShaperNode/curve)
   - : Ein {{jsxref("Float32Array")}} von Zahlen, die die anzuwendende Verzerrung beschreiben.
-- {{domxref("WaveShaperNode.oversample")}}
-  - : Ein enumerierter Wert, der angibt, ob Oversampling verwendet werden muss. Oversampling ist eine Technik zur Generierung von mehr Samples (Upsampling), bevor der Verzerrungseffekt auf das Audiosignal angewendet wird.
+- [`WaveShaperNode.oversample`](/de/docs/Web/API/WaveShaperNode/oversample)
+  - : Ein enumerierter Wert, der anzeigt, ob Oversampling verwendet werden muss. Oversampling ist eine Technik, bei der mehr Samples (Upsampling) erstellt werden, bevor der Verzerrungseffekt auf das Audiosignal angewendet wird.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, {{domxref("AudioNode")}}_.
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 ## Beispiel
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`blob()`**-Methode des {{domxref("Response")}}-Interfaces nimmt einen {{domxref("Response")}}-Stream und liest ihn bis zum Ende. Sie gibt ein Versprechen zurück, das mit einem {{domxref("Blob")}} aufgelöst wird.
+Die **`blob()`**-Methode des [`Response`](/de/docs/Web/API/Response)-Interfaces nimmt einen [`Response`](/de/docs/Web/API/Response)-Datenstrom und liest diesen bis zum Abschluss. Sie gibt ein Promise zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) aufgelöst wird.
 
 ## Syntax
 
@@ -21,28 +21,24 @@ blob()
 Keine.
 
 > [!NOTE]
-> Wenn die {{domxref("Response")}} einen
-> {{domxref("Response.type")}} von `"opaque"` hat, wird der resultierende {{domxref("Blob")}}
-> eine {{domxref("Blob.size")}} von `0` und einen {{domxref("Blob.type")}} von
-> einem leeren String `""` haben, was ihn für Methoden wie
-> {{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}} _nutzlos_ macht.
+> Wenn die [`Response`](/de/docs/Web/API/Response) einen [`Response.type`](/de/docs/Web/API/Response/type) von `"opaque"` hat, wird der resultierende [`Blob`](/de/docs/Web/API/Blob) eine [`Blob.size`](/de/docs/Web/API/Blob/size) von `0` und einen [`Blob.type`](/de/docs/Web/API/Blob/type) eines leeren Strings `""` haben, was ihn _nutzenlos_ für Methoden wie [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) macht.
 
 ### Rückgabewert
 
-Ein Versprechen, das mit einem {{domxref("Blob")}} aufgelöst wird.
+Ein Promise, das mit einem [`Blob`](/de/docs/Web/API/Blob) aufgelöst wird.
 
 ### Ausnahmen
 
-- {{domxref("DOMException")}} `AbortError`
+- [`DOMException`](/de/docs/Web/API/DOMException) `AbortError`
   - : Die Anfrage wurde [abgebrochen](/de/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
 - {{jsxref("TypeError")}}
   - : Wird aus einem der folgenden Gründe ausgelöst:
-    - Der Antwortkörper ist [unterbrochen oder gesperrt](/de/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - Es gab einen Fehler bei der Dekodierung des Inhalts (zum Beispiel wegen eines falschen {{httpheader("Content-Encoding")}} Headers).
+    - Der Antwortkörper ist [gestört oder gesperrt](/de/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
+    - Es gab einen Fehler beim Dekodieren des Körperinhalts (zum Beispiel, weil der {{httpheader("Content-Encoding")}}-Header falsch ist).
 
 ## Beispiele
 
-In unserem [fetch request Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-request) (live [fetch request ausführen](https://mdn.github.io/dom-examples/fetch/fetch-request/)), erstellen wir eine neue Anfrage mit dem {{domxref("Request.Request","Request()")}}-Konstruktor und verwenden diese, um ein JPG abzurufen. Wenn der Abruf erfolgreich ist, lesen wir ein {{domxref("Blob")}} aus der Antwort mithilfe von `blob()`, stellen es in eine Objekt-URL mit {{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}}, und setzen diese URL dann als Quelle eines {{htmlelement("img")}}-Elements, um das Bild anzuzeigen.
+In unserem [Fetch-Anfrage-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-request) (führen Sie die [Fetch-Anfrage live aus](https://mdn.github.io/dom-examples/fetch/fetch-request/)), erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor, um dann ein JPG abzurufen. Wenn der Abruf erfolgreich ist, lesen wir ein [`Blob`](/de/docs/Web/API/Blob) aus der Antwort mittels `blob()`, platzieren es in einer Objekt-URL mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und setzen diese URL als Quelle eines {{htmlelement("img")}}-Elements, um das Bild anzuzeigen.
 
 ```js
 const myImage = document.querySelector("img");

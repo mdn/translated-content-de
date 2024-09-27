@@ -8,13 +8,13 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`dequeue`**-Ereignis der {{domxref("VideoEncoder")}}-Schnittstelle wird ausgelöst, um eine Verringerung der {{domxref("VideoEncoder.encodeQueueSize")}} zu signalisieren.
+Das **`dequeue`**-Ereignis der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Schnittstelle wird ausgelöst, um eine Verringerung der [`VideoEncoder.encodeQueueSize`](/de/docs/Web/API/VideoEncoder/encodeQueueSize) zu signalisieren.
 
-Dies eliminiert die Notwendigkeit für Entwickler, einen {{domxref("setTimeout()")}}-Poll zu verwenden, um festzustellen, wann die Warteschlange verkleinert wurde und mehr Arbeit eingereiht werden sollte.
+Dies macht es für Entwickler überflüssig, ein [`setTimeout()`](/de/docs/Web/API/SetTimeout)-Poll zu verwenden, um festzustellen, wann die Warteschlange verkleinert wurde und mehr Arbeit angefügt werden sollte.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
 
 ```js
 addEventListener("dequeue", (event) => {});
@@ -26,7 +26,7 @@ ondequeue = (event) => {};
 
 ```js
 videoEncoder.addEventListener("dequeue", (event) => {
-  // Weitere Kodierungsarbeit einreihen
+  // Queue up more encoding work
 });
 ```
 

@@ -3,14 +3,14 @@ title: "GPURenderPassEncoder: insertDebugMarker()-Methode"
 short-title: insertDebugMarker()
 slug: Web/API/GPURenderPassEncoder/insertDebugMarker
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`insertDebugMarker()`**-Methode der {{domxref("GPURenderPassEncoder")}}-Schnittstelle markiert einen bestimmten Punkt in einer Serie von kodierten Render-Pass-Befehlen mit einem Label.
+Die **`insertDebugMarker()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle markiert einen bestimmten Punkt in einer Serie kodierter Render-Pass-Befehle mit einem Etikett.
 
-Dies könnte für Telemetrie genutzt werden oder in Zukunft in {{domxref("GPUError")}}-Nachrichten, Browser-Entwicklungstools oder anderen Diensten verwendet werden, um beim Debugging zu helfen.
+Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Entwicklerwerkzeugen im Browser oder anderen Diensten zur Unterstützung der Fehlersuche genutzt werden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ insertDebugMarker(markerLabel)
 ### Parameter
 
 - `markerLabel`
-  - : Ein String, der das einzufügende Label darstellt.
+  - : Ein Zeichenfolgenwert, der das einzufügende Etikett darstellt.
 
 ### Rückgabewert
 

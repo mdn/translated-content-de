@@ -1,5 +1,5 @@
 ---
-title: "Attr: localName-Eigenschaft"
+title: "Attr: Eigenschaft localName"
 short-title: localName
 slug: Web/API/Attr/localName
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`localName`**-Eigenschaft der {{domxref("Attr")}}-Schnittstelle gibt den _lokalen Teil_ des _qualifizierten Namens_ eines Attributs zurück, also den Namen des Attributs ohne etwaigen vorangestellten Namensraum. Zum Beispiel, wenn der qualifizierte Name `xml:lang` ist, ist der zurückgegebene lokale Name `lang`, vorausgesetzt das Element unterstützt diesen Namensraum.
+Die schreibgeschützte **`localName`**-Eigenschaft der [`Attr`](/de/docs/Web/API/Attr)-Schnittstelle gibt den _lokalen Teil_ des _qualifizierten Namens_ eines Attributs zurück, also den Namen des Attributs, von jeglichem Namensraum davor befreit. Wenn zum Beispiel der qualifizierte Name `xml:lang` ist, dann ist der zurückgegebene lokale Name `lang`, vorausgesetzt, dass das Element diesen Namensraum unterstützt.
 
-Der lokale Name ist immer in Kleinbuchstaben, unabhängig davon, welche Groß- und Kleinschreibung bei der Attributserstellung verwendet wurde.
+Der lokale Name ist immer in Kleinbuchstaben, unabhängig davon, in welcher Groß- und Kleinschreibung das Attribut erstellt wurde.
 
 > [!NOTE]
-> HTML unterstützt nur eine feste Menge von Namensräumen auf SVG- und MathML-Elementen. Diese sind `xml` (für das `xml:lang`-Attribut), `xlink` (für die `xlink:href`, `xlink:show`, `xlink:target` und `xlink:title` Attribute) und `xpath`.
+> HTML unterstützt nur eine feste Anzahl von Namensräumen auf SVG- und MathML-Elementen. Diese sind `xml` (für das `xml:lang` Attribut), `xlink` (für die `xlink:href`, `xlink:show`, `xlink:target` und `xlink:title` Attribute) und `xpath`.
 >
-> Das bedeutet, dass der lokale Name eines Attributs eines HTML-Elements immer gleich seinem qualifizierten Namen ist: Doppelpunkte werden als normale Zeichen behandelt. In XML, wie in SVG oder MathML, markiert der Doppelpunkt das Ende des Präfixes und das, was davor steht, ist der Namensraum; der lokale Name kann sich vom qualifizierten Namen unterscheiden.
+> Das bedeutet, dass der lokale Name eines Attributs eines HTML-Elements immer mit seinem qualifizierten Namen übereinstimmt: Doppelpunkte werden als normale Zeichen behandelt. In XML, wie in SVG oder MathML, zeigt der Doppelpunkt das Ende des Präfixes an und davor ist der Namensraum; der lokale Name kann sich vom qualifizierten Namen unterscheiden.
 
 ## Wert
 
@@ -23,7 +23,7 @@ Ein String, der den lokalen Teil des qualifizierten Namens des Attributs darstel
 
 ## Beispiel
 
-Im folgenden Beispiel wird der lokale Name des ersten Attributs der beiden ersten Elemente angezeigt, wenn wir auf den entsprechenden Button klicken. Das {{SVGElement("svg")}}-Element ist XML und unterstützt Namensräume, was dazu führt, dass der lokale Name (`lang`) sich vom qualifizierten Namen `xml:lang` unterscheidet. Das {{HTMLElement("label")}}-Element ist HTML, das keine Namensräume unterstützt, weshalb der lokale Name und der qualifizierte Name beide `xml:lang` sind.
+Das folgende Beispiel zeigt den lokalen Namen des ersten Attributs der beiden ersten Elemente an, wenn wir auf den entsprechenden Button klicken. Das {{SVGElement("svg")}}-Element ist XML und unterstützt Namensräume, was dazu führt, dass der lokale Name (`lang`) sich vom qualifizierten Namen `xml:lang` unterscheidet. Das {{HTMLElement("label")}}-Element ist HTML und unterstützt keine Namensräume, was dazu führt, dass der lokale Name und der qualifizierte Name beide `xml:lang` sind.
 
 ### HTML
 
@@ -72,5 +72,5 @@ for (const button of buttons) {
 
 ## Siehe auch
 
-- Die Eigenschaften {{domxref("Attr.name")}}, die den qualifizierten Namen des Attributs zurückgibt, und {{domxref("Attr.prefix")}}, das Namensraumpräfix.
-- Die {{domxref("Element.localName()")}}-Eigenschaft, die den lokalen Namen eines {{domxref("Element")}} zurückgibt.
+- Die Eigenschaften [`Attr.name`](/de/docs/Web/API/Attr/name), die den qualifizierten Namen des Attributs zurückgibt, und [`Attr.prefix`](/de/docs/Web/API/Attr/prefix), das Namespace-Präfix.
+- Die [`Element.localName()`](/de/docs/Web/API/Element/localName)-Eigenschaft, die den lokalen Namen eines [`Element`](/de/docs/Web/API/Element) zurückgibt.

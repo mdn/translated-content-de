@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Der **`BackgroundFetchUpdateUIEvent()`** Konstruktor erstellt ein neues {{domxref("BackgroundFetchUpdateUIEvent")}} Objekt. Dieser Konstruktor wird typischerweise nicht verwendet, da der Browser diese Objekte selbst erstellt und sie den Hintergrundabruf-Ereignisrückrufen bereitstellt.
+Der **`BackgroundFetchUpdateUIEvent()`** Konstruktor erstellt ein neues [`BackgroundFetchUpdateUIEvent`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent)-Objekt. Dieser Konstruktor wird normalerweise nicht verwendet, da der Browser diese Objekte selbst erstellt und sie an Hintergrundabruf-Ereignis-Callbacks weitergibt.
 
 ## Syntax
 
@@ -20,15 +20,15 @@ new BackgroundFetchEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist groß-/klein-schreibungssensitiv und die Browser setzen ihn auf `backgroundfetchsuccess` oder `backgroundfetchfail`.
+    Diese sind groß-/kleinbuchstabenunempfindlich und Browser setzen ihn auf `backgroundfetchsuccess` oder `backgroundfetchfail`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den Eigenschaften, die in {{domxref("ExtendableEvent/ExtendableEvent", "ExtendableEvent()")}} definiert sind_, die folgenden Eigenschaften hat:
+  - : Ein Objekt, das _zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften_ die folgenden Eigenschaften besitzt:
     - `registration`
-      - : Ein {{domxref("BackgroundFetchRegistration")}} Objekt.
+      - : Ein [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Objekt.
 
 ### Rückgabewert
 
-Ein neues {{domxref("BackgroundFetchUpdateUIEvent")}} Objekt.
+Ein neues [`BackgroundFetchUpdateUIEvent`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent)-Objekt.
 
 ## Spezifikationen
 

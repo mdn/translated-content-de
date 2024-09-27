@@ -1,31 +1,32 @@
 ---
-title: "WorkerNavigator: Produkteigenschaft"
-short-title: Produkt
+title: "WorkerNavigator: product-Eigenschaft"
+short-title: product
 slug: Web/API/WorkerNavigator/product
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}{{AvailableInWorkers("worker")}}
 
-Der Wert der Eigenschaft **`WorkerNavigator.product`** ist in jedem Browser immer "`Gecko`". Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
+Der Wert der **`WorkerNavigator.product`**-Eigenschaft ist immer
+`"Gecko"`, in jedem Browser. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten.
 
 > [!NOTE]
-> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen echten Produktnamen zurückgibt. Alle Browser geben "`Gecko`" als Wert dieser Eigenschaft zurück.
+> Verlassen Sie sich nicht darauf, dass diese Eigenschaft einen echten Produktnamen zurückgibt. Alle Browser liefern `"Gecko"` als Wert dieser Eigenschaft.
 
 ## Wert
 
-Der String "`Gecko`".
+Der String `"Gecko"`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WorkerNavigator.appCodeName")}}
-- {{domxref("WorkerNavigator.appName")}}
+- [`WorkerNavigator.appCodeName`](/de/docs/Web/API/WorkerNavigator/appCodeName)
+- [`WorkerNavigator.appName`](/de/docs/Web/API/WorkerNavigator/appName)

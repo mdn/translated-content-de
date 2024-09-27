@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`url`**-Eigenschaft des schreibgeschützten {{domxref("NotRestoredReasons")}}-Interfaces gibt eine Zeichenkette zurück, die die URL der navigierten Seite oder des {{htmlelement("iframe")}} darstellt.
+Die **`url`**-Eigenschaft des [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Interfaces ist eine schreibgeschützte Eigenschaft, die eine Zeichenkette zurückgibt, die die URL der navigierten Seite oder des {{htmlelement("iframe")}} darstellt.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Wenn sich das Dokument in einem Cross-Origin-`<iframe>` befindet, gibt `url` `nu
 
 ## Beispiele
 
-Siehe [Überwachung von bfcache-Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) für Beispiele.
+Siehe [Überwachung der bfcache-Blockierungsgründe](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) für Beispiele.
 
 ## Spezifikationen
 
@@ -30,5 +30,5 @@ Siehe [Überwachung von bfcache-Blockierungsgründen](/de/docs/Web/API/Performan
 
 ## Siehe auch
 
-- [Überwachung von bfcache-Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
-- {{domxref("PerformanceNavigationTiming.notRestoredReasons")}}
+- [Überwachung der bfcache-Blockierungsgründe](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
+- [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons)

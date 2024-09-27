@@ -8,25 +8,27 @@ l10n:
 {{HTMLSidebar("Global_attributes")}}
 
 Das **`nonce`** [globale Attribut](/de/docs/Web/HTML/Global_attributes)
-ist ein Inhaltsattribut, das eine kryptografische Nonce ("Nummer, die einmal verwendet wird") definiert und von der [Content Security Policy](/de/docs/Web/HTTP/CSP) verwendet werden kann, um zu bestimmen, ob ein bestimmter Abruf für ein gegebenes Element zugelassen wird oder nicht.
+ist ein Inhaltsattribut, das eine kryptografische Nonce ("number used once") definiert, welche von der
+[Content Security Policy](/de/docs/Web/HTTP/CSP) verwendet werden kann, um zu bestimmen, ob ein bestimmter Abruf für ein bestimmtes Element fortgesetzt werden darf.
 
 ## Beschreibung
 
-Das `nonce`-Attribut ist nützlich, um bestimmte Elemente wie ein bestimmtes Inline-Skript oder Style-Elemente auf die Allowlist zu setzen.
+Das `nonce`-Attribut ist nützlich, um bestimmte Elemente auf die Allowlist zu setzen, wie z.B. ein bestimmtes Inline-Skript oder Stil-Elemente.
 Es kann Ihnen helfen, die Verwendung der [CSP](/de/docs/Web/HTTP/CSP) `unsafe-inline`-Direktive zu vermeiden, die _alle_ Inline-Skripte oder -Stile auf die Allowlist setzen würde.
 
 > [!NOTE]
-> Verwenden Sie `nonce` nur in Fällen, in denen Sie keine Möglichkeit haben, unsichere Inline-Skript- oder Style-Inhalte zu vermeiden. Wenn Sie `nonce` nicht benötigen, verwenden Sie es nicht. Wenn Ihr Skript statisch ist, können Sie stattdessen auch einen CSP-Hash verwenden.
-> (Siehe Nutzungshinweise zu [unsafe inline script](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script).)
-> Versuchen Sie immer, den vollen Vorteil der [CSP](/de/docs/Web/HTTP/CSP)-Schutzmaßnahmen zu nutzen und Nonces oder unsichere Inline-Skripte wann immer möglich zu vermeiden.
+> Verwenden Sie `nonce` nur in Fällen, in denen Sie keine Möglichkeit haben, unsichere Inline-Skript-
+> oder Stil-Inhalte zu vermeiden. Wenn Sie `nonce` nicht benötigen, verwenden Sie es nicht. Wenn Ihr Skript statisch ist, könnten Sie stattdessen einen CSP-Hash verwenden.
+> (Siehe Verwendungshinweise zu [unsicheren Inline-Skripten](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script).)
+> Versuchen Sie immer, die [CSP](/de/docs/Web/HTTP/CSP)-Schutzmaßnahmen voll auszunutzen und vermeiden Sie Nonces oder unsichere Inline-Skripte wann immer möglich.
 
-### Verwendung von nonce, um ein \<script>-Element auf die Allowlist zu setzen
+### Verwendung von nonce zur Allowlist einer \<script>-Element
 
-Es sind einige Schritte erforderlich, um ein Inline-Skript mithilfe des Nonce-Mechanismus auf die Allowlist zu setzen:
+Es gibt einige Schritte, um ein Inline-Skript mit dem Nonce-Mechanismus auf die Allowlist zu setzen:
 
 #### Generierung von Werten
 
-Erzeugen Sie von Ihrem Webserver aus eine zufällige, base64-kodierte Zeichenkette mit mindestens 128 Bit Daten aus einem kryptografisch sicheren Zufallszahlengenerator. Nonces sollten jedes Mal unterschiedlich generiert werden, wenn die Seite geladen wird (Nonce nur einmal!). Zum Beispiel in Node.js:
+Generieren Sie von Ihrem Webserver aus eine zufällige, base64-kodierte Zeichenfolge von mindestens 128 Bit Daten aus einem kryptografisch sicheren Zufallszahlengenerator. Nonces sollten jedes Mal anders generiert werden, wenn die Seite geladen wird (Nonce nur einmal!). Zum Beispiel in Node.js:
 
 ```js
 const crypto = require("crypto");
@@ -34,9 +36,9 @@ crypto.randomBytes(16).toString("base64");
 // '8IBTHwOdqNKAWeKl7plt8g=='
 ```
 
-#### Auf die Allowlist setzen von Inline-Skript
+#### Allowlisting von Inline-Skript
 
-Die in Ihrem Backend-Code generierte Nonce sollte nun für das Inline-Skript verwendet werden, das Sie auf die Allowlist setzen möchten:
+Die auf Ihrem Backend generierte Nonce sollte nun für das Inline-Skript verwendet werden, das Sie auf die Allowlist setzen möchten:
 
 ```html
 <script nonce="8IBTHwOdqNKAWeKl7plt8g==">
@@ -46,29 +48,29 @@ Die in Ihrem Backend-Code generierte Nonce sollte nun für das Inline-Skript ver
 
 #### Senden einer Nonce mit einem CSP-Header
 
-Schließlich müssen Sie den Nonce-Wert in einem
+Abschließend müssen Sie den Nonce-Wert in einem
 [`Content-Security-Policy`](/de/docs/Web/HTTP/Headers/Content-Security-Policy)-Header senden
-(`nonce-` voranstellen):
+(dem `nonce-` voranstellen):
 
 ```http
 Content-Security-Policy: script-src 'nonce-8IBTHwOdqNKAWeKl7plt8g=='
 ```
 
-### Zugriff auf Nonces und Nonce-Verbergung
+### Zugriff auf Nonces und Verbergen von Nonces
 
-Aus Sicherheitsgründen wird das `nonce`-Inhaltsattribut verborgen (eine leere Zeichenkette wird zurückgegeben).
+Aus Sicherheitsgründen wird das `nonce`-Inhaltsattribut ausgeblendet (ein leerer String wird zurückgegeben).
 
 ```js example-bad
-script.getAttribute("nonce"); // gibt leere Zeichenkette zurück
+script.getAttribute("nonce"); // returns empty string
 ```
 
 Die [`nonce`](/de/docs/Web/API/HTMLElement/nonce)-Eigenschaft ist der einzige Weg, um auf Nonces zuzugreifen:
 
 ```js example-good
-script.nonce; // gibt Nonce-Wert zurück
+script.nonce; // returns nonce value
 ```
 
-Nonce-Verbergung hilft, Angreifer daran zu hindern, Nonce-Daten über Mechanismen, die Daten aus Inhaltsattributen wie diesem extrahieren können, zu exfiltrieren:
+Das Verbergen von Nonces hilft zu verhindern, dass Angreifer Noncedaten über Mechanismen exfiltrieren, die Daten aus Inhaltsattributen extrahieren können, wie:
 
 ```css example-bad
 script[nonce~="whatever"] {

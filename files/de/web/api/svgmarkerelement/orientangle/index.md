@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`orientAngle`** schreibgeschützte Eigenschaft der {{domxref("SVGMarkerElement")}}-Schnittstelle gibt ein {{domxref("SVGAnimatedAngle")}}-Objekt zurück, das den Winkel des {{SVGattr("orient")}}-Attributs enthält.
+Die schreibgeschützte Eigenschaft **`orientAngle`** des [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Interfaces gibt ein [`SVGAnimatedAngle`](/de/docs/Web/API/SVGAnimatedAngle)-Objekt zurück, das den Winkel des {{SVGattr("orient")}}-Attributs enthält.
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedAngle")}}-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein {{domxref("SVGAngle")}} zurück, dessen Wert den `angle` zurückgibt.
+Ein [`SVGAnimatedAngle`](/de/docs/Web/API/SVGAnimatedAngle)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGAngle`](/de/docs/Web/API/SVGAngle) zurück, dessen Wert den `angle` zurückgibt.
 
 ## Beispiele
 
-Die `orientAngle`-Eigenschaft gibt ein {{domxref("SVGAnimatedAngle")}} zurück, das ein {{domxref("SVGAngle")}} enthält, mit dem Winkel, der durch das {{SVGattr("orient")}}-Attribut als Zahl in Grad angegeben ist, um den der Marker gedreht wird.
+Die `orientAngle`-Eigenschaft gibt ein [`SVGAnimatedAngle`](/de/docs/Web/API/SVGAnimatedAngle) zurück, das ein [`SVGAngle`](/de/docs/Web/API/SVGAngle) enthält, mit dem Winkel, der durch das {{SVGattr("orient")}}-Attribut als Zahl, die die Anzahl der Grad angibt, bestimmt wird.
 
 ```html
 <svg id="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,7 @@ Die `orientAngle`-Eigenschaft gibt ein {{domxref("SVGAnimatedAngle")}} zurück, 
 
 ```js
 let marker = document.getElementById("arrow");
-console.log(marker.orientAngle.baseVal.value); // 180 da .5turn 180 Grad sind.
+console.log(marker.orientAngle.baseVal.value); // 180 as .5turn is 180deg.
 ```
 
 ## Spezifikationen

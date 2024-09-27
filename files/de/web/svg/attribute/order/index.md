@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`order`** Attribut gibt die Größe der Matrix an, die durch ein {{SVGElement("feConvolveMatrix")}}-Element verwendet werden soll.
+Das **`order`**-Attribut gibt die Größe der Matrix an, die von einem {{SVGElement("feConvolveMatrix")}}-Element verwendet wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -46,7 +46,7 @@ svg {
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Verwendungshinweise
+## Anmerkungen zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -73,14 +73,14 @@ svg {
 
 - `<number-optional-number>`
 
-  - : Dieser Wert gibt die Anzahl der Zellen in jeder Dimension für die Kernelmatrix an. Die angegebenen Werte müssen {{cssxref("integer")}}s größer als null sein. Werte, die keine Ganzzahlen sind, werden abgeschnitten, d.h. auf den nächsten ganzzahligen Wert in Richtung null gerundet. Die erste Zahl gibt die Anzahl der Spalten in der Matrix an. Die zweite Zahl gibt die Anzahl der Zeilen in der Matrix an. Wenn keine zweite Zahl angegeben wird, wird sie standardmäßig auf die erste Zahl gesetzt.
+  - : Dieser Wert gibt die Anzahl der Zellen in jeder Dimension für die Kernel-Matrix an. Die angegebenen Werte müssen {{cssxref("integer")}} größer als null sein. Werte, die keine ganzen Zahlen sind, werden abgeschnitten, d.h. auf den nächsten ganzzahligen Wert in Richtung Null gerundet. Die erste Zahl gibt die Anzahl der Spalten in der Matrix an. Die zweite Zahl gibt die Anzahl der Zeilen in der Matrix an. Wenn keine zweite Zahl angegeben wird, wird sie auf die erste Zahl voreingestellt.
 
-    Es wird empfohlen, nur kleine Werte (z.B. 3) zu verwenden; höhere Werte können zu sehr hoher CPU-Belastung führen und liefern in der Regel keine Ergebnisse, die die Auswirkungen auf die Leistung rechtfertigen.
+    Es wird empfohlen, nur kleine Werte (z.B. 3) zu verwenden; höhere Werte können zu sehr hoher CPU-Belastung führen und liefern in der Regel keine Ergebnisse, die den Leistungsaufwand rechtfertigen.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

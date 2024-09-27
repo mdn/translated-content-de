@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`getAuthenticatorData()`**-Methode des {{domxref("AuthenticatorAttestationResponse")}}-Interfaces gibt ein {{jsxref("ArrayBuffer")}} zurück, das die Authenticator-Daten enthält, die in der {{domxref("AuthenticatorAttestationResponse.attestationObject")}}-Eigenschaft enthalten sind.
+Die **`getAuthenticatorData()`**-Methode des [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse)-Interfaces gibt einen {{jsxref("ArrayBuffer")}} zurück, der die Authenticator-Daten enthält, die in der [`AuthenticatorAttestationResponse.attestationObject`](/de/docs/Web/API/AuthenticatorAttestationResponse/attestationObject)-Eigenschaft enthalten sind.
 
 Dies ist eine Komfortfunktion, die erstellt wurde, um einfachen Zugriff auf die Authenticator-Daten zu ermöglichen, ohne zusätzlichen Parsing-Code schreiben zu müssen, um diese aus dem `attestationObject` zu extrahieren.
 
@@ -24,13 +24,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("ArrayBuffer")}} mit einer {{jsxref("ArrayBuffer.byteLength")}} von mindestens 37 Bytes, die die im [Authenticator data](/de/docs/Web/API/Web_Authentication_API/Authenticator_data) erklärten Datenstrukturen enthält.
+Ein {{jsxref("ArrayBuffer")}} mit einer {{jsxref("ArrayBuffer.byteLength")}} von mindestens 37 Bytes, der die in [Authenticator-Daten](/de/docs/Web/API/Web_Authentication_API/Authenticator_data) erklärte Datenstruktur enthält.
 
-Dies entspricht den Authenticator-Daten, die in der {{domxref("AuthenticatorAttestationResponse.attestationObject")}}-Eigenschaft enthalten sind.
+Dies wird den Authenticator-Daten entsprechen, die innerhalb der [`AuthenticatorAttestationResponse.attestationObject`](/de/docs/Web/API/AuthenticatorAttestationResponse/attestationObject)-Eigenschaft enthalten sind.
 
 ## Beispiele
 
-Sehen Sie sich [Erstellen eines Public Key-Zertifikats mit der WebAuthn API](/de/docs/Web/API/CredentialsContainer/create#creating_a_public_key_credential_using_the_webauthn_api) für ein detailliertes Beispiel an.
+Siehe [Erstellen eines öffentlichen Schlüssel-Zertifikats mit der WebAuthn-API](/de/docs/Web/API/CredentialsContainer/create#creating_a_public_key_credential_using_the_webauthn_api) für ein detailliertes Beispiel.
 
 ## Spezifikationen
 

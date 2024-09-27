@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die schreibgeschützte **`WebGLRenderingContext.drawingBufferWidth`**-Eigenschaft repräsentiert die tatsächliche Breite des aktuellen Zeichenpuffers. Sie sollte mit dem `width`-Attribut des mit diesem Kontext verknüpften {{HTMLElement("canvas")}}-Elements übereinstimmen, kann jedoch abweichen, wenn die Implementierung nicht in der Lage ist, die angeforderte Breite bereitzustellen.
+Die schreibgeschützte **`WebGLRenderingContext.drawingBufferWidth`**
+Eigenschaft repräsentiert die tatsächliche Breite des aktuellen Zeichenpuffers. Sie sollte mit dem
+`width`-Attribut des mit diesem Kontext verbundenen {{HTMLElement("canvas")}} Elements übereinstimmen, kann jedoch abweichen, wenn die Implementierung nicht in der Lage ist, die angeforderte Breite bereitzustellen.
 
 ## Wert
 
@@ -16,13 +18,13 @@ Eine Zahl.
 
 ## Beispiele
 
-Gegeben dieses {{HTMLElement("canvas")}}-Element:
+Angenommen, dieses {{HTMLElement("canvas")}} Element:
 
 ```html
 <canvas id="canvas"></canvas>
 ```
 
-Sie können die Breite des Zeichenpuffers mit den folgenden Zeilen erhalten:
+Sie können die Breite des Zeichenpuffers mit den folgenden Zeilen abrufen:
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -40,5 +42,5 @@ gl.drawingBufferWidth; // 300
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.drawingBufferHeight")}}
-- {{domxref("WebGLRenderingContext.viewport()")}}
+- [`WebGLRenderingContext.drawingBufferHeight`](/de/docs/Web/API/WebGLRenderingContext/drawingBufferHeight)
+- [`WebGLRenderingContext.viewport()`](/de/docs/Web/API/WebGLRenderingContext/viewport)

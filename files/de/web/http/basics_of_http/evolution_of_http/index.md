@@ -1,5 +1,5 @@
 ---
-title: Evolution von HTTP
+title: Evolution des HTTP
 slug: Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP
 l10n:
   sourceCommit: 73a13d5f9de56d0fc89896ee7f7e54d5c1bc8e2d
@@ -7,194 +7,115 @@ l10n:
 
 {{HTTPSidebar}}
 
-**HTTP** (HyperText Transfer Protocol) ist das zugrunde liegende Protokoll des World Wide Web. Entwickelt von Tim Berners-Lee und seinem Team zwischen 1989-1991, hat HTTP viele Veränderungen durchlaufen, die dazu beigetragen haben, seine Einfachheit zu bewahren und gleichzeitig seine Flexibilität zu formen. Lesen Sie weiter, um zu erfahren, wie sich HTTP von einem Protokoll, das zum Austausch von Dateien in einer semivertrauenswürdigen Laborumgebung entwickelt wurde, zu einem modernen Internetlabyrinth entwickelt hat, das Bilder und Videos in hoher Auflösung und 3D überträgt.
+**HTTP** (HyperText Transfer Protocol) ist das zugrunde liegende Protokoll des World Wide Web. Entwickelt von Tim Berners-Lee und seinem Team zwischen 1989-1991, hat HTTP viele Änderungen durchlaufen, die zur Erhaltung seiner Einfachheit beigetragen haben und gleichzeitig seine Flexibilität geformt haben. Lesen Sie weiter, um zu erfahren, wie sich HTTP von einem Protokoll entwickelt hat, das zum Austausch von Dateien in einer halb vertrauten Laborumgebung entworfen wurde, zu einem modernen Internet-Labyrinth, das Bilder und Videos in hoher Auflösung und 3D trägt.
 
 ## Erfindung des World Wide Web
 
-1989, während seiner Arbeit bei CERN, schrieb Tim Berners-Lee einen Vorschlag, um ein Hypertext-System über das Internet aufzubauen. Ursprünglich _Mesh_ genannt, wurde es während seiner Implementierung 1990 in _World Wide Web_ umbenannt. Aufgebaut auf den bestehenden TCP- und IP-Protokollen, bestand es aus 4 Bausteinen:
+1989 schrieb Tim Berners-Lee, während er bei CERN arbeitete, einen Vorschlag, um ein Hypertext-System über das Internet zu bauen. Ursprünglich als _Mesh_ bezeichnet, wurde es später während seiner Implementierung 1990 in _World Wide Web_ umbenannt. Es wurde über die bestehenden TCP- und IP-Protokolle gebaut und bestand aus vier Bausteinen:
 
-- Ein textuelles Format zur Darstellung von Hypertext-Dokumenten, die _[Hypertext Markup Language](/de/docs/Web/HTML)_ (HTML).
+- Ein Textformat zur Darstellung von Hypertext-Dokumenten, das _[HyperText Markup Language](/de/docs/Web/HTML)_ (HTML).
 - Ein einfaches Protokoll zum Austausch dieser Dokumente, das _HyperText Transfer Protocol_ (HTTP).
 - Ein Client zur Anzeige (und Bearbeitung) dieser Dokumente, der erste Webbrowser namens _WorldWideWeb_.
-- Ein Server, um den Zugang zu diesem Dokument zu gewähren, eine frühe Version von _httpd_.
+- Ein Server, um Zugriff auf das Dokument zu gewähren, eine frühe Version von _httpd_.
 
-Diese vier Bausteine waren Ende 1990 abgeschlossen, und die ersten Server liefen Anfang 1991 außerhalb von CERN. Am 6. August 1991 [veröffentlichte](https://www.w3.org/People/Berners-Lee/1991/08/art-6484.txt) Tim Berners-Lee in der öffentlichen Newsgroup _alt.hypertext_. Dies wird nun als offizieller Beginn des World Wide Web als öffentliches Projekt angesehen.
+Diese vier Bausteine waren Ende 1990 fertiggestellt, und die ersten Server liefen außerhalb von CERN Anfang 1991. Am 6. August 1991 [postete](https://www.w3.org/People/Berners-Lee/1991/08/art-6484.txt) Tim Berners-Lee in der öffentlichen Newsgroup _alt.hypertext_. Dies wird nun als der offizielle Beginn des World Wide Web als öffentliches Projekt angesehen.
 
 Das in diesen frühen Phasen verwendete HTTP-Protokoll war sehr einfach. Es wurde später HTTP/0.9 genannt und wird manchmal als das Ein-Zeilen-Protokoll bezeichnet.
 
 ## HTTP/0.9 – Das Ein-Zeilen-Protokoll
 
-Die anfängliche Version von HTTP hatte keine Versionsnummer; sie wurde später 0.9 genannt, um sie von späteren Versionen zu unterscheiden. HTTP/0.9 war extrem einfach: Anfragen bestanden aus einer einzigen Zeile und begannen mit der einzigen möglichen Methode {{HTTPMethod("GET")}}, gefolgt von dem Pfad zur Ressource. Die vollständige URL wurde nicht mit einbezogen, da das Protokoll, der Server und der Port nicht mehr notwendig waren, sobald die Verbindung zum Server hergestellt war.
+Die anfängliche Version von HTTP hatte keine Versionsnummer; sie wurde später 0.9 genannt, um sie von späteren Versionen zu unterscheiden. HTTP/0.9 war extrem einfach: Anfragen bestanden aus einer einzigen Zeile und begannen mit der einzigen möglichen Methode {{HTTPMethod("GET")}}, gefolgt vom Pfad zur Ressource. Die vollständige URL war nicht enthalten, da das Protokoll, der Server und der Port nicht notwendig waren, sobald eine Verbindung zum Server hergestellt war.
 
-```http
-GET /mypage.html
-```
+Die Antwort war ebenfalls extrem einfach: Sie bestand nur aus der Datei selbst.
 
-Auch die Antwort war extrem einfach: Sie bestand nur aus der Datei selbst.
+Im Gegensatz zu späteren Entwicklungen gab es keine HTTP-Header. Dies bedeutete, dass nur HTML-Dateien übertragen werden konnten. Es gab keine Status- oder Fehlercodes. Wenn es ein Problem gab, wurde eine spezifische HTML-Datei generiert, die eine Problembeschreibung zur menschlichen Konsumation enthielt.
 
-```html
-<html>
-  A very simple HTML page
-</html>
-```
-
-Im Gegensatz zu späteren Entwicklungen gab es keine HTTP-Header. Dies bedeutete, dass nur HTML-Dateien übertragen werden konnten. Es gab keine Status- oder Fehlercodes. Wenn ein Problem auftrat, wurde eine spezifische HTML-Datei erzeugt und enthielt eine Beschreibung des Problems für den Nutzer.
-
-## HTTP/1.0 – Erweiterbarkeit aufbauen
+## HTTP/1.0 – Aufbau von Erweiterbarkeit
 
 HTTP/0.9 war sehr eingeschränkt, aber Browser und Server machten es schnell vielseitiger:
 
 - Versionsinformationen wurden mit jeder Anfrage gesendet (`HTTP/1.0` wurde an die `GET`-Zeile angehängt).
-- Eine Statuskode-Zeile wurde auch am Anfang einer Antwort gesendet. Dies erlaubte dem Browser selbst, den Erfolg oder Misserfolg einer Anfrage zu erkennen und sein Verhalten entsprechend anzupassen, z. B. das Aktualisieren oder spezielles Verwenden seines lokalen Caches.
-- Das Konzept der HTTP-Header wurde für sowohl Anfragen als auch Antworten eingeführt. Metadaten konnten übertragen werden, und das Protokoll wurde extrem flexibel und erweiterbar.
-- Dank des {{HTTPHeader("Content-Type")}} Headers konnten auch andere Dokumente als einfache HTML-Dateien übertragen werden.
+- Eine Statuscode-Zeile wurde zu Beginn einer Antwort ebenfalls gesendet. Dies ermöglichte es dem Browser selbst, den Erfolg oder Misserfolg einer Anfrage zu erkennen und sein Verhalten entsprechend anzupassen, zum Beispiel durch Aktualisierung oder spezifische Nutzung seines lokalen Caches.
+- Das Konzept von HTTP-Headern wurde sowohl für Anfragen als auch für Antworten eingeführt. Metadaten konnten übermittelt werden und das Protokoll wurde extrem flexibel und erweiterbar.
+- Dank des {{HTTPHeader("Content-Type")}}-Headers konnten auch andere Dokumente als einfache HTML-Dateien übertragen werden.
 
-Zu diesem Zeitpunkt sah eine typische Anfrage und Antwort etwa so aus:
-
-```http
-GET /mypage.html HTTP/1.0
-User-Agent: NCSA_Mosaic/2.0 (Windows 3.1)
-
-HTTP/1.0 200 OK
-Date: Tue, 15 Nov 1994 08:12:31 GMT
-Server: CERN/3.0 libwww/2.17
-Content-Type: text/html
-<HTML>
-A page with an image
-  <IMG SRC="/myimage.gif">
-</HTML>
-```
+In dieser Zeit sah eine typische Anfrage und Antwort so aus:
 
 Es folgte eine zweite Verbindung und eine Anfrage, um das Bild abzurufen (mit der entsprechenden Antwort):
 
-```http
-GET /myimage.gif HTTP/1.0
-User-Agent: NCSA_Mosaic/2.0 (Windows 3.1)
-
-HTTP/1.0 200 OK
-Date: Tue, 15 Nov 1994 08:12:32 GMT
-Server: CERN/3.0 libwww/2.17
-Content-Type: text/gif
-(image content)
-```
-
-Zwischen 1991-1995 wurden sie mit einem Versuch-und-Sehen-Ansatz eingeführt. Ein Server und ein Browser fügten eine Funktion hinzu und beobachteten, ob sie Anklang fand. Interoperabilitätsprobleme waren häufig. Um diese Probleme zu lösen, wurde im November 1996 ein Informationsdokument veröffentlicht, das die gängigen Praktiken beschrieb. Dies wurde als {{RFC(1945)}} bekannt und definierte HTTP/1.0.
+Zwischen 1991-1995 wurden diese mit einem Versuchsansatz eingeführt. Ein Server und ein Browser fügten ein Feature hinzu und schauten, ob es Anklang fand. Interoperabilitätsprobleme waren häufig. In einem Versuch, diese Probleme zu lösen, wurde im November 1996 ein informativer Dokument veröffentlicht, das die allgemeinen Praktiken beschrieb. Dies war bekannt als {{RFC(1945)}} und definierte HTTP/1.0.
 
 ## HTTP/1.1 – Das standardisierte Protokoll
 
-In der Zwischenzeit war eine ordnungsgemäße Standardisierung im Gange. Dies geschah parallel zu den diversen Implementierungen von HTTP/1.0. Die erste standardisierte Version von HTTP, HTTP/1.1, wurde Anfang 1997 veröffentlicht, nur wenige Monate nach HTTP/1.0.
+In der Zwischenzeit war eine ordnungsgemäße Standardisierung in Arbeit. Dies geschah parallel zu den vielfältigen Implementierungen von HTTP/1.0. Die erste standardisierte Version von HTTP, HTTP/1.1, wurde Anfang 1997 veröffentlicht, nur wenige Monate nach HTTP/1.0.
 
 HTTP/1.1 klärte Unklarheiten und führte zahlreiche Verbesserungen ein:
 
-- Eine Verbindung konnte wiederverwendet werden, was Zeit sparte. Sie musste nicht mehr mehrfach geöffnet werden, um die im ursprünglichen Dokument eingebetteten Ressourcen darzustellen.
-- Pipelining wurde hinzugefügt. Dadurch konnte eine zweite Anfrage gesendet werden, bevor die Antwort auf die erste vollständig übertragen war. Dies verringerte die Latenz der Kommunikation.
-- Unterstützte auch chunked responses.
+- Eine Verbindung konnte wiederverwendet werden, was Zeit sparte. Es war nicht mehr nötig, sie mehrfach zu öffnen, um die in das einzelne Originaldokument eingebetteten Ressourcen anzuzeigen.
+- Pipelining wurde hinzugefügt. Dies erlaubte es, eine zweite Anfrage zu senden, bevor die Antwort auf die erste vollständig übertragen wurde. Dies verringerte die Latenz der Kommunikation.
+- Gestückelte Antworten wurden ebenfalls unterstützt.
 - Zusätzliche Cache-Kontrollmechanismen wurden eingeführt.
-- Inhaltsverhandlung, einschließlich Sprache, Codierung und Typ wurde eingeführt. Ein Client und ein Server konnten nun vereinbaren, welche Inhalte ausgetauscht werden.
-- Dank des {{HTTPHeader("Host")}} Headers wurde die Möglichkeit, verschiedene Domains von derselben IP-Adresse zu hosten, ermöglicht, was die Serverko-Lokation erlaubte.
+- Die Content-Verhandlung, einschließlich Sprache, Kodierung und Typ, wurde eingeführt. Ein Client und ein Server konnten sich nun darauf einigen, welchen Inhalt sie austauschen wollten.
+- Dank des {{HTTPHeader("Host")}}-Headers ermöglichte die Fähigkeit, verschiedene Domains von derselben IP-Adresse aus zu hosten, die Kolla-Kation von Servern.
 
 Ein typischer Ablauf von Anfragen, alle über eine einzige Verbindung, sah so aus:
 
-```http
-GET /de/docs/Glossary/CORS-safelisted_request_header HTTP/1.1
-Host: developer.mozilla.org
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate, br
-Referer: https://developer.mozilla.org/de/docs/Glossary/CORS-safelisted_request_header
-
-HTTP/1.1 200 OK
-Connection: Keep-Alive
-Content-Encoding: gzip
-Content-Type: text/html; charset=utf-8
-Date: Wed, 20 Jul 2016 10:55:30 GMT
-Etag: "547fa7e369ef56031dd3bff2ace9fc0832eb251a"
-Keep-Alive: timeout=5, max=1000
-Last-Modified: Tue, 19 Jul 2016 00:59:33 GMT
-Server: Apache
-Transfer-Encoding: chunked
-Vary: Cookie, Accept-Encoding
-
-(content)
-
-GET /static/img/header-background.png HTTP/1.1
-Host: developer.mozilla.org
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0
-Accept: */*
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate, br
-Referer: https://developer.mozilla.org/de/docs/Glossary/CORS-safelisted_request_header
-
-HTTP/1.1 200 OK
-Age: 9578461
-Cache-Control: public, max-age=315360000
-Connection: keep-alive
-Content-Length: 3077
-Content-Type: image/png
-Date: Thu, 31 Mar 2016 13:34:46 GMT
-Last-Modified: Wed, 21 Oct 2015 18:27:50 GMT
-Server: Apache
-
-(image content of 3077 bytes)
-```
-
 HTTP/1.1 wurde erstmals als {{rfc(2068)}} im Januar 1997 veröffentlicht.
 
-## Mehr als zwei Jahrzehnte Entwicklung
+## Mehr als zwei Jahrzehnte der Entwicklung
 
-Die Erweiterbarkeit von HTTP machte es einfach, neue Header und Methoden zu erstellen. Obwohl das HTTP/1.1-Protokoll über zwei Überarbeitungen, {{RFC("2616")}} veröffentlicht im Juni 1999 und {{RFC("7230")}}-{{RFC("7235")}} veröffentlicht im Juni 2014 vor der Veröffentlichung von HTTP/2, verfeinert wurde, war es über mehr als 15 Jahre extrem stabil. HTTP/1.1 wurde 2022 erneut mit {{RFC("9110")}} aktualisiert. Nicht nur HTTP/1.1 wurde aktualisiert, sondern auch das gesamte HTTP wurde überarbeitet und ist nun auf die folgenden Dokumente aufgeteilt: Semantik ({{RFC("9110")}}), Caching ({{RFC("9111")}}), das auf alle HTTP-Versionen anwendbar ist, und HTTP/1.1 ({{RFC("9112")}}), HTTP/2 ({{RFC("9113")}}) sowie HTTP/3 ({{RFC("9114")}}). Darüber hinaus hat die Spezifikation endlich den Status eines Internet-Standards (STD 97) erreicht, während sie zuvor immer ein vorgeschlagener/Entwurfsstandard war.
+Die Erweiterbarkeit von HTTP machte es einfach, neue Header und Methoden zu erstellen. Obwohl das HTTP/1.1-Protokoll über zwei Revisionen verfeinert wurde, {{RFC("2616")}} veröffentlicht im Juni 1999 und {{RFC("7230")}}-{{RFC("7235")}} veröffentlicht im Juni 2014 vor der Veröffentlichung von HTTP/2, war es über mehr als 15 Jahre extrem stabil. HTTP/1.1 wurde 2022 erneut mit {{RFC("9110")}} aktualisiert. Nicht nur HTTP/1.1 wurde aktualisiert, sondern das gesamte HTTP wurde überarbeitet und ist nun in die folgenden Dokumente aufgeteilt: Semantik ({{RFC("9110")}}), Caching ({{RFC("9111")}}), die für alle HTTP-Versionen gelten, und HTTP/1.1 ({{RFC("9112")}}), HTTP/2 ({{RFC("9113")}}) und HTTP/3 ({{RFC("9114")}}). Darüber hinaus erreichte die Spezifikation schließlich den Status eines Internet-Standards (STD 97), während sie zuvor immer ein vorgeschlagener / Entwurfsstandard war.
 
-### Nutzung von HTTP für sichere Übertragungen
+### Verwendung von HTTP für sichere Übertragungen
 
-Die größte Veränderung an HTTP erfolgte Ende 1994. Anstatt HTTP über einen einfachen TCP/IP-Stack zu senden, schuf das Computer-Service-Unternehmen Netscape Communications eine zusätzliche verschlüsselte Übertragungsschicht darüber: SSL. SSL 1.0 wurde nie der Öffentlichkeit zugänglich gemacht, aber SSL 2.0 und sein Nachfolger SSL 3.0 ermöglichten die Erstellung von E-Commerce-Websites. Dazu verschlüsselten und garantierten sie die Authentizität der zwischen dem Server und dem Client ausgetauschten Nachrichten. SSL wurde schließlich standardisiert und zu TLS.
+Die größte Änderung an HTTP wurde Ende 1994 vorgenommen. Statt HTTP über einen einfachen TCP/IP-Stack zu senden, erstellte die Computer-Dienstleistungsfirma Netscape Communications eine zusätzliche verschlüsselte Übertragungsschicht darüber: SSL. SSL 1.0 wurde nie der Öffentlichkeit zugänglich gemacht, aber SSL 2.0 und sein Nachfolger SSL 3.0 ermöglichten die Erstellung von E-Commerce-Websites. Um dies zu tun, verschlüsselten sie und garantierten die Authentizität der zwischen Server und Client ausgetauschten Nachrichten. SSL wurde schließlich standardisiert und wurde zu TLS.
 
-In der gleichen Zeit wurde klar, dass eine verschlüsselte Transportschicht benötigt wurde. Das Web war kein überwiegend akademisches Netzwerk mehr, sondern wurde zu einem Dschungel, in dem Werbetreibende, zufällige Einzelpersonen und Kriminelle um so viele private Daten wie möglich konkurrierten. Da die auf HTTP basierenden Anwendungen immer leistungsfähiger wurden und Zugang zu privaten Informationen wie Adressbüchern, E-Mails und Benutzerstandorten benötigten, wurde TLS außerhalb des E-Commerce-Anwendungsfalls notwendig.
+Im selben Zeitraum wurde klar, dass eine verschlüsselte Transportschicht benötigt wurde. Das Web war nicht mehr ein überwiegend akademisches Netzwerk und wurde stattdessen zu einem Dschungel, in dem Werbetreibende, zufällige Personen und Kriminelle um so viele private Daten wie möglich konkurrierten. Da die über HTTP gebauten Anwendungen leistungsfähiger wurden und Zugriff auf private Informationen wie Adressbücher, E-Mails und den Standort des Benutzers erforderten, wurde TLS außerhalb des E-Commerce-Anwendungsfalls notwendig.
 
-### Nutzung von HTTP für komplexe Anwendungen
+### Verwendung von HTTP für komplexe Anwendungen
 
-Tim Berners-Lee sah HTTP ursprünglich nicht als ein rein lesbares Medium vor. Er wollte ein Web erschaffen, in dem Menschen Dokumente aus der Ferne hinzufügen und verschieben können – eine Art verteiltes Dateisystem. Etwa 1996 wurde HTTP erweitert, um das Autorisieren zu erlauben, und ein Standard namens WebDAV wurde entwickelt. Es wuchs, um spezifische Anwendungen wie CardDAV zur Handhabung von Adressbucheinträgen und CalDAV für den Umgang mit Kalendern einzuschließen. Aber all diese \*DAV-Erweiterungen hatten einen Fehler: sie waren nur nutzbar, wenn sie von den Servern implementiert wurden.
+Tim Berners-Lee stellte sich HTTP ursprünglich nicht als reines Lesemedium vor. Er wollte ein Web schaffen, in dem Menschen aus der Ferne Dokumente hinzufügen und verschieben konnten - eine Art verteiltes Dateisystem. Um 1996 wurde HTTP erweitert, um Autorisierung zu ermöglichen, und ein Standard namens WebDAV wurde erstellt. Es wuchs, um spezifische Anwendungen wie CardDAV für die Bearbeitung von Adressbucheinträgen und CalDAV für den Umgang mit Kalendern zu umfassen. Aber all diese \*DAV-Erweiterungen hatten einen Fehler: Sie waren nur verwendbar, wenn sie von den Servern implementiert wurden.
 
-Im Jahr 2000 wurde ein neues Muster für die Nutzung von HTTP entwickelt: {{glossary("REST", "representational state transfer")}} (oder REST). Die API basierte nicht auf den neuen HTTP-Methoden, sondern stützte sich auf den Zugriff auf bestimmte URIs mit grundlegenden HTTP/1.1-Methoden. Dies erlaubte jeder Webanwendung, eine API bereitzustellen, um ihre Daten abzurufen und zu ändern, ohne die Browser oder Server aktualisieren zu müssen. Alle notwendigen Informationen wurden in den Dateien eingebettet, die die Websites über standardmäßiges HTTP/1.1 bereitstellten. Der Nachteil des REST-Modells war, dass jede Website ihre eigene nicht standardisierte RESTful API definierte und die vollständige Kontrolle darüber hatte. Dies unterschied sich von den \*DAV-Erweiterungen, bei denen Clients und Server interoperabel waren. RESTful APIs wurden in den 2010er Jahren sehr verbreitet.
+Im Jahr 2000 wurde ein neues Muster für die Verwendung von HTTP entwickelt: [representational state transfer](/de/docs/Glossary/REST) (oder REST). Die API basierte nicht auf den neuen HTTP-Methoden, sondern setzte auf den Zugriff auf spezifische URIs mit grundlegenden HTTP/1.1-Methoden. Dies erlaubte jeder Webanwendung, eine API bereitzustellen, um ihre Daten abzurufen und zu ändern, ohne dass die Browser oder Server aktualisiert werden mussten. Alle notwendigen Informationen wurden in die Dateien eingebettet, die die Websites über standardmäßiges HTTP/1.1 lieferten. Der Nachteil des REST-Modells war, dass jede Website ihre eigene nicht standardisierte RESTful API definierte und die vollständige Kontrolle darüber hatte. Dies unterschied sich von den \*DAV-Erweiterungen, bei denen Clients und Server interoperabel waren. RESTful APIs wurden in den 2010er Jahren sehr verbreitet.
 
-Seit 2005 sind mehr APIs für Webseiten verfügbar geworden. Mehrere dieser APIs schaffen Erweiterungen des HTTP-Protokolls für spezifische Zwecke:
+Seit 2005 stehen immer mehr APIs für Webseiten zur Verfügung. Mehrere dieser APIs schaffen Erweiterungen für das HTTP-Protokoll für spezifische Zwecke:
 
-- [Vom Server gesendete Ereignisse](/de/docs/Web/API/Server-sent_events), bei denen der Server gelegentlich Nachrichten an den Browser senden kann.
+- [Server-sent events](/de/docs/Web/API/Server-sent_events), bei denen der Server gelegentlich Nachrichten an den Browser senden kann.
 - [WebSocket](/de/docs/Web/API/WebSockets_API), ein neues Protokoll, das durch das Upgrade einer bestehenden HTTP-Verbindung eingerichtet werden kann.
 
-### Lockerung des Sicherheitsmodells des Webs
+### Entspannung des Sicherheitsmodells des Webs
 
-HTTP ist unabhängig vom Web-Sicherheitsmodell, bekannt als die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy). Tatsächlich wurde das aktuelle Web-Sicherheitsmodell nach der Erstellung von HTTP entwickelt! Im Laufe der Jahre erwies es sich als nützlich, einige Beschränkungen dieser Richtlinie unter bestimmten Bedingungen aufzuheben. Der Server übermittelte dem Client mit Hilfe eines neuen Satzes von HTTP-Headern, in welchem Umfang und wann solche Beschränkungen aufgehoben werden sollten. Diese wurden in Spezifikationen wie [Cross-Origin Resource Sharing](/de/docs/Glossary/CORS) (CORS) und der [Content Security Policy](/de/docs/Web/HTTP/CSP) (CSP) definiert.
+HTTP ist unabhängig vom Sicherheitsmodell des Webs, bekannt als [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy). Tatsächlich wurde das aktuelle Sicherheitsmodell des Webs nach der Erstellung von HTTP entwickelt! Im Laufe der Jahre erwies es sich als nützlich, einige Einschränkungen dieser Richtlinie unter bestimmten Bedingungen aufzuheben. Der Server übermittelte dem Client, wie viel und wann solche Einschränkungen aufgehoben werden sollten, unter Verwendung einer neuen Reihe von HTTP-Headern. Diese wurden in Spezifikationen wie [Cross-Origin Resource Sharing](/de/docs/Glossary/CORS) (CORS) und der [Content Security Policy](/de/docs/Web/HTTP/CSP) (CSP) definiert.
 
-Zusätzlich zu diesen großen Erweiterungen wurden viele weitere Header hinzugefügt, manchmal nur experimentell. Bemerkenswerte Header sind der Do Not Track ({{HTTPHeader("DNT")}}) Header zur Kontrolle der Privatsphäre, {{HTTPHeader("X-Frame-Options")}}, und {{HTTPHeader('Upgrade-Insecure-Requests')}}, aber es gibt viele mehr.
+Zusätzlich zu diesen großen Erweiterungen wurden viele andere Header hinzugefügt, manchmal nur experimentell. Bemerkenswerte Header sind der Do Not Track ({{HTTPHeader("DNT")}}) Header zum Schutz der Privatsphäre, {{HTTPHeader("X-Frame-Options")}} und {{HTTPHeader('Upgrade-Insecure-Requests')}, aber viele weitere existieren.
 
-## HTTP/2 – Ein Protokoll für größere Leistung
+## HTTP/2 – Ein Protokoll für höhere Leistung
 
-Im Laufe der Jahre wurden Webseiten immer komplexer. Einige von ihnen waren sogar Anwendungen für sich. Mehr visuelle Medien wurden angezeigt und das Volumen und die Größe der Skripte, die Interaktivität hinzufügen, nahmen ebenfalls zu. Viel mehr Daten wurden über erheblich mehr HTTP-Anfragen übertragen und dies führte zu mehr Komplexität und Overhead für HTTP/1.1-Verbindungen. Um dem Rechnung zu tragen, implementierte Google Anfang der 2010er Jahre ein experimentelles Protokoll namens SPDY. Diese alternative Methode des Datenaustauschs zwischen Client und Server weckte das Interesse der Entwickler, die an Browsern und Servern arbeiteten. SPDY definierte eine gesteigerte Reaktionsfähigkeit und löste das Problem der doppelten Datenübertragung, was als Grundlage für das HTTP/2-Protokoll diente.
+Im Laufe der Jahre wurden Webseiten komplexer. Einige von ihnen waren sogar Anwendungen für sich. Es wurden mehr visuelle Medien angezeigt und das Volumen und die Größe von Skripten, die Interaktivität hinzufügen, nahmen ebenfalls zu. Viel mehr Daten wurden über erheblich mehr HTTP-Anfragen übertragen, und dies schuf mehr Komplexität und Overhead für HTTP/1.1-Verbindungen. Um diesem Problem zu begegnen, implementierte Google Anfang der 2010er Jahre ein experimentelles Protokoll namens SPDY. Diese alternative Methode des Datenaustauschs zwischen Client und Server erregte das Interesse von Entwicklern, die sowohl an Browsern als auch an Servern arbeiteten. SPDY definierte eine Erhöhung der Reaktionsfähigkeit und löste das Problem der doppelten Datenübertragung, was als Grundlage für das HTTP/2-Protokoll diente.
 
 Das HTTP/2-Protokoll unterscheidet sich in einigen Punkten von HTTP/1.1:
 
-- Es ist ein binäres Protokoll anstelle eines Textprotokolls. Es kann nicht manuell gelesen und erstellt werden. Trotz dieses Hindernisses ermöglicht es die Implementierung verbesserter Optimierungstechniken.
-- Es ist ein multiplexed Protokoll. Parallele Anfragen können über dieselbe Verbindung gestellt werden, womit die Einschränkungen des HTTP/1.x-Protokolls aufgehoben werden.
-- Es komprimiert Header. Da diese oft ähnlich in einem Satz von Anfragen sind, beseitigt dies die Duplizierung und den Overhead der übertragenen Daten.
-- Es erlaubt einem Server, Daten durch einen Mechanismus namens Server-Push in einem Client-Cache zu speichern.
+- Es ist ein binäres Protokoll anstelle eines Textprotokolls. Es kann nicht manuell gelesen und erstellt werden. Trotz dieses Hindernisses erlaubt es die Implementierung verbesserter Optimierungstechniken.
+- Es ist ein multiplexed Protokoll. Parallele Anfragen können über dieselbe Verbindung gestellt werden, wodurch die Einschränkungen des HTTP/1.x-Protokolls entfernt werden.
+- Es komprimiert Header. Da diese oft unter einer Reihe von Anfragen ähnlich sind, entfernt dies die Duplizierung und den Overhead der übertragenen Daten.
+- Es erlaubt einem Server, Daten über einen Mechanismus namens Server Push in einen Client-Cache zu laden.
 
-Offiziell standardisiert im Mai 2015, erreichte die Nutzung von HTTP/2 im Januar 2022 ihren Höhepunkt mit 46,9 % aller Websites (siehe [diese Statistiken](https://w3techs.com/technologies/details/ce-http2)). Websites mit hohem Verkehr zeigten die schnellste Adaption, um den Datenübertragungs-Overhead und die anschließenden Budgets zu sparen.
+Offiziell standardisiert im Mai 2015, erreichte die Nutzung von HTTP/2 im Januar 2022 ihren Höchststand bei 46,9 % aller Websites (siehe [diese Statistiken](https://w3techs.com/technologies/details/ce-http2)). Websites mit hohem Datenverkehr zeigten die schnellste Übernahme, um die Datenübertragungsgebühren und die damit verbundenen Budgets zu sparen.
 
-Diese schnelle Adaption war wahrscheinlich, weil HTTP/2 keine Änderungen an Websites und Anwendungen erforderte. Um es zu nutzen, war nur ein aktueller Server notwendig, der mit einem aktuellen Browser kommunizierte. Nur eine begrenzte Anzahl von Gruppen war erforderlich, um die Adaption auszulösen, und während veraltete Browser- und Server-Versionen erneuert wurden, nahm die Nutzung natürlich zu, ohne signifikante Arbeit für Webentwickler.
+Diese schnelle Übernahme war wahrscheinlich, weil HTTP/2 keine Änderungen an Websites und Anwendungen erforderte. Um es zu nutzen, war nur ein aktualisierter Server erforderlich, der mit einem aktuellen Browser kommunizierte. Nur eine begrenzte Anzahl von Gruppen war nötig, um die Übernahme auszulösen, und als veraltete Browser- und Server-Versionen erneuert wurden, stieg die Nutzung auf natürliche Weise, ohne signifikante Arbeit für Webentwickler.
 
-## Evolution nach HTTP/2
+## Post-HTTP/2 Entwicklung
 
-Die Erweiterbarkeit von HTTP wird weiterhin genutzt, um neue Funktionen hinzuzufügen. Insbesondere lassen sich neue Erweiterungen des HTTP-Protokolls nennen, die 2016 erschienen sind:
+Die Erweiterbarkeit von HTTP wird weiterhin verwendet, um neue Funktionen hinzuzufügen. Hervorzuheben sind neue Erweiterungen des HTTP-Protokolls, die 2016 erschienen sind:
 
-- Unterstützung für {{HTTPHeader("Alt-Svc")}} ermöglichte die Trennung der Identifizierung und des Standorts einer bestimmten Ressource. Dies bedeutete einen intelligenteren {{Glossary("CDN")}} Caching-Mechanismus.
-- Die Einführung von [Client-Hinweisen](/de/docs/Web/HTTP/Client_hints) erlaubte es dem Browser oder Client, proaktiv Informationen über seine Anforderungen und Hardware-Beschränkungen an den Server zu kommunizieren.
-- Die Einführung von sicherheitsbezogenen Präfixen im {{HTTPHeader("Cookie")}} Header half zu garantieren, dass sichere Cookies nicht verändert werden konnten.
+- Unterstützung von {{HTTPHeader("Alt-Svc")}} ermöglichte die Trennung der Identifikation und des Standorts einer bestimmten Ressource. Dies bedeutete einen intelligenteren [CDN](/de/docs/Glossary/CDN) Caching-Mechanismus.
+- Die Einführung von [client hints](/de/docs/Web/HTTP/Client_hints) ermöglichte es dem Browser oder Client, proaktiv Informationen über seine Anforderungen und Hardware-Beschränkungen an den Server zu kommunizieren.
+- Die Einführung von sicherheitsbezogenen Präfixen im {{HTTPHeader("Cookie")}}-Header half, sicherzustellen, dass sichere Cookies nicht verändert werden konnten.
 
 ## HTTP/3 - HTTP über QUIC
 
-Die nächste Hauptversion von HTTP, HTTP/3, hat dieselbe Semantik wie frühere Versionen von HTTP, verwendet jedoch {{Glossary("QUIC")}} anstelle von {{Glossary("TCP")}} für den Transportebenen-Anteil. Bis Oktober 2022 [verwendeten 26 % aller Websites HTTP/3](https://w3techs.com/technologies/details/ce-http3).
+Die nächste Hauptversion von HTTP, HTTP/3 hat die gleichen Semantiken wie frühere HTTP-Versionen, verwendet jedoch [QUIC](/de/docs/Glossary/QUIC) anstelle von [TCP](/de/docs/Glossary/TCP) für die Transportschicht. Bis Oktober 2022, [nutzen 26 % aller Websites HTTP/3](https://w3techs.com/technologies/details/ce-http3).
 
-QUIC ist darauf ausgelegt, viel niedrigere Latenzen für HTTP-Verbindungen bereitzustellen. Wie HTTP/2 ist es ein multiplexed Protokoll, aber HTTP/2 läuft über eine einzelne TCP-Verbindung, so dass Paketverlust-Erkennung und -erneute Übertragung, die auf der TCP-Ebene gehandhabt werden, alle Streams blockieren können. QUIC führt mehrere Streams über {{Glossary("UDP")}} aus und implementiert die Paketverlust-Erkennung und -erneute Übertragung unabhängig für jeden Stream, so dass, wenn ein Fehler auftritt, nur der Stream mit Daten in diesem Paket blockiert wird.
+QUIC ist darauf ausgelegt, viel geringere Latenzen für HTTP-Verbindungen bereitzustellen. Wie HTTP/2 ist es ein multiplexed Protokoll, aber HTTP/2 läuft über eine einzelne TCP-Verbindung, sodass Paketverlusterkennung und -wiederübertragung auf der TCP-Schicht alle Streams blockieren können. QUIC führt mehrere Streams über [UDP](/de/docs/Glossary/UDP) und implementiert die Paketverlusterkennung und -wiederübertragung unabhängig für jeden Stream, sodass, wenn ein Fehler auftritt, nur der Stream mit den Daten in diesem Paket blockiert wird.
 
-Definiert in {{RFC("9114")}}, [wird HTTP/3 von den meisten großen Browsern unterstützt](https://caniuse.com/http3), einschließlich Chromium (und seiner Varianten wie Chrome und Edge) und Firefox.
+Definiert in {{RFC("9114")}}, wird [HTTP/3 von den meisten großen Browsern unterstützt](https://caniuse.com/http3), einschließlich Chromium (und seinen Varianten wie Chrome und Edge) und Firefox.

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getBigInt64()`** Methode von {{jsxref("DataView")}} Instanzen liest 8 Bytes ab dem angegebenen Byte-Offset dieser `DataView` und interpretiert sie als 64-Bit vorzeichenbehaftete ganze Zahl. Es gibt keine Ausrichtungsbeschränkung; mehrbyteige Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
+Die **`getBigInt64()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 8 Bytes ab dem angegebenen Byte-Offset dieser `DataView` und interpretiert sie als 64-Bit-Ganzzahl mit Vorzeichen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
 
 {{EmbedInteractiveExample("pages/js/dataview-getbigint64.html")}}
 
@@ -21,9 +21,9 @@ getBigInt64(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes, ab dem Beginn der Ansicht, von dem die Daten gelesen werden sollen.
+  - : Der Offset, in Bytes, von dem aus die Daten aus der Sicht gelesen werden.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness) Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness)-Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
@@ -54,7 +54,7 @@ console.log(dataview.getBigInt64(1)); // 72623859790382856n
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typed arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("BigInt64Array")}}

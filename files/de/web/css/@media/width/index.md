@@ -1,5 +1,5 @@
 ---
-title: Breite
+title: width
 slug: Web/CSS/@media/width
 l10n:
   sourceCommit: 421deed53984505909884b3b290002b228d29e7b
@@ -7,38 +7,38 @@ l10n:
 
 {{CSSRef}}
 
-Die **`width`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Breite des {{glossary("viewports")}} (oder des Seitenkästchens bei [paginierter Medien](/de/docs/Web/CSS/CSS_paged_media)) zu testen.
+Die **`width`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Breite des [Viewports](/de/docs/Glossary/viewport) (oder des Seitenbereichs bei [Paged Media](/de/docs/Web/CSS/CSS_paged_media)) zu testen.
 
 ## Syntax
 
-Die `width`-Funktion wird als ein {{cssxref("&lt;length&gt;")}}-Wert angegeben, der die Breite des Viewports darstellt. Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die vorangestellten Varianten **`min-width`** und **`max-width`** verwenden können, um nach Mindest- und Höchstwerten zu fragen.
+Die `width`-Funktion wird als ein {{cssxref("&lt;length&gt;")}} Wert angegeben, der die Breite des Viewports repräsentiert. Es ist eine Bereichsfunktion, was bedeutet, dass Sie auch die vorangestellten Varianten **`min-width`** und **`max-width`** verwenden können, um nach minimalen bzw. maximalen Werten zu fragen.
 
 ## Beispiele
 
 ### HTML
 
 ```html
-<div>Beobachten Sie dieses Element, während Sie die Breite Ihres Viewports ändern.</div>
+<div>Watch this element as you resize your viewport's width.</div>
 ```
 
 ### CSS
 
 ```css
-/* Exakte Breite */
+/* Exact width */
 @media (width: 360px) {
   div {
     color: red;
   }
 }
 
-/* Mindestbreite */
+/* Minimum width */
 @media (min-width: 35rem) {
   div {
     background: yellow;
   }
 }
 
-/* Höchstbreite */
+/* Maximum width */
 @media (max-width: 50rem) {
   div {
     border: 2px solid blue;

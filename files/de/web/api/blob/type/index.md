@@ -1,5 +1,5 @@
 ---
-title: "Blob: Eigenschaft type"
+title: "Blob: type-Eigenschaft"
 short-title: type
 slug: Web/API/Blob/type
 l10n:
@@ -8,28 +8,27 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`type`**-Eigenschaft der {{domxref("Blob")}}-Schnittstelle ist schreibgeschützt und gibt den {{Glossary("MIME type")}} der Datei zurück.
+Die schreibgeschützte **`type`**-Eigenschaft der [`Blob`](/de/docs/Web/API/Blob)-Schnittstelle gibt den [MIME-Typ](/de/docs/Glossary/MIME_type) der Datei zurück.
 
 > [!NOTE]
-> Basierend auf der aktuellen Implementierung werden Browser den Bytestream einer Datei nicht tatsächlich lesen, um den Medientyp zu bestimmen.
-> Der Typ wird anhand der Dateierweiterung vermutet; eine PNG-Bilddatei, die in .txt umbenannt wird, würde "_text/plain_" und nicht "_image/png_" zurückgeben. Zudem ist `blob.type` im Allgemeinen nur für gängige Dateitypen wie Bilder, HTML-Dokumente, Audio und Video zuverlässig.
-> Ungewöhnliche Dateierweiterungen würden einen leeren String zurückgeben.
-> Die Konfiguration des Clients (zum Beispiel die Windows-Registry) kann sogar bei üblichen Typen zu unerwarteten Werten führen. **Entwickler sollten sich nicht ausschließlich auf diese Eigenschaft als Validierungsverfahren verlassen.**
+> Basierend auf der aktuellen Implementierung lesen Browser den Bytestream einer Datei nicht tatsächlich, um ihren Medientyp zu bestimmen.
+> Es wird basierend auf der Dateiendung angenommen; eine PNG-Bilddatei, die in .txt umbenannt wird, würde "_text/plain_" und nicht "_image/png_" ergeben. Darüber hinaus ist `blob.type` in der Regel nur für gängige Dateitypen wie Bilder, HTML-Dokumente, Audio und Video zuverlässig.
+> Ungewöhnliche Dateiendungen würden eine leere Zeichenfolge zurückgeben.
+> Die Konfiguration des Clients (zum Beispiel der Windows-Registry) kann zu unerwarteten Werten selbst bei gängigen Typen führen. **Entwicklern wird geraten, sich nicht ausschließlich auf diese Eigenschaft als Validierungsschema zu verlassen.**
 
 ## Wert
 
-Ein String, der den MIME-Typ der Datei enthält, oder ein leerer String, wenn der
-Typ nicht bestimmt werden konnte.
+Eine Zeichenkette, die den MIME-Typ der Datei enthält, oder eine leere Zeichenkette, wenn der Typ nicht bestimmt werden konnte.
 
 ## Beispiele
 
-Dieses Beispiel fordert den Benutzer auf, eine Anzahl von Dateien zu wählen, und überprüft dann jede Datei, um sicherzustellen, dass sie zu einem bestimmten Satz von Bilddateitypen gehört.
+In diesem Beispiel wird der Benutzer aufgefordert, eine Anzahl von Dateien auszuwählen. Dann wird überprüft, ob jede Datei zu einem bestimmten Satz von Bilddateitypen gehört.
 
 ### HTML
 
 ```html
 <input type="file" id="input" multiple />
-<output id="output">Wählen Sie Bilddateien aus…</output>
+<output id="output">Choose image files…</output>
 ```
 
 ```css hidden
@@ -42,7 +41,7 @@ output {
 ### JavaScript
 
 ```js
-// Unsere Anwendung erlaubt nur GIF-, PNG- und JPEG-Bilder
+// Our application only allows GIF, PNG, and JPEG images
 const allowedFileTypes = ["image/png", "image/jpeg", "image/gif"];
 
 const input = document.getElementById("input");
@@ -52,7 +51,7 @@ input.addEventListener("change", (event) => {
   const files = event.target.files;
 
   if (files.length === 0) {
-    output.innerText = "Wählen Sie Bilddateien aus…";
+    output.innerText = "Choose image files…";
     return;
   }
 
@@ -60,8 +59,8 @@ input.addEventListener("change", (event) => {
     allowedFileTypes.includes(file.type),
   );
   output.innerText = allAllowed
-    ? "Alle Dateien sind in Ordnung!"
-    : "Bitte wählen Sie nur Bilddateien.";
+    ? "All files clear!"
+    : "Please choose image files only.";
 });
 ```
 
@@ -79,5 +78,5 @@ input.addEventListener("change", (event) => {
 
 ## Siehe auch
 
-- {{domxref("Blob")}}
+- [`Blob`](/de/docs/Web/API/Blob)
 - [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)

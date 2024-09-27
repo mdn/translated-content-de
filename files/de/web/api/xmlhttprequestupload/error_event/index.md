@@ -1,6 +1,6 @@
 ---
-title: "XMLHttpRequestUpload: Fehlereignis"
-short-title: Fehler
+title: "XMLHttpRequestUpload: error-Event"
+short-title: error
 slug: Web/API/XMLHttpRequestUpload/error_event
 l10n:
   sourceCommit: 9c78a44b9321fcd3fbe63d6f5b61ed749c2fa261
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das `error` Ereignis wird ausgelöst, wenn bei der Anfrage ein Fehler auftritt.
+Das `error`-Event wird ausgelöst, wenn die Anfrage auf einen Fehler stößt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -20,35 +20,35 @@ addEventListener("error", (event) => {});
 onerror = (event) => {};
 ```
 
-## Ereignistyp
+## Event-Typ
 
-Ein {{domxref("ProgressEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent), das von [`Event`](/de/docs/Web/API/Event) erbt.
 
 {{InheritanceDiagram("ProgressEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind auch Eigenschaften der Elternschnittstelle, {{domxref("Event")}}, verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind auch Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref("ProgressEvent.lengthComputable", "lengthComputable")}} {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das angibt, ob die Gesamtarbeit, die zu erledigen ist, und die bereits erledigte Arbeit des zugrunde liegenden Prozesses berechenbar sind. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
-- {{domxref("ProgressEvent.loaded", "loaded")}} {{ReadOnlyInline}}
-  - : Ein 64-bit vorzeichenloser Ganzzahlwert, der die Menge der bereits vom zugrunde liegenden Prozess erledigten Arbeit anzeigt. Das Verhältnis der erledigten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft dividiert wird. Beim Herunterladen einer Ressource über HTTP wird nur der Hauptteil der HTTP-Nachricht gezählt, die Header und andere Überhead werden nicht einbezogen.
-- {{domxref("ProgressEvent.total", "total")}} {{ReadOnlyInline}}
-  - : Ein 64-bit vorzeichenloser Ganzzahlwert, der die Gesamtmenge an Arbeit darstellt, die der zugrunde liegende Prozess in Bearbeitung hat. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Hauptteils der Nachricht) und schließt die Header und anderen Überhead nicht ein.
+- [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
+  - : Ein Boolean-Flag, das angibt, ob die gesamte zu leistende Arbeit und der bereits geleistete Anteil durch den zugrunde liegenden Prozess berechenbar sind. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
+- [`loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
+  - : Ein 64-Bit-Integer-Wert, der die Menge der bereits durch den zugrunde liegenden Prozess geleisteten Arbeit angibt. Das Verhältnis der geleisteten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Body der HTTP-Nachricht und schließt Header und anderen Overhead nicht ein.
+- [`total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
+  - : Ein 64-Bit-Integer, der die gesamte Menge der Arbeit darstellt, die der zugrunde liegende Prozess gerade ausführt. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Bodys der Nachricht) und schließt nicht die Header und anderen Overhead ein.
 
 ## Beispiele
 
-### Verwendung des `error` Ereignisses
+### Verwendung des `error`-Events
 
-Sie können das `error` Ereignis verwenden, um ein Problem beim Hochladen zu erkennen. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige zeigt, siehe die Hauptseite von {{domxref("XMLHttpRequestUpload")}}.
+Sie können das `error`-Event verwenden, um ein Problem beim Hochladen zu erkennen. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsleiste anzeigt, siehe die Hauptseite [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
 
 ```js
-// Im Fehlerfall blenden wir die Fortschrittsanzeige aus
-// Beachten Sie, dass dieses Ereignis auch am xhr-Objekt selbst abgehört werden kann
+// In case of an error we hide the progress bar
+// Note that this event can be listened to on the xhr object too
 function errorAction(event) {
   progressBar.classList.remove("visible");
-  log.textContent = `Upload fehlgeschlagen: ${event.type}`;
+  log.textContent = `Upload failed: ${event.type}`;
 }
 xhr.upload.addEventListener("error", errorAction);
 ```
@@ -63,5 +63,5 @@ xhr.upload.addEventListener("error", errorAction);
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("XMLHttpRequestUpload/loadstart_event", "loadstart")}}, {{domxref("XMLHttpRequestUpload/load_event", "load")}}, {{domxref("XMLHttpRequestUpload/progress_event", "progress")}}, {{domxref("XMLHttpRequestUpload/abort_event", "abort")}}, {{domxref("XMLHttpRequestUpload/loadend_event", "loadend")}}, {{domxref("XMLHttpRequestUpload/timeout_event", "timeout")}}
-- {{domxref("XMLHttpRequestUpload")}}
+- Verwandte Events: [`loadstart`](/de/docs/Web/API/XMLHttpRequestUpload/loadstart_event), [`load`](/de/docs/Web/API/XMLHttpRequestUpload/load_event), [`progress`](/de/docs/Web/API/XMLHttpRequestUpload/progress_event), [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event), [`loadend`](/de/docs/Web/API/XMLHttpRequestUpload/loadend_event), [`timeout`](/de/docs/Web/API/XMLHttpRequestUpload/timeout_event)
+- [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload)

@@ -1,5 +1,5 @@
 ---
-title: Regennde Rechtecke
+title: Regnende Rechtecke
 slug: Web/API/WebGL_API/By_example/Raining_rectangles
 l10n:
   sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
@@ -13,18 +13,18 @@ Ein einfaches WebGL-Spiel, das das Löschen mit Vollfarben, Ausschneiden, Animat
 
 {{EmbedLiveSample("Animation_and_user_interaction_with_scissoring",660,425)}}
 
-Dies ist ein einfaches Spiel. Das Ziel: So viele der regnenden Rechtecke wie möglich zu fangen, indem Sie darauf klicken. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, was hilft, den Zustand des Rechtecks (seine Position, Farbe usw.) an einem Ort zu organisieren und den gesamten Code kompakter und wiederverwendbarer zu machen.
+Dies ist ein einfaches Spiel. Das Ziel: Versuchen Sie, so viele der regnenden Rechtecke wie möglich zu fangen, indem Sie darauf klicken. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, was hilft, den Zustand des Rechtecks (seine Position, Farbe und so weiter) an einem Ort organisiert zu halten und den gesamten Code kompakter und wiederverwendbarer zu gestalten.
 
-Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Vollfarben und Ausschneideoperationen. Es ist eine Vorschau einer vollständigen grafischen Anwendung, die verschiedene Phasen der {{Glossary("WebGL")}}-Grafik-Pipeline und -Zustandsmaschine manipuliert.
+Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Vollfarben und Ausschneideoperationen. Es ist eine Vorschau einer vollständigen grafischen Anwendung, die verschiedene Phasen der [WebGL](/de/docs/Glossary/WebGL) Grafik-Pipeline und Zustandsmaschine manipuliert.
 
-Darüber hinaus zeigt das Beispiel, wie die WebGL-Funktionsaufrufe in eine Spielschleife integriert werden. Die Spielschleife ist verantwortlich für das Zeichnen der Animationsbilder und hält die Animation reaktionsfähig auf Benutzereingaben. Hier wird die Spielschleife mit Zeitüberschreitungen implementiert.
+Zusätzlich demonstriert das Beispiel, wie die WebGL-Funktionsaufrufe innerhalb einer Spielschleife integriert werden können. Die Spielschleife ist verantwortlich für das Zeichnen der Animationsrahmen und dafür, dass die Animation auf Benutzereingaben reagiert. Hier wird die Spielschleife mittels Timeouts implementiert.
 
 ```html hidden
-<p>Sie haben <strong>0</strong> gefangen. Sie haben <strong>0</strong> verpasst.</p>
+<p>You caught <strong>0</strong>. You missed <strong>0</strong>.</p>
 ```
 
 ```html hidden
-<canvas>Ihr Browser scheint keine Canvas zu unterstützen.</canvas>
+<canvas>Your browser does not seem to support canvases.</canvas>
 ```
 
 ```css hidden
@@ -89,25 +89,25 @@ function drawAnimation() {
     missesDisplay.textContent = misses;
     rainingRect = new Rectangle();
   }
-  // Wir verwenden setTimeout für die Animation. Daher planen wir
-  // das Timeout neu, um drawAnimation in 17ms erneut aufzurufen.
-  // Andernfalls erhalten wir keine Animation.
+  // We are using setTimeout for animation. So we reschedule
+  // the timeout to call drawAnimation again in 17ms.
+  // Otherwise we won't get any animation.
   timer = setTimeout(drawAnimation, 17);
 }
 
 function playerClick(evt) {
-  // Wir müssen die Position des Klickereignisses von
-  // Fensterkoordinaten in die relative Position innerhalb des Canvas
-  // umwandeln. Außerdem müssen wir bedenken, dass die vertikale
-  // Position in WebGL von unten nach oben zunimmt, im Gegensatz zum
-  // Browserfenster.
+  // We need to transform the position of the click event from
+  // window coordinates to relative position inside the canvas.
+  // In addition we need to remember that vertical position in
+  // WebGL increases from bottom to top, unlike in the browser
+  // window.
   const position = [
     evt.pageX - evt.target.offsetLeft,
     gl.drawingBufferHeight - (evt.pageY - evt.target.offsetTop),
   ];
-  // Wenn der Klick innerhalb des Rechtecks fällt, haben wir es gefangen.
+  // If the click falls inside the rectangle, we caught it.
 
-  // Punktzahl erhöhen und ein neues Rechteck erstellen.
+  // Increment score and create a new rectangle.
   const diffPos = [
     position[0] - rainingRect.position[0],
     position[1] - rainingRect.position[1],
@@ -125,13 +125,13 @@ function playerClick(evt) {
 }
 
 function Rectangle() {
-  // Behalten Sie eine Referenz auf das neue Rectangle-Objekt,
-  // anstatt das verwirrende this-Schlüsselwort zu verwenden.
+  // Keeping a reference to the new Rectangle object, rather
+  // than using the confusing this keyword.
   const rect = this;
-  // Wir erhalten drei Zufallszahlen und verwenden diese für eine neue
-  // Rechteckgröße und -position. Für jede verwenden wir eine
-  // unterschiedliche Zahl, da wir möchten, dass die horizontale Größe,
-  // die vertikale Größe und die Position unabhängig bestimmt werden.
+  // We get three random numbers and use them for new rectangle
+  // size and position. For each we use a different number,
+  // because we want horizontal size, vertical size and
+  // position to be determined independently.
   const randNums = getRandomVector();
   rect.size = [5 + 120 * randNums[0], 5 + 120 * randNums[1]];
   rect.position = [
@@ -157,7 +157,7 @@ function getRenderingContext() {
   if (!gl) {
     const paragraph = document.querySelector("p");
     paragraph.textContent =
-      "Fehlgeschlagen. Ihr Browser oder Gerät unterstützt möglicherweise kein WebGL.";
+      "Failed. Your browser or device may not support WebGL.";
     return null;
   }
   gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);

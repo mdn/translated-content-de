@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Das **`NavigationTransition`** Interface der {{domxref("Navigation API", "Navigation-API", "", "nocode")}} repräsentiert eine laufende Navigation, das heißt, eine Navigation, die noch nicht das Stadium {{domxref("Navigation/navigatesuccess_event", "navigatesuccess")}} oder {{domxref("Navigation/navigateerror_event", "navigateerror")}} erreicht hat.
+Das **`NavigationTransition`**-Interface der [Navigation API](/de/docs/Web/API/Navigation_API) repräsentiert eine laufende Navigation, das heißt, eine Navigation, die noch nicht das Stadium [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event) oder [`navigateerror`](/de/docs/Web/API/Navigation/navigateerror_event) erreicht hat.
 
-Es wird über die Eigenschaft {{domxref("Navigation.transition")}} aufgerufen.
+Es wird über die [`Navigation.transition`](/de/docs/Web/API/Navigation/transition)-Eigenschaft aufgerufen.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("NavigationTransition.finished", "finished")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das gleichzeitig erfüllt wird, wenn das {{domxref("Navigation/navigatesuccess_event", "navigatesuccess")}}-Ereignis ausgelöst wird, oder abgelehnt wird, wenn das {{domxref("Navigation/navigateerror_event", "navigateerror")}}-Ereignis ausgelöst wird.
-- {{domxref("NavigationTransition.from", "from")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt das {{domxref("NavigationHistoryEntry")}} zurück, von dem der Übergang ausgeht.
-- {{domxref("NavigationTransition.navigationType", "navigationType")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`finished`](/de/docs/Web/API/NavigationTransition/finished) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das gleichzeitig erfüllt wird, wenn das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Ereignis ausgelöst wird, oder abgelehnt wird, wenn das [`navigateerror`](/de/docs/Web/API/Navigation/navigateerror_event)-Ereignis ausgelöst wird.
+- [`from`](/de/docs/Web/API/NavigationTransition/from) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt das [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, von dem die Transition kommt.
+- [`navigationType`](/de/docs/Web/API/NavigationTransition/navigationType) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt den Typ der laufenden Navigation zurück.
 
 ## Beispiele
@@ -27,8 +27,8 @@ Es wird über die Eigenschaft {{domxref("Navigation.transition")}} aufgerufen.
 ```js
 async function cleanupNavigation() {
   await navigation.transition.finished;
-  // Navigation wurde erfolgreich abgeschlossen
-  // Bereinigung jeglicher laufender Überwachung
+  // Navigation has completed successfully
+  // Cleanup any ongoing monitoring
 }
 ```
 
@@ -42,6 +42,6 @@ async function cleanupNavigation() {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routings: die Navigation-API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Demo der Navigation-API](https://gigantic-honored-octagon.glitch.me/)
+- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

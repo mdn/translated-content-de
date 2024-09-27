@@ -7,13 +7,13 @@ l10n:
 
 {{JSRef}}
 
-Die **`byteLength`** Zugriffs-Property von {{jsxref("SharedArrayBuffer")}} Instanzen gibt die Länge (in Bytes) dieses `SharedArrayBuffer` zurück.
+Die **`byteLength`** Accessor-Eigenschaft von {{jsxref("SharedArrayBuffer")}} Instanzen gibt die Länge (in Bytes) dieses `SharedArrayBuffer` zurück.
 
 {{EmbedInteractiveExample("pages/js/sharedarraybuffer-bytelength.html", "shorter")}}
 
 ## Beschreibung
 
-Die `byteLength`-Eigenschaft ist eine Zugriffs-Property, deren Setzugriffs-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen des Shared Arrays festgelegt und kann nicht geändert werden.
+Die `byteLength` Eigenschaft ist eine Accessor-Eigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen des gemeinsamen Arrays festgelegt und kann nicht geändert werden.
 
 ## Beispiele
 

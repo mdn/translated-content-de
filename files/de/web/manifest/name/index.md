@@ -10,23 +10,23 @@ l10n:
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Type</th>
+      <th scope="row">Typ</th>
       <td><code>String</code></td>
     </tr>
   </tbody>
 </table>
 
-Das `name`-Mitglied ist ein String, der den Namen der Webanwendung repräsentiert, wie er dem Nutzer in der Regel angezeigt wird (z. B. in einer Liste anderer Anwendungen oder als Beschriftung für ein Symbol). `name` ist richtungsfähif, was bedeutet, dass es je nach den Werten der [`dir`](/de/docs/Web/Manifest) und [`lang`](/de/docs/Web/Manifest)-Manifestmitglieder von links nach rechts oder von rechts nach links angezeigt werden kann.
+Das `name`-Element ist ein String, der den Namen der Webanwendung darstellt, wie er normalerweise dem Benutzer angezeigt wird (z. B. in einer Liste von anderen Anwendungen oder als Beschriftung für ein Symbol). `name` ist richtungsfähig, was bedeutet, dass es basierend auf den Werten der [`dir`](/de/docs/Web/Manifest) und [`lang`](/de/docs/Web/Manifest)-Manifestmitglieder von links nach rechts oder von rechts nach links angezeigt werden kann.
 
 ## Beispiele
 
-Einfacher `name` in einer von links nach rechts geschriebenen Sprache:
+Einfaches `name` in einer von links nach rechts verlaufenden Sprache:
 
 ```json
 "name": "Awesome application"
 ```
 
-Von rechts nach links `name` in Arabisch:
+Rechts-nach-links `name` auf Arabisch:
 
 ```json
 "dir": "rtl",

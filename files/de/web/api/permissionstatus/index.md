@@ -7,21 +7,21 @@ l10n:
 
 {{APIRef("Permissions API")}}{{AvailableInWorkers}}
 
-Die **`PermissionStatus`**-Schnittstelle der [Permissions API](/de/docs/Web/API/Permissions_API) liefert den Status eines Objekts und einen Ereignis-Handler zum Überwachen von Änderungen dieses Status.
+Die **`PermissionStatus`**-Schnittstelle der [Permissions API](/de/docs/Web/API/Permissions_API) bietet den Status eines Objekts und einen Ereignis-Handler zum Überwachen von Änderungen dieses Status.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- {{domxref("PermissionStatus.name")}} {{ReadOnlyInline}}
-  - : Gibt den Namen einer angeforderten Berechtigung zurück, identisch mit dem `name`, der an {{domxref("Permissions.query")}} übergeben wurde.
-- {{domxref("PermissionStatus.state")}} {{ReadOnlyInline}}
-  - : Gibt den Status einer angeforderten Berechtigung zurück; einer der Werte `'granted'`, `'denied'` oder `'prompt'`.
+- [`PermissionStatus.name`](/de/docs/Web/API/PermissionStatus/name) {{ReadOnlyInline}}
+  - : Gibt den Namen einer angeforderten Berechtigung zurück, identisch mit dem `name`, der an [`Permissions.query`](/de/docs/Web/API/Permissions/query) übergeben wurde.
+- [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) {{ReadOnlyInline}}
+  - : Gibt den Status einer angeforderten Berechtigung zurück; entweder `'granted'`, `'denied'` oder `'prompt'`.
 
 ### Ereignisse
 
-- {{domxref("PermissionStatus.change_event", "change")}}
-  - : Wird bei Änderungen des `PermissionStatus.state`-Eigenschaft aufgerufen.
+- [`change`](/de/docs/Web/API/PermissionStatus/change_event)
+  - : Wird bei Änderungen des `PermissionStatus.state` aufgerufen.
 
 ## Beispiel
 
@@ -42,6 +42,6 @@ navigator.permissions
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

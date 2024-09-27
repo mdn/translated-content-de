@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`version`**-Attribut wird verwendet, um anzugeben, welcher Spezifikation ein SVG-Dokument entspricht. Es ist nur beim Wurzel-{{SVGElement("svg")}}-Element erlaubt. Es ist rein beratend und hat keinen Einfluss auf die Darstellung oder Verarbeitung.
+Das **`version`**-Attribut wird verwendet, um anzugeben, welcher Spezifikation ein SVG-Dokument entspricht. Es ist nur im Wurzel-{{SVGElement("svg")}}-Element erlaubt. Es ist rein informativ und hat keinen Einfluss auf die Darstellung oder Verarbeitung.
 
-Obwohl es als Zahl akzeptiert wird, sind derzeit nur die beiden gültigen Optionen `1.0` und `1.1`.
+Während es so spezifiziert ist, dass es jede Zahl akzeptiert, sind die einzigen derzeit gültigen Optionen `1.0` und `1.1`.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -50,6 +50,6 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Objects")}}
 
-Die **`decodeURI()`**-Funktion dekodiert einen Uniform Resource Identifier (URI), der zuvor durch {{jsxref("encodeURI()")}} oder eine ähnliche Routine erstellt wurde.
+Die **`decodeURI()`**-Funktion dekodiert einen zuvor durch {{jsxref("encodeURI()")}} oder ein ähnliches Verfahren erstellten Uniform Resource Identifier (URI).
 
 {{EmbedInteractiveExample("pages/js/globalprops-decodeuri.html")}}
 
@@ -24,20 +24,20 @@ decodeURI(encodedURI)
 
 ### Rückgabewert
 
-Ein neuer String, der die dekodierte Version des gegebenen kodierten Uniform Resource Identifier (URI) darstellt.
+Ein neuer String, der die dekodierte Version des angegebenen kodierten Uniform Resource Identifier (URI) darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("URIError")}}
-  - : Wird ausgelöst, wenn `encodedURI` ein `%` enthält, dem nicht zwei hexadezimale Ziffern folgen, oder wenn die Escape-Sequenz keinen gültigen UTF-8-Charakter kodiert.
+  - : Wird ausgelöst, wenn `encodedURI` ein `%` enthält, dem keine zwei hexadezimalen Ziffern folgen, oder wenn die Escape-Sequenz kein gültiges UTF-8-Zeichen kodiert.
 
 ## Beschreibung
 
-`decodeURI()` ist eine Funktionseigenschaft des globalen Objekts.
+`decodeURI()` ist eine Funktions-Eigenschaft des globalen Objekts.
 
-Die Funktion `decodeURI()` dekodiert den URI, indem sie jede Escape-Sequenz in der Form `%XX` als eine UTF-8 Code-Unit (ein Byte) behandelt. In UTF-8 zeigt die Anzahl der führenden 1-Bits im ersten Byte (die 0 für ein Byte bei {{Glossary("ASCII")}} Zeichen, 2, 3 oder 4 sein können) die Anzahl der Bytes im Charakter an. Durch das Lesen der ersten Escape-Sequenz kann `decodeURI()` bestimmen, wie viele weitere Escape-Sequenzen es konsumieren muss. Wenn `decodeURI()` nicht die erwartete Anzahl an Sequenzen findet, oder wenn die Escape-Sequenzen keinen gültigen UTF-8-Charakter kodieren, wird ein {{jsxref("URIError")}} ausgelöst.
+Die `decodeURI()`-Funktion dekodiert den URI, indem sie jede Escape-Sequenz in der Form `%XX` als eine UTF-8-Codeeinheit (ein Byte) behandelt. In UTF-8 zeigt die Anzahl führender 1-Bits im ersten Byte, die 0 (für 1-Byte-[ASCII](/de/docs/Glossary/ASCII)-Zeichen), 2, 3 oder 4 sein kann, die Anzahl der Bytes im Zeichen an. Durch das Lesen der ersten Escape-Sequenz kann `decodeURI()` bestimmen, wie viele weitere Escape-Sequenzen konsumiert werden müssen. Wenn `decodeURI()` die erwartete Anzahl von Sequenzen nicht finden kann oder wenn die Escape-Sequenzen kein gültiges UTF-8-Zeichen kodieren, wird ein {{jsxref("URIError")}} ausgelöst.
 
-`decodeURI()` dekodiert alle Escape-Sequenzen, aber wenn die Escape-Sequenz einen der folgenden Zeichen kodiert, bleibt die Escape-Sequenz im Ausgabestring erhalten (da sie Teil der URI-Syntax sind):
+`decodeURI()` dekodiert alle Escape-Sequenzen, aber wenn die Escape-Sequenz eines der folgenden Zeichen kodiert, bleibt die Escape-Sequenz im Ausgabestring erhalten (da sie Teil der URI-Syntax sind):
 
 ```plain
 ; / ? : @ & = + $ , #
@@ -56,7 +56,7 @@ decodeURI(
 
 ### decodeURI() vs. decodeURIComponent()
 
-`decodeURI()` geht davon aus, dass die Eingabe ein vollständiger URI ist, daher werden Zeichen, die Teil der URI-Syntax sind, nicht dekodiert.
+`decodeURI()` nimmt an, dass die Eingabe ein vollständiger URI ist, daher dekodiert es keine Zeichen, die Teil der URI-Syntax sind.
 
 ```js
 decodeURI(

@@ -7,10 +7,10 @@ l10n:
 
 {{GlossarySidebar}}
 
-Platzhalternamen werden häufig in der Kryptographie verwendet, um die Teilnehmer einer Konversation zu kennzeichnen, ohne auf Begriffe wie "Partei A", "Abhörer" und "böswilliger Angreifer" zurückzugreifen.
+Platzhalternamen werden häufig in der Kryptographie verwendet, um die Teilnehmer an einer Kommunikation zu bezeichnen, ohne auf Begriffe wie "Partei A", "Abhörer" und "böswilliger Angreifer" zurückzugreifen.
 
 Die am häufigsten verwendeten Namen sind:
 
-- _Alice_ und _Bob_, zwei Parteien, die Nachrichten aneinander senden möchten, gelegentlich begleitet von _Carol_, einem dritten Teilnehmer
-- _Eve_, eine passive Angreiferin, die das Gespräch zwischen Alice und Bob belauscht
-- _Mallory_, ein aktiver Angreifer ("man-in-the-middle"), der in der Lage ist, ihr Gespräch zu manipulieren und alte Nachrichten wiederzugeben
+- _Alice_ und _Bob_, zwei Parteien, die Nachrichten miteinander austauschen möchten, gelegentlich ergänzt durch _Carol_, eine dritte Teilnehmerin
+- _Eve_, eine passive Angreiferin, die das Gespräch zwischen Alice und Bob abhört
+- _Mallory_, eine aktive Angreiferin ("man-in-the-middle"), die in der Lage ist, das Gespräch zu verändern und alte Nachrichten erneut zu senden

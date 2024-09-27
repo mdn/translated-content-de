@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`recordsAvailable`** der {{domxref("BackgroundFetchRegistration")}}-Schnittstelle gibt `true` zurück, wenn Anfragen und Antworten abgerufen werden können. Wenn dies `false` ergibt, können {{domxref("BackgroundFetchRegistration.match()","match()")}} und {{domxref("BackgroundFetchRegistration.matchAll()","matchAll()")}} nicht verwendet werden.
+Die **`recordsAvailable`** schreibgeschützte Eigenschaft der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) Schnittstelle gibt `true` zurück, wenn Anfragen und Antworten zugänglich sind. Wenn diese Eigenschaft `false` zurückgibt, können [`match()`](/de/docs/Web/API/BackgroundFetchRegistration/match) und [`matchAll()`](/de/docs/Web/API/BackgroundFetchRegistration/matchAll) nicht verwendet werden.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein {{jsxref("boolean")}}.
 
 ## Beispiele
 
-Das Protokollieren dieser Eigenschaft in der Konsole ergibt `true` oder `false`, um anzuzeigen, ob Datensätze vorhanden sind.
+Das Protokollieren dieser Eigenschaft in der Konsole gibt `true` oder `false` zurück, um anzuzeigen, ob Einträge vorhanden sind.
 
 ```js
 console.log(bgFetch.recordsAvailable);

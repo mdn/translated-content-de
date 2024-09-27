@@ -7,31 +7,31 @@ l10n:
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Die **`IDBKeyRange`**-Schnittstelle der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) repräsentiert ein kontinuierliches Intervall über einen Datentyp, der für Schlüssel verwendet wird. Datensätze können aus {{domxref("IDBObjectStore")}} und {{domxref("IDBIndex")}} Objekten mithilfe von Schlüsseln oder einem Bereich von Schlüsseln abgerufen werden. Sie können den Bereich mit unteren und oberen Grenzen begrenzen. Zum Beispiel können Sie über alle Werte eines Schlüssels im Wertebereich A–Z iterieren.
+Die **`IDBKeyRange`**-Schnittstelle der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) repräsentiert ein kontinuierliches Intervall über einen Datentyp, der für Schlüssel verwendet wird. Datensätze können aus [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) und [`IDBIndex`](/de/docs/Web/API/IDBIndex) Objekten unter Verwendung von Schlüsseln oder einem Schlüsselbereich abgerufen werden. Sie können den Bereich mithilfe von unteren und oberen Grenzen festlegen. Zum Beispiel können Sie über alle Werte eines Schlüssels im Wertebereich A–Z iterieren.
 
-Ein Schlüsselbereich kann einen einzelnen Wert oder einen Bereich mit oberen und unteren Grenzen oder Endpunkten sein. Wenn der Schlüsselbereich sowohl obere als auch untere Grenzen hat, ist er _begrenzt_; wenn er keine Grenzen hat, ist er _unbegrenzt_. Ein begrenzter Schlüsselbereich kann entweder offen sein (die Endpunkte sind ausgeschlossen) oder geschlossen (die Endpunkte sind eingeschlossen). Um alle Schlüssel innerhalb eines bestimmten Bereichs abzurufen, können Sie die folgenden Codekonstruktionen verwenden:
+Ein Schlüsselbereich kann ein einzelner Wert oder ein Bereich mit oberen und unteren Grenzen oder Endpunkten sein. Wenn der Schlüsselbereich sowohl obere als auch untere Grenzen hat, dann ist er _begrenzt_; hat er keine Grenzen, ist er _unbegrenzt_. Ein begrenzter Schlüsselbereich kann entweder offen (die Endpunkte sind ausgeschlossen) oder geschlossen (die Endpunkte sind eingeschlossen) sein. Um alle Schlüssel innerhalb eines bestimmten Bereichs abzurufen, können Sie die folgenden Codekonstrukte verwenden:
 
-| Bereich                      | Code                                   |
-| ---------------------------- | -------------------------------------- |
-| Alle Schlüssel ≥ **x**       | `IDBKeyRange.lowerBound(x)`            |
-| Alle Schlüssel > **x**       | `IDBKeyRange.lowerBound(x, true)`      |
-| Alle Schlüssel ≤ **y**       | `IDBKeyRange.upperBound(y)`            |
-| Alle Schlüssel < **y**       | `IDBKeyRange.upperBound(y, true)`      |
+| Bereich                           | Code                                   |
+| --------------------------------- | -------------------------------------- |
+| Alle Schlüssel ≥ **x**            | `IDBKeyRange.lowerBound(x)`            |
+| Alle Schlüssel > **x**            | `IDBKeyRange.lowerBound(x, true)`      |
+| Alle Schlüssel ≤ **y**            | `IDBKeyRange.upperBound(y)`            |
+| Alle Schlüssel < **y**            | `IDBKeyRange.upperBound(y, true)`      |
 | Alle Schlüssel ≥ **x** && ≤ **y** | `IDBKeyRange.bound(x, y)`              |
 | Alle Schlüssel > **x** &&< **y**  | `IDBKeyRange.bound(x, y, true, true)`  |
 | Alle Schlüssel > **x** && ≤ **y** | `IDBKeyRange.bound(x, y, true, false)` |
 | Alle Schlüssel ≥ **x** &&< **y**  | `IDBKeyRange.bound(x, y, false, true)` |
-| Der Schlüssel = **z**        | `IDBKeyRange.only(z)`                  |
+| Der Schlüssel = **z**             | `IDBKeyRange.only(z)`                  |
 
-Ein Schlüssel befindet sich in einem Schlüsselbereich, wenn die folgenden Bedingungen erfüllt sind:
+Ein Schlüssel liegt in einem Schlüsselbereich, wenn die folgenden Bedingungen zutreffen:
 
-- Der untere Wert des Schlüsselbereichs ist eine der folgenden:
+- Der untere Wert des Schlüsselbereichs ist einer der folgenden:
 
   - `undefined`
-  - Kleiner als der Schlüsselwert
+  - Weniger als der Schlüsselwert
   - Gleich dem Schlüsselwert, wenn `lowerOpen` `false` ist.
 
-- Der obere Wert des Schlüsselbereichs ist eine der folgenden:
+- Der obere Wert des Schlüsselbereichs ist einer der folgenden:
 
   - `undefined`
   - Größer als der Schlüsselwert
@@ -39,37 +39,37 @@ Ein Schlüssel befindet sich in einem Schlüsselbereich, wenn die folgenden Bedi
 
 ## Instanz-Eigenschaften
 
-- {{domxref("IDBKeyRange.lower")}} {{ReadOnlyInline}}
+- [`IDBKeyRange.lower`](/de/docs/Web/API/IDBKeyRange/lower) {{ReadOnlyInline}}
   - : Untere Grenze des Schlüsselbereichs.
-- {{domxref("IDBKeyRange.upper")}} {{ReadOnlyInline}}
+- [`IDBKeyRange.upper`](/de/docs/Web/API/IDBKeyRange/upper) {{ReadOnlyInline}}
   - : Obere Grenze des Schlüsselbereichs.
-- {{domxref("IDBKeyRange.lowerOpen")}} {{ReadOnlyInline}}
-  - : Gibt `false` zurück, wenn der Wert der unteren Grenze im Schlüsselbereich enthalten ist.
-- {{domxref("IDBKeyRange.upperOpen")}} {{ReadOnlyInline}}
-  - : Gibt `false` zurück, wenn der Wert der oberen Grenze im Schlüsselbereich enthalten ist.
+- [`IDBKeyRange.lowerOpen`](/de/docs/Web/API/IDBKeyRange/lowerOpen) {{ReadOnlyInline}}
+  - : Gibt `false` zurück, wenn der Wert der unteren Grenze im Schlüsselbereich eingeschlossen ist.
+- [`IDBKeyRange.upperOpen`](/de/docs/Web/API/IDBKeyRange/upperOpen) {{ReadOnlyInline}}
+  - : Gibt `false` zurück, wenn der Wert der oberen Grenze im Schlüsselbereich eingeschlossen ist.
 
 ## Statische Methoden
 
-- {{domxref("IDBKeyRange.bound_static", "IDBKeyRange.bound()")}}
+- [`IDBKeyRange.bound()`](/de/docs/Web/API/IDBKeyRange/bound_static)
   - : Erstellt einen neuen Schlüsselbereich mit oberen und unteren Grenzen.
-- {{domxref("IDBKeyRange.only_static", "IDBKeyRange.only()")}}
-  - : Erstellt einen neuen Schlüsselbereich, der einen einzelnen Wert enthält.
-- {{domxref("IDBKeyRange.lowerBound_static", "IDBKeyRange.lowerBound()")}}
+- [`IDBKeyRange.only()`](/de/docs/Web/API/IDBKeyRange/only_static)
+  - : Erstellt einen neuen Schlüsselbereich, der einen einzigen Wert enthält.
+- [`IDBKeyRange.lowerBound()`](/de/docs/Web/API/IDBKeyRange/lowerBound_static)
   - : Erstellt einen neuen Schlüsselbereich mit nur einer unteren Grenze.
-- {{domxref("IDBKeyRange.upperBound_static", "IDBKeyRange.upperBound()")}}
-  - : Erstellt einen neuen Schlüsselbereich mit einer oberen Grenze.
+- [`IDBKeyRange.upperBound()`](/de/docs/Web/API/IDBKeyRange/upperBound_static)
+  - : Erstellt einen neuen oberen Grenz-Schlüsselbereich.
 
 ## Instanz-Methoden
 
-- {{domxref("IDBKeyRange.includes()")}}
-  - : Gibt einen booleschen Wert zurück, der anzeigt, ob ein angegebener Schlüssel innerhalb des Schlüsselbereichs liegt.
+- [`IDBKeyRange.includes()`](/de/docs/Web/API/IDBKeyRange/includes)
+  - : Gibt einen boolean zurück, der angibt, ob ein bestimmter Schlüssel innerhalb des Schlüsselbereichs liegt.
 
 ## Beispiele
 
-Das folgende Beispiel veranschaulicht, wie Sie einen Schlüsselbereich verwenden würden. Hier deklarieren wir einen `keyRangeValue` als einen Bereich zwischen den Werten `"A"` und `"F"`. Wir öffnen eine Transaktion (unter Verwendung von {{domxref("IDBTransaction")}}) und einen Objektspeicher und öffnen einen Cursor mit {{domxref("IDBObjectStore.openCursor")}}, wobei wir `keyRangeValue` als optionalen Schlüsselbereichswert deklarieren. Dies bedeutet, dass der Cursor nur Datensätze mit Schlüsseln innerhalb dieses Bereichs abrufen wird. Dieser Bereich schließt die Werte `"A"` und `"F"` ein, da wir nicht angegeben haben, dass sie offene Grenzen sein sollten. Wenn wir `IDBKeyRange.bound("A", "F", true, true);` verwendet hätten, würde der Bereich nicht `"A"` und `"F"` einschließen, sondern nur die Werte dazwischen.
+Das folgende Beispiel veranschaulicht, wie Sie einen Schlüsselbereich verwenden würden. Hier deklarieren wir `keyRangeValue` als Bereich zwischen den Werten `"A"` und `"F"`. Wir öffnen eine Transaktion (unter Verwendung von [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)) und ein Objekt-Store und öffnen einen Cursor mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), wobei wir `keyRangeValue` als optionalen Schlüsselbereichswert angeben. Dies bedeutet, dass der Cursor nur Datensätze mit Schlüsseln innerhalb dieses Bereichs abrufen wird. Dieser Bereich schließt die Werte `"A"` und `"F"` ein, da wir nicht angegeben haben, dass sie offene Grenzen sein sollten. Würden wir `IDBKeyRange.bound("A", "F", true, true);` verwenden, dann würde der Bereich `"A"` und `"F"` nicht einschließen, sondern nur die Werte dazwischen.
 
 > [!NOTE]
-> Für ein umfassenderes Beispiel, das Ihnen das Experimentieren mit Schlüsselbereichen ermöglicht, schauen Sie sich unser [IDBKeyRange-Example](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbkeyrange) Repository an ([sehen Sie sich das Beispiel auch live an](https://mdn.github.io/dom-examples/indexeddb-examples/idbkeyrange/).)
+> Für ein vollständigeres Beispiel, das Ihnen erlaubt, mit dem Schlüsselbereich zu experimentieren, sehen Sie sich unser [IDBKeyRange-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbkeyrange) Repo an ([sehen Sie das Beispiel auch live](https://mdn.github.io/dom-examples/indexeddb-examples/idbkeyrange/)).
 
 ```js
 function displayData() {
@@ -104,8 +104,8 @@ function displayData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursors: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

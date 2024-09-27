@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Die **`bottom`** Lese-Eigenschaft des **`DOMRectReadOnly`** Interface gibt den unteren Koordinatenwert des `DOMRect` zurück. (Hat denselben Wert wie `y + height`, oder `y`, wenn die `height` negativ ist.)
+Die **`bottom`** Schreibgeschützte Eigenschaft des **`DOMRectReadOnly`** Interfaces gibt den unteren Koordinatenwert des `DOMRect` zurück. (Hat denselben Wert wie `y + height`, oder `y` wenn `height` negativ ist.)
 
 ## Wert
 
@@ -18,10 +18,10 @@ Ein Double.
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("DOMRect")}}
+- [`DOMRect`](/de/docs/Web/API/DOMRect)

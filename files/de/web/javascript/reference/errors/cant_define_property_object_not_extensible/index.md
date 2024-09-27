@@ -1,5 +1,5 @@
 ---
-title: "TypeError: Die Eigenschaft \"x\" kann nicht definiert werden: \"obj\" ist nicht erweiterbar"
+title: 'TypeError: can’t define property "x": "obj" is not extensible'
 slug: Web/JavaScript/Reference/Errors/Cant_define_property_object_not_extensible
 l10n:
   sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme „Die Eigenschaft „x“ kann nicht definiert werden: „obj“ ist nicht erweiterbar“ tritt auf, wenn {{jsxref("Object.preventExtensions()")}} ein Objekt als nicht mehr erweiterbar markiert hat, sodass es niemals Eigenschaften über die hinaus haben wird, die es hatte, als es als nicht-erweiterbar markiert wurde.
+Die JavaScript-Ausnahme "can’t define property \"x\": \"obj\" is not extensible" tritt auf, wenn {{jsxref("Object.preventExtensions()")}} ein Objekt als nicht erweiterbar markiert hat, sodass es nie mehr Eigenschaften haben wird als die, die es zum Zeitpunkt der Markierung als nicht erweiterbar hatte.
 
-## Nachricht
+## Meldung
 
 ```plain
 TypeError: Cannot add property x, object is not extensible (V8-based)
@@ -18,19 +18,19 @@ TypeError: can't define property "x": Object is not extensible (Firefox)
 TypeError: Attempting to define property on object that is not extensible. (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("TypeError")}}
 
 ## Was ist schiefgelaufen?
 
-Normalerweise ist ein Objekt erweiterbar und es können neue Eigenschaften hinzugefügt werden. In diesem Fall hat jedoch {{jsxref("Object.preventExtensions()")}} ein Objekt als nicht mehr erweiterbar markiert, sodass es niemals Eigenschaften über die hinaus haben wird, die es hatte, als es als nicht-erweiterbar markiert wurde.
+Normalerweise ist ein Objekt erweiterbar, und es können neue Eigenschaften hinzugefügt werden. In diesem Fall hat jedoch {{jsxref("Object.preventExtensions()")}} ein Objekt als nicht erweiterbar markiert, sodass es nie mehr Eigenschaften haben wird als die, die es zum Zeitpunkt der Markierung als nicht erweiterbar hatte.
 
 ## Beispiele
 
-### Neue Eigenschaften zu nicht-erweiterbaren Objekten hinzufügen
+### Hinzufügen neuer Eigenschaften zu nicht erweiterbaren Objekten
 
-Im [Strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) führt der Versuch, neue Eigenschaften zu einem nicht-erweiterbaren Objekt hinzuzufügen, zu einem `TypeError`. Im lockeren Modus wird das Hinzufügen der "x"-Eigenschaft stillschweigend ignoriert.
+Im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) wirft der Versuch, einem nicht erweiterbaren Objekt neue Eigenschaften hinzuzufügen, einen `TypeError`. Im lässigen Modus wird das Hinzufügen der Eigenschaft "x" stillschweigend ignoriert.
 
 ```js example-bad
 "use strict";
@@ -42,7 +42,7 @@ obj.x = "foo";
 // TypeError: can't define property "x": Object is not extensible
 ```
 
-Sowohl im [Strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) als auch im lockeren Modus führt ein Aufruf von {{jsxref("Object.defineProperty()")}} zu einem Fehler, wenn eine neue Eigenschaft zu einem nicht-erweiterbaren Objekt hinzugefügt wird.
+Sowohl im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) als auch im lässigen Modus löst ein Aufruf von {{jsxref("Object.defineProperty()")}} einen Fehler aus, wenn versucht wird, eine neue Eigenschaft zu einem nicht erweiterbaren Objekt hinzuzufügen.
 
 ```js example-bad
 const obj = {};
@@ -52,13 +52,13 @@ Object.defineProperty(obj, "x", { value: "foo" });
 // TypeError: can't define property "x": Object is not extensible
 ```
 
-Um diesen Fehler zu beheben, sollten Sie den Aufruf von {{jsxref("Object.preventExtensions()")}} entweder vollständig entfernen oder ihn so positionieren, dass die Eigenschaft zuerst hinzugefügt wird und das Objekt erst später als nicht-erweiterbar markiert wird. Natürlich können Sie auch die Eigenschaft entfernen, die versucht wurde hinzuzufügen, wenn Sie sie nicht benötigen.
+Um diesen Fehler zu beheben, müssen Sie entweder den Aufruf von {{jsxref("Object.preventExtensions()")}} vollständig entfernen oder ihn so verschieben, dass die Eigenschaft früher hinzugefügt wird und das Objekt erst später als nicht erweiterbar markiert wird. Natürlich können Sie auch die hinzugefügte Eigenschaft entfernen, wenn Sie diese nicht benötigen.
 
 ```js example-good
 "use strict";
 
 const obj = {};
-obj.x = "foo"; // Eigenschaft zuerst hinzufügen und dann Erweiterungen verhindern
+obj.x = "foo"; // add property first and only then prevent extensions
 
 Object.preventExtensions(obj);
 ```

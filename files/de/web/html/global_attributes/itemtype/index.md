@@ -7,26 +7,26 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Der [globale Attribut](/de/docs/Web/HTML/Global_attributes) **`itemtype`** gibt die URL des Vokabulars an, das verwendet wird, um `itemprop` (Elementeigenschaften) in der Datenstruktur zu definieren.
+Das [globale Attribut](/de/docs/Web/HTML/Global_attributes) **`itemtype`** gibt die URL des Vokabulars an, das verwendet wird, um `itemprop`'s (Elementeigenschaften) in der Datenstruktur zu definieren.
 
 [`itemscope`](/de/docs/Web/HTML/Global_attributes/itemscope) wird verwendet, um den Geltungsbereich festzulegen, in dem das durch `itemtype` festgelegte Vokabular in der Datenstruktur aktiv sein wird.
 
-Google und andere große Suchmaschinen unterstützen das [schema.org](https://schema.org/) Vokabular für strukturierte Daten. Dieses Vokabular definiert einen Standard-Satz von Typs- und Eigenschaftsnamen. Beispielsweise gibt `MusicEvent` eine Konzertaufführung an, wobei die Eigenschaften [`startDate`](https://schema.org/startDate) und [`location`](https://schema.org/location) die wesentlichen Details des Konzerts spezifizieren. In diesem Fall wäre [`MusicEvent`](https://schema.org/MusicEvent) die URL, die von `itemtype` verwendet wird, mit `startDate` und location als `itemprop`, die [`MusicEvent`](https://schema.org/MusicEvent) definiert.
+Google und andere große Suchmaschinen unterstützen das [schema.org](https://schema.org/) Vokabular für strukturierte Daten. Dieses Vokabular definiert eine standardisierte Menge von Typnamen und Eigenschaftsnamen. Zum Beispiel bezeichnet `MusicEvent` eine Konzertveranstaltung, mit Eigenschaften wie [`startDate`](https://schema.org/startDate) und [`location`](https://schema.org/location), die die wichtigsten Details des Konzerts angeben. In diesem Fall würde [`MusicEvent`](https://schema.org/MusicEvent) die URL sein, die von `itemtype` verwendet wird, wobei `startDate` und location als `itemprop`'s fungieren, die [`MusicEvent`](https://schema.org/MusicEvent) definiert.
 
 > [!NOTE]
 > Mehr über `itemtype` Attribute finden Sie unter <https://schema.org/Thing>
 
-- Das **itemtype** Attribut muss einen Wert haben, der ein ungeordneter Satz von eindeutigen Tokens ist, die case-sensitive sind. Jedes ist eine gültige und absolute URL, und alle sind definiert, das gleiche Vokabular zu verwenden. Der Wert des Attributs muss mindestens ein Token haben.
-- Die Elementtypen müssen alle Typen in anwendbaren Spezifikationen (wie [schema.org](https://schema.org/)) definiert sein und müssen alle definiert sein, um dasselbe Vokabular zu verwenden.
-- Das itemtype Attribut kann nur auf Elementen angegeben werden, die ein itemscope Attribut angegeben haben.
-- Das itemid Attribut kann nur auf Elementen angegeben werden, die sowohl ein itemscope Attribut als auch ein itemtype Attribut angegeben haben. Sie dürfen nur auf Elementen mit einem itemscope Attribut angegeben werden, deren itemtype Attribut ein Vokabular angibt, das keine globalen Identifikatoren für Elemente unterstützt, wie von der Spezifikation des Vokabulars definiert.
-- Die genaue Bedeutung eines globalen Identifikators wird durch die Spezifikation des Vokabulars bestimmt. Es ist solchen Spezifikationen überlassen, zu definieren, ob mehrere Elemente desselben globalen Identifikators (ob auf derselben Seite oder auf verschiedenen Seiten) existieren dürfen und welche Verarbeitungsregeln für dieses Vokabular gelten, im Hinblick auf die Handhabung des Falls mehrerer Elemente mit derselben ID.
+- Das **itemtype** Attribut muss einen Wert haben, der eine ungeordnete Menge einzigartiger Tokens ist, die groß- und kleinschreibungssensitiv sind, jeweils eine gültige und absolute URL darstellen und alle dasselbe Vokabular verwenden. Der Wert des Attributs muss mindestens ein Token enthalten.
+- Die Elementtypen müssen alle Typen aus anwendbaren Spezifikationen (wie [schema.org](https://schema.org/)) sein und müssen alle dasselbe Vokabular verwenden.
+- Das itemtype Attribut kann nur auf Elementen spezifiziert werden, die ein itemscope Attribut spezifiziert haben.
+- Das itemid Attribut kann nur auf Elementen spezifiziert werden, die sowohl ein itemscope Attribut als auch ein itemtype Attribut spezifiziert haben. Sie dürfen nur auf Elementen mit einem itemscope Attribut spezifiziert werden, deren itemtype Attribut ein Vokabular spezifiziert, das keine globalen Identifikatoren für Elemente unterstützt, wie in der Spezifikation dieses Vokabulars definiert.
+- Die genaue Bedeutung eines globalen Identifikators wird durch die Spezifikation des Vokabulars bestimmt. Es ist den Spezifikationen überlassen zu definieren, ob mehrere Elemente mit demselben globalen Identifikator (ob auf derselben Seite oder auf verschiedenen Seiten) existieren dürfen und welche Verarbeitungsregeln für dieses Vokabular gelten, in Bezug auf den Umgang mit dem Fall mehrerer Elemente mit derselben ID.
 
 ## Beispiele
 
-### Strukturierte Daten für ein Produkt darstellen
+### Repräsentation strukturierter Daten für ein Produkt
 
-Dieses Beispiel verwendet Mikrodateneigenschaften, um strukturierte Daten für ein Produkt wie folgt darzustellen:
+Dieses Beispiel verwendet Microdata-Attribute, um strukturierte Daten für ein Produkt wie folgt darzustellen:
 
 <table class="standard-table">
   <tbody>
@@ -51,8 +51,8 @@ Dieses Beispiel verwendet Mikrodateneigenschaften, um strukturierte Daten für e
       <td>itemprop</td>
       <td>description</td>
       <td>
-        Schlanker als das klassische AMCE-Amboss, ist der Executive Anvil perfekt für
-        den Geschäftsreisenden, der etwas suchen, das er aus großer Höhe fallen lassen kann.
+        Schlanker als ACME's Classic Amboss, ist der Executive Amboss perfekt für
+        den Geschäftsreisenden, der nach etwas sucht, das man aus einer Höhe fallen lassen kann.
       </td>
     </tr>
     <tr>
@@ -131,7 +131,7 @@ Dieses Beispiel verwendet Mikrodateneigenschaften, um strukturierte Daten für e
 </table>
 
 > [!NOTE]
-> Ein praktisches Werkzeug zum Extrahieren von Mikrostrukturdaten aus HTML ist das [Structured Data Testing Tool](https://developers.google.com/search/docs/appearance/structured-data) von Google. Probieren Sie es mit dem hier gezeigten HTML aus.
+> Ein praktisches Werkzeug zum Extrahieren von Microdata-Strukturen aus HTML ist Googles [Structured Data Testing Tool](https://developers.google.com/search/docs/appearance/structured-data). Versuchen Sie es mit dem hier gezeigten HTML.
 
 #### HTML
 
@@ -198,7 +198,7 @@ Dieses Beispiel verwendet Mikrodateneigenschaften, um strukturierte Daten für e
 ## Siehe auch
 
 - [Andere verschiedene globale Attribute](/de/docs/Web/HTML/Global_attributes)
-- Andere mikrodatenbezogene globale Attribute:
+- Andere mikrodatenspezifische globale Attribute:
 
   - [`itemid`](/de/docs/Web/HTML/Global_attributes/itemid)
   - [`itemprop`](/de/docs/Web/HTML/Global_attributes/itemprop)

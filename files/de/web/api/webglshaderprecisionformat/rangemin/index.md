@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die schreibgeschützte **`WebGLShaderPrecisionFormat.rangeMin`**-Eigenschaft gibt den Basis-2-Logarithmus des absoluten Wertes des minimalen Wertes zurück, der dargestellt werden kann.
+Die schreibgeschützte **`WebGLShaderPrecisionFormat.rangeMin`**-Eigenschaft gibt den Logarithmus zur Basis 2 des absoluten Wertes des minimal darstellbaren Wertes zurück.
 
 ## Beispiele
 
@@ -30,5 +30,5 @@ gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.LOW_INT).rangeMin; // 24
 
 ## Siehe auch
 
-- {{domxref("WebGLShaderPrecisionFormat")}}
-- {{domxref("WebGLRenderingContext.getShaderPrecisionFormat()")}}
+- [`WebGLShaderPrecisionFormat`](/de/docs/Web/API/WebGLShaderPrecisionFormat)
+- [`WebGLRenderingContext.getShaderPrecisionFormat()`](/de/docs/Web/API/WebGLRenderingContext/getShaderPrecisionFormat)

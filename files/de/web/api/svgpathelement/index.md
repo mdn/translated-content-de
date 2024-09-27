@@ -12,56 +12,56 @@ Die **`SVGPathElement`**-Schnittstelle entspricht dem {{SVGElement("path")}}-Ele
 {{InheritanceDiagram}}
 
 > [!NOTE]
-> In SVG 2 wurden die Methoden `getPathSegAtLength()` und `createSVGPathSeg*` entfernt, und die Eigenschaft `pathLength` sowie die Methoden `getTotalLength()` und `getPointAtLength()` wurden in {{domxref("SVGGeometryElement")}} verschoben.
+> In SVG 2 wurden die Methoden `getPathSegAtLength()` und `createSVGPathSeg*` entfernt und die Eigenschaft `pathLength` sowie die Methoden `getTotalLength()` und `getPointAtLength()` wurden auf [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement) verschoben.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem übergeordneten Element, {{domxref("SVGGeometryElement")}}._
+_Diese Schnittstelle erbt Eigenschaften von ihrem übergeordneten Element, [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch Methoden von ihrem übergeordneten Element, {{domxref("SVGGeometryElement")}}._
+_Diese Schnittstelle erbt auch Methoden von ihrem übergeordneten Element, [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
 
-- {{domxref("SVGPathElement.getPathSegAtLength()")}} {{deprecated_inline}}
-  - : Gibt einen nicht-signierten Long-Wert zurück, der den Index innerhalb der {{domxref("SVGAnimatedPathData.pathSegList", "pathSegList")}} repräsentiert und den Distanz-auf-einem-Pfad-Algorithmus des Benutzeragenten verwendet.
-- {{domxref("SVGPathElement.createSVGPathSegClosePath()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegClosePath")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegMovetoAbs()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegMovetoAbs")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegMovetoRel()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegMovetoRel")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegLinetoAbs()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegLinetoAbs")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegLinetoRel()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegLinetoRel")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegCurvetoCubicAbs()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegCurvetoCubicAbs")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegCurvetoCubicRel()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegCurvetoCubicRel")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegCurvetoQuadraticAbs()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegCurvetoQuadraticAbs")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegCurvetoQuadraticRel()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegCurvetoQuadraticRel")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegArcAbs()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegArcAbs")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegArcRel()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegArcRel")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegLinetoHorizontalAbs()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegLinetoHorizontalAbs")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegLinetoHorizontalRel()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegLinetoHorizontalRel")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegLinetoVerticalAbs()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegLinetoVerticalAbs")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegLinetoVerticalRel()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegLinetoVerticalRel")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegCurvetoCubicSmoothAbs()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegCurvetoCubicSmoothAbs")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegCurvetoCubicSmoothRel()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegCurvetoCubicSmoothRel")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegCurvetoQuadraticSmoothAbs()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegCurvetoQuadraticSmoothAbs")}}-Objekt zurück.
-- {{domxref("SVGPathElement.createSVGPathSegCurvetoQuadraticSmoothRel()")}} {{deprecated_inline}}
-  - : Gibt ein eigenständiges, elternloses {{domxref("SVGPathSegCurvetoQuadraticSmoothRel")}}-Objekt zurück.
+- [`SVGPathElement.getPathSegAtLength()`](/de/docs/Web/API/SVGPathElement/getPathSegAtLength) {{deprecated_inline}}
+  - : Gibt einen unsigned long zurück, der den Index innerhalb der [`pathSegList`](/de/docs/Web/API/SVGAnimatedPathData/pathSegList) mit dem Distanz-Entlang-Eines-Pfades-Algorithmus des Benutzeragents darstellt.
+- [`SVGPathElement.createSVGPathSegClosePath()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegClosePath) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegClosePath`](/de/docs/Web/API/SVGPathSegClosePath)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegMovetoAbs()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegMovetoAbs) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegMovetoAbs`](/de/docs/Web/API/SVGPathSegMovetoAbs)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegMovetoRel()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegMovetoRel) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegMovetoRel`](/de/docs/Web/API/SVGPathSegMovetoRel)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegLinetoAbs()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegLinetoAbs) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegLinetoAbs`](/de/docs/Web/API/SVGPathSegLinetoAbs)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegLinetoRel()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegLinetoRel) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegLinetoRel`](/de/docs/Web/API/SVGPathSegLinetoRel)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegCurvetoCubicAbs()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegCurvetoCubicAbs) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegCurvetoCubicAbs`](/de/docs/Web/API/SVGPathSegCurvetoCubicAbs)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegCurvetoCubicRel()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegCurvetoCubicRel) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegCurvetoCubicRel`](/de/docs/Web/API/SVGPathSegCurvetoCubicRel)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegCurvetoQuadraticAbs()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegCurvetoQuadraticAbs) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegCurvetoQuadraticAbs`](/de/docs/Web/API/SVGPathSegCurvetoQuadraticAbs)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegCurvetoQuadraticRel()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegCurvetoQuadraticRel) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegCurvetoQuadraticRel`](/de/docs/Web/API/SVGPathSegCurvetoQuadraticRel)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegArcAbs()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegArcAbs) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegArcAbs`](/de/docs/Web/API/SVGPathSegArcAbs)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegArcRel()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegArcRel) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegArcRel`](/de/docs/Web/API/SVGPathSegArcRel)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegLinetoHorizontalAbs()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegLinetoHorizontalAbs) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegLinetoHorizontalAbs`](/de/docs/Web/API/SVGPathSegLinetoHorizontalAbs)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegLinetoHorizontalRel()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegLinetoHorizontalRel) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegLinetoHorizontalRel`](/de/docs/Web/API/SVGPathSegLinetoHorizontalRel)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegLinetoVerticalAbs()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegLinetoVerticalAbs) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegLinetoVerticalAbs`](/de/docs/Web/API/SVGPathSegLinetoVerticalAbs)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegLinetoVerticalRel()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegLinetoVerticalRel) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegLinetoVerticalRel`](/de/docs/Web/API/SVGPathSegLinetoVerticalRel)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegCurvetoCubicSmoothAbs()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegCurvetoCubicSmoothAbs) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegCurvetoCubicSmoothAbs`](/de/docs/Web/API/SVGPathSegCurvetoCubicSmoothAbs)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegCurvetoCubicSmoothRel()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegCurvetoCubicSmoothRel) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegCurvetoCubicSmoothRel`](/de/docs/Web/API/SVGPathSegCurvetoCubicSmoothRel)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegCurvetoQuadraticSmoothAbs()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegCurvetoQuadraticSmoothAbs) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegCurvetoQuadraticSmoothAbs`](/de/docs/Web/API/SVGPathSegCurvetoQuadraticSmoothAbs)-Objekt zurück.
+- [`SVGPathElement.createSVGPathSegCurvetoQuadraticSmoothRel()`](/de/docs/Web/API/SVGPathElement/createSVGPathSegCurvetoQuadraticSmoothRel) {{deprecated_inline}}
+  - : Gibt ein eigenständiges, elternloses [`SVGPathSegCurvetoQuadraticSmoothRel`](/de/docs/Web/API/SVGPathSegCurvetoQuadraticSmoothRel)-Objekt zurück.
 
 ## Spezifikationen
 

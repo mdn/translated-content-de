@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`target`** Eigenschaft der {{domxref("HTMLAreaElement")}}-Schnittstelle ist ein String, der angibt, wo die verlinkte Ressource angezeigt werden soll.
+Die **`target`**-Eigenschaft des [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interfaces ist ein String, der angibt, wo die verlinkte Ressource angezeigt werden soll.
 
-Sie spiegelt das [`target`](/de/docs/Web/HTML/Element/area#target)-Attribut des {{HTMLElement("area")}}-Elements wider.
+Es entspricht dem [`target`](/de/docs/Web/HTML/Element/area#target)-Attribut des {{HTMLElement("area")}}-Elements.
 
 ## Wert
 
@@ -42,6 +42,6 @@ console.log(areaElement.target); // Output: "_top"
 
 ## Siehe auch
 
-- {{domxref("HTMLBaseElement.target")}} Eigenschaft
-- {{domxref("HTMLFormElement.target")}} Eigenschaft
-- {{domxref("HTMLAnchorElement.target")}} Eigenschaft
+- [`HTMLBaseElement.target`](/de/docs/Web/API/HTMLBaseElement/target)-Eigenschaft
+- [`HTMLFormElement.target`](/de/docs/Web/API/HTMLFormElement/target)-Eigenschaft
+- [`HTMLAnchorElement.target`](/de/docs/Web/API/HTMLAnchorElement/target)-Eigenschaft

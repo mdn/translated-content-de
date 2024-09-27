@@ -14,7 +14,7 @@ Ein `Permissions`-Objekt repräsentiert eine Sammlung von Berechtigungen.
 Ein {{jsxref("object")}} mit den folgenden Eigenschaften:
 
 - `origins` {{optional_inline}}
-  - : Ein Array von [Match-Mustern](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns), das die [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) darstellt.
+  - : Ein Array von [Übereinstimmungsmustern](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns), das [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) repräsentiert.
 - `permissions` {{optional_inline}}
   - : Ein Array von benannten Berechtigungen, einschließlich [API-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) und [Zwischenablage-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#clipboard_access).
 
@@ -25,4 +25,4 @@ Ein {{jsxref("object")}} mit den folgenden Eigenschaften:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions) API.
+> Diese API basiert auf der Chromium [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions) API.

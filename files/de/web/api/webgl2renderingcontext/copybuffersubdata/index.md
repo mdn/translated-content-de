@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode copyBufferSubData()"
+title: "WebGL2RenderingContext: copyBufferSubData()-Methode"
 short-title: copyBufferSubData()
 slug: Web/API/WebGL2RenderingContext/copyBufferSubData
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.copyBufferSubData()`**-Methode der
-[WebGL 2 API](/de/docs/Web/API/WebGL_API) kopiert einen Teil der Daten eines
-Buffers in einen anderen Buffer.
+Die **`WebGL2RenderingContext.copyBufferSubData()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) kopiert einen Teil der Daten eines Puffers in einen anderen Puffer.
 
 ## Syntax
 
@@ -22,28 +20,21 @@ copyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size)
 
 - `readTarget`, `writeTarget`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das den Bindepunkt (Ziel) angibt, von dessen Datenspeicher
-    gelesen oder geschrieben werden soll. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindepunkt (Ziel) angibt, aus dessen Datenspeicher gelesen oder geschrieben werden soll. Mögliche Werte:
 
-    - `gl.ARRAY_BUFFER`: Buffer, der Vertex-Attribute enthält, wie z.B.
-      Vertex-Koordinaten, Texturkoordinatendaten oder Vertex-Farbendaten.
-    - `gl.ELEMENT_ARRAY_BUFFER`: Buffer, der für Elementindizes verwendet wird.
-    - `gl.COPY_READ_BUFFER`: Buffer zum Kopieren von einem Pufferobjekt zu
-      einem anderen (speziell für Kopiervorgänge vorgesehen).
-    - `gl.COPY_WRITE_BUFFER`: Buffer zum Kopieren von einem Pufferobjekt zu
-      einem anderen (speziell für Kopiervorgänge vorgesehen).
-    - `gl.TRANSFORM_FEEDBACK_BUFFER`: Buffer für Transform-Feedback-
-      Vorgänge.
-    - `gl.UNIFORM_BUFFER`: Buffer, der zum Speichern von Uniform-Blöcken verwendet wird.
-    - `gl.PIXEL_PACK_BUFFER`: Buffer, der für Pixelübertragungsvorgänge verwendet wird.
-    - `gl.PIXEL_UNPACK_BUFFER`: Buffer, der für Pixelübertragungsvorgänge verwendet wird.
+    - `gl.ARRAY_BUFFER`: Puffer, der Vertex-Attribute enthält, wie z.B. Vertex-Koordinaten, Texturkoordinatendaten oder Vertex-Farbdaten.
+    - `gl.ELEMENT_ARRAY_BUFFER`: Puffer für Elementindizes.
+    - `gl.COPY_READ_BUFFER`: Puffer zum Kopieren von einem Pufferobjekt zum anderen (speziell für Kopieroperationen bereitgestellt).
+    - `gl.COPY_WRITE_BUFFER`: Puffer zum Kopieren von einem Pufferobjekt zum anderen (speziell für Kopieroperationen bereitgestellt).
+    - `gl.TRANSFORM_FEEDBACK_BUFFER`: Puffer für Transform-Feedback-Operationen.
+    - `gl.UNIFORM_BUFFER`: Puffer, der für das Speichern von Uniform-Blöcken verwendet wird.
+    - `gl.PIXEL_PACK_BUFFER`: Puffer für Pixelübertragungsoperationen.
+    - `gl.PIXEL_UNPACK_BUFFER`: Puffer für Pixelübertragungsoperationen.
 
 - `readOffset`, `writeOffset`
-  - : Ein {{domxref("WebGL_API/Types", "GLintptr")}}, das den Byte-Offset angibt, von dem aus gestartet werden soll
-    zu lesen oder zu schreiben.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der den Byte-Offset angibt, von dem aus das Lesen oder Schreiben im Puffer begonnen werden soll.
 - `size`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}} in Bytes, das die Größe der Daten angibt, die von
-    `readTarget` zu `writeTarget` kopiert werden sollen.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types) in Bytes, der die Größe der Daten angibt, die von `readTarget` zu `writeTarget` kopiert werden sollen.
 
 ### Rückgabewert
 
@@ -78,7 +69,7 @@ gl.copyBufferSubData(gl.COPY_READ_BUFFER, gl.ARRAY_BUFFER, 0, 0, length);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bufferData()")}}
-- {{domxref("WebGLRenderingContext.bufferSubData()")}}
-- {{domxref("WebGLRenderingContext.getBufferParameter()")}}
-- {{domxref("WebGL2RenderingContext.getBufferSubData()")}}
+- [`WebGLRenderingContext.bufferData()`](/de/docs/Web/API/WebGLRenderingContext/bufferData)
+- [`WebGLRenderingContext.bufferSubData()`](/de/docs/Web/API/WebGLRenderingContext/bufferSubData)
+- [`WebGLRenderingContext.getBufferParameter()`](/de/docs/Web/API/WebGLRenderingContext/getBufferParameter)
+- [`WebGL2RenderingContext.getBufferSubData()`](/de/docs/Web/API/WebGL2RenderingContext/getBufferSubData)

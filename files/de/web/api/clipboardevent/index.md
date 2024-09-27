@@ -7,25 +7,25 @@ l10n:
 
 {{APIRef("Clipboard API")}}
 
-Die **`ClipboardEvent`**-Schnittstelle der [Clipboard API](/de/docs/Web/API/Clipboard_API) repräsentiert Ereignisse, die Informationen über die Änderung der Zwischenablage bereitstellen, das heißt die {{domxref("Element/cut_event", "cut")}}, {{domxref("Element/copy_event", "copy")}} und {{domxref("Element/paste_event", "paste")}} Ereignisse.
+Das **`ClipboardEvent`**-Interface der [Clipboard API](/de/docs/Web/API/Clipboard_API) repräsentiert Ereignisse, die Informationen im Zusammenhang mit der Änderung der Zwischenablage bereitstellen, nämlich die [`cut`](/de/docs/Web/API/Element/cut_event), [`copy`](/de/docs/Web/API/Element/copy_event) und [`paste`](/de/docs/Web/API/Element/paste_event) Ereignisse.
 
 {{InheritanceDiagram}}
 
-## Konstruktor
+## Constructor
 
-- {{domxref("ClipboardEvent.ClipboardEvent", "ClipboardEvent()")}}
+- [`ClipboardEvent()`](/de/docs/Web/API/ClipboardEvent/ClipboardEvent)
   - : Erstellt ein `ClipboardEvent`-Ereignis mit den angegebenen Parametern.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternteil {{domxref("Event")}}_.
+_Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
-- {{domxref("ClipboardEvent.clipboardData")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("DataTransfer")}}-Objekt, das die von der vom Benutzer initiierten {{domxref("Element/cut_event", "cut")}}, {{domxref("Element/copy_event", "copy")}} oder {{domxref("Element/paste_event", "paste")}}-Operation betroffenen Daten zusammen mit ihrem MIME-Typ enthält.
+- [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) {{ReadOnlyInline}}
+  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die durch den benutzerinitiierten [`cut`](/de/docs/Web/API/Element/cut_event), [`copy`](/de/docs/Web/API/Element/copy_event) oder [`paste`](/de/docs/Web/API/Element/paste_event) Vorgang betroffenen Daten sowie deren MIME-Typ enthält.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil {{domxref("Event")}}_.
+_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
 ## Spezifikationen
 
@@ -37,6 +37,6 @@ _Keine spezifischen Methoden; erbt Methoden von seinem Elternteil {{domxref("Eve
 
 ## Siehe auch
 
-- Kopieren-bezogene Ereignisse: {{domxref("Element/copy_event", "copy")}}, {{domxref("Element/cut_event", "cut")}}, {{domxref("Element/paste_event", "paste")}}
+- Kopierbezogene Ereignisse: [`copy`](/de/docs/Web/API/Element/copy_event), [`cut`](/de/docs/Web/API/Element/cut_event), [`paste`](/de/docs/Web/API/Element/paste_event)
 - [Clipboard API](/de/docs/Web/API/Clipboard_API)
 - [Artikel über Bildunterstützung für Async Clipboard](https://web.dev/articles/async-clipboard)

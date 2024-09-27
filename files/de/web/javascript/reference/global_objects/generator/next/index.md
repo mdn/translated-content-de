@@ -7,7 +7,10 @@ l10n:
 
 {{JSRef}}
 
-Die **`next()`** Methode von {{jsxref("Generator")}} Instanzen gibt ein Objekt mit den zwei Eigenschaften `done` und `value` zurück. Sie können auch einen Parameter an die `next` Methode übergeben, um einen Wert an den Generator zu senden.
+Die **`next()`** Methode von {{jsxref("Generator")}} Instanzen gibt ein
+Objekt mit zwei Eigenschaften `done` und `value` zurück. Sie können
+auch einen Parameter an die `next`-Methode übergeben, um einen Wert an den
+Generator zu senden.
 
 ## Syntax
 
@@ -22,24 +25,28 @@ next(value)
 
   - : Der Wert, der an den Generator gesendet werden soll.
 
-    Der Wert wird als Ergebnis eines `yield` Ausdrucks zugewiesen. Zum Beispiel, in `variable = yield expression`, wird der an die `.next()` Funktion übergebene Wert der `variable` zugewiesen.
+    Der Wert wird als Ergebnis eines `yield`-Ausdrucks zugewiesen. Zum
+    Beispiel wird bei `variable = yield expression` der Wert,
+    der an die `.next()` Funktion übergeben wird, der `variable`
+    zugewiesen.
 
 ### Rückgabewert
 
 Ein {{jsxref("Object")}} mit zwei Eigenschaften:
 
 - `done`
-  - : Ein booleanischer Wert:
-    - `true`, wenn der Generator das Ende seines Kontrollflusses überschritten hat. In diesem Fall gibt `value` den _Rückgabewert_ des Generators an (dieser kann undefiniert sein).
-    - `false`, wenn der Generator in der Lage ist, weitere Werte zu produzieren.
+  - : Ein Boolean-Wert:
+    - `true`, wenn der Generator das Ende seines Kontrollflusses überschritten hat. In diesem Fall gibt `value` den _Rückgabewert_ des Generators an (der möglicherweise undefiniert ist).
+    - `false`, wenn der Generator in der Lage ist, weitere Werte zu erzeugen.
 - `value`
-  - : Jeder von dem Generator erzeugte oder zurückgegebene JavaScript-Wert.
+  - : Jeder von JavaScript erzeugte oder vom Generator zurückgegebene Wert.
 
 ## Beispiele
 
 ### Verwendung von next()
 
-Das folgende Beispiel zeigt einen einfachen Generator und das Objekt, das die `next` Methode zurückgibt:
+Das folgende Beispiel zeigt einen einfachen Generator und das Objekt, das die
+`next`-Methode zurückgibt:
 
 ```js
 function* gen() {
@@ -57,7 +64,7 @@ g.next(); // { value: undefined, done: true }
 
 ### Verwendung von next() mit einer Liste
 
-In diesem Beispiel nimmt `getPage` eine Liste und "paginates" sie in Stücke der Größe `pageSize`. Jeder Aufruf von `next` wird ein solches Stück zurückgeben.
+In diesem Beispiel nimmt `getPage` eine Liste und "paginates" sie in Abschnitte der Größe `pageSize`. Jeder Aufruf von `next` gibt einen solchen Abschnitt zurück.
 
 ```js
 function* getPage(list, pageSize = 1) {
@@ -75,12 +82,12 @@ page.next(); // { value: [7, 8], done: false }
 page.next(); // { value: undefined, done: true }
 ```
 
-### Werte an den Generator senden
+### Senden von Werten an den Generator
 
 In diesem Beispiel wird `next` mit einem Wert aufgerufen.
 
 > [!NOTE]
-> Der erste Aufruf gibt nichts aus, da der Generator anfangs nichts liefert.
+> Der erste Aufruf gibt nichts aus, da der Generator ursprünglich nichts erzeugte.
 
 ```js
 function* gen() {
@@ -92,7 +99,7 @@ function* gen() {
 
 const g = gen();
 g.next(1); // Returns { value: undefined, done: false }
-// Kein Log an diesem Schritt: Der erste Wert, der durch `next` gesendet wird, geht verloren
+// No log at this step: the first value sent through `next` is lost
 g.next(2); // Returns { value: undefined, done: false }
 // Logs 2
 ```
@@ -108,4 +115,4 @@ g.next(2); // Returns { value: undefined, done: false }
 ## Siehe auch
 
 - {{jsxref("Statements/function*", "function*")}}
-- [Iteratoren und Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden
+- [Iterators und generators](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden

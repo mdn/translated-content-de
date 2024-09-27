@@ -1,15 +1,14 @@
 ---
-title: "GPUTexture: destroy()-Methode"
+title: "GPUTexture: destroy() Methode"
 short-title: destroy()
 slug: Web/API/GPUTexture/destroy
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`destroy()`**-Methode der
-{{domxref("GPUTexture")}}-Schnittstelle zerstört die `GPUTexture`.
+Die **`destroy()`**-Methode der [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Schnittstelle zerstört die `GPUTexture`.
 
 ## Syntax
 
@@ -45,7 +44,7 @@ depthTexture.destroy();
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

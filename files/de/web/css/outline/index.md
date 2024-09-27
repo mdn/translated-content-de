@@ -1,5 +1,5 @@
 ---
-title: Umriss
+title: outline
 slug: Web/CSS/outline
 l10n:
   sourceCommit: fc1cc5684c98d19816d5cc81702d70f2a0debbad
@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die **`outline`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) setzt die meisten Umriss-Eigenschaften in einer einzigen Deklaration.
+Die **`outline`** [CSS](/de/docs/Web/CSS) [Shorthand-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) setzt die meisten Outline-Eigenschaften in einer einzigen Deklaration.
 
 {{EmbedInteractiveExample("pages/css/outline.html")}}
 
-## Bestandteileigenschaften
+## Zusammengesetzte Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("outline-width")}}
 - {{cssxref("outline-style")}}
@@ -42,46 +42,46 @@ outline: revert-layer;
 outline: unset;
 ```
 
-Die `outline`-Eigenschaft kann mit einem, zwei oder drei der unten aufgeführten Werte angegeben werden. Die Reihenfolge der Werte spielt keine Rolle. Wie bei allen Kurzschreibweise-Eigenschaften werden alle ausgelassenen Teilwerte auf ihren [Initialwert](/de/docs/Web/CSS/initial_value) gesetzt.
+Die `outline`-Eigenschaft kann mit einem, zwei oder drei der unten aufgeführten Werte angegeben werden. Die Reihenfolge der Werte spielt keine Rolle. Wie bei allen Shorthand-Eigenschaften werden alle ausgelassenen Unterwerte auf ihren [Anfangswert](/de/docs/Web/CSS/initial_value) gesetzt.
 
 > [!NOTE]
-> Der Umriss wird für viele Elemente unsichtbar sein, wenn der Stil nicht definiert ist. Dies liegt daran, dass der Stil standardmäßig auf `none` gesetzt ist. Eine bemerkenswerte Ausnahme sind `input`-Elemente, denen von den Browsern eine Standardformatierung zugewiesen wird.
+> Die Umrandung wird bei vielen Elementen unsichtbar sein, wenn ihr Stil nicht definiert ist. Dies liegt daran, dass der Stil standardmäßig auf `none` gesetzt ist. Eine bemerkenswerte Ausnahme sind `input`-Elemente, die von Browsern mit einer Standardformatierung versehen werden.
 
 ### Werte
 
 - `<'outline-width'>`
-  - : Legt die Dicke des Umrisses fest. Standardwert ist `medium`, wenn nicht angegeben. Siehe {{cssxref("outline-width")}}.
+  - : Legt die Dicke der Umrandung fest. Standardwert ist `medium`, wenn nicht angegeben. Siehe {{cssxref("outline-width")}}.
 - `<'outline-style'>`
-  - : Legt den Stil des Umrisses fest. Standardwert ist `none`, wenn nicht angegeben. Siehe {{cssxref("outline-style")}}.
+  - : Legt den Stil der Umrandung fest. Standardwert ist `none`, wenn nicht angegeben. Siehe {{cssxref("outline-style")}}.
 - `<'outline-color'>`
-  - : Legt die Farbe des Umrisses fest. Standardwert ist `invert` für unterstützende Browser, `currentcolor` für andere. Siehe {{cssxref("outline-color")}}.
+  - : Legt die Farbe der Umrandung fest. Standardwert ist `invert` für unterstützende Browser, `currentcolor` für andere. Siehe {{cssxref("outline-color")}}.
 
 ## Beschreibung
 
-Der Umriss ist eine Linie außerhalb des [Rahmens](/de/docs/Web/CSS/border) eines Elements. Im Gegensatz zu anderen Bereichen des Box-Modells nehmen Umrisse keinen Platz ein und beeinflussen daher das Layout des Dokuments in keiner Weise.
+Die Umrandung ist eine Linie außerhalb der [border](/de/docs/Web/CSS/border) des Elements. Anders als andere Bereiche des Rahmens beanspruchen Umrandungen keinen Platz, sodass sie das Layout des Dokuments in keiner Weise beeinflussen.
 
-Es gibt einige Eigenschaften, die das Erscheinungsbild eines Umrisses beeinflussen. Es ist möglich, den Stil, die Farbe und die Breite mit der `outline`-Eigenschaft zu ändern, den Abstand zum Rahmen mit der {{cssxref("outline-offset")}}-Eigenschaft und die Eckwinkel mit der {{cssxref("border-radius")}}-Eigenschaft.
+Es gibt einige Eigenschaften, die das Aussehen einer Umrandung beeinflussen. Es ist möglich, den Stil, die Farbe und die Breite mit der `outline`-Eigenschaft zu ändern, den Abstand vom Rand mit der {{cssxref("outline-offset")}}-Eigenschaft und die Eckenwinkel mit der {{cssxref("border-radius")}}-Eigenschaft.
 
-Ein Umriss muss nicht rechteckig sein: Bei mehrzeiligem Text ziehen einige Browser einen Umriss für jede Textzeile separat, während andere den gesamten Text mit einem einzigen Umriss umschließen.
+Eine Umrandung muss nicht rechteckig sein: Bei mehrzeiligem Text zeichnen einige Browser eine Umrandung für jede Zeilenbox separat, während andere den gesamten Text mit einer einzigen Umrandung umschließen.
 
 ## Barrierefreiheit
 
-Wenn Sie `outline` den Wert `0` oder `none` zuweisen, wird der standardmäßige Fokus-Stil des Browsers entfernt. Wenn ein Element interaktiv ist, muss es einen sichtbaren Fokus-Indikator haben. Stellen Sie einen klaren Fokus-Stil bereit, wenn der Standard-Fokus-Stil entfernt wird.
+Das Zuweisen eines Werts von `0` oder `none` für `outline` entfernt den Standardstil des Browserfokus. Wenn ein Element interagierbar ist, muss es über einen sichtbaren Fokusindikator verfügen. Stellen Sie einen deutlichen Fokusstil bereit, wenn der Standardfokusstil entfernt wird.
 
-- [Wie man nützliche und benutzbare Fokus-Indikatoren gestaltet](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/)
+- [Wie man nützliche und benutzbare Fokusindikatoren gestaltet](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/)
 - WCAG 2.1: [Verständnis des Erfolgskriteriums 2.4.7: Fokus sichtbar](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html)
 
 ## Formale Definition
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Verwendung von Outline, um einen Fokus-Stil festzulegen
+### Verwendung von Outline zur Festlegung eines Fokus-Stils
 
 #### HTML
 

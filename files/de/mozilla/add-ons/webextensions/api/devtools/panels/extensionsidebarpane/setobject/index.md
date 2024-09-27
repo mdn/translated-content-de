@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Zeigt ein JSON-Objekt im Seitenbereich der Erweiterung an.
+Zeigt ein JSON-Objekt im Seitenbereich des Add-ons an.
 
-Das Objekt wird als erweiterbarer Baum angezeigt, wie im [JSON-Viewer](https://firefox-source-docs.mozilla.org/devtools-user/json_viewer/index.html) in Firefox. Sie können optional einen `rootTitle`-String angeben: Dieser wird als Titel der Wurzel des Baums angezeigt.
+Das Objekt wird als erweiterbarer Baum angezeigt, wie im [JSON-Viewer](https://firefox-source-docs.mozilla.org/devtools-user/json_viewer/index.html) in Firefox. Optional können Sie eine `rootTitle`-Zeichenkette angeben: Diese wird als Titel der Wurzel des Baums angezeigt.
 
-Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Dies ist eine asynchrone Funktion, die ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 ## Syntax
 
@@ -25,13 +25,13 @@ let setting = browser.devtools.panels.setObject(
 ### Parameter
 
 - `jsonObject`
-  - : `String` oder `Array` oder `Object`. Das anzuzeigende Objekt. Wenn dies ein Objekt ist, wird es JSON-serialisiert, so dass Eigenschaften wie Funktionen ausgelassen werden.
+  - : `String` oder `Array` oder `Object`. Das anzuzeigende Objekt. Wenn es sich um ein Objekt handelt, wird es JSON-serialisiert, sodass Eigenschaften wie Funktionen weggelassen werden.
 - `rootTitle` {{optional_inline}}
   - : `String`. Der Titel der Wurzel des Baums, in dem das Objekt angezeigt wird.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, sobald das Objekt gesetzt wurde.
+Ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, sobald das Objekt gesetzt wurde.
 
 ## Browser-Kompatibilität
 
@@ -39,7 +39,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Erstellen Sie einen neuen Bereich und füllen Sie ihn mit einem JSON-Objekt. Sie könnten diesen Code in ein Skript einfügen, das von der [devtools-Seite](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) Ihrer Erweiterung geladen wird.
+Erstellen Sie ein neues Fenster und füllen Sie es mit einem JSON-Objekt. Sie könnten diesen Code in einem Skript ausführen, das von der [devtools-Seite](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) Ihrer Erweiterung geladen wird.
 
 ```js
 function onCreated(sidebarPane) {
@@ -59,7 +59,7 @@ browser.devtools.panels.elements.createSidebarPane("My pane").then(onCreated);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API von Chromium.
+> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels)-API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

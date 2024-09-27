@@ -8,11 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`resume()`**-Methode der Schnittstelle {{ domxref("AudioContext") }}
-setzt den Fortschritt der Zeit in einem Audiokontext fort, der zuvor
-ausgesetzt wurde.
+Die **`resume()`**-Methode des [`AudioContext`](/de/docs/Web/API/AudioContext)-Interfaces setzt die zeitliche Fortschreitung in einem Audio-Kontext fort, der zuvor angehalten wurde.
 
-Diese Methode führt zu einer `INVALID_STATE_ERR`-Ausnahme, wenn sie auf einem {{domxref("OfflineAudioContext")}} aufgerufen wird.
+Diese Methode führt zu einer `INVALID_STATE_ERR`-Ausnahme, wenn sie bei einem [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) aufgerufen wird.
 
 ## Syntax
 
@@ -30,10 +28,7 @@ Ein {{jsxref("Promise")}}, der aufgelöst wird, wenn der Kontext fortgesetzt wur
 
 ## Beispiele
 
-Das folgende Snippet stammt aus unserem [AudioContext-Zustände-Demo](https://github.com/mdn/webaudio-examples/tree/main/audiocontext-states) ([sehen Sie es live](https://mdn.github.io/webaudio-examples/audiocontext-states/).) Wenn der Aussetzen/Fortsetzen-Knopf geklickt wird, wird der
-{{domxref("BaseAudioContext/state", "AudioContext.state")}} abgefragt — wenn dieser `running` ist,
-wird {{domxref("AudioContext.suspend()", "suspend()")}} aufgerufen; wenn er `suspended` ist, wird `resume()` aufgerufen. In jedem Fall wird das Textlabel des
-Knopfes entsprechend aktualisiert, sobald das Versprechen erfüllt ist.
+Der folgende Codeausschnitt stammt aus unserem [AudioContext-Zustands-Demo](https://github.com/mdn/webaudio-examples/tree/main/audiocontext-states) ([siehe es live](https://mdn.github.io/webaudio-examples/audiocontext-states/)). Wenn die Suspendieren/Fortsetzen-Schaltfläche gedrückt wird, wird der [`AudioContext.state`](/de/docs/Web/API/BaseAudioContext/state) abgefragt — wenn er `running` ist, wird [`suspend()`](/de/docs/Web/API/AudioContext/suspend) aufgerufen; wenn er `suspended` ist, wird `resume()` aufgerufen. In jedem Fall wird das Textlabel der Schaltfläche entsprechend aktualisiert, sobald das Versprechen aufgelöst wird.
 
 ```js
 susresBtn.onclick = () => {

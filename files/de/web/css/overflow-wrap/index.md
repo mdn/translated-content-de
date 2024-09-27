@@ -8,24 +8,24 @@ l10n:
 {{CSSRef}}
 
 > [!WARNING]
-> Die Eigenschaft war ursprünglich eine nicht standardisierte und unveränderte Microsoft-Erweiterung namens `word-wrap` und wurde von den meisten Browsern mit demselben Namen implementiert. Sie wurde inzwischen in `overflow-wrap` umbenannt, wobei `word-wrap` ein Alias ist.
+> Die Eigenschaft war ursprünglich eine nicht standardisierte und unpräfixierte Microsoft-Erweiterung namens `word-wrap`, die von den meisten Browsern unter demselben Namen implementiert wurde. Seitdem wurde sie in `overflow-wrap` umbenannt, wobei `word-wrap` ein Alias ist.
 
-Die **`overflow-wrap`** [CSS](/de/docs/Web/CSS) Eigenschaft wird auf Text angewendet und legt fest, ob der Browser Zeilenumbrüche innerhalb einer ansonsten untrennbaren Zeichenfolge einfügen soll, um zu verhindern, dass Text über seine Zeilenbox hinausläuft.
+Die **`overflow-wrap`** [CSS](/de/docs/Web/CSS) Eigenschaft wird auf Text angewendet und legt fest, ob der Browser Zeilenumbrüche innerhalb eines ansonsten nicht trennbaren Strings einfügen soll, um zu verhindern, dass der Text über sein Zeilenfeld hinausläuft.
 
 {{EmbedInteractiveExample("pages/css/overflow-wrap.html")}}
 
 > [!NOTE]
-> Im Gegensatz zu {{cssxref("word-break")}} erzeugt `overflow-wrap` nur dann einen Umbruch, wenn ein ganzes Wort nicht auf seine eigene Zeile gesetzt werden kann, ohne überzulaufen.
+> Im Gegensatz zu {{cssxref("word-break")}} wird `overflow-wrap` nur dann einen Umbruch erzeugen, wenn ein ganzes Wort nicht auf seine eigene Zeile gestellt werden kann, ohne überzulaufen.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 overflow-wrap: normal;
 overflow-wrap: break-word;
 overflow-wrap: anywhere;
 
-/* Globale Werte */
+/* Global values */
 overflow-wrap: inherit;
 overflow-wrap: initial;
 overflow-wrap: revert;
@@ -33,16 +33,16 @@ overflow-wrap: revert-layer;
 overflow-wrap: unset;
 ```
 
-Die `overflow-wrap`-Eigenschaft wird als ein einzelnes Schlüsselwort aus der untenstehenden Liste von Werten angegeben.
+Die `overflow-wrap` Eigenschaft wird als einzelnes Schlüsselwort aus der unten aufgeführten Liste von Werten angegeben.
 
 ### Werte
 
 - `normal`
-  - : Zeilen dürfen nur an normalen Worttrennpunkten (wie einem Leerzeichen zwischen zwei Wörtern) umbrochen werden.
+  - : Zeilen dürfen nur an normalen Worttrennpunkten brechen (z. B. einem Leerzeichen zwischen zwei Wörtern).
 - `anywhere`
-  - : Um Überlauf zu verhindern, kann eine ansonsten untrennbare Zeichenfolge – wie ein langes Wort oder eine URL – an jedem Punkt umgebrochen werden, wenn es in der Zeile keine anderen akzeptablen Umbruchstellen gibt. Es wird kein Trennzeichen an der Umbruchstelle eingefügt. Weiche Umbruchmöglichkeiten, die durch den Wortumbruch eingeführt werden, werden bei der Berechnung von min-content inhärenten Größen berücksichtigt.
+  - : Um ein Überlaufen zu verhindern, kann eine ansonsten nicht trennbare Zeichenfolge — wie ein langes Wort oder eine URL — an jedem Punkt gebrochen werden, wenn es keine anderweitig akzeptablen Trennpunkte in der Zeile gibt. An der Trennstelle wird kein Trennzeichen eingefügt. Durch den Zeilenumbruch eingeführte weiche Umbruchmöglichkeiten werden bei der Berechnung der min-content intrinsischen Größen berücksichtigt.
 - `break-word`
-  - : Dies entspricht dem Wert `anywhere`, wobei normalerweise untrennbare Wörter an beliebigen Punkten umbrochen werden dürfen, wenn es in der Zeile keine anderen akzeptablen Umbruchstellen gibt, aber weiche Umbruchmöglichkeiten, die durch den Wortumbruch eingeführt werden, NICHT bei der Berechnung von min-content inhärenten Größen berücksichtigt werden.
+  - : Entspricht dem `anywhere` Wert, wobei normalerweise nicht trennbare Wörter an beliebigen Punkten gebrochen werden dürfen, wenn es keine anderweitig akzeptablen Trennpunkte in der Zeile gibt, aber weiche Umbruchmöglichkeiten, die durch den Zeilenumbruch eingeführt werden, werden NICHT bei der Berechnung der min-content intrinsischen Größen berücksichtigt.
 
 ## Formale Definition
 
@@ -56,46 +56,46 @@ Die `overflow-wrap`-Eigenschaft wird als ein einzelnes Schlüsselwort aus der un
 
 ### Vergleich von overflow-wrap, word-break und hyphens
 
-Dieses Beispiel vergleicht die Ergebnisse von `overflow-wrap`, `word-break` und `hyphens` beim Umbruch eines langen Wortes.
+Dieses Beispiel vergleicht die Ergebnisse von `overflow-wrap`, `word-break` und `hyphens` beim Trennen eines langen Wortes.
 
 #### HTML
 
 ```html
 <p>
-  Sie sagen, das Angeln ist ausgezeichnet am See
-  <em class="normal">Chargoggagoggmanchauggagoggchaubunagungamaugg</em>, obwohl
-  ich selbst noch nie dort war. (<code>normal</code>)
+  They say the fishing is excellent at Lake
+  <em class="normal">Chargoggagoggmanchauggagoggchaubunagungamaugg</em>, though
+  I've never been there myself. (<code>normal</code>)
 </p>
 <p>
-  Sie sagen, das Angeln ist ausgezeichnet am See
+  They say the fishing is excellent at Lake
   <em class="ow-anywhere">Chargoggagoggmanchauggagoggchaubunagungamaugg</em>,
-  obwohl ich selbst noch nie dort war. (<code>overflow-wrap: anywhere</code>)
+  though I've never been there myself. (<code>overflow-wrap: anywhere</code>)
 </p>
 <p>
-  Sie sagen, das Angeln ist ausgezeichnet am See
+  They say the fishing is excellent at Lake
   <em class="ow-break-word">Chargoggagoggmanchauggagoggchaubunagungamaugg</em>,
-  obwohl ich selbst noch nie dort war. (<code>overflow-wrap: break-word</code>)
+  though I've never been there myself. (<code>overflow-wrap: break-word</code>)
 </p>
 <p>
-  Sie sagen, das Angeln ist ausgezeichnet am See
+  They say the fishing is excellent at Lake
   <em class="word-break">Chargoggagoggmanchauggagoggchaubunagungamaugg</em>,
-  obwohl ich selbst noch nie dort war. (<code>word-break</code>)
+  though I've never been there myself. (<code>word-break</code>)
 </p>
 <p>
-  Sie sagen, das Angeln ist ausgezeichnet am See
-  <em class="hyphens">Chargoggagoggmanchauggagoggchaubunagungamaugg</em>,
-  obwohl ich selbst noch nie dort war. (<code>hyphens</code>, ohne
-  <code>lang</code> Attribut)
+  They say the fishing is excellent at Lake
+  <em class="hyphens">Chargoggagoggmanchauggagoggchaubunagungamaugg</em>, though
+  I've never been there myself. (<code>hyphens</code>, without
+  <code>lang</code> attribute)
 </p>
 <p lang="en">
-  Sie sagen, das Angeln ist ausgezeichnet am See
-  <em class="hyphens">Chargoggagoggmanchauggagoggchaubunagungamaugg</em>,
-  obwohl ich selbst noch nie dort war. (<code>hyphens</code>, englische Regeln)
+  They say the fishing is excellent at Lake
+  <em class="hyphens">Chargoggagoggmanchauggagoggchaubunagungamaugg</em>, though
+  I've never been there myself. (<code>hyphens</code>, English rules)
 </p>
 <p class="hyphens" lang="de">
-  Sie sagen, das Angeln ist ausgezeichnet am See
-  <em class="hyphens">Chargoggagoggmanchauggagoggchaubunagungamaugg</em>,
-  obwohl ich selbst noch nie dort war. (<code>hyphens</code>, deutsche Regeln)
+  They say the fishing is excellent at Lake
+  <em class="hyphens">Chargoggagoggmanchauggagoggchaubunagungamaugg</em>, though
+  I've never been there myself. (<code>hyphens</code>, German rules)
 </p>
 ```
 
@@ -143,4 +143,4 @@ p {
 - {{cssxref("white-space")}}
 - {{cssxref("hyphens")}}
 - {{cssxref("text-overflow")}}
-- [Leitfaden zum Umbruch und Brechen von Text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)
+- [Leitfaden zum Umbrechen und Teilen von Text](/de/docs/Web/CSS/CSS_text/Wrapping_breaking_text)

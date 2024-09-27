@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`key()`**-Methode des {{domxref("Storage")}}-Interfaces gibt, wenn eine Zahl n übergeben wird, den Namen des n-ten Schlüssels in einem gegebenen `Storage`-Objekt zurück. Die Reihenfolge der Schlüssel ist von der Implementierung des Benutzeragenten abhängig, daher sollten Sie sich nicht darauf verlassen.
+Die **`key()`**-Methode des [`Storage`](/de/docs/Web/API/Storage)-Interfaces,
+gibt, wenn eine Zahl `n` übergeben wird, den Namen des n-ten Schlüssels in einem gegebenen `Storage`-Objekt zurück. Die Reihenfolge der Schlüssel wird durch den Benutzeragenten definiert, daher sollten Sie sich nicht darauf verlassen.
 
 ## Syntax
 
@@ -19,15 +20,16 @@ key(index)
 ### Parameter
 
 - `index`
-  - : Eine ganze Zahl, die die Nummer des Schlüssels darstellt, dessen Namen Sie erhalten möchten. Dies ist ein nullbasierter Index.
+  - : Ein ganzzahliger Wert, der die Nummer des Schlüssels repräsentiert, dessen Name Sie erhalten möchten. Dies ist ein nullbasiertes Index.
 
 ### Rückgabewert
 
-Ein String, der den Namen des Schlüssels enthält. Wenn der Index nicht existiert, wird `null` zurückgegeben.
+Ein String, der den Namen des Schlüssels enthält. Wenn der Index nicht existiert,
+wird `null` zurückgegeben.
 
 ## Beispiele
 
-Die folgende Funktion durchläuft die Schlüssel im lokalen Speicher:
+Die folgende Funktion iteriert über die lokalen Speicher-Schlüssel:
 
 ```js
 function forEachKey(callback) {
@@ -37,7 +39,7 @@ function forEachKey(callback) {
 }
 ```
 
-Die folgende Funktion durchläuft die Schlüssel im lokalen Speicher und erhält den für jeden Schlüssel gesetzten Wert:
+Die folgende Funktion iteriert über die lokalen Speicher-Schlüssel und erhält den für jeden Schlüssel gesetzten Wert:
 
 ```js
 for (let i = 0; i < localStorage.length; i++) {

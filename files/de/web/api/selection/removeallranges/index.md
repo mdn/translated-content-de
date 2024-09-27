@@ -1,5 +1,5 @@
 ---
-title: "Selection: Methode removeAllRanges()"
+title: "Selection: removeAllRanges()-Methode"
 short-title: removeAllRanges()
 slug: Web/API/Selection/removeAllRanges
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.removeAllRanges()`**-Methode entfernt alle Bereiche aus der Auswahl, wodurch die Eigenschaften {{domxref("Selection.anchorNode", "anchorNode")}} und {{domxref("Selection.focusNode","focusNode")}} auf `null` gesetzt werden und nichts mehr ausgewählt ist. Wenn diese Methode aufgerufen wird, wird ein {{domxref("Document/selectionchange_event", "selectionchange")}}-Ereignis im Dokument ausgelöst.
+Die **`Selection.removeAllRanges()`**-Methode entfernt alle Bereiche aus der Auswahl, sodass die Eigenschaften [`anchorNode`](/de/docs/Web/API/Selection/anchorNode) und [`focusNode`](/de/docs/Web/API/Selection/focusNode) gleich `null` sind und nichts ausgewählt ist. Wenn diese Methode aufgerufen wird, wird ein [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event)-Ereignis im Dokument ausgelöst.
 
 > [!NOTE]
-> Diese Methode ist ein Alias für die Methode {{domxref("Selection.empty()")}}.
+> Diese Methode ist ein Alias für die [`Selection.empty()`](/de/docs/Web/API/Selection/empty)-Methode.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Nachricht an, wenn etwas auf der Seite ausgewählt wurde oder nicht. Dies geschieht, indem das {{domxref("Document/selectionchange_event", "selectionchange")}}-Ereignis im Dokument überwacht wird. Es gibt auch einen Button, der jede Auswahl durch Aufruf von `Selection.removeAllRanges()` löscht. Wenn dies geschieht, wird die Auswahl geändert und die Nachricht aktualisiert.
+Dieses Beispiel zeigt eine Nachricht an, ob etwas auf der Seite ausgewählt ist oder nicht. Es geschieht, indem auf das [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event)-Ereignis im Dokument gehört wird. Es gibt auch einen Button, der jede Auswahl entfernt, indem `Selection.removeAllRanges()` aufgerufen wird. Wenn dies geschieht, wird die Auswahl geändert und die Nachricht aktualisiert.
 
 ```html
 <p>
@@ -80,5 +80,5 @@ button.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("Selection.empty()")}}
-- {{domxref("Document/selectionchange_event", "selectionchange")}}
+- [`Selection.empty()`](/de/docs/Web/API/Selection/empty)
+- [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event)

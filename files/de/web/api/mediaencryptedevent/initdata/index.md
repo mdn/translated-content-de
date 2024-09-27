@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}
 
-Die schreibgeschützte **`initData`**-Eigenschaft des {{domxref("MediaKeyMessageEvent")}} gibt die Initialisierungsdaten, die in diesem Ereignis enthalten sind, zurück, falls vorhanden.
+Die schreibgeschützte **`initData`**-Eigenschaft des [`MediaKeyMessageEvent`](/de/docs/Web/API/MediaKeyMessageEvent) gibt die Initialisierungsdaten zurück, die in diesem Ereignis enthalten sind, falls vorhanden.
 
 ## Wert
 
-Ein {{jsxref("ArrayBuffer")}} mit den Initialisierungsdaten oder `null`, falls keine vorhanden sind.
+Ein {{jsxref("ArrayBuffer")}} mit den Initialisierungsdaten oder `null`, wenn keine vorhanden sind.
 
 ## Spezifikationen
 

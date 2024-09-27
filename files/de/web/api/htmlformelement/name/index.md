@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormElement.name`**-Eigenschaft repräsentiert den Namen des aktuellen {{HtmlElement("form")}}-Elements als Zeichenkette.
+Die **`HTMLFormElement.name`**-Eigenschaft stellt den Namen des aktuellen {{HtmlElement("form")}}-Elements als Zeichenkette dar.
 
-Wenn Ihr {{HTMLElement("Form")}}-Element ein Element mit dem Namen _name_ enthält, dann überschreibt dieses Element die `form.name`-Eigenschaft, sodass Sie keinen Zugriff darauf haben.
+Wenn Ihr {{HTMLElement("Form")}}-Element ein Element mit dem Namen _name_ enthält, überschreibt dieses Element die `form.name`-Eigenschaft, sodass Sie keinen Zugriff darauf haben.
 
 ## Wert
 
@@ -22,7 +22,7 @@ Eine Zeichenkette.
 const form1name = document.getElementById("form1").name;
 
 if (form1name !== document.form.form1) {
-  // Der Browser unterstützt diese Form der Referenzierung nicht
+  // Browser doesn't support this form of reference
 }
 ```
 
@@ -30,6 +30,6 @@ if (form1name !== document.form.form1) {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

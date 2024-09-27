@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Der **`CSSUnparsedValue()`** Konstruktor erstellt ein neues {{domxref("CSSUnparsedValue")}} Objekt, das Eigenschaftswerte darstellt, die auf benutzerdefinierte Eigenschaften verweisen.
+Der **`CSSUnparsedValue()`** Konstruktor erstellt ein neues [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) Objekt, das Eigenschaftswerte repräsentiert, die auf benutzerdefinierte Eigenschaften verweisen.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ new CSSUnparsedValue(members)
 ### Parameter
 
 - `members`
-  - : Ein Array, dessen Werte entweder ein String oder ein {{domxref('CSSVariableReferenceValue')}} sein müssen.
+  - : Ein Array, dessen Werte entweder ein String oder ein [`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue) sein müssen.
 
 ## Beispiele
 
@@ -41,10 +41,10 @@ console.log(values); // CSSUnparsedValue {0: "1em", 1: "#445566", 2: "-45px", le
 
 ## Siehe auch
 
-- {{domxref("CSSUnparsedValue.entries")}}
-- {{domxref("CSSUnparsedValue.forEach")}}
-- {{domxref("CSSUnparsedValue.keys")}}
-- {{domxref("CSSUnparsedValue.length")}}
-- {{domxref("CSSUnparsedValue.values")}}
+- [`CSSUnparsedValue.entries`](/de/docs/Web/API/CSSUnparsedValue/entries)
+- [`CSSUnparsedValue.forEach`](/de/docs/Web/API/CSSUnparsedValue/forEach)
+- [`CSSUnparsedValue.keys`](/de/docs/Web/API/CSSUnparsedValue/keys)
+- [`CSSUnparsedValue.length`](/de/docs/Web/API/CSSUnparsedValue/length)
+- [`CSSUnparsedValue.values`](/de/docs/Web/API/CSSUnparsedValue/values)
 - [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)

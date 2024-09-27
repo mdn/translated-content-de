@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode deleteRenderbuffer()"
+title: "WebGLRenderingContext: deleteRenderbuffer() Methode"
 short-title: deleteRenderbuffer()
 slug: Web/API/WebGLRenderingContext/deleteRenderbuffer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.deleteRenderbuffer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein angegebenes {{domxref("WebGLRenderbuffer")}}-Objekt. Diese Methode hat keine Auswirkungen, wenn der Renderpuffer bereits gelöscht wurde.
+Die **`WebGLRenderingContext.deleteRenderbuffer()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) Objekt. Diese Methode hat keine Auswirkung, wenn der Render-Puffer bereits gelöscht wurde.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteRenderbuffer(renderbuffer)
 ### Parameter
 
 - `renderbuffer`
-  - : Ein {{domxref("WebGLRenderbuffer")}}-Objekt, das gelöscht werden soll.
+  - : Ein [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) Objekt, das gelöscht werden soll.
 
 ### Rückgabewert
 
@@ -27,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Löschen eines Renderpuffers
+### Löschen eines Renderbuffers
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -49,7 +49,7 @@ gl.deleteRenderbuffer(renderbuffer);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.createRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.isRenderbuffer()")}}
-- Weitere Puffer: {{domxref("WebGLBuffer")}}, {{domxref("WebGLFramebuffer")}}
+- [`WebGLRenderingContext.bindRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindRenderbuffer)
+- [`WebGLRenderingContext.createRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/createRenderbuffer)
+- [`WebGLRenderingContext.isRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/isRenderbuffer)
+- Andere Puffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)

@@ -12,12 +12,12 @@ Die **`HTMLMediaElement.defaultPlaybackRate`**-Eigenschaft gibt die standardmä�
 
 ## Wert
 
-Ein Doppelter (double). `1.0` ist "normale Geschwindigkeit", Werte unter `1.0` lassen das Medium langsamer als normal abspielen, höhere Werte lassen es schneller abspielen.
+Ein Double. `1.0` entspricht der "normalen Geschwindigkeit", Werte unter `1.0` verlangsamen die Wiedergabe, höhere Werte beschleunigen sie.
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Ausgelöst, wenn der angegebene Wert nicht unterstützt wird.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird geworfen, wenn der angegebene Wert nicht unterstützt wird.
 
 ## Beispiele
 
@@ -30,10 +30,10 @@ console.log(obj.defaultPlaybackRate); // 1
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement")}}: Schnittstelle, die verwendet wird, um die Eigenschaft `HTMLMediaElement.defaultPlaybackRate` zu definieren
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die verwendet wird, um die Eigenschaft `HTMLMediaElement.defaultPlaybackRate` zu definieren

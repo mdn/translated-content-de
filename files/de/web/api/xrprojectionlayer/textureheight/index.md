@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`textureHeight`**-Eigenschaft der {{domxref("XRProjectionLayer")}}-Schnittstelle gibt die Höhe in Pixeln der Farbtexturen dieser Ebene an.
+Die schreibgeschützte **`textureHeight`**-Eigenschaft der Schnittstelle [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) gibt die Höhe in Pixeln der Farbtexturen dieser Ebene an.
 
-Die Texturhöhe der Projektionsebene wird vom Benutzeragenten oder dem Gerät bestimmt. Sie wird in der {{domxref("XRSubImage")}} gemeldet, die nur innerhalb der Frame-Schleife zugänglich ist. Wenn Sie Ihre eigenen Tiefenpuffer verwalten möchten und nicht auf den ersten Frame nach der Erstellung der Ebene warten wollen, um die erforderlichen Dimensionen für diese Puffer zu bestimmen, ermöglicht die `textureHeight`-Eigenschaft den Zugriff auf die Texturhöhe der Ebene außerhalb der Frame-Schleife. Die Zuweisung dieser Puffer kann direkt nach der Erstellung der Ebene erfolgen.
+Die Texturhöhe der Projektionsebene wird durch den User-Agent oder das Gerät bestimmt. Sie wird im [`XRSubImage`](/de/docs/Web/API/XRSubImage) angegeben, das nur innerhalb der Frame-Schleife zugänglich ist. Wenn Sie Ihre eigenen Tiefenpuffer verwalten möchten und nicht auf den ersten Frame nach der Erstellung der Ebene warten wollen, um die erforderlichen Abmessungen für diese Puffer zu bestimmen, ermöglicht die `textureHeight`-Eigenschaft den Zugriff auf die Texturhöhe der Ebene außerhalb der Frame-Schleife. Die Zuweisung dieser Puffer kann direkt nach der Erstellung der Ebene erfolgen.
 
 ## Wert
 
@@ -20,7 +20,7 @@ Eine Zahl, die die Höhe in Pixeln angibt.
 
 ### Verwendung von `textureHeight`
 
-Die `textureHeight` einer Ebene ist nützlich beim Erstellen von Render-Puffern für eine Ebene. Siehe auch {{domxref("WebGL2RenderingContext.renderbufferStorageMultisample()")}}.
+Die `textureHeight` einer Ebene ist nützlich, wenn Renderpuffer für eine Ebene erstellt werden. Siehe auch [`WebGL2RenderingContext.renderbufferStorageMultisample()`](/de/docs/Web/API/WebGL2RenderingContext/renderbufferStorageMultisample).
 
 ```js
 let glLayer = xrGLBinding.createProjectionLayer();
@@ -46,6 +46,6 @@ gl.renderbufferStorageMultisample(
 
 ## Siehe auch
 
-- {{domxref("XRWebGLBinding.createProjectionLayer()")}}
-- {{domxref("WebGL2RenderingContext.renderbufferStorageMultisample()")}}
-- {{domxref("XRSubImage")}}
+- [`XRWebGLBinding.createProjectionLayer()`](/de/docs/Web/API/XRWebGLBinding/createProjectionLayer)
+- [`WebGL2RenderingContext.renderbufferStorageMultisample()`](/de/docs/Web/API/WebGL2RenderingContext/renderbufferStorageMultisample)
+- [`XRSubImage`](/de/docs/Web/API/XRSubImage)

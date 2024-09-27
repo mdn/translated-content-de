@@ -9,10 +9,10 @@ l10n:
 {{APIRef("WebGL")}}
 
 Die **`WebGLRenderingContext.polygonOffset()`**-Methode der
-[WebGL-API](/de/docs/Web/API/WebGL_API) legt die Skalierungsfaktoren und
-Einheiten fest, um Tiefenwerte zu berechnen.
+[WebGL API](/de/docs/Web/API/WebGL_API) legt die Skalierungsfaktoren und
+Einheiten zur Berechnung von Tiefenwerten fest.
 
-Der Versatz wird hinzugefügt, bevor der Tiefentest durchgeführt wird und bevor der Wert
+Der Offset wird hinzugefügt, bevor der Tiefentest durchgeführt wird und bevor der Wert
 in den Tiefenpuffer geschrieben wird.
 
 ## Syntax
@@ -24,11 +24,11 @@ polygonOffset(factor, units)
 ### Parameter
 
 - `factor`
-  - : Ein {{domxref("WebGL_API/Types", "GLfloat")}}, der den Skalierungsfaktor für den variablen Tiefenversatz
+  - : Ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types), der den Skalierungsfaktor für den variablen Tiefenoffset
     für jedes Polygon festlegt. Der Standardwert ist 0.
 - `units`
-  - : Ein {{domxref("WebGL_API/Types", "GLfloat")}}, der den Multiplikator festlegt, mit dem ein
-    implementierungsspezifischer Wert multipliziert wird, um einen konstanten Tiefenversatz zu erzeugen.
+  - : Ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types), der den Multiplikator festlegt, mit dem ein
+    implementierungsspezifischer Wert multipliziert wird, um einen konstanten Tiefenoffset zu erzeugen.
     Der Standardwert ist 0.
 
 ### Rückgabewert
@@ -37,9 +37,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Der Polygonversatz-Füllmodus ist standardmäßig deaktiviert. Um den Polygonversatz
-Füllmodus zu aktivieren oder zu deaktivieren, verwenden Sie die {{domxref("WebGLRenderingContext.enable", "enable()")}}- und
-{{domxref("WebGLRenderingContext.disable", "disable()")}}-Methoden mit dem Argument
+Der Polygon-Offset-Fill ist standardmäßig deaktiviert. Um den Polygon-Offset-Fill zu aktivieren oder zu deaktivieren, verwenden Sie die [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) und
+[`disable()`](/de/docs/Web/API/WebGLRenderingContext/disable) Methoden mit dem Argument
 `gl.POLYGON_OFFSET_FILL`.
 
 ```js
@@ -47,8 +46,8 @@ gl.enable(gl.POLYGON_OFFSET_FILL);
 gl.polygonOffset(2, 3);
 ```
 
-Um den aktuellen Polygonversatzfaktor oder die Einheiten zu überprüfen, fragen Sie die
-`POLYGON_OFFSET_FACTOR`- und `POLYGON_OFFSET_UNITS`-Konstanten ab.
+Um den aktuellen Polygon-Offset-Faktor oder die Einheiten zu überprüfen, fragen Sie die
+`POLYGON_OFFSET_FACTOR` und `POLYGON_OFFSET_UNITS` Konstanten ab.
 
 ```js
 gl.getParameter(gl.POLYGON_OFFSET_FACTOR); // 2
@@ -65,4 +64,4 @@ gl.getParameter(gl.POLYGON_OFFSET_UNITS); // 3
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.depthFunc()")}}
+- [`WebGLRenderingContext.depthFunc()`](/de/docs/Web/API/WebGLRenderingContext/depthFunc)

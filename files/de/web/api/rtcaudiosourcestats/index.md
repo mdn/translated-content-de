@@ -7,50 +7,47 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCAudioSourceStats`**-Wörterbuch der [WebRTC-API](/de/docs/Web/API/WebRTC_API) bietet Statistikinformationen zu einem Audiotrack ({{domxref("MediaStreamTrack")}}), der an einen oder mehrere Sender ({{domxref("RTCRtpSender")}}) angeschlossen ist.
+Das **`RTCAudioSourceStats`** Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) stellt Statistikinformationen über eine Audiospur ([`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)) bereit, die an einen oder mehrere Sender ([`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)) angebunden ist.
 
-Diese Statistiken können durch Iteration des {{domxref("RTCStatsReport")}}, das von {{domxref("RTCRtpSender.getStats()")}} oder {{domxref("RTCPeerConnection.getStats()")}} zurückgegeben wird, abgerufen werden, bis Sie einen Bericht mit dem [`type`](#type) `media-source` und einem [`kind`](#kind) `audio` finden.
+Diese Statistiken können durch Iterieren des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) abgerufen werden, das von [`RTCRtpSender.getStats()`](/de/docs/Web/API/RTCRtpSender/getStats) oder [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, bis Sie einen Bericht mit dem [`type`](#type) `media-source` und einem [`kind`](#kind) `audio` finden.
 
 > [!NOTE]
-> Für Audioinformationen über entfernt bezogene Tracks (die empfangen werden), siehe {{domxref("RTCInboundRtpStreamStats")}}.
+> Für Audioinformationen über remote bezogene Tracks (die empfangen werden), siehe [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats).
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("RTCAudioSourceStats.audioLevel", "audioLevel")}} {{Experimental_Inline}}{{optional_inline}}
-  - : Eine Zahl, die den Audiopegel der Medienquelle darstellt.
-- {{domxref("RTCAudioSourceStats.totalAudioEnergy", "totalAudioEnergy")}} {{Experimental_Inline}}{{optional_inline}}
+- [`audioLevel`](/de/docs/Web/API/RTCAudioSourceStats/audioLevel) {{Experimental_Inline}}{{optional_inline}}
+  - : Eine Zahl, die das Audiolevel der Medienquelle darstellt.
+- [`totalAudioEnergy`](/de/docs/Web/API/RTCAudioSourceStats/totalAudioEnergy) {{Experimental_Inline}}{{optional_inline}}
   - : Eine Zahl, die die gesamte Audioenergie der Medienquelle über die Lebensdauer des Statistikobjekts darstellt.
-- {{domxref("RTCAudioSourceStats.totalSamplesDuration", "totalSamplesDuration")}} {{Experimental_Inline}}{{optional_inline}}
-  - : Eine Zahl, die die Gesamtdauer aller von der Medienquelle erzeugten Samples über die Lebensdauer des Statistikobjekts darstellt.
+- [`totalSamplesDuration`](/de/docs/Web/API/RTCAudioSourceStats/totalSamplesDuration) {{Experimental_Inline}}{{optional_inline}}
+  - : Eine Zahl, die die Gesamtdauer aller von der Medienquelle über die Lebensdauer des Statistikobjekts erzeugten Proben darstellt.
 
-### Allgemeine Eigenschaften von Medienquellen
+### Gemeinsame Eigenschaften von Medienquellen
 
-Die folgenden Eigenschaften sind sowohl in `RTCAudioSourceStats` als auch in {{domxref("RTCVideoSourceStats")}} vorhanden:
+Die folgenden Eigenschaften sind sowohl in `RTCAudioSourceStats` als auch [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats) vorhanden: <!-- RTCMediaSourceStats  -->
 
-- {{domxref("RTCAudioSourceStats.trackIdentifier", "trackIdentifier")}}
-  - : Ein String, der den [`id`](/de/docs/Web/API/MediaStreamTrack/id)-Wert des mit der Audioquelle verknüpften [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) enthält.
-- {{domxref("RTCAudioSourceStats.kind", "kind")}}
-  - : Ein String, der angibt, ob dieses Objekt Statistiken für eine Videoquelle oder eine Medienquelle darstellt. Für ein `RTCAudioSourceStats` wird dies immer `audio` sein.
+- [`trackIdentifier`](/de/docs/Web/API/RTCAudioSourceStats/trackIdentifier)
+  - : Ein String, der den [`id`](/de/docs/Web/API/MediaStreamTrack/id)-Wert des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) enthält, der mit der Audioquelle verbunden ist.
+- [`kind`](/de/docs/Web/API/RTCAudioSourceStats/kind)
+  - : Ein String, der angibt, ob dieses Objekt Statistiken für eine Videoquelle oder eine Medienquelle darstellt. Für `RTCAudioSourceStats` wird dies immer `audio` sein.
 
-### Gemeinsame Instanzeigenschaften
+### Gemeinsame Instanz-Eigenschaften
 
-Die folgenden Eigenschaften sind allen Statistikobjekten gemeinsam.
+Die folgenden Eigenschaften sind allen Statistikobjekten gemeinsam. <!-- RTCStats -->
 
-- {{domxref("RTCAudioSourceStats.id", "id")}}
-  - : Ein String, der das Objekt, das überwacht wird, eindeutig identifiziert, um diesen Satz von Statistiken zu erzeugen.
-- {{domxref("RTCAudioSourceStats.timestamp", "timestamp")}}
-  - : Ein {{domxref("DOMHighResTimeStamp")}}-Objekt, das die Zeit angibt, zu der die Probe für dieses Statistikobjekt entnommen wurde.
-- {{domxref("RTCAudioSourceStats.type", "type")}}
-  - : Ein String mit dem Wert `"media-source"`, der angibt, dass das Objekt eine Instanz von entweder `RTCAudioSourceStats` oder {{domxref("RTCVideoSourceStats")}} ist.
+- [`id`](/de/docs/Web/API/RTCAudioSourceStats/id)
+  - : Ein String, der das Objekt, das überwacht wird, um diese Statistikmenge zu erzeugen, eindeutig identifiziert.
+- [`timestamp`](/de/docs/Web/API/RTCAudioSourceStats/timestamp)
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das den Zeitpunkt angibt, zu dem die Probe für dieses Statistikobjekt entnommen wurde.
+- [`type`](/de/docs/Web/API/RTCAudioSourceStats/type)
+  - : Ein String mit dem Wert `"media-source"`, der angibt, dass das Objekt eine Instanz entweder von `RTCAudioSourceStats` oder [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats) ist.
 
 ## Beschreibung
 
-Die Schnittstelle bietet Statistiken über eine an einen oder mehrere Sender angeschlossene Audiomedienquelle.
-Die Informationen umfassen den aktuellen Audiopegel, gemittelt über eine kurze (implementierungsabhängige) Dauer.
+Das Interface bietet Statistiken über eine Audio-Medienquelle, die an einen oder mehrere Sender angebunden ist. Die Informationen umfassen das aktuelle Audiolevel, gemittelt über eine kurze (Implementierungsabhängige) Dauer.
 
-Die Statistiken umfassen auch die akkumulierte Gesamtenergie und Gesamtdauer der Samples zu einem bestimmten Zeitpunkt.
-Die Summen können verwendet werden, um den durchschnittlichen Audiopegel über die Lebensdauer des Statistikobjekts zu bestimmen.
-Sie können einen quadratischen Mittelwert (RMS) im gleichen Maßeinheit wie `audioLevel` mit der folgenden Formel berechnen:
+Die Statistiken beinhalten auch die kumulierte Gesamtenergie und Gesamtprobendauer zu einem bestimmten Zeitpunkt. Die Gesamtsummen können verwendet werden, um das durchschnittliche Audiolevel über die Lebensdauer des Statistikobjekts zu bestimmen. Sie können einen quadratischen Mittelwert (RMS) im gleichen Einheitenbereich wie `audioLevel` mit der folgenden Formel berechnen:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -58,10 +55,9 @@ Sie können einen quadratischen Mittelwert (RMS) im gleichen Maßeinheit wie `au
 </math>
 <!-- prettier-ignore-end -->
 
-Sie können die akkumulierten Summen auch verwenden, um den durchschnittlichen Audiopegel über einen beliebigen Zeitraum zu berechnen.
+Sie können auch die kumulierten Gesamtsummen verwenden, um das durchschnittliche Audiolevel über einen beliebigen Zeitrahmen zu berechnen.
 
-Die Gesamtenergie des Statistikobjekts wird durch Hinzufügen der Energie jedes Samples über die Lebensdauer des Statistikobjekts akkumuliert, während die Gesamtdauer durch Hinzufügen der Dauer jedes Samples akkumuliert wird.
-Die Energie jedes Samples wird mit der folgenden Formel bestimmt, wobei `sample_level` der Pegel des Samples, `max_level` der höchstintensive kodierbare Wert und `duration` die Dauer des Samples in Sekunden ist:
+Die gesamte Audioenergie des Statistikobjekts wird akkumuliert, indem die Energie jedes Samples über die Lebensdauer des Statistikobjekts hinzugefügt wird, während die Gesamtdauer durch Addition der Dauer jedes Samples akkumuliert wird. Die Energie jedes Samples wird mit der folgenden Formel bestimmt, wobei `sample_level` das Level des Samples, `max_level` der höchstintensive kodierbare Wert, und `duration` die Dauer des Samples in Sekunden ist:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -69,7 +65,7 @@ Die Energie jedes Samples wird mit der folgenden Formel bestimmt, wobei `sample_
 </math>
 <!-- prettier-ignore-end -->
 
-Der durchschnittliche Audiopegel zwischen zwei verschiedenen `getStats()`-Aufrufen, über jede Dauer, kann mit der folgenden Gleichung berechnet werden:
+Der durchschnittliche Audiolevel zwischen zwei verschiedenen `getStats()`-Aufrufen, über eine beliebige Dauer, kann mit der folgenden Gleichung berechnet werden:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -79,7 +75,7 @@ Der durchschnittliche Audiopegel zwischen zwei verschiedenen `getStats()`-Aufruf
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie das Statistikobjekt durchlaufen, das von `RTCRtpSender.getStats()` zurückgegeben wird, um die Audioquellen-Statistiken zu erhalten und dann den `audioLevel` extrahieren.
+Dieses Beispiel zeigt, wie Sie das Statistikobjekt, das von `RTCRtpSender.getStats()` zurückgegeben wird, durchlaufen, um die Audioquellenstatistiken zu erhalten und dann das `audioLevel` extrahieren.
 
 ```js
 // where sender is an RTCRtpSender
@@ -100,6 +96,6 @@ const audioLevel = audioSourceStats?.audioLevel;
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

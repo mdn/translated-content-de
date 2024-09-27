@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: seekable-Eigenschaft"
+title: "HTMLMediaElement: seekable Eigenschaft"
 short-title: seekable
 slug: Web/API/HTMLMediaElement/seekable
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`seekable`** schreibgeschützte Eigenschaft von {{domxref("HTMLMediaElement")}}-Objekten gibt ein neues statisches [normalisiertes `TimeRanges`-Objekt](/de/docs/Web/API/TimeRanges#normalized_timeranges_objects) zurück, das die Bereiche der Mediendatei darstellt, die der User-Agent beim Zugriff auf die `seekable`-Eigenschaft erreichen kann.
+Die schreibgeschützte **`seekable`**-Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten gibt ein neues statisches [normiertes `TimeRanges`-Objekt](/de/docs/Web/API/TimeRanges#normalized_timeranges_objects) zurück, das die Bereiche der Mediendatei darstellt, zu denen der Benutzeragent zum Zeitpunkt des Zugriffs auf die `seekable`-Eigenschaft springen kann.
 
 ## Wert
 
-Ein neues statisches [normalisiertes TimeRanges-Objekt](/de/docs/Web/API/TimeRanges#normalized_timeranges_objects), das die Bereiche der Mediendatei darstellt, die der User-Agent beim Zugriff auf die `seekable`-Eigenschaft erreichen kann.
+Ein neues statisches [normiertes TimeRanges-Objekt](/de/docs/Web/API/TimeRanges#normalized_timeranges_objects), das die Bereiche der Mediendatei darstellt, zu denen der Benutzeragent zum Zeitpunkt des Zugriffs auf die `seekable`-Eigenschaft springen kann.
 
 ## Beispiele
 
@@ -20,7 +20,7 @@ Ein neues statisches [normalisiertes TimeRanges-Objekt](/de/docs/Web/API/TimeRan
 const video = document.querySelector("video");
 const timeRangesObject = video.seekable;
 const timeRanges = [];
-//Durch das Objekt gehen und ein Array ausgeben
+//Go through the object and output an array
 for (let count = 0; count < timeRangesObject.length; count++) {
   timeRanges.push([timeRangesObject.start(count), timeRangesObject.end(count)]);
 }
@@ -36,6 +36,6 @@ for (let count = 0; count < timeRangesObject.length; count++) {
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement")}}: Schnittstelle zur Definition der `HTMLMediaElement.seekable`-Eigenschaft
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die verwendet wird, um die `HTMLMediaElement.seekable`-Eigenschaft zu definieren
 - [Media Source API](/de/docs/Web/API/Media_Source_Extensions_API)
-- [Medienpufferung, -suche und Zeitbereiche](/de/docs/Web/Media/Audio_and_video_delivery/buffering_seeking_time_ranges)
+- [Medienbuffering, Springen und Zeitbereiche](/de/docs/Web/Media/Audio_and_video_delivery/buffering_seeking_time_ranges)

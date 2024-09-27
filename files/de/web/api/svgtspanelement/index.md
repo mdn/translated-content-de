@@ -7,13 +7,13 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGTSpanElement`**-Schnittstelle repräsentiert ein {{SVGElement("tspan")}}-Element.
+Die **`SVGTSpanElement`** Schnittstelle repräsentiert ein {{SVGElement("tspan")}} Element.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle bietet keine spezifischen Eigenschaften, erbt jedoch die Eigenschaften von ihrem Elternteil, {{domxref("SVGTextPositioningElement")}}._
+_Diese Schnittstelle bietet keine spezifischen Eigenschaften, erbt jedoch die Eigenschaften ihres Elternteils, [`SVGTextPositioningElement`](/de/docs/Web/API/SVGTextPositioningElement)._
 
 ## Instanz-Methoden
 
@@ -29,4 +29,4 @@ _Diese Schnittstelle bietet keine spezifischen Methoden._
 
 ## Siehe auch
 
-- {{SVGElement("tspan")}} SVG-Element
+- {{SVGElement("tspan")}} SVG Element

@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: clear()-Methode"
+title: "WebGLRenderingContext: clear() Methode"
 short-title: clear()
 slug: Web/API/WebGLRenderingContext/clear
 l10n:
@@ -10,10 +10,9 @@ l10n:
 
 Die **`WebGLRenderingContext.clear()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löscht Puffer auf voreingestellte Werte.
 
-Die voreingestellten Werte können festgelegt werden durch {{domxref("WebGLRenderingContext.clearColor", "clearColor()")}}, {{domxref("WebGLRenderingContext.clearDepth", "clearDepth()")}} oder {{domxref("WebGLRenderingContext.clearStencil", "clearStencil()")}}.
+Die voreingestellten Werte können durch [`clearColor()`](/de/docs/Web/API/WebGLRenderingContext/clearColor), [`clearDepth()`](/de/docs/Web/API/WebGLRenderingContext/clearDepth) oder [`clearStencil()`](/de/docs/Web/API/WebGLRenderingContext/clearStencil) festgelegt werden.
 
-Der Scherbereich, Dithering und Puffer-Schreibmasken können die `clear()`
-Methode beeinflussen.
+Der Scherrahmen (scissor box), Dithering und die Puffer-Schreibmasken können die `clear()`-Methode beeinflussen.
 
 ## Syntax
 
@@ -25,7 +24,7 @@ clear(mask)
 
 - `mask`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLbitfield")}} Bitweises OR-Maskenfeld, das die zu löschenden Puffer angibt. Mögliche Werte sind:
+  - : Ein [`GLbitfield`](/de/docs/Web/API/WebGL_API/Types) Bit-oder-Maske, die angibt, welche Puffer gelöscht werden sollen. Mögliche Werte sind:
 
     - `gl.COLOR_BUFFER_BIT`
     - `gl.DEPTH_BUFFER_BIT`
@@ -37,7 +36,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Wenn _mask_ nicht einer der aufgeführten möglichen Werte ist, wird ein `gl.INVALID_ENUM` Fehler ausgelöst.
+Wenn _mask_ nicht einer der aufgeführten möglichen Werte ist, wird ein
+`gl.INVALID_ENUM` Fehler ausgelöst.
 
 ## Beispiele
 
@@ -66,6 +66,6 @@ gl.getParameter(gl.STENCIL_CLEAR_VALUE);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.clearColor()")}}
-- {{domxref("WebGLRenderingContext.clearDepth()")}}
-- {{domxref("WebGLRenderingContext.clearStencil()")}}
+- [`WebGLRenderingContext.clearColor()`](/de/docs/Web/API/WebGLRenderingContext/clearColor)
+- [`WebGLRenderingContext.clearDepth()`](/de/docs/Web/API/WebGLRenderingContext/clearDepth)
+- [`WebGLRenderingContext.clearStencil()`](/de/docs/Web/API/WebGLRenderingContext/clearStencil)

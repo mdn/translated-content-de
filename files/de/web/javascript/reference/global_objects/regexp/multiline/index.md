@@ -7,15 +7,15 @@ l10n:
 
 {{JSRef}}
 
-Die **`multiline`** Zugriffseigenschaft von {{jsxref("RegExp")}} Instanzen gibt zurück, ob das `m`-Flag mit diesem regulären Ausdruck verwendet wird oder nicht.
+Die Zugriffseigenschaft **`multiline`** von {{jsxref("RegExp")}}-Instanzen gibt zurück, ob das `m`-Flag mit diesem Regulären Ausdruck verwendet wird oder nicht.
 
 {{EmbedInteractiveExample("pages/js/regexp-prototype-multiline.html", "taller")}}
 
 ## Beschreibung
 
-`RegExp.prototype.multiline` hat den Wert `true`, wenn das `m`-Flag verwendet wurde; andernfalls `false`. Das `m`-Flag zeigt an, dass eine mehrzeilige Eingabezeichenfolge als mehrere Zeilen behandelt werden sollte. Wenn beispielsweise `m` verwendet wird, ändern sich `^` und `$` vom Abgleichen nur am Anfang oder Ende der gesamten Zeichenfolge zum Anfang oder Ende einer beliebigen Zeile innerhalb der Zeichenfolge.
+`RegExp.prototype.multiline` hat den Wert `true`, wenn das `m`-Flag verwendet wurde; andernfalls `false`. Das `m`-Flag zeigt an, dass eine mehrzeilige Eingabezeichenkette als mehrere Zeilen behandelt werden sollte. Wenn beispielsweise `m` verwendet wird, ändern sich `^` und `$` vom Abgleich nur am Anfang oder Ende der gesamten Zeichenkette zu dem Anfang oder Ende einer beliebigen Zeile innerhalb der Zeichenkette.
 
-Der Set-Zugriffsmodus von `multiline` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Zugriffspezifikator von `multiline` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 

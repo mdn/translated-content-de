@@ -1,5 +1,5 @@
 ---
-title: "CanMakePaymentEvent: CanMakePaymentEvent() Konstruktor"
+title: "CanMakePaymentEvent: CanMakePaymentEvent()-Konstruktor"
 short-title: CanMakePaymentEvent()
 slug: Web/API/CanMakePaymentEvent/CanMakePaymentEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Der **`CanMakePaymentEvent()`** Konstruktor erstellt eine neue Instanz des {{domxref("CanMakePaymentEvent")}} Objekts.
+Der **`CanMakePaymentEvent()`**-Konstruktor erstellt eine neue [`CanMakePaymentEvent`](/de/docs/Web/API/CanMakePaymentEvent)-Objektinstanz.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ new CanMakePaymentEvent(type)
 ### Parameter
 
 - `type`
-  - : Ein Zeichenfolge, die den Typ des Ereignisses darstellt. Im Fall von `CanMakePaymentEvent` ist dies immer `canmakepayment`.
+  - : Ein String, der den Typ des Ereignisses darstellt. Im Fall von `CanMakePaymentEvent` ist dies immer `canmakepayment`.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `CanMakePaymentEvent` Objekt wird erstellt, wenn ein Handler als Ergebnis des Auslösens des {{domxref("ServiceWorkerGlobalScope.canmakepayment_event", "canmakepayment")}} Ereignisses aufgerufen wird.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `CanMakePaymentEvent`-Objekt wird konstruiert, wenn ein Handler als Ergebnis des Auslösens des [`canmakepayment`](/de/docs/Web/API/ServiceWorkerGlobalScope/canmakepayment_event)-Ereignisses aufgerufen wird.
 
 ```js
 self.addEventListener("canmakepayment", (e) => {
@@ -51,7 +51,7 @@ self.addEventListener("canmakepayment", (e) => {
 
 ## Siehe auch
 
-- {{domxref("Payment Handler API", "Payment Handler API", "", "nocode")}}
+- [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
 - [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
 - [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
 - [Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)

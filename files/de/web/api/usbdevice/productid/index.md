@@ -8,11 +8,11 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}
 
-Die schreibgeschützte **`productId`**-Eigenschaft des {{domxref("USBDevice")}}-Interfaces ist der vom Hersteller definierte Code, der ein USB-Gerät identifiziert.
+Die schreibgeschützte Eigenschaft **`productId`** der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle ist der herstellerdefinierte Code, der ein USB-Gerät identifiziert.
 
 ## Wert
 
-Der vom Hersteller definierte Code, der ein USB-Gerät identifiziert.
+Der herstellerdefinierte Code, der ein USB-Gerät identifiziert.
 
 ## Spezifikationen
 

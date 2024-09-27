@@ -1,5 +1,5 @@
 ---
-title: Deployment und weiterführende Lektüre
+title: Bereitstellung und weiterführende Lektüre
 slug: Web/API/WebRTC_API/Build_a_phone_with_peerjs/Deployment_and_further_reading
 l10n:
   sourceCommit: 3f7036e4dbe83e50c873c42a88a5a7d1d80a478e
@@ -9,9 +9,9 @@ l10n:
 
 {{PreviousMenu("Web/API/WebRTC_API/Build_a_phone_with_peerjs/Connect_peers/End_a_call")}}
 
-## Deployment
+## Bereitstellung
 
-Der einfachste Ort, um diese App bereitzustellen, ist [Glitch](https://glitch.com/), da Sie sich nicht mit der Konfiguration des Ports für den Peer-Server befassen müssen.
+Der einfachste Ort, um diese App zu bereitstellen, ist [Glitch](https://glitch.com/), da Sie sich nicht mit der Konfiguration des Ports für den Peer-Server herumschlagen müssen.
 
 ## Weiterführende Lektüre
 

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Usenet ist ein Internet-Diskussionssystem, bei dem jeder Beitrag auf vielen Servern dupliziert wird. Das Äquivalent zu Internetforen seiner Zeit, funktionierte Usenet wie ein Bulletin-Board-System.
+Usenet ist ein Internet-Diskussionssystem, bei dem jeder Beitrag auf vielen Servern dupliziert wird. Das Äquivalent zu Internetforen in seiner Zeit, funktionierte Usenet wie ein Bulletin-Board-System.
 
 ## Siehe auch
 

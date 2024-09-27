@@ -8,15 +8,17 @@ l10n:
 
 {{APIRef("Media Session API")}}
 
-Die **`title`**-Eigenschaft des {{domxref("MediaMetadata")}}-Interfaces gibt den Titel der abzuspielenden Medien zurück oder setzt ihn fest.
+Die **`title`**-Eigenschaft des
+[`MediaMetadata`](/de/docs/Web/API/MediaMetadata)-Interfaces gibt den Titel der abzuspielenden Medien zurück oder setzt ihn.
 
 ## Wert
 
-Ein {{jsxref("String")}}, der den Titel der Medien enthält.
+Ein {{jsxref("String")}}, der den Titel des Mediums enthält.
 
 ## Beispiele
 
-Das folgende Beispiel überprüft die Browserkompatibilität und setzt die aktuellen Metadaten für die Mediensitzung.
+Das folgende Beispiel prüft die Browser-Kompatibilität und setzt die aktuellen Metadaten
+für die Mediensitzung.
 
 ```js
 if ("mediaSession" in navigator) {

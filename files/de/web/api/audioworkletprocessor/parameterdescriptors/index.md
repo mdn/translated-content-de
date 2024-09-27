@@ -1,5 +1,5 @@
 ---
-title: "AudioWorkletProcessor: Eigenschaft parameterDescriptors"
+title: "AudioWorkletProcessor: parameterDescriptors Eigenschaft"
 short-title: parameterDescriptors
 slug: Web/API/AudioWorkletProcessor/parameterDescriptors
 l10n:
@@ -8,33 +8,33 @@ l10n:
 
 {{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`parameterDescriptors`**-Eigenschaft einer von {{domxref("AudioWorkletProcessor")}} abgeleiteten Klasse ist ein _statischer Getter_,
-der ein iterierbares Objekt, basierend auf {{domxref("AudioParamDescriptor")}}, zurückgibt.
+Die schreibgeschützte **`parameterDescriptors`**-Eigenschaft einer von [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) abgeleiteten Klasse ist ein _statischer Getter_,
+der ein iterierbares Objekt aus auf [`AudioParamDescriptor`](/de/docs/Web/API/AudioParamDescriptor) basierenden Objekten zurückgibt.
 
-Die Eigenschaft ist nicht Teil des {{domxref("AudioWorkletProcessor")}}-Interfaces, aber, wenn definiert, wird sie intern vom
-{{domxref("AudioWorkletProcessor")}}-Konstruktor aufgerufen, um eine Liste von benutzerdefinierten
-{{domxref("AudioParam")}}-Objekten in der {{domxref("AudioWorkletNode.parameters", "parameters")}}-Eigenschaft des zugehörigen {{domxref("AudioWorkletNode")}} zu erstellen.
+Die Eigenschaft ist nicht Teil der [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-Schnittstelle, aber, wenn definiert, wird sie intern vom
+[`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-Konstruktor aufgerufen, um eine Liste benutzerdefinierter
+[`AudioParam`](/de/docs/Web/API/AudioParam)-Objekte in der [`parameters`](/de/docs/Web/API/AudioWorkletNode/parameters)-Eigenschaft des zugehörigen [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) zu erstellen.
 
 Das Definieren des Getters ist optional.
 
 ## Wert
 
-Ein iterierbarer Satz von Objekten, die auf {{domxref("AudioParamDescriptor")}} basieren. Die Eigenschaften dieser Objekte sind wie folgt:
+Ein iterierbares Objekt aus auf [`AudioParamDescriptor`](/de/docs/Web/API/AudioParamDescriptor) basierenden Objekten. Die Eigenschaften dieser Objekte sind wie folgt:
 
 - `name`
-  - : Der String, der den Namen des `AudioParam` darstellt. Unter diesem Namen wird das `AudioParam` in der {{domxref("AudioWorkletNode.parameters", "parameters")}}-Eigenschaft des Knotens verfügbar sein, und unter diesem Namen wird die {{domxref("AudioWorkletProcessor.process")}}-Methode die berechneten Werte dieses `AudioParam` erhalten.
+  - : Der String, der den Namen des `AudioParam` repräsentiert. Unter diesem Namen wird das `AudioParam` in der [`parameters`](/de/docs/Web/API/AudioWorkletNode/parameters)-Eigenschaft des Knotens verfügbar sein, und unter diesem Namen wird die [`AudioWorkletProcessor.process`](/de/docs/Web/API/AudioWorkletProcessor/process)-Methode die berechneten Werte dieses `AudioParam` abrufen.
 - `automationRate` {{optional_inline}}
-  - : Entweder der String [`"a-rate"`](/de/docs/Web/API/AudioParam#a-rate) oder [`"k-rate"`](/de/docs/Web/API/AudioParam#k-rate), der die Automatisierungsrate dieses `AudioParam` repräsentiert. Standardwert ist `"a-rate"`.
+  - : Entweder der [`"a-rate"`](/de/docs/Web/API/AudioParam#a-rate)- oder [`"k-rate"`](/de/docs/Web/API/AudioParam#k-rate)-String, der die Automatisierungsrate dieses `AudioParam` repräsentiert. Der Standardwert ist `"a-rate"`.
 - `minValue` {{optional_inline}}
-  - : Ein `float`, der den Mindestwert des `AudioParam` darstellt. Standardwert ist `-3.4028235e38`.
+  - : Ein `float`, der den Mindestwert des `AudioParam` repräsentiert. Der Standardwert ist `-3.4028235e38`.
 - `maxValue` {{optional_inline}}
-  - : Ein `float`, der den Höchstwert des `AudioParam` darstellt. Standardwert ist `3.4028235e38`.
+  - : Ein `float`, der den Höchstwert des `AudioParam` repräsentiert. Der Standardwert ist `3.4028235e38`.
 - `defaultValue` {{optional_inline}}
-  - : Ein `float`, der den Anfangswert des `AudioParam` darstellt. Standardwert ist `0`.
+  - : Ein `float`, der den Anfangswert des `AudioParam` repräsentiert. Der Standardwert ist `0`.
 
 ## Beispiele
 
-Sehen Sie sich [`AudioWorkletNode.parameters`](/de/docs/Web/API/AudioWorkletNode/parameters#examples) für Beispielcode an, der zeigt, wie man einen statischen `parameterDescriptors`-Getter zu einem benutzerdefinierten `AudioWorkletProcessor` hinzufügt.
+Siehe [`AudioWorkletNode.parameters`](/de/docs/Web/API/AudioWorkletNode/parameters#examples) für Beispielcode, der zeigt, wie ein statischer `parameterDescriptors`-Getter zu einem benutzerdefinierten `AudioWorkletProcessor` hinzugefügt wird.
 
 ## Spezifikationen
 

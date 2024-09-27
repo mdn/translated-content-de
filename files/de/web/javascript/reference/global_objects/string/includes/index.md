@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`includes()`**-Methode von {{jsxref("String")}}-Werten führt eine Groß-/Kleinschreibung beachtende Suche durch, um festzustellen, ob ein bestimmter String innerhalb dieses Strings gefunden werden kann, und gibt entsprechend `true` oder `false` zurück.
+Die **`includes()`** Methode der {{jsxref("String")}} Werte führt eine case-sensitive Suche durch, um zu bestimmen, ob ein gegebener String innerhalb dieses Strings gefunden werden kann. Sie gibt entsprechend `true` oder `false` zurück.
 
 {{EmbedInteractiveExample("pages/js/string-includes.html", "shorter")}}
 
@@ -21,32 +21,32 @@ includes(searchString, position)
 ### Parameter
 
 - `searchString`
-  - : Ein String, nach dem innerhalb von `str` gesucht werden soll. Kann kein [Regulärer Ausdruck](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes) sein. Alle Werte, die keine regulären Ausdrücke sind, werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), sodass das Weglassen oder Übergeben von `undefined` dazu führt, dass `includes()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
+  - : Ein String, der innerhalb von `str` gesucht werden soll. Kann kein [Regex sein](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Alle Werte, die keine Regexe sind, werden [zu Strings konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), so dass das Auslassen oder Übergeben von `undefined` dazu führt, dass `includes()` nach dem String `"undefined"` sucht, was selten das gewünschte Ergebnis ist.
 - `position` {{optional_inline}}
   - : Die Position innerhalb des Strings, an der die Suche nach `searchString` beginnen soll. (Standardwert ist `0`.)
 
 ### Rückgabewert
 
-**`true`**, wenn der Suchstring irgendwo innerhalb des gegebenen Strings gefunden wird, einschließlich wenn `searchString` ein leerer String ist; andernfalls **`false`**.
+**`true`**, wenn der Suchstring irgendwo im gegebenen String gefunden wird, einschließlich wenn `searchString` ein leerer String ist; andernfalls **`false`**.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `searchString` [ein Regulärer Ausdruck ist](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes).
+  - : Wird ausgelöst, wenn `searchString` [ein Regex ist](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes).
 
 ## Beschreibung
 
-Diese Methode ermöglicht es Ihnen zu bestimmen, ob ein String einen anderen String enthält.
+Diese Methode ermöglicht es Ihnen festzustellen, ob ein String einen anderen String enthält.
 
-### Groß-/Kleinschreibung beachten
+### Groß- und Kleinschreibung
 
-Die `includes()`-Methode beachtet die Groß-/Kleinschreibung. Zum Beispiel gibt der folgende Ausdruck `false` zurück:
+Die `includes()` Methode beachtet die Groß- und Kleinschreibung. Zum Beispiel ergibt der folgende Ausdruck `false`:
 
 ```js
 "Blue Whale".includes("blue"); // returns false
 ```
 
-Sie können diese Einschränkung umgehen, indem Sie sowohl den ursprünglichen String als auch den Suchstring in Kleinbuchstaben umwandeln:
+Sie können diese Einschränkung umgehen, indem Sie sowohl den Originalstring als auch den Suchstring in Kleinbuchstaben umwandeln:
 
 ```js
 "Blue Whale".toLowerCase().includes("blue"); // returns true

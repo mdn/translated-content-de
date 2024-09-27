@@ -1,6 +1,6 @@
 ---
 title: "PerformanceServerTiming: duration-Eigenschaft"
-short-title: Dauer
+short-title: duration
 slug: Web/API/PerformanceServerTiming/duration
 l10n:
   sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`duration`**-Eigenschaft ist schreibgeschützt und gibt einen Doppelwert zurück, der die vom Server angegebene Messdauer enthält, oder den Wert `0,0`.
+Die schreibgeschützte Eigenschaft **`duration`** gibt einen Doppelwert zurück, der die vom Server angegebene Metrikdauer enthält, oder den Wert `0.0`.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Zahl.
 
 ## Beispiele
 
-### Server-Timing-Einträge protokollieren
+### Protokollierung von Server-Timing-Einträgen
 
 Server-Timing-Metriken erfordern, dass der Server den {{HTTPHeader("Server-Timing")}}-Header sendet. Zum Beispiel:
 
@@ -24,9 +24,9 @@ Server-Timing-Metriken erfordern, dass der Server den {{HTTPHeader("Server-Timin
 Server-Timing: cache;desc="Cache Read";dur=23.2
 ```
 
-Die `serverTiming`-Einträge können sich auf `navigation`- und `resource`-Einträgen befinden.
+Die `serverTiming`-Einträge können in `navigation`- und `resource`-Einträgen vorhanden sein.
 
-Beispiel unter Verwendung eines {{domxref("PerformanceObserver")}}, der über neue `navigation`- und `resource`-Performance-Einträge informiert, sobald sie in der Leistungszeitachse des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge zuzugreifen, die vor der Erstellung des Observers entstanden sind.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation`- und `resource`-Performance-Einträge benachrichtigt, sobald diese in der Leistungstimeline des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -35,7 +35,7 @@ const observer = new PerformanceObserver((list) => {
       console.log(
         `${serverEntry.name} (${serverEntry.description}) duration: ${serverEntry.duration}`,
       );
-      // Protokolliert "cache (Cache Read) duration: 23.2"
+      // Logs "cache (Cache Read) duration: 23.2"
     });
   });
 });
@@ -45,7 +45,7 @@ const observer = new PerformanceObserver((list) => {
 );
 ```
 
-Beispiel unter Verwendung von {{domxref("Performance.getEntriesByType()")}}, das nur `navigation`- und `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungszeitachse des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `navigation`- und `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungstimeline des Browsers vorhanden sind:
 
 ```js
 for (const entryType of ["navigation", "resource"]) {
@@ -55,7 +55,7 @@ for (const entryType of ["navigation", "resource"]) {
     if (serverTiming) {
       for (const { name, description, duration } of serverTiming) {
         console.log(`${name} (${description}) duration: ${duration}`);
-        // Protokolliert "cache (Cache Read) duration: 23.2"
+        // Logs "cache (Cache Read) duration: 23.2"
       }
     }
   }
@@ -72,5 +72,5 @@ for (const entryType of ["navigation", "resource"]) {
 
 ## Siehe auch
 
-- {{domxref("PerformanceServerTiming")}}
+- [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)
 - {{HTTPHeader("Server-Timing")}}

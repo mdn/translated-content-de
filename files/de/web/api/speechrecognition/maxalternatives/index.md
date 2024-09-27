@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`maxAlternatives`**-Eigenschaft der
-{{domxref("SpeechRecognition")}}-Schnittstelle legt die maximale Anzahl von
-{{domxref("SpeechRecognitionAlternative")}}s fest, die pro
-{{domxref("SpeechRecognitionResult")}} bereitgestellt werden.
+Die **`maxAlternatives`**-Eigenschaft des
+[`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces legt die maximale Anzahl von
+[`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)s fest, die pro
+[`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) bereitgestellt werden.
 
 Der Standardwert ist 1.
 
@@ -21,7 +21,7 @@ Eine Zahl, die die maximale Anzahl der zurückgegebenen Alternativen für jedes 
 
 ## Beispiele
 
-Dieser Code stammt aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
+Dieser Code ist ein Auszug aus unserem Beispielprojekt [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
 
 ```js
 const grammar =
@@ -42,7 +42,7 @@ recognition.maxAlternatives = 1;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -1,5 +1,5 @@
 ---
-title: "SensorErrorEvent: error-Eigenschaft"
+title: "SensorErrorEvent: error Eigenschaft"
 short-title: error
 slug: Web/API/SensorErrorEvent/error
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`error`** schreibgeschützte Eigenschaft des {{domxref("SensorErrorEvent")}}-Interfaces gibt das {{domxref('DOMException')}}-Objekt zurück, das im Konstruktor des Ereignisses übergeben wurde.
+Die schreibgeschützte **`error`**-Eigenschaft des [`SensorErrorEvent`](/de/docs/Web/API/SensorErrorEvent)-Interfaces gibt das [`DOMException`](/de/docs/Web/API/DOMException)-Objekt zurück, das im Konstruktor des Ereignisses übergeben wurde.
 
 ## Wert
 
-Eine {{domxref('DOMException')}}.
+Ein [`DOMException`](/de/docs/Web/API/DOMException).
 
 ## Spezifikationen
 

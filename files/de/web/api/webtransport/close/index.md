@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`close()`**-Methode der {{domxref("WebTransport")}}-Schnittstelle schließt eine laufende WebTransport-Sitzung.
+Die **`close()`**-Methode der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle schließt eine laufende WebTransport-Sitzung.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ close(info)
     - `closeCode`
       - : Eine Zahl, die den Fehlercode für den Fehler darstellt.
     - `reason`
-      - : Ein String, der den Grund für das Schließen des `WebTransport` darstellt.
+      - : Ein String, der den Grund für das Schließen des `WebTransport` angibt.
 
 ### Rückgabewert
 
@@ -31,14 +31,14 @@ close(info)
 
 ### Ausnahmen
 
-- {{domxref("WebTransportError")}}
-  - : Wird ausgelöst, wenn `close()` aufgerufen wird, während WebTransport sich im Verbindungsprozess befindet.
+- [`WebTransportError`](/de/docs/Web/API/WebTransportError)
+  - : Wird ausgelöst, wenn `close()` aufgerufen wird, während der WebTransport sich im Verbindungsprozess befindet.
 
 ## Beispiele
 
 ```js
 const url = "https://example.com:4999/wt";
-// Transportverbindung initialisieren
+// Initialize transport connection
 const transport = new WebTransport(url);
 
 // ...
@@ -53,13 +53,13 @@ transport.close({
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
-- [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
+- [WebTransport over HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

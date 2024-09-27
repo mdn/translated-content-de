@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Der **`GainNode()`**-Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues
-{{domxref("GainNode")}}-Objekt, das einen {{domxref("AudioNode")}} darstellt und eine Lautstärkeänderung repräsentiert.
+Der **`GainNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues
+[`GainNode`](/de/docs/Web/API/GainNode) Objekt, welches ein [`AudioNode`](/de/docs/Web/API/AudioNode) ist, das eine Lautstärkeänderung darstellt.
 
 ## Syntax
 
@@ -20,32 +20,31 @@ new GainNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein Verweis auf einen {{domxref("BaseAudioContext")}}, z. B. einen {{domxref("AudioContext")}}.
+  - : Eine Referenz zu einem [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext), z. B. einem [`AudioContext`](/de/docs/Web/API/AudioContext).
 - `options` {{optional_inline}}
 
-  - : Die Optionen sind wie folgt:
+  - : Optionen sind wie folgt:
 
     - `gain`
-      - : Die Menge an Verstärkung, die angewendet werden soll. Dieser Parameter ist - „rate“
-        und sein nominaler Bereich ist (-∞,+∞). Der Standardwert ist `1`.
+      - : Die Menge des zu applizierenden Verstärkers. Dieser Parameter ist ein- `rate`
+        und sein nomineller Bereich ist (-∞,+∞). Der Standardwert ist `1`.
     - `channelCount`
-      - : Stellt einen Ganzzahlwert dar, um zu bestimmen, wie viele Kanäle verwendet werden, wenn [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) Verbindungen zu Eingängen des Knotens erfolgen. (Siehe
-        {{domxref("AudioNode.channelCount")}} für weitere Informationen.) Die Nutzung und genaue
-        Definition hängt vom Wert von `channelCountMode` ab.
+      - : Stellt eine Ganzzahl dar, die verwendet wird, um zu bestimmen, wie viele Kanäle beim [Hochmischen und Heruntermischen](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu den Eingängen des Knotens verwendet werden. (Siehe
+        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Seine Verwendung und präzise
+        Definition hängen von dem Wert von `channelCountMode` ab.
     - `channelCountMode`
       - : Stellt einen enumerierten Wert dar, der beschreibt, wie die Kanäle zwischen
-        den Eingängen und Ausgängen des Knotens angepasst werden müssen. (Siehe {{domxref("AudioNode.channelCountMode")}} für weitere
-        Informationen einschließlich der Standardwerte.)
+        den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere
+        Informationen, einschließlich der Standardwerte.)
     - `channelInterpretation`
       - : Stellt einen enumerierten Wert dar, der die Bedeutung der Kanäle beschreibt. Diese
-        Interpretation legt fest, wie Audio [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) durchgeführt wird.
+        Interpretation wird definieren, wie das Audio [hoch- und heruntergemischt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) wird.
         Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe
-        {{domxref("AudioNode.channelCountMode")}} für weitere Informationen einschließlich der
-        Standardwerte.)
+        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich der Standardwerte.)
 
 ### Rückgabewert
 
-Eine neue Instanz des {{domxref("GainNode")}}-Objekts.
+Eine neue Instanz eines [`GainNode`](/de/docs/Web/API/GainNode) Objekts.
 
 ## Spezifikationen
 

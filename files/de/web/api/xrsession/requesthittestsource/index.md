@@ -1,5 +1,5 @@
 ---
-title: "XRSession: Methode requestHitTestSource()"
+title: "XRSession: requestHitTestSource() Methode"
 short-title: requestHitTestSource()
 slug: Web/API/XRSession/requestHitTestSource
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`requestHitTestSource()`** Methode des {{domxref("XRSession")}} Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("XRHitTestSource")}} Objekt aufgelöst wird, das an {{domxref("XRFrame.getHitTestResults()")}} übergeben werden kann.
+Die **`requestHitTestSource()`** Methode der [`XRSession`](/de/docs/Web/API/XRSession)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource)-Objekt aufgelöst wird. Dieses Objekt kann an [`XRFrame.getHitTestResults()`](/de/docs/Web/API/XRFrame/getHitTestResults) übergeben werden.
 
 ## Syntax
 
@@ -21,35 +21,35 @@ requestHitTestSource(options)
 - `options`
   - : Ein Objekt, das Konfigurationsoptionen enthält, insbesondere:
     - `space`
-      - : Der {{domxref("XRSpace")}}, der von der Hit-Test-Quelle verfolgt wird.
+      - : Der [`XRSpace`](/de/docs/Web/API/XRSpace), der durch die Hit-Test-Quelle verfolgt wird.
     - `entityTypes` {{Optional_Inline}}
-      - : Ein {{jsxref("Array")}}, das die Arten von Entitäten angibt, die für die Erstellung der Hit-Test-Quelle verwendet werden sollen. Wenn kein Entitätstyp angegeben ist, enthält das Array standardmäßig ein einziges Element vom Typ `plane`. Mögliche Typen:
-        - `point`: Berechnen Sie Hit-Test-Ergebnisse basierend auf charakteristischen Punkten.
-        - `plane`: Berechnen Sie Hit-Test-Ergebnisse basierend auf erkannten realen Ebenen.
-        - `mesh`: Berechnen Sie Hit-Test-Ergebnisse basierend auf erkannten Netzen.
+      - : Ein {{jsxref("Array")}}, das die Typen von Entitäten angibt, die für die Erstellung der Hit-Test-Quelle verwendet werden sollen. Wenn kein Entitätstyp angegeben ist, hat das Array standardmäßig ein einzelnes Element mit dem Typ `plane`. Mögliche Typen:
+        - `point`: Berechnung der Trefferergebnisse basierend auf erkannten charakteristischen Punkten.
+        - `plane`: Berechnung der Trefferergebnisse basierend auf erkannten realen Ebenen.
+        - `mesh`: Berechnung der Trefferergebnisse basierend auf erkannten Netzen.
     - `offsetRay` {{Optional_Inline}}
-      - : Das {{domxref("XRRay")}} Objekt, das verwendet wird, um den Hit-Test durchzuführen. Wenn kein `XRRay` Objekt bereitgestellt wurde, wird ein neues `XRRay` Objekt ohne Parameter erstellt.
+      - : Das [`XRRay`](/de/docs/Web/API/XRRay)-Objekt, das zur Durchführung des Hit-Tests verwendet wird. Wenn kein `XRRay`-Objekt bereitgestellt wurde, wird ein neues `XRRay`-Objekt ohne Parameter erstellt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{domxref("XRHitTestSource")}} Objekt aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einem [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource)-Objekt aufgelöst wird.
 
 ### Ausnahmen
 
-Anstatt echte Ausnahmen zu werfen, lehnt `requestHitTestSource()` das zurückgegebene Promise mit einem {{domxref("DOMException")}} ab, insbesondere einer der folgenden:
+Anstelle des Werfens von echten Ausnahmen lehnt `requestHitTestSource()` das zurückgegebene Promise mit einem [`DOMException`](/de/docs/Web/API/DOMException) ab, insbesondere einer der folgenden:
 
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `hit-test` kein aktiviertes Feature in {{domxref("XRSystem.requestSession()")}} ist.
-- `InvalidStateError` {{domxref("DOMException")}}
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `hit-test` kein aktiviertes Feature in [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Sitzung bereits beendet wurde.
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn es eine unzumutbare Menge an Anfragen gibt. Einige Benutzeragenten könnten die Nutzung aus Datenschutzgründen einschränken.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn eine unangemessene Menge von Anfragen vorliegt. Einige Benutzeragenten könnten die Nutzung aus Datenschutzgründen einschränken.
 
 ## Beispiele
 
 ### Anfordern einer Hit-Test-Quelle
 
-Um eine Hit-Test-Quelle anzufordern, starten Sie eine {{domxref("XRSession")}} mit dem aktivierten `hit-test`-Sitzungsmerkmal. Konfigurieren Sie anschließend die Hit-Test-Quelle und speichern Sie sie für die spätere Verwendung in der Frame-Schleife, und rufen Sie {{domxref("XRFrame.getHitTestResults()")}} auf, um das Ergebnis zu erhalten.
+Um eine Hit-Test-Quelle anzufordern, starten Sie eine [`XRSession`](/de/docs/Web/API/XRSession) mit dem aktivierten `hit-test`-Feature für die Sitzung. Konfigurieren Sie als Nächstes die Hit-Test-Quelle und speichern Sie sie für die spätere Verwendung in der Frame-Schleife und rufen Sie [`XRFrame.getHitTestResults()`](/de/docs/Web/API/XRFrame/getHitTestResults) auf, um das Ergebnis zu erhalten.
 
 ```js
 const xrSession = navigator.xr.requestSession("immersive-ar", {
@@ -85,4 +85,4 @@ function onXRFrame(time, xrFrame) {
 
 ## Siehe auch
 
-- {{domxref("XRSession.requestHitTestSourceForTransientInput()")}}
+- [`XRSession.requestHitTestSourceForTransientInput()`](/de/docs/Web/API/XRSession/requestHitTestSourceForTransientInput)

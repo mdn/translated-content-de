@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`length`**-Eigenschaft (nur lesbar) des {{domxref("FileList")}}-Interfaces gibt die Anzahl der Dateien in der `FileList` zurück.
+Die **`length`**-Schreibgeschützte Eigenschaft der [`FileList`](/de/docs/Web/API/FileList)-Schnittstelle gibt die Anzahl der Dateien in der `FileList` zurück.
 
 ## Wert
 
@@ -41,7 +41,7 @@ fileInput.addEventListener("change", () => {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Printing the number of files selected")}}
+{{EmbedLiveSample("Anzahl der ausgewählten Dateien ausgeben")}}
 
 ## Spezifikationen
 

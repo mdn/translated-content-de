@@ -8,9 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die schreibgeschützte **`hasReading`**-Eigenschaft des {{domxref("Sensor")}}-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob der Sensor eine Messung hat.
+Die schreibgeschützte **`hasReading`**-Eigenschaft des [`Sensor`](/de/docs/Web/API/Sensor)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob der Sensor eine Messung hat.
 
-Da {{domxref('Sensor')}} eine Basisklasse ist, kann `hasReading` nur von einer ihrer abgeleiteten Klassen gelesen werden.
+Da [`Sensor`](/de/docs/Web/API/Sensor) eine Basisklasse ist, kann `hasReading` nur von einer ihrer abgeleiteten Klassen gelesen werden.
 
 ## Wert
 
@@ -20,6 +20,6 @@ Ein boolescher Wert.
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

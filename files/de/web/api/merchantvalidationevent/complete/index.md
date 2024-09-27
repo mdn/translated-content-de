@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{Deprecated_Header}}{{SecureContext_Header}}
 
-Die Methode **`complete()`** des {{domxref("MerchantValidationEvent")}} nimmt zuvor von der {{domxref("MerchantValidationEvent.validationURL", "validationURL")}} erhaltene händlerspezifische Informationen und verwendet sie zur Validierung des Händlers.
+Die [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent) Methode **`complete()`** nimmt zuvor empfangene händlerspezifische Informationen von der [`validationURL`](/de/docs/Web/API/MerchantValidationEvent/validationURL) und verwendet sie zur Validierung des Händlers.
 
-Alles, was Sie tun müssen, ist, `complete()` aus Ihrem Handler für das {{domxref("PaymentRequest.merchantvalidation_event", "merchantvalidation")}} Ereignis aufzurufen und die von der `validationURL` abgerufenen Daten zu übergeben.
+Alles, was Sie tun müssen, ist `complete()` innerhalb Ihres Handlers für das [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event) Ereignis aufzurufen und die von der `validationURL` abgerufenen Daten zu übergeben.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ complete(merchantSessionPromise)
 ### Parameter
 
 - `validationData` oder `merchantSessionPromise`
-  - : Ein Objekt, das die Daten enthält, die zur Durchführung des Händler-Validierungsprozesses benötigt werden, oder ein {{jsxref("Promise")}}, der sich mit den Validierungsdaten auflöst.
+  - : Ein Objekt, das die Daten enthält, die zum Abschluss des Händler-Validierungsprozesses benötigt werden, oder ein {{jsxref("Promise")}}, das die Validierungsdaten liefert.
 
 ### Rückgabewert
 
@@ -30,14 +30,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Diese Ausnahme kann in den Ablehnungs-Handler des Versprechens übergeben werden:
+Diese Ausnahme kann in den Ablehnungshandler für das Promise übergeben werden:
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn das Ereignis nicht direkt vom Benutzeragenten kam, sondern von anderem Code ausgelöst wurde. Eine andere Zahlungsanforderung wird derzeit bearbeitet, die aktuelle Zahlungsanforderung wird dem Benutzer derzeit nicht angezeigt oder Zahlungsinformationen werden derzeit aktualisiert.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn das Ereignis nicht direkt vom Benutzeragenten stammt, sondern durch andere Codes ausgelöst wurde. Ein anderer Zahlungsauftrag wird derzeit verarbeitet, der aktuelle Zahlungsantrag wird dem Benutzer nicht angezeigt oder Zahlungsinformationen werden derzeit aktualisiert.
 
 ## Beispiele
 
-In diesem Beispiel sehen wir den clientseitigen Code, der zur Unterstützung der Händler-Validierung für eine Zahlungsanforderung namens `payRequest` erforderlich ist:
+In diesem Beispiel sehen wir den clientseitigen Code, der erforderlich ist, um die Händler-Validierung für einen Zahlungsauftrag namens `payRequest` zu unterstützen:
 
 ```js
 payRequest.onmerchantvalidation = (event) => {
@@ -51,7 +51,7 @@ function getValidationData(url) {
 }
 ```
 
-Dieser Code richtet einen Handler für das {{domxref("PaymentRequest.merchantvalidation_event", "merchantvalidation")}} Ereignis ein. Der Ereignishandler ruft eine Funktion `getValidationData()` auf, die die Daten von der Validierungs-URL abruft und dann diese Daten (oder ein Versprechen zur Lieferung der Daten) an `complete()` übergibt.
+Dieser Code richtet einen Handler für das [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event) Ereignis ein. Der Ereignishandler ruft eine Funktion `getValidationData()` auf, die die Daten von der Validierungs-URL abruft und diese Daten (oder ein Versprechen, die Daten zu liefern) an `complete()` übergibt.
 
 ## Browser-Kompatibilität
 
@@ -60,5 +60,5 @@ Dieser Code richtet einen Handler für das {{domxref("PaymentRequest.merchantval
 ## Siehe auch
 
 - [Payment Request API](/de/docs/Web/API/Payment_Request_API)
-- [Die Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- [Zahlungsverarbeitungskonzepte](/de/docs/Web/API/Payment_Request_API/Concepts)
+- [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
+- [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

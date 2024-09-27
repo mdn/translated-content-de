@@ -2,24 +2,24 @@
 title: RTCCertificate
 slug: Web/API/RTCCertificate
 l10n:
-  sourceCommit: 381c51574a3e6a07ee09c63493452440f046038d
+  sourceCommit: 8b6cec0ceff01e7a9d6865cf5306788e15cce4b8
 ---
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCCertificate`**-Interface der [WebRTC API](/de/docs/Web/API/WebRTC_API) stellt ein Objekt dar, das ein {{domxref("RTCPeerConnection")}} zur Authentifizierung verwendet.
+Das **`RTCCertificate`**-Interface der [WebRTC API](/de/docs/Web/API/WebRTC_API) bietet ein Objekt, das ein Zertifikat darstellt, das eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zur Authentifizierung verwendet.
 
-`RTCCertificate` ist ein {{Glossary("serializable object")}}, sodass es mit {{domxref("structuredClone()")}} geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit {{domxref("Worker/postMessage()", "postMessage()")}} kopiert werden kann.
+`RTCCertificate` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("RTCCertificate.expires")}} {{ReadOnlyInline}}
+- [`RTCCertificate.expires`](/de/docs/Web/API/RTCCertificate/expires) {{ReadOnlyInline}}
   - : Gibt das Ablaufdatum des Zertifikats zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("RTCCertificate.getFingerprints()")}}
-  - : Gibt ein Array von Zertifikat-Fingerabdrücken zurück, die mit den verschiedenen vom Browser unterstützten Algorithmen berechnet wurden.
+- [`RTCCertificate.getFingerprints()`](/de/docs/Web/API/RTCCertificate/getFingerprints)
+  - : Gibt ein Array von Zertifikat-Fingerabdrücken zurück, die unter Verwendung der verschiedenen vom Browser unterstützten Algorithmen berechnet wurden.
 
 ## Spezifikationen
 
@@ -32,4 +32,4 @@ Das **`RTCCertificate`**-Interface der [WebRTC API](/de/docs/Web/API/WebRTC_API)
 ## Siehe auch
 
 - [`RTCPeerConnection.RTCPeerConnection()`-Argument `configuration.certificates`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection#certificates)
-- {{domxref("RTCPeerConnection.generateCertificate_static", "RTCPeerConnection.generateCertificate()")}}
+- [`RTCPeerConnection.generateCertificate()`](/de/docs/Web/API/RTCPeerConnection/generateCertificate_static)

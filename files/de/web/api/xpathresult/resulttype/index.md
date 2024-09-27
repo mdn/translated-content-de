@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("DOM XPath")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`resultType`**-Eigenschaft der {{domxref("XPathResult")}}-Schnittstelle repräsentiert den Typ des Ergebnisses, wie durch die Typkonstanten definiert.
+Die schreibgeschützte **`resultType`**-Eigenschaft des [`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces repräsentiert den Typ des Ergebnisses, wie durch die Typkonstanten definiert.
 
 ## Wert
 
-Ein Ganzzahlwert, der den Typ des Ergebnisses repräsentiert, wie durch die Typkonstanten definiert.
+Ein ganzzahliger Wert, der den Typ des Ergebnisses repräsentiert, wie durch die Typkonstanten definiert.
 
 ## Konstanten
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th>Ergebnistyp Definierte Konstante</th>
+      <th>Ergebnistyp definierte Konstante</th>
       <th>Wert</th>
       <th>Beschreibung</th>
     </tr>
@@ -29,19 +29,14 @@ Ein Ganzzahlwert, der den Typ des Ergebnisses repräsentiert, wie durch die Typk
       <td><code>ANY_TYPE</code></td>
       <td><code>0</code></td>
       <td>
-        Ein Ergebnis-Set, das den Typ enthält, der sich natürlich aus der
-        Auswertung des Ausdrucks ergibt. Beachten Sie, dass, wenn das Ergebnis
-        ein Knoten-Set ist, <code>UNORDERED_NODE_ITERATOR_TYPE</code> immer der
-        resultierende Typ ist.
+        Eine Ergebnisgruppe mit dem Typ, der sich natürlich aus der Auswertung des Ausdrucks ergibt. Beachten Sie, dass bei einem Node-Set das <code>UNORDERED_NODE_ITERATOR_TYPE</code> immer der resultierende Typ ist.
       </td>
     </tr>
     <tr>
       <td><code>NUMBER_TYPE</code></td>
       <td><code>1</code></td>
       <td>
-        Ein Ergebnis, das eine einzelne Zahl enthält. Dies ist nützlich zum
-        Beispiel in einem XPath-Ausdruck, der die <code>count()</code>-Funktion
-        verwendet.
+        Ein Ergebnis, das eine einzelne Zahl enthält. Dies ist zum Beispiel nützlich in einem XPath-Ausdruck, der die <code>count()</code>-Funktion verwendet.
       </td>
     </tr>
     <tr>
@@ -53,62 +48,49 @@ Ein Ganzzahlwert, der den Typ des Ergebnisses repräsentiert, wie durch die Typk
       <td><code>BOOLEAN_TYPE</code></td>
       <td><code>3</code></td>
       <td>
-        Ein Ergebnis, das einen einzelnen booleschen Wert enthält. Dies ist
-        nützlich zum Beispiel in einem XPath-Ausdruck, der die
-        <code>not()</code>-Funktion verwendet.
+        Ein Ergebnis, das einen einzelnen booleschen Wert enthält. Dies ist zum Beispiel nützlich in einem XPath-Ausdruck, der die <code>not()</code>-Funktion verwendet.
       </td>
     </tr>
     <tr>
       <td><code>UNORDERED_NODE_ITERATOR_TYPE</code></td>
       <td><code>4</code></td>
       <td>
-        Ein Ergebnis-Knoten-Set, das alle Knoten enthält, die dem Ausdruck
-        entsprechen. Die Knoten sind möglicherweise nicht in der gleichen
-        Reihenfolge wie im Dokument.
+        Ein Ergebnis-Node-Set, das alle Knoten enthält, die dem Ausdruck entsprechen. Die Knoten sind möglicherweise nicht in der Reihenfolge, in der sie im Dokument erscheinen.
       </td>
     </tr>
     <tr>
       <td><code>ORDERED_NODE_ITERATOR_TYPE</code></td>
       <td><code>5</code></td>
       <td>
-        Ein Ergebnis-Knoten-Set, das alle Knoten enthält, die dem Ausdruck
-        entsprechen. Die Knoten im Ergebnis-Set sind in der gleichen Reihenfolge,
-        wie sie im Dokument erscheinen.
+        Ein Ergebnis-Node-Set, das alle Knoten enthält, die dem Ausdruck entsprechen. Die Knoten im Ergebnisset sind in der Reihenfolge, in der sie im Dokument erscheinen.
       </td>
     </tr>
     <tr>
       <td><code>UNORDERED_NODE_SNAPSHOT_TYPE</code></td>
       <td><code>6</code></td>
       <td>
-        Ein Ergebnis-Knoten-Set, das Schnappschüsse aller Knoten enthält, die dem
-        Ausdruck entsprechen. Die Knoten sind möglicherweise nicht in der gleichen
-        Reihenfolge wie im Dokument.
+        Ein Ergebnis-Node-Set, das Schnappschüsse aller Knoten enthält, die dem Ausdruck entsprechen. Die Knoten sind möglicherweise nicht in der Reihenfolge, in der sie im Dokument erscheinen.
       </td>
     </tr>
     <tr>
       <td><code>ORDERED_NODE_SNAPSHOT_TYPE</code></td>
       <td><code>7</code></td>
       <td>
-        Ein Ergebnis-Knoten-Set, das Schnappschüsse aller Knoten enthält, die dem
-        Ausdruck entsprechen. Die Knoten im Ergebnis-Set sind in der gleichen
-        Reihenfolge, wie sie im Dokument erscheinen.
+        Ein Ergebnis-Node-Set, das Schnappschüsse aller Knoten enthält, die dem Ausdruck entsprechen. Die Knoten im Ergebnisset sind in der Reihenfolge, in der sie im Dokument erscheinen.
       </td>
     </tr>
     <tr>
       <td><code>ANY_UNORDERED_NODE_TYPE</code></td>
       <td><code>8</code></td>
       <td>
-        Ein Ergebnis-Knoten-Set, das einen beliebigen einzelnen Knoten enthält, der
-        dem Ausdruck entspricht. Der Knoten ist nicht unbedingt der erste Knoten,
-        der im Dokument dem Ausdruck entspricht.
+        Ein Ergebnis-Node-Set, das einen beliebigen einzelnen Knoten enthält, der dem Ausdruck entspricht. Der Knoten ist nicht unbedingt der erste Knoten im Dokument, der dem Ausdruck entspricht.
       </td>
     </tr>
     <tr>
       <td><code>FIRST_ORDERED_NODE_TYPE</code></td>
       <td><code>9</code></td>
       <td>
-        Ein Ergebnis-Knoten-Set, das den ersten Knoten im Dokument enthält, der dem
-        Ausdruck entspricht.
+        Ein Ergebnis-Node-Set, das den ersten Knoten im Dokument enthält, der dem Ausdruck entspricht.
       </td>
     </tr>
   </tbody>
@@ -121,8 +103,8 @@ Das folgende Beispiel zeigt die Verwendung der `resultType`-Eigenschaft.
 ### HTML
 
 ```html
-<div>XPath-Beispiel</div>
-<div>Ist XPath-Ergebnis ein Knotenset: <output></output></div>
+<div>XPath example</div>
+<div>Is XPath result a node set: <output></output></div>
 ```
 
 ### JavaScript

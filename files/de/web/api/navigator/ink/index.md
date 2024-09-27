@@ -1,5 +1,5 @@
 ---
-title: "Navigator: ink-Eigenschaft"
+title: "Navigator: Eigenschaft ink"
 short-title: ink
 slug: Web/API/Navigator/ink
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Ink API")}}
 
-Die schreibgeschützte Eigenschaft **`ink`** der {{domxref("Navigator")}}-Schnittstelle gibt ein {{domxref("Ink")}}-Objekt für das aktuelle Dokument zurück und bietet Zugriff auf die Funktionalität der [Ink API](/de/docs/Web/API/Ink_API).
+Die **`ink`** schreibgeschützte Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt ein [`Ink`](/de/docs/Web/API/Ink)-Objekt für das aktuelle Dokument zurück und bietet Zugriff auf die Funktionalität der [Ink API](/de/docs/Web/API/Ink_API).
 
 ## Wert
 
-Ein {{domxref('Ink')}}-Objekt.
+Ein [`Ink`](/de/docs/Web/API/Ink)-Objekt.
 
 ## Beispiel
 
@@ -29,10 +29,10 @@ async function inkInit() {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Verbesserung des Schriftzeichnens im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)
+- [Verbesserung des Inking im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)

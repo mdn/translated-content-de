@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-margin-bottom` definiert den unteren Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Element an den Snapport zu schnappen. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Rahmenkasten genommen, seine rechteckige Begrenzungsbox (achsenausgerichtet im Koordinatenraum des Scroll-Containers) ermittelt und dann die angegebenen Ränder hinzugefügt werden.
+Die Eigenschaft `scroll-margin-bottom` definiert den unteren Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Box-Element an den Snapport zu schnappen. Der Scroll-Snap-Bereich wird bestimmt, indem die transformierte Rahmenbox genommen, ihre rechteckige Begrenzungsbox (achsenbündig im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Ausdehnungen hinzugefügt werden.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-bottom.html")}}
 
 ## Syntax
 
 ```css
-/* <length> Werte */
+/* <length> values */
 scroll-margin-bottom: 10px;
 scroll-margin-bottom: 1em;
 
-/* Globale Werte */
+/* Global values */
 scroll-margin-bottom: inherit;
 scroll-margin-bottom: initial;
 scroll-margin-bottom: revert;
@@ -29,7 +29,7 @@ scroll-margin-bottom: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Rand vom unteren Rand des Scroll-Containers.
+  - : Eine Ausweitung vom unteren Rand des Scroll-Containers.
 
 ## Formale Definition
 

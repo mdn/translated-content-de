@@ -1,5 +1,5 @@
 ---
-title: deklarativeNetRequest.MAX_NUMBER_OF_REGEX_RULES
+title: declarativeNetRequest.MAX_NUMBER_OF_REGEX_RULES
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/MAX_NUMBER_OF_REGEX_RULES
 l10n:
   sourceCommit: 787fd072f8bc00cbdf62cef85921f0a6d9f0b4a7
@@ -9,9 +9,9 @@ l10n:
 
 Die maximale Anzahl an regulären Ausdrucksregeln, die eine Erweiterung hinzufügen kann.
 
-In Chrome beträgt der Wert 1000, und dieser Grenzwert wird separat für die Menge der dynamischen und sitzungsgebundenen Regeln sowie für diejenigen, die in der Regelressourcendatei angegeben sind, bewertet.
+In Chrome beträgt der Wert 1000, und dieses Limit wird getrennt für das Set dynamischer und sitzungsgesteuerter Regeln sowie für die im Regelressourcendatei angegebenen Regeln bewertet.
 
-In Firefox wird dieses Limit separat pro Regelset bewertet.
+In Firefox wird dieses Limit getrennt pro Regelsatz bewertet.
 
 In Safari gibt es kein separates Limit für die Anzahl der `regexFilter`-Regeln.
 
@@ -20,3 +20,33 @@ In Safari gibt es kein separates Limit für die Anzahl der `regexFilter`-Regeln.
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+<!--
+// Copyright 2015 The Chromium Authors. All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die funktionale Notation **`color-contrast()`** nimmt einen {{cssxref("color_value","color")}}-Wert und vergleicht ihn mit einer Liste anderer {{cssxref("color_value","color")}}-Werte. Dabei wird derjenige ausgewählt, der den höchsten Kontrast aus der Liste aufweist.
+Die funktionale Notation **`color-contrast()`** nimmt einen {{cssxref("color_value","color")}}-Wert und vergleicht ihn mit einer Liste anderer {{cssxref("color_value","color")}}-Werte und wählt den mit dem höchsten Kontrast aus der Liste aus.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ Funktionale Notation: `color-contrast(color vs color-list)`
 
 - `color-list`
 
-  - : Eine durch Kommas getrennte Liste von mindestens zwei Farbwerten, die mit dem ersten Wert verglichen werden.
+  - : Eine kommagetrennte Liste von mindestens zwei Farbwerten, die mit dem ersten Wert verglichen werden.
 
 ## Spezifikationen
 

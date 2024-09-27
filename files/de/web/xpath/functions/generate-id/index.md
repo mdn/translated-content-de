@@ -1,5 +1,5 @@
 ---
-title: generieren-id
+title: generate-id
 slug: Web/XPath/Functions/generate-id
 l10n:
   sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `generate-id` erzeugt eine eindeutige ID für den ersten Knoten in einem gegebenen Knoten-Set und gibt eine Zeichenkette zurück, die diese ID enthält.
+Die Funktion `generate-id` erzeugt eine eindeutige ID für den ersten Knoten in einer angegebenen Knotenmenge und gibt eine Zeichenkette zurück, die diese ID enthält.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ generate-id( [node-set] )
 ### Parameter
 
 - `node-set` (optional)
-  - : Eine ID wird für den ersten Knoten in diesem Knoten-Set erzeugt. Wenn dieser weggelassen wird, wird der aktuelle Kontextknoten verwendet.
+  - : Eine ID wird für den ersten Knoten in dieser Knotenmenge generiert. Wird dieser Parameter weggelassen, wird der aktuelle Kontextknoten verwendet.
 
 ### Rückgabewert
 
@@ -26,10 +26,10 @@ Eine Zeichenkette, die die generierte ID enthält.
 
 ## Beschreibung
 
-- Für denselben Knoten im aktuellen Dokument während der aktuellen Transformation muss immer dieselbe ID erzeugt werden.
-- Die generierte ID kann in nachfolgenden Transformationen unterschiedlich sein.
+- Für denselben Knoten im aktuellen Dokument und in der aktuellen Transformation muss jedes Mal dieselbe ID generiert werden.
+- Die generierte ID kann bei nachfolgenden Transformationen unterschiedlich sein.
 
-Diese Funktion ist eine XSLT-spezifische Erweiterung zu XPath. Sie ist kein Teil der Kern-XPath-Funktionsbibliothek.
+Diese Funktion ist eine XSLT-spezifische Erweiterung von XPath. Sie ist nicht Teil der Kernbibliothek von XPath-Funktionen.
 
 ## Spezifikationen
 

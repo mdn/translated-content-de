@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`name`**-Eigenschaft des {{domxref("DocumentType")}} gibt den Typ des Dokuments zurück.
+Die schreibgeschützte **`name`**-Eigenschaft des [`DocumentType`](/de/docs/Web/API/DocumentType) gibt den Typ des Dokuments zurück.
 
-Für synthetische `DocumentType` spiegelt diese Eigenschaft den im Parameter angegebenen Wert bei {{domxref("DOMImplementation.createDocumentType()")}} wider.
+Für synthetische `DocumentType` spiegelt diese Eigenschaft den im Parameter an [`DOMImplementation.createDocumentType()`](/de/docs/Web/API/DOMImplementation/createDocumentType) angegebenen Wert wider.
 
-Für HTML-Dokumente setzen Browser diesen Wert immer auf `html`, unabhängig vom tatsächlichen `doctype` im Quellcode.
+Für HTML-Dokumente setzen Browser sie immer auf `html`, unabhängig von dem tatsächlichen `doctype` im Quellcode.
 
 ## Wert
 
@@ -23,7 +23,7 @@ Ein String.
 ```js
 const docType = document.implementation.createDocumentType("html", "", "");
 
-console.log(docType.name); // Zeigt `html` an
+console.log(docType.name); // Displays `html`
 ```
 
 ## Spezifikationen

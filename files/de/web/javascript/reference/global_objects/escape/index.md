@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Objects")}}{{Deprecated_Header}}
 
-> **Note:** `escape()` ist eine nicht standardisierte Funktion, die von Browsern implementiert wurde und nur für die Kompatibilität zwischen Engines standardisiert wurde. Es ist nicht erforderlich, dass alle JavaScript-Engines sie implementieren, und sie funktioniert möglicherweise nicht überall. Verwenden Sie nach Möglichkeit {{jsxref("encodeURIComponent()")}} oder {{jsxref("encodeURI()")}}.
+> **Note:** `escape()` ist eine nicht standardisierte Funktion, die von Browsern implementiert wird und nur zur Sicherstellung der Kompatibilität zwischen verschiedenen JavaScript-Engines standardisiert wurde. Es ist nicht erforderlich, dass alle JavaScript-Engines sie implementieren, und sie funktioniert möglicherweise nicht überall. Verwenden Sie nach Möglichkeit {{jsxref("encodeURIComponent()")}} oder {{jsxref("encodeURI()")}}.
 
-Die **`escape()`**-Funktion berechnet einen neuen String, in dem bestimmte Zeichen durch hexadezimale Escape-Sequenzen ersetzt wurden.
+Die **`escape()`** Funktion berechnet einen neuen String, bei dem bestimmte Zeichen durch hexadezimale Escape-Sequenzen ersetzt wurden.
 
 ## Syntax
 
@@ -20,31 +20,31 @@ escape(str)
 ### Parameter
 
 - `str`
-  - : Ein zu kodierender String.
+  - : Ein String, der kodiert werden soll.
 
 ### Rückgabewert
 
-Ein neuer String, in dem bestimmte Zeichen maskiert wurden.
+Ein neuer String, bei dem bestimmte Zeichen ersetzt wurden.
 
 ## Beschreibung
 
-`escape()` ist eine Funktionseigenschaft des globalen Objekts.
+`escape()` ist eine Funktions-Eigenschaft des globalen Objekts.
 
-Die `escape()`-Funktion ersetzt alle Zeichen mit Escape-Sequenzen, mit Ausnahme von {{Glossary("ASCII")}}-Wortzeichen (A–Z, a–z, 0–9, \_) und `@\*_+-./`. Zeichen werden durch UTF-16 Codeeinheiten maskiert. Ist der Wert der Codeeinheit kleiner als 256, wird er durch eine zweistellige hexadezimale Zahl im Format `%XX` dargestellt, bei Bedarf mit 0 aufgefüllt. Andernfalls wird er durch eine vierstellige hexadezimale Zahl im Format `%uXXXX` dargestellt, ebenfalls bei Bedarf mit 0 aufgefüllt.
+Die `escape()` Funktion ersetzt alle Zeichen durch Escape-Sequenzen, mit Ausnahme der [ASCII](/de/docs/Glossary/ASCII) Wortzeichen (A–Z, a–z, 0–9, \_) und `@\*_+-./`. Zeichen werden durch UTF-16 Code-Einheiten ersetzt. Wenn der Wert der Code-Einheit kleiner als 256 ist, wird er durch eine zweistellige hexadezimale Zahl im Format `%XX` dargestellt, links mit 0 gepolstert, falls notwendig. Andernfalls wird er durch eine vierstellige hexadezimale Zahl im Format `%uXXXX` dargestellt, links mit 0 gepolstert, falls notwendig.
 
 > [!NOTE]
-> Diese Funktion wurde hauptsächlich für das {{Glossary("Percent-encoding", "Prozent-Codierung")}} verwendet und basiert teilweise auf dem Escape-Format in {{rfc(1738)}}. Das Escape-Format ist _nicht_ eine [Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) in String-Literalen. Sie können `%XX` durch `\xXX` und `%uXXXX` durch `\uXXXX` ersetzen, um einen String mit tatsächlichen Escape-Sequenzen für String-Literale zu erhalten.
+> Diese Funktion wurde hauptsächlich für die [Prozent-Codierung](/de/docs/Glossary/Percent-encoding) verwendet und basiert teilweise auf dem Escape-Format aus {{rfc(1738)}}. Das Escape-Format ist _nicht_ eine [Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) in String-Literalen. Sie können `%XX` durch `\xXX` und `%uXXXX` durch `\uXXXX` ersetzen, um einen String mit tatsächlichen String-Literal-Escape-Sequenzen zu erhalten.
 
 ## Beispiele
 
-### Verwendung von escape()
+### Nutzung von escape()
 
 ```js
 escape("abc123"); // "abc123"
 escape("äöü"); // "%E4%F6%FC"
 escape("ć"); // "%u0107"
 
-// Sonderzeichen
+// special characters
 escape("@*_+-./"); // "@*_+-./"
 ```
 

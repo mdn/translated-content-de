@@ -3,21 +3,21 @@ title: "GPUTexture: dimension-Eigenschaft"
 short-title: dimension
 slug: Web/API/GPUTexture/dimension
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`dimension`** der {{domxref("GPUTexture")}}-Schnittstelle repräsentiert die Dimension der Texelmenge für jede `GPUTexture`-Subressource.
+Die schreibgeschützte **`dimension`**-Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces repräsentiert die Dimension des Sets von Texeln für jede `GPUTexture`-Subressource.
 
-Diese wird über die `dimension`-Eigenschaft im Deskriptorobjekt festgelegt, das beim ursprünglichen Aufruf von {{domxref("GPUDevice.createTexture()")}} übergeben wird und bei Auslassung den Standardwert `"2d"` hat.
+Diese wird über die `dimension`-Eigenschaft im Deskriptor-Objekt gesetzt, das im ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird. Standardmäßig ist sie auf `"2d"` gesetzt, wenn sie weggelassen wird.
 
 ## Wert
 
 Ein enumerierter Wert. Mögliche Werte sind:
 
 - `"1d"`: Eine eindimensionale Textur mit einer einzigen Dimension, der Breite.
-- `"2d"`: Eine zweidimensionale Textur mit einer Breite und Höhe, die auch Ebenen haben kann. Nur `"2d"`-Texturen können Mipmaps haben, multisampled sein, ein komprimiertes oder Tiefen-/Stencil-Format verwenden und als Renderanhang genutzt werden.
+- `"2d"`: Eine zweidimensionale Textur mit Breite und Höhe, die auch Schichten haben kann. Nur `"2d"`-Texturen können Mipmaps haben, multisampled sein, ein komprimiertes oder Tiefen/Stencil-Format verwenden und als Render-Anhang verwendet werden.
 - `"3d"`: Eine dreidimensionale Textur mit Breite, Höhe und Tiefe.
 
 ## Beispiele

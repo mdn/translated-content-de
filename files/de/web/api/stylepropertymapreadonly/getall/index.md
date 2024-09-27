@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`getAll()`**-Methode der {{domxref("StylePropertyMapReadOnly")}}-Schnittstelle gibt ein Array von {{domxref("CSSStyleValue")}}-Objekten zurück, das die Werte für die angegebene Eigenschaft enthält.
+Die **`getAll()`**-Methode des [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Interfaces gibt ein Array von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekten zurück, das die Werte für die angegebene Eigenschaft enthält.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ getAll(property)
 
 ### Rückgabewert
 
-Ein Array von {{domxref("CSSStyleValue")}}-Objekten.
+Ein Array von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekten.
 
 ## Beispiele
 

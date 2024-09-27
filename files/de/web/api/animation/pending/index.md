@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Animations")}}
 
-Die schreibgeschützte **`Animation.pending`**-Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) zeigt an, ob die Animation derzeit auf eine asynchrone Operation wartet, wie z.B. das Starten der Wiedergabe oder das Anhalten einer laufenden Animation.
+Die schreibgeschützte **`Animation.pending`**-Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt an, ob die Animation derzeit auf einen asynchronen Vorgang wartet, wie z. B. die Wiedergabe zu starten oder eine laufende Animation zu pausieren.
 
 ## Wert
 
-**`true`**, wenn die Animation aussteht, **`false** sonst.
+**`true`**, wenn die Animation aussteht, **`false**` andernfalls.
 
 ## Spezifikationen
 
@@ -24,5 +24,5 @@ Die schreibgeschützte **`Animation.pending`**-Eigenschaft der [Web Animations A
 
 ## Siehe auch
 
-- {{domxref("Animation")}} für weitere Methoden und Eigenschaften, die Sie zur Steuerung von Webseitenanimationen verwenden können.
+- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, mit denen Sie Animationen auf Webseiten steuern können.
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)

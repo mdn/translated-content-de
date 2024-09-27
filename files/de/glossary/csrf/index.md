@@ -7,17 +7,17 @@ l10n:
 
 {{GlossarySidebar}}
 
-**CSRF** (Cross-Site Request Forgery) ist ein Angriff, der einen vertrauenswürdigen Benutzer imitiert und einer Website unerwünschte Befehle sendet.
+**CSRF** (Cross-Site Request Forgery) ist ein Angriff, bei dem ein vertrauenswürdiger Benutzer imitiert wird, um einer Website unerwünschte Befehle zu senden.
 
-Dies kann zum Beispiel erreicht werden, indem bösartige Parameter in eine {{glossary("URL")}} eingefügt werden, die vorgibt, woanders hinzugehen:
+Dies kann zum Beispiel geschehen, indem bösartige Parameter in eine [URL](/de/docs/Glossary/URL) hinter einem Link eingefügt werden, der vorgibt, woanders hinzugehen:
 
 ```html
 <img src="https://www.example.com/index.php?action=delete&id=123" />
 ```
 
-Für Benutzer mit Änderungsberechtigungen auf `https://www.example.com` führt das `<img>`-Element die Aktion auf `https://www.example.com` aus, ohne dass sie es bemerken, selbst wenn das Element nicht auf `https://www.example.com` ist.
+Für Benutzer, die Berechtigungen zur Änderung auf `https://www.example.com` haben, führt das `<img>`-Element eine Aktion auf `https://www.example.com` aus, ohne dass sie es bemerken, selbst wenn sich das Element nicht auf `https://www.example.com` befindet.
 
-Es gibt viele Möglichkeiten, CSRF zu verhindern, wie die Implementierung einer {{glossary("REST", "RESTful API")}}, das Hinzufügen von sicheren Tokens, etc.
+Es gibt viele Möglichkeiten, CSRF zu verhindern, wie z.B. die Implementierung von [RESTful API](/de/docs/Glossary/REST), das Hinzufügen von sicheren Tokens usw.
 
 ## Siehe auch
 

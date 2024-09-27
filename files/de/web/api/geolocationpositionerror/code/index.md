@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die **`code`**-Eigenschaft mit Schreibschutz der {{domxref("GeolocationPositionError")}}-Schnittstelle ist ein `unsigned short`, der den Fehlercode darstellt.
+Die schreibgeschützte **`code`**-Eigenschaft des [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Interfaces ist ein `unsigned short`, das den Fehlercode darstellt.
 
 Die folgenden Werte sind möglich:
 
@@ -25,25 +25,26 @@ Die folgenden Werte sind möglich:
       <td><code>1</code></td>
       <td><code>PERMISSION_DENIED</code></td>
       <td>
-        Die Erfassung der Geolokalisierungsinformationen ist fehlgeschlagen, weil die Seite keine Berechtigung dafür hatte.
+        Die Erfassung der Geolokalisierungsinformationen schlug fehl, da die Seite
+        keine Berechtigung dazu hatte.
       </td>
     </tr>
     <tr>
       <td><code>2</code></td>
       <td><code>POSITION_UNAVAILABLE</code></td>
       <td>
-        Die Erfassung der Geolokalisierung ist fehlgeschlagen, weil eine oder mehrere interne Quellen der Position einen internen Fehler zurückgegeben haben.
+        Die Erfassung der Geolokalisierung schlug fehl, weil eine oder mehrere interne Quellen der Position einen internen Fehler zurückgaben.
       </td>
     </tr>
     <tr>
       <td><code>3</code></td>
       <td><code>TIMEOUT</code></td>
-      <td>Geolokalisierungsinformationen wurden nicht in der erlaubten Zeit abgerufen.</td>
+      <td>Die Geolokalisierungsinformationen wurden nicht innerhalb der erlaubten Zeit erhalten.</td>
     </tr>
   </tbody>
 </table>
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 
@@ -54,4 +55,4 @@ Die folgenden Werte sind möglich:
 ## Siehe auch
 
 - [Verwendung der Geolokalisierung](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- {{domxref("GeolocationPositionError")}}
+- [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)

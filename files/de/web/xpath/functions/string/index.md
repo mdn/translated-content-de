@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `string` konvertiert das angegebene Argument in einen String.
+Die Funktion `string` konvertiert das gegebene Argument in einen String.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ string( [object] )
 ### Parameter
 
 - `object` (optional)
-  - : Das Objekt, das in einen String konvertiert werden soll. Falls nicht angegeben, wird der Kontextknoten verwendet.
+  - : Das Objekt, das in einen String konvertiert werden soll. Wenn weggelassen, wird der Kontextknoten verwendet.
 
 ### Rückgabewert
 
@@ -26,7 +26,7 @@ Ein String
 
 ## Beschreibung
 
-- Wenn das Objekt ein Node-Set ist, wird der String-Wert des ersten Knotens im Set zurückgegeben.
+- Wenn das Objekt eine Knotenmenge ist, wird der Stringwert des ersten Knotens in der Menge zurückgegeben.
 - Eine Zahl wird wie folgt konvertiert:
 
   - NaN wird in den String NaN konvertiert.
@@ -34,7 +34,7 @@ Ein String
   - Negative Null wird in den String 0 konvertiert.
   - Positive Unendlichkeit wird in den String Infinity konvertiert.
   - Negative Unendlichkeit wird in den String -Infinity konvertiert.
-  - Dezimalzahlen zwischen -1 und 1 werden in einen String mit einer einzelnen führenden 0 vor dem Dezimalpunkt konvertiert.
+  - Dezimalzahlen zwischen -1 und 1 werden in einen String mit einer einzigen führenden 0 vor dem Dezimalpunkt konvertiert.
   - Boolean true wird in den String true konvertiert.
   - Boolean false wird in den String false konvertiert.
 

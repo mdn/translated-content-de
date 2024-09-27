@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das **`loadend`** Ereignis wird ausgelöst, wenn eine Anfrage abgeschlossen wurde, unabhängig davon, ob sie erfolgreich (nach {{domxref("XMLHttpRequest/load_event", "load")}}) oder erfolglos (nach {{domxref("XMLHttpRequest/abort_event", "abort")}} oder {{domxref("XMLHttpRequest/error_event", "error")}}) war.
+Das **`loadend`** Ereignis wird ausgelöst, wenn eine Anfrage abgeschlossen wurde, egal ob erfolgreich (nach [`load`](/de/docs/Web/API/XMLHttpRequest/load_event)) oder nicht erfolgreich (nach [`abort`](/de/docs/Web/API/XMLHttpRequest/abort_event) oder [`error`](/de/docs/Web/API/XMLHttpRequest/error_event)).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("loadend", (event) => {});
@@ -22,20 +22,20 @@ onloadend = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ProgressEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ProgressEvent")}}
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind auch die Eigenschaften der übergeordneten Schnittstelle, {{domxref("Event")}}, verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind Eigenschaften der Elternschnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
-- {{domxref("ProgressEvent.lengthComputable", "lengthComputable")}} {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das anzeigt, ob die gesamte zu leistende Arbeit und die bereits geleistete Arbeit des zugrunde liegenden Prozesses berechenbar ist. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
-- {{domxref("ProgressEvent.loaded", "loaded")}} {{ReadOnlyInline}}
-  - : Ein 64-Bit-Unsigned-Integer-Wert, der die vom zugrunde liegenden Prozess bereits geleistete Arbeit angibt. Der Anteil der erledigten Arbeit kann berechnet werden, indem der Wert dieser Eigenschaft durch `total` geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Körper der HTTP-Nachricht und schließt Header und andere Overheads aus.
-- {{domxref("ProgressEvent.total", "total")}} {{ReadOnlyInline}}
-  - : Ein 64-Bit-Unsigned-Integer, der die gesamte Menge an Arbeit repräsentiert, die der zugrunde liegende Prozess zu leisten hat. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Nachrichtenkörpers) und schließt Header und andere Überheads aus.
+- [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
+  - : Ein boolesches Flag, das anzeigt, ob die gesamte zu erledigende Arbeit und der bereits geleistete Anteil des zugrunde liegenden Prozesses berechenbar sind. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
+- [`loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
+  - : Ein 64-Bit-Integer-Wert, der die bereits vom zugrunde liegenden Prozess geleistete Arbeit angibt. Der Anteil der geleisteten Arbeit kann berechnet werden, indem der Wert dieser Eigenschaft durch `total` geteilt wird. Beim Herunterladen einer Ressource mit HTTP wird nur der Body der HTTP-Nachricht gezählt und nicht die Header und anderer Overhead.
+- [`total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
+  - : Ein 64-Bit-Integer, der die Gesamtmenge an Arbeit repräsentiert, die der zugrunde liegende Prozess gerade leistet. Beim Herunterladen einer Ressource mit HTTP ist dies die `Content-Length` (die Größe des Nachrichtentextes) und beinhaltet nicht die Header und anderen Overhead.
 
 ## Beispiele
 
@@ -142,5 +142,5 @@ xhrButtonAbort.addEventListener("click", () => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("XMLHttpRequest/loadstart_event", "loadstart")}}, {{domxref("XMLHttpRequest/load_event", "load")}}, {{domxref("XMLHttpRequest/progress_event", "progress")}}, {{domxref("XMLHttpRequest/error_event", "error")}}, {{domxref("XMLHttpRequest/abort_event", "abort")}}
+- Verwandte Ereignisse: [`loadstart`](/de/docs/Web/API/XMLHttpRequest/loadstart_event), [`load`](/de/docs/Web/API/XMLHttpRequest/load_event), [`progress`](/de/docs/Web/API/XMLHttpRequest/progress_event), [`error`](/de/docs/Web/API/XMLHttpRequest/error_event), [`abort`](/de/docs/Web/API/XMLHttpRequest/abort_event)
 - [Fortschritt überwachen](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest#monitoring_progress)

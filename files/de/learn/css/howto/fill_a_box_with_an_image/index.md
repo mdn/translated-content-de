@@ -7,16 +7,16 @@ l10n:
 
 {{LearnSidebar}}
 
-In diesem Leitfaden lernen Sie eine Technik, um ein HTML-Bild vollständig in eine Box einzufügen.
+In diesem Leitfaden können Sie eine Technik lernen, um ein HTML-Bild vollständig eine Box füllen zu lassen.
 
 ## Verwendung von object-fit
 
-Wenn Sie ein Bild mit dem HTML-{{htmlelement("img")}}-Element zu einer Seite hinzufügen, behält das Bild die Größe und das {{glossary("Seitenverhältnis")}} der Bilddatei bei, oder das der HTML-Attribute [`width`](/de/docs/Web/HTML/Element/img#width) oder [`height`](/de/docs/Web/HTML/Element/img#height). Manchmal möchten Sie, dass das Bild die Box, in die Sie es platziert haben, vollständig ausfüllt. In diesem Fall müssen Sie zuerst entscheiden, was passiert, wenn das Bild das falsche Seitenverhältnis für den Container hat.
+Wenn Sie ein Bild mit dem HTML-{{htmlelement("img")}}-Element zu einer Seite hinzufügen, behält das Bild die Größe und das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) der Bilddatei oder der HTML-Attribute [`width`](/de/docs/Web/HTML/Element/img#width) oder [`height`](/de/docs/Web/HTML/Element/img#height) bei. Manchmal möchten Sie, dass das Bild die Box vollständig ausfüllt, in die Sie es platziert haben. In diesem Fall müssen Sie zuerst entscheiden, was passiert, wenn das Bild im falschen Seitenverhältnis für den Container vorliegt.
 
-1. Das Bild sollte die Box vollständig ausfüllen, das Seitenverhältnis beibehalten und überschüssige Teile an der zu großen Seite zuschneiden.
-2. Das Bild sollte in die Box passen, wobei der Hintergrund als Leisten auf der zu kleinen Seite durchscheint.
-3. Das Bild sollte die Box ausfüllen und sich strecken, was bedeuten kann, dass es im falschen Seitenverhältnis angezeigt wird.
+1. Das Bild sollte die Box vollständig ausfüllen, das Seitenverhältnis beibehalten und den überschüssigen Teil beschneiden, der zu groß ist, um zu passen.
+2. Das Bild soll in die Box passen, wobei der Hintergrund als Balken auf der zu kleinen Seite durchscheint.
+3. Das Bild sollte die Box füllen und sich strecken, was bedeuten kann, dass es im falschen Seitenverhältnis angezeigt wird.
 
-Die {{cssxref("object-fit")}}-Eigenschaft macht jede dieser Herangehensweisen möglich. Im folgenden Beispiel sehen Sie, wie unterschiedliche Werte von `object-fit` wirken, wenn dasselbe Bild verwendet wird. Wählen Sie den Ansatz, der am besten zu Ihrem Design passt.
+Die {{cssxref("object-fit")}}-Eigenschaft macht jede dieser Herangehensweisen möglich. Im folgenden Beispiel können Sie sehen, wie verschiedene Werte von `object-fit` funktionieren, wenn dasselbe Bild verwendet wird. Wählen Sie den Ansatz, der am besten für Ihr Design geeignet ist.
 
 {{EmbedGHLiveSample("css-examples/howto/object-fit.html", '100%', 800)}}

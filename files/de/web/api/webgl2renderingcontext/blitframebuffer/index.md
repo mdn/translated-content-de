@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode blitFramebuffer()"
+title: "WebGL2RenderingContext: blitFramebuffer()-Methode"
 short-title: blitFramebuffer()
 slug: Web/API/WebGL2RenderingContext/blitFramebuffer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode **`WebGL2RenderingContext.blitFramebuffer()`** der [WebGL 2 API](/de/docs/Web/API/WebGL_API) überträgt einen Block von Pixeln vom Lesepuffer zum Zeichnungspuffer. Lese- und Zeichnungspuffer werden mit {{domxref("WebGLRenderingContext.bindFramebuffer()")}} gebunden.
+Die **`WebGL2RenderingContext.blitFramebuffer()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) überträgt einen Block von Pixeln vom Leseframebuffer zum Zeichnenframebuffer. Lese- und Zeichnenframebuffer werden mit [`WebGLRenderingContext.bindFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFramebuffer) gebunden.
 
 ## Syntax
 
@@ -21,12 +21,12 @@ blitFramebuffer(srcX0, srcY0, srcX1, srcY1,
 ### Parameter
 
 - `srcX0`, `srcY0`, `srcX1`, `srcY1`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, das die Grenzen des Ursprungsrechtecks angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Grenzen des Quellrechtecks angibt.
 - `dstX0`, `dstY0`, `dstX1`, `dstY1`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, das die Grenzen des Zielrechtecks angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Grenzen des Zielrechtecks angibt.
 - `mask`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLbitfield")}}, das eine bitweise ODER-Maske angibt, die festlegt, welche Puffer kopiert werden sollen. Mögliche Werte:
+  - : Ein [`GLbitfield`](/de/docs/Web/API/WebGL_API/Types), das eine bitweise ODER-Maske angibt, welche die zu kopierenden Puffer bestimmt. Mögliche Werte:
 
     - `gl.COLOR_BUFFER_BIT`
     - `gl.DEPTH_BUFFER_BIT`
@@ -34,7 +34,7 @@ blitFramebuffer(srcX0, srcY0, srcX1, srcY1,
 
 - `filter`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das die Interpolation angibt, die angewendet wird, wenn das Bild gestreckt wird. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die Interpolation angibt, die angewendet wird, wenn das Bild gestreckt wird. Mögliche Werte:
 
     - `gl.NEAREST`
     - `gl.LINEAR`
@@ -70,5 +70,5 @@ gl.blitFramebuffer(
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.getRenderbufferParameter()")}}
+- [`WebGLRenderingContext.bindFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFramebuffer)
+- [`WebGLRenderingContext.getRenderbufferParameter()`](/de/docs/Web/API/WebGLRenderingContext/getRenderbufferParameter)

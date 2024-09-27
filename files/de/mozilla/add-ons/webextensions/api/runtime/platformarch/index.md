@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Die Prozessorarchitektur des Computers.
+Die Prozessorarchitektur der Maschine.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Die Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 
 - `"arm"`
   - : Die Plattform basiert auf der ARM-Architektur.
@@ -27,7 +27,7 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-PlatformArch) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-PlatformArch) API. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

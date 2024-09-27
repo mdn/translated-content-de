@@ -7,33 +7,33 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Das `ReportingObserver`-Interface der [Reporting API](/de/docs/Web/API/Reporting_API) ermöglicht es Ihnen, Berichte zu sammeln und auf sie zuzugreifen.
+Das `ReportingObserver`-Interface der [Reporting API](/de/docs/Web/API/Reporting_API) ermöglicht es Ihnen, Berichte zu sammeln und darauf zuzugreifen.
 
 ## Konstruktor
 
-- {{domxref("ReportingObserver.ReportingObserver", "ReportingObserver()")}}
-  - : Erstellt eine neue Instanz eines `ReportingObserver`-Objekts, das zum Sammeln und Zugriff auf Berichte verwendet werden kann.
+- [`ReportingObserver()`](/de/docs/Web/API/ReportingObserver/ReportingObserver)
+  - : Erstellt eine neue Instanz eines `ReportingObserver`-Objekts, das verwendet werden kann, um Berichte zu sammeln und darauf zuzugreifen.
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface hat keine definierten Eigenschaften._
+_Dieses Interface hat keine definierte Eigenschaften._
 
 ## Instanz-Methoden
 
-- {{domxref("ReportingObserver.disconnect()")}}
-  - : Stoppt einen zuvor gestarteten Reporting Observer, sodass er keine Berichte mehr sammelt.
-- {{domxref("ReportingObserver.observe()")}}
-  - : Anweist einen Reporting Observer, das Sammeln von Berichten in seiner Berichtswarteschlange zu starten.
-- {{domxref("ReportingObserver.takeRecords()")}}
+- [`ReportingObserver.disconnect()`](/de/docs/Web/API/ReportingObserver/disconnect)
+  - : Stoppt einen Reporting Observer, der Berichte sammelte und zuvor mit der Beobachtung begonnen hatte.
+- [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe)
+  - : Fordert einen Reporting Observer auf, mit dem Sammeln von Berichten in seiner Berichts-Warteschlange zu beginnen.
+- [`ReportingObserver.takeRecords()`](/de/docs/Web/API/ReportingObserver/takeRecords)
   - : Gibt die aktuelle Liste der in der Warteschlange des Observers enthaltenen Berichte zurück und leert die Warteschlange.
 
 ## Ereignisse
 
-_Dieses Interface hat keine auslösenden Ereignisse._
+_Dieses Interface löst keine Ereignisse aus._
 
 ## Beispiele
 
-In unserem [deprecation_report.html](https://mdn.github.io/dom-examples/reporting-api/deprecation_report.html) Beispiel erstellen wir einen einfachen Reporting Observer, um die Nutzung veralteter Features auf unserer Webseite zu beobachten:
+In unserem [deprecation_report.html](https://mdn.github.io/dom-examples/reporting-api/deprecation_report.html)-Beispiel erstellen wir einen einfachen Reporting Observer, um die Nutzung veralteter Funktionen auf unserer Webseite zu beobachten:
 
 ```js
 const options = {
@@ -46,13 +46,13 @@ const observer = new ReportingObserver((reports, observer) => {
 }, options);
 ```
 
-Wir weisen ihn dann an, mit dem Sammeln von Berichten zu beginnen, indem wir {{domxref("ReportingObserver.observe()")}} verwenden; dies instruiert den Observer, damit er Berichte in seiner Berichtswarteschlange sammelt und die im Konstruktor angegebene Callback-Funktion ausführt:
+Wir veranlassen dann, dass er mit dem Sammeln von Berichten mit [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe) beginnt; dies weist den Observer an, mit dem Sammeln von Berichten in seiner Berichts-Warteschlange zu beginnen, und führt die im Konstruktor angegebene Callback-Funktion aus:
 
 ```js
 observer.observe();
 ```
 
-Später im Beispiel verwenden wir absichtlich die veraltete Version von {{domxref("MediaDevices.getUserMedia()")}}:
+Später im Beispiel verwenden wir absichtlich die veraltete Version von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia):
 
 ```js
 if (navigator.mozGetUserMedia) {
@@ -62,12 +62,12 @@ if (navigator.mozGetUserMedia) {
 }
 ```
 
-Dies führt dazu, dass ein Veraltungsmeldung generiert wird; aufgrund des Ereignishandlers, den wir im `ReportingObserver()`-Konstruktor eingerichtet haben, können wir jetzt auf die Schaltfläche klicken, um die Berichtdetails anzuzeigen.
+Dies führt dazu, dass ein Abwertungsbericht generiert wird; aufgrund des innerhalb des `ReportingObserver()`-Konstruktors eingerichteten Ereignishandlers können wir jetzt auf die Schaltfläche klicken, um die Berichtdetails anzuzeigen.
 
-![Bild eines fröhlichen bärtigen Mannes mit verschiedenen unten angezeigten Statistiken über ein veraltetes Feature](reporting_api_example.png)
+![Bild eines fröhlichen bärtigen Mannes mit verschiedenen Statistiken darunter zu einer veralteten Funktion](reporting_api_example.png)
 
 > [!NOTE]
-> Wenn Sie sich den [vollständigen Quellcode](https://github.com/mdn/dom-examples/blob/main/reporting-api/deprecation_report.html) ansehen, werden Sie feststellen, dass wir die veraltete `getUserMedia()`-Methode tatsächlich zweimal aufrufen. Nach dem ersten Aufruf rufen wir {{domxref("ReportingObserver.takeRecords()")}}, auf, was den ersten generierten Bericht zurückgibt und die Warteschlange leert. Aus diesem Grund wird beim Drücken der Schaltfläche nur der zweite Bericht aufgelistet.
+> Wenn Sie sich den [vollständigen Quellcode](https://github.com/mdn/dom-examples/blob/main/reporting-api/deprecation_report.html) ansehen, werden Sie feststellen, dass wir tatsächlich die veraltete `getUserMedia()`-Methode zweimal aufrufen. Nach dem ersten Aufruf rufen wir [`ReportingObserver.takeRecords()`](/de/docs/Web/API/ReportingObserver/takeRecords) auf, was den ersten generierten Bericht zurückgibt und die Warteschlange leert. Deshalb wird beim Drücken der Schaltfläche nur der zweite Bericht aufgelistet.
 
 ## Spezifikationen
 

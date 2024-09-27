@@ -9,7 +9,7 @@ l10n:
 
 Die Methode **`bookmarks.getSubTree()`** ruft asynchron einen {{WebExtAPIRef("bookmarks.BookmarkTreeNode")}} ab, basierend auf seiner ID.
 
-Wenn das Element ein Ordner ist, können Sie alle seine Nachkommen rekursiv über seine `children`-Eigenschaft und die `children`-Eigenschaft seiner Nachkommen, falls diese ebenfalls Ordner sind, zugreifen.
+Wenn das Element ein Ordner ist, können Sie auf alle seine Nachkommen rekursiv über seine `children`-Eigenschaft und die `children`-Eigenschaft seiner Nachkommen zugreifen, sofern sie selbst Ordner sind.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -24,17 +24,17 @@ let gettingSubTree = browser.bookmarks.getSubTree(
 ### Parameter
 
 - `id`
-  - : Ein {{jsxref("string")}}, der die ID der Wurzel des abzurufenden Unterbaums angibt.
+  - : Ein {{jsxref("string")}}, das die ID der Wurzel des abzurufenden Teilbaums angibt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array erfüllt wird, das ein Objekt enthält, ein {{WebExtAPIRef('bookmarks.BookmarkTreeNode')}} Objekt, welches das Element mit der angegebenen ID darstellt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array erfüllt wird, welches ein Objekt enthält, ein {{WebExtAPIRef('bookmarks.BookmarkTreeNode')}}-Objekt, das das Element mit der angegebenen ID darstellt.
 
-Wenn ein Knoten, der `id` entspricht, nicht gefunden werden konnte, wird das Versprechen mit einer Fehlermeldung abgelehnt.
+Wenn kein Knoten gefunden werden konnte, der der `id` entspricht, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel druckt rekursiv den Unterbaum unter einem gegebenen Knoten aus:
+Dieses Beispiel gibt rekursiv den Teilbaum unter einem gegebenen Knoten aus:
 
 ```js
 function makeIndent(indentLength) {
@@ -45,7 +45,7 @@ function logItems(bookmarkItem, indent) {
   if (bookmarkItem.url) {
     console.log(makeIndent(indent) + bookmarkItem.url);
   } else {
-    console.log(`${makeIndent(indent)}Ordner: ${bookmarkItem.id}`);
+    console.log(`${makeIndent(indent)}Folder: ${bookmarkItem.id}`);
     indent++;
   }
   if (bookmarkItem.children) {
@@ -60,7 +60,7 @@ function logSubTree(bookmarkItems) {
 }
 
 function onRejected(error) {
-  console.log(`Ein Fehler: ${error}`);
+  console.log(`An error: ${error}`);
 }
 
 let subTreeID = "root_____";
@@ -75,7 +75,7 @@ browser.bookmarks.getSubTree(subTreeID).then(logSubTree, onRejected);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-getSubTree) API von Chromium. Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-getSubTree) API. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

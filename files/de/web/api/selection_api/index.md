@@ -1,5 +1,5 @@
 ---
-title: Auswahl-API
+title: Selection API
 slug: Web/API/Selection_API
 l10n:
   sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
@@ -8,32 +8,32 @@ l10n:
 {{DefaultAPISidebar("Selection API")}}
 
 > [!NOTE]
-> Diese API ist _nicht verfügbar_ in [Web Workers](/de/docs/Web/API/Web_Workers_API) (nicht über {{domxref("WorkerNavigator")}} verfügbar).
+> Diese API ist _nicht verfügbar_ in [Web Workers](/de/docs/Web/API/Web_Workers_API) (nicht verfügbar über [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)).
 
-Die **Auswahl-API** ermöglicht es Entwicklern, auf den vom Benutzer ausgewählten Teil eines Dokuments zuzugreifen und diesen zu manipulieren.
+Die **Selection API** ermöglicht Entwicklern den Zugriff auf und die Manipulation des vom Benutzer ausgewählten Teils eines Dokuments.
 
-Die Methoden {{domxref("Window/getSelection()", "Window.getSelection()")}} und {{domxref("Document/getSelection()", "Document.getSelection()")}} geben ein {{domxref("Selection")}}-Objekt zurück, das den vom Benutzer ausgewählten Teil des Dokuments darstellt. Ein `Selection`-Objekt bietet Methoden, um:
+Die Methoden [`Window.getSelection()`](/de/docs/Web/API/Window/getSelection) und [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection) geben ein [`Selection`](/de/docs/Web/API/Selection)-Objekt zurück, das den vom Benutzer ausgewählten Teil des Dokuments darstellt. Ein `Selection`-Objekt bietet Methoden zum:
 
-- auf die aktuell ausgewählten Knoten zuzugreifen
-- die aktuelle Auswahl zu ändern, sie zu erweitern oder zu verkleinern oder einen vollständig anderen Teil des Dokuments auszuwählen
-- Teile der aktuellen Auswahl aus dem DOM zu löschen.
+- Zugriff auf die derzeit ausgewählten Knoten
+- Modifizieren der aktuellen Auswahl, indem es diese erweitert, verkleinert oder einen völlig anderen Teil des Dokuments auswählt
+- Löschen von Teilen der aktuellen Auswahl aus dem DOM.
 
-Die Auswahl-API stellt zudem zwei Ereignisse zur Verfügung, die beide auf {{domxref("Document")}} ausgelöst werden:
+Die Selection API bietet außerdem zwei Ereignisse, die beide auf [`Document`](/de/docs/Web/API/Document) ausgelöst werden:
 
-- das {{domxref("Node/selectstart_event", "selectstart")}}-Ereignis wird ausgelöst, wenn der Benutzer beginnt, eine neue Auswahl zu treffen
-- das {{domxref("Document/selectionchange_event", "selectionchange")}}-Ereignis wird ausgelöst, wenn die aktuelle Auswahl geändert wird.
+- das [`selectstart`](/de/docs/Web/API/Node/selectstart_event)-Ereignis wird ausgelöst, wenn der Benutzer beginnt, eine neue Auswahl zu treffen
+- das [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event)-Ereignis wird ausgelöst, wenn sich die aktuelle Auswahl ändert.
 
 ## Schnittstellen
 
-- {{domxref("Selection")}}
+- [`Selection`](/de/docs/Web/API/Selection)
   - : Eine Schnittstelle, die den vom Benutzer ausgewählten Teil des Dokuments oder die aktuelle Position des Cursors darstellt.
-- {{domxref("Document/getSelection()", "Document.getSelection()")}}
+- [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection)
   - : Eine Methode, die ein `Selection`-Objekt zurückgibt, das die aktuelle Auswahl oder die aktuelle Position des Cursors darstellt.
-- {{domxref("Window/getSelection()", "Window.getSelection()")}}
+- [`Window.getSelection()`](/de/docs/Web/API/Window/getSelection)
   - : Eine Methode, die ein `Selection`-Objekt zurückgibt, das die aktuelle Auswahl oder die aktuelle Position des Cursors darstellt.
-- {{domxref("Document/selectionchange_event", "Document.selectionchange")}}
-  - : Ein Ereignis, das ausgelöst wird, wenn die aktuelle Auswahl geändert wird.
-- {{domxref("Node/selectstart_event", "Node.selectstart")}}
+- [`Document.selectionchange`](/de/docs/Web/API/Document/selectionchange_event)
+  - : Ein Ereignis, das ausgelöst wird, wenn sich die aktuelle Auswahl ändert.
+- [`Node.selectstart`](/de/docs/Web/API/Node/selectstart_event)
   - : Ein Ereignis, das ausgelöst wird, wenn ein Benutzer eine neue Auswahl beginnt.
 
 ## Spezifikationen

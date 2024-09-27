@@ -13,12 +13,12 @@ l10n:
 
 ## Instanz-Eigenschaften
 
-- {{domxref('PresentationConnectionList.connections')}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die nicht-terminierte Menge von {{DOMxRef("PresentationConnection")}}s im [Satz der Präsentationscontroller](https://www.w3.org/TR/presentation-api/#dfn-set-of-presentation-controllers) zurück.
+- [`PresentationConnectionList.connections`](/de/docs/Web/API/PresentationConnectionList/connections) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt die nicht beendete Menge von [`PresentationConnection`](/de/docs/Web/API/PresentationConnection)s in der [Menge von Präsentationssteuerungen](https://www.w3.org/TR/presentation-api/#dfn-set-of-presentation-controllers) zurück.
 
 ## Ereignisse
 
-- {{domxref('PresentationConnectionList/connectionavailable_event', "connectionavailable")}} {{Experimental_Inline}}
+- [`connectionavailable`](/de/docs/Web/API/PresentationConnectionList/connectionavailable_event) {{Experimental_Inline}}
   - : Wird ausgelöst, wann immer eine neue [Präsentationsverbindung](https://www.w3.org/TR/presentation-api/#dfn-presentation-connection) verfügbar wird.
 
 ## Spezifikationen

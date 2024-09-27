@@ -1,5 +1,5 @@
 ---
-title: "VideoColorSpace: transfer Eigenschaft"
+title: "VideoColorSpace: transfer-Eigenschaft"
 short-title: transfer
 slug: Web/API/VideoColorSpace/transfer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`transfer`** schreibgeschützte Eigenschaft der {{domxref("VideoColorSpace")}}-Schnittstelle gibt die optoelektronischen Übertragungseigenschaften des Videos zurück.
+Die schreibgeschützte Eigenschaft **`transfer`** des [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Interfaces gibt die opto-elektronischen Übertragungseigenschaften des Videos zurück.
 
 ## Wert
 
@@ -23,7 +23,7 @@ Ein String, der einen der folgenden Werte enthält:
 
 ## Beispiele
 
-Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von {{domxref("VideoFrame")}} zurückgegeben wird. Der Wert von `transfer` wird in der Konsole ausgegeben.
+Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von [`VideoFrame`](/de/docs/Web/API/VideoFrame) zurückgegeben wird. Der Wert von `transfer` wird in die Konsole ausgegeben.
 
 ```js
 let colorSpace = VideoFrame.colorSpace;

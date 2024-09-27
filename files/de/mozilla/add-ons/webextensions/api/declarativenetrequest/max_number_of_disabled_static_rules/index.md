@@ -7,15 +7,15 @@ l10n:
 
 {{AddonSidebar}}
 
-Die maximale Anzahl von statischen Regeln, die in jedem statischen Regelset deaktiviert werden können. Weitere Informationen zu den Begrenzungen von statischen Regelsätzen finden Sie unter [Begrenzungen für statische Regelsätze](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
+Die maximale Anzahl statischer Regeln, die in jedem statischen Regelset deaktiviert werden können. Siehe [Grenzwerte für statische Regelsets](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits) für weitere Informationen zu den Grenzwerten statischer Regelsets.
 
-Regeln werden in statischen Regelsätzen mit {{WebExtAPIRef("declarativeNetRequest.updateStaticRules","updateStaticRules")}} aktiviert und deaktiviert, und eine Liste der deaktivierten Regeln für ein statisches Regelset wird mit {{WebExtAPIRef("declarativeNetRequest.getDisabledRuleIds","getDisabledRuleIds")}} abgerufen.
+Regeln werden in statischen Regelsets mit {{WebExtAPIRef("declarativeNetRequest.updateStaticRules","updateStaticRules")}} aktiviert und deaktiviert, und eine Liste der deaktivierten Regeln für ein statisches Regelset wird mit {{WebExtAPIRef("declarativeNetRequest.getDisabledRuleIds","getDisabledRuleIds")}} erhalten.
 
-Diese Begrenzung ist:
+Dieses Limit ist:
 
 - in Firefox: `5000`
-- in Chrome: `5000`, gezählt über alle Regelsätze hinweg anstatt pro Regelsatz.
-- in Safari gibt es keine Implementierung für diese Begrenzung.
+- in Chrome: `5000`, gezählt über alle Regelsets statt pro Regelset.
+- in Safari gibt es keine Implementierung für dieses Limit.
 
 {{WebExtExamples("h2")}}
 

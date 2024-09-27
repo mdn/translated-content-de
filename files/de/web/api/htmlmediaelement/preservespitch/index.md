@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.preservesPitch`**-Eigenschaft bestimmt, ob der Browser die Tonhöhe des Audios anpassen soll, um Änderungen der Wiedergabegeschwindigkeit auszugleichen, die durch das Setzen von {{domxref("HTMLMediaElement.playbackRate")}} vorgenommen werden.
+Die **`HTMLMediaElement.preservesPitch`**-Eigenschaft bestimmt, ob der Browser die Tonhöhe des Audios anpassen soll, um Änderungen an der Wiedergabegeschwindigkeit, die durch das Setzen von [`HTMLMediaElement.playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate) vorgenommen werden, auszugleichen.
 
 ## Wert
 
@@ -16,11 +16,11 @@ Ein boolescher Wert, der standardmäßig auf `true` gesetzt ist.
 
 ## Beispiele
 
-### Einstellen der preservesPitch-Eigenschaft
+### Setzen der preservesPitch-Eigenschaft
 
-In diesem Beispiel haben wir ein {{HTMLElement("audio")}}-Element, ein Range-Steuerelement, das die Wiedergabegeschwindigkeit anpasst, und ein Kontrollkästchen, das `preservesPitch` setzt.
+In diesem Beispiel haben wir ein {{HTMLElement("audio")}}-Element, ein Bereichssteuerungselement, das die Wiedergabegeschwindigkeit anpasst, und ein Kontrollkästchen, das `preservesPitch` festlegt.
 
-Versuchen Sie, das Audio abzuspielen, dann die Wiedergabegeschwindigkeit anzupassen und anschließend das Kontrollkästchen ein- und auszuschalten.
+Versuchen Sie, das Audio abzuspielen, dann die Wiedergabegeschwindigkeit anzupassen und das Kontrollkästchen zu aktivieren und zu deaktivieren.
 
 ```html
 <audio
@@ -28,12 +28,12 @@ Versuchen Sie, das Audio abzuspielen, dann die Wiedergabegeschwindigkeit anzupas
   src="https://mdn.github.io/webaudio-examples/audio-basics/outfoxing.mp3"></audio>
 
 <div>
-  <label for="rate">Wiedergabegeschwindigkeit anpassen:</label>
+  <label for="rate">Adjust playback rate:</label>
   <input id="rate" type="range" min="0.25" max="3" step="0.05" value="1" />
 </div>
 
 <div>
-  <label for="pitch">Tonhöhe beibehalten:</label>
+  <label for="pitch">Preserve pitch:</label>
   <input type="checkbox" id="pitch" name="pitch" checked />
 </div>
 ```
@@ -66,5 +66,5 @@ document.getElementById("pitch").addEventListener("change", (e) => {
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement.playbackRate")}}
+- [`HTMLMediaElement.playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate)
 - [Web Audio playbackRate erklärt](/de/docs/Web/Media/Audio_and_video_delivery/WebAudio_playbackRate_explained)

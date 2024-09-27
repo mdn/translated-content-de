@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Das **`start`**-Ereignis der {{domxref("MediaRecorder")}}-Schnittstelle wird ausgelöst, wenn
-{{domxref("MediaRecorder.start()")}} aufgerufen wird. Zu diesem Zeitpunkt beginnen die Daten, in einem {{domxref("Blob")}} gesammelt zu werden.
+Das **`start`**-Ereignis des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces wird ausgelöst, wenn [`MediaRecorder.start()`](/de/docs/Web/API/MediaRecorder/start) aufgerufen wird. Zu diesem Zeitpunkt beginnt die Datenerfassung in ein [`Blob`](/de/docs/Web/API/Blob).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("start", (event) => {});
@@ -23,7 +22,7 @@ onstart = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
@@ -50,7 +49,6 @@ mediaRecorder.onstart = () => {
 ## Siehe auch
 
 - [Verwendung der MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API)
-- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder +
-  getUserMedia + Web Audio API Visualisierungs-Demo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
+- [Web-Diktiergerät](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder + getUserMedia + Web Audio API Visualisierungs-Demo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
 - [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
-- {{domxref("Navigator.getUserMedia")}}
+- [`Navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia)

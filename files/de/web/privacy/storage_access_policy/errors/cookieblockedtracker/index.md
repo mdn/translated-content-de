@@ -17,18 +17,18 @@ Request to access cookie or storage on “X” was blocked because it came from 
 
 ## Was ist schiefgelaufen?
 
-Eine Anfrage zum Zugriff auf Cookies oder Speicher wurde blockiert, weil der Browser sie als von einem Tracker kommend identifiziert hat und Inhaltsblockierung aktiviert ist.
+Eine Anfrage zum Zugriff auf Cookies oder Speicher wurde blockiert, da der Browser sie als von einem Tracker stammend identifiziert hat und Inhaltsblockierung aktiviert ist.
 
-Die Berechtigung kann geändert oder entfernt werden durch:
+Die Berechtigung kann geändert oder entfernt werden, indem Sie:
 
-- Gehen Sie zu _Einstellungen > Datenschutz & Sicherheit > Verbesserter Schutz vor Aktivitätenverfolgung_ und entweder
+- Zu _Einstellungen > Datenschutz & Sicherheit > Verbesserter Schutz vor Aktivitätenverfolgung_ gehen und entweder
 
-  - Hinzufügen einer Ausnahme mit der Schaltfläche _Ausnahmen verwalten_...
-  - Wählen der Option für benutzerdefinierte Inhaltsblockierung und Deaktivierung des Kontrollkästchens _Tracker_
+  - eine Ausnahme mit dem Button _Ausnahmen verwalten_ hinzufügen
+  - _Benutzerdefiniert_ bei der Inhaltsblockierung wählen und das Kontrollkästchen _Tracker_ deaktivieren
 
-Wenn die blockierte Ressource keine Authentifizierung benötigt, können Sie die Warnmeldung beheben, indem Sie dem betreffenden Element ein `crossorigin="anonymous"` Attribut hinzufügen.
+Wenn die blockierte Ressource keine Authentifizierung benötigt, können Sie die Warnmeldung beheben, indem Sie ein `crossorigin="anonymous"`-Attribut zum relevanten Element hinzufügen.
 
 ## Siehe auch
 
-- [Verbesserter Schutz vor Aktivitätenverfolgung in Firefox für den Desktop](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) auf [support.mozilla.org](https://support.mozilla.org/)
-- [Das `crossorigin` Attribut](/de/docs/Web/HTML/Attributes/crossorigin)
+- [Erweiterter Schutz vor Aktivitätenverfolgung in Firefox für Desktop](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) auf [support.mozilla.org](https://support.mozilla.org/)
+- [Das `crossorigin`-Attribut](/de/docs/Web/HTML/Attributes/crossorigin)

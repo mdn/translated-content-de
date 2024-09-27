@@ -8,25 +8,24 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **`style`**-Eigenschaft ist das {{ domxref("CSSStyleDeclaration") }}-Interface für den [Deklarationsblock](https://www.w3.org/TR/1998/REC-CSS2-19980512/syndata.html#block) der {{ DOMXref("CSSStyleRule") }}.
+Die schreibgeschützte **`style`**-Eigenschaft ist die [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Schnittstelle für den [Deklarationsblock](https://www.w3.org/TR/1998/REC-CSS2-19980512/syndata.html#block) der [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule).
 
 ## Wert
 
-Ein {{domxref("CSSStyleDeclaration")}}-Objekt mit den folgenden Eigenschaften:
+Ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt mit den folgenden Eigenschaften:
 
-- Berechnetes Flag
+- computed flag
   - : Nicht gesetzt.
-- Deklarationen
-  - : Die deklarierten Deklarationen in der Regel, in der Reihenfolge, in der sie angegeben wurden, Kurzschreibweise-Eigenschaften erweitert zu Langschreibweisen.
-- Übergeordnete CSS-Regel
+- declarations
+  - : Die deklarierten Deklarationen in der Regel, in der Reihenfolge, in der sie angegeben wurden, wobei Kurzform-Eigenschaften in Langformen aufgelöst werden.
+- parent CSS rule
   - : Das Kontextobjekt, das ein Alias für [this](https://heycam.github.io/webidl/#this) ist.
-- Besitzender Knoten
+- owner node
   - : Null.
 
 ## Beispiele
 
-Das CSS enthält eine Stilregel. Dies wird die erste {{domxref("CSSRule")}} sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
-`myRules[0].style` gibt daher ein {{domxref("CSSStyleDeclaration")}}-Objekt zurück, das die Deklarationen für `h1` repräsentiert.
+Das CSS enthält eine Stilregel. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird. `myRules[0].style` gibt daher ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt zurück, das die für `h1` definierten Deklarationen darstellt.
 
 ```css
 h1 {
@@ -40,7 +39,7 @@ console.log(myRules[0].style); // a CSSStyleDeclaration representing the declara
 ```
 
 > [!NOTE]
-> Der Deklarationsblock ist der Teil der Stilregel, der in den geschweiften Klammern erscheint und tatsächlich die Stildefinitionen bereitstellt (für den Selektor, den Teil, der vor den Klammern kommt).
+> Der Deklarationsblock ist der Teil der Stilregel, der innerhalb der geschweiften Klammern erscheint und der tatsächlich die Stildefinitionen liefert (für den Selektor, den Teil, der vor den geschweiften Klammern erscheint).
 
 ## Spezifikationen
 

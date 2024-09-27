@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`descent-override`** CSS-Deskriptor für die {{cssxref("@font-face")}}-Regel definiert die Descent-Metrik für die Schriftart. Die Descent-Metrik ist die Höhe unter der Grundlinie, die CSS zur Anordnung von Zeilenboxen in einem Inline-Formatierungskontext verwendet.
+Der **`descent-override`** CSS-Deskriptor für die {{cssxref("@font-face")}} at-rule definiert die Abstiegsmetrik für die Schriftart. Die Abstiegsmetrik ist die Höhe unterhalb der Grundlinie, die CSS verwendet, um Linienboxen in einem Inline-Formatierungskontext anzuordnen.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ descent-override: 90%;
 ### Werte
 
 - `normal`
-  - : Der Standardwert. Bei Verwendung wird der Metrikwert aus der Schriftdatei übernommen.
+  - : Der Standardwert. Wenn verwendet, wird der Metrikwert aus der Schriftdatei übernommen.
 - `<percentage>`
   - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert.
 
@@ -33,9 +33,9 @@ descent-override: 90%;
 
 ## Beispiele
 
-### Überschreiben der Metriken einer Ersatzschriftart
+### Übersteuern der Metriken einer Ersatzschriftart
 
-Die `descent-override`-Eigenschaft kann hilfreich sein, wenn die Metriken einer Ersatzschriftart überschrieben werden sollen, um besser zu einer primären Web-Schriftart zu passen.
+Die `descent-override`-Eigenschaft kann helfen, wenn die Metriken einer Ersatzschriftart übersteuert werden sollen, um besser zu den primären Web-Schriftarten zu passen.
 
 ```css
 @font-face {

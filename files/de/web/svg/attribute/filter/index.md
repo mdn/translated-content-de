@@ -7,12 +7,12 @@ l10n:
 
 {{SVGRef}}
 
-Das **`filter`** Attribut gibt die Filtereffekte an, die durch das {{SVGElement("filter")}} Element definiert werden und auf sein Element angewendet werden sollen.
+Das **`filter`**-Attribut spezifiziert die Filtereffekte, die durch das {{SVGElement("filter")}}-Element definiert sind und auf das Element angewendet werden sollen.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `filter` als CSS-Eigenschaft verwendet werden. Siehe CSS {{cssxref("filter")}} für weitere Informationen.
+> Als Präsentationsattribut kann `filter` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie unter CSS {{cssxref("filter")}}.
 
-Als Präsentationsattribut kann es auf jedes Element angewendet werden, aber es hat nur Auswirkungen auf [Container-Elemente](/de/docs/Web/SVG/Element#container_elements) ohne das {{SVGElement("defs")}} Element, alle [Grafikelemente](/de/docs/Web/SVG/Element#graphics_elements) und das {{SVGElement("use")}} Element.
+Als Präsentationsattribut kann es auf jedes Element angewendet werden, aber es hat nur Auswirkungen auf [Containerelemente](/de/docs/Web/SVG/Element#container_elements) ohne das {{SVGElement("defs")}}-Element, alle [Grafikelemente](/de/docs/Web/SVG/Element#graphics_elements) und das {{SVGElement("use")}}-Element.
 
 ## Beispiel
 
@@ -36,7 +36,7 @@ svg {
 
 {{EmbedLiveSample("Example", "220", "220")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -46,7 +46,7 @@ svg {
         <code>none</code>
         <a
           href="/de/docs/Web/CSS/Value_definition_syntax#single_bar"
-          title="Einzelner Balken: genau eine der Entitäten muss vorhanden sein"
+          title="Einzelner Balken: Genau eine der Entitäten muss vorhanden sein"
           >|</a
         >
         <code>&#x3C;filter-function-list></code>
@@ -63,7 +63,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte siehe die CSS {{cssxref("filter")}} Eigenschaft.
+Eine Beschreibung der Werte finden Sie in der CSS-Eigenschaft {{cssxref("filter")}}.
 
 ## Spezifikationen
 

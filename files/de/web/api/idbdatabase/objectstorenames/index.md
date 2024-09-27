@@ -1,5 +1,5 @@
 ---
-title: "IDBDatabase: objectStoreNames-Eigenschaft"
+title: "IDBDatabase: objectStoreNames Eigenschaft"
 short-title: objectStoreNames
 slug: Web/API/IDBDatabase/objectStoreNames
 l10n:
@@ -8,32 +8,33 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`objectStoreNames`**-Eigenschaft der {{domxref("IDBDatabase")}}-Schnittstelle ist eine {{ domxref("DOMStringList") }}, die eine Liste der Namen der [Object Stores](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#object_store) enthält, die derzeit in der verbundenen Datenbank vorhanden sind.
+Die **`objectStoreNames`** schreibgeschützte Eigenschaft des [`IDBDatabase`](/de/docs/Web/API/IDBDatabase) Interfaces ist eine [`DOMStringList`](/de/docs/Web/API/DOMStringList), die eine Liste der Namen der [Object Stores](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#object_store) enthält, die derzeit in der verbundenen Datenbank vorhanden sind.
 
 ## Wert
 
-Eine {{ domxref("DOMStringList") }}, die eine Liste der Namen der [Object Stores](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#object_store) enthält, die derzeit in der verbundenen Datenbank vorhanden sind.
+Eine [`DOMStringList`](/de/docs/Web/API/DOMStringList), die eine Liste der Namen der [Object Stores](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#object_store) enthält, die derzeit in der verbundenen Datenbank vorhanden sind.
 
 ## Beispiele
 
 ```js
-// Lassen Sie uns unsere Datenbank öffnen
+// Let us open our database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
-// Diese beiden Event-Handler reagieren darauf, ob die Datenbank erfolgreich geöffnet wurde oder nicht
+// these two event handlers act on the database being opened successfully, or not
 DBOpenRequest.onerror = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Fehler beim Laden der Datenbank.";
+    "Error loading database.";
 };
 
 DBOpenRequest.onsuccess = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Datenbank initialisiert.";
+    "Database initialized.";
 
-  // Speichern Sie das Ergebnis des Öffnens der Datenbank in der db-Variable. Diese wird unten häufig verwendet
+  // store the result of opening the database in the db variable. This is used a lot below
   db = DBOpenRequest.result;
 
-  // Diese Zeile gibt die Namen der Object Stores der verbundenen Datenbank aus, welche ein Objekt darstellen sollten, das wie { ['my-store-name'] } aussieht
+  // This line will log the names of the object stores of the connected database, which should be
+  // an object that looks like { ['my-store-name'] }
   console.log(db.objectStoreNames);
 };
 ```
@@ -49,9 +50,9 @@ DBOpenRequest.onsuccess = (event) => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Schlüsselbereichs: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursors: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live anzeigen](https://mdn.github.io/dom-examples/to-do-notifications/)).

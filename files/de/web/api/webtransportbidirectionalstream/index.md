@@ -7,37 +7,38 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`WebTransportBidirectionalStream`**-Schnittstelle der {{domxref("WebTransport API", "WebTransport API", "", "nocode")}} repräsentiert einen bidirektionalen Stream, der von einem Server oder einem Client erstellt wird und für den zuverlässigen Transport genutzt werden kann. Sie bietet Zugriff auf einen {{domxref("WebTransportReceiveStream")}} zum Lesen eingehender Daten und einen {{domxref("WebTransportSendStream")}} zum Schreiben ausgehender Daten.
+Die **`WebTransportBidirectionalStream`**-Schnittstelle der [WebTransport API](/de/docs/Web/API/WebTransport_API) repräsentiert einen bidirektionalen Stream, der von einem Server oder einem Client erstellt wurde und für zuverlässigen Transport verwendet werden kann. Sie bietet Zugriff auf einen [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream) zum Lesen eingehender Daten und einen [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream) zum Schreiben ausgehender Daten.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-- {{domxref("WebTransportBidirectionalStream.readable", "readable")}} {{ReadOnlyInline}}
-  - : Gibt eine {{domxref("WebTransportReceiveStream")}}-Instanz zurück, die verwendet werden kann, um eingehende Daten zu lesen.
-- {{domxref("WebTransportBidirectionalStream.writable", "writable")}} {{ReadOnlyInline}}
-  - : Gibt eine {{domxref("WebTransportSendStream")}}-Instanz zurück, die verwendet werden kann, um ausgehende Daten zu schreiben.
+- [`readable`](/de/docs/Web/API/WebTransportBidirectionalStream/readable) {{ReadOnlyInline}}
+  - : Gibt eine Instanz von [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream) zurück, die zum Lesen eingehender Daten verwendet werden kann.
+- [`writable`](/de/docs/Web/API/WebTransportBidirectionalStream/writable) {{ReadOnlyInline}}
+  - : Gibt eine Instanz von [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream) zurück, die zum Schreiben ausgehender Daten verwendet werden kann.
 
 ## Beispiele
 
-### Bidirektionale Übertragung initiiert durch den Benutzeragenten
+### Bidirektionale Übertragung initiiert vom Benutzeragenten
 
-Um einen bidirektionalen Stream von einem Benutzeragenten zu öffnen, verwenden Sie die Methode {{domxref("WebTransport.createBidirectionalStream()")}}, um eine Referenz auf einen `WebTransportBidirectionalStream` zu erhalten. Die Eigenschaften `readable` und `writable` geben Referenzen zu `WebTransportReceiveStream`- und `WebTransportSendStream`-Instanzen zurück. Diese erben jeweils von `ReadableStream` und `WritableStream` und können zum Lesen vom und Schreiben auf den Server verwendet werden.
+Um einen bidirektionalen Stream von einem Benutzeragenten zu öffnen, nutzen Sie die Methode [`WebTransport.createBidirectionalStream()`](/de/docs/Web/API/WebTransport/createBidirectionalStream), um eine Referenz auf einen `WebTransportBidirectionalStream` zu erhalten. Die `readable`- und `writable`-Eigenschaften geben Referenzen auf `WebTransportReceiveStream`- und `WebTransportSendStream`-Instanzen zurück.
+Diese erben jeweils von `ReadableStream` und `WritableStream` und können verwendet werden, um vom Server zu lesen und an ihn zu schreiben.
 
 ```js
 async function setUpBidirectional() {
   const stream = await transport.createBidirectionalStream();
-  // stream ist ein WebTransportBidirectionalStream
-  // stream.readable ist ein WebTransportReceiveStream
+  // stream is a WebTransportBidirectionalStream
+  // stream.readable is a WebTransportReceiveStream
   const readable = stream.readable;
-  // stream.writable ist ein WebTransportSendStream
+  // stream.writable is a WebTransportSendStream
   const writable = stream.writable;
 
   ...
 }
 ```
 
-Das Lesen vom `WebTransportReceiveStream` kann auf die gleiche Weise erfolgen wie das Lesen eines `ReadableStream`:
+Das Lesen von einem `WebTransportReceiveStream` kann genauso erfolgen wie das Lesen eines `ReadableStream`:
 
 ```js
 async function readData(readable) {
@@ -47,13 +48,13 @@ async function readData(readable) {
     if (done) {
       break;
     }
-    // value ist ein Uint8Array.
+    // value is a Uint8Array.
     console.log(value);
   }
 }
 ```
 
-Und das Schreiben auf den `WebTransportSendStream` kann so erfolgen:
+Und das Schreiben in einen `WebTransportSendStream` kann so erfolgen:
 
 ```js
 async function writeData(writable) {
@@ -65,9 +66,9 @@ async function writeData(writable) {
 }
 ```
 
-### Bidirektionale Übertragung initiiert durch den Server
+### Bidirektionale Übertragung initiiert vom Server
 
-Wenn der Server einen bidirektionalen Stream öffnet, um Daten an den Client zu senden und von diesem zu empfangen, kann darauf über die Eigenschaft {{domxref("WebTransport.incomingBidirectionalStreams")}} zugegriffen werden, die einen {{domxref("ReadableStream")}} von `WebTransportBidirectionalStream`-Objekten zurückgibt. Jedes kann verwendet werden, um {{jsxref("Uint8Array")}}-Instanzen gemäß dem oben gezeigten Beispiel zu lesen und zu schreiben. Allerdings benötigen Sie zunächst eine Funktion, um den bidirektionalen Stream überhaupt lesen zu können:
+Wenn der Server einen bidirektionalen Stream öffnet, um Daten an den Client zu übertragen und von ihm zu empfangen, kann auf diesen über die Eigenschaft [`WebTransport.incomingBidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingBidirectionalStreams) zugegriffen werden, die einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von `WebTransportBidirectionalStream`-Objekten zurückgibt. Jeder kann verwendet werden, um wie oben beschrieben {{jsxref("Uint8Array")}}-Instanzen zu lesen und zu schreiben. Sie benötigen jedoch zunächst eine Funktion, um den bidirektionalen Stream überhaupt zu lesen:
 
 ```js
 async function receiveBidirectional() {
@@ -78,7 +79,7 @@ async function receiveBidirectional() {
     if (done) {
       break;
     }
-    // value ist eine Instanz von WebTransportBidirectionalStream
+    // value is an instance of WebTransportBidirectionalStream
     await readData(value.readable);
     await writeData(value.writable);
   }
@@ -89,13 +90,13 @@ async function receiveBidirectional() {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

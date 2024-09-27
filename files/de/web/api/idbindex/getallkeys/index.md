@@ -8,8 +8,7 @@ l10n:
 
 {{ APIRef("IndexedDB") }}
 
-Die **`getAllKeys()`** Methode des {{domxref("IDBIndex")}}
-Interfaces ruft asynchron die Primärschlüssel aller Objekte im Index ab und setzt diese als `result` des Anforderungsobjekts.
+Die **`getAllKeys()`**-Methode der [`IDBIndex`](/de/docs/Web/API/IDBIndex)-Schnittstelle ruft asynchron die Primärschlüssel aller Objekte im Index ab und setzt sie als `result` des Anfrageobjekts.
 
 ## Syntax
 
@@ -22,27 +21,26 @@ getAllKeys(query, count)
 ### Parameter
 
 - `query` {{optional_inline}}
-  - : Ein Schlüssel oder ein {{domxref("IDBKeyRange")}}, das die abzurufenden Schlüssel identifiziert. Wenn dieser Wert null oder nicht vorhanden ist, verwendet der Browser einen ungebundenen Schlüsselbereich.
+  - : Ein Schlüssel oder ein [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange), der die abzurufenden Schlüssel identifiziert. Wenn dieser Wert null oder nicht vorhanden ist, verwendet der Browser einen ungebundenen Schlüsselbereich.
 - `count` {{optional_inline}}
-  - : Die Anzahl der zurückzugebenden Datensätze. Wenn dieser Wert die Anzahl der Datensätze in der Abfrage übersteigt, ruft der Browser nur das erste Element ab. Wenn er niedriger als `0` oder größer als `2^32 - 1` ist, wird eine {{jsxref("TypeError")}}
-    Ausnahme ausgelöst.
+  - : Die Anzahl der Datensätze, die zurückgegeben werden sollen. Wenn dieser Wert die Anzahl der Datensätze in der Abfrage überschreitet, ruft der Browser nur das erste Element ab. Wenn er kleiner als `0` oder größer als `2^32 - 1` ist, wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
 
 ### Rückgabewert
 
-Ein {{domxref("IDBRequest")}} Objekt, auf dem nachfolgende Ereignisse im Zusammenhang mit dieser Operation ausgelöst werden.
+Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, auf dem nachfolgende Ereignisse im Zusammenhang mit dieser Operation ausgelöst werden.
 
-Wenn die Operation erfolgreich ist, ist der Wert der {{domxref("IDBRequest.result", "result")}} Eigenschaft des Anforderungsobjekts ein {{jsxref("Array")}} der Schlüssel für alle Datensätze, die der gegebenen Abfrage entsprechen, bis zum Wert von `count`, falls `count` angegeben wurde.
+Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft der Anfrage ein {{jsxref("Array")}} der Schlüssel für alle Datensätze, die der angegebenen Abfrage entsprechen, bis zu dem Wert von `count`, falls `count` angegeben wurde.
 
 ### Ausnahmen
 
-Diese Methode kann eine {{domxref("DOMException")}} der folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
 
-- `TransactionInactiveError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Transaktion dieses {{domxref("IDBIndex")}} inaktiv ist.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{domxref("IDBIndex")}} gelöscht oder entfernt wurde.
+- `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Transaktion dieses [`IDBIndex`](/de/docs/Web/API/IDBIndex) inaktiv ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der [`IDBIndex`](/de/docs/Web/API/IDBIndex) gelöscht oder entfernt wurde.
 
-Eine {{jsxref("TypeError")}} Ausnahme wird ausgelöst, wenn der `count` Parameter nicht zwischen `0` und `2^32 - 1` liegt.
+Eine {{jsxref("TypeError")}}-Ausnahme wird ausgelöst, wenn der `count`-Parameter nicht zwischen `0` und `2^32 - 1` liegt.
 
 ## Beispiele
 
@@ -65,9 +63,9 @@ getAllKeysRequest.onsuccess = () => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Einstellen eines Schlüsselbereichs: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursors: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Live-Beispiel anzeigen](https://mdn.github.io/dom-examples/to-do-notifications/)).

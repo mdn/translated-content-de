@@ -8,33 +8,35 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`periodicSync`**-Eigenschaft des {{domxref("ServiceWorkerRegistration")}}-Interfaces gibt eine Referenz auf das {{domxref('PeriodicSyncManager')}}-Interface zurück, das das Registrieren von Aufgaben ermöglicht, die in bestimmten Intervallen ausgeführt werden sollen.
+Die schreibgeschützte Eigenschaft **`periodicSync`** des
+[`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt eine Referenz auf das
+[`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager)-Interface zurück, das es ermöglicht, Aufgaben zur Ausführung in bestimmten Intervallen zu registrieren.
 
 ## Wert
 
-Ein {{domxref('PeriodicSyncManager')}}-Objekt.
+Ein [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager)-Objekt.
 
 ## Beispiele
 
-Sie können auf die Eigenschaft sowohl von Ihrem Hauptskript als auch vom registrierten Service Worker aus zugreifen.
+Sie können auf die Eigenschaft sowohl aus Ihrem Hauptskript als auch aus dem registrierten Service Worker zugreifen.
 
-Hier ein Beispiel aus dem Hauptskript:
+Hier ist ein Beispiel aus dem Hauptskript:
 
 ```js
-// Registrierung referenzieren
+// reference registration
 const registration = await navigator.serviceWorker.ready;
 
-// Feature-Erkennung
+// feature detection
 if ("periodicSync" in registration) {
-  // Funktionalität des Background Periodic Sync
+  // Background Periodic Sync functionality
   const periodicSync = registration.periodicSync;
 }
 ```
 
-Aus dem [Service Worker](/de/docs/Web/API/Service_Worker_API):
+Vom [Service Worker](/de/docs/Web/API/Service_Worker_API):
 
 ```js
-// Service Worker-Skript
+// service worker script
 
 const periodicSync = self.registration.periodicSync;
 ```
@@ -49,5 +51,5 @@ const periodicSync = self.registration.periodicSync;
 
 ## Siehe auch
 
-- [Reichere Offline-Erfahrungen mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
-- [Eine Demo-App für Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)
+- [Umfangreichere Offline-Erfahrungen mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
+- [Eine Beispiel-App für Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)

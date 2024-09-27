@@ -8,24 +8,24 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`blockingDuration`** der {{domxref("PerformanceLongAnimationFrameTiming")}}-Schnittstelle gibt ein {{domxref("DOMHighResTimeStamp")}} zurück, das die Gesamtzeit in Millisekunden angibt, während der der Hauptthread daran gehindert wurde, auf hochpriorisierte Aufgaben wie Benutzereingaben zu reagieren.
+Die **`blockingDuration`**-Eigenschaft der [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Schnittstelle gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die gesamte Zeit in Millisekunden angibt, während der der Haupt-Thread daran gehindert wurde, auf hochpriorisierte Aufgaben wie Benutzereingaben zu reagieren.
 
 ## Beschreibung
 
-`blockingDuration` wird berechnet, indem alle [lange Tasks](/de/docs/Web/API/PerformanceLongTaskTiming#description) innerhalb des LoAFs, die eine `duration` von mehr als `50ms` haben, genommen, `50ms` von jedem subtrahiert, die Renderzeit zur längsten Aufgabenzeit hinzugefügt und die Ergebnisse summiert werden. Schauen wir uns ein Beispiel an, um das zu verdeutlichen.
+`blockingDuration` wird berechnet, indem alle [lange Tasks](/de/docs/Web/API/PerformanceLongTaskTiming#description) innerhalb des LoAF, die eine `Dauer` von mehr als `50ms` haben, zusammengerechnet werden. Dabei wird von jedem `50ms` abgezogen, die Rendering-Zeit zur längsten Task-Zeit hinzugefügt und die Ergebnisse summiert. Sehen wir uns ein Beispiel an, um zu klären, was das bedeutet.
 
-Stellen Sie sich eine JavaScript-Datei vor, die insgesamt 145ms zur Verarbeitung benötigt. Nachdem der erste große Teil des Skripts in 65ms verarbeitet wurde, könnten wir erwägen, die Ausführung des restlichen Skripts in eine zweite Aufgabe zu unterteilen, wobei diese zweite Aufgabe 80ms zur Ausführung benötigt. Diese Aufteilung der Verarbeitung ist vorzuziehen, anstatt das gesamte Skript als eine einzige Aufgabe auszuführen, da es dem Browser die Möglichkeit gibt, zwischen den Aufgaben Benutzerinteraktionen zu bearbeiten. Dieser Ansatz wird als **yielding** bezeichnet. Um yielding durchzuführen, können Sie beispielsweise nach dem ersten großen Teil des Skripts einen {{domxref("setTimeout()")}} einfügen.
+Betrachten Sie eine JavaScript-Datei, die insgesamt 145ms zur Verarbeitung benötigt. Nachdem der erste große Teil des Skripts in 65ms verarbeitet wurde, könnten wir in Betracht ziehen, die Ausführung des verbleibenden Skripts in eine zweite Aufgabe aufzuteilen, wobei diese zweite Aufgabe 80ms zur Ausführung benötigt. Diese Aufteilung der Verarbeitung ist der Ausführung des gesamten Skripts als eine einzige Aufgabe vorzuziehen, da sie dem Browser die Möglichkeit gibt, zwischen den Aufgaben Benutzerinteraktionen zu bearbeiten. Dieser Ansatz ist bekannt als **yielding**. Als Beispiel können Sie eine [`setTimeout()`](/de/docs/Web/API/SetTimeout)-Funktion nach dem ersten großen Teil des Skripts einfügen, um eine Unterbrechung zu ermöglichen.
 
-Es gibt hier drei Optionen, wie das Skript letztendlich verarbeitet werden könnte:
+Es gibt drei Möglichkeiten, wie das Skript letztendlich verarbeitet werden könnte:
 
-1. Wenn wir nach den ersten 65ms yielding betreiben, kann sich der Browser entscheiden, einen Frame zu rendern, bevor er den Rest des Skripts ausführt.
-2. Alternativ könnte der Browser erst den Rest des Skripts ausführen und dann den Frame rendern.
-3. Wir könnten uns auch entscheiden, **nicht** zu yielding und den Browser das gesamte Skript als eine einzige Aufgabe verarbeiten lassen.
+1. Wenn wir nach den ersten 65ms `yield` anwenden, kann der Browser entscheiden, einen Frame zu rendern, bevor er den Rest des Skripts ausführt.
+2. Alternativ könnte der Browser den Rest des Skripts zuerst ausführen und dann den Frame rendern.
+3. Wir könnten auch entscheiden, **nicht** `yield` anzuwenden und den Browser das gesamte Skript als eine einzige Aufgabe verarbeiten lassen.
 
 > [!NOTE]
-> Der Browser versucht im Allgemeinen, wichtige Aufgaben wie Benutzerinteraktionen und das Rendern neuer Frames bevorzugt zu behandeln, gegenüber weniger wichtigen Aufgaben, die er möglicherweise in der Warteschlange hat. Der Browser _versucht_, alle 16ms einen neuen Frame zu rendern.
+> Der Browser versucht normalerweise, wichtige Aufgaben, wie Benutzerinteraktionen und das Rendern neuer Frames, über weniger wichtige Aufgaben in der Warteschlange zu priorisieren. Der Browser _versucht_, alle 16ms einen neuen Frame zu rendern.
 
-Wie bereits erwähnt, beträgt die Gesamtverarbeitungszeit für das Skript 145ms. Angenommen, die Zeit für das Rendern der UI-Aktualisierung beträgt 10ms, sind die Zeiten für die LoAFs in jeder der drei Optionen wie folgt:
+Wie bereits erwähnt, beträgt die gesamte Verarbeitungszeit für das Skript 145ms. Angenommen, die Zeit für das Rendern des UI-Updates beträgt 10ms, sind die Zeiten für die LoAFs in jeder der drei Optionen wie folgt:
 
 | Option | `duration` (LoAF 1) | `blockingDuration` (LoAF1)        | `duration` (LoAF2) | `blockingDuration` (LoAF2) |
 | ------ | ------------------- | --------------------------------- | ------------------ | -------------------------- |
@@ -33,26 +33,26 @@ Wie bereits erwähnt, beträgt die Gesamtverarbeitungszeit für das Skript 145ms
 | 2      | 145ms (65 + 80)     | 55ms ((65 - 50) + (80 + 10 - 50)) | n/a\*              | n/a\*                      |
 | 3      | 145ms (65 + 80)     | 105ms ((65 + 80) + 10 - 50)       | n/a\*              | n/a\*                      |
 
-`*` In den Optionen 2 und 3 gibt es nur ein einziges LoAF.
+`*` In den Optionen 2 und 3 gibt es nur einen einzigen LoAF.
 
-Beachten Sie, dass die gesamte `blockingDuration` in den ersten beiden Optionen gleich ist (55ms) – in beiden Fällen hat der Browser entschieden, die Arbeit auf unterschiedliche Weise zu unterteilen.
+Beachten Sie, dass die gesamte `blockingDuration` in den ersten beiden Optionen gleich ist (55ms) — in jedem Fall hat sich der Browser entschieden, die Arbeit auf unterschiedliche Weise aufzuteilen.
 
-Option 3 hat jedoch eine viel längere `blockingDuration`, da der Browser vollständig blockiert ist und die lange Aufgabe überhaupt nicht unterbrechen kann. Dies verdeutlicht die Bedeutung der Optimierung langer Aufgaben durch yielding – unabhängig davon, wie der Browser sich entscheidet, die Aufgaben zu handhaben, bleibt die Blocking-Dauer kürzer, als wenn Sie überhaupt nicht yielding.
+Option 3 hingegen hat eine viel längere `blockingDuration`, da der Browser vollständig blockiert ist und die lange Task überhaupt nicht unterbrechen kann. Dies verdeutlicht die Wichtigkeit der Optimierung langer Tasks durch Yielding — unabhängig davon, wie der Browser die Tasks handhabt, wird die Blocking-Dauer immer kürzer sein, als wenn man gar nicht `yields`.
 
 Der Unterschied zwischen `duration` und `blockingDuration` der LoAFs kann wie folgt zusammengefasst werden:
 
-- `duration` ist ein Maß für die gesamte Antwortzeit des LoAFs, was nützlich ist, um zu verstehen, ob das Layout des Frames, das Malen usw. viel Zeit in Anspruch genommen hat.
-- `blockingDuration` ist ein Maß für die gesamte Zeit, in der das LoAF den Hauptthread daran gehindert hat, auf hochpriorisierte Aufgaben wie Benutzerinteraktionen zu reagieren, was dazu führen kann, dass die UI [ruckartig](/de/docs/Glossary/Jank) wirkt. Anders ausgedrückt ist es ein Maß für den Einfluss, den das LoAF auf die Reaktionsfähigkeit hat.
+- `duration` ist ein Maß für die gesamte Antwortzeit des LoAF, was nützlich ist, um zu verstehen, ob das Layout, das Malen etc. des Frames lange gedauert haben.
+- `blockingDuration` ist ein Maß für die gesamte Zeit, in der das LoAF den Haupt-Thread daran gehindert hat, auf hochpriorisierte Aufgaben wie Benutzerinteraktionen zu reagieren, die dazu führen können, dass die Benutzeroberfläche [ruckelig](/de/docs/Glossary/Jank) wirkt. Anders ausgedrückt, es ist ein Maß für die Auswirkungen des LoAF auf die Reaktionsfähigkeit.
 
-Der Grund, warum die `blockingDuration` jeder Aufgabe als `duration - 50ms` berechnet wird, liegt darin, dass Verzögerungen von über 50ms für Benutzer wahrnehmbar werden. Diese Schwelle ist der Punkt, an dem Benutzer beginnen, Trägheit zu bemerken; daher ist es wichtig, die Zeit oberhalb der 50ms-Grenze zu messen, um die Schwere des Janks zu bestimmen. Siehe [Total Blocking Time (TBT)](https://web.dev/articles/tbt) für weitere Details.
+Der Grund, warum `blockingDuration` jeder Aufgabe als `duration - 50ms` berechnet wird, liegt darin, dass Reaktionsverzögerungen von über 50ms für Benutzer wahrnehmbar werden. Diese Schwelle ist der Punkt, an dem Benutzer Trägheit bemerken; daher ist die Zeit über dieser 50ms-Marke wichtig, um das Ausmaß des Ruckelns zu bestimmen. Weitere Details finden Sie unter [Total Blocking Time (TBT)](https://web.dev/articles/tbt).
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Sehen Sie sich [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API an.
 
 ## Spezifikationen
 
@@ -65,5 +65,5 @@ Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animat
 ## Siehe auch
 
 - [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
-- {{domxref("PerformanceScriptTiming")}}
+- [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)
 - [Optimize long tasks](https://web.dev/articles/optimize-long-tasks) auf web.dev (2024)

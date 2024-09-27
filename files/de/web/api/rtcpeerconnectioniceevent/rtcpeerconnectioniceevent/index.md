@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Der **`RTCPeerConnectionIceEvent()`** Konstruktor erstellt ein neues
-{{domxref("RTCPeerConnectionIceEvent")}} Objekt.
+Der **`RTCPeerConnectionIceEvent()`**-Konstruktor erstellt ein neues [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent)-Objekt.
 
 ## Syntax
 
@@ -20,21 +19,17 @@ new RTCPeerConnectionIceEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Events.
-    Er ist groß- und kleinschreibungssensitiv und Browser setzen ihn immer auf `icecandidate`.
+  - : Ein String mit dem Namen des Ereignisses. Es ist case-sensitive, und Browser setzen es immer auf `icecandidate`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das, _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_, die folgenden Eigenschaften haben kann:
     - `candidate`
-      - : Ein {{domxref("RTCIceCandidate")}}, der den betreffenden ICE-Kandidaten im Event darstellt.
-        Ist dieser `null`, zeigt das Event das Ende der Kandidatensammlung an.
+      - : Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der den durch das Ereignis betroffenen ICE-Kandidaten repräsentiert. Wenn `null`, zeigt das Ereignis das Ende der Kandidatensammlung an.
     - `url`
-      - : Ein String, der die URL des STUN- oder TURN-Servers enthält, der zur Sammlung des Kandidaten verwendet wurde.
-        Wurde der Kandidat nicht von einem {{Glossary("STUN")}} oder {{Glossary("TURN")}} Server gesammelt,
-        muss dieser Wert `null` sein, was auch der Standardwert ist.
+      - : Ein String, der die URL des STUN- oder TURN-Servers enthält, der zur Sammlung des Kandidaten verwendet wurde. Wenn der Kandidat nicht von einem [STUN](/de/docs/Glossary/STUN) oder [TURN](/de/docs/Glossary/TURN) Server gesammelt wurde, muss dieser Wert `null` sein, was ebenfalls der Standardwert ist.
 
 ### Rückgabewert
 
-Ein neues {{domxref("RTCPeerConnectionIceEvent")}} Objekt, das wie in den übergebenen Optionen angegeben konfiguriert ist.
+Ein neues [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent)-Objekt, konfiguriert wie in den bereitgestellten Optionen angegeben.
 
 ## Spezifikationen
 
@@ -47,4 +42,4 @@ Ein neues {{domxref("RTCPeerConnectionIceEvent")}} Objekt, das wie in den überg
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- Das übliche Ziel: {{domxref("RTCPeerConnection")}}.
+- Sein übliches Ziel: [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).

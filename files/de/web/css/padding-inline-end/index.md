@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}
 
-Die **`padding-inline-end`**-Eigenschaft von [CSS](/de/docs/Web/CSS) definiert den logischen Inline-End-Abstand eines Elements, welcher abhängig von der Schreibrichtung, Richtung und Textausrichtung des Elements zu einem physischen Abstand umgewandelt wird.
+Die **`padding-inline-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Inline-End-Abstand eines Elements, der in einen physikalischen Abstand umgewandelt wird, abhängig vom Schreibmodus, der Richtung und der Textorientierung des Elements.
 
 {{EmbedInteractiveExample("pages/css/padding-inline-end.html")}}
 
 ## Syntax
 
 ```css
-/* <length> Werte */
-padding-inline-end: 10px; /* Eine absolute Länge */
-padding-inline-end: 1em; /* Eine Länge relativ zur Textgröße */
+/* <length> values */
+padding-inline-end: 10px; /* An absolute length */
+padding-inline-end: 1em; /* A length relative to the text size */
 
-/* <percentage> Wert */
-padding-inline-end: 5%; /* Ein Abstand relativ zur Breite des Blockcontainers */
+/* <percentage> value */
+padding-inline-end: 5%; /* A padding relative to the block container's width */
 
-/* Globale Werte */
+/* Global values */
 padding-inline-end: inherit;
 padding-inline-end: initial;
 padding-inline-end: revert;
@@ -32,15 +32,15 @@ padding-inline-end: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Abstands als fester Wert. Muss nicht-negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Abstands als Prozentsatz, relativ zur [inline-size](/de/docs/Web/CSS/CSS_flow_layout/Block_and_inline_layout_in_normal_flow) (_Breite_ in einer horizontalen Sprache) des [umschließenden Blocks](/de/docs/Web/CSS/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Abstands als Prozentsatz, relativ zur [inline-size](/de/docs/Web/CSS/CSS_flow_layout/Block_and_inline_layout_in_normal_flow) (_Breite_ in einer horizontalen Sprache) des [enthältenden Blocks](/de/docs/Web/CSS/Containing_block). Muss nicht-negativ sein.
 
 ## Beschreibung
 
-Die `padding-inline-end`-Eigenschaft ist in der Spezifikation so definiert, dass sie die gleichen Werte wie die {{cssxref("padding-top")}}-Eigenschaft annimmt. Das physische Attribut, dem sie zugeordnet wird, hängt jedoch von den festgelegten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} ab. Daher könnte sie {{cssxref("padding-bottom")}}, {{cssxref("padding-right")}} oder {{cssxref("padding-left")}} zugeordnet werden.
+Die `padding-inline-end` Eigenschaft wird in der Spezifikation definiert, dieselben Werte wie die {{cssxref("padding-top")}} Eigenschaft anzunehmen. Das physikalische Attribut, dem die Eigenschaft zugeordnet wird, hängt jedoch von den festgelegten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} ab. Daher könnte sie auf {{cssxref("padding-bottom")}}, {{cssxref("padding-right")}} oder {{cssxref("padding-left")}} abgebildet werden.
 
-Sie bezieht sich auf {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}} und {{cssxref("padding-inline-start")}}, die die anderen Abstände des Elements definieren.
+Sie steht in Bezug zu {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}} und {{cssxref("padding-inline-start")}}, die die anderen Abstände des Elements definieren.
 
 ## Formale Definition
 
@@ -52,7 +52,7 @@ Sie bezieht sich auf {{cssxref("padding-block-start")}}, {{cssxref("padding-bloc
 
 ## Beispiele
 
-### Einstellen des Inline-End-Abstands für vertikalen Text
+### Festlegen des Inline-End-Abstands für vertikalen Text
 
 #### HTML
 

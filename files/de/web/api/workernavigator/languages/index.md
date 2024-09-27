@@ -1,5 +1,5 @@
 ---
-title: "WorkerNavigator: languages Eigenschaft"
+title: "WorkerNavigator: languages-Eigenschaft"
 short-title: languages
 slug: Web/API/WorkerNavigator/languages
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte Eigenschaft **`WorkerNavigator.languages`** gibt ein Array von Zeichenfolgen zurück, die die bevorzugten Sprachen des Benutzers darstellen. Die Sprache wird unter Verwendung von Sprach-Tags gemäß {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} beschrieben. Im zurückgegebenen Array sind sie nach Vorliebe geordnet, wobei die am meisten bevorzugte Sprache zuerst steht.
+Die **`WorkerNavigator.languages`**-Eigenschaft, die nur lesbar ist, gibt ein Array von Strings zurück, die die bevorzugten Sprachen des Benutzers repräsentieren. Die Sprache wird mit Hilfe von Sprach-Tags beschrieben gemäß {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}}. Im zurückgegebenen Array sind sie nach Präferenz geordnet, wobei die bevorzugteste Sprache zuerst steht.
 
-Der Wert von {{domxref("WorkerNavigator.language","navigator.language")}} ist das erste Element des zurückgegebenen Arrays.
+Der Wert von [`navigator.language`](/de/docs/Web/API/WorkerNavigator/language) entspricht dem ersten Element des zurückgegebenen Arrays.
 
-Wenn sich dieser Wert ändert, da die bevorzugten Sprachen des Benutzers geändert werden, wird ein {{domxref("Window.languagechange_event", "languagechange")}}-Ereignis auf dem {{domxref("WorkerGlobalScope")}}-Objekt ausgelöst.
+Wenn sich der Wert ändert, da die bevorzugten Sprachen des Benutzers geändert werden, wird ein [`languagechange`](/de/docs/Web/API/Window/languagechange_event)-Ereignis auf dem [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Objekt ausgelöst.
 
-Der `Accept-Language` HTTP-Header in jeder HTTP-Anfrage vom Browser des Benutzers verwendet denselben Wert für die `navigator.languages`-Eigenschaft, abgesehen vom zusätzlichen `qvalues` (Qualitätswert) Feld (z. B. `en-US;q=0.8`).
+Der HTTP-Header `Accept-Language` in jeder HTTP-Anfrage des Browsers des Benutzers verwendet denselben Wert wie die `navigator.languages`-Eigenschaft, außer für das zusätzliche `qvalues`-Feld (Qualitätswerte), z. B. `en-US;q=0.8`.
 
 ## Wert
 
-Ein Array oder Zeichenfolgen.
+Ein Array oder Strings.
 
 ## Beispiele
 
-Sie können dies in einem Web Worker ausführen:
+Sie können dies in einem Web-Worker ausführen:
 
 ```js
 navigator.language; //"en-US"
@@ -39,6 +39,6 @@ navigator.languages; //["en-US", "zh-CN", "ja-JP"]
 
 ## Siehe auch
 
-- {{domxref("WorkerNavigator.language")}}
-- {{domxref("WorkerNavigator")}}
-- {{domxref("WorkerGlobalScope.languagechange_event", "languagechange")}}-Ereignis
+- [`WorkerNavigator.language`](/de/docs/Web/API/WorkerNavigator/language)
+- [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)
+- [`languagechange`](/de/docs/Web/API/WorkerGlobalScope/languagechange_event)-Ereignis

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`KeyboardEvent.altKey`** schreibgeschützte Eigenschaft ist ein boolean-Wert, der angibt, ob die <kbd>alt</kbd>-Taste (auf macOS <kbd>Option</kbd> oder <kbd>⌥</kbd>) gedrückt war (`true`) oder nicht (`false`), als das Ereignis auftrat.
+Die schreibgeschützte Eigenschaft **`KeyboardEvent.altKey`** ist ein boolescher Wert, der angibt, ob die <kbd>alt</kbd>-Taste (<kbd>Option</kbd> oder <kbd>⌥</kbd> auf macOS) gedrückt wurde (`true`) oder nicht (`false`), als das Ereignis auftrat.
 
 ## Wert
 
-Ein boolean-Wert.
+Ein boolescher Wert.
 
 ## Beispiele
 
@@ -43,8 +43,8 @@ Ein boolean-Wert.
 
   <body onkeydown="showChar(event);">
     <p>
-      Drücken Sie eine beliebige Zeichentaste, mit oder ohne gedrückte ALT-Taste.<br />
-      Sie können auch die SHIFT-Taste zusammen mit der ALT-Taste verwenden.
+      Press any character key, with or without holding down the ALT key.<br />
+      You can also use the SHIFT key together with the ALT key.
     </p>
   </body>
 </html>
@@ -60,4 +60,4 @@ Ein boolean-Wert.
 
 ## Siehe auch
 
-- {{ domxref("KeyboardEvent") }}
+- [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)

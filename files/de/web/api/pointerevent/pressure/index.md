@@ -8,29 +8,28 @@ l10n:
 
 {{ APIRef("Pointer Events") }}
 
-Die schreibgeschützte Eigenschaft **`pressure`** der
-{{domxref("PointerEvent")}}-Schnittstelle gibt den normalisierten Druck der Zeigereingabe an.
+Die **`pressure`**-Eigenschaft der schreibgeschützten [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle zeigt den normalisierten Druck des Zeigereingangs an.
 
 ## Wert
 
-Der normalisierte Druck der Zeigereingabe im Bereich von `0` bis `1`, einschließlich, wobei `0` und `1` den minimalen und maximalen Druck darstellen, den die Hardware erkennen kann. Für Hardware, die keinen Druck unterstützt, wie z.B. eine Maus, beträgt der Wert `0.5`, wenn der Zeiger im aktiven Tastenstatus ist, und ansonsten `0`.
+Der normalisierte Druck des Zeigereingangs im Bereich von `0` bis `1`, inklusive, wobei `0` und `1` den minimalen bzw. maximalen Druck darstellen, den die Hardware erkennen kann. Bei Hardware, die keinen Druck unterstützt, wie z.B. eine Maus, ist der Wert `0.5`, wenn der Zeiger aktiv in den Tastenstatus ist, und `0` andernfalls.
 
 ## Beispiele
 
-In diesem Codebeispiel werden bei einem {{domxref("Element/pointerdown_event", "pointerdown")}}-Ereignis unterschiedliche Funktionen aufgerufen, abhängig vom Wert der `pressure`-Eigenschaft des Ereignisses.
+In diesem Codeausschnitt wird, wenn ein [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)-Ereignis ausgelöst wird, je nach Wert der `pressure`-Eigenschaft des Ereignisses, eine andere Funktion aufgerufen.
 
 ```js
 someElement.addEventListener(
   "pointerdown",
   (event) => {
     if (event.pressure === 0) {
-      // Kein Druck
+      // No pressure
       process_no_pressure(event);
     } else if (event.pressure === 1) {
-      // Maximaler Druck
+      // Maximum pressure
       process_max_pressure(event);
     } else {
-      // Standard
+      // Default
       process_pressure(event);
     }
   },
@@ -48,4 +47,4 @@ someElement.addEventListener(
 
 ## Siehe auch
 
-- {{ domxref("Touch.force") }}
+- [`Touch.force`](/de/docs/Web/API/Touch/force)

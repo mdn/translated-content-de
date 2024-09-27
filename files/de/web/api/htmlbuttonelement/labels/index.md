@@ -8,12 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`HTMLButtonElement.labels`** schreibgeschützte Eigenschaft gibt eine
-{{domxref("NodeList")}} der mit dem {{HTMLElement("button")}}-Element verknüpften {{HTMLElement("label")}}-Elemente zurück.
+Die schreibgeschützte Eigenschaft **`HTMLButtonElement.labels`** gibt eine
+[`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem
+{{HTMLElement("button")}}-Element verknüpft sind.
 
 ## Wert
 
-Eine {{domxref("NodeList")}}, die die mit dem `<button>`-Element verknüpften `<label>`-Elemente enthält.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<button>`-Element verknüpft sind.
 
 ## Beispiele
 

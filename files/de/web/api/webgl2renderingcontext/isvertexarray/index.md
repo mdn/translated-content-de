@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: isVertexArray()-Methode"
+title: "WebGL2RenderingContext: isVertexArray() Methode"
 short-title: isVertexArray()
 slug: Web/API/WebGL2RenderingContext/isVertexArray
 l10n:
@@ -8,8 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.isVertexArray()`**-Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein gültiges {{domxref("WebGLVertexArrayObject")}}-Objekt ist.
+Die **`WebGL2RenderingContext.isVertexArray()`** Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das
+übergebene Objekt ein gültiges [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) Objekt ist.
 
 ## Syntax
 
@@ -20,12 +21,13 @@ isVertexArray(vertexArray)
 ### Parameter
 
 - `vertexArray`
-  - : Ein {{domxref("WebGLVertexArrayObject")}} (VAO)-Objekt, das getestet werden soll.
+  - : Ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) (VAO) Objekt, das getestet werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob das gegebene Objekt ein gültiges
-{{domxref("WebGLVertexArrayObject")}}-Objekt (`true`) oder nicht (`false`) ist.
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der anzeigt, ob das gegebene Objekt ein gültiges
+[`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) Objekt ist (`true`) oder nicht
+(`false`).
 
 ## Beispiele
 
@@ -48,4 +50,4 @@ gl.isVertexArray(vao);
 
 ## Siehe auch
 
-- {{domxref("WebGLVertexArrayObject")}}
+- [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)

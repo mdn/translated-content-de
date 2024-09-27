@@ -3,12 +3,12 @@ title: "TextEncoder: TextEncoder() Konstruktor"
 short-title: TextEncoder()
 slug: Web/API/TextEncoder/TextEncoder
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
 ---
 
-{{APIRef("Encoding API")}}
+{{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Der **`TextEncoder()`** Konstruktor gibt ein neu erstelltes {{DOMxRef("TextEncoder")}} Objekt zurück, das einen Bytestrom mit UTF-8-Kodierung erzeugt.
+Der **`TextEncoder()`** Konstruktor gibt ein neu erstelltes [`TextEncoder`](/de/docs/Web/API/TextEncoder) Objekt zurück, das einen Bytestrom mit UTF-8-Codierung generieren wird.
 
 ## Syntax
 
@@ -30,4 +30,4 @@ Keine.
 
 ## Siehe auch
 
-- Das {{DOMxRef("TextEncoder")}} Interface, zu dem es gehört.
+- Das [`TextEncoder`](/de/docs/Web/API/TextEncoder) Interface, zu dem es gehört.

@@ -1,5 +1,5 @@
 ---
-title: Erste Schritte im Web
+title: Einführung in das Web
 slug: Learn/Getting_started_with_the_web
 l10n:
   sourceCommit: 33d92d501901ca505f1d33f914531753ca289f2e
@@ -7,52 +7,52 @@ l10n:
 
 {{LearnSidebar}}
 
-_Erste Schritte im Web_ ist eine kurze Serie, die Sie in die praktischen Aspekte der Webentwicklung einführt. Sie richten die Werkzeuge ein, die Sie benötigen, um eine einfache Webseite zu erstellen und Ihren eigenen einfachen Code zu veröffentlichen.
+_Einführung in das Web_ ist eine kurze Serie, die Sie in die praktischen Aspekte der Webentwicklung einführt. Sie werden die Werkzeuge einrichten, die Sie benötigen, um eine einfache Webseite zu erstellen und Ihren eigenen einfachen Code zu veröffentlichen.
 
 ## Die Geschichte Ihrer ersten Website
 
-Es ist viel Arbeit, eine professionelle Website zu erstellen. Wenn Sie also neu in der Webentwicklung sind, empfehlen wir Ihnen, klein anzufangen. Sie werden nicht sofort ein weiteres Facebook bauen, aber es ist nicht schwer, Ihre eigene einfache Website online zu erstellen, also fangen wir dort an.
+Es erfordert viel Arbeit, eine professionelle Website zu erstellen, daher ermutigen wir Sie, wenn Sie neu in der Webentwicklung sind, klein anzufangen. Sie werden nicht sofort ein weiteres Facebook erstellen, aber es ist nicht schwer, eine eigene einfache Website online zu stellen, also beginnen wir damit.
 
-## Anleitungen
+## Leitfaden
 
-Wenn Sie die unten aufgeführten Artikel durcharbeiten, gelangen Sie von nichts zu Ihrer ersten Webseite online. Beginnen wir unsere Reise!
+Indem Sie die unten aufgeführten Artikel durcharbeiten, werden Sie von nichts zu Ihrer ersten Webseite gelangen. Beginnen wir unsere Reise!
 
 - [Installation grundlegender Software](/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software)
 
-  - : Es gibt eine Vielzahl von Werkzeugen, aus denen Sie beim Erstellen einer Website auswählen können. Wenn Sie gerade erst anfangen, könnten Sie von der Vielzahl der verfügbaren Code-Editoren, Frameworks und Testtools verwirrt sein. In diesem Artikel zeigen wir Ihnen Schritt für Schritt, wie Sie die Software installieren, die Sie benötigen, um mit der grundlegenden Webentwicklung zu beginnen.
+  - : Wenn es um Werkzeuge zum Erstellen einer Website geht, gibt es viel zur Auswahl. Wenn Sie gerade erst anfangen, könnten Sie durch die Vielzahl von Code-Editoren, Frameworks und Testwerkzeugen verwirrt sein. In diesem Artikel zeigen wir Ihnen Schritt für Schritt, wie Sie die Software installieren, die Sie für den Einstieg in die Webentwicklung benötigen.
 
 - [Wie wird Ihre Website aussehen?](/de/docs/Learn/Getting_started_with_the_web/What_will_your_website_look_like)
 
-  - : Bevor Sie den Code für Ihre Website schreiben, sollten Sie sie zuerst planen. Welche Informationen stellen Sie dar? Welche Schriftarten und Farben verwenden Sie? Hier skizzieren wir eine einfache Methode, der Sie folgen können, um den Inhalt und das Design Ihrer Seite zu planen.
+  - : Bevor Sie mit dem Schreiben des Codes für Ihre Website beginnen, sollten Sie diese zuerst planen. Welche Informationen zeigen Sie an? Welche Schriftarten und Farben verwenden Sie? Hier skizzieren wir eine einfache Methode, die Sie befolgen können, um den Inhalt und das Design Ihrer Website zu planen.
 
 - [Umgang mit Dateien](/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files)
 
-  - : Eine Website besteht aus vielen Dateien: Textinhalte, Code, Stylesheets, Mediainhalte usw. Wenn Sie eine Website bauen, müssen Sie diese Dateien in einer sinnvollen Struktur zusammenstellen und sicherstellen, dass sie miteinander kommunizieren können. Dieser Artikel erklärt, wie Sie eine sinnvolle Dateistruktur für Ihre Website einrichten und auf welche Probleme Sie achten sollten.
+  - : Eine Website besteht aus vielen Dateien: Textinhalte, Code, Stylesheets, Mediendateien und so weiter. Wenn Sie eine Website erstellen, müssen Sie diese Dateien in eine sinnvolle Struktur zusammenfügen und sicherstellen, dass sie miteinander kommunizieren können. Dieser Artikel erklärt, wie Sie eine sinnvolle Dateistruktur für Ihre Website einrichten und auf welche Probleme Sie achten sollten.
 
 - [HTML-Grundlagen](/de/docs/Learn/Getting_started_with_the_web/HTML_basics)
 
-  - : HyperText Markup Language (HTML) ist der Code, den Sie verwenden, um Ihre Webinhalte zu strukturieren und ihnen Bedeutung und Zweck zu verleihen. Zum Beispiel: Sind meine Inhalte eine Reihe von Absätzen oder eine Liste mit Aufzählungspunkten? Habe ich Bilder auf meiner Seite eingefügt? Habe ich eine Datentabelle? Ohne Sie zu überfordern, liefert dieser Artikel genug Informationen, um Sie mit HTML vertraut zu machen.
+  - : HyperText Markup Language (HTML) ist der Code, den Sie verwenden, um Ihre Webinhalte zu strukturieren und ihnen Bedeutung und Zweck zu geben. Zum Beispiel: Ist mein Inhalt eine Reihe von Absätzen oder eine Liste von Aufzählungspunkten? Habe ich Bilder auf meiner Seite eingefügt? Habe ich eine Datentabelle? Ohne Sie zu überwältigen, bietet dieser Artikel genügend Informationen, um Ihnen HTML näherzubringen.
 
 - [CSS-Grundlagen](/de/docs/Learn/Getting_started_with_the_web/CSS_basics)
 
-  - : Cascading Style Sheets (CSS) ist der Code, den Sie verwenden, um Ihre Website zu gestalten. Zum Beispiel: Soll der Text schwarz oder rot sein? Wo soll der Inhalt auf dem Bildschirm angezeigt werden? Welche Hintergrundbilder und -farben sollen zur Dekoration Ihrer Website verwendet werden? In diesem Artikel führen wir Sie durch das, was Sie benötigen, um loszulegen.
+  - : Cascading Style Sheets (CSS) ist der Code, den Sie verwenden, um Ihre Website zu gestalten. Beispielsweise: Soll der Text schwarz oder rot sein? Wo soll der Inhalt auf dem Bildschirm angezeigt werden? Welche Hintergrundbilder und -farben sollen verwendet werden, um Ihre Website zu dekorieren? In diesem Artikel führen wir Sie durch die Grundlagen, die Sie zum Starten benötigen.
 
 - [JavaScript-Grundlagen](/de/docs/Learn/Getting_started_with_the_web/JavaScript_basics)
 
-  - : JavaScript ist die Programmiersprache, die Sie verwenden, um interaktive Funktionen zu Ihrer Website hinzuzufügen. Einige Beispiele könnten Spiele sein, Aktionen, die ausgeführt werden, wenn Schaltflächen gedrückt werden oder Daten in Formulare eingegeben werden, dynamische Stileffekte, Animationen und vieles mehr. In diesem Artikel geben wir Ihnen einen Einblick, was mit dieser aufregenden Sprache möglich ist und wie Sie anfangen können.
+  - : JavaScript ist die Programmiersprache, die Sie verwenden, um interaktive Funktionen zu Ihrer Website hinzuzufügen. Einige Beispiele könnten Spiele sein, Ereignisse, die auftreten, wenn Tasten gedrückt oder Daten in Formulare eingegeben werden, dynamische Gestaltungseffekte, Animationen und vieles mehr. In diesem Artikel geben wir Ihnen einen Einblick in die Möglichkeiten dieser aufregenden Sprache und wie Sie damit beginnen können.
 
 - [Veröffentlichen Ihres Beispielcodes](/de/docs/Learn/Getting_started_with_the_web/Publishing_your_website)
 
-  - : Sobald Sie den Code geschrieben und die Dateien organisiert haben, die Ihre Website ausmachen, müssen Sie alles online stellen, damit Leute es finden können. Dieser Artikel beschreibt, wie Sie Ihren einfachen Beispielcode mit minimalem Aufwand online stellen können.
+  - : Sobald Sie den Code geschrieben und die Dateien organisiert haben, die Ihre Website ausmachen, müssen Sie alles online stellen, damit Leute sie finden können. Dieser Artikel beschreibt, wie Sie Ihren einfachen Beispielcode mit minimalem Aufwand online stellen.
 
 - [Wie das Web funktioniert](/de/docs/Learn/Getting_started_with_the_web/How_the_Web_works)
-  - : Wenn Sie Ihre Lieblingswebsite aufrufen, passieren im Hintergrund viele komplizierte Dinge, von denen Sie möglicherweise nichts wissen. Hier skizzieren wir, was passiert, wenn Sie eine Webseite auf Ihrem Computer ansehen.
+  - : Wenn Sie auf Ihre Lieblingswebsite zugreifen, passiert im Hintergrund viel Kompliziertes, von dem Sie möglicherweise nichts wissen. Hier skizzieren wir, was passiert, wenn Sie eine Webseite auf Ihrem Computer anzeigen.
 
 ## Siehe auch
 
-- [Der Karrierepfad des Frontend-Entwicklers](https://v2.scrimba.com/the-frontend-developer-career-path-c0j?via=mdn) <sup>_MDN Curriculum-Partner_</sup>
-  - : [Scrimbas](https://scrimba.com?via=mdn) _Karrierepfad für Frontend-Entwickler_ lehrt alles, was Sie wissen müssen, um ein kompetenter Frontend-Webentwickler zu werden, mit unterhaltsamen interaktiven Lektionen und Herausforderungen, sachkundigen Lehrern und einer unterstützenden Gemeinschaft. Gehen Sie von null zu Ihrem ersten Frontend-Job! Viele der Kurselemente sind als eigenständige kostenlose Versionen verfügbar.
-- [Web demystified](https://www.youtube.com/playlist?list=PLo3w8EB99pqLEopnunz-dOOBJ8t-Wgt2g)
-  - : Eine großartige Videoserie, die die Grundlagen des Webs erklärt, die sich an absolute Anfänger in der Webentwicklung richtet. Erstellt von [Jérémie Patonnier](https://github.com/JeremiePat).
+- [Der Karriereweg des Frontend-Entwicklers](https://v2.scrimba.com/the-frontend-developer-career-path-c0j?via=mdn) <sup>_MDN Curriculum Partner_</sup>
+  - : Der _Frontend Developer Career Path_ von [Scrimba](https://scrimba.com?via=mdn) lehrt alles, was Sie wissen müssen, um ein fähiger Front-End-Webentwickler zu sein, mit unterhaltsamen interaktiven Lektionen und Herausforderungen, kenntnisreichen Lehrern und einer unterstützenden Community. Gehen Sie von Null zum ersten Front-End-Job! Viele der Kurskomponenten sind als eigenständige kostenlose Versionen verfügbar.
+- [Web Entmystifiziert](https://www.youtube.com/playlist?list=PLo3w8EB99pqLEopnunz-dOOBJ8t-Wgt2g)
+  - : Eine großartige Serie von Videos, die Web-Grundlagen erklärt, für absolute Anfänger in der Webentwicklung. Erstellt von [Jérémie Patonnier](https://github.com/JeremiePat).
 - [Das Web und Webstandards](/de/docs/Learn/Getting_started_with_the_web/The_web_and_web_standards)
-  - : Dieser Artikel bietet einige nützliche Hintergrundinformationen über das Web - wie es entstanden ist, was Webstandard-Technologien sind, wie sie zusammenarbeiten, warum "Webentwickler" eine großartige Karrierewahl ist und welche Best Practices Sie im Laufe des Kurses lernen werden.
+  - : Dieser Artikel bietet einige nützliche Hintergrundinformationen zum Web — wie es entstanden ist, was Webstandard-Technologien sind, wie sie zusammenarbeiten, warum "Webentwickler" eine großartige Karrierewahl ist und welche Best Practices Sie im Verlauf lernen werden.

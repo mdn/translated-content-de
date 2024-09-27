@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`transformer`**-Eigenschaft der {{domxref("RTCTransformEvent")}}-Schnittstelle gibt den mit dem Ereignis verbundenen {{domxref("RTCRtpScriptTransformer")}} zurück.
+Die schreibgeschützte **`transformer`**-Eigenschaft des [`RTCTransformEvent`](/de/docs/Web/API/RTCTransformEvent)-Interfaces gibt den [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer) zurück, der mit dem Ereignis verbunden ist.
 
-Die Eigenschaft stellt die WebRTC-Sender- oder Empfänger-Pipeline als lesbaren und schreibbaren Stream von kodierten Medienrahmen dar, in die sich ein [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) einfügen kann, um Rahmen zu modifizieren.
+Diese Eigenschaft stellt die WebRTC-Sender- oder -Empfänger-Pipeline als lesbaren und beschreibbaren Stream von kodierten Medienframes dar. Ein [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) kann sich in diesen Stream einfügen, um Frames zu modifizieren.
 
 ## Wert
 
-Ein {{domxref("RTCRtpScriptTransformer")}}.
+Ein [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer).
 
 ## Spezifikationen
 

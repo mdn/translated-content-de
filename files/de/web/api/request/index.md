@@ -1,5 +1,5 @@
 ---
-title: Anfrage
+title: Request
 slug: Web/API/Request
 l10n:
   sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
@@ -7,69 +7,69 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`Request`**-Schnittstelle der [Fetch API](/de/docs/Web/API/Fetch_API) repräsentiert eine Ressourcenanfrage.
+Das **`Request`**-Interface der [Fetch API](/de/docs/Web/API/Fetch_API) repräsentiert eine Ressourcenanfrage.
 
-Sie können ein neues `Request`-Objekt mit dem {{domxref("Request.Request","Request()")}}-Konstruktor erstellen. Es ist jedoch wahrscheinlicher, dass Sie ein `Request`-Objekt als Ergebnis einer anderen API-Operation antreffen, wie zum Beispiel eines Service-Workers {{domxref("FetchEvent.request")}}.
+Sie können ein neues `Request`-Objekt mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor erstellen, aber es ist wahrscheinlicher, dass Sie auf ein `Request`-Objekt stoßen, das als Ergebnis einer anderen API-Operation zurückgegeben wird, wie z.B. ein Dienstarbeiter [`FetchEvent.request`](/de/docs/Web/API/FetchEvent/request).
 
 ## Konstruktor
 
-- {{domxref("Request.Request","Request()")}}
+- [`Request()`](/de/docs/Web/API/Request/Request)
   - : Erstellt ein neues `Request`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("Request.body")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("ReadableStream")}} des Körperinhalts.
-- {{domxref("Request.bodyUsed")}} {{ReadOnlyInline}}
-  - : Speichert `true` oder `false`, um anzuzeigen, ob der Body bereits in einer Anfrage verwendet wurde.
-- {{domxref("Request.cache")}} {{ReadOnlyInline}}
-  - : Enthält den Cache-Modus der Anfrage (z. B. `default`, `reload`, `no-cache`).
-- {{domxref("Request.credentials")}} {{ReadOnlyInline}}
-  - : Enthält die Anmeldeinformationen der Anfrage (z. B. `omit`, `same-origin`, `include`). Der Standardwert ist `same-origin`.
-- {{domxref("Request.destination")}} {{ReadOnlyInline}}
+- [`Request.body`](/de/docs/Web/API/Request/body) {{ReadOnlyInline}}
+  - : Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) der Inhaltsdaten.
+- [`Request.bodyUsed`](/de/docs/Web/API/Request/bodyUsed) {{ReadOnlyInline}}
+  - : Speichert `true` oder `false`, um anzuzeigen, ob der Body in einer Anfrage bereits verwendet wurde oder nicht.
+- [`Request.cache`](/de/docs/Web/API/Request/cache) {{ReadOnlyInline}}
+  - : Enthält den Cache-Modus der Anfrage (z.B. `default`, `reload`, `no-cache`).
+- [`Request.credentials`](/de/docs/Web/API/Request/credentials) {{ReadOnlyInline}}
+  - : Enthält die Anmeldedaten der Anfrage (z.B. `omit`, `same-origin`, `include`). Der Standardwert ist `same-origin`.
+- [`Request.destination`](/de/docs/Web/API/Request/destination) {{ReadOnlyInline}}
   - : Ein String, der den Typ des angeforderten Inhalts beschreibt.
-- {{domxref("Request.headers")}} {{ReadOnlyInline}}
-  - : Enthält das zugehörige {{domxref("Headers")}}-Objekt der Anfrage.
-- {{domxref("Request.integrity")}} {{ReadOnlyInline}}
-  - : Enthält den [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)-Wert der Anfrage (z. B. `sha256-BpfBw7ivV8q2jLiT13fxDYAe2tJllusRSZ273h2nFSE=`).
-- {{domxref("Request.method")}} {{ReadOnlyInline}}
-  - : Enthält die Methode der Anfrage (`GET`, `POST`, etc.).
-- {{domxref("Request.mode")}} {{ReadOnlyInline}}
-  - : Enthält den Modus der Anfrage (z. B. `cors`, `no-cors`, `same-origin`, `navigate`).
-- {{domxref("Request.redirect")}} {{ReadOnlyInline}}
-  - : Enthält den Modus, wie Weiterleitungen behandelt werden. Es kann `follow`, `error` oder `manual` sein.
-- {{domxref("Request.referrer")}} {{ReadOnlyInline}}
-  - : Enthält den Referrer der Anfrage (z. B. `client`).
-- {{domxref("Request.referrerPolicy")}} {{ReadOnlyInline}}
-  - : Enthält die Referrer-Richtlinie der Anfrage (z. B. `no-referrer`).
-- {{domxref("Request.signal")}} {{ReadOnlyInline}}
-  - : Gibt das mit der Anfrage verbundene {{domxref("AbortSignal")}} zurück.
-- {{domxref("Request.url")}} {{ReadOnlyInline}}
+- [`Request.headers`](/de/docs/Web/API/Request/headers) {{ReadOnlyInline}}
+  - : Enthält das zugehörige [`Headers`](/de/docs/Web/API/Headers)-Objekt der Anfrage.
+- [`Request.integrity`](/de/docs/Web/API/Request/integrity) {{ReadOnlyInline}}
+  - : Enthält den [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)-Wert der Anfrage (z.B. `sha256-BpfBw7ivV8q2jLiT13fxDYAe2tJllusRSZ273h2nFSE=`).
+- [`Request.method`](/de/docs/Web/API/Request/method) {{ReadOnlyInline}}
+  - : Enthält die Methode der Anfrage (`GET`, `POST`, etc.)
+- [`Request.mode`](/de/docs/Web/API/Request/mode) {{ReadOnlyInline}}
+  - : Enthält den Modus der Anfrage (z.B. `cors`, `no-cors`, `same-origin`, `navigate`).
+- [`Request.redirect`](/de/docs/Web/API/Request/redirect) {{ReadOnlyInline}}
+  - : Enthält den Modus, wie Umleitungen behandelt werden. Es kann einer von `follow`, `error` oder `manual` sein.
+- [`Request.referrer`](/de/docs/Web/API/Request/referrer) {{ReadOnlyInline}}
+  - : Enthält den Referrer der Anfrage (z.B. `client`).
+- [`Request.referrerPolicy`](/de/docs/Web/API/Request/referrerPolicy) {{ReadOnlyInline}}
+  - : Enthält die Referrer-Policy der Anfrage (z.B. `no-referrer`).
+- [`Request.signal`](/de/docs/Web/API/Request/signal) {{ReadOnlyInline}}
+  - : Gibt das [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück, das der Anfrage zugeordnet ist.
+- [`Request.url`](/de/docs/Web/API/Request/url) {{ReadOnlyInline}}
   - : Enthält die URL der Anfrage.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("Request.arrayBuffer()")}}
-  - : Gibt ein Promise zurück, das mit einer {{jsxref("ArrayBuffer")}}-Darstellung des Anfragetextes erfüllt wird.
-- {{domxref("Request.blob()")}}
-  - : Gibt ein Promise zurück, das mit einer {{domxref("Blob")}}-Darstellung des Anfragetextes erfüllt wird.
-- {{domxref("Request.bytes()")}}
-  - : Gibt ein Promise zurück, das mit einer {{jsxref("Uint8Array")}}-Darstellung des Anfragetextes erfüllt wird.
-- {{domxref("Request.clone()")}}
+- [`Request.arrayBuffer()`](/de/docs/Web/API/Request/arrayBuffer)
+  - : Gibt ein Promise zurück, das mit einer {{jsxref("ArrayBuffer")}}-Darstellung des Anfragetextes aufgelöst wird.
+- [`Request.blob()`](/de/docs/Web/API/Request/blob)
+  - : Gibt ein Promise zurück, das mit einer [`Blob`](/de/docs/Web/API/Blob)-Darstellung des Anfragetextes aufgelöst wird.
+- [`Request.bytes()`](/de/docs/Web/API/Request/bytes)
+  - : Gibt ein Promise zurück, das mit einer {{jsxref("Uint8Array")}}-Darstellung des Anfragetextes aufgelöst wird.
+- [`Request.clone()`](/de/docs/Web/API/Request/clone)
   - : Erstellt eine Kopie des aktuellen `Request`-Objekts.
-- {{domxref("Request.formData()")}}
-  - : Gibt ein Promise zurück, das mit einer {{domxref("FormData")}}-Darstellung des Anfragetextes erfüllt wird.
-- {{domxref("Request.json()")}}
-  - : Gibt ein Promise zurück, das mit dem Ergebnis der Analyse des Anfragetextes als {{JSxRef("JSON")}} erfüllt wird.
-- {{domxref("Request.text()")}}
-  - : Gibt ein Promise zurück, das mit einer Textdarstellung des Anfragetextes erfüllt wird.
+- [`Request.formData()`](/de/docs/Web/API/Request/formData)
+  - : Gibt ein Promise zurück, das mit einer [`FormData`](/de/docs/Web/API/FormData)-Darstellung des Anfragetextes aufgelöst wird.
+- [`Request.json()`](/de/docs/Web/API/Request/json)
+  - : Gibt ein Promise zurück, das mit dem Ergebnis der Analyse des Anfragetextes als {{JSxRef("JSON")}} aufgelöst wird.
+- [`Request.text()`](/de/docs/Web/API/Request/text)
+  - : Gibt ein Promise zurück, das mit einer Textdarstellung des Anfragetextes aufgelöst wird.
 
 > [!NOTE]
-> Die Funktionen des Anfragetextes können nur einmal ausgeführt werden; nachfolgende Aufrufe werden mit TypeError abgelehnt, was darauf hinweist, dass der Body-Stream bereits verwendet wurde.
+> Die Anfragetextfunktionen können nur einmal ausgeführt werden; nachfolgende Aufrufe werden mit einem TypeError abgelehnt, der zeigt, dass der Body-Stream bereits verwendet wurde.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem `Request()`-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und geben dann einige Eigenschaften der Anfrage zurück:
+Im folgenden Codeausschnitt erstellen wir eine neue Anfrage mit dem `Request()`-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript) und geben dann einige Eigenschaftswerte der Anfrage zurück:
 
 ```js
 const request = new Request("https://www.mozilla.org/favicon.ico");
@@ -79,7 +79,7 @@ const method = request.method;
 const credentials = request.credentials;
 ```
 
-Sie könnten diese Anfrage dann ausführen, indem Sie das `Request`-Objekt als Parameter an einen {{domxref("Window/fetch", "fetch()")}}-Aufruf übergeben, zum Beispiel:
+Sie könnten diese Anfrage dann abrufen, indem Sie das `Request`-Objekt als Parameter in einen [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf übergeben, zum Beispiel:
 
 ```js
 fetch(request)
@@ -89,7 +89,7 @@ fetch(request)
   });
 ```
 
-Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem `Request()`-Konstruktor mit einigen Anfangsdaten und Body-Inhalt für eine API-Anfrage, die eine Body-Nutzlast benötigt:
+Im folgenden Codeausschnitt erstellen wir eine neue Anfrage mit dem `Request()`-Konstruktor mit einigen Anfangsdaten und Body-Inhalten für eine API-Anfrage, die eine Body-Nutzlast benötigt:
 
 ```js
 const request = new Request("https://example.com", {
@@ -104,9 +104,9 @@ const bodyUsed = request.bodyUsed;
 ```
 
 > [!NOTE]
-> Der Body kann nur ein {{domxref("Blob")}}, ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, ein {{jsxref("DataView")}}, ein {{domxref("FormData")}}, ein {{domxref("URLSearchParams")}}, ein {{domxref("ReadableStream")}}, oder ein {{jsxref("String")}}-Objekt sein, sowie ein Zeichenfolgenliteral. Daher müssen Sie ein JSON-Objekt für die Nutzlast in eine Zeichenfolge umwandeln.
+> Der Body kann nur ein [`Blob`](/de/docs/Web/API/Blob), ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, ein {{jsxref("DataView")}}, ein [`FormData`](/de/docs/Web/API/FormData), ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams), ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) oder ein {{jsxref("String")}}-Objekt sowie ein String-Literal sein. Daher müssen Sie für das Hinzufügen eines JSON-Objekts zur Nutzlast dieses Objekt serialisieren.
 
-Sie könnten diese API-Anfrage dann ausführen, indem Sie das `Request`-Objekt als Parameter an einen {{domxref("Window/fetch", "fetch()")}}-Aufruf übergeben und die Antwort erhalten:
+Sie könnten diese API-Anfrage dann abrufen, indem Sie das `Request`-Objekt als Parameter in einen [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf übergeben, zum Beispiel, und die Antwort erhalten:
 
 ```js
 fetch(request)

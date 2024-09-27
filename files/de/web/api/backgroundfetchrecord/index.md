@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Das **`BackgroundFetchRecord`**-Interface der {{domxref('Background Fetch API','','',' ')}} repräsentiert eine einzelne Anfrage und Antwort.
+Die **`BackgroundFetchRecord`**-Schnittstelle der [Background Fetch API](/de/docs/Web/API/Background_Fetch_API) repräsentiert eine einzelne Anfrage und Antwort.
 
-Ein `BackgroundFetchRecord` wird durch die Methode {{domxref("BackgroundFetchRegistration.match()","BackgroundFetchRegistration.matchAll()")}} erstellt, daher gibt es keinen Konstruktor für dieses Interface.
+Ein `BackgroundFetchRecord` wird durch die [`BackgroundFetchRegistration.matchAll()`](/de/docs/Web/API/BackgroundFetchRegistration/match)-Methode erstellt, daher gibt es keinen Konstruktor für diese Schnittstelle.
 
-Es wird ein `BackgroundFetchRecord` für jede Ressource erstellt, die durch `fetch()` angefordert wird.
+Es wird ein `BackgroundFetchRecord` für jede von `fetch()` angeforderte Ressource geben.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("BackgroundFetchRecord.request","request")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein {{domxref("Request")}} zurück.
-- {{domxref("BackgroundFetchRecord.responseReady","responseReady")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein Promise zurück, das mit einer {{domxref("Response")}} aufgelöst wird.
+- [`request`](/de/docs/Web/API/BackgroundFetchRecord/request) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt ein [`Request`](/de/docs/Web/API/Request) zurück.
+- [`responseReady`](/de/docs/Web/API/BackgroundFetchRecord/responseReady) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt ein Versprechen zurück, das mit einer [`Response`](/de/docs/Web/API/Response) erfüllt wird.
 
 ## Beispiele
 
-In diesem Beispiel wird ein individuelles `BackgroundFetchRecord` mithilfe von {{domxref("BackgroundFetchRegistration.match()","BackgroundFetchRegistration.matchAll()")}} zurückgegeben. Die {{domxref("BackgroundFetchRecord.request")}} und {{domxref("BackgroundFetchRecord.responseReady")}} werden zurückgegeben und im Konsolenfenster protokolliert.
+In diesem Beispiel wird ein einzelnes `BackgroundFetchRecord` unter Verwendung von [`BackgroundFetchRegistration.matchAll()`](/de/docs/Web/API/BackgroundFetchRegistration/match) zurückgegeben. Die [`BackgroundFetchRecord.request`](/de/docs/Web/API/BackgroundFetchRecord/request) und [`BackgroundFetchRecord.responseReady`](/de/docs/Web/API/BackgroundFetchRecord/responseReady) werden zurückgegeben und im Konsolenprotokoll ausgegeben.
 
 ```js
 bgFetch.match("/ep-5.mp3").then(async (record) => {

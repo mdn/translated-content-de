@@ -1,5 +1,5 @@
 ---
-title: "DocumentPictureInPicture: requestWindow()-Methode"
+title: "DocumentPictureInPicture: requestWindow() Methode"
 short-title: requestWindow()
 slug: Web/API/DocumentPictureInPicture/requestWindow
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`requestWindow()`**-Methode des {{domxref("DocumentPictureInPicture")}}-Interfaces öffnet das Picture-in-Picture-Fenster für den aktuellen Haupt-Browsing-Kontext. Sie gibt ein {{jsxref("Promise")}} zurück, das mit einer {{domxref("Window")}}-Instanz erfüllt wird, die den Browsing-Kontext innerhalb des Picture-in-Picture-Fensters darstellt.
+Die **`requestWindow()`**-Methode der [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Schnittstelle öffnet das Picture-in-Picture-Fenster für den aktuellen Hauptbrowsing-Kontext. Sie gibt ein {{jsxref("Promise")}} zurück, das mit einer [`Window`](/de/docs/Web/API/Window)-Instanz erfüllt wird, die den Browsing-Kontext innerhalb des Picture-in-Picture-Fensters repräsentiert.
 
-Die `requestWindow()`-Methode erfordert eine [transiente Aktivierung](/de/docs/Glossary/Transient_activation), d.h. sie muss als Antwort auf eine Benutzeraktion wie einen Mausklick oder Tastendruck aufgerufen werden.
+Die `requestWindow()`-Methode erfordert eine [transiente Aktivierung](/de/docs/Glossary/Transient_activation), das heißt, sie muss als Reaktion auf eine Benutzeraktion wie einen Mausklick oder Tastendruck aufgerufen werden.
 
 ## Syntax
 
@@ -24,28 +24,28 @@ requestWindow(options)
 - `options` {{optional_inline}}
   - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
     - `height`
-      - : Eine nicht-negative Zahl, die die Höhe des Viewports des Picture-in-Picture-Fensters in Pixeln angibt. Wenn `options` nicht angegeben ist, wird der Standardwert 0 verwendet.
+      - : Eine nicht-negative Zahl, die die Höhe für den Viewport des Picture-in-Picture-Fensters in Pixeln angibt. Wenn `options` nicht angegeben ist, wird der Standardwert 0 verwendet.
     - `width`
-      - : Eine nicht-negative Zahl, die die Breite des Viewports des Picture-in-Picture-Fensters in Pixeln angibt. Wenn `options` nicht angegeben ist, wird der Standardwert 0 verwendet.
+      - : Eine nicht-negative Zahl, die die Breite für den Viewport des Picture-in-Picture-Fensters in Pixeln angibt. Wenn `options` nicht angegeben ist, wird der Standardwert 0 verwendet.
 
 > [!NOTE]
-> Wenn eine der Optionen angegeben ist, muss auch die andere angegeben werden, andernfalls wird ein Fehler ausgelöst. Wenn beide Werte nicht angegeben sind, als 0 festgelegt oder zu groß eingestellt sind, wird der Browser die Werte entsprechend einschränken oder ignorieren, um eine angemessene Benutzererfahrung zu gewährleisten. Die eingeschränkte Größe variiert je nach Implementierung, Displaygröße und anderen Faktoren.
+> Wenn eine der Optionen angegeben ist, muss die andere ebenfalls angegeben werden, andernfalls wird ein Fehler ausgelöst. Wenn beide Werte nicht angegeben, als 0 angegeben oder zu groß eingestellt werden, wird der Browser die Werte entsprechend klemmen oder ignorieren, um eine angemessene Benutzererfahrung zu bieten. Die geklemmte Größe variiert je nach Implementierung, Displaygröße und anderen Faktoren.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{domxref("Window")}}-Objekt erfüllt wird, das den Browsing-Kontext innerhalb des Picture-in-Picture-Fensters darstellt.
+Ein {{jsxref("Promise")}}, das mit einem [`Window`](/de/docs/Web/API/Window)-Objekt erfüllt wird, das den Browsing-Kontext innerhalb des Picture-in-Picture-Fensters repräsentiert.
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die API explizit deaktiviert wurde (zum Beispiel über Browsereinstellungen).
-- `NotAllowedError` {{domxref("DOMException")}}
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die API ausdrücklich deaktiviert wurde (zum Beispiel über Browsereinstellungen).
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn:
-    - `requestWindow()` nicht von einem obersten `window`-Objekt aufgerufen wird.
-    - `requestWindow()` vom `window`-Objekt des Picture-in-Picture-Fensters aufgerufen wird (d.h. {{domxref("DocumentPictureInPicture.window")}}).
-    - `requestWindow()` ohne {{Glossary("Transient_activation", "transiente Aktivierung")}} aufgerufen wird.
-- `RangeError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn nur eines von `height` und `width` gesetzt ist oder wenn `height` und `width` mit negativen Werten gesetzt sind.
+    - `requestWindow()` nicht vom obersten `window`-Objekt aufgerufen wird.
+    - `requestWindow()` aus dem `window`-Objekt des Picture-in-Picture-Fensters aufgerufen wird (d.h. [`DocumentPictureInPicture.window`](/de/docs/Web/API/DocumentPictureInPicture/window)).
+    - `requestWindow()` ohne [transiente Aktivierung](/de/docs/Glossary/Transient_activation) aufgerufen wird.
+- `RangeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn nur eine von `height` und `width` festgelegt ist oder wenn `height` und `width` mit negativen Werten festgelegt sind.
 
 ## Beispiele
 
@@ -54,7 +54,7 @@ const videoPlayer = document.getElementById("player");
 
 // ...
 
-// Öffnen eines Picture-in-Picture-Fensters.
+// Open a Picture-in-Picture window.
 const pipWindow = await window.documentPictureInPicture.requestWindow({
   width: videoPlayer.clientWidth,
   height: videoPlayer.clientHeight,
@@ -73,5 +73,5 @@ const pipWindow = await window.documentPictureInPicture.requestWindow({
 
 ## Siehe auch
 
-- {{domxref("Document Picture-in-Picture API", "Document Picture-in-Picture API", "", "nocode")}}
+- [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API)
 - [Verwendung der Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API/Using)

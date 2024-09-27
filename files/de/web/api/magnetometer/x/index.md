@@ -1,5 +1,5 @@
 ---
-title: "Magnetometer: x Eigenschaft"
+title: "Magnetometer: x-Eigenschaft"
 short-title: x
 slug: Web/API/Magnetometer/x
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`x`** des
-{{domxref("Magnetometer")}}-Interfaces gibt eine Zahl zurück, die das Magnetfeld entlang der x-Achse des Geräts angibt.
+Die **`x`** schreibgeschützte Eigenschaft des [`Magnetometer`](/de/docs/Web/API/Magnetometer)-Interfaces gibt eine Zahl zurück, die das Magnetfeld um die x-Achse des Geräts angibt.
 
 ## Wert
 
@@ -17,7 +16,7 @@ Ein {{jsxref('Number')}}.
 
 ## Beispiele
 
-Der Magnetometer wird typischerweise im {{domxref('Sensor.reading_event', 'reading')}} Ereignis-Callback ausgelesen. Im Beispiel unten geschieht dies sechzig Mal pro Sekunde.
+Der Magnetometer wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback ausgelesen. Im unten stehenden Beispiel geschieht dies sechzig Mal pro Sekunde.
 
 ```js
 let magSensor = new Magnetometer({ frequency: 60 });

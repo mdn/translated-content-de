@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`frameRate`**-Eigenschaftsmerkmal des {{domxref("MediaTrackConstraints")}}-Wörterbuchs ist ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), das die angeforderten oder zwingenden Einschränkungen beschreibt, die auf den Wert der {{domxref("MediaTrackSettings.frameRate", "frameRate")}}-Einstellungseigenschaft angewendet werden.
+Die **`frameRate`**-Eigenschaft des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), der die angeforderten oder zwingenden Einschränkungen beschreibt, die auf den Wert der [`frameRate`](/de/docs/Web/API/MediaTrackSettings/frameRate)-einschränkbaren Eigenschaft angewendet werden.
 
-Falls erforderlich, können Sie ermitteln, ob diese Einschränkung unterstützt wird, indem Sie den Wert von {{domxref("MediaTrackSupportedConstraints.frameRate")}} prüfen, der durch einen Aufruf von {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegeben wird. Typischerweise ist dies jedoch nicht notwendig, da Browser alle Einschränkungen ignorieren, mit denen sie nicht vertraut sind.
+Falls erforderlich, können Sie ermitteln, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.frameRate`](/de/docs/Web/API/MediaTrackSupportedConstraints/frameRate) prüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht nötig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
 
 ## Wert
 
-Ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), der die akzeptablen oder erforderlichen Wert(e) für die Bildrate einer Video-Track in Bildern pro Sekunde beschreibt.
+Ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), der den akzeptablen oder erforderlichen Wert(e) für die Bildrate eines Videotracks in Bildern pro Sekunde beschreibt.
 
-Wenn dieser Wert eine Zahl ist, wird der User-Agent versuchen, Medien zu erhalten, deren Bildrate so nah wie möglich an dieser Zahl liegt, unter Berücksichtigung der Hardwarefähigkeiten und der anderen angegebenen Einschränkungen. Andernfalls wird der Wert dieses [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble) den User-Agent bei seinen Bemühungen leiten, eine genaue Übereinstimmung mit der erforderlichen Bildrate (falls `exact` angegeben ist oder sowohl `min` als auch `max` bereitgestellt werden und denselben Wert haben) oder einen möglichst besten Wert zu bieten.
+Wenn dieser Wert eine Zahl ist, wird der Benutzeragent versuchen, Medien zu erhalten, deren Bildrate so nah wie möglich an dieser Zahl liegt, unter Berücksichtigung der Fähigkeiten der Hardware und der anderen angegebenen Einschränkungen. Andernfalls wird der Wert dieses [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble) den Benutzeragenten bei dem Bestreben anleiten, eine genaue Übereinstimmung mit der erforderlichen Bildrate zu bieten (wenn `exact` angegeben ist oder sowohl `min` als auch `max` den gleichen Wert haben) oder einen bestmöglichen Wert zu erreichen.
 
 ## Beispiele
 
-Siehe das [Constraint-Übungsbeispiel](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel [Constraint-Übungsprogramm](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -34,7 +34,7 @@ Siehe das [Constraint-Übungsbeispiel](/de/docs/Web/API/Media_Capture_and_Stream
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
-- {{domxref("MediaTrackConstraints")}}
-- {{domxref("MediaDevices.getSupportedConstraints()")}}
-- {{domxref("MediaTrackSupportedConstraints")}}
-- {{domxref("MediaStreamTrack")}}
+- [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
+- [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
+- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
+- [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

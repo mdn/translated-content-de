@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}{{Non-standard_Header}}
 
-Die **`Window.sizeToContent()`**-Methode passt die Größe des Fensters an seinen Inhalt an. Damit sie funktioniert, sollte der DOM-Inhalt geladen sein, wenn diese Funktion aufgerufen wird – zum Beispiel, sobald das {{domxref("Document/DOMContentLoaded_event", "DOMContentLoaded")}}-Ereignis ausgelöst wurde.
+Die **`Window.sizeToContent()`**-Methode passt die Größe des Fensters an seinen Inhalt an. Damit sie funktioniert, sollte der DOM-Inhalt geladen sein, wenn diese Funktion aufgerufen wird – zum Beispiel, nachdem das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis aufgetreten ist.
 
-Seit Firefox 20 ist die minimale Größe des Fensters begrenzt, um zu verhindern, dass das Fenster zu klein wird, um mit ihm zu interagieren.
+Seit Firefox 20 wird die minimale Größe des Fensters begrenzt, um zu verhindern, dass das Fenster zu klein wird, um für den Benutzer interaktiv zu sein.
 
 ## Syntax
 
@@ -42,4 +42,4 @@ Dieses Feature ist nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- {{domxref("Window")}}
+- [`Window`](/de/docs/Web/API/Window)

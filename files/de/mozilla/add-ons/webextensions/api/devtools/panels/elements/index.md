@@ -16,4 +16,4 @@ Ein [`ElementsPanel`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels)-API von Chromium.
+> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API von Chromium.

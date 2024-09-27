@@ -7,19 +7,19 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:left`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes), verwendet mit der {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/At-rule), repräsentiert alle linken Seiten eines Druckdokuments.
+Die **`:left`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes), zusammen mit der {{cssxref("@page")}} [at-rule](/de/docs/Web/CSS/At-rule) verwendet, repräsentiert alle linken Seiten eines gedruckten Dokuments.
 
 ```css
-/* Wählt alle linken Seiten beim Drucken aus */
+/* Selects any left-hand pages when printing */
 @page :left {
   margin: 2in 3in;
 }
 ```
 
-Ob eine gegebene Seite "links" oder "rechts" ist, hängt von der Hauptrichtung des Dokuments ab. Wenn beispielsweise die erste Seite eine Hauptrichtung von links nach rechts hat, wird sie eine {{Cssxref(":right")}}-Seite sein; wenn sie eine Hauptrichtung von rechts nach links hat, wird sie eine `:left`-Seite sein.
+Ob eine gegebene Seite "links" oder "rechts" ist, wird durch die hauptsächliche Schreibrichtung des Dokuments bestimmt. Zum Beispiel wird eine Seite mit einer hauptsächlichen Schreibrichtung von links nach rechts eine {{Cssxref(":right")}} Seite sein; hat sie eine hauptsächliche Schreibrichtung von rechts nach links, wird es eine `:left` Seite sein.
 
 > [!NOTE]
-> Diese Pseudoklasse kann verwendet werden, um nur die Eigenschaften {{ Cssxref("margin") }}, {{ Cssxref("padding") }}, {{ Cssxref("border") }} und {{ Cssxref("background") }} der _Seitenbox_ zu ändern. Alle anderen Eigenschaften werden ignoriert, und nur die Seitenbox, nicht der Dokumentinhalt auf der Seite, wird beeinflusst.
+> Diese Pseudoklasse kann nur verwendet werden, um die Eigenschaften {{ Cssxref("margin") }}, {{ Cssxref("padding") }}, {{ Cssxref("border") }} und {{ Cssxref("background") }} der _Seitenbox_ zu ändern. Alle anderen Eigenschaften werden ignoriert, und nur die Seitenbox, nicht der Dokumentinhalt auf der Seite, wird beeinflusst.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ Ob eine gegebene Seite "links" oder "rechts" ist, hängt von der Hauptrichtung d
 
 ## Beispiele
 
-### Einen Rand für linke Seiten festlegen
+### Festlegen eines Randes für linke Seiten
 
 ```css
 @page :left {

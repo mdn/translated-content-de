@@ -1,5 +1,5 @@
 ---
-title: "BluetoothRemoteGATTServer: disconnect()-Methode"
+title: "BluetoothRemoteGATTServer: disconnect() Methode"
 short-title: disconnect()
 slug: Web/API/BluetoothRemoteGATTServer/disconnect
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`BluetoothRemoteGATTServer.disconnect()`**-Methode bewirkt, dass die Skriptausführungsumgebung die Verbindung zu `this.device` trennt.
+Die **`BluetoothRemoteGATTServer.disconnect()`**-Methode bewirkt,
+dass die Skriptausführungsumgebung die Verbindung zu `this.device` trennt.
 
 ## Syntax
 

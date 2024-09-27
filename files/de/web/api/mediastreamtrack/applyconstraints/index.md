@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`applyConstraints()`**-Methode des {{domxref("MediaStreamTrack")}}-Interfaces wendet eine Reihe von Einschränkungen auf die Spur an. Diese Einschränkungen ermöglichen es der Website oder App, ideale Werte und akzeptable Wertebereiche für die einschränkbaren Eigenschaften der Spur, wie Bildrate, Abmessungen, Echokompensation usw., festzulegen.
+Die **`applyConstraints()`**-Methode des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Interfaces wendet eine Reihe von Einschränkungen auf den Track an; diese Einschränkungen ermöglichen es der Website oder App, ideale Werte und akzeptable Wertebereiche für die einschränkbaren Eigenschaften des Tracks festzulegen, wie Bildrate, Abmessungen, Echo-Unterdrückung und so weiter.
 
 Einschränkungen können verwendet werden, um sicherzustellen, dass die Medien bestimmte Richtlinien erfüllen, die Sie bevorzugen.
-Zum Beispiel bevorzugen Sie möglicherweise hochauflösende Videos, erfordern jedoch, dass die Bildrate ein wenig niedrig ist, um die Datenrate niedrig genug zu halten, um das Netzwerk nicht zu überlasten.
+Beispielsweise können Sie hochauflösendes Video bevorzugen, aber verlangen, dass die Bildrate etwas niedrig ist, um die Datenrate niedrig genug zu halten und das Netzwerk nicht zu überlasten.
 Einschränkungen können auch ideale und/oder akzeptable Größen oder Größenbereiche angeben.
 Weitere Informationen darüber, wie Sie Ihre bevorzugten Einschränkungen anwenden können, finden Sie unter [Einschränkungen anwenden](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#applying_constraints) in [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints).
 
@@ -25,23 +25,23 @@ applyConstraints(constraints)
 ### Parameter
 
 - `constraints` {{optional_inline}}
-  - : Ein {{domxref("MediaTrackConstraints")}}-Objekt, welches die auf die einschränkbaren Eigenschaften der Spur anzuwendenden Einschränkungen auflistet; alle bestehenden Einschränkungen werden durch die angegebenen neuen Werte ersetzt und alle nicht eingeschlossenen einschränkbaren Eigenschaften werden auf ihre Standardeinschränkungen zurückgesetzt.
+  - : Ein [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekt, das die auf die einschränkbaren Eigenschaften des Tracks anzuwendenden Einschränkungen auflistet; alle bestehenden Einschränkungen werden durch die angegebenen neuen Werte ersetzt, und alle nicht enthaltenen einschränkbaren Eigenschaften werden auf ihre Standardbeschränkungen zurückgesetzt.
     Wenn dieser Parameter weggelassen wird, werden alle derzeit gesetzten benutzerdefinierten Einschränkungen gelöscht.
-    Dieses Objekt repräsentiert den grundlegenden Satz von Einschränkungen, die gelten müssen, damit das {{jsxref("Promise")}} aufgelöst wird.
-    Das Objekt kann eine fortgeschrittene Eigenschaft enthalten, die ein Array zusätzlicher `MediaTrackConstraints`-Objekte enthält, die als präzise Anforderungen behandelt werden.
+    Dieses Objekt stellt die grundlegende Menge von Einschränkungen dar, die angewendet werden müssen, damit das {{jsxref("Promise")}} aufgelöst wird.
+    Das Objekt kann eine erweiterte Eigenschaft enthalten, die ein Array zusätzlicher `MediaTrackConstraints`-Objekte enthält, die als genaue Anforderungen behandelt werden.
 
 ### Rückgabewert
 
 Ein {{jsxref("Promise")}}, das aufgelöst wird, wenn die Einschränkungen erfolgreich angewendet wurden.
-Wenn die Einschränkungen nicht angewendet werden können, wird das Promise mit einem {{domxref("OverconstrainedError")}} abgelehnt, der ein {{domxref("DOMException")}} ist, dessen Name `OverconstrainedError` lautet und zusätzliche Parameter aufweist, um anzuzeigen, dass die Einschränkungen nicht erfüllt werden konnten.
-Dies kann passieren, wenn die angegebenen Einschränkungen zu streng sind, um eine Übereinstimmung bei dem Versuch, die Spur zu konfigurieren, zu finden.
+Wenn die Einschränkungen nicht angewendet werden können, wird das Promise mit einem [`OverconstrainedError`](/de/docs/Web/API/OverconstrainedError) zurückgewiesen, der ein [`DOMException`](/de/docs/Web/API/DOMException) ist, dessen Name `OverconstrainedError` ist, mit zusätzlichen Parametern, um anzugeben, dass die Einschränkungen nicht erfüllt werden konnten.
+Dies kann passieren, wenn die angegebenen Einschränkungen zu strikt sind, um beim Versuch, den Track zu konfigurieren, eine Übereinstimmung zu finden.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man einen grundlegenden und fortgeschrittenen Satz von Einschränkungen angibt.
-Es legt fest, dass die Seite oder Web-App eine Breite zwischen 640 und 1280 und eine Höhe zwischen 480 und 720 benötigt, wobei die spätere Zahl in jedem Paar bevorzugt wird.
-Die fortgeschrittene Eigenschaft gibt weiter an, dass eine Bildgröße von 1920 mal 1280 bevorzugt wird oder ein {{glossary("Seitenverhältnis")}} von 1.333, wenn dies nicht verfügbar ist.
-Beachten Sie, dass diese Einschränkungen auch das veranschaulichen, was die Spezifikation als _Backoff-Strategie_ bezeichnet.
+Das folgende Beispiel zeigt, wie eine grundlegende und eine erweiterte Menge von Einschränkungen festgelegt wird.
+Es gibt an, dass die Seite oder Web-App eine Breite zwischen 640 und 1280 und eine Höhe zwischen 480 und 720 benötigt, wobei die später genannten Werte in jedem Paar bevorzugt werden.
+Die erweiterte Eigenschaft gibt weiter an, dass eine Bildgröße von 1920 x 1280 bevorzugt wird oder ein [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) von 1.333, falls dies nicht verfügbar ist.
+Beachten Sie, dass diese Einschränkungen auch das veranschaulichen, was die Spezifikation als _Rückzugsstrategie_ bezeichnet.
 
 ```js
 const constraints = {

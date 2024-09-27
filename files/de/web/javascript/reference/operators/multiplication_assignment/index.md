@@ -1,5 +1,5 @@
 ---
-title: Multiplikationszuweisung (*=)
+title: Multiplication Assignment (*=)
 slug: Web/JavaScript/Reference/Operators/Multiplication_assignment
 l10n:
   sourceCommit: 145e8c316fcdd8f67f3595fc52b0bbfacf7b949d
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Multiplikationszuweisungsoperator (`*=`)** führt eine [Multiplikation](/de/docs/Web/JavaScript/Reference/Operators/Multiplication) auf die beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
+Der **Multiplikationszuweisungs-Operator (`*=`)** führt eine [Multiplikation](/de/docs/Web/JavaScript/Reference/Operators/Multiplication) auf den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
 {{EmbedInteractiveExample("pages/js/expressions-multiplication-assignment.html")}}
 
@@ -19,7 +19,7 @@ x *= y
 
 ## Beschreibung
 
-`x *= y` ist gleichwertig mit `x = x * y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x *= y` ist äquivalent zu `x = x * y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ let bar = 5;
 bar *= 2; // 10
 ```
 
-Andere Werte, die keine BigInts sind, werden zu Zahlen konvertiert:
+Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 
 ```js
 let bar = 5;

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`writable`** des {{domxref("TransformStream")}}-Interfaces gibt die {{domxref("WritableStream")}}-Instanz zurück, die von diesem `TransformStream` gesteuert wird.
+Die **`writable`**-Eigenschaft, die schreibgeschützte Eigenschaft des [`TransformStream`](/de/docs/Web/API/TransformStream)-Interfaces, gibt die [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück, die von diesem `TransformStream` gesteuert wird.
 
 ## Wert
 
-Ein {{domxref("WritableStream")}}.
+Ein [`WritableStream`](/de/docs/Web/API/WritableStream).
 
 ## Beispiele
 
-Das folgende Beispiel erstellt einen neuen {{domxref("TransformStream")}} als `textEncoderStream` und gibt den Wert von `writable` in der Konsole aus.
+Das folgende Beispiel erstellt einen neuen [`TransformStream`](/de/docs/Web/API/TransformStream) als `textEncoderStream` und gibt den Wert von `writable` in der Konsole aus.
 
 ```js
 const textEncoderStream = new TransformStream();

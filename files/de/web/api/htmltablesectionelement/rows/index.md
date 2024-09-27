@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`rows`** schreibgeschützte Eigenschaft des {{domxref("HTMLTableSectionElement")}}-Interfaces gibt eine Live-{{domxref("HTMLCollection")}} zurück, die die Zeilen im Abschnitt enthält. Die `HTMLCollection` ist live und wird automatisch aktualisiert, wenn Zeilen hinzugefügt oder entfernt werden.
+Die **`rows`** schreibgeschützte Eigenschaft des [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Interfaces gibt eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die die Zeilen im Abschnitt enthält. Die `HTMLCollection` ist live und wird automatisch aktualisiert, wenn Zeilen hinzugefügt oder entfernt werden.
 
 ## Wert
 
-Eine Live-{{domxref("HTMLCollection")}} von {{domxref("HTMLTableRowElement")}}-Objekten.
+Eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Objekten.
 
 ## Beispiele
 
-In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen im Tabellenkörper; es aktualisiert auch ein {{HTMLElement("output")}}-Element mit der Anzahl der aktuell in der Tabelle vorhandenen Zeilen.
+In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen aus dem Tabellenkörperabschnitt; außerdem wird ein {{HTMLElement("output")}}-Element mit der aktuellen Anzahl der Zeilen in der Tabelle aktualisiert.
 
 ### HTML
 
@@ -58,9 +58,9 @@ button {
 ### JavaScript
 
 ```js
-// Erhalten Sie die relevanten Interface-Elemente
+// Obtain relevant interface elements
 const bodySection = document.querySelectorAll("tbody")[0];
-const rows = bodySection.rows; // Die Sammlung ist live und daher immer auf dem neuesten Stand
+const rows = bodySection.rows; // The collection is live, therefore always up-to-date
 const rowNumberDisplay = document.querySelectorAll("output")[0];
 
 const addButton = document.getElementById("add");
@@ -71,23 +71,23 @@ function updateRowNumber() {
 }
 
 addButton.addEventListener("click", () => {
-  // Fügen Sie eine neue Zeile am Ende des Körpers hinzu
+  // Add a new row at the end of the body
   const newRow = bodySection.insertRow();
 
-  // Zellen innerhalb der neuen Zeile hinzufügen
+  // Add cells inside the new row
   ["A", "B", "C"].forEach(
     (elt) => (newRow.insertCell().textContent = `${elt}${rows.length}`),
   );
 
-  // Aktualisieren Sie den Zeilen-Zähler
+  // Update the row counter
   updateRowNumber();
 });
 
 removeButton.addEventListener("click", () => {
-  // Löschen Sie die Zeile aus dem Körper
+  // Delete the row from the body
   bodySection.deleteRow(-1);
 
-  // Aktualisieren Sie den Zeilen-Zähler
+  // Update the row counter
   updateRowNumber();
 });
 ```
@@ -100,7 +100,7 @@ removeButton.addEventListener("click", () => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -1,5 +1,5 @@
 ---
-title: "ScrollTimeline: Eigenschaft axis"
+title: "ScrollTimeline: axis-Eigenschaft"
 short-title: axis
 slug: Web/API/ScrollTimeline/axis
 l10n:
@@ -8,25 +8,24 @@ l10n:
 
 {{APIRef("Web Animations")}}{{SeeCompatTable}}
 
-Die **`axis`** schreibgeschützte Eigenschaft der
-{{domxref("ScrollTimeline")}} Schnittstelle gibt einen enumerierten Wert zurück, der die Scrollachse repräsentiert, die den Fortschritt der Zeitleiste steuert.
+Die schreibgeschützte **`axis`**-Eigenschaft der [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)-Schnittstelle gibt einen Aufzählungswert zurück, der die Scroll-Achse darstellt, die den Fortschritt der Timeline bestimmt.
 
 ## Wert
 
-Ein enumerierter Wert. Mögliche Werte sind:
+Ein Aufzählungswert. Mögliche Werte sind:
 
 - `"block"`
-  - : Der Scrollbalken auf der Blockachse des Scrollcontainers, die Achse, die senkrecht zur Fließrichtung des Textes innerhalb einer Zeile verläuft. Bei horizontalen Schreibrichtungen, wie im Standardenglisch, entspricht dies `"y"`, während es bei vertikalen Schreibrichtungen `"x"` entspricht.
+  - : Die Scrollleiste auf der Block-Achse des Scroll-Containers, die die Achse in der Richtung senkrecht zum Fluss des Textes innerhalb einer Zeile ist. Für horizontale Schreibrichtungen, wie Standard-Englisch, ist dies dasselbe wie `"y"`, während es für vertikale Schreibrichtungen dasselbe wie `"x"` ist.
 - `"inline"`
-  - : Der Scrollbalken auf der Inlineachse des Scrollcontainers, die Achse, die parallel zur Fließrichtung des Textes in einer Zeile verläuft. Bei horizontalen Schreibrichtungen entspricht dies `"x"`, während es bei vertikalen Schreibrichtungen `"y"` entspricht.
+  - : Die Scrollleiste auf der Inline-Achse des Scroll-Containers, die die Achse in der Richtung parallel zum Fluss des Textes in einer Zeile ist. Für horizontale Schreibrichtungen ist dies dasselbe wie `"x"`, während es für vertikale Schreibrichtungen dasselbe wie `"y"` ist.
 - `"y"`
-  - : Der Scrollbalken auf der vertikalen Achse des Scrollcontainers.
+  - : Die Scrollleiste auf der vertikalen Achse des Scroll-Containers.
 - `"x"`
-  - : Der Scrollbalken auf der horizontalen Achse des Scrollcontainers.
+  - : Die Scrollleiste auf der horizontalen Achse des Scroll-Containers.
 
 ## Beispiele
 
-Siehe die Hauptseite von {{domxref("ScrollTimeline")}} für ein Beispiel.
+Siehe die Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline) für ein Beispiel.
 
 ## Spezifikationen
 
@@ -38,7 +37,7 @@ Siehe die Hauptseite von {{domxref("ScrollTimeline")}} für ein Beispiel.
 
 ## Siehe auch
 
-- {{domxref("ScrollTimeline")}}
-- {{domxref("AnimationTimeline")}}, {{domxref("ViewTimeline")}}
+- [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)
+- [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)

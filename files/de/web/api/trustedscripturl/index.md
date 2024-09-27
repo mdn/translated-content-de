@@ -7,26 +7,26 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`TrustedScriptURL`**-Schnittstelle der {{domxref("Trusted Types API", "", "", "nocode")}} repräsentiert eine Zeichenkette, die ein Entwickler in eine [Injection-Senke](/de/docs/Web/API/Trusted_Types_API#injection_sinks) einfügen kann, die sie als URL eines externen Skripts interpretiert. Diese Objekte werden über {{domxref("TrustedTypePolicy.createScriptURL","TrustedTypePolicy.createScriptURL()")}} erstellt und besitzen daher keinen Konstruktor.
+Die **`TrustedScriptURL`**-Schnittstelle der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) repräsentiert einen String, den ein Entwickler in eine [Injection-Senke](/de/docs/Web/API/Trusted_Types_API#injection_sinks) einfügen kann, der als URL eines externen Skripts geparst wird. Diese Objekte werden über [`TrustedTypePolicy.createScriptURL()`](/de/docs/Web/API/TrustedTypePolicy/createScriptURL) erstellt und haben daher keinen Konstruktor.
 
-Der Wert eines `TrustedScriptURL`-Objekts wird beim Erstellen des Objekts festgelegt und kann von JavaScript nicht geändert werden, da kein Setter bereitgestellt wird.
+Der Wert eines `TrustedScriptURL`-Objekts wird bei der Erstellung des Objekts festgelegt und kann von JavaScript nicht geändert werden, da kein Setter verfügbar ist.
 
 ## Instanzmethoden
 
-- {{domxref("TrustedScriptURL.toJSON()")}}
+- [`TrustedScriptURL.toJSON()`](/de/docs/Web/API/TrustedScriptURL/toJSON)
   - : Gibt eine JSON-Darstellung der gespeicherten Daten zurück.
-- {{domxref("TrustedScriptURL.toString()")}}
-  - : Eine Zeichenkette, die die bereinigte URL enthält.
+- [`TrustedScriptURL.toString()`](/de/docs/Web/API/TrustedScriptURL/toString)
+  - : Ein String, der die bereinigte URL enthält.
 
 ## Beispiele
 
-Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types Policy erstellt wurde.
+Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types-Policy erstellt wurde.
 
 ```js
 const sanitized = scriptPolicy.createScriptURL(
   "https://example.com/my-script.js",
 );
-console.log(sanitized); /* ein TrustedScriptURL-Objekt */
+console.log(sanitized); /* a TrustedScriptURL object */
 ```
 
 ## Spezifikationen

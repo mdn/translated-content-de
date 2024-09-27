@@ -1,18 +1,18 @@
 ---
-title: "SecurityPolicyViolationEvent: statusCode-Eigenschaft"
+title: "SecurityPolicyViolationEvent: Eigenschaft statusCode"
 short-title: statusCode
 slug: Web/API/SecurityPolicyViolationEvent/statusCode
 l10n:
-  sourceCommit: 1a7695e13c51d85a81e3e5d85feedbc5dbd2a379
+  sourceCommit: 701ac4440432ac215713b6b7f274291ca643c49a
 ---
 
-{{APIRef("Reporting API")}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`statusCode`** des {{domxref("SecurityPolicyViolationEvent")}}-Interfaces ist eine Zahl, die den HTTP-Statuscode des Fensters oder Arbeiters repräsentiert, in dem die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Verletzung aufgetreten ist.
+Die **`statusCode`** schreibgeschützte Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist eine Zahl, die den HTTP-Statuscode des Fensters oder Arbeiters darstellt, in dem der Verstoß gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) aufgetreten ist.
 
 ## Wert
 
-Eine Zahl, die den Statuscode des Fensters oder Arbeiters repräsentiert, in dem die Verletzung aufgetreten ist.
+Eine Zahl, die den Statuscode des Fensters oder Arbeiters darstellt, in dem der Verstoß aufgetreten ist.
 
 ## Beispiele
 
@@ -32,4 +32,4 @@ document.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- [`CSPViolationReportBody.statusCode`](/de/docs/Web/API/CSPViolationReportBody#cspviolationreportbody.statuscode)
+- [`CSPViolationReportBody.statusCode`](/de/docs/Web/API/CSPViolationReportBody/statusCode)

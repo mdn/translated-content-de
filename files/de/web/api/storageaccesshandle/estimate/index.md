@@ -1,5 +1,5 @@
 ---
-title: "StorageAccessHandle: estimate() Eigenschaft"
+title: "StorageAccessHandle: estimate()-Eigenschaft"
 short-title: estimate()
 slug: Web/API/StorageAccessHandle/estimate
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Siehe {{domxref("StorageManager.estimate()")}}, um die Verwendung zu verstehen.
+> Weitere Informationen zur Nutzung finden Sie unter [`StorageManager.estimate()`](/de/docs/Web/API/StorageManager/estimate).
 
 ## Syntax
 
@@ -23,14 +23,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem nicht partitionierten {{domxref("StorageManager.estimate()", "StorageEstimate")}} Objekt erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit einem unpartitionierten [`StorageEstimate`](/de/docs/Web/API/StorageManager/estimate)-Objekt erfüllt wird.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DomException")}}
-  - : Wird ausgelöst, wenn kein Zugriff gewährt wurde.
+- `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
+  - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
-Siehe {{domxref("StorageManager.estimate()")}}
+Siehe [`StorageManager.estimate()`](/de/docs/Web/API/StorageManager/estimate)
 
 ## Beispiele
 
@@ -47,7 +47,7 @@ document.requestStorageAccess({ estimate: true }).then(
 ```
 
 > [!NOTE]
-> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
+> Ein vollständigeres Beispiel finden Sie unter [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using).
 
 ## Spezifikationen
 
@@ -59,5 +59,5 @@ document.requestStorageAccess({ estimate: true }).then(
 
 ## Siehe auch
 
-- {{domxref("Document.requestStorageAccess()")}}
+- [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
 - [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)

@@ -1,5 +1,5 @@
 ---
-title: "<dt>: Das Beschreibungsbegriffelement"
+title: "<dt>: Das Description Term-Element"
 slug: Web/HTML/Element/dt
 l10n:
   sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
@@ -7,15 +7,15 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<dt>`** [HTML](/de/docs/Web/HTML)-Element spezifiziert einen Begriff in einer Beschreibung oder Definitionsliste und muss daher in einem {{HTMLElement("dl")}}-Element verwendet werden. Es wird normalerweise von einem {{HTMLElement("dd")}}-Element gefolgt; mehrere `<dt>`-Elemente in Folge weisen jedoch auf mehrere Begriffe hin, die alle durch das unmittelbar folgende {{HTMLElement("dd")}}-Element definiert werden.
+Das **`<dt>`**-[HTML](/de/docs/Web/HTML)-Element spezifiziert einen Begriff in einer Beschreibungs- oder Definitionsliste und muss daher innerhalb eines {{HTMLElement("dl")}}-Elements verwendet werden. Es wird normalerweise von einem {{HTMLElement("dd")}}-Element gefolgt; jedoch weisen mehrere aufeinanderfolgende `<dt>`-Elemente auf mehrere Begriffe hin, die alle vom unmittelbar folgenden {{HTMLElement("dd")}}-Element definiert werden.
 
-Das nachfolgende {{HTMLElement("dd")}} (**Description Details**) Element bietet die Definition oder andere verwandte Texte, die mit dem mittels `<dt>` spezifizierten Begriff assoziiert sind.
+Das nachfolgende {{HTMLElement("dd")}} (**Description Details**) Element bietet die Definition oder andere verwandte Informationen, die mit dem mit `<dt>` spezifizierten Begriff verbunden sind.
 
 {{EmbedInteractiveExample("pages/tabbed/dt.html", "tabbed-standard")}}
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Beispiele
 
@@ -39,14 +39,13 @@ Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/d
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
           >Flussinhalt</a
         >, jedoch ohne {{HTMLElement("header")}},
-        {{HTMLElement("footer")}}, Gliederungs- oder Überschrifteninhalt
-        als Nachfahren.
+        {{HTMLElement("footer")}}, Abschnitts- oder Überschrifteninhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Der Start-Tag ist erforderlich. Der End-Tag kann weggelassen werden, wenn dieses Element
+        Das Start-Tag ist erforderlich. Das End-Tag kann weggelassen werden, wenn dieses Element
         unmittelbar von einem anderen <code>&#x3C;dt></code>-Element oder einem
         {{HTMLElement("dd")}}-Element gefolgt wird oder wenn kein weiterer Inhalt im
         Elternelement vorhanden ist.
@@ -55,8 +54,8 @@ Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/d
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Ein {{HTMLElement("dl")}} oder (in {{Glossary("WHATWG")}} HTML,
-        {{Glossary("W3C")}} HTML 5.2 und später) ein
+        Ein {{HTMLElement("dl")}} oder (in [WHATWG](/de/docs/Glossary/WHATWG) HTML,
+        [W3C](/de/docs/Glossary/W3C) HTML 5.2 und später) ein
         {{HTMLElement("div")}}, das ein Kind eines
         {{HTMLElement("dl")}} ist.<br />Dieses Element kann vor einem
         {{HTMLElement("dd")}} oder einem anderen <code>&lt;dt&gt;</code>
@@ -64,7 +63,7 @@ Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/d
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -84,9 +83,8 @@ Für Beispiele siehe die [bereitgestellten Beispiele für das `<dl>`-Element](/d
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        {{domxref("HTMLElement")}} Bis einschließlich Gecko 1.9.2 (Firefox 4)
-        implementiert Firefox die
-        {{domxref("HTMLSpanElement")}} Schnittstelle für dieses Element.
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis zu Gecko 1.9.2 (inklusive Firefox 4) implementiert Firefox die
+        [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)-Schnittstelle für dieses Element.
       </td>
     </tr>
   </tbody>

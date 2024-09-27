@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Das `MediaQueryListEvent`-Objekt speichert Informationen über die Änderungen, die an einem {{DOMxRef("MediaQueryList")}}-Objekt vorgenommen wurden — Instanzen sind als Ereignisobjekt in einer Funktion verfügbar, die durch ein {{DOMxRef("MediaQueryList.change_event", "change")}}-Ereignis referenziert wird.
+Das `MediaQueryListEvent`-Objekt speichert Informationen über die Änderungen, die an einem [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt vorgenommen wurden — Instanzen stehen als Ereignisobjekt in einer Funktion zur Verfügung, die durch ein [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis referenziert wird.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{DOMxRef("MediaQueryListEvent.MediaQueryListEvent()", "MediaQueryListEvent()")}}
+- [`MediaQueryListEvent()`](/de/docs/Web/API/MediaQueryListEvent/MediaQueryListEvent)
   - : Erstellt eine neue Instanz von `MediaQueryListEvent`.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Die `MediaQueryListEvent`-Schnittstelle erbt Eigenschaften von ihrer Elternschnittstelle, {{DOMxRef("Event")}}._
+_Die `MediaQueryListEvent`-Schnittstelle erbt Eigenschaften von ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
-- {{DOMxRef("MediaQueryListEvent.matches")}} {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der `true` ist, wenn das {{DOMxRef("document")}} derzeit mit der Medienabfrageliste übereinstimmt, oder `false`, wenn nicht.
-- {{DOMxRef("MediaQueryListEvent.media")}} {{ReadOnlyInline}}
-  - : Eine Zeichenkette, die eine serialisierte Medienabfrage darstellt.
+- [`MediaQueryListEvent.matches`](/de/docs/Web/API/MediaQueryListEvent/matches) {{ReadOnlyInline}}
+  - : Ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) aktuell mit der Medienabfrageliste übereinstimmt, oder `false`, wenn nicht.
+- [`MediaQueryListEvent.media`](/de/docs/Web/API/MediaQueryListEvent/media) {{ReadOnlyInline}}
+  - : Ein String, der eine serialisierte Medienabfrage darstellt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Die `MediaQueryListEvent`-Schnittstelle erbt Methoden von ihrer Elternschnittstelle, {{DOMxRef("Event")}}._
+_Die `MediaQueryListEvent`-Schnittstelle erbt Methoden von ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
@@ -58,7 +58,7 @@ mql.addEventListener("change", (event) => {
 
 ## Siehe auch
 
-- [Media-Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Media-Queries aus Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
-- {{DOMxRef("window.matchMedia()")}}
-- {{DOMxRef("MediaQueryList")}}
+- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries aus Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
+- [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)

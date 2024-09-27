@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}} {{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`serverTiming`** gibt ein Array von {{domxref("PerformanceServerTiming")}}-Einträgen zurück, das Server-Timing-Metriken enthält.
+Die **`serverTiming`** schreibgeschützte Eigenschaft gibt ein Array von [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Einträgen zurück, die Server-Timing-Metriken enthalten.
 
 Server-Timing-Metriken erfordern, dass der Server den {{HTTPHeader("Server-Timing")}}-Header sendet. Zum Beispiel:
 
@@ -16,19 +16,19 @@ Server-Timing-Metriken erfordern, dass der Server den {{HTTPHeader("Server-Timin
 Server-Timing: cache;desc="Cache Read";dur=23.2
 ```
 
-Die `serverTiming`-Einträge können bei `navigation`- und `resource`-Einträgen vorhanden sein.
+Die `serverTiming`-Einträge können in `navigation`- und `resource`-Einträgen vorhanden sein.
 
 ## Wert
 
-Ein Array von {{domxref("PerformanceServerTiming")}}-Einträgen.
+Ein Array von [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Einträgen.
 
 ## Beispiele
 
-### Server-Timing-Einträge protokollieren
+### Protokollierung von Server-Timing-Einträgen
 
-Sie können einen {{domxref("PerformanceObserver")}} verwenden, um auf {{domxref("PerformanceServerTiming")}}-Einträge zu achten. Die Dauer jedes Server-Eintrags wird in der Konsole protokolliert.
+Sie können einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) verwenden, um nach [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Einträgen zu suchen. Die Dauer jedes Servereintrags wird in der Konsole protokolliert.
 
-Beispiel mit einem {{domxref("PerformanceObserver")}}, der Benachrichtigungen über neue `resource`-Performance-Einträge gibt, sobald sie in der Performance-Timeline des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Observers zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge benachrichtigt, sobald sie in der Performance-Zeitleiste des Browsers erfasst werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -44,7 +44,7 @@ const observer = new PerformanceObserver((list) => {
 );
 ```
 
-Beispiel mit {{domxref("Performance.getEntriesByType()")}}, das nur `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Timeline des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
 
 ```js
 for (const entryType of ["navigation", "resource"]) {
@@ -62,9 +62,9 @@ for (const entryType of ["navigation", "resource"]) {
 
 ### Informationen zum Cross-Origin-Server-Timing
 
-Der Zugriff auf Informationen zum Server-Timing ist auf denselben Ursprung beschränkt. Um Cross-Origin-Timing-Informationen freizugeben, muss der {{HTTPHeader("Timing-Allow-Origin")}}-HTTP-Antwortheader gesetzt werden.
+Der Zugriff auf Informationen zum Server-Timing ist auf den gleichen Ursprung beschränkt. Um Cross-Origin-Timing-Informationen freizugeben, muss der HTTP-Antwortheader {{HTTPHeader("Timing-Allow-Origin")}} gesetzt werden.
 
-Um beispielsweise `https://developer.mozilla.org` die Anzeige von Server-Timing-Informationen zu ermöglichen, sollte die Cross-Origin-Ressource senden:
+Um beispielsweise `https://developer.mozilla.org` den Zugriff auf Server-Timing-Informationen zu ermöglichen, sollte die Cross-Origin-Ressource senden:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org
@@ -74,11 +74,11 @@ Timing-Allow-Origin: https://developer.mozilla.org
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("PerformanceServerTiming")}}
+- [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)
 - {{HTTPHeader("Server-Timing")}}

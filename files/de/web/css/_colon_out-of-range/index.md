@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:out-of-range`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert außerhalb der durch die Attribute [`min`](/de/docs/Web/HTML/Element/input#min) und [`max`](/de/docs/Web/HTML/Element/input#max) festgelegten Bereichsgrenzen liegt.
+Die **`:out-of-range`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein {{htmlelement("input")}}-Element, dessen aktueller Wert außerhalb der durch die [`min`](/de/docs/Web/HTML/Element/input#min)- und [`max`](/de/docs/Web/HTML/Element/input#max)-Attribute festgelegten Bereichsgrenzen liegt.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-out-of-range.html", "tabbed-shorter")}}
 
-Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der aktuelle Wert eines Feldes außerhalb der erlaubten Grenzen liegt.
+Diese Pseudo-Klasse ist nützlich, um dem Benutzer visuell zu signalisieren, dass der aktuelle Wert eines Feldes außerhalb der erlaubten Grenzen liegt.
 
 > [!NOTE]
-> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichsbeschränkung haben (und annehmen können). Ohne eine solche Beschränkung kann das Element weder „in-range“ noch „out-of-range“ sein.
+> Diese Pseudo-Klasse gilt nur für Elemente, die eine Bereichsbeschränkung haben (und annehmen können). Ohne eine solche Beschränkung kann das Element weder "in-range" noch "out-of-range" sein.
 
 ## Syntax
 
@@ -30,18 +30,18 @@ Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der a
 
 ```html
 <form action="" id="form1">
-  <p>Werte zwischen 1 und 10 sind gültig.</p>
+  <p>Values between 1 and 10 are valid.</p>
   <ul>
     <li>
       <input
         id="value1"
         name="value1"
         type="number"
-        placeholder="1 bis 10"
+        placeholder="1 to 10"
         min="1"
         max="10"
         value="12" />
-      <label for="value1">Ihr Wert ist </label>
+      <label for="value1">Your value is </label>
     </li>
   </ul>
 </form>
@@ -92,4 +92,4 @@ input:out-of-range + label::after {
 ## Siehe auch
 
 - {{cssxref(":in-range")}}
-- [Formular-Datenvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Validierung von Formulardaten](/de/docs/Learn/Forms/Form_validation)

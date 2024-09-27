@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`rx`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den x-Achsen- oder horizontalen Radius einer SVG {{SVGElement("ellipse")}} und die horizontale Kurve der Ecken eines SVG {{SVGElement("rect")}} Rechtecks. Wenn vorhanden, überschreibt sie das {{SVGAttr("rx")}} Attribut der Form.
+Die **`rx`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den x-Achsen- oder horizontalen Radius eines SVG-{{SVGElement("ellipse")}} und die horizontale Krümmung der Ecken eines SVG-{{SVGElement("rect")}} Rechtecks. Falls vorhanden, überschreibt sie das {{SVGAttr("rx")}} Attribut der Form.
 
 > [!NOTE]
 > Die `rx` Eigenschaft gilt nur für {{SVGElement("ellipse")}} und {{SVGElement("rect")}} Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-Elemente oder HTML-Elemente oder Pseudo-Elemente.
@@ -15,14 +15,14 @@ Die **`rx`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den x-Achsen- oder ho
 ## Syntax
 
 ```css
-/* Initialer Wert */
+/* Initial value */
 rx: auto;
 
-/* Längen- und Prozentwerte */
+/* Length and percentage values */
 rx: 20px;
 rx: 20%;
 
-/* Globale Werte */
+/* Global values */
 rx: inherit;
 rx: initial;
 rx: revert;
@@ -32,19 +32,19 @@ rx: unset;
 
 ### Werte
 
-Der {{cssxref("length")}}, {{cssxref("percentage")}}, oder `auto` Schlüsselwortwert bezeichnet den horizontalen Radius von Ellipsen und den horizontalen Rand-Radius von Rechtecken.
+Der Wert {{cssxref("length")}}, {{cssxref("percentage")}} oder das Schlüsselwort `auto` bezeichnet den horizontalen Radius von Ellipsen und den horizontalen Rahmenradius von Rechtecken.
 
 - {{cssxref("length")}}
 
-  - : Absolute oder relative Längen können in jeder Einheit ausgedrückt werden, die vom CSS {{cssxref("&lt;length&gt;")}} Datentyp erlaubt ist. Negative Werte sind ungültig.
+  - : Absolute oder relative Längen können in jeder Einheit ausgedrückt werden, die durch den CSS-{{cssxref("&lt;length&gt;")}} Datentyp erlaubt ist. Negative Werte sind ungültig.
 
 - {{cssxref("percentage")}}
 
-  - : Prozentsätze beziehen sich auf die Breite des aktuellen SVG-Ansichtsfensters. Der verwendete Wert für ein `<rect>` beträgt nie mehr als 50% der Breite des Rechtecks.
+  - : Prozentsätze beziehen sich auf die Breite des aktuellen SVG-Viewports. Der verwendete Wert für ein `<rect>` beträgt nie mehr als 50 % der Breite des Rechtecks.
 
 - `auto`
 
-  - : Wenn auf `auto` gesetzt oder voreingestellt, entspricht der `rx` Wert dem absoluten Längenwert, der für {{cssxref("ry")}} verwendet wird. Wenn sowohl `rx` als auch `ry` einen berechneten Wert von `auto` haben, ist der verwendete Wert `0`.
+  - : Wird `auto` gesetzt oder ist `auto` der Standardwert, entspricht der `rx`-Wert dem absoluten Längenwert, der für {{cssxref("ry")}} verwendet wird. Wenn sowohl `rx` als auch `ry` einen berechneten Wert von `auto` haben, beträgt der verwendete Wert `0`.
 
 ## Formale Definition
 
@@ -56,13 +56,13 @@ Der {{cssxref("length")}}, {{cssxref("percentage")}}, oder `auto` Schlüsselwort
 
 ## Beispiele
 
-### Abgerundete Ecken erstellen
+### Erstellen von abgerundeten Ecken
 
-Dieses Beispiel zeigt, wie man Rechtecke mit abgerundeten Ecken erstellt, indem die `rx` Eigenschaft auf SVG `<rect>` Elemente angewendet wird.
+Dieses Beispiel zeigt, wie man Rechtecke mit abgerundeten Ecken erstellt, indem die `rx`-Eigenschaft auf SVG-`<rect>`-Elemente angewendet wird.
 
 #### HTML
 
-Wir inkludieren ein SVG-Bild mit vier `<rect>` Elementen; alle Rechtecke sind gleich, außer ihrem {{SVGAttr("x")}} Attributwert, der sie entlang der x-Achse positioniert.
+Wir fügen ein SVG-Bild mit vier `<rect>`-Elementen ein; alle Rechtecke sind gleich, mit Ausnahme ihres {{SVGAttr("x")}} Attributwertes, der sie entlang der x-Achse positioniert.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg">
@@ -76,7 +76,7 @@ Wir inkludieren ein SVG-Bild mit vier `<rect>` Elementen; alle Rechtecke sind gl
 
 #### CSS
 
-Mit CSS setzen wir einen `rx` Wert auf vier der Rechtecke:
+Mit CSS setzen wir einen `rx`-Wert auf vier der Rechtecke:
 
 ```css
 svg {
@@ -106,17 +106,17 @@ rect:nth-of-type(5) {
 
 #### Ergebnisse
 
-{{EmbedLiveSample("Abgerundete Ecken erstellen", "300", "180")}}
+{{EmbedLiveSample("Erstellen von abgerundeten Ecken", "300", "180")}}
 
-Das erste Rechteck ist standardmäßig auf `auto`; da alle `ry` Werte in diesem Beispiel ebenfalls standardmäßig auf `auto` sind, beträgt der verwendete Wert von `rx` `0`. Die roten und blauen Rechtecke haben jeweils `10px` und `2em` abgerundete Ecken. Da das SVG-Ansichtsfenster standardmäßig 300px mal 150px ist, erzeugt der `5%` Wert des orangefarbenen Rechtecks einen Radius von `15px`. Das grüne Rechteck hat `rx: 80%` eingestellt. Da der Wert von `rx` jedoch nie mehr als `50%` der Breite des Rechtecks beträgt, wirkt es, als wäre `rx: 50%; ry: 50%` gesetzt.
+Das erste Rechteck hat `auto` als Standardwert; da alle `ry`-Werte in diesem Beispiel auch auf `auto` standardmäßig eingestellt sind, beträgt der verwendete Wert von `rx` `0`. Die roten und blauen Rechtecke haben abgerundete Ecken mit `10px` bzw. `2em`. Da der SVG-Viewport standardmäßig 300px mal 150px beträgt, erzeugt der `5%`-Wert des orangefarbenen Rechtecks einen `15px`-Radius. Das grüne Rechteck hat `rx: 80%` gesetzt. Da der Wert von `rx` jedoch nie mehr als `50%` der Breite des Rechtecks beträgt, wirkt es so, als ob `rx: 50%; ry: 50%` gesetzt wäre.
 
-### Horizontalen Radius einer Ellipse definieren
+### Definierung des horizontalen Radius einer Ellipse
 
-Dieses grundlegende `<ellipse>` Beispiel zeigt, dass die CSS `rx` Eigenschaft den SVG `rx` Attributwert für den horizontalen Radius der Form überschreibt.
+Dieses grundlegende `<ellipse>`-Beispiel zeigt, dass die CSS-`rx`-Eigenschaft den SVG-`rx`-Attributwert zur Definition des horizontalen Radius der Form überschreibt.
 
 #### HTML
 
-Wir inkludieren zwei identische `<ellipse>` Elemente in einem SVG; jedes mit dem `rx` Attribut auf `20` gesetzt.
+Wir fügen zwei identische `<ellipse>`-Elemente in ein SVG ein; jedes mit dem `rx`-Attribut auf `20` gesetzt.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg">
@@ -127,7 +127,7 @@ Wir inkludieren zwei identische `<ellipse>` Elemente in einem SVG; jedes mit dem
 
 #### CSS
 
-Wir stylen nur die erste Ellipse, während ihr Zwilling die standardmäßigen Benutzeragent-Stile verwendet (mit {{cssxref("fill")}} standardmäßig auf Schwarz). Die geometrische `rx` Eigenschaft überschreibt den Wert des SVG {{SVGAttr("rx")}} Attributs. Wir setzen auch die `fill` und {{cssxref("stroke")}} Eigenschaften, um die gestylte Form von ihrem Zwilling zu unterscheiden.
+Wir stylen nur die erste Ellipse und lassen ihr Pendant die Standard-Stilarten des User-Agents verwenden (wobei {{cssxref("fill")}} standardmäßig auf Schwarz eingestellt ist). Die geometrische `rx`-Eigenschaft überschreibt den Wert des SVG-{{SVGAttr("rx")}} Attributs. Wir setzen auch die `fill`- und {{cssxref("stroke")}}-Eigenschaften, um die gestylte Form von ihrem Pendant zu unterscheiden.
 
 ```css
 svg {
@@ -143,17 +143,17 @@ ellipse:first-of-type {
 
 #### Ergebnisse
 
-{{EmbedLiveSample("Horizontalen Radius einer Ellipse definieren", "300", "180")}}
+{{EmbedLiveSample("Definierung des horizontalen Radius einer Ellipse", "300", "180")}}
 
-Der horizontale Radius der gestylten Ellipse beträgt `80px`, wie im CSS-`rx` Eigenschaftswert definiert. Der horizontale Radius der ungestylten Ellipse beträgt `20px`, der durch das `rx` Attribut definiert wurde.
+Der horizontale Radius der gestylten Ellipse beträgt `80px`, wie im CSS `rx`-Eigenschaftswert definiert. Der horizontale Radius der ungestylten Ellipse beträgt `20px`, was durch das `rx`-Attribut definiert wurde.
 
-### Ellipse horizontaler Radius Prozentwerte
+### Prozentuale Werte des horizontalen Radius einer Ellipse
 
 Dieses Beispiel zeigt die Verwendung von Prozentwerten für `rx`.
 
 #### HTML
 
-Wir verwenden das gleiche Markup wie im vorherigen Beispiel.
+Wir verwenden dasselbe Markup wie im vorherigen Beispiel.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg">
@@ -164,7 +164,7 @@ Wir verwenden das gleiche Markup wie im vorherigen Beispiel.
 
 #### CSS
 
-Das CSS ist ähnlich wie im vorherigen Beispiel, mit dem einzigen Unterschied, dass der Wert der `rx` Eigenschaft in diesem Fall ein Prozentwert ist.
+Das CSS ist dem vorherigen Beispiel ähnlich, der einzige Unterschied ist der Wert der `rx`-Eigenschaft; in diesem Fall verwenden wir einen Prozentwert.
 
 ```css
 svg {
@@ -180,9 +180,9 @@ ellipse:first-of-type {
 
 #### Ergebnisse
 
-{{EmbedLiveSample("Ellipse horizontaler Radius Prozentwerte", "300", "180")}}
+{{EmbedLiveSample("Prozentuale Werte des horizontalen Radius einer Ellipse", "300", "180")}}
 
-Bei der Verwendung von Prozentwerten für `rx` sind die Werte relativ zur Breite des SVG-Ansichtsfensters. Hier beträgt die Größe des horizontalen Radius der gestylten Ellipse `30%` der Breite des aktuellen SVG-Ansichtsfensters. Da die Breite standardmäßig `300px` beträgt, ist der `rx` Wert `90px`.
+Wenn Prozentwerte für `rx` verwendet werden, beziehen sich die Werte auf die Breite des SVG-Viewports. Hier ist die Größe des horizontalen Radius der gestylten Ellipse `30%` der Breite des aktuellen SVG-Viewports. Da die Breite standardmäßig auf `300px` eingestellt ist, beträgt der `rx`-Wert `90px`.
 
 ## Spezifikationen
 
@@ -198,6 +198,6 @@ Bei der Verwendung von Prozentwerten für `rx` sind die Werte relativ zur Breite
 - {{cssxref("fill")}}
 - {{cssxref("stroke")}}
 - {{cssxref("paint-order")}}
-- {{cssxref("border-radius")}} Kurzschreibweise
+- Kurzbefehls-Eigenschaft {{cssxref("border-radius")}}
 - {{cssxref("gradient/radial-gradient", "radial-gradient")}}
 - {{cssxref("basic-shape")}} Datentyp

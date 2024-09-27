@@ -1,5 +1,5 @@
 ---
-title: "ReadableByteStreamController: Eigenschaft byobRequest"
+title: "ReadableByteStreamController: byobRequest-Eigenschaft"
 short-title: byobRequest
 slug: Web/API/ReadableByteStreamController/byobRequest
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`byobRequest`** des {{domxref("ReadableByteStreamController")}}-Interfaces gibt die aktuelle BYOB-Anforderung zurück oder `null`, wenn keine ausstehenden Anforderungen vorhanden sind.
+Die **`byobRequest`**-Eigenschaft der [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController)-Schnittstelle gibt die aktuelle BYOB-Anfrage zurück oder `null`, wenn keine ausstehenden Anfragen vorhanden sind.
 
-Eine zugrunde liegende Byte-Quelle sollte diese Eigenschaft überprüfen und verwenden, um Daten in den Stream zu schreiben, wenn sie existiert (anstatt {{domxref("ReadableByteStreamController.enqueue()")}} zu verwenden).
-Dies führt zu einer effizienten Null-Byte-Übertragung der Daten an den Verbraucher.
+Eine zugrunde liegende Byte-Quelle sollte diese Eigenschaft überprüfen und verwenden, um Daten an den Stream zu schreiben, falls sie existiert (anstatt [`ReadableByteStreamController.enqueue()`](/de/docs/Web/API/ReadableByteStreamController/enqueue) zu verwenden).
+Dies führt zu einer effizienten Übertragung der Daten ohne zusätzlichen Byte-Transfer an den Verbraucher.
 
 ## Wert
 
-Eine Instanz des {{domxref("ReadableStreamBYOBRequest")}}-Objekts oder `null`.
+Eine Instanz des [`ReadableStreamBYOBRequest`](/de/docs/Web/API/ReadableStreamBYOBRequest)-Objekts oder `null`.
 
 ## Beispiele
 
-Das Beispiel in [Verwendung von lesbaren Byte-Streams > Erstellen eines lesbaren Socket-Push-Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#creating_a_readable_socket_push_byte_stream) zeigt, wie Sie eine `byobRequest` verwenden, um Daten zu übertragen (falls vorhanden) oder andernfalls die Daten in die internen Warteschlangen des Streams kopieren, indem Sie {{domxref("ReadableByteStreamController.enqueue()")}} verwenden.
+Das Beispiel in [Verwendung von lesbaren Byte-Strömen > Erstellen eines lesbaren Socket-Push-Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#creating_a_readable_socket_push_byte_stream) zeigt, wie Sie eine `byobRequest` verwenden, um Daten zu übertragen (falls vorhanden), oder andernfalls die Daten in die internen Warteschlangen des Streams kopieren mithilfe von [`ReadableByteStreamController.enqueue()`](/de/docs/Web/API/ReadableByteStreamController/enqueue).
 
-Der relevante Code wird unten wiedergegeben.
-Falls die `byobRequest` existiert, werden Daten in {{domxref("ReadableStreamBYOBRequest.view","controller.byobRequest.view")}} eingelesen, und dann wird {{domxref("ReadableStreamBYOBRequest.respond()")}} aufgerufen, um die Menge an Daten zu signalisieren, die bereit ist zur Übertragung.
+Der relevante Code ist unten wiedergegeben.
+Wenn die `byobRequest` existiert, werden Daten in [`controller.byobRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view) gelesen, und dann wird [`ReadableStreamBYOBRequest.respond()`](/de/docs/Web/API/ReadableStreamBYOBRequest/respond) aufgerufen, um die Menge der Daten zu signalisieren, die zur Übertragung bereit sind.
 
 ```js
 if (controller.byobRequest) {
@@ -47,5 +47,5 @@ if (controller.byobRequest) {
 
 ## Siehe auch
 
-- [Verwendung von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
-- {{domxref("ReadableByteStreamController")}}
+- [Verwendung von lesbaren Byte-Strömen](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController)

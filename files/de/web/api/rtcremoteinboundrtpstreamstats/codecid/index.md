@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`codecId`**-Eigenschaft des {{domxref("RTCRemoteInboundRtpStreamStats")}} Wörterbuchs ist ein String, der das Objekt eindeutig identifiziert, das inspiziert wurde, um die Daten im {{domxref("RTCCodecStats")}} für den {{Glossary("RTP")}}-Stream zu erzeugen.
+Die **`codecId`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Dictionaries ist ein String, der das Objekt eindeutig identifiziert, das untersucht wurde, um die Daten in den [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) für den [RTP](/de/docs/Glossary/RTP)-Stream zu erzeugen.
 
-`RTCRemoteInboundRtpStreamStats` und `RTCCodecStats` Objekte werden durch Iterieren des {{domxref("RTCStatsReport")}} korreliert, um die Statistikobjekte zu finden, bei denen `RTCRemoteInboundRtpStreamStats.codecId` gleich {{domxref("RTCCodecStats.id")}} ist.
+`RTCRemoteInboundRtpStreamStats`- und `RTCCodecStats`-Objekte werden korreliert, indem der [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) durchlaufen wird, um die Statistikobjekte zu finden, bei denen `RTCRemoteInboundRtpStreamStats.codecId` gleich [`RTCCodecStats.id`](/de/docs/Web/API/RTCCodecStats/id) ist.
 
 ## Wert
 
-Ein String, der die {{domxref("RTCCodecStats.id","id")}} des Objekts enthält, das inspiziert wurde, um das {{domxref("RTCCodecStats")}} Objekt zu erzeugen, das mit diesem RTP-Stream verbunden ist.
+Ein String, der die [`id`](/de/docs/Web/API/RTCCodecStats/id) des Objekts enthält, das untersucht wurde, um das [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Objekt zu erzeugen, das mit diesem RTP-Stream verbunden ist.
 
 ## Spezifikationen
 

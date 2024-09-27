@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode getTransformFeedbackVarying()"
+title: "WebGL2RenderingContext: getTransformFeedbackVarying() Methode"
 short-title: getTransformFeedbackVarying()
 slug: Web/API/WebGL2RenderingContext/getTransformFeedbackVarying
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.getTransformFeedbackVarying()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) liefert Informationen über variierende Variablen aus {{domxref("WebGLTransformFeedback")}} Puffern.
+Die **`WebGL2RenderingContext.getTransformFeedbackVarying()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt Informationen über variierende Variablen von [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback) Puffern zurück.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ getTransformFeedbackVarying(program, index)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram).
 - `index`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der den Index der variierenden Variablen angibt, deren Informationen abgerufen werden sollen.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index der variierenden Variablen angibt, deren Informationen abgerufen werden sollen.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLActiveInfo")}}-Objekt.
+Ein [`WebGLActiveInfo`](/de/docs/Web/API/WebGLActiveInfo) Objekt.
 
 ## Beispiele
 
@@ -43,4 +43,4 @@ activeInfo = gl.getTransformFeedbackVarying(program, 0);
 
 ## Siehe auch
 
-- {{domxref("WebGLTransformFeedback")}}
+- [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)

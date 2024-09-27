@@ -7,40 +7,40 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Das **`WebAssembly.LinkError`**-Objekt zeigt einen Fehler während der Modulinstanziierung an (abgesehen von [Traps](https://webassembly.github.io/simd/core/intro/overview.html#trap) aus der Startfunktion).
+Das **`WebAssembly.LinkError`**-Objekt zeigt einen Fehler bei der Modulinistanzierung an (abgesehen von [traps](https://webassembly.github.io/simd/core/intro/overview.html#trap) aus der Startfunktion).
 
 ## Konstruktor
 
 - [`WebAssembly.LinkError()`](/de/docs/WebAssembly/JavaScript_interface/LinkError/LinkError)
   - : Erstellt ein neues `WebAssembly.LinkError`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - {{jsxref("Error.prototype.message", "WebAssembly.LinkError.prototype.message")}}
-  - : Fehlermeldung. Geerbt von {{jsxref("Error")}}.
+  - : Fehlermeldung. Vererbt von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.name", "WebAssembly.LinkError.prototype.name")}}
-  - : Fehlername. Geerbt von {{jsxref("Error")}}.
+  - : Fehlername. Vererbt von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.cause", "WebAssembly.LinkError.prototype.cause")}}
-  - : Fehlerursache. Geerbt von {{jsxref("Error")}}.
+  - : Fehlerursache. Vererbt von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.fileName", "WebAssembly.LinkError.prototype.fileName")}} {{non-standard_inline}}
-  - : Pfad zur Datei, die diesen Fehler verursacht hat. Geerbt von {{jsxref("Error")}}.
+  - : Pfad zur Datei, die diesen Fehler verursacht hat. Vererbt von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.lineNumber", "WebAssembly.LinkError.prototype.lineNumber")}} {{non-standard_inline}}
-  - : Zeilennummer in der Datei, die diesen Fehler verursacht hat. Geerbt von {{jsxref("Error")}}.
+  - : Zeilennummer in der Datei, die diesen Fehler verursacht hat. Vererbt von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.columnNumber", "WebAssembly.LinkError.prototype.columnNumber")}} {{non-standard_inline}}
-  - : Spaltennummer in der Zeile, die diesen Fehler verursacht hat. Geerbt von {{jsxref("Error")}}.
+  - : Spaltennummer in der Zeile, die diesen Fehler verursacht hat. Vererbt von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.stack", "WebAssembly.LinkError.prototype.stack")}} {{non-standard_inline}}
-  - : Stapelverfolgung. Geerbt von {{jsxref("Error")}}.
+  - : Stack-Trace. Vererbt von {{jsxref("Error")}}.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - {{jsxref("Error.prototype.toString", "WebAssembly.LinkError.prototype.toString()")}}
-  - : Gibt eine Zeichenkette zurück, die das angegebene `Error`-Objekt repräsentiert. Geerbt von {{jsxref("Error")}}.
+  - : Gibt einen String zurück, der das angegebene `Error`-Objekt repräsentiert. Vererbt von {{jsxref("Error")}}.
 
 ## Beispiele
 
 ### Erstellen einer neuen LinkError-Instanz
 
-Das folgende Codebeispiel erstellt eine neue `LinkError`-Instanz und gibt deren Details in der Konsole aus:
+Das folgende Beispiel erstellt eine neue `LinkError`-Instanz und protokolliert deren Details in der Konsole:
 
 ```js
 try {
@@ -52,7 +52,7 @@ try {
   console.log(e.fileName); // "someFile"
   console.log(e.lineNumber); // 10
   console.log(e.columnNumber); // 0
-  console.log(e.stack); // gibt den Ort zurück, an dem der Code ausgeführt wurde
+  console.log(e.stack); // returns the location where the code was run
 }
 ```
 
@@ -60,7 +60,7 @@ try {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

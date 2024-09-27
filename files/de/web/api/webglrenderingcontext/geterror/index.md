@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode getError()"
+title: "WebGLRenderingContext: getError()-Methode"
 short-title: getError()
 slug: Web/API/WebGLRenderingContext/getError
 l10n:
@@ -32,46 +32,47 @@ Keine.
   <tbody>
     <tr>
       <td><code>gl.NO_ERROR</code></td>
-      <td>Es wurde kein Fehler aufgezeichnet. Der Wert dieser Konstante ist 0.</td>
+      <td>Es wurde kein Fehler aufgezeichnet. Der Wert dieser Konstanten ist 0.</td>
     </tr>
     <tr>
       <td><code>gl.INVALID_ENUM</code></td>
       <td>
-        Ein unzulässiger Wert wurde für einen aufgezählten Parameter angegeben. Der
+        Ein unzulässiger Wert wurde für ein Enumerationsargument angegeben. Der
         Befehl wird ignoriert und das Fehlerflag wird gesetzt.
       </td>
     </tr>
     <tr>
       <td><code>gl.INVALID_VALUE</code></td>
       <td>
-        Ein numerisches Argument liegt außerhalb des zulässigen Bereichs. Der Befehl
-        wird ignoriert und das Fehlerflag wird gesetzt.
+        Ein numerisches Argument liegt außerhalb des zulässigen Bereichs. Der
+        Befehl wird ignoriert und das Fehlerflag wird gesetzt.
       </td>
     </tr>
     <tr>
       <td><code>gl.INVALID_OPERATION</code></td>
       <td>
-        Der angegebene Befehl ist im aktuellen Zustand nicht zulässig. Der Befehl wird
-        ignoriert und das Fehlerflag wird gesetzt.
+        Der angegebene Befehl ist im aktuellen Zustand nicht erlaubt. Der Befehl
+        wird ignoriert und das Fehlerflag wird gesetzt.
       </td>
     </tr>
     <tr>
       <td><code>gl.INVALID_FRAMEBUFFER_OPERATION</code></td>
       <td>
-        Der derzeit gebundene Framebuffer ist nicht vollständig, wenn versucht wird,
-        darauf zu rendern oder davon zu lesen.
+        Der aktuell gebundene Framebuffer ist nicht vollständig, wenn versucht
+        wird, auf ihn zu rendern oder von ihm zu lesen.
       </td>
     </tr>
     <tr>
       <td><code>gl.OUT_OF_MEMORY</code></td>
-      <td>Es steht nicht genügend Speicher zur Verfügung, um den Befehl auszuführen.</td>
+      <td>Nicht genug Speicher ist verfügbar, um den Befehl auszuführen.</td>
     </tr>
     <tr>
       <td><code>gl.CONTEXT_LOST_WEBGL</code></td>
       <td>
-        Wenn der WebGL-Kontext verloren geht, wird dieser Fehler beim ersten Aufruf
-        von <code>getError</code> zurückgegeben. Danach und bis der Kontext wiederhergestellt
-        ist, gibt er <code>gl.NO_ERROR</code> zurück.
+        Wenn der WebGL-Kontext verloren geht, wird dieser Fehler beim ersten
+        Aufruf von <code>getError</code> zurückgegeben. Danach und bis der
+        Kontext wiederhergestellt ist, wird <code>gl.NO_ERROR</code>
+        zurückgegeben.
       </td>
     </tr>
   </tbody>
@@ -96,5 +97,5 @@ gl.getError(); // gl.INVALID_ENUM;
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext")}}
-- {{domxref("WebGLContextEvent")}}
+- [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)
+- [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent)

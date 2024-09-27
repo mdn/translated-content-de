@@ -8,31 +8,31 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`timeOrigin`**-Eigenschaft des {{domxref("Performance")}} Interfaces ist schreibgeschützt und gibt den Hochauflösenden Zeitstempel zurück, welcher als Grundlage für alle Performance-bezogenen Zeitstempel verwendet wird.
+Die **`timeOrigin`**-Eigenschaft der [`Performance`](/de/docs/Web/API/Performance)-Schnittstelle ist eine nur-lesbare Eigenschaft und gibt den Hochauflösungszeitstempel zurück, der als Basis für leistungsbezogene Zeitstempel dient.
 
-In Window-Kontexten repräsentiert dieser Wert die Zeit, zu der die Navigation begonnen hat. In {{domxref("Worker")}}- und {{domxref("ServiceWorker")}}-Kontexten repräsentiert dieser Wert die Zeit, zu der der Worker gestartet wurde. Sie können diese Eigenschaft verwenden, um Zeitursprünge zwischen den Kontexten zu synchronisieren (siehe Beispiel unten).
+In Window-Kontexten repräsentiert dieser Wert den Zeitpunkt, an dem die Navigation gestartet wurde. In [`Worker`](/de/docs/Web/API/Worker)- und [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Kontexten repräsentiert dieser Wert den Zeitpunkt, zu dem der Worker ausgeführt wird. Sie können diese Eigenschaft verwenden, um die Zeitursprünge zwischen den Kontexten zu synchronisieren (siehe Beispiel unten).
 
 > [!NOTE]
-> Der Wert von `performance.timeOrigin` kann von dem Wert abweichen, der durch {{jsxref("Date.now()")}} zum Zeitpunkt des Ursprungs zurückgegeben wird, da `Date.now()` durch System- und Benutzeruhranpassungen, Uhrdrift usw. beeinflusst worden sein kann. Die `timeOrigin`-Eigenschaft ist eine [monotone Uhr](https://w3c.github.io/hr-time/#dfn-monotonic-clock), deren aktuelle Zeit nie abnimmt und die nicht diesen Anpassungen unterliegt.
+> Der Wert von `performance.timeOrigin` kann vom Wert abweichen, den {{jsxref("Date.now()")}} zum Zeitpunkt des Ursprungs zurückgibt, da `Date.now()` durch System- und Benutzeruhrenanpassungen, Uhrverzögerungen usw. beeinflusst worden sein könnte. Die `timeOrigin`-Eigenschaft ist eine [monotone Uhr](https://w3c.github.io/hr-time/#dfn-monotonic-clock), deren gegenwärtige Zeit nie zurückgeht und die nicht diesen Anpassungen unterliegt.
 
 ## Wert
 
-Ein hochauflösender Zeitstempel, der als Beginn der Lebensdauer des aktuellen Dokuments betrachtet wird. Er wird wie folgt berechnet:
+Ein Hochauflösungszeitstempel, der als der Beginn der Lebenszeit des aktuellen Dokuments betrachtet wird. Dieser wird wie folgt berechnet:
 
-- Wenn das {{Glossary("global object")}} des Skripts ein {{domxref("Window")}} ist, wird der Zeitursprung wie folgt bestimmt:
+- Wenn das [globale Objekt](/de/docs/Glossary/global_object) des Skripts ein [`Window`](/de/docs/Web/API/Window) ist, wird der Ursprungszeitpunkt wie folgt bestimmt:
 
-  - Wenn das aktuelle {{domxref("Document")}} das erste im `Window` geladene ist, ist der Zeitursprung der Zeitpunkt, zu dem der Browserkontext erstellt wurde.
-  - Wenn beim Entladen des vorherigen Dokuments, das im Fenster geladen war, ein Bestätigungsdialog angezeigt wurde, damit der Benutzer die Navigation zur neuen Seite bestätigen kann, ist der Zeitursprung der Zeitpunkt, zu dem der Benutzer die Navigation zur neuen Seite akzeptiert hat.
-  - Wenn keiner der obigen Punkte den Zeitursprung bestimmt, dann ist der Zeitursprung der Zeitpunkt, zu dem die Navigation, die für das Erstellen des aktuellen Dokuments des Fensters verantwortlich ist, stattgefunden hat.
+  - Wenn das aktuelle [`Document`](/de/docs/Web/API/Document) das erste ist, das im `Window` geladen wird, ist der Ursprungszeitpunkt der Zeitpunkt, zu dem der Browser-Kontext erstellt wurde.
+  - Wenn während des Entladens des vorherigen Dokuments, das im Fenster geladen war, ein Bestätigungsdialog angezeigt wurde, um dem Nutzer die Möglichkeit zu geben, das Verlassen der vorherigen Seite zu bestätigen, ist der Ursprungszeitpunkt der Zeitpunkt, an dem der Nutzer bestätigte, dass das Navigieren zur neuen Seite akzeptabel war.
+  - Wenn keine der obigen Methoden den Ursprungszeitpunkt bestimmt, dann ist der Ursprungszeitpunkt der Zeitpunkt, zu dem die Navigation, die für das Erstellen des aktuellen Dokuments des Fensters verantwortlich ist, stattfand.
 
-- Wenn das globale Objekt des Skripts ein {{domxref("WorkerGlobalScope")}} ist (also das Skript als Web Worker ausgeführt wird), ist der Zeitursprung der Moment, zu dem der Worker erstellt wurde.
-- In allen anderen Fällen ist der Zeitursprung undefiniert.
+- Wenn das globale Objekt des Skripts ein [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) ist (d. h. das Skript wird als Web-Worker ausgeführt), ist der Ursprungszeitpunkt der Moment, zu dem der Worker erstellt wurde.
+- In allen anderen Fällen ist der Ursprungszeitpunkt undefiniert.
 
 ## Beispiele
 
 ### Zeit zwischen Kontexten synchronisieren
 
-Um die unterschiedlichen Zeitursprünge in Window- und Worker-Kontexten auszugleichen, können Sie die Zeitstempel von Worker-Skripten mit Hilfe der `timeOrigin`-Eigenschaft übersetzen, sodass die Zeitmessungen für die gesamte Anwendung synchronisiert werden.
+Um den unterschiedlichen Ursprungszeiten in Window- und Worker-Kontexten Rechnung zu tragen, können Sie die von Workerskripten kommenden Zeitstempel mit der Hilfe der `timeOrigin`-Eigenschaft übersetzen, sodass die Zeiten für die gesamte Anwendung synchronisiert werden.
 
 In worker.js
 
@@ -46,7 +46,7 @@ self.addEventListener("connect", (event) => {
     const workerTaskEnd = performance.now();
   };
 
-  // Worker-relative Zeitstempel in absolute Zeitstempel konvertieren und dann an das Fenster senden
+  // Convert worker-relative timestamps to absolute timestamps, then send to the window
   port.postMessage({
     startTime: workerTaskStart + performance.timeOrigin,
     endTime: workerTaskEnd + performance.timeOrigin,
@@ -59,12 +59,12 @@ In main.js
 ```js
 const worker = new SharedWorker("worker.js");
 worker.port.addEventListener("message", (event) => {
-  // Absolute Zeitstempel in window-relative Zeitstempel konvertieren
+  // Convert absolute timestamps into window-relative timestamps
   const workerTaskStart = event.data.startTime - performance.timeOrigin;
   const workerTaskEnd = event.data.endTime - performance.timeOrigin;
 
-  console.log("Worker-Aufgabenstart: ", workerTaskStart);
-  console.log("Worker-Aufgabenende: ", workerTaskEnd);
+  console.log("Worker task start: ", workerTaskStart);
+  console.log("Worker task end: ", workerTaskEnd);
 });
 ```
 

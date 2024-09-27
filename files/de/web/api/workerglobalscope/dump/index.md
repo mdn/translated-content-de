@@ -1,5 +1,5 @@
 ---
-title: "WorkerGlobalScope: dump()-Methode"
+title: "WorkerGlobalScope: dump() Methode"
 short-title: dump()
 slug: Web/API/WorkerGlobalScope/dump
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{Non-standard_Header}}{{Deprecated_Header}}{{AvailableInWorkers("worker")}}
 
-Die **`WorkerGlobalScope.dump()`**-Methode protokolliert Nachrichten an die Standardausgabe (`stdout`) des Browsers. Wenn der Browser von einem Terminal aus gestartet wurde, erscheint die an `dump()` gesendete Ausgabe im Terminal. Dies entspricht der {{domxref("Window.dump()")}}, jedoch für Worker.
+Die **`WorkerGlobalScope.dump()`**-Methode protokolliert Nachrichten zur Standardausgabe (`stdout`) des Browsers. Wenn der Browser von einem Terminal aus gestartet wurde, werden Ausgaben, die an `dump()` gesendet werden, im Terminal angezeigt. Dies ist dasselbe wie [`Window.dump()`](/de/docs/Web/API/Window/dump), aber für Worker.
 
-Ausgaben von `dump()` werden _nicht_ an die Entwicklertools-Konsole des Browsers gesendet. Um in der Entwicklertools-Konsole zu protokollieren, verwenden Sie [`console.log()`](/de/docs/Web/API/console/log_static).
+Ausgaben von `dump()` werden _nicht_ an die Entwickler-Tools-Konsole des Browsers gesendet. Um zur Entwickler-Tools-Konsole zu protokollieren, verwenden Sie [`console.log()`](/de/docs/Web/API/console/log_static).
 
 ## Syntax
 
@@ -31,6 +31,6 @@ Keiner ({{jsxref("undefined")}}).
 
 Dieses Feature ist nicht Teil einer Spezifikation.
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

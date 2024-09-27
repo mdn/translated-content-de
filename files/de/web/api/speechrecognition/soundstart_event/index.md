@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`soundstart`** Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn irgendein Geräusch, sei es erkannte Sprache oder nicht, erkannt wird.
+Das **`soundstart`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn ein beliebiges Geräusch – ob erkennbarer Sprache oder nicht – erkannt wurde.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("soundstart", (event) => {});
@@ -22,11 +22,11 @@ onsoundstart = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{DOMxRef("Event")}} ohne zusätzliche Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beispiele
 
-Sie können das `soundstart` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
+Sie können das `soundstart`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
 const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
@@ -36,7 +36,7 @@ recognition.addEventListener("soundstart", () => {
 });
 ```
 
-Oder verwenden Sie die `onsoundstart` Ereignishandler-Eigenschaft:
+Oder Sie verwenden die `onsoundstart`-Ereignis-Handler-Eigenschaft:
 
 ```js
 recognition.onsoundstart = () => {

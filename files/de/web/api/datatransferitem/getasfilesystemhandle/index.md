@@ -9,9 +9,9 @@ l10n:
 {{securecontext_header}}{{APIRef("File System API")}}{{SeeCompatTable}}
 
 Die **`getAsFileSystemHandle()`**-Methode des
-{{domxref("DataTransferItem")}}-Interfaces gibt ein {{domxref('FileSystemFileHandle')}}
-zurück, wenn das gezogene Element eine Datei ist, oder ein {{domxref('FileSystemDirectoryHandle')}},
-wenn das gezogene Element ein Verzeichnis ist.
+[`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Interfaces gibt ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)
+zurück, wenn das gezogene Element eine Datei ist, oder ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle), wenn das
+gezogene Element ein Verzeichnis ist.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Keine.
 
 Ein {{jsxref('Promise')}}.
 
-Wenn die {{domxref("DataTransferItem.kind", "kind")}}-Eigenschaft des Elements `"file"` ist, und dieses Element in den {{domxref("HTMLElement/dragstart_event", "dragstart")}}- oder {{domxref("HTMLElement/drop_event", "drop")}}-Ereignishandlern aufgerufen wird, dann wird das zurückgegebene Promise mit einem {{domxref('FileSystemFileHandle')}} erfüllt, wenn das gezogene Objekt eine Datei ist, oder einem {{domxref('FileSystemDirectoryHandle')}}, wenn das gezogene Objekt ein Verzeichnis ist.
+Wenn die [`kind`](/de/docs/Web/API/DataTransferItem/kind)-Eigenschaft des Elements `"file"` ist und auf dieses Element innerhalb der [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)- oder [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Event-Handler zugegriffen wird, wird das zurückgegebene Promise mit einem [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) erfüllt, wenn das gezogene Element eine Datei ist, oder mit einem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle), wenn das gezogene Element ein Verzeichnis ist.
 
 Andernfalls wird das Promise mit `null` erfüllt.
 
@@ -37,27 +37,26 @@ Keine.
 
 ## Beispiele
 
-Dieses Beispiel verwendet die `getAsFileSystemHandle()`-Methode, um
-{{domxref('FileSystemHandle', 'Dateihandles', '', 'nocode')}} für abgelegte Elemente zurückzugeben.
+Dieses Beispiel verwendet die `getAsFileSystemHandle()`-Methode, um [Datei-Handles](/de/docs/Web/API/FileSystemHandle) für abgelegte Elemente zurückzugeben.
 
 ```js
 elem.addEventListener("dragover", (e) => {
-  // Navigation verhindern.
+  // Prevent navigation.
   e.preventDefault();
 });
 elem.addEventListener("drop", async (e) => {
-  // Navigation verhindern.
+  // Prevent navigation.
   e.preventDefault();
 
-  // Alle Elemente verarbeiten.
+  // Process all of the items.
   for (const item of e.dataTransfer.items) {
-    // kind wird 'file' für Datei-/Verzeichniseinträge sein.
+    // kind will be 'file' for file/directory entries.
     if (item.kind === "file") {
       const entry = await item.getAsFileSystemHandle();
       if (entry.kind === "file") {
-        // Code ausführen, wenn entry eine Datei ist
+        // run code for if entry is a file
       } else if (entry.kind === "directory") {
-        // Code ausführen, wenn entry ein Verzeichnis ist
+        // run code for is entry is a directory
       }
     }
   }
@@ -68,7 +67,7 @@ elem.addEventListener("drop", async (e) => {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 

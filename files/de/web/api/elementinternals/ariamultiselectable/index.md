@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaMultiSelectable`**-Eigenschaft der {{domxref("ElementInternals")}}-Schnittstelle spiegelt den Wert des [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable)-Attributs wider, welches angibt, dass der Benutzer mehr als ein Element aus den aktuellen auswählbaren Nachkommen auswählen kann.
+Die **`ariaMultiSelectable`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable)-Attributs wider, welches angibt, dass der Benutzer mehr als ein Element aus den aktuellen auswählbaren Nachfahren auswählen kann.
 
 > [!NOTE]
-> Das Setzen von ARIA-Attributen auf `ElementInternals` ermöglicht die Definition von Standardsemantik auf einem benutzerdefinierten Element. Diese können durch benutzerdefinierte Attribute überschrieben werden. Es wird jedoch sichergestellt, dass die Standardsemantik erhalten bleibt, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von ARIA-Attributen auf `ElementInternals` ermöglicht es, standardmäßige Semantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die standardmäßigen Semantiken beibehalten werden, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärungsdokument](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"true"`
-  - : Mehr als ein Element kann zeitgleich ausgewählt werden.
+  - : Mehr als ein Element kann gleichzeitig ausgewählt werden.
 - `"false"`
-  - : Es kann nur ein Element ausgewählt werden.
+  - : Nur ein Element kann ausgewählt werden.
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: befehle
+title: commands
 slug: Mozilla/Add-ons/WebExtensions/API/commands
 l10n:
   sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
@@ -7,21 +7,21 @@ l10n:
 
 {{AddonSidebar}}
 
-Hören Sie zu, wenn der Benutzer Befehle ausführt, die Sie mit dem [`commands` manifest.json-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) registriert haben.
+Hören Sie darauf, dass der Benutzer Befehle ausführt, die Sie über den [`commands` manifest.json key](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) registriert haben.
 
 ## Typen
 
 - {{WebExtAPIRef("commands.Command")}}
-  - : Objekt, das einen Befehl darstellt. Dies enthält die im [`commands` manifest.json-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) angegebene Information für den Befehl.
+  - : Objekt, das einen Befehl darstellt. Dies enthält die Informationen, die für den Befehl im [`commands` manifest.json key](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) spezifiziert wurden.
 
 ## Funktionen
 
 - {{WebExtAPIRef("commands.getAll")}}
   - : Ruft alle registrierten Befehle für diese Erweiterung ab.
 - {{WebExtAPIRef("commands.reset")}}
-  - : Setzt die Beschreibung und Verknüpfung des angegebenen Befehls auf die im Manifest-Schlüssel angegebenen Werte zurück.
+  - : Setzt die Beschreibung und die Tastenkombination des gegebenen Befehls auf die im Manifest-Schlüssel angegebenen Werte zurück.
 - {{WebExtAPIRef("commands.update")}}
-  - : Ändert die Beschreibung oder Verknüpfung für den angegebenen Befehl.
+  - : Ändert die Beschreibung oder die Tastenkombination für den gegebenen Befehl.
 
 ## Ereignisse
 
@@ -37,7 +37,7 @@ Hören Sie zu, wenn der Benutzer Befehle ausführt, die Sie mit dem [`commands` 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands) API von Chromium.
+> Diese API basiert auf Chromium's [`chrome.commands`](https://developer.chrome.com/docs/extensions/reference/api/commands) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

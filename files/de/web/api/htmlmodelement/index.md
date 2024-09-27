@@ -7,18 +7,18 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Das **`HTMLModElement`**-Interface bietet spezielle Eigenschaften (zusätzlich zu den regulären Methoden und Eigenschaften, die sie durch die Vererbung der {{domxref("HTMLElement")}}-Schnittstelle ebenfalls zur Verfügung haben) zum Manipulieren von Modifikationselementen, das heißt {{HTMLElement("del")}} und {{HTMLElement("ins")}}.
+Die **`HTMLModElement`**-Schnittstelle bietet spezielle Eigenschaften (zusätzlich zu den regulären Methoden und Eigenschaften, die über die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle durch Vererbung ebenfalls verfügbar sind) zur Manipulation von Änderungen an Elementen, d.h. {{HTMLElement("del")}} und {{HTMLElement("ins")}}.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLModElement.cite")}}
-  - : Ein String, der das [`cite`](/de/docs/Web/HTML/Element/del#cite) HTML-Attribut widerspiegelt und eine URI einer Ressource enthält, die die Änderung erklärt.
-- {{domxref("HTMLModElement.dateTime")}}
-  - : Ein String, der das [`datetime`](/de/docs/Web/HTML/Element/del#datetime) HTML-Attribut widerspiegelt und einen Datum-und-Uhrzeit-String enthält, der einen Zeitstempel für die Änderung darstellt.
+- [`HTMLModElement.cite`](/de/docs/Web/API/HTMLModElement/cite)
+  - : Ein String, der das HTML-Attribut [`cite`](/de/docs/Web/HTML/Element/del#cite) widerspiegelt und eine URI einer Ressource enthält, die die Änderung erklärt.
+- [`HTMLModElement.dateTime`](/de/docs/Web/API/HTMLModElement/dateTime)
+  - : Ein String, der das HTML-Attribut [`datetime`](/de/docs/Web/HTML/Element/del#datetime) widerspiegelt und einen Datums- und Zeitstring enthält, der einen Zeitstempel für die Änderung darstellt.
 
 ## Spezifikationen
 

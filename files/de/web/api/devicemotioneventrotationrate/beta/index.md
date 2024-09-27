@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die **`beta`**-Eigenschaft der {{domxref("DeviceMotionEventRotationRate")}}-Schnittstelle gibt die Rotationsrate um die X-Achse in Grad pro Sekunde an. Diese Eigenschaft ist schreibgeschützt.
+Die **`beta`**-Eigenschaft der [`DeviceMotionEventRotationRate`](/de/docs/Web/API/DeviceMotionEventRotationRate)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die Rotationsrate um die X-Achse in Grad pro Sekunde angibt.
 
 ## Wert
 
-Ein `double`, das die Rotationsrate um die X-Achse in Grad pro Sekunde angibt. Siehe [Erklärung der Beschleunigungsmesserwerte](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation#accelerometer_values_explained) für Details.
+Ein `double`, das die Rotationsrate um die X-Achse in Grad pro Sekunde angibt. Weitere Details finden Sie unter [Beschleunigungssensorwerte erklärt](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation#accelerometer_values_explained).
 
 ## Spezifikationen
 

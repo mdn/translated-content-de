@@ -1,5 +1,5 @@
 ---
-title: "PushSubscriptionOptions: applicationServerKey-Eigenschaft"
+title: "PushSubscriptionOptions: Eigenschaft applicationServerKey"
 short-title: applicationServerKey
 slug: Web/API/PushSubscriptionOptions/applicationServerKey
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`applicationServerKey`** der {{domxref("PushSubscriptionOptions")}}-Schnittstelle enthält den öffentlichen Schlüssel, der vom Push-Server verwendet wird.
+Die schreibgeschützte Eigenschaft **`applicationServerKey`** der Schnittstelle [`PushSubscriptionOptions`](/de/docs/Web/API/PushSubscriptionOptions) enthält den öffentlichen Schlüssel, der vom Push-Server verwendet wird.
 
 ## Wert
 
-Ein öffentlicher Schlüssel, den Ihr Push-Server verwendet, um Nachrichten über einen Push-Server an Client-Apps zu senden. Dieser Wert ist Teil eines Signaturschlüsselpaares, das von Ihrem Anwendungsserver generiert wird und mit der elliptischen Kurven-Digitale-Signatur-Algorithmus (ECDSA) über die P-256 Kurve verwendbar ist. Wenn beim Initialisieren kein `applicationServerKey`-Mitglied übergeben wird, wird es auf `null` gesetzt.
+Ein öffentlicher Schlüssel, den Ihr Push-Server verwendet, um Nachrichten über einen Push-Server an Client-Anwendungen zu senden. Dieser Wert ist Teil eines Schlüsselpaares zur Signaturerstellung, das von Ihrem Anwendungsserver generiert wird und mit einer elliptischen Kurve digitale Signatur (ECDSA), über die P-256-Kurve, nutzbar ist. Wenn beim Initialisieren kein `applicationServerKey`-Mitglied übergeben wird, wird es auf `null` gesetzt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Wert von `applicationServerKey` in die Konsole ausgegeben.
+Im unten stehenden Beispiel wird der Wert von `applicationServerKey` in die Konsole ausgegeben.
 
 ```js
 navigator.serviceWorker.ready.then((reg) => {
   reg.pushManager.getSubscription().then((subscription) => {
     const options = subscription.options;
-    console.log(options.applicationServerKey); // der öffentliche Schlüssel
+    console.log(options.applicationServerKey); // the public key
   });
 });
 ```
@@ -31,6 +31,6 @@ navigator.serviceWorker.ready.then((reg) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

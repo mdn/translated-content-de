@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:modal`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) passt auf ein Element, das sich in einem Zustand befindet, in dem es jegliche Interaktion mit Elementen außerhalb desselben ausschließt, bis die Interaktion beendet wird. Mehrere Elemente können gleichzeitig durch die `:modal` Pseudoklasse ausgewählt werden, aber nur eines von ihnen wird aktiv sein und Eingaben empfangen können.
+Die **`:modal`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) selektiert ein Element, das sich in einem Zustand befindet, in dem es alle Interaktionen mit Elementen außerhalb ausschließt, bis die Interaktion aufgehoben wird. Mehrere Elemente können gleichzeitig durch die `:modal` Pseudoklasse ausgewählt werden, aber nur eines von ihnen wird aktiv sein und Eingaben empfangen können.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-modal.html", "tabbed-shorter")}}
 
@@ -19,42 +19,42 @@ Die **`:modal`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-
 }
 ```
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Beispiele für Elemente, die die Benutzerinteraktion mit dem Rest der Seite verhindern und durch die `:modal` Pseudoklasse ausgewählt werden, umfassen:
+Beispiele für Elemente, die die Benutzerinteraktion mit dem Rest der Seite verhindern und durch die `:modal` Pseudoklasse ausgewählt werden, sind:
 
 - Das [`dialog`](/de/docs/Web/HTML/Element/dialog) Element, das mit der `showModal()` API geöffnet wird.
 - Das Element, das durch die [`:fullscreen`](/de/docs/Web/CSS/:fullscreen) Pseudoklasse ausgewählt wird, wenn es mit der `requestFullscreen()` API geöffnet wird.
 
 ## Beispiele
 
-### Styling eines modalen Dialogs
+### Styling eines Modaldialogs
 
-Dieses Beispiel stylt einen modalen Dialog, der geöffnet wird, wenn der "Details aktualisieren" Button aktiviert wird. Dieses Beispiel basiert auf dem {{HTMLElement("dialog")}} Element [Beispiel](/de/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog).
+Dieses Beispiel stylt einen Modaldialog, der geöffnet wird, wenn der "Details aktualisieren" Button aktiviert wird. Dieses Beispiel basiert auf dem {{HTMLElement("dialog")}} Element [Beispiel](/de/docs/Web/HTML/Element/dialog#handling_the_return_value_from_the_dialog).
 
 ```html hidden
-<!-- Einfacher modaler Dialog, der ein Formular enthält -->
+<!-- Simple modal dialog containing a form -->
 <dialog id="favDialog">
   <form method="dialog">
     <p>
       <label
-        >Lieblingstier:
+        >Favorite animal:
         <select>
-          <option value="default">Wählen…</option>
-          <option>Salzkrebs</option>
-          <option>Roter Panda</option>
-          <option>Spinnenaffe</option>
+          <option value="default">Choose…</option>
+          <option>Brine shrimp</option>
+          <option>Red panda</option>
+          <option>Spider monkey</option>
         </select>
       </label>
     </p>
     <div>
-      <button value="cancel">Abbrechen</button>
-      <button id="confirmBtn" value="default">Bestätigen</button>
+      <button value="cancel">Cancel</button>
+      <button id="confirmBtn" value="default">Confirm</button>
     </div>
   </form>
 </dialog>
 <p>
-  <button id="updateDetails">Details aktualisieren</button>
+  <button id="updateDetails">Update details</button>
 </p>
 <output></output>
 ```
@@ -76,29 +76,29 @@ const outputBox = document.querySelector("output");
 const selectEl = favDialog.querySelector("select");
 const confirmBtn = favDialog.querySelector("#confirmBtn");
 
-// Wenn ein Browser den Dialog nicht unterstützt, dann den
-// Dialog-Inhalt standardmäßig verbergen.
+// If a browser doesn't support the dialog, then hide the
+// dialog contents by default.
 if (typeof favDialog.showModal !== "function") {
   favDialog.hidden = true;
-  // Ihr Fallback-Skript
+  // Your fallback script
 }
-// Der "Details aktualisieren" Button öffnet das <dialog> modal
+// "Update details" button opens the <dialog> modally
 updateButton.addEventListener("click", () => {
   if (typeof favDialog.showModal === "function") {
     favDialog.showModal();
   } else {
-    outputBox.value = "Entschuldigung, die Dialog-API wird von diesem Browser nicht unterstützt.";
+    outputBox.value = "Sorry, the dialog API is not supported by this browser.";
   }
 });
-// Der "Lieblingstier" Eingabe setzt den Wert des Senden-Buttons
+// "Favorite animal" input sets the value of the submit button
 selectEl.addEventListener("change", (e) => {
   confirmBtn.value = selectEl.value;
 });
-// Der "Bestätigen" Button des Formulars löst "close" für den Dialog aus wegen [method="dialog"]
+// "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
 favDialog.addEventListener("close", () => {
   outputBox.value = `${
     favDialog.returnValue
-  } Button geklickt - ${new Date().toString()}`;
+  } button clicked - ${new Date().toString()}`;
 });
 ```
 
@@ -117,5 +117,5 @@ favDialog.addEventListener("close", () => {
 ## Siehe auch
 
 - [`dialog`](/de/docs/Web/HTML/Element/dialog) Element
-- Andere Pseudoklassen für den Anzeigezustand von Elementen: {{CSSxRef(":fullscreen")}} und {{CSSxRef(":picture-in-picture")}}
+- Andere Pseudoklassen für Anzeigestatus von Elementen: {{CSSxRef(":fullscreen")}} und {{CSSxRef(":picture-in-picture")}}
 - Vollständige Liste der [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes)

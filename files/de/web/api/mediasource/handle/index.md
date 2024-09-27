@@ -3,41 +3,41 @@ title: "MediaSource: handle-Eigenschaft"
 short-title: handle
 slug: Web/API/MediaSource/handle
 l10n:
-  sourceCommit: 4558d208395a5b1df4db44b0c8ef4e9a0f8adbbf
+  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
 ---
 
-{{APIRef("Media Source Extensions")}} {{AvailableInWorkers}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`handle`** schreibgeschützte Eigenschaft der {{domxref("MediaSource")}}-Schnittstelle gibt ein {{domxref("MediaSourceHandle")}}-Objekt zurück, einen Proxy für die `MediaSource`, der von einem dedizierten Worker zurück an den Hauptthread übertragen und über die {{domxref("HTMLMediaElement.srcObject")}}-Eigenschaft einem Media-Element zugewiesen werden kann.
+Die **`handle`**-Eigenschaft des [`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces ist eine schreibgeschützte Eigenschaft, die ein [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekt zurückgibt. Dieses Objekt fungiert als Proxy für den `MediaSource`, der von einem dedizierten Worker zurück in den Haupt-Thread übertragen und über die [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft an ein Media-Element angehängt werden kann.
 
-> **Note:** `handle` ist nur bei {{domxref("MediaSource")}}-Instanzen innerhalb dedizierter Worker sichtbar.
+> **Note:** `handle` ist nur bei [`MediaSource`](/de/docs/Web/API/MediaSource)-Instanzen innerhalb von dedizierten Workern sichtbar.
 
-Jedes `MediaSource`-Objekt, das innerhalb eines dedizierten Workers erstellt wird, hat sein eigenes distinctes `MediaSourceHandle`. Der `handle`-Getter gibt immer die `MediaSourceHandle`-Instanz zurück, die speziell für die zugehörige dedizierte Worker `MediaSource`-Instanz ist. Wenn das Handle bereits mit {{domxref("DedicatedWorkerGlobalScope.postMessage()", "postMessage()")}} an den Hauptthread übertragen wurde, ist die Handle-Instanz im Worker technisch getrennt und kann nicht erneut übertragen werden.
+Jedes innerhalb eines dedizierten Workers erstellte `MediaSource`-Objekt hat sein eigenes, eindeutiges `MediaSourceHandle`. Der `handle`-Getter gibt immer die `MediaSourceHandle`-Instanz zurück, die spezifisch für die zugehörige dedizierte Worker-`MediaSource`-Instanz ist. Wenn der Handle bereits mit [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) an den Haupt-Thread übertragen wurde, ist die Handle-Instanz im Worker technisch getrennt und kann nicht erneut übertragen werden.
 
 ## Wert
 
-Eine {{domxref("MediaSourceHandle")}}-Objektinstanz.
+Eine Instanz des [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekts.
 
 ## Beispiele
 
-Die `handle`-Eigenschaft kann innerhalb eines dedizierten Workers abgerufen werden und das resultierende {{domxref("MediaSourceHandle")}}-Objekt wird dann über einen {{domxref("DedicatedWorkerGlobalScope.postMessage()", "postMessage()")}}-Aufruf an den Thread übertragen, der den Worker erstellt hat (in diesem Fall der Hauptthread):
+Die `handle`-Eigenschaft kann innerhalb eines dedizierten Workers aufgerufen werden, und das resultierende [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)-Objekt wird dann über einen [`postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage)-Aufruf an den Thread übertragen, der den Worker erstellt hat (in diesem Fall der Haupt-Thread):
 
 ```js
-// Innerhalb des dedizierten Workers
+// Inside dedicated worker
 let mediaSource = new MediaSource();
 let handle = mediaSource.handle;
-// Übertragen des Handles an den Kontext, der den Worker erstellt hat
+// Transfer the handle to the context that created the worker
 postMessage({ arg: handle }, [handle]);
 
 mediaSource.addEventListener("sourceopen", () => {
-  // Warten auf sourceopen bei MediaSource, bevor SourceBuffers erstellt
-  // und mit abgerufenen Medien befüllt werden — MediaSource akzeptiert
-  // keine Erstellung von SourceBuffers, bis es an das
-  // HTMLMediaElement angehängt ist und sein readyState "open" ist
+  // Await sourceopen on MediaSource before creating SourceBuffers
+  // and populating them with fetched media — MediaSource won't
+  // accept creation of SourceBuffers until it is attached to the
+  // HTMLMediaElement and its readyState is "open"
 });
 ```
 
-Im Hauptthread empfangen wir das Handle über einen {{domxref("Worker.message_event", "message")}}-Ereignishandler, hängen es über die {{domxref("HTMLMediaElement.srcObject")}}-Eigenschaft an ein {{htmlelement("video")}}, und {{domxref("HTMLMediaElement.play()", "spielen")}} dann das Video:
+Im Haupt-Thread empfangen wir den Handle über einen [`message`](/de/docs/Web/API/Worker/message_event)-Ereignishandler, hängen ihn an ein {{htmlelement("video")}} über dessen [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)-Eigenschaft an und [`play`](/de/docs/Web/API/HTMLMediaElement/play) das Video:
 
 ```js
 worker.addEventListener("message", (msg) => {
@@ -47,7 +47,7 @@ worker.addEventListener("message", (msg) => {
 });
 ```
 
-> **Note:** {{domxref("MediaSourceHandle")}}s können nicht erfolgreich in oder über einen geteilten Worker oder Serviceworker übertragen werden.
+> **Note:** [`MediaSourceHandle`](/de/docs/Web/API/MediaSourceHandle)s können nicht erfolgreich in oder über einen Shared Worker oder Service Worker übertragen werden.
 
 ## Spezifikationen
 
@@ -60,6 +60,6 @@ worker.addEventListener("message", (msg) => {
 ## Siehe auch
 
 - [MSE-in-Workers Demo von Matt Wolenetz](https://wolenetz.github.io/mse-in-workers-demo/mse-in-workers-demo.html)
-- {{domxref("Media Source Extensions API", "Media Source Extensions API", "", "nocode")}}
-- {{domxref("MediaSource")}}
-- {{domxref("SourceBuffer")}}
+- [Media Source Extensions API](/de/docs/Web/API/Media_Source_Extensions_API)
+- [`MediaSource`](/de/docs/Web/API/MediaSource)
+- [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)

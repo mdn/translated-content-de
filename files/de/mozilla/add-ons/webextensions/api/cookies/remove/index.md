@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Die **`remove()`** Methode der {{WebExtAPIRef("cookies")}} API löscht ein Cookie, basierend auf dessen Namen und URL.
+Die **`remove()`**-Methode der {{WebExtAPIRef("cookies")}} API löscht ein Cookie, basierend auf seinem Namen und seiner URL.
 
-Der Aufruf ist nur erfolgreich, wenn Sie die "cookies" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) in Ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei angefügt haben, sowie [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die angegebene URL, die im Manifest spezifiziert ist.
+Der Aufruf ist nur erfolgreich, wenn Sie die "cookies" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) in Ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei einfügen, sowie [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für die angegebene URL, die im Manifest spezifiziert ist.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -28,24 +28,24 @@ let removing = browser.cookies.remove(
   - : Ein `object`, das Informationen enthält, um das zu entfernende Cookie zu identifizieren. Es enthält die folgenden Eigenschaften:
 
     - `firstPartyDomain` {{optional_inline}}
-      - : Ein `string`, der die First-Party-Domain darstellt, mit der das zu entfernende Cookie assoziiert ist. Diese Eigenschaft muss angegeben werden, wenn der Browser First-Party-Isolation aktiviert hat. Siehe [First-party isolation](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation).
+      - : Ein `string`, der die First-Party-Domain darstellt, mit der das zu entfernende Cookie verknüpft ist. Diese Eigenschaft muss angegeben werden, wenn der Browser First-Party-Isolation aktiviert hat. Siehe [First-party isolation](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation).
     - `name`
       - : Ein `string`, der den Namen des zu entfernenden Cookies darstellt.
     - `partitionKey` {{optional_inline}}
 
-      - : Ein `object`, das die [Speicherpartition](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#storage_partitioning) enthält, in der das Cookie sich befindet. Schließen Sie dieses Objekt ein, um ein Cookie aus partitioniertem Speicher zu entfernen. Dieses Objekt enthält:
+      - : Ein `object`, das die [Speicherpartition](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#storage_partitioning) darstellt, die das Cookie enthält. Fügen Sie dieses Objekt hinzu, um ein Cookie aus einer partitionierten Speicherung zu entfernen. Dieses Objekt enthält:
 
         - `topLevelSite` {{optional_inline}}
-          - : Ein `string`, der die First-Party-URL der Top-Level-Site-Speicherpartition darstellt, die das Cookie enthält.
+          - : Ein `string`, der die First-Party-URL der obersten Site-Speicherpartition darstellt, die das Cookie enthält.
 
     - `storeId` {{optional_inline}}
-      - : Ein `string`, der die ID des Cookie-Speichers darstellt, in dem nach dem Cookie gesucht werden soll. Wenn nicht angegeben, wird das Cookie standardmäßig im Cookie-Speicher des aktuellen Ausführungskontexts gesucht.
+      - : Ein `string`, das die ID des Cookie-Stores darstellt, in dem das Cookie gesucht wird. Wenn nicht angegeben, wird das Cookie standardmäßig im Cookie-Store des aktuellen Ausführungskontexts gesucht.
     - `url`
-      - : Ein `string`, der die URL darstellt, die mit dem Cookie verknüpft ist. Wenn die Erweiterung keine [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für diese URL hat, wird der API-Aufruf fehlschlagen.
+      - : Ein `string`, das die URL darstellt, die mit dem Cookie verknüpft ist. Wenn die Erweiterung keine [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für diese URL hat, wird der API-Aufruf fehlschlagen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('cookies.Cookie')}} Objekt erfüllt wird, das Details über das entfernte Cookie enthält. Wenn ein Cookie, das mit dem `details`-Parameter übereinstimmt, nicht gefunden werden kann, wird das Promise mit `null` erfüllt. Wenn der Aufruf aus irgendeinem Grund fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('cookies.Cookie')}}-Objekt erfüllt wird und Details über das entfernte Cookie enthält. Wenn ein Cookie, das mit dem `details`-Parameter übereinstimmt, nicht gefunden werden kann, wird das Promise mit `null` erfüllt. Wenn der Aufruf aus irgendeinem Grund fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -53,7 +53,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Dieses Beispiel versucht, das Cookie mit dem Namen "favorite-color" zu entfernen, dessen URL mit der URL des Dokuments übereinstimmt, das von der aktuell aktiven Registerkarte gehostet wird:
+Dieses Beispiel versucht, das Cookie mit dem Namen "favorite-color" zu entfernen, dessen URL mit der URL des Dokuments des derzeit aktiven Tabs übereinstimmt:
 
 ```js
 function onRemoved(cookie) {
@@ -79,7 +79,7 @@ getActive.then(removeCookie);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#method-remove) API. Diese Dokumentation stammt aus [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#method-remove) API von Chromium. Diese Dokumentation ist abgeleitet aus [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -1,5 +1,5 @@
 ---
-title: "PeriodicSyncManager: unregister()-Methode"
+title: "PeriodicSyncManager: unregister() Methode"
 short-title: unregister()
 slug: Web/API/PeriodicSyncManager/unregister
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Periodic Background Sync")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`unregister()`**-Methode der {{domxref("PeriodicSyncManager")}}-Schnittstelle hebt die Registrierung des periodischen Synchronisierungsantrags auf, der dem angegebenen Tag entspricht, und gibt ein {{jsxref('Promise')}} zurück, das aufgelöst wird, wenn die Abmeldung abgeschlossen ist.
+Die **`unregister()`**-Methode des
+[`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager)-Interfaces hebt die Registrierung der periodischen Synchronisierungsanfrage auf, die dem angegebenen Tag entspricht, und gibt ein {{jsxref('Promise')}} zurück, das aufgelöst wird, wenn die Abmeldung abgeschlossen ist.
 
 ## Syntax
 
@@ -19,7 +20,7 @@ unregister(tag)
 ### Parameter
 
 - tag
-  - : Der eindeutige {{jsxref('String')}}-Bezeichner für die spezifische Hintergrundsynchronisation.
+  - : Der eindeutige {{jsxref('String')}}-Descriptor für die spezifische Hintergrundsynchronisation.
 
 ### Rückgabewert
 
@@ -31,7 +32,7 @@ Keine.
 
 ## Beispiele
 
-Das folgende Beispiel entfernt eine periodische Synchronisation, um das Syncen von Artikeln im Hintergrund zu stoppen.
+Das folgende Beispiel entfernt eine periodische Synchronisierung, um das Synchronisieren von Artikeln im Hintergrund zu stoppen.
 
 ```js
 navigator.serviceWorker.ready.then((registration) => {
@@ -49,5 +50,5 @@ navigator.serviceWorker.ready.then((registration) => {
 
 ## Siehe auch
 
-- [Richer offline experiences with the Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
+- [Umfassendere Offline-Erfahrungen mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
 - [Eine Demo-App für Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)

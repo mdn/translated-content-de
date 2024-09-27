@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Wenn der Benutzer ein Add-on installiert oder aktualisiert, kann der Browser den Benutzer über besonders mächtige [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) des Add-ons warnen. Nicht alle Berechtigungen führen zu Warnhinweisen, und dieses Verhalten ist nicht in allen Browsern standardisiert.
+Wenn der Benutzer ein Add-on installiert oder aktualisiert, kann der Browser den Benutzer auf besonders mächtige [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) hinweisen, die das Add-on angefordert hat. Nicht alle Berechtigungen führen zu Warnungen, und dieses Verhalten ist nicht in allen Browsern standardisiert.
 
-Angenommen, es wird die ID eines Add-ons übergeben, dann gibt diese Funktion die Berechtigungswarnungen für dieses als ein Array von Zeichenketten zurück.
+Angesichts der ID eines Add-ons gibt diese Funktion die Berechtigungswarnungen dafür als ein Array von Zeichenfolgen zurück.
 
-Diese API erfordert die "management"-[API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
+Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -30,7 +30,7 @@ let gettingWarnings = browser.management.getPermissionWarningsById(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Zeichenketten erfüllt wird, von denen jede den Text einer Berechtigungswarnung enthält.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Zeichenfolgen erfüllt wird, von denen jede den Text einer Berechtigungswarnung enthält.
 
 ## Browser-Kompatibilität
 
@@ -38,7 +38,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Protokollieren Sie die Berechtigungswarnungen für das Add-on, dessen ID "my-add-on" ist:
+Protokollieren Sie die Berechtigungswarnungen für das Add-on mit der ID "my-add-on":
 
 ```js
 let id = "my-add-on";
@@ -55,7 +55,7 @@ browser.management.getPermissionWarningsById(id).then(gotWarnings);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-getPermissionWarningsById) API. Diese Dokumentation stammt von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-getPermissionWarningsById) API. Diese Dokumentation stammt aus [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

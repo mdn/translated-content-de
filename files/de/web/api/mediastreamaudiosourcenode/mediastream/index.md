@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die `mediaStream`-Eigenschaft der Schnittstelle {{domxref("MediaStreamAudioSourceNode")}} ist schreibgeschützt und gibt den {{domxref("MediaStream")}} an, der die Audiospur enthält, von der der Knoten Audio empfängt.
+Die schreibgeschützte **`mediaStream`**-Eigenschaft der [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)-Schnittstelle gibt den [`MediaStream`](/de/docs/Web/API/MediaStream) an, der den Audiotrack enthält, von dem der Knoten Audio empfängt.
 
-Dieser Stream wurde angegeben, als der Knoten zuerst erstellt wurde, entweder durch die Verwendung des Konstruktors {{domxref("MediaStreamAudioSourceNode.MediaStreamAudioSourceNode", "MediaStreamAudioSourceNode()")}} oder der Methode {{domxref("AudioContext.createMediaStreamSource()")}}.
+Dieser Stream wurde beim Erstellen des Knotens entweder mit dem [`MediaStreamAudioSourceNode()`](/de/docs/Web/API/MediaStreamAudioSourceNode/MediaStreamAudioSourceNode)-Konstruktor oder der [`AudioContext.createMediaStreamSource()`](/de/docs/Web/API/AudioContext/createMediaStreamSource)-Methode angegeben.
 
 ## Wert
 
-Ein {{domxref("MediaStream")}}, der den Stream darstellt, der den {{domxref("MediaStreamTrack")}} enthält, der als Audioquelle für den Knoten dient.
+Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der den Stream repräsentiert, der den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) enthält, der als Audioquelle für den Knoten dient.
 
-Der {{Glossary("user agent")}} verwendet die erste Audiospur, die er im angegebenen Stream findet, als Audioquelle für diesen Knoten. Es gibt jedoch keine Möglichkeit, sicher zu sein, welche Spur dies bei Streams mit mehreren Spuren sein wird. Wenn die spezifische Spur für Sie von Bedeutung ist oder Sie Zugriff auf die Spur selbst benötigen, sollten Sie stattdessen einen {{domxref("MediaStreamTrackAudioSourceNode")}} verwenden.
+Der [Benutzeragent](/de/docs/Glossary/user_agent) verwendet den ersten Audiotrack, den er im angegebenen Stream findet, als Audioquelle für diesen Knoten. Es gibt jedoch keine Möglichkeit, sicher zu wissen, welcher Track das in Multi-Track-Streams sein wird. Wenn der spezifische Track für Sie von Bedeutung ist oder Sie Zugriff auf den Track selbst benötigen, sollten Sie stattdessen einen [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode) verwenden.
 
 ## Beispiele
 

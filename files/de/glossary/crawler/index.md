@@ -7,10 +7,10 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Webcrawler** ist ein Programm, oft als Bot oder Roboter bezeichnet, das systematisch das {{glossary("World Wide Web","Web")}} durchsucht, um Daten von Webseiten zu sammeln. Typischerweise verwenden Suchmaschinen (z.B. Google, Bing usw.) Crawler, um Indizes zu erstellen.
+Ein **Web-Crawler** ist ein Programm, oft als Bot oder Roboter bezeichnet, das systematisch das [Web](/de/docs/Glossary/World_Wide_Web) durchsucht, um Daten von Webseiten zu sammeln. Typischerweise verwenden Suchmaschinen (z.B. Google, Bing, etc.) Crawler, um Indizes zu erstellen.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Search engine")}}
-- [Webcrawler](https://en.wikipedia.org/wiki/Web_crawler) auf Wikipedia
+  - [Suchmaschine](/de/docs/Glossary/Search_engine)
+- [Web-Crawler](https://en.wikipedia.org/wiki/Web_crawler) auf Wikipedia

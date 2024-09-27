@@ -7,24 +7,24 @@ l10n:
 
 {{DefaultAPISidebar("Web Audio API")}}
 
-In diesem Tutorial werden wir die Erstellung und Modifikation von Klängen sowie das Timing und die Planung abdecken. Wir werden Sample-Loading, Hüllkurven, Filter, Wavetables und Frequenzmodulation einführen. Wenn Sie mit diesen Begriffen vertraut sind und eine Einführung in ihre Anwendung mit der Web Audio API suchen, sind Sie hier genau richtig.
+In diesem Tutorial behandeln wir die Erstellung und Modifikation von Klängen sowie Timing und Planung. Wir werden das Laden von Samples, Hüllkurven, Filter, Wavetables und Frequenzmodulation einführen. Wenn Sie mit diesen Begriffen vertraut sind und nach einer Einführung in ihre Anwendung mit der Web Audio API suchen, sind Sie hier genau richtig.
 
 > [!NOTE]
-> Sie können den Quellcode für die untenstehende Demo auf GitHub im [step-sequencer](https://github.com/mdn/webaudio-examples/tree/main/step-sequencer)-Unterverzeichnis des MDN [webaudio-examples](https://github.com/mdn/webaudio-examples) Repos finden. Sie können auch die [Live-Demo](https://mdn.github.io/webaudio-examples/step-sequencer/) ansehen.
+> Den Quellcode für das unten stehende Demo finden Sie auf GitHub im [step-sequencer](https://github.com/mdn/webaudio-examples/tree/main/step-sequencer) Unterverzeichnis des MDN [webaudio-examples](https://github.com/mdn/webaudio-examples) Repos. Sie können sich auch das [Live-Demo](https://mdn.github.io/webaudio-examples/step-sequencer/) ansehen.
 
 ## Demo
 
-Wir werfen einen Blick auf einen sehr einfachen Step-Sequenzer:
+Wir werden uns einen sehr einfachen Step-Sequenzer ansehen:
 
-![Eine Sound-Sequenzer-Anwendung mit Play- und BPM-Master-Steuerungen und 4 verschiedenen Stimmen mit individuellen Steuerungen für jede.](sequencer.png)
+![Eine Sound-Sequenzer-Anwendung mit Play- und BPM-Hauptsteuerungen und 4 verschiedenen Stimmen mit jeweils eigenen Steuerungen.](sequencer.png)
 
-In der Praxis ist dies mit einer Bibliothek einfacher zu handhaben — die Web Audio API ist darauf ausgelegt, darauf aufzubauen. Wenn Sie daran denken, etwas Komplexeres zu erstellen, wäre [tone.js](https://tonejs.github.io/) ein hervorragender Ausgangspunkt. Wir möchten jedoch demonstrieren, wie man einen solchen Demo von Grund auf erstellt, um daraus zu lernen.
+In der Praxis ist es einfacher, dies mit einer Bibliothek zu tun — die Web Audio API wurde entwickelt, um darauf aufzubauen. Wenn Sie ein komplexeres Projekt starten wollen, wäre [tone.js](https://tonejs.github.io/) ein hervorragender Ausgangspunkt. Wir möchten jedoch demonstrieren, wie man ein solches Demo von Grund auf als Lernübung erstellt.
 
-Die Benutzeroberfläche besteht aus Master-Steuerungen, mit denen wir den Sequenzer abspielen/stoppen und das BPM (Beats pro Minute) anpassen können, um die "Musik" zu beschleunigen oder zu verlangsamen.
+Die Schnittstelle besteht aus Hauptsteuerungen, die es uns ermöglichen, den Sequenzer abzuspielen/anzuhalten und den BPM (Beats per Minute) einzustellen, um die "Musik" zu beschleunigen oder zu verlangsamen.
 
-Vier verschiedene Klänge oder Stimmen können abgespielt werden. Jede Stimme hat vier Tasten, eine für jeden Schlag in einem Takt Musik. Wenn sie aktiviert sind, wird der Ton erklingen. Wenn das Instrument spielt, wird es sich über diesen Satz von Schlägen bewegen und den Takt wiederholen.
+Es können vier verschiedene Klänge oder Stimmen abgespielt werden. Jede Stimme hat vier Tasten, eine für jeden Schlag in einem Musikmaß. Wenn sie aktiviert sind, wird der Ton erklingen. Wenn das Instrument spielt, bewegt es sich über diese Reihe von Schlägen und wiederholt das Maß.
 
-Jede Stimme hat auch lokale Steuerungen, mit denen Sie die Effekte oder Parameter manipulieren können, die für jede Technik, die wir zur Erstellung dieser Stimmen verwenden, spezifisch sind. Die Methoden, die wir verwenden, sind:
+Jede Stimme hat auch lokale Steuerungen, die es Ihnen ermöglichen, die Effekte oder Parameter zu manipulieren, die bei jeder Technik, die wir zur Erstellung dieser Stimmen verwenden, eingesetzt werden. Die von uns verwendeten Methoden sind:
 
 <table class="no-markdown">
   <thead>
@@ -39,41 +39,41 @@ Jede Stimme hat auch lokale Steuerungen, mit denen Sie die Effekte oder Paramete
       <td>"Sweep"</td>
       <td>Oszillator, periodische Welle</td>
       <td>
-        {{domxref("OscillatorNode")}},
-        {{domxref("PeriodicWave")}}
+        [`OscillatorNode`](/de/docs/Web/API/OscillatorNode),
+        [`PeriodicWave`](/de/docs/Web/API/PeriodicWave)
       </td>
     </tr>
     <tr>
       <td>"Pulse"</td>
       <td>Mehrere Oszillatoren</td>
-      <td>{{domxref("OscillatorNode")}}</td>
+      <td>[`OscillatorNode`](/de/docs/Web/API/OscillatorNode)</td>
     </tr>
     <tr>
       <td>"Noise"</td>
-      <td>Zufälliger Rauschpuffer, Biquad-Filter</td>
+      <td>Zufälliges Rauschpuffer, Biquad-Filter</td>
       <td>
-        {{domxref("AudioBuffer")}},
-        {{domxref("AudioBufferSourceNode")}},
-        {{domxref("BiquadFilterNode")}}
+        [`AudioBuffer`](/de/docs/Web/API/AudioBuffer),
+        [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode),
+        [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode)
       </td>
     </tr>
     <tr>
       <td>"Dial up"</td>
-      <td>Laden eines Sound-Samples zum Abspielen</td>
+      <td>Ein Tonbeispiel laden und abspielen</td>
       <td>
-        {{domxref("BaseAudioContext/decodeAudioData")}},
-        {{domxref("AudioBufferSourceNode")}}
+        [`BaseAudioContext/decodeAudioData`](/de/docs/Web/API/BaseAudioContext/decodeAudioData),
+        [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)
       </td>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Wir haben dieses Instrument nicht erstellt, um gut zu klingen, sondern um Demonstrationscode bereitzustellen. Diese Demonstration stellt eine _sehr_ vereinfachte Version eines solchen Instruments dar. Die Klänge basieren auf einem Modem für die Einwahlverbindung. Falls Sie nicht wissen, wie ein solches Gerät klingt, können Sie [hier einen anhören](https://soundcloud.com/john-pemberton/modem-dialup).
+> Wir haben dieses Instrument nicht erstellt, um gut zu klingen, sondern um Demonstrationscode bereitzustellen. Diese Demonstration stellt eine _sehr_ vereinfachte Version eines solchen Instruments dar. Die Klänge basieren auf einem Modem mit Einwählverbindung. Wenn Sie nicht wissen, wie ein solches Gerät klingt, können Sie [hier einen anhören](https://soundcloud.com/john-pemberton/modem-dialup).
 
-## Erstellung eines Audio-Kontextes
+## Erstellen eines Audio-Kontextes
 
-Wie Sie es mittlerweile gewohnt sein sollten, beginnt jede Web Audio API-Anwendung mit einem Audio-Kontext:
+Wie Sie inzwischen gewohnt sein sollten, beginnt jede Web Audio API-Anwendung mit einem Audio-Kontext:
 
 ```js
 const audioCtx = new AudioContext();
@@ -81,13 +81,13 @@ const audioCtx = new AudioContext();
 
 ## Der "Sweep" — Oszillatoren, periodische Wellen und Hüllkurven
 
-Für das, was wir den "Sweep"-Klang nennen werden, also das erste Geräusch, das Sie hören, wenn Sie eine Verbindung über die Einwahl herstellen, werden wir einen Oszillator erstellen, um den Klang zu erzeugen.
+Für das, was wir den "Sweep" Klang nennen werden, das erste Geräusch, das Sie hören, wenn Sie sich einwählen, erstellen wir einen Oszillator, um den Ton zu erzeugen.
 
-Der {{domxref("OscillatorNode")}} wird mit grundlegenden Wellenformen geliefert — Sinus-, Rechteck-, Dreieck- oder Sägezahnkurve. Anstelle der standardmäßigen Wellen, die standardmäßig geliefert werden, erstellen wir jedoch unsere eigenen mit der {{domxref("PeriodicWave")}}-Schnittstelle und Werten, die in einer Wavetable festgelegt sind. Wir können den {{domxref("PeriodicWave/PeriodicWave", "PeriodicWave()")}}-Konstruktor verwenden, um diese benutzerdefinierte Welle mit einem Oszillator zu verwenden.
+Der [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) bietet von Haus aus grundlegende Wellenformen — Sinus, Rechteck, Dreieck oder Sägezahn. Statt jedoch die Standardwellen zu verwenden, die standardmäßig bereitgestellt werden, erstellen wir unsere eigene über die [`PeriodicWave`](/de/docs/Web/API/PeriodicWave)-Schnittstelle und Werte, die in einem Wave-Table festgelegt sind. Wir können den [`PeriodicWave()`](/de/docs/Web/API/PeriodicWave/PeriodicWave)-Konstruktor verwenden, um diese benutzerdefinierte Welle mit einem Oszillator zu verwenden.
 
 ### Die periodische Welle
 
-Zuerst erstellen wir unsere periodische Welle. Dazu müssen wir reale und imaginäre Werte in den {{domxref("PeriodicWave/PeriodicWave", "PeriodicWave()")}}-Konstruktor übergeben:
+Zuerst erstellen wir unsere periodische Welle. Dazu müssen wir reale und imaginäre Werte in den [`PeriodicWave()`](/de/docs/Web/API/PeriodicWave/PeriodicWave)-Konstruktor übergeben:
 
 ```js
 const wave = new PeriodicWave(audioCtx, {
@@ -97,11 +97,11 @@ const wave = new PeriodicWave(audioCtx, {
 ```
 
 > [!NOTE]
-> In unserem Beispiel wird die Wavetable in einer separaten JavaScript-Datei (`wavetable.js`) gespeichert, da es _so_ viele Werte gibt. Wir haben sie aus einem [Repository von Wavetables](https://github.com/GoogleChromeLabs/web-audio-samples/tree/main/src/demos/wavetable-synth/wave-tables) entnommen, das in den [Web Audio API-Beispielen von Google Chrome Labs](https://github.com/GoogleChromeLabs/web-audio-samples/) zu finden ist.
+> In unserem Beispiel wird das Wave-Table in einer separaten JavaScript-Datei (`wavetable.js`) gehalten, da es _so_ viele Werte gibt. Wir haben es aus einem [Repository von Wavetables](https://github.com/GoogleChromeLabs/web-audio-samples/tree/main/src/demos/wavetable-synth/wave-tables) übernommen, das in den [Web Audio API-Beispielen von Google Chrome Labs](https://github.com/GoogleChromeLabs/web-audio-samples/) zu finden ist.
 
 ### Der Oszillator
 
-Jetzt können wir einen {{domxref("OscillatorNode")}} erstellen und seine Welle auf die von uns erstellte setzen:
+Jetzt können wir einen [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) erstellen und seine Welle auf die von uns erstellte setzen:
 
 ```js
 function playSweep(time) {
@@ -116,13 +116,13 @@ function playSweep(time) {
 }
 ```
 
-Wir übergeben der Funktion hier einen Zeitparameter, den wir später verwenden werden, um den Sweep zu planen.
+Wir übergeben hier einen Zeitparameter an die Funktion, den wir später verwenden werden, um den Sweep zu planen.
 
-### Kontrolle der Amplitude
+### Steuerung der Amplitude
 
-Das ist großartig, aber wäre es nicht schön, wenn wir eine Amplitudenhüllkurve dazu hätten? Lassen Sie uns eine einfache erstellen, damit wir uns mit den Methoden vertraut machen, die wir zur Erstellung einer Hüllkurve mit der Web Audio API benötigen.
+Das ist großartig, aber wäre es nicht schön, wenn wir eine Amplitudenhüllkurve dazu hätten? Lassen Sie uns eine einfache erstellen, damit wir uns an die Methoden gewöhnen, die wir benötigen, um eine Hüllkurve mit der Web Audio API zu erstellen.
 
-Nehmen wir an, unsere Hüllkurve hat Attack und Release. Wir können dem Benutzer erlauben, diese mithilfe von [Bereichseingaben](/de/docs/Web/HTML/Element/input/range) auf der Schnittstelle zu steuern:
+Lassen Sie uns sagen, unsere Hüllkurve hat Attack und Release. Wir können dem Benutzer erlauben, diese mit [Range-Inputs](/de/docs/Web/HTML/Element/input/range) auf der Benutzeroberfläche zu steuern:
 
 ```html
 <label for="attack">Attack</label>
@@ -146,7 +146,7 @@ Nehmen wir an, unsere Hüllkurve hat Attack und Release. Wir können dem Benutze
   step="0.1" />
 ```
 
-Jetzt können wir einige Variablen in JavaScript erstellen und diese ändern, wenn die Eingabewerte aktualisiert werden:
+Jetzt können wir einige Variablen in JavaScript erstellen und sie ändern, wenn die Eingabewerte aktualisiert werden:
 
 ```js
 let attackTime = 0.2;
@@ -172,11 +172,11 @@ releaseControl.addEventListener(
 
 ### Die endgültige playSweep()-Funktion
 
-Jetzt können wir unsere `playSweep()`-Funktion erweitern. Wir müssen einen {{domxref("GainNode")}} hinzufügen und diesen durch unsere Audiografik verbinden, um Amplitudenschwankungen auf unseren Klang anzuwenden. Der Gain-Knoten hat eine Eigenschaft: `gain`, die vom Typ {{domxref("AudioParam")}} ist.
+Jetzt können wir unsere `playSweep()`-Funktion erweitern. Wir müssen einen [`GainNode`](/de/docs/Web/API/GainNode) hinzufügen und ihn durch unser Audiografen verbinden, um Amplitudenvariationen auf unseren Klang anzuwenden. Der Gain-Node hat eine Eigenschaft: `gain`, die vom Typ [`AudioParam`](/de/docs/Web/API/AudioParam) ist.
 
-Dies ist nützlich — jetzt können wir beginnen, die Leistungsfähigkeit der Audio-Paramether-Methoden am Gain-Wert zu nutzen. Wir können einen Wert zu einer bestimmten Zeit setzen oder wir können ihn _über_ die Zeit hinweg mit Methoden wie {{domxref("AudioParam.linearRampToValueAtTime")}} ändern.
+Das ist nützlich — jetzt können wir die Macht der Audioparameter-Methoden auf den Gain-Wert nutzen. Wir können einen Wert zu einem bestimmten Zeitpunkt festlegen, oder wir können ihn _über_ die Zeit mit Methoden wie [`AudioParam.linearRampToValueAtTime`](/de/docs/Web/API/AudioParam/linearRampToValueAtTime) ändern.
 
-Wie bereits erwähnt, verwenden wir die `linearRampToValueAtTime`-Methode für unseren Attack und Release. Sie benötigt zwei Parameter — den Wert, auf den Sie den Parameter, den Sie ändern, setzen möchten (in diesem Fall den Gain) und wann Sie dies tun möchten. In unserem Fall wird _wann_ durch unsere Eingaben gesteuert. Der Gain wird bei einer linearen Rate auf 1 erhöht, über die Zeit, die die Attack-Bereichseingabe definiert. Ähnlich wird für unseren Release der Gain bei einer linearen Rate auf 0 gesetzt, über die Zeit, die die Release-Eingabe festgelegt hat.
+Wie oben erwähnt, verwenden wir die `linearRampToValueAtTime`-Methode für unser Attack und Release. Sie nimmt zwei Parameter an — den Wert, den Sie dem Parameter, den Sie ändern, setzen wollen (in diesem Fall das Gain) und wann Sie dies tun möchten. In unserem Fall wird das Wann von unseren Eingaben gesteuert. Also, im Beispiel unten, erhöht sich das Gain zu 1 in linearer Geschwindigkeit über die Zeit, die der Attack-Range-Input definiert. Ebenso wird für unser Release das Gain zu 0 in linearer Geschwindigkeit gesetzt, über die Zeit, die der Release-Input gesetzt wurde.
 
 ```js
 const sweepLength = 2;
@@ -199,13 +199,13 @@ function playSweep(time) {
 }
 ```
 
-## Der "Pulse" — Modulation mit niederfrequentem Oszillator
+## Der "Pulse" — Modulation mit einem Tieffrequenzoszillator
 
-Großartig, jetzt haben wir unseren Sweep! Lassen Sie uns weitermachen und einen Blick auf diesen schönen Puls-Ton werfen. Wir können dies mit einem einfachen Oszillator erreichen, moduliert mit einem zweiten Oszillator.
+Großartig, jetzt haben wir unseren Sweep! Lassen Sie uns weitermachen und uns diesen schönen Puls ansehen. Wir können dies mit einem einfachen Oszillator erreichen, der mit einem zweiten Oszillator moduliert wird.
 
-### Initialer Oszillator
+### Erster Oszillator
 
-Wir richten unseren ersten {{domxref("OscillatorNode")}} genauso ein wie bei unserem Sweep-Klang, außer dass wir keine Wavetable verwenden, um eine maßgeschneiderte Welle zu setzen — wir verwenden einfach die standardmäßige `Sine`-Welle:
+Wir richten unseren ersten [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) ähnlich wie bei unserem Sweep-Klang ein, außer dass wir kein Wave-Table verwenden, um eine maßgeschneiderte Welle zu setzen — wir verwenden einfach die Standard-`Sinus`-Welle:
 
 ```js
 const osc = new OscillatorNode(audioCtx, {
@@ -214,7 +214,7 @@ const osc = new OscillatorNode(audioCtx, {
 });
 ```
 
-Jetzt erstellen wir einen {{domxref("GainNode")}}, da der `gain`-Wert der ist, den wir mit unserem zweiten, niederfrequenten Oszillator oszillieren werden:
+Jetzt erstellen wir einen [`GainNode`](/de/docs/Web/API/GainNode), da wir den `gain`-Wert mit unserem zweiten, tieffrequenten Oszillator oszillieren werden:
 
 ```js
 const amp = new GainNode(audioCtx, {
@@ -222,9 +222,9 @@ const amp = new GainNode(audioCtx, {
 });
 ```
 
-### Erstellung des zweiten, niederfrequenten Oszillators
+### Zweiter, tieffrequenter Oszillator
 
-Wir erstellen jetzt einen zweiten — `square` — Wellenoszillator, um die Verstärkung unserer ersten Sinuswelle zu ändern:
+Jetzt erstellen wir einen zweiten — `rechteck` (oder Puls) — Oszillator, um die Verstärkung unserer ersten Sinuswelle zu verändern:
 
 ```js
 const lfo = new OscillatorNode(audioCtx, {
@@ -233,9 +233,9 @@ const lfo = new OscillatorNode(audioCtx, {
 });
 ```
 
-### Verbindung des Graphs
+### Grafen verbinden
 
-Der Schlüssel hier ist die korrekte Verbindung des Graphen und das Starten beider Oszillatoren:
+Der Schlüssel liegt hier in der korrekten Verbindung des Grafen und darin, beide Oszillatoren zu starten:
 
 ```js
 lfo.connect(amp.gain);
@@ -246,11 +246,11 @@ osc.stop(time + pulseTime);
 ```
 
 > [!NOTE]
-> Wir müssen für keinen der beiden Oszillatoren, die wir erstellen, die standardmäßigen Wellentypen verwenden — wir könnten eine Wavetable und die periodische Wellenmethode verwenden, wie wir es zuvor getan haben. Es gibt eine Vielzahl von Möglichkeiten mit nur wenigen Nodes.
+> Wir müssen auch nicht die Standardwellentypen für einen dieser Oszillatoren verwenden, die wir erstellen — wir könnten genauso gut ein Wave-Table und die periodische Wellenmethode verwenden, wie wir es vorher getan haben. Es gibt eine Vielzahl von Möglichkeiten mit nur einem Minimum an Nodes.
 
 ### Pulse-Benutzersteuerungen
 
-Für die Benutzeroberflächensteuerungen lassen Sie uns beide Frequenzen unserer Oszillatoren freigeben, sodass sie über Bereichseingaben gesteuert werden können. Eine wird den Ton ändern, die andere, wie der Puls die erste Welle moduliert:
+Für die Benutzeroberflächensteuerungen lassen wir beide Frequenzen unserer Oszillatoren zu, damit sie über Range-Inputs gesteuert werden können. Einer wird den Ton ändern und der andere, wie der Puls die erste Welle moduliert:
 
 ```html
 <label for="hz">Hz</label>
@@ -266,7 +266,7 @@ Für die Benutzeroberflächensteuerungen lassen Sie uns beide Frequenzen unserer
 <input name="lfo" id="lfo" type="range" min="20" max="40" value="30" step="1" />
 ```
 
-Wie zuvor werden wir die Parameter ändern, wenn der Benutzer die Werte der Bereiche ändert.
+Wie zuvor variieren wir die Parameter, wenn der Benutzer die Range-Werte ändert.
 
 ```js
 let pulseHz = 880;
@@ -319,29 +319,29 @@ function playPulse(time) {
 }
 ```
 
-## Der "Noise" — Zufallsrauschpuffer mit einem Biquad-Filter
+## Das "Noise" — Zufälliger Rauschpuffer mit einem Biquad-Filter
 
-Jetzt müssen wir ein wenig Rauschen erzeugen! Alle Modems haben Rauschen. Rauschen sind nur zufällige Zahlen, wenn es um Audiodaten geht, deshalb ist es relativ einfach, sie mit Code zu erstellen.
+Jetzt müssen wir etwas Lärm machen! Alle Modems haben Lärm. Rauschen sind einfach zufällige Zahlen, wenn es um Audiodaten geht, und ist daher eine relativ einfache Sache, die man mit Code erstellen kann.
 
-### Erstellung eines Audio-Puffers
+### Erstellen eines Audio-Puffers
 
-Wir müssen einen leeren Container erstellen, um diese Zahlen hinein zu legen, einen, den die Web Audio API versteht. Hier kommen {{domxref("AudioBuffer")}}-Objekte ins Spiel. Sie können eine Datei abrufen und in einen Puffer dekodieren (dazu kommen wir später im Tutorial) oder Sie können einen leeren Puffer erstellen und ihn mit Ihren Daten füllen.
+Wir müssen einen leeren Container erstellen, um diese Zahlen hinein zu legen, aber einen, den die Web Audio API versteht. Dies ist der Punkt, an dem [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Objekte ins Spiel kommen. Sie können eine Datei abrufen und sie in einen Puffer dekodieren (darauf werden wir später im Tutorial eingehen), oder Sie können einen leeren Puffer erstellen und ihn mit Ihren Daten füllen.
 
-Für Rauschen werden wir Letzteres tun. Wir müssen zuerst die Größe unseres Puffers berechnen, um ihn zu erstellen. Wir können dafür die {{domxref("BaseAudioContext.sampleRate")}}-Eigenschaft verwenden:
+Für Noise tun wir Letzteres. Wir müssen zuerst die Größe unseres Puffers berechnen, um ihn zu erstellen. Wir können die [`BaseAudioContext.sampleRate`](/de/docs/Web/API/BaseAudioContext/sampleRate)-Eigenschaft dafür verwenden:
 
 ```js
 const bufferSize = audioCtx.sampleRate * noiseDuration;
-// Erstellen eines leeren Puffers
+// Create an empty buffer
 const noiseBuffer = new AudioBuffer({
   length: bufferSize,
   sampleRate: audioCtx.sampleRate,
 });
 ```
 
-Jetzt können wir ihn mit zufälligen Zahlen zwischen -1 und 1 füllen:
+Jetzt können wir ihn mit Zufallszahlen zwischen -1 und 1 füllen:
 
 ```js
-// Füllen des Puffers mit Rauschen
+// Fill the buffer with noise
 const data = noiseBuffer.getChannelData(0);
 for (let i = 0; i < bufferSize; i++) {
   data[i] = Math.random() * 2 - 1;
@@ -349,54 +349,54 @@ for (let i = 0; i < bufferSize; i++) {
 ```
 
 > [!NOTE]
-> Warum von -1 bis 1? Wenn wir Sound auf eine Datei oder Lautsprecher ausgeben, brauchen wir eine Zahl, die 0 dB full scale darstellt — das numerische Limit des fixierten Punkts des Mediums oder DAC. Bei Floating-Point-Audio ist 1 eine bequeme Zahl, um auf "full scale" abzubilden für mathematische Operationen an Signalen, daher geben Oszillatoren, Rauschgeneratoren und andere Klangquellen typischerweise bipolare Signale im Bereich von -1 bis 1 aus. Ein Browser wird Werte außerhalb dieses Bereichs begrenzen.
+> Warum -1 bis 1? Beim Ausgeben von Sound an eine Datei oder Lautsprecher benötigen wir eine Zahl, die 0 dB Full Scale darstellt — die numerische Grenze des Festpunkt-Medien oder DACs. In Floating-Point-Audio ist 1 eine geeignete Zahl, um zu "full scale" für mathematische Operationen auf Signale zuzuordnen, daher geben Oszillatoren, Rauschgeneratoren und andere Klangquellen typischerweise bipolare Signale im Bereich von -1 bis 1 aus. Ein Browser wird Werte außerhalb dieses Bereichs begrenzen.
 
-### Erstellung einer Pufferquelle
+### Erstellen einer Puffe-Quelle
 
-Jetzt, da wir den Audio-Puffer haben und ihn mit Daten gefüllt haben, brauchen wir einen Node, den wir zu unserem Graphen hinzufügen können und der den Puffer als Quelle verwenden kann. Wir erstellen dafür einen {{domxref("AudioBufferSourceNode")}} und übergeben die von uns erstellten Daten:
+Jetzt, da wir den Audio-Puffer haben und ihn mit Daten gefüllt haben, benötigen wir einen Node, den wir zu unserem Graphen hinzufügen können, der den Puffer als Quelle nutzen kann. Wir erstellen dafür einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) und übergeben die von uns erstellten Daten:
 
 ```js
-// Erstellen einer Pufferquelle für unsere erstellten Daten
+// Create a buffer source for our created data
 const noise = new AudioBufferSourceNode(audioCtx, {
   buffer: noiseBuffer,
 });
 ```
 
-Wenn wir dies durch unseren Audiographen anschließen und abspielen:
+Wenn wir dies durch unseren Audiografen verbinden und spielen:
 
 ```js
 noise.connect(audioCtx.destination);
 noise.start();
 ```
 
-Werden Sie feststellen, dass es ziemlich zischend oder klirrend ist. Wir haben weißes Rauschen erstellt; so soll es sein. Unsere Werte sind von -1 bis 1 verteilt, was bedeutet, dass wir Spitzenwerte aller Frequenzen haben, die eigentlich ziemlich dramatisch und durchdringend sind. Wir _könnten_ die Funktion so ändern, dass nur Werte von 0.5 bis -0.5 oder ähnlich verteilt werden, um die Spitzen abzuschneiden und das Unbehagen zu reduzieren; jedoch, wo bleibt der Spaß dabei? Lassen Sie uns das Rauschen, das wir erstellt haben, durch einen Filter leiten.
+Sie werden feststellen, dass es ziemlich zischend oder blechern ist. Wir haben weißes Rauschen erstellt; so sollte es sein. Unsere Werte verteilen sich von -1 bis 1, was bedeutet, dass wir Gipfel aller Frequenzen haben, die tatsächlich ziemlich dramatisch und durchdringend sind. Wir _könnten_ die Funktion modifizieren, um Werte nur von 0,5 bis -0,5 oder ähnlich zu verteilen, um die Gipfel zu entfernen und das Unbehagen zu reduzieren; jedoch, wo bleibt da der Spaß? Lassen Sie uns das Rauschen, das wir erstellt haben, durch einen Filter leiten.
 
-### Hinzufügen eines Biquad-Filters in die Mischung
+### Hinzufügen eines Biquad-Filters zur Mischung
 
-Wir möchten etwas im Bereich von rosa oder braunem Rauschen. Wir möchten diese hohen Frequenzen abschneiden und möglicherweise einige niedrigere auch. Lassen Sie uns einen Bandpass-Biquad-Filter für den Job wählen.
+Wir möchten etwas im Bereich von rosa oder braunem Rauschen. Wir möchten diese hohen Frequenzen abschneiden und vielleicht einige tiefere. Wählen wir einen Bandpass-Biquad-Filter für diese Arbeit aus.
 
 > [!NOTE]
-> Die Web Audio API verfügt über zwei Arten von Filter-Nodes: {{domxref("BiquadFilterNode")}} und {{domxref("IIRFilterNode")}}. Meistens ist ein Biquad-Filter ausreichend — er kommt mit verschiedenen Typen wie Lowpass, Highpass und Bandpass. Wenn Sie jedoch nach etwas Speziellerem suchen, könnte der IIR-Filter eine gute Option sein — siehe [Verwendung von IIR-Filtern](/de/docs/Web/API/Web_Audio_API/Using_IIR_filters) für weitere Informationen.
+> Die Web Audio API kommt mit zwei Arten von Filternodes: [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) und [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode). Meistens reicht ein Biquad-Filter aus — er bietet verschiedene Typen wie Tiefpass, Hochpass und Bandpass. Wenn Sie jedoch etwas maßgeschneiderteres machen möchten, könnte der IIR-Filter eine gute Option sein — siehe [Verwendung von IIR-Filtern](/de/docs/Web/API/Web_Audio_API/Using_IIR_filters) für weitere Informationen.
 
-Das Anschließen funktioniert genauso, wie wir es bereits gesehen haben. Wir erstellen den {{domxref("BiquadFilterNode")}}, konfigurieren die gewünschten Eigenschaften und verbinden ihn durch unseren Graphen. Verschiedene Arten von Biquad-Filtern haben unterschiedliche Eigenschaften — zum Beispiel passt das Setzen der Frequenz auf einem Bandpass-Typ die mittlere Frequenz an. Bei einem Lowpass hingegen würde es die oberste Frequenz einstellen.
+Das Verkabeln ist so, wie wir es vorher gesehen haben. Wir erstellen den [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode), konfigurieren die gewünschten Eigenschaften und verbinden ihn durch unseren Graphen. Verschiedene Arten von Biquad-Filtern haben unterschiedliche Eigenschaften — das Einstellen der Frequenz auf einem Bandpass-Typ passt beispielsweise die mittleren Frequenzen an. Allerdings würde es bei einem Tiefpass die obere Frequenz einstellen.
 
 ```js
-// Ausgabe filtern
+// Filter the output
 const bandpass = new BiquadFilterNode(audioCtx, {
   type: "bandpass",
   frequency: bandHz,
 });
 
-// Unseren Graphen verbinden
+// Connect our graph
 noise.connect(bandpass).connect(audioCtx.destination);
 ```
 
-### Rausch-Benutzersteuerungen
+### Noise-Benutzersteuerungen
 
-In der Benutzeroberfläche geben wir die Rauschdauer und die Frequenz, die wir bändigen möchten, frei, damit der Benutzer diese über Bereichseingaben und Ereignis-Handler anpassen kann, wie in den vorherigen Abschnitten:
+Auf der Benutzeroberfläche werden wir die Noise-Dauer und die Frequenz, die wir bandpassieren möchten, aussetzen, sodass der Benutzer sie über Range-Inputs und Event-Handler wie in den vorherigen Abschnitten anpassen kann:
 
 ```html
-<label for="duration">Dauer</label>
+<label for="duration">Duration</label>
 <input
   name="duration"
   id="duration"
@@ -445,44 +445,44 @@ Hier ist die gesamte `playNoise()`-Funktion:
 
 ```js
 function playNoise(time) {
-  const bufferSize = audioCtx.sampleRate * noiseDuration; // Zeit des Tons festlegen
+  const bufferSize = audioCtx.sampleRate * noiseDuration; // set the time of the note
 
-  // Erstellen eines leeren Puffers
+  // Create an empty buffer
   const noiseBuffer = new AudioBuffer({
     length: bufferSize,
     sampleRate: audioCtx.sampleRate,
   });
 
-  // Puffer mit Rauschen füllen
+  // Fill the buffer with noise
   const data = noiseBuffer.getChannelData(0);
   for (let i = 0; i < bufferSize; i++) {
     data[i] = Math.random() * 2 - 1;
   }
 
-  // Erstellen einer Pufferquelle für unsere erstellten Daten
+  // Create a buffer source for our created data
   const noise = new AudioBufferSourceNode(audioCtx, {
     buffer: noiseBuffer,
   });
 
-  // Filtern der Ausgabe
+  // Filter the output
   const bandpass = new BiquadFilterNode(audioCtx, {
     type: "bandpass",
     frequency: bandHz,
   });
 
-  // Unseren Graphen verbinden
+  // Connect our graph
   noise.connect(bandpass).connect(audioCtx.destination);
   noise.start(time);
 }
 ```
 
-## "Dial-up" — Laden eines Sound-Samples
+## "Dial-up" — ein Tonsample laden
 
-Es ist einfach genug, Telefonwahl (DTMF) Sounds zu emulieren, indem man ein paar Oszillatoren zusammen mit den Methoden abspielt, die wir bereits verwendet haben. Stattdessen laden wir in diesem Abschnitt eine Sample-Datei, um zu sehen, was dazugehört.
+Es ist einfach genug, Telefonsignale (DTMF) zu emulieren, indem man ein paar Oszillatoren zusammen abspielt, indem man die Methoden verwendet, die wir bereits genutzt haben. Stattdessen werden wir in diesem Abschnitt eine Beispieldatei laden, um zu sehen, was dabei beteiligt ist.
 
-### Das Sample laden
+### Laden des Samples
 
-Wir wollen sicherstellen, dass unsere Datei geladen und in ein Puffer dekodiert ist, bevor wir sie verwenden, also erstellen wir eine [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function)-Funktion, um uns dies zu ermöglichen:
+Wir möchten sicherstellen, dass unsere Datei geladen und in einen Puffer dekodiert wurde, bevor wir sie verwenden, also lassen Sie uns eine [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function) Funktion erstellen, die uns dies ermöglicht:
 
 ```js
 async function getFile(audioContext, filepath) {
@@ -493,9 +493,9 @@ async function getFile(audioContext, filepath) {
 }
 ```
 
-Wir können dann den [`await`](/de/docs/Web/JavaScript/Reference/Operators/await)-Operator beim Aufrufen dieser Funktion verwenden, der sicherstellt, dass wir nur nachfolgende Codezeilen ausführen können, wenn die Ausführung abgeschlossen ist.
+Wir können dann den [`await`](/de/docs/Web/JavaScript/Reference/Operators/await)-Operator verwenden, wenn wir diese Funktion aufrufen, um sicherzustellen, dass wir den nachfolgenden Code nur ausführen können, wenn er die Ausführung abgeschlossen hat.
 
-Lassen Sie uns eine weitere `async`-Funktion erstellen, um das Sample einzurichten — wir können die beiden async Funktionen in einem schönen Promise-Muster kombinieren, um weitere Aktionen auszuführen, wenn diese Datei geladen und gepuffert ist:
+Lassen Sie uns eine weitere `async`-Funktion erstellen, um das Sample einzurichten — wir können die beiden async-Funktionen in einem schönen Promise-Muster kombinieren, um weitere Aktionen auszuführen, wenn diese Datei geladen und gepuffert wurde:
 
 ```js
 async function setupSample() {
@@ -506,22 +506,22 @@ async function setupSample() {
 ```
 
 > [!NOTE]
-> Sie können die obige Funktion einfach so modifizieren, dass sie ein Array von Dateien nimmt und über sie iteriert, um mehr als ein Sample zu laden. Diese Technik wäre praktisch für komplexere Instrumente oder Spiele.
+> Sie können die obige Funktion leicht modifizieren, um ein Array von Dateien zu übernehmen und über sie zu iterieren, um mehr als ein Sample zu laden. Diese Technik wäre praktisch für komplexere Instrumente oder Spiele.
 
-Wir können nun `setupSample()` wie folgt verwenden:
+Wir können jetzt `setupSample()` wie folgt verwenden:
 
 ```js
 setupSample().then((sample) => {
-  // Sample ist unsere gepufferte Datei
+  // sample is our buffered file
   // …
 });
 ```
 
-Wenn das Sample zum Abspielen bereit ist, wird das Programm die Benutzeroberfläche einrichten, damit sie startbereit ist.
+Wenn das Sample bereit ist zum Abspielen, dann richtet das Programm die Benutzeroberfläche ein, damit sie betriebsbereit ist.
 
-### Das Sample abspielen
+### Abspielen des Samples
 
-Lassen Sie uns eine `playSample()`-Funktion ähnlich wie bei den anderen Sounds erstellen. Diesmal werden wir einen {{domxref("AudioBufferSourceNode")}} erstellen, die gepufferten Daten verwenden, die wir abgerufen und decodiert haben, und sie abspielen:
+Lassen Sie uns eine `playSample()`-Funktion ähnlich wie wir es mit den anderen Klängen getan haben, erstellen. Dieser Zeit erstellen wir einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode), platzieren die geladenen und dekodierten Pufferdaten hinein und spielen es ab:
 
 ```js
 function playSample(audioContext, audioBuffer, time) {
@@ -536,11 +536,11 @@ function playSample(audioContext, audioBuffer, time) {
 ```
 
 > [!NOTE]
-> Wir können `stop()` auf einem {{domxref("AudioBufferSourceNode")}} aufrufen, jedoch geschieht dies automatisch, wenn das Sample fertig abgespielt ist.
+> Wir können `stop()` auf einem [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) aufrufen, jedoch wird dies automatisch geschehen, wenn das Sample fertig abgespielt ist.
 
-### Dial-up-Benutzersteuerungen
+### Dial-up Benutzersteuerungen
 
-Der {{domxref("AudioBufferSourceNode")}} hat eine [`playbackRate`](/de/docs/Web/API/AudioBufferSourceNode/playbackRate)-Eigenschaft. Lassen Sie uns diese auf unserer Benutzeroberfläche freigeben, damit wir unser Sample beschleunigen und verlangsamen können. Wir machen das auf die gleiche Weise wie zuvor:
+Der [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) kommt mit einer [`playbackRate`](/de/docs/Web/API/AudioBufferSourceNode/playbackRate)-Eigenschaft. Lassen Sie uns diese auf unserer Benutzeroberfläche zugänglich machen, sodass wir das Sample beschleunigen und verlangsamen können. Wir werden das wie zuvor machen:
 
 ```html
 <label for="rate">Rate</label>
@@ -568,7 +568,7 @@ rateControl.addEventListener(
 
 ### Die endgültige playSample()-Funktion
 
-Dann fügen wir eine Zeile hinzu, um die `playbackRate`-Eigenschaft in unsere `playSample()`-Funktion zu aktualisieren. Die endgültige Version sieht so aus:
+Wir werden dann eine Zeile hinzufügen, um die `playbackRate`-Eigenschaft zu aktualisieren, zu unserer `playSample()`-Funktion. Die finale Version sieht so aus:
 
 ```js
 function playSample(audioContext, audioBuffer, time) {
@@ -576,25 +576,25 @@ function playSample(audioContext, audioBuffer, time) {
     buffer: audioBuffer,
     playbackRate,
   });
-  sampleSource.connect(audioCtx.destination);
+  sampleSource.connect(audioContext.destination);
   sampleSource.start(time);
   return sampleSource;
 }
 ```
 
 > [!NOTE]
-> Die Sound-Datei stammt von [soundbible.com](https://soundbible.com/1573-DTMF-Tones.html).
+> Die Tondatei wurde [von soundbible.com bezogen](https://soundbible.com/1573-DTMF-Tones.html).
 
-## Audio in der Zeit abspielen
+## Audio rechtzeitig abspielen
 
-Ein häufiges Problem bei digitalen Audioanwendungen ist es, die Klänge in der Zeit so abzuspielen, dass der Rhythmus konsistent bleibt und die Dinge nicht aus dem Takt geraten.
+Ein häufiges Problem bei digitalen Audioanwendungen ist es, die Klänge rechtzeitig abzuspielen, damit der Takt konsistent bleibt und die Dinge nicht aus dem Takt geraten.
 
-Wir könnten unsere Stimmen innerhalb einer `for`-Schleife abspielen lassen; jedoch ist das größte Problem dabei, wie man Updates während des Abspielens behandelt, und wir haben bereits UI-Steuerungen implementiert, um dies zu tun. Außerdem wäre es wirklich schön, eine BPM-Steuerung für das gesamte Instrument zu betrachten. Der beste Weg, unsere Stimmen auf dem Takt abspielen zu lassen, ist ein Planungssystem zu erstellen, bei dem wir vorausblicken, wann die Noten gespielt werden und sie in eine Warteschlange einfügen. Wir können sie zu einer genauen Zeit mit der `currentTime`-Eigenschaft starten und auch Änderungen berücksichtigen.
+Wir könnten unsere Stimmen planen, innerhalb einer `for`-Schleife zu spielen; das größte Problem hierbei ist jedoch das Aktualisieren während es spielt, und wir haben bereits Benutzeroberflächensteuerungen implementiert, um dies zu tun. Auch wäre es sehr schön, ein instrumentübergreifendes BPM-Steuerung zu berücksichtigen. Der beste Weg, um unsere Stimmen im Takt abzuspielen, besteht darin, ein Planungssystem zu erstellen, bei dem wir im Voraus schauen, wann die Noten spielen werden, und sie in eine Warteschlange einfügen. Wir können sie zu einem genauen Zeitpunkt mit der `currentTime`-Eigenschaft starten und auch etwaige Änderungen berücksichtigen.
 
 > [!NOTE]
-> Dies ist eine stark vereinfachte Version von [Chris Wilsons A Tale Of Two Clocks (2013)](https://web.dev/articles/audio-scheduling) Artikel, der auf diese Methode mit viel mehr Details eingeht. Es gibt keinen Grund, hier alles zu wiederholen, aber wir empfehlen sehr, diesen Artikel zu lesen und diese Methode zu verwenden. Ein Großteil des hier gezeigten Codes stammt aus seinem [Metronom-Beispiel](https://github.com/cwilso/metronome/blob/main/js/metronome.js), das er im Artikel erwähnt.
+> Dies ist eine stark reduzierte Version des Artikels [Chris Wilsons A Tale Of Two Clocks (2013)](https://web.dev/articles/audio-scheduling), der sich mit dieser Methode ausführlicher auseinandersetzt. Es bringt nichts, alles hier zu wiederholen, aber wir empfehlen dringend, diesen Artikel zu lesen und diese Methode zu verwenden. Ein Großteil des Codes hier stammt aus seinem [Metronom-Beispiel](https://github.com/cwilso/metronome/blob/main/js/metronome.js), das er im Artikel erwähnt.
 
-Beginnen wir damit, unser Standard-BPM (Schläge pro Minute) festzulegen, das auch über — Sie haben es erraten — eine weitere Bereichseingabe durch den Benutzer gesteuert werden kann.
+Lassen Sie uns anfangen, indem wir unser Standard-BPM (Schläge pro Minute) festlegen, das auch benutzersteuerbar über — Sie ahnen es schon — einen weiteren Range-Input sein wird.
 
 ```js
 let tempo = 60.0;
@@ -609,36 +609,36 @@ bpmControl.addEventListener(
 );
 ```
 
-Dann erstellen wir Variablen, um zu definieren, wie weit wir vorausblicken und wie weit wir Audio planen möchten:
+Dann erstellen wir Variablen, um zu definieren, wie weit wir im Voraus schauen und wie weit wir im Voraus planen möchten:
 
 ```js
-const lookahead = 25.0; // Wie häufig die Planungsfunktion aufrufen (in Millisekunden)
-const scheduleAheadTime = 0.1; // Wie weit voraus Audio geplant werden soll (Sek.)
+const lookahead = 25.0; // How frequently to call scheduling function (in milliseconds)
+const scheduleAheadTime = 0.1; // How far ahead to schedule audio (sec)
 ```
 
-Lassen Sie uns eine Funktion erstellen, die die Note um einen Schlag nach vorne bewegt und zum ersten zurückkehrt, wenn sie die 4. (letzte) erreicht hat:
+Lassen Sie uns eine Funktion erstellen, die die Note um einen Takt vorverschiebt und zur ersten zurückkehrt, wenn sie die vierte (letzte) erreicht:
 
 ```js
 let currentNote = 0;
-let nextNoteTime = 0.0; // Zeit für die nächste Note.
+let nextNoteTime = 0.0; // when the next note is due.
 
 function nextNote() {
   const secondsPerBeat = 60.0 / tempo;
 
-  nextNoteTime += secondsPerBeat; // Beat-Länge zur letzten Zeit der Note hinzufügen
+  nextNoteTime += secondsPerBeat; // Add beat length to last beat time
 
-  // Vorwärtsbewegen der Schlagnummer, bei Erreichen von 4 zurück auf null
+  // Advance the beat number, wrap to zero when reaching 4
   currentNote = (currentNote + 1) % 4;
 }
 ```
 
-Wir möchten eine Referenzwarteschlange für die Noten erstellen, die gespielt werden sollen, und die Funktionalität, um sie mit den Funktionen zu spielen, die wir zuvor erstellt haben:
+Wir möchten eine Referenzwarteschlange für die Noten erstellen, die gespielt werden sollen, und die Funktionalität, um sie mit den Funktionen, die wir zuvor erstellt haben, abzuspielen:
 
 ```js
 const notesInQueue = [];
 
 function scheduleNote(beatNumber, time) {
-  // Die Note in die Warteschlange stellen, auch wenn wir nicht spielen.
+  // Push the note on the queue, even if we're not playing.
   notesInQueue.push({ note: beatNumber, time });
 
   if (pads[0].querySelectorAll("input")[beatNumber].checked) {
@@ -656,15 +656,15 @@ function scheduleNote(beatNumber, time) {
 }
 ```
 
-Hier betrachten wir die aktuelle Zeit und vergleichen sie mit der Zeit für die folgende Note; wenn die beiden übereinstimmen, wird es die vorherigen beiden Funktionen aufrufen.
+Hier schauen wir auf die aktuelle Uhrzeit und vergleichen sie mit der Uhrzeit für die nächste Note; wenn die beiden übereinstimmen, wird es die beiden vorherigen Funktionen aufrufen.
 
-{{domxref("AudioContext")}}-Objektinstanzen haben eine [`currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime)-Eigenschaft, mit der wir die Anzahl der Sekunden abrufen können, nachdem wir den Kontext zuerst erstellt haben. Wir verwenden sie für das Timing innerhalb unseres Step-Sequenzers. Es ist extrem präzise und liefert einen Float-Wert, der auf etwa 15 Dezimalstellen genau ist.
+[`AudioContext`](/de/docs/Web/API/AudioContext)-Objektinstanzen haben eine [`currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime)-Eigenschaft, die es uns ermöglicht, die Anzahl der Sekunden nach der ersten Erstellung des Kontexts abzurufen. Wir werden sie für das Timing in unserem Step-Sequenzer verwenden. Es ist extrem genau und gibt einen Gleitkommawert zurück, der auf etwa 15 Dezimalstellen genau ist.
 
 ```js
 let timerID;
 function scheduler() {
-  // Solange Noten vorhanden sind, die vor dem nächsten Intervall gespielt werden müssen,
-  // planen sie und bewegen den Zeiger weiter.
+  // While there are notes that will need to play before the next interval,
+  // schedule them and advance the pointer.
   while (nextNoteTime < audioCtx.currentTime + scheduleAheadTime) {
     scheduleNote(currentNote, nextNoteTime);
     nextNote();
@@ -673,7 +673,7 @@ function scheduler() {
 }
 ```
 
-Wir benötigen auch eine `draw()`-Funktion, um die Benutzeroberfläche zu aktualisieren, damit wir sehen können, wann der Schlag fortschreitet.
+Wir benötigen auch eine `draw()`-Funktion, um die Benutzeroberfläche zu aktualisieren, sodass wir sehen können, wenn der Takt fortschreitet.
 
 ```js
 let lastNoteDrawn = 3;
@@ -683,10 +683,10 @@ function draw() {
 
   while (notesInQueue.length && notesInQueue[0].time < currentTime) {
     drawNote = notesInQueue[0].note;
-    notesInQueue.shift(); // Note aus der Warteschlange entfernen
+    notesInQueue.shift(); // Remove note from queue
   }
 
-  // Wir müssen nur zeichnen, wenn die Note sich bewegt hat.
+  // We only need to draw if the note has moved.
   if (lastNoteDrawn !== drawNote) {
     pads.forEach((pad) => {
       pad.children[lastNoteDrawn * 2].style.borderColor = "var(--black)";
@@ -695,40 +695,40 @@ function draw() {
 
     lastNoteDrawn = drawNote;
   }
-  // Setzen Sie das Zeichnen fort
+  // Set up to draw again
   requestAnimationFrame(draw);
 }
 ```
 
 ## Alles zusammenfügen
 
-Jetzt muss nur noch sichergestellt werden, dass das Sample geladen ist, bevor wir das Instrument _spielen_ können. Wir fügen einen Ladebildschirm hinzu, der verschwindet, wenn die Datei abgerufen und dekodiert wurde. Dann können wir den Scheduler über das Klicken auf die Wiedergabe-Schaltfläche starten.
+Jetzt bleibt nur noch sicherzustellen, dass wir das Sample geladen haben, bevor wir das Instrument _spielen_ können. Wir fügen einen Ladebildschirm hinzu, der verschwindet, wenn die Datei abgerufen und dekodiert wurde. Dann können wir den Planer starten lassen, wenn das Play-Klickereignis ausgelöst wird.
 
 ```js
-// Wenn das Sample geladen ist, kann abgespielt werden
+// When the sample has loaded, allow play
 const loadingEl = document.querySelector(".loading");
 const playButton = document.querySelector("#playBtn");
 let isPlaying = false;
 setupSample().then((sample) => {
   loadingEl.style.display = "none";
 
-  dtmf = sample; // zur Verwendung in unserer playSample-Funktion
+  dtmf = sample; // to be used in our playSample function
 
   playButton.addEventListener("click", (ev) => {
     isPlaying = !isPlaying;
 
     if (isPlaying) {
-      // Starten des Abspielens
+      // Start playing
 
-      // Überprüfen, ob der Kontext im Ruhezustand ist (Autoplay-Richtlinie)
+      // Check if context is in suspended state (autoplay policy)
       if (audioCtx.state === "suspended") {
         audioCtx.resume();
       }
 
       currentNote = 0;
       nextNoteTime = audioCtx.currentTime;
-      scheduler(); // Planung starten
-      requestAnimationFrame(draw); // Zeichenloop starten.
+      scheduler(); // kick off scheduling
+      requestAnimationFrame(draw); // start the drawing loop.
       ev.target.dataset.playing = "true";
     } else {
       clearTimeout(timerID);
@@ -740,4 +740,4 @@ setupSample().then((sample) => {
 
 ## Zusammenfassung
 
-Wir haben jetzt ein Instrument in unserem Browser! Spielen Sie weiter und experimentieren Sie — Sie können jede dieser Techniken erweitern, um etwas viel Ausgefeilteres zu erstellen.
+Jetzt haben wir ein Instrument in unserem Browser! Spielen Sie weiterhin und experimentieren Sie — Sie können jede dieser Techniken erweitern, um etwas viel Ausgefeilteres zu schaffen.

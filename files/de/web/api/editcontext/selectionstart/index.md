@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`selectionStart`**-Eigenschaft des {{domxref("EditContext")}} bezieht sich auf den Versatz innerhalb des editierbaren Textinhalts, an dem die aktuelle Auswahl beginnt.
+Die schreibgeschützte **`selectionStart`**-Eigenschaft des [`EditContext`](/de/docs/Web/API/EditContext) bezieht sich auf den Versatz innerhalb des bearbeitbaren Textinhalts des Beginns der aktuellen Auswahl.
 
 ## Wert
 
-Eine {{jsxref("Number")}}
+Ein {{jsxref("Number")}}
 
 ## Beispiele
 
-### Verwendung von `selectionStart`, um die Benutzerauswahl in einem bearbeitbaren Canvas darzustellen
+### Verwendung von `selectionStart` zur Darstellung der Benutzerauswahl in einem bearbeitbaren Canvas
 
-Dieses Beispiel zeigt, wie die Eigenschaften `selectionStart` und `selectionEnd` verwendet werden, um die aktuelle Auswahl in einem `<canvas>`-Element zu zeichnen, das mit einem `EditContext` verknüpft ist.
+Dieses Beispiel zeigt, wie die Eigenschaften `selectionStart` und `selectionEnd` verwendet werden, um die aktuelle Auswahl in einem `<canvas>`-Element darzustellen, das mit einem `EditContext` verbunden ist.
 
 ```html
 <canvas id="editor-canvas"></canvas>
@@ -43,16 +43,16 @@ canvas.editContext = editContext;
 function render() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Rendern Sie zuerst den gesamten Textinhalt.
+  // Render the entire text content first.
   ctx.fillStyle = "black";
   ctx.fillText(editContext.text, ANCHOR_X, ANCHOR_Y);
 
-  // Erhalten Sie die Breite vom Anfang des Textes bis zum Beginn der Auswahl.
+  // Get the width from the start of the text to the start of the selection.
   const selectionStartX = ctx.measureText(
     editContext.text.substring(0, editContext.selectionStart),
   );
 
-  // Erhalten Sie die Breite der Auswahl.
+  // Get the width of the selection.
   const selectionWidth = ctx.measureText(
     editContext.text.substring(
       editContext.selectionStart,
@@ -60,7 +60,7 @@ function render() {
     ),
   );
 
-  // Zeichnen Sie ein Rechteck über den Text, um die Auswahl darzustellen.
+  // Draw a rectangle on top of the text to represent the selection.
   ctx.fillStyle = "blue";
   ctx.fillRect(
     selectionStartX.width + ANCHOR_X,
@@ -69,7 +69,7 @@ function render() {
     FONT_SIZE,
   );
 
-  // Rendern Sie den ausgewählten Text in Weiß über das Rechteck.
+  // Re-render just the selected text in white, over the rectangle.
   ctx.fillStyle = "white";
   ctx.fillText(
     editContext.text.substring(

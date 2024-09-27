@@ -1,5 +1,5 @@
 ---
-title: "HTMLHtmlElement: version Eigenschaft"
+title: "HTMLHtmlElement: version-Eigenschaft"
 short-title: version
 slug: Web/API/HTMLHtmlElement/version
 l10n:
@@ -9,9 +9,9 @@ l10n:
 {{ APIRef("HTML DOM") }} {{deprecated_header}}
 
 > [!NOTE]
-> Diese Eigenschaft wurde gemäß der technischen Empfehlung der W3C für HTML 4.01 als veraltet erklärt, zugunsten der Verwendung der DTD, um Versionsinformationen für ein Dokument zu erhalten.
+> Diese Eigenschaft wurde als veraltet von der W3C-technischen Empfehlung für HTML 4.01 erklärt, zugunsten der Verwendung der DTD zur Ermittlung von Versionsinformationen eines Dokuments.
 
-Gibt Versionsinformationen über die Document Type Definition (DTD) eines Dokuments zurück. Obwohl diese Eigenschaft von Mozilla erkannt wird, ist der Rückgabewert für diese Eigenschaft immer ein leerer String.
+Gibt Versionsinformationen über die Dokumenttypdefinition (DTD) eines Dokuments zurück. Während diese Eigenschaft von Mozilla erkannt wird, ist der Rückgabewert dieser Eigenschaft immer eine leere Zeichenkette.
 
 ## Spezifikationen
 

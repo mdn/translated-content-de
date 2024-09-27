@@ -7,20 +7,20 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:scope`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert Elemente, die einen Referenzpunkt oder Bereich darstellen, mit dem Selektoren übereinstimmen können.
+Die **`:scope`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert Elemente, die als Bezugspunkt oder Geltungsbereich für Selektoren dienen, um Übereinstimmungen zu finden.
 
 ```css
-/* Wählt ein gescope’d Element aus */
+/* Selects a scoped element */
 :scope {
   background-color: lime;
 }
 ```
 
-Welche Elemente `:scope` übereinstimmt, hängt vom Kontext ab, in dem es verwendet wird:
+Welche Elemente `:scope` entsprechen, hängt vom Kontext ab, in dem es verwendet wird:
 
-- Bei Verwendung auf der Wurzelebene eines Stylesheets ist `:scope` gleichbedeutend mit {{cssxref(":root")}}, was in einem regulären HTML-Dokument dem {{htmlelement("html")}}-Element entspricht.
-- Bei Verwendung innerhalb eines {{cssxref("@scope")}}-Blocks stimmt `:scope` mit der definierten Wurzel des Bereichs des Blocks überein. Es bietet die Möglichkeit, Stile auf die Wurzel des Bereichs aus dem `@scope`-Block selbst anzuwenden.
-- Bei Verwendung innerhalb eines DOM-API-Aufrufs — wie z.B. {{domxref("Element.querySelector", "querySelector()")}}, {{domxref("Element.querySelectorAll", "querySelectorAll()")}}, {{domxref("Element.matches", "matches()")}} oder {{domxref("Element.closest()")}} — stimmt `:scope` mit dem Element überein, auf dem die Methode aufgerufen wurde.
+- Wird `:scope` auf der obersten Ebene eines Stylesheets verwendet, ist es äquivalent zu {{cssxref(":root")}}, was in einem regulären HTML-Dokument dem {{htmlelement("html")}}-Element entspricht.
+- Wird es innerhalb eines {{cssxref("@scope")}}-Blocks verwendet, entspricht `:scope` dem definierten Geltungsbereichs-Wurzel des Blocks. Es bietet eine Möglichkeit, Stile auf die Wurzel des Geltungsbereichs von innerhalb des `@scope`-Blocks selbst anzuwenden.
+- Wird es innerhalb eines DOM-API-Aufrufs verwendet – wie z.B. [`querySelector()`](/de/docs/Web/API/Element/querySelector), [`querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll), [`matches()`](/de/docs/Web/API/Element/matches) oder [`Element.closest()`](/de/docs/Web/API/Element/closest) – entspricht `:scope` dem Element, auf dem die Methode aufgerufen wurde.
 
 ## Syntax
 
@@ -34,7 +34,7 @@ Welche Elemente `:scope` übereinstimmt, hängt vom Kontext ab, in dem es verwen
 
 ### Verwendung von `:scope` als Alternative zu `:root`
 
-Dieses Beispiel zeigt, dass `:scope` gleichbedeutend mit `:root` ist, wenn es auf der Wurzelebene eines Stylesheets verwendet wird. In diesem Fall färbt das bereitgestellte CSS den Hintergrund des `<html>`-Elements orange.
+Dieses Beispiel zeigt, dass `:scope` der `:root`-Pseudoklasse entspricht, wenn es auf der obersten Ebene eines Stylesheets verwendet wird. In diesem Fall färbt das bereitgestellte CSS den Hintergrund des `<html>`-Elements orange.
 
 #### HTML
 
@@ -54,28 +54,28 @@ Dieses Beispiel zeigt, dass `:scope` gleichbedeutend mit `:root` ist, wenn es au
 
 {{ EmbedLiveSample("Using :scope as an alternative to :root", "100%", 50) }}
 
-### Verwendung von `:scope` zur Gestaltung der Bereichswurzel in einem `@scope`-Block
+### Verwendung von `:scope`, um die Wurzel des Geltungsbereichs in einem `@scope`-Block zu stylen
 
-In diesem Beispiel verwenden wir zwei separate `@scope`-Blöcke, um Links innerhalb von Elementen mit einer `.light-scheme`- bzw. `.dark-scheme`-Klasse abzugleichen. Beachten Sie, wie `:scope` verwendet wird, um die Bereichswurzeln selbst auszuwählen und zu gestalten. In diesem Beispiel sind die Bereichswurzeln die {{htmlelement("div")}}-Elemente, die die angewendeten Klassen haben.
+In diesem Beispiel verwenden wir zwei separate `@scope`-Blöcke, um Links innerhalb von Elementen mit einer `.light-scheme` und `.dark-scheme` Klasse entsprechend zuzuordnen. Beachten Sie, wie `:scope` verwendet wird, um die Geltungsbereichs-Wurzeln selbst auszuwählen und zu stylen. In diesem Beispiel sind die Geltungsbereichs-Wurzeln die {{htmlelement("div")}}-Elemente, die die Klassen angewendet haben.
 
 #### HTML
 
 ```html
 <div class="light-scheme">
   <p>
-    MDN enthält viele Informationen über
-    <a href="/de/docs/Web/HTML">HTML</a>,
-    <a href="/de/docs/Web/CSS">CSS</a> und
-    <a href="/de/docs/Web/JavaScript">JavaScript</a>.
+    MDN contains lots of information about
+    <a href="/en-US/docs/Web/HTML">HTML</a>,
+    <a href="/en-US/docs/Web/CSS">CSS</a>, and
+    <a href="/en-US/docs/Web/JavaScript">JavaScript</a>.
   </p>
 </div>
 
 <div class="dark-scheme">
   <p>
-    MDN enthält viele Informationen über
-    <a href="/de/docs/Web/HTML">HTML</a>,
-    <a href="/de/docs/Web/CSS">CSS</a> und
-    <a href="/de/docs/Web/JavaScript">JavaScript</a>.
+    MDN contains lots of information about
+    <a href="/en-US/docs/Web/HTML">HTML</a>,
+    <a href="/en-US/docs/Web/CSS">CSS</a>, and
+    <a href="/en-US/docs/Web/JavaScript">JavaScript</a>.
   </p>
 </div>
 ```
@@ -117,7 +117,7 @@ div {
 
 ### Verwendung von `:scope` in JavaScript
 
-Dieses Beispiel demonstriert die Verwendung der `:scope` Pseudoklasse in JavaScript. Dies kann nützlich sein, wenn Sie einen direkten Nachfahren eines bereits abgerufenen {{domxref("Element")}} benötigen.
+Dieses Beispiel demonstriert die Verwendung der `:scope`-Pseudoklasse in JavaScript. Dies kann nützlich sein, wenn Sie einen direkten Nachfahren eines bereits abgerufenen [`Element`](/de/docs/Web/API/Element) benötigen.
 
 #### HTML
 
@@ -132,7 +132,7 @@ Dieses Beispiel demonstriert die Verwendung der `:scope` Pseudoklasse in JavaScr
   </div>
 </div>
 <p>
-  Ausgewählte Element-IDs :
+  Selected element ids :
   <span id="results"></span>
 </p>
 ```
@@ -150,7 +150,7 @@ document.getElementById("results").textContent = Array.prototype.map
 
 #### Ergebnis
 
-Der Bereich von `context` ist das Element mit der [`id`](/de/docs/Web/HTML/Global_attributes#id) von `context`. Die ausgewählten Elemente sind die `<div>`-Elemente, die direkte Kinder dieses Bereichs sind — `element-1` und `element-2` — aber nicht deren Nachkommen.
+Der Geltungsbereich von `context` ist das Element mit der [`id`](/de/docs/Web/HTML/Global_attributes#id) von `context`. Die ausgewählten Elemente sind die `<div>`-Elemente, die direkte Kinder dieses Kontextes sind — `element-1` und `element-2` — jedoch nicht deren Nachkommen.
 
 {{ EmbedLiveSample('Using :scope in JavaScript') }}
 
@@ -167,6 +167,6 @@ Der Bereich von `context` ist das Element mit der [`id`](/de/docs/Web/HTML/Globa
 - Die {{cssxref("@scope")}} [At-Regel](/de/docs/Web/CSS/At-rule)
 - Die {{cssxref(":root")}} [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes)
 - [DOM-Elemente mit Selektoren lokalisieren](/de/docs/Web/API/Document_Object_Model/Locating_DOM_elements_using_selectors)
-- {{domxref("Element.querySelector()")}} und {{domxref("Element.querySelectorAll()")}}
-- {{domxref("Document.querySelector()")}} und {{domxref("Document.querySelectorAll()")}}
-- {{domxref("DocumentFragment.querySelector()")}} und {{domxref("DocumentFragment.querySelectorAll()")}}
+- [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector) und [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll)
+- [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) und [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll)
+- [`DocumentFragment.querySelector()`](/de/docs/Web/API/DocumentFragment/querySelector) und [`DocumentFragment.querySelectorAll()`](/de/docs/Web/API/DocumentFragment/querySelectorAll)

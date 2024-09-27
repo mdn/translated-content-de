@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("View Transitions API")}}
 
-Die schreibgeschützte Eigenschaft **`updateCallbackDone`** der {{domxref("ViewTransition")}}-Schnittstelle ist ein {{jsxref("Promise")}}, das erfüllt wird, wenn das Promise, das von der Callback-Funktion der Methode {{domxref("Document.startViewTransition()", "document.startViewTransition()")}} zurückgegeben wird, erfüllt wird, oder abgelehnt wird, wenn es abgelehnt wird.
+Die **`updateCallbackDone`** schreibgeschützte Eigenschaft der [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Schnittstelle ist ein {{jsxref("Promise")}}, das erfüllt wird, wenn das Promise, das von der Callback-Funktion der Methode [`document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) zurückgegeben wird, erfüllt wird, oder abgelehnt wird, wenn es abgelehnt wird.
 
-`updateCallbackDone` ist nützlich, wenn Sie sich nicht um den Erfolg/Misserfolg einer View-Transition-Animation im selben Dokument (SPA) kümmern, sondern nur wissen möchten, ob und wann der DOM aktualisiert wird.
+`updateCallbackDone` ist nützlich, wenn Sie sich nicht um den Erfolg/Misserfolg einer Übergangsanimation auf derselben Seite (SPA) kümmern müssen, sondern nur wissen möchten, ob und wann das DOM aktualisiert wird.
 
 > [!NOTE]
-> Im Fall einer View-Transition zwischen Dokumenten (MPA) wird das `updateCallbackDone`-Promise des zugehörigen `ViewTransition` automatisch erfüllt.
+> Im Fall eines Seitenübergangs über Dokumentengrenzen hinweg (MPA) wird das `updateCallbackDone`-Promise des zugehörigen `ViewTransition` automatisch erfüllt.
 
 ## Wert
 
@@ -22,15 +22,15 @@ Ein Promise.
 ## Beispiele
 
 ```js
-// Neue SPA-View-Transition starten
+// start new SPA view transition
 const transition = document.startViewTransition(() => displayNewImage());
 
 transition.updateCallbackDone.then(() => {
-  // Reagieren, wenn der DOM erfolgreich aktualisiert wurde
+  // Respond to the DOM being updated successfully
 });
 ```
 
-Sehen Sie sich [Transitions als Verbesserung](https://developer.chrome.com/docs/web-platform/view-transitions/#transitions-as-an-enhancement) für ein nützliches Beispiel an.
+Siehe [Transitions als Verbesserung](https://developer.chrome.com/docs/web-platform/view-transitions/#transitions-as-an-enhancement) für ein nützliches Beispiel.
 
 ## Spezifikationen
 
@@ -42,4 +42,4 @@ Sehen Sie sich [Transitions als Verbesserung](https://developer.chrome.com/docs/
 
 ## Siehe auch
 
-- [Sanfte und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Fließende und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)

@@ -1,5 +1,5 @@
 ---
-title: "HTMLTrackElement: cuechange-Ereignis"
+title: "HTMLTrackElement: cuechange Ereignis"
 short-title: cuechange
 slug: Web/API/HTMLTrackElement/cuechange_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Das **`cuechange`**-Ereignis wird ausgelöst, wenn ein {{domxref("TextTrack")}} die aktuell angezeigten Cues geändert hat. Das Ereignis wird sowohl auf dem `TextTrack` als auch auf dem {{domxref("HTMLTrackElement")}} ausgelöst, in dem es präsentiert wird, falls vorhanden.
+Das **`cuechange`** Ereignis wird ausgelöst, wenn ein [`TextTrack`](/de/docs/Web/API/TextTrack) die aktuell angezeigten Cues ändert. Das Ereignis wird sowohl auf dem `TextTrack` als auch auf dem [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) ausgelöst, in dem es präsentiert wird, falls vorhanden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
 ```js
 addEventListener("cuechange", (event) => {});
@@ -22,13 +22,13 @@ oncuechange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{DOMxRef("Event")}} ohne zusätzliche Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beispiele
 
-Das zugrunde liegende {{domxref("TextTrack")}}, angezeigt durch die {{domxref("HTMLTrackElement.track", "track")}}-Eigenschaft, erhält ein `cuechange`-Ereignis jedes Mal, wenn das aktuell gezeigte Cue geändert wird. Dies geschieht auch, wenn der Track nicht mit einem Medienelement verbunden ist.
+Das zugrundeliegende [`TextTrack`](/de/docs/Web/API/TextTrack), angezeigt durch die [`track`](/de/docs/Web/API/HTMLTrackElement/track) Eigenschaft, erhält jedes Mal ein `cuechange` Ereignis, wenn sich der aktuell präsentierte Cue ändert. Dies geschieht auch dann, wenn der Track keinem Medienelement zugeordnet ist.
 
-Wenn der Track _mit_ einem Medienelement verbunden ist und das {{HTMLElement("track")}}-Element als Kind des {{HTMLElement("audio")}}- oder {{HTMLElement("video")}}-Elements verwendet wird, wird das `cuechange`-Ereignis auch an das {{domxref("HTMLTrackElement")}} gesendet.
+Wenn der Track einem Medienelement zugeordnet ist, indem das {{HTMLElement("track")}} Element als Kind des {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Elements verwendet wird, wird das `cuechange` Ereignis auch an das [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement) gesendet.
 
 ```js
 let textTrackElem = document.getElementById("texttrack");
@@ -38,7 +38,7 @@ textTrackElem.addEventListener("cuechange", (event) => {
 });
 ```
 
-Alternativ können Sie den `oncuechange` Event-Handler verwenden:
+Alternativ können Sie den `oncuechange` Ereignis-Handler verwenden:
 
 ```js
 let textTrackElem = document.getElementById("texttrack");
@@ -58,5 +58,5 @@ textTrackElem.oncuechange = (event) => {
 
 ## Siehe auch
 
-- {{glossary("WebVTT")}}
-- Dasselbe Ereignis auf {{domxref("TextTrack")}}: {{domxref("TextTrack.cuechange_event", "cuechange")}}
+- [WebVTT](/de/docs/Glossary/WebVTT)
+- Dasselbe Ereignis auf [`TextTrack`](/de/docs/Web/API/TextTrack): [`cuechange`](/de/docs/Web/API/TextTrack/cuechange_event)

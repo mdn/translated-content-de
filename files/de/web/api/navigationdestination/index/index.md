@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`index`**-Eigenschaft des {{domxref("NavigationDestination")}}-Interfaces ist eine schreibgeschützte Eigenschaft, die den {{domxref("NavigationHistoryEntry.index", "index-Wert")}} des Ziel-{{domxref("NavigationHistoryEntry")}} zurückgibt, wenn der {{domxref("NavigateEvent.navigationType")}} `traverse` ist, oder anderweitig `-1`.
+Die schreibgeschützte Eigenschaft **`index`** der [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Schnittstelle gibt den [`index`](/de/docs/Web/API/NavigationHistoryEntry/index)-Wert des Ziel-[`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `traverse` ist, oder `-1` andernfalls.
 
 ## Wert
 
-Eine Zahl, die den `index` des Ziel-{{domxref("NavigationHistoryEntry")}} darstellt, oder -1.
+Eine Zahl, die den `index` des Ziel-[`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) darstellt, oder -1.
 
 ## Beispiele
 
@@ -32,6 +32,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicola's [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

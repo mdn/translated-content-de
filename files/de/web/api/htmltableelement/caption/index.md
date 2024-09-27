@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLTableElement.caption`**-Eigenschaft repräsentiert die Tabellenüberschrift. Wenn kein Caption-Element mit der Tabelle verknüpft ist, ist diese Eigenschaft `null`.
+Die **`HTMLTableElement.caption`**-Eigenschaft repräsentiert die Tabellenüberschrift. Wenn kein Überschriftenelement mit der Tabelle verknüpft ist, ist diese Eigenschaft `null`.
 
 ## Wert
 
@@ -32,4 +32,4 @@ if (table.caption) {
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Eigenschaft implementiert: {{domxref("HTMLTableElement")}}.
+- Die Schnittstelle, die diese Eigenschaft implementiert: [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement).

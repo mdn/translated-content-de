@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Cookie Store API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`cookies`** schreibgeschützte Eigenschaft der {{domxref("ServiceWorkerRegistration")}}-Schnittstelle gibt eine Referenz auf die {{domxref("CookieStoreManager")}}-Schnittstelle zurück. Diese ermöglicht einer Webanwendung das Abonnieren und Abbestellen von Cookie-Änderungsereignissen in einem [Service Worker](/de/docs/Web/API/Service_Worker_API). Dies ist ein Einstiegspunkt für die [Cookie Store API](/de/docs/Web/API/Cookie_Store_API).
+Die **`cookies`** schreibgeschützte Eigenschaft der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle gibt eine Referenz auf die [`CookieStoreManager`](/de/docs/Web/API/CookieStoreManager)-Schnittstelle zurück. Diese ermöglicht es einer Web-App, sich bei Cookie-Änderungsereignissen in einem [Service Worker](/de/docs/Web/API/Service_Worker_API) anzumelden oder abzumelden. Dies ist ein Einstiegspunkt für die [Cookie Store API](/de/docs/Web/API/Cookie_Store_API).
 
 ## Wert
 
-Ein {{domxref("CookieStoreManager")}}-Objekt.
+Ein [`CookieStoreManager`](/de/docs/Web/API/CookieStoreManager)-Objekt.
 
 ## Spezifikationen
 

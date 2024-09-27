@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM WHATWG")}}
 
-Die **`endContainer`**-Eigenschaft der {{domxref("StaticRange")}}-Schnittstelle gibt den End-{{domxref("Node")}} für den Bereich zurück.
+Die **`endContainer`**-Eigenschaft des [`StaticRange`](/de/docs/Web/API/StaticRange)-Interfaces gibt den End-[`Node`](/de/docs/Web/API/Node) für den Bereich zurück.
 
 ## Wert
 
-Der DOM-{{domxref("Node")}}, der das letzte Zeichen des Bereichs enthält.
+Der DOM-[`Node`](/de/docs/Web/API/Node), der das letzte Zeichen des Bereichs enthält.
 
 ## Spezifikationen
 

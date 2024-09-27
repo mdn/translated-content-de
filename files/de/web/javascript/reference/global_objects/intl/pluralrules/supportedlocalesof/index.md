@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Intl.PluralRules.supportedLocalesOf()`** gibt ein Array zurück, das diejenigen der bereitgestellten Locales enthält, die in Pluralregeln unterstützt werden, ohne auf das Standard-Locale der Laufzeitumgebung zurückgreifen zu müssen.
+Die statische Methode **`Intl.PluralRules.supportedLocalesOf()`** gibt ein Array zurück, das diejenigen der bereitgestellten Locales enthält, die in den Pluralregeln unterstützt werden, ohne auf die Standard-Locale der Laufzeitumgebung zurückgreifen zu müssen.
 
 {{EmbedInteractiveExample("pages/js/intl-pluralrules-supportedlocalesof.html", "shorter")}}
 
@@ -21,21 +21,21 @@ Intl.PluralRules.supportedLocalesOf(locales, options)
 ### Parameter
 
 - `locales`
-  - : Ein String mit einem BCP 47 Sprach-Tag oder ein Array solcher Strings. Für die allgemeine Form und Interpretation des `locales`-Arguments, siehe [die Parameterbeschreibung auf der Hauptseite von `Intl`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem BCP 47-Sprach-Tag oder ein Array solcher Strings. Für die allgemeine Form und Interpretation des `locales`-Arguments, siehe [die Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgende Eigenschaft haben kann:
     - `localeMatcher`
-      - : Der zu verwendende Locale-Abgleichalgorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Weitere Informationen zu dieser Option finden Sie auf der {{jsxref("Intl", "Intl", "#locale_identification_and_negotiation", 1)}} Seite.
+      - : Der zu verwendende Algorithmus zur Locale-Anpassung. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Informationen zu dieser Option finden Sie auf der {{jsxref("Intl", "Intl", "#locale_identification_and_negotiation", 1)}} Seite.
 
 ### Rückgabewert
 
-Ein Array von Strings, das eine Teilmenge der angegebenen Locale-Tags darstellt, die in Pluralregeln unterstützt werden, ohne auf das Standard-Locale der Laufzeitumgebung zurückgreifen zu müssen.
+Ein Array von Strings, das eine Teilmenge der angegebenen Locale-Tags darstellt, die in den Pluralregeln unterstützt werden, ohne auf die Standard-Locale der Laufzeitumgebung zurückgreifen zu müssen.
 
 ## Beispiele
 
 ### Verwendung von supportedLocalesOf()
 
-Angenommen, eine Laufzeitumgebung unterstützt Indonesisch und Deutsch, aber nicht Balinesisch in Pluralregeln, `supportedLocalesOf` gibt die Indonesischen und Deutschen Sprach-Tags unverändert zurück, obwohl `pinyin`-Kollation weder für Pluralregeln relevant noch mit Indonesisch verwendet wird und ein spezialisiertes Deutsch für Indonesien wahrscheinlich nicht unterstützt wird. Beachten Sie die Spezifizierung des `"lookup"`-Algorithmus hier — ein `"best fit"` Matcher könnte entscheiden, dass Indonesisch ein angemessener Ersatz für Balinesisch ist, da die meisten Balinesischsprachigen auch Indonesisch verstehen, und daher das Balinesische Sprach-Tag ebenfalls zurückgeben.
+Angenommen, eine Laufzeitumgebung unterstützt Indonesisch und Deutsch, aber nicht Balinesisch in den Pluralregeln. In diesem Fall gibt `supportedLocalesOf` die indonesischen und deutschen Sprach-Tags unverändert zurück, obwohl die `pinyin`-Sortierung weder für Pluralregeln relevant noch mit Indonesisch verwendet wird, und ein spezialisiertes Deutsch für Indonesien wahrscheinlich nicht unterstützt wird. Beachten Sie die Spezifikation des `"lookup"`-Algorithmus hier – ein `"best fit"`-Matcher könnte entscheiden, dass Indonesisch ein angemessener Ersatz für Balinesisch ist, da die meisten Balinesisch sprechenden Personen auch Indonesisch verstehen, und somit auch das balinesische Sprach-Tag zurückgeben.
 
 ```js
 const locales = ["ban", "id-u-co-pinyin", "de-ID"];
@@ -48,7 +48,7 @@ console.log(Intl.PluralRules.supportedLocalesOf(locales, options));
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 

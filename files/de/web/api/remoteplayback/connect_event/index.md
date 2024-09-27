@@ -1,5 +1,5 @@
 ---
-title: "RemotePlayback: connect Ereignis"
+title: "RemotePlayback: connect-Ereignis"
 short-title: connect
 slug: Web/API/RemotePlayback/connect_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Remote Playback API")}}
 
-Das **`connect`** Ereignis des {{domxref("RemotePlayback")}} Interfaces wird ausgelöst, wenn der User-Agent eine Verbindung zum entfernten Gerät herstellt.
+Das **`connect`**-Ereignis der [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Schnittstelle wird ausgelöst, wenn der Benutzeragent eine Verbindung zum entfernten Gerät herstellt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
 
 ```js
 addEventListener("connect", (event) => {});
@@ -22,11 +22,11 @@ onconnect = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Im folgenden Beispiel wird der Wert von {{domxref("RemotePlayback.state")}} in die Konsole ausgegeben, wenn der User-Agent erfolgreich eine Verbindung herstellt.
+Im folgenden Beispiel wird der Wert von [`RemotePlayback.state`](/de/docs/Web/API/RemotePlayback/state) in der Konsole ausgegeben, wenn der Benutzeragent erfolgreich eine Verbindung herstellt.
 
 ```js
 RemotePlayback.onconnect = () => {

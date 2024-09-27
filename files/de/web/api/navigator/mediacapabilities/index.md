@@ -1,5 +1,5 @@
 ---
-title: "Navigator: mediaCapabilities Eigenschaft"
+title: "Navigator: mediaCapabilities-Eigenschaft"
 short-title: mediaCapabilities
 slug: Web/API/Navigator/mediaCapabilities
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`mediaCapabilities`** der {{domxref("Navigator")}} Schnittstelle verweist auf ein {{domxref("MediaCapabilities")}} Objekt, das Informationen über die Dekodierungs- und Kodierungsfähigkeiten für ein bestimmtes Medienformat und Ausgabeoptionen bereitstellen kann.
+Die **`mediaCapabilities`** schreibgeschützte Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces verweist auf ein [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)-Objekt, das Informationen über die Dekodierungs- und Kodierungsfähigkeiten für ein gegebenes Medienformat und die Ausgabeoptionen bereitstellen kann.
 
 ## Wert
 
-Ein {{domxref("MediaCapabilities")}} Objekt.
+Ein [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)-Objekt.
 
 ## Beispiele
 
@@ -29,10 +29,10 @@ navigator.mediaCapabilities
   })
   .then((result) => {
     console.log(
-      `Diese Konfiguration ist ${result.supported ? "" : "nicht "}unterstützt,`,
+      `This configuration is ${result.supported ? "" : "not "}supported,`,
     );
-    console.log(`${result.smooth ? "" : "nicht "}flüssig, und`);
-    console.log(`${result.powerEfficient ? "" : "nicht "}energieeffizient.`);
+    console.log(`${result.smooth ? "" : "not "}smooth, and`);
+    console.log(`${result.powerEfficient ? "" : "not "}power efficient.`);
   });
 ```
 
@@ -47,4 +47,4 @@ navigator.mediaCapabilities
 ## Siehe auch
 
 - [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API)
-- {{domxref("Navigator")}}
+- [`Navigator`](/de/docs/Web/API/Navigator)

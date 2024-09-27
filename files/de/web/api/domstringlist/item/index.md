@@ -1,5 +1,5 @@
 ---
-title: "DOMStringList: Methode item()"
+title: "DOMStringList: item()-Methode"
 short-title: item()
 slug: Web/API/DOMStringList/item
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`item()`**-Methode gibt einen String aus einer [`DOMStringList`](/de/docs/Web/API/DOMStringList) anhand eines Indexes zurück.
+Die **`item()`**-Methode gibt einen String aus einer [`DOMStringList`](/de/docs/Web/API/DOMStringList) über den Index zurück.
 
 ## Syntax
 
@@ -16,8 +16,8 @@ Die **`item()`**-Methode gibt einen String aus einer [`DOMStringList`](/de/docs/
 item(index)
 ```
 
-JavaScript bietet auch eine array-ähnliche, klammernde Syntax, um ein Element aus einer
-`DOMStringList` anhand eines Indexes zu erhalten:
+JavaScript bietet auch eine array-ähnliche Syntax in eckigen Klammern, um ein Element von einer
+`DOMStringList` über den Index zu erhalten:
 
 ```js
 list[index];
@@ -26,7 +26,7 @@ list[index];
 ### Parameter
 
 - `index`
-  - : der Index des zu erhaltenen Strings. Der Index ist nullbasiert.
+  - : der Index des abzurufenden Strings. Der Index beginnt bei null.
 
 ### Rückgabewert
 

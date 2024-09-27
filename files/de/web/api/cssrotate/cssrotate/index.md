@@ -9,8 +9,7 @@ l10n:
 {{APIRef("CSS Typed OM")}}
 
 Der **`CSSRotate()`** Konstruktor erstellt ein neues
-{{domxref("CSSRotate")}} Objekt, das den [rotate()](/de/docs/Web/CSS/transform-function/rotate) Wert der
-einzelnen {{CSSXref('transform')}} Eigenschaft in CSS darstellt.
+[`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekt, das den [rotate()](/de/docs/Web/CSS/transform-function/rotate)-Wert der einzelnen {{CSSXref('transform')}}-Eigenschaft in CSS darstellt.
 
 ## Syntax
 
@@ -20,24 +19,24 @@ new CSSRotate(x, y, z, angle)
 
 ### Parameter
 
-- {{domxref('CSSRotate.x','x')}}
-  - : Ein Wert für die x-Achse des zu konstruierenden {{domxref('CSSRotate')}} Objekts.
-    Dies muss entweder ein Doppel-Integer oder ein {{domxref('CSSNumericValue')}} sein.
-- {{domxref('CSSRotate.y','y')}}
-  - : Ein Wert für die y-Achse des zu konstruierenden {{domxref('CSSRotate')}} Objekts.
-    Dies muss entweder ein Doppel-Integer oder ein {{domxref('CSSNumericValue')}} sein.
-- {{domxref('CSSRotate.z','z')}}
-  - : Ein Wert für die z-Achse des zu konstruierenden {{domxref('CSSRotate')}} Objekts.
-    Dies muss entweder ein Doppel-Integer oder ein {{domxref('CSSNumericValue')}} sein.
-- {{domxref('CSSRotate.angle','angle')}}
-  - : Ein Wert für den Winkel des zu konstruierenden {{domxref('CSSRotate')}} Objekts. Dies
-    muss ein {{domxref('CSSNumericValue')}} sein.
+- [`x`](/de/docs/Web/API/CSSRotate/x)
+  - : Ein Wert für die x-Achse des zu konstruierenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts.
+    Dies muss entweder ein Double-Integer oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein.
+- [`y`](/de/docs/Web/API/CSSRotate/y)
+  - : Ein Wert für die y-Achse des zu konstruierenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts.
+    Dies muss entweder ein Double-Integer oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein.
+- [`z`](/de/docs/Web/API/CSSRotate/z)
+  - : Ein Wert für die z-Achse des zu konstruierenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts.
+    Dies muss entweder ein Double-Integer oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein.
+- [`angle`](/de/docs/Web/API/CSSRotate/angle)
+  - : Ein Wert für den Winkel des zu konstruierenden [`CSSRotate`](/de/docs/Web/API/CSSRotate)-Objekts. Dies
+    muss ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein.
 
 ### Ausnahmen
 
 - [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
-  - : Wird ausgelöst, wenn der Wert von `CSSRotate.angle` kein [\<angle>](/de/docs/Web/CSS/angle) Wert ist
-    oder `CSSRotate.x`, `CSSRotate.y`, `CSSRotate.z` keine [\<number>](/de/docs/Web/CSS/number) Werte sind.
+  - : Wird ausgelöst, wenn der Wert von `CSSRotate.angle` kein [\<angle>](/de/docs/Web/CSS/angle)-Wert ist
+    oder `CSSRotate.x`, `CSSRotate.y`, `CSSRotate.z` keine [\<number>](/de/docs/Web/CSS/number)-Werte sind.
 
 ## Beispiele
 
@@ -47,6 +46,6 @@ To do
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

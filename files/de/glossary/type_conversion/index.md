@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-Typumwandlung (oder Typumwandlung) bedeutet die Übertragung von Daten von einem Datentyp in einen anderen. _Implizite Umwandlung_ erfolgt, wenn der Compiler (für kompilierte Sprachen) oder zur Laufzeit (für Skriptsprachen wie {{glossary("JavaScript")}}) Datentypen automatisch umwandelt. Der Quellcode kann auch _explizit_ eine Umwandlung erfordern.
+Typumwandlung (oder Typumformung) bedeutet die Übertragung von Daten von einem Datentyp zu einem anderen. _Implizite Konvertierung_ erfolgt, wenn der Compiler (für kompilierte Sprachen) oder die Laufzeitumgebung (für Skriptsprachen wie [JavaScript](/de/docs/Glossary/JavaScript)) automatisch Datentypen umwandelt. Der Quellcode kann auch _explizit_ erfordern, dass eine Umwandlung erfolgt.
 
-Beispielsweise wird in dem Ausdruck `"foo" + 1` die {{glossary("Number")}} `1` implizit in einen {{glossary("String")}} umgewandelt und der Ausdruck gibt `"foo1"` zurück. Bei der Anweisung `Number("0x11")` wird der String `"0x11"` explizit in die Zahl `17` umgewandelt.
+Zum Beispiel wird in dem Ausdruck `"foo" + 1` die [Number](/de/docs/Glossary/Number) `1` implizit in eine [String](/de/docs/Glossary/String) umgewandelt, und der Ausdruck gibt `"foo1"` zurück. Bei der Anweisung `Number("0x11")` wird der String `"0x11"` explizit in die Zahl `17` umgewandelt.
 
 ## Siehe auch
 
 - [Typumwandlung](https://en.wikipedia.org/wiki/Type_conversion) (Wikipedia)
-- Verwandte Glossareinträge:
-  - {{Glossary("Type")}}
-  - {{Glossary("Type coercion")}}
+- Verwandte Glossarbegriffe:
+  - [Type](/de/docs/Glossary/Type)
+  - [Type coercion](/de/docs/Glossary/Type_coercion)

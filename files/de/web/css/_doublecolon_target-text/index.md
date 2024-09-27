@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **`::target-text`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den Text, zu dem gescrollt wurde, wenn der Browser [Textfragmente](/de/docs/Web/URI/Fragment/Text_fragments) unterstützt. Es ermöglicht Autoren, auszuwählen, wie dieser Textabschnitt hervorgehoben wird.
+Das **`::target-text`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den Text, zu dem gescrollt wurde, wenn der Browser [Textfragmente](/de/docs/Web/URI/Fragment/Text_fragments) unterstützt. Es erlaubt den Autoren, auszuwählen, wie dieser Textabschnitt hervorgehoben wird.
 
 ```css
 ::target-text {

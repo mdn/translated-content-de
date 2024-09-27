@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: dragleave Ereignis"
+title: "HTMLElement: dragleave-Ereignis"
 short-title: dragleave
 slug: Web/API/HTMLElement/dragleave_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das `dragleave`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Ziel zum Ablegen verlässt.
+Das `dragleave`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Ziel für das Ablegen verlässt.
 
-Dieses Ereignis kann nicht abgebrochen werden und kann bis zum {{domxref("Document")}} und {{domxref("Window")}} Objekt hochblubbern.
+Dieses Ereignis kann nicht abgebrochen werden und kann bis zu den [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekten propagiert werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js
 addEventListener("dragleave", (event) => {});
@@ -24,26 +24,26 @@ ondragleave = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("DragEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("DragEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, {{domxref("Event")}}, verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
-- {{domxref('DragEvent.dataTransfer')}} {{ReadOnlyInline}}
+- [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
   - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
 
 ## Beispiele
 
-### Zurücksetzen der Stile der Ablagezone bei dragleave
+### Zurücksetzen der Stilvorlagen der Ablagezone bei dragleave
 
-In diesem Beispiel haben wir ein ziehbares Element in einem Container. Versuchen Sie, das Element zu greifen, über den anderen Container zu ziehen und es loszulassen.
+In diesem Beispiel haben wir ein verschiebbares Element in einem Container. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und es loszulassen.
 
-Wir geben dem anderen Container einen lila Hintergrund, während sich das ziehbare Element darüber befindet, um anzuzeigen, dass es auf den Container gelegt werden könnte. Wir lauschen dem `dragleave`-Ereignis, um den Hintergrund des Containers zurückzusetzen, wenn das ziehbare Element den Container verlässt.
+Wir geben dem anderen Container einen lila Hintergrund, solange sich das verschiebbare Element darüber befindet, um anzuzeigen, dass es dort abgelegt werden könnte. Wir hören auf das `dragleave`-Ereignis, um den Hintergrund des Containers zurückzusetzen, wenn das verschiebbare Element vom Container weggezogen wird.
 
-In diesem teilweisen Beispiel haben wir jedoch das Ablegen nicht implementiert: Für ein vollständiges Beispiel von Drag and Drop sehen Sie bitte die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event) Ereignis.
+In diesem partiellen Beispiel haben wir jedoch das Ablegen nicht implementiert: für ein vollständiges Beispiel für Drag and Drop, siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
 #### HTML
 
@@ -58,7 +58,7 @@ In diesem teilweisen Beispiel haben wir jedoch das Ablegen nicht implementiert: 
 
 ```css
 body {
-  /* Verhindert, dass der Benutzer im Beispiel Text auswählt */
+  /* Prevent the user from selecting text in the example */
   user-select: none;
 }
 
@@ -85,14 +85,14 @@ body {
 ```js
 const target = document.getElementById("droptarget");
 target.addEventListener("dragenter", (event) => {
-  // Potenzielles Ablegeziel hervorheben, wenn das ziehbare Element es betritt
+  // highlight potential drop target when the draggable element enters it
   if (event.target.classList.contains("dropzone")) {
     event.target.classList.add("dragover");
   }
 });
 
 target.addEventListener("dragleave", (event) => {
-  // Hintergrund des potenziellen Ablegeziels zurücksetzen, wenn das ziehbare Element es verlässt
+  // reset background of potential drop target when the draggable element leaves it
   if (event.target.classList.contains("dropzone")) {
     event.target.classList.remove("dragover");
   }
@@ -115,9 +115,9 @@ target.addEventListener("dragleave", (event) => {
 
 - Andere Drag-and-Drop-Ereignisse:
 
-  - {{domxref("HTMLElement/drag_event", "drag")}}
-  - {{domxref("HTMLElement/dragstart_event", "dragstart")}}
-  - {{domxref("HTMLElement/dragend_event", "dragend")}}
-  - {{domxref("HTMLElement/dragover_event", "dragover")}}
-  - {{domxref("HTMLElement/dragenter_event", "dragenter")}}
-  - {{domxref("HTMLElement/drop_event", "drop")}}
+  - [`drag`](/de/docs/Web/API/HTMLElement/drag_event)
+  - [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)
+  - [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)
+  - [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)
+  - [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)
+  - [`drop`](/de/docs/Web/API/HTMLElement/drop_event)

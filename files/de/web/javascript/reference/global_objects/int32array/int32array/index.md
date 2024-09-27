@@ -1,5 +1,5 @@
 ---
-title: Int32Array()-Konstruktor
+title: Int32Array() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Int32Array/Int32Array
 l10n:
   sourceCommit: dd339290fa3a42d9a7f079e17a62e1df1206f29d
@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`Int32Array()`**-Konstruktor erstellt {{jsxref("Int32Array")}}-Objekte. Der Inhalt wird zu `0` initialisiert, sofern keine Initialisierungsdaten explizit bereitgestellt werden.
+Der **`Int32Array()`** Konstruktor erstellt {{jsxref("Int32Array")}} Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
 
 ## Syntax
 
@@ -34,30 +34,30 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten, ein Int32Array zu erstellen
+### Unterschiedliche Wege, eine Int32Array zu erstellen
 
 ```js
-// Aus einer Länge
+// From a length
 const int32 = new Int32Array(2);
 int32[0] = 42;
 console.log(int32[0]); // 42
 console.log(int32.length); // 2
 console.log(int32.BYTES_PER_ELEMENT); // 4
 
-// Aus einem Array
+// From an array
 const x = new Int32Array([21, 31]);
 console.log(x[1]); // 31
 
-// Aus einem anderen TypedArray
+// From another TypedArray
 const y = new Int32Array(x);
 console.log(y[0]); // 21
 
-// Aus einem ArrayBuffer
+// From an ArrayBuffer
 const buffer = new ArrayBuffer(32);
 const z = new Int32Array(buffer, 4, 4);
 console.log(z.byteOffset); // 4
 
-// Aus einem Iterable
+// From an iterable
 const iterable = (function* () {
   yield* [1, 2, 3];
 })();
@@ -77,7 +77,7 @@ console.log(int32FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Int32Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

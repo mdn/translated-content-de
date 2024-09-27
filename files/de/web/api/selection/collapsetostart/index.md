@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.collapseToStart()`**-Methode klappt die Auswahl auf den Anfang des ersten Bereichs in der Auswahl zusammen. Wenn der Inhalt der Auswahl fokussiert und bearbeitbar ist, blinkt dort der Cursor.
+Die **`Selection.collapseToStart()`**-Methode reduziert die Auswahl auf den Anfang des ersten Bereichs in der Auswahl. Wenn der Inhalt der Auswahl fokussiert und bearbeitbar ist, blinkt der Cursor dort.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
@@ -34,4 +34,4 @@ Keine ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- {{domxref("Selection")}}, das Interface, zu dem es gehört.
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der sie gehört.

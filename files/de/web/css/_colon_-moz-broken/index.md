@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}{{deprecated_header}}
 
-Die **`:-moz-broken`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente anspricht, die kaputte Bildverknüpfungen darstellen.
+Die **`:-moz-broken`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente anspricht, die defekte Bildlinks darstellen.
 
 > [!NOTE]
-> Dieser Selektor ist vor allem dazu gedacht, von Theme-Entwicklern verwendet zu werden.
+> Dieser Selektor ist hauptsächlich für die Verwendung durch Theme-Entwickler gedacht.
 
 ## Syntax
 
@@ -43,7 +43,7 @@ Die **`:-moz-broken`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/P
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Standardisierung.
 
 ## Browser-Kompatibilität
 
@@ -52,4 +52,4 @@ Nicht Teil eines Standards.
 ## Siehe auch
 
 - {{cssxref(":-moz-loading")}}, {{cssxref(":-moz-suppressed")}}, {{cssxref(":-moz-user-disabled")}}
-- [Firefox Fehler 11011](https://bugzil.la/11011)
+- [Firefox-Bug 11011](https://bugzil.la/11011)

@@ -1,5 +1,5 @@
 ---
-title: "HTMLTextAreaElement: select()-Methode"
+title: "HTMLTextAreaElement: select() Methode"
 short-title: select()
 slug: Web/API/HTMLTextAreaElement/select
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`select()`**-Methode der {{domxref("HTMLTextAreaElement")}}-Schnittstelle markiert den gesamten Inhalt des {{htmlelement("textarea")}}-Elements. Zusätzlich wird das {{domxref("HTMLTextAreaElement.select_event", "select")}}-Ereignis ausgelöst. Die `select()`-Methode erfordert keine Parameter und gibt keinen Wert zurück.
+Die **`select()`**-Methode des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) Interfaces wählt den gesamten Inhalt des {{htmlelement("textarea")}}-Elements aus. Zusätzlich wird das [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event) Ereignis ausgelöst. Die `select()`-Methode nimmt keine Parameter entgegen und gibt keinen Wert zurück.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein Wert ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -42,6 +42,6 @@ textarea.select();
 ## Siehe auch
 
 - {{HTMLElement("textarea")}}
-- {{domxref("HTMLTextAreaElement/select_event", "select")}}-Ereignis
-- {{domxref("EventTarget.addEventListener", "addEventListener()")}}
-- CSS-{{cssxref("::selection")}} Pseudo-Element
+- [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event) Ereignis
+- [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)
+- CSS {{cssxref("::selection")}} Pseudo-Element

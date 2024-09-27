@@ -1,5 +1,5 @@
 ---
-title: Vorschläge für neue Inhalte oder Funktionen
+title: Vorschlag neuer Inhalte oder Features
 slug: MDN/Community/Issues/Content_suggestions_feature_proposals
 l10n:
   sourceCommit: ecce8d4a89cc2fca633cb1f14ce5feda21287a7a
@@ -7,40 +7,40 @@ l10n:
 
 {{MDNSidebar}}
 
-Wir sind immer daran interessiert, Vorschläge aus unserer Community zu neuen Inhalten oder Funktionen für MDN Web Docs zu hören. Obwohl wir für Vorschläge offen sind, müssen wir Folgendes beachten:
+Wir sind immer daran interessiert, von unserer Community neue Inhalts- oder Feature-Vorschläge für MDN Web Docs zu hören. Obwohl wir offen für Vorschläge sind, müssen wir Folgendes beachten:
 
-- MDN Web Docs wird von einem kleinen internen Team betrieben und verwaltet. Wir sind auch stark auf unsere Partner und die Community angewiesen, um MDN Web Docs zur besten Ressource für Webentwickler im Internet zu machen. Daher müssen wir manchmal Anfragen nach neuen Inhalten oder Funktionen ablehnen, da wir sie langfristig einfach nicht pflegen können.
-- MDN Web Docs konzentriert sich auch auf die Dokumentation offener Webstandards; einige Inhalte könnten daher nicht gut passen. Das bedeutet nicht, dass die Idee oder der Inhalt schlecht ist, sondern nur, dass MDN Web Docs nicht der beste Ort dafür ist.
+- MDN Web Docs wird von einem kleinen internen Team geführt und verwaltet. Wir sind auch stark auf unsere Partner und die Community angewiesen, um MDN Web Docs zur besten Ressource für Webentwickler im Internet zu machen. Daher müssen wir manchmal neue Inhalte oder Features ablehnen, weil wir nicht in der Lage sind, diese langfristig zu pflegen.
+- MDN Web Docs konzentriert sich auch darauf, offene Webstandards zu dokumentieren; manche Inhalte passen möglicherweise nicht gut. Das bedeutet nicht, dass die Idee oder der Inhalt nicht gut ist, sondern nur, dass MDN Web Docs nicht der richtige Ort dafür ist.
 
-Mit diesen Überlegungen im Hinterkopf, wenn Sie dennoch Inhalte oder Funktionen für MDN Web Docs vorschlagen möchten, befolgen Sie bitte die folgenden Schritte.
+Mit dem im Hinterkopf, wenn Sie _Inhalte_ oder _Features_ für MDN Web Docs vorschlagen möchten, folgen Sie bitte den folgenden Schritten.
 
-## Öffnen eines Vorschlags für neue Inhalte und Funktionen
+## Erstellen eines Inhaltsvorschlags und Feature-Vorschlags
 
-Wenn Sie ein [neues Issue](https://github.com/mdn/mdn/issues/new/choose) öffnen, finden Sie eine Vorlage namens „Neue Inhalts- oder Funktionsvorschläge“. Dies ist die Vorlage, die verwendet werden soll, wenn neue Inhalte oder Funktionen vorgeschlagen werden. Die Vorlage erfordert eine erhebliche Menge an Informationen, ist jedoch sehr durchdacht.
+Wenn Sie ein [neues Issue](https://github.com/mdn/mdn/issues/new/choose) eröffnen, finden Sie eine Vorlage namens "New content or feature suggestions". Dieses ist die Issue-Vorlage, die Sie zum Vorschlagen neuer Inhalte oder Features verwenden sollten. Die Vorlage erfordert viele Informationen, ist jedoch sehr durchdacht.
 
-1. Sie stellt sicher, dass wir alle Informationen haben, die wir benötigen, um Ihren Vorschlag ohne viele Rückfragen zu prüfen.
-2. Sie hilft Ihnen, Ihren Vorschlag durchdacht auszufüllen.
+1. Sie stellt sicher, dass wir alle Informationen haben, die wir benötigen, um Ihren Vorschlag ohne viel Hin und Her zu prüfen.
+2. Sie hilft Ihnen, Ihren Vorschlag gründlich zu durchdenken, während Sie das Formular ausfüllen.
 
-Sobald Sie das Formular ausgefüllt und das Issue eingereicht haben, wird sich ein Kernmitglied innerhalb einer bis zwei Wochen bei Ihnen melden, abhängig von der Komplexität Ihres Vorschlags.
+Sobald Sie das Formular ausgefüllt und das Issue eingereicht haben, wird sich innerhalb von ein bis zwei Wochen, je nach Komplexität Ihres Vorschlags, ein Kernteammitglied bei Ihnen melden.
 
-## Teilnahme an der Diskussion und Warten auf Genehmigung
+## Nehmen Sie an der Diskussion teil und warten Sie auf die Genehmigung
 
-Wenn wir der Meinung sind, dass der Vorschlag passen könnte, werden wir eine [Diskussion starten](https://github.com/orgs/mdn/discussions) in unserem MDN Community-Diskussionsrepository. Dies dient dazu, Input von unseren Partnern und der weiteren Community zu bekommen. Wir ermutigen Sie, die Diskussion zu verfolgen und sich entsprechend einzubringen.
+Wenn wir denken, dass der Vorschlag gut passen könnte, werden wir [eine Diskussion starten](https://github.com/orgs/mdn/discussions) in unserem MDN-Community-Diskussionsrepository. Dies soll Rückmeldungen von unseren Partnern und der breiteren Community einholen. Wir ermutigen Sie, die Diskussion zu verfolgen und sich bei Bedarf zu beteiligen.
 
-## Öffnen eines Issues
+## Erstellen eines Issues
 
-Wenn ein Konsens erreicht wird, dass es sich um Inhalte handelt, die wir hinzufügen möchten, oder um eine Funktion, die wir aufbauen möchten, werden wir ein Issue im entsprechenden Repository öffnen, das sich auf den ursprünglichen Vorschlag und die Diskussion bezieht, und alle Lücken füllen, sodass das Issue klar handlungsfähig ist.
+Falls es einen Konsens gibt, dass dies ein Inhalt ist, den wir hinzufügen möchten, oder ein Feature, das wir entwickeln möchten, werden wir ein Issue im entsprechenden Repository erstellen, das auf den ursprünglichen Vorschlag und die Diskussion verweist und alle Lücken ausfüllt, sodass das Issue klar umsetzbar ist.
 
 ## Arbeit wird zugewiesen
 
-An diesem Punkt wird die Arbeit priorisiert und denjenigen zugewiesen, die für die Implementierung und Überprüfung verantwortlich sind.
+Zu diesem Zeitpunkt wird die Arbeit priorisiert und den Verantwortlichen zugewiesen, um sicherzustellen, dass sie implementiert und überprüft wird.
 
-## Pull Request öffnen
+## Pull Request eröffnen
 
-Sobald die Arbeit bereit für die Überprüfung ist, sollte ein Pull Request geöffnet werden, der erneut den Vorschlag, die Diskussion und das Issue referenziert. Dies stellt sicher, dass wir immer den vollständigen Kontext der Arbeit haben. Schließlich werden die erforderlichen Personen zugewiesen, und der Überprüfungsprozess beginnt.
+Sobald die Arbeit zur Überprüfung bereit ist, sollte ein Pull Request geöffnet werden, der wiederum den Vorschlag, die Diskussion und das Issue referenziert. Dies stellt sicher, dass wir immer den vollständigen Kontext der Arbeit haben. Schließlich werden die erforderlichen Personen zugewiesen, und der Überprüfungsprozess beginnt.
 
-## Arbeit wird geprüft und zusammengeführt
+## Arbeit wird überprüft und zusammengeführt
 
-Auch hier kann die Überprüfungsphase je nach Komplexität des Inhalts oder der Funktion langwierig sein. Wir bitten um Ihre Geduld und dass Sie sich entsprechend weiterhin einbringen. Sobald wir die Genehmigung von mindestens zwei internen Teammitgliedern haben, sind wir bereit, den Pull Request zusammenzuführen.
+Auch hier kann je nach Komplexität des Inhalts oder Features die Überprüfungsphase länger dauern. Wir bitten um Ihre Geduld und dass Sie sich weiterhin nach Bedarf beteiligen. Sobald wir die Genehmigung von mindestens zwei internen Teammitgliedern haben, sind wir bereit, den Pull Request zusammenzuführen.
 
-Damit wird der gesamte Prozess abgeschlossen, und der Inhalt oder die Funktion wird auf MDN Web Docs verfügbar sein.
+Damit wird der gesamte Prozess abgeschlossen, und der Inhalt oder das Feature wird auf MDN Web Docs verfügbar sein.

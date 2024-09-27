@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode createTransformFeedback()"
+title: "WebGL2RenderingContext: createTransformFeedback() Methode"
 short-title: createTransformFeedback()
 slug: Web/API/WebGL2RenderingContext/createTransformFeedback
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.createTransformFeedback()`**
-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) erstellt und
-initialisiert {{domxref("WebGLTransformFeedback")}}-Objekte.
+Die **`WebGL2RenderingContext.createTransformFeedback()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekte.
 
 ## Syntax
 
@@ -24,12 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLTransformFeedback")}}-Objekt.
+Ein [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt.
 
 ## Beispiele
 
-`gl` muss ein {{domxref("WebGL2RenderingContext")}} sein.
-`WebGLTransformFeedback`-Objekte sind in WebGL 1 nicht verfügbar.
+`gl` muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein. `WebGLTransformFeedback`-Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
 const transformFeedback = gl.createTransformFeedback();
@@ -39,10 +36,10 @@ const transformFeedback = gl.createTransformFeedback();
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLTransformFeedback")}}
+- [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)

@@ -1,5 +1,5 @@
 ---
-title: "Node: Methode lookupNamespaceURI()"
+title: "Node: lookupNamespaceURI() Methode"
 short-title: lookupNamespaceURI()
 slug: Web/API/Node/lookupNamespaceURI
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`lookupNamespaceURI()`**-Methode des {{domxref("Node")}}-Interfaces
-nimmt einen Präfix als Parameter und gibt den damit auf dem gegebenen Knoten assoziierten Namespace-URI zurück, falls dieser gefunden wird (und `null`, wenn nicht). Die Existenz dieser Methode ermöglicht es `Node`-Objekten, als Namespace-Resolver an {{domxref("XPathEvaluator.createExpression()")}} und {{domxref("XPathEvaluator.evaluate()")}} übergeben zu werden.
+Die **`lookupNamespaceURI()`** Methode der [`Node`](/de/docs/Web/API/Node) Schnittstelle
+nimmt ein Präfix als Parameter und gibt die Namespace-URI zurück, die mit diesem auf dem gegebenen Knoten verknüpft ist, falls vorhanden (und `null`, wenn nicht). Die Existenz dieser Methode ermöglicht es, `Node` Objekte als Namespace-Resolver an [`XPathEvaluator.createExpression()`](/de/docs/Web/API/XPathEvaluator/createExpression) und [`XPathEvaluator.evaluate()`](/de/docs/Web/API/XPathEvaluator/evaluate) zu übergeben.
 
 ## Syntax
 
@@ -20,18 +20,18 @@ lookupNamespaceURI(prefix)
 ### Parameter
 
 - `prefix`
-  - : Der zu suchende Präfix.
+  - : Das zu suchende Präfix.
     > [!NOTE]
-    > Dieser Parameter ist nicht optional, kann aber auf `null` gesetzt werden.
+    > Dieser Parameter ist nicht optional, kann jedoch auf `null` gesetzt werden.
 
 ### Rückgabewert
 
-Ein String, der den Namespace-URI enthält, der dem Präfix entspricht.
+Ein String, der die Namespace-URI enthält, die dem Präfix entspricht.
 
-- Gibt immer `null` zurück, wenn der Knoten ein {{domxref("DocumentFragment")}}, {{domxref("DocumentType")}}, {{domxref("Document")}} ohne {{domxref("Document/documentElement", "documentElement")}} oder ein {{domxref("Attr")}} ohne dazugehöriges Element ist.
+- Gibt immer `null` zurück, wenn der Knoten ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), [`DocumentType`](/de/docs/Web/API/DocumentType), [`Document`](/de/docs/Web/API/Document) ohne [`documentElement`](/de/docs/Web/API/Document/documentElement) oder ein [`Attr`](/de/docs/Web/API/Attr) ohne zugeordnetes Element ist.
 - Wenn `prefix` `"xml"` ist, ist der Rückgabewert immer `"http://www.w3.org/XML/1998/namespace"`.
 - Wenn `prefix` `"xmlns"` ist, ist der Rückgabewert immer `"http://www.w3.org/2000/xmlns/"`.
-- Wenn `prefix` `null` ist, ist der Rückgabewert der Standard-Namespace-URI.
+- Wenn das `prefix` `null` ist, ist der Rückgabewert die Standard-Namespace-URI.
 - Wenn das Präfix nicht gefunden wird, ist der Rückgabewert `null`.
 
 ## Beispiel
@@ -91,5 +91,5 @@ for (const prefix of ["xmlns", "xml", "html", "svg", "xlink", "", null]) {
 
 ## Siehe auch
 
-- {{domxref("Node.lookupPrefix")}}
-- {{domxref("Node.isDefaultNameSpace")}}
+- [`Node.lookupPrefix`](/de/docs/Web/API/Node/lookupPrefix)
+- [`Node.isDefaultNameSpace`](/de/docs/Web/API/Node/isDefaultNameSpace)

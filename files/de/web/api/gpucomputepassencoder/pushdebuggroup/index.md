@@ -3,14 +3,14 @@ title: "GPUComputePassEncoder: pushDebugGroup()-Methode"
 short-title: pushDebugGroup()
 slug: Web/API/GPUComputePassEncoder/pushDebugGroup
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushDebugGroup()`**-Methode der {{domxref("GPUComputePassEncoder")}}-Schnittstelle beginnt eine Berechnungspass-Debug-Gruppe, die mit einem angegebenen Label markiert ist und alle nachfolgenden kodierten Befehle enthalten wird, bis eine {{domxref("GPUComputePassEncoder.popDebugGroup", "popDebugGroup()")}}-Methode aufgerufen wird.
+Die **`pushDebugGroup()`**-Methode der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle beginnt eine Debug-Gruppe für einen Compute-Pass, die mit einem angegebenen Label markiert ist und alle nachfolgenden kodierten Befehle bis zur Aufruf der [`popDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/popDebugGroup)-Methode enthalten wird.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in {{domxref("GPUError")}}-Meldungen, Entwickler-Tools des Browsers oder anderen Diensten genutzt werden, um beim Debuggen zu helfen.
+Diese Methode kann für Telemetrie verwendet werden oder könnte zukünftig in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Entwicklertools des Browsers oder anderen Diensten zur Unterstützung bei der Fehlersuche genutzt werden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ pushDebugGroup(groupLabel)
 ### Parameter
 
 - `groupLabel`
-  - : Ein String, der das Label für die Debug-Gruppe darstellt.
+  - : Ein String, der das Label für die Debug-Gruppe repräsentiert.
 
 ### Rückgabewert
 
@@ -34,7 +34,7 @@ Keiner ({{jsxref("Undefined")}}).
 
 const passEncoder = commandEncoder.beginComputePass();
 
-passEncoder.pushDebugGroup("mygroupmarker"); // Markierte Debug-Gruppe starten
+passEncoder.pushDebugGroup("mygroupmarker"); // Start labeled debug group
 
 passEncoder.setPipeline(computePipeline);
 passEncoder.setBindGroup(0, bindGroup);

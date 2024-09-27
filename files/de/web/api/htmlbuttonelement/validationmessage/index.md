@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`validationMessage`**-Eigenschaft der {{domxref("HTMLButtonElement")}}-Schnittstelle gibt eine Zeichenfolge zurück, die eine lokalisierte Nachricht darstellt, welche die Validierungseinschränkungen beschreibt, die das {{htmlelement("button")}}-Steuerelement nicht erfüllt (falls vorhanden). Dies ist die leere Zeichenfolge, wenn das Steuerelement kein Kandidat für die Einschränkungsvalidierung ist (der [`type`](/de/docs/Web/HTML/Element/button#type) des `<button>` ist `button` oder `reset`) oder es seine Einschränkungen erfüllt.
+Die schreibgeschützte Eigenschaft **`validationMessage`** des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces gibt einen Zeichenfolgenwert zurück, der eine lokalisierte Nachricht darstellt. Diese beschreibt die Validierungsbedingungen, die das {{htmlelement("button")}}-Steuerelement nicht erfüllt (falls vorhanden). Es ist eine leere Zeichenfolge, wenn das Steuerelement kein Kandidat für die Validierung der Bedingungen ist (der `<button>`-[`type`](/de/docs/Web/HTML/Element/button#type) ist `button` oder `reset`) oder wenn es seine Bedingungen erfüllt.
 
-Wenn das `<button>` ein Kandidat für die Einschränkungsvalidierung ist (der `type` ist auf `submit` gesetzt oder standardmäßig `submit` und {{domxref("HTMLButtonElement.willValidate")}} ist `true`) und die Einschränkungen nicht erfüllt sind (es gibt einen nicht-nullwertigen {{domxref("ValidityState.customError")}}), ist der Wert die Fehlermeldung, die dem Benutzer während der Elementvalidierung angezeigt würde.
+Wenn der `<button>` ein Kandidat für die Validierung der Bedingungen ist (der `type` ist gesetzt oder standardmäßig `submit` und [`HTMLButtonElement.willValidate`](/de/docs/Web/API/HTMLButtonElement/willValidate) ist `true`) und die Bedingungen nicht erfüllt sind (es gibt einen nicht-null [`ValidityState.customError`](/de/docs/Web/API/ValidityState/customError)), ist der Wert die Fehlermeldung, die dem Benutzer während der Elementvalidierung angezeigt würde.
 
 ## Wert
 
-Eine Zeichenfolge.
+Ein Zeichenfolgenwert.
 
 ## Spezifikationen
 
@@ -27,12 +27,12 @@ Eine Zeichenfolge.
 ## Siehe auch
 
 - {{HTMLelement("button")}}
-- {{domxref("HTMLButtonElement")}}
-- {{domxref("HTMLButtonElement.willValidate")}}
-- {{domxref("HTMLButtonElement.validity")}}
-- {{domxref("HTMLButtonElement.checkValidity()")}}
-- {{domxref("HTMLButtonElement.reportValidity()")}}
-- {{domxref("HTMLButtonElement.setCustomValidity()")}}
+- [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)
+- [`HTMLButtonElement.willValidate`](/de/docs/Web/API/HTMLButtonElement/willValidate)
+- [`HTMLButtonElement.validity`](/de/docs/Web/API/HTMLButtonElement/validity)
+- [`HTMLButtonElement.checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity)
+- [`HTMLButtonElement.reportValidity()`](/de/docs/Web/API/HTMLButtonElement/reportValidity)
+- [`HTMLButtonElement.setCustomValidity()`](/de/docs/Web/API/HTMLButtonElement/setCustomValidity)
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudo-Klassen
+- [Leitfaden: Validierung von Einschränkungen](/de/docs/Web/HTML/Constraint_validation)
+- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

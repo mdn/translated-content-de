@@ -1,5 +1,5 @@
 ---
-title: "CharacterData: remove()-Methode"
+title: "CharacterData: remove() Methode"
 short-title: remove()
 slug: Web/API/CharacterData/remove
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`remove()`**-Methode von {{domxref("CharacterData")}} entfernt den im Knoten enthaltenen Text.
+Die **`remove()`** Methode von [`CharacterData`](/de/docs/Web/API/CharacterData) entfernt den Text, der im Knoten enthalten ist.
 
 ## Syntax
 
@@ -25,14 +25,14 @@ Keine.
 ### Verwendung von `remove()`
 
 ```html
-<span>Resultat: </span>Ein langer Text.
+<span>Result: </span>A long string.
 ```
 
 ```js
 const span = document.querySelector("span");
 const textnode = span.nextSibling;
 
-textnode.remove(); // Entfernt den Text
+textnode.remove(); // Removes the text
 ```
 
 {{EmbedLiveSample("Example", "100%", 50)}}
@@ -47,6 +47,6 @@ textnode.remove(); // Entfernt den Text
 
 ## Siehe auch
 
-- {{domxref("CharacterData.deleteData()")}}
-- {{domxref("DocumentType.remove()")}}
-- {{domxref("Element.remove()")}}
+- [`CharacterData.deleteData()`](/de/docs/Web/API/CharacterData/deleteData)
+- [`DocumentType.remove()`](/de/docs/Web/API/DocumentType/remove)
+- [`Element.remove()`](/de/docs/Web/API/Element/remove)

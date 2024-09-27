@@ -1,5 +1,5 @@
 ---
-title: "History: back()-Methode"
+title: "History: back() Methode"
 short-title: back()
 slug: Web/API/History/back
 l10n:
@@ -8,11 +8,14 @@ l10n:
 
 {{APIRef("History API")}}
 
-Die **`back()`**-Methode des {{domxref("History")}}-Interfaces bewirkt, dass der Browser eine Seite zurück in der Sitzungsverlaufshistorie geht.
+Die **`back()`**-Methode der [`History`](/de/docs/Web/API/History)-Schnittstelle veranlasst
+den Browser, eine Seite in der Sitzungs-Historie zurückzugehen.
 
-Sie hat denselben Effekt wie der Aufruf von {{domxref("History.go", "history.go(-1)")}}. Wenn es keine vorherige Seite gibt, hat dieser Methodenaufruf keine Wirkung.
+Sie hat die gleiche Wirkung wie ein Aufruf von [`history.go(-1)`](/de/docs/Web/API/History/go). Wenn es keine vorherige
+Seite gibt, bewirkt dieser Methodenaufruf nichts.
 
-Diese Methode ist {{glossary("asynchronous")}}. Fügen Sie einen Listener für das {{domxref("Window/popstate_event", "popstate")}}-Ereignis hinzu, um zu bestimmen, wann die Navigation abgeschlossen ist.
+Diese Methode ist [asynchron](/de/docs/Glossary/asynchronous). Fügen Sie einen Listener für das
+[`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis hinzu, um zu bestimmen, wann die Navigation abgeschlossen ist.
 
 ## Syntax
 
@@ -26,16 +29,17 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das zugehörige Dokument nicht vollständig aktiv ist. Browser drosseln auch die Navigation und können diesen Fehler auslösen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig aufgerufen wird.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das zugehörige Dokument nicht vollständig aktiv ist. Browser drosseln auch Navigationen und können diesen Fehler auslösen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig erfolgt.
 
 ## Beispiele
 
-Das folgende kurze Beispiel bewirkt, dass ein Button auf der Seite einen Eintrag im Sitzungsverlauf zurückgeht.
+Das folgende kurze Beispiel bewirkt, dass ein Button auf der Seite einen Eintrag in der
+Sitzungs-Historie zurück navigiert.
 
 ### HTML
 
@@ -61,5 +65,5 @@ document.getElementById("go-back").addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("History")}}
+- [`History`](/de/docs/Web/API/History)
 - [Arbeiten mit der History API](/de/docs/Web/API/History_API/Working_with_the_History_API)

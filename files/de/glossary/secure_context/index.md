@@ -1,5 +1,5 @@
 ---
-title: Sicherer Kontext
+title: Secure Context
 slug: Glossary/Secure_Context
 l10n:
   sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
@@ -7,6 +7,6 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **sicherer Kontext** ist ein `Window` oder `Worker`, in dem bestimmte Mindeststandards für Authentifizierung und Vertraulichkeit erfüllt sind. Viele Web-APIs und Funktionen sind nur in sicheren Kontexten zugänglich, wodurch die Möglichkeit des Missbrauchs durch bösartigen Code verringert wird.
+Ein **sicherer Kontext** ist ein `Window` oder `Worker`, in dem bestimmte Mindeststandards für Authentifizierung und Vertraulichkeit erfüllt sind. Viele Web-APIs und Funktionen sind nur in sicheren Kontexten zugänglich, um die Möglichkeit des Missbrauchs durch bösartigen Code zu reduzieren.
 
-Für weitere Informationen siehe: [Web > Sicherheit > Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts).
+Für weitere Informationen siehe: [Web > Security > Secure Contexts](/de/docs/Web/Security/Secure_Contexts).

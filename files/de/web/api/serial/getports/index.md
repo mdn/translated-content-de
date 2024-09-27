@@ -1,5 +1,5 @@
 ---
-title: "Serial: getPorts()-Methode"
+title: "Serial: getPorts() Methode"
 short-title: getPorts()
 slug: Web/API/Serial/getPorts
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Serial API")}}{{SecureContext_Header}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`getPorts()`**-Methode der {{domxref("Serial")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von {{domxref("SerialPort")}}-Objekten aufgelöst wird, die serielle Anschlüsse repräsentieren, die mit dem Host verbunden sind und auf die der Ursprung zugreifen darf.
+Die **`getPorts()`** Methode der [`Serial`](/de/docs/Web/API/Serial) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von [`SerialPort`](/de/docs/Web/API/SerialPort)-Objekten aufgelöst wird. Diese Objekte repräsentieren die seriellen Ports, die mit dem Host verbunden sind und auf die der Ursprung Zugriff hat.
 
 ## Syntax
 
@@ -22,20 +22,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Array von {{domxref("SerialPort")}}-Objekten aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einem Array von [`SerialPort`](/de/docs/Web/API/SerialPort)-Objekten aufgelöst wird.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Das zurückgegebene `Promise` wird mit diesem Fehler abgelehnt, wenn eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) die Nutzung dieser Funktion blockiert oder eine Benutzergenehmigungsaufforderung abgelehnt wurde.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Das zurückgegebene `Promise` wird mit diesem Fehler abgelehnt, wenn eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) die Nutzung dieser Funktion blockiert oder eine Berechtigungsaufforderung des Nutzers abgelehnt wurde.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet `getPorts()`, um eine Liste der verfügbaren Anschlüsse zu initialisieren.
+Das folgende Beispiel verwendet `getPorts()`, um eine Liste verfügbarer Ports zu initialisieren.
 
 ```js
 navigator.serial.getPorts().then((ports) => {
-  // Initialisieren Sie die Liste der verfügbaren Anschlüsse mit `ports` beim Laden der Seite.
+  // Initialize the list of available ports with `ports` on page load.
 });
 ```
 

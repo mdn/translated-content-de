@@ -1,6 +1,6 @@
 ---
-title: "CSSKeyframesRule: length-Eigenschaft"
-short-title: Länge
+title: "CSSKeyframesRule: length Eigenschaft"
+short-title: length
 slug: Web/API/CSSKeyframesRule/length
 l10n:
   sourceCommit: b3ade406be0ad8a0dcbff00889d9a48d77f8dff1
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSSOM") }}
 
-Die schreibgeschützte **`length`**-Eigenschaft der {{domxref("CSSKeyframeRule")}}-Schnittstelle gibt die Anzahl der {{domxref("CSSKeyframeRule")}}-Objekte in ihrer Liste zurück. Sie können dann direkt auf jede Keyframe-Regel über ihren Index auf dem `CSSKeyframeRule`-Objekt zugreifen.
+Die schreibgeschützte **`length`**-Eigenschaft der [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Schnittstelle gibt die Anzahl der [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Objekte in ihrer Liste zurück. Sie können dann auf jede Keyframe-Regel über ihren Index direkt im `CSSKeyframeRule`-Objekt zugreifen.
 
 ## Wert
 
-Eine nicht-negative ganze Zahl. Sie sollte denselben Wert wie die `length` der {{domxref("CSSKeyframesRule.cssRules", "cssRules")}}-Eigenschaft haben.
+Eine nicht-negative ganze Zahl. Sie sollte denselben Wert wie die `length`-Eigenschaft der [`cssRules`](/de/docs/Web/API/CSSKeyframesRule/cssRules)-Eigenschaft haben.
 
 ## Beispiele
 
-Das CSS enthält eine Keyframes-At-Regel. Diese wird die erste {{domxref("CSSRule")}} sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird. `myRules[0]` gibt ein {{domxref("CSSKeyframesRule")}}-Objekt zurück. Die `cssRules`-Eigenschaft gibt eine {{domxref("CSSRuleList")}} mit zwei Regeln zurück.
+Das CSS enthält eine Keyframes-At-Regel. Diese wird die erste von `document.styleSheets[0].cssRules` zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) sein. `myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück. Die `cssRules`-Eigenschaft gibt eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) mit zwei Regeln zurück.
 
 ```css
 @keyframes slidein {
@@ -40,6 +40,6 @@ console.log(keyframes.length); // 2
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

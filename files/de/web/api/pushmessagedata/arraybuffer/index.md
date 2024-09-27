@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die **`arrayBuffer()`**-Methode der {{domxref("PushMessageData")}}-Schnittstelle extrahiert Push-Nachrichtendaten als ein {{jsxref("ArrayBuffer")}}-Objekt.
+Die **`arrayBuffer()`**-Methode der [`PushMessageData`](/de/docs/Web/API/PushMessageData)-Schnittstelle extrahiert Push-Nachrichtendaten als ein {{jsxref("ArrayBuffer")}}-Objekt.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ Ein {{jsxref("ArrayBuffer")}}.
 self.addEventListener("push", (event) => {
   const buffer = event.data.arrayBuffer();
 
-  // etwas mit dem ArrayBuffer machen
+  // do something with your array buffer
 });
 ```
 

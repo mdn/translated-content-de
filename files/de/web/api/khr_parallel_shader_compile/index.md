@@ -1,5 +1,5 @@
 ---
-title: KHR_parallel_shader_compile Erweiterung
+title: KHR_parallel_shader_compile-Erweiterung
 short-title: KHR_parallel_shader_compile
 slug: Web/API/KHR_parallel_shader_compile
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`KHR_parallel_shader_compile`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht einen nicht-blockierenden Abfragevorgang, sodass die Verfügbarkeit des Kompilier-/Verknüpfungsstatus (`COMPLETION_STATUS_KHR`) abgefragt werden kann, ohne dass möglicherweise Verzögerungen auftreten. Mit anderen Worten, Sie können den Status Ihrer Shader-Kompilierung überprüfen, ohne die Laufzeit zu blockieren.
+Die **`KHR_parallel_shader_compile`**-Erweiterung ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ermöglicht eine nicht-blockierende Abfrageoperation, sodass die Verfügbarkeit des Compile/Link-Status (`COMPLETION_STATUS_KHR`) ohne potenziell verursachte Verzögerungen abgefragt werden kann. Mit anderen Worten, Sie können den Status Ihrer Shader-Compilierung überprüfen, ohne die Laufzeit zu blockieren.
 
-WebGL-Erweiterungen sind über die {{domxref("WebGLRenderingContext.getExtension()")}}-Methode verfügbar. Weitere Informationen finden Sie unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
 
 ## Konstanten
 
@@ -19,25 +19,25 @@ WebGL-Erweiterungen sind über die {{domxref("WebGLRenderingContext.getExtension
 
 ## Beispiele
 
-Aktivieren Sie die Erweiterung:
+Ermöglichen Sie die Erweiterung:
 
 ```js
 const ext = gl.getExtension("KHR_parallel_shader_compile");
 ```
 
-Im Allgemeinen gilt folgende bewährte Praxis, unabhängig davon, ob die Erweiterung verwendet wird:
+Im Allgemeinen besteht die beste Praxis mit oder ohne die Erweiterung darin:
 
 ```js
-// Angenommene Listen von `shaders` und `programs`:
-for (const x of shaders) gl.compileShader(x); // Überprüfen Sie niemals den Kompilierstatus, es sei denn, die anschließende Verknüpfung schlägt fehl.
+// Assuming lists of `shaders` and `programs`:
+for (const x of shaders) gl.compileShader(x); // Never check compile status unless subsequent linking fails.
 for (const x of programs) gl.linkProgram(x);
 ```
 
-Mit der Erweiterung könnten Anwendungen überprüfen, ob Programme ohne Ruckeln verknüpft wurden, aber diese benötigen wahrscheinlich die gleiche Gesamtzeit für die Verknüpfung:
+Mit der Erweiterung wären Anwendungen in der Lage, abzufragen, ob Programme ohne Ruckeln verknüpft wurden, jedoch wird die gesamte Wandzeit zum Verknüpfen voraussichtlich gleich bleiben:
 
 ```js
-// Generator, der ein Fortschrittsverhältnis [0.0, 1.0] zurückgibt.
-// Ohne die Erweiterung wird dies ruckeln und nur ein Programm pro Generation überprüfen.
+// Generator yielding a progress ratio [0.0, 1.0].
+// Without the extension, this will jank and only check one program per generation.
 function* linkingProgress(programs) {
   const ext = gl.getExtension("KHR_parallel_shader_compile");
   let todo = programs.slice();
@@ -60,10 +60,10 @@ function* linkingProgress(programs) {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)

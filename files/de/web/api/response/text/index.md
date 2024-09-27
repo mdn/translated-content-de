@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`text()`**-Methode des {{domxref("Response")}}-Interfaces nimmt einen {{domxref("Response")}}-Stream und liest ihn vollständig aus.
+Die **`text()`**-Methode der [`Response`](/de/docs/Web/API/Response)-Schnittstelle nimmt einen [`Response`](/de/docs/Web/API/Response)-Stream und liest ihn vollständig aus.
 Sie gibt ein Promise zurück, das mit einem {{jsxref("String")}} aufgelöst wird.
 Die Antwort wird _immer_ mit UTF-8 dekodiert.
 
@@ -28,20 +28,20 @@ Ein Promise, das mit einem {{jsxref("String")}} aufgelöst wird.
 
 ### Ausnahmen
 
-- {{domxref("DOMException")}} `AbortError`
+- [`DOMException`](/de/docs/Web/API/DOMException) `AbortError`
   - : Die Anfrage wurde [abgebrochen](/de/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
 - {{jsxref("TypeError")}}
-  - : Wird aus einem der folgenden Gründe geworfen:
+  - : Wird aus einem der folgenden Gründe ausgelöst:
     - Der Antwortkörper ist [gestört oder gesperrt](/de/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - Es gab einen Fehler beim Dekodieren des Körperinhalts (zum Beispiel, weil der {{httpheader("Content-Encoding")}}-Header falsch ist).
+    - Beim Dekodieren des Inhalts des Körpers ist ein Fehler aufgetreten (zum Beispiel, weil der {{httpheader("Content-Encoding")}}-Header falsch ist).
 
 ## Beispiele
 
-In unserem [fetch text Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-text) (führen Sie [fetch text live aus](https://mdn.github.io/dom-examples/fetch/fetch-text/)), haben wir ein {{htmlelement("article")}}-Element und drei Links (gespeichert im `myLinks`-Array.)
-Zuerst durchlaufen wir alle diese und geben jedem einen `onclick`-Event-Handler, damit die `getData()`-Funktion ausgeführt wird — mit der `data-page`-Kennung des Links, die als Argument übergeben wird — wenn einer der Links angeklickt wird.
+In unserem [Fetch-Text-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-text) (führen Sie [Fetch-Text live](https://mdn.github.io/dom-examples/fetch/fetch-text/)) aus, haben wir ein {{htmlelement("article")}}-Element und drei Links (gespeichert im `myLinks`-Array).
+Zunächst durchlaufen wir alle diese und geben jedem eine `onclick`-Event-Handler, sodass die Funktion `getData()` ausgeführt wird – mit dem `data-page`-Identifier des Links als Argument – wenn einer der Links angeklickt wird.
 
-Wenn `getData()` ausgeführt wird, erstellen wir eine neue Anfrage mit dem {{domxref("Request.Request","Request()")}}-Konstruktor und verwenden sie, um eine spezifische `.txt`-Datei abzurufen.
-Wenn der Abruf erfolgreich ist, lesen wir mit `text()` einen String aus der Antwort und setzen dann die {{domxref("HTMLElement.innerText","innerText")}}-Eigenschaft des {{htmlelement("article")}}-Elements gleich dem Textobjekt.
+Wenn `getData()` ausgeführt wird, erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor und verwenden sie, um eine bestimmte `.txt`-Datei abzurufen.
+Wenn das Fetch erfolgreich ist, lesen wir einen String aus der Antwort mit `text()`, und setzen dann die [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des {{htmlelement("article")}}-Elements gleich dem Text-Objekt.
 
 ```js
 const myArticle = document.querySelector("article");
@@ -76,6 +76,6 @@ function getData(pageId) {
 
 ## Siehe auch
 
-- [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
+- [ServiceWorker-API](/de/docs/Web/API/Service_Worker_API)
 - [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/CORS)
 - [HTTP](/de/docs/Web/HTTP)

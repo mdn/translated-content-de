@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`overrideColors`**-Eigenschaft der {{domxref("CSSFontPaletteValuesRule")}}-Schnittstelle ist ein String, der eine Liste von Farbindizes und Farbpaare enthält, die stattdessen verwendet werden sollen. Sie wird im selben Format wie der entsprechende {{cssxref("@font-palette-values/override-colors", "override-colors")}}-Deskriptor angegeben.
+Die schreibgeschützte **`overrideColors`**-Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Schnittstelle ist ein String, der eine Liste von Farbindex und Farbpaaren enthält, die stattdessen verwendet werden sollen. Sie wird im gleichen Format wie der entsprechende {{cssxref("@font-palette-values/override-colors", "override-colors")}}-Deskriptor angegeben.
 
 ## Wert
 
-Ein String, der eine durch Kommas getrennte Liste von Farbindizes und Farbpaare enthält
+Ein String, der eine durch Kommas getrennte Liste von Farbindex und Farbpaaren enthält.
 
 ## Beispiele
 
-### Die überschriebenen Farben lesen
+### Lesen der überschriebenen Farbe
 
-Dieses Beispiel definiert zuerst einige At-Regeln, darunter zwei {{cssxref("@font-palette-values")}}. Da diese Regeln im zuletzt zum Dokument hinzugefügten Stylesheet leben, wird die Palette die zweite {{domxref("CSSRule")}} sein, die vom letzten Stylesheet im Dokument (`document.styleSheets[document.styleSheets.length-1].cssRules`) zurückgegeben wird.
+In diesem Beispiel werden zunächst einige At-Regeln definiert, darunter zwei {{cssxref("@font-palette-values")}}. Da diese Regeln im letzten zum Dokument hinzugefügten Stylesheet enthalten sind, wird die Palette die zweite [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die vom letzten Stylesheet im Dokument (`document.styleSheets[document.styleSheets.length-1].cssRules`) zurückgegeben wird.
 
 #### HTML
 
@@ -101,5 +101,5 @@ button.addEventListener("click", (event) => {
 
 ## Siehe auch
 
-- {{cssxref("@font-palette-values")}}-Regel
+- {{cssxref("@font-palette-values")}} At-Regel
 - {{cssxref("@font-palette-values/override-colors", "override-colors")}}-Deskriptor

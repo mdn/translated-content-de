@@ -8,12 +8,16 @@ l10n:
 
 {{APIRef}}
 
-Die Methode **`CanvasRenderingContext2D.createRadialGradient()`** der Canvas 2D API erstellt einen radialen Verlauf unter Verwendung der Größe und Koordinaten von zwei Kreisen.
+Die
+**`CanvasRenderingContext2D.createRadialGradient()`**
+Methode der Canvas 2D-API erstellt einen radialen Verlauf unter Verwendung der Größe und der Koordinaten von zwei Kreisen.
 
-Diese Methode gibt ein {{domxref("CanvasGradient")}} zurück. Um auf eine Form angewendet zu werden, muss der Verlauf zuerst den Eigenschaften {{domxref("CanvasRenderingContext2D.fillStyle", "fillStyle")}} oder {{domxref("CanvasRenderingContext2D.strokeStyle", "strokeStyle")}} zugewiesen werden.
+Diese Methode gibt ein [`CanvasGradient`](/de/docs/Web/API/CanvasGradient) zurück. Um auf eine Form angewendet zu werden, muss der Verlauf zuerst den Eigenschaften [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) zugewiesen werden.
 
 > [!NOTE]
-> Verlaufkoordinaten sind global, d.h. relativ zum aktuellen Koordinatenraum. Wenn sie auf eine Form angewendet werden, sind die Koordinaten NICHT relativ zu den Koordinaten der Form.
+> Verlaufskoordinaten sind global, d. h. relativ zum aktuellen
+> Koordinatenraum. Wenn sie auf eine Form angewendet werden, sind die Koordinaten NICHT relativ zu den
+> Koordinaten der Form.
 
 ## Syntax
 
@@ -21,39 +25,42 @@ Diese Methode gibt ein {{domxref("CanvasGradient")}} zurück. Um auf eine Form a
 createRadialGradient(x0, y0, r0, x1, y1, r1)
 ```
 
-Die Methode `createRadialGradient()` wird durch sechs Parameter spezifiziert, drei definieren den Startkreis und drei den Endkreis des Verlaufs.
+Die Methode `createRadialGradient()` wird durch sechs Parameter spezifiziert, von denen drei den Startkreis des Verlaufs und drei den Endkreis definieren.
 
 ### Parameter
 
 - `x0`
-  - : Die x-Koordinate des Startkreises.
+  - : Die x-Achsen-Koordinate des Startkreises.
 - `y0`
-  - : Die y-Koordinate des Startkreises.
+  - : Die y-Achsen-Koordinate des Startkreises.
 - `r0`
   - : Der Radius des Startkreises. Muss nicht-negativ und endlich sein.
 - `x1`
-  - : Die x-Koordinate des Endkreises.
+  - : Die x-Achsen-Koordinate des Endkreises.
 - `y1`
-  - : Die y-Koordinate des Endkreises.
+  - : Die y-Achsen-Koordinate des Endkreises.
 - `r1`
   - : Der Radius des Endkreises. Muss nicht-negativ und endlich sein.
 
 ### Rückgabewert
 
-Ein radialer {{domxref("CanvasGradient")}}, initialisiert mit den zwei angegebenen Kreisen.
+Ein radialer [`CanvasGradient`](/de/docs/Web/API/CanvasGradient), der mit den zwei angegebenen Kreisen initialisiert wird.
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn nicht-endliche Werte als Parameter übergeben werden.
-- `IndexSizeError` {{domxref("DOMException")}}
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn ein negativer Radius als Parameter übergeben wird.
 
 ## Beispiele
 
 ### Füllen eines Rechtecks mit einem radialen Verlauf
 
-Dieses Beispiel initialisiert einen radialen Verlauf mit der Methode `createRadialGradient()`. Es werden dann drei Farbstopps zwischen den beiden Kreisen des Verlaufs erstellt. Schließlich wird der Verlauf dem Canvas-Kontext zugewiesen und auf ein ausgefülltes Rechteck gezeichnet.
+Dieses Beispiel initialisiert einen radialen Verlauf mit der
+Methode `createRadialGradient()`. Danach werden drei Farbverläufe zwischen den zwei
+Kreisen des Verlaufs erstellt. Schließlich wird der Verlauf dem Canvas-Kontext zugewiesen und
+wird in ein gefülltes Rechteck gerendert.
 
 #### HTML
 
@@ -67,17 +74,17 @@ Dieses Beispiel initialisiert einen radialen Verlauf mit der Methode `createRadi
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// Erstellen eines radialen Verlaufs
-// Der innere Kreis ist bei x=110, y=90, mit Radius=30
-// Der äußere Kreis ist bei x=100, y=100, mit Radius=70
+// Create a radial gradient
+// The inner circle is at x=110, y=90, with radius=30
+// The outer circle is at x=100, y=100, with radius=70
 const gradient = ctx.createRadialGradient(110, 90, 30, 100, 100, 70);
 
-// Hinzufügen von drei Farbstopps
+// Add three color stops
 gradient.addColorStop(0, "pink");
 gradient.addColorStop(0.9, "white");
 gradient.addColorStop(1, "green");
 
-// Füllstil setzen und ein Rechteck zeichnen
+// Set the fill style and draw a rectangle
 ctx.fillStyle = gradient;
 ctx.fillRect(20, 20, 160, 160);
 ```
@@ -96,6 +103,6 @@ ctx.fillRect(20, 20, 160, 160);
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasRenderingContext2D.createLinearGradient()")}}
-- {{domxref("CanvasRenderingContext2D.createConicGradient()")}}
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasRenderingContext2D.createLinearGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createLinearGradient)
+- [`CanvasRenderingContext2D.createConicGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createConicGradient)

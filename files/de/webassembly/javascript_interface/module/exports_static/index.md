@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die statische Methode **`WebAssembly.Module.exports()`** gibt ein Array zurück, das Beschreibungen aller deklarierten Exporte des gegebenen `Module` enthält.
+Die statische Methode **`WebAssembly.Module.exports()`** gibt ein Array zurück, das Beschreibungen aller deklarierten Exports des angegebenen `Moduls` enthält.
 
 ## Syntax
 
@@ -18,21 +18,24 @@ WebAssembly.Module.exports(module)
 ### Parameter
 
 - `module`
-  - : Ein [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module) Objekt.
+  - : Ein [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module)-Objekt.
 
 ### Rückgabewert
 
-Ein Array, das Objekte enthält, die die exportierten Funktionen des gegebenen Moduls repräsentieren.
+Ein Array, das Objekte enthält, die die exportierten Funktionen des angegebenen Moduls darstellen.
 
 ### Ausnahmen
 
-Wenn das Modul keine Instanz eines [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module) Objekts ist, wird ein {{jsxref("TypeError")}} ausgelöst.
+Wenn `module` kein [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module)-Objekt ist, wird ein {{jsxref("TypeError")}} ausgelöst.
 
 ## Beispiele
 
 ### Verwendung von exports
 
-Das folgende Beispiel (siehe unser [index-compile.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/index-compile.html) Demo auf GitHub, und [sehen Sie es live](https://mdn.github.io/webassembly-examples/js-api-examples/index-compile.html) auch) kompiliert den geladenen simple.wasm Bytecode mit der [`WebAssembly.compileStreaming()`](/de/docs/WebAssembly/JavaScript_interface/compileStreaming_static) Methode und sendet ihn dann mit [postMessage()](/de/docs/Web/API/Worker/postMessage) an einen [Worker](/de/docs/Web/API/Web_Workers_API).
+Das folgende Beispiel (siehe unser [index-compile.html](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/index-compile.html)
+Demo auf GitHub, und [live ansehen](https://mdn.github.io/webassembly-examples/js-api-examples/index-compile.html) ebenfalls)
+kompiliert den geladenen `simple.wasm` Bytecode mit der
+Methode [`WebAssembly.compileStreaming()`](/de/docs/WebAssembly/JavaScript_interface/compileStreaming_static) und sendet ihn dann mit [postMessage()](/de/docs/Web/API/Worker/postMessage) an einen [worker](/de/docs/Web/API/Web_Workers_API).
 
 ```js
 const worker = new Worker("wasm_worker.js");
@@ -42,7 +45,9 @@ WebAssembly.compileStreaming(fetch("simple.wasm")).then((mod) =>
 );
 ```
 
-Im Worker (siehe [`wasm_worker.js`](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/wasm_worker.js)) definieren wir ein Importobjekt für das Modul, richten dann einen Ereignishandler ein, um das Modul vom Hauptthread zu empfangen. Wenn das Modul empfangen wird, erstellen wir eine Instanz daraus mit der [`WebAssembly.Instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static) Methode, rufen eine exportierte Funktion aus dem Inneren auf und zeigen dann, wie wir Informationen über die verfügbaren Exporte eines Moduls mit `WebAssembly.Module.exports` zurückgeben können.
+Im Worker (siehe
+[`wasm_worker.js`](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/wasm_worker.js))
+definieren wir ein Importobjekt für das Modul und richten einen Ereignishandler ein, um das Modul vom Hauptthread zu empfangen. Wenn das Modul empfangen wird, erstellen wir eine Instanz davon mit der Methode [`WebAssembly.Instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static), rufen eine exportierte Funktion daraus auf und zeigen dann, wie wir Informationen über die verfügbaren Exporte eines Moduls mit `WebAssembly.Module.exports` zurückgeben können.
 
 ```js
 const importObject = {
@@ -66,7 +71,7 @@ onmessage = (e) => {
 };
 ```
 
-Die Ausgabe von `exports[0]` sieht folgendermaßen aus:
+Die `exports[0]` Ausgabe sieht so aus:
 
 ```js
 { name: "exported_func", kind: "function" }

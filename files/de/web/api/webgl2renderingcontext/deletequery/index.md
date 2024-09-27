@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.deleteQuery()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) löscht ein angegebenes {{domxref("WebGLQuery")}}-Objekt.
+Die **`WebGL2RenderingContext.deleteQuery()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteQuery(query)
 ### Parameter
 
 - `query`
-  - : Ein {{domxref("WebGLQuery")}}-Objekt, das gelöscht werden soll.
+  - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt, das gelöscht werden soll.
 
 ### Rückgabewert
 
@@ -27,8 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-`gl` muss ein {{domxref("WebGL2RenderingContext")}} sein.
-`WebGLQuery`-Objekte sind in WebGL 1 nicht verfügbar.
+`gl` muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein. `WebGLQuery`-Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
 const query = gl.createQuery();
@@ -42,10 +41,10 @@ gl.deleteQuery(query);
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLQuery")}}
+- [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)

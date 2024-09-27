@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`disconnect`**-Ereignis der {{DOMxRef("USB")}}-Schnittstelle wird ausgelöst, wenn ein verbundenes Gerät getrennt wird.
+Das **`disconnect`**-Ereignis der [`USB`](/de/docs/Web/API/USB)-Schnittstelle wird ausgelöst, wenn ein verbundenes Gerät getrennt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
 ```js
 addEventListener("disconnect", (event) => {});
@@ -22,32 +22,32 @@ ondisconnect = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("USBConnectionEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`USBConnectionEvent`](/de/docs/Web/API/USBConnectionEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("USBConnectionEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, {{domxref("Event")}}, verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref("USBConnectionEvent.device", "device")}} {{ReadOnlyInline}}
-  - : Das {{domxref("USBDevice")}}, für das das Ereignis ausgelöst wird.
+- [`device`](/de/docs/Web/API/USBConnectionEvent/device) {{ReadOnlyInline}}
+  - : Das [`USBDevice`](/de/docs/Web/API/USBDevice), für das das Ereignis ausgelöst wird.
 
 ## Beispiele
 
-Sobald ein USB-Gerät getrennt wird, sollten Sie möglicherweise die Benutzeroberfläche aktualisieren.
+Sobald ein USB-Gerät getrennt wird, möchten Sie möglicherweise die Benutzeroberfläche aktualisieren.
 
 ```js
 navigator.usb.addEventListener("disconnect", (event) => {
-  // Entfernen Sie event.device von der Benutzeroberfläche.
+  // Remove event.device from the UI.
 });
 ```
 
-Alternativ können Sie die `USB.ondisconnect`-Ereignishandler-Eigenschaft verwenden, um einen Handler für das `disconnect`-Ereignis zu erstellen:
+Alternativ können Sie die `USB.ondiscconnect`-Ereignis-Handler-Eigenschaft verwenden, um einen Handler für das `disconnect`-Ereignis zu etablieren:
 
 ```js
 navigator.usb.ondisconnect = (event) => {
-  // Entfernen Sie event.device von der Benutzeroberfläche.
+  // Remove event.device from the UI.
 };
 ```
 

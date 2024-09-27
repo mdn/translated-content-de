@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: Eigenschaft type"
+title: "HTMLInputElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/HTMLInputElement/type
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`type`**-Eigenschaft der {{domxref("HTMLInputElement")}}-Schnittstelle gibt die Art der Daten an, die im {{HTMLElement("input")}}-Element erlaubt sind, zum Beispiel eine Zahl, ein Datum oder eine E-Mail. Browser wählen das entsprechende Widget und Verhalten aus, um den Benutzern zu helfen, einen gültigen Wert einzugeben.
+Die **`type`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt an, welche Art von Daten im {{HTMLElement("input")}}-Element erlaubt sind, zum Beispiel eine Zahl, ein Datum oder eine E-Mail. Browser werden das passende Widget und Verhalten auswählen, um Nutzern zu helfen, einen gültigen Wert einzugeben.
 
 Sie spiegelt das [`type`](/de/docs/Web/HTML/Element/input#type)-Attribut des {{HTMLElement("input")}}-Elements wider.
 
@@ -43,5 +43,5 @@ console.log(inputElement.type); // Output: "date"
 
 ## Siehe auch
 
-- {{domxref("HTMLTextAreaElement.type")}}-Eigenschaft
-- {{domxref("HTMLButtonElement.type")}}-Eigenschaft
+- [`HTMLTextAreaElement.type`](/de/docs/Web/API/HTMLTextAreaElement/type) Eigenschaft
+- [`HTMLButtonElement.type`](/de/docs/Web/API/HTMLButtonElement/type) Eigenschaft

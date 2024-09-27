@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-_Die JavaScript-Objektnotation_ (**JSON**) ist ein Datenaustauschformat. Obwohl es kein striktes Subset ist, ähnelt JSON stark einem Subset der {{Glossary("JavaScript")}}-Syntax. Obwohl viele Programmiersprachen JSON unterstützen, ist es besonders nützlich für JavaScript-basierte Anwendungen, einschließlich Websites und Browser-Erweiterungen.
+_JavaScript Object Notation_ (**JSON**) ist ein Daten-Austauschformat. Obwohl es keine strikte Teilmenge ist, ähnelt JSON stark einer Teilmenge von [JavaScript](/de/docs/Glossary/JavaScript)-Syntax. Obwohl viele Programmiersprachen JSON unterstützen, ist es besonders nützlich für auf JavaScript-basierende Anwendungen, einschließlich Websites und Browsererweiterungen.
 
-JSON kann Zahlen, Booleans, Zeichenketten, `null`, Arrays (geordneten Sequenzen von Werten) und Objekte (String-Wert-Zuordnungen) darstellen, die aus diesen Werten (oder aus anderen Arrays und Objekten) bestehen. JSON stellt nicht von Natur aus komplexere Datentypen wie Funktionen, reguläre Ausdrücke, Daten usw. dar. (Datumsobjekte werden standardmäßig in eine Zeichenkette umgewandelt, die das Datum im ISO-Format enthält, sodass die Informationen nicht völlig verloren gehen.) Wenn Sie JSON benötigen, um zusätzliche Datentypen darzustellen, transformieren Sie die Werte beim Serialisieren oder bevor sie deserialisiert werden.
+JSON kann Zahlen, Booleans, Zeichenfolgen, `null`, Arrays (geordnete Sequenzen von Werten) und Objekte (Zeichenfolgen-Wert-Zuordnungen) darstellen, die aus diesen Werten (oder aus anderen Arrays und Objekten) bestehen. JSON kann von Natur aus keine komplexeren Datentypen wie Funktionen, reguläre Ausdrücke, Datumsangaben usw. darstellen. (Datumsobjekte werden standardmäßig in eine Zeichenfolge umgewandelt, die das Datum im ISO-Format enthält, sodass die Information nicht vollständig verloren geht.) Wenn JSON zusätzliche Datentypen darstellen soll, müssen die Werte während der Serialisierung transformiert werden oder bevor sie deserialisiert werden.
 
 ## Siehe auch
 

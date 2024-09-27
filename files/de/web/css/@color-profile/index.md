@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`@color-profile`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) definiert und benennt ein Farbprofil, das später in der {{cssxref("color_value/color", "color()")}}-Funktion verwendet werden kann, um eine Farbe zu spezifizieren.
+Die **`@color-profile`** [CSS](/de/docs/Web/CSS)-[At-Regel](/de/docs/Web/CSS/At-rule) definiert und benennt ein Farbprofil, das später in der {{cssxref("color_value/color", "color()")}}-Funktion verwendet werden kann, um eine Farbe anzugeben.
 
 ## Syntax
 
@@ -23,22 +23,22 @@ Die **`@color-profile`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-
   - : Gibt die URL an, von der die Farbprofilinformationen abgerufen werden sollen.
 - `rendering-intent`
 
-  - : Wenn das Farbprofil mehr als eine Rendering-Intention enthält, erlaubt dieser Deskriptor, eine auszuwählen, um festzulegen, wie Farben auf kleinere {{glossary("gamut", "Farbräume")}} abgebildet werden sollen, als dieses Profil definiert ist.
+  - : Wenn das Farbprofil mehr als eine Rendering-Absicht enthält, ermöglicht dieser Deskriptor, eine auszuwählen, die genutzt werden soll, um zu definieren, wie die Farbe auf kleinere [Gamut](/de/docs/Glossary/gamut)s abgebildet werden soll, als dieses Profil definiert ist.
 
     Wenn verwendet, muss es eines der folgenden Schlüsselwörter sein:
 
     - `relative-colorimetric`
-      - : Medienbezogene kolorimetrische Abbildung ist erforderlich, um Quellfarben, die innerhalb des Zielfarbraums {{glossary("gamut", "Farbumfangs")}} liegen, unverändert relativ zu den jeweiligen Medienweißpunkten zu belassen. Quellfarben, die außerhalb des Zielfarbraums liegen, werden mit verschiedenen Methoden auf Farben an der Farbraumgrenze abgebildet.
+      - : Medien-relatives kolorimetrisches Rendering ist erforderlich, um Quellfarben, die innerhalb des Zielmedium-[Gamut](/de/docs/Glossary/gamut) liegen, unverändert relativ zu den jeweiligen Medienweißpunkten zu lassen. Quellfarben, die außerhalb des Zielmedium-Gamuts liegen, werden mit einer Vielzahl unterschiedlicher Methoden auf Farben auf der Gamut-Grenze abgebildet.
     - `absolute-colorimetric`
-      - : ICC-absolute kolorimetrische Abbildung ist erforderlich, um Quellfarben, die innerhalb des Zielfarbraums {{glossary("gamut", "Farbumfangs")}} liegen, unverändert relativ zum angenommenen Weiß (einem perfekten Reflektionsdiffusor) zu belassen. Quellfarben, die außerhalb des Zielfarbraums liegen, werden mit verschiedenen Methoden auf Farben an der Farbraumgrenze abgebildet.
+      - : ICC-absolutes kolorimetrisches Rendering ist erforderlich, um Quellfarben, die innerhalb des Zielmedium-[Gamut](/de/docs/Glossary/gamut) liegen, unverändert relativ zum angenommenen Weiß (einem perfekten reflektierenden Diffusor) zu lassen. Quellfarben, die außerhalb des Zielmedium-Gamuts liegen, werden mit einer Vielzahl unterschiedlicher Methoden auf Farben auf der Gamut-Grenze abgebildet.
     - `perceptual`
-      - : Diese Methode wird häufig für Bilder bevorzugt, insbesondere wenn es erhebliche Unterschiede zwischen Quelle und Ziel gibt (zum Beispiel ein Bildschirmbild, das auf einem reflektierenden Druck reproduziert wird). Sie nimmt die Farben des Quellbildes und optimiert das Erscheinungsbild für das Zielmedium unter Verwendung proprietärer Methoden neu.
+      - : Diese Methode ist oft die bevorzugte Wahl für Bilder, insbesondere wenn es erhebliche Unterschiede zwischen Quelle und Ziel gibt (z.B. ein Bildschirmbild, das auf einem reflektierenden Druck reproduziert wird). Sie nimmt die Farben des Quellbildes und optimiert das Erscheinungsbild für das Zielmedium mithilfe proprietärer Methoden neu.
     - `saturation`
-      - : Diese Option wurde entwickelt, um die relative Sättigung (Chroma) des Originals zu erhalten und reine Farben rein zu halten. Sie erlebte jedoch Interoperabilitätsprobleme ähnlich wie das wahrnehmungsbezogene Intent.
+      - : Diese Option wurde entwickelt, um die relative Sättigung (Chroma) des Originals zu bewahren und um Volltonfarben rein zu halten. Allerdings erlebte sie Interoperabilitätsprobleme ähnlich der perceptual Absicht.
 
 ## Beispiele
 
-Dieses Beispiel stammt aus der Spezifikation und demonstriert die Verwendung des Offsetdrucks nach ISO 12647-2:2004 unter Verwendung der CGATS/SWOP TR005 2007 Charakterisierungsdaten auf Papier der Sorte 5 mit einer Tintenbegrenzung von 300% Gesamtabdeckungsfläche und mittlerem Grau-Komponentenersatz (GCR).
+Dieses Beispiel stammt aus der Spezifikation und demonstriert die Verwendung von Offsetdruck nach ISO 12647-2:2004 mithilfe der CGATS/SWOP TR005 2007 Charakterisierungsdaten auf Papier der Klasse 5 mit einer Farbabdeckung von 300% Gesamtabdeckungsfläche und mittlerem Graukomponentenersatz (GCR).
 
 Der `src`-Deskriptor gibt die URL an, von der die Farbprofilinformationen abgerufen werden sollen.
 
@@ -59,6 +59,6 @@ Der `src`-Deskriptor gibt die URL an, von der die Farbprofilinformationen abgeru
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
-Es gibt keinen Browser, der diese Funktion implementiert.
+Es gibt keinen Browser, der dieses Feature implementiert.

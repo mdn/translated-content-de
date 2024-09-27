@@ -1,5 +1,5 @@
 ---
-title: "Headers: getSetCookie()-Methode"
+title: "Headers: getSetCookie() Methode"
 short-title: getSetCookie()
 slug: Web/API/Headers/getSetCookie
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`getSetCookie()`**-Methode der {{domxref("Headers")}}-Schnittstelle gibt ein Array zurück, das die Werte aller {{httpheader("Set-Cookie")}}-Header enthält, die mit einer Antwort verknüpft sind. Dadurch können {{domxref("Headers")}}-Objekte mehrere `Set-Cookie`-Header behandeln, was vor ihrer Implementierung nicht möglich war.
+Die **`getSetCookie()`**-Methode des [`Headers`](/de/docs/Web/API/Headers)-Interfaces gibt ein Array zurück, das die Werte aller {{httpheader("Set-Cookie")}}-Header enthält, die mit einer Antwort verknüpft sind. Dies ermöglicht es [`Headers`](/de/docs/Web/API/Headers)-Objekten, mehrere `Set-Cookie`-Header zu handhaben, was vor der Implementierung dieser Methode nicht möglich war.
 
-Diese Methode ist für die Verwendung in Serverumgebungen gedacht (zum Beispiel Node.js). Browser blockieren Frontend-JavaScript-Code daran, auf den {{httpheader("Set-Cookie")}}-Header zuzugreifen, wie es durch die Fetch-Spezifikation vorgeschrieben ist, die `Set-Cookie` als [verbotenen Antwort-Headernamen](https://fetch.spec.whatwg.org/#forbidden-response-header-name) definiert, der [ausgefiltert werden muss](https://fetch.spec.whatwg.org/#ref-for-forbidden-response-header-name%E2%91%A0) aus jeder Antwort, die dem Frontend-Code ausgesetzt ist.
+Diese Methode ist für den Einsatz in Serverumgebungen gedacht (zum Beispiel Node.js). Browser blockieren JavaScript-Code im Frontend, um auf den {{httpheader("Set-Cookie")}}-Header zuzugreifen, wie es die Fetch-Spezifikation vorschreibt, die `Set-Cookie` als [verbotenen Antwort-Header-Namen](https://fetch.spec.whatwg.org/#forbidden-response-header-name) definiert, der [herausgefiltert werden muss](https://fetch.spec.whatwg.org/#ref-for-forbidden-response-header-name%E2%91%A0) von jeder Antwort, die Frontend-Code ausgesetzt wird.
 
 ## Syntax
 
@@ -24,22 +24,22 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von Strings, das die Werte aller verschiedenen `Set-Cookie`-Header darstellt, die mit einer Antwort verknüpft sind.
+Ein Array von Strings, das die Werte aller verschiedenen `Set-Cookie`-Header enthält, die mit einer Antwort verknüpft sind.
 
-Wenn keine `Set-Cookie`-Header gesetzt sind, gibt die Methode ein leeres Array (`[ ]`) zurück.
+Falls keine `Set-Cookie`-Header gesetzt sind, gibt die Methode ein leeres Array (`[ ]`) zurück.
 
 ## Beispiele
 
-Wie oben angedeutet, wird das Ausführen eines Codes wie des folgenden auf dem Client keine Ergebnisse liefern — `Set-Cookie` wird aus den {{domxref("Headers")}} gefiltert, die über das Netzwerk abgerufen werden.
+Wie oben angedeutet, wird ein Code, der wie folgt im Client ausgeführt wird, keine Ergebnisse liefern – `Set-Cookie` wird aus den im Netzwerk abgerufenen [`Headers`](/de/docs/Web/API/Headers) herausgefiltert.
 
 ```js
 fetch("https://example.com").then((response) => {
   console.log(response.headers.getSetCookie());
-  // Keine Header-Werte werden zurückgegeben
+  // No header values returned
 });
 ```
 
-Das folgende Beispiel hingegen könnte verwendet werden, um mehrere `Set-Cookie`-Werte abzufragen. Dies ist auf dem Server viel nützlicher, würde aber auch auf dem Client funktionieren.
+Das Folgende könnte jedoch verwendet werden, um mehrere `Set-Cookie`-Werte abzufragen. Dies ist auf dem Server viel nützlicher, würde aber auch auf dem Client funktionieren.
 
 ```js
 const headers = new Headers({
@@ -49,7 +49,7 @@ const headers = new Headers({
 headers.append("Set-Cookie", "name2=value2");
 
 headers.getSetCookie();
-// Gibt zurück ["name1=value1", "name2=value2"]
+// Returns ["name1=value1", "name2=value2"]
 ```
 
 ## Spezifikationen

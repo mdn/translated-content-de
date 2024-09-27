@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`stroke-linecap`** Attribut ist ein Präsentationsattribut, das die Form definiert, die am Ende von offenen Unterpfaden verwendet werden soll, wenn diese gestrichen sind.
+Das **`stroke-linecap`** Attribut ist ein Präsentationsattribut, das die Form definiert, die am Ende offener Unterpfade verwendet wird, wenn sie gestrichen werden.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `stroke-linecap` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-linecap')}} für mehr Informationen.
@@ -34,26 +34,26 @@ svg {
 
 ```html
 <svg viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg">
-  <!-- Effekt des (Standard-)Werts "butt" -->
+  <!-- Effect of the (default) "butt" value -->
   <line x1="1" y1="1" x2="5" y2="1" stroke="black" stroke-linecap="butt" />
 
-  <!-- Effekt des Werts "round" -->
+  <!-- Effect of the "round" value -->
   <line x1="1" y1="3" x2="5" y2="3" stroke="black" stroke-linecap="round" />
 
-  <!-- Effekt des Werts "square" -->
+  <!-- Effect of the "square" value -->
   <line x1="1" y1="5" x2="5" y2="5" stroke="black" stroke-linecap="square" />
 
   <!--
-  die folgenden pinkfarbenen Linien heben
-  die Position des Pfades für jeden Strich hervor
+  the following pink lines highlight the
+  position of the path for each stroke
   -->
   <path d="M1,1 h4 M1,3 h4 M1,5 h4" stroke="pink" stroke-width="0.025" />
 </svg>
 ```
 
-{{EmbedLiveSample("Example", '100%', 200)}}
+{{EmbedLiveSample("Beispiel", '100%', 200)}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -74,7 +74,7 @@ svg {
 
 ### butt
 
-Der Wert `butt` gibt an, dass der Strich für jeden Unterpfad nicht über seine beiden Endpunkte hinausgeht. Bei einem Unterpfad mit null Länge wird der Pfad überhaupt nicht gerendert.
+Der Wert `butt` gibt an, dass der Strich für jeden Unterpfad nicht über seine beiden Endpunkte hinausgeht. Bei einem Unterpfad ohne Länge wird der Pfad überhaupt nicht gerendert.
 
 #### Beispiel
 
@@ -88,15 +88,15 @@ svg {
 
 ```html
 <svg viewBox="0 0 6 4" xmlns="http://www.w3.org/2000/svg">
-  <!-- Effekt des Werts "butt" -->
+  <!-- Effect of the "butt" value -->
   <path d="M1,1 h4" stroke="black" stroke-linecap="butt" />
 
-  <!-- Effekt des Werts "butt" bei einem Pfad mit null Länge -->
+  <!-- Effect of the "butt" value on a zero length path -->
   <path d="M3,3 h0" stroke="black" stroke-linecap="butt" />
 
   <!--
-  die folgenden pinkfarbenen Linien heben
-  die Position des Pfades für jeden Strich hervor
+  the following pink lines highlight the
+  position of the path for each stroke
   -->
   <path d="M1,1 h4" stroke="pink" stroke-width="0.025" />
   <circle cx="1" cy="1" r="0.05" fill="pink" />
@@ -109,7 +109,7 @@ svg {
 
 ### round
 
-Der Wert `round` gibt an, dass am Ende jedes Unterpfades der Strich um einen Halbkreis mit einem Durchmesser erweitert wird, der der Strichbreite entspricht. Bei einem Unterpfad mit null Länge besteht der Strich aus einem Vollkreis, der am Punkt des Unterpfades zentriert ist.
+Der Wert `round` gibt an, dass am Ende jedes Unterpfades der Strich um einen Halbkreis mit einem Durchmesser, der der Strichstärke entspricht, erweitert wird. Bei einem Unterpfad ohne Länge besteht der Strich aus einem vollständigen Kreis, der am Punkt des Unterpfades zentriert ist.
 
 #### Beispiel
 
@@ -123,15 +123,15 @@ svg {
 
 ```html
 <svg viewBox="0 0 6 4" xmlns="http://www.w3.org/2000/svg">
-  <!-- Effekt des Werts "round" -->
+  <!-- Effect of the "round" value -->
   <path d="M1,1 h4" stroke="black" stroke-linecap="round" />
 
-  <!-- Effekt des Werts "round" bei einem Pfad mit null Länge -->
+  <!-- Effect of the "round" value on a zero length path -->
   <path d="M3,3 h0" stroke="black" stroke-linecap="round" />
 
   <!--
-  die folgenden pinkfarbenen Linien heben
-  die Position des Pfades für jeden Strich hervor
+  the following pink lines highlight the
+  position of the path for each stroke
   -->
   <path d="M1,1 h4" stroke="pink" stroke-width="0.025" />
   <circle cx="1" cy="1" r="0.05" fill="pink" />
@@ -144,7 +144,7 @@ svg {
 
 ### square
 
-Der Wert `square` gibt an, dass am Ende jedes Unterpfades der Strich um ein Rechteck mit einer Breite von der Hälfte der Strichbreite und einer Höhe, die der Strichbreite entspricht, erweitert wird. Bei einem Unterpfad mit null Länge besteht der Strich aus einem Quadrat mit einer Breite, die der Strichbreite entspricht und am Punkt des Unterpfades zentriert ist.
+Der Wert `square` gibt an, dass am Ende jedes Unterpfades der Strich um ein Rechteck erweitert wird, dessen Breite der Hälfte der Strichstärke und dessen Höhe der Strichstärke entspricht. Bei einem Unterpfad ohne Länge besteht der Strich aus einem Quadrat, dessen Breite der Strichstärke entspricht und das am Punkt des Unterpfades zentriert ist.
 
 #### Beispiel
 
@@ -158,15 +158,15 @@ svg {
 
 ```html
 <svg viewBox="0 0 6 4" xmlns="http://www.w3.org/2000/svg">
-  <!-- Effekt des Werts "square" -->
+  <!-- Effect of the "square" value -->
   <path d="M1,1 h4" stroke="black" stroke-linecap="square" />
 
-  <!-- Effekt des Werts "square" bei einem Pfad mit null Länge -->
+  <!-- Effect of the "square" value on a zero length path -->
   <path d="M3,3 h0" stroke="black" stroke-linecap="square" />
 
   <!--
-  die folgenden pinkfarbenen Linien heben
-  die Position des Pfades für jeden Strich hervor
+  the following pink lines highlight the
+  position of the path for each stroke
   -->
   <path d="M1,1 h4" stroke="pink" stroke-width="0.025" />
   <circle cx="1" cy="1" r="0.05" fill="pink" />

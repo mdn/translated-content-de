@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`oldValue`**-Eigenschaft der {{domxref("StorageEvent")}}-Schnittstelle gibt den ursprünglichen Wert des Speicherobjekts zurück, dessen Wert sich geändert hat.
+Die **`oldValue`**-Eigenschaft der [`StorageEvent`](/de/docs/Web/API/StorageEvent)-Schnittstelle gibt den ursprünglichen Wert des Speicherobjekts zurück, dessen Wert sich geändert hat.
 
 ## Wert
 
@@ -18,10 +18,10 @@ Ein String, der den ursprünglichen Wert des Speicherobjekts enthält.
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Web Storage API", "", "", "nocode")}}
+- [Web Storage API](/de/docs/Web/API/Web_Storage_API)

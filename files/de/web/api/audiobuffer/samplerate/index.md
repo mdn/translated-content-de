@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`sampleRate`**-Eigenschaft des {{domxref("AudioBuffer")}}-Interfaces gibt einen Gleitkommawert zurück, der die Abtastrate in Samples pro Sekunde der im Puffer gespeicherten PCM-Daten darstellt.
+Die **`sampleRate`**-Eigenschaft des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Interfaces gibt einen Float-Wert zurück, der die Abtastrate in Abtastungen pro Sekunde der im Puffer gespeicherten PCM-Daten darstellt.
 
 ## Wert
 
-Ein Gleitkommawert, der die aktuelle Abtastrate der Pufferdaten in Samples pro Sekunde angibt.
+Ein Fließkommawert, der die aktuelle Abtastrate der Pufferdaten in Abtastungen pro Sekunde angibt.
 
 ## Beispiele
 
@@ -20,20 +20,20 @@ Ein Gleitkommawert, der die aktuelle Abtastrate der Pufferdaten in Samples pro S
 // Stereo
 const channels = 2;
 
-// Erstellen Sie einen leeren zwei Sekunden langen Stereo-Puffer bei der
-// Abtastrate des AudioContext
+// Create an empty two second stereo buffer at the
+// sample rate of the AudioContext
 const frameCount = audioCtx.sampleRate * 2.0;
 const myArrayBuffer = audioCtx.createBuffer(2, frameCount, audioCtx.sampleRate);
 
 button.onclick = () => {
-  // Füllen Sie den Puffer mit weißem Rauschen;
-  // einfach zufällige Werte zwischen -1,0 und 1,0
+  // Fill the buffer with white noise;
+  // just random values between -1.0 and 1.0
   for (let channel = 0; channel < channels; channel++) {
-    // Dies gibt uns das eigentliche ArrayBuffer, das die Daten enthält
+    // This gives us the actual ArrayBuffer that contains the data
     const nowBuffering = myArrayBuffer.getChannelData(channel);
     for (let i = 0; i < frameCount; i++) {
-      // Math.random() ist in [0; 1,0]
-      // Audio muss in [-1,0; 1,0] sein
+      // Math.random() is in [0; 1.0]
+      // audio needs to be in [-1.0; 1.0]
       nowBuffering[i] = Math.random() * 2 - 1;
     }
   }

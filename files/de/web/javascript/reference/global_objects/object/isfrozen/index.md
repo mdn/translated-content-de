@@ -21,62 +21,62 @@ Object.isFrozen(obj)
 ### Parameter
 
 - `obj`
-  - : Das zu überprüfende Objekt.
+  - : Das Objekt, das überprüft werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, das angibt, ob das angegebene Objekt eingefroren ist oder nicht.
+Ein {{jsxref("Boolean")}}, der angibt, ob das gegebene Objekt eingefroren ist oder nicht.
 
 ## Beschreibung
 
-Ein Objekt ist genau dann eingefroren, wenn es nicht [erweiterbar](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible) ist, alle seine Eigenschaften nicht konfigurierbar sind und alle seine Dateneigenschaften (also Eigenschaften, die keine Zugriffseigenschaften mit Getter- oder Setter-Komponenten sind) nicht beschreibbar sind.
+Ein Objekt ist genau dann eingefroren, wenn es nicht [erweiterbar](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible) ist, all seine Eigenschaften nicht konfigurierbar sind und alle seine Dateneigenschaften (das heißt, Eigenschaften, die keine Zugriffseigenschaften mit Getter- oder Setter-Komponenten sind) nicht beschreibbar sind.
 
 ## Beispiele
 
 ### Verwendung von Object.isFrozen
 
 ```js
-// Ein neues Objekt ist erweiterbar, daher ist es nicht eingefroren.
+// A new object is extensible, so it is not frozen.
 Object.isFrozen({}); // false
 
-// Ein leeres Objekt, das nicht erweiterbar ist,
-// ist vacuously eingefroren.
+// An empty object which is not extensible
+// is vacuously frozen.
 const vacuouslyFrozen = Object.preventExtensions({});
 Object.isFrozen(vacuouslyFrozen); // true
 
-// Ein neues Objekt mit einer Eigenschaft ist ebenfalls erweiterbar,
-// ergo nicht eingefroren.
+// A new object with one property is also extensible,
+// ergo not frozen.
 const oneProp = { p: 42 };
 Object.isFrozen(oneProp); // false
 
-// Das Verhindern von Erweiterungen des Objekts macht es noch nicht
-// eingefroren, da die Eigenschaft immer noch
-// konfigurierbar (und beschreibbar) ist.
+// Preventing extensions to the object still doesn't
+// make it frozen, because the property is still
+// configurable (and writable).
 Object.preventExtensions(oneProp);
 Object.isFrozen(oneProp); // false
 
-// Das Löschen dieser Eigenschaft macht das Objekt vacuously eingefroren.
+// Deleting that property makes the object vacuously frozen.
 delete oneProp.p;
 Object.isFrozen(oneProp); // true
 
-// Ein nicht erweiterbares Objekt mit einer nicht beschreibbaren,
-// aber noch konfigurierbaren Eigenschaft ist nicht eingefroren.
+// A non-extensible object with a non-writable
+// but still configurable property is not frozen.
 const nonWritable = { e: "plep" };
 Object.preventExtensions(nonWritable);
 Object.defineProperty(nonWritable, "e", {
   writable: false,
-}); // nicht beschreibbar machen
+}); // make non-writable
 Object.isFrozen(nonWritable); // false
 
-// Diese Eigenschaft nicht konfigurierbar machen,
-// führt dann dazu, dass das Objekt eingefroren ist.
+// Changing that property to non-configurable
+// then makes the object frozen.
 Object.defineProperty(nonWritable, "e", {
   configurable: false,
-}); // nicht konfigurierbar machen
+}); // make non-configurable
 Object.isFrozen(nonWritable); // true
 
-// Ein nicht erweiterbares Objekt mit einer nicht konfigurierbaren,
-// aber noch beschreibbaren Eigenschaft ist ebenfalls nicht eingefroren.
+// A non-extensible object with a non-configurable
+// but still writable property also isn't frozen.
 const nonConfigurable = { release: "the kraken!" };
 Object.preventExtensions(nonConfigurable);
 Object.defineProperty(nonConfigurable, "release", {
@@ -84,15 +84,15 @@ Object.defineProperty(nonConfigurable, "release", {
 });
 Object.isFrozen(nonConfigurable); // false
 
-// Diese Eigenschaft nicht beschreibbar machen,
-// führt dann dazu, dass das Objekt eingefroren ist.
+// Changing that property to non-writable
+// then makes the object frozen.
 Object.defineProperty(nonConfigurable, "release", {
   writable: false,
 });
 Object.isFrozen(nonConfigurable); // true
 
-// Ein nicht erweiterbares Objekt mit einer konfigurierbaren
-// Zugriffseigenschaft ist nicht eingefroren.
+// A non-extensible object with a configurable
+// accessor property isn't frozen.
 const accessor = {
   get food() {
     return "yum";
@@ -101,29 +101,29 @@ const accessor = {
 Object.preventExtensions(accessor);
 Object.isFrozen(accessor); // false
 
-// Wenn wir diese Eigenschaft nicht konfigurierbar machen, wird es eingefroren.
+// When we make that property non-configurable it becomes frozen.
 Object.defineProperty(accessor, "food", {
   configurable: false,
 });
 Object.isFrozen(accessor); // true
 
-// Aber der einfachste Weg, ein Objekt einzufrieren,
-// ist, wenn Object.freeze darauf aufgerufen wurde.
+// But the easiest way for an object to be frozen
+// is if Object.freeze has been called on it.
 const frozen = { 1: 81 };
 Object.isFrozen(frozen); // false
 Object.freeze(frozen);
 Object.isFrozen(frozen); // true
 
-// Per Definition ist ein eingefrorenes Objekt nicht erweiterbar.
+// By definition, a frozen object is non-extensible.
 Object.isExtensible(frozen); // false
 
-// Ebenfalls per Definition ist ein eingefrorenes Objekt versiegelt.
+// Also by definition, a frozen object is sealed.
 Object.isSealed(frozen); // true
 ```
 
-### Argument, das kein Objekt ist
+### Nicht-Objekt-Argument
 
-In ES5, wenn das Argument dieser Methode kein Objekt (ein Primärwert) ist, führt es zu einem {{jsxref("TypeError")}}. In ES2015 gibt es keinen Fehler und es wird `true` zurückgegeben, wenn ein Argument, das kein Objekt ist, übergeben wird, da Primärwerte per Definition unveränderlich sind.
+In ES5 erzeugt diese Methode einen {{jsxref("TypeError")}}, wenn das Argument kein Objekt (ein primitiver Wert) ist. In ES2015 wird `true` ohne Fehler zurückgegeben, wenn ein Nicht-Objekt-Argument übergeben wird, da primitive Werte per Definition unveränderlich sind.
 
 ```js
 Object.isFrozen(1);

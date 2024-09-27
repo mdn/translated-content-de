@@ -3,14 +3,14 @@ title: "TaskPriorityChangeEvent: TaskPriorityChangeEvent() Konstruktor"
 short-title: TaskPriorityChangeEvent()
 slug: Web/API/TaskPriorityChangeEvent/TaskPriorityChangeEvent
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: 33313b7c9e37253c0141e22558e298d08c060be5
 ---
 
-{{APIRef("Prioritized Task Scheduling API")}}
+{{APIRef("Prioritized Task Scheduling API")}}{{AvailableInWorkers}}
 
-Der **`TaskPriorityChangeEvent()`** Konstruktor erstellt ein neues {{domxref("TaskPriorityChangeEvent")}} Objekt.
+Der **`TaskPriorityChangeEvent()`** Konstruktor erstellt ein neues [`TaskPriorityChangeEvent`](/de/docs/Web/API/TaskPriorityChangeEvent) Objekt.
 
-Dieses Objekt wird mit einem Wert erstellt, der die [vorherige Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) der Aufgabe angibt: die Priorität vor der Änderung und dem Auslösen dieses Ereignisses.
+Dieses Objekt wird mit einem Wert erstellt, der die [vorherige Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) der Aufgabe angibt: die Priorität, bevor sie geändert wurde und dieses Ereignis ausgelöst wurde.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ new TaskPriorityChangeEvent(type, options)
 
 - `type`
 
-  - : Ein String mit dem auf Groß- und Kleinschreibung achtenden Namen des zugehörigen Ereignisses.
-    User Agents setzen dies auf `"prioritychange"`.
+  - : Ein String mit dem case-sensitiven Namen des zugehörigen Ereignisses.
+    Benutzeragenten setzen dies auf `"prioritychange"`.
 
 - `options`
 
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
 
     - `previousPriority`
       - : Ein String, der die _vorherige_ [Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) der Aufgabe angibt.

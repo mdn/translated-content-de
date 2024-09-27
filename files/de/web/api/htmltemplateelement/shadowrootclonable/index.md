@@ -12,7 +12,7 @@ Die **`shadowRootClonable`**-Eigenschaft spiegelt den Wert des [`shadowrootclona
 
 Beachten Sie, dass diese Eigenschaft für Entwickler nicht nützlich ist.
 Wenn ein `<template>`-Element verwendet wird, um deklarativ ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) zu erstellen, existieren dieses Objekt und diese Eigenschaft nicht.
-Andernfalls, wenn ein `HTMLTemplateElement` erstellt wird, ist der Wert dieser Eigenschaft irrelevant, da das Objekt keine Shadow-Root ist und nicht nachträglich in eine Shadow-Root geändert werden kann.
+Andernfalls, wenn ein `HTMLTemplateElement` erstellt wird, ist der Wert dieser Eigenschaft irrelevant, da das Objekt keine Schattenwurzel ist und anschließend nicht in eine Schattenwurzel geändert werden kann.
 
 ## Wert
 

@@ -1,5 +1,5 @@
 ---
-title: Unveränderlich
+title: Immutable
 slug: Glossary/Immutable
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,21 +7,21 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **unveränderlicher** Wert ist einer, dessen Inhalt nicht geändert werden kann, ohne einen völlig neuen Wert zu schaffen, im Vergleich zu {{Glossary("mutable", "veränderlichen Werten")}}.
+Ein **unveränderlicher** Wert ist einer, dessen Inhalt nicht geändert werden kann, ohne einen völlig neuen Wert zu erzeugen, im Vergleich zu [veränderlichen Werten](/de/docs/Glossary/mutable).
 
-In {{glossary("JavaScript")}} sind {{Glossary("primitive", "primitive Werte")}} unveränderlich — sobald ein primitiver Wert erstellt wurde, kann er nicht geändert werden, obwohl die Variable, die ihn hält, einem anderen Wert neu zugewiesen werden kann. Im Gegensatz dazu sind {{Glossary("Object","Objekte")}} und {{Glossary("Array","Arrays")}} standardmäßig veränderlich — ihre Eigenschaften und Elemente können geändert werden, ohne einen neuen Wert zuzuweisen.
+In [JavaScript](/de/docs/Glossary/JavaScript) sind [primitive Werte](/de/docs/Glossary/primitive) unveränderlich – sobald ein primitiver Wert erstellt wird, kann er nicht mehr geändert werden, obwohl die Variable, die ihn enthält, einem anderen Wert zugewiesen werden kann. Im Gegensatz dazu sind [Objekte](/de/docs/Glossary/Object) und [Arrays](/de/docs/Glossary/Array) standardmäßig veränderlich – ihre Eigenschaften und Elemente können geändert werden, ohne dass ein neuer Wert zugewiesen wird.
 
 Es kann aus mehreren Gründen vorteilhaft sein, unveränderliche Objekte zu verwenden:
 
 - Um die Leistung zu verbessern (keine Planung für zukünftige Änderungen des Objekts)
-- Um den Speicherverbrauch zu reduzieren (Erstellung von {{glossary("object reference","Objektverweisen")}} anstelle der vollständigen Kopie des Objekts)
+- Um den Speicherverbrauch zu verringern (Erstellen von [Objektreferenzen](/de/docs/Glossary/object_reference) anstelle des Klonens des gesamten Objekts)
 - Thread-Sicherheit (mehrere Threads können dasselbe Objekt referenzieren, ohne sich gegenseitig zu stören)
-- Geringere mentale Belastung für Entwickler (der Zustand des Objekts ändert sich nicht und sein Verhalten ist immer konsistent)
+- Reduzierte geistige Belastung für Entwickler (der Zustand des Objekts ändert sich nicht und sein Verhalten bleibt konsistent)
 
-Beachten Sie, dass Sie die Veränderbarkeit leicht beweisen können: ein Objekt ist veränderlich, solange es eine Möglichkeit bietet, seine Eigenschaften zu ändern. Andererseits ist _Unveränderlichkeit_ schwer zu beweisen, wenn es keine Sprachsemantiken gibt, um sie zu sichern — es ist eine Frage des Entwicklervertrags. Zum Beispiel ist {{jsxref("Object.freeze()")}} eine Sprachmethode, um ein Objekt in JavaScript unveränderlich zu machen.
+Beachten Sie, dass Sie die Veränderlichkeit leicht nachweisen können: Ein Objekt ist veränderlich, solange es eine Möglichkeit bietet, seine Eigenschaften zu ändern. Andererseits ist _Unveränderlichkeit_ schwer zu beweisen, wenn es keine Sprachsemantik gibt, die sie sichert – es ist eine Frage des Entwicklervertrags. Beispielsweise ist {{jsxref("Object.freeze()")}} eine Methode auf Sprach-Ebene, um ein Objekt in JavaScript unveränderlich zu machen.
 
 ## Siehe auch
 
-- [Unveränderliches Objekt](https://en.wikipedia.org/wiki/Immutable_object) auf Wikipedia
+- [Immutable object](https://en.wikipedia.org/wiki/Immutable_object) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - {{glossary("Mutable")}}
+  - [Mutable](/de/docs/Glossary/Mutable)

@@ -7,23 +7,23 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Sec-Fetch-Dest`** {{Glossary("Fetch metadata request header", "fetch metadata request header")}} gibt das _Ziel_ der Anfrage an. Das bedeutet, der Auslöser der ursprünglichen Fetch-Anfrage wird angegeben, wo (und wie) die abgerufenen Daten verwendet werden.
+Der **`Sec-Fetch-Dest`** [Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_metadata_request_header) gibt das _Ziel_ der Anfrage an. Das ist der Initiator der ursprünglichen Fetch-Anfrage, also wo (und wie) die abgerufenen Daten verwendet werden.
 
-Dies ermöglicht es Servern zu bestimmen, ob eine Anfrage bedient werden soll, basierend darauf, ob sie für die Verwendung, wie sie _erwartet_ wird, geeignet ist. Zum Beispiel sollte eine Anfrage mit dem Zieltyp `audio` Audiodaten anfordern und nicht eine andere Art von Ressource (zum Beispiel ein Dokument, das sensible Benutzerinformationen enthält).
+Dadurch können Server bestimmen, ob sie eine Anfrage basierend darauf bedienen sollen, wie sie _voraussichtlich_ verwendet wird. Ein Beispiel: Eine Anfrage mit einem `audio`-Ziel sollte Audiodaten anfordern, nicht eine andere Art von Ressource (zum Beispiel ein Dokument, das sensible Benutzerinformationen enthält).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Fetch Metadata Request Header")}}</td>
+      <td>[Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_Metadata_Request_Header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja (Präfix <code>Sec-</code>)</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted request header")}}
+        [CORS-safelisted-Anforderungsheader](/de/docs/Glossary/CORS-safelisted_request_header)
       </th>
       <td>nein</td>
     </tr>
@@ -63,58 +63,58 @@ Server sollten diesen Header ignorieren, wenn er einen anderen Wert enthält.
 ## Direktiven
 
 > [!NOTE]
-> Diese Direktiven entsprechen den Werten, die von {{domxref("Request.destination")}} zurückgegeben werden.
+> Diese Direktiven entsprechen den Werten, die von [`Request.destination`](/de/docs/Web/API/Request/destination) zurückgegeben werden.
 
 - `audio`
-  - : Das Ziel sind Audiodaten. Diese stammen möglicherweise aus einem HTML-{{HTMLElement("audio")}}-Tag.
+  - : Das Ziel sind Audiodaten. Dies könnte von einem HTML-{{HTMLElement("audio")}}-Tag stammen.
 - `audioworklet`
-  - : Das Ziel sind Daten, die von einem Audio-Worklet verwendet werden. Diese stammen möglicherweise aus einem Aufruf von {{domxref("Worklet.addModule()", "audioWorklet.addModule()")}}.
+  - : Das Ziel sind Daten, die für die Verwendung durch einen Audio-Worklet abgerufen werden. Dies könnte aus einem Aufruf von [`audioWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) stammen.
 - `document`
-  - : Das Ziel ist ein Dokument (HTML oder XML), und die Anfrage ist das Ergebnis einer vom Benutzer initiierten Navigation auf oberster Ebene (z. B. durch Klicken eines Links).
+  - : Das Ziel ist ein Dokument (HTML oder XML), und die Anfrage ist das Ergebnis einer vom Benutzer initiierten Navigation auf höchster Ebene (z. B. infolge eines Benutzerklicks auf einen Link).
 - `embed`
-  - : Das Ziel sind eingebettete Inhalte. Diese stammen möglicherweise aus einem HTML-{{HTMLElement("embed")}}-Tag.
+  - : Das Ziel sind eingebettete Inhalte. Dies könnte von einem HTML-{{HTMLElement("embed")}}-Tag stammen.
 - `empty`
-  - : Das Ziel ist der leere String. Dies wird für Ziele verwendet, die keinen eigenen Wert haben. Zum Beispiel: {{domxref("Window/fetch", "fetch()")}}, {{domxref("navigator.sendBeacon()")}}, {{domxref("EventSource")}}, {{domxref("XMLHttpRequest")}}, {{domxref("WebSocket")}}, etc.
+  - : Das Ziel ist der leere String. Dies wird für Ziele verwendet, die keinen eigenen Wert haben. Zum Beispiel: [`fetch()`](/de/docs/Web/API/Window/fetch), [`navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon), [`EventSource`](/de/docs/Web/API/EventSource), [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest), [`WebSocket`](/de/docs/Web/API/WebSocket), usw.
 - `fencedframe` {{experimental_inline}}
-  - : Das Ziel ist ein [fenced frame](/de/docs/Web/API/Fenced_frame_API).
+  - : Das Ziel ist ein [abgegrenzter Rahmen](/de/docs/Web/API/Fenced_frame_API).
 - `font`
-  - : Das Ziel ist eine Schriftart. Diese stammt möglicherweise aus CSS {{cssxref("@font-face")}}.
+  - : Das Ziel ist eine Schriftart. Dies könnte von CSS-{{cssxref("@font-face")}} stammen.
 - `frame`
-  - : Das Ziel ist ein Frame. Diese stammen möglicherweise aus einem HTML-{{HTMLElement("frame")}}-Tag.
+  - : Das Ziel ist ein Frame. Dies könnte von einem HTML-{{HTMLElement("frame")}}-Tag stammen.
 - `iframe`
-  - : Das Ziel ist ein Iframe. Diese stammen möglicherweise aus einem HTML-{{HTMLElement("iframe")}}-Tag.
+  - : Das Ziel ist ein Iframe. Dies könnte von einem HTML-{{HTMLElement("iframe")}}-Tag stammen.
 - `image`
-  - : Das Ziel ist ein Bild. Diese stammen möglicherweise aus einem HTML-{{HTMLElement("img")}}, SVG-{{SVGElement("image")}}, CSS-{{cssxref("background-image")}}, CSS-{{cssxref("cursor")}}, CSS-{{cssxref("list-style-image")}}, etc.
+  - : Das Ziel ist ein Bild. Dies könnte von einem HTML-{{HTMLElement("img")}}, SVG-{{SVGElement("image")}}, CSS-{{cssxref("background-image")}}, CSS-{{cssxref("cursor")}}, CSS-{{cssxref("list-style-image")}} stammen, usw.
 - `manifest`
-  - : Das Ziel ist ein Manifest. Diese stammen möglicherweise aus einem HTML-[\<link rel=manifest>](/de/docs/Web/HTML/Attributes/rel/manifest).
+  - : Das Ziel ist ein Manifest. Dies könnte von einem HTML-[\<link rel=manifest>](/de/docs/Web/HTML/Attributes/rel/manifest) stammen.
 - `object`
-  - : Das Ziel ist ein Objekt. Diese stammen möglicherweise aus einem HTML-{{HTMLElement("object")}}-Tag.
+  - : Das Ziel ist ein Objekt. Dies könnte von einem HTML-{{HTMLElement("object")}}-Tag stammen.
 - `paintworklet`
-  - : Das Ziel ist ein Paint Worklet. Diese stammen möglicherweise aus einem Aufruf von {{domxref('Worklet.addModule', 'CSS.PaintWorklet.addModule()')}}.
+  - : Das Ziel ist ein Paint-Worklet. Dies könnte aus einem Aufruf von [`CSS.PaintWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) stammen.
 - `report`
-  - : Das Ziel ist ein Bericht (zum Beispiel ein Bericht zur Content-Security-Policy).
+  - : Das Ziel ist ein Bericht (zum Beispiel ein Bericht über Content-Security-Policies).
 - `script`
-  - : Das Ziel ist ein Skript. Diese stammen möglicherweise aus einem HTML-{{HTMLElement("script")}}-Tag oder einem Aufruf von {{domxref("WorkerGlobalScope.importScripts()")}}.
+  - : Das Ziel ist ein Skript. Dies könnte von einem HTML-{{HTMLElement("script")}}-Tag oder einem Aufruf von [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) stammen.
 - `serviceworker`
-  - : Das Ziel ist ein Service Worker. Diese stammen möglicherweise aus einem Aufruf von {{domxref("ServiceWorkerContainer.register","navigator.serviceWorker.register()")}}.
+  - : Das Ziel ist ein Service Worker. Dies könnte aus einem Aufruf von [`navigator.serviceWorker.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) stammen.
 - `sharedworker`
-  - : Das Ziel ist ein Shared Worker. Diese stammen möglicherweise aus einem {{domxref("SharedWorker")}}.
+  - : Das Ziel ist ein Shared Worker. Dies könnte von einem [`SharedWorker`](/de/docs/Web/API/SharedWorker) stammen.
 - `style`
-  - : Das Ziel ist ein Stil. Diese stammen möglicherweise aus einem HTML-{{HTMLElement("link","&lt;link rel=stylesheet&gt;")}} oder einem CSS-{{cssxref("@import")}}.
+  - : Das Ziel ist ein Stil. Dies könnte von einem HTML-{{HTMLElement("link","&lt;link rel=stylesheet&gt;")}} oder einem CSS-{{cssxref("@import")}} stammen.
 - `track`
-  - : Das Ziel ist eine HTML-Textspur. Diese stammen möglicherweise aus einem HTML-{{HTMLElement("track")}}-Tag.
+  - : Das Ziel ist eine HTML-Textspur. Dies könnte von einem HTML-{{HTMLElement("track")}}-Tag stammen.
 - `video`
-  - : Das Ziel sind Videodaten. Diese stammen möglicherweise aus einem HTML-{{HTMLElement("video")}}-Tag.
+  - : Das Ziel sind Videodaten. Dies könnte von einem HTML-{{HTMLElement("video")}}-Tag stammen.
 - `webidentity`
-  - : Das Ziel ist ein Endpunkt, der mit der Verifizierung der Benutzeridentität verbunden ist. Zum Beispiel wird es in der [FedCM API](/de/docs/Web/API/FedCM_API) verwendet, um die Authentizität von Identitätsprovider-Endpunkten (IdP) zu überprüfen und gegen {{glossary("CSRF")}}-Angriffe zu schützen.
+  - : Das Ziel ist ein Endpunkt, der mit der Verifizierung von Benutzer-Identitäten verbunden ist. Zum Beispiel wird es in der [FedCM-API](/de/docs/Web/API/FedCM_API) verwendet, um die Authentizität von Identitätsanbieter-Endpunkten (IdP) zu überprüfen und so [CSRF](/de/docs/Glossary/CSRF)-Angriffe zu verhindern.
 - `worker`
-  - : Das Ziel ist ein {{domxref("Worker")}}.
+  - : Das Ziel ist ein [`Worker`](/de/docs/Web/API/Worker).
 - `xslt`
   - : Das Ziel ist eine XSLT-Transformation.
 
 ## Beispiele
 
-Eine Cross-Site-Anfrage, die von einem {{HTMLElement("img")}}-Element erzeugt wird, würde zu einer Anfrage mit den folgenden HTTP-Anfrage-Headern führen (beachten Sie, dass das Ziel `image` ist):
+Eine anbieterübergreifende Anfrage, die durch ein {{HTMLElement("img")}}-Element generiert wird, würde zu einer Anfrage mit den folgenden HTTP-Anforderungsheadern führen (beachten Sie, dass das Ziel `image` ist):
 
 ```http
 Sec-Fetch-Dest: image
@@ -138,5 +138,5 @@ Sec-Fetch-Site: cross-site
   - {{HTTPHeader("Sec-Fetch-Site")}}
   - {{HTTPHeader("Sec-Fetch-User")}}
 
-- [Schützen Sie Ihre Ressourcen vor Webangriffen mit Fetch Metadata](https://web.dev/articles/fetch-metadata) (web.dev)
-- [Fetch Metadata Request Headers playground](https://secmetadata.appspot.com/) (secmetadata.appspot.com)
+- [Schützen Sie Ihre Ressourcen vor Webangriffen mit Fetch-Metadaten](https://web.dev/articles/fetch-metadata) (web.dev)
+- [Fetch Metadata Request Headers Playground](https://secmetadata.appspot.com/) (secmetadata.appspot.com)

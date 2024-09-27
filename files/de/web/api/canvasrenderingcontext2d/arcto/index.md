@@ -3,19 +3,17 @@ title: "CanvasRenderingContext2D: arcTo()-Methode"
 short-title: arcTo()
 slug: Web/API/CanvasRenderingContext2D/arcTo
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.arcTo()`**-Methode der Canvas 2D API fügt einen Kreisbogen zu dem aktuellen Unterpfad hinzu, unter Verwendung der gegebenen Kontrollpunkte und des Radius.
-Der Bogen wird automatisch mit einer geraden Linie mit dem letzten Punkt des Pfades verbunden, falls notwendig, zum Beispiel, wenn der Startpunkt und die Kontrollpunkte in einer Linie liegen.
+Die **`CanvasRenderingContext2D.arcTo()`**-Methode der Canvas 2D API fügt einen Kreisbogen zum aktuellen Unterpfad hinzu, unter Verwendung der angegebenen Kontrollpunkte und des Radius. Der Bogen wird, falls erforderlich, automatisch mit einer geraden Linie an den letzten Punkt des Pfads verbunden, zum Beispiel, wenn der Startpunkt und die Kontrollpunkte in einer Linie liegen.
 
-Diese Methode wird häufig genutzt, um abgerundete Ecken zu erzeugen.
+Diese Methode wird häufig verwendet, um abgerundete Ecken zu erzeugen.
 
 > [!NOTE]
-> Sie können unerwartete Ergebnisse erhalten, wenn Sie einen
-> relativ großen Radius verwenden: Die Verbindungslinie des Bogens wird in jede Richtung verlaufen, um den angegebenen Radius zu erreichen.
+> Bei der Verwendung eines relativ großen Radius' können unerwartete Ergebnisse auftreten: Die Verbindungslinie des Bogens wird in jede Richtung verlaufen, die erforderlich ist, um den angegebenen Radius zu erreichen.
 
 ## Syntax
 
@@ -26,25 +24,25 @@ arcTo(x1, y1, x2, y2, radius)
 ### Parameter
 
 - `x1`
-  - : Die x-Koordinate des ersten Kontrollpunktes.
+  - : Die x-Achsen-Koordinate des ersten Kontrollpunkts.
 - `y1`
-  - : Die y-Koordinate des ersten Kontrollpunktes.
+  - : Die y-Achsen-Koordinate des ersten Kontrollpunkts.
 - `x2`
-  - : Die x-Koordinate des zweiten Kontrollpunktes.
+  - : Die x-Achsen-Koordinate des zweiten Kontrollpunkts.
 - `y2`
-  - : Die y-Koordinate des zweiten Kontrollpunktes.
+  - : Die y-Achsen-Koordinate des zweiten Kontrollpunkts.
 - `radius`
   - : Der Radius des Bogens. Muss nicht negativ sein.
 
 #### Nutzungshinweise
 
-Angenommen <em>P<sub>0</sub></em> ist der Punkt auf dem Pfad, wenn `arcTo()` aufgerufen wird, <em>P<sub>1</sub></em> = (`x1`, `y1`) und <em>P<sub>2</sub></em> = (`x2`, `y2`) sind die ersten und zweiten Kontrollpunkte, und _r_ ist der in dem Aufruf angegebene `radius`:
+Angenommen, <em>P<sub>0</sub></em> ist der Punkt auf dem Pfad, wenn `arcTo()` aufgerufen wird, <em>P<sub>1</sub></em> = (`x1`, `y1`) und <em>P<sub>2</sub></em> = (`x2`, `y2`) sind die ersten und zweiten Kontrollpunkte, und _r_ ist der in dem Aufruf angegebene `radius`:
 
 - Wenn _r_ negativ ist, wird ein `IndexSizeError` [Ausnahme](#ausnahmen) ausgelöst.
-- Wenn _r_ 0 ist, verhält sich `arcTo()` so, als ob <em>P<sub>0</sub></em>, <em>P<sub>1</sub></em>, und <em>P<sub>2</sub></em> kollinear (in einer Linie) sind.
-- Wenn alle Punkte kollinear sind, wird eine Linie von <em>P<sub>0</sub></em> zu <em>P<sub>1</sub></em> gezogen, es sei denn, die Punkte <em>P<sub>0</sub></em> und <em>P<sub>1</sub></em> sind identisch (haben dieselben Koordinaten), in diesem Fall wird nichts gezeichnet.
+- Wenn _r_ 0 ist, verhält sich `arcTo()` so, als ob <em>P<sub>0</sub></em>, <em>P<sub>1</sub></em> und <em>P<sub>2</sub></em> kollinear (in einer Linie) sind.
+- Im Fall, dass alle Punkte kollinear sind, wird eine Linie von <em>P<sub>0</sub></em> zu <em>P<sub>1</sub></em> gezeichnet, es sei denn, die Punkte <em>P<sub>0</sub></em> und <em>P<sub>1</sub></em> sind deckungsgleich (haben die gleichen Koordinaten), in diesem Fall wird nichts gezeichnet.
 
-Diese Bedingungen können im Beispiel [Erstellen eines arcTo()-Pfades](#constructing_an_arcto_path) unten erstellt werden, um die Ergebnisse zu sehen.
+Diese Bedingungen können im Beispiel [Konstruktions eines arcTo()-Pfads](#constructing_an_arcto_path) unten erstellt werden, um die Ergebnisse zu sehen.
 
 ### Rückgabewert
 
@@ -52,14 +50,15 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
+
   - : Wird ausgelöst, wenn `radius` einen negativen Wert hat.
 
 ## Beispiele
 
-### Funktionsweise von `arcTo()`
+### Wie `arcTo()` funktioniert
 
-Eine Möglichkeit, über `arcTo()` nachzudenken, ist sich zwei gerade Segmente vorzustellen: eines vom Startpunkt zu einem ersten Kontrollpunkt und ein weiteres von dort zu einem zweiten Kontrollpunkt. Ohne `arcTo()` würden diese beiden Segmente eine scharfe Ecke bilden: `arcTo()` erzeugt einen Kreisbogen an dieser Ecke und glättet sie. Mit anderen Worten, der Bogen ist tangential zu beiden Segmenten.
+Eine Möglichkeit, `arcTo()` zu verstehen, besteht darin, sich zwei gerade Segmente vorzustellen: eines vom Startpunkt zu einem ersten Kontrollpunkt und ein anderes von dort zu einem zweiten Kontrollpunkt. Ohne `arcTo()` würden diese beiden Segmente eine scharfe Ecke bilden: `arcTo()` erstellt einen kreisförmigen Bogen an dieser Ecke und glättet sie. Mit anderen Worten, der Bogen ist tangential zu beiden Segmenten.
 
 #### HTML
 
@@ -105,13 +104,13 @@ ctx.fill();
 
 #### Ergebnis
 
-In diesem Beispiel ist der Pfad, der durch `arcTo()` erstellt wird, **dick und schwarz**. Tangentenlinien sind grau, Kontrollpunkte sind rot, und der Startpunkt ist blau.
+In diesem Beispiel ist der von `arcTo()` erstellte Pfad **dick und schwarz**. Tangentiallinien sind grau, Kontrollpunkte sind rot und der Startpunkt ist blau.
 
 {{ EmbedLiveSample('How_arcTo_works', 315, 170) }}
 
 ### Erstellen einer abgerundeten Ecke
 
-Dieses Beispiel erstellt eine abgerundete Ecke mit `arcTo()`. Dies ist einer der häufigsten Verwendungen der Methode.
+Dieses Beispiel erstellt eine abgerundete Ecke mit `arcTo()`. Dies ist eine der häufigsten Verwendungen der Methode.
 
 #### HTML
 
@@ -121,7 +120,7 @@ Dieses Beispiel erstellt eine abgerundete Ecke mit `arcTo()`. Dies ist einer der
 
 #### JavaScript
 
-Der Bogen beginnt an dem durch `moveTo()` angegebenen Punkt: (230, 20). Er wird geformt, um zu den Kontrollpunkten bei (90, 130) und (20, 20) zu passen und hat einen Radius von 50. Die `lineTo()`-Methode verbindet den Bogen mit (20, 20) durch eine gerade Linie. Beachten Sie, dass der zweite Kontrollpunkt des Bogens und der durch `lineTo()` angegebene Punkt gleich sind, was eine völlig glatte Ecke erzeugt.
+Der Bogen beginnt an dem Punkt, der durch `moveTo()` angegeben wird: (230, 20). Er ist so geformt, dass er zu Kontrollpunkten bei (90, 130) und (20, 20) passt und hat einen Radius von 50. Die `lineTo()`-Methode verbindet den Bogen mit einer geraden Linie zu (20, 20). Beachten Sie, dass der zweite Kontrollpunkt des Bogens und der Punkt, der durch `lineTo()` angegeben wird, identisch sind, was eine vollkommen glatte Ecke erzeugt.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -155,7 +154,7 @@ ctx.stroke();
 
 ### Ergebnis eines großen Radius
 
-Wenn Sie einen relativ großen Radius verwenden, kann der Bogen an einer Stelle erscheinen, die Sie nicht erwartet haben. In diesem Beispiel geht die Verbindungslinie des Bogens über, anstatt unter dem durch `moveTo()` angegebenen Koordinatenpunkt. Dies passiert, weil der Radius zu groß ist, um vollständig unterhalb des Startpunkts zu passen.
+Wenn Sie einen relativ großen Radius verwenden, kann der Bogen an einer Stelle erscheinen, die Sie nicht erwartet haben. In diesem Beispiel verläuft die Verbindungslinie des Bogens oberhalb statt unterhalb der durch `moveTo()` angegebenen Koordinate. Dies geschieht, weil der Radius zu groß ist, um vollständig unterhalb des Startpunkts zu passen.
 
 #### HTML
 
@@ -180,17 +179,17 @@ ctx.stroke();
 
 {{ EmbedLiveSample('Result_of_a_large_radius', 315, 165) }}
 
-### Erstellen eines arcTo()-Pfades
+### Konstruktion eines arcTo()-Pfads
 
-Die Demo zeigt die halb-unendlichen Linien und den Kreis mit Zentrum _C_, der tangential zu den Linien bei <em>T<sub>1</sub></em> und <em>T<sub>2</sub></em> ist und zur Bestimmung des Pfades, der durch `arcTo()` dargestellt wird, verwendet wird.
+Das Demo zeigt die halbunendlichen Linien und den Kreis mit Zentrum _C_, der tangential zu den Linien bei <em>T<sub>1</sub></em> und <em>T<sub>2</sub></em> verwendet wird, um den vom `arcTo()` gerenderten Pfad zu bestimmen.
 
-Beachten Sie, dass `arcTo` eine gerade Linie von <em>P<sub>0</sub></em> zu <em>P<sub>1</sub></em> erstellt, wenn alle Punkte in einer Linie sind. Zusätzlich wird nichts durch `arcTo` gezeichnet, wenn <em>P<sub>0</sub></em> und <em>P<sub>1</sub></em> die gleichen Koordinaten haben.
+Beachten Sie, dass `arcTo` eine gerade Linie von <em>P<sub>0</sub></em> zu <em>P<sub>1</sub></em> erstellt, wenn alle Punkte in einer Linie liegen. Außerdem wird nichts von `arcTo` gezeichnet, wenn <em>P<sub>0</sub></em> und <em>P<sub>1</sub></em> die gleichen Koordinaten haben.
 
-Neben der Möglichkeit, den Bogenradius mit dem Schieberegler einzustellen, können der Anfangspunkt <em>P<sub>0</sub></em> und die Kontrollpunkte <em>P<sub>1</sub></em> und <em>P<sub>2</sub></em> durch Ziehen mit der linken Maustaste verschoben werden. Die numerischen Werte können ebenfalls bearbeitet werden, und die Pfeiltasten können verwendet werden, um ein hervorgehobenes Element zu ändern.
+Neben der Möglichkeit, den Bogenradius mit dem Schieberegler einzustellen, können der Anfangspunkt <em>P<sub>0</sub></em> und die Kontrollpunkte <em>P<sub>1</sub></em> und <em>P<sub>2</sub></em> durch Ziehen mit der Maus bei gedrückter linker Taste verschoben werden. Die numerischen Werte können ebenfalls bearbeitet werden, und die Pfeiltasten können verwendet werden, um ein unterstrichenes Element, das im Fokus steht, zu ändern.
 
 ```html hidden
 <div>
-  <label for="arc-radius">Bogenradius <em>r</em></label>
+  <label for="arc-radius">arc radius <em>r</em></label>
   <input name="arc-radius" type="range" id="radius-slider" min="0" />
   <label
     for="arc-radius"
@@ -700,7 +699,7 @@ Neben der Möglichkeit, den Bogenradius mit dem Schieberegler einzustellen, kön
   function drawCanvas() {
     const rPoint = 4;
     const colorConstruction = "#080";
-    const colorDragable = "#00F";
+    const colorDraggable = "#00F";
     const [P0, P1, P2] = state.controlPoints;
 
     ctx.font = "italic 14pt sans-serif";
@@ -759,7 +758,7 @@ Neben der Möglichkeit, den Bogenradius mit dem Schieberegler einzustellen, kön
     state.controlPoints.forEach((value) => {
       ctx.beginPath();
       ctx.arc(value.x, value.y, rPoint, 0, 2 * Math.PI);
-      ctx.fillStyle = colorDragable;
+      ctx.fillStyle = colorDraggable;
       ctx.fill();
     });
     ctx.fillStyle = "#000";
@@ -880,7 +879,7 @@ Neben der Möglichkeit, den Bogenradius mit dem Schieberegler einzustellen, kön
     ),
   ];
 
-  /* Allow arrow-keystrokes to alter point location */
+  /* Allow arrow keystrokes to alter point location */
   addPointArrowMoves();
 
   /* Initialize the text inputs from the associated state values */
@@ -972,7 +971,7 @@ label {
 
 ### Animation der `arcTo()`-Zeichnung
 
-In diesem Beispiel können Sie mit dem Bogenradius experimentieren, um zu sehen, wie sich der Pfad verändert. Der Pfad wird von dem Startpunkt _p0_ mit `arcTo()` unter Verwendung der Kontrollpunkte _p1_ und _p2_ und einem Radius, der von 0 bis zum mit dem Schieberegler ausgewählten maximalen Radius variiert, gezeichnet. Dann vervollständigt ein `lineTo()`-Aufruf den Pfad zu _p2_.
+In diesem Beispiel können Sie mit dem Bogenradius spielen, um zu sehen, wie sich der Pfad ändert. Der Pfad wird vom Startpunkt _p0_ ausgehend mithilfe von `arcTo()` mit den Kontrollpunkten _p1_ und _p2_ und einem Radius, der von 0 bis zum mit dem Schieberegler ausgewählten Maximalradius variiert, gezeichnet. Dann wird ein `lineTo()`-Aufruf abgeschlossen, um den Pfad zu _p2_ zu vervollständigen.
 
 #### HTML
 
@@ -1052,4 +1051,4 @@ loop(0);
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

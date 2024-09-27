@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`keys()`**-Methode der {{domxref("FontFaceSet")}}-Schnittstelle ist ein Alias für {{domxref("FontFaceSet.values")}}.
+Die **`keys()`**-Methode des [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Interfaces ist ein Alias für [`FontFaceSet.values`](/de/docs/Web/API/FontFaceSet/values).
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Iterator-Objekt, das die Werte für jedes Element im gegebenen `FontFaceSet` in Einfügereihenfolge enthält.
+Ein neues Iterator-Objekt, das die Werte für jedes Element im angegebenen `FontFaceSet` in Einfügereihenfolge enthält.
 
 ## Spezifikationen
 

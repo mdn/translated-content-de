@@ -7,24 +7,24 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Das **`SharedStorage`**-Interface der {{domxref("Shared Storage API", "Shared Storage API", "", "nocode")}} repräsentiert den gemeinsamen Speicher für einen bestimmten Ursprung und definiert Methoden zum Schreiben von Daten in den gemeinsamen Speicher.
+Die **`SharedStorage`**-Schnittstelle der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den gemeinsamen Speicher für einen bestimmten Ursprung und definiert Methoden zum Schreiben von Daten in den gemeinsamen Speicher.
 
 `SharedStorage` ist die Basisklasse für:
 
-- {{domxref("WindowSharedStorage")}}, zugänglich über {{domxref("Window.sharedStorage")}}.
-- {{domxref("WorkletSharedStorage")}}, zugänglich über {{domxref("SharedStorageWorkletGlobalScope.sharedStorage")}}.
+- [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage), zugänglich über [`Window.sharedStorage`](/de/docs/Web/API/Window/sharedStorage).
+- [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage), zugänglich über [`SharedStorageWorkletGlobalScope.sharedStorage`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/sharedStorage).
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
-- {{domxref("SharedStorage.append", "append()")}} {{Experimental_Inline}}
-  - : Fügt einen String zum Wert eines bestehenden Schlüssel-Wert-Paares im gemeinsamen Speicher des aktuellen Ursprungs hinzu.
-- {{domxref("SharedStorage.clear", "clear()")}} {{Experimental_Inline}}
+- [`append()`](/de/docs/Web/API/SharedStorage/append) {{Experimental_Inline}}
+  - : Fügt einen String zum Wert eines vorhandenen Schlüssel-Wert-Paares im gemeinsamen Speicher des aktuellen Ursprungs hinzu.
+- [`clear()`](/de/docs/Web/API/SharedStorage/clear) {{Experimental_Inline}}
   - : Löscht den gemeinsamen Speicher des aktuellen Ursprungs und entfernt alle Daten daraus.
-- {{domxref("SharedStorage.delete", "delete()")}} {{Experimental_Inline}}
-  - : Löscht ein bestehendes Schlüssel-Wert-Paar aus dem gemeinsamen Speicher des aktuellen Ursprungs.
-- {{domxref("SharedStorage.set", "set()")}} {{Experimental_Inline}}
+- [`delete()`](/de/docs/Web/API/SharedStorage/delete) {{Experimental_Inline}}
+  - : Löscht ein vorhandenes Schlüssel-Wert-Paar aus dem gemeinsamen Speicher des aktuellen Ursprungs.
+- [`set()`](/de/docs/Web/API/SharedStorage/set) {{Experimental_Inline}}
   - : Speichert ein neues Schlüssel-Wert-Paar im gemeinsamen Speicher des aktuellen Ursprungs oder aktualisiert ein bestehendes.
 
 ## Beispiele
@@ -39,11 +39,11 @@ window.sharedStorage
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WindowSharedStorage")}}
+- [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)
 - [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)

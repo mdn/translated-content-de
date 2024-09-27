@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`from`** schreibgeschützte Eigenschaft des {{domxref("NavigationTransition")}}-Interfaces gibt den {{domxref("NavigationHistoryEntry")}} zurück, von dem der Übergang kommt.
+Die **`from`**-Eigenschaft der [`NavigationTransition`](/de/docs/Web/API/NavigationTransition)-Schnittstelle ist eine schreibgeschützte Eigenschaft und gibt das [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, von dem der Übergang kommt.
 
 ## Wert
 
-Ein {{domxref("NavigationHistoryEntry")}}-Objekt.
+Ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt.
 
 ## Beispiele
 
@@ -30,6 +30,6 @@ console.log(navigation.transition.from);
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Modern client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Erklärung der Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

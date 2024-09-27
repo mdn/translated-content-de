@@ -7,23 +7,23 @@ l10n:
 
 {{APIRef("WebXR Device API")}} {{secureContext_header}}{{SeeCompatTable}}
 
-Die **`XRRay`**-Schnittstelle der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) ist ein geometrischer Strahl, der durch einen Ursprungsort und einen Richtungsvektor beschrieben wird.
+Das **`XRRay`**-Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) ist ein geometrischer Strahl, der durch einen Ursprungspunkt und einen Richtungsvektor beschrieben wird.
 
-`XRRay`-Objekte können an {{domxref("XRSession.requestHitTestSource()")}} oder {{domxref("XRSession.requestHitTestSourceForTransientInput()")}} übergeben werden, um Treffererkennung durchzuführen.
+`XRRay`-Objekte können an [`XRSession.requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource) oder [`XRSession.requestHitTestSourceForTransientInput()`](/de/docs/Web/API/XRSession/requestHitTestSourceForTransientInput) übergeben werden, um Treffer-Tests durchzuführen.
 
 ## Konstruktor
 
-- {{domxref("XRRay.XRRay", "XRRay()")}} {{Experimental_Inline}}
+- [`XRRay()`](/de/docs/Web/API/XRRay/XRRay) {{Experimental_Inline}}
   - : Erstellt ein neues `XRRay`-Objekt.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("XRRay.direction")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein {{domxref("DOMPointReadOnly")}}, der den 3-dimensionalen Richtungsvektor des Strahls darstellt.
-- {{domxref("XRRay.matrix")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine Transformation, die verwendet werden kann, um Objekte entlang des `XRRay` zu positionieren. Dies ist eine 4 x 4 Matrix, die als 16-Element-{{jsxref("Float32Array")}} in spalten-major Reihenfolge angegeben wird.
-- {{domxref("XRRay.origin")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein {{domxref("DOMPointReadOnly")}}, der den 3-dimensionalen Punkt im Raum darstellt, von dem der Strahl in Metern ausgeht.
+- [`XRRay.direction`](/de/docs/Web/API/XRRay/direction) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der den 3-dimensionalen Richtungsvektor des Strahls darstellt.
+- [`XRRay.matrix`](/de/docs/Web/API/XRRay/matrix) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Eine Transformation, die verwendet werden kann, um Objekte entlang des `XRRay` zu positionieren. Dies ist eine 4x4-Matrix, die als 16-Elemente-{{jsxref("Float32Array")}} in spaltenmajorer Reihenfolge angegeben wird.
+- [`XRRay.origin`](/de/docs/Web/API/XRRay/origin) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der den 3-dimensionalen Punkt im Raum darstellt, von dem der Strahl ausgeht, in Metern.
 
 ## Instanz-Methoden
 
@@ -31,9 +31,9 @@ Keine.
 
 ## Beispiele
 
-### Verwendung von `XRRay`, um eine Treffertestquelle anzufordern
+### Verwendung von `XRRay`, um eine Hit-Test-Quelle anzufordern
 
-Die Methode {{domxref("XRSession.requestHitTestSource()")}} nimmt ein `XRRay`-Objekt für seine `offsetRay`-Option. In diesem Beispiel wird die Treffertestquelle leicht über dem Betrachter positioniert, da die Anwendung einige UI-Elemente am unteren Rand hat, während der Eindruck eines zentrierten Cursors beibehalten werden soll.
+Die Methode [`XRSession.requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource) nimmt ein `XRRay`-Objekt für seine `offsetRay`-Option entgegen. In diesem Beispiel wird die Hit-Test-Quelle leicht über dem Betrachter positioniert, da die Anwendung einige UI-Elemente am unteren Rand hat, während sie den Eindruck eines zentrierten Cursors beibehalten möchte.
 
 ```js
 const xrSession = navigator.xr.requestSession("immersive-ar", {
@@ -44,7 +44,7 @@ let hitTestSource = null;
 
 xrSession
   .requestHitTestSource({
-    space: viewerSpace, // durch xrSession.requestReferenceSpace("viewer") erhalten;
+    space: viewerSpace, // obtained from xrSession.requestReferenceSpace("viewer");
     offsetRay: new XRRay({ y: 0.5 }),
   })
   .then((viewerHitTestSource) => {
@@ -62,5 +62,5 @@ xrSession
 
 ## Siehe auch
 
-- {{domxref("XRSession.requestHitTestSource()")}}
-- {{domxref("XRHitTestResult")}}
+- [`XRSession.requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource)
+- [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)

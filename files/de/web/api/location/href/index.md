@@ -8,9 +8,10 @@ l10n:
 
 {{ApiRef("Location")}}
 
-Die **`href`**-Eigenschaft des {{domxref("Location")}}-Interfaces ist ein {{Glossary("stringifier")}}, der einen String mit der gesamten URL zurückgibt und es ermöglicht, das href zu aktualisieren.
+Die **`href`**-Eigenschaft der [`Location`](/de/docs/Web/API/Location)
+Schnittstelle ist ein [stringifier](/de/docs/Glossary/stringifier), der einen String zurückgibt, der die gesamte URL enthält, und erlaubt es, das href zu aktualisieren.
 
-Das Setzen des `href`-Werts führt zur Navigation zur angegebenen URL. Wenn Sie eine _Weiterleitung_ wünschen, verwenden Sie {{domxref("Location/replace","location.replace()")}}. Der Unterschied zur Festlegung des `href`-Eigenschaftswerts besteht darin, dass beim Verwenden der `location.replace()`-Methode die aktuelle Seite nach der Navigation zur angegebenen URL nicht im Sitzungsverlauf [history](/de/docs/Web/API/History_API) gespeichert wird — was bedeutet, dass der Benutzer nicht mit der Zurück-Taste dorthin navigieren kann.
+Das Setzen des Wertes von `href` navigiert zur angegebenen URL. Wenn Sie eine _Umleitung_ wünschen, verwenden Sie [`location.replace()`](/de/docs/Web/API/Location/replace). Der Unterschied zum Setzen des Wertes der `href`-Eigenschaft besteht darin, dass bei Verwendung der `location.replace()`-Methode nach der Navigation zur angegebenen URL die aktuelle Seite nicht im Sitzungsverlauf ([History](/de/docs/Web/API/History_API)) gespeichert wird — das bedeutet, der Benutzer kann nicht mit der Zurück-Schaltfläche darauf navigieren.
 
 ## Wert
 
@@ -19,9 +20,9 @@ Ein String.
 ## Beispiele
 
 ```js
-// Stellen Sie sich ein <a id="myAnchor" href="https://developer.mozilla.org/en-US/Location/href"> Element im Dokument vor
+// Lets imagine an <a id="myAnchor" href="https://developer.mozilla.org/en-US/Location/href"> element is in the document
 const anchor = document.getElementById("myAnchor");
-const result = anchor.href; // Gibt zurück: 'https://developer.mozilla.org/en-US/Location/href'
+const result = anchor.href; // Returns: 'https://developer.mozilla.org/en-US/Location/href'
 ```
 
 ## Spezifikationen

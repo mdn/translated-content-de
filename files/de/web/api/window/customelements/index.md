@@ -1,5 +1,5 @@
 ---
-title: "Window: Eigenschaft customElements"
+title: "Window: customElements-Eigenschaft"
 short-title: customElements
 slug: Web/API/Window/customElements
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`customElements`**-Eigenschaft des {{domxref("Window")}}-Interfaces ist eine schreibgeschützte Eigenschaft, die eine Referenz auf das {{domxref("CustomElementRegistry")}}-Objekt zurückgibt. Diese kann verwendet werden, um neue [benutzerdefinierte Elemente](/de/docs/Web/API/Web_components/Using_custom_elements) zu registrieren und Informationen über bereits registrierte benutzerdefinierte Elemente zu erhalten.
+Die **`customElements`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die eine Referenz auf das [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Objekt zurückgibt. Dieses kann verwendet werden, um neue [benutzerdefinierte Elemente](/de/docs/Web/API/Web_components/Using_custom_elements) zu registrieren und Informationen über bereits registrierte benutzerdefinierte Elemente zu erhalten.
 
 ## Beispiele
 
-Das häufigste Beispiel für die Verwendung dieser Eigenschaft ist der Zugriff auf die {{domxref("CustomElementRegistry.define()")}}-Methode, um ein neues benutzerdefiniertes Element zu definieren und zu registrieren, z.B.:
+Das häufigste Beispiel, das Sie für die Verwendung dieser Eigenschaft sehen werden, ist der Zugriff auf die [`CustomElementRegistry.define()`](/de/docs/Web/API/CustomElementRegistry/define)-Methode, um ein neues benutzerdefiniertes Element zu definieren und zu registrieren, z.B.:
 
 ```js
 let customElementRegistry = window.customElements;
 customElementRegistry.define("my-custom-element", MyCustomElement);
 ```
 
-In der Regel wird dies jedoch auf folgende Weise verkürzt:
+Üblicherweise wird dies jedoch auf folgende Weise verkürzt:
 
 ```js
 customElements.define(
@@ -44,6 +44,6 @@ Weitere Anwendungsbeispiele finden Sie in unserem [web-components-examples](http
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -1,5 +1,5 @@
 ---
-title: "CSSVariableReferenceValue: variable Eigenschaft"
+title: "CSSVariableReferenceValue: variable-Eigenschaft"
 short-title: variable
 slug: Web/API/CSSVariableReferenceValue/variable
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`variable`**-Eigenschaft der
-{{domxref("CSSVariableReferenceValue")}}-Schnittstelle gibt den [Namen der benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*) der
-{{domxref("CSSVariableReferenceValue")}} zurück.
+Die **`variable`**-Eigenschaft des
+[`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue)-Interfaces gibt den [Namen der benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*) der
+[`CSSVariableReferenceValue`](/de/docs/Web/API/CSSVariableReferenceValue) zurück.
 
 ## Wert
 
-Ein String, der mit `--` beginnt (das heißt, ein [Name der benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*)).
+Ein String, der mit `--` beginnt (also ein [Name einer benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*)).
 
 ## Spezifikationen
 

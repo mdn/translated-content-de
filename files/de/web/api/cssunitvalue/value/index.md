@@ -1,6 +1,6 @@
 ---
 title: "CSSUnitValue: value-Eigenschaft"
-short-title: Wert
+short-title: value
 slug: Web/API/CSSUnitValue/value
 l10n:
   sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("CSS Typed Object Model API")}}
 
 Die **`CSSUnitValue.value`**-Eigenschaft des
-{{domxref("CSSUnitValue")}}-Interfaces gibt eine Double-Zahl zurück, die die Anzahl der Einheiten angibt.
+[`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) Interfaces gibt einen Double-Wert zurück, der die Anzahl der Einheiten angibt.
 
 ## Wert
 
@@ -17,8 +17,8 @@ Ein Double.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt einen {{domxref('CSSPositionValue')}} aus einzelnen
-`CSSUnitValue`-Konstruktoren und fragt dann die
+Das folgende Beispiel erstellt ein [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus einzelnen
+`CSSUnitValue` Konstruktoren und fragt dann den
 `CSSUnitValue.value` ab.
 
 ```js
@@ -41,6 +41,6 @@ console.log(pos.y.value); // 10
 
 ## Siehe auch
 
-- {{domxref('CSSUnitValue.unit')}}
+- [`CSSUnitValue.unit`](/de/docs/Web/API/CSSUnitValue/unit)
 - [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)

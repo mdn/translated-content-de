@@ -1,5 +1,5 @@
 ---
-title: "MIDIPort: open() Methode"
+title: "MIDIPort: open()-Methode"
 short-title: open()
 slug: Web/API/MIDIPort/open
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die **`open()`** Methode der {{domxref("MIDIPort")}}-Schnittstelle macht das MIDI-Gerät, das mit diesem `MIDIPort` verbunden ist, explizit verfügbar.
+Die **`open()`**-Methode der [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Schnittstelle macht das mit diesem `MIDIPort` verbundene MIDI-Gerät explizit verfügbar.
 
-Wenn der Port erfolgreich geöffnet wird, wird ein neuer {{domxref("MIDIConnectionEvent")}} in die `MIDIPort`-{{domxref("MIDIPort.statechange_event", "statechange")}}- und `MIDIAccess`-{{domxref("MIDIAccess.statechange_event", "statechange")}}-Ereignisse eingereiht, und die {{domxref("MIDIPort.connection")}}-Eigenschaft wird auf `"open"` gesetzt.
+Wenn der Port erfolgreich geöffnet wird, wird ein neues [`MIDIConnectionEvent`](/de/docs/Web/API/MIDIConnectionEvent) in die `MIDIPort`-[`statechange`](/de/docs/Web/API/MIDIPort/statechange_event) und `MIDIAccess`-[`statechange`](/de/docs/Web/API/MIDIAccess/statechange_event)-Ereignisse eingereiht, und die [`MIDIPort.connection`](/de/docs/Web/API/MIDIPort/connection)-Eigenschaft wird auf `"open"` geändert.
 
-Wenn der Port bereits geöffnet ist, wenn diese Methode aufgerufen wird, wird das Promise erfolgreich aufgelöst.
+Wenn der Port bereits geöffnet ist, wenn diese Methode aufgerufen wird, wird das Versprechen erfolgreich aufgelöst.
 
 ## Syntax
 
@@ -26,12 +26,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald der Zugriff auf den Port erfolgreich erlangt wurde.
+Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald der Zugriff auf den Port erfolgreich erhalten wurde.
 
 ### Ausnahmen
 
-- `InvalidAccessError` {{domxref("DOMException")}}
-  - : Das Promise wird mit diesem Fehler abgelehnt, wenn der Port nicht verfügbar ist und nicht geöffnet werden kann.
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Das Versprechen wird mit diesem Fehler abgelehnt, wenn der Port nicht verfügbar ist und nicht geöffnet werden kann.
 
 ## Beispiele
 
@@ -39,7 +39,7 @@ Das folgende Beispiel zeigt, wie ein Ausgangsport geöffnet wird.
 
 ```js
 const output = midiAccess.outputs.get(portID);
-output.open(); // öffnet den Port
+output.open(); // opens the port
 ```
 
 ## Spezifikationen

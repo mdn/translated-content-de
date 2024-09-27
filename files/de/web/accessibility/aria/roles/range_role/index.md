@@ -1,5 +1,5 @@
 ---
-title: "ARIA: range-Rolle"
+title: "ARIA: range Rolle"
 slug: Web/Accessibility/ARIA/Roles/range_role
 l10n:
   sourceCommit: 194bd13942ad0c532c92d364e0d5d0c36732d98c
@@ -7,16 +7,16 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die abstrakte Rolle `range` ist eine generische Strukturrolle, die einen Wertebereich repräsentiert.
+Die `range` abstrakte Rolle ist eine generische Art von Strukturrolle, die einen Wertebereich repräsentiert.
 
 > [!NOTE]
-> Die `range`-Rolle ist eine [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Roles#6._abstract_roles). Sie wird hier zur Vollständigkeit der Dokumentation aufgeführt. Sie sollte nicht von Web-Autoren verwendet werden.
+> Die `range` Rolle ist eine [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Roles#6._abstract_roles). Sie wird hier der Vollständigkeit halber dokumentiert. Sie sollte von Web-Autoren nicht verwendet werden.
 
 ## Beschreibung
 
-Die `range`-Rolle ist eine abstrakte Rolle. Sie darf nicht von Web-Autoren verwendet werden. Sie ist die Superklasse für Strukturelementrollen, die einen Wert innerhalb eines Wertebereichs akzeptieren, einschließlich der [`meter`](/de/docs/Web/Accessibility/ARIA/Roles/meter_role)-Rolle, der [`progressbar`](/de/docs/Web/Accessibility/ARIA/Roles/progressbar_role) und der [`slider`](/de/docs/Web/Accessibility/ARIA/Roles/slider_role). Für diese drei sollten Sie das {{HTMLElement("meter")}}-Element, das {{HTMLElement("progress")}}-Element und {{HTMLElement("input/range")}} jeweils in Betracht ziehen.
+Die `range` Rolle ist eine abstrakte Rolle. Sie darf von Web-Autoren nicht verwendet werden. Sie ist die Superklasse für Strukturrollen von Elementen, die einen Wert innerhalb eines Wertebereichs akzeptieren, einschließlich der [`meter`](/de/docs/Web/Accessibility/ARIA/Roles/meter_role) Rolle, [`progressbar`](/de/docs/Web/Accessibility/ARIA/Roles/progressbar_role) und [`slider`](/de/docs/Web/Accessibility/ARIA/Roles/slider_role). Für diese drei sollten Sie das {{HTMLElement("meter")}} Element, das {{HTMLElement("progress")}} Element und das {{HTMLElement("input/range")}} entsprechend in Betracht ziehen.
 
-## Beste Praktiken
+## Bewährte Praktiken
 
 Nicht verwenden.
 

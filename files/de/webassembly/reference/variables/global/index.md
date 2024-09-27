@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`global`**-Instruktion deklariert eine neue globale Variable.
+Die **`global`**-Anweisung deklariert eine neue globale Variable.
 
 {{EmbedInteractiveExample("pages/wat/global.html", "tabbed-taller")}}
 

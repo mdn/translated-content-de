@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`specularExponent`** steuert den Fokus für die Lichtquelle. Je größer der Wert, desto heller das Licht.
+Das **`specularExponent`**-Attribut steuert den Fokus der Lichtquelle. Je höher der Wert, desto heller das Licht.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feSpotLight")}}
@@ -56,7 +56,7 @@ svg {
 
 ## feSpecularLighting
 
-Für {{SVGElement("feSpecularLighting")}} definiert `specularExponent` den Exponentenwert für den spekularen Term.
+Für {{SVGElement("feSpecularLighting")}} definiert `specularExponent` den Exponentenwert für den spekulären Term.
 
 <table class="properties">
   <tbody>
@@ -70,14 +70,14 @@ Für {{SVGElement("feSpecularLighting")}} definiert `specularExponent` den Expon
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Yes</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
 
 ## feSpotLight
 
-Für {{SVGElement("feSpotLight")}} definiert `specularExponent` den Exponentenwert, der den Fokus für die Lichtquelle steuert.
+Für {{SVGElement("feSpotLight")}} definiert `specularExponent` den Exponentenwert, der den Fokus der Lichtquelle steuert.
 
 <table class="properties">
   <tbody>
@@ -91,7 +91,7 @@ Für {{SVGElement("feSpotLight")}} definiert `specularExponent` den Exponentenwe
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Yes</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
@@ -102,4 +102,4 @@ Für {{SVGElement("feSpotLight")}} definiert `specularExponent` den Exponentenwe
 
 ## Siehe auch
 
-- [Beschreibung des Phong-Reflexionsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)
+- [Beschreibung des Phong-Reflektionsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)

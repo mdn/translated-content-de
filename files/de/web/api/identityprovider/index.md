@@ -2,35 +2,35 @@
 title: IdentityProvider
 slug: Web/API/IdentityProvider
 l10n:
-  sourceCommit: b64f587034fbb610fe12ad819b0384f4f4ce1d4f
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{APIRef("FedCM API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`IdentityProvider`**-Schnittstelle der [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) repräsentiert einen Identitätsanbieter (IdP) und bietet Zugriff auf zugehörige Informationen und Funktionen.
+Das **`IdentityProvider`** Interface der [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) repräsentiert einen Identity Provider (IdP) und bietet Zugriff auf zugehörige Informationen und Funktionalitäten.
 
 {{InheritanceDiagram}}
 
 ## Statische Methoden
 
-- {{domxref("IdentityProvider.close_static", "close()")}} {{experimental_inline}}
-  - : Bietet ein manuelles Signal an den Browser, dass ein Anmeldevorgang beim IdP abgeschlossen ist. Dies ist beispielsweise erforderlich, um das IdP-Anmeldedialogfeld zu schließen, wenn die Anmeldung vollständig abgeschlossen ist und der IdP die Datenerfassung vom Benutzer abgeschlossen hat.
-- {{domxref("IdentityProvider.getUserInfo_static", "getUserInfo()")}} {{experimental_inline}}
-  - : Gibt Informationen über einen zuvor angemeldeten Benutzer bei seiner Rückkehr zu einem IdP zurück, welche genutzt werden können, um eine personalisierte Willkommensnachricht und Schaltfläche zur Anmeldung bereitzustellen.
+- [`close()`](/de/docs/Web/API/IdentityProvider/close_static) {{experimental_inline}}
+  - : Stellt ein manuelles Signal für den Browser bereit, dass ein IdP-Anmeldefluss abgeschlossen ist. Dies ist beispielsweise erforderlich, um den IdP-Anmeldedialog zu schließen, wenn die Anmeldung vollständig abgeschlossen ist und der IdP das Sammeln von Daten vom Benutzer beendet hat.
+- [`getUserInfo()`](/de/docs/Web/API/IdentityProvider/getUserInfo_static) {{experimental_inline}}
+  - : Gibt Informationen über einen vorher angemeldeten Benutzer bei seiner Rückkehr zu einem IdP zurück, die verwendet werden können, um eine personalisierte Willkommensnachricht und Anmeldeschaltfläche bereitzustellen.
 
 ## Beispiele
 
 ```js
-// Iframe, das eine Seite vom Ursprung https://idp.example anzeigt
+// Iframe displaying a page from the https://idp.example origin
 const user_info = await IdentityProvider.getUserInfo({
   configUrl: "https://idp.example/fedcm.json",
   clientId: "client1234",
 });
 
-// IdentityProvider.getUserInfo() gibt ein Array von Benutzerinformationen zurück.
+// IdentityProvider.getUserInfo() returns an array of user information.
 if (user_info.length > 0) {
-  // Zurückkehrende Konten sollten zuerst sein, also ist das erste empfangene Konto
-  // garantiert ein zurückkehrendes Konto
+  // Returning accounts should be first, so the first account received
+  // is guaranteed to be a returning account
   const name = user_info[0].name;
   const given_name = user_info[0].given_name;
   const display_name = given_name ? given_name : name;
@@ -39,7 +39,7 @@ if (user_info.length > 0) {
 
   // ...
 
-  // Rendern Sie eine personalisierte Anmeldeschaltfläche mit den oben zurückgegebenen Informationen
+  // Render a personalized sign-in button using the information returned above
 }
 ```
 

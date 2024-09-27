@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feFuncA>`** [SVG](/de/docs/Web/SVG) Filter-Primitive definiert die Übertragungsfunktion für die Alphakomponente der Eingabegrafik des Elternelements {{SVGElement("feComponentTransfer")}}.
+Das **`<feFuncA>`** [SVG](/de/docs/Web/SVG) Filter-Primitive definiert die Transferfunktion für die Alphakomponente der Eingabegrafik des übergeordneten {{SVGElement("feComponentTransfer")}} Elements.
 
 ## Verwendungskontext
 
@@ -15,7 +15,7 @@ Das **`<feFuncA>`** [SVG](/de/docs/Web/SVG) Filter-Primitive definiert die Über
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFEFuncAElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGFEFuncAElement`](/de/docs/Web/API/SVGFEFuncAElement) Schnittstelle.
 
 ## Spezifikationen
 
@@ -27,7 +27,7 @@ Dieses Element implementiert die {{domxref("SVGFEFuncAElement")}} Schnittstelle.
 
 ## Siehe auch
 
-- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
+- [SVG-Filterprimitive Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
 - {{SVGAttr('flood-color')}} Attribut
 - {{SVGAttr('flood-opacity')}} Attribut
 - {{SVGElement("filter")}}

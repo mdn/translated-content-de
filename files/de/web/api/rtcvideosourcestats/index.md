@@ -7,57 +7,58 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCVideoSourceStats`** Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) liefert Statistikdaten über eine Video-Spur ({{domxref("MediaStreamTrack")}}), die mit einem oder mehreren Sendern ({{domxref("RTCRtpSender")}}) verbunden ist.
+Das **`RTCVideoSourceStats`**-Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) bietet Statistikinformationen über einen Videospur ([`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)), die einem oder mehreren Sendern ([`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)) zugeordnet ist.
 
-Diese Statistiken können durch Durchlaufen des {{domxref("RTCStatsReport")}}, das von {{domxref("RTCRtpSender.getStats()")}} oder {{domxref("RTCPeerConnection.getStats()")}} zurückgegeben wird, gewonnen werden, bis Sie einen Bericht mit dem [`type`](#type) von `media-source` und einem [`kind`](#kind) von `video` finden.
+Diese Statistiken können durch Iteration des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport), das von [`RTCRtpSender.getStats()`](/de/docs/Web/API/RTCRtpSender/getStats) oder [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, abgerufen werden, bis Sie einen Bericht mit dem [`type`](#type) von `media-source` und einem [`kind`](#kind) von `video` finden.
 
 > [!NOTE]
-> Für Video-Informationen über fernbezogene Spuren (die empfangen werden), siehe {{domxref("RTCInboundRtpStreamStats")}}.
+> Für Videoinformationen über aus der Ferne bezogene Spuren (die empfangen werden), siehe [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats).
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("RTCVideoSourceStats.frames", "frames")}} {{optional_inline}}
-  - : Eine positive Zahl, die die Gesamtzahl der von dieser Videoquelle stammenden Frames angibt.
-- {{domxref("RTCVideoSourceStats.framesPerSecond", "framesPerSecond")}} {{optional_inline}}
-  - : Eine positive Zahl, die die Anzahl der in der letzten Sekunde von dieser Videoquelle stammenden Frames darstellt.
-    Diese Eigenschaft ist in diesem Statistik-Objekt für die erste Sekunde ihrer Existenz nicht definiert.
-- {{domxref("RTCVideoSourceStats.height", "height")}} {{optional_inline}}
-  - : Eine Zahl, die die Höhe, in Pixeln, des letzten von dieser Quelle stammenden Frames darstellt.
-    Diese Eigenschaft ist in diesem Statistik-Objekt nicht definiert, bis der erste Frame produziert wurde.
-- {{domxref("RTCVideoSourceStats.width", "width")}} {{optional_inline}}
-  - : Eine Zahl, die die Breite, in Pixeln, des zuletzt von dieser Quelle stammenden Frames darstellt.
-    Diese Eigenschaft ist in diesem Statistik-Objekt nicht definiert, bis der erste Frame produziert wurde.
+- [`frames`](/de/docs/Web/API/RTCVideoSourceStats/frames) {{optional_inline}}
+  - : Eine positive Zahl, die die Gesamtanzahl der Frames angibt, die von dieser Videoquelle stammen.
+- [`framesPerSecond`](/de/docs/Web/API/RTCVideoSourceStats/framesPerSecond) {{optional_inline}}
+  - : Eine positive Zahl, die die Anzahl der Frames angibt, die in der letzten Sekunde von dieser Videoquelle stammen.
+    Diese Eigenschaft ist in diesem Statistikobjekt für die erste Sekunde seiner Existenz nicht definiert.
+- [`height`](/de/docs/Web/API/RTCVideoSourceStats/height) {{optional_inline}}
+  - : Eine Zahl, die die Höhe, in Pixel, des letzten Frames darstellt, der von dieser Quelle stammt.
+    Diese Eigenschaft ist in diesem Statistikobjekt erst nach Produktion des ersten Frames definiert.
+- [`width`](/de/docs/Web/API/RTCVideoSourceStats/width) {{optional_inline}}
+  - : Eine Zahl, die die Breite, in Pixel, des aktuellsten Frames darstellt, der von dieser Quelle stammt.
+    Diese Eigenschaft ist in diesem Statistikobjekt erst nach Produktion des ersten Frames definiert.
 
-### Allgemeine Eigenschaften der Medienquelle
+### Gemeinsame Eigenschaften von Medienquellen
 
-Die folgenden Eigenschaften sind sowohl in `RTCVideoSourceStats` als auch in {{domxref("RTCAudioSourceStats")}} vorhanden: <!-- RTCMediaSourceStats  -->
+Die folgenden Eigenschaften sind sowohl in `RTCVideoSourceStats` als auch in [`RTCAudioSourceStats`](/de/docs/Web/API/RTCAudioSourceStats) vorhanden: <!-- RTCMediaSourceStats  -->
 
-- {{domxref("RTCVideoSourceStats.trackIdentifier", "trackIdentifier")}}
-  - : Ein String, der den [`id`](/de/docs/Web/API/MediaStreamTrack/id) Wert der mit der Videoquelle verbundenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) enthält.
-- {{domxref("RTCVideoSourceStats.kind", "kind")}}
-  - : Ein String, der angibt, ob dieses Objekt Statistiken für eine Videoquelle oder eine Medienquelle darstellt. Bei einem `RTCVideoSourceStats` wird dies immer `video` sein.
+- [`trackIdentifier`](/de/docs/Web/API/RTCVideoSourceStats/trackIdentifier)
+  - : Ein String, der den [`id`](/de/docs/Web/API/MediaStreamTrack/id)-Wert des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) enthält, der mit der Videoquelle verknüpft ist.
+- [`kind`](/de/docs/Web/API/RTCVideoSourceStats/kind)
+  - : Ein String, der anzeigt, ob dieses Objekt Statistiken für eine Videoquelle oder eine Medienquelle darstellt. Für ein `RTCVideoSourceStats` ist dies immer `video`.
 
-### Allgemeine Instanz-Eigenschaften
+### Gemeinsame Instanzeigenschaften
 
-Die folgenden Eigenschaften sind allen Statistik-Objekten gemeinsam. <!-- RTCStats -->
+Die folgenden Eigenschaften sind allen Statistikobjekten gemeinsam. <!-- RTCStats -->
 
-- {{domxref("RTCVideoSourceStats.id", "id")}}
-  - : Ein String, der das Objekt, das überwacht wird, um diesen Satz von Statistiken zu erzeugen, eindeutig identifiziert.
-- {{domxref("RTCVideoSourceStats.timestamp", "timestamp")}}
-  - : Ein {{domxref("DOMHighResTimeStamp")}} Objekt, das den Zeitpunkt angibt, zu dem die Probe für dieses Statistik-Objekt entnommen wurde.
-- {{domxref("RTCVideoSourceStats.type", "type")}}
-  - : Ein String mit dem Wert `"media-source"`, der angibt, dass das Objekt eine Instanz von entweder {{domxref("RTCAudioSourceStats")}} oder `RTCVideoSourceStats` ist.
+- [`id`](/de/docs/Web/API/RTCVideoSourceStats/id)
+  - : Ein String, der das Objekt, das überwacht wird, um diesen Satz von Statistiken zu erstellen, eindeutig identifiziert.
+- [`timestamp`](/de/docs/Web/API/RTCVideoSourceStats/timestamp)
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das den Zeitpunkt angibt, zu dem die Stichprobe für dieses Statistikobjekt genommen wurde.
+- [`type`](/de/docs/Web/API/RTCVideoSourceStats/type)
+  - : Ein String mit dem Wert `"media-source"`, was darauf hinweist, dass das Objekt eine Instanz entweder von [`RTCAudioSourceStats`](/de/docs/Web/API/RTCAudioSourceStats) oder `RTCVideoSourceStats` ist.
 
 ## Beschreibung
 
-Die Schnittstelle stellt Statistiken über eine Video-Medienquelle zur Verfügung, die an einen oder mehrere Sender angeschlossen ist. Die Informationen umfassen eine Kennung für den zugehörigen `MediaStreamTrack`, zusammen mit der Höhe und Breite des letzten von der Quelle gesendeten Frames, der Anzahl der von der Quelle gesendeten Frames und der Bildrate.
+Die Schnittstelle bietet Statistiken über eine Video-Medienquelle, die an einen oder mehrere Sender angehängt ist.
+Die Informationen umfassen einen Identifikator für die zugeordnete `MediaStreamTrack`, zusammen mit der Höhe und Breite des letzten von der Quelle gesendeten Frames, der Anzahl der von der Quelle gesendeten Frames und der Bildrate.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie das von `RTCRtpSender.getStats()` zurückgegebene Statistik-Objekt durchlaufen können, um die mediaquellenspezifischen Video-Statistiken zu erhalten.
+Dieses Beispiel zeigt, wie Sie das von `RTCRtpSender.getStats()` zurückgegebene Statistikobjekt durchlaufen, um die videospezifischen Medienquellenstatistiken zu erhalten.
 
 ```js
-// wobei sender ein RTCRtpSender ist
+// where sender is an RTCRtpSender
 const stats = await sender.getStats();
 let videoSourceStats = null;
 
@@ -68,7 +69,7 @@ stats.forEach((report) => {
   }
 });
 
-// videoSourceStats ist null, wenn der Bericht Videoquellenstatistiken nicht enthalten hat
+// videoSourceStats will be null if the report did not include video source stats
 const frames = videoSourceStats?.frames;
 const fps = videoSourceStats?.framesPerSecond;
 const width = videoSourceStats?.width;

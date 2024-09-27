@@ -8,17 +8,18 @@ l10n:
 
 {{APIRef("HTML DOM") }}
 
-Die schreibgeschützte Eigenschaft **`promise`** der {{domxref("PromiseRejectionEvent")}}-Schnittstelle gibt das JavaScript-{{jsxref("Promise")}} an, das abgelehnt wurde. Sie können die Eigenschaft {{domxref("PromiseRejectionEvent.reason")}} des Ereignisses untersuchen, um zu erfahren, warum das Promise abgelehnt wurde.
+Die schreibgeschützte **`promise`**-Eigenschaft des [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent) Interfaces gibt das JavaScript
+{{jsxref("Promise")}} an, das abgelehnt wurde. Sie können die [`PromiseRejectionEvent.reason`](/de/docs/Web/API/PromiseRejectionEvent/reason)-Eigenschaft des Events prüfen, um zu erfahren, warum die Promise abgelehnt wurde.
 
 ## Wert
 
-Das JavaScript-{{jsxref("Promise")}}, das abgelehnt wurde und dessen Ablehnung unbehandelt blieb.
+Das JavaScript {{jsxref("Promise")}}, das abgelehnt wurde und dessen Ablehnung unbehandelt blieb.
 
 ## Beispiele
 
-Dieses Beispiel lauscht auf unbehandelte Promises und richtet bei einem Grund, der ein Objekt mit einem `code`-Feld enthält, aus dem der Text "Module not ready" hervorgeht, einen Idle-Callback ein, der die Aufgabe erneut versucht, die nicht korrekt ausgeführt werden konnte.
+Dieses Beispiel hört auf unbehandelte Promises und richtet, falls der [`reason`](/de/docs/Web/API/PromiseRejectionEvent/reason) ein Objekt mit einem `code`-Feld enthält, das den Text "Module not ready" enthält, einen Idle-Callback ein, der die Aufgabe, die nicht korrekt ausgeführt werden konnte, erneut versucht.
 
-{{domxref("event.preventDefault()")}} wird aufgerufen, um anzuzeigen, dass das Promise jetzt behandelt wurde.
+[`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) wird aufgerufen, um anzuzeigen, dass die Promise jetzt behandelt wurde.
 
 ```js
 window.onunhandledrejection = (event) => {
@@ -43,6 +44,6 @@ window.onunhandledrejection = (event) => {
 
 - [Promise-Ablehnungsereignisse](/de/docs/Web/JavaScript/Guide/Using_promises#promise_rejection_events)
 - {{jsxref("Promise")}}
-- {{domxref("PromiseRejectionEvent")}}
-- {{domxref("Window.rejectionhandled_event", "rejectionhandled")}}
-- {{domxref("Window.unhandledrejection_event", "unhandledrejection")}}
+- [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent)
+- [`rejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)
+- [`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)

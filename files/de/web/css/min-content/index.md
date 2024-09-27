@@ -7,30 +7,30 @@ l10n:
 
 {{CSSRef}}
 
-Das Schlüsselwort `min-content` für Größenbestimmungen repräsentiert die minimale {{glossary("intrinsic size")}} des Inhalts. Für Textinhalt bedeutet dies, dass der Inhalt alle Möglichkeiten zum weichen Umbruch nutzt und so klein wie das längste Wort wird.
+Das `min-content` Größen-Schlüsselwort stellt die minimale [intrinsische Größe](/de/docs/Glossary/intrinsic_size) des Inhalts dar. Für Textinhalte bedeutet dies, dass der Inhalt alle weichen Zeilenumbruch-Möglichkeiten nutzt und so klein wie das längste Wort wird.
 
 ## Syntax
 
 ```css
-/* Als Länge verwendet */
+/* Used as a length */
 width: min-content;
 inline-size: min-content;
 height: min-content;
 block-size: min-content;
 
-/* In Grid-Tracks verwendet */
+/* used in grid tracks */
 grid-template-columns: 200px 1fr min-content;
 ```
 
 ## Beispiele
 
-### Verwendung von min-content für Box-Größen
+### Verwendung von min-content für Box-Größenbestimmung
 
 #### HTML
 
 ```html
 <div class="item">Item</div>
-<div class="item">Item mit mehr Text.</div>
+<div class="item">Item with more text in it.</div>
 ```
 
 #### CSS
@@ -48,15 +48,15 @@ grid-template-columns: 200px 1fr min-content;
 
 {{EmbedLiveSample("Using_min-content_for_box_sizing", "100%", 200)}}
 
-### Größenbestimmung von Grid-Spalten mit min-content
+### Größe von Grid-Spalten mit min-content
 
 #### HTML
 
 ```html
 <div id="container">
   <div>Item</div>
-  <div>Item mit mehr Text.</div>
-  <div>Flexibles Item</div>
+  <div>Item with more text in it.</div>
+  <div>Flexible item</div>
 </div>
 ```
 
@@ -94,5 +94,5 @@ grid-template-columns: 200px 1fr min-content;
 
 ## Siehe auch
 
-- Verwandte Schlüsselwörter zur Größenbestimmung: {{cssxref("max-content")}}, {{cssxref("fit-content")}}
-- [CSS Box-Größenbestimmung](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- Verwandte Größen-Schlüsselwörter: {{cssxref("max-content")}}, {{cssxref("fit-content")}}
+- [CSS-Box-Größenbestimmung](/de/docs/Web/CSS/CSS_box_sizing) Modul

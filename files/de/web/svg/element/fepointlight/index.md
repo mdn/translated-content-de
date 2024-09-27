@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Der **`<fePointLight>`**-Filter-Primitive definiert eine Lichtquelle, die einen Punktlichteffekt erzeugen kann. Er kann innerhalb eines Beleuchtungsfilter-Primitives verwendet werden: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
+Das **`<fePointLight>`** Filterprimitiv definiert eine Lichtquelle, die einen Punktlichteffekt erzeugt. Es kann innerhalb eines Lichtfilterprimitivs verwendet werden: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
 
 ## Verwendungskontext
 
@@ -21,7 +21,7 @@ Der **`<fePointLight>`**-Filter-Primitive definiert eine Lichtquelle, die einen 
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFEPointLightElement")}}-Schnittstelle.
+Dieses Element implementiert die [`SVGFEPointLightElement`](/de/docs/Web/API/SVGFEPointLightElement) Schnittstelle.
 
 ## Beispiel
 
@@ -84,4 +84,4 @@ Dieses Element implementiert die {{domxref("SVGFEPointLightElement")}}-Schnittst
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feDistantLight")}}
 - {{SVGElement("feSpotLight")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Tutorial: Filter-Effekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

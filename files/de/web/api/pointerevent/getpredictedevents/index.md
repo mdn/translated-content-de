@@ -1,5 +1,5 @@
 ---
-title: "PointerEvent: getPredictedEvents()-Methode"
+title: "PointerEvent: getPredictedEvents() Methode"
 short-title: getPredictedEvents()
 slug: Web/API/PointerEvent/getPredictedEvents
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Pointer Events")}}
 
-Die **`getPredictedEvents()`**-Methode des {{domxref("PointerEvent")}}-Interfaces gibt eine Sequenz von `PointerEvent`-Instanzen zurück, die geschätzte zukünftige Zeigerpositionen darstellen. Wie die vorhergesagten Positionen berechnet werden, hängt vom Benutzeragenten ab, aber sie basieren auf früheren Punkten, der aktuellen Geschwindigkeit und der Flugbahn.
+Die **`getPredictedEvents()`** Methode der [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle gibt eine Sequenz von `PointerEvent`-Instanzen zurück, die geschätzte zukünftige Zeigerpositionen darstellen. Wie die vorhergesagten Positionen berechnet werden, hängt von der Benutzer-Agent ab, basiert jedoch auf vergangenen Punkten, aktueller Geschwindigkeit und Flugbahn.
 
-Anwendungen können die vorhergesagten Ereignisse nutzen, um vorauszuzeichnen zu einer vorhergesagten Position, was möglicherweise die wahrgenommene Latenzzeit verringert, abhängig von der Interpretation der vorhergesagten Ereignisse und dem Anwendungsfall.
+Anwendungen können die vorhergesagten Ereignisse verwenden, um "voraus zu zeichnen" zu einer vorhergesagten Position, was die wahrgenommene Latenz verringern kann, abhängig von der Interpretation der vorhergesagten Ereignisse durch die Anwendung und dem Anwendungsfall.
 
-Für eine Illustration der vorhergesagten Ereignisse siehe [Abbildung 8 in der Spezifikation](https://w3c.github.io/pointerevents/#figure_predicted).
+Für eine Darstellung der vorhergesagten Ereignisse siehe [Abbildung 8 in der Spezifikation](https://w3c.github.io/pointerevents/#figure_predicted).
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine Sequenz von {{domxref('PointerEvent')}}-Instanzen.
+Eine Sequenz von [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Instanzen.
 
 ## Beispiel
 

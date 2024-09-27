@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`y`** Attribut definiert eine y-Achsen-Koordinate im Benutzerkoordinatensystem.
+Das **`y`**-Attribut definiert eine y-Achsen-Koordinate im Benutzerkoordinatensystem.
 
 ## Elemente
 
@@ -15,7 +15,7 @@ Sie können dieses Attribut mit den in den folgenden Abschnitten beschriebenen S
 
 ### `<feBlend>`
 
-Für {{SVGElement('feBlend')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feBlend')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -48,7 +48,7 @@ Für {{SVGElement('feBlend')}} definiert `y` die minimale y-Koordinate für den 
 
 ### `<feColorMatrix>`
 
-Für {{SVGElement('feColorMatrix')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feColorMatrix')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -81,7 +81,7 @@ Für {{SVGElement('feColorMatrix')}} definiert `y` die minimale y-Koordinate fü
 
 ### `<feComponentTransfer>`
 
-Für {{SVGElement('feComponentTransfer')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feComponentTransfer')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -114,7 +114,7 @@ Für {{SVGElement('feComponentTransfer')}} definiert `y` die minimale y-Koordina
 
 ### `<feComposite>`
 
-Für {{SVGElement('feComposite')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feComposite')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -147,7 +147,7 @@ Für {{SVGElement('feComposite')}} definiert `y` die minimale y-Koordinate für 
 
 ### `<feConvolveMatrix>`
 
-Für {{SVGElement('feConvolveMatrix')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feConvolveMatrix')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -180,7 +180,7 @@ Für {{SVGElement('feConvolveMatrix')}} definiert `y` die minimale y-Koordinate 
 
 ### `<feDiffuseLighting>`
 
-Für {{SVGElement('feDiffuseLighting')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feDiffuseLighting')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -213,7 +213,7 @@ Für {{SVGElement('feDiffuseLighting')}} definiert `y` die minimale y-Koordinate
 
 ### `<feDisplacementMap>`
 
-Für {{SVGElement('feDisplacementMap')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feDisplacementMap')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -246,7 +246,7 @@ Für {{SVGElement('feDisplacementMap')}} definiert `y` die minimale y-Koordinate
 
 ### `<feDropShadow>`
 
-Für {{SVGElement('feDropShadow')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feDropShadow')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -279,7 +279,7 @@ Für {{SVGElement('feDropShadow')}} definiert `y` die minimale y-Koordinate für
 
 ### `<feFlood>`
 
-Für {{SVGElement('feFlood')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feFlood')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -312,7 +312,7 @@ Für {{SVGElement('feFlood')}} definiert `y` die minimale y-Koordinate für den 
 
 ### `<feFuncA>`
 
-Für {{SVGElement('feFuncA')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feFuncA')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -345,7 +345,7 @@ Für {{SVGElement('feFuncA')}} definiert `y` die minimale y-Koordinate für den 
 
 ### `<feFuncB>`
 
-Für {{SVGElement('feFuncB')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feFuncB')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -378,7 +378,7 @@ Für {{SVGElement('feFuncB')}} definiert `y` die minimale y-Koordinate für den 
 
 ### `<feFuncG>`
 
-Für {{SVGElement('feFuncG')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feFuncG')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -411,7 +411,7 @@ Für {{SVGElement('feFuncG')}} definiert `y` die minimale y-Koordinate für den 
 
 ### `<feFuncR>`
 
-Für {{SVGElement('feFuncR')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feFuncR')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -444,7 +444,7 @@ Für {{SVGElement('feFuncR')}} definiert `y` die minimale y-Koordinate für den 
 
 ### `<feGaussianBlur>`
 
-Für {{SVGElement('feGaussianBlur')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feGaussianBlur')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -477,7 +477,7 @@ Für {{SVGElement('feGaussianBlur')}} definiert `y` die minimale y-Koordinate f�
 
 ### `<feImage>`
 
-Für {{SVGElement('feImage')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feImage')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -510,7 +510,7 @@ Für {{SVGElement('feImage')}} definiert `y` die minimale y-Koordinate für den 
 
 ### `<feMerge>`
 
-Für {{SVGElement('feMerge')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feMerge')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -543,7 +543,7 @@ Für {{SVGElement('feMerge')}} definiert `y` die minimale y-Koordinate für den 
 
 ### `<feMergeNode>`
 
-Für {{SVGElement('feMergeNode')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feMergeNode')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -576,7 +576,7 @@ Für {{SVGElement('feMergeNode')}} definiert `y` die minimale y-Koordinate für 
 
 ### `<feMorphology>`
 
-Für {{SVGElement('feMorphology')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feMorphology')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -609,7 +609,7 @@ Für {{SVGElement('feMorphology')}} definiert `y` die minimale y-Koordinate für
 
 ### `<feOffset>`
 
-Für {{SVGElement('feOffset')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feOffset')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -642,7 +642,7 @@ Für {{SVGElement('feOffset')}} definiert `y` die minimale y-Koordinate für den
 
 ### `<fePointLight>`
 
-Für {{SVGElement('fePointLight')}} definiert `y` den y-Standort für die Lichtquelle im durch das {{SVGAttr("primitiveUnits")}} Attribut auf dem {{SVGElement("filter")}} Element definierten Koordinatensystem.
+Für {{SVGElement('fePointLight')}} definiert `y` die y-Position der Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut auf dem {{SVGElement("filter")}}-Element definiert wird.
 
 <table class="properties">
   <tbody>
@@ -669,7 +669,7 @@ Für {{SVGElement('fePointLight')}} definiert `y` den y-Standort für die Lichtq
 
 ### `<feSpecularLighting>`
 
-Für {{SVGElement('feSpecularLighting')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feSpecularLighting')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -702,7 +702,7 @@ Für {{SVGElement('feSpecularLighting')}} definiert `y` die minimale y-Koordinat
 
 ### `<feSpotLight>`
 
-Für {{SVGElement('feSpotLight')}} definiert `y` den y-Standort für die Lichtquelle im durch das {{SVGAttr("primitiveUnits")}} Attribut auf dem {{SVGElement("filter")}} Element definierten Koordinatensystem.
+Für {{SVGElement('feSpotLight')}} definiert `y` die y-Position der Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut auf dem {{SVGElement("filter")}}-Element definiert wird.
 
 <table class="properties">
   <tbody>
@@ -729,7 +729,7 @@ Für {{SVGElement('feSpotLight')}} definiert `y` den y-Standort für die Lichtqu
 
 ### `<feTile>`
 
-Für {{SVGElement('feTile')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feTile')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -762,7 +762,7 @@ Für {{SVGElement('feTile')}} definiert `y` die minimale y-Koordinate für den R
 
 ### `<feTurbulence>`
 
-Für {{SVGElement('feTurbulence')}} definiert `y` die minimale y-Koordinate für den Renderbereich des Primitives.
+Für {{SVGElement('feTurbulence')}} definiert `y` die minimale y-Koordinate für den Darstellungsbereich des Primitivs.
 
 <table class="properties">
   <tbody>
@@ -795,7 +795,7 @@ Für {{SVGElement('feTurbulence')}} definiert `y` die minimale y-Koordinate für
 
 ### `<filter>`
 
-Für {{SVGElement('filter')}} definiert `y` die y-Koordinate der oberen linken Ecke für den Renderbereich des Filters.
+Für {{SVGElement('filter')}} definiert `y` die y-Koordinate der oberen linken Ecke für den Darstellungsbereich des Filters.
 
 <table class="properties">
   <tbody>
@@ -828,7 +828,7 @@ Für {{SVGElement('filter')}} definiert `y` die y-Koordinate der oberen linken E
 
 ### `<foreignObject>`
 
-Für {{SVGElement('foreignObject')}} definiert `y` die y-Koordinate der oberen linken Ecke seines Viewports.
+Für {{SVGElement('foreignObject')}} definiert `y` die y-Koordinate der oberen linken Ecke ihres Ansichtsfensters.
 
 <table class="properties">
   <tbody>
@@ -860,7 +860,7 @@ Für {{SVGElement('foreignObject')}} definiert `y` die y-Koordinate der oberen l
 </table>
 
 > [!NOTE]
-> Die y-Achsen-Koordinate des `<foreignObject>` kann auch mit der {{cssxref("y")}} _Geometrie-Eigenschaft_ definiert werden. Wenn sie in CSS gesetzt ist, überschreibt der Wert der `y`-Eigenschaft den Wert des `y`-Attributs.
+> Die y-Achsen-Koordinate des `<foreignObject>` kann auch über die {{cssxref("y")}} _Geometrie-Eigenschaft_ definiert werden. Wenn sie in CSS festgelegt wird, überschreibt der Wert der `y`-Eigenschaft den Wert des `y`-Attributs.
 
 ### `<glyphRef>`
 
@@ -926,11 +926,11 @@ Für {{SVGElement('image')}} definiert `y` die y-Koordinate der oberen linken Ec
 </table>
 
 > [!NOTE]
-> Die y-Achsen-Koordinate des `<image>` kann auch mit der {{cssxref("y")}} _Geometrie-Eigenschaft_ definiert werden. Wenn sie in CSS gesetzt ist, überschreibt der Wert der `y`-Eigenschaft den Wert des `y`-Attributs.
+> Die y-Achsen-Koordinate des `<image>` kann auch über die {{cssxref("y")}} _Geometrie-Eigenschaft_ definiert werden. Wenn sie in CSS festgelegt wird, überschreibt der Wert der `y`-Eigenschaft den Wert des `y`-Attributs.
 
 ### `<mask>`
 
-Für {{SVGElement('mask')}} definiert `y` die y-Koordinate der oberen linken Ecke seines Wirkungsbereichs. Die genaue Wirkung dieses Attributs wird durch das {{SVGAttr('maskUnits')}} Attribut beeinflusst.
+Für {{SVGElement('mask')}} definiert `y` die y-Koordinate der oberen linken Ecke ihres Wirkungsbereichs. Die genaue Wirkung dieses Attributs wird durch das {{SVGAttr('maskUnits')}}-Attribut beeinflusst.
 
 <table class="properties">
   <tbody>
@@ -1022,11 +1022,11 @@ Für {{SVGElement('rect')}} definiert `y` die y-Koordinate der oberen linken Eck
 </table>
 
 > [!NOTE]
-> Die y-Achsen-Koordinate des `<rect>` kann auch mit der {{cssxref("y")}} _Geometrie-Eigenschaft_ definiert werden. Wenn sie in CSS gesetzt ist, überschreibt der Wert der `y`-Eigenschaft den Wert des `y`-Attributs.
+> Die y-Achsen-Koordinate des `<rect>` kann auch über die {{cssxref("y")}} _Geometrie-Eigenschaft_ definiert werden. Wenn sie in CSS festgelegt wird, überschreibt der Wert der `y`-Eigenschaft den Wert des `y`-Attributs.
 
 ### `<svg>`
 
-Für {{SVGElement('svg')}} definiert `y` die y-Koordinate der oberen linken Ecke seines Viewports.
+Für {{SVGElement('svg')}} definiert `y` die y-Koordinate der oberen linken Ecke ihres Ansichtsfensters.
 
 <table class="properties">
   <tbody>
@@ -1058,13 +1058,13 @@ Für {{SVGElement('svg')}} definiert `y` die y-Koordinate der oberen linken Ecke
 </table>
 
 > [!NOTE]
-> Die y-Achsen-Koordinate des `<svg>` kann auch mit der {{cssxref("y")}} _Geometrie-Eigenschaft_ definiert werden. Wenn sie in CSS gesetzt ist, überschreibt der Wert der `y`-Eigenschaft den Wert des `y`-Attributs.
+> Die y-Achsen-Koordinate des `<svg>` kann auch über die {{cssxref("y")}} _Geometrie-Eigenschaft_ definiert werden. Wenn sie in CSS festgelegt wird, überschreibt der Wert der `y`-Eigenschaft den Wert des `y`-Attributs.
 
 ### `<text>`
 
-Für {{SVGElement('text')}}, wenn es einen einzelnen Wert enthält, definiert `y` die y-Koordinate, an der die _Inhaltstextposition_ platziert werden muss. Die _Inhaltstextposition_ ist normalerweise ein Punkt auf der Grundlinie der ersten Textzeile. Die genaue _Inhaltstextposition_ wird durch andere Eigenschaften beeinflusst, wie z.B. {{SVGAttr('text-anchor')}} oder {{cssxref('direction')}}.
+Für {{SVGElement('text')}}, wenn es einen einzelnen Wert enthält, definiert `y` die y-Koordinate, an der die _Inhaltstextposition_ platziert werden muss. Die _Inhaltstextposition_ ist normalerweise ein Punkt auf der Grundlinie der ersten Textzeile. Die genaue _Inhaltstextposition_ wird von anderen Eigenschaften beeinflusst, wie z. B. {{SVGAttr('text-anchor')}} oder {{cssxref('direction')}}.
 
-Wenn es mehrere Werte enthält, definiert `y` die y-Koordinate jedes einzelnen Glyphs des Textes. Wenn es weniger Werte als Glyphen gibt, werden die restlichen Glyphen in einer Linie mit dem zuletzt positionierten Glyph platziert. Wenn es mehr Werte als Glyphen gibt, werden die zusätzlichen Werte ignoriert.
+Wenn es mehrere Werte enthält, definiert `y` die y-Koordinate jedes einzelnen Zeichens aus dem Text. Wenn weniger Werte als Zeichen vorhanden sind, werden die verbleibenden Zeichen in eine Linie mit dem zuletzt positionierten Zeichen gelegt. Wenn es mehr Werte als Zeichen gibt, werden die zusätzlichen Werte ignoriert.
 
 <table class="properties">
   <tbody>
@@ -1142,9 +1142,9 @@ line {
 > [!WARNING]
 > Ab SVG2 ist {{SVGElement('tref')}} veraltet und sollte nicht mehr verwendet werden.
 
-Für {{SVGElement('tref')}}, wenn es einen einzelnen Wert enthält, definiert `y` die y-Koordinate, an der die _Inhaltstextposition_ platziert werden muss. Die _Inhaltstextposition_ ist normalerweise ein Punkt auf der Grundlinie der ersten Textzeile. Die genaue _Inhaltstextposition_ wird durch andere Eigenschaften beeinflusst, wie z.B. {{SVGAttr('text-anchor')}} oder {{cssxref('direction')}}.
+Für {{SVGElement('tref')}}, wenn es einen einzelnen Wert enthält, definiert `y` die y-Koordinate, an der die _Inhaltstextposition_ platziert werden muss. Die _Inhaltstextposition_ ist normalerweise ein Punkt auf der Grundlinie der ersten Textzeile. Die genaue _Inhaltstextposition_ wird von anderen Eigenschaften beeinflusst, wie z. B. {{SVGAttr('text-anchor')}} oder {{cssxref('direction')}}.
 
-Wenn es mehrere Werte enthält, definiert `y` die y-Koordinate jedes einzelnen Glyphs des Textes. Wenn es weniger Werte als Glyphen gibt, werden die restlichen Glyphen in einer Linie mit dem zuletzt positionierten Glyph platziert. Wenn es mehr Werte als Glyphen gibt, werden die zusätzlichen Werte ignoriert.
+Wenn es mehrere Werte enthält, definiert `y` die y-Koordinate jedes einzelnen Zeichens aus dem Text. Wenn weniger Werte als Zeichen vorhanden sind, werden die verbleibenden Zeichen in eine Linie mit dem zuletzt positionierten Zeichen gelegt. Wenn es mehr Werte als Zeichen gibt, werden die zusätzlichen Werte ignoriert.
 
 <table class="properties">
   <tbody>
@@ -1177,9 +1177,9 @@ Wenn es mehrere Werte enthält, definiert `y` die y-Koordinate jedes einzelnen G
 
 ### `<tspan>`
 
-Für {{SVGElement('tspan')}}, wenn es einen einzelnen Wert enthält, definiert `y` die y-Koordinate, an der die _Inhaltstextposition_ platziert werden muss. Die _Inhaltstextposition_ ist normalerweise ein Punkt auf der Grundlinie der ersten Textzeile. Die genaue _Inhaltstextposition_ wird durch andere Eigenschaften beeinflusst, wie z.B. {{SVGAttr('text-anchor')}} oder {{cssxref('direction')}}.
+Für {{SVGElement('tspan')}}, wenn es einen einzelnen Wert enthält, definiert `y` die y-Koordinate, an der die _Inhaltstextposition_ platziert werden muss. Die _Inhaltstextposition_ ist normalerweise ein Punkt auf der Grundlinie der ersten Textzeile. Die genaue _Inhaltstextposition_ wird von anderen Eigenschaften beeinflusst, wie z. B. {{SVGAttr('text-anchor')}} oder {{cssxref('direction')}}.
 
-Wenn es mehrere Werte enthält, definiert `y` die y-Koordinate jedes einzelnen Glyphs des Textes. Wenn es weniger Werte als Glyphen gibt, werden die restlichen Glyphen in einer Linie mit dem zuletzt positionierten Glyph platziert. Wenn es mehr Werte als Glyphen gibt, werden die zusätzlichen Werte ignoriert.
+Wenn es mehrere Werte enthält, definiert `y` die y-Koordinate jedes einzelnen Zeichens aus dem Text. Wenn weniger Werte als Zeichen vorhanden sind, werden die verbleibenden Zeichen in eine Linie mit dem zuletzt positionierten Zeichen gelegt. Wenn es mehr Werte als Zeichen gibt, werden die zusätzlichen Werte ignoriert.
 
 <table class="properties">
   <tbody>
@@ -1288,11 +1288,11 @@ Für {{SVGElement('use')}} definiert `y` die y-Koordinate der oberen linken Ecke
 </table>
 
 > [!NOTE]
-> Das Deklarieren eines `<length>` oder `<percentage>` Wertes in CSS unter Verwendung der {{cssxref("y")}} _Geometrie-Eigenschaft_ überschreibt die y-Achsen-Koordinate des `<use>`, die durch das `y`-Attribut in einigen Browsern gesetzt wurde. Dieses Verhalten ist risikobehaftet.
+> Die Deklaration eines `<length>`- oder `<percentage>`-Wertes in CSS unter Verwendung der {{cssxref("y")}} _Geometrie-Eigenschaft_ überschreibt die y-Achsen-Koordinate des `<use>`, die vom `y`-Attribut in einigen Browsern festgelegt wird. Dieses Verhalten ist risikobehaftet.
 
 ## Beispiele
 
-Dieses Beispiel enthält drei {{SVGElement("rect")}} Elemente, jedes mit einem kleineren `y` Wert als der vorherige.
+Dieses Beispiel enthält drei {{SVGElement("rect")}}-Elemente, jeweils mit einem kleineren `y`-Wert als der vorherige Wert.
 
 ```css hidden
 html,

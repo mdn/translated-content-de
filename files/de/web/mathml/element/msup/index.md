@@ -7,16 +7,16 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<msup>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um einem Ausdruck ein Superskript hinzuzufügen.
+Das **`<msup>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um einen Hochstellentext an einen Ausdruck anzuhängen.
 
-Es verwendet die folgende Syntax: `<msup> basis superscript </msup>`.
+Es verwendet die folgende Syntax: `<msup> base superscript </msup>`.
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie das folgende veraltete Attribut:
+Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie das folgende veraltete Attribut:
 
 - `superscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Ein {{cssxref("length-percentage")}}, das die Mindesthöhe angibt, um die Grundlinie des Superskripts nach oben zu verschieben.
+  - : Eine {{cssxref("length-percentage")}}, die die minimale Verschiebung der Grundlinie des Hochstellers nach oben angibt.
 
 > [!NOTE]
 > Für das `superscriptshift` Attribut akzeptieren einige Browser möglicherweise auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths).
@@ -44,6 +44,6 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 ## Siehe auch
 
-- {{ MathMLElement("msub") }} (Subskript)
-- {{ MathMLElement("msubsup") }} (Subskript-Superskript-Paar)
-- {{ MathMLElement("mmultiscripts") }} (Präskripte und Tensorindizes)
+- {{ MathMLElement("msub") }} (Tiefstellentext)
+- {{ MathMLElement("msubsup") }} (Tief- und Hochstellentext-Paar)
+- {{ MathMLElement("mmultiscripts") }} (Vorskripte und Tensorindizes)

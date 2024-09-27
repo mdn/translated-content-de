@@ -1,5 +1,5 @@
 ---
-title: function*-Ausdruck
+title: function* Ausdruck
 slug: Web/JavaScript/Reference/Operators/function*
 l10n:
   sourceCommit: 8cb0caef8175e1772f13ef7bc761f9616e2c5a4b
@@ -38,26 +38,26 @@ function* name(param0, param1, /* …, */ paramN) {
 ```
 
 > [!NOTE]
-> Ein [Ausdrucks-Statement](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit dem Schlüsselwort `function` beginnen, um Verwechslungen mit einer [`function*` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function*) zu vermeiden. Das `function` Schlüsselwort beginnt einen Ausdruck nur, wenn es in einem Kontext erscheint, der keine Anweisungen akzeptieren kann.
+> Eine [Ausdrucksanweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit dem Schlüsselwort `function` beginnen, um Mehrdeutigkeiten mit einer [`function*` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function*) zu vermeiden. Das `function` Schlüsselwort beginnt nur dann einen Ausdruck, wenn es in einem Kontext erscheint, der keine Anweisungen akzeptieren kann.
 
 ### Parameter
 
 - `name` {{optional_inline}}
-  - : Der Funktionsname. Kann weggelassen werden, in diesem Fall ist die Funktion _anonym_. Der Name ist nur innerhalb des Funktionskörpers lokal.
+  - : Der Funktionsname. Kann weggelassen werden, in diesem Fall ist die Funktion _anonym_. Der Name ist nur lokal für den Funktionskörper.
 - `paramN` {{optional_inline}}
-  - : Der Name eines formalen Parameters für die Funktion. Für die Syntax der Parameter siehe die [Funktionen-Referenz](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
+  - : Der Name eines formalen Parameters für die Funktion. Für die Syntax der Parameter siehe die [Funktionsreferenz](/de/docs/Web/JavaScript/Guide/Functions#function_parameters).
 - `statements` {{optional_inline}}
-  - : Die Anweisungen, die den Körper der Funktion ausmachen.
+  - : Die Anweisungen, die den Körper der Funktion bilden.
 
 ## Beschreibung
 
-Ein `function*` Ausdruck ist dem sehr ähnlich und hat fast die gleiche Syntax wie eine [`function*` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function*). Der Hauptunterschied zwischen einem `function*` Ausdruck und einer `function*` Deklaration ist der _Funktionsname_, der bei `function*` Ausdrücken weggelassen werden kann, um _anonyme_ Funktionen zu erstellen. Ein `function*` Ausdruck kann als [IIFE](/de/docs/Glossary/IIFE) (Immediately Invoked Function Expression) verwendet werden, die ausgeführt wird, sobald sie definiert ist, und es Ihnen ermöglicht, ein Ad-hoc-[iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) zu erstellen. Siehe auch das Kapitel über [Funktionen](/de/docs/Web/JavaScript/Reference/Functions) für weitere Informationen.
+Ein `function*` Ausdruck ist dem [`function*` Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function*) sehr ähnlich und hat fast die gleiche Syntax. Der Hauptunterschied zwischen einem `function*` Ausdruck und einer `function*` Deklaration ist der _Funktionsname_, der in `function*` Ausdrücken weggelassen werden kann, um _anonyme_ Funktionen zu erzeugen. Ein `function*` Ausdruck kann als [IIFE](/de/docs/Glossary/IIFE) (Sofort aufgerufener Funktionsausdruck) verwendet werden, der sofort ausgeführt wird, sobald er definiert ist, und es Ihnen ermöglicht, ein ad-hoc [iterierbares Iteratorobjekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) zu erstellen. Weitere Informationen finden Sie auch im Kapitel über [Funktionen](/de/docs/Web/JavaScript/Reference/Functions).
 
 ## Beispiele
 
-### Verwendung des function\* Ausdrucks
+### Verwenden des function\* Ausdrucks
 
-Das folgende Beispiel definiert eine unbenannte Generatorfunktion und weist sie `x` zu. Die Funktion liefert das Quadrat ihres Arguments:
+Das folgende Beispiel definiert eine unbenannte Generatorfunktion und weist sie `x` zu. Die Funktion liefert das Quadrat des Arguments:
 
 ```js
 const x = function* (y) {
@@ -75,10 +75,10 @@ const x = function* (y) {
 
 ## Siehe auch
 
-- [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) Leitfaden
+- [Leitfaden zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
 - {{jsxref("Statements/function*", "function*")}}
 - {{jsxref("GeneratorFunction")}}
-- [Iteration Protokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
 - {{jsxref("Operators/yield", "yield")}}
 - {{jsxref("Operators/yield*", "yield*")}}

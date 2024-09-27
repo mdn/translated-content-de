@@ -1,5 +1,5 @@
 ---
-title: "HTMLTextAreaElement: setRangeText()-Methode"
+title: "HTMLTextAreaElement: setRangeText() Methode"
 short-title: setRangeText()
 slug: Web/API/HTMLTextAreaElement/setRangeText
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`setRangeText()`**-Methode der {{domxref("HTMLTextAreaElement")}}-Schnittstelle ersetzt einen Textbereich in einem {{HTMLElement("textarea")}}-Element durch neuen Text, der als Argument übergeben wird.
+Die **`setRangeText()`**-Methode der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle ersetzt einen Textbereich in einem {{HTMLElement("textarea")}}-Element durch neuen Text, der als Argument übergeben wird.
 
-Zusätzliche optionale Parameter umfassen den Beginn des zu ändernden Textabschnitts, das Ende des Abschnitts und ein Schlüsselwort, das definiert, welcher Teil des `<textarea>` nach der Textaktualisierung ausgewählt werden soll. Wenn die Argumente `startSelection` und `endSelection` nicht bereitgestellt werden, wird angenommen, dass der Bereich die Auswahl ist.
+Zusätzliche optionale Parameter beinhalten den Anfang des zu ändernden Textabschnitts, das Ende des Abschnitts und ein Schlüsselwort, das definiert, welcher Teil des `<textarea>` nach der Aktualisierung des Textes ausgewählt werden soll. Wenn die `startSelection`- und `endSelection`-Argumente nicht angegeben sind, wird angenommen, dass der Bereich die Auswahl ist.
 
-Das letzte Argument bestimmt, wie die Auswahl gesetzt wird, nachdem der Text ersetzt wurde. Die möglichen Werte sind `"select"`, bei dem der neu eingefügte Text ausgewählt wird, `"start"`, bei dem die Auswahl direkt vor den eingefügten Text verschoben wird, `"end"`, bei dem die Auswahl direkt nach den eingefügten Text verschoben wird, oder der Standardwert `"preserve"`, der versucht, die Auswahl zu erhalten.
+Das letzte Argument bestimmt, wie die Auswahl eingestellt wird, nachdem der Text ersetzt wurde. Die möglichen Werte sind `"select"`, welches den neu eingefügten Text auswählt, `"start"`, das die Auswahl direkt vor den eingefügten Text verschiebt, `"end"`, das die Auswahl direkt nach den eingefügten Text verschiebt, oder standardmäßig `"preserve"`, welches versucht, die Auswahl beizubehalten.
 
-Zusätzlich werden die Events {{domxref("HTMLTextAreaElement.select_event", "select")}} und {{domxref("HTMLTextAreaElement.selectionchange_event", "selectchange")}} ausgelöst.
+Zusätzlich werden die [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event)- und [`selectchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event)-Ereignisse ausgelöst.
 
 ## Syntax
 
@@ -29,29 +29,30 @@ setRangeText(replacement, startSelection, endSelection, selectMode)
 
 - `replacement`
   - : Der einzufügende String.
-- {{domxref("HTMLTextAreaElement.selectionStart", "selectionStart")}} {{optional_inline}}
-  - : Der Index des ersten ausgewählten Zeichens. Ein Index, der größer als die Länge des Wertes des Elements ist, wird als Verweis auf das Ende des Wertes behandelt.
-- {{domxref("HTMLTextAreaElement.selectionEnd", "selectionEnd")}} {{optional_inline}}
-  - : Der Index des Zeichens _nach_ dem zuletzt ausgewählten Zeichen. Ein Index, der größer als die Länge des Wertes des Elements ist, wird als Verweis auf das Ende des Wertes behandelt. Wenn `selectionEnd` kleiner als `selectionStart` ist, dann werden beide als Wert von `selectionEnd` behandelt.
+- [`selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart) {{optional_inline}}
+  - : Der Index des ersten ausgewählten Zeichens. Ein Index, der größer als die Länge des Wertes des Elements ist, wird behandelt, als ob er auf das Ende des Wertes zeigt.
+- [`selectionEnd`](/de/docs/Web/API/HTMLTextAreaElement/selectionEnd) {{optional_inline}}
+  - : Der Index des Zeichens _nach_ dem letzten ausgewählten Zeichen. Ein
+    Index, der größer als die Länge des Wertes des Elements ist, wird behandelt, als ob er auf das Ende des Wertes zeigt. Wenn `selectionEnd` kleiner als `selectionStart` ist, werden beide als der Wert von `selectionEnd` behandelt.
 - `selectMode` {{optional_inline}}
-  - : Ein Schlüsselwort, entweder `select`, `start`, `end` oder der Standard `preserve`, das definiert, wie die Auswahl gesetzt werden soll, nachdem der Text ersetzt wurde.
+  - : Ein Schlüsselwort, entweder `select`, `start`, `end` oder standardmäßig `preserve`, das definiert, wie die Auswahl eingestellt werden soll, nachdem der Text ersetzt wurde.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Klicken Sie auf die Schaltfläche in diesem Beispiel, um einen Teil des Textes im Textfeld zu ersetzen. Der neu eingefügte Text wird danach hervorgehoben (ausgewählt).
+Klicken Sie auf die Schaltfläche in diesem Beispiel, um einen Teil des Textes im Textfeld zu ersetzen. Der neu eingefügte Text wird anschließend hervorgehoben (ausgewählt).
 
 ### HTML
 
 ```html
-<label for="ta">Beispieltexteingabe:</label>
+<label for="ta">Example text input:</label>
 <textarea id="ta">
-  Dieser Text wurde NICHT aktualisiert.
+  This text has NOT been updated.
 </textarea>
-<button id="btn">Text aktualisieren</button>
+<button id="btn">Update text</button>
 ```
 
 ### JavaScript
@@ -85,9 +86,9 @@ function changeText() {
 ## Siehe auch
 
 - {{HTMLElement("textarea")}}
-- {{domxref("HTMLTextAreaElement")}}
-- {{domxref("HTMLTextAreaElement.select()")}}
-- {{domxref("HTMLTextAreaElement.setSelectionRange()")}}
-- {{domxref("HTMLTextAreaElement.textLength")}}
-- {{domxref("Selection")}}
+- [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)
+- [`HTMLTextAreaElement.select()`](/de/docs/Web/API/HTMLTextAreaElement/select)
+- [`HTMLTextAreaElement.setSelectionRange()`](/de/docs/Web/API/HTMLTextAreaElement/setSelectionRange)
+- [`HTMLTextAreaElement.textLength`](/de/docs/Web/API/HTMLTextAreaElement/textLength)
+- [`Selection`](/de/docs/Web/API/Selection)
 - {{cssxref("::selection")}} Pseudo-Element

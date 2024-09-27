@@ -8,9 +8,16 @@ l10n:
 
 {{ APIRef("IndexedDB") }}
 
-Die **`getAll()`**-Methode des {{domxref("IDBIndex")}}-Interfaces ruft alle Objekte ab, die sich im Index befinden.
+Die **`getAll()`**-Methode des [`IDBIndex`](/de/docs/Web/API/IDBIndex)
+Interfaces ruft alle Objekte ab, die sich im Index befinden.
 
-Es gibt einen Leistungseinbußen, wenn Sie die `value`-Eigenschaft eines Cursors betrachten, da das Objekt verzögert erstellt wird. Um eine Funktion wie `getAll()` zu verwenden, muss der Browser alle Objekte auf einmal erstellen. Wenn Sie sich nur dafür interessieren, jeden der Schlüssel zu betrachten, ist es effizienter, einen [Cursor](/de/docs/Web/API/IDBCursor) zu verwenden. Wenn Sie jedoch versuchen, ein Array aller Objekte in einem Objektspeicher zu erhalten, sollten Sie `getAll()` verwenden.
+Es gibt einen Leistungseinbruch, der mit der Betrachtung der `value`-Eigenschaft
+eines Cursors verbunden ist, da das Objekt verzögert erstellt wird. Um eine Funktion
+wie `getAll()` zu verwenden, muss der Browser alle Objekte auf einmal erstellen. Wenn Sie
+beispielsweise nur daran interessiert sind, sich alle Schlüssel anzusehen, ist es effizienter,
+einen [Cursor](/de/docs/Web/API/IDBCursor) zu verwenden. Wenn Sie jedoch versuchen, ein
+Array aller Objekte in einem Objekt speichern zu erhalten, sollten Sie
+`getAll()` verwenden.
 
 ## Syntax
 
@@ -23,26 +30,31 @@ getAll(query, count)
 ### Parameter
 
 - `query` {{optional_inline}}
-  - : Ein Schlüssel oder ein {{domxref("IDBKeyRange")}}, der die zu holenden Datensätze identifiziert. Wenn dieser Wert null oder nicht vorhanden ist, wird der Browser einen unbegrenzten Schlüsselbereich verwenden.
+  - : Ein Schlüssel oder ein [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange), der die abzurufenden Datensätze identifiziert. Wenn dieser
+    Wert null oder fehlt, verwendet der Browser einen ungebundenen Schlüsselbereich.
 - `count` {{optional_inline}}
-  - : Die Anzahl der zurückzugebenden Datensätze. Wenn dieser Wert die Anzahl der Datensätze in der Abfrage übersteigt, wird der Browser nur die abgefragten Datensätze abrufen. Wenn es niedriger als `0` oder größer als `2^32 - 1` ist, wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst.
+  - : Die Anzahl der zurückzugebenden Datensätze. Wenn dieser Wert die Anzahl der Datensätze
+    in der Abfrage übersteigt, ruft der Browser nur die angeforderten Datensätze ab. Wenn er unter
+    `0` oder größer als `2^32 - 1` ist, wird eine {{jsxref("TypeError")}}
+    Ausnahme ausgelöst.
 
 ### Rückgabewert
 
-Ein {{domxref("IDBRequest")}}-Objekt, auf dem nachfolgende Ereignisse im Zusammenhang mit dieser Operation ausgelöst werden.
+Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, auf dem nachfolgende Ereignisse in Bezug auf diese Operation ausgelöst werden.
 
-Wenn die Operation erfolgreich ist, ist der Wert der {{domxref("IDBRequest.result", "result")}}-Eigenschaft der Anfrage ein {{jsxref("Array")}} der Werte aller Datensätze, die mit der gegebenen Abfrage übereinstimmen, bis zum Wert von `count`, falls `count` angegeben wurde.
+Wenn die Operation erfolgreich ist, ist der Wert der `result`-Eigenschaft des Antrags ein {{jsxref("Array")}} der Werte aller Datensätze, die die gegebene Abfrage erfüllen, bis zum Wert von `count`, wenn `count` angegeben wurde.
 
 ### Ausnahmen
 
-Diese Methode kann eine {{domxref("DOMException")}} von folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
 
-- `TransactionInactiveError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Transaktion dieses {{domxref("IDBIndex")}} nicht aktiv ist.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{domxref("IDBIndex")}} gelöscht oder entfernt wurde.
+- `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Transaktion dieses [`IDBIndex`](/de/docs/Web/API/IDBIndex) nicht aktiv ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der [`IDBIndex`](/de/docs/Web/API/IDBIndex) gelöscht oder entfernt wurde.
 
-Eine {{jsxref("TypeError")}}-Ausnahme wird ausgelöst, wenn sich der `count`-Parameter nicht zwischen `0` und `2^32 - 1` (einschließlich) befindet.
+Eine {{jsxref("TypeError")}}-Ausnahme wird ausgelöst, wenn der `count`-Parameter
+nicht zwischen `0` und `2^32 - 1` liegt.
 
 ## Beispiele
 
@@ -65,9 +77,9 @@ getAllRequest.onsuccess = () => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Schlüsselbereichs: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursorn: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

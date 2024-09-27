@@ -1,6 +1,6 @@
 ---
-title: "Fenster: Caches-Eigenschaft"
-short-title: Caches
+title: "Window: caches-Eigenschaft"
+short-title: caches
 slug: Web/API/Window/caches
 l10n:
   sourceCommit: 2e327846966abb10de0b1c9bedc584caab71ec97
@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{securecontext_header}}
 
-Die **`caches`** schreibgeschützte Eigenschaft der {{domxref("Window")}}-Schnittstelle gibt das {{domxref("CacheStorage")}}-Objekt zurück, das mit dem aktuellen Kontext verbunden ist. Dieses Objekt ermöglicht Funktionen wie das Speichern von Ressourcen für die Offline-Nutzung und das Erzeugen benutzerdefinierter Antworten auf Anfragen.
+Die **`caches`** schreibgeschützte Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt das [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt zurück, das mit dem aktuellen Kontext verknüpft ist.
+Dieses Objekt ermöglicht Funktionen wie das Speichern von Assets für die Offline-Nutzung und das Erstellen benutzerdefinierter Antworten auf Anfragen.
 
 ## Wert
 
-Ein {{domxref("CacheStorage")}}-Objekt.
+Ein [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt.
 
 ## Beispiele
 
@@ -35,5 +36,5 @@ window.caches.open("v1").then((cache) => {
 ## Siehe auch
 
 - [Service Workers](/de/docs/Web/API/Service_Worker_API)
-- {{domxref("CacheStorage")}}
-- {{domxref("Cache")}}
+- [`CacheStorage`](/de/docs/Web/API/CacheStorage)
+- [`Cache`](/de/docs/Web/API/Cache)

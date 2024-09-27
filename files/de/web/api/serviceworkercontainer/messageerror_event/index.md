@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerContainer: messageerror-Ereignis"
+title: "ServiceWorkerContainer: messageerror Ereignis"
 short-title: messageerror
 slug: Web/API/ServiceWorkerContainer/messageerror_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`messageerror`**-Ereignis wird an das {{domxref("ServiceWorkerContainer")}} ausgelöst, wenn eine eingehende Nachricht, die an den zugehörigen Worker gesendet wird, nicht deserialisiert werden kann.
+Das **`messageerror`** Ereignis wird an das [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer) ausgelöst, wenn eine eingehende Nachricht, die an den zugeordneten `worker` gesendet wird, nicht deserialisiert werden kann.
 
-Dieses Ereignis ist nicht abbruchs- und nicht aufblasbar.
+Dieses Ereignis kann nicht abgebrochen werden und blubbert nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener()", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("messageerror", (event) => {});
@@ -24,28 +24,28 @@ onmessageerror = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("MessageEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MessageEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternobjekt, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("MessageEvent.data")}} {{ReadOnlyInline}}
+- [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
   - : Die vom Nachrichtensender gesendeten Daten.
-- {{domxref("MessageEvent.origin")}} {{ReadOnlyInline}}
+- [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
   - : Ein String, der den Ursprung des Nachrichtensenders darstellt.
-- {{domxref("MessageEvent.lastEventId")}} {{ReadOnlyInline}}
+- [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
-- {{domxref("MessageEvent.source")}} {{ReadOnlyInline}}
-  - : Ein `MessageEventSource` (das ein {{glossary("WindowProxy")}}, {{domxref("MessagePort")}}, oder {{domxref("ServiceWorker")}}-Objekt sein kann), das den Nachrichtensender darstellt.
-- {{domxref("MessageEvent.ports")}} {{ReadOnlyInline}}
-  - : Ein Array von {{domxref("MessagePort")}}-Objekten, die die mit dem Kanal verbundenen Ports darstellen, über den die Nachricht gesendet wird (wo es angemessen ist, z. B. bei Kanalnachrichten oder beim Senden einer Nachricht an einen Shared Worker).
+- [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
+  - : Eine `MessageEventSource` (die ein [WindowProxy](/de/docs/Glossary/WindowProxy), [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) Objekt sein kann), die den Nachrichtensender darstellt.
+- [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort) Objekten, das die mit dem Kanal assoziierten Ports darstellt, durch den die Nachricht gesendet wird (wo zutreffend, z. B. im Kanalnachrichtenverkehr oder beim Senden einer Nachricht an einen gemeinsamen `Worker`).
 
 ## Beispiele
 
-In diesem Beispiel erhält der Service Worker die Client-ID von einem {{domxref("ServiceWorkerGlobalScope/fetch_event", "fetch")}}-Ereignis und sendet ihm dann eine Nachricht mit {{domxref("Client.postMessage")}}:
+In diesem Beispiel erhält der Service Worker die ID des Clients von einem [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event) Ereignis und sendet ihm dann eine Nachricht mit [`Client.postMessage`](/de/docs/Web/API/Client/postMessage):
 
 ```js
 // service-worker.js
@@ -62,21 +62,21 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-Der Service Worker kann den Deserialisierungsfehler der Nachricht durch Lauschen des `messageerror`-Ereignisses erkennen:
+Der `Service Worker` kann auf den Fehler bei der Nachrichten-Deserialisierung lauschen, indem er das `messageerror` Ereignis abhört:
 
 ```js
 // main.js
 navigator.serviceWorker.addEventListener("messageerror", (event) => {
-  console.error("Empfang der Nachricht vom Service Worker fehlgeschlagen!");
+  console.error("Receive message from service worker failed!");
 });
 ```
 
-Alternativ kann das Skript den Deserialisierungsfehler der Nachricht mit `onmessageerror` erkennen:
+Alternativ kann das Skript den Fehler bei der Nachrichten-Deserialisierung mit `onmessageerror` abhören:
 
 ```js
 // main.js
 navigator.serviceWorker.onmessageerror = (event) => {
-  console.error("Empfang der Nachricht vom Service Worker fehlgeschlagen!");
+  console.error("Receive message from service worker failed!");
 };
 ```
 
@@ -90,8 +90,8 @@ navigator.serviceWorker.onmessageerror = (event) => {
 
 ## Siehe auch
 
-- {{domxref("ServiceWorkerContainer/message_event", "message")}}
-- {{domxref("Client.postMessage()")}}
-- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Codebeispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Verwendung von Web Workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [`message`](/de/docs/Web/API/ServiceWorkerContainer/message_event)
+- [`Client.postMessage()`](/de/docs/Web/API/Client/postMessage)
+- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Service Worker Basis-Codebeispiel](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

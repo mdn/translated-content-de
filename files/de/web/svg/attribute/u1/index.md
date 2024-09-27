@@ -7,18 +7,18 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`u1`**-Attribut gibt eine Liste von {{Glossary("Unicode")}}-Zeichen an (siehe die Beschreibung des {{SVGAttr("unicode")}}-Attributs des {{SVGElement("glyph")}}-Elements, um zu erfahren, wie einzelne Unicode-Zeichen ausgedrückt werden) und/oder Bereiche von Unicode-Zeichen, die eine Menge von möglichen ersten {{Glossary("glyph")}} in einem Kearning-Paar festlegen.
+Das **`u1`** Attribut spezifiziert eine Liste von [Unicode](/de/docs/Glossary/Unicode)-Zeichen (verweisen Sie auf die Beschreibung des {{SVGAttr("unicode")}} Attributs des {{SVGElement("glyph")}} Elements für eine Beschreibung, wie einzelne Unicode-Zeichen ausgedrückt werden) und/oder Bereiche von Unicode-Zeichen, die eine Menge von möglichen ersten [glyph](/de/docs/Glossary/glyph) in einem Kerning-Paar identifizieren.
 
-Wenn ein bestimmtes Unicode-Zeichen innerhalb der Menge mehrere entsprechende `<glyph>`-Elemente hat (d. h., es gibt mehrere `<glyph>`-Elemente mit demselben `unicode`-Attributwert, aber unterschiedlichen {{SVGAttr("glyph-name")}}-Werten), dann sind alle diese Glyphen in der Menge enthalten. Das Trennzeichen ist das Komma; um ein Komma zu kernieren, geben Sie das Komma als Teil eines Bereichs von Unicode-Zeichen oder als Glyphenname mit dem {{SVGAttr("g1")}}-Attribut an. Die Gesamtheit möglicher erster Glyphen in dem Kearning-Paar ist die Vereinigung der durch die `u1`- und `g1`-Attribute angegebenen Glyphen.
+Wenn ein gegebenes Unicode-Zeichen innerhalb der Menge mehrere entsprechende `<glyph>` Elemente hat (d.h. es gibt mehrere `<glyph>` Elemente mit demselben `unicode` Attributwert, aber unterschiedlichen {{SVGAttr("glyph-name")}} Werten), dann werden alle solche glyphs in die Menge aufgenommen. Ein Komma ist das Trennzeichen; daher, um ein Komma zu kerneln, spezifizieren Sie das Komma als Teil eines Bereichs von Unicode-Zeichen oder als glyph-Name unter Verwendung des {{SVGAttr("g1")}} Attributs. Die gesamte Menge der möglichen ersten glyphs in dem Kerning-Paar ist die Vereinigung von glyphs, die durch die `u1` und `g1` Attribute spezifiziert werden.
 
 ## Elemente
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("hkern")}}
 - {{SVGElement("vkern")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -37,17 +37,17 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>No</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
 
 - `[ <character> | <urange> ]#`
-  - : Dieser Wert gibt eine durch Kommas getrennte Sequenz von Unicode-Zeichen und/oder Bereichen von Unicode-Zeichen an, die eine Menge von möglichen ersten Glyphen in einem Kearning-Paar bestimmen.
+  - : Dieser Wert gibt eine kommagetrennte Sequenz von Unicode-Zeichen und/oder Bereichen von Unicode-Zeichen an, die eine Menge von möglichen ersten glyphs in einem Kerning-Paar identifizieren.
 
 ## Spezifikationen
 

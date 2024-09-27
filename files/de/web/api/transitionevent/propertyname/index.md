@@ -8,7 +8,7 @@ l10n:
 
 {{ apiref("CSSOM") }}
 
-Die schreibgeschützte **`propertyName`**-Eigenschaft von {{domxref("TransitionEvent")}}-Objekten ist ein String, der den Namen der CSS-Eigenschaft enthält, die mit der Transition verbunden ist.
+Die **`propertyName`** schreibgeschützte Eigenschaft von [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)-Objekten ist ein String, der den Namen der mit der Transition verbundenen CSS-Eigenschaft enthält.
 
 ## Wert
 
@@ -24,4 +24,4 @@ Ein String.
 
 ## Siehe auch
 
-- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [Verwendung von CSS-Transitions](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)

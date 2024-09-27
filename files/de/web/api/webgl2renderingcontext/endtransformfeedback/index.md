@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode endTransformFeedback()"
+title: "WebGL2RenderingContext: endTransformFeedback()-Methode"
 short-title: endTransformFeedback()
 slug: Web/API/WebGL2RenderingContext/endTransformFeedback
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.endTransformFeedback()`**-Methode
-der [WebGL 2 API](/de/docs/Web/API/WebGL_API) beendet eine Transform-Feedback-Operation.
+Die **`WebGL2RenderingContext.endTransformFeedback()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) beendet eine Transform-Feedback-Operation.
 
 ## Syntax
 
@@ -45,4 +44,4 @@ gl.endTransformFeedback();
 
 ## Siehe auch
 
-- {{domxref("WebGLTransformFeedback")}}
+- [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)

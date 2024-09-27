@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Das **`<font-face-name>`**-Element verweist auf eine lokal installierte Kopie dieser Schriftart, identifiziert durch ihren Namen.
+Das **`<font-face-name>`**-Element verweist auf eine lokal installierte Kopie dieser Schriftart, die durch ihren Namen identifiziert wird.
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -19,7 +19,7 @@ Das **`<font-face-name>`**-Element verweist auf eine lokal installierte Kopie di
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFontFaceNameElement")}}-Schnittstelle.
+Dieses Element implementiert die [`SVGFontFaceNameElement`](/de/docs/Web/API/SVGFontFaceNameElement)-Schnittstelle.
 
 ## Spezifikationen
 
@@ -32,4 +32,4 @@ Dieses Element implementiert die {{domxref("SVGFontFaceNameElement")}}-Schnittst
 ## Siehe auch
 
 - {{SVGElement("font-face-src")}}
-- [SVG-Tutorial: SVG-Schriftarten](/de/docs/Web/SVG/Tutorial/SVG_fonts)
+- [SVG-Leitfaden: SVG fonts](/de/docs/Web/SVG/Tutorial/SVG_fonts)

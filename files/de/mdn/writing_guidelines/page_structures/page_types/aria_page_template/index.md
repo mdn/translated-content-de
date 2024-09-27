@@ -1,5 +1,5 @@
 ---
-title: ARIA-Seitenschablone
+title: ARIA-Seitenvorlage
 slug: MDN/Writing_guidelines/Page_structures/Page_types/ARIA_Page_Template
 l10n:
   sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
@@ -7,121 +7,121 @@ l10n:
 
 {{MDNSidebar}}
 
-## Seitenmetadaten
+## Seiteneigenschaften
 
 ### Titel und Slug
 
-Eine ARIA-Rollen-Seite sollte einen `title` und `slug` im Format `ARIA: Name Of The Role` haben. Zum Beispiel hat die [Schaltflächenrolle](/de/docs/Web/Accessibility/ARIA/Roles/button_role) einen `title` und `slug` von `ARIA/NameOfTheRole_role` und das [aria-labelledby](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) Attribut hat einen `title` von `aria-labelledby`.
+Eine ARIA-Rollen-Seite sollte einen `title` und `slug` von `ARIA: Name Der Rolle` haben. Zum Beispiel hat die [Button-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/button_role) einen `title` und `slug` von `ARIA/NameOfTheRole_role` und das Attribut [aria-labelledby](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) hat einen `title` von `aria-labelledby`.
 
 ### Obere Makros
 
-Eine Anzahl von Makroaufrufen erscheint am Anfang des Inhaltsabschnitts. Sie sollten diese aktualisieren oder löschen, gemäß der folgenden Empfehlungen:
+Eine Reihe von Makro-Aufrufen erscheinen oben im Inhaltsbereich. Sie sollten diese gemäß dem unten stehenden Rat aktualisieren oder löschen:
 
-- \\{{ariaref}} — erzeugt eine geeignete ARIA-Seitenleiste, abhängig davon, welche Tags auf der Seite enthalten sind.
+- \\{{ariaref}}—generiert eine passende ARIA-Seitenleiste, abhängig davon, welche Tags auf der Seite enthalten sind.
 
 ### Status
 
-Fügen Sie keine Status-Schlüssel manuell hinzu oder bearbeiten Sie diese.
-Um den (angemessenen) Funktionsstatusschlüssel einzubeziehen — [**experimentell**](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental), [**veraltet**](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) oder **nicht standardisiert** — lesen Sie den Abschnitt ["Wie man Funktionsstatus hinzufügt oder aktualisiert"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses).
+Fügen Sie keine Statusschlüssel manuell hinzu oder bearbeiten Sie diese.
+Um den (passenden) Feature-Status-Schlüssel einzuschließen — [**experimentell**](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental), [**veraltet**](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) oder **nicht standardisiert** — siehe den Abschnitt ["Wie man Feature-Status hinzufügt oder aktualisiert"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses).
 
 ### Spezifikationen
 
-Aktualisieren Sie im Wert des Metadaten-Schlüssels `spec_urls` die URLs, um zu den Fragment-IDs für die korrekten Abschnitte aus den folgenden Spezifikationen zu verweisen:
+Im Wert des `spec_urls` Vorderseiten-Metadatenschlüssels die URLs aktualisieren, um auf die Fragment-IDs für die richtigen Abschnitte der folgenden Spezifikationen zu verweisen:
 
 - [ARIA](https://w3c.github.io/aria/)
 - [ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
 
-Zusätzliche Ressourcen:
+Weitere Ressourcen:
 
 - [Accessibility Object Model](https://wicg.github.io/aom/spec/)
 - [ARIA in HTML](https://w3c.github.io/html-aria/)
 
-## Seitenschablone
+## Seitenvorlage
 
-Der Zusammenfassungsabsatz – beginnen Sie mit der Nennung der Rolle oder des Attributs und geben Sie an, was es tut. Idealerweise sollte dies ein oder zwei kurze Sätze sein. Dieser Inhalt erscheint als Tooltip auf Links zu dieser Seite, also gestalten Sie ihn gut.
+Der Zusammenfassungsabsatz—beginnen Sie mit der Benennung der Rolle oder des Attributs und erläutern Sie, was es bewirkt. Dies sollte idealerweise ein oder zwei kurze Sätze sein. Dieser Inhalt erscheint als Tooltip auf Links zu dieser Seite, also formulieren Sie ihn gut.
 
 ```html
-<!-- Beispiel-Codeblock, der häufige Anwendungsfälle zeigt -->
+<!-- Insert code block showing common use cases -->
 ```
 
-(Optional) Eine kurze Beschreibung des vorhergehenden Beispiels einfügen.
+(Optional) Eine kurze Beschreibung des vorangehenden Beispiels einfügen.
 
 ## Beschreibung
 
 Fügen Sie eine vollständige Beschreibung des Attributs oder der Rolle ein.
 
-### Zugehörige ARIA-Rollen, -Zustände und -Eigenschaften
+### Zugehörige ARIA-Rollen, Zustände und Eigenschaften
 
 - Name der zugehörigen Rollen
-  - : Erläuterung der Anforderung, Verweis auf Funktionsseiten.
-- Name des/der zugehörigen Attribute(s)
-  - : Erläuterung der Anforderung, Verweis auf Attributseiten, zusammen mit Verweis auf erforderliches JS zur Änderung des Wertes, falls zutreffend.
+  - : Erklärung der Anforderung, Link zu den Feature-Seiten.
+- Name der zugehörigen Attribute
+  - : Erklärung der Anforderung, Link zu den Attributseiten, zusammen mit einem Link zu dem erforderlichen JavaScript, um den Wert zu ändern, falls zutreffend.
 
 ### Tastaturinteraktionen
 
 ### Erforderliche JavaScript-Funktionen
 
-- Erforderliche Ereignishandler
-  - : Erläuterung jedes einzelnen
-- Ändernde Attributwerte
-  - : Erläuterung jedes einzelnen
+- Erforderliche Ereignis-Handler
+  - : Erklärung jedes einzelnen
+- Änderung von Attributwerten
+  - : Erklärung jedes einzelnen
 
 > [!NOTE]
-> Fügen Sie eine Notiz über semantische Alternativen zur Verwendung dieser Rolle oder dieses Attributs ein. Die erste Regel der ARIA-Nutzung besagt, dass Sie, wenn Sie eine native Funktion mit den bereits eingebauten Semantiken und dem Verhalten verwenden können, anstatt ein Element neu zu nutzen und **eine** ARIA-Rolle, -Zustand oder -Eigenschaft hinzuzufügen, um es zugänglich zu machen, dies tun sollten. Veröffentlichen Sie dann die vollständigen Details im folgenden Abschnitt über Best Practices.
+> Fügen Sie eine Notiz über semantische Alternativen zur Verwendung dieser Rolle oder dieses Attributs hinzu. Die erste Regel der ARIA-Nutzung ist: Wenn Sie ein natives Feature mit den Semantiken und dem benötigten Verhalten bereits eingebaut verwenden können, anstatt ein Element umzufunktionieren und **ein ARIA-Rolle, -Zustand oder -Eigenschaft hinzuzufügen**, um es zugänglich zu machen, dann tun Sie dies. Dann veröffentlichen Sie vollständige Details im Abschnitt über bewährte Praktiken unten.
 
 ## Beispiele
 
-Beachten Sie, dass wir den Plural "Examples" verwenden, auch wenn die Seite nur ein Beispiel enthält.
+Beachten Sie, dass wir den Plural "Beispiele" verwenden, selbst wenn die Seite nur ein Beispiel enthält.
 
 ### Eine beschreibende Überschrift
 
-Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreibend sein, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
+Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
 
-Siehe unser Handbuch, wie [Code-Beispiele hinzugefügt werden können](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
+Siehe unseren Leitfaden, wie man [Codebeispiele hinzufügt](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
 
 > [!NOTE]
-> Manchmal möchten Sie auf Beispiele auf einer anderen Seite verweisen.
+> Manchmal möchten Sie auf Beispiele verlinken, die auf einer anderen Seite gegeben sind.
 >
 > **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und einige weitere Beispiele auf einer anderen Seite haben:
 >
-> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite hinzu und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter dem Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
+> Fügen Sie für jedes Beispiel auf dieser Seite eine H3-Überschrift (`###`) hinzu und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter der Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
 >
 > ```md
-> ## Examples
+> ## Beispiele
 >
-> ### Using the fetch API
+> ### Verwenden der fetch API
 >
-> Beispiel des Fetch
+> Beispiel von Fetch
 >
-> ### More examples
+> ### Weitere Beispiele
 >
 > Links zu weiteren Beispielen auf anderen Seiten
 > ```
 >
 > **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite und keine auf dieser Seite haben:
 >
-> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Examples" hinzu. Zum Beispiel:
+> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
 >
 > ```md
-> ## Examples
+> ## Beispiele
 >
-> Für Beispiele zu dieser API, siehe [die Seite über fetch()](https://example.org/).
+> Für Beispiele zu dieser API siehe [die Seite über fetch()](https://example.org/).
 > ```
 
 ## Barrierefreiheitsbedenken
 
-Warnen Sie optional vor möglichen Barrierefreiheitsbedenken, die mit der Verwendung dieser Eigenschaft einhergehen, und wie Sie diese umgehen können. Entfernen Sie diesen Abschnitt, wenn keine aufzulisten sind.
+Optional warnen Sie vor möglichen Barrierefreiheitsproblemen, die bei der Verwendung dieser Eigenschaft auftreten können, und geben Sie Lösungen an. Entfernen Sie diesen Abschnitt, wenn es keine zu erwähnen gibt.
 
-## Best Practices
+## Bewährte Praktiken
 
-Listen Sie optional alle Best Practices auf, die für diese Rolle existieren. Entfernen Sie den Abschnitt, wenn keine vorhanden sind.
+Optional führen Sie alle bewährten Praktiken auf, die für diese Rolle existieren. Entfernen Sie den Abschnitt, wenn keine existieren.
 
 ### Zusätzliche Vorteile
 
 - Zugehörige Rolle
-  - : Wenn diese Rolle ein erforderlicher Elternteil, ein Kind oder ein Geschwisterteil ist und was sie tut.
+  - : Wenn diese Rolle ein erforderlicher übergeordneter, untergeordneter oder gleichgeordneter ist und was sie bewirkt.
 
-Weitere Vorteile, die diese Funktion für nicht typische Screenreader-Benutzer, wie Google oder mobile Spracherkennung, hat.
+Jeder zusätzliche Nutzen, den diese Funktion für nicht-typische Screenreader-Nutzer bietet, wie Google oder mobile Sprachsteuerung.
 
 ## Spezifikationen
 
@@ -129,15 +129,15 @@ Weitere Vorteile, die diese Funktion für nicht typische Screenreader-Benutzer, 
 
 _Erinnern Sie sich daran, die Backticks und den Backslash zu entfernen, um dieses Makro zu verwenden._
 
-## Reihenfolge der Vorrangigkeit
+## Vorrangsreihenfolge
 
-Welche sind die verwandten Eigenschaften, und in welcher Reihenfolge wird dieses Attribut oder diese Eigenschaft gelesen (welche Eigenschaft wird Vorrang haben vor dieser und welche Eigenschaft wird überschrieben).
+Was sind die verwandten Eigenschaften und in welcher Reihenfolge wird dieses Attribut oder diese Eigenschaft gelesen (welche Eigenschaft hat Vorrang vor dieser und welche Eigenschaft wird überschrieben.)
 
-## Screenreader-Unterstützung
+## Unterstützung durch Screenreader
 
 ## Siehe auch
 
-Fügen Sie Links zu Referenzseiten und Anleitungen hinzu, die sich auf die aktuelle Rolle oder das aktuelle Attribut beziehen. Für weitere Richtlinien siehe den [Siehe auch Abschnitt](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Writing style guide_.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf die aktuelle Rolle oder das aktuelle Attribut beziehen. Weitere Richtlinien finden Sie im Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Leitfaden für den Schreibstil_.
 
 - link1
 - link2

@@ -26,22 +26,22 @@ browser.webRequest.onResponseStarted.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener, filter, extraInfoSpec)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören bei diesem Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener Syntax
+## Syntax von addListener
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `details`
-      - : `object`. Details zur Anfrage. Siehe den Abschnitt [Details](#details_2) für weitere Informationen.
+      - : `object`. Details über die Anfrage. Siehe den [Abschnitt details](#details_2) für weitere Informationen.
 
 - `filter`
   - : {{WebExtAPIRef('webRequest.RequestFilter')}}. Ein Filter, der die Ereignisse einschränkt, die an diesen Listener gesendet werden.
@@ -49,37 +49,37 @@ Ereignisse haben drei Funktionen:
 
   - : `array` von `string`. Zusätzliche Optionen für das Ereignis. Sie können nur einen Wert übergeben:
 
-    - `"responseHeaders"`: Einschluss der `responseHeaders` im `details`-Objekt, das an den Listener übergeben wird.
+    - `"responseHeaders"`: Einschließen von `responseHeaders` im `details`-Objekt, das an den Listener übergeben wird
 
 ## Zusätzliche Objekte
 
-### Details
+### details
 
 - `cookieStoreId`
-  - : `string`. Wenn die Anfrage von einem Tab stammt, der in einer kontextuellen Identität geöffnet ist, die Cookie-Store-ID der kontextuellen Identität. Siehe [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities) für weitere Informationen.
+  - : `string`. Wenn die Anfrage von einem Tab in einer kontextuellen Identität stammt, die ID des Cookie-Stores der kontextuellen Identität. Weitere Informationen finden Sie unter [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
 - `documentUrl`
-  - : `string`. URL des Dokuments, in dem die Ressource geladen wird. Zum Beispiel, wenn die Webseite bei "https\://example.com" ein Bild oder ein iFrame enthält, dann ist die `documentUrl` für das Bild oder den iFrame "https\://example.com". Für ein Dokument auf oberster Ebene ist `documentUrl` undefiniert.
+  - : `string`. URL des Dokuments, in dem die Ressource geladen wird. Wenn z. B. die Webseite unter "https\://example.com" ein Bild oder ein iframe enthält, dann ist die `documentUrl` für das Bild oder iframe "https\://example.com". Für ein Top-Level-Dokument ist `documentUrl` undefiniert.
 - `frameId`
-  - : `integer`. Null, wenn die Anfrage im Hauptframe erfolgt; ein positiver Wert ist die ID eines Unterrahmens, in dem die Anfrage erfolgt. Wenn das Dokument eines (Unter-)Rahmens geladen wird (`type` ist `main_frame` oder `sub_frame`), zeigt `frameId` die ID dieses Rahmens an, nicht die ID des äußeren Rahmens. Frame-IDs sind innerhalb eines Tabs eindeutig.
+  - : `integer`. Null, wenn die Anfrage im Hauptframe erfolgt; ein positiver Wert ist die ID eines Unterframes, in dem die Anfrage erfolgt. Wenn das Dokument eines (Unter-)Frames geladen wird (`type` ist `main_frame` oder `sub_frame`), zeigt `frameId` die ID dieses Frames an, nicht die ID des äußeren Frames. Frame-IDs sind innerhalb eines Tabs eindeutig.
 - `fromCache`
-  - : `boolean`. Gibt an, ob diese Antwort aus dem Festplattencache abgerufen wurde.
+  - : `boolean`. Zeigt an, ob diese Antwort aus dem Festplattencache abgerufen wurde.
 - `incognito`
   - : `boolean`. Ob die Anfrage aus einem privaten Browserfenster stammt.
 - `ip`
-  - : `string`. Die IP-Adresse des Servers, an den die Anfrage gesendet wurde. Es kann sich um eine wörtliche IPv6-Adresse handeln.
+  - : `string`. Die IP-Adresse des Servers, an den die Anfrage gesendet wurde. Es kann sich um eine buchstäbliche IPv6-Adresse handeln.
 - `method`
-  - : `string`. Standard HTTP-Methode: zum Beispiel "GET" oder "POST".
+  - : `string`. Standard-HTTP-Methode: z. B. "GET" oder "POST".
 - `originUrl`
 
-  - : `string`. URL der Ressource, die die Anfrage ausgelöst hat. Zum Beispiel, wenn "https\://example.com" einen Link enthält und der Benutzer auf den Link klickt, dann ist die `originUrl` für die resultierende Anfrage "https\://example.com".
+  - : `string`. URL der Ressource, die die Anfrage ausgelöst hat. Wenn z. B. "https\://example.com" einen Link enthält und der Benutzer auf den Link klickt, ist die `originUrl` für die resultierende Anfrage "https\://example.com".
 
-    Die `originUrl` ist oft, aber nicht immer dieselbe wie die `documentUrl`. Zum Beispiel, wenn eine Seite ein iFrame enthält und das iFrame einen Link enthält, der ein neues Dokument in das iFrame lädt, dann ist die `documentUrl` für die resultierende Anfrage das übergeordnete Dokument des iFrames, aber die `originUrl` ist die URL des Dokuments im iFrame, das den Link enthielt.
+    Die `originUrl` ist oft identisch mit der `documentUrl`, jedoch nicht immer. Wenn eine Seite z. B. ein iframe enthält und das iframe einen Link enthält, der ein neues Dokument in das iframe lädt, wird die `documentUrl` für die resultierende Anfrage das übergeordnete Dokument des iframes sein, aber die `originUrl` wird die URL des Dokuments im iframe sein, das den Link enthielt.
 
 - `parentFrameId`
-  - : `integer`. ID des Rahmens, der den Rahmen enthält, der die Anfrage gesendet hat. Wird auf -1 gesetzt, wenn kein übergeordneter Rahmen existiert.
+  - : `integer`. ID des Frames, der den Frame enthält, der die Anfrage gesendet hat. Wird auf -1 gesetzt, wenn kein Eltern-Frame existiert.
 - `proxyInfo`
 
-  - : `object`. Diese Eigenschaft ist nur vorhanden, wenn die Anfrage über einen Proxy gestellt wird. Sie enthält die folgenden Eigenschaften:
+  - : `object`. Diese Eigenschaft ist nur vorhanden, wenn die Anfrage über einen Proxy läuft. Sie enthält die folgenden Eigenschaften:
 
     - `host`
       - : `string`. Der Hostname des Proxy-Servers.
@@ -99,47 +99,47 @@ Ereignisse haben drei Funktionen:
     - `username`
       - : `string`. Benutzername für den Proxy-Dienst.
     - `proxyDNS`
-      - : `boolean`. True, wenn der Proxy die Namensauflösung basierend auf dem angegebenen Hostnamen durchführen wird, was bedeutet, dass der Client keine eigene DNS-Suche durchführen sollte.
+      - : `boolean`. Wahr, wenn der Proxy die DNS-Auflösung basierend auf dem angegebenen Hostnamen durchführt, das bedeutet, dass der Client seine eigene DNS-Auflösung nicht durchführen sollte.
     - `failoverTimeout`
       - : `integer`. Failover-Timeout in Sekunden. Wenn die Proxy-Verbindung fehlschlägt, wird der Proxy für diesen Zeitraum nicht mehr verwendet.
 
 - `requestId`
-  - : `string`. Die ID der Anfrage. Anfragen-IDs sind innerhalb einer Browser-Sitzung eindeutig, sodass Sie sie verwenden können, um verschiedene Ereignisse, die mit derselben Anfrage verbunden sind, zu verknüpfen.
+  - : `string`. Die ID der Anfrage. Anfrage-IDs sind innerhalb einer Browsersitzung eindeutig, sodass Sie sie verwenden können, um verschiedene Ereignisse zu verknüpfen, die mit derselben Anfrage verbunden sind.
 - `responseHeaders` {{optional_inline}}
-  - : {{WebExtAPIRef('webRequest.HttpHeaders')}}. Die HTTP-Antwort-Header, die zusammen mit dieser Antwort empfangen wurden.
+  - : {{WebExtAPIRef('webRequest.HttpHeaders')}}. Die HTTP-Antwortheader, die zusammen mit dieser Antwort empfangen wurden.
 - `statusCode`
-  - : `integer`. Standard HTTP-Statuscode, der vom Server zurückgegeben wird.
+  - : `integer`. Standard-HTTP-Statuscode, der vom Server zurückgegeben wird.
 - `statusLine`
-  - : `string`. HTTP-Statuszeile der Antwort oder der String 'HTTP/0.9 200 OK' für HTTP/0.9-Antworten (d.h. Antworten ohne Statuszeile) oder ein leerer String, wenn keine Header vorhanden sind.
+  - : `string`. HTTP-Statuszeile der Antwort oder die Zeichenkette 'HTTP/0.9 200 OK' für HTTP/0.9-Antworten (d. h. Antworten, denen eine Statuszeile fehlt) oder eine leere Zeichenkette, wenn keine Header vorhanden sind.
 - `tabId`
-  - : `integer`. Die ID des Tabs, in dem die Anfrage stattfindet. Wird auf -1 gesetzt, wenn die Anfrage nicht zu einem Tab gehört.
+  - : `integer`. Die ID des Tabs, in dem die Anfrage stattfindet. Wird auf -1 gesetzt, wenn die Anfrage nicht mit einem Tab verknüpft ist.
 - `thirdParty`
-  - : `boolean`. Gibt an, ob die Anfrage und ihre Inhaltsfensterhierarchie von Drittanbietern stammen.
+  - : `boolean`. Zeigt an, ob die Anfrage und ihre Inhaltsfenster-Hierarchie von Drittanbietern stammt.
 - `timeStamp`
-  - : `number`. Der Zeitpunkt, zu dem dieses Ereignis ausgelöst wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+  - : `number`. Die Zeit, zu der dieses Ereignis ausgelöst wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
 - `type`
   - : {{WebExtAPIRef('webRequest.ResourceType')}}. Der Typ der angeforderten Ressource: zum Beispiel "image", "script", "stylesheet".
 - `url`
   - : `string`. Ziel der Anfrage.
 - `urlClassification`
 
-  - : `object`. Die Art des Trackings, die mit der Anfrage verbunden ist, wenn die Anfrage von der [Firefox Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) klassifiziert wird. Dies ist ein Objekt mit diesen Eigenschaften:
+  - : `object`. Der Typ der Verfolgung, der mit der Anfrage verbunden ist, wenn die Anfrage durch [Firefox Tracking-Schutz](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) klassifiziert wird. Dies ist ein Objekt mit diesen Eigenschaften:
 
     - `firstParty`
-      - : `array` von `strings`. Klassifikationskennzeichen für den Erstparteien der Anfrage.
+      - : `array` von `strings`. Klassifikationsflags für die erste Partei der Anfrage.
     - `thirdParty`
-      - : `array` von `strings`. Klassifikationskennzeichen für Drittanbieter der Anfrage oder ihrer Fensterhierarchie.
+      - : `array` von `strings`. Klassifikationsflags für die Dritten in der Anfrage oder deren Fensterhierarchie.
 
-    Die Klassifikationskennzeichen beinhalten:
+    Die Klassifikationsflags umfassen:
 
-    - `fingerprinting` und `fingerprinting_content`: gibt an, dass die Anfrage an Fingerprinting beteiligt ist ("eine Quelle, die Fingerprinting betreibt").
-      - `fingerprinting` gibt an, dass die Domain in der Kategorie Fingerprinting und Tracking liegt. Beispiele für diese Art von Domain sind Werbetreibende, die ein Profil mit dem besuchenden Benutzer verknüpfen möchten.
-      - `fingerprinting_content` gibt an, dass die Domain in der Kategorie Fingerprinting, aber nicht in der Kategorie Tracking liegt. Beispiele für diese Art von Domain sind Zahlungsdienstleister, die Fingerprinting-Techniken verwenden, um den besuchenden Benutzer zu Identifikationszwecken gegen Betrug zu identifizieren.
-    - `cryptomining` und `cryptomining_content`: ähnlich wie die Fingerprinting-Kategorie, aber für Kryptomining-Ressourcen.
-    - `tracking`, `tracking_ad`, `tracking_analytics`, `tracking_social` und `tracking_content`: gibt an, dass die Anfrage an Tracking beteiligt ist. `tracking` ist eine generische Tracking-Anfrage; die Suffixe `ad`, `analytics`, `social` und `content` identifizieren den Typ des Trackers.
-    - `any_basic_tracking`: ein Metaflag, das Tracking- und Fingerprintingskennzeichen kombiniert, mit Ausnahme von `tracking_content` und `fingerprinting_content`.
-    - `any_strict_tracking`: ein Metaflag, das alle Tracking- und Fingerprintingskennzeichen kombiniert.
-    - `any_social_tracking`: ein Metaflag, das alle sozialen Tracking-Kennzeichen kombiniert.
+    - `fingerprinting` und `fingerprinting_content`: Zeigt an, dass die Anfrage in Fingerprinting involviert ist ("ein Ursprung wurde gefunden, der fingerprinting betreibt").
+      - `fingerprinting` gibt an, dass die Domain in der Fingerprinting- und Verfolgungskategorie ist. Beispiele für diese Art von Domäne sind Werbetreibende, die ein Profil mit dem besuchenden Benutzer verknüpfen möchten.
+      - `fingerprinting_content` zeigt an, dass die Domain in der Fingerprinting-Kategorie, aber nicht in der Verfolgungskategorie ist. Beispiele für diese Art von Domäne sind Zahlungsanbieter, die Fingerprinting-Techniken verwenden, um den besuchenden Benutzer zur Betrugsbekämpfung zu identifizieren.
+    - `cryptomining` und `cryptomining_content`: Ähnlich wie die Fingerprinting-Kategorie, jedoch für Kryptomining-Ressourcen.
+    - `tracking`, `tracking_ad`, `tracking_analytics`, `tracking_social` und `tracking_content`: Zeigt an, dass die Anfrage in Verfolgung involviert ist. `tracking` ist eine generische Verfolgungsanfrage, die `ad`, `analytics`, `social` und `content` Suffixe identifizieren den Typ der Verfolgung.
+    - `any_basic_tracking`: Ein Metaflag, das Verfolgungs- und Fingerprint-Flags kombiniert, mit Ausnahme von `tracking_content` und `fingerprinting_content`.
+    - `any_strict_tracking`: Ein Metaflag, das alle Verfolgungs- und Fingerprint-Flags kombiniert.
+    - `any_social_tracking`: Ein Metaflag, das alle sozialen Verfolgungsflags kombiniert.
 
 ## Browser-Kompatibilität
 
@@ -151,7 +151,7 @@ Ereignisse haben drei Funktionen:
 let target = "https://developer.mozilla.org/*";
 
 /*
-z.B.
+e.g.
 "https://developer.mozilla.org/en-US/Firefox/Releases"
 200
 HTTP/1.1 200 OK
@@ -170,7 +170,7 @@ browser.webRequest.onResponseStarted.addListener(logResponse, {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#event-onResponseStarted) API von Chromium. Diese Dokumentation stammt aus [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#event-onResponseStarted) API von Chromium. Diese Dokumentation ist aus [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

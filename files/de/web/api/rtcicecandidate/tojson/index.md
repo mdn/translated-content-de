@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Methode **`toJSON()`** des {{domxref("RTCIceCandidate")}} wandelt den `RTCIceCandidate`, auf dem sie aufgerufen wird, in JSON um.
+Die Methode **`toJSON()`** des [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) konvertiert den `RTCIceCandidate`, auf dem sie aufgerufen wird, in JSON.
 
-Eine String-Darstellung des Objekts kann dann erhalten werden, indem {{jsxref("JSON.stringify", "stringify()")}} auf das zurückgegebene Objekt aufgerufen wird.
+Eine stringifizierte Version des Objekts kann dann erhalten werden, indem {{jsxref("JSON.stringify", "stringify()")}} auf das zurückgegebene Objekt aufgerufen wird.
 
 ## Syntax
 
@@ -29,25 +29,25 @@ Keine.
 Ein JSON-Objekt mit den folgenden Eigenschaften, die auf die entsprechenden Werte im `RTCIceCandidate`-Objekt gesetzt wurden:
 
 - `candidate` {{optional_inline}}
-  - : Ein String, der die Netzwerkkonnektivitätsinformation für den Kandidaten beschreibt.
-    Weitere Informationen finden Sie unter {{domxref("RTCIceCandidate.candidate")}}.
+  - : Ein String, der die Netzwerkverbindungsinformationen für den Kandidaten beschreibt.
+    Zusätzliche Informationen finden Sie unter [`RTCIceCandidate.candidate`](/de/docs/Web/API/RTCIceCandidate/candidate).
 - `sdpMid` {{optional_inline}}
 
-  - : Ein String, der das Identifizierungsetikett des Medienstreams enthält, mit dem der Kandidat verbunden ist, oder `null`, wenn kein zugehöriger Medienstream vorhanden ist.
-    Weitere Informationen finden Sie unter {{domxref("RTCIceCandidate.sdpMid")}}.
+  - : Ein String, der das Identifikationstag des Medienstreams enthält, mit dem der Kandidat verbunden ist, oder `null`, wenn kein zugeordneter Medienstream vorhanden ist.
+    Zusätzliche Informationen finden Sie unter [`RTCIceCandidate.sdpMid`](/de/docs/Web/API/RTCIceCandidate/sdpMid).
 
 - `sdpMLineIndex` {{optional_inline}}
 
-  - : Eine Zahleneigenschaft, die den nullbasierten Index der m-line enthält, mit dem der Kandidat innerhalb des [SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp) der Medienbeschreibung verbunden ist, oder `null`, wenn keine solche Verbindung besteht.
-    Weitere Informationen finden Sie unter {{domxref("RTCIceCandidate.sdpMLineIndex")}}.
+  - : Eine Zahleneigenschaft, die den nullbasierten Index der m-line enthält, mit der der Kandidat innerhalb der [SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp) der Medienbeschreibung verknüpft ist, oder `null`, wenn keine solche Zuordnung existiert.
+    Zusätzliche Informationen finden Sie unter [`RTCIceCandidate.sdpMLineIndex`](/de/docs/Web/API/RTCIceCandidate/sdpMLineIndex).
 
 - `usernameFragment` {{optional_inline}}
-  - : Ein String, der das Benutzername-Fragment enthält (üblicherweise in Kurzform als "ufrag" oder "ice-ufrag" bezeichnet).
-    Dieses Fragment, zusammen mit dem ICE-Passwort ("ice-pwd"), identifiziert eindeutig eine einzelne laufende ICE-Interaktion (einschließlich jeder Kommunikation mit dem {{Glossary("STUN")}}-Server).
-    Weitere Informationen finden Sie unter {{domxref("RTCIceCandidate.usernameFragment")}}.
+  - : Ein String, der das Benutzername-Fragment enthält (üblicherweise als "ufrag" oder "ice-ufrag" bezeichnet).
+    Dieses Fragment identifiziert zusammen mit dem ICE-Passwort ("ice-pwd") eindeutig eine einzelne laufende ICE-Interaktion (einschließlich jeglicher Kommunikation mit dem [STUN](/de/docs/Glossary/STUN)-Server).
+    Zusätzliche Informationen finden Sie unter [`RTCIceCandidate.usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment).
 
 > [!NOTE]
-> Das zurückgegebene JSON-Objekt hat die gleiche Form/Eigenschaften wie das `candidateInfo`-Objekt, das optional an den {{domxref("RTCIceCandidate.RTCIceCandidate()","RTCIceCandidate()")}}-Konstruktor übergeben werden kann, um den Kandidaten zu konfigurieren.
+> Das zurückgegebene JSON-Objekt hat die gleiche Form/Eigenschaften wie das `candidateInfo`-Objekt, das optional an den [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate)-Konstruktor übergeben werden kann, um den Kandidaten zu konfigurieren.
 
 ## Beispiele
 

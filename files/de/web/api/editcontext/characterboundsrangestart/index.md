@@ -1,5 +1,5 @@
 ---
-title: "EditContext: Eigenschaft characterBoundsRangeStart"
+title: "EditContext: characterBoundsRangeStart-Eigenschaft"
 short-title: characterBoundsRangeStart
 slug: Web/API/EditContext/characterBoundsRangeStart
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`characterBoundsRangeStart`** schreibgeschützte Eigenschaft des {{domxref("EditContext")}}-Interfaces zeigt den Index des Zeichens innerhalb des bearbeitbaren Textinhalts an, das dem ersten Element im {{domxref("EditContext.characterBounds()", "characterBounds")}}-Array entspricht.
+Die schreibgeschützte Eigenschaft **`characterBoundsRangeStart`** des [`EditContext`](/de/docs/Web/API/EditContext)-Interfaces gibt den Index des Zeichens im editierbaren Textinhalt an, das dem ersten Element im [`characterBounds`](/de/docs/Web/API/EditContext/characterBounds)-Array entspricht.
 
-Zum Beispiel, wenn das `EditContent` die Zeichen `abc` enthält und `characterBoundRangeStart` `1` ist, enthält das erste Element im `characterBounds`-Array die Grenzen des Zeichens `b`.
+Zum Beispiel, wenn der `EditContent` die Zeichen `abc` enthält und `characterBoundRangeStart` `1` ist, enthält das erste Element im `characterBounds`-Array die Begrenzungen für das Zeichen `b`.
 
 ## Wert
 

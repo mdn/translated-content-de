@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<absolute-size>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) beschreibt die absoluten Größen-Schlüsselwörter. Dieser Datentyp wird in den {{cssxref("font")}}-Kurzschreibweise und {{cssxref("font-size")}}-Eigenschaften verwendet.
+Der **`<absolute-size>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) beschreibt die absoluten Größen-Schlüsselwörter. Dieser Datentyp wird in den {{cssxref("font")}}- und {{cssxref("font-size")}}-Eigenschaften verwendet.
 
-Die Schriftgrößen-Schlüsselwörter sind auf das veraltete HTML-`size`-Attribut abgebildet. Siehe den Abschnitt [HTML size attribute](#html_size_attribute) unten.
+Die Schriftgrößen-Schlüsselwörter sind auf das veraltete HTML-`size`-Attribut abgebildet. Siehe den Abschnitt [HTML-Size-Attribut](#html-size-attribut) unten.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ Die Schriftgrößen-Schlüsselwörter sind auf das veraltete HTML-`size`-Attribu
 
 ### Werte
 
-Der `<absolute-size>`-Datentyp wird durch ein Schlüsselwort-Wert definiert, der aus der unten stehenden Liste ausgewählt wird.
+Der `<absolute-size>`-Datentyp wird mithilfe eines Schlüsselwortwerts definiert, der aus der folgenden Liste ausgewählt wird.
 
 - `xx-small`
 
-  - : Eine absolute Größe von 60 % der Größe von `medium`. Abgebildet auf das veraltete `size="1"`.
+  - : Eine absolute Größe von 60 % der Größe von `medium`. Abbildbar auf das veraltete `size="1"`.
 
 - `x-small`
 
@@ -31,34 +31,34 @@ Der `<absolute-size>`-Datentyp wird durch ein Schlüsselwort-Wert definiert, der
 
 - `small`
 
-  - : Eine absolute Größe von 89 % der Größe von `medium`. Abgebildet auf das veraltete `size="2"`.
+  - : Eine absolute Größe von 89 % der Größe von `medium`. Abbildbar auf das veraltete `size="2"`.
 
 - `medium`
 
-  - : Die bevorzugte Schriftgröße des Nutzers. Dieser Wert wird als Referenzmittelwert verwendet. Abgebildet auf `size="3"`.
+  - : Die vom Benutzer bevorzugte Schriftgröße. Dieser Wert wird als Referenz-Mittelwert verwendet. Abbildbar auf `size="3"`.
 
 - `large`
 
-  - : Eine absolute Größe von 20 % größer als `medium`. Abgebildet auf das veraltete `size="4"`.
+  - : Eine absolute Größe, die 20 % größer ist als `medium`. Abbildbar auf das veraltete `size="4"`.
 
 - `x-large`
 
-  - : Eine absolute Größe von 50 % größer als `medium`. Abgebildet auf das veraltete `size="5"`.
+  - : Eine absolute Größe, die 50 % größer ist als `medium`. Abbildbar auf das veraltete `size="5"`.
 
 - `xx-large`
 
-  - : Eine absolute Größe zweimal so groß wie `medium`. Abgebildet auf das veraltete `size="6"`.
+  - : Eine absolute Größe, die doppelt so groß ist wie `medium`. Abbildbar auf das veraltete `size="6"`.
 
 - `xxx-large`
-  - : Eine absolute Größe dreimal so groß wie `medium`. Abgebildet auf das veraltete `size="7"`.
+  - : Eine absolute Größe, die dreimal so groß ist wie `medium`. Abbildbar auf das veraltete `size="7"`.
 
 ## Beschreibung
 
-Jeder `<absolute-size>`-Schlüsselwort-Wert wird relativ zur Größe von `medium` und den individuellen Geräteeigenschaften, wie der Auflösung des Geräts, dimensioniert. Benutzeragenten pflegen eine Tabelle mit Schriftgrößen für jede Schriftart, wobei die `<absolute-size>`-Schlüsselwörter den Index darstellen.
+Jedes `<absolute-size>`-Schlüsselwort wird relativ zur mittleren `medium`-Größe und den individuellen Geräteeigenschaften, wie der Auflösung des Geräts, dimensioniert. Benutzeragenten pflegen eine Tabelle mit Schriftgrößen für jede Schriftart, wobei die `<absolute-size>`-Schlüsselwörter den Index darstellen.
 
-In CSS1 (1996) betrug der Skalierungsfaktor zwischen angrenzenden Schlüsselwortwert-Indizes 1,5, was zu groß war. In CSS2 (1998) betrug der Skalierungsfaktor zwischen angrenzenden Schlüsselwortwert-Indizes 1,2, was Probleme für die kleineren Werte verursachte. Da ein einziges festes Verhältnis zwischen benachbarten absoluten Größen-Schlüsselwörtern problematisch war, gibt es keine feste Verhältnisempfehlung mehr. Die einzige Empfehlung, um Lesbarkeit zu bewahren, besteht darin, dass die kleinste Schriftgröße nicht kleiner als `9px` sein sollte.
+In CSS1 (1996) betrug der Skalierungsfaktor zwischen benachbarten Schlüsselwortindizes 1,5, was zu groß war. In CSS2 (1998) betrug der Skalierungsfaktor zwischen benachbarten Schlüsselwortindizes 1,2, was zu Problemen bei kleinen Werten führte. Da ein einziger fester Faktor zwischen benachbarten absoluten Größen-Schlüsselwörtern problematisch war, gibt es keine feste Verhältnis-Empfehlung mehr. Die einzige Empfehlung zur Erhaltung der Lesbarkeit ist, dass die kleinste Schriftgröße nicht kleiner als `9px` sein sollte.
 
-Für jeden `<absolute-size>`-Schlüsselwortwert listet die folgende Tabelle den Skalierungsfaktor, die Zuordnung zu [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Element/Heading_Elements) Überschriften und die Zuordnung zum veralteten [HTML-`size`-Attribut](#html_size_attribute) auf.
+Für jedes `<absolute-size>`-Schlüsselwort gibt die folgende Tabelle den Skalierungsfaktor, die Zuordnung zu [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Element/Heading_Elements) Überschriften und die Zuordnung zum veralteten [HTML-`size`-Attribut](#html-size-attribut) an.
 
 | `<absolute-size>`    | xx-small | x-small | small | medium | large | x-large | xx-large | xxx-large |
 | -------------------- | -------- | ------- | ----- | ------ | ----- | ------- | -------- | --------- |
@@ -66,9 +66,9 @@ Für jeden `<absolute-size>`-Schlüsselwortwert listet die folgende Tabelle den 
 | HTML-Überschriften   | h6       |         | h5    | h4     | h3    | h2      | h1       |           |
 | HTML-`size`-Attribut | 1        |         | 2     | 3      | 4     | 5       | 6        | 7         |
 
-### HTML size attribute
+### HTML-Size-Attribut
 
-Das `size`-Attribut zum Festlegen der Schriftgröße in HTML ist veraltet. Der Attributwert war entweder eine ganze Zahl zwischen `1` und `7` oder ein relativer Wert. Relative Werte waren eine ganze Zahl, der ein `+` oder `-` vorangestellt war, um die Schriftgröße entsprechend zu erhöhen oder zu verringern. Ein Wert von `+1` bedeutete eine Erhöhung des `size` um eins und `-2` bedeutete eine Verringerung der Größe um zwei, wobei der berechnete Wert auf ein Minimum von `1` und ein maximales berechnetes Wert von `7` beschränkt wurde.
+Das `size`-Attribut zur Einstellung einer Schriftgröße in HTML ist veraltet. Der Attributwert war entweder eine Ganzzahl zwischen `1` und `7` oder ein relativer Wert. Relative Werte waren eine Ganzzahl, die von einem `+` oder `-` vorangestellt wurde, um die Schriftgröße entsprechend zu erhöhen oder zu verringern. Ein Wert von `+1` bedeutete eine Erhöhung der `size` um eins und `-2` bedeutete eine Verringerung der Größe um zwei, wobei der berechnete Wert auf ein Minimum von `1` und ein Maximum von `7` begrenzt wurde.
 
 ## Beispiele
 
@@ -127,6 +127,6 @@ li {
 
 ## Siehe auch
 
-- CSS-{{cssxref("relative-size")}}-Datentyp
-- CSS-{{cssxref("font")}}- und {{cssxref("font-size")}}-Eigenschaften
-- [CSS-Schriftart](/de/docs/Web/CSS/CSS_fonts)-Modul
+- CSS {{cssxref("relative-size")}} Datentyp
+- CSS {{cssxref("font")}} und {{cssxref("font-size")}} Eigenschaften
+- [CSS fonts](/de/docs/Web/CSS/CSS_fonts) Modul

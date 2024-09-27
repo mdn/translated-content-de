@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Aktualisiert ein angezeigtes Menü.
+Aktualisiert ein Menü, das gerade angezeigt wird.
 
-Aktualisiert die Menüeinträge der Erweiterung in dem Menü, das der Browser gerade anzeigt, einschließlich Änderungen, die seit dem Anzeigen des Menüs vorgenommen wurden. Hat keine Wirkung, wenn das Menü nicht angezeigt wird. Das erneute Erstellen eines angezeigten Menüs ist ein aufwändiger Vorgang, daher sollte diese Methode nur bei Bedarf aufgerufen werden.
+Aktualisiert die Menüeinträge der Erweiterung in dem Menü, das der Browser derzeit anzeigt, einschließlich Änderungen, die seit der Anzeige des Menüs vorgenommen wurden. Hat keine Wirkung, wenn das Menü nicht angezeigt wird. Das Wiederaufbauen eines angezeigten Menüs ist ein aufwendiger Vorgang; rufen Sie diese Methode nur bei Bedarf auf.
 
-Diese Methode wird typischerweise innerhalb eines {{WebExtAPIRef("menus.onShown")}} Ereignishandlers aufgerufen, nachdem der Handler Aktualisierungen am Menü vorgenommen hat.
+Dies würde typischerweise innerhalb eines {{WebExtAPIRef("menus.onShown")}} Ereignishandlers aufgerufen werden, nachdem der Handler Änderungen am Menü vorgenommen hat.
 
 Firefox stellt diese Funktion sowohl über den `contextMenus`-Namespace als auch über den `menus`-Namespace zur Verfügung.
 
@@ -37,7 +37,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-In diesem Beispiel wird darauf gewartet, dass das Kontextmenü über einem Link angezeigt wird, um dann das `openLabelledId`-Menüelement mit dem Hostnamen des Links zu aktualisieren:
+Dieses Beispiel hört darauf, dass das Kontextmenü über einem Link angezeigt wird, und aktualisiert dann den `openLabelledId`-Menüpunkt mit dem Hostnamen des Links:
 
 ```js
 function updateMenuItem(linkHostname) {

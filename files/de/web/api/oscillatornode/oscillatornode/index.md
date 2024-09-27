@@ -3,14 +3,17 @@ title: "OscillatorNode: OscillatorNode() Konstruktor"
 short-title: OscillatorNode()
 slug: Web/API/OscillatorNode/OscillatorNode
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("Web Audio API")}}
 
-Der **`OscillatorNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues {{domxref("OscillatorNode")}} Objekt, welches ein {{domxref("AudioNode")}} darstellt, das eine periodische Wellenform, wie eine Sinuswelle, repräsentiert und dabei optional die Eigenschaftswerte des Knotens mit den Werten eines angegebenen Objekts festlegt.
+Der **`OscillatorNode()`**-Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erzeugt ein neues
+[`OscillatorNode`](/de/docs/Web/API/OscillatorNode)-Objekt, das ein [`AudioNode`](/de/docs/Web/API/AudioNode) darstellt und eine periodische Wellenform, wie eine Sinuswelle, repräsentiert. Dabei werden optional die Werte der Eigenschaften des Knotens an die in einem angegebenen Objekt spezifizierten Werte angepasst.
 
-Wenn die Standardwerte der Eigenschaften akzeptabel sind, können Sie optional die {{domxref("BaseAudioContext.createOscillator()")}} Fabrikmethode anstelle verwenden; siehe [Erstellen eines AudioNodes](/de/docs/Web/API/AudioNode#creating_an_audionode).
+Wenn die Standardwerte der Eigenschaften akzeptabel sind, können Sie optional die
+[`BaseAudioContext.createOscillator()`](/de/docs/Web/API/BaseAudioContext/createOscillator) Fabrik-Methode verwenden; siehe
+[Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -21,29 +24,39 @@ new OscillatorNode(context, options)
 ### Parameter
 
 - `context`
-  - : Eine Referenz auf einen {{domxref("AudioContext")}}.
+  - : Ein Verweis auf einen [`AudioContext`](/de/docs/Web/API/AudioContext).
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, dessen Eigenschaften die anfänglichen Werte für die Eigenschaften des Oszillator-Knotens festlegen. Alle im Objekt nicht enthaltenen Eigenschaften nehmen den dokumentierten Standardwert an.
+  - : Ein Objekt, dessen Eigenschaften die Anfangswerte für die Eigenschaften des Oszillatorknotens festlegen. Alle Eigenschaften, die im Objekt nicht angegeben sind, übernehmen die Standardwerte, wie dokumentiert.
 
     - `type`
-      - : Die Form der vom Knoten erzeugten Welle. Gültige Werte sind '`sine`', '`square`', '`sawtooth`', '`triangle`' und '`custom`'. Der Standardwert ist '`sine`'.
+      - : Die Form der vom Knoten erzeugten Welle. Gültige Werte sind
+        `"sine"`, `"square"`, `"sawtooth"`,
+        `"triangle"` und `"custom"`. Der Standardwert ist
+        `"sine"`.
     - `detune`
-      - : Ein Verstimmungswert (in Cent), der die `frequency` um den angegebenen Betrag verschiebt. Der Standardwert ist 0.
+      - : Ein Verstimmungswert (in Cent), der
+        die `frequency` um den angegebenen Betrag versetzt. Der Standardwert ist 0.
     - `frequency`
-      - : Die Frequenz (in [Hertz](https://de.wikipedia.org/wiki/Hertz)) der periodischen Wellenform. Der Standardwert ist 440.
+      - : Die Frequenz (in [Hertz](https://en.wikipedia.org/wiki/Hertz)) der periodischen
+        Wellenform. Der Standardwert ist 440.
     - `periodicWave`
-      - : Eine beliebige periodische Wellenform, die durch ein {{domxref("PeriodicWave")}} Objekt beschrieben wird.
+      - : Eine willkürliche periodische Wellenform, die durch ein [`PeriodicWave`](/de/docs/Web/API/PeriodicWave)-Objekt beschrieben wird.
     - `channelCount`
-      - : Repräsentiert eine Ganzzahl, die bestimmt, wie viele Kanäle beim [Hoch- und Heruntermischen](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu allen Eingängen des Knotens verwendet werden. (Siehe {{domxref("AudioNode.channelCount")}} für weitere Informationen.) Die Verwendung und die genaue Definition hängen vom Wert von `channelCountMode` ab.
+      - : Stellt eine Ganzzahl dar, die bestimmt, wie viele Kanäle beim [Hoch- und Heruntermischen](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) der Verbindungen zu Eingängen des Knotens verwendet werden. (Weitere Informationen finden Sie unter
+        [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount).) Die Nutzung und genaue Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode`
-      - : Repräsentiert einen enumerierten Wert, der beschreibt, wie Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe {{domxref("AudioNode.channelCountMode")}} für weitere Informationen, einschließlich Standardwerten.)
+      - : Stellt einen enumerierten Wert dar, der beschreibt, wie die Kanäle zwischen den
+        Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Weitere Informationen, einschließlich der Standardwerte, finden Sie unter [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode).)
     - `channelInterpretation`
-      - : Repräsentiert einen enumerierten Wert, der die Bedeutung der Kanäle beschreibt. Diese Interpretation definiert, wie das [Hoch- und Heruntermischen](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) des Audios stattfinden wird. Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe {{domxref("AudioNode.channelCountMode")}} für weitere Informationen, einschließlich Standardwerten.)
+      - : Stellt einen enumerierten Wert dar, der die Bedeutung der Kanäle beschreibt. Diese
+        Interpretation definiert, wie Audio [hoch- und heruntermischen](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) durchgeführt wird.
+        Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Weitere Informationen, einschließlich der Standardwerte, finden Sie unter
+        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode).)
 
 ### Rückgabewert
 
-Eine neue Instanz eines {{domxref("OscillatorNode")}} Objekts.
+Eine neue Instanz des [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)-Objekts.
 
 ## Spezifikationen
 

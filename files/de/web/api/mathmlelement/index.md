@@ -13,16 +13,16 @@ Die **`MathMLElement`**-Schnittstelle repräsentiert jedes [MathML](/de/docs/Web
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternteil, {{DOMxRef("Element")}}_.
+_Erbt auch Eigenschaften von ihrem Elternteil, [`Element`](/de/docs/Web/API/Element)_.
 
-- {{DOMxRef("MathMLElement.attributeStyleMap")}} {{ReadOnlyInline}}
-  - : Ein {{DOMxRef("StylePropertyMap")}}, das die Deklarationen des `style`-Attributs des Elements darstellt.
-- {{DOMxRef("MathMLElement.style")}}
-  - : Ein {{DOMxRef("CSSStyleDeclaration")}}, das die Deklarationen des `style`-Attributs des Elements darstellt.
+- [`MathMLElement.attributeStyleMap`](/de/docs/Web/API/MathMLElement/attributeStyleMap) {{ReadOnlyInline}}
+  - : Ein [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap), das die Deklarationen des `style`-Attributs des Elements repräsentiert.
+- [`MathMLElement.style`](/de/docs/Web/API/MathMLElement/style)
+  - : Eine [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration), die die Deklarationen des `style`-Attributs des Elements repräsentiert.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine Methoden, erbt jedoch Methoden von ihrem Elternteil, {{DOMxRef("Element")}}_.
+_Diese Schnittstelle hat keine Methoden, erbt jedoch Methoden von ihrem Elternteil, [`Element`](/de/docs/Web/API/Element)_.
 
 ## Beispiele
 
@@ -46,12 +46,12 @@ document.querySelector("msqrt").constructor.name; // MathMLElement
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{DOMxRef("Element")}}
-- {{DOMxRef("HTMLElement")}}
-- {{DOMxRef("SVGElement")}}
+- [`Element`](/de/docs/Web/API/Element)
+- [`HTMLElement`](/de/docs/Web/API/HTMLElement)
+- [`SVGElement`](/de/docs/Web/API/SVGElement)

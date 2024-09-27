@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`position`** Eigenschaft des {{DOMxRef("HTMLProgressElement")}} Interfaces gibt den aktuellen Fortschritt des {{HTMLElement("progress")}} Elements zurück.
+Die **`position`**-Eigenschaft des [`HTMLProgressElement`](/de/docs/Web/API/HTMLProgressElement)-Interfaces ist eine schreibgeschützte Eigenschaft und gibt den aktuellen Fortschritt des {{HTMLElement("progress")}}-Elements zurück.
 
 ## Wert
 
-Bei einem determinierten Fortschrittsbalken gibt sie das Ergebnis des aktuellen Wertes geteilt durch den Maximalwert zurück, d.h. einen Bruchteil zwischen `0.0` und `1.0`.
+Für einen determinanten Fortschrittsbalken wird das Ergebnis des aktuellen Werts geteilt durch den Maximalwert zurückgegeben, d. h., ein Bruch zwischen `0.0` und `1.0`.
 
-Bei einem unbestimmten Fortschrittsbalken ist der Wert immer `-1`.
+Für einen indeterminanten Fortschrittsbalken ist der Wert immer `-1`.
 
 ## Beispiele
 
 ### HTML
 
 ```html
-Determinate Fortschrittsbalken: <progress id="pBar"></progress> Position:
+Determinate Progress bar: <progress id="pBar"></progress> Position:
 <span>0</span>
 ```
 

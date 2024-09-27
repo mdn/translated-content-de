@@ -1,5 +1,5 @@
 ---
-title: 507 Unzureichender Speicher
+title: 507 Insufficient Storage
 slug: Web/HTTP/Status/507
 l10n:
   sourceCommit: f584f1b27f9f3b78c95122c560f5135866a87eb0
@@ -7,11 +7,11 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`507 Insufficient Storage`** [Serverfehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) gibt an, dass eine Aktion nicht ausgeführt werden konnte, weil der Server nicht über genügend verfügbaren Speicher verfügt, um die Anfrage erfolgreich abzuschließen.
+Der HTTP-Statuscode **`507 Insufficient Storage`** [Serverfehler-Antwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass eine Aktion nicht ausgeführt werden konnte, weil der Server nicht über genügend verfügbaren Speicher verfügt, um die Anforderung erfolgreich abzuschließen.
 
-Dieser Statuscode wurde zuerst im Kontext von Web Distributed Authoring and Versioning ({{Glossary("WebDAV")}}) verwendet, hat sich jedoch auf andere Anwendungsfälle ausgebreitet, um Situationen zu beschreiben, in denen die Serverressourcen erschöpft sind. Häufige Ursachen für diesen Fehler können darin bestehen, dass auf dem Server nicht genügend Speicherplatz in den Verzeichnissen vorhanden ist, nicht genug RAM für einen Vorgang verfügbar ist, oder interne Limits erreicht wurden (wie anwendungsspezifische Speicherbegrenzungen, zum Beispiel). Die Anfrage, die diesen Fehler verursacht, muss nicht unbedingt Inhalte enthalten, da es sich um eine Anfrage handeln kann, die eine Ressource auf dem Server erstellen würde, wenn sie erfolgreich wäre.
+Dieser Statuscode wurde zuerst im Kontext des Web-basierten verteilten Autorings und Versionierens ([WebDAV](/de/docs/Glossary/WebDAV)) verwendet, hat sich jedoch auch auf andere Anwendungsfälle ausgeweitet, um Situationen zu beschreiben, in denen Server-Ressourcen erschöpft sind. Häufige Ursachen für diesen Fehler können darin bestehen, dass Serververzeichnisse keinen verfügbaren Speicherplatz mehr haben, nicht genügend RAM für einen Vorgang verfügbar ist oder interne Grenzen erreicht werden (wie anwendungsspezifische Speicherbeschränkungen, zum Beispiel). Die Anforderung, die diesen Fehler verursacht, muss nicht unbedingt Inhalte enthalten, da es sich um eine Anforderung handeln kann, die ein Ressource auf dem Server erstellen würde, wenn sie erfolgreich wäre.
 
-Dieses Problem wird als vorübergehend betrachtet, im Gegensatz zu einem {{HTTPStatus("413", "413 Content Too Large")}}, der anzeigt, dass die Clientanforderung zu groß ist, als dass der Server sie unabhängig von den Serverressourcenbeschränkungen verarbeiten könnte.
+Dieses Problem wird als vorübergehend angesehen, im Gegensatz zu einem {{HTTPStatus("413", "413 Content Too Large")}}, der anzeigt, dass die Client-Anforderung unabhängig von den Serverressourcenbeschränkungen zu groß ist, um sie zu verarbeiten.
 
 ## Status
 
@@ -23,7 +23,7 @@ Dieses Problem wird als vorübergehend betrachtet, im Gegensatz zu einem {{HTTPS
 
 ### 507-Antwort, die Speicherprobleme anzeigt
 
-Die folgende Anfrage versucht, eine Datei auf einen Server hochzuladen, der über nicht genügend verfügbaren Speicher verfügt. Der Server antwortet mit einem `507`, um anzuzeigen, dass seine Ressourcen erschöpft sind:
+Die folgende Anfrage versucht, eine Datei auf einen Server hochzuladen, der über nicht ausreichenden Speicherplatz verfügt. Der Server antwortet mit einem `507`, um anzuzeigen, dass seine Ressourcen erschöpft sind:
 
 ```http
 POST /upload HTTP/1.1
@@ -46,9 +46,9 @@ Content-Length: 230
   <title>507 Insufficient Storage</title>
 </head>
 <body>
-  <h1>Unzureichender Speicher</h1>
-  <p>Der Server kann die enthaltene Ressource nicht speichern, um die Anfrage abzuschließen.</p>
-  <p>Bitte versuchen Sie es später erneut.</p>
+  <h1>Insufficient Storage</h1>
+  <p>The server is unable to store the included resource to complete the request.</p>
+  <p>Please try again later.</p>
 </body>
 </html>
 ```
@@ -59,5 +59,5 @@ Content-Length: 230
 
 ## Siehe auch
 
-- [HTTP-Statuscodes](/de/docs/Web/HTTP/Status)
+- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
 - {{HTTPStatus("413", "413 Content Too Large")}}

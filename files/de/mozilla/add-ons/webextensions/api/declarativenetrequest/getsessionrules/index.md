@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt die aktive Menge der sitzungsabhängigen Regeln für die Erweiterung zurück.
+Gibt die aktive Menge von sitzungsbezogenen Regeln für die Erweiterung zurück.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ let sessionRules = await browser.declarativeNetRequest.getSessionRules();
 
 - `filter` {{optional_inline}}
 
-  - : Ein Objekt zum Filtern der Liste der zurückgegebenen Regeln.
+  - : Ein Objekt, um die Liste der zurückgegebenen Regeln zu filtern.
     - `ruleIds` {{optional_inline}}
-      - : Ein Array von `integer`. Die IDs der zurückzugebenden Regeln.
+      - : Ein Array von `integer`. Die IDs der Regeln, die zurückgegeben werden sollen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von {{WebExtAPIRef("declarativeNetRequest.Rule")}} Objekten erfüllt wird. Sind keine Regeln aktiv, ist das Objekt leer. Schlägt die Anfrage fehl, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der mit einem Array von {{WebExtAPIRef("declarativeNetRequest.Rule")}}-Objekten erfüllt wird. Wenn keine Regeln aktiv sind, ist das Objekt leer. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -36,31 +36,37 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 {{Compat}}
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Verteilung und Nutzung in Quell- und Binärformen, mit oder ohne
+// Modifikation, sind unter den folgenden Bedingungen erlaubt:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverteilung von Quellcode muss den obigen
+// Copyright-Hinweis, diese Liste von Bedingungen und den folgenden
+// Haftungsausschluss beibehalten.
+//    * Weiterverteilung in Binärform muss den obigen
+// Copyright-Hinweis, diese Liste von Bedingungen und den folgenden
+// Haftungsausschluss in der Dokumentation und/oder anderen Materialien,
+// die mit der Verteilung bereitgestellt werden, enthalten.
+//    * Weder der Name Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen ohne vorherige schriftliche Genehmigung
+// verwendet werden, um Produkte, die von dieser Software abgeleitet
+// wurden, zu bewerben oder zu fördern.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND BEITRAGENDEN
+// "WIE BESEHEN" BEREITGESTELLT, UND JEGLICHE AUSDRÜCKLICHE
+// ODER STILLSCHWEIGENDE GARANTIEN, EINSCHLIESSLICH, ABER NICHT
+// BESCHRÄNKT AUF, DIE STILLSCHWEIGENDE GARANTIE DER MARKTFÄHIGKEIT
+// UND DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK WERDEN ABGELEHNT.
+// IN KEINEM FALL SIND DIE COPYRIGHT-INHABER ODER BEITRAGENDEN
+// FÜR JEGLICHE DIREKTEN, INDIREKTEN, ZUFÄLLIGEN,
+// SPEZIELLEN, BEISPIELHAFTEN ODER FOLGESCHÄDEN
+// (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DEN
+// ERSATZ VON WAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST,
+// DATEN- ODER GEWINNVERLUST; ODER BETRIEBSUNTERBRECHUNG)
+// HAFTBAR, JEDOCH VERURSACHT UND GEMÄSS JEGLICHER
+// HAFTUNGSTHEORIE, OB IN VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG
+// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUF
+// JEGLICHE WEISE AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHEN, SELBST
+// WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

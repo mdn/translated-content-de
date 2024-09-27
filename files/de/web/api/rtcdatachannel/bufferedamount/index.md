@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`bufferedAmount`** gibt die Anzahl der Bytes von Daten zurück, die derzeit in der Warteschlange stehen, um über den Datenkanal gesendet zu werden. Die Warteschlange kann sich durch Aufrufe der {{domxref("RTCDataChannel.send", "send()")}}-Methode aufbauen. Dies schließt nur Daten ein, die von der Benutzeroberfläche selbst gepuffert werden; es umfasst nicht den Protokoll-Overhead oder das Puffern durch das Betriebssystem oder die Netzwerkhardware.
+Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`bufferedAmount`** gibt die Anzahl der Bytes an Daten zurück, die derzeit zur Übertragung über den Datenkanal in die Warteschlange gestellt sind. Die Warteschlange kann sich als Ergebnis von Aufrufen der [`send()`](/de/docs/Web/API/RTCDataChannel/send)-Methode aufbauen. Dies schließt nur die vom Benutzeragenten selbst gepufferten Daten ein; es schließt keinen Framing-Overhead oder Pufferung durch das Betriebssystem oder die Netzwerkausrüstung ein.
 
-Der Benutzeragent kann den Prozess des tatsächlichen Sendens von Daten auf beliebige Weise implementieren; dies kann periodisch während der Ereignisschleife oder wirklich asynchron erfolgen. Während Nachrichten tatsächlich gesendet werden, wird dieser Wert entsprechend reduziert.
+Der Benutzeragent kann den Vorgang des tatsächlichen Sendens von Daten auf beliebige Weise implementieren; dies kann periodisch während der Ereignisschleife oder wirklich asynchron erfolgen. Wenn Nachrichten tatsächlich gesendet werden, wird dieser Wert entsprechend verringert.
 
 > [!NOTE]
-> Das Schließen des Datenkanals setzt diesen Zähler nicht zurück, obwohl der Benutzeragent die Nachrichten in der Warteschlange löscht. Auch nach dem Schließen des Kanals führen Versuche, Nachrichten zu senden, weiterhin dazu, dass der `bufferedAmount`-Wert zunimmt, obwohl die Nachrichten weder gesendet noch gepuffert werden.
+> Das Schließen des Datenkanals setzt diesen Zähler nicht zurück, obwohl der Benutzeragent die Nachrichten in der Warteschlange löscht. Selbst nach dem Schließen des Kanals führen jedoch Versuche, Nachrichten zu senden, weiterhin zu einem Anstieg des `bufferedAmount`-Wertes, obwohl die Nachrichten weder gesendet noch gepuffert werden.
 
-Wann immer dieser Wert auf den oder unter den im {{domxref("RTCDataChannel.bufferedAmountLowThreshold", "bufferedAmountLowThreshold")}} festgelegten Wert fällt, löst der Benutzeragent das {{DOMxRef("RTCDataChannel.bufferedamountlow_event", "bufferedamountlow")}}-Ereignis aus. Dieses Ereignis kann beispielsweise verwendet werden, um Code zu implementieren, der mehr Nachrichten in die Warteschlange stellt, wann immer Platz vorhanden ist, um diese zu puffern.
+Immer wenn dieser Wert unter den im [`bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold) angegebenen Wert fällt, löst der Benutzeragent das [`bufferedamountlow`](/de/docs/Web/API/RTCDataChannel/bufferedamountlow_event)-Ereignis aus. Dieses Ereignis kann beispielsweise verwendet werden, um Code zu implementieren, der weitere Nachrichten zur Übertragung in die Warteschlange stellt, wann immer Platz zum Puffern vorhanden ist.
 
 ## Wert
 
-Die Anzahl der Bytes von Daten, die derzeit in der Warteschlange stehen, um über den Datenkanal gesendet zu werden, aber noch nicht gesendet wurden.
+Die Anzahl der Bytes von Daten, die derzeit zur Übertragung über den Datenkanal in die Warteschlange gestellt, aber noch nicht gesendet wurden.
 
 ## Beispiel
 
-Das untenstehende Snippet enthält eine Funktion, die den Inhalt eines Blocks mit der ID "bufferSize" in einen String ändert, der angibt, wie viele Bytes derzeit auf einem {{domxref("RTCDataChannel")}} gepuffert sind.
+Der folgende Codeausschnitt enthält eine Funktion, die den Inhalt eines Blocks mit der ID "bufferSize" in einen String ändert, der die Anzahl der derzeit auf einem [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) gepufferten Bytes angibt.
 
 ```js
 const dc = peerConnection.createDataChannel("File Transfer");
@@ -49,6 +49,6 @@ function showBufferedAmount(channel) {
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
 - [Verwendung von WebRTC-Datenkanälen](/de/docs/Web/API/WebRTC_API/Using_data_channels)
-- {{domxref("RTCDataChannel")}}
-- {{domxref("RTCDataChannel.bufferedAmountLowThreshold")}}
-- {{DOMxRef("RTCDataChannel.bufferedamountlow_event", "bufferedamountlow")}}-Ereignis
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
+- [`RTCDataChannel.bufferedAmountLowThreshold`](/de/docs/Web/API/RTCDataChannel/bufferedAmountLowThreshold)
+- [`bufferedamountlow`](/de/docs/Web/API/RTCDataChannel/bufferedamountlow_event)-Ereignis

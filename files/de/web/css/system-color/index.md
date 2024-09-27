@@ -1,5 +1,5 @@
 ---
-title: <Systemfarbe>
+title: <system-color>
 slug: Web/CSS/system-color
 l10n:
   sourceCommit: 8d4fb1e2934111a13989d2796152dc601468e7b5
@@ -7,36 +7,36 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<system-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) spiegelt normalerweise die Standardfarbauswahlen wider, die für die verschiedenen Teile einer Webseite verwendet werden.
+Der **`<system-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) spiegelt normalerweise die Standardfarbwahl wider, die für die verschiedenen Teile einer Webseite verwendet wird.
 
-Benutzeragenten können jedoch eine Zugänglichkeitsfunktion namens _Forced Colors Mode_ bereitstellen, bei der Farben in eine vom Benutzer und Benutzeragenten definierte Palette beschränkt werden, wodurch die Farbauswahl des Autors in bestimmten Eigenschaften überschrieben wird. Im Forced Colors Mode gibt `<system-color>` die ausgewählten Farben an, sodass der Rest der Seite mit ihnen integriert werden kann. Ein Beispiel für den Forced Colors Mode ist der [hohe Kontrastmodus in Windows](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/).
+Allerdings können Benutzeragenten eine Barrierefreiheitseinstellung namens _Erzwungener Farbenmodus_ bereitstellen, bei der Farben auf eine vom Benutzer und Benutzeragenten definierte Farbpalette beschränkt werden, die die vom Autor gewählten Farben in bestimmten Eigenschaften überschreibt. Im erzwungenen Farbenmodus gibt `<system-color>` die ausgewählten Farben frei, sodass der Rest der Seite mit ihnen integriert werden kann. Ein Beispiel für den erzwungenen Farbenmodus ist der [Hoher Kontrast Modus in Windows](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/).
 
-Im Forced Colors Mode sollten Autoren Farben aus dem `<system-color>`-Typ für alle Eigenschaften verwenden, die _nicht_ zu den Eigenschaften gehören, deren Farben überschrieben werden. Dies stellt sicher, dass die Seite konsistent dieselbe Farbpalette über alle Eigenschaften hinweg verwendet.
+Im erzwungenen Farbenmodus sollten Autoren Farben aus dem `<system-color>`-Typ für alle Eigenschaften verwenden, die _nicht_ in dem Satz von Eigenschaften enthalten sind, deren Farben überschrieben werden. Dies stellt sicher, dass die Seite konsistent die gleiche Farbpalette über alle Eigenschaften hinweg verwendet.
 
-Autoren können den Forced Colors Mode mit dem [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors) Media-Feature erkennen.
+Autoren können den erzwungenen Farbenmodus mit dem [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors) Media-Feature erkennen.
 
-Ein `<system-color>`-Wert kann überall dort verwendet werden, wo ein [`<color>`](/de/docs/Web/CSS/color_value) verwendet werden kann.
+Ein `<system-color>`-Wert kann überall verwendet werden, wo ein [`<color>`](/de/docs/Web/CSS/color_value) verwendet werden kann.
 
 ## Syntax
 
-Beachten Sie, dass diese Stichwörter _nicht case-sensitiv_ sind, aber hier zur besseren Lesbarkeit in gemischter Schreibung aufgeführt werden.
+Beachten Sie, dass diese Schlüsselwörter _nicht_ auf die Groß- und Kleinschreibung achten, aber hier zur besseren Lesbarkeit in gemischter Schreibung aufgeführt sind.
 
 - `AccentColor`
-  - : Hintergrund von hervorgehobenen Benutzeroberflächensteuerungen
+  - : Hintergrund von akzentuierten Benutzeroberflächensteuerungen
 - `AccentColorText`
-  - : Text von hervorgehobenen Benutzeroberflächensteuerungen
+  - : Text von akzentuierten Benutzeroberflächensteuerungen
 - `ActiveText`
   - : Text von aktiven Links
 - `ButtonBorder`
-  - : Basis-Randfarbe von Steuerungen
+  - : Basisrandfarbe von Steuerungen
 - `ButtonFace`
   - : Hintergrundfarbe von Steuerungen
 - `ButtonText`
   - : Textfarbe von Steuerungen
 - `Canvas`
-  - : Hintergrund von Anwendungsinhalten oder Dokumenten
+  - : Hintergrund von Anwendungsinhalt oder Dokumenten
 - `CanvasText`
-  - : Textfarbe in Anwendungsinhalten oder Dokumenten
+  - : Textfarbe in Anwendungsinhalt oder Dokumenten
 - `Field`
   - : Hintergrund von Eingabefeldern
 - `FieldText`
@@ -50,9 +50,9 @@ Beachten Sie, dass diese Stichwörter _nicht case-sensitiv_ sind, aber hier zur 
 - `LinkText`
   - : Text von nicht-aktiven, nicht-besuchten Links
 - `Mark`
-  - : Hintergrund von speziell markiertem Text (wie durch das HTML `mark` Element)
+  - : Hintergrund von speziell markiertem Text (z.B. durch das HTML `mark` Element)
 - `MarkText`
-  - : Speziell markierter Text (wie durch das HTML `mark` Element)
+  - : Speziell markierter Text (z.B. durch das HTML `mark` Element)
 - `SelectedItem`
   - : Hintergrund von ausgewählten Elementen, z.B. ein ausgewähltes Kontrollkästchen
 - `SelectedItemText`
@@ -60,30 +60,30 @@ Beachten Sie, dass diese Stichwörter _nicht case-sensitiv_ sind, aber hier zur 
 - `VisitedText`
   - : Text von besuchten Links
 
-### Veraltete Systemfarbstichwörter
+### Veraltete Systemfarbenschlüsselwörter
 
-Die folgenden Stichwörter wurden in früheren Versionen des CSS-Farbmoduls definiert. Sie sind jetzt für die Verwendung auf öffentlichen Webseiten veraltet.
+Die folgenden Schlüsselwörter wurden in früheren Versionen des CSS-Farbmoduls definiert. Sie sind jetzt für die Verwendung auf öffentlichen Webseiten veraltet.
 
 - `ActiveBorder`
-  - : Aktiver Fensterrahmen.
+  - : Rand eines aktiven Fensters.
 - `ActiveCaption`
-  - : Aktive Fensterüberschrift. Sollte mit `CaptionText` als Vordergrundfarbe verwendet werden.
+  - : Titel eines aktiven Fensters. Sollte mit `CaptionText` als Vordergrundfarbe verwendet werden.
 - `AppWorkspace`
-  - : Hintergrundfarbe der Mehrfachdokument-Oberfläche.
+  - : Hintergrundfarbe einer Mehrfachdokumentenschnittstelle.
 - `Background`
   - : Desktop-Hintergrund.
 - `ButtonHighlight`
-  - : Die Farbe der zum Licht hin gerichteten Rand für 3D-Elemente, die aufgrund dieser Randebene 3D erscheinen.
+  - : Die Farbe des zur Lichtquelle zeigenden Rands bei 3D-Elementen, die aufgrund dieser Randebene dreidimensional erscheinen.
 - `ButtonShadow`
-  - : Die Farbe der vom Licht abgewandten Rand für 3D-Elemente, die aufgrund dieser Randebene 3D erscheinen.
+  - : Die Farbe des von der Lichtquelle wegzeigenden Rands bei 3D-Elementen, die aufgrund dieser Randebene dreidimensional erscheinen.
 - `CaptionText`
-  - : Text in Überschriften, Größenfeld und Scrollpfeilfeld. Sollte mit der `ActiveCaption` Hintergrundfarbe verwendet werden.
+  - : Text in Titel, Größenfeld und Scrollbar-Pfeilfeld. Sollte mit der `ActiveCaption` Hintergrundfarbe verwendet werden.
 - `InactiveBorder`
-  - : Inaktiver Fensterrahmen.
+  - : Rand eines inaktiven Fensters.
 - `InactiveCaption`
-  - : Inaktive Fensterüberschrift. Sollte mit der `InactiveCaptionText` Vordergrundfarbe verwendet werden.
+  - : Titel eines inaktiven Fensters. Sollte mit der `InactiveCaptionText` Vordergrundfarbe verwendet werden.
 - `InactiveCaptionText`
-  - : Farbe des Textes in einer inaktiven Überschrift. Sollte mit der `InactiveCaption` Hintergrundfarbe verwendet werden.
+  - : Farbe des Textes in einem inaktiven Titel. Sollte mit der `InactiveCaption` Hintergrundfarbe verwendet werden.
 - `InfoBackground`
   - : Hintergrundfarbe für Tooltip-Steuerelemente. Sollte mit der `InfoText` Vordergrundfarbe verwendet werden.
 - `InfoText`
@@ -93,17 +93,17 @@ Die folgenden Stichwörter wurden in früheren Versionen des CSS-Farbmoduls defi
 - `MenuText`
   - : Text in Menüs. Sollte mit der `Menu` Hintergrundfarbe verwendet werden.
 - `Scrollbar`
-  - : Hintergrundfarbe der Scrollbalken.
+  - : Hintergrundfarbe der Scrollleisten.
 - `ThreeDDarkShadow`
-  - : Die Farbe der dunkleren (im Allgemeinen äußeren) der beiden Ränder, die vom Licht abgewandt sind, für 3D-Elemente, die aufgrund von zwei konzentrischen Randschichten 3D erscheinen.
+  - : Die Farbe des dunkleren (in der Regel äußeren) von zwei Rändern, die von der Lichtquelle wegzeigen, bei 3D-Elementen, die aufgrund von zwei konzentrischen Randebenen dreidimensional erscheinen.
 - `ThreeDFace`
-  - : Die Vordergrund-Hintergrundfarbe für 3D-Elemente, die aufgrund von zwei konzentrischen Randschichten 3D erscheinen. Sollte mit der `ButtonText` Vordergrundfarbe verwendet werden.
+  - : Die Hintergrundfarbe der Fläche für 3D-Elemente, die aufgrund von zwei konzentrischen Randebenen dreidimensional erscheinen. Sollte mit der `ButtonText` Vordergrundfarbe verwendet werden.
 - `ThreeDHighlight`
-  - : Die Farbe der helleren (im Allgemeinen äußeren) der beiden Ränder, die zum Licht hin gerichtet sind, für 3D-Elemente, die aufgrund von zwei konzentrischen Randschichten 3D erscheinen.
+  - : Die Farbe des helleren (in der Regel äußeren) von zwei Rändern, die zur Lichtquelle zeigen, bei 3D-Elementen, die aufgrund von zwei konzentrischen Randebenen dreidimensional erscheinen.
 - `ThreeDLightShadow`
-  - : Die Farbe der dunkleren (im Allgemeinen inneren) der beiden Ränder, die zum Licht hin gerichtet sind, für 3D-Elemente, die aufgrund von zwei konzentrischen Randschichten 3D erscheinen.
+  - : Die Farbe des dunkleren (in der Regel inneren) von zwei Rändern, die zur Lichtquelle zeigen, bei 3D-Elementen, die aufgrund von zwei konzentrischen Randebenen dreidimensional erscheinen.
 - `ThreeDShadow`
-  - : Die Farbe der helleren (im Allgemeinen inneren) der beiden Ränder, die vom Licht abgewandt sind, für 3D-Elemente, die aufgrund von zwei konzentrischen Randschichten 3D erscheinen.
+  - : Die Farbe des helleren (in der Regel inneren) von zwei Rändern, die von der Lichtquelle wegzeigen, bei 3D-Elementen, die aufgrund von zwei konzentrischen Randebenen dreidimensional erscheinen.
 - `Window`
   - : Fensterhintergrund. Sollte mit der `WindowText` Vordergrundfarbe verwendet werden.
 - `WindowFrame`
@@ -115,7 +115,7 @@ Die folgenden Stichwörter wurden in früheren Versionen des CSS-Farbmoduls defi
 
 ### Verwendung von Systemfarben
 
-In diesem Beispiel haben wir eine Schaltfläche, die normalerweise durch die {{cssxref("box-shadow")}} Eigenschaft ihren Kontrast erhält. Im Forced Colors Mode wird `box-shadow` auf `none` gesetzt, sodass das Beispiel die Media-Feature `forced-colors` verwendet, um sicherzustellen, dass es einen Rand der entsprechenden Farbe (`ButtonBorder` in diesem Fall) gibt.
+In diesem Beispiel haben wir eine Schaltfläche, die normalerweise ihren Kontrast mithilfe der {{cssxref("box-shadow")}}-Eigenschaft erhält. Im erzwungenen Farbenmodus wird `box-shadow` auf `none` gesetzt, daher verwendet das Beispiel das `forced-colors` Media-Feature, um sicherzustellen, dass es einen Rand der entsprechenden Farbe gibt (in diesem Fall `ButtonBorder`).
 
 #### HTML
 
@@ -136,8 +136,8 @@ In diesem Beispiel haben wir eine Schaltfläche, die normalerweise durch die {{c
 
 @media (forced-colors: active) {
   .button {
-    /* Verwenden Sie stattdessen einen Rand, da
-    box-shadow im Forced Colors Mode auf 'none' gesetzt ist */
+    /* Use a border instead, since box-shadow
+    is forced to 'none' in forced-colors mode */
     border: 2px ButtonBorder solid;
   }
 }
@@ -157,4 +157,4 @@ In diesem Beispiel haben wir eine Schaltfläche, die normalerweise durch die {{c
 
 ## Siehe auch
 
-- [`<color>`](/de/docs/Web/CSS/color_value): der Datentyp, zu dem diese Stichwörter gehören
+- [`<color>`](/de/docs/Web/CSS/color_value): Der Datentyp, zu dem diese Schlüsselwörter gehören

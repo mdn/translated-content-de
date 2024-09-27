@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`outgoingMaxAge`**-Eigenschaft der {{domxref("WebTransportDatagramDuplexStream")}}-Schnittstelle ruft das maximale Alter für ausgehende Datagramme in Millisekunden ab oder legt es fest.
+Die **`outgoingMaxAge`**-Eigenschaft der Schnittstelle [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream) ruft das maximal zulässige Alter für ausgehende Datagramme in Millisekunden ab oder setzt es.
 
 ## Wert
 
@@ -20,18 +20,18 @@ Eine Zahl oder `null`, wenn kein maximales Alter festgelegt wurde.
 const url = "https://example.com:4999/wt";
 
 async function initTransport(url) {
-  // Transportverbindung initialisieren
+  // Initialize transport connection
   const transport = new WebTransport(url);
 
-  // Die Verbindung kann verwendet werden, sobald ready erfüllt ist
+  // The connection can be used once ready fulfills
   await transport.ready;
 
   const datagrams = transport.datagrams;
 
-  // outgoingMaxAge festlegen
+  // set outgoingMaxAge
   datagrams.outgoingMaxAge = 2000;
 
-  // outgoingMaxAge abrufen
+  // get outgoingMaxAge
   console.log(datagrams.outgoingMaxAge);
 }
 ```
@@ -47,6 +47,6 @@ async function initTransport(url) {
 ## Siehe auch
 
 - [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

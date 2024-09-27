@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`shape-rendering`**-Attribut gibt dem Renderer Hinweise darauf, welche Kompromisse beim Rendern von Formen wie Pfaden, Kreisen oder Rechtecken zu machen sind.
+Das **`shape-rendering`**-Attribut liefert dem Renderer Hinweise darauf, welche Kompromisse eingegangen werden sollen, wenn Formen wie Wege, Kreise oder Rechtecke gerendert werden.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `shape-rendering` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('shape-rendering')}} für mehr Informationen.
@@ -41,7 +41,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "220")}}
 
-## Anwendungshinweise
+## Hinweise zur Nutzung
 
 <table class="properties">
   <tbody>
@@ -64,13 +64,13 @@ svg {
 </table>
 
 - `auto`
-  - : Dieser Wert gibt an, dass der Benutzer-Agent geeignete Kompromisse eingehen soll, um Geschwindigkeit, scharfe Kanten und geometrische Präzision auszugleichen, wobei der geometrischen Präzision mehr Bedeutung beigemessen wird als Geschwindigkeit und scharfen Kanten.
+  - : Dieser Wert gibt an, dass der User-Agent entsprechende Kompromisse eingehen soll, um Geschwindigkeit, scharfe Kanten und geometrische Präzision auszugleichen, wobei der geometrischen Präzision mehr Bedeutung als der Geschwindigkeit und den scharfen Kanten beigemessen wird.
 - `optimizeSpeed`
-  - : Dieser Wert gibt an, dass der Benutzer-Agent die Rendering-Geschwindigkeit über die geometrische Präzision und scharfe Kanten stellen soll. Diese Option kann dazu führen, dass der Benutzer-Agent die Form-Anti-Aliasing ausschaltet.
+  - : Dieser Wert gibt an, dass der User-Agent das Rendering-Tempo über geometrische Präzision und scharfe Kanten stellen soll. Diese Option wird manchmal dazu führen, dass der User-Agent die Kanten-Glättung der Formen deaktiviert.
 - `crispEdges`
-  - : Dieser Wert gibt an, dass der Benutzer-Agent versuchen soll, den Kontrast zwischen klaren Kanten von Kunstwerken gegenüber der Rendering-Geschwindigkeit und geometrischen Präzision zu betonen. Um scharfe Kanten zu erreichen, könnte der Benutzer-Agent das Anti-Aliasing für alle Linien und Kurven oder möglicherweise nur für gerade Linien, die fast vertikal oder horizontal sind, abschalten. Außerdem könnte der Benutzer-Agent die Linienpositionen und Linienbreiten anpassen, um Kanten an Gerätepixel auszurichten.
+  - : Dieser Wert gibt an, dass der User-Agent versuchen soll, den Kontrast zwischen scharfen Kanten von Kunstwerken über die Rendering-Geschwindigkeit und die geometrische Präzision zu betonen. Um scharfe Kanten zu erreichen, könnte der User-Agent die Kanten-Glättung für alle Linien und Kurven oder möglicherweise nur für gerade Linien, die fast vertikal oder horizontal sind, deaktivieren. Außerdem könnte der User-Agent die Positionen und Breiten von Linien anpassen, um Kanten an Gerätepixel auszurichten.
 - `geometricPrecision`
-  - : Gibt an, dass der Benutzer-Agent die geometrische Präzision gegenüber Geschwindigkeit und scharfen Kanten betonen soll.
+  - : Gibt an, dass der User-Agent geometrische Präzision über Geschwindigkeit und scharfe Kanten betonen soll.
 
 ## Spezifikationen
 
@@ -82,4 +82,4 @@ svg {
 
 ## Siehe auch
 
-- CSS {{cssxref('shape-rendering')}}-Eigenschaft
+- CSS {{cssxref('shape-rendering')}} Eigenschaft

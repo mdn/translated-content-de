@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`projectionMatrix`**-Eigenschaft des {{domxref("XRView")}}-Interfaces gibt die Projektionsmatrix an, die auf die zugrunde liegende Ansicht angewendet werden soll. Dies sollte verwendet werden, um Perspektiven in alles im Szenenbild zu integrieren, um sicherzustellen, dass das Ergebnis mit dem übereinstimmt, was das Auge erwartet zu sehen.
+Die schreibgeschützte **`projectionMatrix`**-Eigenschaft der [`XRView`](/de/docs/Web/API/XRView)-Schnittstelle gibt die Projektionsmatrix an, die auf die zugrunde liegende Ansicht angewendet werden soll. Diese sollte verwendet werden, um alles in der Szene perspektivisch zu integrieren, um sicherzustellen, dass das Ergebnis mit dem übereinstimmt, was das Auge zu sehen erwartet.
 
 > [!NOTE]
-> Das Versäumnis, eine korrekte Perspektive anzuwenden, oder Ungereimtheiten in der Perspektive können möglicherweise zu erheblichen Unannehmlichkeiten oder Belastungen für den Benutzer führen.
+> Das Versäumnis, eine korrekte Perspektive anzuwenden oder Inkonsistenzen in der Perspektive können möglicherweise ernste Unannehmlichkeiten oder Belastungen für den Benutzer verursachen.
 
 ## Wert
 
-Ein {{jsxref("Float32Array")}}-Objekt, das die Projektionsmatrix für die Ansicht repräsentiert. Die Projektionsmatrix für die Ansicht jedes Auges wird verwendet, um sicherzustellen, dass der richtige Bereich der Szene jedem Auge präsentiert wird, um eine glaubwürdige 3D-Szene zu schaffen, ohne dem Benutzer Unannehmlichkeiten zu bereiten.
+Ein {{jsxref("Float32Array")}}-Objekt, das die Projektionsmatrix für die Ansicht repräsentiert. Die Projektionsmatrix für die Ansicht jedes Auges wird verwendet, um sicherzustellen, dass der richtige Bereich der Szene jedem Auge präsentiert wird, um eine glaubwürdige 3D-Szene zu erstellen, ohne Unbehagen für den Benutzer zu verursachen.
 
 ## Beispiele
 
@@ -23,6 +23,6 @@ Ein {{jsxref("Float32Array")}}-Objekt, das die Projektionsmatrix für die Ansich
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

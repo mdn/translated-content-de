@@ -1,5 +1,5 @@
 ---
-title: "Element: getAttribute()-Methode"
+title: "Element: getAttribute() Methode"
 short-title: getAttribute()
 slug: Web/API/Element/getAttribute
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getAttribute()`** Methode des {{domxref("Element")}}-Interfaces gibt den Wert eines angegebenen Attributs des Elements zurück.
+Die **`getAttribute()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt den Wert eines angegebenen Attributs des Elements zurück.
 
-Falls das angegebene Attribut nicht existiert, wird der Wert `null` zurückgegeben.
+Wenn das angegebene Attribut nicht existiert, wird der Wert `null` zurückgegeben.
 
-Wenn Sie die Eigenschaften des {{domxref("Attr")}}-Knotens inspizieren müssen, können Sie stattdessen die {{domxref("Element.getAttributeNode()", "getAttributeNode()")}}-Methode verwenden.
+Wenn Sie die Eigenschaften des [`Attr`](/de/docs/Web/API/Attr)-Knotens inspizieren müssen, können Sie stattdessen die [`getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode)-Methode verwenden.
 
 ## Syntax
 
@@ -23,21 +23,21 @@ getAttribute(attributeName)
 ### Parameter
 
 - `attributeName`
-  - : Der Name des Attributs, dessen Wert Sie abrufen möchten.
+  - : Der Name des Attributs, dessen Wert Sie erhalten möchten.
 
 ### Rückgabewert
 
-Ein String, der den Wert von `attributeName` enthält, falls das Attribut existiert, sonst `null`.
+Ein String, der den Wert von `attributeName` enthält, wenn das Attribut existiert, andernfalls `null`.
 
 ## Beispiele
 
 ```html
-<!-- Beispiel-Div in einem HTML-Dokument -->
+<!-- example div in an HTML DOC -->
 <div id="div1">Hi Champ!</div>
 ```
 
 ```js
-// in einer Konsole
+// in a console
 const div1 = document.getElementById("div1");
 //=> <div id="div1">Hi Champ!</div>
 
@@ -50,20 +50,21 @@ const align = div1.getAttribute("align");
 
 ## Beschreibung
 
-### Kleinschreibung
+### Kleinbuchstaben
 
-Wenn sie auf ein HTML-Element in einem DOM aufgerufen wird, das als HTML-Dokument gekennzeichnet ist, wandelt `getAttribute()` sein Argument in Kleinbuchstaben um, bevor es fortfährt.
+Wenn `getAttribute()` an einem HTML-Element in einem DOM, das als HTML-Dokument markiert ist, aufgerufen wird, wandelt die Methode ihr Argument in Kleinbuchstaben um, bevor sie fortfährt.
 
 ### Abrufen von Nonce-Werten
 
-Aus Sicherheitsgründen sind [CSP](/de/docs/Web/HTTP/CSP) Nonces aus nicht-Skript-Quellen, wie CSS-Selektoren, und `.getAttribute("nonce")`-Aufrufen verborgen.
+Aus Sicherheitsgründen werden [CSP](/de/docs/Web/HTTP/CSP)-Nonces, die nicht aus Skriptquellen stammen, wie CSS-Selektoren, und `.getAttribute("nonce")`-Aufrufe verborgen.
 
 ```js example-bad
 let nonce = script.getAttribute("nonce");
-// gibt einen leeren String zurück
+// returns empty string
 ```
 
-Anstatt den Nonce-Wert aus dem Inhaltsattribut abzurufen, verwenden Sie die {{domxref("HTMLElement/nonce", "nonce")}}-Eigenschaft:
+Anstatt die Nonce aus dem Inhaltsattribut abzurufen, verwenden Sie die
+[`nonce`](/de/docs/Web/API/HTMLElement/nonce)-Eigenschaft:
 
 ```js
 let nonce = script.nonce;
@@ -79,7 +80,7 @@ let nonce = script.nonce;
 
 ## Siehe auch
 
-- {{domxref("Element.hasAttribute()")}}
-- {{domxref("Element.setAttribute()")}}
-- {{domxref("Element.removeAttribute()")}}
-- {{domxref("Element.toggleAttribute()")}}
+- [`Element.hasAttribute()`](/de/docs/Web/API/Element/hasAttribute)
+- [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute)
+- [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)
+- [`Element.toggleAttribute()`](/de/docs/Web/API/Element/toggleAttribute)

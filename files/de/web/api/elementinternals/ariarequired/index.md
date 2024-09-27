@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaRequired`**-Eigenschaft des {{domxref("ElementInternals")}}-Interfaces spiegelt den Wert des [`aria-required`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-required)-Attributs wider, welches anzeigt, dass Benutzereingaben auf dem Element erforderlich sind, bevor ein Formular abgeschickt werden kann.
+Die **`ariaRequired`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-required`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-required)-Attributs wider, das angibt, dass Benutzereingaben auf dem Element erforderlich sind, bevor ein Formular gesendet werden kann.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` erlaubt es, Standard-Semantiken auf einem benutzerdefinierten Element zu definieren. Diese können von vom Autor definierten Attributen überschrieben werden. Jedoch wird sichergestellt, dass die Standard-Semantiken erhalten bleiben, falls der Autor diese Attribute löscht oder gar nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von ARIA-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, gewährleisten jedoch, dass die Standardsemantiken beibehalten werden, falls der Autor diese Attribute löscht oder überhaupt nicht hinzufügt. Für weitere Informationen siehe den [Accessibility Object Model Erklärungstext](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"true"`
-  - : Benutzer müssen Eingaben zu einem Element machen, bevor ein Formular abgeschickt wird.
+  - : Benutzer müssen Eingaben auf einem Element vornehmen, bevor ein Formular abgesendet wird.
 - `"false"`
-  - : Benutzereingaben sind nicht notwendig, um das Formular abzuschicken.
+  - : Benutzereingaben sind nicht erforderlich, um das Formular abzusenden.
 
 ## Beispiele
 

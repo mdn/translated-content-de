@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `createMediaStreamDestination()`-Methode der {{ domxref("AudioContext") }}-Schnittstelle wird verwendet, um ein neues {{domxref("MediaStreamAudioDestinationNode")}}-Objekt zu erstellen, das mit einem [WebRTC](/de/docs/Web/API/WebRTC_API) {{domxref("MediaStream")}} verbunden ist, das einen Audiostream darstellt, der in einer lokalen Datei gespeichert oder an einen anderen Computer gesendet werden kann.
+Die `createMediaStreamDestination()`-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle wird verwendet, um ein neues [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode)-Objekt zu erstellen, das mit einem [WebRTC](/de/docs/Web/API/WebRTC_API) [`MediaStream`](/de/docs/Web/API/MediaStream) verknüpft ist. Dieses repräsentiert einen Audiostream, der in einer lokalen Datei gespeichert oder an einen anderen Computer gesendet werden kann.
 
-Der {{domxref("MediaStream")}} wird beim Erstellen des Knotens erstellt und ist über das `stream`-Attribut von {{domxref("MediaStreamAudioDestinationNode")}} zugänglich. Dieser Stream kann ähnlich wie ein `MediaStream` verwendet werden, der über {{domxref("navigator.getUserMedia") }} erhalten wurde — er kann beispielsweise mit der `addStream()`-Methode von `RTCPeerConnection` an einen entfernten Teilnehmer gesendet werden.
+Der [`MediaStream`](/de/docs/Web/API/MediaStream) wird beim Erstellen des Knotens erstellt und ist über das `stream`-Attribut des [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode) zugänglich. Dieser Stream kann in ähnlicher Weise verwendet werden wie ein `MediaStream`, der über [`navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia) erhalten wurde — er kann zum Beispiel an einen entfernten Teilnehmer über die `addStream()`-Methode von `RTCPeerConnection` gesendet werden.
 
-Weitere Details zu Medienstrom-Zielknoten finden Sie auf der Referenzseite des {{domxref("MediaStreamAudioDestinationNode")}}.
+Weitere Details über Media-Stream-Zielknoten finden Sie auf der Referenzseite des [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode).
 
 ## Syntax
 
@@ -26,15 +26,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("MediaStreamAudioDestinationNode")}}.
+Ein [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode).
 
 ## Beispiele
 
-Im folgenden einfachen Beispiel erstellen wir ein {{domxref("MediaStreamAudioDestinationNode")}}, ein {{ domxref("OscillatorNode") }} und ein {{ domxref("MediaRecorder") }} (das Beispiel funktioniert daher derzeit nur in Firefox und Chrome). Der `MediaRecorder` wird eingerichtet, um Informationen vom `MediaStreamDestinationNode` aufzuzeichnen.
+Im folgenden einfachen Beispiel erstellen wir ein [`MediaStreamAudioDestinationNode`](/de/docs/Web/API/MediaStreamAudioDestinationNode), ein [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) und einen [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) (das Beispiel funktioniert daher derzeit nur in Firefox und Chrome.) Der `MediaRecorder` wird eingerichtet, um Informationen vom `MediaStreamDestinationNode` aufzuzeichnen.
 
-Wenn die Schaltfläche geklickt wird, startet der Oszillator und der `MediaRecorder` wird gestartet. Wenn die Schaltfläche gestoppt wird, stoppen sowohl der Oszillator als auch der `MediaRecorder`. Das Stoppen des `MediaRecorder` löst das `dataavailable`-Ereignis aus, und die Ereignisdaten werden in das `chunks`-Array eingefügt. Danach wird das `stop`-Ereignis ausgelöst, ein neues `blob` vom Typ Opus erstellt — das die Daten im `chunks`-Array enthält — und ein neues Fenster (Tab) wird dann geöffnet, das auf eine URL zeigt, die aus dem Blob erstellt wurde.
+Wenn die Schaltfläche geklickt wird, startet der Oszillator und der `MediaRecorder` wird gestartet. Wenn die Schaltfläche gestoppt wird, stoppen sowohl der Oszillator als auch der `MediaRecorder`. Das Stoppen des `MediaRecorder` verursacht das Auslösen des `dataavailable`-Events, und die Eventdaten werden in das `chunks`-Array geschoben. Danach wird das `stop`-Event ausgelöst, ein neuer `blob` wird vom Typ opus erstellt, der die Daten im `chunks`-Array enthält, und ein neues Fenster (Tab) wird geöffnet, das auf eine URL zeigt, die aus dem Blob erstellt wurde.
 
-Von hier aus können Sie die Opus-Datei abspielen und speichern.
+Von hier aus können Sie die opus-Datei abspielen und speichern.
 
 ```html
 <!doctype html>
@@ -46,8 +46,8 @@ Von hier aus können Sie die Opus-Datei abspielen und speichern.
   <body>
     <h1>createMediaStreamDestination() demo</h1>
 
-    <p>Encodiere eine reine Sinuswelle in eine Opus-Datei</p>
-    <button>Erstelle Sinuswelle</button>
+    <p>Encoding a pure sine wave to an Opus file</p>
+    <button>Make sine wave</button>
     <audio controls></audio>
     <script>
       const b = document.querySelector("button");
@@ -63,7 +63,7 @@ Von hier aus können Sie die Opus-Datei abspielen und speichern.
         if (!clicked) {
           mediaRecorder.start();
           osc.start(0);
-          e.target.textContent = "Aufnahme stoppen";
+          e.target.textContent = "Stop recording";
           clicked = true;
         } else {
           mediaRecorder.stop();
@@ -73,12 +73,12 @@ Von hier aus können Sie die Opus-Datei abspielen und speichern.
       });
 
       mediaRecorder.ondataavailable = (evt) => {
-        // Jeder Chunk (Blobs) in ein Array aufnehmen
+        // Push each chunk (blobs) in an array
         chunks.push(evt.data);
       };
 
       mediaRecorder.onstop = (evt) => {
-        // Blob aus unseren Blobs erstellen und öffnen.
+        // Make blob out of our blobs, and open it.
         const blob = new Blob(chunks, { type: "audio/ogg; codecs=opus" });
         document.querySelector("audio").src = URL.createObjectURL(blob);
       };
@@ -88,7 +88,7 @@ Von hier aus können Sie die Opus-Datei abspielen und speichern.
 ```
 
 > [!NOTE]
-> Sie können [dieses Beispiel live ansehen](https://mdn.github.io/webaudio-examples/create-media-stream-destination/index.html) oder [den Quellcode studieren](https://github.com/mdn/webaudio-examples/blob/main/create-media-stream-destination/index.html) auf GitHub.
+> Sie können [dieses Beispiel live ansehen](https://mdn.github.io/webaudio-examples/create-media-stream-destination/index.html) oder [den Quellcode auf GitHub studieren](https://github.com/mdn/webaudio-examples/blob/main/create-media-stream-destination/index.html).
 
 ## Spezifikationen
 

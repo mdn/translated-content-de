@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Das **`BackgroundFetchManager`**-Interface der {{domxref('Background Fetch API','','',' ')}} ist eine Map, bei der die Schlüssel Hintergrundabruf-IDs und die Werte {{domxref("BackgroundFetchRegistration")}}-Objekte sind.
+Das **`BackgroundFetchManager`** Interface der [Background Fetch API](/de/docs/Web/API/Background_Fetch_API) ist eine Zuordnung, bei der die Schlüssel Hintergrundabruf-IDs sind und die Werte [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) Objekte sind.
 
 ## Instanz-Eigenschaften
 
@@ -15,16 +15,16 @@ Keine.
 
 ## Instanz-Methoden
 
-- {{domxref('BackgroundFetchManager.fetch','fetch()' )}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("BackgroundFetchRegistration")}}-Objekt für ein bereitgestelltes Array von URLs und {{domxref("Request")}}-Objekten aufgelöst wird.
-- {{domxref('BackgroundFetchManager.get','get()')}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit der {{domxref("BackgroundFetchRegistration")}} aufgelöst wird, die mit der angegebenen `id` verbunden ist, oder mit {{jsxref("undefined")}}, wenn die `id` nicht gefunden wird.
-- {{domxref('BackgroundFetchManager.getIds','getIds()')}} {{Experimental_Inline}}
+- [`fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) Objekt für ein bereitgestelltes Array von URLs und [`Request`](/de/docs/Web/API/Request) Objekten aufgelöst wird.
+- [`get()`](/de/docs/Web/API/BackgroundFetchManager/get) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration), die mit der bereitgestellten `id` assoziiert ist, oder mit {{jsxref("undefined")}} aufgelöst wird, wenn die `id` nicht gefunden wird.
+- [`getIds()`](/de/docs/Web/API/BackgroundFetchManager/getIds) {{Experimental_Inline}}
   - : Gibt die IDs aller registrierten Hintergrundabrufe zurück.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man eine Instanz von `BackgroundFetchManager` aus einem {{domxref("ServiceWorkerRegistration")}}-Objekt erhält und `fetch()` aufruft, um eine Audiodatei im Hintergrund herunterzuladen.
+Das unten stehende Beispiel zeigt, wie man eine Instanz von `BackgroundFetchManager` aus einem [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) Objekt erhält und `fetch()` aufruft, um eine Audiodatei im Hintergrund herunterzuladen.
 
 ```js
 navigator.serviceWorker.ready.then(async (swReg) => {

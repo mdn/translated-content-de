@@ -3,12 +3,12 @@ title: "WebSocket: bufferedAmount-Eigenschaft"
 short-title: bufferedAmount
 slug: Web/API/WebSocket/bufferedAmount
 l10n:
-  sourceCommit: eba47bb55d10e6dc73f61dbefc9d3da2abf1fd78
+  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
 ---
 
-{{APIRef("WebSockets API")}}
+{{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`WebSocket.bufferedAmount`** gibt die Anzahl der Bytes zurück, die mittels Aufrufen von [`send()`](/de/docs/Web/API/WebSocket/send) in die Warteschlange gestellt, aber noch nicht ans Netzwerk übertragen wurden. Dieser Wert wird auf null zurückgesetzt, sobald alle in der Warteschlange stehenden Daten gesendet wurden. Der Wert wird nicht auf null zurückgesetzt, wenn die Verbindung geschlossen wird; wenn Sie weiterhin [`send()`](/de/docs/Web/API/WebSocket/send) aufrufen, wird dieser Wert weiter ansteigen.
+Die schreibgeschützte Eigenschaft **`WebSocket.bufferedAmount`** gibt die Anzahl der Bytes zurück, die durch Aufrufe von [`send()`](/de/docs/Web/API/WebSocket/send) in die Warteschlange gestellt wurden, aber noch nicht an das Netzwerk übertragen wurden. Dieser Wert wird auf null zurückgesetzt, sobald alle in der Warteschlange befindlichen Daten gesendet wurden. Dieser Wert wird nicht auf null zurückgesetzt, wenn die Verbindung geschlossen wird; wenn Sie weiterhin [`send()`](/de/docs/Web/API/WebSocket/send) aufrufen, wird dieser Wert weiter ansteigen.
 
 ## Wert
 

@@ -7,28 +7,28 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Das **`HID`**-Interface bietet Methoden zum Verbinden mit _HID-Geräten_, zum Auflisten angeschlossener HID-Geräte sowie Ereignishandler für verbundene HID-Geräte.
+Die **`HID`**-Schnittstelle stellt Methoden zum Verbinden mit _HID-Geräten_, zum Auflisten angeschlossener HID-Geräte und zum Behandeln von Ereignissen für angeschlossene HID-Geräte bereit.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface erbt auch Eigenschaften seines Elternteils, {{domxref("EventTarget")}}._
+_Diese Schnittstelle erbt auch Eigenschaften ihres Elternteils, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Instanz-Methoden
 
-_Dieses Interface erbt auch Methoden seines Elternteils, {{domxref("EventTarget")}}._
+_Diese Schnittstelle erbt auch Methoden ihres Elternteils, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("HID.getDevices", "getDevices()")}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von verbundenen {{domxref("HIDDevice")}}-Objekten aufgelöst wird.
-- {{domxref("HID.requestDevice", "requestDevice()")}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von verbundenen {{domxref("HIDDevice")}}-Objekten aufgelöst wird. Das Aufrufen dieser Funktion wird den Berechtigungsablauf des Benutzeragenten auslösen, um die Berechtigung zu erhalten, ein ausgewähltes Gerät aus der zurückgegebenen Liste der Geräte zuzugreifen.
+- [`getDevices()`](/de/docs/Web/API/HID/getDevices) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das sich mit einem Array verbundener [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Objekte auflöst.
+- [`requestDevice()`](/de/docs/Web/API/HID/requestDevice) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das sich mit einem Array verbundener [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Objekte auflöst. Der Aufruf dieser Funktion löst den Berechtigungsfluss des Benutzeragenten aus, um die Erlaubnis zu erhalten, auf ein ausgewähltes Gerät aus der zurückgegebenen Geräteliste zuzugreifen.
 
 ### Ereignisse
 
-- {{domxref("HID.connect_event", "connect")}} {{Experimental_Inline}}
+- [`connect`](/de/docs/Web/API/HID/connect_event) {{Experimental_Inline}}
   - : Wird ausgelöst, wenn ein HID-Gerät angeschlossen wird.
-- {{domxref("HID.disconnect_event", "disconnect")}} {{Experimental_Inline}}
+- [`disconnect`](/de/docs/Web/API/HID/disconnect_event) {{Experimental_Inline}}
   - : Wird ausgelöst, wenn ein HID-Gerät getrennt wird.
 
 ## Spezifikationen

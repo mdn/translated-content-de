@@ -1,20 +1,20 @@
 ---
-title: "GPUDevice: uncapturederror-Ereignis"
+title: "GPUDevice: uncapturederror Ereignis"
 short-title: uncapturederror
 slug: Web/API/GPUDevice/uncapturederror_event
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`uncapturederror`**-Ereignis der {{domxref("GPUDevice")}}-Schnittstelle wird ausgelöst, wenn ein Fehler auftritt, der von einem GPU-Fehlerbereich nicht beobachtet wurde, um eine Möglichkeit zu bieten, unerwartete Fehler zu melden.
+Das **`uncapturederror`**-Ereignis des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces wird ausgelöst, wenn ein Fehler auftritt, der nicht von einem GPU-Fehlerbereich erfasst wurde, um eine Möglichkeit zur Meldung unerwarteter Fehler bereitzustellen.
 
-Bekannte Fehlerfälle sollten mit {{domxref("GPUDevice.pushErrorScope", "pushErrorScope()")}} und {{domxref("GPUDevice.popErrorScope", "popErrorScope()")}} behandelt werden.
+Bekannte Fehlerfälle sollten mit [`pushErrorScope()`](/de/docs/Web/API/GPUDevice/pushErrorScope) und [`popErrorScope()`](/de/docs/Web/API/GPUDevice/popErrorScope) behandelt werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("uncapturederror", (event) => {});
@@ -24,18 +24,18 @@ onuncapturederror = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("GPUUncapturedErrorEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUncapturedErrorEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("GPUUncapturedErrorEvent")}}
 
 ## Beispiele
 
-Sie könnten so etwas wie das folgende als globalen Mechanismus verwenden, um alle Fehler, die nicht von Fehlerbereichen behandelt werden, aufzufangen und zu erfassen.
+Sie könnten so etwas wie das Folgende als globalen Mechanismus verwenden, um alle Fehler zu erfassen, die nicht von Fehlerbereichen behandelt und aufgefangen werden.
 
 ```js
 device.addEventListener("uncapturederror", (event) => {
-  // Erneut auftretenden Fehler anzeigen.
-  console.error("Ein WebGPU-Fehler wurde nicht erfasst:", event.error);
+  // Re-surface the error.
+  console.error("A WebGPU error was not captured:", event.error);
 
   reportErrorToServer({
     type: event.error.constructor.name,
@@ -44,7 +44,7 @@ device.addEventListener("uncapturederror", (event) => {
 });
 ```
 
-Siehe [WebGPU-Fehlerbehandlungs-Best-Practices](https://toji.dev/webgpu-best-practices/error-handling) für weitere Beispiele und Informationen.
+Weitere Beispiele und Informationen finden Sie in den [besten Praktiken zur Fehlerbehandlung in WebGPU](https://toji.dev/webgpu-best-practices/error-handling).
 
 ## Spezifikationen
 

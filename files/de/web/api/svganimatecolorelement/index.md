@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("SVG")}}{{deprecated_header}}
 
-Die **`SVGAnimateColorElement`** Schnittstelle entspricht dem `<animateColor>` Element.
+Die **`SVGAnimateColorElement`**-Schnittstelle entspricht dem `<animateColor>`-Element.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von ihrem Elternteil, {{domxref("SVGAnimationElement")}}._
+_Diese Schnittstelle hat keine Eigenschaften, erbt jedoch Eigenschaften von ihrem Elternteil, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch Methoden von ihrem Elternteil, {{domxref("SVGAnimationElement")}}._
+_Diese Schnittstelle hat keine Methoden, erbt jedoch Methoden von ihrem Elternteil, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
 
 ## Spezifikationen
 

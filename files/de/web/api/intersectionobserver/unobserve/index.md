@@ -1,5 +1,5 @@
 ---
-title: "IntersectionObserver: unobserve()-Methode"
+title: "IntersectionObserver: unobserve() Methode"
 short-title: unobserve()
 slug: Web/API/IntersectionObserver/unobserve
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die Methode **`unobserve()`** des {{domxref("IntersectionObserver")}} weist den `IntersectionObserver` an, die Überwachung des angegebenen Zielelements zu beenden.
+Die Methode **`unobserve()`** des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) weist den `IntersectionObserver` an, das Beobachten des angegebenen Zielelements zu beenden.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ unobserve(target)
 ### Parameter
 
 - `target`
-  - : Das {{domxref("Element")}}, dessen Beobachtung beendet werden soll. Wenn das angegebene Element nicht beobachtet wird, tut diese Methode nichts und es wird keine Ausnahme ausgelöst.
+  - : Das [`Element`](/de/docs/Web/API/Element), dessen Beobachtung beendet werden soll. Wenn das angegebene Element nicht beobachtet wird, tut diese Methode nichts und es wird keine Ausnahme ausgelöst.
 
 ### Rückgabewert
 
@@ -27,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie ein Beobachter erstellt wird, ein Element beobachtet wird und dann nicht mehr beobachtet wird.
+Dieses Beispiel zeigt, wie ein Observer erstellt wird, ein Element beobachtet und anschließend nicht mehr beobachtet wird.
 
 ```js
 const observer = new IntersectionObserver(callback);
@@ -49,4 +49,4 @@ observer.unobserve(document.getElementById("elementToObserve"));
 ## Siehe auch
 
 - [Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API)
-- {{domxref("IntersectionObserver.observe()")}}
+- [`IntersectionObserver.observe()`](/de/docs/Web/API/IntersectionObserver/observe)

@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{securecontext_header}}
 
-Der **`PaymentRequestUpdateEvent()`** Konstruktor erstellt ein neues
-{{domxref("PaymentRequestUpdateEvent")}} Objekt, das es einer Webseite ermöglicht, die
-Details eines {{domxref("PaymentRequest")}} als Reaktion auf eine Benutzeraktion zu aktualisieren. Tatsächliche Updates werden vorgenommen, indem Optionen an die
-{{domxref('PaymentRequestUpdateEvent.updateWith','updateWith()')}} Methode übergeben werden.
+Der **`PaymentRequestUpdateEvent()`** Konstruktor erstellt ein neues [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent)-Objekt, das es einer Webseite ermöglicht, die Details einer [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) als Antwort auf eine Benutzeraktion zu aktualisieren. Tatsächliche Aktualisierungen werden durch das Übergeben von Optionen an die [`updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith)-Methode vorgenommen.
 
 ## Syntax
 

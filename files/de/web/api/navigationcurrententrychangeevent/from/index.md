@@ -1,5 +1,5 @@
 ---
-title: "NavigationCurrentEntryChangeEvent: from-Eigenschaft"
+title: "NavigationCurrentEntryChangeEvent: from Eigenschaft"
 short-title: from
 slug: Web/API/NavigationCurrentEntryChangeEvent/from
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`from`** schreibgeschützte Eigenschaft des {{domxref("NavigationCurrentEntryChangeEvent")}} Schnittstelle gibt das {{domxref("NavigationHistoryEntry")}} zurück, von dem die Navigation ausging.
+Die schreibgeschützte Eigenschaft **`from`** des [`NavigationCurrentEntryChangeEvent`](/de/docs/Web/API/NavigationCurrentEntryChangeEvent)-Interfaces gibt das [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, von dem aus navigiert wurde.
 
 ## Wert
 
-Ein {{domxref("NavigationHistoryEntry")}} Objekt.
+Ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt.
 
 ## Beispiele
 
@@ -32,6 +32,6 @@ navigation.addEventListener("currententrychange", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)
+- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

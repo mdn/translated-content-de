@@ -7,38 +7,38 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein `Port`-Objekt stellt ein Ende einer Verbindung zwischen zwei spezifischen Kontexten dar, das zum Austausch von Nachrichten verwendet werden kann.
+Ein `Port`-Objekt repräsentiert ein Ende einer Verbindung zwischen zwei spezifischen Kontexten, die zum Nachrichtenaustausch verwendet werden kann.
 
-Eine Seite initiiert die Verbindung, indem sie eine `connect()`-API verwendet. Dies gibt ein `Port`-Objekt zurück. Die andere Seite wartet mit einem `onConnect`-Listener auf Verbindungsversuche. Dieser wird mit einem entsprechenden `Port`-Objekt übergeben.
+Eine Seite initiiert die Verbindung mit einer `connect()`-API. Dies gibt ein `Port`-Objekt zurück. Die andere Seite überwacht Verbindungsversuche mithilfe eines `onConnect`-Listeners. Dieser erhält ein entsprechendes `Port`-Objekt.
 
-Sobald beide Seiten `Port`-Objekte haben, können sie Nachrichten mit `Port.postMessage()` und `Port.onMessage` austauschen. Wenn sie fertig sind, kann jede Seite die Verbindung mit `Port.disconnect()` trennen, was ein `Port.onDisconnect`-Ereignis am anderen Ende erzeugt und es dem anderen Ende ermöglicht, notwendige Aufräumarbeiten durchzuführen.
+Sobald beide Seiten `Port`-Objekte haben, können sie Nachrichten mit `Port.postMessage()` und `Port.onMessage` austauschen. Wenn sie fertig sind, kann ein Ende die Verbindung mit `Port.disconnect()` trennen, was ein `Port.onDisconnect`-Ereignis am anderen Ende generiert, damit das andere Ende notwendige Aufräumarbeiten durchführen kann.
 
 Ein `Port` kann auch als Reaktion auf verschiedene Ereignisse getrennt werden. Siehe [Lebenszyklus](#lebenszyklus).
 
-Sie können dieses Muster verwenden, um zwischen folgenden zu kommunizieren:
+Sie können dieses Muster verwenden, um zwischen folgenden Punkten zu kommunizieren:
 
-- verschiedenen Teilen Ihrer Erweiterung (zum Beispiel zwischen [Content-Skripten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) und [Background-Skripten](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts))
-- Ihrer Erweiterung und einer [nativen Anwendung, die auf dem Computer des Benutzers läuft](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging).
-- Ihrer Erweiterung und einer anderen Erweiterung
+- verschiedene Teile Ihrer Erweiterung (zum Beispiel zwischen [Content-Scripts](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) und [Hintergrund-Skripten](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts))
+- zwischen Ihrer Erweiterung und einer [auf dem Computer des Benutzers laufenden nativen Anwendung](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging).
+- zwischen Ihrer Erweiterung und einer anderen Erweiterung
 
-Für verschiedene Arten von Verbindungen müssen unterschiedliche Verbindungs-APIs verwendet werden, wie in der Tabelle unten beschrieben.
+Für verschiedene Verbindungstypen müssen Sie unterschiedliche Verbindungs-APIs verwenden, wie in der folgenden Tabelle beschrieben.
 
 <table class="fullwidth-table standard-table">
   <thead>
     <tr>
       <th scope="col">Verbindungstyp</th>
       <th scope="col">Verbindungsversuch initiieren</th>
-      <th scope="col">Verbindungsversuch bearbeiten</th>
+      <th scope="col">Verbindungsversuch handhaben</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Hintergrundskript zu Content-Skript</td>
+      <td>Hintergrund-Skript zu Content-Skript</td>
       <td>{{WebExtAPIRef("tabs.connect()")}}</td>
       <td>{{WebExtAPIRef("runtime.onConnect")}}</td>
     </tr>
     <tr>
-      <td>Content-Skript zu Hintergrundskript</td>
+      <td>Content-Skript zu Hintergrund-Skript</td>
       <td>{{WebExtAPIRef("runtime.connect()")}}</td>
       <td>{{WebExtAPIRef("runtime.onConnect")}}</td>
     </tr>
@@ -46,7 +46,7 @@ Für verschiedene Arten von Verbindungen müssen unterschiedliche Verbindungs-AP
       <td>Erweiterung zu nativer Anwendung</td>
       <td>{{WebExtAPIRef("runtime.connectNative()")}}</td>
       <td>
-        Nicht anwendbar (siehe
+        Nicht zutreffend (siehe
         <a href="/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging"
           >Native Messaging</a
         >).
@@ -65,14 +65,14 @@ Für verschiedene Arten von Verbindungen müssen unterschiedliche Verbindungs-AP
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `name`
-  - : `string`. Der Name des Ports, definiert im Aufruf von {{WebExtAPIRef("runtime.connect()")}} oder {{WebExtAPIRef("tabs.connect()")}}, der ihn erstellt hat. Wenn dieser Port mit einer nativen Anwendung verbunden ist, ist sein Name der Name der nativen Anwendung.
+  - : `string`. Der Name des Ports, definiert in dem {{WebExtAPIRef("runtime.connect()")}}- oder {{WebExtAPIRef("tabs.connect()")}}-Aufruf, der ihn erstellt hat. Wenn dieser Port mit einer nativen Anwendung verbunden ist, ist der Name der Name der nativen Anwendung.
 - `disconnect`
-  - : `function`. Trennt einen Port. Entweder kann diese Funktion aufgerufen werden, wenn der Port nicht mehr benötigt wird. Dies führt dazu, dass `onDisconnect` am anderen Ende ausgelöst wird. Dies ist nützlich, wenn das andere Ende einen Zustand beibehält, der sich auf diesen Port bezieht und beim Trennen bereinigt werden kann. Wenn dieser Port mit einer nativen Anwendung verbunden ist, schließt diese Funktion die native Anwendung.
+  - : `function`. Trennt einen Port. Beide Enden können dies aufrufen, wenn sie mit dem Port fertig sind. Dadurch wird am anderen Ende `onDisconnect` ausgelöst. Dies ist nützlich, wenn das andere Ende einen Zustand im Zusammenhang mit diesem Port verwaltet, der bei einer Trennung bereinigt werden kann. Wenn dieser Port mit einer nativen Anwendung verbunden ist, wird diese Anwendung durch diese Funktion geschlossen.
 - `error`
-  - : `object`. Wenn der Port aufgrund eines Fehlers getrennt wurde, wird dies auf ein Objekt mit einer String-Eigenschaft `message` gesetzt, das mehr Informationen über den Fehler liefert. Siehe `onDisconnect`.
+  - : `object`. Wenn der Port aufgrund eines Fehlers getrennt wurde, wird dies auf ein Objekt mit einer String-Eigenschaft `message` gesetzt, die Ihnen mehr Informationen über den Fehler gibt. Siehe `onDisconnect`.
 - `onDisconnect`
 
-  - : `object`. Dies enthält die Funktionen `addListener()` und `removeListener()`, die für alle Ereignisse in Erweiterungen, die WebExtension-APIs verwenden, üblich sind. Listener-Funktionen werden aufgerufen, wenn das andere Ende `Port.disconnect()` aufgerufen hat. Dieses Ereignis wird nur einmal für jeden Port ausgelöst. Die Listener-Funktion erhält das `Port`-Objekt. Wenn der Port aufgrund eines Fehlers getrennt wurde, enthält das `Port`-Argument eine `error`-Eigenschaft, die mehr Informationen über den Fehler gibt:
+  - : `object`. Dies enthält die `addListener()`- und `removeListener()`-Funktionen, die allen Ereignissen für Erweiterungen gemein sind, die mit WebExtension-APIs erstellt wurden. Listener-Funktionen werden aufgerufen, wenn das andere Ende `Port.disconnect()` aufgerufen hat. Dieses Ereignis wird nur einmal für jeden Port ausgelöst. Der Listener-Funktion wird das `Port`-Objekt übergeben. Wenn der Port aufgrund eines Fehlers getrennt wurde, enthält das `Port`-Argument eine `error`-Eigenschaft, die mehr Informationen über den Fehler bietet:
 
     ```js
     port.onDisconnect.addListener((p) => {
@@ -82,42 +82,42 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
     });
     ```
 
-    Beachten Sie, dass in Google Chrome `port.error` nicht unterstützt wird: stattdessen verwenden Sie {{WebExtAPIRef("runtime.lastError")}}, um die Fehlermeldung zu erhalten.
+    Beachten Sie, dass in Google Chrome `port.error` nicht unterstützt wird: Verwenden Sie stattdessen {{WebExtAPIRef("runtime.lastError")}}, um die Fehlermeldung zu erhalten.
 
 - `onMessage`
-  - : `object`. Dies enthält die Funktionen `addListener()` und `removeListener()`, die für alle Ereignisse in Erweiterungen, die WebExtension-APIs verwenden, üblich sind. Listener-Funktionen werden aufgerufen, wenn das andere Ende diesem Port eine Nachricht gesendet hat. Der Listener erhält den Wert, den das andere Ende gesendet hat.
+  - : `object`. Dies enthält die `addListener()`- und `removeListener()`-Funktionen, die allen Ereignissen für Erweiterungen gemein sind, die mit WebExtension-APIs erstellt wurden. Listener-Funktionen werden aufgerufen, wenn das andere Ende diesem Port eine Nachricht gesendet hat. Dem Listener wird der Wert übergeben, den das andere Ende gesendet hat.
 - `postMessage`
-  - : `function`. Sendet eine Nachricht an das andere Ende. Dies nimmt ein Argument an, das ein serialisierbarer Wert ist (siehe [Datenkopieralgorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)), der die zu sendende Nachricht darstellt. Es wird an jedes Skript geliefert, das auf das `onMessage`-Ereignis des Ports hört, oder an die native Anwendung, wenn dieser Port mit einer nativen Anwendung verbunden ist.
+  - : `function`. Sendet eine Nachricht an das andere Ende. Dies erfordert ein Argument, das einen serialisierbaren Wert darstellt (siehe [Datenklon-Algorithmus](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities#data_cloning_algorithm)), der die zu sendende Nachricht repräsentiert. Diese wird an jedes Skript übermittelt, das das `onMessage`-Ereignis des Ports überwacht, oder an die native Anwendung, wenn dieser Port mit einer nativen Anwendung verbunden ist.
 - `sender` {{optional_inline}}
   - : {{WebExtAPIRef('runtime.MessageSender')}}. Enthält Informationen über den Absender der Nachricht. Diese Eigenschaft ist nur bei Ports vorhanden, die an `onConnect`/`onConnectExternal`-Listener übergeben werden.
 
 ## Lebenszyklus
 
-Der Lebenszyklus eines `Port` wird [in den Chrome-Dokumenten](https://developer.chrome.com/docs/extensions/develop/concepts/messaging#port-lifetime) beschrieben.
+Der Lebenszyklus eines `Port` wird [in den Chrome-Dokumentationen](https://developer.chrome.com/docs/extensions/develop/concepts/messaging#port-lifetime) beschrieben.
 
-Es gibt jedoch einen wichtigen Unterschied zwischen Firefox und Chrome, der sich daraus ergibt, dass die `runtime.connect`- und `tabs.connect`-APIs Broadcast-Kanäle sind. Das bedeutet, dass es potenziell mehr als einen Empfänger geben kann, und dies führt zu Unklarheit, wenn einer der Kontexte mit einem `runtime.onConnect`-Aufruf geschlossen wird. In Chrome bleibt ein Port so lange aktiv, wie es einen anderen Empfänger gibt. In Firefox wird der Port geschlossen, wenn einer der Kontexte entladen wird. Mit anderen Worten, die Bedingung für die Trennung,
+Es gibt jedoch einen wichtigen Unterschied zwischen Firefox und Chrome, der darauf zurückzuführen ist, dass die `runtime.connect` und `tabs.connect`-APIs Broadcast-Kanäle sind. Das bedeutet, dass es möglicherweise mehr als einen Empfänger gibt, was zu Mehrdeutigkeiten führt, wenn einer der Kontexte mit einem `runtime.onConnect`-Aufruf geschlossen wird. In Chrome bleibt ein Port aktiv, solange es einen anderen Empfänger gibt. In Firefox wird der Port geschlossen, wenn einer der Kontexte entladen wird. Mit anderen Worten, die Bedingung für die Trennung,
 
-- Alle Frames, die den Port (über `runtime.onConnect`) empfangen haben, wurden entladen.
+- Alle Frames, die den Port erhalten haben (via `runtime.onConnect`), wurden entladen.
 
-die in Chrome gilt, wird in Firefox durch
+die in Chrome gilt, wird in Firefox ersetzt durch
 
-- _Jeder_ Frame, der den Port (über `runtime.onConnect`) empfangen hat, wurde entladen.
+- _Jeder_ Frame, der den Port erhalten hat (via `runtime.onConnect`), wurde entladen.
 
-ersetzt (siehe [Fehler 1465514](https://bugzil.la/1465514)).
+( siehe [bug 1465514](https://bugzil.la/1465514)).
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Beispiele
 
-### Verbindung von Content-Skripten
+### Verbindung von Content-Scripts
 
 Dieses Content-Skript:
 
-- verbindet sich mit dem Hintergrundskript und speichert den `Port` in einer Variablen namens `myPort`.
-- hört auf Nachrichten auf `myPort` und protokolliert sie.
-- sendet Nachrichten an das Hintergrundskript, indem es `myPort` verwendet, wenn der Benutzer auf das Dokument klickt.
+- verbindet sich mit dem Hintergrund-Skript und speichert den `Port` in einer Variablen namens `myPort`.
+- lauscht auf Nachrichten auf `myPort` und protokolliert sie.
+- sendet Nachrichten an das Hintergrund-Skript, indem `myPort` verwendet wird, wenn der Benutzer das Dokument anklickt.
 
 ```js
 // content-script.js
@@ -135,16 +135,16 @@ document.body.addEventListener("click", () => {
 });
 ```
 
-Das entsprechende Hintergrundskript:
+Das entsprechende Hintergrund-Skript:
 
-- hört auf Verbindungsversuche vom Content-Skript.
+- lauscht auf Verbindungsversuche vom Content-Skript.
 - wenn es einen Verbindungsversuch erhält:
 
   - speichert den Port in einer Variablen namens `portFromCS`.
   - sendet dem Content-Skript eine Nachricht über den Port.
-  - beginnt Nachrichten zu empfangen, die über den Port gesendet werden, und protokolliert sie.
+  - beginnt Nachrichten zu überwachen, die über den Port empfangen werden, und protokolliert sie.
 
-- sendet Nachrichten an das Content-Skript, indem es `portFromCS` verwendet, wenn der Benutzer auf die Browseraktion der Erweiterung klickt.
+- sendet Nachrichten an das Content-Skript, indem `portFromCS` verwendet wird, wenn der Benutzer auf die Browseraktion der Erweiterung klickt.
 
 ```js
 // background-script.js
@@ -167,9 +167,9 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-#### Mehrere Content-Skripte
+#### Mehrere Content-Scripts
 
-Wenn Sie mehrere Content-Skripte haben, die gleichzeitig kommunizieren, möchten Sie möglicherweise jede Verbindung in einem Array speichern.
+Wenn Sie mehrere Content-Scripts haben, die gleichzeitig kommunizieren, möchten Sie möglicherweise jede Verbindung in einem Array speichern.
 
 ```js
 // background-script.js
@@ -192,23 +192,23 @@ browser.browserAction.onClicked.addListener(() => {
 
 ### Verbindung zu nativen Anwendungen
 
-Dieses Beispiel verbindet sich mit der nativen Anwendung "ping_pong" und beginnt, auf Nachrichten von ihr zu hören. Es sendet der nativen Anwendung auch eine Nachricht, wenn der Benutzer auf ein Browseraktionssymbol klickt:
+Dieses Beispiel verbindet sich mit der nativen Anwendung "ping_pong" und beginnt, Nachrichten von ihr zu empfangen. Es sendet auch eine Nachricht an die native Anwendung, wenn der Benutzer auf ein Browser-Aktionssymbol klickt:
 
 ```js
 /*
-Beim Start eine Verbindung zur "ping_pong"-App herstellen.
+On startup, connect to the "ping_pong" app.
 */
 let port = browser.runtime.connectNative("ping_pong");
 
 /*
-Auf Nachrichten von der App hören.
+Listen for messages from the app.
 */
 port.onMessage.addListener((response) => {
   console.log(`Received: ${response}`);
 });
 
 /*
-Bei einem Klick auf die Browseraktion der App eine Nachricht senden.
+On a click on the browser action, send the app a message.
 */
 browser.browserAction.onClicked.addListener(() => {
   console.log("Sending:  ping");
@@ -219,7 +219,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-Port)-API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-Port). Diese Dokumentation ist aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -229,14 +229,14 @@ browser.browserAction.onClicked.addListener(() => {
 // met:
 //
 //    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
+//      notice, this list of conditions and the following disclaimer.
 //    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
+//      copyright notice, this list of conditions and the following disclaimer
+//      in the documentation and/or other materials provided with the
+//      distribution.
 //    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//      contributors may be used to endorse or promote products derived from
+//      this software without specific prior written permission.
 //
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 // "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT

@@ -1,5 +1,5 @@
 ---
-title: Aufruf-Stack
+title: Call stack
 slug: Glossary/Call_stack
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Aufruf-Stack** ist ein Mechanismus für einen Interpreter (wie den JavaScript-Interpreter in einem Webbrowser), um seine Position in einem Skript nachzuverfolgen, das mehrere {{glossary("function","Funktionen")}} aufruft — welche Funktion gerade ausgeführt wird und welche Funktionen innerhalb dieser Funktion aufgerufen werden, usw.
+Ein **Call Stack** ist ein Mechanismus für einen Interpreter (wie den JavaScript-Interpreter in einem Webbrowser), um seinen Platz in einem Skript zu verfolgen, das mehrere [Funktionen](/de/docs/Glossary/function) aufruft — welche Funktion derzeit ausgeführt wird und welche Funktionen innerhalb dieser Funktion aufgerufen werden, usw.
 
-- Wenn ein Skript eine Funktion aufruft, fügt der Interpreter diese dem Aufruf-Stack hinzu und beginnt dann mit der Ausführung der Funktion.
-- Alle Funktionen, die von dieser Funktion aufgerufen werden, werden weiter oben im Aufruf-Stack hinzugefügt und ausgeführt, wenn ihre Aufrufe erreicht werden.
-- Wenn die aktuelle Funktion beendet ist, entfernt der Interpreter sie aus dem Stack und setzt die Ausführung dort fort, wo es im letzten Code-Listing unterbrochen wurde.
-- Wenn der Stack mehr Speicherplatz beansprucht, als ihm zugewiesen wurde, wird ein "Stack Overflow"-Fehler ausgelöst.
+- Wenn ein Skript eine Funktion aufruft, fügt der Interpreter sie dem Call Stack hinzu und beginnt dann mit der Ausführung der Funktion.
+- Alle Funktionen, die von dieser Funktion aufgerufen werden, werden weiter oben in den Call Stack eingefügt und dort ausgeführt, wo ihre Aufrufe erreicht werden.
+- Wenn die aktuelle Funktion abgeschlossen ist, entfernt der Interpreter sie aus dem Stack und setzt die Ausführung dort fort, wo es in der vorherigen Codeliste aufgehört hat.
+- Wenn der Stack mehr Speicherplatz einnimmt, als ihm zugewiesen wurde, wird ein "Stack Overflow"-Fehler ausgelöst.
 
 ## Beispiel
 
@@ -32,39 +32,39 @@ greeting();
 // [3] Some code here
 ```
 
-Der Aufruf-Stack ist zu Beginn leer, und der obige Code würde wie folgt ausgeführt:
+Der Call Stack wird zu Beginn leer sein, und der obige Code würde folgendermaßen ausgeführt:
 
-1. Alle Funktionen ignorieren, bis der Aufruf der Funktion `greeting()` erreicht wird.
-2. Die Funktion `greeting()` zur Liste des Aufruf-Stacks hinzufügen, und wir haben:
+1. Ignorieren Sie alle Funktionen, bis die `greeting()`-Funktion aufgerufen wird.
+2. Fügen Sie die `greeting()`-Funktion zur Call Stack-Liste hinzu, und wir haben:
 
    ```plain
    - greeting
    ```
 
-3. Alle Codezeilen innerhalb der Funktion `greeting()` ausführen.
-4. Zur Funktion `sayHi()` gelangen.
-5. Die Funktion `sayHi()` zur Liste des Aufruf-Stacks hinzufügen, wie:
+3. Führen Sie alle Codezeilen innerhalb der `greeting()`-Funktion aus.
+4. Gelangen Sie zum Aufruf der `sayHi()`-Funktion.
+5. Fügen Sie die `sayHi()`-Funktion zur Call Stack-Liste hinzu, wie folgt:
 
    ```plain
    - sayHi
    - greeting
    ```
 
-6. Alle Codezeilen innerhalb der Funktion `sayHi()` ausführen, bis deren Ende erreicht ist.
-7. Die Ausführung zur Zeile zurückgeben, die `sayHi()` aufgerufen hat, und den Rest der Funktion `greeting()` weiter ausführen.
-8. Die Funktion `sayHi()` aus unserer Aufruf-Stack-Liste löschen. Jetzt sieht der Aufruf-Stack so aus:
+6. Führen Sie alle Codezeilen innerhalb der `sayHi()`-Funktion aus, bis deren Ende erreicht ist.
+7. Kehren Sie zur Zeile zurück, die `sayHi()` aufgerufen hat, und setzen Sie die Ausführung des restlichen `greeting()`-Funktion fort.
+8. Löschen Sie die `sayHi()`-Funktion aus unserer Call Stack-Liste. Jetzt sieht der Call Stack aus wie:
 
    ```plain
    - greeting
    ```
 
-9. Wenn alles innerhalb der Funktion `greeting()` ausgeführt wurde, zur aufrufenden Zeile zurückkehren, um den Rest des JS-Codes weiter auszuführen.
-10. Die Funktion `greeting()` aus der Aufruf-Stack-Liste löschen. Der Aufruf-Stack wird erneut leer.
+9. Wenn alles innerhalb der `greeting()`-Funktion ausgeführt wurde, kehren Sie zu ihrer aufrufenden Zeile zurück, um den Rest des JS-Codes weiter auszuführen.
+10. Löschen Sie die `greeting()`-Funktion aus der Call Stack-Liste. Ein weiteres Mal wird der Call Stack leer.
 
-Zusammengefasst, wir beginnen mit einem leeren Aufruf-Stack. Jedes Mal, wenn wir eine Funktion aufrufen, wird sie automatisch zum Aufruf-Stack hinzugefügt. Sobald die Funktion all ihren Code ausgeführt hat, wird sie automatisch aus dem Aufruf-Stack entfernt. Letztendlich ist der Stack wieder leer.
+Zusammenfassend beginnen wir also mit einem leeren Call Stack. Immer wenn wir eine Funktion aufrufen, wird sie automatisch zum Call Stack hinzugefügt. Sobald die Funktion ihren gesamten Code ausgeführt hat, wird sie automatisch aus dem Call Stack entfernt. Letztendlich ist der Stack wieder leer.
 
 ## Siehe auch
 
 - [Call stack](https://en.wikipedia.org/wiki/Call_stack) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Function")}}
+  - [Function](/de/docs/Glossary/Function)

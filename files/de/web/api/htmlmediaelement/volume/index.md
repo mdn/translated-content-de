@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: Eigenschaft volume"
+title: "HTMLMediaElement: volume-Eigenschaft"
 short-title: volume
 slug: Web/API/HTMLMediaElement/volume
 l10n:
@@ -12,7 +12,7 @@ Die **`HTMLMediaElement.volume`**-Eigenschaft legt die Lautstärke fest, mit der
 
 ## Wert
 
-Ein Gleitkommawert, der zwischen 0 und 1 liegen muss, wobei 0 effektiv stummgeschaltet ist und 1 der lautestmögliche Wert ist.
+Ein Double-Wert, der zwischen 0 und 1 liegen muss, wobei 0 effektiv stummgeschaltet ist und 1 der lautestmögliche Wert ist.
 
 ## Beispiele
 
@@ -32,5 +32,5 @@ obj.volume = 0.75;
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement")}}: Schnittstelle zur Definition der `HTMLMediaElement.volume`-Eigenschaft
-- {{domxref("HTMLMediaElement.muted")}}
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die die `HTMLMediaElement.volume`-Eigenschaft definiert
+- [`HTMLMediaElement.muted`](/de/docs/Web/API/HTMLMediaElement/muted)

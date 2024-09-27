@@ -7,23 +7,23 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`sqrt`**-Anweisungen, kurz für _Quadratwurzel_, werden verwendet, um die Quadratwurzel einer Zahl zu erhalten.
+Die **`sqrt`** Anweisungen, kurz für _Quadratwurzel_, werden verwendet, um die Quadratwurzel einer Zahl zu berechnen.
 
 {{EmbedInteractiveExample("pages/wat/sqrt.html", "tabbed-standard")}}
 
 ## Syntax
 
 ```wasm
-;; eine Zahl auf den Stapel laden
+;; load a number onto the stack
 f32.const 289
 
-;; die Quadratwurzel von 289 erhalten
+;; get the square root of 289
 f32.sqrt
 
-;; das oberste Element auf dem Stapel ist jetzt 17
+;; the top item on the stack will now be 17
 ```
 
-| Anweisung    | Binärer Opcode |
-| ------------ | ------------- |
-| `f32.sqrt`   | `0x91`        |
-| `f64.sqrt`   | `0x9f`        |
+| Anweisung  | Binärer Opcode |
+| ---------- | -------------- |
+| `f32.sqrt` | `0x91`         |
+| `f64.sqrt` | `0x9f`         |

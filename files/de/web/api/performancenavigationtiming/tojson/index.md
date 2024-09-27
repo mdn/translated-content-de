@@ -1,5 +1,5 @@
 ---
-title: "PerformanceNavigationTiming: Methode toJSON()"
+title: "PerformanceNavigationTiming: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/PerformanceNavigationTiming/toJSON
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`toJSON()`**-Methode der {{domxref("PerformanceNavigationTiming")}}-Schnittstelle ist ein {{Glossary("Serialization","serializer")}}; sie gibt eine JSON-Darstellung des {{domxref("PerformanceNavigationTiming")}}-Objekts zurück.
+Die **`toJSON()`** Methode der [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Objekts zurück.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des {{domxref("PerformanceNavigationTiming")}}-Objekts darstellt.
+Ein {{jsxref("JSON")}} Objekt, das die Serialisierung des [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Objekts ist.
 
 ## Beispiele
 
-### Verwendung der toJSON-Methode
+### Verwendung der toJSON Methode
 
-In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `PerformanceNavigationTiming`-Objekts zurück.
+In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `PerformanceNavigationTiming` Objekts zurück.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -92,7 +92,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; dies ruft automatisch `toJSON()` auf.
+Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; dies wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 

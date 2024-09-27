@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`slice()`**-Methode von {{jsxref("String")}}-Werten extrahiert einen Abschnitt dieses Strings und gibt ihn als neuen String zurück, ohne den ursprünglichen String zu verändern.
+Die **`slice()`**-Methode von {{jsxref("String")}}-Werten extrahiert einen Abschnitt dieses Strings und gibt ihn als neuen String zurück, ohne den ursprünglichen String zu ändern.
 
 {{EmbedInteractiveExample("pages/js/string-slice.html", "taller")}}
 
@@ -21,9 +21,9 @@ slice(indexStart, indexEnd)
 ### Parameter
 
 - `indexStart`
-  - : Der Index des ersten Zeichens, das im zurückgegebenen Substring enthalten sein soll.
+  - : Der Index des ersten Zeichens, das im zurückgegebenen Teilstring enthalten sein soll.
 - `indexEnd` {{optional_inline}}
-  - : Der Index des ersten Zeichens, das im zurückgegebenen Substring nicht enthalten sein soll.
+  - : Der Index des ersten Zeichens, das im zurückgegebenen Teilstring ausgeschlossen wird.
 
 ### Rückgabewert
 
@@ -44,15 +44,15 @@ Ein neuer String, der den extrahierten Abschnitt des Strings enthält.
                   m   i   r   r
                  _______________
                       ↑
-                    Ergebnis
+                    Result
 ```
 
 - Wenn `indexStart >= str.length`, wird ein leerer String zurückgegeben.
-- Wenn `indexStart < 0`, wird der Index vom Ende des Strings gezählt. Formal beginnt in diesem Fall der Substring an `max(indexStart + str.length, 0)`.
-- Wenn `indexStart` weggelassen, undefiniert ist oder nicht [in eine Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden kann, wird er als `0` behandelt.
-- Wenn `indexEnd` weggelassen oder undefiniert ist, oder wenn `indexEnd >= str.length`, extrahiert `slice()` bis zum Ende des Strings.
-- Wenn `indexEnd < 0`, wird der Index vom Ende des Strings gezählt. Formal endet in diesem Fall der Substring an `max(indexEnd + str.length, 0)`.
-- Wenn `indexEnd <= indexStart` nach Normalisierung negativer Werte, wird ein leerer String zurückgegeben (d.h. `indexEnd` repräsentiert ein Zeichen, das vor `indexStart` liegt).
+- Wenn `indexStart < 0`, wird der Index vom Ende des Strings aus gezählt. Formaler ausgedrückt: In diesem Fall beginnt der Teilstring bei `max(indexStart + str.length, 0)`.
+- Wenn `indexStart` weggelassen wird, undefiniert ist oder nicht [in eine Zahl umgewandelt werden kann](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), wird es als `0` behandelt.
+- Wenn `indexEnd` weggelassen oder undefiniert ist, oder wenn `indexEnd >= str.length` ist, extrahiert `slice()` bis zum Ende des Strings.
+- Wenn `indexEnd < 0`, wird der Index vom Ende des Strings aus gezählt. Formaler ausgedrückt: In diesem Fall endet der Teilstring bei `max(indexEnd + str.length, 0)`.
+- Wenn `indexEnd <= indexStart` nach der Normalisierung negativer Werte (d. h. `indexEnd` repräsentiert ein Zeichen, das vor `indexStart` liegt), wird ein leerer String zurückgegeben.
 
 ## Beispiele
 
@@ -61,7 +61,7 @@ Ein neuer String, der den extrahierten Abschnitt des Strings enthält.
 Das folgende Beispiel verwendet `slice()`, um einen neuen String zu erstellen.
 
 ```js
-const str1 = "The morning is upon us."; // Die Länge von str1 ist 23.
+const str1 = "The morning is upon us."; // The length of str1 is 23.
 const str2 = str1.slice(1, 8);
 const str3 = str1.slice(4, -2);
 const str4 = str1.slice(12);
@@ -84,7 +84,7 @@ str.slice(0, -1); // 'The morning is upon us'
 str.slice(4, -1); // 'morning is upon us'
 ```
 
-Dieses Beispiel zählt rückwärts vom Ende des Strings um `11`, um den Startindex zu finden und vorwärts vom Anfang des Strings um `16`, um den Endindex zu finden.
+Dieses Beispiel zählt rückwärts vom Ende des Strings um `11`, um den Startindex zu finden, und vorwärts vom Anfang des Strings um `16`, um den Endindex zu finden.
 
 ```js
 console.log(str.slice(-11, 16)); // "is u"

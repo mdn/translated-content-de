@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **`XMLHttpRequest.abort()`**-Methode bricht die Anfrage ab, wenn sie bereits gesendet wurde. Wenn eine Anfrage abgebrochen wird, wird ihr {{domxref("XMLHttpRequest.readyState", "readyState")}} auf `XMLHttpRequest.UNSENT` (0) geändert und der {{domxref("XMLHttpRequest.status", "status")}}-Code der Anfrage wird auf 0 gesetzt.
+Die **`XMLHttpRequest.abort()`**-Methode bricht die Anfrage ab, wenn sie bereits gesendet wurde. Wenn eine Anfrage abgebrochen wird, ändert sich ihr [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) auf `XMLHttpRequest.UNSENT` (0) und der [`status`](/de/docs/Web/API/XMLHttpRequest/status)-Code der Anfrage wird auf 0 gesetzt.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel beginnt mit dem Laden von Inhalten von der MDN-Startseite, bricht den Versand dann jedoch aufgrund einer Bedingung durch den Aufruf von `abort()` ab.
+In diesem Beispiel wird begonnen, Inhalte von der MDN-Startseite zu laden. Aufgrund einer bestimmten Bedingung wird der Transfer durch Aufruf von `abort()` abgebrochen.
 
 ```js
 const xhr = new XMLHttpRequest();
@@ -51,4 +51,4 @@ if (OH_NOES_WE_NEED_TO_CANCEL_RIGHT_NOW_OR_ELSE) {
 
 ## Siehe auch
 
-- [Verwendung von XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)
+- [Using XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)

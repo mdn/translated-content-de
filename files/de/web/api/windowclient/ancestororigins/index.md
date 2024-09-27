@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`ancestorOrigins`** schreibgeschützte Eigenschaft des {{domxref("WindowClient")}}-Interfaces ist ein Array von Zeichenfolgen, das die Ursprünge aller Vorfahren des durch diesen `WindowClient` repräsentierten Browsing-Kontexts in umgekehrter Reihenfolge auflistet.
+Die **`ancestorOrigins`**-Schreibeigenschaft des [`WindowClient`](/de/docs/Web/API/WindowClient)-Interfaces ist ein Array von Zeichenfolgen, das die Ursprünge aller Vorfahren des durch diesen `WindowClient` dargestellten Browsing-Kontexts in umgekehrter Reihenfolge auflistet.
 
-Das erste Element im Array ist der Ursprung des übergeordneten Fensters, und das letzte Element ist der Ursprung des Browsing-Kontexts auf oberster Ebene. Wenn dieses Fenster selbst ein Browsing-Kontext auf oberster Ebene ist, dann ist `ancestorOrigins` ein leeres Array.
+Das erste Element im Array ist der Ursprung des Elternfensters, und das letzte Element ist der Ursprung des Browsing-Kontexts der obersten Ebene. Wenn dieses Fenster selbst ein Browsing-Kontext der obersten Ebene ist, dann ist `ancestorOrigins` ein leeres Array.
 
 ## Wert
 

@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-margin-left` definiert den linken Rand des Scroll-Snap-Bereichs, der zum Einrasten dieses Elements in den Snapport verwendet wird. Der Scroll-Snap-Bereich wird bestimmt durch das Transformieren des Randrahmens, dessen rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) ermittelt und dann die angegebenen Ränder hinzugefügt werden.
+Die Eigenschaft `scroll-margin-left` definiert den linken Rand des Scroll-Snap-Bereichs, der verwendet wird, um diese Box an den Snapport anzudocken. Der Scroll-Snap-Bereich wird durch das Transformieren des `border`-Rahmens bestimmt. Es wird das Rechteck (axisausgerichtet im Koordinatensystem des Scroll-Containers) ermittelt und dann der angegebene Versatz hinzugefügt.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-left.html")}}
 
 ## Syntax
 
 ```css
-/* <length> Werte */
+/* <length> values */
 scroll-margin-left: 10px;
 scroll-margin-left: 1em;
 
-/* Globale Werte */
+/* Global values */
 scroll-margin-left: inherit;
 scroll-margin-left: initial;
 scroll-margin-left: revert;
@@ -29,7 +29,7 @@ scroll-margin-left: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Randversatz vom linken Rand des Scroll-Containers.
+  - : Ein Versatz vom linken Rand des Scroll-Containers.
 
 ## Formale Definition
 

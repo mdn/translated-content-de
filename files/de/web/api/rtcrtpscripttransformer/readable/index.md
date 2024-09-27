@@ -1,5 +1,5 @@
 ---
-title: "RTCRtpScriptTransformer: readable-Eigenschaft"
+title: "RTCRtpScriptTransformer: readable Eigenschaft"
 short-title: readable
 slug: Web/API/RTCRtpScriptTransformer/readable
 l10n:
@@ -8,41 +8,40 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`readable`** schreibgeschützte Eigenschaft des {{domxref("RTCRtpScriptTransformer")}}-Interfaces gibt eine {{domxref("ReadableStream")}}-Instanz zurück, die als Quelle für codierte Medienframes dient.
+Die schreibgeschützte Eigenschaft **`readable`** der [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer)-Schnittstelle gibt eine [`ReadableStream`](/de/docs/Web/API/ReadableStream) Instanz zurück, die eine Quelle für codierte Medienrahmen ist.
 
-Wenn der entsprechende {{domxref("RTCRtpScriptTransform")}} in die WebRTC-Sender- und Empfänger-Pipelines eingefügt wird, kann dieser Stream mit ausgehenden oder eingehenden codierten Medienframes ({{domxref("RTCEncodedVideoFrame")}} oder {{domxref("RTCEncodedAudioFrame")}}) befüllt werden. Ein WebRTC-codierter Transform kann die Frames lesen, bei Bedarf ändern und sie dann zurück in die WebRTC-Pipeline senden, indem sie in {{domxref("RTCRtpScriptTransformer.writable")}} geschrieben werden. Eine häufige Methode, um diese Operation auszuführen, besteht darin, die Frames durch einen {{domxref("TransformStream")}} zu leiten.
+Wenn der entsprechende [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) in die WebRTC-Sender- und -Empfänger-Pipelines eingefügt wird, kann dieser Stream mit ausgehenden oder eingehenden codierten Medienrahmen ([`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame) oder [`RTCEncodedAudioFrame`](/de/docs/Web/API/RTCEncodedAudioFrame)) in die Warteschlange gestellt werden. Ein WebRTC-codierter Transformationsprozess kann die Rahmen lesen, sie bei Bedarf modifizieren und sie dann wieder in die WebRTC-Pipeline zurücksenden, indem er sie in [`RTCRtpScriptTransformer.writable`](/de/docs/Web/API/RTCRtpScriptTransformer/writable) schreibt. Eine häufige Methode zur Durchführung dieser Operation besteht darin, die Rahmen durch einen [`TransformStream`](/de/docs/Web/API/TransformStream) zu leiten.
 
 ## Wert
 
-Ein {{domxref("ReadableStream")}}.
+Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie `readable` durch einen {{domxref("TransformStream")}} zu {{domxref("RTCRtpScriptTransformer.writable")}} geleitet wird.
+Das folgende Beispiel zeigt, wie `readable` durch einen [`TransformStream`](/de/docs/Web/API/TransformStream) zu [`RTCRtpScriptTransformer.writable`](/de/docs/Web/API/RTCRtpScriptTransformer/writable) geleitet wird.
 
 ```js
 addEventListener("rtctransform", (event) => {
   let transform;
-  // Wählen Sie eine Transformation basierend auf den übergebenen Optionen aus
+  // Select a transform based on passed options
   if (event.transformer.options.name == "senderTransform")
-    transform = createSenderTransform(); // Ein TransformStream
+    transform = createSenderTransform(); // A TransformStream
   else if (event.transformer.options.name == "receiverTransform")
-    transform = createReceiverTransform(); // Ein TransformStream
+    transform = createReceiverTransform(); // A TransformStream
   else return;
 
-  // Leiten Sie Frames durch den TransformStream von readable zu writable
+  // Pipe frames from the readable to writeable through TransformStream
   event.transformer.readable
     .pipeThrough(transform)
     .pipeTo(event.transformer.writable);
 });
 ```
 
-Der Code implementiert einen Handler für das {{domxref("DedicatedWorkerGlobalScope.rtctransform_event", "rtctransform")}}-Event, das beim globalen Worker-Objekt bei der Konstruktion des entsprechenden {{domxref("RTCRtpScriptTransform")}} ausgelöst wird, und wenn neue Frames zur Verarbeitung eingereiht werden.
-`event.transformer` ist der {{domxref("RTCRtpScriptTransformer")}}, der über eine `readable` und `writable` Eigenschaft verfügt.
+Der Code implementiert einen Handler für das [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event)-Ereignis, das beim globalen Worker-Objekt beim Aufbau des entsprechenden [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) ausgelöst wird, und wenn neue Rahmen zur Verarbeitung in die Warteschlange gestellt werden. `event.transformer` ist der [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer), der eine `readable` und `writable` Eigenschaft hat.
 
-Ein anderer {{domxref("TransformStream")}} wird erstellt, um ausgehende und eingehende Frames zu verarbeiten, unter Verwendung von `createSenderTransform()` oder `createReceiverTransform()` (Implementierungen nicht gezeigt). Der Event-Handler wählt den richtigen Transform-Stream basierend auf den aus dem [`RTCRtpScriptTransform`-Konstruktor](/de/docs/Web/API/RTCRtpScriptTransform/RTCRtpScriptTransform) übermittelten Optionen aus und weist ihn `transform` zu.
+Ein anderer [`TransformStream`](/de/docs/Web/API/TransformStream) wird erstellt, um ausgehende und eingehende Rahmen zu verarbeiten, wobei `createSenderTransform()` oder `createReceiverTransform()` verwendet wird (Implementierungen nicht gezeigt). Der Ereignishandler wählt den richtigen Transformationsstrom basierend auf Optionen aus, die durch den [`RTCRtpScriptTransform` Konstruktor](/de/docs/Web/API/RTCRtpScriptTransform/RTCRtpScriptTransform) übergeben werden, und weist ihn `transform` zu.
 
-Der Code ruft {{domxref("ReadableStream.pipeThrough()")}} an, um codierte Frames durch den ausgewählten `TransformStream` zu leiten, und anschließend {{domxref("ReadableStream.pipeTo()")}}, um sie an das {{domxref("RTCRtpScriptTransformer.writable")}} zu leiten.
+Der Code ruft [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) auf dem `readable` auf, um codierte Rahmen durch den ausgewählten `TransformStream` zu leiten, und dann [`ReadableStream.pipeTo()`](/de/docs/Web/API/ReadableStream/pipeTo), um sie an die [`RTCRtpScriptTransformer.writable`](/de/docs/Web/API/RTCRtpScriptTransformer/writable) zu leiten.
 
 ## Spezifikationen
 

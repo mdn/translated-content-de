@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`style-src-elem`** Direktive spezifiziert gültige Quellen für die Stylesheet-{{HTMLElement("style")}}-Elemente und {{HTMLElement("link")}}-Elemente mit `rel="stylesheet"`.
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`style-src-elem`** Richtlinie spezifiziert gültige Quellen für Stylesheet-{{HTMLElement("style")}}-Elemente und {{HTMLElement("link")}}-Elemente mit `rel="stylesheet"`.
 
-Die Direktive legt keine gültigen Quellen für Inline-Style-Attribute fest; diese werden mit {{CSP("style-src-attr")}} festgelegt (und gültige Quellen für alle Styles können mit {{CSP("style-src")}} festgelegt werden).
+Die Richtlinie legt keine gültigen Quellen für Inline-Style-Attribute fest; diese werden mit {{CSP("style-src-attr")}} festgelegt (und gültige Quellen für alle Styles können mit {{CSP("style-src")}} festgelegt werden).
 
 <table class="properties">
   <tbody>
@@ -18,15 +18,15 @@ Die Direktive legt keine gültigen Quellen für Inline-Style-Attribute fest; die
       <td>3</td>
     </tr>
     <tr>
-      <th scope="row">Direktivtyp</th>
-      <td>{{Glossary("Fetch directive")}}</td>
+      <th scope="row">Richtlinientyp</th>
+      <td>[Fetch-Richtlinie](/de/docs/Glossary/Fetch_directive)</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
+      <th scope="row">{{CSP("default-src")}} Rückfall</th>
       <td>
         <p>
           Ja.
-          Falls diese Direktive fehlt, sucht der User-Agent nach der {{CSP("style-src")}} Direktive, und wenn beide fehlen, fällt er auf die <code>default-src</code> Direktive zurück.
+          Wenn diese Richtlinie nicht vorhanden ist, sucht der User-Agent nach der {{CSP("style-src")}}-Richtlinie, und wenn beide fehlen, wird auf die <code>default-src</code>-Richtlinie zurückgegriffen.
         </p>
       </td>
     </tr>
@@ -35,7 +35,7 @@ Die Direktive legt keine gültigen Quellen für Inline-Style-Attribute fest; die
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die `style-src-elem` Richtlinie erlaubt werden:
+Eine oder mehrere Quellen können für die `style-src-elem`-Richtlinie erlaubt werden:
 
 ```http
 Content-Security-Policy: style-src-elem <source>;
@@ -53,19 +53,19 @@ Content-Security-Policy: style-src-elem <source>;
 
 `<source>` kann einer der Werte sein, die in den [CSP-Quellenwerten](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelistet sind.
 
-Beachten Sie, dass dieser gleiche Satz von Werten in allen {{Glossary("fetch directive", "fetch directives")}} verwendet werden kann (und in einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)).
+Beachten Sie, dass dieser gleiche Satz von Werten in allen [Fetch-Richtlinien](/de/docs/Glossary/fetch_directive) verwendet werden kann (und in einer [Anzahl anderer Richtlinien](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)).
 
 ## Beispiele
 
-### Verstoßfälle
+### Verletzungsfälle
 
-Gegeben dieser CSP-Header:
+Angenommen, dieser CSP-Header ist gegeben:
 
 ```http
 Content-Security-Policy: style-src-elem https://example.com/
 ```
 
-…werden die folgenden Stylesheets blockiert und nicht geladen:
+…die folgenden Stylesheets werden blockiert und nicht geladen:
 
 ```html
 <link href="https://not-example.com/styles/main.css" rel="stylesheet" />
@@ -81,7 +81,7 @@ Content-Security-Policy: style-src-elem https://example.com/
 </style>
 ```
 
-…sowie Styles, die mit dem {{HTTPHeader("Link")}} Header geladen werden:
+…sowie Styles, die mit dem {{HTTPHeader("Link")}}-Header geladen werden:
 
 ```http
 Link: <https://not-example.com/styles/stylesheet.css>;rel=stylesheet
@@ -100,9 +100,9 @@ Link: <https://not-example.com/styles/stylesheet.css>;rel=stylesheet
 - {{HTTPHeader("Content-Security-Policy")}}
 - {{CSP("style-src")}}
 - {{CSP("style-src-attr")}}
-- {{HTTPHeader("Link")}} Header
+- {{HTTPHeader("Link")}}-Header
 - {{HTMLElement("style")}}, {{HTMLElement("link")}}
 - {{cssxref("@import")}}
-- {{domxref("CSSStyleSheet.insertRule()")}}
-- {{domxref("CSSGroupingRule.insertRule()")}}
-- {{domxref("CSSStyleDeclaration.cssText")}}
+- [`CSSStyleSheet.insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule)
+- [`CSSGroupingRule.insertRule()`](/de/docs/Web/API/CSSGroupingRule/insertRule)
+- [`CSSStyleDeclaration.cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText)

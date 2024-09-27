@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der Begriff **Signatur** kann je nach Kontext verschiedene Bedeutungen haben. Er kann sich beziehen auf:
+Der Begriff **Signatur** kann je nach Kontext mehrere Bedeutungen haben. Er kann sich beziehen auf:
 
 {{GlossaryDisambiguation}}
 

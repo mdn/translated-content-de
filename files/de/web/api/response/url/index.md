@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`url`** schreibgeschützte Eigenschaft des {{domxref("Response")}}-Interfaces enthält die URL der Antwort.
-Der Wert der `url`-Eigenschaft ist die endgültige URL, die nach allen Weiterleitungen erhalten wird.
+Die **`url`** Eigenschaft der [`Response`](/de/docs/Web/API/Response) Schnittstelle ist eine schreibgeschützte Eigenschaft, die die URL der Antwort enthält. Der Wert der `url`-Eigenschaft wird die endgültige URL sein, die nach allen Weiterleitungen erhalten wurde.
 
 ## Wert
 
@@ -17,10 +16,9 @@ Ein String.
 
 ## Beispiele
 
-In unserem [Fetch Response Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/)) erstellen wir ein neues {{domxref("Request")}}-Objekt mit dem {{domxref("Request.Request","Request()")}}-Konstruktor, indem wir ihm einen JPG-Pfad übergeben.
-Wir holen diese Anfrage dann mit {{domxref("Window/fetch", "fetch()")}}, extrahieren einen Blob aus der Antwort mit {{domxref("Response.blob")}}, erstellen daraus eine Objekt-URL mit {{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}} und zeigen diese in einem {{htmlelement("img")}} an.
+In unserem [Fetch Response Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/)) erstellen wir ein neues [`Request`](/de/docs/Web/API/Request) Objekt mit dem [`Request()`](/de/docs/Web/API/Request/Request) Konstruktor und übergeben ihm einen JPG-Pfad. Anschließend holen wir diese Anfrage mit [`fetch()`](/de/docs/Web/API/Window/fetch) ab, extrahieren ein Blob aus der Antwort mit [`Response.blob`](/de/docs/Web/API/Response/blob), erstellen eine Objekt-URL daraus mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und zeigen diese in einem {{htmlelement("img")}} an.
 
-Beachten Sie, dass wir am Anfang des `fetch()`-Blocks die Antwort-`URL` in der Konsole protokollieren.
+Beachten Sie, dass wir am Anfang des `fetch()` Blocks die Antwort-`URL` in die Konsole protokollieren.
 
 ```js
 const myImage = document.querySelector("img");

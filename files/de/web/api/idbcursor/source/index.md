@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`source`**-Eigenschaft der {{domxref("IDBCursor")}}-Schnittstelle gibt den {{domxref("IDBObjectStore")}} oder {{domxref("IDBIndex")}} zurück, über den der Cursor iteriert. Diese Funktion gibt niemals null zurück und löst keine Ausnahme aus, selbst wenn der Cursor derzeit iteriert wird, über sein Ende hinaus iteriert hat oder seine Transaktion nicht aktiv ist.
+Die **`source`**-Eigenschaft der [`IDBCursor`](/de/docs/Web/API/IDBCursor)-Schnittstelle gibt das [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) oder [`IDBIndex`](/de/docs/Web/API/IDBIndex) zurück, über das der Cursor iteriert. Diese Funktion gibt niemals null zurück und löst auch keine Ausnahme aus, selbst wenn der Cursor derzeit iteriert wird, über sein Ende hinaus iteriert ist oder seine Transaktion nicht aktiv ist.
 
 ## Wert
 
-Der {{domxref("IDBObjectStore")}} oder {{domxref("IDBIndex")}}, über den der Cursor iteriert.
+Das [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) oder [`IDBIndex`](/de/docs/Web/API/IDBIndex), über das der Cursor iteriert.
 
 ## Beispiele
 
-In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objektspeicher ab und verwenden dann einen Cursor, um durch alle Datensätze im Objektspeicher zu iterieren. In jeder Iteration protokollieren wir die Quelle des Cursors, die unser {{domxref("IDBObjectStore")}}-Objekt in der Konsole protokollieren wird.
+In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objektspeicher ab und verwenden dann einen Cursor, um alle Datensätze im Objektspeicher zu durchlaufen. In jeder Iteration protokollieren wir die Quelle des Cursors, die unser [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Objekt in die Konsole protokolliert.
 
-Der Cursor erfordert nicht, dass wir die Daten anhand eines Schlüssels auswählen; wir können einfach alle erfassen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges funktionierendes Beispiel sehen Sie unser [IDBCursor-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
+Der Cursor erfordert nicht, dass wir die Daten basierend auf einem Schlüssel auswählen; wir können einfach alle erfassen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges funktionierendes Beispiel siehe unser [IDBCursor-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
 
 ```js
 function displayData() {
@@ -51,10 +51,10 @@ function displayData() {
 
 ## Siehe auch
 
-- [Verwendung von IndexedDB](/de-DE/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Schlüsselbereichs: {{domxref("IDBKeyRange")}}
-- Abrufen und Änderungen an Ihren Daten: {{domxref("IDBObjectStore")}}
-- Verwenden von Cursoren: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

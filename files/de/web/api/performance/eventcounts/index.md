@@ -8,34 +8,34 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte `performance.eventCounts`-Eigenschaft ist eine {{domxref("EventCounts")}}-Karte, die die Anzahl der Ereignisse enthält, die pro Ereignistyp ausgelöst wurden.
+Die schreibgeschützte `performance.eventCounts`-Eigenschaft ist eine [`EventCounts`](/de/docs/Web/API/EventCounts)-Map, die die Anzahl der Ereignisse enthält, die pro Ereignistyp ausgelöst wurden.
 
-Nicht alle Ereignistypen sind sichtbar. Sie können nur Zählungen für Ereignistypen erhalten, die von der {{domxref("PerformanceEventTiming")}}-Schnittstelle unterstützt werden.
+Nicht alle Ereignistypen werden angezeigt. Sie können nur Zählungen zu Ereignistypen abrufen, die von der [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Schnittstelle unterstützt werden.
 
 ## Wert
 
-Eine {{domxref("EventCounts")}}-Karte.
-(Eine schreibgeschützte {{jsxref("Map")}} ohne die Methoden `clear()`, `delete()` und `set()`).
+Eine [`EventCounts`](/de/docs/Web/API/EventCounts)-Map.
+(Eine schreibgeschützte {{jsxref("Map")}} ohne die Methoden `clear()`, `delete()`, und `set()`).
 
 ## Beispiele
 
-### Ereignistypen und ihre Zählungen berichten
+### Meldung von Ereignistypen und deren Zählungen
 
-Wenn Sie Ereigniszählungen an Ihre Analysen senden möchten, können Sie eine Funktion wie `sendToEventAnalytics` implementieren, die die Ereigniszählungen von der `performance.eventCounts`-Karte entnimmt und dann die [Fetch API](/de/docs/Web/API/Fetch_API) verwendet, um die Daten an Ihren Endpunkt zu senden.
+Wenn Sie die Ereigniszählungen an Ihre Analysen senden möchten, könnten Sie eine Funktion wie `sendToEventAnalytics` implementieren, die die Ereigniszählungen aus der `performance.eventCounts`-Map entnimmt und dann die [Fetch API](/de/docs/Web/API/Fetch_API) verwendet, um die Daten an Ihren Endpunkt zu senden.
 
 ```js
-// Alle sichtbaren Ereignisse melden
+// Report all exposed events
 for (entry of performance.eventCounts.entries()) {
   const type = entry[0];
   const count = entry[1];
   // sendToEventAnalytics(type, count);
 }
 
-// Ein bestimmtes Ereignis melden
+// Report a specific event
 const clickCount = performance.eventCounts.get("click");
 // sendToEventAnalytics("click", clickCount);
 
-// Prüfen, ob eine Ereigniszählung für einen Typ sichtbar ist
+// Check if an event count is exposed for a type
 const isExposed = performance.eventCounts.has("mousemove"); // false
 ```
 
@@ -43,12 +43,12 @@ const isExposed = performance.eventCounts.has("mousemove"); // false
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("EventCounts")}}
-- {{domxref("PerformanceEventTiming")}}
+- [`EventCounts`](/de/docs/Web/API/EventCounts)
+- [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)
 - {{jsxref("Map")}}

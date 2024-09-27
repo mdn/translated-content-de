@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGAnimateMotionElement`**-Schnittstelle entspricht dem {{SVGElement("animateMotion")}}-Element.
+Die Schnittstelle **`SVGAnimateMotionElement`** entspricht dem {{SVGElement("animateMotion")}}-Element.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von ihrem Elternteil, {{domxref("SVGAnimationElement")}}._
+_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von ihrem Elternteil, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch Methoden von ihrem Elternteil, {{domxref("SVGAnimationElement")}}._
+_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch Methoden von ihrem Elternteil, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
 
 ## Spezifikationen
 

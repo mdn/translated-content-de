@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`add()`**-Methode des {{domxref("Highlight")}}-Interfaces fügt ein neues {{domxref("Range")}}-Objekt zu einem Highlight hinzu, das mit der {{domxref("css_custom_highlight_api", "CSS Custom Highlight API", "", "nocode")}} gestaltet werden soll.
+Die **`add()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle fügt ein neues [`Range`](/de/docs/Web/API/Range)-Objekt zu einem Highlight hinzu, um mit der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) gestylt zu werden.
 
-`Highlight` ist ein objektähnliches {{jsxref("Set")}}, daher ist dies ähnlich wie die Verwendung von {{jsxref("Set.add()")}}.
+`Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Set.add()")}}.
 
 ## Syntax
 
@@ -21,15 +21,15 @@ add(range)
 ### Parameter
 
 - `range`
-  - : Ein {{domxref("Range")}}-Objekt, das dem `Highlight` hinzugefügt werden soll.
+  - : Ein [`Range`](/de/docs/Web/API/Range)-Objekt, das zum `Highlight` hinzugefügt werden soll.
 
 ### Rückgabewert
 
-Das `Highlight`-Objekt mit dem hinzugefügten Range.
+Das `Highlight`-Objekt, mit dem hinzugefügten Bereich.
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt, wie zwei Ranges zu einem neuen Highlight-Objekt hinzugefügt werden:
+Der folgende Codeausschnitt zeigt, wie zwei Bereiche zu einem neuen Highlight-Objekt hinzugefügt werden:
 
 ```js
 const highlight = new Highlight();
@@ -52,5 +52,5 @@ console.log(highlight.size); // 2
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "Die CSS Custom Highlight API", "", "nocode")}}
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
 - [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

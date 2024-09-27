@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**XQuery** ist eine Programmiersprache zum Aktualisieren, Abrufen und Berechnen von Daten in {{glossary("XML")}}-Datenbanken.
+**XQuery** ist eine Programmiersprache zum Aktualisieren, Abrufen und Berechnen von Daten in [XML](/de/docs/Glossary/XML)-Datenbanken.
 
 ## Siehe auch
 
-- [Offizielle Website](https://www.w3.org/XML/Query/)
+- [Offizielle Webseite](https://www.w3.org/XML/Query/)
 - [XQuery](https://en.wikipedia.org/wiki/XQuery) auf Wikipedia

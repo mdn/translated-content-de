@@ -9,14 +9,14 @@ l10n:
 
 Das **`xlink:title`**-Attribut wird verwendet, um die Bedeutung eines Links oder einer Ressource in einer für Menschen lesbaren Weise zu beschreiben.
 
-Die Nutzung dieser Information hängt stark von der Art der Verarbeitung ab. Sie kann beispielsweise verwendet werden, um Titel für Anwendungen, die von sehbehinderten Nutzern verwendet werden, verfügbar zu machen, um eine Linktabelle zu erstellen oder um Hilfetext darzustellen, der erscheint, wenn ein Benutzer den Mauszeiger über eine startende Ressource bewegt.
+Die Verwendung dieser Information hängt stark von der Art der Verarbeitung ab, die durchgeführt wird. Es kann beispielsweise verwendet werden, um Titel für Anwendungen bereitzustellen, die von sehbehinderten Nutzern verwendet werden, um eine Tabelle von Links zu erstellen oder um Hilfetext darzustellen, der erscheint, wenn ein Nutzer den Mauszeiger über eine startende Ressource bewegt.
 
 > [!NOTE]
-> Neue Inhalte sollten ein {{SVGElement("title")}} Kind-Element anstelle eines `xlink:title`-Attributs verwenden.
+> Neue Inhalte sollten ein {{SVGElement("title")}}-Kind-Element anstelle eines `xlink:title`-Attributs verwenden.
 
 ## Elemente
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("a")}}
 - {{SVGElement("animate")}}
@@ -38,7 +38,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - {{SVGElement("tref")}}
 - {{SVGElement("use")}}
 
-## Nutzungsnotizen
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -54,7 +54,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Keine</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -64,7 +64,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `<anything>`
-  - : Dieser Wert gibt den Titel an, der verwendet wird, um die Bedeutung des Links oder der Ressource zu beschreiben.
+  - : Dieser Wert spezifiziert den Titel, der verwendet wird, um die Bedeutung des Links oder der Ressource zu beschreiben.
 
 ## Spezifikationen
 

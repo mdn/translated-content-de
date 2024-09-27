@@ -1,18 +1,18 @@
 ---
-title: "WebSocket: open Ereignis"
+title: "WebSocket: open-Ereignis"
 short-title: open
 slug: Web/API/WebSocket/open_event
 l10n:
-  sourceCommit: eba47bb55d10e6dc73f61dbefc9d3da2abf1fd78
+  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
 ---
 
-{{APIRef("WebSockets API")}}
+{{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Das `open` Ereignis wird ausgelöst, wenn eine Verbindung mit einem `WebSocket` geöffnet wird.
+Das `open`-Ereignis wird ausgelöst, wenn eine Verbindung mit einem `WebSocket` geöffnet wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("open", (event) => {});
@@ -22,7 +22,7 @@ onopen = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -46,7 +46,7 @@ socket.addEventListener("open", (event) => {
 
 ## Siehe auch
 
-- [WebSocket: close Ereignis](/de/docs/Web/API/WebSocket/close_event)
-- [WebSocket: error Ereignis](/de/docs/Web/API/WebSocket/error_event)
-- [WebSocket: message Ereignis](/de/docs/Web/API/WebSocket/message_event)
-- [Erstellen von WebSocket-Clientanwendungen](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)
+- [WebSocket: close-Ereignis](/de/docs/Web/API/WebSocket/close_event)
+- [WebSocket: error-Ereignis](/de/docs/Web/API/WebSocket/error_event)
+- [WebSocket: message-Ereignis](/de/docs/Web/API/WebSocket/message_event)
+- [Schreiben von WebSocket-Client-Anwendungen](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)

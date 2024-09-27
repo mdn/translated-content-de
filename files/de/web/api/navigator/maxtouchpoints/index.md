@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`maxTouchPoints`** schreibgeschützte Eigenschaft der
-{{domxref("Navigator")}}-Schnittstelle gibt die maximale Anzahl gleichzeitiger Berührungspunkte zurück, die vom aktuellen Gerät unterstützt werden.
+Die schreibgeschützte **`maxTouchPoints`**-Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt die maximale Anzahl gleichzeitiger Berührungskontaktpunkte zurück, die vom aktuellen Gerät unterstützt werden.
 
 ## Wert
 
@@ -19,7 +18,7 @@ Eine Zahl.
 
 ```js
 if (navigator.maxTouchPoints > 1) {
-  // browser unterstützt Multi-Touch
+  // browser supports multi-touch
 }
 ```
 
@@ -27,6 +26,6 @@ if (navigator.maxTouchPoints > 1) {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

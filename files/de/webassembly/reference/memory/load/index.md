@@ -1,5 +1,5 @@
 ---
-title: "load: Wasm Textanweisung"
+title: "load: Wasm Text-Instruktion"
 short-title: load
 slug: WebAssembly/Reference/Memory/Load
 l10n:
@@ -8,158 +8,158 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`load`** [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl aus einem Speicher auf den Stapel zu laden.
+Die **`load`** [Speicherinstruktionen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl aus einem Speicher auf den Stack zu laden.
 
-Es gibt `load`-Anweisungen zum Laden aus einem Speicher in ein `i32`, `i64`, `f32` und `f64`.
-Für die Ganzzahlen gibt es separate Anweisungsvarianten zum Laden einer schmaleren vorzeichenbehafteten Zahl und einer vorzeichenlosen Zahl aus dem Speicher und deren Erweiterung in einen breiteren Typ.
-Zum Beispiel kann man eine vorzeichenlose 8-Bit-Zahl laden und sie in ein i32 umwandeln, indem man `i32.load8_u` verwendet.
-Alle Varianten sind [unten aufgelistet](#anweisungen_und_opcodes).
+Es gibt `load`-Instruktionen zum Laden aus einem Speicher in ein `i32`, `i64`, `f32` und `f64`.
+Für die Ganzzahlen gibt es separate Instruktionsvarianten zum Laden einer schmaleren, vorzeichenbehafteten Zahl und einer vorzeichenlosen Zahl aus dem Speicher und deren Erweiterung in einen breiteren Typ.
+Zum Beispiel können Sie eine vorzeichenlose 8-Bit-Zahl laden und sie in ein `i32` umwandeln, indem Sie `i32.load8_u` verwenden.
+Alle Varianten sind [unten aufgelistet](#instruktionen_und_opcodes).
 
 {{EmbedInteractiveExample("pages/wat/load.html", "tabbed-taller")}}
 
 ## Syntax
 
-Laden aus dem Standard-Speicher
+Laden aus dem Standardspeicher
 
 ```wasm
-;; Laden aus dem Standard-Speicher bei dem durch den Wert oben auf dem Stapel angegebenen Offset
-i32.const 0 ;; Stapelvariable, die den Speicher-Offset (0) der zu ladenden Zahl enthält.
-i32.load    ;; Laden vom angegebenen Offset im Standard-Speicher
+;; Load from default memory at offset specified by value on top of stack
+i32.const 0 ;; Stack variable containing memory offset (0) of number to be loaded.
+i32.load    ;; Load from specified offset in default memory
 
-;; Laden von der gleichen Position unter Verwendung einer S-Funktion
+;; Load from same location using an S-function
 (i32.load (i32.const 0))
 ```
 
-Laden aus einem angegebenen Speicher (falls Multi-Memory unterstützt wird)
+Laden aus einem angegebenen Speicher (wenn Multi-Memory unterstützt wird)
 
 ```wasm
-;; Laden aus dem durch Index angegebenen Speicher
-i32.const 0 ;; Offset im Speicher, von dem geladen werden soll (0)
-i32.load (memory 1) ;; Laden aus dem Speicher mit Index 1
+;; Load from memory specified by index
+i32.const 0 ;; offset in memory to load from (0)
+i32.load (memory 1) ;; load from memory index 1
 
-;; Laden aus dem durch Name angegebenen Speicher
-i32.const 1  ;; Offset im Speicher, von dem geladen werden soll (1)
-i32.load (memory $memory1) ;; Laden aus dem benannten Speicher $memory1
+;; Load from memory specified by name
+i32.const 1  ;; offset in memory to load from (1)
+i32.load (memory $memory1) ;; load from named memory $memory1
 
-;; Laden aus dem durch Name angegebenen Speicher unter Verwendung einer S-Funktion
+;; Load from memory specified by name using an S-function
 (i32.load (memory $memory1) (i32.const 0))
 ```
 
-### Anweisungen und Opcodes
+### Instruktionen und Opcodes
 
-| Anweisung       | Binärer Opcode |
-| --------------- | -------------- |
-| `i32.load`      | `0x28`         |
-| `i64.load`      | `0x29`         |
-| `f32.load`      | `0x2a`         |
-| `f64.load`      | `0x2b`         |
-| `i32.load8_s`   | `0x2c`         |
-| `i32.load8_u`   | `0x2d`         |
-| `i32.load16_s`  | `0x2e`         |
-| `i32.load16_u`  | `0x2f`         |
-| `i64.load8_s`   | `0x30`         |
-| `i64.load8_u`   | `0x31`         |
-| `i64.load16_s`  | `0x32`         |
-| `i64.load16_u`  | `0x33`         |
-| `i64.load32_s`  | `0x34`         |
-| `i64.load32_u`  | `0x35`         |
+| Instruktion    | Binärer Opcode |
+| -------------- | -------------- |
+| `i32.load`     | `0x28`         |
+| `i64.load`     | `0x29`         |
+| `f32.load`     | `0x2a`         |
+| `f64.load`     | `0x2b`         |
+| `i32.load8_s`  | `0x2c`         |
+| `i32.load8_u`  | `0x2d`         |
+| `i32.load16_s` | `0x2e`         |
+| `i32.load16_u` | `0x2f`         |
+| `i64.load8_s`  | `0x30`         |
+| `i64.load8_u`  | `0x31`         |
+| `i64.load16_s` | `0x32`         |
+| `i64.load16_u` | `0x33`         |
+| `i64.load32_s` | `0x34`         |
+| `i64.load32_u` | `0x35`         |
 
 ## Beispiele
 
-### Laden von Elementen aus dem Standard-Speicher
+### Laden von Elementen aus dem Standardspeicher
 
-Der erste Speicher, der einem Wasm-Modul hinzugefügt wird, ist der Standard-Speicher und hat den Index 0.
-Wir können aus diesem Speicher laden, indem wir eine Variable hinzufügen, die den Offset im Standard-Speicher der zu ladenden Zahl auf den Stapel spezifiziert, und dann `load` aufrufen.
+Der erste Speicher, der zu einem Wasm-Modul hinzugefügt wird, ist der Standardspeicher und hat den Index 0.
+Wir können aus diesem Speicher laden, indem wir eine Variable hinzufügen, die den Versatz in der Standardspeicher angibt, der auf den Stapel geladen werden soll, und dann `load` aufrufen.
 
 Der folgende Code zeigt eine WAT-Datei, die dies demonstriert:
 
 ```wasm
 (module
-  ;; Speicher namens $memory definieren und exportieren
-  (memory $memory 1)  ;; Der zuerst deklarierte Speicher ist Standard, mit Index 0
+  ;; Define memory named $memory and export
+  (memory $memory 1)  ;; First memory declared is default, with index 0
   (export "memory" (memory $memory))
 
-  ;; Exportierte Funktion zum Laden des ersten Elements im Standard-Speicher
+  ;; Exported function to load first item in default memory
   (func (export "load_first_item_in_mem") (param $num i32) (result i32)
-    ;; Element im Speicher mit 0-Offset laden und das Ergebnis zurückgeben
+    ;; load 0-offset item in memory and return the result
     i32.const 0
     i32.load
   )
 )
 ```
 
-Oben mussten wir den Speicher in der Ladeanweisung nicht spezifizieren, aber wir hätten dies tun können, indem wir entweder den Namen oder den Index des Standard-Speichers verwenden.
+Oben mussten wir den Speicher in der Ladeanweisung nicht angeben, aber wir hätten es mit dem Namen oder Index des Standardspeichers tun können.
 Das wird im folgenden Beispiel gezeigt.
 
-Der Vollständigkeit halber können wir die kompilierte Version der obigen Datei `load_single.wasm` mit einem ähnlichen Code verwenden, wie er unten gezeigt wird:
+Vollständigkeitshalber können wir die kompilierte Version der obigen Datei `load_single.wasm` mit einem Code verwenden, der dem unten gezeigten ähnlich ist:
 
 ```js
-// await auf die angegebene .wasm-Datei, um sie abzurufen und zu laden
+// await on the specified .wasm file to be fetched and loaded
 const result = await WebAssembly.instantiateStreaming(
   fetch("load_single.wasm"),
 );
 
-// Die exportierte Funktion abrufen, die wir unten aufrufen werden
+// Get the exported function that we will call below
 const load_first_item_in_mem = result.instance.exports.load_first_item_in_mem;
 
-// Den exportierten Speicher abrufen und 30 beim Offset 0 speichern
+// Get the exported memory and store 30 at the 0 offset
 const memory = result.instance.exports.memory;
 const dataView = new DataView(memory.buffer);
 dataView.setUint32(0, 30, true);
 
-// Das Ergebnis des Aufrufs der exportierten Wasm-Funktion protokollieren
+// Log the result of calling the exported Wasm function
 console.log(load_first_item_in_mem(100)); // 30
 ```
 
 ### Laden von Elementen aus einem angegebenen Speicher
 
-Da Speicher in einem Wasm-Modul definiert sind, werden sie nacheinander mit einer Indexnummer ab null zugewiesen.
-Sie können aus einem bestimmten Speicher laden, indem Sie die `memory`-Anweisung und den gewünschten Index oder Namen nach der `load`-Anweisung angeben.
-Wenn Sie keinen bestimmten Speicher angeben, wird der Standard-Speicher mit Index 0 verwendet.
+Da Speicher in einem Wasm-Modul definiert werden, wird ihnen sequentiell eine Indexnummer ab Null zugewiesen.
+Sie können aus einem bestimmten Speicher laden, indem Sie die `memory`-Instruktion und den gewünschten Index oder Namen nach der `load`-Instruktion angeben.
+Wenn Sie keinen bestimmten Speicher angeben, wird der Standardspeicher mit Index 0 verwendet.
 
-Das folgende Modul zeigt, wie Sie einen Speicher direkt über den Index referenzieren können.
+Das folgende Modul zeigt, wie Sie möglicherweise direkt auf einen Speicher durch Index verweisen können.
 
 ```wasm
 (module
-  ;; Speicher für das Modul definieren
-  (memory $memory0 1)  ;; Erster (Standard-) Speicher mit Speicherindex 0 (und 1 Seite)
-  (memory $memory1 1)  ;; Zweiter Speicher mit Index 1, benannt $memory1
-  (export "memory" (memory $memory1))  ;; $memory1 exportieren
+  ;; Define memory for the module
+  (memory $memory0 1)  ;; First (default) memory with memory index 0 (and 1 page)
+  (memory $memory1 1)  ;; Second memory with index 1, named $memory1
+  (export "memory" (memory $memory1))  ;; Export $memory1
 
-  ;; Exportierte Funktion zum Laden des ersten Elements im Standard-Speicher
+  ;; Exported function to load first item in default memory
   (func (export "load_first_item_in_mem") (param $num i32) (result i32)
-    ;; Element im Speicher mit Index 1 laden und das Ergebnis zurückgeben
+    ;; load 0-offset item in memory index 1 and return the result
     i32.const 0
     i32.load (memory 1)
   )
 )
 ```
 
-Der Hauptteil der Funktion könnte auch mit einer der folgenden Optionen geschrieben werden:
+Der Körper der Funktion könnte auch mit einer der folgenden Optionen geschrieben werden:
 
 ```wasm
 i32.const 0
-i32.load (memory $memory1)  ;; Speicher durch Name referenzieren
+i32.load (memory $memory1)  ;; referencing memory by name
 
-;; Verwendung von S-Funktionen
-(i32.load (memory 1) (i32.const 0))  ;; Speicher durch Index referenzieren
-(i32.load (memory $memory1) (i32.const 0)) ;; Speicher durch Name referenzieren
+;; Using S-functions
+(i32.load (memory 1) (i32.const 0))  ;; reference memory by index
+(i32.load (memory $memory1) (i32.const 0)) ;; reference memory by name
 ```
 
-Wir haben im Beispiel den Standard-Speicher nicht verwendet.
-Aber Sie können auch wählen, diesen Index anzugeben, wenn Sie möchten:
+Wir haben den Standardspeicher im Beispiel nicht verwendet.
+Aber Sie können auch dieses Index auswählen, wenn Sie möchten:
 
 ```wasm
 i32.const 0
-i32.load (memory 0)  ;; Speicher durch Index referenzieren
+i32.load (memory 0)  ;; referencing memory by index
 
-;; Verwendung von S-Funktionen
+;; Using S-functions
 (i32.load (i32.const 0))
-(i32.load (memory 0) (i32.const 0))  ;; Speicher durch Index referenzieren
-(i32.load (memory $memory0) (i32.const 0)) ;; Speicher durch Name referenzieren
+(i32.load (memory 0) (i32.const 0))  ;; reference memory by index
+(i32.load (memory $memory0) (i32.const 0)) ;; reference memory by name
 ```
 
-Die WAT-Dateien könnten mit dem gleichen JavaScript-Code wie im ersten Beispiel geladen werden.
+Die WAT-Dateien könnten mit demselben JavaScript-Code wie im ersten Beispiel geladen werden.
 
 ## Spezifikationen
 
@@ -168,7 +168,7 @@ Die WAT-Dateien könnten mit dem gleichen JavaScript-Code wie im ersten Beispiel
 ## Browser-Kompatibilität
 
 > [!NOTE]
-> Die Speicherunterstützung in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory) JavaScript-API.
-> Der Schlüssel [multiMemory](#webassembly.multimemory) zeigt an, in welchen Versionen `load` mit einem spezifizierten Speicher verwendet werden kann.
+> Die Unterstützung von Speicher in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory) JavaScript-API.
+> Der Schlüssel [multiMemory](#webassembly.multimemory) gibt Versionen an, in denen `load` mit einem angegebenen Speicher verwendet werden kann.
 
 {{Compat}}

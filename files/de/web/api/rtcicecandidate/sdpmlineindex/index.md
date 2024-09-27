@@ -8,16 +8,21 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`sdpMLineIndex`**-Eigenschaft der {{domxref("RTCIceCandidate")}}-Schnittstelle ist ein nullbasierter Index der m-line, die die mit dem Kandidaten verknüpfte Medien beschreibt.
+Die schreibgeschützte **`sdpMLineIndex`**-Eigenschaft auf der [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Schnittstelle
+ist ein nullbasiertes Index der m-line, die die Medien beschreibt, die mit dem Kandidaten verbunden sind.
 
-Diese Eigenschaft kann konfiguriert werden, indem der Wert der `sdpMLineIndex`-Eigenschaft im `candidateInfo`-Optionsobjekt angegeben wird, das an den {{domxref("RTCIceCandidate.RTCIceCandidate", "RTCIceCandidate()")}}-Konstruktor übergeben wird. Wenn Sie den Konstruktor mit einem m-line-String anstelle des Optionsobjekts aufrufen, wird der Wert von `sdpMLineIndex` aus dem angegebenen Kandidaten-m-line-String extrahiert.
+Diese Eigenschaft kann konfiguriert werden, indem der Wert der `sdpMLineIndex`-Eigenschaft im `candidateInfo`-Optionsobjekt angegeben wird, das an den Konstruktor [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate) übergeben wird.
+Wenn Sie den Konstruktor mit einem m-line-String anstelle des Optionsobjekts aufrufen, wird der Wert von `sdpMLineIndex` aus dem angegebenen Kandidaten-m-line-String extrahiert.
 
 ## Wert
 
-Eine Zahl, die einen nullbasierten Index in der Menge der m-lines enthält, welche Medienbeschreibungen bieten. Diese Zahl gibt an, welche Medienquelle mit dem Kandidaten verknüpft ist, oder `null`, wenn keine solche Verknüpfung verfügbar ist.
+Eine Zahl, die einen nullbasierten Index in die Menge der m-lines enthält, die Medienbeschreibungen liefern, und angibt, welche Medienquelle mit dem Kandidaten verbunden ist, oder `null`, wenn keine solche Zuordnung verfügbar ist.
 
 > [!NOTE]
-> Der Versuch, einen Kandidaten hinzuzufügen (unter Verwendung von {{domxref("RTCPeerConnection.addIceCandidate", "addIceCandidate()")}}), der für entweder `sdpMid` oder `sdpMLineIndex` einen Wert von `null` hat, wird eine {{jsxref("TypeError")}}-Ausnahme auslösen.
+> Der Versuch, einen Kandidaten hinzuzufügen (mithilfe von
+> [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate)), der einen
+> Wert von `null` für entweder `sdpMid` oder
+> `sdpMLineIndex` hat, wird eine {{jsxref("TypeError")}}-Ausnahme auslösen.
 
 ## Spezifikationen
 

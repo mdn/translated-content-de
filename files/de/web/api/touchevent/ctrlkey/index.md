@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Die schreibgeschützte **`ctrlKey`**-Eigenschaft des {{domxref("TouchEvent")}} Interface gibt einen booleschen Wert zurück, der anzeigt, ob die <kbd>control</kbd>-Taste beim Erstellen des Touch-Ereignisses aktiviert ist. Wenn diese Taste aktiviert ist, ist der Wert des Attributs `true`. Andernfalls ist er `false`.
+Die schreibgeschützte **`ctrlKey`**-Eigenschaft des [`TouchEvent`](/de/docs/Web/API/TouchEvent)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob die <kbd>control</kbd> (Strg)-Taste aktiviert ist, wenn das Touch-Ereignis erstellt wird. Ist diese Taste aktiviert, ist der Wert des Attributs `true`. Andernfalls ist er `false`.
 
 Diese Eigenschaft ist {{ReadOnlyInline}}.
 
@@ -18,7 +18,7 @@ Ein boolescher Wert, der `true` ist, wenn die <kbd>control</kbd>-Taste für dies
 
 ## Beispiele
 
-Das [Beispiel für TouchEvent.altKey](/de/docs/Web/API/TouchEvent/altKey#examples) enthält ein Beispiel für die Verwendung dieser Eigenschaft.
+Das [TouchEvent.altKey-Beispiel](/de/docs/Web/API/TouchEvent/altKey#examples) enthält ein Beispiel für die Verwendung dieser Eigenschaft.
 
 ## Spezifikationen
 

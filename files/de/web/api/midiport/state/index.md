@@ -8,20 +8,20 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die schreibgeschützte **`state`**-Eigenschaft der {{domxref("MIDIPort")}}-Schnittstelle gibt den Zustand des Ports zurück.
+Die **`state`**-Eigenschaft des [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Interfaces ist schreibgeschützt und gibt den Status des Ports zurück.
 
 ## Wert
 
-Ein String, der den Zustand des Ports enthält, einer von:
+Ein String, der den Status des Ports enthält, einer von:
 
 - `"disconnected"`
-  - : Das Gerät, das diesen `MIDIPort` darstellt, ist vom System getrennt.
+  - : Das Gerät, das dieser `MIDIPort` repräsentiert, ist vom System getrennt.
 - `"connected"`
-  - : Das Gerät, das diesen `MIDIPort` darstellt, ist derzeit verbunden.
+  - : Das Gerät, das dieser `MIDIPort` repräsentiert, ist derzeit verbunden.
 
 ## Beispiele
 
-Das folgende Beispiel durchläuft alle Eingangsports und gibt den Zustand jedes einzelnen in der Konsole aus.
+Das folgende Beispiel durchläuft alle Eingangsports und gibt den Status jedes einzelnen auf der Konsole aus.
 
 ```js
 for (const entry of midiAccess.inputs) {

@@ -1,5 +1,5 @@
 ---
-title: BigUint64Array()-Konstruktor
+title: BigUint64Array() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/BigUint64Array/BigUint64Array
 l10n:
   sourceCommit: dd339290fa3a42d9a7f079e17a62e1df1206f29d
@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`BigUint64Array()`**-Konstruktor erstellt {{jsxref("BigUint64Array")}}-Objekte. Der Inhalt wird mit `0n` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`BigUint64Array()`** Konstruktor erstellt {{jsxref("BigUint64Array")}} Objekte. Der Inhalt wird auf `0n` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ new BigUint64Array(buffer, byteOffset)
 new BigUint64Array(buffer, byteOffset, length)
 ```
 
-> **Note:** `BigUint64Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `BigUint64Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, sie ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -34,30 +34,30 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten, um ein BigUint64Array zu erstellen
+### Verschiedene Möglichkeiten, eine BigUint64Array zu erstellen
 
 ```js
-// Von einer Länge
+// From a length
 const biguint64 = new BigUint64Array(2);
 biguint64[0] = 42n;
 console.log(biguint64[0]); // 42n
 console.log(biguint64.length); // 2
 console.log(biguint64.BYTES_PER_ELEMENT); // 8
 
-// Von einem Array
+// From an array
 const x = new BigUint64Array([21n, 31n]);
 console.log(x[1]); // 31n
 
-// Von einem anderen TypedArray
+// From another TypedArray
 const y = new BigUint64Array(x);
 console.log(y[0]); // 21n
 
-// Von einem ArrayBuffer
+// From an ArrayBuffer
 const buffer = new ArrayBuffer(64);
 const z = new BigUint64Array(buffer, 8, 4);
 console.log(z.byteOffset); // 8
 
-// Von einem Iterable
+// From an iterable
 const iterable = (function* () {
   yield* [1n, 2n, 3n];
 })();
@@ -76,7 +76,7 @@ console.log(biguint64FromIterable);
 
 ## Siehe auch
 
-- Leitfaden zu [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [Leitfaden zu JavaScript typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

@@ -7,28 +7,28 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Das `PluginArray`-Interface wird verwendet, um eine Liste von {{DOMxRef("Plugin")}}-Objekten zu speichern, die die verfügbaren [Plugins](/de/docs/Mozilla/Add-ons/Plugins) beschreiben; es wird von der {{DOMxRef("Navigator.plugins", "navigator.plugins")}}-Eigenschaft zurückgegeben. Das `PluginArray` ist kein JavaScript-Array, besitzt jedoch die `length`-Eigenschaft und unterstützt den Zugriff auf einzelne Elemente mittels Klammernotation (`plugins[2]`) sowie über die Methoden `item(index)` und `namedItem("name")`.
+Die `PluginArray`-Schnittstelle wird verwendet, um eine Liste von [`Plugin`](/de/docs/Web/API/Plugin)-Objekten zu speichern, welche die verfügbaren [Plugins](/de/docs/Mozilla/Add-ons/Plugins) beschreiben; sie wird von der [`navigator.plugins`](/de/docs/Web/API/Navigator/plugins)-Eigenschaft zurückgegeben. Das `PluginArray` ist kein JavaScript-Array, aber besitzt die `length`-Eigenschaft und unterstützt den Zugriff auf einzelne Elemente mit Hilfe der Klammernotation (`plugins[2]`), sowie über die Methoden `item(index)` und `namedItem("name")`.
 
 > [!NOTE]
 > Eigene Eigenschaften von `PluginArray`-Objekten sind in den neuesten Browserversionen nicht mehr aufzählbar.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{DOMxRef("PluginArray.length")}} {{ReadOnlyInline}} {{Deprecated_Inline}}
+- [`PluginArray.length`](/de/docs/Web/API/PluginArray/length) {{ReadOnlyInline}} {{Deprecated_Inline}}
   - : Die Anzahl der Plugins im Array.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{DOMxRef("PluginArray.item")}} {{Deprecated_Inline}}
-  - : Gibt das {{DOMxRef("Plugin")}} am angegebenen Index im Array zurück.
-- {{DOMxRef("PluginArray.namedItem")}} {{Deprecated_Inline}}
-  - : Gibt das {{DOMxRef("Plugin")}} mit dem angegebenen Namen zurück.
-- {{DOMxRef("PluginArray.refresh")}} {{Deprecated_Inline}}
+- [`PluginArray.item`](/de/docs/Web/API/PluginArray/item) {{Deprecated_Inline}}
+  - : Gibt das [`Plugin`](/de/docs/Web/API/Plugin) am angegebenen Index im Array zurück.
+- [`PluginArray.namedItem`](/de/docs/Web/API/PluginArray/namedItem) {{Deprecated_Inline}}
+  - : Gibt das [`Plugin`](/de/docs/Web/API/Plugin) mit dem angegebenen Namen zurück.
+- [`PluginArray.refresh`](/de/docs/Web/API/PluginArray/refresh) {{Deprecated_Inline}}
   - : Aktualisiert alle Plugins auf der aktuellen Seite und lädt optional Dokumente neu.
 
 ## Beispiele
 
-Die folgende Beispiel-Funktion gibt die Version des Shockwave Flash Plugins zurück.
+Die folgende Beispiel-Funktion gibt die Version des Shockwave Flash-Plugins zurück.
 
 ```js
 const pluginsLength = navigator.plugins.length;
@@ -50,7 +50,7 @@ for (let i = 0; i < pluginsLength; i++) {
 }
 ```
 
-Das folgende Beispiel zeigt Informationen über das installierte(n) Plugin(s) an.
+Das folgende Beispiel zeigt Informationen über die installierten Plugins an.
 
 ```js
 const pluginsLength = navigator.plugins.length;
@@ -75,4 +75,4 @@ for (let i = 0; i < pluginsLength; i++) {
 
 {{Compat}}
 
-Zusätzlich zur Auflistung jedes Plugins als Pseudo-Array mithilfe von nullbasierten numerischen Eigenschaften bietet Firefox auf dem PluginArray-Objekt Eigenschaften, die direkt der Pluginname sind.
+Zusätzlich zur Auflistung eines jeden Plugins als Pseudo-Array über numerische Eigenschaften mit Nullbasierung stellt Firefox Eigenschaften bereit, die den Plugin-Namen direkt auf dem PluginArray-Objekt abbilden.

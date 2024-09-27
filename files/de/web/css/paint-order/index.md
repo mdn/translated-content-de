@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`paint-order`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, die Reihenfolge zu steuern, in der die Füllung und der Umriss (und Malmarker) von Textinhalten und Formen gezeichnet werden.
+Die **`paint-order`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, die Reihenfolge zu steuern, in der die Füllung und der Strich (und malende Markierungen) von Textinhalten und Formen gezeichnet werden.
 
 ## Syntax
 
@@ -15,15 +15,15 @@ Die **`paint-order`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, 
 /* Normal */
 paint-order: normal;
 
-/* Einzelwerte */
-paint-order: stroke; /* zuerst den Umriss, dann Füllung und Marker zeichnen */
-paint-order: markers; /* zuerst die Marker, dann Füllung und Umriss zeichnen */
+/* Single values */
+paint-order: stroke; /* draw the stroke first, then fill and markers */
+paint-order: markers; /* draw the markers first, then fill and stroke */
 
-/* Mehrere Werte */
-paint-order: stroke fill; /* zuerst den Umriss, dann die Füllung, dann die Marker zeichnen */
-paint-order: markers stroke fill; /* Marker, dann Umriss, dann Füllung zeichnen */
+/* Multiple values */
+paint-order: stroke fill; /* draw the stroke first, then the fill, then the markers */
+paint-order: markers stroke fill; /* draw markers, then stroke, then fill */
 
-/* Globale Werte */
+/* Global values */
 paint-order: inherit;
 paint-order: initial;
 paint-order: revert;
@@ -31,17 +31,17 @@ paint-order: revert-layer;
 paint-order: unset;
 ```
 
-Wenn kein Wert angegeben ist, lautet die Standard-Zeichenreihenfolge `fill`, `stroke`, `markers`.
+Wenn kein Wert angegeben ist, ist die Standard-Zeichenreihenfolge `fill`, `stroke`, `markers`.
 
-Wenn ein Wert angegeben wird, wird dieser zuerst gemalt, gefolgt von den anderen beiden in ihrer relativen Standard-Reihenfolge zueinander. Wenn zwei Werte angegeben werden, werden sie in der angegebenen Reihenfolge gemalt, gefolgt von dem nicht spezifizierten.
+Wenn ein Wert angegeben wird, wird dieser zuerst gezeichnet, gefolgt von den anderen beiden in ihrer Standardreihenfolge zueinander. Wenn zwei Werte angegeben werden, werden diese in der angegebenen Reihenfolge gezeichnet, gefolgt von dem nicht angegebenen Wert.
 
 > [!NOTE]
-> Bei dieser Eigenschaft sind Marker nur geeignet, wenn SVG-Formen gezeichnet werden, die die Verwendung der `marker-*` Eigenschaften (z.B. [`marker-start`](/de/docs/Web/SVG/Attribute/marker-start)) und des [`<marker>`](/de/docs/Web/SVG/Element/marker) Elements beinhalten. Sie gelten nicht für HTML-Text, daher können Sie in diesem Fall nur die Reihenfolge von `stroke` und `fill` bestimmen.
+> Im Falle dieser Eigenschaft sind Markierungen nur dann relevant, wenn SVG-Formen unter Verwendung der `marker-*` Eigenschaften (z.B. [`marker-start`](/de/docs/Web/SVG/Attribute/marker-start)) und des [`<marker>`](/de/docs/Web/SVG/Element/marker) Elements gezeichnet werden. Sie gelten nicht für HTML-Text, sodass Sie in diesem Fall nur die Reihenfolge von `stroke` und `fill` bestimmen können.
 
 ### Werte
 
 - `normal`
-  - : Zeichnen Sie die verschiedenen Elemente in normaler Zeichenreihenfolge.
+  - : Zeichnet die verschiedenen Elemente in normaler Zeichenreihenfolge.
 - `stroke`,
   `fill`,
   `markers`
@@ -57,7 +57,7 @@ Wenn ein Wert angegeben wird, wird dieser zuerst gemalt, gefolgt von den anderen
 
 ## Beispiele
 
-### Umkehren der Reihenfolge von Umriss und Füllung
+### Umkehren der Zeichenreihenfolge von Strich und Füllung
 
 #### SVG
 
@@ -89,9 +89,9 @@ text {
 
 {{EmbedLiveSample("Reversing_the_paint_order_of_stroke_and_fill", "100%", 165)}}
 
-### Umkehren der Reihenfolge von Umriss und Füllung mit HTML
+### Umkehren der Zeichenreihenfolge von Strich und Füllung mit HTML
 
-Um die Reihenfolge von Füllung und Umriss in HTML zu steuern, können Sie die CSS-Eigenschaften {{cssxref("-webkit-text-stroke-color")}} und {{cssxref("-webkit-text-stroke-width")}} verwenden.
+Um die Füll- und Strichreihenfolge in HTML zu steuern, können Sie die {{cssxref("-webkit-text-stroke-color")}} und {{cssxref("-webkit-text-stroke-width")}} CSS Eigenschaften verwenden.
 
 #### HTML
 
@@ -127,7 +127,7 @@ div {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

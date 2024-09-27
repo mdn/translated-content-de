@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesis: pending Eigenschaft"
+title: "SpeechSynthesis: pending-Eigenschaft"
 short-title: pending
 slug: Web/API/SpeechSynthesis/pending
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte **`pending`**-Eigenschaft des
-{{domxref("SpeechSynthesis")}} Interfaces ist ein boolescher Wert, der
-`true` zurückgibt, wenn die Äußerungswarteschlange noch ungesprochene Äußerungen enthält.
+Die schreibgeschützte **`pending`**-Eigenschaft der
+[`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Schnittstelle ist ein boolescher Wert, der
+`true` zurückgibt, wenn die Warteschlange der Äußerungen noch nicht gesprochene Äußerungen enthält.
 
 ## Wert
 
@@ -31,7 +31,7 @@ const utterance2 = new SpeechSynthesisUtterance(
 synth.speak(utterance1);
 synth.speak(utterance2);
 
-const amIPending = synth.pending; // wird 'true' zurückgeben, wenn Äußerung 1 noch gesprochen wird und Äußerung 2 in der Warteschlange ist
+const amIPending = synth.pending; // will return true if utterance 1 is still being spoken and utterance 2 is in the queue
 ```
 
 ## Spezifikationen

@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Das **`updatefound`**-Ereignis der
-{{domxref("ServiceWorkerRegistration")}}-Schnittstelle wird jedes Mal ausgelöst, wenn die {{domxref("ServiceWorkerRegistration.installing")}}-Eigenschaft einen neuen Service-Worker erhält.
+Das **`updatefound`**-Ereignis der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle wird ausgelöst, wenn die [`ServiceWorkerRegistration.installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing)-Eigenschaft einen neuen Service Worker erhält.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("updatefound", (event) => {});
@@ -23,7 +22,7 @@ onupdatefound = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -46,4 +45,4 @@ if (registration) {
 
 ## Siehe auch
 
-- [Verwendung von Service-Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)

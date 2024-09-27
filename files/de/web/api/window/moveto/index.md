@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef}}
 
-Die **`moveTo()`**-Methode der {{domxref("Window")}}-Schnittstelle verschiebt das aktuelle Fenster an die angegebenen Koordinaten.
+Die **`moveTo()`**-Methode der [`Window`](/de/docs/Web/API/Window)-Schnittstelle bewegt das aktuelle Fenster zu den angegebenen Koordinaten.
 
 > [!NOTE]
-> Diese Funktion bewegt das Fenster zu einer absoluten Position. Im Gegensatz dazu bewegt {{domxref("window.moveBy()")}} das Fenster relativ zu seiner aktuellen Position.
+> Diese Funktion bewegt das Fenster an eine absolute Position. Im Gegensatz dazu bewegt [`window.moveBy()`](/de/docs/Web/API/Window/moveBy) das Fenster relativ zu seiner aktuellen Position.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ moveTo(x, y)
 ### Parameter
 
 - `x`
-  - : Die horizontale Koordinate, zu der bewegt werden soll.
+  - : Die horizontale Koordinate, zu der verschoben werden soll.
 - `y`
-  - : Die vertikale Koordinate, zu der bewegt werden soll.
+  - : Die vertikale Koordinate, zu der verschoben werden soll.
 
 ### Rückgabewert
 
@@ -32,7 +32,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel verschiebt das Fenster in die obere linke Ecke des Bildschirms.
+Dieses Beispiel bewegt das Fenster in die obere linke Ecke des Bildschirms.
 
 ```js
 function origin() {
@@ -44,19 +44,19 @@ function origin() {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
-Seit Firefox 7 können Websites ein Browserfenster in [folgenden Fällen](https://bugzil.la/565541#c24) nicht mehr verschieben:
+Ab Firefox 7 können Websites ein Browserfenster [in den folgenden Fällen](https://bugzil.la/565541#c24) nicht mehr verschieben:
 
-1. Sie können ein Fenster oder Tab nicht verschieben, das nicht durch {{domxref("Window.open()")}} erstellt wurde.
-2. Sie können ein Fenster oder Tab nicht bewegen, wenn es sich in einem Fenster mit mehr als einem Tab befindet.
+1. Sie können ein Fenster oder Tab, das nicht durch [`Window.open()`](/de/docs/Web/API/Window/open) erstellt wurde, nicht verschieben.
+2. Sie können ein Fenster oder Tab nicht verschieben, wenn es sich in einem Fenster mit mehr als einem Tab befindet.
 
 > [!NOTE]
-> Diese Funktion bewegt das Fenster möglicherweise nicht synchron.
-> In einigen Umgebungen (wie Wayland oder mobil) bewegt sie das Fenster möglicherweise gar nicht. Derzeit gibt es keine Möglichkeit, ein Verschiebungsereignis zu erkennen, siehe [CSS Working Group issue #7693](https://github.com/w3c/csswg-drafts/issues/7693).
+> Diese Funktion könnte das Fenster nicht synchron verschieben.
+> In einigen Umgebungen (wie Wayland oder mobil) könnte es das Fenster überhaupt nicht verschieben. Derzeit gibt es keine Möglichkeit, auf ein Verschiebungsereignis zu hören, siehe [CSS Working Group issue #7693](https://github.com/w3c/csswg-drafts/issues/7693).
 
 ## Siehe auch
 
-- {{domxref("Window.moveBy()")}}
+- [`Window.moveBy()`](/de/docs/Web/API/Window/moveBy)

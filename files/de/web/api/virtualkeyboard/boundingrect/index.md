@@ -1,5 +1,5 @@
 ---
-title: "VirtualKeyboard: boundingRect-Eigenschaft"
+title: "VirtualKeyboard: boundingRect Eigenschaft"
 short-title: boundingRect
 slug: Web/API/VirtualKeyboard/boundingRect
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("VirtualKeyboard API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`boundingRect`**-Eigenschaft der Schnittstelle {{domxref("VirtualKeyboard")}} enthält ein {{domxref("DOMRect")}}, das die Position und Größe der virtuellen Bildschirmtastatur angibt, die über die Webseite gelegt wird.
+Die **`boundingRect`**-Eigenschaft des [`VirtualKeyboard`](/de/docs/Web/API/VirtualKeyboard) Interfaces enthält ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Position und Größe der Bildschirmtastatur angibt, die die Webseite überlagert.
 
-Die virtuelle Bildschirmtastatur wird den Viewport überlagern, wenn die {{domxref("VirtualKeyboard_API", "Virtual Keyboard API", "", "nocode")}} verwendet wird, um zu verhindern, dass der Browser den Viewport automatisch anpasst. Dies wird erreicht, indem die Eigenschaft {{domxref("VirtualKeyboard.overlaysContent", "overlaysContent")}} auf `true` gesetzt wird.
+Die Bildschirmtastatur wird den Viewport überlagern, wenn die [Virtual Keyboard API](/de/docs/Web/API/VirtualKeyboard_API) verwendet wird, um zu verhindern, dass der Browser den Viewport automatisch anpasst. Dies wird erreicht, indem die [`overlaysContent`](/de/docs/Web/API/VirtualKeyboard/overlaysContent)-Eigenschaft auf `true` gesetzt wird.
 
 ## Wert
 
-Ein {{domxref("DOMRect")}}, welches die Position und Größe der virtuellen Tastatur im Viewport angibt.
+Ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Position und Größe der virtuellen Tastatur im Viewport angibt.
 
-Die `x`, `y`, `width` und `height` Koordinaten des Rechtecks sind nützlich, um Inhalte auf der Webseite neu zu positionieren, die sichtbar bleiben müssen, selbst wenn die virtuelle Tastatur angezeigt wird.
+Die `x`, `y`, `width` und `height` Koordinaten des Rechtecks sind nützlich, um Inhalte auf der Webseite neu zu positionieren, die sichtbar bleiben müssen, wenn die virtuelle Tastatur angezeigt wird.
 
 ```js
 const { x, y, width, height } = navigator.virtualKeyboard.boundingRect;
@@ -32,5 +32,5 @@ const { x, y, width, height } = navigator.virtualKeyboard.boundingRect;
 
 ## Siehe auch
 
-- {{domxref("VirtualKeyboard_API", "Die VirtualKeyboard API", "", "nocode")}}
+- [Die VirtualKeyboard API](/de/docs/Web/API/VirtualKeyboard_API)
 - [Volle Kontrolle mit der VirtualKeyboard API](https://developer.chrome.com/docs/web-platform/virtual-keyboard/)

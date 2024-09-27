@@ -9,7 +9,7 @@ l10n:
 
 Wird ausgelöst, wenn ein Tab erstellt wird.
 
-Beachten Sie, dass die URL des Tabs möglicherweise nicht den endgültigen Wert hat, wenn dieses Ereignis ausgelöst wird. Insbesondere öffnet Firefox einen neuen Tab mit der URL "about:blank", bevor die neue Seite darin geladen wird. Sie können auf {{WebExtAPIRef("tabs.onUpdated")}}-Ereignisse lauschen, um benachrichtigt zu werden, wenn eine URL gesetzt wird.
+Beachten Sie, dass die URL des Tabs zum Zeitpunkt des Auslösens dieses Ereignisses möglicherweise noch nicht den endgültigen Wert hat. Insbesondere öffnet Firefox einen neuen Tab mit der URL "about:blank", bevor die neue Seite darin geladen wird. Sie können auf {{WebExtAPIRef("tabs.onUpdated")}}-Ereignisse hören, um benachrichtigt zu werden, wenn eine URL gesetzt wird.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Hören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er hört, andernfalls `false`.
 
-## addListener-Syntax
+## Syntax von addListener
 
 ### Parameter
 
@@ -41,7 +41,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Protokollieren Sie die IDs neu erstellter Tabs:
+IDs neu erstellter Tabs protokollieren:
 
 ```js
 function handleCreated(tab) {
@@ -58,7 +58,7 @@ browser.tabs.onCreated.addListener(handleCreated);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onCreated) API von Chromium. Diese Dokumentation stammt von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onCreated) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

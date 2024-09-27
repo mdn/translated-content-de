@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableCellElement: bgColor Eigenschaft"
+title: "HTMLTableCellElement: bgColor-Eigenschaft"
 short-title: bgColor
 slug: Web/API/HTMLTableCellElement/bgColor
 l10n:
@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`HTMLTableCellElement.bgColor`** Eigenschaft wird verwendet, um die Hintergrundfarbe einer Zelle festzulegen oder den Wert des veralteten [`bgColor`](/de/docs/Web/HTML/Element/td#bgcolor) Attributs abzurufen, falls vorhanden.
+Die **`HTMLTableCellElement.bgColor`**-Eigenschaft wird verwendet, um die Hintergrundfarbe einer Zelle festzulegen oder den Wert des veralteten [`bgColor`](/de/docs/Web/HTML/Element/td#bgcolor)-Attributs zu erhalten, falls vorhanden.
 
 > [!NOTE]
-> Diese Eigenschaft ist veraltet, und es sollte CSS verwendet werden, um die Hintergrundfarbe festzulegen. Verwenden Sie stattdessen die {{cssxref("background-color")}} Eigenschaft.
+> Diese Eigenschaft ist veraltet und zur Festlegung der Hintergrundfarbe sollte CSS verwendet werden. Verwenden Sie stattdessen die {{cssxref("background-color")}}-Eigenschaft.
 
 ## Wert
 
-Einer der folgenden Wertetypen kann verwendet werden:
+Es können die folgenden Wertetypen verwendet werden:
 
 - ein benannter Farbname, wie `red` oder `blue`
 - ein Hexadezimalcode, wie `#0000dd` oder `#00d`
 
 > [!NOTE]
-> Die hier akzeptierten Werte sind ein begrenzter Ausschnitt der CSS-Farbwerte. Nur {{cssxref("named-color")}} und 3- oder 6-stellige {{cssxref("hex-color")}} (ohne Alpha-Kanal). Während alle HTML-Farbwerte in CSS gültig sind, ist dies umgekehrt nicht der Fall.
+> Die hier akzeptierten Werte sind eine begrenzte Teilmenge der CSS-Farben. Nur {{cssxref("named-color")}} und 3- oder 6-stellige {{cssxref("hex-color")}} (ohne Alpha-Kanal). Während alle HTML-Farbwerte in CSS gültig sind, ist dies in umgekehrter Richtung nicht der Fall.
 
 ## Beispiele
 
-Verwenden Sie stattdessen CSS `background-color`. Ein Beispiel für die Verwendung von [`background-color` mit HTML-Tabellenelementen](/de/docs/Web/CSS/background-color#colorize_tables) ist auf der {{cssxref("background-color")}} Seite verfügbar.
+Verwenden Sie stattdessen die CSS-`background-color`. Ein Beispiel zur Verwendung von [`background-color` mit HTML-Tabellelementen](/de/docs/Web/CSS/background-color#colorize_tables) ist auf der {{cssxref("background-color")}}-Seite verfügbar.
 
 ## Spezifikationen
 
@@ -37,4 +37,4 @@ Verwenden Sie stattdessen CSS `background-color`. Ein Beispiel für die Verwendu
 
 ## Siehe auch
 
-- {{domxref("HTMLTableRowElement.bgColor")}}
+- [`HTMLTableRowElement.bgColor`](/de/docs/Web/API/HTMLTableRowElement/bgColor)

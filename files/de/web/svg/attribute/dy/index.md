@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`dy`** Attribut gibt eine Verschiebung entlang der y-Achse an, bezogen auf die Position eines Elements oder dessen Inhalt.
+Das **`dy`**-Attribut gibt eine Verschiebung entlang der y-Achse an der Position eines Elements oder seines Inhalts an.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('feDropShadow')}}
 - {{SVGElement('feOffset')}}
@@ -30,15 +30,15 @@ svg {
 
 ```html
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Linien materialisieren die Position der Glyphen -->
+  <!-- Lines materialized the position of the glyphs -->
   <line x1="10%" x2="10%" y1="0" y2="100%" />
   <line x1="0" x2="100%" y1="30%" y2="30%" />
   <line x1="0" x2="100%" y1="80%" y2="80%" />
 
-  <!-- Ein Referenztext -->
+  <!-- Some reference text -->
   <text x="10%" y="30%" fill="grey">SVG</text>
 
-  <!-- Derselbe Text mit einer Verschiebung entlang der y-Achse -->
+  <!-- The same text with a shift along the y-axis -->
   <text dy="50%" x="10%" y="30%">SVG</text>
 </svg>
 ```
@@ -55,7 +55,7 @@ line {
 
 ## feDropShadow
 
-Für {{SVGElement('feDropShadow')}} definiert `dy` die y-Verschiebung des geworfenen Schattens. Die Einheit zur Auflösung des Attributwertes wird durch das Attribut {{SVGAttr('primitiveUnits')}} des Elements {{SVGElement('filter')}} festgelegt.
+Für {{SVGElement('feDropShadow')}} definiert `dy` den y-Versatz des fallenden Schattens. Die Einheit, die zur Auflösung des Werts des Attributs verwendet wird, wird durch das {{SVGAttr('primitiveUnits')}}-Attribut des {{SVGElement('filter')}}-Elements festgelegt.
 
 <table class="properties">
   <tbody>
@@ -80,7 +80,7 @@ Für {{SVGElement('feDropShadow')}} definiert `dy` die y-Verschiebung des geworf
 
 ## feOffset
 
-Für {{SVGElement('feOffset')}} definiert `dy` die y-Verschiebung der Filtereingabegrafik. Die Einheit zur Auflösung des Attributwertes wird durch das Attribut {{SVGAttr('primitiveUnits')}} des Elements {{SVGElement('filter')}} festgelegt.
+Für {{SVGElement('feOffset')}} definiert `dy` den y-Versatz der Filtereingabegrafik. Die Einheit, die zur Auflösung des Werts des Attributs verwendet wird, wird durch das {{SVGAttr('primitiveUnits')}}-Attribut des {{SVGElement('filter')}}-Elements festgelegt.
 
 <table class="properties">
   <tbody>
@@ -106,9 +106,9 @@ Für {{SVGElement('feOffset')}} definiert `dy` die y-Verschiebung der Filtereing
 ## glyphRef
 
 > [!WARNING]
-> Seit SVG2 ist {{SVGElement('glyphRef')}} veraltet und sollte nicht verwendet werden.
+> Ab SVG2 ist {{SVGElement('glyphRef')}} veraltet und sollte nicht verwendet werden.
 
-Für {{SVGElement('glyphRef')}} definiert `dy` die y-Verschiebung der Glyphe im Font-Metriksystem.
+Für {{SVGElement('glyphRef')}} definiert `dy` den y-Versatz des Glyphs im Schriftmetriksystem.
 
 <table class="properties">
   <tbody>
@@ -133,9 +133,9 @@ Für {{SVGElement('glyphRef')}} definiert `dy` die y-Verschiebung der Glyphe im 
 
 ## text
 
-Für {{SVGElement('text')}}, wenn es einen einzelnen Wert enthält, definiert `dy` eine Verschiebung entlang der y-Achse für alle Glyphen.
+Für {{SVGElement('text')}} definiert `dy` bei einem einzelnen Wert eine Verschiebung entlang der y-Achse für alle Glyphen.
 
-Wenn es mehrere Werte gibt, definiert `dy` eine Verschiebung entlang der y-Achse für jede einzelne Glyphe relativ zur vorhergehenden Glyphe. Wenn es weniger Werte als Glyphen gibt, verwenden die verbleibenden Glyphen einen Wert von `0`. Wenn es mehr Werte als Glyphen gibt, werden zusätzliche Werte ignoriert.
+Wenn mehrere Werte vorhanden sind, definiert `dy` eine Verschiebung entlang der y-Achse für jedes einzelne Glyph relativ zum vorhergehenden Glyph. Wenn weniger Werte als Glyphen vorhanden sind, verwenden die verbleibenden Glyphen einen Wert von `0`. Wenn mehr Werte als Glyphen vorhanden sind, werden zusätzliche Werte ignoriert.
 
 <table class="properties">
   <tbody>
@@ -178,18 +178,18 @@ svg {
 
 ```html
 <svg viewBox="0 0 150 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Horizontale Linien -->
+  <!-- Horizontal lines -->
   <line x1="0" x2="100%" y1="30" y2="30" />
   <line x1="0" x2="100%" y1="40" y2="40" />
   <line x1="0" x2="100%" y1="50" y2="50" />
   <line x1="0" x2="100%" y1="60" y2="60" />
 
-  <!-- Vertikale Linien -->
+  <!-- Vertical lines -->
   <line x1="10" x2="10" y1="0" y2="100%" />
   <line x1="50" x2="50" y1="0" y2="100%" />
   <line x1="90" x2="90" y1="0" y2="100%" />
 
-  <!-- Verhaltensänderungen basierend auf der Anzahl der Werte in den Attributen -->
+  <!-- Behaviors change based on the number of values in the attributes -->
   <text dy="20" x="10" y="30">SVG</text>
   <text dy="0 10" x="50" y="30">SVG</text>
   <text dy="0 10 20" x="90" y="30">SVG</text>
@@ -209,11 +209,11 @@ line {
 ## tref
 
 > [!WARNING]
-> Seit SVG2 ist {{SVGElement('tref')}} veraltet und sollte nicht verwendet werden.
+> Ab SVG2 ist {{SVGElement('tref')}} veraltet und sollte nicht verwendet werden.
 
-Für {{SVGElement('tref')}}, wenn es einen einzelnen Wert enthält, definiert `dy` eine Verschiebung entlang der y-Achse für alle Glyphen.
+Für {{SVGElement('tref')}} definiert `dy` bei einem einzelnen Wert eine Verschiebung entlang der y-Achse für alle Glyphen.
 
-Wenn es mehrere Werte gibt, definiert `dy` eine Verschiebung entlang der y-Achse für jede einzelne Glyphe relativ zur vorhergehenden Glyphe. Wenn es weniger Werte als Glyphen gibt, verwenden die verbleibenden Glyphen einen Wert von `0`. Wenn es mehr Werte als Glyphen gibt, werden zusätzliche Werte ignoriert.
+Wenn mehrere Werte vorhanden sind, definiert `dy` eine Verschiebung entlang der y-Achse für jedes einzelne Glyph relativ zum vorhergehenden Glyph. Wenn weniger Werte als Glyphen vorhanden sind, verwenden die verbleibenden Glyphen einen Wert von `0`. Wenn mehr Werte als Glyphen vorhanden sind, werden zusätzliche Werte ignoriert.
 
 <table class="properties">
   <tbody>
@@ -246,9 +246,9 @@ Wenn es mehrere Werte gibt, definiert `dy` eine Verschiebung entlang der y-Achse
 
 ## tspan
 
-Für {{SVGElement('tspan')}}, wenn es einen einzelnen Wert enthält, definiert `dy` eine Verschiebung entlang der y-Achse für alle alternierenden Glyphen.
+Für {{SVGElement('tspan')}} definiert `dy` bei einem einzelnen Wert eine Verschiebung entlang der y-Achse für alle abwechselnden Glyphen.
 
-Wenn es mehrere Werte gibt, definiert `dy` eine Verschiebung entlang der y-Achse für jede einzelne Glyphe relativ zur vorhergehenden Glyphe. Wenn es weniger Werte als Glyphen gibt, verwenden die verbleibenden Glyphen einen Wert von `0`. Wenn es mehr Werte als Glyphen gibt, werden zusätzliche Werte ignoriert.
+Wenn mehrere Werte vorhanden sind, definiert `dy` eine Verschiebung entlang der y-Achse für jedes einzelne Glyph relativ zum vorhergehenden Glyph. Wenn weniger Werte als Glyphen vorhanden sind, verwenden die verbleibenden Glyphen einen Wert von `0`. Wenn mehr Werte als Glyphen vorhanden sind, werden zusätzliche Werte ignoriert.
 
 <table class="properties">
   <tbody>

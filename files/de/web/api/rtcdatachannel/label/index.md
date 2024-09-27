@@ -8,22 +8,26 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`label`** gibt einen Zeichenfolgenwert zurück, der einen Namen zur Beschreibung des Datenkanals enthält. Diese Bezeichnungen müssen nicht eindeutig sein.
+Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`label`**
+gibt einen String zurück, der einen Namen enthält, der den Datenkanal beschreibt. Diese
+Bezeichnungen müssen nicht einzigartig sein.
 
-Sie können das Label nach Belieben verwenden; Sie könnten es nutzen, um alle Kanäle, die für denselben Zweck verwendet werden, zu identifizieren, indem Sie ihnen allen denselben Namen geben. Oder Sie könnten jedem Kanal ein einzigartiges Label zur Nachverfolgung geben. Es liegt ganz an den Designentscheidungen, die beim Aufbau Ihrer Website oder App getroffen werden.
+Sie können das Label nach Belieben verwenden; Sie könnten es verwenden, um alle Kanäle zu identifizieren, die
+für denselben Zweck verwendet werden, indem Sie ihnen allen denselben Namen geben. Oder Sie könnten jedem Kanal ein einzigartiges Label zur Nachverfolgung geben. Es liegt ganz bei den Designentscheidungen, die beim Erstellen Ihrer Website oder App getroffen wurden.
 
-Eine eindeutige ID finden Sie in der {{domxref("RTCDataChannel.id", "id")}}-Eigenschaft.
+Eine eindeutige ID kann in der [`id`](/de/docs/Web/API/RTCDataChannel/id)-Eigenschaft gefunden werden.
 
 > [!NOTE]
-> Das Label eines Datenkanals wird festgelegt, wenn der Kanal durch den Aufruf von {{domxref("RTCPeerConnection.createDataChannel()")}} erstellt wird. Es kann danach nicht mehr geändert werden.
+> Das Label eines Datenkanals wird gesetzt, wenn der Kanal durch Aufruf von
+> [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) erstellt wird. Es kann danach nicht mehr geändert werden.
 
 ## Wert
 
-Ein durch die Website oder App zugewiesener Zeichenfolgen-Identifikator, der bei der Erstellung des Datenkanals festgelegt wurde, wie beim Aufruf von {{domxref("RTCPeerConnection.createDataChannel()")}} zur Erstellung des Kanals angegeben.
+Ein String-Identifikator, der von der Website oder App zugewiesen wurde, als der Datenkanal erstellt wurde, wie angegeben, als [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) aufgerufen wurde, um den Kanal zu erstellen.
 
 ## Beispiel
 
-Dieses Beispiel erstellt einen Datenkanal auf einer {{domxref("RTCPeerConnection")}}, und später wird der Inhalt eines UI-Elements gesetzt, um den Namen des Kanals anzuzeigen.
+Dieses Beispiel erstellt einen Datenkanal auf einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) und setzt dann nach einiger Zeit den Inhalt eines UI-Elements, um den Namen des Kanals anzuzeigen.
 
 ```js
 const pc = new RTCPeerConnection();
@@ -50,6 +54,6 @@ document.getElementById("channel-name").appendChild(
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCDataChannel")}}
-- {{domxref("RTCDataChannel.id")}}
-- {{domxref("RTCPeerConnection.createDataChannel()")}}
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
+- [`RTCDataChannel.id`](/de/docs/Web/API/RTCDataChannel/id)
+- [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel)

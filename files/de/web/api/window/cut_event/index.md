@@ -1,6 +1,6 @@
 ---
-title: "Window: Ausschneide-Ereignis"
-short-title: ausschneiden
+title: "Window: cut Event"
+short-title: cut
 slug: Web/API/Window/cut_event
 l10n:
   sourceCommit: cc070123f72376faec06e36622c4fc723a75325f
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`cut`**-Ereignis wird ausgelöst, wenn der Benutzer eine "Ausschneiden"-Aktion über die Benutzeroberfläche des Browsers initiiert hat.
+Das **`cut`**-Event wird ausgelöst, wenn der Benutzer eine "Ausschneiden"-Aktion über die Benutzeroberfläche des Browsers initiiert hat.
 
-Das ursprüngliche Ziel dieses Ereignisses ist das {{domxref("Element")}}, das Ziel der Ausschneideaktion war. Sie können auf dieses Ereignis in der {{domxref("Window")}}-Schnittstelle hören, um es in der Capture- oder Bubbling-Phase zu behandeln. Für vollständige Details zu diesem Ereignis sehen Sie bitte die Seite über das [Element: Ausschneide-Ereignis](/de/docs/Web/API/Element/cut_event).
+Das ursprüngliche Ziel dieses Ereignisses ist das [`Element`](/de/docs/Web/API/Element), das das beabsichtigte Ziel der Ausschneiden-Aktion war. Sie können dieses Ereignis auf der [`Window`](/de/docs/Web/API/Window)-Schnittstelle abhören, um es in den Erfassungs- oder Bubbling-Phasen zu bearbeiten. Für vollständige Details zu diesem Ereignis lesen Sie bitte die Seite zum [Element: cut Event](/de/docs/Web/API/Element/cut_event).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("cut", (event) => {});
@@ -22,9 +22,9 @@ addEventListener("cut", (event) => {});
 oncut = (event) => {};
 ```
 
-## Ereignistyp
+## Event-Typ
 
-Ein {{domxref("ClipboardEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ClipboardEvent")}}
 
@@ -32,7 +32,7 @@ Ein {{domxref("ClipboardEvent")}}. Erbt von {{domxref("Event")}}.
 
 ```js
 window.addEventListener("cut", (event) => {
-  console.log("Ausschneide-Aktion initiiert");
+  console.log("cut action initiated");
 });
 ```
 
@@ -40,12 +40,12 @@ window.addEventListener("cut", (event) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("Window/copy_event", "kopieren")}}, {{domxref("Window/paste_event", "einfügen")}}
-- Dieses Ereignis bei {{domxref("Element")}} Zielen: {{domxref("Element/cut_event", "ausschneiden")}}
-- Dieses Ereignis bei {{domxref("Document")}} Zielen: {{domxref("Document/cut_event", "ausschneiden")}}
+- Verwandte Ereignisse: [`copy`](/de/docs/Web/API/Window/copy_event), [`paste`](/de/docs/Web/API/Window/paste_event)
+- Dieses Ereignis auf [`Element`](/de/docs/Web/API/Element) zielt ab: [`cut`](/de/docs/Web/API/Element/cut_event)
+- Dieses Ereignis auf [`Document`](/de/docs/Web/API/Document) zielt ab: [`cut`](/de/docs/Web/API/Document/cut_event)

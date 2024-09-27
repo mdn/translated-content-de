@@ -1,5 +1,5 @@
 ---
-title: "Dokument: doctype-Eigenschaft"
+title: "Document: doctype-Eigenschaft"
 short-title: doctype
 slug: Web/API/Document/doctype
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die schreibgeschützte **`doctype`**-Eigenschaft des {{domxref("Document")}}-Interfaces ist ein {{domxref("DocumentType")}}-Objekt, das die mit dem aktuellen Dokument verbundene {{glossary("Doctype", "Dokumenttyperklärung (DTD)")}} darstellt.
+Die **`doctype`** schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces ist ein [`DocumentType`](/de/docs/Web/API/DocumentType)-Objekt, das die [Dokumenttyp-Deklaration (DTD)](/de/docs/Glossary/Doctype) darstellt, die mit dem aktuellen Dokument verknüpft ist.
 
 ## Wert
 
-Ein {{domxref("DocumentType")}}-Objekt.
+Ein [`DocumentType`](/de/docs/Web/API/DocumentType)-Objekt.
 
 ## Beispiele
 
@@ -27,9 +27,9 @@ console.log(`doctypeObj.systemId: ${doctypeObj.systemId}`);
 
 ## Hinweise
 
-Die Eigenschaft gibt `null` zurück, wenn kein DTD mit dem aktuellen Dokument verbunden ist.
+Die Eigenschaft gibt `null` zurück, wenn keine DTD mit dem aktuellen Dokument verknüpft ist.
 
-DOM Level 2 unterstützt keine Bearbeitung der Dokumenttyperklärung.
+DOM Level 2 unterstützt keine Bearbeitung der Dokumenttyp-Deklaration.
 
 ## Spezifikationen
 

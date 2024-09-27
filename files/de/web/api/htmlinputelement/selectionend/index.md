@@ -8,32 +8,32 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`selectionEnd`**-Eigenschaft der {{domxref("HTMLInputElement")}}-Schnittstelle ist eine Zahl, die den Endindex des ausgewählten Textes darstellt. Wenn keine Auswahl vorhanden ist, gibt diese Eigenschaft den Offset des Zeichens unmittelbar nach der aktuellen Cursorposition im Texteingabefeld zurück.
+Die **`selectionEnd`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces ist eine Zahl, die den Endindex des ausgewählten Textes darstellt. Wenn keine Auswahl vorhanden ist, gibt sie den Versatz des Zeichens zurück, das unmittelbar auf die aktuelle Position des Texteingabecursors folgt.
 
 > [!NOTE]
-> Laut der [WHATWG Forms-Spezifikation](https://html.spec.whatwg.org/multipage/forms.html#concept-input-apply) gilt die `selectionEnd`-Eigenschaft nur für Eingaben der Typen text, search, URL, tel und password. In modernen Browsern wird eine Ausnahme ausgelöst, wenn die `selectionEnd`-Eigenschaft für andere Eingabetypen gesetzt wird. Außerdem gibt diese Eigenschaft `null` zurück, wenn sie auf nicht-textuelle Eingabeelemente angewendet wird.
+> Laut der [WHATWG forms Spezifikation](https://html.spec.whatwg.org/multipage/forms.html#concept-input-apply) gilt die `selectionEnd`-Eigenschaft nur für Eingaben der Typen text, search, URL, tel und password. In modernen Browsern wird eine Ausnahme ausgelöst, wenn die `selectionEnd`-Eigenschaft für die restlichen Eingabetypen gesetzt wird. Zusätzlich gibt diese Eigenschaft `null` zurück, wenn die `selectionEnd`-Eigenschaft bei Nicht-Text-Eingabeelementen aufgerufen wird.
 
-Wenn `selectionEnd` kleiner ist als `selectionStart`, werden beide als Wert von `selectionEnd` behandelt.
+Wenn `selectionEnd` kleiner als `selectionStart` ist, werden beide als der Wert von `selectionEnd` behandelt.
 
 ## Wert
 
-Eine nicht-negative Zahl.
+Eine nicht negative Zahl.
 
 ## Beispiele
 
 ### HTML
 
 ```html
-<!-- Verwendung von selectionEnd bei nicht-textuellem Eingabeelement -->
-<label for="color">selectionStart-Eigenschaft bei Typ=color</label>
+<!-- using selectionEnd on non text input element -->
+<label for="color">selectionStart property on type=color</label>
 <input id="color" type="color" />
 
-<!-- Verwendung von selectionEnd bei einem Texteingabeelement -->
+<!-- using selectionEnd on text input element -->
 <fieldset>
-  <legend>selectionEnd-Eigenschaft bei Typ=text</legend>
-  <label for="pin">PIN eingeben</label>
-  <input type="text" id="pin" value="unmögliche PIN: 102-12-145" />
-  <button id="pin-btn" type="button">PIN-Korrektur</button>
+  <legend>selectionEnd property on type=text</legend>
+  <label for="pin">Input PIN</label>
+  <input type="text" id="pin" value="impossible PIN: 102-12-145" />
+  <button id="pin-btn" type="button">PIN correction</button>
 </fieldset>
 ```
 
@@ -52,8 +52,8 @@ pinBtn.addEventListener("click", () => {
   text.value = correctedText;
 });
 
-// Öffnen Sie die Browserkonsole, um das Ergebnis zu überprüfen
-console.log(colorEnd.selectionEnd); // Ausgabe : null
+// open browser console to verify output
+console.log(colorEnd.selectionEnd); // Output : null
 ```
 
 ### Ergebnis
@@ -64,12 +64,12 @@ console.log(colorEnd.selectionEnd); // Ausgabe : null
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLTextAreaElement.selectionEnd")}}-Eigenschaft
-- {{domxref("HTMLInputElement.selectionStart")}}-Eigenschaft
-- {{domxref("HTMLInputElement.setSelectionRange")}}-Methode
+- [`HTMLTextAreaElement.selectionEnd`](/de/docs/Web/API/HTMLTextAreaElement/selectionEnd) Eigenschaft
+- [`HTMLInputElement.selectionStart`](/de/docs/Web/API/HTMLInputElement/selectionStart) Eigenschaft
+- [`HTMLInputElement.setSelectionRange`](/de/docs/Web/API/HTMLInputElement/setSelectionRange) Methode

@@ -1,5 +1,5 @@
 ---
-title: "DocumentType: remove()-Methode"
+title: "DocumentType: remove() Methode"
 short-title: remove()
 slug: Web/API/DocumentType/remove
 l10n:
@@ -44,6 +44,6 @@ document.doctype; // null
 
 ## Siehe auch
 
-- {{domxref("Document.doctype")}}
-- {{domxref("CharacterData.remove()")}}
-- {{domxref("Element.remove()")}}
+- [`Document.doctype`](/de/docs/Web/API/Document/doctype)
+- [`CharacterData.remove()`](/de/docs/Web/API/CharacterData/remove)
+- [`Element.remove()`](/de/docs/Web/API/Element/remove)

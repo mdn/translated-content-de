@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: getUniformBlockIndex()-Methode"
+title: "WebGL2RenderingContext: getUniformBlockIndex() Methode"
 short-title: getUniformBlockIndex()
 slug: Web/API/WebGL2RenderingContext/getUniformBlockIndex
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.getUniformBlockIndex()`**-Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) ruft den Index eines Uniform-Blocks innerhalb eines {{domxref("WebGLProgram")}} ab.
+Die **`WebGL2RenderingContext.getUniformBlockIndex()`** Methode
+der [WebGL 2 API](/de/docs/Web/API/WebGL_API) ermittelt den Index eines Uniform-Blocks innerhalb eines [`WebGLProgram`](/de/docs/Web/API/WebGLProgram).
 
 ## Syntax
 
@@ -19,23 +20,23 @@ getUniformBlockIndex(program, uniformBlockName)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}, das den Uniform-Block enthält.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das den Uniform-Block enthält.
 - `uniformName`
   - : Ein String, der den Namen des Uniform-Blocks angibt, dessen Index abgerufen werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API/Types", "GLuint")}}, der den Index des Uniform-Blocks angibt.
+Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Uniform-Block-Index angibt.
 
 ## Beispiele
 
 ```js
-// Angenommen, ein Shader mit folgender Deklaration:
+// Assuming a shader with the following declaration:
 // uniform UBOData {
 //   mat4 foo;
 // } instanceName;
 
-// Verwenden Sie den Blocknamen, nicht den Instanznamen:
+// use the block name, not the instance name:
 const blockIndex = gl.getUniformBlockIndex(program, "UBOData");
 ```
 
@@ -49,4 +50,4 @@ const blockIndex = gl.getUniformBlockIndex(program, "UBOData");
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.getUniformIndices()")}}
+- [`WebGL2RenderingContext.getUniformIndices()`](/de/docs/Web/API/WebGL2RenderingContext/getUniformIndices)

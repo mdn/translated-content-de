@@ -1,14 +1,14 @@
 ---
-title: "GPUDevice: createRenderBundleEncoder()-Methode"
+title: "GPUDevice: createRenderBundleEncoder() Methode"
 short-title: createRenderBundleEncoder()
 slug: Web/API/GPUDevice/createRenderBundleEncoder
 l10n:
-  sourceCommit: 0c3f18aca2c8a93d3982183f64bf7762c2c310b0
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createRenderBundleEncoder()`**-Methode der {{domxref("GPUDevice")}}-Schnittstelle erstellt einen {{domxref("GPURenderBundleEncoder")}}, der verwendet werden kann, um Bündel von Befehlen im Voraus aufzuzeichnen. Diese können in {{domxref("GPURenderPassEncoder")}}s mit der {{domxref("GPURenderPassEncoder.executeBundles", "executeBundles()")}}-Methode wiederverwendet werden, so oft wie erforderlich.
+Die **`createRenderBundleEncoder()`**-Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle erstellt einen [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder), der verwendet werden kann, um Bündel von Befehlen vorab aufzuzeichnen. Diese können via der [`executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles)-Methode in [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)s beliebig oft wiederverwendet werden.
 
 ## Syntax
 
@@ -19,27 +19,27 @@ createRenderBundleEncoder(descriptor)
 ### Parameter
 
 - `descriptor`
-  - : Ein Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein Objekt mit den folgenden Eigenschaften:
     - `colorFormats`
-      - : Ein Array von enumerierten Werten, das die erwarteten Farbformate für Rendertargets spezifiziert. Mögliche Werte finden Sie in der Definition von [`GPUTextureFormat`](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format) in der Spezifikation.
+      - : Ein Array von aufgezählten Werten, die die erwarteten Farbformate für Render-Ziele angeben. Mögliche Werte finden Sie in der [`GPUTextureFormat`-Definition](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format) in der Spezifikation.
     - `depthReadOnly` {{optional_inline}}
-      - : Ein boolean. Wenn `true`, gibt es an, dass das Ausführen eines beliebigen {{domxref("GPURenderBundle")}}, das vom {{domxref("GPURenderBundleEncoder")}} erstellt wurde, die Tiefenkomponente des `depthStencilFormat` bei der Ausführung nicht verändert. Wenn es weggelassen wird, ist der Standardwert für `depthReadOnly` `false`.
+      - : Ein boolescher Wert. Wenn `true`, wird angegeben, dass das Ausführen eines vom [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) erstellten [`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle) die Tiefenkomponente des `depthStencilFormat` beim Ausführen nicht ändert. Wird es weggelassen, ist der Standardwert für `depthReadOnly` `false`.
     - `depthStencilFormat` {{optional_inline}}
-      - : Ein enumerierter Wert, der das erwartete Tiefen- oder Stencil-Format für Rendertargets spezifiziert. Mögliche Werte finden Sie im Abschnitt [Depth-stencil formats](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format) der Spezifikation.
+      - : Ein aufgezählter Wert, der das erwartete Tiefen- oder Schablonenformat für Render-Ziele angibt. Mögliche Werte finden Sie im Abschnitt [Tiefen-Schablonen-Formate](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format) der Spezifikation.
     - `label` {{optional_inline}}
-      - : Ein String, der eine Bezeichnung bereitstellt, die verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in {{domxref("GPUError")}}-Meldungen oder Konsolenwarnungen.
+      - : Ein String, der eine Bezeichnung bereitstellt, die verwendet werden kann, um das Objekt zu identifizieren, z.B. in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
     - `sampleCount` {{optional_inline}}
-      - : Eine Zahl, die die erwartete Sample-Anzahl für Rendertargets darstellt.
+      - : Eine Zahl, die die erwartete Abtastanzahl für Render-Ziele darstellt.
     - `stencilReadOnly` {{optional_inline}}
-      - : Ein boolean. Wenn `true`, gibt es an, dass das Ausführen eines beliebigen {{domxref("GPURenderBundle")}}, das vom {{domxref("GPURenderBundleEncoder")}} erstellt wurde, die Stencil-Komponente des `depthStencilFormat` bei der Ausführung nicht verändert. Wenn es weggelassen wird, ist der Standardwert für `stencilReadOnly` `false`.
+      - : Ein boolescher Wert. Wenn `true`, wird angegeben, dass das Ausführen eines vom [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) erstellten [`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle) die Schablonenkomponente des `depthStencilFormat` beim Ausführen nicht ändert. Wird es weggelassen, ist der Standardwert für `stencilReadOnly` `false`.
 
 ### Rückgabewert
 
-Eine Instanz des {{domxref("GPURenderBundleEncoder")}}-Objekts.
+Eine Instanz des [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Objekts.
 
 ## Beispiele
 
-Im [[WebGPU Samples](https://webgpu.github.io/webgpu-samples/samples/animometer/) Animometer-Beispiel]] werden zahlreiche ähnliche Operationen gleichzeitig an vielen verschiedenen Objekten durchgeführt. Ein Befehlsbündel wird mit der folgenden Funktion kodiert:
+Im WebGPU-Samples [Animometer-Beispiel](https://webgpu.github.io/webgpu-samples/samples/animometer/) werden viele ähnliche Operationen gleichzeitig auf verschiedenen Objekten ausgeführt. Ein Befehlsbündel wird mit der folgenden Funktion kodiert:
 
 ```js
 function recordRenderPass(
@@ -65,7 +65,7 @@ function recordRenderPass(
 }
 ```
 
-Später wird ein {{domxref("GPURenderBundleEncoder")}} mit `createRenderBundleEncoder()` erstellt, die Funktion wird aufgerufen, und das Befehlsbündel wird in ein {{domxref("GPURenderBundle")}} mit {{domxref("GPURenderBundleEncoder.finish()")}} aufgezeichnet:
+Später wird ein [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) mit `createRenderBundleEncoder()` erstellt, die Funktion wird aufgerufen und das Befehlsbündel wird mithilfe von [`GPURenderBundleEncoder.finish()`](/de/docs/Web/API/GPURenderBundleEncoder/finish) in ein [`GPURenderBundle`](/de/docs/Web/API/GPURenderBundle) aufgezeichnet:
 
 ```js
 const renderBundleEncoder = device.createRenderBundleEncoder({
@@ -75,7 +75,7 @@ recordRenderPass(renderBundleEncoder);
 const renderBundle = renderBundleEncoder.finish();
 ```
 
-{{domxref("GPURenderPassEncoder.executeBundles()")}} wird dann verwendet, um die Arbeit über mehrere Render-Passes hinweg wiederzuverwenden und so die Leistung zu verbessern. Studieren Sie die Beispiel-Code-Liste für den vollständigen Kontext.
+[`GPURenderPassEncoder.executeBundles()`](/de/docs/Web/API/GPURenderPassEncoder/executeBundles) wird dann verwendet, um die Arbeit für mehrere Render-Pässe wiederzuverwenden und so die Leistung zu verbessern. Studieren Sie das Beispielcode-Listing, um den vollständigen Kontext zu verstehen.
 
 ```js
 // ...

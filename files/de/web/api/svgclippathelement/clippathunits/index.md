@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`clipPathUnits`**-Eigenschaft der {{domxref("SVGClipPathElement")}}-Schnittstelle spiegelt das {{SVGAttr("clipPathUnits")}}-Attribut eines {{SVGElement("clipPath")}}-Elements wider, das das Koordinatensystem definiert, das für den Inhalt des Elements verwendet werden soll.
+Die schreibgeschützte **`clipPathUnits`**-Eigenschaft des [`SVGClipPathElement`](/de/docs/Web/API/SVGClipPathElement)-Interfaces spiegelt das {{SVGAttr("clipPathUnits")}}-Attribut eines {{SVGElement("clipPath")}}-Elements wider, das das Koordinatensystem definiert, das für den Inhalt des Elements verwendet werden soll.
 
 > [!NOTE]
-> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können: {{domxref("SVGAnimatedEnumeration.baseVal", "baseVal")}} und {{domxref("SVGAnimatedEnumeration.animVal", "animVal")}}.
+> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können, [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedEnumeration/animVal).
 
 ## Wert
 
-Eine {{domxref("SVGAnimatedEnumeration")}}, die das Koordinatensystem darstellt. Die möglichen Werte sind in der {{domxref("SVGUnitTypes")}}-Schnittstelle definiert:
+Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die das Koordinatensystem darstellt. Die möglichen Werte sind im [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes)-Interface definiert:
 
 - `0` (`SVG_UNIT_TYPE_UNKNOWN`)
-  - : Der Typ ist keiner der vordefinierten Typen.
+  - : Der Typ ist nicht einer der vordefinierten Typen.
 - `1` (`SVG_UNIT_TYPE_USERSPACEONUSE`)
-  - : Entspricht einem `userSpaceOnUse`-Wert für das {{SVGAttr("clipPathUnits")}}-Attribut und bedeutet, dass sich alle Koordinaten innerhalb des Elements auf das Benutzerkoordinatensystem beziehen, das beim Erstellen des Clipping-Pfades definiert wurde. Es ist der Standardwert.
+  - : Entspricht einem Wert von `userSpaceOnUse` für das {{SVGAttr("clipPathUnits")}}-Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements sich auf das Benutzerkoordinatensystem beziehen, wie es definiert wurde, als der Clip-Pfad erstellt wurde. Es ist der Standardwert.
 - `2` (`SVG_UNIT_TYPE_OBJECTBOUNDINGBOX`)
-  - : Entspricht einem `objectBoundingBox`-Wert für das Attribut und bedeutet, dass sich alle Koordinaten innerhalb des Elements relativ zur Begrenzungsbox des Elements beziehen, auf das der Clipping-Pfad angewendet wird. Dies bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke der Objektbegrenzungsbox ist und die Breite und Höhe der Objektbegrenzungsbox als Länge von 1 Einheit betrachtet werden.
+  - : Entspricht einem Wert von `objectBoundingBox` für das Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements relativ zum Begrenzungsrahmen des Elements sind, auf das der Clip-Pfad angewendet wird. Es bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke des Objektsbegrenzungsrahmens ist und die Breite und Höhe des Objektsbegrenzungsrahmens als eine Länge von 1 Einheit betrachtet werden.
 
 ## Beispiele
 
@@ -45,18 +45,18 @@ svg {
       <circle cx=".5" cy=".5" r=".35" />
     </clipPath>
 
-    <!-- Einige Referenzrechtecke, um den Clipping-Pfad zu visualisieren -->
+    <!-- Some reference rect to materialized to clip path -->
     <rect id="r1" x="0" y="0" width="45" height="45" />
     <rect id="r2" x="0" y="55" width="45" height="45" />
     <rect id="r3" x="55" y="55" width="45" height="45" />
     <rect id="r4" x="55" y="0" width="45" height="45" />
 
-    <!-- Die ersten 3 Rechtecke werden mit userSpaceOnUse-Einheiten geclippt -->
+    <!-- The first 3 rect are clipped with userSpaceOnUse units -->
     <use clip-path="url(#clip1)" href="#r1" fill="red" />
     <use clip-path="url(#clip1)" href="#r2" fill="blue" />
     <use clip-path="url(#clip1)" href="#r3" fill="yellow" />
 
-    <!-- Das letzte Rechteck wird mit objectBoundingBox-Einheiten geclippt -->
+    <!-- The last rect is clipped with objectBoundingBox units -->
     <use clip-path="url(#clip2)" href="#r4" fill="green" />
   </svg>
 </div>

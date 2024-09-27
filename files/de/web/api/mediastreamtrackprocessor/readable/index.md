@@ -1,6 +1,6 @@
 ---
-title: "MediaStreamTrackProcessor: lesbare Eigenschaft"
-short-title: lesbare
+title: "MediaStreamTrackProcessor: readable-Eigenschaft"
+short-title: readable
 slug: Web/API/MediaStreamTrackProcessor/readable
 l10n:
   sourceCommit: 4558d208395a5b1df4db44b0c8ef4e9a0f8adbbf
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Insertable Streams for MediaStreamTrack API")}}
 
-Die **`readable`**-Eigenschaft der {{domxref("MediaStreamTrackProcessor")}}-Schnittstelle gibt einen {{domxref("ReadableStream")}} zurück.
+Die **`readable`**-Eigenschaft des [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor)-Interfaces gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück.
 
 ## Wert
 
-Ein {{domxref("ReadableStream")}}.
+Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Beispiele
 
-Im folgenden Beispiel werden Videoframes aus dem {{domxref("ReadableStream")}} transformiert.
+Im folgenden Beispiel werden Videoframes aus dem [`ReadableStream`](/de/docs/Web/API/ReadableStream) transformiert.
 
 ```js
 const trackProcessor = new MediaStreamTrackProcessor({ track: videoTrack });

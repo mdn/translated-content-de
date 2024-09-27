@@ -1,5 +1,5 @@
 ---
-title: topSites.MeistBesuchteURL
+title: topSites.MostVisitedURL
 slug: Mozilla/Add-ons/WebExtensions/API/topSites/MostVisitedURL
 l10n:
   sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
@@ -7,14 +7,14 @@ l10n:
 
 {{AddonSidebar}}
 
-Der `MostVisitedURL`-Typ enthält zwei Eigenschaften: den Titel einer Seite und deren URL.
+Der Typ `MostVisitedURL` enthält zwei Eigenschaften: den Titel einer Seite und ihre URL.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `favicon` {{optional_inline}}
-  - : `String`. Eine data: URL, die das Favicon der Seite enthält, falls `includeFavicon` in {{WebExtAPIRef("topSites.get()")}} angegeben war und das Favicon verfügbar war.
+  - : `String`. Eine data: URL, die das Favicon für die Seite enthält, wenn `includeFavicon` in {{WebExtAPIRef("topSites.get()")}} angegeben wurde und das Favicon verfügbar war.
 - `title`
   - : `String`. Der Titel der Seite.
 - `url`

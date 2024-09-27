@@ -7,23 +7,23 @@ l10n:
 
 {{CSSRef}}
 
-Die **`-webkit-text-stroke-width`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Breite des Strichs für Text an.
+Die **`-webkit-text-stroke-width`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Breite des Umrisses für Text an.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 -webkit-text-stroke-width: thin;
 -webkit-text-stroke-width: medium;
 -webkit-text-stroke-width: thick;
 
-/* <length> Werte */
+/* <length> values */
 -webkit-text-stroke-width: 2px;
 -webkit-text-stroke-width: 0.1em;
 -webkit-text-stroke-width: 1mm;
 -webkit-text-stroke-width: 5pt;
 
-/* Globale Werte */
+/* Global values */
 -webkit-text-stroke-width: inherit;
 -webkit-text-stroke-width: initial;
 -webkit-text-stroke-width: revert;
@@ -34,7 +34,7 @@ Die **`-webkit-text-stroke-width`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die
 ### Werte
 
 - `<line-width>`
-  - : Die Breite des Strichs.
+  - : Die Breite des Umrisses.
 
 ## Formale Definition
 
@@ -46,7 +46,7 @@ Die **`-webkit-text-stroke-width`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die
 
 ## Beispiele
 
-### Unterschiedliche Strichstärken
+### Unterschiedliche Umrissbreiten
 
 #### CSS
 
@@ -73,9 +73,9 @@ p {
 #### HTML
 
 ```html
-<p id="thin">Dünner Strich</p>
-<p id="medium">Mittlerer Strich</p>
-<p id="thick">Dicker Strich</p>
+<p id="thin">Thin stroke</p>
+<p id="medium">Medium stroke</p>
+<p id="thick">Thick stroke</p>
 ```
 
 #### Ergebnisse
@@ -92,7 +92,7 @@ p {
 
 ## Siehe auch
 
-- [Surfin' Safari Blogpost, der diese Funktion ankündigt](https://webkit.org/blog/85/introducing-text-stroke/)
+- [Surfin' Safari Blogpost zur Ankündigung dieser Funktion](https://webkit.org/blog/85/introducing-text-stroke/)
 - [CSS-Tricks Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-stroke")}}

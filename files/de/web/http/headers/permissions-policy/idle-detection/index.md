@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Header-Direktive `idle-detection` steuert, ob das aktuelle Dokument die {{domxref("Idle Detection API", "Idle Detection API", "", "nocode")}} verwenden darf, um zu erkennen, wann Benutzer mit ihren Geräten interagieren, beispielsweise um den "verfügbar"/"abwesend" Status in Chat-Anwendungen zu melden.
+Die HTTP `{{HTTPHeader("Permissions-Policy")}}`-Header-Direktive `idle-detection` steuert, ob das aktuelle Dokument die Verwendung der [Idle Detection API](/de/docs/Web/API/Idle_Detection_API) erlaubt ist, um zu erkennen, wann Benutzer mit ihren Geräten interagieren, um beispielsweise den "verfügbar"/"abwesend"-Status in Chat-Anwendungen zu melden.
 
-Konkret bedeutet dies, dass, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, Aufrufe von {{domxref("IdleDetector.start()")}} ein {{jsxref("Promise")}} zurückgeben, das mit einer {{domxref("DOMException")}} vom Typ `NotAllowedError` abgelehnt wird.
+Insbesondere wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von [`IdleDetector.start()`](/de/docs/Web/API/IdleDetector/start) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `NotAllowedError` zurückgewiesen wird.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: idle-detection=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Berechtigungsliste für `idle-detection` ist `self`.
+Die Standard-`allowlist` für `idle-detection` ist `self`.
 
 ## Spezifikationen
 
@@ -34,5 +34,5 @@ Die Standard-Berechtigungsliste für `idle-detection` ist `self`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}} header
+- {{HTTPHeader("Permissions-Policy")}} Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

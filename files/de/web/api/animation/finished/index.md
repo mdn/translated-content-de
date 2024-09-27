@@ -1,5 +1,5 @@
 ---
-title: "Animation: Eigenschaft finished"
+title: "Animation: finished-Eigenschaft"
 short-title: finished
 slug: Web/API/Animation/finished
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`Animation.finished`** schreibgeschützte Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Animation das Abspielen beendet hat.
+Die schreibgeschützte Eigenschaft **`Animation.finished`** der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Animation das Abspielen beendet hat.
 
 > [!NOTE]
-> Jedes Mal, wenn die Animation den `finished`-Wiedergabezustand verlässt (das heißt, wenn sie erneut zu spielen beginnt), wird ein neues `Promise` für diese Eigenschaft erstellt. Das neue `Promise` wird aufgelöst, sobald die neue Animationssequenz abgeschlossen ist.
+> Jedes Mal, wenn die Animation den `finished`-Abspielzustand verlässt (d.h. wenn sie erneut abgespielt wird), wird ein neues `Promise` für diese Eigenschaft erstellt. Das neue `Promise` wird aufgelöst, sobald die neue Animationssequenz abgeschlossen ist.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}-Objekt, das aufgelöst wird, sobald die Animation beendet ist.
+Ein {{jsxref("Promise")}}-Objekt, das aufgelöst wird, sobald die Animation abgeschlossen ist.
 
 ## Beispiele
 
-Der folgende Code wartet, bis alle auf dem Element `elem` laufenden Animationen beendet sind, und löscht dann das Element aus dem DOM-Baum:
+Der folgende Code wartet, bis alle auf dem Element `elem` laufenden Animationen abgeschlossen sind, und entfernt dann das Element aus dem DOM-Baum:
 
 ```js
 Promise.all(elem.getAnimations().map((animation) => animation.finished)).then(
@@ -37,6 +37,6 @@ Promise.all(elem.getAnimations().map((animation) => animation.finished)).then(
 
 ## Siehe auch
 
-- {{domxref("KeyframeEffect")}}
+- [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("Animation")}}
+- [`Animation`](/de/docs/Web/API/Animation)

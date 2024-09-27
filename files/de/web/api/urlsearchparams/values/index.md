@@ -1,5 +1,5 @@
 ---
-title: "URLSearchParams: values() Methode"
+title: "URLSearchParams: values()-Methode"
 short-title: values()
 slug: Web/API/URLSearchParams/values
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`values()`** Methode des {{domxref("URLsearchParams")}} Interfaces gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück, der die Iteration durch alle in diesem Objekt enthaltenen Werte ermöglicht. Die Werte sind Strings.
+Die **`values()`**-Methode der Schnittstelle [`URLSearchParams`](/de/docs/Web/API/URLsearchParams) gibt einen {{jsxref("Iteration_protocols",'Iterator')}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Werte zu durchlaufen. Die Werte sind Zeichenketten.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück.
 
 ## Beispiele
 
-Das folgende Beispiel übergibt eine URL-Suchzeichenfolge an den `URLSearchParams`-Konstruktor und verwendet dann den von `values()` zurückgegebenen Iterator, um die Werte in der Konsole auszugeben.
+Im folgenden Beispiel wird ein URL-Suchstring an den `URLSearchParams`-Konstruktor übergeben und dann der Iterator, der von `values()` zurückgegeben wird, verwendet, um die Werte in der Konsole auszugeben.
 
 ```js
 const searchParams = new URLSearchParams("key1=value1&key2=value2");
@@ -43,7 +43,7 @@ value1
 value2
 ```
 
-Dieses Beispiel macht im Wesentlichen dasselbe wie oben, jedoch wird der Iterator zuerst in ein Array umgewandelt.
+Dieses Beispiel macht im Wesentlichen dasselbe wie oben, wandelt jedoch zunächst den Iterator in ein Array um.
 
 ```js
 const searchParams = new URLSearchParams("key1=value1&key2=value2");
@@ -67,4 +67,4 @@ Das Ergebnis ist:
 
 ## Siehe auch
 
-- Die {{domxref("URL")}} Schnittstelle.
+- Die [`URL`](/de/docs/Web/API/URL)-Schnittstelle.

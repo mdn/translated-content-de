@@ -1,5 +1,5 @@
 ---
-title: "SVGAnimationElement: targetElement Eigenschaft"
+title: "SVGAnimationElement: targetElement-Eigenschaft"
 short-title: targetElement
 slug: Web/API/SVGAnimationElement/targetElement
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGAnimationElement.targetElement`** Eigenschaft bezieht sich auf das Element, das animiert wird. Wenn kein Ziel-Element animiert wird (zum Beispiel, weil das {{SVGAttr("href")}} Attribut ein unbekanntes Element spezifiziert), wird `null` zurückgegeben.
+Die Eigenschaft **`SVGAnimationElement.targetElement`** verweist auf das Element, das animiert wird. Wenn kein Ziel-Element animiert wird (zum Beispiel, weil das {{SVGAttr("href")}}-Attribut ein unbekanntes Element angibt), wird der Wert `null` zurückgegeben.
 
 ## Wert
 

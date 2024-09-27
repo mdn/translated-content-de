@@ -1,5 +1,5 @@
 ---
-title: "FileSystemSyncAccessHandle: flush()-Methode"
+title: "FileSystemSyncAccessHandle: flush() Methode"
 short-title: flush()
 slug: Web/API/FileSystemSyncAccessHandle/flush
 l10n:
@@ -8,13 +8,12 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`flush()`**-Methode der
-{{domxref("FileSystemSyncAccessHandle")}}-Schnittstelle speichert alle Änderungen, die an der Datei vorgenommen wurden, die mit dem Handle über die {{domxref('FileSystemSyncAccessHandle.write', 'write()')}}-Methode verbunden ist, auf der Festplatte.
+Die **`flush()`**-Methode der [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Schnittstelle speichert alle Änderungen, die an der mit dem Handle verknüpften Datei über die [`write()`](/de/docs/Web/API/FileSystemSyncAccessHandle/write)-Methode vorgenommen wurden, auf der Festplatte.
 
-Beachten Sie, dass Sie diese Methode nur aufrufen müssen, wenn Sie die Änderungen zu einem bestimmten Zeitpunkt auf die Festplatte übertragen müssen. Andernfalls können Sie das zugrunde liegende Betriebssystem dies handhaben lassen, wenn es dies für angemessen hält, was in den meisten Fällen in Ordnung sein sollte.
+Bitte beachten Sie, dass Sie diese Methode nur aufrufen müssen, wenn die Änderungen zu einem bestimmten Zeitpunkt auf die Festplatte geschrieben werden sollen. Ansonsten können Sie das zugrundeliegende Betriebssystem die Verwaltung übernehmen lassen, was in den meisten Fällen in Ordnung sein sollte.
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation wurden {{domxref("FileSystemSyncAccessHandle.close()", "close()")}}, `flush()`, {{domxref("FileSystemSyncAccessHandle.getSize()", "getSize()")}} und {{domxref("FileSystemSyncAccessHandle.truncate()", "truncate()")}} fälschlicherweise als asynchrone Methoden angegeben, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Alle aktuellen Browser, die diese Methoden unterstützen, implementieren sie jedoch als synchrone Methoden.
+> In früheren Versionen der Spezifikation wurden [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), `flush()`, [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Allerdings implementieren alle aktuellen Browser, die diese Methoden unterstützen, sie als synchrone Methoden.
 
 ## Syntax
 
@@ -32,16 +31,16 @@ Keiner ({{jsxref('undefined')}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das zugehörige Zugriffs-Handle bereits geschlossen ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das zugeordnete Zugriffs-Handle bereits geschlossen ist.
 
 ## Beispiele
 
-Die folgende asynchrone Ereignishandler-Funktion befindet sich in einem Web Worker. Nach dem Empfang einer Nachricht vom Hauptthread:
+Die folgende asynchrone Ereignis-Handler-Funktion ist in einem Web Worker enthalten. Beim Empfang einer Nachricht vom Haupt-Thread:
 
 - Erstellt sie ein synchrones Datei-Zugriffs-Handle.
-- Ermittelt die Größe der Datei und erstellt einen {{jsxref("ArrayBuffer")}}, um sie zu enthalten.
-- Liest den Dateiinhalts in den Puffer.
+- Bestimmt die Größe der Datei und erstellt einen {{jsxref("ArrayBuffer")}}, um diese aufzunehmen.
+- Liest den Inhalt der Datei in den Puffer.
 - Kodiert die Nachricht und schreibt sie an das Ende der Datei.
 - Speichert die Änderungen auf der Festplatte und schließt das Zugriffs-Handle.
 

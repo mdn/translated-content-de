@@ -8,11 +8,10 @@ l10n:
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Die **`dischargingTime`**-Eigenschaft des {{domxref("BatteryManager")}}-Interfaces ist eine schreibgeschützte Eigenschaft, die die verbleibende Zeit in Sekunden anzeigt, bis der Akku vollständig entladen ist, oder {{jsxref("Infinity")}}, wenn der Akku aktuell geladen wird, anstatt entladen zu werden, oder wenn der User-Agent nicht in der Lage ist, die Akku-Statusinformationen zu melden. Wenn sich der Wert ändert, wird das {{domxref("BatteryManager/dischargingtimechange_event", "dischargingtimechange")}}-Ereignis ausgelöst.
+Die schreibgeschützte Eigenschaft **`dischargingTime`** des [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Interfaces gibt die verbleibende Zeit in Sekunden an, bis die Batterie vollständig entladen ist, oder {{jsxref("Infinity")}}, wenn die Batterie gerade geladen wird und nicht entladen wird oder der Benutzer-Agent nicht in der Lage ist, die Batterie-Statusinformationen zu melden. Wenn sich ihr Wert ändert, wird das [`dischargingtimechange`](/de/docs/Web/API/BatteryManager/dischargingtimechange_event)-Ereignis ausgelöst.
 
 > [!NOTE]
-> Auch wenn die zurückgegebene Zeit auf die Sekunde genau ist, runden Browser diese auf ein höheres
-> Intervall (in der Regel auf die nächsten 15 Minuten) aus Datenschutzgründen.
+> Auch wenn die zurückgegebene Zeit auf die Sekunde genau ist, runden Browser diese in ein höheres Intervall (typischerweise auf die nächsten 15 Minuten) aus Datenschutzgründen.
 
 ## Wert
 
@@ -23,7 +22,7 @@ Eine Zahl.
 ### HTML
 
 ```html
-<div id="dischargingTime">(Entladezeit unbekannt)</div>
+<div id="dischargingTime">(discharging time unknown)</div>
 ```
 
 ### JavaScript
@@ -33,7 +32,7 @@ navigator.getBattery().then((battery) => {
   const time = battery.dischargingTime;
 
   document.querySelector("#dischargingTime").textContent =
-    `Verbleibende Zeit bis zur vollständigen Entladung des Akkus: ${time}s`;
+    `Remaining time to fully discharge the battery: ${time}s`;
 });
 ```
 
@@ -49,5 +48,5 @@ navigator.getBattery().then((battery) => {
 
 ## Siehe auch
 
-- {{domxref("BatteryManager")}}
-- {{domxref("Navigator.getBattery()")}}
+- [`BatteryManager`](/de/docs/Web/API/BatteryManager)
+- [`Navigator.getBattery()`](/de/docs/Web/API/Navigator/getBattery)

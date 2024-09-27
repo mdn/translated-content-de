@@ -1,5 +1,5 @@
 ---
-title: "LayoutShift: lastInputTime Eigenschaft"
+title: "LayoutShift: lastInputTime-Eigenschaft"
 short-title: lastInputTime
 slug: Web/API/LayoutShift/lastInputTime
 l10n:
@@ -8,25 +8,25 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`lastInputTime`** der {{domxref("LayoutShift")}}-Schnittstelle gibt die Zeit des letzten ausschließenden Eingangs zurück oder `0`, wenn kein ausschließender Eingang erfolgt ist.
+Die schreibgeschützte Eigenschaft **`lastInputTime`** der [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Schnittstelle gibt die Zeit des letzten ausschließenden Eingabeereignisses zurück oder `0`, falls kein ausschließendes Eingabeereignis aufgetreten ist.
 
-Layout-Verschiebungen sind nur dann schlecht, wenn der Benutzer sie nicht erwartet hat. Layout-Verschiebungsmetriken wie {{glossary("CLS")}} schließen Verschiebungen aus, die kurz nach bestimmten Benutzerinteraktionen auftraten. Diese Interaktionen werden _ausschließende Eingaben_ genannt. Ausschließende Eingaben sind:
+Layoutverschiebungen sind nur dann problematisch, wenn der Benutzer diese nicht erwartet. Layoutverschiebungsmesswerte wie [CLS](/de/docs/Glossary/CLS) schließen Verschiebungen aus, die kurz nach bestimmten Benutzerinteraktionen auftreten. Diese Interaktionen werden _ausschließende Eingaben_ genannt. Ausschließende Eingaben sind:
 
-- Alle Ereignisse, die die aktive Interaktion eines Benutzers mit dem Dokument signalisieren: ([`mousedown`](/de/docs/Web/API/Element/mousedown_event), [`keydown`](/de/docs/Web/API/Element/keydown_event) und [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event))
-- Alle Ereignisse, die direkt die Größe des Viewports ändern.
+- Jegliche Ereignisse, die auf eine aktive Interaktion des Benutzers mit dem Dokument hinweisen: ([`mousedown`](/de/docs/Web/API/Element/mousedown_event), [`keydown`](/de/docs/Web/API/Element/keydown_event), und [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event))
+- Jegliche Ereignisse, die die Größe des Ansichtsbereichs direkt verändern.
 - [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignisse.
 
-Die [`mousemove`](/de/docs/Web/API/Element/mousemove_event)- und [`pointermove`](/de/docs/Web/API/Element/pointermove_event)-Ereignisse sind **keine** ausschließenden Eingaben.
+Die [`mousemove`](/de/docs/Web/API/Element/mousemove_event) und [`pointermove`](/de/docs/Web/API/Element/pointermove_event)-Ereignisse sind **keine** ausschließenden Eingaben.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}, der die Zeit des letzten ausschließenden Eingangs angibt oder `0`, wenn kein ausschließender Eingang erfolgt ist.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit des letzten ausschließenden Eingabeereignisses angibt, oder `0`, falls kein ausschließendes Eingabeereignis aufgetreten ist.
 
 ## Beispiele
 
 ### Protokollierung von letzten Eingabezeiten
 
-Protokollieren Sie ausschließende Eingabezeiten, wenn ein ausschließender Eingang erfolgt ist.
+Protokollieren Sie ausschließende Eingabezeiten, wenn ausschließende Eingaben aufgetreten sind.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -44,10 +44,10 @@ observer.observe({ type: "layout-shift", buffered: true });
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("LayoutShift.hadRecentInput")}}
+- [`LayoutShift.hadRecentInput`](/de/docs/Web/API/LayoutShift/hadRecentInput)

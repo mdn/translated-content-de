@@ -12,7 +12,7 @@ Das **`addtrack`**-Ereignis wird ausgelöst, wenn ein Track zu einer [`TextTrack
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandler-Eigenschaft.
 
 ```js
 addEventListener("addtrack", (event) => {});
@@ -22,16 +22,16 @@ onaddtrack = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("TrackEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`TrackEvent`](/de/docs/Web/API/TrackEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("TrackEvent")}}
 
-## Eigenschaften des Ereignisses
+## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind auch Eigenschaften von der Elternschnittstelle, {{domxref("Event")}}, verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der Elternschnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
-- {{domxref("TrackEvent.track", "track")}} {{ReadOnlyInline}}
-  - : Das {{domxref("TextTrack")}}-Objekt, auf das sich das Ereignis bezieht.
+- [`track`](/de/docs/Web/API/TrackEvent/track) {{ReadOnlyInline}}
+  - : Das [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt, auf das sich das Ereignis bezieht.
 
 ## Beispiele
 
@@ -45,7 +45,7 @@ mediaElement.textTracks.addEventListener("addtrack", (event) => {
 });
 ```
 
-Verwendung der `onaddtrack`-Ereignishandler-Eigenschaft:
+Verwendung der `onaddtrack`-Ereignisbehandler-Eigenschaft:
 
 ```js
 const mediaElement = document.querySelector("video, audio");

@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Fragmentierung**-Modul definiert, wie Inhalte angezeigt werden, wenn sie über mehrere [Seiten](/de/docs/Web/CSS/CSS_paged_media), Regionen oder [Spalten](/de/docs/Web/CSS/CSS_multicol_layout) hinweg gebrochen (fragmentiert) werden.
+Das **CSS-Fragmentierungsmodul** definiert, wie Inhalte dargestellt werden, wenn sie über mehrere [Seiten](/de/docs/Web/CSS/CSS_paged_media), Regionen oder [Spalten](/de/docs/Web/CSS/CSS_multicol_layout) gebrochen (fragmentiert) werden.
 
-Fragmentierung tritt auf, wenn eine Inline-Box über mehrere Zeilen umbrochen wird. Sie tritt auch auf, wenn ein Block in einem Spaltenlayout-Container mehr als eine Spalte umfasst oder einen Seitenumbruch beim Drucken überspannt. Jedes Stück der Darstellung des Elements wird als _Fragment_ bezeichnet.
+Fragmentierung tritt auf, wenn eine Inline-Box auf mehrere Zeilen umbricht. Sie tritt auch auf, wenn ein Block mehr als eine Spalte innerhalb eines Spaltenlayout-Containers überspannt oder beim Drucken einen Seitenumbruch umfasst. Jedes Teil der Darstellung des Elements wird als _Fragment_ bezeichnet.
 
 ## Referenz
 

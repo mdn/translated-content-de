@@ -8,35 +8,35 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `gain`-Eigenschaft der {{ domxref("BiquadFilterNode") }}-Schnittstelle ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) {{domxref("AudioParam")}} — ein Doppelwert, der den in der aktuellen Filteralgorithmus verwendeten [Gain](https://en.wikipedia.org/wiki/Gain) darstellt.
+Die `gain`-Eigenschaft des [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) Interfaces ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam) — ein Double, das den [Gain](https://en.wikipedia.org/wiki/Gain) darstellt, der im aktuellen Filteralgorithmus verwendet wird.
 
-Wenn sein Wert positiv ist, stellt er einen tatsächlichen Verstärkungswert dar; bei negativem Wert handelt es sich um eine Dämpfung.
+Wenn ihr Wert positiv ist, stellt sie einen tatsächlichen Gain dar; wenn negativ, eine Dämpfung.
 
-Er wird in dB ausgedrückt, hat einen Standardwert von `0` und kann in einem nominalen Bereich von `-40` bis `40` liegen.
+Sie wird in dB ausgedrückt, hat einen Standardwert von `0` und kann einen Wert in einem nominalen Bereich von `-40` bis `40` annehmen.
 
 ## Wert
 
-Ein {{domxref("AudioParam")}}.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam).
 
 > [!NOTE]
-> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es darstellt, es nicht.
+> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es darstellt, dies nicht.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Nutzung eines AudioContext zur Erstellung eines Biquad-Filterknotens.
-Für vollständigere praktische Beispiele/Informationen schauen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic)-Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext, um einen Biquad-Filterknoten zu erstellen.
+Für vollständigere angewandte Beispiele/Informationen, sehen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
 
 ```js
 const audioCtx = new AudioContext();
 
-// richten Sie die verschiedenen Audionodes ein, die wir für die App verwenden werden
+//set up the different audio nodes we will use for the app
 const analyser = audioCtx.createAnalyser();
 const distortion = audioCtx.createWaveShaper();
 const gainNode = audioCtx.createGain();
 const biquadFilter = audioCtx.createBiquadFilter();
 const convolver = audioCtx.createConvolver();
 
-// verbinden Sie die Nodes miteinander
+// connect the nodes together
 
 source = audioCtx.createMediaStreamSource(stream);
 source.connect(analyser);
@@ -46,7 +46,7 @@ biquadFilter.connect(convolver);
 convolver.connect(gainNode);
 gainNode.connect(audioCtx.destination);
 
-// Manipulieren Sie das Biquad-Filter
+// Manipulate the Biquad filter
 
 biquadFilter.type = "lowshelf";
 biquadFilter.frequency.value = 1000;

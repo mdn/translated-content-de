@@ -7,16 +7,16 @@ l10n:
 
 {{AddonSidebar}}
 
-Der `StringDelta` Typ der {{WebExtAPIRef("downloads")}} API repräsentiert den Unterschied zwischen zwei Zeichenketten.
+Der Typ `StringDelta` der {{WebExtAPIRef("downloads")}} API repräsentiert den Unterschied zwischen zwei Zeichenfolgen.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `current` {{optional_inline}}
-  - : Ein `string`, der den aktuellen Zeichenkettenwert darstellt.
+  - : Eine `string`, die den aktuellen Zeichenfolgenwert darstellt.
 - `previous` {{optional_inline}}
-  - : Ein `string`, der den vorherigen Zeichenkettenwert darstellt.
+  - : Eine `string`, die den vorherigen Zeichenfolgenwert darstellt.
 
 ## Browser-Kompatibilität
 

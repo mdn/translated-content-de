@@ -8,7 +8,8 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Der **`LinearAccelerationSensor()`** Konstruktor erstellt ein neues {{domxref("LinearAccelerationSensor")}}-Objekt, das bei jeder Messung die auf das Gerät wirkende Beschleunigung entlang aller drei Achsen bereitstellt, jedoch ohne den Einfluss der Schwerkraft.
+Der **`LinearAccelerationSensor()`**
+Konstruktor erstellt ein neues [`LinearAccelerationSensor`](/de/docs/Web/API/LinearAccelerationSensor)-Objekt, das bei jeder Messung die auf das Gerät entlang aller drei Achsen angewandte Beschleunigung ohne den Einfluss der Schwerkraft bereitstellt.
 
 ## Syntax
 
@@ -21,17 +22,17 @@ new LinearAccelerationSensor(options)
 
 - `options` {{optional_inline}}
 
-  - : Optionen sind wie folgt:
+  - : Die Optionen sind wie folgt:
 
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl der Abtastungen pro Sekunde, das heißt, die Anzahl der Male pro Sekunde, dass das {{domxref('sensor.reading_event', 'reading')}}-Ereignis aufgerufen wird. Eine ganze Zahl oder Dezimalzahl kann verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Abtastfrequenz hängt von der Gerätehardware ab und kann daher geringer sein als gewünscht.
+      - : Die gewünschte Anzahl von Abtastungen pro Sekunde, das heißt, die Anzahl von Malen pro Sekunde, bei denen das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Eine ganze Zahl oder Dezimalzahl kann verwendet werden, letztere für Frequenzen von weniger als einer Sekunde. Die tatsächliche Abtastrate hängt von der Gerätehardware ab und kann daher geringer sein als angefordert.
     - `referenceFrame` {{optional_inline}}
-      - : Entweder `'device'` oder `'screen'`. Der Standard ist `'device'`.
+      - : Entweder `'device'` oder `'screen'`. Der Standardwert ist `'device'`.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Die Verwendung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
 
 ## Spezifikationen
 
@@ -43,4 +44,4 @@ new LinearAccelerationSensor(options)
 
 ## Siehe auch
 
-- {{domxref('sensor.reading_event', 'reading')}}-Ereignis
+- [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis

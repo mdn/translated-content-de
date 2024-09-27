@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<figure>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eigenständigen Inhalt, möglicherweise mit einer optionalen Beschriftung, die mit dem {{HTMLElement("figcaption")}}-Element angegeben wird. Die Figur, ihre Beschriftung und ihre Inhalte werden als eine Einheit betrachtet.
+Das **`<figure>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eigenständige Inhalte, möglicherweise mit einer optionalen Beschriftung, die mit dem {{HTMLElement("figcaption")}}-Element angegeben wird. Die Abbildung, ihre Beschriftung und ihre Inhalte werden als eine Einheit referenziert.
 
 {{EmbedInteractiveExample("pages/tabbed/figure.html","tabbed-shorter")}}
 
@@ -17,23 +17,23 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
 
 ## Verwendungshinweise
 
-- Üblicherweise ist ein `<figure>` ein Bild, eine Illustration, ein Diagramm, ein Code-Snippet usw., das im Hauptfluss eines Dokuments referenziert wird, aber an eine andere Stelle oder in einen Anhang verschoben werden kann, ohne den Hauptfluss zu beeinträchtigen.
-- Eine Beschriftung kann dem `<figure>`-Element zugeordnet werden, indem eine {{HTMLElement("figcaption")}} innerhalb eingefügt wird (als erstes oder letztes Kind). Das erste im Figure gefundene `<figcaption>`-Element wird als die Beschriftung der Figur dargestellt.
-- Das `<figcaption>` bietet den {{glossary("zugänglichen Namen")}} für das übergeordnete `<figure>`.
+- Üblicherweise ist ein `<figure>` ein Bild, eine Illustration, ein Diagramm, ein Codeausschnitt usw., das im Hauptfluss eines Dokuments referenziert wird, aber an einen anderen Teil des Dokuments oder in einen Anhang verschoben werden kann, ohne den Hauptfluss zu beeinflussen.
+- Eine Beschriftung kann dem `<figure>`-Element zugeordnet werden, indem ein {{HTMLElement("figcaption")}} innerhalb des Elements eingefügt wird (als erstes oder letztes Kind). Das erste im `<figure>` gefundene `<figcaption>`-Element wird als die Beschriftung der Abbildung dargestellt.
+- Das `<figcaption>` liefert den [zugänglichen Namen](/de/docs/Glossary/accessible_name) für das übergeordnete `<figure>`.
 
 ## Beispiele
 
 ### Bilder
 
 ```html
-<!-- Nur ein Bild -->
+<!-- Just an image -->
 <figure>
-  <img src="favicon-192x192.png" alt="Das schöne MDN-Logo." />
+  <img src="favicon-192x192.png" alt="The beautiful MDN logo." />
 </figure>
 
-<!-- Bild mit einer Beschriftung -->
+<!-- Image with a caption -->
 <figure>
-  <img src="favicon-192x192.png" alt="Das schöne MDN-Logo." />
+  <img src="favicon-192x192.png" alt="The beautiful MDN logo." />
   <figcaption>MDN Logo</figcaption>
 </figure>
 ```
@@ -42,11 +42,11 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
 
 {{EmbedLiveSample("Images", "100%", 375)}}
 
-### Code-Beispiele
+### Codeausschnitte
 
 ```html
 <figure>
-  <figcaption>Holen Sie Browser-Details mit <code>navigator</code>.</figcaption>
+  <figcaption>Get browser details using <code>navigator</code>.</figcaption>
   <pre>
 function NavigatorExample() {
   var txt;
@@ -72,8 +72,8 @@ function NavigatorExample() {
 <figure>
   <figcaption><b>Edsger Dijkstra:</b></figcaption>
   <blockquote>
-    Wenn Debugging der Prozess ist, Softwarefehler zu entfernen, dann muss
-    Programmieren der Prozess sein, sie einzufügen.
+    If debugging is the process of removing software bugs, then programming must
+    be the process of putting them in.
   </blockquote>
 </figure>
 ```
@@ -92,7 +92,7 @@ function NavigatorExample() {
     yet no footing seen: Love is a spirit all compact of fire, Not gross to
     sink, but light, and will aspire.
   </p>
-  <figcaption><cite>Venus und Adonis</cite>, von William Shakespeare</figcaption>
+  <figcaption><cite>Venus and Adonis</cite>, by William Shakespeare</figcaption>
 </figure>
 ```
 
@@ -112,21 +112,21 @@ function NavigatorExample() {
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Flow-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#palpable_content"
-          >fühlbarer Inhalt</a
+          >greifbarer Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         Ein {{HTMLElement("figcaption")}}-Element, gefolgt von
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
-        >; oder Flussinhalt gefolgt von einem
-        {{HTMLElement("figcaption")}}-Element; oder Flussinhalt.
+          >Flow-Inhalt</a
+        >; oder Flow-Inhalt gefolgt von einem
+        {{HTMLElement("figcaption")}}-Element; oder Flow-Inhalt.
       </td>
     </tr>
     <tr>
@@ -134,11 +134,11 @@ function NavigatorExample() {
       <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Flow-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -151,18 +151,18 @@ function NavigatorExample() {
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
         Ohne
-        <a href="/de/docs/Web/HTML/Element/figcaption">figcaption</a
-        >-Nachkommen:
-        <a href="https://www.w3.org/TR/html-aria/#dfn-any-role">beliebige</a>,
-        ansonsten keine zulässigen Rollen
+        <a href="/de/docs/Web/HTML/Element/figcaption">figcaption </a
+        >Nachkommen:
+        <a href="https://www.w3.org/TR/html-aria/#dfn-any-role">jede</a>,
+        ansonsten keine erlaubten Rollen
       </td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLElement")}}</td>
+      <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
 </table>

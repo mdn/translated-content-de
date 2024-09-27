@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die Methode **`clear()`** der {{domxref("DataTransferItemList")}} entfernt alle {{domxref("DataTransferItem")}} Objekte aus der Liste der Drag-Daten-Elemente und hinterlässt eine leere Liste.
+Die Methode **`clear()`** der [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList) entfernt alle [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekte aus der Liste der Drag-Datenobjekte, sodass die Liste leer bleibt.
 
-Das Drag-Daten-Depot, in dem diese Liste gespeichert wird, ist nur während der Behandlung des {{domxref("HTMLElement/dragstart_event", "dragstart")}}-Ereignisses beschreibbar. Während der Behandlung des {{domxref("HTMLElement/drop_event", "drop")}}-Ereignisses befindet sich das Drag-Daten-Depot im Nur-Lesen-Modus, und diese Methode tut stillschweigend nichts. Es wird keine Ausnahme ausgelöst.
+Der Drag-Datenspeicher, in dem diese Liste geführt wird, ist nur während der Verarbeitung des [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignisses schreibbar. Während der Verarbeitung von [`drop`](/de/docs/Web/API/HTMLElement/drop_event) befindet sich der Drag-Datenspeicher im Nur-Lese-Modus, und diese Methode tut stillschweigend nichts. Es wird keine Ausnahme ausgelöst.
 
 ## Syntax
 
@@ -39,14 +39,15 @@ Dieses Beispiel zeigt die Verwendung der `clear()`-Methode.
     ondragstart="dragstartHandler(event);"
     ondragend="dragendHandler(event);"
     draggable="true">
-    Wählen Sie dieses Element aus, ziehen Sie es zur Ablagezone und lassen Sie dann die Auswahl los, um das Element zu bewegen.
+    Select this element, drag it to the Drop Zone and then release the selection
+    to move the element.
   </p>
 </div>
 <div
   id="target"
   ondrop="dropHandler(event);"
   ondragover="dragoverHandler(event);">
-  Ablagezone
+  Drop Zone
 </div>
 ```
 

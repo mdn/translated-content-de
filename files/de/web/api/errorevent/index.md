@@ -7,42 +7,42 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`ErrorEvent`**-Schnittstelle stellt Ereignisse dar, die Informationen zu Fehlern in Skripten oder Dateien liefern.
+Die **`ErrorEvent`**-Schnittstelle repräsentiert Ereignisse, die Informationen zu Fehlern in Skripten oder Dateien bereitstellen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Übernimmt auch Eigenschaften von ihrem übergeordneten {{domxref("Event")}}_.
+_Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
-- {{domxref("ErrorEvent.message")}} {{ReadOnlyInline}}
-  - : Ein String, der eine für Menschen lesbare Fehlermeldung enthält, die das Problem beschreibt. Das Fehlen einer [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)-Einstellung verringert die Fehlerprotokollierung.
-- {{domxref("ErrorEvent.filename")}} {{ReadOnlyInline}}
+- [`ErrorEvent.message`](/de/docs/Web/API/ErrorEvent/message) {{ReadOnlyInline}}
+  - : Ein String, der eine menschenlesbare Fehlermeldung enthält, die das Problem beschreibt. Ein fehlendes [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)-Setting verringert das Fehlerprotokollieren.
+- [`ErrorEvent.filename`](/de/docs/Web/API/ErrorEvent/filename) {{ReadOnlyInline}}
   - : Ein String, der den Namen der Skriptdatei enthält, in der der Fehler aufgetreten ist.
-- {{domxref("ErrorEvent.lineno")}} {{ReadOnlyInline}}
+- [`ErrorEvent.lineno`](/de/docs/Web/API/ErrorEvent/lineno) {{ReadOnlyInline}}
   - : Ein `integer`, der die Zeilennummer der Skriptdatei enthält, in der der Fehler aufgetreten ist.
-- {{domxref("ErrorEvent.colno")}} {{ReadOnlyInline}}
+- [`ErrorEvent.colno`](/de/docs/Web/API/ErrorEvent/colno) {{ReadOnlyInline}}
   - : Ein `integer`, der die Spaltennummer der Skriptdatei enthält, in der der Fehler aufgetreten ist.
-- {{domxref("ErrorEvent.error")}} {{ReadOnlyInline}}
+- [`ErrorEvent.error`](/de/docs/Web/API/ErrorEvent/error) {{ReadOnlyInline}}
   - : Ein JavaScript-`Object`, das vom Ereignis betroffen ist.
 
 ## Konstruktor
 
-- {{domxref("ErrorEvent.ErrorEvent", "ErrorEvent()")}}
-  - : Erstellt ein `ErrorEvent`-Ereignis mit den angegebenen Parametern.
+- [`ErrorEvent()`](/de/docs/Web/API/ErrorEvent/ErrorEvent)
+  - : Erstellt ein `ErrorEvent`-Ereignis mit den gegebenen Parametern.
 
 ## Instanz-Methoden
 
-_Übernimmt Methoden von ihrem übergeordneten {{domxref("Event")}}_.
+_Erbt Methoden von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers), höchstwahrscheinlich Objekte, die ein solches Ereignis auslösen
+- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers), die am wahrscheinlichsten Objekte sind, die ein solches Ereignis auslösen.

@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`suspend()`**-Methode des {{domxref("OfflineAudioContext")}}-Interfaces plant eine Aussetzung des Zeitfortschritts im Audio-Kontext zu einem angegebenen Zeitpunkt und gibt ein Promise zurück. Dies ist im Allgemeinen nützlich bei der synchronen Manipulation des Audio-Graphen auf einem OfflineAudioContext.
+Die **`suspend()`**-Methode des [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)-Interfaces plant eine Unterbrechung des Zeitfortschritts im Audio-Kontext zu einem angegebenen Zeitpunkt und gibt ein Promise zurück. Dies ist im Allgemeinen nützlich beim synchronen Manipulieren des Audio-Graphen auf einem OfflineAudioContext.
 
-Beachten Sie, dass die maximale Präzision der Aussetzung die Größe des Rendering-Quantum ist und die spezifizierte Aussetzungszeit auf die nächste Rendering-Quantum-Grenze abgerundet wird. Aus diesem Grund ist es nicht erlaubt, mehrere Aussetzungen auf demselben quantisierten Frame zu planen. Außerdem sollte die Planung erfolgen, während der Kontext nicht läuft, um die genaue Aussetzung sicherzustellen.
+Beachten Sie, dass die maximale Präzision der Unterbrechung die Größe des Render-Quantums ist und die angegebene Unterbrechungszeit auf die nächste Grenze des Render-Quantums abgerundet wird. Aus diesem Grund ist es nicht erlaubt, mehrere Unterbrechungen zum gleichen quantisierten Frame zu planen. Auch sollte die Planung erfolgen, während der Kontext nicht läuft, um eine präzise Unterbrechung zu gewährleisten.
 
 ## Syntax
 
@@ -21,22 +21,22 @@ suspend(suspendTime)
 ### Parameter
 
 - `suspendTime`
-  - : Eine Gleitkommazahl, die die Aussetzungszeit in Sekunden angibt.
+  - : Eine Gleitkommazahl, die die Unterbrechungszeit in Sekunden angibt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf {{jsxref('undefined')}} auflöst.
+Ein {{jsxref("Promise")}}, das zu {{jsxref('undefined')}} aufgelöst wird.
 
 ### Ausnahmen
 
 Das Promise wird abgelehnt, wenn eine Ausnahme auftritt.
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn die quantisierte Frame-Nummer einer der folgenden ist:
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn die quantisierte Frame-Nummer eine der folgenden ist:
     - eine negative Zahl
-    - kleiner oder gleich der aktuellen Zeit
-    - größer oder gleich der gesamten Renderdauer
-    - von einer anderen Aussetzung für dieselbe Zeit geplant
+    - kleiner als oder gleich der aktuellen Zeit
+    - größer als oder gleich der gesamten Render-Dauer
+    - durch eine andere Unterbrechung zur gleichen Zeit geplant
 
 ## Spezifikationen
 

@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`language`** schreibgeschützte Eigenschaft des {{domxref("TextTrack")}}-Interfaces gibt die Sprache der Textspur zurück.
+Die schreibgeschützte Eigenschaft **`language`** des [`TextTrack`](/de/docs/Web/API/TextTrack)-Interfaces gibt die Sprache der Textspur zurück.
 
-Dies verwendet dieselben Werte wie das HTML-Attribut [`lang`](/de/docs/Web/HTML/Global_attributes#lang). Diese Werte sind dokumentiert in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}}.
+Diese verwendet dieselben Werte wie das HTML-Attribut [`lang`](/de/docs/Web/HTML/Global_attributes#lang). Diese Werte sind in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} dokumentiert.
 
 ## Wert
 
-Ein String, der einen Sprachbezeichner enthält. Zum Beispiel `"en-US"` für Englisch in den Vereinigten Staaten oder `"pt-BR"` für brasilianisches Portugiesisch.
+Ein String, der einen Sprachidentifier enthält. Zum Beispiel `"en-US"` für US-amerikanisches Englisch oder `"pt-BR"` für brasilianisches Portugiesisch.
 
 ## Beispiele
 
@@ -31,6 +31,6 @@ console.log(track.language);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -1,5 +1,5 @@
 ---
-title: Closures
+title: Closure
 slug: Glossary/Closure
 l10n:
   sourceCommit: 2c04a0349065f011dc0e1da55a5ecee3df523116
@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der Computerprogrammierung ist ein **Closure** eine Technik zur Implementierung von lexikalisch {{glossary("scope", "geprägtem Scope")}} Namensbindung in einer Sprache mit {{glossary("first-class function", "First-Class-Funktionen")}}. In {{glossary("JavaScript")}} erstellt eine {{glossary("function", "Funktion")}} einen Closure-Kontext.
+Im Bereich der Computerprogrammierung ist ein **Closure** eine Technik zur Implementierung lexikalisch [abgegrenzter](/de/docs/Glossary/scope) Namensbindung in einer Sprache mit [erstklassigen Funktionen](/de/docs/Glossary/first-class_function). In [JavaScript](/de/docs/Glossary/JavaScript) erstellt eine [Funktion](/de/docs/Glossary/function) einen Closure-Kontext.
 
 ## Siehe auch
 

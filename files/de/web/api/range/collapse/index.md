@@ -9,9 +9,9 @@ l10n:
 {{APIRef("DOM")}}
 
 Die **`Range.collapse()`**-Methode kollabiert den
-{{domxref("Range")}} auf einen seiner Grenzpunkte.
+[`Range`](/de/docs/Web/API/Range) zu einem seiner Begrenzungspunkte.
 
-Ein kollabierter {{domxref("Range")}} ist leer, enthält keinen Inhalt und gibt einen einzelnen Punkt in einem DOM-Baum an. Um zu bestimmen, ob ein {{domxref("Range")}} bereits kollabiert ist, sehen Sie die {{domxref("Range.collapsed")}}-Eigenschaft.
+Ein kollabierter [`Range`](/de/docs/Web/API/Range) ist leer, enthält keinen Inhalt und gibt einen Einzelpunkt in einem DOM-Baum an. Um zu bestimmen, ob ein [`Range`](/de/docs/Web/API/Range) bereits kollabiert ist, siehe die [`Range.collapsed`](/de/docs/Web/API/Range/collapsed)-Eigenschaft.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ collapse(toStart)
 ### Parameter
 
 - `toStart` {{optional_inline}}
-  - : Ein boolescher Wert: `true` kollabiert den {{domxref("Range")}}
+  - : Ein Boolean-Wert: `true` kollabiert den [`Range`](/de/docs/Web/API/Range)
     zu seinem Anfang, `false` zu seinem Ende. Wenn weggelassen, ist der Standardwert
     `false` {{experimental_inline}}.
 
@@ -51,4 +51,4 @@ range.collapse(true);
 
 ## Siehe auch
 
-- [Das DOM-Interface-Index](/de/docs/Web/API/Document_Object_Model)
+- [Index der DOM-Schnittstellen](/de/docs/Web/API/Document_Object_Model)

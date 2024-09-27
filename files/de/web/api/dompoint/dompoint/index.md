@@ -1,5 +1,5 @@
 ---
-title: "DOMPoint: DOMPoint()-Konstruktor"
+title: "DOMPoint: DOMPoint() Konstruktor"
 short-title: DOMPoint()
 slug: Web/API/DOMPoint/DOMPoint
 l10n:
@@ -8,11 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Der **`DOMPoint()`**-Konstruktor
-erstellt und gibt ein neues {{domxref("DOMPoint")}}-Objekt zurück, indem er die Werte für einige oder alle seiner Eigenschaften übernimmt.
+Der **`DOMPoint()`** Konstruktor
+erstellt und gibt ein neues [`DOMPoint`](/de/docs/Web/API/DOMPoint) Objekt zurück, basierend auf den Werten für einige oder
+alle seiner Eigenschaften.
 
-Sie können auch einen `DOMPoint` erstellen, indem Sie die statische Funktion {{domxref("DOMPoint.fromPoint_static", "DOMPoint.fromPoint()")}} aufrufen. Diese Funktion akzeptiert jedes Objekt mit den erforderlichen Parametern, einschließlich eines `DOMPoint` oder
-{{domxref("DOMPointReadOnly")}}.
+Sie können auch einen `DOMPoint` erstellen, indem Sie die
+statische Funktion [`DOMPoint.fromPoint()`](/de/docs/Web/API/DOMPoint/fromPoint_static) aufrufen. Diese Funktion akzeptiert jedes Objekt mit den erforderlichen Parametern, einschließlich eines `DOMPoint` oder
+[`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly).
 
 ## Syntax
 
@@ -37,7 +39,9 @@ new DOMPoint(x, y, z, w)
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen `DOMPoint`, der die obere linke Ecke des aktuellen Fensters darstellt, und erstellt dann einen zweiten Punkt, der auf dem ersten basiert und um 100 Pixel sowohl vertikal als auch horizontal verschoben wird.
+Dieses Beispiel erstellt einen `DOMPoint`, der die obere linke Ecke des
+aktuellen Fensters darstellt, und dann einen zweiten Punkt basierend auf dem ersten, der anschließend um
+100 Pixel sowohl vertikal als auch horizontal verschoben wird.
 
 ```js
 const windTopLeft = new DOMPoint(window.screenX, window.screenY);
@@ -56,6 +60,6 @@ newTopLeft.y += 100;
 
 ## Siehe auch
 
-- {{domxref("DOMPointReadOnly.DOMPointReadOnly", "DOMPointReadOnly()")}}
-- {{domxref("DOMRect")}}
-- {{domxref("DOMMatrix")}}
+- [`DOMPointReadOnly()`](/de/docs/Web/API/DOMPointReadOnly/DOMPointReadOnly)
+- [`DOMRect`](/de/docs/Web/API/DOMRect)
+- [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)

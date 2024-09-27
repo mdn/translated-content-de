@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`prefix`**-Eigenschaft des Objekts {{domxref("Attr")}} gibt das Namensraumpräfix des Attributs zurück oder `null`, wenn kein Präfix angegeben ist.
+Die schreibgeschützte **`prefix`**-Eigenschaft des [`Attr`](/de/docs/Web/API/Attr) gibt das Namensraum-Präfix des Attributs zurück oder `null`, wenn kein Präfix angegeben ist.
 
-Das Präfix ist immer in Kleinbuchstaben, unabhängig davon, in welcher Schreibweise das Attribut erstellt wurde.
+Das Präfix ist immer in Kleinbuchstaben, unabhängig davon, wie es bei der Attributerstellung verwendet wurde.
 
 > [!NOTE]
 > Nur XML unterstützt Namensräume. HTML nicht. Das bedeutet, dass das Präfix eines Attributs eines HTML-Elements immer `null` sein wird.
 
-Außerdem werden nur die Namensräume `xml` (für das `xml:lang`-Attribut), `xlink` (für die Attribute `xlink:href`, `xlink:show`, `xlink:target` und `xlink:title`) und `xpath` unterstützt, und nur auf SVG- und MathML-Elementen.
+Außerdem werden nur die Namensräume `xml` (für das Attribut `xml:lang`), `xlink` (für die Attribute `xlink:href`, `xlink:show`, `xlink:target` und `xlink:title`) und `xpath` unterstützt, und zwar nur bei SVG- und MathML-Elementen.
 
 ## Wert
 
-Ein String, der das Präfix des Namensraums enthält, zu dem das Attribut gehört. Wenn keines vorhanden ist, wird `null` zurückgegeben.
+Ein String, der das Präfix des Namensraums enthält, zu dem das Attribut gehört. Wenn keiner vorhanden ist, wird `null` zurückgegeben.
 
 ## Beispiel
 
@@ -35,7 +35,7 @@ Ein String, der das Präfix des Namensraums enthält, zu dem das Attribut gehör
 </p>
 
 <p>
-  Präfix des Attributs <code>xml:lang</code>:
+  Prefix of the attribute <code>xml:lang</code>:
   <output id="result">None.</output>
 </p>
 ```
@@ -70,5 +70,5 @@ for (const button of buttons) {
 
 ## Siehe auch
 
-- Die Eigenschaften {{domxref("Attr.name")}}, die den qualifizierten Namen des Attributs zurückgeben, und {{domxref("Attr.localName")}}, seinen lokalen Namen.
-- Die {{domxref("Element.prefix()")}}-Eigenschaft, die das Namensraumpräfix eines {{domxref("Element")}} zurückgibt.
+- Die Eigenschaften [`Attr.name`](/de/docs/Web/API/Attr/name), die den qualifizierten Namen des Attributs zurückgibt, und [`Attr.localName`](/de/docs/Web/API/Attr/localName), ihren lokalen Namen.
+- Die [`Element.prefix()`](/de/docs/Web/API/Element/prefix)-Eigenschaft, die das Namensraum-Präfix eines [`Element`](/de/docs/Web/API/Element) zurückgibt.

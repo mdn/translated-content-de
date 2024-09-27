@@ -1,5 +1,5 @@
 ---
-title: "Navigator: presentation Eigenschaft"
+title: "Navigator: presentation-Eigenschaft"
 short-title: presentation
 slug: Web/API/Navigator/presentation
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Presentation API")}}
 
-Die schreibgeschützte Eigenschaft `presentation` von {{DOMxRef("Navigator")}} dient als Einstiegspunkt für die [Presentation API](/de/docs/Web/API/Presentation_API) und gibt eine Referenz auf das {{DOMxRef("Presentation")}}-Objekt zurück.
+Die schreibgeschützte Eigenschaft `presentation` des [`Navigator`](/de/docs/Web/API/Navigator) dient als Einstiegspunkt für die [Presentation API](/de/docs/Web/API/Presentation_API) und gibt eine Referenz auf das [`Presentation`](/de/docs/Web/API/Presentation)-Objekt zurück.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ const presentation = navigator.presentation
 
 ### Wert
 
-Eine Referenz auf das {{DOMxRef("Presentation")}}-Objekt.
+Eine Referenz auf das [`Presentation`](/de/docs/Web/API/Presentation)-Objekt.
 
 ## Spezifikationen
 
@@ -31,4 +31,4 @@ Eine Referenz auf das {{DOMxRef("Presentation")}}-Objekt.
 ## Siehe auch
 
 - [Presentation API](/de/docs/Web/API/Presentation_API)
-- {{DOMxRef("Presentation")}}
+- [`Presentation`](/de/docs/Web/API/Presentation)

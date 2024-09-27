@@ -1,5 +1,5 @@
 ---
-title: "LayoutShiftAttribution: toJSON() Methode"
+title: "LayoutShiftAttribution: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/LayoutShiftAttribution/toJSON
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`** Methode der {{domxref("LayoutShiftAttribution")}} Schnittstelle ist ein _Serializer_, der eine JSON-Darstellung des `LayoutShiftAttribution` Objekts zurückgibt.
+Die **`toJSON()`**-Methode der [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution)-Schnittstelle ist ein _Serializer_, der eine JSON-Darstellung des `LayoutShiftAttribution`-Objekts zurückgibt.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein JSON-Objekt, das die Serialisierung des {{domxref("LayoutShiftAttribution")}} Objekts darstellt.
+Ein JSON-Objekt, das die Serialisierung des [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution)-Objekts ist.
 
 ## Beispiele
 
-Das folgende Beispiel druckt eine JSON-Darstellung des ersten Elements in {{domxref("LayoutShift.sources")}} in die Konsole.
+Das folgende Beispiel gibt eine JSON-Darstellung des ersten Elements in [`LayoutShift.sources`](/de/docs/Web/API/LayoutShift/sources) in der Konsole aus.
 
 ```js
 new PerformanceObserver((list) => {

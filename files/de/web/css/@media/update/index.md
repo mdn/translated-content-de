@@ -1,5 +1,5 @@
 ---
-title: aktualisieren
+title: update
 slug: Web/CSS/@media/update
 l10n:
   sourceCommit: 5e7d1f9ae2cce0cb3f7693dfb8dc6e8d375b2231
@@ -7,24 +7,24 @@ l10n:
 
 {{CSSRef}}
 
-Die **`update`**- [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, wie häufig (falls überhaupt) das Ausgabegerät in der Lage ist, das Erscheinungsbild von Inhalten nach der Darstellung zu ändern.
+Die **`update`** [CSS](/de/docs/Web/CSS) [Medienabfrageeigenschaft](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, wie häufig (falls überhaupt) das Ausgabegerät in der Lage ist, das Erscheinungsbild des Inhalts nach der Darstellung zu ändern.
 
 ```css
 @media (update: < none | slow | fast >) {
-  /* Stile, die angewendet werden, wenn die Aktualisierungsfrequenz des Ausgabegeräts übereinstimmt */
+  /* styles to apply if the update frequency of the output device is a match */
 }
 ```
 
 ## Syntax
 
-Die `update`-Funktion wird als ein einzelner Schlüsselwortwert angegeben, der aus der unten stehenden Liste ausgewählt wird.
+Die `update`-Eigenschaft wird als ein einzelner Schlüsselwortwert angegeben, der aus der folgenden Liste ausgewählt wird.
 
 - `none`
-  - : Sobald es gerendert wurde, kann das Layout nicht mehr aktualisiert werden. Beispiel: Dokumente, die auf Papier gedruckt werden.
+  - : Sobald das Layout gerendert wurde, kann es nicht mehr aktualisiert werden. Beispiel: auf Papier gedruckte Dokumente.
 - `slow`
-  - : Das Layout kann sich dynamisch gemäß den üblichen Regeln von CSS ändern, aber das Ausgabegerät ist nicht in der Lage, Änderungen schnell genug zu rendern oder anzuzeigen, damit sie als flüssige Animation wahrgenommen werden. Beispiele: E-Book-Reader oder stark leistungsschwache Geräte.
+  - : Das Layout kann sich gemäß den üblichen CSS-Regeln dynamisch ändern, aber das Ausgabegerät kann Änderungen nicht schnell genug rendern oder anzeigen, um als flüssige Animation wahrgenommen zu werden. Beispiele: E-Book-Reader oder stark leistungsschwache Geräte.
 - `fast`
-  - : Das Layout kann sich dynamisch gemäß den üblichen Regeln von CSS ändern, und das Ausgabegerät ist in seiner Geschwindigkeit nicht ungewöhnlich eingeschränkt, sodass regelmäßig aktualisierte Dinge wie [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) verwendet werden können. Beispiel: Computerbildschirme.
+  - : Das Layout kann sich gemäß den üblichen CSS-Regeln dynamisch ändern, und das Ausgabegerät ist in der Geschwindigkeit nicht ungewöhnlich eingeschränkt, sodass regelmäßig aktualisierte Dinge wie [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) verwendet werden können. Beispiel: Computerbildschirme.
 
 ## Beispiele
 
@@ -32,7 +32,8 @@ Die `update`-Funktion wird als ein einzelner Schlüsselwortwert angegeben, der a
 
 ```html
 <p>
-  Wenn dieser Text für Sie animiert wird, unterstützt Ihr Browser `update` und Sie verwenden ein Gerät mit schneller Aktualisierung.
+  If this text animates for you, your browser supports `update` and you are
+  using a fast-updating device.
 </p>
 ```
 
@@ -70,5 +71,5 @@ Die `update`-Funktion wird als ein einzelner Schlüsselwortwert angegeben, der a
 
 ## Siehe auch
 
-- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - [@media](/de/docs/Web/CSS/@media)

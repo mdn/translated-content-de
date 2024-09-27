@@ -1,5 +1,5 @@
 ---
-title: "store: Wasm-Textanweisung"
+title: "store: Wasm-Text-Instruktion"
 short-title: store
 slug: WebAssembly/Reference/Memory/Store
 l10n:
@@ -8,46 +8,46 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`store`** [Speicheranweisungen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl vom Stack in einem Speicher abzulegen.
+Die **`store`**-[Speicherinstruktionen](/de/docs/WebAssembly/Reference/Memory) werden verwendet, um eine Zahl auf dem Stapel in einem Speicher zu speichern.
 
-Es gibt `store`-Anweisungen zum Ablegen von `i32`, `i64`, `f32` und `f64` im Speicher. Für die Ganzzahlen gibt es separate Anweisungsvarianten, um eine weit typisierte Zahl in eine schmalere Zahl im Speicher zu speichern. Beispielsweise können Sie eine 32-Bit-Zahl in einem 8-Bit-Slot im Speicher mit `i32.store8` speichern. Wenn die Zahl nicht in den schmaleren Zahlentyp passt, wird sie umschlossen. Alle Varianten sind [unten aufgelistet](#anweisungen_und_opcodes).
+Es gibt `store`-Instruktionen zum Speichern von `i32`, `i64`, `f32` und `f64` im Speicher. Für die ganzzahligen Zahlen gibt es separate Instruktionsvarianten, um eine weit typisierte Zahl in eine schmalere Zahl im Speicher zu speichern. Beispielsweise können Sie eine 32-Bit-Zahl in einem 8-Bit-Slot im Speicher mit `i32.store8` speichern. Wenn die Zahl nicht in den kleineren Zahlentyp passt, wird sie umgebrochen. Alle Varianten sind [unten aufgelistet](#instruktionen_und_opcodes).
 
 {{EmbedInteractiveExample("pages/wat/store.html", "tabbed-taller")}}
 
 ## Syntax
 
-Speichern im Standardspeicher
+Speichern im Standard-Speicher
 
 ```wasm
-;; Speichern des Werts im Standardspeicher an einem bestimmten Offset
-i32.const 0 ;; Stack-Variable mit Offset im Speicher zum Ablegen der Zahl
-i32.const 20 ;; Stack-Variable mit der abzulegenden Zahl
-i32.store ;; im Standardspeicher ablegen
+;; Store value in default memory at particular offset
+i32.const 0 ;; stack variable with offset in memory to store the number
+i32.const 20 ;; stack variable with the number to store
+i32.store ;; store in default memory
 
-;; Speichern mit S-Funktion (gleiche Werte und Offset)
+;; Store using S-function (same values and offset)
 (i32.store (i32.const 0) (i32.const 20))
 ```
 
-Speichern in einem bestimmten Speicher (wenn Multi-Memory unterstützt wird)
+Speichern in einem angegebenen Speicher (falls Multi-Memory unterstützt wird)
 
 ```wasm
-;; Speichern im Speicher, der durch seinen Index referenziert wird
-i32.const 0 ;; Offset im Speicher, um die Zahl zu speichern
-i32.const 20 ;; die abzulegende Zahl
-i32.store (memory 2)  ;; im Speicher mit Index 2 speichern
+;; Store in memory referenced by its index
+i32.const 0 ;; offset in memory to store the number
+i32.const 20 ;; the number to store
+i32.store (memory 2)  ;; store in memory with index 2
 
-;; Speichern im Speicher, der durch seinen Namen referenziert wird
-i32.const 0 ;; Offset, um die Zahl zu speichern
-i32.const 20 ;; die abzulegende Zahl
-i32.store (memory $memoryName)  ;; im Speicher mit dem Namen "$memoryName" speichern
+;; Store in memory referenced by its name
+i32.const 0 ;; offset to store the number
+i32.const 20 ;; the number to store
+i32.store (memory $memoryName)  ;; store in memory with name "$memoryName"
 
-;; Im gleichen Speicher mit einer S-Funktion speichern
+;; Store in same memory using an S function
 (i32.store (memory $memoryName) (i32.const 0) (i32.const 20))
 ```
 
-### Anweisungen und Opcodes
+### Instruktionen und Opcodes
 
-| Anweisung     | Binärer Opcode |
+| Instruction   | Binärer Opcode |
 | ------------- | -------------- |
 | `i32.store`   | `0x36`         |
 | `i64.store`   | `0x37`         |
@@ -66,7 +66,7 @@ i32.store (memory $memoryName)  ;; im Speicher mit dem Namen "$memoryName" speic
 ## Browser-Kompatibilität
 
 > [!NOTE]
-> Die Speicherunterstützung in Wasm-Modulen entspricht der JavaScript-API [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory).
-> Der [multiMemory](#webassembly.multimemory)-Schlüssel gibt an, in welchen Versionen `store` mit einem angegebenen Speicher verwendet werden kann.
+> Speicherunterstützung in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory) JavaScript-API.
+> Der [multiMemory](#webassembly.multimemory) Schlüssel gibt Versionen an, in denen `store` mit einem angegebenen Speicher verwendet werden kann.
 
 {{Compat}}

@@ -1,5 +1,5 @@
 ---
-title: "FontFaceSet: delete()-Methode"
+title: "FontFaceSet: delete() Methode"
 short-title: delete()
 slug: Web/API/FontFaceSet/delete
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`delete()`**-Methode der {{domxref("FontFaceSet")}}-Schnittstelle entfernt eine Schriftart aus der Menge.
+Die **`delete()`** Methode der [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Schnittstelle entfernt eine Schriftart aus dem Set.
 
-Schriftarten, die der Menge mit der CSS-Regel {{cssxref("@font-face")}} hinzugefügt wurden, bleiben mit dem entsprechenden CSS verbunden und können nicht gelöscht werden.
+Schriftschnitte, die mit der CSS-{{cssxref("@font-face")}}-Regel zum Set hinzugefügt wurden, bleiben mit dem entsprechenden CSS verbunden und können nicht gelöscht werden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ delete(font)
 ### Parameter
 
 - `font`
-  - : Ein {{domxref("FontFace")}}, das aus der Menge entfernt werden soll.
+  - : Ein [`FontFace`](/de/docs/Web/API/FontFace), das aus dem Set entfernt werden soll.
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Ein boolescher Wert, der `true` ist, wenn das Löschen erfolgreich war, und `fal
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues {{domxref("FontFace")}}-Objekt erstellt und dann aus dem {{domxref("FontFaceSet")}} gelöscht.
+Im folgenden Beispiel wird ein neues [`FontFace`](/de/docs/Web/API/FontFace) Objekt erstellt und dann aus dem [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) gelöscht.
 
 ```js
 const font = new FontFace("MyFont", "url(myFont.woff2)");
@@ -40,6 +40,6 @@ document.fonts.delete(font);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

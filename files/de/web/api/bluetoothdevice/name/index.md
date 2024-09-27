@@ -1,6 +1,6 @@
 ---
-title: "BluetoothDevice: Eigenschaftenname"
-short-title: Name
+title: "BluetoothDevice: name-Eigenschaft"
+short-title: name
 slug: Web/API/BluetoothDevice/name
 l10n:
   sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`BluetoothDevice.name`** schreibgeschützte Eigenschaft gibt eine Zeichenkette zurück, die einen menschenlesbaren Namen für das Gerät bereitstellt.
+Die schreibgeschützte Eigenschaft **`BluetoothDevice.name`** gibt einen String zurück, der einen menschenlesbaren Namen für das Gerät bereitstellt.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Spezifikationen
 

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`displayHeight`**-Eigenschaft des {{domxref("VideoFrame")}}-Interfaces gibt die Höhe des `VideoFrame` nach Anwendung von Seitenverhältnis-Anpassungen zurück.
+Die **`displayHeight`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt die Höhe des `VideoFrame` nach der Anwendung von Seitenverhältniseinstellungen zurück.
 
 ## Wert
 
-Ein ganzzahliger Wert.
+Eine ganze Zahl.
 
 ## Beispiele
 
-Das folgende Beispiel gibt die `displayHeight` in der Konsole aus.
+Im folgenden Beispiel wird die `displayHeight` in der Konsole ausgegeben.
 
 ```js
 console.log(VideoFrame.displayHeight);

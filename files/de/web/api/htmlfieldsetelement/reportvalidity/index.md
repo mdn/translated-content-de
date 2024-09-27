@@ -1,5 +1,5 @@
 ---
-title: "HTMLFieldSetElement: Methode reportValidity()"
+title: "HTMLFieldSetElement: reportValidity()-Methode"
 short-title: reportValidity()
 slug: Web/API/HTMLFieldSetElement/reportValidity
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`**-Methode des {{domxref("HTMLFieldSetElement")}}-Interfaces führt die gleichen Gültigkeitsprüfungen durch wie die Methode {{domxref("HTMLFieldSetElement.checkValidity", "checkValidity()")}}. Sie liefert immer `true` zurück, da {{HTMLElement("fieldset")}}-Elemente niemals für [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) in Frage kommen.
+Die **`reportValidity()`**-Methode des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces führt die gleichen Validitätsschritte aus wie die Methode [`checkValidity()`](/de/docs/Web/API/HTMLFieldSetElement/checkValidity). Sie gibt immer `true` zurück, da {{HTMLElement("fieldset")}}-Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
 
 ## Syntax
 
@@ -34,8 +34,8 @@ Ein boolescher Wert, `true`.
 
 ## Siehe auch
 
-- {{domxref("HTMLFieldSetElement.checkValidity()")}}
+- [`HTMLFieldSetElement.checkValidity()`](/de/docs/Web/API/HTMLFieldSetElement/checkValidity)
 - {{HTMLElement("fieldset")}}
 - {{HTMLElement("form")}}
-- [Erfahren Sie mehr: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

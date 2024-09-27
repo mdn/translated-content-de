@@ -1,5 +1,5 @@
 ---
-title: "PushMessageData: text() Methode"
+title: "PushMessageData: text()-Methode"
 short-title: text()
 slug: Web/API/PushMessageData/text
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die **`text()`** Methode der {{domxref("PushMessageData")}}-Schnittstelle extrahiert die Push-Nachrichtendaten als einfachen Textstring.
+Die **`text()`**-Methode der [`PushMessageData`](/de/docs/Web/API/PushMessageData)-Schnittstelle extrahiert Push-Nachrichtendaten als reinen Textstring.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ Ein String.
 self.addEventListener("push", (event) => {
   const textObj = event.data.text();
 
-  // mach etwas mit Ihrem Text
+  // do something with your text
 });
 ```
 
@@ -38,6 +38,6 @@ self.addEventListener("push", (event) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

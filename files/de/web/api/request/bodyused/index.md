@@ -1,5 +1,5 @@
 ---
-title: "Request: Eigenschaft bodyUsed"
+title: "Request: bodyUsed-Eigenschaft"
 short-title: bodyUsed
 slug: Web/API/Request/bodyUsed
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte **`bodyUsed`**-Eigenschaft des {{domxref("Request")}}-Interfaces ist ein boolescher Wert, der angibt, ob der Anfragetext bereits gelesen wurde.
+Die schreibgeschützte **`bodyUsed`**-Eigenschaft der
+[`Request`](/de/docs/Web/API/Request)-Schnittstelle ist ein boolescher Wert, der anzeigt,
+ob der Anforderungskörper bereits gelesen wurde.
 
 ## Wert
 
@@ -39,4 +41,4 @@ request.text().then((bodyAsText) => {
 
 ## Siehe auch
 
-- {{domxref("Request.body")}}
+- [`Request.body`](/de/docs/Web/API/Request/body)

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{seecompattable}}
 
-Das **`pageswap`**-Ereignis wird ausgelöst, wenn Sie zwischen Dokumenten navigieren und das vorherige Dokument kurz vor dem Entladen steht.
+Das **`pageswap`**-Ereignis wird ausgelöst, wenn Sie über Dokumente navigieren, wenn das vorherige Dokument kurz vor dem Entladen steht.
 
-Dies ist nützlich im Fall von Cross-Document (MPA) [View Transitions](/de/docs/Web/API/View_Transitions_API), um eine aktive Transition von der ausgehenden Seite einer Navigation zu manipulieren. Beispielsweise könnten Sie die Transition überspringen oder die ausgehende Übergangsanimation über JavaScript anpassen.
+Dies ist nützlich im Falle von Übergängen zwischen Ansichten (MPA) für die Manipulation eines aktiven Übergangs von der abgehenden Seite einer Navigation. Zum Beispiel könnten Sie den Übergang überspringen oder die ausgehende Übergangsanimation über JavaScript anpassen.
 
-Es bietet auch Zugriff auf den Navigationstyp sowie die aktuellen und Ziel-Dokument-Historieneinträge.
+Es bietet auch Zugriff auf den Navigationstyp sowie die aktuellen und Ziel-Dokumentverlaufseinträge.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js
 addEventListener("pageswap", (event) => {});
@@ -25,39 +25,39 @@ onpageswap = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("PageSwapEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("PageSwapEvent")}}
 
 ## Ereigniseigenschaften
 
-- {{domxref("PageSwapEvent.activation")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("NavigationActivation")}}-Objekt zurück, das den Navigationstyp und die aktuellen und Ziel-Dokument-Historieneinträge für eine gleich-originäre Navigation enthält. Wenn die Navigation irgendwo in der Umleitungskette eine Cross-Origin-URL aufweist, wird `null` zurückgegeben.
-- {{domxref("PageSwapEvent.viewTransition")}} {{ReadOnlyInline}}
-  - : Gibt das {{domxref("ViewTransition")}}-Objekt zurück, das die eingehende Cross-Dokument-View-Transition darstellt, sofern eine aktiv ist, wenn das Ereignis ausgelöst wird. Andernfalls wird `null` zurückgegeben.
+- [`PageSwapEvent.activation`](/de/docs/Web/API/PageSwapEvent/activation) {{ReadOnlyInline}}
+  - : Gibt ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt zurück, das den Navigationstyp sowie die aktuellen und Ziel-Dokumentverlaufseinträge für eine Navigation innerhalb derselben Origin enthält. Wenn die Navigation eine Cross-Origin-URL irgendwo in der Umleitungskette hat, gibt es `null` zurück.
+- [`PageSwapEvent.viewTransition`](/de/docs/Web/API/PageSwapEvent/viewTransition) {{ReadOnlyInline}}
+  - : Gibt das [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zurück, das den eingehenden Übergang zwischen Dokumenten darstellt, falls einer aktiv ist, wenn das Ereignis ausgelöst wird. Ist dies nicht der Fall, gibt es `null` zurück.
 
 ## Beispiele
 
 ```js
 window.addEventListener("pageswap", async (e) => {
-  // Führen Sie dies nur aus, wenn eine aktive View-Transition existiert
+  // Only run this if an active view transition exists
   if (e.viewTransition) {
     const currentUrl = e.activation.from?.url
       ? new URL(e.activation.from.url)
       : null;
     const targetUrl = new URL(e.activation.entry.url);
 
-    // Von der Profil-Seite zur Startseite gehen
-    // ~> Das große Bild und der Titel sind es!
+    // Going from profile page to homepage
+    // ~> The big img and title are the ones!
     if (isProfilePage(currentUrl) && isHomePage(targetUrl)) {
-      // Setzen Sie die Werte von view-transition-name auf den Elementen, die animiert werden sollen
+      // Set view-transition-name values on the elements to animate
       document.querySelector(`#detail main h1`).style.viewTransitionName =
         "name";
       document.querySelector(`#detail main img`).style.viewTransitionName =
         "avatar";
 
-      // Entfernen Sie die view-transition-names, nachdem die Schnappschüsse aufgenommen wurden
-      // Verhindert Namenskonflikte, die durch den im BFCache bleibenden Seitenzustand verursacht werden
+      // Remove view-transition-names after snapshots have been taken
+      // Stops naming conflicts resulting from the page state persisting in BFCache
       await e.viewTransition.finished;
       document.querySelector(`#detail main h1`).style.viewTransitionName =
         "none";
@@ -65,19 +65,19 @@ window.addEventListener("pageswap", async (e) => {
         "none";
     }
 
-    // Zur Profil-Seite gehen
-    // ~> Die angeklickten Elemente sind es!
+    // Going to profile page
+    // ~> The clicked items are the ones!
     if (isProfilePage(targetUrl)) {
       const profile = extractProfileNameFromUrl(targetUrl);
 
-      // Setzen Sie die Werte von view-transition-name auf den Elementen, die animiert werden sollen
+      // Set view-transition-name values on the elements to animate
       document.querySelector(`#${profile} span`).style.viewTransitionName =
         "name";
       document.querySelector(`#${profile} img`).style.viewTransitionName =
         "avatar";
 
-      // Entfernen Sie die view-transition-names, nachdem die Schnappschüsse aufgenommen wurden
-      // Verhindert Namenskonflikte, die durch den im BFCache bleibenden Seitenzustand verursacht werden
+      // Remove view-transition-names after snapshots have been taken
+      // Stops naming conflicts resulting from the page state persisting in BFCache
       await e.viewTransition.finished;
       document.querySelector(`#${profile} span`).style.viewTransitionName =
         "none";
@@ -102,4 +102,4 @@ window.addEventListener("pageswap", async (e) => {
 ## Siehe auch
 
 - [Verwendung der View Transitions API](/de/docs/Web/API/View_Transitions_API/Using)
-- {{domxref("Window.pagereveal_event", "pagereveal")}}-Ereignis
+- [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Ereignis

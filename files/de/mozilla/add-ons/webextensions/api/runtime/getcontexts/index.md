@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt Informationen über die mit der Erweiterung verbundenen Kontexte zurück.
+Gibt Informationen über die Kontexte zurück, die mit der Erweiterung verbunden sind.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ let gettingContexts = browser.runtime.getContexts(
 
 - `filter`
 
-  - : Ein Objekt, das Kriterien enthält, gegen die zurückgegebene Kontexte abgeglichen werden. Übereinstimmende Kontexte müssen alle angegebenen Filter erfüllen. Wenn das Objekt leer ist, werden alle Kontexte zurückgegeben.
+  - : Ein Objekt, das Kriterien enthält, um zurückgegebene Kontexte zu filtern. Übereinstimmende Kontexte müssen alle angegebenen Filter erfüllen. Wenn das Objekt leer ist, werden alle Kontexte zurückgegeben.
     - `contextIds` {{optional_inline}}
-      - : Ein Array von `string`. Die IDs der zurückzugebenden Kontexte.
+      - : Ein Array von `string`. Die IDs der Kontexte, die zurückgegeben werden sollen.
     - `contextTypes` {{optional_inline}}
-      - : Ein Array von `string`. Die Typen von Erweiterungsansichten, die mit zurückzugebenden Kontexten verknüpft sind. Nimmt die Werte `"BACKGROUND"`, `"POPUP"`, `"SIDE_PANEL"` und `"TAB"` an.
+      - : Ein Array von `string`. Die Typen von Erweiterungsansichten, die mit den zurückzugebenden Kontexten verknüpft sind. Nimmt die Werte `"BACKGROUND"`, `"POPUP"`, `"SIDE_PANEL"` und `"TAB"` an.
     - `documentIds` {{optional_inline}}
       - : Ein Array von `string`. UUIDs der Dokumente, die mit den zurückzugebenden Kontexten verknüpft sind.
     - `documentOrigins` {{optional_inline}}
@@ -35,7 +35,7 @@ let gettingContexts = browser.runtime.getContexts(
     - `frameIds` {{optional_inline}}
       - : Ein Array von `integer`. Die Frame-IDs für die zurückzugebenden Kontexte.
     - `incognito` {{optional_inline}}
-      - : `boolean`. Ob nur Kontexte in einem privaten Browsertab zurückgegeben werden sollen.
+      - : `boolean`. Ob nur Kontexte zurückgegeben werden sollen, die in einem privaten Browsing-Tab gehostet werden.
     - `tabIds` {{optional_inline}}
       - : Ein Array von `integer`. Die Tab-IDs für die zurückzugebenden Kontexte.
     - `windowIds` {{optional_inline}}
@@ -43,32 +43,32 @@ let gettingContexts = browser.runtime.getContexts(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Objekten erfüllt wird, eines für jeden Kontext, der Erweiterungsinhalte hostet. Die Objekte haben diese Eigenschaften:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Objekten erfüllt wird, eines für jeden Kontext, der Erweiterungsinhalt hostet. Die Objekte haben folgende Eigenschaften:
 
 - `contextId`
   - : `string`. ID des Kontexts.
 - `contextType`
   - : `string`. Der Typ der Erweiterungsansicht. Zurückgegeben als einer von `"BACKGROUND"`, `"POPUP"`, `"SIDE_PANEL"` oder `"TAB"`.
 - `documentId`
-  - : `string`. UUID des Dokuments, das mit dem Kontext verknüpft ist, oder undefined, wenn der Kontext nicht in einem Dokument gehostet wird.
+  - : `string`. UUID des mit dem Kontext verknüpften Dokuments, oder undefiniert, wenn der Kontext nicht in einem Dokument gehostet wird.
 - `documentOrigin`
-  - : `string`. Der Ursprung des Dokuments, das mit dem Kontext verknüpft ist, oder undefined, wenn der Kontext nicht in einem Dokument gehostet wird.
+  - : `string`. Der Ursprung des mit dem Kontext verknüpften Dokuments oder undefiniert, wenn der Kontext nicht in einem Dokument gehostet wird.
 - `documentUrl`
-  - : `string`. Die URL des Dokuments, das mit dem Kontext verknüpft ist, oder undefined, wenn der Kontext nicht in einem Dokument gehostet wird.
+  - : `string`. Die URL des mit dem Kontext verknüpften Dokuments oder undefiniert, wenn der Kontext nicht in einem Dokument gehostet wird.
 - `frameId`
   - : `integer`. Die Frame-ID für den Kontext oder `-1`, wenn der Kontext nicht in einem Frame gehostet wird.
 - `incognito`
-  - : `boolean`. Ob der Kontext in einem privaten Browsertab gehostet wird.
+  - : `boolean`. Ob der Kontext in einem privaten Browsing-Tab gehostet wird.
 - `tabId`
   - : `integer`. Die Tab-ID für den Kontext oder `-1`, wenn der Kontext nicht in einem Tab gehostet wird.
 - `windowId`
   - : `integer`. Die Fenster-ID für den Kontext oder `-1`, wenn der Kontext nicht in einem Fenster gehostet wird.
 
-Wenn keine passenden Kontexte vorhanden sind, wird ein leeres Array zurückgegeben.
+Wenn es keine übereinstimmenden Kontexte gibt, wird ein leeres Array zurückgegeben.
 
 ## Beispiele
 
-Dieses Beispiel erhält alle mit der Erweiterung verbundenen Kontexte in privaten Browsertabs und gibt die Tab-ID, Frame-ID und Dokument-URL für jeden Kontext in der Konsole aus:
+Dieses Beispiel erhält alle Kontexte, die mit der Erweiterung in privaten Browsing-Tabs verknüpft sind, und gibt die Tab-ID, die Frame-ID und die Dokument-URL für jeden Kontext in der Konsole aus:
 
 ```js
 function gotContextInfo(contexts) {

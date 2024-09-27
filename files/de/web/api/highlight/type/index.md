@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die `type`-Eigenschaft der {{domxref("Highlight")}}-Schnittstelle ist ein enumerierter {{jsxref("String")}}, der verwendet wird, um die Bedeutung der Hervorhebung zu spezifizieren. Dies ermöglicht es unterstützenden Technologien, wie Screenreadern, diese Bedeutung bei der Darstellung der Hervorhebung für Benutzer einzubeziehen.
+Die `type`-Eigenschaft des [`Highlight`](/de/docs/Web/API/Highlight)-Interfaces ist ein aufgezählter {{jsxref("String")}}, der verwendet wird, um die Bedeutung des Highlights zu spezifizieren. Dies ermöglicht unterstützenden Technologien, wie Bildschirmlesegeräten, diese Bedeutung einzubeziehen, wenn das Highlight den Benutzern verfügbar gemacht wird.
 
-Standardmäßig wird ein Highlight-Objekt seinen Typ auf `highlight` gesetzt haben, aber Sie können es in `spelling-error` oder `grammar-error` ändern.
+Standardmäßig hat ein Highlight-Objekt seinen Typ auf `highlight` gesetzt, aber Sie können ihn auf `spelling-error` oder `grammar-error` ändern.
 
 ## Wert
 
-Die möglichen Werte des enumerierten Werts `type` sind:
+Die möglichen Werte des aufgezählten `type`-Werts sind:
 
 - `highlight`
-  - : Dies ist der Standard-Hervorhebungstyp. Er hat keine spezifische Bedeutung.
+  - : Dies ist der Standard-Highlight-Typ. Es hat keine spezifische Bedeutung.
 - `spelling-error`
-  - : Verwenden Sie diesen Typ, wenn die Hervorhebung verwendet wird, um falsch geschriebene Inhalte hervorzuheben.
+  - : Verwenden Sie diesen Typ, wenn das Highlight verwendet wird, um falsch geschriebenen Inhalt hervorzuheben.
 - `grammar-error`
-  - : Verwenden Sie diesen Typ, wenn die Hervorhebung verwendet wird, um inhaltlich grammatisch falsche Inhalte hervorzuheben.
+  - : Verwenden Sie diesen Typ, wenn das Highlight verwendet wird, um inhaltliche grammatikalische Fehler hervorzuheben.
 
 ## Beispiele
 
@@ -45,5 +45,5 @@ spellErrorsHighlight.type = "spelling-error";
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "Die CSS Custom Highlight API", "", "nocode")}}
-- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

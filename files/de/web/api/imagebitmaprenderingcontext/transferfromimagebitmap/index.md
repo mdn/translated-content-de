@@ -1,5 +1,5 @@
 ---
-title: "ImageBitmapRenderingContext: transferFromImageBitmap()-Methode"
+title: "ImageBitmapRenderingContext: transferFromImageBitmap() Methode"
 short-title: transferFromImageBitmap()
 slug: Web/API/ImageBitmapRenderingContext/transferFromImageBitmap
 l10n:
@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`ImageBitmapRenderingContext.transferFromImageBitmap()`**
-Methode zeigt das angegebene {{domxref("ImageBitmap")}} im Canvas an, das mit diesem Rendering-Kontext verbunden ist. Der Besitz des `ImageBitmap` wird ebenfalls auf das Canvas übertragen.
+Die **`ImageBitmapRenderingContext.transferFromImageBitmap()`**-Methode zeigt das angegebene [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) im mit diesem Rendering-Kontext verbundenen Canvas an. Die Eigentümerschaft des `ImageBitmap` wird ebenfalls an das Canvas übertragen.
 
-Diese Methode wurde zuvor `transferImageBitmap()` genannt, wurde jedoch in einer Spezifikationsänderung umbenannt. Der alte Name wird als Alias beibehalten, um Codebrüche zu vermeiden.
+Diese Methode wurde zuvor `transferImageBitmap()` genannt, wurde jedoch in einer Spezifikationsänderung umbenannt. Der alte Name wird als Alias beibehalten, um Codebruch zu vermeiden.
 
 ## Syntax
 
@@ -22,11 +21,11 @@ transferFromImageBitmap(bitmap)
 ### Parameter
 
 - `bitmap`
-  - : Ein {{domxref("ImageBitmap")}} Objekt zum Übertragen.
+  - : Ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)-Objekt, das übertragen werden soll.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -43,13 +42,13 @@ const htmlCanvas = document
   .getElementById("htmlCanvas")
   .getContext("bitmaprenderer");
 
-// Zeichnen einer WebGL-Szene außerhalb des Bildschirms
+// Draw a WebGL scene offscreen
 const offscreen = new OffscreenCanvas(256, 256);
 const gl = offscreen.getContext("webgl");
 
-// Durchführung einiger Zeichnungen mit dem gl-Kontext
+// Perform some drawing using the gl context
 
-// Übertragung des aktuellen Rahmens auf das sichtbare Canvas
+// Transfer the current frame to the visible canvas
 const bitmap = offscreen.transferToImageBitmap();
 htmlCanvas.transferFromImageBitmap(bitmap);
 ```
@@ -64,6 +63,6 @@ htmlCanvas.transferFromImageBitmap(bitmap);
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert, {{domxref("ImageBitmapRenderingContext")}}
-- {{domxref("OffscreenCanvas")}}
-- {{domxref("OffscreenCanvas.transferToImageBitmap()")}}
+- Die Schnittstelle, die diese Methode definiert, [`ImageBitmapRenderingContext`](/de/docs/Web/API/ImageBitmapRenderingContext)
+- [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
+- [`OffscreenCanvas.transferToImageBitmap()`](/de/docs/Web/API/OffscreenCanvas/transferToImageBitmap)

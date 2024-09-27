@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Rufen Sie diese Funktion auf, um den Inhalt des aktiven Tabs zu drucken. Wenn diese Funktion aufgerufen wird, wird dem Benutzer das Druckdialogfeld der zugrunde liegenden Plattform angezeigt, und der Benutzer hat die Möglichkeit, die Druckeinstellungen zu ändern und dann den aktuell aktiven Tab zu drucken.
+Rufen Sie diese Funktion auf, um den Inhalt des aktiven Tabs zu drucken. Wenn diese Funktion aufgerufen wird, wird dem Benutzer das Druckdialogfeld der zugrunde liegenden Plattform angezeigt, und er hat die Möglichkeit, die Druckeinstellungen zu ändern und dann den aktuell aktiven Tab zu drucken.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner.
+Keine.
 
 ## Beispiele
 

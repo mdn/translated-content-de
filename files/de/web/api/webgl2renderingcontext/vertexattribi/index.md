@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.vertexAttribI4[u]i[v]()`** Methoden der [WebGL 2 API](/de/docs/Web/API/WebGL_API) legen ganzzahlige Werte für generische Vertex-Attribute fest.
+Die **`WebGL2RenderingContext.vertexAttribI4[u]i[v]()`** Methoden der [WebGL 2 API](/de/docs/Web/API/WebGL_API) spezifizieren Ganzzahlwerte für generische Vertex-Attribute.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ vertexAttribI4uiv(index, value)
 ### Parameter
 
 - `index`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der die Position des zu ändernden Vertex-Attributs angibt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der die Position des zu modifizierenden Vertex-Attributs angibt.
 - `v0`, `v1`, `v2`, `v3`
-  - : Eine ganze {{jsxref("Number")}} für den Vertex-Attributwert.
+  - : Eine Ganzzahl ({{jsxref("Number")}}) für den Vertex-Attributwert.
 - `value`
-  - : Ein {{jsxref("Uint32Array")}}/{{jsxref("Int32Array")}} oder Sequenzen von {{domxref("WebGL_API/Types", "GLuint")}}/ {{domxref("WebGL_API/Types", "GLint")}} für Werte von integer-Vektor-Vertex-Attributen.
+  - : Ein {{jsxref("Uint32Array")}}/{{jsxref("Int32Array")}} oder Folgen von [`GLuint`](/de/docs/Web/API/WebGL_API/Types)/[`GLint`](/de/docs/Web/API/WebGL_API/Types) für Vektor-Ganzzahlwerte von Vertex-Attributen.
 
 ### Rückgabewert
 
@@ -42,10 +42,10 @@ gl.vertexAttribI4i(a_foobar, 10);
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getVertexAttrib()")}}
+- [`WebGLRenderingContext.getVertexAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getVertexAttrib)

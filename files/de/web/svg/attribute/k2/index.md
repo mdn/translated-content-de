@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`k2`** definiert einen der Werte, die innerhalb der `arithmetic`-Operation des {{SVGElement("feComposite")}} Filterprimitivs verwendet werden.
+Das **`k2`** Attribut definiert einen der Werte, die innerhalb der `arithmetic`-Operation des {{SVGElement("feComposite")}} Filterprimitivs verwendet werden.
 
-Die Pixelkomposition wird mit der folgenden Formel berechnet:
+Die Pixelzusammensetzung wird mit der folgenden Formel berechnet:
 
 ```js
 result = k1 * i1 * i2 + k2 * i1 + k3 * i2 + k4;
@@ -69,7 +69,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>

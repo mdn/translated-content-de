@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`videoTracks`** Eigenschaft von {{DOMxRef("HTMLMediaElement")}} Objekten gibt ein {{DOMxRef("VideoTrackList")}} Objekt zurück, das alle {{DOMxRef("VideoTrack")}} Objekte auflistet, die die Video-Tracks des Medienelements darstellen.
+Die schreibgeschützte **`videoTracks`**-Eigenschaft bei [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten gibt ein [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Objekt zurück, das alle [`VideoTrack`](/de/docs/Web/API/VideoTrack)-Objekte auflistet, die die Videospuren des Mediaelements darstellen.
 
-Die zurückgegebene Liste ist _live_; das bedeutet, dass sich der Inhalt der Liste dynamisch ändert, wenn Tracks zum Medienelement hinzugefügt oder daraus gelöscht werden. Sobald Sie eine Referenz auf die Liste haben, können Sie sie überwachen, um festzustellen, wann neue Video-Tracks hinzugefügt oder bestehende entfernt werden. Weitere Informationen zum Überwachen von Änderungen an der Trackliste eines Medienelements finden Sie unter [VideoTrackList-Ereignisse](/de/docs/Web/API/VideoTrackList#events).
+Die zurückgegebene Liste ist _live_; das bedeutet, dass sich die Inhalte der Liste dynamisch ändern, wenn Spuren zum Mediaelement hinzugefügt oder entfernt werden. Sobald Sie eine Referenz zu der Liste haben, können Sie Änderungen überwachen, um zu erkennen, wann neue Videospuren hinzugefügt oder bestehende entfernt werden. Siehe [VideoTrackList-Ereignisse](/de/docs/Web/API/VideoTrackList#events), um mehr darüber zu erfahren, wie Sie Änderungen an der Spurliste eines Mediaelements beobachten können.
 
 ## Wert
 
-Ein {{DOMxRef("VideoTrackList")}} Objekt, das die Liste der im Medienelement enthaltenen Video-Tracks darstellt. Die Liste der Tracks kann mit Array-Notation oder über die {{domxref("VideoTrackList.getTrackById", "getTrackById()")}} Methode des Objekts abgerufen werden.
+Ein [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Objekt, das die Liste der im Mediaelement enthaltenen Videospuren darstellt. Die Liste der Spuren kann über die Array-Notation oder über die Methode [`getTrackById()`](/de/docs/Web/API/VideoTrackList/getTrackById) des Objekts zugegriffen werden.
 
-Jeder Track wird durch ein {{DOMxRef("VideoTrack")}} Objekt repräsentiert, das Informationen über den Track bietet.
+Jede Spur wird durch ein [`VideoTrack`](/de/docs/Web/API/VideoTrack)-Objekt repräsentiert, das Informationen über die Spur bereitstellt.
 
 ## Spezifikationen
 
@@ -28,6 +28,6 @@ Jeder Track wird durch ein {{DOMxRef("VideoTrack")}} Objekt repräsentiert, das 
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement")}}: Schnittstelle zur Definition der `HTMLMediaElement.videoTracks` Eigenschaft
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle zur Definition der `HTMLMediaElement.videoTracks`-Eigenschaft
 - {{HTMLElement("video")}}
-- {{DOMxRef("VideoTrack")}}, {{DOMxRef("VideoTrackList")}}
+- [`VideoTrack`](/de/docs/Web/API/VideoTrack), [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)

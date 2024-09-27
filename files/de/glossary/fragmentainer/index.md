@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein Fragmentainer wird in der [CSS Fragmentation Specification](https://www.w3.org/TR/css-break-3/) wie folgt definiert:
+Ein Fragmentainer wird in der [CSS-Fragmentierungs-Spezifikation](https://www.w3.org/TR/css-break-3/) wie folgt definiert:
 
-> Ein Kasten – wie eine Seitenschachtel, Spaltenschachtel oder Region – der einen Teil (oder das Ganze) eines fragmentierten Flusses enthält. Fragmentainer können vordefiniert oder nach Bedarf generiert werden. Wenn unterteilbarer Inhalt in der Blockdimension einen Fragmentainer überlaufen würde, bricht er stattdessen in den nächsten Behälter in seinem Fragmentierungskontext um.
+> Ein Kasten—wie ein Seitenkasten, Spaltenkasten oder Bereich—der einen Teil (oder das Ganze) eines fragmentierten Flusses enthält. Fragmentainer können vordefiniert oder bei Bedarf generiert werden. Wenn brechbarer Inhalt in der Block-Dimension einen Fragmentainer überlaufen würde, bricht er in den nächsten Container in seinem Fragmentierungskontext um.
 
-Fragmentierte Kontexte finden sich in CSS Paged Media, wo der Fragmentainer der Kasten wäre, der eine Seite definiert. Im Mehrspalten-Layout ist der Fragmentainer die Spaltenschachtel, die erstellt wird, wenn Spalten auf einem Multicol-Container definiert sind. In CSS Regions ist jede Region ein Fragmentainer.
+Fragmentierte Kontexte findet man in CSS-Seitenmedien, wo der Fragmentainer der Kasten wäre, der eine Seite definiert. Im Mehrspalten-Layout ist der Fragmentainer der Spaltenkasten, der erstellt wird, wenn Spalten auf einem Multicol-Container definiert sind. In CSS-Regionen ist jede Region ein Fragmentainer.

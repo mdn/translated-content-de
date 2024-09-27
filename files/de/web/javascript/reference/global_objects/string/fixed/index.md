@@ -7,10 +7,10 @@ l10n:
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`fixed()`** Methode von {{jsxref("String")}} Werten erstellt eine Zeichenfolge, die diese Zeichenfolge in ein {{HTMLElement("tt")}} Element (`<tt>str</tt>`) einbettet, was dazu führt, dass diese Zeichenfolge in einer Schriftart mit fester Breite angezeigt wird.
+Die **`fixed()`** Methode von {{jsxref("String")}} Werten erstellt einen String, der diesen String in ein {{HTMLElement("tt")}}-Element (`<tt>str</tt>`) einbettet, wodurch dieser String in einer Schriftart mit fester Breite angezeigt wird.
 
 > [!NOTE]
-> Alle [HTML Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Falle von `fixed()` wurde das `<tt>` Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen [CSS](/de/docs/Web/CSS) Eigenschaften verwenden.
+> Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Im Fall von `fixed()` wurde das `<tt>`-Element selbst aus der HTML-Spezifikation entfernt und sollte nicht mehr verwendet werden. Webentwickler sollten stattdessen [CSS](/de/docs/Web/CSS)-Eigenschaften verwenden.
 
 ## Syntax
 
@@ -24,13 +24,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenfolge, die mit einem `<tt>` Öffnungstag beginnt, dann der Text `str` und dann ein `</tt>` Schlusstag.
+Ein String, der mit einem `<tt>` Start-Tag beginnt, dann den Text `str` enthält, und dann mit einem `</tt>` End-Tag abschließt.
 
 ## Beispiele
 
 ### Verwendung von fixed()
 
-Der untenstehende Code erzeugt eine HTML-Zeichenkette und ersetzt dann den Inhalt des Dokuments damit:
+Der folgende Code erstellt einen HTML-String und ersetzt dann den Dokumentenkörper damit:
 
 ```js
 const contentString = "Hello, world";
@@ -38,16 +38,16 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.fixed();
 ```
 
-Dies erzeugt den folgenden HTML-Code:
+Dies erzeugt das folgende HTML:
 
 ```html
 <tt>Hello, world</tt>
 ```
 
 > [!WARNING]
-> Dieses Markup ist ungültig, da `tt` kein gültiges Element mehr ist.
+> Diese Markierung ist ungültig, da `tt` kein gültiges Element mehr ist.
 
-Anstatt `fixed()` zu verwenden und direkt HTML-Code zu erzeugen, sollten Sie CSS verwenden, um Schriftarten zu manipulieren. Zum Beispiel können Sie {{cssxref("font-family")}} über das {{domxref("HTMLElement/style", "element.style")}} Attribut ändern:
+Anstatt `fixed()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie CSS verwenden, um Schriftarten zu manipulieren. Zum Beispiel können Sie {{cssxref("font-family")}} über das [`element.style`](/de/docs/Web/API/HTMLElement/style)-Attribut manipulieren:
 
 ```js
 document.getElementById("yourElemId").style.fontFamily = "monospace";
@@ -64,5 +64,5 @@ document.getElementById("yourElemId").style.fontFamily = "monospace";
 ## Siehe auch
 
 - [Polyfill von `String.prototype.fixed` in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [HTML Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
+- [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods)
 - {{HTMLElement("tt")}}

@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das `rotate`-Attribut gibt an, wie sich das animierte Element dreht, während es einem im {{SVGElement("animateMotion")}}-Element angegebenen Pfad folgt.
+Das `rotate`-Attribut gibt an, wie sich das animierte Element dreht, während es entlang eines in einem {{SVGElement("animateMotion")}}-Element angegebenen Pfads bewegt.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animateMotion")}}
 
@@ -30,14 +30,14 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>No</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
 
-Die Werte `auto` und `auto-reverse` ermöglichen es, dass sich die Drehung des animierten Elements dynamisch verändert, während es dem Pfad folgt. Wenn der Wert von `rotate` `auto` ist, dreht sich das Element so, dass seine rechte Seite in die aktuelle Bewegungsrichtung ausgerichtet ist. Wenn der Wert `auto-reverse` ist, dreht es seine linke Seite in die aktuelle Bewegungsrichtung.
+Die Werte `auto` und `auto-reverse` ermöglichen es, dass sich die Drehung des animierten Elements dynamisch ändert, während es sich entlang des Pfads bewegt. Wenn der Wert von `rotate` auf `auto` gesetzt ist, dreht sich das Element so, dass seine rechte Seite in die aktuelle Bewegungsrichtung zeigt. Wenn der Wert `auto-reverse` ist, dreht es seine linke Seite in die aktuelle Bewegungsrichtung.
 
-Die Festlegung des Wertes von `rotate` auf eine Zahl gibt eine konstante Drehung in Grad an, die sich nicht mit der Animation ändert. Der Standardwert von `0` behält die ursprüngliche Ausrichtung des animierten Elements bei.
+Das Festlegen eines Zahlenwerts für `rotate` spezifiziert eine konstante Drehung in Grad, die sich während der Animation nicht ändert. Der Standardwert von `0` hält das animierte Element in seiner ursprünglichen Orientierung.
 
 ## Beispiele
 
@@ -49,7 +49,7 @@ Die Festlegung des Wertes von `rotate` auf eine Zahl gibt eine konstante Drehung
   height="120"
   viewBox="0 0 480 120"
   xmlns="http://www.w3.org/2000/svg">
-  <!-- Zeichnen Sie die Umrisse des Bewegungspfads in Grau -->
+  <!-- Draw the outline of the motion path in grey -->
   <path
     d="M10,110 A120,120 -45 0,1 110 10 A120,120 -45 0,1 10,110"
     stroke="lightgrey"
@@ -57,9 +57,9 @@ Die Festlegung des Wertes von `rotate` auf eine Zahl gibt eine konstante Drehung
     fill="none"
     id="theMotionPath" />
 
-  <!-- Roter Pfeil, der sich nicht dreht -->
+  <!-- Red arrow which will not rotate -->
   <path fill="red" d="M-5,-5 L10,0 -5,5 0,0 Z">
-    <!-- Definieren der Bewegungspfad-Animation -->
+    <!-- Define the motion path animation -->
     <animateMotion dur="6s" repeatCount="indefinite" rotate="0">
       <mpath href="#theMotionPath" />
     </animateMotion>
@@ -67,9 +67,9 @@ Die Festlegung des Wertes von `rotate` auf eine Zahl gibt eine konstante Drehung
 
   <g transform="translate(100, 0)">
     <use href="#theMotionPath" />
-    <!-- Grüner Pfeil, der sich zusammen mit dem Bewegungspfad dreht -->
+    <!-- Green arrow which will rotate along the motion path -->
     <path fill="green" d="M-5,-5 L10,0 -5,5 0,0 Z">
-      <!-- Definieren der Bewegungspfad-Animation -->
+      <!-- Define the motion path animation -->
       <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">
         <mpath href="#theMotionPath" />
       </animateMotion>
@@ -78,9 +78,9 @@ Die Festlegung des Wertes von `rotate` auf eine Zahl gibt eine konstante Drehung
 
   <g transform="translate(200, 0)">
     <use href="#theMotionPath" />
-    <!-- Blauer Pfeil, der sich rückwärts entlang des Bewegungspfads dreht -->
+    <!-- Blue arrow which will rotate backwards along the motion path -->
     <path fill="blue" d="M-5,-5 L10,0 -5,5 0,0 Z">
-      <!-- Definieren der Bewegungspfad-Animation -->
+      <!-- Define the motion path animation -->
       <animateMotion dur="6s" repeatCount="indefinite" rotate="auto-reverse">
         <mpath href="#theMotionPath" />
       </animateMotion>
@@ -89,9 +89,9 @@ Die Festlegung des Wertes von `rotate` auf eine Zahl gibt eine konstante Drehung
 
   <g transform="translate(300, 0)">
     <use href="#theMotionPath" />
-    <!-- Lila Pfeil, der eine statische Drehung von 210 Grad hat -->
+    <!-- Purple arrow which will have a static rotation of 210 degrees -->
     <path fill="purple" d="M-5,-5 L10,0 -5,5 0,0 Z">
-      <!-- Definieren der Bewegungspfad-Animation -->
+      <!-- Define the motion path animation -->
       <animateMotion dur="6s" repeatCount="indefinite" rotate="210">
         <mpath href="#theMotionPath" />
       </animateMotion>

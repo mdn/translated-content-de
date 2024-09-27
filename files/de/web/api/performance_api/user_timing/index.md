@@ -1,5 +1,5 @@
 ---
-title: Benutzerzeitmessung
+title: User Timing
 slug: Web/API/Performance_API/User_timing
 l10n:
   sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
@@ -7,34 +7,34 @@ l10n:
 
 {{DefaultAPISidebar("Performance API")}}
 
-Die Benutzer-Zeitmessung ist Teil der Performance API und ermöglicht es Ihnen, die Leistung von Anwendungen mithilfe von [hochpräzisen Zeitstempeln](/de/docs/Web/API/DOMHighResTimeStamp) zu messen, die Teil der Leistungstimeline des Browsers sind. Es gibt zwei Arten von Leistungszeiteinträgen:
+User Timing ist Teil der Performance API und ermöglicht Ihnen, die Leistung von Anwendungen mittels [hochauflösender Zeitstempel](/de/docs/Web/API/DOMHighResTimeStamp) zu messen, die Teil der Leistungstimeline des Browsers sind. Es gibt zwei Arten von Performance-Einträgen:
 
-- {{domxref("PerformanceMark")}}-Einträge sind Marken, die Sie benennen und an beliebiger Stelle in einer Anwendung hinzufügen können.
-- {{domxref("PerformanceMeasure")}}-Einträge sind Zeitmessungen zwischen zwei Marken.
+- [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Einträge sind Markierungen, die Sie benennen und an einer beliebigen Stelle in einer Anwendung hinzufügen können.
+- [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Einträge sind Zeitmessungen zwischen zwei Markierungen.
 
-## Was ist Benutzerzeitmessung?
+## Was ist User Timing?
 
-Der Browser stellt bestimmte Informationen (sogenannte _Performance-Einträge_) für die Leistungstimeline des Browsers bereit. Dazu gehören beispielsweise Einträge, die von der [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) bereitgestellt werden, die die Zeit bestimmen, die benötigt wird, um eine Ressource wie ein Bild abzurufen.
+Der Browser stellt Ihnen bestimmte Informationen (sogenannte _Performance-Einträge_) in der Leistungstimeline des Browsers zur Verfügung. Dazu gehören beispielsweise Einträge, die von der [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) bereitgestellt werden und die Zeit bestimmen, die zum Abrufen einer Ressource wie eines Bildes benötigt wird.
 
-Der Browser kann jedoch nicht bestimmen, was in Ihrer Anwendung passiert. Zum Beispiel, wenn ein Benutzer einen Button anklickt oder eine bestimmte Aufgabe innerhalb Ihrer Anwendung ausführt, gibt es keine hochpräzise Leistungsmessung. Die Benutzer-Zeitmessung-API ist eine Erweiterung der Leistungstimeline des Browsers und hilft Ihnen dabei, Leistungsdaten zu messen und aufzuzeichnen, die speziell für Ihre Anwendung sind.
+Der Browser kann jedoch nicht bestimmen, was in Ihrer Anwendung vor sich geht. Zum Beispiel gibt es keine hochpräzise Leistungsüberwachung, wenn ein Benutzer einen Button klickt oder eine bestimmte Aufgabe innerhalb Ihrer Anwendung ausführt. Die User Timing API ist eine Erweiterung der Leistungstimeline des Browsers und hilft Ihnen, Leistungsdaten zu messen und aufzuzeichnen, die speziell für Ihre Anwendung sind.
 
-Der Vorteil der Verwendung dieser API gegenüber Aufrufen von {{jsxref("Date.now()")}} oder {{domxref("performance.now()")}} besteht darin, dass Sie den Markierungen einen Namen geben können und dass sie sich gut in Leistungstools integriert. Entwicklerwerkzeuge des Browsers können Leistungsmarken in Performance-Panels anzeigen, und es funktioniert auch mit anderen Performance-APIs wie {{domxref("PerformanceObserver")}}-Objekten.
+Der Vorteil der Verwendung dieser API gegenüber Aufrufen von {{jsxref("Date.now()")}} oder [`performance.now()`](/de/docs/Web/API/Performance/now) besteht darin, dass Sie den Markierungen einen Namen geben können und sie sich nahtlos in Leistungswerkzeuge integrieren. Die Entwicklertools des Browsers können Leistungsmarkierungen in Performance-Panels anzeigen, und sie arbeitet auch mit anderen Performance-APIs wie [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Objekten zusammen.
 
 ## Hinzufügen von Leistungsmarkierungen
 
-Um mit der Messung der Leistung Ihrer App-Funktionalität zu beginnen, müssen Sie benannte Leistungsmarken an wichtigen Stellen in Ihrem Code hinzufügen. Idealerweise gehen Sie durch Ihren Code und bestimmen kritische Pfade und wichtige Aufgaben, für die Sie sicherstellen möchten, dass sie schnell ausgeführt werden können.
+Als erster Schritt zur Messung der Leistung Ihrer App-Funktionalität müssen Sie benannte Leistungsmarkierungen an wichtigen Stellen in Ihrem Code hinzufügen. Idealerweise durchlaufen Sie Ihren Code und bestimmen kritische Pfade und wichtige Aufgaben, für die Sie sicherstellen möchten, dass sie schnell durchgeführt werden können.
 
-Die Methode {{domxref("Performance.mark","performance.mark()")}} wird verwendet, um eine {{domxref("PerformanceMark")}} zu erstellen. Die Methode nimmt ein Argument, den `name` der Marke, wie im folgenden Beispiel gezeigt.
+Die Methode [`performance.mark()`](/de/docs/Web/API/Performance/mark) wird verwendet, um eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) zu erstellen. Die Methode nimmt ein Argument, den `name` der Markierung, wie im folgenden Beispiel gezeigt.
 
 ```js
-// An einer Stelle im Code platzieren, die den Login startet
+// Place at a location in the code that starts login
 performance.mark("login-started");
 
-// An einer Stelle im Code platzieren, die den Login abschließt
+// Place at a location in the code that finishes login
 performance.mark("login-finished");
 ```
 
-Wenn das `name`-Argument nicht ausreicht, kann `mark()` mit einem Optionsobjekt konfiguriert werden, in dem Sie zusätzliche Informationen in der `detail`-Eigenschaft angeben können, die von jedem Typ sein kann. Sie können auch bei Bedarf eine andere `startTime` festlegen. Im folgenden Code wird die `startTime` auf `12.5` gesetzt, und zusätzliche Informationen, wie das verwendete HTML-Element, werden mit `detail` bereitgestellt.
+Falls das `name`-Argument nicht ausreicht, ist `mark()` konfigurierbar mit einem Optionsobjekt, in das Sie zusätzliche Informationen in der `detail`-Eigenschaft einfügen können, die vom beliebigen Typ sein kann. Sie können auch eine andere `startTime` festlegen, wenn nötig. Im folgenden Code ist die `startTime` auf `12.5` gesetzt, und zusätzliche Informationen, wie das verwendete HTML-Element, werden mit `detail` bereitgestellt.
 
 ```js
 performance.mark("login-started", {
@@ -47,9 +47,9 @@ performance.mark("login-started", {
 
 Nachdem Sie nun Markierungen zu Ihrer Anwendung hinzugefügt haben, können Sie die Zeit zwischen ihnen messen.
 
-Die Methode {{domxref("Performance.measure()")}} wird verwendet, um ein {{domxref("PerformanceMeasure")}}-Objekt zu erstellen. Sie akzeptiert einen `name`-Parameter, der zur Identifizierung des Maßes verwendet wird, und zwei Marken, `start` und `end`, zwischen denen gemessen werden soll. Das folgende Beispiel erstellt ein `"login-duration"` Maß und misst zwischen dem Anfang und dem Ende des Anmeldevorgangs.
+Die Methode [`Performance.measure()`](/de/docs/Web/API/Performance/measure) wird verwendet, um ein [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekt zu erstellen. Sie akzeptiert einen `name`-Parameter, der zur Identifizierung der Messung verwendet wird, und zwei Markierungen, `start` und `end`, zwischen denen gemessen werden soll. Im folgenden Beispiel wird eine `"login-duration"`-Messung erstellt und zwischen dem Start und dem Ende des Anmeldevorgangs gemessen.
 
-Das Objekt hat dann eine `duration`-Eigenschaft, die für Sie den Zeitstempel der Endmarke minus den Zeitstempel der Startmarke berechnet. Zum Beispiel können Sie diesen Wert protokollieren oder an einen Analyseendpunkt senden.
+Das Objekt hat dann eine `duration`-Eigenschaft, die den Endmarkierungs-Zeitstempel minus den Startmarkierungs-Zeitstempel für Sie berechnet. Sie können diesen Wert beispielsweise protokollieren oder an ein Analyse-Endpoint senden.
 
 ```js
 const loginMeasure = performance.measure(
@@ -61,9 +61,9 @@ const loginMeasure = performance.measure(
 console.log(loginMeasure.duration);
 ```
 
-Die Methode {{domxref("Performance.measure()")}} kann ebenfalls mit einem Optionsobjekt konfiguriert werden, sodass Sie fortgeschrittenere Messungen durchführen oder zusätzliche Informationen mit der `detail`-Eigenschaft bereitstellen können.
+Die Methode [`Performance.measure()`](/de/docs/Web/API/Performance/measure) ist auch mit einem Optionsobjekt konfigurierbar, sodass Sie erweiterte Messungen durchführen oder zusätzliche Informationen mit der `detail`-Eigenschaft bereitstellen können.
 
-Zum Beispiel können Sie die [`event.timestamp`](/de/docs/Web/API/Event/timeStamp)-Eigenschaft von einem [`click`-Ereignis](/de/docs/Web/API/Element/click_event) verwenden, um genau zu wissen, wann ein Benutzer auf Login geklickt hat und dies bis zu dem Zeitpunkt zu messen, zu dem die Benutzeroberfläche aktualisiert wurde, was hier die `"login-finished"`-Marke ist.
+Zum Beispiel können Sie die [`event.timestamp`](/de/docs/Web/API/Event/timeStamp)-Eigenschaft eines [`click` events](/de/docs/Web/API/Element/click_event) verwenden, um genau zu wissen, wann ein Benutzer auf Login geklickt hat und das bis zu dem Zeitpunkt messen, als das UI aktualisiert wurde, was hier die `"login-finished"`-Markierung ist.
 
 ```js
 loginButton.addEventListener("click", (clickEvent) => {
@@ -81,9 +81,9 @@ loginButton.addEventListener("click", (clickEvent) => {
 });
 ```
 
-## Leistungsmessungen beobachten
+## Beobachtung von Leistungsmaßen
 
-Der bevorzugte Weg, um über Ihre benutzerdefinierten Leistungsmessungen benachrichtigt zu werden, ist die Verwendung von {{domxref("PerformanceObserver")}}-Objekten. Performance-Observer erlauben Ihnen, sich passiv auf Leistungsmarken und -messungen zu abonnieren, während sie auftreten.
+Die empfohlene Methode, um über Ihre benutzerdefinierten Leistungsmaße benachrichtigt zu werden, ist die Verwendung von [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Objekten. Leistungsbeobachter ermöglichen es Ihnen, passiv Leistungsmarkierungen und -maße zu abonnieren, während sie auftreten.
 
 ```js
 function perfObserver(list, observer) {
@@ -100,19 +100,19 @@ const observer = new PerformanceObserver(perfObserver);
 observer.observe({ entryTypes: ["measure", "mark"] });
 ```
 
-Für weitere Informationen, siehe {{domxref("PerformanceObserver")}}.
+Für weitere Informationen siehe [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver).
 
-## Markierungen und Messungen abrufen
+## Abfragen von Markierungen und Maßen
 
-Es gibt viele verschiedene Performance-Einträge in der Leistungstimeline des Browsers. Einige werden vom Browser hinzugefügt, und einige könnten von Ihnen hinzugefügt worden sein, wie die Login-Markierungen und -Messungen aus den obigen Beispielen.
+Es gibt viele verschiedene Leistungseinträge in der Leistungstimeline des Browsers. Einige werden vom Browser hinzugefügt, andere könnten von Ihnen hinzugefügt werden, wie die Anmelde-Markierungen und -Maße aus den obigen Beispielen.
 
-Um Leistungsmarken und -messungen zu einem bestimmten Zeitpunkt abzurufen, bietet die {{domxref("Performance")}}-Schnittstelle drei Methoden, wie unten gezeigt.
+Um Leistungsmarkierungen und -maße zu einem bestimmten Zeitpunkt abzurufen, bietet das [`Performance`](/de/docs/Web/API/Performance)-Interface drei Methoden, wie unten gezeigt.
 
 > [!NOTE]
-> Die untenstehenden Methoden benachrichtigen Sie nicht über neue Leistungsmarken; Sie erhalten nur Marken, die erstellt wurden, wenn Sie diese Methoden aufrufen.
-> Siehe den Abschnitt [Leistungsmessungen beobachten](#leistungsmessungen_beobachten) oben, um Benachrichtigungen über neue Metriken zu erhalten, sobald sie verfügbar werden, mithilfe eines {{domxref("PerformanceObserver")}}. In der Regel ist die Verwendung von Performance-Observern der bevorzugte Weg, um Leistungsmarken und -messungen zu erhalten.
+> Die untenstehenden Methoden benachrichtigen Sie nicht über neue Leistungsmarkierungen; Sie erhalten nur Markierungen, die erstellt wurden, wenn Sie diese Methoden aufrufen.
+> Siehe den Abschnitt [Beobachtung von Leistungsmaßen](#beobachtung_von_leistungsmaßen) oben, um Benachrichtigungen über neue Metriken zu erhalten, sobald sie mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) verfügbar werden. Normalerweise ist die Verwendung von Leistungsbeobachtern der bevorzugte Weg, um Leistungsmarkierungen und -maße zu erhalten.
 
-Die Methode {{domxref("Performance.getEntries","performance.getEntries()")}} erhält alle Performance-Einträge. Sie können sie nach Bedarf filtern.
+Die Methode [`performance.getEntries()`](/de/docs/Web/API/Performance/getEntries) holt alle Leistungseinträge. Sie können sie nach Bedarf filtern.
 
 ```js
 const entries = performance.getEntries();
@@ -126,7 +126,7 @@ entries.forEach((entry) => {
 });
 ```
 
-Die Methode {{domxref("Performance.getEntriesByType","performance.getEntriesByType(entryType)")}} filtert die Einträge bereits nach Typ.
+Die Methode [`performance.getEntriesByType(entryType)`](/de/docs/Web/API/Performance/getEntriesByType) filtert die Einträge bereits nach Typ.
 
 ```js
 const marks = performance.getEntriesByType("mark");
@@ -140,41 +140,41 @@ measures.forEach((entry) => {
 });
 ```
 
-Die Methode {{domxref("Performance.getEntriesByName","performance.getEntriesByName(name, entryType)")}} ermöglicht es Ihnen, spezifische Marken oder Messungen nach Namen zu erhalten.
+Die Methode [`performance.getEntriesByName(name, entryType)`](/de/docs/Web/API/Performance/getEntriesByName) ermöglicht es Ihnen, spezifische Markierungen oder Maße nach Namen zu erhalten.
 
 ```js
-// Protokollieren Sie alle Marken namens "debug-marks"
+// Log all marks named "debug-marks"
 const debugMarks = performance.getEntriesByName("debug-mark", "mark");
 debugMarks.forEach((entry) => {
   console.log(`${entry.name}'s startTime: ${entry.startTime}`);
 });
 ```
 
-## Markierungen und Messungen entfernen
+## Entfernen von Markierungen und Maßen
 
-Um alle Leistungsmarken oder -messungen zu bereinigen oder nur bestimmte Einträge, sind die folgenden Methoden verfügbar:
+Um alle Leistungsmarkierungen oder Modelle oder nur bestimmte Einträge zu bereinigen, stehen die folgenden Methoden zur Verfügung:
 
 - [`performance.clearMarks()`](/de/docs/Web/API/Performance/clearMarks)
 - [`performance.clearMeasures()`](/de/docs/Web/API/Performance/clearMeasures)
 
 ```js
-// Alle Marken löschen
+// Clear all marks
 performance.clearMarks();
 
-// Entfernt die Marke mit dem Namen "myMarker"
+// Removes the marker with the name "myMarker"
 performance.clearMarks("myMarker");
 
-// Alle Messungen löschen
+// Clear all measures
 performance.clearMeasures();
 
-// Entfernt die Messung mit dem Namen "myMeasure"
+// Removes the measure with the name "myMeasure"
 performance.clearMeasures("myMeasure");
 ```
 
 ## Siehe auch
 
-- {{domxref("Performance")}}
-- {{domxref("PerformanceMark")}}
-- {{domxref("PerformanceMeasure")}}
-- {{domxref("PerformanceEntry")}}
-- {{domxref("PerformanceObserver")}}
+- [`Performance`](/de/docs/Web/API/Performance)
+- [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)
+- [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)
+- [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)
+- [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)

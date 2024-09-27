@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `threshold`-Eigenschaft des {{ domxref("DynamicsCompressorNode") }}-Interfaces ist ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) {{domxref("AudioParam")}}, das den Dezibelwert darstellt, oberhalb dessen die Kompression wirksam wird.
+Die `threshold`-Eigenschaft der [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode)-Schnittstelle ist ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das den Dezibelwert darstellt, über dem die Kompression zu greifen beginnt.
 
-Der Standardwert der `threshold`-Eigenschaft ist `-24`, und er kann zwischen `-100` und `0` gesetzt werden.
+Der Standardwert der `threshold`-Eigenschaft ist `-24` und kann zwischen `-100` und `0` eingestellt werden.
 
-![Die threshold-Eigenschaft hat keinen Einfluss auf Signale, die niedriger als ihr Wert sind, bewirkt jedoch eine Lautstärkereduzierung bei Signalen, die stärker als ihr Wert sind.](webaudiothreshold.png)
+![Das threshold-Attribut hat keine Wirkung auf Signale, die niedriger als sein Wert sind, verursacht jedoch eine Lautstärkereduzierung bei Signalen, die stärker als sein Wert sind.](webaudiothreshold.png)
 
 ## Wert
 
-Ein {{domxref("AudioParam")}}.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam).
 
 > [!NOTE]
-> Obwohl das zurückgegebene {{domxref("AudioParam")}} schreibgeschützt ist, ist der von ihm dargestellte Wert nicht.
+> Obwohl das zurückgegebene [`AudioParam`](/de/docs/Web/API/AudioParam) schreibgeschützt ist, ist der von ihm dargestellte Wert es nicht.
 
 ## Beispiele
 
@@ -29,7 +29,7 @@ const compressor = audioCtx.createDynamicsCompressor();
 compressor.threshold.value = -50;
 ```
 
-Sehen Sie sich [`BaseAudioContext.createDynamicsCompressor()`](/de/docs/Web/API/BaseAudioContext/createDynamicsCompressor#examples) für ausführlichere Beispielcodes an.
+Für einen vollständigen Beispielcode siehe [`BaseAudioContext.createDynamicsCompressor()`](/de/docs/Web/API/BaseAudioContext/createDynamicsCompressor#examples).
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: g1
+title: g1-Attribut
 slug: Web/SVG/Attribute/g1
 l10n:
   sourceCommit: 829db137a01feb14af7beaec178a3ea0118b4777
@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`g1`**-Attribut gibt eine Liste von Glyphennamen an, die eine Menge möglicher erster Glyphen im Kerning-Paar identifizieren.
+Das **`g1`**-Attribut gibt eine Liste von Glypennamen an, die eine Menge möglicher erster Glyphen im Kerning-Paar identifizieren.
 
-Alle Glyphen mit dem angegebenen Glyphennamen sind in der Menge enthalten. Die gesamte Menge der möglichen ersten Glyphen im Kerning-Paar ist die Vereinigung der Glyphen, die durch die {{SVGAttr("u1")}}- und `g1`-Attribute angegeben sind.
+Alle Glyphen mit dem angegebenen Glyphennamen sind in der Menge enthalten. Die gesamte Menge möglicher erster Glyphen im Kerning-Paar ist die Vereinigung von Glyphen, die durch die Attribute {{SVGAttr("u1")}} und `g1` angegeben sind.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -43,7 +43,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<name>#`
-  - : Dieser Wert gibt eine komma-getrennte Sequenz von Glyphennamen an (d. h. Werte, die den {{SVGAttr("glyph-name")}}-Attributen auf {{SVGElement("glyph")}}-Elementen entsprechen), die eine Menge möglicher erster Glyphen im Kerning-Paar identifizieren.
+  - : Dieser Wert gibt eine durch Kommas getrennte Sequenz von Glypennamen an (d. h. Werte, die den {{SVGAttr("glyph-name")}}-Attributen auf {{SVGElement("glyph")}}-Elementen entsprechen), die eine Menge möglicher erster Glyphen im Kerning-Paar identifizieren.
 
 ## Spezifikationen
 

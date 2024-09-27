@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein `HistoryItem` Objekt bietet Informationen über eine Seite im Browserverlauf.
+Ein `HistoryItem`-Objekt liefert Informationen über eine Seite im Browser-Verlauf.
 
 ## Typ
 
@@ -22,7 +22,7 @@ Dies ist ein Objekt mit den folgenden Eigenschaften:
 - `lastVisitTime` {{optional_inline}}
   - : `number`. Das Datum und die Uhrzeit, wann die Seite zuletzt geladen wurde, dargestellt in Millisekunden seit der Epoche.
 - `visitCount` {{optional_inline}}
-  - : `number`. Die Anzahl der Besuche, die der Benutzer auf der Seite gemacht hat.
+  - : `number`. Die Anzahl der Besuche, die der Benutzer auf der Seite getätigt hat.
 - `typedCount` {{optional_inline}}
   - : `number`. Die Anzahl der Male, die der Benutzer zu dieser Seite navigiert hat, indem er die Adresse eingegeben hat.
 
@@ -33,7 +33,7 @@ Dies ist ein Objekt mit den folgenden Eigenschaften:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#type-HistoryItem) API. Diese Dokumentation ist abgeleitet von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium Code.
+> Diese API basiert auf der Chromium-API [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#type-HistoryItem). Diese Dokumentation stammt aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

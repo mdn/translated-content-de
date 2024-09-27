@@ -1,14 +1,14 @@
 ---
-title: "TextDecoder: Konstruktor TextDecoder()"
+title: "TextDecoder: TextDecoder() Konstruktor"
 short-title: TextDecoder()
 slug: Web/API/TextDecoder/TextDecoder
 l10n:
-  sourceCommit: fafe14e30746524b128e4efabcd11d8f57fa0571
+  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
 ---
 
-{{APIRef("Encoding API")}}
+{{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Der **`TextDecoder()`** Konstruktor gibt ein neu erstelltes {{DOMxRef("TextDecoder")}}-Objekt für die im Parameter angegebene Kodierung zurück.
+Der **`TextDecoder()`** Konstruktor gibt ein neu erstelltes [`TextDecoder`](/de/docs/Web/API/TextDecoder) Objekt für die im Parameter spezifizierte Kodierung zurück.
 
 ## Syntax
 
@@ -22,24 +22,24 @@ new TextDecoder(label, options)
 
 - `label` {{optional_inline}}
   - : Ein String, standardmäßig `"utf-8"`.
-    Dies kann [jedes gültige Label](/de/docs/Web/API/Encoding_API/Encodings) sein.
+    Dies kann [jede gültige Bezeichnung](/de/docs/Web/API/Encoding_API/Encodings) sein.
 - `options` {{optional_inline}}
 
   - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `fatal` {{optional_inline}}
 
-      - : Ein boolescher Wert, der angibt, ob die Methode {{DOMxRef("TextDecoder.decode()")}} einen {{jsxref("TypeError")}} auslösen muss, wenn ungültige Daten decodiert werden.
-        Standardmäßig ist dies `false`, was bedeutet, dass der Decoder fehlerhafte Daten durch ein Ersatzzeichen ersetzt.
+      - : Ein boolescher Wert, der angibt, ob die Methode [`TextDecoder.decode()`](/de/docs/Web/API/TextDecoder/decode) einen {{jsxref("TypeError")}} werfen muss, wenn ungültige Daten dekodiert werden.
+        Standardwert ist `false`, was bedeutet, dass der Decoder fehlerhafte Daten durch ein Ersatzzeichen ersetzt.
 
     - `ignoreBOM` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob das [Byte-Order-Mark](https://www.w3.org/International/questions/qa-byte-order-mark) in die Ausgabe einbezogen oder übersprungen wird.
-        Standardmäßig ist dies `false`, was bedeutet, dass das Byte-Order-Mark beim Decodieren übersprungen wird und nicht in den decodierten Text aufgenommen wird.
+      - : Ein boolescher Wert, der angibt, ob das [Byte-Order-Mark](https://www.w3.org/International/questions/qa-byte-order-mark) in der Ausgabe enthalten sein oder übersprungen werden soll.
+        Standardwert ist `false`, was bedeutet, dass das Byte-Order-Mark beim Dekodieren übersprungen wird und nicht im dekodierten Text enthalten ist.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der Wert von `label` unbekannt ist oder einer der Werte ist, die zu einem `'replacement'` Decodierungsalgorithmus führen (`"iso-2022-cn"` oder `"iso-2022-cn-ext"`).
+  - : Wird ausgelöst, wenn der Wert von `label` unbekannt ist oder einer der Werte ist, die zu einem `'replacement'` Dekodierungsalgorithmus führen (`"iso-2022-cn"` oder `"iso-2022-cn-ext"`).
 
 ## Beispiele
 
@@ -60,4 +60,4 @@ const textDecoder4 = new TextDecoder("iso-2022-cn"); // Throw a RangeError excep
 
 ## Siehe auch
 
-- Die {{DOMxRef("TextDecoder")}} Schnittstelle, zu der es gehört.
+- Das [`TextDecoder`](/de/docs/Web/API/TextDecoder) Interface, zu dem es gehört.

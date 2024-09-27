@@ -1,5 +1,5 @@
 ---
-title: "SVGGraphicsElement: Paste-Ereignis"
+title: "SVGGraphicsElement: paste Ereignis"
 short-title: paste
 slug: Web/API/SVGGraphicsElement/paste_event
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das **`paste`**-Ereignis wird auf einem {{domxref("SVGGraphicsElement")}} ausgelöst, wenn der Benutzer eine „Einfügen“-Aktion über die Benutzeroberfläche des Browsers initiiert hat.
+Das **`paste`** Ereignis wird auf einem [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement) ausgelöst, wenn der Benutzer über die Benutzeroberfläche des Browsers eine "Einfügen"-Aktion initiiert hat.
 
-Wenn der Cursor sich in einem editierbaren Kontext befindet (zum Beispiel in einem {{HTMLElement("textarea")}} oder einem Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Attribut auf `true` gesetzt), dann ist die Standardaktion, den Inhalt der Zwischenablage an der Cursorposition in das Dokument einzufügen.
+Wenn sich der Cursor in einem editierbaren Kontext befindet (zum Beispiel in einem {{HTMLElement("textarea")}} oder einem Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Attribut auf `true` gesetzt), ist die Standardaktion, den Inhalt der Zwischenablage an der Cursorposition ins Dokument einzufügen.
 
-Ein Handler für dieses Ereignis kann auf den Inhalt der Zwischenablage zugreifen, indem er {{domxref("DataTransfer/getData", "getData()")}} auf der `clipboardData`-Eigenschaft des Ereignisses aufruft.
+Ein Handler für dieses Ereignis kann auf den Inhalt der Zwischenablage zugreifen, indem er [`getData()`](/de/docs/Web/API/DataTransfer/getData) auf der `clipboardData`-Eigenschaft des Ereignisses aufruft.
 
-Um das Standardverhalten zu überschreiben (z.B. um einige andere Daten oder eine Transformation des Zwischenablageninhalts einzufügen), muss ein Ereignishandler die Standardaktion mit {{domxref("Event/preventDefault", "event.preventDefault()")}} unterbrechen und dann seine gewünschten Daten manuell einfügen.
+Um das Standardverhalten zu überschreiben (zum Beispiel, um andere Daten oder eine Transformation der Zwischenablageinhalte einzufügen), muss ein Ereignishandler die Standardaktion mit [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbrechen und dann die gewünschten Daten manuell einfügen.
 
-Es ist möglich, ein [synthetisches](/de/docs/Web/Events/Creating_and_triggering_events) `paste`-Ereignis zu erstellen und auszulösen, aber dies beeinflusst nicht den Dokumenteninhalte.
+Es ist möglich, ein [synthetisches](/de/docs/Web/Events/Creating_and_triggering_events) `paste` Ereignis zu erstellen und auszulösen, aber dies wird den Inhalt des Dokuments nicht beeinflussen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("paste", (event) => {});
@@ -30,7 +30,7 @@ onpaste = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ClipboardEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ClipboardEvent")}}
 
@@ -94,6 +94,6 @@ document
 ## Siehe auch
 
 - Verwandte Ereignisse: [`cut`](/de/docs/Web/API/SVGGraphicsElement/cut_event), [`copy`](/de/docs/Web/API/SVGGraphicsElement/copy_event)
-- Dieses Ereignis auf HTML {{domxref("Element")}} Zielen: [`paste`](/de/docs/Web/API/Element/paste_event)
-- Dieses Ereignis auf {{domxref("Document")}} Zielen: [`paste`](/de/docs/Web/API/Document/paste_event)
-- Dieses Ereignis auf {{domxref("Window")}} Zielen: [`paste`](/de/docs/Web/API/Window/paste_event)
+- Dieses Ereignis auf HTML [`Element`](/de/docs/Web/API/Element) Zielen: [`paste`](/de/docs/Web/API/Element/paste_event)
+- Dieses Ereignis auf [`Document`](/de/docs/Web/API/Document) Zielen: [`paste`](/de/docs/Web/API/Document/paste_event)
+- Dieses Ereignis auf [`Window`](/de/docs/Web/API/Window) Zielen: [`paste`](/de/docs/Web/API/Window/paste_event)

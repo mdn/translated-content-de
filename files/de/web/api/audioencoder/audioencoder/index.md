@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`AudioEncoder()`** Konstruktor erstellt ein neues {{domxref("AudioEncoder")}} Objekt mit dem bereitgestellten `init.output` Callback als zugewiesenem Ausgabe-Callback, dem bereitgestellten `init.error` Callback als Fehler-Callback und dem {{domxref("AudioEncoder.state")}}, das auf `"unconfigured"` gesetzt ist.
+Der **`AudioEncoder()`** Konstruktor erstellt ein neues [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Objekt mit dem bereitgestellten `init.output`-Callback als Ausgabe-Callback, dem bereitgestellten `init.error`-Callback als Fehler-Callback und setzt den [`AudioEncoder.state`](/de/docs/Web/API/AudioEncoder/state) auf `"unconfigured"`.
 
 ## Syntax
 
@@ -19,19 +19,19 @@ new AudioEncoder(init)
 ### Parameter
 
 - `init`
-  - : Ein Objekt, das zwei erforderliche Rückruf-Funktionen enthält.
+  - : Ein Objekt, das zwei erforderliche Callbacks enthält.
     - `output`
-      - : Ein Callback, welches ein {{domxref("EncodedAudioChunk")}} Objekt als erstes Argument und optional ein Metadatenobjekt als zweites annimmt. Das Metadatenobjekt hat ein Mitglied, `decoderConfig`, das ein Objekt als Wert enthält mit:
+      - : Ein Callback, das ein [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Objekt als erstes Argument und optional ein Metadatenobjekt als zweites Argument nimmt. Das Metadatenobjekt hat ein Mitglied, `decoderConfig`, das ein Objekt als Wert enthält, mit:
         - `codec`
-          - : Ein String, der einen [gültigen Codec-String](https://www.w3.org/TR/webcodecs-codec-registry/#audio-codec-registry) enthält.
+          - : Ein String, der eine [gültige Codec-Zeichenkette](https://www.w3.org/TR/webcodecs-codec-registry/#audio-codec-registry) enthält.
         - `sampleRate`
-          - : Ein Integer, der die Anzahl der Frame-Samples pro Sekunde darstellt.
+          - : Ein Integer, der die Anzahl der Samples pro Sekunde darstellt.
         - `numberOfChannels`
           - : Ein Integer, der die Anzahl der Audiokanäle darstellt.
         - `description` {{optional_inline}}
-          - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, das eine Sequenz von codec-spezifischen Bytes enthält, die allgemein als Extradata bekannt sind.
+          - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}} mit einer Sequenz von codec-spezifischen Bytes, die gemeinhin als Extradata bekannt sind.
     - `error`
-      - : Ein Callback, das ein {{jsxref("Error")}} Objekt als einziges Argument annimmt.
+      - : Ein Callback, das ein {{jsxref("Error")}}-Objekt als einziges Argument nimmt.
 
 ## Beispiele
 

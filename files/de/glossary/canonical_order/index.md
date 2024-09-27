@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Im CSS bezeichnet die **kanonische Reihenfolge** die Reihenfolge, in der separate Werte angegeben (oder {{Glossary("parse", "geparst")}}) werden müssen oder als Teil eines CSS-Property-Wertes {{Glossary("serialization", "serialisiert")}} werden sollen. Sie wird durch die formale {{Glossary("syntax")}} der Eigenschaft definiert und bezieht sich normalerweise auf die Reihenfolge, in der Langform-Werte als Teil eines Einzelwerts in Kurzform angegeben werden sollen.
+In CSS bezieht sich die **kanonische Reihenfolge** auf die Reihenfolge, in der separate Werte angegeben (oder [geparst](/de/docs/Glossary/parse)) werden müssen oder als Teil eines CSS-Eigenschaftswertes [serialisiert](/de/docs/Glossary/serialization) werden sollen. Sie wird durch die formale [Syntax](/de/docs/Glossary/syntax) der Eigenschaft definiert und bezieht sich normalerweise auf die Reihenfolge, in der Langformwerte als Teil eines einzelnen Kurzformwerts angegeben werden sollten.
 
-Zum Beispiel werden für die {{cssxref("background")}}-Kurzform-Eigenschaft mehrere Langform-Eigenschaften `background-*` kombiniert. Die kanonische Reihenfolge dieser Langform-Werte ist definiert als
+Zum Beispiel bestehen die Kurzform-Eigenschaftswerte von {{cssxref("background")}} aus mehreren `background-*` Langform-Eigenschaften. Die kanonische Reihenfolge dieser Langformwerte ist definiert als
 
 1. {{cssxref("background-image")}}
 2. {{cssxref("background-position")}}
@@ -24,5 +24,5 @@ Darüber hinaus definiert die Syntax, dass, wenn ein Wert für die {{cssxref("ba
 
 ## Siehe auch
 
-- [CSS-Wertedefinitionssyntax](/de/docs/Web/CSS/Value_definition_syntax)
-- [Was bedeutet "kanonische Reihenfolge" im Hinblick auf CSS-Eigenschaften?](https://stackoverflow.com/questions/28963536/what-does-canonical-order-mean-with-respect-to-css-properties) auf Stack Overflow bietet eine nützliche weitere Diskussion.
+- [CSS-Wertdefinitionssyntax](/de/docs/Web/CSS/Value_definition_syntax)
+- [Was bedeutet "kanonische Reihenfolge" in Bezug auf CSS-Eigenschaften?](https://stackoverflow.com/questions/28963536/what-does-canonical-order-mean-with-respect-to-css-properties) auf Stack Overflow bietet nützliche weitere Diskussionen.

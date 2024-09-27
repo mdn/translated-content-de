@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Das **`unset`** CSS-Schlüsselwort setzt eine Eigenschaft auf ihren geerbten Wert zurück, wenn die Eigenschaft von Natur aus von ihrem übergeordneten Element erbt, und auf ihren [Anfangswert](/de/docs/Web/CSS/initial_value), wenn nicht. Mit anderen Worten, es verhält sich wie das {{cssxref("inherit")}} Schlüsselwort im ersten Fall, wenn die Eigenschaft eine [geerbte Eigenschaft](/de/docs/Web/CSS/Inheritance#inherited_properties) ist, und wie das {{cssxref("initial")}} Schlüsselwort im zweiten Fall, wenn die Eigenschaft eine [nicht geerbte Eigenschaft](/de/docs/Web/CSS/Inheritance#non-inherited_properties) ist.
+Das **`unset`** CSS-Schlüsselwort setzt eine Eigenschaft auf ihren geerbten Wert zurück, wenn die Eigenschaft von Natur aus vom übergeordneten Element erbt, und auf ihren [anfänglichen Wert](/de/docs/Web/CSS/initial_value), wenn nicht. Mit anderen Worten, es verhält sich wie das {{cssxref("inherit")}}-Schlüsselwort im ersten Fall, wenn die Eigenschaft eine [geerbte Eigenschaft](/de/docs/Web/CSS/Inheritance#inherited_properties) ist, und wie das {{cssxref("initial")}}-Schlüsselwort im zweiten Fall, wenn die Eigenschaft eine [nicht geerbte Eigenschaft](/de/docs/Web/CSS/Inheritance#non-inherited_properties) ist.
 
-**`unset`** kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzschlusseigenschaft {{cssxref("all")}}.
+**`unset`** kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzschreibweise {{cssxref("all")}}.
 
 ## Beispiele
 
@@ -20,12 +20,12 @@ Das **`unset`** CSS-Schlüsselwort setzt eine Eigenschaft auf ihren geerbten Wer
 #### HTML
 
 ```html
-<p>Dieser Text ist rot.</p>
+<p>This text is red.</p>
 <div class="foo">
-  <p>Dieser Text ist auch rot.</p>
+  <p>This text is also red.</p>
 </div>
 <div class="bar">
-  <p>Dieser Text ist grün (standardmäßig geerbter Wert).</p>
+  <p>This text is green (default inherited value).</p>
 </div>
 ```
 
@@ -60,12 +60,12 @@ p {
 #### HTML
 
 ```html
-<p>Dieser Text hat einen roten Rahmen.</p>
+<p>This text has a red border.</p>
 <div>
-  <p>Dieser Text hat einen roten Rahmen.</p>
+  <p>This text has a red border.</p>
 </div>
 <div class="bar">
-  <p>Dieser Text hat einen schwarzen Rahmen (anfänglicher Standard, nicht geerbt).</p>
+  <p>This text has a black border (initial default, not inherited).</p>
 </div>
 ```
 
@@ -99,8 +99,8 @@ p {
 
 ## Siehe auch
 
-- Verwenden Sie das {{cssxref("initial")}} Schlüsselwort, um eine Eigenschaft auf ihren Anfangswert zu setzen.
-- Verwenden Sie das {{cssxref("inherit")}} Schlüsselwort, um die Eigenschaft eines Elements mit der seines übergeordneten Elements gleichzusetzen.
-- Verwenden Sie das {{cssxref("revert")}} Schlüsselwort, um eine Eigenschaft auf den Wert zurückzusetzen, der durch das Benutzeragenten-Stylesheet (oder durch Benutzerstile, falls vorhanden) festgelegt wurde.
-- Verwenden Sie das {{cssxref("revert-layer")}} Schlüsselwort, um eine Eigenschaft auf den Wert zurückzusetzen, der in einer vorherigen Kaskadenebene festgelegt wurde.
-- Die {{cssxref("all")}} Eigenschaft ermöglicht es Ihnen, alle Eigenschaften auf einmal auf ihren anfänglichen, geerbten, zurückgesetzten oder unset-Zustand zurückzusetzen.
+- Verwenden Sie das {{cssxref("initial")}}-Schlüsselwort, um eine Eigenschaft auf ihren anfänglichen Wert zu setzen.
+- Verwenden Sie das {{cssxref("inherit")}}-Schlüsselwort, um eine Eigenschaft eines Elements identisch mit der des übergeordneten Elements zu machen.
+- Verwenden Sie das {{cssxref("revert")}}-Schlüsselwort, um eine Eigenschaft auf den vom Benutzeragenten-Stylesheet festgelegten Wert zurückzusetzen (oder von Benutzerstilen, falls vorhanden).
+- Verwenden Sie das {{cssxref("revert-layer")}}-Schlüsselwort, um eine Eigenschaft auf den in einer vorherigen Kaskadenschicht festgelegten Wert zurückzusetzen.
+- Die {{cssxref("all")}}-Eigenschaft ermöglicht es Ihnen, alle Eigenschaften gleichzeitig auf ihren anfänglichen, geerbten, zurückgesetzten oder nicht gesetzten Zustand zurückzusetzen.

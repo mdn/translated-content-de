@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: connectionState Eigenschaft"
+title: "RTCPeerConnection: connectionState-Eigenschaft"
 short-title: connectionState
 slug: Web/API/RTCPeerConnection/connectionState
 l10n:
@@ -8,30 +8,29 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`connectionState`** schreibgeschützte Eigenschaft des {{domxref("RTCPeerConnection")}}-Interfaces gibt den aktuellen Zustand der Peer-Verbindung an, indem sie einen der folgenden Zeichenkettenwerte zurückgibt: `new`, `connecting`, `connected`, `disconnected`, `failed` oder `closed`.
+Die schreibgeschützte Eigenschaft **`connectionState`** der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt den aktuellen Zustand der Peer-Verbindung an, indem sie einen der folgenden Zeichenfolgenwerte zurückgibt: `new`, `connecting`, `connected`, `disconnected`, `failed` oder `closed`.
 
-Dieser Zustand stellt im Wesentlichen den aggregierten Zustand aller ICE-Transporte (die entweder vom Typ {{domxref("RTCIceTransport")}} oder {{domxref("RTCDtlsTransport")}} sind) dar, die von der Verbindung genutzt werden.
+Dieser Zustand repräsentiert im Wesentlichen den aggregierten Zustand aller ICE-Transporte (vom Typ [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) oder [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)), die von der Verbindung verwendet werden.
 
-Wenn sich der Wert dieser Eigenschaft ändert, wird ein {{domxref("RTCPeerConnection.connectionstatechange_event", "connectionstatechange")}}-Ereignis an die {{domxref("RTCPeerConnection")}}-Instanz gesendet.
+Wenn sich der Wert dieser Eigenschaft ändert, wird ein [`connectionstatechange`](/de/docs/Web/API/RTCPeerConnection/connectionstatechange_event)-Ereignis an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Instanz gesendet.
 
 ## Wert
 
-Eine Zeichenkette, die den aktuellen Zustand der Verbindung darstellt. Dies kann einen der folgenden Werte annehmen:
+Eine Zeichenfolge, die den aktuellen Zustand der Verbindung darstellt.
+Dies kann einen der folgenden Werte annehmen:
 
 - `new`
-  - : Mindestens einer der {{Glossary("ICE")}}-Transporte ({{domxref("RTCIceTransport")}} oder {{domxref("RTCDtlsTransport")}} Objekte) der Verbindung befindet sich im Zustand `new` und keiner von ihnen befindet sich in einem der folgenden Zustände: `connecting`, `checking`, `failed`, `disconnected` oder alle Transporte der Verbindung befinden sich im Zustand `closed`.
+  - : Mindestens einer der [ICE](/de/docs/Glossary/ICE)-Transporte ([`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) oder [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) Objekte) der Verbindung befindet sich im Zustand `new`, und keiner von ihnen befindet sich in einem der folgenden Zustände: `connecting`, `checking`, `failed`, `disconnected`, oder alle Transporte der Verbindung befinden sich im Zustand `closed`.
 - `connecting`
-  - : Einer oder mehrere der {{Glossary("ICE")}}-Transporte befinden sich derzeit im Prozess, eine Verbindung herzustellen;
-    das heißt, ihr {{DOMxRef("RTCPeerConnection.iceConnectionState", "iceConnectionState")}} ist entweder `checking` oder `connected`, und keine Transporte befinden sich im Zustand `failed`.
+  - : Einer oder mehrere der [ICE](/de/docs/Glossary/ICE)-Transporte sind derzeit dabei, eine Verbindung herzustellen; das heißt, ihr [`iceConnectionState`](/de/docs/Web/API/RTCPeerConnection/iceConnectionState) ist entweder `checking` oder `connected`, und keine Transporte befinden sich im Zustand `failed`.
 - `connected`
-  - : Jeder {{Glossary("ICE")}}-Transport, der von der Verbindung verwendet wird, ist entweder in Gebrauch (Zustand `connected` oder `completed`) oder ist geschlossen (Zustand `closed`);
-    zusätzlich befindet sich mindestens ein Transport entweder im Zustand `connected` oder `completed`.
+  - : Jeder von der Verbindung verwendete [ICE](/de/docs/Glossary/ICE)-Transport wird entweder verwendet (Zustand `connected` oder `completed`) oder ist geschlossen (Zustand `closed`); zusätzlich befindet sich mindestens ein Transport entweder im Zustand `connected` oder `completed`.
 - `disconnected`
-  - : Mindestens einer der {{Glossary("ICE")}}-Transporte für die Verbindung befindet sich im Zustand `disconnected` und keiner der anderen Transporte befindet sich in den Zuständen: `failed`, `connecting` oder `checking`.
+  - : Mindestens einer der [ICE](/de/docs/Glossary/ICE)-Transporte der Verbindung befindet sich im Zustand `disconnected`, und keiner der anderen Transporte befindet sich in den Zuständen: `failed`, `connecting` oder `checking`.
 - `failed`
-  - : Einer oder mehrere der {{Glossary("ICE")}}-Transporte der Verbindung befinden sich im Zustand `failed`.
+  - : Einer oder mehrere der [ICE](/de/docs/Glossary/ICE)-Transporte der Verbindung befinden sich im Zustand `failed`.
 - `closed`
-  - : Die {{DOMxRef("RTCPeerConnection")}} ist geschlossen.
+  - : Die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ist geschlossen.
 
 ## Beispiel
 
@@ -54,7 +53,7 @@ const connectionState = peerConnection.connectionState;
 ## Siehe auch
 
 - [Lebensdauer einer WebRTC-Sitzung](/de/docs/Web/API/WebRTC_API/Session_lifetime)
-- {{domxref("RTCPeerConnection")}}
-- {{domxref("RTCPeerConnection.connectionstatechange_event", "connectionstatechange")}}
-- {{domxref("RTCIceTransport.state")}}
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)
+- [`connectionstatechange`](/de/docs/Web/API/RTCPeerConnection/connectionstatechange_event)
+- [`RTCIceTransport.state`](/de/docs/Web/API/RTCIceTransport/state)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

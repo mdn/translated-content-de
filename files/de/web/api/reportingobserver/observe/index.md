@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die **`observe()`**-Methode des {{domxref("ReportingObserver")}}-Interfaces weist einen Reporting-Observer an, mit dem Sammeln von Berichten in seiner Berichts-Warteschlange zu beginnen.
+Die **`observe()`**-Methode des
+[`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Interfaces weist einen Reporting-Observer an, mit dem Sammeln von Berichten in seiner Berichtswarteschlange zu beginnen.
 
 ## Syntax
 

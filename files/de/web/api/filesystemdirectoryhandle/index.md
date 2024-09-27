@@ -7,52 +7,52 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`FileSystemDirectoryHandle`**-Schnittstelle des {{domxref("File System API", "File System API", "", "nocode")}} bietet einen Handle zu einem Dateisystemverzeichnis.
+Die **`FileSystemDirectoryHandle`**-Schnittstelle der [File System API](/de/docs/Web/API/File_System_API) bietet einen Zugriff auf ein Dateisystemverzeichnis.
 
-Die Schnittstelle kann über die Methoden {{domxref('window.showDirectoryPicker()')}}, {{domxref('StorageManager.getDirectory()')}}, {{domxref('DataTransferItem.getAsFileSystemHandle()')}} und {{domxref('FileSystemDirectoryHandle.getDirectoryHandle()')}} aufgerufen werden.
+Die Schnittstelle kann über die Methoden [`window.showDirectoryPicker()`](/de/docs/Web/API/Window/showDirectoryPicker), [`StorageManager.getDirectory()`](/de/docs/Web/API/StorageManager/getDirectory), [`DataTransferItem.getAsFileSystemHandle()`](/de/docs/Web/API/DataTransferItem/getAsFileSystemHandle) und [`FileSystemDirectoryHandle.getDirectoryHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getDirectoryHandle) aufgerufen werden.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, {{DOMxRef("FileSystemHandle")}}._
+_Erbt Eigenschaften von ihrem Elternteil, [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)._
 
 ## Instanz-Methoden
 
-_Erbt Methoden von ihrem Elternteil, {{DOMxRef("FileSystemHandle")}}._
+_Erbt Methoden von ihrem Elternteil, [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)._
 
 Reguläre Methoden:
 
-- {{domxref('FileSystemDirectoryHandle.getDirectoryHandle()')}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem `FileSystemDirectoryHandle` für ein Unterverzeichnis mit dem angegebenen Namen innerhalb des Verzeichnishandles erfüllt wird, auf dem die Methode aufgerufen wird.
-- {{domxref('FileSystemDirectoryHandle.getFileHandle()')}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem {{domxref('FileSystemFileHandle')}} für eine Datei mit dem angegebenen Namen innerhalb des Verzeichnisses erfüllt wird, auf das die Methode aufgerufen wird.
-- {{domxref('FileSystemDirectoryHandle.removeEntry()')}}
-  - : Versucht asynchron, einen Eintrag zu entfernen, wenn der Verzeichnishandle eine Datei oder ein Verzeichnis mit dem angegebenen Namen enthält.
-- {{domxref('FileSystemDirectoryHandle.resolve()')}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von Verzeichnisnamen vom übergeordneten Handle bis zum angegebenen Kinder-Eintrag erfüllt wird, wobei der Name des Kinder-Eintrags das letzte Array-Element ist.
+- [`FileSystemDirectoryHandle.getDirectoryHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getDirectoryHandle)
+  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem `FileSystemDirectoryHandle` für ein Unterverzeichnis mit dem angegebenen Namen innerhalb des aufgerufenen Verzeichnis-Handles erfüllt wird.
+- [`FileSystemDirectoryHandle.getFileHandle()`](/de/docs/Web/API/FileSystemDirectoryHandle/getFileHandle)
+  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) für eine Datei mit dem angegebenen Namen innerhalb des aufgerufenen Verzeichnisses erfüllt wird.
+- [`FileSystemDirectoryHandle.removeEntry()`](/de/docs/Web/API/FileSystemDirectoryHandle/removeEntry)
+  - : Versucht asynchron einen Eintrag zu entfernen, wenn das Verzeichnis-Handle eine Datei oder ein Verzeichnis mit dem angegebenen Namen enthält.
+- [`FileSystemDirectoryHandle.resolve()`](/de/docs/Web/API/FileSystemDirectoryHandle/resolve)
+  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von Verzeichnisnamen vom übergeordneten Handle zum angegebenen untergeordneten Eintrag erfüllt wird, wobei der Name des untergeordneten Eintrags das letzte Array-Element ist.
 
-[Asynchrones Iterator]-Methoden:
+[Asynchroner Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols)-Methoden:
 
-- {{domxref('FileSystemDirectoryHandle.entries()')}}
-  - : Gibt einen neuen _asynchronen Iterator_ der eigenen aufzählbaren Eigenschafts-`[key, value]`-Paare eines gegebenen Objekts zurück.
-- {{domxref('FileSystemDirectoryHandle.keys()')}}
-  - : Gibt einen neuen _asynchronen Iterator_ zurück, der die Schlüssel für jedes Element im `FileSystemDirectoryHandle` enthält.
-- {{domxref('FileSystemDirectoryHandle.values()')}}
-  - : Gibt einen neuen _asynchronen Iterator_ zurück, der die Werte für jeden Index im `FileSystemDirectoryHandle`-Objekt enthält.
+- [`FileSystemDirectoryHandle.entries()`](/de/docs/Web/API/FileSystemDirectoryHandle/entries)
+  - : Gibt einen neuen _async iterator_ für die eigenen aufzählbaren `[key, value]`-Paare eines gegebenen Objekts zurück.
+- [`FileSystemDirectoryHandle.keys()`](/de/docs/Web/API/FileSystemDirectoryHandle/keys)
+  - : Gibt einen neuen _async iterator_ zurück, der die Schlüssel für jedes Element in `FileSystemDirectoryHandle` enthält.
+- [`FileSystemDirectoryHandle.values()`](/de/docs/Web/API/FileSystemDirectoryHandle/values)
+  - : Gibt einen neuen _async iterator_ zurück, der die Werte für jeden Index im `FileSystemDirectoryHandle`-Objekt enthält.
 - `FileSystemDirectoryHandle[Symbol.asyncIterator]()`
-  - : Gibt einen neuen _asynchronen Iterator_ der eigenen aufzählbaren Eigenschafts-`[key, value]`-Paare eines gegebenen Objekts zurück.
+  - : Gibt einen neuen _async iterator_ für die eigenen aufzählbaren `[key, value]`-Paare eines gegebenen Objekts zurück.
 
 ## Beispiele
 
 ### Verzeichnishandle zurückgeben
 
-Das folgende Beispiel gibt einen Verzeichnishandle mit dem angegebenen Namen zurück; falls das Verzeichnis noch nicht existiert, wird es erstellt.
+Das folgende Beispiel gibt ein Verzeichnishandle mit dem angegebenen Namen zurück; wenn das Verzeichnis noch nicht existiert, wird es erstellt.
 
 ```js
 const dirName = "directoryToGetName";
 
-// angenommener Verzeichnishandle: 'currentDirHandle'
+// assuming we have a directory handle: 'currentDirHandle'
 const subDir = currentDirHandle.getDirectoryHandle(dirName, { create: true });
 ```
 
@@ -62,23 +62,23 @@ Die folgende asynchrone Funktion verwendet `resolve()`, um den Pfad zu einer aus
 
 ```js
 async function returnPathDirectories(directoryHandle) {
-  // Einen Datei-Hanlde abrufen, indem ein Dateiauswahlfenster angezeigt wird:
+  // Get a file handle by showing a file picker:
   const handle = await self.showOpenFilePicker();
   if (!handle) {
-    // Der Benutzer hat abgebrochen oder es ist anderweitig fehlgeschlagen, eine Datei zu öffnen.
+    // User cancelled, or otherwise failed to open a file.
     return;
   }
 
-  // Prüfen, ob der Handle innerhalb unseres Verzeichnishandles existiert
+  // Check if handle exists inside our directory handle
   const relativePaths = await directoryHandle.resolve(handle);
 
   if (relativePath === null) {
-    // Nicht innerhalb des Verzeichnishandles
+    // Not inside directory handle
   } else {
-    // relativePath ist ein Array von Namen, das den relativen Pfad angibt
+    // relativePath is an array of names, giving the relative path
 
     for (const name of relativePaths) {
-      // jeden Eintrag protokollieren
+      // log each entry
       console.log(name);
     }
   }
@@ -87,7 +87,7 @@ async function returnPathDirectories(directoryHandle) {
 
 ### Handles für alle Dateien in einem Verzeichnis zurückgeben
 
-Das folgende Beispiel durchsucht ein Verzeichnis rekursiv, um {{domxref('FileSystemFileHandle')}}-Objekte für jede Datei in diesem Verzeichnis zurückzugeben:
+Das folgende Beispiel durchsucht ein Verzeichnis rekursiv, um [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)-Objekte für jede Datei in diesem Verzeichnis zurückzugeben:
 
 ```js
 async function* getFilesRecursively(entry) {

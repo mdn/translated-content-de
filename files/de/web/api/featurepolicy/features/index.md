@@ -1,5 +1,5 @@
 ---
-title: "FeaturePolicy: features()-Methode"
+title: "FeaturePolicy: features() Methode"
 short-title: features()
 slug: Web/API/FeaturePolicy/features
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Feature Policy API")}}{{SeeCompatTable}}
 
-Die **`features()`**-Methode der
-{{DOMxRef("FeaturePolicy")}}-Schnittstelle liefert eine Liste von Namen aller vom User Agent unterstützten Features zurück. Features, deren Name in der Liste erscheint, sind möglicherweise nicht durch die [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) des aktuellen Ausführungskontextes erlaubt und/oder könnten aufgrund der Berechtigungen des Benutzers nicht zugänglich sein.
+Die **`features()`**-Methode der [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Schnittstelle gibt eine Liste der Namen aller vom User-Agent unterstützten Features zurück. Features, deren Namen auf der Liste erscheinen, könnten möglicherweise nicht von der [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) des aktuellen Ausführungskontextes erlaubt sein und/oder aufgrund von Benutzerberechtigungen nicht zugänglich sein.
 
 ## Syntax
 
@@ -23,20 +22,20 @@ Keine.
 
 ### Rückgabewert
 
-Eine Liste von Zeichenfolgen, die die Namen aller vom User Agent unterstützten Berechtigungsrichtlinien-Direktiven darstellen.
+Eine Liste von Strings, die die Namen aller vom User-Agent unterstützten Permissions Policy-Direktiven darstellen.
 
 ## Beispiel
 
-Das folgende Beispiel protokolliert alle unterstützten Direktiven in der Konsole.
+Das folgende Beispiel protokolliert alle unterstützen Direktiven in der Konsole.
 
 ```js
-// Holen Sie sich das FeaturePolicy-Objekt
+// Get the FeaturePolicy object
 const featurePolicy = document.featurePolicy;
 
-// Rufen Sie die Liste aller unterstützten Berechtigungsrichtlinien-Direktiven ab
+// Retrieve the list of all supported Permissions Policy directives
 const supportedDirectives = featurePolicy.features();
 
-// Geben Sie jede Direktive in der Konsole aus
+// Print out each directive into the console
 for (const directive of supportedDirectives) {
   console.log(directive);
 }

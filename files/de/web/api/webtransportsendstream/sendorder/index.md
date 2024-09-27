@@ -1,5 +1,5 @@
 ---
-title: "WebTransportSendStream: Eigenschaft sendOrder"
+title: "WebTransportSendStream: sendOrder-Eigenschaft"
 short-title: sendOrder
 slug: Web/API/WebTransportSendStream/sendOrder
 l10n:
@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SeeCompatTable}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`sendOrder`**-Eigenschaft der {{domxref("WebTransportSendStream")}}-Schnittstelle gibt die Sendepriorität dieses Streams relativ zu anderen Streams an, für die der Wert gesetzt wurde.
+Die **`sendOrder`**-Eigenschaft der [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream)-Schnittstelle gibt die Sendepriorität dieses Streams relativ zu anderen Streams an, für die der Wert festgelegt wurde.
 
-Warteschlangenbytes werden zuerst für Streams mit einem höheren Wert gesendet.
-Wenn nicht gesetzt, hängt die Sendepriorität von der Implementierung ab.
+Zuerst werden die in der Warteschlange befindlichen Bytes für Streams gesendet, die einen höheren Wert haben. Wenn nicht festgelegt, hängt die Sendereihenfolge von der Implementierung ab.
 
 ## Wert
 
@@ -19,8 +18,7 @@ Eine Zahl, die die relative Priorität dieses Streams beim Senden von Bytes angi
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Sie die anfängliche `sendOrder` beim Aufruf von {{domxref("WebTransport.createUnidirectionalStream()")}} zum Erstellen des Sendestreams einstellen, den Wert aus dem Stream lesen und dann die Reihenfolge ändern können.
-Nach der Änderung der Reihenfolge würde die Priorität dieses Streams steigen und höher werden als jeder Stream mit einer Priorität von weniger als "596996858".
+Das unten stehende Beispiel zeigt, wie Sie die anfängliche `sendOrder` festlegen können, wenn Sie [`WebTransport.createUnidirectionalStream()`](/de/docs/Web/API/WebTransport/createUnidirectionalStream) aufrufen, um den Sendestream zu erstellen, den Wert vom Stream lesen und dann die Reihenfolge ändern. Nach der Änderung der Reihenfolge würde die Priorität dieses Streams steigen und höher werden als bei jedem Stream mit einer Priorität von weniger als "596996858".
 
 ```js
 async function writeData() {
@@ -50,7 +48,7 @@ async function writeData() {
 
 ## Siehe auch
 
-- [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

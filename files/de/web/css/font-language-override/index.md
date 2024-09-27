@@ -7,23 +7,23 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-language-override`**-Eigenschaft von [CSS](/de/docs/Web/CSS) steuert die Verwendung von sprachspezifischen Glyphen in einer Schriftart.
+Die **`font-language-override`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Verwendung von sprachspezifischen Glyphen in einer Schriftart.
 
-Standardmäßig weist das `lang`-Attribut von HTML den Browsern an, Glyphen anzuzeigen, die speziell für diese Sprache entworfen wurden. Viele Schriftarten haben zum Beispiel ein spezielles Zeichen für das Digraph `fi`, das den Punkt auf dem "i" mit dem "f" verbindet. Wenn jedoch die Sprache auf Türkisch eingestellt ist, wird die Schriftart wahrscheinlich wissen, dass das verbundene Zeichen nicht verwendet werden sollte; Türkisch hat zwei Versionen des "i", eine mit Punkt (`i`) und eine ohne (`ı`), und die Verwendung der Ligatur würde fälschlicherweise ein punktiertes "i" in ein punktloses "i" umwandeln.
+Standardmäßig gibt das `lang`-Attribut von HTML Browsern die Anweisung, speziell für diese Sprache gestaltete Glyphen anzuzeigen. Viele Schriftarten haben beispielsweise ein besonderes Zeichen für das Digraph `fi`, das den Punkt auf dem "i" mit dem "f" verbindet. Wenn die Sprache jedoch auf Türkisch eingestellt ist, weiß die Schriftart normalerweise, dass das zusammengeführte Zeichen nicht verwendet werden sollte; Türkisch hat zwei Versionen des "i", eines mit Punkt (`i`) und eines ohne Punkt (`ı`), und die Verwendung der Ligatur würde ein gepunktetes "i" fälschlicherweise in ein punkttloses "i" umwandeln.
 
-Die `font-language-override`-Eigenschaft ermöglicht es Ihnen, das Verhalten einer Schriftart für eine bestimmte Sprache zu überschreiben. Dies ist nützlich, zum Beispiel wenn die verwendete Schriftart keine ausreichende Unterstützung für die Sprache bietet. Wenn eine Schriftart beispielsweise keine korrekten Regeln für die aserbaidschanische Sprache hat, können Sie die Schrift zwingen, türkische Glyphen zu verwenden, die ähnlichen Regeln folgen.
+Die `font-language-override` Eigenschaft ermöglicht es Ihnen, das Verhalten der Schriftart für eine bestimmte Sprache zu überschreiben. Dies ist nützlich, wenn die verwendete Schriftart keinen ordnungsgemäßen Support für die Sprache bietet. Beispielsweise, wenn eine Schriftart keine ordnungsgemäßen Regeln für die aserbaidschanische Sprache hat, können Sie die Schrift zwingen, türkische Glyphen zu verwenden, die ähnliche Regeln befolgen.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwert */
+/* Keyword value */
 font-language-override: normal;
 
-/* <string> Werte */
-font-language-override: "ENG"; /* Englische Glyphen verwenden */
-font-language-override: "TRK"; /* Türkische Glyphen verwenden */
+/* <string> values */
+font-language-override: "ENG"; /* Use English glyphs */
+font-language-override: "TRK"; /* Use Turkish glyphs */
 
-/* Globale Werte */
+/* Global values */
 font-language-override: inherit;
 font-language-override: initial;
 font-language-override: revert;
@@ -31,14 +31,14 @@ font-language-override: revert-layer;
 font-language-override: unset;
 ```
 
-Die `font-language-override`-Eigenschaft wird als Schlüsselwort `normal` oder als `<string>` angegeben.
+Die `font-language-override` Eigenschaft wird als das Schlüsselwort `normal` oder als ein `<string>` angegeben.
 
 ### Werte
 
 - `normal`
-  - : Weißen Sie den Browser an, diejenigen Schriftarten zu verwenden, die für die durch das `lang`-Attribut spezifizierte Sprache geeignet sind. Dies ist der Standardwert.
+  - : Sagt dem Browser, Glyphen zu verwenden, die für die im `lang`-Attribut angegebene Sprache geeignet sind. Dies ist der Standardwert.
 - {{cssxref("string")}}
-  - : Weißen Sie den Browser an, solche Schriftarten zu verwenden, die für die durch den String spezifizierte Sprache geeignet sind. Der String muss einem Sprach-Tag entsprechen, das im [OpenType-Sprachsystem](https://learn.microsoft.com/en-us/typography/opentype/spec/languagetags) gefunden wird. Zum Beispiel steht "ENG" für Englisch und "KOR" für Koreanisch.
+  - : Sagt dem Browser, Glyphen zu verwenden, die für die durch den String spezifizierte Sprache geeignet sind. Der String muss ein Sprach-Tag enthalten, das im [OpenType language system](https://learn.microsoft.com/en-us/typography/opentype/spec/languagetags) zu finden ist. Beispielsweise ist "ENG" Englisch und "KOR" Koreanisch.
 
 ## Formale Definition
 
@@ -55,9 +55,9 @@ Die `font-language-override`-Eigenschaft wird als Schlüsselwort `normal` oder a
 #### HTML
 
 ```html
-<p class="para1">Standardeinstellung der Sprache.</p>
+<p class="para1">Default language setting.</p>
 <p class="para2">
-  Dies ist ein String mit der <code>font-language-override</code>, die auf Dänisch gesetzt ist.
+  This is a string with the <code>font-language-override</code> set to Danish.
 </p>
 ```
 

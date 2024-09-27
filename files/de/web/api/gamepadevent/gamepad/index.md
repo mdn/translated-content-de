@@ -9,18 +9,15 @@ l10n:
 {{APIRef("Gamepad API")}}{{SecureContext_Header}}
 
 Die **`GamepadEvent.gamepad`**-Eigenschaft der
-**{{domxref("GamepadEvent")}}-Schnittstelle** liefert ein {{domxref("Gamepad")}}
-Objekt, das Zugriff auf die zugehörigen Gamepad-Daten für ausgelöste
-{{domxref("Window.gamepadconnected_event", "gamepadconnected")}} und {{domxref("Window.gamepaddisconnected_event", "gamepaddisconnected")}} Ereignisse bietet.
+**[`GamepadEvent`](/de/docs/Web/API/GamepadEvent)-Schnittstelle** gibt ein [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt zurück, das Zugriff auf die zugehörigen Gamepad-Daten für ausgelöste [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)- und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event)-Ereignisse bietet.
 
 ## Wert
 
-Ein {{domxref("Gamepad")}} Objekt.
+Ein [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt.
 
 ## Beispiele
 
-Die `gamepad`-Eigenschaft wird bei einem ausgelösten
-{{domxref("Window.gamepadconnected_event", "gamepadconnected")}} Ereignis aufgerufen.
+Die `gamepad`-Eigenschaft wird bei einem ausgelösten [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)-Ereignis aufgerufen.
 
 ```js
 window.addEventListener("gamepadconnected", (e) => {
@@ -38,7 +35,7 @@ window.addEventListener("gamepadconnected", (e) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

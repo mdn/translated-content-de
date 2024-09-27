@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("SVG")}}
 
-BaseVal gibt den Basiswert des angegebenen Attributs zurück oder legt ihn fest, bevor irgendwelche Animationen angewendet werden. Der Basiswert des angegebenen Attributs vor der Anwendung von Animationen. Der Setter löst DOMException aus.
+BaseVal ruft den Basiswert des angegebenen Attributs ab oder setzt ihn, bevor Animationen angewendet werden. Der Basiswert des gegebenen Attributs vor der Anwendung von Animationen. Der Setter löst eine DOMException aus.
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 
-## Browser compatibility
+## Browser-Kompatibilität
 
 {{Compat}}

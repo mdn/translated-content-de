@@ -1,5 +1,5 @@
 ---
-title: "IntersectionObserver: Methode disconnect()"
+title: "IntersectionObserver: disconnect()-Methode"
 short-title: disconnect()
 slug: Web/API/IntersectionObserver/disconnect
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die Methode **`disconnect()`** des {{domxref("IntersectionObserver")}}-Objekts stoppt die Überwachung aller seiner Ziel-Elemente auf Sichtbarkeitsänderungen.
+Die Methode **`disconnect()`** des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) stoppt das Überwachen aller ihrer Zielelemente auf Sichtbarkeitsänderungen.
 
 ## Syntax
 
@@ -34,5 +34,5 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- {{domxref("IntersectionObserver.observe", "observe()")}}
-- {{domxref("IntersectionObserver.unobserve", "unobserve()")}}
+- [`observe()`](/de/docs/Web/API/IntersectionObserver/observe)
+- [`unobserve()`](/de/docs/Web/API/IntersectionObserver/unobserve)

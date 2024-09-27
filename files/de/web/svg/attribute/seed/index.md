@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`seed`**-Attribut repräsentiert die Startnummer für den Pseudozufallsgenerator der {{SVGElement("feTurbulence")}} Filterprimitive.
+Das **`seed`**-Attribut repräsentiert die Startnummer für den Pseudozufallszahlengenerator der {{SVGElement("feTurbulence")}}-Filterprimitive.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -70,7 +70,7 @@ svg {
 
 {{EmbedLiveSample("Beispiel 2", "220", "250")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -93,6 +93,6 @@ svg {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

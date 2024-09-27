@@ -2,14 +2,14 @@
 title: maskUnits
 slug: Web/SVG/Attribute/maskUnits
 l10n:
-  sourceCommit: b7c9a25bc747b8a4a3dfd91a37ac1b2193414c3a
+  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
 ---
 
 {{SVGRef}}
 
-Das **`maskUnits`**-Attribut gibt an, welches Koordinatensystem für die Geometrieeigenschaften des {{ SVGElement("mask") }}-Elements verwendet werden soll.
+Das Attribut **`maskUnits`** gibt an, welches Koordinatensystem für die Geometrieeigenschaften des {{ SVGElement("mask") }}-Elements verwendet werden soll.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('mask')}}
 
@@ -63,7 +63,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel", '100%', 200)}}
+{{EmbedLiveSample("Example", '100%', 200)}}
 
 ## Maske
 
@@ -87,9 +87,9 @@ Für {{SVGElement('mask')}} definiert `maskUnits` das Koordinatensystem, das fü
 </table>
 
 - `userSpaceOnUse`
-  - : Dieser Wert gibt an, dass alle Koordinaten für die Geometrieattribute sich auf das Benutzerkoordinatensystem beziehen, wie es beim Erstellen der Maske definiert wurde.
+  - : Dieser Wert gibt an, dass sich alle Koordinaten für die Geometrieattribute auf das Benutzerkoordinatensystem beziehen, wie es bei der Erstellung der Maske definiert wurde.
 - `objectBoundingBox`
-  - : Dieser Wert gibt an, dass alle Koordinaten für die Geometrieattribute Bruchteile oder Prozentsätze des Begrenzungsrahmens des Elements darstellen, auf das die Maske angewendet wird. Ein Begrenzungsrahmen könnte als identisch betrachtet werden, wenn der Inhalt der {{ SVGElement("mask") }} an ein "`0 0 1 1`" {{ SVGAttr("viewBox") }} gebunden wäre.
+  - : Dieser Wert gibt an, dass alle Koordinaten für die Geometrieattribute Bruchteile oder Prozentsätze des Begrenzungsrahmens des Elements darstellen, auf das die Maske angewendet wird. Ein Begrenzungsrahmen könnte als äquivalent betrachtet werden, als ob der Inhalt der {{ SVGElement("mask") }} an eine `"0 0 1 1"` {{ SVGAttr("viewBox") }} gebunden wäre.
 
 ## Spezifikationen
 

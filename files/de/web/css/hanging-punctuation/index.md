@@ -1,5 +1,5 @@
 ---
-title: hängende Interpunktion
+title: hanging-punctuation
 slug: Web/CSS/hanging-punctuation
 l10n:
   sourceCommit: c2ef352178529c5b7c7f58819cf7f8baa1aa6b55
@@ -7,26 +7,26 @@ l10n:
 
 {{CSSRef}}
 
-Die **`hanging-punctuation`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein Satzzeichen am Anfang oder Ende einer Textzeile hängen soll. Hängende Interpunktion kann außerhalb des Zeilenrahmens platziert werden.
+Die **`hanging-punctuation`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt an, ob ein Satzzeichen am Anfang oder Ende einer Textzeile hängen soll. Hängende Satzzeichen können außerhalb der Zeilenbox platziert werden.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 hanging-punctuation: none;
 hanging-punctuation: first;
 hanging-punctuation: last;
 hanging-punctuation: allow-end;
 
-/* Zwei Schlüsselwörter */
+/* Two keywords */
 hanging-punctuation: first allow-end;
 hanging-punctuation: first last;
 hanging-punctuation: last allow-end;
 
-/* Drei Schlüsselwörter */
+/* Three keywords */
 hanging-punctuation: first allow-end last;
 
-/* Globale Werte */
+/* Global values */
 hanging-punctuation: inherit;
 hanging-punctuation: initial;
 hanging-punctuation: revert;
@@ -34,7 +34,7 @@ hanging-punctuation: revert-layer;
 hanging-punctuation: unset;
 ```
 
-Die `hanging-punctuation` Eigenschaft kann mit einem, zwei oder drei durch Leerzeichen getrennten Werten angegeben werden.
+Die `hanging-punctuation`-Eigenschaft kann mit einem, zwei oder drei durch Leerzeichen getrennten Werten angegeben werden.
 
 ### Werte
 
@@ -42,17 +42,17 @@ Die `hanging-punctuation` Eigenschaft kann mit einem, zwei oder drei durch Leerz
   - : Kein Zeichen hängt.
 - `first`
 
-  - : Eine öffnende Klammer oder ein Anfangszeichen in der ersten formatierten Zeile eines Elements hängt. Dies gilt für:
+  - : Eine öffnende Klammer oder ein Anführungszeichen am Anfang der ersten formatierten Zeile eines Elements hängt. Dies gilt für:
 
     - alle Zeichen in den Unicode-Kategorien [Ps](https://unicodeplus.com/category/Ps), [Pf](https://unicodeplus.com/category/Pf), [Pi](https://unicodeplus.com/category/Pi)
-    - die Anführungszeichen `U+0027` APOSTROPHE (`'`) und `U+0022` ANFÜHRUNGSZEICHEN (`"`).
+    - die Anführungszeichen `U+0027` APOSTROPH (`'`) und `U+0022` ANFÜHRUNGSZEICHEN (`"`).
 
 - `last`
-  - : Eine schließende Klammer oder ein Endzeichen in der letzten formatierten Zeile eines Elements hängt. Dies gilt für:
+  - : Eine schließende Klammer oder ein Anführungszeichen am Ende der letzten formatierten Zeile eines Elements hängt. Dies gilt für:
     - alle Zeichen in den Unicode-Kategorien [Pe](https://unicodeplus.com/category/Pe), [Pf](https://unicodeplus.com/category/Pf), [Pi](https://unicodeplus.com/category/Pi)
-    - die Anführungszeichen `U+0027` APOSTROPHE (`'`) und `U+0022` ANFÜHRUNGSZEICHEN (`"`).
+    - die Anführungszeichen `U+0027` APOSTROPH (`'`) und `U+0022` ANFÜHRUNGSZEICHEN (`"`).
 - `allow-end`
-  - : Ein Punkt oder Komma am Ende einer Zeile hängt, wenn es sonst nicht vor der Ausrichtung passt.
+  - : Ein Punkt oder Komma am Ende einer Zeile hängt, wenn es sonst vor der Ausrichtung nicht passt.
 
 Punkte und Kommas, die hängen dürfen, umfassen:
 
@@ -62,13 +62,13 @@ Punkte und Kommas, die hängen dürfen, umfassen:
 - `U+06D4`, ARABISCHER PUNKT
 - `U+3001`, IDEOGRAPHISCHES KOMMA
 - `U+3002`, IDEOGRAPHISCHER PUNKT
-- `U+FF0C`, VOLLWEITES KOMMA
-- `U+FF0E`, VOLLWEITER PUNKT
+- `U+FF0C`, KOMMA IN VOLLBREITE
+- `U+FF0E`, PUNKT IN VOLLBREITE
 - `U+FE50`, KLEINES KOMMA
 - `U+FE51`, KLEINES IDEOGRAPHISCHES KOMMA
 - `U+FE52`, KLEINER PUNKT
-- `U+FF61`, HALBWEITES IDEOGRAPHISCHES KOMMA
-- `U+FF64`, HALBWEITES IDEOGRAPHISCHES KOMMA
+- `U+FF61`, HALBBREITER IDEOGRAPHISCHER PUNKT
+- `U+FF64`, HALBBREITEN IDEOGRAPHISCHES KOMMA
 
 Benutzeragenten können zusätzliche Zeichen einschließen.
 
@@ -82,7 +82,7 @@ Benutzeragenten können zusätzliche Zeichen einschließen.
 
 ## Beispiele
 
-### Setzen von öffnenden und schließenden Anführungszeichen zum Hängen
+### Eröffnende und schließende Anführungszeichen hängen lassen
 
 #### HTML
 
@@ -131,7 +131,7 @@ p.right {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

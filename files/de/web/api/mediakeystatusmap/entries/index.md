@@ -9,9 +9,8 @@ l10n:
 {{APIRef("Encrypted Media Extensions")}}
 
 Die **`entries()`**-Methode
-der Schnittstelle {{domxref("MediaKeyStatusMap")}} gibt ein neues Iterator-Objekt zurück,
-das ein Array von \[key, value]-Paaren für jedes Element in der Statusmap beinhaltet, in der
-Reihenfolge ihrer Einfügung.
+des [`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap)-Interfaces gibt ein neues Iterator-Objekt zurück,
+das ein Array von `[key, value]`-Paaren für jedes Element in der Status-Map in der Reihenfolge der Einfügung enthält.
 
 ## Syntax
 

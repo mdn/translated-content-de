@@ -7,20 +7,20 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLDivElement`**-Schnittstelle bietet spezielle Eigenschaften (über die reguläre {{domxref("HTMLElement")}}-Schnittstelle hinaus, die ihr ebenfalls durch Vererbung zur Verfügung steht) zur Manipulation von {{HtmlElement("div")}}-Elementen.
+Das **`HTMLDivElement`**-Interface bietet spezielle Eigenschaften (zusätzlich zu den regulären Eigenschaften des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces, die es auch durch Vererbung zur Verfügung hat) zur Manipulation von {{HtmlElement("div")}}-Elementen.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLDivElement.align")}} {{deprecated_inline}}
-  - : Ein String, der eine aufgezählte Eigenschaft darstellt, die die Ausrichtung der Inhalte des Elements im Verhältnis zum umgebenden Kontext angibt. Die möglichen Werte sind `"left"`, `"right"`, `"justify"` und `"center"`.
+- [`HTMLDivElement.align`](/de/docs/Web/API/HTMLDivElement/align) {{deprecated_inline}}
+  - : Ein String, der eine aufgezählte Eigenschaft darstellt, die die Ausrichtung des Inhalts des Elements im Hinblick auf den umgebenden Kontext angibt. Die möglichen Werte sind `"left"`, `"right"`, `"justify"` und `"center"`.
 
 ## Instanzmethoden
 
-_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, {{domxref("HTMLElement")}}._
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 
@@ -32,4 +32,4 @@ _Keine spezifische Methode; erbt Methoden von ihrem Elternteil, {{domxref("HTMLE
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("div") }}.
+- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("div") }}.

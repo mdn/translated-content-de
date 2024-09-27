@@ -1,5 +1,5 @@
 ---
-title: "DOMTokenList: remove()-Methode"
+title: "DOMTokenList: remove() Methode"
 short-title: remove()
 slug: Web/API/DOMTokenList/remove
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`remove()`**-Methode des {{domxref("DOMTokenList")}}-Interfaces entfernt die angegebenen _Tokens_ aus der Liste.
+Die **`remove()`** Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle entfernt die angegebenen _Tokens_ aus der Liste.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ remove(token1, token2, /* …, */ tokenN)
 ### Parameter
 
 - `token1`, …, `tokenN`
-  - : Ein String, der das Token darstellt, das Sie aus der Liste entfernen möchten. Wenn sich der String nicht in der Liste befindet, wird kein Fehler ausgelöst und nichts passiert.
+  - : Ein String, der das Token repräsentiert, das Sie aus der Liste entfernen möchten. Wenn der String nicht in der Liste enthalten ist, wird kein Fehler ausgelöst und es passiert nichts.
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("span")}}-Element als `DOMTokenList` mithilfe von {{domxref("Element.classList")}} gesetzt sind. Wir entfernen dann ein Token aus der Liste und schreiben die Liste in den `<span>`-{{domxref("Node.textContent")}}.
+Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("span")}}-Element als `DOMTokenList` über [`Element.classList`](/de/docs/Web/API/Element/classList) gesetzt sind. Dann entfernen wir ein Token aus der Liste und schreiben die Liste in den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`.
 
 Zuerst das HTML:
 
@@ -37,7 +37,7 @@ Zuerst das HTML:
 <span id="ab" class="a b c"></span> <span id="a" class="a b c"></span>
 ```
 
-Nun das JavaScript:
+Jetzt das JavaScript:
 
 ```js
 const span = document.getElementById("ab");
@@ -56,7 +56,7 @@ classes2.remove("c", "b");
 span2.textContent = classes2;
 ```
 
-Die Ausgabe sieht folgendermaßen aus:
+Die Ausgabe sieht so aus:
 
 {{ EmbedLiveSample('Examples', '100%', 60) }}
 

@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die
-**`CanvasRenderingContext2D.moveTo()`**
-Methode der Canvas 2D API beginnt einen neuen Unterpfad an dem durch die angegebenen
-`(x, y)` Koordinaten spezifizierten Punkt.
+Die **`CanvasRenderingContext2D.moveTo()`**-Methode der Canvas 2D API beginnt einen neuen Unterpfad an dem durch die angegebenen `(x, y)`-Koordinaten bestimmten Punkt.
 
 ## Syntax
 
@@ -22,9 +19,9 @@ moveTo(x, y)
 ### Parameter
 
 - `x`
-  - : Die x-Achse (horizontale) Koordinate des Punktes.
+  - : Die x-Achsen-Koordinate (horizontal) des Punktes.
 - `y`
-  - : Die y-Achse (vertikale) Koordinate des Punktes.
+  - : Die y-Achsen-Koordinate (vertikal) des Punktes.
 
 ### Rückgabewert
 
@@ -32,10 +29,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Erstellen mehrerer Unterpfade
+### Erstellen von mehreren Unterpfaden
 
-Dieses Beispiel verwendet `moveTo()`, um zwei Unterpfade innerhalb eines einzigen Pfades zu erstellen.
-Beide Unterpfade werden dann mit einem einzigen `stroke()`-Aufruf gezeichnet.
+Dieses Beispiel verwendet `moveTo()`, um zwei Unterpfade innerhalb eines einzelnen Pfades zu erstellen. Beide Unterpfade werden dann mit einem einzigen Aufruf von `stroke()` gerendert.
 
 #### HTML
 
@@ -45,17 +41,16 @@ Beide Unterpfade werden dann mit einem einzigen `stroke()`-Aufruf gezeichnet.
 
 #### JavaScript
 
-Die erste Linie beginnt bei (50, 50) und endet bei (200, 50). Die zweite Linie beginnt bei (50,
-90\) und endet bei (280, 120).
+Die erste Linie beginnt bei (50, 50) und endet bei (200, 50). Die zweite Linie beginnt bei (50, 90) und endet bei (280, 120).
 
 ```js
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 ctx.beginPath();
-ctx.moveTo(50, 50); // Beginne ersten Unterpfad
+ctx.moveTo(50, 50); // Begin first sub-path
 ctx.lineTo(200, 50);
-ctx.moveTo(50, 90); // Beginne zweiten Unterpfad
+ctx.moveTo(50, 90); // Begin second sub-path
 ctx.lineTo(280, 120);
 ctx.stroke();
 ```
@@ -74,6 +69,6 @@ ctx.stroke();
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasRenderingContext2D.lineTo()")}}
-- {{domxref("CanvasRenderingContext2D.stroke()")}}
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasRenderingContext2D.lineTo()`](/de/docs/Web/API/CanvasRenderingContext2D/lineTo)
+- [`CanvasRenderingContext2D.stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke)

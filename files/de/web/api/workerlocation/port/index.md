@@ -1,5 +1,5 @@
 ---
-title: "WorkerLocation: port-Eigenschaft"
+title: "WorkerLocation: port Eigenschaft"
 short-title: port
 slug: Web/API/WorkerLocation/port
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`port`**-Eigenschaft eines {{domxref("WorkerLocation")}}-Objekts gibt den {{domxref("URL.port", "Port")}}-Teil des Ortes des Workers zurück.
+Die **`port`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt den [`port`](/de/docs/Web/API/URL/port)-Teil des Standorts des Workers zurück.
 
 ## Wert
 
@@ -17,8 +17,8 @@ Ein String.
 ## Beispiele
 
 ```js
-// In einem Web-Worker, auf der Seite http://localhost:8080/
-const result = location.port; // Gibt '8080' zurück
+// In a Web worker, on the page http://localhost:8080/
+const result = location.port; // Returns '8080'
 ```
 
 ## Spezifikationen
@@ -31,4 +31,4 @@ const result = location.port; // Gibt '8080' zurück
 
 ## Siehe auch
 
-- Das zugehörige {{domxref("WorkerLocation")}}-Interface.
+- Das [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Interface, zu dem es gehört.

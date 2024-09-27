@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}{{Non-standard_header}}
 
-Die **`prompt()`** Methode der {{domxref("BeforeInstallPromptEvent")}} Schnittstelle erlaubt es einem Entwickler, das Installationsfenster zu einem selbstgewählten Zeitpunkt anzuzeigen. Normalerweise wird dies im Ereignishandler für das benutzerdefinierte Installations-UI der App aufgerufen.
+Die **`prompt()`**-Methode des [`BeforeInstallPromptEvent`](/de/docs/Web/API/BeforeInstallPromptEvent)-Interfaces erlaubt es einem Entwickler, das Installations-Prompt zu einem selbst gewählten Zeitpunkt anzuzeigen. Typischerweise wird diese Methode innerhalb des Event-Handlers für die benutzerdefinierte Installations-UI der Anwendung aufgerufen.
 
-Diese Methode muss im Ereignishandler für eine Benutzeraktion (wie z.B. ein Klick auf einen Button) aufgerufen werden und darf nur einmal auf einer bestimmten Instanz von `BeforeInstallPromptEvent` aufgerufen werden.
+Diese Methode muss innerhalb des Event-Handlers für eine Benutzeraktion (wie z.B. einen Buttonklick) aufgerufen werden und darf nur einmal pro `BeforeInstallPromptEvent`-Instanz aufgerufen werden.
 
 ## Syntax
 
@@ -24,20 +24,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das ein Objekt zurückgibt, das die folgenden Eigenschaften enthält:
+Ein {{jsxref("Promise")}}, das zu einem Objekt mit den folgenden Eigenschaften aufgelöst wird:
 
 - `outcome` {{experimental_inline}} {{non-standard_inline}}
 
-  - : Ein String, der angibt, ob sich der Benutzer entschieden hat, die App zu installieren oder nicht. Es muss einer der folgenden Werte sein:
+  - : Ein String, der angibt, ob sich der Benutzer entschieden hat, die App zu installieren oder nicht. Er muss einen der folgenden Werte annehmen:
     - `"accepted"`: Der Benutzer hat die App installiert.
     - `"dismissed"`: Der Benutzer hat die App nicht installiert.
 
 - `platform` {{experimental_inline}} {{non-standard_inline}}
-  - : Wenn der Benutzer sich entschieden hat, die App zu installieren, ist dies ein String, der die ausgewählte Plattform benennt, eines der Werte aus der {{domxref("BeforeInstallPromptEvent.platforms")}} Eigenschaft. Wenn der Benutzer sich entschieden hat, die App nicht zu installieren, ist dies ein leerer String.
+  - : Wenn der Benutzer sich entschieden hat, die App zu installieren, ist dies ein String, der die gewählte Plattform benennt, welche einer der Werte aus der [`BeforeInstallPromptEvent.platforms`](/de/docs/Web/API/BeforeInstallPromptEvent/platforms)-Eigenschaft ist. Wenn der Benutzer sich dagegen entschieden hat, die App zu installieren, ist dies ein leerer String.
 
 ## Beispiele
 
-Sehen Sie sich das [Beispiel für die `BeforeInstallPromptEvent` Schnittstelle](/de/docs/Web/API/BeforeInstallPromptEvent#examples) an.
+Siehe das [Beispiel für das `BeforeInstallPromptEvent`-Interface](/de/docs/Web/API/BeforeInstallPromptEvent#examples).
 
 ## Browser-Kompatibilität
 
@@ -45,5 +45,5 @@ Sehen Sie sich das [Beispiel für die `BeforeInstallPromptEvent` Schnittstelle](
 
 ## Siehe auch
 
-- [PWAs installierbar machen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
-- [Wie Sie Ihr eigenes In-App-Installations-Erlebnis bieten können](https://web.dev/articles/customize-install) auf web.dev (2021)
+- [Installierbare PWAs erstellen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
+- [Wie Sie Ihre eigene In-App-Installationserfahrung bieten](https://web.dev/articles/customize-install) auf web.dev (2021)

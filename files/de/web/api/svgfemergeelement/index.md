@@ -13,22 +13,22 @@ Die **`SVGFEMergeElement`**-Schnittstelle entspricht dem {{SVGElement("feMerge")
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGFEMergeElement.height")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}} entsprechend dem {{SVGAttr("height")}}-Attribut des gegebenen Elements.
-- {{domxref("SVGFEMergeElement.result")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}} entsprechend dem {{SVGAttr("result")}}-Attribut des gegebenen Elements.
-- {{domxref("SVGFEMergeElement.width")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}} entsprechend dem {{SVGAttr("width")}}-Attribut des gegebenen Elements.
-- {{domxref("SVGFEMergeElement.x")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}} entsprechend dem {{SVGAttr("x")}}-Attribut des gegebenen Elements.
-- {{domxref("SVGFEMergeElement.y")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}} entsprechend dem {{SVGAttr("y")}}-Attribut des gegebenen Elements.
+- [`SVGFEMergeElement.height`](/de/docs/Web/API/SVGFEMergeElement/height) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEMergeElement.result`](/de/docs/Web/API/SVGFEMergeElement/result) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("result")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEMergeElement.width`](/de/docs/Web/API/SVGFEMergeElement/width) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("width")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEMergeElement.x`](/de/docs/Web/API/SVGFEMergeElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEMergeElement.y`](/de/docs/Web/API/SVGFEMergeElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle stellt keine spezifischen Methoden bereit, implementiert jedoch die Methoden ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle stellt keine spezifischen Methoden bereit, implementiert jedoch diejenigen ihrer Eltern, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

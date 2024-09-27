@@ -7,50 +7,50 @@ l10n:
 
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
-Das veraltete **`PerformanceNavigation`**-Interface repräsentiert Informationen darüber, wie die Navigation zum aktuellen Dokument durchgeführt wurde.
+Die veraltete **`PerformanceNavigation`**-Schnittstelle repräsentiert Informationen darüber, wie die Navigation zum aktuellen Dokument durchgeführt wurde.
 
 > [!WARNING]
-> Dieses Interface ist im [Navigation Timing Level 2 Standard](https://w3c.github.io/navigation-timing/#obsolete) veraltet.
-> Bitte verwenden Sie stattdessen das {{domxref("PerformanceNavigationTiming")}} Interface.
+> Diese Schnittstelle ist im [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet.
+> Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
 
-Ein Objekt dieses Typs kann durch Aufruf des {{domxref("Performance.navigation")}} schreibgeschützten Attributs erhalten werden.
+Ein Objekt dieses Typs kann durch Aufrufen des schreibgeschützten Attributs [`Performance.navigation`](/de/docs/Web/API/Performance/navigation) erhalten werden.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Das `PerformanceNavigation` Interface erbt keine Eigenschaften._
+_Die `PerformanceNavigation`-Schnittstelle erbt keine Eigenschaften._
 
-- {{domxref("PerformanceNavigation.type")}} {{ReadOnlyInline}} {{deprecated_inline}}
+- [`PerformanceNavigation.type`](/de/docs/Web/API/PerformanceNavigation/type) {{ReadOnlyInline}} {{deprecated_inline}}
 
-  - : Ein `unsigned short`, das angibt, wie die Navigation zu dieser Seite erfolgte. Mögliche Werte sind:
+  - : Ein `unsigned short`, der anzeigt, wie die Navigation zu dieser Seite ausgeführt wurde. Mögliche Werte sind:
 
     - `TYPE_NAVIGATE` (0)
-      - : Die Seite wurde durch das Folgen eines Links, eines Lesezeichens, das Absenden eines Formulars, ein Skript oder durch Eingabe der URL in die Adressleiste aufgerufen.
+      - : Die Seite wurde durch das Folgen eines Links, eines Lesezeichens, einer Formularübermittlung oder eines Skripts oder durch Eingabe der URL in die Adressleiste aufgerufen.
     - `TYPE_RELOAD` (1)
-      - : Die Seite wurde durch Klicken auf die Schaltfläche "Aktualisieren" oder über die {{domxref("Location.reload()")}} Methode aufgerufen.
+      - : Die Seite wurde durch Klicken auf die Schaltfläche "Neu Laden" oder über die [`Location.reload()`](/de/docs/Web/API/Location/reload)-Methode aufgerufen.
     - `TYPE_BACK_FORWARD` (2)
-      - : Die Seite wurde durch Navigation in der Chronik aufgerufen.
+      - : Die Seite wurde durch Navigation in der Historie aufgerufen.
     - `TYPE_RESERVED` (255)
-      - : In anderer Weise.
+      - : Jede andere Art und Weise.
 
-- {{domxref("PerformanceNavigation.redirectCount")}} {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Ein `unsigned short`, der die Anzahl der UMLEITUNGEN darstellt, die durchgeführt wurden, bevor die Seite erreicht wurde.
+- [`PerformanceNavigation.redirectCount`](/de/docs/Web/API/PerformanceNavigation/redirectCount) {{ReadOnlyInline}} {{deprecated_inline}}
+  - : Ein `unsigned short`, der die Anzahl der REDIRECTs darstellt, die vor dem Erreichen der Seite durchgeführt wurden.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Das `Performance` Interface erbt keine Methoden._
+_Die `Performance`-Schnittstelle erbt keine Methoden._
 
-- {{domxref("PerformanceNavigation.toJSON()")}} {{deprecated_inline}}
-  - : Ein {{Glossary("Serialization","Serializer")}}, der ein JSON-Objekt zurückgibt, das das `PerformanceNavigation`-Objekt repräsentiert.
+- [`PerformanceNavigation.toJSON()`](/de/docs/Web/API/PerformanceNavigation/toJSON) {{deprecated_inline}}
+  - : Ein [Serializer](/de/docs/Glossary/Serialization), der ein JSON-Objekt zurückgibt, das das `PerformanceNavigation`-Objekt darstellt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Das {{domxref("Performance")}}, das den Zugriff auf ein Objekt dieses Typs ermöglicht.
-- {{domxref("PerformanceNavigationTiming")}} (Teil von Navigation Timing Level 2), das diese API abgelöst hat.
+- Die [`Performance`](/de/docs/Web/API/Performance), die den Zugriff auf ein Objekt dieses Typs ermöglicht.
+- [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) (Teil von Navigation Timing Level 2), die diese API abgelöst hat.

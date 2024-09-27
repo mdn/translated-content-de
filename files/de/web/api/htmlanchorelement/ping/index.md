@@ -8,12 +8,12 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`ping`**-Eigenschaft des {{domxref("HTMLAnchorElement")}}-Interfaces ist eine durch Leerzeichen getrennte Liste von URLs. Wenn der Link gefolgt wird, sendet der Browser {{HTTPMethod("POST")}}-Anfragen mit dem Inhalt PING an die URLs.
+Die **`ping`**-Eigenschaft des [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interfaces ist eine Liste von durch Leerzeichen getrennten URLs. Wenn der Link verfolgt wird, sendet der Browser {{HTTPMethod("POST")}}-Anfragen mit dem Body PING an diese URLs.
 
 Sie spiegelt das `ping`-Attribut des {{HTMLElement("a")}}-Elements wider.
 
 > [!NOTE]
-> Diese Eigenschaft ist in Firefox nicht effektiv und ihre Verwendung kann aufgrund von Datenschutz- und Sicherheitsbedenken eingeschränkt sein.
+> Diese Eigenschaft ist in Firefox nicht wirksam und ihre Nutzung kann aufgrund von Datenschutz- und Sicherheitsbedenken eingeschränkt sein.
 
 ## Beispiel
 
@@ -22,13 +22,13 @@ Sie spiegelt das `ping`-Attribut des {{HTMLElement("a")}}-Elements wider.
   id="exampleLink"
   href="https://example.com"
   ping="https://example-tracking.com https://example-analytics.com"
-  >Beispiel-Link</a
+  >Example Link</a
 >
 ```
 
 ```js
 const anchorElement = document.getElementById("exampleLink");
-console.log(anchorElement.ping); // Ausgabe: "https://example-tracking.com https://example-analytics.com"
+console.log(anchorElement.ping); // Output: "https://example-tracking.com https://example-analytics.com"
 ```
 
 ## Spezifikationen
@@ -41,4 +41,4 @@ console.log(anchorElement.ping); // Ausgabe: "https://example-tracking.com https
 
 ## Siehe auch
 
-- {{domxref("HTMLAreaElement.ping")}}-Eigenschaft
+- [`HTMLAreaElement.ping`](/de/docs/Web/API/HTMLAreaElement/ping)-Eigenschaft

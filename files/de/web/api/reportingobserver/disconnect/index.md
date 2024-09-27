@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die **`disconnect()`**-Methode der {{domxref("ReportingObserver")}}-Schnittstelle stoppt einen Reporting-Observer, der zuvor mit dem Sammeln von Berichten begonnen hatte.
+Die **`disconnect()`**-Methode der [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Schnittstelle stoppt einen zuvor gestarteten Reporting-Observer von der Sammlung von Berichten.
 
-Nach dem Aufrufen von `disconnect()` werden weder {{domxref("ReportingObserver.takeRecords()")}} noch der `records`-Parameter des [`ReportingObserver()`](/de/docs/Web/API/ReportingObserver/ReportingObserver)-Callbacks Berichte zurückgeben. Der zugehörige Observer ist nicht mehr aktiv.
+Nach dem Aufruf von `disconnect()` werden weder [`ReportingObserver.takeRecords()`](/de/docs/Web/API/ReportingObserver/takeRecords) noch der `records`-Parameter des [`ReportingObserver()`](/de/docs/Web/API/ReportingObserver/ReportingObserver)-Callbacks Berichte zurückgeben. Der zugehörige Observer wird nicht mehr aktiv sein.
 
 ## Syntax
 
@@ -49,7 +49,7 @@ observer.disconnect();
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

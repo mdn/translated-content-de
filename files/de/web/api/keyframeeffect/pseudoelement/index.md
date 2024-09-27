@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`pseudoElement`**-Eigenschaft der {{domxref("KeyframeEffect")}}-Schnittstelle ist ein String, der das Pseudo-Element darstellt, das animiert wird. Sie kann `null` sein für Animationen, die kein Pseudo-Element anvisieren. Sie fungiert sowohl als Getter als auch als Setter, mit Ausnahme von durch CSS generierten Animationen und Übergängen.
+Die **`pseudoElement`**-Eigenschaft der [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Schnittstelle ist ein Zeichenfolgenwert, der das Pseudo-Element repräsentiert, das animiert wird. Sie kann `null` sein für Animationen, die kein Pseudo-Element anvisieren. Sie funktioniert sowohl als Getter als auch als Setter, außer bei Animationen und Übergängen, die durch CSS erzeugt werden.
 
 > [!NOTE]
-> Wird die Eigenschaft auf die veraltete Ein-Doppelpunkt-Syntax von {{cssxref("::before", ":before")}}, {{cssxref("::after", ":after")}}, {{cssxref("::first-letter", ":first-letter")}} oder {{cssxref("::first-line", ":first-line")}} gesetzt, wird der String in seine moderne Doppel-Doppelpunkt-Version umgewandelt ({{cssxref("::before")}}, {{cssxref("::after")}}, {{cssxref("::first-letter")}} und {{cssxref("::first-line")}}).
+> Wenn die alte Syntax mit einem einfachen Doppelpunkt, wie {{cssxref("::before", ":before")}}, {{cssxref("::after", ":after")}}, {{cssxref("::first-letter", ":first-letter")}}, oder {{cssxref("::first-line", ":first-line")}}, eingestellt wird, wird die Zeichenfolge in ihre moderne Doppelkolon-Version umgewandelt ({{cssxref("::before")}}, {{cssxref("::after")}}, {{cssxref("::first-letter")}}, und {{cssxref("::first-line")}}, entsprechend).
 
 ## Wert
 
-Ein String oder `null`.
+Eine Zeichenfolge oder `null`.
 
 ## Ausnahmen
 
-- `SyntaxError` {{domxref("DOMException")}}
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn versucht wird, diese Eigenschaft auf ein Element oder ein ungültiges Pseudo-Element (entweder nicht existent oder falsch geschrieben) zu setzen. Die Eigenschaft bleibt dann unverändert.
 
 ## Beispiele
@@ -32,7 +32,7 @@ Ein String oder `null`.
 ```css
 #text::after {
   content: "👹";
-  display: inline-block; /* Notwendig, da die `transform`-Eigenschaft nicht auf Inline-Elemente angewendet wird */
+  display: inline-block; /* Needed as the `transform` property does not apply to inline elements */
   font-size: 2rem;
 }
 #text::before {
@@ -46,21 +46,21 @@ Ein String oder `null`.
 const log = document.getElementById("log");
 const text = document.getElementById("text");
 
-// Erstellen Sie den Keyframe und starten Sie die Animation
+// Create the keyframe and launch the animation
 const animation = text.animate([{ transform: "rotate(360deg)" }], {
   duration: 3000,
   iterations: Infinity,
   pseudoElement: "::after",
 });
 
-// Abrufen des Wertes von KeyframeEffect.pseudoElement
+// Get the value of KeyframeEffect.pseudoElement
 function logPseudoElement() {
   const keyframeEffect = animation.effect;
-  log.textContent = `Wert des animierten pseudoElement: ${keyframeEffect.pseudoElement}`;
+  log.textContent = `Value of pseudoElement animated: ${keyframeEffect.pseudoElement}`;
   requestAnimationFrame(logPseudoElement);
 }
 
-// Alle 6 Sekunden das animierte Pseudo-Element wechseln
+// Every 6 seconds, switch the pseudo-element animated
 function switchPseudoElement() {
   const keyframeEffect = animation.effect;
   keyframeEffect.pseudoElement =
@@ -85,6 +85,6 @@ logPseudoElement();
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("KeyframeEffect")}}-Schnittstelle
-- {{domxref("KeyframeEffect.KeyframeEffect", "KeyframeEffect()")}}-Konstruktor
-- {{domxref("KeyframeEffect.target", "target")}}-Eigenschaft
+- [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Schnittstelle
+- [`KeyframeEffect()`](/de/docs/Web/API/KeyframeEffect/KeyframeEffect)-Konstruktor
+- [`target`](/de/docs/Web/API/KeyframeEffect/target)-Eigenschaft

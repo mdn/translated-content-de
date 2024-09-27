@@ -1,5 +1,5 @@
 ---
-title: "MediaKeyMessageEvent: messageType-Eigenschaft"
+title: "MediaKeyMessageEvent: messageType Eigenschaft"
 short-title: messageType
 slug: Web/API/MediaKeyMessageEvent/messageType
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`MediaKeyMessageEvent.messageType`** schreibgeschützte Eigenschaft gibt den Nachrichtentyp an. Sie kann einer der folgenden Typen sein: `license-request`, `license-renewal`, `license-release` oder `individualization-request`.
+Die schreibgeschützte Eigenschaft **`MediaKeyMessageEvent.messageType`** gibt den Typ der Nachricht an. Sie kann einer der folgenden Werte sein: `license-request`, `license-renewal`, `license-release` oder `individualization-request`.
 
 ## Wert
 

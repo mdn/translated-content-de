@@ -1,5 +1,5 @@
 ---
-title: "CSSKeyframesRule: Methode deleteRule()"
+title: "CSSKeyframesRule: deleteRule()-Methode"
 short-title: deleteRule()
 slug: Web/API/CSSKeyframesRule/deleteRule
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM") }}
 
-Die **`deleteRule()`**-Methode der {{domxref("CSSKeyframeRule")}}-Schnittstelle löscht die {{domxref("CSSKeyFrameRule")}}, die mit dem angegebenen Keyframe-Selektor übereinstimmt.
+Die **`deleteRule()`**-Methode des [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Interfaces löscht die [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyFrameRule), die dem angegebenen Keyframe-Selektor entspricht.
 
 ## Syntax
 
@@ -20,12 +20,12 @@ deleteRule(select)
 
 - `select`
 
-  - : Ein String, der den Keyframe-Selektor der zu löschenden Regel enthält. Dieser muss folgende Kriterien erfüllen:
+  - : Ein String, der den Keyframe-Selektor der zu löschenden Regel enthält, der folgende Kriterien erfüllen muss:
 
-    - eine durch Kommas getrennte Liste von Prozentwerten zwischen 0% und 100%;
+    - Eine kommagetrennte Liste von Prozentwerten zwischen 0% und 100%;
     - oder die Schlüsselwörter `from` oder `to`
 
-    Beachten Sie, dass die Anzahl und Reihenfolge der Werte im angegebenen Keyframe-Selektor mit denen der anvisierten Keyframe-Regel(n) übereinstimmen müssen. Leerzeichen werden ignoriert.
+    Beachten Sie, dass die Anzahl und Reihenfolge der Werte im angegebenen Keyframe-Selektor mit denen der Ziel-Keyframe-Regel(n) übereinstimmen müssen. Leerzeichen werden ignoriert.
 
 ### Rückgabewert
 
@@ -33,9 +33,10 @@ Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das CSS enthält ein Keyframes-At-Regel. Dies wird die erste {{domxref("CSSRule")}}, die von `document.styleSheets[0].cssRules` zurückgegeben wird. `myRules[0]` gibt ein {{domxref("CSSKeyframesRule")}}-Objekt zurück. Die Rückgabe der `cssRules`-Eigenschaft würde eine {{domxref("CSSRuleList")}} mit zwei Regeln zurückgeben.
+Das CSS enthält eine Keyframes-At-Regel. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
+`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück. Wenn die `cssRules`-Eigenschaft zurückgegeben wird, würde eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) mit zwei Regeln zurückgegeben.
 
-Nach dem Löschen einer Regel mit `deleteRule()` gibt die `cssRules`-Eigenschaft eine {{domxref("CSSRuleList")}} mit einer Regel zurück.
+Nach dem Löschen einer Regel mit `deleteRule()` gibt die `cssRules`-Eigenschaft eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) mit einer Regel zurück.
 
 ```css
 @keyframes slidein {
@@ -51,9 +52,9 @@ Nach dem Löschen einer Regel mit `deleteRule()` gibt die `cssRules`-Eigenschaft
 
 ```js
 let myRules = document.styleSheets[0].cssRules;
-let keyframes = myRules[0]; // ein CSSKeyframesRule
+let keyframes = myRules[0]; // a CSSKeyframesRule
 keyframes.deleteRule("to");
-console.log(keyframes.cssRules); // ein CSSRuleList-Objekt mit einer Regel
+console.log(keyframes.cssRules); // a CSSRuleList object with one rule
 ```
 
 ## Spezifikationen

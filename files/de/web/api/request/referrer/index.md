@@ -8,8 +8,9 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte **`referrer`**-Eigenschaft der
-{{domxref("Request")}}-Schnittstelle wird vom User-Agent festgelegt und gibt den Referrer der Anfrage an (z.B. `client`, `no-referrer` oder eine URL).
+Die **`referrer`** schreibgeschützte Eigenschaft des
+[`Request`](/de/docs/Web/API/Request)-Interfaces wird vom User-Agent als Referrer der
+Anfrage festgelegt (z.B. `client`, `no-referrer` oder eine URL).
 
 > [!NOTE]
 > Wenn der Wert von `referrer` `no-referrer` ist,
@@ -21,12 +22,12 @@ Ein String, der den Referrer der Anfrage darstellt.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem
-{{domxref("Request.Request", "Request()")}}-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern dann den Request-Referrer in einer Variablen:
+Im folgenden Ausschnitt erstellen wir eine neue Anfrage mit dem
+[`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript), dann speichert das Skript den Referrer der Anfrage in einer Variable:
 
 ```js
 const myRequest = new Request("flowers.jpg");
-const myReferrer = myRequest.referrer; // gibt standardmäßig "about:client" zurück
+const myReferrer = myRequest.referrer; // returns "about:client" by default
 ```
 
 ## Spezifikationen
@@ -39,6 +40,6 @@ const myReferrer = myRequest.referrer; // gibt standardmäßig "about:client" zu
 
 ## Siehe auch
 
-- [ServiceWorker-API](/de/docs/Web/API/Service_Worker_API)
+- [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
 - [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/CORS)
 - [HTTP](/de/docs/Web/HTTP)

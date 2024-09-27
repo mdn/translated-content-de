@@ -1,5 +1,5 @@
 ---
-title: "NotRestoredReasons: children-Eigenschaft"
+title: "NotRestoredReasons: Eigenschaft children"
 short-title: children
 slug: Web/API/NotRestoredReasons/children
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`children`** schreibgeschützte Eigenschaft der {{domxref("NotRestoredReasons")}}-Schnittstelle gibt ein Array von {{domxref("NotRestoredReasons")}}-Objekten zurück, eines für jedes in das aktuelle Dokument eingebettete Kind-{{htmlelement("iframe")}}, das Gründe enthalten kann, warum das übergeordnete Frame in Bezug auf die Kind-Frames blockiert wurde.
+Die schreibgeschützte Eigenschaft **`children`** der [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Schnittstelle gibt ein Array von [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekten zurück, eines für jedes eingebettete {{htmlelement("iframe")}} im aktuellen Dokument, welches möglicherweise die Gründe enthält, warum der übergeordnete Frame in Bezug auf die Kinderframes blockiert wurde.
 
-Jedes Objekt hat dieselbe Struktur wie das übergeordnete Objekt – auf diese Weise kann jede Anzahl von Ebenen eingebetteter `<iframe>`s rekursiv innerhalb des Objekts dargestellt werden.
+Jedes Objekt hat die gleiche Struktur wie das übergeordnete Objekt — auf diese Weise können beliebig viele Ebenen von eingebetteten `<iframe>`s rekursiv innerhalb des Objekts dargestellt werden.
 
 ## Wert
 
-Ein Array von {{domxref("NotRestoredReasons")}}-Objekten.
+Ein Array von [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekten.
 
-Wenn das Frame keine Kinder hat, wird das Array leer sein; wenn sich das Dokument in einem plattformübergreifenden `<iframe>` befindet, wird `children` `null` zurückgeben.
+Wenn der Frame keine Kinder hat, ist das Array leer; wenn das Dokument in einem cross-origin `<iframe>` ist, gibt `children` `null` zurück.
 
 ## Beispiele
 
-Siehe [Überwachung von bfcache-Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) für Beispiele.
+Sehen Sie sich [Überwachung der bfcache-Blockierungsgründe](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) für Beispiele an.
 
 ## Spezifikationen
 
@@ -32,5 +32,5 @@ Siehe [Überwachung von bfcache-Blockierungsgründen](/de/docs/Web/API/Performan
 
 ## Siehe auch
 
-- [Überwachung von bfcache-Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
-- {{domxref("PerformanceNavigationTiming.notRestoredReasons")}}
+- [Überwachung der bfcache-Blockierungsgründe](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
+- [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons)

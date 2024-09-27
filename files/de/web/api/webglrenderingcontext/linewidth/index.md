@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.lineWidth()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt die Linienbreite von gerasterten Linien fest.
+Die **`WebGLRenderingContext.lineWidth()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) setzt die Linienbreite von rasterisierten Linien.
 
 > [!WARNING]
-> Die WebGL-Spezifikation, basierend auf den OpenGL ES 2.0/3.0 Spezifikationen, weist darauf hin, dass die minimale und maximale Breite für eine Linie implementierungsabhängig ist. Die maximale Mindestbreite darf 1,0 sein. Die minimale Höchstbreite darf ebenfalls 1,0 sein. Aufgrund dieser implementierungsabhängigen Grenzen wird nicht empfohlen, andere Linienbreiten als 1,0 zu verwenden, da es keine Garantie gibt, dass der Browser eines Benutzers eine andere Breite anzeigen wird.
+> Die WebGL-Spezifikation, basierend auf den OpenGL ES 2.0/3.0-Spezifikationen, weist darauf hin, dass die minimale und maximale Breite für eine Linie implementierungsabhängig ist. Die maximal erlaubte Mindestbreite darf 1.0 sein. Die minimal erlaubte Maximalbreite darf ebenfalls 1.0 sein. Aufgrund dieser implementierungsabhängigen Grenzen wird empfohlen, keine anderen Linienbreiten als 1.0 zu verwenden, da es keine Garantie gibt, dass der Browser eines Nutzers eine andere Breite anzeigen wird.
 >
-> Stand Januar 2017 unterstützen die meisten Implementierungen von WebGL nur ein Minimum von 1 und ein Maximum von 1, da die zugrunde liegende Technologie diese gleichen Grenzen hat.
+> Stand Januar 2017 unterstützen die meisten Implementierungen von WebGL nur ein Minimum von 1 und ein Maximum von 1, da die zugrunde liegende Technologie diese Grenzen aufweist.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ lineWidth(width)
 ### Parameter
 
 - `width`
-  - : Ein {{domxref("WebGL_API/Types", "GLfloat")}}, das die Breite der gerasterten Linien angibt. Standardwert: 1.
+  - : Ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types), der die Breite der rasterisierten Linien spezifiziert. Standardwert: 1.
 
 ### Rückgabewert
 
@@ -60,4 +60,4 @@ gl.getParameter(gl.ALIASED_LINE_WIDTH_RANGE);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext")}}
+- [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)

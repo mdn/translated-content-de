@@ -1,5 +1,5 @@
 ---
-title: "StyleSheet: media-Eigenschaft"
+title: "StyleSheet: media Eigenschaft"
 short-title: media
 slug: Web/API/StyleSheet/media
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`media`**-Eigenschaft des {{domxref("StyleSheet")}}-Interfaces gibt das beabsichtigte Zielmedium für Stilinformationen an. Es handelt sich um ein schreibgeschütztes, array-ähnliches `MediaList`-Objekt und kann mit `deleteMedium()` entfernt und mit `appendMedium()` hinzugefügt werden.
+Die **`media`** Eigenschaft des [`StyleSheet`](/de/docs/Web/API/StyleSheet) Interfaces gibt das vorgesehene Zielmedium für Stilinformationen an. Sie ist ein schreibgeschütztes, array-ähnliches `MediaList` Objekt und kann mit `deleteMedium()` entfernt und mit `appendMedium()` hinzugefügt werden.
 
 ## Wert
 
-Ein schreibgeschütztes, array-ähnliches `MediaList`-Objekt.
+Ein schreibgeschütztes, array-ähnliches `MediaList` Objekt.
 
 ## Beispiele
 
@@ -22,7 +22,7 @@ Ein schreibgeschütztes, array-ähnliches `MediaList`-Objekt.
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Testseite</title>
+    <title>Test page</title>
     <link rel="stylesheet" href="document.css" media="screen" />
     <style rel="stylesheet" media="screen, print">
       body {
@@ -48,7 +48,7 @@ Ein schreibgeschütztes, array-ähnliches `MediaList`-Objekt.
           )}`,
         );
       }
-      // Dies wird protokolliert:
+      // This will log:
       // document.styleSheets[0].media: {"0":"screen"}
       // document.styleSheets[0].media: {"0":"screen","1":"handheld"}
       // document.styleSheets[1].media: {"0":"screen","1":"print"}

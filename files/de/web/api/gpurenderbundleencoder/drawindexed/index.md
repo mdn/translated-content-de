@@ -3,15 +3,15 @@ title: "GPURenderBundleEncoder: drawIndexed()-Methode"
 short-title: drawIndexed()
 slug: Web/API/GPURenderBundleEncoder/drawIndexed
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`drawIndexed()`**-Methode der {{domxref("GPURenderBundleEncoder")}}-Schnittstelle zeichnet indizierte Primitive basierend auf den durch {{domxref("GPURenderBundleEncoder.setVertexBuffer", "setVertexBuffer()")}} und {{domxref("GPURenderBundleEncoder.setIndexBuffer", "setIndexBuffer()")}} bereitgestellten Vertex- und Indexpuffern.
+Die **`drawIndexed()`**-Methode der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle zeichnet indizierte Primitiven basierend auf den von [`setVertexBuffer()`](/de/docs/Web/API/GPURenderBundleEncoder/setVertexBuffer) und [`setIndexBuffer()`](/de/docs/Web/API/GPURenderBundleEncoder/setIndexBuffer) bereitgestellten Vertex- und Index-Puffern.
 
 > [!NOTE]
-> Diese Methode ist funktional identisch mit ihrem Äquivalent auf {{domxref("GPURenderPassEncoder")}} — {{domxref("GPURenderPassEncoder.drawIndexed", "drawIndexed()")}}.
+> Diese Methode ist funktionell identisch mit ihrem Äquivalent auf dem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`drawIndexed()`](/de/docs/Web/API/GPURenderPassEncoder/drawIndexed).
 
 ## Syntax
 
@@ -28,13 +28,13 @@ drawIndexed(indexCount, instanceCount, firstIndex, baseVertex, firstInstance)
 - `indexCount`
   - : Eine Zahl, die die Anzahl der zu zeichnenden Indizes definiert.
 - `instanceCount` {{optional_inline}}
-  - : Eine Zahl, die die Anzahl der zu zeichnenden Instanzen definiert. Wenn weggelassen, wird `instanceCount` auf 1 voreingestellt.
+  - : Eine Zahl, die die Anzahl der zu zeichnenden Instanzen definiert. Wenn weggelassen, ist `instanceCount` standardmäßig 1.
 - `firstIndex` {{optional_inline}}
-  - : Eine Zahl, die den Versatz in den Indexpuffer in Indizes definiert, von dem aus gezeichnet wird. Wenn weggelassen, wird `firstIndex` auf 0 voreingestellt.
+  - : Eine Zahl, die den Versatz im Index-Puffer, in Indizes, definiert, von dem aus das Zeichnen beginnt. Wenn weggelassen, ist `firstIndex` standardmäßig 0.
 - `baseVertex` {{optional_inline}}
-  - : Eine Zahl, die zu jedem Indexwert hinzugefügt wird, bevor in die Vertexpuffer indexiert wird. Wenn weggelassen, wird `baseVertex` auf 0 voreingestellt.
+  - : Eine Zahl, die zu jedem Indexwert hinzugefügt wird, bevor auf die Vertex-Puffer zugegriffen wird. Wenn weggelassen, ist `baseVertex` standardmäßig 0.
 - `firstInstance` {{optional_inline}}
-  - : Eine Zahl, die die erste zu zeichnende Instanz definiert. Wenn weggelassen, wird `firstInstance` auf 0 voreingestellt.
+  - : Eine Zahl, die die erste zu zeichnende Instanz definiert. Wenn weggelassen, ist `firstInstance` standardmäßig 0.
 
 ### Rückgabewert
 

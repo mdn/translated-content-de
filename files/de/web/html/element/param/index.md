@@ -1,5 +1,5 @@
 ---
-title: "<param>: Das Objekt-Parameter-Element"
+title: "<param>: Das Objektparameter-Element"
 slug: Web/HTML/Element/param
 l10n:
   sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
@@ -19,15 +19,15 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 - `name` {{deprecated_inline}}
   - : Name des Parameters.
 - `value` {{deprecated_inline}}
-  - : Legt den Wert des Parameters fest.
+  - : Gibt den Wert des Parameters an.
 - `type` {{deprecated_inline}}
-  - : Wird nur verwendet, wenn `valuetype` auf `ref` gesetzt ist. Gibt den MIME-Typ der Werte an, die unter der URI gefunden werden, die durch `value` angegeben wird.
+  - : Wird nur verwendet, wenn das `valuetype` auf `ref` gesetzt ist. Gibt den MIME-Typ der Werte an, die an der durch den `value`-URI angegebenen Adresse gefunden werden.
 - `valuetype` {{deprecated_inline}}
 
   - : Gibt den Typ des `value`-Attributs an. Mögliche Werte sind:
 
-    - `data`: Standardwert. Der Wert wird der Implementation des Objekts als Zeichenkette übergeben.
-    - `ref`: Der Wert ist eine URI zu einer Ressource, bei der Laufzeitwerte gespeichert sind.
+    - `data`: Standardwert. Der Wert wird der Implementierung des Objekts als Zeichenfolge übergeben.
+    - `ref`: Der Wert ist ein URI zu einer Ressource, in der Laufzeitwerte gespeichert sind.
     - `object`: Eine ID eines anderen {{HTMLElement("object")}} im selben Dokument.
 
 ## Technische Zusammenfassung
@@ -37,34 +37,31 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
     <tr>
       <th scope="row">
         <a href="/de/docs/Web/HTML/Content_categories"
-          >Inhaltskategorien</a
-        >
+          >Inhaltskategorien</a>
       </th>
       <td>Keine.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein {{Glossary("void element")}}.</td>
+      <td>Keine; es ist ein [leeres Element](/de/docs/Glossary/void_element).</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
+      <td>Muss ein Start-Tag haben und darf kein End-Tag haben.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Ein {{HTMLElement("object")}} vor jedem
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flow-Inhalt</a
-        >.
+          >Flussinhalt</a>.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
-          >Keine entsprechende Rolle</a
-        >
+          >Keine entsprechende Rolle</a>
       </td>
     </tr>
     <tr>
@@ -73,7 +70,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLParamElement")}}</td>
+      <td>[`HTMLParamElement`](/de/docs/Web/API/HTMLParamElement)</td>
     </tr>
   </tbody>
 </table>

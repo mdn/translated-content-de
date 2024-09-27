@@ -1,5 +1,5 @@
 ---
-title: "HTMLFormElement: formdata-Ereignis"
+title: "HTMLFormElement: formdata Ereignis"
 short-title: formdata
 slug: Web/API/HTMLFormElement/formdata_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`formdata`**-Ereignis wird ausgelöst, nachdem die Eintragsliste, die die Daten des Formulars darstellt, erstellt wurde. Dies geschieht, wenn das Formular abgeschickt wird, kann aber auch durch den Aufruf eines {{domxref("FormData.FormData", "FormData()")}}-Konstruktors ausgelöst werden.
+Das **`formdata`** Ereignis wird ausgelöst, nachdem die Eintragsliste, die die Daten des Formulars darstellt, erstellt wurde. Dies geschieht, wenn das Formular abgeschickt wird, kann aber auch durch den Aufruf eines [`FormData()`](/de/docs/Web/API/FormData/FormData) Konstruktors ausgelöst werden.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht an übergeordnete Objekte weitergegeben.
+Dieses Ereignis ist nicht stornierbar und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("formdata", (event) => {});
@@ -24,60 +24,60 @@ onformdata = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("FormDataEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`FormDataEvent`](/de/docs/Web/API/FormDataEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("FormDataEvent")}}
 
 ## Ereigniseigenschaften
 
-_Erbt Eigenschaften von seiner Elternschnittstelle, {{domxref("Event")}}._
+_Erbt Eigenschaften von seiner übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("FormDataEvent.formData")}}
-  - : Enthält das {{domxref("FormData")}}-Objekt, das die Daten darstellt, die im Formular enthalten waren, als das Ereignis ausgelöst wurde.
+- [`FormDataEvent.formData`](/de/docs/Web/API/FormDataEvent/formData)
+  - : Enthält das [`FormData`](/de/docs/Web/API/FormData) Objekt, das die Daten des Formulars repräsentiert, als das Ereignis ausgelöst wurde.
 
 ## Beispiele
 
 ```js
-// Referenz auf das Formular erhalten
+// grab reference to form
 
 const formElem = document.querySelector("form");
 
-// Abschick-Handler
+// submit handler
 
 formElem.addEventListener("submit", (e) => {
-  // Beim Absenden des Formulars Standardeinstellung verhindern
+  // on form submission, prevent default
   e.preventDefault();
 
   console.log(formElem.querySelector('input[name="field1"]')); // FOO
   console.log(formElem.querySelector('input[name="field2"]')); // BAR
 
-  // Ein FormData-Objekt konstruieren, das das formdata-Ereignis auslöst
+  // construct a FormData object, which fires the formdata event
   const formData = new FormData(formElem);
-  // formdata wird durch das formdata-Ereignis modifiziert
+  // formdata gets modified by the formdata event
   console.log(formData.get("field1")); // foo
   console.log(formData.get("field2")); // bar
 });
 
-// formdata-Handler zur Datenabfrage
+// formdata handler to retrieve data
 
 formElem.addEventListener("formdata", (e) => {
-  console.log("formdata ausgelöst");
+  console.log("formdata fired");
 
-  // Formulardaten modifizieren
+  // modifies the form data
   const formData = e.formData;
-  // formdata wird durch das formdata-Ereignis modifiziert
+  // formdata gets modified by the formdata event
   formData.set("field1", formData.get("field1").toLowerCase());
   formData.set("field2", formData.get("field2").toLowerCase());
 });
 ```
 
-Die `onformdata`-Version würde so aussehen:
+Die `onformdata` Version würde so aussehen:
 
 ```js
 formElem.onformdata = (e) => {
-  console.log("formdata ausgelöst");
+  console.log("formdata fired");
 
-  // Formulardaten modifizieren
+  // modifies the form data
   const formData = e.formData;
   formData.set("field1", formData.get("field1").toLowerCase());
   formData.set("field2", formData.get("field2").toLowerCase());
@@ -94,5 +94,5 @@ formElem.onformdata = (e) => {
 
 ## Siehe auch
 
-- HTML {{htmlElement("form")}}-Element
-- {{domxref("FormDataEvent")}}
+- HTML {{htmlElement("form")}} Element
+- [`FormDataEvent`](/de/docs/Web/API/FormDataEvent)

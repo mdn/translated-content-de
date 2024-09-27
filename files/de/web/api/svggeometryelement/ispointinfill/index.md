@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGGeometryElement.isPointInFill()`**-Methode bestimmt, ob ein gegebener Punkt innerhalb der Füllung einer Form eines Elements liegt. Normale Regeln für das Hit-Testing gelten; der Wert der {{cssxref("pointer-events")}}-Eigenschaft des Elements bestimmt, ob ein Punkt als innerhalb der Füllung betrachtet wird. Das `point`-Argument wird als ein Punkt im lokalen Koordinatensystem des Elements interpretiert.
+Die **`SVGGeometryElement.isPointInFill()`**-Methode bestimmt, ob ein bestimmter Punkt innerhalb der Füllform eines Elements liegt. Es gelten die normalen Hit-Test-Regeln; der Wert der {{cssxref("pointer-events")}}-Eigenschaft des Elements bestimmt, ob ein Punkt als innerhalb der Füllung angesehen wird. Das `point`-Argument wird als Punkt im lokalen Koordinatensystem des Elements interpretiert.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ isPointInFill(point)
 
 ### Rückgabewert
 
-Ein Boolean, der angibt, ob der gegebene Punkt innerhalb der Füllung liegt oder nicht.
+Ein boolescher Wert, der angibt, ob der gegebene Punkt innerhalb der Füllung liegt oder nicht.
 
 ## Beispiele
 
@@ -66,7 +66,7 @@ for (const point of points) {
     const pointObj = new DOMPoint(point[0], point[1]);
     isPointInFill = circle.isPointInFill(pointObj);
   } catch (e) {
-    // Fallback für Browser, die DOMPoint als Argument nicht unterstützen
+    // Fallback for browsers that don't support DOMPoint as an argument
     const pointObj = svg.createSVGPoint();
     pointObj.x = point[0];
     pointObj.y = point[1];

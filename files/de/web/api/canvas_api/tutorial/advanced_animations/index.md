@@ -7,17 +7,17 @@ l10n:
 
 {{DefaultAPISidebar("Canvas API")}} {{PreviousNext("Web/API/Canvas_API/Tutorial/Basic_animations", "Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas")}}
 
-Im letzten Kapitel haben wir einige [grundlegende Animationen](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations) erstellt und Wege kennengelernt, um Dinge in Bewegung zu setzen. In diesem Teil werden wir uns die Bewegung selbst genauer anschauen und einige physikalische Effekte hinzufügen, um unsere Animationen zu erweitern.
+Im letzten Kapitel haben wir einige [einfache Animationen](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations) erstellt und Möglichkeiten kennengelernt, um Objekte in Bewegung zu versetzen. In diesem Teil werden wir uns die Bewegung genauer ansehen und einige physikalische Aspekte hinzufügen, um unsere Animationen weiter zu entwickeln.
 
 ## Zeichnen eines Balls
 
-Wir werden einen Ball für unsere Animationsstudien verwenden, daher zeichnen wir diesen zunächst auf die Leinwand. Der folgende Code wird uns dabei unterstützen.
+Wir werden einen Ball für unsere Animationsstudien verwenden, daher lassen Sie uns diesen zuerst auf die Leinwand zeichnen. Der folgende Code bereitet uns darauf vor.
 
 ```html
 <canvas id="canvas" width="600" height="300"></canvas>
 ```
 
-Wie üblich benötigen wir zunächst einen Zeichenkontext. Um den Ball zu zeichnen, erstellen wir ein `ball`-Objekt, das Attribute und eine `draw()`-Methode enthält, um es auf die Leinwand zu malen.
+Wie üblich benötigen wir zuerst einen Zeichenkontext. Um den Ball zu zeichnen, erstellen wir ein `ball`-Objekt, das Eigenschaften und eine `draw()`-Methode enthält, um ihn auf die Leinwand zu malen.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -40,11 +40,11 @@ const ball = {
 ball.draw();
 ```
 
-Nichts Besonderes hier, der Ball ist tatsächlich ein einfacher Kreis und wird mit Hilfe der {{domxref("CanvasRenderingContext2D.arc()", "arc()")}}-Methode gezeichnet.
+Nichts Besonderes hier, der Ball ist tatsächlich ein einfacher Kreis und wird mit der Hilfe der [`arc()`](/de/docs/Web/API/CanvasRenderingContext2D/arc)-Methode gezeichnet.
 
 ## Hinzufügen von Geschwindigkeit
 
-Nun, da wir einen Ball haben, sind wir bereit, eine grundlegende Animation hinzuzufügen, wie wir sie im [letzten Kapitel](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations) dieses Tutorials gelernt haben. Wieder hilft uns {{domxref("window.requestAnimationFrame()")}}, die Animation zu steuern. Der Ball wird durch Hinzufügen eines Geschwindigkeitsvektors zur Position bewegt. Für jedes Frame löschen wir auch {{domxref("CanvasRenderingContext2D.clearRect", "clear", "", 1)}} die Leinwand, um alte Kreise von vorherigen Frames zu entfernen.
+Jetzt, da wir einen Ball haben, sind wir bereit, eine einfache Animation hinzuzufügen, wie wir in dem [letzten Kapitel](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations) dieses Tutorials gelernt haben. Wiederum hilft uns [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) bei der Steuerung der Animation. Der Ball wird bewegt, indem ein Geschwindigkeitsvektor zur Position hinzugefügt wird. Für jedes Bild {{domxref("CanvasRenderingContext2D.clearRect", "löschen", "", 1)}} wir auch die Leinwand, um alte Kreise aus vorherigen Bildern zu entfernen.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -88,7 +88,7 @@ ball.draw();
 
 ## Begrenzungen
 
-Ohne jegliche Begrenzungskollisionsprüfung läuft unser Ball schnell aus der Leinwand heraus. Wir müssen prüfen, ob die `x`- und `y`-Position des Balls außerhalb der Leinwanddimensionen liegt und die Richtung der Geschwindigkeitsvektoren umkehren. Dazu fügen wir die folgenden Prüfungen zur `draw`-Methode hinzu:
+Ohne eine Kollisionsprüfung für die Begrenzungen läuft unser Ball schnell aus der Leinwand heraus. Wir müssen überprüfen, ob die `x`- und `y`-Position des Balls außerhalb der Leinwandabmessungen ist und die Richtung der Geschwindigkeitsvektoren umkehren. Dazu fügen wir die folgenden Überprüfungen zur `draw`-Methode hinzu:
 
 ```js
 if (
@@ -107,7 +107,7 @@ if (
 
 ### Erste Demo
 
-Schauen wir uns an, wie es bisher in Aktion aussieht.
+Lassen Sie uns sehen, wie es bisher in Aktion aussieht.
 
 #### HTML
 
@@ -173,20 +173,20 @@ ball.draw();
 
 #### Ergebnis
 
-Bewegen Sie Ihre Maus auf die Leinwand, um die Animation zu starten.
+Bewegen Sie Ihre Maus in die Leinwand, um die Animation zu starten.
 
 {{EmbedLiveSample("First_demo", "610", "340")}}
 
 ## Beschleunigung
 
-Um die Bewegung realistischer zu gestalten, können Sie beispielsweise so mit der Geschwindigkeit spielen:
+Um die Bewegung realistischer zu gestalten, können Sie mit der Geschwindigkeit wie folgt spielen:
 
 ```js
 ball.vy *= 0.99;
 ball.vy += 0.25;
 ```
 
-Dies verlangsamt die vertikale Geschwindigkeit jedes Frames, sodass der Ball am Ende nur auf dem Boden hüpfen wird.
+Dies verlangsamt die vertikale Geschwindigkeit jedes Bildes, sodass der Ball am Ende einfach auf dem Boden hüpft.
 
 ### Zweite Demo
 
@@ -258,9 +258,9 @@ ball.draw();
 
 {{EmbedLiveSample("Second_demo", "610", "340")}}
 
-## Nachlaufeffekt
+## Schleifeffekt
 
-Bis jetzt haben wir die {{domxref("CanvasRenderingContext2D.clearRect", "clearRect")}}-Methode verwendet, um vorherige Frames zu löschen. Wenn Sie diese Methode durch ein halbtransparentes {{domxref("CanvasRenderingContext2D.fillRect", "fillRect")}} ersetzen, können Sie leicht einen Nachlaufeffekt erzeugen.
+Bis jetzt haben wir die Methode [`clearRect`](/de/docs/Web/API/CanvasRenderingContext2D/clearRect) verwendet, um vorherige Bilder zu löschen. Wenn Sie diese Methode durch ein halbtransparentes [`fillRect`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) ersetzen, können Sie leicht einen Schleifeffekt erstellen.
 
 ```js
 ctx.fillStyle = "rgb(255 255 255 / 30%)";
@@ -338,9 +338,9 @@ ball.draw();
 
 {{EmbedLiveSample("Third_demo", "610", "340")}}
 
-## Hinzufügen von Maussteuerung
+## Maussteuerung hinzufügen
 
-Um etwas Kontrolle über den Ball zu erhalten, können wir ihn unserer Maus mit dem [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis folgen lassen. Das [`click`](/de/docs/Web/API/Element/click_event)-Ereignis gibt den Ball wieder frei und lässt ihn erneut hüpfen.
+Um etwas Kontrolle über den Ball zu bekommen, können wir ihn beispielsweise unserem Mauszeiger folgen lassen, indem wir das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis verwenden. Das [`click`](/de/docs/Web/API/Element/click_event)-Ereignis lässt den Ball wieder los und er hüpft erneut.
 
 ### Vierte Demo
 
@@ -433,10 +433,10 @@ Bewegen Sie den Ball mit Ihrer Maus und lassen Sie ihn mit einem Klick los.
 
 ## Breakout
 
-Dieses kurze Kapitel erklärt nur einige Techniken, um fortgeschrittenere Animationen zu erstellen. Es gibt noch viele mehr! Wie wäre es damit, ein Paddel hinzuzufügen, einige Ziegelsteine, und dieses Demo in ein [Breakout](https://en.wikipedia.org/wiki/Breakout_%28video_game%29)-Spiel zu verwandeln? Schauen Sie sich unseren [Spieleentwicklung](/de/docs/Games) Bereich für weitere Spiele-bezogene Artikel an.
+Dieses kurze Kapitel erklärt nur einige Techniken, um fortgeschrittenere Animationen zu erstellen. Es gibt noch viele mehr! Wie wäre es, ein Paddle und einige Steine hinzuzufügen und diese Demo in ein [Breakout](https://en.wikipedia.org/wiki/Breakout_%28video_game%29)-Spiel zu verwandeln? Schauen Sie sich unseren [Spiel-Entwicklung](/de/docs/Games)-Bereich für weitere artikelbezogene Artikel an.
 
 ## Siehe auch
 
-- {{domxref("window.requestAnimationFrame()")}}
+- [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)
 
 {{PreviousNext("Web/API/Canvas_API/Tutorial/Basic_animations", "Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas")}}

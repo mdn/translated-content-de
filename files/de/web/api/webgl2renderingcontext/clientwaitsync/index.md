@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: clientWaitSync()-Methode"
+title: "WebGL2RenderingContext: Methode clientWaitSync()"
 short-title: clientWaitSync()
 slug: Web/API/WebGL2RenderingContext/clientWaitSync
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.clientWaitSync()`**-Methode des
+Die **`WebGL2RenderingContext.clientWaitSync()`** Methode des
 [WebGL 2 API](/de/docs/Web/API/WebGL_API) blockiert und wartet darauf, dass ein
-{{domxref("WebGLSync")}}-Objekt signalisiert wird oder ein festgelegter Timeout abgelaufen ist.
+[`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt signalisert wird oder eine angegebene Zeitüberschreitung abläuft.
 
 ## Syntax
 
@@ -21,19 +21,23 @@ clientWaitSync(sync, flags, timeout)
 ### Parameter
 
 - `sync`
-  - : Ein {{domxref("WebGLSync")}}-Objekt, auf das gewartet werden soll.
+  - : Ein [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt, auf das gewartet werden soll.
 - `flags`
-  - : Ein {{domxref("WebGL_API/Types", "GLbitfield")}}, das eine bitweise Kombination von Flags angibt, die das Flushing-Verhalten steuern. Kann `gl.SYNC_FLUSH_COMMANDS_BIT` sein.
+  - : Ein [`GLbitfield`](/de/docs/Web/API/WebGL_API/Types), der eine bitweise Kombination von Flags angibt, die das Pufferverhalten steuern. Kann `gl.SYNC_FLUSH_COMMANDS_BIT` sein.
 - `timeout`
-  - : Ein {{domxref("WebGL_API/Types", "GLint64")}}, das einen Timeout (in Nanosekunden) angibt, für den gewartet werden soll, bis das Sync-Objekt signalisiert wird. Darf nicht größer sein als `gl.MAX_CLIENT_WAIT_TIMEOUT_WEBGL`.
+  - : Ein [`GLint64`](/de/docs/Web/API/WebGL_API/Types), der eine Zeitüberschreitung (in Nanosekunden) angibt, für die auf das Signalisieren des Synchronisationsobjekts gewartet werden soll. Darf nicht größer sein als
+    `gl.MAX_CLIENT_WAIT_TIMEOUT_WEBGL`.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API/Types", "GLenum")}}, das den Status des Sync-Objekts anzeigt.
+Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Status des Synchronisationsobjekts angibt.
 
-- `gl.ALREADY_SIGNALED`: Gibt an, dass das Sync-Objekt signalisiert wurde, als diese Methode aufgerufen wurde.
-- `gl.TIMEOUT_EXPIRED`: Gibt an, dass die `timeout`-Zeit abgelaufen ist und das Sync-Objekt nicht signalisiert wurde.
-- `gl.CONDITION_SATISFIED`: Gibt an, dass das Sync-Objekt vor Ablauf des `timeout` signalisiert wurde.
+- `gl.ALREADY_SIGNALED`: Gibt an, dass das Synchronisationsobjekt signalisert wurde, als
+  diese Methode aufgerufen wurde.
+- `gl.TIMEOUT_EXPIRED`: Gibt an, dass die `timeout`-Zeit abgelaufen ist
+  und das Synchronisationsobjekt nicht signalisert wurde.
+- `gl.CONDITION_SATISFIED`: Gibt an, dass das Synchronisationsobjekt signalisert wurde
+  bevor die `timeout`-Zeit abgelaufen ist.
 - `gl.WAIT_FAILED`: Gibt an, dass während der Ausführung ein Fehler aufgetreten ist.
 
 ## Beispiele
@@ -53,4 +57,4 @@ const status = gl.clientWaitSync(sync, 0, 0);
 
 ## Siehe auch
 
-- {{domxref("WebGLSync")}}
+- [`WebGLSync`](/de/docs/Web/API/WebGLSync)

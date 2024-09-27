@@ -1,5 +1,5 @@
 ---
-title: "Element: firstElementChild-Eigenschaft"
+title: "Element: firstElementChild Eigenschaft"
 short-title: firstElementChild
 slug: Web/API/Element/firstElementChild
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`Element.firstElementChild`** schreibgeschützte Eigenschaft gibt das erste Kind-{{domxref("Element")}} eines Elements zurück oder `null`, wenn keine Kindelemente vorhanden sind.
+Die schreibgeschützte Eigenschaft **`Element.firstElementChild`** gibt das erste Kind-`Element` eines Elements zurück, oder `null`, wenn keine Kindelemente vorhanden sind.
 
-`Element.firstElementChild` enthält nur Knoten, die Elemente sind. Um alle Kindknoten zu erhalten, einschließlich Nicht-Element-Knoten wie Text- und Kommentarknoten, verwenden Sie {{domxref("Node.firstChild")}}.
+`Element.firstElementChild` umfasst nur Elemente. Um alle untergeordneten Knoten zu erhalten, einschließlich Nicht-Element-Knoten wie Text- und Kommentarknoten, verwenden Sie [`Node.firstChild`](/de/docs/Web/API/Node/firstChild).
 
 ## Wert
 
-Ein {{domxref("Element")}}-Objekt oder `null`.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt oder `null`.
 
 ## Beispiele
 
@@ -42,5 +42,5 @@ Ein {{domxref("Element")}}-Objekt oder `null`.
 
 ## Siehe auch
 
-- {{domxref("Element.nextElementSibling")}}
-- {{domxref("Element.lastElementChild")}}
+- [`Element.nextElementSibling`](/de/docs/Web/API/Element/nextElementSibling)
+- [`Element.lastElementChild`](/de/docs/Web/API/Element/lastElementChild)

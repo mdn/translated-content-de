@@ -7,19 +7,19 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<msub>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um ein Tiefzeichen an einen Ausdruck anzuhängen.
+Das **`<msub>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um einem Ausdruck einen Tiefstellungsindex hinzuzufügen.
 
-Es verwendet die folgende Syntax: `<msub> base subscript </msub>`.
+Es verwendet die folgende Syntax: `<msub> Basis Tiefstellung </msub>`.
 
 ## Attribute
 
-Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie das folgende veraltete Attribut:
+Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie das folgende veraltete Attribut:
 
 - `subscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Eine {{cssxref("length-percentage")}}, die die Mindestverschiebung der Grundlinie des Tiefzeichens nach unten angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die minimale Verschiebung der Grundlinie der Tiefstellung nach unten angibt.
 
 > [!NOTE]
-> Für das `subscriptshift`-Attribut akzeptieren einige Browser möglicherweise auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths).
+> Für das Attribut `subscriptshift` können einige Browser auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
 
 ## Beispiele
 
@@ -44,6 +44,6 @@ Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/d
 
 ## Siehe auch
 
-- {{ MathMLElement("msup") }} (Hochzeichen)
-- {{ MathMLElement("msubsup") }} (Tief-Hochzeichen-Paar)
-- {{ MathMLElement("mmultiscripts") }} (Präskripte und Tensor-Indizes)
+- {{ MathMLElement("msup") }} (Hochstellung)
+- {{ MathMLElement("msubsup") }} (Tief-Hochstellungspaar)
+- {{ MathMLElement("mmultiscripts") }} (Präscripts und Tensorindizes)

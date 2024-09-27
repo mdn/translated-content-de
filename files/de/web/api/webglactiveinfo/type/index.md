@@ -1,6 +1,6 @@
 ---
-title: "WebGLActiveInfo: Typ-Eigenschaft"
-short-title: Typ
+title: "WebGLActiveInfo: type-Eigenschaft"
+short-title: type
 slug: Web/API/WebGLActiveInfo/type
 l10n:
   sourceCommit: 532ecbca7b68e7defa4612bc7b00885a13163641
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die schreibgeschützte **`WebGLActiveInfo.type`**-Eigenschaft repräsentiert den Typ der angeforderten Daten, die durch Aufruf der Methoden {{domxref("WebGLRenderingContext.getActiveAttrib()", "getActiveAttrib()")}} oder {{domxref("WebGLRenderingContext.getActiveUniform()", "getActiveUniform()")}} zurückgegeben werden.
+Die schreibgeschützte **`WebGLActiveInfo.type`**-Eigenschaft stellt den Typ der angeforderten Daten dar, die durch Aufrufen der Methoden [`getActiveAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getActiveAttrib) oder [`getActiveUniform()`](/de/docs/Web/API/WebGLRenderingContext/getActiveUniform) zurückgegeben werden.
 
 ## Beispiele
 
@@ -24,10 +24,10 @@ activeUniform.type;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLActiveInfo")}}
+- [`WebGLActiveInfo`](/de/docs/Web/API/WebGLActiveInfo)

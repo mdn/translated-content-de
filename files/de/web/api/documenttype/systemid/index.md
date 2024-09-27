@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`systemId`**-Eigenschaft des {{domxref("DocumentType")}} gibt die URL der zugehörigen DTD zurück.
+Die schreibgeschützte **`systemId`**-Eigenschaft des [`DocumentType`](/de/docs/Web/API/DocumentType) gibt die URL des zugehörigen DTD zurück.
 
-Für synthetische `DocumentType` spiegelt diese Eigenschaft den im Parameter an {{domxref("DOMImplementation.createDocumentType()")}} übergebenen Wert wider.
+Für synthetische `DocumentType`-Objekte spiegelt diese Eigenschaft den im Parameter von [`DOMImplementation.createDocumentType()`](/de/docs/Web/API/DOMImplementation/createDocumentType) angegebenen Wert wider.
 
-Bei HTML-Dokumenten setzen Browser sie immer auf `html`, unabhängig vom tatsächlichen `doctype` im Quellcode. Bei SVG-Dokumenten kann sie zum Beispiel `"http://www.w3.org/2000/svg"` sein.
+Bei HTML-Dokumenten setzen Browser diesen Wert immer auf `html`, unabhängig davon, was tatsächlich im `doctype` des Quellcodes steht. Bei SVG-Dokumenten kann es beispielsweise `"http://www.w3.org/2000/svg"` sein.
 
 ## Wert
 
@@ -27,7 +27,7 @@ const docType = document.implementation.createDocumentType(
   "http://www.w3.org/2000/svg",
 );
 
-console.log(docType.systemId); // Zeigt "http://www.w3.org/2000/svg" an
+console.log(docType.systemId); // Displays "http://www.w3.org/2000/svg"
 ```
 
 ## Spezifikationen

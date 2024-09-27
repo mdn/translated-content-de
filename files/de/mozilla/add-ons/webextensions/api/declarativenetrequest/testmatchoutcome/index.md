@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Prüft, ob eine der `declarativeNetRequest`-Regeln der Erweiterung auf eine hypothetische Anfrage zutreffen würde. Diese Funktion ist nur beim Testen verfügbar, da sie während der Entwicklung von Erweiterungen verwendet werden soll. Siehe [Testing](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#testing) für Einzelheiten zur Aktivierung von Tests in jedem Browser.
+Prüft, ob eine der `declarativeNetRequest`-Regeln der Erweiterung eine hypothetische Anfrage übereinstimmen würde. Diese Funktion ist nur während des Testens verfügbar, da sie für die Verwendung während der Entwicklung von Erweiterungen vorgesehen ist. Siehe [Testen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#testing) für Einzelheiten dazu, wie das Testen in jedem Browser aktiviert wird.
 
 ## Syntax
 
@@ -24,28 +24,28 @@ let result = await browser.declarativeNetRequest.testMatchOutcome(
 
   - : Die Details der zu testenden Anfrage.
     - `initiator` {{optional_inline}}
-      - : Ein `string`. Die Initiator-URL (sofern vorhanden) für die hypothetische Anfrage.
+      - : Eine `string`. Die Initiator-URL (falls vorhanden) für die hypothetische Anfrage.
     - `method` {{optional_inline}}
-      - : Ein `string`. Die standardmäßige (kleingeschriebene) HTTP-Methode der hypothetischen Anfrage. Der Standardwert ist `"get"` für HTTP-Anfragen und wird für Nicht-HTTP-Anfragen ignoriert.
+      - : Eine `string`. Die standardmäßige (klein geschriebene) HTTP-Methode der hypothetischen Anfrage. Standardmäßig `"get"` für HTTP-Anfragen und wird bei nicht-HTTP-Anfragen ignoriert.
     - `tabId` {{optional_inline}}
-      - : Eine `number`. Die ID des Tabs, in dem die hypothetische Anfrage stattfindet. Muss nicht mit einer realen Tab-ID übereinstimmen. Der Standardwert ist `-1`, was bedeutet, dass die Anfrage nicht mit einem Tab in Verbindung steht.
+      - : Eine `number`. Die ID des Tabs, in dem die hypothetische Anfrage stattfindet. Muss nicht mit einer echten Tab-ID übereinstimmen. Standard ist `-1`, was bedeutet, dass die Anfrage nicht mit einem Tab in Zusammenhang steht.
     - `type`
       - : {{WebExtAPIRef("declarativeNetRequest.ResourceType")}}. Der Ressourcentyp der hypothetischen Anfrage.
     - `url`
-      - : Ein `string`. Die URL der hypothetischen Anfrage.
+      - : Eine `string`. Die URL der hypothetischen Anfrage.
 
 - `options` {{optional_inline}}
 
   - : Details zu den Optionen für die Anfrage.
     - `includeOtherExtensions` {{optional_inline}}
-      - : Ein `boolean`. Gibt an, ob übereinstimmende Regeln von anderen Erweiterungen in `matchedRules` enthalten sind. Wenn Regeln von anderen Erweiterungen übereinstimmen, hat das resultierende `matchedRule` eine `extensionId`-Eigenschaft. Der Standardwert ist `false`.
+      - : Ein `boolean`. Ob übereinstimmende Regeln von anderen Erweiterungen in `matchedRules` einbezogen werden. Wenn Regeln anderer Erweiterungen übereinstimmen, enthält das resultierende `matchedRule` eine `extensionId`-Eigenschaft. Standardmäßig `false`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt mit folgenden Eigenschaften erfüllt wird:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt mit diesen Eigenschaften erfüllt wird:
 
 - `matchedRules`
-  - : {{WebExtAPIRef("declarativeNetRequest.MatchedRule")}}. Details zu den Regeln (sofern vorhanden), die mit der hypothetischen Anfrage übereinstimmen.
+  - : {{WebExtAPIRef("declarativeNetRequest.MatchedRule")}}. Details der Regeln (falls vorhanden), die mit der hypothetischen Anfrage übereinstimmen.
 
 Wenn keine Regeln übereinstimmen, ist das `matchedRules`-Array leer. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 

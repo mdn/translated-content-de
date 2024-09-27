@@ -11,8 +11,8 @@ Löscht gespeicherte Passwörter.
 
 Sie können den Parameter `removalOptions` verwenden, der ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt ist, um:
 
-- nur Passwörter zu löschen, die nach einer bestimmten Zeit gespeichert wurden
-- zu steuern, ob Passwörter, die auf normalen Webseiten gespeichert wurden oder auch Passwörter, die in gehosteten Apps und Erweiterungen gespeichert wurden, gelöscht werden sollen.
+- nur Passwörter zu löschen, die nach einem bestimmten Zeitpunkt gespeichert wurden
+- zu steuern, ob Passwörter gelöscht werden sollen, die auf normalen Webseiten gespeichert wurden, oder ob auch Passwörter gelöscht werden sollen, die in gehosteten Apps und Erweiterungen gespeichert wurden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,15 +27,15 @@ let removing = browser.browsingData.removePasswords(
 ### Parameter
 
 - `removalOptions`
-  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, das verwendet werden kann, um nur Passwörter zu löschen, die nach einer bestimmten Zeit gespeichert wurden, und ob Passwörter, die auf normalen Webseiten gespeichert wurden oder auch Passwörter, die in gehosteten Apps und Erweiterungen gespeichert wurden, gelöscht werden sollen.
+  - : `object`. Ein {{WebExtAPIRef("browsingData.RemovalOptions")}} Objekt, das verwendet werden kann, um nur Passwörter zu löschen, die nach einem bestimmten Zeitpunkt gespeichert wurden, und ob Passwörter gelöscht werden sollen, die auf normalen Webseiten gespeichert wurden, oder ob auch Passwörter gelöscht werden sollen, die in gehosteten Apps und Erweiterungen gespeichert wurden.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die Löschung abgeschlossen ist. Falls ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn der Löschvorgang abgeschlossen ist. Bei Auftreten eines Fehlers wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Passwörter löschen, die in der letzten Woche gespeichert wurden:
+Löschen Sie Passwörter, die in der letzten Woche gespeichert wurden:
 
 ```js
 function onRemoved() {
@@ -57,7 +57,7 @@ browser.browsingData
   .then(onRemoved, onError);
 ```
 
-Alle gespeicherten Passwörter löschen:
+Löschen Sie alle gespeicherten Passwörter:
 
 ```js
 function onRemoved() {

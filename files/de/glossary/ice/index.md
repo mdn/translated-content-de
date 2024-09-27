@@ -7,18 +7,18 @@ l10n:
 
 {{GlossarySidebar}}
 
-**ICE** (_Interactive Connectivity Establishment_) ist ein Framework, das von {{glossary("WebRTC")}} (neben anderen Technologien) für die Verbindung von zwei Peers verwendet wird, unabhängig von der Netzwerktopologie (in der Regel für Audio- und Videochats). Dieses Protokoll ermöglicht es zwei Peers, eine Verbindung zueinander herzustellen, selbst wenn beide ein Network Address Translator ({{glossary("NAT")}}) verwenden, um eine globale IP-Adresse mit anderen Geräten in ihren jeweiligen lokalen Netzwerken zu teilen.
+**ICE** (_Interactive Connectivity Establishment_) ist ein Framework, das von [WebRTC](/de/docs/Glossary/WebRTC) (unter anderen Technologien) verwendet wird, um zwei Peers zu verbinden, unabhängig von der Netzwerk-Topologie (gewöhnlich für Audio- und Video-Chat). Dieses Protokoll ermöglicht es zwei Peers, eine Verbindung zueinander herzustellen, auch wenn beide einen Network Address Translator ([NAT](/de/docs/Glossary/NAT)) verwenden, um eine globale IP-Adresse mit anderen Geräten in ihren jeweiligen lokalen Netzwerken zu teilen.
 
-Der Algorithmus des Frameworks sucht nach dem Pfad mit der niedrigsten Latenz zur Verbindung der beiden Peers und versucht dabei folgende Optionen in der Reihenfolge:
+Der Algorithmus des Frameworks sucht nach dem Weg mit der niedrigsten Latenz, um die zwei Peers zu verbinden und probiert dabei diese Optionen in der Reihenfolge:
 
-1. Direkte UDP-Verbindung (in diesem Fall – und nur in diesem Fall – wird ein {{glossary("STUN")}}-Server verwendet, um die netzwerkseitige Adresse eines Peers zu ermitteln)
+1. Direkte UDP-Verbindung (In diesem Fall – und nur in diesem Fall – wird ein [STUN](/de/docs/Glossary/STUN)-Server verwendet, um die netzwerkseitige Adresse eines Peers zu finden)
 2. Direkte TCP-Verbindung über den HTTP-Port
 3. Direkte TCP-Verbindung über den HTTPS-Port
-4. Indirekte Verbindung über einen Relay/{{glossary("TURN")}}-Server (falls eine direkte Verbindung fehlschlägt, z. B. wenn ein Peer hinter einer Firewall steht, die NAT-Traversal blockiert)
+4. Indirekte Verbindung über einen Relay/[TURN](/de/docs/Glossary/TURN)-Server (falls eine direkte Verbindung fehlschlägt, z. B. wenn ein Peer hinter einer Firewall ist, die NAT-Traversal blockiert)
 
 ## Siehe auch
 
-- [WebRTC](/de/docs/Web/API/WebRTC_API), das wichtige webbezogene Protokoll, das ICE verwendet
+- [WebRTC](/de/docs/Web/API/WebRTC_API), das Hauptprotokoll im Web, das ICE verwendet
 - [WebRTC-Protokolle](/de/docs/Web/API/WebRTC_API/Protocols)
 - {{rfc("8445")}}, die IETF-Spezifikation für ICE
-- {{domxref("RTCIceCandidate")}}, die Schnittstelle, die einen ICE-Kandidaten darstellt
+- [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), die Schnittstelle, die einen ICE-Kandidaten darstellt

@@ -1,5 +1,5 @@
 ---
-title: v-mathematische
+title: v-mathematical
 slug: Web/SVG/Attribute/v-mathematical
 l10n:
   sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`v-mathematical`** Attribut gibt das Koordinaten-Ausrichtung für {{Glossary("glyph", "glyphs")}} an, um eine mathematische Basislinienausrichtung für vertikal orientierte Glyph-Layouts zu erreichen. Der Wert ist ein Offset im Schriftkoordinatensystem relativ zum tiefen-glyphenbezogenen {{SVGAttr("vert-origin-x")}} Attribut.
+Das **`v-mathematical`** Attribut gibt die Ausrichtungskoordinate für [glyphs](/de/docs/Glossary/glyph) an, um die mathematische Grundlinienausrichtung für vertikal orientierte Glyphenlayouts zu erreichen. Der Wert ist ein Offset im Schriftkoordinatensystem relativ zum glyphenspezifischen {{SVGAttr("vert-origin-x")}} Attribut.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("font-face")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

@@ -2,30 +2,30 @@
 title: GPUBindGroup
 slug: Web/API/GPUBindGroup
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUBindGroup`**-Schnittstelle der {{domxref("WebGPU API", "WebGPU API", "", "nocode")}} basiert auf einem {{domxref("GPUBindGroupLayout")}} und definiert eine Gruppe von Ressourcen, die zusammen gebunden werden, und wie diese Ressourcen in Shader-Stufen verwendet werden.
+Das **`GPUBindGroup`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) basiert auf einem [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) und definiert eine Gruppe von Ressourcen, die zusammen gebunden werden und wie diese Ressourcen in Shader-Stufen verwendet werden.
 
-Ein `GPUBindGroup`-Objekt wird mit der Methode {{domxref("GPUDevice.createBindGroup()")}} erstellt.
+Ein `GPUBindGroup`-Objektinstanz wird mit der Methode [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup) erstellt.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("GPUBindGroup.label", "label")}} {{Experimental_Inline}}
-  - : Ein String, der ein Etikett bereitstellt, mit dem das Objekt identifiziert werden kann, zum Beispiel in {{domxref("GPUError")}}-Meldungen oder Konsolenwarnungen.
+- [`label`](/de/docs/Web/API/GPUBindGroup/label) {{Experimental_Inline}}
+  - : Ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
 ## Beispiele
 
 > [!NOTE]
-> Die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/) enthalten viele weitere Beispiele.
+> Die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/) bieten viele weitere Beispiele.
 
 ### Einfaches Beispiel
 
-Unser [grundlegendes Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) zeigt ein Beispiel für die Erstellung eines Bindungsgruppenlayouts und dessen Verwendung als Vorlage bei der Erstellung einer Bindungsgruppe.
+Unser [einfaches Berechnungs-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) zeigt ein Beispiel für die Erstellung eines Bindungsgruppenenlayouts und dessen Verwendung als Vorlage beim Erstellen einer Bindungsgruppe.
 
 ```js
 // ...

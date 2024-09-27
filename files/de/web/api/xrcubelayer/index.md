@@ -7,48 +7,48 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`XRCubeLayer`**-Schnittstelle der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) ist eine Ebene, die direkt aus einem [Kubemap](https://en.wikipedia.org/wiki/Cube_mapping) rendert und es auf die inneren Flächen eines Würfels projiziert.
+Das **`XRCubeLayer`**-Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) ist eine Schicht, die direkt von einem [Cubemap](https://en.wikipedia.org/wiki/Cube_mapping) rendert und es auf die inneren Flächen eines Würfels projiziert.
 
-`XRCubeLayer` erfordert, dass das `layers`-Feature für die {{domxref("XRSession")}} aktiviert ist. Sie können es in {{domxref("XRSystem.requestSession()")}} anfordern.
+`XRCubeLayer` erfordert, dass die Funktion `layers` für die [`XRSession`](/de/docs/Web/API/XRSession) aktiviert ist. Sie können es in [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) anfordern.
 
-Um eine neue `XRCubeLayer` zu erstellen, rufen Sie {{domxref("XRWebGLBinding.createCubeLayer()")}} auf.
+Um ein neues `XRCubeLayer` zu erstellen, rufen Sie [`XRWebGLBinding.createCubeLayer()`](/de/docs/Web/API/XRWebGLBinding/createCubeLayer) auf.
 
-Um Ebenen auf das XR-Gerät darzustellen, fügen Sie sie dem `layers`-Renderstatus mithilfe von {{domxref("XRSession.updateRenderState()")}} hinzu.
+Um Schichten zum XR-Gerät zu präsentieren, fügen Sie sie dem `layers`-Renderzustand mit [`XRSession.updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) hinzu.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Eltern, {{domxref("XRCompositionLayer")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)._
 
-- {{domxref("XRCubeLayer.space")}} {{Experimental_Inline}}
-  - : Ein {{domxref("XRSpace")}}, das die räumlichen Beziehungen der Schicht zur physischen Umgebung des Benutzers darstellt.
-- {{domxref("XRCubeLayer.orientation")}} {{Experimental_Inline}}
-  - : Ein {{domxref("DOMPointReadOnly")}}, das die Ausrichtung relativ zur `space`-Eigenschaft darstellt.
+- [`XRCubeLayer.space`](/de/docs/Web/API/XRCubeLayer/space) {{Experimental_Inline}}
+  - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace), das die räumliche Beziehung der Schicht zur physischen Umgebung des Benutzers darstellt.
+- [`XRCubeLayer.orientation`](/de/docs/Web/API/XRCubeLayer/orientation) {{Experimental_Inline}}
+  - : Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die Orientierung relativ zur `space`-Eigenschaft darstellt.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinen Eltern, {{domxref("XRCompositionLayer")}} und {{domxref("EventTarget")}}_.
+_Erbt Methoden von seinen Elternteilen, [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer) und [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
 ## Ereignisse
 
-- {{domxref("XRCubeLayer.redraw_event", "redraw")}} {{Experimental_Inline}}
-  - : Wird an das `XRCubeLayer`-Objekt gesendet, wenn die zugrunde liegenden Ressourcen der Ebene verloren gehen oder wenn der XR-Kompositor die Ebene nicht mehr neu projizieren kann. Falls dieses Ereignis gesendet wird, sollten Autoren den Inhalt der Ebene im nächsten XR-Animationsframe neu zeichnen.
+- [`redraw`](/de/docs/Web/API/XRCubeLayer/redraw_event) {{Experimental_Inline}}
+  - : Wird an das `XRCubeLayer`-Objekt gesendet, wenn die zugrunde liegenden Ressourcen der Schicht verloren gehen oder wenn der XR-Kompositor die Schicht nicht mehr neu projizieren kann. Wenn dieses Ereignis gesendet wird, sollten Autoren den Inhalt der Schicht im nächsten XR-Animationsrahmen neu zeichnen.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität von Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("XRLayer")}}
-- {{domxref("EventTarget")}}
-- {{domxref("XRCompositionLayer")}}
-- {{domxref("XREquirectLayer")}}
-- {{domxref("XRQuadLayer")}}
-- {{domxref("XRCylinderLayer")}}
-- {{domxref("XRProjectionLayer")}}
+- [`XRLayer`](/de/docs/Web/API/XRLayer)
+- [`EventTarget`](/de/docs/Web/API/EventTarget)
+- [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)
+- [`XREquirectLayer`](/de/docs/Web/API/XREquirectLayer)
+- [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer)
+- [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer)
+- [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer)

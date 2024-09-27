@@ -1,6 +1,6 @@
 ---
-title: "MIDIPort: Eigenschaft manufacturer"
-short-title: manufacturer
+title: "MIDIPort: Hersteller-Eigenschaft"
+short-title: Hersteller
 slug: Web/API/MIDIPort/manufacturer
 l10n:
   sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die schreibgeschützte Eigenschaft **`manufacturer`** des {{domxref("MIDIPort")}}-Interfaces gibt den Hersteller des Ports zurück.
+Die schreibgeschützte Eigenschaft **`manufacturer`** der Schnittstelle [`MIDIPort`](/de/docs/Web/API/MIDIPort) gibt den Hersteller des Ports zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der den Hersteller des Ports enthält.
 
 ## Beispiele
 
-Im folgenden Beispiel wird durch alle Eingangsports iteriert und der Hersteller jedes Ports in die Konsole ausgegeben.
+Das folgende Beispiel durchläuft alle Eingangsports und gibt den Hersteller jedes Ports in der Konsole aus.
 
 ```js
 for (const entry of midiAccess.inputs) {

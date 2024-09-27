@@ -3,15 +3,16 @@ title: "WebSocket: close()-Methode"
 short-title: close()
 slug: Web/API/WebSocket/close
 l10n:
-  sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
+  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
 ---
 
-{{APIRef("WebSockets API")}}
+{{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Die **`WebSocket.close()`**-Methode schließt die {{domxref("WebSocket")}}-Verbindung oder den Verbindungsversuch, falls vorhanden. Wenn die Verbindung bereits `CLOSED` ist, bewirkt diese Methode nichts.
+Die **`WebSocket.close()`**-Methode schließt die
+[`WebSocket`](/de/docs/Web/API/WebSocket)-Verbindung oder den Verbindungsversuch, falls vorhanden. Wenn die Verbindung bereits `CLOSED` ist, tut diese Methode nichts.
 
 > [!NOTE]
-> Der Prozess des Schließens der Verbindung beginnt mit einem [Schluss-Handshake](https://www.rfc-editor.org/rfc/rfc6455.html#section-1.4), und die `close()`-Methode verwirft keine zuvor gesendeten Nachrichten, bevor dieser Schluss-Handshake beginnt; selbst wenn der Benutzeragent noch mit dem Senden dieser Nachrichten beschäftigt ist, wird der Handshake erst nach dem Versand der Nachrichten gestartet.
+> Der Prozess des Schließens der Verbindung beginnt mit einem [Schließungshandshake](https://www.rfc-editor.org/rfc/rfc6455.html#section-1.4), und die `close()`-Methode verwirft keine zuvor gesendeten Nachrichten, bevor dieser Schließungshandshake beginnt; selbst wenn der User-Agent noch mit dem Senden dieser Nachrichten beschäftigt ist, beginnt der Handshake erst, nachdem die Nachrichten gesendet wurden.
 
 ## Syntax
 
@@ -25,18 +26,19 @@ close(code, reason)
 
 - `code` {{optional_inline}}
 
-  - : Ein ganzzahliger [WebSocket-Verbindungsschlusscode](https://www.rfc-editor.org/rfc/rfc6455.html#section-7.1.5)-Wert, der einen Grund für die Schließung angibt:
-    - Falls nicht angegeben, wird der Schlusscode für die Verbindung automatisch auf `1000` für eine normale Schließung gesetzt oder ansonsten auf [einen anderen Standardwert im Bereich `1001`-`1015`](https://www.rfc-editor.org/rfc/rfc6455.html#section-7.4.1), der den tatsächlichen Grund angibt, warum die Verbindung geschlossen wurde.
-    - Falls angegeben, überschreibt der Wert dieses `code`-Parameters die automatische Einstellung des Schlusscodes für die Verbindung und legt stattdessen einen benutzerdefinierten Code fest. Der Wert muss eine Ganzzahl sein: entweder `1000` oder ein benutzerdefinierter Code aus dem Bereich `3000`-`4999`. Falls Sie einen `code`-Wert angeben, sollten Sie auch einen [`reason`](#reason)-Wert angeben.
+  - : Ein ganzzahliger [WebSocket-Verbindungs-Schließungscode](https://www.rfc-editor.org/rfc/rfc6455.html#section-7.1.5), der einen Grund für die Schließung angibt:
+    - Wenn nicht angegeben, wird automatisch ein Schließungscode für die Verbindung festgelegt: `1000` für eine normale Schließung oder ein [anderer Standardwert im Bereich `1001`-`1015`](https://www.rfc-editor.org/rfc/rfc6455.html#section-7.4.1), der den tatsächlichen Grund dafür angibt, warum die Verbindung geschlossen wurde.
+    - Wenn angegeben, überschreibt der Wert dieses `code`-Parameters die automatische Festlegung des Schließungscodes für die Verbindung und legt stattdessen einen benutzerdefinierten Code fest.
+      Der Wert muss eine Ganzzahl sein: entweder `1000` oder ein benutzerdefinierter Code Ihrer Wahl im Bereich `3000`-`4999`. Wenn Sie einen `code`-Wert angeben, sollten Sie ebenfalls einen [`reason`](#reason)-Wert angeben.
 
 - `reason` {{optional_inline}}
 
-  - : Ein String, der einen benutzerdefinierten [WebSocket-Verbindungsschlussgrund](https://www.rfc-editor.org/rfc/rfc6455.html#section-7.1.6) bereitstellt (eine prägnante, für Menschen lesbare Erklärung für die Schließung). Der Wert darf nicht länger als 123 Bytes sein (in UTF-8 codiert).
+  - : Ein String, der einen benutzerdefinierten [WebSocket-Verbindungs-Schließungsgrund](https://www.rfc-editor.org/rfc/rfc6455.html#section-7.1.6) bereitstellt (eine kurze, leicht verständliche Erklärung für die Schließung). Der Wert darf nicht länger als 123 Bytes sein (kodiert in UTF-8).
 
     > [!NOTE]
-    > Da [UTF-8 zwei bis vier Bytes verwendet](/de/docs/Glossary/UTF-8), um Zeichen zu kodieren, die nicht [ASCII](/de/docs/Glossary/ASCII) sind, würde ein `reason`-Wert von 123 Zeichen, der nicht-ASCII-Zeichen enthält, das Limit von 123 Bytes überschreiten.
+    > Da [UTF-8 zwei bis vier Bytes verwendet](/de/docs/Glossary/UTF-8), um nicht-[ASCII](/de/docs/Glossary/ASCII)-Zeichen zu kodieren, würde ein `reason`-Wert von 123 Zeichen mit Nicht-ASCII-Zeichen das 123-Byte-Limit überschreiten.
 
-    Falls Sie einen `reason`-Wert angeben, sollten Sie auch einen [`code`](#code)-Wert angeben.
+    Wenn Sie einen `reason`-Wert angeben, sollten Sie ebenfalls einen [`code`](#code)-Wert angeben.
 
 ### Rückgabewert
 
@@ -44,10 +46,10 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidAccessError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn [`code`](#code) weder eine Ganzzahl von `1000` noch eine Ganzzahl im Bereich `3000` – `4999` ist.
-- `SyntaxError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der UTF-8-codierte [`reason`](#reason)-Wert länger als 123 Bytes ist.
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn [`code`](#code) weder eine Ganzzahl gleich `1000` noch eine Ganzzahl im Bereich `3000` – `4999` ist.
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der UTF-8-kodierte [`reason`](#reason)-Wert länger als 123 Bytes ist.
 
 ## Spezifikationen
 

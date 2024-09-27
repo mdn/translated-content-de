@@ -1,5 +1,5 @@
 ---
-title: "ReadableStreamDefaultController: enqueue()-Methode"
+title: "ReadableStreamDefaultController: enqueue() Methode"
 short-title: enqueue()
 slug: Web/API/ReadableStreamDefaultController/enqueue
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`enqueue()`**-Methode der
-{{domxref("ReadableStreamDefaultController")}}-Schnittstelle fügt einen gegebenen [Chunk](/de/docs/Web/API/Streams_API/Concepts#chunks) in den zugehörigen Stream ein.
+Die **`enqueue()`**-Methode der [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)-Schnittstelle fügt dem zugehörigen Stream einen gegebenen [Chunk](/de/docs/Web/API/Streams_API/Concepts#chunks) hinzu.
 
 ## Syntax
 
@@ -20,7 +19,7 @@ enqueue(chunk)
 ### Parameter
 
 - `chunk`
-  - : Der Chunk, der in die Warteschlange gestellt werden soll.
+  - : Der Chunk, der hinzugefügt werden soll.
 
 ### Rückgabewert
 
@@ -33,9 +32,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden einfachen Beispiel wird ein benutzerdefinierter `ReadableStream` mit einem Konstruktor erstellt (siehe unser [Beispiel für einen einfachen Zufallsstrom](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code). Die `start()`-Funktion generiert jede Sekunde einen zufälligen Textstring und stellt ihn in die Warteschlange des Streams — siehe `controller.enqueue(string)`. Eine `cancel()`-Funktion wird ebenfalls bereitgestellt, um die Generierung zu stoppen, falls {{domxref("ReadableStream.cancel()")}} aus irgendeinem Grund aufgerufen wird.
+Im folgenden einfachen Beispiel wird ein benutzerdefinierter `ReadableStream` mit einem Konstruktor erstellt (sehen Sie sich unser [Einfaches Zufallsstrom-Beispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code an). Die `start()`-Funktion generiert jede Sekunde einen zufälligen Textstring und fügt ihn in den Stream ein — siehe `controller.enqueue(string)`. Eine `cancel()`-Funktion wird ebenfalls bereitgestellt, um die Generierung zu stoppen, falls [`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel) aus irgendeinem Grund aufgerufen wird.
 
-Wenn ein Knopf gedrückt wird, wird die Generierung gestoppt, der Stream wird mit {{domxref("ReadableStreamDefaultController.close()")}} geschlossen und eine andere Funktion gestartet, die die Daten wieder aus dem Stream liest.
+Wenn eine Schaltfläche gedrückt wird, wird die Generierung gestoppt, der Stream mit [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) geschlossen, und eine andere Funktion wird ausgeführt, die die Daten aus dem Stream wieder ausliest.
 
 ```js
 let interval;
@@ -44,10 +43,10 @@ const stream = new ReadableStream({
     interval = setInterval(() => {
       let string = randomChars();
 
-      // Fügen Sie den String dem Stream hinzu
+      // Add the string to the stream
       controller.enqueue(string);
 
-      // Zeigen Sie ihn auf dem Bildschirm an
+      // show it on the screen
       let listItem = document.createElement("li");
       listItem.textContent = string;
       list1.appendChild(listItem);
@@ -60,11 +59,11 @@ const stream = new ReadableStream({
     });
   },
   pull(controller) {
-    // Wir benötigen in diesem Beispiel keinen Pull
+    // We don't really need a pull in this example
   },
   cancel() {
-    // Dies wird aufgerufen, wenn der Leser abbricht,
-    // also sollten wir die Stringgenerierung stoppen
+    // This is called if the reader cancels,
+    // so we should stop generating strings
     clearInterval(interval);
   },
 });
@@ -81,4 +80,4 @@ const stream = new ReadableStream({
 ## Siehe auch
 
 - [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)
-- {{domxref("ReadableStreamDefaultController")}}
+- [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)

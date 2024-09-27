@@ -1,5 +1,5 @@
 ---
-title: "PerformanceTiming: toJSON()-Methode"
+title: "PerformanceTiming: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/PerformanceTiming/toJSON
 l10n:
@@ -9,9 +9,9 @@ l10n:
 {{APIRef("Performance API")}}{{deprecated_header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die {{domxref("PerformanceNavigationTiming")}} Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 Specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Schnittstelle.
 
-Die veraltete **`toJSON()`**-Methode der {{domxref("PerformanceTiming")}}-Schnittstelle ist ein {{Glossary("Serialization","serializer")}}; sie gibt eine JSON-Darstellung des {{domxref("PerformanceTiming")}}-Objekts zurück.
+Die veraltete **`toJSON()`** Methode des [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Interfaces ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Objekts zurück.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des {{domxref("PerformanceTiming")}}-Objekts darstellt.
+Ein {{jsxref("JSON")}} Objekt, das die Serialisierung des [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Objekts ist.
 
 ## Spezifikationen
 

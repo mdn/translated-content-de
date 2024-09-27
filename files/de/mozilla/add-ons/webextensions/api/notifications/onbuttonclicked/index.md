@@ -22,22 +22,22 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
+  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiviert ist, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden folgende Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
 
     - `notificationId`
       - : `string`. ID der Benachrichtigung, deren Schaltfläche angeklickt wurde.
     - `buttonIndex`
-      - : `integer`. Der [nullbasierte](https://en.wikipedia.org/wiki/Zero-based_numbering) Index der Schaltfläche, die angeklickt wurde.
+      - : `integer`. Der [nullbasierte](https://en.wikipedia.org/wiki/Zero-based_numbering) Index der Schaltfläche, die geklickt wurde.
 
 ## Browser-Kompatibilität
 
@@ -46,4 +46,4 @@ Ereignisse haben drei Funktionen:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API.
+> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API von Chromium.

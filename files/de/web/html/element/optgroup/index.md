@@ -1,5 +1,5 @@
 ---
-title: "<optgroup>: Das Optionengruppen-Element"
+title: "<optgroup>: Das Option Group-Element"
 slug: Web/HTML/Element/optgroup
 l10n:
   sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
@@ -7,21 +7,21 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<optgroup>`** [HTML](/de/docs/Web/HTML)-Element erstellt eine Gruppierung von Optionen innerhalb eines {{HTMLElement("select")}}-Elements.
+Das **`<optgroup>`** [HTML](/de/docs/Web/HTML)-Element erstellt eine Gruppe von Optionen innerhalb eines {{HTMLElement("select")}} Elements.
 
 {{EmbedInteractiveExample("pages/tabbed/optgroup.html", "tabbed-standard")}}
 
 > [!NOTE]
-> Optgroup-Elemente dürfen nicht verschachtelt werden.
+> Optgroup-Elemente können nicht verschachtelt werden.
 
 ## Attribute
 
 Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - [`disabled`](/de/docs/Web/HTML/Attributes/disabled)
-  - : Wenn dieses booleanische Attribut gesetzt ist, ist kein Element in dieser Optionsgruppe auswählbar. Oftmals werden solche Steuerelemente von Browsern ausgegraut und es werden keine Browsereignisse wie Mausklicks oder fokusbezogene Ereignisse empfangen.
+  - : Wenn dieses Boolean-Attribut gesetzt ist, kann keines der Elemente in dieser Optionsgruppe ausgewählt werden. Oftmals blenden Browser solche Steuerungen aus und sie empfangen keine Browsing-Ereignisse, wie Mausklicks oder fokussierungsbezogene Ereignisse.
 - `label`
-  - : Der Name der Gruppe von Optionen, den der Browser bei der Beschriftung der Optionen in der Benutzeroberfläche verwenden kann. Dieses Attribut ist obligatorisch, wenn dieses Element verwendet wird.
+  - : Der Name der Optionsgruppe, den der Browser verwenden kann, um die Optionen in der Benutzeroberfläche zu kennzeichnen. Dieses Attribut ist obligatorisch, wenn dieses Element verwendet wird.
 
 ## Beispiele
 
@@ -52,23 +52,25 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>Keine.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Null oder mehr {{HTMLElement("option")}}-Elemente.</td>
+      <td>Null oder mehr {{HTMLElement("option")}} Elemente.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag ist obligatorisch. Das End-Tag ist optional, wenn dieses Element unmittelbar von einem anderen <code>&#x3C;optgroup></code>-Element gefolgt wird oder wenn das übergeordnete Element keinen weiteren Inhalt mehr hat.
+        Das Start-Tag ist zwingend erforderlich. Das End-Tag ist optional, wenn dieses Element direkt von einem anderen <code>&#x3C;optgroup></code>-Element gefolgt wird oder wenn das Elternelement keinen weiteren Inhalt hat.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
-      <td>Ein {{HTMLElement("select")}}-Element.</td>
+      <td>Ein {{HTMLElement("select")}} Element.</td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
@@ -80,7 +82,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLOptGroupElement")}}</td>
+      <td>[`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement)</td>
     </tr>
   </tbody>
 </table>

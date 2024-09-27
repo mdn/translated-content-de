@@ -1,5 +1,5 @@
 ---
-title: "ARIA: Fensterrolle"
+title: "ARIA: window Rolle"
 slug: Web/Accessibility/ARIA/Roles/window_role
 l10n:
   sourceCommit: 194bd13942ad0c532c92d364e0d5d0c36732d98c
@@ -7,14 +7,14 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `window`-Rolle definiert ein Browser- oder App-Fenster.
+Die `window` Rolle definiert ein Browser- oder App-Fenster.
 
 > [!NOTE]
-> Die `window`-Rolle ist eine abstrakte Rolle. Sie wird hier zur Vollständigkeit der Dokumentation aufgeführt. Sie sollte von Web-Autoren nicht verwendet werden.
+> Die `window` Rolle ist eine abstrakte Rolle. Sie ist hier zur Vollständigkeit der Dokumentation enthalten. Sie sollte von Web-Autoren nicht verwendet werden.
 
 ## Beschreibung
 
-Die `window`-Rolle, eine abstrakte Rolle, ist eine Superklasse für Rollen, die ein Browser- oder App-Fenster definieren. Die Unterklassenrollen, derzeit nur die [`dialog`](/de/docs/Web/Accessibility/ARIA/Roles/dialog_role)-Rolle, haben eine fensterähnliche <abbr>GUI</abbr>, oder grafische Benutzeroberfläche, sei es ein vollständiges natives Fenster oder nur ein Abschnitt eines Dokuments, der so gestaltet ist, dass er wie ein Fenster aussieht, wo `role="dialog"` angemessen wäre.
+Die `window` Rolle, eine abstrakte Rolle, ist eine Superklasse für Rollen, die ein Browser- oder App-Fenster definieren. Die Unterklassen-Rollen, derzeit nur die [`dialog`](/de/docs/Web/Accessibility/ARIA/Roles/dialog_role) Rolle, verfügen über eine fensterähnliche <abbr>GUI</abbr>, oder grafische Benutzeroberfläche, sei es ein vollständiges natives Fenster oder nur ein Abschnitt eines Dokuments, der so gestylt ist, dass er wie ein Fenster aussieht, wo `role="dialog"` geeignet wäre.
 
 ## Beste Praktiken
 
@@ -26,5 +26,5 @@ Nicht verwenden.
 
 ## Siehe auch
 
-- [ARIA: `roletype`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/roletype_role)
-- [ARIA: `dialog`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/dialog_role)
+- [ARIA: `roletype` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/roletype_role)
+- [ARIA: `dialog` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/dialog_role)

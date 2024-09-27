@@ -7,155 +7,157 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/JavaScript/Objects/Classes_in_JavaScript", "Learn/JavaScript/Objects/Object_building_practice", "Learn/JavaScript/Objects")}}
 
-JavaScript Object Notation (JSON) ist ein standardisiertes textbasiertes Format zur Darstellung strukturierter Daten basierend auf der JavaScript-Objektsyntax. Es wird häufig zur Datenübertragung in Webanwendungen verwendet (z.B. um Daten vom Server an den Client zu senden, damit sie auf einer Webseite angezeigt werden können, oder umgekehrt). Sie werden damit häufig konfrontiert, daher geben wir Ihnen in diesem Artikel alle notwendigen Informationen, um mit JSON in JavaScript zu arbeiten, einschließlich des Parsens von JSON, um Zugriff auf die darin enthaltenen Daten zu erhalten, und der Erstellung von JSON.
+JavaScript Object Notation (JSON) ist ein standardisiertes textbasiertes Format zur Darstellung von strukturierten Daten basierend auf der JavaScript-Objektsyntax. Es wird häufig zum Übertragen von Daten in Webanwendungen verwendet (z. B. das Senden von Daten vom Server zum Client, damit diese auf einer Webseite angezeigt werden können, oder umgekehrt). Sie werden es ziemlich oft antreffen, daher geben wir Ihnen in diesem Artikel alles, was Sie benötigen, um mit JSON unter Verwendung von JavaScript zu arbeiten, einschließlich des Parsens von JSON, damit Sie auf darin enthaltene Daten zugreifen können, und der Erstellung von JSON.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlegendes Verständnis von HTML und CSS, Vertrautheit mit JavaScript-Grundlagen (siehe <a href="/de/docs/Learn/JavaScript/First_steps">Erste Schritte</a> und <a href="/de/docs/Learn/JavaScript/Building_blocks">Bausteine</a>) und Grundlagen von OOJS (siehe <a href="/de/docs/Learn/JavaScript/Objects/Basics">Einführung in Objekte</a>).
+        Ein grundlegendes Verständnis von HTML und CSS, Vertrautheit mit den JavaScript-Grundlagen (siehe <a href="/de/docs/Learn/JavaScript/First_steps">Erste Schritte</a> und <a href="/de/docs/Learn/JavaScript/Building_blocks">Bausteine</a>) und den OOJS-Grundlagen (siehe <a href="/de/docs/Learn/JavaScript/Objects/Basics">Einführung in Objekte</a>).
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Zu verstehen, wie man mit in JSON gespeicherten Daten arbeitet und eigene JSON-Strings erstellt.
+        Verstehen, wie man mit in JSON gespeicherten Daten arbeitet und eigene JSON-Strings erstellt.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Wirklich, was ist JSON?
+## Nein, wirklich, was ist JSON?
 
-{{glossary("JSON")}} ist ein textbasiertes Datenformat, das der JavaScript-Objektsyntax folgt und von [Douglas Crockford](https://en.wikipedia.org/wiki/Douglas_Crockford) populär gemacht wurde.
-Obwohl es stark der JavaScript-Objektliteralsyntax ähnelt, kann es unabhängig von JavaScript verwendet werden, und viele Programmierumgebungen verfügen über die Fähigkeit, JSON zu lesen (parsen) und zu generieren.
+[JSON](/de/docs/Glossary/JSON) ist ein textbasiertes Datenformat, das der JavaScript-Objektsyntax folgt und von [Douglas Crockford](https://en.wikipedia.org/wiki/Douglas_Crockford) populär gemacht wurde.
+Auch wenn es der JavaScript-Objektliteral-Syntax sehr ähnelt, kann es unabhängig von JavaScript verwendet werden, und viele Programmierumgebungen verfügen über die Fähigkeit, JSON zu lesen (parsen) und zu generieren.
 
 JSON existiert als String — nützlich, wenn Sie Daten über ein Netzwerk übertragen möchten.
 Es muss in ein natives JavaScript-Objekt konvertiert werden, wenn Sie auf die Daten zugreifen möchten.
-Das ist kein großes Problem — JavaScript bietet ein globales [JSON](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON)-Objekt, das Methoden zur Konvertierung zwischen den beiden bereitstellt.
+Dies ist kein großes Problem — JavaScript stellt ein globales [JSON](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON) Objekt bereit, das über Methoden für die Konvertierung zwischen den beiden verfügt.
 
 > [!NOTE]
-> Die Umwandlung eines Strings in ein natives Objekt wird _Deserialisierung_ genannt, während die Umwandlung eines nativen Objekts in einen String, damit es über das Netzwerk übertragen werden kann, _Serialisierung_ genannt wird.
+> Die Umwandlung eines Strings in ein natives Objekt wird _Deserialisierung_ genannt, während die Umwandlung eines nativen Objekts in einen String, um es über das Netzwerk zu übertragen, _Serialisierung_ genannt wird.
 
-Ein JSON-String kann in einer eigenen Datei gespeichert werden, die im Grunde nur eine Textdatei mit der Erweiterung `.json` ist und einen {{glossary("MIME type")}} von `application/json` hat.
+Ein JSON-String kann in seiner eigenen Datei gespeichert werden, die im Grunde nur eine Textdatei mit der Erweiterung `.json` und einem [MIME-Typ](/de/docs/Glossary/MIME_type) von `application/json` ist.
 
 ### JSON-Struktur
 
-Wie oben beschrieben, ist JSON ein String, dessen Format stark der JavaScript-Objektliteralformat ähnelt.
-Sie können in JSON dieselben grundlegenden Datentypen einschließen wie in einem Standard-JavaScript-Objekt — Strings, Zahlen, Arrays, Booleans und andere Objektliterale.
-Dies ermöglicht Ihnen den Aufbau einer Datenhierarchie, wie folgt:
+Wie oben beschrieben, ist JSON ein String, dessen Format sehr den JavaScript-Objektliteral-Format ähnelt.
+Sie können dieselben grundlegenden Datentypen in JSON einbeziehen, wie Sie es in einem Standard-JavaScript-Objekt tun können — Strings, Zahlen, Arrays, Booleans und andere Objektliteralien.
+Dies ermöglicht Ihnen, eine Datenhierarchie zu konstruieren, wie folgt:
 
 ```json
 {
-  "squadName": "Superhelden-Team",
+  "squadName": "Super hero squad",
   "homeTown": "Metro City",
   "formed": 2016,
-  "secretBase": "Super-Turm",
+  "secretBase": "Super tower",
   "active": true,
   "members": [
     {
-      "name": "Molekül Mann",
+      "name": "Molecule Man",
       "age": 29,
       "secretIdentity": "Dan Jukes",
-      "powers": ["Strahlungsresistenz", "Winzig werden", "Strahlungsschlag"]
+      "powers": ["Radiation resistance", "Turning tiny", "Radiation blast"]
     },
     {
       "name": "Madame Uppercut",
       "age": 39,
       "secretIdentity": "Jane Wilson",
       "powers": [
-        "Millionen Tonnen Schlag",
-        "Schadensresistenz",
-        "Übermenschliche Reflexe"
+        "Million tonne punch",
+        "Damage resistance",
+        "Superhuman reflexes"
       ]
     },
     {
-      "name": "Ewige Flamme",
+      "name": "Eternal Flame",
       "age": 1000000,
-      "secretIdentity": "Unbekannt",
+      "secretIdentity": "Unknown",
       "powers": [
-        "Unsterblichkeit",
-        "Hitzeimmunität",
+        "Immortality",
+        "Heat Immunity",
         "Inferno",
         "Teleportation",
-        "Interdimensionales Reisen"
+        "Interdimensional travel"
       ]
     }
   ]
 }
 ```
 
-Wenn wir diesen String in ein JavaScript-Programm laden und ihn in eine Variable namens `superHeroes` parsen würden, könnten wir die darin enthaltenen Daten mit der gleichen Punkt-/Klammernotation, die wir im Artikel [JavaScript-Objektgrundlagen](/de/docs/Learn/JavaScript/Objects/Basics) besprochen haben, abrufen. Zum Beispiel:
+Wenn wir diesen String in ein JavaScript-Programm laden und in einer Variablen namens `superHeroes` parsen würden, könnten wir dann auf die darin enthaltenen Daten mit der gleichen Punkt/Klammer-Notation zugreifen, die wir im Artikel über die [JavaScript-Objekt-Grundlagen](/de/docs/Learn/JavaScript/Objects/Basics) angesehen haben.
+Zum Beispiel:
 
 ```js
 superHeroes.homeTown;
 superHeroes["active"];
 ```
 
-Um auf Daten weiter unten in der Hierarchie zuzugreifen, müssen Sie die erforderlichen Eigenschaftsnamen und Array-Indizes miteinander verketten. Um zum Beispiel die dritte Superkraft des zweiten Helden in der Mitgliederliste abzurufen, würden Sie Folgendes tun:
+Um auf Daten weiter unten in der Hierarchie zuzugreifen, müssen Sie die benötigten Eigenschaftsnamen und Array-Indizes zusammenkoppeln. Zum Beispiel, um auf die dritte Superkraft des zweiten Helden in der Mitgliederliste zuzugreifen, würden Sie Folgendes tun:
 
 ```js
 superHeroes["members"][1]["powers"][2];
 ```
 
 1. Zuerst haben wir den Variablennamen — `superHeroes`.
-2. Innerhalb davon möchten wir auf die `members`-Eigenschaft zugreifen, daher verwenden wir `["members"]`.
+2. Darin wollen wir auf die Eigenschaft `members` zugreifen, also verwenden wir `["members"]`.
 3. `members` enthält ein Array, das mit Objekten gefüllt ist. Wir wollen auf das zweite Objekt im Array zugreifen, also verwenden wir `[1]`.
-4. Innerhalb dieses Objekts wollen wir auf die `powers`-Eigenschaft zugreifen, also verwenden wir `["powers"]`.
-5. Innerhalb der `powers`-Eigenschaft ist ein Array, das die Superkräfte des ausgewählten Helden enthält. Wir wollen die dritte, also verwenden wir `[2]`.
+4. In diesem Objekt wollen wir auf die `powers`-Eigenschaft zugreifen, also verwenden wir `["powers"]`.
+5. Innerhalb der `powers`-Eigenschaft befindet sich ein Array, das die Superkräfte des ausgewählten Helden enthält. Wir wollen die dritte, also verwenden wir `[2]`.
 
 > [!NOTE]
-> Wir haben das oben gezeigte JSON in einer Variablen in unserem [JSONTest.html](https://mdn.github.io/learning-area/javascript/oojs/json/JSONTest.html)-Beispiel verfügbar gemacht (siehe den [Quellcode](https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/JSONTest.html)).
-> Versuchen Sie, dies zu laden und dann im JavaScript-Konsolentool Ihres Browsers auf Daten innerhalb der Variablen zuzugreifen.
+> Wir haben das oben gesehene JSON in einer Variablen in unserem [JSONTest.html](https://mdn.github.io/learning-area/javascript/oojs/json/JSONTest.html) Beispiel (siehe den [Quellcode](https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/JSONTest.html)) verfügbar gemacht.
+> Versuchen Sie, dies zu laden und dann auf die Daten in der Variablen über die JavaScript-Konsole Ihres Browsers zuzugreifen.
 
 ### Arrays als JSON
 
-Wir erwähnten oben, dass JSON-Text im Grunde wie ein JavaScript-Objekt in einem String aussieht.
-Wir können auch Arrays zu/von JSON konvertieren. Unten ist ebenfalls ein gültiges JSON, zum Beispiel:
+Oben erwähnten wir, dass JSON-Text im Grunde wie ein JavaScript-Objekt in einem String aussieht.
+Wir können auch Arrays zu/von JSON konvertieren. Unten ist ebenfalls gültiges JSON, zum Beispiel:
 
 ```json
 [
   {
-    "name": "Molekül Mann",
+    "name": "Molecule Man",
     "age": 29,
     "secretIdentity": "Dan Jukes",
-    "powers": ["Strahlungsresistenz", "Winzig werden", "Strahlungsschlag"]
+    "powers": ["Radiation resistance", "Turning tiny", "Radiation blast"]
   },
   {
     "name": "Madame Uppercut",
     "age": 39,
     "secretIdentity": "Jane Wilson",
     "powers": [
-      "Millionen Tonnen Schlag",
-      "Schadensresistenz",
-      "Übermenschliche Reflexe"
+      "Million tonne punch",
+      "Damage resistance",
+      "Superhuman reflexes"
     ]
   }
 ]
 ```
 
-Das obige ist vollkommen gültiges JSON. Sie müssten einfach nur die Array-Elemente (in seiner geparsten Version) aufrufen, indem Sie mit einem Array-Index beginnen, z.B. `[0]["powers"][0]`.
+Das oben Genannte ist vollkommen gültiges JSON. Sie würden nur in seiner geparsten Version auf die Array-Elemente zugreifen müssen, indem Sie mit einem Array-Index beginnen, zum Beispiel `[0]["powers"][0]`.
 
 ### Weitere Hinweise
 
 - JSON ist rein ein String mit einem spezifizierten Datenformat — es enthält nur Eigenschaften, keine Methoden.
-- JSON erfordert die Verwendung von doppelten Anführungszeichen um Strings und Eigenschaftsnamen. Einzelne Anführungszeichen sind nur gültig, wenn sie den gesamten JSON-String umschließen.
-- Selbst ein einziger falsch platzierter Komma oder Doppelpunkt kann eine JSON-Datei fehlerhaft machen und nicht funktionieren.
-  Sie sollten darauf achten, alle Daten, die Sie verwenden möchten, zu validieren (obwohl computererzeugtes JSON weniger wahrscheinlich Fehler enthält, solange das Generierungsprogramm korrekt funktioniert).
+- Bei JSON müssen doppelte Anführungszeichen um Strings und Eigenschaftsnamen verwendet werden.
+  Einzelne Anführungszeichen sind nicht gültig außer um den gesamten JSON-String herum.
+- Selbst ein einziger falsch gesetzter Komma oder Doppelpunkt kann eine JSON-Datei fehlerhaft machen und nicht funktionieren lassen.
+  Sie sollten darauf achten, Daten zu validieren, die Sie verwenden möchten (obwohl computererzeugtes JSON weniger wahrscheinlich Fehler enthält, solange das Erzeugerprogramm korrekt funktioniert).
   Sie können JSON mit einer Anwendung wie [JSONLint](https://jsonlint.com/) validieren.
-- JSON kann tatsächlich die Form jedes Datentyps annehmen, der für die Einbeziehung in JSON gültig ist, nicht nur Arrays oder Objekte.
-  So wäre zum Beispiel ein einzelner String oder eine Zahl gültiges JSON.
-- Anders als in JavaScript-Code, in dem Objekteigenschaften unverzichtbar sein können, dürfen in JSON nur angeführte Strings als Eigenschaften verwendet werden.
+- JSON kann tatsächlich die Form jedes Datentyps annehmen, der gültig für die Einbeziehung innerhalb JSON ist, nicht nur Arrays oder Objekte.
+  Zum Beispiel wäre ein einzelner String oder eine Zahl gültiges JSON.
+- Im Gegensatz zu JavaScript-Code, in dem Objekteigenschaften nicht zitiert sein müssen, dürfen in JSON nur zitierte Strings als Eigenschaften verwendet werden.
 
-## Aktives Lernen: Durch ein JSON-Beispiel arbeiten
+## Aktives Lernen: Durcharbeiten eines JSON-Beispiels
 
-Lassen Sie uns an einem Beispiel durcharbeiten, wie wir einige JSON-formatierte Daten auf einer Website verwenden könnten.
+Also, arbeiten wir ein Beispiel durch, um zu zeigen, wie wir einige JSON-formatierte Daten auf einer Website verwenden könnten.
 
 ### Einstieg
 
-Legen Sie zunächst lokale Kopien unserer [heroes.html](https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/heroes.html) und [style.css](https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/style.css) Dateien an.
-Letztere enthält einige einfache CSS zur Gestaltung unserer Seite, während die erstere etwas sehr einfaches HTML für den Body sowie ein {{HTMLElement("script")}}-Element enthält, um den JavaScript-Code, den wir schreiben werden, zu enthalten:
+Zu Beginn erstellen Sie lokale Kopien unserer [heroes.html](https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/heroes.html) und [style.css](https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/style.css) Dateien.
+Letztere enthält einige einfache CSS, um unsere Seite zu stylen, während die erstere etwas sehr einfaches HTML im Body enthält, sowie ein {{HTMLElement("script")}}-Element, um den JavaScript-Code zu enthalten, den wir in dieser Übung schreiben werden:
 
 ```html-nolint
 <header>
@@ -171,11 +173,11 @@ Letztere enthält einige einfache CSS zur Gestaltung unserer Seite, während die
 </script>
 ```
 
-Wir haben unsere JSON-Daten auf unserem GitHub unter <https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json> bereitgestellt.
+Wir haben unsere JSON-Daten auf unserem GitHub verfügbar gemacht, unter <https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json>.
 
-Wir werden das JSON in unser Skript laden und einige pfiffige DOM-Manipulationen verwenden, um es anzuzeigen, so:
+Wir werden das JSON in unser Skript laden und einige schicke DOM-Manipulationen verwenden, um es anzuzeigen, wie folgt:
 
-![Bild eines Dokuments mit dem Titel "Superhelden-Team" (in einer schicken Schriftart) und dem Untertitel "Herkunft: Metro City // Gegründet: 2016". Drei Spalten unten der Überschrift haben die Titel "Molekül Mann", "Madame Uppercut" und "Ewige Flamme" und jede Spalte listet den geheimen Identitätsnamen, das Alter und die Superkräfte des Helden auf.](json-superheroes.png)
+![Bild eines Dokuments mit dem Titel „Superhero-Squad“ (in einer ausgefallenen Schriftart) und dem Untertitel „Hometown: Metro City // Formed: 2016“. Drei Spalten unter der Überschrift sind mit „Molecule Man“, „Madame Uppercut“ und „Eternal Flame“ betitelt. Jede Spalte listet den Geheimidentitätsnamen des Helden, das Alter und die Superkräfte auf.](json-superheroes.png)
 
 ### Top-Level-Funktion
 
@@ -196,23 +198,23 @@ async function populate() {
 ```
 
 Um das JSON zu erhalten, verwenden wir eine API namens [Fetch](/de/docs/Web/API/Fetch_API).
-Diese API ermöglicht es uns, Netzwerkanfragen zu stellen, um Ressourcen über JavaScript von einem Server abzurufen (z.B. Bilder, Text, JSON, sogar HTML-Schnipsel), was bedeutet, dass wir kleine Abschnitte von Inhalten aktualisieren können, ohne die gesamte Seite neu zu laden.
+Diese API ermöglicht es uns, Netzwerk-Anfragen zu machen, um Ressourcen von einem Server über JavaScript abzurufen (z. B. Bilder, Text, JSON, sogar HTML-Schnipsel), was bedeutet, dass wir kleine Inhaltsabschnitte aktualisieren können, ohne die ganze Seite neu laden zu müssen.
 
-In unserer Funktion nutzen die ersten vier Zeilen die Fetch-API, um das JSON vom Server abzurufen:
+In unserer Funktion verwenden die ersten vier Zeilen die Fetch API, um das JSON vom Server abzurufen:
 
 - Wir deklarieren die Variable `requestURL`, um die GitHub-URL zu speichern.
-- Wir verwenden die URL, um ein neues {{domxref("Request")}}-Objekt zu initialisieren.
-- Wir stellen die Netzwerkanfrage mit der {{domxref("Window/fetch", "fetch()")}}-Funktion, und dies gibt ein {{domxref("Response")}}-Objekt zurück.
-- Wir rufen die Antwort als JSON ab, indem wir die {{domxref("Response/json", "json()")}}-Funktion des `Response`-Objekts verwenden.
+- Wir verwenden die URL, um ein neues [`Request`](/de/docs/Web/API/Request)-Objekt zu initialisieren.
+- Wir führen die Netzwerk-Anfrage mit der Funktion [`fetch()`](/de/docs/Web/API/Window/fetch) aus, und dies gibt ein [`Response`](/de/docs/Web/API/Response)-Objekt zurück.
+- Wir rufen die Antwort als JSON ab, indem wir die [`json()`](/de/docs/Web/API/Response/json)-Funktion des `Response`-Objekts verwenden.
 
 > [!NOTE]
-> Die `fetch()`-API ist **asynchron**. Wir werden viel über asynchrone Funktionen im [nächsten Modul](/de/docs/Learn/JavaScript/Asynchronous) lernen, aber im Moment sagen wir einfach, dass wir das Schlüsselwort {{jsxref("Statements/async_function", "async")}} vor dem Namen der Funktion verwenden müssen, die die Fetch-API verwendet, und das Schlüsselwort {{jsxref("Operators/await", "await")}} vor den Aufrufen von asynchronen Funktionen hinzufügen.
+> Die `fetch()`-API ist **asynchron**. Wir lernen viel über asynchrone Funktionen im [nächsten Modul](/de/docs/Learn/JavaScript/Asynchronous), aber vorerst sagen wir einfach, dass wir das Schlüsselwort {{jsxref("Statements/async_function", "async")}} vor den Namen der Funktion setzen müssen, die die Fetch-API verwendet, und das Schlüsselwort {{jsxref("Operators/await", "await")}} vor die Aufrufe aller asynchronen Funktionen setzen müssen.
 
-Nach all dem wird die Variable `superHeroes` das JavaScript-Objekt basierend auf dem JSON enthalten. Wir leiten dann dieses Objekt an zwei Funktionsaufrufe weiter — der erste füllt das `<header>` mit den korrekten Daten, während der zweite eine Informationskarte für jeden Helden im Team erstellt und sie in den `<section>`-Bereich einfügt.
+Nach all dem enthält die Variable `superHeroes` das JavaScript-Objekt basierend auf dem JSON. Wir übergeben dieses Objekt dann an zwei Funktionsaufrufe — der erste füllt den `<header>` mit den richtigen Daten und der zweite erstellt für jedes Teammitglied eine Informationskarte und fügt sie in den `<section>` ein.
 
-### Header ausfüllen
+### Den Header füllen
 
-Nachdem wir die JSON-Daten erhalten und in ein JavaScript-Objekt umgewandelt haben, wollen wir sie verwenden, indem wir die beiden oben erwähnten Funktionen schreiben. Fügen Sie zunächst die folgende Funktionsdefinition unterhalb des vorherigen Codes hinzu:
+Nachdem wir die JSON-Daten abgerufen und in ein JavaScript-Objekt konvertiert haben, verwenden wir diese, indem wir die beiden oben erwähnten Funktionen schreiben. Fügen Sie zunächst die folgende Funktionsdefinition unter dem vorherigen Code hinzu:
 
 ```js
 function populateHeader(obj) {
@@ -222,16 +224,16 @@ function populateHeader(obj) {
   header.appendChild(myH1);
 
   const myPara = document.createElement("p");
-  myPara.textContent = `Herkunft: ${obj.homeTown} // Gegründet: ${obj.formed}`;
+  myPara.textContent = `Hometown: ${obj.homeTown} // Formed: ${obj.formed}`;
   header.appendChild(myPara);
 }
 ```
 
-Hier erstellen wir zuerst ein {{HTMLElement("Heading_Elements", "h1")}}-Element mit [`createElement()`](/de/docs/Web/API/Document/createElement), setzen dessen [`textContent`](/de/docs/Web/API/Node/textContent) auf den Wert der `squadName`-Eigenschaft des Objekts und hängen es dann mit [`appendChild()`](/de/docs/Web/API/Node/appendChild) an das Header an. Wir führen dann eine sehr ähnliche Operation mit einem Absatz durch: erstellen ihn, setzen seinen Textinhalt und hängen ihn an das Header an. Der einzige Unterschied ist, dass sein Textinhalt auf ein [Template Literal](/de/docs/Web/JavaScript/Reference/Template_literals) gesetzt wird, das sowohl die `homeTown`- als auch die `formed`-Eigenschaft des Objekts enthält.
+Hier erstellen wir zuerst ein {{HTMLElement("Heading_Elements", "h1")}}-Element mit [`createElement()`](/de/docs/Web/API/Document/createElement), setzen sein [`textContent`](/de/docs/Web/API/Node/textContent), um der `squadName`-Eigenschaft des Objekts zu entsprechen, und hängen es dann mit [`appendChild()`](/de/docs/Web/API/Node/appendChild) an den Header an. Wir führen dann eine sehr ähnliche Operation mit einem Paragrafen durch: erstellen Sie ihn, setzen Sie seinen Textinhalt und hängen Sie ihn an den Header an. Der einzige Unterschied besteht darin, dass sein Text auf ein [Template Literal](/de/docs/Web/JavaScript/Reference/Template_literals) eingestellt wird, das sowohl die `homeTown`- als auch die `formed`-Eigenschaft des Objekts enthält.
 
-### Erstellung der Helden-Informationskarten
+### Erstellen der Helden-Informationskarten
 
-Fügen Sie als Nächstes die folgende Funktion am Ende des Codes hinzu, die die Heldenkarten erstellt und anzeigt:
+Fügen Sie als Nächstes die folgende Funktion am Ende des Codes hinzu, welche die Superheldenkarten erstellt und anzeigt:
 
 ```js
 function populateHeroes(obj) {
@@ -247,9 +249,9 @@ function populateHeroes(obj) {
     const myList = document.createElement("ul");
 
     myH2.textContent = hero.name;
-    myPara1.textContent = `Geheime Identität: ${hero.secretIdentity}`;
-    myPara2.textContent = `Alter: ${hero.age}`;
-    myPara3.textContent = "Superkräfte:";
+    myPara1.textContent = `Secret identity: ${hero.secretIdentity}`;
+    myPara2.textContent = `Age: ${hero.age}`;
+    myPara3.textContent = "Superpowers:";
 
     const superPowers = hero.powers;
     for (const power of superPowers) {
@@ -269,47 +271,47 @@ function populateHeroes(obj) {
 }
 ```
 
-Zuerst speichern wir die `members`-Eigenschaft des JavaScript-Objekts in einer neuen Variablen. Dieses Array enthält mehrere Objekte, die die Informationen für jeden Helden enthalten.
+Zu Beginn speichern wir die `members`-Eigenschaft des JavaScript-Objekts in einer neuen Variablen. Dieses Array enthält mehrere Objekte, die die Informationen für jeden Helden enthalten.
 
-Als Nächstes verwenden wir eine [for...of-Schleife](/de/docs/Learn/JavaScript/Building_blocks/Looping_code#the_for...of_loop), um durch jedes Objekt im Array zu schleifen. Für jedes dieser Objekte:
+Als Nächstes verwenden wir eine [for...of Schleife](/de/docs/Learn/JavaScript/Building_blocks/Looping_code#the_for...of_loop), um durch jedes Objekt im Array zu iterieren. Für jedes:
 
-1. Wir erstellen mehrere neue Elemente: ein `<article>`, ein `<h2>`, drei `<p>`s und eine `<ul>`.
-2. Wir setzen das `<h2>`, um den `name` des aktuellen Helden zu enthalten.
-3. Wir füllen die drei Absätze mit deren `secretIdentity`, `age` und einer Zeile ein, die "Superkräfte:" sagt, um die Informationen in der Liste einzuführen.
-4. Wir speichern die `powers`-Eigenschaft in einer weiteren neuen Konstante namens `superPowers` — diese enthält ein Array, das die aktuellen Superkräfte des Helden auflistet.
-5. Wir verwenden eine weitere `for...of`-Schleife, um durch die aktuellen Superkräfte des Helden zu laufen — für jede erstellen wir ein `<li>`-Element, platzieren die Superkraft darin und fügen dann das `listItem` mit `appendChild()` in das `<ul>`-Element (`myList`) ein.
-6. Das allerletzte, was wir tun, ist, das `<h2>`, die `<p>`s und die `<ul>` in das `<article>` (`myArticle`) einzufügen und dann das `<article>` in das `<section>` einzufügen. Die Reihenfolge, in der die Dinge hinzugefügt werden, ist wichtig, da dies die Reihenfolge ist, in der sie im HTML angezeigt werden.
-
-> [!NOTE]
-> Falls Sie Schwierigkeiten haben, das Beispiel zum Laufen zu bringen, versuchen Sie, auf unseren [heroes-finished.html](https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/heroes-finished.html) Quellcode zu verweisen (sehen Sie es sich auch [live](https://mdn.github.io/learning-area/javascript/oojs/json/heroes-finished.html) an).
+1. Erstellen wir mehrere neue Elemente: ein `<article>`, ein `<h2>`, drei `<p>`s und ein `<ul>`.
+2. Setzen wir das `<h2>` so, dass es den `name` des aktuellen Helden enthält.
+3. Füllen wir die drei Absätze mit ihrem `secretIdentity`, `age` und einer Zeile „Superpowers:“, um die Informationen in der Liste einzuführen.
+4. Speichern wir die `powers`-Eigenschaft in einer weiteren neuen Konstante namens `superPowers` — diese enthält ein Array, das die Superkräfte des aktuellen Helden auflistet.
+5. Verwenden wir eine weitere `for...of` Schleife, um durch die Superkräfte des aktuellen Helden zu iterieren — für jede erstellen wir ein `<li>`-Element, legen die Superkraft hinein und platzieren dann das `listItem` im `<ul>`-Element (`myList`) mithilfe von `appendChild()`.
+6. Das allerletzte, was wir tun, ist, die `<h2>`, `<p>`s und `<ul>` in das `<article>` (`myArticle`) einzufügen und dann das `<article>` in den `<section>` einzufügen. Die Reihenfolge, in der die Dinge eingefügt werden, ist wichtig, da dies die Reihenfolge ist, in der sie im HTML dargestellt werden.
 
 > [!NOTE]
-> Wenn Sie Schwierigkeiten haben, die Punkt-/Klammernotation zu befolgen, die wir verwenden, um auf das JavaScript-Objekt zuzugreifen, kann es helfen, die [superheroes.json](https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json)-Datei in einem anderen Tab oder Ihrem Texteditor geöffnet zu haben und sich darauf zu beziehen, während Sie sich unser JavaScript ansehen.
-> Sie sollten auch unseren [JavaScript-Objektgrundlagen](/de/docs/Learn/JavaScript/Objects/Basics) Artikel für mehr Informationen zur Punkt- und Klammernotation durchsehen.
+> Wenn Sie Schwierigkeiten haben, das Beispiel zum Laufen zu bringen, versuchen Sie, sich unseren [heroes-finished.html](https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/heroes-finished.html) Quellcode zu Hilfe zu nehmen (sehen Sie es [live laufen](https://mdn.github.io/learning-area/javascript/oojs/json/heroes-finished.html) ebenfalls an).
 
-### Aufruf der Top-Level-Funktion
+> [!NOTE]
+> Wenn Sie Schwierigkeiten haben, der Punkt/Klammer-Notation zu folgen, die wir zum Zugriff auf das JavaScript-Objekt verwenden, kann es helfen, die [superheroes.json](https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json) Datei in einem anderen Tab oder in Ihrem Texteditor geöffnet zu haben und darauf zu verweisen, während Sie unseren JavaScript anschauen.
+> Sie sollten auch auf unseren Artikel über [JavaScript-Objekt-Grundlagen](/de/docs/Learn/JavaScript/Objects/Basics) zurückgreifen, um weitere Informationen über Punkt- und Klammernotation zu erhalten.
 
-Beenden wir, indem wir unsere Top-Level-`populate()`-Funktion aufrufen:
+### Die Top-Level-Funktion aufrufen
+
+Schließlich müssen wir unsere Top-Level-Funktion `populate()` aufrufen:
 
 ```js
 populate();
 ```
 
-## Umwandlung zwischen Objekten und Text
+## Konvertieren zwischen Objekten und Text
 
-Das obige Beispiel war einfach in Bezug auf den Zugriff auf das JavaScript-Objekt, weil wir die Netzwerkantwort direkt mit `response.json()` in ein JavaScript-Objekt umgewandelt haben.
+Das obige Beispiel war einfach in Bezug auf den Zugriff auf das JavaScript-Objekt, da wir die Netzwerkantwort direkt in ein JavaScript-Objekt mit `response.json()` umgewandelt haben.
 
-Aber manchmal haben wir nicht so viel Glück — manchmal erhalten wir einen rohen JSON-String, und wir müssen ihn selbst in ein Objekt umwandeln. Und wenn wir ein JavaScript-Objekt über das Netzwerk senden möchten, müssen wir es vor dem Senden in JSON (einen String) umwandeln. Zum Glück sind diese beiden Probleme so häufig in der Webentwicklung, dass in Browsern ein integriertes [JSON](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON)-Objekt verfügbar ist, das die folgenden zwei Methoden enthält:
+Aber manchmal haben wir nicht so viel Glück — manchmal erhalten wir einen rohen JSON-String, und wir müssen ihn selbst in ein Objekt umwandeln. Und wenn wir ein JavaScript-Objekt über das Netzwerk senden möchten, müssen wir es vor dem Senden in JSON (einen String) umwandeln. Glücklicherweise sind diese beiden Probleme so häufig in der Webentwicklung, dass ein integriertes [JSON](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON) Objekt in Browsern verfügbar ist, welches die folgenden zwei Methoden enthält:
 
 - [`parse()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse): Akzeptiert einen JSON-String als Parameter und gibt das entsprechende JavaScript-Objekt zurück.
 - [`stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify): Akzeptiert ein Objekt als Parameter und gibt den äquivalenten JSON-String zurück.
 
-Sie können die erste im Einsatz in unserem [heroes-finished-json-parse.html](https://mdn.github.io/learning-area/javascript/oojs/json/heroes-finished-json-parse.html)-Beispiel sehen (sehen Sie sich den [Quellcode](https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/heroes-finished-json-parse.html) an) — dies tut genau dasselbe wie das Beispiel, das wir zuvor aufgebaut haben, außer dass:
+Sie können die erste in Aktion in unserem Beispiel [heroes-finished-json-parse.html](https://mdn.github.io/learning-area/javascript/oojs/json/heroes-finished-json-parse.html) (sehen Sie den [Quellcode](https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/heroes-finished-json-parse.html)) sehen — dies macht genau dasselbe wie das Beispiel, das wir zuvor aufgebaut haben, außer dass:
 
-- Wir rufen die Antwort als Text statt als JSON ab, indem wir die {{domxref("Response/text", "text()")}}-Methode der Antwort aufrufen.
-- Wir verwenden dann `parse()`, um den Text in ein JavaScript-Objekt zu konvertieren.
+- wir die Antwort als Text statt als JSON abrufen, indem wir die [`text()`](/de/docs/Web/API/Response/text) Methode der Antwort aufrufen
+- wir dann `parse()` verwenden, um den Text in ein JavaScript-Objekt zu konvertieren.
 
-Das Schlüsselfragment des Codes ist hier:
+Der entscheidende Code-Schnipsel ist hier:
 
 ```js
 async function populate() {
@@ -326,7 +328,7 @@ async function populate() {
 }
 ```
 
-Wie Sie vielleicht vermuten, funktioniert `stringify()` genau umgekehrt. Versuchen Sie, die folgenden Zeilen nacheinander in die JavaScript-Konsole Ihres Browsers einzugeben, um es in Aktion zu sehen:
+Wie Sie vielleicht vermuten, funktioniert `stringify()` in umgekehrter Richtung. Versuchen Sie, die folgenden Zeilen nacheinander in die JavaScript-Konsole Ihres Browsers einzugeben, um sie in Aktion zu sehen:
 
 ```js
 let myObj = { name: "Chris", age: 38 };
@@ -335,22 +337,22 @@ let myString = JSON.stringify(myObj);
 myString;
 ```
 
-Hier erstellen wir ein JavaScript-Objekt, überprüfen dann, was es enthält, konvertieren es dann mit `stringify()` in einen JSON-String — speichern den Rückgabewert in einer neuen Variablen — und überprüfen es dann erneut.
+Hier erstellen wir ein JavaScript-Objekt, prüfen, was es enthält, konvertieren es dann mit `stringify()` in einen JSON-String — speichern den Rückgabewert in einer neuen Variablen — und überprüfen es dann erneut.
 
-## Testen Sie Ihr Wissen!
+## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihr Wissen: JSON](/de/docs/Learn/JavaScript/Objects/Test_your_skills:_JSON).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie finden einige weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: JSON](/de/docs/Learn/JavaScript/Objects/Test_your_skills:_JSON).
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir Ihnen eine einfache Anleitung zur Verwendung von JSON in Ihren Programmen gegeben, einschließlich der Erstellung und des Parsens von JSON und des Zugriffs auf darin gesperrte Daten. Im nächsten Artikel werden wir mit objektorientiertem JavaScript beginnen.
+In diesem Artikel haben wir Ihnen einen einfachen Leitfaden zur Verwendung von JSON in Ihren Programmen gegeben, einschließlich der Erstellung und des Parsens von JSON und des Zugriffs auf darin eingeschlossene Daten. Im nächsten Artikel werden wir beginnen, uns mit objektorientiertem JavaScript zu befassen.
 
 ## Siehe auch
 
 - [JSON-Referenz](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON)
-- [Fetch API-Übersicht](/de/docs/Web/API/Fetch_API)
-- [Fetch verwenden](/de/docs/Web/API/Fetch_API/Using_Fetch)
+- [Übersicht der Fetch API](/de/docs/Web/API/Fetch_API)
+- [Verwendung von Fetch](/de/docs/Web/API/Fetch_API/Using_Fetch)
 - [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods)
-- [Offizielle JSON Website mit Link zum ECMA-Standard](https://json.org/)
+- [Offizielle JSON-Website mit Link zum ECMA-Standard](https://json.org/)
 
 {{PreviousMenuNext("Learn/JavaScript/Objects/Classes_in_JavaScript", "Learn/JavaScript/Objects/Object_building_practice", "Learn/JavaScript/Objects")}}

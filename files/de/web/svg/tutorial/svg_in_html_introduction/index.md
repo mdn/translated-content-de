@@ -9,11 +9,11 @@ l10n:
 
 ## Übersicht
 
-Dieser Artikel und das dazugehörige Beispiel zeigen, wie Sie eingebettetes [SVG](/de/docs/Web/SVG) verwenden können.
+Dieser Artikel und das dazugehörige Beispiel zeigen, wie man inline [SVG](/de/docs/Web/SVG) verwendet.
 
 ## Einfaches Beispiel
 
-Um ein eingebettetes SVG in eine HTML-Datei einzufügen, platzieren Sie die gesamte SVG-Datei in der HTML-Datei.
+Um ein inline SVG in eine HTML-Datei einzubinden, fügen Sie die gesamte SVG-Datei in die HTML-Datei ein.
 
 ```html
 <!doctype html>
@@ -39,31 +39,31 @@ Um ein eingebettetes SVG in eine HTML-Datei einzufügen, platzieren Sie die gesa
 
 ## Diskussion
 
-Die Seite ist reguläres HTML und CSS mit einem einzelnen SVG. Der einzige interessante Teil ist das `<svg>`-Element, das es enthält. Dieses Element und seine Kinder sind im SVG-Namensraum deklariert. Das Element enthält einen Farbverlauf und zwei mit dem Farbverlauf gefüllte Formen. Die Farbverlauf-Farbstopps haben ihre Farben durch CSS gesetzt.
+Die Seite besteht aus regulärem HTML und CSS mit einem einzigen SVG. Der einzige interessante Teil ist das `<svg>`-Element, das es enthält. Dieses Element und seine Kinder sind im SVG-Namespace deklariert. Das Element enthält einen Verlauf und zwei mit dem Verlauf gefüllte Formen. Die Farbe der Verlaufsstopps wird durch CSS festgelegt.
 
-Es gibt drei Attribute und ein verschachteltes Element, die beachtenswert sind:
+Es gibt drei Attribute und ein geschachteltes Element, die beachtet werden sollten:
 
-1. Das [`viewBox`](/de/docs/Web/SVG/Attribute/viewBox)-Attribut etabliert ein logisches Koordinatensystem, auf das sich die Koordinaten des SVG-Bildes beziehen. In diesem Fall ist unser Bild in einem 100 x 100 Ansichtsfenster angelegt.
+1. Das [`viewBox`](/de/docs/Web/SVG/Attribute/viewBox)-Attribut etabliert ein logisches Koordinatensystem, auf das sich die Koordinaten des SVG-Bildes beziehen. In diesem Fall ist unser Bild in einem 100-mal-100-Ansichtsfenster angeordnet.
 
-2. Das [`preserveAspectRatio`](/de/docs/Web/SVG/Attribute/preserveAspectRatio)-Attribut gibt an, dass das {{glossary("Seitenverhältnis")}} beibehalten werden muss, indem das Bild in der verfügbaren Größe zentriert wird, es auf die maximale Höhe oder Breite skaliert wird und dann ein Überlauf abgeschnitten wird.
+2. Das [`preserveAspectRatio`](/de/docs/Web/SVG/Attribute/preserveAspectRatio)-Attribut legt fest, dass das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) beibehalten werden muss, indem das Bild in der verfügbaren Größe zentriert wird. Es wird auf die maximale Höhe oder Breite skaliert, wobei jeder Überlauf abgeschnitten wird.
 
-3. Die Einbeziehung von [`role="img"`](/de/docs/Web/Accessibility/ARIA/Roles/img_role) sorgt dafür, dass unterstützende Technologien das SVG als Bild behandeln.
+3. Das Einfügen von [`role="img"`](/de/docs/Web/Accessibility/ARIA/Roles/img_role) stellt sicher, dass unterstützende Technologien das SVG als Bild behandeln.
 
-4. Ein [`<title>`](/de/docs/Web/SVG/Element/title) innerhalb eines SVG bietet die zugängliche, kurze Textbeschreibung der Grafik. Der Titeltext wird nicht gerendert, aber Browser können ihn als Tooltip anzeigen, wenn das SVG mit der Maus überfahren wird. Das `<title>` sollte das erste Element nach dem `<svg>`-Öffnungstag sein.
+4. Ein [`<title>`](/de/docs/Web/SVG/Element/title) innerhalb eines SVG bietet die zugängliche, kurztextige Beschreibung der Grafik. Der Titeltext wird nicht gerendert, aber Browser können ihn als Tooltip anzeigen, wenn das SVG gehovt wird. Das `<title>` sollte das erste Element nach dem öffnenden `<svg>`-Tag sein.
 
 ## Beste Praktiken
 
-Wenn ein SVG über ein {{HTMLElement('img')}}-Element eingefügt wird, bietet das `alt`-Attribut alternativen Text, der das Bild zugänglich macht. Eingebettetes SVG unterstützt das `alt`-Attribut nicht. Es unterstützt jedoch mehrere andere Möglichkeiten, um es zugänglich zu machen. Bei eingebetteten SVGs ist die Quelle im DOM verfügbar, was bedeutet, dass die gesamte Markup innerhalb einer eingebetteten SVG-Datei für das Accessibility Object Model, oder AOM, zugänglich ist. Die Aufnahme des `<title>`-Elements bietet diesen alternativen Text.
+Wenn ein SVG über ein {{HTMLElement('img')}}-Element eingebunden wird, bietet das `alt`-Attribut alternativen Text, der das Bild zugänglich macht. Inline-SVG unterstützt das `alt`-Attribut nicht. Es unterstützt jedoch mehrere andere Möglichkeiten, es zugänglich zu machen. Mit Inline-SVGs steht der Quelltext im DOM zur Verfügung, was bedeutet, dass der gesamte Markup innerhalb einer Inline-SVG-Datei dem Accessibility Object Model oder AOM zugänglich ist. Das Einfügen des `<title>`-Elements bietet diesen alternativen Text.
 
-Wenn das Bild mehr als einen kurzen Titel vermittelt, fügen Sie eine längere Beschreibung mit dem [`<desc>`](/de/docs/Web/SVG/Element/desc)-Element hinzu. Das `<desc>`-Element bietet eine zugängliche, ausführliche Textbeschreibung. Ähnlich wie `<title>`-Text wird der Text innerhalb von `<desc>` nicht auf dem Bildschirm gerendert.
+Wenn das Bild mehr als einen kurzen Titel vermittelt, fügen Sie eine längere Beschreibung mit dem [`<desc>`](/de/docs/Web/SVG/Element/desc)-Element ein. Das `<desc>`-Element bietet eine zugängliche, langtextliche Beschreibung. Ähnlich wie `<title>`-Text wird der Text im `<desc>` nicht auf dem Bildschirm angezeigt.
 
-Wenn das SVG über sichtbaren Text beschriftet werden kann, verweisen Sie auf diesen Text mit einem [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)-Attribut. Alternativ schließen Sie das `aria-labelledby`-Attribut mit der [`id`](/de/docs/Web/SVG/Attribute/id) des `<title>` ein.
+Wenn das SVG durch sichtbaren Text beschriftet werden kann, verweisen Sie auf diesen Text mit einem [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)-Attribut. Alternativ fügen Sie das `aria-labelledby`-Attribut mit der [`id`](/de/docs/Web/SVG/Attribute/id) des `<title>` hinzu.
 
 ```html
 <svg viewBox="0 0 100 125" role="img" aria-labelledby="svgTitle svgDescription">
-  <title id="svgTitle">Handbuch</title>
+  <title id="svgTitle">Manual</title>
   <desc id="svgDescription">
-    Ein unspezifiziertes zwölfseitiges Heft, geöffnet auf der mittleren Seite.
+    A non-descript twelve page booklet opened to the middle page
   </desc>
   <defs>
     <style>
@@ -122,8 +122,8 @@ Wenn das SVG über sichtbaren Text beschriftet werden kann, verweisen Sie auf di
 
 Wenn das SVG durch sichtbaren Text beschrieben werden kann, kann dieser Text mit dem [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby)-Attribut referenziert werden. Wenn aria-describedby verwendet wird, hat es Vorrang vor `<desc>`.
 
-In unserem Beispiel haben wir sowohl die Beschreibung als auch den Titel in unser `aria-labelledby`-Attribut aufgenommen, da es eine bessere Unterstützung der unterstützenden Technologien bietet als `aria-describedby`.
+In unserem Beispiel haben wir sowohl die Beschreibung als auch den Titel in unser `aria-labelledby`-Attribut aufgenommen, da es eine bessere Unterstützung durch unterstützende Technologien hat als `aria-describedby`.
 
 ## Siehe auch
 
-- [Einführung in SVG](/de/docs/Web/SVG/Tutorial/Getting_Started)
+- [Erste Schritte mit SVG](/de/docs/Web/SVG/Tutorial/Getting_Started)

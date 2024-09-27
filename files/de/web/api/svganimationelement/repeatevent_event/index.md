@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das **`repeatEvent`**-Ereignis der {{domxref("SVGAnimationElement")}}-Schnittstelle wird ausgelöst, wenn die lokale Zeitleiste des Elements wiederholt wird. Es wird jedes Mal ausgelöst, wenn das Element wiederholt wird, nach der ersten Iteration.
+Das **`repeatEvent`**-Ereignis der [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)-Schnittstelle wird ausgelöst, wenn die lokale Zeitleiste des Elements wiederholt wird. Es wird jedes Mal ausgelöst, wenn das Element sich wiederholt, nach der ersten Iteration.
 
 > [!NOTE]
-> Dem `repeatEvent`-Ereignis ist eine ganze Zahl zugeordnet, die angibt, welche Wiederholungsiteration beginnt; diese kann in der `detail`-Eigenschaft des Ereignisobjekts gefunden werden. Der Wert ist eine nullbasierte Ganzzahl, aber das Wiederholungsereignis wird für die erste Iteration nicht ausgelöst, sodass die beobachteten Werte >= 1 sind. Dies wird in Firefox unterstützt, aber nicht in Chrome.
+> Mit dem `repeatEvent`-Ereignis ist ein Ganzzahlwert verbunden, der angibt, welche Wiederholungsiteration beginnt; dieser Wert kann in der `detail`-Eigenschaft des Ereignisobjekts gefunden werden. Der Wert ist eine 0-basierte Ganzzahl, aber das Wiederholungsereignis wird nicht für die erste Iteration ausgelöst, sodass die beobachteten Werte >= 1 sind. Dies wird in Firefox unterstützt, aber nicht in Chrome.
 
-Dieses Ereignis ist nicht abbruchsicher und bläst nicht auf.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisverarbeitungs-Eigenschaft.
 
 ```js
 addEventListener("repeatEvent", (event) => {});
@@ -27,16 +27,16 @@ onrepeat = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("TimeEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`TimeEvent`](/de/docs/Web/API/TimeEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("TimeEvent")}}
 
 ## Ereigniseigenschaften
 
-- {{domxref("TimeEvent.detail")}} {{ReadOnlyInline}}
-  - : Ein `long`, der je nach Typ des Ereignisses einige Detailinformationen über das Ereignis angibt. Für diesen Ereignistyp wird die Wiederholungsnummer der Animation angezeigt.
-- {{domxref("TimeEvent.view")}} {{ReadOnlyInline}}
-  - : Ein {{glossary("WindowProxy")}}, der das Fenster identifiziert, aus dem das Ereignis generiert wurde.
+- [`TimeEvent.detail`](/de/docs/Web/API/TimeEvent/detail) {{ReadOnlyInline}}
+  - : Ein `long`, der einige Detailinformationen über das Ereignis angibt, abhängig vom Typ des Ereignisses. Für diesen Ereignistyp gibt er die Wiederholungsnummer der Animation an.
+- [`TimeEvent.view`](/de/docs/Web/API/TimeEvent/view) {{ReadOnlyInline}}
+  - : Ein [WindowProxy](/de/docs/Glossary/WindowProxy), das das Fenster identifiziert, von dem das Ereignis generiert wurde.
 
 ## Beispiele
 
@@ -44,7 +44,7 @@ Ein {{domxref("TimeEvent")}}. Erbt von {{domxref("Event")}}.
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" width="300px" height="100px">
-  <title>SVG SMIL Animate mit Pfad</title>
+  <title>SVG SMIL Animate with Path</title>
   <circle cx="0" cy="50" r="50" fill="blue" stroke="black" stroke-width="1">
     <animateMotion path="M 0 0 H 300 Z" dur="5s" repeatCount="indefinite" />
   </circle>
@@ -88,9 +88,9 @@ animateElem.addEventListener("repeatEvent", (e) => {
 
 {{EmbedLiveSample('Animated_circle', '100%', '270')}}
 
-### Gleichwertige Ereignis-Handler-Eigenschaft
+### Äquivalente Ereignisverarbeitungs-Eigenschaft
 
-Beachten Sie, dass Sie auch einen Ereignis-Listener für das `repeat`-Ereignis mit der `onrepeat`-Ereignis-Handler-Eigenschaft erstellen können:
+Beachten Sie, dass Sie auch einen Ereignislistener für das `repeat`-Ereignis mit der Ereignisverarbeitungs-Eigenschaft `onrepeat` erstellen können:
 
 ```js
 animateElem.onrepeat = () => {
@@ -109,5 +109,5 @@ animateElem.onrepeat = () => {
 ## Siehe auch
 
 - [SVG-Animation mit SMIL](/de/docs/Web/SVG/SVG_animation_with_SMIL)
-- {{domxref("SVGAnimationElement.beginEvent_event", "beginEvent")}}-Ereignis
-- {{domxref("SVGAnimationElement.endEvent_event", "endEvent")}}-Ereignis
+- [`beginEvent`](/de/docs/Web/API/SVGAnimationElement/beginEvent_event) Ereignis
+- [`endEvent`](/de/docs/Web/API/SVGAnimationElement/endEvent_event) Ereignis

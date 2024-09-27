@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGFEMergeNodeElement`** Schnittstelle entspricht dem {{SVGElement("feMergeNode")}} Element.
+Die **`SVGFEMergeNodeElement`**-Schnittstelle entspricht dem {{SVGElement("feMergeNode")}}-Element.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGFEMergeNodeElement.in1")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, das dem {{SVGAttr("in")}} Attribut des angegebenen Elements entspricht.
+- [`SVGFEMergeNodeElement.in1`](/de/docs/Web/API/SVGFEMergeNodeElement/in1) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("in")}}-Attribut des angegebenen Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die ihrer Elternschnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch diejenigen ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

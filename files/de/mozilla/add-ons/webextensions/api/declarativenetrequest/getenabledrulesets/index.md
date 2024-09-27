@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt die IDs für die Menge der aktivierten statischen Regelsets zurück.
+Gibt die IDs für die Menge der aktivierten statischen Regelwerke zurück.
 
 ## Syntax
 
@@ -17,11 +17,11 @@ let rulesetIds = await browser.declarativeNetRequest.getEnabledRulesets();
 
 ### Parameter
 
-Diese Funktion nimmt keine Parameter.
+Diese Funktion erfordert keine Parameter.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Zeichenfolgen erfüllt wird, das statische Regelset-IDs enthält. Wenn keine Regeln aktiv sind, ist das Array leer. Wenn die Anforderung fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das bei Erfüllung ein Array aus Zeichenketten enthält, das die IDs statischer Regelwerke enthält. Wenn keine Regeln aktiv sind, ist das Array leer. Wenn die Anfrage fehlschlägt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

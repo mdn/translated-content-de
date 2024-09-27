@@ -9,25 +9,25 @@ l10n:
 
 **`PopStateEvent`** ist eine Schnittstelle für das [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis.
 
-Ein `popstate`-Ereignis wird jedes Mal an das Fenster gesendet, wenn sich der aktive Verlaufseintrag zwischen zwei Verlaufseinträgen für dasselbe Dokument ändert. Wenn der aktive Verlaufseintrag durch einen Aufruf von `history.pushState()` erstellt oder durch einen Aufruf von `history.replaceState()` beeinflusst wurde, enthält die `state`-Eigenschaft des `popstate`-Ereignisses eine Kopie des Statusobjekts des Verlaufseintrags.
+Ein `popstate`-Ereignis wird jedes Mal an das Fenster gesendet, wenn der aktive Verlaufseintrag zwischen zwei Verlaufs-Einträgen für dasselbe Dokument wechselt. Wenn der Verlaufseintrag, der aktiviert wird, durch einen Aufruf von `history.pushState()` erstellt oder durch einen Aufruf von `history.replaceState()` beeinflusst wurde, enthält die `state`-Eigenschaft des `popstate`-Ereignisses eine Kopie des Zustandsobjekts des Verlaufseintrags.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("PopStateEvent.PopStateEvent", "PopStateEvent()")}}
+- [`PopStateEvent()`](/de/docs/Web/API/PopStateEvent/PopStateEvent)
   - : Erstellt ein neues `PopStateEvent`-Objekt.
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch die Eigenschaften ihres Elternteils, {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch die Eigenschaften ihres Elternteils, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("PopStateEvent.state")}} {{ReadOnlyInline}}
+- [`PopStateEvent.state`](/de/docs/Web/API/PopStateEvent/state) {{ReadOnlyInline}}
   - : Gibt eine Kopie der Informationen zurück, die an `pushState()` oder `replaceState()` übergeben wurden.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch die Methoden ihres Elternteils, {{domxref("Event")}}._
+_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch die Methoden ihres Elternteils, [`Event`](/de/docs/Web/API/Event)._
 
 ## Spezifikationen
 

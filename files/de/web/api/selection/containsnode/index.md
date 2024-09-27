@@ -1,6 +1,6 @@
 ---
-title: "Selection: enthältNode() Methode"
-short-title: enthältNode()
+title: "Selection: containsNode()-Methode"
+short-title: containsNode()
 slug: Web/API/Selection/containsNode
 l10n:
   sourceCommit: b829b2fae917b5b931011ddeb6a0d1b2d2b81c54
@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.containsNode()`** Methode gibt an, ob ein angegebenes Knoten Teil der Auswahl ist.
+Die **`Selection.containsNode()`**-Methode zeigt an, ob ein bestimmter Node Teil der Auswahl ist.
 
 ## Syntax
 
@@ -21,39 +21,39 @@ containsNode(node, partialContainment)
 ### Parameter
 
 - `node`
-  - : Der Knoten, nach dem in der Auswahl gesucht wird.
+  - : Der Node, der in der Auswahl gesucht wird.
 - `partialContainment` {{optional_inline}}
-  - : Wenn `true`, gibt `containsNode()` `true` zurück, wenn ein Teil des Knotens Teil der Auswahl ist. Wenn `false`, gibt `containsNode()` nur `true` zurück, wenn der gesamte Knoten Teil der Auswahl ist. Wenn nicht angegeben, wird der Standardwert `false` verwendet.
+  - : Wenn `true`, gibt `containsNode()` `true` zurück, wenn ein Teil des Nodes Teil der Auswahl ist. Wenn `false`, gibt `containsNode()` nur `true` zurück, wenn der gesamte Node Teil der Auswahl ist. Wenn nicht angegeben, wird der Standardwert `false` verwendet.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn der angegebene Knoten Teil der Auswahl ist, andernfalls `false`.
+Gibt `true` zurück, wenn der angegebene Node Teil der Auswahl ist, andernfalls `false`.
 
 ## Beispiele
 
 ### Auswahl überprüfen
 
-Dieses Beispiel prüft, ob irgendetwas innerhalb des Body-Elements ausgewählt ist.
+Dieses Snippet überprüft, ob irgendetwas innerhalb des `<body>`-Elements ausgewählt ist.
 
 ```js
 console.log(window.getSelection().containsNode(document.body, true));
 ```
 
-### Das versteckte Wort finden
+### Finde das versteckte Wort
 
 In diesem Beispiel erscheint eine Nachricht, wenn Sie das geheime Wort auswählen. Es verwendet
-{{domxref("EventTarget/addEventListener", "addEventListener()")}}, um auf
-{{domxref("Document/selectionchange_event", "selectionchange")}} Ereignisse zu reagieren.
+[`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um auf
+[`selectionchange`](/de/docs/Web/API/Document/selectionchange_event)-Ereignisse zu prüfen.
 
 #### HTML
 
 ```html
-<p>Können Sie das geheime Wort finden?</p>
+<p>Can you find the secret word?</p>
 <p>
-  Hmm, wo könnte <span id="secret" style="color:transparent">SECRET</span>
-  es sein?
+  Hmm, where <span id="secret" style="color:transparent">SECRET</span> could it
+  be?
 </p>
-<p id="win" hidden>Sie haben es gefunden!</p>
+<p id="win" hidden>You found it!</p>
 ```
 
 #### JavaScript
@@ -62,7 +62,7 @@ In diesem Beispiel erscheint eine Nachricht, wenn Sie das geheime Wort auswähle
 const secret = document.getElementById("secret");
 const win = document.getElementById("win");
 
-// Lauscht auf Auswahländerungen
+// Listen for selection changes
 document.addEventListener("selectionchange", () => {
   const selection = window.getSelection();
   const found = selection.containsNode(secret);
@@ -85,4 +85,4 @@ document.addEventListener("selectionchange", () => {
 
 ## Siehe auch
 
-- {{domxref("Selection")}}, das Interface, zu dem es gehört.
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der sie gehört.

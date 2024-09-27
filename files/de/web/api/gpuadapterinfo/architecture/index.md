@@ -1,14 +1,14 @@
 ---
 title: "GPUAdapterInfo: Architektur-Eigenschaft"
-short-title: Architektur
+short-title: architecture
 slug: Web/API/GPUAdapterInfo/architecture
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`architecture`** schreibgeschützte Eigenschaft der {{domxref("GPUAdapterInfo")}}-Schnittstelle gibt den Namen der Familie oder Klasse von GPUs zurück, zu der der Adapter gehört, oder einen leeren String, wenn sie nicht verfügbar ist.
+Die schreibgeschützte Eigenschaft **`architecture`** der [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Schnittstelle gibt den Namen der Familie oder Klasse von GPUs zurück, zu der der Adapter gehört, oder einen leeren String, wenn diese Information nicht verfügbar ist.
 
 ## Wert
 

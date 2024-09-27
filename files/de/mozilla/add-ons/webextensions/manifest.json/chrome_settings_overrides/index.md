@@ -14,7 +14,7 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Obligatorisch</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -56,12 +56,12 @@ Der Schlüssel `chrome_settings_overrides` ist ein Objekt, das die folgenden Eig
         <p>Der Ersatz wird als URL angegeben. Die URL kann:</p>
         <ul>
           <li>
-            auf eine Datei im Erweiterungspaket verweisen, in diesem Fall wird sie als URL relativ zur manifest.json-Datei angegeben
+            auf eine Datei verweisen, die mit der Erweiterung gebündelt ist; in diesem Fall wird sie als URL relativ zur manifest.json-Datei angegeben
           </li>
-          <li>eine externe URL sein, wie zum Beispiel "https://developer.mozilla.org/".</li>
+          <li>eine Fern-URL sein, wie zum Beispiel "https://developer.mozilla.org/".</li>
         </ul>
         <p>
-          Wenn zwei oder mehr Erweiterungen diesen Wert festlegen, hat die Einstellung der zuletzt installierten Vorrang.
+          Wenn zwei oder mehr Erweiterungen diesen Wert festlegen, hat die Einstellung der zuletzt installierten Erweiterung Vorrang.
         </p>
         <p>
           Um neue Tabs zu überschreiben, verwenden Sie stattdessen "<a
@@ -82,14 +82,12 @@ Der Schlüssel `chrome_settings_overrides` ist ein Objekt, das die folgenden Eig
       <td><code>search_provider</code></td>
       <td><code>Object</code></td>
       <td>
-        <p>Definiert einen Suchanbieter, der dem Browser hinzugefügt wird.</p>
+        <p>Definiert einen Suchanbieter, der dem Browser hinzugefügt werden soll.</p>
         <p>
-          Der Suchanbieter hat einen Namen und eine primäre Such-URL. Es können alternative URLs angegeben werden, einschließlich URLs für speziellere Suchen wie die Bildersuche. Verwenden Sie in der von Ihnen angegebenen URL
-          "<code>{searchTerms}</code>", um den Suchbegriff in die URL einzufügen, zum Beispiel:
-          <code>https://www.discogs.com/search/?q={searchTerms}</code>. Sie können auch POST-Parameter angeben, die mit der Suche gesendet werden sollen.
+          Der Suchanbieter hat einen Namen und eine primäre Such-URL. Alternative URLs können bereitgestellt werden, einschließlich URLs für speziellere Suchen wie die Bildsuche. Verwenden Sie in der von Ihnen bereitgestellten URL "<code>{searchTerms}</code>", um den Suchbegriff in die URL einzufügen, wie: <code>https://www.discogs.com/search/?q={searchTerms}</code>. Sie können auch POST-Parameter bereitstellen, die zusammen mit der Suche gesendet werden.
         </p>
         <p>
-          Der Suchanbieter wird dem Benutzer neben den integrierten Anbietern präsentiert. Wenn Sie die Eigenschaft <code>is_default</code> einschließen und auf <code>true</code> setzen, wird der neue Suchanbieter die Standardoption sein. Durch das Angeben der <code>keyword</code> Eigenschaft ermöglichen Sie es dem Benutzer, Ihren Suchanbieter auszuwählen, indem er das Schlüsselwort in die Such-/Adressleiste vor dem Suchbegriff eingibt.
+          Der Suchanbieter wird dem Benutzer zusammen mit den integrierten Anbietern präsentiert. Wenn Sie die Eigenschaft <code>is_default</code> einschließen und auf <code>true</code> setzen, wird der neue Suchanbieter die Standardoption sein. Durch Angabe der Eigenschaft <code>keyword</code> ermöglichen Sie dem Benutzer, Ihren Suchanbieter auszuwählen, indem er das Schlüsselwort vor dem Suchbegriff in die Such-/Adressleiste eingibt.
         </p>
         <p>
           Dies ist ein Objekt mit den unten aufgeführten Eigenschaften. Alle String-Eigenschaften sind
@@ -103,45 +101,45 @@ Der Schlüssel `chrome_settings_overrides` ist ein Objekt, das die folgenden Eig
           <dd>String: Der Name der Suchmaschine, der dem Benutzer angezeigt wird.</dd>
           <dt><code>search_url</code></dt>
           <dd>
-            String: URL, die von der Suchmaschine verwendet wird. Dies muss eine HTTPS-URL sein.
+            String: Die von der Suchmaschine verwendete URL. Diese muss eine HTTPS-URL sein.
           </dd>
           <dt><code>is_default</code> {{optional_inline}}</dt>
           <dd>
-            Boolean: Wahr, wenn die Suchmaschine die Standardwahl sein soll. In Firefox ist dies Opt-in und der Benutzer wird nur beim ersten Mal, wenn die Erweiterung installiert wird, gefragt. Sie werden nicht erneut gefragt, wenn später eine Suchmaschine hinzugefügt wird.
+            Boolean: True, wenn die Suchmaschine die Standardwahl sein soll. In Firefox ist dies opt-in und der Benutzer wird nur beim ersten Mal gefragt, wenn die Erweiterung installiert wird. Sie werden nicht erneut gefragt, wenn später eine Suchmaschine hinzugefügt wird.
           </dd>
           <dt><code>alternate_urls</code> {{optional_inline}}</dt>
           <dd>
-            Array von String: Ein Array alternativer URLs, die anstelle von <code>search_url</code> verwendet werden können.
+            Array von Strings: Ein Array alternativer URLs, die anstelle von <code>search_url</code> verwendet werden können.
           </dd>
           <dt><code>encoding</code> {{optional_inline}}</dt>
           <dd>
-            String: Codierung des Suchbegriffs, angegeben als
+            String: Kodierung des Suchbegriffs, angegeben als
             <a
               href="https://www.iana.org/assignments/character-sets/character-sets.xhtml"
-              >standardmäßiger Zeichenkodierungsname</a
+              >standardisierter Zeichenkodierungsname</a
             >, wie "UTF-8".
           </dd>
           <dt><code>favicon_url</code> {{optional_inline}}</dt>
           <dd>
-            String: URL, die auf ein Icon für die Suchmaschine verweist. In Manifest V2 muss dies eine absolute HTTP- oder HTTPS-URL sein. In Manifest V3 muss dies ein Icon im Erweiterungspaket als Pfad relativ zum Root-Verzeichnis der Erweiterung referenzieren.
+            String: URL, die auf ein Symbol für die Suchmaschine verweist. In Manifest V2 muss dies eine absolute HTTP- oder HTTPS-URL sein. In Manifest V3 muss dies auf ein im Add-on bereitgestelltes Symbol als Pfad relativ zum Stamm des Add-ons verweisen.
           </dd>
           <dt><code>image_url</code> {{optional_inline}}</dt>
-          <dd>String: URL, die für die Bildersuche verwendet wird.</dd>
+          <dd>String: URL, die für die Bildsuche verwendet wird.</dd>
           <dt><code>image_url_post_params</code> {{optional_inline}}</dt>
           <dd>String: POST-Parameter, die an <code>image_url</code> gesendet werden.</dd>
           <dt><code>instant_url</code> {{optional_inline}}</dt>
-          <dd>String: URL, die für Sofortsuche verwendet wird.</dd>
+          <dd>String: URL, die für die Sofortsuche verwendet wird.</dd>
           <dt><code>instant_url_post_params</code> {{optional_inline}}</dt>
           <dd>String: POST-Parameter, die an <code>instant_url</code> gesendet werden.</dd>
           <dt><code>keyword</code> {{optional_inline}}</dt>
           <dd>String: Adressleisten-Schlüsselwort für die Suchmaschine.</dd>
           <dt><code>prepopulated_id</code> {{optional_inline}}</dt>
-          <dd>Die ID einer integrierten Suchmaschine, die verwendet werden soll.</dd>
+          <dd>Die ID einer eingebauten Suchmaschine, die verwendet werden soll.</dd>
           <dt><code>search_url_post_params</code> {{optional_inline}}</dt>
           <dd>String: POST-Parameter, die an <code>search_url</code> gesendet werden.</dd>
           <dt><code>suggest_url</code> {{optional_inline}}</dt>
           <dd>
-            String: URL, die für Suchvorschläge verwendet wird. Dies muss eine HTTPS-URL sein.
+            String: URL, die für Suchvorschläge verwendet wird. Diese muss eine HTTPS-URL sein.
           </dd>
           <dt><code>suggest_url_post_params</code> {{optional_inline}}</dt>
           <dd>String: POST-Parameter, die an <code>suggest_url</code> gesendet werden.</dd>
@@ -153,7 +151,7 @@ Der Schlüssel `chrome_settings_overrides` ist ein Objekt, das die folgenden Eig
 
 ## Beispiel
 
-Dieses Beispiel zeigt, wie man einen Suchanbieter festlegt.
+Dieses Beispiel zeigt, wie man einen Suchanbieter einrichtet.
 
 ```json
 "chrome_settings_overrides": {

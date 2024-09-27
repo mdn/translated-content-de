@@ -8,17 +8,17 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `coneInnerAngle`-Eigenschaft der {{ domxref("PannerNode") }}-Schnittstelle ist ein Double-Wert, der den Winkel eines Kegels in Grad beschreibt, innerhalb dessen keine Lautstärkereduzierung stattfindet.
+Die `coneInnerAngle`-Eigenschaft des [`PannerNode`](/de/docs/Web/API/PannerNode)-Interfaces ist ein Doppelwert, der den Winkel, in Grad, eines Kegels beschreibt, innerhalb dessen keine Lautstärkereduzierung erfolgt.
 
-Der Standardwert der `coneInnerAngle`-Eigenschaft ist `360`, geeignet für eine undirektionale Quelle.
+Der Standardwert der `coneInnerAngle`-Eigenschaft ist `360`, geeignet für eine nicht-direktionale Quelle.
 
 ## Wert
 
-Ein Double.
+Ein Doppelwert.
 
 ## Beispiele
 
-Siehe [`PannerNode.orientationX`](/de/docs/Web/API/PannerNode/orientationX#example) für Beispielcode, der den Effekt auf die Lautstärke zeigt, wenn die Orientierungsparameter des {{domxref("PannerNode")}} in Kombination mit `coneInnerAngle` und {{domxref("PannerNode.coneOuterAngle", "coneOuterAngle")}} geändert werden.
+Sehen Sie [`PannerNode.orientationX`](/de/docs/Web/API/PannerNode/orientationX#example) für ein Beispielcode, das den Effekt auf die Lautstärke zeigt, wenn die [`PannerNode`](/de/docs/Web/API/PannerNode)-Orientierungsparameter in Kombination mit `coneInnerAngle` und [`coneOuterAngle`](/de/docs/Web/API/PannerNode/coneOuterAngle) geändert werden.
 
 ## Spezifikationen
 
@@ -31,4 +31,4 @@ Siehe [`PannerNode.orientationX`](/de/docs/Web/API/PannerNode/orientationX#examp
 ## Siehe auch
 
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- [Grundlagen der Web Audio-Räumlichkeit](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics)
+- [Grundlagen der Web Audio-Raumklanggestaltung](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics)

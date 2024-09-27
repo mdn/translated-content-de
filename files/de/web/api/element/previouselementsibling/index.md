@@ -8,24 +8,25 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.previousElementSibling`** schreibgeschützte Eigenschaft gibt das {{domxref("Element")}} direkt vor dem angegebenen Element in der Liste der Kindelemente seines Elternteils zurück oder `null`, wenn das angegebene Element das erste in der Liste ist.
+Die schreibgeschützte Eigenschaft **`Element.previousElementSibling`**
+gibt das [`Element`](/de/docs/Web/API/Element) unmittelbar vor dem angegebenen Element in der Kindliste des übergeordneten Elements zurück oder `null`, wenn das angegebene Element das erste in der Liste ist.
 
 ## Wert
 
-Ein {{domxref("Element")}}-Objekt oder `null`.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt oder `null`.
 
 ## Beispiele
 
 ```html
-<div id="div-01">Hier ist div-01</div>
-<div id="div-02">Hier ist div-02</div>
-<li>Dies ist ein Listenelement</li>
-<li>Dies ist ein weiteres Listenelement</li>
-<div id="div-03">Hier ist div-03</div>
+<div id="div-01">Here is div-01</div>
+<div id="div-02">Here is div-02</div>
+<li>This is a list item</li>
+<li>This is another list item</li>
+<div id="div-03">Here is div-03</div>
 
 <script>
   let el = document.getElementById("div-03").previousElementSibling;
-  document.write("<p>Geschwister von div-03</p><ol>");
+  document.write("<p>Siblings of div-03</p><ol>");
   while (el) {
     document.write("<li>" + el.nodeName + "</li>");
     el = el.previousElementSibling;
@@ -34,10 +35,10 @@ Ein {{domxref("Element")}}-Objekt oder `null`.
 </script>
 ```
 
-Dieses Beispiel gibt Folgendes auf der Seite aus, wenn sie geladen wird:
+Dieses Beispiel zeigt beim Laden der Seite den folgenden Inhalt an:
 
 ```plain
-Geschwister von div-03
+Siblings of div-03
 
    1. LI
    2. LI
@@ -55,4 +56,4 @@ Geschwister von div-03
 
 ## Siehe auch
 
-- {{domxref("Element.nextElementSibling")}}
+- [`Element.nextElementSibling`](/de/docs/Web/API/Element/nextElementSibling)

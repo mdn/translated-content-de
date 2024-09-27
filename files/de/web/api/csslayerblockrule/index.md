@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSLayerBlockRule`** stellt eine {{cssxref("@layer")}} Blockregel dar.
+Das **`CSSLayerBlockRule`** repräsentiert eine {{cssxref("@layer")}} Blockregel.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinen Vorfahren {{domxref("CSSGroupingRule")}} und {{domxref("CSSRule")}}._
+_Erbt Eigenschaften von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- {{DOMxRef("CSSLayerBlockRule.name")}} {{ReadOnlyInline}}
+- [`CSSLayerBlockRule.name`](/de/docs/Web/API/CSSLayerBlockRule/name) {{ReadOnlyInline}}
   - Ein String, der den Namen der zugehörigen Kaskadenschicht enthält.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Methoden von seinen Vorfahren {{domxref("CSSGroupingRule")}} und {{domxref("CSSRule")}}._
+_Erbt Methoden von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
 ### HTML
 
 ```html
-<p>Ich werde in <code>color: rebeccapurple</code> angezeigt.</p>
+<p>I am displayed in <code>color: rebeccapurple</code>.</p>
 ```
 
 ### CSS
@@ -45,10 +45,10 @@ _Erbt Methoden von seinen Vorfahren {{domxref("CSSGroupingRule")}} und {{domxref
 ```js
 const item = document.getElementsByTagName("p")[0];
 const rules = document.styleSheets[1].cssRules;
-// Beachten Sie, dass Stylesheet #1 das mit diesem eingebetteten Beispiel verbundene Stylesheet ist,
-// während Stylesheet #0 das mit der gesamten MDN-Seite verbundene Stylesheet ist
+// Note that stylesheet #1 is the stylesheet associated with this embedded example,
+// while stylesheet #0 is the stylesheet associated with the whole MDN page
 
-const layer = rules[0]; // Eine CSSLayerBlockRule
+const layer = rules[0]; // A CSSLayerBlockRule
 
 item.textContent = `The CSSLayerBlockRule is for the "${layer.name}" layer`;
 ```
@@ -61,12 +61,12 @@ item.textContent = `The CSSLayerBlockRule is for the "${layer.name}" layer`;
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - {{cssxref("@layer")}}
-- {{DOMxRef("CSSLayerStatementRule")}}
-- [Lernen Sie CSS-Kaskadenschichten](/de/docs/Learn/CSS/Building_blocks/Cascade_layers)
+- [`CSSLayerStatementRule`](/de/docs/Web/API/CSSLayerStatementRule)
+- [CSS Kaskadenschichten lernen](/de/docs/Learn/CSS/Building_blocks/Cascade_layers)

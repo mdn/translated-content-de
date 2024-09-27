@@ -7,17 +7,17 @@ l10n:
 
 {{GlossarySidebar}}
 
-_Scalable Vector Graphics_ (**SVG**) ist ein 2D-Vektorbildformat, das auf einer {{Glossary("XML")}}-Syntax basiert.
+_Scalable Vector Graphics_ (**SVG**) ist ein 2D-Vektorbildformat, das auf einer [XML](/de/docs/Glossary/XML)-Syntax basiert.
 
-Das {{Glossary("W3C")}} begann in den späten 1990er Jahren mit der Arbeit an SVG, aber SVG wurde erst mit der Unterstützung durch {{Glossary("Microsoft Internet Explorer", "Internet Explorer")}} 9 populär. Alle großen {{Glossary("browser","Browser")}} unterstützen jetzt SVG.
+Das [W3C](/de/docs/Glossary/W3C) begann in den späten 1990er Jahren mit der Arbeit an SVG, aber SVG wurde erst populär, als [Internet Explorer](/de/docs/Glossary/Microsoft_Internet_Explorer) 9 mit SVG-Unterstützung herauskam. Alle großen [Browser](/de/docs/Glossary/browser) unterstützen nun SVG.
 
-Basierend auf einer {{Glossary("XML")}}-Syntax kann SVG mit {{Glossary("CSS")}} gestylt und mithilfe von {{Glossary("JavaScript")}} interaktiv gemacht werden. HTML ermöglicht das direkte Einbetten von SVG-{{Glossary("Tag","Tags")}} in ein {{Glossary("HTML")}}-Dokument.
+Basierend auf einer [XML](/de/docs/Glossary/XML)-Syntax kann SVG mit [CSS](/de/docs/Glossary/CSS) gestylt und mit [JavaScript](/de/docs/Glossary/JavaScript) interaktiv gemacht werden. HTML erlaubt das direkte Einbinden von SVG-[tags](/de/docs/Glossary/Tag) in ein [HTML](/de/docs/Glossary/HTML)-Dokument.
 
-Als [Vektorbildformat](https://en.wikipedia.org/wiki/Vector_graphics) können SVG-Grafiken unendlich skaliert werden, was sie im {{Glossary("responsive web design", "responsive Design")}} unverzichtbar macht, da Sie Oberflächenelemente und Grafiken erstellen können, die sich an jede Bildschirmgröße anpassen. SVG bietet auch eine nützliche Werkzeugpalette, wie zum Beispiel Zuschneiden, Maskierung, Filter und Animationen.
+Als [Vektorbildformat](https://en.wikipedia.org/wiki/Vector_graphics) können SVG-Grafiken unendlich skaliert werden, was sie im [responsiven Design](/de/docs/Glossary/responsive_web_design) wertvoll macht, da Sie Benutzeroberflächenelemente und Grafiken erstellen können, die auf jede Bildschirmgröße skaliert werden können. SVG stellt auch eine nützliche Reihe von Werkzeugen zur Verfügung, wie z.B. Clipping, Maskierung, Filter und Animationen.
 
 ## Siehe auch
 
 - [SVG](https://en.wikipedia.org/wiki/SVG) auf Wikipedia
-- [SVG Primer auf W3.org](https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html)
+- [W3.org's SVG Primer](https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html)
 - [SVG-Dokumentation auf MDN](/de/docs/Web/SVG)
-- [Aktuellste SVG-Spezifikation](https://www.w3.org/TR/SVG/)
+- [Neueste SVG-Spezifikation](https://www.w3.org/TR/SVG/)

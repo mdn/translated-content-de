@@ -7,25 +7,25 @@ l10n:
 
 {{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`DocumentPictureInPictureEvent`**-Schnittstelle der {{domxref("Document Picture-in-Picture API", "Document Picture-in-Picture API", "", "nocode")}} ist das Ereignisobjekt für das {{domxref("DocumentPictureInPicture/enter_event", "enter")}}-Ereignis, das ausgelöst wird, wenn das Picture-in-Picture-Fenster geöffnet wird.
+Die **`DocumentPictureInPictureEvent`**-Schnittstelle der [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API) ist das Ereignisobjekt für das [`enter`](/de/docs/Web/API/DocumentPictureInPicture/enter_event)-Ereignis, welches ausgelöst wird, wenn das Picture-in-Picture-Fenster geöffnet wird.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("DocumentPictureInPictureEvent.DocumentPictureInPictureEvent", "DocumentPictureInPictureEvent()")}} {{Experimental_Inline}}
+- [`DocumentPictureInPictureEvent()`](/de/docs/Web/API/DocumentPictureInPictureEvent/DocumentPictureInPictureEvent) {{Experimental_Inline}}
   - : Erstellt eine neue Instanz eines `DocumentPictureInPictureEvent`-Objekts.
 
 ## Instanzmethoden
 
-_Erbt Methoden von ihrem Elternteil, {{DOMxRef("Event")}}._
+_Übernimmt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, {{DOMxRef("Event")}}._
+_Übernimmt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("DocumentPictureInPictureEvent.window", "window")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine {{domxref("Window")}}-Instanz zurück, die den Browsing-Kontext innerhalb des `DocumentPictureInPicture`-Fensters darstellt, auf dem das Ereignis ausgelöst wurde.
+- [`window`](/de/docs/Web/API/DocumentPictureInPictureEvent/window) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt eine [`Window`](/de/docs/Web/API/Window)-Instanz zurück, die den Browsing-Kontext im `DocumentPictureInPicture`-Fenster repräsentiert, über dem das Ereignis ausgelöst wurde.
 
 ## Beispiele
 
@@ -61,5 +61,5 @@ documentPictureInPicture.addEventListener("enter", (event) => {
 
 ## Siehe auch
 
-- {{domxref("Document Picture-in-Picture API", "Document Picture-in-Picture API", "", "nocode")}}
-- [Die Document Picture-in-Picture API verwenden](/de/docs/Web/API/Document_Picture-in-Picture_API/Using)
+- [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API)
+- [Verwendung der Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API/Using)

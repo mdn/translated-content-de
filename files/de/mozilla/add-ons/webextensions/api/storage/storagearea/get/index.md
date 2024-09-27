@@ -19,27 +19,27 @@ let results = browser.storage.<storageType>.get(
 )
 ```
 
-`<storageType>` wird einer der beschreibbaren Speichertypen sein — {{WebExtAPIRef("storage.sync", "sync")}}, {{WebExtAPIRef("storage.local", "local")}}, oder {{WebExtAPIRef("storage.managed", "managed")}}.
+`<storageType>` wird einer der beschreibbaren Speicherarten sein — {{WebExtAPIRef("storage.sync", "sync")}}, {{WebExtAPIRef("storage.local", "local")}}, oder {{WebExtAPIRef("storage.managed", "managed")}}.
 
 ### Parameter
 
 - `keys`
-  - : Ein Schlüssel (`string`) oder Schlüssel (ein Array von Strings _oder_ ein Objekt, das Standardwerte angibt), um die abzurufenden Element(e) im Speicher zu identifizieren. Wenn Sie hier ein leeres Objekt oder Array übergeben, wird ein leeres Objekt abgerufen. Wenn Sie `null` oder einen undefinierten Wert übergeben, wird der gesamte Speicherinhalt abgerufen.
+  - : Ein Schlüssel (`string`) oder Schlüssel (ein Array von Strings _oder_ ein Objekt, das Standardwerte angibt), um das/die abzurufende(n) Element(e) im Speicher zu identifizieren. Wenn Sie hier ein leeres Objekt oder Array übergeben, wird ein leeres Objekt abgerufen. Wenn Sie `null` oder einen undefinierten Wert übergeben, wird der gesamte Speicherinhalt abgerufen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das auf ein `results`-Objekt aufgelöst wird, das jedes im Speicherbereich gefundene Objekt in `keys` enthält. Wenn `keys` ein Objekt ist, haben Schlüssel, die im Speicherbereich nicht gefunden werden, die Werte des `keys`-Objekts.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das in ein `results`-Objekt aufgelöst wird, das jedes im Speicherbereich gefundene Objekt in `keys` enthält. Wenn `keys` ein Objekt ist, haben Schlüssel, die im Speicherbereich nicht gefunden wurden, ihre Werte aus dem `keys`-Objekt.
 
-Wenn der Vorgang fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn der Vorgang fehlgeschlagen ist, wird das Promise mit einer Fehlermeldung abgelehnt.
 
-Wenn verwalteter Speicher nicht gesetzt ist, wird `undefined` zurückgegeben.
+Wenn kein verwalteter Speicher eingerichtet ist, wird `undefined` zurückgegeben.
 
 > [!WARNING]
-> Wenn sie in einem Inhaltsskript in Firefox-Versionen vor 52 verwendet wird, wird das von `browser.storage.local.get()` zurückgegebene Promise mit einem Array erfüllt, das ein Objekt enthält. Das Objekt im Array enthält die im Speicherbereich gefundenen `keys`, wie oben beschrieben.
+> Wenn es innerhalb eines Inhaltsskripts in Firefox-Versionen vor 52 verwendet wird, wird das von `browser.storage.local.get()` zurückgegebene Promise mit einem Array erfüllt, das ein Objekt enthält. Das Objekt im Array enthält die oben beschriebenen `keys`, die im Speicherbereich gefunden wurden.
 >
-> Das Promise wird korrekt mit einem Objekt erfüllt, wenn es im Hintergrundkontext (Hintergrundskripte, Pop-ups, Optionsseiten usw.) verwendet wird.
+> Das Promise wird korrekt mit einem Objekt erfüllt, wenn es im Hintergrundkontext verwendet wird (Hintergrundskripte, Popups, Optionen-Seiten usw.).
 >
-> Wenn diese API als `chrome.storage.local.get()` verwendet wird, übergibt sie korrekt ein Objekt an die Rückruffunktion.
+> Wenn diese API als `chrome.storage.local.get()` verwendet wird, wird korrekt ein Objekt an die Callback-Funktion übergeben.
 
 ## Browser-Kompatibilität
 
@@ -50,15 +50,15 @@ Wenn verwalteter Speicher nicht gesetzt ist, wird `undefined` zurückgegeben.
 Angenommen, der Speicher enthält zwei Elemente:
 
 ```js
-// Der Speicher enthält zwei Elemente,
-// "kitten" und "monster"
+// storage contains two items,
+// "kitten" and "monster"
 browser.storage.local.set({
   kitten: { name: "Mog", eats: "mice" },
   monster: { name: "Kraken", eats: "people" },
 });
 ```
 
-Erfolgs- und Fehlerbehandler für das Promise definieren:
+Definieren Sie Erfolgs- und Fehler-Handler für das Promise:
 
 ```js
 function onGot(item) {
@@ -70,23 +70,23 @@ function onError(error) {
 }
 ```
 
-Ohne Argument `keys` alles abrufen:
+Ohne `keys`-Argument alles abrufen:
 
 ```js
 let gettingItem = browser.storage.local.get();
 gettingItem.then(onGot, onError);
 
-// -> Objekt { kitten: Objekt, monster: Objekt }
+// -> Object { kitten: Object, monster: Object }
 ```
 
-Mit leerem `keys`-Argument nichts zurückgeben:
+Mit einem leeren `keys`-Argument nichts zurückgeben:
 
 ```js
-// mit einem leeren Array nichts abrufen
+// with an empty array, retrieve nothing
 let gettingItem = browser.storage.local.get([]);
 gettingItem.then(onGot, onError);
 
-// -> Objekt { }
+// -> Object { }
 ```
 
 Mit dem Namen eines Objekts die Übereinstimmung abrufen:
@@ -95,7 +95,7 @@ Mit dem Namen eines Objekts die Übereinstimmung abrufen:
 let gettingItem = browser.storage.local.get("kitten");
 gettingItem.then(onGot, onError);
 
-// -> Objekt { kitten: Objekt }
+// -> Object { kitten: Object }
 ```
 
 Mit einem Array von Objektnamen alle Übereinstimmungen abrufen:
@@ -108,10 +108,10 @@ let gettingItem = browser.storage.local.get([
 ]);
 gettingItem.then(onGot, onError);
 
-// -> Objekt { kitten: Objekt, monster: Objekt }
+// -> Object { kitten: Object, monster: Object }
 ```
 
-Mit einem Objekt mit Objektnamen als Schlüssel und Standardwert als Wert:
+Mit einem Objekt, das Objektnamen als Schlüssel und Standardwerte als Werte hat:
 
 ```js
 let gettingItem = browser.storage.local.get({
@@ -123,7 +123,7 @@ let gettingItem = browser.storage.local.get({
   },
 });
 
-// -> Objekt { kitten: Objekt, monster: Objekt, grapefruit: Objekt }
+// -> Object { kitten: Object, monster: Object, grapefruit: Object }
 ```
 
 {{WebExtExamples}}
@@ -136,14 +136,14 @@ chrome.storage.local.get("kitten", (items) => {
 });
 ```
 
-Oder mit einem Promise
+Oder unter Verwendung eines Promise
 
 ```js
 let gettingItem = new Promise((resolve) =>
   chrome.storage.local.get("kitten", resolve),
 );
-gettingItem.then(onGot); // -> Objekt { kitten: Objekt }
+gettingItem.then(onGot); // -> Object { kitten: Object }
 ```
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API von Chromium. Diese Dokumentation stammt von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage) API. Diese Dokumentation stammt aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.

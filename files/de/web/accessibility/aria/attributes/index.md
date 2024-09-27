@@ -1,5 +1,5 @@
 ---
-title: ARIA-Zustände und -Eigenschaften
+title: ARIA-Zustände und Eigenschaften
 slug: Web/Accessibility/ARIA/Attributes
 l10n:
   sourceCommit: 194bd13942ad0c532c92d364e0d5d0c36732d98c
@@ -7,16 +7,16 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Diese Seite listet Referenzseiten auf, die alle auf MDN besprochenen <abbr>WAI-ARIA</abbr>-Attribute abdecken.
+Diese Seite listet Referenzseiten auf, die alle <abbr>WAI-ARIA</abbr>-Attribute abdecken, die auf MDN besprochen werden.
 
-<abbr>ARIA</abbr>-Attribute ermöglichen die Modifikation der Zustände und Eigenschaften eines Elements, wie sie im Barrierefreiheitsbaum definiert sind.
+<abbr>ARIA</abbr>-Attribute ermöglichen es, die Zustände und Eigenschaften eines Elements zu ändern, wie sie im Barrierefreiheitsbaum definiert sind.
 
 > [!NOTE]
-> ARIA modifiziert nur den Barrierefreiheitsbaum und verändert, wie unterstützende Technologien den Inhalt Ihren Benutzern präsentieren. ARIA ändert nichts an der Funktion oder dem Verhalten eines Elements. Wenn semantische HTML-Elemente nicht für ihren beabsichtigten Zweck und deren Standardfunktionalität verwendet werden, müssen Sie JavaScript verwenden, um Verhalten, Fokus und ARIA-Zustände zu verwalten.
+> ARIA verändert nur den Barrierefreiheitsbaum und ändert, wie unterstützende Technologien den Inhalt Ihren Nutzern präsentieren. ARIA ändert nichts an der Funktion oder dem Verhalten eines Elements. Wenn Sie semantische HTML-Elemente nicht für ihren beabsichtigten Zweck und ihre Standardfunktionalität verwenden, müssen Sie JavaScript verwenden, um das Verhalten, den Fokus und die ARIA-Zustände zu verwalten.
 
 ## ARIA-Attributtypen
 
-Es gibt vier Kategorien von ARIA-Zuständen und -Eigenschaften:
+Es gibt 4 Kategorien von ARIA-Zuständen und -Eigenschaften:
 
 1. ### Widget-Attribute
 
@@ -79,9 +79,9 @@ Es gibt vier Kategorien von ARIA-Zuständen und -Eigenschaften:
 
 ## Globale ARIA-Attribute
 
-Einige Zustände und Eigenschaften gelten für alle HTML-Elemente, unabhängig davon, ob eine ARIA-Rolle angewendet wird. Diese werden als "Globale" Attribute definiert. Globale Zustände und Eigenschaften werden von allen Rollen und grundlegenden Markup-Elementen unterstützt.
+Einige Zustände und Eigenschaften gelten für alle HTML-Elemente, unabhängig davon, ob eine ARIA-Rolle angewendet wird. Diese werden als "Globale" Attribute definiert. Globale Zustände und Eigenschaften werden von allen Rollen und Basiselementen unterstützt.
 
-Viele der oben genannten Attribute sind global, das heißt, sie können in jedes Element aufgenommen werden, es sei denn, es ist ausdrücklich ausgeschlossen:
+Viele der oben genannten Attribute sind global, was bedeutet, dass sie auf jedem Element enthalten sein können, es sei denn, sie sind ausdrücklich nicht erlaubt:
 
 - [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-atomic)
 - [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy)
@@ -106,11 +106,11 @@ Viele der oben genannten Attribute sind global, das heißt, sie können in jedes
 - [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-relevant)
 - [`aria-roledescription`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-roledescription)
 
-Mit "ausdrücklich ausgeschlossen" sind alle oben genannten Attribute global, außer den Eigenschaften `aria-label` und `aria-labelledby`, die nicht auf Elemente mit der Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role) oder deren Synonym [`none`](/de/docs/Web/Accessibility/ARIA/Roles/none_role) Rolle angewendet werden dürfen.
+Unter "explizit nicht erlaubt" sind alle oben genannten Attribute global, außer die Eigenschaften `aria-label` und `aria-labelledby`, die nicht auf Elementen mit der Rolle [`presentation`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role) oder ihrem Synonym [`none`](/de/docs/Web/Accessibility/ARIA/Roles/none_role) erlaubt sind.
 
 ## Auf MDN definierte Zustände und Eigenschaften
 
-Die folgenden sind die Referenzseiten, die die auf <abbr>MDN</abbr> diskutierten <abbr>WAI-ARIA</abbr>-Zustände und -Eigenschaften abdecken.
+Nachfolgend finden Sie die Referenzseiten zu den <abbr>WAI-ARIA</abbr>-Zuständen und -Eigenschaften, die auf <abbr>MDN</abbr> behandelt werden.
 
 {{SubpagesWithSummaries}}
 

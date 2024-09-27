@@ -7,14 +7,14 @@ l10n:
 
 {{SVGRef()}}
 
-Das **`transform-origin`** SVG-Attribut legt den Ursprung für die Transformationen eines Elements fest.
+Das SVG-Attribut **`transform-origin`** legt den Ursprung für die Transformationen eines Elements fest.
 
-Sie können dieses Attribut mit jedem SVG-Element verwenden.
+Dieses Attribut kann mit jedem SVG-Element verwendet werden.
 
 > [!NOTE]
-> Als Präsentationsattribut in SVG entspricht `transform-origin` in Syntax und Verhalten der `transform-origin` Eigenschaft in CSS und kann als CSS-Eigenschaft zur Gestaltung von SVG verwendet werden. Weitere Informationen finden Sie in der [CSS transform-origin](/de/docs/Web/CSS/transform-origin) Eigenschaft.
+> Als Präsentationsattribut in SVG entspricht `transform-origin` in Syntax und Verhalten der `transform-origin`-Eigenschaft in CSS und kann als CSS-Eigenschaft verwendet werden, um SVG zu stylen. Weitere Informationen finden Sie in der CSS-Eigenschaft [transform-origin](/de/docs/Web/CSS/transform-origin).
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -34,17 +34,17 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
 </table>
 
 > [!NOTE]
-> Der Standardwert von `transform-origin` ist `0 0` für alle SVG-Elemente außer für Wurzel-`<svg>`-Elemente und `<svg>`-Elemente, die direktes Kind eines [foreignObject](/de/docs/Web/SVG/Element/foreignObject) sind, deren transform-origin `50% 50%` ist, wie bei anderen CSS-Elementen.
+> Der Standardwert von `transform-origin` ist `0 0` für alle SVG-Elemente außer für Wurzel-`<svg>`-Elemente und `<svg>`-Elemente, die ein direktes Kind eines [foreignObject](/de/docs/Web/SVG/Element/foreignObject) sind, deren `transform-origin` `50% 50%` beträgt, wie andere CSS-Elemente.
 
-Die `transform-origin` Eigenschaft kann mit einem, zwei oder drei Werten angegeben werden, wobei jeder Wert einen Versatz darstellt. Nicht explizit definierte Versätze werden auf ihre entsprechenden [Anfangswerte](/de/docs/Web/CSS/initial_value) zurückgesetzt.
+Die `transform-origin`-Eigenschaft kann mit einem, zwei oder drei Werten angegeben werden, wobei jeder Wert einen Versatz darstellt. Nicht explizit definierte Versätze werden auf ihre entsprechenden [Initialwerte](/de/docs/Web/CSS/initial_value) zurückgesetzt.
 
-Wenn ein einzelner {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Wert definiert ist, stellt er den horizontalen Versatz dar.
+Wenn ein einzelner {{cssxref("&lt;length&gt;")}}- oder {{cssxref("&lt;percentage&gt;")}}-Wert definiert ist, stellt er den horizontalen Versatz dar.
 
-Wenn zwei oder mehr Werte definiert sind und entweder kein Wert ein Schlüsselwort ist oder das einzige verwendete Schlüsselwort `center` ist, dann repräsentiert der erste Wert den horizontalen Versatz und der zweite den vertikalen Versatz.
+Wenn zwei oder mehr Werte definiert sind und entweder kein Wert ein Schlüsselwort ist oder das einzige verwendete Schlüsselwort `center` ist, dann stellt der erste Wert den horizontalen Versatz und der zweite den vertikalen Versatz dar.
 
 - Ein-Wert-Syntax:
 
-  - Der Wert muss eine {{cssxref("length")}} oder eines der Schlüsselwörter `left`, `center`, `right`, `top` und `bottom` sein.
+  - Der Wert muss eine {{cssxref("length")}} sein oder eines der Schlüsselwörter `left`, `center`, `right`, `top` und `bottom`.
 
 - Zwei-Wert-Syntax:
 
@@ -53,8 +53,8 @@ Wenn zwei oder mehr Werte definiert sind und entweder kein Wert ein Schlüsselwo
 
 - Drei-Wert-Syntax:
 
-  - Die ersten beiden Werte sind die gleichen wie bei der Zwei-Wert-Syntax.
-  - Der dritte Wert muss eine {{cssxref("length")}} sein. Er repräsentiert immer den Z-Versatz.
+  - Die ersten beiden Werte sind dieselben wie für die Zwei-Wert-Syntax.
+  - Der dritte Wert muss eine {{cssxref("length")}} sein. Er stellt immer den Z-Versatz dar.
 
 ## Beispiel
 
@@ -62,24 +62,25 @@ Dieses Beispiel zeigt den Code für ein PNG-Bild und drei SVG-Bilder:
 
 1. Ein PNG-Referenzbild.
 2. Ein SVG-Referenzbild, das keine Transformation verwendet.
-3. Ein SVG-Bild, das `transform-origin` zur Durchführung einer Transformation verwendet, wobei das erwartete Ergebnis ein Bild ist, das identisch mit dem Referenzbild ist.
-4. Ein SVG-Bild, das `transform-origin` nicht verwendet, aber die gleiche Transformation nur mit [`transform`](/de/docs/Web/SVG/Attribute/transform) durchführt, wobei das erwartete Ergebnis ein Bild ist, das identisch mit dem Referenzbild ist.
+3. Ein SVG-Bild, das `transform-origin` verwendet, um eine Transformation durchzuführen, wobei das erwartete Ergebnis ein Bild ist, das mit dem Referenzbild identisch ist.
+4. Ein SVG-Bild, das `transform-origin` nicht verwendet, aber dieselbe Transformation nur mit [`transform`](/de/docs/Web/SVG/Attribute/transform) durchführt, wobei das erwartete Ergebnis ein Bild ist, das mit dem Referenzbild identisch ist.
 
-Das vierte Bild zeigt, wie die Transformation in Browsern durchgeführt werden kann, die `transform-origin` nicht unterstützen — da der Code für das vierte Bild die gleiche Transformation wie der `transform-origin`-basierte Code des dritten Bildes durchführt, aber nur `transform` verwendet, ohne `transform-origin`.
+Das vierte Bild zeigt, wie die Transformation in Browsern durchgeführt wird, die `transform-origin` nicht unterstützen — da der Code für das vierte Bild dieselbe Transformation wie der `transform-origin`-basierte Code des dritten Bildes durchführt, aber nur `transform` verwendet, ohne `transform-origin`.
 
 > [!NOTE]
-> Diese Beispiele verwenden eine modifizierte Version eines Code-Ausschnitts in einer Stack Overflow [Frage](https://stackoverflow.com/questions/67057190/safari-doesnt-respect-transform-origin-svg-attribute) von [Maxim Kulikov](https://stackoverflow.com/users/1033939/maxim-kulikov) sowie eine modifizierte Version eines Code-Ausschnitts in einer [Antwort](https://stackoverflow.com/questions/67057190/safari-doesnt-respect-transform-origin-svg-attribute/67057754) von [Michael Mullany](https://stackoverflow.com/users/271353/michael-mullany), die die Frage begleitet. Beide Code-Ausschnitte werden unter den Bedingungen der [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/) Lizenz verwendet.)
+> Diese Beispiele verwenden eine modifizierte Version eines Code-Snippets aus einer Stack Overflow-[Frage](https://stackoverflow.com/questions/67057190/safari-doesnt-respect-transform-origin-svg-attribute) von [Maxim Kulikov](https://stackoverflow.com/users/1033939/maxim-kulikov) sowie eine modifizierte Version eines Code-Snippets in einer [Antwort](https://stackoverflow.com/questions/67057190/safari-doesnt-respect-transform-origin-svg-attribute/67057754) von [Michael Mullany](https://stackoverflow.com/users/271353/michael-mullany), die die Frage begleitet. Beide Code-Snippets werden unter den Bedingungen der [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/) Lizenz verwendet.
 
 ### HTML
 
 ```html
-<h4>Referenzbild</h4>
+<h4>Reference image</h4>
 
 <div>
   <figure>
-    <img src="reference.png" alt="PNG-Referenzbild" />
+    <img src="reference.png" alt="PNG reference image" />
     <figcaption>
-      Abbildung 1. PNG-Referenzbild. Die folgenden Bilder sollten genauso wie dieses aussehen.
+      Figure 1. PNG reference image. The images following this should look
+      exactly the same as this.
     </figcaption>
   </figure>
 </div>
@@ -156,12 +157,13 @@ Das vierte Bild zeigt, wie die Transformation in Browsern durchgeführt werden k
         stroke-width="0.5" />
     </svg>
     <figcaption>
-      Abbildung 2. SVG-Referenzbild. Die folgenden Bilder sollten genauso wie dieses aussehen.
+      Figure 2. SVG reference image. The images following this should look
+      exactly the same as this.
     </figcaption>
   </figure>
 </div>
 
-<h4>Transformation mit transform-origin</h4>
+<h4>Transformation with transform-origin</h4>
 
 <div>
   <figure>
@@ -218,12 +220,13 @@ Das vierte Bild zeigt, wie die Transformation in Browsern durchgeführt werden k
     </svg>
 
     <figcaption>
-      Abbildung 3. transform-origin verwendet. Dieses Bild sollte genauso wie das Referenzbild in Abbildung 2 aussehen.
+      Figure 3. transform-origin used. This image should look exactly the same
+      as the reference image in Figure 2.
     </figcaption>
   </figure>
 </div>
 
-<h4>Transformation ohne transform-origin</h4>
+<h4>Transformation without transform-origin</h4>
 
 <div>
   <figure>
@@ -277,7 +280,8 @@ Das vierte Bild zeigt, wie die Transformation in Browsern durchgeführt werden k
     </svg>
 
     <figcaption>
-      Abbildung 4. transform-origin nicht verwendet. Dieses Bild sollte genauso wie das Referenzbild in Abbildung 2 aussehen.
+      Figure 4. transform-origin not used. This image should look exactly the
+      same as the reference image in Figure 2.
     </figcaption>
   </figure>
 </div>

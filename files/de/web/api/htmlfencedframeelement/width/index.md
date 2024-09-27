@@ -1,6 +1,6 @@
 ---
-title: "HTMLFencedFrameElement: Breite-Eigenschaft"
-short-title: Breite
+title: "HTMLFencedFrameElement: width-Eigenschaft"
+short-title: width
 slug: Web/API/HTMLFencedFrameElement/width
 l10n:
   sourceCommit: f430d277573ba0b06b1ac33ae8017fd90f170bef
@@ -8,9 +8,9 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
 
-Die **`width`**-Eigenschaft des {{domxref("HTMLFencedFrameElement")}} holt und setzt den Wert des entsprechenden `width`-Attributs des {{htmlelement("fencedframe")}}, das die Breite des Elements festlegt.
+Die **`width`**-Eigenschaft des [`HTMLFencedFrameElement`](/de/docs/Web/API/HTMLFencedFrameElement) ruft den Wert des entsprechenden {{htmlelement("fencedframe")}} `width`-Attributs ab und setzt ihn, welches die Breite des Elements angibt.
 
-Die Größe des eingebetteten Inhalts kann durch interne `contentWidth`- und `contentHeight`-Eigenschaften des `<fencedframe>`-{{domxref("HTMLFencedFrameElement.config", "config")}}-Objekts festgelegt werden. In solchen Fällen ändert das Ändern der `width`- oder {{domxref("HTMLFencedFrameElement.height", "height")}} des `<fencedframe>` die Größe des eingebetteten Containers auf der Seite, aber das Dokument im Container wird visuell skaliert, um zu passen. Die gemeldete Breite und Höhe des eingebetteten Dokuments (d.h. {{domxref("Window.innerWidth")}} und {{domxref("Window.innerHeight")}}) bleiben unverändert.
+Die Größe des eingebetteten Inhalts kann durch die internen `contentWidth`- und `contentHeight`-Eigenschaften des [`config`](/de/docs/Web/API/HTMLFencedFrameElement/config)-Objekts des `<fencedframe>` festgelegt werden. In solchen Fällen führt eine Änderung der `width`- oder [`height`](/de/docs/Web/API/HTMLFencedFrameElement/height) des `<fencedframe>` dazu, dass die Größe des eingebetteten Containers auf der Seite verändert wird, aber das Dokument innerhalb des Containers wird visuell an die Größe angepasst. Die gemeldete Breite und Höhe des eingebetteten Dokuments (d.h. [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) und [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight)) bleiben unverändert.
 
 ## Wert
 

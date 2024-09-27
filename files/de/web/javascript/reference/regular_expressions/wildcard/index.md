@@ -1,5 +1,5 @@
 ---
-title: "Wildcards: ."
+title: "Wildcard: ."
 slug: Web/JavaScript/Reference/Regular_expressions/Wildcard
 l10n:
   sourceCommit: 3e9618dd8b285580c2d3573e314ce97d6f3372ec
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar}}
 
-Ein **Wildcard** passt auf alle Zeichen außer Zeilenendzeichen. Es passt auch auf Zeilenendzeichen, wenn das `s`-Flag gesetzt ist.
+Ein **Wildcard** entspricht allen Zeichen außer Zeilenendemarken. Es entspricht auch Zeilenendemarken, wenn das `s`-Flag gesetzt ist.
 
 ## Syntax
 
@@ -17,9 +17,9 @@ Ein **Wildcard** passt auf alle Zeichen außer Zeilenendzeichen. Es passt auch a
 
 ## Beschreibung
 
-`.` passt auf jedes Zeichen außer [Zeilenendzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators). Wenn das [`s`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll)-Flag gesetzt ist, passt `.` auch auf Zeilenendzeichen.
+`.` entspricht jedem Zeichen außer [Zeilenendemarken](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators). Wenn das [`s`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll) Flag gesetzt ist, entspricht `.` auch Zeilenendemarken.
 
-Der genaue Zeichensatz, auf den `.` passt, hängt davon ab, ob der Regex [Unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist. Wenn er Unicode-bewusst ist, passt `.` auf jeden Unicode-Codepoint; andernfalls passt es auf jede UTF-16-Codeeinheit. Zum Beispiel:
+Das genaue Zeichen-Set, das von `.` erfasst wird, hängt davon ab, ob der Regex [Unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) ist. Ist er Unicode-bewusst, entspricht `.` jedem Unicode-Codepunkt; andernfalls entspricht es jeder UTF-16 Code-Einheit. Zum Beispiel:
 
 ```js
 /../.test("😄"); // true; matches two UTF-16 code units as a surrogate pair
@@ -28,17 +28,16 @@ Der genaue Zeichensatz, auf den `.` passt, hängt davon ab, ob der Regex [Unicod
 
 ## Beispiele
 
-### Verwendung mit Quantifizierern
+### Nutzung mit Quantifizierern
 
-Wildcards werden häufig mit [Quantifizierern](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) verwendet, um eine beliebige Zeichenfolge zu finden, bis das nächste interessante Zeichen gefunden wird. Zum Beispiel extrahiert das folgende Beispiel den Titel einer Markdown-Seite in der Form `# Titel`:
+Wildcards werden häufig mit [Quantifizierern](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) verwendet, um eine Zeichenfolge zu erfassen, bis das nächste interessante Zeichen gefunden wird. Zum Beispiel extrahiert das folgende Beispiel den Titel einer Markdown-Seite in der Form `# Titel`:
 
 ```js
 function parseTitle(entry) {
-  // Verwenden Sie den Mehrzeilenmodus, da der Titel möglicherweise nicht
-  // am Anfang der Datei steht. Beachten Sie, dass das m-Flag nicht
-  // bewirkt, dass . auf Zeilenendzeichen passt, sodass der Titel
-  // in einer einzigen Zeile stehen muss.
-  // Gibt den durch die erste Erfassungsgruppe abgeglichenen Text zurück.
+  // Use multiline mode because the title may not be at the start of
+  // the file. Note that the m flag does not make . match line
+  // terminators, so the title must be on a single line
+  // Return text matched by the first capturing group.
   return /^#[ \t]+(.+)$/m.exec(entry)?.[1];
 }
 
@@ -49,15 +48,15 @@ parseTitle(`
 slug: Web/JavaScript/Reference/Regular_expressions/Wildcard
 ---
 
-# Wildcards: .
+# Wildcard: .
 
-Ein **Wildcard** passt auf alle Zeichen außer Zeilenendzeichen.
-`); // "Wildcards: ."
+A **wildcard** matches all characters except line terminators.
+`); // "Wildcard: ."
 ```
 
-### Inhalt eines Codeblocks abgleichen
+### Inhalt eines Code-Blocks erfassen
 
-Das folgende Beispiel gleicht den Inhalt eines durch drei Backticks eingeschlossenen Codeblocks in Markdown ab. Es verwendet das `s`-Flag, damit `.` auf Zeilenendzeichen passt, da der Inhalt eines Codeblocks mehrere Zeilen umfassen kann:
+Das folgende Beispiel erfasst den Inhalt eines Code-Blocks, der in Markdown von drei Backticks umschlossen ist. Es verwendet das `s`-Flag, um `.` so einzustellen, dass es Zeilenendemarken erfasst, da der Inhalt eines Code-Blocks mehrere Zeilen umfassen kann:
 
 ````js
 function parseCodeBlock(entry) {
@@ -71,7 +70,7 @@ console.log("Hello world");
 `); // "console.log("Hello world");"
 
 parseCodeBlock(`
-Eine \`try...catch\`-Anweisung muss die Blöcke in geschweiften Klammern einschließen.
+A \`try...catch\` statement must have the blocks enclosed in curly braces.
 
 \`\`\`js example-bad
 try
@@ -83,7 +82,7 @@ catch (e)
 ````
 
 > [!WARNING]
-> Diese Beispiele dienen nur zur Demonstration. Wenn Sie Markdown parsen möchten, verwenden Sie einen dedizierten Markdown-Parser, da es viele Sonderfälle zu beachten gibt.
+> Diese Beispiele dienen nur zu Demonstrationszwecken. Wenn Sie Markdown parsen möchten, verwenden Sie einen dedizierten Markdown-Parser, da es viele Randfälle zu berücksichtigen gibt.
 
 ## Spezifikationen
 
@@ -98,4 +97,4 @@ catch (e)
 - [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) Leitfaden
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
 - [Zeichenklasse: `[...]`, `[^...]`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)
-- [Escape-Sequenz für Zeichenklassen: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
+- [Escape-Sequenzen für Zeichenklassen: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)

@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`colorTexture`**-Eigenschaft der {{domxref("XRWebGLSubImage")}}-Schnittstelle repräsentiert das Farb-{{domxref("WebGLTexture")}}-Objekt für die {{domxref("XRCompositionLayer")}}, um zu rendern.
+Die schreibgeschützte **`colorTexture`**-Eigenschaft des [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Interfaces repräsentiert das Farb-`WebGLTexture`-Objekt für die [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer), um darauf zu rendern.
 
 ## Wert
 
-Eine undurchsichtige {{domxref("WebGLTexture")}}. Siehe [WebXR undurchsichtige Texturen](/de/docs/Web/API/WebGLTexture#webxr_opaque_textures) für Details.
+Eine undurchsichtige [`WebGLTexture`](/de/docs/Web/API/WebGLTexture). Details finden Sie unter [WebXR undurchsichtige Texturen](/de/docs/Web/API/WebGLTexture#webxr_opaque_textures).
 
 ## Beispiele
 
 ### Verwendung von `colorTexture`
 
-Die `colorTexture`-Eigenschaft kann an {{domxref("WebGL2RenderingContext.framebufferTextureLayer()")}} übergeben werden, um die Farbtextur an einen Framebuffer anzuhängen.
+Die `colorTexture`-Eigenschaft kann an [`WebGL2RenderingContext.framebufferTextureLayer()`](/de/docs/Web/API/WebGL2RenderingContext/framebufferTextureLayer) übergeben werden, um die Farbtextur an einen Framebuffer anzuhängen.
 
 ```js
 const xrGlBinding = new XRWebGLBinding(xrSession, gl);
@@ -69,4 +69,4 @@ function onXRFrame(time, xrFrame) {
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.framebufferTextureLayer()")}}
+- [`WebGL2RenderingContext.framebufferTextureLayer()`](/de/docs/Web/API/WebGL2RenderingContext/framebufferTextureLayer)

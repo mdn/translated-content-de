@@ -8,9 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **{{domxref("HTMLVideoElement")}}**-Methode **`getVideoPlaybackQuality()`** erstellt und gibt ein {{domxref("VideoPlaybackQuality")}}-Objekt zurück, das Metriken enthält, einschließlich wie viele Frames verloren gegangen sind.
+Die **[`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)** Methode
+**`getVideoPlaybackQuality()`** erstellt und gibt ein
+[`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Objekt zurück, das Metriken enthält, einschließlich der Anzahl der verlorenen Frames.
 
-Die zurückgegebenen Daten können verwendet werden, um die Qualität des Videostreams zu bewerten.
+Die zurückgegebenen Daten können zur Bewertung der Qualität des Videostreams verwendet werden.
 
 ## Syntax
 
@@ -24,11 +26,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("VideoPlaybackQuality")}}-Objekt, das Informationen über die aktuelle Wiedergabequalität des Videoelements bietet.
+Ein [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Objekt, das Informationen über die aktuelle Wiedergabequalität des Videoelements bereitstellt.
 
 ## Beispiele
 
-Dieses Beispiel aktualisiert ein Element, um die Gesamtzahl der bisher im Wiedergabeprozess verstrichenen Videoframes anzuzeigen. Dieser Wert umfasst alle verlorenen oder beschädigten Frames, ist also nicht identisch mit der "Gesamtzahl der abgespielten Frames."
+Dieses Beispiel aktualisiert ein Element, um die Gesamtzahl der Videoframes anzuzeigen, die bisher im Wiedergabeprozess vergangen sind. Dieser Wert umfasst alle verlorenen oder beschädigten Frames, daher ist er nicht identisch mit der "Gesamtzahl der abgespielten Frames."
 
 ```js
 const videoElem = document.getElementById("my_vid");
@@ -48,5 +50,5 @@ counterElem.innerText = quality.totalVideoFrames;
 
 ## Siehe auch
 
-- Das {{HTMLElement("video")}}-Element
-- Die {{domxref("VideoPlaybackQuality")}}-Schnittstelle.
+- Das {{HTMLElement("video")}} Element
+- Die [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality) Schnittstelle.

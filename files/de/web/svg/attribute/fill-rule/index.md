@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`fill-rule`** Attribut ist ein Präsentationsattribut, das den Algorithmus definiert, um den _inneren_ Teil einer Form zu bestimmen.
+Das **`fill-rule`**-Attribut ist ein Präsentationsattribut, das den Algorithmus definiert, der verwendet wird, um den _inneren_ Teil einer Form zu bestimmen.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `fill-rule` als CSS-Eigenschaft verwendet werden.
@@ -34,17 +34,17 @@ svg {
 
 ```html
 <svg viewBox="-10 -10 220 120" xmlns="http://www.w3.org/2000/svg">
-  <!-- Standardwert für fill-rule -->
+  <!-- Default value for fill-rule -->
   <polygon
     fill-rule="nonzero"
     stroke="red"
     points="50,0 21,90 98,35 2,35 79,90" />
 
   <!--
-  Das Zentrum der Form hat zwei
-  Pfadsegmente (angezeigt durch den roten Strich)
-  zwischen ihm und der Unendlichkeit. Es wird daher
-  als außerhalb der Form betrachtet und nicht gefüllt.
+  The center of the shape has two
+  path segments (shown by the red stroke)
+  between it and infinity. It is therefore
+  considered outside the shape, and not filled.
   -->
   <polygon
     fill-rule="evenodd"
@@ -55,7 +55,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 200)}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -74,11 +74,11 @@ svg {
   </tbody>
 </table>
 
-Das `fill-rule` Attribut bietet zwei Optionen, um zu bestimmen, wie das Innere (d.h. der zu füllende Bereich) einer Form definiert wird:
+Das `fill-rule`-Attribut bietet zwei Optionen dafür, wie das Innere (das heißt der zu füllende Bereich) einer Form bestimmt wird:
 
 ### nonzero
 
-Der Wert `nonzero` bestimmt die „Innenseite“ eines Punktes in der Form, indem ein Strahl von diesem Punkt in beliebiger Richtung zur Unendlichkeit gezogen wird und dann die Orte untersucht werden, an denen ein Segment der Form den Strahl kreuzt. Beginnend mit einem Zählwert von null, wird eins hinzugefügt, wenn ein Pfadsegment den Strahl von links nach rechts kreuzt, und eins abgezogen, wenn ein Pfadsegment den Strahl von rechts nach links kreuzt. Nach dem Zählen der Kreuzungen, wenn das Ergebnis null ist, liegt der Punkt außerhalb des Pfades. Andernfalls liegt er innerhalb.
+Der Wert `nonzero` bestimmt die "Innenseite" eines Punktes in der Form, indem ein Strahl von diesem Punkt aus in jede Richtung ins Unendliche gezeichnet wird und dann die Stellen untersucht werden, an denen ein Segment der Form den Strahl kreuzt. Beginnend mit einer Zählung von null, wird eins hinzugefügt, wenn ein Pfadsegment den Strahl von links nach rechts kreuzt, und eins subtrahiert, wenn ein Pfadsegment den Strahl von rechts nach links kreuzt. Nach dem Zählen der Kreuzungen, wenn das Ergebnis null ist, befindet sich der Punkt außerhalb des Pfades. Andernfalls befindet er sich innerhalb.
 
 #### Beispiel
 
@@ -92,16 +92,16 @@ svg {
 
 ```html
 <svg viewBox="-10 -10 320 120" xmlns="http://www.w3.org/2000/svg">
-  <!-- Effekt der nonzero-Regel auf kreuzende Pfadsegmente -->
+  <!-- Effect of nonzero fill rule on crossing path segments -->
   <polygon
     fill-rule="nonzero"
     stroke="red"
     points="50,0 21,90 98,35 2,35 79,90" />
 
   <!--
-  Effekt der nonzero-Regel auf eine Form innerhalb einer Form
-  mit dem Pfadsegment in derselben Richtung verlaufend
-  (beide Quadrate im Uhrzeigersinn gezeichnet, "nach rechts")
+  Effect of nonzero fill rule on a shape inside a shape
+  with the path segment moving in the same direction
+  (both squares drawn clockwise, to the "right")
   -->
   <path
     fill-rule="nonzero"
@@ -110,9 +110,9 @@ svg {
            M130,20 h50 v50 h-50 z" />
 
   <!--
-  Effekt der nonzero-Regel auf eine Form innerhalb einer Form
-  mit dem Pfadsegment in entgegengesetzter Richtung
-  (ein Quadrat im Uhrzeigersinn, das andere gegen den Uhrzeigersinn gezeichnet)
+  Effect of nonzero fill rule on a shape inside a shape
+  with the path segment moving in the opposite direction
+  (one square drawn clockwise, the other anti-clockwise)
   -->
   <path
     fill-rule="nonzero"
@@ -126,7 +126,7 @@ svg {
 
 ### evenodd
 
-Der Wert `evenodd` bestimmt die „Innenseite“ eines Punktes in der Form, indem ein Strahl von diesem Punkt in beliebiger Richtung zur Unendlichkeit gezogen wird und die Anzahl der Pfadsegmente gezählt wird, die der Strahl von der gegebenen Form kreuzt. Ist diese Zahl ungerade, liegt der Punkt innerhalb; ist sie gerade, liegt der Punkt außerhalb.
+Der Wert `evenodd` bestimmt die "Innenseite" eines Punktes in der Form, indem ein Strahl von diesem Punkt aus in jede Richtung ins Unendliche gezeichnet wird und die Anzahl der Pfadsegmente aus der gegebenen Form gezählt werden, die der Strahl kreuzt. Wenn diese Zahl ungerade ist, befindet sich der Punkt innen; ist sie gerade, befindet sich der Punkt außen.
 
 #### Beispiel
 
@@ -140,16 +140,16 @@ svg {
 
 ```html
 <svg viewBox="-10 -10 320 120" xmlns="http://www.w3.org/2000/svg">
-  <!-- Effekt der evenodd-Regel auf kreuzende Pfadsegmente -->
+  <!-- Effect of evenodd fill rule on crossing path segments -->
   <polygon
     fill-rule="evenodd"
     stroke="red"
     points="50,0 21,90 98,35 2,35 79,90" />
 
   <!--
-  Effekt der evenodd-Regel auf eine Form innerhalb einer Form
-  mit dem Pfadsegment in derselben Richtung verlaufend
-  (beide Quadrate im Uhrzeigersinn gezeichnet, "nach rechts")
+  Effect of evenodd fill rule on a shape inside a shape
+  with the path segment moving in the same direction
+  (both squares drawn clockwise, to the "right")
   -->
   <path
     fill-rule="evenodd"
@@ -158,9 +158,9 @@ svg {
            M130,20 h50 v50 h-50 z" />
 
   <!--
-  Effekt der evenodd-Regel auf eine Form innerhalb einer Form
-  mit dem Pfadsegment in entgegengesetzter Richtung
-  (ein Quadrat im Uhrzeigersinn, das andere gegen den Uhrzeigersinn gezeichnet)
+  Effect of evenodd fill rule on a shape inside a shape
+  with the path segment moving in opposite direction
+  (one square drawn clockwise, the other anti-clockwise)
   -->
   <path
     fill-rule="evenodd"

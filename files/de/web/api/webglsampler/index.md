@@ -7,23 +7,23 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLSampler`**-Schnittstelle ist Teil der [WebGL 2](/de/docs/Web/API/WebGL_API) API und speichert Abtastparameter für den Zugriff auf {{domxref("WebGLTexture")}} innerhalb eines Shaders.
+Das **`WebGLSampler`**-Interface ist Teil der [WebGL 2](/de/docs/Web/API/WebGL_API) API und speichert Abtastparameter für den Zugriff auf [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) innerhalb eines Shaders.
 
 {{InheritanceDiagram}}
 
-Beim Arbeiten mit `WebGLSampler`-Objekten sind die folgenden Methoden des {{domxref("WebGL2RenderingContext")}} nützlich:
+Bei der Arbeit mit `WebGLSampler`-Objekten sind die folgenden Methoden des [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) nützlich:
 
-- {{domxref("WebGL2RenderingContext.createSampler()")}}
-- {{domxref("WebGL2RenderingContext.deleteSampler()")}}
-- {{domxref("WebGL2RenderingContext.isSampler()")}}
-- {{domxref("WebGL2RenderingContext.bindSampler()")}}
-- {{domxref("WebGL2RenderingContext.getSamplerParameter()")}}
+- [`WebGL2RenderingContext.createSampler()`](/de/docs/Web/API/WebGL2RenderingContext/createSampler)
+- [`WebGL2RenderingContext.deleteSampler()`](/de/docs/Web/API/WebGL2RenderingContext/deleteSampler)
+- [`WebGL2RenderingContext.isSampler()`](/de/docs/Web/API/WebGL2RenderingContext/isSampler)
+- [`WebGL2RenderingContext.bindSampler()`](/de/docs/Web/API/WebGL2RenderingContext/bindSampler)
+- [`WebGL2RenderingContext.getSamplerParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getSamplerParameter)
 
 ## Beispiele
 
 ### Erstellen eines `WebGLSampler`-Objekts
 
-In diesem Beispiel muss `gl` ein {{domxref("WebGL2RenderingContext")}} sein. `WebGLSampler`-Objekte sind in WebGL 1 nicht verfügbar.
+In diesem Beispiel muss `gl` ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein. `WebGLSampler`-Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
 const sampler = gl.createSampler();

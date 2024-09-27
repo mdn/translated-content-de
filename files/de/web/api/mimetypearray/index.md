@@ -7,25 +7,25 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}
 
-Die **`MimeTypeArray`**-Schnittstelle gibt ein Array von {{domxref('MimeType')}}-Instanzen zurück, von denen jede Informationen über unterstützte Browser-Plugins enthält. Dieses Objekt wird von der veralteten {{domxref("Navigator.mimeTypes")}}-Eigenschaft zurückgegeben.
+Die Schnittstelle **`MimeTypeArray`** gibt ein Array von [`MimeType`](/de/docs/Web/API/MimeType)-Instanzen zurück, von denen jede Informationen über unterstützte Browser-Plugins enthält. Dieses Objekt wird durch die veraltete Eigenschaft [`Navigator.mimeTypes`](/de/docs/Web/API/Navigator/mimeTypes) zurückgegeben.
 
-Diese Schnittstelle war ein [Versuch, eine nicht modifizierbare Liste zu erstellen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) und wird nur weiterhin unterstützt, um bereits bestehenden Code nicht zu brechen. Moderne APIs repräsentieren Listenstrukturen mit Typen, die auf JavaScript-[Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) basieren, wodurch viele Array-Methoden verfügbar gemacht werden und gleichzeitig zusätzliche Semantiken für ihre Verwendung auferlegt werden (wie z.B. das Festlegen ihrer Elemente auf schreibgeschützt).
+Diese Schnittstelle war ein [Versuch, eine unveränderliche Liste zu erstellen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) und wird nur weiterhin unterstützt, um bestehenden Code nicht zu brechen, der sie bereits verwendet. Moderne APIs stellen Listenstrukturen mit Typen dar, die auf JavaScript-[Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) basieren, und machen dadurch viele Array-Methoden verfügbar, während sie gleichzeitig zusätzliche Semantiken für deren Verwendung auferlegen (wie z.B. die Elemente schreibgeschützt zu machen).
 
 ## Instanz-Eigenschaften
 
-- {{domxref("MimeTypeArray.length")}} {{Deprecated_Inline}}
+- [`MimeTypeArray.length`](/de/docs/Web/API/MimeTypeArray/length) {{Deprecated_Inline}}
   - : Die Anzahl der Elemente im Array.
 
 ## Instanz-Methoden
 
-- {{domxref("MimeTypeArray.item()")}} {{Deprecated_Inline}}
+- [`MimeTypeArray.item()`](/de/docs/Web/API/MimeTypeArray/item) {{Deprecated_Inline}}
   - : Gibt das `MimeType`-Objekt mit dem angegebenen Index zurück.
-- {{domxref("MimeTypeArray.namedItem()")}} {{Deprecated_Inline}}
+- [`MimeTypeArray.namedItem()`](/de/docs/Web/API/MimeTypeArray/namedItem) {{Deprecated_Inline}}
   - : Gibt das `MimeType`-Objekt mit dem angegebenen Namen zurück.
 
 ## Beispiel
 
-Das folgende Beispiel testet, ob ein Plugin für den Mime-Typ 'application/pdf' verfügbar ist und protokolliert dessen Beschreibung, falls vorhanden.
+Im folgenden Beispiel wird getestet, ob ein Plugin für den 'application/pdf'-MIME-Typ verfügbar ist und, falls ja, wird seine Beschreibung protokolliert.
 
 ```js
 const mimeTypes = navigator.mimeTypes;

@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft einen zuvor durch einen Aufruf von {{WebExtAPIRef("sessions.setTabValue")}} gespeicherten Wert ab.
+Ruft einen Wert ab, der zuvor durch einen Aufruf von {{WebExtAPIRef("sessions.setTabValue")}} gespeichert wurde.
 
-Sie können einen Wert von einem Tab auch über einen Schließ-/Wiederherstellungszyklus hinweg abrufen: Das bedeutet, wenn Sie einen Wert setzen und der Benutzer den Tab schließt und dann den Tab mithilfe der "Tab wiederherstellen"-Funktion des Browsers wiederherstellt (zum Beispiel durch Drücken von Strg+Umschalt+T), können Sie den Wert aus dem wiederhergestellten Tab abrufen. Beachten Sie jedoch, dass ein wiederhergestellter Tab nicht dieselbe ID wie das Original erhält, sodass die ID, die Sie in `getTabValue()` übergeben, sich von der ID unterscheidet, die Sie in `setTabValue()` übergeben haben, obwohl beide sich auf denselben Tab beziehen.
+Sie können einen Wert von einem Tab auch über einen Zyklus von Schließen/Wiederherstellen abrufen: Das bedeutet, wenn Sie einen Wert setzen und der Nutzer den Tab schließt und dann den Tab mit der „Tab wiederherstellen“-Funktion des Browsers wiederherstellt (zum Beispiel durch Drücken von Strg+Umschalt+T), dann können Sie den Wert aus dem wiederhergestellten Tab abrufen. Beachten Sie jedoch, dass ein wiederhergestellter Tab nicht die gleiche ID wie der ursprüngliche hat, sodass die ID, die Sie an `getTabValue()` übergeben, von der ID abweicht, die Sie an `setTabValue()` übergeben haben, obwohl sie sich auf denselben Tab beziehen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,7 +27,7 @@ let retrieving = browser.sessions.getTabValue(
 - `tabId`
   - : `integer`. ID des Tabs, dessen Daten Sie abrufen möchten. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
 - `key`
-  - : `string`. Schlüssel, der den bestimmten Wert identifiziert, der abgerufen werden soll. Dieser muss mit dem Schlüssel übereinstimmen, der zuvor in {{WebExtAPIRef("sessions.setTabValue")}} angegeben wurde.
+  - : `string`. Schlüssel, der den bestimmten abzurufenden Wert identifiziert. Dieser muss mit dem zuvor in {{WebExtAPIRef("sessions.setTabValue")}} angegebenen Schlüssel übereinstimmen.
 
 ### Rückgabewert
 
@@ -39,7 +39,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Protokollieren Sie den Wert von "my-key" für alle neu erstellten Tabs (dies schließt auch Tabs ein, die wiederhergestellt wurden):
+Protokollieren Sie den Wert von "my-key" für alle neu erstellten Tabs (dies schließt alle wiederhergestellten Tabs ein):
 
 ```js
 function onGetResolved(r) {

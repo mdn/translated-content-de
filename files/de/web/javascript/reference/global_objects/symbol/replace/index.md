@@ -7,15 +7,15 @@ l10n:
 
 {{JSRef}}
 
-Die **`Symbol.replace`** statische Dateneigenschaft repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.replace`. Die Methoden {{jsxref("String.prototype.replace()")}} und {{jsxref("String.prototype.replaceAll()")}} suchen dieses Symbol im ersten Argument, um die Methode zu finden, die Unterzeichenfolgen ersetzt, die vom aktuellen Objekt übereinstimmen.
+Die **`Symbol.replace`** statische Dateneigenschaft repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.replace`. Die Methoden {{jsxref("String.prototype.replace()")}} und {{jsxref("String.prototype.replaceAll()")}} suchen dieses Symbol im ersten Argument, um die Methode zu erhalten, die Teilstrings ersetzt, die vom aktuellen Objekt übereinstimmen.
 
-Für weitere Informationen siehe [`RegExp.prototype[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace), {{jsxref("String.prototype.replace()")}} und {{jsxref("String.prototype.replaceAll()")}}.
+Für weitere Informationen siehe [`RegExp.prototype[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace), {{jsxref("String.prototype.replace()")}}, und {{jsxref("String.prototype.replaceAll()")}}.
 
 {{EmbedInteractiveExample("pages/js/symbol-replace.html")}}
 
 ## Wert
 
-Das bekannte Symbol `Symbol.replace`.
+Das wohlbekannte Symbol `Symbol.replace`.
 
 {{js_property_attributes(0, 0, 0)}}
 

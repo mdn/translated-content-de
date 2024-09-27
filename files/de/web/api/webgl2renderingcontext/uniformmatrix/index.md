@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: uniformMatrix[234]x[234]fv()-Methode"
+title: "WebGL2RenderingContext: uniformMatrix[234]x[234]fv() Methode"
 short-title: uniformMatrix[234]x[234]fv()
 slug: Web/API/WebGL2RenderingContext/uniformMatrix
 l10n:
@@ -8,12 +8,10 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.uniformMatrix[234]x[234]fv()`**-Methoden der [WebGL 2 API](/de/docs/Web/API/WebGL_API) legen Matrixwerte für Uniformvariablen fest.
+Die **`WebGL2RenderingContext.uniformMatrix[234]x[234]fv()`** Methoden der [WebGL 2 API](/de/docs/Web/API/WebGL_API) spezifizieren Matrixwerte für Uniform-Variablen.
 
 > [!NOTE]
-> Es gibt keine `2x2`-, `3x3`- und `4x4`-Versionen
-> dieser Methode. Sie sind in `2`, `3` und
-> `4` abgekürzt. Siehe die Syntax unten.
+> Es gibt keine `2x2`, `3x3` und `4x4` Versionen dieser Methode. Sie werden in `2`, `3` und `4` abgekürzt. Siehe die Syntax unten.
 
 ## Syntax
 
@@ -58,15 +56,15 @@ uniformMatrix4fv(location, transpose, data, srcOffset, srcLength)
 ### Parameter
 
 - `location`
-  - : Ein {{domxref("WebGLUniformLocation")}}-Objekt, das die Position des zu ändernden Uniformattributs enthält.
+  - : Ein [`WebGLUniformLocation`](/de/docs/Web/API/WebGLUniformLocation) Objekt, das den Ort des Uniform-Attributs enthält, das modifiziert werden soll.
 - `transpose`
-  - : Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob die Matrix transponiert werden soll.
+  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), das angibt, ob die Matrix transponiert werden soll.
 - `data`
-  - : Ein {{jsxref("Float32Array")}} von Gleitkommawerten.
+  - : Ein {{jsxref("Float32Array")}} von Float-Werten.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -78,10 +76,10 @@ gl.uniformMatrix2x3fv(loc, false, [1, 2, 3, 4, 5, 6]);
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.uniformMatrix()")}}
+- [`WebGLRenderingContext.uniformMatrix()`](/de/docs/Web/API/WebGLRenderingContext/uniformMatrix)

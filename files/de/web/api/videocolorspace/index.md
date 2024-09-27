@@ -7,32 +7,32 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`VideoColorSpace`**-Schnittstelle der {{domxref('WebCodecs API','','',' ')}} repräsentiert den Farbraum eines Videos.
+Die **`VideoColorSpace`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) repräsentiert den Farbraum eines Videos.
 
 ## Konstruktor
 
-- {{domxref("VideoColorSpace.VideoColorSpace", "VideoColorSpace()")}}
+- [`VideoColorSpace()`](/de/docs/Web/API/VideoColorSpace/VideoColorSpace)
   - : Erstellt ein neues `VideoColorSpace`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("VideoColorSpace.primaries")}} {{ReadOnlyInline}}
-  - : Ein String, der die Farbprimärwerte beschreibt, die den Farbumfang eines Videobeispiels bestimmen.
-- {{domxref("VideoColorSpace.transfer")}}
-  - : Ein String, der die Übertragungseigenschaften von Videobeispielen enthält.
-- {{domxref("VideoColorSpace.matrix")}}
-  - : Ein String, der die Matrixkoeffizienten enthält, die die Beziehung zwischen den Komponentenwerten eines Beispiels und den Farbkoordinaten beschreiben.
-- {{domxref("VideoColorSpace.fullRange")}}
-  - : Ein {{jsxref("Boolean")}}. Wenn `true`, zeigt dies an, dass vollständige Farbbereichswerte verwendet werden.
+- [`VideoColorSpace.primaries`](/de/docs/Web/API/VideoColorSpace/primaries) {{ReadOnlyInline}}
+  - : Ein String, der die Farbprimären beschreibt, die den Farbumfang ([gamut](/de/docs/Glossary/gamut)) eines Videomusters angeben.
+- [`VideoColorSpace.transfer`](/de/docs/Web/API/VideoColorSpace/transfer)
+  - : Ein String, der die Transfercharakteristiken von Videomustern enthält.
+- [`VideoColorSpace.matrix`](/de/docs/Web/API/VideoColorSpace/matrix)
+  - : Ein String, der die Matrixkoeffizienten beschreibt, die die Beziehung zwischen Musterkomponentenwerten und Farbkoordinaten darstellen.
+- [`VideoColorSpace.fullRange`](/de/docs/Web/API/VideoColorSpace/fullRange)
+  - : Ein {{jsxref("Boolean")}}. Wenn `true`, wird angezeigt, dass vollwertige Farbwerte verwendet werden.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{domxref("VideoColorSpace.toJSON()")}}
+- [`VideoColorSpace.toJSON()`](/de/docs/Web/API/VideoColorSpace/toJSON)
   - : Gibt eine JSON-Darstellung des `VideoColorSpace`-Objekts zurück.
 
 ## Beispiele
 
-Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von {{domxref("VideoFrame")}} zurückgegeben wird. Das Objekt wird dann in der Konsole ausgegeben.
+Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von [`VideoFrame`](/de/docs/Web/API/VideoFrame) zurückgegeben wird. Das Objekt wird dann in der Konsole ausgegeben.
 
 ```js
 let colorSpace = VideoFrame.colorSpace;

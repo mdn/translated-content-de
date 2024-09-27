@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`name`**-Eigenschaft der {{domxref("HTMLSelectElement")}}-Schnittstelle gibt den Namen des {{HTMLElement("select")}}-Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/select#name)-Attribut des Elements wider.
+Die **`name`**-Eigenschaft der Schnittstelle [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) gibt den Namen des {{HTMLElement("select")}}-Elements an. Sie entspricht dem [`name`](/de/docs/Web/HTML/Element/select#name)-Attribut des Elements.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein String, der den Namen des Elements darstellt.
 ```js
 const selectElement = document.querySelector("#planets");
 console.log(`Element's name: ${selectElement.name}`);
-selectElement.name = "galaxies"; // setzt oder aktualisiert den Namen des Elements
+selectElement.name = "galaxies"; // sets or updates the element's name
 ```
 
 ## Spezifikationen
@@ -32,6 +32,6 @@ selectElement.name = "galaxies"; // setzt oder aktualisiert den Namen des Elemen
 
 ## Siehe auch
 
-- {{domxref("HTMLSelectElement.value")}}
-- {{domxref("HTMLSelectElement.selectedIndex")}}
-- {{domxref("HTMLSelectElement.options")}}
+- [`HTMLSelectElement.value`](/de/docs/Web/API/HTMLSelectElement/value)
+- [`HTMLSelectElement.selectedIndex`](/de/docs/Web/API/HTMLSelectElement/selectedIndex)
+- [`HTMLSelectElement.options`](/de/docs/Web/API/HTMLSelectElement/options)

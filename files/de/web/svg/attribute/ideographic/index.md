@@ -1,5 +1,5 @@
 ---
-title: ideografisch
+title: ideographic
 slug: Web/SVG/Attribute/ideographic
 l10n:
   sourceCommit: 8799df4d0dbc74bdcf0de1e7a24563a46dcb2478
@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`ideographic`**-Attribut gibt das Ausrichtungskriterium für {{Glossary("glyph", "Glyphen")}} an, um eine ideografische {{Glossary("baseline/typography", "Grundlinie")}}-Ausrichtung für horizontal orientierte Glyphenlayouts zu erreichen. Der Wert ist ein Versatz im Schrift-Koordinatensystem.
+Das **`ideographic`**-Attribut gibt die Ausrichtungskoordinate für [Glyphen](/de/docs/Glossary/glyph) an, um eine ideographische [Grundlinie](/de/docs/Glossary/baseline/typography) für horizontal ausgerichtete Glyphenlayouts zu erreichen. Der Wert ist ein Versatz im Schriftkoordinatensystem.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font-face")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -39,7 +39,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<number>`
-  - : Dieser Wert kennzeichnet das Ausrichtungskriterium für die Glyphen.
+  - : Dieser Wert gibt die Ausrichtungskoordinate für die Glyphen an.
 
 ## Spezifikationen
 

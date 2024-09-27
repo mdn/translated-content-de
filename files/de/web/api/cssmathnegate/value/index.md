@@ -1,5 +1,5 @@
 ---
-title: "CSSMathNegate: Eigenschaft value"
+title: "CSSMathNegate: value-Eigenschaft"
 short-title: value
 slug: Web/API/CSSMathNegate/value
 l10n:
@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte Eigenschaft CSSMathNegate.value der {{domxref("CSSMathNegate")}}-Schnittstelle gibt ein {{domxref('CSSNumericValue')}}-Objekt zurück.
+Die schreibgeschützte Eigenschaft `CSSMathNegate.value` der [`CSSMathNegate`](/de/docs/Web/API/CSSMathNegate)-Schnittstelle gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück.
 
 ## Wert
 
-Ein {{domxref('CSSNumericValue')}}.
+Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-Noch auszufüllen
+To do
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

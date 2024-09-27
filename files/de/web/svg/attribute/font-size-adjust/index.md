@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das `font-size-adjust` Attribut erlaubt es Autoren, einen Aspektwert für ein Element festzulegen, der die x-Höhe der bevorzugten Schriftart in einer Ersatzschriftart beibehält.
+Das Attribut `font-size-adjust` ermöglicht es Autoren, einen Aspektwert für ein Element anzugeben, der die x-Höhe der bevorzugten Schriftart in einer Ersatzschriftart beibehält.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `font-size-adjust` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS {{cssxref("font-size-adjust")}} Eigenschaft.
+> Als Präsentationsattribut kann `font-size-adjust` als CSS-Eigenschaft verwendet werden. Siehe die CSS-Eigenschaft {{cssxref("font-size-adjust")}} für weitere Informationen.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -55,7 +55,7 @@ svg {
 
 {{EmbedLiveSample("Example", "600", "100")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -75,14 +75,14 @@ svg {
 </table>
 
 - `none`
-  - : Wählen Sie die Größe der Schriftart basierend nur auf der {{Cssxref("font-size")}} Eigenschaft.
+  - : Wählen Sie die Schriftgröße nur basierend auf der {{ Cssxref("font-size") }}-Eigenschaft.
 - {{cssxref("&lt;number&gt;")}}
 
-  - : Wählen Sie die Größe der Schriftart so, dass ihre Kleinbuchstaben (bestimmt durch die x-Höhe der Schriftart) die angegebene Anzahl mal der {{Cssxref("font-size")}} sind.
+  - : Wählen Sie die Schriftgröße so, dass ihre Kleinbuchstaben (wie durch die x-Höhe der Schrift bestimmt) das angegebene Vielfache der {{ Cssxref("font-size") }} sind.
 
-    Die angegebene Zahl sollte im Allgemeinen das {{glossary("aspect ratio")}} (Verhältnis der x-Höhe zur Schriftgröße) der bevorzugten {{Cssxref("font-family")}} sein. Das bedeutet, dass die bevorzugte Schriftart, wenn sie verfügbar ist, in Browsern genauso groß erscheint, unabhängig davon, ob sie `font-size-adjust` unterstützen oder nicht.
+    Die angegebene Zahl sollte im Allgemeinen das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) (Verhältnis der x-Höhe zur Schriftgröße) der bevorzugten {{ Cssxref("font-family") }} sein. Das bedeutet, dass die bevorzugte Schriftart, wenn verfügbar, in allen Browsern gleich groß erscheint, unabhängig davon, ob sie `font-size-adjust` unterstützen.
 
-    `0` ergibt Text mit null Höhe (versteckter Text).
+    `0` ergibt Text von Nullhöhe (versteckter Text).
 
 ## Spezifikationen
 

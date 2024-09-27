@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`updateUI()`** Methode des {{domxref("BackgroundFetchUpdateUIEvent")}} Interfaces aktualisiert den Titel und das Symbol in der Benutzeroberfläche, um den Status eines Hintergrundabrufs anzuzeigen.
+Die **`updateUI()`** Methode des [`BackgroundFetchUpdateUIEvent`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent) Interfaces aktualisiert den Titel und das Icon in der Benutzeroberfläche, um den Status eines Hintergrundabrufs anzuzeigen.
 
-Diese Methode kann nur einmal ausgeführt werden, um den Benutzer über einen fehlgeschlagenen oder erfolgreichen Abruf zu informieren.
+Diese Methode kann nur einmal ausgeführt werden, um den Benutzer über einen fehlgeschlagenen oder erfolgreichen Abruf zu benachrichtigen.
 
 ## Syntax
 
@@ -23,18 +23,18 @@ updateUI(options)
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das eines der folgenden enthält:
+  - : Ein Objekt, das eines der folgenden enthalten kann:
 
     - `icons` {{optional_inline}}
 
-      - : Eine Liste von einem oder mehreren Bildressourcen, die Symbole für die Benutzeroberfläche enthalten. Eine Bildressource ist ein Objekt, das folgendes enthält:
+      - : Eine Liste von einem oder mehreren Bildressourcen, die Icons für die Verwendung in der Benutzeroberfläche enthalten. Eine Bildressource ist ein Objekt, das Folgendes enthält:
 
         - `src`
           - : Ein String, der eine URL eines Bildes ist.
         - `sizes` {{optional_inline}}
           - : Ein String, der dem `sizes` Attribut des {{HTMLElement("link")}} Elements entspricht.
         - `type` {{optional_inline}}
-          - : Ein String, der einen Bild-MIME-Typ enthält.
+          - : Ein String, der einen Image-MIME-Typ enthält.
         - `label` {{optional_inline}}
           - : Ein String, der einen Namen für das zugehörige Bild angibt.
 
@@ -47,20 +47,20 @@ Ein {{jsxref("Promise")}}.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn eine der folgenden Bedingungen zutrifft:
-    - Die {{domxref("Event.isTrusted","isTrusted")}} Eigenschaft ist `false`.
-    - Die {{domxref("BackgroundFetchUpdateUIEvent")}} UI-Aktualisierungsflagge ist bereits gesetzt, was darauf hinweist, dass die `updateUI()` Methode bereits aufgerufen wurde.
-    - Die {{domxref("BackgroundFetchUpdateUIEvent")}} ist nicht aktiv.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn eines der folgenden zutrifft:
+    - Die [`isTrusted`](/de/docs/Web/API/Event/isTrusted) Eigenschaft ist `false`.
+    - Das [`BackgroundFetchUpdateUIEvent`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent) UI-Update-Flag ist bereits gesetzt, was darauf hindeutet, dass die `updateUI()` Methode bereits aufgerufen wurde.
+    - Das [`BackgroundFetchUpdateUIEvent`](/de/docs/Web/API/BackgroundFetchUpdateUIEvent) ist nicht aktiv.
 
 ## Beispiele
 
-Das folgende Beispiel demonstriert das Aktualisieren der Benutzeroberfläche mit einem Titel und einem Bildsymbol bei einem erfolgreichen Abruf.
+Das folgende Beispiel zeigt das Aktualisieren der Benutzeroberfläche mit einem Titel und einem Bildicon bei einem erfolgreichen Abruf.
 
 ```js
 addEventListener("backgroundfetchsuccess", (event) => {
   event.updateUI({
-    title: "Episode 5 bereit zum Anhören!",
+    title: "Episode 5 ready to listen!",
     icon: {
       src: "path/to/success.ico",
       sizes: "16x16 32x32 64x64",

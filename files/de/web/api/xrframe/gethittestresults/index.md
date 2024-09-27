@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getHitTestResults()`**-Methode der {{domxref("XRFrame")}}-Schnittstelle gibt ein Array von {{domxref("XRHitTestResult")}}-Objekten zurück, die Treffer-Testergebnisse für eine gegebene {{domxref("XRHitTestSource")}} enthalten.
+Die **`getHitTestResults()`**-Methode der [`XRFrame`](/de/docs/Web/API/XRFrame)-Schnittstelle gibt ein Array von [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekten zurück, die Treffer-Testergebnisse für eine gegebene [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource) enthalten.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ getHitTestResults(hitTestSource)
 ### Parameter
 
 - `hitTestSource`
-  - : Ein {{domxref("XRHitTestSource")}}-Objekt, das Abonnements für Treffer-Tests enthält.
+  - : Ein [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource)-Objekt, das Abonnements für Treffer-Tests enthält.
 
 ### Rückgabewert
 
-Ein Array von {{domxref("XRHitTestResult")}}-Objekten.
+Ein Array von [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Objekten.
 
 ## Beispiele
 
 ### Erhalten von Treffer-Testergebnissen
 
-Um eine Treffer-Testquelle anzufordern, starten Sie eine {{domxref("XRSession")}} mit der `hit-test`-Sitzungsfunktion aktiviert. Fordern Sie als Nächstes die Treffer-Testquelle mit {{domxref("XRSession.requestHitTestSource()")}} an und speichern Sie sie zur späteren Verwendung in der Frame-Schleife. Rufen Sie schließlich `getHitTestResults()` auf, um das Ergebnis zu erhalten.
+Um eine Treffer-Testquelle anzufordern, starten Sie eine [`XRSession`](/de/docs/Web/API/XRSession) mit der `hit-test`-Sitzungsfunktion aktiviert. Fordern Sie als Nächstes die Treffer-Testquelle mit [`XRSession.requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource) an und speichern Sie sie für die spätere Verwendung in der Frame-Schleife. Rufen Sie schließlich `getHitTestResults()` auf, um das Ergebnis zu erhalten.
 
 ```js
 const xrSession = navigator.xr.requestSession("immersive-ar", {
@@ -44,10 +44,10 @@ xrSession
   .then((viewerHitTestSource) => {
     hitTestSource = viewerHitTestSource;
   });
-// Frame-Schleife
+// frame loop
 function onXRFrame(time, xrFrame) {
   let hitTestResults = xrFrame.getHitTestResults(hitTestSource);
-  // machen Sie etwas mit den Treffer-Testergebnissen
+  // do things with the hit test results
 }
 ```
 
@@ -55,12 +55,12 @@ function onXRFrame(time, xrFrame) {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("XRHitTestResult")}}
-- {{domxref("XRHitTestSource")}}
-- {{domxref("XRRay")}}
+- [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)
+- [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource)
+- [`XRRay`](/de/docs/Web/API/XRRay)

@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`deviceId`**-Eigenschafts des {{domxref("MediaTrackConstraints")}}-Wörterbuchs ist ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), welches die gewünschten oder obligatorischen Einschränkungen beschreibt, die auf den Wert der {{domxref("MediaTrackSettings.deviceId", "deviceId")}}-Einschränkungseigenschaft angewendet werden sollen.
+Das **`deviceId`**-Attribut des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), das die angeforderten oder obligatorischen Einschränkungen beschreibt, die auf den Wert der [`deviceId`](/de/docs/Web/API/MediaTrackSettings/deviceId)-eigenschaft angewendet werden.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von {{domxref("MediaTrackSupportedConstraints.deviceId")}} überprüfen, wie er durch einen Aufruf von {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle unbekannten Einschränkungen ignorieren.
+Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.deviceId`](/de/docs/Web/API/MediaTrackSupportedConstraints/deviceId) überprüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle Einschränkungen ignorieren, die ihnen unbekannt sind.
 
-Da {{Glossary("RTP")}} diese Information nicht enthält, werden Tracks, die mit einem [WebRTC](/de/docs/Web/API/WebRTC_API) {{domxref("RTCPeerConnection")}} verbunden sind, niemals diese Eigenschaft enthalten.
+Da [RTP](/de/docs/Glossary/RTP) diese Information nicht enthält, werden Tracks, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) assoziiert sind, diese Eigenschaft niemals enthalten.
 
 ## Wert
 
-Ein Objekt basierend auf [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), das eine oder mehrere annehmbare, ideale und/oder exakte (obligatorische) Geräte-IDs angibt, die als Quelle von Medieninhalten akzeptabel sind.
+Ein Objekt basierend auf [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), das eine oder mehrere akzeptable, ideale und/oder exakte (obligatorische) Geräte-IDs angibt, die als Quelle für Mediainhalte akzeptabel sind.
 
-Geräte-IDs sind für einen bestimmten Ursprung eindeutig und sind innerhalb von Browsing-Sitzungen auf demselben Ursprung gleichbleibend. Der Wert der `deviceId` wird jedoch durch die Quelle des Inhalts des Tracks bestimmt, und es gibt kein spezifisches Format, das durch die Spezifikation vorgeschrieben ist (obwohl eine Art GUID empfohlen wird). Das bedeutet, dass ein bestimmter Track nur einen Wert für die `deviceId` zurückgeben wird, wenn Sie {{domxref("MediaStreamTrack.getCapabilities", "getCapabilities()")}} aufrufen.
+Geräte-IDs sind für einen bestimmten Ursprung eindeutig und bleiben über Browsing-Sessions auf demselben Ursprung hinweg gleich. Der Wert von `deviceId` wird jedoch durch die Quelle des Inhalts des Tracks bestimmt, und es gibt kein bestimmtes Format, das durch die Spezifikation vorgeschrieben ist (obwohl eine Art GUID empfohlen wird). Das bedeutet, dass ein bestimmter Track nur einen Wert für das `deviceId` zurückgibt, wenn Sie [`getCapabilities()`](/de/docs/Web/API/MediaStreamTrack/getCapabilities) aufrufen.
 
-Aufgrund dessen gibt es keinen Nutzen für die Geräte-ID beim Aufruf von {{domxref("MediaStreamTrack.applyConstraints()")}}, da es nur einen möglichen Wert gibt; jedoch können Sie eine `deviceId` aufzeichnen und verwenden, um sicherzustellen, dass Sie dieselbe Quelle für mehrere Aufrufe von {{domxref("MediaDevices.getUserMedia", "getUserMedia()")}} erhalten.
+Aus diesem Grund ist das `deviceId` bei einem Aufruf von [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) nutzlos, da es nur einen möglichen Wert gibt; Sie können jedoch ein `deviceId` aufzeichnen und verwenden, um sicherzustellen, dass Sie bei mehreren Aufrufen von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) dieselbe Quelle erhalten.
 
 > [!NOTE]
-> Eine Ausnahme von der Regel, dass Geräte-IDs in Browsing-Sitzungen gleich sind: Der private Browsing-Modus verwendet eine andere ID und ändert sie jede Browsing-Sitzung.
+> Eine Ausnahme von der Regel, dass Geräte-IDs über Browsing-Sessions hinweg gleich bleiben: Im privaten Browsing-Modus wird eine andere ID verwendet, die sich in jeder Browsing-Session ändert.
 
 ## Beispiele
 
-Siehe das Beispiel [Constraint-Übungsbeispiel](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel des [Constraint-Übersetzers](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -40,8 +40,8 @@ Siehe das Beispiel [Constraint-Übungsbeispiel](/de/docs/Web/API/Media_Capture_a
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
-- {{domxref("MediaTrackConstraints")}}
-- {{domxref("MediaDevices.getSupportedConstraints()")}}
-- {{domxref("MediaTrackSupportedConstraints")}}
-- {{domxref("MediaStreamTrack")}}
+- [Capabilities, constraints, and settings](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
+- [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
+- [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
+- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
+- [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Durchsucht den Browser-Verlauf nach {{WebExtAPIRef("history.HistoryItem")}} Objekten, die den angegebenen Kriterien entsprechen.
+Durchsucht den Browserverlauf nach {{WebExtAPIRef("history.HistoryItem")}} Objekten, die den angegebenen Kriterien entsprechen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,42 +23,42 @@ let searching = browser.history.search(
 
 - `query`
 
-  - : Ein Objekt, das angibt, wonach im Verlauf des Browsers gesucht werden soll. Dieses Objekt hat die folgenden Felder:
+  - : Ein Objekt, das angibt, wonach im Browserverlauf gesucht werden soll. Dieses Objekt hat die folgenden Felder:
 
     - `text`
 
-      - : `string`. Durchsuchen von Verlaufsobjekten nach URL und Titel. Der String wird an Leerzeichen aufgeteilt, um separate Suchbegriffe zu erhalten. Jeder Suchbegriff wird groß- und kleinschreibungsunabhängig mit der URL und dem Titel des Verlaufsobjekts abgeglichen. Das Verlaufsobjekt wird zurückgegeben, wenn alle Suchbegriffe übereinstimmen.
+      - : `string`. Suchverlaufselemente nach URL und Titel. Der String wird bei Leerzeichen in einzelne Suchbegriffe aufgeteilt. Jeder Suchbegriff wird ohne Berücksichtigung der Groß-/Kleinschreibung mit der URL und dem Titel des Suchverlaufs abgeglichen. Das Verlaufsobjekt wird zurückgegeben, wenn alle Suchbegriffe übereinstimmen.
 
-        Beispielsweise, betrachten Sie dieses Objekt:
+        Zum Beispiel, betrachten Sie dieses Element:
 
         URL: `"http://example.org"`
 
         Titel: `"Example Domain"`
 
         ```plain
-        "http"              -> passt
-        "domain"            -> passt
-        "MAIN ample"        -> passt
-        "main tt"           -> passt
-        "main https"        -> passt nicht
+        "http"              -> matches
+        "domain"            -> matches
+        "MAIN ample"        -> matches
+        "main tt"           -> matches
+        "main https"        -> does not match
         ```
 
         Geben Sie einen leeren String (`""`) an, um alle {{WebExtAPIRef("history.HistoryItem")}} Objekte abzurufen, die alle anderen Kriterien erfüllen.
 
     - `startTime` {{optional_inline}}
-      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann als [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Objekt, als [ISO 8601 Datumsstring](https://www.iso.org/iso-8601-date-and-time-format.html) oder als Anzahl der Millisekunden seit der Epoche repräsentiert werden. Wenn es angegeben wird, schließt diese Option Ergebnisse aus, deren `lastVisitTime` früher als diese Zeit ist. Wenn es weggelassen wird, ist die Suche auf die letzten 24 Stunden beschränkt.
+      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann dargestellt werden als: ein [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Objekt, ein [ISO 8601 Datum-String](https://www.iso.org/iso-8601-date-and-time-format.html), oder die Anzahl der Millisekunden seit der Epoche. Wenn angegeben, schließt diese Option Ergebnisse aus, deren `lastVisitTime` früher als dieser Zeitpunkt ist. Wenn sie weggelassen wird, ist die Suche auf die letzten 24 Stunden beschränkt.
     - `endTime` {{optional_inline}}
-      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann als [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Objekt, als [ISO 8601 Datumsstring](https://www.iso.org/iso-8601-date-and-time-format.html) oder als Anzahl der Millisekunden seit der Epoche repräsentiert werden. Wenn es angegeben wird, beschränkt diese Option die Ergebnisse auf die, die vor diesem Datum besucht wurden. Wenn es weggelassen wird, werden alle Einträge ab der Startzeit berücksichtigt.
+      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann dargestellt werden als: ein [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Objekt, ein [ISO 8601 Datum-String](https://www.iso.org/iso-8601-date-and-time-format.html), oder die Anzahl der Millisekunden seit der Epoche. Wenn angegeben, begrenzt diese Option die Ergebnisse auf diejenigen, die vor diesem Datum besucht wurden. Wenn sie weggelassen wird, werden alle Einträge ab der Startzeit berücksichtigt.
     - `maxResults` {{optional_inline}}
-      - : `number`. Die maximale Anzahl der zu abrufenden Ergebnisse. Standardmäßig 100, mit einem Mindestwert von 1. Die Funktion wird einen Fehler auslösen, wenn Sie ihr einen `maxResults` Wert kleiner als 1 übergeben.
+      - : `number`. Die maximale Anzahl von Ergebnissen, die abgerufen werden sollen. Standardwert ist 100, mit einem Mindestwert von 1. Die Funktion wirft einen Fehler, wenn Sie ihr einen `maxResults` Wert kleiner als 1 übergeben.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wird mit einem Array von Objekten des Typs {{WebExtAPIRef("history.HistoryItem")}} erfüllt, die jeweils ein einzelnes passendes Verlaufsobjekt beschreiben. Elemente sind in umgekehrter chronologischer Reihenfolge sortiert.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von Objekten vom Typ {{WebExtAPIRef("history.HistoryItem")}} erfüllt wird, die jeweils ein einzelnes übereinstimmendes Verlaufselement beschreiben. Elemente sind in umgekehrt chronologischer Reihenfolge sortiert.
 
 ## Beispiele
 
-Protokolliert die URL und die letzte Besuchszeit für alle Verlaufsobjekte, die in den letzten 24 Stunden besucht wurden:
+Protokolliert die URL und die letzte Besuchszeit für alle Verlaufselemente, die in den letzten 24 Stunden besucht wurden:
 
 ```js
 function onGot(historyItems) {
@@ -71,7 +71,7 @@ function onGot(historyItems) {
 browser.history.search({ text: "" }).then(onGot);
 ```
 
-Protokolliert die URL und die letzte Besuchszeit für alle jemals besuchten Verlaufsobjekte:
+Protokolliert die URL und die letzte Besuchszeit für alle jemals besuchten Verlaufselemente:
 
 ```js
 function onGot(historyItems) {
@@ -89,7 +89,7 @@ browser.history
   .then(onGot);
 ```
 
-Protokolliert die URL und die letzte Besuchszeit des letzten Besuchs auf einer Seite, die den String "mozilla" enthält:
+Protokolliert die URL und die letzte Besuchszeit des letzten Besuchs einer Seite, die den String "mozilla" enthält:
 
 ```js
 function onGot(historyItems) {
@@ -115,4 +115,34 @@ browser.history
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-search) API von Chromium. Diese Dokumentation basiert auf [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-search) API. Diese Dokumentation ist abgeleitet von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+
+<!--
+// Copyright 2015 The Chromium Authors. All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->

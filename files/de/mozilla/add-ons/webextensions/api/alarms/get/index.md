@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft einen Alarm ab, gegebenenfalls mit seinem Namen.
+Ruft einen Alarm anhand seines Namens ab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,7 +22,7 @@ let getAlarm = browser.alarms.get(
 ### Parameter
 
 - `name` {{optional_inline}}
-  - : `string`. Der Name des abzurufenden Alarms. Falls Sie diesen nicht angeben, wird der leere String "" verwendet.
+  - : `string`. Der Name des Alarms, den Sie abrufen möchten. Wenn Sie diesen nicht angeben, wird der leere String "" verwendet.
 
 ### Rückgabewert
 
@@ -48,4 +48,4 @@ getAlarm.then(gotAlarm);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API.
+> Diese API basiert auf der [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API von Chromium.

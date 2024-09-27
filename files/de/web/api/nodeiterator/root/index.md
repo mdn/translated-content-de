@@ -1,5 +1,5 @@
 ---
-title: "NodeIterator: Root-Eigenschaft"
+title: "NodeIterator: root-Eigenschaft"
 short-title: root
 slug: Web/API/NodeIterator/root
 l10n:
@@ -8,13 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`NodeIterator.root`** schreibgeschützte Eigenschaft repräsentiert den
-{{DOMxref("Node")}}, der die Wurzel dessen ist, was der {{DOMxref("NodeIterator")}}
-durchläuft.
+Die schreibgeschützte Eigenschaft **`NodeIterator.root`** repräsentiert den [`Node`](/de/docs/Web/API/Node), der die Wurzel dessen ist, was der [`NodeIterator`](/de/docs/Web/API/NodeIterator) durchläuft.
 
 ## Wert
 
-Ein {{DOMxref("Node")}}.
+Ein [`Node`](/de/docs/Web/API/Node).
 
 ## Beispiele
 
@@ -28,7 +26,7 @@ const nodeIterator = document.createNodeIterator(
     },
   },
 );
-root = nodeIterator.root; // document.body in diesem Fall
+root = nodeIterator.root; // document.body in this case
 ```
 
 ## Spezifikationen
@@ -41,4 +39,4 @@ root = nodeIterator.root; // document.body in diesem Fall
 
 ## Siehe auch
 
-- Die Schnittstelle, zu der es gehört: {{domxref("NodeIterator")}}.
+- Das Interface, zu dem es gehört: [`NodeIterator`](/de/docs/Web/API/NodeIterator).

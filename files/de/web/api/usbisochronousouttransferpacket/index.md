@@ -7,23 +7,23 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
-Das `USBIsochronousOutTransferPacket`-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) ist Teil der Antwort auf einen Aufruf der `isochronousTransferOut()`-Methode des `USBDevice`-Interfaces. Es repräsentiert den Status eines einzelnen Pakets aus einer Anforderung zum Übertragen von Daten vom USB-Host zum USB-Gerät über ein isochrones Endpunkt.
+Das `USBIsochronousOutTransferPacket`-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) ist Teil der Antwort eines Aufrufs der Methode `isochronousTransferOut()` des `USBDevice`-Interfaces. Es repräsentiert den Status eines einzelnen Pakets aus einer Anfrage zur Übertragung von Daten vom USB-Host an das USB-Gerät über einen isochronen Endpunkt.
 
 ## Konstruktor
 
-- {{domxref("USBIsochronousOutTransferPacket.USBIsochronousOutTransferPacket", "USBIsochronousOutTransferPacket()")}} {{Experimental_Inline}}
-  - : Erstellt ein neues `USBIsochronousOutTransferPacket`-Objekt mit den bereitgestellten Feldern `status` und `bytesWritten`.
+- [`USBIsochronousOutTransferPacket()`](/de/docs/Web/API/USBIsochronousOutTransferPacket/USBIsochronousOutTransferPacket) {{Experimental_Inline}}
+  - : Erstellt ein neues `USBIsochronousOutTransferPacket`-Objekt mit den bereitgestellten `status` und `bytesWritten` Feldern.
 
 ## Instanzeigenschaften
 
-- {{domxref("USBIsochronousOutTransferPacket.bytesWritten")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`USBIsochronousOutTransferPacket.bytesWritten`](/de/docs/Web/API/USBIsochronousOutTransferPacket/bytesWritten) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt die Anzahl der Bytes aus dem Paket zurück, die an das Gerät gesendet wurden.
-- {{domxref("USBIsochronousOutTransferPacket.status")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`USBIsochronousOutTransferPacket.status`](/de/docs/Web/API/USBIsochronousOutTransferPacket/status) {{ReadOnlyInline}} {{Experimental_Inline}}
 
-  - : Gibt den Status des Übertragungsanforderung zurück, einer der folgenden:
+  - : Gibt den Status der Übertragungsanfrage zurück, einer von:
 
     - `"ok"` - Die Übertragung war erfolgreich.
-    - `"stall"` - Das Gerät hat einen Fehler angezeigt, indem es eine Stall-Bedingung am Endpunkt generiert hat. Ein Stall an einem isochnen Endpunkt muss nicht behoben werden.
+    - `"stall"` - Das Gerät hat einen Fehler angezeigt, indem es eine Stall-Bedingung auf dem Endpunkt generierte. Ein Stall auf einem isochronen Endpunkt muss nicht gelöscht werden.
 
 ## Spezifikationen
 

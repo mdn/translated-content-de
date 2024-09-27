@@ -1,18 +1,18 @@
 ---
-title: "WebSocket: Fehlerereignis"
-short-title: Fehler
+title: "WebSocket: error Ereignis"
+short-title: error
 slug: Web/API/WebSocket/error_event
 l10n:
-  sourceCommit: eba47bb55d10e6dc73f61dbefc9d3da2abf1fd78
+  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
 ---
 
-{{APIRef("WebSockets API")}}
+{{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Das `error`-Ereignis wird ausgelöst, wenn eine Verbindung mit einem `WebSocket` aufgrund eines Fehlers geschlossen wurde (zum Beispiel, wenn einige Daten nicht gesendet werden konnten).
+Das `error` Ereignis wird ausgelöst, wenn eine Verbindung mit einem `WebSocket` aufgrund eines Fehlers geschlossen wurde (z. B. konnten einige Daten nicht gesendet werden).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -22,17 +22,17 @@ onerror = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
 ```js
-// WebSocket-Verbindung erstellen
+// Create WebSocket connection
 const socket = new WebSocket("ws://localhost:8080");
 
-// Auf mögliche Fehler lauschen
+// Listen for possible errors
 socket.addEventListener("error", (event) => {
-  console.log("WebSocket-Fehler: ", event);
+  console.log("WebSocket error: ", event);
 });
 ```
 
@@ -46,7 +46,7 @@ socket.addEventListener("error", (event) => {
 
 ## Siehe auch
 
-- [WebSocket: close event](/de/docs/Web/API/WebSocket/close_event)
-- [WebSocket: message event](/de/docs/Web/API/WebSocket/message_event)
-- [WebSocket: open event](/de/docs/Web/API/WebSocket/open_event)
-- [Writing WebSocket client applications](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)
+- [WebSocket: close Ereignis](/de/docs/Web/API/WebSocket/close_event)
+- [WebSocket: message Ereignis](/de/docs/Web/API/WebSocket/message_event)
+- [WebSocket: open Ereignis](/de/docs/Web/API/WebSocket/open_event)
+- [Schreiben von WebSocket-Client-Anwendungen](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)

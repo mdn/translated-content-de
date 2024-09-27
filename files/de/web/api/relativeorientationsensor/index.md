@@ -7,37 +7,37 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`RelativeOrientationSensor`**-Schnittstelle der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) beschreibt die physische Ausrichtung des Geräts ohne Berücksichtigung des Erdbezugskoordinatensystems.
+Die **`RelativeOrientationSensor`**-Schnittstelle der [Sensor APIs](/de/docs/Web/API/Sensor_APIs) beschreibt die physische Orientierung des Geräts ohne Berücksichtigung des Erdkoordinatensystems.
 
-Um diesen Sensor zu verwenden, muss der Benutzer die Erlaubnis für die Gerätesensoren `'accelerometer'` und `'gyroscope'` über die [Permissions API](/de/docs/Web/API/Permissions_API) erteilen. Darüber hinaus kann diese Funktion durch eine auf Ihrem Server festgelegte [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
+Um diesen Sensor zu verwenden, muss der Benutzer die Erlaubnis für die Gerätesensoren `'accelerometer'` und `'gyroscope'` über die [Permissions API](/de/docs/Web/API/Permissions_API) erteilen. Zusätzlich kann diese Funktion durch eine auf Ihrem Server festgelegte [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("RelativeOrientationSensor.RelativeOrientationSensor", "RelativeOrientationSensor()")}}
+- [`RelativeOrientationSensor()`](/de/docs/Web/API/RelativeOrientationSensor/RelativeOrientationSensor)
   - : Erstellt ein neues `RelativeOrientationSensor`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Keine spezifischen Eigenschaften; erbt Eigenschaften von seinen Vorfahren {{domxref('OrientationSensor')}} und {{domxref('Sensor')}}._
+_Keine spezifischen Eigenschaften; erbt Eigenschaften von seinen Vorfahren [`OrientationSensor`](/de/docs/Web/API/OrientationSensor) und [`Sensor`](/de/docs/Web/API/Sensor)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifischen Methoden; erbt Methoden von seinen Vorfahren {{domxref('OrientationSensor')}} und {{domxref('Sensor')}}._
+_Keine spezifischen Methoden; erbt Methoden von seinen Vorfahren [`OrientationSensor`](/de/docs/Web/API/OrientationSensor) und [`Sensor`](/de/docs/Web/API/Sensor)._
 
-## Events
+## Ereignisse
 
-_Keine spezifischen Events; erbt Events von seinem Vorfahren, {{domxref('Sensor')}}._
+_Keine spezifischen Ereignisse; erbt Ereignisse von seinem Vorfahren, [`Sensor`](/de/docs/Web/API/Sensor)._
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
 Das folgende Beispiel, das lose auf [Intels Orientation Phone Demo](https://intel.github.io/generic-sensor-demos/orientation-phone/) basiert, instanziiert einen `RelativeOrientationSensor` mit einer Frequenz von 60 Mal pro Sekunde.
 
 > [!NOTE]
-> Das Intel-Demo, auf dem dies basiert, verwendet den `AbsoluteOrientationSensor`. Bei jeder Ablesung wird {{domxref('OrientationSensor.quaternion')}} verwendet, um ein visuelles Modell eines Telefons zu drehen.
+> Das Intel Demo, auf dem dieses Beispiel basiert, verwendet den `AbsoluteOrientationSensor`. Bei jeder Messung wird [`OrientationSensor.quaternion`](/de/docs/Web/API/OrientationSensor/quaternion) verwendet, um ein visuelles Modell eines Telefons zu drehen.
 
 ```js
 const options = { frequency: 60, referenceFrame: "device" };
@@ -55,9 +55,9 @@ sensor.addEventListener("error", (error) => {
 sensor.start();
 ```
 
-### Berechtigungsbeispiel
+### Berechtigungs-Beispiel
 
-Die Verwendung von Orientierungssensoren erfordert das Anfordern von Berechtigungen für mehrere Gerätesensoren. Da die {{domxref('Permissions')}}-Schnittstelle Versprechen verwendet, ist eine gute Möglichkeit, Berechtigungen anzufordern, die Verwendung von {{jsxref('Promise.all')}}.
+Die Verwendung von Orientierungssensoren erfordert das Anfordern von Berechtigungen für mehrere Gerätesensoren. Da die [`Permissions`](/de/docs/Web/API/Permissions)-Schnittstelle Versprechungen verwendet, ist eine gute Möglichkeit, Berechtigungen anzufordern, die Verwendung von {{jsxref('Promise.all')}}.
 
 ```js
 const sensor = new RelativeOrientationSensor();

@@ -1,5 +1,5 @@
 ---
-title: Abruf-Metadaten-Anforderungsheader
+title: Fetch metadata request header
 slug: Glossary/Fetch_metadata_request_header
 l10n:
   sourceCommit: 0d8e5e932d471180075f041b73c03289abdf6b3c
@@ -7,32 +7,32 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Abruf-Metadaten-Anforderungsheader** ist ein {{Glossary("Request header", "HTTP request header")}}, der zusätzliche Informationen über den Kontext liefert, aus dem die Anforderung stammt. Dies ermöglicht es dem Server, Entscheidungen darüber zu treffen, ob eine Anforderung erlaubt werden sollte, basierend darauf, woher sie stammt und wie die Ressource genutzt wird.
+Ein **Fetch-Metadata-Anforderungs-Header** ist ein [HTTP-Anforderungs-Header](/de/docs/Glossary/Request_header), der zusätzliche Informationen über den Kontext bereitstellt, aus dem die Anfrage stammt. Dies ermöglicht es dem Server, Entscheidungen darüber zu treffen, ob eine Anfrage basierend auf ihrer Herkunft und der Verwendung der Ressource erlaubt werden sollte.
 
-Mit diesen Informationen kann ein Server eine Ressourcen-Isolationsrichtlinie implementieren, die es externen Websites erlaubt, nur auf diejenigen Ressourcen zuzugreifen, die für das Teilen vorgesehen sind und die angemessen genutzt werden. Dieser Ansatz kann helfen, häufige webseitenübergreifende Sicherheitslücken wie {{Glossary("CSRF")}}, Cross-site Script Inclusion ('XSSI'), Timing-Angriffe und informationslecks über Ursprung hinweg zu mildern.
+Mit diesen Informationen kann ein Server eine Richtlinie zur Ressourcenisolation umsetzen, die es externen Seiten erlaubt, nur die Ressourcen anzufordern, die für das Teilen vorgesehen und angemessen genutzt werden. Dieser Ansatz kann helfen, gängige webseitenübergreifende Sicherheitslücken wie [CSRF](/de/docs/Glossary/CSRF), Cross-site Script Inclusion ('XSSI'), Timing-Angriffe und Informationslecks über Ursprungsgrenzen hinweg zu mildern.
 
-Diese Header sind mit `Sec-` vorangestellt und haben daher {{Glossary("Forbidden header name", "forbidden header names")}}. Daher können sie nicht aus JavaScript geändert werden.
+Diese Header sind mit `Sec-` vorangestellt und haben daher [verbotene Header-Namen](/de/docs/Glossary/Forbidden_header_name). Sie können daher nicht von JavaScript aus geändert werden.
 
-Die Abruf-Metadaten-Anforderungsheader sind:
+Die Fetch-Metadata-Anforderungs-Header sind:
 
 - {{HTTPHeader("Sec-Fetch-Site")}}
 - {{HTTPHeader("Sec-Fetch-Mode")}}
 - {{HTTPHeader("Sec-Fetch-User")}}
 - {{HTTPHeader("Sec-Fetch-Dest")}}
 
-Die folgenden Anforderungsheader sind nicht _streng genommen_ "Abruf-Metadaten-Anforderungsheader", da sie nicht in derselben Spezifikation enthalten sind, bieten jedoch ebenfalls Informationen über den Kontext, wie eine Ressource verwendet werden soll. Ein Server könnte sie verwenden, um sein Caching-Verhalten oder die zurückgegebenen Informationen zu ändern:
+Die folgenden Anforderungs-Header sind nicht _strikt_ "Fetch-Metadata-Anforderungs-Header", da sie nicht in der gleichen Spezifikation enthalten sind, aber ähnlich Informationen über den Kontext bereitstellen, wie eine Ressource genutzt wird. Ein Server könnte sie verwenden, um sein Caching-Verhalten oder die zurückgegebenen Informationen zu ändern:
 
 - {{HTTPHeader("Sec-Purpose")}}
 - {{HTTPHeader("Service-Worker-Navigation-Preload")}}
 
 ## Siehe auch
 
-- [Schützen Sie Ihre Ressourcen vor Webangriffen mit Fetch Metadata](https://web.dev/articles/fetch-metadata) (web.dev)
-- [Fetch Metadata Request Headers playground](https://secmetadata.appspot.com/) (secmetadata.appspot.com)
+- [Schützen Sie Ihre Ressourcen vor Web-Angriffen mit Fetch Metadata](https://web.dev/articles/fetch-metadata) (web.dev)
+- [Fetch Metadata Request Headers Spielplatz](https://secmetadata.appspot.com/) (secmetadata.appspot.com)
 - [Liste aller HTTP-Header](/de/docs/Web/HTTP/Headers)
-- [Liste aller HTTP-Header > Abruf-Metadaten-Anforderungsheader](/de/docs/Web/HTTP/Headers#fetch_metadata_request_headers)
+- [Liste aller HTTP-Header > Fetch-Metadata-Anforderungs-Header](/de/docs/Web/HTTP/Headers#fetch_metadata_request_headers)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Representation header")}}
-  - {{Glossary("HTTP_header","HTTP header")}}
-  - {{Glossary("Response header")}}
-  - {{Glossary("Request header")}}
+  - [Representation header](/de/docs/Glossary/Representation_header)
+  - [HTTP header](/de/docs/Glossary/HTTP_header)
+  - [Response header](/de/docs/Glossary/Response_header)
+  - [Request header](/de/docs/Glossary/Request_header)

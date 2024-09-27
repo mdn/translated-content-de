@@ -3,12 +3,12 @@ title: "SecurityPolicyViolationEvent: lineNumber-Eigenschaft"
 short-title: lineNumber
 slug: Web/API/SecurityPolicyViolationEvent/lineNumber
 l10n:
-  sourceCommit: a5c1400a03d86162ea5c4342a93c2d96df470630
+  sourceCommit: 701ac4440432ac215713b6b7f274291ca643c49a
 ---
 
-{{APIRef("Reporting API")}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`lineNumber`** schreibgeschützte Eigenschaft der {{domxref("SecurityPolicyViolationEvent")}}-Schnittstelle ist die Zeilennummer im Dokument oder Worker-Skript, an der der Verstoß gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) aufgetreten ist.
+Die **`lineNumber`**-Schreibgeschützte Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist die Zeilennummer im Dokument oder Arbeiter-Skript, an der der Verstoß gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) aufgetreten ist.
 
 ## Wert
 
@@ -32,4 +32,4 @@ document.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- [`CSPViolationReportBody.lineNumber`](/de/docs/Web/API/CSPViolationReportBody#cspviolationreportbody.linenumber)
+- [`CSPViolationReportBody.lineNumber`](/de/docs/Web/API/CSPViolationReportBody/lineNumber)

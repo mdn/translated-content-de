@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`set()`**-Methode des {{domxref("StylePropertyMap")}}-Interfaces ändert die CSS-Deklaration für die angegebene Eigenschaft.
+Die **`set()`**-Methode des [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Interfaces ändert die CSS-Deklaration mit der angegebenen Eigenschaft.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ set(property, value)
 ### Parameter
 
 - `property`
-  - : Ein Bezeichner, der das stilistische Merkmal (z. B. Schriftart, Breite, Hintergrundfarbe) angibt, das geändert werden soll.
+  - : Ein Bezeichner, der das stilistische Merkmal angibt (z.B. Schriftart, Breite, Hintergrundfarbe), das geändert werden soll.
 - `value`
   - : Der Wert, den die angegebene Eigenschaft haben soll.
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel setzt die {{cssxref('padding-top')}}-Eigenschaft mit dem angegebenen Wert im [style-Attribut](/de/docs/Web/HTML/Global_attributes/style) des Elements.
+Dieses Beispiel setzt die {{cssxref('padding-top')}}-Eigenschaft, mit dem angegebenen Wert, innerhalb des [style-Attributs](/de/docs/Web/HTML/Global_attributes/style) des Elements.
 
 ```js
 // get the button element

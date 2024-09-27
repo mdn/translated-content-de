@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`gamma`** des {{domxref("DeviceMotionEventRotationRate")}}-Interfaces gibt die Rotationsrate um die Y-Achse in Grad pro Sekunde an.
+Die **`gamma`**-Eigenschaft der Schnittstelle [`DeviceMotionEventRotationRate`](/de/docs/Web/API/DeviceMotionEventRotationRate) ist eine schreibgeschützte Eigenschaft, die die Rotationsrate um die Y-Achse in Grad pro Sekunde angibt.
 
 ## Wert
 
 Ein `double`, der die Rotationsrate um die Y-Achse in Grad pro Sekunde angibt.
-Weitere Details finden Sie unter [Beschleunigungsmesswerte erklärt](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation#accelerometer_values_explained).
+Siehe [Erläuterung der Beschleunigungswerten](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation#accelerometer_values_explained) für Details.
 
 ## Spezifikationen
 

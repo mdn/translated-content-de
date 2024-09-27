@@ -7,21 +7,21 @@ l10n:
 
 {{HTTPSidebar}}{{securecontext_header}}
 
-Der **`Accept-CH`**-Header kann von einem Server gesetzt werden, um festzulegen, welche [Client-Hints](/de/docs/Web/HTTP/Client_hints)-Header ein Client in nachfolgenden Anfragen einfügen soll.
+Der **`Accept-CH`**-Header kann von einem Server gesetzt werden, um anzugeben, welche [Client-Hints](/de/docs/Web/HTTP/Client_hints)-Header ein Client in nachfolgenden Anfragen einschließen soll.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response header")}}</td>
+      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted response header")}}
+        [CORS-Safelisted-Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header)
       </th>
       <td>nein</td>
     </tr>
@@ -29,7 +29,7 @@ Der **`Accept-CH`**-Header kann von einem Server gesetzt werden, um festzulegen,
 </table>
 
 > [!NOTE]
-> Client-Hints sind nur auf sicheren Ursprüngen (über TLS) zugänglich. Der `Accept-CH`-Header sollte für alle sicheren Anfragen gespeichert werden, um sicherzustellen, dass die Client-Hints zuverlässig gesendet werden.
+> Client-Hints sind nur auf sicheren Ursprüngen (via TLS) zugänglich. Der `Accept-CH`-Header sollte bei allen sicheren Anfragen beibehalten werden, um sicherzustellen, dass Client-Hints zuverlässig gesendet werden.
 
 ## Syntax
 
@@ -45,7 +45,7 @@ Vary: Viewport-Width, Width
 ```
 
 > [!NOTE]
-> Denken Sie daran, [die Antwort zu variieren](/de/docs/Web/HTTP/Client_hints#caching_and_client_hints) basierend auf den akzeptierten Client-Hints.
+> Denken Sie daran, die [Antwort zu variieren](/de/docs/Web/HTTP/Client_hints#caching_and_client_hints) basierend auf den akzeptierten Client-Hints.
 
 ## Spezifikationen
 

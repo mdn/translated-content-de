@@ -7,40 +7,40 @@ l10n:
 
 {{APIRef("Broadcast Channel API")}} {{AvailableInWorkers}}
 
-Die **`BroadcastChannel`**-Schnittstelle repräsentiert einen benannten Kanal, den jeder {{glossary("browsing context")}} eines bestimmten {{glossary("origin")}} abonnieren kann. Sie ermöglicht die Kommunikation zwischen verschiedenen Dokumenten (in verschiedenen Fenstern, Tabs, Frames oder iframes) desselben Ursprungs. Nachrichten werden über ein {{domxref("BroadcastChannel/message_event", "message")}}-Ereignis gesendet, das bei allen `BroadcastChannel`-Objekten ausgelöst wird, die den Kanal hören, außer dem Objekt, das die Nachricht gesendet hat.
+Das **`BroadcastChannel`**-Interface repräsentiert einen benannten Kanal, dem jedes [Browsing-Kontext](/de/docs/Glossary/browsing_context) eines bestimmten [Ursprungs](/de/docs/Glossary/origin) beitreten kann. Es ermöglicht die Kommunikation zwischen verschiedenen Dokumenten (in verschiedenen Fenstern, Tabs, Frames oder iframes) desselben Ursprungs. Nachrichten werden über ein [`message`](/de/docs/Web/API/BroadcastChannel/message_event)-Ereignis an alle `BroadcastChannel`-Objekte gesendet, die den Kanal abhören, außer dem Objekt, das die Nachricht gesendet hat.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("BroadcastChannel.BroadcastChannel", "BroadcastChannel()")}}
+- [`BroadcastChannel()`](/de/docs/Web/API/BroadcastChannel/BroadcastChannel)
   - : Erstellt ein Objekt, das mit dem benannten Kanal verknüpft ist.
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, {{domxref("EventTarget")}}._
+_Dieses Interface erbt auch Eigenschaften von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("BroadcastChannel.name")}} {{ReadOnlyInline}}
-  - : Gibt einen String zurück, den Namen des Kanals.
+- [`BroadcastChannel.name`](/de/docs/Web/API/BroadcastChannel/name) {{ReadOnlyInline}}
+  - : Gibt einen String, den Namen des Kanals, zurück.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch Methoden von ihrem Elternteil, {{domxref("EventTarget")}}._
+_Dieses Interface erbt auch Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("BroadcastChannel.postMessage()")}}
-  - : Sendet die Nachricht, eines beliebigen Objekttyps, an jedes `BroadcastChannel`-Objekt, das denselben Kanal abhört.
-- {{domxref("BroadcastChannel.close()")}}
-  - : Schließt das Kanalobjekt, was darauf hinweist, dass es keine neuen Nachrichten mehr empfangen wird und es schließlich vom Garbage Collector entfernt werden kann.
+- [`BroadcastChannel.postMessage()`](/de/docs/Web/API/BroadcastChannel/postMessage)
+  - : Sendet die Nachricht, die ein beliebiges Objekt sein kann, an jedes `BroadcastChannel`-Objekt, das denselben Kanal abhört.
+- [`BroadcastChannel.close()`](/de/docs/Web/API/BroadcastChannel/close)
+  - : Schließt das Kanalobjekt, was anzeigt, dass es keine neuen Nachrichten mehr erhält, und ermöglicht, dass es schließlich vom Garbage Collector entfernt wird.
 
 ## Ereignisse
 
-_Diese Schnittstelle erbt auch Ereignisse von ihrem Elternteil, {{domxref("EventTarget")}}._
+_Dieses Interface erbt auch Ereignisse von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("BroadcastChannel/message_event", "message")}}
-  - : Wird ausgelöst, wenn eine Nachricht auf dem Kanal eingeht.
+- [`message`](/de/docs/Web/API/BroadcastChannel/message_event)
+  - : Wird ausgelöst, wenn eine Nachricht auf dem Kanal eintrifft.
     Auch über die `onmessage`-Eigenschaft verfügbar.
-- {{domxref("BroadcastChannel/messageerror_event", "messageerror")}}
-  - : Wird ausgelöst, wenn eine Nachricht eingeht, die nicht deserialisiert werden kann.
+- [`messageerror`](/de/docs/Web/API/BroadcastChannel/messageerror_event)
+  - : Wird ausgelöst, wenn eine Nachricht eintrifft, die nicht deserialisiert werden kann.
     Auch über die `onmessageerror`-Eigenschaft verfügbar.
 
 ## Spezifikationen
@@ -53,5 +53,5 @@ _Diese Schnittstelle erbt auch Ereignisse von ihrem Elternteil, {{domxref("Event
 
 ## Siehe auch
 
-- Eine andere, umfangreichere Methode zur Kommunikation zwischen Browser-Kontexten: {{domxref("ServiceWorker")}}.
-- [Übersicht der Broadcast Channel API](/de/docs/Web/API/Broadcast_Channel_API)
+- Eine andere, schwergewichtigere Möglichkeit der Kommunikation zwischen Browser-Kontexten: [`ServiceWorker`](/de/docs/Web/API/ServiceWorker).
+- [Überblick über die Broadcast Channel API](/de/docs/Web/API/Broadcast_Channel_API)

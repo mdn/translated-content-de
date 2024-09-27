@@ -9,8 +9,8 @@ l10n:
 {{ apiref("CSSOM") }}
 
 Die **`TransitionEvent.pseudoElement`** schreibgeschützte Eigenschaft ist ein
-String, der mit `'::'` beginnt und den Namen des [Pseudo-Elements](/de/docs/Web/CSS/Pseudo-elements) enthält, auf dem die Animation ausgeführt wird.
-Wenn die Transition nicht auf einem Pseudo-Element, sondern auf dem Element selbst ausgeführt wird, enthält sie einen leeren String: `''`.
+String, der mit `'::'` beginnt und den Namen des [Pseudoelements](/de/docs/Web/CSS/Pseudo-elements) enthält, auf dem die Animation läuft.
+Falls die Transition nicht auf einem Pseudoelement, sondern auf dem Element selbst läuft, ist der String leer: `''``.
 
 ## Wert
 

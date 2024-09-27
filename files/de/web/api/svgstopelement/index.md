@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGStopElement`**-Schnittstelle entspricht dem {{SVGElement("stop")}}-Element.
+Die **`SVGStopElement`** Schnittstelle entspricht dem {{SVGElement("stop")}} Element.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGStopElement.offset")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumber")}}, das dem {{SVGAttr("offset")}} des angegebenen Elements entspricht.
+- [`SVGStopElement.offset`](/de/docs/Web/API/SVGStopElement/offset) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("offset")}} des angegebenen Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

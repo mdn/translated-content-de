@@ -1,5 +1,5 @@
 ---
-title: "XRLightEstimate: Eigenschaft primaryLightDirection"
+title: "XRLightEstimate: primaryLightDirection-Eigenschaft"
 short-title: primaryLightDirection
 slug: Web/API/XRLightEstimate/primaryLightDirection
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ Eigenschaft **`primaryLightDirection`** des {{DOMxRef("XRLightEstimate")}}-Interfaces gibt einen {{domxref("DOMPointReadOnly")}} zurück, der die Richtung zur primären Lichtquelle vom `probeSpace` eines {{domxref("XRLightProbe")}} darstellt.
+Die _schreibgeschützte_ **`primaryLightDirection`**-Eigenschaft des [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate)-Interfaces gibt ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) zurück, das die Richtung zur primären Lichtquelle vom `probeSpace` eines [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) darstellt.
 
 ## Wert
 
-Ein {{domxref("DOMPointReadOnly")}}-Objekt. Wenn keine geschätzten Werte aus der Umgebung des Benutzers verfügbar sind, wird der Punkt `{ x: 0.0, y: 1.0, z: 0.0, w: 0.0 }` sein, was ein Licht darstellt, das direkt von oben herab scheint.
+Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Objekt. Wenn im Umfeld des Benutzers keine geschätzten Werte verfügbar sind, wird der Punkt `{ x: 0.0, y: 1.0, z: 0.0, w: 0.0 }` sein, was eine Lichtquelle darstellt, die direkt von oben nach unten scheint.
 
 ## Beispiele
 
-Innerhalb einer {{domxref("XRFrame")}}-Schleife können Sie die Eigenschaften `primaryLightDirection` und `primaryLightIntensity` verwenden, um beispielsweise Schatten basierend auf der dominantesten Lichtquelle zu rendern.
+Innerhalb einer [`XRFrame`](/de/docs/Web/API/XRFrame)-Schleife können Sie die Eigenschaften `primaryLightDirection` und `primaryLightIntensity` verwenden, um zum Beispiel Schatten basierend auf der hervorstechendsten Lichtquelle zu rendern.
 
 ```js
 const lightProbe = await xrSession.requestLightProbe();
@@ -25,9 +25,9 @@ const lightProbe = await xrSession.requestLightProbe();
 function onXRFrame(time, xrFrame) {
   let lightEstimate = xrFrame.getLightEstimate(lightProbe);
 
-  // Render Lights
+  // Render lights
 
-  // Verfügbare Eigenschaften
+  // Available properties
   lightEstimate.primaryLightDirection;
   lightEstimate.primaryLightIntensity;
 }
@@ -43,5 +43,5 @@ function onXRFrame(time, xrFrame) {
 
 ## Siehe auch
 
-- {{domxref("XRLightEstimate.primaryLightIntensity")}}
-- {{domxref("XRLightProbe.probeSpace")}}
+- [`XRLightEstimate.primaryLightIntensity`](/de/docs/Web/API/XRLightEstimate/primaryLightIntensity)
+- [`XRLightProbe.probeSpace`](/de/docs/Web/API/XRLightProbe/probeSpace)

@@ -1,5 +1,5 @@
 ---
-title: "RTCIceCandidateStats: Eigenschaft type"
+title: "RTCIceCandidateStats: type-Eigenschaft"
 short-title: type
 slug: Web/API/RTCIceCandidateStats/type
 l10n:
@@ -8,18 +8,20 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`type`**-Eigenschaft des {{domxref("RTCIceCandidateStats")}}-Wörterbuchs ist ein Zeichenkette mit dem Wert `"local-candidate"`.
+Die **`type`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs ist ein String mit dem Wert `"local-candidate"`.
 
-Unterschiedliche Statistiken werden durch Iterieren über das {{domxref("RTCStatsReport")}}-Objekt gewonnen, das durch einen Aufruf von {{domxref("RTCPeerConnection.getStats()")}} zurückgegeben wird. Der Typ gibt das Set von Statistiken an, das im aktuellen Iterationsschritt über das Objekt verfügbar ist. Ein Wert von `"local-candidate"` bedeutet, dass die im aktuellen Schritt verfügbaren Statistiken diejenigen sind, die in {{domxref("RTCIceCandidateStats")}} definiert sind.
+Unterschiedliche Statistiken werden durch das Iterieren des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekts erhalten, das durch einen Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird.
+Der Typ gibt die Menge von Statistiken an, die in einem bestimmten Iterationsschritt durch das Objekt verfügbar sind.
+Ein Wert von `"local-candidate"` zeigt an, dass die in diesem Schritt verfügbaren Statistiken diejenigen sind, die in [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) definiert sind.
 
 ## Wert
 
-Ein Zeichenkette mit dem Wert `"local-candidate"`.
+Ein String mit dem Wert `"local-candidate"`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

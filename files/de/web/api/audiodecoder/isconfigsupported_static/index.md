@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`isConfigSupported()`** statische Methode der {{domxref("AudioDecoder")}}-Schnittstelle prüft, ob die angegebene Konfiguration unterstützt wird (d.h. ob {{domxref("AudioDecoder")}}-Objekte erfolgreich mit der gegebenen Konfiguration konfiguriert werden können).
+Die **`isConfigSupported()`** statische Methode der [`AudioDecoder`](/de/docs/Web/API/AudioDecoder) Schnittstelle überprüft, ob die angegebene Konfiguration unterstützt wird (das heißt, ob [`AudioDecoder`](/de/docs/Web/API/AudioDecoder) Objekte erfolgreich mit der angegebenen Konfiguration konfiguriert werden können).
 
 ## Syntax
 
@@ -19,25 +19,25 @@ AudioDecoder.isConfigSupported(config)
 ### Parameter
 
 - `config`
-  - : Das Wörterbuchobjekt, das von {{domxref("AudioDecoder.configure")}} akzeptiert wird.
+  - : Das Wörterbuch-Objekt, das von [`AudioDecoder.configure`](/de/docs/Web/API/AudioDecoder/configure) akzeptiert wird.
 
 ### Rückgabewert
 
 Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das die folgenden Mitglieder enthält:
 
 - `supported`
-  - : Ein boolescher Wert, der `true` ist, wenn die gegebene Konfiguration vom Decoder unterstützt wird.
+  - : Ein boolescher Wert, der `true` ist, wenn die angegebene Konfiguration vom Decoder unterstützt wird.
 - `config`
-  - : Eine Kopie der gegebenen Konfiguration mit allen vom Decoder erkannten Feldern.
+  - : Eine Kopie der angegebenen Konfiguration mit allen vom Decoder erkannten Feldern.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das bereitgestellte `config` ungültig ist; das heißt, wenn es keine erforderlichen Werte hat (wie ein leeres `codec`-Feld) oder ungültige Werte hat (zum Beispiel eine negative `sampleRate`).
+  - : Wird ausgelöst, wenn die bereitgestellte `config` ungültig ist; das heißt, wenn erforderliche Werte fehlen (wie ein leeres `codec`-Feld) oder ungültige Werte (wie eine negative `sampleRate`) enthalten sind.
 
 ## Beispiele
 
-Das folgende Beispiel testet, ob der Browser verschiedene Audio-Codecs unterstützt.
+Das folgende Beispiel testet, ob der Browser mehrere Audio-Codecs unterstützt.
 
 ```js
 const codecs = ["mp4a.40.2", "mp3", "alaw", "ulaw"];

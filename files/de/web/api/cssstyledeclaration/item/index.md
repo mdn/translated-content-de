@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die `CSSStyleDeclaration.item()`-Methoden-Schnittstelle gibt einen CSS-Property-Namen aus einer {{domxref('CSSStyleDeclaration')}} anhand des Indexes zurück.
+Die Schnittstellenmethode `CSSStyleDeclaration.item()` gibt einen CSS-Eigenschaftsnamen von einer [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) anhand des Indexes zurück.
 
-Diese Methode wirft keine Ausnahmen, solange Sie Argumente angeben; ein leerer String wird zurückgegeben, wenn der Index außerhalb des Bereichs liegt, und ein {{jsxref("TypeError")}} wird geworfen, wenn kein Argument angegeben wird.
+Diese Methode löst keine Ausnahmen aus, solange Sie Argumente bereitstellen; der leere String wird zurückgegeben, wenn der Index außerhalb des Bereichs liegt und ein {{jsxref("TypeError")}} wird ausgelöst, wenn kein Argument bereitgestellt wird.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ item(index)
 ### Parameter
 
 - `index`
-  - : Der Index des Knotens, der abgerufen werden soll. Der Index ist nullbasiert.
+  - : Der Index des Knotens, der abgerufen werden soll. Der Index beginnt bei null.
 
 ### Rückgabewert
 
-Ein String, der der Name der CSS-Eigenschaft am angegebenen Index ist.
+Ein String, der der Name der CSS-Eigenschaft an dem angegebenen Index ist.
 
-JavaScript hat eine spezielle, einfachere Syntax, um ein Element aus einem NodeList anhand des Indexes zu erhalten:
+JavaScript hat eine spezielle, einfachere Syntax, um ein Element aus einer NodeList anhand des Indexes zu erhalten:
 
 ```js
 const propertyName = style[index];
@@ -36,13 +36,13 @@ const propertyName = style[index];
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird geworfen, wenn kein Argument angegeben wird.
+  - : Wird ausgelöst, wenn kein Argument bereitgestellt wird.
 
 ## Beispiele
 
 ```js
 const style = document.getElementById("div1").style;
-const propertyName = style.item(1); // oder style[1] - gibt den zweiten aufgelisteten Stil zurück
+const propertyName = style.item(1); // or style[1] - returns the second style listed
 ```
 
 ## Spezifikationen

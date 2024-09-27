@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`isWellFormed()`**-Methode von {{jsxref("String")}}-Werten gibt einen boolean zurück, der anzeigt, ob diese Zeichenkette [einsame Surrogate](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) enthält.
+Die **`isWellFormed()`**-Methode von {{jsxref("String")}}-Werten gibt einen booleschen Wert zurück, der angibt, ob dieser String irgendwelche [einsamen Surrogate](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) enthält.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn diese Zeichenkette keine einsamen Surrogate enthält, andernfalls `false`.
+Gibt `true` zurück, wenn dieser String keine einsamen Surrogate enthält, andernfalls `false`.
 
 ## Beschreibung
 
-Zeichenketten in JavaScript sind UTF-16-codiert. Die UTF-16-Codierung hat das Konzept von _Surrogatpaaren_, das im Abschnitt [UTF-16-Zeichen, Unicode-Codepoints und Graphem-Cluster](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) detailliert eingeführt wird.
+Strings in JavaScript sind UTF-16-codiert. Die UTF-16-Codierung hat das Konzept der _Surrogatpaare_, welches im Abschnitt [UTF-16 characters, Unicode code points, and grapheme clusters](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) ausführlich beschrieben wird.
 
-`isWellFormed()` ermöglicht es Ihnen zu testen, ob eine Zeichenkette gut geformt ist (d. h. keine einsamen Surrogate enthält). Im Vergleich zu einer benutzerdefinierten Implementierung ist `isWellFormed()` effizienter, da Engines direkt auf die interne Repräsentation von Zeichenketten zugreifen können. Wenn Sie eine Zeichenkette in eine gut geformte Zeichenkette umwandeln müssen, verwenden Sie die {{jsxref("String/toWellFormed", "toWellFormed()")}}-Methode. `isWellFormed()` ermöglicht es Ihnen, fehlerhaft geformte Zeichenketten anders zu behandeln als gut geformte, z. B. durch Werfen eines Fehlers oder Markieren als ungültig.
+`isWellFormed()` ermöglicht es Ihnen zu testen, ob ein String wohlgeformt ist (d.h. keine einsamen Surrogate enthält). Im Vergleich zu einer benutzerdefinierten Implementierung ist `isWellFormed()` effizienter, da Engines direkt auf die interne Repräsentation von Strings zugreifen können. Wenn Sie einen String in einen wohlgeformten String umwandeln müssen, verwenden Sie die Methode {{jsxref("String/toWellFormed", "toWellFormed()")}}. `isWellFormed()` ermöglicht es Ihnen, fehlerhaft geformte Strings anders zu behandeln als wohlgeformte, wie z.B. das Auslösen eines Fehlers oder die Markierung als ungültig.
 
 ## Beispiele
 
@@ -35,13 +35,13 @@ Zeichenketten in JavaScript sind UTF-16-codiert. Die UTF-16-Codierung hat das Ko
 
 ```js
 const strings = [
-  // Einsame führende Surrogate
+  // Lone leading surrogate
   "ab\uD800",
   "ab\uD800c",
-  // Einsame nachfolgende Surrogate
+  // Lone trailing surrogate
   "\uDFFFab",
   "c\uDFFFab",
-  // Gut geformt
+  // Well-formed
   "abc",
   "ab\uD83D\uDE04c",
 ];
@@ -49,7 +49,7 @@ const strings = [
 for (const str of strings) {
   console.log(str.isWellFormed());
 }
-// Protokolle:
+// Logs:
 // false
 // false
 // false
@@ -58,9 +58,9 @@ for (const str of strings) {
 // true
 ```
 
-### Vermeidung von Fehlern in encodeURI()
+### Fehler in encodeURI() vermeiden
 
-{{jsxref("encodeURI")}} wirft einen Fehler, wenn die übergebene Zeichenkette nicht gut geformt ist. Dies kann vermieden werden, indem `isWellFormed()` verwendet wird, um die Zeichenkette zu testen, bevor sie an `encodeURI()` übergeben wird.
+{{jsxref("encodeURI")}} löst einen Fehler aus, wenn der übergebene String nicht wohlgeformt ist. Dies kann vermieden werden, indem `isWellFormed()` verwendet wird, um den String zu testen, bevor er an `encodeURI()` übergeben wird.
 
 ```js
 const illFormed = "https://example.com/search?q=\uD800";
@@ -74,7 +74,7 @@ try {
 if (illFormed.isWellFormed()) {
   console.log(encodeURI(illFormed));
 } else {
-  console.warn("Fehlerhaft geformte Zeichenketten gefunden."); // Fehlerhaft geformte Zeichenketten gefunden.
+  console.warn("Ill-formed strings encountered."); // Ill-formed strings encountered.
 }
 ```
 

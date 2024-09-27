@@ -1,5 +1,5 @@
 ---
-title: "Range: intersectsNode()-Methode"
+title: "Range: intersectsNode() Methode"
 short-title: intersectsNode()
 slug: Web/API/Range/intersectsNode
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.intersectsNode()`**-Methode gibt einen Boolean zurück, der angibt, ob der gegebene {{domxref("Node")}} den {{domxref("Range")}} schneidet.
+Die **`Range.intersectsNode()`**-Methode gibt einen booleschen Wert zurück, der angibt, ob der angegebene [`Node`](/de/docs/Web/API/Node) den [`Range`](/de/docs/Web/API/Range) schneidet.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ intersectsNode(referenceNode)
 ### Parameter
 
 - `referenceNode`
-  - : Der {{domxref("Node")}}, der mit dem {{domxref("Range")}} verglichen werden soll.
+  - : Der [`Node`](/de/docs/Web/API/Node), der mit dem [`Range`](/de/docs/Web/API/Range) verglichen wird.
 
 ### Rückgabewert
 
-Ein Boolean.
+Ein boolescher Wert.
 
 ## Beispiele
 
@@ -46,4 +46,4 @@ const intersectingNode = range.intersectsNode(
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)

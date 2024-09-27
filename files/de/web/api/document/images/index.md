@@ -8,17 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`images`** schreibgeschützte Eigenschaft des {{domxref("Document")}} Interfaces gibt eine [Kollektion](/de/docs/Web/API/HTMLCollection) der [Bilder](/de/docs/Web/API/HTMLImageElement) im aktuellen HTML-Dokument zurück.
+Die schreibgeschützte Eigenschaft **`images`** des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine [Sammlung](/de/docs/Web/API/HTMLCollection) der [Bilder](/de/docs/Web/API/HTMLImageElement) im aktuellen HTML-Dokument zurück.
 
 ## Wert
 
-Eine {{domxref("HTMLCollection")}}, die eine Live-Liste aller im aktuellen Dokument enthaltenen Bilder bereitstellt.
-Jeder Eintrag in der Kollektion ist ein {{domxref("HTMLImageElement")}}, das ein einzelnes Bild-Element darstellt.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die eine Live-Liste aller im aktuellen Dokument enthaltenen Bilder bereitstellt. Jedes Element in der Sammlung ist ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), das ein einzelnes Bildelement darstellt.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Sie können entweder die JavaScript-Array-Notation oder die {{domxref("HTMLCollection.item", "item()")}}-Methode auf der zurückgegebenen Kollektion verwenden, um auf die Elemente in der Kollektion zuzugreifen.
-Die folgenden Beispiele sind gleichwertig:
+Sie können entweder die JavaScript-Array-Notation oder die Methode [`item()`](/de/docs/Web/API/HTMLCollection/item) auf der zurückgegebenen Sammlung verwenden, um auf die Elemente in der Sammlung zuzugreifen. Folgendes ist gleichwertig:
 
 ```js
 firstImage = imageCollection.item(0);

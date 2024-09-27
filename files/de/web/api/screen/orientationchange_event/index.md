@@ -12,7 +12,7 @@ Das `orientationchange`-Ereignis wird ausgelöst, wenn sich die Ausrichtung des 
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("orientationchange", (event) => {});
@@ -22,13 +22,13 @@ onorientationchange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Spezifikationen
 
-Diese Funktion ist kein Teil einer Spezifikation. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Feature ist Teil keiner Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Verwenden Sie stattdessen das `ScreenOrientation`-Ereignis {{domxref("ScreenOrientation.change_event", "change")}}.
+Verwenden Sie stattdessen das `ScreenOrientation` [`change`](/de/docs/Web/API/ScreenOrientation/change_event) Ereignis.
 
 ## Browser-Kompatibilität
 
@@ -36,4 +36,4 @@ Verwenden Sie stattdessen das `ScreenOrientation`-Ereignis {{domxref("ScreenOrie
 
 ## Siehe auch
 
-- [Verwaltung der Bildschirmorientierung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
+- [Verwalten der Bildschirmorientierung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)

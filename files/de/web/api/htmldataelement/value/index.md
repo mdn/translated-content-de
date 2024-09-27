@@ -1,5 +1,5 @@
 ---
-title: "HTMLDataElement: Eigenschaft value"
+title: "HTMLDataElement: value-Eigenschaft"
 short-title: value
 slug: Web/API/HTMLDataElement/value
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`value`**-Eigenschaft der {{domxref("HTMLDataElement")}}-Schnittstelle gibt einen String zurück, der das [`value`](/de/docs/Web/HTML/Element/data#value) HTML-Attribut widerspiegelt.
+Die **`value`**-Eigenschaft des [`HTMLDataElement`](/de/docs/Web/API/HTMLDataElement)
+Interfaces gibt einen String zurück, der das [`value`](/de/docs/Web/HTML/Element/data#value) HTML-Attribut widerspiegelt.
 
 ## Wert
 

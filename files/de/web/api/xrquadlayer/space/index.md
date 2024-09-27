@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`space`**-Eigenschaft der {{domxref("XRQuadLayer")}}-Schnittstelle repräsentiert die räumliche Beziehung der Ebene mit der physischen Umgebung des Benutzers.
+Die **`space`**-Eigenschaft des [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer)-Interfaces repräsentiert die räumliche Beziehung der Ebene zur physischen Umgebung des Nutzers.
 
 ## Wert
 
-Ein {{domxref("XRSpace")}}.
+Ein [`XRSpace`](/de/docs/Web/API/XRSpace).
 
 ## Beispiele
 
-### Festlegen der Dimension und Position einer Ebene
+### Festlegen von Dimension und Position einer Ebene
 
-Dieses Beispiel positioniert die Ebene zwei Meter entfernt von `newSpace` mit einer `height` und `width` von 1,5 Metern.
+Dieses Beispiel positioniert die Ebene zwei Meter von `newSpace` entfernt mit einer `height` und `width` von 1,5 Metern.
 
 ```js
 const quadLayer = xrGlBinding.createQuadLayer({
@@ -43,5 +43,5 @@ quadLayer.height = 1.5;
 
 ## Siehe auch
 
-- {{domxref("XRSpace")}}
-- {{domxref("XRQuadLayer.transform")}}
+- [`XRSpace`](/de/docs/Web/API/XRSpace)
+- [`XRQuadLayer.transform`](/de/docs/Web/API/XRQuadLayer/transform)

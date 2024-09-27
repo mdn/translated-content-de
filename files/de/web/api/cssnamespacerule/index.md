@@ -7,26 +7,26 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSNamespaceRule`**-Schnittstelle beschreibt ein Objekt, das eine einzelne CSS {{ cssxref("@namespace") }} [At-Regel](/de/docs/Web/CSS/At-rule) darstellt.
+Die **`CSSNamespaceRule`**-Schnittstelle beschreibt ein Objekt, das eine einzelne CSS-{{ cssxref("@namespace") }}-[at-rule](/de/docs/Web/CSS/At-rule) darstellt.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Vorfahren {{domxref("CSSRule")}}._
+_Erbt Eigenschaften von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- {{domxref("CSSNamespaceRule.namespaceURI")}}
-  - : Gibt einen String zurück, der den Text der URI des gegebenen Namensraums enthält.
-- {{domxref("CSSNamespaceRule.prefix")}}
-  - : Gibt einen String mit dem Namen des Präfixes zurück, das diesem Namensraum zugeordnet ist. Wenn es kein solches Präfix gibt, wird ein leerer String zurückgegeben.
+- [`CSSNamespaceRule.namespaceURI`](/de/docs/Web/API/CSSNamespaceRule/namespaceURI)
+  - : Gibt einen String zurück, der den Text der URI des angegebenen Namespace enthält.
+- [`CSSNamespaceRule.prefix`](/de/docs/Web/API/CSSNamespaceRule/prefix)
+  - : Gibt einen String mit dem Namen des Präfixes zurück, das mit diesem Namespace verknüpft ist. Wenn es kein solches Präfix gibt, wird ein leerer String zurückgegeben.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinem Vorfahren {{domxref("CSSRule")}}._
+_Erbt Methoden von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-Das Stylesheet enthält einen Namensraum als einzige Regel. Daher wird die erste {{domxref("CSSRule")}}, die zurückgegeben wird, eine `CSSNamespaceRule` sein.
+Das Stylesheet enthält einen Namespace als einzige Regel. Daher wird die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) eine `CSSNamespaceRule` sein.
 
 ```css
 @namespace url(http://www.w3.org/1999/xhtml);

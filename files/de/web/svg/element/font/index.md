@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Das **`<font>`** [SVG](/de/docs/Web/SVG) Element definiert eine Schriftart, die für den Textlayout verwendet wird.
+Das **`<font>`** [SVG](/de/docs/Web/SVG)-Element definiert eine Schriftart, die für die Textlayout-Verwendung bestimmt ist.
 
 ## Verwendungskontext
 
@@ -24,7 +24,7 @@ Das **`<font>`** [SVG](/de/docs/Web/SVG) Element definiert eine Schriftart, die 
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFontElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGFontElement`](/de/docs/Web/API/SVGFontElement)-Schnittstelle.
 
 ## Spezifikationen
 

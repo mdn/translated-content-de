@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: pause-Ereignis"
+title: "HTMLMediaElement: pause event"
 short-title: pause
 slug: Web/API/HTMLMediaElement/pause_event
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTMLMediaElement")}}
 
-Das `pause`-Ereignis wird gesendet, wenn eine Anforderung, eine Aktivität zu pausieren, verarbeitet wird und die Aktivität ihren pausierten Zustand erreicht hat, am häufigsten nachdem das Medium durch einen Aufruf der Methode {{domxref("HTMLMediaElement.pause", "pause()")}} des Elements pausiert wurde.
+Das `pause`-Ereignis wird gesendet, wenn eine Anforderung zum Anhalten einer Aktivität bearbeitet wurde und die Aktivität ihren angehaltenen Zustand erreicht hat, meistens nachdem das Medium über einen Aufruf der [`pause()`](/de/docs/Web/API/HTMLMediaElement/pause)-Methode des Elements pausiert wurde.
 
-Das Ereignis wird gesendet, sobald die `pause()`-Methode zurückkehrt und nachdem die {{domxref("HTMLMediaElement.paused", "paused")}}-Eigenschaft des Medienelements auf `true` geändert wurde.
+Das Ereignis wird gesendet, sobald die `pause()`-Methode zurückkehrt und nachdem die [`paused`](/de/docs/Web/API/HTMLMediaElement/paused)-Eigenschaft des Medienelements auf `true` gesetzt wurde.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbruchfähig und löst keine Bubbling aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
 
 ```js
 addEventListener("pause", (event) => {});
@@ -26,11 +26,11 @@ onpause = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignis-Listener für das `pause`-Ereignis des HTMLMediaElementes hinzu und senden dann eine Nachricht, wenn dieser Ereignis-Handler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignis-Listener für das `pause`-Ereignis des HTMLMediaElements hinzu und geben eine Nachricht aus, wenn der Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -44,7 +44,7 @@ video.addEventListener("pause", (event) => {
 });
 ```
 
-Verwendung der `onpause`-Ereignis-Handler-Eigenschaft:
+Verwendung der `onpause`-Ereignishandler-Eigenschaft:
 
 ```js
 const video = document.querySelector("video");
@@ -66,28 +66,28 @@ video.onpause = (event) => {
 
 ## Verwandte Ereignisse
 
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.playing_event", 'playing')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.waiting_event", 'waiting')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.seeking_event", 'seeking')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.seeked_event", 'seeked')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.ended_event", 'ended')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.loadedmetadata_event", 'loadedmetadata')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.loadeddata_event", 'loadeddata')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.canplay_event", 'canplay')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.canplaythrough_event", 'canplaythrough')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.durationchange_event", 'durationchange')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.timeupdate_event", 'timeupdate')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.play_event", 'play')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.ratechange_event", 'ratechange')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.volumechange_event", 'volumechange')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.suspend_event", 'suspend')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.emptied_event", 'emptied')}}-Ereignis
-- Das HTMLMediaElement {{domxref("HTMLMediaElement.stalled_event", 'stalled')}}-Ereignis
+- Das HTMLMediaElement [`playing`](/de/docs/Web/API/HTMLMediaElement/playing_event)-Ereignis
+- Das HTMLMediaElement [`waiting`](/de/docs/Web/API/HTMLMediaElement/waiting_event)-Ereignis
+- Das HTMLMediaElement [`seeking`](/de/docs/Web/API/HTMLMediaElement/seeking_event)-Ereignis
+- Das HTMLMediaElement [`seeked`](/de/docs/Web/API/HTMLMediaElement/seeked_event)-Ereignis
+- Das HTMLMediaElement [`ended`](/de/docs/Web/API/HTMLMediaElement/ended_event)-Ereignis
+- Das HTMLMediaElement [`loadedmetadata`](/de/docs/Web/API/HTMLMediaElement/loadedmetadata_event)-Ereignis
+- Das HTMLMediaElement [`loadeddata`](/de/docs/Web/API/HTMLMediaElement/loadeddata_event)-Ereignis
+- Das HTMLMediaElement [`canplay`](/de/docs/Web/API/HTMLMediaElement/canplay_event)-Ereignis
+- Das HTMLMediaElement [`canplaythrough`](/de/docs/Web/API/HTMLMediaElement/canplaythrough_event)-Ereignis
+- Das HTMLMediaElement [`durationchange`](/de/docs/Web/API/HTMLMediaElement/durationchange_event)-Ereignis
+- Das HTMLMediaElement [`timeupdate`](/de/docs/Web/API/HTMLMediaElement/timeupdate_event)-Ereignis
+- Das HTMLMediaElement [`play`](/de/docs/Web/API/HTMLMediaElement/play_event)-Ereignis
+- Das HTMLMediaElement [`ratechange`](/de/docs/Web/API/HTMLMediaElement/ratechange_event)-Ereignis
+- Das HTMLMediaElement [`volumechange`](/de/docs/Web/API/HTMLMediaElement/volumechange_event)-Ereignis
+- Das HTMLMediaElement [`suspend`](/de/docs/Web/API/HTMLMediaElement/suspend_event)-Ereignis
+- Das HTMLMediaElement [`emptied`](/de/docs/Web/API/HTMLMediaElement/emptied_event)-Ereignis
+- Das HTMLMediaElement [`stalled`](/de/docs/Web/API/HTMLMediaElement/stalled_event)-Ereignis
 
 ## Siehe auch
 
-- {{domxref("HTMLAudioElement")}}
-- {{domxref("HTMLVideoElement")}}
+- [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement)
+- [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)
 - {{HTMLElement("audio")}}
 - {{HTMLElement("video")}}
-- {{domxref("SpeechSynthesisUtterance")}}
+- [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)

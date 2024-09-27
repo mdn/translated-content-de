@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`containing()`** Methode von Instanzen des [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments) gibt ein Objekt zurück, das das Segment in der Zeichenkette beschreibt, welches die Code-Einheit am angegebenen Index enthält.
+Die **`containing()`**-Methode von [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Instanzen gibt ein Objekt zurück, das das Segment in der Zeichenkette beschreibt, das die Codeeinheit am angegebenen Index enthält.
 
 {{EmbedInteractiveExample("pages/js/segments-prototype-containing.html")}}
 
@@ -20,20 +20,20 @@ containing(codeUnitIndex)
 ### Parameter
 
 - `codeUnitIndex` {{optional_inline}}
-  - : Eine Zahl, die den Index der Code-Einheit in der ursprünglichen Eingabezeichenkette angibt. Wenn der Wert weggelassen wird, ist der Standardwert `0`.
+  - : Eine Zahl, die den Index der Codeeinheit in der ursprünglichen Eingabezeichenfolge angibt. Wenn der Wert weggelassen wird, ist der Standardwert `0`.
 
 ### Rückgabewert
 
-Ein Objekt, das das Segment der ursprünglichen Zeichenkette mit den folgenden Eigenschaften beschreibt, oder `undefined`, wenn der angegebene Indexwert außerhalb der Grenzen liegt.
+Ein Objekt, das das Segment der ursprünglichen Zeichenkette mit den folgenden Eigenschaften beschreibt, oder `undefined`, wenn der angegebene Indexwert außerhalb des Bereichs liegt.
 
 - `segment`
-  - : Eine Zeichenkette, die das aus der ursprünglichen Eingabezeichenkette extrahierte Segment enthält.
+  - : Eine Zeichenkette, die das aus der ursprünglichen Eingabezeichenfolge extrahierte Segment enthält.
 - `index`
-  - : Der Index der Code-Einheit in der ursprünglichen Eingabezeichenkette, an dem das Segment beginnt.
+  - : Der Index der Codeeinheit in der ursprünglichen Eingabezeichenfolge, an dem das Segment beginnt.
 - `input`
-  - : Die komplette segmentierte Eingabezeichenkette.
+  - : Die vollständige Eingabezeichenfolge, die segmentiert wurde.
 - `isWordLike`
-  - : Ein boolescher Wert nur, wenn `granularity` `"word"` ist; ansonsten `undefined`. Wenn `granularity` `"word"` ist, dann ist `isWordLike` `true`, wenn das Segment wortähnlich ist (d. h. aus Buchstaben/Zahlen/Ideogrammen/etc. besteht); ansonsten `false`.
+  - : Ein boolescher Wert nur, wenn `granularity` `"word"` ist; andernfalls `undefined`. Wenn `granularity` `"word"` ist, dann ist `isWordLike` `true`, wenn das Segment wortähnlich ist (d.h. aus Buchstaben/Zahlen/Schriftzeichen/etc. besteht); andernfalls `false`.
 
 ## Beispiele
 

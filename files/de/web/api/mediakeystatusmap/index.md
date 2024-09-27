@@ -7,29 +7,29 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`MediaKeyStatusMap`**-Schnittstelle der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) ist eine schreibgeschützte Zuordnung von Medienschlüssel-Status nach Schlüssel-IDs.
+Das **`MediaKeyStatusMap`**-Interface der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) ist eine schreibgeschützte Karte von Medienschlüsselstatus nach Schlüssel-IDs.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("MediaKeyStatusMap.size")}} {{ReadOnlyInline}}
-  - : Gibt die Anzahl der Schlüssel/Wert-Paare in der Statuszuordnung zurück.
+- [`MediaKeyStatusMap.size`](/de/docs/Web/API/MediaKeyStatusMap/size) {{ReadOnlyInline}}
+  - : Gibt die Anzahl der Schlüssel/Wert-Paare in der Statuskarte zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("MediaKeyStatusMap.entries()")}} {{ReadOnlyInline}}
-  - : Gibt ein neues `Iterator`-Objekt zurück, das ein Array von `[key, value]` für jedes Element in der Statuszuordnung in Einfügereihenfolge enthält.
-- {{domxref("MediaKeyStatusMap.forEach()")}} {{ReadOnlyInline}}
-  - : Ruft `callback` einmal für jedes Schlüssel-Wert-Paar in der Statuszuordnung in Einfügereihenfolge auf. Wenn `argument` vorhanden ist, wird es an den Callback übergeben.
-- {{domxref("MediaKeyStatusMap.get()")}} {{ReadOnlyInline}}
+- [`MediaKeyStatusMap.entries()`](/de/docs/Web/API/MediaKeyStatusMap/entries) {{ReadOnlyInline}}
+  - : Gibt ein neues `Iterator`-Objekt zurück, das ein Array von `[key, value]` für jedes Element in der Statuskarte in Einfügereihenfolge enthält.
+- [`MediaKeyStatusMap.forEach()`](/de/docs/Web/API/MediaKeyStatusMap/forEach) {{ReadOnlyInline}}
+  - : Ruft `callback` einmal für jedes Schlüssel-Wert-Paar in der Statuskarte in Einfügereihenfolge auf. Wenn `argument` vorhanden ist, wird es an den Callback übergeben.
+- [`MediaKeyStatusMap.get()`](/de/docs/Web/API/MediaKeyStatusMap/get) {{ReadOnlyInline}}
   - : Gibt den Wert zurück, der mit dem angegebenen Schlüssel verknüpft ist, oder `undefined`, wenn keiner vorhanden ist.
-- {{domxref("MediaKeyStatusMap.has()")}} {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob ein Wert mit dem angegebenen Schlüssel verknüpft wurde.
-- {{domxref("MediaKeyStatusMap.keys()")}} {{ReadOnlyInline}}
-  - : Gibt ein neues `Iterator`-Objekt zurück, das Schlüssel für jedes Element in der Statuszuordnung in Einfügereihenfolge enthält.
-- {{domxref("MediaKeyStatusMap.values()")}} {{ReadOnlyInline}}
-  - : Gibt ein neues `Iterator`-Objekt zurück, das Werte für jedes Element in der Statuszuordnung in Einfügereihenfolge enthält.
+- [`MediaKeyStatusMap.has()`](/de/docs/Web/API/MediaKeyStatusMap/has) {{ReadOnlyInline}}
+  - : Gibt einen Boolean zurück, der bestätigt, ob ein Wert mit dem angegebenen Schlüssel verknüpft wurde.
+- [`MediaKeyStatusMap.keys()`](/de/docs/Web/API/MediaKeyStatusMap/keys) {{ReadOnlyInline}}
+  - : Gibt ein neues `Iterator`-Objekt zurück, das Schlüssel für jedes Element in der Statuskarte in Einfügereihenfolge enthält.
+- [`MediaKeyStatusMap.values()`](/de/docs/Web/API/MediaKeyStatusMap/values) {{ReadOnlyInline}}
+  - : Gibt ein neues `Iterator`-Objekt zurück, das Werte für jedes Element in der Statuskarte in Einfügereihenfolge enthält.
 - `MediaKeyStatusMap[Symbol.iterator]()` {{ReadOnlyInline}}
-  - : Gibt ein neues `Iterator`-Objekt zurück, das ein Array von `[key, value]` für jedes Element in der Statuszuordnung in Einfügereihenfolge enthält.
+  - : Gibt ein neues `Iterator`-Objekt zurück, das ein Array von `[key, value]` für jedes Element in der Statuskarte in Einfügereihenfolge enthält.
 
 ## Spezifikationen
 

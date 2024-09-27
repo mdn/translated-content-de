@@ -1,5 +1,5 @@
 ---
-title: "Dokument: lastStyleSheetSet Eigenschaft"
+title: "Document: lastStyleSheetSet-Eigenschaft"
 short-title: lastStyleSheetSet
 slug: Web/API/Document/lastStyleSheetSet
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}{{deprecated_header}}{{Non-standard_header}}
 
-Die **`Document.lastStyleSheetSet`**-Eigenschaft gibt das zuletzt aktivierte Style-Sheet-Set zurück. Der Wert dieser Eigenschaft ändert sich, wann immer die Eigenschaft {{domxref("document.selectedStyleSheetSet")}} geändert wird.
+Die **`Document.lastStyleSheetSet`**-Eigenschaft gibt das zuletzt aktivierte Style-Sheet-Set zurück. Der Wert dieser Eigenschaft ändert sich, wann immer die [`document.selectedStyleSheetSet`](/de/docs/Web/API/Document/selectedStyleSheetSet)-Eigenschaft geändert wird.
 
 ## Wert
 
-Das zuletzt eingestellte Style-Sheet-Set. Wenn das aktuelle Style-Sheet-Set nicht durch Setzen von {{domxref("document.selectedStyleSheetSet")}} geändert wurde, ist der zurückgegebene Wert `null`.
+Das Style-Sheet-Set, das zuletzt festgelegt wurde. Wenn das aktuelle Style-Sheet-Set nicht durch das Festlegen der [`document.selectedStyleSheetSet`](/de/docs/Web/API/Document/selectedStyleSheetSet) geändert wurde, ist der zurückgegebene Wert `null`.
 
 > [!NOTE]
 > Dieser Wert ändert sich nicht, wenn
-> {{domxref("document.enableStyleSheetsForSet()")}} aufgerufen wird.
+> [`document.enableStyleSheetsForSet()`](/de/docs/Web/API/Document/enableStyleSheetsForSet) aufgerufen wird.
 
 ## Beispiele
 
@@ -36,7 +36,7 @@ if (!lastSheetSet) {
 
 ## Siehe auch
 
-- {{domxref("document.preferredStyleSheetSet")}}
-- {{domxref("document.selectedStyleSheetSet")}}
-- {{domxref("document.styleSheetSets")}}
-- {{domxref("document.enableStyleSheetsForSet()")}}
+- [`document.preferredStyleSheetSet`](/de/docs/Web/API/Document/preferredStyleSheetSet)
+- [`document.selectedStyleSheetSet`](/de/docs/Web/API/Document/selectedStyleSheetSet)
+- [`document.styleSheetSets`](/de/docs/Web/API/Document/styleSheetSets)
+- [`document.enableStyleSheetsForSet()`](/de/docs/Web/API/Document/enableStyleSheetsForSet)

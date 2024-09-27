@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das `load`-Ereignis wird ausgelöst, wenn eine {{domxref("XMLHttpRequest")}}-Transaktion erfolgreich abgeschlossen wurde.
+Das `load`-Ereignis wird ausgelöst, wenn eine [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Transaktion erfolgreich abgeschlossen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungseigenschaft.
 
 ```js
 addEventListener("load", (event) => {});
@@ -22,20 +22,20 @@ onload = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ProgressEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ProgressEvent")}}
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften stehen Eigenschaften von der übergeordneten Schnittstelle, {{domxref("Event")}}, zur Verfügung._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der Elternschnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
-- {{domxref("ProgressEvent.lengthComputable", "lengthComputable")}} {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das angibt, ob die gesamte zu erledigende Arbeit und die bereits geleistete Arbeit von dem zugrunde liegenden Prozess berechenbar ist. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
-- {{domxref("ProgressEvent.loaded", "loaded")}} {{ReadOnlyInline}}
-  - : Ein 64-Bit-Unsigned-Integer-Wert, der die Menge der bereits vom zugrunde liegenden Prozess geleisteten Arbeit angibt. Der Anteil der geleisteten Arbeit kann berechnet werden, indem der Wert dieser Eigenschaft durch `total` geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Hauptteil der HTTP-Nachricht und schließt Header und andere Overheads aus.
-- {{domxref("ProgressEvent.total", "total")}} {{ReadOnlyInline}}
-  - : Ein 64-Bit-Unsigned-Integer, der die gesamte Menge an Arbeit repräsentiert, die der zugrunde liegende Prozess im Gange hat. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Hauptteils der Nachricht) und schließt die Header und andere Overheads aus.
+- [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
+  - : Ein boolesches Flag, das anzeigt, ob die gesamte zu erledigende Arbeit und die bereits erledigte Arbeit durch den zugrunde liegenden Prozess berechenbar ist. Mit anderen Worten, es zeigt, ob der Fortschritt messbar ist oder nicht.
+- [`loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
+  - : Ein 64-Bit-Unsigned-Integer-Wert, der die Menge der bereits durch den zugrunde liegenden Prozess geleisteten Arbeit angibt. Der Anteil der geleisteten Arbeit kann berechnet werden, indem der Wert dieser Eigenschaft durch `total` geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Body der HTTP-Nachricht und schließt keine Header und sonstigen Overhead ein.
+- [`total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
+  - : Ein 64-Bit-Unsigned-Integer, der die gesamte Menge an Arbeit repräsentiert, die der zugrunde liegende Prozess in Bearbeitung hat. Beim Herunterladen einer Ressource über HTTP ist dies der `Content-Length` (die Größe des Bodys der Nachricht) und schließt die Header und anderen Overhead nicht ein.
 
 ## Beispiele
 
@@ -49,17 +49,17 @@ _Neben den unten aufgeführten Eigenschaften stehen Eigenschaften von der überg
     class="xhr success"
     type="button"
     name="xhr"
-    value="Klicken Sie, um XHR zu starten (Erfolg)" />
+    value="Click to start XHR (success)" />
   <input
     class="xhr error"
     type="button"
     name="xhr"
-    value="Klicken Sie, um XHR zu starten (Fehler)" />
+    value="Click to start XHR (error)" />
   <input
     class="xhr abort"
     type="button"
     name="xhr"
-    value="Klicken Sie, um XHR zu starten (Abbruch)" />
+    value="Click to start XHR (abort)" />
 </div>
 
 <textarea readonly class="event-log"></textarea>
@@ -138,5 +138,5 @@ xhrButtonAbort.addEventListener("click", () => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("XMLHttpRequest/loadstart_event", "loadstart")}}, {{domxref("XMLHttpRequest/loadend_event", "loadend")}}, {{domxref("XMLHttpRequest/progress_event", "progress")}}, {{domxref("XMLHttpRequest/error_event", "error")}}, {{domxref("XMLHttpRequest/abort_event", "abort")}}
+- Verwandte Ereignisse: [`loadstart`](/de/docs/Web/API/XMLHttpRequest/loadstart_event), [`loadend`](/de/docs/Web/API/XMLHttpRequest/loadend_event), [`progress`](/de/docs/Web/API/XMLHttpRequest/progress_event), [`error`](/de/docs/Web/API/XMLHttpRequest/error_event), [`abort`](/de/docs/Web/API/XMLHttpRequest/abort_event)
 - [Fortschritt überwachen](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest#monitoring_progress)

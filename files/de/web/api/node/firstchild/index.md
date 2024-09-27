@@ -1,5 +1,5 @@
 ---
-title: "Node: firstChild Eigenschaft"
+title: "Node: Eigenschaft firstChild"
 short-title: firstChild
 slug: Web/API/Node/firstChild
 l10n:
@@ -8,20 +8,23 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`firstChild`** Eigenschaft der {{domxref("Node")}}-Schnittstelle gibt das erste Kind des Knotens im Baum zurück oder `null`, wenn der Knoten keine Kinder hat.
+Die schreibgeschützte **`firstChild`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt das erste Kind der Node im Baum zurück oder `null`, wenn die Node keine Kinder hat.
 
-Wenn der Knoten ein {{domxref("Document")}} ist, gibt diese Eigenschaft das erste Knoten in der Liste seiner direkten Kinder zurück.
+Wenn die Node ein [`Document`](/de/docs/Web/API/Document) ist, gibt diese Eigenschaft das erste Node in der Liste ihrer direkten Kinder zurück.
 
 > [!NOTE]
-> Diese Eigenschaft gibt jeden Typ von Knoten zurück, der das erste Kind dieses Knotens ist. Es kann sich um einen {{domxref("Text")}}- oder einen {{domxref("Comment")}}-Knoten handeln. Wenn Sie das erste {{domxref("Element")}}, das ein Kind eines anderen Elements ist, erhalten möchten, sollten Sie {{domxref("Element.firstElementChild")}} verwenden.
+> Diese Eigenschaft kann jeden Knotentyp zurückgeben, der das erste Kind ist.
+> Es kann ein [`Text`](/de/docs/Web/API/Text) oder ein [`Comment`](/de/docs/Web/API/Comment) Node sein.
+> Wenn Sie das erste [`Element`](/de/docs/Web/API/Element) möchten, das ein Kind eines anderen Elements ist,
+> erwägen Sie die Verwendung von [`Element.firstElementChild`](/de/docs/Web/API/Element/firstElementChild).
 
 ## Wert
 
-Ein {{domxref("Node")}}, oder `null`, wenn keine vorhanden sind.
+Ein [`Node`](/de/docs/Web/API/Node) oder `null`, wenn keine vorhanden sind.
 
 ## Beispiel
 
-Dieses Beispiel demonstriert die Verwendung von `firstChild` und wie Leerzeichen-Knoten die Verwendung dieser Eigenschaft beeinflussen können.
+Dieses Beispiel zeigt die Verwendung von `firstChild` und wie Leerzeichen-Nodes diese Eigenschaft beeinflussen könnten.
 
 ```html
 <p id="para-01">
@@ -34,12 +37,11 @@ Dieses Beispiel demonstriert die Verwendung von `firstChild` und wie Leerzeichen
 </script>
 ```
 
-Im obigen Beispiel zeigt die [Konsole](/de/docs/Web/API/console) `#text`, weil ein Textknoten eingefügt wird, um den Leerraum zwischen dem Ende des öffnenden `<p>`- und `<span>`-Tags zu erhalten. **Jeder**
-[Leerraum](/de/docs/Web/API/Document_Object_Model/Whitespace) erzeugt einen `#text`-Knoten, von einem einzelnen Leerzeichen bis hin zu mehreren Leerzeichen, Zeilenumbrüchen, Tabs usw.
+Im obigen Beispiel zeigt die [Konsole](/de/docs/Web/API/console) '#text' an, weil ein Textknoten eingefügt wird, um den Leerraum zwischen dem Ende der öffnenden `<p>`- und `<span>`-Tags beizubehalten. **Jedes** [Leerzeichen](/de/docs/Web/API/Document_Object_Model/Whitespace) erzeugt einen `#text`-Knoten, von einem einzelnen Leerzeichen bis zu mehreren Leerzeichen, Zeilenumbrüchen, Tabulatoren usw.
 
 Ein weiterer `#text`-Knoten wird zwischen den schließenden `</span>`- und `</p>`-Tags eingefügt.
 
-Wenn dieser Leerraum aus der Quelle entfernt wird, werden die #text Knoten nicht eingefügt und das span-Element wird zum ersten Kind des Absatzes.
+Wenn dieser Leerraum aus der Quelle entfernt wird, werden die #text-Knoten nicht eingefügt und das span-Element wird zum ersten Kind des Absatzes.
 
 ```html
 <p id="para-01"><span>First span</span></p>
@@ -50,9 +52,9 @@ Wenn dieser Leerraum aus der Quelle entfernt wird, werden die #text Knoten nicht
 </script>
 ```
 
-Jetzt zeigt die Konsole `SPAN`.
+Jetzt zeigt die Konsole 'SPAN' an.
 
-Um das Problem zu vermeiden, dass `node.firstChild` `#text` oder `#comment`-Knoten zurückgibt, kann {{domxref("Element.firstElementChild")}} verwendet werden, um nur das erste Elementknoten zurückzugeben.
+Um das Problem zu vermeiden, dass `node.firstChild` `#text` oder `#comment` Nodes zurückgibt, kann [`Element.firstElementChild`](/de/docs/Web/API/Element/firstElementChild) verwendet werden, um nur das erste Element-Node zurückzugeben.
 
 ## Spezifikationen
 
@@ -64,5 +66,5 @@ Um das Problem zu vermeiden, dass `node.firstChild` `#text` oder `#comment`-Knot
 
 ## Siehe auch
 
-- {{domxref("Element.firstElementChild")}}
-- {{domxref("Node.lastChild")}}
+- [`Element.firstElementChild`](/de/docs/Web/API/Element/firstElementChild)
+- [`Node.lastChild`](/de/docs/Web/API/Node/lastChild)

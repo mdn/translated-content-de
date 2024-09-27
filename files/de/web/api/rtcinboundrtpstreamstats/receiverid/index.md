@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`receiverId`**-Eigenschaft des {{domxref("RTCInboundRtpStreamStats")}}-Wörterbuchs gibt die {{domxref("RTCInboundRtpStreamStats.id", "id")}} des {{domxref("RTCAudioReceiverStats")}}- oder {{domxref("RTCVideoReceiverStats")}}-Objekts an, das den {{domxref("RTCRtpReceiver")}} repräsentiert, der den Stream empfängt.
+Die **`receiverId`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Dictionaries gibt die [`id`](/de/docs/Web/API/RTCInboundRtpStreamStats/id) des [`RTCAudioReceiverStats`](/de/docs/Web/API/RTCAudioReceiverStats)- oder [`RTCVideoReceiverStats`](/de/docs/Web/API/RTCVideoReceiverStats)-Objekts an, das den [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) repräsentiert, der den Stream empfängt.
 
 ## Wert
 
-Ein String, der die ID des `RTCAudioReceiverStats`- oder `RTCVideoReceiverStats`-Objekts enthält, welches Informationen über den `RTCRtpReceiver` bereitstellt, der die gestreamten Medien empfängt.
+Ein String, der die ID des `RTCAudioReceiverStats`- oder `RTCVideoReceiverStats`-Objekts enthält, das Informationen über den `RTCRtpReceiver` bereitstellt, der die gestreamten Medien empfängt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`getState()`**-Methode der {{domxref("NavigationDestination")}}-Schnittstelle gibt eine Kopie des vom Entwickler bereitgestellten Zustands zurück, der mit dem Ziel-{{domxref("NavigationHistoryEntry")}} oder dem Navigationsvorgang (z.B. {{domxref("Navigation.navigate()", "navigate()")}}) verknüpft ist.
+Die **`getState()`**-Methode des [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Interfaces gibt eine Kopie des vom Entwickler bereitgestellten Zustands zurück, der mit dem Ziel-[`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) oder einem Navigationsvorgang (z.B. [`navigate()`](/de/docs/Web/API/Navigation/navigate)) verknüpft ist, wie es angemessen ist.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Wert, der den Zustand darstellt. Dieser kann jeden Typ haben.
+Ein Wert, der den Zustand darstellt. Dies kann jeder Typ sein.
 
 Wenn kein Zustand definiert ist, wird `undefined` zurückgegeben.
 
@@ -42,13 +42,13 @@ navigation.addEventListener("navigate", (event) => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Moderne client-seitige Routenplanung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Erläuterung zur Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Live-Demo zur Navigation API](https://gigantic-honored-octagon.glitch.me/)
-- Methoden, die es erlauben, den Zustand zu aktualisieren — {{domxref("Navigation.navigate()")}}, {{domxref("Navigation.reload()")}} und {{domxref("Navigation.updateCurrentEntry()")}}
+- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- Methoden, die es erlauben, den Zustand zu aktualisieren — [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate), [`Navigation.reload()`](/de/docs/Web/API/Navigation/reload) und [`Navigation.updateCurrentEntry()`](/de/docs/Web/API/Navigation/updateCurrentEntry)

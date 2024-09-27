@@ -7,21 +7,21 @@ l10n:
 
 {{APIRef("Web Audio API")}}{{securecontext_header}}
 
-Die **`AudioWorklet`**-Schnittstelle der [Web Audio API](/de/docs/Web/API/Web_Audio_API) wird verwendet, um benutzerdefinierte Audiobearbeitungsskripte bereitzustellen, die in einem separaten Thread ausgeführt werden, um eine sehr niedrige Latenz bei der Audiobearbeitung zu gewährleisten.
+Das **`AudioWorklet`**-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) wird verwendet, um benutzerdefinierte Audiobearbeitungsskripte bereitzustellen, die in einem separaten Thread ausgeführt werden, um eine sehr niedrige Latenzzeit bei der Audiobearbeitung zu gewährleisten.
 
-Der Code des Worklets wird im globalen Ausführungskontext {{domxref("AudioWorkletGlobalScope")}} in einem separaten Web-Audio-Thread ausgeführt, der vom Worklet und anderen Audio-Knoten gemeinsam genutzt wird.
+Der Code der Worklet wird im globalen Ausführungskontext [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope) ausgeführt, unter Verwendung eines separaten Web Audio-Threads, der von dem Worklet und anderen Audio-Knoten gemeinsam genutzt wird.
 
-Zugriff auf die Instanz des `AudioWorklet` im Audiokontext über die {{domxref("BaseAudioContext.audioWorklet")}}-Eigenschaft.
+Greifen Sie über die Eigenschaft [`BaseAudioContext.audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet) auf die Instanz des `AudioWorklet` im Audiokontext zu.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Die `AudioWorklet`-Schnittstelle definiert keine eigenen Eigenschaften, erbt jedoch Eigenschaften von {{domxref("Worklet")}}._
+_Das `AudioWorklet`-Interface definiert keine eigenen Eigenschaften, erbt jedoch die Eigenschaften von [`Worklet`](/de/docs/Web/API/Worklet)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt Methoden von {{domxref('Worklet')}}. Die `AudioWorklet`-Schnittstelle definiert keine eigenen Methoden._
+_Dieses Interface erbt Methoden von [`Worklet`](/de/docs/Web/API/Worklet). Das `AudioWorklet`-Interface definiert keine eigenen Methoden._
 
 ## Ereignisse
 
@@ -29,19 +29,19 @@ _`AudioWorklet` hat keine Ereignisse, auf die es reagiert._
 
 ## Beispiele
 
-Siehe {{domxref("AudioWorkletNode")}} für vollständige Beispiele zur Erstellung benutzerdefinierter Audio-Knoten.
+Vollständige Beispiele zur Erstellung benutzerdefinierter Audio Nodes finden Sie unter [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("AudioWorkletGlobalScope")}} — der globale Ausführungskontext eines `AudioWorklet`
+- [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope) — der globale Ausführungskontext eines `AudioWorklet`
 - [Web Audio API](/de/docs/Web/API/Web_Audio_API)
-- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- [Verwendung von AudioWorklet](/de/docs/Web/API/Web_Audio_API/Using_AudioWorklet)
+- [Using the Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Using AudioWorklet](/de/docs/Web/API/Web_Audio_API/Using_AudioWorklet)

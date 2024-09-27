@@ -7,7 +7,7 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`set:intersection()` gibt die Schnittmenge von zwei Knotenmengen zurück. Mit anderen Worten, es gibt eine Knotenmenge zurück, die alle Knoten enthält, die sowohl in `nodeSet1` als auch in `nodeSet2` existieren.
+`set:intersection()` gibt die Schnittmenge von zwei Node-Sets zurück. Mit anderen Worten, es gibt ein Node-Set zurück, das alle Knoten enthält, die sowohl in `nodeSet1` als auch in `nodeSet2` existieren.
 
 ## Syntax
 
@@ -18,13 +18,13 @@ set:intersection(nodeSet1, nodeSet2)
 ### Parameter
 
 - `nodeSet1`
-  - : Die erste Knotenmenge.
+  - : Das erste Node-Set.
 - `nodeSet2`
-  - : Die zweite Knotenmenge.
+  - : Das zweite Node-Set.
 
 ### Rückgabewert
 
-Eine Knotenmenge, die die Knoten enthält, die sowohl in `nodeSet1` als auch in `nodeSet2` existierten.
+Ein Node-Set, das die Knoten enthält, die sowohl in `nodeSet1` als auch in `nodeSet2` existieren.
 
 ## Spezifikationen
 

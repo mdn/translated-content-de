@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Die **`tab-size`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um die Breite von Tabulatorzeichen (U+0009) anzupassen.
+Die **`tab-size`** [CSS](/de/docs/Web/CSS)-Eigenschaft wird verwendet, um die Breite von Tabulatorzeichen (U+0009) anzupassen.
 
 {{EmbedInteractiveExample("pages/css/tab-size.html")}}
 
 ## Syntax
 
 ```css
-/* <number> Werte */
+/* <number> values */
 tab-size: 4;
 tab-size: 0;
 
-/* <length> Werte */
+/* <length> values */
 tab-size: 10px;
 tab-size: 2em;
 
-/* Globale Werte */
+/* Global values */
 tab-size: inherit;
 tab-size: initial;
 tab-size: revert;
@@ -33,9 +33,9 @@ tab-size: unset;
 ### Werte
 
 - {{CSSxRef("&lt;number&gt;")}}
-  - : Ein Vielfaches der Vorschubbreite des Leerzeichens (U+0020), das als Breite der Tabs verwendet wird. Muss nicht-negativ sein. Die Vorschubbreite bedeutet die Entfernung, die ein Cursor oder ein Druckkopf vor dem Drucken des nächsten Zeichens zurücklegt.
+  - : Ein Vielfaches der Vorbreite des Leerzeichens (U+0020), das als Breite für Tabs verwendet werden soll. Muss nicht negativ sein. Die Vorbreite ist der Abstand, den ein Cursor oder ein Druckkopf bewegt, bevor der nächste Buchstabe gedruckt wird.
 - {{CSSxRef("&lt;length&gt;")}}
-  - : Die Breite der Tabs. Muss nicht-negativ sein.
+  - : Die Breite der Tabs. Muss nicht negativ sein.
 
 ## Formale Definition
 
@@ -51,15 +51,15 @@ tab-size: unset;
 
 ```css
 pre {
-  tab-size: 4; /* Tabulatorgröße auf 4 Zeichen Breite setzen */
+  tab-size: 4; /* Set tab size to 4 characters wide */
 }
 ```
 
-### Tabs zusammenfalten
+### Tabs zusammenfassen
 
 ```css
 pre {
-  tab-size: 0; /* Einrückung entfernen */
+  tab-size: 0; /* Remove indentation */
 }
 ```
 
@@ -70,11 +70,11 @@ Dieses Beispiel vergleicht eine Standard-Tab-Größe mit einer benutzerdefiniert
 #### HTML
 
 ```html
-<p>kein Tab</p>
-<p>&#0009;Standard-Tabulatorgröße von 8 Zeichen Breite</p>
-<p class="custom-number">&#0009;Benutzerdefinierte Tabulatorgröße von 3 Zeichen Breite</p>
-<p>&nbsp;&nbsp;&nbsp;3 Leerzeichen, entsprechend der benutzerdefinierten Tabulatorgröße</p>
-<p class="custom-length">&#0009;Benutzerdefinierte Tabulatorgröße von 50px Breite</p>
+<p>no tab</p>
+<p>&#0009;default tab size of 8 characters wide</p>
+<p class="custom-number">&#0009;custom tab size of 3 characters wide</p>
+<p>&nbsp;&nbsp;&nbsp;3 spaces, equivalent to the custom tab size</p>
+<p class="custom-length">&#0009;custom tab size of 50px wide</p>
 ```
 
 #### CSS

@@ -1,5 +1,5 @@
 ---
-title: "IDBCursor: delete()-Methode"
+title: "IDBCursor: delete() Methode"
 short-title: delete()
 slug: Web/API/IDBCursor/delete
 l10n:
@@ -8,9 +8,13 @@ l10n:
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Die **`delete()`**-Methode der {{domxref("IDBCursor")}}-Schnittstelle gibt ein {{domxref("IDBRequest")}}-Objekt zurück und löscht in einem separaten Thread den Datensatz an der Position des Cursors, ohne die Position des Cursors zu ändern. Sobald der Datensatz gelöscht ist, wird der Wert des Cursors auf null gesetzt.
+Die **`delete()`** Methode des [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+Interfaces gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest) Objekt zurück und löscht in einem separaten Thread den Datensatz an der Position des Cursors, ohne die Position des Cursors zu ändern. Sobald der Datensatz gelöscht ist, wird der Wert des Cursors auf null gesetzt.
 
-Beachten Sie, dass Sie `delete()` (oder {{domxref("IDBCursor.update()")}}) nicht für Cursor aufrufen können, die von {{domxref("IDBIndex.openKeyCursor()")}} erhalten wurden. In solchen Fällen müssen Sie stattdessen {{domxref("IDBIndex.openCursor()")}} verwenden.
+Beachten Sie, dass `delete()` (oder
+[`IDBCursor.update()`](/de/docs/Web/API/IDBCursor/update)) nicht für Cursor aufgerufen werden kann, die von
+[`IDBIndex.openKeyCursor()`](/de/docs/Web/API/IDBIndex/openKeyCursor) erhalten wurden. Für solche Anforderungen müssen Sie stattdessen
+[`IDBIndex.openCursor()`](/de/docs/Web/API/IDBIndex/openCursor) verwenden.
 
 ## Syntax
 
@@ -24,26 +28,33 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("IDBRequest")}}-Objekt, bei dem nachfolgende Ereignisse im Zusammenhang mit dieser Operation ausgelöst werden.
+Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest) Objekt, auf dem nachfolgende Ereignisse zu dieser
+Operation ausgelöst werden.
 
-Wenn die Operation erfolgreich ist, ist der Wert der {{domxref("IDBRequest.result", "result")}}-Eigenschaft des Requests `undefined`.
+Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result) Eigenschaft der Anfrage `undefined`.
 
 ### Ausnahmen
 
-Diese Methode kann eine {{domxref("DOMException")}} vom folgenden Typ auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
 
-- `TransactionInactiveError` {{domxref("DOMException")}}
+- `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Transaktion dieses IDBCursors inaktiv ist.
-- `ReadOnlyError` {{domxref("DOMException")}}
+- `ReadOnlyError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Transaktionsmodus schreibgeschützt ist.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Cursor mit {{domxref("IDBindex.openKeyCursor")}} erstellt wurde, derzeit durchlaufen wird oder über sein Ende hinaus durchlaufen hat.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Cursor mit [`IDBindex.openKeyCursor`](/de/docs/Web/API/IDBindex/openKeyCursor) erstellt wurde, gerade iteriert wird oder seine Endposition überschritten hat.
 
 ## Beispiele
 
-In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objektspeicher ab und verwenden dann einen Cursor, um alle Datensätze im Objektspeicher zu durchlaufen. Wenn das `albumTitle` des aktuellen Cursors "Grace under pressure" ist, löschen wir den gesamten Datensatz mit `const request = cursor.delete();`.
+In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objekt-Store ab und verwenden dann einen
+Cursor, um alle Datensätze im Objekt-Store zu durchlaufen. Wenn der
+`albumTitle` des aktuellen Cursors "Grace under pressure" ist, löschen wir diesen
+gesamten Datensatz mit `const request = cursor.delete();`.
 
-Der Cursor erfordert nicht, dass wir die Daten basierend auf einem Schlüssel auswählen; wir können einfach alle erfassen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges funktionierendes Beispiel siehe unser [IDBCursor-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
+Der Cursor erfordert nicht, dass wir die Daten basierend auf einem Schlüssel auswählen; wir können einfach alle
+greifen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen
+Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein komplettes
+funktionsfähiges Beispiel siehe unser [IDBCursor Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
 
 ```js
 function deleteResult() {
@@ -85,9 +96,9 @@ function deleteResult() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Bereichs von Schlüsseln: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern von Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursor: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

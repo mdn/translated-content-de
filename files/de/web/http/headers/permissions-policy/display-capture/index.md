@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header mit der Direktive `display-capture` kontrolliert, ob das Dokument berechtigt ist, die [Screen Capture API](/de/docs/Web/API/Screen_Capture_API), also {{domxref("MediaDevices.getDisplayMedia", "getDisplayMedia()")}}, zu verwenden, um den Bildschirminhalt aufzunehmen.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `display-capture` steuert, ob das Dokument berechtigt ist, die [Screen Capture API](/de/docs/Web/API/Screen_Capture_API), d.h. [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) zur Erfassung des Bildschirminhalts zu verwenden.
 
-Wenn `display-capture` in einem Dokument deaktiviert ist, wird das Dokument nicht in der Lage sein, die Bildschirmaufnahme über {{domxref("MediaDevices.getDisplayMedia", "getDisplayMedia()")}} zu starten und wird eine `NotAllowedError`-Ausnahme auslösen.
+Wenn `display-capture` in einem Dokument deaktiviert ist, kann das Dokument keine Bildschirmaufnahme über [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) starten und wird eine `NotAllowedError`-Ausnahme auslösen.
 
 ## Syntax
 
@@ -22,19 +22,19 @@ Permissions-Policy: display-capture=<allowlist>;
 
 ## Standardrichtlinie
 
-Die Standardliste für `display-capture` ist `self`.
+Die Standard-Allowlist für `display-capture` ist `self`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - {{HTTPHeader("Permissions-Policy")}}-Header
-- [Berechtigungsrichtlinie (Permissions Policy)](/de/docs/Web/HTTP/Permissions_Policy)
+- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
 - [Verwendung der Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)

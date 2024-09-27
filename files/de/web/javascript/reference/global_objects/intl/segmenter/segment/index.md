@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`segment()`**-Methode von {{jsxref("Intl.Segmenter")}}-Instanzen segmentiert einen String entsprechend der Sprache und Granularität dieses `Intl.Segmenter`-Objekts.
+Die Methode **`segment()`** von {{jsxref("Intl.Segmenter")}}-Instanzen segmentiert einen String gemäß der Lokalisierung und Granularität dieses `Intl.Segmenter`-Objekts.
 
 {{EmbedInteractiveExample("pages/js/intl-segmenter-prototype-segment.html")}}
 
@@ -24,19 +24,19 @@ segment(input)
 
 ### Rückgabewert
 
-Ein neues iterierbares [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments) Objekt, das die Segmente des Eingabe-Strings enthält, unter Verwendung der Sprache und Granularität des Segmentierers.
+Ein neues iterierbares [`Segments`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments)-Objekt, das die Segmente des Eingabe-Strings enthält und dabei die Lokalisierung und Granularität des Segmenters verwendet.
 
 ## Beispiele
 
 ```js
-// Erstellen eines sprachspezifischen Wortsegmentierers
+// Create a locale-specific word segmenter
 const segmenter = new Intl.Segmenter("fr", { granularity: "word" });
 
-// Verwenden Sie es, um einen Iterator über die Segmente eines Strings zu erhalten
+// Use it to get an iterator over the segments of a string
 const input = "Moi ? N'est-ce pas ?";
 const segments = segmenter.segment(input);
 
-// Verwenden Sie es für die Segmentierung
+// Use that for segmentation
 for (const { segment, index, isWordLike } of segments) {
   console.log(
     "segment at code units [%d, %d]: «%s»%s",
@@ -63,6 +63,6 @@ for (const { segment, index, isWordLike } of segments) {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

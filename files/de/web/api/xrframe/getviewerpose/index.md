@@ -1,5 +1,5 @@
 ---
-title: "XRFrame: Methode getViewerPose()"
+title: "XRFrame: getViewerPose() Methode"
 short-title: getViewerPose()
 slug: Web/API/XRFrame/getViewerPose
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getViewerPose()`**-Methode, ein Mitglied der {{domxref("XRFrame")}}-Schnittstelle, gibt ein {{domxref("XRViewerPose")}}-Objekt zurück, das die Pose (Position und Orientierung) des Betrachters relativ zum angegebenen Referenzraum beschreibt.
+Die **`getViewerPose()`**-Methode, ein Mitglied des [`XRFrame`](/de/docs/Web/API/XRFrame) Interfaces, gibt ein [`XRViewerPose`](/de/docs/Web/API/XRViewerPose)-Objekt zurück, das die Pose (Position und Orientierung) des Betrachters relativ zum angegebenen Referenzraum beschreibt.
 
-Siehe die {{domxref("XRFrame.getPose", "getPose()")}}-Methode, um eine Pose zu berechnen, die den Unterschied zwischen zwei Räumen darstellt.
+Sehen Sie die [`getPose()`](/de/docs/Web/API/XRFrame/getPose) Methode für eine Möglichkeit, eine Pose zu berechnen, die den Unterschied zwischen zwei Räumen darstellt.
 
 ## Syntax
 
@@ -21,20 +21,20 @@ getViewerPose(referenceSpace)
 ### Parameter
 
 - `referenceSpace`
-  - : Ein {{domxref("XRReferenceSpace")}}-Objekt, das den Raum angibt, der als Referenzpunkt oder Basis für die Berechnung der aktuellen Pose des Betrachters verwendet werden soll.
+  - : Ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) Objekt, das den Raum angibt, der als Referenzpunkt oder Basis für die Berechnung der aktuellen Pose des Betrachters verwendet werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("XRViewerPose")}}, das die Position und Orientierung des Betrachters relativ zum angegebenen Referenzraum beschreibt.
+Ein [`XRViewerPose`](/de/docs/Web/API/XRViewerPose), das die Position und Orientierung des Betrachters relativ zum angegebenen Referenzraum beschreibt.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `getViewerPose()` nicht im Kontext eines Rückrufs für die {{domxref("XRSession.requestAnimationFrame", "XRSession.requestAnimationFrame()")}}-Sitzung aufgerufen wurde.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `getViewerPose()` nicht im Kontext eines Rückrufs an die [`XRSession.requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame)-Session aufgerufen wurde.
 
 ## Beispiele
 
-In dieser Rückruffunktion für {{domxref("XRSession.requestAnimationFrame", "requestAnimationFrame()")}} wird das {{domxref("XRViewerPose")}}, das den Standpunkt des Betrachters auf die Welt beschreibt, durch Aufruf von `getViewerPose()` auf dem {{domxref("XRFrame")}} ermittelt, das an den Rückruf übergeben wird.
+In dieser Rückruffunktion für [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) wird die [`XRViewerPose`](/de/docs/Web/API/XRViewerPose), die den Blickpunkt des Betrachters auf die Welt beschreibt, durch einen Aufruf von `getViewerPose()` auf dem [`XRFrame`](/de/docs/Web/API/XRFrame), der in den Rückruf übergeben wurde, erhalten.
 
 ```js
 viewerPose = xrFrame.getViewerPose(xrReferenceSpace);

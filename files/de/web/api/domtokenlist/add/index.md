@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`add()`**-Methode der {{domxref("DOMTokenList")}}-Schnittstelle fügt die angegebenen Token zur Liste hinzu und lässt dabei jene aus, die bereits vorhanden sind.
+Die **`add()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle fügt die angegebenen Tokens zur Liste hinzu und lässt dabei alle bereits vorhandenen weg.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ add(token1, token2, /* …, */ tokenN)
 ### Parameter
 
 - `tokenN`
-  - : Ein String, der ein Token (oder Token) repräsentiert, die zur `DOMTokenList` hinzugefügt werden sollen.
+  - : Ein String, der ein Token (oder Tokens) repräsentiert, die zu der `DOMTokenList` hinzugefügt werden sollen.
 
 ### Rückgabewert
 
@@ -29,15 +29,15 @@ Keiner.
 
 ### Ausnahmen
 
-- `SyntaxError` {{domxref("DOMException")}}
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn eines der Argumente ein leerer String ist.
-- `InvalidCharacterError` {{domxref("DOMException")}}
+- `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn ein Token ASCII-Leerzeichen enthält.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("span")}}-Element als `DOMTokenList` gesetzt sind, indem wir {{domxref("Element.classList")}} verwenden.
-Wir fügen dann ein neues Token zur Liste hinzu und schreiben die Liste in den {{domxref("Node.textContent")}} des `<span>`.
+Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("span")}}-Element als `DOMTokenList` gesetzt sind, unter Verwendung von [`Element.classList`](/de/docs/Web/API/Element/classList).
+Wir fügen dann ein neues Token zur Liste hinzu und schreiben die Liste in das [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`.
 
 Zuerst das HTML:
 
@@ -45,7 +45,7 @@ Zuerst das HTML:
 <span class="a b c"></span>
 ```
 
-Nun das JavaScript:
+Jetzt das JavaScript:
 
 ```js
 const span = document.querySelector("span");
@@ -58,7 +58,7 @@ Die Ausgabe sieht folgendermaßen aus:
 
 {{ EmbedLiveSample('Examples', '100%', 60) }}
 
-Sie können auch mehrere Token hinzufügen:
+Sie können auch mehrere Tokens hinzufügen:
 
 ```js
 span.classList.add("d", "e", "f");

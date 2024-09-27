@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Der `feMergeNode` nimmt das Ergebnis eines anderen Filters auf, um es durch sein übergeordnetes {{ SVGElement("feMerge") }} zu verarbeiten.
+Das `feMergeNode`-Element nimmt das Ergebnis eines anderen Filters, um von seinem übergeordneten {{ SVGElement("feMerge") }}-Element verarbeitet zu werden.
 
 ## Verwendungskontext
 
@@ -53,15 +53,15 @@ Der `feMergeNode` nimmt das Ergebnis eines anderen Filters auf, um es durch sein
 
 - {{ SVGAttr("in") }}
 
-## DOM-Schnittstelle
+## DOM Schnittstelle
 
-Dieses Element implementiert die [`SVGFEMergeNodeElement`](/de/docs/Web/API/SVGFEMergeNodeElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGFEMergeNodeElement`](/de/docs/Web/API/SVGFEMergeNodeElement) Schnittstelle.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -71,4 +71,4 @@ Dieses Element implementiert die [`SVGFEMergeNodeElement`](/de/docs/Web/API/SVGF
 - {{ SVGElement("animate") }}
 - {{ SVGElement("set") }}
 - {{ SVGElement("feMerge") }}
-- [SVG-Tutorial: Filter-Effekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG Tutorial: Filter-Effekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

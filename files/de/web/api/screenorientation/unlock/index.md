@@ -1,5 +1,5 @@
 ---
-title: "ScreenOrientation: unlock()-Methode"
+title: "ScreenOrientation: unlock() Methode"
 short-title: unlock()
 slug: Web/API/ScreenOrientation/unlock
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Screen Orientation")}}
 
-Die **`unlock()`**-Methode der {{domxref("ScreenOrientation")}}-Schnittstelle entsperrt die Ausrichtung des enthaltenen Dokuments aus seiner Standardeinstellung.
+Die **`unlock()`**-Methode des [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)-Interfaces entsperrt die Ausrichtung des enthaltenen Dokuments von seiner Standardausrichtung.
 
 ## Syntax
 
@@ -28,17 +28,17 @@ Keiner ({{jsxref("undefined")}}).
 
 Das Versprechen kann mit den folgenden Ausnahmen abgelehnt werden:
 
-- `InvalidStateError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird ausgelöst, wenn das Dokument nicht vollständig aktiv ist.
+  - : Ausgelöst, wenn das Dokument nicht vollständig aktiv ist.
 
-- `SecurityError` {{domxref("DOMException")}}
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird ausgelöst, wenn der Sichtbarkeitsstatus des Dokuments verborgen ist oder wenn das Dokument die Verwendung der Funktion untersagt ist (zum Beispiel durch das Weglassen des Schlüsselworts `allow-orientation-lock` im `sandbox`-Attribut des `iframe`-Elements).
+  - : Ausgelöst, wenn der Sichtbarkeitsstatus des Dokuments verborgen ist oder wenn dem Dokument die Nutzung der Funktion untersagt ist (zum Beispiel durch das Weglassen des Schlüsselworts `allow-orientation-lock` im `sandbox`-Attribut des `iframe`-Elements).
 
-- `AbortError` {{domxref("DOMException")}}
+- `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird ausgelöst, wenn eine andere `lock()`-Methode aufgerufen wird.
+  - : Ausgelöst, wenn eine andere `lock()`-Methode aufgerufen wird.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerRegistration: paymentManager Eigenschaft"
+title: "ServiceWorkerRegistration: paymentManager-Eigenschaft"
 short-title: paymentManager
 slug: Web/API/ServiceWorkerRegistration/paymentManager
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`paymentManager`**-Eigenschaft der {{domxref("ServiceWorkerRegistration")}}-Schnittstelle gibt eine Instanz des {{domxref("PaymentManager")}} eines Zahlungs-Apps zurück, die zur Verwaltung verschiedener Funktionen des Zahlungs-Apps verwendet wird.
+Die **`paymentManager`**-Schreibgeschützte Eigenschaft der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle gibt die Instanz eines Zahlungsanwendungs-`PaymentManager` zurück, welche zur Verwaltung verschiedener Funktionen der Zahlungsanwendung verwendet wird.
 
 ## Wert
 
-Eine Instanz eines {{domxref("PaymentManager")}}-Objekts.
+Eine Instanz des [`PaymentManager`](/de/docs/Web/API/PaymentManager)-Objekts.
 
 ## Beispiele
 
@@ -30,8 +30,8 @@ navigator.serviceWorker.register("serviceworker.js").then((registration) => {
 });
 ```
 
-- {{domxref("PaymentManager.userHint")}} wird verwendet, um dem Browser einen Hinweis anzuzeigen, zusammen mit dem Namen und dem Icon des Zahlungs-Apps in der Benutzeroberfläche des Payment Handlers.
-- {{domxref("PaymentManager.enableDelegations()")}} wird verwendet, um die Verantwortung für die Bereitstellung verschiedener Teile der erforderlichen Zahlungsinformationen an das Zahlungs-App zu delegieren, anstatt sie von der Händler-Website zu sammeln.
+- [`PaymentManager.userHint`](/de/docs/Web/API/PaymentManager/userHint) wird verwendet, um dem Browser einen Hinweis anzuzeigen, der zusammen mit dem Namen und dem Symbol der Zahlungsanwendung in der Payment Handler-Benutzeroberfläche angezeigt wird.
+- [`PaymentManager.enableDelegations()`](/de/docs/Web/API/PaymentManager/enableDelegations) wird verwendet, um die Verantwortung für das Bereitstellen verschiedener Teile der erforderlichen Zahlungsinformationen an die Zahlungsanwendung zu delegieren, anstatt sie innerhalb der Händler-Website zu sammeln.
 
 ## Spezifikationen
 
@@ -43,9 +43,9 @@ navigator.serviceWorker.register("serviceworker.js").then((registration) => {
 
 ## Siehe auch
 
-- {{domxref("Payment Handler API", "", "", "nocode")}}
-- [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Ein Zahlungsmittel einrichten](https://web.dev/articles/setting-up-a-payment-method)
-- [Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
+- [Überblick über webbasierte Zahlungsanwendungen](https://web.dev/articles/web-based-payment-apps-overview)
+- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - [Konzepte zur Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

@@ -9,11 +9,15 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die schreibgeschützte Eigenschaft {{domxref("PerformanceNavigationTiming.loadEventEnd")}} der {{domxref("PerformanceNavigationTiming")}}-Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)
+> Schnittstelle mit der schreibgeschützten Eigenschaft [`PerformanceNavigationTiming.loadEventEnd`](/de/docs/Web/API/PerformanceNavigationTiming/loadEventEnd).
 
 Die veraltete
 **`PerformanceTiming.loadEventEnd`**
-schreibgeschützte Eigenschaft gibt ein `unsigned long long` zurück, das den Moment in Millisekunden seit der UNIX-Epoche darstellt, in dem der {{domxref("Window/load_event", "load")}}-Ereignishandler beendet wurde, also wenn das Ladeereignis abgeschlossen ist. Wenn dieses Ereignis noch nicht gesendet oder noch nicht abgeschlossen ist, gibt es `0` zurück.
+schreibgeschützte Eigenschaft gibt ein `unsigned long long` zurück, das den Moment darstellt,
+in Millisekunden seit der UNIX-Epoche, zu dem der [`load`](/de/docs/Web/API/Window/load_event)-Ereignishandler
+beendet wurde, das heißt, wenn das Ladeereignis abgeschlossen ist. Wenn dieses Ereignis noch nicht
+gesendet oder noch nicht abgeschlossen ist, gibt es `0` zurück.
 
 ## Wert
 
@@ -29,4 +33,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Die {{domxref("PerformanceTiming")}}-Schnittstelle, zu der es gehört.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle, zu der es gehört.

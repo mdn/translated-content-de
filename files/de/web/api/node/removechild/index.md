@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`removeChild()`**-Methode der {{domxref("Node")}}-Schnittstelle entfernt einen Kindknoten aus dem DOM und gibt den entfernten Knoten zurück.
+Die **`removeChild()`**-Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle entfernt einen Kindknoten aus dem DOM und gibt den entfernten Knoten zurück.
 
 > [!NOTE]
-> Solange eine Referenz auf das entfernte Kind aufbewahrt wird,
-> existiert es weiterhin im Speicher, ist jedoch nicht mehr Teil des DOM.
+> Solange eine Referenz auf das entfernte Kind aufrechterhalten wird,
+> existiert es noch im Speicher, ist jedoch nicht mehr Teil des DOM.
 > Es kann später im Code wiederverwendet werden.
 >
-> Wenn der Rückgabewert von `removeChild()` nicht gespeichert wird und keine andere Referenz vorliegt,
+> Wenn der Rückgabewert von `removeChild()` nicht gespeichert wird und keine andere Referenz erhalten bleibt,
 > wird es nach kurzer Zeit [automatisch aus dem Speicher gelöscht](/de/docs/Web/JavaScript/Memory_management).
 
-Im Gegensatz zu {{domxref("Node.cloneNode()")}} behält der Rückgabewert die mit ihm verbundenen `EventListener`-Objekte bei.
+Im Gegensatz zu [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) behält der Rückgabewert die mit ihm verbundenen `EventListener`-Objekte bei.
 
 ## Syntax
 
@@ -29,11 +29,11 @@ removeChild(child)
 ### Parameter
 
 - `child`
-  - : Ein {{domxref("Node")}}, der der zu entfernende Kindknoten aus dem DOM ist.
+  - : Ein [`Node`](/de/docs/Web/API/Node), der der Kindknoten ist, der aus dem DOM entfernt werden soll.
 
 ### Ausnahmen
 
-- `NotFoundError` {{domxref("DOMException")}}
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `child` kein Kind des Knotens ist.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn `child` `null` ist.
@@ -50,7 +50,7 @@ Angenommen, dieses HTML:
 </div>
 ```
 
-Um ein bestimmtes Element zu entfernen, wenn der übergeordnete Knoten bekannt ist:
+Um ein bestimmtes Element zu entfernen, wenn sein Elternknoten bekannt ist:
 
 ```js
 const parent = document.getElementById("parent");
@@ -58,7 +58,7 @@ const child = document.getElementById("child");
 const throwawayNode = parent.removeChild(child);
 ```
 
-Um ein bestimmtes Element zu entfernen, ohne den übergeordneten Knoten angeben zu müssen:
+Um ein bestimmtes Element zu entfernen, ohne seinen Elternknoten angeben zu müssen:
 
 ```js
 const node = document.getElementById("child");
@@ -67,7 +67,7 @@ if (node.parentNode) {
 }
 ```
 
-Um alle Kinder von einem Element zu entfernen:
+Um alle Kinder eines Elements zu entfernen:
 
 ```js
 const element = document.getElementById("idOfParent");
@@ -76,10 +76,10 @@ while (element.firstChild) {
 }
 ```
 
-### Einen TypeError verursachen
+### TypeError verursachen
 
 ```html
-<!--Beispiel HTML-Code-->
+<!--Sample HTML code-->
 <div id="parent"></div>
 ```
 
@@ -87,14 +87,14 @@ while (element.firstChild) {
 const parent = document.getElementById("parent");
 const child = document.getElementById("child");
 
-// Wirft einen nicht abgefangenen TypeError
+// Throws Uncaught TypeError
 const garbage = parent.removeChild(child);
 ```
 
-### Einen NotFoundError verursachen
+### NotFoundError verursachen
 
 ```html
-<!--Beispiel HTML-Code-->
+<!--Sample HTML code-->
 <div id="parent">
   <div id="child"></div>
 </div>
@@ -104,10 +104,10 @@ const garbage = parent.removeChild(child);
 const parent = document.getElementById("parent");
 const child = document.getElementById("child");
 
-// Dieser erste Aufruf entfernt den Knoten korrekt
+// This first call correctly removes the node
 const garbage = parent.removeChild(child);
 
-// Wirft einen NotFoundError
+// Throws NotFoundError
 garbage = parent.removeChild(child);
 ```
 
@@ -121,7 +121,7 @@ garbage = parent.removeChild(child);
 
 ## Siehe auch
 
-- {{domxref("Node.replaceChild()")}}
-- {{domxref("Node.parentNode")}}
-- {{domxref("Element.remove()")}}
-- {{domxref("Node.cloneNode()")}}
+- [`Node.replaceChild()`](/de/docs/Web/API/Node/replaceChild)
+- [`Node.parentNode`](/de/docs/Web/API/Node/parentNode)
+- [`Element.remove()`](/de/docs/Web/API/Element/remove)
+- [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode)

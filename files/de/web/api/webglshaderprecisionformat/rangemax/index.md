@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die schreibgeschützte **`WebGLShaderPrecisionFormat.rangeMax`**-Eigenschaft gibt den Basis-2-Logarithmus des absoluten Werts des maximal darstellbaren Werts zurück.
+Die schreibgeschützte **`WebGLShaderPrecisionFormat.rangeMax`**-Eigenschaft gibt den Basis-2-Logarithmus des absoluten Wertes des maximal darstellbaren Wertes zurück.
 
 ## Beispiele
 
@@ -30,5 +30,5 @@ gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.LOW_INT).rangeMax; // 24
 
 ## Siehe auch
 
-- {{domxref("WebGLShaderPrecisionFormat")}}
-- {{domxref("WebGLRenderingContext.getShaderPrecisionFormat()")}}
+- [`WebGLShaderPrecisionFormat`](/de/docs/Web/API/WebGLShaderPrecisionFormat)
+- [`WebGLRenderingContext.getShaderPrecisionFormat()`](/de/docs/Web/API/WebGLRenderingContext/getShaderPrecisionFormat)

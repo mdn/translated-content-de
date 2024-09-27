@@ -1,5 +1,5 @@
 ---
-title: "XRDepthInformation: height-Eigenschaft"
+title: "XRDepthInformation: height Eigenschaft"
 short-title: height
 slug: Web/API/XRDepthInformation/height
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`height`**-Eigenschaft der {{DOMxRef("XRDepthInformation")}}-Schnittstelle enthält die Höhe des Tiefenpuffers (Anzahl der Zeilen).
+Die _schreibgeschützte_ **`height`**-Eigenschaft der [`XRDepthInformation`](/de/docs/Web/API/XRDepthInformation)-Schnittstelle enthält die Höhe des Tiefenpuffers (Anzahl der Zeilen).
 
 ## Wert
 
-Ein nicht-negativer ganzzahliger Wert.
+Ein nicht signierter langer Ganzzahlwert.
 
 ## Beispiele
 
-Verwenden Sie {{domxref("XRFrame.getDepthInformation()")}} (CPU) oder {{domxref("XRWebGLBinding.getDepthInformation()")}} (WebGL), um Tiefeninformationen zu erhalten. Die zurückgegebenen Objekte enthalten die `height` des Tiefenpuffers, die Sie für weitere Berechnungen verwenden können.
+Verwenden Sie [`XRFrame.getDepthInformation()`](/de/docs/Web/API/XRFrame/getDepthInformation) (CPU) oder [`XRWebGLBinding.getDepthInformation()`](/de/docs/Web/API/XRWebGLBinding/getDepthInformation) (WebGL), um Tiefeninformationen zu erhalten. Die zurückgegebenen Objekte enthalten die `height` des Tiefenpuffers, die Sie für weitere Berechnungen verwenden können.
 
 ```js
 const smallerDepthDimension = Math.min(depthInfo.width, depthInfo.height);

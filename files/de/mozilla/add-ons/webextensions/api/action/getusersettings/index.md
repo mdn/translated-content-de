@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft die vom Benutzer angegebenen Einstellungen für die Browser-Aktion ab.
+Erhält die vom Benutzer festgelegten Einstellungen für die Browser-Aktion.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
@@ -22,7 +22,7 @@ let userSettings = await browser.action.getUserSettings();
 
 ### Parameter
 
-Diese Funktion nimmt keine Parameter.
+Diese Funktion erfordert keine Parameter.
 
 ### Rückgabewert
 
@@ -30,14 +30,14 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 - `userSettings`
 
-  - : Ein Objekt, das die vom Benutzer angegebenen Einstellungen für die Browser-Aktion enthält, mit diesen Eigenschaften:
+  - : Ein Objekt, das die vom Benutzer festgelegten Einstellungen für die Browser-Aktion mit folgenden Eigenschaften enthält:
 
     - `isOnToolbar` {{optional_inline}}
-      - : `boolean`. Ob der Benutzer das Aktionssymbol an die Browser-Benutzeroberfläche angeheftet hat. Diese Einstellung gibt nicht an, ob das Aktionssymbol sichtbar ist. Die Sichtbarkeit des Symbols hängt von der Größe des Browserfensters und dem Layout der Browser-Benutzeroberfläche ab.
+      - : `boolean`. Ob der Benutzer das Symbol der Aktion in die Browser-Oberfläche angeheftet hat. Diese Einstellung gibt nicht an, ob das Aktionssymbol sichtbar ist. Die Sichtbarkeit des Symbols hängt von der Größe des Browserfensters und dem Layout der Browser-Benutzeroberfläche ab.
 
 ## Beispiele
 
-Dieser Code protokolliert eine Nachricht, die angibt, ob die Aktion angeheftet ist oder nicht:
+Dieser Code gibt eine Nachricht aus, die angibt, ob die Aktion angeheftet ist oder nicht:
 
 ```js
 function gotSettings(userSettings) {

@@ -3,12 +3,12 @@ title: "GPUComputePassEncoder: dispatchWorkgroups()-Methode"
 short-title: dispatchWorkgroups()
 slug: Web/API/GPUComputePassEncoder/dispatchWorkgroups
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`dispatchWorkgroups()`**-Methode der {{domxref("GPUComputePassEncoder")}}-Schnittstelle sendet ein spezifisches Raster von Arbeitsgruppen (workgroups), um die Arbeit auszuführen, die von der aktuellen {{domxref("GPUComputePipeline")}} erledigt wird (d. h. festgelegt über {{domxref("GPUComputePassEncoder.setPipeline()")}}).
+Die **`dispatchWorkgroups()`**-Methode des [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Interfaces sendet ein spezifisches Raster von Arbeitsgruppen, um die Arbeit auszuführen, die vom aktuellen [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) (d.h. gesetzt über [`GPUComputePassEncoder.setPipeline()`](/de/docs/Web/API/GPUComputePassEncoder/setPipeline)) durchgeführt wird.
 
 ## Syntax
 
@@ -23,28 +23,28 @@ dispatchWorkgroups(workgroupCountX, workgroupCountY, workgroupCountZ)
 - `workgroupCountX`
   - : Die X-Dimension des Rasters von Arbeitsgruppen, die gesendet werden sollen.
 - `workgroupCountY` {{optional_inline}}
-  - : Die Y-Dimension des Rasters von Arbeitsgruppen, die gesendet werden sollen. Wird dieser Parameter weggelassen, hat `workgroupCountY` standardmäßig den Wert 1.
+  - : Die Y-Dimension des Rasters von Arbeitsgruppen, die gesendet werden sollen. Wenn weggelassen, ist der Standardwert für `workgroupCountY` 1.
 - `workgroupCountZ` {{optional_inline}}
-  - : Die Z-Dimension des Rasters von Arbeitsgruppen, die gesendet werden sollen. Wird dieser Parameter weggelassen, hat `workgroupCountZ` standardmäßig den Wert 1.
+  - : Die Z-Dimension des Rasters von Arbeitsgruppen, die gesendet werden sollen. Wenn weggelassen, ist der Standardwert für `workgroupCountZ` 1.
 
 > [!NOTE]
-> Die für X-, Y- und Z-Dimension an `dispatchWorkgroups()` und {{domxref("GPUComputePassEncoder.dispatchWorkgroupsIndirect()")}} übergebenen Werte sind die Anzahl der Arbeitsgruppen, die für jede Dimension gesendet werden, nicht die Anzahl der Shader-Aufrufe, die über jede Dimension ausgeführt werden sollen. Dies entspricht dem Verhalten moderner nativer GPU-APIs, unterscheidet sich jedoch vom Verhalten von OpenCL. Das bedeutet, dass wenn ein {{domxref("GPUShaderModule")}} einen Einstiegspunkt mit `@workgroup_size(4, 4)` definiert und die Arbeit mit dem Aufruf `passEncoder.dispatchWorkgroups(8, 8);` an diesen gesendet wird, der Einstiegspunkt insgesamt 1024 Mal aufgerufen wird — Versenden einer 4 x 4 Arbeitsgruppe 8 Mal entlang sowohl der X- als auch der Y-Achse. `4 * 4 * 8 * 8 = 1024`.
+> Die an `dispatchWorkgroups()` und [`GPUComputePassEncoder.dispatchWorkgroupsIndirect()`](/de/docs/Web/API/GPUComputePassEncoder/dispatchWorkgroupsIndirect) übergebenen Werte der X-, Y- und Z-Dimension sind die Anzahl der zu sendenden Arbeitsgruppen für jede Dimension, nicht die Anzahl der Shader-Ausführungen, die über jede Dimension hinweg durchgeführt werden sollen. Dies entspricht dem Verhalten moderner nativer GPU-APIs, unterscheidet sich jedoch vom Verhalten von OpenCL. Das bedeutet, dass wenn ein [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) einen Einstiegspunkt mit `@workgroup_size(4, 4)` definiert und Arbeit mit dem Aufruf `passEncoder.dispatchWorkgroups(8, 8);` gesendet wird, der Einstiegspunkt insgesamt 1024 Mal aufgerufen wird — Eine 4 x 4-Arbeitsgruppe wird 8 Mal entlang sowohl der X- als auch der Y-Achse gesendet. `4 * 4 * 8 * 8 = 1024`.
 
 ### Rückgabewert
 
-Keine ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen bei einem Aufruf von **`dispatchWorkgroups()`** erfüllt sein, andernfalls wird ein {{domxref("GPUValidationError")}} erzeugt und der {{domxref("GPUComputePassEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen beim Aufruf von **`dispatchWorkgroups()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) wird ungültig:
 
-- `workgroupCountX`, `workgroupCountY` und `workgroupCountZ` müssen alle kleiner oder gleich `maxComputeWorkgroupsPerDimension` des {{domxref("GPUDevice")}} sein {{domxref("GPUSupportedLimits", "limit", "", "nocode")}}.
+- `workgroupCountX`, `workgroupCountY` und `workgroupCountZ` müssen alle kleiner oder gleich der `maxComputeWorkgroupsPerDimension`-Grenze des [`GPUDevice`](/de/docs/Web/API/GPUDevice) [Limit](/de/docs/Web/API/GPUSupportedLimits) sein.
 
 ## Beispiele
 
-In unserem [grundlegenden Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) sind mehrere Befehle über einen {{domxref("GPUCommandEncoder")}} aufgezeichnet. Die meisten dieser Befehle stammen von dem {{domxref("GPUComputePassEncoder")}}, der über `beginComputePass()` erstellt wurde.
+In unserem [grundlegenden Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen vom [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder), der über `beginComputePass()` erstellt wurde.
 
-Am Anfang des Codes setzen wir eine globale Puffergröße von 1000 fest. Beachten Sie auch, dass die Arbeitsgruppengröße im Shader auf 64 gesetzt ist.
+Zu Beginn des Codes setzen wir eine globale Puffergöße von 1000 fest. Beachten Sie auch, dass die Arbeitsgruppengröße im Shader auf 64 gesetzt ist.
 
 ```js
 const BUFFER_SIZE = 1000;
@@ -61,35 +61,35 @@ var<storage, read_write> output: array<f32>;
 `;
 ```
 
-Später im Code wird der `dispatchWorkgroups()`-Parameter `workgroupCountX` basierend auf der globalen Puffergröße und der Arbeitsgruppenzahl des Shaders festgelegt.
+Später im Code wird der `dispatchWorkgroups()`-Parameter `workgroupCountX` basierend auf der globalen Puffergöße und der Arbeitsgruppenzahl des Shaders festgelegt.
 
 ```js
 // ...
 
-// Erstellen eines GPUCommandEncoder zum Kodieren von Befehlen, die an die GPU gesendet werden sollen
+// Create GPUCommandEncoder to encode commands to issue to the GPU
 const commandEncoder = device.createCommandEncoder();
 
-// Einleitender Render-Pass
+// Initiate render pass
 const passEncoder = commandEncoder.beginComputePass();
 
-// Befehle ausgeben
+// Issue commands
 passEncoder.setPipeline(computePipeline);
 passEncoder.setBindGroup(0, bindGroup);
 passEncoder.dispatchWorkgroups(Math.ceil(BUFFER_SIZE / 64));
 
-// Beende den Render-Pass
+// End the render pass
 passEncoder.end();
 
-// Kopieren des Ausgabepuffers in den Staging-Puffer
+// Copy output buffer to staging buffer
 commandEncoder.copyBufferToBuffer(
   output,
-  0, // Quell-Offset
+  0, // Source offset
   stagingBuffer,
-  0, // Ziel-Offset
+  0, // Destination offset
   BUFFER_SIZE,
 );
 
-// Beenden Sie den Frame, indem Sie ein Array von Befehls-Puffern an die Befehlswarteschlange zur Ausführung übergeben
+// End frame by passing array of command buffers to command queue for execution
 device.queue.submit([commandEncoder.finish()]);
 
 // ...

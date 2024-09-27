@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`handler.defineProperty()`** Methode ist eine Falle für die `[[DefineOwnProperty]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die durch Operationen wie {{jsxref("Object.defineProperty()")}} verwendet wird.
+Die **`handler.defineProperty()`** Methode ist eine Falle für die `[[DefineOwnProperty]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.defineProperty()")}} verwendet wird.
 
 {{EmbedInteractiveExample("pages/js/proxyhandler-defineproperty.html", "taller")}}
 
@@ -27,19 +27,19 @@ Die folgenden Parameter werden an die `defineProperty()` Methode übergeben. `th
 - `target`
   - : Das Zielobjekt.
 - `property`
-  - : Ein String oder {{jsxref("Symbol")}}, das den Eigenschaftsnamen darstellt.
+  - : Ein String oder {{jsxref("Symbol")}}, der den Eigenschaftsnamen darstellt.
 - `descriptor`
-  - : Der Deskriptor für die zu definierende oder zu modifizierende Eigenschaft.
+  - : Der Descriptor für die Eigenschaft, die definiert oder geändert wird.
 
 ### Rückgabewert
 
-Die `defineProperty()` Methode muss ein {{jsxref("Boolean")}} zurückgeben, das angibt, ob die Eigenschaft erfolgreich definiert wurde oder nicht. Andere Werte werden [in Booleans umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
+Die `defineProperty()` Methode muss einen {{jsxref("Boolean")}} zurückgeben, der angibt, ob die Eigenschaft erfolgreich definiert wurde oder nicht. Andere Werte werden zu Booleans [zusammengeführt](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
 
-Viele Operationen, einschließlich {{jsxref("Object.defineProperty()")}} und {{jsxref("Object.defineProperties()")}}, werfen einen {{jsxref("TypeError")}}, wenn die `[[DefineOwnProperty]]` interne Methode `false` zurückgibt.
+Viele Operationen, einschließlich {{jsxref("Object.defineProperty()")}} und {{jsxref("Object.defineProperties()")}}, werfen einen {{jsxref("TypeError")}}, wenn die interne Methode `[[DefineOwnProperty]]` `false` zurückgibt.
 
 ## Beschreibung
 
-### Abfangvorgänge
+### Abfangmechanismen
 
 Diese Falle kann folgende Operationen abfangen:
 
@@ -50,16 +50,16 @@ Oder jede andere Operation, die die `[[DefineOwnProperty]]` [interne Methode](/d
 
 ### Invarianten
 
-Die `[[DefineOwnProperty]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition gegen eine der folgenden Invarianten verstößt:
+Die `[[DefineOwnProperty]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Eine Eigenschaft kann nicht hinzugefügt werden, wenn das Zielobjekt nicht erweiterbar ist. Das heißt, wenn {{jsxref("Reflect.isExtensible()")}} `false` für `target` zurückgibt und {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `undefined` für die Eigenschaft auf `target` zurückgibt, muss die Falle einen Falschwert zurückgeben.
-- Eine Eigenschaft kann nicht nicht-konfigurierbar sein, es sei denn, es existiert eine entsprechende nicht-konfigurierbare eigene Eigenschaft des Zielobjekts. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `undefined` oder `configurable: true` für die Eigenschaft auf `target` zurückgibt und `descriptor.configurable` `false` ist, muss die Falle einen Falschwert zurückgeben.
-- Eine nicht-konfigurierbare Eigenschaft kann nicht nicht-schreibbar sein, es sei denn, es existiert eine entsprechende nicht-konfigurierbare, nicht-schreibbare eigene Eigenschaft des Zielobjekts. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, writable: true` für die Eigenschaft auf `target` zurückgibt und `descriptor.writable` `false` ist, muss die Falle einen Falschwert zurückgeben.
-- Wenn eine Eigenschaft eine entsprechende Eigenschaft auf dem Zielobjekt hat, dann muss der Deskriptor der Zielobjekteigenschaft mit `descriptor` kompatibel sein. Das heißt, wenn man so tut, als wäre `target` ein gewöhnliches Objekt und {{jsxref("Object/defineProperty", "Object.defineProperty(target, property, descriptor)")}} einen Fehler werfen würde, dann muss die Falle einen Falschwert zurückgeben. Der `Object.defineProperty()` Verweis enthält mehr Informationen, aber zusammengefasst muss bei nicht-konfigurierbaren Zielobjekteigenschaften Folgendes gelten:
-  - `configurable`, `enumerable`, `get` und `set` dürfen nicht geändert werden
-  - die Eigenschaft kann nicht zwischen Daten- und Accessor-Eigenschaft gewechselt werden
-  - das `writable` Attribut darf nur von `true` zu `false` geändert werden
-  - das `value` Attribut darf nur geändert werden, wenn `writable` `true` ist
+- Eine Eigenschaft kann nicht hinzugefügt werden, wenn das Zielobjekt nicht erweiterbar ist. Das heißt, wenn {{jsxref("Reflect.isExtensible()")}} `false` für `target` zurückgibt und {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `undefined` für die Eigenschaft auf `target` zurückgibt, muss die Falle einen falsy Wert zurückgeben.
+- Eine Eigenschaft kann nicht nicht-konfigurierbar sein, es sei denn, es existiert eine entsprechende nicht-konfigurierbare eigene Eigenschaft des Zielobjekts. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `undefined` oder `configurable: true` für die Eigenschaft auf `target` zurückgibt und `descriptor.configurable` `false` ist, muss die Falle einen falsy Wert zurückgeben.
+- Eine nicht-konfigurierbare Eigenschaft kann nicht nicht-schreibbar sein, es sei denn, es gibt eine entsprechende nicht-konfigurierbare, nicht-schreibbare eigene Eigenschaft des Zielobjekts. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, writable: true` für die Eigenschaft auf `target` zurückgibt und `descriptor.writable` `false` ist, muss die Falle einen falsy Wert zurückgeben.
+- Wenn eine Eigenschaft eine entsprechende Eigenschaft auf dem Zielobjekt hat, dann muss der Descriptor der Zielobjekteigenschaft mit `descriptor` kompatibel sein. Das heißt, wenn man so tut, als wäre `target` ein gewöhnliches Objekt und {{jsxref("Object/defineProperty", "Object.defineProperty(target, property, descriptor)")}} würde einen Fehler auslösen, muss die Falle einen falsy Wert zurückgeben. Der Verweis auf `Object.defineProperty()` enthält weitere Informationen, aber zusammenfassend gilt, wenn die Zieleigenschaft nicht konfigurierbar ist, müssen folgende Dinge gültig sein:
+  - `configurable`, `enumerable`, `get` und `set` können nicht geändert werden
+  - die Eigenschaft kann nicht zwischen Daten- und Zugriffsobjekt geändert werden
+  - das Attribut `writable` kann nur von `true` auf `false` geändert werden
+  - das Attribut `value` kann nur geändert werden, wenn `writable` `true` ist
 
 ## Beispiele
 
@@ -82,7 +82,8 @@ const desc = { configurable: true, enumerable: true, value: 10 };
 Object.defineProperty(p, "a", desc); // "called: a"
 ```
 
-Beim Aufrufen von {{jsxref("Object.defineProperty()")}} oder {{jsxref("Reflect.defineProperty()")}} hat der an die `defineProperty()` Falle übergebene `descriptor` eine Einschränkung—nur die folgenden Eigenschaften sind nutzbar (nicht-Standard-Eigenschaften werden ignoriert):
+Beim Aufruf von {{jsxref("Object.defineProperty()")}} oder
+{{jsxref("Reflect.defineProperty()")}} gibt es eine Einschränkung beim `descriptor`, der an die `defineProperty()` Falle übergeben wird – nur folgende Eigenschaften sind nutzbar (nicht standardisierte Eigenschaften werden ignoriert):
 
 - `enumerable`
 - `configurable`

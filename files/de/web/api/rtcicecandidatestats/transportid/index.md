@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`transportId`**-Eigenschaft des {{domxref("RTCIceCandidateStats")}}-Wörterbuchs ist ein String, der das Transportmittel eindeutig identifiziert, das die {{domxref("RTCTransportStats")}} erzeugt hat, aus denen Informationen über diesen Kandidaten entnommen wurden.
+Die **`transportId`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs ist ein String, der den Transport, der die [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats) erzeugt hat, eindeutig identifiziert. Aus diesen wurden Informationen über diesen Kandidaten entnommen.
 
 ## Wert
 
-Ein String, dessen Wert das Transportmittel eindeutig identifiziert, aus dem alle transportbezogenen Informationen in den {{domxref("RTCIceCandidateStats")}} stammen. Dies kann verwendet werden, um beispielsweise Kandidaten zu vergleichen, die dasselbe Transportmittel nutzen würden.
+Ein String, dessen Wert den Transport, aus dem alle transportbezogenen Informationen im [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) gesammelt wurden, eindeutig identifiziert. Dies kann verwendet werden, um Kandidaten zu vergleichen, die denselben Transport verwenden würden, zum Beispiel.
 
 ## Spezifikationen
 

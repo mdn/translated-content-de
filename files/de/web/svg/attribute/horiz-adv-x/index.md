@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das Attribut **`horiz-adv-x`** gibt den horizontalen Vorschub nach der Darstellung eines {{Glossary("glyph")}}s in horizontaler Ausrichtung an.
+Das **`horiz-adv-x`** Attribut gibt die horizontale Erhöhung nach dem Rendern eines [glyph](/de/docs/Glossary/glyph) in horizontaler Orientierung an.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -17,7 +17,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## font
 
-Für {{SVGElement("font")}}-Elemente gibt `horiz-adv-x` den Standardvorschub eines Glyphs in horizontaler Ausrichtung an.
+Für {{SVGElement("font")}} Elemente gibt `horiz-adv-x` die standardmäßige horizontale Erhöhung eines Glyphs in horizontaler Orientierung an.
 
 <table class="properties">
   <tbody>
@@ -43,11 +43,11 @@ Für {{SVGElement("font")}}-Elemente gibt `horiz-adv-x` den Standardvorschub ein
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt den horizontalen Vorschub des Glyphs an.
+  - : Dieser Wert gibt die horizontale Erhöhung des Glyphs an.
 
 ## glyph, missing-glyph
 
-Für {{SVGElement("glyph")}}- und {{SVGElement("missing-glyph")}}-Elemente gibt `horiz-adv-x` den horizontalen Vorschub des Glyphs in horizontaler Ausrichtung an.
+Für {{SVGElement("glyph")}} und {{SVGElement("missing-glyph")}} Elemente gibt `horiz-adv-x` die horizontale Erhöhung des Glyphs in horizontaler Orientierung an.
 
 <table class="properties">
   <tbody>
@@ -64,7 +64,7 @@ Für {{SVGElement("glyph")}}- und {{SVGElement("missing-glyph")}}-Elemente gibt 
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <em>Wert von <code>horiz-adv-x</code> des {{SVGElement("font")}}</em>
+        <em>{{SVGElement("font")}}'s <code>horiz-adv-x</code> Wert</em>
       </td>
     </tr>
     <tr>
@@ -75,7 +75,7 @@ Für {{SVGElement("glyph")}}- und {{SVGElement("missing-glyph")}}-Elemente gibt 
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt den horizontalen Vorschub des Glyphs an.
+  - : Dieser Wert gibt die horizontale Erhöhung des Glyphs an.
 
 ## Spezifikationen
 

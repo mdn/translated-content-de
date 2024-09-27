@@ -1,5 +1,5 @@
 ---
-title: "IDBFactory: open()-Methode"
+title: "IDBFactory: open() Methode"
 short-title: open()
 slug: Web/API/IDBFactory/open
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Die **`open()`**-Methode der {{domxref("IDBFactory")}}-Schnittstelle fordert das Öffnen einer [Verbindung zu einer Datenbank](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#database_connection) an.
+Die **`open()`**-Methode der [`IDBFactory`](/de/docs/Web/API/IDBFactory)-Schnittstelle fordert das Öffnen einer [Datenbankverbindung](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#database_connection) an.
 
-Die Methode gibt sofort ein {{domxref("IDBOpenDBRequest")}}-Objekt zurück und führt den Öffnungsvorgang asynchron aus. Wenn der Vorgang erfolgreich ist, wird ein `success`-Event auf dem zurückgegebenen Anforderungsobjekt ausgelöst, mit dessen `result`-Attribut auf das neue {{domxref("IDBDatabase")}}-Objekt für die Verbindung gesetzt.
+Die Methode gibt sofort ein [`IDBOpenDBRequest`](/de/docs/Web/API/IDBOpenDBRequest)-Objekt zurück und führt die Öffnungsoperation asynchron aus. Wenn die Operation erfolgreich ist, wird ein `success`-Ereignis auf dem Anforderungsobjekt ausgelöst, das von dieser Methode zurückgegeben wird, wobei sein `result`-Attribut auf das neue [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Objekt für die Verbindung gesetzt ist.
 
-Kann `upgradeneeded`-, `blocked`- oder `versionchange`-Events auslösen.
+Kann `upgradeneeded`, `blocked` oder `versionchange` Ereignisse auslösen.
 
 ## Syntax
 
@@ -26,13 +26,13 @@ open(name, version)
 - `name`
   - : Der Name der Datenbank.
 - `version` {{optional_inline}}
-  - : Optional. Die Version, mit der die Datenbank geöffnet werden soll. Wenn die Version nicht angegeben ist und die Datenbank existiert, wird eine Verbindung zur Datenbank geöffnet, ohne deren Version zu ändern. Wenn die Version nicht angegeben ist und die Datenbank nicht existiert, wird sie mit der Version `1` erstellt.
+  - : Optional. Die Version, mit der die Datenbank geöffnet werden soll. Wenn die Version nicht angegeben wird und die Datenbank existiert, wird eine Verbindung zur Datenbank geöffnet, ohne ihre Version zu ändern. Wenn die Version nicht angegeben wird und die Datenbank nicht existiert, wird sie mit der Version `1` erstellt.
 
 ### Rückgabewert
 
-Ein {{domxref("IDBOpenDBRequest")}}-Objekt, auf dem nachfolgende Ereignisse im Zusammenhang mit dieser Anforderung ausgelöst werden.
+Ein [`IDBOpenDBRequest`](/de/docs/Web/API/IDBOpenDBRequest)-Objekt, auf dem nachfolgende Ereignisse im Zusammenhang mit dieser Anforderung ausgelöst werden.
 
-Wenn der Vorgang erfolgreich ist, ist der Wert der {{domxref("IDBRequest.result", "result")}}-Eigenschaft der Anforderung ein {{domxref("IDBDatabase")}}-Objekt, das die Verbindung zur Datenbank darstellt.
+Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft der Anforderung ein [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Objekt, das die Verbindung zur Datenbank darstellt.
 
 ### Ausnahmen
 
@@ -47,28 +47,28 @@ Beispiel für den Aufruf von `open` mit dem `version`-Parameter der aktuellen Sp
 const request = window.indexedDB.open("toDoList", 4);
 ```
 
-Im folgenden Code-Schnipsel machen wir eine Anfrage, um eine Datenbank zu öffnen und fügen Handler für die Erfolgs- und Fehlerfälle hinzu. Für ein vollständiges funktionierendes Beispiel, siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Code-Snippet fordern wir das Öffnen einer Datenbank an und fügen Handler für die Erfolgs- und Fehlerfälle hinzu. Für ein vollständiges funktionierendes Beispiel, siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.querySelector("ul");
 
-// Lassen Sie uns Version 4 unserer Datenbank öffnen
+// Let us open version 4 of our database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
-// diese beiden Event-Handler reagieren auf den erfolgreichen Öffnungsversuch der Datenbank,
-// oder wenn nicht
+// these two event handlers act on the database being opened
+// successfully, or not
 DBOpenRequest.onerror = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Fehler beim Laden der Datenbank.";
+    "Error loading database.";
 };
 
 DBOpenRequest.onsuccess = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Datenbank initialisiert.";
+    "Database initialized.";
 
-  // Speichern Sie das Ergebnis des Öffnens der Datenbank in der
-  // Variable db. Diese wird später oft verwendet, um
-  // Transaktionen zu öffnen und ähnliches.
+  // store the result of opening the database in the db
+  // variable. This is used a lot later on, for opening
+  // transactions and suchlike.
   db = DBOpenRequest.result;
 };
 ```
@@ -84,10 +84,10 @@ DBOpenRequest.onsuccess = (event) => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- [Speicherquoten und Kriterien für die Datenentfernung in Browsern](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria).
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Schlüsselbereichs: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursoren: {{domxref("IDBCursor")}}
+- [Browser-Speicherquoten und Aussonderungskriterien](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria).
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

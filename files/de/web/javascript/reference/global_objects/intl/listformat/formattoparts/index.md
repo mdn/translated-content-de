@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die **`formatToParts()`**-Methode von {{jsxref("Intl.ListFormat")}}-Instanzen
-gibt ein {{jsxref("Array")}} von Objekten zurück, die die verschiedenen Komponenten repräsentieren,
-die verwendet werden können, um eine Liste von Werten in einer sprachabhängigen Weise zu formatieren.
+Die **`formatToParts()`** Methode von {{jsxref("Intl.ListFormat")}} Instanzen
+gibt ein {{jsxref("Array")}} von Objekten zurück, die die verschiedenen Komponenten darstellen, die
+verwendet werden können, um eine Liste von Werten in einer lokalisierten Weise zu formatieren.
 
 {{EmbedInteractiveExample("pages/js/intl-listformat-prototype-formattoparts.html", "taller")}}
 
@@ -22,19 +22,19 @@ formatToParts(list)
 ### Parameter
 
 - `list`
-  - : Ein iterierbares Objekt, wie z. B. ein {{jsxref("Array")}}, das gemäß einer Sprachumgebung formatiert werden soll.
+  - : Ein iterierbares Objekt, wie ein {{jsxref("Array")}}, das gemäß einer Lokalisierung formatiert werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Komponenten, das die formatierten Teile der Liste enthält.
+Ein {{jsxref("Array")}} von Komponenten, das die formatierten Teile aus der Liste enthält.
 
 ## Beschreibung
 
-Während {{jsxref("Intl/ListFormat/format", "Intl.ListFormat.prototype.format()")}} einen String zurückgibt, der die formatierte Version der Liste (gemäß den angegebenen Sprach- und Stiloptionen) darstellt, gibt `formatToParts()` ein Array der verschiedenen Komponenten des formatierten Strings zurück.
+Während {{jsxref("Intl/ListFormat/format", "Intl.ListFormat.prototype.format()")}} eine Zeichenkette zurückgibt, die die formatierte Version der Liste darstellt (entsprechend den angegebenen Lokalisierungs- und Stiloptionen), gibt `formatToParts()` ein Array der verschiedenen Komponenten des formatierten Strings zurück.
 
-Jedes Element des resultierenden Arrays hat zwei Eigenschaften: `type` und `value`. Die Eigenschaft `type` kann entweder `"element"` sein, was sich auf einen Wert aus der Liste bezieht, oder `"literal"`, das sich auf ein sprachliches Konstrukt bezieht. Die Eigenschaft `value` gibt den Inhalt, als String, des Tokens an.
+Jedes Element des resultierenden Arrays besitzt zwei Eigenschaften: `type` und `value`. Die `type` Eigenschaft kann entweder `"element"` sein, das sich auf einen Wert aus der Liste bezieht, oder `"literal"`, das sich auf eine sprachliche Konstruktion bezieht. Die `value` Eigenschaft gibt den Inhalt des Tokens als Zeichenkette an.
 
-Die für das Formatieren verwendeten Sprach- und Stiloptionen werden beim Erstellen der {{jsxref("Intl.ListFormat")}}-Instanz angegeben.
+Die für die Formatierung verwendeten Locale- und Stiloptionen werden bei der Erstellung der {{jsxref("Intl.ListFormat")}} Instanz angegeben.
 
 ## Beispiele
 

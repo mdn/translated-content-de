@@ -8,15 +8,22 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **{{domxref("AudioTrackList")}}**-Eigenschaft **`length`** gibt die Anzahl der Einträge in der `AudioTrackList` zurück, wobei jeder Eintrag ein {{domxref("AudioTrack")}} ist, das einen Audiotrack im Medienelement darstellt. Ein Wert von 0 zeigt an, dass keine Audiotracks im Medium vorhanden sind.
+Die schreibgeschützte **[`AudioTrackList`](/de/docs/Web/API/AudioTrackList)**
+Eigenschaft **`length`** gibt die Anzahl der Einträge in der
+`AudioTrackList` zurück, von denen jeder ein [`AudioTrack`](/de/docs/Web/API/AudioTrack)
+darstellt, der einen Audiotrack im Media-Element repräsentiert. Ein Wert von 0 zeigt an, dass
+keine Audiotracks im Medium vorhanden sind.
 
 ## Wert
 
-Eine Zahl, die angibt, wie viele Audiotracks in der `AudioTrackList` enthalten sind. Jeder Track kann angesprochen werden, indem die `AudioTrackList` als ein Array von Objekten vom Typ {{domxref("AudioTrack")}} behandelt wird.
+Eine Zahl, die angibt, wie viele Audiotracks in der
+`AudioTrackList` enthalten sind. Jeder Track kann durch die Behandlung der
+`AudioTrackList` als ein Array von Objekten des Typs [`AudioTrack`](/de/docs/Web/API/AudioTrack) abgerufen werden.
 
 ## Beispiele
 
-Dieses Codebeispiel ermittelt die Anzahl der Audiotracks im ersten {{HTMLElement("video")}}-Element, das im {{Glossary("DOM")}} mit {{domxref("Document.querySelector", "querySelector()")}} gefunden wird.
+Dieses Snippet ermittelt die Anzahl der Audiotracks im ersten {{HTMLElement("video")}}
+Element, das im [DOM](/de/docs/Glossary/DOM) durch [`querySelector()`](/de/docs/Web/API/Document/querySelector) gefunden wird.
 
 ```js
 const videoElem = document.querySelector("video");
@@ -27,12 +34,12 @@ if (videoElem.audioTracks) {
 }
 ```
 
-Beachten Sie, dass in diesem Beispiel geprüft wird, ob {{domxref("HTMLMediaElement.audioTracks")}} definiert ist, um zu verhindern, dass es bei Browsern ohne Unterstützung für {{domxref("AudioTrack")}} zu einem Fehler kommt.
+Beachten Sie, dass dieses Beispiel prüft, ob [`HTMLMediaElement.audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks) definiert ist, um ein Scheitern bei Browsern ohne Unterstützung für [`AudioTrack`](/de/docs/Web/API/AudioTrack) zu vermeiden.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

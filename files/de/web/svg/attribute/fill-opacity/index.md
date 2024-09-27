@@ -1,5 +1,5 @@
 ---
-title: fill-Deckkraft
+title: fill-opacity
 slug: Web/SVG/Attribute/fill-opacity
 l10n:
   sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das **`fill-opacity`** Attribut ist ein Präsentationsattribut, das die Deckkraft des Farbservers (_Farbe_, _Verlauf_, _Muster_, usw.) definiert, der auf eine Form angewendet wird.
+Das **`fill-opacity`** Attribut ist ein Präsentationsattribut, das die Deckkraft des Farbdienstes (_Farbe_, _Verlauf_, _Muster_ usw.) definiert, der auf eine Form angewendet wird.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `fill-opacity` auch als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut kann `fill-opacity` als CSS-Eigenschaft verwendet werden.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -37,23 +37,23 @@ svg {
 
 ```html
 <svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Standardfülldeckkraft: 1 -->
+  <!-- Default fill opacity: 1 -->
   <circle cx="50" cy="50" r="40" />
 
-  <!-- Fülldeckkraft als Zahl -->
+  <!-- Fill opacity as a number -->
   <circle cx="150" cy="50" r="40" fill-opacity="0.7" />
 
-  <!-- Fülldeckkraft als Prozentsatz -->
+  <!-- Fill opacity as a percentage -->
   <circle cx="250" cy="50" r="40" fill-opacity="50%" />
 
-  <!-- Fülldeckkraft als CSS-Eigenschaft -->
+  <!-- Fill opacity as a CSS property -->
   <circle cx="350" cy="50" r="40" style="fill-opacity: .25;" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -80,13 +80,13 @@ svg {
 </table>
 
 > [!NOTE]
-> SVG2 führt Prozentwerte für `fill-opacity` ein. Diese sind jedoch noch nicht weit verbreitet unterstützt (_Siehe [Browserkompatibilität](#browserkompatibilität) unten_). Daher ist es eine bewährte Praxis, die Deckkraft mit einem Wert im Bereich `[0-1]` einzustellen.
+> SVG2 führt Prozentwerte für `fill-opacity` ein, jedoch wird dies noch nicht weit verbreitet unterstützt (_siehe [Browser-Kompatibilität](#browser-kompatibilität) unten_). Daher ist es am besten, die Deckkraft mit einem Wert im Bereich `[0-1]` zu setzen.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("SVG")}}{{Deprecated_Header}}
 
-Die **`SVGCursorElement`**-Schnittstelle bietet Zugriff auf die Eigenschaften von {{ SVGElement("cursor") }}-Elementen sowie Methoden, um diese zu manipulieren.
+Die **`SVGCursorElement`** Schnittstelle bietet Zugriff auf die Eigenschaften von {{SVGElement("cursor")}}-Elementen sowie Methoden zu deren Manipulation.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, {{domxref("SVGElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGCursorElement.x")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem {{SVGAttr("x")}}-Attribut des angegebenen {{SVGElement("cursor")}}-Elements entspricht.
-- {{domxref("SVGCursorElement.y")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem {{SVGAttr("y")}}-Attribut des angegebenen {{SVGElement("cursor")}}-Elements entspricht.
+- [`SVGCursorElement.x`](/de/docs/Web/API/SVGCursorElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}}-Attribut des angegebenen {{SVGElement("cursor")}}-Elements entspricht.
+- [`SVGCursorElement.y`](/de/docs/Web/API/SVGCursorElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y")}}-Attribut des angegebenen {{SVGElement("cursor")}}-Elements entspricht.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt aber Methoden von ihrem Elternteil, {{domxref("SVGElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

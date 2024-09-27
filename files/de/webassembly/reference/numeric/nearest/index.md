@@ -1,5 +1,5 @@
 ---
-title: Nächste
+title: Nearest
 slug: WebAssembly/Reference/Numeric/Nearest
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`nearest`**-Anweisungen werden verwendet, um den Wert einer Zahl zu erhalten, der auf die nächste ganze Zahl gerundet ist.
+Die **`nearest`** Anweisungen werden verwendet, um den Wert einer Zahl zu erhalten, der auf die nächste ganze Zahl gerundet ist.
 
 {{EmbedInteractiveExample("pages/wat/nearest.html", "tabbed-standard")}}
 
@@ -23,7 +23,7 @@ f32.nearest
 ;; the top item on the stack will now be -3
 ```
 
-| Anweisung     | Binäroperator |
-| ------------- | ------------- |
-| `f32.nearest` | `0x90`        |
-| `f64.nearest` | `0x9e`        |
+| Anweisung     | Binärcode |
+| ------------- | --------- |
+| `f32.nearest` | `0x90`    |
+| `f64.nearest` | `0x9e`    |

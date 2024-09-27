@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}{{Non-standard_header}}
 
-Der **`BeforeInstallPromptEvent()`** Konstruktor erstellt ein neues {{domxref("BeforeInstallPromptEvent")}} Objekt.
+Der **`BeforeInstallPromptEvent()`** Konstruktor erstellt ein neues [`BeforeInstallPromptEvent`](/de/docs/Web/API/BeforeInstallPromptEvent) Objekt.
 
 ## Syntax
 
@@ -20,9 +20,9 @@ new BeforeInstallPromptEvent(type, eventInitDict)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses, gesetzt auf `beforeinstallpromptevent`.
+  - : Ein String mit dem Namen des Ereignisses, festgelegt auf `beforeinstallpromptevent`.
 - `eventInitDict` {{optional_inline}}
-  - : Ein Objekt mit einer einzigen optionalen Eigenschaft `platforms`, die ein Array von Strings ist und die Plattformen auflistet, auf denen das Ereignis ausgelöst wird.
+  - : Ein Objekt mit einer optionalen Eigenschaft `platforms`, das ein Array von Strings ist, welches die Plattformen auflistet, auf denen das Ereignis ausgelöst wird.
 
 ## Spezifikationen
 
@@ -34,5 +34,5 @@ new BeforeInstallPromptEvent(type, eventInitDict)
 
 ## Siehe auch
 
-- [PWA installierbar machen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
-- [Wie Sie Ihre eigene In-App-Installations-Erfahrung bieten können](https://web.dev/articles/customize-install) auf web.dev (2021)
+- [PWAs installierbar machen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
+- [Anleitung zur Bereitstellung einer eigenen In-App-Installationserfahrung](https://web.dev/articles/customize-install) auf web.dev (2021)

@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: globaleCompositeOperation-Eigenschaft"
+title: "CanvasRenderingContext2D: Eigenschaft globalCompositeOperation"
 short-title: globalCompositeOperation
 slug: Web/API/CanvasRenderingContext2D/globalCompositeOperation
 l10n:
@@ -8,42 +8,44 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.globalCompositeOperation`**-Eigenschaft der Canvas 2D API legt den Typ der Kompositionsoperation fest, die beim Zeichnen neuer Formen anzuwenden ist.
+Die
+**`CanvasRenderingContext2D.globalCompositeOperation`**
+Eigenschaft des Canvas 2D API legt die Art der Kompositionsoperation fest, die beim Zeichnen neuer Formen angewendet werden soll.
 
-Siehe auch [Compositing und Clipping](/de/docs/Web/API/Canvas_API/Tutorial/Compositing) im [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial).
+Siehe auch [Komposition und Ausschneiden](/de/docs/Web/API/Canvas_API/Tutorial/Compositing) im [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial).
 
 ## Wert
 
-Ein String, der identifiziert, welche der Kompositions- oder Mischmodusoperationen verwendet werden soll. Dies können folgende Werte sein:
+Ein String, der angibt, welche Kompositions- oder Mischmodusoperation verwendet werden soll. Dies kann einer der folgenden Werte sein:
 
 - `"source-over"`
-  - : Dies ist die Standardeinstellung und zeichnet neue Formen über den vorhandenen Canvas-Inhalt.
+  - : Dies ist die Standardeinstellung und zeichnet neue Formen über den bestehenden Canvas-Inhalt.
 - `"source-in"`
-  - : Die neue Form wird nur dort gezeichnet, wo sowohl die neue Form als auch der Ziel-Canvas überlappen. Alles andere wird transparent gemacht.
+  - : Die neue Form wird nur dort gezeichnet, wo sich sowohl die neue Form als auch das Ziel-Canvas überlappen. Alles andere wird transparent gemacht.
 - `"source-out"`
-  - : Die neue Form wird dort gezeichnet, wo sie nicht mit dem vorhandenen Canvas-Inhalt überlappt.
+  - : Die neue Form wird dort gezeichnet, wo sie sich nicht mit dem bestehenden Canvas-Inhalt überlappt.
 - `"source-atop"`
-  - : Die neue Form wird nur dort gezeichnet, wo sie mit dem vorhandenen Canvas-Inhalt überlappt.
+  - : Die neue Form wird nur dort gezeichnet, wo sie sich mit dem bestehenden Canvas-Inhalt überlappt.
 - `"destination-over"`
-  - : Neue Formen werden hinter dem vorhandenen Canvas-Inhalt gezeichnet.
+  - : Neue Formen werden hinter den bestehenden Canvas-Inhalt gezeichnet.
 - `"destination-in"`
-  - : Der vorhandene Canvas-Inhalt wird dort beibehalten, wo sowohl die neue Form als auch der vorhandene Canvas-Inhalt überlappen. Alles andere wird transparent gemacht.
+  - : Der bestehende Canvas-Inhalt wird dort beibehalten, wo sich sowohl die neue Form als auch der bestehende Canvas-Inhalt überlappen. Alles andere wird transparent gemacht.
 - `"destination-out"`
-  - : Der vorhandene Inhalt wird dort beibehalten, wo er nicht mit der neuen Form überlappt.
+  - : Der bestehende Inhalt wird dort beibehalten, wo er sich nicht mit der neuen Form überlappt.
 - `"destination-atop"`
-  - : Der vorhandene Canvas wird nur dort beibehalten, wo er mit der neuen Form überlappt. Die neue Form wird hinter dem Canvas-Inhalt gezeichnet.
+  - : Das bestehende Canvas wird nur dort beibehalten, wo es sich mit der neuen Form überlappt. Die neue Form wird hinter den Canvas-Inhalt gezeichnet.
 - `"lighter"`
-  - : Wo beide Formen überlappen, wird die Farbe durch Addition der Farbwerte bestimmt.
+  - : Wo beide Formen überlappen, wird die Farbe durch Hinzufügen der Farbwerte bestimmt.
 - `"copy"`
-  - : Nur die neue Form wird angezeigt.
+  - : Nur die neue Form ist zu sehen.
 - `"xor"`
-  - : Formen werden dort transparent gemacht, wo beide überlappen, und überall sonst normal gezeichnet.
+  - : Formen werden dort transparent gemacht, wo sie sich überlappen, und überall sonst normal gezeichnet.
 - `"multiply"`
   - : Die Pixel der oberen Ebene werden mit den entsprechenden Pixeln der unteren Ebene multipliziert. Das Ergebnis ist ein dunkleres Bild.
 - `"screen"`
-  - : Die Pixel werden invertiert, multipliziert und erneut invertiert. Das Ergebnis ist ein helleres Bild (Gegenteil von `multiply`).
+  - : Die Pixel werden invertiert, multipliziert und wieder invertiert. Das Ergebnis ist ein helleres Bild (das Gegenteil von `multiply`).
 - `"overlay"`
-  - : Eine Kombination aus `multiply` und `screen`. Dunkle Teile auf der Basisebene werden dunkler, und helle Teile werden heller.
+  - : Eine Kombination aus `multiply` und `screen`. Dunkle Bereiche auf der Basisebene werden dunkler und helle Bereiche werden heller.
 - `"darken"`
   - : Beibehaltung der dunkelsten Pixel beider Ebenen.
 - `"lighten"`
@@ -53,27 +55,28 @@ Ein String, der identifiziert, welche der Kompositions- oder Mischmodusoperation
 - `"color-burn"`
   - : Teilt die invertierte untere Ebene durch die obere Ebene und invertiert dann das Ergebnis.
 - `"hard-light"`
-  - : Wie `overlay`, eine Kombination aus `multiply` und `screen` — jedoch mit vertauschten oberen und unteren Ebenen.
+  - : Wie `overlay`, eine Kombination aus `multiply` und `screen` — aber mit vertauschten oberen und unteren Ebenen.
 - `"soft-light"`
-  - : Eine weichere Version von `hard-light`. Reines Schwarz oder Weiß ergibt nicht reines Schwarz oder Weiß.
+  - : Eine weichere Version von `hard-light`. Reines Schwarz oder Weiß führt nicht zu reinem Schwarz oder Weiß.
 - `"difference"`
-  - : Subtrahiert die untere Ebene von der oberen Ebene — oder umgekehrt — um immer einen positiven Wert zu erhalten.
+  - : Subtrahiert die untere Ebene von der oberen Ebene — oder umgekehrt —, um immer einen positiven Wert zu erhalten.
 - `"exclusion"`
   - : Wie `difference`, aber mit geringerem Kontrast.
 - `"hue"`
-  - : Behält die Luma und Chroma der unteren Ebene bei, während der Farbton der oberen Ebene übernommen wird.
+  - : Bewahrt Luminanz und Chroma der unteren Ebene und übernimmt den Farbton der oberen Ebene.
 - `"saturation"`
-  - : Behält die Luma und den Farbton der unteren Ebene bei, während die Chroma der oberen Ebene übernommen wird.
+  - : Bewahrt Luminanz und Farbton der unteren Ebene und übernimmt das Chroma der oberen Ebene.
 - `"color"`
-  - : Behält die Luma der unteren Ebene bei, während der Farbton und die Chroma der oberen Ebene übernommen werden.
+  - : Bewahrt die Luminanz der unteren Ebene und übernimmt Farbton und Chroma der oberen Ebene.
 - `"luminosity"`
-  - : Behält den Farbton und die Chroma der unteren Ebene bei, während die Luma der oberen Ebene übernommen wird.
+  - : Bewahrt Farbton und Chroma der unteren Ebene und übernimmt die Luminanz der oberen Ebene.
 
 ## Beispiele
 
-### Änderung der Kompositionsoperation
+### Ändern der Kompositionsoperation
 
-Dieses Beispiel verwendet die `globalCompositeOperation`-Eigenschaft, um zwei Rechtecke zu zeichnen, die sich dort ausschließen, wo sie überlappen.
+Dieses Beispiel verwendet die `globalCompositeOperation`-Eigenschaft, um zwei
+Rechtecke zu zeichnen, die sich gegenseitig ausschließen, wo sie sich überlappen.
 
 #### HTML
 
@@ -104,7 +107,7 @@ ctx.fillRect(50, 50, 100, 100);
 
 #### Globale Werte
 
-Dieser Code richtet die von dem Rest des Programms verwendeten globalen Werte ein.
+Dieser Code legt die globalen Werte fest, die vom Rest des Programms verwendet werden.
 
 ```js
 const canvas1 = document.createElement("canvas");
@@ -171,7 +174,7 @@ const height = 340;
 
 #### Hauptprogramm
 
-Wenn die Seite geladen wird, wird dieser Code ausgeführt, um das Beispiel einzurichten und auszuführen:
+Wenn die Seite geladen ist, wird dieser Code ausgeführt, um das Beispiel einzurichten und auszuführen:
 
 ```js
 window.onload = () => {
@@ -193,7 +196,7 @@ window.onload = () => {
 };
 ```
 
-Und dieser Code, `runComposite()`, führt den Großteil der Arbeit aus, indem er sich auf eine Reihe von Dienstprogrammfunktionen verlässt, um die schwierigen Teile zu übernehmen.
+Und dieser Code, `runComposite()`, übernimmt den Großteil der Arbeit, indem er auf eine Reihe von Hilfsfunktionen zurückgreift, um die schwierigen Teile zu erledigen.
 
 ```js
 function createCanvas() {
@@ -268,9 +271,9 @@ function runComposite() {
 }
 ```
 
-#### Dienstprogrammfunktionen
+#### Hilfsfunktionen
 
-Das Programm verlässt sich auf eine Reihe von Dienstprogrammfunktionen.
+Das Programm stützt sich auf eine Reihe von Hilfsfunktionen.
 
 ```js
 const lightMix = () => {
@@ -424,5 +427,5 @@ const op_8x8 = createInterlace(8, "#FFF", "#eee");
 
 ## Siehe auch
 
-- Das Interface, das diese Eigenschaft definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasRenderingContext2D.globalAlpha")}}
+- Die Schnittstelle, die diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasRenderingContext2D.globalAlpha`](/de/docs/Web/API/CanvasRenderingContext2D/globalAlpha)

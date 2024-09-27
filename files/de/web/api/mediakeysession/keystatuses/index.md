@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`keyStatuses`** schreibgeschützte Eigenschaft des {{domxref('MediaKeySession')}}-Interfaces gibt eine Referenz auf eine schreibgeschützte {{domxref('MediaKeyStatusMap')}} der Schlüssel und deren Status der aktuellen Sitzung zurück.
+Die schreibgeschützte Eigenschaft **`keyStatuses`** der [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Schnittstelle gibt eine Referenz auf eine schreibgeschützte [`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap) der Schlüssel der aktuellen Sitzung und deren Status zurück.
 
 ## Wert
 
-Eine {{domxref('MediaKeyStatusMap')}}.
+Eine [`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap).
 
 ## Spezifikationen
 

@@ -8,32 +8,31 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`Element.scrollWidth`** ist ein Maß für die Breite des Inhalts eines Elements, einschließlich des Inhalts, der aufgrund von Überlauf nicht auf dem Bildschirm sichtbar ist.
+Die **`Element.scrollWidth`**-Eigenschaft ist ein schreibgeschütztes Maß für die Breite des Inhalts eines Elements, einschließlich des Inhalts, der aufgrund von Überlauf nicht auf dem Bildschirm sichtbar ist.
 
-Der `scrollWidth`-Wert entspricht der minimalen Breite, die das Element benötigen würde, um den gesamten Inhalt im Viewport unterzubringen, ohne eine horizontale Scrollleiste zu verwenden. Die Breite wird in der gleichen Weise wie {{domxref("Element.clientWidth", "clientWidth")}} gemessen: Sie schließt das Padding des Elements ein, nicht aber dessen Rahmen, Rand oder vertikale Scrollleiste (falls vorhanden). Sie kann auch die Breite von Pseudoelementen wie {{cssxref("::before")}} oder {{cssxref("::after")}} einschließen. Wenn der Inhalt des Elements ohne horizontalen Scrollbalken passt, ist sein `scrollWidth` gleich der {{domxref("Element.clientWidth", "clientWidth")}}.
+Der `scrollWidth`-Wert entspricht der minimalen Breite, die das Element benötigen würde, um den gesamten Inhalt im Ansichtsfenster ohne horizontale Bildlaufleiste anzuzeigen. Die Breite wird auf die gleiche Weise gemessen wie die [`clientWidth`](/de/docs/Web/API/Element/clientWidth): Sie umfasst die Auffüllung des Elements, nicht jedoch die Rahmen, den Rand oder die vertikale Bildlaufleiste (sofern vorhanden). Sie kann auch die Breite von Pseudoelementen wie {{cssxref("::before")}} oder {{cssxref("::after")}} einschließen. Wenn der Inhalt des Elements ohne horizontalen Bildlauf passt, entspricht der `scrollWidth` der [`clientWidth`](/de/docs/Web/API/Element/clientWidth).
 
 > [!NOTE]
-> Diese Eigenschaft rundet den Wert auf eine ganze Zahl. Wenn Sie einen Bruchwert benötigen,
-> verwenden Sie {{ domxref("element.getBoundingClientRect()") }}.
+> Diese Eigenschaft rundet den Wert auf eine ganze Zahl. Wenn Sie einen Bruchwert benötigen, verwenden Sie [`element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
 
 ## Wert
 
-Ein Integer.
+Eine ganze Zahl.
 
 ## Beispiele
 
 ### Erkennen von überlaufendem Inhalt
 
-In diesem Beispiel verwenden wir die Eigenschaft `scrollWidth`, um zu überprüfen, ob der Inhalt eines Elements über seine Grenzen hinausläuft. Wir haben zwei `div`-Elemente, das erste mit einer Breite von `100px` und das zweite ohne feste Breite. Ihr Inhalt ist genau derselbe, und wir zeigen eine Nachricht darüber an, ob jedes Element seinen Container überläuft.
+In diesem Beispiel verwenden wir die `scrollWidth`-Eigenschaft, um zu überprüfen, ob der Inhalt eines Elements seine Grenzen überfließt. Wir haben zwei `div`-Elemente: das erste mit einer Breite von `100px` und das zweite ohne feste Breite. Ihr Inhalt ist genau derselbe, und wir zeigen eine Nachricht darüber an, ob jedes den Container überläuft.
 
 #### HTML
 
 ```html
 <div id="div1">FooBar-FooBar-FooBar-FooBar</div>
-<button id="button1">Auf Überlauf prüfen</button>
+<button id="button1">Check for overflow</button>
 <pre id="log1"></pre>
 <div id="div2">FooBar-FooBar-FooBar-FooBar</div>
-<button id="button2">Auf Überlauf prüfen</button>
+<button id="button2">Check for overflow</button>
 <pre id="log2"></pre>
 ```
 
@@ -76,16 +75,16 @@ const div2 = document.getElementById("div2");
 const log1 = document.getElementById("log1");
 const log2 = document.getElementById("log2");
 
-// Prüfen, ob der scrollWidth größer als der offsetWidth ist oder nicht
+// Check if the scrollWidth is bigger than the offsetWidth or not
 function isOverflowing(element) {
   return element.scrollWidth > element.offsetWidth;
 }
 
 function checkOverflow(element, log) {
   if (isOverflowing(element)) {
-    log.innerText = `Der Inhalt läuft über, scrollWidth ist ${element.scrollWidth}px`;
+    log.innerText = `Content is overflowing, scrollWidth is ${element.scrollWidth}px`;
   } else {
-    log.innerText = `Kein Überlauf, scrollWidth ist ${element.scrollWidth}px`;
+    log.innerText = `No overflows, scrollWidth is ${element.scrollWidth}px`;
   }
 }
 
@@ -100,7 +99,7 @@ button2.addEventListener("click", () => {
 
 #### Ergebnis
 
-Klicken Sie die Schaltflächen an, um zu überprüfen, ob der Inhalt die Container überläuft.
+Klicken Sie auf die Schaltflächen, um zu überprüfen, ob der Inhalt die Container überläuft.
 
 {{EmbedLiveSample("detecting_overflowing_content", "100%", "190")}}
 
@@ -114,6 +113,6 @@ Klicken Sie die Schaltflächen an, um zu überprüfen, ob der Inhalt die Contain
 
 ## Siehe auch
 
-- {{domxref("Element.clientWidth")}}
-- {{domxref("HTMLElement.offsetWidth")}}
+- [`Element.clientWidth`](/de/docs/Web/API/Element/clientWidth)
+- [`HTMLElement.offsetWidth`](/de/docs/Web/API/HTMLElement/offsetWidth)
 - [Bestimmung der Abmessungen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)

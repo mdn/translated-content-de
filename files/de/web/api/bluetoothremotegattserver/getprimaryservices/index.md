@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **BluetoothRemoteGATTServer.getPrimaryServices()**-Methode gibt ein Promise zurück, das eine Liste von primären {{domxref("BluetoothRemoteGATTService")}}-Objekten bereitstellt, die vom Bluetooth-Gerät für eine bestimmte `BluetoothServiceUUID` angeboten werden.
+Die **BluetoothRemoteGATTServer.getPrimaryServices()**-Methode gibt ein Versprechen auf eine Liste primärer [`BluetoothRemoteGATTService`](/de/docs/Web/API/BluetoothRemoteGATTService)-Objekte zurück, die von dem Bluetooth-Gerät für eine bestimmte `BluetoothServiceUUID` angeboten werden.
 
 ## Syntax
 
@@ -19,12 +19,11 @@ getPrimaryServices(bluetoothServiceUUID)
 ### Parameter
 
 - `bluetoothServiceUUID`
-  - : Ein universell eindeutiger Bluetooth-Dienstkennung für ein bestimmtes Gerät.
+  - : Ein universell eindeutiger Bezeichner für einen Bluetooth-Dienst für ein bestimmtes Gerät.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das in eine Liste von {{domxref("BluetoothRemoteGATTService")}}
-Objekten aufgelöst wird.
+Ein {{jsxref("Promise")}}, das in eine Liste von [`BluetoothRemoteGATTService`](/de/docs/Web/API/BluetoothRemoteGATTService)-Objekten aufgelöst wird.
 
 ## Spezifikationen
 

@@ -1,6 +1,6 @@
 ---
-title: "EventSource: Fehlerereignis"
-short-title: Fehler
+title: "EventSource: error Ereignis"
+short-title: error
 slug: Web/API/EventSource/error_event
 l10n:
   sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das `error`-Ereignis der {{domxref("EventSource")}} API wird ausgelöst, wenn eine Verbindung mit einer Ereignisquelle nicht geöffnet werden kann.
+Das `error` Ereignis der [`EventSource`](/de/docs/Web/API/EventSource) API wird ausgelöst, wenn eine Verbindung zu einer Ereignisquelle nicht geöffnet werden kann.
 
-Dieses Ereignis ist nicht abbruchbar und wird nicht propagiert.
+Dieses Ereignis kann nicht abgebrochen werden und blubbert nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -24,21 +24,21 @@ onerror = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
 ```js
 const evtSource = new EventSource("sse.php");
 
-// Version mit addEventListener
+// addEventListener version
 evtSource.addEventListener("error", (e) => {
-  console.log("Ein Fehler ist beim Versuch, eine Verbindung aufzubauen, aufgetreten.");
+  console.log("An error occurred while attempting to connect.");
 });
 
-// Version mit onerror
+// onerror version
 evtSource.onerror = (e) => {
-  console.log("Ein Fehler ist beim Versuch, eine Verbindung aufzubauen, aufgetreten.");
+  console.log("An error occurred while attempting to connect.");
 };
 ```
 
@@ -52,6 +52,6 @@ evtSource.onerror = (e) => {
 
 ## Siehe auch
 
-- [Verwendung von Server-sent Events](/de/docs/Web/API/Server-sent_events/Using_server-sent_events)
+- [Verwendung von server-sent events](/de/docs/Web/API/Server-sent_events/Using_server-sent_events)
 - [`open`](/de/docs/Web/API/EventSource/open_event)
 - [`message`](/de/docs/Web/API/EventSource/message_event)

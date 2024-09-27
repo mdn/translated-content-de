@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`formatRange()`** von {{jsxref("Intl.NumberFormat")}}-Instanzen formatiert einen Zahlenbereich entsprechend den Sprach- und Formatierungsoptionen dieses `Intl.NumberFormat`-Objekts.
+Die **`formatRange()`**-Methode von {{jsxref("Intl.NumberFormat")}}-Instanzen formatiert einen Bereich von Zahlen gemäß den Gebietsschema- und Formatierungsoptionen dieses `Intl.NumberFormat`-Objekts.
 
 ## Syntax
 
@@ -24,18 +24,18 @@ formatRange(startRange, endRange)
 
 ### Rückgabewert
 
-Ein String, der den angegebenen Bereich von Zahlen darstellt, formatiert gemäß den Sprach- und Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}}-Objekts.
+Ein String, der den angegebenen Zahlenbereich darstellt, formatiert gemäß den Gebietsschema- und Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}}-Objekts.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `startRange` kleiner als `endRange` ist oder wenn einer der Werte `NaN` ist.
+  - : Wird ausgelöst, wenn `startRange` kleiner als `endRange` ist oder einer der Werte `NaN` ist.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn entweder `startRange` oder `endRange` undefiniert ist.
 
 ## Beschreibung
 
-Die `formatRange`-Getter-Funktion formatiert einen Bereich von Zahlen zu einem String entsprechend den Sprach- und Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}}-Objekts, von dem sie aufgerufen wird.
+Die `formatRange`-Getter-Funktion formatiert einen Bereich von Zahlen in einen String, der gemäß den Gebietsschema- und Formatierungsoptionen dieses {{jsxref("Intl.NumberFormat")}}-Objekts, von dem sie aufgerufen wird, dargestellt wird.
 
 ## Beispiele
 
@@ -52,8 +52,8 @@ const nf = new Intl.NumberFormat("en-US", {
 
 console.log(nf.formatRange(3, 5)); // "$3 – $5"
 
-// Hinweis: Das "ungefähr gleich"-Symbol wird hinzugefügt, wenn
-// startRange und endRange auf die gleichen Werte gerundet werden.
+// Note: the "approximately equals" symbol is added if
+// startRange and endRange round to the same values.
 console.log(nf.formatRange(2.9, 3.1)); // "~$3"
 ```
 

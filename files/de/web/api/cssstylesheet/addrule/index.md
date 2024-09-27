@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}{{deprecated_header}}
 
-Die veraltete **`addRule()`**-Methode des {{domxref("CSSStyleSheet")}}-Interfaces fügt der Stylesheet eine neue Regel hinzu. Sie sollten diese Methode vermeiden und stattdessen die standardmäßigere {{domxref("CSSStyleSheet.insertRule", "insertRule()")}}-Methode verwenden.
+Die veraltete _Legacy-Methode_ **`addRule()`** des [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Interfaces fügt dem Stylesheet eine neue Regel hinzu. Sie sollten diese Methode vermeiden und stattdessen die standardmäßigere Methode [`insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule) verwenden.
 
 ## Syntax
 
@@ -21,27 +21,27 @@ addRule(selector, styleBlock, index)
 - `selector`
   - : Ein String, der den Selektor-Teil der CSS-Regel angibt. Der Standardwert ist der String `undefined`.
 - `styleBlock`
-  - : Ein String, der den Style-Block angibt, der auf Elemente angewendet werden soll, die dem `selector` entsprechen. Der Standardwert ist der String `undefined`.
+  - : Ein String, der den Style-Block angibt, der auf Elemente angewendet wird, die mit dem `selector` übereinstimmen. Der Standardwert ist der String `undefined`.
 - `index` {{optional_inline}}
-  - : Ein optionaler Index in der {{domxref("CSSRuleList")}} des Stylesheets, an dem die neue Regel eingefügt werden soll. Wenn `index` nicht angegeben ist, wird der nächste Index nach dem letzten derzeit in der Liste befindlichen Element verwendet (das heißt, der Wert von `cssStyleSheet.cssRules.length`).
+  - : Ein optionaler Index in der [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) des Stylesheets, an dem die neue Regel eingefügt wird. Wenn `index` nicht angegeben ist, wird der nächste Index nach dem letzten derzeit in der Liste befindlichen Element verwendet (das heißt, der Wert von `cssStyleSheet.cssRules.length`).
 
 ### Rückgabewert
 
 Gibt immer -1 zurück.
 
-Beachten Sie, dass aufgrund einiger eher esoterischer Regeln darüber, wo Sie Regeln legal einfügen können, eine Ausnahme ausgelöst werden kann. Weitere Informationen finden Sie bei {{domxref("CSSStyleSheet.insertRule", "insertRule()")}}.
+Beachten Sie, dass aufgrund einiger eher esoterischer Regeln, wo Sie Regeln legal einfügen können, möglicherweise eine Ausnahme ausgelöst wird. Weitere Informationen finden Sie unter [`insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule).
 
 ## Hinweise zur Verwendung
 
-Diese Methode wird von Browsern implementiert, indem ein String unter Verwendung des Template-Literals `` `${selector}{${styleBlock}}` `` konstruiert und dann in die Standard-{{domxref("CSSStyleSheet.insertRule", "insertRule()")}}-Methode übergeben wird.
+Diese Methode wird von Browsern implementiert, indem sie einen String mit dem Template Literal `` `${selector}{${styleBlock}}` `` erstellen und ihn dann in die standardmäßige Methode [`insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule) übergeben.
 
-Daher kann bestehender Code wie der folgende:
+Daher können Sie vorhandenen Code wie den folgenden:
 
 ```js
 cssStyleSheet.addRule(selector, styles, 0);
 ```
 
-in eine Verwendung von `insertRule()` umgeschrieben werden, die so aussieht:
+umformulieren, um die standardmäßigere `insertRule()` zu verwenden, wie folgt:
 
 ```js
 cssStyleSheet.insertRule(`${selector} {${styles}}`, 0);
@@ -58,4 +58,4 @@ cssStyleSheet.insertRule(`${selector} {${styles}}`, 0);
 ## Siehe auch
 
 - [CSS Object Model](/de/docs/Web/API/CSS_Object_Model)
-- [Verwenden dynamischer Stylinginformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [Verwendung von dynamischen Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

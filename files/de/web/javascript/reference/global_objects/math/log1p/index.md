@@ -26,7 +26,7 @@ Math.log1p(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl, die größer als oder gleich -1 ist.
+  - : Eine Zahl größer oder gleich -1.
 
 ### Rückgabewert
 
@@ -34,10 +34,10 @@ Der natürliche Logarithmus (Basis [e](/de/docs/Web/JavaScript/Reference/Global_
 
 ## Beschreibung
 
-Für sehr kleine Werte von _x_ kann das Hinzufügen von 1 die Präzision verringern oder eliminieren. Die in JS verwendeten Gleitkommazahlen (double floats) bieten etwa 15 Stellen Präzision. 1 + 1e-15 \= 1.000000000000001, aber 1 + 1e-16 = 1.000000000000000 und daher genau 1.0 in dieser Arithmetik, da Stellen nach der 15. abgerundet werden.
+Für sehr kleine Werte von _x_ kann das Hinzufügen von 1 die Genauigkeit verringern oder eliminieren. Die in JS verwendeten Gleitkommazahlen mit doppelter Genauigkeit bieten etwa 15 Stellen Genauigkeit. 1 + 1e-15 \= 1.000000000000001, aber 1 + 1e-16 = 1.000000000000000 und daher genau 1.0 in dieser Arithmetik, da Stellen nach der 15. abgerundet werden.
 
 <!-- prettier-ignore-start -->
-Wenn Sie log(1 + _x_) berechnen, wobei _x_ eine kleine positive Zahl ist, sollten Sie eine Antwort erhalten, die sehr nahe bei _x_ liegt, weil: <math><semantics><mrow><munder><mo movablelimits="true" form="prefix">lim</mo><mrow ><mi>x</mi><mo stretchy="false">→</mo><mn>0</mn></mrow></munder><mfrac><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mi>x</mi></mfrac><mo>=</mo><mn>1</mn></mrow><annotation encoding="TeX">\lim_{x \to 0} \frac{\log(1+x)}{x} = 1</annotation></semantics></math>. Berechnen Sie `Math.log(1 + 1.1111111111e-15)`, sollten Sie eine Antwort nahe bei `1.1111111111e-15` erhalten. Stattdessen nehmen Sie den Logarithmus von `1.00000000000000111022` (die Rundung erfolgt im Binärformat, daher sieht sie manchmal unschön aus) und erhalten die Antwort 1.11022…e-15 mit nur 3 korrekten Stellen. Wenn Sie stattdessen `Math.log1p(1.1111111111e-15)` berechnen, erhalten Sie eine viel genauere Antwort, `1.1111111110999995e-15`, mit 15 korrekten Stellen Präzision (tatsächlich in diesem Fall 16).
+Wenn Sie `log(1 + _x_)` berechnen, wobei _x_ eine kleine positive Zahl ist, sollten Sie eine Antwort erhalten, die sehr nahe bei _x_ liegt, weil: <math><semantics><mrow><munder><mo movablelimits="true" form="prefix">lim</mo><mrow ><mi>x</mi><mo stretchy="false">→</mo><mn>0</mn></mrow></munder><mfrac><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mi>x</mi></mfrac><mo>=</mo><mn>1</mn></mrow><annotation encoding="TeX">\lim_{x \to 0} \frac{\log(1+x)}{x} = 1</annotation></semantics></math>. Wenn Sie `Math.log(1 + 1.1111111111e-15)` berechnen, sollten Sie eine Antwort erhalten, die nahe bei `1.1111111111e-15` liegt. Stattdessen nehmen Sie den Logarithmus von `1.00000000000000111022` (das Rundungsproblem tritt im Binären auf, daher wird es manchmal unschön) und erhalten die Antwort 1.11022...e-15, mit nur 3 korrekten Stellen. Wenn Sie stattdessen `Math.log1p(1.1111111111e-15)` berechnen, erhalten Sie eine viel genauere Antwort, `1.1111111110999995e-15`, mit 15 korrekten Stellen (in diesem Fall tatsächlich 16).
 <!-- prettier-ignore-end -->
 
 Wenn der Wert von `x` kleiner als -1 ist, ist der Rückgabewert immer {{jsxref("NaN")}}.

@@ -7,13 +7,13 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet werden kann, um die Art und Weise zu ändern, wie der Browser mit animierten Bildern, wie zum Beispiel GIFs, umgeht.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, das verwendet werden kann, um die Art und Weise zu ändern, wie der Browser mit animierten Bildern, wie GIFs, umgeht.
 
-Der zugrundeliegende Wert ist ein String, der drei Werte annehmen kann:
+Der zugrunde liegende Wert ist ein String, der einen von drei Werten annehmen kann:
 
-- "normal": die Voreinstellung. Animierte Bilder wie gewohnt abspielen.
-- "none": Bilder überhaupt nicht animieren.
-- "once": die Animation einmal abspielen.
+- "normal": der Standard. Animierte Bilder werden normal abgespielt.
+- "none": Bilder werden überhaupt nicht animiert.
+- "once": Die Animation wird einmal abgespielt.
 
 ## Browser-Kompatibilität
 
@@ -21,7 +21,7 @@ Der zugrundeliegende Wert ist ein String, der drei Werte annehmen kann:
 
 ## Beispiele
 
-Deaktivieren Sie animierte Bilder:
+Animierte Bilder deaktivieren:
 
 ```js
 browser.browserSettings.imageAnimationBehavior.set({ value: "none" });

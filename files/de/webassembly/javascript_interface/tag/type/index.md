@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`type()`** Prototyp-Methode des [`Tag`](/de/docs/WebAssembly/JavaScript_interface/Tag) Objekts kann verwendet werden, um die Sequenz von Datentypen zu erhalten, die mit dem Tag verbunden sind.
+Die **`type()`** Prototyp-Methode des [`Tag`](/de/docs/WebAssembly/JavaScript_interface/Tag)-Objekts kann verwendet werden, um die Sequenz der mit dem Tag verknüpften Datentypen abzurufen.
 
 ## Syntax
 
@@ -21,22 +21,22 @@ Keine
 
 ### Rückgabewert
 
-Ein Objekt mit einer Eigenschaft namens `parameters`, das auf das Array der mit diesem [`Tag`](/de/docs/WebAssembly/JavaScript_interface/Tag) verbundenen Datentypen verweist.
+Ein Objekt mit einer Eigenschaft namens `parameters`, die auf das Array der mit diesem [`Tag`](/de/docs/WebAssembly/JavaScript_interface/Tag) verbundenen Datentypen verweist.
 
-Dies ist eine Kopie des `type` Objekts, das ursprünglich in den [`Tag()` Konstruktor](/de/docs/WebAssembly/JavaScript_interface/Tag/Tag) übergeben wurde.
+Dies ist eine Kopie des `type`-Objekts, das ursprünglich in den [`Tag()`-Konstruktor](/de/docs/WebAssembly/JavaScript_interface/Tag/Tag) übergeben wurde.
 
 ## Beispiele
 
-Dieses Codebeispiel erstellt ein Tag, das zwei Datentypen definiert, und exportiert diese dann mit `type()`. Das Ergebnis wird auf die Konsole ausgegeben:
+Dieser Codeausschnitt erstellt ein Tag, das zwei Datentypen definiert und exportiert sie dann mit `type()`. Das Ergebnis wird in der Konsole ausgegeben:
 
 ```js
 const tag = new WebAssembly.Tag({ parameters: ["i32", "i64"] });
 console.log(tag.type());
 
-// Konsolenausgabe:
-// Objekt { parameters: (2) […] }
+// Console output:
+// Object { parameters: (2) […] }
 //   parameters: Array [ "i32", "i64" ]
-//   <prototype>: Objekt { … }
+//   <prototype>: Object { … }
 ```
 
 ## Spezifikationen

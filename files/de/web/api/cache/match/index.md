@@ -1,5 +1,5 @@
 ---
-title: "Cache: match() Methode"
+title: "Cache: match()-Methode"
 short-title: match()
 slug: Web/API/Cache/match
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`match()`** Methode der {{domxref("Cache")}} Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das auf die {{domxref("Response")}} auflöst, die der ersten passenden Anfrage im {{domxref("Cache")}} Objekt zugeordnet ist. Wenn kein Treffer gefunden wird, wird das {{jsxref("Promise")}} auf {{jsxref("undefined")}} aufgelöst.
+Die **`match()`**-Methode des [`Cache`](/de/docs/Web/API/Cache)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das die [`Response`](/de/docs/Web/API/Response) auflöst, die mit der ersten übereinstimmenden Anfrage im [`Cache`](/de/docs/Web/API/Cache)-Objekt verknüpft ist.
+Wenn keine Übereinstimmung gefunden wird, löst sich das {{jsxref("Promise")}} zu {{jsxref("undefined")}} auf.
 
 ## Syntax
 
@@ -20,41 +21,62 @@ match(request, options)
 ### Parameter
 
 - `request`
-  - : Die {{domxref("Request")}}, für die Sie versuchen, Antworten im {{domxref("Cache")}} zu finden. Dies kann ein {{domxref("Request")}} Objekt oder ein URL-String sein.
+  - : Die [`Request`](/de/docs/Web/API/Request), für die Sie versuchen, Antworten im
+    [`Cache`](/de/docs/Web/API/Cache) zu finden. Dies kann ein [`Request`](/de/docs/Web/API/Request)-Objekt oder ein URL-String sein.
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das Optionen für den `match`-Vorgang festlegt. Die verfügbaren Optionen sind:
+  - : Ein Objekt, das Optionen für die `match`-Operation festlegt.
+    Die verfügbaren Optionen sind:
 
     - `ignoreSearch`
-      - : Ein boolescher Wert, der angibt, ob der Abfrage-String in der URL ignoriert werden soll. Wenn beispielsweise `true` gesetzt ist, wird der `?value=bar` Teil von `http://foo.com/?value=bar` ignoriert, wenn eine Übereinstimmung durchgeführt wird. Der Standardwert ist `false`.
+      - : Ein boolean-Wert, der angibt, ob der Abfrage-String in der URL ignoriert werden soll. Wenn zum Beispiel auf
+        `true` gesetzt, wird der Teil `?value=bar`
+        von `http://foo.com/?value=bar` beim Ausführen eines Abgleichs ignoriert.
+        Standardmäßig ist es `false`.
     - `ignoreMethod`
-      - : Ein boolescher Wert, der, wenn er auf `true` gesetzt ist, verhindert, dass Übereinstimmungsvorgänge die {{domxref("Request")}} `http`-Methode validieren (normalerweise sind nur `GET` und `HEAD` erlaubt). Der Standardwert ist `false`.
+      - : Ein boolean-Wert, der, wenn er auf
+        `true` eingestellt ist, verhindert, dass Abgleichsoperationen die
+        `http`-Methode der [`Request`](/de/docs/Web/API/Request) validieren (normalerweise sind nur `GET`
+        und `HEAD` erlaubt.) Standardmäßig ist es `false`.
     - `ignoreVary`
-      - : Ein boolescher Wert, der, wenn er auf `true` gesetzt ist, der Übereinstimmungsoperation mitteilt, keine `VARY`-Header-Übereinstimmung durchzuführen — d.h., wenn die URL übereinstimmt, erhalten Sie eine Übereinstimmung, unabhängig davon, ob das {{domxref("Response")}} Objekt einen `VARY`-Header hat. Der Standardwert ist `false`.
+      - : Ein boolean-Wert, der, wenn er auf
+        `true` gesetzt ist, die Abgleichsoperation anweist, keine `VARY`-Header-Abgleiche durchzuführen — d.h., wenn die URL übereinstimmt, erhalten Sie eine Übereinstimmung, unabhängig davon, ob das [`Response`](/de/docs/Web/API/Response)-Objekt einen `VARY`-Header hat. Es ist standardmäßig `false`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf die erste {{domxref("Response")}} auflöst, die mit der Anfrage übereinstimmt, oder auf {{jsxref("undefined")}}, wenn kein Treffer gefunden wurde.
+Ein {{jsxref("Promise")}}, das zu der ersten [`Response`](/de/docs/Web/API/Response) auflöst, die der Anfrage entspricht, oder zu {{jsxref("undefined")}}, wenn keine Übereinstimmung gefunden wird.
 
-> **Note:** `Cache.match()` ist im Wesentlichen identisch mit {{domxref("Cache.matchAll()")}}, außer dass es nicht mit einem Array aller passenden Antworten auflöst, sondern nur mit der ersten passenden Antwort (d.h., `response[0]`).
+> **Note:** `Cache.match()` ist im Grunde identisch mit
+> [`Cache.matchAll()`](/de/docs/Web/API/Cache/matchAll), außer dass es anstelle eines Arrays aller übereinstimmenden Antworten nur mit der ersten übereinstimmenden Antwort auflöst (das heißt,
+> `response[0]`).
 
 ## Beispiele
 
-Dieses Beispiel stammt aus der [benutzerdefinierten Offline-Seite](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/custom-offline-page/service-worker.js) Beispiel ([Live-Demo](https://googlechrome.github.io/samples/service-worker/custom-offline-page/index.html)). Es verwendet einen Cache, um ausgewählte Daten bereitzustellen, wenn eine Anfrage fehlschlägt. Eine `catch()` Klausel wird ausgelöst, wenn der Aufruf von `fetch()` eine Ausnahme auslöst. Innerhalb der `catch()` Klausel wird `match()` verwendet, um die korrekte Antwort zurückzugeben.
+Dieses Beispiel stammt aus dem [Custom Offline Page](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/custom-offline-page/service-worker.js)-Beispiel ([Live-Demo](https://googlechrome.github.io/samples/service-worker/custom-offline-page/index.html)). Es verwendet einen Cache, um ausgewählte Daten bereitzustellen, wenn eine Anfrage fehlschlägt. Eine
+`catch()`-Klausel wird ausgelöst, wenn der Aufruf von `fetch()` eine
+Ausnahme auslöst. Innerhalb der `catch()`-Klausel wird `match()`
+verwendet, um die korrekte Antwort zurückzugeben.
 
-In diesem Beispiel werden nur HTML-Dokumente gespeichert, die mit dem GET HTTP-Verb abgerufen wurden. Wenn unsere `if ()`-Bedingung falsch ist, wird dieser Fetch-Handler die Anfrage nicht abfangen. Wenn es andere Fetch-Handler gibt, die registriert sind, erhalten diese die Chance, `event.respondWith()` aufzurufen. Wenn keine Fetch-Handler `event.respondWith()` aufrufen, wird die Anfrage vom Browser so behandelt, als ob kein Service Worker beteiligt wäre. Wenn `fetch()` eine gültige HTTP-Antwort mit einem Antwortcode im Bereich 4xx oder 5xx zurückgibt, wird die `catch()` nicht aufgerufen.
+In diesem Beispiel werden nur HTML-Dokumente, die mit dem HTTP-Verb GET abgerufen werden,
+zwischengespeichert. Wenn unsere `if ()`-Bedingung falsch ist, wird dieser Fetch-Handler die Anfrage nicht
+abfangen. Wenn andere Fetch-Handler registriert sind, erhalten sie die
+Möglichkeit, `event.respondWith()` aufzurufen. Wenn keine Fetch-Handler
+`event.respondWith()` aufrufen, wird die Anfrage vom Browser behandelt, als
+wenn kein Service-Worker beteiligt wäre. Wenn `fetch()` eine gültige HTTP
+Antwort mit einem Rückgabecode im Bereich 4xx oder 5xx zurückgibt, wird der `catch()` nicht
+aufgerufen.
 
 ```js
 self.addEventListener("fetch", (event) => {
-  // Wir wollen nur event.respondWith() aufrufen, wenn dies eine GET-Anfrage für ein HTML-Dokument ist.
+  // We only want to call event.respondWith() if this is a GET request for an HTML document.
   if (
     event.request.method === "GET" &&
     event.request.headers.get("accept").includes("text/html")
   ) {
-    console.log("Verarbeite Fetch-Ereignis für", event.request.url);
+    console.log("Handling fetch event for", event.request.url);
     event.respondWith(
       fetch(event.request).catch((e) => {
-        console.error("Fetch fehlgeschlagen; gibt stattdessen Offline-Seite zurück.", e);
+        console.error("Fetch failed; returning offline page instead.", e);
         return caches
           .open(OFFLINE_CACHE)
           .then((cache) => cache.match(OFFLINE_URL));
@@ -74,6 +96,6 @@ self.addEventListener("fetch", (event) => {
 
 ## Siehe auch
 
-- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- {{domxref("Cache")}}
-- {{domxref("Window.caches")}} und {{domxref("WorkerGlobalScope.caches")}}
+- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [`Cache`](/de/docs/Web/API/Cache)
+- [`Window.caches`](/de/docs/Web/API/Window/caches) und [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches)

@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: width Eigenschaft"
+title: "HTMLInputElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/HTMLInputElement/width
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`**-Eigenschaft der {{DOMxRef("HTMLInputElement")}} Schnittstelle gibt die Breite eines Steuerelements an. Sie spiegelt das `width`-Attribut des {{htmlelement("input")}}-Elements wider.
+Die **`width`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt die Breite eines Steuerelements an. Sie spiegelt das [`width`](/de/docs/Web/HTML/Element/input#width)-Attribut des {{htmlelement("input")}}-Elements wider.
 
-Die `width`-Eigenschaft ist nur für den Typ [`image`](/de/docs/Web/HTML/Element/input/image) gültig. Sie definiert die bevorzugte horizontale Größe der Bildschaltfläche in Pixeln. Der Eigenschaftswert ist die Breite der [content-box](/de/docs/Web/CSS/box-edge#content-box) der gerenderten Schaltfläche. CSS-Boxmodell-Eigenschaften, die die Größe des Steuerelements beeinflussen, haben Vorrang.
+Die `width`-Eigenschaft ist nur für den [`image`](/de/docs/Web/HTML/Element/input/image)-Typ gültig. Sie definiert die bevorzugte horizontale Größe der Bildschaltfläche in Pixeln. Der Wert der Eigenschaft ist die Breite des [content-box](/de/docs/Web/CSS/box-edge#content-box) der gerenderten Schaltfläche. CSS-Boxmodell-Eigenschaften, die die Größe des Steuerelements beeinflussen, haben Vorrang.
 
-Wenn keine `width` gesetzt und keine CSS-Breiteigenschaften auf das Steuerelement angewendet werden, wird die `width` die intrinsische Breite des Bildes sein. Falls das Bild nicht geladen wurde, wird der Wert die maximale intrinsische Breite des `alt`-Textes sein. Die `width` wird `0` sein, wenn die Breite nicht bekannt ist; wenn keine `width` gesetzt ist, keine CSS-Dimensionen angewendet werden, kein Bild geladen wurde und entweder der Wert des {{DOMxRef("HTMLInputElement.alt", "alt")}} ein leerer String ist oder kein `src` gesetzt ist.
+Wenn keine `width` gesetzt ist und keine CSS-Breiteneigenschaften das Steuerelement beeinflussen, wird die `width` die intrinsische Breite des Bildes sein. Sollte das Bild nicht geladen werden, ist der Wert die maximale intrinsische Breite des `alt`-Textes. Die `width` wird `0` sein, wenn die Breite unbekannt ist; wenn keine `width` gesetzt ist, keine CSS-Dimensionen gelten, kein Bild geladen ist und entweder der Wert des [`alt`](/de/docs/Web/API/HTMLInputElement/alt) der leere String ist oder kein `src` gesetzt ist.
 
 ## Wert
 
@@ -35,14 +35,14 @@ console.log(inputElement.width);
 
 ## Siehe auch
 
-- {{DOMxRef("HTMLInputElement.height")}}
-- {{DOMxRef("HTMLInputElement.src")}}
-- {{DOMxRef("HTMLInputElement.alt")}}
-- {{DOMXref("HTMLButtonElement")}}
+- [`HTMLInputElement.height`](/de/docs/Web/API/HTMLInputElement/height)
+- [`HTMLInputElement.src`](/de/docs/Web/API/HTMLInputElement/src)
+- [`HTMLInputElement.alt`](/de/docs/Web/API/HTMLInputElement/alt)
+- [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)
 - {{HTMLElement("button")}}
 - {{HTMLElement("input")}}
 - {{HTMLElement("img")}}
 - CSS {{CSSXRef("inline-size")}} Eigenschaft
 - CSS {{CSSXRef("width")}} Eigenschaft
 - CSS {{CSSXRef("aspect-ratio")}} Eigenschaft
-- [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- [CSS Box Sizing](/de/docs/Web/CSS/CSS_box_sizing) Modul

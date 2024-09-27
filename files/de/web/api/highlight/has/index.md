@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`has()`**-Methode der {{domxref("Highlight")}}-Schnittstelle gibt einen Boolean zurück, der angibt, ob ein {{domxref("Range")}}-Objekt in einem `Highlight`-Objekt existiert oder nicht.
+Die **`has()`**-Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob ein [`Range`](/de/docs/Web/API/Range)-Objekt in einem `Highlight`-Objekt existiert oder nicht.
 
 `Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Set.has()")}}.
 
@@ -21,7 +21,7 @@ has(range)
 ### Parameter
 
 - `range`
-  - : Das `Range`-Objekt, dessen Vorhandensein im `Highlight`-Objekt getestet werden soll.
+  - : Das `Range`-Objekt, das auf seine Existenz im `Highlight`-Objekt getestet werden soll.
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Gibt `true` zurück, wenn der angegebene Bereich im `Highlight`-Objekt existiert
 
 ## Beispiele
 
-Der untenstehende Codeausschnitt erstellt zwei Bereiche und ein Highlight-Objekt, das einen davon enthält. Der Code verwendet dann die `has()`-Methode, um zu überprüfen, ob jeder Bereich im Highlight existiert:
+Der folgende Code-Schnipsel erstellt zwei Bereiche und ein Highlight-Objekt, das einen von ihnen enthält. Anschließend wird die `has()`-Methode verwendet, um zu überprüfen, ob jeder Bereich im Highlight existiert:
 
 ```js
 const range1 = new Range();
@@ -50,5 +50,5 @@ myHighlight.has(range2); // false
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "Die CSS Custom Highlight API", "", "nocode")}}
-- [CSS Custom Highlight API: Die Zukunft der Textbereichsmarkierung im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [CSS Custom Highlight API: Die Zukunft des Text-Hervorhebens im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

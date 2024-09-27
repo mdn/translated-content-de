@@ -1,5 +1,5 @@
 ---
-title: "GPUCommandEncoder: copyBufferToBuffer() Methode"
+title: "GPUCommandEncoder: copyBufferToBuffer()-Methode"
 short-title: copyBufferToBuffer()
 slug: Web/API/GPUCommandEncoder/copyBufferToBuffer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`copyBufferToBuffer()`** Methode der {{domxref("GPUCommandEncoder")}}-Schnittstelle kodiert einen Befehl, der Daten von einem {{domxref("GPUBuffer")}} auf einen anderen kopiert.
+Die **`copyBufferToBuffer()`**-Methode der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle codiert einen Befehl, der Daten von einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) in einen anderen kopiert.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ copyBufferToBuffer(source, sourceOffset, destination, destinationOffset, size)
 ### Parameter
 
 - `source`
-  - : Der {{domxref("GPUBuffer")}}, von dem kopiert werden soll.
+  - : Der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), von dem kopiert wird.
 - `sourceOffset`
-  - : Der Versatz in Bytes, von dem begonnen wird, aus dem `source` zu kopieren.
+  - : Der Versatz in Bytes, ab dem im `source` begonnen wird zu kopieren.
 - `destination`
-  - : Der {{domxref("GPUBuffer")}}, in den kopiert werden soll.
+  - : Der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), in den kopiert wird.
 - `destinationOffset`
-  - : Der Versatz in Bytes, bei dem begonnen wird, in die `destination` zu kopieren.
+  - : Der Versatz in Bytes, ab dem im `destination` begonnen wird zu kopieren.
 - `size`
   - : Die Anzahl der Bytes, die kopiert werden sollen.
 
@@ -35,23 +35,23 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`copyBufferToBuffer()`** aufgerufen wird, ansonsten wird ein {{domxref("GPUValidationError")}} erzeugt und der {{domxref("GPUCommandEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`copyBufferToBuffer()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) wird ungültig:
 
-- Der {{domxref("GPUBuffer.usage")}} des `source` enthält das `GPUBufferUsage.COPY_SRC`-Flag.
-- Der {{domxref("GPUBuffer.usage")}} der `destination` enthält das `GPUBufferUsage.COPY_DST`-Flag.
-- `size`, `sourceOffset` und `destinationOffset` sind alle Vielfache von 4.
-- Die {{domxref("GPUBuffer.size")}} des `source` ist größer oder gleich `sourceOffset` + `size`.
-- Die {{domxref("GPUBuffer.size")}} der `destination` ist größer oder gleich `destinationOffset` + `size`.
-- `source` und `destination` sind unterschiedliche {{domxref("GPUBuffer")}}s (es ist nicht möglich, aus demselben Puffer zu kopieren und in denselben zu schreiben).
+- Der [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) von `source` enthält das `GPUBufferUsage.COPY_SRC`-Flag.
+- Der [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) von `destination` enthält das `GPUBufferUsage.COPY_DST`-Flag.
+- `size`, `sourceOffset` und `destinationOffset` sind Vielfache von 4.
+- Die [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) von `source` ist größer oder gleich `sourceOffset` + `size`.
+- Die [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) von `destination` ist größer oder gleich `destinationOffset` + `size`.
+- `source` und `destination` sind unterschiedliche [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)s (es kann nicht vom selben Puffer kopiert und in ihn kopiert werden).
 
 ## Beispiele
 
-In unserem [einfachen Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) verwenden wir `copyBufferToBuffer()`, um den Inhalt unseres `output` Puffers in den `stagingBuffer` zu kopieren.
+In unserem [grundlegenden Berechnungs-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) verwenden wir `copyBufferToBuffer()`, um den Inhalt unseres `output`-Buffers in den `stagingBuffer` zu kopieren.
 
 ```js
 // ...
 
-// Erstellen Sie einen Ausgabe-Puffer, um GPU-Berechnungen zu lesen, und einen Staging-Puffer, der für den JavaScript-Zugriff abgebildet wird
+// Create an output buffer to read GPU calculations to, and a staging buffer to be mapped for JavaScript access
 
 const output = device.createBuffer({
   size: BUFFER_SIZE,
@@ -65,17 +65,17 @@ const stagingBuffer = device.createBuffer({
 
 // ...
 
-// Erstellen Sie einen GPUCommandEncoder, um Befehle zu kodieren, die an die GPU ausgegeben werden sollen
+// Create GPUCommandEncoder to encode commands to issue to the GPU
 const commandEncoder = device.createCommandEncoder();
 
 // ...
 
-// Kopieren Sie den Ausgabe-Puffer in den Staging-Puffer
+// Copy output buffer to staging buffer
 commandEncoder.copyBufferToBuffer(
   output,
-  0, // Quellversatz
+  0, // Source offset
   stagingBuffer,
-  0, // Zielversatz
+  0, // Destination offset
   BUFFER_SIZE,
 );
 

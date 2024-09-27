@@ -1,5 +1,5 @@
 ---
-title: "CharacterData: Methode deleteData()"
+title: "CharacterData: deleteData() Methode"
 short-title: deleteData()
 slug: Web/API/CharacterData/deleteData
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`deleteData()`** Methode des {{domxref("CharacterData")}}-Interfaces entfernt alle oder einen Teil der Daten von diesem `CharacterData`-Knoten.
+Die **`deleteData()`**-Methode der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle
+entfernt alle oder einen Teil der Daten aus diesem `CharacterData`-Knoten.
 
 ## Syntax
 
@@ -19,8 +20,7 @@ characterData.deleteData(offset, count)
 ### Parameter
 
 - `offset`
-  - : Die Anzahl der Bytes vom Anfang der Daten, ab denen entfernt werden soll.
-    `0` ist das erste Zeichen des Strings.
+  - : Die Anzahl der Bytes, von denen aus die Daten entfernt werden sollen, beginnend bei `0`, was dem ersten Zeichen der Zeichenkette entspricht.
 - `count`
   - : Die Anzahl der zu entfernenden Bytes.
 
@@ -30,13 +30,13 @@ Keiner.
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `offset` größer als die Länge der enthaltenen Daten ist.
 
 ## Beispiel
 
 ```html
-<span>Ergebnis: </span>A long string.
+<span>Result: </span>A long string.
 ```
 
 ```js
@@ -58,5 +58,5 @@ textnode.deleteData(1, 5);
 
 ## Siehe auch
 
-- {{domxref("CharacterData.appendData()")}}, {{domxref("CharacterData.insertData()")}}, {{domxref("CharacterData.replaceData()")}}
-- {{domxref("CharacterData.data")}}
+- [`CharacterData.appendData()`](/de/docs/Web/API/CharacterData/appendData), [`CharacterData.insertData()`](/de/docs/Web/API/CharacterData/insertData), [`CharacterData.replaceData()`](/de/docs/Web/API/CharacterData/replaceData)
+- [`CharacterData.data`](/de/docs/Web/API/CharacterData/data)

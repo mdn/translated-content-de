@@ -1,5 +1,5 @@
 ---
-title: Encodings der Encoding-API
+title: Encoding API Encodings
 slug: Web/API/Encoding_API/Encodings
 l10n:
   sourceCommit: e9f4150f7ff7bc5d4415fd7bebeb89553a506d91
@@ -7,15 +7,15 @@ l10n:
 
 {{DefaultAPISidebar("Encoding API")}}
 
-Die Konstruktoren der Schnittstellen der [Encoding-API](/de/docs/Web/API/Encoding_API) {{domxref("TextDecoder")}} und {{domxref("TextDecoderStream")}} können ein optionales `label` übergeben bekommen, das die zu verwendende Kodierung darstellt. Der Standard ist `UTF-8`.
+Die Konstruktoren für die [Encoding API](/de/docs/Web/API/Encoding_API)-Schnittstellen [`TextDecoder`](/de/docs/Web/API/TextDecoder) und [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream) können ein optionales `label` entgegennehmen, das die zu verwendende Kodierung darstellt. Der Standard ist `UTF-8`.
 
-Die folgende Tabelle listet alle Kodierungsnamen und -bezeichnungen auf, die Nutzeragenten gemäß der Encoding-Spezifikation unterstützen müssen. Diese sind generell überall dort anwendbar, wo Zeichencodierungen verwendet werden.
+Die folgende Tabelle listet alle Kodierungsnamen und Labels auf, die Benutzeragenten unterstützen müssen, wie im Encoding-Spezifikation definiert. Diese sind im Allgemeinen überall anwendbar, wo Zeichencodierungen verwendet werden.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th scope="col">Bezeichnung</th>
-      <th scope="col">Kodierung</th>
+      <th scope="col">Label</th>
+      <th scope="col">Encoding</th>
     </tr>
   </thead>
   <tbody>

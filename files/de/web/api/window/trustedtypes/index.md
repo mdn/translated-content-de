@@ -1,5 +1,5 @@
 ---
-title: "Fenster: trustedTypes-Eigenschaft"
+title: "Window: trustedTypes-Eigenschaft"
 short-title: trustedTypes
 slug: Web/API/Window/trustedTypes
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Trusted Types API")}}
 
-Die **`trustedTypes`** schreibgeschützte Eigenschaft des {{domxref("Window")}}-Interfaces gibt das {{domxref("TrustedTypePolicyFactory")}}-Objekt zurück, das mit dem globalen Objekt verbunden ist und den Einstiegspunkt für die Verwendung der {{domxref("Trusted Types API", "", "", "nocode")}} bietet.
+Die **`trustedTypes`** schreibgeschützte Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt das [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Objekt zurück, das mit dem globalen Objekt verknüpft ist. Dies bietet den Einstiegspunkt für die Verwendung der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API).
 
 ## Wert
 
-Ein {{domxref("TrustedTypePolicyFactory")}}-Objekt.
+Ein [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Objekt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

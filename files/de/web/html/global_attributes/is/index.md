@@ -7,15 +7,15 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-> **Note:** [Safari plant nicht, benutzerdefinierte eingebaute Elemente zu unterstützen](https://github.com/WebKit/standards-positions/issues/97) und [Browserhersteller erforschen alternative Lösungen zur Anpassung von eingebauten Elementen](https://github.com/WICG/webcomponents/issues/1029). Prüfen Sie den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für Unterstützungshinweise.
+> **Note:** [Safari plant nicht, benutzerdefinierte Built-in-Elemente zu unterstützen](https://github.com/WebKit/standards-positions/issues/97) und [Browser-Anbieter suchen nach alternativen Lösungen zur Anpassung von Built-ins](https://github.com/WICG/webcomponents/issues/1029). Überprüfen Sie den Abschnitt zur [Browser-Kompatibilität](#browser-kompatibilität) für Unterstützungsinformationen.
 
-Das **`is`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ermöglicht es Ihnen zu spezifizieren, dass ein standardmäßiges HTML-Element sich wie ein definiertes benutzerdefiniertes eingebautes Element verhalten soll (siehe [Verwendung von benutzerdefinierten Elementen](/de/docs/Web/API/Web_components/Using_custom_elements) für weitere Details).
+Das **`is`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ermöglicht es Ihnen, anzugeben, dass ein Standard-HTML-Element wie ein definiertes benutzerdefiniertes Built-in-Element funktionieren soll (siehe [Verwendung benutzerdefinierter Elemente](/de/docs/Web/API/Web_components/Using_custom_elements) für weitere Details).
 
-Dieses Attribut kann nur verwendet werden, wenn der angegebene benutzerdefinierte Elementname erfolgreich im aktuellen Dokument [definiert](/de/docs/Web/API/CustomElementRegistry/define) wurde und das Element erweitert wird, auf das es angewendet wird.
+Dieses Attribut kann nur verwendet werden, wenn der angegebene Name des benutzerdefinierten Elements erfolgreich im aktuellen Dokument [definiert](/de/docs/Web/API/CustomElementRegistry/define) wurde und den Elementtyp erweitert, auf den es angewendet wird.
 
 ## Beispiele
 
-Der folgende Code stammt aus unserem [word-count-web-component](https://github.com/mdn/web-components-examples/tree/main/word-count-web-component) Beispiel ([siehe es auch live](https://mdn.github.io/web-components-examples/word-count-web-component/)).
+Der folgende Code stammt aus unserem [word-count-web-component](https://github.com/mdn/web-components-examples/tree/main/word-count-web-component) Beispiel ([sehen Sie es auch live](https://mdn.github.io/web-components-examples/word-count-web-component/)).
 
 ```js
 // Create a class for the element

@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`OES_vertex_array_object.bindVertexArrayOES()`** Methode
-der [WebGL API](/de/docs/Web/API/WebGL_API) bindet ein
-übergebenes {{domxref("WebGLVertexArrayObject")}} Objekt an den Puffer.
+Die **`OES_vertex_array_object.bindVertexArrayOES()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) bindet ein übergebenes [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) Objekt an den Puffer.
 
 ## Syntax
 
@@ -21,7 +19,7 @@ bindVertexArrayOES(arrayObject)
 ### Parameter
 
 - `arrayObject`
-  - : Ein {{domxref("WebGLVertexArrayObject")}} (VAO) Objekt, das gebunden werden soll.
+  - : Ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) (VAO) Objekt, das gebunden werden soll.
 
 ### Rückgabewert
 
@@ -35,8 +33,8 @@ const vao = ext.createVertexArrayOES();
 ext.bindVertexArrayOES(vao);
 
 // …
-// Aufrufe von bindBuffer oder vertexAttribPointer
-// die im VAO "aufgezeichnet" werden
+// calls to bindBuffer or vertexAttribPointer
+// which will be "recorded" in the VAO
 // …
 ```
 
@@ -50,6 +48,6 @@ ext.bindVertexArrayOES(vao);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLRenderingContext.vertexAttribPointer()")}}
-- WebGL2-Äquivalent: {{domxref("WebGL2RenderingContext.bindVertexArray()")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLRenderingContext.vertexAttribPointer()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer)
+- WebGL2 Äquivalent: [`WebGL2RenderingContext.bindVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/bindVertexArray)

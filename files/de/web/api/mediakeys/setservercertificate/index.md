@@ -1,5 +1,5 @@
 ---
-title: "MediaKeys: setServerCertificate() Methode"
+title: "MediaKeys: setServerCertificate()-Methode"
 short-title: setServerCertificate()
 slug: Web/API/MediaKeys/setServerCertificate
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`setServerCertificate()`** Methode der {{domxref("MediaKeys")}}-Schnittstelle stellt ein Serverzertifikat bereit, das verwendet wird, um Nachrichten an den Lizenzserver zu verschlüsseln.
+Die **`setServerCertificate()`**-Methode der Schnittstelle [`MediaKeys`](/de/docs/Web/API/MediaKeys) stellt ein Serverzertifikat bereit, das zum Verschlüsseln von Nachrichten an den Lizenzserver verwendet wird.
 
 ## Syntax
 
@@ -19,12 +19,12 @@ setServerCertificate(serverCertificate)
 ### Parameter
 
 - `serverCertificate`
-  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}-Objekt, das das Serverzertifikat enthält.
-    Der Inhalt ist spezifisch für das Schlüsselsystem. Es DARF KEIN ausführbarer Code enthalten.
+  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt, das das Serverzertifikat enthält.
+    Der Inhalt ist Key System-spezifisch. Es DARF KEIN ausführbarer Code enthalten sein.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das zu einem boolean aufgelöst wird. Wenn die Implementierung des Schlüsselsystems, die durch den Inhalt der Entschlüsselungsmodul-Implementierung dieses Objekts repräsentiert wird, keine Serverzertifikate unterstützt, wird ein Promise zurückgegeben, das mit false aufgelöst wird.
+Ein {{jsxref('Promise')}} das sich mit einem booleschen Wert auflöst. Wenn das Key System, das durch den Implementierungswert dieses Inhaltsentschlüsselungsmoduls dargestellt wird, keine Serverzertifikate unterstützt, wird ein Promise zurückgegeben, das sich mit false auflöst.
 
 ## Spezifikationen
 

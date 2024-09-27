@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setHeaderValue()`**-Methode der Schnittstelle {{domxref("NavigationPreloadManager")}} setzt den Wert des Headers {{HTTPHeader("Service-Worker-Navigation-Preload")}}, der mit Anfragen gesendet wird, die aus einer {{domxref("Window/fetch", "fetch()")}}-Operation resultieren, die während des Preloadings der Service Worker-Navigation durchgeführt wird. Sie gibt ein leeres {{jsxref("Promise")}} zurück, das mit `undefined` aufgelöst wird.
+Die **`setHeaderValue()`**-Methode der [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager)-Schnittstelle setzt den Wert des {{HTTPHeader("Service-Worker-Navigation-Preload")}}-Headers, der mit Anfragen gesendet wird, die aus einem [`fetch()`](/de/docs/Web/API/Window/fetch)-Vorgang während des Service-Worker-Navigationsvorspannens resultieren. Sie gibt ein leeres {{jsxref("Promise")}} zurück, das mit `undefined` aufgelöst wird.
 
-Das Vorhandensein des Headers {{HTTPHeader("Service-Worker-Navigation-Preload")}} in Preloading-Anfragen ermöglicht es Servern, die zurückgegebene Ressource für Preloading-Fetch-Anfragen anders zu konfigurieren als für normale Fetch-Anfragen. Die Standardrichtlinie ist auf `true` gesetzt: Diese Methode ermöglicht die Möglichkeit, mehrere verschiedene Antworten auf Preloading-Anfragen zu konfigurieren.
+Das Vorhandensein des {{HTTPHeader("Service-Worker-Navigation-Preload")}}-Headers in Vorladeanfragen ermöglicht es Servern, die zurückgegebene Ressource für Vorlade-Fetch-Anfragen anders zu konfigurieren als für normale Fetch-Anfragen. Die Standardanweisung ist auf `true` gesetzt: Diese Methode ermöglicht die Möglichkeit, mehrere unterschiedliche Antworten auf Vorladeanfragen zu konfigurieren.
 
 > [!NOTE]
-> Wenn durch das Setzen dieses Headers eine andere Antwort resultieren kann, muss der Server `Vary: Service-Worker-Navigation-Preload` setzen, um sicherzustellen, dass die verschiedenen Antworten zwischengespeichert werden.
+> Wenn das Setzen dieses Headers zu einer anderen Antwort führen kann, muss der Server `Vary: Service-Worker-Navigation-Preload` setzen, um sicherzustellen, dass die unterschiedlichen Antworten zwischengespeichert werden.
 
 ## Syntax
 
@@ -32,8 +32,8 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref('undefined')}} aufgelöst wird.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Es gibt keinen aktiven Worker, der mit der Registrierung verknüpft ist, zu der dieser {{domxref("NavigationPreloadManager")}} gehört.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Es gibt keinen aktiven Worker, der mit der Registrierung assoziiert ist, zu der dieser [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager) gehört.
 
 ## Beispiele
 

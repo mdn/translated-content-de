@@ -22,17 +22,17 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören bei diesem Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn gelauscht wird, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
 
     - `id`
       - : `string`. Die ID des neuen Lesezeichen-Elements.
@@ -43,8 +43,8 @@ Ereignisse haben drei Funktionen:
 
 ```js
 function handleCreated(id, bookmarkInfo) {
-  console.log(`Neue Lesezeichen-ID: ${id}`);
-  console.log(`Neue Lesezeichen-URL: ${bookmarkInfo.url}`);
+  console.log(`New bookmark ID: ${id}`);
+  console.log(`New bookmark URL: ${bookmarkInfo.url}`);
 }
 
 browser.bookmarks.onCreated.addListener(handleCreated);

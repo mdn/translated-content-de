@@ -1,5 +1,5 @@
 ---
-title: Die Event-Schleife
+title: The event loop
 slug: Web/JavaScript/Event_loop
 l10n:
   sourceCommit: 06cdd3a0fe4079360fa0bffb6329e9dc95029dac
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Advanced")}}
 
-JavaScript hat ein Laufzeitmodell, das auf einer **Ereignisschleife** basiert. Diese ist verantwortlich für das Ausführen des Codes, das Sammeln und Verarbeiten von Ereignissen sowie das Ausführen von in die Warteschlange gestellten Unteraufgaben. Dieses Modell unterscheidet sich stark von Modellen in anderen Sprachen wie C und Java.
+JavaScript hat ein Laufzeitmodell basierend auf einer **Ereignisschleife**, die für die Ausführung des Codes, das Sammeln und Verarbeiten von Ereignissen und das Ausführen von in die Warteschlange eingereihten Unteraufgaben verantwortlich ist. Dieses Modell unterscheidet sich erheblich von Modellen in anderen Sprachen wie C und Java.
 
 ## Laufzeitkonzepte
 
@@ -15,7 +15,7 @@ Die folgenden Abschnitte erklären ein theoretisches Modell. Moderne JavaScript-
 
 ### Visuelle Darstellung
 
-![Ein Diagramm zeigt, wie Stacks aus Frames bestehen, Heaps aus Objekten und Warteschlangen aus Nachrichten.](the_javascript_runtime_environment_example.svg)
+![Ein Diagramm, das zeigt, wie Stacks aus Frames, Heaps aus Objekten und Warteschlangen aus Nachrichten bestehen.](the_javascript_runtime_environment_example.svg)
 
 ### Stack
 
@@ -32,33 +32,33 @@ function bar(x) {
   return foo(x * y);
 }
 
-const baz = bar(7); // weist 42 baz zu
+const baz = bar(7); // assigns 42 to baz
 ```
 
 Reihenfolge der Operationen:
 
-1. Beim Aufrufen von `bar` wird ein erster Frame angelegt, der Referenzen auf `bars` Argumente und lokale Variablen enthält.
-2. Wenn `bar` `foo` aufruft, wird ein zweiter Frame erstellt und auf den ersten gelegt, der Referenzen auf `foos` Argumente und lokale Variablen enthält.
-3. Wenn `foo` zurückkehrt, wird das oberste Frame-Element aus dem Stack herausgenommen (was nur `bars` Aufruf-Frame hinterlässt).
+1. Beim Aufruf von `bar` wird ein erster Frame erstellt, der Referenzen auf `bar`'s Argumente und lokale Variablen enthält.
+2. Wenn `bar` `foo` aufruft, wird ein zweiter Frame erstellt und oben auf den ersten gelegt, der Referenzen auf `foo`'s Argumente und lokale Variablen enthält.
+3. Wenn `foo` zurückkehrt, wird das oberste Frame-Element aus dem Stack entfernt (nur der Aufruf-Frame von `bar` bleibt).
 4. Wenn `bar` zurückkehrt, ist der Stack leer.
 
-Beachten Sie, dass die Argumente und lokalen Variablen möglicherweise weiterhin existieren, da sie außerhalb des Stacks gespeichert werden - so können sie von allen [verschachtelten Funktionen](/de/docs/Web/JavaScript/Guide/Functions#nested_functions_and_closures) lange nach der Rückkehr ihrer äußeren Funktion aufgerufen werden.
+Beachten Sie, dass die Argumente und lokalen Variablen weiterhin existieren können, da sie außerhalb des Stacks gespeichert werden - sie können also von [verschachtelten Funktionen](/de/docs/Web/JavaScript/Guide/Functions#nested_functions_and_closures) lange nach der Rückkehr ihrer äußeren Funktion aufgerufen werden.
 
 ### Heap
 
-Objekte werden in einem Heap zugewiesen, der einfach ein Name für einen großen (meist unstrukturierten) Speicherbereich ist.
+Objekte werden in einem Heap zugewiesen, was lediglich ein Name ist, um einen großen (meist unstrukturierten) Speicherbereich zu bezeichnen.
 
-### Queue
+### Warteschlange
 
-Ein JavaScript-Laufzeitsystem verwendet eine Nachrichtenwarteschlange, die eine Liste von zu verarbeitenden Nachrichten ist. Jede Nachricht hat eine zugehörige Funktion, die aufgerufen wird, um die Nachricht zu behandeln.
+Eine JavaScript-Laufzeitumgebung verwendet eine Nachrichtenwarteschlange, die eine Liste von zu verarbeitenden Nachrichten ist. Jede Nachricht hat eine zugeordnete Funktion, die aufgerufen wird, um die Nachricht zu bearbeiten.
 
-Irgendwann während der [Ereignisschleife](#ereignisschleife) beginnt die Laufzeitumgebung, die Nachrichten in der Warteschlange zu verarbeiten, beginnend mit der ältesten. Zu diesem Zweck wird die Nachricht aus der Warteschlange entfernt und ihre entsprechende Funktion mit der Nachricht als Eingabeparameter aufgerufen. Wie immer erstellt das Aufrufen einer Funktion einen neuen Stack-Frame zur Verwendung durch diese Funktion.
+Zu einem gewissen Zeitpunkt während der [Ereignisschleife](#ereignisschleife) beginnt die Laufzeitumgebung mit der Bearbeitung der Nachrichten in der Warteschlange, beginnend mit der ältesten. Dazu wird die Nachricht aus der Warteschlange entfernt, und die entsprechende Funktion wird mit der Nachricht als Eingabeparameter aufgerufen. Wie immer erzeugt der Aufruf einer Funktion einen neuen Stack-Frame für die Verwendung durch diese Funktion.
 
-Die Verarbeitung von Funktionen dauert solange an, bis der Stack wieder leer ist. Dann verarbeitet die Ereignisschleife die nächste Nachricht in der Warteschlange (wenn eine vorhanden ist).
+Die Verarbeitung von Funktionen wird fortgesetzt, bis der Stack wieder leer ist. Dann verarbeitet die Ereignisschleife die nächste Nachricht in der Warteschlange (sofern vorhanden).
 
 ## Ereignisschleife
 
-Die **Ereignisschleife** hat ihren Namen von ihrer typischen Implementierung, die normalerweise ähnlich aussieht wie:
+Die **Ereignisschleife** hat ihren Namen durch die Art, wie sie üblicherweise implementiert ist, die normalerweise folgendermaßen aussieht:
 
 ```js
 while (queue.waitForMessage()) {
@@ -66,29 +66,29 @@ while (queue.waitForMessage()) {
 }
 ```
 
-`queue.waitForMessage()` wartet synchron auf das Eintreffen einer Nachricht (falls nicht bereits eine verfügbar ist und darauf wartet, bearbeitet zu werden).
+`queue.waitForMessage()` wartet synchron auf das Eintreffen einer Nachricht (falls nicht bereits eine verfügbar und zur Verarbeitung bereit ist).
 
-### "Run-to-completion"
+### "Run-to-Completion"
 
-Jede Nachricht wird vollständig bearbeitet, bevor eine andere Nachricht bearbeitet wird.
+Jede Nachricht wird vollständig verarbeitet, bevor eine andere Nachricht verarbeitet wird.
 
-Dies bietet einige angenehme Eigenschaften, wenn Sie über Ihr Programm nachdenken, einschließlich der Tatsache, dass, wann immer eine Funktion ausgeführt wird, sie nicht präemptiv unterbrochen werden kann und vollständig ausgeführt wird, bevor ein anderer Code ausgeführt wird (und Daten ändern kann, die die Funktion manipuliert). Dies unterscheidet sich von C, zum Beispiel, wo, wenn eine Funktion in einem Thread läuft, sie jederzeit vom Laufzeitsystem angehalten werden kann, um anderen Code in einem anderen Thread auszuführen.
+Dies bietet einige angenehme Eigenschaften beim Überlegen über Ihr Programm, einschließlich der Tatsache, dass, wann immer eine Funktion läuft, sie nicht unterbrochen werden kann und vollständig ausgeführt wird, bevor anderer Code ausgeführt wird (und Daten ändern kann, die die Funktion bearbeitet). Dies unterscheidet sich von C, zum Beispiel, wo, wenn eine Funktion in einem Thread läuft, sie jederzeit vom Laufzeitsystem gestoppt werden kann, um anderen Code in einem anderen Thread auszuführen.
 
-Ein Nachteil dieses Modells ist, dass, wenn eine Nachricht zu lange dauert, die Webanwendung keine Benutzerinteraktionen wie Klicken oder Scrollen verarbeiten kann. Der Browser mildert dies mit dem Dialog "Ein Skript benötigt zu lange zum Ausführen" ab. Eine gute Praxis ist, die Nachrichtenverarbeitung kurz zu halten und, wenn möglich, eine Nachricht in mehrere Nachrichten aufzuteilen.
+Ein Nachteil dieses Modells ist, dass die Webanwendung bei einer Nachricht, die zu lange dauert, nicht in der Lage ist, Benutzerinteraktionen wie Klicken oder Scrollen zu verarbeiten. Der Browser mildert dies mit dem Dialog "Ein Skript dauert zu lange, um ausgeführt zu werden". Eine gute Praxis ist es, die Nachrichtenverarbeitung kurz zu halten und, falls möglich, eine Nachricht in mehrere Nachrichten aufzuteilen.
 
 ### Hinzufügen von Nachrichten
 
-In Webbrowsern werden Nachrichten oft hinzugefügt, wenn ein Ereignis auftritt und ein Ereignis-Listener daran gebunden ist. Wenn kein Listener vorhanden ist, geht das Ereignis verloren. Ein Klick auf ein Element mit einem Klick-Ereignis-Handler wird eine Nachricht hinzufügen – ebenso wie jedes andere Ereignis. Einige Ereignisse treten jedoch synchron ohne Nachricht auf – zum Beispiel simulierte Klicks über die {{domxref("HTMLElement/click", "click")}}-Methode.
+In Webbrowsern werden häufig Nachrichten hinzugefügt, wenn ein Ereignis eintritt und ein Event-Listener daran angehängt ist. Wenn es keinen Listener gibt, geht das Ereignis verloren. Ein Klick auf ein Element mit einem Klick-Event-Handler wird eine Nachricht hinzufügen, ebenso wie jedes andere Ereignis. Einige Ereignisse treten jedoch synchron ohne Nachricht auf – zum Beispiel simulierte Klicks über die [`click`](/de/docs/Web/API/HTMLElement/click)-Methode.
 
-Die ersten beiden Argumente der Funktion [`setTimeout`](/de/docs/Web/API/setTimeout) sind eine Nachricht, die der Warteschlange hinzugefügt werden soll, und ein Zeitwert (optional; Standard ist `0`). Der _Zeitwert_ repräsentiert die (minimale) Verzögerung, nach der die Nachricht in die Warteschlange gestellt wird. Wenn keine andere Nachricht in der Warteschlange vorhanden ist und der Stack leer ist, wird die Nachricht direkt nach der Verzögerung verarbeitet. Wenn jedoch Nachrichten vorhanden sind, muss die `setTimeout`-Nachricht warten, bis andere Nachrichten verarbeitet werden. Aus diesem Grund gibt das zweite Argument eine _Mindestzeit_ an – keine _garantierte_ Zeit.
+Die ersten beiden Argumente für die Funktion [`setTimeout`](/de/docs/Web/API/setTimeout) sind eine Nachricht, die zur Warteschlange hinzugefügt werden soll, und ein Zeitwert (optional; Standard ist `0`). Der _Zeitwert_ gibt die (minimale) Verzögerung an, nach der die Nachricht in die Warteschlange eingefügt wird. Wenn keine andere Nachricht in der Warteschlange ist und der Stack leer ist, wird die Nachricht direkt nach der Verzögerung verarbeitet. Wenn jedoch Nachrichten vorhanden sind, muss die `setTimeout`-Nachricht auf die Verarbeitung anderer Nachrichten warten. Aus diesem Grund gibt das zweite Argument eine _minimale_ Zeit an - keine _garantierte_ Zeit.
 
-Hier ist ein Beispiel, das dieses Konzept demonstriert (`setTimeout` wird nicht sofort nach Ablauf des Timers ausgeführt):
+Hier ist ein Beispiel, das dieses Konzept verdeutlicht (`setTimeout` wird nicht unmittelbar nach Ablauf seines Timers ausgeführt):
 
 ```js
 const seconds = new Date().getTime() / 1000;
 
 setTimeout(() => {
-  // druckt "2" aus, was bedeutet, dass der Rückruf nicht sofort nach 500 Millisekunden aufgerufen wird.
+  // prints out "2", meaning that the callback is not called immediately after 500 milliseconds.
   console.log(`Ran after ${new Date().getTime() / 1000 - seconds} seconds`);
 }, 500);
 
@@ -100,13 +100,13 @@ while (true) {
 }
 ```
 
-### Null-Verzögerungen
+### Null-Verzögerung
 
-Eine Null-Verzögerung bedeutet nicht, dass der Rückruf nach null Millisekunden ausgelöst wird. Ein Aufruf von [`setTimeout`](/de/docs/Web/API/setTimeout) mit einer Verzögerung von `0` (null) Millisekunden führt die Rückruffunktion nicht nach dem angegebenen Intervall aus.
+Null-Verzögerung bedeutet nicht, dass der Rückruf nach null Millisekunden ausgelöst wird. Der Aufruf von [`setTimeout`](/de/docs/Web/API/setTimeout) mit einer Verzögerung von `0` (null) Millisekunden führt die Rückruffunktion nicht nach dem angegebenen Intervall aus.
 
-Die Ausführung hängt von der Anzahl der wartenden Aufgaben in der Warteschlange ab. Im untenstehenden Beispiel wird die Nachricht "this is just a message" in die Konsole geschrieben, bevor die Nachricht im Rückruf verarbeitet wird, da die Verzögerung die _Mindestzeit_ ist, die die Laufzeit benötigt, um die Anfrage zu verarbeiten (nicht eine _garantierte_ Zeit).
+Die Ausführung hängt von der Anzahl der wartenden Aufgaben in der Warteschlange ab. Im untenstehenden Beispiel wird die Nachricht "this is just a message" in die Konsole geschrieben, bevor die Nachricht im Rückruf verarbeitet wird, da die Verzögerung die _minimale_ Zeit ist, die die Laufzeitumgebung benötigt, um die Anfrage zu bearbeiten (nicht eine _garantierte_ Zeit).
 
-Das `setTimeout` muss warten, bis der gesamte Code für wartende Nachrichten abgeschlossen ist, selbst wenn Sie eine bestimmte Zeitbegrenzung für Ihr `setTimeout` angegeben haben.
+Das `setTimeout` muss darauf warten, dass der gesamte Code für die in die Warteschlange gestellten Nachrichten abgeschlossen ist, obwohl Sie ein bestimmtes Zeitlimit für Ihr `setTimeout` angegeben haben.
 
 ```js
 (() => {
@@ -114,7 +114,7 @@ Das `setTimeout` muss warten, bis der gesamte Code für wartende Nachrichten abg
 
   setTimeout(() => {
     console.log("Callback 1: this is a msg from call back");
-  }); // hat einen Standardzeitwert von 0
+  }); // has a default time value of 0
 
   console.log("this is just a message");
 
@@ -132,17 +132,17 @@ Das `setTimeout` muss warten, bis der gesamte Code für wartende Nachrichten abg
 // "Callback 2: this is a msg from call back"
 ```
 
-### Mehrere Laufzeitumgebungen kommunizieren miteinander
+### Mehrere Laufzeiten, die zusammen kommunizieren
 
-Ein Web Worker oder ein Cross-Origin-`iframe` hat seinen eigenen Stack, Heap und Nachrichtenwarteschlange. Zwei unterschiedliche Laufzeitumgebungen können nur über das Senden von Nachrichten über die [`postMessage`](/de/docs/Web/API/Window/postMessage)-Methode kommunizieren. Diese Methode fügt der anderen Laufzeit eine Nachricht hinzu, wenn diese auf `message`-Ereignisse hört.
+Ein Web Worker oder ein Cross-Origin-`iframe` hat seinen eigenen Stack, Heap und Nachrichtenwarteschlange. Zwei separate Laufzeitumgebungen können nur durch Senden von Nachrichten über die [`postMessage`](/de/docs/Web/API/Window/postMessage)-Methode kommunizieren. Diese Methode fügt eine Nachricht an die andere Laufzeitumgebung hinzu, wenn letztere auf `message`-Ereignisse hört.
 
 ## Niemals blockierend
 
-Eine sehr interessante Eigenschaft des Event-Schleifen-Modells ist, dass JavaScript, im Gegensatz zu vielen anderen Sprachen, niemals blockiert. Die Behandlung von I/O wird typischerweise über Ereignisse und Callbacks durchgeführt. Wenn die Anwendung also auf eine [IndexedDB](/de/docs/Web/API/IndexedDB_API)-Abfrage wartet oder ein [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf zurückkehrt, kann sie immer noch andere Dinge wie Benutzereingaben verarbeiten.
+Eine sehr interessante Eigenschaft des Modells der Ereignisschleife ist, dass JavaScript, im Gegensatz zu vielen anderen Sprachen, niemals blockiert. Die Verarbeitung von Ein-/Ausgaben wird typischerweise über Ereignisse und Rückrufe durchgeführt, sodass, wenn die Anwendung auf die Rückkehr einer [IndexedDB](/de/docs/Web/API/IndexedDB_API)-Abfrage oder einer [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage wartet, sie weiterhin andere Aufgaben wie Benutzereingaben verarbeiten kann.
 
-Althergebrachte Ausnahmen existieren wie `alert` oder synchrones XHR, aber es gilt als gute Praxis, sie zu vermeiden. Achtung: [Ausnahmen von der Ausnahme existieren](https://stackoverflow.com/questions/2734025/is-javascript-guaranteed-to-be-single-threaded/2734311#2734311) (sind aber in der Regel Implementierungsfehler und nichts anderes).
+Es gibt Ausnahmen in Legacy, wie `alert` oder synchrones XHR, aber es gilt als gute Praxis, diese zu vermeiden. Seien Sie vorsichtig: [Ausnahmen von der Ausnahme existieren](https://stackoverflow.com/questions/2734025/is-javascript-guaranteed-to-be-single-threaded/2734311#2734311) (sind jedoch in der Regel Implementierungsfehler und nichts anderes).
 
 ## Siehe auch
 
-- [Ereignisschleifen](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops) im HTML-Standard
-- [Was ist die Ereignisschleife?](https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick#what-is-the-event-loop) in den Node.js-Dokumenten
+- [Event loops](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops) im HTML-Standard
+- [What is the Event Loop?](https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick#what-is-the-event-loop) in den Node.js-Dokumenten

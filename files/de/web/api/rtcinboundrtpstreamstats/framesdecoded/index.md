@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`framesDecoded`**-Eigenschaft des {{domxref("RTCInboundRtpStreamStats")}}-Wörterbuchs gibt die Gesamtanzahl der Frames an, die für diese Medienquelle erfolgreich dekodiert wurden.
+Die **`framesDecoded`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs zeigt die Gesamtanzahl der Frames an, die erfolgreich für diese Medienquelle dekodiert wurden.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Gesamtanzahl der Videoframes angibt, die bisher für diesen Stream dekodiert wurden. Dies repräsentiert die Anzahl der Frames, die angezeigt worden wären, vorausgesetzt, dass keine Frames übersprungen wurden.
+Ein ganzzahliger Wert, der die Gesamtanzahl der Videoframes angibt, die für diesen Stream bisher dekodiert wurden. Dies stellt die Anzahl der Frames dar, die angezeigt worden wären, sofern keine Frames übersprungen wurden.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

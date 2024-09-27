@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die **`scroll-padding`** [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt den Scroll-Abstand auf allen Seiten eines Elements gleichzeitig fest, ähnlich wie die {{cssxref("padding")}} Eigenschaft für den Innenabstand eines Elements.
+Die **`scroll-padding`** [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) setzt die Scroll-Padding auf allen Seiten eines Elements gleichzeitig, ähnlich wie die {{cssxref("padding")}}-Eigenschaft das Padding eines Elements bestimmt.
 
 {{EmbedInteractiveExample("pages/css/scroll-padding.html")}}
 
-Die `scroll-padding-*` Eigenschaften definieren Offsets für den _optimalen Anzeigebereich_ des Scrollports: den Bereich, der als Zielregion für die Platzierung von Inhalten in der Ansicht des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie feste Toolbars oder Sidebars) verdeckt werden, oder mehr Platz zwischen einem anvisierten Element und den Rändern des Scrollports zu ermöglichen.
+Die `scroll-padding-*`-Eigenschaften definieren Offsets für den _optimalen Anzeigebereich_ des Scrollports: den Bereich, der als Zielregion für die Platzierung von Inhalten im Blickfeld des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
-## Zusammengesetzte Eigenschaften
+## Entsprechende Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{CSSXref("scroll-padding-bottom")}}
 - {{CSSXref("scroll-padding-left")}}
@@ -25,15 +25,15 @@ Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 scroll-padding: auto;
 
-/* <length> Werte */
+/* <length> values */
 scroll-padding: 10px;
 scroll-padding: 1em 0.5em 1em 1em;
 scroll-padding: 10%;
 
-/* Globale Werte */
+/* Global values */
 scroll-padding: inherit;
 scroll-padding: initial;
 scroll-padding: revert;
@@ -44,9 +44,9 @@ scroll-padding: unset;
 ### Werte
 
 - {{cssxref("&lt;length-percentage&gt;")}}
-  - : Ein innerer Versatz vom entsprechenden Rand des Scrollports als gültiges {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}.
+  - : Ein innerer Offset vom entsprechenden Rand des Scrollports, als gültige {{cssxref("&lt;length&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}}.
 - `auto`
-  - : Der Versatz wird vom User Agent bestimmt. Dies ist in der Regel `0px`, aber der User Agent kann auch ein anderes, nicht-nullwertiges Ergebnis bereitstellen, wenn dies angemessener ist.
+  - : Das Offset wird vom Benutzeragenten bestimmt. Dies ist normalerweise `0px`, aber der Benutzeragent kann etwas anderes erkennen und tun, wenn ein Wert ungleich null angemessener ist.
 
 ## Formale Definition
 

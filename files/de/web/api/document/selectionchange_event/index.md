@@ -1,5 +1,5 @@
 ---
-title: "Document: selectionchange-Ereignis"
+title: "Document: selectionchange Ereignis"
 short-title: selectionchange
 slug: Web/API/Document/selectionchange_event
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef}}
 
-Das **`selectionchange`**-Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn die aktuelle {{domxref("Selection")}} eines {{domxref("Document")}} geändert wird.
+Das **`selectionchange`**-Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn die aktuelle [`Selection`](/de/docs/Web/API/Selection) eines [`Document`](/de/docs/Web/API/Document) geändert wird.
 
-Dieses Ereignis kann nicht abgebrochen werden und es wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und es wird nicht fortgepflanzt.
 
-Das Ereignis kann behandelt werden, indem ein Ereignis-Listener für `selectionchange` hinzugefügt wird oder der `onselectionchange` Ereignishandler verwendet wird.
+Das Ereignis kann durch Hinzufügen eines Event-Listeners für `selectionchange` oder durch Verwendung des `onselectionchange` Event-Handlers behandelt werden.
 
 > [!NOTE]
-> Dieses Ereignis ist nicht dasselbe wie die `selectionchange`-Ereignisse, die ausgelöst werden, wenn die Textauswahl in einem {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Element geändert wird. Siehe das {{domxref("HTMLInputElement.selectionchange_event", "selectionchange")}}-Ereignis von `HTMLInputElement` für weitere Details.
+> Dieses Ereignis ist nicht genau dasselbe wie die `selectionchange`-Ereignisse, die ausgelöst werden, wenn die Textauswahl in einem {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Element geändert wird. Siehe das [`selectionchange`](/de/docs/Web/API/HTMLInputElement/selectionchange_event) Ereignis des `HTMLInputElement` für nähere Details.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("selectionchange", (event) => {});
@@ -29,17 +29,17 @@ onselectionchange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
 ```js
-// addEventListener Version
+// addEventListener version
 document.addEventListener("selectionchange", () => {
   console.log(document.getSelection());
 });
 
-// onselectionchange Version
+// onselectionchange version
 document.onselectionchange = () => {
   console.log(document.getSelection());
 };
@@ -55,6 +55,6 @@ document.onselectionchange = () => {
 
 ## Siehe auch
 
-- {{domxref("Node/selectstart_event", "selectstart")}}
-- {{domxref("Document.getSelection()")}}
-- {{domxref("Selection", "Selection")}}
+- [`selectstart`](/de/docs/Web/API/Node/selectstart_event)
+- [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection)
+- [`Selection`](/de/docs/Web/API/Selection)

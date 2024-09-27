@@ -1,5 +1,5 @@
 ---
-title: "Datei: Eigenschaft 'name'"
+title: "File: name-Eigenschaft"
 short-title: name
 slug: Web/API/File/name
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`name`** schreibgeschützte Eigenschaft der {{domxref("File")}}-Schnittstelle gibt den Namen der Datei zurück, die durch ein {{domxref("File")}}-Objekt dargestellt wird. Aus Sicherheitsgründen wird der Pfad in dieser Eigenschaft ausgeschlossen.
+Die schreibgeschützte **`name`**-Eigenschaft des [`File`](/de/docs/Web/API/File)-Interface gibt den Namen der Datei zurück, die durch ein [`File`](/de/docs/Web/API/File)-Objekt dargestellt wird. Aus Sicherheitsgründen ist der Pfad in dieser Eigenschaft ausgeschlossen.
 
 ## Wert
 
-Ein String, der den Namen der Datei ohne Pfad enthält, zum Beispiel "My Resume.rtf".
+Ein String, der den Namen der Datei ohne Pfad enthält, wie zum Beispiel "My Resume.rtf".
 
 ## Beispiele
 
@@ -21,7 +21,7 @@ Ein String, der den Namen der Datei ohne Pfad enthält, zum Beispiel "My Resume.
 ```html
 <input type="file" id="filepicker" multiple />
 <div>
-  <p>Liste der ausgewählten Dateien:</p>
+  <p>List of selected files:</p>
   <ul id="output"></ul>
 </div>
 ```
@@ -58,4 +58,4 @@ filepicker.addEventListener("change", (event) => {
 
 ## Siehe auch
 
-- [Verwendung von Dateien in Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)
+- [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)

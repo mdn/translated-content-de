@@ -1,6 +1,6 @@
 ---
-title: "RTCEncodedAudioFrame: Dateneigenschaft"
-short-title: Daten
+title: "RTCEncodedAudioFrame: data-Eigenschaft"
+short-title: data
 slug: Web/API/RTCEncodedAudioFrame/data
 l10n:
   sourceCommit: 7cf04da4f63ea96edfddde0a74ac0d0b1bc4d12e
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`data`**-Eigenschaft des {{domxref("RTCEncodedAudioFrame")}}-Interfaces gibt einen Puffer zurück, der die Daten für einen codierten Frame enthält.
+Die **`data`**-Eigenschaft des [`RTCEncodedAudioFrame`](/de/docs/Web/API/RTCEncodedAudioFrame)-Interfaces gibt einen Puffer zurück, der die Daten für einen kodierten Frame enthält.
 
 ## Wert
 
@@ -16,10 +16,10 @@ Ein {{jsxref("ArrayBuffer")}}.
 
 ## Beispiele
 
-Dieses Beispiel für eine [WebRTC-Encoded-Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) zeigt, wie Sie die Framedaten in einer {{domxref("TransformStream")}} `transform()`-Funktion abrufen und die Bits modifizieren können.
+Dieses Beispiel für eine [WebRTC-kodierte Transformation](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) zeigt, wie Sie die Rahmendaten in einer `transform()`-Funktion eines [`TransformStream`](/de/docs/Web/API/TransformStream) erhalten und die Bits modifizieren könnten.
 
-Die `transform()`-Funktion erstellt ein {{jsxref("DataView")}} auf dem Puffer in der Frame-`data`-Eigenschaft und erstellt ebenfalls eine Ansicht auf einem neuen {{jsxref("ArrayBuffer")}}.
-Anschließend schreibt sie die negierten Bytes aus den Originaldaten in den neuen Puffer, weist den Puffer der kodierten Frame-`data`-Eigenschaft zu und reiht den modifizierten Frame im Stream ein.
+Die `transform()`-Funktion erstellt eine {{jsxref("DataView")}} auf dem Puffer in der Frame-Eigenschaft `data` und erstellt auch eine Ansicht auf einem neuen {{jsxref("ArrayBuffer")}}.
+Dann schreibt sie die negierten Bytes der Originaldaten in den neuen Puffer, weist den Puffer der kodierten Frame-Eigenschaft `data` zu und stellt den modifizierten Frame in den Stream ein.
 
 ```js
 addEventListener("rtctransform", (event) => {
@@ -47,7 +47,7 @@ addEventListener("rtctransform", (event) => {
 });
 ```
 
-Beachten Sie, dass der umgebende Code hier in [Verwendung von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) beschrieben wird.
+Beachten Sie, dass der umgebende Code, der hier gezeigt wird, in [Verwendung von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) beschrieben wird.
 
 ## Spezifikationen
 

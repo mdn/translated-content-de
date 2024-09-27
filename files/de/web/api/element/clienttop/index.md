@@ -8,12 +8,12 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die Breite des oberen Randes eines Elements in Pixel. Es handelt sich um eine schreibgeschützte, ganzzahlige Eigenschaft des Elements.
+Die Breite des oberen Rands eines Elements in Pixel. Es ist eine schreibgeschützte, ganzzahlige Eigenschaft des Elements.
 
-Wie es der Fall ist, liegt alles, was zwischen den beiden Positionen (`offsetTop` und dem oberen Rand des Clientbereichs) liegt, am Rand des Elements. Dies liegt daran, dass `offsetTop` die Position der Oberkante des Randes (nicht des Abstands) angibt, während der Clientbereich direkt unterhalb des Randes beginnt. (Der Clientbereich schließt den Innenabstand ein.) Daher wird der **clientTop**-Wert immer dem ganzzahligen Teil des `.getComputedStyle()`-Wertes für "border-top-width" entsprechen. (Tatsächlich könnte es Math.round(parseFloat()) sein.) Wenn zum Beispiel die berechnete "border-top-width" null ist, dann ist auch **`clientTop`** null.
+Wie es der Fall ist, liegt zwischen den beiden Positionen (`offsetTop` und der oberen Grenze des Client-Bereichs) nur der Rand des Elements. Dies liegt daran, dass `offsetTop` die Position des oberen Rands (nicht des Außenabstands) angibt, während der Client-Bereich direkt unterhalb des Rands beginnt (der Client-Bereich umfasst das Innenfutter). Daher wird der **clientTop**-Wert immer den ganzzahligen Anteil des `.getComputedStyle()`-Werts für "border-top-width" entsprechen. (Tatsächlich könnte es Math.round(parseFloat()) sein.) Zum Beispiel, wenn der berechnete "border-top-width" null ist, dann ist auch **`clientTop`** null.
 
 > [!NOTE]
-> Diese Eigenschaft rundet den Wert auf eine ganze Zahl. Wenn Sie einen Bruchteil benötigen, verwenden Sie {{ domxref("element.getBoundingClientRect()") }}.
+> Diese Eigenschaft rundet den Wert auf eine Ganzzahl. Wenn Sie einen Bruchwert benötigen, verwenden Sie [`element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
 
 ## Wert
 
@@ -21,7 +21,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Im folgenden Beispiel hat der Clientbereich einen weißen Hintergrund und einen 24px schwarzen `border-top`. Der `clientTop`-Wert ist der Abstand von dem Punkt, an dem der Randbereich (gelb) endet und der Innenabstands- und Inhaltsbereich (weiß) beginnt: also 24px.
+Im folgenden Beispiel hat der Client-Bereich einen weißen Hintergrund und einen 24px schwarzen `border-top`. Der `clientTop`-Wert ist der Abstand von dem Punkt, an dem der Außenabstand (gelb) endet und die Innenfutter- und Inhaltsbereiche (weiß) beginnen: also 24px.
 
 ### HTML
 
@@ -62,7 +62,7 @@ Im folgenden Beispiel hat der Clientbereich einen weißen Hintergrund und einen 
 
 ## Anmerkungen
 
-`clientTop` wurde erstmals im MS IE DHTML-Objektmodell eingeführt.
+`clientTop` wurde zuerst im MS IE DHTML-Objektmodell eingeführt.
 
 ## Spezifikationen
 

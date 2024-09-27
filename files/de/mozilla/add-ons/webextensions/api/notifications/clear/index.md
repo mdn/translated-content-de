@@ -22,11 +22,11 @@ let clearing = browser.notifications.clear(
 ### Parameter
 
 - `id`
-  - : `string`. Die ID der zu löschenden Benachrichtigung. Dies ist dieselbe wie die ID, die im Callback von {{WebExtAPIRef('notifications.create()')}} übergeben wurde.
+  - : `string`. Die ID der zu löschenden Benachrichtigung. Dies ist dieselbe ID, die im Callback von {{WebExtAPIRef('notifications.create()')}} übergeben wurde.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Boolean erfüllt wird: `true`, wenn die Benachrichtigung gelöscht wurde, oder `false`, wenn nicht (zum Beispiel, weil die durch `id` referenzierte Benachrichtigung nicht existierte).
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem boolean erfüllt wird: `true`, wenn die Benachrichtigung gelöscht wurde, oder `false`, wenn sie es nicht war (zum Beispiel, weil die durch `id` referenzierte Benachrichtigung nicht existierte).
 
 ## Browser-Kompatibilität
 
@@ -34,7 +34,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Benachrichtigung, wenn der Benutzer auf eine Browser-Aktion klickt, es sei denn, die Benachrichtigung wird bereits angezeigt. In diesem Fall wird die Benachrichtigung gelöscht:
+Dieses Beispiel zeigt eine Benachrichtigung, wenn der Benutzer auf eine Browser-Aktion klickt, es sei denn, die Benachrichtigung wird bereits angezeigt; in diesem Fall wird die Benachrichtigung gelöscht:
 
 ```js
 let myNotification = "my-notification";
@@ -63,4 +63,4 @@ browser.browserAction.onClicked.addListener(handleClick);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API.

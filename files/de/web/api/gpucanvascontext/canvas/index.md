@@ -3,16 +3,16 @@ title: "GPUCanvasContext: canvas-Eigenschaft"
 short-title: canvas
 slug: Web/API/GPUCanvasContext/canvas
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`canvas`** Nur-Lese-Eigenschaft des {{domxref("GPUCanvasContext")}}-Interfaces gibt eine Referenz auf die Leinwand zurück, von der der Kontext erstellt wurde.
+Die schreibgeschützte **`canvas`**-Eigenschaft des [`GPUCanvasContext`](/de/docs/Web/API/GPUCanvasContext)-Interfaces gibt eine Referenz auf das Canvas zurück, von dem der Kontext erstellt wurde.
 
 ## Wert
 
-Ein {{domxref("HTMLCanvasElement")}}- oder {{domxref("OffscreenCanvas")}}-Objekt-Instanz.
+Eine Instanz eines [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)- oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekts.
 
 ## Beispiele
 
@@ -28,10 +28,10 @@ context.canvas;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

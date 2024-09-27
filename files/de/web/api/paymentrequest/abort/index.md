@@ -1,5 +1,5 @@
 ---
-title: "PaymentRequest: abort()-Methode"
+title: "PaymentRequest: abort() Methode"
 short-title: abort()
 slug: Web/API/PaymentRequest/abort
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die `PaymentRequest.abort()`-Methode der {{domxref('PaymentRequest')}}-Schnittstelle veranlasst den Benutzeragenten, die Zahlungsanforderung zu beenden und jegliche möglicherweise angezeigte Benutzeroberfläche zu entfernen.
+Die `PaymentRequest.abort()` Methode des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Interfaces veranlasst den User-Agent, die Zahlungsanforderung zu beenden und jegliche Benutzeroberfläche, die angezeigt werden könnte, zu entfernen.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keiner ({{jsxref('undefined')}}).
 
 ## Beispiele
 
-Das folgende Beispiel richtet einen Timeout ein, um die Zahlungsanforderung zu löschen, die möglicherweise verlassen oder vernachlässigt wurde.
+Das folgende Beispiel richtet einen Timeout ein, um die möglicherweise verlassene oder vernachlässigte Zahlungsanforderung zu löschen.
 
 ```js
 const request = new PaymentRequest(supportedInstruments, details, options);

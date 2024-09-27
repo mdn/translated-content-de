@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`setInt8()`**-Methode von {{jsxref("DataView")}} Instanzen nimmt eine Zahl und speichert sie als 8-Bit vorzeichenbehaftete ganze Zahl im Byte an dem angegebenen Byte-Offset dieses `DataView`.
+Die **`setInt8()`**-Methode der {{jsxref("DataView")}} Instanzen nimmt eine Zahl und speichert sie als 8-Bit Vorzeichen-ganzzahl im Byte an dem angegebenen Byte-Offset dieser `DataView`.
 
 {{EmbedInteractiveExample("pages/js/dataview-setint8.html")}}
 
@@ -20,9 +20,9 @@ setInt8(byteOffset, value)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Anfang der Ansicht, an dem die Daten gespeichert werden sollen.
+  - : Der Offset, in Bytes, vom Anfang der Ansicht, um die Daten zu speichern.
 - `value`
-  - : Der zu setzende Wert. Für die Kodierung des Wertes in Bytes siehe [Wertkodierung und -normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
+  - : Der einzustellende Wert. Wie der Wert in Bytes kodiert wird, siehe [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
 
 ### Rückgabewert
 
@@ -31,7 +31,7 @@ setInt8(byteOffset, value)
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so gesetzt wird, dass er über das Ende der Ansicht hinaus speichert.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt wird, dass es über das Ende der Ansicht hinaus speichern würde.
 
 ## Beispiele
 

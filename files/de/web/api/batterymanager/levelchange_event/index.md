@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Das **`levelchange`**-Ereignis der {{domxref("BatteryManager")}}-Schnittstelle wird ausgelöst, wenn die {{domxref("BatteryManager.level", "level")}}-Eigenschaft des Akkus aktualisiert wird.
+Das **`levelchange`**-Ereignis des [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Interfaces wird ausgelöst, wenn die [`level`](/de/docs/Web/API/BatteryManager/level)-Eigenschaft der Batterie aktualisiert wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("levelchange", (event) => { })
@@ -22,15 +22,15 @@ onlevelchange = (event) => { }
 
 ## Ereignistyp
 
-_Ein generisches {{domxref("Event")}}._
+_Ein generisches [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiel
 
 ### HTML
 
 ```html
-<div id="level">(Akkustand unbekannt)</div>
-<div id="stateBattery">(Ladezustand unbekannt)</div>
+<div id="level">(battery level unknown)</div>
+<div id="stateBattery">(charging state unknown)</div>
 ```
 
 ### JavaScript
@@ -64,5 +64,5 @@ navigator.getBattery().then((battery) => {
 
 ## Siehe auch
 
-- {{domxref("BatteryManager")}}
-- {{domxref("Navigator.getBattery()")}}
+- [`BatteryManager`](/de/docs/Web/API/BatteryManager)
+- [`Navigator.getBattery()`](/de/docs/Web/API/Navigator/getBattery)

@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: clearHalt()-Methode"
+title: "USBDevice: clearHalt() Methode"
 short-title: clearHalt()
 slug: Web/API/USBDevice/clearHalt
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`clearHalt()`**-Methode des {{domxref("USBDevice")}}-Interfaces gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn ein Haltezustand behoben ist. Ein Haltezustand tritt auf, wenn ein Datentransfer zu oder von dem Gerät den Status `'stall'` hat, was von der Webseite (dem _Host_-System in der USB-Terminologie) eine Klärung dieses Zustands erfordert. Siehe für Details.
+Die **`clearHalt()`** Methode der [`USBDevice`](/de/docs/Web/API/USBDevice) Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn eine Halt-Bedingung gelöscht wird. Eine Halt-Bedingung tritt auf, wenn ein Datentransfer zum oder vom Gerät den Status `'stall'` hat, was es erforderlich macht, dass die Webseite (das _Host_-System, in der USB-Terminologie) diese Bedingung aufhebt. Siehe die Details.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ clearHalt(direction, endpointNumber)
 - `direction`
   - : Gibt an, ob die Eingabe oder Ausgabe des Geräts gelöscht werden soll. Gültige Werte sind `'in'` oder `'out'`.
 - `endpointNumber`
-  - : Gibt die Nummer des Endpunkts an, der gelöscht werden soll. Das Promise wird abgelehnt, wenn ein ungültiger Endpunkt angegeben wird.
+  - : Gibt die Nummer des Endpunkts an, der gelöscht werden soll. Das Versprechen wird abgelehnt, wenn ein ungültiger Endpunkt angegeben wird.
 
 ### Rückgabewert
 
@@ -29,10 +29,10 @@ Ein {{jsxref("promise")}}.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein `'stall'`-Zustand im Ergebnis eines Datentransfers getestet und behoben wird.
+Das folgende Beispiel zeigt, wie man eine `'stall'` Bedingung im Ergebnis eines Datentransfers testet und löscht.
 
 > [!NOTE]
-> Welche Daten an ein USB-Gerät übertragen werden können und wie sie übertragen werden, ist speziell und einzigartig für jedes Gerät.
+> Welche Daten an ein USB-Gerät übermittelt werden können und wie sie übermittelt werden, ist spezifisch und einzigartig für jedes Gerät.
 
 ```js
 while (true) {

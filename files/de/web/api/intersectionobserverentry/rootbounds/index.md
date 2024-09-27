@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die schreibgeschützte **`rootBounds`**-Eigenschaft der {{domxref("IntersectionObserverEntry")}}-Schnittstelle ist ein {{domxref("DOMRectReadOnly")}}, das dem Wurzel-Schnittrechteck des {{domxref("IntersectionObserverEntry.target", "Ziels")}} entspricht, versetzt um den {{domxref("IntersectionObserver.rootMargin")}}, falls einer angegeben ist.
+Die schreibgeschützte **`rootBounds`**-Eigenschaft des [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Interfaces ist ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly), das dem Root-Schnittrechteck des [`target`](/de/docs/Web/API/IntersectionObserverEntry/target) entspricht, versetzt um den [`IntersectionObserver.rootMargin`](/de/docs/Web/API/IntersectionObserver/rootMargin), falls einer angegeben ist.
 
 ## Wert
 
-Ein {{domxref("DOMRectReadOnly")}}, das das Wurzel-Schnittrechteck beschreibt. Für Wurzeln, die die Ansicht eines {{domxref("Document")}} sind, ist dieses Rechteck das Begrenzungsrechteck des gesamten Dokuments. Andernfalls handelt es sich um die Grenzen des Wurzelelements.
+Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly), das das Root-Schnittrechteck beschreibt. Bei Roots, die der Viewport des [`Document`](/de/docs/Web/API/Document) sind, ist dieses Rechteck das Begrenzungsrechteck des gesamten Dokuments. Andernfalls sind es die Grenzen des Root-Elements.
 
-Dieses Rechteck ist um die Werte in {{domxref("IntersectionObserver.rootMargin")}} versetzt.
+Dieses Rechteck wird durch die Werte in [`IntersectionObserver.rootMargin`](/de/docs/Web/API/IntersectionObserver/rootMargin) versetzt.
 
 ## Spezifikationen
 

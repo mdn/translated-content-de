@@ -1,5 +1,5 @@
 ---
-title: "BatteryManager: charging-Eigenschaft"
+title: "BatteryManager: Eigenschaft charging"
 short-title: charging
 slug: Web/API/BatteryManager/charging
 l10n:
@@ -8,20 +8,20 @@ l10n:
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Die schreibgeschützte **`charging`**-Eigenschaft der {{domxref("BatteryManager")}}-Schnittstelle ist ein Boolean-Wert, der angibt, ob der Akku des Geräts derzeit geladen wird oder nicht. Wenn sich der Wert ändert, wird das {{domxref("BatteryManager/chargingchange_event", "chargingchange")}}-Ereignis ausgelöst.
+Die schreibgeschützte Eigenschaft **`charging`** des [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Interfaces ist ein Boolescher Wert, der angibt, ob der Akku des Geräts momentan geladen wird oder nicht. Wenn sich der Wert ändert, wird das [`chargingchange`](/de/docs/Web/API/BatteryManager/chargingchange_event)-Ereignis ausgelöst.
 
 Wenn der Akku geladen wird oder der Benutzeragent den Akkustatus nicht melden kann, ist dieser Wert `true`. Andernfalls ist er `false`.
 
 ## Wert
 
-Ein Boolean.
+Ein boolescher Wert.
 
 ## Beispiele
 
 ### HTML
 
 ```html
-<div id="charging">(Ladestatus unbekannt)</div>
+<div id="charging">(charging state unknown)</div>
 ```
 
 ### JavaScript
@@ -46,5 +46,5 @@ navigator.getBattery().then((battery) => {
 
 ## Siehe auch
 
-- {{domxref("BatteryManager")}}
-- {{domxref("Navigator.getBattery()")}}
+- [`BatteryManager`](/de/docs/Web/API/BatteryManager)
+- [`Navigator.getBattery()`](/de/docs/Web/API/Navigator/getBattery)

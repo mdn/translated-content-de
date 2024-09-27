@@ -3,25 +3,24 @@ title: "GPUCompilationMessage: linePos-Eigenschaft"
 short-title: linePos
 slug: Web/API/GPUCompilationMessage/linePos
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`linePos`** schreibgeschützte Eigenschaft der
-{{domxref("GPUCompilationMessage")}}-Schnittstelle ist eine Zahl, die die Position in der Codezeile darstellt, die der Nachricht entspricht. Dies kann ein genauer Punkt oder der Beginn des relevanten Substrings sein.
+Die **`linePos`** schreibgeschützte Eigenschaft des [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Interfaces ist eine Zahl, die die Position in der Codezeile darstellt, auf die sich die Meldung bezieht. Dies könnte ein genauer Punkt oder der Anfang des relevanten Teilstrings sein.
 
 ## Wert
 
 Eine Zahl.
 
-Genauer gesagt, ist `linePos` die Anzahl der UTF-16 Codeeinheiten vom Beginn der Zeile bis zum genauen Punkt oder Beginn des relevanten Substrings, dem die Nachricht entspricht.
+Genauer gesagt ist `linePos` die Zahl der UTF-16 Codeeinheiten vom Anfang der Zeile bis zu dem genauen Punkt oder dem Anfang des relevanten Teilstrings, auf den sich die Meldung bezieht.
 
 Beachten Sie, dass:
 
-- Wenn die Nachricht einem Substring entspricht, bezieht sich `linePos` auf die erste UTF-16 Codeeinheit des Substrings.
-- Wenn die Nachricht keiner spezifischen Codeposition entspricht (möglicherweise bezieht sie sich auf den gesamten Shader-Code), wird `linePos` 0 sein.
-- Die Werte sind einsbasiert — ein Wert von 1 bezieht sich auf die erste Codeeinheit der Zeile.
+- Wenn sich die Meldung auf einen Teilstring bezieht, verweist `linePos` auf die erste UTF-16 Codeeinheit des Teilstrings.
+- Wenn sich die Meldung nicht auf eine bestimmte Codeposition bezieht (vielleicht bezieht sie sich auf den gesamten Shader-Code), wird `linePos` 0 sein.
+- Die Werte sind ein-basiert — ein Wert von 1 bezieht sich auf die erste Codeeinheit der Zeile.
 
 ## Beispiele
 
@@ -38,7 +37,7 @@ Beachten Sie, dass:
 }
 ```
 
-Siehe die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein ausführlicheres Beispiel.
+Sehen Sie sich die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein ausführlicheres Beispiel an.
 
 ## Spezifikationen
 

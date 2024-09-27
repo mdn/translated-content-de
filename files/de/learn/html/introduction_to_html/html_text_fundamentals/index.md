@@ -1,5 +1,5 @@
 ---
-title: Grundlagen des Textes in HTML
+title: HTML Textgrundlagen
 slug: Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals
 l10n:
   sourceCommit: 76c1e86a6bf1fd58aa6b0e627842a3c1161add28
@@ -7,24 +7,24 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML", "Learn/HTML/Introduction_to_HTML/Creating_hyperlinks", "Learn/HTML/Introduction_to_HTML")}}
 
-Eine der Hauptaufgaben von HTML ist es, Text eine Struktur zu geben, damit ein Browser ein HTML-Dokument so anzeigen kann, wie es der Entwickler beabsichtigt. Dieser Artikel erklärt, wie {{glossary("HTML")}} verwendet werden kann, um eine Seite mit Text zu strukturieren, indem Überschriften und Absätze hinzugefügt, Wörter betont, Listen erstellt und mehr getan wird.
+Eine der Hauptaufgaben von HTML besteht darin, Text eine Struktur zu geben, damit ein Browser ein HTML-Dokument so anzeigen kann, wie es der Entwickler beabsichtigt. Dieser Artikel erklärt, wie [HTML](/de/docs/Glossary/HTML) verwendet werden kann, um eine Textseite zu strukturieren, indem Überschriften und Absätze hinzugefügt, Wörter betont, Listen erstellt und mehr gemacht werden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlegende HTML-Kenntnisse, wie sie behandelt werden in
+        Grundkenntnisse in HTML, wie sie in
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML/Getting_started"
           >Erste Schritte mit HTML</a
-        >.
+        >behandelt werden.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen, wie man eine grundlegende Textseite markiert, um ihr Struktur und
-        Bedeutung zu geben — einschließlich Absätze, Überschriften, Listen, Betonung und Zitate.
+        Lernen Sie, wie Sie eine einfache Textseite markieren, um ihr Struktur und
+        Bedeutung zu geben — einschließlich Absätzen, Überschriften, Listen, Hervorhebungen und Zitaten.
       </td>
     </tr>
   </tbody>
@@ -32,101 +32,101 @@ Eine der Hauptaufgaben von HTML ist es, Text eine Struktur zu geben, damit ein B
 
 ## Die Grundlagen: Überschriften und Absätze
 
-Die meisten strukturierten Texte bestehen aus Überschriften und Absätzen, egal ob Sie eine Geschichte, eine Zeitung, ein College-Lehrbuch, ein Magazin usw. lesen.
+Der meiste strukturierte Text besteht aus Überschriften und Absätzen, sei es in einer Geschichte, einer Zeitung, einem Schulbuch, einer Zeitschrift usw.
 
-![Ein Beispiel für ein Zeitungstitelbild, das die Verwendung einer Überschrift der obersten Ebene, Unterüberschriften und Absätze zeigt.](newspaper_small.jpg)
+![Ein Beispiel für eine Titelseite einer Zeitung, die die Verwendung einer Hauptüberschrift, von Unterüberschriften und Absätzen zeigt.](newspaper_small.jpg)
 
-Strukturierter Inhalt macht das Leseerlebnis einfacher und angenehmer.
+Strukturiertes Inhalt macht das Leseerlebnis einfacher und angenehmer.
 
-In HTML muss jeder Absatz in einem {{htmlelement("p")}}-Element umschlossen sein, wie folgt:
+In HTML muss jeder Absatz in einem {{htmlelement("p")}}-Element umschlossen werden, wie folgt:
 
 ```html
-<p>Ich bin ein Absatz, oh ja, ich bin es.</p>
+<p>I am a paragraph, oh yes I am.</p>
 ```
 
-Jede Überschrift muss in einem Heading-Element umschlossen sein:
+Jede Überschrift muss in einem Überschriftselement umschlossen werden:
 
 ```html
-<h1>Ich bin der Titel der Geschichte.</h1>
+<h1>I am the title of the story.</h1>
 ```
 
-Es gibt sechs Überschriften-Elemente: {{htmlelement("Heading_Elements", "h1")}}, {{htmlelement("Heading_Elements", "h2")}}, {{htmlelement("Heading_Elements", "h3")}}, {{htmlelement("Heading_Elements", "h4")}}, {{htmlelement("Heading_Elements", "h5")}}, und {{htmlelement("Heading_Elements", "h6")}}. Jedes Element stellt eine andere Inhaltsebene im Dokument dar; `<h1>` repräsentiert die Hauptüberschrift, `<h2>` die Unterüberschriften, `<h3>` die untergeordneten Unterüberschriften usw.
+Es gibt sechs Überschriftselemente: {{htmlelement("Heading_Elements", "h1")}}, {{htmlelement("Heading_Elements", "h2")}}, {{htmlelement("Heading_Elements", "h3")}}, {{htmlelement("Heading_Elements", "h4")}}, {{htmlelement("Heading_Elements", "h5")}} und {{htmlelement("Heading_Elements", "h6")}}. Jedes Element repräsentiert eine andere Ebene des Inhalts im Dokument; `<h1>` repräsentiert die Hauptüberschrift, `<h2>` steht für Unterüberschriften, `<h3>` für Unter-Unterüberschriften und so weiter.
 
-### Implementierung der strukturellen Hierarchie
+### Implementierung der Strukturhierarchie
 
-Zum Beispiel repräsentiert im Folgenden die `<h1>`-Element den Titel der Geschichte, die `<h2>`-Elemente den Titel jedes Kapitels, und die `<h3>`-Elemente repräsentieren Unterabschnitte jedes Kapitels:
+Zum Beispiel steht in dieser Geschichte das `<h1>`-Element für den Titel der Geschichte, die `<h2>`-Elemente repräsentieren den Titel jedes Kapitels und die `<h3>`-Elemente repräsentieren Unterabschnitte jedes Kapitels:
 
 ```html
-<h1>Der erdrückende Langeweiler</h1>
+<h1>The Crushing Bore</h1>
 
-<p>Von Chris Mills</p>
+<p>By Chris Mills</p>
 
-<h2>Kapitel 1: Die dunkle Nacht</h2>
+<h2>Chapter 1: The dark night</h2>
 
 <p>
-  Es war eine dunkle Nacht. Irgendwo rief eine Eule. Der Regen prasselte auf…
+  It was a dark night. Somewhere, an owl hooted. The rain lashed down on the…
 </p>
 
-<h2>Kapitel 2: Die ewige Stille</h2>
+<h2>Chapter 2: The eternal silence</h2>
 
-<p>Unser Protagonist konnte nicht mehr als ein Flüstern der schattenhaften Gestalt entlocken…</p>
+<p>Our protagonist could not so much as a whisper out of the shadowy figure…</p>
 
-<h3>Der Geist spricht</h3>
+<h3>The specter speaks</h3>
 
 <p>
-  Mehrere Stunden waren vergangen, als der Geist plötzlich kerzengerade saß
-  und ausrief: "Bitte habe Erbarmen mit meiner Seele!"
+  Several more hours had passed, when all of a sudden the specter sat bolt
+  upright and exclaimed, "Please have mercy on my soul!"
 </p>
 ```
 
-Es liegt wirklich an Ihnen, was die beteiligten Elemente repräsentieren, solange die Hierarchie sinnvoll ist. Sie müssen nur ein paar bewährte Praktiken beachten, während Sie solche Strukturen erstellen:
+Es liegt wirklich an Ihnen, was die beteiligten Elemente repräsentieren, solange die Hierarchie sinnvoll ist. Bei der Erstellung solcher Strukturen sollten Sie jedoch einige Best Practices beachten:
 
-- Vorzugsweise sollten Sie pro Seite nur ein `<h1>` verwenden – dies ist die oberste Überschrift, und alle anderen stehen in der Hierarchie darunter.
-- Achten Sie darauf, dass Sie die Überschriften in der richtigen Reihenfolge in der Hierarchie verwenden. Verwenden Sie keine `<h3>`-Elemente, um Unterüberschriften darzustellen, gefolgt von `<h2>`-Elementen, um untergeordnete Unterüberschriften darzustellen – das macht keinen Sinn und führt zu merkwürdigen Ergebnissen.
-- Von den sechs verfügbaren Überschriftsebenen sollten Sie nicht mehr als drei pro Seite verwenden, es sei denn, es ist notwendig. Dokumente mit vielen Ebenen (zum Beispiel eine tiefe Überschriftenhierarchie) werden unhandlich und schwer zu navigieren. In solchen Fällen ist es ratsam, den Inhalt über mehrere Seiten zu verteilen, wenn möglich.
+- Vorzugsweise sollten Sie nur ein `<h1>` pro Seite verwenden—dies ist die oberste Ebene der Überschrift und alle anderen liegen hierarchisch darunter.
+- Stellen Sie sicher, dass Sie die Überschriften in der richtigen Reihenfolge in der Hierarchie verwenden. Verwenden Sie keine `<h3>`-Elemente, um Unterüberschriften darzustellen, gefolgt von `<h2>`-Elementen, um Unter-Unterüberschriften darzustellen—das ist nicht logisch und führt zu merkwürdigen Ergebnissen.
+- Von den sechs verfügbaren Überschriftsebenen sollten Sie versuchen, nicht mehr als drei pro Seite zu verwenden, es sei denn, Sie halten es für notwendig. Dokumente mit vielen Ebenen (zum Beispiel eine tiefe Überschriftenhierarchie) werden unhandlich und schwer zu navigieren. In solchen Fällen ist es ratsam, den Inhalt auf mehrere Seiten zu verteilen, wenn möglich.
 
-### Warum brauchen wir Struktur?
+### Warum benötigen wir Struktur?
 
-Um diese Frage zu beantworten, schauen wir uns [text-start.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-start.html) an - den Ausgangspunkt unseres laufenden Beispiels für diesen Artikel (ein schönes Hummus-Rezept). Sie sollten eine Kopie dieser Datei auf Ihrem lokalen Rechner speichern, da Sie sie später für die Übungen benötigen. Der Inhalt des Dokumentenkörpers ist derzeit in mehrere Inhalte getrennt. Sie sind nicht in irgendeiner Weise markiert, sondern mit Zeilenumbrüchen getrennt (Enter/Return wird gedrückt, um zur nächsten Zeile zu gelangen).
+Um diese Frage zu beantworten, werfen wir einen Blick auf [text-start.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-start.html)—den Ausgangspunkt unseres laufenden Beispiels für diesen Artikel (ein schönes Hummus-Rezept). Sie sollten eine Kopie dieser Datei auf Ihrem lokalen Rechner speichern, da Sie sie für die späteren Übungen benötigen. Der Körper dieses Dokuments enthält derzeit mehrere Inhalte. Sie sind in keiner Weise gekennzeichnet, aber sie sind durch Zeilenumbrüche getrennt (Eingabetaste/Return gedrückt, um zur nächsten Zeile zu gelangen).
 
-Wenn Sie das Dokument jedoch in Ihrem Browser öffnen, erscheint der Text als großer Block!
+Wenn Sie das Dokument jedoch in Ihrem Browser öffnen, werden Sie sehen, dass der Text als großer Block erscheint!
 
-![Eine Webseite, die eine Wand aus unformatiertem Text zeigt, da auf der Seite keine Elemente vorhanden sind, die ihn strukturieren.](screen_shot_2017-03-29_at_09.20.35.png)
+![Eine Webseite, die eine Wand aus unformatiertem Text zeigt, weil es keine Elemente auf der Seite gibt, um sie zu strukturieren.](screen_shot_2017-03-29_at_09.20.35.png)
 
-Dies liegt daran, dass es keine Elemente gibt, die den Inhalt strukturieren, sodass der Browser nicht weiß, was eine Überschrift und was ein Absatz ist. Darüber hinaus:
+Das liegt daran, dass keine Elemente vorhanden sind, um dem Inhalt Struktur zu verleihen, sodass der Browser nicht weiß, was eine Überschrift und was ein Absatz ist. Weiterhin:
 
-- Benutzer, die eine Webseite betrachten, neigen dazu, schnell zu scannen, um relevante Inhalte zu finden, oft lesen sie zunächst nur die Überschriften. (Wir verbringen in der Regel nur [sehr kurze Zeit auf einer Webseite](https://www.nngroup.com/articles/how-long-do-users-stay-on-web-pages/).) Wenn sie innerhalb weniger Sekunden nichts Nützliches sehen, werden sie wahrscheinlich frustriert und gehen woanders hin.
-- Suchmaschinen, die Ihre Seite indizieren, betrachten die Inhalte von Überschriften als wichtige Schlüsselwörter zur Beeinflussung des Rankings der Seite in den Suchergebnissen. Ohne Überschriften wird Ihre Seite in Bezug auf {{glossary("SEO")}} (Suchmaschinenoptimierung) schlecht abschneiden.
-- Stark sehbehinderte Menschen lesen Webseiten oft nicht; sie hören sie sich stattdessen an. Dies geschieht mit einer Software namens [Bildschirmleser](https://en.wikipedia.org/wiki/Screen_reader). Diese Software bietet Möglichkeiten, schnell auf bestimmten Textinhalt zuzugreifen. Zu den verschiedenen Techniken, die verwendet werden, gehört das Vorlesen der Überschriften zur Erstellung eines Dokuments, damit Benutzer schnell die benötigten Informationen finden können. Wenn Überschriften nicht vorhanden sind, werden sie gezwungen, sich das gesamte Dokument vorlesen zu lassen.
-- Um Inhalte mit {{glossary("CSS")}} zu stylen oder etwas Interessantes mit {{glossary("JavaScript")}} zu machen, müssen Sie Elemente haben, die den relevanten Inhalt umschließen, damit CSS/JavaScript ihn effektiv anvisieren können.
+- Benutzer, die sich eine Webseite ansehen, neigen dazu, schnell zu scannen, um relevante Inhalte zu finden, und lesen oft zunächst nur die Überschriften. (Wir [verbringen normalerweise sehr kurze Zeit auf einer Webseite](https://www.nngroup.com/articles/how-long-do-users-stay-on-web-pages/).) Wenn sie innerhalb weniger Sekunden nichts Nützliches sehen können, werden sie wahrscheinlich frustriert und gehen woanders hin.
+- Suchmaschinen, die Ihre Seite indexieren, betrachten den Inhalt der Überschriften als wichtige Schlüsselwörter zur Beeinflussung des Suchrankings der Seite. Ohne Überschriften wird Ihre Seite in Bezug auf [SEO](/de/docs/Glossary/SEO) (Suchmaschinenoptimierung) schlecht abschneiden.
+- Stark sehbehinderte Menschen lesen Webseiten oft nicht; sie hören sie sich stattdessen an. Dies geschieht mit Software, die als [Screen Reader](https://en.wikipedia.org/wiki/Screen_reader) bezeichnet wird. Diese Software bietet Möglichkeiten, schnell auf bestimmten Textinhalt zuzugreifen. Unter den verschiedenen Techniken, die verwendet werden, bietet sie eine Gliederung des Dokuments durch Vorlesen der Überschriften, sodass ihre Benutzer die benötigten Informationen schnell finden können. Wenn keine Überschriften verfügbar sind, müssen sie sich das gesamte Dokument vorlesen lassen.
+- Um Inhalt mit [CSS](/de/docs/Glossary/CSS) zu gestalten oder um interessante Dinge mit [JavaScript](/de/docs/Glossary/JavaScript) zu machen, müssen Elemente den relevanten Inhalt umschließen, sodass CSS/JavaScript diesen effektiv ansprechen können.
 
-Daher müssen wir unseren Inhalten strukturelle Markierungen geben.
+Deshalb müssen wir unserem Inhalt strukturelle Auszeichnung geben.
 
-### Aktives Lernen: Unseren Inhalten Struktur geben
+### Aktives Lernen: Unserem Inhalt Struktur geben
 
-Springen wir gleich mit einem Live-Beispiel ein. Im unten stehenden Beispiel fügen Sie dem Rohtext im Feld _Eingabe_ Elemente hinzu, damit er im Feld _Ausgabe_ als Überschrift und zwei Absätze erscheint.
+Lassen Sie uns mit einem Live-Beispiel direkt einsteigen. Fügen Sie im untenstehenden Beispiel Elemente zum Rohtext im _Eingabefeld_ hinzu, sodass er als Überschrift und zwei Absätze im _Ausgabefeld_ erscheint.
 
-Wenn Sie einen Fehler machen, können Sie ihn immer mit der _Zurücksetzen_ Taste zurücksetzen. Wenn Sie festsitzen, drücken Sie die _Lösung anzeigen_ Taste, um die Antwort zu sehen.
+Wenn Sie einen Fehler machen, können Sie immer die _Zurücksetzen_-Schaltfläche verwenden. Wenn Sie nicht weiterkommen, drücken Sie die _Lösung anzeigen_-Schaltfläche, um die Antwort zu sehen.
 
 ```html hidden
-<h2>Live Ausgabe</h2>
+<h2>Live output</h2>
 
 <div class="output" style="min-height: 50px;"></div>
 
-<h2>Bearbeitbarer Code</h2>
+<h2>Editable code</h2>
 <p class="a11y-label">
-  Drücken Sie Esc, um den Fokus aus dem Codebereich zu entfernen (Tab fügt ein Tab-Zeichen ein).
+  Press Esc to move focus away from the code area (Tab inserts a tab character).
 </p>
 
 <textarea id="code" class="input" style="min-height: 100px; width: 95%">
-Meine Kurzgeschichte Ich bin Statistikerin und mein Name ist Trish.
+My short story I am a statistician and my name is Trish.
 
-Meine Beine bestehen aus Pappe und ich bin mit einem Fisch verheiratet.
+My legs are made of cardboard and I am married to a fish.
 </textarea>
 
 <div class="playable-buttons">
-  <input id="reset" type="button" value="Zurücksetzen" />
-  <input id="solution" type="button" value="Lösung anzeigen" />
+  <input id="reset" type="button" value="Reset" />
+  <input id="solution" type="button" value="Show solution" />
 </div>
 ```
 
@@ -164,12 +164,12 @@ function updateCode() {
   output.innerHTML = textarea.value;
 }
 
-const htmlSolution = `<h1>Meine Kurzgeschichte</h1>
+const htmlSolution = `<h1>My short story</h1>
 <p>
-  Ich bin Statistikerin und mein Name ist Trish.
+  I am a statistician and my name is Trish.
 </p>
 <p>
-  Meine Beine bestehen aus Pappe und ich bin mit einem Fisch verheiratet.
+  My legs are made of cardboard and I am married to a fish.
 </p>`;
 
 let solutionEntry = htmlSolution;
@@ -178,17 +178,17 @@ reset.addEventListener("click", () => {
   textarea.value = code;
   userEntry = textarea.value;
   solutionEntry = htmlSolution;
-  solution.value = "Lösung anzeigen";
+  solution.value = "Show solution";
   updateCode();
 });
 
 solution.addEventListener("click", () => {
-  if (solution.value === "Lösung anzeigen") {
+  if (solution.value === "Show solution") {
     textarea.value = solutionEntry;
-    solution.value = "Lösung ausblenden";
+    solution.value = "Hide solution";
   } else {
     textarea.value = userEntry;
-    solution.value = "Lösung anzeigen";
+    solution.value = "Show solution";
   }
   updateCode();
 });
@@ -196,7 +196,8 @@ solution.addEventListener("click", () => {
 textarea.addEventListener("input", updateCode);
 window.addEventListener("load", updateCode);
 
-// Verhindern, dass die Tab-Taste aus dem Textbereich tabt und stattdessen ein Tab an der Caret-Position schreibt
+// Stop tab key tabbing out of textarea and
+// make it write a tab at the caret position instead
 textarea.onkeydown = (e) => {
   if (e.code === "Tab") {
     e.preventDefault();
@@ -225,11 +226,11 @@ function insertAtCaret(text) {
   textarea.scrollTop = scrollPos;
 }
 
-// Aktualisieren Sie die gespeicherten BenutzerCode jedes Mal, wenn der Benutzer den Textbereich-Code aktualisiert
+// Update the saved userCode every time the user updates the text area code
 textarea.onkeyup = function () {
-  // Wir möchten den Zustand nur speichern, wenn der Benutzercode angezeigt wird,
-  // nicht die Lösung, damit die Lösung nicht über den Benutzercode gespeichert wird
-  if (solution.value === "Lösung anzeigen") {
+  // We only want to save the state when the user code is being shown,
+  // not the solution, so that solution is not saved over the user code
+  if (solution.value === "Show solution") {
     userEntry = textarea.value;
   } else {
     solutionEntry = textarea.value;
@@ -243,62 +244,62 @@ textarea.onkeyup = function () {
 
 ### Warum brauchen wir Semantik?
 
-Semantik wird überall um uns herum genutzt – wir verlassen uns auf frühere Erfahrungen, um zu erkennen, welche Funktion ein Alltagsgegenstand hat; wenn wir etwas sehen, wissen wir, welche Funktion es hat. So erwarten wir beispielsweise, dass ein rotes Licht "Stop" bedeutet und ein grünes Licht "Fahren". Dinge können sehr schnell kompliziert werden, wenn die falsche Semantik angewandt wird. (Verwenden irgendwelche Länder Rot, um "Fahren" zu bedeuten? Hoffentlich nicht.)
+Semantik wird überall um uns herum verwendet—wir verlassen uns auf frühere Erfahrungen, um uns zu sagen, welche Funktion ein Alltagsgegenstand hat; wenn wir etwas sehen, wissen wir, was seine Funktion sein wird. So erwarten wir zum Beispiel, dass eine rote Ampel "Stopp" bedeutet, und eine grüne Ampel "Gehen". Es kann sehr schnell kompliziert werden, wenn die falsche Semantik angewendet wird. (Verwendet irgendein Land Rot, um "Gehen" zu bedeuten? Wir hoffen es nicht.)
 
-In ähnlicher Weise müssen wir sicherstellen, dass wir die richtigen Elemente verwenden, um unserem Inhalt die richtige Bedeutung, Funktion oder Erscheinung zu verleihen. In diesem Kontext ist das {{htmlelement("Heading_Elements", "h1")}}-Element auch ein semantisches Element, das dem Text, den es umschließt, die Rolle (oder Bedeutung) einer "obersten Überschrift auf Ihrer Seite" gibt.
+Ähnlich müssen wir sicherstellen, dass wir die richtigen Elemente verwenden, um unserem Inhalt die richtige Bedeutung, Funktion oder Erscheinung zu geben. In diesem Kontext ist das {{htmlelement("Heading_Elements", "h1")}}-Element auch ein semantisches Element, das dem Text, den es umschließt, die Rolle (oder Bedeutung) von "einer obersten Ebene der Überschrift auf Ihrer Seite" gibt.
 
 ```html
-<h1>Dies ist eine Überschrift der obersten Ebene</h1>
+<h1>This is a top level heading</h1>
 ```
 
-Standardmäßig weist der Browser ihm eine große Schriftgröße zu, damit es wie eine Überschrift aussieht (obwohl Sie es mit CSS so gestalten könnten, dass es aussieht wie alles, was Sie wollen). Viel wichtiger ist jedoch, dass sein semantischer Wert in vielerlei Hinsicht, zum Beispiel von Suchmaschinen und Bildschirmlesern, verwendet wird (wie bereits erwähnt).
+Standardmäßig wird der Browser ihm eine große Schriftgröße geben, damit es wie eine Überschrift aussieht (obwohl Sie es mittels CSS so gestalten könnten, wie Sie möchten). Wichtiger ist, dass sein semantischer Wert auf verschiedene Weise verwendet wird, z.B. von Suchmaschinen und Screenreadern (wie oben erwähnt).
 
-Auf der anderen Seite könnten Sie jedes Element wie eine Überschrift der obersten Ebene _aussehen_ lassen. Betrachten Sie das Folgende:
+Andererseits könnten Sie jedes Element _wie_ eine Überschrift auf oberster Ebene _aussehen_ lassen. Betrachten Sie das folgende Beispiel:
 
 ```html
 <span style="font-size: 32px; margin: 21px 0; display: block;">
-  Ist das eine Überschrift der obersten Ebene?
+  Is this a top level heading?
 </span>
 ```
 
-Dies ist ein {{htmlelement("span")}}-Element. Es hat keine Semantik. Sie verwenden es, um Inhalte zu umschließen, wenn Sie CSS darauf anwenden (oder etwas damit mit JavaScript tun) möchten, ohne ihm zusätzliche Bedeutung zu verleihen. (Sie erfahren später im Kurs mehr darüber.) We've applied some CSS to it to make it look like a top level heading, but since it has no semantic value, it will not get any of the extra benefits described above. Es ist eine gute Idee, das relevante HTML-Element für die jeweilige Aufgabe zu verwenden.
+Dies ist ein {{htmlelement("span")}}-Element. Es hat keine Semantik. Sie verwenden es, um Inhalt zu umschließen, wenn Sie CSS darauf anwenden (oder etwas damit in JavaScript tun) wollen, ohne ihm eine zusätzliche Bedeutung zu geben. (Sie werden später im Kurs mehr darüber erfahren.) Wir haben ihm einige CSS zugewiesen, damit es wie eine Überschrift auf oberster Ebene aussieht, aber da es keinen semantischen Wert hat, wird es keine der zusätzlichen Vorteile erhalten, die oben beschrieben wurden. Es ist eine gute Idee, das relevante HTML-Element für die jeweilige Aufgabe zu verwenden.
 
 ## Listen
 
-Wenden wir uns nun Listen zu. Listen sind überall im Leben zu finden – von Ihrer Einkaufsliste über die Liste der Richtungen, denen Sie unbewusst folgen, um jeden Tag zu Ihrem Haus zu gelangen, bis hin zu den Listen von Anweisungen, denen Sie in diesen Tutorials folgen! Im Web haben wir drei Arten von Listen: ungeordnete, geordnete und Beschreibungsliste.
+Wenden wir uns nun den Listen zu. Listen sind im Leben allgegenwärtig—von Ihrer Einkaufsliste über die Liste der Anweisungen, die Sie unbewusst befolgen, um täglich zu Ihrem Haus zu gelangen, bis zu den Listen der Anweisungen, die Sie in diesen Tutorials befolgen! Im Web gibt es drei Arten von Listen: ungeordnet, geordnet und Beschreibung.
 
-Ungeordnete und geordnete Listen sind sehr häufig und werden in diesem Abschnitt behandelt. Beschreibungslisten sind weniger verbreitet und werden in [Erweiterte Textformatierung](/de/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting) behandelt.
+Ungeordnete und geordnete Listen sind sehr häufig, und sie werden in diesem Abschnitt behandelt. Beschreibungsliste sind weniger häufig, und wir werden sie in [Fortgeschrittene Textformatierung](/de/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting) behandeln.
 
-### Ungeordnete Listen
+### Ungeordnet
 
 Ungeordnete Listen werden verwendet, um Listen von Elementen zu markieren, bei denen die Reihenfolge der Elemente keine Rolle spielt. Nehmen wir als Beispiel eine Einkaufsliste:
 
 ```plain
-Milch
-Eier
-Brot
-Hummus
+milk
+eggs
+bread
+hummus
 ```
 
-Jede ungeordnete Liste beginnt mit einem {{htmlelement("ul")}}-Element – dies umschließt alle Listenelemente:
+Jede ungeordnete Liste beginnt mit einem {{htmlelement("ul")}}-Element—dies umschließt alle Listenelemente:
 
 ```html-nolint
 <ul>
-  Milch
-  Eier
-  Brot
-  Hummus
+  milk
+  eggs
+  bread
+  hummus
 </ul>
 ```
 
-Der letzte Schritt besteht darin, jedes Listenelement in einem {{htmlelement("li")}}- (Listenpunkt)-Element einzuschließen:
+Der letzte Schritt ist, jedes Listenelement in einem {{htmlelement("li")}} (Listenelement)-Element zu umschließen:
 
 ```html
 <ul>
-  <li>Milch</li>
-  <li>Eier</li>
-  <li>Brot</li>
-  <li>Hummus</li>
+  <li>milk</li>
+  <li>eggs</li>
+  <li>bread</li>
+  <li>hummus</li>
 </ul>
 ```
 
@@ -307,25 +308,25 @@ Der letzte Schritt besteht darin, jedes Listenelement in einem {{htmlelement("li
 Versuchen Sie, das Live-Beispiel unten zu bearbeiten, um Ihre eigene HTML-ungeordnete Liste zu erstellen.
 
 ```html hidden
-<h2>Live Ausgabe</h2>
+<h2>Live output</h2>
 
 <div class="output" style="min-height: 50px;"></div>
 
-<h2>Bearbeitbarer Code</h2>
+<h2>Editable code</h2>
 <p class="a11y-label">
-  Drücken Sie Esc, um den Fokus aus dem Codebereich zu entfernen (Tab fügt ein Tab-Zeichen ein).
+  Press Esc to move focus away from the code area (Tab inserts a tab character).
 </p>
 
 <textarea id="code" class="input" style="min-height: 100px; width: 95%">
-Milch
-Eier
-Brot
-Hummus
+milk
+eggs
+bread
+hummus
 </textarea>
 
 <div class="playable-buttons">
-  <input id="reset" type="button" value="Zurücksetzen" />
-  <input id="solution" type="button" value="Lösung anzeigen" />
+  <input id="reset" type="button" value="Reset" />
+  <input id="solution" type="button" value="Show solution" />
 </div>
 ```
 
@@ -364,24 +365,24 @@ function updateCode() {
 }
 
 const htmlSolution =
-  "<ul>\n<li>Milch</li>\n<li>Eier</li>\n<li>Brot</li>\n<li>Hummus</li>\n</ul>";
+  "<ul>\n<li>milk</li>\n<li>eggs</li>\n<li>bread</li>\n<li>hummus</li>\n</ul>";
 let solutionEntry = htmlSolution;
 
 reset.addEventListener("click", () => {
   textarea.value = code;
   userEntry = textarea.value;
   solutionEntry = htmlSolution;
-  solution.value = "Lösung anzeigen";
+  solution.value = "Show solution";
   updateCode();
 });
 
 solution.addEventListener("click", () => {
-  if (solution.value === "Lösung anzeigen") {
+  if (solution.value === "Show solution") {
     textarea.value = solutionEntry;
-    solution.value = "Lösung ausblenden";
+    solution.value = "Hide solution";
   } else {
     textarea.value = userEntry;
-    solution.value = "Lösung anzeigen";
+    solution.value = "Show solution";
   }
   updateCode();
 });
@@ -389,7 +390,8 @@ solution.addEventListener("click", () => {
 textarea.addEventListener("input", updateCode);
 window.addEventListener("load", updateCode);
 
-// Verhindern, dass die Tab-Taste aus dem Textbereich tabt und stattdessen ein Tab an der Caret-Position schreibt
+// stop tab key tabbing out of textarea and
+// make it write a tab at the caret position instead
 
 textarea.onkeydown = (e) => {
   if (e.code === "Tab") {
@@ -419,11 +421,11 @@ function insertAtCaret(text) {
   textarea.scrollTop = scrollPos;
 }
 
-// Aktualisieren Sie die gespeicherten Benutzercode jedes Mal, wenn der Benutzer den Textbereich-Code aktualisiert
+// Update the saved userCode every time the user updates the text area code
 textarea.onkeyup = () => {
-  // Wir möchten den Zustand nur speichern, wenn der Benutzercode angezeigt wird,
-  // nicht die Lösung, damit die Lösung nicht über den Benutzercode gespeichert wird
-  if (solution.value === "Lösung anzeigen") {
+  // We only want to save the state when the user code is being shown,
+  // not the solution, so that solution is not saved over the user code
+  if (solution.value === "Show solution") {
     userEntry = textarea.value;
   } else {
     solutionEntry = textarea.value;
@@ -435,55 +437,55 @@ textarea.onkeyup = () => {
 
 {{ EmbedLiveSample('Active_learning_Marking_up_an_unordered_list', 700, 400, "", "") }}
 
-### Geordnete Listen
+### Geordnet
 
-Geordnete Listen sind Listen, bei denen die Reihenfolge der Elemente _wichtig_ ist. Nehmen wir als Beispiel eine Wegbeschreibung:
+Geordnete Listen sind Listen, bei denen die Reihenfolge der Elemente _eine Rolle spielt_. Nehmen wir als Beispiel einen Satz von Anweisungen:
 
 ```plain
-Fahren Sie bis ans Ende der Straße
-Nach rechts abbiegen
-Fahren Sie geradeaus über die ersten zwei Kreisverkehre
-Am dritten Kreisverkehr links abbiegen
-Die Schule befindet sich auf der rechten Seite, 300 Meter die Straße hinauf
+Drive to the end of the road
+Turn right
+Go straight across the first two roundabouts
+Turn left at the third roundabout
+The school is on your right, 300 meters up the road
 ```
 
-Die Markup-Struktur ist die gleiche wie für ungeordnete Listen, außer dass Sie die Listenelemente in einem {{htmlelement("ol")}}-Element, anstatt in `<ul>`, umschließen müssen:
+Die Markup-Struktur ist die gleiche wie bei ungeordneten Listen, mit dem Unterschied, dass Sie die Listenelemente in einem {{htmlelement("ol")}}-Element umschließen müssen, anstelle von `<ul>`:
 
 ```html
 <ol>
-  <li>Fahren Sie bis ans Ende der Straße</li>
-  <li>Nach rechts abbiegen</li>
-  <li>Fahren Sie geradeaus über die ersten zwei Kreisverkehre</li>
-  <li>Am dritten Kreisverkehr links abbiegen</li>
-  <li>Die Schule befindet sich auf der rechten Seite, 300 Meter die Straße hinauf</li>
+  <li>Drive to the end of the road</li>
+  <li>Turn right</li>
+  <li>Go straight across the first two roundabouts</li>
+  <li>Turn left at the third roundabout</li>
+  <li>The school is on your right, 300 meters up the road</li>
 </ol>
 ```
 
 #### Aktives Lernen: Eine geordnete Liste markieren
 
-Versuchen Sie das Live-Beispiel unten zu bearbeiten, um Ihre eigene HTML-geordnete Liste zu erstellen.
+Versuchen Sie, das Live-Beispiel unten zu bearbeiten, um Ihre eigene HTML-geordnete Liste zu erstellen.
 
 ```html hidden
-<h2>Live Ausgabe</h2>
+<h2>Live output</h2>
 
 <div class="output" style="min-height: 50px;"></div>
 
-<h2>Bearbeitbarer Code</h2>
+<h2>Editable code</h2>
 <p class="a11y-label">
-  Drücken Sie Esc, um den Fokus aus dem Codebereich zu entfernen (Tab fügt ein Tab-Zeichen ein).
+  Press Esc to move focus away from the code area (Tab inserts a tab character).
 </p>
 
 <textarea id="code" class="input" style="min-height: 200px; width: 95%">
-Fahren Sie bis ans Ende der Straße
-Nach rechts abbiegen
-Fahren Sie geradeaus über die ersten zwei Kreisverkehre
-Am dritten Kreisverkehr links abbiegen
-Die Schule befindet sich auf der rechten Seite, 300 Meter die Straße hinauf
+Drive to the end of the road
+Turn right
+Go straight across the first two roundabouts
+Turn left at the third roundabout
+The school is on your right, 300 meters up the road
 </textarea>
 
 <div class="playable-buttons">
-  <input id="reset" type="button" value="Zurücksetzen" />
-  <input id="solution" type="button" value="Lösung anzeigen" />
+  <input id="reset" type="button" value="Reset" />
+  <input id="solution" type="button" value="Show solution" />
 </div>
 ```
 
@@ -522,24 +524,24 @@ function updateCode() {
 }
 
 const htmlSolution =
-  "<ol>\n<li>Fahren Sie bis ans Ende der Straße</li>\n<li>Nach rechts abbiegen</li>\n<li>Fahren Sie geradeaus über die ersten zwei Kreisverkehre</li>\n<li>Am dritten Kreisverkehr links abbiegen</li>\n<li>Die Schule befindet sich auf der rechten Seite, 300 Meter die Straße hinauf</li>\n</ol>";
+  "<ol>\n<li>Drive to the end of the road</li>\n<li>Turn right</li>\n<li>Go straight across the first two roundabouts</li>\n<li>Turn left at the third roundabout</li>\n<li>The school is on your right, 300 meters up the road</li>\n</ol>";
 let solutionEntry = htmlSolution;
 
 reset.addEventListener("click", () => {
   textarea.value = code;
   userEntry = textarea.value;
   solutionEntry = htmlSolution;
-  solution.value = "Lösung anzeigen";
+  solution.value = "Show solution";
   updateCode();
 });
 
 solution.addEventListener("click", () => {
-  if (solution.value === "Lösung anzeigen") {
+  if (solution.value === "Show solution") {
     textarea.value = solutionEntry;
-    solution.value = "Lösung ausblenden";
+    solution.value = "Hide solution";
   } else {
     textarea.value = userEntry;
-    solution.value = "Lösung anzeigen";
+    solution.value = "Show solution";
   }
   updateCode();
 });
@@ -547,7 +549,8 @@ solution.addEventListener("click", () => {
 textarea.addEventListener("input", updateCode);
 window.addEventListener("load", updateCode);
 
-// Verhindern, dass die Tab-Taste aus dem Textbereich tabt und stattdessen ein Tab an der Caret-Position schreibt
+// stop tab key tabbing out of textarea and
+// make it write a tab at the caret position instead
 
 textarea.onkeydown = (e) => {
   if (e.code === "Tab") {
@@ -577,11 +580,11 @@ function insertAtCaret(text) {
   textarea.scrollTop = scrollPos;
 }
 
-// Aktualisieren Sie die gespeicherten Benutzercode jedes Mal, wenn der Benutzer den Textbereich-Code aktualisiert
+// Update the saved userCode every time the user updates the text area code
 textarea.onkeyup = () => {
-  // Wir möchten den Zustand nur speichern, wenn der Benutzercode angezeigt wird,
-  // nicht die Lösung, damit die Lösung nicht über den Benutzercode gespeichert wird
-  if (solution.value === "Lösung anzeigen") {
+  // We only want to save the state when the user code is being shown,
+  // not the solution, so that solution is not saved over the user code
+  if (solution.value === "Show solution") {
     userEntry = textarea.value;
   } else {
     solutionEntry = textarea.value;
@@ -593,58 +596,58 @@ textarea.onkeyup = () => {
 
 {{ EmbedLiveSample('Active_learning_Marking_up_an_ordered_list', 700, 500, "", "") }}
 
-### Aktives Lernen: Unser Rezeptseite markieren
+### Aktives Lernen: Unsere Rezeptseite markieren
 
-An diesem Punkt im Artikel haben Sie alle Informationen, die Sie benötigen, um unser Rezeptseitenbeispiel zu kennzeichnen. Sie können entweder eine lokale Kopie unserer [text-start.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-start.html) Startdatei speichern und die Arbeit dort erledigen oder dies im bearbeitbaren Beispiel unten tun. Es wird wahrscheinlich besser, dies lokal zu tun, da Sie dann die Arbeit, die Sie leisten, speichern können, während wenn Sie es im bearbeitbaren Beispiel ausfüllen, es verloren geht, das nächste Mal, wenn Sie die Seite öffnen. Beide haben Vor- und Nachteile.
+An diesem Punkt im Artikel haben Sie alle Informationen, die Sie benötigen, um unsere Beispiel-Rezeptseite zu markieren. Sie können wählen, ob Sie entweder eine lokale Kopie unserer [text-start.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-start.html)-Startdatei speichern und die Arbeit dort erledigen oder es im bearbeitbaren Beispiel unten tun möchten. Eine lokale Bearbeitung wäre wahrscheinlich besser, da Sie dann die Arbeit, die Sie tun, speichern können, während Sie die Eingaben im bearbeitbaren Beispiel verlieren, die nächste Mal, wenn Sie die Seite öffnen. Beide Ansätze haben Vor- und Nachteile.
 
 ```html hidden
-<h2>Live Ausgabe</h2>
+<h2>Live output</h2>
 
 <div class="output" style="min-height: 50px;"></div>
 
-<h2>Bearbeitbarer Code</h2>
+<h2>Editable code</h2>
 <p class="a11y-label">
-  Drücken Sie Esc, um den Fokus aus dem Codebereich zu entfernen (Tab fügt ein Tab-Zeichen ein).
+  Press Esc to move focus away from the code area (Tab inserts a tab character).
 </p>
 
 <textarea id="code" class="input" style="min-height: 200px; width: 95%">
-Schnelles Hummus-Rezept
+Quick hummus recipe
 
-  Dieses Rezept ergibt schnell, schmackhaften Hummus, ohne Aufwand. Es wurde aus einer Reihe verschiedener Rezepte, die ich im Laufe der Jahre gelesen habe, angepasst.
+  This recipe makes quick, tasty hummus, with no messing. It has been adapted from a number of different recipes that I have read over the years.
 
-  Hummus ist eine köstliche dicke Paste, die stark in griechischen und nahöstlichen Gerichten verwendet wird. Es ist sehr schmackhaft mit Salat, gegrilltem Fleisch und Pitta-Broten.
+  Hummus is a delicious thick paste used heavily in Greek and Middle Eastern dishes. It is very tasty with salad, grilled meats and pitta breads.
 
-  Zutaten
+  Ingredients
 
-  1 Dose (400 g) Kichererbsen (Kicherbohnen)
-  175 g Tahini
-  6 getrocknete Tomaten
-  Eine halbe rote Paprika
-  Eine Prise Cayennepfeffer
-  1 Knoblauchzehe
-  Ein Spritzer Olivenöl
+  1 can (400g) of chick peas (garbanzo beans)
+  175g of tahini
+  6 sundried tomatoes
+  Half a red pepper
+  A pinch of cayenne pepper
+  1 clove of garlic
+  A dash of olive oil
 
-  Anweisungen
+  Instructions
 
-  Entfernen Sie die Haut vom Knoblauch und hacken Sie sie grob
-  Entfernen Sie alle Samen und den Stiel von der Paprika und hacken Sie sie grob
-  Geben Sie alle Zutaten in eine Küchenmaschine
-  Verarbeiten Sie alle Zutaten zu einer Paste
-  Wenn Sie einen groben "p[HTML_text_formatting](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-complete.html)ropelypate"-Hummus wünschen, verarbeiten Sie ihn nur kurze Zeit
-  Wenn Sie einen glatten Hummus wünschen, verarbeiten Sie ihn für längere Zeit
+  Remove the skin from the garlic, and chop coarsely
+  Remove all the seeds and stalk from the pepper, and chop coarsely
+  Add all the ingredients into a food processor
+  Process all the ingredients into a paste
+  If you want a coarse "chunky" hummus, process it for a short time
+  If you want a smooth hummus, process it for a longer time
 
-  Für einen anderen Geschmack könnten Sie versuchen, eine kleine Menge Zitrone und Koriander, Chilischote, Limette und Chipotle, Harissa und Minze oder Spinat und Fetakäse zu mischen. Experimentieren und sehen Sie, was für Sie funktioniert.
+  For a different flavor, you could try blending in a small measure of lemon and coriander, chili pepper, lime and chipotle, harissa and mint, or spinach and feta cheese. Experiment and see what works for you.
 
-  Aufbewahrung
+  Storage
 
-  Kühlen Sie den fertigen Hummus in einem verschlossenen Behälter. Sie sollten in der Lage sein, es etwa eine Woche lang nach der Herstellung zu verwenden. Wenn es anfangen sollte, sprudelig zu werden, sollten Sie es auf jeden Fall entsorgen.
+  Refrigerate the finished hummus in a sealed container. You should be able to use it for about a week after you've made it. If it starts to become fizzy, you should definitely discard it.
 
-  Hummus ist zum Einfrieren geeignet; Sie sollten es auftauen und innerhalb von ein paar Monaten verwenden.
+  Hummus is suitable for freezing; you should thaw it and use it within a couple of months.
 </textarea>
 
 <div class="playable-buttons">
-  <input id="reset" type="button" value="Zurücksetzen" />
-  <input id="solution" type="button" value="Lösung anzeigen" />
+  <input id="reset" type="button" value="Reset" />
+  <input id="solution" type="button" value="Show solution" />
 </div>
 ```
 
@@ -683,24 +686,24 @@ function updateCode() {
 }
 
 const htmlSolution =
-  '<h1>Schnelles Hummus-Rezept</h1>\n\n<p>Dieses Rezept ergibt schnell, schmackhaften Hummus, ohne Aufwand. Es wurde aus einer Reihe verschiedener Rezepte, die ich im Laufe der Jahre gelesen habe, angepasst.</p>\n\n<p>Hummus ist eine köstliche dicke Paste, die stark in griechischen und nahöstlichen Gerichten verwendet wird. Es ist sehr schmackhaft mit Salat, gegrilltem Fleisch und Pitta-Broten.</p>\n\n<h2>Zutaten</h2>\n\n<ul>\n<li>1 Dose (400 g) Kichererbsen (Kicherbohnen)</li>\n<li>175 g Tahini</li>\n<li>6 getrocknete Tomaten</li>\n<li>Eine halbe rote Paprika</li>\n<li>Eine Prise Cayennepfeffer</li>\n<li>1 Knoblauchzehe</li>\n<li>Ein Spritzer Olivenöl</li>\n</ul>\n\n<h2>Anweisungen</h2>\n\n<ol>\n<li>Entfernen Sie die Haut vom Knoblauch und hacken Sie sie grob.</li>\n<li>Entfernen Sie alle Samen und den Stiel von der Paprika und hacken Sie sie grob.</li>\n<li>Geben Sie alle Zutaten in eine Küchenmaschine.</li>\n<li>Verarbeiten Sie alle Zutaten zu einer Paste.</li>\n<li>Wenn Sie einen groben "chunky"-Hummus wünschen, verarbeiten Sie ihn nur kurze Zeit.</li>\n<li>Wenn Sie einen glatten Hummus wünschen, verarbeiten Sie ihn für längere Zeit.</li>\n</ol>\n\n<p>Für einen anderen Geschmack könnten Sie versuchen, eine kleine Menge Zitrone und Koriander, Chilischote, Limette und Chipotle, Harissa und Minze oder Spinat und Fetakäse zu mischen. Experimentieren und sehen Sie, was für Sie funktioniert.</p>\n\n<h2>Aufbewahrung</h2>\n\n<p>Kühlen Sie den fertigen Hummus in einem verschlossenen Behälter. Sie sollten in der Lage sein, es etwa eine Woche lang nach der Herstellung zu verwenden. Wenn es anfangen sollte, sprudelig zu werden, sollten Sie es auf jeden Fall entsorgen.</p>\n\n<p>Hummus ist zum Einfrieren geeignet; Sie sollten es auftauen und innerhalb von ein paar Monaten verwenden.</p>';
+  '<h1>Quick hummus recipe</h1>\n\n<p>This recipe makes quick, tasty hummus, with no messing. It has been adapted from a number of different recipes that I have read over the years.</p>\n\n<p>Hummus is a delicious thick paste used heavily in Greek and Middle Eastern dishes. It is very tasty with salad, grilled meats and pitta breads.</p>\n\n<h2>Ingredients</h2>\n\n<ul>\n<li>1 can (400g) of chick peas (garbanzo beans)</li>\n<li>175g of tahini</li>\n<li>6 sundried tomatoes</li>\n<li>Half a red pepper</li>\n<li>A pinch of cayenne pepper</li>\n<li>1 clove of garlic</li>\n<li>A dash of olive oil</li>\n</ul>\n\n<h2>Instructions</h2>\n\n<ol>\n<li>Remove the skin from the garlic, and chop coarsely.</li>\n<li>Remove all the seeds and stalk from the pepper, and chop coarsely.</li>\n<li>Add all the ingredients into a food processor.</li>\n<li>Process all the ingredients into a paste.</li>\n<li>If you want a coarse "chunky" hummus, process it for a short time.</li>\n<li>If you want a smooth hummus, process it for a longer time.</li>\n</ol>\n\n<p>For a different flavor, you could try blending in a small measure of lemon and coriander, chili pepper, lime and chipotle, harissa and mint, or spinach and feta cheese. Experiment and see what works for you.</p>\n\n<h2>Storage</h2>\n\n<p>Refrigerate the finished hummus in a sealed container. You should be able to use it for about a week after you\'ve made it. If it starts to become fizzy, you should definitely discard it.</p>\n\n<p>Hummus is suitable for freezing; you should thaw it and use it within a couple of months.</p>';
 let solutionEntry = htmlSolution;
 
 reset.addEventListener("click", () => {
   textarea.value = code;
   userEntry = textarea.value;
   solutionEntry = htmlSolution;
-  solution.value = "Lösung anzeigen";
+  solution.value = "Show solution";
   updateCode();
 });
 
 solution.addEventListener("click", () => {
-  if (solution.value === "Lösung anzeigen") {
+  if (solution.value === "Show solution") {
     textarea.value = solutionEntry;
-    solution.value = "Lösung ausblenden";
+    solution.value = "Hide solution";
   } else {
     textarea.value = userEntry;
-    solution.value = "Lösung anzeigen";
+    solution.value = "Show solution";
   }
   updateCode();
 });
@@ -708,7 +711,8 @@ solution.addEventListener("click", () => {
 textarea.addEventListener("input", updateCode);
 window.addEventListener("load", updateCode);
 
-// Verhindern, dass die Tab-Taste aus dem Textbereich tabt und stattdessen ein Tab an der Caret-Position schreibt
+// stop tab key tabbing out of textarea and
+// make it write a tab at the caret position instead
 
 textarea.onkeydown = (e) => {
   if (e.code === "Tab") {
@@ -738,11 +742,11 @@ function insertAtCaret(text) {
   textarea.scrollTop = scrollPos;
 }
 
-// Aktualisieren Sie den gespeicherten Benutzercode jedes Mal, wenn der Benutzer den Textbereich-Code aktualisiert
+// Update the saved userCode every time the user updates the text area code
 textarea.onkeyup = () => {
-  // Wir möchten den Zustand nur speichern, wenn der Benutzercode angezeigt wird,
-  // nicht die Lösung, damit die Lösung nicht über den Benutzercode gespeichert wird
-  if (solution.value === "Lösung anzeigen") {
+  // We only want to save the state when the user code is being shown,
+  // not the solution, so that solution is not saved over the user code
+  if (solution.value === "Show solution") {
     userEntry = textarea.value;
   } else {
     solutionEntry = textarea.value;
@@ -754,112 +758,116 @@ textarea.onkeyup = () => {
 
 {{ EmbedLiveSample('Active_learning_Marking_up_our_recipe_page', 900, 620, "", "") }}
 
-Wenn Sie festsitzen, können Sie jederzeit die _Lösung anzeigen_ Taste drücken oder unser [text-complete.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-complete.html) Beispiel auf unserem GitHub-Repo überprüfen.
+Wenn Sie nicht weiterkommen, können Sie immer die _Lösung anzeigen_-Schaltfläche drücken oder unser [text-complete.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-complete.html)-Beispiel in unserem GitHub-Repo ansehen.
 
-### Verschachteln von Listen
+### Verschachtelte Listen
 
-Es ist völlig in Ordnung, eine Liste in eine andere Liste zu verschachteln. Sie können beispielsweise einige Unterpunkte unter einem Hauptpunkt haben. Nehmen wir die zweite Liste aus unserem Rezeptbeispiel:
+Es ist vollkommen in Ordnung, eine Liste innerhalb einer anderen zu verschachteln. Sie möchten möglicherweise einige Unterpunkte unter einem Hauptpunkt einfügen. Nehmen wir die zweite Liste aus unserem Rezeptbeispiel:
 
 ```html
 <ol>
-  <li>Entfernen Sie die Haut vom Knoblauch und hacken Sie sie grob.</li>
-  <li>Entfernen Sie alle Samen und den Stiel von der Paprika und hacken Sie sie grob.</li>
-  <li>Geben Sie alle Zutaten in eine Küchenmaschine.</li>
-  <li>Verarbeiten Sie alle Zutaten zu einer Paste.</li>
-  <li>Wenn Sie einen groben "chunky"-Hummus wünschen, verarbeiten Sie ihn nur kurze Zeit.</li>
-  <li>Wenn Sie einen glatten Hummus wünschen, verarbeiten Sie ihn für längere Zeit.</li>
+  <li>Remove the skin from the garlic, and chop coarsely.</li>
+  <li>Remove all the seeds and stalk from the pepper, and chop coarsely.</li>
+  <li>Add all the ingredients into a food processor.</li>
+  <li>Process all the ingredients into a paste.</li>
+  <li>If you want a coarse "chunky" hummus, process it for a short time.</li>
+  <li>If you want a smooth hummus, process it for a longer time.</li>
 </ol>
 ```
 
-Da die letzten beiden Punkte sehr eng mit dem vorhergehenden verbunden sind (sie lesen sich wie Unteranweisungen oder Auswahlmöglichkeiten, die unter diesem Punkt passen), könnte es sinnvoll sein, sie in ihrer eigenen ungeordneten Liste zu verschachteln und diese Liste in den aktuellen vierten Punkt zu setzen. Dies würde so aussehen:
+Da die letzten beiden Punkte sehr eng verbunden mit dem vorhergehenden Punkt sind (sie lesen sich wie Unterpunkt-Instruktionen oder Entscheidungen, die unter den Punkt passen), könnte es sinnvoll sein, sie in einer eigenen ungeordneten Liste innerhalb des aktuellen vierten Punktes zu verschachteln. Das würde so aussehen:
 
 ```html
 <ol>
-  <li>Entfernen Sie die Haut vom Knoblauch und hacken Sie sie grob.</li>
-  <li>Entfernen Sie alle Samen und den Stiel von der Paprika und hacken Sie sie grob.</li>
-  <li>Geben Sie alle Zutaten in eine Küchenmaschine.</li>
+  <li>Remove the skin from the garlic, and chop coarsely.</li>
+  <li>Remove all the seeds and stalk from the pepper, and chop coarsely.</li>
+  <li>Add all the ingredients into a food processor.</li>
   <li>
-    Verarbeiten Sie alle Zutaten zu einer Paste.
+    Process all the ingredients into a paste.
     <ul>
       <li>
-        Wenn Sie einen groben "chunky"-Hummus wünschen, verarbeiten Sie ihn nur kurze Zeit.
+        If you want a coarse "chunky" hummus, process it for a short time.
       </li>
-      <li>Wenn Sie einen glatten Hummus wünschen, verarbeiten Sie ihn für längere Zeit.</li>
+      <li>If you want a smooth hummus, process it for a longer time.</li>
     </ul>
   </li>
 </ol>
 ```
 
-Versuchen Sie, im vorherigen Beispiel für aktives Lernen zurückzugehen und die zweite Liste entsprechend zu aktualisieren.
+Versuchen Sie, zum vorherigen aktiven Lernbeispiel zurückzukehren und die zweite Liste so zu aktualisieren.
 
-## Betonung und Wichtigkeit
+## Hervorhebung und Wichtigkeit
 
-In der menschlichen Sprache betonen wir oft bestimmte Wörter, um die Bedeutung eines Satzes zu ändern, und wir möchten oft bestimmte Wörter als wichtig oder anderweitig hervorheben. HTML bietet verschiedene semantische Elemente, mit denen wir Textinhalte mit solchen Effekten markieren können, und in diesem Abschnitt werden wir einige der gebräuchlichsten betrachten.
+In der menschlichen Sprache betonen wir oft bestimmte Wörter, um die Bedeutung eines Satzes zu ändern, und wir möchten oft bestimmte Wörter als wichtig oder andersartig markieren. HTML bietet verschiedene semantische Elemente, die es uns ermöglichen, Textinhalte mit solchen Effekten zu markieren, und in diesem Abschnitt betrachten wir einige der gebräuchlichsten.
 
-### Betonung
+### Hervorhebung
 
-Wenn wir in gesprochener Sprache etwas betonen wollen, _betonen_ wir bestimmte Wörter, wodurch die Bedeutung subtil verändert wird. Ähnlich betonen wir in geschriebener Sprache Wörter, indem wir sie kursiv darstellen. Zum Beispiel unterscheiden sich die beiden folgenden Sätze in ihrer Bedeutung.
+Wenn wir in der gesprochenen Sprache etwas betonen wollen, _betonen_ wir bestimmte Wörter, um die Bedeutung dessen, was wir sagen, subtil zu ändern. In der geschriebenen Sprache neigen wir dazu, Wörter durch Kursivschrift hervorzuheben. Zum Beispiel haben die folgenden zwei Sätze unterschiedliche Bedeutungen.
 
-> Ich bin froh, dass Sie nicht zu spät gekommen sind.
+> Ich bin froh, dass Sie nicht zu spät sind.
 >
-> Ich bin _froh_, dass Sie nicht zu _spät_ gekommen sind.
+> Ich bin _froh_, dass Sie nicht _zu spät_ sind.
 
-Der erste Satz klingt wirklich erleichtert, dass die Person nicht zu spät gekommen ist. Im Gegensatz dazu klingt der zweite Satz mit den Wörtern "froh" und "spät" in Kursivschrift sarkastisch oder passiv-aggressiv und drückt Ärger darüber aus, dass die Person etwas zu spät angekommen ist.
+Der erste Satz klingt wirklich erleichtert, dass die Person nicht zu spät war. Im Gegensatz dazu klingt der zweite Satz, mit sowohl "froh" als auch "zu spät" in Kursivschrift, sarkastisch oder passiv-aggressiv, was eine Verärgerung darüber ausdrückt, dass die Person etwas zu spät kam.
 
-In HTML verwenden wir das {{htmlelement("em")}} (Betonung)-Element, um solche Fälle zu markieren. Neben der interessant zu lesenden Dokumentation werden diese von Bildschirmlesern erkannt, die so konfiguriert werden können, um sie in einem anderen Ton zu sprechen. Browser formatieren dies standardmäßig als Kursivschrift, aber Sie sollten dieses Tag nicht nur verwenden, um eine kursiv formatierte Darstellung zu erhalten. Verwenden Sie dazu ein {{htmlelement("span")}}-Element und etwas CSS oder vielleicht ein {{htmlelement("i")}}-Element (siehe unten).
+In HTML verwenden wir das {{htmlelement("em")}} (Betonung)-Element, um solche Fälle zu markieren. Zusätzlich dazu, das Dokument interessanter zu machen, werden diese von Screenreadern erkannt, die so konfiguriert werden können, dass sie sie in einem anderen Ton vorlesen. Browser gestalten dies standardmäßig kursiv, jedoch sollten Sie dieses Tag nicht ausschließlich verwenden, um Kursivschrift zu erzeugen. Dafür würden Sie ein {{htmlelement("span")}}-Element und etwas CSS verwenden oder vielleicht ein {{htmlelement("i")}}-Element (siehe unten).
 
 ```html
-<p>Ich bin <em>froh</em>, dass Sie nicht zu <em>spät</em> gekommen sind.</p>
+<p>I am <em>glad</em> you weren't <em>late</em>.</p>
 ```
 
 ### Starke Wichtigkeit
 
-Um wichtige Wörter zu betonen, betonen wir sie in der gesprochenen Sprache und **fetten** sie in der geschriebenen Sprache. Zum Beispiel:
+Um wichtige Wörter zu betonen, neigen wir dazu, sie in der gesprochenen Sprache stark zu betonen und in der geschriebenen Sprache **fett** zu schreiben. Beispielsweise:
 
-> Diese Flüssigkeit ist **stark giftig**.
+> Diese Flüssigkeit ist **hochgiftig**.
 >
 > Ich zähle auf Sie. **Seien Sie nicht** zu spät!
 
-In HTML verwenden wir das {{htmlelement("strong")}} (starke Wichtigkeit)-Element, um solche Fälle zu markieren. Neben der nützlich zu lesenden Dokumentation werden diese erneut von Bildschirmlesern erkannt, die so konfiguriert werden können, um sie in einem anderen Ton zu sprechen. Browser formatieren dies standardmäßig als fettgedruckten Text, aber Sie sollten dieses Tag nicht nur verwenden, um eine fettgedruckte Darstellung zu erhalten. Verwenden Sie dazu ein {{htmlelement("span")}}-Element und etwas CSS oder vielleicht ein {{htmlelement("b")}}-Element (siehe unten).
+In HTML verwenden wir das {{htmlelement("strong")}} (starke Wichtigkeit)-Element, um solche Fälle zu markieren. Zusätzlich dazu, das Dokument nützlicher zu machen, werden auch diese von Screenreadern erkannt, die so konfiguriert werden können, dass sie sie in einem anderen Ton vorlesen. Browser gestalten dies standardmäßig fett, jedoch sollten Sie dieses Tag nicht ausschließlich verwenden, um Fettschrift zu erzeugen. Dafür würden Sie ein {{htmlelement("span")}}-Element und etwas CSS verwenden oder vielleicht ein {{htmlelement("b")}}-Element (siehe unten).
 
 ```html
-<p>Diese Flüssigkeit ist <strong>stark giftig</strong>.</p>
+<p>This liquid is <strong>highly toxic</strong>.</p>
 
-<p>Ich zähle auf Sie. <strong>Seien Sie nicht</strong> zu spät!</p>
+<p>I am counting on you. <strong>Do not</strong> be late!</p>
 ```
 
-Sie können starke Bedeutung und Betonung innerhalb von einander verschachteln, wenn gewünscht:
+Sie können strong und emphasis ineinander verschachteln, falls gewünscht:
 
 ```html-nolint
-<p>Diese Flüssigkeit ist <strong>stark giftig</strong> — wenn Sie sie trinken, <strong>sind Sie <em>tot</em></strong>.</p>
+<p>This liquid is <strong>highly toxic</strong> — if you drink it, <strong>you may <em>die</em></strong>.</p>
 ```
 
 {{EmbedLiveSample('Strong importance')}}
 
 ### Aktives Lernen: Lass uns wichtig sein
 
-In diesem Abschnitt des aktiven Lernens haben wir ein bearbeitbares Beispiel bereitgestellt. Darin möchten wir, dass Sie versuchen, Betonung und starke Wichtigkeit auf die für Sie relevanten Wörter anzuwenden, nur um ein bisschen Übung zu bekommen.
+In diesem aktiven Lernbereich haben wir ein bearbeitbares Beispiel bereitgestellt. Darin möchten wir, dass Sie versuchen, Hervorhebungen und starke Wichtigkeit zu den Wörtern hinzuzufügen, die Sie für nötig halten, nur um ein wenig Übung zu haben.
 
 ```html hidden
-<h2>Live Ausgabe</h2>
+<h2>Live output</h2>
 
 <div class="output" style="min-height: 50px;"></div>
 
-<h2>Bearbeitbarer Code</h2>
+<h2>Editable code</h2>
 <p class="a11y-label">
-  Drücken Sie Esc, um den Fokus aus dem Codebereich zu entfernen (Tab fügt ein Tab-Zeichen ein).
+  Press Esc to move focus away from the code area (Tab inserts a tab character).
 </p>
 
 <textarea id="code" class="input" style="min-height: 200px; width: 95%">
-<h1>Wichtige Mitteilung</h1>
-<p>Am Sonntag, den 9. Januar 2010, wurden im Stadtzentrum von Milwaukee mehrere Gartenzwerge von einer Bande Goths
-  beobachtet. Sie trugen alle grüne Overall und alberne Hüte und schienen viel Spaß zu haben. Wenn jemand
-   Informationen zu diesem Vorfall hat, kontaktieren Sie bitte umgehend die Polizei.</p>
+<h1>Important notice</h1>
+<p>On Sunday January 9th 2010, a gang of goths were
+  spotted stealing several garden gnomes from a
+  shopping center in downtown Milwaukee. They were
+  all wearing green jumpsuits and silly hats, and
+  seemed to be having a whale of a time. If anyone
+   has any information about this incident, please
+    contact the police now.</p>
 </textarea>
 
 <div class="playable-buttons">
-  <input id="reset" type="button" value="Zurücksetzen" />
-  <input id="solution" type="button" value="Lösung anzeigen" />
+  <input id="reset" type="button" value="Reset" />
+  <input id="solution" type="button" value="Show solution" />
 </div>
 ```
 
@@ -898,24 +906,24 @@ function updateCode() {
 }
 
 const htmlSolution =
-  "<h1>Wichtige Mitteilung</h1>\n<p>Am <strong>Sonntag, den 9. Januar 2010</strong>, wurden im Stadtzentrum von <strong>Milwaukee</strong> mehrere <em>Goths</em> beobachtet, die <strong><em>mehrere</em> Gartenzwerge</strong> aus einem Einkaufszentrum stahlen. Sie trugen alle <em>grüne Overall</em> und <em>alberne Hüte</em> und schienen viel Spaß zu haben. Wenn jemand <strong>irgendeine</strong> Information zu diesem Vorfall hat, kontaktieren Sie bitte umgehend die Polizei <strong>jetzt</strong>.</p>";
+  "<h1>Important notice</h1>\n<p>On <strong>Sunday January 9th 2010</strong>, a gang of <em>goths</em> were spotted stealing <strong><em>several</em> garden gnomes</strong> from a shopping center in downtown <strong>Milwaukee</strong>. They were all wearing <em>green jumpsuits</em> and <em>silly hats</em>, and seemed to be having a whale of a time. If anyone has <strong>any</strong> information about this incident, please contact the police <strong>now</strong>.</p>";
 let solutionEntry = htmlSolution;
 
 reset.addEventListener("click", () => {
   textarea.value = code;
   userEntry = textarea.value;
   solutionEntry = htmlSolution;
-  solution.value = "Lösung anzeigen";
+  solution.value = "Show solution";
   updateCode();
 });
 
 solution.addEventListener("click", () => {
-  if (solution.value === "Lösung anzeigen") {
+  if (solution.value === "Show solution") {
     textarea.value = solutionEntry;
-    solution.value = "Lösung ausblenden";
+    solution.value = "Hide solution";
   } else {
     textarea.value = userEntry;
-    solution.value = "Lösung anzeigen";
+    solution.value = "Show solution";
   }
   updateCode();
 });
@@ -923,7 +931,8 @@ solution.addEventListener("click", () => {
 textarea.addEventListener("input", updateCode);
 window.addEventListener("load", updateCode);
 
-// Verhindern, dass die Tab-Taste aus dem Textbereich tabt und stattdessen ein Tab an der Caret-Position schreibt
+// Stop tab key tabbing out of textarea and
+// make it write a tab at the caret position instead
 textarea.onkeydown = (e) => {
   if (e.code === "Tab") {
     e.preventDefault();
@@ -952,11 +961,11 @@ function insertAtCaret(text) {
   textarea.scrollTop = scrollPos;
 }
 
-// Aktualisieren Sie die gespeicherten Benutzercode jedes Mal, wenn der Benutzer den Textbereich-Code aktualisiert
+// Update the saved userCode every time the user updates the text area code
 textarea.onkeyup = () => {
-  // Wir möchten den Zustand nur speichern, wenn der Benutzercode angezeigt wird,
-  // nicht die Lösung, damit die Lösung nicht über den Benutzercode gespeichert wird
-  if (solution.value === "Lösung anzeigen") {
+  // We only want to save the state when the user code is being shown,
+  // not the solution, so that solution is not saved over the user code
+  if (solution.value === "Show solution") {
     userEntry = textarea.value;
   } else {
     solutionEntry = textarea.value;
@@ -970,43 +979,43 @@ textarea.onkeyup = () => {
 
 ### Kursiv, fett, unterstrichen…
 
-Die bisher diskutierten Elemente haben klare semantische Bedeutungen. Die Situation mit {{htmlelement("b")}}, {{htmlelement("i")}} und {{htmlelement("u")}} ist etwas komplizierter. Sie entstanden, damit Menschen fett, kursiv oder unterstrichen Text schreiben konnten, in einer Zeit, als CSS noch schlecht oder gar nicht unterstützt wurde. Solche Elemente, die nur die Darstellung und nicht die Semantik betreffen, sind als **präsentative Elemente** bekannt und sollten nicht mehr verwendet werden, da, wie bereits erwähnt, Semantik so wichtig für die Barrierefreiheit, SEO usw. ist.
+Die bisher besprochenen Elemente haben klare, damit verbundene Semantiken. Die Situation mit {{htmlelement("b")}}, {{htmlelement("i")}} und {{htmlelement("u")}} ist etwas komplizierter. Sie entstanden, damit Leute fett, kursiv oder unterstrichen schreiben konnten, in einer Ära, in der CSS noch schlecht oder gar nicht unterstützt wurde. Elemente wie diese, die nur die Präsentation und nicht die Semantik betreffen, sind als **Präsentationselemente** bekannt und sollten nicht mehr verwendet werden, da Semantik für Barrierefreiheit, SEO usw. so wichtig ist.
 
-HTML5 hat `<b>`, `<i>`, und `<u>` mit neuen, etwas verwirrenden, semantischen Rollen neu definiert.
+HTML5 hat `<b>`, `<i>` und `<u>` mit neuen, etwas verwirrenden, semantischen Rollen neu definiert.
 
-Hier ist die beste Regel, die Sie sich merken können: Es ist nur dann angemessen, `<b>`, `<i>`, oder `<u>` zu verwenden, um eine Bedeutung zu übermitteln, die traditionell durch Fetten, Kursivieren oder Unterstreichen vermittelt wird, wenn es kein geeignetes Element gibt; und es gibt meistens eines. Überlegen Sie, ob `<strong>`, `<em>`, `<mark>`, oder `<span>` möglicherweise angemessener wären.
+Hier ist die beste Regel, die Sie sich merken können: Es ist nur dann angebracht, `<b>`, `<i>` oder `<u>` zu verwenden, um eine Bedeutung zu vermitteln, die traditionell mit fett, kursiv oder unterstrichen vermittelt wird, wenn es kein geeigneteres Element gibt; und es gibt normalerweise eins. Überlegen Sie, ob `<strong>`, `<em>`, `<mark>` oder `<span>` vielleicht passender wäre.
 
-Behalten Sie immer eine barrierefreie Denkweise bei. Das Konzept von Kursiv ist für Personen, die Bildschirmleser verwenden oder für Personen, die ein anderes Schriftsystem als das lateinische Alphabet verwenden, nicht sehr hilfreich.
+Behalten Sie immer eine barrierefreie Denkweise bei. Das Konzept der Kursivschrift ist für Menschen, die Screenreader verwenden, oder für Menschen, die ein anderes Schriftsystem als das lateinische Alphabet verwenden, nicht sehr hilfreich.
 
-- {{HTMLElement('i')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell durch Kursivschrift vermittelt wird: Fremdwörter, taxonomische Benennungen, Fachbegriffe, ein Gedanke…
-- {{HTMLElement('b')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell durch Fettgedruckte vermittelt wird: Schlüsselwörter, Produktnamen, Leitsatz…
-- {{HTMLElement('u')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell durch Unterstrichen vermittelt wird: Eigenname, Rechtschreibfehler…
+- {{HTMLElement('i')}} wird verwendet, um eine Bedeutung zu übermitteln, die traditionell durch Kursivschrift vermittelt wird: fremdsprachige Wörter, taxonomische Bezeichnungen, technische Begriffe, ein Gedanke…
+- {{HTMLElement('b')}} wird verwendet, um eine Bedeutung zu übermitteln, die traditionell durch Fettschrift vermittelt wird: Schlüsselwörter, Produktnamen, Leitsatz…
+- {{HTMLElement('u')}} wird verwendet, um eine Bedeutung zu übermitteln, die traditionell durch Unterstreichung vermittelt wird: richtiger Name, Rechtschreibfehler…
 
 > [!NOTE]
-> Menschen assoziieren Unterstreichungen stark mit Hyperlinks. Daher ist es im Web am besten, nur Links zu unterstreichen. Verwenden Sie das `<u>`-Element, wenn es semantisch angemessen ist, ziehen Sie jedoch in Betracht, CSS zu verwenden, um das standardmäßige Unterstreichen in etwas zu ändern, das im Web angemessener ist. Das folgende Beispiel zeigt, wie dies geschehen kann.
+> Menschen assoziieren Unterstreichungen stark mit Hyperlinks. Daher ist es im Web am besten, nur Links zu unterstreichen. Verwenden Sie das `<u>`-Element, wenn es semantisch sinnvoll ist, aber überlegen Sie, CSS zu verwenden, um die standardmäßige Unterstreichung in etwas Web-gerechteres zu ändern. Das folgende Beispiel illustriert, wie es gemacht werden kann.
 
 ```html
-<!-- wissenschaftliche Namen -->
+<!-- scientific names -->
 <p>
-  Der Rubinkehlkolibri (<i>Archilochus colubris</i>) ist der häufigste
-  Kolibri im östlichen Nordamerika.
+  The Ruby-throated Hummingbird (<i>Archilochus colubris</i>) is the most common
+  hummingbird in Eastern North America.
 </p>
 
-<!-- Fremdwörter -->
+<!-- foreign words -->
 <p>
-  Das Menü war voll von exotischen Worten wie <i lang="uk-latn">vatrushka</i>,
-  <i lang="id">nasi goreng</i> und <i lang="fr">soupe à l'oignon</i>.
+  The menu was a sea of exotic words like <i lang="uk-latn">vatrushka</i>,
+  <i lang="id">nasi goreng</i> and <i lang="fr">soupe à l'oignon</i>.
 </p>
 
-<!-- ein bekannter Rechtschreibfehler -->
-<p>Eines Tages werde ich lernen, besser zu <u class="spelling-error">schreiben</u>.</p>
+<!-- a known misspelling -->
+<p>Someday I'll learn how to <u class="spelling-error">spel</u> better.</p>
 
-<!-- Definitionstext -->
+<!-- term being defined when used in a definition -->
 <dl>
-  <dt>Semantisches HTML</dt>
+  <dt>Semantic HTML</dt>
   <dd>
-    Verwenden Sie die Elemente basierend auf ihrer <b>semantischen</b> Bedeutung, nicht ihrem
-    Aussehen.
+    Use the elements based on their <b>semantic</b> meaning, not their
+    appearance.
   </dd>
 </dl>
 ```
@@ -1015,10 +1024,10 @@ Behalten Sie immer eine barrierefreie Denkweise bei. Das Konzept von Kursiv ist 
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: HTML-Textgrundlagen](/de/docs/Learn/HTML/Introduction_to_HTML/Test_your_skills:_HTML_text_basics).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich noch an die wichtigsten Informationen erinnern? Sie finden einige weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Grundlagen des HTML-Texts](/de/docs/Learn/HTML/Introduction_to_HTML/Test_your_skills:_HTML_text_basics).
 
 ## Zusammenfassung
 
-Das war's für jetzt! Dieser Artikel sollte Ihnen eine gute Vorstellung davon gegeben haben, wie Sie mit dem Markieren von Text in HTML beginnen und Ihnen einige der wichtigsten Elemente in diesem Bereich vorgestellt haben. Es gibt noch viel mehr semantische Elemente in diesem Bereich, und wir werden uns viele weitere in unserem Artikel [Erweiterte Textformatierung](/de/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting) später im Kurs ansehen. Im nächsten Artikel werden wir uns im Detail ansehen, wie man [Hyperlinks erstellt](/de/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks), möglicherweise das wichtigste Element im Web.
+Das war's für jetzt! Dieser Artikel sollte Ihnen eine gute Vorstellung davon gegeben haben, wie Sie mit der Textauszeichnung in HTML beginnen und Sie mit einigen der wichtigsten Elemente in diesem Bereich vertraut gemacht haben. Es gibt noch viele weitere semantische Elemente in diesem Bereich zu behandeln, und wir werden in unserem Artikel zur [Fortgeschrittenen Textformatierung](/de/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting) später im Kurs viele weitere betrachten. Im nächsten Artikel werden wir uns ausführlich damit befassen, wie man [Hyperlinks erstellt](/de/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks), möglicherweise das wichtigste Element im Web.
 
 {{PreviousMenuNext("Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML", "Learn/HTML/Introduction_to_HTML/Creating_hyperlinks", "Learn/HTML/Introduction_to_HTML")}}

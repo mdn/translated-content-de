@@ -7,54 +7,54 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`FontFaceSet`**-Schnittstelle der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API) verwaltet das Laden von Schriftarten und das Abfragen ihres Downloadstatus.
+Die **`FontFaceSet`**-Schnittstelle der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API) verwaltet das Laden von Schriftarten und die Abfrage ihres Download-Status.
 
-Eine `FontFaceSet`-Instanz ist ein [Set-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis), das eine geordnete Sammlung von {{domxref("FontFace")}}-Objekten halten kann.
+Eine `FontFaceSet`-Instanz ist ein [Set-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_browser_apis), das eine geordnete Menge von [`FontFace`](/de/docs/Web/API/FontFace)-Objekten enthalten kann.
 
-Diese Eigenschaft ist als {{domxref("Document.fonts")}} oder `self.fonts` in [Web-Workern](/de/docs/Web/API/Web_Workers_API) verfügbar.
+Diese Eigenschaft ist im [`Document.fonts`](/de/docs/Web/API/Document/fonts) oder `self.fonts` in [Web-Workern](/de/docs/Web/API/Web_Workers_API) verfügbar.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- {{domxref("FontFaceSet.status")}} {{ReadOnlyInline}}
+- [`FontFaceSet.status`](/de/docs/Web/API/FontFaceSet/status) {{ReadOnlyInline}}
   - : Gibt den Ladezustand der Schriftart an. Es wird entweder `'loading'` oder `'loaded'` sein.
-- {{domxref("FontFaceSet.ready")}} {{ReadOnlyInline}}
-  - : Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald das Laden der Schriftarten und die Layout-Operationen abgeschlossen sind.
-- {{domxref("FontFaceSet.size")}} {{ReadOnlyInline}}
+- [`FontFaceSet.ready`](/de/docs/Web/API/FontFaceSet/ready) {{ReadOnlyInline}}
+  - : {{jsxref("Promise")}}, das aufgelöst wird, sobald das Laden und die Layout-Operationen der Schrift abgeschlossen sind.
+- [`FontFaceSet.size`](/de/docs/Web/API/FontFaceSet/size) {{ReadOnlyInline}}
   - : Gibt die Anzahl der Werte im `FontFaceSet` zurück.
 
 ### Ereignisse
 
-- {{domxref("FontFaceSet.loading_event", "loading")}}
-  - : Wird ausgelöst, wenn ein Schriftartensatz mit dem Laden begonnen hat.
-- {{domxref("FontFaceSet.loadingdone_event", "loadingdone")}}
-  - : Wird ausgelöst, wenn ein Schriftartensatz das Laden abgeschlossen hat.
-- {{domxref("FontFaceSet.loadingerror_event", "loadingerror")}}
-  - : Wird ausgelöst, wenn ein Fehler beim Laden eines Schriftartensatzes aufgetreten ist.
+- [`loading`](/de/docs/Web/API/FontFaceSet/loading_event)
+  - : Wird ausgelöst, wenn ein Fontface-Set begonnen hat, zu laden.
+- [`loadingdone`](/de/docs/Web/API/FontFaceSet/loadingdone_event)
+  - : Wird ausgelöst, wenn ein Font-Face-Set das Laden abgeschlossen hat.
+- [`loadingerror`](/de/docs/Web/API/FontFaceSet/loadingerror_event)
+  - : Wird ausgelöst, wenn ein Fehler beim Laden eines Font-Face-Sets aufgetreten ist.
 
 ## Instanz-Methoden
 
-- {{domxref("FontFaceSet.add","FontFaceSet.add()")}}
-  - : Fügt dem Schriftartensatz eine Schriftart hinzu.
-- {{domxref("FontFaceSet.check","FontFaceSet.check()")}}
-  - : Ein boolescher Wert, der anzeigt, ob eine Schriftart geladen ist, jedoch keinen Ladevorgang initiiert, wenn sie es nicht ist.
-- {{domxref("FontFaceSet.clear", "FontFaceSet.clear()")}}
-  - : Entfernt alle manuell hinzugefügten Schriftarten aus dem Schriftartensatz. [CSS-verknüpfte](https://www.w3.org/TR/css-font-loading-3/#css-connected) Schriftarten sind nicht betroffen.
-- {{domxref("FontFaceSet.delete","FontFaceSet.delete()")}}
-  - : Entfernt eine manuell hinzugefügte Schriftart aus dem Schriftartensatz. [CSS-verknüpfte](https://www.w3.org/TR/css-font-loading-3/#css-connected) Schriftarten sind nicht betroffen.
-- {{domxref("FontFaceSet.entries","FontFaceSet.entries()")}}
-  - : Gibt einen neuen Iterator mit den Werten für jedes Element im `FontFaceSet` in Einfügereihenfolge zurück.
-- {{domxref("FontFaceSet.forEach","FontFaceSet.forEach()")}}
+- [`FontFaceSet.add()`](/de/docs/Web/API/FontFaceSet/add)
+  - : Fügt dem Schriftensatz eine Schrift hinzu.
+- [`FontFaceSet.check()`](/de/docs/Web/API/FontFaceSet/check)
+  - : Ein boolescher Wert, der anzeigt, ob eine Schrift geladen ist, aber keinen Ladevorgang startet, wenn sie es nicht ist.
+- [`FontFaceSet.clear()`](/de/docs/Web/API/FontFaceSet/clear)
+  - : Entfernt alle manuell hinzugefügten Schriften aus dem Schriftensatz. [CSS-verbundene](https://www.w3.org/TR/css-font-loading-3/#css-connected) Schriften sind nicht betroffen.
+- [`FontFaceSet.delete()`](/de/docs/Web/API/FontFaceSet/delete)
+  - : Entfernt eine manuell hinzugefügte Schrift aus dem Schriftensatz. [CSS-verbundene](https://www.w3.org/TR/css-font-loading-3/#css-connected) Schriften sind nicht betroffen.
+- [`FontFaceSet.entries()`](/de/docs/Web/API/FontFaceSet/entries)
+  - : Gibt einen neuen Iterator mit den Werten für jedes Element im `FontFaceSet` in Einfüge-Reihenfolge zurück.
+- [`FontFaceSet.forEach()`](/de/docs/Web/API/FontFaceSet/forEach)
   - : Führt eine bereitgestellte Funktion für jeden Wert im `FontFaceSet`-Objekt aus.
-- {{domxref("FontFaceSet.has","FontFaceSet.has()")}}
+- [`FontFaceSet.has()`](/de/docs/Web/API/FontFaceSet/has)
   - : Gibt einen {{jsxref("Boolean")}} zurück, der bestätigt, ob ein Element mit dem angegebenen Wert vorhanden ist.
-- {{domxref("FontFaceSet.keys","FontFaceSet.keys()")}}
-  - : Ein Alias für {{domxref("FontFaceSet.values()")}}.
-- {{domxref("FontFaceSet.load","FontFaceSet.load()")}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das in eine Liste von Schriftarten für eine angeforderte Schriftart aufgelöst wird.
-- {{domxref("FontFaceSet.values","FontFaceSet.values()")}}
-  - : Gibt ein neues Iteratorobjekt zurück, das die Werte für jedes Element im `FontFaceSet`-Objekt in Einfügereihenfolge liefert.
+- [`FontFaceSet.keys()`](/de/docs/Web/API/FontFaceSet/keys)
+  - : Ein Alias für [`FontFaceSet.values()`](/de/docs/Web/API/FontFaceSet/values).
+- [`FontFaceSet.load()`](/de/docs/Web/API/FontFaceSet/load)
+  - : Gibt ein {{jsxref("Promise")}} zurück, das eine Liste von Font-Faces für eine angeforderte Schrift auflöst.
+- [`FontFaceSet.values()`](/de/docs/Web/API/FontFaceSet/values)
+  - : Gibt ein neues Iterator-Objekt zurück, das die Werte für jedes Element im `FontFaceSet`-Objekt in Einfüge-Reihenfolge liefert.
 
 ## Spezifikationen
 

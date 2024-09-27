@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`span`** Schreibgeschützte Eigenschaft der {{domxref("HTMLTableColElement")}} Schnittstelle steht für die Anzahl der Spalten, die dieses {{htmlelement("col")}} oder {{htmlelement("colgroup")}} umspannen muss; dadurch kann die Spalte Platz über mehrere Spalten der Tabelle einnehmen. Sie spiegelt das [`span`](/de/docs/Web/HTML/Element/col#span) Attribut wider.
+Die **`span`** Schreibgeschützte Eigenschaft der [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement) Schnittstelle repräsentiert die Anzahl der Spalten, die dieses {{htmlelement("col")}} oder {{htmlelement("colgroup")}} überspannen muss; dies ermöglicht es der Spalte, Platz über mehrere Spalten der Tabelle einzunehmen. Sie spiegelt das [`span`](/de/docs/Web/HTML/Element/col#span) Attribut wider.
 
 ## Wert
 
 Eine positive Zahl, die die Anzahl der Spalten darstellt.
 
 > [!NOTE]
-> Beim Festlegen eines neuen Wertes wird der Wert auf die nächstgelegene strikt positive Zahl (bis zu 1000) _geklammert_.
+> Bei der Festlegung eines neuen Wertes wird der Wert auf die nächstgelegene streng positive Zahl (bis zu 1000) _eingeklammert_.
 
 ## Beispiele
 
-Dieses Beispiel stellt zwei Schaltflächen zur Verfügung, um die Spaltenanzahl der ersten Zelle des Körpers zu ändern.
+Dieses Beispiel bietet zwei Schaltflächen, um die Spaltenüberspannung der ersten Zelle des Körpers zu ändern.
 
 ### HTML
 
@@ -46,9 +46,9 @@ Dieses Beispiel stellt zwei Schaltflächen zur Verfügung, um die Spaltenanzahl 
     </tr>
   </tbody>
 </table>
-<button id="increase">Erhöhen Sie die Spaltenanzahl</button>
-<button id="decrease">Verringern Sie die Spaltenanzahl</button>
-<div>Die erste &lt;col&gt; erstreckt sich über <output>2</output> tatsächliche Spalte(n).</div>
+<button id="increase">Increase column span</button>
+<button id="decrease">Decrease column span</button>
+<div>The first &lt;col&gt; spans <output>2</output> actual column(s).</div>
 ```
 
 ```css hidden
@@ -78,7 +78,7 @@ button {
 ### JavaScript
 
 ```js
-// Ermitteln relevanter Schnittstellenelemente
+// Obtain relevant interface elements
 const col = document.querySelectorAll("col")[1];
 const output = document.querySelectorAll("output")[0];
 
@@ -88,14 +88,14 @@ const decreaseButton = document.getElementById("decrease");
 increaseButton.addEventListener("click", () => {
   col.span = col.span + 1;
 
-  // Anzeige aktualisieren
+  // Update the display
   output.textContent = col.span;
 });
 
 decreaseButton.addEventListener("click", () => {
   col.span = col.span - 1;
 
-  // Anzeige aktualisieren
+  // Update the display
   output.textContent = col.span;
 });
 ```
@@ -114,4 +114,4 @@ decreaseButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("HTMLTableCellElement.colSpan")}}
+- [`HTMLTableCellElement.colSpan`](/de/docs/Web/API/HTMLTableCellElement/colSpan)

@@ -1,5 +1,5 @@
 ---
-title: Modus
+title: mode
 slug: Web/SVG/Attribute/mode
 l10n:
   sourceCommit: 32d1c9ff83019f8efae3e7987a55e83035e4b926
@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`mode`**-Attribut definiert den Mischmodus auf der {{SVGElement("feBlend")}}-Filterprimitive.
+Das Attribut **`mode`** definiert den Mischmodus auf der {{SVGElement("feBlend")}} Filterprimitive.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feBlend")}}
 
@@ -63,7 +63,7 @@ svg {
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>

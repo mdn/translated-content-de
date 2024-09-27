@@ -1,5 +1,5 @@
 ---
-title: "RadioNodeList: Eigenschaft value"
+title: "RadioNodeList: Wert-Eigenschaft"
 short-title: value
 slug: Web/API/RadioNodeList/value
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Wenn die zugrunde liegende Elementkollektion Radiobuttons enthält, stellt die **`RadioNodeList.value`**-Eigenschaft den ausgewählten Radiobutton dar. Beim Abrufen der `value`-Eigenschaft wird der `value` des aktuell `checked` Radiobuttons als Zeichenfolge zurückgegeben. Wenn die Sammlung keine Radiobuttons enthält oder keiner der Radiobuttons in der Sammlung den Zustand `checked` hat, wird die leere Zeichenfolge zurückgegeben. Beim Setzen der `value`-Eigenschaft wird der erste Radiobutton-Eingabe, dessen `value`-Eigenschaft dem neuen Wert entspricht, auf `checked` gesetzt.
+Wenn die zugrunde liegende Elementesammlung Radio-Buttons enthält, repräsentiert die **`RadioNodeList.value`**-Eigenschaft den ausgewählten Radio-Button. Beim Abrufen der `value`-Eigenschaft wird der `value` des aktuell ausgewählten Radio-Buttons als String zurückgegeben. Enthält die Sammlung keine Radio-Buttons oder befindet sich keiner der Radio-Buttons in der Sammlung im ausgewählten Zustand, wird der leere String zurückgegeben. Beim Setzen der `value`-Eigenschaft wird das erste Radio-Button-Input-Element, dessen `value`-Eigenschaft mit dem neuen Wert übereinstimmt, auf ausgewählt gesetzt.
 
 ## Syntax
 
@@ -23,21 +23,21 @@ radioNodeList.value = string
 
 ```html
 <form>
-  <label><input type="radio" name="color" value="blue" />Blau</label>
-  <label><input type="radio" name="color" value="red" />Rot</label>
+  <label><input type="radio" name="color" value="blue" />Blue</label>
+  <label><input type="radio" name="color" value="red" />Red</label>
 </form>
 ```
 
 ### JavaScript
 
 ```js
-// Holen Sie sich das Formular
+// Get the form
 const form = document.forms[0];
 
-// Holen Sie sich die Radiobuttons des Formulars
+// Get the form's radio buttons
 const radios = form.elements["color"];
 
-// Wählen Sie die Option "rot"
+// Choose the "red" option
 radios.value = "red";
 ```
 
@@ -55,4 +55,4 @@ radios.value = "red";
 
 ## Siehe auch
 
-- Die {{HTMLElement("form")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("input")}} Elemente.
+- Die {{HTMLElement("form")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("input")}}-Elemente.

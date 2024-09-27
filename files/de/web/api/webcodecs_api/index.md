@@ -1,5 +1,5 @@
 ---
-title: WebCodecs-API
+title: WebCodecs API
 slug: Web/API/WebCodecs_API
 l10n:
   sourceCommit: c29cee3dcb0d0e66093dd0c18aa82e0eab9d6d14
@@ -7,66 +7,68 @@ l10n:
 
 {{DefaultAPISidebar("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **WebCodecs-API** bietet Webentwicklern Low-Level-Zugriff auf die einzelnen Frames eines Videostreams und Stücke von Audio.
-Sie ist nützlich für Webanwendungen, die vollständige Kontrolle darüber benötigen, wie Medien verarbeitet werden.
-Zum Beispiel Video- oder Audioeditoren und Videokonferenzen.
+Die **WebCodecs API** gibt Webentwicklern einfachen Zugriff auf die einzelnen Frames eines Videostreams und Abschnitte von Audio.
+Sie ist nützlich für Webanwendungen, die eine vollständige Kontrolle über die Art und Weise der Medienverarbeitung erfordern.
+Beispielsweise Video- oder Audio-Editoren und Videokonferenzen.
 
 ## Konzepte und Verwendung
 
-Viele Web-APIs verwenden intern Mediencodecs.
+Viele Web-APIs nutzen intern Medien-Codecs.
 Zum Beispiel die [Web Audio API](/de/docs/Web/API/Web_Audio_API) und die [WebRTC API](/de/docs/Web/API/WebRTC_API).
-Diese APIs erlauben Entwicklern jedoch nicht, mit einzelnen Frames eines Videostreams und ungemischten Stücken von codiertem Audio oder Video zu arbeiten.
+Diese APIs erlauben es Entwicklern jedoch nicht, mit einzelnen Frames eines Videostreams und ungemischten Abschnitten von kodiertem Audio oder Video zu arbeiten.
 
-Webentwickler haben typischerweise WebAssembly verwendet, um diese Einschränkung zu umgehen und um mit Mediencodecs im Browser zu arbeiten.
-Dies erfordert jedoch zusätzliche Bandbreite, um Codecs herunterzuladen, die bereits im Browser vorhanden sind, was die Leistung und Energieeffizienz reduziert und zusätzlichen Entwicklungsaufwand verursacht.
+Webentwickler haben typischerweise WebAssembly verwendet, um diese Einschränkung zu umgehen und um mit Medien-Codecs im Browser zu arbeiten.
+Dies erfordert jedoch zusätzliche Bandbreite, um Codecs herunterzuladen, die bereits im Browser vorhanden sind,
+wodurch die Leistung und Energieeffizienz verringert und zusätzlicher Entwicklungsaufwand verursacht wird.
 
-Die WebCodecs-API bietet Zugriff auf Codecs, die bereits im Browser vorhanden sind.
-Sie bietet Zugriff auf rohe Videoframes, Audiostückdaten, Bilddecoder, Audio- und Videocodierer und -decoder.
+Die WebCodecs API bietet Zugriff auf Codecs, die bereits im Browser vorhanden sind.
+Sie ermöglicht den Zugriff auf rohe Videoframes, Abschnitte von Audiodaten, Bilddekomprimierer, Audio- und Videokodierer und Dekodierer.
 
 ### Verarbeitungsmodell
 
-Die WebCodecs-API verwendet ein asynchrones [Verarbeitungsmodell](https://w3c.github.io/webcodecs/#codec-processing-model-section). Jede Instanz
-eines Codierers oder Decoders hat eine interne, unabhängige Verarbeitungsschlange. Wenn eine beträchtliche Menge Arbeit in die Warteschlange gestellt wird, ist es wichtig, dieses Modell im Auge zu behalten.
+Die WebCodecs API verwendet ein asynchrones [Verarbeitungsmodell](https://w3c.github.io/webcodecs/#codec-processing-model-section). Jede Instanz
+eines Kodierers oder Dekodierers verwaltet eine interne, unabhängige Verarbeitungswarteschlange. Wenn eine erhebliche Menge an Arbeit eingereiht wird, ist es wichtig, dieses Modell im Hinterkopf zu behalten.
 
-Methoden mit den Namen `configure()`, `encode()`, `decode()` und `flush()` funktionieren asynchron, indem sie Steuerungsnachrichten an das Ende der Warteschlange anhängen, während Methoden mit den Namen `reset()` und `close()` synchron alle ausstehenden Arbeiten abbrechen und die Verarbeitungsschlange leeren. Nach `reset()` kann weitere Arbeit nach einem Aufruf von `configure()` in die Warteschlange gestellt werden, aber `close()` ist eine permanente Operation.
+Methoden mit den Namen `configure()`, `encode()`, `decode()` und `flush()` arbeiten asynchron, indem sie Steuerungsnachrichten ans Ende der Warteschlange anhängen, während Methoden mit den Namen `reset()` und `close()` alle ausstehenden Arbeiten synchron abbrechen und die
+Verarbeitungswarteschlange löschen. Nach `reset()` können nach einem Aufruf von `configure()` weitere Arbeiten eingereiht werden, `close()` ist jedoch ein permanenter Vorgang.
 
-Methoden mit dem Namen `flush()` können verwendet werden, um auf den Abschluss aller Arbeiten zu warten, die zum Zeitpunkt des Aufrufs von `flush()` ausstanden. Es sollte jedoch im Allgemeinen nur aufgerufen werden, wenn alle gewünschten Arbeiten in die Warteschlange gestellt wurden. Es ist nicht dazu gedacht, in regelmäßigen Abständen Fortschritte zu erzwingen. Ein unnötiger Aufruf beeinträchtigt die Codiererqualität und zwingt Decoder dazu, dass der nächste Eingang ein Schlüsselbild sein muss.
+Methoden mit dem Namen `flush()` können verwendet werden, um auf den Abschluss aller Arbeiten zu warten, die zum Zeitpunkt des Aufrufs von `flush()` anstanden. Es sollte jedoch generell nur dann aufgerufen werden, wenn alle gewünschten Arbeiten eingereiht sind. Es ist nicht dafür gedacht, Fortschritte in regelmäßigen Abständen zu erzwingen. Ein unnötiger Aufruf beeinträchtigt die Qualität des Kodierers und zwingt Dekodierer dazu, dass der nächste Eingang ein Schlüsselbild sein muss.
 
-### Demuxing
+### Demultiplexen
 
-Derzeit gibt es keine API zum Demuxen von Mediencontainern. Entwickler, die mit containerisierten Medien arbeiten, müssen ihre eigenen Implementierungen entwickeln oder Drittanbieterbibliotheken verwenden. Zum Beispiel können [MP4Box.js](https://github.com/gpac/mp4box.js/) oder [jswebm](https://github.com/jscodec/jswebm) verwendet werden, um Audio- und Videodaten in {{domxref("EncodedAudioChunk")}} und {{domxref("EncodedVideoChunk")}} Objekte zu demuxen.
+Derzeit gibt es keine API zum Demultiplexen von Mediencontainern. Entwickler, die mit containerisierten Medien arbeiten, müssen ihre eigenen Implementierungen erstellen oder Drittanbieter-Bibliotheken verwenden. Beispielsweise können [MP4Box.js](https://github.com/gpac/mp4box.js/) oder [jswebm](https://github.com/jscodec/jswebm) zum Demultiplexen von Audio- und Videodaten in [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk) und [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) Objekte verwendet werden.
 
 ## Schnittstellen
 
-- {{domxref("AudioDecoder")}}
-  - : Dekodiert {{domxref("EncodedAudioChunk")}} Objekte.
-- {{domxref("VideoDecoder")}}
-  - : Dekodiert {{domxref("EncodedVideoChunk")}} Objekte.
-- {{domxref("AudioEncoder")}}
-  - : Kodiert {{domxref("AudioData")}} Objekte.
-- {{domxref("VideoEncoder")}}
-  - : Kodiert {{domxref("VideoFrame")}} Objekte.
-- {{domxref("EncodedAudioChunk")}}
-  - : Repräsentiert codecspezifische kodierte Audiobytes.
-- {{domxref("EncodedVideoChunk")}}
-  - : Repräsentiert codecspezifische kodierte Videobytes.
-- {{domxref("AudioData")}}
-  - : Repräsentiert nicht kodierte Audiodaten.
-- {{domxref("VideoFrame")}}
-  - : Repräsentiert einen Frame von nicht kodierten Videodaten.
-- {{domxref("VideoColorSpace")}}
-  - : Repräsentiert den Farbraum eines Videoframes.
-- {{domxref("ImageDecoder")}}
-  - : Packt Bilddaten aus und dekodiert sie, um auf die Sequenz von Frames in einem animierten Bild zuzugreifen.
-- {{domxref("ImageTrackList")}}
-  - : Repräsentiert die Liste der in dem Bild verfügbaren Tracks.
-- {{domxref("ImageTrack")}}
-  - : Repräsentiert einen einzelnen Bildtrack.
+- [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)
+  - : Decodiert [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk) Objekte.
+- [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)
+  - : Decodiert [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) Objekte.
+- [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)
+  - : Kodiert [`AudioData`](/de/docs/Web/API/AudioData) Objekte.
+- [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)
+  - : Kodiert [`VideoFrame`](/de/docs/Web/API/VideoFrame) Objekte.
+- [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)
+  - : Stellt codecspezifische kodierte Audio-Bytes dar.
+- [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)
+  - : Stellt codecspezifische kodierte Video-Bytes dar.
+- [`AudioData`](/de/docs/Web/API/AudioData)
+  - : Stellt nicht kodierte Audiodaten dar.
+- [`VideoFrame`](/de/docs/Web/API/VideoFrame)
+  - : Stellt einen Frame nicht kodierter Videodaten dar.
+- [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)
+  - : Stellt den Farbraum eines Video-Frames dar.
+- [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)
+  - : Entpackt und decodiert Bilddaten und gibt Zugriff auf die Sequenz von Frames in einem animierten Bild.
+- [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)
+  - : Stellt die Liste der verfügbaren Tracks im Bild dar.
+- [`ImageTrack`](/de/docs/Web/API/ImageTrack)
+  - : Stellt einen einzelnen Bildtrack dar.
 
 ## Beispiele
 
-Im folgenden Beispiel werden Frames von einem {{domxref("MediaStreamTrackProcessor")}} zurückgegeben und dann kodiert.
-Sehen Sie das vollständige Beispiel und lesen Sie mehr darüber im Artikel [Videoverarbeitung mit WebCodecs](https://developer.chrome.com/docs/web-platform/best-practices/webcodecs).
+Im folgenden Beispiel werden Frames von einem [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor) zurückgegeben und dann kodiert.
+Sehen Sie sich das vollständige Beispiel an und lesen Sie mehr darüber im Artikel [Videobearbeitung mit WebCodecs](https://developer.chrome.com/docs/web-platform/best-practices/webcodecs).
 
 ```js
 let frame_counter = 0;
@@ -78,8 +80,8 @@ while (true) {
   if (result.done) break;
   let frame = result.value;
   if (encoder.encodeQueueSize > 2) {
-    // Zu viele Frames in Bearbeitung, Codierer ist überlastet
-    // lassen Sie uns diesen Frame verwerfen.
+    // Too many frames in flight, encoder is overwhelmed
+    // let's drop this frame.
     frame.close();
   } else {
     frame_counter++;
@@ -92,7 +94,7 @@ while (true) {
 
 ## Siehe auch
 
-- [Videoverarbeitung mit WebCodecs](https://developer.chrome.com/docs/web-platform/best-practices/webcodecs)
-- [WebCodecs-API-Beispiele](https://w3c.github.io/webcodecs/samples/)
-- [Echtzeit-Videobearbeitung mit WebCodecs und Streams: Verarbeitungspipelines](https://webrtchacks.com/real-time-video-processing-with-webcodecs-and-streams-processing-pipelines-part-1/)
+- [Videobearbeitung mit WebCodecs](https://developer.chrome.com/docs/web-platform/best-practices/webcodecs)
+- [WebCodecs API Beispiele](https://w3c.github.io/webcodecs/samples/)
+- [Echtzeit-Videoverarbeitung mit WebCodecs und Streams: Verarbeitungspipelines](https://webrtchacks.com/real-time-video-processing-with-webcodecs-and-streams-processing-pipelines-part-1/)
 - [Videoframe-Verarbeitung im Web – WebAssembly, WebGPU, WebGL, WebCodecs, WebNN und WebTransport](https://webrtchacks.com/video-frame-processing-on-the-web-webassembly-webgpu-webgl-webcodecs-webnn-and-webtransport/)

@@ -7,35 +7,35 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Das **`PictureInPictureWindow`**-Interface repräsentiert ein Objekt, das in der Lage ist, programmatisch die **Breite** und **Höhe** sowie das **Resize-Ereignis** des schwebenden Videofensters abzurufen.
+Die **`PictureInPictureWindow`**-Schnittstelle stellt ein Objekt dar, das in der Lage ist, programmatisch die **`Breite`** und **`Höhe`** sowie das **`Resize Event`** des schwebenden Videofensters zu erhalten.
 
-Ein Objekt mit diesem Interface wird über den Rückgabewert des Promise von {{domxref("HTMLVideoElement.requestPictureInPicture()")}} erhalten.
+Ein Objekt mit dieser Schnittstelle wird unter Verwendung des [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture)-Promise-Rückgabewerts erhalten.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Das `PictureInPictureWindow`-Interface erbt keine Eigenschaften._
+_Die `PictureInPictureWindow`-Schnittstelle erbt keine Eigenschaften._
 
-- {{domxref("PictureInPictureWindow.width")}} {{ReadOnlyInline}}
+- [`PictureInPictureWindow.width`](/de/docs/Web/API/PictureInPictureWindow/width) {{ReadOnlyInline}}
   - : Bestimmt die Breite des schwebenden Videofensters.
-- {{domxref("PictureInPictureWindow.height")}} {{ReadOnlyInline}}
+- [`PictureInPictureWindow.height`](/de/docs/Web/API/PictureInPictureWindow/height) {{ReadOnlyInline}}
   - : Bestimmt die Höhe des schwebenden Videofensters.
 
 ## Instanz-Methoden
 
-_Das `PictureInPictureWindow`-Interface erbt keine Methoden._
+_Die `PictureInPictureWindow`-Schnittstelle erbt keine Methoden._
 
 ## Ereignisse
 
-_Das `PictureInPictureWindow`-Interface erbt keine Ereignisse._
+_Die `PictureInPictureWindow`-Schnittstelle erbt keine Ereignisse._
 
-- {{domxref("PictureInPictureWindow.resize_event", "resize")}}
+- [`resize`](/de/docs/Web/API/PictureInPictureWindow/resize_event)
   - : Wird an ein `PictureInPictureWindow` gesendet, wenn das schwebende Videofenster in der Größe verändert wird.
 
 ## Beispiele
 
-Angenommen, es gibt ein `<button>` und ein `<video>`, wird durch Klicken auf den Button das Video in den Bild-in-Bild-Modus versetzt; wir hängen dann ein Ereignis an, um die Dimensionen des schwebenden Videofensters in die Konsole zu drucken.
+Gegeben sind ein `<button>` und ein `<video>`, beim Klicken des Buttons wird das Video im Picture-in-Picture-Modus angezeigt; wir fügen dann ein Ereignis hinzu, um die Dimensionen des schwebenden Videofensters in der Konsole auszugeben.
 
 ```js
 const button = document.querySelector("button");
@@ -46,7 +46,7 @@ function printPipWindowDimensions(evt) {
   console.log(
     `The floating window dimensions are: ${pipWindow.width}x${pipWindow.height}px`,
   );
-  // wird drucken:
+  // will print:
   // The floating window dimensions are: 640x360px
 }
 
@@ -61,7 +61,7 @@ button.onclick = () => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

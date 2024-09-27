@@ -1,5 +1,5 @@
 ---
-title: "CSSAnimation: Eigenschaft animationName"
+title: "CSSAnimation: animationName-Eigenschaft"
 short-title: animationName
 slug: Web/API/CSSAnimation/animationName
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Animations")}}
 
-Die **`animationName`**-Eigenschaft des {{domxref("CSSAnimation")}}-Interfaces gibt den {{CSSXref("animation-name")}} zurück. Dieser spezifiziert ein oder mehrere Keyframe-At-Rules, die die auf das Element angewendete Animation beschreiben.
+Die **`animationName`**-Eigenschaft der [`CSSAnimation`](/de/docs/Web/API/CSSAnimation)-Schnittstelle gibt den {{CSSXref("animation-name")}} zurück. Diese Eigenschaft spezifiziert eine oder mehrere Keyframe-Regeln, die die auf das Element angewendete Animation beschreiben.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Ein String.
 
 ## Beispiele
 
-### Zurückgeben des animationName
+### Rückgabe des animationName
 
-Die Animation im folgenden Beispiel ist in CSS mit dem Namen `slide-in` definiert. Ein Aufruf von {{domxref("Element.getAnimations()")}} gibt ein Array aller {{domxref("Animation")}}-Objekte zurück. Die `animationName`-Eigenschaft gibt den Namen zurück, der der Animation gegeben wurde, in unserem Fall `slide-in`.
+Die Animation im folgenden Beispiel ist im CSS mit dem Namen `slide-in` definiert. Der Aufruf von [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) gibt ein Array aller [`Animation`](/de/docs/Web/API/Animation)-Objekte zurück. Die `animationName`-Eigenschaft gibt den der Animation zugewiesenen Namen zurück, in unserem Fall `slide-in`.
 
 ```css
 .animate {

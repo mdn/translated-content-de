@@ -1,5 +1,5 @@
 ---
-title: "Dokument: embeds-Eigenschaft"
+title: "Document: embeds-Eigenschaft"
 short-title: embeds
 slug: Web/API/Document/embeds
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{ApiRef}}
 
-Die schreibgeschützte Eigenschaft **`embeds`** der
-{{domxref("Document")}}-Schnittstelle gibt eine Liste der eingebetteten
+Die **`embeds`** schreibgeschützte Eigenschaft des
+[`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine Liste der eingebetteten
 {{htmlelement("embed")}}-Elemente im aktuellen Dokument zurück.
 
 ## Wert
 
-Eine {{domxref("HTMLCollection")}}.
+Ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
 
 ## Spezifikationen
 

@@ -7,10 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`sandbox`**-Direktive aktiviert einen Sandkasten für die angeforderte
-Ressource, ähnlich dem {{HTMLElement("iframe")}}-[`sandbox`](/de/docs/Web/HTML/Element/iframe#sandbox)
-Attribut. Sie wendet Einschränkungen auf die Aktionen einer Seite an, einschließlich der Verhinderung von Popups, der Ausführung von Plugins und Skripten und der Durchsetzung einer Same-Origin-Policy.
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`sandbox`**-Direktive aktiviert eine Sandbox für die angeforderte Ressource, ähnlich dem {{HTMLElement("iframe")}} [`sandbox`](/de/docs/Web/HTML/Element/iframe#sandbox)-Attribut. Sie wendet Einschränkungen auf die Aktionen einer Seite an, einschließlich der Verhinderung von Pop-ups, der Ausführung von Plugins und Skripten sowie der Durchsetzung einer Same-Origin-Richtlinie.
 
 <table class="properties">
   <tbody>
@@ -20,14 +17,11 @@ Attribut. Sie wendet Einschränkungen auf die Aktionen einer Seite an, einschlie
     </tr>
     <tr>
       <th scope="row">Direktivtyp</th>
-      <td>{{Glossary("Document directive")}}</td>
+      <td>[Dokumentdirektive](/de/docs/Glossary/Document_directive)</td>
     </tr>
     <tr>
       <th colspan="2" scope="row">
-        Diese Direktive wird im {{HTMLElement("meta")}}
-        Element oder durch das
-        {{HTTPHeader("Content-Security-policy-Report-Only")}}
-        Header-Feld nicht unterstützt.
+        Diese Direktive wird im {{HTMLElement("meta")}}-Element oder im {{HTTPHeader("Content-Security-policy-Report-Only")}} Header-Feld nicht unterstützt.
       </th>
     </tr>
   </tbody>
@@ -43,36 +37,36 @@ Content-Security-Policy: sandbox <value>;
 wobei `<value>` optional einer der folgenden Werte sein kann:
 
 - `allow-downloads`
-  - : Erlaubt das Herunterladen von Dateien über ein {{HTMLElement("a")}}- oder {{HTMLElement("area")}}-Element mit dem [download](/de/docs/Web/HTML/Element/a#download) Attribut sowie durch die Navigation, die zum Herunterladen einer Datei führt. Dies funktioniert unabhängig davon, ob der Benutzer auf den Link geklickt hat oder JS-Code dies ohne Benutzerinteraktion initiiert hat.
+  - : Ermöglicht das Herunterladen von Dateien über ein {{HTMLElement("a")}}- oder {{HTMLElement("area")}}-Element mit dem [download](/de/docs/Web/HTML/Element/a#download)-Attribut sowie durch die Navigation, die zum Herunterladen einer Datei führt. Dies funktioniert unabhängig davon, ob der Benutzer auf den Link geklickt hat oder der JS-Code ihn ohne Benutzerinteraktion gestartet hat.
 - `allow-forms`
-  - : Erlaubt der Seite, Formulare zu übermitteln. Wenn dieses Schlüsselwort nicht verwendet wird, wird das Formular normal angezeigt, aber seine Übermittlung löst keine Eingabevalidierung aus, sendet keine Daten an einen Webserver und schließt keinen Dialog.
+  - : Erlaubt der Seite das Absenden von Formularen. Wenn dieses Schlüsselwort nicht verwendet wird, wird das Formular normal angezeigt, aber das Absenden löst keine Eingabevalidierung, Datensendung an einen Webserver oder Schließen eines Dialogs aus.
 - `allow-modals`
-  - : Erlaubt der Seite, modale Fenster durch {{domxref("Window.alert()")}}, {{domxref("Window.confirm()")}}, {{domxref("Window.print()")}} und {{domxref("Window.prompt()")}} zu öffnen, während das Öffnen eines {{HTMLElement("dialog")}} unabhängig von diesem Schlüsselwort erlaubt ist. Es erlaubt auch der Seite, das {{domxref("BeforeUnloadEvent")}} zu empfangen.
+  - : Erlaubt der Seite das Öffnen modaler Fenster durch [`Window.alert()`](/de/docs/Web/API/Window/alert), [`Window.confirm()`](/de/docs/Web/API/Window/confirm), [`Window.print()`](/de/docs/Web/API/Window/print) und [`Window.prompt()`](/de/docs/Web/API/Window/prompt), während das Öffnen eines {{HTMLElement("dialog")}} unabhängig von diesem Schlüsselwort erlaubt ist. Es ermöglicht auch der Seite, das [`BeforeUnloadEvent`](/de/docs/Web/API/BeforeUnloadEvent)-Ereignis zu empfangen.
 - `allow-orientation-lock`
-  - : Erlaubt der Ressource, die [Bildschirmorientierung zu sperren](/de/docs/Web/API/Screen/lockOrientation).
+  - : Ermöglicht der Ressource, die [Bildschirmorientierung zu sperren](/de/docs/Web/API/Screen/lockOrientation).
 - `allow-pointer-lock`
   - : Erlaubt der Seite die Verwendung der [Pointer Lock API](/de/docs/Web/API/Pointer_Lock_API).
 - `allow-popups`
-  - : Erlaubt Popups (wie von {{domxref("Window.open()")}}, `target="_blank"`, {{domxref("Window.showModalDialog()")}}). Wenn dieses Schlüsselwort nicht verwendet wird, schlägt diese Funktionalität stillschweigend fehl.
+  - : Erlaubt Pop-ups (wie von [`Window.open()`](/de/docs/Web/API/Window/open), `target="_blank"`, [`Window.showModalDialog()`](/de/docs/Web/API/Window/showModalDialog)). Wenn dieses Schlüsselwort nicht verwendet wird, schlägt die Funktionalität stillschweigend fehl.
 - `allow-popups-to-escape-sandbox`
-  - : Erlaubt einem dokumentierten Sandkasten, neue Fenster zu öffnen, ohne die Sandkastenflags auf sie anzuwenden. Dies ermöglicht beispielsweise einer Drittanbieteranzeige, sicher in einem Sandkasten zu sein, ohne die gleichen Einschränkungen auf die Seite anzuwenden, auf die die Anzeige verweist.
+  - : Erlaubt einem sandgesperrten Dokument, neue Fenster zu öffnen, ohne die Sandboxing-Flags auf sie anzuwenden. Dies ermöglicht es beispielsweise, eine Drittanbieter-Anzeige sicher zu sandboxen, ohne die gleichen Einschränkungen auf die Seite zu erzwingen, auf die die Anzeige verlinkt.
 - `allow-presentation`
-  - : Erlaubt Einbettern, die Kontrolle darüber zu haben, ob ein iframe eine [Präsentationssitzung starten](/de/docs/Web/API/PresentationRequest) kann.
+  - : Ermöglicht es Embedders, zu kontrollieren, ob ein iframe eine [Präsentationssitzung](/de/docs/Web/API/PresentationRequest) starten kann.
 - `allow-same-origin`
-  - : Wenn dieses Token nicht verwendet wird, wird die Ressource als von einem speziellen Ursprung stammend behandelt, der immer die {{Glossary("same-origin policy")}} fehlschlägt (was möglicherweise den Zugriff auf [Datenspeicherung/Cookies](/de/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access) und einige JavaScript-APIs verhindert).
+  - : Wenn dieses Token nicht verwendet wird, wird die Ressource als von einem speziellen Ursprung stammend behandelt, der immer an der [Same-Origin-Richtlinie](/de/docs/Glossary/same-origin_policy) scheitert (was potenziell den Zugriff auf [Datenspeicherung/Cookies](/de/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access) und einige JavaScript-APIs verhindert).
 - `allow-scripts`
-  - : Erlaubt der Seite, Skripte auszuführen (aber keine Popup-Fenster zu erstellen). Wenn dieses Schlüsselwort nicht verwendet wird, ist diese Operation nicht erlaubt.
+  - : Erlaubt der Seite das Ausführen von Skripten (aber nicht das Erstellen von Pop-up-Fenstern). Wenn dieses Schlüsselwort nicht verwendet wird, ist diese Operation nicht erlaubt.
 - `allow-storage-access-by-user-activation` {{experimental_inline}}
-  - : Erlaubt der Ressource, Zugriff auf die Speicherkapazitäten des Elternteils mit der [Storage Access API](/de/docs/Web/API/Storage_Access_API) anzufordern.
+  - : Ermöglicht der Ressource, Zugriff auf die Speicherfähigkeiten des Elternteils mit der [Storage Access API](/de/docs/Web/API/Storage_Access_API) anzufordern.
 - `allow-top-navigation`
-  - : Erlaubt der Ressource, den oberen Browsing-Kontext (denjenigen, der `_top` genannt wird) zu navigieren.
+  - : Ermöglicht der Ressource, den top-level Browsing-Kontext (denjenigen, der `_top` genannt wird) zu navigieren.
 - `allow-top-navigation-by-user-activation`
-  - : Erlaubt der Ressource, den oberen Browsing-Kontext zu navigieren, jedoch nur, wenn er durch eine Benutzeraktion initiiert wird.
+  - : Ermöglicht der Ressource, den top-level Browsing-Kontext zu navigieren, jedoch nur, wenn sie durch eine Benutzeraktion initiiert wurde.
 - `allow-top-navigation-to-custom-protocols`
-  - : Erlaubt die Navigation zu nicht-`http`-Protokollen, die im Browser eingebaut sind oder [von einer Webseite registriert](/de/docs/Web/API/Navigator/registerProtocolHandler) wurden. Diese Funktion wird auch durch das Schlüsselwort `allow-popups` oder `allow-top-navigation` aktiviert.
+  - : Erlaubt Navigationen zu nicht-`http`-Protokollen, die im Browser eingebaut oder [von einer Website registriert](/de/docs/Web/API/Navigator/registerProtocolHandler) sind. Diese Funktion wird auch durch das Schlüsselwort `allow-popups` oder `allow-top-navigation` aktiviert.
 
 > [!NOTE]
-> Die `allow-top-navigation` und verwandte Werte haben nur für eingebettete Dokumente (wie untergeordnete iframes) Sinn. Für eigenständige Dokumente haben diese Werte keine Wirkung, da der obere Browsing-Kontext das Dokument selbst ist.
+> Die `allow-top-navigation` und verwandte Werte sind nur bei eingebetteten Dokumenten (wie z.B. untergeordneten iframes) sinnvoll. Bei eigenständigen Dokumenten haben diese Werte keine Wirkung, da der top-level Browsing-Kontext das Dokument selbst ist.
 
 ## Beispiele
 
@@ -91,5 +85,4 @@ Content-Security-Policy: sandbox allow-scripts;
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy")}}
-- [`sandbox`](/de/docs/Web/HTML/Element/iframe#sandbox) Attribut bei {{HTMLElement("iframe")}}
-  Elementen
+- [`sandbox`](/de/docs/Web/HTML/Element/iframe#sandbox) Attribut bei {{HTMLElement("iframe")}}-Elementen

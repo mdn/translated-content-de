@@ -1,5 +1,5 @@
 ---
-title: "EncodedVideoChunk: type Eigenschaft"
+title: "EncodedVideoChunk: type-Eigenschaft"
 short-title: type
 slug: Web/API/EncodedVideoChunk/type
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`type`** schreibgeschützte Eigenschaft des {{domxref("EncodedVideoChunk")}}-Interfaces gibt einen Wert zurück, der angibt, ob der Videoteil ein Schlüsselteil ist, das nicht auf andere Frames zum Dekodieren angewiesen ist.
+Die schreibgeschützte **`type`**-Eigenschaft des [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Interfaces gibt einen Wert zurück, der angibt, ob der Video-Chunk ein Schlüssel-Chunk ist, der nicht auf andere Frames für die Dekodierung angewiesen ist.
 
 ## Wert
 
-Ein String, einer von:
+Ein String, einer der folgenden:
 
 - `"key"`
-  - : Die Daten sind ein Schlüsselteil.
+  - : Die Daten sind ein Schlüssel-Chunk.
 - `"delta"`
-  - : Die Daten sind kein Schlüsselteil.
+  - : Die Daten sind kein Schlüssel-Chunk.
 
 ## Beispiele
 

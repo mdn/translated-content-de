@@ -2,51 +2,28 @@
 title: launch_handler
 slug: Web/Manifest/launch_handler
 l10n:
-  sourceCommit: 880e0d7edf6b7effe44b08c4ff0f697a3e5a929a
+  sourceCommit: 2b44e3e665ceb5f4336089695aa5f617b1baf33c
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}{{SeeCompatTable}}
 
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Typ</th>
-      <td><code>Object</code></td>
-    </tr>
-  </tbody>
-</table>
+Das `launch_handler`-Element definiert Werte, die den Start einer Webanwendung steuern. Derzeit kann es nur einen einzigen Wert enthalten, `client_mode`, der den Kontext angibt, in dem die App beim Start geladen werden soll. Zum Beispiel in einem bestehenden Web-App-Client, der eine Instanz der App enthält, oder in einem neuen Web-App-Client. Dies lässt Raum für die zukünftige Definition weiterer `launch_handler`-Werte.
 
-Das `launch_handler`-Mitglied definiert Werte, die den Start einer Webanwendung steuern. Zurzeit kann es nur einen einzigen Wert enthalten, `client_mode`, der den Kontext angibt, in dem die App geladen werden soll, wenn sie gestartet wird. Zum Beispiel in einem vorhandenen Web-App-Client, der eine Instanz der App enthält, oder in einem neuen Web-App-Client. Dies lässt Raum für die Definition weiterer `launch_handler`-Werte in der Zukunft.
-
-## launch_handler-Elementwerte
+### Werte
 
 `launch_handler`-Objekte können die folgenden Werte enthalten:
 
-<table class="fullwidth-table standard-table">
-  <thead>
-    <tr>
-      <th scope="col">Mitglied</th>
-      <th scope="col">Beschreibung</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>client_mode</code></td>
-      <td><p>Ein String oder ein durch Kommas getrenntes Array von Strings, das den Kontext angibt, in dem die App beim Start geladen werden soll. Falls ein Array von Strings angegeben ist, wird der erste gültige Wert verwendet. Mögliche Werte sind:</p>
-      <dl>
-        <dt><code>auto</code></dt>
-        <dd>Der Benutzeragent entscheidet, welcher Kontext für die Plattform sinnvoll ist, um die App zu laden. Beispielsweise könnte <code>navigate-existing</code> auf Mobilgeräten mehr Sinn machen, wo einzelne App-Instanzen verbreitet sind, während <code>navigate-new</code> im Desktop-Kontext sinnvoller sein könnte. Dies ist der Standardwert, der verwendet wird, wenn alle angegebenen Werte ungültig sind.</dd>
-        <dt><code>focus-existing</code></dt>
-        <dd>Wenn die App bereits in einem Web-App-Client geladen ist, wird sie in den Vordergrund gebracht, aber nicht zur Ziel-URL des Starts navigiert. Die Ziel-URL wird über {{domxref("Window.launchQueue")}} verfügbar gemacht, um eine benutzerdefinierte Launch-Navigation zu ermöglichen. Falls die App nicht bereits in einem Web-App-Client geladen ist, wird das Verhalten von <code>navigate-new</code> verwendet.</dd>
-        <dt><code>navigate-existing</code></dt>
-        <dd>Wenn die App bereits in einem Web-App-Client geladen ist, wird sie in den Vordergrund gebracht und zur angegebenen Ziel-URL des Starts navigiert. Die Ziel-URL wird über {{domxref("Window.launchQueue")}} verfügbar gemacht, um zusätzliche benutzerdefinierte Launch-Navigation zu ermöglichen. Falls die App nicht bereits in einem Web-App-Client geladen ist, wird das Verhalten von <code>navigate-new</code> verwendet.</dd>
-        <dt><code>navigate-new</code></dt>
-        <dd>Die App wird innerhalb eines neuen Web-App-Clients geladen. Die Ziel-URL wird über {{domxref("Window.launchQueue")}} verfügbar gemacht, um zusätzliche benutzerdefinierte Launch-Navigation zu ermöglichen.</dd>
-      </dl>
-      </td>
-    </tr>
-  </tbody>
-</table>
+- `client_mode` {{experimental_inline}}
+
+  - : Ein String oder ein komma-separiertes Array von Strings, das den Kontext angibt, in dem die App beim Start geladen werden soll. Wenn ein Array von Strings bereitgestellt wird, wird der erste gültige Wert verwendet. Mögliche Werte sind:
+    - `auto`
+      - : Der User-Agent entscheidet, welcher Kontext für die Plattform sinnvoll ist, um die App zu laden. Zum Beispiel könnte `navigate-existing` auf mobilen Geräten sinnvoller sein, da dort einzelne App-Instanzen üblich sind, während `navigate-new` in einem Desktop-Kontext sinnvoller sein könnte. Dies ist der Standardwert, der verwendet wird, wenn alle bereitgestellten Werte ungültig sind.
+    - `focus-existing`
+      - : Wenn die App bereits in einem Web-App-Client geladen ist, wird sie in den Fokus gebracht, aber nicht zur Startziel-URL navigiert. Die Ziel-URL ist über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) verfügbar, um eine benutzerdefinierte Startnavigation zu ermöglichen. Wenn die App noch nicht in einem Web-App-Client geladen ist, wird stattdessen das Verhalten `navigate-new` verwendet.
+    - `navigate-existing`
+      - : Wenn die App bereits in einem Web-App-Client geladen ist, wird sie in den Fokus gebracht und zur angegebenen Startziel-URL navigiert. Die Ziel-URL ist über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) verfügbar, um zusätzliche benutzerdefinierte Startnavigation zu ermöglichen. Wenn die App noch nicht in einem Web-App-Client geladen ist, wird stattdessen das Verhalten `navigate-new` verwendet.
+    - `navigate-new`
+      - : Die App wird in einem neuen Web-App-Client geladen. Die Ziel-URL ist über [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue) verfügbar, um zusätzliche benutzerdefinierte Startnavigation zu ermöglichen.
 
 ## Beispiele
 
@@ -71,5 +48,5 @@ Das `launch_handler`-Mitglied definiert Werte, die den Start einer Webanwendung 
 ## Siehe auch
 
 - [Launch Handler API: Control how your app is launched](https://developer.chrome.com/docs/web-platform/launch-handler/)
-- {{domxref("Window.launchQueue")}}
+- [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue)
 - [Musicr 2.0](https://launch-handler.glitch.me/) Demo-App

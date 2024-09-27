@@ -28,7 +28,7 @@ Die kleinste ganze Zahl, die größer oder gleich `x` ist. Es ist derselbe Wert 
 
 ## Beschreibung
 
-Da `ceil()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.ceil()` und nicht als eine Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `ceil()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.ceil()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

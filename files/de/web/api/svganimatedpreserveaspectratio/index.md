@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## SVG animated preserveAspectRatio Schnittstelle
+## Schnittstelle SVG animated preserveAspectRatio
 
-Die Schnittstelle `SVGAnimatedPreserveAspectRatio` wird für Attribute des Typs {{ domxref("SVGPreserveAspectRatio") }} verwendet, die animiert werden können.
+Die `SVGAnimatedPreserveAspectRatio`-Schnittstelle wird für Attribute des Typs [`SVGPreserveAspectRatio`](/de/docs/Web/API/SVGPreserveAspectRatio) verwendet, die animiert werden können.
 
-### Überblick über die Schnittstelle
+### Schnittstellenübersicht
 
 <table class="standard-table">
   <tbody>
     <tr>
-      <th scope="row">Auch implementiert</th>
+      <th scope="row">Ebenfalls implementieren</th>
       <td><em>Keine</em></td>
     </tr>
     <tr>
@@ -44,16 +44,16 @@ Die Schnittstelle `SVGAnimatedPreserveAspectRatio` wird für Attribute des Typs 
   </tbody>
 </table>
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("SVGAnimatedPreserveAspectRatio.baseVal")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGPreserveAspectRatio")}}, der den Basiswert des gegebenen Attributs vor der Anwendung von Animationen darstellt.
-- {{domxref("SVGAnimatedPreserveAspectRatio.animVal")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGPreserveAspectRatio")}}, der den aktuellen animierten Wert des gegebenen Attributs darstellt. Wenn das gegebene Attribut derzeit nicht animiert wird, hat der {{ domxref("SVGPreserveAspectRatio") }} denselben Inhalt wie `baseVal`. Das von `animVal` referenzierte Objekt ist immer von dem durch `baseVal` referenzierten Objekt verschieden, selbst wenn das Attribut nicht animiert ist.
+- [`SVGAnimatedPreserveAspectRatio.baseVal`](/de/docs/Web/API/SVGAnimatedPreserveAspectRatio/baseVal) {{ReadOnlyInline}}
+  - : Ein [`SVGPreserveAspectRatio`](/de/docs/Web/API/SVGPreserveAspectRatio), das den Grundwert des angegebenen Attributs vor der Anwendung von Animationen darstellt.
+- [`SVGAnimatedPreserveAspectRatio.animVal`](/de/docs/Web/API/SVGAnimatedPreserveAspectRatio/animVal) {{ReadOnlyInline}}
+  - : Ein [`SVGPreserveAspectRatio`](/de/docs/Web/API/SVGPreserveAspectRatio), das den aktuell animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut derzeit nicht animiert wird, hat das [`SVGPreserveAspectRatio`](/de/docs/Web/API/SVGPreserveAspectRatio) denselben Inhalt wie `baseVal`. Das von `animVal` referenzierte Objekt ist immer von demjenigen, das von `baseVal` referenziert wird, verschieden, selbst wenn das Attribut nicht animiert ist.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-Die Schnittstelle `SVGAnimatedPreserveAspectRatio` bietet keine spezifischen Methoden.
+Die `SVGAnimatedPreserveAspectRatio`-Schnittstelle bietet keine spezifischen Methoden.
 
 ## Spezifikationen
 

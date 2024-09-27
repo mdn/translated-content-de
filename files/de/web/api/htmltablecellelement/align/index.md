@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`align`**-Eigenschaft der {{domxref("HTMLTableCellElement")}}-Schnittstelle ist ein String, der angibt, wie Text horizontal in einer {{htmlelement("th")}}- oder {{htmlelement("td")}}-Tabellenzelle ausgerichtet wird.
+Die **`align`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces ist ein String, der angibt, wie Text horizontal im {{htmlelement("th")}}- oder {{htmlelement("td")}}-Tabellenzelle ausgerichtet werden soll.
 
 > [!NOTE]
-> Diese Eigenschaft ist veraltet, und es sollte stattdessen CSS verwendet werden, um Text horizontal in einer Zelle auszurichten. Verwenden Sie die CSS-Eigenschaft {{cssxref("text-align")}}, die Vorrang hat, um Text horizontal in einer Zelle auszurichten.
+> Diese Eigenschaft ist veraltet, und es sollte CSS verwendet werden, um Text horizontal in einer Zelle auszurichten. Verwenden Sie die CSS-Eigenschaft {{cssxref("text-align")}}, die Vorrang hat, um stattdessen Text horizontal in einer Zelle auszurichten.
 
 ## Wert
 
 Die möglichen Werte sind:
 
 - `left`
-  - : Richten Sie den Text nach links aus. Verwenden Sie stattdessen `text-align: left`.
+  - : Den Text links ausrichten. Verwenden Sie stattdessen `text-align: left`.
 - `right`
-  - : Richten Sie den Text nach rechts aus. Verwenden Sie stattdessen `text-align: right`.
+  - : Den Text rechts ausrichten. Verwenden Sie stattdessen `text-align: right`.
 - `center`
-  - : Zentrieren Sie den Text in der Zelle. Verwenden Sie stattdessen `text-align: center`.
+  - : Den Text in der Zelle zentrieren. Verwenden Sie stattdessen `text-align: center`.
 
 ## Beispiele
 
@@ -32,11 +32,11 @@ Verwenden Sie stattdessen CSS `text-align`. Ein [Beispiel](/de/docs/Web/CSS/text
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - {{cssxref("text-align")}}
-- [Tabellen stylen](/de/docs/Learn/CSS/Building_blocks/Styling_tables)
+- [Styling von Tabellen](/de/docs/Learn/CSS/Building_blocks/Styling_tables)

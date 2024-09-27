@@ -1,5 +1,5 @@
 ---
-title: "Highlight: Konstruktor Highlight()"
+title: "Highlight: Highlight()-Konstruktor"
 short-title: Highlight()
 slug: Web/API/Highlight/Highlight
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Der **`Highlight()`**-Konstruktor gibt ein neu erstelltes
-{{domxref("Highlight")}}-Objekt zurück, das eine Sammlung von {{domxref("Range")}}-Objekten enthalten kann, die mit der {{domxref("css_custom_highlight_api", "CSS Custom Highlight API", "", "nocode")}} gestylt werden können.
+Der **`Highlight()`**-Konstruktor gibt ein neu erstelltes [`Highlight`](/de/docs/Web/API/Highlight)-Objekt zurück, das eine Sammlung von [`Range`](/de/docs/Web/API/Range)-Objekten enthalten kann, die mit der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) gestylt werden können.
 
 ## Syntax
 
@@ -22,7 +21,7 @@ new Highlight(range1, range2, /* …, */ rangeN)
 ### Parameter
 
 - `range1`, …, `rangeN` {{optional_inline}}
-  - : Ein oder mehrere anfängliche {{domxref("Range")}}-Objekte, die im neuen Highlight hinzugefügt werden sollen.
+  - : Ein oder mehrere initiale [`Range`](/de/docs/Web/API/Range)-Objekte, die zum neuen Highlight hinzugefügt werden sollen.
 
 ### Rückgabewert
 
@@ -30,7 +29,7 @@ Ein neues `Highlight`-Objekt.
 
 ## Beispiele
 
-Der folgende Code zeigt, wie man ein leeres Highlight-Objekt erstellt und dann Bereiche hinzufügt:
+Der untenstehende Beispielcode demonstriert, wie ein leeres Highlight-Objekt erstellt wird und dann Bereiche hinzugefügt werden:
 
 ```js
 const highlight = new Highlight();
@@ -38,7 +37,7 @@ highlight.add(range1);
 highlight.add(range2);
 ```
 
-Der folgende Code zeigt, wie man ein neues Highlight-Objekt erstellt und während der Instanziierung Bereiche hinzufügt:
+Der untenstehende Beispielcode demonstriert, wie ein neues Highlight-Objekt erstellt wird und Bereiche bei der Instanziierung hinzugefügt werden:
 
 ```js
 const highlight = new Highlight(range1, range2);
@@ -54,5 +53,5 @@ const highlight = new Highlight(range1, range2);
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "Die CSS Custom Highlight API", "", "nocode")}}
-- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textranges im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

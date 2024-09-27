@@ -1,5 +1,5 @@
 ---
-title: "XRSession: cancelAnimationFrame() Methode"
+title: "XRSession: cancelAnimationFrame()-Methode"
 short-title: cancelAnimationFrame()
 slug: Web/API/XRSession/cancelAnimationFrame
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`cancelAnimationFrame()`**-Methode der
-{{domxref("XRSession")}}-Schnittstelle storniert einen Animationsframe, der zuvor
-durch Aufruf von {{DOMxRef("XRSession.requestAnimationFrame", "requestAnimationFrame")}} angefordert wurde.
+Die **`cancelAnimationFrame()`**-Methode der [`XRSession`](/de/docs/Web/API/XRSession)-Schnittstelle storniert einen Animationsframe, der zuvor durch Aufrufen von [`requestAnimationFrame`](/de/docs/Web/API/XRSession/requestAnimationFrame) angefordert wurde.
 
 ## Syntax
 
@@ -21,28 +19,21 @@ cancelAnimationFrame(handle)
 ### Parameter
 
 - `handle`
-  - : Der eindeutige Wert, der durch den Aufruf von
-    {{DOMxRef("XRSession.requestAnimationFrame", "requestAnimationFrame()")}} zurückgegeben wurde und
-    zuvor den Animations-Callback geplant hat.
+  - : Der eindeutige Wert, der durch den Aufruf von [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) zurückgegeben wurde, der zuvor den Animations-Callback geplant hat.
 
 ### Rückgabewert
 
 Keiner ({{jsxref("undefined")}}).
 
-## Hinweise zur Verwendung
+## Verwendungshinweise
 
-Diese Funktion hat keine Wirkung, wenn der angegebene `handle` nicht gefunden werden kann.
+Diese Funktion hat keine Auswirkung, wenn der angegebene `handle` nicht gefunden werden kann.
 
 ## Beispiele
 
-Im folgenden Beispiel sehen wir Code, der eine WebXR-Session startet, wenn der immersive VR-Modus
-unterstützt wird. Nach dem Start plant die Session ihren ersten Frame, indem sie
-{{DOMxRef("XRSession.requestAnimationFrame", "requestAnimationFrame()")}} aufruft.
+Im folgenden Beispiel sehen wir Code, der eine WebXR-Sitzung startet, falls der immersive VR-Modus unterstützt wird. Sobald gestartet, plant die Sitzung ihren ersten Frame zur Darstellung durch Aufrufen von [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame).
 
-Die am Ende gezeigte Funktion `pauseXR()` kann aufgerufen werden, um die
-WebVR-Session im Wesentlichen zu unterbrechen, indem alle ausstehenden Animations-Frame-Callbacks storniert werden. Da jeder
-Frame-Callback den nächsten plant, beendet das Entfernen des Callbacks das Aktualisieren der
-WebXR-Szene.
+Die am Ende gezeigte `pauseXR()`-Funktion kann aufgerufen werden, um die WebVR-Sitzung auszusetzen, im Wesentlichen durch Stornieren eines ausstehenden Animationsframe-Callbacks. Da jeder Frame-Callback den nächsten plant, beendet das Entfernen des Callbacks die Aktualisierung der WebXR-Szene.
 
 ```js
 const XR = navigator.xr;
@@ -91,5 +82,5 @@ function pauseXR() {
 
 ## Siehe auch
 
-- {{DOMxRef("Window.cancelAnimationFrame")}}
-- {{domxref("XRSession.requestAnimationFrame")}}
+- [`Window.cancelAnimationFrame`](/de/docs/Web/API/Window/cancelAnimationFrame)
+- [`XRSession.requestAnimationFrame`](/de/docs/Web/API/XRSession/requestAnimationFrame)

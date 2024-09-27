@@ -1,6 +1,6 @@
 ---
 title: "ValidityState: tooLong-Eigenschaft"
-short-title: zu lang
+short-title: tooLong
 slug: Web/API/ValidityState/tooLong
 l10n:
   sourceCommit: e8805a6eb0b2af30cfd4ec54c30261f7e5f8163e
@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`tooLong`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces gibt an, ob der Wert eines {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Felds, nachdem er vom Benutzer bearbeitet wurde, die maximale Code-Einheitslänge überschreitet, die durch das [`maxlength`](/de/docs/Web/HTML/Attributes/maxlength)-Attribut des Elements festgelegt wurde.
+Die schreibgeschützte **`tooLong`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces zeigt an, ob der Wert eines {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Elements nach der Bearbeitung durch den Benutzer die maximale Codeeinheitenlänge überschreitet, die durch das [`maxlength`](/de/docs/Web/HTML/Attributes/maxlength)-Attribut des Elements festgelegt ist.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn der `ValidityState` nicht den Beschränkungen entspricht.
+Ein boolean, der `true` ist, wenn der `ValidityState` nicht den Einschränkungen entspricht.
 
 ## Beispiele
 
-### Textarea mit zu hoher Zeichenanzahl
+### Textarea mit zu vielen Zeichen
 
 Das folgende Beispiel überprüft die Gültigkeit eines [textarea-Elements](/de/docs/Web/HTML/Element/textarea).
-Es wurde eine Beschränkung mit dem [`maxlength`-Attribut](/de/docs/Web/HTML/Element/input/text#maxlength) hinzugefügt, sodass die Textarea maximal 10 Zeichen erwartet.
-Wenn zu viele Zeichen in der Textarea vorhanden sind (was unten zutrifft), schlägt die Beschränkungsvalidierung des Elements fehl, und die Stile, die zur {{cssxref(":invalid")}} CSS-Pseudoklasse passen, werden angewendet.
+Es wurde eine Einschränkung mit dem [`maxlength`-Attribut](/de/docs/Web/HTML/Element/input/text#maxlength) hinzugefügt, sodass das textarea eine maximale Anzahl von 10 Zeichen erwartet.
+Wenn zu viele Zeichen im textarea sind (was im folgenden Beispiel der Fall ist), schlägt die Einschränkungsvalidierung des Elements fehl, und die zugehörigen Stile der CSS-Pseudoklasse {{cssxref(":invalid")}} werden angewandt.
 
-Beim Bearbeiten der Textarea erlaubt der Browser dem Benutzer nicht, Zeichen hinzuzufügen, die die Beschränkungsvalidierung der maximalen Zeichenanzahl verletzen würden, sodass zunächst nur das Löschen von Zeichen erlaubt ist.
-Zeilenumbrüche werden normalisiert und zählen bei der Berechnung der maximalen Länge als ein einzelnes Zeichen.
+Beim Bearbeiten des textarea erlaubt der Browser dem Benutzer nicht, Zeichen hinzuzufügen, die die maximale Zeichenzahl überschreiten würden, daher ist anfangs nur das Löschen von Zeichen möglich.
+Zeilenumbrüche werden normalisiert und zählen als einzelnes Zeichen bei der Berechnung der maximalen Länge.
 
 ```css
 textarea:invalid {
@@ -47,7 +47,7 @@ pre {
 ```
 
 ```html
-<pre id="log">Validierung hier protokolliert...</pre>
+<pre id="log">Validation logged here...</pre>
 <textarea name="story" id="userText" maxlength="10" rows="5">
 It was a dark and
 
@@ -67,9 +67,9 @@ function log(text) {
 userInput.addEventListener("input", () => {
   userInput.reportValidity();
   if (userInput.validity.tooLong) {
-    log("Zu viele Zeichen in der Textarea.");
+    log("Too many characters in the textarea.");
   } else {
-    log("Eingabe ist gültig…");
+    log("Input is valid…");
   }
 });
 ```
@@ -86,5 +86,5 @@ userInput.addEventListener("input", () => {
 
 ## Siehe auch
 
-- [Eingabebeschränkungen validieren](/de/docs/Web/HTML/Constraint_validation)
-- [Formulare: Datenformularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Formulare: Datenvalidierung von Formularen](/de/docs/Learn/Forms/Form_validation)

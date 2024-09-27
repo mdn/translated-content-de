@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("View Transitions API")}}
 
-Die schreibgeschützte Eigenschaft **`ready`** des {{domxref("ViewTransition")}}-Interfaces ist ein {{jsxref("Promise")}}, das erfüllt wird, sobald der Pseudoelement-Baum erstellt ist und die Übergangsanimation unmittelbar bevorsteht.
+Die schreibgeschützte Eigenschaft **`ready`** der [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Schnittstelle ist ein {{jsxref("Promise")}}, das erfüllt wird, sobald der Pseudoelement-Baum erstellt wurde und die Übergangsanimation kurz vor dem Start steht.
 
-`ready` wird abgelehnt, wenn der Übergang nicht beginnen kann. Dies kann durch eine Fehlkonfiguration verursacht werden, zum Beispiel durch doppelte {{cssxref("view-transition-name")}}s, oder wenn der Callback, der an {{domxref("Document.startViewTransition()")}} übergeben wird, eine Ausnahme wirft oder ein Promise zurückgibt, das abgelehnt wird.
+`ready` wird abgelehnt, wenn der Übergang nicht gestartet werden kann. Dies kann aufgrund von Fehlkonfigurationen passieren, zum Beispiel bei doppelten {{cssxref("view-transition-name")}}s, oder wenn der an [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) übergebene Callback wirft oder ein Promise zurückgibt, das abgelehnt wird.
 
 ## Wert
 
@@ -18,37 +18,37 @@ Ein Promise.
 
 ## Beispiele
 
-Im folgenden Beispiel wird `ready` verwendet, um einen benutzerdefinierten, kreisförmigen Enthüllungsübergang aus der Position des Benutzer-Cursors bei einem Klick auszulösen, wobei die Animation durch die {{domxref("Web Animations API", "Web Animations API", "", "nocode")}} bereitgestellt wird.
+Im folgenden Beispiel wird `ready` verwendet, um einen benutzerdefinierten kreisförmigen Enthüllungs-Übergang zu starten, der sich bei einem Klick von der Position des Benutzercursors aus ausbreitet; die Animation wird von der [Web Animations API](/de/docs/Web/API/Web_Animations_API) bereitgestellt.
 
 ```js
-// Letztes Klickevent speichern
+// Store the last click event
 let lastClick;
 addEventListener("click", (event) => (lastClick = event));
 
 function spaNavigate(data) {
-  // Fallback für Browser, die diese API nicht unterstützen:
+  // Fallback for browsers that don't support this API:
   if (!document.startViewTransition) {
     updateTheDOMSomehow(data);
     return;
   }
 
-  // Klickposition erhalten oder auf Bildschirmmitte zurückfallen
+  // Get the click position, or fallback to the middle of the screen
   const x = lastClick?.clientX ?? innerWidth / 2;
   const y = lastClick?.clientY ?? innerHeight / 2;
-  // Entfernung zur entferntesten Ecke ermitteln
+  // Get the distance to the furthest corner
   const endRadius = Math.hypot(
     Math.max(x, innerWidth - x),
     Math.max(y, innerHeight - y),
   );
 
-  // Einen Übergang erstellen:
+  // Create a transition:
   const transition = document.startViewTransition(() => {
     updateTheDOMSomehow(data);
   });
 
-  // Auf die Erstellung der Pseudoelemente warten:
+  // Wait for the pseudo-elements to be created:
   transition.ready.then(() => {
-    // Das neue Ansicht des Wurzelelements animieren
+    // Animate the root's new view
     document.documentElement.animate(
       {
         clipPath: [
@@ -59,7 +59,7 @@ function spaNavigate(data) {
       {
         duration: 500,
         easing: "ease-in",
-        // Angeben, welches Pseudoelement animiert werden soll
+        // Specify which pseudo-element to animate
         pseudoElement: "::view-transition-new(root)",
       },
     );
@@ -67,7 +67,7 @@ function spaNavigate(data) {
 }
 ```
 
-Diese Animation erfordert auch das folgende CSS, um die standardmäßige CSS-Animation auszuschalten und zu verhindern, dass der alte und der neue Ansichtsstatus irgendwie vermischt werden (der neue Status "überlagert" den alten Status direkt, anstatt ihn zu überblenden):
+Diese Animation erfordert auch das folgende CSS, um die standardmäßige CSS-Animation auszuschalten und die alten und neuen Anzeigestände in keiner Weise miteinander zu vermischen (der neue Zustand "wischt" direkt über den alten Zustand, anstatt überzugehen):
 
 ```css
 ::view-transition-image-pair(root) {
@@ -92,4 +92,4 @@ Diese Animation erfordert auch das folgende CSS, um die standardmäßige CSS-Ani
 
 ## Siehe auch
 
-- [Sanfte und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Weiche und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)

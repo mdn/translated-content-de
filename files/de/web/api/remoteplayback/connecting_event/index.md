@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Remote Playback API")}}
 
-Das **`connecting`**-Ereignis der {{domxref("RemotePlayback")}}-Schnittstelle wird ausgelöst, wenn der Benutzeragent die Fernwiedergabe initiiert.
+Das **`connecting`**-Ereignis der [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Schnittstelle wird ausgelöst, wenn der User-Agent die Fernwiedergabe startet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("connecting", (event) => {});
@@ -22,11 +22,11 @@ onconnecting = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Im folgenden Beispiel wird der Wert von {{domxref("RemotePlayback.state")}} in die Konsole ausgegeben, wenn der Benutzeragent eine Verbindung initiiert.
+Im folgenden Beispiel wird der Wert von [`RemotePlayback.state`](/de/docs/Web/API/RemotePlayback/state) in die Konsole ausgegeben, wenn der User-Agent eine Verbindung initiiert.
 
 ```js
 RemotePlayback.onconnecting = () => {

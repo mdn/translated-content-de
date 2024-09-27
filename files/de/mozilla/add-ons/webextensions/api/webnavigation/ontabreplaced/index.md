@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Inhalt des Tabs durch einen anderen (meist zuvor vorgerenderten) Tab ersetzt wird.
+Wird ausgelöst, wenn der Inhalt des Tabs durch einen anderen (normalerweise zuvor vorgerenderten) Tab ersetzt wird.
 
 ## Syntax
 
@@ -25,9 +25,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Zuhören bei diesem Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, diesem Ereignis zuzuhören. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -38,7 +38,7 @@ Ereignisse haben drei Funktionen:
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `details`
-      - : `object`. Weitere Informationen finden Sie im Abschnitt [details](#details_2).
+      - : `object`. Siehe den Abschnitt [details](#details_2) für weitere Informationen.
 
 ## Zusätzliche Objekte
 
@@ -49,7 +49,7 @@ Ereignisse haben drei Funktionen:
 - `tabId`
   - : `integer`. Die ID des Tabs, der den alten Tab ersetzt hat.
 - `timeStamp`
-  - : `number`. Der Zeitpunkt, zu dem die Ersetzung stattfand, in [Millisekunden seit der Epoch](https://en.wikipedia.org/wiki/Unix_time).
+  - : `number`. Die Zeit, wann der Austausch stattfand, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
 
 ## Browser-Kompatibilität
 
@@ -68,7 +68,7 @@ browser.webNavigation.onTabReplaced.addListener(logOnTabReplaced);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onTabReplaced) API von Chromium. Diese Dokumentation stammt aus [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onTabReplaced) API. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

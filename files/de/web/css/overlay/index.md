@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`overlay`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert, ob ein Element, das in der [Top-Ebene](/de/docs/Glossary/Top_layer) erscheint (zum Beispiel ein angezeigtes [Popover](/de/docs/Web/API/Popover_API) oder modales {{htmlelement("dialog")}} Element), tatsächlich in der Top-Ebene gerendert wird. Diese Eigenschaft ist nur relevant innerhalb einer Liste von {{cssxref("transition-property")}} Werten und nur wenn `allow-discrete` als {{cssxref("transition-behavior")}} gesetzt ist.
+Die **`overlay`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt an, ob ein Element, das in der [obersten Ebene](/de/docs/Glossary/Top_layer) erscheint (zum Beispiel ein angezeigtes [Popover](/de/docs/Web/API/Popover_API) oder modales {{htmlelement("dialog")}}-Element), tatsächlich in der obersten Ebene gerendert wird. Diese Eigenschaft ist nur innerhalb einer Liste von {{cssxref("transition-property")}}-Werten relevant und nur, wenn `allow-discrete` als {{cssxref("transition-behavior")}} festgelegt ist.
 
-Es ist wichtig zu beachten, dass `overlay` _nur_ vom Browser gesetzt werden kann – Autorenstile können den `overlay` Wert eines Elements nicht ändern. Sie können jedoch `overlay` zur [Liste der Transition-Eigenschaften](/de/docs/Web/CSS/transition-property) hinzufügen, die auf ein Element gesetzt sind. Dies bewirkt, dass seine Entfernung aus der Top-Ebene aufgeschoben wird, sodass es animiert werden kann, anstatt sofort zu verschwinden.
+Es ist wichtig zu beachten, dass `overlay` _nur_ vom Browser festgelegt werden kann — Autorenstile können den `overlay`-Wert eines Elements nicht ändern. Sie können jedoch `overlay` zur [Liste der Übergangseigenschaften](/de/docs/Web/CSS/transition-property) eines Elements hinzufügen. Dies führt dazu, dass die Entfernung aus der obersten Ebene verzögert wird, sodass sie animiert wird, anstatt sofort zu verschwinden.
 
 > [!NOTE]
-> Beim Übergang von `overlay` müssen Sie [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) auf die Transition setzen, damit es animiert wird. `overlay` Animationen unterscheiden sich von normalen [diskreten Animationen](/de/docs/Web/CSS/CSS_animated_properties#discrete) darin, dass der sichtbare (d.h. `auto`) Zustand für die gesamte Dauer der Transition immer angezeigt wird, egal, ob es sich um den Anfangs- oder Endzustand handelt.
+> Beim Übergang von `overlay` müssen Sie [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) auf den Übergang setzen, damit er animiert wird. `overlay`-Animationen unterscheiden sich von normalen [diskreten Animationen](/de/docs/Web/CSS/CSS_animated_properties#discrete), da der sichtbare (d. h. `auto`) Zustand während der gesamten Dauer des Übergangs immer angezeigt wird, unabhängig davon, ob es sich um den Start- oder Endzustand handelt.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 overlay: auto;
 overlay: none;
 
-/* Globale Werte */
+/* Global values */
 display: inherit;
 display: initial;
 display: revert;
@@ -32,9 +32,9 @@ display: unset;
 ### Werte
 
 - `auto`
-  - : Das Element wird in der Top-Ebene gerendert, wenn es in die Top-Ebene befördert wird.
+  - : Das Element wird in der obersten Ebene gerendert, falls es in die oberste Ebene befördert wird.
 - `none`
-  - : Das Element wird nicht in der Top-Ebene gerendert.
+  - : Das Element wird nicht in der obersten Ebene gerendert.
 
 ## Formale Definition
 
@@ -48,20 +48,20 @@ display: unset;
 
 ### Übergang eines Popovers
 
-In diesem Beispiel wird ein [Popover](/de/docs/Web/API/Popover_API) animiert, während es von versteckt zu gezeigt und wieder zurück übergeht.
+In diesem Beispiel wird ein [Popover](/de/docs/Web/API/Popover_API) animiert, während es vom versteckten Zustand in den angezeigten Zustand übergeht und wieder zurück.
 
 #### HTML
 
-Das HTML enthält ein {{htmlelement("div")}} Element, das als Popover unter Verwendung des [popover](/de/docs/Web/HTML/Global_attributes/popover) Attributs deklariert ist, und ein {{htmlelement("button")}} Element, das als Anzeigesteuerung des Popovers über sein [popovertarget](/de/docs/Web/HTML/Element/button#popovertarget) Attribut gekennzeichnet ist.
+Das HTML enthält ein {{htmlelement("div")}}-Element, das mithilfe des [popover](/de/docs/Web/HTML/Global_attributes/popover)-Attributs als Popover deklariert ist, und ein {{htmlelement("button")}}-Element, das als Anzeigesteuerung des Popovers über sein [popovertarget](/de/docs/Web/HTML/Element/button#popovertarget)-Attribut festgelegt ist.
 
 ```html
-<button popovertarget="mypopover">Zeigen Sie das Popover</button>
-<div popover="auto" id="mypopover">Ich bin ein Popover! Ich sollte animieren.</div>
+<button popovertarget="mypopover">Show the popover</button>
+<div popover="auto" id="mypopover">I'm a Popover! I should animate.</div>
 ```
 
 #### CSS
 
-Die `overlay` Eigenschaft ist nur in der Liste der Übergangseigenschaften vorhanden. Da `overlay` eine vom User-Agent gesteuerte Eigenschaft ist, wird sie nicht in den Vor-Übergangs- oder Nach-Übergangszuständen deklariert.
+Die `overlay`-Eigenschaft ist nur in der Liste der übergehenden Eigenschaften vorhanden. Da `overlay` eine vom Benutzeragenten gesteuerte Eigenschaft ist, wird sie nicht in den Vor- oder Nachübergangszuständen deklariert.
 
 ```css
 html {
@@ -77,7 +77,7 @@ html {
   font-size: 1.2rem;
   padding: 10px;
 
-  /* Endzustand der Austrittsanimation */
+  /* Final state of the exit animation */
   opacity: 0;
   transform: scaleX(0);
 
@@ -86,11 +86,12 @@ html {
     transform 0.7s,
     overlay 0.7s allow-discrete,
     display 0.7s allow-discrete;
-  /* Entspricht
+  /* Equivalent to
   transition: all 0.7s allow-discrete; */
 }
 
-/* Muss nach der vorherigen [popover]:popover-open Regel enthalten sein, um wirksam zu werden, da die Spezifität gleich ist */
+/* Needs to be included after the previous [popover]:popover-open
+   rule to take effect, as the specificity is the same */
 @starting-style {
   [popover]:popover-open {
     opacity: 0;
@@ -98,7 +99,7 @@ html {
   }
 }
 
-/* Übergang für das Popover-Rückgrat */
+/* Transition for the popover's backdrop */
 
 [popover]::backdrop {
   background-color: rgb(0 0 0 / 0%);
@@ -106,7 +107,7 @@ html {
     display 0.7s allow-discrete,
     overlay 0.7s allow-discrete,
     background-color 0.7s;
-  /* Entspricht
+  /* Equivalent to
   transition: all 0.7s allow-discrete; */
 }
 
@@ -114,7 +115,8 @@ html {
   background-color: rgb(0 0 0 / 25%);
 }
 
-/* Verschachtelte Selektoren (&) können keine Pseudo-Elemente darstellen, sodass diese starting-style Regel nicht verschachtelt werden kann. */
+/* Nesting selectors (&) cannot represent pseudo-elements, so this 
+   starting-style rule cannot be nested. */
 
 @starting-style {
   [popover]:popover-open::backdrop {
@@ -123,39 +125,39 @@ html {
 }
 ```
 
-Die zwei Eigenschaften, die wir animieren möchten, sind [`opacity`](/de/docs/Web/CSS/opacity) und [`transform`](/de/docs/Web/CSS/transform)): Wir möchten, dass das Popover ein- und ausblendet, während es in horizontaler Richtung wächst und schrumpft. Wir setzen einen Anfangszustand für diese Eigenschaften auf dem standardmäßig versteckten Zustand des Popover-Elements (ausgewählt über `[popover]`) und einen Endzustand auf dem offenen Zustand des Popovers (ausgewählt über die [`:popover-open`](/de/docs/Web/CSS/:popover-open) Pseudoklassse). Dann setzen wir eine [`transition`](/de/docs/Web/CSS/transition) Eigenschaft, um zwischen den beiden zu animieren.
+Die beiden Eigenschaften, die wir animieren möchten, sind [`opacity`](/de/docs/Web/CSS/opacity) und [`transform`](/de/docs/Web/CSS/transform)): wir möchten, dass das Popover ein- und ausblendet, während es in horizontaler Richtung wächst und schrumpft. Wir setzen einen Anfangszustand für diese Eigenschaften auf den standardmäßig verborgenen Zustand des Popover-Elements (ausgewählt über `[popover]`) und einen Endzustand auf den offenen Zustand des Popovers (ausgewählt über die [`:popover-open`](/de/docs/Web/CSS/:popover-open)-Pseudoklasse). Anschließend setzen wir eine [`transition`](/de/docs/Web/CSS/transition)-Eigenschaft, um zwischen den beiden zu animieren.
 
-Da das animierte Element in die [Top-Ebene](/de/docs/Glossary/Top_layer) befördert wird, wenn es angezeigt wird, und aus der Top-Ebene entfernt wird, wenn es versteckt ist, wird `overlay` zur Liste der übergehenden Elemente hinzugefügt. Dies stellt sicher, dass die Entfernung des Elements aus der Top-Ebene aufgeschoben wird, bis die Animation endet. Dies macht keinen großen Unterschied bei einfachen Animationen wie diesem, aber in komplexeren Fällen kann es dazu führen, dass das Element zu schnell von der Überlagerung entfernt wird, was bedeutet, dass die Animation nicht flüssig oder effektiv ist. Beachten Sie, dass der Wert [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) ebenfalls im Shorthand gesetzt ist, um diskrete Übergänge zu ermöglichen.
+Weil das animierte Element in die [oberste Ebene](/de/docs/Glossary/Top_layer) befördert wird, wenn es angezeigt wird, und aus der obersten Ebene entfernt wird, wenn es verborgen ist, wird `overlay` zur Liste der übergehenden Elemente hinzugefügt. Dies stellt sicher, dass die Entfernung des Elements aus der obersten Ebene erst nach Beendigung der Animation erfolgt. Dies macht bei einfachen Animationen wie dieser nicht einen großen Unterschied, aber in komplexeren Fällen kann es passieren, dass das Element zu schnell aus dem Overlay entfernt wird, was bedeutet, dass die Animation nicht glatt oder effektiv ist. Beachten Sie, dass auch der Wert [`transition-behavior: allow-discrete`](/de/docs/Web/CSS/transition-behavior) im Kürzel gesetzt wird, um diskrete Übergänge zu ermöglichen.
 
-Die folgenden Schritte sind ebenfalls erforderlich, um die Animation in beide Richtungen zum Laufen zu bringen:
+Die folgenden Schritte sind ebenfalls erforderlich, damit die Animation in beide Richtungen funktioniert:
 
-- Ein Anfangszustand für die Animation wird innerhalb der [`@starting-style`](/de/docs/Web/CSS/@starting-style) At-Regel gesetzt. Dies ist notwendig, um unerwartetes Verhalten zu vermeiden. Standardmäßig werden Übergänge nicht bei den ersten Stilupdates von Elementen ausgelöst oder wenn sich der `display` Typ von `none` zu einem anderen Typ ändert. `@starting-style` erlaubt es Ihnen, diese Standardeinstellung auf kontrollierte Weise zu überschreiben. Ohne dies würde die Eintrittsanimation nicht auftreten und das Popover würde einfach erscheinen.
-- `display` wird ebenfalls zur Liste der übergehenden Elemente hinzugefügt, sodass das animierte Element während sowohl der Eintritts- als auch der Austrittsanimation sichtbar ist (auf `display: block` gesetzt). Ohne dies wäre die Austrittsanimation nicht sichtbar; tatsächlich würde das Popover einfach verschwinden. Wiederum ist `transition-behavior: allow-discrete` in diesem Fall erforderlich, um die Animation zu ermöglichen.
+- Ein Anfangszustand für die Animation wird innerhalb der [`@starting-style`](/de/docs/Web/CSS/@starting-style)-At-Rule festgelegt. Dies ist notwendig, um unerwartetes Verhalten zu vermeiden. Standardmäßig werden Übergänge nicht bei den ersten Stilaktualisierungen der Elemente ausgelöst oder wenn der `display`-Typ von `none` in einen anderen Typ wechselt. `@starting-style` ermöglicht es Ihnen, diesen Standard auf spezifische Weise zu überschreiben. Ohne diese würde die Eintrittsanimation nicht stattfinden und das Popover würde einfach erscheinen.
+- `display` wird ebenfalls zur Liste der übergehenden Elemente hinzugefügt, damit das animierte Element während sowohl der Eintritts- als auch der Austrittsanimation sichtbar ist (auf `display: block` gesetzt). Ohne dies wäre die Austrittsanimation nicht sichtbar; tatsächlich würde das Popover einfach verschwinden. Auch hier ist `transition-behavior: allow-discrete` erforderlich, damit die Animation erfolgt.
 
-Sie werden feststellen, dass wir auch eine Transition auf dem [`::backdrop`](/de/docs/Web/CSS/::backdrop) aufgenommen haben, das erscheint, wenn das Popover geöffnet wird, um eine schöne Verdunkelungsanimation zu liefern. `[popover]:popover-open::backdrop` wird benötigt, um das Rückgrat beim geöffneten Popover auszuwählen.
+Sie werden feststellen, dass wir auch einen Übergang auf dem [`::backdrop`](/de/docs/Web/CSS/::backdrop) hinzugefügt haben, der hinter dem Popover erscheint, wenn es sich öffnet, um eine schöne Abdunklungsanimation zu bieten. `[popover]:popover-open::backdrop` ist erforderlich, um das Backdrop auszuwählen, wenn das Popover geöffnet ist.
 
 #### Ergebnis
 
-Der Code rendert wie folgt:
+Der Code wird wie folgt gerendert:
 
-{{ EmbedLiveSample("Übergang eines Popovers", "100%", "200") }}
+{{ EmbedLiveSample("Transitioning a popover", "100%", "200") }}
 
 > [!NOTE]
-> Da Popovers von `display: none` zu `display: block` wechseln, jedes Mal, wenn sie gezeigt werden, wechselt das Popover jedes Mal während der Eintrittstransition von seinen `@starting-style` Stilen zu seinen `[popover]:popover-open` Stilen. Wenn das Popover schließt, wird es von seinem `[popover]:popover-open` Zustand zum Standard `[popover]` Zustand übergehen.
+> Da Popover jedes Mal, wenn sie angezeigt werden, von `display: none` auf `display: block` wechseln, erfolgt der Übergang des Popover von seinen `@starting-style`-Stilen zu seinen `[popover]:popover-open`-Stilen bei jedem Eintrittsübergang. Wenn das Popover geschlossen wird, wechselt es von seinem `[popover]:popover-open`-Zustand zum Standard-`[popover]`-Zustand.
 >
-> Es ist möglich, dass der Stilübergang beim Eintritt und Austritt in solchen Fällen unterschiedlich ist. Siehe unser [Demonstration der Verwendung von Startstilen](/de/docs/Web/CSS/@starting-style#demonstration_of_when_starting_styles_are_used) Beispiel für einen Beweis dafür.
+> Es ist möglich, dass sich der Stilübergang beim Eintritt und Austritt in solchen Fällen unterscheidet. Weitere Informationen finden Sie in unserem [Demonstration, wann Startstile verwendet werden](/de/docs/Web/CSS/@starting-style#demonstration_of_when_starting_styles_are_used)-Beispiel als Nachweis dafür.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [CSS Transitions](/de/docs/Web/CSS/CSS_transitions) Modul
+- [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions)-Modul
 - [`@starting-style`](/de/docs/Web/CSS/@starting-style)
 - [`transition-behavior`](/de/docs/Web/CSS/transition-behavior)
-- [Vier neue CSS-Features für flüssige Eintritts- und Austritts-Animationen](https://developer.chrome.com/blog/entry-exit-animations/) bei developer.chrome.com (2023)
+- [Vier neue CSS-Funktionen für weiche Ein- und Austrittsanimationen](https://developer.chrome.com/blog/entry-exit-animations/) auf developer.chrome.com (2023)

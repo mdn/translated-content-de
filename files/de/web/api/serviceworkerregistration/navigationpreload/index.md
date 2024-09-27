@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`navigationPreload`** Nur-Lese-Eigenschaft des {{domxref("ServiceWorkerRegistration")}}-Interfaces gibt den {{domxref("NavigationPreloadManager")}} zurück, der mit der aktuellen Service Worker-Registrierung verbunden ist.
+Die **`navigationPreload`**-Eigenschaft des [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces gibt den [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager) zurück, der mit der aktuellen Service-Worker-Registrierung verknüpft ist.
 
-Das zurückgegebene Objekt ermöglicht es, Ressourcen, die von einem Service Worker verwaltet werden, proaktiv parallel zum Start des Service Workers herunterzuladen.
+Das zurückgegebene Objekt ermöglicht es, dass Ressourcen, die von einem Service Worker verwaltet werden, gleichzeitig mit dem Start des Service Workers vorab heruntergeladen werden.
 
 ## Wert
 
-Eine Instanz von {{domxref("NavigationPreloadManager")}}.
+Eine Instanz von [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager).
 
 ## Spezifikationen
 

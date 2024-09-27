@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}} {{Non-standard_header}}
 
-Die **`Window.dump()`**-Methode protokolliert Nachrichten an die Standardausgabe (`stdout`) des Browsers. Wenn der Browser von einem Terminal aus gestartet wurde, erscheinen die an `dump()` gesendeten Ausgaben im Terminal.
+Die **`Window.dump()`**-Methode protokolliert Nachrichten an die Standardausgabe (`stdout`) des Browsers. Wenn der Browser von einem Terminal aus gestartet wurde, wird die an `dump()` gesendete Ausgabe im Terminal angezeigt.
 
-Ausgaben von `dump()` werden _nicht_ an die Entwicklerwerkzeuge-Konsole des Browsers gesendet. Um in die Entwicklerwerkzeuge-Konsole zu protokollieren, verwenden Sie [`console.log()`](/de/docs/Web/API/console/log_static).
+Die Ausgabe von `dump()` wird _nicht_ an die Entwicklerwerkzeugkonsole des Browsers gesendet. Um in die Entwicklerwerkzeugkonsole zu protokollieren, verwenden Sie [`console.log()`](/de/docs/Web/API/console/log_static).
 
 ## Syntax
 
@@ -25,11 +25,11 @@ dump(message)
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
-Diese Funktion ist nicht Teil einer Spezifikation.
+Dieses Merkmal ist nicht Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 

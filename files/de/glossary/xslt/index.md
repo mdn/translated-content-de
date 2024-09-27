@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-_eXtensible Stylesheet Language Transformations_ (**XSLT**) ist eine deklarative Sprache, die verwendet wird, um {{Glossary("XML")}}-Dokumente in andere XML-Dokumente, {{Glossary("HTML")}}, {{Glossary("PDF")}}, reinen Text und so weiter umzuwandeln.
+_eXtensible Stylesheet Language Transformations_ (**XSLT**) ist eine deklarative Sprache, die verwendet wird, um [XML](/de/docs/Glossary/XML)-Dokumente in andere XML-Dokumente, [HTML](/de/docs/Glossary/HTML), [PDF](/de/docs/Glossary/PDF), Klartext und so weiter zu konvertieren.
 
-XSLT hat einen eigenen Prozessor, der XML-Eingaben oder jedes Format, das in ein XQuery- und XPath-Datenmodell konvertierbar ist, akzeptiert. Der XSLT-Prozessor erstellt ein neues Dokument basierend auf dem XML-Dokument und einem XSLT-Stylesheet, ohne Änderungen an den Originaldateien vorzunehmen.
+XSLT verfügt über einen eigenen Prozessor, der XML-Eingaben oder jedes in ein XQuery- und XPath-Datenmodell konvertierbare Format akzeptiert. Der XSLT-Prozessor erzeugt ein neues Dokument auf Grundlage des XML-Dokuments und eines XSLT-Stylesheets, ohne dabei die Originaldateien zu verändern.
 
 ## Siehe auch
 

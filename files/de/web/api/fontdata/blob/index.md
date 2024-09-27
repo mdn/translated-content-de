@@ -1,5 +1,5 @@
 ---
-title: "FontData: blob()-Methode"
+title: "FontData: blob() Methode"
 short-title: blob()
 slug: Web/API/FontData/blob
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Local Font Access API")}}{{SeeCompatTable}}
 
-Die **`blob()`**-Methode der {{domxref("FontData")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("Blob")}} erfüllt wird, der die Rohdaten der zugrundeliegenden Schriftdatei enthält.
+Die **`blob()`** Methode der [`FontData`](/de/docs/Web/API/FontData) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) erfüllt wird, der die Rohbytes der zugrunde liegenden Schriftartdatei enthält.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{domxref("Blob")}} erfüllt wird, der die Rohdaten der zugrundeliegenden Schriftdatei enthält.
+Ein {{jsxref("Promise")}}, das mit einem [`Blob`](/de/docs/Web/API/Blob) erfüllt wird, der die Rohbytes der zugrunde liegenden Schriftartdatei enthält.
 
 ## Beispiele
 
-Die `blob()`-Methode bietet Zugriff auf [SFNT](https://en.wikipedia.org/wiki/SFNT)-Daten auf niedriger Ebene — dies ist ein Schriftdateiformat, das andere Schriftformate wie PostScript, TrueType, OpenType oder Web Open Font Format (WOFF) enthalten kann.
+Die `blob()` Methode bietet Zugriff auf niedrigstufige [SFNT](https://en.wikipedia.org/wiki/SFNT) Daten – dies ist ein Schriftartdateiformat, das andere Schriftformate wie PostScript, TrueType, OpenType oder Web Open Font Format (WOFF) enthalten kann.
 
 ```js
 async function computeOutlineFormat() {
@@ -35,12 +35,12 @@ async function computeOutlineFormat() {
       postscriptNames: ["ComicSansMS"],
     });
     for (const fontData of availableFonts) {
-      // `blob()` gibt ein Blob mit gültigen und vollständigen
-      // SFNT-umwickelten Schriftdaten zurück.
+      // `blob()` returns a Blob containing valid and complete
+      // SFNT-wrapped font data.
       const sfnt = await fontData.blob();
-      // Extrahieren Sie nur die Bytes, die wir benötigen: die ersten 4 Bytes sind die SFNT
-      // Versionsinformationen.
-      // Spezifikation: https://learn.microsoft.com/en-us/typography/opentype/spec/otff#organization-of-an-opentype-font
+      // Slice out only the bytes we need: the first 4 bytes are the SFNT
+      // version info.
+      // Spec: https://learn.microsoft.com/en-us/typography/opentype/spec/otff#organization-of-an-opentype-font
       const sfntVersion = await sfnt.slice(0, 4).text();
 
       let outlineFormat = "UNKNOWN";
@@ -72,5 +72,5 @@ async function computeOutlineFormat() {
 
 ## Siehe auch
 
-- [Erweiterte Typografie mit lokalen Schriften verwenden](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
+- [Verwenden Sie erweiterte Typografie mit lokalen Schriftarten](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
 - {{cssxref("@font-face")}}

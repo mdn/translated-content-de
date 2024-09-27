@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`Animation.id`**-Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt einen String zurück oder setzt ihn, der zur Identifikation der Animation verwendet wird.
+Die **`Animation.id`**-Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt einen String zurück, der verwendet wird, um die Animation zu identifizieren, oder setzt diesen.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der zur Identifikation der Animation verwendet werden kann, oder `nu
 
 ## Beispiele
 
-Im [Beispiel „Follow the White Rabbit“](https://codepen.io/rachelnabors/pen/eJyWzm?editors=0010) können Sie der `rabbitDownAnimation` eine `id` zuweisen, wie folgt:
+Im [Follow the White Rabbit-Beispiel](https://codepen.io/rachelnabors/pen/eJyWzm?editors=0010) können Sie der `rabbitDownAnimation` eine `id` wie folgt zuweisen:
 
 ```js
 rabbitDownAnimation.id = "rabbitGo";
@@ -32,6 +32,6 @@ rabbitDownAnimation.id = "rabbitGo";
 
 ## Siehe auch
 
-- {{domxref("KeyframeEffect")}}
+- [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("Animation")}}
+- [`Animation`](/de/docs/Web/API/Animation)

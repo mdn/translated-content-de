@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Dieses Ereignis wird ausgelöst, wenn ein Laufzeitleistungsproblem für die Erweiterung festgestellt wird. Beobachten Sie dieses Ereignis, um über Laufzeitleistungsprobleme Ihrer Erweiterung informiert zu werden.
+Dieses Ereignis wird ausgelöst, wenn ein Laufzeitleistungsproblem für die Erweiterung erkannt wird. Beobachten Sie dieses Ereignis, um über Laufzeitleistungsprobleme mit Ihrer Erweiterung benachrichtigt zu werden.
 
 ## Syntax
 
@@ -22,17 +22,17 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, auf dieses Ereignis zu lauschen. Das Argument `listener` ist der Listener, der entfernt werden soll.
+  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob mindestens ein Listener für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob mindestens ein Listener für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es beobachtet wird, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Die Funktion erhält dieses Argument:
 
     - `details`
 
@@ -41,11 +41,11 @@ Ereignisse haben drei Funktionen:
         - `category`
           - : {{WebExtAPIRef("runtime.OnPerformanceWarningCategory")}}. Die Kategorie der Warnung.
         - `severity`
-          - : {{WebExtAPIRef("runtime.OnPerformanceWarningSeverity")}}. Die Schwere der Warnung.
+          - : {{WebExtAPIRef("runtime.OnPerformanceWarningSeverity")}}. Der Schweregrad der Warnung.
         - `tabId` {{optional_inline}}
-          - : `integer`. Die ID des Tabs, auf das sich die Leistungswarnung bezieht, falls vorhanden.
+          - : `integer`. Die ID des Tabs, auf den sich die Leistungswarnung bezieht, falls zutreffend.
         - `description`
-          - : `string`. Eine Erklärung, was die Warnung bedeutet, möglicherweise mit Informationen, wie man sie beheben kann.
+          - : `string`. Eine Erklärung, was die Warnung bedeutet, möglicherweise mit Informationen dazu, wie sie behoben werden kann.
 
 ## Beispiele
 

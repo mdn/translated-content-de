@@ -7,48 +7,48 @@ l10n:
 
 {{AddonSidebar}}
 
-Die API für Browsererweiterungen ist ein [entstehender Standard](https://browserext.github.io/browserext/). Daher gibt es, obwohl sie von den meisten großen Browsern - einschließlich Firefox, Chrome, Edge und Opera - unterstützt wird, Unterschiede zwischen den verschiedenen Implementierungen. Dies bedeutet, dass einige Änderungen erforderlich sein können, um Ihre Erweiterung für mehrere Browser zu implementieren.
+Die Browser-Erweiterungen API ist ein [aufkommender Standard](https://browserext.github.io/browserext/). Infolgedessen wird sie zwar von den meisten großen Browsern unterstützt – einschließlich Firefox, Chrome, Edge und Opera – es gibt jedoch Unterschiede zwischen den verschiedenen Implementierungen. Das bedeutet, dass einige Änderungen notwendig sein könnten, um Ihre Erweiterung für mehrere Browser zu implementieren.
 
-Unter den verschiedenen Browsern, die die Erweiterungs-API unterstützen, ist Firefox der konformste mit dem aufkommenden Standard und daher der beste Ausgangspunkt für die Entwicklung von Browser-Erweiterungen.
+Unter den verschiedenen Browsern, die die Erweiterungen API unterstützen, ist Firefox der Standard am nächsten und daher Ihr bester Ausgangspunkt, wenn Sie Browser-Erweiterungen entwickeln.
 
-Die Unterschiede zwischen den API-Implementierungen der Browser lassen sich in vier Bereiche unterteilen: Namensraum, asynchrone Ereignisbehandlung, API-Abdeckung und Manifestschlüssel.
+Die Unterschiede zwischen den API-Implementierungen der Browser fallen in vier Bereiche: Namespace, asynchrone Ereignisbehandlung, API-Abdeckung und Manifest-Schlüssel.
 
-## Namensraum
+## Namespace
 
-Sie referenzieren alle Funktionen der Erweiterungs-API unter Verwendung eines Namensraums. Zum Beispiel erzeugt `browser.alarms.create({delayInMinutes});` einen Alarm in Firefox, der nach der in `delayInMinutes` angegebenen Zeit ausgelöst wird.
+Alle Funktionen der Erweiterungen-API werden über einen Namespace referenziert. Zum Beispiel, `browser.alarms.create({delayInMinutes});` erstellt einen Alarm in Firefox, der nach der in `delayInMinutes` angegebenen Zeit ausgelöst wird.
 
-Es gibt zwei verwendete API-Namensräume:
+Es gibt zwei verwendete API-Namespaces:
 
 - `chrome`, verwendet in Chrome, Edge und Opera.
 - `browser`, verwendet in Firefox und Safari.
 
 ## Asynchrone Ereignisbehandlung
 
-JavaScript bietet mehrere Möglichkeiten, um asynchrone Ereignisse zu handhaben. Der vorgeschlagene Standard der Erweiterungs-API ist die Verwendung von Promises. Der Ansatz mit Promises bietet erhebliche Vorteile bei der Verarbeitung von verketteten asynchronen Ereignisaufrufen.
+JavaScript bietet mehrere Möglichkeiten, asynchrone Ereignisse zu behandeln. Der vorgeschlagene Standard für die Erweiterungen-API ist die Verwendung von Promises. Der Promises-Ansatz bietet erhebliche Vorteile bei der Behandlung von verketteten asynchronen Ereignisaufrufen.
 
-Firefox und Safari implementieren Promises für die Erweiterungs-API. Alle anderen Browser verwenden Rückrufe. In Manifest V3 bieten Chrome, Edge und Opera [Promises](https://developer.chrome.com/docs/extensions/develop/migrate#promises) für die meisten geeigneten Methoden an. (vgl. [Chrome Bug 328932](https://crbug.com/328932))
+Firefox und Safari implementieren Promises für die Erweiterungen-API. Alle anderen Browser verwenden Callbacks. In Manifest V3 unterstützen Chrome, Edge und Opera [Promises](https://developer.chrome.com/docs/extensions/develop/migrate#promises) bei den meisten geeigneten Methoden. (vgl. [Chrome Bug 328932](https://crbug.com/328932))
 
-Wenn Sie nicht vertraut damit sind, wie JavaScript asynchrone Ereignisse oder Promises handhaben kann, werfen Sie einen Blick auf [Getting to know asynchronous JavaScript: Callbacks, Promises and Async/Await](https://medium.com/codebuddies/getting-to-know-asynchronous-javascript-callbacks-promises-and-async-await-17e0673281ee) oder die MDN-Seite [Using promises](/de/docs/Web/JavaScript/Guide/Using_promises).
+Wenn Sie nicht mit der Handhabung asynchroner Ereignisse oder Promises in JavaScript vertraut sind, schauen Sie sich [Getting to know asynchronous JavaScript: Callbacks, Promises and Async/Await](https://medium.com/codebuddies/getting-to-know-asynchronous-javascript-callbacks-promises-and-async-await-17e0673281ee) oder die MDN-Seite [Using promises](/de/docs/Web/JavaScript/Guide/Using_promises) an.
 
 ## API-Abdeckung
 
-Die Unterschiede in der Implementierung der Erweiterungs-API-Funktionen zwischen den Browsern lassen sich in drei allgemeine Kategorien einteilen:
+Die Unterschiede in den Implementierungen der Funktionen der Erweiterungen API zwischen den Browsern fallen in drei große Kategorien:
 
-- Keine Unterstützung für eine gesamte Funktion.
-- Unterschiede in der Unterstützung von Funktionen innerhalb einer Funktion. Zum Beispiel unterstützt Firefox zum Zeitpunkt des Schreibens die [`notification`](/de/docs/Mozilla/Add-ons/WebExtensions/API/notifications)-Funktion [`onButtonClicked`](/de/docs/Mozilla/Add-ons/WebExtensions/API/notifications/onButtonClicked) nicht, während Firefox der einzige Browser ist, der [`onShown`](/de/docs/Mozilla/Add-ons/WebExtensions/API/notifications/onShown) unterstützt.
-- Proprietäre Funktionen, die browserspezifische Funktionen unterstützen. Zum Beispiel ist "containers" zum Zeitpunkt des Schreibens eine Firefox-spezifische Funktion, die von der [`contextualIdentities`](/de/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities)-Funktion unterstützt wird.
+- Mangelnde Unterstützung für eine gesamte Funktion.
+- Unterschiede in der Unterstützung von Funktionen innerhalb einer Funktion. Zum Beispiel unterstützt Firefox zum Zeitpunkt der Erstellung dieses Dokuments die Funktion [`notification`](/de/docs/Mozilla/Add-ons/WebExtensions/API/notifications)-Methode [`onButtonClicked`](/de/docs/Mozilla/Add-ons/WebExtensions/API/notifications/onButtonClicked) nicht, während Firefox der einzige Browser ist, der [`onShown`](/de/docs/Mozilla/Add-ons/WebExtensions/API/notifications/onShown) unterstützt.
+- Proprietäre Funktionen, die browser-spezifische Funktionen unterstützen. Zum Beispiel ist zum Zeitpunkt der Erstellung dieses Dokuments "containers" eine Firefox-spezifische Funktion, die von der [`contextualIdentities`](/de/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities)-Funktion unterstützt wird.
 
-## Manifestschlüssel
+## Manifest-Schlüssel
 
-Die Unterschiede in den unterstützten [`manifest.json`-Schlüsseln](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) zwischen den Browsern lassen sich grob in zwei Kategorien einteilen:
+Die Unterschiede in den unterstützten [`manifest.json`-Schlüsseln](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) zwischen den Browsern fallen im Wesentlichen in zwei Kategorien:
 
-- Attributinformationen der Erweiterung. Zum Beispiel enthalten Firefox und Opera zum Zeitpunkt des Schreibens zusätzlich zum [`author`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/author)-Schlüssel den [`developer`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer)-Schlüssel, um Details über den Erweiterungsentwickler aufzuzeichnen.
-- Erweiterungsfunktionen. Zum Beispiel unterstützt nur Firefox zum Zeitpunkt des Schreibens den [`protocol_handlers`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/protocol_handlers)-Schlüssel (der webbasierte Protokoll-Handler registriert, Anwendungen, die wissen, wie man bestimmte Arten von Links verarbeitet).
+- Erweiterungsinformationsattribute. Zum Beispiel beinhalten Firefox und Opera zum Zeitpunkt der Erstellung dieses Dokuments den Schlüssel [`developer`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer) (zusätzlich zum Schlüssel [`author`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/author)), um Details über den Entwickler der Erweiterung zu erfassen.
+- Erweiterungsfunktionen. Zum Beispiel unterstützt nur Firefox zum Zeitpunkt der Erstellung dieses Dokuments den Schlüssel [`protocol_handlers`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/protocol_handlers) (welcher webbasierte Protokoll-Handler registriert, Anwendungen, die wissen, wie man mit bestimmten Arten von Links umgeht).
 
-## Weitere Informationen
+## Mehr Informationen
 
-Detailliertere Informationen zu den Unterschieden in den unterstützten API-Funktionen von Browser-Erweiterungen finden Sie in:
+Ausführlichere Informationen über die Unterschiede in den unterstützten Funktionen der Browser-Erweiterungen API finden Sie in:
 
 - [Chrome-Inkompatibilitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities)
 - [Browserunterstützung für JavaScript-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs)
-- [Browserkompatibilität für manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/Browser_compatibility_for_manifest.json)
+- [Browser-Kompatibilität für manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/Browser_compatibility_for_manifest.json)

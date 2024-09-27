@@ -1,5 +1,5 @@
 ---
-title: "MathMLElement: Eigenschaft attributeStyleMap"
+title: "MathMLElement: attributeStyleMap-Eigenschaft"
 short-title: attributeStyleMap
 slug: Web/API/MathMLElement/attributeStyleMap
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`attributeStyleMap`**-Eigenschaft der {{domxref("MathMLElement")}}-Schnittstelle ist eine schreibgeschützte Eigenschaft, die ein dynamisches {{domxref("StylePropertyMap")}}-Objekt zurückgibt. Dieses Objekt enthält eine Liste von Stil-Eigenschaften des Elements, die im Inline-`style`-Attribut des Elements definiert oder über die {{domxref("MathMLElement.style", "style")}}-Eigenschaft der {{domxref("MathMLElement")}}-Schnittstelle per Skript zugewiesen wurden.
+Die schreibgeschützte **`attributeStyleMap`**-Eigenschaft der [`MathMLElement`](/de/docs/Web/API/MathMLElement)-Schnittstelle gibt ein Live-Objekt vom Typ [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap) zurück, das eine Liste von Stileigenschaften des Elements enthält, die im Inline-`style`-Attribut des Elements definiert sind oder über die [`style`](/de/docs/Web/API/MathMLElement/style)-Eigenschaft der [`MathMLElement`](/de/docs/Web/API/MathMLElement)-Schnittstelle per Skript zugewiesen wurden.
 
-Kurzschreibweise-Eigenschaften werden erweitert. Wenn Sie `border-top: 1px solid black` setzen, werden stattdessen die Langschreibweise-Eigenschaften ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}) gesetzt.
+Abkürzungseigenschaften werden erweitert. Wenn Sie `border-top: 1px solid black` setzen, werden stattdessen die Langform-Eigenschaften ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}) gesetzt.
 
-Der Hauptunterschied zwischen der {{domxref("MathMLElement.style", "style")}}-Eigenschaft und der `attributeStyleMap`-Eigenschaft besteht darin, dass die `style`-Eigenschaft ein {{domxref("CSSStyleDeclaration")}}-Objekt zurückgibt, während die `attributeStyleMap`-Eigenschaft ein {{domxref("StylePropertyMap")}}-Objekt zurückgibt.
+Der Hauptunterschied zwischen der [`style`](/de/docs/Web/API/MathMLElement/style)-Eigenschaft und der `attributeStyleMap`-Eigenschaft besteht darin, dass die `style`-Eigenschaft ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt zurückgibt, während die `attributeStyleMap`-Eigenschaft ein [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt zurückgibt.
 
-Obwohl die Eigenschaft selbst nicht beschreibbar ist, können Sie Inline-Stile über das {{domxref("StylePropertyMap")}}-Objekt, das sie zurückgibt, lesen und schreiben, genauso wie über das {{domxref("CSSStyleDeclaration")}}-Objekt, das über die `style`-Eigenschaft zurückgegeben wird.
+Obwohl die Eigenschaft selbst nicht beschreibbar ist, können Sie Inline-Stile über das [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt, das sie zurückgibt, genauso lesen und schreiben wie über das [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt, das über die `style`-Eigenschaft zurückgegeben wird.
 
 ## Wert
 
-Ein dynamisches {{domxref("StylePropertyMap")}}-Objekt.
+Ein Live-Objekt vom Typ [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap).
 
 ## Beispiele
 
-Im folgenden Codebeispiel wird die Beziehung zwischen dem `style`-Attribut und der `attributeStyleMap`-Eigenschaft gezeigt:
+Der folgende Codeausschnitt zeigt die Beziehung zwischen dem `style`-Attribut und der `attributeStyleMap`-Eigenschaft:
 
 ```html
 <div style="white-space: pre-line;">
@@ -67,6 +67,6 @@ for (const property of element.attributeStyleMap) {
 
 ## Siehe auch
 
-- {{domxref("MathMLElement.style")}}
-- {{domxref("HTMLElement.attributeStyleMap")}}
-- {{domxref("SVGElement.attributeStyleMap")}}
+- [`MathMLElement.style`](/de/docs/Web/API/MathMLElement/style)
+- [`HTMLElement.attributeStyleMap`](/de/docs/Web/API/HTMLElement/attributeStyleMap)
+- [`SVGElement.attributeStyleMap`](/de/docs/Web/API/SVGElement/attributeStyleMap)

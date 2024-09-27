@@ -1,5 +1,5 @@
 ---
-title: "Dokument: exitPointerLock() Methode"
+title: "Document: exitPointerLock() Methode"
 short-title: exitPointerLock()
 slug: Web/API/Document/exitPointerLock
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Pointer Lock API")}}
 
-Die **`exitPointerLock()`** Methode der {{domxref("Document")}} Schnittstelle gibt asynchron eine zuvor durch {{domxref("Element.requestPointerLock")}} angeforderte Zeigersperre frei.
+Die **`exitPointerLock()`** Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt asynchron eine zuvor über [`Element.requestPointerLock`](/de/docs/Web/API/Element/requestPointerLock) angeforderte Zeigersperre frei.
 
 > [!NOTE]
-> Während die **`exitPointerLock()`** Methode auf das Dokument aufgerufen wird, wird die **`requestPointerLock()`** Methode auf ein Element aufgerufen.
+> Während die **`exitPointerLock()`** Methode am Dokument aufgerufen wird, wird die **`requestPointerLock()`** Methode an einem Element aufgerufen.
 
-Um den Erfolg oder das Scheitern der Anforderung zu verfolgen, ist es notwendig, auf die Ereignisse {{domxref("Document/pointerlockchange_event", "pointerlockchange")}} und {{domxref("Document/pointerlockerror_event", "pointerlockerror")}} zu hören.
+Um den Erfolg oder das Scheitern der Anforderung zu verfolgen, ist es notwendig, auf die Ereignisse [`pointerlockchange`](/de/docs/Web/API/Document/pointerlockchange_event) und [`pointerlockerror`](/de/docs/Web/API/Document/pointerlockerror_event) zu hören.
 
 ## Syntax
 
@@ -33,12 +33,12 @@ Keiner ({{jsxref("undefined")}}).
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{ domxref("Document.pointerLockElement") }}
-- {{ domxref("Element.requestPointerLock()") }}
+- [`Document.pointerLockElement`](/de/docs/Web/API/Document/pointerLockElement)
+- [`Element.requestPointerLock()`](/de/docs/Web/API/Element/requestPointerLock)
 - [Pointer Lock](/de/docs/Web/API/Pointer_Lock_API)

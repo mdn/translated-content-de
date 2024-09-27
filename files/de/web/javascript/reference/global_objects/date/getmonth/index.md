@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getMonth()`**-Methode von {{jsxref("Date")}} Instanzen gibt den Monat für dieses Datum gemäß lokaler Zeit als nullbasierten Wert zurück (wobei null den ersten Monat des Jahres anzeigt).
+Die **`getMonth()`**-Methode von {{jsxref("Date")}} Instanzen gibt den Monat für dieses Datum entsprechend der lokalen Zeit als nullbasierten Wert zurück (wobei Null den ersten Monat des Jahres angibt).
 
 {{EmbedInteractiveExample("pages/js/date-getmonth.html", "shorter")}}
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine Ganzzahl zwischen 0 und 11, die den Monat für das gegebene Datum gemäß lokaler Zeit darstellt: 0 für Januar, 1 für Februar und so weiter. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl zwischen 0 und 11, die den Monat für das angegebene Datum gemäß der lokalen Zeit darstellt: 0 für Januar, 1 für Februar und so weiter. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beschreibung
 
@@ -37,7 +37,7 @@ const monthNames = ["January", "February", "March" /* , … */];
 console.log(monthNames[month]); // "February"
 ```
 
-Für den Zweck der Internationalisierung sollten Sie jedoch vorzugsweise {{jsxref("Intl.DateTimeFormat")}} mit dem `options`-Parameter verwenden.
+Für Internationalisierungszwecke sollten Sie allerdings lieber {{jsxref("Intl.DateTimeFormat")}} mit dem `options` Parameter verwenden.
 
 ```js
 const options = { month: "long" };

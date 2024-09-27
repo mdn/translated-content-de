@@ -11,20 +11,20 @@ Die **`CSSFontFaceRule`**-Schnittstelle repräsentiert eine {{cssxref("@font-fac
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von ihrem Vorfahren {{domxref("CSSRule")}}._
+_Erbt Eigenschaften von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- {{domxref("CSSFontFaceRule.style")}} {{ReadOnlyInline}}
-  - : Gibt eine {{domxref("CSSStyleDeclaration")}} zurück.
+- [`CSSFontFaceRule.style`](/de/docs/Web/API/CSSFontFaceRule/style) {{ReadOnlyInline}}
+  - : Gibt eine [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von ihrem Vorfahren {{domxref("CSSRule")}}._
+_Erbt Methoden von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-Dieses Beispiel verwendet das CSS, das als Beispiel auf der {{cssxref("@font-face")}}-Seite gefunden wurde. Die erste zurückgegebene {{domxref("CSSRule")}} wird eine `CSSFontFaceRule` sein.
+Dieses Beispiel verwendet das CSS, das als Beispiel auf der {{cssxref("@font-face")}}-Seite zu finden ist. Die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) wird eine `CSSFontFaceRule` sein.
 
 ```css
 @font-face {

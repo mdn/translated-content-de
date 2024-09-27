@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`numberOfItems`** schreibgeschützte Eigenschaft der {{domxref("SVGPointList")}}-Schnittstelle gibt die Anzahl der Elemente in der Liste zurück.
+Die **`numberOfItems`** schreibgeschützte Eigenschaft der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle gibt die Anzahl der Elemente in der Liste zurück.
 
 ## Wert
 

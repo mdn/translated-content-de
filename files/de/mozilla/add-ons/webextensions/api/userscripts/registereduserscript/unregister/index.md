@@ -7,10 +7,10 @@ l10n:
 
 {{AddonSidebar}}
 
-Die Methode `unregister()` des {{WebExtAPIRef("userScripts.RegisteredUserScript","RegisteredUserScript")}} Objekts hebt die Registrierung der durch das Objekt repräsentierten Benutzer-Skripte auf, die mittels {{WebExtAPIRef("userScripts.register","userScripts.register()")}} registriert wurden.
+Die `unregister()`-Methode des {{WebExtAPIRef("userScripts.RegisteredUserScript","RegisteredUserScript")}}-Objekts hebt die Registrierung der durch das Objekt repräsentierten Benutzerskripte auf, Benutzerskripte, die mit {{WebExtAPIRef("userScripts.register","userScripts.register()")}} registriert wurden.
 
 > [!NOTE]
-> Benutzer-Skripte werden automatisch abgemeldet, wenn die zugehörige Erweiterungsseite (von der die Benutzer-Skripte registriert wurden) entladen wird. Sie sollten ein Benutzer-Skript von einer Erweiterungsseite aus registrieren, die mindestens so lange bestehen bleibt, wie die Benutzer-Skripte registriert bleiben sollen.
+> Benutzerskripte werden automatisch abgemeldet, wenn die zugehörige Erweiterungsseite (von der aus die Benutzerskripte registriert wurden) entladen wird. Sie sollten daher ein Benutzerskript von einer Erweiterungsseite aus registrieren, die mindestens so lange bestehen bleibt, wie Sie möchten, dass die Benutzerskripte registriert bleiben.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das aufgelöst wird, sobald die Benutzer-Skripte abgemeldet sind. Das Promise liefert keinen Wert zurück.
+Ein {{JSxRef("Promise")}}, der aufgelöst wird, sobald die Benutzerskripte abgemeldet sind. Das Promise liefert keinen Wert zurück.
 
 ## Browser-Kompatibilität
 

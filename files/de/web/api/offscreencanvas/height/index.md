@@ -1,6 +1,6 @@
 ---
 title: "OffscreenCanvas: height-Eigenschaft"
-short-title: Höhe
+short-title: height
 slug: Web/API/OffscreenCanvas/height
 l10n:
   sourceCommit: daeff1a2efaae366bcc8b6d911d86985646e665e
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`height`**-Eigenschaft gibt die Höhe eines {{domxref("OffscreenCanvas")}}-Objekts zurück und setzt sie.
+Die **`height`**-Eigenschaft gibt die Höhe eines [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekts zurück und legt sie fest.
 
 ## Wert
 
 ## Beispiele
 
-Erstellen eines neuen Offscreen-Canvas und Zurückgeben oder Setzen der Höhe des Offscreen-Canvas:
+Erstellen eines neuen Offscreen-Canvas und Zurückgeben oder Festlegen der Höhe des Offscreen-Canvas:
 
 ```js
 const offscreen = new OffscreenCanvas(256, 256);
@@ -32,4 +32,4 @@ offscreen.height = 512;
 
 ## Siehe auch
 
-- {{domxref("OffscreenCanvas")}}, die Schnittstelle, zu der diese Eigenschaft gehört.
+- [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas), die Schnittstelle, zu der diese Eigenschaft gehört.

@@ -1,5 +1,5 @@
 ---
-title: "XRFrame: Methode fillJointRadii()"
+title: "XRFrame: fillJointRadii()-Methode"
 short-title: fillJointRadii()
 slug: Web/API/XRFrame/fillJointRadii
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`fillJointRadii()`**-Methode der {{domxref("XRFrame")}}-Schnittstelle füllt ein {{jsxref("Float32Array")}} mit Radien für eine Liste von Handgelenksräumen und gibt `true` zurück, wenn dies für alle Räume erfolgreich ist.
+Die **`fillJointRadii()`**-Methode des [`XRFrame`](/de/docs/Web/API/XRFrame)-Interfaces füllt ein {{jsxref("Float32Array")}} mit Radien für eine Liste von Handgelenkräumen und gibt `true` zurück, wenn sie für alle Räume erfolgreich ist.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ fillJointRadii(jointSpaces, radii)
 ### Parameter
 
 - `jointSpaces`
-  - : Ein Array von {{domxref("XRJointSpace")}}-Objekten, für die die Radien erlangt werden sollen.
+  - : Ein Array von [`XRJointSpace`](/de/docs/Web/API/XRJointSpace)-Objekten, für die die Radien erhalten werden sollen.
 - `radii`
   - : Ein {{jsxref("Float32Array")}}, das mit den Radien der `jointSpaces` gefüllt wird.
 
 ### Rückgabewert
 
-Ein Boolean, der angibt, ob alle Räume eine gültige Pose haben.
+Ein boolescher Wert, der angibt, ob alle Räume eine gültige Pose haben.
 
 ### Ausnahmen
 
@@ -36,7 +36,7 @@ Ein Boolean, der angibt, ob alle Räume eine gültige Pose haben.
 
 ### Radien für alle Gelenke einer Hand erhalten
 
-Um effizient alle Radien für alle 25 Gelenke jeder {{domxref("XRHand")}} zu erhalten, können Sie die `fillJointRadii()`-Methode verwenden.
+Um effizient alle Radien für alle 25 Gelenke jeder [`XRHand`](/de/docs/Web/API/XRHand) zu erhalten, können Sie die `fillJointRadii()`-Methode verwenden.
 
 ```js
 let radii1 = new Float32Array(25);
@@ -60,6 +60,6 @@ function onXRFrame(xrFrame, renderer) {
 
 ## Siehe auch
 
-- {{domxref("XRHand")}}
-- {{domxref("XRJointSpace")}}
+- [`XRHand`](/de/docs/Web/API/XRHand)
+- [`XRJointSpace`](/de/docs/Web/API/XRJointSpace)
 - {{jsxref("Float32Array")}}

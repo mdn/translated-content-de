@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **verbotener Header-Name** ist der Name eines [HTTP-Headers](/de/docs/Web/HTTP/Headers), der programmatisch nicht modifiziert werden kann, speziell der Name eines HTTP **Anfrage**-Headers (im Gegensatz zu einem {{Glossary("Forbidden response header name")}}).
+Ein **verbotener Header-Name** ist der Name eines [HTTP-Headers](/de/docs/Web/HTTP/Headers), der nicht programmgesteuert modifiziert werden kann; genauer gesagt, ein HTTP-**Request**-Header-Name (im Gegensatz zu einem [verbotenen Antwort-Header-Namen](/de/docs/Glossary/Forbidden_response_header_name)).
 
-Das Modifizieren solcher Header ist verboten, da der Benutzeragent die vollständige Kontrolle über sie behält. Namen, die mit `Sec-` beginnen, sind für die Erstellung neuer Header reserviert, die sicher vor {{glossary("API","APIs")}} sind, die Entwicklern die Kontrolle über Header gewähren, wie z.B. {{domxref("Window/fetch", "fetch()")}}.
+Das Modifizieren solcher Header ist verboten, da der Benutzeragent die vollständige Kontrolle über sie behält. Namen, die mit `Sec-` beginnen, sind reserviert, um neue Header zu erstellen, die sicher vor [APIs](/de/docs/Glossary/API) sind, die Entwicklern die Kontrolle über Header gewähren, wie etwa [`fetch()`](/de/docs/Web/API/Window/fetch).
 
 Verbotene Header-Namen beginnen mit `Proxy-` oder `Sec-`, oder gehören zu den folgenden Namen:
 
@@ -37,12 +37,12 @@ Verbotene Header-Namen beginnen mit `Proxy-` oder `Sec-`, oder gehören zu den f
 - {{HTTPHeader("Via")}}
 
 > [!NOTE]
-> Der {{HTTPHeader("User-Agent")}} Header ist nicht mehr verboten, [laut Spezifikation](https://fetch.spec.whatwg.org/#terminology-headers) — siehe Liste der verbotenen Header-Namen (dies wurde in Firefox 43 implementiert) — er kann nun in einem Fetch [Headers](/de/docs/Web/API/Headers) Objekt gesetzt werden, oder mit der [setRequestHeader()](/de/docs/Web/API/XMLHttpRequest/setRequestHeader) Methode von `XMLHttpRequest`. Allerdings entfernt Chrome den Header stillschweigend aus Fetch-Anfragen (siehe [Chromium Bug 571722](https://crbug.com/571722)).
+> Der {{HTTPHeader("User-Agent")}}-Header ist laut [Spezifikation](https://fetch.spec.whatwg.org/#terminology-headers) nicht mehr verboten — siehe Liste verbotener Header-Namen (dies wurde in Firefox 43 implementiert) — er kann nun in einem Fetch-[Headers](/de/docs/Web/API/Headers)-Objekt oder mit der [setRequestHeader()](/de/docs/Web/API/XMLHttpRequest/setRequestHeader)-Methode von `XMLHttpRequest` gesetzt werden. Chrome entfernt jedoch stillschweigend den Header aus Fetch-Anfragen (siehe [Chromium-Bug 571722](https://crbug.com/571722)).
 
 > [!NOTE]
-> Obwohl der {{HTTPHeader("Referer")}} Header als verbotener Header [in der Spezifikation](https://fetch.spec.whatwg.org/#forbidden-request-header) aufgeführt ist, behält der Benutzeragent nicht die vollständige Kontrolle darüber und der Header kann programmatisch modifiziert werden. Zum Beispiel kann der {{HTTPHeader("Referer")}} Header beim Verwenden von [`fetch()`](/de/docs/Web/API/Window/fetch) über die [`referrer` option](/de/docs/Web/API/RequestInit#referrer) programmatisch modifiziert werden.
+> Obwohl der {{HTTPHeader("Referer")}}-Header [in der Spezifikation](https://fetch.spec.whatwg.org/#forbidden-request-header) als verbotener Header aufgeführt ist, behält der Benutzeragent nicht die vollständige Kontrolle darüber und der Header kann programmgesteuert modifiziert werden. Zum Beispiel kann bei Verwendung von [`fetch()`](/de/docs/Web/API/Window/fetch) der {{HTTPHeader("Referer")}}-Header programmgesteuert über die [`referrer`-Option](/de/docs/Web/API/RequestInit#referrer) modifiziert werden.
 
 ## Siehe auch
 
-- Verwandte Glossarbegriffe:
-  - {{Glossary("Forbidden response header name")}}
+- Verwandte Glossar-Begriffe:
+  - [Verbotener Antwort-Header-Name](/de/docs/Glossary/Forbidden_response_header_name)

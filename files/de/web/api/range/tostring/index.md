@@ -1,5 +1,5 @@
 ---
-title: "Range: Methode toString()"
+title: "Range: toString()-Methode"
 short-title: toString()
 slug: Web/API/Range/toString
 l10n:
@@ -8,9 +8,11 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.toString()`** Methode ist ein {{Glossary("stringifier")}}, der den Text des {{domxref("Range")}} zurückgibt.
+Die **`Range.toString()`**-Methode ist ein [Stringifier](/de/docs/Glossary/stringifier), der den Text des [`Range`](/de/docs/Web/API/Range) zurückgibt.
 
-Das Anzeigen des Inhalts eines {{domxref("Range")}} löst einen impliziten `toString()`-Aufruf aus, daher ist der Vergleich von Bereich und Text über einen Dialog nicht effektiv.
+Das Aufrufen des Inhalts eines [`Range`](/de/docs/Web/API/Range) durch eine Warnmeldung führt zu einem impliziten
+`toString()`-Aufruf, daher ist der Vergleich von Range und Text über einen Warn-Dialog
+ineffektiv.
 
 ## Syntax
 
@@ -32,8 +34,8 @@ Ein String.
 
 ```html
 <p>
-  Dieses Beispiel protokolliert <em>alles</em> zwischen den hervorgehobenen <em>Wörtern</em>.
-  Schauen Sie sich die Ausgabe unten an.
+  This example logs <em>everything</em> between the emphasized <em>words</em>.
+  Look at the output below.
 </p>
 <p id="log"></p>
 ```
@@ -62,4 +64,4 @@ document.getElementById("log").textContent = range.toString();
 
 ## Siehe auch
 
-- [Der DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)

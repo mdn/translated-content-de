@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("IDBCursor")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`primaryKey`** des {{domxref("IDBCursor")}}-Interfaces gibt den aktuellen effektiven Schlüssel des Cursors zurück. Wenn der Cursor derzeit iteriert oder außerhalb seines Bereichs iteriert hat, ist dieser auf undefiniert gesetzt. Der Primärschlüssel des Cursors kann jeden Datentyp haben.
+Die schreibgeschützte Eigenschaft **`primaryKey`** des [`IDBCursor`](/de/docs/Web/API/IDBCursor)-Interfaces gibt den aktuellen effektiven Schlüssel des Cursors zurück. Wenn der Cursor gerade iteriert wird oder außerhalb seines Bereichs iteriert hat, wird er auf undefined gesetzt. Der Primärschlüssel des Cursors kann jeder beliebige Datentyp sein.
 
 ## Wert
 
-Ein Wert von jedem Datentyp.
+Ein Wert eines beliebigen Datentyps.
 
 ## Beispiele
 
-In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Object Store ab und verwenden dann einen Cursor, um durch alle Einträge im Object Store zu iterieren. In jeder Iteration protokollieren wir den Primärschlüssel des Cursors in der Konsole.
+In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objektspeicher ab und verwenden dann einen Cursor, um alle Datensätze im Objektspeicher zu durchlaufen. Bei jeder Iteration protokollieren wir den Primärschlüssel des Cursors in der Konsole.
 
-Der Cursor erfordert nicht, dass wir die Daten basierend auf einem Schlüssel auswählen; wir können einfach alle holen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges Arbeitsbeispiel siehe unser [IDBCursor-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live anzeigen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
+Der Cursor erfordert nicht, dass wir die Daten basierend auf einem Schlüssel auswählen; wir können einfach alle erfassen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges Arbeitsbeispiel siehe unser [IDBCursor-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
 
 ```js
 function displayData() {
@@ -52,9 +52,9 @@ function displayData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Einstellen eines Schlüsselsbereichs: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursorn: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live anzeigen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

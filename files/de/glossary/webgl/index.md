@@ -7,17 +7,17 @@ l10n:
 
 {{GlossarySidebar}}
 
-**WebGL** (_Web Graphics Library_) ist eine {{Glossary("JavaScript")}} {{Glossary("API")}}, die interaktive 2D- und 3D-Grafiken zeichnet.
+**WebGL** (_Web Graphics Library_) ist eine [JavaScript](/de/docs/Glossary/JavaScript) [API](/de/docs/Glossary/API), die interaktive 2D- und 3D-Grafiken zeichnet.
 
-Die [Khronos Group](https://www.khronos.org/) pflegt WebGL, das auf {{Glossary("OpenGL")}} ES 2.0 basiert.
+Die [Khronos Group](https://www.khronos.org/) pflegt WebGL, das auf [OpenGL](/de/docs/Glossary/OpenGL) ES 2.0 basiert.
 
-Sie können WebGL innerhalb des {{Glossary("HTML")}} {{HTMLElement("canvas")}}-Elements aufrufen, das eine Renderoberfläche bereitstellt.
+Sie können WebGL innerhalb des [HTML](/de/docs/Glossary/HTML) {{HTMLElement("canvas")}}-Elements aufrufen, das eine Renderoberfläche bereitstellt.
 
-Alle großen {{Glossary("Browser","browsers")}} unterstützen jetzt WebGL, aber seine Verfügbarkeit hängt auch von externen Faktoren ab (z.B. GPU-Unterstützung).
+Alle großen [Browser](/de/docs/Glossary/Browser) unterstützen mittlerweile WebGL, aber seine Verfügbarkeit hängt auch von externen Faktoren ab (z. B. GPU-Unterstützung).
 
 ## Siehe auch
 
 - [WebGL](https://en.wikipedia.org/wiki/WebGL) auf Wikipedia
-- [Überprüfen Sie die WebGL-Unterstützung](https://get.webgl.org/)
+- [Überprüfung der WebGL-Unterstützung](https://get.webgl.org/)
 - [WebGL auf MDN](/de/docs/Web/API/WebGL_API)
-- [Support-Tabelle für WebGL](https://caniuse.com/#feat=webgl)
+- [Unterstützungstabelle für WebGL](https://caniuse.com/#feat=webgl)

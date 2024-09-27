@@ -8,12 +8,13 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die Methode `createPanner()` der {{ domxref("BaseAudioContext") }}-Schnittstelle wird verwendet, um ein neues {{domxref("PannerNode")}} zu erstellen, das dazu dient, einen ankommenden Audiostream im 3D-Raum zu räumlich darzustellen.
+Die `createPanner()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle wird verwendet, um einen neuen [`PannerNode`](/de/docs/Web/API/PannerNode) zu erstellen, der verwendet wird, um einen eingehenden Audiostream im 3D-Raum zu räumlich zu gestalten.
 
-Der Panner-Knoten wird in Bezug auf den {{domxref("AudioListener") }} des AudioContext räumlich dargestellt (definiert durch das Attribut {{domxref("BaseAudioContext/listener", "AudioContext.listener")}}), das die Position und Orientierung der Person repräsentiert, die das Audio hört.
+Der Panner-Knoten ist in Bezug auf den [`AudioListener`](/de/docs/Web/API/AudioListener) des AudioContext räumlich positioniert (definiert durch das [`AudioContext.listener`](/de/docs/Web/API/BaseAudioContext/listener)-Attribut), das die Position und Orientierung der Person repräsentiert, die das Audio hört.
 
 > [!NOTE]
-> Der {{domxref("PannerNode.PannerNode", "PannerNode()")}}-Konstruktor ist der empfohlene Weg, um ein {{domxref("PannerNode")}} zu erstellen; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`PannerNode()`](/de/docs/Web/API/PannerNode/PannerNode)-Konstruktor ist der empfohlene Weg, um einen [`PannerNode`](/de/docs/Web/API/PannerNode) zu erstellen; siehe
+> [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -27,18 +28,18 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("PannerNode")}}.
+Ein [`PannerNode`](/de/docs/Web/API/PannerNode).
 
 ## Beispiele
 
-Im folgenden Beispiel sehen Sie ein Beispiel dafür, wie die `createPanner()`-Methode, {{domxref("AudioListener")}} und {{domxref("PannerNode")}} verwendet würden, um die Audioräumlichkeit zu steuern. Im Allgemeinen werden Sie die Position im 3D-Raum definieren, die Ihr Audio-Listener und -Panner (Quelle) zunächst besetzen, und dann die Position eines oder beider davon aktualisieren, während die Anwendung verwendet wird. Sie könnten zum Beispiel eine Figur in einer Spielwelt bewegen und möchten, dass die Audioausgabe realistisch verändert wird, wenn sich Ihre Figur einem Musikabspielgerät wie einem Stereo nähert oder sich davon entfernt. Im Beispiel sehen Sie, wie dies durch die Funktionen `moveRight()`, `moveLeft()` usw. gesteuert wird, die neue Werte für die Pannerposition über die Funktion `PositionPanner()` setzen.
+Im folgenden Beispiel sehen Sie, wie die `createPanner()`-Methode, [`AudioListener`](/de/docs/Web/API/AudioListener) und [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet werden, um die Audio-Räumlierung zu steuern. In der Regel definieren Sie zunächst die Position im 3D-Raum, die Ihr Audio-Listener und Panner (Quelle) einnehmen, und aktualisieren dann die Position eines oder beider, während die Anwendung verwendet wird. Sie könnten zum Beispiel einen Charakter innerhalb einer Spielwelt bewegen und wünschen, dass die Lieferung von Audio sich realistisch ändert, wenn sich Ihr Charakter einem Musikspieler wie einem Stereo näher oder entfernt. Im Beispiel sehen Sie, wie dies durch die Funktionen `moveRight()`, `moveLeft()`, usw. gesteuert wird, die neue Werte für die Panner-Position über die `PositionPanner()`-Funktion festlegen.
 
-Um eine vollständige Implementierung zu sehen, schauen Sie sich unser [Panner-Node-Beispiel](https://mdn.github.io/webaudio-examples/panner-node/) an ([sehen Sie sich den Quellcode an](https://github.com/mdn/webaudio-examples/tree/main/panner-node)) — dieses Demo versetzt Sie in den 2.5D "Raum des Metalls", wo Sie einen Track auf einem Kassettenrekorder abspielen und dann um den Kassettenrekorder herumlaufen können, um zu sehen, wie sich der Klang verändert!
+Um eine vollständige Implementierung zu sehen, werfen Sie einen Blick auf unser [panner-node Beispiel](https://mdn.github.io/webaudio-examples/panner-node/) ([sehen Sie sich den Quellcode an](https://github.com/mdn/webaudio-examples/tree/main/panner-node)) — dieses Demo transportiert Sie in den 2.5D "Raum aus Metall", wo Sie einen Track auf einem Boom Box abspielen und dann um die Boom Box herumgehen können, um zu sehen, wie sich der Klang ändert!
 
-Beachten Sie, wie wir einige Feature-Erkennungen verwendet haben, um dem Browser entweder die neueren Eigenschaftswerte (wie {{domxref("AudioListener.forwardX")}}) für das Setzen der Position usw. zu geben, wenn dieser diese unterstützt, oder ältere Methoden (wie {{domxref("AudioListener.setOrientation()")}}), wenn dieser diese noch unterstützt, aber nicht die neuen Eigenschaften.
+Beachten Sie, wie wir einige Funktionserkennungen verwendet haben, um dem Browser entweder die neueren Eigenschaftswerte (wie [`AudioListener.forwardX`](/de/docs/Web/API/AudioListener/forwardX)) für die Positionierung zu geben, wenn er diese unterstützt, oder ältere Methoden (wie [`AudioListener.setOrientation()`](/de/docs/Web/API/AudioListener/setOrientation)), wenn er diese noch unterstützt, aber nicht die neuen Eigenschaften.
 
 ```js
-// Einrichtung der Informationen zur Listener- und Panner-Position
+// set up listener and panner position information
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
 
@@ -46,7 +47,7 @@ const xPos = Math.floor(WIDTH / 2);
 const yPos = Math.floor(HEIGHT / 2);
 const zPos = 295;
 
-// andere Variablen definieren
+// define other variables
 
 const audioCtx = new AudioContext();
 
@@ -96,7 +97,7 @@ rightBound = xPos - 50;
 
 xIterator = WIDTH / 150;
 
-// Der Listener wird in diesem Demo immer an derselben Stelle sein
+// listener will always be in the same place for this demo
 
 if (listener.positionX) {
   listener.positionX.setValueAtTime(xPos, audioCtx.currentTime);
@@ -106,9 +107,9 @@ if (listener.positionX) {
   listener.setPosition(xPos, yPos, 300);
 }
 
-listenerData.textContent = `Listener-Daten: X ${xPos} Y ${yPos} Z 300`;
+listenerData.textContent = `Listener data: X ${xPos} Y ${yPos} Z 300`;
 
-// Der Panner wird sich bewegen, während sich die Boombox-Grafik auf dem Bildschirm bewegt
+// panner will move as the boombox graphic moves around on the screen
 function positionPanner() {
   if (panner.positionX) {
     panner.positionX.setValueAtTime(xPos, audioCtx.currentTime);
@@ -117,13 +118,12 @@ function positionPanner() {
   } else {
     panner.setPosition(xPos, yPos, zPos);
   }
-  pannerData.textContent = `Panner-Daten: X ${xPos} Y ${yPos} Z ${zPos}`;
+  pannerData.textContent = `Panner data: X ${xPos} Y ${yPos} Z ${zPos}`;
 }
 ```
 
 > [!NOTE]
-> In Bezug auf die Ermittlung, welche Positionswerte auf den
-> Listener und Panner angewendet werden sollten, um den Ton an das anzupassen, was auf dem Bildschirm visuell passiert, ist einiges an Mathematik erforderlich, aber mit etwas Experimente werden Sie bald den Dreh raus haben.
+> Um herauszufinden, welche Positionswerte auf den Listener und den Panner angewendet werden sollen, damit der Klang zu dem passt, was auf dem Bildschirm visuell geschieht, ist einiges an Mathematik erforderlich, aber mit ein wenig Experimentieren werden Sie sich schnell daran gewöhnen.
 
 ## Spezifikationen
 

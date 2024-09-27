@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine Integrierte Entwicklungsumgebung (**IDE**) oder interaktive Entwicklungsumgebung ist eine Softwareanwendung, die umfassende Einrichtungen für Computerprogrammierer zur Softwareentwicklung bietet. Eine IDE besteht normalerweise aus einem Quellcode-Editor, Build-Automatisierungswerkzeugen und einem Debugger.
+Eine Integrierte Entwicklungsumgebung (**IDE**) oder Interaktive Entwicklungsumgebung ist eine Softwareanwendung, die umfassende Einrichtungen für Softwareentwickler zur Softwareentwicklung bereitstellt. Eine IDE besteht normalerweise aus einem Quelltexteditor, Build-Automatisierungstools und einem Debugger.
 
 ## Siehe auch
 

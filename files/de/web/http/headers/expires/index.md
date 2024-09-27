@@ -7,26 +7,26 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Expires`** HTTP-Header enthält das Datum/die Uhrzeit, nach der die Antwort als abgelaufen gilt.
+Der **`Expires`** HTTP-Header enthält das Datum/Uhrzeit, nach dem die Antwort als abgelaufen angesehen wird.
 
 Ungültige Ablaufdaten mit dem Wert 0 stellen ein Datum in der Vergangenheit dar und bedeuten, dass die Ressource bereits abgelaufen ist.
 
 > [!NOTE]
-> Wenn ein {{HTTPHeader("Cache-Control")}}-Header mit der Direktive `max-age` oder `s-maxage` in der Antwort vorhanden ist, wird der `Expires`-Header ignoriert.
+> Wenn es einen {{HTTPHeader("Cache-Control")}} Header mit der `max-age` oder `s-maxage` Direktive in der Antwort gibt, wird der `Expires` Header ignoriert.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response header")}}</td>
+      <td>[Response header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Forbidden header name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted response header")}}
+        [CORS-safelisted response header](/de/docs/Glossary/CORS-safelisted_response_header)
       </th>
       <td>ja</td>
     </tr>
@@ -42,7 +42,7 @@ Expires: <http-date>
 ## Direktiven
 
 - \<http-date>
-  - : Ein HTTP-Datum-Zeitstempel.
+  - : Ein HTTP-date Zeitstempel.
 
 ## Beispiele
 

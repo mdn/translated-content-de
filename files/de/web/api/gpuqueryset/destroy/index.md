@@ -3,12 +3,13 @@ title: "GPUQuerySet: destroy() Methode"
 short-title: destroy()
 slug: Web/API/GPUQuerySet/destroy
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`destroy()`**-Methode der {{domxref("GPUQuerySet")}}-Schnittstelle zerstört das `GPUQuerySet`.
+Die **`destroy()`**-Methode der
+[`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Schnittstelle zerstört das `GPUQuerySet`.
 
 ## Syntax
 
@@ -32,7 +33,7 @@ const querySet = device.createQuerySet({
   count: 32,
 });
 
-// Einige Zeit später
+// Some time later
 
 querySet.destroy();
 ```

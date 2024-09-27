@@ -1,5 +1,5 @@
 ---
-title: Orientierung
+title: orientation
 slug: Web/SVG/Attribute/orientation
 l10n:
   sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`orientation`**-Attribut gibt an, dass der angegebene {{Glossary("glyph")}} nur für eine bestimmte Textrichtung verwendet werden soll, d. h. horizontal oder vertikal.
+Das **`orientation`**-Attribut gibt an, dass das angegebene [glyph](/de/docs/Glossary/glyph) nur für eine bestimmte Textrichtung verwendet werden soll, d.h. horizontal oder vertikal.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("glyph")}}
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -24,7 +24,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        <em>Keiner (bedeutet, dass der Glyph für beide Textrichtungen verwendet werden kann)</em>
+        <em>Keiner (bedeutet, dass das Glyph für beide Textrichtungen verwendet werden kann)</em>
       </td>
     </tr>
     <tr>
@@ -35,9 +35,9 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `h`
-  - : Dieser Wert gibt an, dass der Glyph nur für eine horizontale Textrichtung verwendet wird.
+  - : Dieser Wert gibt an, dass das Glyph nur für eine horizontale Textrichtung verwendet wird.
 - `v`
-  - : Dieser Wert gibt an, dass der Glyph nur für eine vertikale Textrichtung verwendet wird.
+  - : Dieser Wert gibt an, dass das Glyph nur für eine vertikale Textrichtung verwendet wird.
 
 ## Spezifikationen
 

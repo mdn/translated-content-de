@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:apply-imports>`-Element ist ziemlich komplex und wird hauptsächlich in komplexen Stylesheets verwendet. Die Import-Priorität erfordert, dass Template-Regeln in Haupt-Stylesheets eine höhere Priorität haben als Template-Regeln in importierten Stylesheets. Manchmal ist es jedoch nützlich, den Prozessor zu zwingen, eine Template-Regel aus dem (niedrigeren Priorität) importierten Stylesheet anstelle einer gleichwertigen Regel im Haupt-Stylesheet zu verwenden.
+Das `<xsl:apply-imports>`-Element ist ziemlich obskur und wird hauptsächlich in komplexen Stylesheets verwendet. Die Import-Priorität erfordert, dass Vorlagenregeln in Haupt-Stylesheets eine höhere Priorität haben als Vorlagenregeln in importierten Stylesheets. Manchmal ist es jedoch nützlich, den Prozessor dazu zu zwingen, eine Vorlagenregel aus dem (niedriger priorisierten) importierten Stylesheet anstelle einer äquivalenten Regel im Haupt-Stylesheet zu verwenden.
 
 ## Syntax
 

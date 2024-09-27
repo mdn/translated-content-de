@@ -7,25 +7,25 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Webbrowser** oder **Browser** ist ein Programm, das Seiten aus dem {{Glossary("World Wide Web", "Web")}} abruft und anzeigt und es Benutzern ermöglicht, über {{Glossary("hyperlink", "Hyperlinks")}} auf weitere Seiten zuzugreifen. Ein Browser ist die bekannteste Art von {{Glossary("user agent", "User-Agent")}}. Er verwendet eine {{Glossary("Engine/Rendering", "Rendering-Engine")}}, um Webseiten darzustellen.
+Ein **Webbrowser** oder **Browser** ist ein Programm, das Seiten aus dem [Web](/de/docs/Glossary/World_Wide_Web) abruft und anzeigt und es den Benutzern ermöglicht, über [Hyperlinks](/de/docs/Glossary/hyperlink) auf weitere Seiten zuzugreifen. Ein Browser ist die vertrauteste Art von [user agent](/de/docs/Glossary/user_agent). Er verwendet eine [Rendering-Engine](/de/docs/Glossary/Engine/Rendering), um Webseiten darzustellen.
 
-Zu den üblichen Browsern gehören:
+Bekannte Browser sind:
 
-- {{Glossary("Google Chrome")}}
-- {{Glossary("Mozilla Firefox")}}
-- {{Glossary("Apple Safari")}}
-- {{Glossary("Microsoft Edge")}}
-- {{Glossary("Opera Browser")}}
+- [Google Chrome](/de/docs/Glossary/Google_Chrome)
+- [Mozilla Firefox](/de/docs/Glossary/Mozilla_Firefox)
+- [Apple Safari](/de/docs/Glossary/Apple_Safari)
+- [Microsoft Edge](/de/docs/Glossary/Microsoft_Edge)
+- [Opera Browser](/de/docs/Glossary/Opera_Browser)
 
 ## Siehe auch
 
 - [Webbrowser](https://en.wikipedia.org/wiki/Web_browser) auf Wikipedia
 - {{HTTPHeader("User-agent")}} (HTTP-Header)
-- Einen Browser herunterladen
+- Download eines Browsers
   - [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/)
   - [Google Chrome](https://www.google.com/chrome/)
   - [Microsoft Edge](https://www.microsoft.com/en-us/edge)
   - [Opera Browser](https://www.opera.com/)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Engine/Rendering", "Rendering-Engine")}}
-  - {{Glossary("User agent", "User-Agent")}}
+  - [Rendering-Engine](/de/docs/Glossary/Engine/Rendering)
+  - [User agent](/de/docs/Glossary/User_agent)

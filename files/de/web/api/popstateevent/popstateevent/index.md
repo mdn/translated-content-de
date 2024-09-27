@@ -1,5 +1,5 @@
 ---
-title: "PopStateEvent: PopStateEvent()-Konstruktor"
+title: "PopStateEvent: PopStateEvent() Konstruktor"
 short-title: PopStateEvent()
 slug: Web/API/PopStateEvent/PopStateEvent
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("History API")}}
 
-Der **`PopStateEvent()`**-Konstruktor erstellt ein neues {{domxref("PopStateEvent")}}-Objekt.
+Der **`PopStateEvent()`** Konstruktor erstellt ein neues [`PopStateEvent`](/de/docs/Web/API/PopStateEvent) Objekt.
 
 > [!NOTE]
-> Ein Webentwickler muss diesen Konstruktor normalerweise nicht aufrufen, da der Browser diese Objekte selbst erstellt, wenn {{domxref("Window/popstate_event", "popstate")}}-Ereignisse ausgelöst werden.
+> Ein Webentwickler muss diesen Konstruktor typischerweise nicht aufrufen, da der Browser diese Objekte selbst erzeugt, wenn [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignisse ausgelöst werden.
 
 ## Syntax
 
@@ -22,16 +22,16 @@ new PopStateEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses.
-    Es ist case-sensitive und Browser setzen es auf `popstate`.
+  - : Ein Zeichenfolgenwert mit dem Namen des Ereignisses.
+    Es ist case-sensitiv und Browser setzen es auf `popstate`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgende Eigenschaft hat:
+  - : Ein Objekt, das, _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_, die folgende Eigenschaft besitzt:
     - `state` {{optional_inline}}
-      - : Ein Objekt, das den Zustand repräsentiert. Praktisch ist es ein Wert, der durch den Aufruf von {{domxref("history.pushState()")}} oder {{domxref("history.replaceState()")}} bereitgestellt wird. Wenn nicht gesetzt, ist der Standardwert `null`.
+      - : Ein Objekt, das den Zustand darstellt. Praktisch ist es ein Wert, der durch den Aufruf von [`history.pushState()`](/de/docs/Web/API/History/pushState) oder [`history.replaceState()`](/de/docs/Web/API/History/replaceState) bereitgestellt wird. Wenn nicht gesetzt, ist der Standardwert `null`.
 
 ### Rückgabewert
 
-Ein neues {{domxref("PopStateEvent")}}-Objekt.
+Ein neues [`PopStateEvent`](/de/docs/Web/API/PopStateEvent) Objekt.
 
 ## Spezifikationen
 
@@ -43,6 +43,6 @@ Ein neues {{domxref("PopStateEvent")}}-Objekt.
 
 ## Siehe auch
 
-- {{domxref("history.pushState()")}}
-- {{domxref("history.replaceState()")}}
-- {{domxref("Window/popstate_event", "popstate")}}-Ereignis
+- [`history.pushState()`](/de/docs/Web/API/History/pushState)
+- [`history.replaceState()`](/de/docs/Web/API/History/replaceState)
+- [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignis

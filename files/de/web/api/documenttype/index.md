@@ -7,35 +7,33 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DocumentType`**-Schnittstelle repräsentiert ein {{domxref("Node")}}, das einen Doctype enthält.
+Die **`DocumentType`** Schnittstelle repräsentiert einen [`Node`](/de/docs/Web/API/Node), der einen Doctype enthält.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("Node")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`Node`](/de/docs/Web/API/Node)._
 
-- {{domxref("DocumentType.name")}} {{ReadOnlyInline}}
-  - : Der Typ des Dokuments. Für HTML-Dokumente ist dies immer `"html"`, kann jedoch für XML-Dokumente variieren.
-- {{domxref("DocumentType.publicId")}} {{ReadOnlyInline}}
-  - : Ein String mit einem Bezeichner des Dokumenttyps. Für HTML-Dokumente immer leer (`""`), es wird beispielsweise `"-//W3C//DTD SVG 1.1//EN"` für SVG-Dokumente sein.
-- {{domxref("DocumentType.systemId")}} {{ReadOnlyInline}}
-  - : Ein String, der die URL zur zugehörigen DTD enthält. Für HTML-Dokumente immer leer (`""`), es wird beispielsweise `"http://www.w3.org/2000/svg"` für SVG-Dokumente sein.
+- [`DocumentType.name`](/de/docs/Web/API/DocumentType/name) {{ReadOnlyInline}}
+  - : Der Typ des Dokuments. Für HTML-Dokumente ist es immer `"html"`, kann aber für XML-Dokumente variieren.
+- [`DocumentType.publicId`](/de/docs/Web/API/DocumentType/publicId) {{ReadOnlyInline}}
+  - : Ein String mit einem Bezeichner des Dokumenttyps. Für HTML ist er immer leer (`""`), zum Beispiel `"-//W3C//DTD SVG 1.1//EN"` für SVG-Dokumente.
+- [`DocumentType.systemId`](/de/docs/Web/API/DocumentType/systemId) {{ReadOnlyInline}}
+  - : Ein String, der die URL zur zugehörigen DTD enthält. Für HTML ist er immer leer (`""`), zum Beispiel `"http://www.w3.org/2000/svg"` für SVG-Dokumente.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Methoden von seinem Elternteil, {{domxref("Node")}}._
+_Erbt Methoden von seinem Elternteil, [`Node`](/de/docs/Web/API/Node)._
 
-- {{domxref("DocumentType.after()")}}
-  - : Fügt eine Menge von {{domxref("Node")}}-Objekten oder Zeichenfolgen in die Kinderliste des
-    Elternteils des Objekts ein, direkt nach diesem Knoten.
-- {{domxref("DocumentType.before()")}}
-  - : Fügt eine Menge von {{domxref("Node")}}-Objekten oder Zeichenfolgen in die Kinderliste des
-    Elternteils des Objekts ein, direkt vor diesem Knoten.
-- {{domxref("DocumentType.remove()")}}
+- [`DocumentType.after()`](/de/docs/Web/API/DocumentType/after)
+  - : Fügt eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Kinderliste des Elternobjekts direkt nach diesem Knoten ein.
+- [`DocumentType.before()`](/de/docs/Web/API/DocumentType/before)
+  - : Fügt eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Kinderliste des Elternobjekts direkt vor diesem Knoten ein.
+- [`DocumentType.remove()`](/de/docs/Web/API/DocumentType/remove)
   - : Entfernt dieses Objekt aus der Kinderliste seines Elternteils.
-- {{domxref("DocumentType.replaceWith()")}}
-  - : Ersetzt den Dokumenttyp durch eine Reihe gegebener Knoten.
+- [`DocumentType.replaceWith()`](/de/docs/Web/API/DocumentType/replaceWith)
+  - : Ersetzt den Dokumenttyp durch eine Menge gegebener Knoten.
 
 ## Spezifikationen
 
@@ -48,4 +46,4 @@ _Erbt Methoden von seinem Elternteil, {{domxref("Node")}}._
 ## Siehe auch
 
 - [Das DOM-Schnittstellenverzeichnis.](/de/docs/Web/API/Document_Object_Model)
-- {{domxref("DOMImplementation.createDocumentType()")}} um einen neuen `DocumentType`-Knoten zu erstellen.
+- [`DOMImplementation.createDocumentType()`](/de/docs/Web/API/DOMImplementation/createDocumentType), um einen neuen `DocumentType`-Knoten zu erstellen.

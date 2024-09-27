@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Baseline** identifiziert die Verfügbarkeit von Webplattform-Features über gängige Browser hinweg, einschließlich APIs, CSS-Eigenschaften und JavaScript-Syntax. Baseline beschreibt Web-Features als entweder weit verbreitet oder neu verfügbar. Features, die die Baseline-Kriterien nicht erfüllen, gelten als eingeschränkt verfügbar.
+**Baseline** identifiziert die Verfügbarkeit von Webplattform-Funktionen in gängigen Browsern, einschließlich APIs, CSS-Eigenschaften und JavaScript-Syntax. Baseline beschreibt Webfunktionen als entweder weit verbreitet oder neu verfügbar. Funktionen, die nicht den Baseline-Kriterien entsprechen, gelten als eingeschränkt verfügbar.
 
 Baseline berücksichtigt die Unterstützung in den folgenden Browsern:
 
@@ -19,25 +19,25 @@ Baseline berücksichtigt die Unterstützung in den folgenden Browsern:
 - Mozilla Firefox (Android)
 - Mozilla Firefox (Desktop)
 
-Baseline ist eine Zusammenfassung der Browserunterstützung. Es ist kein Ersatz für Tests bezüglich Barrierefreiheit, Benutzerfreundlichkeit, Leistung, Sicherheit oder andere Tests. Baseline kann nicht bestimmen, ob ein Feature funktioniert mit:
+Baseline ist eine Zusammenfassung der Browser-Kompatibilität. Es ist kein Ersatz für Tests bezüglich Zugänglichkeit, Benutzerfreundlichkeit, Leistung, Sicherheit oder andere Testkategorien. Baseline weist möglicherweise nicht darauf hin, ob eine Funktion funktioniert mit:
 
 - Älteren Geräten und Browserversionen
-- Browsern, die nicht von der Baseline-Definition abgedeckt werden, wie z.B. Webansichten von Betriebssystemen
-- Assistiven Technologien, wie Bildschirmlesegeräten.
+- Browsern, die nicht von der Baseline-Definition abgedeckt sind, wie z.B. Webansichten des Betriebssystems
+- Unterstützungstechnologien, wie Bildschirmlesegeräte.
 
-## Baseline Abzeichen
+## Baseline-Abzeichen
 
-![Grünes Widget mit dem Häkchen: Baseline, weit verbreitet. Vier Browser-Logos, alle mit Häkchen.](high.png)
+![Grünes Widget mit Häkchen: Baseline, weit verbreitet. Vier Browserlogos, alle mit Häkchen.](high.png)
 
-Als **weit verbreitet** aufgelistete Features haben eine konsistente Unterstützungsgeschichte in jedem der Baseline-Browser für mindestens 2,5 Jahre.
+Funktionen, die als **weit verbreitet** gelistet sind, haben eine konsistente Geschichte der Unterstützung in jedem der Baseline-Browser für mindestens 2,5 Jahre.
 
-![Blaues Widget mit dem Häkchen: Baseline 2022, neu verfügbar. Vier Browser-Logos, alle mit Häkchen.](limited.png)
+![Blaues Widget mit Häkchen: Baseline 2022, neu verfügbar. Vier Browserlogos, alle mit Häkchen.](limited.png)
 
-Als **neu verfügbar** aufgelistete Features funktionieren mindestens in der neuesten stabilen Version jedes der Baseline-Browser, funktionieren jedoch möglicherweise nicht mit älteren Browsern und Geräten.
+Funktionen, die als **neu verfügbar** gelistet sind, funktionieren in mindestens der neuesten stabilen Version jedes der Baseline-Browser, können jedoch mit älteren Browsern und Geräten möglicherweise nicht arbeiten.
 
-![Graues Widget mit dem Kreuz: Eingeschränkte Verfügbarkeit. Vier Browser-Logos, zwei mit Häkchen, zwei mit Kreuzen.](low.png)
+![Graues Widget mit Kreuz: eingeschränkte Verfügbarkeit. Vier Browserlogos, zwei mit Häkchen, zwei mit Kreuzen.](low.png)
 
-Features mit **eingeschränkter Verfügbarkeit** sind _noch_ nicht in allen Browsern verfügbar.
+Funktionen, die mit **eingeschränkter Verfügbarkeit** gelistet sind, sind _noch_ nicht in allen Browsern verfügbar.
 
 ## Siehe auch
 

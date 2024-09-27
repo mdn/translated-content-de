@@ -7,9 +7,9 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Errors")}}
 
-Der **ungültige Argument**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn die an einen [Befehl](/de/docs/Web/WebDriver/Commands) übergebenen Argumente entweder ungültig oder fehlerhaft sind.
+Der **ungültiges Argument**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn die an einen [Befehl](/de/docs/Web/WebDriver/Commands) übergebenen Argumente entweder ungültig oder fehlerhaft sind.
 
-Ungültige Argumentfehler können mit [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError)s in [JavaScript](/de/docs/Web/JavaScript) verglichen werden, da sie bei vielen APIs auftreten können, wenn der Eingabewert nicht dem erwarteten Typ entspricht oder in irgendeiner Weise fehlerhaft ist. Siehe die Typ- und Grenzenbeschränkungen für jeden [WebDriver-Befehl](/de/docs/Web/WebDriver/Commands).
+Ungültige Argumentfehler können mit [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError)s in [JavaScript](/de/docs/Web/JavaScript) verglichen werden, da sie bei vielen APIs auftreten können, wenn der Eingabewert nicht vom erwarteten Typ ist oder in irgendeiner Weise fehlerhaft ist. Siehe die Typ- und Begrenzungsbeschränkungen für jeden [WebDriver-Befehl](/de/docs/Web/WebDriver/Commands).
 
 ## Beispiel
 

@@ -1,6 +1,6 @@
 ---
-title: "DataTransferItem: Typ-Eigenschaft"
-short-title: Typ
+title: "DataTransferItem: type-Eigenschaft"
+short-title: type
 slug: Web/API/DataTransferItem/type
 l10n:
   sourceCommit: b5583a21df2aeaebddd7e0eeb58ff690b013546b
@@ -8,18 +8,17 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte **`DataTransferItem.type`**-Eigenschaft gibt den Typ (Format) des {{domxref("DataTransferItem")}}-Objekts zurück, das das Ziehdatenobjekt repräsentiert.
-Der `type` ist eine Unicode-Zeichenkette, die in der Regel durch einen MIME-Typ angegeben wird, obwohl ein MIME-Typ nicht erforderlich ist.
+Die schreibgeschützte **`DataTransferItem.type`**-Eigenschaft gibt den Typ (Format) des [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekts zurück, das das Drag-Daten-Element darstellt. Der `type` ist ein Unicode-String, der im Allgemeinen durch einen MIME-Typ angegeben wird, obwohl ein MIME-Typ nicht erforderlich ist.
 
 Einige Beispieltypen sind: `text/plain` und `text/html`.
 
 ## Wert
 
-Ein String, der den Typ des Ziehdatenobjekts darstellt.
+Ein String, der den Typ des Drag-Daten-Elements darstellt.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Nutzung der `type`-Eigenschaft.
+Dieses Beispiel zeigt die Verwendung der `type`-Eigenschaft.
 
 ```js
 function dropHandler(ev) {
@@ -28,21 +27,21 @@ function dropHandler(ev) {
   const data = ev.dataTransfer.items;
   for (let i = 0; i < data.length; i += 1) {
     if (data[i].kind === "string" && data[i].type.match("^text/plain")) {
-      // Dieses Element ist der Zielknoten
+      // This item is the target node
       data[i].getAsString((s) => {
         ev.target.appendChild(document.getElementById(s));
       });
     } else if (data[i].kind === "string" && data[i].type.match("^text/html")) {
-      // Ziehdatenobjekt ist HTML
+      // Drag data item is HTML
       console.log("… Drop: HTML");
     } else if (
       data[i].kind === "string" &&
       data[i].type.match("^text/uri-list")
     ) {
-      // Ziehdatenobjekt ist URI
+      // Drag data item is URI
       console.log("… Drop: URI");
     } else if (data[i].kind === "file" && data[i].type.match("^image/")) {
-      // Ziehdatenobjekt ist eine Bilddatei
+      // Drag data item is an image file
       const f = data[i].getAsFile();
       console.log("… Drop: File");
     }
@@ -60,5 +59,5 @@ function dropHandler(ev) {
 
 ## Siehe auch
 
-- {{domxref("DataTransfer.types()")}}
-- [Liste von gängigen MIME-Typen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types)
+- [`DataTransfer.types()`](/de/docs/Web/API/DataTransfer/types)
+- [Liste der gebräuchlichen MIME-Typen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types)

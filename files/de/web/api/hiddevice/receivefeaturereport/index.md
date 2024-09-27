@@ -1,5 +1,5 @@
 ---
-title: "HIDDevice: Methode receiveFeatureReport()"
+title: "HIDDevice: receiveFeatureReport()-Methode"
 short-title: receiveFeatureReport()
 slug: Web/API/HIDDevice/receiveFeatureReport
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`receiveFeatureReport()`** Methode des {{domxref("HIDDevice")}} Schnittstelle empfängt einen Feature-Report vom HID-Gerät. Feature-Reports sind eine Möglichkeit für HID-Geräte und Anwendungen, nicht standardisierte HID-Daten auszutauschen.
+Die **`receiveFeatureReport()`**-Methode der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle empfängt einen Feature-Report vom HID-Gerät. Feature-Reports sind eine Möglichkeit für HID-Geräte und Anwendungen, nicht standardisierte HID-Daten auszutauschen.
 
-Die `reportId` für jedes der von diesem Gerät unterstützten Reportformate kann aus {{domxref("HIDDevice.collections")}} abgerufen werden.
+Die `reportId` für jedes der vom Gerät unterstützten Berichtsformate kann aus [`HIDDevice.collections`](/de/docs/Web/API/HIDDevice/collections) abgerufen werden.
 
 ## Syntax
 
@@ -21,16 +21,16 @@ receiveFeatureReport(reportId)
 ### Parameter
 
 - `reportId`
-  - : Eine 8-Bit-Report-ID. Wenn das HID-Gerät keine Report-IDs verwendet, senden Sie `0`.
+  - : Eine 8-Bit-Berichts-ID. Wenn das HID-Gerät keine Berichts-IDs verwendet, senden Sie `0`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit einem {{jsxref("DataView")}} Objekt aufgelöst wird, das den Feature-Report enthält.
+Ein {{jsxref("Promise")}}, der mit einem {{jsxref("DataView")}}-Objekt aufgelöst wird, das den Feature-Report enthält.
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das Empfangen des Reports aus irgendeinem Grund fehlschlägt.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Empfang des Berichts aus irgendeinem Grund fehlschlägt.
 
 ## Beispiele
 

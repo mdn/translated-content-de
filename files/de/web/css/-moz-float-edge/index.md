@@ -7,16 +7,16 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}{{Deprecated_Header}}
 
-Die nicht-standardisierte **`-moz-float-edge`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert, ob die Höhe und Breite des Elements den Rand, die Grenze oder die Polsterung einschließen.
+Die nicht standardisierte **`-moz-float-edge`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, ob die `height` und `width` Eigenschaften des Elements die Dicke von `margin`, `border` oder `padding` einschließen.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 -moz-float-edge: content-box;
 -moz-float-edge: margin-box;
 
-/* Globale Werte */
+/* Global values */
 -moz-float-edge: inherit;
 -moz-float-edge: initial;
 -moz-float-edge: unset;
@@ -25,15 +25,15 @@ Die nicht-standardisierte **`-moz-float-edge`** [CSS](/de/docs/Web/CSS) Eigensch
 ### Werte
 
 - `content-box`
-  - : Die Höhe und Breite schließen nur den Inhalt ein, nicht jedoch die Polsterung, Grenze oder den Rand.
+  - : Die `height` und `width` Eigenschaften schließen den Inhalt ein, jedoch nicht das `padding`, den `border` oder den `margin`.
 - `margin-box`
-  - : Die Höhe und Breite schließen den Inhalt, die Polsterung, die Grenze und den Rand ein.
+  - : Die `height` und `width` Eigenschaften schließen den Inhalt, das `padding`, den `border` und den `margin` ein.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 ```plain
 -moz-float-edge =
@@ -69,7 +69,7 @@ Die nicht-standardisierte **`-moz-float-edge`** [CSS](/de/docs/Web/CSS) Eigensch
 
 ## Spezifikationen
 
-Nicht Teil irgendeines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -77,4 +77,4 @@ Nicht Teil irgendeines Standards.
 
 ## Siehe auch
 
-- [Firefox-Fehler 432891](https://bugzil.la/432891)
+- [Firefox Bug 432891](https://bugzil.la/432891)

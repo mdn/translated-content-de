@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<filter-function>`** [CSS](/de-DE/docs/Web/CSS) [Datentyp](/de-DE/docs/Web/CSS/CSS_Types) repräsentiert einen grafischen Effekt, der das Erscheinungsbild eines Eingabebildes ändern kann. Er wird in den Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet.
+Der **`<filter-function>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen grafischen Effekt, der das Erscheinungsbild eines Eingabebildes verändern kann. Er wird in den Eigenschaften {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} verwendet.
 
 ## Syntax
 
-Der `<filter-function>` Datentyp wird unter Verwendung einer der unten aufgeführten Filterfunktionen angegeben. Jede Funktion erfordert ein Argument, das, falls ungültig, dazu führt, dass kein Filter angewendet wird.
+Der `<filter-function>`-Datentyp wird unter Verwendung einer der unten aufgeführten Filterfunktionen angegeben. Jede Funktion erfordert ein Argument, das, wenn es ungültig ist, dazu führt, dass kein Filter angewendet wird.
 
 - {{cssxref("filter-function/blur", "blur()")}}
-  - : Weicht das Bild auf.
+  - : Weichzeichnet das Bild.
 - {{cssxref("filter-function/brightness", "brightness()")}}
   - : Macht das Bild heller oder dunkler.
 - {{cssxref("filter-function/contrast", "contrast()")}}
@@ -24,7 +24,7 @@ Der `<filter-function>` Datentyp wird unter Verwendung einer der unten aufgefüh
 - {{cssxref("filter-function/grayscale", "grayscale()")}}
   - : Konvertiert das Bild in Graustufen.
 - {{cssxref("filter-function/hue-rotate", "hue-rotate()")}}
-  - : Ändert den Gesamtfarbton des Bildes.
+  - : Ändert die Gesamtfarbton des Bildes.
 - {{cssxref("filter-function/invert", "invert()")}}
   - : Invertiert die Farben des Bildes.
 - {{cssxref("filter-function/opacity", "opacity()")}}
@@ -42,7 +42,7 @@ Der `<filter-function>` Datentyp wird unter Verwendung einer der unten aufgefüh
 
 ### Vergleich der Filterfunktionen
 
-Dieses Beispiel bietet eine einfache Grafik zusammen mit einem Auswahlmenü, mit dem Sie zwischen den verschiedenen Filterfunktionstypen wählen können, sowie einem Schieberegler, mit dem Sie die in der Filterfunktion verwendeten Werte variieren können. Das Aktualisieren der Steuerelemente aktualisiert den Filtereffekt in Echtzeit und ermöglicht es Ihnen, die Effekte verschiedener Filter zu untersuchen.
+Dieses Beispiel bietet eine einfache Grafik sowie ein Auswahlmenü, mit dem Sie zwischen den verschiedenen Filterfunktionstypen wählen können, und einen Schieberegler, mit dem Sie die in der Filterfunktion verwendeten Werte variieren können. Durch das Aktualisieren der Bedienelemente wird der Filtereffekt in Echtzeit aktualisiert, sodass Sie die Effekte verschiedener Filter untersuchen können.
 
 ```css
 div {
@@ -53,7 +53,7 @@ div {
 }
 ```
 
-Dabei ist die `<filter-function>` der Filter, den Sie aus dem Dropdown-Menü auswählen, und der `<value>` sind die Werte, die Sie mit dem Schieberegler einstellen:
+Wobei die `<filter-function>` der Filter ist, den Sie aus dem Dropdown auswählen, und der `<value>` die Werte sind, die Sie mit dem Schieberegler einstellen:
 '
 {{EmbedGHLiveSample("css-examples/types/filterfunctions.html", '100%', '500')}}
 
@@ -61,7 +61,7 @@ Dabei ist die `<filter-function>` der Filter, den Sie aus dem Dropdown-Menü aus
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 

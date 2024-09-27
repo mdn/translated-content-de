@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
-Die **`HTMLTableElement.rules`**-Eigenschaft gibt an, welche Zellränder in der Tabelle gerendert werden sollen.
+Die **`HTMLTableElement.rules`**-Eigenschaft gibt an, welche Zellengrenzen in der Tabelle dargestellt werden sollen.
 
 ## Wert
 
-Einer der folgenden:
+Einer der folgenden Werte:
 
 - `none`
   - : Keine Regeln
@@ -28,7 +28,7 @@ Einer der folgenden:
 ## Beispiele
 
 ```js
-// Alle inneren Rahmen einer Tabelle aktivieren
+// Turn on all the internal borders of a table
 const t = document.getElementById("TableID");
 t.rules = "all";
 ```

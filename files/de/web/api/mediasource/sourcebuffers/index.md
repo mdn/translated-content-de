@@ -3,20 +3,20 @@ title: "MediaSource: sourceBuffers-Eigenschaft"
 short-title: sourceBuffers
 slug: Web/API/MediaSource/sourceBuffers
 l10n:
-  sourceCommit: 84f8672adab0fdb783d02676c42a2b7ae16b3606
+  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
 ---
 
-{{APIRef("Media Source Extensions")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte **`sourceBuffers`**-Eigenschaft der {{domxref("MediaSource")}}-Schnittstelle gibt ein {{domxref("SourceBufferList")}}-Objekt zurück, das die Liste der mit diesem `MediaSource`-verbundenen {{domxref("SourceBuffer")}}-Objekte enthält.
+Die schreibgeschützte **`sourceBuffers`**-Eigenschaft des [`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces gibt ein [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)-Objekt zurück, das die Liste der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte enthält, die mit dieser `MediaSource` verknüpft sind.
 
 ## Wert
 
-Ein {{domxref("SourceBufferList")}}.
+Ein [`SourceBufferList`](/de/docs/Web/API/SourceBufferList).
 
 ## Beispiele
 
-Der folgende Code basiert auf einem einfachen Beispiel von Nick Desaulniers ([sehen Sie das vollständige Demo live](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html), oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt eine `MediaSource` zurück.
+Der folgende Codeausschnitt basiert auf einem einfachen Beispiel von Nick Desaulniers ([sehen Sie sich die komplette Demo live an](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html) oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt eine `MediaSource` zurück.
 
 ```js
 const mediaSource = getMediaSource();
@@ -27,7 +27,7 @@ function sourceOpen() {
   fetchAB(assetURL, (buf) => {
     sourceBuffer.addEventListener("updateend", () => {
       mediaSource.endOfStream();
-      console.log(mediaSource.sourceBuffers); // wird den oben hinzugefügten Source Buffer enthalten
+      console.log(mediaSource.sourceBuffers); // will contain the source buffer that was added above
       video.play();
       console.log(mediaSource.readyState); // ended
     });
@@ -48,5 +48,5 @@ function sourceOpen() {
 
 ## Siehe auch
 
-- {{domxref("SourceBuffer")}}
-- {{domxref("SourceBufferList")}}
+- [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)
+- [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)

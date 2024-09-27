@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die **`console.trace()`** statische Methode gibt einen Stack-Trace in der Konsole aus.
+Die statische Methode **`console.trace()`** gibt einen Stack-Trace in die Konsole aus.
 
 > [!NOTE]
-> In einigen Browsern kann `console.trace()` auch die Abfolge von Aufrufen und asynchronen Ereignissen ausgeben, die zu der aktuellen `console.trace()` führen, welche nicht im Aufrufstack sind – um die Herkunft der aktuellen Ereignis-Evaluierungsschleife zu identifizieren.
+> In einigen Browsern kann `console.trace()` auch die Abfolge von Aufrufen und asynchronen Ereignissen ausgeben, die zur aktuellen `console.trace()` führen, welche sich nicht im Aufruf-Stack befinden – um die Herkunft der aktuellen Ereignisbewertungsschleife zu identifizieren.
 
-Siehe [Stack-Traces](/de/docs/Web/API/console#stack_traces) in der {{domxref("console")}} Dokumentation für Details und Beispiele.
+Siehe [Stack-Traces](/de/docs/Web/API/console#stack_traces) in der [`console`](/de/docs/Web/API/Console) Dokumentation für Details und Beispiele.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ trace(object1, /* …, */ objectN)
 ### Parameter
 
 - `objects` {{optional_inline}}
-  - : Null oder mehr Objekte, die zusammen mit dem Trace in der Konsole ausgegeben werden. Diese werden auf die gleiche Weise zusammengefügt und formatiert, als ob sie an die Methode {{domxref("console/log_static", "console.log()")}} übergeben würden.
+  - : Null oder mehr Objekte, die zusammen mit dem Trace in die Konsole ausgegeben werden sollen. Diese werden zusammengestellt und formatiert, wie sie es wären, wenn sie an die [`console.log()`](/de/docs/Web/API/Console/log_static) Methode übergeben würden.
 
 ### Rückgabewert
 

@@ -1,5 +1,5 @@
 ---
-title: "URLSearchParams: entries()-Methode"
+title: "URLSearchParams: entries() Methode"
 short-title: entries()
 slug: Web/API/URLSearchParams/entries
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`entries()`**-Methode der
-{{domxref("URLSearchParams")}}-Schnittstelle gibt einen
-{{jsxref("Iteration_protocols",'iterator')}} zurück, der es ermöglicht, alle Schlüssel/Wert-Paare in diesem Objekt zu durchlaufen. Der Iterator gibt Schlüssel/Wert-Paare in der gleichen Reihenfolge zurück, wie sie im Abfrage-String erscheinen. Der Schlüssel und der Wert jedes Paares sind Zeichenfolgen.
+Die **`entries()`** Methode des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Interfaces gibt einen {{jsxref("Iteration_protocols",'Iterator')}} zurück, der die Iteration durch alle Schlüssel/Wert-Paare ermöglicht, die in diesem Objekt enthalten sind. Der Iterator gibt Schlüssel/Wert-Paare in der gleichen Reihenfolge zurück, in der sie im Abfrage-String erscheinen. Der Schlüssel und der Wert jedes Paares sind Zeichenfolgen.
 
 ## Syntax
 
@@ -24,15 +22,15 @@ Keine.
 
 ### Rückgabewert
 
-Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
+Gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück.
 
 ## Beispiele
 
 ```js
-// Erstellen eines Test-URLSearchParams Objekts
+// Create a test URLSearchParams object
 const searchParams = new URLSearchParams("key1=value1&key2=value2");
 
-// Anzeigen der Schlüssel/Wert-Paare
+// Display the key/value pairs
 for (const [key, value] of searchParams.entries()) {
   console.log(`${key}, ${value}`);
 }
@@ -49,10 +47,10 @@ key2, value2
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Die {{domxref("URL")}}-Schnittstelle.
+- Das [`URL`](/de/docs/Web/API/URL) Interface.

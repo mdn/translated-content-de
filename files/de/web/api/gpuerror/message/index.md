@@ -1,18 +1,31 @@
 ---
-title: "GPUError: Nachrichten-Eigenschaft"
-short-title: Nachricht
+title: "GPUError: message property"
 slug: Web/API/GPUError/message
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+---
 
-Die **`message`**-Eigenschaft der schreibgeschützten Schnittstelle {{domxref("GPUError")}} liefert eine menschenlesbare Nachricht, die erklärt, warum der Fehler aufgetreten ist.
+title: "GPUError: Nachricht-Eigenschaft"
+short-title: message
+slug: Web/API/GPUError/message
+page-type: web-api-instance-property
+status:
+
+- experimental
+  browser-compat: api.GPUError.message
+
+---
+
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
+
+Die **`message`** schreibgeschützte Eigenschaft der
+[`GPUError`](/de/docs/Web/API/GPUError)-Schnittstelle liefert eine menschenlesbare Nachricht, die erklärt, warum der Fehler aufgetreten ist.
 
 ## Wert
 
-Ein String.
+Ein Zeichenkette.
 
 ## Beispiele
 
@@ -20,7 +33,7 @@ Für Anwendungsbeispiele von Fehlerobjekten basierend auf `GPUError`, siehe:
 
 - [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope#examples)
 - [Das `GPUDevice uncapturederror` Ereignis](/de/docs/Web/API/GPUDevice/uncapturederror_event#examples)
-- {{domxref("GPUInternalError")}}, {{domxref("GPUOutOfMemoryError")}}, und {{domxref("GPUValidationError")}}
+- [`GPUInternalError`](/de/docs/Web/API/GPUInternalError), [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError) und [`GPUValidationError`](/de/docs/Web/API/GPUValidationError)
 
 ## Spezifikationen
 
@@ -33,4 +46,4 @@ Für Anwendungsbeispiele von Fehlerobjekten basierend auf `GPUError`, siehe:
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [Best Practices für die WebGPU-Fehlerbehandlung](https://toji.dev/webgpu-best-practices/error-handling)
+- [WebGPU Fehlerbehandlungs-Best-Practices](https://toji.dev/webgpu-best-practices/error-handling)

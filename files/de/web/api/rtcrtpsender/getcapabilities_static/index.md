@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die _statische Methode_ **`RTCRtpSender.getCapabilities()`** gibt ein Objekt zurück, das die unterstützten Codec- und Header-Erweiterungskapazitäten des {{domxref("RTCRtpSender")}} beschreibt.
+Die _statische Methode_ **`RTCRtpSender.getCapabilities()`** gibt ein Objekt zurück, das die Codec- und Header-Erweiterungsfähigkeiten beschreibt, die vom [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) unterstützt werden.
 
-Sie können ähnlich die Fähigkeiten von {{domxref("RTCRtpReceiver")}}-Objekten auf dem Gerät durch Aufrufen der statischen Funktion {{domxref("RTCRtpReceiver.getCapabilities_static", "RTCRtpReceiver.getCapabilities()")}} erhalten.
+Sie können auf ähnliche Weise die Fähigkeiten von [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekten auf dem Gerät durch einen Aufruf der statischen Funktion [`RTCRtpReceiver.getCapabilities()`](/de/docs/Web/API/RTCRtpReceiver/getCapabilities_static) ermitteln.
 
 ## Syntax
 
@@ -21,48 +21,48 @@ RTCRtpSender.getCapabilities(kind)
 ### Parameter
 
 - `kind`
-  - : Ein String, der den Medientyp angibt, für den die Sendefähigkeiten des Browsers angefordert werden.
+  - : Ein String, der den Medientyp angibt, für den die Sende-Fähigkeiten des Browsers angefragt werden.
     Die unterstützten Medientypen sind: `audio` und `video`.
 
 ### Rückgabewert
 
-Ein neues Objekt, das angibt, welche Fähigkeiten der Browser zum Senden des angegebenen Medientyps über eine {{domxref("RTCPeerConnection")}} hat.
-Wenn der Browser keine Unterstützung für den gegebenen Medientyp `kind` hat, ist der zurückgegebene Wert `null`.
+Ein neues Objekt, das angibt, welche Fähigkeiten der Browser hat, um die angegebene Medienart über eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu senden.
+Wenn der Browser keine Unterstützung für den angegebenen Medientyp hat, ist der zurückgegebene Wert `null`.
 
-Das zurückgegebene Objekt hat folgende Eigenschaften:
+Das zurückgegebene Objekt hat die folgenden Eigenschaften:
 
 - `codecs`
 
-  - : Ein Array von Objekten, wobei jedes die grundlegenden Fähigkeiten eines einzelnen [Mediencodecs](/de/docs/Web/Media/Formats/WebRTC_codecs), die vom {{domxref("RTCRtpSender")}} unterstützt werden, beschreibt.
+  - : Ein Array von Objekten, von denen jedes die grundlegenden Fähigkeiten eines einzelnen [Mediacodecs](/de/docs/Web/Media/Formats/WebRTC_codecs) beschreibt, der vom [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) unterstützt wird.
 
     > [!NOTE]
-    > Das Array enthält spezielle Einträge, die die zugrundeliegenden Komponenten des Transports darstellen — diese können ignoriert werden, wenn Sie nur an den tatsächlichen Codecs interessiert sind, die für das Medium selbst verwendet werden.
-    > Diese werden unten im Abschnitt [Das Codec-Array](#das_codec-array) beschrieben.
+    > Das Array enthält spezielle Einträge, die die zugrunde liegenden Komponenten des Transports repräsentieren – diese können ignoriert werden, wenn Sie sich nur für die tatsächlichen Codecs interessieren, die für die Medien selbst verwendet werden.
+    > Diese werden im Abschnitt [Das Codecs-Array](#das_codecs-array) beschrieben.
 
     Jedes Codec-Objekt hat die folgenden Eigenschaften:
 
     - `channels` {{optional_inline}}
-      - : Ein positiver ganzzahliger Wert, der die maximale Anzahl von Kanälen angibt, die vom Codec unterstützt werden; zum Beispiel hätte ein Codec, der nur Mono-Sound unterstützt, einen Wert von 1; Stereocodecs hätten eine 2 usw.
+      - : Ein positiver ganzzahliger Wert, der die maximale Anzahl von Kanälen angibt, die vom Codec unterstützt werden; zum Beispiel hätte ein Codec, der nur Mono-Sound unterstützt, einen Wert von 1; Stereo-Codecs hätten einen Wert von 2 usw.
     - `clockRate`
-      - : Ein positiver Integer, der die Taktrate des Codecs in Hertz (Hz) angibt.
-        Die IANA führt eine [Liste von Codecs und ihren Parametern](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-1), einschließlich ihrer Taktraten.
+      - : Ein positiver ganzzahliger Wert, der die Taktfrequenz des Codecs in Hertz (Hz) angibt.
+        Die IANA pflegt eine [Liste von Codecs und deren Parametern](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-1), einschließlich ihrer Taktfrequenzen.
     - `mimeType`
       - : Ein String, der den MIME-Medientyp und Subtyp des Codecs angibt.
-        Die für RTP verwendeten MIME-Typ-Strings unterscheiden sich von denen, die anderswo verwendet werden.
+        Die MIME-Typ-Strings, die von RTP verwendet werden, unterscheiden sich von denen, die anderswo verwendet werden.
         Siehe {{RFC(3555, "", 4)}} für das vollständige IANA-Register dieser Typen.
-        Siehe auch [Von WebRTC verwendete Codecs](/de/docs/Web/Media/Formats/WebRTC_codecs) für Details zu möglichen hier referenzierten Codecs.
+        Auch die [Codecs, die von WebRTC verwendet werden](/de/docs/Web/Media/Formats/WebRTC_codecs), bieten Details über mögliche Codecs, die hier angesprochen werden könnten.
     - `sdpFmtpLine` {{optional_inline}}
-      - : Ein String, der das formatspezifische Parameterfeld von der `a=fmtp`-Zeile im SDP angibt, das dem Codec entspricht, falls eine solche Zeile existiert.
-        Wenn es kein Parameterfeld gibt, wird diese Eigenschaft weggelassen.
+      - : Ein String, der das format-spezifische Parameterfeld aus der `a=fmtp`-Zeile in der SDP angibt, die dem Codec entspricht, falls eine solche Zeile existiert.
+        Wenn kein Parameterfeld vorhanden ist, wird diese Eigenschaft weggelassen.
 
 - `headerExtensions`
 
-  - : Ein Array von Objekten, wobei jedes die URI einer [Header-Erweiterung](https://datatracker.ietf.org/doc/html/rfc3550#section-5.3.1) angibt, die für den aktuellen Medientyp `kind` unterstützt wird.
+  - : Ein Array von Objekten, die jeweils die URI einer [Header-Erweiterung](https://datatracker.ietf.org/doc/html/rfc3550#section-5.3.1) angeben, die für den aktuellen Medientyp `kind` unterstützt wird.
     Jedes Objekt hat die folgende Eigenschaft:
 
     - `uri`
       - : Ein String, der die URI einer Header-Erweiterung angibt.
-        Die URI ist formatiert wie in {{RFC(5285)}} beschrieben.
+        Die URI ist formatiert, wie in {{RFC(5285)}} beschrieben.
 
 ## Beschreibung
 
@@ -72,43 +72,43 @@ Als statische Funktion wird diese immer in der Form aufgerufen:
 capabilities = RTCRtpSender.getCapabilities("audio");
 ```
 
-Die zurückgegebene Menge von Fähigkeiten ist die optimistischste mögliche Liste.
-Es ist durchaus möglich, dass bestimmte Kombinationen von Optionen nicht funktionieren, wenn Sie tatsächlich versuchen, sie zu verwenden.
+Der zurückgegebene Satz von Fähigkeiten ist die optimistischste mögliche Liste.
+Es ist durchaus möglich, dass bestimmte Kombinationen von Optionen fehlschlagen, wenn Sie tatsächlich versuchen, sie zu verwenden.
 
-Der Aufruf von `RTCRtpSender.getCapabilities()` bereitet den Browser in keiner Weise vor, mit Medien umzugehen.
-Nichts wird geladen, abgerufen oder anderweitig vorbereitet.
-Es ist ein Mittel, um festzustellen, was möglicherweise verwendbar ist, bevor man versucht, auf Medien zuzugreifen.
+Der Aufruf von `RTCRtpSender.getCapabilities()` bereitet den Browser in keiner Weise darauf vor, Medien zu verarbeiten.
+Es wird nichts geladen, abgerufen oder anderweitig vorbereitet.
+Es ist ein Mittel, um herauszufinden, was möglicherweise verwendbar ist, bevor man versucht, auf Medien zuzugreifen.
 
-Da die verfügbaren Fähigkeiten in der Regel über einen längeren Zeitraum stabil sind (Menschen installieren und deinstallieren Codecs und Ähnliches nicht sehr oft), können die Medienfähigkeiten insgesamt oder teilweise eine plattformübergreifende Methode zur Identifizierung eines Benutzers bieten.
-Aus diesem Grund kann der Browser in datenschutzsensiblen Kontexten wählen, die Fähigkeiten zu verschleiern; dies könnte beispielsweise dadurch geschehen, dass selten verwendete Codec-Konfigurationen weggelassen werden.
+Da der verfügbare Satz von Fähigkeiten dazu neigt, für längere Zeit stabil zu sein (Menschen installieren und deinstallieren Codecs und dergleichen nicht sehr oft), können die Medienfähigkeiten im Ganzen oder teilweise eine cross-origin Methode zur Identifizierung eines Benutzers bieten.
+Aus diesem Grund kann der Browser in datenschutzsensiblen Kontexten beschließen, die Fähigkeiten zu verschleiern; dies könnte zum Beispiel dadurch geschehen, dass selten verwendete Codec-Konfigurationen weggelassen werden.
 
-### Das Codec-Array
+### Das Codecs-Array
 
 Das `codecs`-Array ist ein Array von Objekten, das einen einzelnen Codec und seine grundlegenden Fähigkeiten beschreibt.
-Der Browser meldet nur unterschiedliche Fähigkeitskombinationen separat.
-Wenn zwei Sätze von Fähigkeiten als einer beschrieben werden können, werden sie es sein.
-Das bedeutet, dass, wenn es zwei Einträge für den H.264-Codec gibt (wie durch den [`mimeType`](#mimetype) "video/H264" identifiziert), es andere Werte in den Fähigkeitsobjekten gibt, die darauf hinweisen, wie sie sich in irgendeiner Weise unterscheiden.
+Der Browser wird nur unterschiedliche Fähigkeitenskombinationen separat angeben.
+Wenn zwei Sätze von Fähigkeiten als eins beschrieben werden können, werden sie das auch.
+Das bedeutet, dass beispielsweise, wenn es zwei Einträge für den H.264-Codec gibt (wie durch den [`mimeType`](#mimetype) zum Ausdruck gebracht, der "video/H264" ist), es andere Werte in den Fähigkeitsobjekten geben muss, die anzeigen, wie sie sich in irgendeiner Weise unterscheiden.
 
-Es gibt drei spezielle Einträge, die immer vorhanden sein sollten und die zugrundeliegenden Komponenten des Transports darstellen. Diese Komponenten sind:
+Es gibt drei spezielle Einträge, die immer vorhanden sein sollten und die grundlegenden Komponenten des Transports repräsentieren. Diese Komponenten sind:
 
 - RED (REDundant Audio Data)
   - : Der Medientyp eines RED-Eintrags kann variieren, da es mehrere Versionen davon gibt, aber er wird mit `red` enden, wie `video/red` oder `video/fwdred`.
-    Der Grundstandard von RED kann in {{RFC(2198)}} gefunden werden. Es kann mehrere Einträge für RED geben, wenn verschiedene Formen unterstützt werden; in diesem Fall hat jede einen einzigartigen Medientyp.
+    Der grundlegende RED-Standard kann in {{RFC(2198)}} gefunden werden. Es kann mehrere Einträge für RED geben, wenn verschiedene Formen unterstützt werden; jeder wird in diesem Fall einen einzigartigen Medientyp haben.
 - FEC (Forward Error Correction)
-  - : Eine FEC-Komponente verarbeitet Fehlerkorrekturdaten; ihr Medientyp kann auch variieren, da es fortgeschrittene Versionen des Standards gibt, aber es wird immer mit `fec` enden.
+  - : Eine FEC-Komponente verarbeitet Fehlerkorrekturdaten; ihr Medientyp kann ebenfalls variieren, da es fortgeschrittene Versionen des Standards gibt, aber sie wird immer mit `fec` enden.
     Ein möglicher Wert ist `video/ulpfec` (ein generisches Fehlerkorrekturmodell).
     Es kann auch mehrere FEC-Einträge geben, wenn mehr als eine Form unterstützt wird.
 - RTX (Retransmission)
   - : Diese Komponente ist für die erneute Übertragung von Daten verantwortlich; ihr Medientyp sollte `video/rtx` sein.
-    Es wird nur einen Eintrag für RTX geben, und er wird keine [`sdpFmtpLine`](#sdpfmtpline)-Eigenschaft haben.
+    Es wird nur einen Eintrag für RTX geben und dieser wird keine [`sdpFmtpLine`](#sdpfmtpline) Eigenschaft haben.
 
-Diese Einträge sollten ignoriert werden, wenn nur an den Medien-Codiern interessiert ist.
+Diese Einträge sollten ignoriert werden, wenn nur an Codecs in Bezug auf die Medien Interesse besteht.
 
 ## Beispiele
 
-### Funktionsunterstützung
+### Unterstützung für Funktionen
 
-Sie können [`Object.hasOwn()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn) verwenden, um zu überprüfen, ob `RTCRtpSender.getCapabilities()` unterstützt wird:
+Man kann [`Object.hasOwn()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn) verwenden, um zu überprüfen, ob `RTCRtpSender.getCapabilities()` unterstützt wird:
 
 ```html hidden
 <p id="log"></p>
@@ -119,21 +119,21 @@ const log = document.querySelector("#log");
 ```
 
 ```js
-log.textContent = `RTCRtpSender.getCapabilities() unterstützt: ${Object.hasOwn(
+log.textContent = `RTCRtpSender.getCapabilities() supported: ${Object.hasOwn(
   RTCRtpSender,
   "getCapabilities",
 )}`;
 ```
 
-{{ EmbedLiveSample('Funktionsunterstützung', '100%', '30px') }}
+{{ EmbedLiveSample('Feature support', '100%', '30px') }}
 
 ### Überprüfen der Unterstützung für einen bestimmten Codec
 
-Die folgende Funktion gibt `true` oder `false` zurück, je nachdem, ob das Gerät das Senden von H.264-Video auf einem {{domxref("RTCRtpSender")}} unterstützt.
+Die folgende Funktion gibt `true` oder `false` zurück, um anzuzeigen, ob das Gerät das Senden von H.264-Video auf einem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) unterstützt.
 
 > [!NOTE]
-> Da `RTCRtpSender.getCapabilities()` tatsächlich nur die _wahrscheinliche_ Unterstützung anzeigt.
-> Daher könnte die H.264-Unterstützung unten immer noch fehlschlagen, selbst nachdem diese Funktion eine positive Antwort erhalten hat.
+> Da `RTCRtpSender.getCapabilities()` tatsächlich nur _wahrscheinliche_ Unterstützung anzeigt.
+> Die Unterstützung von H.264 könnte also immer noch fehlschlagen, selbst nachdem eine positive Antwort von dieser Funktion erhalten wurde.
 
 ```js
 function canSendH264() {
@@ -150,8 +150,8 @@ function canSendH264() {
 
 ### Abrufen aller Fähigkeiten
 
-Dieses Codebeispiel zeigt, wie wir alle unterstützten Codecs und Header erhalten.
-Das HTML definiert eine Auswahlliste für die zwei Arten von Fähigkeiten und einen Protokollbereich.
+Dieses Codebeispiel zeigt, wie wir alle unterstützten Codecs und Header erhalten könnten.
+Das HTML definiert eine Auswahlliste für die beiden Arten von Fähigkeiten und einen Logbereich.
 
 ```html
 <select id="kind">
@@ -162,7 +162,7 @@ Das HTML definiert eine Auswahlliste für die zwei Arten von Fähigkeiten und ei
 ```
 
 Das JavaScript definiert eine Funktion, um die Fähigkeiten für einen bestimmten "kind" zu protokollieren.
-Diese wird zu Beginn mit dem Wert `audio` aufgerufen.
+Dies wird anfänglich mit dem Wert `audio` aufgerufen.
 Ein Listener aktualisiert den Wert, wenn die Auswahlliste `kind` geändert wird.
 
 ```js
@@ -186,16 +186,16 @@ function logMediaCapabilities(kind) {
   log.textContent += "\nCodecs\n";
   capabilities.codecs.forEach((codec) => {
     log.textContent += ` mime type: ${codec.mimeType}\n`;
-    log.textContent += `   channels: ${codec.channels}\n`; // max Kanäle - z.B. 2 ist Stereo
-    log.textContent += `   clockRate: ${codec.clockRate}\n`; // Taktrate in Hz
-    log.textContent += `   sdpFmtpLine: ${codec.sdpFmtpLine}\n`; // MIME-Medientyp und Subtyp
+    log.textContent += `   channels: ${codec.channels}\n`; // max channels - e.g. 2 is stereo
+    log.textContent += `   clockRate: ${codec.clockRate}\n`; // clock rate in Hz
+    log.textContent += `   sdpFmtpLine: ${codec.sdpFmtpLine}\n`; // mime media type and subtype
   });
 }
 ```
 
 #### Ergebnis
 
-{{ EmbedLiveSample('Abrufen aller Fähigkeiten', '100%', '500px') }}
+{{ EmbedLiveSample('Getting all capabilities', '100%', '500px') }}
 
 ## Spezifikationen
 

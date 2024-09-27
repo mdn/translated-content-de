@@ -2,47 +2,46 @@
 title: HTMLFieldSetElement
 slug: Web/API/HTMLFieldSetElement
 l10n:
-  sourceCommit: 7e6e5f5d4c1c984af3d4ebf9399042d19eccea1e
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFieldSetElement`**-Schnittstelle bietet spezielle Eigenschaften und Methoden (zusätzlich zu denen der regelmäßig durch Vererbung verfügbaren {{domxref("HTMLElement")}}-Schnittstelle) zur Manipulation der Gestaltung und Präsentation von {{ HTMLElement("fieldset") }}-Elementen.
+Die **`HTMLFieldSetElement`**-Schnittstelle bietet spezielle Eigenschaften und Methoden (über die regulären Eigenschaften der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle hinaus, die sie ebenfalls durch Vererbung zur Verfügung hat) zur Manipulation des Layouts und der Präsentation von {{ HTMLElement("fieldset") }}-Elementen.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von ihrer übergeordneten Schnittstelle, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLFieldSetElement.disabled")}}
-  - : Ein boolescher Wert, der das [`disabled`](/de/docs/Web/HTML/Element/fieldset#disabled)-HTML-Attribut widerspiegelt und angibt, ob der Benutzer mit dem Steuerelement interagieren kann.
-- {{domxref("HTMLFieldSetElement.elements")}} {{ReadOnlyInline}}
-  - : Die Elemente, die zu diesem Field-Set gehören. Der Typ dieser Eigenschaft hängt von der im Browser implementierten Version der Spezifikation ab.
-- {{domxref("HTMLFieldSetElement.form")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("HTMLFormControlsCollection")}} oder {{domxref("HTMLCollection")}}, das auf das Formular-Element verweist, das dieses Element enthält, falls es in einem Formular ist.
-    Wenn das Field-Set kein Nachfahre eines Formular-Elements ist, kann das Attribut die ID eines beliebigen Formular-Elements im selben Dokument sein, mit dem es verknüpft ist, oder der Wert `null`, wenn kein Treffer gefunden wird.
-- {{domxref("HTMLFieldSetElement.name")}}
-  - : Ein String, der das [`name`](/de/docs/Web/HTML/Element/fieldset#name)-HTML-Attribut widerspiegelt und den Namen des Field-Sets enthält. Dies kann verwendet werden, um im JavaScript auf das Field-Set zuzugreifen. Es ist _nicht_ Teil der Daten, die an den Server gesendet werden.
-- {{domxref("HTMLFieldSetElement.type")}} {{ReadOnlyInline}}
-  - : Der String "`fieldset`".
-- {{domxref("HTMLFieldSetElement.validationMessage")}}
-  - : Ein String, der eine lokalisierte Nachricht repräsentiert und die Validierungsbeschränkungen beschreibt, die das Element nicht erfüllt (falls vorhanden). Dieser ist ein leerer String, wenn das Element kein Kandidat für die Einschränkungsvalidierung ist (`willValidate` ist `false`) oder es seine Beschränkungen erfüllt.
-- {{domxref("HTMLFieldSetElement.validity")}}
-  - : Ein {{domxref("ValidityState")}}, der die Gültigkeitszustände repräsentiert, in denen sich dieses Element befindet.
-- {{domxref("HTMLFieldSetElement.willValidate")}}
+- [`HTMLFieldSetElement.disabled`](/de/docs/Web/API/HTMLFieldSetElement/disabled)
+  - : Ein boolescher Wert, der das HTML-Attribut [`disabled`](/de/docs/Web/HTML/Element/fieldset#disabled) widerspiegelt und angibt, ob der Benutzer mit dem Steuerelement interagieren kann.
+- [`HTMLFieldSetElement.elements`](/de/docs/Web/API/HTMLFieldSetElement/elements) {{ReadOnlyInline}}
+  - : Die Elemente, die zu diesem Fieldset gehören. Der Typ dieser Eigenschaft hängt von der Version der vom Browser implementierten Spezifikation ab.
+- [`HTMLFieldSetElement.form`](/de/docs/Web/API/HTMLFieldSetElement/form) {{ReadOnlyInline}}
+  - : Eine [`HTMLFormControlsCollection`](/de/docs/Web/API/HTMLFormControlsCollection) oder [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die das enthaltene Form-Element referenziert, falls dieses Element in einem Formular ist. Wenn das Fieldset kein Nachfahre eines Form-Elements ist, kann das Attribut die ID eines beliebigen Form-Elements im selben Dokument sein, zu dem es in Beziehung steht, oder der Wert `null`, wenn keine Übereinstimmungen vorliegen.
+- [`HTMLFieldSetElement.name`](/de/docs/Web/API/HTMLFieldSetElement/name)
+  - : Ein String, der das HTML-Attribut [`name`](/de/docs/Web/HTML/Element/fieldset#name) widerspiegelt und den Namen des Fieldsets enthält. Dies kann verwendet werden, wenn das Fieldset in JavaScript angesprochen wird. Es ist _nicht_ Teil der Daten, die an den Server gesendet werden.
+- [`HTMLFieldSetElement.type`](/de/docs/Web/API/HTMLFieldSetElement/type) {{ReadOnlyInline}}
+  - : Der String `"fieldset"`.
+- [`HTMLFieldSetElement.validationMessage`](/de/docs/Web/API/HTMLFieldSetElement/validationMessage)
+  - : Ein String, der eine lokalisierte Nachricht darstellt, die die Validierungsbedingungen beschreibt, die das Element nicht erfüllt (falls vorhanden). Dies ist der leere String, wenn das Element kein Kandidat für die Einschränkungsvalidierung ist (`willValidate` ist `false`) oder seine Bedingungen erfüllt.
+- [`HTMLFieldSetElement.validity`](/de/docs/Web/API/HTMLFieldSetElement/validity)
+  - : Ein [`ValidityState`](/de/docs/Web/API/ValidityState), der die Gültigkeitszustände darstellt, in denen sich dieses Element befindet.
+- [`HTMLFieldSetElement.willValidate`](/de/docs/Web/API/HTMLFieldSetElement/willValidate)
   - : Ein boolescher Wert `false`, da {{HTMLElement("fieldset")}}-Objekte niemals Kandidaten für die Einschränkungsvalidierung sind.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Methoden von der übergeordneten Schnittstelle [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLFieldSetElement.checkValidity()")}}
+- [`HTMLFieldSetElement.checkValidity()`](/de/docs/Web/API/HTMLFieldSetElement/checkValidity)
   - : Gibt immer `true` zurück, da {{HTMLElement("fieldset")}}-Objekte niemals Kandidaten für die Einschränkungsvalidierung sind.
-- {{domxref("HTMLFieldSetElement.reportValidity()")}}
+- [`HTMLFieldSetElement.reportValidity()`](/de/docs/Web/API/HTMLFieldSetElement/reportValidity)
   - : Gibt immer `true` zurück, da {{HTMLElement("fieldset")}}-Objekte niemals Kandidaten für die Einschränkungsvalidierung sind.
-- {{domxref("HTMLFieldSetElement.setCustomValidity()")}}
-  - : Legt eine benutzerdefinierte Validierungsnachricht für das Field-Set fest. Wenn diese Nachricht nicht der leere String ist, leidet das Field-Set unter einem benutzerdefinierten Validierungsfehler und validiert nicht.
+- [`HTMLFieldSetElement.setCustomValidity()`](/de/docs/Web/API/HTMLFieldSetElement/setCustomValidity)
+  - : Setzt eine benutzerdefinierte Gültigkeitsnachricht für das Fieldset. Wenn diese Nachricht nicht der leere String ist, leidet das Fieldset unter einem benutzerdefinierten Gültigkeitsfehler und wird nicht validiert.
 
 ## Spezifikationen
 

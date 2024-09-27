@@ -1,6 +1,6 @@
 ---
-title: "Bericht: Typ-Eigenschaft"
-short-title: Typ
+title: "Report: type-Eigenschaft"
+short-title: type
 slug: Web/API/Report/type
 l10n:
   sourceCommit: 954612667bafd71241a93e8554e8f11afc474ff3
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die schreibgeschützte Eigenschaft **`type`** der {{domxref("Report")}}
-Schnittstelle gibt den Typ des erstellten Berichts zurück, z.B. `deprecation` oder
+Die **`type`**-Eigenschaft der schreibgeschützten [`Report`](/de/docs/Web/API/Report)
+Schnittstelle gibt den Typ des erzeugten Berichts zurück, z. B. `deprecation` oder
 `intervention`.
 
 ## Wert
 
-Ein Zeichenfolge, die den Typ des Berichts darstellt. Derzeit verfügbare Typen sind
+Ein String, der den Typ des Berichts darstellt. Derzeit verfügbare Typen sind
 `deprecation`, `intervention` und `crash`.
 
 ## Beispiele
@@ -26,7 +26,7 @@ const options = {
 };
 
 const observer = new ReportingObserver(([firstReport], observer) => {
-  // Loggen Sie den Berichtstyp des ersten Berichts, d.h. "deprecation"
+  // Log the first report's report type, i.e. "deprecation"
   console.log(firstReport.type);
 }, options);
 ```

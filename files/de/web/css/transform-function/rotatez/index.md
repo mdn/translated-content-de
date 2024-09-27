@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Die **`rotateZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element um die z-Achse dreht, ohne es zu verformen. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`rotateZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element um die z-Achse dreht, ohne es zu verformen. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-rotateZ.html")}}
 
-Die Drehachse verläuft durch einen Ursprung, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert ist.
+Die Rotationsachse verläuft durch einen Ursprung, der durch die {{ cssxref("transform-origin") }} CSS-Eigenschaft definiert wird.
 
 > **Hinweis:** `rotateZ(a)` ist gleichbedeutend mit
 > `rotate(a)` oder
 > `rotate3d(0, 0, 1, a)`.
 
 > [!NOTE]
-> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht kommutativ. Anders ausgedrückt: Die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
+> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen normalerweise nicht kommutativ. Das heißt, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
 
 ## Syntax
 
-Das Ausmaß der Drehung, die durch `rotateZ()` erzeugt wird, wird durch ein {{cssxref("&lt;angle&gt;")}} angegeben. Wenn der Wert positiv ist, erfolgt die Bewegung im Uhrzeigersinn; wenn negativ, gegen den Uhrzeigersinn.
+Der durch `rotateZ()` erzeugte Rotationsbetrag wird durch ein {{cssxref("&lt;angle&gt;")}} angegeben. Ist der Wert positiv, erfolgt die Bewegung im Uhrzeigersinn; ist er negativ, gegen den Uhrzeigersinn.
 
 ```css
 rotateZ(a)
@@ -31,21 +31,21 @@ rotateZ(a)
 ### Werte
 
 - `a`
-  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und repräsentiert den Winkel der Drehung. Ein positiver Winkel bedeutet eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und repräsentiert den Winkel der Rotation. Ein positiver Winkel bedeutet eine Drehung im Uhrzeigersinn, ein negativer eine gegen den Uhrzeigersinn.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://de.wikipedia.org/wiki/Euklidischer_Raum">ℝ^2</a></th>
-      <th scope="col"><a href="https://de.wikipedia.org/wiki/Homogene_Koordinaten">Homogene Koordinaten</a> auf <a href="https://de.wikipedia.org/wiki/Reelle_projizierende_Ebene">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten auf <a href="https://de.wikipedia.org/wiki/Euklidischer_Raum">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten auf <a href="https://de.wikipedia.org/wiki/Reeller_projektiver_Raum">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
+      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation gilt im 3D-Raum und kann nicht auf der Ebene dargestellt werden.
+        Diese Transformation findet im 3D-Raum statt und kann nicht auf der Ebene dargestellt werden.
       </td>
       <td>
         <math display="block">

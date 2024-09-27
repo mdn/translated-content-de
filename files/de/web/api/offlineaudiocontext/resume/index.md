@@ -1,5 +1,5 @@
 ---
-title: "OfflineAudioContext: resume()-Methode"
+title: "OfflineAudioContext: resume() Methode"
 short-title: resume()
 slug: Web/API/OfflineAudioContext/resume
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`resume()`**-Methode der
-{{domxref("OfflineAudioContext")}}-Schnittstelle setzt den Zeitfortschritt in einem Audiosystem fort, das angehalten wurde. Das Versprechen wird sofort aufgelöst, da der `OfflineAudioContext` die Audiohardware nicht erfordert.
+Die **`resume()`**-Methode des
+[`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)-Interfaces setzt den Zeitverlauf in einem Audio-Kontext fort, der angehalten wurde. Das Promise wird sofort aufgelöst, da der `OfflineAudioContext` die Audio-Hardware nicht benötigt.
 
 ## Syntax
 
@@ -27,10 +27,10 @@ Ein {{jsxref("Promise")}}, das zu {{jsxref('undefined')}} aufgelöst wird.
 
 ### Ausnahmen
 
-Das Versprechen wird abgelehnt, wenn eine Ausnahme auftritt.
+Das Promise wird abgelehnt, wenn eine Ausnahme auftritt.
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn der Kontext nicht momentan angehalten ist oder die Wiedergabe nicht begonnen hat.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn der Kontext nicht aktuell angehalten ist oder das Rendering nicht begonnen hat.
 
 ## Spezifikationen
 

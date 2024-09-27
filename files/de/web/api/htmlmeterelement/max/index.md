@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`max`** Eigenschaft des {{DOMxRef("HTMLMeterElement")}} Interfaces repräsentiert den Höchstwert des {{htmlelement("meter")}} Elements als Gleitkommazahl. Sie spiegelt das [`max`](/de/docs/Web/HTML/Element/meter#max) Attribut des Elements wider, oder den `min` Wert, wenn kein `max` festgelegt ist, oder `1`, wenn weder `min` noch `max` definiert sind.
+Die **`max`** Eigenschaft der [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement) Schnittstelle repräsentiert den maximalen Wert des {{htmlelement("meter")}} Elements als Gleitkommazahl. Sie spiegelt das [`max`](/de/docs/Web/HTML/Element/meter#max)-Attribut des Elements wider oder den `min`-Wert, wenn kein `max` gesetzt ist, oder `1`, falls weder `min` noch `max` definiert sind.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um basierend auf einer Bedingung einen Standardwert zuzuweisen.
+Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um einen Standardwert basierend auf einer Bedingung festzulegen.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Eine Zahl.
 ## Beispiele
 
 ```html
-<label for="fuel">Aktueller Kraftstoffstand:</label>
+<label for="fuel">Current fuel level:</label>
 <meter
   id="fuel"
   min="0"
@@ -48,6 +48,6 @@ console.log(meterElement.max); // 99
 ## Siehe auch
 
 - {{HTMLElement("meter")}}
-- {{DOMXref("HTMLMeterElement.value")}}
-- {{DOMXref("HTMLMeterElement.min")}}
-- {{DOMXref("HTMLProgressElement")}}
+- [`HTMLMeterElement.value`](/de/docs/Web/API/HTMLMeterElement/value)
+- [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min)
+- [`HTMLProgressElement`](/de/docs/Web/API/HTMLProgressElement)

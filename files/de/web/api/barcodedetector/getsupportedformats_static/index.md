@@ -9,8 +9,7 @@ l10n:
 {{securecontext_header}}{{APIRef("Barcode Detector API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
 Die **`getSupportedFormats()`** statische Methode
-der {{domxref("BarcodeDetector")}} Schnittstelle gibt ein {{jsxref('Promise')}}
-zurück, das mit einem {{jsxref('Array')}} von unterstützten Barcode-Formattypen erfüllt wird.
+der [`BarcodeDetector`](/de/docs/Web/API/BarcodeDetector) Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von unterstützten Barcode-Formattypen erfüllt.
 
 ## Syntax
 
@@ -29,12 +28,11 @@ Ein {{jsxref('Promise')}}, das mit einem {{jsxref('Array')}} von
 
 ### Ausnahmen
 
-Keine Ausnahmen werden ausgelöst.
+Es werden keine Ausnahmen geworfen.
 
 ## Beispiele
 
-Das folgende Beispiel ruft die `getSupportFormat()` statische Methode auf und protokolliert
-die Ergebnisse in die Konsole.
+Das folgende Beispiel ruft die `getSupportFormat()` statische Methode auf und protokolliert die Ergebnisse in der Konsole.
 
 ```js
 // check supported types

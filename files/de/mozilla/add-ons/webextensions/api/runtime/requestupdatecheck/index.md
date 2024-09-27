@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Prüft, ob ein Update für die Erweiterung verfügbar ist.
+Überprüft, ob ein Update für die Erweiterung verfügbar ist.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -31,14 +31,14 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
     - `status`
 
-      - : {{WebExtAPIRef('runtime.RequestUpdateCheckStatus')}}. Das Ergebnis der Update-Prüfung.
+      - : {{WebExtAPIRef('runtime.RequestUpdateCheckStatus')}}. Das Ergebnis der Update-Überprüfung.
 
     - `version` {{optional_inline}}
-      - : `string`. Die Versionsnummer des Updates, falls `status` `update_available` ist.
+      - : `string`. Die Version des Updates, falls `status` `update_available` ist.
 
 ## Beispiele
 
-Fordern Sie ein Update an und protokollieren Sie die neue Version, falls eine verfügbar ist:
+Fordern Sie ein Update an und protokollieren Sie die neue Version, wenn eine verfügbar ist:
 
 ```js
 function onRequested(result) {
@@ -63,7 +63,7 @@ requestingCheck.then(onRequested, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-requestUpdateCheck) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-requestUpdateCheck) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

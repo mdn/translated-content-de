@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.bindBufferRange()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet einen Bereich eines gegebenen {{domxref("WebGLBuffer")}} an einen bestimmten Bindungspunkt (`target`) bei einem bestimmten `index`.
+Die **`WebGL2RenderingContext.bindBufferRange()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet einen Bereich eines gegebenen [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) an einen bestimmten Bindungspunkt (`target`) bei einem bestimmten `index`.
 
 ## Syntax
 
@@ -20,22 +20,19 @@ bindBufferRange(target, index, buffer, offset, size)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der das Ziel für die Bindungsoperation angibt. Mögliche
-    Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel der Bindungsoperation angibt. Mögliche Werte:
 
     - `gl.TRANSFORM_FEEDBACK_BUFFER`
     - `gl.UNIFORM_BUFFER`
 
 - `index`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der den Index des `target` angibt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), das den Index des `target` angibt.
 - `buffer`
-  - : Ein {{domxref("WebGLBuffer")}}, der an den Bindungspunkt
-    (`target`) gebunden werden soll.
+  - : Ein [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), der an den Bindungspunkt (`target`) gebunden wird.
 - `offset`
-  - : Ein {{domxref("WebGL_API/Types", "GLintptr")}}, der den Startversatz angibt.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der den Startoffset angibt.
 - `size`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizeiptr")}}, der die Menge an Daten angibt, die aus dem
-    Puffer gelesen werden können.
+  - : Ein [`GLsizeiptr`](/de/docs/Web/API/WebGL_API/Types), der die Menge an Daten angibt, die aus dem Puffer gelesen werden können.
 
 ### Rückgabewert
 
@@ -51,10 +48,10 @@ gl.bindBufferRange(gl.TRANSFORM_FEEDBACK_BUFFER, 1, buffer, 0, 4);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.bindBufferBase()")}}
+- [`WebGL2RenderingContext.bindBufferBase()`](/de/docs/Web/API/WebGL2RenderingContext/bindBufferBase)

@@ -1,5 +1,5 @@
 ---
-title: Zeichnen von Formen mit Canvas
+title: Zeichen von Formen mit Canvas
 slug: Web/API/Canvas_API/Tutorial/Drawing_shapes
 l10n:
   sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
@@ -7,34 +7,34 @@ l10n:
 
 {{DefaultAPISidebar("Canvas API")}} {{PreviousNext("Web/API/Canvas_API/Tutorial/Basic_usage", "Web/API/Canvas_API/Tutorial/Applying_styles_and_colors")}}
 
-Jetzt, da wir unsere [Canvas-Umgebung](/de/docs/Web/API/Canvas_API/Tutorial/Basic_usage) eingerichtet haben, können wir ins Detail gehen, wie man auf dem Canvas zeichnet. Am Ende dieses Artikels haben Sie gelernt, wie man Rechtecke, Dreiecke, Linien, Bögen und Kurven zeichnet, was Ihnen Vertrautheit mit einigen der Grundformen verschafft. Arbeiten mit Pfaden ist wesentlich beim Zeichnen von Objekten auf das Canvas, und wir werden sehen, wie das gemacht werden kann.
+Nachdem wir unsere [Canvas-Umgebung](/de/docs/Web/API/Canvas_API/Tutorial/Basic_usage) eingerichtet haben, können wir uns den Details des Zeichnens auf dem Canvas widmen. Am Ende dieses Artikels haben Sie gelernt, wie man Rechtecke, Dreiecke, Linien, Bögen und Kurven zeichnet, und erhalten somit Vertrautheit mit einigen der grundlegenden Formen. Das Arbeiten mit Pfaden ist essenziell, wenn Objekte auf das Canvas gezeichnet werden, und wir werden sehen, wie das gemacht werden kann.
 
 ## Das Raster
 
-Bevor wir zeichnen können, müssen wir über das Canvas-Raster oder den **Koordinatenraum** sprechen. Unser HTML-Gerüst von der vorherigen Seite hatte ein Canvas-Element, das 150 Pixel breit und 150 Pixel hoch ist.
+Bevor wir mit dem Zeichnen beginnen, müssen wir über das Canvas-Raster oder den **Koordinatenraum** sprechen. Unser HTML-Gerüst von der vorherigen Seite hatte ein Canvas-Element, das 150 Pixel breit und 150 Pixel hoch war.
 
-![Canvas-Raster mit einem blauen Quadrat, das Koordinaten und Achsen demonstriert.](canvas_default_grid.png)
+![Canvas-Raster mit einem blauen Quadrat, das Koordinaten und Achsen zeigt.](canvas_default_grid.png)
 
-Normalerweise entspricht 1 Einheit im Raster 1 Pixel auf dem Canvas. Der Ursprung dieses Rasters befindet sich in der _oberen linken_ Ecke bei der Koordinate (0,0). Alle Elemente werden relativ zu diesem Ursprung platziert. Die Position der oberen linken Ecke des blauen Quadrats wird also um x Pixel von links und y Pixel von oben zur Koordinate (x,y). Später in diesem Tutorial werden wir sehen, wie wir den Ursprung an eine andere Position verschieben, das Raster drehen und sogar skalieren können, aber fürs Erste bleiben wir beim Standard.
+Normalerweise entspricht 1 Einheit im Raster einem Pixel auf dem Canvas. Der Ursprung dieses Rasters befindet sich in der _oberen linken_ Ecke bei der Koordinate (0,0). Alle Elemente werden relativ zu diesem Ursprung platziert. Die Position der oberen linken Ecke des blauen Quadrats wird also x Pixel von links und y Pixel von oben, bei der Koordinate (x,y). Später in diesem Tutorial werden wir sehen, wie wir den Ursprung in eine andere Position verschieben, das Raster drehen und sogar skalieren können, aber vorerst bleiben wir beim Standard.
 
 ## Zeichnen von Rechtecken
 
-Anders als {{Glossary("SVG")}} unterstützt {{HTMLElement("canvas")}} nur zwei primitive Formen: Rechtecke und Pfade (Listen von Punkten, die durch Linien verbunden sind). Alle anderen Formen müssen durch Kombination von einem oder mehreren Pfaden erstellt werden. Glücklicherweise haben wir eine Auswahl an Zeichenfunktionen für Pfade, die es erlauben, sehr komplexe Formen zu komponieren.
+Im Gegensatz zu [SVG](/de/docs/Glossary/SVG) unterstützt {{HTMLElement("canvas")}} nur zwei primitive Formen: Rechtecke und Pfade (Listen von Punkten, die durch Linien verbunden sind). Alle anderen Formen müssen durch die Kombination von einem oder mehreren Pfaden erstellt werden. Glücklicherweise haben wir eine Auswahl an Pfadzeichenfunktionen, die es ermöglichen, sehr komplexe Formen zu komponieren.
 
-Beginnen wir mit dem Rechteck. Es gibt drei Funktionen, die Rechtecke auf dem Canvas zeichnen:
+Zuerst schauen wir uns das Rechteck an. Es gibt drei Funktionen, die Rechtecke auf dem Canvas zeichnen:
 
-- {{domxref("CanvasRenderingContext2D.fillRect", "fillRect(x, y, width, height)")}}
+- [`fillRect(x, y, width, height)`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect)
   - : Zeichnet ein gefülltes Rechteck.
-- {{domxref("CanvasRenderingContext2D.strokeRect", "strokeRect(x, y, width, height)")}}
-  - : Zeichnet eine rechteckige Umrandung.
-- {{domxref("CanvasRenderingContext2D.clearRect", "clearRect(x, y, width, height)")}}
+- [`strokeRect(x, y, width, height)`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect)
+  - : Zeichnet einen rechteckigen Umriss.
+- [`clearRect(x, y, width, height)`](/de/docs/Web/API/CanvasRenderingContext2D/clearRect)
   - : Löscht den angegebenen rechteckigen Bereich und macht ihn vollständig transparent.
 
-Jede dieser drei Funktionen nimmt die gleichen Parameter. `x` und `y` bestimmen die Position auf dem Canvas (relativ zum Ursprung) der oberen linken Ecke des Rechtecks. `width` und `height` geben die Größe des Rechtecks an.
+Jede dieser drei Funktionen nimmt dieselben Parameter. `x` und `y` geben die Position des oberen linken Ecks des Rechtecks auf dem Canvas an (relativ zum Ursprung). `width` und `height` geben die Größe des Rechtecks an.
 
-Unten ist die `draw()`-Funktion von der vorherigen Seite, aber jetzt wird sie mit diesen drei Funktionen genutzt.
+Unten finden Sie die `draw()`-Funktion von der vorherigen Seite, jetzt jedoch unter Verwendung dieser drei Funktionen.
 
-### Beispiel für rechteckige Form
+### Beispiel für rechteckige Formen
 
 ```html hidden
 <html lang="en">
@@ -65,48 +65,48 @@ Die Ausgabe dieses Beispiels wird unten gezeigt.
 
 {{EmbedLiveSample("Rectangular_shape_example", "", "160")}}
 
-Die Funktion `fillRect()` zeichnet ein großes schwarzes Quadrat mit 100 Pixeln auf jeder Seite. Die Funktion `clearRect()` löscht dann ein 60x60 Pixel großes Quadrat aus der Mitte, und anschließend wird `strokeRect()` aufgerufen, um eine rechteckige Umrandung 50x50 Pixel innerhalb des gelöschten Quadrats zu erstellen.
+Die `fillRect()`-Funktion zeichnet ein großes schwarzes Quadrat mit 100 Pixeln auf jeder Seite. Die `clearRect()`-Funktion löscht dann ein 60x60 Pixel großes Quadrat aus der Mitte, und dann wird `strokeRect()` aufgerufen, um einen rechteckigen Umriss von 50x50 Pixeln innerhalb des gelöschten Quadrats zu erzeugen.
 
-Auf den nächsten Seiten sehen wir zwei alternative Methoden für `clearRect()`, und wir werden auch sehen, wie man die Farbe und Strichart der gerenderten Formen ändert.
+Auf den kommenden Seiten werden wir zwei alternative Methoden für `clearRect()` sehen, und wir werden auch sehen, wie die Farbe und der Strichstil der gerenderten Formen geändert werden können.
 
 Anders als die Pfadfunktionen, die wir im nächsten Abschnitt sehen werden, zeichnen alle drei Rechteckfunktionen sofort auf das Canvas.
 
 ## Zeichnen von Pfaden
 
-Jetzt schauen wir uns Pfade an. Ein Pfad ist eine Liste von Punkten, die durch Segmente von Linien verbunden sind, die unterschiedliche Formen haben können, gebogen oder nicht, von unterschiedlicher Breite und verschiedener Farbe. Ein Pfad oder sogar ein Teilpfad kann geschlossen sein. Um Formen mit Pfaden zu erstellen, unternehmen wir einige zusätzliche Schritte:
+Nun schauen wir uns Pfade an. Ein Pfad ist eine Liste von Punkten, verbunden durch Segmente von Linien, die unterschiedliche Formen haben können, gekrümmt oder nicht, von unterschiedlicher Breite und unterschiedlicher Farbe. Ein Pfad oder sogar ein Unterpfad kann geschlossen sein. Um Formen mit Pfaden zu erstellen, sind einige zusätzliche Schritte erforderlich:
 
 1. Zuerst erstellen Sie den Pfad.
 2. Dann verwenden Sie [Zeichenbefehle](/de/docs/Web/API/CanvasRenderingContext2D#paths), um in den Pfad zu zeichnen.
-3. Nachdem der Pfad erstellt wurde, können Sie den Pfad umranden oder ausfüllen, um ihn zu rendern.
+3. Sobald der Pfad erstellt ist, können Sie den Pfad umranden oder füllen, um ihn zu rendern.
 
-Hier sind die Funktionen, die zur Durchführung dieser Schritte verwendet werden:
+Dies sind die Funktionen, die verwendet werden, um diese Schritte auszuführen:
 
-- {{domxref("CanvasRenderingContext2D.beginPath", "beginPath()")}}
-  - : Erstellt einen neuen Pfad. Nach der Erstellung werden künftige Zeichenbefehle in den Pfad geleitet und verwendet, um den Pfad aufzubauen.
+- [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath)
+  - : Erstellt einen neuen Pfad. Nach der Erstellung werden zukünftige Zeichenbefehle in den Pfad gerichtet und zum Aufbau des Pfads verwendet.
 - [Pfadmethoden](/de/docs/Web/API/CanvasRenderingContext2D#paths)
-  - : Methoden, um verschiedene Pfade für Objekte festzulegen.
-- {{domxref("CanvasRenderingContext2D.closePath", "closePath()")}}
-  - : Fügt dem Pfad eine gerade Linie hinzu, die zum Start des aktuellen Unterpfads führt.
-- {{domxref("CanvasRenderingContext2D.stroke", "stroke()")}}
-  - : Zeichnet die Form, indem es ihre Umrandung umrandet.
-- {{domxref("CanvasRenderingContext2D.fill", "fill()")}}
-  - : Zeichnet eine feste Form, indem es den Inhaltsbereich des Pfades füllt.
+  - : Methoden zum Festlegen verschiedener Pfade für Objekte.
+- [`closePath()`](/de/docs/Web/API/CanvasRenderingContext2D/closePath)
+  - : Fügt eine gerade Linie zum Pfad hinzu, die zum Start des aktuellen Unterpfads geht.
+- [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke)
+  - : Zeichnet die Form durch Umranden ihres Umrisses.
+- [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill)
+  - : Zeichnet eine feste Form, indem der Inhalt des Pfades gefüllt wird.
 
-Der erste Schritt, um einen Pfad zu erstellen, ist das Aufrufen von `beginPath()`. Intern werden Pfade als eine Liste von Teilpfaden (Linien, Bögen usw.) gespeichert, die zusammen eine Form bilden. Jedes Mal, wenn diese Methode aufgerufen wird, wird die Liste zurückgesetzt, und wir können neue Formen zeichnen.
-
-> [!NOTE]
-> Wenn der aktuelle Pfad leer ist, wie z. B. direkt nach dem Aufruf von `beginPath()` oder auf einem neu erstellten Canvas, wird der erste Befehl zur Pfaderzeugung immer als `moveTo()` behandelt, unabhängig davon, was er tatsächlich ist. Aus diesem Grund möchten Sie fast immer Ihre Startposition speziell festlegen, nachdem Sie einen Pfad zurückgesetzt haben.
-
-Der zweite Schritt ist das Aufrufen der Methoden, die die zu zeichnenden Pfade tatsächlich spezifizieren. Wir werden diese in Kürze sehen.
-
-Der dritte, und optional Schritt, ist das Aufrufen von `closePath()`. Diese Methode versucht, die Form zu schließen, indem sie eine gerade Linie vom aktuellen Punkt zum Startpunkt zieht. Wenn die Form bereits geschlossen ist oder nur ein Punkt in der Liste vorhanden ist, macht diese Funktion nichts.
+Der erste Schritt zur Erstellung eines Pfades besteht darin, `beginPath()` aufzurufen. Pfade werden intern als Liste von Unterpfaden (Linien, Bögen usw.) gespeichert, die zusammen eine Form bilden. Jedes Mal, wenn diese Methode aufgerufen wird, wird die Liste zurückgesetzt und wir können neue Formen zeichnen.
 
 > [!NOTE]
-> Wenn Sie `fill()` aufrufen, werden alle offenen Formen automatisch geschlossen, sodass Sie `closePath()` nicht aufrufen müssen. Dies ist **nicht** der Fall, wenn Sie `stroke()` aufrufen.
+> Wenn der aktuelle Pfad leer ist, wie unmittelbar nach dem Aufruf von `beginPath()`, oder auf einem neu erstellten Canvas, wird der erste Pfaderstellungsbefehl immer als `moveTo()` behandelt, unabhängig davon, was es tatsächlich ist. Aus diesem Grund möchten Sie fast immer Ihre Startposition speziell nach dem Zurücksetzen eines Pfades festlegen.
+
+Der zweite Schritt besteht darin, die Methoden aufzurufen, die tatsächlich die zu zeichnenden Pfade angeben. Wir werden diese in Kürze betrachten.
+
+Der dritte und optionale Schritt besteht darin, `closePath()` aufzurufen. Diese Methode versucht, die Form zu schließen, indem eine gerade Linie von der aktuellen Position zum Start gezeichnet wird. Wenn die Form bereits geschlossen ist oder nur ein Punkt in der Liste vorhanden ist, tut diese Funktion nichts.
+
+> [!NOTE]
+> Wenn Sie `fill()` aufrufen, werden alle offenen Formen automatisch geschlossen, sodass Sie `closePath()` nicht aufzurufen brauchen. Dies ist **nicht** der Fall, wenn Sie `stroke()` aufrufen.
 
 ### Zeichnen eines Dreiecks
 
-Zum Beispiel würde der Code zum Zeichnen eines Dreiecks ungefähr so aussehen:
+Beispielsweise würde der Code zum Zeichnen eines Dreiecks in etwa so aussehen:
 
 ```html hidden
 <html lang="en">
@@ -135,20 +135,20 @@ function draw() {
 draw();
 ```
 
-Das Ergebnis sieht wie folgt aus:
+Das Ergebnis sieht so aus:
 
 {{EmbedLiveSample("Drawing_a_triangle", "", "110")}}
 
-### Bewegen des Stifts
+### Bewegen des Stiftes
 
-Eine sehr nützliche Funktion, die eigentlich nichts zeichnet, aber Teil der oben beschriebenen Pfadliste wird, ist die `moveTo()`-Funktion. Sie können dies wahrscheinlich am besten damit vergleichen, einen Stift oder Bleistift von einer Stelle auf einem Blatt Papier zu heben und ihn an die nächste Stelle zu setzen.
+Eine sehr nützliche Funktion, die eigentlich nichts zeichnet, aber Teil der oben beschriebenen Pfadliste wird, ist die `moveTo()`-Funktion. Sie können dies wahrscheinlich am besten als das Abheben eines Stiftes oder Bleistifts von einem Punkt auf einem Blatt Papier und das Platzieren am nächsten Punkt verstehen.
 
-- {{domxref("CanvasRenderingContext2D.moveTo", "moveTo(x, y)")}}
+- [`moveTo(x, y)`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo)
   - : Bewegt den Stift zu den durch `x` und `y` angegebenen Koordinaten.
 
-Wenn das Canvas initialisiert oder `beginPath()` aufgerufen wird, möchten Sie normalerweise die `moveTo()`-Funktion verwenden, um den Startpunkt an eine andere Stelle zu setzen. Wir könnten `moveTo()` auch verwenden, um unverbundene Pfade zu zeichnen. Schauen Sie sich das Smiley-Gesicht unten an.
+Beim Initialisieren des Canvas oder beim Aufrufen von `beginPath()` möchten Sie normalerweise die `moveTo()`-Funktion verwenden, um den Startpunkt an eine andere Stelle zu versetzen. Wir könnten auch `moveTo()` verwenden, um nicht verbundene Pfade zu zeichnen. Schauen Sie sich das Smiley-Gesicht unten an.
 
-Um dies selbst auszuprobieren, können Sie den untenstehenden Code-Snippet verwenden. Fügen Sie ihn einfach in die `draw()`-Funktion ein, die wir zuvor gesehen haben.
+Um dies auszuprobieren, können Sie den folgenden Code-Schnipsel verwenden. Einfach in die `draw()`-Funktion einfügen, die wir zuvor betrachtet haben.
 
 ```html hidden
 <html lang="en">
@@ -165,13 +165,13 @@ function draw() {
     const ctx = canvas.getContext("2d");
 
     ctx.beginPath();
-    ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Äußerer Kreis
+    ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
     ctx.moveTo(110, 75);
-    ctx.arc(75, 75, 35, 0, Math.PI, false); // Mund (im Uhrzeigersinn)
+    ctx.arc(75, 75, 35, 0, Math.PI, false); // Mouth (clockwise)
     ctx.moveTo(65, 65);
-    ctx.arc(60, 65, 5, 0, Math.PI * 2, true); // Linkes Auge
+    ctx.arc(60, 65, 5, 0, Math.PI * 2, true); // Left eye
     ctx.moveTo(95, 65);
-    ctx.arc(90, 65, 5, 0, Math.PI * 2, true); // Rechtes Auge
+    ctx.arc(90, 65, 5, 0, Math.PI * 2, true); // Right eye
     ctx.stroke();
   }
 }
@@ -181,25 +181,25 @@ function draw() {
 draw();
 ```
 
-Das Ergebnis sieht wie folgt aus:
+Das Ergebnis sieht so aus:
 
 {{EmbedLiveSample("Moving_the_pen", "", "160")}}
 
-Wenn Sie die Verbindungslinien sehen möchten, können Sie die Linien, die `moveTo()` aufrufen, entfernen.
+Wenn Sie die Verbindungslinien sehen möchten, können Sie die Zeilen entfernen, die `moveTo()` aufrufen.
 
 > [!NOTE]
-> Um mehr über die `arc()`-Funktion zu erfahren, siehe den Abschnitt [Bögen](#bögen) unten.
+> Um mehr über die `arc()`-Funktion zu erfahren, sehen Sie sich den Abschnitt [Bögen](#bögen) unten an.
 
 ### Linien
 
-Um gerade Linien zu zeichnen, verwenden Sie die `lineTo()`-Methode.
+Zum Zeichnen gerader Linien verwenden Sie die `lineTo()`-Methode.
 
-- {{domxref("CanvasRenderingContext2D.lineTo", "lineTo(x, y)")}}
-  - : Zeichnet eine Linie von der aktuellen Zeichenposition zur durch `x` und `y` angegebenen Position.
+- [`lineTo(x, y)`](/de/docs/Web/API/CanvasRenderingContext2D/lineTo)
+  - : Zeichnet eine Linie von der aktuellen Zeichenposition zu der durch `x` und `y` angegebenen Position.
 
-Diese Methode nimmt zwei Argumente, `x` und `y`, die die Koordinaten des Endpunktes der Linie sind. Der Startpunkt hängt von zuvor gezeichneten Pfaden ab, wobei der Endpunkt des vorherigen Pfades der Startpunkt für den folgenden ist usw. Der Startpunkt kann auch durch die Verwendung der `moveTo()`-Methode geändert werden.
+Diese Methode nimmt zwei Argumente, `x` und `y`, die die Koordinaten des Endpunkts der Linie sind. Der Startpunkt hängt von zuvor gezeichneten Pfaden ab, wobei der Endpunkt des vorherigen Pfades der Startpunkt für den folgenden ist usw. Der Startpunkt kann auch mit der `moveTo()`-Methode geändert werden.
 
-Das folgende Beispiel zeichnet zwei Dreiecke, eines gefüllt und eines umrandet.
+Das Beispiel unten zeichnet zwei Dreiecke, eines gefüllt und eines umrandet.
 
 ```html hidden
 <html lang="en">
@@ -215,14 +215,14 @@ function draw() {
   if (canvas.getContext) {
     const ctx = canvas.getContext("2d");
 
-    // Gefülltes Dreieck
+    // Filled triangle
     ctx.beginPath();
     ctx.moveTo(25, 25);
     ctx.lineTo(105, 25);
     ctx.lineTo(25, 105);
     ctx.fill();
 
-    // Umrandetes Dreieck
+    // Stroked triangle
     ctx.beginPath();
     ctx.moveTo(125, 125);
     ctx.lineTo(125, 45);
@@ -237,33 +237,33 @@ function draw() {
 draw();
 ```
 
-Dies beginnt mit dem Aufruf von `beginPath()`, um einen neuen Formpfad zu starten. Anschließend verwenden wir die `moveTo()`-Methode, um den Startpunkt an die gewünschte Position zu bewegen. Darunter werden zwei Linien gezeichnet, die zwei Seiten des Dreiecks bilden.
+Dies beginnt mit einem Aufruf von `beginPath()`, um einen neuen Formenpfad zu starten. Wir verwenden dann die `moveTo()`-Methode, um den Startpunkt an die gewünschte Position zu versetzen. Darunter werden zwei Linien gezeichnet, die zwei Seiten des Dreiecks bilden.
 
 {{EmbedLiveSample("Lines", "", "160")}}
 
-Sie werden den Unterschied zwischen dem gefüllten und dem umrandeten Dreieck bemerken. Das liegt, wie oben erwähnt, daran, dass Formen automatisch geschlossen werden, wenn ein Pfad gefüllt wird, aber nicht, wenn sie umrandet werden. Wenn wir `closePath()` für das umrandete Dreieck ausgelassen hätten, wären nur zwei Linien gezeichnet worden, nicht ein vollständiges Dreieck.
+Sie werden den Unterschied zwischen dem gefüllten und dem umrandeten Dreieck bemerken. Dies liegt, wie oben erwähnt, daran, dass Formen automatisch geschlossen werden, wenn ein Pfad gefüllt wird, aber nicht, wenn sie umrandet werden. Wenn wir das `closePath()` für das umrandete Dreieck weglassen würden, würden nur zwei Linien gezeichnet, kein komplettes Dreieck.
 
 ### Bögen
 
-Um Bögen oder Kreise zu zeichnen, verwenden wir die Methoden `arc()` oder `arcTo()`.
+Zum Zeichnen von Bögen oder Kreisen verwenden wir die `arc()`- oder `arcTo()`-Methoden.
 
-- {{domxref("CanvasRenderingContext2D.arc", "arc(x, y, radius, startAngle, endAngle, counterclockwise)")}}
-  - : Zeichnet einen Bogen, der am Punkt _(x, y)_ zentriert ist mit Radius _r_ beginnend bei _startAngle_ und endend bei _endAngle_ in der angegebenen Richtung, die durch _counterclockwise_ angegeben wird (Standard: im Uhrzeigersinn).
-- {{domxref("CanvasRenderingContext2D.arcTo", "arcTo(x1, y1, x2, y2, radius)")}}
-  - : Zeichnet einen Bogen mit den gegebenen Kontrollpunkten und dem Radius, verbunden mit dem vorherigen Punkt durch eine gerade Linie.
+- [`arc(x, y, radius, startAngle, endAngle, counterclockwise)`](/de/docs/Web/API/CanvasRenderingContext2D/arc)
+  - : Zeichnet einen Bogen, der am _(x, y)_-Position mit Radius _r_ zentriert ist und der bei _startAngle_ beginnt und bei _endAngle_ im angegebenen durch _counterclockwise_ (standardmäßig im Uhrzeigersinn) angegebenen Richtung endet.
+- [`arcTo(x1, y1, x2, y2, radius)`](/de/docs/Web/API/CanvasRenderingContext2D/arcTo)
+  - : Zeichnet einen Bogen mit den angegebenen Kontrollpunkten und Radius, der mit einer geraden Linie mit dem vorherigen Punkt verbunden ist.
 
-Lassen Sie uns einen genaueren Blick auf die `arc`-Methode werfen, die sechs Parameter benötigt: `x` und `y` sind die Koordinaten des Zentrums des Kreises, auf dem der Bogen gezeichnet werden soll. `radius` ist selbsterklärend. Die Parameter `startAngle` und `endAngle` definieren die Start- und Endpunkte des Bogens in Radiant, entlang der Kreislinie. Diese werden von der x-Achse aus gemessen. Der Parameter `counterclockwise` ist ein Boolean-Wert, der, wenn `true`, den Bogen gegen den Uhrzeigersinn zeichnet; andernfalls wird der Bogen im Uhrzeigersinn gezeichnet.
+Schauen wir uns die `arc`-Methode genauer an, die sechs Parameter benötigt: `x` und `y` sind die Koordinaten des Mittelpunktes des Kreises, auf dem der Bogen gezeichnet werden soll. `radius` ist selbsterklärend. Die Parameter `startAngle` und `endAngle` definieren die Start- und Endpunkte des Bogens im Bogenmaß entlang der Kurve des Kreises. Diese werden von der x-Achse gemessen. `counterclockwise` ist ein Boolescher Wert, der `true` ist, wenn der Bogen gegen den Uhrzeigersinn gezeichnet wird; andernfalls wird der Bogen im Uhrzeigersinn gezeichnet.
 
 > [!NOTE]
-> Winkel in der `arc`-Funktion werden in Radiant und nicht in Grad gemessen. Um Grad in Radiant umzurechnen, können Sie den folgenden JavaScript-Ausdruck verwenden: `radians = (Math.PI/180)*degrees`.
+> Winkel in der `arc`-Funktion werden im Bogenmaß, nicht in Grad gemessen. Um Grad in Bogenmaß umzuwandeln, können Sie den folgenden JavaScript-Ausdruck verwenden: `radians = (Math.PI/180)*degrees`.
 
-Das folgende Beispiel ist etwas komplexer als die, die wir oben gesehen haben. Es zeichnet 12 verschiedene Bögen, alle mit unterschiedlichen Winkeln und Füllungen.
+Das folgende Beispiel ist etwas komplexer als die oben gezeigten. Es zeichnet 12 verschiedene Bögen, alle mit unterschiedlichen Winkeln und Füllungen.
 
-Die beiden [`for`-Schleifen](/de/docs/Web/JavaScript/Reference/Statements/for) sind dazu da, um durch die Reihen und Spalten der Bögen zu gehen. Für jeden Bogen beginnen wir einen neuen Pfad, indem `beginPath()` aufgerufen wird. Im Code befindet sich jeder der Parameter für den Bogen in einer Variablen zur besseren Übersichtlichkeit, aber in der Praxis würden Sie das nicht zwingend tun.
+Die beiden [`for`-Schleifen](/de/docs/Web/JavaScript/Reference/Statements/for) sind zum Durchlaufen der Reihen und Spalten der Bögen. Für jeden Bogen beginnen wir einen neuen Pfad, indem `beginPath()` aufgerufen wird. Im Code sind die Parameter für den Bogen jeweils in einer Variablen, um die Übersichtlichkeit zu erhöhen, aber in der Praxis würden Sie wahrscheinlich nicht unbedingt so verfahren.
 
-Die `x`- und `y`-Koordinaten sollten klar genug sein. `radius` und `startAngle` sind fest. Der `endAngle` beginnt bei 180 Grad (halber Kreis) in der ersten Spalte und wird durch Schritte von 90 Grad erhöht, bis er in der letzten Spalte einen vollständigen Kreis bildet.
+Die `x`- und `y`-Koordinaten sollten klar genug sein. `radius` und `startAngle` sind fest. Der `endAngle` beginnt bei 180 Grad (ein Halbkreis) in der ersten Spalte und wird in Schritten von 90 Grad erhöht, was schließlich in einem vollständigen Kreis in der letzten Spalte endet.
 
-Die Anweisung für den Parameter `clockwise` führt dazu, dass die erste und dritte Reihe im Uhrzeigersinn gezeichnet werden und die zweite und vierte Reihe gegen den Uhrzeigersinn. Schließlich sorgt die `if`-Anweisung dafür, dass die obere Hälfte umrandete Bögen und die untere Hälfte gefüllte Bögen hat.
+Die Anweisung für den `clockwise`-Parameter führt dazu, dass die erste und dritte Reihe als Bögen im Uhrzeigersinn und die zweite und vierte Reihe als Bögen gegen den Uhrzeigersinn gezeichnet werden. Schließlich macht die `if`-Anweisung die oberen Hälften zu umrandeten Bögen und die unteren Hälften zu gefüllten Bögen.
 
 > [!NOTE]
 > Dieses Beispiel erfordert ein etwas größeres Canvas als die anderen auf dieser Seite: 150 x 200 Pixel.
@@ -285,12 +285,12 @@ function draw() {
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 3; j++) {
         ctx.beginPath();
-        const x = 25 + j * 50; // x-Koordinate
-        const y = 25 + i * 50; // y-Koordinate
-        const radius = 20; // Bogenradius
-        const startAngle = 0; // Startpunkt auf dem Kreis
-        const endAngle = Math.PI + (Math.PI * j) / 2; // Endpunkt auf dem Kreis
-        const counterclockwise = i % 2 !== 0; // im Uhrzeigersinn oder gegen den Uhrzeigersinn
+        const x = 25 + j * 50; // x coordinate
+        const y = 25 + i * 50; // y coordinate
+        const radius = 20; // Arc radius
+        const startAngle = 0; // Starting point on circle
+        const endAngle = Math.PI + (Math.PI * j) / 2; // End point on circle
+        const counterclockwise = i % 2 !== 0; // clockwise or counterclockwise
 
         ctx.arc(x, y, radius, startAngle, endAngle, counterclockwise);
 
@@ -313,21 +313,21 @@ draw();
 
 ### Bezier- und quadratische Kurven
 
-Der nächste verfügbare Pfadtyp sind [Bézier-Kurven](/de/docs/Glossary/Bezier_curve), die sowohl in kubischen als auch quadratischen Varianten verfügbar sind. Diese werden im Allgemeinen verwendet, um komplexe organische Formen zu zeichnen.
+Der nächste verfügbare Pfadtyp sind [Bézier-Kurven](/de/docs/Glossary/Bezier_curve), verfügbar in sowohl kubischen als auch quadratischen Varianten. Diese werden im Allgemeinen verwendet, um komplexe organische Formen zu zeichnen.
 
-- {{domxref("CanvasRenderingContext2D.quadraticCurveTo", "quadraticCurveTo(cp1x, cp1y, x, y)")}}
-  - : Zeichnet eine quadratische Bézier-Kurve von der aktuellen Stiftposition zum Endpunkt, der durch `x` und `y` angegeben ist, unter Verwendung des Kontrollpunkts, der durch `cp1x` und `cp1y` angegeben ist.
-- {{domxref("CanvasRenderingContext2D.bezierCurveTo", "bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)")}}
-  - : Zeichnet eine kubische Bézier-Kurve von der aktuellen Stiftposition zum Endpunkt, der durch `x` und `y` angegeben ist, unter Verwendung der Kontrollpunkte, die durch (`cp1x`, `cp1y`) und (`cp2x`, `cp2y`) angegeben sind.
+- [`quadraticCurveTo(cp1x, cp1y, x, y)`](/de/docs/Web/API/CanvasRenderingContext2D/quadraticCurveTo)
+  - : Zeichnet eine quadratische Bézier-Kurve von der aktuellen Stiftposition zum Endpunkt, der durch `x` und `y` angegeben ist, unter Verwendung des durch `cp1x` und `cp1y` angegebenen Kontrollpunktes.
+- [`bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)`](/de/docs/Web/API/CanvasRenderingContext2D/bezierCurveTo)
+  - : Zeichnet eine kubische Bézier-Kurve von der aktuellen Stiftposition zum Endpunkt, der durch `x` und `y` angegeben ist, unter Verwendung der durch (`cp1x`, `cp1y`) und (`cp2x`, `cp2y`) angegebenen Kontrollpunkte.
 
-Der Unterschied zwischen diesen besteht darin, dass eine quadratische Bézier-Kurve einen Start- und einen Endpunkt (blaue Punkte) und nur einen **Kontrollpunkt** (angezeigt durch den roten Punkt) hat, während eine kubische Bézier-Kurve zwei Kontrollpunkte verwendet.
-![Vergleich von quadratischer und Bézier-Kurve.](canvas_curves.png)
+Der Unterschied besteht darin, dass eine quadratische Bézier-Kurve einen Start- und einen Endpunkt (blaue Punkte) und nur einen **Kontrollpunkt** (angezeigt durch den roten Punkt) hat, während eine kubische Bézier-Kurve zwei Kontrollpunkte verwendet.
+![Vergleich von quadratischen und Bezier-Kurven.](canvas_curves.png)
 
-Die `x`- und `y`-Parameter in beiden Methoden sind die Koordinaten des Endpunkts. `cp1x` und `cp1y` sind die Koordinaten des ersten Kontrollpunkts, und `cp2x` und `cp2y` sind die Koordinaten des zweiten Kontrollpunkts.
+Die `x`- und `y`-Parameter in beiden dieser Methoden sind die Koordinaten des Endpunktes. `cp1x` und `cp1y` sind die Koordinaten des ersten Kontrollpunktes, und `cp2x` und `cp2y` sind die Koordinaten des zweiten Kontrollpunktes.
 
-Die Verwendung von quadratischen und kubischen Bézier-Kurven kann ziemlich herausfordernd sein, weil wir im Gegensatz zu Vektorzeichensoftware wie Adobe Illustrator kein direktes visuelles Feedback darüber haben, was wir tun. Das macht es ziemlich schwierig, komplexe Formen zu zeichnen. Im folgenden Beispiel zeichnen wir einige einfache organische Formen, aber wenn Sie Zeit und vor allem Geduld haben, können viel komplexere Formen erstellt werden.
+Die Verwendung von quadratischen und kubischen Bézier-Kurven kann recht herausfordernd sein, denn im Gegensatz zu Vektorgrafiksoftware wie Adobe Illustrator haben wir kein direktes visuelles Feedback darüber, was wir tun. Das macht es ziemlich schwer, komplexe Formen zu zeichnen. Im folgenden Beispiel zeichnen wir einige einfache organische Formen, aber wenn Sie die Zeit und vor allem die Geduld haben, können viel komplexere Formen erstellt werden.
 
-Es gibt nichts sehr Schwieriges in diesen Beispielen. In beiden Fällen sehen wir eine Abfolge von Kurven, die gezeichnet werden und schließlich zu einer vollständigen Form führen.
+In diesen Beispielen gibt es nichts besonders Schwieriges. In beiden Fällen sehen wir eine Abfolge von Kurven, die schließlich eine vollständige Form ergeben.
 
 #### Quadratische Bezier-Kurven
 
@@ -347,7 +347,7 @@ function draw() {
   if (canvas.getContext) {
     const ctx = canvas.getContext("2d");
 
-    // Beispiel quadratischer Kurven
+    // Quadratic curves example
     ctx.beginPath();
     ctx.moveTo(75, 25);
     ctx.quadraticCurveTo(25, 25, 25, 62.5);
@@ -369,7 +369,7 @@ draw();
 
 #### Kubische Bezier-Kurven
 
-Dieses Beispiel zeichnet mit kubischen Bézier-Kurven ein Herz.
+Dieses Beispiel zeichnet ein Herz mit kubischen Bézier-Kurven.
 
 ```html hidden
 <html lang="en">
@@ -385,7 +385,7 @@ function draw() {
   if (canvas.getContext) {
     const ctx = canvas.getContext("2d");
 
-    // Beispiel kubischer Kurven
+    // Cubic curves example
     ctx.beginPath();
     ctx.moveTo(75, 40);
     ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
@@ -407,16 +407,16 @@ draw();
 
 ### Rechtecke
 
-Zusätzlich zu den drei Methoden, die wir bei [Zeichnen von Rechtecken](#zeichnen_von_rechtecken) gesehen haben, die rechteckige Formen direkt auf das Canvas zeichnen, gibt es auch die `rect()`-Methode, die einen rechteckigen Pfad zu einem derzeit geöffneten Pfad hinzufügt.
+Zusätzlich zu den drei Methoden, die wir im Abschnitt [Zeichnen von Rechtecken](#zeichnen_von_rechtecken) gesehen haben, die rechteckige Formen direkt auf das Canvas zeichnen, gibt es auch die `rect()`-Methode, die einen rechteckigen Pfad zu einem derzeit geöffneten Pfad hinzufügt.
 
-- {{domxref("CanvasRenderingContext2D.rect", "rect(x, y, width, height)")}}
-  - : Zeichnet ein Rechteck, dessen obere linke Ecke durch (`x`, `y`) mit der angegebenen `width` und `height` spezifiziert wird.
+- [`rect(x, y, width, height)`](/de/docs/Web/API/CanvasRenderingContext2D/rect)
+  - : Zeichnet ein Rechteck, dessen obere linke Ecke durch (`x`, `y`) mit der angegebenen `width` und `height` spezifiziert ist.
 
-Bevor diese Methode ausgeführt wird, wird automatisch die `moveTo()`-Methode mit den Parametern (x,y) aufgerufen. Mit anderen Worten, die aktuelle Stiftposition wird automatisch auf die Standardkoordinaten zurückgesetzt.
+Bevor diese Methode ausgeführt wird, wird die `moveTo()`-Methode automatisch mit den Parametern (x,y) aufgerufen. Mit anderen Worten, die aktuelle Stiftposition wird automatisch auf die Standardkoordinaten zurückgesetzt.
 
-### Kombinieren von Formen
+### Kombinationen erstellen
 
-Bisher hat jedes Beispiel auf dieser Seite nur einen Pfadtyp pro Form verwendet. Es gibt jedoch keine Einschränkung hinsichtlich der Anzahl oder Arten von Pfaden, die Sie verwenden können, um eine Form zu erstellen. In diesem letzten Beispiel kombinieren wir alle Pfadfunktionen, um eine Gruppe sehr berühmter Spielcharaktere zu erzeugen.
+Bisher hat jedes Beispiel auf dieser Seite nur einen Pfadtyp pro Form verwendet. Es gibt jedoch keine Einschränkung hinsichtlich der Anzahl oder der Arten von Pfaden, die Sie zur Erstellung einer Form verwenden können. In diesem letzten Beispiel kombinieren wir alle Pfadfunktionen, um eine Reihe sehr berühmter Spielcharaktere zu erstellen.
 
 ```html hidden
 <html lang="en">
@@ -495,7 +495,7 @@ function draw() {
   }
 }
 
-// Eine Hilfsfunktion, um ein Rechteck mit abgerundeten Ecken zu zeichnen.
+// A utility function to draw a rectangle with rounded corners.
 
 function roundedRect(ctx, x, y, width, height, radius) {
   ctx.beginPath();
@@ -512,17 +512,17 @@ function roundedRect(ctx, x, y, width, height, radius) {
 draw();
 ```
 
-Das resultierende Bild sieht wie folgt aus:
+Das resultierende Bild sieht so aus:
 
 {{EmbedLiveSample("Making_combinations", "", "200")}}
 
-Wir werden das hier nicht im Detail durchgehen, da es tatsächlich überraschend einfach ist. Das Wichtigste zu beachten ist die Verwendung der Eigenschaft `fillStyle` auf dem Zeichenkontext und die Verwendung einer Hilfsfunktion (in diesem Fall `roundedRect()`). Die Verwendung von Hilfsfunktionen für Zeichenteile, die Sie oft ausführen, kann sehr hilfreich sein und den benötigten Code reduzieren sowie dessen Komplexität.
+Wir werden dies nicht im Detail durchgehen, da es eigentlich überraschend einfach ist. Die wichtigsten Dinge, die zu beachten sind, sind die Verwendung der `fillStyle`-Eigenschaft auf dem Zeichenkontext und die Verwendung einer Hilfsfunktion (in diesem Fall `roundedRect()`). Die Verwendung von Hilfsfunktionen für Zeichenarbeiten, die Sie häufig ausführen, kann sehr hilfreich sein und die Menge des benötigten Codes sowie dessen Komplexität verringern.
 
-Wir werden uns `fillStyle` später in diesem Tutorial noch einmal genauer anschauen. Hier verwenden wir es nur, um die Füllfarbe für Pfade von der Standardfarbe Schwarz auf Weiß zu ändern und dann wieder zurück.
+Wir werden später in diesem Tutorial einen weiteren Blick auf `fillStyle` werfen, um es genauer zu untersuchen. Hier verwenden wir es einfach, um die Füllfarbe für Pfade von der Standardfarbe Schwarz auf Weiß zu ändern und dann wieder zurück.
 
 ### Formen mit Löchern
 
-Um eine Form mit einem Loch darin zu zeichnen, müssen wir das Loch in unterschiedlichen Uhrzeigerrichtungen zeichnen, wie wir die äußere Form zeichnen. Entweder zeichnen wir die äußere Form im Uhrzeigersinn und die innere Form gegen den Uhrzeigersinn oder die äußere Form gegen den Uhrzeigersinn und die innere Form im Uhrzeigersinn.
+Um eine Form mit einem Loch darin zu zeichnen, müssen wir das Loch in unterschiedlichen Uhrzeigerrichtungen zeichnen, während wir die äußere Form zeichnen. Entweder zeichnen wir die äußere Form im Uhrzeigersinn und die innere Form gegen den Uhrzeigersinn oder die äußere Form gegen den Uhrzeigersinn und die innere Form im Uhrzeigersinn.
 
 ```html hidden
 <html lang="en">
@@ -540,12 +540,12 @@ function draw() {
 
     ctx.beginPath();
 
-    // Äußere Form im Uhrzeigersinn ⟳
+    // Outer shape clockwise ⟳
     ctx.moveTo(0, 0);
     ctx.lineTo(150, 0);
     ctx.lineTo(75, 129.9);
 
-    // Innere Form gegen den Uhrzeigersinn ↺
+    // Inner shape anticlockwise ↺
     ctx.moveTo(75, 20);
     ctx.lineTo(50, 60);
     ctx.lineTo(100, 60);
@@ -561,32 +561,32 @@ draw();
 
 {{EmbedLiveSample("Shapes_with_holes", "", "160")}}
 
-Im obigen Beispiel geht das äußere Dreieck im Uhrzeigersinn (bewegen Sie sich in die obere linke Ecke, dann zeichnen Sie eine Linie zur oberen rechten Ecke und enden Sie unten), und das innere Dreieck geht gegen den Uhrzeigersinn (bewegen Sie sich nach oben, dann Linie zur unteren linken Ecke und enden Sie an der unteren rechten).
+Im obigen Beispiel verläuft das äußere Dreieck im Uhrzeigersinn (zum oberen linken Eckpunkt gehen, dann eine Linie zum oberen rechten Eckpunkt und am unteren Eckpunkt enden) und das innere Dreieck verläuft gegen den Uhrzeigersinn (zum oberen Eckpunkt gehen, dann eine Linie zum unteren linken Eckpunkt und am unteren rechten Eckpunkt enden).
 
 ## Path2D-Objekte
 
-Wie wir im letzten Beispiel gesehen haben, kann es eine Reihe von Pfaden und Zeichenbefehlen geben, um Objekte auf Ihr Canvas zu zeichnen. Um den Code zu vereinfachen und die Leistung zu verbessern, lässt das {{domxref("Path2D")}}-Objekt, das in den neuesten Versionen der Browser verfügbar ist, Sie diese Zeichenbefehle zwischenspeichern oder aufzeichnen. Sie können Ihre Pfade schnell wiedergeben.
-Lassen Sie uns sehen, wie wir ein `Path2D`-Objekt konstruieren können:
+Wie wir im letzten Beispiel gesehen haben, kann es eine Reihe von Pfaden und Zeichenanweisungen geben, um Objekte auf Ihrem Canvas zu zeichnen. Um den Code zu vereinfachen und die Leistung zu verbessern, erlaubt das [`Path2D`](/de/docs/Web/API/Path2D)-Objekt, das in neueren Versionen von Browsern verfügbar ist, das Zwischenspeichern oder Aufzeichnen dieser Zeichenanweisungen. Sie können Ihre Pfade schnell wieder abspielen.
+Sehen wir uns an, wie wir ein `Path2D`-Objekt erstellen können:
 
-- {{domxref("Path2D.Path2D", "Path2D()")}}
-  - : Der **`Path2D()`**-Konstruktor gibt ein neu instanziiertes `Path2D`-Objekt zurück, optional mit einem anderen Pfad als Argument (erstellt eine Kopie), oder optional mit einem String bestehend aus [SVG-Pfaddaten](/de/docs/Web/SVG/Tutorial/Paths).
+- [`Path2D()`](/de/docs/Web/API/Path2D/Path2D)
+  - : Der **`Path2D()`**-Konstruktor gibt ein neu instanziiertes `Path2D`-Objekt zurück, optional mit einem anderen Pfad als Argument (erstellt eine Kopie) oder optional mit einer Zeichenkette, die [SVG-Pfad](/de/docs/Web/SVG/Tutorial/Paths)-Daten enthält.
 
 ```js
-new Path2D(); // leeres Pfadobjekt
-new Path2D(path); // Kopie aus einem anderen Path2D-Objekt
-new Path2D(d); // Pfad aus SVG-Pfaddaten
+new Path2D(); // empty path object
+new Path2D(path); // copy from another Path2D object
+new Path2D(d); // path from SVG path data
 ```
 
 Alle [Pfadmethoden](/de/docs/Web/API/CanvasRenderingContext2D#paths) wie `moveTo`, `rect`, `arc` oder `quadraticCurveTo` usw., die wir oben kennengelernt haben, sind auf `Path2D`-Objekten verfügbar.
 
-Die `Path2D`-API fügt auch eine Methode hinzu, um Pfade mit der `addPath`-Methode zu kombinieren. Dies kann nützlich sein, wenn Sie Objekte aus mehreren Komponenten bauen möchten, zum Beispiel.
+Das `Path2D`-API fügt auch eine Möglichkeit hinzu, Pfade mit der `addPath`-Methode zu kombinieren. Dies kann nützlich sein, wenn Sie Objekte aus mehreren Komponenten bauen möchten.
 
-- {{domxref("Path2D.addPath", "Path2D.addPath(path [, transform])")}}
+- [`Path2D.addPath(path [, transform])`](/de/docs/Web/API/Path2D/addPath)
   - : Fügt einen Pfad zum aktuellen Pfad mit einer optionalen Transformationsmatrix hinzu.
 
-### Path2D-Beispiel
+### Path2D Beispiel
 
-In diesem Beispiel erstellen wir ein Rechteck und einen Kreis. Beide werden als `Path2D`-Objekt gespeichert, sodass sie für die spätere Verwendung verfügbar sind. Mit der neuen `Path2D`-API wurden mehrere Methoden aktualisiert, um optional ein `Path2D`-Objekt anstelle des aktuellen Pfades zu akzeptieren. Hier werden `stroke` und `fill` mit einem Pfadargument verwendet, um beide Objekte auf das Canvas zu zeichnen, zum Beispiel.
+In diesem Beispiel erstellen wir ein Rechteck und einen Kreis. Beide werden als `Path2D`-Objekte gespeichert, sodass sie für eine spätere Verwendung verfügbar sind. Mit dem neuen `Path2D`-API wurden mehrere Methoden aktualisiert, um optional ein `Path2D`-Objekt anstelle des aktuellen Pfades zu verwenden. Hier werden `stroke` und `fill` mit einem Pfadargument verwendet, um beide Objekte auf das Canvas zu zeichnen.
 
 ```html hidden
 <html lang="en">
@@ -622,9 +622,9 @@ draw();
 
 ### Verwendung von SVG-Pfaden
 
-Eine weitere leistungsstarke Funktion der neuen Canvas-`Path2D`-API ist die Verwendung von [SVG-Pfaddaten](/de/docs/Web/SVG/Tutorial/Paths), um Pfade auf Ihrem Canvas zu initialisieren. Dies könnte es Ihnen ermöglichen, Pfaddaten weiterzugeben und sowohl in SVG als auch Canvas wiederzuverwenden.
+Ein weiteres leistungsfähiges Merkmal des neuen Canvas-`Path2D`-APIs ist die Verwendung von [SVG-Pfad-Daten](/de/docs/Web/SVG/Tutorial/Paths) zum Initialisieren von Pfaden auf Ihrem Canvas. Dies könnte es Ihnen ermöglichen, Pfaddaten weiterzugeben und sowohl in SVG als auch in Canvas wiederzuverwenden.
 
-Der Pfad wird sich zu Punkt (`M10 10`) bewegen und dann horizontal 80 Punkte nach rechts (`h 80`), dann 80 Punkte nach unten (`v 80`), dann 80 Punkte nach links (`h -80`) und schließlich zurück zum Anfang (`z`) bewegen. Sie können dieses Beispiel auf der Seite [`Path2D`-Konstruktor](/de/docs/Web/API/Path2D/Path2D#using_svg_paths) sehen.
+Der Pfad bewegt sich zu Punkt (`M10 10`) und dann horizontal 80 Punkte nach rechts (`h 80`), dann 80 Punkte nach unten (`v 80`), dann 80 Punkte nach links (`h -80`) und dann zurück zum Start (`z`). Sie können dieses Beispiel auf der Seite des [`Path2D`-Konstruktors](/de/docs/Web/API/Path2D/Path2D#using_svg_paths) sehen.
 
 ```js
 const p = new Path2D("M10 10 h 80 v 80 h -80 Z");

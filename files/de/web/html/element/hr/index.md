@@ -1,5 +1,5 @@
 ---
-title: "<hr>: Das Thematische Trennelement (Horizontale Linie)"
+title: "<hr>: Das Thematic Break (Horizontal Rule) Element"
 slug: Web/HTML/Element/hr
 l10n:
   sourceCommit: d7e274e727920f0f85f14e0bdd18e6e585419a90
@@ -7,26 +7,26 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<hr>`** [HTML](/de/docs/Web/HTML) Element stellt einen thematischen Bruch zwischen Elementen auf Absatzebene dar: Zum Beispiel eine Szenenänderung in einer Geschichte oder ein Themenwechsel innerhalb eines Abschnitts.
+Das **`<hr>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen thematischen Bruch zwischen Paragraphen-Elementen: zum Beispiel ein Szenenwechsel in einer Geschichte oder ein Themenwechsel innerhalb eines Abschnitts.
 
 {{EmbedInteractiveExample("pages/tabbed/hr.html", "tabbed-shorter")}}
 
-Historisch wurde dies als horizontale Linie oder Regel dargestellt. Während es in visuellen Browsern möglicherweise immer noch als horizontale Regel angezeigt wird, wird dieses Element jetzt in semantischen und nicht in präsentationalen Begriffen definiert. Wenn Sie eine horizontale Linie zeichnen möchten, sollten Sie dafür geeignete CSS-Techniken verwenden.
+Historisch wurde dies als horizontale Linie dargestellt. Während es in visuellen Browsern weiterhin als horizontale Linie angezeigt werden kann, ist dieses Element nun in semantischen Begriffen definiert und nicht mehr in Präsentationsbegriffen. Wenn Sie also eine horizontale Linie zeichnen möchten, sollten Sie dies mit angemessenem CSS tun.
 
 ## Attribute
 
-Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `align` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Legt die Ausrichtung der Linie auf der Seite fest. Wenn kein Wert angegeben ist, ist der Standardwert `left`.
+  - : Legt die Ausrichtung der Linie auf der Seite fest. Wenn kein Wert angegeben wird, ist der Standardwert `left`.
 - `color` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Legt die Farbe der Linie durch Farbnamen oder hexadezimalen Wert fest.
+  - : Setzt die Farbe der Linie durch Farbnamen oder einen hexadezimalen Wert.
 - `noshade` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Legt fest, dass die Linie keine Schattierung hat.
+  - : Setzt die Linie auf keine Schattierung.
 - `size` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Legt die Höhe in Pixeln der Linie fest.
+  - : Bestimmt die Höhe der Linie in Pixeln.
 - `width` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Setzt die Länge der Linie auf der Seite durch einen Pixel- oder Prozentwert fest.
+  - : Legt die Länge der Linie auf der Seite durch einen Pixel- oder Prozentwert fest.
 
 ## Beispiel
 
@@ -34,15 +34,15 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
 
 ```html
 <p>
-  Dies ist der erste Absatz Text. Dies ist der erste Absatz Text. Dies ist der
-  erste Absatz Text. Dies ist der erste Absatz Text.
+  This is the first paragraph of text. This is the first paragraph of text. This
+  is the first paragraph of text. This is the first paragraph of text.
 </p>
 
 <hr />
 
 <p>
-  Dies ist der zweite Absatz Text. Dies ist der zweite Absatz Text. Dies ist
-  der zweite Absatz Text. Dies ist der zweite Absatz Text.
+  This is the second paragraph of text. This is the second paragraph of text.
+  This is the second paragraph of text. This is the second paragraph of text.
 </p>
 ```
 
@@ -56,7 +56,9 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
+        <a href="/de/docs/Web/HTML/Content_categories"
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
@@ -66,11 +68,11 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein {{Glossary("void element")}}.</td>
+      <td>Keiner; es ist ein [Leerelement](/de/docs/Glossary/void_element).</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Muss ein Start-Tag haben und darf kein End-Tag haben.</td>
+      <td>Muss ein Start-Tag haben und darf keinen End-Tag haben.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -82,7 +84,7 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td><a href="/de/docs/Web/Accessibility/ARIA/Roles/separator_role"><code>separator</code></a></td>
     </tr>
     <tr>
@@ -93,7 +95,7 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLHRElement")}}</td>
+      <td>[`HTMLHRElement`](/de/docs/Web/API/HTMLHRElement)</td>
     </tr>
   </tbody>
 </table>

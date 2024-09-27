@@ -7,14 +7,14 @@ l10n:
 
 {{AddonSidebar}}
 
-Legt die Hintergrundfarbe für das Badge fest. Tabs ohne eine spezifische Hintergrundfarbe für das Badge erben die globale Hintergrundfarbe des Badges, die in Firefox standardmäßig auf `[217, 0, 0, 255]` gesetzt ist.
+Legt die Hintergrundfarbe für das Abzeichen fest. Tabs ohne eine spezifische Hintergrundfarbe für das Abzeichen erben die globale Abzeichen-Hintergrundfarbe, die in Firefox standardmäßig auf `[217, 0, 0, 255]` gesetzt ist.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
 
-In Firefox wird, sofern die Textfarbe des Badges nicht explizit mit {{WebExtAPIRef("action.setBadgeTextColor()")}} festgelegt wird, die Farbe des Badge-Textes automatisch auf Schwarz oder Weiß gesetzt, um den Kontrast zur angegebenen Hintergrundfarbe des Badges zu maximieren. Wenn Sie beispielsweise die Hintergrundfarbe des Badges auf Weiß setzen, wird die Standardfarbe des Badge-Textes auf Schwarz gesetzt und umgekehrt.
+In Firefox wird, es sei denn, die Abzeichen-Textfarbe wird explizit mit {{WebExtAPIRef("action.setBadgeTextColor()")}} gesetzt, die Abzeichen-Textfarbe automatisch auf schwarz oder weiß gesetzt, um den Kontrast mit der angegebenen Abzeichen-Hintergrundfarbe zu maximieren. Zum Beispiel, wenn Sie die Abzeichen-Hintergrundfarbe auf weiß setzen, wird die Standard-Textfarbe des Abzeichens auf schwarz gesetzt und umgekehrt.
 
-Andere Browser verwenden immer eine weiße Textfarbe, daher ist das Setzen eines dunklen Hintergrundes möglicherweise vorzuziehen, um sicherzustellen, dass der Text lesbar ist.
+Andere Browser verwenden immer eine weiße Textfarbe, daher kann es vorzuziehen sein, einen dunklen Hintergrund einzustellen, um die Lesbarkeit des Textes zu gewährleisten.
 
 ## Syntax
 
@@ -32,25 +32,25 @@ browser.action.setBadgeBackgroundColor(
 
     - `color`
 
-      - : Die Farbe, angegeben als einer der folgenden Werte:
+      - : Die Farbe, angegeben als eine der folgenden:
 
-        - ein String: jeder CSS [\<color>](/de/docs/Web/CSS/color_value) Wert, zum Beispiel `"red"`, `"#FF0000"` oder `"rgb(255 0 0)"`. Ist der String keine gültige Farbe, wird das zurückgegebene Versprechen abgelehnt und die Hintergrundfarbe wird nicht geändert.
+        - ein String: jeder CSS [\<color>](/de/docs/Web/CSS/color_value) Wert, zum Beispiel `"red"`, `"#FF0000"`, oder `"rgb(255 0 0)"`. Wenn der String keine gültige Farbe ist, wird das zurückgegebene Promise abgelehnt und die Hintergrundfarbe wird nicht geändert.
         - ein `{{WebExtAPIRef('action.ColorArray')}}` Objekt.
-        - `null`. Wenn eine `tabId` angegeben ist, wird die spezifische Hintergrundfarbe des Tab-Badges entfernt, sodass der Tab die globale Hintergrundfarbe des Badges erbt. Andernfalls wird die globale Hintergrundfarbe des Badges auf den Standardwert zurückgesetzt.
+        - `null`. Wenn eine `tabId` angegeben ist, entfernt es die tab-spezifische Abzeichen-Hintergrundfarbe, sodass der Tab die globale Abzeichen-Hintergrundfarbe erbt. Andernfalls wird die globale Abzeichen-Hintergrundfarbe auf den Standardwert zurückgesetzt.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Legt die Hintergrundfarbe des Badges nur für den angegebenen Tab fest. Die Farbe wird zurückgesetzt, wenn der Benutzer diesen Tab zu einer neuen Seite navigiert.
+      - : `integer`. Setzt die Abzeichen-Hintergrundfarbe nur für den angegebenen Tab. Die Farbe wird zurückgesetzt, wenn der Benutzer diesen Tab auf eine neue Seite navigiert.
     - `windowId` {{optional_inline}}
-      - : `integer`. Legt die Hintergrundfarbe des Badges nur für das angegebene Fenster fest.
+      - : `integer`. Setzt die Abzeichen-Hintergrundfarbe nur für das angegebene Fenster.
 
 <!---->
 
-- Wenn sowohl `windowId` als auch `tabId` angegeben werden, schlägt die Funktion fehl und die Farbe wird nicht gesetzt.
-- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird stattdessen die globale Hintergrundfarbe des Badges gesetzt.
+- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und die Farbe wird nicht gesetzt.
+- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird stattdessen die globale Abzeichen-Hintergrundfarbe gesetzt.
 
 ## Beispiele
 
-Eine Hintergrundfarbe, die anfangs rot ist und grün wird, wenn auf die Browser-Aktion geklickt wird:
+Eine Hintergrundfarbe, die zunächst rot ist und grün wird, wenn die Browser-Aktion geklickt wird:
 
 ```js
 browser.action.setBadgeText({ text: "1234" });
@@ -61,7 +61,7 @@ browser.action.onClicked.addListener(() => {
 });
 ```
 
-Setzen Sie die Hintergrundfarbe des Badges nur für den aktiven Tab:
+Die Abzeichen-Hintergrundfarbe nur für den aktiven Tab setzen:
 
 ```js
 browser.action.setBadgeText({ text: "1234" });
@@ -84,7 +84,7 @@ browser.action.onClicked.addListener((tab) => {
 Die Standardfarbe in Firefox ist: `[217, 0, 0, 255]`.
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-setBadgeBackgroundColor) API. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der Chromium [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-setBadgeBackgroundColor) API. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

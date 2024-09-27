@@ -32,7 +32,7 @@ l10n:
   </tbody>
 </table>
 
-Eine kurze Beschreibung der Erweiterung, die im Benutzerinterface des Browsers angezeigt werden soll. In Firefox und Chrome kann dieser Wert bis zu 132 Zeichen lang sein. Das Limit in anderen Browsern kann abweichen.
+Eine kurze Beschreibung der Erweiterung, die zur Anzeige in der Benutzeroberfläche des Browsers vorgesehen ist. In Firefox und Chrome kann dieser Wert bis zu 132 Zeichen betragen. Das Limit in anderen Browsern kann abweichen.
 
 Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 

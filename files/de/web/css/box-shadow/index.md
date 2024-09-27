@@ -7,42 +7,42 @@ l10n:
 
 {{CSSRef}}
 
-Die **`box-shadow`**-Eigenschaft von [CSS](/de/docs/Web/CSS) fügt Schatteneffekte um den Rahmen eines Elements hinzu. Sie können mehrere Effekte festlegen, die durch Kommas getrennt sind. Ein Box-Schatten wird durch X- und Y-Offsets relativ zum Element, Unschärfe- und Verbreitungsradius sowie Farbe beschrieben.
+Die **`box-shadow`** [CSS](/de/docs/Web/CSS) Eigenschaft fügt Schatteneffekte um den Rahmen eines Elements hinzu. Sie können mehrere Effekte angeben, die durch Kommas getrennt sind. Ein Box-Schatten wird durch X- und Y-Versatz relativ zum Element, Weichzeichnungs- und Verbreitungsradius sowie Farbe beschrieben.
 
 {{EmbedInteractiveExample("pages/css/box-shadow.html")}}
 
-Die `box-shadow`-Eigenschaft ermöglicht es Ihnen, einen Schatten von fast jedem Elementrahmen zu werfen. Wenn auf einem Element mit einem Box-Schatten ein {{cssxref("border-radius")}} angegeben ist, übernimmt der Box-Schatten dieselben abgerundeten Ecken. Die Z-Anordnung mehrerer Box-Schatten entspricht der von mehreren [Textschatten](/de/docs/Web/CSS/text-shadow) (der zuerst festgelegte Schatten befindet sich oben).
+Die Eigenschaft `box-shadow` ermöglicht es Ihnen, einen Schlagschatten vom Rahmen fast jedes Elements zu werfen. Wenn ein {{cssxref("border-radius")}} für das Element mit einem Box-Schatten angegeben ist, übernimmt der Box-Schatten die gleichen abgerundeten Ecken. Die Z-Reihenfolge mehrerer Box-Schatten ist dieselbe wie die mehrerer [Textschatten](/de/docs/Web/CSS/text-shadow) (der zuerst angegebene Schatten befindet sich oben).
 
-[Box-shadow-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Box-shadow_generator) ist ein interaktives Werkzeug, das es Ihnen ermöglicht, einen `box-shadow` zu erzeugen.
+Der [Box-Shadow-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Box-shadow_generator) ist ein interaktives Tool, das es Ihnen ermöglicht, einen `box-shadow` zu erstellen.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 box-shadow: none;
 
-/* Eine Farbe und zwei Längenwerte */
+/* A color and two length values */
 /* <color> | <length> | <length> */
 box-shadow: red 60px -16px;
 
-/* Drei Längenwerte und eine Farbe */
+/* Three length values and a color */
 /* <length> | <length> | <length> | <color> */
 box-shadow: 10px 5px 5px black;
 
-/* Vier Längenwerte und eine Farbe */
+/* Four length values and a color */
 /* <length> | <length> | <length> | <length> | <color> */
 box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
 
-/* inset, Längenwerte und eine Farbe */
+/* inset, length values, and a color */
 /* <inset> | <length> | <length> | <color> */
 box-shadow: inset 5em 1em gold;
 
-/* Beliebige Anzahl von Schatten, durch Kommas getrennt */
+/* Any number of shadows, separated by commas */
 box-shadow:
   3px 3px red inset,
   -1em 0 0.4em olive;
 
-/* Globale Werte */
+/* Global values */
 box-shadow: inherit;
 box-shadow: initial;
 box-shadow: revert;
@@ -54,41 +54,42 @@ Geben Sie einen einzelnen Box-Schatten an mit:
 
 - Zwei, drei oder vier {{cssxref("length")}} Werten.
 
-  - Wenn nur zwei Werte angegeben sind, werden sie als `<offset-x>` und `<offset-y>` Werte interpretiert.
+  - Wenn nur zwei Werte angegeben sind, werden sie als `<offset-x>` und `<offset-y>` interpretiert.
   - Wenn ein dritter Wert angegeben ist, wird er als `<blur-radius>` interpretiert.
   - Wenn ein vierter Wert angegeben ist, wird er als `<spread-radius>` interpretiert.
 
-- Optional das Schlüsselwort `inset`.
-- Optional ein [`<color>`](#color) Wert.
+- Optional, das `inset` Schlüsselwort.
+- Optional, ein [`<color>`](#color) Wert.
 
-Um mehrere Schatten anzugeben, geben Sie eine durch Kommas getrennte Liste von Schatten an.
+Um mehrere Schatten anzugeben, geben Sie eine kommagetrennte Liste von Schatten an.
 
 ### Werte
 
 - `<color>` {{optional_inline}}
 
-  - : Gibt die Farbe für den Schatten an. Siehe {{cssxref("&lt;color&gt;")}} Werte für mögliche Schlüsselwörter und Notationen. Wenn nicht angegeben, wird der Wert der {{cssxref("color")}}-Eigenschaft verwendet, der im Elternelement definiert ist.
+  - : Gibt die Farbe für den Schatten an. Siehe {{cssxref("&lt;color&gt;")}} Werte für mögliche Schlüsselwörter und Notationen.
+    Wenn nicht angegeben, wird der Wert der im Elternelement definierten {{cssxref("color")}} Eigenschaft verwendet.
 
 - `<length>`
 
-  - : Gibt die Offset-Länge des Schattens an. Dieser Parameter akzeptiert zwei, drei oder vier Werte. Der dritte und vierte Wert sind optional. Sie werden wie folgt interpretiert:
+  - : Gibt die Offset-Längen des Schattens an. Diese Parameter akzeptieren zwei, drei oder vier Werte. Dritte und vierte Werte sind optional. Sie werden wie folgt interpretiert:
 
-    - Werden zwei Werte angegeben, werden sie als `<offset-x>` (horizontaler Offset) und `<offset-y>` (vertikaler Offset) interpretiert. Negativer `<offset-x>`-Wert platziert den Schatten links vom Element. Negativer `<offset-y>`-Wert platziert den Schatten über dem Element.\
-      Wenn nicht angegeben, wird der Wert von `0` für die fehlende Länge verwendet. Wenn sowohl `<offset-x>` als auch `<offset-y>` auf `0` gesetzt sind, wird der Schatten hinter dem Element platziert (und kann einen Unschärfeeffekt erzeugen, wenn `<blur-radius>` und/oder `<spread-radius>` gesetzt ist).
-    - Werden drei Werte angegeben, wird der dritte Wert als `<blur-radius>` interpretiert. Je größer dieser Wert ist, desto größer ist die Unschärfe, so dass der Schatten größer und heller wird. Negative Werte sind nicht erlaubt. Wenn nicht angegeben, wird er auf `0` gesetzt (was bedeutet, dass die Kante des Schattens scharf sein wird). Die Spezifikation enthält keinen genauen Algorithmus für die Berechnung des Unschärferadius, sondern beschreibt ihn wie folgt:
+    - Wenn zwei Werte angegeben sind, werden sie als `<offset-x>` (horizontaler Versatz) und `<offset-y>` (vertikaler Versatz) interpretiert. Ein negativer `<offset-x>` Wert platziert den Schatten links vom Element. Ein negativer `<offset-y>` Wert platziert den Schatten über dem Element.\
+      Wenn nicht angegeben, wird der Wert `0` für die fehlende Länge verwendet. Wenn sowohl `<offset-x>` als auch `<offset-y>` auf `0` gesetzt sind, wird der Schatten hinter dem Element platziert (und kann einen Weichzeichnungseffekt erzeugen, wenn `<blur-radius>` und/oder `<spread-radius>` eingestellt sind).
+    - Wenn drei Werte angegeben sind, wird der dritte Wert als `<blur-radius>` interpretiert. Je größer dieser Wert, desto größer der Weichzeichnungsgrad, so dass der Schatten größer und heller wird. Negative Werte sind nicht erlaubt. Wenn nicht angegeben, wird er auf `0` gesetzt (was bedeutet, dass die Kante des Schattens scharf ist). Die Spezifikation enthält keinen genauen Algorithmus zur Berechnung des Weichzeichnungsradius; jedoch wird er wie folgt erläutert:
 
-      > …für eine lange, gerade Schattenkante sollte dies einen Farbverlauf über die Länge der Unschärfedistanz erzeugen, der senkrecht zu und zentriert auf der Schattenkante liegt und von der vollständigen Schattenfarbe am Radiusendpunkt innerhalb des Schattens bis zur vollständigen Transparenz am Endpunkt außerhalb reicht.
+      > ...für eine lange, gerade Schattenkante sollte dies einen Farbverlauf in der Länge der Weichzeichnungsentfernung erzeugen, der senkrecht zur Schattenkante zentriert ist und der von der vollen Schattenfarbe am Radiusendpunkt innerhalb des Schattens bis zur vollständigen Transparenz am Endpunkt außerhalb reicht.
 
-    - Werden vier Werte angegeben, wird der vierte Wert als `<spread-radius>` interpretiert. Positive Werte bewirken, dass der Schatten sich ausdehnt und größer wird, negative Werte bewirken, dass der Schatten schrumpft. Wenn nicht angegeben, wird er auf `0` gesetzt (d.h. der Schatten ist genauso groß wie das Element).
+    - Wenn vier Werte angegeben sind, wird der vierte Wert als `<spread-radius>` interpretiert. Positive Werte bewirken, dass der Schatten sich ausdehnt und größer wird, negative Werte führen dazu, dass der Schatten kleiner wird. Wenn nicht angegeben, wird er auf `0` gesetzt (das heißt, der Schatten hat die gleiche Größe wie das Element).
 
 - `inset` {{optional_inline}}
-  - : Ändert den Schatten von einem äußeren Box-Schatten zu einem inneren Box-Schatten (als ob der Inhalt in die Box gedrückt wird). Eingesetzte Schatten werden innerhalb der Rahmenlinie der Box gezeichnet (selbst wenn der Rahmen transparent ist) und erscheinen über dem Hintergrund, aber unter dem Inhalt. Standardmäßig verhält sich der Schatten wie ein Schlagschatten und gibt den Eindruck, dass die Box über ihrem Inhalt schwebt. Dies ist das Standardverhalten, wenn `inset` nicht angegeben ist.
+  - : Ändert den Schatten von einem äußeren Box-Schatten in einen inneren Box-Schatten (als ob der Inhalt in die Box hineingedrückt ist). Innere Schatten werden innerhalb des Randes der Box gezeichnet (selbst wenn der Rand transparent ist) und erscheinen über dem Hintergrund, aber unter dem Inhalt. Standardmäßig verhält sich der Schatten wie ein Schlagschatten, was den Anschein erweckt, dass die Box über ihrem Inhalt schwebt. Dies ist das Standardverhalten, wenn `inset` nicht angegeben ist.
 
 ### Interpolation
 
-Beim Animieren von Schatten, z. B. wenn mehrere Schattenwerte bei einem Element-Hover auf neue Werte übergehen, werden die Werte interpoliert. {{Glossary("Interpolation")}} bestimmt Zwischenwerte von Eigenschaften wie Unschärferadius, Verbreitungsradius und Farbe beim Übergang der Schatten. Für jeden Schatten in einer Liste von Schatten gehen die Farbe, x, y, Unschärfe und Verbreitung in den Übergang; die Farbe als [`<color>`](/de/docs/Web/CSS/color_value) und die anderen Werte als {{cssxref("length")}}s.
+Beim Animieren von Schatten, z. B. wenn mehrere Schattenwerte auf einer Box beim Überfahren auf neue Werte wechseln, werden die Werte interpoliert. [Interpolation](/de/docs/Glossary/Interpolation) bestimmt Zwischenwerte von Eigenschaften, wie den Weichzeichnungsradius, Verbreitungsradius und die Farbe, während Schatten übergehen. Für jeden Schatten in einer Liste von Schatten werden die Farbe, x, y, Weichzeichnung und Verbreitung geändert; die Farbe als [`<color>`](/de/docs/Web/CSS/color_value), und die anderen Werte als {{cssxref("length")}}s.
 
-Beim Interpolieren mehrerer Schatten zwischen zwei kommagetrennten Listen mit mehreren Box-Schatten werden die Schatten paarweise zusammengeführt, wobei die Interpolation zwischen gepaarten Schatten stattfindet. Wenn die Listen mit Schatten unterschiedliche Längen haben, wird die kürzere Liste am Ende mit Schatten mit der Farbe `transparent` und X, Y und Unschärfe `0` aufgefüllt, wobei das `inset` oder Fehlen davon übereinstimmen muss. Wenn in irgendeinem Schattenpaar ein Schatten `inset` hat und der andere nicht, wird die gesamte Schattenliste nicht interpoliert; die Schatten ändern sich zu den neuen Werten ohne Animationseffekt.
+Beim Interpolieren mehrerer Schatten zwischen zwei kommagetrennten Listen von mehreren Box-Schatten werden die Schatten paarweise zugeordnet, wobei die Interpolation zwischen gepaarten Schatten erfolgt. Wenn die Listen unterschiedliche Längen haben, wird die kürzere Liste am Ende mit Schatten ergänzt, deren Farbe `transparent` ist und deren X, Y und Weichzeichnung `0` sind, wobei das Vorhandensein oder Fehlen des `inset` angepasst wird. Wenn in einem Schattenpaar eines `inset` gesetzt hat und das andere nicht, wird die gesamte Schattenliste nicht interpoliert; die Schatten ändern sich ohne Animation auf die neuen Werte.
 
 ## Formale Definition
 
@@ -102,17 +103,17 @@ Beim Interpolieren mehrerer Schatten zwischen zwei kommagetrennten Listen mit me
 
 ### Drei Schatten setzen
 
-In diesem Beispiel fügen wir drei Schatten hinzu: einen eingesetzten Schatten, einen normalen Schlagschatten und einen 2px Schatten, der einen Randeffekt erzeugt (wir hätten stattdessen für diesen dritten Schatten einen {{cssxref('outline')}} verwenden können).
+In diesem Beispiel verwenden wir drei Schatten: einen inneren Schatten, einen normalen Schlagschatten und einen 2px Schatten, der einen Randeffekt erzeugt (wir könnten für diesen dritten Schatten stattdessen einen {{cssxref('outline')}} verwenden).
 
 #### HTML
 
 ```html
 <blockquote>
   <q>
-    Sie können mich mit Ihren Worten erschießen,<br />
-    Sie können mich mit Ihren Augen schneiden,<br />
-    Sie können mich mit Ihrem Hass töten,<br />
-    Aber trotzdem, wie Luft, werde ich steigen.
+    You may shoot me with your words,<br />
+    You may cut me with your eyes,<br />
+    You may kill me with your hatefulness,<br />
+    But still, like air, I'll rise.
   </q>
   <p>&mdash; Maya Angelou</p>
 </blockquote>
@@ -134,16 +135,16 @@ blockquote {
 
 {{EmbedLiveSample('Setting_three_shadows', '300', '300')}}
 
-### Null für Offset und Unschärfe setzen
+### Null für Versatz und Weichzeichnung festlegen
 
-Wenn der `x-offset`, `y-offset` und die `blur` alle null sind, wird der Box-Schatten ein einfarbiger Umriss von gleicher Breite auf allen Seiten sein. Die Schatten werden von vorne nach hinten gezeichnet, sodass der erste Schatten oben auf nachfolgenden Schatten sitzt. Wenn die `border-radius` auf 0 gesetzt ist, wie es standardmäßig der Fall ist, werden die Ecken des Schattens Ecken sein. Hätten wir einen `border-radius` von einem anderen Wert gesetzt, wären die Ecken abgerundet gewesen.
+Wenn `x-offset`, `y-offset` und `blur` alle null sind, wird der Box-Schatten eine einfarbige Umrandung gleicher Größe auf allen Seiten sein. Die Schatten werden von vorne nach hinten gezeichnet, sodass der erste Schatten über den nachfolgenden Schatten liegt. Wenn der `border-radius` auf 0 gesetzt ist, wie es standardmäßig der Fall ist, haben die Ecken des Schattens – nun ja – Ecken. Hätten wir einen `border-radius` eines anderen Wertes angegeben, wären die Ecken abgerundet gewesen.
 
-Wir haben eine Marge in der Größe des breitesten Box-Schattens hinzugefügt, um sicherzustellen, dass der Schatten keine angrenzenden Elemente überlappt oder über den Rand der umgebenden Box hinausgeht. Ein Box-Schatten beeinflusst nicht die [Box-Modell](/de/docs/Web/CSS/CSS_box_model) Dimensionen.
+Wir haben einen Rand hinzugefügt, der der Größe des breitesten Box-Schattens entspricht, um sicherzustellen, dass der Schatten nicht an benachbarte Elemente stößt oder über den Rand der enthaltenen Box hinausgeht. Ein Box-Schatten beeinflusst nicht die [Box Modell](/de/docs/Web/CSS/CSS_box_model) Abmessungen.
 
 #### HTML
 
 ```html
-<div><p>Hallo Welt</p></div>
+<div><p>Hello World</p></div>
 ```
 
 #### CSS
@@ -158,7 +159,7 @@ p {
 }
 ```
 
-<!-- Diese Farben sind absichtlich pink und blau. WCAG erfordert einen Farbkontrast zwischen Text und Hintergrund, nicht zwischen Randfarben. -->
+<!-- diese Farben sind absichtlich pink und blau. WCAG erfordert Farbkontrast zwischen Text und Hintergrund, nicht zwischen Randfarben. -->
 
 #### Ergebnis
 
@@ -168,7 +169,7 @@ p {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -177,4 +178,4 @@ p {
 - Der {{cssxref("&lt;color&gt;")}} Datentyp (zum Festlegen der Schattenfarbe)
 - {{cssxref("text-shadow")}}
 - {{cssxref("filter-function/drop-shadow", "drop-shadow()")}}
-- [Anwenden von Farbe auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color)
+- [Farbe auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)

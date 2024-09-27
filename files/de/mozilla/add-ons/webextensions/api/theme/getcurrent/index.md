@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Erhält das aktuelle Theme als ein {{WebExtAPIRef("theme.Theme", "Theme")}}-Objekt.
+Ruft das aktuelle Theme als ein {{WebExtAPIRef("theme.Theme", "Theme")}}-Objekt ab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,15 +22,15 @@ let getting = browser.theme.getCurrent(
 ### Parameter
 
 - `windowId` {{optional_inline}}
-  - : `integer`. Die ID eines Fensters. Wenn dies angegeben wird, wird das Theme aufgelöst, das auf dieses Fenster angewendet wird. Wenn es weggelassen wird, wird das Theme aufgelöst, das auf das zuletzt fokussierte Fenster angewendet wird.
+  - : `integer`. Die ID eines Fensters. Wird dies angegeben, wird das Theme aufgelöst, das auf dieses Fenster angewendet wird. Wird es weggelassen, wird das Theme aufgelöst, das auf das zuletzt fokussierte Fenster angewendet wird.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Das Promise wird mit einem {{WebExtAPIRef("theme.Theme")}}-Objekt erfüllt, das das auf das angegebene Fenster angewendete Theme darstellt. Wenn kein von einer Erweiterung bereitgestelltes Theme auf das angegebene Fenster angewendet wurde, wird es mit einem leeren Objekt erfüllt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Das Promise wird mit einem {{WebExtAPIRef("theme.Theme")}}-Objekt erfüllt, das das auf das angegebene Fenster angewendete Theme darstellt. Falls kein von einer Erweiterung bereitgestelltes Theme auf das angegebene Fenster angewendet wurde, wird es mit einem leeren Objekt erfüllt.
 
 ## Beispiele
 
-Erhält die Eigenschaften `frame` und `toolbar` Farben des aktuellen Themes:
+Erhält die Eigenschaften `frame` und `toolbar`-Farben des aktuellen Themes:
 
 ```js
 function getStyle(themeInfo) {

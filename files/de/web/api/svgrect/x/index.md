@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die [x](https://svgwg.org/svg2-draft/geometry.html#XProperty) Eigenschaft beschreibt die horizontale Koordinate der Position des Elements.
+Die [x](https://svgwg.org/svg2-draft/geometry.html#XProperty)-Eigenschaft beschreibt die horizontale Koordinate der Position des Elements.
 
 ## Verwendungskontext
 
@@ -30,11 +30,11 @@ Die [x](https://svgwg.org/svg2-draft/geometry.html#XProperty) Eigenschaft beschr
       </td>
     </tr>
     <tr>
-      <td>Initialwert</td>
+      <td>Initial</td>
       <td>0</td>
     </tr>
     <tr>
-      <td>Gilt für</td>
+      <td>Anwendbar auf</td>
       <td>
         {{ SVGElement("mask") }}, '<a
           href="https://svgwg.org/svg2-draft/struct.html#SVGElement"
@@ -50,13 +50,13 @@ Die [x](https://svgwg.org/svg2-draft/geometry.html#XProperty) Eigenschaft beschr
       </td>
     </tr>
     <tr>
-      <td>Vererbbar</td>
+      <td>Vererbt</td>
       <td>nein</td>
     </tr>
     <tr>
       <td>Prozentsätze</td>
       <td>
-        beziehen sich auf die Größe des aktuellen Ansichtsfensters (siehe <a
+        beziehen sich auf die Größe des aktuellen Viewports (siehe <a
           href="https://svgwg.org/svg2-draft/coords.html#Units"
           >Einheiten</a
         >)
@@ -79,7 +79,7 @@ Die [x](https://svgwg.org/svg2-draft/geometry.html#XProperty) Eigenschaft beschr
 
 ## Einfache Verwendung
 
-Ein \<coordinate> ist eine Länge im Benutzerskoordinatensystem, die die angegebene Entfernung vom Ursprung des Benutzerskoordinatensystems entlang der entsprechenden Achse ist (die x-Achse für X-Koordinaten, die y-Achse für Y-Koordinaten). Die Syntax ist dieselbe wie für [\<length>](https://www.w3.org/TR/SVG11/types.html#DataTypeLength).
+Ein `<coordinate>` ist eine Länge im Benutzerkoordinatensystem, die den gegebenen Abstand vom Ursprung des Benutzerkoordinatensystems entlang der relevanten Achse (der x-Achse für X-Koordinaten, der y-Achse für Y-Koordinaten) darstellt. Seine Syntax ist die gleiche wie die für [\<length>](https://www.w3.org/TR/SVG11/types.html#DataTypeLength).
 
 ```html
 <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
@@ -91,7 +91,7 @@ Ein \<coordinate> ist eine Länge im Benutzerskoordinatensystem, die die angegeb
 </svg>
 ```
 
-{{EmbedLiveSample("Simple usage", "100%", "100")}}
+{{EmbedLiveSample("Einfache Verwendung", "100%", "100")}}
 
 ## Spezifikationen
 

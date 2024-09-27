@@ -1,5 +1,5 @@
 ---
-title: "Element: checkVisibility() Methode"
+title: "Element: checkVisibility()-Methode"
 short-title: checkVisibility()
 slug: Web/API/Element/checkVisibility
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`checkVisibility()`** Methode der {{domxref("Element")}} Schnittstelle prüft, ob das Element sichtbar ist.
+Die **`checkVisibility()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces prüft, ob das Element sichtbar ist.
 
-Die Methode gibt `false` in einer der folgenden Situationen zurück:
+Die Methode gibt `false` in einem der folgenden Fälle zurück:
 
-- Das Element hat keine zugehörige Box, zum Beispiel weil die CSS-Eigenschaft {{cssxref("display")}} auf [`none`](/de/docs/Web/CSS/display#none) oder [`contents`](/de/docs/Web/CSS/display#contents) gesetzt ist.
-- Das Element wird nicht gerendert, weil das Element oder ein übergeordnetes Element die Eigenschaft {{cssxref("content-visibility")}} auf [`hidden`](/de/docs/Web/CSS/content-visibility#hidden) setzt.
+- Das Element hat keinen zugeordneten Box, zum Beispiel weil die CSS-Eigenschaft {{cssxref("display")}} auf [`none`](/de/docs/Web/CSS/display#none) oder [`contents`](/de/docs/Web/CSS/display#contents) gesetzt ist.
+- Das Element wird nicht gerendert, weil dieses Element oder ein übergeordnetes Element die Eigenschaft {{cssxref("content-visibility")}} auf [`hidden`](/de/docs/Web/CSS/content-visibility#hidden) setzt.
 
-Der optionale Parameter ermöglicht zusätzliche Prüfungen, um andere Interpretationen von "sichtbar" zu testen.
-Beispielsweise können Sie weiter prüfen, ob ein Element eine Opazität von `0` hat, ob der Wert der Eigenschaft [`visibility`](/de/docs/Web/CSS/visibility) des Elements es unsichtbar macht oder ob die Eigenschaft {{cssxref("content-visibility")}} des Elements den Wert [`auto`](/de/docs/Web/CSS/content-visibility#auto) hat und das Rendering derzeit übersprungen wird.
+Der optionale Parameter ermöglicht zusätzliche Überprüfungen, um andere Definitionen von "sichtbar" zu testen.
+Zum Beispiel kann weiter geprüft werden, ob ein Element eine Opazität von `0` hat, ob der Wert der [`visibility`](/de/docs/Web/CSS/visibility)-Eigenschaft des Elements es unsichtbar macht oder ob die Eigenschaft {{cssxref("content-visibility")}} des Elements den Wert [`auto`](/de/docs/Web/CSS/content-visibility#auto) hat und das Rendering derzeit übersprungen wird.
 
 ## Syntax
 
@@ -32,37 +32,37 @@ checkVisibility(options)
     Die möglichen Optionen sind:
 
     - `contentVisibilityAuto`
-      - : `true`, um zu prüfen, ob die Eigenschaft {{cssxref("content-visibility")}} des Elements (oder ererbte) den Wert [`auto`](/de/docs/Web/CSS/content-visibility#auto) hat und das Rendering derzeit übersprungen wird.
+      - : `true`, um zu prüfen, ob die {{cssxref("content-visibility")}}-Eigenschaft des Elements den Wert [`auto`](/de/docs/Web/CSS/content-visibility#auto) hat (oder erbt) und das Rendering derzeit überspringt.
         Standardmäßig `false`.
     - `opacityProperty`
-      - : `true`, um zu prüfen, ob die Eigenschaft {{cssxref("opacity")}} des Elements (oder ererbte) den Wert `0` hat.
+      - : `true`, um zu prüfen, ob die {{cssxref("opacity")}}-Eigenschaft des Elements (oder erbt) einen Wert von `0` hat.
         Standardmäßig `false`.
     - `visibilityProperty`
 
-      - : `true`, um zu prüfen, ob das Element aufgrund des Wertes seiner Eigenschaft {{cssxref("visibility")}} unsichtbar ist.
+      - : `true`, um zu prüfen, ob das Element aufgrund der {{cssxref("visibility")}}-Eigenschaft unsichtbar ist.
         Standardmäßig `false`.
 
         > [!NOTE]
-        > Unsichtbare Elemente umfassen solche, die [`visibility: hidden`](/de/docs/Web/CSS/visibility#hidden) haben, und einige Elementtypen, die [`visibility: collapse`](/de/docs/Web/CSS/visibility#collapse) haben.
+        > Unsichtbare Elemente schließen solche ein, die [`visibility: hidden`](/de/docs/Web/CSS/visibility#hidden) haben, und einige Elementtypen, die [`visibility: collapse`](/de/docs/Web/CSS/visibility#collapse) haben.
 
     - `checkOpacity`
-      - : Ein historischer Alias für [`opacityProperty`](#opacityproperty).
+      - : Ein historisches Alias für [`opacityProperty`](#opacityproperty).
     - `checkVisibilityCSS`
-      - : Ein historischer Alias für [`visibilityProperty`](#visibilityproperty).
+      - : Ein historisches Alias für [`visibilityProperty`](#visibilityproperty).
 
 ### Rückgabewert
 
-`false`, wenn eine der folgenden Bedingungen erfüllt ist, sonst `true`:
+`false`, wenn eine der folgenden Bedingungen erfüllt ist, andernfalls `true`:
 
-- Das Element hat keine zugehörige Box.
-- Die Eigenschaft {{cssxref("content-visibility")}} des Elements hat (oder ererbte) einen Wert von [`hidden`](/de/docs/Web/CSS/visibility#hidden).
-- `opacityProperty` (oder `checkOpacity`) ist `true` und die Eigenschaft {{cssxref("opacity")}} des Elements hat (oder ererbte) den Wert `0`.
-- `visibilityProperty` (oder `checkVisibilityCSS`) ist `true` und das Element ist aufgrund des Wertes seiner Eigenschaft {{cssxref("visibility")}} unsichtbar.
-- `contentVisibilityAuto` ist `true`, die Eigenschaft {{cssxref("content-visibility")}} hat (oder ererbte) einen Wert von [`auto`](/de/docs/Web/CSS/content-visibility#auto), und das Rendering des Elements wird übersprungen.
+- Das Element hat keinen zugeordneten Box.
+- Die {{cssxref("content-visibility")}}-Eigenschaft des Elements hat (oder erbt) einen Wert von [`hidden`](/de/docs/Web/CSS/visibility#hidden).
+- `opacityProperty` (oder `checkOpacity`) ist `true` und die {{cssxref("opacity")}}-Eigenschaft des Elements hat (oder erbt) einen Wert von `0`.
+- `visibilityProperty` (oder `checkVisibilityCSS`) ist `true` und das Element ist aufgrund der {{cssxref("visibility")}}-Eigenschaft unsichtbar.
+- `contentVisibilityAuto` ist `true`, die {{cssxref("content-visibility")}}-Eigenschaft hat (oder erbt) einen Wert von [`auto`](/de/docs/Web/CSS/content-visibility#auto), und das Rendering des Elements wird übersprungen.
 
 ## Beispiele
 
-### Test von checkVisibility() mit verschiedenen CSS-Werten
+### Prüfung von checkVisibility() mit unterschiedlichen CSS
 
 Das folgende Beispiel ermöglicht es Ihnen zu testen, wie sich das Ergebnis von `checkVisibility()` mit unterschiedlichen Werten für die CSS-Eigenschaften `display`, `content-visibility`, `visibility` und `opacity` ändern könnte.
 
@@ -96,17 +96,17 @@ Die ersten (standardmäßig ausgewählten) Werte sollten dazu führen, dass `che
 </select>
 ```
 
-Als nächstes haben wir ein `<pre>`, das verwendet wird, um das Ergebnis des `checkVisibility()`-Checks auszugeben, wenn keine Optionen im Parameter übergeben werden, sowie für jeden einzelnen Optionswert.
-Am Ende haben wir das zu testende Element (auf das wir die ausgewählten CSS-Eigenschaftswerte anwenden werden).
+Danach haben wir ein `<pre>`, das verwendet wird, um das Ergebnis der `checkVisibility()`-Prüfung auszugeben, wenn keine Optionen im Parameter übergeben werden, und für jeden einzelnen Optionswert.
+Am Ende haben wir das Element, das getestet wird (auf das wir die ausgewählten CSS-Eigenschaftswerte anwenden).
 
 ```html
 <pre id="output_result"></pre>
-<div id="test_element">Das Element, das auf Sichtbarkeit geprüft wird.</div>
+<div id="test_element">The element to be checked for visibility.</div>
 ```
 
 #### CSS
 
-Das CSS hebt nur das zu testende Element hervor.
+Das CSS hebt einfach das zu testende Element hervor.
 
 ```css
 #test_element {
@@ -117,8 +117,8 @@ Das CSS hebt nur das zu testende Element hervor.
 
 #### JavaScript
 
-Der folgende Code erfasst jedes der `<select>`-Elemente.
-Die `updateCSS()`-Methode wird beim Start und bei jeder Änderung der Auswahlelemente aufgerufen, um die ausgewählten CSS-Eigenschaften auf das Ziel-Element anzuwenden,
+Der Code unten ruft jedes der `<select>`-Elemente ab.
+Die `updateCSS()`-Methode wird beim Start und immer dann aufgerufen, wenn die Auswahl der Elemente sich ändert, um das ausgewählte CSS auf das Ziel-Element anzuwenden.
 
 ```js
 const displayCssSelect = document.getElementById("css_display");
@@ -141,13 +141,13 @@ cssSelectors.forEach((select) => {
 });
 
 function updateCSS() {
-  // Ausgewählte CSS-Eigenschaften auf Ziel-Element anwenden
+  // Apply selected CSS properties to target element
   elementToCheck.style.display = displayCssSelect.value;
   elementToCheck.style.contentVisibility = contentVisibilityCssSelect.value;
   elementToCheck.style.opacity = displayCssOpacity.value;
   elementToCheck.style.visibility = displayCssVisibility.value;
 
-  // checkVisibility() auf Element mit Standard- und jeder Option aufrufen
+  // Call checkVisibility() on element using default and each of options
   const defaultVisibilityCheck = elementToCheck.checkVisibility();
   const opacityVisibilityCheck = elementToCheck.checkVisibility({
     opacityProperty: true,
@@ -159,21 +159,21 @@ function updateCSS() {
     contentVisibilityAuto: true,
   });
 
-  // Die Ergebnisse der Tests ausgeben
-  outputResult.innerText = `Prüfungen auf Element unten (kann versteckt sein):
-- Ergebnis von checkVisibility(): ${defaultVisibilityCheck}
-- Ergebnis von checkVisibility({opacityProperty: true}): ${opacityVisibilityCheck}
-- Ergebnis von checkVisibility({visibilityProperty: true}): ${cssVisibilityCheck}
-- Ergebnis von checkVisibility({contentVisibilityAuto: true}): ${contentVisibilityAutoCheck}`;
+  // Output the results of the tests
+  outputResult.innerText = `Checks on element below (may be hidden):
+- Result of checkVisibility(): ${defaultVisibilityCheck}
+- Result of checkVisibility({opacityProperty: true}): ${opacityVisibilityCheck}
+- Result of checkVisibility({visibilityProperty: true}): ${cssVisibilityCheck}
+- Result of checkVisibility({contentVisibilityAuto: true}): ${contentVisibilityAutoCheck}`;
 }
 ```
 
 #### Ergebnis
 
 Die Ergebnisse werden unten angezeigt.
-Wenn Sie die Auswahl ändern, werden die Ergebnisse auf das Testelement (blauer Umriss) angewendet und die Ergebnisse des `checkVisibility()` für jede Einstellung sollten angezeigt werden.
-Wenn Sie beispielsweise `opacity: 0` setzen, sollte dieser Test (nur) `false` anzeigen.
-Wenn Sie jedoch `display: none` setzen, sollten alle Tests `false` zurückgeben.
+Wenn Sie die Auswahl ändern, werden die Ergebnisse auf das Testelement (blauer Umriss) angewendet und die Ergebnisse der `checkVisibility()`-Prüfung für jede Einstellung sollten angezeigt werden.
+Zum Beispiel, wenn Sie `opacity: 0` einstellen, sollte dieser Test (nur) `false` anzeigen.
+Wenn Sie jedoch `display: none` einstellen, sollten alle Tests `false` zurückgeben.
 
 {{ EmbedLiveSample('Test checkVisibility() with varied CSS', "100%", "200" ) }}
 

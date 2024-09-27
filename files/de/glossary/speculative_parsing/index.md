@@ -7,18 +7,18 @@ l10n:
 
 {{GlossarySidebar}}
 
-Traditionell lief der HTML-Parser in Browsern im Haupt-Thread und wurde nach einem `</script>`-Tag blockiert, bis das Skript aus dem Netzwerk abgerufen und ausgeführt wurde. Einige HTML-Parser, wie etwa Firefox seit Firefox 4, unterstützen spekulatives Parsen außerhalb des Haupt-Threads. Während Skripte heruntergeladen und ausgeführt werden, wird vorausgeparst. Der HTML-Parser startet spekulative Ladevorgänge für Skripte, Stylesheets und Bilder, die er im Datenstrom vorausfindet, und führt den HTML-Baubaumalgorithmus spekulativ aus. Der Vorteil ist, dass, wenn eine Spekulation erfolgreich ist, es nicht notwendig ist, den Teil der eingehenden Datei erneut zu parsen, der bereits nach Skripten, Stylesheets und Bildern durchsucht wurde. Der Nachteil ist, dass mehr Arbeit verloren geht, wenn die Spekulation scheitert.
+Traditionell lief der HTML-Parser in Browsern im Haupt-Thread und wurde nach einem `</script>`-Tag blockiert, bis das Skript aus dem Netzwerk abgerufen und ausgeführt wurde. Einige HTML-Parser, wie z. B. Firefox seit Firefox 4, unterstützen spekulatives Parsen abseits des Haupt-Threads. Sie parsen im Voraus, während Skripte heruntergeladen und ausgeführt werden. Der HTML-Parser startet spekulative Ladeprozesse für Skripte, Stylesheets und Bilder, die er im Stream voraus sieht, und führt den HTML-Baustruktur-Algorithmus spekulativ aus. Der Vorteil ist, dass, wenn eine Spekulation erfolgreich ist, der bereits auf Skripte, Stylesheets und Bilder gescannte Teil der eingehenden Datei nicht erneut geparst werden muss. Der Nachteil ist, dass im Falle eines Scheiterns der Spekulation mehr Arbeit verloren geht.
 
-Dieses Dokument hilft Ihnen, die Dinge zu vermeiden, die Spekulationen zum Scheitern bringen und das Laden Ihrer Seite verlangsamen.
+Dieses Dokument hilft Ihnen, die Dinge zu vermeiden, die eine Spekulation fehlschlagen lassen und das Laden Ihrer Seite verlangsamen.
 
-Um spekulative Ladevorgänge von verlinkten Skripten, Stylesheets und Bildern erfolgreich zu machen, vermeiden Sie {{domxref('document.write')}}. Wenn Sie ein `<base>`-Element verwenden, um die Basis-URI Ihrer Seite zu überschreiben, platzieren Sie das Element in den nicht geskripteten Teil des Dokuments. Fügen Sie es nicht über `document.write()` oder {{domxref('document.createElement')}} hinzu.
+Um spekulative Ladungen von verlinkten Skripten, Stylesheets und Bildern erfolgreich zu machen, vermeiden Sie [`document.write`](/de/docs/Web/API/Document/write). Wenn Sie ein `<base>`-Element verwenden, um die Basis-URI Ihrer Seite zu überschreiben, setzen Sie das Element in den nicht geskripteten Teil des Dokuments. Fügen Sie es nicht über `document.write()` oder [`document.createElement`](/de/docs/Web/API/Document/createElement) hinzu.
 
-## Verlust der Baumkonstruktionsergebnisse vermeiden
+## Vermeidung von Verlusten beim Baustrukturausgang
 
-Die spekulative Baumkonstruktion schlägt fehl, wenn `document.write()` den Zustand des Baumkonstruktors so verändert, dass der spekulative Zustand nach dem `</script>`-Tag nicht mehr hält, wenn alle durch `document.write()` eingefügten Inhalte geparst wurden. Nur ungewöhnliche Anwendungen von `document.write()` verursachen jedoch Probleme. Hier sind die Dinge, die Sie vermeiden sollten:
+Spekulativer Baustrukturaufbau schlägt fehl, wenn `document.write()` den Zustand des Baum-Erstellers so ändert, dass der spekulative Zustand nach dem `</script>`-Tag nicht mehr gilt, nachdem der gesamte Inhalt, der von `document.write()` eingefügt wurde, geparst wurde. Allerdings verursachen nur ungewöhnliche Verwendungen von `document.write()` Probleme. Hier sind die Dinge, die vermieden werden sollten:
 
-- Schreiben Sie keine unausgewogene Strukturen. `<script>document.write("<div>");</script>` ist schlecht. `<script>document.write("<div></div>");</script>` ist in Ordnung.
-- Schreiben Sie kein unvollständiges Token. `<script>document.write("<div></div");</script>` ist schlecht.
+- Schreiben Sie keine unausgewogenen Bäume. `<script>document.write("<div>");</script>` ist schlecht. `<script>document.write("<div></div>");</script>` ist in Ordnung.
+- Schreiben Sie kein unvollendetes Token. `<script>document.write("<div></div");</script>` ist schlecht.
 - Beenden Sie Ihr Schreiben nicht mit einem Wagenrücklauf. `<script>document.write("Hello World!\r");</script>` ist schlecht. `<script>document.write("Hello World!\n");</script>` ist in Ordnung.
-- Beachten Sie, dass das Schreiben von ausgewogenen Tags dazu führen kann, dass andere Tags in einer Weise interpretiert werden, die das Schreiben unausgewogen macht. Z.B. `<script>document.write("<div></div>");</script>` im `head`-Element wird als `<script>document.write("</head><body><div></div>");</script>` interpretiert, was unausgewogen ist.
-- Formatieren Sie nicht nur einen Teil einer Tabelle. `<table><script>document.write("<tr><td>Hello World!</td></tr>");</script></table>` ist schlecht.
+- Beachten Sie, dass das Schreiben von ausgeglichenen Tags dazu führen kann, dass andere Tags in einer Weise inferiert werden, die das Schreiben unausgewogen macht. Z.B. `<script>document.write("<div></div>");</script>` im `head`-Element wird als `<script>document.write("</head><body><div></div>");</script>` interpretiert, was unausgewogen ist.
+- Formatieren Sie keinen Teil einer Tabelle. `<table><script>document.write("<tr><td>Hello World!</td></tr>");</script></table>` ist schlecht.

@@ -2,29 +2,29 @@
 title: Crypto
 slug: Web/API/Crypto
 l10n:
-  sourceCommit: 5d670c42df8ede57e3d6341cb15d8251eb188dc4
+  sourceCommit: cc27a64bb555b250cf0984a3a744e5fd251e3565
 ---
 
-{{APIRef("Web Crypto API")}} {{AvailableInWorkers}}
+{{APIRef("Web Crypto API")}}{{AvailableInWorkers}}
 
-Die **`Crypto`**-Schnittstelle repräsentiert grundlegende Kryptographie-Funktionen, die im aktuellen Kontext verfügbar sind. Sie ermöglicht den Zugriff auf einen kryptographisch starken Zufallszahlen-Generator und auf kryptographische Primitive.
+Die **`Crypto`**-Schnittstelle repräsentiert grundlegende kryptografische Funktionen, die im aktuellen Kontext verfügbar sind. Sie ermöglicht den Zugriff auf einen kryptografisch starken Zufallszahlengenerator und auf kryptografische Primitive.
 
-`Crypto` ist in Fenstern über die {{domxref("Window.crypto")}}-Eigenschaft verfügbar und in Workern über die {{domxref("WorkerGlobalScope.crypto")}}-Eigenschaft.
+Das `Crypto` ist in Fenstern über die [`Window.crypto`](/de/docs/Web/API/Window/crypto)-Eigenschaft und in Workern über die [`WorkerGlobalScope.crypto`](/de/docs/Web/API/WorkerGlobalScope/crypto)-Eigenschaft verfügbar.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle implementiert Eigenschaften, die auf {{domxref("Crypto/getRandomValues", "RandomSource")}} definiert sind._
+_Diese Schnittstelle implementiert Eigenschaften, die auf [`RandomSource`](/de/docs/Web/API/Crypto/getRandomValues) definiert sind._
 
-- {{domxref("Crypto.subtle")}} {{ReadOnlyInline}} {{SecureContext_inline}}
-  - : Gibt ein {{domxref("SubtleCrypto")}}-Objekt zurück, das Zugriff auf grundlegende kryptographische Primitive bietet, wie Hashing, Signieren, Verschlüsselung oder Entschlüsselung.
+- [`Crypto.subtle`](/de/docs/Web/API/Crypto/subtle) {{ReadOnlyInline}} {{SecureContext_inline}}
+  - : Gibt ein [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Objekt zurück, das Zugriff auf gängige kryptografische Primitive ermöglicht, wie z.B. Hashing, Signierung, Verschlüsselung oder Entschlüsselung.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle implementiert Methoden, die auf {{domxref("Crypto/getRandomValues", "RandomSource")}} definiert sind._
+_Diese Schnittstelle implementiert Methoden, die auf [`RandomSource`](/de/docs/Web/API/Crypto/getRandomValues) definiert sind._
 
-- {{domxref("Crypto.getRandomValues()")}}
-  - : Füllt das übergebene {{ jsxref("TypedArray") }} mit kryptographisch sicheren Zufallswerten.
-- {{domxref("Crypto.randomUUID()")}} {{SecureContext_inline}}
+- [`Crypto.getRandomValues()`](/de/docs/Web/API/Crypto/getRandomValues)
+  - : Füllt das übergebene {{ jsxref("TypedArray") }} mit kryptografisch sicheren Zufallswerten.
+- [`Crypto.randomUUID()`](/de/docs/Web/API/Crypto/randomUUID) {{SecureContext_inline}}
   - : Gibt eine zufällig generierte, 36 Zeichen lange v4 UUID zurück.
 
 ## Spezifikationen

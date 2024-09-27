@@ -11,22 +11,22 @@ Die **`SVGLinearGradientElement`**-Schnittstelle entspricht dem {{SVGElement("li
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten Element, {{domxref("SVGGradientElement")}}._
+_Diese Schnittstelle erbt außerdem Eigenschaften von ihrem übergeordneten Element, [`SVGGradientElement`](/de/docs/Web/API/SVGGradientElement)._
 
-- {{domxref("SVGLinearGradientElement.x1")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem {{SVGAttr("x1")}}-Attribut des angegebenen {{SVGElement("linearGradient")}}-Elements entspricht.
-- {{domxref("SVGLinearGradientElement.y1")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem {{SVGAttr("y1")}}-Attribut des angegebenen {{SVGElement("linearGradient")}}-Elements entspricht.
-- {{domxref("SVGLinearGradientElement.x2")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem {{SVGAttr("x2")}}-Attribut des angegebenen {{SVGElement("linearGradient")}}-Elements entspricht.
-- {{domxref("SVGLinearGradientElement.y2")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem {{SVGAttr("y2")}}-Attribut des angegebenen {{SVGElement("linearGradient")}}-Elements entspricht.
+- [`SVGLinearGradientElement.x1`](/de/docs/Web/API/SVGLinearGradientElement/x1) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x1")}}-Attribut des angegebenen {{SVGElement("linearGradient")}}-Elements entspricht.
+- [`SVGLinearGradientElement.y1`](/de/docs/Web/API/SVGLinearGradientElement/y1) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y1")}}-Attribut des angegebenen {{SVGElement("linearGradient")}}-Elements entspricht.
+- [`SVGLinearGradientElement.x2`](/de/docs/Web/API/SVGLinearGradientElement/x2) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x2")}}-Attribut des angegebenen {{SVGElement("linearGradient")}}-Elements entspricht.
+- [`SVGLinearGradientElement.y2`](/de/docs/Web/API/SVGLinearGradientElement/y2) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y2")}}-Attribut des angegebenen {{SVGElement("linearGradient")}}-Elements entspricht.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer übergeordneten Schnittstelle, {{domxref("SVGGradientElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer übergeordneten Schnittstelle [`SVGGradientElement`](/de/docs/Web/API/SVGGradientElement)._
 
 ## Spezifikationen
 

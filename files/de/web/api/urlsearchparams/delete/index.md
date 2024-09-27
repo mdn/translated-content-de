@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`delete()`**-Methode der {{domxref("URLSearchParams")}}-Schnittstelle löscht angegebene Parameter und ihre zugehörigen Werte aus der Liste aller Suchparameter.
+Die **`delete()`** Methode des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Interfaces löscht angegebene Parameter und deren zugehörige Werte aus der Liste aller Suchparameter.
 
-Ein Parametername und ein optionaler Wert werden verwendet, um Parameter abzugleichen. Wenn nur ein Parametername angegeben ist, werden alle Suchparameter, die mit dem Namen übereinstimmen, zusammen mit ihren zugehörigen Werten gelöscht. Wenn sowohl ein Parametername als auch ein Wert angegeben sind, werden alle Suchparameter gelöscht, die sowohl mit dem Parameternamen als auch mit dem Wert übereinstimmen.
+Ein Parametername und ein optionaler Wert werden verwendet, um Parameter abzugleichen. Wenn nur ein Parametername angegeben wird, werden alle Suchparameter, die mit dem Namen übereinstimmen, zusammen mit ihren zugehörigen Werten gelöscht. Wenn sowohl ein Parametername als auch ein Wert angegeben werden, werden alle Suchparameter gelöscht, die sowohl mit dem Parameternamen als auch mit dem Wert übereinstimmen.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ delete(name, value)
 - `name`
   - : Der Name der zu löschenden Parameter.
 - `value` {{optional_inline}}
-  - : Der Wert, mit dem Parameter zusammen mit dem angegebenen Namen übereinstimmen müssen, um gelöscht zu werden.
+  - : Der Wert, mit dem die Parameter zusammen mit dem angegebenen Namen übereinstimmen müssen, um gelöscht zu werden.
 
 ### Rückgabewert
 
@@ -32,45 +32,45 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Löschen aller Parameter mit einem angegebenen Namen
+### Alle Parameter mit angegebenem Namen löschen
 
-Dieses Beispiel zeigt, wie alle Abfrageparameter (und Werte), die einen bestimmten Namen haben, gelöscht werden.
+Dieses Beispiel zeigt, wie man alle Abfrageparameter (und Werte) löscht, die einen bestimmten Namen haben.
 
 ```js
 const url = new URL("https://example.com?foo=1&bar=2&foo=3");
 const params = new URLSearchParams(url.search);
-console.log(`Abfragezeichenfolge (vorher):\t ${params}`);
+console.log(`Query string (before):\t ${params}`);
 params.delete("foo");
-console.log(`Abfragezeichenfolge (nachher):\t ${params}`);
+console.log(`Query string (after):\t ${params}`);
 ```
 
-Die untenstehende Protokollierung zeigt, dass alle Parameter mit dem Namen `foo` gelöscht werden.
+Das untenstehende Protokoll zeigt, dass alle Parameter, die den Namen `foo` haben, gelöscht werden.
 
 ```plain
-Abfragezeichenfolge (vorher):  foo=1&bar=2&foo=3
-Abfragezeichenfolge (nachher):   bar=2
+Query string (before):  foo=1&bar=2&foo=3
+Query string (after):   bar=2
 ```
 
-### Löschen von Parametern mit angegebenem Namen und Wert
+### Parameter mit angegebenem Namen und Wert löschen
 
-Dieses Beispiel zeigt, wie Abfrageparameter gelöscht werden, die einem bestimmten Namen und Wert entsprechen.
+Dieses Beispiel zeigt, wie man Abfrageparameter löscht, die mit einem bestimmten Namen und Wert übereinstimmen.
 
 ```js
 const url = new URL("https://example.com?foo=1&bar=2&foo=3&foo=1");
 const params = new URLSearchParams(url.search);
-console.log(`Abfragezeichenfolge (vorher):\t ${params}`);
+console.log(`Query string (before):\t ${params}`);
 params.delete("foo", "1");
-console.log(`Abfragezeichenfolge (nachher):\t ${params}`);
+console.log(`Query string (after):\t ${params}`);
 ```
 
-Alle Parameter, die sowohl dem Parameter `name` als auch `value` entsprechen, sollten gelöscht werden (es gibt keinen Grund, zwei Parameter mit demselben Namen und Wert wie oben angegeben zu spezifizieren).
+Alle Parameter, die sowohl mit dem Parameter `name` als auch `value` übereinstimmen, sollten gelöscht werden (es gibt keinen Grund, zwei Parameter mit demselben Namen und Wert wie oben gezeigt anzugeben).
 
 ```plain
-Abfragezeichenfolge (vorher):  foo=1&bar=2&foo=3&foo=1
-Abfragezeichenfolge (nachher):   bar=2&foo=3
+Query string (before):  foo=1&bar=2&foo=3&foo=1
+Query string (after):   bar=2&foo=3
 ```
 
-Wenn Ihr Browser die `value`-Option unterstützt, sollte die "nachher"-Zeichenfolge `bar=2&foo=3` sein. Andernfalls wird das Ergebnis dasselbe sein wie im vorherigen Beispiel (`bar=2`).
+Wenn Ihr Browser die `value`-Option unterstützt, sollte der "after"-String `bar=2&foo=3` sein. Andernfalls wird das Ergebnis dasselbe sein wie im vorherigen Beispiel (`bar=2`).
 
 ## Spezifikationen
 

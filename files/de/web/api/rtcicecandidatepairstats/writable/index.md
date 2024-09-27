@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebRTC")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die _veraltete_ Eigenschaft **`writable`** des {{domxref("RTCIceCandidatePairStats")}}
-berichtet, ob die Verbindung, die durch das Kandidatenpaar beschrieben wird, beschreibbar ist.
+Die _veraltete_ [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)
+Eigenschaft **`writable`** gibt an, ob die Verbindung, die durch das Kandidatenpaar beschrieben wird, beschreibbar ist.
 
 ## Wert
 
 Ein boolescher Wert, der `true` ist, wenn die Verbindung, die durch dieses
 Kandidatenpaar beschrieben wird, eine Empfangsbestätigung (ACK) für mindestens eine ICE-
-Anfrage erhalten hat _und_ dass die Zustimmung des {{Glossary("STUN")}} nicht abgelaufen ist.
+Anfrage erhalten hat _und_ die [STUN](/de/docs/Glossary/STUN)-Zustimmung nicht abgelaufen ist.
 
 > [!NOTE]
 > Diese Eigenschaft wurde Anfang 2017 aus der Spezifikation entfernt,
-> weil Sie feststellen können, ob eine eingehende ICE-Anfrage lesbar ist,
-> indem Sie prüfen, ob {{domxref("RTCIceCandidatePairStats.responsesReceived", "responsesReceived")}} größer als 0 ist und die durch
-> {{domxref("RTCIceCandidatePairStats.consentExpiredTimestamp", "consentExpiredTimestamp")}} angegebene Zeit nicht abgelaufen ist:
+> weil Sie feststellen können, ob eine eingehende ICE-Anfrage zum Lesen verfügbar ist,
+> indem Sie überprüfen, ob [`responsesReceived`](/de/docs/Web/API/RTCIceCandidatePairStats/responsesReceived) größer als 0 ist und die durch
+> [`consentExpiredTimestamp`](/de/docs/Web/API/RTCIceCandidatePairStats/consentExpiredTimestamp) angegebene Zeit nicht vergangen ist:
 >
 > ```js
 > if (

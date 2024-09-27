@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`name`**-Eigenschaft der {{domxref("HTMLTextAreaElement")}}-Schnittstelle gibt den Namen des {{HTMLElement("textarea")}}-Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/textarea#name)-Attribut des Elements wider.
+Die **`name`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt den Namen des {{HTMLElement("textarea")}}-Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/textarea#name)-Attribut des Elements wider.
 
 ## Wert
 
@@ -32,5 +32,5 @@ textareaElement.name = "response"; // sets or updates the element's name
 
 ## Siehe auch
 
-- {{domxref("HTMLTextAreaElement.value")}}
-- {{domxref("HTMLTextAreaElement.textLength")}}
+- [`HTMLTextAreaElement.value`](/de/docs/Web/API/HTMLTextAreaElement/value)
+- [`HTMLTextAreaElement.textLength`](/de/docs/Web/API/HTMLTextAreaElement/textLength)

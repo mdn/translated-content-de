@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`sizeX`** Eigenschaft mit Lesezugriff der {{domxref("VRStageParameters")}} Schnittstelle _gibt die Breite_ der Spielbereichgrenzen in Metern zurück.
+Die schreibgeschützte Eigenschaft **`sizeX`** der [`VRStageParameters`](/de/docs/Web/API/VRStageParameters)-Schnittstelle _gibt die Breite_ der Spielbereichsgrenzen in Metern zurück.
 
 > [!NOTE]
 > Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
-Die Grenzen sind als achsenparallel ausgerichtetes Rechteck auf dem Boden definiert, um die Sicherheit zu gewährleisten. Inhalte sollten nicht erfordern, dass der Benutzer über diese Grenzen hinausgeht; es ist jedoch möglich, dass der Benutzer die Grenzen ignoriert, was zu Positionswerten außerhalb dieses Rechtecks führt. Der Mittelpunkt des Rechtecks befindet sich bei (0,0,0) in stehenden Raumkoordinaten.
+Die Grenzen sind aus Sicherheitsgründen als achsenparallel ausgerichtetes Rechteck auf dem Boden definiert. Inhalte sollten nicht verlangen, dass der Benutzer sich über diese Grenzen hinaus bewegt; dennoch ist es möglich, dass der Benutzer die Grenzen ignoriert, was zu Positionswerten außerhalb dieses Rechtecks führen kann. Das Zentrum des Rechtecks befindet sich bei (0,0,0) in den Koordinaten des Stehbereichs.
 
 ## Wert
 
-Ein Float, der die Breite in Metern darstellt.
+Ein Fließkommawert, der die Breite in Metern darstellt.
 
 ## Beispiele
 
@@ -25,9 +25,9 @@ Siehe [`VRStageParameters`](/de/docs/Web/API/VRStageParameters#examples) für Be
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie steht nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Portierung von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) Leitfaden für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie die [Meta-Anleitung zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 

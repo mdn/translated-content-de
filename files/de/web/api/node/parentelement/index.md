@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`parentElement`**-Eigenschaft des {{domxref("Node")}}-Interfaces gibt das übergeordnete {{DOMxRef("Element")}} des DOM-Knotens zurück, oder `null`, wenn der Knoten entweder kein übergeordnetes Element hat oder sein übergeordnetes Element kein DOM-{{DOMxRef("Element")}} ist. {{domxref("Node.parentNode")}} hingegen gibt jede Art von übergeordnetem Element zurück, unabhängig von dessen Typ.
+Die schreibgeschützte **`parentElement`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt das übergeordnete [`Element`](/de/docs/Web/API/Element) des DOM-Knotens zurück oder `null`, wenn der Knoten entweder kein übergeordnetes Element hat oder dessen übergeordnetes Element kein DOM-[`Element`](/de/docs/Web/API/Element) ist. [`Node.parentNode`](/de/docs/Web/API/Node/parentNode) hingegen gibt eine beliebige Art von übergeordnetem Element zurück, unabhängig von dessen Typ.
 
 ## Wert
 
-Ein {{domxref("Element")}}, das das übergeordnete Element des aktuellen Knotens ist, oder `null`, falls es keines gibt.
+Ein [`Element`](/de/docs/Web/API/Element), das das übergeordnete Element des aktuellen Knotens ist, oder `null`, falls es keines gibt.
 
 ## Beispiel
 
-### Nutzung von parentElement
+### Verwendung von parentElement
 
-Dieses Beispiel sorgt dafür, dass der Elternteil von `node` eine rote Textfarbe hat.
+Dieses Beispiel setzt das übergeordnete Element von `node` so, dass es eine rote Textfarbe hat.
 
 ```js
 if (node.parentElement) {
@@ -28,7 +28,7 @@ if (node.parentElement) {
 
 ### parentElement ist null
 
-`parentElement` kann `null` sein, wenn der Knoten keinen Elternteil hat (z.B. weil er nicht an einen Baum angehängt ist) oder sein Elternteil kein `Element` ist. Andererseits gibt {{domxref("Node.parentNode")}} immer den übergeordneten Knoten zurück, der ein {{domxref("Document")}} oder andere Knotentypen sein kann.
+`parentElement` kann `null` sein, wenn der Knoten kein übergeordnetes Element hat (zum Beispiel, weil es nicht mit einem Baum verbunden ist) oder wenn sein übergeordnetes Element kein `Element` ist. Andererseits gibt [`Node.parentNode`](/de/docs/Web/API/Node/parentNode) immer den übergeordneten Knoten zurück, der ein [`Document`](/de/docs/Web/API/Document) oder andere Knotentypen sein kann.
 
 ```html
 <!doctype html>
@@ -53,4 +53,4 @@ if (node.parentElement) {
 
 ## Siehe auch
 
-- {{domxref("Node.parentNode")}}
+- [`Node.parentNode`](/de/docs/Web/API/Node/parentNode)

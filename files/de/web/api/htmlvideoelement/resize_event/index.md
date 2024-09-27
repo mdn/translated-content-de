@@ -1,5 +1,5 @@
 ---
-title: "HTMLVideoElement: resize Ereignis"
+title: "HTMLVideoElement: resize-Ereignis"
 short-title: resize
 slug: Web/API/HTMLVideoElement/resize_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Das **`resize`**-Ereignis der {{domxref("HTMLVideoElement")}}-Schnittstelle wird ausgelöst, wenn eine oder beide Eigenschaften, {{domxref("HTMLVideoElement.videoWidth", "videoWidth")}} und {{domxref("HTMLVideoElement.videoHeight", "videoHeight")}}, gerade aktualisiert wurden.
+Das **`resize`**-Ereignis der [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Schnittstelle wird ausgelöst, wenn eine oder beide der Eigenschaften [`videoWidth`](/de/docs/Web/API/HTMLVideoElement/videoWidth) und [`videoHeight`](/de/docs/Web/API/HTMLVideoElement/videoHeight) gerade aktualisiert wurden.
 
-Dieses Ereignis kann nicht abgebrochen werden, kann jedoch hochbubbeln.
+Dieses Ereignis kann nicht abgebrochen werden, kann jedoch blubbern.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("resize", (event) => {});
@@ -24,7 +24,7 @@ onresize = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -43,11 +43,11 @@ el.addEventListener("resize", () => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLVideoElement.videoHeight")}}
-- {{domxref("HTMLVideoElement.videoWidth")}}
+- [`HTMLVideoElement.videoHeight`](/de/docs/Web/API/HTMLVideoElement/videoHeight)
+- [`HTMLVideoElement.videoWidth`](/de/docs/Web/API/HTMLVideoElement/videoWidth)

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Storage Access API")}}
 
-Die **`hasUnpartitionedCookieAccess()`** Methode des {{domxref("Document")}} Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem booleschen Wert aufgelöst wird, der angibt, ob das Dokument Zugriff auf [Drittanbieter-](/de/docs/Web/Privacy/Third-party_cookies), [unpartitionierte](/de/docs/Web/API/Storage_Access_API#unpartitioned_versus_partitioned_cookies) Cookies hat.
+Die **`hasUnpartitionedCookieAccess()`** Methode des [`Document`](/de/docs/Web/API/Document) Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem booleschen Wert auflöst, der angibt, ob das Dokument Zugriff auf [Drittanbieter-](/de/docs/Web/Privacy/Third-party_cookies), [unpartitionierte](/de/docs/Web/API/Storage_Access_API#unpartitioned_versus_partitioned_cookies) Cookies hat.
 
 Diese Methode ist Teil der [Storage Access API](/de/docs/Web/API/Storage_Access_API).
 
-Diese Methode ist ein neuer Name für {{DOMxRef("Document.hasStorageAccess()")}}.
+Diese Methode ist ein neuer Name für [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess).
 
 ## Syntax
 
@@ -26,32 +26,32 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem booleschen Wert aufgelöst wird, der angibt, ob das Dokument Zugriff auf Drittanbieter-Cookies hat — `true`, falls ja, und `false`, falls nein.
+Ein {{jsxref("Promise")}}, das mit einem booleschen Wert auflöst, der angibt, ob das Dokument Zugriff auf Drittanbieter-Cookies hat — `true`, wenn ja, und `false`, wenn nicht.
 
-Siehe {{DOMxRef("Document.hasStorageAccess()")}} für weitere Details.
+Siehe [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess) für mehr Details.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das aktuelle {{domxref("Document")}} noch nicht aktiv ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn das aktuelle [`Document`](/de/docs/Web/API/Document) noch nicht aktiv ist.
 
 ## Beispiele
 
 ```js
 document.hasUnpartitionedCookieAccess().then((hasAccess) => {
   if (hasAccess) {
-    // Der Speicherzugriff wurde bereits gewährt.
+    // storage access has been granted already.
     console.log("cookie access granted");
   } else {
-    // Der Speicherzugriff wurde noch nicht gewährt;
-    // möglicherweise möchten Sie requestStorageAccess() aufrufen.
+    // storage access hasn't been granted already;
+    // you may want to call requestStorageAccess().
     console.log("cookie access denied");
   }
 });
 ```
 
 > [!NOTE]
-> Sehen Sie sich [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel an.
+> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
 
 ## Spezifikationen
 
@@ -63,6 +63,6 @@ document.hasUnpartitionedCookieAccess().then((hasAccess) => {
 
 ## Siehe auch
 
-- {{domxref("Document.hasStorageAccess()")}}, {{domxref("Document.requestStorageAccess()")}}, {{domxref("Document.requestStorageAccessFor()")}}
-- [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
-- [Introducing Storage Access API](https://webkit.org/blog/8124/introducing-storage-access-api/) (WebKit-Blog)
+- [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess), [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess), [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor)
+- [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
+- [Einführung der Storage Access API](https://webkit.org/blog/8124/introducing-storage-access-api/) (WebKit-Blog)

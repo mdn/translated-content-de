@@ -3,18 +3,18 @@ title: "SubtleCrypto: unwrapKey()-Methode"
 short-title: unwrapKey()
 slug: Web/API/SubtleCrypto/unwrapKey
 l10n:
-  sourceCommit: f430d277573ba0b06b1ac33ae8017fd90f170bef
+  sourceCommit: cc27a64bb555b250cf0984a3a744e5fd251e3565
 ---
 
-{{APIRef("Web Crypto API")}}{{SecureContext_header}}
+{{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die **`unwrapKey()`**-Methode des {{domxref("SubtleCrypto")}}-Interfaces "entpackt" einen Schlüssel. Dies bedeutet, dass sie als Eingang einen Schlüssel nimmt, der exportiert und dann verschlüsselt (auch "eingewickelt" genannt) wurde. Sie entschlüsselt den Schlüssel und importiert ihn anschließend, wobei sie ein {{domxref("CryptoKey")}}-Objekt zurückgibt, das in der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) verwendet werden kann.
+Die **`unwrapKey()`**-Methode der [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Schnittstelle „entpackt“ einen Schlüssel. Das bedeutet, dass sie einen Schlüssel als Eingabe nimmt, der exportiert und dann verschlüsselt (auch als „verpackt“ bezeichnet) wurde. Sie entschlüsselt den Schlüssel und importiert ihn dann, wobei sie ein [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Objekt zurückgibt, das in der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) verwendet werden kann.
 
-Wie bei [`SubtleCrypto.importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) geben Sie das [Importformat des Schlüssels](/de/docs/Web/API/SubtleCrypto/importKey#supported_formats) und andere Attribute des Schlüssels an, um Details wie die Extrahierbarkeit und für welche Operationen er verwendet werden kann, festzulegen.
+Wie bei [`SubtleCrypto.importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) geben Sie das [Importformat](/de/docs/Web/API/SubtleCrypto/importKey#supported_formats) des Schlüssels an und andere Attribute des Schlüssels, um Details wie die Extrahierbarkeit und die zulässigen Operationen zu importieren.
 
-Da `unwrapKey()` jedoch auch den zu importierenden Schlüssel entschlüsselt, müssen Sie zusätzlich den Schlüssel übergeben, der zur Entschlüsselung verwendet werden muss. Dies wird manchmal als "Entpackungsschlüssel" bezeichnet.
+Da `unwrapKey()` den zu importierenden Schlüssel auch entschlüsselt, müssen Sie auch den Schlüssel übergeben, der zum Entschlüsseln verwendet werden muss. Dieser wird manchmal als „Entpackschlüssel“ bezeichnet.
 
-Das Gegenteil von `unwrapKey()` ist {{domxref("SubtleCrypto.wrapKey()")}}: während `unwrapKey` aus Entschlüsseln + Import besteht, setzt sich `wrapKey` aus Verschlüsseln + Export zusammen.
+Das Gegenstück zu `unwrapKey()` ist [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey): Während `unwrapKey` aus Entschlüsseln + Import besteht, besteht `wrapKey` aus Verschlüsseln + Export.
 
 ## Syntax
 
@@ -25,42 +25,42 @@ unwrapKey(format, wrappedKey, unwrappingKey, unwrapAlgo, unwrappedKeyAlgo, extra
 ### Parameter
 
 - `format`
-  - : Ein String, der das Datenformat des zu entpackenden Schlüssels beschreibt. Es kann eines der folgenden sein:
-    - `raw`: [Rohformat](/de/docs/Web/API/SubtleCrypto/importKey#raw).
+  - : Ein String, der das Datenformat des zu entpackenden Schlüssels beschreibt. Es kann einer der folgenden sein:
+    - `raw`: [Roh](/de/docs/Web/API/SubtleCrypto/importKey#raw) Format.
     - `pkcs8`: [PKCS #8](/de/docs/Web/API/SubtleCrypto/importKey#pkcs_8) Format.
     - `spki`: [SubjectPublicKeyInfo](/de/docs/Web/API/SubtleCrypto/importKey#subjectpublickeyinfo) Format.
     - `jwk`: [JSON Web Key](/de/docs/Web/API/SubtleCrypto/importKey#json_web_key) Format.
 - `wrappedKey`
-  - : Ein {{jsxref("ArrayBuffer")}}, das den eingewickelten Schlüssel im angegebenen Format enthält.
+  - : Ein {{jsxref("ArrayBuffer")}}, das den verpackten Schlüssel im angegebenen Format enthält.
 - `unwrappingKey`
-  - : Der {{domxref("CryptoKey")}}, der verwendet wird, um den eingewickelten Schlüssel zu entschlüsseln. Der Schlüssel muss die Verwendung `unwrapKey` gesetzt haben.
+  - : Der [`CryptoKey`](/de/docs/Web/API/CryptoKey), der zum Entschlüsseln des verpackten Schlüssels verwendet wird. Der Schlüssel muss die `unwrapKey`-Nutzung gesetzt haben.
 - `unwrapAlgo`
-  - : Ein Objekt, das den [Algorithmus](/de/docs/Web/API/SubtleCrypto/encrypt#supported_algorithms) zur Entschlüsselung des eingewickelten Schlüssels und alle erforderlichen zusätzlichen Parameter spezifiziert:
+  - : Ein Objekt, das den [Algorithmus](/de/docs/Web/API/SubtleCrypto/encrypt#supported_algorithms) angibt, der zum Entschlüsseln des verpackten Schlüssels verwendet werden soll, sowie alle erforderlichen zusätzlichen Parameter:
     - Um [RSA-OAEP](/de/docs/Web/API/SubtleCrypto/encrypt#rsa-oaep) zu verwenden, übergeben Sie ein [`RsaOaepParams`](/de/docs/Web/API/RsaOaepParams)-Objekt.
     - Um [AES-CTR](/de/docs/Web/API/SubtleCrypto/encrypt#aes-ctr) zu verwenden, übergeben Sie ein [`AesCtrParams`](/de/docs/Web/API/AesCtrParams)-Objekt.
     - Um [AES-CBC](/de/docs/Web/API/SubtleCrypto/encrypt#aes-cbc) zu verwenden, übergeben Sie ein [`AesCbcParams`](/de/docs/Web/API/AesCbcParams)-Objekt.
     - Um [AES-GCM](/de/docs/Web/API/SubtleCrypto/encrypt#aes-gcm) zu verwenden, übergeben Sie ein [`AesGcmParams`](/de/docs/Web/API/AesGcmParams)-Objekt.
-    - Um [AES-KW](/de/docs/Web/API/SubtleCrypto/wrapKey#aes-kw) zu verwenden, übergeben Sie den String `"AES-KW"` oder ein Objekt in der Form `{ "name": "AES-KW" }`.
+    - Um [AES-KW](/de/docs/Web/API/SubtleCrypto/wrapKey#aes-kw) zu verwenden, übergeben Sie den String `"AES-KW"` oder ein Objekt der Form `{ "name": "AES-KW" }`.
 - `unwrappedKeyAlgo`
-  - : Ein Objekt, das die Art des zu entpackenden Schlüssels definiert und zusätzliche algorithmenspezifische Parameter bereitstellt.
+  - : Ein Objekt, das den Typ des zu entpackenden Schlüssels definiert und zusätzliche, algorithmusspezifische Parameter bereitstellt.
     - Für [RSASSA-PKCS1-v1_5](/de/docs/Web/API/SubtleCrypto/sign#rsassa-pkcs1-v1_5), [RSA-PSS](/de/docs/Web/API/SubtleCrypto/sign#rsa-pss) oder [RSA-OAEP](/de/docs/Web/API/SubtleCrypto/encrypt#rsa-oaep): Übergeben Sie ein [`RsaHashedImportParams`](/de/docs/Web/API/RsaHashedImportParams)-Objekt.
     - Für [ECDSA](/de/docs/Web/API/SubtleCrypto/sign#ecdsa) oder [ECDH](/de/docs/Web/API/SubtleCrypto/deriveKey#ecdh): Übergeben Sie ein [`EcKeyImportParams`](/de/docs/Web/API/EcKeyImportParams)-Objekt.
     - Für [HMAC](/de/docs/Web/API/SubtleCrypto/sign#hmac): Übergeben Sie ein [`HmacImportParams`](/de/docs/Web/API/HmacImportParams)-Objekt.
-    - Für [AES-CTR](/de/docs/Web/API/SubtleCrypto/encrypt#aes-ctr), [AES-CBC](/de/docs/Web/API/SubtleCrypto/encrypt#aes-cbc), [AES-GCM](/de/docs/Web/API/SubtleCrypto/encrypt#aes-gcm) oder [AES-KW](/de/docs/Web/API/SubtleCrypto/wrapKey#aes-kw): Übergeben Sie den Algorithmus-Namen als String oder ein Objekt in der Form `{ "name": ALGORITHMUS }`, wobei `ALGORITHMUS` der Name des Algorithmus ist.
-    - Für [Ed25519](/de/docs/Web/API/SubtleCrypto/sign#ed25519): Übergeben Sie ein Objekt in der Form `{ "name": "Ed25519" }`.
-    - Für [X25519](/de/docs/Web/API/SubtleCrypto/deriveKey#x25519): Übergeben Sie ein Objekt in der Form: `{name: 'X25519'}`.
+    - Für [AES-CTR](/de/docs/Web/API/SubtleCrypto/encrypt#aes-ctr), [AES-CBC](/de/docs/Web/API/SubtleCrypto/encrypt#aes-cbc), [AES-GCM](/de/docs/Web/API/SubtleCrypto/encrypt#aes-gcm) oder [AES-KW](/de/docs/Web/API/SubtleCrypto/wrapKey#aes-kw): Übergeben Sie den Namen des Algorithmus als String oder ein Objekt der Form `{ "name": ALGORITHMUS }`, wobei `ALGORITHMUS` der Name des Algorithmus ist.
+    - Für [Ed25519](/de/docs/Web/API/SubtleCrypto/sign#ed25519): Übergeben Sie ein Objekt der Form `{ "name": "Ed25519" }`.
+    - Für [X25519](/de/docs/Web/API/SubtleCrypto/deriveKey#x25519): Übergeben Sie ein Objekt der Form: `{name: 'X25519'}`.
 - `extractable`
-  - : Ein Boolean, der anzeigt, ob es möglich sein wird, den Schlüssel mit [`SubtleCrypto.exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) oder [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) zu exportieren.
+  - : Ein Boolean, der angibt, ob es möglich sein wird, den Schlüssel mit [`SubtleCrypto.exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) oder [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) zu exportieren.
 - `keyUsages`
   - : Ein [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array), das angibt, was mit dem Schlüssel gemacht werden kann. Mögliche Werte des Arrays sind:
-    - `encrypt`: Der Schlüssel kann verwendet werden, um Nachrichten zu [verschlüsseln](/de/docs/Web/API/SubtleCrypto/encrypt).
-    - `decrypt`: Der Schlüssel kann verwendet werden, um Nachrichten zu [entschlüsseln](/de/docs/Web/API/SubtleCrypto/decrypt).
-    - `sign`: Der Schlüssel kann verwendet werden, um Nachrichten zu [signieren](/de/docs/Web/API/SubtleCrypto/sign).
-    - `verify`: Der Schlüssel kann verwendet werden, um Signaturen zu [verifizieren](/de/docs/Web/API/SubtleCrypto/verify).
-    - `deriveKey`: Der Schlüssel kann verwendet werden, um einen neuen Schlüssel [abzuleiten](/de/docs/Web/API/SubtleCrypto/deriveKey).
-    - `deriveBits`: Der Schlüssel kann verwendet werden, um Bits [abzuleiten](/de/docs/Web/API/SubtleCrypto/deriveBits).
-    - `wrapKey`: Der Schlüssel kann verwendet werden, um einen Schlüssel zu [umwickeln](/de/docs/Web/API/SubtleCrypto/wrapKey).
-    - `unwrapKey`: Der Schlüssel kann verwendet werden, um einen Schlüssel zu entpacken.
+    - `encrypt`: Der Schlüssel kann zum [Verschlüsseln](/de/docs/Web/API/SubtleCrypto/encrypt) von Nachrichten verwendet werden.
+    - `decrypt`: Der Schlüssel kann zum [Entschlüsseln](/de/docs/Web/API/SubtleCrypto/decrypt) von Nachrichten verwendet werden.
+    - `sign`: Der Schlüssel kann zum [Signieren](/de/docs/Web/API/SubtleCrypto/sign) von Nachrichten verwendet werden.
+    - `verify`: Der Schlüssel kann zum [Verifizieren](/de/docs/Web/API/SubtleCrypto/verify) von Signaturen verwendet werden.
+    - `deriveKey`: Der Schlüssel kann zur [Ableitung eines neuen Schlüssels](/de/docs/Web/API/SubtleCrypto/deriveKey) verwendet werden.
+    - `deriveBits`: Der Schlüssel kann zur [Ableitung von Bits](/de/docs/Web/API/SubtleCrypto/deriveBits) verwendet werden.
+    - `wrapKey`: Der Schlüssel kann zum [Verpacken eines Schlüssels](/de/docs/Web/API/SubtleCrypto/wrapKey) verwendet werden.
+    - `unwrapKey`: Der Schlüssel kann zum Entpacken eines Schlüssels verwendet werden.
 
 ### Rückgabewert
 
@@ -68,47 +68,47 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ### Ausnahmen
 
-Das Versprechen wird abgelehnt, wenn eine der folgenden Ausnahmen auftritt:
+Das Promise wird zurückgewiesen, wenn eine der folgenden Ausnahmen auftritt:
 
-- `InvalidAccessError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Entpackungsschlüssel kein Schlüssel für den angeforderten Entpackungsalgorithmus ist oder wenn der `keyUsages`-Wert dieses Schlüssels nicht `unwrap` enthält.
-- `NotSupported` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn versucht wird, einen Algorithmus zu verwenden, der entweder unbekannt ist oder nicht zum Verschlüsseln oder Verpacken geeignet ist.
-- `SyntaxError` {{domxref("DOMException")}}
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Entpackschlüssel kein Schlüssel für den angeforderten Entpackalgorithmus ist oder wenn der `keyUsages`-Wert dieses Schlüssels `unwrap` nicht enthält.
+- `NotSupported` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn versucht wird, einen Algorithmus zu verwenden, der entweder unbekannt oder nicht für Verschlüsselung oder Verpackung geeignet ist.
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `keyUsages` leer ist, aber der entpackte Schlüssel vom Typ `secret` oder `private` ist.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn versucht wird, ein ungültiges Format zu verwenden.
 
 ## Unterstützte Algorithmen
 
-Die `unwrapKey()`-Methode unterstützt dieselben Algorithmen wie die [`wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey#supported_algorithms)-Methode.
+Die `unwrapKey()`-Methode unterstützt die gleichen Algorithmen wie die [`wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey#supported_algorithms)-Methode.
 
 ## Beispiele
 
 > [!NOTE]
-> Sie können die [funktionierenden Beispiele](https://mdn.github.io/dom-examples/web-crypto/unwrap-key/index.html) auf GitHub ausprobieren.
+> Sie können [die funktionierenden Beispiele](https://mdn.github.io/dom-examples/web-crypto/unwrap-key/index.html) auf GitHub ausprobieren.
 
-### Entpacken eines "raw"-Schlüssels
+### Entpacken eines „raw“-Schlüssels
 
-In diesem Beispiel entpacken wir einen symmetrischen AES-GCM-Schlüssel. Der Schlüssel wurde im "raw"-Format exportiert und mit dem AES-KW-Algorithmus verschlüsselt, mit einem aus einem Passwort abgeleiteten Schlüssel.
+In diesem Beispiel entpacken wir einen AES-GCM symmetrischen Schlüssel. Der Schlüssel wurde im „raw“-Format exportiert und mit dem AES-KW-Algorithmus verschlüsselt, mit einem Schlüssel, der aus einem Passwort abgeleitet wurde.
 
-Zum Entpacken bitten wir den Benutzer um das Passwort und verwenden PBKDF2 und etwas Salz, um den AES-KW-Entpackungsschlüssel abzuleiten. Das Salz muss dasselbe sein wie das Salz, das verwendet wurde, um den ursprünglichen AES-KW-Schlüsselwickelungsschlüssel abzuleiten.
+Um den Schlüssel zu entpacken, fragen wir den Benutzer nach dem Passwort und verwenden PBKDF2 und Salz, um den AES-KW-Entpackschlüssel abzuleiten. Das Salz muss dasselbe sein wie das Salz, das zur Ableitung des ursprünglichen AES-KW-Schlüsselverpackungsschlüssels verwendet wurde.
 
-Sobald wir den Entpackungsschlüssel haben, übergeben wir ihn an `unwrapKey()` zusammen mit dem eingewickelten Schlüssel und anderen Parametern. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/unwrap-key/raw.js)
+Sobald wir den Entpackschlüssel haben, übergeben wir ihn zusammen mit dem verpackten Schlüssel und anderen Parametern an `unwrapKey()`. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/unwrap-key/raw.js)
 
 ```js
 /*
-Salz, das zur Ableitung des Schlüssels verwendet werden soll, der den Schlüssel wickelt,
-neben dem Passwort, das der Benutzer angibt.
-Dieser Wert muss mit dem ursprünglich zur Ableitung
-des Schlüssels verwendeten Salz übereinstimmen.
+Salt that is to be used in derivation of the key-wrapping key,
+alongside the password the user supplies.
+This must match the salt value that was originally used to derive
+the key.
 */
 const saltBytes = [
   89, 113, 135, 234, 168, 204, 21, 36, 55, 93, 1, 132, 242, 242, 192, 156,
 ];
 
 /*
-Der eingewickelte Schlüssel selbst.
+The wrapped key itself.
 */
 const wrappedKeyBytes = [
   171, 223, 14, 36, 201, 233, 233, 120, 164, 68, 217, 192, 226, 80, 224, 39,
@@ -117,7 +117,7 @@ const wrappedKeyBytes = [
 ];
 
 /*
-Konvertieren eines Arrays von Byte-Werten in ein ArrayBuffer.
+Convert an array of byte values to an ArrayBuffer.
 */
 function bytesToArrayBuffer(bytes) {
   const bytesAsArrayBuffer = new ArrayBuffer(bytes.length);
@@ -127,8 +127,8 @@ function bytesToArrayBuffer(bytes) {
 }
 
 /*
-Holen Sie sich etwas Schlüsselmateral zur Verwendung als Eingabe in die Methode deriveKey.
-Das Schlüsselmaterail ist ein vom Benutzer bereitgestelltes Passwort.
+Get some key material to use as input to the deriveKey method.
+The key material is a password supplied by the user.
 */
 function getKeyMaterial() {
   let password = window.prompt("Enter your password");
@@ -143,16 +143,16 @@ function getKeyMaterial() {
 }
 
 /*
-Ableiten eines AES-KW-Schlüssels mittels PBKDF2.
+Derive an AES-KW key using PBKDF2.
 */
 async function getUnwrappingKey() {
-  // 1. das Schlüsselmateral bekommen (vom Benutzer bereitgestelltes Passwort)
+  // 1. get the key material (user-supplied password)
   const keyMaterial = await getKeyMaterial();
-  // 2 das Salzparameter initialisiseren.
-  // Das Salz muss mit dem ursprünglich zur Ableitung des Schlüssels verwendeten übereinstimmen.
-  // In diesem Beispiel wird es als konstantes "saltBytes" bereitgestellt.
+  // 2 initialize the salt parameter.
+  // The salt must match the salt originally used to derive the key.
+  // In this example it's supplied as a constant "saltBytes".
   const saltBuffer = bytesToArrayBuffer(saltBytes);
-  // 3 den Schüssel aus Schlüsselmateral und Salz ableiten
+  // 3 derive the key from key material and salt
   return window.crypto.subtle.deriveKey(
     {
       name: "PBKDF2",
@@ -168,56 +168,56 @@ async function getUnwrappingKey() {
 }
 
 /*
-Entpacken eines AES-Schlüssels aus einem ArrayBuffer, der die Rohbytes enthält.
-Nimmt ein Array, das die Bytes enthält, und gibt ein Promise zurück,
-das zu einem CryptoKey wird, der den geheimen Schlüssel darstellt.
+Unwrap an AES secret key from an ArrayBuffer containing the raw bytes.
+Takes an array containing the bytes, and returns a Promise
+that will resolve to a CryptoKey representing the secret key.
 */
 async function unwrapSecretKey(wrappedKey) {
-  // 1. den Entpackungsschlüssel erhalten
+  // 1. get the unwrapping key
   const unwrappingKey = await getUnwrappingKey();
-  // 2. den eingewickelten Schlüssel initialisieren
+  // 2. initialize the wrapped key
   const wrappedKeyBuffer = bytesToArrayBuffer(wrappedKey);
-  // 3. den Schlüssel entpacken
+  // 3. unwrap the key
   return window.crypto.subtle.unwrapKey(
-    "raw", // Importformat
-    wrappedKeyBuffer, // ArrayBuffer, der den zu entpackenden Schlüssel darstellt
-    unwrappingKey, // CryptoKey, der den Schlüsselverschlüsselungsschlüssel darstellt
-    "AES-KW", // Algorithmus-Identifier für Schlüsselverschlüsselungsschlüssel
-    "AES-GCM", // Algorithmus-Identifier für den zu entpackenden Schlüssel
-    true, // Extrahierbarkeit des zu entpackenden Schlüssels
-    ["encrypt", "decrypt"], // Schlüsselverwendungen für den zu entpackenden Schlüssel
+    "raw", // import format
+    wrappedKeyBuffer, // ArrayBuffer representing key to unwrap
+    unwrappingKey, // CryptoKey representing key encryption key
+    "AES-KW", // algorithm identifier for key encryption key
+    "AES-GCM", // algorithm identifier for key to unwrap
+    true, // extractability of key to unwrap
+    ["encrypt", "decrypt"], // key usages for key to unwrap
   );
 }
 ```
 
-### Entpacken eines "pkcs8"-Schlüssels
+### Entpacken eines „pkcs8“-Schlüssels
 
-In diesem Beispiel entpacken wir einen RSA-PSS-Schlüssel zum Signieren. Der Schlüssel wurde im "pkcs8"-Format exportiert und mit dem AES-GCM-Algorithmus verschlüsselt, mit einem aus einem Passwort abgeleiteten Schlüssel.
+In diesem Beispiel entpacken wir einen RSA-PSS-privaten Signaturschlüssel. Der Schlüssel wurde im „pkcs8“-Format exportiert und mit dem AES-GCM-Algorithmus verschlüsselt, mit einem Schlüssel, der aus einem Passwort abgeleitet wurde.
 
-Zum Entpacken bitten wir den Benutzer um das Passwort und verwenden PBKDF2 und etwas Salz, um den AES-GCM-Entpackungsschlüssel abzuleiten. Das Salz muss dasselbe sein wie das Salz, das verwendet wurde, um den ursprünglichen AES-GCM-Schlüsselwickelungsschlüssel abzuleiten.
+Um den Schlüssel zu entpacken, fragen wir den Benutzer nach dem Passwort und verwenden PBKDF2 und Salz, um den AES-GCM-Entpackschlüssel abzuleiten. Das Salz muss dasselbe sein wie das Salz, das zur Ableitung des ursprünglichen AES-GCM-Schlüsselverpackungsschlüssels verwendet wurde.
 
-Sobald wir den Entpackungsschlüssel haben, übergeben wir ihn an `unwrapKey()` zusammen mit dem eingewickelten Schlüssel und anderen Parametern. Beachten Sie, dass wir bei Verwendung von AES-GCM den iv-Wert an `unwrapKey()` übergeben müssen, und dieser muss derselbe sein wie der iv, der in der entsprechenden `wrapKey()`-Operation verwendet wurde. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/unwrap-key/pkcs8.js)
+Sobald wir den Entpackschlüssel haben, übergeben wir ihn zusammen mit dem verpackten Schlüssel und anderen Parametern an `unwrapKey()`. Beachten Sie, dass wir bei der Verwendung von AES-GCM den iv-Wert in `unwrapKey()` übergeben müssen, und dieser muss derselbe sein wie der iv, der im entsprechenden `wrapKey()`-Vorgang verwendet wurde. [Sehen Sie den vollständigen Code auf GitHub.](https://github.com/mdn/dom-examples/blob/main/web-crypto/unwrap-key/pkcs8.js)
 
 ```js
 /*
-Salz, das zur Ableitung des Schlüssels verwendet werden soll, der den Schlüssel wickelt,
-neben dem Passwort, das der Benutzer angibt.
-Dieser Wert muss mit dem ursprünglich zur Ableitung
-des Schlüssels verwendeten Salz übereinstimmen.
+Salt that is to be used in derivation of the key-wrapping key,
+alongside the password the user supplies.
+This must match the salt value that was originally used to derive
+the key.
 */
 const saltBytes = [
   180, 253, 62, 216, 47, 35, 90, 55, 218, 233, 103, 10, 172, 143, 161, 177,
 ];
 
 /*
-IV, das zum Entschlüsseln des zu entpackenden Schlüssels verwendet wird.
-Dieser Wert muss derselbe IV sein, der ursprünglich zur
-Verschlüsselung des Schlüssels verwendet wurde.
+IV that is to be used in decrypting the key to unwrap.
+This must the same IV that was originally used to encrypt
+the key.
 */
 const ivBytes = [212, 187, 26, 247, 172, 51, 37, 151, 27, 177, 249, 142];
 
 /*
-Der eingewickelte Schlüssel selbst.
+The wrapped key itself.
 */
 const wrappedKeyBytes = [
   6, 155, 182, 208, 7, 141, 44, 18, 3, 151, 58, 126, 68, 100, 252, 225, 241, 11,
@@ -296,14 +296,14 @@ const wrappedKeyBytes = [
 ];
 
 /*
-Der entpackte Signaturschlüssel.
+The unwrapped signing key.
 */
 let signingKey;
 
 const signButton = document.querySelector(".pkcs8 .sign-button");
 
 /*
-Konvertieren eines Arrays von Byte-Werten in ein ArrayBuffer.
+Convert an array of byte values to an ArrayBuffer.
 */
 function bytesToArrayBuffer(bytes) {
   const bytesAsArrayBuffer = new ArrayBuffer(bytes.length);
@@ -313,8 +313,8 @@ function bytesToArrayBuffer(bytes) {
 }
 
 /*
-Holen Sie sich etwas Schlüsselmateral zur Verwendung als Eingabe in die Methode deriveKey.
-Das Schlüsselmaterail ist ein vom Benutzer bereitgestelltes Passwort.
+Get some key material to use as input to the deriveKey method.
+The key material is a password supplied by the user.
 */
 function getKeyMaterial() {
   let password = window.prompt("Enter your password");
@@ -329,16 +329,16 @@ function getKeyMaterial() {
 }
 
 /*
-Ableiten eines AES-GCM-Schlüssels mittels PBKDF2.
+Derive an AES-GCM key using PBKDF2.
 */
 async function getUnwrappingKey() {
-  // 1. das Schlüsselmateral bekommen (vom Benutzer bereitgestelltes Passwort)
+  // 1. get the key material (user-supplied password)
   const keyMaterial = await getKeyMaterial();
-  // 2 das Salzparameter initialisiseren.
-  // Das Salz muss mit dem ursprünglich zur Ableitung des Schlüssels verwendeten übereinstimmen.
-  // In diesem Beispiel wird es als konstantes "saltBytes" bereitgestellt.
+  // 2 initialize the salt parameter.
+  // The salt must match the salt originally used to derive the key.
+  // In this example it's supplied as a constant "saltBytes".
   const saltBuffer = bytesToArrayBuffer(saltBytes);
-  // 3 den Schüssel aus Schlüsselmateral und Salz ableiten
+  // 3 derive the key from key material and salt
   return window.crypto.subtle.deriveKey(
     {
       name: "PBKDF2",
@@ -354,35 +354,35 @@ async function getUnwrappingKey() {
 }
 
 /*
-Entwickeln eines RSA-PSS-Schlüssels zum Signieren aus einem ArrayBuffer
-der die Rohbytes enthält.
-Nimmt ein Array, das die Bytes enthält, und gibt ein Promise zurück,
-das zu einem CryptoKey wird, der den privaten Schlüssel darstellt.
+Unwrap an RSA-PSS private signing key from an ArrayBuffer containing
+the raw bytes.
+Takes an array containing the bytes, and returns a Promise
+that will resolve to a CryptoKey representing the private key.
 */
 async function unwrapPrivateKey(wrappedKey) {
-  // 1. den Entpackungsschlüssel erhalten
+  // 1. get the unwrapping key
   const unwrappingKey = await getUnwrappingKey();
-  // 2. den eingewickelten Schlüssel initialisieren
+  // 2. initialize the wrapped key
   const wrappedKeyBuffer = bytesToArrayBuffer(wrappedKey);
-  // 3. die iv initialisieren
+  // 3. initialize the iv
   const ivBuffer = bytesToArrayBuffer(ivBytes);
-  // 4. den Schlüssel entpacken
+  // 4. unwrap the key
   return window.crypto.subtle.unwrapKey(
-    "pkcs8", // Importformat
-    wrappedKeyBuffer, // ArrayBuffer, der den zu entpackenden Schlüssel darstellt
-    unwrappingKey, // CryptoKey, der den Schlüsselverschlüsselungsschlüssel darstellt
+    "pkcs8", // import format
+    wrappedKeyBuffer, // ArrayBuffer representing key to unwrap
+    unwrappingKey, // CryptoKey representing key encryption key
     {
-      // Algorithmus-Parameter für Schlüsselverschlüsselungsschlüssel
+      // algorithm params for key encryption key
       name: "AES-GCM",
       iv: ivBuffer,
     },
     {
-      // Algorithmus-Parameter für den zu entpackenden Schlüssel
+      // algorithm params for key to unwrap
       name: "RSA-PSS",
       hash: "SHA-256",
     },
-    true, // Extrahierbarkeit des zu entpackenden Schlüssels
-    ["sign"], // Schlüsselverwendungen für den zu entpackenden Schlüssel
+    true, // extractability of key to unwrap
+    ["sign"], // key usages for key to unwrap
   );
 }
 ```
@@ -398,7 +398,7 @@ async function unwrapPrivateKey(wrappedKey) {
 ## Siehe auch
 
 - [`SubtleCrypto.importKey()`](/de/docs/Web/API/SubtleCrypto/importKey)
-- [PKCS #8-Format](https://datatracker.ietf.org/doc/html/rfc5208).
-- [SubjectPublicKeyInfo-Format](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1).
-- [JSON Web Key-Format](https://datatracker.ietf.org/doc/html/rfc7517).
+- [PKCS #8 Format](https://datatracker.ietf.org/doc/html/rfc5208).
+- [SubjectPublicKeyInfo Format](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1).
+- [JSON Web Key Format](https://datatracker.ietf.org/doc/html/rfc7517).
 - [AES-KW-Spezifikation](https://datatracker.ietf.org/doc/html/rfc3394).

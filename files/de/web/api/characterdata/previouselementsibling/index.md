@@ -8,11 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`previousElementSibling`** der {{domxref("CharacterData")}}-Schnittstelle gibt das erste {{domxref("Element")}} vor dem aktuellen Knoten in der Kindlistereihe seines Elternteils zurück, oder `null`, wenn kein solches vorhanden ist.
+Die schreibgeschützte **`previousElementSibling`**-Eigenschaft der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle
+gibt das erste [`Element`](/de/docs/Web/API/Element) vor dem aktuellen Knoten in der Kindliste des Elternteils zurück
+oder `null`, wenn kein solches Element existiert.
 
 ## Wert
 
-Ein {{domxref("Element")}}-Objekt oder `null`, wenn kein Geschwisterelement gefunden wurde.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt oder `null`, wenn kein Geschwisterelement gefunden wurde.
 
 ## Beispiel
 
@@ -26,10 +28,10 @@ SOME TEXT
 ```
 
 ```js
-// Initialisieren Sie den Knoten auf den Textknoten mit `SOME TEXT`
+// Initially set node to the Text node with `SOME TEXT`
 let node = document.getElementById("div-02").nextSibling;
 
-let result = "Vorherige Elemente-Geschwister von SOME TEXT:\n";
+let result = "Previous element siblings of SOME TEXT:\n";
 
 while (node) {
   result += `${node.nodeName}\n`;
@@ -51,4 +53,4 @@ document.querySelector("pre").textContent = result;
 
 ## Siehe auch
 
-- {{domxref("CharacterData.nextElementSibling")}}
+- [`CharacterData.nextElementSibling`](/de/docs/Web/API/CharacterData/nextElementSibling)

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`TextUpdateEvent.updateRangeEnd`** schreibgeschützte Eigenschaft gibt die Endposition des Textbereichs an, der im {{domxref("EditContext")}}-Objekt ersetzt wird.
+Die **`TextUpdateEvent.updateRangeEnd`** schreibgeschützte Eigenschaft gibt die Endposition des Textrahmens an, der im [`EditContext`](/de/docs/Web/API/EditContext)-Objekt ersetzt wird.
 
 ## Wert
 
-Eine {{jsxref("Number")}}.
+Ein {{jsxref("Number")}}.
 
 ## Beispiele
 
-### Verwendung von `textupdate`, um den eingefügten Text und dessen Position anzuzeigen
+### Verwendung von `textupdate`, um eingefügten Text und Position anzuzeigen
 
 ```html
 <div id="editor"></div>

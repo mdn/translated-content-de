@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`CountQueuingStrategy.highWaterMark`**-Eigenschaft gibt die Gesamtanzahl der Datenblöcke zurück, die in der internen Warteschlange enthalten sein können, bevor Rückstau angewendet wird.
+Die schreibgeschützte **`CountQueuingStrategy.highWaterMark`**-Eigenschaft gibt die Gesamtanzahl der Datenblöcke zurück, die in der internen Warteschlange enthalten sein können, bevor Gegendruck angewendet wird.
 
 ## Werte
 
-Ein Ganzzahlwert, der die Anzahl der Datenblöcke repräsentiert.
+Eine ganze Zahl, die die Anzahl der Datenblöcke repräsentiert.
 
 ## Beispiele
 
@@ -35,7 +35,17 @@ const readableStream = new ReadableStream(
 );
 
 const size = queuingStrategy.size(chunk);
-console.log(`highWaterMark value: ${queuingStrategy.highWaterMark}$`);
+console.log(`highWaterMark value: ${queuingStrategy.highWaterMark}{{APIRef("Streams")}}{{AvailableInWorkers}}
+
+Die schreibgeschützte **`CountQueuingStrategy.highWaterMark`**-Eigenschaft gibt die Gesamtanzahl der Datenblöcke zurück, die in der internen Warteschlange enthalten sein können, bevor Gegendruck angewendet wird.
+
+## Werte
+
+Eine ganze Zahl, die die Anzahl der Datenblöcke repräsentiert.
+
+## Beispiele
+
+);
 ```
 
 ## Spezifikationen
@@ -48,4 +58,4 @@ console.log(`highWaterMark value: ${queuingStrategy.highWaterMark}$`);
 
 ## Siehe auch
 
-- {{domxref("CountQueuingStrategy.CountQueuingStrategy", "CountQueuingStrategy()")}} Konstruktor
+- [`CountQueuingStrategy()`](/de/docs/Web/API/CountQueuingStrategy/CountQueuingStrategy) Konstruktor

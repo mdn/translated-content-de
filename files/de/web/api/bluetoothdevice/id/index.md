@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`BluetoothDevice.id`** gibt einen String zurück, der ein Gerät eindeutig identifiziert.
+Die schreibgeschützte **`BluetoothDevice.id`**-Eigenschaft gibt eine Zeichenfolge zurück, die ein Gerät eindeutig identifiziert.
 
 ## Wert
 
-Ein String.
+Eine Zeichenfolge.
 
 ## Spezifikationen
 

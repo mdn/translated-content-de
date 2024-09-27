@@ -1,5 +1,5 @@
 ---
-title: "Benachrichtigung: requestPermission() statische Methode"
+title: "Notification: requestPermission() statische Methode"
 short-title: requestPermission()
 slug: Web/API/Notification/requestPermission_static
 l10n:
@@ -8,65 +8,63 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}}
 
-Die statische Methode **`requestPermission()`** des {{domxref("Notification")}}-Interfaces fordert vom Benutzer die Erlaubnis an, Benachrichtigungen für den aktuellen Ursprung anzuzeigen.
+Die **`requestPermission()`** statische Methode des [`Notification`](/de/docs/Web/API/Notification)-Interfaces fordert die Erlaubnis vom Benutzer für den aktuellen Ursprung an, Benachrichtigungen anzuzeigen.
 
-Die Methode gibt ein {{jsxref("Promise")}} zurück, das mit einem String ausgefüllt wird, der angibt, ob die Berechtigung erteilt oder abgelehnt wurde.
+Die Methode gibt ein {{jsxref("Promise")}} zurück, das mit einem String erfüllt wird, der anzeigt, ob die Erlaubnis erteilt oder abgelehnt wurde.
 
 ## Syntax
 
 ```js-nolint
 Notification.requestPermission()
 
-// Veraltete Syntax mit einem Callback
+// Deprecated syntax using a callback
 Notification.requestPermission(callback)
 ```
 
 ### Parameter
 
 - `callback` {{optional_inline}} {{deprecated_inline}}
-  - : Eine optionale Callback-Funktion, die mit dem Berechtigungswert aufgerufen wird.
-    Veraltet zugunsten des {{jsxref("Promise")}} Rückgabewerts.
+  - : Eine optionale Callback-Funktion, die mit dem Erlaubniswert aufgerufen wird. Veraltet zugunsten des {{jsxref("Promise")}} Rückgabewerts.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem String mit der vom Benutzer gewählten Berechtigung aufgelöst wird.
-Mögliche Werte für diesen String sind:
+Ein {{jsxref("Promise")}}, das zu einem String mit der vom Benutzer gewählten Erlaubnis aufgelöst wird. Mögliche Werte für diesen String sind:
 
 - `granted`
-  - : Der Benutzer hat ausdrücklich die Berechtigung erteilt, dass der aktuelle Ursprung Systembenachrichtigungen anzeigen darf.
+  - : Der Benutzer hat die Erlaubnis für den aktuellen Ursprung, Systembenachrichtigungen anzuzeigen, ausdrücklich erteilt.
 - `denied`
-  - : Der Benutzer hat ausdrücklich die Berechtigung abgelehnt, dass der aktuelle Ursprung Systembenachrichtigungen anzeigen darf.
+  - : Der Benutzer hat die Erlaubnis für den aktuellen Ursprung, Systembenachrichtigungen anzuzeigen, ausdrücklich abgelehnt.
 - `default`
-  - : Die Entscheidung des Benutzers ist unbekannt; in diesem Fall verhält sich die Anwendung so, als ob die Berechtigung `denied` wäre.
+  - : Die Entscheidung des Benutzers ist unbekannt; in diesem Fall wird die Anwendung so handeln, als wäre die Erlaubnis `denied`.
 
 Die veraltete Version der Methode gibt `undefined` zurück.
 
 ## Beispiele
 
-Angenommen, dieses einfache HTML:
+Angenommen, dieses grundlegende HTML:
 
 ```html
 <button onclick="notifyMe()">Notify me!</button>
 ```
 
-Es ist möglich, eine Benachrichtigung wie folgt zu senden — hier präsentieren wir einen ziemlich ausführlichen und vollständigen Satz von Code, den Sie verwenden könnten, wenn Sie zuerst überprüfen möchten, ob Benachrichtigungen unterstützt werden, dann überprüfen, ob die Berechtigung zum Senden von Benachrichtigungen für den aktuellen Ursprung erteilt wurde, dann die Berechtigung anfordern, falls erforderlich, bevor eine Benachrichtigung gesendet wird.
+Es ist möglich, eine Benachrichtigung wie folgt zu senden – hier präsentieren wir einen recht umfassenden und vollständigen Code, den Sie verwenden könnten, wenn Sie zuerst prüfen möchten, ob Benachrichtigungen unterstützt werden, dann prüfen, ob die Erlaubnis für den aktuellen Ursprung, Benachrichtigungen zu senden, erteilt wurde, dann die Erlaubnis anfordern, falls erforderlich, bevor Sie dann eine Benachrichtigung senden.
 
-Beachten Sie, dass die Anfrage als Reaktion auf eine Benutzerinteraktion gestellt werden sollte: unten wird die Methode im Klick-Ereignishandler aufgerufen.
+Beachten Sie, dass die Anfrage als Reaktion auf Benutzerinteraktionen erfolgen sollte: im Folgenden wird die Methode im Click-Event-Handler aufgerufen.
 
 ```js
 function notifyMe() {
   if (!("Notification" in window)) {
-    // Überprüfen, ob der Browser Benachrichtigungen unterstützt
-    alert("Dieser Browser unterstützt keine Desktop-Benachrichtigungen");
+    // Check if the browser supports notifications
+    alert("This browser does not support desktop notification");
   } else if (Notification.permission === "granted") {
-    // Überprüfen, ob die Benachrichtigungsberechtigung bereits erteilt wurde;
-    // falls ja, erstellen Sie eine Benachrichtigung
+    // Check whether notification permissions have already been granted;
+    // if so, create a notification
     const notification = new Notification("Hi there!");
     // …
   } else if (Notification.permission !== "denied") {
-    // Wir müssen den Benutzer um Erlaubnis bitten
+    // We need to ask the user for permission
     Notification.requestPermission().then((permission) => {
-      // Wenn der Benutzer akzeptiert, erstellen wir eine Benachrichtigung
+      // If the user accepts, let's create a notification
       if (permission === "granted") {
         const notification = new Notification("Hi there!");
         // …
@@ -74,12 +72,12 @@ function notifyMe() {
     });
   }
 
-  // Schließlich, wenn der Benutzer Benachrichtigungen abgelehnt hat und Sie
-  // respektvoll sein möchten, besteht keine Notwendigkeit, ihn weiter zu stören.
+  // At last, if the user has denied notifications, and you
+  // want to be respectful there is no need to bother them anymore.
 }
 ```
 
-Wir zeigen auf dieser Seite kein Live-Beispiel mehr, da Chrome und Firefox nicht mehr erlauben, dass Benachrichtigungsberechtigungen von Cross-Origin-{{htmlelement("iframe")}}s angefordert werden, und andere Browser werden folgen. Um ein Beispiel in Aktion zu sehen, schauen Sie sich unser [To-do-Liste-Beispiel](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) an (siehe auch [die App live](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Wir zeigen auf dieser Seite kein Live-Beispiel mehr, da Chrome und Firefox nicht mehr zulassen, dass Benachrichtigungsberechtigungen von Cross-Origin-{{htmlelement("iframe")}}s angefordert werden, wobei andere Browser folgen werden. Um ein Beispiel in Aktion zu sehen, schauen Sie sich unser [To-do-Liste-Beispiel](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) an (siehe auch [die App live](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ## Spezifikationen
 
@@ -91,4 +89,4 @@ Wir zeigen auf dieser Seite kein Live-Beispiel mehr, da Chrome und Firefox nicht
 
 ## Siehe auch
 
-- [Verwendung der Benachrichtigungs-API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
+- [Verwenden der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)

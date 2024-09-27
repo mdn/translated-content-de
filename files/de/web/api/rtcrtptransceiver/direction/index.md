@@ -1,5 +1,5 @@
 ---
-title: "RTCRtpTransceiver: Property direction"
+title: "RTCRtpTransceiver: direction-Eigenschaft"
 short-title: direction
 slug: Web/API/RTCRtpTransceiver/direction
 l10n:
@@ -8,9 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`direction`** des {{domxref("RTCRtpTransceiver")}} ist ein String, der die _bevorzugte_ Ausrichtung des Transceivers angibt.
+Die [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Eigenschaft **`direction`** ist ein String, der die _bevorzugte_ Richtungsangabe des Transceivers angibt.
 
-Die Ausrichtung gibt an, ob der Transceiver anbieten wird, {{Glossary("RTP")}}-Daten zu senden und/oder zu empfangen, oder ob er inaktiv oder gestoppt (beendet) ist. Wenn Sie die Richtung des Transceivers festlegen, wird der Wert nicht sofort angewendet. Die _aktuelle_ Richtung wird durch die Eigenschaft {{domxref("RTCRtpTransceiver.currentDirection", "currentDirection")}} angezeigt.
+Die Richtungsangabe zeigt an, ob der Transceiver anbietet, [RTP](/de/docs/Glossary/RTP)-Daten zu senden und/oder zu empfangen, oder ob er inaktiv oder gestoppt (beendet) ist.
+Beim Setzen der Richtung des Transceivers wird der Wert nicht sofort angewendet.
+Die _aktuelle_ Richtung wird durch die [`currentDirection`](/de/docs/Web/API/RTCRtpTransceiver/currentDirection)-Eigenschaft angezeigt.
 
 ## Wert
 
@@ -18,22 +20,24 @@ Ein String mit einem der folgenden Werte:
 
 - `"sendrecv"`
   - : Transceiver bietet an, RTP-Daten zu senden und zu empfangen:
-    - `RTCRtpSender`: Bietet an, RTP-Daten zu senden, und tut dies, wenn der Remote-Peer die Verbindung akzeptiert und mindestens eine der Codierungen des Senders aktiv ist.
-    - `RTCRtpReceiver`: Bietet an, RTP-Daten zu empfangen, und tut dies, wenn der Remote-Peer dies akzeptiert.
+    - `RTCRtpSender`: Bietet an, RTP-Daten zu senden, und wird dies tun, wenn der entfernte Peer die Verbindung akzeptiert und mindestens eine der Codierungen des Senders aktiv ist.
+    - `RTCRtpReceiver`: Bietet an, RTP-Daten zu empfangen, und tut dies, wenn der entfernte Peer es akzeptiert.
 - `"sendonly"`
-  - : Transceiver bietet an, RTP-Daten zu senden, aber nicht zu empfangen:
-    - `RTCRtpSender`: Bietet an, RTP-Daten zu senden, und tut dies, wenn der Remote-Peer die Verbindung akzeptiert und mindestens eine der Codierungen des Senders aktiv ist.
-    - `RTCRtpReceiver`: Bietet _nicht_ an, RTP-Daten zu empfangen und wird dies nicht tun.
+  - : Transceiver bietet nur an, RTP-Daten zu senden:
+    - `RTCRtpSender`: Bietet an, RTP-Daten zu senden, und wird dies tun, wenn der entfernte Peer die Verbindung akzeptiert und mindestens eine der Codierungen des Senders aktiv ist.
+    - `RTCRtpReceiver`: Bietet _nicht_ an, RTP-Daten zu empfangen, und wird dies nicht tun.
 - `"recvonly"`
-  - : Transceiver bietet an, RTP-Daten zu empfangen, aber nicht zu senden:
+  - : Transceiver bietet an, aber setzt keine RTP-Daten, zu empfangen:
     - `RTCRtpSender`: Bietet _nicht_ an, RTP-Daten zu senden, und wird dies nicht tun.
-    - `RTCRtpReceiver`: Bietet an, RTP-Daten zu empfangen, und wird dies tun, wenn der Remote-Peer dies anbietet.
+    - `RTCRtpReceiver`: Bietet an, RTP-Daten zu empfangen, und wird dies tun, wenn der entfernte Peer es anbietet.
 - `"inactive"`
   - : Transceiver ist inaktiv:
     - `RTCRtpSender`: Bietet _nicht_ an, RTP-Daten zu senden, und wird dies nicht tun.
     - `RTCRtpReceiver`: Bietet _nicht_ an, RTP-Daten zu empfangen, und wird dies nicht tun.
 - `"stopped"`
-  - : Dies ist der Endzustand des Transceivers. Der Transceiver ist gestoppt und wird keine RTP-Daten senden oder empfangen oder dies anbieten. Wenn dieser Wert gesetzt wird, während der Transceiver nicht bereits gestoppt ist, wird ein `TypeError` ausgelöst.
+  - : Dies ist der Endzustand des Transceivers.
+    Der Transceiver ist gestoppt und wird weder RTP-Daten senden noch empfangen oder anbieten, dies zu tun.
+    Das Setzen dieses Wertes, wenn der Transceiver nicht bereits gestoppt ist, löst einen `TypeError` aus.
     - `RTCRtpSender`: Bietet _nicht_ an, RTP-Daten zu senden, und wird dies nicht tun.
     - `RTCRtpReceiver`: Bietet _nicht_ an, RTP-Daten zu empfangen, und wird dies nicht tun.
 
@@ -41,24 +45,27 @@ Ein String mit einem der folgenden Werte:
 
 Beim Setzen des Wertes von `direction` kann die folgende Ausnahme auftreten:
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Der Empfänger des {{domxref("RTCPeerConnection")}} ist geschlossen oder der {{domxref("RTCRtpReceiver")}} ist gestoppt.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) des Empfängers ist geschlossen oder der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) ist gestoppt.
 - `TypeError`
-  - : Der Wert wird auf `stopped` gesetzt, obwohl der aktuelle Wert etwas anderes als `stopped` ist.
+  - : Der Wert wird auf `stopped` gesetzt, wenn der aktuelle Wert etwas anderes als `stopped` ist.
 
 ## Beschreibung
 
-Die **`direction`**-Eigenschaft kann verwendet werden, um die _bevorzugte_ Ausrichtung des Transceivers festzulegen oder abzufragen.
+Mit der **`direction`**-Eigenschaft kann die _bevorzugte_ Richtungsangabe des Transceivers gesetzt oder abgerufen werden.
 
-Die Aktualisierung der Ausrichtung tritt nicht sofort in Kraft. Wenn der neue Wert von `direction` sich vom bestehenden Wert unterscheidet, ist eine Neuaushandlung der Verbindung erforderlich, sodass ein {{domxref("RTCPeerConnection.negotiationneeded_event", "negotiationneeded")}}-Ereignis an den {{domxref("RTCPeerConnection")}} gesendet wird. Ein `direction`-Wert (außer `stopped`) wird dann von {{domxref("RTCPeerConnection.createOffer()")}} oder {{domxref("RTCPeerConnection.createAnswer()")}} verwendet, um die {{glossary("SDP")}}-Nachricht zu erzeugen, die mit diesen Methoden erstellt wird. Zum Beispiel, wenn `direction` als `"sendrecv"` angegeben ist, zeigt die entsprechende SDP a-Linie die Ausrichtung an:
+Eine Aktualisierung der Richtungsangabe tritt nicht sofort in Kraft.
+Wenn der neue Wert von `direction` sich vom bestehenden Wert unterscheidet, ist eine Neuverhandlung der Verbindung erforderlich, sodass ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet wird.
+Ein `direction`-Wert (außer `stopped`) wird dann von [`RTCPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) oder [`RTCPeerConnection.createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer) verwendet, um die von diesen Methoden erstellte [SDP](/de/docs/Glossary/SDP)-Nachricht zu generieren.
+Wenn zum Beispiel die `direction` als `"sendrecv"` angegeben ist, zeigt die entsprechende SDP a-line die Richtungsangabe an:
 
 ```plain
 a=sendrecv
 ```
 
-Die neue Ausrichtung tritt in Kraft, sobald der Verhandlungsprozess abgeschlossen und die neue Sitzungsbeschreibung erfolgreich angewendet wurde.
+Die neue Richtungsangabe tritt in Kraft, sobald der Verhandlungsprozess abgeschlossen ist und die neue Sitzungsbeschreibung erfolgreich angewendet wurde.
 
-Die _aktuelle_ Richtung des Transceivers wird durch die Eigenschaft {{domxref("RTCRtpTransceiver.currentDirection", "currentDirection")}} angezeigt.
+Die _aktuelle_ Richtung des Transceivers wird durch die [`currentDirection`](/de/docs/Web/API/RTCRtpTransceiver/currentDirection)-Eigenschaft angezeigt.
 
 ## Spezifikationen
 
@@ -70,4 +77,4 @@ Die _aktuelle_ Richtung des Transceivers wird durch die Eigenschaft {{domxref("R
 
 ## Siehe auch
 
-- {{domxref("RTCRtpTransceiver.currentDirection")}}
+- [`RTCRtpTransceiver.currentDirection`](/de/docs/Web/API/RTCRtpTransceiver/currentDirection)

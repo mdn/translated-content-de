@@ -9,12 +9,12 @@ l10n:
 {{APIRef("DOM")}}
 
 Die schreibgeschützte Eigenschaft **`HTMLMeterElement.labels`** gibt eine
-{{domxref("NodeList")}} der {{HTMLElement("label")}}-Elemente zurück, die mit dem
+[`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem
 {{HTMLElement("meter")}}-Element verknüpft sind.
 
 ## Wert
 
-Eine {{domxref("NodeList")}}, die die `<label>`-Elemente enthält, die mit dem `<meter>`-Element verknüpft sind.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<meter>`-Element verknüpft sind.
 
 ## Beispiele
 

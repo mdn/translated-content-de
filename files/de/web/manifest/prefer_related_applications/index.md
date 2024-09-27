@@ -10,15 +10,15 @@ l10n:
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Type</th>
+      <th scope="row">Typ</th>
       <td><code>Boolean</code></td>
     </tr>
   </tbody>
 </table>
 
-Das `prefer_related_applications`-Mitglied ist ein boolescher Wert, der angibt, dass die in [`related_applications`](/de/docs/Web/Manifest/related_applications) aufgeführten Anwendungen der Webanwendung vorgezogen werden sollten. Wenn das `prefer_related_applications`-Mitglied auf `true` gesetzt ist, könnte der Benutzer-Agent vorschlagen, eine der verwandten Anwendungen anstelle dieser Web-App zu installieren.
+Das `prefer_related_applications`-Mitglied ist ein boolescher Wert, der angibt, dass Anwendungen, die in [`related_applications`](/de/docs/Web/Manifest/related_applications) aufgeführt sind, der Webanwendung vorgezogen werden sollen. Wenn das `prefer_related_applications`-Mitglied auf `true` gesetzt ist, kann der Benutzeragent vorschlagen, eine der verwandten Anwendungen anstelle dieser Webanwendung zu installieren.
 
-Wenn es weggelassen wird, ist der Standardwert für `prefer_related_applications` `false`.
+Wenn es weggelassen wird, ist `prefer_related_applications` standardmäßig auf `false` gesetzt.
 
 ## Beispiele
 

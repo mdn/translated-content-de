@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`id`**-Eigenschaft der {{domxref("InterventionReportBody")}}-Schnittstelle gibt einen String zurück, der die Intervention identifiziert, die den Bericht erstellt hat. Dies kann verwendet werden, um Berichte zu gruppieren.
+Die schreibgeschützte **`id`**-Eigenschaft des [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Interfaces gibt einen String zurück, der die Intervention identifiziert, die den Bericht generiert hat. Dies kann verwendet werden, um Berichte zu gruppieren.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen {{domxref("ReportingObserver")}}, um Interventionsberichte zu beobachten, und drucken dann den Wert von `id` in die Konsole.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Interventionsberichte zu beobachten, und geben dann den Wert von `id` in der Konsole aus.
 
 ```js
 const options = {

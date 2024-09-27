@@ -1,5 +1,5 @@
 ---
-title: "OES_vertex_array_object: Methode deleteVertexArrayOES()"
+title: "OES_vertex_array_object: deleteVertexArrayOES() Methode"
 short-title: deleteVertexArrayOES()
 slug: Web/API/OES_vertex_array_object/deleteVertexArrayOES
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`OES_vertex_array_object.deleteVertexArrayOES()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein angegebenes {{domxref("WebGLVertexArrayObject")}}-Objekt.
+Die **`OES_vertex_array_object.deleteVertexArrayOES()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ deleteVertexArrayOES(arrayObject)
 ### Parameter
 
 - `arrayObject`
-  - : Ein {{domxref("WebGLVertexArrayObject")}} (VAO)-Objekt, das gelöscht werden soll.
+  - : Ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) (VAO)-Objekt, das gelöscht werden soll.
 
 ### Rückgabewert
 
-Kein Wert ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -47,6 +47,6 @@ ext.deleteVertexArrayOES(vao);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLRenderingContext.vertexAttribPointer()")}}
-- WebGL2-Äquivalent: {{domxref("WebGL2RenderingContext.deleteVertexArray()")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLRenderingContext.vertexAttribPointer()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer)
+- WebGL2-Äquivalent: [`WebGL2RenderingContext.deleteVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/deleteVertexArray)

@@ -1,5 +1,5 @@
 ---
-title: "PaymentResponse: Eigenschaft payerEmail"
+title: "PaymentResponse: payerEmail-Eigenschaft"
 short-title: payerEmail
 slug: Web/API/PaymentResponse/payerEmail
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die unveränderliche Eigenschaft `payerEmail` der Schnittstelle {{domxref("PaymentResponse")}} gibt die vom Benutzer bereitgestellte E-Mail-Adresse zurück. Diese Option ist nur vorhanden, wenn die Option `requestPayerEmail` im `options`-Objekt, das an den Konstruktor {{domxref('PaymentRequest.PaymentRequest','PaymentRequest')}} übergeben wird, auf `true` gesetzt ist.
+Die schreibgeschützte Eigenschaft `payerEmail` der [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Schnittstelle gibt die vom Benutzer bereitgestellte E-Mail-Adresse zurück. Diese Option ist nur vorhanden, wenn die Option `requestPayerEmail` im `options`-Objekt, das an den [`PaymentRequest`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor übergeben wird, auf `true` gesetzt ist.
 
 ## Wert
 

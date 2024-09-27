@@ -8,14 +8,12 @@ l10n:
 
 {{APIRef}}
 
-Die **`imageSmoothingEnabled`**-Eigenschaft des {{domxref("CanvasRenderingContext2D")}}-Interfaces, Teil der [Canvas API](/de/docs/Web/API/Canvas_API), bestimmt, ob skalierte Bilder geglättet (`true`, Standard) oder nicht geglättet (`false`) werden sollen. Beim Abrufen der `imageSmoothingEnabled`-Eigenschaft wird der zuletzt eingestellte Wert zurückgegeben.
+Die **`imageSmoothingEnabled`**-Eigenschaft des [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Interfaces, Teil der [Canvas API](/de/docs/Web/API/Canvas_API), bestimmt, ob skalierte Bilder geglättet (`true`, Standard) oder nicht geglättet (`false`) werden. Beim Abrufen der `imageSmoothingEnabled`-Eigenschaft wird der zuletzt gesetzte Wert zurückgegeben.
 
-Diese Eigenschaft ist nützlich für Spiele und andere Apps, die Pixelgrafiken verwenden. Beim Vergrößern von Bildern wird durch den standardmäßigen Vergrößerungsalgorithmus die Pixelunschärfe erzeugt. Setzen Sie diese Eigenschaft auf `false`, um die Schärfe der Pixel beizubehalten.
+Diese Eigenschaft ist nützlich für Spiele und andere Apps, die Pixelgrafik verwenden. Beim Vergrößern von Bildern verwischt der Standard-Resizing-Algorithmus die Pixel. Setzen Sie diese Eigenschaft auf `false`, um die Schärfe der Pixel zu erhalten.
 
 > [!NOTE]
-> Sie können die Glättungsqualität mit der
-> {{domxref("CanvasRenderingContext2D.imageSmoothingQuality", "imageSmoothingQuality")}}
-> Eigenschaft anpassen.
+> Sie können die Glättungsqualität mit der [`imageSmoothingQuality`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingQuality)-Eigenschaft anpassen.
 
 ## Wert
 
@@ -23,9 +21,9 @@ Ein boolescher Wert, der angibt, ob skalierte Bilder geglättet werden sollen od
 
 ## Beispiele
 
-### Deaktivierung der Bildglättung
+### Deaktivieren der Bildglättung
 
-Dieses Beispiel vergleicht drei Bilder. Das erste Bild wird in seiner natürlichen Größe gezeichnet, das zweite wird auf das Dreifache skaliert und mit aktivierter Bildglättung gezeichnet, und das dritte wird ebenfalls auf das Dreifache skaliert, jedoch ohne Bildglättung gezeichnet.
+Dieses Beispiel vergleicht drei Bilder. Das erste Bild wird in seiner natürlichen Größe gezeichnet, das zweite wird auf 3X skaliert und mit aktivierter Bildglättung gezeichnet, und das dritte wird auf 3X skaliert, aber mit deaktivierter Bildglättung gezeichnet.
 
 #### HTML
 
@@ -76,6 +74,6 @@ img.onload = () => {
 
 ## Siehe auch
 
-- Das Interface, das diese Eigenschaft definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasRenderingContext2D.imageSmoothingQuality")}}
+- Das Interface, das diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasRenderingContext2D.imageSmoothingQuality`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingQuality)
 - {{cssxref("image-rendering")}}

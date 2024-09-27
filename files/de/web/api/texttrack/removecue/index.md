@@ -1,5 +1,5 @@
 ---
-title: "TextTrack: Methode removeCue()"
+title: "TextTrack: removeCue()-Methode"
 short-title: removeCue()
 slug: Web/API/TextTrack/removeCue
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`removeCue()`**-Methode der {{domxref("TextTrack")}}-Schnittstelle entfernt ein Cue aus der Liste der Cues.
+Die **`removeCue()`**-Methode der [`TextTrack`](/de/docs/Web/API/TextTrack)-Schnittstelle entfernt eine Spur aus der Liste der Spuren.
 
 ## Syntax
 
@@ -19,23 +19,23 @@ removeCue(cue)
 ### Parameter
 
 - `cue`
-  - : Ein {{domxref("TextTrackCue")}}.
+  - : Ein [`TextTrackCue`](/de/docs/Web/API/TextTrackCue).
 
 ### Rückgabewert
 
-Undefined.
+Nicht definiert.
 
 ### Ausnahmen
 
-- `NotFoundError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das angegebene Cue nicht in der Liste der Cues gefunden wird.
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die angegebene Spur nicht in der Liste der Spuren gefunden wird.
 
 > [!NOTE]
-> Die {{domxref("TextTrackCue")}}-Schnittstelle ist eine abstrakte Klasse, die als Eltern für andere Cue-Schnittstellen wie {{domxref("VTTCue")}} dient. Daher übergeben Sie beim Entfernen eines Cues einen der Cue-Typen, die von `TextTrackCue` erben.
+> Die [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Schnittstelle ist eine abstrakte Klasse, die als Elternklasse für andere Spurenschnittstellen wie [`VTTCue`](/de/docs/Web/API/VTTCue) verwendet wird. Daher übergeben Sie beim Entfernen einer Spur einen der Spurtypen, die von `TextTrackCue` erben.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein Cue zu einem Videotext-Track mit `addCue()` hinzugefügt und dann mit `removeCue()` entfernt.
+Im folgenden Beispiel wird eine Spur zu einer Video-Textspur mit `addCue()` hinzugefügt und dann mit `removeCue` entfernt.
 
 ```js
 let video = document.querySelector("video");

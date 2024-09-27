@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Der **`HashChangeEvent()`**-Konstruktor erstellt ein neues {{domxref("HashChangeEvent")}}-Objekt, das vom {{domxref("Window/hashchange_event", "hashchange")}}-Ereignis verwendet wird, das am {{domxref("window")}}-Objekt ausgelöst wird, wenn sich das Fragment der URL ändert.
+Der **`HashChangeEvent()`** Konstruktor erstellt ein neues [`HashChangeEvent`](/de/docs/Web/API/HashChangeEvent) Objekt, das vom [`hashchange`](/de/docs/Web/API/Window/hashchange_event) Ereignis verwendet wird, das am [`window`](/de/docs/Web/API/Window) Objekt ausgelöst wird, wenn sich das Fragment der URL ändert.
 
 > [!NOTE]
-> Ein Webentwickler muss diesen Konstruktor normalerweise nicht aufrufen, da der Browser diese Objekte selbst erstellt, wenn {{domxref("Window/hashchange_event", "hashchange")}}-Ereignisse ausgelöst werden.
+> Ein Webentwickler muss diesen Konstruktor normalerweise nicht aufrufen, da der Browser diese Objekte selbst erstellt, wenn [`hashchange`](/de/docs/Web/API/Window/hashchange_event) Ereignisse ausgelöst werden.
 
 ## Syntax
 
@@ -23,17 +23,17 @@ new HashChangeEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist groß- und kleinschreibungssensitiv und Browser setzen es auf `hashchange`.
+    Es ist case-sensitive und Browser setzen es auf `hashchange`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften hat:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften enthält:
     - `oldURL` {{optional_inline}}
-      - : Ein String, der die alte URL enthält. Sein Standardwert ist der leere String (`""`).
+      - : Ein String, der die alte URL enthält. Der Standardwert ist der leere String (`""`).
     - `newURL` {{optional_inline}}
-      - : Ein String, der die neue URL enthält. Sein Standardwert ist der leere String (`""`).
+      - : Ein String, der die neue URL enthält. Der Standardwert ist der leere String (`""`).
 
 ### Rückgabewert
 
-Ein neues {{domxref("HashChangeEvent")}}-Objekt.
+Ein neues [`HashChangeEvent`](/de/docs/Web/API/HashChangeEvent) Objekt.
 
 ## Spezifikationen
 
@@ -45,4 +45,4 @@ Ein neues {{domxref("HashChangeEvent")}}-Objekt.
 
 ## Siehe auch
 
-- {{domxref("Window/hashchange_event", "hashchange")}}-Ereignis
+- [`hashchange`](/de/docs/Web/API/Window/hashchange_event) Ereignis

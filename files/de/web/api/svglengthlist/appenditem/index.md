@@ -1,5 +1,5 @@
 ---
-title: "SVGLengthList: appendItem()-Methode"
+title: "SVGLengthList: appendItem() Methode"
 short-title: appendItem()
 slug: Web/API/SVGLengthList/appendItem
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`appendItem()`**-Methode der {{domxref("SVGLengthList")}}-Schnittstelle fügt ein neues Element am Ende der Liste ein. Wenn das angegebene Element bereits in einer Liste enthalten ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und nicht eine Kopie.
+Die **`appendItem()`**-Methode der [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Schnittstelle fügt ein neues Element am Ende der Liste hinzu. Wenn das angegebene Element bereits in einer Liste ist, wird es vor dem Einfügen in diese Liste aus seiner vorherigen Liste entfernt. Das eingefügte Element ist das Element selbst und nicht eine Kopie.
 
 ## Syntax
 
@@ -19,20 +19,20 @@ appendItem(newItem)
 ### Parameter
 
 - `newItem`
-  - : Der {{domxref("SVGLength")}}, der der Liste hinzugefügt werden soll.
+  - : Der [`SVGLength`](/de/docs/Web/API/SVGLength), der zur Liste hinzugefügt werden soll.
 
 ### Rückgabewert
 
-Der {{domxref("SVGLength")}}, der der Liste hinzugefügt wurde.
+Der [`SVGLength`](/de/docs/Web/API/SVGLength), der zur Liste hinzugefügt wurde.
 
 ### Ausnahmen
 
-- {{domxref("DOMException")}} `NoModificationAllowedError`
+- [`DOMException`](/de/docs/Web/API/DOMException) `NoModificationAllowedError`
   - : Wird ausgelöst, wenn die Liste schreibgeschützt ist.
 
 ## Beispiele
 
-Siehe {{domxref("SVGLengthList")}} für ein vollständiges Beispiel.
+Siehe [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) für ein vollständiges Beispiel.
 
 ## Spezifikationen
 

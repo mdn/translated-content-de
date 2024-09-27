@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die **`trim()`**-Methode von {{jsxref("String")}}-Werten entfernt Leerzeichen von beiden Enden dieses Strings und gibt einen neuen String zurück, ohne den ursprünglichen String zu ändern.
+Die **`trim()`**-Methode von {{jsxref("String")}}-Werten entfernt Leerzeichen von beiden Enden dieser Zeichenkette und gibt eine neue Zeichenkette zurück, ohne die ursprüngliche Zeichenkette zu ändern.
 
-Um einen neuen String mit Leerzeichen, die nur von einem Ende entfernt wurden, zurückzugeben, verwenden Sie {{jsxref("String/trimStart", "trimStart()")}} oder {{jsxref("String/trimEnd", "trimEnd()")}}.
+Um eine neue Zeichenkette mit Leerzeichen entfernt von nur einem Ende zurückzugeben, verwenden Sie {{jsxref("String/trimStart", "trimStart()")}} oder {{jsxref("String/trimEnd", "trimEnd()")}}.
 
 {{EmbedInteractiveExample("pages/js/string-trim.html")}}
 
@@ -25,15 +25,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein neuer String, der `str` darstellt und von Leerzeichen an beiden Enden befreit ist. Leerstellen werden als [white space](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space)-Zeichen plus [line terminators](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) definiert.
+Eine neue Zeichenkette, die `str` darstellt, bei der die Leerzeichen von beiden Enden entfernt wurden. Leerzeichen sind definiert als [white space](/de/docs/Web/JavaScript/Reference/Lexical_grammar#white_space)-Zeichen plus [line terminators](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators).
 
-Wenn weder der Anfang noch das Ende von `str` Leerzeichen aufweist, wird dennoch ein neuer String zurückgegeben (im Wesentlichen eine Kopie von `str`).
+Selbst wenn weder der Anfang noch das Ende von `str` Leerzeichen aufweist, wird eine neue Zeichenkette zurückgegeben (im Wesentlichen eine Kopie von `str`).
 
 ## Beispiele
 
 ### Verwendung von trim()
 
-Im folgenden Beispiel werden Leerzeichen von beiden Enden von `str` entfernt.
+Das folgende Beispiel entfernt Leerzeichen von beiden Enden von `str`.
 
 ```js
 const str = "   foo  ";

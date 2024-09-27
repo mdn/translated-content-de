@@ -17,7 +17,7 @@ let myAddonId = browser.runtime.id;
 
 ### Wert
 
-Ein `string`, der die Add-on-ID repräsentiert. Wenn die Erweiterung in ihrem [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) manifest.json-Schlüssel eine ID angibt, enthält `runtime.id` diesen Wert. Andernfalls enthält `runtime.id` die generierte ID der Erweiterung.
+Ein `string`, der die Add-on-ID darstellt. Falls die Erweiterung eine ID in ihrem Manifest.json-Schlüssel [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) spezifiziert, enthält `runtime.id` diesen Wert. Andernfalls enthält `runtime.id` die für die Erweiterung generierte ID.
 
 ## Browser-Kompatibilität
 
@@ -26,7 +26,7 @@ Ein `string`, der die Add-on-ID repräsentiert. Wenn die Erweiterung in ihrem [`
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#property-id) API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#property-id) API. Diese Dokumentation ist aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

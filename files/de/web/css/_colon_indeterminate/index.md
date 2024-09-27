@@ -2,25 +2,25 @@
 title: ":indeterminate"
 slug: Web/CSS/:indeterminate
 l10n:
-  sourceCommit: 328b6b07216cd7588dd63272a5005f709b8d501a
+  sourceCommit: a4974693ac80bb2872d52610e13737430d9377a6
 ---
 
 {{CSSRef}}
 
-Die **`:indeterminate`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes Formularelement, dessen Zustand unbestimmt ist, wie z.B. Checkboxen, die mit JavaScript auf einen [`indeterminate`](/de/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes)-Zustand gesetzt wurden, Radiobuttons, die Mitglieder einer Gruppe sind, in der alle Radiobuttons nicht ausgewählt sind, und {{HTMLElement("progress")}}-Elemente ohne `value`-Attribut.
+Die **`:indeterminate`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes Formularelement, dessen Zustand unbestimmt ist, wie z.B. Kontrollkästchen, die mit JavaScript auf einen [`indeterminate`](/de/docs/Web/API/HTMLInputElement/indeterminate)-Zustand gesetzt wurden, Radiobuttons, die Mitglieder einer Gruppe sind, in der alle Radiobuttons nicht ausgewählt sind, und {{HTMLElement("progress")}} Elemente ohne `value`-Attribut.
 
 ```css
-/* Wählt jedes <input>, dessen Zustand unbestimmt ist */
+/* Selects any <input> whose state is indeterminate */
 input:indeterminate {
   background: lime;
 }
 ```
 
-Elemente, die durch diesen Selektor erfasst werden, sind:
+Von diesem Selektor anvisierte Elemente sind:
 
-- [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox)-Elemente, deren `indeterminate`-Eigenschaft durch [JavaScript](/de/docs/Web/JavaScript) auf `true` gesetzt ist
-- [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)-Elemente, wenn alle Radiobuttons mit demselben `name`-Wert im Formular nicht ausgewählt sind
-- {{HTMLElement("progress")}}-Elemente in einem unbestimmten Zustand
+- [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox) Elemente, deren [`indeterminate`](/de/docs/Web/API/HTMLInputElement/indeterminate)-Eigenschaft auf `true` gesetzt ist
+- [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio) Elemente, wenn alle Radiobuttons mit demselben `name`-Wert im Formular nicht ausgewählt sind
+- {{HTMLElement("progress")}} Elemente in einem unbestimmten Zustand
 
 ## Syntax
 
@@ -30,9 +30,9 @@ Elemente, die durch diesen Selektor erfasst werden, sind:
 
 ## Beispiele
 
-### Checkbox & Radiobutton
+### Kontrollkästchen & Radiobutton
 
-Dieses Beispiel wendet spezielle Stile auf die Labels an, die mit unbestimmten Formularfeldern assoziiert sind.
+Dieses Beispiel wendet spezielle Stile auf die Labels zu, die mit unbestimmten Formularfeldern verbunden sind.
 
 #### HTML
 
@@ -41,7 +41,7 @@ Dieses Beispiel wendet spezielle Stile auf die Labels an, die mit unbestimmten F
   <legend>Checkbox</legend>
   <div>
     <input type="checkbox" id="checkbox" />
-    <label for="checkbox">Dieses Checkbox-Label startet in Lime.</label>
+    <label for="checkbox">This checkbox label starts out lime.</label>
   </div>
 </fieldset>
 
@@ -49,11 +49,11 @@ Dieses Beispiel wendet spezielle Stile auf die Labels an, die mit unbestimmten F
   <legend>Radio</legend>
   <div>
     <input type="radio" id="radio1" name="radioButton" value="val1" />
-    <label for="radio1">Erstes Radiobutton-Label startet in Lime.</label>
+    <label for="radio1">First radio label starts out lime.</label>
   </div>
   <div>
     <input type="radio" id="radio2" name="radioButton" value="val2" />
-    <label for="radio2">Zweites Radiobutton-Label startet ebenfalls in Lime.</label>
+    <label for="radio2">Second radio label also starts out lime.</label>
   </div>
 </fieldset>
 ```
@@ -130,7 +130,7 @@ progress:indeterminate {
 ## Siehe auch
 
 - [Webformulare — Arbeiten mit Benutzerdaten](/de/docs/Learn/Forms)
-- [Styling von Webformularen](/de/docs/Learn/Forms/Styling_web_forms)
-- Die [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox)-Eigenschaft [`indeterminate`](/de/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes)
-- {{HTMLElement("input")}} und das {{domxref("HTMLInputElement")}}-Interface, das es implementiert.
-- Der {{cssxref(":checked")}} CSS-Selektor ermöglicht es Ihnen, Checkboxen basierend darauf zu stylen, ob sie markiert sind oder nicht.
+- [Stilisierung von Webformularen](/de/docs/Learn/Forms/Styling_web_forms)
+- Die [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox) Element-Eigenschaft [`indeterminate`](/de/docs/Web/API/HTMLInputElement/indeterminate)
+- {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Schnittstelle, die es implementiert.
+- Der {{cssxref(":checked")}} CSS-Selektor ermöglicht es Ihnen, Kontrollkästchen basierend darauf zu stylen, ob sie aktiviert sind oder nicht.

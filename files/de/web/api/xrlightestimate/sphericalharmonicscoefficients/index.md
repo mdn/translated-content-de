@@ -1,5 +1,5 @@
 ---
-title: "XRLightEstimate: Eigenschaft sphericalHarmonicsCoefficients"
+title: "XRLightEstimate: sphericalHarmonicsCoefficients-Eigenschaft"
 short-title: sphericalHarmonicsCoefficients
 slug: Web/API/XRLightEstimate/sphericalHarmonicsCoefficients
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`sphericalHarmonicsCoefficients`**-Eigenschaft der {{DOMxRef("XRLightEstimate")}}-Schnittstelle gibt ein {{jsxref("Float32Array")}} zurück, das 9 sphärische Harmonische Koeffizienten enthält.
+Die _schreibgeschützte_ **`sphericalHarmonicsCoefficients`**-Eigenschaft der [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate)-Schnittstelle gibt ein {{jsxref("Float32Array")}} zurück, das neun Sphärische-Harmonische-Koeffizienten enthält.
 
-Sphärische harmonische Beleuchtung ist eine Technik, die sphärische Funktionen anstelle von Standard-Beleuchtungsgleichungen verwendet. Weitere Informationen finden Sie auf [Wikipedia](https://de.wikipedia.org/wiki/Spherische_Harmonische_Beleuchtung).
+Die Beleuchtung mit sphärischen Harmonischen ist eine Technik, die sphärische Funktionen anstelle von Standard-Beleuchtungsgleichungen verwendet. Weitere Informationen finden Sie auf [Wikipedia](https://en.wikipedia.org/wiki/Spherical_harmonic_lighting).
 
 ## Wert
 
-Ein {{jsxref("Float32Array")}}, das 9 sphärische harmonische Koeffizienten enthält. Das Array umfasst insgesamt 27 Elemente, wobei jeweils 3 Elemente die Rot-, Grün- und Blaukomponenten für jeden Koeffizienten definieren.
+Ein {{jsxref("Float32Array")}}, das neun Sphärische-Harmonische-Koeffizienten enthält. Das Array hat insgesamt 27 Elemente, wobei alle drei Elemente die Rot-, Grün- und Blaukomponenten für jeden Koeffizienten definieren.
 
-Die ersten 3 Elemente müssen eine gültige Beleuchtungskomponente sein; der Rest kann aufgrund von Datenschutzeinstellungen oder Einschränkungen des Geräts, mehr Daten bereitzustellen, 0 sein.
+Die ersten drei Elemente müssen eine gültige Beleuchtungskompone enthalten; die restlichen Elemente können 0 sein, aufgrund von Datenschutzeinstellungen oder Einschränkungen des Geräts, mehr Daten bereitzustellen.
 
 ## Beispiele
 
-Innerhalb einer {{domxref("XRFrame")}} Schleife können Sie die `sphericalHarmonicsCoefficients`-Eigenschaft verwenden, um die Szene zu beleuchten.
+Innerhalb einer [`XRFrame`](/de/docs/Web/API/XRFrame)-Schleife können Sie die Eigenschaft `sphericalHarmonicsCoefficients` verwenden, um die Szene zu beleuchten.
 
 ```js
 const lightProbe = await xrSession.requestLightProbe();
@@ -43,4 +43,4 @@ function onXRFrame(time, xrFrame) {
 
 ## Siehe auch
 
-- {{domxref("XRFrame.getLightEstimate()")}}
+- [`XRFrame.getLightEstimate()`](/de/docs/Web/API/XRFrame/getLightEstimate)

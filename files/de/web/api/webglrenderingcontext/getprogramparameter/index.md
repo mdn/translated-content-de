@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode getProgramParameter()"
+title: "WebGLRenderingContext: getProgramParameter() Methode"
 short-title: getProgramParameter()
 slug: Web/API/WebGLRenderingContext/getProgramParameter
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode **`WebGLRenderingContext.getProgramParameter()`** der [WebGL API](/de/docs/Web/API/WebGL_API) gibt Informationen über das angegebene Programm zurück.
+Die **`WebGLRenderingContext.getProgramParameter()`**-Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) liefert Informationen über das
+angegebene Programm zurück.
 
 ## Syntax
 
@@ -19,37 +21,46 @@ getProgramParameter(program, pname)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}, von dem die Parameterinformationen abgerufen werden.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), von dem die Parameterinformationen abgerufen werden sollen.
 - `pname`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das die abzufragenden Informationen spezifiziert. Mögliche Werte sind:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die abzufragenden Informationen spezifiziert. Mögliche Werte:
 
     - `gl.DELETE_STATUS`
-      - : Gibt einen {{domxref("WebGL_API/Types", "GLboolean")}} zurück, der angibt, ob das Programm zur Löschung markiert ist.
+      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das anzeigt,
+        ob das Programm zur Löschung markiert ist.
     - `gl.LINK_STATUS`
-      - : Gibt einen {{domxref("WebGL_API/Types", "GLboolean")}} zurück, der angibt, ob der letzte Linkvorgang erfolgreich war.
+      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das anzeigt,
+        ob der letzte Link-Vorgang erfolgreich war.
     - `gl.VALIDATE_STATUS`
-      - : Gibt einen {{domxref("WebGL_API/Types", "GLboolean")}} zurück, der angibt, ob der letzte Validierungsvorgang erfolgreich war.
+      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das anzeigt,
+        ob der letzte Validierungsvorgang erfolgreich war.
     - `gl.ATTACHED_SHADERS`
-      - : Gibt einen {{domxref("WebGL_API/Types", "GLint")}} zurück, der die Anzahl der an ein Programm angehängten Shader angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die
+        Anzahl der an ein Programm angehängten Shader angibt.
     - `gl.ACTIVE_ATTRIBUTES`
-      - : Gibt einen {{domxref("WebGL_API/Types", "GLint")}} zurück, der die Anzahl der aktiven Attributvariablen in einem Programm angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die
+        Anzahl der aktiven Attributvariablen in einem Programm angibt.
     - `gl.ACTIVE_UNIFORMS`
 
-      - : Gibt einen {{domxref("WebGL_API/Types", "GLint")}} zurück, der die Anzahl der aktiven Uniformvariablen in einem Programm angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die
+        Anzahl der aktiven Uniform-Variablen in einem Programm angibt.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}} stehen zusätzlich die folgenden Werte zur Verfügung:
+    Bei der Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontexts", "", 1)}}
+    sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.TRANSFORM_FEEDBACK_BUFFER_MODE`
       - : Gibt ein
-        {{domxref("WebGL_API/Types", "GLenum")}} zurück, das den Puffer-Modus angibt, wenn Transform-Feedback aktiv ist. Kann `gl.SEPARATE_ATTRIBS` oder
+        [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das den Puffer-Modus anzeigt, wenn Transform-Feedback
+        aktiv ist. Kann `gl.SEPARATE_ATTRIBS` oder
         `gl.INTERLEAVED_ATTRIBS` sein.
     - `gl.TRANSFORM_FEEDBACK_VARYINGS`
-      - : Gibt einen {{domxref("WebGL_API/Types", "GLint")}}
-        zurück, der die Anzahl der bei Transform-Feedback zu erfassenden Variablen angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types)
+        zurück, das die Anzahl der in Transform-Feedback-Modus zu erfassenden
+        Varying-Variablen angibt.
     - `gl.ACTIVE_UNIFORM_BLOCKS`
-      - : Gibt einen {{domxref("WebGL_API/Types", "GLint")}}
-        zurück, der die Anzahl der Uniform-Blöcke mit aktiven Uniformen angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types)
+        zurück, das die Anzahl der Uniform-Blöcke mit aktiven Uniforms angibt.
 
 ### Rückgabewert
 
@@ -71,4 +82,4 @@ gl.getProgramParameter(program, gl.DELETE_STATUS);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getShaderParameter()")}}
+- [`WebGLRenderingContext.getShaderParameter()`](/de/docs/Web/API/WebGLRenderingContext/getShaderParameter)

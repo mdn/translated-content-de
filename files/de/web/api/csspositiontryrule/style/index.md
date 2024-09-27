@@ -1,6 +1,6 @@
 ---
 title: "CSSPositionTryRule: style-Eigenschaft"
-short-title: Stil
+short-title: style
 slug: Web/API/CSSPositionTryRule/style
 l10n:
   sourceCommit: 839c5e88a078deead1bcf1b2837d05499cb859b1
@@ -8,15 +8,15 @@ l10n:
 
 {{ APIRef("CSSOM") }}{{SeeCompatTable}}
 
-Die **`style`** schreibgeschützte Eigenschaft der {{domxref("CSSPositionTryRule")}}-Schnittstelle gibt ein {{domxref("CSSPositionTryDescriptors")}}-Objekt zurück, das die in der `@position-try`-Regel festgelegten Deklarationen darstellt.
+Die **`style`** schreibgeschützte Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle gibt ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt zurück, das die Deklarationen repräsentiert, die im Körper der `@position-try`-Regel festgelegt sind.
 
 ## Wert
 
-Ein {{domxref("CSSPositionTryDescriptors")}}-Objekt.
+Ein [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)-Objekt.
 
 ## Beispiele
 
-Das CSS enthält eine `@position-try`-Regel mit dem Namen `--custom-right` und drei Deskriptoren.
+Die CSS enthält eine `@position-try`-Regel mit dem Namen `--custom-right` und drei Deskriptoren.
 
 ```css
 @position-try --custom-bottom {
@@ -28,10 +28,10 @@ Das CSS enthält eine `@position-try`-Regel mit dem Namen `--custom-right` und d
 
 ```js
 const myRules = document.styleSheets[0].cssRules;
-const tryOption = myRules[0]; // eine CSSPositionTryRule
+const tryOption = myRules[0]; // a CSSPositionTryRule
 console.log(tryOption.style.top); // "anchor(bottom)"
 console.log(tryOption.style["min-width"]); // "100px"
-console.log(tryOption.style.positionArea); // ""; kein position-area angegeben
+console.log(tryOption.style.positionArea); // ""; no position-area specified
 ```
 
 ## Spezifikationen
@@ -44,9 +44,9 @@ console.log(tryOption.style.positionArea); // ""; kein position-area angegeben
 
 ## Siehe auch
 
-- {{DOMxRef("CSSPositionTryDescriptors")}}
+- [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)
 - {{cssxref("@position-try")}}
 - {{cssxref("position-try-fallbacks")}}
-- [Modul zur CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning)
-- [Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
-- [Überlauf behandeln: Versuch-Optionen und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
+- [Modul für CSS-Anchor-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning)
+- [Verwendung von CSS-Anchor-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
+- [Verarbeiten von Overflow: try-Optionen und bedingtes Verstecken](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)

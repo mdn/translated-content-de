@@ -8,21 +8,21 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`positionX`**-Eigenschaft der {{ domxref("PannerNode")}}-Schnittstelle spezifiziert die X-Koordinate der Position der Audioquelle in 3D-Kartesischen Koordinaten, entsprechend der _horizontalen_ Achse (links-rechts).
+Die **`positionX`**-Eigenschaft des [`PannerNode`](/de/docs/Web/API/PannerNode)-Interfaces gibt die X-Koordinate der Position der Audioquelle in 3D-Kartesischen Koordinaten an, entsprechend der _horizontalen_ Achse (links-rechts).
 
-Der vollständige Vektor wird durch die Position der Audioquelle definiert, angegeben als (`positionX`, {{domxref("PannerNode.positionY", "positionY")}}, {{domxref("PannerNode.positionZ", "positionZ")}}), und der Orientierung der Audioquelle (d.h. die Richtung, in die sie zeigt), angegeben als ({{domxref("PannerNode.orientationX", "orientationX")}}, {{domxref("PannerNode.orientationY", "orientationY")}}, {{domxref("PannerNode.orientationZ", "orientationZ")}}).
+Der vollständige Vektor wird durch die Position der Audioquelle definiert, angegeben als (`positionX`, [`positionY`](/de/docs/Web/API/PannerNode/positionY), [`positionZ`](/de/docs/Web/API/PannerNode/positionZ)), und die Ausrichtung der Audioquelle (d.h. die Richtung, in die sie zeigt), angegeben als ([`orientationX`](/de/docs/Web/API/PannerNode/orientationX), [`orientationY`](/de/docs/Web/API/PannerNode/orientationY), [`orientationZ`](/de/docs/Web/API/PannerNode/orientationZ)).
 
-Abhängig von der Richtwirkung des Klangs (wie mit den Attributen {{domxref("PannerNode.coneInnerAngle", "coneInnerAngle")}}, {{domxref("PannerNode.coneOuterAngle", "coneOuterAngle")}} und {{domxref("PannerNode.coneOuterGain", "codeOuterGain")}} spezifiziert), kann die Orientierung des Klangs das wahrgenommene Volumen des Klangs beim Abspielen verändern. Wenn der Klang auf den Zuhörer gerichtet ist, wird er lauter sein, als wenn der Klang vom Zuhörer weg zeigt.
+Abhängig von der Richtwirkung des Klangs (wie durch die Attribute [`coneInnerAngle`](/de/docs/Web/API/PannerNode/coneInnerAngle), [`coneOuterAngle`](/de/docs/Web/API/PannerNode/coneOuterAngle), und [`codeOuterGain`](/de/docs/Web/API/PannerNode/coneOuterGain) spezifiziert), kann die Ausrichtung des Klangs das wahrgenommene Volumen des Klangs beim Abspielen ändern. Wenn der Klang zum Hörer zeigt, wird er lauter sein, als wenn er vom Hörer weg zeigt.
 
-Der in dieser Eigenschaft enthaltene {{domxref("AudioParam")}} ist schreibgeschützt; Sie können jedoch den Wert des Parameters ändern, indem Sie seiner {{domxref("AudioParam.value")}}-Eigenschaft einen neuen Wert zuweisen.
+Der in dieser Eigenschaft enthaltene [`AudioParam`](/de/docs/Web/API/AudioParam) ist schreibgeschützt; Sie können jedoch weiterhin den Wert des Parameters ändern, indem Sie der Eigenschaft [`AudioParam.value`](/de/docs/Web/API/AudioParam/value) einen neuen Wert zuweisen.
 
 ## Wert
 
-Ein {{domxref("AudioParam")}}, dessen `value` die X-Koordinate der Position der Audioquelle in 3D-Kartesischen Koordinaten ist. Der Standardwert ist 0.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam), dessen `value` die X-Koordinate der Position der Audioquelle in 3D-Kartesischen Koordinaten ist. Der Standardwert ist 0.
 
 ## Beispiele
 
-Das folgende Beispiel startet einen Oszillator und bewegt ihn nach 1 Sekunde nach links, nach 2 Sekunden nach rechts und nach 3 Sekunden zurück in die Mitte.
+Das folgende Beispiel startet einen Oszillator und schwenkt ihn nach 1 Sekunde nach links, nach 2 Sekunden nach rechts und nach 3 Sekunden zurück in die Mitte.
 
 ```js
 const context = new AudioContext();
@@ -50,5 +50,5 @@ osc.start(0);
 ## Siehe auch
 
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- [Grundlagen der Web Audio-Spatialisierung](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics)
-- {{domxref("PannerNode")}}
+- [Grundlagen der Web Audio Spatialization](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics)
+- [`PannerNode`](/de/docs/Web/API/PannerNode)

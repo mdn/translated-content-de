@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die Eigenschaft **`screen`** des {{DOMxRef("Window")}} Objekts gibt eine Referenz auf das Bildschirmobjekt zurück, das mit dem Fenster verknüpft ist. Das `screen` Objekt, das die {{DOMxRef("Screen")}}-Schnittstelle implementiert, ist ein spezielles Objekt zur Überprüfung von Eigenschaften des Bildschirms, auf dem das aktuelle Fenster gerendert wird.
+Die [`Window`](/de/docs/Web/API/Window) Eigenschaft **`screen`** gibt eine Referenz auf das Bildschirmobjekt zurück, das mit dem Fenster verknüpft ist. Das `screen`-Objekt, das die [`Screen`](/de/docs/Web/API/Screen) Schnittstelle implementiert, ist ein spezielles Objekt zur Untersuchung der Eigenschaften des Bildschirms, auf dem das aktuelle Fenster gerendert wird.
 
 ## Wert
 
-Ein {{DOMxRef("Screen")}} Objekt.
+Ein [`Screen`](/de/docs/Web/API/Screen) Objekt.
 
 ## Beispiele
 

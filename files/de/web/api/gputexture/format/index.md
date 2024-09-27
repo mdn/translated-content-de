@@ -1,20 +1,20 @@
 ---
-title: "GPUTexture: Format-Eigenschaft"
+title: "GPUTexture: format-Eigenschaft"
 short-title: format
 slug: Web/API/GPUTexture/format
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`format`**-Eigenschaft der Schnittstelle {{domxref("GPUTexture")}} ist eine schreibgeschützte Eigenschaft, die das Format der `GPUTexture` darstellt.
+Die **`format`**-Eigenschaft der [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die das Format der `GPUTexture` darstellt.
 
-Diese wird über die `format`-Eigenschaft im Deskriptor-Objekt gesetzt, das im ursprünglichen Aufruf von {{domxref("GPUDevice.createTexture()")}} übergeben wird.
+Dieses wird über die `format`-Eigenschaft im Deskriptor-Objekt festgelegt, das in den ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird.
 
 ## Wert
 
-Ein enumerierter Wert. Siehe den Abschnitt [Texture formats](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) der Spezifikation für alle möglichen Werte.
+Ein aufgezählter Wert. Siehe den Abschnitt [Texture formats](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) der Spezifikation für alle möglichen Werte.
 
 ## Beispiele
 
@@ -34,7 +34,7 @@ console.log(depthTexture.format); // "depth24plus"
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

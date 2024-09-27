@@ -7,33 +7,33 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`TrackEvent`**-Schnittstelle der [HTML DOM API](/de/docs/Web/API/HTML_DOM_API) wird für Ereignisse verwendet, die Änderungen an einem Satz verfügbarer Spuren auf einem HTML-Medienelement darstellen; diese Ereignisse sind `addtrack` und `removetrack`.
+Die **`TrackEvent`**-Schnittstelle der [HTML DOM API](/de/docs/Web/API/HTML_DOM_API) wird für Ereignisse verwendet, die Änderungen an einer Gruppe von verfügbaren Spuren auf einem HTML-Medienelement darstellen. Diese Ereignisse sind `addtrack` und `removetrack`.
 
-Es ist wichtig, `TrackEvent` nicht mit der {{domxref("RTCTrackEvent")}}-Schnittstelle zu verwechseln, die für Spuren verwendet wird, die Teil einer {{domxref("RTCPeerConnection")}} sind.
+Es ist wichtig, `TrackEvent` nicht mit der [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent)-Schnittstelle zu verwechseln, die für Spuren verwendet wird, die Teil einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) sind.
 
-Auf `TrackEvent` basierende Ereignisse werden immer an einen der Medienspurenlisten-Typen gesendet:
+Ereignisse, die auf `TrackEvent` basieren, werden immer an einen der Medienspur-Listentypen gesendet:
 
-- Ereignisse, die Videospuren betreffen, werden immer an die {{domxref("VideoTrackList")}} gesendet, die in {{domxref("HTMLMediaElement.videoTracks")}} zu finden ist.
-- Ereignisse, die Audiospuren betreffen, werden immer an die {{domxref("AudioTrackList")}} gesendet, die in {{domxref("HTMLMediaElement.audioTracks")}} angegeben ist.
-- Ereignisse, die Textspuren betreffen, werden an das {{domxref("TextTrackList")}}-Objekt gesendet, das durch {{domxref("HTMLMediaElement.textTracks")}} angezeigt wird.
+- Ereignisse, die Videospuren betreffen, werden immer an die in [`HTMLMediaElement.videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks) gefundene [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) gesendet.
+- Ereignisse, die Audiospuren betreffen, werden immer an die in [`HTMLMediaElement.audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks) angegebene [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) gesendet.
+- Ereignisse, die Textspuren betreffen, werden an das durch [`HTMLMediaElement.textTracks`](/de/docs/Web/API/HTMLMediaElement/textTracks) angezeigte [`TextTrackList`](/de/docs/Web/API/TextTrackList)-Objekt gesendet.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("TrackEvent.TrackEvent", "TrackEvent()")}}
+- [`TrackEvent()`](/de/docs/Web/API/TrackEvent/TrackEvent)
   - : Erstellt und initialisiert ein neues `TrackEvent`-Objekt mit dem angegebenen Ereignistyp sowie optionalen zusätzlichen Eigenschaften.
 
 ## Instanz-Eigenschaften
 
-_`TrackEvent` basiert auf {{domxref("Event")}}, daher sind Eigenschaften von `Event` auch auf `TrackEvent`-Objekten verfügbar._
+_`TrackEvent` basiert auf [`Event`](/de/docs/Web/API/Event), daher sind Eigenschaften von `Event` auch auf `TrackEvent`-Objekten verfügbar._
 
-- {{domxref("TrackEvent.track", "track")}} {{ReadOnlyInline}}
-  - : Das DOM-Spurobjekt, auf das sich das Ereignis bezieht. Wenn es nicht `null` ist, ist dies immer ein Objekt eines der Medienspurtypen: {{domxref("AudioTrack")}}, {{domxref("VideoTrack")}}, oder {{domxref("TextTrack")}}).
+- [`track`](/de/docs/Web/API/TrackEvent/track) {{ReadOnlyInline}}
+  - : Das DOM-Track-Objekt, auf das sich das Ereignis bezieht. Wenn es nicht `null` ist, ist dies immer ein Objekt eines der Medienspur-Typen: [`AudioTrack`](/de/docs/Web/API/AudioTrack), [`VideoTrack`](/de/docs/Web/API/VideoTrack) oder [`TextTrack`](/de/docs/Web/API/TextTrack).
 
 ## Instanz-Methoden
 
-_`TrackEvent` hat keine eigenen Methoden; es basiert jedoch auf {{domxref("Event")}}, sodass es die über `Event`-Objekte verfügbaren Methoden bereitstellt._
+_`TrackEvent` hat keine eigenen Methoden; es basiert jedoch auf [`Event`](/de/docs/Web/API/Event), sodass es die auf `Event`-Objekten verfügbaren Methoden bereitstellt._
 
 ## Beispiel
 
@@ -73,7 +73,7 @@ function handleTrackEvent(event) {
 }
 ```
 
-Der Ereignishandler verwendet den JavaScript-Operator [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof), um festzustellen, auf welchem Typ von Spur das Ereignis aufgetreten ist, und gibt dann eine Nachricht an die Konsole aus, die angibt, um welche Art von Spur es sich handelt und ob sie dem Element hinzugefügt oder davon entfernt wird.
+Der Ereignishandler verwendet den JavaScript-Operator [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof), um zu bestimmen, auf welchem Spurtyp das Ereignis aufgetreten ist. Dann gibt er eine Nachricht in der Konsole aus, die angibt, um welche Art von Spur es sich handelt und ob sie dem Element hinzugefügt oder daraus entfernt wird.
 
 ## Spezifikationen
 

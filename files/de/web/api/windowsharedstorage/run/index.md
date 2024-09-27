@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`run()`**-Methode der {{domxref("WindowSharedStorage")}}-Schnittstelle führt eine [Ausführungsoperation](/de/docs/Web/API/SharedStorageRunOperation) aus, die in einem Modul registriert ist, das dem aktuellen Ursprung des {{domxref("SharedStorageWorklet")}} hinzugefügt wurde.
+Die **`run()`**-Methode des [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)-Interfaces führt eine [Run-Operation](/de/docs/Web/API/SharedStorageRunOperation) aus, die in einem Modul registriert ist, das dem aktuellen Origin's [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet) hinzugefügt wurde.
 
 > [!NOTE]
-> Der [Ausgabe-Gate für die Ausführung](/de/docs/Web/API/Shared_Storage_API#run) ist als generische Möglichkeit gedacht, einige Shared-Storage-Daten zu verarbeiten.
+> Das [Run-Ausgabe-Tor](/de/docs/Web/API/Shared_Storage_API#run) ist als generische Methode zur Verarbeitung einiger Daten des gemeinsamen Speichers gedacht.
 
 ## Syntax
 
@@ -23,13 +23,13 @@ run(name, options)
 ### Parameter
 
 - `name`
-  - : Ein String, der den Namen der registrierten Operation innerhalb des Shared-Storage-Worklet-Moduls darstellt. Er muss mit dem Namen übereinstimmen, der der Operation bei der Registrierung mit {{domxref("SharedStorageWorkletGlobalScope.register()")}} gegeben wurde.
+  - : Ein String, der den Namen der innerhalb des Shared Storage Worklet-Moduls registrierten Operation repräsentiert. Es muss mit dem Namen übereinstimmen, der der Operation beim Registrieren mit [`SharedStorageWorkletGlobalScope.register()`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) gegeben wurde.
 - `options` {{optional_inline}}
   - : Ein Optionsobjekt, das die folgenden Eigenschaften enthalten kann:
     - `data` {{optional_inline}}
-      - : Ein Objekt, das alle für die Ausführung der Operation erforderlichen Daten darstellt.
+      - : Ein Objekt, das alle für die Ausführung der Operation erforderlichen Daten repräsentiert.
     - `keepAlive` {{optional_inline}}
-      - : Ein boolescher Wert. Wenn auf `true` gesetzt, bleibt der {{domxref("SharedStorageWorkletGlobalScope")}} des zugehörigen Worklets aktiv, und die Operation kann erneut ausgeführt werden. Daher müssen Sie `keepAlive` auf `true` setzen für jede Operation, die nicht die letzte sein soll. Der Standardwert `false` bedeutet, dass der {{domxref("SharedStorageWorkletGlobalScope")}} nach der Durchführung der Operation beendet wird und nicht erneut ausgeführt werden kann.
+      - : Ein boolescher Wert. Wenn auf `true` gesetzt, bleibt der [`SharedStorageWorkletGlobalScope`](/de/docs/Web/API/SharedStorageWorkletGlobalScope) des zugehörigen Worklets aktiv, und die Operation kann erneut ausgeführt werden. Daher müssen Sie `keepAlive` auf `true` setzen für jede Operation, die nicht die letzte sein soll. Der Standardwert `false` bedeutet, dass der [`SharedStorageWorkletGlobalScope`](/de/docs/Web/API/SharedStorageWorkletGlobalScope) nach der Ausführung der Operation beendet wird und nicht erneut ausgeführt werden kann.
 
 ### Rückgabewert
 
@@ -39,18 +39,18 @@ Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird.
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn:
-    - Das Worklet-Modul noch nicht mit {{domxref("Worklet.addModule", "addModule()")}} hinzugefügt wurde.
-    - Shared Storage deaktiviert ist (zum Beispiel über eine Browsereinstellung).
-    - Die aufrufende Stelle die Shared Storage API nicht in einem erfolgreichen [Privacy-Sandbox-Anmeldeprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) enthalten hat.
+    - Das Worklet-Modul wurde noch nicht mit [`addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt.
+    - Gemeinsamer Speicher ist deaktiviert (zum Beispiel über eine Browsereinstellung).
+    - Die aufrufende Seite hat die Shared Storage API nicht im Rahmen eines erfolgreichen [Datenschutz-Sandbox-Anmeldeprozesses](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) enthalten.
 
 ## Beispiele
 
 ```js
 async function measureUniqueReach() {
-  // Laden des Shared Storage Worklets
+  // Load the Shared Storage worklet
   await window.sharedStorage.worklet.addModule("reach-measurement-worklet.js");
 
-  // Ausführen der Reichweitenmessungsoperation
+  // Run the reach measurement operation
   await window.sharedStorage.run("reach-measurement", {
     data: { contentId: "1234" },
   });
@@ -59,13 +59,13 @@ async function measureUniqueReach() {
 measureUniqueReach();
 ```
 
-Siehe [Einzigartige Reichweitenmessung](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/unique-reach) für eine vollständige Erklärung dieses Beispiels. Siehe [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) für weitere Beispiele.
+Siehe [Einzigartige Reichweitenmessung](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/unique-reach) für eine vollständige Erklärung dieses Beispiels. Weitere Beispiele finden Sie in der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -8,10 +8,12 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die Methode `createStereoPanner()` des {{ domxref("BaseAudioContext") }}-Interfaces erstellt einen {{ domxref("StereoPannerNode") }}, der verwendet werden kann, um eine Stereo-Panorama-Einstellung auf eine Audioquelle anzuwenden. Es positioniert einen eingehenden Audiostrom in einem Stereo-Bild mittels eines [kostengünstigen Panorama-Algorithmus](https://webaudio.github.io/web-audio-api/#stereopanner-algorithm).
+Die `createStereoPanner()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle erstellt einen [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode), der verwendet werden kann, um ein Audiosignal stereo zu positionieren.
+Sie positioniert einen eingehenden Audiostream in einem Stereo-Bild unter Verwendung eines [kostengünstigen Panning-Algorithmus](https://webaudio.github.io/web-audio-api/#stereopanner-algorithm).
 
 > [!NOTE]
-> Der {{domxref("StereoPannerNode.StereoPannerNode", "StereoPannerNode()")}}-Konstruktor ist der empfohlene Weg, um einen {{domxref("StereoPannerNode")}} zu erstellen; siehe
+> Der [`StereoPannerNode()`](/de/docs/Web/API/StereoPannerNode/StereoPannerNode)
+> Konstruktor ist die empfohlene Methode, um einen [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode) zu erstellen; siehe
 > [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
@@ -26,13 +28,17 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("StereoPannerNode")}}.
+Ein [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode).
 
 ## Beispiele
 
-In unserem [StereoPannerNode-Beispiel](https://mdn.github.io/webaudio-examples/stereo-panner-node/) ([Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/stereo-panner-node)) haben wir ein einfaches {{htmlelement("audio")}}-Element zusammen mit einem Slider {{HTMLElement("input")}}, um den Panorama-Wert zu erhöhen und zu verringern. Im JavaScript erstellen wir einen {{domxref("MediaElementAudioSourceNode")}} und einen {{domxref("StereoPannerNode")}}, und verbinden die beiden miteinander mittels der `connect()`-Methode. Wir verwenden dann einen `oninput`-Ereignishandler, um den Wert des {{domxref("StereoPannerNode.pan")}}-Parameters zu ändern und den Panorama-Wert anzuzeigen, wenn der Slider bewegt wird.
+In unserem [StereoPannerNode-Beispiel](https://mdn.github.io/webaudio-examples/stereo-panner-node/) ([siehe Quellcode](https://github.com/mdn/webaudio-examples/tree/main/stereo-panner-node)) HTML haben wir ein einfaches {{htmlelement("audio")}}-Element zusammen mit einem
+Schieberegler {{HTMLElement("input")}}, um den Pan-Wert zu erhöhen und zu verringern. In dem JavaScript
+erstellen wir einen [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode) und einen
+[`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode) und verbinden die beiden miteinander unter Verwendung der
+`connect()`-Methode. Wir verwenden dann einen `oninput`-Event-Handler, um den Wert des [`StereoPannerNode.pan`](/de/docs/Web/API/StereoPannerNode/pan)-Parameters zu ändern und die Pan-Wert-Anzeige zu aktualisieren, wenn der Schieberegler bewegt wird.
 
-Bewegt man den Slider nach links und rechts, während die Musik spielt, wird die Musik entsprechend auf die linken und rechten Lautsprecher der Ausgabe verschoben.
+Das Verschieben des Schiebereglers nach links und rechts, während die Musik abgespielt wird, verschiebt die Musik entsprechend zu den linken und rechten Lautsprechern der Ausgabe.
 
 ```js
 const audioCtx = new AudioContext();

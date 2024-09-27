@@ -2,25 +2,25 @@
 title: GPUCompilationInfo
 slug: Web/API/GPUCompilationInfo
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUCompilationInfo`**-Schnittstelle der {{domxref("WebGPU API", "WebGPU API", "", "nocode")}} repräsentiert ein Array von {{domxref("GPUCompilationMessage")}}-Objekten, die vom Compiler des GPU-Shader-Moduls generiert werden, um Probleme mit Shader-Code zu diagnostizieren.
+Die **`GPUCompilationInfo`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, die vom GPU-Shader-Modulcompiler generiert werden, um Probleme mit Shader-Code zu diagnostizieren.
 
-Auf `GPUCompilationInfo` wird über {{domxref("GPUShaderModule.getCompilationInfo()")}} zugegriffen.
+Auf `GPUCompilationInfo` wird über [`GPUShaderModule.getCompilationInfo()`](/de/docs/Web/API/GPUShaderModule/getCompilationInfo) zugegriffen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- {{domxref("GPUCompilationInfo.messages", "messages")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein Array von {{domxref("GPUCompilationMessage")}}-Objekten, von denen jedes die Details einer einzelnen Shader-Kompilierungsnachricht enthält. Nachrichten können informativ sein, Warnungen oder Fehler.
+- [`messages`](/de/docs/Web/API/GPUCompilationInfo/messages) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, die jeweils die Details einer einzelnen Shader-Kompilierungsnachricht enthalten. Nachrichten können informativ, Warnungen oder Fehler sein.
 
 ## Beispiele
 
-Im folgenden Beispiel haben wir in unserem Shader-Code absichtlich eine Klammer in einer Funktionsdeklaration weggelassen:
+Im untenstehenden Beispiel haben wir absichtlich eine Klammer aus einer Funktionsdeklaration in unserem Shader-Code weggelassen:
 
 ```js
 const shaders = `

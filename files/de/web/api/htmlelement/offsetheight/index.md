@@ -8,14 +8,14 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die schreibgeschützte Eigenschaft **`HTMLElement.offsetHeight`** gibt die Höhe eines Elements zurück, einschließlich vertikaler Innenabstände (Padding) und Rahmen (Borders), als ganze Zahl.
+Die schreibgeschützte Eigenschaft **`HTMLElement.offsetHeight`** gibt die Höhe eines Elements einschließlich vertikaler Innenabstände und Rahmen als ganze Zahl zurück.
 
-Typischerweise ist `offsetHeight` eine Messung in Pixeln der CSS-Höhe des Elements, einschließlich jeglicher Rahmen, Innenabstände und horizontaler Scrollbalken (falls vorhanden). Sie umfasst nicht die Höhe von Pseudo-Elementen wie `::before` oder `::after`. Für das Dokument-Body-Objekt umfasst die Messung die gesamte lineare Inhaltshöhe anstelle der CSS-Höhe des Elements. Schwimmend platzierte Elemente, die unterhalb anderer linearer Inhalte hinausgehen, werden ignoriert.
+Typischerweise ist `offsetHeight` eine Messung in Pixeln der CSS-Höhe des Elements, einschließlich jeglicher Rahmen, Innenabstände und horizontaler Scrollleisten (falls angezeigt). Es schließt nicht die Höhe von Pseudo-Elementen wie `::before` oder `::after` ein. Für das Dokumentbody-Objekt umfasst die Messung die gesamte lineare Inhaltshöhe anstelle der CSS-Höhe des Elements. Schwimmende Elemente, die sich unterhalb anderer linearer Inhalte erstrecken, werden ignoriert.
 
-Wenn das Element versteckt ist (zum Beispiel durch Setzen von `style.display` auf dem Element oder einem seiner Vorfahren auf `"none"`), wird `0` zurückgegeben.
+Wenn das Element versteckt ist (zum Beispiel, indem `style.display` auf dem Element oder einem seiner Vorfahren auf `"none"` gesetzt wird), wird `0` zurückgegeben.
 
 > [!NOTE]
-> Diese Eigenschaft rundet den Wert auf eine ganze Zahl. Wenn Sie einen Bruchwert benötigen, verwenden Sie {{ domxref("element.getBoundingClientRect()") }}.
+> Diese Eigenschaft rundet den Wert auf eine ganze Zahl. Wenn Sie einen Bruchwert benötigen, verwenden Sie [`element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
 
 ## Wert
 
@@ -23,9 +23,9 @@ Eine Zahl.
 
 ## Beispiele
 
-![Ein Beispiel eines Elements mit großem Innenabstand, Rahmen und Rand. `offsetHeight` ist die Layout-Höhe des Elements einschließlich seines Innenabstandes und Rahmens, jedoch ohne Rand.](dimensions-offset.png)
+![Ein Beispiel-Element mit großem Innenabstand, Rahmen und Rand. `offsetHeight` ist die Layout-Höhe des Elements einschließlich seines Innenabstands und Rahmens, jedoch ohne seinen Rand.](dimensions-offset.png)
 
-Das obere Beispielbild zeigt einen Scrollbalken und einen `offsetHeight`, der im Fenster passt. Nicht scrollbare Elemente können jedoch große `offsetHeight`-Werte haben, die viel größer sind als der sichtbare Inhalt. Diese Elemente befinden sich typischerweise innerhalb von scrollbaren Elementen; folglich können diese nicht scrollbaren Elemente je nach `scrollTop`-Einstellung des scrollbaren Containers komplett oder teilweise unsichtbar sein.
+Das obige Beispielbild zeigt eine Scrollleiste und eine `offsetHeight`, die in das Fenster passt. Nicht scrollbare Elemente können jedoch große `offsetHeight`-Werte haben, viel größer als der sichtbare Inhalt. Diese Elemente befinden sich typischerweise in scrollbaren Elementen; folglich können diese nicht scrollbaren Elemente je nach `scrollTop`-Einstellung des scrollbaren Containers vollständig oder teilweise unsichtbar sein.
 
 ## Spezifikationen
 
@@ -37,7 +37,7 @@ Das obere Beispielbild zeigt einen Scrollbalken und einen `offsetHeight`, der im
 
 ## Siehe auch
 
-- {{domxref("Element.clientHeight")}}
-- {{domxref("Element.scrollHeight")}}
-- {{domxref("HTMLElement.offsetWidth")}}
-- [Bestimmen der Abmessungen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
+- [`Element.clientHeight`](/de/docs/Web/API/Element/clientHeight)
+- [`Element.scrollHeight`](/de/docs/Web/API/Element/scrollHeight)
+- [`HTMLElement.offsetWidth`](/de/docs/Web/API/HTMLElement/offsetWidth)
+- [Das Bestimmen der Dimensionen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)

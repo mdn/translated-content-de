@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Web Serial API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("dedicated")}}
 
-Die **`serial`** schreibgeschützte Eigenschaft des {{domxref("WorkerNavigator")}}-Interfaces gibt ein {{domxref("Serial")}}-Objekt zurück, das den Einstiegspunkt in die [Web Serial API](/de/docs/Web/API/Web_Serial_API) darstellt.
+Die **`serial`** schreibgeschützte Eigenschaft der [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Schnittstelle gibt ein [`Serial`](/de/docs/Web/API/Serial)-Objekt zurück, das den Einstiegspunkt in die [Web Serial API](/de/docs/Web/API/Web_Serial_API) darstellt.
 
-Beim Abrufen wird immer dieselbe Instanz des {{domxref("Serial")}}-Objekts zurückgegeben.
+Beim Abrufen wird immer dieselbe Instanz des [`Serial`](/de/docs/Web/API/Serial)-Objekts zurückgegeben.
 
 ## Wert
 
-Ein {{domxref("Serial")}}-Objekt.
+Ein [`Serial`](/de/docs/Web/API/Serial)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet die Methode `getPorts()`, um eine Liste der verfügbaren Ports zu initialisieren.
+Das folgende Beispiel verwendet die `getPorts()`-Methode, um eine Liste der verfügbaren Ports zu initialisieren.
 
 ```js
 navigator.serial.getPorts().then((ports) => {
@@ -30,11 +30,11 @@ navigator.serial.getPorts().then((ports) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Von und zu einem seriellen Port lesen und schreiben](https://developer.chrome.com/docs/capabilities/serial)
+- [Von einem seriellen Port lesen und darauf schreiben](https://developer.chrome.com/docs/capabilities/serial)
 - [Erste Schritte mit der Web Serial API](https://codelabs.developers.google.com/codelabs/web-serial#0)

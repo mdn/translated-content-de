@@ -7,102 +7,102 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`MediaTrackSettings`** Dictionary wird verwendet, um die aktuell konfigurierten Werte für jede der Einstellungen eines {{domxref("MediaStreamTrack")}} zurückzugeben. Diese Werte werden so eng wie möglich an zuvor beschriebenen Einschränkungen orientiert sein, die mit einem {{domxref("MediaTrackConstraints")}} Objekt festgelegt und mit {{domxref("MediaStreamTrack.applyConstraints", "applyConstraints()")}} angewendet wurden. Sie orientieren sich an den Standardeinschränkungen für alle Eigenschaften, deren Einschränkungen nicht geändert wurden oder deren benutzerdefinierte Einschränkungen nicht erfüllt werden konnten.
+Das **`MediaTrackSettings`** Wörterbuch wird verwendet, um die aktuellen Werte zurückzugeben, die für die Einstellungen eines jeden [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) konfiguriert sind. Diese Werte werden so nah wie möglich an den zuvor beschriebenen Einschränkungen in einem [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekt und mit [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) festgelegt gehalten. Standardmäßige Einschränkungen gelten für alle Eigenschaften, deren Einschränkungen nicht geändert wurden oder deren benutzerdefinierte Einschränkungen nicht erfüllt werden konnten.
 
-Um mehr über Funktionsweise von Einschränkungen und Einstellungen zu erfahren, siehe [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints).
+Um mehr darüber zu erfahren, wie Einschränkungen und Einstellungen funktionieren, sehen Sie sich [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints) an.
 
 ## Instanz-Eigenschaften
 
-Einige oder alle der folgenden Eigenschaften werden im Objekt enthalten sein, entweder weil sie von dem Browser nicht unterstützt werden oder aufgrund des Kontexts nicht verfügbar sind. Zum Beispiel, weil {{Glossary("RTP")}} einige dieser Werte während der Verhandlung einer WebRTC-Verbindung nicht bereitstellt, wird ein mit einer {{domxref("RTCPeerConnection")}} verbundener Track bestimmte Werte nicht enthalten, wie z. B. {{domxref("MediaTrackSettings.facingMode", "facingMode")}} oder {{domxref("MediaTrackSettings.groupId", "groupId")}}.
+Einige oder alle der folgenden Eigenschaften werden in dem Objekt enthalten sein, entweder weil es vom Browser nicht unterstützt wird oder weil es aufgrund des Kontexts nicht verfügbar ist. Zum Beispiel, weil [RTP](/de/docs/Glossary/RTP) einige dieser Werte während der Verhandlung einer WebRTC-Verbindung nicht bereitstellt, wird ein Track, der mit einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) assoziiert ist, bestimmte Werte, wie [`facingMode`](/de/docs/Web/API/MediaTrackSettings/facingMode) oder [`groupId`](/de/docs/Web/API/MediaTrackSettings/groupId), nicht enthalten.
 
-### Instanz-Eigenschaften aller Medientracks
+### Instanz-Eigenschaften aller Medienspuren
 
-- {{domxref("MediaTrackSettings.deviceId", "deviceId")}}
-  - : Ein String, der den aktuellen Wert der {{domxref("MediaTrackConstraints.deviceId", "deviceId")}} Eigenschaft angibt. Die Geräte-ID ist ein ursprungs-spezifischer String, der die Quelle des Tracks identifiziert; dies ist normalerweise eine [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). Dieser Wert ist spezifisch für die Quelle der Track-Daten und kann nicht zum Festlegen von Einschränkungen verwendet werden; er kann jedoch für die anfängliche Auswahl von Medien beim Aufruf von {{domxref("MediaDevices.getUserMedia()")}} verwendet werden.
-- {{domxref("MediaTrackSettings.groupId", "groupId")}}
-  - : Ein String, der den aktuellen Wert der {{domxref("MediaTrackConstraints.groupId", "groupId")}} Eigenschaft angibt. Die Gruppen-ID ist ein browsing-sitzungs-unikater String, der die Quellgruppe des Tracks identifiziert. Zwei Geräte (wie durch die {{domxref("MediaTrackSettings.deviceId", "deviceId")}} identifiziert) werden als Teil derselben Gruppe betrachtet, wenn sie von demselben physischen Gerät stammen. Zum Beispiel würden die Audioeingangs- und -ausgangsgeräte für Lautsprecher und Mikrofon in einem Telefon dieselbe Gruppen-ID haben, da sie Teil desselben physischen Geräts sind. Das Mikrofon an einem Headset hätte jedoch eine andere ID. Dieser Wert ist spezifisch für die Quelle der Track-Daten und kann nicht zum Festlegen von Einschränkungen verwendet werden; er kann jedoch für die anfängliche Auswahl von Medien beim Aufruf von {{domxref("MediaDevices.getUserMedia()")}} verwendet werden.
+- [`deviceId`](/de/docs/Web/API/MediaTrackSettings/deviceId)
+  - : Ein Zeichenfolgenwert, der den aktuellen Wert der [`deviceId`](/de/docs/Web/API/MediaTrackConstraints/deviceId)-Eigenschaft angibt. Die Geräte-ID ist eine ursprungs-eindeutige Zeichenfolge, die die Quelle der Spur identifiziert; dies ist üblicherweise eine [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). Dieser Wert ist spezifisch für die Quelle der Spurdaten und kann nicht zum Festlegen von Einschränkungen verwendet werden; jedoch kann er für die anfängliche Auswahl von Medien bei der Aufruf von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) verwendet werden.
+- [`groupId`](/de/docs/Web/API/MediaTrackSettings/groupId)
+  - : Eine Zeichenfolge, die den aktuellen Wert der [`groupId`](/de/docs/Web/API/MediaTrackConstraints/groupId)-Eigenschaft angibt. Die Gruppen-ID ist eine für die Browsing-Session eindeutige Zeichenfolge, die die Quellgruppe der Spur identifiziert. Zwei Geräte (identifiziert durch die [`deviceId`](/de/docs/Web/API/MediaTrackSettings/deviceId)) werden als Teil derselben Gruppe betrachtet, wenn sie vom selben physischen Gerät stammen. Beispielsweise teilen sich die Audioeingangs- und -ausgangsgeräte für den Lautsprecher und das Mikrofon, die in ein Telefon integriert sind, dieselbe Gruppen-ID, da sie Teil desselben physischen Geräts sind. Das Mikrofon eines Headsets hätte jedoch eine andere ID. Dieser Wert ist spezifisch für die Quelle der Spurdaten und kann nicht zum Festlegen von Einschränkungen verwendet werden; jedoch kann er für die anfängliche Auswahl von Medien bei der Aufruf von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) verwendet werden.
 
-### Instanz-Eigenschaften von Audiotracks
+### Instanz-Eigenschaften von Audiospuren
 
-- {{domxref("MediaTrackSettings.autoGainControl", "autoGainControl")}}
-  - : Ein Boolean, der den aktuellen Wert der {{domxref("MediaTrackConstraints.autoGainControl", "autoGainControl")}} Eigenschaft angibt, der `true` ist, wenn automatische Verstärkungsregelung aktiviert ist, und `false`, wenn nicht.
-- {{domxref("MediaTrackSettings.channelCount", "channelCount")}}
-  - : Ein langer ganzzahliger Wert, der den aktuellen Wert der {{domxref("MediaTrackConstraints.channelCount", "channelCount")}} Eigenschaft angibt und die Anzahl der Audiokanäle angibt, die auf dem Track vorhanden sind (indem angezeigt wird, wie viele Audio-Samples in jedem Audio-Frame existieren). Dies ist 1 für Mono, 2 für Stereo und so weiter.
-- {{domxref("MediaTrackSettings.echoCancellation", "echoCancellation")}}
-  - : Ein Boolean, der den aktuellen Wert der {{domxref("MediaTrackConstraints.echoCancellation", "echoCancellation")}} Eigenschaft angibt, wobei `true` angegeben wird, wenn Echounterdrückung aktiviert ist, andernfalls `false`.
-- {{domxref("MediaTrackSettings.latency", "latency")}}
-  - : Ein doppelpräziser Gleitkommawert, der den aktuellen Wert der {{domxref("MediaTrackConstraints.latency", "latency")}} Eigenschaft angibt und die Audio-Latenz in Sekunden spezifiziert. Latenz ist die Zeitspanne, die zwischen dem Beginn der Audioverarbeitung und der Bereitstellung der Daten für den nächsten Schritt im Audioverarbeitungsprozess vergeht. Dieser Wert ist ein Zielwert; die tatsächliche Latenz kann aus verschiedenen Gründen in gewissem Umfang variieren.
-- {{domxref("MediaTrackSettings.noiseSuppression", "noiseSuppression")}}
-  - : Ein Boolean, der den aktuellen Wert der {{domxref("MediaTrackConstraints.noiseSuppression", "noiseSuppression")}} Eigenschaft angibt, der `true` ist, wenn Geräuschunterdrückung aktiviert ist, und `false`, wenn nicht.
-- {{domxref("MediaTrackSettings.sampleRate", "sampleRate")}}
-  - : Ein langer ganzzahliger Wert, der den aktuellen Wert der {{domxref("MediaTrackConstraints.sampleRate", "sampleRate")}} Eigenschaft angibt und die Samplerate in Abtastungen pro Sekunde der Audiodaten angibt. Standardmäßige CD-Qualitäts-Audio hat zum Beispiel eine Abtastrate von 41.000 Abtastungen pro Sekunde.
-- {{domxref("MediaTrackSettings.sampleSize", "sampleSize")}}
-  - : Ein langer ganzzahliger Wert, der den aktuellen Wert der {{domxref("MediaTrackConstraints.sampleSize", "sampleSize")}} Eigenschaft angibt, der die lineare Größe in Bits jeder Audiosample spezifiziert. CD-Qualitäts-Audio ist zum Beispiel 16-Bit, daher wäre dieser Wert in diesem Fall 16.
-- {{domxref("MediaTrackSettings.volume", "volume")}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Ein doppelpräziser Gleitkommawert, der den aktuellen Wert der {{domxref("MediaTrackConstraints.volume", "volume")}} Eigenschaft angibt und den Lautstärkepegel des Tracks spezifiziert. Dieser Wert liegt zwischen 0.0 (stumm) und 1.0 (maximal unterstützte Lautstärke).
+- [`autoGainControl`](/de/docs/Web/API/MediaTrackSettings/autoGainControl)
+  - : Ein Boolean-Wert, der den aktuellen Wert der [`autoGainControl`](/de/docs/Web/API/MediaTrackConstraints/autoGainControl)-Eigenschaft angibt, der `true` ist, wenn die automatische Verstärkungsregelung aktiviert ist, und `false`, wenn nicht.
+- [`channelCount`](/de/docs/Web/API/MediaTrackSettings/channelCount)
+  - : Ein langer Ganzzahlenwert, der den aktuellen Wert der [`channelCount`](/de/docs/Web/API/MediaTrackConstraints/channelCount)-Eigenschaft angibt, die die Anzahl der auf der Spur vorhandenen Audiokanäle spezifiziert (daher anzeigt, wie viele Audio-Samples in jedem Audio-Frame existieren). Dies ist 1 für Mono, 2 für Stereo und so weiter.
+- [`echoCancellation`](/de/docs/Web/API/MediaTrackSettings/echoCancellation)
+  - : Ein Boolean-Wert, der den aktuellen Wert der [`echoCancellation`](/de/docs/Web/API/MediaTrackConstraints/echoCancellation)-Eigenschaft angibt, und `true` ist, wenn die Echo-Unterdrückung aktiviert ist, ansonsten `false`.
+- [`latency`](/de/docs/Web/API/MediaTrackSettings/latency)
+  - : Ein doppelt genauer Gleitkommawert, der den aktuellen Wert der [`latency`](/de/docs/Web/API/MediaTrackConstraints/latency)-Eigenschaft angibt, welche die Audio-Latenz in Sekunden spezifiziert. Die Latenz ist die Zeitspanne, die zwischen dem Start der Audioverarbeitung und dem Zeitpunkt, zu dem die Daten für den nächsten Schritt im Audioutilizationsprozess verfügbar sind, vergeht. Dieser Wert ist ein Zielwert; die tatsächliche Latenz kann aus verschiedenen Gründen in gewissem Umfang variieren.
+- [`noiseSuppression`](/de/docs/Web/API/MediaTrackSettings/noiseSuppression)
+  - : Ein Boolean-Wert, der den aktuellen Wert der [`noiseSuppression`](/de/docs/Web/API/MediaTrackConstraints/noiseSuppression)-Eigenschaft angibt, der `true` ist, wenn die Geräuschunterdrückung aktiviert ist, und `false`, wenn nicht.
+- [`sampleRate`](/de/docs/Web/API/MediaTrackSettings/sampleRate)
+  - : Ein langer Ganzzahlenwert, der den aktuellen Wert der [`sampleRate`](/de/docs/Web/API/MediaTrackConstraints/sampleRate)-Eigenschaft angibt, die Abtastrate in Abtastungen pro Sekunde der Audiodaten spezifizierend. Standardmäßig CD-Qualität Audio hat beispielsweise eine Abtastrate von 41.000 Abtastungen pro Sekunde.
+- [`sampleSize`](/de/docs/Web/API/MediaTrackSettings/sampleSize)
+  - : Ein langer Ganzzahlenwert, der den aktuellen Wert der [`sampleSize`](/de/docs/Web/API/MediaTrackConstraints/sampleSize)-Eigenschaft angibt, die die lineare Größe in Bits jedes Audiosamples spezifiziert. CD-Qualität Audio ist beispielsweise 16-Bit, sodass dieser Wert in diesem Fall 16 wäre.
+- [`volume`](/de/docs/Web/API/MediaTrackSettings/volume) {{Deprecated_Inline}} {{Non-standard_Inline}}
+  - : Ein doppelt genauer Gleitkommawert, der den aktuellen Wert der [`volume`](/de/docs/Web/API/MediaTrackConstraints/volume)-Eigenschaft angibt, die die Lautstärke der Spur spezifiziert. Dieser Wert liegt zwischen 0.0 (still) und 1.0 (maximal unterstützte Lautstärke).
 
-### Instanz-Eigenschaften von Videotracks
+### Instanz-Eigenschaften von Videospuren
 
-- {{domxref("MediaTrackSettings.aspectRatio", "aspectRatio")}}
-  - : Ein doppelpräziser Gleitkommawert, der den aktuellen Wert der {{domxref("MediaTrackConstraints.aspectRatio", "aspectRatio")}} Eigenschaft angibt, die genau auf 10 Dezimalstellen angegeben ist. Dies ist die Breite des Bildes in Pixeln, geteilt durch seine Höhe in Pixeln. Häufige Werte sind 1.3333333333 (für das klassische Fernsehformat 4:3 "Standard-" {{glossary("aspect ratio")}}, das auch auf Tablets wie Apples iPad verwendet wird), 1.7777777778 (für das 16:9-High-Definition-Breitbildformat) und 1.6 (für das auf Breitbild-Computern und Tablets häufige 16:10-Format).
-- {{domxref("MediaTrackSettings.facingMode", "facingMode")}}
+- [`aspectRatio`](/de/docs/Web/API/MediaTrackSettings/aspectRatio)
+  - : Ein doppelt genauer Gleitkommawert, der den aktuellen Wert der [`aspectRatio`](/de/docs/Web/API/MediaTrackConstraints/aspectRatio)-Eigenschaft angibt, auf 10 Dezimalstellen genau spezifiziert. Dies ist die Breite des Bildes in Pixeln geteilt durch seine Höhe in Pixeln. Häufige Werte sind 1.3333333333 (für das klassische Fernseh-4:3-Standard[-Seitenverhältnis](/de/docs/Glossary/aspect_ratio), auch verwendet für Tablets wie das iPad von Apple), 1.7777777778 (für das 16:9-HD-Breitbild-Seitenverhältnis) und 1.6 (für das 16:10-Seitenverhältnis, das häufig bei Breitbildcomputern und -tablets vorkommt).
+- [`facingMode`](/de/docs/Web/API/MediaTrackSettings/facingMode)
 
-  - : Ein String, der den aktuellen Wert der {{domxref("MediaTrackConstraints.facingMode", "facingMode")}} Eigenschaft angibt und die Richtung spezifiziert, in die die Kamera zeigt. Der Wert wird einer der folgenden sein:
+  - : Eine Zeichenfolge, die den aktuellen Wert der [`facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode)-Eigenschaft angibt und die Richtung spezifiziert, in die die Kamera gerichtet ist. Der Wert wird einer der folgenden sein:
 
     - `"user"`
-      - : Eine Kamera, die auf den Benutzer zeigt (allgemein als "Selfie-Kamera" bekannt), verwendet für Selbstporträts und Videotelefonie.
+      - : Eine Kamera, die auf den Benutzer gerichtet ist (landläufig bekannt als "Selfie-Kamera"), verwendet für Selbstportraits und Videoanrufe.
     - `"environment"`
-      - : Eine Kamera, die vom Benutzer weg zeigt (wenn der Benutzer auf den Bildschirm schaut). Dies ist typischerweise die qualitativ hochwertigste Kamera auf dem Gerät, die für allgemeine Fotografie verwendet wird.
+      - : Eine Kamera, die weg vom Benutzer gerichtet ist (wenn der Benutzer auf den Bildschirm schaut). Dies ist typischerweise die hochwertigste Kamera auf dem Gerät, die für allgemeine Fotografie verwendet wird.
     - `"left"`
-      - : Eine Kamera, die zur Umgebung auf der linken Seite des Benutzers zeigt.
+      - : Eine Kamera, die in die Richtung der Umgebung zur linken Seite des Benutzers gerichtet ist.
     - `"right"`
-      - : Eine Kamera, die zur Umgebung auf der rechten Seite des Benutzers zeigt.
+      - : Eine Kamera, die in die Richtung der Umgebung zur rechten Seite des Benutzers gerichtet ist.
 
-- {{domxref("MediaTrackSettings.frameRate", "frameRate")}}
-  - : Ein doppelpräziser Gleitkommawert, der den aktuellen Wert der {{domxref("MediaTrackConstraints.frameRate", "frameRate")}} Eigenschaft angibt und angibt, wie viele Videoframes pro Sekunde der Track enthält. Wenn der Wert aus irgendeinem Grund nicht bestimmt werden kann, wird der Wert der vertikalen Synchronisierungsrate des Geräts entsprechen, auf dem der Benutzeragent läuft.
-- {{domxref("MediaTrackSettings.height", "height")}}
-  - : Ein langer ganzzahliger Wert, der den aktuellen Wert der {{domxref("MediaTrackConstraints.height", "height")}} Eigenschaft angibt und die Höhe der Videodaten des Tracks in Pixeln spezifiziert.
-- {{domxref("MediaTrackSettings.width", "width")}}
-  - : Ein langer ganzzahliger Wert, der den aktuellen Wert der {{domxref("MediaTrackSettings.width", "width")}} Eigenschaft angibt und die Breite der Videodaten des Tracks in Pixeln spezifiziert.
-- {{domxref("MediaTrackSettings.resizeMode", "resizeMode")}}
+- [`frameRate`](/de/docs/Web/API/MediaTrackSettings/frameRate)
+  - : Ein doppelt genauer Gleitkommawert, der den aktuellen Wert der [`frameRate`](/de/docs/Web/API/MediaTrackConstraints/frameRate)-Eigenschaft angibt und die Anzahl der Videobilder pro Sekunde spezifiziert, die die Spur enthält. Wenn der Wert aus irgendeinem Grund nicht bestimmt werden kann, entspricht der Wert der vertikalen Synchronisationsrate des Geräts, auf dem der Benutzeragent ausgeführt wird.
+- [`height`](/de/docs/Web/API/MediaTrackSettings/height)
+  - : Ein langer Ganzzahlenwert, der den aktuellen Wert der [`height`](/de/docs/Web/API/MediaTrackConstraints/height)-Eigenschaft angibt, die die Höhe der Videodaten der Spur in Pixeln spezifiziert.
+- [`width`](/de/docs/Web/API/MediaTrackSettings/width)
+  - : Ein langer Ganzzahlenwert, der den aktuellen Wert der [`width`](/de/docs/Web/API/MediaTrackSettings/width)-Eigenschaft angibt, die die Breite der Videodaten der Spur in Pixeln spezifiziert.
+- [`resizeMode`](/de/docs/Web/API/MediaTrackSettings/resizeMode)
 
-  - : Ein String, der den aktuellen Wert der {{domxref("MediaTrackConstraints.resizeMode", "resizeMode")}} Eigenschaft angibt und den Modus spezifiziert, der vom Benutzeragenten verwendet wird, um die Auflösung des Tracks zu bestimmen. Der Wert wird einer der folgenden sein:
+  - : Eine Zeichenfolge, die den aktuellen Wert der [`resizeMode`](/de/docs/Web/API/MediaTrackConstraints/resizeMode)-Eigenschaft angibt und den Modus spezifiziert, der von dem Benutzeragenten verwendet wird, um die Auflösung der Spur abzuleiten. Der Wert wird einer der folgenden sein:
 
     - `"none"`
-      - : Der Track hat die von der Kamera, ihrem Treiber oder dem Betriebssystem angebotene Auflösung.
+      - : Die Spur hat die von der Kamera, ihrem Treiber oder vom Betriebssystem bereitgestellte Auflösung.
     - `"crop-and-scale"`
-      - : Die Auflösung des Tracks könnte das Ergebnis des Benutzens von Zuschneiden oder Herunterskalieren von einer höheren Kameraauflösung durch den Benutzeragenten sein.
+      - : Die Auflösung der Spur könnte das Ergebnis der Nutzung von Zuschneiden oder Herunterskalierung von einer höheren Kameraauflösung durch den Benutzeragenten sein.
 
-### Instanz-Eigenschaften von freigegebenen Bildschirmtracks
+### Instanz-Eigenschaften von geteilten Bildschirmspuren
 
-Tracks, die Video von einem Benutzerbildschirm freigeben (unabhängig davon, ob die Bildschirminformationen vom gesamten Bildschirm oder einem Teilbildschirm wie einem Fenster oder Tab stammen), werden im Allgemeinen wie Videotracks behandelt, mit der Ausnahme, dass sie auch die folgenden zusätzlichen Einstellungen unterstützen:
+Spuren, die Video enthalten, das von einem Bildschirm des Benutzers geteilt wird (unabhängig davon, ob die Bildschirmdaten vom gesamten Bildschirm oder einem Teil eines Bildschirms, wie einem Fenster oder Tab, stammen), werden im Allgemeinen wie Videospuren behandelt, mit der Ausnahme, dass sie auch die folgenden zusätzlichen Einstellungen unterstützen:
 
-- {{domxref("MediaTrackSettings.cursor", "cursor")}}
+- [`cursor`](/de/docs/Web/API/MediaTrackSettings/cursor)
 
-  - : Ein String, der angibt, ob der Mauszeiger im generierten Stream enthalten ist und unter welchen Bedingungen. Mögliche Werte sind:
+  - : Eine Zeichenfolge, die angibt, ob der Mauszeiger im generierten Stream enthalten ist und unter welchen Bedingungen. Mögliche Werte sind:
 
     - `always`
-      - : Die Maus ist immer im Video-Inhalt der {domxref("MediaStream") enthalten, es sei denn, die Maus hat sich aus dem Bereich des Inhalts bewegt.
+      - : Die Maus ist immer im Videoinhalt des {domxref("MediaStream"), es sei denn, die Maus hat sich außerhalb des Inhaltsbereiches bewegt.
     - `motion`
-      - : Der Mauszeiger wird immer in das Video aufgenommen, wenn er sich bewegt, und für kurze Zeit, nachdem er aufgehört hat, sich zu bewegen.
+      - : Der Mauszeiger ist immer im Video enthalten, wenn er sich bewegt, und für eine kurze Zeit nachdem er sich nicht mehr bewegt.
     - `never`
-      - : Der Mauszeiger wird nie im freigegebenen Video angezeigt.
+      - : Der Mauszeiger ist nie im geteilten Video enthalten.
 
-- {{domxref("MediaTrackSettings.displaySurface", "displaySurface")}}
+- [`displaySurface`](/de/docs/Web/API/MediaTrackSettings/displaySurface)
 
-  - : Ein String, der den Typ der Quelle spezifiziert, die der Track enthält; einer der folgenden:
+  - : Eine Zeichenfolge, die den Typ der Quelle, die die Spur enthält, spezifiziert; eine der folgenden:
 
     - `application`
-      - : Der Stream enthält alle Fenster der vom Benutzer gewählten Anwendung, die in einen Videotrack gerendert werden.
+      - : Der Stream enthält alle Fenster der vom Benutzer gewählten Anwendung, die in die eine Videospur gerendert werden.
     - `browser`
-      - : Der Stream enthält den Inhalt eines einzelnen Browser-Tabs, der vom Benutzer ausgewählt wird.
+      - : Der Stream enthält die Inhalte eines einzelnen Browser-Tabs, der vom Benutzer ausgewählt wurde.
     - `monitor`
-      - : Der Videotrack des Streams enthält den gesamten Inhalt eines oder mehrerer Bildschirme des Benutzers.
+      - : Die Video-Spur des Streams enthält den gesamten Inhalt eines oder mehrerer Bildschirme des Benutzers.
     - `window`
-      - : Der Stream enthält ein einzelnes Fenster, das vom Benutzer zur Freigabe ausgewählt wurde.
+      - : Der Stream enthält ein einzelnes vom Benutzer zum Teilen ausgewähltes Fenster.
 
-- {{domxref("MediaTrackSettings.logicalSurface", "logicalSurface")}}
-  - : Ein Boolean-Wert, der, wenn `true`, anzeigt, dass das Video im Videotrack des Streams einen Hintergrund-Rendering-Kontext enthält, anstatt eines benutzer-sichtbaren. Dies ist `false`, wenn das erfasste Video aus einer Vordergrund- (benutzer-sichtbaren) Quelle stammt.
+- [`logicalSurface`](/de/docs/Web/API/MediaTrackSettings/logicalSurface)
+  - : Ein Boolean-Wert, der, falls `true`, anzeigt, dass das Video im Video-Track des Streams einen Hintergrundrendierungskontext enthält, statt eines für den Benutzer sichtbaren. Dies ist `false`, wenn das erfasste Video aus einer Vordergrund- (für den Benutzer sichtbaren) Quelle stammt.
 
 ## Spezifikationen
 
@@ -110,8 +110,8 @@ Tracks, die Video von einem Benutzerbildschirm freigeben (unabhängig davon, ob 
 
 ## Siehe auch
 
-- {{domxref("MediaDevices.getUserMedia()")}}
-- {{domxref("MediaDevices.getDisplayMedia()")}}
-- {{domxref("MediaStreamTrack.getConstraints()")}}
-- {{domxref("MediaStreamTrack.applyConstraints()")}}
-- {{domxref("MediaStreamTrack.getSettings()")}}
+- [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)
+- [`MediaDevices.getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia)
+- [`MediaStreamTrack.getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints)
+- [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints)
+- [`MediaStreamTrack.getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings)

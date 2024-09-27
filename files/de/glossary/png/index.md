@@ -1,5 +1,5 @@
 ---
-title: PNG (Portable Network Graphics)
+title: PNG
 slug: Glossary/PNG
 l10n:
   sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**PNG** (Portable Network Graphics) ist ein Grafikdateiformat, das verlustfreie Datenkompression unterstützt.
+**PNG** (Portable Network Graphics) ist ein Grafikdateiformat, das verlustfreie Datenkomprimierung unterstützt.
 
 ## Siehe auch
 

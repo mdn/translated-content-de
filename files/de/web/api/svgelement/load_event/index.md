@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das `load` Ereignis wird an einem `SVGElement` ausgelöst, wenn es im Browser geladen wird, z.B. im DOM im Fall eines eingebetteten `<svg>`. Es ist im Wesentlichen dasselbe wie das Standard-DOM-`load`-Ereignis.
+Das `load`-Ereignis wird bei einem `SVGElement` ausgelöst, wenn es im Browser geladen wird, z.B. im DOM im Fall eines eingebetteten `<svg>`. Es ist im Grunde dasselbe wie das Standard-`load`-DOM-Ereignis.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
+Dieses Ereignis kann nicht abgebrochen werden und es wird nicht hochgebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js
 addEventListener("load", (event) => {});
@@ -24,7 +24,7 @@ onload = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 

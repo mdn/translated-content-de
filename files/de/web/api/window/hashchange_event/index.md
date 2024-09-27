@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das **`hashchange`**-Ereignis wird ausgelöst, wenn sich der Fragmentbezeichner der URL geändert hat (der Teil der URL, der mit dem `#`-Symbol beginnt und ihm folgt).
+Das **`hashchange`** Ereignis wird ausgelöst, wenn sich der Fragmentidentifier der URL geändert hat (der Teil der URL, der mit dem `#`-Symbol beginnt und ihm folgt).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("hashchange", (event) => {});
@@ -21,28 +21,28 @@ onhashchange = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("HashChangeEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`HashChangeEvent`](/de/docs/Web/API/HashChangeEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("HashChangeEvent")}}
 
 ## Ereigniseigenschaften
 
-- {{domxref("HashChangeEvent.newURL")}} {{ReadOnlyInline}}
-  - : Ein String, der die neue URL repräsentiert, zu der das Fenster navigiert.
-- {{domxref("HashChangeEvent.oldURL")}} {{ReadOnlyInline}}
-  - : Ein String, der die vorherige URL repräsentiert, von der das Fenster aus navigiert wurde.
+- [`HashChangeEvent.newURL`](/de/docs/Web/API/HashChangeEvent/newURL) {{ReadOnlyInline}}
+  - : Ein String, der die neue URL darstellt, zu der das Fenster navigiert.
+- [`HashChangeEvent.oldURL`](/de/docs/Web/API/HashChangeEvent/oldURL) {{ReadOnlyInline}}
+  - : Ein String, der die vorherige URL darstellt, von der das Fenster navigiert wurde.
 
-## Ereignishandler-Aliase
+## Ereignishandler-Aliasse
 
-Zusätzlich zur `Window`-Schnittstelle ist die Ereignishandler-Eigenschaft `onhashchange` auch auf den folgenden Zielen verfügbar:
+Zusätzlich zum `Window`-Interface ist die Ereignishandler-Eigenschaft `onhashchange` auch auf den folgenden Zielen verfügbar:
 
-- {{domxref("HTMLBodyElement")}}
-- {{domxref("HTMLFrameSetElement")}}
-- {{domxref("SVGSVGElement")}}
+- [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
+- [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
+- [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)
 
 ## Beispiele
 
-Sie können das `hashchange`-Ereignis in einer {{domxref("EventTarget/addEventListener", "addEventListener")}}-Methode verwenden:
+Sie können das `hashchange` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
 window.addEventListener(
@@ -54,7 +54,7 @@ window.addEventListener(
 );
 ```
 
-Oder verwenden Sie die `onhashchange`-Ereignishandler-Eigenschaft:
+Oder die `onhashchange` Ereignishandler-Eigenschaft verwenden:
 
 ```js
 function locationHashChanged() {
@@ -76,4 +76,4 @@ window.onhashchange = locationHashChanged;
 
 ## Siehe auch
 
-- {{domxref("Window/popstate_event", "popstate")}}-Ereignis
+- [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignis

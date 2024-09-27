@@ -1,5 +1,5 @@
 ---
-title: "MediaStream: removeTrack()-Methode"
+title: "MediaStream: Methode removeTrack()"
 short-title: removeTrack()
 slug: Web/API/MediaStream/removeTrack
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`removeTrack()`**-Methode des {{domxref("MediaStream")}}-Interfaces entfernt ein {{domxref("MediaStreamTrack")}} aus einem Stream.
+Die **`removeTrack()`**-Methode des [`MediaStream`](/de/docs/Web/API/MediaStream)-Interfaces entfernt ein
+[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) aus einem Stream.
 
 ## Syntax
 
@@ -19,7 +20,7 @@ removeTrack(track)
 ### Parameter
 
 - `track`
-  - : Ein {{domxref("MediaStreamTrack")}}, das aus dem Stream entfernt wird.
+  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der aus dem Stream entfernt wird.
 
 ### Rückgabewert
 
@@ -27,7 +28,10 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man die Audio- und Videospuren aus einem {{domxref("MediaStream")}} entfernt. `fetchStreamFunction` ist ein Event-Handler für `fetchStreamButton`. Wenn der Button geklickt wird, werden Audio und Video von den Geräten des Systems aufgenommen. `removeTracksFunction` ist der Event-Handler für `removeTracksButton`. Wenn dieser Button geklickt wird, werden die Audio- und Videospuren aus dem {{domxref("MediaStream")}} entfernt.
+Das folgende Beispiel zeigt, wie die Audio- und Videospuren von einem [`MediaStream`](/de/docs/Web/API/MediaStream) entfernt werden.
+`fetchStreamFunction` ist ein Ereignishandler für `fetchStreamButton`. Wenn der Button geklickt wird, werden Audio
+und Video von den Geräten des Systems erfasst. `removeTracksFunction` ist der Ereignishandler für `removeTracksButton`.
+Wenn dieser Button geklickt wird, werden die Audio- und Videospuren aus dem [`MediaStream`](/de/docs/Web/API/MediaStream) entfernt.
 
 ```js
 let initialStream = null;
@@ -58,7 +62,7 @@ async function removeTracksFunction() {
   newStream.removeTrack(videoTrack);
   newStream.removeTrack(audioTrack);
 
-  // Stream wird leer sein
+  // Stream will be empty
   console.log(newStream.getTracks());
 }
 
@@ -70,6 +74,6 @@ removeTracksButton.addEventListener("click", removeTracksFunction);
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Periodic Background Sync")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`getTags()`**-Methode der {{domxref("PeriodicSyncManager")}}-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einer Liste von {{jsxref('String')}}-Objekten aufgelöst wird, die die Tags darstellen, die derzeit für das periodische Synchronisieren registriert sind.
+Die **`getTags()`**-Methode der [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einer Liste von {{jsxref('String')}}-Objekten aufgelöst wird, die die derzeit für das periodische Synchronisieren registrierten Tags darstellen.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das mit einer Liste von {{jsxref('String')}}-Objekten aufgelöst wird, die Tags darstellen, die derzeit für das periodische Synchronisieren registriert sind.
+Ein {{jsxref('Promise')}}, das mit einer Liste von {{jsxref('String')}}-Objekten aufgelöst wird, die die Tags darstellen, die derzeit für das periodische Synchronisieren registriert sind.
 
 ### Ausnahmen
 
@@ -30,7 +30,7 @@ Keine.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet die `getTags()`-Methode, um zu überprüfen, ob eine periodische Synchronisationsaufgabe mit einem bestimmten Tag registriert ist.
+Das folgende Beispiel verwendet die `getTags()`-Methode, um zu überprüfen, ob eine periodische Synchronisationsaufgabe mit einem gegebenen Tag registriert ist.
 
 ```js
 navigator.serviceWorker.ready.then((registration) => {
@@ -40,7 +40,7 @@ navigator.serviceWorker.ready.then((registration) => {
 });
 ```
 
-`skipDownloadingLatestNewsOnPageLoad()` ist eine vom Entwickler definierte Funktion.
+`skipDownloadingLatestNewsOnPageLoad()` ist eine entwicklerdefinierte Funktion.
 
 ## Spezifikationen
 
@@ -52,5 +52,5 @@ navigator.serviceWorker.ready.then((registration) => {
 
 ## Siehe auch
 
-- [Reichhaltigere Offline-Erlebnisse mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
-- [Eine Demo-Anwendung für die Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)
+- [Reichhaltigere Offline-Erfahrungen mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
+- [Eine Demo-App für Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)

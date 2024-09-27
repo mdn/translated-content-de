@@ -1,5 +1,5 @@
 ---
-title: "Dokument: open() Methode"
+title: "Document: open() Methode"
 short-title: open()
 slug: Web/API/Document/open
 l10n:
@@ -8,13 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Document.open()`** Methode öffnet ein Dokument zum
-{{domxref("Document.write", "Schreiben", "", "1")}}.
+Die **`Document.open()`**-Methode öffnet ein Dokument zum [Schreiben](/de/docs/Web/API/Document/write).
 
-Dies hat einige Nebenwirkungen. Zum Beispiel:
+Dies hat einige Nebeneffekte. Beispielsweise:
 
-- Alle derzeit auf dem Dokument, Knoten innerhalb des Dokuments,
-  oder dem Fenster des Dokuments registrierten Ereignislistener werden entfernt.
+- Alle aktuell im Dokument, in Knoten innerhalb des Dokuments oder im Fenster des Dokuments registrierten Event-Listener werden entfernt.
 - Alle bestehenden Knoten werden aus dem Dokument entfernt.
 
 ## Syntax
@@ -33,8 +31,7 @@ Eine `Document` Objektinstanz.
 
 ## Beispiele
 
-Der folgende einfache Code öffnet das Dokument und ersetzt seinen Inhalt mit einer Reihe von
-unterschiedlichen HTML-Fragmenten, bevor es wieder geschlossen wird.
+Der folgende einfache Code öffnet das Dokument und ersetzt seinen Inhalt mit einer Reihe verschiedener HTML-Fragmente, bevor es wieder geschlossen wird.
 
 ```js
 document.open();
@@ -44,23 +41,19 @@ document.write("<p>The number is 42</p>");
 document.close();
 ```
 
-## Anmerkungen
+## Hinweise
 
-Ein automatischer `document.open()` Aufruf erfolgt, wenn
-{{domxref("document.write()")}} aufgerufen wird, nachdem die Seite geladen wurde.
+Ein automatischer `document.open()`-Aufruf erfolgt, wenn [`document.write()`](/de/docs/Web/API/Document/write) nach dem Laden der Seite aufgerufen wird.
 
 ### Inhaltssicherheit
 
-Diese Methode unterliegt derselben [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) wie andere Eigenschaften und funktioniert nicht, wenn dies die Herkunft des Dokuments ändern würde.
+Diese Methode unterliegt der gleichen [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) wie andere Eigenschaften und funktioniert nicht, wenn dies die Ursprungsquelle des Dokuments ändern würde.
 
 ## Drei-Argumente document.open()
 
-Es gibt eine weniger bekannte und wenig genutzte Drei-Argumente-Version von
-`document.open()`, die ein Alias von {{domxref("Window.open()")}} ist (siehe
-dessen Seite für vollständige Details).
+Es gibt eine weniger bekannte und wenig genutzte Version von `document.open()` mit drei Argumenten, die ein Alias von [`Window.open()`](/de/docs/Web/API/Window/open) ist (siehe die entsprechende Seite für umfassende Details).
 
-Dieser Aufruf öffnet zum Beispiel github.com in einem neuen Fenster, wobei der Opener auf
-`null` gesetzt ist:
+Dieser Aufruf öffnet beispielsweise github.com in einem neuen Fenster, wobei der `Opener` auf `null` gesetzt ist:
 
 ```js
 document.open("https://www.github.com", "", "noopener=true");
@@ -68,30 +61,25 @@ document.open("https://www.github.com", "", "noopener=true");
 
 ## Zwei-Argumente document.open()
 
-Browser unterstützten früher eine Zwei-Argumente `document.open()`, mit der
-folgenden Signatur:
+Browser unterstützten früher ein `document.open()` mit zwei Argumenten und folgender Signatur:
 
 ```js
 document.open(type, replace);
 ```
 
-Wo `type` den MIME-Typ der Daten, die Sie schreiben (z.B.
-`text/html`), spezifizierte und `replace`, wenn gesetzt (d.h. ein String mit dem Wert `"replace"`),
-spezifizierte, dass der Verlaufseintrag für das neue Dokument den aktuellen Verlaufseintrag des zu beschreibenden Dokuments ersetzen würde.
+Wobei `type` den MIME-Typ der Daten spezifizierte, die Sie schreiben (z.B. `text/html`), und `replace`, wenn gesetzt (d.h. ein String `"replace"`), spezifizierte, dass der Historieneintrag für das neue Dokument den aktuellen Historieneintrag des Dokuments ersetzen würde, zu dem geschrieben wird.
 
-Diese Form ist jetzt veraltet; sie löst keinen Fehler aus, sondern leitet einfach an
-`document.open()` weiter (d.h. ist gleichbedeutend damit, es ohne
-Argumente auszuführen). Das Verhalten der Verlaufsersetzung erfolgt jetzt immer.
+Diese Form ist nun veraltet; es wird keinen Fehler werfen, sondern stattdessen nur `document.open()` weiterleiten (d.h. es entspricht dem Ausführen ohne Argumente). Das Verhalten des Ersetzens der Historie tritt nun immer auf.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Document")}}
-- {{domxref("Window.open()")}}
+- [`Document`](/de/docs/Web/API/Document)
+- [`Window.open()`](/de/docs/Web/API/Window/open)

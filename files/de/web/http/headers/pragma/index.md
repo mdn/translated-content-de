@@ -7,27 +7,27 @@ l10n:
 
 {{HTTPSidebar}}{{Deprecated_Header}}
 
-Der **`Pragma`** HTTP/1.0-Generalkopf ist ein implementierungsspezifischer Header, der entlang der Anforderungs-Antwort-Kette verschiedene Effekte haben kann. Dieser Header dient der Rückwärtskompatibilität mit HTTP/1.0-Caches, die keinen {{HTTPHeader("Cache-Control")}} HTTP/1.1-Header haben.
+Der HTTP/1.0-Allgemein-Header **`Pragma`** ist ein implementierungsspezifischer Header, der entlang der Anforderungs-Antwort-Kette verschiedene Effekte haben kann. Dieser Header dient der Abwärtskompatibilität mit den HTTP/1.0-Caches, die nicht über einen {{HTTPHeader("Cache-Control")}} HTTP/1.1-Header verfügen.
 
-> **Hinweis:** `Pragma` ist für HTTP-Antworten nicht spezifiziert und daher kein zuverlässiger Ersatz für den allgemeinen HTTP/1.1 `Cache-Control`-Header, obwohl sein Verhalten dasselbe ist wie bei `Cache-Control: no-cache`, wenn das `Cache-Control`-Headerfeld in einer Anforderung weggelassen wird. Verwenden Sie `Pragma` nur für die Rückwärtskompatibilität mit HTTP/1.0-Clients.
+> **Note:** `Pragma` ist für HTTP-Antworten nicht spezifiziert und ist daher kein zuverlässiger Ersatz für den allgemeinen HTTP/1.1-`Cache-Control`-Header, obwohl sein Verhalten das gleiche ist wie `Cache-Control: no-cache`, wenn das `Cache-Control`-Headerfeld in einer Anforderung weggelassen wird. Verwenden Sie `Pragma` nur für die Abwärtskompatibilität mit HTTP/1.0-Clients.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request header")}},
-        {{Glossary("Response header")}} (Antwortverhalten ist nicht
+        [Anforderungs-Header](/de/docs/Glossary/Request_header),
+        [Antwort-Header](/de/docs/Glossary/Response_header) (Antwortverhalten ist nicht
         spezifiziert und daher implementierungsspezifisch).
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted response header")}}
+        [CORS-safelisted Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header)
       </th>
       <td>ja</td>
     </tr>
@@ -43,7 +43,7 @@ Pragma: no-cache
 ## Direktiven
 
 - no-cache
-  - : Entspricht `Cache-Control: no-cache`. Zwingt Caches, die Anforderung an den Ursprungsserver zur Validierung zu senden, bevor eine zwischengespeicherte Kopie freigegeben wird.
+  - : Entspricht `Cache-Control: no-cache`. Erzwingt, dass Caches die Anforderung an den Ursprung-Server zur Validierung übermitteln, bevor eine zwischengespeicherte Kopie freigegeben wird.
 
 ## Beispiele
 
@@ -55,7 +55,7 @@ Pragma: no-cache
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

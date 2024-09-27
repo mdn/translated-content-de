@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode getSyncParameter()"
+title: "WebGL2RenderingContext: getSyncParameter()-Methode"
 short-title: getSyncParameter()
 slug: Web/API/WebGL2RenderingContext/getSyncParameter
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.getSyncParameter()`**-Methode des
-[WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt Parameterinformationen eines {{domxref("WebGLSync")}}-Objekts zurück.
+Die **`WebGL2RenderingContext.getSyncParameter()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) liefert Parameterinformationen eines [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekts.
 
 ## Syntax
 
@@ -20,23 +19,23 @@ getSyncParameter(sync, pname)
 ### Parameter
 
 - `sync`
-  - : Ein {{domxref("WebGLSync")}}-Objekt.
+  - : Ein [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt.
 - `pname`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das angibt, welche Informationen zurückgegeben werden sollen. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welche Informationen zurückgegeben werden sollen. Mögliche Werte:
 
     - `gl.OBJECT_TYPE`
-      - : Gibt ein {{domxref("WebGL_API/Types", "GLenum")}} zurück, das den Typ des Synchronisationsobjekts angibt (immer `gl.SYNC_FENCE`).
+      - : Gibt ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das den Typ des Sync-Objekts angibt (immer `gl.SYNC_FENCE`).
     - `gl.SYNC_STATUS`
-      - : Gibt ein {{domxref("WebGL_API/Types", "GLenum")}} zurück, das den Status des Synchronisationsobjekts angibt (`gl.SIGNALED` oder `gl.UNSIGNALED`).
+      - : Gibt ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das den Status des Sync-Objekts angibt (`gl.SIGNALED` oder `gl.UNSIGNALED`).
     - `gl.SYNC_CONDITION`
-      - : Gibt ein {{domxref("WebGL_API/Types", "GLenum")}} zurück, das die Bedingung des Synchronisationsobjekts angibt (immer `gl.SYNC_GPU_COMMANDS_COMPLETE`).
+      - : Gibt ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Bedingung des Sync-Objekts angibt (immer `gl.SYNC_GPU_COMMANDS_COMPLETE`).
     - `gl.SYNC_FLAGS`
-      - : Gibt ein {{domxref("WebGL_API/Types", "GLenum")}} zurück, das die Flags angibt, mit denen das Synchronisationsobjekt erstellt wurde (immer 0, da keine Flags unterstützt werden).
+      - : Gibt ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Flags angibt, mit denen das Sync-Objekt erstellt wurde (immer 0, da keine Flags unterstützt werden).
 
 ### Rückgabewert
 
-Abhängig vom `pname`-Parameter, entweder ein {{domxref("WebGL_API/Types", "GLenum")}} oder ein {{domxref("WebGL_API/Types", "GLbitfield")}}.
+Hängt vom `pname`-Parameter ab, entweder ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) oder ein [`GLbitfield`](/de/docs/Web/API/WebGL_API/Types).
 
 ## Beispiele
 
@@ -55,4 +54,4 @@ gl.getSyncParameter(sync, gl.SYNC_STATUS);
 
 ## Siehe auch
 
-- {{domxref("WebGLSync")}}
+- [`WebGLSync`](/de/docs/Web/API/WebGLSync)

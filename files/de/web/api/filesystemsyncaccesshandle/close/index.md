@@ -8,10 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`close()`**-Methode der {{domxref("FileSystemSyncAccessHandle")}}-Schnittstelle schließt einen geöffneten synchronen Datei-Handle, deaktiviert jegliche weitere Operationen darauf und gibt die zuvor auf die Datei gelegte exklusive Sperre frei, die mit dem Datei-Handle verknüpft ist.
+Die **`close()`**-Methode des
+[`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Interfaces schließt einen geöffneten synchronen Dateihandle, deaktiviert alle weiteren Operationen darauf und gibt die exklusive Sperre frei, die zuvor auf die mit dem Dateihandle verbundene Datei gelegt wurde.
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation wurden `close()`, {{domxref("FileSystemSyncAccessHandle.flush()", "flush()")}}, {{domxref("FileSystemSyncAccessHandle.getSize()", "getSize()")}}, und {{domxref("FileSystemSyncAccessHandle.truncate()", "truncate()")}} fälschlicherweise als asynchrone Methoden angegeben, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Alle aktuellen Browser, die diese Methoden unterstützen, implementieren sie jedoch als synchrone Methoden.
+> In früheren Versionen der Spezifikation wurden `close()`, [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Alle aktuellen Browser, die diese Methoden unterstützen, implementieren sie jedoch als synchrone Methoden.
 
 ## Syntax
 
@@ -33,13 +34,13 @@ Keine.
 
 ## Beispiele
 
-Die folgende asynchrone Ereignis-Handler-Funktion ist in einem Web Worker enthalten. Beim Empfang einer Nachricht vom Hauptthread:
+Die folgende asynchrone Ereignisbehandlungsfunktion ist in einem Web Worker enthalten. Beim Empfang einer Nachricht vom Haupt-Thread führt sie folgende Schritte aus:
 
-- Erstellt sie einen synchronen Datei-Zugriffs-Handle.
-- Ermittelt die Größe der Datei und erstellt einen {{jsxref("ArrayBuffer")}}, um sie aufzunehmen.
-- Liest die Dateiinhalte in den Puffer.
-- Codiert die Nachricht und schreibt sie an das Ende der Datei.
-- Speichert die Änderungen auf der Festplatte und schließt den Zugriffs-Handle.
+- Erstellt einen synchronen Dateizugriffshandle.
+- Ruft die Größe der Datei ab und erstellt einen {{jsxref("ArrayBuffer")}}, um sie zu enthalten.
+- Liest den Dateiinhalte in den Puffer.
+- Kodiert die Nachricht und schreibt sie ans Ende der Datei.
+- Speichert die Änderungen auf der Festplatte und schließt den Zugriffshandle.
 
 ```js
 onmessage = async (e) => {

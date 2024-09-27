@@ -7,30 +7,30 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGFETileElement`**-Schnittstelle entspricht dem {{SVGElement("feTile")}}-Element.
+Die Schnittstelle **`SVGFETileElement`** entspricht dem {{SVGElement("feTile")}}-Element.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle übernimmt auch Eigenschaften von ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGFETileElement.height")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("height")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFETileElement.in1")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, der dem {{SVGAttr("in")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFETileElement.result")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, der dem {{SVGAttr("result")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFETileElement.width")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("width")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFETileElement.x")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFETileElement.y")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFETileElement.height`](/de/docs/Web/API/SVGFETileElement/height) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}}-Attribut des angegebenen Elements entspricht.
+- [`SVGFETileElement.in1`](/de/docs/Web/API/SVGFETileElement/in1) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("in")}}-Attribut des angegebenen Elements entspricht.
+- [`SVGFETileElement.result`](/de/docs/Web/API/SVGFETileElement/result) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGFETileElement/result), das dem {{SVGAttr("result")}}-Attribut des angegebenen Elements entspricht.
+- [`SVGFETileElement.width`](/de/docs/Web/API/SVGFETileElement/width) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGFETileElement/width), das dem {{SVGAttr("width")}}-Attribut des angegebenen Elements entspricht.
+- [`SVGFETileElement.x`](/de/docs/Web/API/SVGFETileElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGFETileElement/x), das dem {{SVGAttr("x")}}-Attribut des angegebenen Elements entspricht.
+- [`SVGFETileElement.y`](/de/docs/Web/API/SVGFETileElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGFETileElement/y), das dem {{SVGAttr("y")}}-Attribut des angegebenen Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die ihres übergeordneten Elements, {{domxref("SVGElement")}}._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die Methoden ihrer übergeordneten Schnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

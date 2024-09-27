@@ -8,12 +8,12 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`ping`**-Eigenschaft der {{domxref("HTMLAreaElement")}}-Schnittstelle ist eine durch Leerzeichen getrennte Liste von URLs. Wenn der Link gefolgt wird, sendet der Browser {{HTTPMethod("POST")}}-Anfragen mit dem Body PING an die URLs.
+Die **`ping`**-Eigenschaft der [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle ist eine durch Leerzeichen getrennte Liste von URLs. Wenn der Link gefolgt wird, sendet der Browser {{HTTPMethod("POST")}}-Anfragen mit dem Body PING an die URLs.
 
-Sie spiegelt das `ping`-Attribut des {{HTMLElement("area")}}-Elements wider.
+Diese Eigenschaft spiegelt das `ping`-Attribut des {{HTMLElement("area")}}-Elements wider.
 
 > [!NOTE]
-> Diese Eigenschaft ist in Firefox nicht wirksam und ihre Nutzung kann aufgrund von Datenschutz- und Sicherheitsbedenken eingeschränkt sein.
+> Diese Eigenschaft ist in Firefox nicht wirksam, und ihre Nutzung kann aufgrund von Datenschutz- und Sicherheitsbedenken eingeschränkt sein.
 
 ## Beispiel
 
@@ -28,7 +28,7 @@ Sie spiegelt das `ping`-Attribut des {{HTMLElement("area")}}-Elements wider.
 
 ```js
 const areaCollection = document.getElementsByTagName("map")[0].areas;
-console.log(areaCollection[0].ping); // Ausgabe: "https://example-tracking.com https://example-analytics.com"
+console.log(areaCollection[0].ping); // Output: "https://example-tracking.com https://example-analytics.com"
 ```
 
 ## Spezifikationen
@@ -41,4 +41,4 @@ console.log(areaCollection[0].ping); // Ausgabe: "https://example-tracking.com h
 
 ## Siehe auch
 
-- {{domxref("HTMLAnchorElement.ping")}}-Eigenschaft
+- [`HTMLAnchorElement.ping`](/de/docs/Web/API/HTMLAnchorElement/ping)-Eigenschaft

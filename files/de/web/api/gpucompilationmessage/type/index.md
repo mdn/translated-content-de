@@ -1,26 +1,26 @@
 ---
-title: "GPUCompilationMessage: Eigenschaft type"
+title: "GPUCompilationMessage: type-Eigenschaft"
 short-title: type
 slug: Web/API/GPUCompilationMessage/type
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`type`** schreibgeschützte Eigenschaft der
-{{domxref("GPUCompilationMessage")}} Schnittstelle ist ein Aufzählungswert, der den Typ der Nachricht darstellt. Jeder Typ repräsentiert eine unterschiedliche Schweregradstufe.
+Die **`type`**-Eigenschaft nur-lesend der
+[`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Schnittstelle ist ein enumerierter Wert, der den Typ der Nachricht darstellt. Jeder Typ repräsentiert einen unterschiedlichen Schweregrad.
 
 ## Wert
 
-Ein Aufzählungswert. Mögliche Werte sind:
+Ein enumerierter Wert. Mögliche Werte sind:
 
 - `"error"`
   - : Ein Shader-Erstellungsfehler, der eine erfolgreiche Kompilierung verhindert.
 - `"info"`
   - : Eine rein informative Nachricht, die eine niedrige Schwere hat.
 - `"warning"`
-  - : Eine Warnung über ein Problem, das die erfolgreiche Kompilierung nicht verhindert, aber die Aufmerksamkeit des Entwicklers verdient. Ein Beispiel ist die Verwendung veralteter Funktionen oder Syntax.
+  - : Eine Warnung über ein Problem, das eine erfolgreiche Kompilierung nicht verhindert, aber die Aufmerksamkeit des Entwicklers verdient. Ein Beispiel ist die Verwendung von veralteten Funktionen oder Syntax.
 
 ## Beispiele
 
@@ -37,7 +37,7 @@ Ein Aufzählungswert. Mögliche Werte sind:
 }
 ```
 
-Sehen Sie sich die Hauptseite von [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel an.
+Sehen Sie sich die Hauptseite von [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein ausführlicheres Beispiel an.
 
 ## Spezifikationen
 

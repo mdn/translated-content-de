@@ -7,28 +7,28 @@ l10n:
 
 {{CSSRef}}
 
-Die **`-webkit-line-clamp`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht die Begrenzung des Inhalts eines {{Glossary("block")}} auf die angegebene Anzahl von Zeilen.
+Die **`-webkit-line-clamp`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht das Begrenzen des Inhalts eines [Block](/de/docs/Glossary/block) auf die angegebene Anzahl von Zeilen.
 
-Sie funktioniert nur in Kombination mit der {{cssxref("display")}}-Eigenschaft, die auf `-webkit-box` oder `-webkit-inline-box` gesetzt ist, und der {{cssxref("box-orient", "-webkit-box-orient")}}-Eigenschaft, die auf `vertical` gesetzt ist. Obwohl sie veraltet sind, ist die Abhängigkeit dieser drei Eigenschaften vollständig spezifiziertes Verhalten und wird weiterhin unterstützt.
+Sie funktioniert nur in Kombination mit der {{cssxref("display")}} Eigenschaft, die auf `-webkit-box` oder `-webkit-inline-box` eingestellt ist, und der {{cssxref("box-orient", "-webkit-box-orient")}} Eigenschaft, die auf `vertical` gesetzt ist. Trotz ihrer Veralterung ist die Abhängigkeit dieser drei Eigenschaften vollständig spezifiziert und wird weiterhin unterstützt.
 
-In den meisten Fällen möchten Sie auch {{cssxref("overflow")}} auf `hidden` setzen, da ansonsten der Inhalt nicht abgeschnitten wird, aber trotzdem ein Auslassungszeichen nach der angegebenen Anzahl von Zeilen angezeigt wird.
+In den meisten Fällen sollten Sie auch {{cssxref("overflow")}} auf `hidden` setzen, da ansonsten der Inhalt nicht abgeschnitten wird, aber ein Ellipse nach der festgelegten Anzahl von Zeilen angezeigt wird.
 
-Beim Anwenden auf Ankerelemente kann das Trennen in der Mitte des Textes und nicht unbedingt am Ende erfolgen.
+Wenn sie auf Ankerelemente angewendet wird, kann die Trunkierung in der Mitte des Textes erfolgen, nicht unbedingt am Ende.
 
 > [!NOTE]
-> Diese Eigenschaft wurde ursprünglich in WebKit implementiert und hat einige Probleme, wie die Abhängigkeit von zwei anderen veralteten Eigenschaften. Sie wurde im [CSS Overflow Module Level 4](https://drafts.csswg.org/css-overflow-4/#propdef--webkit-line-clamp) für die Unterstützung von Legacy-Anwendungen standardisiert. Das CSS Overflow Module Level 4 definiert auch eine {{cssxref("line-clamp")}}-Eigenschaft, die diese Eigenschaft ersetzen und ihre Probleme vermeiden soll. Allerdings werden alle Browser, die `line-clamp` unterstützen, auch `-webkit-line-clamp` aus Kompatibilitätsgründen unterstützen.
+> Diese Eigenschaft wurde ursprünglich in WebKit implementiert und weist einige Probleme auf, wie zum Beispiel die Abhängigkeit von zwei weiteren veralteten Eigenschaften. Sie wurde im [CSS Overflow Module Level 4](https://drafts.csswg.org/css-overflow-4/#propdef--webkit-line-clamp) für die Unterstützung älterer Versionen standardisiert. Das CSS Overflow Module Level 4 definiert auch eine {{cssxref("line-clamp")}} Eigenschaft, die dazu gedacht ist, diese Eigenschaft zu ersetzen und ihre Probleme zu vermeiden. Allerdings unterstützen alle Browser, die `line-clamp` unterstützen, aus Kompatibilitätsgründen auch `-webkit-line-clamp`.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwert */
+/* Keyword value */
 -webkit-line-clamp: none;
 
-/* <integer>-Werte */
+/* <integer> values */
 -webkit-line-clamp: 3;
 -webkit-line-clamp: 10;
 
-/* Globale Werte */
+/* Global values */
 -webkit-line-clamp: inherit;
 -webkit-line-clamp: initial;
 -webkit-line-clamp: revert;
@@ -41,7 +41,7 @@ Beim Anwenden auf Ankerelemente kann das Trennen in der Mitte des Textes und nic
 - `none`
   - : Dieser Wert gibt an, dass der Inhalt nicht begrenzt wird.
 - {{cssxref("integer")}}
-  - : Dieser Wert gibt die Anzahl der Zeilen an, nach denen der Inhalt begrenzt wird. Er muss größer als 0 sein.
+  - : Dieser Wert legt die Anzahl der Zeilen fest, nach denen der Inhalt begrenzt wird. Er muss größer als 0 sein.
 
 ## Formale Definition
 
@@ -53,16 +53,15 @@ Beim Anwenden auf Ankerelemente kann das Trennen in der Mitte des Textes und nic
 
 ## Beispiele
 
-### Kürzen eines Absatzes
+### Einen Absatz kürzen
 
 #### HTML
 
 ```html
 <p>
-  In diesem Beispiel ist die <code>-webkit-line-clamp</code>-Eigenschaft auf
-  <code>3</code> gesetzt, was bedeutet, dass der Text nach drei Zeilen
-  abgeschnitten wird. An der Stelle, an der der Text gekürzt wird, wird ein
-  Auslassungszeichen angezeigt.
+  In this example the <code>-webkit-line-clamp</code> property is set to
+  <code>3</code>, which means the text is clamped after three lines. An ellipsis
+  will be shown at the point where the text is clamped.
 </p>
 ```
 

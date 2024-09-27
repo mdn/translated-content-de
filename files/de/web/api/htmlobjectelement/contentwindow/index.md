@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`contentWindow`** der {{domxref("HTMLObjectElement")}}-Schnittstelle gibt einen {{glossary("WindowProxy")}} zurück, der den Fenster-Proxy des eingebetteten Browsing-Kontexts des Objekt-Elements repräsentiert, sofern vorhanden; andernfalls `null`.
+Die **`contentWindow`** schreibgeschützte Eigenschaft des [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt ein [WindowProxy](/de/docs/Glossary/WindowProxy) zurück, das den Fenster-Proxy des verschachtelten Browsing-Kontextes des Objekt-Elements repräsentiert, falls vorhanden; andernfalls `null`.
 
 ## Wert
 
-Ein {{domxref('Window')}}, oder `null`, falls keiner vorhanden ist.
+Ein [`Window`](/de/docs/Web/API/Window) oder `null`, wenn keiner vorhanden ist.
 
 ## Spezifikationen
 

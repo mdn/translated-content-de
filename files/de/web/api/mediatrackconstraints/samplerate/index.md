@@ -8,17 +8,20 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`sampleRate`** Attribut des {{domxref("MediaTrackConstraints")}}-Dictionaries ist ein [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong), das die angeforderten oder obligatorischen Einschränkungen beschreibt, die auf den Wert der {{domxref("MediaTrackSettings.sampleRate", "sampleRate")}}-Eigenschaft angewendet werden.
+Das **`sampleRate`**-Eigenschaftswörterbuch von [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints) ist ein [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong),
+das die angeforderten oder obligatorischen Einschränkungen beschreibt, die auf den Wert der
+[`sampleRate`](/de/docs/Web/API/MediaTrackSettings/sampleRate) beschränkbaren Eigenschaft angewendet werden.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von {{domxref("MediaTrackSupportedConstraints.sampleRate")}} überprüfen, wie er durch einen Aufruf von {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser unbekannte Einschränkungen ignorieren werden.
+Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.sampleRate`](/de/docs/Web/API/MediaTrackSupportedConstraints/sampleRate) überprüfen, wie er durch einen
+Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Typischerweise ist dies jedoch nicht notwendig, da Browser alle Einschränkungen ignorieren, die ihnen unbekannt sind.
 
 ## Wert
 
-Wenn dieser Wert eine Zahl ist, wird der Benutzeragent versuchen, Medien zu erhalten, deren Abtastrate so nah wie möglich an dieser Zahl liegt, unter Berücksichtigung der Möglichkeiten der Hardware und der anderen angegebenen Einschränkungen. Andernfalls wird der Wert dieses [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong) den Benutzeragenten bei seinen Bemühungen führen, eine genaue Übereinstimmung mit der erforderlichen Abtastrate zu erzielen (wenn `exact` angegeben ist oder sowohl `min` als auch `max` bereitgestellt werden und denselben Wert haben) oder eine bestmögliche Annäherung zu erreichen.
+Wenn dieser Wert eine Zahl ist, wird der Benutzeragent versuchen, Medien zu erhalten, deren Abtastrate so nah wie möglich an dieser Zahl liegt, basierend auf den Fähigkeiten der Hardware und den anderen festgelegten Einschränkungen. Andernfalls wird der Wert dieses [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong) den Benutzeragenten in seinen Bemühungen leiten, eine genaue Übereinstimmung mit der erforderlichen Abtastrate bereitzustellen (wenn `exact` angegeben ist oder sowohl `min` als auch `max` angegeben und auf denselben Wert gesetzt sind) oder einen bestmöglichen Wert zu erreichen.
 
 ## Beispiele
 
-Siehe das [Constraint-Exerciser-Beispiel](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel für den [Constraint-Übungsbereich](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -32,7 +35,7 @@ Siehe das [Constraint-Exerciser-Beispiel](/de/docs/Web/API/Media_Capture_and_Str
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
-- {{domxref("MediaTrackConstraints")}}
-- {{domxref("MediaDevices.getSupportedConstraints()")}}
-- {{domxref("MediaTrackSupportedConstraints")}}
-- {{domxref("MediaStreamTrack")}}
+- [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
+- [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
+- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
+- [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

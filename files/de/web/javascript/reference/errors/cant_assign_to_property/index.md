@@ -1,5 +1,5 @@
 ---
-title: "TypeError: Kann Eigenschaft \"x\" auf \"y\" nicht zuweisen: kein Objekt"
+title: 'TypeError: kann Eigenschaft „x“ nicht zu "y" zuweisen: kein Objekt'
 slug: Web/JavaScript/Reference/Errors/Cant_assign_to_property
 l10n:
   sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
@@ -7,14 +7,14 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript Strict-Mode-Ausnahme "kann Eigenschaft nicht zuweisen" tritt auf, wenn versucht wird, eine Eigenschaft auf einem [primitiven](/de/docs/Glossary/Primitive) Wert wie einem [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), einem [String](/de/docs/Glossary/String), einer [Zahl](/de/docs/Glossary/Number) oder einem [Boolean](/de/docs/Glossary/Boolean) zu erstellen. [Primitive](/de/docs/Glossary/Primitive) Werte können keine [Eigenschaft](/de/docs/Glossary/Property/JavaScript) halten.
+Die JavaScript-Ausnahme im strikten Modus "can't assign to property" tritt auf, wenn versucht wird, einer [Primitivwert](/de/docs/Glossary/Primitive) wie einem [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), einem [String](/de/docs/Glossary/String), einer [Number](/de/docs/Glossary/Number) oder einem [Boolean](/de/docs/Glossary/Boolean) eine Eigenschaft zuzuweisen. [Primitivwerte](/de/docs/Glossary/Primitive) können keine [Eigenschaften](/de/docs/Glossary/Property/JavaScript) speichern.
 
-## Nachricht
+## Meldung
 
 ```plain
-TypeError: Cannot create property 'x' on number '1' (V8-basiert)
-TypeError: kann Eigenschaft "x" auf 1 nicht zuweisen: kein Objekt (Firefox)
-TypeError: Versuch, einer schreibgeschützten Eigenschaft einen Wert zuzuweisen. (Safari)
+TypeError: Cannot create property 'x' on number '1' (V8-based)
+TypeError: can't assign to property "x" on 1: not an object (Firefox)
+TypeError: Attempted to assign to readonly property. (Safari)
 ```
 
 ## Fehlertyp
@@ -23,9 +23,9 @@ TypeError: Versuch, einer schreibgeschützten Eigenschaft einen Wert zuzuweisen.
 
 ## Was ist schiefgelaufen?
 
-Im [Strict-Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) wird ein {{jsxref("TypeError")}} ausgelöst, wenn versucht wird, eine Eigenschaft auf einem [primitiven](/de/docs/Glossary/Primitive) Wert wie einem [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), einem [String](/de/docs/Glossary/String), einer [Zahl](/de/docs/Glossary/Number) oder einem [Boolean](/de/docs/Glossary/Boolean) zu erstellen. [Primitive](/de/docs/Glossary/Primitive) Werte können keine [Eigenschaft](/de/docs/Glossary/Property/JavaScript) halten.
+Im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) wird ein {{jsxref("TypeError")}} ausgelöst, wenn versucht wird, einer [Primitivwert](/de/docs/Glossary/Primitive) wie einem [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), einem [String](/de/docs/Glossary/String), einer [Number](/de/docs/Glossary/Number) oder einem [Boolean](/de/docs/Glossary/Boolean) eine Eigenschaft zuzuweisen. [Primitivwerte](/de/docs/Glossary/Primitive) können keine [Eigenschaften](/de/docs/Glossary/Property/JavaScript) speichern.
 
-Das Problem könnte darin bestehen, dass ein unerwarteter Wert an einer unerwarteten Stelle auftritt oder dass eine Objektvariante eines {{jsxref("String")}} oder einer {{jsxref("Number")}} erwartet wird.
+Das Problem könnte sein, dass ein unerwarteter Wert an einer unerwarteten Stelle auftaucht oder dass ein Objekt-Äquivalent eines {{jsxref("String")}} oder einer {{jsxref("Number")}} erwartet wird.
 
 ## Beispiele
 
@@ -34,23 +34,23 @@ Das Problem könnte darin bestehen, dass ein unerwarteter Wert an einer unerwart
 ```js example-bad
 "use strict";
 
-const foo = "mein String";
-// Die folgende Zeile bewirkt nichts, wenn nicht im Strict-Mode.
-foo.bar = {}; // TypeError: kann Eigenschaft "bar" auf "mein String" nicht zuweisen: kein Objekt
+const foo = "my string";
+// The following line does nothing if not in strict mode.
+foo.bar = {}; // TypeError: can't assign to property "bar" on "my string": not an object
 ```
 
 ### Behebung des Problems
 
-Entweder beheben Sie den Code, um zu verhindern, dass der [primitive](/de/docs/Glossary/Primitive) an solchen Stellen verwendet wird, oder beheben Sie das Problem, indem Sie das Objektaequivalent {{jsxref("Object")}} erstellen.
+Beheben Sie entweder den Code, um zu verhindern, dass der [Primitivwert](/de/docs/Glossary/Primitive) an solchen Stellen verwendet wird, oder beheben Sie das Problem, indem Sie das Objekt-Äquivalent {{jsxref("Object")}} erstellen.
 
 ```js example-good
 "use strict";
 
-const foo = new String("mein String");
+const foo = new String("my string");
 foo.bar = {};
 ```
 
 ## Siehe auch
 
-- [Strict-Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)
-- [primitiv](/de/docs/Glossary/Primitive)
+- [Strikter Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)
+- [Primitivwert](/de/docs/Glossary/Primitive)

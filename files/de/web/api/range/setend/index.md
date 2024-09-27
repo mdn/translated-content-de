@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.setEnd()`**-Methode legt die Endposition eines {{domxref("Range")}} an einem angegebenen Offset innerhalb des angegebenen Knotens fest. Wenn der Endpunkt höher (früher im Dokument) als der Startpunkt liegt, ergibt sich ein kollapierter Bereich, bei dem sowohl Start- als auch Endpunkt auf die angegebene Endposition gesetzt werden.
+Die **`Range.setEnd()`**-Methode setzt die Endposition eines [`Range`](/de/docs/Web/API/Range) auf den angegebenen Offset im angegebenen Knoten. Wenn der Endpunkt höher (weiter oben im Dokument) als der Startpunkt gesetzt wird, entsteht ein kollabierter Bereich, wobei Anfangs- und Endpunkte beide auf die angegebene Endposition gesetzt werden.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ setEnd(endNode, endOffset)
 ### Parameter
 
 - `endNode`
-  - : Der {{ domxref("Node") }}, innerhalb dessen das {{ domxref("Range") }} enden soll.
+  - : Der [`Node`](/de/docs/Web/API/Node), in dem der [`Range`](/de/docs/Web/API/Range) enden soll.
 - `endOffset`
-  - : Eine ganze Zahl, größer oder gleich null, die den Offset für das Ende des `Range` vom Anfang des `endNode` darstellt.
+  - : Eine ganze Zahl größer oder gleich null, die den Offset für das Ende des `Range` ab dem Beginn von `endNode` darstellt.
 
 ### Rückgabewert
 
@@ -29,17 +29,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidNodeTypeError` {{domxref("DOMException")}}
-  - : Der durch `endNode` angegebene Knoten ist ein Doctype-Knoten; Bereichs-Endpunkte können nicht innerhalb eines Doctype-Knotens positioniert werden.
-- `IndexSizeError` {{domxref("DOMException")}}
+- `InvalidNodeTypeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Der durch `endNode` angegebene Knoten ist ein Doctype-Knoten; Bereichs-Endpunkte können nicht innerhalb eines Doctype-Knotens liegen.
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Der durch `endOffset` angegebene Wert ist entweder größer oder gleich der Länge des Knotens oder kleiner als null.
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
-Wenn der `endNode` ein {{domxref("Node")}} vom Typ {{domxref("Text")}},
-{{domxref("Comment")}} oder {{domxref("CDataSection")}} ist, dann ist `endOffset` die Anzahl der Zeichen vom Anfang des `endNode`. Für andere
-{{domxref("Node")}}-Typen ist `endOffset` die Anzahl der Kindknoten vom
-Anfang des `endNode`.
+Wenn `endNode` ein [`Node`](/de/docs/Web/API/Node) vom Typ [`Text`](/de/docs/Web/API/Text), [`Comment`](/de/docs/Web/API/Comment) oder [`CDataSection`](/de/docs/Web/API/CDataSection) ist, dann ist `endOffset` die Anzahl der Zeichen vom Start von `endNode`. Für andere [`Node`](/de/docs/Web/API/Node)-Typen ist `endOffset` die Anzahl der Kindknoten zwischen dem Beginn des `endNode`.
 
 ## Beispiele
 
@@ -50,8 +47,7 @@ const endOffset = endNode.childNodes.length;
 range.setEnd(endNode, endOffset);
 ```
 
-> **Note:** `setEnd()` wird häufig in Verbindung mit
-> {{domxref("Range.setStart", "setStart()")}} verwendet, um einen Bereich vollständig zu konfigurieren.
+> **Note:** `setEnd()` wird häufig in Verbindung mit [`setStart()`](/de/docs/Web/API/Range/setStart) verwendet, um einen Bereich vollständig zu konfigurieren.
 
 ## Spezifikationen
 

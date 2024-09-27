@@ -8,19 +8,19 @@ l10n:
 {{JSRef}} {{Deprecated_Header}}
 
 > [!NOTE]
-> Alle statischen `RegExp`-Eigenschaften, die den letzten Übereinstimmungszustand global offenlegen, sind veraltet. Weitere Informationen finden Sie unter [veraltete RegExp-Funktionen](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp).
+> Alle statischen `RegExp`-Eigenschaften, die den letzten Übereinstimmungszustand global freigeben, sind veraltet. Weitere Informationen finden Sie unter [veraltete RegExp-Funktionen](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp).
 
 Die statische Zugriffs-Eigenschaft **`RegExp.lastMatch`** gibt die zuletzt übereinstimmende Teilzeichenfolge zurück. `RegExp["$&"]` ist ein Alias für diese Eigenschaft.
 
 ## Beschreibung
 
-Da `lastMatch` eine statische Eigenschaft von {{jsxref("RegExp")}} ist, verwenden Sie es immer als `RegExp.lastMatch` oder `RegExp["$&"]`, anstatt es als Eigenschaft eines von Ihnen erstellten `RegExp`-Objekts zu verwenden.
+Da `lastMatch` eine statische Eigenschaft von {{jsxref("RegExp")}} ist, wird sie immer als `RegExp.lastMatch` oder `RegExp["$&"]` verwendet und nicht als Eigenschaft eines erstellten `RegExp`-Objekts.
 
-Der Wert von `lastMatch` wird aktualisiert, wann immer eine `RegExp`-Instanz (aber nicht eine `RegExp`-Unterklasse) eine erfolgreiche Übereinstimmung erreicht. Wenn keine Übereinstimmungen erzielt wurden, ist `lastMatch` eine leere Zeichenkette. Der Set-Accessor von `lastMatch` ist `undefined`, daher können Sie diese Eigenschaft nicht direkt ändern.
+Der Wert von `lastMatch` wird immer dann aktualisiert, wenn eine Instanz von `RegExp` (aber nicht von einer `RegExp`-Unterklasse) erfolgreich übereinstimmt. Wenn keine Übereinstimmungen gefunden wurden, ist `lastMatch` ein leerer String. Der set-Accessor von `lastMatch` ist `undefined`, sodass Sie diese Eigenschaft nicht direkt ändern können.
 
-Sie können den verkürzten Alias nicht mit dem Punkt-Accessor (`RegExp.$&`) verwenden, da `&` kein gültiger Identifikator-Teil ist, was einen {{jsxref("SyntaxError")}} verursacht. Verwenden Sie stattdessen die [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors).
+Sie können den Kurzschreibweis-Alias mit dem Punkt-Zugriffsoperator (`RegExp.$&`) nicht verwenden, da `&` kein gültiger Teil eines Bezeichners ist, was zu einem {{jsxref("SyntaxError")}} führt. Verwenden Sie stattdessen die [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors).
 
-`$&` kann auch in der Ersetzungszeichenkette von {{jsxref("String.prototype.replace()")}} verwendet werden, was jedoch nicht mit der `RegExp["$&"]`-Legacy-Eigenschaft zu tun hat.
+`$&` kann auch im Ersetzungsstring von {{jsxref("String.prototype.replace()")}} verwendet werden, was jedoch nichts mit der veralteten Eigenschaft `RegExp["$&"]` zu tun hat.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ Sie können den verkürzten Alias nicht mit dem Punkt-Accessor (`RegExp.$&`) ver
 const re = /hi/g;
 re.test("hi there!");
 RegExp.lastMatch; // "hi"
-RegExp["$&"]; // "hi"
+RegExp["![](0-f3c42592.md)"]; // "hi"
 ```
 
 ## Spezifikationen

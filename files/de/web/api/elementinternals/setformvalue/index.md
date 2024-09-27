@@ -1,5 +1,5 @@
 ---
-title: "ElementInternals: setFormValue()-Methode"
+title: "ElementInternals: setFormValue() Methode"
 short-title: setFormValue()
 slug: Web/API/ElementInternals/setFormValue
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`setFormValue()`**-Methode der {{domxref("ElementInternals")}}-Schnittstelle setzt den Übermittlungswert und Zustand des Elements und kommuniziert diese mit dem Benutzeragenten.
+Die **`setFormValue()`** Methode der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle setzt den Übermittlungswert und Status des Elements und kommuniziert diese dem Benutzeragenten.
 
 ## Syntax
 
@@ -20,29 +20,29 @@ setFormValue(value, state)
 ### Parameter
 
 - `value`
-  - : Eine {{domxref("File")}}, ein String oder eine {{domxref("FormData")}} als der Wert, der an den Server übermittelt werden soll.
+  - : Eine [`File`](/de/docs/Web/API/File), ein String oder ein [`FormData`](/de/docs/Web/API/FormData) als der Wert, der an den Server übermittelt werden soll.
 - `state` {{optional_inline}}
-  - : Eine {{domxref("File")}}, ein String oder eine {{domxref("FormData")}}, die die vom Benutzer vorgenommenen Eingaben repräsentiert.
-    Dies ermöglicht es der Anwendung, die Informationen, die der Benutzer übermittelt hat, in der von ihm übermittelten Form erneut anzuzeigen, falls erforderlich.
+  - : Eine [`File`](/de/docs/Web/API/File), ein String oder ein [`FormData`](/de/docs/Web/API/FormData), die/das die Eingabe durch den Benutzer darstellt.
+    Dies ermöglicht es der Anwendung, die vom Benutzer übermittelten Informationen in der Form, in der sie übermittelt wurden, erneut anzuzeigen, falls erforderlich.
 
 > [!NOTE]
-> Im Allgemeinen wird `state` verwendet, um Informationen weiterzugeben, die ein Benutzer angegeben hat, während `value` für die Übermittlung an einen Server geeignet ist, nachdem eine Bereinigung erfolgte.
-> Zum Beispiel: Wenn ein benutzerdefiniertes Element einen Benutzer aufforderte, ein Datum einzugeben, könnte der Benutzer "3/15/2019" eingeben.
+> Im Allgemeinen wird `state` verwendet, um Informationen zu übergeben, die von einem Benutzer angegeben wurden. Der `value` ist geeignet für die Übermittlung an einen Server, nach der Bereinigung.
+> Zum Beispiel, wenn ein benutzerdefiniertes Element einen Benutzer bat, ein Datum einzugeben, könnte der Benutzer "3/15/2019" eingeben.
 > Dies wäre der `state`.
-> Der Server erwartet ein Datumsformat von `2019-03-15`, und das Datum in diesem Format würde als `value` übergeben werden.
+> Der Server erwartet ein Datumsformat von `2019-03-15`, das Datum in diesem Format würde als `value` übergeben.
 
 ### Rückgabewert
 
-Undefined.
+Nicht definiert.
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das Element seine `formAssociated`-Eigenschaft nicht auf `true` gesetzt hat.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das Element nicht seine `formAssociated` Eigenschaft auf `true` gesetzt hat.
 
 ## Beispiele
 
-Im folgenden Beispiel setzt ein benutzerdefiniertes Checkbox-Element `on` als Wert, der an den Server gesendet werden soll, und `checked` als den Zustand.
+Im folgenden Beispiel setzt ein benutzerdefiniertes Kontrollkästchen-Element `on` als den Wert, der an den Server gesendet werden soll, und `checked` als den Zustand.
 
 ```js
 this.internals_.setFormValue("on", "checked");
@@ -52,6 +52,6 @@ this.internals_.setFormValue("on", "checked");
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

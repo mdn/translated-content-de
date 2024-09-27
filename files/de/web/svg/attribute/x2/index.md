@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das **`x2`**-Attribut wird verwendet, um die zweite x-Koordinate für das Zeichnen eines SVG-Elements festzulegen, das mehr als eine Koordinate benötigt. Elemente, die nur eine Koordinate benötigen, verwenden stattdessen das {{SVGAttr("x")}}-Attribut.
+Das **`x2`**-Attribut wird verwendet, um die zweite x-Koordinate für das Zeichnen eines SVG-Elements zu spezifizieren, das mehr als eine Koordinate erfordert. Elemente, die nur eine Koordinate benötigen, verwenden stattdessen das {{SVGAttr("x")}}-Attribut.
 
 ## Elemente
 
-Sie können dieses Attribut mit den unten beschriebenen SVG-Elementen verwenden.
+Sie können dieses Attribut mit den in den folgenden Abschnitten beschriebenen SVG-Elementen verwenden.
 
 ### `<line>`
 
@@ -72,7 +72,7 @@ svg {
 
 ### `<linearGradient>`
 
-Für {{SVGElement('linearGradient')}} definiert `x2` die x-Koordinate des Endpunkts des _Gradientenvektors_, der zur Abbildung der Gradient-Stop-Werte verwendet wird. Das genaue Verhalten dieses Attributs wird durch die {{SVGAttr('gradientUnits')}}-Attribute beeinflusst.
+Für {{SVGElement('linearGradient')}} definiert `x2` die x-Koordinate des Endpunkts des _Gradientenvektors_, der zur Zuordnung der Gradient-Stop-Werte verwendet wird. Das genaue Verhalten dieses Attributs wird von den {{SVGAttr('gradientUnits')}}-Attributen beeinflusst.
 
 <table class="properties">
   <tbody>

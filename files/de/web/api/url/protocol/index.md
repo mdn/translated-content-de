@@ -8,8 +8,7 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`protocol`**-Eigenschaft der {{domxref("URL")}}-Schnittstelle
-ist ein String, der das Protokollschema der URL darstellt, einschließlich des abschließenden `':'`.
+Die **`protocol`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces ist ein String, der das Protokollschema der URL darstellt, einschließlich des abschließenden `':'`.
 
 ## Wert
 
@@ -19,9 +18,9 @@ Ein String.
 
 ```js
 const url = new URL(
-  "https://developer.mozilla.org/de/docs/Web/API/URL/protocol",
+  "https://developer.mozilla.org/en-US/docs/Web/API/URL/protocol",
 );
-console.log(url.protocol); // Gibt "https:" aus
+console.log(url.protocol); // Logs "https:"
 ```
 
 ## Spezifikationen
@@ -34,4 +33,4 @@ console.log(url.protocol); // Gibt "https:" aus
 
 ## Siehe auch
 
-- Die {{domxref("URL")}}-Schnittstelle, zu der sie gehört.
+- Das [`URL`](/de/docs/Web/API/URL)-Interface, zu dem es gehört.

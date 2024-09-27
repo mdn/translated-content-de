@@ -7,18 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Antwortheader **`Cross-Origin-Resource-Policy`**
-vermittelt den Wunsch, dass der Browser keine no-cors Cross-Origin/Cross-Site-Anfragen an die
-angegebene Ressource zulässt.
+Der HTTP **`Cross-Origin-Resource-Policy`** Antwort-Header vermittelt den Wunsch, dass der Browser `no-cors` Cross-Origin/Cross-Site-Anfragen an die gegebene Ressource blockiert.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>{{Glossary("Response header")}}</td>
+      <th scope="row">Header-Typ</th>
+      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -32,7 +30,7 @@ Cross-Origin-Resource-Policy: same-site | same-origin | cross-origin
 
 ## Beispiele
 
-Der folgende Antwortheader wird dazu führen, dass kompatible Benutzeragenten Cross-Origin no-cors-Anfragen ablehnen:
+Der folgende Antwort-Header führt dazu, dass kompatible Benutzeragenten Cross-Origin `no-cors` Anfragen nicht zulassen:
 
 ```http
 Cross-Origin-Resource-Policy: same-origin
@@ -50,6 +48,6 @@ Für weitere Beispiele siehe <https://resourcepolicy.fyi/>.
 
 ## Siehe auch
 
-- [Erläuterung der Cross-Origin Resource Policy (CORP)](/de/docs/Web/HTTP/Cross-Origin_Resource_Policy)
-- [Erwägen Sie die Bereitstellung der Cross-Origin Resource Policy](https://resourcepolicy.fyi/)
+- [Cross-Origin Resource Policy (CORP) Erklärung](/de/docs/Web/HTTP/Cross-Origin_Resource_Policy)
+- [Überlegen Sie, die Cross-Origin Resource Policy einzusetzen](https://resourcepolicy.fyi/)
 - {{httpheader("Access-Control-Allow-Origin")}}

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die _schreibgeschützte_ **`texture`**-Eigenschaft des {{DOMxRef("XRWebGLDepthInformation")}}-Interfaces ist eine {{domxref("WebGLTexture")}}, die Tiefenpufferinformationen als eine undurchsichtige Textur enthält.
+Die _schreibgeschützte_ **`texture`**-Eigenschaft der [`XRWebGLDepthInformation`](/de/docs/Web/API/XRWebGLDepthInformation)-Schnittstelle ist ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture), das Depth-Buffer-Informationen als undurchsichtige Textur enthält.
 
 ## Wert
 
-Eine {{domxref("WebGLTexture")}}.
+Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture).
 
 ## Beispiele
 
-Verwenden Sie {{domxref("XRWebGLBinding.getDepthInformation()")}}, um GPU-Tiefeninformationen zu erhalten. Das zurückgegebene `XRWebGLDepthInformation`-Objekt wird den `texture`-Puffer enthalten, der dann an eine Textur gebunden werden kann, sodass Tiefenpufferinformationen einem WebGL-Fragment-Shader zur Verfügung gestellt werden können.
+Verwenden Sie [`XRWebGLBinding.getDepthInformation()`](/de/docs/Web/API/XRWebGLBinding/getDepthInformation), um GPU-Tiefeninformationen zu erhalten. Das zurückgegebene `XRWebGLDepthInformation`-Objekt enthält den `texture`-Puffer, der dann an eine Textur gebunden werden kann, und Tiefeninformationen können einem WebGL-Fragmentshader zur Verfügung gestellt werden.
 
 ```js
 const depthInfo = glBinding.getDepthInformation(view);
@@ -30,10 +30,10 @@ gl.bindTexture(gl.TEXTURE_2D, depthInfo.texture);
 gl.activeTexture(gl.TEXTURE0);
 gl.uniform1i(u_DepthTextureLocation, 0);
 
-// UV-Transformation zur korrekten Indizierung in die Tiefenkarte
+// UV transform to correctly index into the depth map
 gl.uniformMatrix4fv(u_UVTransformLocation, false, uvTransform);
 
-// Skalierungsfaktor zur Umrechnung vom Rohwert in Meter
+// scaling factor to convert from the raw number to meters
 gl.uniform1f(u_RawValueToMeters, depthInfo.rawValueToMeters);
 ```
 
@@ -47,5 +47,5 @@ gl.uniform1f(u_RawValueToMeters, depthInfo.rawValueToMeters);
 
 ## Siehe auch
 
-- {{domxref("XRWebGLBinding.getDepthInformation()")}}
-- {{domxref("WebGLRenderingContext.bindTexture()")}}
+- [`XRWebGLBinding.getDepthInformation()`](/de/docs/Web/API/XRWebGLBinding/getDepthInformation)
+- [`WebGLRenderingContext.bindTexture()`](/de/docs/Web/API/WebGLRenderingContext/bindTexture)

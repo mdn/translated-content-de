@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Mit einer Tab-ID können die Details des Tabs als ein {{WebExtAPIRef("tabs.Tab")}}-Objekt abgerufen werden.
+Durch Angabe einer Tab-ID können die Details des Tabs als ein {{WebExtAPIRef("tabs.Tab")}}-Objekt abgerufen werden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -52,7 +52,7 @@ browser.tabs.onActivated.addListener(logListener);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-get)-API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-get) API. Diese Dokumentation stammt von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

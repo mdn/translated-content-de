@@ -1,6 +1,6 @@
 ---
-title: "DocumentPictureInPicture: Fenster-Eigenschaft"
-short-title: Fenster
+title: "DocumentPictureInPicture: window-Eigenschaft"
+short-title: window
 slug: Web/API/DocumentPictureInPicture/window
 l10n:
   sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`window`**-Eigenschaft, die nur lesbar ist, der {{domxref("DocumentPictureInPicture")}}-Schnittstelle gibt eine {{domxref("Window")}}-Instanz zurück, die den Browsing-Kontext innerhalb des Bild-in-Bild-Fensters darstellt.
+Die schreibgeschützte **`window`**-Eigenschaft der [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Schnittstelle gibt eine [`Window`](/de/docs/Web/API/Window)-Instanz zurück, die den Browsing-Kontext im Picture-in-Picture-Fenster repräsentiert.
 
 ## Wert
 
-Ein {{domxref("Window")}}-Objekt, wenn das Bild-in-Bild-Fenster bereits mit {{domxref("DocumentPictureInPicture.requestWindow()")}} geöffnet wurde, oder `null` andernfalls.
+Ein [`Window`](/de/docs/Web/API/Window)-Objekt, falls das Picture-in-Picture-Fenster bereits mit [`DocumentPictureInPicture.requestWindow()`](/de/docs/Web/API/DocumentPictureInPicture/requestWindow) geöffnet wurde, oder `null` andernfalls.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ await window.documentPictureInPicture.requestWindow({
 
 const pipWindow = window.documentPictureInPicture.window;
 if (pipWindow) {
-  // Deaktivieren Sie den Ton des Videos, das im Bild-in-Bild-Fenster abgespielt wird.
+  // Mute video playing in the Picture-in-Picture window.
   const pipVideo = pipWindow.document.querySelector("#video");
   pipVideo.muted = true;
 }
@@ -46,5 +46,5 @@ if (pipWindow) {
 
 ## Siehe auch
 
-- {{domxref("Document Picture-in-Picture API", "Dokument-Bild-in-Bild-API", "", "nocode")}}
-- [Verwendung der Dokument-Bild-in-Bild-API](/de/docs/Web/API/Document_Picture-in-Picture_API/Using)
+- [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API)
+- [Verwendung der Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API/Using)

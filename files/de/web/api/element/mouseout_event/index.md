@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`mouseout`** Ereignis wird bei einem {{domxref("Element")}} ausgelöst, wenn ein Zeigegerät (normalerweise eine Maus) verwendet wird, um den Cursor zu bewegen, sodass er nicht mehr innerhalb des Elements oder eines seiner Kinder enthalten ist.
+Das **`mouseout`** Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element) ausgelöst, wenn ein Zeigegerät (normalerweise eine Maus) verwendet wird, um den Cursor zu bewegen, sodass er sich nicht mehr innerhalb des Elements oder eines seiner Kind-Elemente befindet.
 
-`mouseout` wird auch an ein Element geliefert, wenn der Cursor ein Kindelement betritt, da das Kindelement den sichtbaren Bereich des Elements verdeckt.
+`mouseout` wird auch an ein Element ausgeliefert, wenn der Cursor ein Kind-Element betritt, da das Kind-Element den sichtbaren Bereich des Elements verdeckt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("mouseout", (event) => {});
@@ -22,72 +22,73 @@ addEventListener("mouseout", (event) => {});
 onmouseout = (event) => {};
 ```
 
-## Event-Typ
+## Ereignistyp
 
-Ein {{domxref("MouseEvent")}}. Erbt von {{domxref("UIEvent")}} und {{domxref("Event")}}.
+Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MouseEvent")}}
 
-## Event-Eigenschaften
+## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, {{domxref("UIEvent")}} und {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("MouseEvent.altKey")}} {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn die <kbd>alt</kbd>-Taste beim Auslösen des Mausereignisses gedrückt war.
-- {{domxref("MouseEvent.button")}} {{ReadOnlyInline}}
-  - : Die Nummer der gedrückten Taste (falls zutreffend), als das Mausereignis ausgelöst wurde.
-- {{domxref("MouseEvent.buttons")}} {{ReadOnlyInline}}
-  - : Die zum Zeitpunkt des auslösenden Mausereignisses gedrückten Tasten (falls vorhanden).
-- {{domxref("MouseEvent.clientX")}} {{ReadOnlyInline}}
+- [`MouseEvent.altKey`](/de/docs/Web/API/MouseEvent/altKey) {{ReadOnlyInline}}
+  - : Gibt `true` zurück, wenn die <kbd>alt</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
+- [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button) {{ReadOnlyInline}}
+  - : Die Tasten-Nummer, die gedrückt wurde (sofern zutreffend), als das Mausereignis ausgelöst wurde.
+- [`MouseEvent.buttons`](/de/docs/Web/API/MouseEvent/buttons) {{ReadOnlyInline}}
+  - : Die Tasten, die gedrückt wurden (falls vorhanden), als das Mausereignis ausgelöst wurde.
+- [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers in [Viewport-Koordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#viewport).
-- {{domxref("MouseEvent.clientY")}} {{ReadOnlyInline}}
+- [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY) {{ReadOnlyInline}}
   - : Die Y-Koordinate des Mauszeigers in [Viewport-Koordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#viewport).
-- {{domxref("MouseEvent.ctrlKey")}} {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn die <kbd>control</kbd>-Taste beim Auslösen des Mausereignisses gedrückt war.
-- {{domxref("MouseEvent.layerX")}} {{Non-standard_inline}} {{ReadOnlyInline}}
+- [`MouseEvent.ctrlKey`](/de/docs/Web/API/MouseEvent/ctrlKey) {{ReadOnlyInline}}
+  - : Gibt `true` zurück, wenn die <kbd>control</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
+- [`MouseEvent.layerX`](/de/docs/Web/API/MouseEvent/layerX) {{Non-standard_inline}} {{ReadOnlyInline}}
   - : Gibt die horizontale Koordinate des Ereignisses relativ zur aktuellen Ebene zurück.
-- {{domxref("MouseEvent.layerY")}} {{Non-standard_inline}} {{ReadOnlyInline}}
+- [`MouseEvent.layerY`](/de/docs/Web/API/MouseEvent/layerY) {{Non-standard_inline}} {{ReadOnlyInline}}
   - : Gibt die vertikale Koordinate des Ereignisses relativ zur aktuellen Ebene zurück.
-- {{domxref("MouseEvent.metaKey")}} {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn die <kbd>meta</kbd>-Taste beim Auslösen des Mausereignisses gedrückt war.
-- {{domxref("MouseEvent.movementX")}} {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten {{domxref("Element/mousemove_event", "mousemove")}}-Ereignisses.
-- {{domxref("MouseEvent.movementY")}} {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten {{domxref("Element/mousemove_event", "mousemove")}}-Ereignisses.
-- {{domxref("MouseEvent.offsetX")}} {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position des Randelements des Zielknotens.
-- {{domxref("MouseEvent.offsetY")}} {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position des Randelements des Zielknotens.
-- {{domxref("MouseEvent.pageX")}} {{ReadOnlyInline}}
+- [`MouseEvent.metaKey`](/de/docs/Web/API/MouseEvent/metaKey) {{ReadOnlyInline}}
+  - : Gibt `true` zurück, wenn die <kbd>meta</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
+- [`MouseEvent.movementX`](/de/docs/Web/API/MouseEvent/movementX) {{ReadOnlyInline}}
+  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisses.
+- [`MouseEvent.movementY`](/de/docs/Web/API/MouseEvent/movementY) {{ReadOnlyInline}}
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisses.
+- [`MouseEvent.offsetX`](/de/docs/Web/API/MouseEvent/offsetX) {{ReadOnlyInline}}
+  - : Die X-Koordinate des Mauszeigers relativ zur Position der Innenkante des Zielknotens.
+- [`MouseEvent.offsetY`](/de/docs/Web/API/MouseEvent/offsetY) {{ReadOnlyInline}}
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position der Innenkante des Zielknotens.
+- [`MouseEvent.pageX`](/de/docs/Web/API/MouseEvent/pageX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers relativ zum gesamten Dokument.
-- {{domxref("MouseEvent.pageY")}} {{ReadOnlyInline}}
+- [`MouseEvent.pageY`](/de/docs/Web/API/MouseEvent/pageY) {{ReadOnlyInline}}
   - : Die Y-Koordinate des Mauszeigers relativ zum gesamten Dokument.
-- {{domxref("MouseEvent.relatedTarget")}} {{ReadOnlyInline}}
-  - : Das sekundäre Ziel für das Ereignis, falls vorhanden.
-- {{domxref("MouseEvent.screenX")}} {{ReadOnlyInline}}
+- [`MouseEvent.relatedTarget`](/de/docs/Web/API/MouseEvent/relatedTarget) {{ReadOnlyInline}}
+  - : Das Sekundärziel für das Ereignis, falls vorhanden.
+- [`MouseEvent.screenX`](/de/docs/Web/API/MouseEvent/screenX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
-- {{domxref("MouseEvent.screenY")}} {{ReadOnlyInline}}
+- [`MouseEvent.screenY`](/de/docs/Web/API/MouseEvent/screenY) {{ReadOnlyInline}}
   - : Die Y-Koordinate des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
-- {{domxref("MouseEvent.shiftKey")}} {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn die <kbd>shift</kbd>-Taste beim Auslösen des Mausereignisses gedrückt war.
-- {{domxref("MouseEvent.mozInputSource")}} {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Der Gerätetyp, der das Ereignis erzeugt hat (einer der `MOZ_SOURCE_*` Konstanten). Dies ermöglicht es Ihnen beispielsweise festzustellen, ob ein Mausereignis tatsächlich von einer Maus oder durch ein Touch-Ereignis erzeugt wurde (was die Genauigkeit der Interpretation der mit dem Ereignis verbundenen Koordinaten beeinflussen kann).
-- {{domxref("MouseEvent.webkitForce")}} {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Der angewandte Druck beim Klicken.
-- {{domxref("MouseEvent.x")}} {{ReadOnlyInline}}
-  - : Alias für {{domxref("MouseEvent.clientX")}}.
-- {{domxref("MouseEvent.y")}} {{ReadOnlyInline}}
-  - : Alias für {{domxref("MouseEvent.clientY")}}.
+- [`MouseEvent.shiftKey`](/de/docs/Web/API/MouseEvent/shiftKey) {{ReadOnlyInline}}
+  - : Gibt `true` zurück, wenn die <kbd>shift</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
+- [`MouseEvent.mozInputSource`](/de/docs/Web/API/MouseEvent/mozInputSource) {{non-standard_inline()}} {{ReadOnlyInline}}
+  - : Der Typ des Geräts, das das Ereignis erzeugt hat (einer der `MOZ_SOURCE_*` Konstanten).
+    Damit können Sie beispielsweise feststellen, ob ein Mausereignis durch eine tatsächliche Maus oder durch ein Berührungsereignis erzeugt wurde (was die Genauigkeit beeinflussen könnte, mit der Sie die Koordinaten interpretieren, die mit dem Ereignis verbunden sind).
+- [`MouseEvent.webkitForce`](/de/docs/Web/API/MouseEvent/webkitForce) {{non-standard_inline()}} {{ReadOnlyInline}}
+  - : Der Druck, der beim Klicken ausgeübt wurde.
+- [`MouseEvent.x`](/de/docs/Web/API/MouseEvent/x) {{ReadOnlyInline}}
+  - : Alias für [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX).
+- [`MouseEvent.y`](/de/docs/Web/API/MouseEvent/y) {{ReadOnlyInline}}
+  - : Alias für [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY).
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen die Verwendung des `mouseout`-Ereignisses.
+Die folgenden Beispiele zeigen die Verwendung des `mouseout` Ereignisses.
 
 ### mouseout und mouseleave
 
-Das folgende Beispiel verdeutlicht den Unterschied zwischen den `mouseout`- und {{domxref("Element/mouseleave_event", "mouseleave")}}-Ereignissen. Das `mouseleave`-Ereignis wird dem {{HTMLElement("ul")}} hinzugefügt, um die Liste lila zu färben, wenn die Maus die `<ul>` verlässt. `mouseout` wird der Liste hinzugefügt, um das Ziel-Element orange zu färben, wenn die Maus es verlässt.
+Das folgende Beispiel veranschaulicht den Unterschied zwischen den Ereignissen `mouseout` und [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event). Das `mouseleave`-Ereignis wird dem {{HTMLElement("ul")}} hinzugefügt, um die Liste lila zu färben, wenn die Maus das `<ul>` verlässt. `mouseout` wird der Liste hinzugefügt, um das Ziel-Element orange zu färben, wenn die Maus es verlässt.
 
-Wenn Sie dies ausprobieren, werden Sie feststellen, dass `mouseout` an die einzelnen Listenelemente geliefert wird, während `mouseleave` an die gesamte Liste geht, was der Hierarchie der Elemente und der Tatsache geschuldet ist, dass Listenelemente die darunterliegende `<ul>` verdecken.
+Wenn Sie dies ausprobieren, werden Sie feststellen, dass `mouseout` bei den einzelnen Listenelementen ausgelöst wird, während `mouseleave` der gesamten Liste zugeordnet ist. Dies ist auf die Hierarchie der Elemente und die Tatsache zurückzuführen, dass Listenelemente das darunterliegende `<ul>` verdecken.
 
 #### HTML
 
@@ -104,15 +105,15 @@ Wenn Sie dies ausprobieren, werden Sie feststellen, dass `mouseout` an die einze
 ```js
 const test = document.getElementById("test");
 
-// Kurzzeitig die Liste lila färben, wenn die Maus das 
-// <ul>-Element verlässt
+// Briefly make the list purple when the mouse moves off the
+// <ul> element
 test.addEventListener(
   "mouseleave",
   (event) => {
-    // Das mouseleave-Ziel hervorheben
+    // highlight the mouseleave target
     event.target.style.color = "purple";
 
-    // Die Farbe nach einer kurzen Verzögerung zurücksetzen
+    // reset the color after a short delay
     setTimeout(() => {
       event.target.style.color = "";
     }, 1000);
@@ -120,14 +121,14 @@ test.addEventListener(
   false,
 );
 
-// Kurzzeitig ein <li> orange färben, wenn die Maus es verlässt
+// Briefly make an <li> orange when the mouse moves off of it
 test.addEventListener(
   "mouseout",
   (event) => {
-    // Das mouseout-Ziel hervorheben
+    // highlight the mouseout target
     event.target.style.color = "orange";
 
-    // Die Farbe nach einer kurzen Verzögerung zurücksetzen
+    // reset the color after a short delay
     setTimeout(() => {
       event.target.style.color = "";
     }, 500);
@@ -144,19 +145,19 @@ test.addEventListener(
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Einführung in Ereignisse](/de/docs/Learn/JavaScript/Building_blocks/Events)
-- {{domxref("Element/mousedown_event", "mousedown")}}
-- {{domxref("Element/mouseup_event", "mouseup")}}
-- {{domxref("Element/mousemove_event", "mousemove")}}
-- {{domxref("Element/click_event", "click")}}
-- {{domxref("Element/dblclick_event", "dblclick")}}
-- {{domxref("Element/mouseover_event", "mouseover")}}
-- {{domxref("Element/mouseenter_event", "mouseenter")}}
-- {{domxref("Element/mouseleave_event", "mouseleave")}}
-- {{domxref("Element/contextmenu_event", "contextmenu")}}
+- [Einführung zu Ereignissen](/de/docs/Learn/JavaScript/Building_blocks/Events)
+- [`mousedown`](/de/docs/Web/API/Element/mousedown_event)
+- [`mouseup`](/de/docs/Web/API/Element/mouseup_event)
+- [`mousemove`](/de/docs/Web/API/Element/mousemove_event)
+- [`click`](/de/docs/Web/API/Element/click_event)
+- [`dblclick`](/de/docs/Web/API/Element/dblclick_event)
+- [`mouseover`](/de/docs/Web/API/Element/mouseover_event)
+- [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)
+- [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event)
+- [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event)

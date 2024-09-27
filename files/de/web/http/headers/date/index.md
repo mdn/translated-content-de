@@ -1,5 +1,5 @@
 ---
-title: Datum
+title: Date
 slug: Web/HTTP/Headers/Date
 l10n:
   sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
@@ -9,7 +9,8 @@ l10n:
 
 Der allgemeine HTTP-Header **`Date`** enthält das Datum und die Uhrzeit, zu der die Nachricht erstellt wurde.
 
-> **Warning:** `Date` ist in den [verbotenen Header-Namen](https://fetch.spec.whatwg.org/#forbidden-header-name) der Fetch-Spezifikation aufgeführt, daher wird dieser Code den `Date`-Header nicht senden:
+> **Warning:** `Date` ist in der [Liste der verbotenen Header-Namen](https://fetch.spec.whatwg.org/#forbidden-header-name)
+> in der Fetch-Spezifikation aufgeführt, weshalb dieser Code den `Date`-Header nicht senden wird:
 >
 > ```js
 > fetch("https://httpbin.org/get", {
@@ -24,12 +25,12 @@ Der allgemeine HTTP-Header **`Date`** enthält das Datum und die Uhrzeit, zu der
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request header")}},
-        {{Glossary("Response header")}}
+        [Request header](/de/docs/Glossary/Request_header),
+        [Response header](/de/docs/Glossary/Response_header)
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -44,20 +45,20 @@ Date: <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
 ## Direktiven
 
 - \<day-name>
-  - : Einer von "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" oder "Sun" (Groß-/Kleinschreibung beachten).
+  - : Einer von "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" oder "Sun" (beachten Sie die Großschreibung).
 - \<day>
-  - : Zweistellige Tageszahl, z.B. "04" oder "23".
+  - : 2-stellige Tagesnummer, z.B. "04" oder "23".
 - \<month>
   - : Einer von "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct",
-    "Nov", "Dec" (Groß-/Kleinschreibung beachten).
+    "Nov", "Dec" (Groß- und Kleinschreibung beachten).
 - \<year>
-  - : Vierstellige Jahreszahl, z.B. "1990" oder "2016".
+  - : 4-stellige Jahreszahl, z.B. "1990" oder "2016".
 - \<hour>
-  - : Zweistellige Stundenzahl, z.B. "09" oder "23".
+  - : 2-stellige Stundenzahl, z.B. "09" oder "23".
 - \<minute>
-  - : Zweistellige Minutenzahl, z.B. "04" oder "59".
+  - : 2-stellige Minutenzahl, z.B. "04" oder "59".
 - \<second>
-  - : Zweistellige Sekundenzahl, z.B. "04" oder "59".
+  - : 2-stellige Sekundenzahl, z.B. "04" oder "59".
 - GMT
   - : Greenwich Mean Time. HTTP-Daten werden immer in GMT angegeben, niemals in Ortszeit.
 

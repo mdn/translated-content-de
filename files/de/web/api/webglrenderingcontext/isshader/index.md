@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.isShader()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn der übergebene {{domxref("WebGLShader")}} gültig ist, andernfalls `false`.
+Die **`WebGLRenderingContext.isShader()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene [`WebGLShader`](/de/docs/Web/API/WebGLShader) gültig ist, andernfalls `false`.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ isShader(shader)
 ### Parameter
 
 - `shader`
-  - : Ein {{domxref("WebGLShader")}}, der überprüft werden soll.
+  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader), der überprüft werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob der Shader gültig ist oder nicht.
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der anzeigt, ob der Shader gültig ist oder nicht.
 
 ## Beispiele
 
@@ -43,11 +43,11 @@ gl.isShader(shader);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.createShader()")}}
-- {{domxref("WebGLRenderingContext.deleteShader()")}}
+- [`WebGLRenderingContext.createShader()`](/de/docs/Web/API/WebGLRenderingContext/createShader)
+- [`WebGLRenderingContext.deleteShader()`](/de/docs/Web/API/WebGLRenderingContext/deleteShader)

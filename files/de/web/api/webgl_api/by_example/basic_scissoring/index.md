@@ -7,27 +7,27 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Color_masking","Learn/WebGL/By_example/Canvas_size_and_WebGL")}}
 
-In diesem Beispiel sehen wir, wie man einfache Rechtecke und Quadrate mit WebGL-Ausschneideoperationen zeichnet. Ausschneiden definiert einen Bereich, außerhalb dessen nicht gezeichnet wird.
+In diesem Beispiel sehen wir, wie einfache Rechtecke und Quadrate mit WebGL-Ausschneideoperationen gezeichnet werden. Ausschneiden legt einen Bereich fest, außerhalb dessen keine Zeichnungen erfolgen.
 
-## Löschen des Zeichenpuffers, wenn Ausschneiden angewendet wird
+## Löschen des Zeichenpuffers bei aktiviertem Ausschneiden
 
 {{EmbedLiveSample("Clearing_the_drawing_buffer_when_scissoring_applies",660,425)}}
 
-Dies ist eine einfache Demonstration des Renderns mit {{domxref("WebGLRenderingContext.scissor","scissor()")}}.
+Dies ist eine einfache Demonstration einer Darstellung mit [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor).
 
-Obwohl der {{domxref("WebGLRenderingContext.clear","clear()")}}-Zeichenbefehl die Löschfarbe (festgelegt durch {{domxref("WebGLRenderingContext.clearColor","clearColor()")}}) auf alle Pixel im Zeichenpuffer schreibt, definiert {{domxref("WebGLRenderingContext.scissor","scissor()")}} eine Maske, die nur erlaubt, dass Pixel innerhalb des angegebenen rechteckigen Bereichs aktualisiert werden.
+Obwohl der Zeichenbefehl [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) die Löschfarbe (festgelegt durch [`clearColor()`](/de/docs/Web/API/WebGLRenderingContext/clearColor)) auf alle Pixel im Zeichenpuffer schreibt, definiert [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor) eine Maske, die nur Pixel innerhalb des angegebenen rechteckigen Bereichs erlaubt, aktualisiert zu werden.
 
-Dies ist eine gute Gelegenheit, um über den Unterschied zwischen Pixeln und _Fragmenten_ zu sprechen. Ein Pixel ist ein Bildelement (in der Praxis ein Punkt) auf dem Bildschirm oder ein Einzelelement des Zeichenpuffers, jenes Bereichs im Speicher, der Ihre Pixeldaten (wie {{Glossary("RGB")}}-Farbkomponenten) enthält. Ein _Fragment_ bezieht sich auf das Pixel, während es von der {{Glossary("WebGL")}}-Pipeline verarbeitet wird.
+Dies ist eine gute Gelegenheit, um über den Unterschied zwischen Pixeln und _Fragmenten_ zu sprechen. Ein Pixel ist ein Bildelement (in der Praxis ein Punkt) auf dem Bildschirm oder ein einzelnes Element des Zeichenpuffers, jenes Bereichs im Speicher, der Ihre Pixeldaten (wie [RGB](/de/docs/Glossary/RGB)-Farbkomponenten) enthält. Ein _Fragment_ bezieht sich auf das Pixel, während es von der [WebGL](/de/docs/Glossary/WebGL)-Pipeline verarbeitet wird.
 
-Der Grund für diese Unterscheidung ist, dass die Fragmentfarbe (und andere Fragmentwerte, wie Tiefe) während Grafikoperationen mehrmals manipuliert und geändert werden kann, bevor sie schließlich auf den Bildschirm geschrieben wird. Wir haben bereits gesehen, wie sich die Fragmentfarbe während Grafikoperationen durch das Anwenden von {{domxref("WebGLRenderingContext.colorMask()","color masking", "", 1)}} ändert. In anderen Fällen können die Fragmente vollständig verworfen werden (sodass der Pixelwert nicht aktualisiert wird), oder sie können mit dem bereits vorhandenen Pixelwert interagieren (wie beim Farb-Mischen für nicht-opake Elemente in der Szene).
+Der Grund für diese Unterscheidung ist, dass die Fragmentfarbe (und andere Fragmentwerte, wie Tiefe) während der Grafikoperationen mehrfach manipuliert und geändert werden kann, bevor sie schließlich auf dem Bildschirm geschrieben wird. Wir haben bereits gesehen, wie sich die Fragmentfarbe während Grafikoperationen ändert, indem wir {{domxref("WebGLRenderingContext.colorMask()","Farbmaskierung", "", 1)}} anwenden. In anderen Fällen können die Fragmente vollständig verworfen werden (sodass der Pixelwert nicht aktualisiert wird), oder es kann mit dem bereits existierenden Pixelwert interagieren (wie beim Farbüberblenden für nicht-opaake Elemente in der Szene).
 
-Hier sehen wir ein weiteres Beispiel für die Unterscheidung zwischen Fragmenten und Pixeln. Ausschneiden ist eine eigenständige Phase in der {{Glossary("WebGL")}}/{{Glossary("OpenGL")}}-Grafikpipeline (es tritt nach dem Farblöschen, aber vor dem Farbmaskieren auf). Bevor die tatsächlichen Pixel aktualisiert werden, müssen Fragmente den Ausschneidetest durchlaufen. Bestehen die Fragmente den Ausschneidetest, setzen sie den Weg durch die Grafikpipeline fort, und die entsprechenden Pixel werden auf dem Bildschirm aktualisiert. Scheitern sie am Test, werden sie sofort verworfen, es erfolgt keine weitere Verarbeitung, und Pixel werden nicht aktualisiert. Da nur Fragmente innerhalb des angegebenen rechteckigen Bereichs den Ausschneidetest erfolgreich bestehen, werden nur Pixel innerhalb dieses Bereichs aktualisiert, und wir erhalten ein Rechteck auf dem Bildschirm.
+Hier sehen wir ein weiteres Beispiel für die Unterscheidung zwischen Fragmenten und Pixeln. Ausschneiden ist eine getrennte Phase in der [WebGL](/de/docs/Glossary/WebGL)/[OpenGL](/de/docs/Glossary/OpenGL)-Grafikpipeline (es erfolgt nach dem Löschen der Farben, aber vor der Farbmaskierung). Bevor die eigentlichen Pixel aktualisiert werden, müssen die Fragmente den Ausschneidetest bestehen. Wenn die Fragmente den Ausschneidetest bestehen, werden sie in der Grafikpipeline weiterverarbeitet und die entsprechenden Pixel auf dem Bildschirm aktualisiert. Wenn sie den Test nicht bestehen, werden sie sofort verworfen, es erfolgt keine weitere Verarbeitung und die Pixel werden nicht aktualisiert. Da nur Fragmente innerhalb des festgelegten rechteckigen Bereichs den Ausschneidetest erfolgreich bestehen, werden nur Pixel innerhalb dieses Bereichs aktualisiert, und wir erhalten ein Rechteck auf dem Bildschirm.
 
-Die Ausschneidephase der Pipeline ist standardmäßig deaktiviert. Wir aktivieren sie hier mit der {{domxref("WebGLRenderingContext.enable","enable()")}}-Methode (Sie werden `enable()` auch verwenden, um viele andere Funktionen von WebGL zu aktivieren; daher die Verwendung der `SCISSOR_TEST`-Konstanten als Argument in diesem Fall). Dies demonstriert erneut die typische Reihenfolge von Befehlen in {{Glossary("WebGL")}}. Wir passen zunächst den WebGL-Status an. In diesem Fall durch das Aktivieren des Ausschneidetests und das Festlegen einer rechteckigen Maske. Erst wenn der WebGL-Status zufriedenstellend angepasst wurde, führen wir den Zeichenbefehl aus (in diesem Fall `clear()`), der die Verarbeitung der Fragmente in der Grafikpipeline startet.
+Die Ausschneidephase der Pipeline ist standardmäßig deaktiviert. Wir aktivieren sie hier mit der Methode [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) (Sie werden `enable()` auch verwenden, um viele andere Funktionen von WebGL zu aktivieren; daher die Nutzung der Konstante `SCISSOR_TEST` als Argument in diesem Fall). Dies zeigt erneut die typische Reihenfolge von Befehlen in [WebGL](/de/docs/Glossary/WebGL). Zuerst passen wir den WebGL-Status an. In diesem Fall wird der Ausschneidetest aktiviert und eine rechteckige Maske festgelegt. Erst wenn der WebGL-Status zufriedenstellend angepasst wurde, führen wir den Zeichenbefehl aus (in diesem Fall `clear()`), der die Verarbeitung der Fragmente durch die Grafikpipeline startet.
 
 ```html
-<p>Ergebnis des Ausschneidens.</p>
-<canvas>Ihr Browser scheint HTML-Canvas nicht zu unterstützen.</canvas>
+<p>Result of scissoring.</p>
+<canvas>Your browser does not seem to support HTML canvas.</canvas>
 ```
 
 ```css

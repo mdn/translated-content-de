@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode bindSampler()"
+title: "WebGL2RenderingContext: bindSampler()-Methode"
 short-title: bindSampler()
 slug: Web/API/WebGL2RenderingContext/bindSampler
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.bindSampler()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet ein übergebenes {{domxref("WebGLSampler")}}-Objekt an die Textureinheit bei dem übergebenen Index.
+Die **`WebGL2RenderingContext.bindSampler()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet ein übergebenes [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt an die Textur-Einheit am übergebenen Index.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ bindSampler(unit, sampler)
 ### Parameter
 
 - `unit`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der den Index der Textureinheit angibt, an die der Sampler gebunden werden soll.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index der Textur-Einheit angibt, an die der Sampler gebunden werden soll.
 - `sampler`
-  - : Ein {{domxref("WebGLSampler")}}-Objekt, das gebunden werden soll.
+  - : Ein [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt, das gebunden werden soll.
 
 ### Rückgabewert
 
@@ -44,4 +44,4 @@ gl.bindSampler(0, sampler);
 
 ## Siehe auch
 
-- {{domxref("WebGLSampler")}}
+- [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)

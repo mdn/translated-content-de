@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`length`**-Eigenschaft der {{domxref("DOMTokenList")}}-Schnittstelle ist ein `integer`, der die Anzahl der Objekte darstellt, die im Objekt gespeichert sind.
+Die schreibgeschützte **`length`** Eigenschaft der Schnittstelle [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) ist ein `integer`, der die Anzahl der im Objekt gespeicherten Objekte darstellt.
 
 ## Wert
 
-Eine positive Ganzzahl oder `0`, wenn die Liste leer ist.
+Ein positiver Integer oder `0`, wenn die Liste leer ist.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("span")}}-Element als `DOMTokenList` gesetzt sind, mithilfe von {{domxref("Element.classList")}}. Dann schreiben wir die Länge der Liste in die {{domxref("Node.textContent")}} des `<span>`.
+Im folgenden Beispiel rufen wir die Liste der Klassen ab, die an einem {{htmlelement("span")}}-Element mittels [`Element.classList`](/de/docs/Web/API/Element/classList) als `DOMTokenList` gesetzt sind, und schreiben dann die Länge der Liste in den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`.
 
 Zuerst das HTML:
 

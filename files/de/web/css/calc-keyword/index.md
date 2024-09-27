@@ -1,5 +1,5 @@
 ---
-title: <calc-Schlüsselwort>
+title: <calc-keyword>
 slug: Web/CSS/calc-keyword
 l10n:
   sourceCommit: 4e508e2f543c0d77c9c04f406ebc8e9db7e965be
@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<calc-keyword>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert wohl definierte Konstanten wie `e` und `pi`. Anstatt dass Autoren mehrere Ziffern dieser mathematischen Konstanten manuell eingeben oder sie berechnen müssen, werden einige von ihnen direkt durch CSS zur Verfügung gestellt, um die Arbeit zu erleichtern.
+Der **`<calc-keyword>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert klar definierte Konstanten wie `e` und `pi`. Anstatt von Autoren zu verlangen, mehrere Stellen dieser mathematischen Konstanten manuell einzugeben oder sie zu berechnen, werden einige direkt von CSS zur Verfügung gestellt, um den Komfort zu erhöhen.
 
 ## Syntax
 
-Der `<calc-keyword>` Typ definiert numerische Konstanten, die in [CSS-Mathematische Funktionen](/de/docs/Web/CSS/CSS_Functions#math_functions) verwendet werden können.
+Der `<calc-keyword>`-Typ definiert numerische Konstanten, die in [CSS-Mathematikfunktionen](/de/docs/Web/CSS/CSS_Functions#math_functions) verwendet werden können.
 
 ### Werte
 
@@ -23,35 +23,35 @@ Der `<calc-keyword>` Typ definiert numerische Konstanten, die in [CSS-Mathematis
 
   - : Das Verhältnis des Umfangs eines Kreises zu seinem Durchmesser, ungefähr gleich `3.1415926535897932`.
 
-- `unendlich` & `-unendlich`
+- `infinity` & `-infinity`
 
-  - : Ein unendlicher Wert, der verwendet wird, um den größtmöglichen/kleinsten möglichen Wert anzuzeigen.
+  - : Ein unendlicher Wert, der verwendet wird, um den größtmöglichen/kleinstmöglichen Wert anzuzeigen.
 
 - `NaN`
 
-  - : Ein Wert, der "Nicht eine Zahl" in kanonischer Schreibweise darstellt.
+  - : Ein Wert, der "Not a Number" in kanonischer Schreibweise darstellt.
 
 ### Hinweise
 
-Die Serialisierung der Argumente innerhalb von [`calc()`](/de/docs/Web/CSS/calc) folgt dem IEEE-754-Standard für Gleitkomma-Mathematik, was bedeutet, dass es einige Fälle im Zusammenhang mit Konstanten wie `unendlich` und `NaN` zu beachten gibt:
+Die Serialisierung der Argumente innerhalb von [`calc()`](/de/docs/Web/CSS/calc) folgt dem IEEE-754-Standard für Fließkomma-Mathematik, was bedeutet, dass es einige Fälle gibt, die im Hinblick auf Konstanten wie `infinity` und `NaN` zu beachten sind:
 
-- Eine Division durch null wird je nach Vorzeichen des Zählers positive oder negative `unendlich` zurückgeben.
-- Das Addieren, Subtrahieren oder Multiplizieren von `unendlich` mit allem führt zu `unendlich`, es sei denn, es ergibt `NaN` (siehe unten).
+- Eine Division durch null gibt positive oder negative `infinity` zurück, abhängig vom Vorzeichen des Zählers.
+- Das Hinzufügen, Subtrahieren oder Multiplizieren von `infinity` mit irgendetwas wird `infinity` zurückgeben, es sei denn, es wird `NaN` produziert (siehe unten).
 - Jede Operation mit mindestens einem `NaN`-Argument wird `NaN` zurückgeben.
-  Das bedeutet, `0 / 0`, `unendlich / unendlich`, `0 * unendlich`, `unendlich + (-unendlich)` und `unendlich - unendlich` werden alle `NaN` zurückgeben.
+  Das bedeutet `0 / 0`, `infinity / infinity`, `0 * infinity`, `infinity + (-infinity)`, und `infinity - infinity` werden alle `NaN` zurückgeben.
 
 - Positive und negative Null sind mögliche Werte (`0⁺` und `0⁻`).
-  Dies hat folgende Auswirkungen:
-  - Multiplikationen oder Divisionen, die null mit genau einem negativen Argument erzeugen (`-5 * 0` oder `1 / (-unendlich)`) oder negative Ergebnisse aus Kombinationen in den anderen mathematischen Funktionen erzeugen, ergeben `0⁻`.
-  - `0⁻ + 0⁻` oder `0⁻ - 0` führen zu `0⁻`.
-    Alle anderen Additionen oder Subtraktionen, die zu null führen würden, ergeben `0⁺`.
-  - Die Multiplikation oder Division von `0⁻` mit einer positiven Zahl (einschließlich `0⁺`) ergibt ein negatives Ergebnis (entweder `0⁻` oder `-unendlich`), während die Multiplikation oder Division von `0⁻` mit einer negativen Zahl ein positives Ergebnis ergibt.
+  Dies hat die folgenden Auswirkungen:
+  - Multiplikation oder Division, die null mit genau einem negativen Argument (`-5 * 0` oder `1 / (-infinity)`) oder ein negatives Ergebnis aus Kombinationen in den anderen Mathematikfunktionen erzeugt, wird `0⁻` zurückgeben.
+  - `0⁻ + 0⁻` oder `0⁻ - 0` wird `0⁻` zurückgeben.
+    Alle anderen Additionen oder Subtraktionen, die zu Null führen würden, geben `0⁺` zurück.
+  - Das Multiplizieren oder Dividieren von `0⁻` mit einer positiven Zahl (einschließlich `0⁺`) wird ein negatives Ergebnis zurückgeben (entweder `0⁻` oder `-infinity`), während das Multiplizieren oder Dividieren von `0⁻` mit einer negativen Zahl ein positives Ergebnis zurückgeben wird.
 
-Beispiele dafür, wie diese Regeln angewendet werden, sind im Abschnitt [Unendlichkeit, NaN und Division durch null](#infinity_nan_and_division_by_zero) dargestellt.
+Beispiele, wie diese Regeln angewendet werden, sind im Abschnitt [Infinity, NaN und Division durch Null](#infinity_nan_and_division_by_zero) gezeigt.
 
 > [!NOTE]
-> Es ist selten notwendig, `unendlich` als Argument in `calc()` zu verwenden, aber es kann genutzt werden, um fest codierte "magische Zahlen" zu vermeiden oder sicherzustellen, dass ein bestimmter Wert immer größer als ein anderer ist.
-> Es kann nützlich sein, wenn Sie klarstellen müssen, dass eine Eigenschaft den "größtmöglichen Wert" für diesen Datentyp hat.
+> Es ist selten notwendig, `infinity` als Argument in `calc()` zu verwenden, aber es kann verwendet werden, um fest codierte "magische Zahlen" zu vermeiden oder sicherzustellen, dass ein bestimmter Wert immer größer als ein anderer Wert ist.
+> Es kann nützlich sein, wenn Sie deutlich machen müssen, dass eine Eigenschaft "den größtmöglichen Wert" für diesen Datentyp hat.
 
 ### Formale Syntax
 
@@ -59,22 +59,22 @@ Beispiele dafür, wie diese Regeln angewendet werden, sind im Abschnitt [Unendli
 
 ## Beschreibung
 
-Mathematische Konstanten können nur innerhalb von [CSS-Mathematische Funktionen](/de/docs/Web/CSS/CSS_Functions#math_functions) für Berechnungen verwendet werden. Mathematische Konstanten sind keine CSS-Schlüsselwörter, aber wenn sie außerhalb einer Berechnung verwendet werden, werden sie wie jedes andere Schlüsselwort behandelt.
+Mathematische Konstanten können nur innerhalb von [CSS-Mathematikfunktionen](/de/docs/Web/CSS/CSS_Functions#math_functions) für Berechnungen verwendet werden. Mathematikkonstanten sind keine CSS-Schlüsselwörter, aber wenn sie außerhalb einer Berechnung verwendet werden, werden sie wie jedes andere Schlüsselwort behandelt.
 Zum Beispiel:
 
 - `animation-name: pi;` bezieht sich auf eine Animation namens "pi", nicht auf die numerische Konstante `pi`.
 - `line-height: e;` ist ungültig, aber `line-height: calc(e);` ist gültig.
-- `rotate(1rad * pi);` funktioniert nicht, weil {{CSSxRef("transform-function/rotate", "rotate()")}} keine mathematische Funktion ist. Verwenden Sie `rotate(calc(1rad * pi));`
+- `rotate(1rad * pi);` funktioniert nicht, weil {{CSSxRef("transform-function/rotate", "rotate()")}} keine Mathematikfunktion ist. Verwenden Sie `rotate(calc(1rad * pi));`
 
-In mathematischen Funktionen werden `<calc-keyword>`-Werte als {{CSSxRef("number")}}-Werte ausgewertet, daher handeln `e` und `pi` als numerische Konstanten.
+In Mathematikfunktionen werden `<calc-keyword>`-Werte als {{CSSxRef("number")}}-Werte ausgewertet, daher funktionieren `e` und `pi` als numerische Konstanten.
 
-Sowohl `unendlich` als auch `NaN` sind leicht unterschiedlich, sie werden als degenerierte numerische Konstanten angesehen.
-Obwohl sie technisch keine Zahlen sind, verhalten sie sich wie {{CSSxRef("number")}}-Werte, daher erfordert zum Beispiel das Erreichen einer unendlichen {{CSSxRef("length")}} einen Ausdruck wie `calc(infinity * 1px)`.
+Sowohl `infinity` als auch `NaN` sind etwas anders, sie werden als defekte numerische Konstanten betrachtet.
+Obwohl sie technisch keine Zahlen sind, verhalten sie sich wie {{CSSxRef("number")}}-Werte, sodass zum Beispiel eine unendliche {{CSSxRef("length")}} ein Ausdruck wie `calc(infinity * 1px)` erfordert.
 
-Die `unendlich` und `NaN` Werte sind hauptsächlich enthalten, um die Serialisierung einfacher und offensichtlicher zu machen, können aber verwendet werden, um einen "größtmöglichen Wert" anzuzeigen, da ein unendlicher Wert auf den zulässigen Bereich begrenzt wird.
-Es ist selten, dass dies vernünftig ist, aber wenn man Unendlichkeit verwendet, ist es viel einfacher als eine enorme Zahl in einem Stylesheet zu schreiben oder magische Zahlen fest zu kodieren.
+Die `infinity`- und `NaN`-Werte sind hauptsächlich enthalten, um die Serialisierung einfacher und offensichtlicher zu machen, können aber verwendet werden, um einen "größtmöglichen Wert" anzuzeigen, da ein unendlicher Wert auf den erlaubten Bereich beschränkt ist.
+Es ist selten, dass dies vernünftig ist, aber wenn Sie `infinity` verwenden, ist es viel einfacher, als einfach eine enorme Zahl in einem Stylesheet zu setzen oder magische Zahlen fest zu kodieren.
 
-Alle Konstanten sind nicht case-sensitiv außer `NaN`, was `calc(Pi)`, `calc(E)` und `calc(InFiNiTy)` gültig macht:
+Alle Konstanten sind nicht case-sensitive, außer `NaN`, was `calc(Pi)`, `calc(E)` und `calc(InFiNiTy)` gültig macht:
 
 ```plain example-good
 e
@@ -83,8 +83,8 @@ E
 pi
 -pi
 Pi
-unendlich
--unendlich
+infinity
+-infinity
 InFiNiTy
 NaN
 ```
@@ -102,7 +102,7 @@ NAN
 ### Verwendung von e und pi in `calc()`
 
 Das folgende Beispiel zeigt, wie `e` innerhalb von `calc()` verwendet wird, um ein Element mit einem exponentiell zunehmenden Winkel zu drehen.
-Die zweite Box zeigt, wie `pi` innerhalb einer [`sin()`](/de/docs/Web/CSS/sin) Funktion verwendet wird.
+Die zweite Box zeigt, wie `pi` innerhalb einer [`sin()`](/de/docs/Web/CSS/sin)-Funktion verwendet wird.
 
 ```css hidden
 #wrapper {
@@ -175,9 +175,9 @@ piInput.addEventListener("input", function () {
 
 {{EmbedLiveSample('Using_e_and_pi_in_calc', 'auto', '200')}}
 
-### Unendlichkeit, NaN und Division durch Null
+### Infinity, NaN und Division durch Null
 
-Das folgende Beispiel zeigt den berechneten Wert der `width`-Eigenschaft bei einer Division durch Null, gefolgt davon, wie die Serialisierung mit verschiedenen `calc()`-Konstanten aussieht, wenn sie in der Konsole betrachtet wird:
+Das folgende Beispiel zeigt den berechneten Wert der `width`-Eigenschaft bei Division durch Null, gefolgt davon, wie die Serialisierung mit verschiedenen `calc()`-Konstanten aussieht, wenn sie in der Konsole angezeigt werden:
 
 ```html
 <div></div>
@@ -193,18 +193,18 @@ div {
 
 ```js
 const div = document.querySelector("div");
-console.log(div.offsetWidth); // 17895698 (unendlich, begrenzt auf den größten Wert für Breite)
+console.log(div.offsetWidth); // 17895698 (infinity clamped to largest value for width)
 
 function logSerializedWidth(value) {
   div.style.width = value;
   console.log(div.style.width);
 }
 
-logSerializedWidth("calc(1px / 0)"); // calc(unendlich * 1px)
-logSerializedWidth("calc(1px / -0)"); // calc(-unendlich * 1px)
+logSerializedWidth("calc(1px / 0)"); // calc(infinity * 1px)
+logSerializedWidth("calc(1px / -0)"); // calc(-infinity * 1px)
 
-logSerializedWidth("calc(1px * -infinity * -infinity)"); // calc(unendlich * 1px)
-logSerializedWidth("calc(1px * -infinity * infinity)"); // calc(-unendlich * 1px)
+logSerializedWidth("calc(1px * -infinity * -infinity)"); // calc(infinity * 1px)
+logSerializedWidth("calc(1px * -infinity * infinity)"); // calc(-infinity * 1px)
 
 logSerializedWidth("calc(1px * (NaN + 1))"); // calc(NaN * 1px)
 ```

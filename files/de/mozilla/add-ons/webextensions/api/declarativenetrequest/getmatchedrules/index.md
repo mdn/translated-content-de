@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt alle Regeln zurück, die für die Erweiterung übereinstimmen. Aufrufer können die Liste der übereinstimmenden Regeln filtern, indem sie einen `filter` angeben. Diese Methode steht nur Erweiterungen mit der Berechtigung `"declarativeNetRequestFeedback"` oder mit der Berechtigung `"activeTab"` zur Verfügung, die für die im `filter` angegebene `tabId` gewährt wurde. Regeln, die nicht mit einem aktiven Dokument verknüpft sind und die vor mehr als fünf Minuten übereinstimmten, werden nicht zurückgegeben.
+Gibt alle Regeln zurück, die für die Erweiterung übereinstimmen. Aufrufer können die Liste der übereinstimmenden Regeln filtern, indem sie einen `Filter` angeben. Diese Methode ist nur für Erweiterungen mit der Berechtigung `"declarativeNetRequestFeedback"` oder der `"activeTab"`-Berechtigung verfügbar, die für die im `Filter` angegebene `tabId` erteilt wurde. Regeln, die nicht mit einem aktiven Dokument verknüpft sind und die vor mehr als fünf Minuten übereinstimmten, werden nicht zurückgegeben.
 
 ## Syntax
 
@@ -25,18 +25,18 @@ let gettingMatchedRules = browser.declarativeNetRequest.getMatchedRules(
     - `minTimeStamp` {{optional_inline}}
       - : Eine `number`. Wenn angegeben, werden nur Regeln nach dem angegebenen Zeitstempel berücksichtigt.
     - `tabId` {{optional_inline}}
-      - : Eine `number`. Wenn angegeben, werden nur Regeln für den angegebenen Tab berücksichtigt. Regeln, die nicht mit einem aktiven Tab verbunden sind, werden berücksichtigt, wenn `-1` festgelegt ist.
+      - : Eine `number`. Wenn angegeben, werden nur Regeln für den angegebenen Tab berücksichtigt. Berücksichtigt Regeln, die mit keinem aktiven Tab verknüpft sind, wenn auf `-1` gesetzt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt mit diesen Eigenschaften erfüllt wird:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das diese Eigenschaften hat:
 
 - `rule`
-  - : {{WebExtAPIRef("declarativeNetRequest.MatchedRule")}}. Details einer übereinstimmenden Regel.
+  - : {{WebExtAPIRef("declarativeNetRequest.MatchedRule")}}. Details zu einer übereinstimmenden Regel.
 - `tabId`
-  - : `number` Die `tabId` des Tabs, aus dem die Anfrage stammt, wenn der Tab noch aktiv ist. Andernfalls `-1`.
+  - : `number` Die `tabId` des Tabs, von dem die Anfrage stammt, wenn der Tab noch aktiv ist. Andernfalls `-1`.
 - `timeStamp`
-  - : `number` Der Zeitpunkt, zu dem die Regel übereinstimmte. Zeitstempel entsprechen der JavaScript-Konvention für Zeiten, d. h. der Anzahl der Millisekunden seit der Epoche.
+  - : `number` Der Zeitpunkt, an dem die Regel übereinstimmte. Zeitstempel entsprechen der JavaScript-Konvention für Zeiten, d.h. die Anzahl der Millisekunden seit dem Epoch.
 
 Wenn keine Regeln übereinstimmen, ist das Objekt leer. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
@@ -47,33 +47,3 @@ Wenn keine Regeln übereinstimmen, ist das Objekt leer. Wenn die Anfrage fehlsch
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-<!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->

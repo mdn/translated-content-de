@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`noModule`**-Eigenschaft der {{domxref("HTMLScriptElement")}}-Schnittstelle ist ein Boolescher Wert, der angibt, ob das Skript in Browsern ausgeführt werden soll, die [ES-Module](/de/docs/Web/JavaScript/Guide/Modules) unterstützen. Praktisch kann dies verwendet werden, um Fallback-Skripte für ältere Browser bereitzustellen, die keine JavaScript-Module unterstützen.
+Die **`noModule`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces ist ein boolescher Wert, der angibt, ob das Skript in Browsern ausgeführt werden soll, die [ES-Module](/de/docs/Web/JavaScript/Guide/Modules) unterstützen. Praktisch kann dies verwendet werden, um älteren Browsern, die keine JavaScript-Module unterstützen, Fallback-Skripte bereitzustellen.
 
-Sie spiegelt das `nomodule`-Attribut des {{HTMLElement("script")}}-Elements wider.
+Es spiegelt das `nomodule`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
 ## Wert
 
-Ein Boolescher Wert: `true` bedeutet, dass das Skript in Browsern, die ES-Module unterstützen, nicht ausgeführt werden soll, andernfalls `false`.
+Ein boolescher Wert, `true` bedeutet, dass das Skript in Browsern, die ES-Module unterstützen, nicht ausgeführt werden soll, `false` andernfalls.
 
 ## Beispiele
 
 ```html
 <script id="el" nomodule>
-  // Wenn der Browser JavaScript-Module unterstützt, wird das folgende Skript nicht ausgeführt.
-  console.log("Der Browser unterstützt keine JavaScript-Module");
+  // If the browser supports JavaScript modules, the following script will not be executed.
+  console.log("The browser does not support JavaScript modules");
 </script>
 ```
 
 ```js
 const el = document.getElementById("el");
-console.log(el.noModule); // Ausgabe: true
+console.log(el.noModule); // Output: true
 ```
 
 ## Spezifikationen

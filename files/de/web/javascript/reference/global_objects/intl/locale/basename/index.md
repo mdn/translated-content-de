@@ -7,44 +7,44 @@ l10n:
 
 {{JSRef}}
 
-Die **`baseName`** Zugriffs-Eigenschaft von {{jsxref("Intl.Locale")}} Instanzen gibt eine Teilzeichenkette der String-Repräsentation dieses Gebietsschemas zurück, die Kerninformationen über dieses Gebietsschema enthält, einschließlich der Sprache und, falls verfügbar, des Schriftsystems und der Region.
+Die **`baseName`** Accessor-Eigenschaft von {{jsxref("Intl.Locale")}} Instanzen gibt eine Teilzeichenfolge der Zeichenfolgedarstellung dieses Standorts zurück, die Kerninformationen über diesen Standort enthält, einschließlich der Sprache sowie des Skripts und der Region, falls verfügbar.
 
 ## Beschreibung
 
-`baseName` gibt die Teilsequenz `language ["-" script] ["-" region] *("-" variant)` der [unicode_language_id Grammatik](https://www.unicode.org/reports/tr35/#Identifiers) zurück. Es enthält nur Informationen, die explizit im Konstruktor angegeben wurden, entweder durch die Gebietsschema-Identifikatorzeichenfolge oder das Optionsobjekt.
+`baseName` gibt die `language ["-" script] ["-" region] *("-" variant)` Teilsequenz der [unicode_language_id Grammatik](https://www.unicode.org/reports/tr35/#Identifiers) zurück. Sie enthält nur Informationen, die im Konstruktor explizit angegeben wurden, entweder durch den Locale-Identifier-String oder das Optionsobjekt.
 
-Der set-Accessor von `baseName` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
+Der Set-Accessor von `baseName` ist `undefined`. Sie können diese Eigenschaft nicht direkt ändern.
 
 ## Beispiele
 
 ### Einfaches Beispiel
 
 ```js
-const myLoc = new Intl.Locale("fr-Latn-CA"); // Setzt das Gebietsschema auf Kanadisches Französisch
-console.log(myLoc.toString()); // Gibt "fr-Latn-CA-u-ca-gregory" aus
-console.log(myLoc.baseName); // Gibt "fr-Latn-CA" aus
+const myLoc = new Intl.Locale("fr-Latn-CA"); // Sets locale to Canadian French
+console.log(myLoc.toString()); // Prints out "fr-Latn-CA-u-ca-gregory"
+console.log(myLoc.baseName); // Prints out "fr-Latn-CA"
 ```
 
-### Beispiel mit Optionen in der Eingabezeichenfolge
+### Beispiel mit Optionen im Eingabestring
 
 ```js
-// Setzt Sprache auf Japanisch, Region auf Japan,
+// Sets language to Japanese, region to Japan,
 
-// Kalender auf Gregoriaisch, Stundenzyklus auf 24 Stunden
+// calendar to Gregorian, hour cycle to 24 hours
 const japan = new Intl.Locale("ja-JP-u-ca-gregory-hc-24");
-console.log(japan.toString()); // Gibt "ja-JP-u-ca-gregory-hc-h24" aus
-console.log(japan.baseName); // Gibt "ja-JP" aus
+console.log(japan.toString()); // Prints out "ja-JP-u-ca-gregory-hc-h24"
+console.log(japan.baseName); // Prints out "ja-JP"
 ```
 
-### Beispiel mit Optionen, die die Eingabezeichenfolge überschreiben
+### Beispiel mit Optionen, die den Eingabestring überschreiben
 
 ```js
-// Eingabezeichenfolge gibt Sprache als Niederländisch und Region als Belgien an,
+// Input string indicates language as Dutch and region as Belgium,
 
-// aber das Optionsobjekt überschreibt die Region und setzt sie auf die Niederlande
+// but options object overrides the region and sets it to the Netherlands
 const dutch = new Intl.Locale("nl-Latn-BE", { region: "NL" });
 
-console.log(dutch.baseName); // Gibt "nl-Latn-NL" aus
+console.log(dutch.baseName); // Prints out "nl-Latn-NL"
 ```
 
 ## Spezifikationen

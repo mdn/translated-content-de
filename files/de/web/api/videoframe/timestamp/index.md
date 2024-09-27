@@ -1,5 +1,5 @@
 ---
-title: "VideoFrame: timestamp Eigenschaft"
+title: "VideoFrame: timestamp-Eigenschaft"
 short-title: timestamp
 slug: Web/API/VideoFrame/timestamp
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`timestamp`**-Eigenschaft des {{domxref("VideoFrame")}}-Interfaces gibt eine ganze Zahl zurück, die den Zeitstempel des Videos in Mikrosekunden angibt.
+Die **`timestamp`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt eine Ganzzahl zurück, die den Zeitstempel des Videos in Mikrosekunden angibt.
 
 ## Wert
 
-Eine ganze Zahl.
+Eine Ganzzahl.
 
 ## Beispiele
 

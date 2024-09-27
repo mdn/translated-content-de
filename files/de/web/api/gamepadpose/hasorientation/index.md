@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVR API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`hasOrientation`** der Schnittstelle {{domxref("GamepadPose")}} gibt einen booleschen Wert zurück, der angibt, ob das {{domxref("Gamepad")}} die Ausrichtung verfolgen und zurückgeben kann.
+Die schreibgeschützte **`hasOrientation`**-Eigenschaft des [`GamepadPose`](/de/docs/Web/API/GamepadPose)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob das [`Gamepad`](/de/docs/Web/API/Gamepad) die Orientierung verfolgen und Informationen dazu zurückgeben kann.
 
 ## Wert
 

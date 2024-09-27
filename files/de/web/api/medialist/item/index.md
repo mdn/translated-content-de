@@ -1,5 +1,5 @@
 ---
-title: "MediaList: item()-Methode"
+title: "MediaList: item() Methode"
 short-title: item()
 slug: Web/API/MediaList/item
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **`item()`**-Methode des {{domxref("MediaList")}}-Interfaces gibt die Media Query am angegebenen `index`, oder `null` zurück, wenn der angegebene `index` nicht existiert.
+Die **`item()`** Methode der [`MediaList`](/de/docs/Web/API/MediaList) Schnittstelle gibt die Medienabfrage am angegebenen `index` zurück oder `null`, wenn der angegebene `index` nicht existiert.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ item(index)
 ```
 
 > [!NOTE]
-> Die Klammer-Syntax (`[]`) kann anstelle der `item()`-Syntax verwendet werden.
+> Die Klammer-Syntax (`[]`) kann anstelle der `item()` Syntax verwendet werden.
 
 ### Parameter
 
@@ -31,15 +31,15 @@ Wenn die Klammer-Syntax (`[]`) verwendet wird und es keinen Eintrag für den ang
 
 ## Beispiele
 
-Das folgende Beispiel würde alle in der ersten auf das aktuelle Dokument angewendeten Stylesheet verknüpften Media Queries in der Konsole protokollieren.
+Das Folgende würde jede in der `MediaList` gespeicherte Medienabfrage protokollieren, die dem ersten auf das aktuelle Dokument angewendeten Stylesheet zugeordnet ist.
 
 ```js
 const stylesheet = document.styleSheets[0];
 console.log(stylesheet.media.length);
-console.log(stylesheet.media.item(0)); // Gibt einen String wie "print" zurück
-console.log(stylesheet.media.item(5)); // Gibt null zurück, wenn kein 5. Eintrag existiert
-console.log(stylesheet.media[1]); // Gibt einen String wie "print" zurück
-console.log(stylesheet.media[5]); // Gibt undefined zurück, wenn kein 5. Eintrag existiert
+console.log(stylesheet.media.item(0)); // Returns a string like "print"
+console.log(stylesheet.media.item(5)); // Returns null if there is no 5th entry
+console.log(stylesheet.media[1]); // Returns a string like "print"
+console.log(stylesheet.media[5]); // Returns undefined if there is no 5th entry
 ```
 
 ## Spezifikationen

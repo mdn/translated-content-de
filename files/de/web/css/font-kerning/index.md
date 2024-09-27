@@ -1,5 +1,5 @@
 ---
-title: Schriftarten-Kerning
+title: font-kerning
 slug: Web/CSS/font-kerning
 l10n:
   sourceCommit: aac4966bd12c77281f9374bbfaf4e17e2680ac3b
@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-kerning`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob die in einer Schriftart gespeicherten Kerning-Informationen verwendet werden.
+Die **`font-kerning`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die in einer Schriftart gespeicherten Kerning-Informationen verwendet werden sollen.
 
 {{EmbedInteractiveExample("pages/css/font-kerning.html")}}
 
-_Kerning_ definiert, wie Buchstaben verteilt sind. In _gut gekernten_ Schriftarten sorgt diese Funktion dafür, dass der Zeichenabstand gleichmäßiger und angenehmer zu lesen ist, als es sonst der Fall wäre.
+_Kerning_ definiert, wie Buchstaben räumlich angeordnet sind. In _gut gekernten_ Schriftarten führt diese Funktion zu einem gleichmäßigeren und angenehmeren Lesererlebnis als ohne.
 
-Auf dem Bild unten verwenden die Beispiele auf der linken Seite beispielsweise kein Kerning, während die auf der rechten Seite Kerning verwenden:
+Im folgenden Bild beispielsweise nutzen die Beispiele auf der linken Seite kein Kerning, während die auf der rechten Seite es tun:
 
-![Beispiel für Schriftarten-Kerning](font-kerning.png)
+![Beispiel für font-kerning](font-kerning.png)
 
 ## Syntax
 
@@ -24,7 +24,7 @@ font-kerning: auto;
 font-kerning: normal;
 font-kerning: none;
 
-/* Globale Werte */
+/* Global values */
 font-kerning: inherit;
 font-kerning: initial;
 font-kerning: revert;
@@ -35,7 +35,7 @@ font-kerning: unset;
 ### Werte
 
 - `auto`
-  - : Der Browser bestimmt, ob das Schriftarten-Kerning verwendet werden soll oder nicht. Einige Browser deaktivieren beispielsweise das Kerning bei kleinen Schriftarten, da die Lesbarkeit des Textes beeinträchtigt werden könnte.
+  - : Der Browser entscheidet, ob das Kerning verwendet werden soll oder nicht. Beispielsweise deaktivieren manche Browser das Kerning bei kleinen Schriftarten, da dies die Lesbarkeit beeinträchtigen könnte.
 - `normal`
   - : Die in der Schriftart gespeicherten Kerning-Informationen müssen angewendet werden.
 - `none`
@@ -51,7 +51,7 @@ font-kerning: unset;
 
 ## Beispiele
 
-### Kerning aktivieren und deaktivieren
+### Aktivierung und Deaktivierung von Kerning
 
 #### HTML
 

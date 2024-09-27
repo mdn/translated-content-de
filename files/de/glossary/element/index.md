@@ -7,14 +7,14 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Element** ist ein Teil einer Webseite. In {{glossary("XML")}} und {{glossary("HTML")}} kann ein Element ein Datenelement oder einen Textabschnitt oder ein Bild enthalten, oder möglicherweise nichts. Ein typisches Element umfasst ein öffnendes Tag mit einigen {{glossary("attribute", "attributes")}}, eingeschlossenen Textinhalt und ein schließendes Tag.
+Ein **Element** ist ein Teil einer Webseite. In [XML](/de/docs/Glossary/XML) und [HTML](/de/docs/Glossary/HTML) kann ein Element einen Datenwert, einen Textblock, ein Bild oder auch nichts enthalten. Ein typisches Element umfasst einen öffnenden Tag mit einigen [Attributen](/de/docs/Glossary/attribute), eingeschlossenen Textinhalt und einen schließenden Tag.
 
-![Beispiel: In <p class="nice">Hello world!</p> ist '<p class="nice">' ein öffnendes Tag, 'class="nice"' ist ein Attribut und dessen Wert, 'Hello world!' ist eingeschlossener Textinhalt, und '</p>' ist ein schließendes Tag.](anatomy-of-an-html-element.png)
+![Beispiel: in <p class="nice">Hallo Welt!</p>, '<p class="nice">' ist ein öffnender Tag, 'class="nice"' ist ein Attribut und dessen Wert, 'Hallo Welt!' ist eingeschlossener Textinhalt, und '</p>' ist ein schließender Tag.](anatomy-of-an-html-element.png)
 
-Elemente und {{glossary("tag", "tags")}} sind _nicht_ dasselbe. Tags beginnen oder beenden ein Element im Quellcode, während Elemente Teil des {{Glossary("DOM")}}, des Dokumentmodells für die Anzeige der Seite im {{glossary("browser")}}, sind.
+Elemente und [Tags](/de/docs/Glossary/tag) sind _nicht_ dasselbe. Tags beginnen oder beenden ein Element im Quellcode, während Elemente Teil des [DOM](/de/docs/Glossary/DOM) sind, des Dokumentenmodells zur Anzeige der Seite im [Browser](/de/docs/Glossary/browser).
 
 ## Siehe auch
 
 - [Erste Schritte mit HTML](/de/docs/Learn/HTML/Introduction_to_HTML/Getting_started)
-- [Definieren von benutzerdefinierten Elementen](/de/docs/Web/API/Web_components/Using_custom_elements)
-- Das {{domxref("Element")}} Interface, das ein Element im DOM repräsentiert.
+- [Definition von benutzerdefinierten Elementen](/de/docs/Web/API/Web_components/Using_custom_elements)
+- Das [`Element`](/de/docs/Web/API/Element) Interface, das ein Element im DOM repräsentiert.

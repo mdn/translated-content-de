@@ -8,25 +8,28 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.lineJoin`**-Eigenschaft der Canvas 2D API bestimmt die Form, die verwendet wird, um zwei Liniensegmente zu verbinden, wenn sie aufeinandertreffen.
+Die **`CanvasRenderingContext2D.lineJoin`**-Eigenschaft der Canvas 2D API bestimmt die Form, die verwendet wird, um zwei Liniensegmente dort zu verbinden, wo sie sich treffen.
 
-Diese Eigenschaft hat keine Wirkung, wenn zwei verbundene Segmente dieselbe Richtung haben, da in diesem Fall kein Verbindungsbereich hinzugefügt wird. Degenerierte Segmente mit einer Länge von null (d.h. mit allen Endpunkten und Kontrollpunkten an genau derselben Position) werden ebenfalls ignoriert.
+Diese Eigenschaft hat keinen Effekt, wenn zwei verbundene Segmente die gleiche Richtung haben, da in diesem Fall kein Verbindungsbereich hinzugefügt wird. Degenerierte Segmente mit einer Länge von null (d.h. wenn alle Endpunkte und Kontrollpunkte an der exakt gleichen Position sind) werden ebenfalls ignoriert.
 
 > [!NOTE]
-> Linien können mit den Methoden {{domxref("CanvasRenderingContext2D.stroke()", "stroke()")}}, {{domxref("CanvasRenderingContext2D.strokeRect()", "strokeRect()")}}, und {{domxref("CanvasRenderingContext2D.strokeText()", "strokeText()")}} gezeichnet werden.
+> Linien können mit den Methoden
+> [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke),
+> [`strokeRect()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect) und
+> [`strokeText()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeText) gezeichnet werden.
 
 ## Wert
 
-Es gibt drei mögliche Werte für diese Eigenschaft: `"round"`, `"bevel"` und `"miter"`. Der Standardwert ist `"miter"`.
+Für diese Eigenschaft gibt es drei mögliche Werte: `"round"`, `"bevel"` und `"miter"`. Der Standardwert ist `"miter"`.
 
-![Drei horizontale Zickzacklinien mit den Werten round, bevel und miter, jeweils von oben nach unten gezeigt.](canvas_linejoin.png)
+![Drei horizontale Zickzack-Linien mit den Werten rund (round), abgeschrägt (bevel) und Gehrung (miter), von oben nach unten gezeigt.](canvas_linejoin.png)
 
 - `"round"`
-  - : Rundet die Ecken einer Form ab, indem ein zusätzlicher Sektor einer Scheibe zentriert am gemeinsamen Endpunkt der verbundenen Segmente gefüllt wird. Der Radius für diese abgerundeten Ecken entspricht der Linienbreite.
+  - : Rundet die Ecken einer Form ab, indem ein zusätzlicher Kreissektor gefüllt wird, der am gemeinsamen Endpunkt der verbundenen Segmente zentriert ist. Der Radius für diese abgerundeten Ecken ist gleich der Linienbreite.
 - `"bevel"`
   - : Füllt einen zusätzlichen dreieckigen Bereich zwischen dem gemeinsamen Endpunkt der verbundenen Segmente und den separaten äußeren rechteckigen Ecken jedes Segments.
 - `"miter"`
-  - : Verbundene Segmente werden durch Verlängern ihrer Außenkanten so verbunden, dass sie in einem einzigen Punkt aufeinandertreffen, wodurch ein zusätzlicher, rautenförmiger Bereich gefüllt wird. Diese Einstellung wird von der {{domxref("CanvasRenderingContext2D.miterLimit", "miterLimit")}}-Eigenschaft beeinflusst. Standardwert.
+  - : Verbundene Segmente werden durch Verlängerung ihrer äußeren Kanten so verbunden, dass sie sich an einem einzigen Punkt treffen, mit dem Effekt, dass ein zusätzlicher rautenförmiger Bereich gefüllt wird. Diese Einstellung wird durch die [`miterLimit`](/de/docs/Web/API/CanvasRenderingContext2D/miterLimit)-Eigenschaft beeinflusst. Standardwert.
 
 ## Beispiele
 
@@ -94,13 +97,13 @@ ctx.lineWidth = 10;
 
 {{Compat}}
 
-### WebKit/Blink-spezifische Hinweise
+### WebKit/Blink-spezifische Notizen
 
-- In WebKit- und Blink-basierten Browsern ist eine nicht standardmäßige und veraltete Methode `ctx.setLineJoin()` implementiert, zusätzlich zu dieser Eigenschaft.
+- In WebKit- und Blink-basierten Browsern ist eine nicht standardisierte und veraltete Methode `ctx.setLineJoin()` zusätzlich zu dieser Eigenschaft implementiert.
 
 ## Siehe auch
 
-- Das Interface, das diese Eigenschaft definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasRenderingContext2D.lineCap")}}
-- {{domxref("CanvasRenderingContext2D.lineWidth")}}
-- [Anwenden von Stilen und Farben](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors)
+- Die Schnittstelle, die diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasRenderingContext2D.lineCap`](/de/docs/Web/API/CanvasRenderingContext2D/lineCap)
+- [`CanvasRenderingContext2D.lineWidth`](/de/docs/Web/API/CanvasRenderingContext2D/lineWidth)
+- [Anwenden von Stilen und Farbe](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors)

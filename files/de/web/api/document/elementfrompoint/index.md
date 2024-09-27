@@ -1,5 +1,5 @@
 ---
-title: "Dokument: elementFromPoint() Methode"
+title: "Document: elementFromPoint()-Methode"
 short-title: elementFromPoint()
 slug: Web/API/Document/elementFromPoint
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`elementFromPoint()`** Methode, verfügbar auf dem {{domxref("Document")}}-Objekt, gibt das oberste {{domxref("Element")}} an den angegebenen Koordinaten (relativ zum Viewport) zurück.
+Die **`elementFromPoint()`**-Methode, die im [`Document`](/de/docs/Web/API/Document)-Objekt verfügbar ist, gibt das oberste [`Element`](/de/docs/Web/API/Element) an den angegebenen Koordinaten (relativ zum viewport) zurück.
 
-Wenn das Element an der angegebenen Stelle zu einem anderen Dokument gehört (z. B. das Dokument eines {{HTMLElement("iframe")}}), wird das übergeordnete Element dieses Dokuments zurückgegeben (das `<iframe>` selbst). Wenn das Element an der angegebenen Stelle anonym oder durch XBL generierter Inhalt ist, wie beispielsweise die Scrollleisten eines Textfeldes, wird das erste nicht-anonyme Vorfahrenelement (zum Beispiel das Textfeld) zurückgegeben.
+Wenn das Element an dem angegebenen Punkt zu einem anderen Dokument gehört (z. B. das Dokument eines {{HTMLElement("iframe")}}), wird das übergeordnete Element dieses Dokuments zurückgegeben (das `<iframe>` selbst). Wenn das Element an dem gegebenen Punkt anonymes oder XBL-generiertes Inhalt ist, wie z. B. die Scrollleisten eines Textfeldes, wird das erste nicht-anonyme übergeordnete Element (zum Beispiel das Textfeld) zurückgegeben.
 
-Elemente mit {{cssxref("pointer-events")}} auf `none` gesetzt, werden ignoriert, und das darunterliegende Element wird zurückgegeben.
+Elemente mit {{cssxref("pointer-events")}} auf `none` gesetzt werden ignoriert, und das darunterliegende Element wird zurückgegeben.
 
-Wenn die Methode auf ein anderes Dokument (wie das Unterdokument eines `<iframe>`) angewendet wird, sind die Koordinaten relativ zu dem Dokument, in dem die Methode aufgerufen wird.
+Wenn die Methode in einem anderen Dokument (wie einem Subdokument eines `<iframe>`) ausgeführt wird, sind die Koordinaten relativ zu dem Dokument, in dem die Methode aufgerufen wird.
 
 Wenn der angegebene Punkt außerhalb der sichtbaren Grenzen des Dokuments liegt oder eine der Koordinaten negativ ist, ist das Ergebnis `null`.
 
-Falls Sie die spezifische Position innerhalb des Elements finden müssen, verwenden Sie {{domxref("Document.caretPositionFromPoint()")}}.
+Wenn Sie die spezifische Position innerhalb des Elements ermitteln müssen, verwenden Sie [`Document.caretPositionFromPoint()`](/de/docs/Web/API/Document/caretPositionFromPoint).
 
 ## Syntax
 
@@ -29,17 +29,17 @@ elementFromPoint(x, y)
 ### Parameter
 
 - `x`
-  - : Die horizontale Koordinate eines Punkts, relativ zur linken Kante des aktuellen {{Glossary("viewport")}}.
+  - : Die horizontale Koordinate eines Punktes, relativ zum linken Rand der aktuellen [viewport](/de/docs/Glossary/viewport).
 - `y`
-  - : Die vertikale Koordinate eines Punkts, relativ zur oberen Kante des aktuellen Viewports.
+  - : Die vertikale Koordinate eines Punktes, relativ zum oberen Rand des aktuellen viewports.
 
 ### Rückgabewert
 
-Das oberste {{domxref("Element")}}-Objekt, das sich an den angegebenen Koordinaten befindet.
+Das oberste [`Element`](/de/docs/Web/API/Element)-Objekt, das sich an den angegebenen Koordinaten befindet.
 
 ## Beispiele
 
-Dieses Beispiel erstellt zwei Schaltflächen, mit denen Sie die aktuelle Farbe des Absatz-Elements ändern können, das sich unter den Koordinaten `(2, 2)` befindet.
+Dieses Beispiel erstellt zwei Schaltflächen, mit denen Sie die aktuelle Farbe des unter den Koordinaten `(2, 2)` befindlichen Absatz-Elements setzen können.
 
 ### JavaScript
 
@@ -50,17 +50,17 @@ function changeColor(newColor) {
 }
 ```
 
-Die `changeColor()`-Methode erhält das Element, das sich an der angegebenen Stelle befindet, und setzt dann die aktuelle Vordergrund-{{cssxref("color")}}-Eigenschaft dieses Elements auf die vom `newColor`-Parameter angegebene Farbe.
+Die `changeColor()`-Methode ermittelt das Element an dem angegebenen Punkt und setzt dann die aktuelle Vordergrund-{{cssxref("color")}}-Eigenschaft dieses Elements auf die durch den `newColor`-Parameter spezifizierte Farbe.
 
 ### HTML
 
 ```html
-<p id="para1">Einige Texte hier</p>
-<button onclick="changeColor('blue');">Blau</button>
-<button onclick="changeColor('red');">Rot</button>
+<p id="para1">Some text here</p>
+<button onclick="changeColor('blue');">Blue</button>
+<button onclick="changeColor('red');">Red</button>
 ```
 
-Das HTML stellt den Absatz bereit, dessen Farbe betroffen sein wird, sowie zwei Schaltflächen: eine, um die Farbe in Blau zu ändern, und eine andere, um die Farbe in Rot zu ändern.
+Das HTML liefert den Absatz, dessen Farbe beeinflusst wird, sowie zwei Schaltflächen: eine, um die Farbe auf Blau zu ändern, und eine andere, um die Farbe auf Rot zu ändern.
 
 ### Ergebnis
 
@@ -76,4 +76,4 @@ Das HTML stellt den Absatz bereit, dessen Farbe betroffen sein wird, sowie zwei 
 
 ## Siehe auch
 
-- {{domxref("Document.elementsFromPoint()")}}
+- [`Document.elementsFromPoint()`](/de/docs/Web/API/Document/elementsFromPoint)

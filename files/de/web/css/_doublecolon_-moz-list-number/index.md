@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}{{SeeCompatTable}}
 
-Das **`::-moz-list-number`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die den Marker (typischerweise eine Zahl) eines Listenelements ({{HTMLElement("li")}}) in einer geordneten Liste ({{HTMLElement("ol")}}) darstellt.
+Das **`::-moz-list-number`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die das Markierungszeichen (typischerweise eine Zahl) eines Listenelements ({{HTMLElement("li")}}) in einer geordneten Liste ({{HTMLElement("ol")}}) darstellt.
 
 ## Syntax
 
@@ -44,7 +44,7 @@ li::-moz-list-number {
 
 ## Spezifikationen
 
-Gehört zu keinem Standard.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 

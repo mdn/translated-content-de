@@ -7,43 +7,43 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Das `DeprecationReportBody` Interface der [Reporting API](/de/docs/Web/API/Reporting_API) repräsentiert den Körper eines Abkündigungsberichts.
+Das `DeprecationReportBody`-Interface der [Reporting API](/de/docs/Web/API/Reporting_API) repräsentiert den Inhalt eines Abkündigungsberichts.
 
-Ein Abkündigungsbericht wird erstellt, wenn eine veraltete Funktion (zum Beispiel eine veraltete API-Methode) in einem Dokument verwendet wird, das von einem {{domxref("ReportingObserver")}} beobachtet wird. Neben der Unterstützung dieser API hängt der Erhalt nützlicher Abkündigungswarnungen davon ab, dass Browserhersteller diese Warnungen für veraltete Funktionen hinzufügen.
+Ein Abkündigungsbericht wird generiert, wenn eine veraltete Funktion (zum Beispiel eine veraltete API-Methode) in einem Dokument verwendet wird, das von einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) beobachtet wird. Neben der Unterstützung durch diese API ist der Erhalt nützlicher Abkündigungshinweise davon abhängig, dass Browser-Anbieter diese Warnungen für veraltete Funktionen hinzufügen.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-Eine Instanz von `DeprecationReportBody` wird als Wert von {{domxref("Report.body")}} zurückgegeben, wenn {{domxref("Report.Type")}} den Wert `deprecation` hat. Das Interface hat keinen Konstruktor.
+Eine Instanz von `DeprecationReportBody` wird als Wert von [`Report.body`](/de/docs/Web/API/Report/body) zurückgegeben, wenn [`Report.Type`](/de/docs/Web/API/Report/Type) `deprecation` ist. Das Interface hat keinen Konstruktor.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-Dieses Interface erbt auch Eigenschaften von {{domxref("ReportBody")}}.
+Dieses Interface erbt auch Eigenschaften von [`ReportBody`](/de/docs/Web/API/ReportBody).
 
-- {{domxref("DeprecationReportBody.id")}} {{experimental_inline}}
-  - : Ein String, der die Funktion oder die API repräsentiert, die veraltet ist, beispielsweise `NavigatorGetUserMedia`. Dies kann verwendet werden, um Berichte nach veralteter Funktion zu gruppieren.
-- {{domxref("DeprecationReportBody.anticipatedRemoval")}} {{Experimental_Inline}}
-  - : Ein {{jsxref("Date")}} Objekt (als String dargestellt), das das Datum repräsentiert, an dem die Funktion voraussichtlich aus dem aktuellen Browser entfernt wird. Wenn das Datum nicht bekannt ist, gibt diese Eigenschaft `null` zurück.
-- {{domxref("DeprecationReportBody.message")}} {{experimental_inline}}
-  - : Ein String, der eine menschenlesbare Beschreibung der Abkündigung enthält, inklusive Informationen wie, welche neuere Funktion sie, falls vorhanden, ersetzt hat. Dies entspricht typischerweise der Nachricht, die ein Browser in seiner Entwicklertools-Konsole anzeigt, wenn eine veraltete Funktion verwendet wird, falls eine verfügbar ist.
-- {{domxref("DeprecationReportBody.sourceFile")}} {{experimental_inline}}
+- [`DeprecationReportBody.id`](/de/docs/Web/API/DeprecationReportBody/id) {{experimental_inline}}
+  - : Ein String, der die veraltete Funktion oder API repräsentiert, zum Beispiel `NavigatorGetUserMedia`. Dies kann verwendet werden, um Berichte nach veralteter Funktion zu gruppieren.
+- [`DeprecationReportBody.anticipatedRemoval`](/de/docs/Web/API/DeprecationReportBody/anticipatedRemoval) {{Experimental_Inline}}
+  - : Ein {{jsxref("Date")}}-Objekt (als String dargestellt), das das Datum repräsentiert, an dem die Funktion aus dem aktuellen Browser voraussichtlich entfernt wird. Ist das Datum nicht bekannt, gibt diese Eigenschaft `null` zurück.
+- [`DeprecationReportBody.message`](/de/docs/Web/API/DeprecationReportBody/message) {{experimental_inline}}
+  - : Ein String, der eine menschenlesbare Beschreibung der Abkündigung enthält, einschließlich Informationen darüber, welche neuere Funktion sie abgelöst hat, falls vorhanden. Dies entspricht typischerweise der Nachricht, die ein Browser in seiner DevTools-Konsole anzeigt, wenn eine veraltete Funktion verwendet wird, wenn eine verfügbar ist.
+- [`DeprecationReportBody.sourceFile`](/de/docs/Web/API/DeprecationReportBody/sourceFile) {{experimental_inline}}
   - : Ein String, der den Pfad zur Quelldatei enthält, in der die veraltete Funktion verwendet wurde, falls bekannt, oder `null` andernfalls.
-- {{domxref("DeprecationReportBody.lineNumber")}} {{experimental_inline}}
+- [`DeprecationReportBody.lineNumber`](/de/docs/Web/API/DeprecationReportBody/lineNumber) {{experimental_inline}}
   - : Eine Zahl, die die Zeile in der Quelldatei repräsentiert, in der die veraltete Funktion verwendet wurde, falls bekannt, oder `null` andernfalls.
-- {{domxref("DeprecationReportBody.columnNumber")}} {{experimental_inline}}
+- [`DeprecationReportBody.columnNumber`](/de/docs/Web/API/DeprecationReportBody/columnNumber) {{experimental_inline}}
   - : Eine Zahl, die die Spalte in der Quelldatei repräsentiert, in der die veraltete Funktion verwendet wurde, falls bekannt, oder `null` andernfalls.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-Dieses Interface erbt auch Methoden von {{domxref("ReportBody")}}.
+Dieses Interface erbt auch Methoden von [`ReportBody`](/de/docs/Web/API/ReportBody).
 
-- {{domxref("DeprecationReportBody.toJSON()")}} {{experimental_inline}}
-  - : Ein _Serializer_, der eine JSON-Darstellung des `InterventionReportBody` Objekts zurückgibt.
+- [`DeprecationReportBody.toJSON()`](/de/docs/Web/API/DeprecationReportBody/toJSON) {{experimental_inline}}
+  - : Ein _Serializer_, der eine JSON-Darstellung des `InterventionReportBody`-Objekts zurückgibt.
 
 ## Beispiele
 
-In unserem [deprecation_report.html](https://mdn.github.io/dom-examples/reporting-api/deprecation_report.html) Beispiel erstellen wir einen einfachen Beobachter, der die Verwendung von veralteten Funktionen auf unserer Webseite beobachtet:
+In unserem Beispiel [deprecation_report.html](https://mdn.github.io/dom-examples/reporting-api/deprecation_report.html) erstellen wir einen einfachen Reporting-Observer, um die Nutzung veralteter Funktionen auf unserer Webseite zu beobachten:
 
 ```js
 const options = {
@@ -56,17 +56,17 @@ const observer = new ReportingObserver((reports, observer) => {
 }, options);
 ```
 
-Dann weisen wir ihn an, Berichte zu beobachten, indem wir {{domxref("ReportingObserver.observe()")}} verwenden; dies sagt dem Beobachter, dass er beginnen soll, Berichte in seiner Berichtsqueue zu sammeln, und führt die im Konstruktor angegebene Callback-Funktion aus:
+Wir weisen dann den Observer an, mit [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe) Berichte zu beobachten; dies teilt dem Observer mit, Berichte in seiner Berichts-Warteschlange zu sammeln, und führt die im Konstruktor angegebene Rückruffunktion aus:
 
 ```js
 observer.observe();
 ```
 
-Aufgrund des Ereignishandlers, den wir im `ReportingObserver()` Konstruktor eingerichtet haben, können wir nun auf die Schaltfläche klicken, um die Berichtdetails anzuzeigen.
+Aufgrund des Ereignis-Handlers, den wir im `ReportingObserver()`-Konstruktor eingerichtet haben, können wir nun auf die Schaltfläche klicken, um die Berichtsdetails anzuzeigen.
 
-![Bild eines fröhlichen bärtigen Mannes mit verschiedenen angezeigten Statistiken über eine veraltete Funktion](reporting_api_example.png)
+![Bild eines fröhlichen bärtigen Mannes mit verschiedenen Statistiken darunter über eine veraltete Funktion](reporting_api_example.png)
 
-Die Berichtdetails werden über die `displayReports()` Funktion angezeigt, die den `reports` Parameter des Beobachter-Callbacks als Parameter übernimmt:
+Die Berichtsdetails werden über die Funktion `displayReports()` angezeigt, die den `reports`-Parameter des Observer-Rückrufs als Parameter verwendet:
 
 ```js
 function displayReports(reports) {
@@ -93,17 +93,17 @@ function displayReports(reports) {
 }
 ```
 
-Der `reports` Parameter enthält ein Array aller Berichte in der Berichtsqueue des Beobachters. Wir durchlaufen jeden Bericht mit einer einfachen [`for`](/de/docs/Web/JavaScript/Reference/Statements/for) Schleife und iterieren dann über jeden Eintrag im Körper des Berichts (eine `DeprecationReportBody` Instanz) mit einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) Struktur, wobei wir jedes Schlüssel/Wert-Paar innerhalb eines Listenelements anzeigen.
+Der `reports`-Parameter enthält ein Array aller Berichte in der Berichts-Warteschlange des Observers. Wir durchlaufen jeden Bericht mit einer einfachen [`for`](/de/docs/Web/JavaScript/Reference/Statements/for)-Schleife und iterieren dann über jeden Eintrag im Berichtskörper (eine `DeprecationReportBody`-Instanz) mithilfe einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Struktur und zeigen jedes Schlüssel-/Wertpaar in einem Listenelement an.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Reporting API](/de/docs/Web/API/Reporting_API)
-- [Die Reporting API](https://developer.chrome.com/docs/capabilities/web-apis/reporting-api)
+- [The Reporting API](https://developer.chrome.com/docs/capabilities/web-apis/reporting-api)

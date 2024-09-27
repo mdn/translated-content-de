@@ -9,12 +9,12 @@ l10n:
 {{APIRef("Web Audio API")}}
 
 Der **`OfflineAudioCompletionEvent()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues
-{{domxref("OfflineAudioCompletionEvent")}} Objekt.
+[`OfflineAudioCompletionEvent`](/de/docs/Web/API/OfflineAudioCompletionEvent) Objekt.
 
 > [!NOTE]
-> In der Regel würden Sie den Konstruktor nicht manuell verwenden.
-> `OfflineAudioCompletionEvent` Ereignisse werden aus historischen Gründen an
-> {{domxref("OfflineAudioContext")}} Instanzen gesendet.
+> Sie würden den Konstruktor in der Regel nicht manuell verwenden.
+> `OfflineAudioCompletionEvent`-Ereignisse werden aus Gründen der Abwärtskompatibilität an
+> [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)-Instanzen gesendet.
 
 ## Syntax
 
@@ -26,15 +26,15 @@ new OfflineAudioCompletionEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist Groß- und Kleinschreibungssensitiv und Browser setzen es auf `complete`.
+    Es ist groß-/kleinheitsunempfindlich, und Browser setzen es auf `complete`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `renderedBuffer`
-      - : Der gerenderte {{domxref("AudioBuffer")}}, der die Audiodaten enthält.
+      - : Der gerenderte [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der die Audiodaten enthält.
 
 ### Rückgabewert
 
-Ein neues {{domxref("OfflineAudioCompletionEvent")}} Objekt.
+Ein neues [`OfflineAudioCompletionEvent`](/de/docs/Web/API/OfflineAudioCompletionEvent) Objekt.
 
 ## Spezifikationen
 

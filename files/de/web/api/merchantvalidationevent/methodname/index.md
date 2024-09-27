@@ -8,11 +8,13 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{Deprecated_Header}}{{SecureContext_Header}}
 
-Die Eigenschaft **`methodName`** des {{domxref("MerchantValidationEvent")}} ist ein schreibgeschützter Wert, der einen Zeichenfolgenwert zurückgibt, der den Bezahlverfahren-Identifikator angibt, der den Zahlungsanbieter darstellt, der eine Händlervalidierung erfordert.
+Die [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent) Eigenschaft
+**`methodName`** ist ein schreibgeschützter Wert, der einen String zurückgibt, welcher den Zahlungsmetoden-Identifikator angibt, der den Zahlungs-Handler repräsentiert, der eine Händlerauthentifizierung benötigt.
 
 ## Wert
 
-Eine schreibgeschützte Zeichenfolge, die eindeutig den Zahlungsanbieter identifiziert, der die Händlervalidierung anfordert. Weitere Informationen über den Prozess finden Sie unter [Händlervalidierung](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation).
+Ein schreibgeschützter String, der den Zahlungs-Handler eindeutig identifiziert, der eine Händlerauthentifizierung anfordert. Siehe
+[Händlerauthentifizierung](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation) für weitere Informationen über den Prozess.
 
 ## Browser-Kompatibilität
 
@@ -22,4 +24,4 @@ Eine schreibgeschützte Zeichenfolge, die eindeutig den Zahlungsanbieter identif
 
 - [Payment Request API](/de/docs/Web/API/Payment_Request_API)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)
+- [Zahlungsabwicklungs-Konzepte](/de/docs/Web/API/Payment_Request_API/Concepts)

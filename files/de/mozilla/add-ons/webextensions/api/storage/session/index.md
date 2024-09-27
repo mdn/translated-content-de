@@ -7,32 +7,33 @@ l10n:
 
 {{AddonSidebar}}
 
-Repräsentiert den `session` Speicherbereich. Elemente im `session` Speicher werden im Arbeitsspeicher für die Dauer der Browsersitzung gespeichert und nicht auf die Festplatte geschrieben. Standardmäßig ist es für Inhalts-Skripte nicht zugänglich, aber dieses Verhalten kann durch {{WebExtAPIRef("storage.StorageArea.setAccessLevel", "storage.session.setAccessLevel()")}} geändert werden.
+Repräsentiert den `session`-Speicherbereich. Elemente im `session`-Speicher werden für die Dauer der Browser-Sitzung im Speicher abgelegt und nicht auf die Festplatte geschrieben.
+Standardmäßig ist er nicht für Inhalts-Skripte verfügbar, dieses Verhalten kann jedoch durch {{WebExtAPIRef("storage.StorageArea.setAccessLevel", "storage.session.setAccessLevel()")}} geändert werden.
 
-Die Menge an Daten, die eine Erweiterung im Session-Speicherbereich speichern kann, ist auf 10 MB begrenzt, es sei denn, es wird in der [Kompatibilitätstabelle des Browsers](#browser-kompatibilität) anders angegeben.
+Die Datenmenge, die eine Erweiterung im `session`-Speicherbereich ablegen kann, ist auf 10 MB begrenzt, sofern in der [Browser-Kompatibilitäts-Tabelle](#browser-kompatibilität) nichts anderes angegeben ist.
 
-Wenn der Browser beendet wird, wird der gesamte Session-Speicher gelöscht. Wenn die Erweiterung deinstalliert wird, wird der zugehörige Session-Speicher gelöscht.
+Wenn der Browser beendet wird, wird der gesamte `session`-Speicher gelöscht. Wenn die Erweiterung deinstalliert wird, wird der zugehörige `session`-Speicher ebenfalls gelöscht.
 
 ## Methoden
 
-Das `session` Objekt implementiert die Methoden, die im Typ {{WebExtAPIRef("storage.StorageArea")}} definiert sind:
+Das `session`-Objekt implementiert die Methoden, die im {{WebExtAPIRef("storage.StorageArea")}}-Typ definiert sind:
 
 - {{WebExtAPIRef("storage.StorageArea.get()", "storage.session.get()")}}
   - : Ruft ein oder mehrere Elemente aus dem Speicherbereich ab.
 - {{WebExtAPIRef("storage.StorageArea.getBytesInUse()", "storage.session.getBytesInUse()")}}
-  - : Ermittelt die Menge des belegten Speicherplatzes (in Bytes) für ein oder mehrere Elemente im Speicherbereich.
+  - : Gibt den Speicherplatz (in Bytes) zurück, der für ein oder mehrere Elemente im Speicherbereich verwendet wird.
 - {{WebExtAPIRef("storage.StorageArea.set()", "storage.session.set()")}}
-  - : Speichert ein oder mehrere Elemente im Speicherbereich. Wenn das Element existiert, wird sein Wert aktualisiert.
+  - : Speichert ein oder mehrere Elemente im Speicherbereich. Wenn das Element bereits existiert, wird sein Wert aktualisiert.
 - {{WebExtAPIRef("storage.StorageArea.setAccessLevel", "storage.session.setAccessLevel()")}}
-  - : Legt das Zugriffslevel für den Speicherbereich fest.
+  - : Legt die Zugriffsebene für den Speicherbereich fest.
 - {{WebExtAPIRef("storage.StorageArea.remove()", "storage.session.remove()")}}
   - : Entfernt ein oder mehrere Elemente aus dem Speicherbereich.
 - {{WebExtAPIRef("storage.StorageArea.clear()", "storage.session.clear()")}}
   - : Entfernt alle Elemente aus dem Speicherbereich.
 
-## Ereignisse
+## Events
 
-Das `session` Objekt implementiert die Ereignisse, die im Typ {{WebExtAPIRef("storage.StorageArea")}} definiert sind:
+Das `session`-Objekt implementiert die Events, die im {{WebExtAPIRef("storage.StorageArea")}}-Typ definiert sind:
 
 - {{WebExtAPIRef("storage.StorageArea.onChanged", "storage.session.onChanged")}}
   - : Wird ausgelöst, wenn sich ein oder mehrere Elemente im Speicherbereich ändern.
@@ -44,7 +45,7 @@ Das `session` Objekt implementiert die Ereignisse, die im Typ {{WebExtAPIRef("st
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#property-session) API. Diese Dokumentation stammt aus [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage#property-session) API. Diese Dokumentation ist abgeleitet von [`storage.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/storage.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

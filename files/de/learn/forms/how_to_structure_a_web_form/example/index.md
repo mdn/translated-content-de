@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}
 
-Dies ist das Beispiel für ein einfaches Zahlungsformular für den Artikel [Wie man ein HTML-Formular strukturiert](/de/docs/Learn/Forms/How_to_structure_a_web_form).
+Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [Wie man ein HTML-Formular strukturiert](/de/docs/Learn/Forms/How_to_structure_a_web_form).
 
 ## Ein Zahlungsformular
 
@@ -17,13 +17,13 @@ Dies ist das Beispiel für ein einfaches Zahlungsformular für den Artikel [Wie 
 <form method="post">
   <h1>Payment form</h1>
   <p>
-    Pflichtfelder sind gekennzeichnet durch
+    Required fields are followed by
     <strong><span aria-label="required">*</span></strong>.
   </p>
   <section>
-    <h2>Kontaktinformationen</h2>
+    <h2>Contact information</h2>
     <fieldset>
-      <legend>Titel</legend>
+      <legend>Title</legend>
       <ul>
         <li>
           <label for="title_1">
@@ -61,17 +61,17 @@ Dies ist das Beispiel für ein einfaches Zahlungsformular für den Artikel [Wie 
     </p>
     <p>
       <label for="pwd">
-        <span>Passwort: </span>
+        <span>Password: </span>
         <strong><span aria-label="required">*</span></strong>
       </label>
       <input type="password" id="pwd" name="password" required />
     </p>
   </section>
   <section>
-    <h2>Zahlungsinformationen</h2>
+    <h2>Payment information</h2>
     <p>
       <label for="card">
-        <span>Kartentyp:</span>
+        <span>Card type:</span>
       </label>
       <select id="card" name="usercard">
         <option value="visa">Visa</option>
@@ -81,14 +81,14 @@ Dies ist das Beispiel für ein einfaches Zahlungsformular für den Artikel [Wie 
     </p>
     <p>
       <label for="number">
-        <span>Kartennummer:</span>
+        <span>Card number:</span>
         <strong><span aria-label="required">*</span></strong>
       </label>
       <input type="tel" id="number" name="cardnumber" />
     </p>
     <p>
       <label for="expiration">
-        <span>Ablaufdatum:</span>
+        <span>Expiration date:</span>
         <strong><span aria-label="required">*</span></strong>
       </label>
       <input
@@ -100,7 +100,7 @@ Dies ist das Beispiel für ein einfaches Zahlungsformular für den Artikel [Wie 
     </p>
   </section>
   <section>
-    <p><button type="submit">Zahlung bestätigen</button></p>
+    <p><button type="submit">Validate the payment</button></p>
   </section>
 </form>
 ```

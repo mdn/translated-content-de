@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`depthUsage`**-Eigenschaft einer `immersive-ar` {{DOMxRef("XRSession")}} beschreibt, welche Tiefenerkennungsnutzung verwendet wird.
+Die _schreibgeschützte_ **`depthUsage`**-Eigenschaft einer `immersive-ar`-[`XRSession`](/de/docs/Web/API/XRSession) beschreibt, welche Tiefenerkennungsnutzung verwendet wird.
 
 ## Wert
 
 Diese Eigenschaft kann die folgenden Werte zurückgeben:
 
 - `cpu-optimized`
-  - : Die Tiefendaten sind zur Verwendung auf der CPU bestimmt; siehe die {{domxref("XRCPUDepthInformation")}} Schnittstelle.
+  - : Die Tiefendaten sind zur Verwendung auf der CPU vorgesehen; siehe das [`XRCPUDepthInformation`](/de/docs/Web/API/XRCPUDepthInformation)-Interface.
 - `gpu-optimized`
-  - : Die Tiefendaten sind zur Verwendung auf der GPU bestimmt; siehe die {{domxref("XRWebGLDepthInformation")}} Schnittstelle.
+  - : Die Tiefendaten sind zur Verwendung auf der GPU vorgesehen; siehe das [`XRWebGLDepthInformation`](/de/docs/Web/API/XRWebGLDepthInformation)-Interface.
 
 ## Beispiele
 
-Um die gewünschte Nutzungsart anzufordern, müssen Sie eine `usagePreference` angeben, wenn Sie eine Sitzung mit {{domxref("XRSystem.requestSession()")}} anfordern. Hier kann der Anrufer sowohl CPU- als auch GPU-optimierte Nutzung verarbeiten. Die Reihenfolge gibt die Präferenz für die CPU an:
+Um die gewünschte Nutzungsmethode anzufordern, müssen Sie eine `usagePreference` angeben, wenn Sie eine Sitzung mit [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) anfordern. Hier kann der Anrufer sowohl CPU- als auch GPU-optimierte Nutzung behandeln. Die Reihenfolge zeigt die Präferenz für die CPU:
 
 ```js
 navigator.xr.requestSession("immersive-ar", {
@@ -36,7 +36,7 @@ navigator.xr.requestSession("immersive-ar", {
 Um zu überprüfen, welche Nutzung vom Benutzeragenten ausgewählt wurde, können Sie die `depthUsage`-Eigenschaft aufrufen:
 
 ```js
-console.log(session.depthUsage); // entweder "cpu-optimized" oder "gpu-optimized"
+console.log(session.depthUsage); // either "cpu-optimized" or "gpu-optimized"
 ```
 
 ## Spezifikationen

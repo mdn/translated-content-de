@@ -1,5 +1,5 @@
 ---
-title: Lokal
+title: Local
 slug: WebAssembly/Reference/Variables/Local
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Der **`local`** Befehl deklariert eine neue lokale Variable.
+Die **`local`**-Anweisung deklariert eine neue lokale Variable.
 
 {{EmbedInteractiveExample("pages/wat/local.html", "tabbed-taller")}}
 

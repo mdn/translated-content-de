@@ -7,6 +7,6 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **_Rasterbild_** ist eine Bilddatei, die als ein Raster von Pixeln definiert ist. Sie werden auch als _Bitmaps_ bezeichnet. Gängige Rasterbildformate im Web sind {{Glossary("JPEG")}}, {{Glossary("PNG")}}, {{Glossary("GIF")}} und [ICO](<https://en.wikipedia.org/wiki/ICO_(file_format)>).
+Ein **_Rasterbild_** ist eine Bilddatei, die als Raster von Pixeln definiert ist. Sie werden auch als _Bitmaps_ bezeichnet. Gängige Formate für Rasterbilder im Web sind [JPEG](/de/docs/Glossary/JPEG), [PNG](/de/docs/Glossary/PNG), [GIF](/de/docs/Glossary/GIF) und [ICO](<https://en.wikipedia.org/wiki/ICO_(file_format)>).
 
-Rasterbilddateien enthalten normalerweise einen Satz von Abmessungen, aber die ICO- und CUR-Formate, die für Favicons und [CSS-Cursor-Bilder](/de/docs/Web/CSS/cursor) verwendet werden, können mehrere Größen enthalten.
+Rasterbilddateien enthalten in der Regel ein Satz von Abmessungen, aber die Formate ICO und CUR, die für Favicons und [CSS-Cursorbilder](/de/docs/Web/CSS/cursor) verwendet werden, können mehrere Größen enthalten.

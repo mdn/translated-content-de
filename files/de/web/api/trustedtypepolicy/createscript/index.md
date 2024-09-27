@@ -1,5 +1,5 @@
 ---
-title: "TrustedTypePolicy: createScript()-Methode"
+title: "TrustedTypePolicy: Methode createScript()"
 short-title: createScript()
 slug: Web/API/TrustedTypePolicy/createScript
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`createScript()`**-Methode des {{domxref("TrustedTypePolicy")}}-Interfaces erstellt ein {{domxref("TrustedScript")}}-Objekt unter Verwendung einer Richtlinie, die durch {{domxref("TrustedTypePolicyFactory.createPolicy()")}} erstellt wurde.
+Die **`createScript()`**-Methode des [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy)-Interfaces erstellt ein [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekt mithilfe einer Richtlinie, die von [`TrustedTypePolicyFactory.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) erstellt wurde.
 
 ## Syntax
 
@@ -20,22 +20,22 @@ createScript(input, args)
 ### Parameter
 
 - `input`
-  - : Ein String, der den zu bereinigenden String durch die Richtlinie enthält.
+  - : Ein String, der die zu bereinigende Zeichenkette durch die Richtlinie enthält.
 - `args` {{optional_inline}}
-  - : Zusätzliche Argumente, die an die durch die {{domxref("TrustedTypePolicy")}} dargestellte Funktion übergeben werden sollen.
+  - : Zusätzliche Argumente, die an die durch [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) repräsentierte Funktion übergeben werden.
 
 ### Rückgabewert
 
-Ein {{domxref("TrustedScript")}}-Objekt.
+Ein [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn {{domxref("TrustedTypePolicy")}} keine Funktion zum Ausführen auf dem Eingabewert enthält.
+  - : Wird ausgelöst, wenn [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) keine Funktion enthält, die auf dem Eingang ausgeführt werden kann.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein String, der ein potenziell riskantes Skript enthält, als Eingabe für `createScript()` verwendet. Die Richtlinie kann dieses Skript bereinigen, bevor es in einen Injektions-Sink eingefügt wird, der es zur Ausführung bringen könnte.
+Im folgenden Beispiel wird ein String, der ein potenziell riskantes Skript enthält, als Eingabe für `createScript()` verwendet. Die Richtlinie kann dieses Skript bereinigen, bevor es in eine Spritzstelle eingefügt wird, die es möglicherweise ausführen könnte.
 
 ```js
 const sanitized = scriptPolicy.createScript("eval('2 + 2')");

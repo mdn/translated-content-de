@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`clip-path`** Präsentationsattribut definiert oder verknüpft einen Clipping-Pfad mit dem damit verbundenen Element.
+Das Präsentationsattribut **`clip-path`** definiert oder verbindet einen Clipping-Pfad mit dem zugehörigen Element.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `clip-path` als CSS-Eigenschaft verwendet werden.
@@ -50,7 +50,7 @@ svg {
     <circle cx=".5" cy=".5" r=".5" />
   </clipPath>
 
-  <!-- Oben links: Ein benutzerdefinierter Clipping-Pfad anwenden -->
+  <!-- Top-left: Apply a custom defined clipping path -->
   <rect
     x="1"
     y="1"
@@ -59,7 +59,9 @@ svg {
     stroke="green"
     clip-path="url(#myClip)" />
 
-  <!-- Oben rechts: Eine CSS-Basisform auf eine Füllbox-Geometrie anwenden. Dies entspricht einem benutzerdefinierten Clipping-Pfad mit clipPathUnits auf objectBoundingBox-->
+  <!-- Top-right: Apply a CSS basic shape on a fill-box
+       geometry. This is the same as having a custom clipping
+       path with a clipPathUnits set to objectBoundingBox -->
   <rect
     x="11"
     y="1"
@@ -68,7 +70,7 @@ svg {
     stroke="green"
     clip-path="circle() fill-box" />
 
-  <!-- Unten links -->
+  <!-- Bottom-left -->
   <rect
     x="1"
     y="11"
@@ -77,7 +79,9 @@ svg {
     stroke="green"
     clip-path="circle() stroke-box" />
 
-  <!-- Unten rechts: Eine CSS-Basisform auf eine Ansichtsbox-Geometrie anwenden. Dies entspricht einem benutzerdefinierten Clipping-Pfad mit clipPathUnits auf userSpaceOnUse-->
+  <!-- Bottom-right: Apply a CSS basic shape on a view-box
+       geometry. This is the same as having a custom clipping
+       path with a clipPathUnits set to userSpaceOnUse -->
   <rect
     x="11"
     y="11"
@@ -113,10 +117,10 @@ svg {
 </table>
 
 - \<geometry-box>
-  - : Zusätzliche Information, wie eine {{cssxref('basic-shape')}} auf ein Element angewendet wird: `fill-box` weist darauf hin, die Objektbegrenzungsbox zu verwenden; `stroke-box` weist darauf hin, die der Objektbegrenzungsbox mit der Umrandung zu verwenden; `view-box` weist darauf hin, die nächstgelegene SVG-Ansichtsbox als Referenzbox zu verwenden.
+  - : Eine zusätzliche Information, um anzugeben, wie eine {{cssxref('basic-shape')}} auf ein Element angewendet wird: `fill-box` zeigt an, dass die Umrandung des Objekts verwendet wird; `stroke-box` zeigt an, dass die Umrandung des Objekts, einschließlich der Kontur, verwendet wird; `view-box` zeigt an, dass der nächste SVG-Ansichtsbereich als Referenzbox verwendet wird.
 
 > [!NOTE]
-> Weitere Details zur clip-path-Syntax finden Sie auf der CSS-Eigenschaftsseite {{cssxref('clip-path')}}.
+> Weitere Informationen zur `clip-path`-Syntax finden Sie auf der Referenzseite zur CSS-Eigenschaft {{cssxref('clip-path')}}.
 
 ## Spezifikationen
 

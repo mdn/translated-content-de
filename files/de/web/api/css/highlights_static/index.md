@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die statische, schreibgeschützte **`highlights`** Eigenschaft des {{domxref("CSS")}} Interface bietet Zugriff auf das `HighlightRegistry`, welches zur Stilisierung beliebiger Textbereiche mit der {{domxref("css_custom_highlight_api", "CSS Custom Highlight API", "", "nocode")}} verwendet wird.
+Die statische, schreibgeschützte **`highlights`** Eigenschaft der [`CSS`](/de/docs/Web/API/CSS)-Schnittstelle ermöglicht den Zugriff auf das `HighlightRegistry`, das zum Stylen beliebiger Textbereiche unter Verwendung der [CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api) genutzt wird.
 
 ## Wert
 
-Das {{DOMxRef("HighlightRegistry")}} Objekt.
+Das [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie mehrere Textbereiche erstellt werden, dann ein `Highlight`-Objekt für diese erstellt, dieses Highlight im `HighlightRegistry` registriert wird und schließlich die Textbereiche mithilfe des {{cssxref("::highlight", "::highlight()")}} Pseudoelements gestylt werden.
+Das folgende Beispiel demonstriert das Erstellen mehrerer Textbereiche, das Erstellen eines `Highlight`-Objekts für diese, das Registrieren dieses Highlights im `HighlightRegistry`, und schließlich das Stylen der Textbereiche mithilfe des {{cssxref("::highlight", "::highlight()")}} Pseudoelements.
 
 ```js
 const parentNode = document.getElementById("foo");
@@ -51,5 +51,5 @@ CSS.highlights.set("my-custom-highlight", myCustomHighlight);
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "Die CSS Custom Highlight API", "", "nocode")}}
-- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [CSS Custom Highlight API: Die Zukunft des Markierens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

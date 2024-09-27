@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Touch Events")}}
 
-Der **`TouchEvent()`** Konstruktor erstellt ein neues {{domxref("TouchEvent")}} Objekt.
+Der **`TouchEvent()`**-Konstruktor erstellt ein neues [`TouchEvent`](/de/docs/Web/API/TouchEvent)-Objekt.
 
 > [!NOTE]
-> Wenn Sie ein synthetisches Ereignis mit diesem Konstruktor erstellen, wird dieses Ereignis aus Sicherheitsgründen nicht _vertrauenswürdig_ sein.
-> Nur vom Browser generierte `TouchEvent` Objekte sind vertrauenswürdig und nur vertrauenswürdige Ereignisse lösen Standardaktionen aus.
+> Wenn Sie ein synthetisches Ereignis mit diesem Konstruktor erstellen, wird dieses Ereignis aus Sicherheitsgründen nicht _zuverlässig_ sein.
+> Nur vom Browser generierte `TouchEvent`-Objekte sind zuverlässig und nur zuverlässige Ereignisse lösen Standardaktionen aus.
 
 ## Syntax
 
@@ -25,16 +25,16 @@ new TouchEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist groß- und kleinschreibungssensitiv und Browser setzen es auf `touchstart`, `touchend`, `touchmove`, `touchcancel`.
+    Es ist groß- und kleinschreibungssensitiv und Browser setzen es auf `touchstart`, `touchend`, `touchmove`, `touchcancel`
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("UIEvent/UIEvent", "UIEvent()")}} definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`UIEvent()`](/de/docs/Web/API/UIEvent/UIEvent) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `touches` {{optional_inline}}
-      - : Eine {{domxref("TouchList")}}, standardmäßig leer, die eine Liste von Objekten für jeden Berührungspunkt, der derzeit die Oberfläche berührt, darstellt.
+      - : Ein [`TouchList`](/de/docs/Web/API/TouchList), standardmäßig eine leere, die eine Liste von Objekten für jeden Berührungspunkt darstellt, der momentan die Oberfläche berührt.
     - `targetTouches` {{optional_inline}}
-      - : Eine {{domxref("TouchList")}}, standardmäßig leer, die eine Liste von Objekten für jeden Berührungspunkt darstellt, der die Oberfläche berührt
-        _und_ auf dem Element begann, das Ziel des aktuellen Ereignisses ist.
+      - : Ein [`TouchList`](/de/docs/Web/API/TouchList), standardmäßig eine leere, die eine Liste von Objekten für jeden Berührungspunkt darstellt, der die Oberfläche berührt
+        _und_ auf dem Element begann, das das Ziel des aktuellen Ereignisses ist.
     - `changedTouches` {{optional_inline}}
-      - : und standardmäßig `[]`, vom Typ `Touch[]`, das ist eine Liste von Objekten für jeden Berührungspunkt, der zum Ereignis beigetragen hat.
+      - : und standardmäßig `[]`, vom Typ `Touch[]`, das eine Liste von Objekten für jeden Berührungspunkt darstellt, der zum Ereignis beigetragen hat.
     - `ctrlKey` {{optional_inline}}
       - : Ein boolescher Wert, standardmäßig `false`, der angibt, ob die <kbd>ctrl</kbd>-Taste gleichzeitig gedrückt wurde.
     - `shiftKey` {{optional_inline}}
@@ -46,7 +46,7 @@ new TouchEvent(type, options)
 
 ### Rückgabewert
 
-Ein neues {{domxref("TouchEvent")}} Objekt.
+Ein neues [`TouchEvent`](/de/docs/Web/API/TouchEvent)-Objekt.
 
 ## Spezifikationen
 
@@ -58,4 +58,4 @@ Ein neues {{domxref("TouchEvent")}} Objekt.
 
 ## Siehe auch
 
-- {{domxref("TouchEvent")}}, die Schnittstelle der Objekte, die es konstruiert.
+- [`TouchEvent`](/de/docs/Web/API/TouchEvent), das Interface der Objekte, die es erstellt.

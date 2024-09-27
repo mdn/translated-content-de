@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`isPrototypeOf()`** von {{jsxref("Object")}}-Instanzen prüft, ob dieses Objekt in der Prototypenkette eines anderen Objekts existiert.
+Die **`isPrototypeOf()`**-Methode von {{jsxref("Object")}}-Instanzen prüft, ob dieses Objekt in der Prototypenkette eines anderen Objekts existiert.
 
 > **Note:** `isPrototypeOf()` unterscheidet sich vom [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof)-Operator. In dem Ausdruck `object instanceof AFunction` wird die Prototypenkette von `object` gegen `AFunction.prototype` geprüft, nicht gegen `AFunction` selbst.
 
@@ -26,16 +26,16 @@ isPrototypeOf(object)
 
 ### Rückgabewert
 
-Ein Boolean, der angibt, ob das aufrufende Objekt (`this`) in der Prototypenkette von `object` liegt. Gibt direkt `false` zurück, wenn `object` kein Objekt ist (d. h. ein primitiver Wert).
+Ein boolean, das angibt, ob das aufrufende Objekt (`this`) in der Prototypenkette von `object` liegt. Gibt direkt `false` zurück, wenn `object` kein Objekt ist (d.h. ein primitiver Wert).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `this` `null` oder `undefined` ist (weil es nicht [in ein Objekt konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion) werden kann).
+  - : Wird ausgelöst, wenn `this` `null` oder `undefined` ist (weil es nicht [in ein Objekt umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion) werden kann).
 
 ## Beschreibung
 
-Alle Objekte, die von `Object.prototype` erben (das heißt alle bis auf [`null`-Prototyp-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)), erben die `isPrototypeOf()`-Methode. Diese Methode ermöglicht es Ihnen zu überprüfen, ob das Objekt innerhalb der Prototypenkette eines anderen Objekts existiert. Wenn das als Parameter übergebene `object` kein Objekt ist (d. h. ein primitiver Wert), gibt die Methode direkt `false` zurück. Andernfalls wird der `this`-Wert [in ein Objekt konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion), und die Prototypenkette von `object` wird nach dem `this`-Wert durchsucht, bis das Ende der Kette erreicht ist oder der `this`-Wert gefunden wird.
+Alle Objekte, die von `Object.prototype` erben (das heißt, alle außer [Objekten mit null-Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)), erben die `isPrototypeOf()`-Methode. Diese Methode ermöglicht es Ihnen zu überprüfen, ob das Objekt in der Prototypenkette eines anderen Objekts existiert. Wenn das als Parameter übergebene `object` kein Objekt ist (d.h. ein primitiver Wert), gibt die Methode direkt `false` zurück. Anderenfalls wird der `this`-Wert [in ein Objekt umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion), und die Prototypenkette von `object` wird nach dem `this`-Wert durchsucht, bis das Ende der Kette erreicht ist oder der `this`-Wert gefunden wurde.
 
 ## Beispiele
 
@@ -52,7 +52,7 @@ const foo = new Foo();
 const bar = new Bar();
 const baz = new Baz();
 
-// Prototypenketten:
+// prototype chains:
 // foo: Foo --> Object
 // bar: Bar --> Foo --> Object
 // baz: Baz --> Bar --> Foo --> Object
@@ -66,17 +66,17 @@ console.log(Foo.prototype.isPrototypeOf(bar)); // true
 console.log(Object.prototype.isPrototypeOf(baz)); // true
 ```
 
-Die Methode `isPrototypeOf()` — zusammen mit dem {{jsxref("Operators/instanceof", "instanceof")}}-Operator — ist besonders nützlich, wenn Sie Code haben, der nur funktionieren kann, wenn mit Objekten gearbeitet wird, die von einer bestimmten Prototypenkette abstammen; z.B., um sicherzustellen, dass bestimmte Methoden oder Eigenschaften auf diesem Objekt vorhanden sind.
+Die `isPrototypeOf()`-Methode — zusammen mit dem {{jsxref("Operators/instanceof", "instanceof")}}-Operator — ist besonders nützlich, wenn Sie Code haben, der nur funktionieren kann, wenn er mit Objekten aus einer bestimmten Prototypenkette arbeitet; z.B. um sicherzustellen, dass bestimmte Methoden oder Eigenschaften auf diesem Objekt vorhanden sein werden.
 
-Zum Beispiel, um Code auszuführen, der nur sicher auszuführen ist, wenn ein `baz`-Objekt `Foo.prototype` in seiner Prototypenkette hat, können Sie dies tun:
+Zum Beispiel, um Code auszuführen, der nur sicher ist, wenn ein `baz`-Objekt `Foo.prototype` in seiner Prototypenkette hat, können Sie dies tun:
 
 ```js
 if (Foo.prototype.isPrototypeOf(baz)) {
-  // etwas sicheres tun
+  // do something safe
 }
 ```
 
-Allerdings impliziert die Existenz von `Foo.prototype` in der Prototypenkette von `baz` nicht, dass `baz` mit `Foo` als Konstruktor erstellt wurde. Zum Beispiel könnte `baz` direkt mit `Foo.prototype` als Prototyp zugewiesen werden. In diesem Fall, wenn Ihr Code [private Felder](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) von `Foo` aus `baz` lesen würde, würde er trotzdem fehlschlagen:
+Allerdings impliziert die Existenz von `Foo.prototype` in `baz`'s Prototypenkette nicht, dass `baz` mit `Foo` als Konstruktor erstellt wurde. Zum Beispiel könnte `baz` direkt mit `Foo.prototype` als seinen Prototypen zugewiesen worden sein. In diesem Fall würde Ihr Code, wenn er [private Felder](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) von `Foo` aus `baz` liest, dennoch fehlschlagen:
 
 ```js
 class Foo {
@@ -93,7 +93,7 @@ if (Foo.prototype.isPrototypeOf(baz)) {
 }
 ```
 
-Das Gleiche gilt für [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof). Wenn Sie private Felder auf sichere Weise lesen müssen, bieten Sie stattdessen eine gebrandete Überprüfungsmethode mit [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) an.
+Dasselbe gilt für [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof). Wenn Sie private Felder auf eine sichere Weise lesen müssen, bieten Sie stattdessen eine geprüfte Prüfmethode mit [`in`](/de/docs/Web/JavaScript/Reference/Operators/in) an.
 
 ```js
 class Foo {
@@ -109,7 +109,7 @@ class Foo {
 const baz = { __proto__: Foo.prototype };
 
 if (Foo.isFoo(baz)) {
-  // Läuft nicht, weil baz kein Foo ist
+  // Doesn't run, because baz is not a Foo
   console.log(Foo.getValue(baz));
 }
 ```

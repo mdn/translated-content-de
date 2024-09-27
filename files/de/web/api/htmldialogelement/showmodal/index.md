@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`showModal()`**-Methode der {{domxref("HTMLDialogElement")}}-Schnittstelle zeigt den Dialog als modales Fenster über allen anderen möglicherweise vorhandenen Dialogen an. Es wird in der {{glossary("top layer")}} zusammen mit einem {{cssxref('::backdrop')}} Pseudoelement angezeigt. Die Interaktion außerhalb des Dialogs ist gesperrt und der Inhalt außerhalb wird inaktiv dargestellt.
+Die **`showModal()`**-Methode des Interfaces [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) zeigt den Dialog als Modal an, über alle anderen eventuell vorhandenen Dialoge. Sie wird in der [obersten Schicht](/de/docs/Glossary/top_layer) zusammen mit einem {{cssxref('::backdrop')}} Pseudo-Element angezeigt. Interaktion außerhalb des Dialogs wird blockiert und der Inhalt außerhalb wird unempfindlich.
 
 ## Syntax
 
@@ -22,43 +22,43 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Dialog bereits geöffnet ist (d. h., wenn das `open`-Attribut bereits auf dem {{htmlelement("dialog")}}-Element gesetzt ist), oder wenn der Dialog auch ein [Popover](/de/docs/Web/API/Popover_API) ist, das bereits angezeigt wird.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Dialog bereits geöffnet ist (d. h. wenn das `open`-Attribut bereits auf dem {{htmlelement("dialog")}}-Element gesetzt ist) oder wenn der Dialog auch ein [Popover](/de/docs/Web/API/Popover_API) ist, das bereits angezeigt wird.
 
 ## Beispiele
 
 ### Öffnen eines modalen Dialogs
 
-Das folgende Beispiel zeigt einen Button, der beim Klicken ein modales {{htmlelement("dialog")}} mit einem Formular über die `HTMLDialogElement.showModal()`-Funktion öffnet. Während es geöffnet ist, ist alles außer dem Inhalt des modalen Dialogs inaktiv. Von dort aus können Sie auf die Schaltfläche _Abbrechen_ klicken, um den Dialog zu schließen (über die {{domxref("HTMLDialogElement.close()")}}-Funktion) oder das Formular über die Absenden-Schaltfläche senden. Durch Auswahl der Abbrechen-Schaltfläche wird der Dialog geschlossen und ein {{domxref("HTMLDialogElement/close_event", "close")}}-Ereignis ausgelöst, nicht jedoch ein {{domxref("HTMLElement/cancel_event", "cancel")}}-Ereignis.
+Das folgende Beispiel zeigt eine Schaltfläche, die bei einem Klick ein modales {{htmlelement("dialog")}} mit einem Formular über die `HTMLDialogElement.showModal()`-Funktion öffnet. Solange es geöffnet ist, ist alles außer dem Inhalt des modalen Dialogs unempfindlich. Von dort aus können Sie auf die Schaltfläche _Abbrechen_ klicken, um den Dialog zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Funktion) oder das Formular über die Senden-Schaltfläche abschicken. Das Auswählen der Abbrechen-Schaltfläche schließt den Dialog und erzeugt ein [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis, kein [`cancel`](/de/docs/Web/API/HTMLElement/cancel_event)-Ereignis.
 
 #### HTML
 
 ```html
-<!-- Popup-Dialogfeld, das ein Formular enthält -->
+<!-- pop-up dialog box, containing a form -->
 <dialog id="favDialog">
   <form method="dialog">
     <p>
-      <label for="favAnimal">Lieblingstier:</label>
+      <label for="favAnimal">Favorite animal:</label>
       <select id="favAnimal" name="favAnimal">
         <option></option>
-        <option>Salinenkrebs</option>
-        <option>Roter Panda</option>
-        <option>Klammeraffe</option>
+        <option>Brine shrimp</option>
+        <option>Red panda</option>
+        <option>Spider monkey</option>
       </select>
     </p>
     <div>
-      <button id="cancel" type="reset">Abbrechen</button>
-      <button type="submit">Bestätigen</button>
+      <button id="cancel" type="reset">Cancel</button>
+      <button type="submit">Confirm</button>
     </div>
   </form>
 </dialog>
 
 <div>
-  <button id="updateDetails">Details aktualisieren</button>
+  <button id="updateDetails">Update details</button>
 </div>
 ```
 
@@ -72,19 +72,19 @@ dialog.returnValue = "favAnimal";
 
 function openCheck(dialog) {
   if (dialog.open) {
-    console.log("Dialog geöffnet");
+    console.log("Dialog open");
   } else {
-    console.log("Dialog geschlossen");
+    console.log("Dialog closed");
   }
 }
 
-// Aktualisierungs-Button öffnet einen modalen Dialog
+// Update button opens a modal dialog
 updateButton.addEventListener("click", () => {
   dialog.showModal();
   openCheck(dialog);
 });
 
-// Abbrechen-Schaltfläche im Formular schließt das Dialogfeld
+// Form cancel button closes the dialog box
 cancelButton.addEventListener("click", () => {
   dialog.close("animalNotChosen");
   openCheck(dialog);
@@ -105,4 +105,4 @@ cancelButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("dialog") }}.
+- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.

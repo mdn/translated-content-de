@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`:target-within`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das ein Zielelement ist oder ein Element _enthält_, das ein Ziel ist. Ein Zielelement ist ein einzigartiges Element mit einer [`id`](/de/docs/Web/HTML/Global_attributes#id), die dem Fragment der URL entspricht. Mit anderen Worten, es repräsentiert ein Element, das selbst durch die {{CSSxRef(":target")}}-Pseudoklasse oder durch `:target` auf einen seiner Nachkommen gematcht wird. (Dies schließt Nachkommen in [Shadow Trees](/de/docs/Web/API/Web_components/Using_shadow_DOM) ein.)
+Die **`:target-within`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das entweder ein Zielelement ist oder ein Element _enthält_, das ein Ziel ist. Ein Zielelement ist ein einzigartiges Element mit einer [`id`](/de/docs/Web/HTML/Global_attributes#id), die mit dem Fragment der URL übereinstimmt. Mit anderen Worten, es repräsentiert ein Element, das selbst durch die {{CSSxRef(":target")}} Pseudoklasse übereinstimmt oder einen Nachkommen hat, der durch `:target` übereinstimmt. (Dies schließt Nachkommen in [Shadow Trees](/de/docs/Web/API/Web_components/Using_shadow_DOM) ein.)
 
 ```css
-/* Wählt ein <div> aus, wenn einer seiner Nachkommen ein Ziel ist */
+/* Selects a <div> when one of its descendants is a target */
 div:target-within {
   background: cyan;
 }
@@ -26,26 +26,28 @@ div:target-within {
 
 ## Beispiele
 
-### Hervorheben eines Artikels
+### Hervorhebung eines Artikels
 
-Die `:target-within`-Pseudoklasse kann verwendet werden, um den Artikel hervorzuheben, wenn etwas darin direkt verlinkt wurde. Die `:target`-Pseudoklasse wird ebenfalls verwendet, um anzuzeigen, welches Element gezielt wurde.
+Die `:target-within` Pseudoklasse kann verwendet werden, um den Artikel hervorzuheben, wenn irgendetwas innerhalb direkt verlinkt wurde. Die `:target` Pseudoklasse wird ebenfalls verwendet, um anzuzeigen, welches Element gezielt wurde.
 
 #### HTML
 
 ```html
-<h3>Inhaltsverzeichnis</h3>
+<h3>Table of Contents</h3>
 <ol>
-  <li><a href="#p1">Zum ersten Absatz springen!</a></li>
-  <li><a href="#p2">Zum zweiten Absatz springen!</a></li>
+  <li><a href="#p1">Jump to the first paragraph!</a></li>
+  <li><a href="#p2">Jump to the second paragraph!</a></li>
 </ol>
 
 <article>
-  <h3>Mein spaßiger Artikel</h3>
+  <h3>My Fun Article</h3>
   <p id="p1">
-    Sie können <i>diesen Absatz</i> mit einem URL-Fragment anvisieren. Klicken Sie oben auf den Link, um es auszuprobieren!
+    You can target <i>this paragraph</i> using a URL fragment. Click on the link
+    above to try out!
   </p>
   <p id="p2">
-    Dies ist <i>ein weiterer Absatz</i>, der ebenfalls über die obigen Links zugänglich ist. Ist das nicht erfreulich?
+    This is <i>another paragraph</i>, also accessible from the links above.
+    Isn't that delightful?
   </p>
 </article>
 ```
@@ -57,7 +59,7 @@ article:target-within {
   background-color: gold;
 }
 
-/* Ein Pseudoelement innerhalb des Zielelements hinzufügen */
+/* Add a pseudo-element inside the target element */
 p:target::before {
   font: 70% sans-serif;
   content: "►";
@@ -65,7 +67,7 @@ p:target::before {
   margin-right: 0.25em;
 }
 
-/* Stil für kursiv gesetzte Elemente innerhalb des Zielelements */
+/* Style italic elements within the target element */
 p:target i {
   color: red;
 }

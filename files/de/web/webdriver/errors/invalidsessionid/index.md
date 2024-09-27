@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Errors")}}
 
-Der **ungültige Sitzungs-ID**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn der Server die eindeutige Sitzungskennung nicht erkennt. Dies passiert, wenn die [Sitzung gelöscht wurde](/de/docs/Web/WebDriver/Commands/DeleteSession) oder wenn die Sitzungs-ID ungültig ist.
+Der Fehler **ungültige Sitzungs-ID** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn der Server die eindeutige Sitzungskennung nicht erkennt. Dies geschieht, wenn die [Sitzung gelöscht wurde](/de/docs/Web/WebDriver/Commands/DeleteSession) oder wenn die Sitzungs-ID ungültig ist.
 
 ## Beispiel
 
@@ -66,7 +66,7 @@ No active session with ID 46197c16-8373-469b-bc56-4c4d9e4132b4
 ## Siehe auch
 
 - [Liste der WebDriver-Fehler](/de/docs/Web/WebDriver/Errors)
-- [Session nicht erstellt](/de/docs/Web/WebDriver/Errors/SessionNotCreated)
+- [Sitzung nicht erstellt](/de/docs/Web/WebDriver/Errors/SessionNotCreated)
 - Verwandte WebDriver-Befehle:
 
   - [Neue Sitzung](/de/docs/Web/WebDriver/Commands/NewSession)

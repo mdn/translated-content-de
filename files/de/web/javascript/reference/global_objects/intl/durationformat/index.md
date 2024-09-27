@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Das **`Intl.DurationFormat`**-Objekt ermöglicht eine sprachsensitive Formatierung von Dauern.
+Das **`Intl.DurationFormat`**-Objekt ermöglicht sprachsensitive Dauerformatierung.
 
 ## Konstruktor
 
@@ -17,9 +17,9 @@ Das **`Intl.DurationFormat`**-Objekt ermöglicht eine sprachsensitive Formatieru
 ## Statische Methoden
 
 - {{jsxref("Intl/DurationFormat/supportedLocalesOf", "Intl.DurationFormat.supportedLocalesOf()")}}
-  - : Gibt ein Array zurück, das die der bereitgestellten Lokalisierungen enthält, die unterstützt werden, ohne auf die Standardlokalisierung der Laufzeitumgebung zurückgreifen zu müssen.
+  - : Gibt ein Array zurück, das die unterstützten bereitgestellten Sprachgebiete enthält, ohne auf das Standard-Sprachgebiet der Laufzeitumgebung zurückgreifen zu müssen.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 Diese Eigenschaften sind auf `Intl.DurationFormat.prototype` definiert und werden von allen `Intl.DurationFormat`-Instanzen geteilt.
 
@@ -28,20 +28,20 @@ Diese Eigenschaften sind auf `Intl.DurationFormat.prototype` definiert und werde
 - `Intl.DurationFormat.prototype[Symbol.toStringTag]`
   - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Intl.DurationFormat"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - {{jsxref("Intl/DurationFormat/format", "Intl.DurationFormat.prototype.format()")}}
-  - : Getter-Funktion, die eine Dauer entsprechend der Locale und den Formatierungsoptionen dieses `DurationFormat`-Objekts formatiert.
+  - : Getter-Funktion, die eine Dauer gemäß dem Sprachgebiet und den Formatierungsoptionen dieses `DurationFormat`-Objekts formatiert.
 - {{jsxref("Intl/DurationFormat/formatToParts", "Intl.DurationFormat.prototype.formatToParts()")}}
   - : Gibt ein {{jsxref("Array")}} von Objekten zurück, das die formatierte Dauer in Teilen darstellt.
 - {{jsxref("Intl/DurationFormat/resolvedOptions", "Intl.DurationFormat.prototype.resolvedOptions()")}}
-  - : Gibt ein neues Objekt zurück, das Eigenschaften enthält, die die während der Initialisierung des Objekts berechneten Locale- und Formatierungsoptionen widerspiegeln.
+  - : Gibt ein neues Objekt mit Eigenschaften zurück, die das Sprachgebiet und die während der Initialisierung des Objekts berechneten Formatierungsoptionen widerspiegeln.
 
 ## Beispiele
 
 ### Verwendung von Intl.DurationFormat
 
-Die folgenden Beispiele zeigen, wie das `Intl.DurationFormat`-Objekt verwendet wird, um ein Dauerobjekt mit verschiedenen Lokalisierungen und Stilen zu formatieren.
+Die unten stehenden Beispiele zeigen, wie das `Intl.DurationFormat`-Objekt verwendet wird, um ein Dauerobjekt mit verschiedenen Sprachgebieten und Stilen zu formatieren.
 
 ```js
 const duration = {
@@ -50,15 +50,15 @@ const duration = {
   seconds: 40,
 };
 
-// Mit Stil "long" und Lokalisierung "fr-FR"
+// With style set to "long" and locale "fr-FR"
 new Intl.DurationFormat("fr-FR", { style: "long" }).format(duration);
 // "1 heure, 46 minutes et 40 secondes"
 
-// Mit Stil "short" und Lokalisierung "en"
+// With style set to "short" and locale "en"
 new Intl.DurationFormat("en", { style: "short" }).format(duration);
 // "1 hr, 46 min and 40 sec"
 
-// Mit Stil "narrow" und Lokalisierung "pt"
+// With style set to "narrow" and locale "pt"
 new Intl.DurationFormat("pt", { style: "narrow" }).format(duration);
 // "1h 46min 40s"
 ```

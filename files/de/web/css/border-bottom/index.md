@@ -7,27 +7,27 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-bottom`** [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft setzt den unteren [Rahmen](/de/docs/Web/CSS/border) eines Elements. Sie legt die Werte von {{cssxref("border-bottom-width")}}, {{cssxref("border-bottom-style")}} und {{cssxref("border-bottom-color")}} fest.
+Die **`border-bottom`** [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) der [CSS](/de/docs/Web/CSS) Eigenschaft legt den unteren [Rahmen](/de/docs/Web/CSS/border) eines Elements fest. Sie setzt die Werte von {{cssxref("border-bottom-width")}}, {{cssxref("border-bottom-style")}} und {{cssxref("border-bottom-color")}}.
 
 {{EmbedInteractiveExample("pages/css/border-bottom.html")}}
 
-Wie bei allen Kurzschreibweise-Eigenschaften legt `border-bottom` immer die Werte aller Eigenschaften fest, die es setzen kann, selbst wenn sie nicht spezifiziert sind. Die nicht spezifizierten werden auf ihre Standardwerte gesetzt. Betrachten Sie den folgenden Code:
+Wie bei allen Kurzschreib-Eigenschaften setzt `border-bottom` immer die Werte aller Eigenschaften, die sie setzen kann, auch wenn diese nicht spezifiziert sind. Sie setzt diejenigen, die nicht spezifiziert sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
 
 ```css
 border-bottom-style: dotted;
 border-bottom: thick green;
 ```
 
-Es ist tatsächlich dasselbe wie dieses hier:
+Dieser entspricht eigentlich diesem:
 
 ```css
 border-bottom-style: dotted;
 border-bottom: none thick green;
 ```
 
-Der Wert von {{cssxref("border-bottom-style")}}, der vor `border-bottom` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-bottom-style")}} `none` ist, führt das Nicht-Angeben des `border-style`-Teils zu keinem Rahmen.
+Der vor `border-bottom` angegebene Wert von {{cssxref("border-bottom-style")}} wird ignoriert. Da der Standardwert von {{cssxref("border-bottom-style")}} `none` ist, führt das Nichtangeben des `border-style`-Teils zu keinem Rahmen.
 
-## Bestandteile Eigenschaften
+## Bestandteileigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -42,7 +42,7 @@ border-bottom: 1px;
 border-bottom: 2px dotted;
 border-bottom: medium dashed blue;
 
-/* Globale Werte */
+/* Global values */
 border-bottom: inherit;
 border-bottom: initial;
 border-bottom: revert;
@@ -50,7 +50,7 @@ border-bottom: revert-layer;
 border-bottom: unset;
 ```
 
-Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen können weggelassen werden.
+Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben werden, und einer oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -71,12 +71,12 @@ Die drei Werte der Kurzschreibweise können in beliebiger Reihenfolge angegeben 
 
 ## Beispiele
 
-### Anwendung eines unteren Rahmens
+### Anwenden eines unteren Rahmens
 
 #### HTML
 
 ```html
-<div>Dieses Feld hat einen Rahmen an der Unterseite.</div>
+<div>This box has a border on the bottom side.</div>
 ```
 
 #### CSS

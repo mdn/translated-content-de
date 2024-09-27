@@ -1,5 +1,5 @@
 ---
-title: "Gamepad: Index-Eigenschaft"
+title: "Gamepad: index-Eigenschaft"
 short-title: index
 slug: Web/API/Gamepad/index
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Gamepad API")}}{{SecureContext_Header}}
 
-Die **`Gamepad.index`**-Eigenschaft der {{domxref("Gamepad") }}-Schnittstelle gibt eine Ganzzahl zurück, die automatisch inkrementiert wird, um für jedes aktuell mit dem System verbundene Gerät eindeutig zu sein.
+Die **`Gamepad.index`**-Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces liefert eine ganze Zahl zurück, die automatisch inkrementiert wird, um für jedes aktuell mit dem System verbundene Gerät eindeutig zu sein.
 
 Dies kann verwendet werden, um mehrere Controller zu unterscheiden; ein Gamepad, das getrennt und wieder verbunden wird, behält denselben Index.
 

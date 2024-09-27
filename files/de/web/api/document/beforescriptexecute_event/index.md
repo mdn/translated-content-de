@@ -1,5 +1,5 @@
 ---
-title: "Dokument: beforescriptexecute-Ereignis"
+title: "Document: beforescriptexecute Ereignis"
 short-title: beforescriptexecute
 slug: Web/API/Document/beforescriptexecute_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}{{non-standard_header}}
 
-Das `beforescriptexecute`-Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element kurz davor steht, ausgeführt zu werden. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, z. B. mit {{domxref("Node.appendChild()", "appendChild()")}}.
+Das `beforescriptexecute`-Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}} kurz vor der Ausführung steht. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, zum Beispiel mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("beforescriptexecute", (event) => {});
@@ -22,7 +22,7 @@ onbeforescriptexecute = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -32,21 +32,21 @@ function starting(e) {
 }
 
 document.addEventListener("beforescriptexecute", starting, true);
-// oder
+// or
 document.onbeforescriptexecute = starting;
 ```
 
-[Beispiel live ansehen](https://mdn.dev/archives/media/samples/html/currentScript.html)
+[Live-Beispiel ansehen](https://mdn.dev/archives/media/samples/html/currentScript.html)
 
 ## Spezifikationen
 
-Ist Teil keiner Spezifikation.
+Ist nicht Teil einer Spezifikation.
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Document.afterscriptexecute_event", "afterscriptexecute")}}-Ereignis von `Document`
-- {{domxref("Document.currentScript")}}
+- [`afterscriptexecute`](/de/docs/Web/API/Document/afterscriptexecute_event) Ereignis von `Document`
+- [`Document.currentScript`](/de/docs/Web/API/Document/currentScript)

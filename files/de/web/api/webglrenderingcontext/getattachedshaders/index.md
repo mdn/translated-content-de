@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode getAttachedShaders()"
+title: "WebGLRenderingContext: getAttachedShaders() Methode"
 short-title: getAttachedShaders()
 slug: Web/API/WebGLRenderingContext/getAttachedShaders
 l10n:
@@ -8,9 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.getAttachedShaders()`**-Methode der
-[WebGL-API](/de/docs/Web/API/WebGL_API) gibt eine Liste von
-{{domxref("WebGLShader")}}-Objekten zurück, die an ein {{domxref("WebGLProgram")}} angehängt sind.
+Die **`WebGLRenderingContext.getAttachedShaders()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt eine Liste von
+[`WebGLShader`](/de/docs/Web/API/WebGLShader)-Objekten zurück, die an ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) angehängt sind.
 
 ## Syntax
 
@@ -21,11 +20,11 @@ getAttachedShaders(program)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}-Objekt, für das die angehängten Shader ermittelt werden sollen.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt, um die angehängten Shader zu erhalten.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von {{domxref("WebGLShader")}}-Objekten, die an das
+Ein {{jsxref("Array")}} von [`WebGLShader`](/de/docs/Web/API/WebGLShader)-Objekten, die an das
 angegebene `WebGLProgram` angehängt sind.
 
 ## Beispiele
@@ -33,7 +32,7 @@ angegebene `WebGLProgram` angehängt sind.
 ```js
 const program = gl.createProgram();
 
-// Vorhandene Shader anhängen
+// Attach pre-existing shaders
 gl.attachShader(program, vertexShader);
 gl.attachShader(program, fragmentShader);
 gl.linkProgram(program);
@@ -51,6 +50,6 @@ gl.getAttachedShaders(program);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.createShader()")}}
-- {{domxref("WebGLRenderingContext.isShader()")}}
-- {{domxref("WebGLRenderingContext.deleteShader()")}}
+- [`WebGLRenderingContext.createShader()`](/de/docs/Web/API/WebGLRenderingContext/createShader)
+- [`WebGLRenderingContext.isShader()`](/de/docs/Web/API/WebGLRenderingContext/isShader)
+- [`WebGLRenderingContext.deleteShader()`](/de/docs/Web/API/WebGLRenderingContext/deleteShader)

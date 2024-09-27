@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`sampleRate`**-Attribut des {{domxref("MediaTrackSettings")}}-Wörterbuchs ist eine Ganzzahl, die angibt, wie viele Audiosamples pro Sekunde die {{domxref("MediaStreamTrack")}} derzeit konfiguriert ist. Dies ermöglicht es Ihnen festzustellen, welcher Wert ausgewählt wurde, um Ihre angegebenen Einschränkungen für den Wert dieser Eigenschaft zu erfüllen, wie im {{domxref("MediaTrackConstraints.sampleRate")}}-Attribut beschrieben, das Sie beim Aufruf von entweder {{domxref("MediaDevices.getUserMedia", "getUserMedia()")}} oder {{domxref("MediaStreamTrack.applyConstraints()")}} bereitgestellt haben.
+Das **`sampleRate`**-Attribut des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs ist eine Ganzzahl, die angibt, wie viele Audiosamples pro Sekunde der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) derzeit konfiguriert ist. Dadurch können Sie bestimmen, welcher Wert ausgewählt wurde, um Ihren angegebenen Einschränkungen für den Wert dieser Eigenschaft zu entsprechen, wie in der [`MediaTrackConstraints.sampleRate`](/de/docs/Web/API/MediaTrackConstraints/sampleRate)-Eigenschaft beschrieben, die Sie angegeben haben, als Sie entweder [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) aufgerufen haben.
 
-Bei Bedarf können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von {{domxref("MediaTrackSupportedConstraints.sampleRate")}} überprüfen, der durch einen Aufruf von {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegeben wird. Typischerweise ist dies jedoch unnötig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
+Bei Bedarf können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.sampleRate`](/de/docs/Web/API/MediaTrackSupportedConstraints/sampleRate) überprüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch unnötig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
 
 ## Wert
 
-Ein ganzzahliger Wert, der angibt, wie viele Samples jede Sekunde der Audiodaten enthält. Gängige Werte sind 44.100 (Standard-CD-Audio), 48.000 (Standard-Digitalaudio), 96.000 (häufig in der Audiobearbeitung und Nachproduktion verwendet) und 192.000 (verwendet für hochauflösendes Audio in professionellen Aufnahme- und Mastering-Sitzungen). Niedrigere Werte werden jedoch oft verwendet, um Bandbreitenanforderungen zu reduzieren; 8.000 Samples pro Sekunde sind ausreichend für verständliche, wenn auch unvollkommene menschliche Sprache, und sowohl 11.025 FPS als auch 22.050 FPS werden häufig für niedrige Bandbreiten und reduzierte Qualitätsklänge und -musik verwendet.
+Ein ganzzahliger Wert, der angibt, wie viele Samples jede Sekunde der Audiodaten enthält. Gängige Werte sind 44.100 (Standard-CD-Audio), 48.000 (Standard-Digitalaudio), 96.000 (häufig in der Audiobearbeitung und Postproduktion verwendet) und 192.000 (für hochauflösendes Audio in professionellen Aufnahme- und Mastering-Sessions verwendet). Niedrigere Werte werden jedoch häufig verwendet, um den Bandbreitenbedarf zu reduzieren; 8.000 Samples pro Sekunde sind ausreichend für verständliche, wenn auch unvollkommene menschliche Sprache, und sowohl 11.025 FPS als auch 22.050 FPS werden häufig für Sound und Musik mit niedriger Bandbreite und reduzierter Qualität verwendet.
 
 ## Beispiele
 
-Siehe das [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser)-Beispiel.
+Siehe das [Einschränkungs-Übungstool](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser)-Beispiel.
 
 ## Spezifikationen
 
@@ -32,5 +32,5 @@ Siehe das [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
-- {{domxref("MediaTrackConstraints.sampleRate")}}
-- {{domxref("MediaTrackSettings")}}
+- [`MediaTrackConstraints.sampleRate`](/de/docs/Web/API/MediaTrackConstraints/sampleRate)
+- [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)

@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SecureContext_Header}}
 
-Die **`WorkletGlobalScope`**-Schnittstelle ist eine abstrakte Klasse, von der spezifische Worklet-Scope-Klassen erben. Jeder `WorkletGlobalScope` definiert eine neue globale Umgebung.
+Das **`WorkletGlobalScope`**-Interface ist eine abstrakte Klasse, von der spezifische Worklet-Scope-Klassen erben. Jedes `WorkletGlobalScope` definiert eine neue globale Umgebung.
 
 > [!NOTE]
-> Sie müssen normalerweise nicht mit dieser Schnittstelle interagieren. Es ist eine Basisschnittstelle, die dazu bestimmt ist, unterklassenfähig zu sein. Sie werden auf die Unterklassen {{domxref("AudioWorkletGlobalScope")}} innerhalb von {{domxref("AudioWorklet")}}-Objekten oder {{domxref("PaintWorkletGlobalScope")}} innerhalb von CSS-Paint-{{domxref("Worklet")}}-Objekten stoßen.
+> In der Regel müssen Sie nicht direkt mit diesem Interface interagieren. Es ist eine Basisklasse, die zum Erben vorgesehen ist. Sie werden die Unterklassen [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope) innerhalb von [`AudioWorklet`](/de/docs/Web/API/AudioWorklet)-Objekten oder [`PaintWorkletGlobalScope`](/de/docs/Web/API/PaintWorkletGlobalScope) innerhalb von CSS-Paint-[`Worklet`](/de/docs/Web/API/Worklet)-Objekten antreffen.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 Keine.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 Keine.
 
@@ -30,5 +30,5 @@ Keine.
 
 ## Siehe auch
 
-- {{domxref("AudioWorkletGlobalScope")}}
-- {{domxref("PaintWorkletGlobalScope")}}
+- [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope)
+- [`PaintWorkletGlobalScope`](/de/docs/Web/API/PaintWorkletGlobalScope)

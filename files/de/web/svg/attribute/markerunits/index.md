@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das **`markerUnits`**-Attribut definiert das Koordinatensystem für die {{SVGAttr("markerWidth")}}- und {{SVGAttr("markerHeight")}}-Attribute und den Inhalt des {{SVGElement("marker")}}.
+Das **`markerUnits`** Attribut definiert das Koordinatensystem für die {{SVGAttr("markerWidth")}} und {{SVGAttr("markerHeight")}} Attribute und den Inhalt des {{SVGElement("marker")}}.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("marker")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -33,9 +33,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `userSpaceOnUse`
-  - : Dieser Wert gibt an, dass die Attribute `markerWidth` und `markerHeight` sowie der Inhalt des `<marker>`-Elements Werte im aktuellen Benutzerkoordinatensystem darstellen, das für das grafische Objekt gilt, das den Marker referenziert (d.h. das Benutzerkoordinatensystem für das Element, das das `<marker>`-Element über eine {{SVGAttr("marker")}}, `marker-start`, `marker-mid` oder `marker-end`-Eigenschaft referenziert).
+  - : Dieser Wert gibt an, dass die `markerWidth` und `markerHeight` Attribute und der Inhalt des `<marker>` Elements Werte im aktuellen Benutzerkoordinatensystem darstellen, das für das grafische Objekt, das den Marker referenziert, in Kraft ist (d.h. das Benutzerkoordinatensystem für das Element, das über eine {{SVGAttr("marker")}}, `marker-start`, `marker-mid` oder `marker-end` Eigenschaft das `<marker>` Element referenziert).
 - `strokeWidth`
-  - : Dieser Wert gibt an, dass die Attribute `markerWidth` und `markerHeight` sowie der Inhalt des `<marker>`-Elements Werte in einem Koordinatensystem darstellen, in dem eine Einheit gleich der Größe in Benutzereinheiten der aktuellen Strichbreite ist (siehe das {{SVGAttr("stroke-width")}}-Attribut), das für das grafische Objekt gilt, das den Marker referenziert.
+  - : Dieser Wert gibt an, dass die `markerWidth` und `markerHeight` Attribute und der Inhalt des `<marker>` Elements Werte in einem Koordinatensystem darstellen, das eine einzelne Einheit besitzt, die der Größe in Benutzereinheiten der aktuellen Strichbreite entspricht (siehe das {{SVGAttr("stroke-width")}} Attribut), das für das grafische Objekt, das den Marker referenziert, in Kraft ist.
 
 ## Spezifikationen
 

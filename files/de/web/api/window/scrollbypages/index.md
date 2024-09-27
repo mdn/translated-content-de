@@ -1,5 +1,5 @@
 ---
-title: "Fenster: scrollByPages()-Methode"
+title: "Window: scrollByPages()-Methode"
 short-title: scrollByPages()
 slug: Web/API/Window/scrollByPages
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef}} {{Non-standard_header}}
 
-Die **`Window.scrollByPages()`**-Methode scrollt das aktuelle Dokument um die angegebene Anzahl von Seiten.
+Die **`Window.scrollByPages()`**-Methode scrollt das aktuelle
+Dokument um die angegebene Anzahl von Seiten.
 
 ## Syntax
 
@@ -19,7 +20,8 @@ scrollByPages(pages)
 ### Parameter
 
 - `pages`
-  - : Die Anzahl der Seiten, um die gescrollt werden soll. Es kann sich um eine positive oder negative Ganzzahl handeln.
+  - : Die Anzahl der zu scrollenden Seiten. Es kann eine positive oder
+    negative ganze Zahl sein.
 
 ### Rückgabewert
 
@@ -28,16 +30,16 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```js
-// Scrollen Sie das Dokument um 1 Seite nach unten
+// scroll down the document by 1 page
 window.scrollByPages(1);
 
-// Scrollen Sie das Dokument um 1 Seite nach oben
+// scroll up the document by 1 page
 window.scrollByPages(-1);
 ```
 
 ## Spezifikationen
 
-DOM Level 0. Nicht Teil einer Spezifikation.
+DOM Level 0. Kein Teil der Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -45,7 +47,7 @@ DOM Level 0. Nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- {{domxref("window.scroll()")}}
-- {{domxref("window.scrollBy()")}}
-- {{domxref("window.scrollByLines()")}}
-- {{domxref("window.scrollTo()")}}
+- [`window.scroll()`](/de/docs/Web/API/Window/scroll)
+- [`window.scrollBy()`](/de/docs/Web/API/Window/scrollBy)
+- [`window.scrollByLines()`](/de/docs/Web/API/Window/scrollByLines)
+- [`window.scrollTo()`](/de/docs/Web/API/Window/scrollTo)

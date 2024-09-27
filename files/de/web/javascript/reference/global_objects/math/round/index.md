@@ -28,14 +28,14 @@ Der Wert von `x`, gerundet auf die nächste Ganzzahl.
 
 ## Beschreibung
 
-Wenn der Bruchteil des Arguments größer als 0,5 ist, wird das Argument auf die Ganzzahl mit dem nächsthöheren absoluten Wert gerundet. Ist er kleiner als 0,5, wird das Argument auf die Ganzzahl mit dem niedrigeren absoluten Wert gerundet. Wenn der Bruchteil genau 0,5 beträgt, wird das Argument zur nächsten Ganzzahl in Richtung +∞ gerundet.
+Wenn der Bruchteil des Arguments größer als 0,5 ist, wird das Argument auf die Ganzzahl mit dem nächsthöheren absoluten Wert gerundet. Wenn er kleiner als 0,5 ist, wird das Argument auf die Ganzzahl mit dem niedrigeren absoluten Wert gerundet. Wenn der Bruchteil genau 0,5 beträgt, wird das Argument zur nächsten Ganzzahl in Richtung +∞ gerundet.
 
 > [!NOTE]
-> Dies unterscheidet sich von den `round()`-Funktionen vieler Sprachen, die oft halbe Schritte _weg von null_ runden, was zu einem anderen Ergebnis im Fall von negativen Zahlen mit einem Bruchteil von genau 0,5 führt.
+> Dies unterscheidet sich von den `round()`-Funktionen in vielen anderen Programmiersprachen, die oft halbe Inkremente _von null weg_ runden und bei negativen Zahlen mit einem Bruchteil von genau 0,5 ein anderes Ergebnis liefern.
 
-`Math.round(x)` ist nicht genau dasselbe wie [`Math.floor(x + 0.5)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor). Wenn `x` -0 oder -0.5 ≤ x < 0 ist, gibt `Math.round(x)` -0 zurück, während `Math.floor(x + 0.5)` 0 zurückgibt. Abgesehen von diesem Unterschied und möglichen Genauigkeitsfehlern sind `Math.round(x)` und `Math.floor(x + 0.5)` im Allgemeinen gleichwertig.
+`Math.round(x)` ist nicht exakt dasselbe wie [`Math.floor(x + 0.5)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/floor). Wenn `x` -0 ist oder -0.5 ≤ x < 0, gibt `Math.round(x)` -0 zurück, während `Math.floor(x + 0.5)` 0 zurückgibt. Abgesehen von diesem Unterschied und potenziellen Präzisionsfehlern sind `Math.round(x)` und `Math.floor(x + 0.5)` im Allgemeinen gleichwertig.
 
-Da `round()` eine statische Methode von `Math` ist, verwenden Sie diese immer als `Math.round()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` hat keinen Konstruktor).
+Da `round()` eine statische Methode von `Math` ist, verwenden Sie es immer als `Math.round()`, anstatt als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` hat keinen Konstruktor).
 
 ## Beispiele
 

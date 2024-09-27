@@ -7,9 +7,9 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`math:highest()` gibt den Knoten im angegebenen Knoten-Set zurück, der den höchsten Wert hat (wobei der höchste Wert mit [`math:max()`](/de/docs/Web/EXSLT/math/max) berechnet wird).
+`math:highest()` gibt den Knoten in der angegebenen Node-Set zurück, der den höchsten Wert hat (wobei der höchste Wert mit [`math:max()`](/de/docs/Web/EXSLT/math/max) berechnet wird).
 
-Ein Knoten hat diesen Maximalwert, wenn das Umwandeln seines String-Wertes in eine Zahl dem Maximalwert entspricht.
+Ein Knoten hat diesen Maximalwert, wenn die Umwandlung seines String-Werts in eine Zahl dem Maximalwert entspricht.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ math:highest(nodeSet)
 ### Parameter
 
 - `nodeSet`
-  - : Das Knoten-Set, dessen höchster Wert zurückgegeben werden soll.
+  - : Das Node-Set, dessen höchster Wert zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Ein Ergebnisbaumfragment, das Kopien der Knoten enthält, die von [`math:max()`](/de/docs/Web/EXSLT/math/max) zurückgegeben werden.
+Ein Ergebnisbaum-Fragment, das Kopien der Knoten enthält, die von [`math:max()`](/de/docs/Web/EXSLT/math/max) zurückgegeben werden.
 
 ## Spezifikationen
 

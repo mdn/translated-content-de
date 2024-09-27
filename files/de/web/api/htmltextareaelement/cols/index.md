@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`cols`**-Eigenschaft der {{DOMxRef("HTMLTextAreaElement")}}-Schnittstelle ist eine positive ganze Zahl, die die sichtbare Breite des mehrzeiligen Textelements in durchschnittlichen Zeichenbreiten darstellt. Sie spiegelt das [`cols`](/de/docs/Web/HTML/Element/textarea#cols)-Attribut des `<textarea>`-Elements wider.
+Die **`cols`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle ist eine positive Ganzzahl, die die sichtbare Breite des mehrzeiligen Texteingabeelements in durchschnittlichen Zeichenbreiten darstellt. Sie spiegelt das [`cols`](/de/docs/Web/HTML/Element/textarea#cols)-Attribut des `<textarea>`-Elements wider.
 
 ## Wert
 
-Eine positive ganze Zahl. Standardwert ist `20`.
+Eine positive Ganzzahl. Standardwert ist `20`.
 
 ## Beispiele
 
@@ -32,6 +32,6 @@ textArea.cols = 80;
 ## Siehe auch
 
 - {{HTMLElement("textarea")}}
-- {{DOMXref("HTMLTextAreaElement.rows")}}
-- {{DOMXref("HTMLTextAreaElement.wrap")}}
+- [`HTMLTextAreaElement.rows`](/de/docs/Web/API/HTMLTextAreaElement/rows)
+- [`HTMLTextAreaElement.wrap`](/de/docs/Web/API/HTMLTextAreaElement/wrap)
 - CSS {{cssxref("resize")}}-Eigenschaft

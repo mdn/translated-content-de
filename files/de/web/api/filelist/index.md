@@ -7,33 +7,33 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Das **`FileList`** Interface stellt ein Objekt dieses Typs dar, das von der `files` Eigenschaft des HTML {{HTMLElement("input")}} Elements zurückgegeben wird; dies ermöglicht Ihnen den Zugriff auf die Liste der Dateien, die mit dem `<input type="file">` Element ausgewählt wurden. Es wird auch für eine Liste von Dateien verwendet, die in Webinhalte gezogen werden, wenn die Drag-and-Drop-API verwendet wird; sehen Sie sich das {{domxref("DataTransfer")}} Objekt für Details zu dieser Verwendung an.
+Die **`FileList`**-Schnittstelle stellt ein Objekt dieses Typs dar, das von der `files`-Eigenschaft des HTML-{{HTMLElement("input")}}-Elements zurückgegeben wird. Dies ermöglicht den Zugriff auf die Liste der mit dem `<input type="file">`-Element ausgewählten Dateien. Sie wird auch für eine Liste von Dateien verwendet, die beim Verwenden der Drag-and-Drop-API in Webinhalte gezogen werden. Weitere Details zur Verwendung finden Sie im [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt.
 
-Alle `<input>` Elementknoten haben eine `files` Attribut vom Typ `FileList`, das den Zugriff auf die Elemente in dieser Liste ermöglicht. Zum Beispiel, wenn das HTML das folgende Datei-Eingabefeld enthält:
+Alle `<input>`-Elementknoten haben ein `files`-Attribut vom Typ `FileList`, das den Zugriff auf die Elemente in dieser Liste ermöglicht. Wenn das HTML beispielsweise das folgende Datei-Eingabefeld enthält:
 
 ```html
 <input id="fileItem" type="file" />
 ```
 
-Die folgende Codezeile ruft die erste Datei in der Dateiliste des Knotens als {{domxref("File")}} Objekt ab:
+Die folgende Codezeile ruft die erste Datei in der Dateiliste des Knotens als [`File`](/de/docs/Web/API/File)-Objekt ab:
 
 ```js
 const file = document.getElementById("fileItem").files[0];
 ```
 
-Dieses Interface war ein [Versuch, eine nicht modifizierbare Liste zu erstellen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) und wird nur weiterhin unterstützt, um bereits benutzten Code nicht zu brechen. Moderne APIs repräsentieren Listenstrukturen mithilfe von Typen, die auf JavaScript [arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) basieren. Dadurch werden viele Array-Methoden verfügbar gemacht und gleichzeitig zusätzliche Semantiken für deren Verwendung auferlegt (wie z.B. das Festlegen, dass ihre Elemente schreibgeschützt sind).
+Diese Schnittstelle war ein [Versuch, eine unveränderliche Liste zu erstellen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) und wird nur weiterhin unterstützt, um Code nicht zu brechen, der sie bereits verwendet. Moderne APIs repräsentieren Listenstrukturen mit Typen, die auf JavaScript-[Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) basieren, wodurch viele Array-Methoden verfügbar werden und gleichzeitig zusätzliche Semantiken für deren Verwendung auferlegt werden (wie zum Beispiel das Festlegen ihrer Elemente als schreibgeschützt).
 
-Diese historischen Gründe bedeuten nicht, dass Sie als Entwickler `FileList` vermeiden sollten. Sie erstellen keine `FileList` Objekte selbst, sondern erhalten sie von APIs wie {{domxref("HTMLInputElement.files")}}, und diese APIs sind nicht veraltet. Seien Sie jedoch auf die semantischen Unterschiede zu einem echten Array acht.
+Diese historischen Gründe bedeuten nicht, dass Sie als Entwickler `FileList` vermeiden sollten. Sie erstellen `FileList`-Objekte nicht selbst, sondern erhalten sie von APIs wie [`HTMLInputElement.files`](/de/docs/Web/API/HTMLInputElement/files), und diese APIs sind nicht veraltet. Seien Sie jedoch vorsichtig mit den semantischen Unterschieden zu einem realen Array.
 
 ## Instanz-Eigenschaften
 
-- {{DOMxRef("FileList.length", "length")}} {{ReadOnlyInline}}
+- [`length`](/de/docs/Web/API/FileList/length) {{ReadOnlyInline}}
   - : Ein schreibgeschützter Wert, der die Anzahl der Dateien in der Liste angibt.
 
 ## Instanz-Methoden
 
-- {{DOMxRef("FileList.item()", "item()")}}
-  - : Gibt ein {{domxref("File")}} Objekt zurück, das die Datei am angegebenen Index in der Dateiliste repräsentiert.
+- [`item()`](/de/docs/Web/API/FileList/item)
+  - : Gibt ein [`File`](/de/docs/Web/API/File)-Objekt zurück, das die Datei an dem angegebenen Index in der Dateiliste darstellt.
 
 ## Beispiel
 
@@ -45,7 +45,7 @@ In diesem Beispiel protokollieren wir die Namen aller vom Benutzer ausgewählten
 
 ```html
 <input id="myfiles" multiple type="file" />
-<pre class="output">Ausgewählte Dateien:</pre>
+<pre class="output">Selected files:</pre>
 ```
 
 #### CSS
@@ -85,6 +85,6 @@ fileInput.addEventListener("change", () => {
 
 ## Siehe auch
 
-- [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)
-- {{domxref("File")}}
-- {{domxref("FileReader")}}
+- [Verwenden von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)
+- [`File`](/de/docs/Web/API/File)
+- [`FileReader`](/de/docs/Web/API/FileReader)

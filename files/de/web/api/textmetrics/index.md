@@ -1,5 +1,5 @@
 ---
-title: Textmetriken
+title: TextMetrics
 slug: Web/API/TextMetrics
 l10n:
   sourceCommit: daeff1a2efaae366bcc8b6d911d86985646e665e
@@ -7,40 +7,40 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`TextMetrics`**-Schnittstelle repräsentiert die Abmessungen eines Textstücks im Canvas; eine `TextMetrics`-Instanz kann mit der Methode {{domxref("CanvasRenderingContext2D.measureText()")}} abgerufen werden.
+Das **`TextMetrics`**-Interface repräsentiert die Abmessungen eines Textstücks im `<canvas>`; eine `TextMetrics`-Instanz kann mit der Methode [`CanvasRenderingContext2D.measureText()`](/de/docs/Web/API/CanvasRenderingContext2D/measureText) abgerufen werden.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("TextMetrics.width")}} {{ReadOnlyInline}}
-  - : Gibt die Breite eines Segments von Inline-Text in CSS-Pixeln zurück. Sie berücksichtigt die aktuelle Schriftart des Kontexts.
-- {{domxref("TextMetrics.actualBoundingBoxLeft")}} {{ReadOnlyInline}}
-  - : Abstand parallel zur Grundlinie vom Ausrichtungspunkt, der durch die Eigenschaft {{domxref("CanvasRenderingContext2D.textAlign")}} angegeben ist, zur linken Seite des Begrenzungsrechtecks des angegebenen Textes in CSS-Pixeln; positive Zahlen zeigen einen Abstand nach links vom angegebenen Ausrichtungspunkt.
-- {{domxref("TextMetrics.actualBoundingBoxRight")}} {{ReadOnlyInline}}
-  - : Gibt den Abstand vom Ausrichtungspunkt, der durch die Eigenschaft {{domxref("CanvasRenderingContext2D.textAlign")}} angegeben ist, zur rechten Seite des Begrenzungsrechtecks des angegebenen Textes in CSS-Pixeln zurück. Der Abstand wird parallel zur Grundlinie gemessen.
-- {{domxref("TextMetrics.fontBoundingBoxAscent")}} {{ReadOnlyInline}}
-  - : Gibt den Abstand von der horizontalen Linie, die durch das Attribut {{domxref("CanvasRenderingContext2D.textBaseline")}} angegeben wird, bis zur Oberseite des höchsten Begrenzungsrechtecks aller zur Darstellung des Textes verwendeten Schriftarten in CSS-Pixeln zurück.
-- {{domxref("TextMetrics.fontBoundingBoxDescent")}} {{ReadOnlyInline}}
-  - : Gibt den Abstand von der horizontalen Linie, die durch das Attribut {{domxref("CanvasRenderingContext2D.textBaseline")}} angegeben wird, bis zur Unterseite des Begrenzungsrechtecks aller zur Darstellung des Textes verwendeten Schriftarten in CSS-Pixeln zurück.
-- {{domxref("TextMetrics.actualBoundingBoxAscent")}} {{ReadOnlyInline}}
-  - : Gibt den Abstand von der horizontalen Linie, die durch das Attribut {{domxref("CanvasRenderingContext2D.textBaseline")}} angegeben wird, bis zur Oberseite des zur Darstellung des Textes verwendeten Begrenzungsrechtecks in CSS-Pixeln zurück.
-- {{domxref("TextMetrics.actualBoundingBoxDescent")}} {{ReadOnlyInline}}
-  - : Gibt den Abstand von der horizontalen Linie, die durch das Attribut {{domxref("CanvasRenderingContext2D.textBaseline")}} angegeben wird, bis zur Unterseite des zur Darstellung des Textes verwendeten Begrenzungsrechtecks in CSS-Pixeln zurück.
-- {{domxref("TextMetrics.emHeightAscent")}} {{ReadOnlyInline}}
-  - : Gibt den Abstand von der horizontalen Linie, die durch die Eigenschaft {{domxref("CanvasRenderingContext2D.textBaseline")}} angegeben wird, bis zur Oberseite des _em_-Quadrats im Zeilenkasten in CSS-Pixeln zurück.
-- {{domxref("TextMetrics.emHeightDescent")}} {{ReadOnlyInline}}
-  - : Gibt den Abstand von der horizontalen Linie, die durch die Eigenschaft {{domxref("CanvasRenderingContext2D.textBaseline")}} angegeben wird, bis zur Unterseite des _em_-Quadrats im Zeilenkasten in CSS-Pixeln zurück.
-- {{domxref("TextMetrics.hangingBaseline")}} {{ReadOnlyInline}}
-  - : Gibt den Abstand von der horizontalen Linie, die durch die Eigenschaft {{domxref("CanvasRenderingContext2D.textBaseline")}} angegeben wird, bis zur hängenden Grundlinie des Zeilenkastens in CSS-Pixeln zurück.
-- {{domxref("TextMetrics.alphabeticBaseline")}} {{ReadOnlyInline}}
-  - : Gibt den Abstand von der horizontalen Linie, die durch die Eigenschaft {{domxref("CanvasRenderingContext2D.textBaseline")}} angegeben wird, bis zur alphabetischen Grundlinie des Zeilenkastens in CSS-Pixeln zurück.
-- {{domxref("TextMetrics.ideographicBaseline")}} {{ReadOnlyInline}}
-  - : Gibt den Abstand von der horizontalen Linie, die durch die Eigenschaft {{domxref("CanvasRenderingContext2D.textBaseline")}} angegeben wird, bis zur ideografischen Grundlinie des Zeilenkastens in CSS-Pixeln zurück.
+- [`TextMetrics.width`](/de/docs/Web/API/TextMetrics/width) {{ReadOnlyInline}}
+  - : Gibt die Breite eines Segments von Inline-Text in CSS-Pixeln zurück. Es berücksichtigt die aktuelle Schriftart des Kontextes.
+- [`TextMetrics.actualBoundingBoxLeft`](/de/docs/Web/API/TextMetrics/actualBoundingBoxLeft) {{ReadOnlyInline}}
+  - : Abstand parallel zur Grundlinie vom Ausrichtungspunkt, der durch die Eigenschaft [`CanvasRenderingContext2D.textAlign`](/de/docs/Web/API/CanvasRenderingContext2D/textAlign) angegeben wird, zur linken Seite des Begrenzungsrechtecks des angegebenen Textes in CSS-Pixeln; positive Zahlen zeigen einen Abstand nach links vom angegebenen Ausrichtungspunkt.
+- [`TextMetrics.actualBoundingBoxRight`](/de/docs/Web/API/TextMetrics/actualBoundingBoxRight) {{ReadOnlyInline}}
+  - : Gibt den Abstand von dem durch die Eigenschaft [`CanvasRenderingContext2D.textAlign`](/de/docs/Web/API/CanvasRenderingContext2D/textAlign) angegebenen Ausrichtungspunkt zur rechten Seite des Begrenzungsrechtecks des angegebenen Textes in CSS-Pixeln zurück. Der Abstand wird parallel zur Grundlinie gemessen.
+- [`TextMetrics.fontBoundingBoxAscent`](/de/docs/Web/API/TextMetrics/fontBoundingBoxAscent) {{ReadOnlyInline}}
+  - : Gibt den Abstand von der durch die Eigenschaft [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angegebenen horizontalen Linie zur Oberseite des höchsten Begrenzungsrechtecks aller verwendeten Schriften zurück, um den Text in CSS-Pixeln darzustellen.
+- [`TextMetrics.fontBoundingBoxDescent`](/de/docs/Web/API/TextMetrics/fontBoundingBoxDescent) {{ReadOnlyInline}}
+  - : Gibt den Abstand von der durch die Eigenschaft [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angegebenen horizontalen Linie zur Unterseite des Begrenzungsrechtecks aller verwendeten Schriften zurück, um den Text in CSS-Pixeln darzustellen.
+- [`TextMetrics.actualBoundingBoxAscent`](/de/docs/Web/API/TextMetrics/actualBoundingBoxAscent) {{ReadOnlyInline}}
+  - : Gibt den Abstand von der durch die Eigenschaft [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angegebenen horizontalen Linie zur Oberseite des zum Rendern des Textes verwendeten Begrenzungsrechtecks in CSS-Pixeln zurück.
+- [`TextMetrics.actualBoundingBoxDescent`](/de/docs/Web/API/TextMetrics/actualBoundingBoxDescent) {{ReadOnlyInline}}
+  - : Gibt den Abstand von der durch die Eigenschaft [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angegebenen horizontalen Linie zur Unterseite des zum Rendern des Textes verwendeten Begrenzungsrechtecks in CSS-Pixeln zurück.
+- [`TextMetrics.emHeightAscent`](/de/docs/Web/API/TextMetrics/emHeightAscent) {{ReadOnlyInline}}
+  - : Gibt den Abstand von der durch die Eigenschaft [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angegebenen horizontalen Linie zur Oberseite des _em_-Quadrats in der Zeilenbox in CSS-Pixeln zurück.
+- [`TextMetrics.emHeightDescent`](/de/docs/Web/API/TextMetrics/emHeightDescent) {{ReadOnlyInline}}
+  - : Gibt den Abstand von der durch die Eigenschaft [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angegebenen horizontalen Linie zur Unterseite des _em_-Quadrats in der Zeilenbox in CSS-Pixeln zurück.
+- [`TextMetrics.hangingBaseline`](/de/docs/Web/API/TextMetrics/hangingBaseline) {{ReadOnlyInline}}
+  - : Gibt den Abstand von der durch die Eigenschaft [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angegebenen horizontalen Linie zur hängenden Grundlinie der Zeilenbox in CSS-Pixeln zurück.
+- [`TextMetrics.alphabeticBaseline`](/de/docs/Web/API/TextMetrics/alphabeticBaseline) {{ReadOnlyInline}}
+  - : Gibt den Abstand von der durch die Eigenschaft [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angegebenen horizontalen Linie zur alphabetischen Grundlinie der Zeilenbox in CSS-Pixeln zurück.
+- [`TextMetrics.ideographicBaseline`](/de/docs/Web/API/TextMetrics/ideographicBaseline) {{ReadOnlyInline}}
+  - : Gibt den Abstand von der durch die Eigenschaft [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angegebenen horizontalen Linie zur ideographischen Grundlinie der Zeilenbox in CSS-Pixeln zurück.
 
 ## Beispiele
 
-### Veranschaulichung der Grundlinien
+### Veranschaulichte Grundlinien
 
-Dieses Beispiel demonstriert die Grundlinien, die das `TextMetrics`-Objekt enthält. Die Standardgrundlinie ist die `alphabeticBaseline`. Siehe auch die Eigenschaft {{domxref("CanvasRenderingContext2D.textBaseline")}}.
+Dieses Beispiel demonstriert die Grundlinien, die das `TextMetrics`-Objekt hält. Die Standard-Grundlinie ist die `alphabeticBaseline`. Siehe auch die Eigenschaft [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline).
 
 #### HTML
 
@@ -97,9 +97,9 @@ baselines.forEach((baseline, index) => {
 
 ### Messen der Textbreite
 
-Beim Messen der x-Richtung eines Textstücks kann die Summe aus `actualBoundingBoxLeft` und `actualBoundingBoxRight` breiter sein als die Breite der Inline-Box (`width`), da bei schrägen/kursiven Schriftarten Zeichen über ihre Vorschubreite hinausragen können.
+Beim Messen der x-Richtung eines Textstücks kann die Summe aus `actualBoundingBoxLeft` und `actualBoundingBoxRight` breiter sein als die Breite der Inline-Box (`width`), aufgrund von schiefen/kursiven Schriften, bei denen die Zeichen über die Vorabreitsbreite hinausragen.
 
-Es kann daher nützlich sein, die Summe aus `actualBoundingBoxLeft` und `actualBoundingBoxRight` zu verwenden, um die absolute Textbreite genauer zu ermitteln:
+Es kann daher nützlich sein, die Summe aus `actualBoundingBoxLeft` und `actualBoundingBoxRight` als genaueres Maß für die absolute Textbreite zu verwenden:
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -127,5 +127,5 @@ console.log(
 
 ## Siehe auch
 
-- Erzeugermethode in {{domxref("CanvasRenderingContext2D")}}
-- Das {{HTMLElement("canvas")}}-Element und seine zugehörige Schnittstelle, {{domxref("HTMLCanvasElement")}}
+- Erzeugermethode in [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Das {{HTMLElement("canvas")}}-Element und sein zugehöriges Interface, [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)

@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Die **`for...of`**-Anweisung führt eine Schleife aus, die auf einer Sequenz von Werten basiert, die von einem [iterierbaren Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) stammen. Iterierbare Objekte umfassen Instanzen von eingebauten Objekten wie {{jsxref("Array")}}, {{jsxref("String")}}, {{jsxref("TypedArray")}}, {{jsxref("Map")}}, {{jsxref("Set")}}, {{domxref("NodeList")}} (und andere DOM-Sammlungen), sowie das {{jsxref("Functions/arguments", "arguments")}}-Objekt, [Generatoren](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator) erzeugt durch [Generator-Funktionen](/de/docs/Web/JavaScript/Reference/Statements/function*), und benutzerdefinierte Iterables.
+Die **`for...of`**-Anweisung führt eine Schleife aus, die auf einer Sequenz von Werten basiert, die von einem [iterierbaren Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) stammen. Iterierbare Objekte umfassen Instanzen von eingebauten Objekten wie {{jsxref("Array")}}, {{jsxref("String")}}, {{jsxref("TypedArray")}}, {{jsxref("Map")}}, {{jsxref("Set")}}, [`NodeList`](/de/docs/Web/API/NodeList) (und andere DOM-Sammlungen) sowie das {{jsxref("Functions/arguments", "arguments")}}-Objekt, [Generatoren](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator), die von [Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*) erzeugt werden, und benutzerdefinierte Iterables.
 
 {{EmbedInteractiveExample("pages/js/statement-forof.html")}}
 
@@ -19,26 +19,26 @@ for (variable of iterable)
 ```
 
 - `variable`
-  - : Empfängt einen Wert aus der Sequenz in jeder Iteration. Kann entweder eine Deklaration mit [`const`](/de/docs/Web/JavaScript/Reference/Statements/const), [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) oder ein [Zuweisungs-](/de/docs/Web/JavaScript/Reference/Operators/Assignment) Ziel sein (z. B. eine vorher deklarierte Variable, eine Objekteigenschaft oder ein [Destrukturierungs-Zuweisungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)). Variablen, die mit `var` deklariert sind, sind nicht lokal zur Schleife, d.h. sie befinden sich im gleichen Gültigkeitsbereich, in dem die `for...of`-Schleife ist.
+  - : Empfängt bei jeder Iteration einen Wert aus der Sequenz. Kann entweder eine Deklaration mit [`const`](/de/docs/Web/JavaScript/Reference/Statements/const), [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder [`var`](/de/docs/Web/JavaScript/Reference/Statements/var) sein oder ein [Zuweisungsziel](/de/docs/Web/JavaScript/Reference/Operators/Assignment) (z.B. eine zuvor deklarierte Variable, eine Objekteigenschaft oder ein [Destrukturierungszuweisungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)). Mit `var` deklarierte Variablen sind nicht lokal zur Schleife, d.h. sie befinden sich im gleichen Gültigkeitsbereich, in dem sich die `for...of`-Schleife befindet.
 - `iterable`
-  - : Ein iterierbares Objekt. Die Quelle der Wertsequenz, auf die die Schleife zugreift.
+  - : Ein iterierbares Objekt. Die Quelle der Wertesequenz, auf der die Schleife operiert.
 - `statement`
-  - : Eine Anweisung, die bei jedem Durchlauf ausgeführt wird. Kann `variable` referenzieren. Sie können eine [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen.
+  - : Eine Anweisung, die bei jeder Iteration ausgeführt wird. Kann auf `variable` verweisen. Sie können eine [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen.
 
 ## Beschreibung
 
-Eine `for...of`-Schleife arbeitet mit den Werten, die einer iterierbaren Quelle entstammen, der Reihe nach. Jede Ausführung der Schleife auf einem Wert wird als _Iteration_ bezeichnet, und die Schleife _durchläuft die Iterable_. Jede Iteration führt Anweisungen aus, die sich auf den aktuellen Sequenzwert beziehen können.
+Eine `for...of`-Schleife arbeitet nacheinander auf den Werten eines Iterables. Jeder Vorgang der Schleife auf einem Wert wird als _Iteration_ bezeichnet, und die Schleife wird als _Überlaufen des Iterables_ bezeichnet. Jede Iteration führt Anweisungen aus, die sich auf den aktuellen Sequenzwert beziehen können.
 
-Wenn eine `for...of`-Schleife über ein iterierbares Objekt iteriert, ruft sie zuerst die [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator)-Methode des iterierbaren Objekts auf, die einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) zurückgibt, und ruft dann wiederholt die [`next()`](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol)-Methode des resultierenden Iterator-Objekts auf, um die Sequenz von Werten zu erzeugen, die `variable` zugewiesen werden.
+Wenn eine `for...of`-Schleife über ein Iterable iteriert, ruft sie zuerst die Methode [`[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) des Iterables auf, die einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) zurückgibt, und ruft dann wiederholt die Methode [`next()`](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) des resultierenden Iterators auf, um die Sequenz von Werten zu erzeugen, die `variable` zugewiesen werden.
 
-Eine `for...of`-Schleife endet, wenn der Iterator abgeschlossen ist (das `next()` Ergebnis ist ein Objekt mit `done: true`). Wie bei anderen Schleifenanweisungen können Sie [Kontrollflussanweisungen](/de/docs/Web/JavaScript/Reference/Statements#control_flow) in `statement` verwenden:
+Eine `for...of`-Schleife endet, wenn der Iterator abgeschlossen ist (das `next()`-Ergebnis ist ein Objekt mit `done: true`). Wie bei anderen Schleifenanweisungen können Sie innerhalb der `statement` [Kontrollflussanweisungen](/de/docs/Web/JavaScript/Reference/Statements#control_flow) verwenden:
 
-- {{jsxref("Statements/break", "break")}} stoppt die Ausführung der `statement` und geht zur ersten Anweisung nach der Schleife.
-- {{jsxref("Statements/continue", "continue")}} stoppt die Ausführung der `statement` und geht zur nächsten Iteration der Schleife.
+- {{jsxref("Statements/break", "break")}} stoppt die Ausführung von `statement` und geht zur ersten Anweisung nach der Schleife.
+- {{jsxref("Statements/continue", "continue")}} stoppt die Ausführung von `statement` und geht zur nächsten Iteration der Schleife.
 
-Wenn die `for...of`-Schleife vorzeitig beendet wurde (z.B. durch eine `break`-Anweisung oder einen Fehler), wird die [`return()`](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol)-Methode des Iterators aufgerufen, um eventuelle Aufräumarbeiten durchzuführen.
+Wenn die `for...of`-Schleife vorzeitig beendet wurde (z.B. wenn eine `break`-Anweisung auftritt oder ein Fehler geworfen wird), wird die Methode [`return()`](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) des Iterators aufgerufen, um eine Bereinigung durchzuführen.
 
-Der Teil `variable` von `for...of` nimmt alles an, was vor dem `=`-Operator stehen kann. Sie können {{jsxref("Statements/const", "const")}} verwenden, um die Variable zu deklarieren, solange sie nicht innerhalb des Schleifenkörpers neu zugewiesen wird (sie kann zwischen den Iterationen geändert werden, da dies zwei separate Variablen sind). Andernfalls können Sie {{jsxref("Statements/let", "let")}} verwenden.
+Der `variable`-Teil von `for...of` akzeptiert alles, was vor dem `=`-Operator stehen kann. Sie können {{jsxref("Statements/const", "const")}} verwenden, um die Variable zu deklarieren, solange sie nicht innerhalb des Schleifenrumpfs neu zugewiesen wird (sie kann zwischen Iterationen wechseln, da es sich um zwei separate Variablen handelt). Andernfalls können Sie {{jsxref("Statements/let", "let")}} verwenden.
 
 ```js
 const iterable = [10, 20, 30];
@@ -53,22 +53,22 @@ for (let value of iterable) {
 ```
 
 > [!NOTE]
-> Jede Iteration erzeugt eine neue Variable. Die Wiederzuweisung der Variablen innerhalb des Schleifenkörpers beeinflusst den ursprünglichen Wert im iterierbaren Objekt nicht (in diesem Fall ein Array).
+> Jede Iteration erstellt eine neue Variable. Eine Neuzuweisung der Variablen innerhalb des Schleifenrumpfs beeinflusst den ursprünglichen Wert im Iterable (in diesem Fall ein Array) nicht.
 
-Sie können [Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) verwenden, um mehrere lokale Variablen zuzuweisen, oder einen Eigenschafts-Accessor wie `for (x.y of iterable)`, um den Wert einer Objekteigenschaft zuzuweisen.
+Sie können [Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) verwenden, um mehrere lokale Variablen zuzuweisen, oder einen Eigenschaftsaccessor wie `for (x.y of iterable)`, um den Wert einer Objekteigenschaft zuzuweisen.
 
-Jedoch gibt es eine spezielle Regel, die die Verwendung von `async` als Variablennamen verbietet. Dies ist ungültige Syntax:
+Es gilt jedoch eine spezielle Regel, die die Verwendung von `async` als Variablennamen verbietet. Dies ist ungültige Syntax:
 
 ```js-nolint example-bad
 let async;
 for (async of [1, 2, 3]); // SyntaxError: The left-hand side of a for-of loop may not be 'async'.
 ```
 
-Dies soll Syntaxzweideutigkeiten mit dem gültigen Code `for (async of => {};;)` vermeiden, welcher eine [`for`](/de/docs/Web/JavaScript/Reference/Statements/for)-Schleife ist.
+Dies dient dazu, Syntaxzweideutigkeiten mit dem gültigen Code `for (async of => {};;)` zu vermeiden, der eine [`for`](/de/docs/Web/JavaScript/Reference/Statements/for)-Schleife ist.
 
 ## Beispiele
 
-### Iterieren über ein Array
+### Über ein Array iterieren
 
 ```js
 const iterable = [10, 20, 30];
@@ -81,9 +81,9 @@ for (const value of iterable) {
 // 30
 ```
 
-### Iterieren über einen String
+### Über einen String iterieren
 
-Strings werden [durch Unicode-Codepunkte iteriert](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator).
+Strings werden [nach Unicode-Codepunkten](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator) iteriert.
 
 ```js
 const iterable = "boo";
@@ -96,7 +96,7 @@ for (const value of iterable) {
 // "o"
 ```
 
-### Iterieren über ein TypedArray
+### Über ein TypedArray iterieren
 
 ```js
 const iterable = new Uint8Array([0x00, 0xff]);
@@ -108,7 +108,7 @@ for (const value of iterable) {
 // 255
 ```
 
-### Iterieren über eine Map
+### Über eine Map iterieren
 
 ```js
 const iterable = new Map([
@@ -132,7 +132,7 @@ for (const [key, value] of iterable) {
 // 3
 ```
 
-### Iterieren über ein Set
+### Über ein Set iterieren
 
 ```js
 const iterable = new Set([1, 1, 2, 2, 3, 3]);
@@ -145,9 +145,9 @@ for (const value of iterable) {
 // 3
 ```
 
-### Iterieren über das arguments Objekt
+### Über das arguments-Objekt iterieren
 
-Sie können über das {{jsxref("Functions/arguments", "arguments")}}-Objekt iterieren, um alle Parameter zu untersuchen, die in eine Funktion übergeben wurden.
+Sie können über das {{jsxref("Functions/arguments", "arguments")}}-Objekt iterieren, um alle in eine Funktion übergebenen Parameter zu prüfen.
 
 ```js
 function foo() {
@@ -162,9 +162,9 @@ foo(1, 2, 3);
 // 3
 ```
 
-### Iterieren über eine NodeList
+### Über eine NodeList iterieren
 
-Im folgenden Beispiel wird eine `read`-Klasse zu Absätzen hinzugefügt, die direkte Nachkommen des [`<article>`](/de/docs/Web/HTML/Element/article)-Elements sind, indem über eine [`NodeList`](/de/docs/Web/API/NodeList)-DOM-Sammlung iteriert wird.
+Das folgende Beispiel fügt eine `read`-Klasse zu Absätzen hinzu, die direkte Nachkommen des [`<article>`](/de/docs/Web/HTML/Element/article)-Elements sind, indem es über eine [`NodeList`](/de/docs/Web/API/NodeList)-DOM-Sammlung iteriert.
 
 ```js
 const articleParagraphs = document.querySelectorAll("article > p");
@@ -173,9 +173,9 @@ for (const paragraph of articleParagraphs) {
 }
 ```
 
-### Iterieren über ein benutzerdefiniertes iterierbares Objekt
+### Über ein benutzerdefiniertes Iterable iterieren
 
-Iterieren über ein Objekt mit einer `[Symbol.iterator]()` Methode, die einen benutzerdefinierten Iterator zurückgibt:
+Iterieren über ein Objekt mit einer `[Symbol.iterator]()`-Methode, die einen benutzerdefinierten Iterator zurückgibt:
 
 ```js
 const iterable = {
@@ -200,7 +200,7 @@ for (const value of iterable) {
 // 3
 ```
 
-Iterieren über ein Objekt mit einer `[Symbol.iterator]()` Generator-Methode:
+Iterieren über ein Objekt mit einer `[Symbol.iterator]()`-Generator-Methode:
 
 ```js
 const iterable = {
@@ -219,7 +219,7 @@ for (const value of iterable) {
 // 3
 ```
 
-_Iterierbare Iteratoren_ (Iteratoren mit einer `[Symbol.iterator]()` Methode, die `this` zurückgibt) sind eine recht verbreitete Technik, um Iteratoren in Syntaxen verwendbar zu machen, die Iterables erwarten, wie `for...of`.
+_Iterierbare Iteratoren_ (Iteratoren mit einer `[Symbol.iterator]()`-Methode, die `this` zurückgibt) sind eine ziemlich verbreitete Technik, um Iteratoren in Syntaxen zu verwenden, die Iterables erwarten, wie z.B. `for...of`.
 
 ```js
 let i = 1;
@@ -244,7 +244,7 @@ for (const value of iterator) {
 // 3
 ```
 
-### Iterieren über einen Generator
+### Über einen Generator iterieren
 
 ```js
 function* source() {
@@ -263,9 +263,9 @@ for (const value of generator) {
 // 3
 ```
 
-### Frühes Beenden
+### Vorzeitiges Beenden
 
-Die Ausführung der `break`-Anweisung in der ersten Schleife führt dazu, dass sie vorzeitig endet. Der Iterator ist noch nicht beendet, daher wird die zweite Schleife von dem Punkt an fortgesetzt, an dem die erste aufgehört hat.
+Das Ausführen der `break`-Anweisung in der ersten Schleife führt dazu, dass sie vorzeitig beendet wird. Der Iterator ist noch nicht beendet, also setzt die zweite Schleife dort fort, wo die erste aufgehört hat.
 
 ```js
 const source = [1, 2, 3];
@@ -281,23 +281,23 @@ for (const value of iterator) {
 }
 // 1
 
-// Eine weitere Schleife, die denselben Iterator verwendet,
-// setzt von da an fort, wo die letzte Schleife aufgehört hat.
+// Another loop using the same iterator
+// picks up where the last loop left off.
 for (const value of iterator) {
   console.log(value);
 }
 // 2
 // 3
 
-// Der Iterator ist aufgebraucht.
-// Diese Schleife wird keine Iterationen ausführen.
+// The iterator is used up.
+// This loop will execute no iterations.
 for (const value of iterator) {
   console.log(value);
 }
-// [Keine Ausgabe]
+// [No output]
 ```
 
-Generatoren implementieren die [`return()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator/return)-Methode, die die Generatorfunktion veranlasst, frühzeitig zurückzukehren, wenn die Schleife endet. Dadurch sind Generatoren zwischen Schleifen nicht wiederverwendbar.
+Generatoren implementieren die Methode [`return()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Generator/return), die dazu führt, dass die Generatorfunktion vorzeitig zurückkehrt, wenn die Schleife beendet wird. Dies macht Generatoren nicht wiederverwendbar zwischen den Schleifen.
 
 ```js example-bad
 function* source() {
@@ -317,21 +317,21 @@ for (const value of generator) {
 }
 // 1
 
-// Der Generator ist aufgebraucht.
-// Diese Schleife wird keine Iterationen ausführen.
+// The generator is used up.
+// This loop will execute no iterations.
 for (const value of generator) {
   console.log(value);
 }
-// [Keine Ausgabe]
+// [No output]
 ```
 
 ### Unterschied zwischen for...of und for...in
 
-Sowohl `for...in`- als auch `for...of`-Anweisungen iterieren über etwas. Der Hauptunterschied zwischen ihnen liegt darin, worüber sie iterieren.
+Sowohl `for...in` als auch `for...of`-Anweisungen iterieren über etwas. Der Hauptunterschied besteht darin, worüber sie iterieren.
 
-Die {{jsxref("Statements/for...in", "for...in")}}-Anweisung iteriert über die [aufzählbaren Zeichenfolgen-Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) eines Objekts, während die `for...of`-Anweisung über Werte iteriert, die das [iterierbare Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) zum Iterieren definiert.
+Die {{jsxref("Statements/for...in", "for...in")}}-Anweisung iteriert über die [enumerierbaren String-Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) eines Objekts, während die `for...of`-Anweisung über Werte iteriert, die das [iterierbare Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) definiert, dass darüber iteriert wird.
 
-Das folgende Beispiel zeigt den Unterschied zwischen einer `for...of`-Schleife und einer `for...in`-Schleife, wenn sie mit einem {{jsxref("Array")}} verwendet wird.
+Das folgende Beispiel zeigt den Unterschied zwischen einer `for...of`-Schleife und einer `for...in`-Schleife bei der Verwendung mit einem {{jsxref("Array")}}.
 
 ```js
 Object.prototype.objCustom = function () {};
@@ -358,19 +358,19 @@ for (const i of iterable) {
 // 3 5 7
 ```
 
-Das Objekt `iterable` erbt die Eigenschaften `objCustom` und `arrCustom`, weil es sowohl `Object.prototype` als auch `Array.prototype` in seiner [Prototypen-Kette](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) enthält.
+Das Objekt `iterable` erbt die Eigenschaften `objCustom` und `arrCustom`, weil es sowohl `Object.prototype` als auch `Array.prototype` in seiner [Prototypkette](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) enthält.
 
-Die `for...in`-Schleife protokolliert nur die [aufzählbaren Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) des `iterable`-Objekts. Sie protokolliert keine Array-_Elemente_ `3`, `5`, `7` oder `"hello"`, da diese keine _Eigenschaften_ sind - sie sind _Werte_. Sie protokolliert Array-_Indizes_ sowie `arrCustom` und `objCustom`, die tatsächliche Eigenschaften sind. Wenn Sie sich nicht sicher sind, warum diese Eigenschaften durchlaufen werden, gibt es eine ausführlichere Erklärung, wie [Array-Iteration und `for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in#array_iteration_and_for...in) funktionieren.
+Die `for...in`-Schleife protokolliert nur [enumerierbare Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) des `iterable`-Objekts. Sie protokolliert keine Array-_Elemente_ `3`, `5`, `7` oder `"hello"`, weil dies keine _Eigenschaften_ sind — sie sind _Werte_. Sie protokolliert Array-_Indizes_ sowie `arrCustom` und `objCustom`, die tatsächliche Eigenschaften sind. Wenn Sie nicht sicher sind, warum diese Eigenschaften überiteriert werden, gibt es eine eingehendere Erklärung, wie [Array-Iteration und `for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in#array_iteration_and_for...in) funktionieren.
 
-Die zweite Schleife ähnelt der ersten, verwendet jedoch {{jsxref("Object.hasOwn()")}} um zu prüfen, ob die gefundene aufzählbare Eigenschaft die eigene des Objekts ist, d.h. nicht geerbt. Wenn ja, wird die Eigenschaft protokolliert. Die Eigenschaften `0`, `1`, `2` und `foo` werden protokolliert, weil sie eigene Eigenschaften sind. Die Eigenschaften `arrCustom` und `objCustom` werden nicht protokolliert, da sie geerbt sind.
+Die zweite Schleife ist der ersten ähnlich, verwendet jedoch {{jsxref("Object.hasOwn()")}}, um zu überprüfen, ob die gefundene enumerierbare Eigenschaft die eigene des Objekts ist, d.h. nicht geerbt wird. Wenn ja, wird die Eigenschaft protokolliert. Eigenschaften `0`, `1`, `2` und `foo` werden protokolliert, da sie eigene Eigenschaften sind. Eigenschaften `arrCustom` und `objCustom` werden nicht protokolliert, da sie geerbt sind.
 
-Die `for...of`-Schleife iteriert und protokolliert die _Werte_, die `iterable`, als Array (welches [iterierbar](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator) ist), zum Iterieren definiert. Die _Elemente_ des Objekts, `3`, `5`, `7`, werden angezeigt, aber keine der _Eigenschaften_ des Objekts.
+Die `for...of`-Schleife iteriert und protokolliert _Werte_, die `iterable` als Array (das [iterierbar](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator) ist), definiert, dass darüber iteriert wird. Die _Elemente_ `3`, `5`, `7` des Objekts werden angezeigt, jedoch keine der _Eigenschaften_ des Objekts.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -22,7 +22,7 @@ new Int8Array(buffer, byteOffset)
 new Int8Array(buffer, byteOffset, length)
 ```
 
-> **Note:** `Int8Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) erstellt werden. Ein Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `Int8Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
@@ -34,30 +34,30 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten, ein Int8Array zu erstellen
+### Verschiedene Möglichkeiten zur Erstellung eines Int8Array
 
 ```js
-// Aus einer Länge
+// From a length
 const int8 = new Int8Array(2);
 int8[0] = 42;
 console.log(int8[0]); // 42
 console.log(int8.length); // 2
 console.log(int8.BYTES_PER_ELEMENT); // 1
 
-// Aus einem Array
+// From an array
 const x = new Int8Array([21, 31]);
 console.log(x[1]); // 31
 
-// Aus einem anderen TypedArray
+// From another TypedArray
 const y = new Int8Array(x);
 console.log(y[0]); // 21
 
-// Aus einem ArrayBuffer
+// From an ArrayBuffer
 const buffer = new ArrayBuffer(8);
 const z = new Int8Array(buffer, 1, 4);
 console.log(z.byteOffset); // 1
 
-// Aus einem iterierbaren Objekt
+// From an iterable
 const iterable = (function* () {
   yield* [1, 2, 3];
 })();
@@ -77,7 +77,7 @@ console.log(int8FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Int8Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- Leitfaden zu [JavaScript Typed-Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

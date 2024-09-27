@@ -7,19 +7,19 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`autocapitalize`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein [enumeriertes](/de/docs/Glossary/Enumerated) Attribut, das steuert, ob eingegebener Text automatisch großgeschrieben wird und, falls ja, in welcher Weise. Dies ist relevant für:
+Das **`autocapitalize`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein [aufzählbares](/de/docs/Glossary/Enumerated) Attribut, das steuert, ob eingegebener Text automatisch großgeschrieben wird und wenn ja, in welcher Weise. Dies ist relevant für:
 
 - {{htmlelement("input")}}- und {{htmlelement("textarea")}}-Elemente.
-- Jedes Element, bei dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) gesetzt ist.
+- Jedes Element mit aktiviertem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable).
 
-`autocapitalize` beeinflusst nicht das Verhalten beim Tippen auf einer physischen Tastatur. Es beeinflusst das Verhalten anderer Eingabemechanismen wie virtuelle Tastaturen auf mobilen Geräten und Spracheingabe. Dies kann Benutzern helfen, die Dateneingabe schneller und einfacher zu machen, indem z.B. der erste Buchstabe jedes Satzes automatisch großgeschrieben wird.
+`autocapitalize` beeinflusst nicht das Verhalten beim Tippen auf einer physischen Tastatur. Es beeinflusst das Verhalten anderer Eingabemechanismen wie virtuelle Tastaturen auf mobilen Geräten und Spracheingabe. Dies kann Benutzern helfen, die Dateneingabe schneller und einfacher zu machen, zum Beispiel durch automatische Großschreibung des ersten Buchstabens jedes Satzes.
 
 ## Wert
 
 Mögliche Werte sind:
 
 - `none` oder `off`
-  - : Keine automatische Großschreibung von Text.
+  - : Keine automatische Großschreibung des Textes.
 - `sentences` oder `on`
   - : Automatische Großschreibung des ersten Zeichens jedes Satzes.
 - `words`
@@ -27,24 +27,24 @@ Mögliche Werte sind:
 - `characters`
   - : Automatische Großschreibung jedes Zeichens.
 
-## Nutzungshinweise
+## Gebrauchshinweise
 
-- `autocapitalize` kann auf `<input>`- und `<textarea>`-Elementen _und_ auf ihren enthaltenen {{htmlelement("form")}}-Elementen gesetzt werden. Wenn `autocapitalize` auf einem `<form>`-Element gesetzt ist, wird das Autokapitalisierungsverhalten für alle enthaltenen `<input>`- und `<textarea>`-Elemente festgelegt, wobei alle auf enthaltenen Elementen gesetzten `autocapitalize`-Werte überschrieben werden.
-- `autocapitalize` hat keinen Einfluss auf die `url`-, `email`- oder `password`-`<input>`-Typen, bei denen die automatische Großschreibung nie aktiviert ist.
-- Wo `autocapitalize` nicht angegeben ist, variiert das angenommene Standardverhalten zwischen den Browsern. Zum Beispiel:
-  - Chrome und Safari standardmäßig `on`/`sentences`
-  - Firefox standardmäßig `off`/`none`.
+- `autocapitalize` kann auf `<input>`- und `<textarea>`-Elementen gesetzt werden, _und_ auf ihren enthaltenen {{htmlelement("form")}}-Elementen. Wenn `autocapitalize` auf einem `<form>`-Element gesetzt ist, legt es das Verhalten der Großschreibung für alle enthaltenen `<input>`- und `<textarea>`-Elemente fest und überschreibt alle auf enthaltenen Elementen gesetzten `autocapitalize`-Werte.
+- `autocapitalize` hat keine Auswirkungen auf die `url`, `email` oder `password` `<input>`-Typen, für die eine Großschreibung nie aktiviert wird.
+- Wo `autocapitalize` nicht spezifiziert ist, variiert das angenommene Standardverhalten zwischen den Browsern. Zum Beispiel:
+  - Chrome und Safari haben `on`/`sentences` als Standard
+  - Firefox hat `off`/`none` als Standard.
 
 ## Beispiele
 
 ### HTML
 
 ```html
-<p>Formular zum Testen verschiedener Autokapitalisierungseinstellungen:</p>
+<p>Form to test different autocapitalize settings:</p>
 
 <form>
   <div>
-    <label for="default">Standard: Keine Autokapitalisierung gesetzt</label>
+    <label for="default">Default: no autocapitalize set</label>
     <input type="text" id="default" name="default" />
   </div>
   <div>
@@ -80,7 +80,7 @@ Mögliche Werte sind:
       autocapitalize="characters" />
   </div>
   <div>
-    <label for="characters-ta">autocapitalize="characters" in textarea</label>
+    <label for="characters-ta">autocapitalize="characters" on textarea</label>
     <textarea
       type="text"
       id="characters-ta"
@@ -93,7 +93,7 @@ Mögliche Werte sind:
 <hr />
 
 <p contenteditable autocapitalize="characters">
-  Dieser Inhalt ist bearbeitbar und hat autocapitalize="characters" darauf gesetzt
+  This content is editable and has autocapitalize="characters" set on it
 </p>
 ```
 
@@ -105,7 +105,7 @@ div {
 
 ## Ergebnis
 
-Testen Sie den Effekt in jedem Eingabefeld mit einer virtuellen Tastatur oder Spracheingabe (Tastatureingabe wird nicht funktionieren).
+Testen Sie die Auswirkung auf jede Eingabe mit einer virtuellen Tastatur oder Spracheingabe (Tastatureingabe wird nicht funktionieren).
 
 {{ EmbedLiveSample("Examples", "100%", "500") }}
 

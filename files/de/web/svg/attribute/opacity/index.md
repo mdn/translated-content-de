@@ -1,5 +1,5 @@
 ---
-title: Opazität
+title: opacity
 slug: Web/SVG/Attribute/opacity
 l10n:
   sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das **`opacity`**-Attribut gibt die Transparenz eines Objekts oder einer Gruppe von Objekten an, das heißt, in welchem Ausmaß der Hintergrund hinter dem Element überlagert wird.
+Das **`opacity`**-Attribut spezifiziert die Transparenz eines Objekts oder einer Gruppe von Objekten, also das Maß, in dem der Hintergrund hinter dem Element überlagert wird.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `opacity` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("opacity")}}.
+> Als Präsentationsattribut kann `opacity` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS {{cssxref("opacity")}}-Eigenschaft.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -34,7 +34,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("tspan")}}
 - {{SVGElement("use")}}
 
-Im Gegensatz zu {{SVGAttr("fill-opacity")}}, {{SVGAttr("stroke-opacity")}}, und {{SVGAttr("stop-opacity")}}, die auf einzelne Operationen angewendet und _während_ des Renderns des Elements gerendert werden, wird `opacity` auf ganze Objekte oder Gruppen angewendet und ähnelt mehr einer Nachbearbeitungsoperation auf dem gerenderten Bild des Objekts oder der Gruppe. Daher werden bei gleichzeitiger Verwendung von `opacity` und den anderen Opazitätsattributen im selben Bereich diese übereinander gelegt und die Opazität wird multipliziert.
+Im Gegensatz zu {{SVGAttr("fill-opacity")}}, {{SVGAttr("stroke-opacity")}} und {{SVGAttr("stop-opacity")}}, die auf einzelne Operationen angewendet werden und _wenn_ das Element gerendert wird, angewendet werden, wird `opacity` auf ganze Objekte oder Gruppen angewendet und ist eher wie eine Nachbearbeitungsoperation auf dem gerenderten Bild des Objekts oder der Gruppe. Daher, wenn Sie sowohl `opacity` als auch die anderen Opazitätsattribute im gleichen Bereich haben, werden sie übereinander gelegt und führen dazu, dass die Opazität multipliziert wird.
 
 ## Beispiel
 
@@ -82,7 +82,7 @@ svg {
 </table>
 
 - `<alpha-value>`
-  - : Die einheitliche Opazitätseinstellung, die auf ein komplettes Objekt angewendet wird, als {{cssxref("number")}}. Alle Werte außerhalb des Bereichs 0.0 (vollständig transparent) bis 1.0 (vollständig opak) werden in diesen Bereich eingegrenzt.
+  - : Die einheitliche Opazitätseinstellung, die über ein gesamtes Objekt hinweg angewendet wird, als {{cssxref("number")}}. Alle Werte außerhalb des Bereichs von 0.0 (vollständig transparent) bis 1.0 (vollständig opak) werden auf diesen Bereich beschränkt.
 
 ## Spezifikationen
 

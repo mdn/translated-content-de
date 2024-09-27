@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<data>`** [HTML](/de/docs/Web/HTML)-Element verknüpft ein bestimmtes Inhaltselement mit einer maschinenlesbaren Übersetzung. Falls der Inhalt zeit- oder datumsbezogen ist, muss das {{HTMLElement("time")}}-Element verwendet werden.
+Das **`<data>`** [HTML](/de/docs/Web/HTML)-Element verknüpft ein gegebenes Stück Inhalt mit einer maschinenlesbaren Übersetzung. Wenn der Inhalt zeit- oder datumsbezogen ist, muss das {{HTMLElement("time")}}-Element verwendet werden.
 
 {{EmbedInteractiveExample("pages/tabbed/data.html", "tabbed-shorter")}}
 
@@ -16,14 +16,14 @@ Das **`<data>`** [HTML](/de/docs/Web/HTML)-Element verknüpft ein bestimmtes Inh
 Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `value`
-  - : Dieses Attribut spezifiziert die maschinenlesbare Übersetzung des Inhalts des Elements.
+  - : Dieses Attribut gibt die maschinenlesbare Übersetzung des Inhalts des Elements an.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt Produktnamen an, verknüpft aber auch jeden Namen mit einer Produktnummer.
+Das folgende Beispiel zeigt Produktnamen, die jeweils mit einer Produktnummer verknüpft sind.
 
 ```html
-<p>Neue Produkte</p>
+<p>New Products</p>
 <ul>
   <li><data value="398">Mini Ketchup</data></li>
   <li><data value="399">Jumbo Ketchup</data></li>
@@ -47,31 +47,31 @@ Das folgende Beispiel zeigt Produktnamen an, verknüpft aber auch jeden Namen mi
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließende Inhalte</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >phrasierte Inhalte</a
+          >Phraseninhalt</a
         >, fühlbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zugelassene Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierte Inhalte</a
+          >Phraseninhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das Endtag sind obligatorisch.</td>
+      <td>Keine, sowohl das öffnende als auch das schließende Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zugelassene Elternteile</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >phrasierte Inhalte</a
+          >Phraseninhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -80,18 +80,18 @@ Das folgende Beispiel zeigt Produktnamen an, verknüpft aber auch jeden Namen mi
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
-            >generisch</a
+            >generic</a
           ></code
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Zugelassene ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>Jede</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLDataElement")}}</td>
+      <td>[`HTMLDataElement`](/de/docs/Web/API/HTMLDataElement)</td>
     </tr>
   </tbody>
 </table>

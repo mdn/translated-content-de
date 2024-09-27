@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`storageArea`**-Eigenschaft der {{domxref("StorageEvent")}}-Schnittstelle gibt das Speicherobjekt zurück, das betroffen war.
+Die **`storageArea`**-Eigenschaft des [`StorageEvent`](/de/docs/Web/API/StorageEvent)-Interfaces gibt das Speicherobjekt zurück, das betroffen wurde.
 
 ## Wert
 
-Ein {{DOMxRef("Storage")}}-Objekt, das das betroffene Speicherobjekt darstellt.
+Ein [`Storage`](/de/docs/Web/API/Storage)-Objekt, das das betroffene Speicherobjekt darstellt.
 
 ## Spezifikationen
 
@@ -24,4 +24,4 @@ Ein {{DOMxRef("Storage")}}-Objekt, das das betroffene Speicherobjekt darstellt.
 
 ## Siehe auch
 
-- {{domxref("Web Storage API", "", "", "nocode")}}
+- [Web Storage API](/de/docs/Web/API/Web_Storage_API)

@@ -8,10 +8,10 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`getSize()`** Methode des {{domxref("FileSystemSyncAccessHandle")}}-Interfaces gibt die Größe der mit dem Handle verbundenen Datei in Bytes zurück.
+Die **`getSize()`**-Methode des [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)-Interfaces gibt die Größe der mit dem Handle verknüpften Datei in Bytes zurück.
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation wurden {{domxref("FileSystemSyncAccessHandle.close()", "close()")}}, {{domxref("FileSystemSyncAccessHandle.flush()", "flush()")}}, `getSize()` und {{domxref("FileSystemSyncAccessHandle.truncate()", "truncate()")}} fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Allerdings implementieren alle aktuellen Browser, die diese Methoden unterstützen, sie als synchrone Methoden.
+> In früheren Versionen der Spezifikation wurden [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), `getSize()`, und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden festgelegt, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Allerdings implementieren alle aktuellen Browser, die diese Methoden unterstützen, sie als synchrone Methoden.
 
 ## Syntax
 
@@ -25,22 +25,22 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zahl, die die Größe der Datei in Bytes repräsentiert.
+Eine Zahl, die die Größe der Datei in Bytes darstellt.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Ausgelöst, wenn das zugehörige Zugriffs-Handle bereits geschlossen ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das zugehörige Zugriffs-Handle bereits geschlossen ist.
 
 ## Beispiele
 
-Die folgende asynchrone Ereignishandler-Funktion ist in einem Web Worker enthalten. Beim Empfang einer Nachricht aus dem Haupt-Thread:
+Die folgende asynchrone Ereignis-Handler-Funktion befindet sich in einem Web Worker. Beim Empfang einer Nachricht aus dem Hauptthread:
 
-- Erstellt ein synchrones Dateizugriffshandle.
-- Ruft die Größe der Datei ab und erstellt einen {{jsxref("ArrayBuffer")}}, um sie zu enthalten.
-- Liest den Dateiinhalte in den Puffer.
-- Kodiert die Nachricht und schreibt sie ans Ende der Datei.
-- Speichert die Änderungen auf der Festplatte und schließt das Zugriffshandle.
+- Erzeugt sie ein synchrones Datei-Zugriffs-Handle.
+- Ermittelt sie die Größe der Datei und erstellt einen {{jsxref("ArrayBuffer")}} zur Aufnahme dieser.
+- Liest sie den Dateiinhalt in den Puffer.
+- Codiert sie die Nachricht und schreibt sie ans Ende der Datei.
+- Speichert sie die Änderungen auf der Festplatte und schließt das Zugriffs-Handle.
 
 ```js
 onmessage = async (e) => {
@@ -76,11 +76,11 @@ onmessage = async (e) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [Das File System Access API: Vereinfachen des Zugriffs auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

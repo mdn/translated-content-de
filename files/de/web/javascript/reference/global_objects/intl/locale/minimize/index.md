@@ -25,25 +25,21 @@ Keine.
 
 ### Rückgabewert
 
-Eine {{jsxref("Intl.Locale")}}-Instanz, deren `baseName`-Eigenschaft das Ergebnis des
-[Remove Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags)-Algorithmus
-zurückgibt, angewendet auf _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_.
+Eine {{jsxref("Intl.Locale")}} Instanz, deren `baseName`-Eigenschaft das Ergebnis des [Remove Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags) Algorithmus zurückgibt,
+ausgeführt auf _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_.
 
 ## Beschreibung
 
-Diese Methode führt das Gegenteil von {{jsxref("Intl/Locale/maximize", "maximize()")}}
-aus, indem sie alle Sprach-, Skript- oder Regions-Subtags aus dem Sprachbezeichner des Locale
-(grundsätzlich der Inhalt von `baseName`) entfernt. Dies ist nützlich, wenn im Sprachbezeichner
-überflüssige Subtags vorhanden sind; zum Beispiel kann "en-Latn" vereinfacht zu "en" werden,
-da "Latn" das einzige Skript ist, das zur Schreibweise von Englisch verwendet wird.
-`minimize()` betrifft nur die Hauptsubtags, die den
-[Sprachbezeichner](https://www.unicode.org/reports/tr35/#Language_Locale_Field_Definitions)
-bilden: Sprach-, Skript- und Regions-Subtags. Andere Subtags nach dem "-u" im Locale-Bezeichner
-werden als Erweiterungs-Subtags bezeichnet und werden von der `minimize()`-Methode nicht beeinflusst.
-Beispiele für diese Subtags sind
-{{jsxref("Intl/Locale/hourCycle", "hourCycle")}},
-{{jsxref("Intl/Locale/calendar", "calendar")}}, und
-{{jsxref("Intl/Locale/numeric", "numeric")}}.
+Diese Methode führt das Gegenteil von {{jsxref("Intl/Locale/maximize", "maximize()")}} aus,
+indem sie alle Sprach-, Schrift- oder Region-Subtags aus dem Sprachkennzeichen der Locale
+(enthaltend im Wesentlichen die Inhalte von `baseName`) entfernt. Dies ist nützlich,
+wenn überflüssige Subtags im Sprachkennzeichen vorhanden sind; zum Beispiel kann "en-Latn"
+zu "en" vereinfacht werden, da "Latn" das einzige Skript ist, das Englisch geschrieben wird.
+`minimize()` beeinflusst nur die Haupt-Subtags, die den [Sprachkennzeichner](https://www.unicode.org/reports/tr35/#Language_Locale_Field_Definitions) ausmachen:
+sprachliche, schriftliche und regionale Subtags. Andere Subtags nach dem "-u"
+im Locale-Kennzeichner werden als Erweiterungs-Subtags bezeichnet und sind von der
+`minimize()`-Methode nicht betroffen. Beispiele für diese Subtags sind
+{{jsxref("Intl/Locale/hourCycle", "hourCycle")}}, {{jsxref("Intl/Locale/calendar", "calendar")}} und {{jsxref("Intl/Locale/numeric", "numeric")}}.
 
 ## Beispiele
 
@@ -54,17 +50,17 @@ const myLocale = new Intl.Locale("fr-Latn-FR", {
   hourCycle: "h12",
   calendar: "gregory",
 });
-console.log(myLocale.baseName); // Gibt "fr-Latn-FR" aus
-console.log(myLocale.toString()); // Gibt "fr-Latn-FR-u-ca-gregory-hc-h12" aus
+console.log(myLocale.baseName); // Prints "fr-Latn-FR"
+console.log(myLocale.toString()); // Prints "fr-Latn-FR-u-ca-gregory-hc-h12"
 
 const myLocMinimized = myLocale.minimize();
 
-// Gibt "fr" aus, da Französisch nur im lateinischen Skript geschrieben wird
-// und höchstwahrscheinlich in Frankreich gesprochen wird.
+// Prints "fr", since French is only written in the Latin script
+// and is most likely to be spoken in France.
 console.log(myLocMinimized.baseName);
 
-// Gibt "fr-u-ca-gregory-hc-h12" aus.
-// Beachten Sie, dass die Erweiterungs-Tags (nach "-u") unverändert bleiben.
+// Prints "fr-u-ca-gregory-hc-h12".
+// Note that the extension tags (after "-u") remain unchanged.
 console.log(myLocMinimized.toString());
 ```
 

@@ -7,29 +7,29 @@ l10n:
 
 {{LearnSidebar}}
 
-Alle Webentwickler lernen sehr schnell (und manchmal schmerzhaft), dass das Web ein sehr schwieriger Ort für sie ist. Unser größter Fluch sind alte Browser. Früher bedeutete dies "Internet Explorer", aber es gibt Millionen von Menschen, die alte Geräte nutzen, insbesondere Mobiltelefone, auf denen weder der Browser noch das Betriebssystem aktualisiert werden können.
+Alle Webentwickler lernen sehr schnell (und manchmal schmerzlich), dass das Web ein sehr rauer Ort für sie ist. Unser größter Fluch sind ältere Browser. Früher bedeutete das "Internet Explorer", aber es gibt Millionen von Menschen, die alte Geräte benutzen, besonders Mobiltelefone, bei denen weder der Browser noch das Betriebssystem aktualisiert werden können.
 
-Mit dieser Wildnis umzugehen, gehört zum Job. Glücklicherweise gibt es einige Tricks, die Ihnen helfen können, die meisten der durch alte Browser verursachten Probleme zu lösen. Wenn ein Browser einen HTML-{{htmlelement('input')}}-Typ nicht unterstützt, schlägt er nicht fehl: Er verwendet einfach den Standardwert `type=text`.
+Mit dieser Wildnis umzugehen, gehört zum Job. Glücklicherweise gibt es ein paar Tricks, die Sie kennen sollten und die Ihnen helfen können, die meisten Probleme zu lösen, die durch ältere Browser verursacht werden. Wenn ein Browser einen HTML-{{htmlelement('input')}}-Typ nicht unterstützt, schlägt er nicht fehl: Er verwendet einfach den Standardwert `type=text`.
 
-## Lernen Sie die Probleme kennen
+## Informieren Sie sich über die Probleme
 
-Um gängige Muster zu verstehen, hilft es, Dokumentationen zu lesen. Wenn Sie dies auf [MDN](/) lesen, sind Sie am richtigen Ort, um zu beginnen. Überprüfen Sie einfach die Unterstützung der Elemente (oder DOM-Schnittstellen), die Sie verwenden möchten. MDN bietet Kompatibilitätstabellen für die meisten Elemente, Eigenschaften und APIs, die in einer Webseite verwendet werden können.
+Um häufige Muster zu verstehen, hilft es, Dokumentation zu lesen. Wenn Sie dies gerade auf [MDN](/) lesen, sind Sie an der richtigen Stelle, um zu beginnen. Überprüfen Sie einfach die Unterstützung der Elemente (oder DOM-Schnittstellen), die Sie verwenden möchten. MDN bietet Kompatibilitätstabellen für die meisten Elemente, Eigenschaften und APIs, die auf einer Webseite verwendet werden können.
 
-Da [HTML-Formulare](/de/docs/Learn/Forms) eine komplexe Interaktion erfordern, gibt es eine wichtige Regel: Halten Sie es einfach, bekannt als das "[KISS-Prinzip](https://en.wikipedia.org/wiki/KISS_principle)". Es gibt so viele Fälle, in denen wir Formulare wünschen, die "schöner" oder "mit fortgeschrittener Funktionalität" sind, aber der Bau effizienter HTML-Formulare ist keine Frage des Designs oder der Technologie. Vielmehr geht es um Einfachheit, Intuitivität und Benutzerfreundlichkeit. Das Tutorial, [Formularbenutzerfreundlichkeit auf UX For The Masses,](https://www.uxforthemasses.com/forms-usability/) erklärt dies gut.
+Da [HTML-Formulare](/de/docs/Learn/Forms) komplexe Interaktionen beinhalten, gibt es eine wichtige Regel: Halten Sie es einfach, auch bekannt als das "[KISS-Prinzip](https://en.wikipedia.org/wiki/KISS_principle)". Es gibt so viele Fälle, in denen wir Formulare "schöner" oder "mit erweiterten Funktionen" haben möchten, aber der Aufbau effizienter HTML-Formulare ist keine Frage des Designs oder der Technologie. Es geht vielmehr um Einfachheit, Intuitivität und die Leichtigkeit der Benutzerinteraktion. Das Tutorial, [Formularbenutzbarkeit auf UX For The Masses,](https://www.uxforthemasses.com/forms-usability/) erklärt das gut.
 
-### Stufenweise Degradation ist des Webentwicklers bester Freund
+### Graziöse Degradation ist der beste Freund des Webentwicklers
 
-[Stufenweise Degradation und progressive Verbesserung](https://www.sitepoint.com/progressive-enhancement-graceful-degradation-choice/) sind Entwicklungsansätze, die es Ihnen ermöglichen, großartige Dinge zu schaffen, indem Sie gleichzeitig eine Vielzahl von Browsern unterstützen. Wenn Sie etwas für einen modernen Browser bauen und sicherstellen möchten, dass es auf die eine oder andere Weise in alten Browsern funktioniert, führen Sie eine stufenweise Degradation durch.
+[Graziöse Degradation und progressive Verbesserung](https://www.sitepoint.com/progressive-enhancement-graceful-degradation-choice/) sind Entwicklungsmuster, die es Ihnen ermöglichen, großartige Dinge zu bauen, indem Sie eine Vielzahl von Browsern gleichzeitig unterstützen. Wenn Sie etwas für einen modernen Browser entwickeln und sicherstellen möchten, dass es auf die eine oder andere Weise auch in älteren Browsern funktioniert, wenden Sie graziöse Degradation an.
 
-Sehen wir uns einige Beispiele im Zusammenhang mit HTML-Formularen an.
+Schauen wir uns einige Beispiele im Zusammenhang mit HTML-Formularen an.
 
 #### HTML-Input-Typen
 
-Alle HTML-Input-Typen sind in allen Browsern verwendbar, sogar in sehr alten, da die Art und Weise, wie sie sich verschlechtern, sehr vorhersehbar ist. Wenn ein Browser den Wert des [`type`](/de/docs/Web/HTML/Element/input#type)-Attributs eines {{HTMLElement("input")}}-Elements nicht kennt, fällt er zurück, als ob der Wert `text` wäre.
+Alle HTML-Input-Typen sind in allen Browsern verwendbar, selbst in sehr alten, da die Art, wie sie degradieren, vorhersehbar ist. Wenn ein Browser den Wert des [`type`](/de/docs/Web/HTML/Element/input#type)-Attributs eines {{HTMLElement("input")}}-Elements nicht kennt, fällt er auf den Wert `text` zurück.
 
 ```html
 <label for="myColor">
-  Wählen Sie eine Farbe
+  Pick a color
   <input type="color" id="myColor" name="color" />
 </label>
 ```
@@ -45,13 +45,13 @@ Alle HTML-Input-Typen sind in allen Browsern verwendbar, sogar in sehr alten, da
     <tr>
       <td>
         <img
-          alt="Screenshot des Farbeingabefeldes in Chrome für Mac OSX"
+          alt="Bildschirmfoto des Farbeingabefelds in Chrome für Mac OSX"
           src="color-fallback-chrome.png"
         />
       </td>
       <td>
         <img
-          alt="Screenshot des Farbeingabefeldes in Firefox für Mac OSX"
+          alt="Bildschirmfoto des Farbeingabefelds in Firefox für Mac OSX"
           src="color-fallback-firefox.png"
         />
       </td>
@@ -59,91 +59,91 @@ Alle HTML-Input-Typen sind in allen Browsern verwendbar, sogar in sehr alten, da
   </tbody>
 </table>
 
-#### Formularschaltflächen
+#### Formularbuttons
 
-Es gibt zwei Möglichkeiten, Schaltflächen innerhalb von HTML-Formularen zu definieren:
+Es gibt zwei Möglichkeiten, Buttons innerhalb von HTML-Formularen zu definieren:
 
-- Das {{HTMLElement("input")}}-Element mit seinem Attribut [`type`](/de/docs/Web/HTML/Element/input#type), gesetzt auf die Werte `button`, `submit`, `reset` oder `image`
+- Das {{HTMLElement("input")}}-Element mit seinem Attribut [`type`](/de/docs/Web/HTML/Element/input#type) auf die Werte `button`, `submit`, `reset` oder `image` gesetzt
 - Das {{HTMLElement("button")}}-Element
 
 ##### {{HTMLElement("input")}}
 
-Das {{HTMLElement("input")}}-Element kann die Dinge ein wenig kompliziert machen, wenn Sie versuchen, einige CSS mit dem Elementselektor anzuwenden:
+Das {{HTMLElement("input")}}-Element kann es ein wenig schwierig machen, wenn Sie etwas CSS anwenden möchten, indem Sie den Element-Selektor verwenden:
 
 ```html
 <input type="button" value="click me" />
 ```
 
-Wenn wir die Umrandung bei allen Eingaben entfernen, können wir dann das Standardaussehen nur bei Eingabeschaltflächen wiederherstellen?
+Wenn wir den Rand bei allen Eingaben entfernen, können wir das Standardaussehen nur bei Eingabebuttons wiederherstellen?
 
 ```css
 input {
-  /* Diese Regel schaltet das Standardrendering für die Input-Typen aus, die eine Umrandung haben,
-     einschließlich der mit einem Input-Element definierten Schaltflächen */
+  /* This rule turns off the default rendering for the input types that have a border,
+     including buttons defined with an input element */
   border: 1px solid #ccc;
 }
 input[type="button"] {
-  /* Dies stellt das Standardrendering NICHT wieder her */
+  /* This does NOT restore the default rendering */
   border: none;
 }
 input[type="button"] {
-  /* Diese auch nicht! Tatsächlich gibt es keinen Standardweg, das in einem beliebigen Browser zu tun */
+  /* These don't either! Actually there is no standard way to do it in any browser */
   border: auto;
   border: initial;
 }
 input[type="button"] {
-  /* Dies kommt der Wiederherstellung des Standardrenderings am nächsten. */
+  /* This will come the closest to restoring default rendering. */
   border: revert;
 }
 ```
 
-Siehe den globalen CSS-{{cssxref('revert')}}-Wert für weitere Informationen.
+Sehen Sie sich den globalen CSS-Wert {{cssxref('revert')}} für weitere Informationen an.
 
-### Verzichten Sie auf CSS
+### CSS weglassen
 
-Eines der großen Probleme bei HTML-Formularen ist das Styling von Formular-Widgets mit CSS. Das Erscheinungsbild von Formularelementen ist browserspezifisch und betriebssystemspezifisch. Zum Beispiel sieht das Farbeingabefeld in Safari, Chrome und Firefox anders aus, aber das Farbauswahl-Widget ist auf allen Browsern eines Geräts dasselbe, da es das native Farbauswahlwerkzeug des Betriebssystems öffnet.
+Eines der großen Probleme mit HTML-Formularen ist das Styling von Formular-Widgets mit CSS. Das Aussehen der Formular-Steuerelemente ist browser- und betriebssystemspezifisch. Zum Beispiel sieht der Input des Farbtyps in Safari, Chrome und Firefox unterschiedlich aus, aber das Farbwähler-Widget ist auf allen Browsern auf einem Gerät gleich, da es den nativen Farbwähler des Betriebssystems öffnet.
 
-Es ist im Allgemeinen eine gute Idee, das Standardaussehen von Formularelementen nicht zu verändern, da das Ändern eines CSS-Eigenschaftswertes einige Eingabetypen, aber nicht andere beeinflussen kann. Wenn Sie beispielsweise `input { font-size: 2rem; }` erklären, wirkt sich das auf `number`, `date` und `text` aus, aber nicht auf `color` oder `range`. Wenn Sie eine Eigenschaft ändern, kann dies das Erscheinungsbild des Widgets auf unerwartete Weise beeinflussen. Wenn Sie beispielsweise `[value] { background-color: #ccc; }` verwenden, um jedes {{HTMLElement("input")}} mit einem `value`-Attribut anzusprechen, führt die Änderung der Hintergrundfarbe oder des Randradius bei einem {{HTMLElement("meter")}} wahrscheinlich zu unerwarteten Ergebnissen, die je nach Browser variieren. Sie können {{cssxref('appearance', 'appearance: none;')}} deklarieren, um die Browserstile zu entfernen, aber das widerspricht im Allgemeinen dem Zweck: Denn Sie verlieren alle Stile und entfernen das vertraute Aussehen, an das Ihre Besucher gewöhnt sind.
+Es ist generell eine gute Idee, das Standardaussehen der Formular-Steuerelemente nicht zu ändern, da die Änderung eines CSS-Eigenschaftswerts einige Eingabetypen, aber nicht andere, beeinflussen kann. Wenn Sie beispielsweise `input { font-size: 2rem; }` deklarieren, wirkt sich das auf `number`, `date` und `text` aus, aber nicht auf `color` oder `range`. Wenn Sie eine Eigenschaft ändern, kann das Erscheinungsbild des Widgets auf unerwartete Weise beeinflusst werden. Zum Beispiel könnte `[value] { background-color: #ccc; }` verwendet worden sein, um jedes {{HTMLElement("input")}} mit einem `value`-Attribut zu beeinflussen, aber die Änderung der Hintergrundfarbe oder der Rahmenradius an einem {{HTMLElement("meter")}} führt wahrscheinlich zu unerwarteten Ergebnissen, die sich von Browser zu Browser unterscheiden. Sie können {{cssxref('appearance', 'appearance: none;')}} deklarieren, um die Browserstile zu entfernen, aber das führt im Allgemeinen das Ziel ad absurdum: Da Sie das gesamte Styling verlieren, entfernen Sie das Standardaussehen und das Gefühl, an das Ihre Besucher gewöhnt sind.
 
-Zusammenfassend lässt sich sagen, dass beim Styling von Formularelementen die Nebeneffekte des Stylings mit CSS unvorhersehbar sein können. Also lassen Sie es. Wie Sie aus der Komplexität der [Eigenschaftskompatibilitätstabelle für Formular-Widgets](/de/docs/Learn/Forms/Property_compatibility_table_for_form_controls)-Artikel sehen können, ist es sehr schwierig. Selbst wenn es möglich ist, einige Anpassungen an Textelementen vorzunehmen (wie Größenänderung oder Schriftfarbe), gibt es immer Nebeneffekte. Der beste Ansatz bleibt, HTML-Formular-Widgets überhaupt nicht zu stylen. Sie können jedoch immer noch Stile auf alle umgebenden Elemente anwenden. Und wenn Sie die Standardstile Ihrer Formular-Widgets unbedingt ändern müssen, definieren Sie eine Stilrichtlinie, um Konsistenz bei allen Ihren Formularelementen zu gewährleisten, damit die Benutzererfahrung nicht beeinträchtigt wird. Sie können auch einige harte Techniken untersuchen, wie [Widgets mit JavaScript neu zu erstellen](/de/docs/Learn/Forms/How_to_build_custom_form_controls). Zögern Sie in diesem Fall nicht, [Ihren Kunden für solchen Unsinn zur Kasse zu bitten](https://www.smashingmagazine.com/2011/11/but-the-client-wants-ie-6-support/).
+Zusammengefasst: Wenn es um das Styling von Formular-Steuerelement-Widgets geht, können die Nebenwirkungen des Stylings mit CSS unvorhersehbar sein. Also tun Sie es nicht. Wie aus der Komplexität des Artikels über die [Eigenschaftskompatibilitätstabelle für Formular-Widgets](/de/docs/Learn/Forms/Property_compatibility_table_for_form_controls) hervorgeht, ist es sehr schwierig. Auch wenn es immer noch möglich ist, einige Anpassungen an Text-Elementen (wie Größe oder Schriftfarbe) vorzunehmen, gibt es immer Nebenwirkungen. Der beste Ansatz bleibt, HTML-Formular-Widgets überhaupt nicht zu stylen. Sie können jedoch weiterhin Stile auf alle umgebenden Elemente anwenden. Und wenn Sie die Standardstile Ihrer Formular-Widgets unbedingt ändern müssen, definieren Sie einen Stil-Leitfaden, um Konsistenz zwischen all Ihren Formular-Steuerelementen zu gewährleisten, sodass die Benutzererfahrung nicht zerstört wird. Sie können auch einige harte Techniken untersuchen, wie z.B. [Widgets mit JavaScript neu zu erstellen](/de/docs/Learn/Forms/How_to_build_custom_form_controls). Aber in diesem Fall zögern Sie nicht, [Ihren Kunden für eine solche Torheit in Rechnung zu stellen](https://www.smashingmagazine.com/2011/11/but-the-client-wants-ie-6-support/).
 
-## Funktionsüberprüfung und Polyfills
+## Funktionsdetektion und Polyfills
 
-CSS und JavaScript sind großartige Technologien, aber es ist wichtig sicherzustellen, dass Sie alte Browser nicht beschädigen. Bevor Sie Funktionen verwenden, die in den von Ihnen anvisierten Browsern nicht vollständig unterstützt werden, sollten Sie die Funktionserkennung durchführen:
+CSS und JavaScript sind großartige Technologien, aber es ist wichtig sicherzustellen, dass Sie ältere Browser nicht ausbrechen. Bevor Sie Funktionen verwenden, die in den von Ihnen angezielten Browsern nicht vollständig unterstützt werden, sollten Sie eine Funktionsdetektion durchführen:
 
-### CSS-Funktionsüberprüfung
+### CSS-Funktionsdetektion
 
-Bevor Sie ein ersetztes Formularelement-Widget stylen, können Sie überprüfen, ob der Browser die Funktionen unterstützt, die Sie verwenden möchten {{cssxref('@supports')}}:
+Bevor Sie ein ausgetauschtes Formular-Steuerelement-Widget stylen, können Sie prüfen, ob der Browser die Funktionen unterstützt, die Sie verwenden wollen {{cssxref('@supports')}}:
 
 ```css
 @supports (appearance: none) {
   input[type="search"] {
     appearance: none;
-    /* Suchfeld umstylen */
+    /* restyle the search input */
   }
 }
 ```
 
-Die {{cssxref('appearance')}}-Eigenschaft kann verwendet werden, um ein Element mit plattformspezifischem Styling anzuzeigen oder, wie bei dem Wert `none`, die plattformspezifischen Standardstile zu entfernen.
+Die {{cssxref('appearance')}}-Eigenschaft kann verwendet werden, um ein Element mit der plattformspezifischen Nativen-Darstellung anzuzeigen oder, wie im Fall mit dem Wert `none`, die standardmäßige plattformspezifische Styling zu entfernen.
 
 ### Unaufdringliches JavaScript
 
-Eines der größten Probleme ist die Verfügbarkeit von APIs. Aus diesem Grund gilt es als Best Practice, mit "unaufdringlichem" JavaScript zu arbeiten. Es ist ein Entwicklungsansatz, der zwei Anforderungen definiert:
+Eines der größten Probleme ist die Verfügbarkeit von APIs. Aus diesem Grund wird als Best Practice betrachtet, mit "unaufdringlichem" JavaScript zu arbeiten. Es ist ein Entwicklungsmuster, das zwei Anforderungen definiert:
 
 - Eine strikte Trennung zwischen Struktur und Verhalten.
-- Wenn der Code fehlschlägt, müssen der Inhalt und die grundlegenden Funktionen weiterhin zugänglich und nutzbar bleiben.
+- Wenn der Code nicht funktioniert, müssen der Inhalt und die grundlegenden Funktionalitäten zugänglich und verwendbar bleiben.
 
-[Die Prinzipien von unaufdringlichem JavaScript](https://www.w3.org/wiki/The_principles_of_unobtrusive_JavaScript) (ursprünglich von Peter-Paul Koch für Dev.Opera.com geschrieben) beschreiben diese Ideen sehr gut.
+[Die Prinzipien von unaufdringlichem JavaScript](https://www.w3.org/wiki/The_principles_of_unobtrusive_JavaScript) (ursprünglich geschrieben von Peter-Paul Koch für Dev.Opera.com) beschreiben diese Ideen sehr gut.
 
 ### Achten Sie auf die Leistung
 
-Auch wenn einige Polyfills sehr auf die Leistung achten, kann das Laden zusätzlicher Skripte die Leistung Ihrer Anwendung beeinträchtigen. Dies ist besonders kritisch bei alten Browsern; viele davon haben eine sehr langsame JavaScript-Engine, die die Ausführung aller Ihrer Polyfills für den Benutzer schmerzhaft machen kann. Leistung ist ein Thema für sich, aber alte Browser sind sehr empfindlich darauf: Im Grunde sind sie langsam, und je mehr Polyfills sie benötigen, desto mehr JavaScript müssen sie verarbeiten. Daher sind sie im Vergleich zu modernen Browsern doppelt belastet. Testen Sie Ihren Code mit alten Browsern, um zu sehen, wie sie tatsächlich abschneiden. Manchmal führt das Weglassen einiger Funktionen zu einer besseren Benutzererfahrung als das Vorhandensein genau derselben Funktionalität in allen Browsern. Abschließend sei daran erinnert, dass Sie immer an die Endbenutzer denken sollten.
+Auch wenn einige Polyfills sehr leistungsbewusst sind, kann das Laden zusätzlicher Skripte die Leistung Ihrer Anwendung beeinträchtigen. Dies ist besonders kritisch bei alten Browsern; viele von ihnen haben sehr langsame JavaScript-Engines, was die Ausführung all Ihrer Polyfills für den Benutzer schmerzhaft machen kann. Leistung ist ein eigenes Thema, aber alte Browser sind sehr empfindlich darauf: Grundsätzlich sind sie langsam und je mehr Polyfills sie benötigen, desto mehr JavaScript müssen sie verarbeiten. Sie sind also doppelt belastet im Vergleich zu modernen Browsern. Testen Sie Ihren Code mit alten Browsern, um zu sehen, wie sie tatsächlich funktionieren. Manchmal führt das Weglassen einiger Funktionen zu einem besseren Benutzererlebnis, als exakt die gleichen Funktionen in allen Browsern zu haben. Als letzte Erinnerung: Denken Sie einfach immer an die Endbenutzer.
 
 ## Fazit
 
-Wie Sie sehen können, ist es wichtig, das Standardaussehen von Formularelementen in Browsern und Betriebssystemen zu berücksichtigen. Es gibt viele Techniken, um mit diesen Problemen umzugehen; jedoch liegt es außerhalb des Rahmens dieses Artikels, alle zu beherrschen. Grundsätzlich geht es darum, zu überlegen, ob es die Mühe wert ist, die Standardimplementierung zu ändern, bevor Sie sich auf die Herausforderung einlassen.
+Wie Sie sehen können, ist es wichtig, das Standarderscheinungsbild von Formular-Steuerelementen in Browsern und Betriebssystemen zu berücksichtigen. Es gibt viele Techniken, um diese Probleme zu bewältigen; jedoch ist das Beherrschen all dieser Techniken außerhalb des Umfangs dieses Artikels. Der grundlegende Ansatz besteht darin, zu überlegen, ob die Änderung der Standardimplementierung die Arbeit wert ist, bevor man sich der Herausforderung stellt.
 
-Wenn Sie alle Artikel dieses [HTML-Formularleitfadens](/de/docs/Learn/Forms) gelesen haben, sollten Sie jetzt in der Lage sein, Formulare problemlos zu verwenden. Wenn Sie neue Techniken oder Hinweise entdecken, helfen Sie bitte dabei, den Leitfaden zu verbessern.
+Wenn Sie alle Artikel dieses [HTML-Formular-Leitfadens](/de/docs/Learn/Forms) gelesen haben, sollten Sie jetzt mit der Verwendung von Formularen vertraut sein. Wenn Sie neue Techniken oder Hinweise entdecken, helfen Sie bitte, den Leitfaden zu verbessern.
 
 ## Siehe auch
 
@@ -153,16 +153,16 @@ Wenn Sie alle Artikel dieses [HTML-Formularleitfadens](/de/docs/Learn/Forms) gel
 - [Wie man ein HTML-Formular strukturiert](/de/docs/Learn/Forms/How_to_structure_a_web_form)
 - [Die nativen Formular-Widgets](/de/docs/Learn/Forms/Basic_native_form_controls)
 - [HTML5-Input-Typen](/de/docs/Learn/Forms/HTML5_input_types)
-- [Zusätzliche Formularelemente](/de/docs/Learn/Forms/Other_form_controls)
-- [UI-Pseudoklassen](/de/docs/Learn/Forms/UI_pseudo-classes)
+- [Zusätzliche Formular-Steuerelemente](/de/docs/Learn/Forms/Other_form_controls)
+- [UI-Pseudo-Klassen](/de/docs/Learn/Forms/UI_pseudo-classes)
 - [Styling von HTML-Formularen](/de/docs/Learn/Forms/Styling_web_forms)
-- [Formulardatenvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Formulardaten senden](/de/docs/Learn/Forms/Sending_and_retrieving_form_data)
+- [Validieren von Formulardaten](/de/docs/Learn/Forms/Form_validation)
+- [Senden von Formulardaten](/de/docs/Learn/Forms/Sending_and_retrieving_form_data)
 
 ### Fortgeschrittene Themen
 
-- [Formulare mit JavaScript senden](/de/docs/Learn/Forms/Sending_forms_through_JavaScript)
+- [Formulare über JavaScript senden](/de/docs/Learn/Forms/Sending_forms_through_JavaScript)
 - [Wie man benutzerdefinierte Formular-Widgets erstellt](/de/docs/Learn/Forms/How_to_build_custom_form_controls)
 - **HTML-Formulare in älteren Browsern**
-- [Erweiterte Styles für HTML-Formulare](/de/docs/Learn/Forms/Advanced_form_styling)
+- [Erweitertes Styling für HTML-Formulare](/de/docs/Learn/Forms/Advanced_form_styling)
 - [Eigenschaftskompatibilitätstabelle für Formular-Widgets](/de/docs/Learn/Forms/Property_compatibility_table_for_form_controls)

@@ -7,17 +7,17 @@ l10n:
 
 {{AddonSidebar}}
 
-Sie können HTML-Seiten in Ihre Erweiterung einbinden, um Formulare, Hilfe oder andere Inhalte bereitzustellen, die Ihre Erweiterung benötigt.
+Sie können HTML-Seiten in Ihre Erweiterung einfügen, um Formulare, Hilfe oder andere Inhalte bereitzustellen, die Ihre Erweiterung benötigt.
 
 ![Beispiel einer einfachen gebündelten Seite, die als abgetrenntes Panel angezeigt wird.](bundled_page_as_panel_small.png)
 
-Diese Seiten haben Zugriff auf die gleichen privilegierten JavaScript-APIs, die auch für die Hintergrundskripte Ihrer Erweiterung verfügbar sind. Sie befinden sich jedoch in ihrem eigenen Tab, mit ihrer eigenen JavaScript-Ereigniswarteschlange, ihren eigenen globalen Variablen usw.
+Diese Seiten haben auch Zugriff auf dieselben privilegierten JavaScript-APIs, die den Hintergrundskripten Ihrer Erweiterung zur Verfügung stehen. Sie befinden sich jedoch in einem eigenen Tab, mit eigener JavaScript-Ereigniswarteschlange, eigenen globalen Variablen usw.
 
-Stellen Sie sich die Hintergrundseite als eine "versteckte Erweiterungsseite" vor.
+Betrachten Sie die Hintergrundseite als eine "versteckte Erweiterungsseite".
 
-## Festlegen von Erweiterungsseiten
+## Spezifizieren von Erweiterungsseiten
 
-Sie können HTML-Dateien - und zugehörige CSS- oder JavaScript-Dateien - in Ihre Erweiterung einbinden. Die Dateien können im Root-Verzeichnis oder innerhalb sinnvoller Unterverzeichnisse organisiert werden.
+Sie können HTML-Dateien—und zugehörige CSS- oder JavaScript-Dateien—in Ihre Erweiterung einfügen. Die Dateien können im Root-Verzeichnis enthalten oder in sinnvollen Unterordnern organisiert werden.
 
 ```plain
 /my-extension
@@ -28,9 +28,9 @@ Sie können HTML-Dateien - und zugehörige CSS- oder JavaScript-Dateien - in Ihr
 
 ## Anzeigen von Erweiterungsseiten
 
-Es gibt zwei Möglichkeiten, Erweiterungsseiten anzuzeigen: {{WebExtAPIRef("windows.create()")}} und {{WebExtAPIRef("tabs.create()")}}.
+Es gibt zwei Optionen zum Anzeigen von Erweiterungsseiten: {{WebExtAPIRef("windows.create()")}} und {{WebExtAPIRef("tabs.create()")}}.
 
-Mit `windows.create()` können Sie beispielsweise eine HTML-Seite in ein abgetrenntes Panel öffnen (ein Fenster ohne die normale Browser-Benutzeroberfläche wie Adressleiste, Lesezeichenleiste usw.), um eine dialogartige Benutzererfahrung zu schaffen:
+Mit `windows.create()` können Sie beispielsweise eine HTML-Seite in einem abgetrennten Panel (einem Fenster ohne die normale Browser-UI wie Adressleiste, Lesezeichenleiste usw.) öffnen, um ein dialogähnliches Benutzererlebnis zu schaffen:
 
 ```js
 let createData = {
@@ -55,7 +55,7 @@ document.getElementById("closeme").addEventListener("click", () => {
 
 ## Erweiterungsseiten und Verlauf
 
-Standardmäßig werden Seiten, die Sie auf diese Weise öffnen, im Verlauf des Benutzers gespeichert, genau wie normale Webseiten. Wenn Sie dieses Verhalten nicht wünschen, verwenden Sie {{WebExtAPIRef("history.deleteUrl()")}}, um den Eintrag im Browser zu entfernen:
+Standardmäßig werden Seiten, die Sie auf diese Weise öffnen, wie normale Webseiten im Verlauf des Benutzers gespeichert. Wenn Sie dieses Verhalten nicht wünschen, verwenden Sie {{WebExtAPIRef("history.deleteUrl()")}}, um den Eintrag im Browserverlauf zu entfernen:
 
 ```js
 function onVisited(historyItem) {
@@ -67,12 +67,12 @@ function onVisited(historyItem) {
 browser.history.onVisited.addListener(onVisited);
 ```
 
-Um die History-API zu verwenden, müssen Sie die "`history`" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in Ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei anfordern.
+Um die Verlauf-API zu nutzen, müssen Sie die "`history`"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in Ihrer [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json)-Datei anfordern.
 
-## Webseitengestaltung
+## Webseitendesign
 
-Einzelheiten zur Gestaltung Ihrer Webseite, um dem Stil von Firefox zu entsprechen, finden Sie im [Acorn Design System](https://acorn.firefox.com/latest).
+Einzelheiten dazu, wie Sie das Design Ihrer Webseite an den Stil von Firefox anpassen können, finden Sie im [Acorn Design System](https://acorn.firefox.com/latest).
 
 ## Beispiele
 
-Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das [window-manipulator](https://github.com/mdn/webextensions-examples/tree/main/window-manipulator) Beispiel, das mehrere Optionen zur Fenstererstellung implementiert.
+Das [webextensions-examples](https://github.com/mdn/webextensions-examples)-Repository auf GitHub enthält das Beispiel [window-manipulator](https://github.com/mdn/webextensions-examples/tree/main/window-manipulator), das mehrere Optionen zur Fenstergenerierung implementiert.

@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("Web Storage API")}}
 
-Der **`StorageEvent()`** Konstruktor erstellt ein neues {{domxref("StorageEvent")}}-Objekt.
+Der **`StorageEvent()`**-Konstruktor erzeugt ein neues [`StorageEvent`](/de/docs/Web/API/StorageEvent)-Objekt.
 
 ## Syntax
 
@@ -20,23 +20,23 @@ new StorageEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Typs des `StorageEvent`. Es ist groß- und kleinschreibungssensitiv, und Browser setzen ihn auf `storage`.
+  - : Ein String mit dem Namen des `StorageEvent`-Typs. Er ist case-sensitive und Browser setzen ihn auf `storage`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften enthält:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ folgende Eigenschaften hat:
     - `key` {{optional_inline}}
-      - : Ein String, der den Schlüssel des geänderten Speicherobjekts darstellt. Standardwert ist `null`.
+      - : Ein String, der den Schlüssel des geänderten Speicherelements darstellt. Standardmäßig `null`.
     - `oldValue` {{optional_inline}}
-      - : Ein String, der den ursprünglichen Wert des Speicherobjekts enthält. Standardwert ist `null`.
+      - : Ein String, der den ursprünglichen Wert des Speicherelements enthält. Standardmäßig `null`.
     - `newValue` {{optional_inline}}
-      - : Ein String mit dem neuen Wert des `key`. Standardwert ist `null`.
+      - : Ein String mit dem neuen Wert des `key`. Standardmäßig `null`.
     - `url`
-      - : Ein String mit der URL des Dokuments, dessen Speicher sich geändert hat.
+      - : Ein String mit der URL des Dokuments, dessen Speicher geändert wurde.
     - `storageArea` {{optional_inline}}
-      - : Ein {{DOMxRef("Storage")}}-Objekt, das den betroffenen Speicher darstellt. Standardwert ist `null`.
+      - : Ein [`Storage`](/de/docs/Web/API/Storage)-Objekt, das den betroffenen Speicher darstellt. Standardmäßig `null`.
 
 ### Rückgabewert
 
-Ein neues {{domxref("StorageEvent")}}-Objekt.
+Ein neues [`StorageEvent`](/de/docs/Web/API/StorageEvent)-Objekt.
 
 ## Spezifikationen
 
@@ -48,4 +48,4 @@ Ein neues {{domxref("StorageEvent")}}-Objekt.
 
 ## Siehe auch
 
-- {{domxref("Web Storage API", "", "", "nocode")}}
+- [Web Storage API](/de/docs/Web/API/Web_Storage_API)

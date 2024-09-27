@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feImage>`** [SVG](/de/docs/Web/SVG)-Filter-Primitive ruft Bilddaten aus einer externen Quelle ab und liefert die Pixel-Daten als Ausgabe (das heißt, wenn die externe Quelle ein SVG-Bild ist, wird es rasterisiert).
+Das **`<feImage>`** [SVG](/de/docs/Web/SVG)-Filterprimitiv holt Bilddaten aus einer externen Quelle und liefert die Pixeldaten als Ausgabe (das bedeutet, wenn die externe Quelle ein SVG-Bild ist, wird es gerastert.)
 
-## Verwendungskontext
+## Anwendungsbereich
 
 {{svginfo}}
 
@@ -21,7 +21,7 @@ Das **`<feImage>`** [SVG](/de/docs/Web/SVG)-Filter-Primitive ruft Bilddaten aus 
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFEImageElement")}}-Schnittstelle.
+Dieses Element implementiert die [`SVGFEImageElement`](/de/docs/Web/API/SVGFEImageElement)-Schnittstelle.
 
 ## Beispiel
 
@@ -58,7 +58,7 @@ Dieses Element implementiert die {{domxref("SVGFEImageElement")}}-Schnittstelle.
 
 ## Siehe auch
 
-- [SVG Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
+- [SVG Filterprimitive Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
 - {{SVGAttr("flood-color")}} Attribut
 - {{SVGAttr("flood-opacity")}} Attribut
 - {{SVGElement("filter")}}

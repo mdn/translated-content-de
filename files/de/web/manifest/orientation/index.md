@@ -1,29 +1,20 @@
 ---
-title: Orientierung
+title: orientation
 slug: Web/Manifest/orientation
 l10n:
-  sourceCommit: b3d5659a6f16dc6cb8be5c48d19820a67434ecb9
+  sourceCommit: 54dbdfc6be6e1cb62b1c10e23356e895953fb196
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}
 
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Type</th>
-      <td><code>String</code></td>
-    </tr>
-  </tbody>
-</table>
+Das `orientation`-Mitglied definiert die Standardausrichtung für alle übergeordneten [Browsing-Kontexte](/de/docs/Glossary/Browsing_context) der Website.
 
-Das `orientation`-Mitglied definiert die Standardausrichtung für alle obersten {{Glossary("Browsing context", "Browsing-Kontexte")}} der Website.
-
-> **Hinweis:** `orientation` und/oder seine spezifischen Werte werden möglicherweise von einem User-Agent in verschiedenen Anzeigemodi nicht unterstützt, da deren Unterstützung für den jeweiligen Kontext keinen Sinn ergibt.
+> **Hinweis:** `orientation` und/oder deren spezifische Werte werden möglicherweise von einem Benutzeragenten in verschiedenen Anzeigemodi nicht unterstützt, da deren Unterstützung in dem jeweiligen Kontext keinen Sinn ergibt.
 
 > [!NOTE]
 > Die Ausrichtung kann zur Laufzeit über die [Screen Orientation API](/de/docs/Web/API/Screen_Orientation_API) geändert werden.
 
-## Werte
+### Werte
 
 `orientation` kann einen der folgenden Werte annehmen:
 

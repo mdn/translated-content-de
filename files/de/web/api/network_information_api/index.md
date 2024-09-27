@@ -1,5 +1,5 @@
 ---
-title: Netzwerkinformations-API
+title: Network Information API
 slug: Web/API/Network_Information_API
 l10n:
   sourceCommit: 895129fb017e0bb86c61f688d99ac4c5c75f4934
@@ -7,27 +7,27 @@ l10n:
 
 {{DefaultAPISidebar("Network Information API")}} {{AvailableInWorkers}}
 
-Die **Netzwerkinformations-API** bietet Informationen über die Verbindung des Systems in Bezug auf den allgemeinen Verbindungstyp (z.B. 'wifi', 'cellular', etc.). Dies kann verwendet werden, um basierend auf der Verbindung des Benutzers hochauflösende oder niedrigauflösende Inhalte auszuwählen.
+Die **Network Information API** liefert Informationen über die Verbindung des Systems in Bezug auf den allgemeinen Verbindungstyp (z.B. 'wifi', 'cellular', etc.). Dies kann verwendet werden, um hochauflösende oder niedrigauflösende Inhalte basierend auf der Verbindung des Benutzers auszuwählen.
 
-Das Interface besteht aus einem einzigen {{domxref("NetworkInformation")}}-Objekt, dessen Instanz durch die {{domxref("Navigator.connection")}}-Eigenschaft oder die {{domxref("WorkerNavigator.connection")}}-Eigenschaft zurückgegeben wird.
+Die Schnittstelle besteht aus einem einzigen [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Objekt, eine Instanz davon wird durch die [`Navigator.connection`](/de/docs/Web/API/Navigator/connection)-Eigenschaft oder die [`WorkerNavigator.connection`](/de/docs/Web/API/WorkerNavigator/connection)-Eigenschaft zurückgegeben.
 
 ## Schnittstellen
 
-- {{domxref("NetworkInformation")}}
-  - : Bietet Informationen über die Verbindung, die ein Gerät zur Kommunikation mit dem Netzwerk verwendet, und ermöglicht es Skripten, benachrichtigt zu werden, wenn sich der Verbindungstyp ändert. Das `NetworkInformation`-Interface kann nicht instanziiert werden. Stattdessen wird darauf über das {{domxref("Navigator")}}-Interface oder das {{domxref("WorkerNavigator")}}-Interface zugegriffen.
+- [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)
+  - : Bietet Informationen über die Verbindung, die ein Gerät verwendet, um mit dem Netzwerk zu kommunizieren, und bietet eine Möglichkeit für Skripte, benachrichtigt zu werden, wenn sich der Verbindungstyp ändert. Die `NetworkInformation`-Schnittstelle kann nicht instanziiert werden. Sie wird stattdessen über die [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle oder die [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Schnittstelle aufgerufen.
 
-### Erweiterungen anderer Schnittstellen
+### Erweiterungen zu anderen Schnittstellen
 
-- {{domxref("Navigator.connection")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("NetworkInformation")}}-Objekt zurück, das Informationen über die Netzwerkverbindung eines Geräts enthält.
-- {{domxref("WorkerNavigator.connection")}} {{ReadOnlyInline}}
-  - : Bietet ein {{domxref("NetworkInformation")}}-Objekt, das Informationen über die Netzwerkverbindung eines Geräts enthält.
+- [`Navigator.connection`](/de/docs/Web/API/Navigator/connection) {{ReadOnlyInline}}
+  - : Gibt ein [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Objekt zurück, das Informationen über die Netzverbindung eines Geräts enthält.
+- [`WorkerNavigator.connection`](/de/docs/Web/API/WorkerNavigator/connection) {{ReadOnlyInline}}
+  - : Bietet ein [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Objekt, das Informationen über die Netzverbindung eines Geräts enthält.
 
 ## Beispiele
 
-### Erkennung von Verbindungsänderungen
+### Verbindungänderungen erkennen
 
-Dieses Beispiel überwacht Änderungen an der Benutzerverbindung.
+Dieses Beispiel überwacht Änderungen an der Verbindung des Benutzers.
 
 ```js
 let type = navigator.connection.effectiveType;
@@ -42,9 +42,9 @@ function updateConnectionStatus() {
 navigator.connection.addEventListener("change", updateConnectionStatus);
 ```
 
-### Große Ressourcen vorladen
+### Große Ressourcen vorab laden
 
-Das Verbindungsobjekt ist nützlich, um zu entscheiden, ob Ressourcen vorab geladen werden sollen, die große Mengen an Bandbreite oder Speicher verbrauchen. Dieses Beispiel wird kurz nach dem Laden der Seite aufgerufen, um eine Verbindung zu überprüfen, bei der das Vorladen eines Videos möglicherweise nicht wünschenswert ist. Wenn eine Mobilfunkverbindung gefunden wird, wird das `preloadVideo`-Flag auf `false` gesetzt. Zur Vereinfachung und Klarheit testet dieses Beispiel nur einen Verbindungstyp. Ein realer Anwendungsfall würde wahrscheinlich eine switch-Anweisung oder eine andere Methode verwenden, um alle möglichen Werte von {{domxref("NetworkInformation.type")}} zu überprüfen. Unabhängig vom `type`-Wert können Sie durch die {{domxref("NetworkInformation.effectiveType")}}-Eigenschaft eine Schätzung der Verbindungsgeschwindigkeit erhalten.
+Das Verbindungsobjekt ist nützlich, um zu entscheiden, ob Ressourcen, die große Bandbreite oder viel Speicher verbrauchen, vorab geladen werden sollen. Dieses Beispiel wird kurz nach dem Laden der Seite aufgerufen, um eine Verbindung zu überprüfen, bei der das Vorladen eines Videos möglicherweise nicht wünschenswert ist. Wenn eine Mobilfunkverbindung festgestellt wird, wird das `preloadVideo`-Flag auf `false` gesetzt. Aus Gründen der Einfachheit und Klarheit testet dieses Beispiel nur einen Verbindungstyp. Ein realer Anwendungsfall würde wahrscheinlich eine switch-Anweisung oder eine andere Methode verwenden, um alle möglichen Werte von [`NetworkInformation.type`](/de/docs/Web/API/NetworkInformation/type) zu überprüfen. Unabhängig vom `type`-Wert können Sie eine Schätzung der Verbindungsgeschwindigkeit über die [`NetworkInformation.effectiveType`](/de/docs/Web/API/NetworkInformation/effectiveType)-Eigenschaft erhalten.
 
 ```js
 let preloadVideo = true;

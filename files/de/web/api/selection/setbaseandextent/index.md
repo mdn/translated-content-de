@@ -1,5 +1,5 @@
 ---
-title: "Selection: Methode setBaseAndExtent()"
+title: "Selection: setBaseAndExtent() Methode"
 short-title: setBaseAndExtent()
 slug: Web/API/Selection/setBaseAndExtent
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`setBaseAndExtent()`**-Methode der {{domxref("Selection")}}-Schnittstelle setzt die Auswahl auf einen Bereich, der alle oder Teile von zwei angegebenen DOM-Knoten und jeglichen Inhalt dazwischen umfasst.
+Die **`setBaseAndExtent()`** Methode der [`Selection`](/de/docs/Web/API/Selection)-Schnittstelle legt die Auswahl als einen Bereich fest, der alle oder Teile von zwei angegebenen DOM-Knoten sowie jeglichen Inhalt, der sich dazwischen befindet, umfasst.
 
-Die Anker- und Fokus-Knoten können sich in einem {{glossary("shadow tree")}} befinden, wenn dies vom Browser unterstützt wird.
+Die Anker- und Fokusknoten können sich in einem [Shadow-Baum](/de/docs/Glossary/shadow_tree) befinden, falls dies vom Browser unterstützt wird.
 
 ## Syntax
 
@@ -25,25 +25,25 @@ setBaseAndExtent(anchorNode, anchorOffset, focusNode, focusOffset)
 - `anchorOffset`
 
   - : Die Anzahl der Kindknoten vom Anfang des Ankerknotens, die von der Auswahl ausgeschlossen werden sollen.
-    Wenn zum Beispiel der Wert 0 ist, ist der gesamte Knoten eingeschlossen.
-    Ist der Wert 1, ist der gesamte Knoten außer dem ersten Kindknoten eingeschlossen.
+    Wenn der Wert zum Beispiel 0 ist, wird der gesamte Knoten eingeschlossen.
+    Wenn der Wert 1 ist, wird der gesamte Knoten minus dem ersten Kindknoten eingeschlossen.
     Und so weiter.
 
-    Wenn `anchorNode` ein {{domxref("Text")}}-Knoten ist, bezieht sich der Offset auf die Anzahl der Zeichen vom Anfang des {{domxref("Node.textContent")}}, die von der Auswahl ausgeschlossen werden sollen.
+    Wenn `anchorNode` ein [`Text`](/de/docs/Web/API/Text)-Knoten ist, bezieht sich der Offset auf die Anzahl der Zeichen vom Anfang des [`Node.textContent`](/de/docs/Web/API/Node/textContent), die von der Auswahl ausgeschlossen werden sollen.
 
 - `focusNode`
   - : Der Knoten am Ende der Auswahl.
 - `focusOffset`
 
-  - : Die Anzahl der Kindknoten vom Anfang des Fokus-Knotens, die in die Auswahl einbezogen werden sollen.
-    Wenn zum Beispiel der Wert 0 ist, ist der gesamte Knoten ausgeschlossen.
-    Ist der Wert 1, ist der erste Kindknoten eingeschlossen. Und so weiter.
+  - : Die Anzahl der Kindknoten vom Anfang des Fokusknotens, die in die Auswahl eingeschlossen werden sollen.
+    Wenn der Wert zum Beispiel 0 ist, wird der ganze Knoten ausgeschlossen.
+    Wenn der Wert 1 ist, wird der erste Kindknoten eingeschlossen. Und so weiter.
 
-    Wenn `focusNode` ein {{domxref("Text")}}-Knoten ist, bezieht sich der Offset auf die Anzahl der Zeichen vom Anfang des {{domxref("Node.textContent")}}, die in die Auswahl einbezogen werden sollen.
+    Wenn `focusNode` ein [`Text`](/de/docs/Web/API/Text)-Knoten ist, bezieht sich der Offset auf die Anzahl der Zeichen vom Anfang des [`Node.textContent`](/de/docs/Web/API/Node/textContent), die in die Auswahl eingeschlossen werden sollen.
 
 > [!NOTE]
-> Wenn die Fokusposition im Dokument vor der Ankerposition erscheint, wird die Richtung der Auswahl umgekehrt — der Cursor wird am Anfang des Textes platziert statt am Ende, was für jede darauf folgende Tastatursteuerung wichtig ist.
-> Zum Beispiel würde <kbd>Shift</kbd> + <kbd>➡︎</kbd> bewirken, dass die Auswahl vom Anfang aus verkleinert wird, statt am Ende zu wachsen.
+> Wenn die Fokusposition im Dokument vor der Ankerposition liegt, wird die Richtung der Auswahl umgekehrt — der Cursor wird am Anfang des Textes statt am Ende platziert, was für jegliche nachfolgende Tastaturbefehle von Bedeutung ist.
+> Zum Beispiel würde <kbd>Shift</kbd> + <kbd>➡︎</kbd> die Auswahl vom Anfang verengen anstatt sie am Ende zu erweitern.
 
 ### Rückgabewert
 
@@ -51,21 +51,21 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `anchorOffset` größer ist als die Anzahl der Kindknoten innerhalb von `anchorNode` oder wenn `focusOffset` größer ist als die Anzahl der Kindknoten innerhalb von `focusNode`.
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `anchorOffset` größer ist als die Anzahl der Kindknoten innerhalb des `anchorNode`, oder wenn `focusOffset` größer ist als die Anzahl der Kindknoten innerhalb des `focusNode`.
 
 ## Beispiele
 
-In diesem Beispiel haben wir zwei Absätze, die Spans enthalten, von denen jeder ein einzelnes Wort enthält.
-Der erste wird als `anchorNode` und der zweite als `focusNode` festgelegt.
-Wir haben auch einen zusätzlichen Absatz, der zwischen den beiden Knoten liegt.
+In diesem Beispiel haben wir zwei Absätze mit jeweils einem `span`, das ein einzelnes Wort enthält.
+Der erste wird als `anchorNode` und der zweite als `focusNode` gesetzt.
+Es gibt außerdem einen weiteren Absatz, der zwischen den beiden Knoten liegt.
 
-Des Weiteren haben wir zwei Formulareingaben, die es Ihnen ermöglichen, `anchorOffset` und `focusOffset` festzulegen — beide haben einen Standardwert von 0.
+Darüber hinaus haben wir zwei Formulareingaben, die es Ihnen ermöglichen, `anchorOffset` und `focusOffset` zu setzen — beide haben einen Standardwert von 0.
 
-Wir haben auch einen Button, der beim Drücken eine Funktion aufruft, die die `setBaseAndExtent()`-Methode mit den angegebenen Offsets ausführt und die Auswahl in den Ausgabebereich am unteren Ende des HTML kopiert.
+Wir haben auch einen Knopf, der, wenn gedrückt, eine Funktion aufruft, die die `setBaseAndExtent()`-Methode mit den angegebenen Offsets ausführt und die Auswahl in den Ausgabepunkt am unteren Ende des HTML kopiert.
 
 ```html
-<h1>setBaseAndExtent Beispiel</h1>
+<h1>setBaseAndExtent example</h1>
 <div>
   <p class="one">
     <span>Fish</span><span>Dog</span><span>Cat</span><span>Bird</span>
@@ -78,23 +78,23 @@ Wir haben auch einen Button, der beim Drücken eine Funktion aufruft, die die `s
 
 <div>
   <p>
-    <label for="aOffset">Anker-Offset</label>
+    <label for="aOffset">Anchor offset</label>
     <input id="aOffset" name="aOffset" type="number" value="0" />
   </p>
   <p>
-    <label for="fOffset">Fokus-Offset</label>
+    <label for="fOffset">Focus offset</label>
     <input id="fOffset" name="fOffset" type="number" value="0" />
   </p>
-  <p><button>Auswahl erfassen</button></p>
+  <p><button>Capture selection</button></p>
 </div>
 
-<p><strong>Ausgabe</strong>: <span class="output"></span></p>
+<p><strong>Output</strong>: <span class="output"></span></p>
 ```
 
 > [!NOTE]
-> Es gibt absichtlich keinen [Leerraum](/de/docs/Web/API/Document_Object_Model/Whitespace) zwischen den `<p class="one">` und `<p class="two">` Anfangs-Tags und den folgenden `<span>` Anfangs-Tags — um das Vorhandensein von Textknoten zu vermeiden, die die erwartete Anzahl der Kindknoten beeinflussen würden. (Auch wenn diese Textknoten nur Leerzeichen enthalten, wären sie dennoch zusätzliche Kindknoten; erfahren Sie mehr im [`Node.firstChild`-Beispiel](/de/docs/Web/API/Node/firstChild#example)).
+> Es gibt absichtlich keinen [Leerraum](/de/docs/Web/API/Document_Object_Model/Whitespace) zwischen den Start-Tags `<p class="one">` und `<p class="two">` und den danach folgenden `<span>`-Starttags — um das Vorhandensein von Textknoten zu vermeiden, die die erwartete Anzahl von Kindknoten beeinflussen würden. (Selbst wenn diese Textknoten nur Leerraum enthalten würden, wären sie dennoch zusätzliche Kindknoten; erfahren Sie mehr im [`Node.firstChild`-Beispiel](/de/docs/Web/API/Node/firstChild#example)).
 
-Das JavaScript sieht folgendermaßen aus:
+Das JavaScript sieht so aus:
 
 ```js
 const one = document.querySelector(".one");
@@ -121,7 +121,7 @@ button.onclick = () => {
 };
 ```
 
-Probieren Sie das Live-Beispiel unten aus, indem Sie verschiedene Werte für die Offsets setzen, um zu sehen, wie dies die Auswahl beeinflusst.
+Probieren Sie das Live-Beispiel unten aus, indem Sie verschiedene Offset-Werte einstellen, um zu sehen, wie sich das auf die Auswahl auswirkt.
 
 {{ EmbedLiveSample('Examples', '100%', 370) }}
 
@@ -138,4 +138,4 @@ Probieren Sie das Live-Beispiel unten aus, indem Sie verschiedene Werte für die
 
 ## Siehe auch
 
-- {{domxref("Selection")}}
+- [`Selection`](/de/docs/Web/API/Selection)

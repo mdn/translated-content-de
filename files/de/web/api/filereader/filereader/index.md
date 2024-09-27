@@ -1,5 +1,5 @@
 ---
-title: "FileReader: FileReader() Konstruktor"
+title: "FileReader: `FileReader()` Konstruktor"
 short-title: FileReader()
 slug: Web/API/FileReader/FileReader
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Der **`FileReader()`**-Konstruktor erstellt einen neuen `FileReader`.
+Der **`FileReader()`** Konstruktor erstellt einen neuen `FileReader`.
 
-Für Details zur Verwendung von `FileReader` siehe [Verwendung von Dateien in Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications).
+Für Details zur Nutzung von `FileReader` siehe [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications).
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 ## Beispiele
 
-Der folgende Code-Ausschnitt zeigt die Erstellung eines {{domxref("FileReader")}}-Objekts mit dem `FileReader()`-Konstruktor und die anschließende Verwendung des Objekts:
+Der folgende Codeausschnitt zeigt die Erstellung eines [`FileReader`](/de/docs/Web/API/FileReader) Objekts mit dem `FileReader()` Konstruktor und die anschließende Verwendung des Objekts:
 
 ```js
 function printFile(file) {
@@ -46,4 +46,4 @@ function printFile(file) {
 
 ## Siehe auch
 
-- [Verwendung von Dateien in Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)
+- [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)

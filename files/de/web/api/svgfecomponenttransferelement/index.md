@@ -7,30 +7,30 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das **`SVGFEComponentTransferElement`**-Interface entspricht dem {{SVGElement("feComponentTransfer")}}-Element.
+Die **`SVGFEComponentTransferElement`**-Schnittstelle entspricht dem {{SVGElement("feComponentTransfer")}}-Element.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten Interface, {{domxref("SVGElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGFEComponentTransferElement.height")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem {{SVGAttr("height")}}-Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEComponentTransferElement.in1")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, das dem {{SVGAttr("in")}}-Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEComponentTransferElement.result")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, das dem {{SVGAttr("result")}}-Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEComponentTransferElement.width")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem {{SVGAttr("width")}}-Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEComponentTransferElement.x")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem {{SVGAttr("x")}}-Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEComponentTransferElement.y")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem {{SVGAttr("y")}}-Attribut des angegebenen Elements entspricht.
+- [`SVGFEComponentTransferElement.height`](/de/docs/Web/API/SVGFEComponentTransferElement/height) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("height")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEComponentTransferElement.in1`](/de/docs/Web/API/SVGFEComponentTransferElement/in1) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), der dem {{SVGAttr("in")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEComponentTransferElement.result`](/de/docs/Web/API/SVGFEComponentTransferElement/result) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), der dem {{SVGAttr("result")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEComponentTransferElement.width`](/de/docs/Web/API/SVGFEComponentTransferElement/width) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("width")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEComponentTransferElement.x`](/de/docs/Web/API/SVGFEComponentTransferElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEComponentTransferElement.y`](/de/docs/Web/API/SVGFEComponentTransferElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
 
 ## Instanz-Methoden
 
-_Dieses Interface bietet keine spezifischen Methoden, aber implementiert die Methoden seines übergeordneten Interfaces, {{domxref("SVGElement")}}._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch diejenigen ihrer übergeordneten Schnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

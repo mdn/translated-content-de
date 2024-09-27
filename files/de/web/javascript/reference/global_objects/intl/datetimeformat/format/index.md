@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`format()`** Methode von Instanzen des {{jsxref("Intl.DateTimeFormat")}} formatiert ein Datum entsprechend der Lokalisierung und den Formatierungsoptionen dieses `Intl.DateTimeFormat` Objekts.
+Die **`format()`**-Methode von {{jsxref("Intl.DateTimeFormat")}}-Instanzen formatiert ein Datum gemäß den Lokalisierungs- und Formatierungsoptionen dieses `Intl.DateTimeFormat`-Objekts.
 
 {{EmbedInteractiveExample("pages/js/intl-datetimeformat-prototype-format.html", "taller")}}
 
@@ -24,16 +24,16 @@ format(date)
 
 ### Rückgabewert
 
-Ein String, der das angegebene `date` darstellt und entsprechend der Lokalisierung und den Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}} Objekts formatiert ist.
+Ein String, der das angegebene `date` gemäß den Lokalisierungs- und Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}}-Objekts formatiert darstellt.
 
 > [!NOTE]
-> Meistens ist die von `format()` zurückgegebene Formatierung konsistent. Das Ergebnis kann jedoch zwischen Implementierungen variieren, selbst innerhalb derselben Lokalisierung — Abweichungen sind designbedingt und von der Spezifikation erlaubt. Es kann auch nicht das sein, was Sie erwarten. Zum Beispiel könnte der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit festcodierten Konstanten vergleichen.
+> Meistens ist das von `format()` zurückgegebene Format konsistent. Das Ergebnis kann jedoch zwischen verschiedenen Implementierungen variieren, selbst innerhalb derselben Lokalisierung — solche Abweichungen sind beabsichtigt und durch die Spezifikation erlaubt. Es kann auch nicht das sein, was Sie erwarten. Beispielsweise kann der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` daher nicht mit fest codierten Konstanten vergleichen.
 
 ## Beispiele
 
 ### Verwendung von format
 
-Verwenden Sie die `format` Getter-Funktion, um ein einzelnes Datum zu formatieren, hier für Serbien:
+Verwenden Sie die `format`-Getter-Funktion, um ein einzelnes Datum zu formatieren, hier für Serbien:
 
 ```js
 const options = {
@@ -49,7 +49,7 @@ console.log(dateTimeFormat.format(new Date()));
 
 ### Verwendung von format mit map
 
-Verwenden Sie die `format` Getter-Funktion, um alle Daten in einem Array zu formatieren. Beachten Sie, dass die Funktion an die betreffende {{jsxref("Intl.DateTimeFormat")}} gebunden ist, von der sie abgerufen wurde, sodass sie direkt an {{jsxref("Array.prototype.map()")}} übergeben werden kann.
+Verwenden Sie die `format`-Getter-Funktion, um alle Daten in einem Array zu formatieren. Beachten Sie, dass die Funktion an das {{jsxref("Intl.DateTimeFormat")}} gebunden ist, von dem sie abgerufen wurde, sodass sie direkt an {{jsxref("Array.prototype.map()")}} übergeben werden kann.
 
 ```js
 const a = [new Date(2012, 8), new Date(2012, 11), new Date(2012, 3)];

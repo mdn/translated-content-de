@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`cx`** schreibgeschützte Eigenschaft der {{domxref("SVGCircleElement")}}-Schnittstelle spiegelt das {{SVGAttr("cx")}}-Attribut eines {{SVGElement("circle")}}-Elements wider und definiert dadurch die x-Koordinate des Kreismittelpunkts.
+Die **`cx`**-Eigenschaft der [`SVGCircleElement`](/de/docs/Web/API/SVGCircleElement)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die das {{SVGAttr("cx")}}-Attribut eines {{SVGElement("circle")}}-Elements widerspiegelt und dadurch die x-Koordinate des Kreismittelpunktes definiert.
 
-Wenn sie nicht angegeben ist, ist die Wirkung so, als wäre der Wert auf `0` gesetzt.
+Falls nicht angegeben, wird der Effekt erzielt, als ob der Wert auf `0` gesetzt ist.
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedLength")}}, der die x-Koordinate des Kreismittelpunkts darstellt.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der die x-Koordinate des Kreismittelpunktes darstellt.
 
 ## Beispiele
 
@@ -49,5 +49,5 @@ console.log(circle.cx);
 
 ## Siehe auch
 
-- {{domxref("SVGCircleElement.cy")}}
-- {{domxref("SVGCircleElement.r")}}
+- [`SVGCircleElement.cy`](/de/docs/Web/API/SVGCircleElement/cy)
+- [`SVGCircleElement.r`](/de/docs/Web/API/SVGCircleElement/r)

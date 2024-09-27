@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode blendEquation()"
+title: "WebGLRenderingContext: blendEquation()-Methode"
 short-title: blendEquation()
 slug: Web/API/WebGLRenderingContext/blendEquation
 l10n:
@@ -8,11 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.blendEquation()`**-Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) wird verwendet, um sowohl die RGB-Blendgleichung als auch die Alpha-Blendgleichung auf eine einzelne Gleichung festzulegen.
+Die **`WebGLRenderingContext.blendEquation()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) wird verwendet, um sowohl die RGB-Blendgleichung als auch die Alpha-Blendgleichung auf eine einzelne Gleichung einzustellen.
 
-Die Blendgleichung bestimmt, wie ein neues Pixel mit einem bereits im
-{{domxref("WebGLFramebuffer")}} vorhandenen Pixel kombiniert wird.
+Die Blendgleichung bestimmt, wie ein neuer Pixel mit einem bereits im [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) vorhandenen Pixel kombiniert wird.
 
 ## Syntax
 
@@ -24,28 +22,25 @@ blendEquation(mode)
 
 - `mode`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das angibt, wie Quell- und Ziel-Farben kombiniert werden.
-    Muss entweder sein:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, wie Quell- und Ziel-Farben kombiniert werden. Muss einer der folgenden sein:
 
     - `gl.FUNC_ADD`: Quelle + Ziel (Standardwert)
     - `gl.FUNC_SUBTRACT`: Quelle - Ziel
     - `gl.FUNC_REVERSE_SUBTRACT`: Ziel - Quelle
 
-    Bei Verwendung der {{domxref("EXT_blend_minmax")}}-Erweiterung:
+    Beim Verwenden der [`EXT_blend_minmax`](/de/docs/Web/API/EXT_blend_minmax)-Erweiterung:
 
     - `ext.MIN_EXT`: Minimum von Quelle und Ziel
     - `ext.MAX_EXT`: Maximum von Quelle und Ziel
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Context", "", 1)}}
-    stehen zusätzlich folgende Werte zur Verfügung:
+    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontext", "", 1)}} sind zusätzlich folgende Werte verfügbar:
 
     - `gl.MIN`: Minimum von Quelle und Ziel
     - `gl.MAX`: Maximum von Quelle und Ziel
 
 ### Ausnahmen
 
-Wenn _mode_ nicht einer der drei möglichen Werte ist, wird ein
-`gl.INVALID_ENUM` Fehler ausgelöst.
+Wenn _mode_ nicht einer der drei möglichen Werte ist, wird ein `gl.INVALID_ENUM` Fehler ausgelöst.
 
 ### Rückgabewert
 
@@ -61,10 +56,7 @@ gl.blendEquation(gl.FUNC_SUBTRACT);
 gl.blendEquation(gl.FUNC_REVERSE_SUBTRACT);
 ```
 
-Um die Blendgleichungen abzurufen, fragen Sie die Konstanten `BLEND_EQUATION`,
-`BLEND_EQUATION_RGB` und `BLEND_EQUATION_ALPHA` ab, die
-`gl.FUNC_ADD`, `gl.FUNC_SUBTRACT`,
-`gl.FUNC_REVERSE_SUBTRACT` zurückgeben. Wenn {{domxref("EXT_blend_minmax")}} aktiviert ist: `ext.MIN_EXT` oder `ext.MAX_EXT`.
+Um die Blendgleichungen abzurufen, fragen Sie die Konstanten `BLEND_EQUATION`, `BLEND_EQUATION_RGB` und `BLEND_EQUATION_ALPHA` ab, die `gl.FUNC_ADD`, `gl.FUNC_SUBTRACT`, `gl.FUNC_REVERSE_SUBTRACT` oder, wenn das [`EXT_blend_minmax`](/de/docs/Web/API/EXT_blend_minmax) aktiviert ist, `ext.MIN_EXT` oder `ext.MAX_EXT` zurückgeben.
 
 ```js
 gl.getParameter(gl.BLEND_EQUATION_RGB) === gl.FUNC_ADD;
@@ -84,6 +76,6 @@ gl.getParameter(gl.BLEND_EQUATION_ALPHA) === gl.FUNC_ADD;
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.blendColor()")}}
-- {{domxref("WebGLRenderingContext.blendFunc()")}}
-- {{domxref("EXT_blend_minmax")}}
+- [`WebGLRenderingContext.blendColor()`](/de/docs/Web/API/WebGLRenderingContext/blendColor)
+- [`WebGLRenderingContext.blendFunc()`](/de/docs/Web/API/WebGLRenderingContext/blendFunc)
+- [`EXT_blend_minmax`](/de/docs/Web/API/EXT_blend_minmax)

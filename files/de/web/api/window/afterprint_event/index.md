@@ -1,5 +1,5 @@
 ---
-title: "Fenster: afterprint Ereignis"
+title: "Window: afterprint-Ereignis"
 short-title: afterprint
 slug: Web/API/Window/afterprint_event
 l10n:
@@ -10,11 +10,11 @@ l10n:
 
 Das **`afterprint`**-Ereignis wird ausgelöst, nachdem das zugehörige Dokument mit dem Drucken begonnen hat oder die Druckvorschau geschlossen wurde.
 
-Die {{domxref("Window.beforeprint_event", "beforeprint")}}- und `afterprint`-Ereignisse ermöglichen es Seiten, ihren Inhalt zu ändern, bevor das Drucken beginnt (zum Beispiel, um ein Banner zu entfernen) und diese Änderungen nach Abschluss des Druckens wieder rückgängig zu machen. Im Allgemeinen sollten Sie die Verwendung einer [`@media print`](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types) CSS-Atregel bevorzugen, aber in manchen Fällen kann es notwendig sein, diese Ereignisse zu verwenden.
+Die [`beforeprint`](/de/docs/Web/API/Window/beforeprint_event)- und `afterprint`-Ereignisse ermöglichen es Webseiten, ihren Inhalt zu ändern, bevor der Druck beginnt (vielleicht, um ein Banner zu entfernen) und diese Änderungen zurückzusetzen, nachdem der Druck abgeschlossen ist. Im Allgemeinen sollten Sie die Verwendung einer [`@media print`](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types) CSS-Regel bevorzugen, aber in einigen Fällen kann es notwendig sein, diese Ereignisse zu verwenden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("afterprint", (event) => {});
@@ -23,7 +23,7 @@ onafterprint = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -35,7 +35,7 @@ window.addEventListener("afterprint", (event) => {
 });
 ```
 
-Verwendung der `onafterprint` Ereignis-Handler-Eigenschaft:
+Verwendung der `onafterprint`-Ereignis-Handler-Eigenschaft:
 
 ```js
 window.onafterprint = (event) => {
@@ -53,4 +53,4 @@ window.onafterprint = (event) => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("Window/beforeprint_event", "beforeprint")}}
+- Verwandte Ereignisse: [`beforeprint`](/de/docs/Web/API/Window/beforeprint_event)

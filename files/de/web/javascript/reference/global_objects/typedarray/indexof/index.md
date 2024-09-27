@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`indexOf()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt den ersten Index zurück, an dem ein gegebenes Element im typisierten Array gefunden werden kann, oder -1, wenn es nicht vorhanden ist. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.indexOf()")}}.
+Die **`indexOf()`**-Methode von {{jsxref("TypedArray")}} Instanzen gibt den ersten Index zurück, an dem ein gegebenes Element im typisierten Array gefunden werden kann, oder -1, wenn es nicht vorhanden ist. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.indexOf()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-indexof.html")}}
 
@@ -21,9 +21,9 @@ indexOf(searchElement, fromIndex)
 ### Parameter
 
 - `searchElement`
-  - : Element, das im typisierten Array gesucht werden soll.
+  - : Element, das im typisierten Array gefunden werden soll.
 - `fromIndex` {{optional_inline}}
-  - : Nullbasierter Index, ab dem die Suche beginnt, [in eine ganze Zahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Index (beginnend von Null), ab dem die Suche starten soll, [umgewandelt in einen ganzzahligen Wert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 
 ### Rückgabewert
 
@@ -31,7 +31,7 @@ Der erste Index von `searchElement` im typisierten Array; `-1`, wenn nicht gefun
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.indexOf()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
+Siehe {{jsxref("Array.prototype.indexOf()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays angewendet werden.
 
 ## Beispiele
 
@@ -57,7 +57,7 @@ uint8.indexOf(2, -3); // 0
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.indexOf` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [Leitfaden zu JavaScript typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.findIndex()")}}
 - {{jsxref("TypedArray.prototype.findLastIndex()")}}

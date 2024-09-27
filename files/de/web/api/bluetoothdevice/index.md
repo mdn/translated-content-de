@@ -1,5 +1,5 @@
 ---
-title: BluetoothGerät
+title: BluetoothDevice
 slug: Web/API/BluetoothDevice
 l10n:
   sourceCommit: f33c6e8a7204272b90d8f005f3d8c743333d7dbf
@@ -7,32 +7,32 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das BluetoothGerät-Interface der [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API) repräsentiert ein Bluetooth-Gerät innerhalb einer bestimmten Skriptausführungsumgebung.
+Die Schnittstelle `BluetoothDevice` der [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API) repräsentiert ein Bluetooth-Gerät innerhalb einer bestimmten Skript-Ausführungsumgebung.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{DOMxRef("BluetoothDevice.id")}} {{Experimental_Inline}} {{ReadOnlyInline}}
+- [`BluetoothDevice.id`](/de/docs/Web/API/BluetoothDevice/id) {{Experimental_Inline}} {{ReadOnlyInline}}
   - : Ein String, der ein Gerät eindeutig identifiziert.
-- {{DOMxRef("BluetoothDevice.name")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein String, der einen lesbaren Namen für das Gerät bereitstellt.
-- {{DOMxRef("BluetoothDevice.gatt")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Eine Referenz auf den {{DOMxRef("BluetoothRemoteGATTServer")}} des Geräts.
+- [`BluetoothDevice.name`](/de/docs/Web/API/BluetoothDevice/name) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Ein String, der einen menschenlesbaren Namen für das Gerät bereitstellt.
+- [`BluetoothDevice.gatt`](/de/docs/Web/API/BluetoothDevice/gatt) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Ein Verweis auf den [`BluetoothRemoteGATTServer`](/de/docs/Web/API/BluetoothRemoteGATTServer) des Geräts.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{DOMxRef("BluetoothDevice.watchAdvertisements()")}} {{Experimental_Inline}}
-  - : Ein {{jsxref("Promise")}}, das sich zu `undefined` auflöst oder mit einem Fehler abgelehnt wird, wenn Anzeigen aus irgendeinem Grund nicht gezeigt werden können.
-- {{DOMxRef("BluetoothDevice.forget()")}} {{Experimental_Inline}}
-  - : Bietet der Seite eine Möglichkeit, den Zugriff auf ein Gerät zu widerrufen, für das der Benutzer Zugriff gewährt hat.
+- [`BluetoothDevice.watchAdvertisements()`](/de/docs/Web/API/BluetoothDevice/watchAdvertisements) {{Experimental_Inline}}
+  - : Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird oder abgelehnt wird, wenn Werbung aus irgendeinem Grund nicht angezeigt werden kann.
+- [`BluetoothDevice.forget()`](/de/docs/Web/API/BluetoothDevice/forget) {{Experimental_Inline}}
+  - : Bietet der Seite eine Möglichkeit, den Zugriff auf ein Gerät, für das der Benutzer den Zugriff gewährt hat, zu widerrufen.
 
 ## Ereignisse
 
-Hören Sie auf diese Ereignisse mittels {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder indem Sie einen Ereignis-Listener der `oneventname` Eigenschaft dieses Interfaces zuweisen.
+Hören Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisung eines Ereignis-Listeners zur `oneventname` Eigenschaft dieser Schnittstelle.
 
-- {{DOMxRef("BluetoothDevice/gattserverdisconnected_event", "gattserverdisconnected")}} {{experimental_inline}}
-  - : Wird auf einem Gerät ausgelöst, wenn eine aktive GATT-Verbindung verloren geht.
+- [`gattserverdisconnected`](/de/docs/Web/API/BluetoothDevice/gattserverdisconnected_event) {{experimental_inline}}
+  - : Wird ausgelöst, wenn eine aktive GATT-Verbindung auf einem Gerät verloren geht.
 
 ## Spezifikationen
 

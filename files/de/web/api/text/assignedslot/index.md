@@ -1,5 +1,5 @@
 ---
-title: "Text: assignedSlot-Eigenschaft"
+title: "Text: assignedSlot Eigenschaft"
 short-title: assignedSlot
 slug: Web/API/Text/assignedSlot
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`assignedSlot`**-Eigenschaft der {{domxref("Text")}}-Schnittstelle
-gibt das {{domxref("HTMLSlotElement")}}-Objekt zurück, das dem Element zugeordnet ist.
+Die schreibgeschützte **`assignedSlot`**-Eigenschaft der [`Text`](/de/docs/Web/API/Text)-Schnittstelle
+gibt das [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)-Objekt zurück, das dem Element zugeordnet ist.
 
 ## Wert
 
-Ein {{domxref("HTMLSlotElement")}},
-oder `null`, wenn kein {{HTMLElement("slot")}}-Element mit dem Textknoten verknüpft ist.
+Ein [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement),
+oder `null`, wenn keinem Textknoten ein {{HTMLElement("slot")}}-Element zugeordnet ist.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

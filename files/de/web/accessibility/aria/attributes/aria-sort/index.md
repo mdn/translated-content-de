@@ -7,19 +7,19 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das Attribut `aria-sort` gibt an, ob Elemente in einer Tabelle oder einem Gitter in aufsteigender oder absteigender Reihenfolge sortiert sind.
+Das `aria-sort` Attribut zeigt an, ob Elemente in einer Tabelle oder einem Raster in aufsteigender oder absteigender Reihenfolge sortiert sind.
 
 ## Beschreibung
 
-Wenn ein Gitter oder eine Tabelle Sortierungsfunktionen bietet, sollte das Attribut `aria-sort` entweder auf `ascending` oder `descending` (oder `other`) an das Header-Zellenelement für die sortierte Spalte oder Reihe gesetzt werden.
+Wenn ein Raster oder eine Tabelle eine Sortierfunktion bietet, sollte das `aria-sort` Attribut auf `ascending`, `descending` (oder `other`) im Kopfzellenelement für die sortierte Spalte oder Zeile gesetzt werden.
 
-Das Attribut `aria-sort` wird nur auf der derzeit sortierten Spalte oder Reihe gesetzt. Setzen Sie `aria-sort="ascending"`, um anzuzeigen, dass die Datenzellen in der Spalte oder Reihe in aufsteigender Reihenfolge sortiert sind. Wenn die Sortierreihenfolge umgekehrt wird, schalten Sie den Wert auf `aria-sort="descending"` um. Wenn eine andere Spalte oder Reihe sortiert wird, wird das einzelne `aria-sort`-Attribut in die Header-Zelle der neu sortierten Spalte oder Reihe mit dem entsprechenden Wert für die Sortierreihenfolge verschoben.
+Das `aria-sort` Attribut wird nur auf der aktuell sortierten Spalte oder Zeile gesetzt. Setzen Sie `aria-sort="ascending"`, um anzuzeigen, dass die Datenzellen in der Spalte oder Zeile in aufsteigender Reihenfolge sortiert sind. Wenn die Sortierreihenfolge umgekehrt ist, ändern Sie den Wert auf `aria-sort="descending"`. Wenn eine andere Spalte oder Zeile sortiert wird, wird das einzelne `aria-sort` Attribut zur Kopfzelle der neu sortierten Spalte oder Zeile mit dem entsprechenden Wert für die Sortierreihenfolge verschoben.
 
-Das Attribut `aria-sort` sollte nur zu einer einzigen Tabellen- oder Gitterüberschrift gleichzeitig hinzugefügt werden. Das Attribut dient dazu, Benutzer von unterstützender Technologie darüber zu informieren, welche Spalte oder Reihe sortiert ist. Es hat keine Auswirkungen auf die tatsächliche Sortierreihenfolge.
+Das `aria-sort` Attribut sollte immer nur zu einem einzigen Tabellen- oder Rasterkopf hinzugefügt werden. Das Attribut wird gesetzt, um Nutzer assistiver Technologien darüber zu informieren, welche Spalte oder Zeile sortiert ist. Es hat keinen Einfluss auf die tatsächliche Sortierreihenfolge.
 
 ## Beispiele
 
-Diese Tabelle wird mit der Spalte Nachname in aufsteigender Reihenfolge geladen.
+Diese Tabelle wird geladen, indem die Nachnamensspalte in aufsteigender Reihenfolge sortiert ist.
 
 ```html
 <table>
@@ -46,16 +46,16 @@ Diese Tabelle wird mit der Spalte Nachname in aufsteigender Reihenfolge geladen.
 </table>
 ```
 
-Wenn ein Benutzer auf den Button _Last Name_ klickt, würde [`aria-pressed="true"`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-pressed) dem {{HTMLElement('button')}}-Element hinzugefügt werden und der Wert `aria-sort` würde per JavaScript auf `"descending"` umgeschaltet. Wenn der Benutzer auf einen anderen Header-Button klickt, würde `aria-sort` aus dem _Last Name_ Header entfernt und auf den geklickten {{HTMLElement('th')}}-Elternteil übertragen.
+Wenn ein Benutzer auf den _Last Name_ Button klickt, würde [`aria-pressed="true"`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-pressed) dem {{HTMLElement('button')}} Element hinzugefügt und der `aria-sort` Wert mit JavaScript auf `"descending"` umgeschaltet. Wenn der Benutzer auf eine andere Kopfzeile klickt, würde das `aria-sort` aus der _Last Name_ Kopfzeile entfernt und auf den geklickten Button's {{HTMLElement('th')}} Parent gesetzt werden.
 
-Wir haben Anweisungen in der Überschrift für unterstützende Technologien bereitgestellt, die möglicherweise die Pfeile nach unten nicht sehen, die wir mit CSS hinzufügen würden, indem wir die `th[aria-sort="ascending"]` und `th[aria-sort="descending"]` Selektoren anvisieren.
+Wir haben in der Bildunterschrift Anweisungen für assistive Technologien gegeben, die möglicherweise nicht die nach unten gerichteten Pfeile sehen, die wir mit CSS-Selektoren `th[aria-sort="ascending"]` und `th[aria-sort="descending"]` hinzufügen würden.
 
 ## Werte
 
 - `ascending`
-  - : Elemente sind in aufsteigender Reihenfolge in dieser Spalte sortiert.
+  - : Elemente sind in aufsteigender Reihenfolge nach dieser Spalte sortiert.
 - `descending`
-  - : Elemente sind in absteigender Reihenfolge in dieser Spalte sortiert.
+  - : Elemente sind in absteigender Reihenfolge nach dieser Spalte sortiert.
 - `none` (Standard)
   - : Es ist keine definierte Sortierung auf die Spalte angewendet.
 - `other`
@@ -63,10 +63,10 @@ Wir haben Anweisungen in der Überschrift für unterstützende Technologien bere
 
 ## Zugehörige Schnittstellen
 
-- {{domxref("Element.ariaSort")}}
-  - : Die [`ariaSort`](/de/docs/Web/API/Element/ariaSort)-Eigenschaft, Teil der {{domxref("Element")}}-Schnittstelle, spiegelt den Wert des `aria-sort`-Attributs wider.
-- {{domxref("ElementInternals.ariaSort")}}
-  - : Die [`ariaSort`](/de/docs/Web/API/ElementInternals/ariaSort)-Eigenschaft, Teil der {{domxref("ElementInternals")}}-Schnittstelle, spiegelt den Wert des `aria-sort`-Attributs wider.
+- [`Element.ariaSort`](/de/docs/Web/API/Element/ariaSort)
+  - : Die [`ariaSort`](/de/docs/Web/API/Element/ariaSort) Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des `aria-sort` Attributs wider.
+- [`ElementInternals.ariaSort`](/de/docs/Web/API/ElementInternals/ariaSort)
+  - : Die [`ariaSort`](/de/docs/Web/API/ElementInternals/ariaSort) Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle, spiegelt den Wert des `aria-sort` Attributs wider.
 
 ## Zugehörige Rollen
 
@@ -81,6 +81,6 @@ Verwendet in Rollen:
 
 ## Siehe auch
 
-- [Beispiel einer sortierbaren Tabelle](https://www.w3.org/TR/wai-aria-practices-1.2/examples/table/sortable-table.html) -W3C
+- [Beispiel für sortierbare Tabelle](https://www.w3.org/TR/wai-aria-practices-1.2/examples/table/sortable-table.html) -W3C
 - [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-pressed)
-- Das {{HTMLElement('th')}}-Element
+- Das {{HTMLElement('th')}} Element

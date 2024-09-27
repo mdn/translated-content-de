@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`useMap`**-Eigenschaft der
-{{domxref("HTMLObjectElement")}}-Schnittstelle gibt einen String zurück, der das [`usemap`](/de/docs/Web/HTML/Element/object#usemap) HTML-Attribut widerspiegelt und ein zu verwendendes {{HTMLElement("map")}}-Element angibt.
+Die **`useMap`**-Eigenschaft des
+[`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt einen String zurück, der das HTML-Attribut [`usemap`](/de/docs/Web/HTML/Element/object#usemap) widerspiegelt und ein {{HTMLElement("map")}}-Element angibt, das verwendet werden soll.
 
 ## Wert
 
@@ -19,6 +19,6 @@ Ein String.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

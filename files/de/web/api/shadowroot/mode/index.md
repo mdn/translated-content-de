@@ -3,39 +3,40 @@ title: "ShadowRoot: mode-Eigenschaft"
 short-title: mode
 slug: Web/API/ShadowRoot/mode
 l10n:
-  sourceCommit: 26091e4af9c73bb6c5d1466df5070c949498fdbd
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("Shadow DOM")}}
 
-Die schreibgeschützte **`mode`**-Eigenschaft des {{domxref("ShadowRoot")}} gibt den Modus an — entweder `open` oder `closed`. Dies legt fest, ob die internen Funktionen des Shadow-Roots von JavaScript aus zugänglich sind oder nicht.
+Die **`mode`** Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot), die nur gelesen werden kann, gibt ihren Modus an — entweder `open` oder `closed`.
+Dies definiert, ob die internen Merkmale des Shadow Roots von JavaScript aus zugänglich sind oder nicht.
 
-Wenn der `mode` eines Shadow-Roots "`closed`" ist, sind die Implementierungsdetails des Shadow-Roots von JavaScript aus nicht zugänglich und unveränderlich, ähnlich wie die Implementierungsdetails des {{HTMLElement("video")}}-Elements von JavaScript aus nicht zugänglich und unveränderlich sind.
+Wenn der `mode` eines Shadow Roots `"closed"` ist, sind die internen Implementierungsdetails des Shadow Roots von JavaScript aus nicht zugänglich und unveränderlich — auf die gleiche Weise, wie die Implementierungsdetails des beispielsweise {{HTMLElement("video")}} Elements von JavaScript aus nicht zugänglich und unveränderlich sind.
 
-Der Eigenschaftswert wird über die `options.mode`-Eigenschaft des Objekts gesetzt, das an {{domxref("Element.attachShadow()")}} übergeben wird, oder durch das [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode)-Attribut des [`<template>`](/de/docs/Web/HTML/Element/template)-Elements, wenn ein Shadow-Root deklarativ erstellt wird.
+Der Eigenschaftswert wird mithilfe der `options.mode` Eigenschaft des Objekts festgelegt, das an [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) übergeben wird, oder mithilfe des [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode) Attributs des [`<template>`](/de/docs/Web/HTML/Element/template) Elements, wenn ein Shadow Root deklarativ erstellt wird.
 
 ## Wert
 
-Ein String-Wert, der einen der folgenden Werte haben kann:
+Ein Zeichenfolgenwert, der einen der folgenden Werte haben kann:
 
 - `open`
-  - : Elemente des Shadow-Roots sind von JavaScript außerhalb des Roots zugänglich.
+  - : Elemente des Shadow Roots sind von JavaScript außerhalb des Roots zugänglich.
 - `closed`
-  - : Knoten innerhalb des geschlossenen Shadow-Baums können von JavaScript außerhalb des Roots nicht zugegriffen werden.
+  - : Knoten innerhalb des geschlossenen Shadow Trees können von JavaScript außerhalb des Roots nicht erreicht werden.
 
 ## Beispiele
 
 ```js
-// Wir erstellen einen geschlossenen Shadow-Root, der nicht zugänglich ist
+// We create a closed shadow root, that is not accessible
 let element = document.createElement("div");
 element.attachShadow({ mode: "closed" });
-element.shadowRoot; // null, da der Shadow-Root geschlossen ist
+element.shadowRoot; // null as the shadow root is closed
 
-// Wir erstellen einen offenen Shadow-Root, der zugänglich ist
+// We create an open shadow root, that is accessible
 let element2 = document.createElement("div");
 element2.attachShadow({ mode: "open" });
 console.log(`The shadow is ${element2.shadowRoot.mode}`); // logs "The shadow is open"
-element2.shadowRoot.textContent("Opened shadow"); // Der Shadow ist offen, wir können von außen darauf zugreifen
+element2.shadowRoot.textContent("Opened shadow"); // The shadow is open, we can access it from outside
 ```
 
 ## Spezifikationen

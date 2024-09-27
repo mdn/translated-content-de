@@ -1,5 +1,5 @@
 ---
-title: "CSSImportRule: Eigenschaft layerName"
+title: "CSSImportRule: layerName-Eigenschaft"
 short-title: layerName
 slug: Web/API/CSSImportRule/layerName
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`layerName`**-Eigenschaft der {{domxref("CSSImportRule")}}-Schnittstelle gibt den Namen der Kaskadenschicht zurück, die durch die {{cssxref("@import")}} [At-Regel](/de/docs/Web/CSS/At-rule) erstellt wurde.
+Die schreibgeschützte **`layerName`**-Eigenschaft der [`CSSImportRule`](/de/docs/Web/API/CSSImportRule)-Schnittstelle gibt den Namen der Kaskadenschicht zurück, die durch die {{cssxref("@import")}}-[@Rule](/de/docs/Web/CSS/At-rule) erstellt wird.
 
-Wenn die erstellte Schicht anonym ist, ist der String leer (`""`); wenn keine Schicht erstellt wurde, ist sie das `null`-Objekt.
+Wenn die erstellte Schicht anonym ist, ist die Zeichenkette leer (`""`); wenn keine Schicht erstellt wurde, ist sie das `null`-Objekt.
 
 ## Wert
 
-Ein String, der leer sein kann, oder das `null`-Objekt.
+Eine Zeichenkette, die leer sein kann, oder das `null`-Objekt.
 
 ## Beispiele
 
@@ -30,9 +30,9 @@ Die `layerName`-Eigenschaft gibt den Namen der Schicht zurück, die mit dem impo
 
 ```js
 const myRules = document.styleSheets[0].cssRules;
-console.log(myRules[0].layerName); // gibt `"layer-1"` zurück
-console.log(myRules[1].layerName); // gibt `""` zurück (eine anonyme Schicht)
-console.log(myRules[2].layerName); // gibt `null` zurück
+console.log(myRules[0].layerName); // returns `"layer-1"`
+console.log(myRules[1].layerName); // returns `""` (an anonymous layer)
+console.log(myRules[2].layerName); // returns `null`
 ```
 
 ## Spezifikationen

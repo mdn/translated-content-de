@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`layer`**-Eigenschaft des {{domxref("XRLayerEvent")}}-Interfaces ist eine Referenz auf die {{domxref("XRLayer")}}, die das Ereignis generiert hat.
+Die **`layer`**-Eigenschaft des [`XRLayerEvent`](/de/docs/Web/API/XRLayerEvent)-Interfaces ist eine Referenz auf die [`XRLayer`](/de/docs/Web/API/XRLayer), die das Ereignis erzeugt hat.
 
 ## Wert
 
-Ein {{domxref("XRLayer")}}.
+Ein [`XRLayer`](/de/docs/Web/API/XRLayer).
 
 ## Beispiele
 
 ### Verwendung der `layer`-Eigenschaft
 
-In diesem Beispiel wird die `layer`-Eigenschaft verwendet, um das {{domxref("XRLayer")}}-Objekt zu erhalten, das das Ereignis gesendet hat.
+In diesem Beispiel wird die `layer`-Eigenschaft verwendet, um das [`XRLayer`](/de/docs/Web/API/XRLayer)-Objekt zu erhalten, das das Ereignis gesendet hat.
 
 ```js
 myLayer.addEventListener("redraw", (e) => {
@@ -38,4 +38,4 @@ myLayer.addEventListener("redraw", (e) => {
 
 ## Siehe auch
 
-- {{domxref("XRLayer")}}
+- [`XRLayer`](/de/docs/Web/API/XRLayer)

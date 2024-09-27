@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: deviceVersionMajor Eigenschaft"
+title: "USBDevice: deviceVersionMajor-Eigenschaft"
 short-title: deviceVersionMajor
 slug: Web/API/USBDevice/deviceVersionMajor
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`deviceVersionMajor`** des
-{{domxref("USBDevice")}} Interfaces gibt die Hauptversionsnummer des Geräts in einem semantischen
-Versionierungsschema zurück.
+Die schreibgeschützte Eigenschaft **`deviceVersionMajor`** der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt die Hauptversionsnummer des Geräts in einem semantischen Versionsschema an.
 
 ## Wert
 

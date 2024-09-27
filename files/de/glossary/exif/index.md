@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das **Exchangeable Image File Format (EXIF)** ist ein Standard, der festlegt, wie Metadaten zu einer Multimediadatei in der Datei eingebettet werden können. Zum Beispiel könnte ein Bild EXIF-Daten enthalten, die die Pixelbreite, Höhe und Dichte, Verschlusszeit, Blende, ISO-Einstellungen, Aufnahmedatum etc. beschreiben.
+Das **Exchangeable Image File Format (EXIF)** ist ein Standard, der festlegt, wie Metadaten über eine Multimedia-Datei innerhalb der Datei eingebettet werden können. Zum Beispiel kann ein Bild EXIF-Daten enthalten, die die Pixelbreite, -höhe und -dichte, Belichtungszeit, Blende, ISO-Einstellungen, Aufnahmedatum usw. beschreiben.
 
 ## Siehe auch
 

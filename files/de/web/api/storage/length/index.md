@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`length`** schreibgeschützte Eigenschaft des
-{{domxref("Storage")}} Interfaces gibt die Anzahl der Datenitems zurück, die in einem gegebenen
-`Storage` Objekt gespeichert sind.
+Die schreibgeschützte **`length`**-Eigenschaft der
+[`Storage`](/de/docs/Web/API/Storage)-Schnittstelle gibt die Anzahl der Datenobjekte zurück, die in einem bestimmten
+`Storage`-Objekt gespeichert sind.
 
 ## Wert
 
-Die Anzahl der in dem `Storage` Objekt gespeicherten Items.
+Die Anzahl der im `Storage`-Objekt gespeicherten Objekte.
 
 ## Beispiele
 
-Die folgende Funktion fügt drei Datenitems zur lokalen Speicherung für die aktuelle
-Domäne hinzu und gibt dann die Anzahl der Items in der Speicherung zurück:
+Die folgende Funktion fügt drei Datenobjekte zum lokalen Speicher der aktuellen
+Domain hinzu und gibt dann die Anzahl der Objekte im Speicher zurück:
 
 ```js
 function populateStorage() {
@@ -27,12 +27,12 @@ function populateStorage() {
   localStorage.setItem("font", "Helvetica");
   localStorage.setItem("image", "cats.png");
 
-  return localStorage.length; // Sollte 3 zurückgeben
+  return localStorage.length; // Should return 3
 }
 ```
 
 > [!NOTE]
-> Für ein Praxisbeispiel, sehen Sie unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
+> Für ein praktisches Beispiel, siehe unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
 
 ## Spezifikationen
 

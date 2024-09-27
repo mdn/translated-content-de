@@ -7,24 +7,24 @@ l10n:
 
 {{AddonSidebar}}
 
-Der Zustand dieses Browserfensters.
+Der Zustand dieses Browser-Fensters.
 
 ## Typ
 
 Werte dieses Typs sind `strings`. Mögliche Werte sind:
 
 - `"normal"`
-  - : Das Fenster hat die Standardgröße oder eine vom Benutzer gewählte Größe.
+  - : Das Fenster hat die Standardgröße oder eine vom Benutzer festgelegte Größe.
 - `"minimized"`
   - : Das Fenster ist nur als Symbol in der Taskleiste sichtbar.
 - `"maximized"`
-  - : Das Fenster füllt den Bildschirm aus, auf dem es angezeigt wird, ausgenommen sind Bildschirmbereiche, die vom Betriebssystem reserviert sind.
+  - : Das Fenster füllt den Bildschirm aus, auf dem es dargestellt wird, ausgenommen jegliche Bildschirmbereiche, die vom Betriebssystem reserviert sind.
 - `"fullscreen"`
-  - : Das Fenster läuft als Vollbildanwendung oder der Inhalt in einem Tab verwendet die [Fullscreen API](/de/docs/Web/API/Fullscreen_API).
+  - : Das Fenster wird als Vollbildanwendung ausgeführt oder der Inhalt in einem Tab verwendet die [Fullscreen API](/de/docs/Web/API/Fullscreen_API)
 - `"docked"`
-  - : Ein angedocktes Fenster nimmt eine feste Position im Verhältnis zu anderen Fenstern derselben Anwendung ein.
+  - : Ein angedocktes Fenster nimmt eine feste Position relativ zu anderen Fenstern ein, die von derselben Anwendung verwaltet werden.
 
-macOS Kompatibilität: Ab macOS 10.10 hat sich das standardmäßige Maximierungsverhalten von Fenstern dahingehend geändert, dass Anwendungen als Vollbildanwendungen ausgeführt werden, anstatt „gezoomter“ Fenster. `fullscreen` bezieht sich sowohl auf das Ausführen des Browsers als Vollbildanwendung als auch auf die Verwendung der Fullscreen API in einem Tab.
+macOS-Kompatibilität: Ab macOS 10.10 änderte sich das standardmäßige Maximierungsverhalten für Fenster, um Anwendungen als Vollbildanwendungen auszuführen, anstatt als "gezoomte" Fenster. `fullscreen` bezieht sich sowohl auf den Browser, der als Vollbildanwendung ausgeführt wird, als auch darauf, wenn Inhalte in einem Tab die Fullscreen API verwenden.
 
 ## Browser-Kompatibilität
 

@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`frames`**-Eigenschaft des {{domxref("RTCVideoSourceStats")}}-Wörterbuchs gibt die Gesamtanzahl der Frames an, die während der Lebensdauer dieser Videoquelle erzeugt wurden.
+Die **`frames`**-Eigenschaft des [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats)-Wörterbuchs gibt die Gesamtzahl der Frames an, die von dieser Videoquelle im Laufe ihrer Lebensdauer stammen.
 
 ## Wert
 
-Eine Zahl, die die Gesamtanzahl der Frames angibt, die von dieser Quelle stammen.
+Eine Zahl, die die Gesamtanzahl der von dieser Quelle stammenden Frames angibt.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie das von `RTCRtpSender.getStats()` zurückgegebene Statistikobjekt durchlaufen können, um die Videodatenquelle-Statistiken zu erhalten und dann die `frames` zu extrahieren.
+Dieses Beispiel zeigt, wie Sie das `stats`-Objekt durchlaufen können, das von `RTCRtpSender.getStats()` zurückgegeben wird, um die Videoquellenstatistiken zu erhalten, und dann die `frames` extrahieren.
 
 ```js
-// wobei sender ein RTCRtpSender ist
+// where sender is an RTCRtpSender
 const stats = await sender.getStats();
 let videoSourceStats = null;
 

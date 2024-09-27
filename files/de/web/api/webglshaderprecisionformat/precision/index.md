@@ -1,6 +1,6 @@
 ---
-title: "WebGLShaderPrecisionFormat: Präzisionseigenschaft"
-short-title: Präzision
+title: "WebGLShaderPrecisionFormat: precision-Eigenschaft"
+short-title: precision
 slug: Web/API/WebGLShaderPrecisionFormat/precision
 l10n:
   sourceCommit: eda49877b9078b24cd18f794470e5e225add9b94
@@ -10,7 +10,7 @@ l10n:
 
 Die schreibgeschützte **`WebGLShaderPrecisionFormat.precision`**-Eigenschaft gibt die Anzahl der Präzisionsbits zurück, die dargestellt werden können.
 
-Für Ganzzahlformate ist dieser Wert immer 0.
+Für Integer-Formate ist dieser Wert immer 0.
 
 ## Beispiele
 
@@ -32,5 +32,5 @@ gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.LOW_INT).precision; // 0
 
 ## Siehe auch
 
-- {{domxref("WebGLShaderPrecisionFormat")}}
-- {{domxref("WebGLRenderingContext.getShaderPrecisionFormat()")}}
+- [`WebGLShaderPrecisionFormat`](/de/docs/Web/API/WebGLShaderPrecisionFormat)
+- [`WebGLRenderingContext.getShaderPrecisionFormat()`](/de/docs/Web/API/WebGLRenderingContext/getShaderPrecisionFormat)

@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`cancelable`**-Eigenschaft gibt die [`cancelable`](/de/docs/Web/API/Event/cancelable)-Eigenschaft des zugehörigen Ereignisses zurück und zeigt an, ob das Ereignis abbrechbar ist.
+Die schreibgeschützte **`cancelable`**-Eigenschaft gibt die [`cancelable`](/de/docs/Web/API/Event/cancelable)-Eigenschaft des zugehörigen Ereignisses zurück, die anzeigt, ob das Ereignis abgebrochen werden kann.
 
 ## Wert
 
-Ein Boolean. `true`, wenn das zugehörige Ereignis abbrechbar ist, `false` andernfalls.
+Ein boolescher Wert. `true`, wenn das zugehörige Ereignis abgebrochen werden kann, `false` andernfalls.
 
 ## Beispiele
 
-### Beobachtung von nicht abbrechbaren Ereignissen
+### Beobachtung nicht abbrechbarer Ereignisse
 
-Die `cancelable`-Eigenschaft kann verwendet werden, wenn man Einträge zur Ereigniszeitmessung ({{domxref("PerformanceEventTiming")}}) beobachtet. Zum Beispiel, um nur nicht abbrechbare Ereignisse zu protokollieren und zu messen.
+Die `cancelable`-Eigenschaft kann verwendet werden, um Ereignis-Timing-Einträge ([`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)) zu beobachten. Beispielsweise, um nur nicht abbrechbare Ereignisse zu protokollieren und zu messen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -30,7 +30,7 @@ const observer = new PerformanceObserver((list) => {
   });
 });
 
-// Registrieren des Beobachters für Ereignisse
+// Register the observer for events
 observer.observe({ type: "event", buffered: true });
 ```
 

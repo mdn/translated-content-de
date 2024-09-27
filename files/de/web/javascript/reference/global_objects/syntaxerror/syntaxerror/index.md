@@ -1,5 +1,5 @@
 ---
-title: SyntaxError()-Konstruktor
+title: SyntaxError() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/SyntaxError/SyntaxError
 l10n:
   sourceCommit: f5d6eeec8c270d74f92e59dd915261e8bf1d083f
@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`SyntaxError()`**-Konstruktor erzeugt {{jsxref("SyntaxError")}}-Objekte.
+Der **`SyntaxError()`** Konstruktor erstellt {{jsxref("SyntaxError")}} Objekte.
 
 ## Syntax
 
@@ -25,17 +25,17 @@ SyntaxError(message, fileName)
 SyntaxError(message, fileName, lineNumber)
 ```
 
-> **Note:** `SyntaxError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Aufrufe erzeugen eine neue `SyntaxError`-Instanz.
+> **Note:** `SyntaxError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erzeugen eine neue Instanz von `SyntaxError`.
 
 ### Parameter
 
 - `message` {{optional_inline}}
   - : Menschlich lesbare Beschreibung des Fehlers
 - `options` {{optional_inline}}
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Beim Auffangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzuleiten.
+        Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -43,7 +43,7 @@ SyntaxError(message, fileName, lineNumber)
 
 ## Beispiele
 
-### Abfangen eines SyntaxErrors
+### Abfangen eines SyntaxError
 
 ```js
 try {
@@ -52,11 +52,11 @@ try {
   console.log(e instanceof SyntaxError); // true
   console.log(e.message);
   console.log(e.name); // "SyntaxError"
-  console.log(e.stack); // Stack des Fehlers
+  console.log(e.stack); // Stack of the error
 }
 ```
 
-### Erzeugen eines SyntaxErrors
+### Erstellen eines SyntaxError
 
 ```js
 try {
@@ -65,7 +65,7 @@ try {
   console.log(e instanceof SyntaxError); // true
   console.log(e.message); // "Hello"
   console.log(e.name); // "SyntaxError"
-  console.log(e.stack); // Stack des Fehlers
+  console.log(e.stack); // Stack of the error
 }
 ```
 

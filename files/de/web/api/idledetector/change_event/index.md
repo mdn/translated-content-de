@@ -1,5 +1,5 @@
 ---
-title: "IdleDetector: change-Ereignis"
+title: "IdleDetector: change Ereignis"
 short-title: change
 slug: Web/API/IdleDetector/change_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}
 
-Das **`change`**-Ereignis der {{domxref("IdleDetector")}}-Schnittstelle wird ausgelöst, wenn sich der Wert von `userState` oder `screenState` geändert hat.
+Das **`change`**-Ereignis der [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Schnittstelle wird ausgelöst, wenn sich der Wert von `userState` oder `screenState` verändert hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("change", (event) => {});
@@ -22,7 +22,7 @@ onchange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 

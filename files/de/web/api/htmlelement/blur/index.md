@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: blur()-Methode"
+title: "HTMLElement: `blur()` Methode"
 short-title: blur()
 slug: Web/API/HTMLElement/blur
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLElement.blur()`**-Methode entfernt den Tastaturfokus vom aktuellen Element.
+Die **`HTMLElement.blur()`** Methode entfernt den Tastaturfokus von dem aktuellen Element.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -32,7 +32,7 @@ Keine ({{jsxref("undefined")}}).
 
 ```html
 <input type="text" id="sampleText" value="Sample Text" /> <br /><br />
-<button type="button" onclick="focusInput()">Klicken Sie hier, um den Fokus zu erhalten</button>
+<button type="button" onclick="focusInput()">Click me to gain focus</button>
 ```
 
 #### JavaScript
@@ -43,7 +43,7 @@ function focusInput() {
 
   textField.focus();
 
-  // Der Fokus des Eingabefeldes geht nach 3 Sekunden verloren
+  // The input will lose focus after 3 seconds
   setTimeout(() => {
     textField.blur();
   }, 3000);
@@ -64,4 +64,4 @@ function focusInput() {
 
 ## Siehe auch
 
-- {{domxref("HTMLElement.focus")}}
+- [`HTMLElement.focus`](/de/docs/Web/API/HTMLElement/focus)

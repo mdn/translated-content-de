@@ -9,7 +9,7 @@ l10n:
 
 Schreibt einige Antwortdaten in den Ausgabestream.
 
-Diese Funktion kann nur aufgerufen werden, nachdem das {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}}-Ereignis ausgelöst wurde.
+Sie können diese Funktion nur nach dem Auslösen des {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}}-Ereignisses aufrufen.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ filter.write(
 ### Parameter
 
 - `data`
-  - : [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) oder [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer): Byte-Array mit den Daten, die an die Rendering-Engine des Browsers übergeben werden sollen.
+  - : [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) oder [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer): Array von Bytes, das die Daten enthält, die an die Rendering-Engine des Browsers übergeben werden sollen.
 
 ### Rückgabewert
 
-Keine.
+Keiner.
 
 ## Browser-Kompatibilität
 
@@ -34,7 +34,7 @@ Keine.
 
 ## Beispiele
 
-Dieses Beispiel verwendet `write()`, um "Example" im ersten Teil der Antwort durch "WebExtension Example" zu ersetzen.
+Dieses Beispiel verwendet `write()`, um "Example" im ersten Abschnitt der Antwort durch "WebExtension Example" zu ersetzen.
 
 ```js
 function listener(details) {
@@ -44,8 +44,8 @@ function listener(details) {
 
   filter.ondata = (event) => {
     let str = decoder.decode(event.data, { stream: true });
-    // Ändern Sie jede Instanz von Example in der HTTP-Antwort
-    // zu WebExtension Example.
+    // Just change any instance of Example in the HTTP response
+    // to WebExtension Example.
     str = str.replaceAll("Example", "WebExtension Example");
     filter.write(encoder.encode(str));
     filter.disconnect();

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Ein CSS-**Pseudo-Element** ist ein Schlüsselwort, das zu einem Selektor hinzugefügt wird und es Ihnen ermöglicht, einen bestimmten Teil des ausgewählten Elements zu stylen.
+Ein CSS-**Pseudo-Element** ist ein Schlüsselwort, das einem Selektor hinzugefügt wird und es Ihnen ermöglicht, einen bestimmten Teil des ausgewählten Elements oder der ausgewählten Elemente zu stylen.
 
 ## Syntax
 
@@ -20,23 +20,23 @@ selector::pseudo-element {
 Zum Beispiel kann {{CSSxRef("::first-line")}} verwendet werden, um die Schriftart der ersten Zeile eines Absatzes zu ändern.
 
 ```css
-/* Die erste Zeile jedes <p>-Elements. */
+/* The first line of every <p> element. */
 p::first-line {
   color: blue;
   text-transform: uppercase;
 }
 ```
 
-Doppelte Doppelpunkte (`::`) werden für Pseudo-Elemente verwendet. Dies unterscheidet Pseudo-Elemente von [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes), die in ihrer Notation einen einfachen Doppelpunkt (`:`) verwenden.
+Doppelte Doppelpunkte (`::`) werden für Pseudo-Elemente verwendet. Dies unterscheidet Pseudo-Elemente von [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes), die ein einzelnes Doppelpunkt (`:`) in ihrer Notation verwenden.
 
-Pseudo-Elemente existieren nicht unabhängig. Das Element, von dem ein Pseudo-Element ein Teil ist, wird als sein _ursprüngliches Element_ bezeichnet. Ein Pseudo-Element muss nach allen anderen Komponenten im [komplexen](/de/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector) oder [zusammengesetzten](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) Selektor erscheinen. Das letzte Element im Selektor ist das ursprüngliche Element des Pseudo-Elements. Zum Beispiel können Sie die erste Zeile eines Absatzes mit `p::first-line` auswählen, aber nicht die Kinder der ersten Zeile. `p::first-line > *` ist daher ungültig.
+Pseudo-Elemente existieren nicht unabhängig. Das Element, von dem ein Pseudo-Element ein Teil ist, wird als sein _ursprüngliches Element_ bezeichnet. Ein Pseudo-Element muss nach allen anderen Komponenten im [komplexen](/de/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector) oder [zusammengesetzten](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) Selektor erscheinen. Das letzte Element im Selektor ist das ursprüngliche Element des Pseudo-Elements. Beispielsweise können Sie die erste Zeile eines Absatzes mit `p::first-line` auswählen, jedoch nicht die Kinder der ersten Zeile. Daher ist `p::first-line > *` ungültig.
 
-Ein Pseudo-Element kann basierend auf dem aktuellen Zustand des ursprünglichen Elements ausgewählt werden. Zum Beispiel wählt `p:hover::first-line` die erste Zeile (Pseudo-Element) eines Absatzes aus, wenn der Absatz selbst gehovt wird (Pseudo-Klasse).
+Ein Pseudo-Element kann basierend auf dem aktuellen Zustand des ursprünglichen Elements ausgewählt werden. Beispielsweise wählt `p:hover::first-line` die erste Zeile (Pseudo-Element) eines Absatzes, wenn der Absatz selbst gehovt wird (Pseudoklasse).
 
 > [!NOTE]
 > Wenn eine [Selektorliste](/de/docs/Web/CSS/CSS_selectors/Selector_structure#selector_list) einen ungültigen Selektor enthält, wird der gesamte Stilblock ignoriert.
 
-## Liste von Pseudo-Elementen
+## Liste der Pseudo-Elemente
 
 Pseudo-Elemente, die durch eine Reihe von CSS-Spezifikationen definiert sind, umfassen die folgenden:
 
@@ -95,7 +95,7 @@ V
 - {{cssxref("::view-transition-old()")}}
 
 > [!NOTE]
-> Browser unterstützen die Syntax mit einem einzelnen Doppelpunkt nur für die ursprünglichen vier Pseudo-Elemente: `::before`, `::after`, `::first-line` und `::first-letter`.
+> Browser unterstützen die Syntax mit einfachem Doppelpunkt nur für die ursprünglichen vier Pseudo-Elemente: `::before`, `::after`, `::first-line` und `::first-letter`.
 
 ## Spezifikationen
 
@@ -104,6 +104,6 @@ V
 ## Siehe auch
 
 - [CSS-Pseudo-Element](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
-- [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes)
+- [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes)
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
-- [CSS-Bausteine: Pseudo-Klassen und Pseudo-Elemente](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)
+- [CSS-Bausteine: Pseudoklassen und Pseudo-Elemente](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)

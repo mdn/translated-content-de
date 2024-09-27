@@ -7,25 +7,25 @@ l10n:
 
 {{CSSRef}}
 
-Die [CSS](/de/docs/Web/CSS) **`outline-width`**-Eigenschaft legt die Dicke des Umrisses eines Elements fest. Ein Umriss ist eine Linie, die um ein Element gezeichnet wird, außerhalb des {{cssxref("border")}}.
+Die [CSS](/de/docs/Web/CSS) **`outline-width`** Eigenschaft legt die Dicke der Umrandung eines Elements fest. Eine Umrandung ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb des {{cssxref("border")}}.
 
 {{EmbedInteractiveExample("pages/css/outline-width.html")}}
 
-Es ist oft praktischer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwenden, wenn das Erscheinungsbild eines Umrisses definiert wird.
+Es ist oft bequemer, die Kurzformeigenschaft {{cssxref("outline")}} zu verwenden, wenn das Erscheinungsbild einer Umrandung definiert wird.
 
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 outline-width: thin;
 outline-width: medium;
 outline-width: thick;
 
-/* <Länge>-Werte */
+/* <length> values */
 outline-width: 1px;
 outline-width: 0.1em;
 
-/* Globale Werte */
+/* Global values */
 outline-width: inherit;
 outline-width: initial;
 outline-width: revert;
@@ -33,18 +33,18 @@ outline-width: revert-layer;
 outline-width: unset;
 ```
 
-Die `outline-width`-Eigenschaft wird als einer der unten aufgeführten Werte angegeben.
+Die `outline-width` Eigenschaft wird als einer der unten aufgeführten Werte angegeben.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Breite des Umrisses als `<length>` angegeben.
+  - : Die Breite der Umrandung, angegeben als `<length>`.
 - `thin`
-  - : Hängt vom Benutzeragenten ab. Typischerweise entspricht dies `1px` in Desktop-Browsern (einschließlich Firefox).
+  - : Abhängig vom User-Agent. Typischerweise gleichbedeutend mit `1px` in Desktop-Browsern (einschließlich Firefox).
 - `medium`
-  - : Hängt vom Benutzeragenten ab. Typischerweise entspricht dies `3px` in Desktop-Browsern (einschließlich Firefox).
+  - : Abhängig vom User-Agent. Typischerweise gleichbedeutend mit `3px` in Desktop-Browsern (einschließlich Firefox).
 - `thick`
-  - : Hängt vom Benutzeragenten ab. Typischerweise entspricht dies `5px` in Desktop-Browsern (einschließlich Firefox).
+  - : Abhängig vom User-Agent. Typischerweise gleichbedeutend mit `5px` in Desktop-Browsern (einschließlich Firefox).
 
 ## Formale Definition
 
@@ -56,7 +56,7 @@ Die `outline-width`-Eigenschaft wird als einer der unten aufgeführten Werte ang
 
 ## Beispiele
 
-### Die Umrissbreite eines Elements festlegen
+### Festlegen der Umrandungsbreite eines Elements
 
 #### HTML
 

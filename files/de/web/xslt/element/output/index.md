@@ -2,12 +2,12 @@
 title: <xsl:output>
 slug: Web/XSLT/Element/output
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 9df96dcad40bf97f66b317ef6b6bbe64444569eb
 ---
 
 {{XsltSidebar}}
 
-Das `<xsl:output>`-Element steuert die Eigenschaften des Ausgabedokuments. Um in Netscape korrekt zu funktionieren, muss dieses Element mit dem `method`-Attribut verwendet werden. Ab Version 7.0 funktioniert `method="text"` wie erwartet.
+Das `<xsl:output>`-Element kontrolliert die Eigenschaften des Ausgabedokuments. Damit es in Netscape korrekt funktioniert, muss dieses Element mit dem `method`-Attribut verwendet werden. Ab Version 7.0 funktioniert `method="text"` wie erwartet.
 
 ## Syntax
 
@@ -34,32 +34,32 @@ Keine.
 - `method`
   - : Gibt das Ausgabeformat an.
 - `version`
-  - : Gibt den Wert des Version-Attributs der XML- oder HTML-Deklaration im Ausgabedokument an. Dieses Attribut wird nur verwendet, wenn `method="html"` oder `method="xml"` ist.
+  - : Gibt den Wert des `version`-Attributs der XML- oder HTML-Deklaration im Ausgabedokument an. Dieses Attribut wird nur verwendet, wenn `method="html"` oder `method="xml"` ist.
 - `encoding`
   - : Gibt den Wert des `encoding`-Attributs im Ausgabedokument an.
 - `omit-xml-declaration`
-  - : Gibt an, ob eine XML-Deklaration im Ausgangsdokument enthalten sein soll oder nicht. Akzeptable Werte sind "`yes`" oder "`no`".
+  - : Gibt an, ob eine XML-Deklaration im Output enthalten sein soll oder nicht. Akzeptable Werte sind `yes` oder `no`.
 - `standalone` (Nicht unterstützt.)
-  - : Falls vorhanden, gibt an, dass eine Standalone-Deklaration im Ausgabedokument erfolgen soll und welcher Wert sie hat. Akzeptable Werte sind "yes" oder "no".
+  - : Wenn vorhanden, zeigt dies an, dass eine eigenständige Deklaration im Ausgabedokument erfolgen sollte und gibt deren Wert an. Akzeptable Werte sind `yes` oder `no`.
 - `doctype-public`
   - : Gibt den Wert des `PUBLIC`-Attributs der `DOCTYPE`-Deklaration im Ausgabedokument an.
 - `doctype-system`
   - : Gibt den Wert des `SYSTEM`-Attributs der `DOCTYPE`-Deklaration im Ausgabedokument an.
 - `cdata-section-elements`
-  - : Listet Elemente auf, deren Textinhalte als `CDATA`-Abschnitte geschrieben werden sollen. Elemente sollten durch Leerzeichen getrennt werden.
+  - : Listet Elemente auf, deren Textinhalte als `CDATA`-Abschnitte geschrieben werden sollen. Elemente sollten durch Leerzeichen getrennt sein.
 - `indent` (Nicht unterstützt.)
-  - : Gibt an, ob die Ausgabe eingerückt werden soll, um ihre hierarchische Struktur anzuzeigen.
+  - : Gibt an, ob der Output eingerückt werden soll, um seine hierarchische Struktur darzustellen.
 - `media-type` (Nicht unterstützt.)
   - : Gibt den MIME-Typ des Ausgabedokuments an.
 
 ### Typ
 
-Beim Top-Level muss es das Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
+Top-Level, muss das Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
 
 ## Spezifikationen
 
 XSLT, Abschnitt 16.
 
-## Gecko-Unterstützung
+## Unterstützung in Gecko
 
-Teilweise Unterstützung. Siehe Kommentare oben.
+Teilweise Unterstützung. Siehe Anmerkungen oben.

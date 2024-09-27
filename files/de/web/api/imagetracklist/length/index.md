@@ -1,6 +1,6 @@
 ---
-title: "ImageTrackList: Länge Eigenschaft"
-short-title: Länge
+title: "ImageTrackList: length-Eigenschaft"
+short-title: length
 slug: Web/API/ImageTrackList/length
 l10n:
   sourceCommit: 3789de65bd11453c4cb24625723f81a7e8fcdd56
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`length`**-Eigenschaft des {{domxref("ImageTrackList")}}-Interfaces gibt die Länge der `ImageTrackList` zurück.
+Die **`length`**-Eigenschaft des [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Interfaces gibt die Länge der `ImageTrackList` zurück.
 
 ## Wert
 
-Ein ganzzahliger Wert.
+Eine ganze Zahl.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Wert von `length` in die Konsole ausgegeben.
+Das folgende Beispiel gibt den Wert von `length` in der Konsole aus.
 
 ```js
 let tracks = imageDecoder.tracks;

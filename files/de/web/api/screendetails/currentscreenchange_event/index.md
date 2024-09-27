@@ -8,27 +8,27 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`currentscreenchange`**-Ereignis der {{domxref("ScreenDetails")}}-Schnittstelle wird ausgelöst, wenn sich die {{domxref("ScreenDetails.currentScreen")}} auf eine der folgenden Arten ändert:
+Das **`currentscreenchange`**-Ereignis des [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Interfaces wird ausgelöst, wenn sich die [`ScreenDetails.currentScreen`](/de/docs/Web/API/ScreenDetails/currentScreen) in einer der folgenden Weisen ändert:
 
-- Der aktuelle Bildschirm wechselt zu einem anderen Bildschirm, d.h., das aktuelle Browserfenster wird auf einen anderen Bildschirm verschoben.
-- Eine oder mehrere der folgenden Eigenschaften auf dem aktuellen Bildschirm ändern sich:
-  - {{domxref("Screen.width", "width")}}
-  - {{domxref("Screen.height", "height")}}
-  - {{domxref("Screen.availWidth", "availWidth")}}
-  - {{domxref("Screen.availHeight", "availHeight")}}
-  - {{domxref("Screen.colorDepth", "colorDepth")}}
-  - {{domxref("Screen.orientation", "orientation")}}
+- Der aktuelle Bildschirm wechselt zu einem anderen Bildschirm, d. h. das aktuelle Browserfenster wird auf einen anderen Bildschirm verschoben.
+- Eine oder mehrere der folgenden Eigenschaften ändern sich auf dem aktuellen Bildschirm:
+  - [`width`](/de/docs/Web/API/Screen/width)
+  - [`height`](/de/docs/Web/API/Screen/height)
+  - [`availWidth`](/de/docs/Web/API/Screen/availWidth)
+  - [`availHeight`](/de/docs/Web/API/Screen/availHeight)
+  - [`colorDepth`](/de/docs/Web/API/Screen/colorDepth)
+  - [`orientation`](/de/docs/Web/API/Screen/orientation)
 - Eine oder mehrere der folgenden Werte ändern sich:
-  - Die **Position** des Bildschirms ((x,y)-Koordinaten der oberen linken Ecke) innerhalb der virtuellen Bildschirm-Anordnung des Betriebssystems, relativ zum [Multi-Screen-Ursprung](/de/docs/Web/API/Window_Management_API/Multi-screen_origin)
-  - Die **verfügbare Position** des Bildschirms ((x,y)-Koordinaten der oberen linken Ecke) innerhalb der virtuellen Bildschirm-Anordnung des Betriebssystems, relativ zum [Multi-Screen-Ursprung](/de/docs/Web/API/Window_Management_API/Multi-screen_origin). Dies entspricht der Bildschirmposition, plus der Breite/Höhe aller Betriebssystem-UI-Elemente, die an der oberen linken Ecke des Bildschirms gezeichnet werden — Fenster können nicht in diesen Bereichen platziert werden
-  - {{domxref("ScreenDetailed.devicePixelRatio", "devicePixelRatio")}}
-  - {{domxref("ScreenDetailed.label", "label")}}
-  - Die Einstufung des Bildschirms als primär oder sekundär (siehe {{domxref("ScreenDetailed.isPrimary", "isPrimary")}})
-  - Die Einstufung des Bildschirms als intern oder extern (siehe {{domxref("ScreenDetailed.isInternal", "isInternal")}})
+  - Die **Position** des Bildschirms ((x,y)-Koordinaten der oberen linken Ecke) innerhalb der virtuellen Bildschirmwiedergabe des Betriebssystems, relativ zum [Multi-Screen-Ursprung](/de/docs/Web/API/Window_Management_API/Multi-screen_origin)
+  - Die **verfügbare Position** des Bildschirms ((x,y)-Koordinaten der oberen linken Ecke) innerhalb der virtuellen Bildschirmwiedergabe des Betriebssystems, relativ zum [Multi-Screen-Ursprung](/de/docs/Web/API/Window_Management_API/Multi-screen_origin). Dies entspricht der Bildschirmposition plus der Breite/Höhe aller Betriebssystem-UI-Elemente, die oben links auf dem Bildschirm angezeigt werden, in diesen Bereichen können keine Fenster platziert werden
+  - [`devicePixelRatio`](/de/docs/Web/API/ScreenDetailed/devicePixelRatio)
+  - [`label`](/de/docs/Web/API/ScreenDetailed/label)
+  - Die Bestimmung des Bildschirms als primär oder sekundär (siehe [`isPrimary`](/de/docs/Web/API/ScreenDetailed/isPrimary))
+  - Die Bestimmung des Bildschirms als intern oder extern (siehe [`isInternal`](/de/docs/Web/API/ScreenDetailed/isInternal))
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
 ```js
 addEventListener("currentscreenchange", (event) => {});
@@ -38,7 +38,7 @@ oncurrentscreenchange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 

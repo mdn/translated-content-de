@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{SeeCompatTable}}
 
-Die **`src`**-Eigenschaft des {{domxref("SpeechGrammar")}}-Interfaces wird verwendet, um einen String zu erhalten oder festzulegen, der die Grammatik im `SpeechGrammar`-Objekt enthält.
+Die **`src`**-Eigenschaft des [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Interfaces wird verwendet, um einen String, der die Grammatik innerhalb des `SpeechGrammar`-Objekts enthält, zu erhalten oder festzulegen.
 
 ## Wert
 
@@ -24,8 +24,8 @@ const speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
 recognition.grammars = speechRecognitionList;
 
-console.log(speechRecognitionList[0].src); // sollte dasselbe zurückgeben wie der Inhalt der grammar-Variable
-console.log(speechRecognitionList[0].weight); // sollte 1 zurückgeben - dasselbe wie das Gewicht, das in addFromString festgelegt wurde.
+console.log(speechRecognitionList[0].src); // should return the same as the contents of the grammar variable
+console.log(speechRecognitionList[0].weight); // should return 1 - the same as the weight set in addFromString.
 ```
 
 ## Spezifikationen

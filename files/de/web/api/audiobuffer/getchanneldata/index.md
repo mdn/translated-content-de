@@ -1,5 +1,5 @@
 ---
-title: "AudioBuffer: getChannelData()-Methode"
+title: "AudioBuffer: Methode getChannelData()"
 short-title: getChannelData()
 slug: Web/API/AudioBuffer/getChannelData
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`getChannelData()`**-Methode der {{ domxref("AudioBuffer") }}-Schnittstelle gibt ein {{jsxref("Float32Array")}} zurück, das die PCM-Daten enthält, die dem durch den Kanalparameter definierten Kanal zugeordnet sind (wobei 0 den ersten Kanal darstellt).
+Die **`getChannelData()`**-Methode der [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Schnittstelle gibt ein {{jsxref("Float32Array")}} zurück, das die PCM-Daten enthält, die dem Kanal zugeordnet sind, der durch den Kanalparameter definiert wird (wobei 0 den ersten Kanal darstellt).
 
 ## Syntax
 
@@ -19,7 +19,7 @@ getChannelData(channel)
 ### Parameter
 
 - `channel`
-  - : Die Kanal-Eigenschaft ist ein Index, der den bestimmten Kanal repräsentiert, für den Daten abgerufen werden sollen. Ein Indexwert von 0 repräsentiert den ersten Kanal. Wenn der `channel`-Indexwert größer oder gleich {{domxref("AudioBuffer.numberOfChannels")}} ist, wird eine Ausnahme `INDEX_SIZE_ERR` ausgelöst.
+  - : Die Kanal-Eigenschaft ist ein Index, der den bestimmten Kanal repräsentiert, für den Daten abgerufen werden sollen. Ein Indexwert von 0 repräsentiert den ersten Kanal. Wenn der `channel`-Indexwert größer oder gleich der Anzahl von [`AudioBuffer.numberOfChannels`](/de/docs/Web/API/AudioBuffer/numberOfChannels) ist, wird eine `INDEX_SIZE_ERR`-Ausnahme ausgelöst.
 
 ### Rückgabewert
 
@@ -27,7 +27,7 @@ Ein {{jsxref("Float32Array")}}.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir einen zwei Sekunden langen Puffer, füllen ihn mit weißem Rauschen und spielen ihn dann über einen {{ domxref("AudioBufferSourceNode") }} ab. Die Kommentare sollten klar erklären, was geschieht. Sie können den [Code auch live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer/) oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples).
+Im folgenden Beispiel erstellen wir einen zwei Sekunden langen Puffer, füllen ihn mit weißem Rauschen und spielen ihn dann über einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) ab. Die Kommentare sollten klar erklären, was passiert. Sie können den Code auch [live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer/) oder [den Quellcode anzeigen](https://github.com/mdn/webaudio-examples).
 
 ```js
 const audioCtx = new AudioContext();
@@ -39,34 +39,34 @@ pre.textContent = myScript.textContent;
 
 // Stereo
 const channels = 2;
-// Erstellen eines leeren Zwei-Sekunden-Stereo-Puffers mit der
-// Abtastrate des AudioContext
+// Create an empty two second stereo buffer at the
+// sample rate of the AudioContext
 const frameCount = audioCtx.sampleRate * 2.0;
 
 const myArrayBuffer = audioCtx.createBuffer(2, frameCount, audioCtx.sampleRate);
 
 button.onclick = () => {
-  // Den Puffer mit weißem Rauschen füllen;
-  // einfach zufällige Werte zwischen -1.0 und 1.0
+  // Fill the buffer with white noise;
+  //just random values between -1.0 and 1.0
   for (let channel = 0; channel < channels; channel++) {
-    // Dies gibt uns den eigentlichen ArrayBuffer, der die Daten enthält
+    // This gives us the actual ArrayBuffer that contains the data
     const nowBuffering = myArrayBuffer.getChannelData(channel);
     for (let i = 0; i < frameCount; i++) {
-      // Math.random() liegt in [0; 1.0]
-      // Audio muss in [-1.0; 1.0] liegen
+      // Math.random() is in [0; 1.0]
+      // audio needs to be in [-1.0; 1.0]
       nowBuffering[i] = Math.random() * 2 - 1;
     }
   }
 
-  // Einen AudioBufferSourceNode abrufen.
-  // Dies ist der AudioNode, den wir verwenden, um ein AudioBuffer abzuspielen
+  // Get an AudioBufferSourceNode.
+  // This is the AudioNode to use when we want to play an AudioBuffer
   const source = audioCtx.createBufferSource();
-  // den Puffer im AudioBufferSourceNode setzen
+  // set the buffer in the AudioBufferSourceNode
   source.buffer = myArrayBuffer;
-  // den AudioBufferSourceNode an das
-  // Ziel anschließen, damit wir den Ton hören können
+  // connect the AudioBufferSourceNode to the
+  // destination so we can hear the sound
   source.connect(audioCtx.destination);
-  // die Wiedergabe der Quelle starten
+  // start the source playing
   source.start();
 };
 ```

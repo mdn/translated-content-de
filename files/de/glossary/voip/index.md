@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-VoIP (Voice over Internet Protocol) ist eine Technologie, die verwendet wird, um Sprachmitteilungen über IP (Internet Protocol) Netzwerke zu übertragen. Zu den gängigen VoIP-Paketen gehören Skype, MSN Messenger, Yahoo und viele mehr. Alles, was über VoIP übertragen wird, ist digital. Es wird auch als IP-Telefonie oder Breitband-Telefonie bezeichnet. Der Hauptgrund für die Verwendung von VoIP-Technologie sind die Kosten.
+VoIP (Voice over Internet Protocol) ist eine Technologie, die zur Übertragung von Sprachmitteilungen über IP-Netzwerke (Internet Protocol) verwendet wird. Zu den gängigen VoIP-Paketen gehören Skype, MSN Messenger, Yahoo und viele mehr. Alles, was über VoIP übertragen wird, ist digital. Es ist auch bekannt als IP-Telefonie oder Breitband-Telefonie. Der Hauptgrund für die Nutzung der VoIP-Technologie sind die Kosten.
 
-VoIP ermöglicht es Ihnen, einen Anruf direkt von einem Computer, einem speziellen VoIP-Telefon oder einem herkömmlichen Telefon, das an einen speziellen Adapter angeschlossen ist, zu tätigen. Eine schnelle Internetverbindung ist für VoIP erforderlich. Normalerweise verursachen Telefonanrufe über das Internet keine weiteren Gebühren über das hinaus, was der Benutzer für den Internetzugang bezahlt, ähnlich wie der Benutzer nicht für das Senden einzelner E-Mails über das Internet bezahlt.
+VoIP ermöglicht es Ihnen, einen Anruf direkt von einem Computer, einem speziellen VoIP-Telefon oder einem herkömmlichen Telefon, das mit einem speziellen Adapter verbunden ist, zu tätigen. Eine Hochgeschwindigkeits-Internetverbindung ist für VoIP erforderlich. Normalerweise fallen für Telefonanrufe über das Internet keine weiteren Gebühren an, außer den Kosten, die der Nutzer für den Internetzugang zahlt, ähnlich wie der Nutzer nicht für das Senden einzelner E-Mails über das Internet zahlt.
 
 ## Siehe auch
 

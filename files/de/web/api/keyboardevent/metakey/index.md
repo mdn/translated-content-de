@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`KeyboardEvent.metaKey`** schreibgeschützte Eigenschaft liefert einen booleschen Wert, der angibt, ob die <kbd>Meta</kbd>-Taste (`true`) gedrückt wurde oder nicht (`false`), als das Ereignis eintrat. Einige Betriebssysteme können diese Taste abfangen, sodass sie nie erkannt wird.
+Die **`KeyboardEvent.metaKey`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die einen booleschen Wert zurückgibt. Dieser Wert gibt an, ob die <kbd>Meta</kbd>-Taste gedrückt war (`true`) oder nicht (`false`), als das Ereignis auftrat. Einige Betriebssysteme können die Taste abfangen, sodass sie nie erkannt wird.
 
 > [!NOTE]
-> Auf Macintosh-Tastaturen ist dies die <kbd>⌘ Command</kbd>-Taste.
+> Auf Macintosh-Tastaturen ist dies die <kbd>⌘ Befehlstaste</kbd>.
 
 > [!NOTE]
-> Vor Firefox 118 wurde die <kbd>⊞ Windows</kbd>-Taste als "OS"-Taste statt als "Meta"-Taste behandelt. `KeyboardEvent.metaKey` war `false`, wenn die <kbd>⊞ Windows</kbd>-Taste gedrückt wurde.
+> Vor Firefox 118 wurde die <kbd>⊞ Windows</kbd>-Taste als "OS"-Taste und nicht als "Meta"-Taste behandelt. `KeyboardEvent.metaKey` war `false`, wenn die <kbd>⊞ Windows</kbd>-Taste gedrückt wurde.
 
 ## Wert
 
@@ -23,7 +23,7 @@ Ein boolescher Wert.
 ## Beispiele
 
 ```html
-<button onclick="ismetaKey(event)">Klicken Sie mit der Meta-Taste</button>
+<button onclick="ismetaKey(event)">Click me with the meta key</button>
 
 <p id="output"></p>
 ```
@@ -31,7 +31,7 @@ Ein boolescher Wert.
 ```js
 function ismetaKey(e) {
   document.querySelector("#output").textContent =
-    `metaKey gedrückt? ${e.metaKey}`;
+    `metaKey pressed? ${e.metaKey}`;
 }
 ```
 
@@ -49,4 +49,4 @@ function ismetaKey(e) {
 
 ## Siehe auch
 
-- {{ domxref("KeyboardEvent") }}
+- [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)

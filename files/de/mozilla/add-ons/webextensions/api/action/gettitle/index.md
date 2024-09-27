@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Erhält den Titel der Browseraktion.
+Ruft den Titel der Browseraktion ab.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
 
-Genau wie Sie den Titel pro Tab mit {{WebExtAPIRef("action.setTitle()")}} setzen können, können Sie auch einen tab-spezifischen Titel abrufen, indem Sie die ID des Tabs in diese Funktion übergeben.
+So wie Sie den Titel auf Basis des Tabs mit {{WebExtAPIRef("action.setTitle()")}} festlegen können, können Sie auch einen tab-spezifischen Titel abrufen, indem Sie die Tab-ID in diese Funktion übergeben.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -31,9 +31,9 @@ let gettingTitle = browser.action.getTitle(
   - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Gibt den Tab an, von dem der Titel abgerufen werden soll.
+      - : `integer`. Bestimmen Sie den Tab, aus dem der Titel abgerufen werden soll.
     - `windowId` {{optional_inline}}
-      - : `integer`. Gibt das Fenster an, von dem der Titel abgerufen werden soll.
+      - : `integer`. Bestimmen Sie das Fenster, aus dem der Titel abgerufen werden soll.
 
 <!---->
 
@@ -42,11 +42,11 @@ let gettingTitle = browser.action.getTitle(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String gefüllt wird, der den Titel der Browseraktion enthält.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der den Titel der Browseraktion enthält.
 
 ## Beispiele
 
-Dieser Code wechselt den Titel zwischen "this" und "that" jedes Mal, wenn der Benutzer die Browseraktion anklickt:
+Dieser Code wechselt den Titel zwischen "dies" und "das" jedes Mal, wenn der Benutzer auf die Browseraktion klickt:
 
 ```js
 function toggleTitle(title) {
@@ -70,7 +70,7 @@ browser.action.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-getTitle) API von Chromium. Diese Dokumentation stammt von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-getTitle) API. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

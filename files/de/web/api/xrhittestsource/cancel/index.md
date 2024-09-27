@@ -1,5 +1,5 @@
 ---
-title: "XRHitTestSource: cancel() Methode"
+title: "XRHitTestSource: cancel()-Methode"
 short-title: cancel()
 slug: Web/API/XRHitTestSource/cancel
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`cancel()`**-Methode der {{domxref("XRHitTestSource")}}-Schnittstelle meldet einen Hit-Test ab.
+Die **`cancel()`**-Methode der [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource)-Schnittstelle meldet einen Treffertest ab.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Vom Hit-Test abmelden
+### Vom Treffertest abmelden
 
-Die `cancel()`-Methode meldet eine Hit-Test-Quelle ab. Da das {{domxref("XRHitTestSource")}}-Objekt nicht mehr verwendet werden kann, können Sie es bereinigen und auf [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) setzen.
+Die `cancel()`-Methode meldet sich von einer Treffertestsquelle ab. Da das [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource)-Objekt nicht mehr verwendbar ist, können Sie es bereinigen und auf [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) setzen.
 
 ```js
 hitTestSource.cancel();

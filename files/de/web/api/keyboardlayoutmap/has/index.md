@@ -1,5 +1,5 @@
 ---
-title: "KeyboardLayoutMap: has()-Methode"
+title: "KeyboardLayoutMap: has() Methode"
 short-title: has()
 slug: Web/API/KeyboardLayoutMap/has
 l10n:
@@ -8,14 +8,11 @@ l10n:
 
 {{APIRef("Keyboard API")}}{{SeeCompatTable}}
 
-Die **`has()`**-Methode der
-{{domxref('KeyboardLayoutMap')}}-Schnittstelle gibt einen Boolean zurück, der angibt, ob das
-Objekt ein Element mit dem angegebenen Schlüssel enthält.
+Die **`has()`** Methode der Schnittstelle [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap) gibt einen booleschen Wert zurück, der anzeigt, ob das Objekt ein Element mit dem angegebenen Schlüssel enthält.
 
-Eine Liste gültiger Schlüssel ist in der Spezifikation
-[UI Events KeyboardEvent code Values](https://www.w3.org/TR/uievents-code/#key-alphanumeric-writing-system) zu finden.
+Eine Liste der gültigen Schlüssel finden Sie in der Spezifikation [UI Events KeyboardEvent code Values](https://www.w3.org/TR/uievents-code/#key-alphanumeric-writing-system).
 
-Ansonsten ist die Methode identisch mit {{jsxref("Map.prototype.has()")}}.
+Die Methode ist ansonsten die gleiche wie {{jsxref("Map.prototype.has()")}}.
 
 ## Syntax
 
@@ -26,15 +23,15 @@ has(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel eines Elements, nach dem in der Map gesucht werden soll.
+  - : Der Schlüssel eines Elements, nach dem in der Map gesucht wird.
 
 ### Rückgabewert
 
-Ein {{jsxref('Boolean')}}-Wert, der angibt, ob der angegebene Schlüssel gefunden wurde.
+Ein {{jsxref('Boolean')}}, der angibt, ob der angegebene Schlüssel gefunden wurde.
 
 ## Beispiele
 
-Das folgende Beispiel überprüft, ob der standort- oder layout-spezifische String, der dem Tastatur-Code entspricht, welcher der 'W'-Taste auf einer englischen QWERTY-Tastatur zugeordnet ist, existiert.
+Das folgende Beispiel überprüft, ob der standort- oder layout-spezifische String, der mit dem Tastaturcode korrespondiert, der der 'W'-Taste auf einer englischen QWERTY-Tastatur entspricht, vorhanden ist.
 
 ```js
 navigator.keyboard.getLayoutMap().then((keyboardLayoutMap) => {

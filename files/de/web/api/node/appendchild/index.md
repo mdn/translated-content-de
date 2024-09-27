@@ -1,5 +1,5 @@
 ---
-title: "Node: appendChild()-Methode"
+title: "Node: appendChild() Methode"
 short-title: appendChild()
 slug: Web/API/Node/appendChild
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`appendChild()`**-Methode der {{domxref("Node")}}-Schnittstelle fügt einen Knoten am Ende der Liste der Kinder eines angegebenen übergeordneten Knotens hinzu.
+Die **`appendChild()`**-Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle fügt ein Knoten am Ende der Liste von Kindern eines angegebenen Elternknotens hinzu.
 
 > [!NOTE]
-> Wenn das angegebene Kind eine Referenz zu einem vorhandenen Knoten im Dokument ist, bewegt `appendChild()` es von seiner aktuellen Position zur neuen Position.
+> Wenn das angegebene Kind ein Verweis auf einen bestehenden Knoten im Dokument ist, verschiebt `appendChild()` es von seiner aktuellen Position zur neuen Position.
 
-Wenn das angegebene Kind ein {{domxref("DocumentFragment")}} ist, werden die gesamten Inhalte des {{domxref("DocumentFragment")}} in die Kinderliste des angegebenen übergeordneten Knotens verschoben.
+Wenn das angegebene Kind ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) ist, wird der gesamte Inhalt des [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) in die Kinderliste des angegebenen Elternknotens verschoben.
 
-`appendChild()` gibt den neu hinzugefügten Knoten zurück, oder wenn das Kind ein {{domxref("DocumentFragment")}} ist, das geleerte Fragment.
+`appendChild()` gibt den neu angehängten Knoten zurück oder, wenn das Kind ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) ist, das geleerte Fragment.
 
 > [!NOTE]
-> Im Gegensatz zu dieser Methode unterstützt die {{domxref("Element.append()")}}-Methode mehrere Argumente und das Anhängen von Zeichenfolgen. Sie können diese bevorzugen, wenn Ihr Knoten ein Element ist.
+> Anders als diese Methode unterstützt die [`Element.append()`](/de/docs/Web/API/Element/append)-Methode mehrere Argumente und das Anhängen von Zeichenfolgen. Sie können diese bevorzugen, wenn Ihr Knoten ein Element ist.
 
 ## Syntax
 
@@ -29,40 +29,40 @@ appendChild(aChild)
 ### Parameter
 
 - `aChild`
-  - : Der Knoten, der dem angegebenen übergeordneten Knoten hinzugefügt werden soll (häufig ein Element).
+  - : Der Knoten, der an den angegebenen Elternknoten (oft ein Element) angehängt werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("Node")}}, das das angehängte Kind (`aChild`) ist, außer wenn `aChild` ein {{domxref("DocumentFragment")}} ist, in welchem Fall das leere {{domxref("DocumentFragment")}} zurückgegeben wird.
+Ein [`Node`](/de/docs/Web/API/Node), der das angehängte Kind (`aChild`) ist, außer wenn `aChild` ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) ist, in diesem Fall wird das leere [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurückgegeben.
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Einschränkungen des DOM-Baums verletzt werden, d. h., wenn einer der folgenden Fälle auftritt:
-    - Wenn der Elternteil von `aChild` kein {{domxref("Document")}}, {{domxref("DocumentFragment")}} oder ein {{domxref("Element")}} ist.
-    - Wenn das Einfügen von `aChild` zu einem Zyklus führen würde, d. h., wenn `aChild` ein Vorfahr des Knotens ist.
-    - Wenn `aChild` kein {{domxref("DocumentFragment")}}, ein {{domxref("DocumentType")}}, ein {{domxref("Element")}} oder ein {{domxref("CharacterData")}} ist.
-    - Wenn der aktuelle Knoten ein {{domxref("Text")}} ist und sein Elternteil ein {{domxref("Document")}} ist.
-    - Wenn der aktuelle Knoten ein {{domxref("DocumentType")}} ist und sein Elternteil _nicht_ ein {{domxref("Document")}} ist, da ein _doctype_ immer ein direkter Nachkomme eines _document_ sein sollte.
-    - Wenn der Elternteil des Knotens ein {{domxref("Document")}} ist und `aChild` ein {{domxref("DocumentFragment")}} mit mehr als einem {{domxref("Element")}}-Kind ist oder das ein {{domxref("Text")}}-Kind hat.
-    - Wenn das Einfügen von `aChild` zu einem {{domxref("Document")}} mit mehr als einem {{domxref("Element")}} als Kind führen würde.
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Einschränkungen des DOM-Baums verletzt werden, d.h., wenn einer der folgenden Fälle auftritt:
+    - Wenn das Elternteil von `aChild` kein [`Document`](/de/docs/Web/API/Document), [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) oder ein [`Element`](/de/docs/Web/API/Element) ist.
+    - Wenn das Einfügen von `aChild` zu einem Zyklus führen würde, d.h., wenn `aChild` ein Vorfahre des Knotens ist.
+    - Wenn `aChild` kein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), ein [`DocumentType`](/de/docs/Web/API/DocumentType), ein [`Element`](/de/docs/Web/API/Element) oder ein [`CharacterData`](/de/docs/Web/API/CharacterData) ist.
+    - Wenn der aktuelle Knoten ein [`Text`](/de/docs/Web/API/Text) ist und sein Elternteil ein [`Document`](/de/docs/Web/API/Document) ist.
+    - Wenn der aktuelle Knoten ein [`DocumentType`](/de/docs/Web/API/DocumentType) ist und sein Elternteil _nicht_ ein [`Document`](/de/docs/Web/API/Document) ist, da ein _doctype_ immer ein direkter Nachkomme eines _document_ sein sollte.
+    - Wenn das Elternteil des Knotens ein [`Document`](/de/docs/Web/API/Document) ist und `aChild` ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) mit mehr als einem [`Element`](/de/docs/Web/API/Element)-Kind ist oder ein [`Text`](/de/docs/Web/API/Text)-Kind hat.
+    - Wenn das Einfügen von `aChild` zu einem [`Document`](/de/docs/Web/API/Document) mit mehr als einem [`Element`](/de/docs/Web/API/Element) als Kind führen würde.
 
 ## Beschreibung
 
-Wenn das angegebene Kind eine Referenz zu einem vorhandenen Knoten im Dokument ist, bewegt `appendChild()` es von seiner aktuellen Position zur neuen Position — es besteht keine Notwendigkeit, den Knoten vor dem Anhängen an einen anderen Knoten von seinem übergeordneten Knoten zu entfernen. Das bedeutet, dass ein Knoten nicht gleichzeitig an zwei Stellen im Dokument sein kann. Die {{domxref("Node.cloneNode()")}}-Methode kann verwendet werden, um eine Kopie des Knotens zu erstellen, bevor er dem neuen übergeordneten Knoten hinzugefügt wird. Kopien, die mit `cloneNode` erstellt wurden, werden nicht automatisch synchron gehalten.
+Wenn das angegebene Kind ein Verweis auf einen bestehenden Knoten im Dokument ist, verschiebt `appendChild()` es von seiner aktuellen Position zur neuen Position — es ist nicht erforderlich, den Knoten von seinem Elternelement zu entfernen, bevor er an ein anderes Element angehängt wird. Das bedeutet, dass ein Knoten nicht gleichzeitig an zwei Stellen des Dokuments sein kann. Die [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode)-Methode kann verwendet werden, um eine Kopie des Knotens zu erstellen, bevor er unter dem neuen Elternteil angehängt wird. Mit `cloneNode` erstellte Kopien werden nicht automatisch synchron gehalten.
 
-`appendChild()` gibt den neu hinzugefügten Knoten zurück, anstelle des übergeordneten Knotens. Das bedeutet, dass Sie den neuen Knoten hinzufügen können, sobald er erstellt wurde, ohne die Referenz darauf zu verlieren:
+`appendChild()` gibt den neu angehängten Knoten zurück, anstatt des Elternknotens. Das bedeutet, dass Sie den neuen Knoten anhängen können, sobald er erstellt ist, ohne die Referenz darauf zu verlieren:
 
 ```js
 const paragraph = document.body.appendChild(document.createElement("p"));
-// Sie können später weitere Elemente zum Absatz hinzufügen
+// You can append more elements to the paragraph later
 ```
 
-Auf der anderen Seite können Sie `appendChild()` nicht in einer [fluent API](https://en.wikipedia.org/wiki/Fluent_interface) Art und Weise verwenden (wie JQuery).
+Auf der anderen Seite können Sie `appendChild()` nicht in einer [fluent API](https://en.wikipedia.org/wiki/Fluent_interface)-Weise (wie in JQuery) verwenden.
 
 ```js example-bad
-// Dies fügt nicht drei Absätze hinzu:
-// die drei Elemente werden verschachtelt anstatt Geschwister zu sein
+// This doesn't append three paragraphs:
+// the three elements will be nested instead of siblings
 document.body
   .appendChild(document.createElement("p"))
   .appendChild(document.createElement("p"))
@@ -71,17 +71,17 @@ document.body
 
 ## Beispiel
 
-### Einen Absatz zum Body hinzufügen
+### Einen Absatz an den Body anhängen
 
 ```js
-// Erstellen Sie ein neues Absatzelement und fügen Sie es am Ende des Body-Dokuments hinzu
+// Create a new paragraph element, and append it to the end of the document body
 const p = document.createElement("p");
 document.body.appendChild(p);
 ```
 
-### Erstellen einer verschachtelten DOM-Struktur
+### Eine verschachtelte DOM-Struktur erstellen
 
-In diesem Beispiel versuchen wir, eine verschachtelte DOM-Struktur unter Verwendung so weniger temporärer Variablen wie möglich zu erstellen.
+In diesem Beispiel versuchen wir, eine verschachtelte DOM-Struktur mit so wenigen temporären Variablen wie möglich zu erstellen.
 
 ```js
 const fragment = document.createDocumentFragment();
@@ -114,9 +114,9 @@ Es erzeugt den folgenden DOM-Baum:
 
 ## Siehe auch
 
-- {{domxref("Node.removeChild()")}}
-- {{domxref("Node.replaceChild()")}}
-- {{domxref("Node.insertBefore()")}}
-- {{domxref("Node.hasChildNodes()")}}
-- {{domxref("Element.insertAdjacentElement()")}}
-- {{domxref("Element.append()")}}
+- [`Node.removeChild()`](/de/docs/Web/API/Node/removeChild)
+- [`Node.replaceChild()`](/de/docs/Web/API/Node/replaceChild)
+- [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore)
+- [`Node.hasChildNodes()`](/de/docs/Web/API/Node/hasChildNodes)
+- [`Element.insertAdjacentElement()`](/de/docs/Web/API/Element/insertAdjacentElement)
+- [`Element.append()`](/de/docs/Web/API/Element/append)

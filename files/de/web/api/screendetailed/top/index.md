@@ -1,5 +1,5 @@
 ---
-title: "ScreenDetailed: top-Eigenschaft"
+title: "ScreenDetailed: top Eigenschaft"
 short-title: top
 slug: Web/API/ScreenDetailed/top
 l10n:
@@ -8,12 +8,13 @@ l10n:
 
 {{APIRef("Window Management API")}}{{seecompattable}}{{SecureContext_Header}}
 
-Die **`top`**-Eigenschaft des {{domxref("ScreenDetailed")}}-Interfaces ist eine schreibgeschützte Zahl, die die y-Koordinate (obere Kante) des gesamten Bildschirmbereichs innerhalb der Anordnung des virtuellen Bildschirms des Betriebssystems darstellt, relativ zum [Multi-Screen-Ursprung](/de/docs/Web/API/Window_Management_API/Multi-screen_origin).
+Die **`top`**-Eigenschaft des schreibgeschützten
+[`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed) Interfaces ist eine Zahl, die die y-Koordinate (obere Kante) des gesamten Bildschirmbereichs innerhalb der Anordnung des virtuellen Bildschirmsystems des Betriebssystems relativ zum [Multi-Screen-Ursprung](/de/docs/Web/API/Window_Management_API/Multi-screen_origin) darstellt.
 
-Diese entspricht der echten oberen Kante, wobei Elemente der Benutzeroberfläche des Betriebssystems an der Oberseite des Bildschirms ignoriert werden. Fenster können nicht in diesen Bereichen platziert werden; um die obere Koordinate des Bildschirmbereichs zu erhalten, in dem Fenster platziert werden können, verwenden Sie {{domxref("ScreenDetailed.availTop")}}.
+Dieser Wert entspricht der tatsächlichen oberen Kante und ignoriert dabei jegliche vom Betriebssystem gezeichnete UI-Elemente am oberen Rand des Bildschirms. Fenster können in diesen Bereichen nicht platziert werden; um die obere Koordinate des Bildschirmbereichs zu erhalten, in dem Fenster platziert werden können, verwenden Sie [`ScreenDetailed.availTop`](/de/docs/Web/API/ScreenDetailed/availTop).
 
 > [!NOTE]
-> In Firefox ist eine nicht standardisierte Implementierung der `top`-Eigenschaft im `Screen`-Interface verfügbar. Einzelheiten zur Verwendung finden Sie im untenstehenden [nicht standardisierten Beispiel](#nicht_standardisiertes_beispiel), und auf der [`Screen`](/de/docs/Web/API/Screen#browser_compatibility)-Referenzseite finden Sie Informationen zur Browserunterstützung in Bezug auf die nicht standardisierte Implementierung.
+> In Firefox ist eine nicht standardmäßige Implementierung der `top`-Eigenschaft im `Screen` Interface verfügbar. Siehe das [nicht standardmäßige Beispiel](#nicht_standardmäßiges_beispiel) unten für Details zur Verwendung und die [`Screen`](/de/docs/Web/API/Screen#browser_compatibility) Referenzseite für Informationen zur Browserunterstützung in Bezug auf die nicht standardmäßige Implementierung.
 
 ## Wert
 
@@ -21,21 +22,21 @@ Eine Zahl.
 
 ## Beispiele
 
-### Beispiel für Window Management API
+### Beispiel des Window Management API
 
 ```js
-// Verfügbar in Browsern, die die Window Management API unterstützen
+// Available in browsers that support the Window Management API
 const screenDetails = await window.getScreenDetails();
 
-// Geben Sie den absoluten oberen Wert des ersten Bildschirms zurück
+// Return the absolute top value of the first screen
 const screen1Top = screenDetails.screens[0].top;
 ```
 
-### Nicht standardisiertes Beispiel
+### Nicht standardmäßiges Beispiel
 
 ```js
-// Verfügbar in Firefox
-// Geben Sie den absoluten oberen Wert des aktuellen Bildschirms zurück
+// Available in Firefox
+// Return the absolute top value of the current screen
 const screenTop = window.screen.top;
 ```
 

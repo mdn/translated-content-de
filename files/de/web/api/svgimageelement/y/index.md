@@ -1,5 +1,5 @@
 ---
-title: "SVGImageElement: y Eigenschaft"
+title: "SVGImageElement: y-Eigenschaft"
 short-title: "y"
 slug: Web/API/SVGImageElement/y
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`y`** schreibgeschützte Eigenschaft der {{domxref("SVGImageElement")}}-Schnittstelle gibt eine {{domxref("SVGAnimatedLength")}} zurück, die dem {{SVGAttr("y")}}-Attribut des gegebenen {{SVGElement("image")}}-Elements entspricht.
+Die **`y`**-Eigenschaft des schreibgeschützten [`SVGImageElement`](/de/docs/Web/API/SVGImageElement)-Interfaces gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem {{SVGAttr("y")}}-Attribut des angegebenen {{SVGElement("image")}}-Elements entspricht.
 
 ## Wert
 
-Eine {{domxref("SVGAnimatedLength")}}.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Spezifikationen
 

@@ -1,6 +1,6 @@
 ---
-title: "MessageEvent: Dateneigenschaft"
-short-title: Daten
+title: "MessageEvent: data Eigenschaft"
+short-title: data
 slug: Web/API/MessageEvent/data
 l10n:
   sourceCommit: 6a0f22ee0b3a854ed37271373cbc1d1099c0d361
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`data`** schreibgeschützte Eigenschaft des {{domxref("MessageEvent")}} Interfaces repräsentiert die Daten, die vom Nachrichtensender gesendet wurden.
+Die **`data`**-Eigenschaft des schreibgeschützten [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Interfaces repräsentiert die Daten, die vom Nachrichtensender gesendet werden.
 
 ## Wert
 
-Die vom Nachrichtensender gesendeten Daten; dies kann jeder Datentyp sein, abhängig davon, was dieses Ereignis ausgelöst hat.
+Die Daten, die vom Nachrichtensender gesendet werden; diese können jeden Datentyp haben, abhängig davon, was dieses Ereignis ausgelöst hat.
 
 ## Beispiele
 
@@ -33,4 +33,4 @@ myWorker.onmessage = (e) => {
 
 ## Siehe auch
 
-- {{domxref("ExtendableMessageEvent")}} — ähnlich zu diesem Interface, wird jedoch in Schnittstellen verwendet, die mehr Flexibilität für Autoren bieten müssen.
+- [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent) — ähnlich wie dieses Interface, aber in Interfaces verwendet, die den Autoren mehr Flexibilität bieten müssen.

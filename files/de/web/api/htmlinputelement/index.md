@@ -7,277 +7,277 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLInputElement`** Interface bietet spezielle Eigenschaften und Methoden zur Manipulation der Optionen, des Layouts und der Darstellung von {{HtmlElement("input")}}-Elementen.
+Das **`HTMLInputElement`** Interface bietet spezielle Eigenschaften und Methoden zur Manipulation von Optionen, Layout und Darstellung von {{HtmlElement("input")}}-Elementen.
 
 {{InheritanceDiagram}}
 
-## Instanzen-Eigenschaften
+## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seinem übergeordneten Interface, {{domxref("HTMLElement")}}._
+_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 Einige Eigenschaften gelten nur für `input`-Elementtypen, die die entsprechenden Attribute unterstützen.
 
-- {{domxref("HTMLInputElement.align", "align")}} {{Deprecated_Inline}}
+- [`align`](/de/docs/Web/API/HTMLInputElement/align) {{Deprecated_Inline}}
 
   - : Ein String, der die Ausrichtung des Elements darstellt. _Verwenden Sie stattdessen CSS._
 
-- {{domxref("HTMLInputElement.defaultValue", "defaultValue")}}
+- [`defaultValue`](/de/docs/Web/API/HTMLInputElement/defaultValue)
 
-  - : Ein String, der den Standardwert darstellt, wie er ursprünglich in dem HTML spezifiziert wurde, das dieses Objekt erstellt hat.
+  - : Ein String, der den Standardwert darstellt, wie er ursprünglich im HTML spezifiziert wurde, das dieses Objekt erstellt hat.
 
-- {{domxref("HTMLInputElement.dirName", "dirName")}}
+- [`dirName`](/de/docs/Web/API/HTMLInputElement/dirName)
 
-  - : Ein String, der die Richtung des Elements darstellt.
+  - : Ein String, der die Direktionalität des Elements darstellt.
 
-- {{domxref("HTMLInputElement.incremental", "incremental")}} {{Non-standard_Inline}}
+- [`incremental`](/de/docs/Web/API/HTMLInputElement/incremental) {{Non-standard_Inline}}
 
-  - : Ein boolescher Wert, der die Suchereignis-Feuermodus darstellt. Wenn `true`, feuert es bei jedem Tastendruck oder beim Klicken auf die Abbruchtaste; andernfalls feuert es bei Drücken der Taste <kbd>Eingabe</kbd>.
+  - : Ein boolean, der den Modus des Such-Events repräsentiert. Wenn `true`, wird bei jedem Tastendruck oder beim Klicken auf die Abbrechen-Schaltfläche ein Ereignis ausgelöst; andernfalls wird beim Drücken der <kbd>Enter</kbd>-Taste ausgelöst.
 
-- {{domxref("HTMLInputElement.labels", "labels")}} {{ReadOnlyInline}}
+- [`labels`](/de/docs/Web/API/HTMLInputElement/labels) {{ReadOnlyInline}}
 
   - : Gibt eine Liste von {{ HTMLElement("label") }}-Elementen zurück, die Labels für dieses Element sind.
 
-- {{domxref("HTMLInputElement.list", "list")}} {{ReadOnlyInline}}
+- [`list`](/de/docs/Web/API/HTMLInputElement/list) {{ReadOnlyInline}}
 
-  - : Gibt das Element zurück, auf das durch das [`list`](/de/docs/Web/HTML/Element/input#list)-Attribut verwiesen wird. Die Eigenschaft kann `null` sein, wenn kein HTML-Element im selben Baum gefunden wird.
+  - : Gibt das Element zurück, auf das durch das [`list`](/de/docs/Web/HTML/Element/input#list) Attribut verwiesen wird. Die Eigenschaft kann `null` sein, wenn in demselben Baum kein HTML-Element gefunden wird.
 
-- {{domxref("HTMLInputElement.multiple", "multiple")}}
+- [`multiple`](/de/docs/Web/API/HTMLInputElement/multiple)
 
-  - : Ein boolescher Wert, der das [`multiple`](/de/docs/Web/HTML/Element/input#multiple)-Attribut des Elements darstellt und angibt, ob mehr als ein Wert möglich ist (z.B. mehrere Dateien).
+  - : Ein boolean, der das [`multiple`](/de/docs/Web/HTML/Element/input#multiple) Attribut des Elements darstellt und angibt, ob mehr als ein Wert möglich ist (z. B. mehrere Dateien).
 
-- {{domxref("HTMLInputElement.name", "name")}}
+- [`name`](/de/docs/Web/API/HTMLInputElement/name)
 
-  - : Ein String, der das [`name`](/de/docs/Web/HTML/Element/input#name)-Attribut des Elements darstellt und einen Namen enthält, der das Element beim Absenden des Formulars identifiziert.
+  - : Ein String, der das [`name`](/de/docs/Web/HTML/Element/input#name) Attribut des Elements darstellt und einen Namen enthält, der das Element beim Absenden des Formulars identifiziert.
 
-- {{domxref("HTMLInputElement.popoverTargetAction", "popoverTargetAction")}}
+- [`popoverTargetAction`](/de/docs/Web/API/HTMLInputElement/popoverTargetAction)
 
-  - : Ruft die Aktion ab und legt sie fest (`"hide"`, `"show"` oder `"toggle"`), die bei einem durch ein {{htmlelement("input")}}-Element des Typs `button` gesteuerten Popover-Element ausgeführt werden soll. Es spiegelt den Wert des HTML-Attributs [`popovertargetaction`](/de/docs/Web/HTML/Element/input#popovertargetaction) wider.
+  - : Erhält und setzt die Aktion, die ausgeführt werden soll (`"hide"`, `"show"` oder `"toggle"`) auf einem Popover-Element, das durch ein {{htmlelement("input")}}-Element vom Typ `button` gesteuert wird. Es spiegelt den Wert des [`popovertargetaction`](/de/docs/Web/HTML/Element/input#popovertargetaction) HTML-Attributs wider.
 
-- {{domxref("HTMLInputElement.popoverTargetElement", "popoverTargetElement")}}
+- [`popoverTargetElement`](/de/docs/Web/API/HTMLInputElement/popoverTargetElement)
 
-  - : Ruft das Popover-Element ab und legt es fest, das über ein {{htmlelement("input")}}-Element des Typs `button` gesteuert werden soll. Das JavaScript-Äquivalent des HTML-Attributs [`popovertarget`](/de/docs/Web/HTML/Element/input#popovertarget).
+  - : Erhält und setzt das Popover-Element, das über ein {{htmlelement("input")}}-Element vom Typ `button` gesteuert wird. Das JavaScript-Äquivalent des [`popovertarget`](/de/docs/Web/HTML/Element/input#popovertarget) HTML-Attributes.
 
-- {{domxref("HTMLInputElement.step", "step")}}
+- [`step`](/de/docs/Web/API/HTMLInputElement/step)
 
-  - : Ein String, der das [`step`](/de/docs/Web/HTML/Element/input#step)-Attribut des Elements darstellt, welches mit [`min`](/de/docs/Web/HTML/Element/input#min) und [`max`](/de/docs/Web/HTML/Element/input#max) arbeitet, um die Inkremente zu begrenzen, bei denen ein numerischer oder datumszeitlicher Wert festgelegt werden kann. Es kann der String `any` oder eine positive Gleitkommazahl sein. Wenn dies nicht auf `any` gesetzt ist, nimmt die Steuerung nur Werte an, die Vielfache des Schrittwerts sind und größer als das Minimum.
+  - : Ein String, der das [`step`](/de/docs/Web/HTML/Element/input#step) Attribut des Elements darstellt und mit [`min`](/de/docs/Web/HTML/Element/input#min) und [`max`](/de/docs/Web/HTML/Element/input#max) zusammenarbeitet, um die Schritte zu begrenzen, in denen ein numerischer oder Datum-Uhrzeit-Wert festgelegt werden kann. Es kann der String `any` oder eine positive Fließkommazahl sein. Wenn dies nicht auf `any` gesetzt ist, akzeptiert die Steuerung nur Werte in Vielfachen des Schrittwerts, die größer als das Minimum sind.
 
-- {{domxref("HTMLInputElement.type", "type")}}
+- [`type`](/de/docs/Web/API/HTMLInputElement/type)
 
-  - : Ein String, der das [`type`](/de/docs/Web/HTML/Element/input#type)-Attribut des Elements darstellt und den Typ der anzuzeigenden Steuerkomponente angibt. Mögliche Werte finden Sie in der Dokumentation für das [`type`](/de/docs/Web/HTML/Element/input#type)-Attribut.
+  - : Ein String, der das [`type`](/de/docs/Web/HTML/Element/input#type) Attribut des Elements darstellt und angibt, welche Steuerung angezeigt wird. Für mögliche Werte siehe die Dokumentation des [`type`](/de/docs/Web/HTML/Element/input#type) Attributs.
 
-- {{domxref("HTMLInputElement.useMap", "useMap")}} {{Deprecated_Inline}}
+- [`useMap`](/de/docs/Web/API/HTMLInputElement/useMap) {{Deprecated_Inline}}
 
-  - : Ein String, der eine clientseitige Imagemap darstellt.
+  - : Ein String, der eine clientseitige Bildkarte darstellt.
 
-- {{domxref("HTMLInputElement.value", "value")}}
+- [`value`](/de/docs/Web/API/HTMLInputElement/value)
 
-  - : Ein String, der den aktuellen Wert der Steuerung darstellt. Wenn der Benutzer einen Wert eingibt, der von dem erwarteten abweicht, kann dies einen leeren String zurückgeben.
+  - : Ein String, der den aktuellen Wert der Steuerung darstellt. Wenn der Benutzer einen anderen Wert als erwartet eingibt, kann dies einen leeren String zurückgeben.
 
-- {{domxref("HTMLInputElement.valueAsDate", "valueAsDate")}}
+- [`valueAsDate`](/de/docs/Web/API/HTMLInputElement/valueAsDate)
 
-  - : Ein {{jsxref("Date")}}, der den Wert des Elements darstellt, interpretiert als Datum, oder `null`, wenn eine Umwandlung nicht möglich ist.
+  - : Ein {{jsxref("Date")}}, der den Wert des Elements darstellt, als Datum interpretiert, oder `null`, wenn eine Konvertierung nicht möglich ist.
 
-- {{domxref("HTMLInputElement.valueAsNumber", "valueAsNumber")}}
-  - : Eine Zahl, die den Wert des Elements darstellt, interpretiert als eine der folgenden in Ordnung: Ein Zeitwert, eine Zahl oder `NaN`, wenn eine Umwandlung unmöglich ist.
+- [`valueAsNumber`](/de/docs/Web/API/HTMLInputElement/valueAsNumber)
+  - : Eine Zahl, die den Wert des Elements darstellt, interpretiert als einen der folgenden, in dieser Reihenfolge: ein Zeitwert, eine Zahl oder `NaN`, wenn eine Konvertierung unmöglich ist.
 
-### Instanzen-Eigenschaften, die sich auf das übergeordnete Formular beziehen
+### Instanz-Eigenschaften in Bezug auf das übergeordnete Formular
 
-- {{domxref("HTMLInputElement.form", "form")}} {{ReadOnlyInline}}
+- [`form`](/de/docs/Web/API/HTMLInputElement/form) {{ReadOnlyInline}}
 
   - : Gibt eine Referenz auf das übergeordnete {{HtmlElement("form")}}-Element zurück.
 
-- {{domxref("HTMLInputElement.formAction", "formAction")}}
+- [`formAction`](/de/docs/Web/API/HTMLInputElement/formAction)
 
-  - : Ein String, der das [`formaction`](/de/docs/Web/HTML/Element/input#formaction)-Attribut des Elements darstellt und die URL eines Programms enthält, das Informationen verarbeitet, die durch das Element übermittelt werden. Dies überschreibt das [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut des übergeordneten Formulars.
+  - : Ein String, der das [`formaction`](/de/docs/Web/HTML/Element/input#formaction) Attribut des Elements darstellt und die URL eines Programms enthält, das die vom Element übermittelten Informationen verarbeitet. Dies überschreibt das [`action`](/de/docs/Web/HTML/Element/form#action) Attribut des übergeordneten Formulars.
 
-- {{domxref("HTMLInputElement.formEnctype", "formEnctype")}}
+- [`formEnctype`](/de/docs/Web/API/HTMLInputElement/formEnctype)
 
-  - : Ein String, der das [`formenctype`](/de/docs/Web/HTML/Element/input#formenctype)-Attribut des Elements darstellt und den Typ des Inhalts enthält, der zur Übermittlung des Formulars an den Server verwendet wird. Dies überschreibt das [`enctype`](/de/docs/Web/HTML/Element/form#enctype)-Attribut des übergeordneten Formulars.
+  - : Ein String, der das [`formenctype`](/de/docs/Web/HTML/Element/input#formenctype) Attribut des Elements darstellt und den Inhaltstyp enthält, der zum Übermitteln des Formulars an den Server verwendet wird. Dies überschreibt das [`enctype`](/de/docs/Web/HTML/Element/form#enctype) Attribut des übergeordneten Formulars.
 
-- {{domxref("HTMLInputElement.formMethod", "formMethod")}}
+- [`formMethod`](/de/docs/Web/API/HTMLInputElement/formMethod)
 
-  - : Ein String, der das [`formmethod`](/de/docs/Web/HTML/Element/input#formmethod)-Attribut des Elements darstellt und die HTTP-Methode enthält, die der Browser zur Übermittlung des Formulars verwendet. Dies überschreibt das [`method`](/de/docs/Web/HTML/Element/form#method)-Attribut des übergeordneten Formulars.
+  - : Ein String, der das [`formmethod`](/de/docs/Web/HTML/Element/input#formmethod) Attribut des Elements darstellt und die HTTP-Methode enthält, die der Browser zum Absenden des Formulars verwendet. Dies überschreibt das [`method`](/de/docs/Web/HTML/Element/form#method) Attribut des übergeordneten Formulars.
 
-- {{domxref("HTMLInputElement.formNoValidate", "formNoValidate")}}
+- [`formNoValidate`](/de/docs/Web/API/HTMLInputElement/formNoValidate)
 
-  - : Ein boolescher Wert, der das [`formnovalidate`](/de/docs/Web/HTML/Element/input#formnovalidate)-Attribut des Elements darstellt und angibt, dass das Formular bei der Übermittlung nicht validiert werden soll. Dies überschreibt das [`novalidate`](/de/docs/Web/HTML/Element/form#novalidate)-Attribut des übergeordneten Formulars.
+  - : Ein boolean, der das [`formnovalidate`](/de/docs/Web/HTML/Element/input#formnovalidate) Attribut des Elements darstellt und angibt, dass das Formular beim Absenden nicht validiert werden soll. Dies überschreibt das [`novalidate`](/de/docs/Web/HTML/Element/form#novalidate) Attribut des übergeordneten Formulars.
 
-- {{domxref("HTMLInputElement.formTarget", "formTarget")}}
-  - : Ein String, der das [`formtarget`](/de/docs/Web/HTML/Element/input#formtarget)-Attribut des Elements darstellt und einen Namen oder ein Schlüsselwort enthält, das angibt, wo die Antwort angezeigt werden soll, die nach dem Absenden des Formulars empfangen wird. Dies überschreibt das [`target`](/de/docs/Web/HTML/Element/form#target)-Attribut des übergeordneten Formulars.
+- [`formTarget`](/de/docs/Web/API/HTMLInputElement/formTarget)
+  - : Ein String, der das [`formtarget`](/de/docs/Web/HTML/Element/input#formtarget) Attribut des Elements darstellt und einen Namen oder ein Schlüsselwort enthält, das angibt, wo die Antwort angezeigt werden soll, die nach dem Absenden des Formulars empfangen wird. Dies überschreibt das [`target`](/de/docs/Web/HTML/Element/form#target) Attribut des übergeordneten Formulars.
 
-### Instanzen-Eigenschaften, die für jeden Typ von `input`-Element gelten, das nicht ausgeblendet ist
+### Instanz-Eigenschaften, die für andere `input`-Elementtypen gelten, die nicht verborgen sind
 
-- {{domxref("HTMLInputElement.disabled", "disabled")}}
+- [`disabled`](/de/docs/Web/API/HTMLInputElement/disabled)
 
-  - : Ein boolescher Wert, der das [`disabled`](/de/docs/Web/HTML/Element/input#disabled)-Attribut des Elements darstellt und angibt, dass die Steuerung nicht für die Interaktion verfügbar ist. Die Eingabewerte werden nicht mit dem Formular übermittelt. Siehe auch [`readonly`](/de/docs/Web/HTML/Element/input#readonly).
+  - : Ein boolean, der das [`disabled`](/de/docs/Web/HTML/Element/input#disabled) Attribut des Elements darstellt und angibt, dass die Steuerung nicht für Interaktionen verfügbar ist. Die Eingabewerte werden nicht mit dem Formular übermittelt. Siehe auch [`readonly`](/de/docs/Web/HTML/Element/input#readonly).
 
-- {{domxref("HTMLInputElement.required", "required")}}
+- [`required`](/de/docs/Web/API/HTMLInputElement/required)
 
-  - : Ein boolescher Wert, der das [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut des Elements darstellt und angibt, dass der Benutzer einen Wert eingeben muss, bevor er ein Formular absenden kann.
+  - : Ein boolean, der das [`required`](/de/docs/Web/HTML/Element/input#required) Attribut des Elements darstellt und angibt, dass der Benutzer einen Wert eingeben muss, bevor das Formular abgeschickt wird.
 
-- {{domxref("HTMLInputElement.validationMessage", "validationMessage")}} {{ReadOnlyInline}}
+- [`validationMessage`](/de/docs/Web/API/HTMLInputElement/validationMessage) {{ReadOnlyInline}}
 
-  - : Gibt eine lokalisierte Nachricht zurück, die die Validierungseinschränkungen beschreibt, die die Steuerung nicht erfüllt (falls vorhanden). Dies ist der leere String, wenn die Steuerung kein Kandidat für die Einschränkungsvalidierung ist ([`willValidate`](/de/docs/Web/API/HTMLObjectElement/willValidate) ist `false`) oder sie ihre Einschränkungen erfüllt. Dieser Wert kann durch die Methode {{domxref("HTMLInputElement.setCustomValidity()", "setCustomValidity()")}} festgelegt werden.
+  - : Gibt eine lokalisierte Nachricht zurück, die die Validierungsbeschränkungen beschreibt, die die Steuerung nicht erfüllt (falls vorhanden). Dies ist der leere String, wenn die Steuerung kein Kandidat für die Beschränkungsvalidierung ist ([`willValidate`](/de/docs/Web/API/HTMLObjectElement/willValidate) ist `false`) oder ihre Einschränkungen erfüllt. Dieser Wert kann mit der Methode [`setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity) festgelegt werden.
 
-- {{domxref("HTMLInputElement.validity", "validity")}} {{ReadOnlyInline}}
+- [`validity`](/de/docs/Web/API/HTMLInputElement/validity) {{ReadOnlyInline}}
 
-  - : Gibt den aktuellen Validierungszustand des Elements zurück.
+  - : Gibt den aktuellen Gültigkeitszustand des Elements zurück.
 
-- {{domxref("HTMLInputElement.willValidate", "willValidate")}} {{ReadOnlyInline}}
-  - : Gibt zurück, ob das Element ein Kandidat für die Einschränkungsvalidierung ist. Es ist `false`, wenn Bedingungen es von der Einschränkungsvalidierung ausschließen, einschließlich: sein `type` ist einer von `hidden`, `reset` oder `button`, es hat einen {{HTMLElement("datalist")}}-Vorfahren oder seine `disabled`-Eigenschaft ist `true`.
+- [`willValidate`](/de/docs/Web/API/HTMLInputElement/willValidate) {{ReadOnlyInline}}
+  - : Gibt zurück, ob das Element ein Kandidat für die Beschränkungsvalidierung ist. Es ist `false`, wenn es durch Bedingungen von der Beschränkungsvalidierung ausgeschlossen ist, einschließlich: sein `type` ist eines von `hidden`, `reset` oder `button`, es hat einen {{HTMLElement("datalist")}} Vorfahren oder seine `disabled` Eigenschaft ist `true`.
 
-### Instanzen-Eigenschaften, die nur auf Elemente vom Typ Checkbox oder Radio angewendet werden
+### Instanz-Eigenschaften, die nur für Elemente vom Typ checkbox oder radio gelten
 
-- {{domxref("HTMLInputElement.checked", "checked")}}
+- [`checked`](/de/docs/Web/API/HTMLInputElement/checked)
 
-  - : Ein boolescher Wert, der den aktuellen Zustand des Elements darstellt.
+  - : Ein boolean, der den aktuellen Status des Elements darstellt.
 
-- {{domxref("HTMLInputElement.defaultChecked", "defaultChecked")}}
+- [`defaultChecked`](/de/docs/Web/API/HTMLInputElement/defaultChecked)
 
-  - : Ein boolescher Wert, der den Standardzustand eines Radio-Buttons oder einer Checkbox darstellt, wie er ursprünglich im HTML spezifiziert wurde, das dieses Objekt erstellt hat.
+  - : Ein boolean, der den Standardstatus eines Radio-Buttons oder einer Checkbox darstellt, wie er ursprünglich im HTML spezifiziert wurde, das dieses Objekt erstellt hat.
 
-- {{domxref("HTMLInputElement.indeterminate", "indeterminate")}}
-  - : Ein boolescher Wert, der darstellt, ob die Checkbox oder der Radio-Button in einem unbestimmten Zustand ist. Bei Checkboxes ist die Wirkung, dass das Erscheinungsbild der Checkbox auf irgendeine Weise verdeckt/abgegraut wird, um anzuzeigen, dass ihr Zustand unbestimmt ist (nicht markiert, aber nicht abgewählt). Beeinflusst nicht den Wert des `checked`-Attributs und das Klicken auf die Checkbox setzt den Wert auf false.
+- [`indeterminate`](/de/docs/Web/API/HTMLInputElement/indeterminate)
+  - : Ein boolean, der darstellt, ob die Checkbox oder der Radio-Button im unbestimmten Zustand ist. Bei Checkboxes bewirkt dies, dass das Erscheinungsbild der Checkbox in gewisser Weise verdeckt/graut, um anzuzeigen, dass ihr Zustand unbestimmt ist (nicht angekreuzt, aber auch nicht nicht angekreuzt). Dies beeinflusst nicht den Wert des `checked` Attributs und durch Klicken auf die Checkbox wird der Wert auf false gesetzt.
 
-### Instanzen-Eigenschaften, die nur auf Elemente vom Typ Bild angewendet werden
+### Instanz-Eigenschaften, die nur für Elemente vom Typ image gelten
 
-- {{domxref("HTMLInputElement.alt", "alt")}}
+- [`alt`](/de/docs/Web/API/HTMLInputElement/alt)
 
-  - : Ein String, der das [`alt`](/de/docs/Web/HTML/Element/input#alt)-Attribut des Elements darstellt und alternativen Text enthält.
+  - : Ein String, der das [`alt`](/de/docs/Web/HTML/Element/input#alt) Attribut des Elements darstellt und einen alternativen Text enthält, der verwendet werden soll.
 
-- {{domxref("HTMLInputElement.height", "height")}}
+- [`height`](/de/docs/Web/API/HTMLInputElement/height)
 
-  - : Ein String, der das [`height`](/de/docs/Web/HTML/Element/input#height)-Attribut des Elements darstellt, das die Höhe des für die Schaltfläche angezeigten Bildes definiert.
+  - : Ein String, der das [`height`](/de/docs/Web/HTML/Element/input#height) Attribut des Elements darstellt, das die Höhe des angezeigten Bildes für den Button definiert.
 
-- {{domxref("HTMLInputElement.src", "src")}}
+- [`src`](/de/docs/Web/API/HTMLInputElement/src)
 
-  - : Ein String, der das [`src`](/de/docs/Web/HTML/Element/input#src)-Attribut des Elements darstellt, das eine URI für den Speicherort eines Bildes angibt, das auf der grafischen Absenden-Schaltfläche angezeigt wird.
+  - : Ein String, der das [`src`](/de/docs/Web/HTML/Element/input#src) Attribut des Elements darstellt und eine URI für den Ort eines Bildes spezifiziert, das auf der grafischen Sende-Schaltfläche angezeigt wird.
 
-- {{domxref("HTMLInputElement.width", "width")}}
-  - : Ein String, der das [`width`](/de/docs/Web/HTML/Element/input#width)-Attribut des Elements darstellt, das die Breite des für die Schaltfläche angezeigten Bildes definiert.
+- [`width`](/de/docs/Web/API/HTMLInputElement/width)
+  - : Ein String, der das [`width`](/de/docs/Web/HTML/Element/input#width) Attribut des Elements darstellt, das die Breite des angezeigten Bildes für den Button definiert.
 
-### Instanzen-Eigenschaften, die nur auf Elemente vom Typ Datei angewendet werden
+### Instanz-Eigenschaften, die nur für Elemente vom Typ file gelten
 
-- {{domxref("HTMLInputElement.accept", "accept")}}
+- [`accept`](/de/docs/Web/API/HTMLInputElement/accept)
 
-  - : Ein String, der das [`accept`](/de/docs/Web/HTML/Element/input#accept)-Attribut des Elements darstellt und eine durch Kommas getrennte Liste von Dateitypen enthält, die ausgewählt werden können.
+  - : Ein String, der das [`accept`](/de/docs/Web/HTML/Element/input#accept) Attribut des Elements darstellt und eine durch Kommas getrennte Liste von Dateitypen enthält, die ausgewählt werden können.
 
-- {{domxref("HTMLInputElement.capture", "capture")}}
+- [`capture`](/de/docs/Web/API/HTMLInputElement/capture)
 
-  - : Ein String, der das [`capture`](/de/docs/Web/HTML/Element/input#capture)-Attribut des Elements darstellt und die Medienaufnahmeeingabemethode in Datei-Upload-Steuerungen angibt.
+  - : Ein String, der das [`capture`](/de/docs/Web/HTML/Element/input#capture) Attribut des Elements darstellt und die Medienaufnahme-Eingabemethode in Datei-Upload-Steuerelementen angibt.
 
-- {{domxref("HTMLInputElement.files", "files")}}
+- [`files`](/de/docs/Web/API/HTMLInputElement/files)
 
-  - : Eine {{domxref("FileList")}}, die die zur Auswahl stehenden Dateien für den Upload repräsentiert.
+  - : Eine [`FileList`](/de/docs/Web/API/FileList), die die zum Hochladen ausgewählten Dateien darstellt.
 
-- {{domxref("HTMLInputElement.webkitdirectory", "webkitdirectory")}}
+- [`webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory)
 
-  - : Ein boolescher Wert, der das [`webkitdirectory`](/de/docs/Web/HTML/Element/input#webkitdirectory)-Attribut darstellt. Wenn `true`, akzeptiert die Dateisystem-Auswahloberfläche nur Verzeichnisse anstelle von Dateien.
+  - : Ein boolean, der das [`webkitdirectory`](/de/docs/Web/HTML/Element/input#webkitdirectory) Attribut darstellt. Wenn `true`, akzeptiert die Dateiauswahl-Oberfläche nur Verzeichnisse anstelle von Dateien.
 
-- {{domxref("HTMLInputElement.webkitEntries", "webkitEntries")}} {{ReadOnlyInline}}
-  - : Beschreibt die aktuell ausgewählten Dateien oder Verzeichnisse.
+- [`webkitEntries`](/de/docs/Web/API/HTMLInputElement/webkitEntries) {{ReadOnlyInline}}
+  - : Beschreibt die derzeit ausgewählten Dateien oder Verzeichnisse.
 
-### Instanzen-Eigenschaften, die nur auf sichtbare Elemente angewendet werden, die Text oder Zahlen enthalten
+### Instanz-Eigenschaften, die nur für sichtbare Elemente gelten, die Text oder Zahlen enthalten
 
-- {{domxref("HTMLInputElement.autocomplete", "autocomplete")}}
+- [`autocomplete`](/de/docs/Web/API/HTMLInputElement/autocomplete)
 
-  - : Ein String, der das [`autocomplete`](/de/docs/Web/HTML/Element/input#autocomplete)-Attribut des Elements darstellt und angibt, ob der Wert der Steuerung automatisch vom Browser vervollständigt werden kann.
+  - : Ein String, der das [`autocomplete`](/de/docs/Web/HTML/Element/input#autocomplete) Attribut des Elements darstellt und angibt, ob der Wert der Steuerung automatisch vom Browser vervollständigt werden kann.
 
-- {{domxref("HTMLInputElement.max", "max")}}
+- [`max`](/de/docs/Web/API/HTMLInputElement/max)
 
-  - : Ein String, der das [`max`](/de/docs/Web/HTML/Element/input#max)-Attribut des Elements darstellt und den maximalen (numerischen oder datumszeitlichen) Wert für dieses Element enthält, der nicht kleiner als sein Minimum ([`min`](/de/docs/Web/HTML/Element/input#min)-Attribut) sein darf.
+  - : Ein String, der das [`max`](/de/docs/Web/HTML/Element/input#max) Attribut des Elements darstellt und den maximalen (numerischen oder Datum-Uhrzeit-) Wert für diesen Artikel enthält, welcher nicht weniger als sein Minimum ([`min`](/de/docs/Web/HTML/Element/input#min) Attribut) Wert sein darf.
 
-- {{domxref("HTMLInputElement.maxLength", "maxLength")}}
+- [`maxLength`](/de/docs/Web/API/HTMLInputElement/maxLength)
 
-  - : Eine Zahl, die das [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength)-Attribut des Elements darstellt und die maximale Anzahl von Zeichen (in Unicode-Codepunkten) enthält, die der Wert haben kann.
+  - : Eine Zahl, die das [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength) Attribut des Elements darstellt und die maximale Anzahl von Zeichen (in Unicode-Codepunkten) enthält, die der Wert haben kann.
 
-- {{domxref("HTMLInputElement.min", "min")}}
+- [`min`](/de/docs/Web/API/HTMLInputElement/min)
 
-  - : Ein String, der das [`min`](/de/docs/Web/HTML/Element/input#min)-Attribut des Elements darstellt und den minimalen (numerischen oder datumszeitlichen) Wert für dieses Element enthält, der nicht größer als sein Maximum ([`max`](/de/docs/Web/HTML/Element/input#max)-Attribut) sein darf.
+  - : Ein String, der das [`min`](/de/docs/Web/HTML/Element/input#min) Attribut des Elements darstellt und den minimalen (numerischen oder Datum-Uhrzeit-) Wert für diesen Artikel enthält, welcher nicht größer als sein Maximum ([`max`](/de/docs/Web/HTML/Element/input#max) Attribut) Wert sein darf.
 
-- {{domxref("HTMLInputElement.minLength", "minLength")}}
+- [`minLength`](/de/docs/Web/API/HTMLInputElement/minLength)
 
-  - : Eine Zahl, die das [`minlength`](/de/docs/Web/HTML/Element/input#minlength)-Attribut des Elements darstellt und die minimale Anzahl von Zeichen (in Unicode-Codepunkten) enthält, die der Wert haben kann.
+  - : Eine Zahl, die das [`minlength`](/de/docs/Web/HTML/Element/input#minlength) Attribut des Elements darstellt und die minimale Anzahl von Zeichen (in Unicode-Codepunkten) enthält, die der Wert haben kann.
 
-- {{domxref("HTMLInputElement.pattern", "pattern")}}
+- [`pattern`](/de/docs/Web/API/HTMLInputElement/pattern)
 
-  - : Ein String, der das [`pattern`](/de/docs/Web/HTML/Element/input#pattern)-Attribut des Elements darstellt und einen regulären Ausdruck enthält, gegen den der Wert der Steuerung überprüft wird. Verwenden Sie das [`title`](/de/docs/Web/HTML/Element/input#title)-Attribut, um das Muster zu beschreiben und dem Benutzer zu helfen. Dieses Attribut gilt nur, wenn der Wert des [`type`](/de/docs/Web/HTML/Element/input#type)-Attributs `text`, `search`, `tel`, `url` oder `email` ist.
+  - : Ein String, der das [`pattern`](/de/docs/Web/HTML/Element/input#pattern) Attribut des Elements darstellt und einen regulären Ausdruck enthält, gegen den der Wert der Steuerung überprüft wird. Verwenden Sie das [`title`](/de/docs/Web/HTML/Element/input#title) Attribut, um das Muster zu beschreiben und dem Benutzer zu helfen. Dieses Attribut gilt nur, wenn der Wert des [`type`](/de/docs/Web/HTML/Element/input#type) Attributs `text`, `search`, `tel`, `url` oder `email` ist.
 
-- {{domxref("HTMLInputElement.placeholder", "placeholder")}}
+- [`placeholder`](/de/docs/Web/API/HTMLInputElement/placeholder)
 
-  - : Ein String, der das [`placeholder`](/de/docs/Web/HTML/Element/input#placeholder)-Attribut des Elements darstellt und einen Hinweis für den Benutzer enthält, was in die Steuerung eingegeben werden kann. Der Platzhaltertext darf keine Wagenrückläufe oder Zeilenwechsel enthalten. Dieses Attribut gilt nur, wenn der Wert des [`type`](/de/docs/Web/HTML/Element/input#type)-Attributs `text`, `search`, `tel`, `url` oder `email` ist.
+  - : Ein String, der das [`placeholder`](/de/docs/Web/HTML/Element/input#placeholder) Attribut des Elements darstellt, welches einen Hinweis für den Benutzer enthält, was in die Steuerung eingegeben werden kann. Der Platzhaltertext darf keine Wagenrückläufe oder Zeilenumbrüche enthalten. Dieses Attribut gilt nur, wenn der Wert des [`type`](/de/docs/Web/HTML/Element/input#type) Attributs `text`, `search`, `tel`, `url` oder `email` ist.
 
-- {{domxref("HTMLInputElement.readOnly", "readOnly")}}
+- [`readOnly`](/de/docs/Web/API/HTMLInputElement/readOnly)
 
-  - : Ein boolescher Wert, der das [`readonly`](/de/docs/Web/HTML/Element/input#readonly)-Attribut des Elements darstellt und angibt, dass der Benutzer den Wert der Steuerung nicht ändern kann. Dies wird ignoriert, wenn der [`type`](/de/docs/Web/HTML/Element/input#type) `hidden`, `range`, `color`, `checkbox`, `radio`, `file` oder ein beliebiger Schaltflächentyp ist.
+  - : Ein boolean, der das [`readonly`](/de/docs/Web/HTML/Element/input#readonly) Attribut des Elements darstellt und angibt, dass der Benutzer den Wert der Steuerung nicht ändern kann. Dies wird ignoriert, wenn der [`type`](/de/docs/Web/HTML/Element/input#type) `hidden`, `range`, `color`, `checkbox`, `radio`, `file` oder ein Button-Typ ist.
 
-- {{domxref("HTMLInputElement.selectionDirection", "selectionDirection")}}
+- [`selectionDirection`](/de/docs/Web/API/HTMLInputElement/selectionDirection)
 
-  - : Ein String, der die Richtung darstellt, in der die Auswahl erfolgt ist. Mögliche Werte sind: `forward` (die Auswahl wurde in der Start-bis-Ende-Richtung der aktuellen Lokalisierung durchgeführt), `backward` (die entgegengesetzte Richtung) oder `none` (die Richtung ist unbekannt).
+  - : Ein String, der die Richtung darstellt, in der die Auswahl erfolgt ist. Mögliche Werte sind: `forward` (die Auswahl wurde in der Start-Zu-Ende-Richtung der aktuellen Sprache durchgeführt), `backward` (die entgegengesetzte Richtung) oder `none` (die Richtung ist unbekannt).
 
-- {{domxref("HTMLInputElement.selectionEnd", "selectionEnd")}}
+- [`selectionEnd`](/de/docs/Web/API/HTMLInputElement/selectionEnd)
 
-  - : Eine Zahl, die den Endindex des ausgewählten Textes darstellt. Wenn keine Auswahl vorhanden ist, gibt dies den Versatz des Zeichens zurück, das sich unmittelbar nach der aktuellen Position des Texteingabemarkers befindet.
+  - : Eine Zahl, die den Endindex des ausgewählten Textes darstellt. Wenn nichts ausgewählt ist, gibt dies den Offset des Zeichens zurück, das unmittelbar nach der aktuellen Texteingabe-Cursorposition folgt.
 
-- {{domxref("HTMLInputElement.selectionStart", "selectionStart")}}
+- [`selectionStart`](/de/docs/Web/API/HTMLInputElement/selectionStart)
 
-  - : Eine Zahl, die den Anfangsindex des ausgewählten Textes darstellt. Wenn nichts ausgewählt ist, gibt dies die Position des Texteingabemarkers (Caret) innerhalb des {{HTMLElement("input")}}-Elements zurück.
+  - : Eine Zahl, die den Anfangsindex des ausgewählten Textes darstellt. Wenn nichts ausgewählt ist, gibt dies die Position des Texteingabe-Cursors (Caret) innerhalb des {{HTMLElement("input")}} Elements zurück.
 
-- {{domxref("HTMLInputElement.size", "size")}}
-  - : Eine Zahl, die das [`size`](/de/docs/Web/HTML/Element/input#size)-Attribut des Elements darstellt und die visuelle Größe der Steuerung enthält. Dieser Wert ist in Pixel, es sei denn, der Wert von [`type`](/de/docs/Web/HTML/Element/input#type) ist `text` oder `password`, in diesem Fall ist es eine ganze Zeichenanzahl. Gilt nur, wenn der [`type`](/de/docs/Web/HTML/Element/input#type) auf `text`, `search`, `tel`, `url`, `email` oder `password` gesetzt ist.
+- [`size`](/de/docs/Web/API/HTMLInputElement/size)
+  - : Eine Zahl, die das [`size`](/de/docs/Web/HTML/Element/input#size) Attribut des Elements darstellt und die visuelle Größe der Steuerung enthält. Dieser Wert ist in Pixeln, es sei denn, der Wert von [`type`](/de/docs/Web/HTML/Element/input#type) ist `text` oder `password`, in diesem Fall ist es eine ganze Anzahl von Zeichen. Gilt nur, wenn [`type`](/de/docs/Web/HTML/Element/input#type) auf `text`, `search`, `tel`, `url`, `email` oder `password` gesetzt ist.
 
-## Instanzen-Methoden
+## Instanz-Methoden
 
-_Erbt auch Methoden von seinem übergeordneten Interface, {{domxref("HTMLElement")}}._
+_Erbt auch Methoden von seiner Elternschnittstelle, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLInputElement.checkValidity()", "checkValidity()")}}
+- [`checkValidity()`](/de/docs/Web/API/HTMLInputElement/checkValidity)
 
-  - : Gibt einen booleschen Wert zurück, der `false` ist, wenn das Element ein Kandidat für die Einschränkungsvalidierung ist und es seine Einschränkungen nicht erfüllt. In diesem Fall wird auch ein {{domxref("HTMLInputElement/invalid_event", "invalid")}}-Ereignis auf dem Element ausgelöst. Es gibt `true` zurück, wenn das Element kein Kandidat für die Einschränkungsvalidierung ist oder es seine Einschränkungen erfüllt.
+  - : Gibt einen boolean Wert zurück, der `false` ist, wenn das Element ein Kandidat für die Beschränkungsvalidierung ist und es seine Einschränkungen nicht erfüllt. In diesem Fall löst es auch ein [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event) Ereignis aus. Es gibt `true` zurück, wenn das Element kein Kandidat für die Beschränkungsvalidierung ist oder wenn es seine Einschränkungen erfüllt.
 
-- {{domxref("HTMLInputElement.reportValidity()", "reportValidity()")}}
+- [`reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity)
 
-  - : Führt die Methode `checkValidity()` aus und meldet dem Benutzer, wenn diese `false` zurückgibt (für eine ungültige Eingabe oder kein pattern-Attribut vorhanden), dass die Eingabe ungültig ist, in gleicher Weise, als ob Sie ein Formular abgesendet hätten.
+  - : Führt die Methode `checkValidity()` aus, und wenn sie `false` zurückgibt (für eine ungültige Eingabe oder wenn kein Musterattribut bereitgestellt wird), dann meldet es dem Benutzer, dass die Eingabe ungültig ist, genauso, als ob Sie ein Formular abgesendet hätten.
 
-- {{domxref("HTMLInputElement.select()", "select()")}}
+- [`select()`](/de/docs/Web/API/HTMLInputElement/select)
 
-  - : Wählt den gesamten Text im Eingabeelement aus und fokussiert es, sodass der Benutzer anschließend den gesamten Inhalt ersetzen kann.
+  - : Wählt den gesamten Text im `input`-Element aus und fokussiert es, sodass der Benutzer anschließend dessen gesamten Inhalt ersetzen kann.
 
-- {{domxref("HTMLInputElement.setCustomValidity()", "setCustomValidity()")}}
+- [`setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity)
 
-  - : Legt eine benutzerdefinierte Gültigkeitsnachricht für das Element fest. Wenn diese Nachricht nicht leer ist, leidet das Element an einem benutzerdefinierten Gültigkeitsfehler und wird nicht validiert.
+  - : Setzt eine benutzerdefinierte Fehlermeldung für das Element. Wenn diese Meldung nicht der leere String ist, dann leidet das Element unter einem benutzerdefinierten Gültigkeitsfehler und wird nicht validiert.
 
-- {{domxref("HTMLInputElement.setRangeText()", "setRangeText()")}}
+- [`setRangeText()`](/de/docs/Web/API/HTMLInputElement/setRangeText)
 
-  - : Ersetzt einen Textbereich im Eingabeelement mit neuem Text.
+  - : Ersetzt einen Textbereich im `input`-Element durch neuen Text.
 
-- {{domxref("HTMLInputElement.setSelectionRange()", "setSelectionRange()")}}
+- [`setSelectionRange()`](/de/docs/Web/API/HTMLInputElement/setSelectionRange)
 
-  - : Wählt einen Textbereich im Eingabeelement aus (fokussiert es jedoch nicht).
+  - : Wählt einen Bereich von Text im `input`-Element aus (aber fokussiert es nicht).
 
-- {{domxref("HTMLInputElement.showPicker()", "showPicker()")}}
+- [`showPicker()`](/de/docs/Web/API/HTMLInputElement/showPicker)
 
   - : Zeigt einen Browser-Auswahldialog für Datum, Uhrzeit, Farbe und Dateien.
 
-- {{domxref("HTMLInputElement.stepDown()", "stepDown()")}}
+- [`stepDown()`](/de/docs/Web/API/HTMLInputElement/stepDown)
 
-  - : Verringert den [`value`](/de/docs/Web/HTML/Element/input#value) um ([`step`](/de/docs/Web/HTML/Element/input#step) \* n), wobei n standardmäßig 1 ist, wenn nicht spezifiziert.
+  - : Verringert den [`value`](/de/docs/Web/HTML/Element/input#value) um ([`step`](/de/docs/Web/HTML/Element/input#step) \* n), wobei n standardmäßig 1 ist, wenn nicht angegeben.
 
-- {{domxref("HTMLInputElement.stepUp()", "stepUp()")}}
-  - : Erhöht den [`value`](/de/docs/Web/HTML/Element/input#value) um ([`step`](/de/docs/Web/HTML/Element/input#step) \* n), wobei n standardmäßig 1 ist, wenn nicht spezifiziert.
+- [`stepUp()`](/de/docs/Web/API/HTMLInputElement/stepUp)
+  - : Erhöht den [`value`](/de/docs/Web/HTML/Element/input#value) um ([`step`](/de/docs/Web/HTML/Element/input#step) \* n), wobei n standardmäßig 1 ist, wenn nicht angegeben.
 
 ## Ereignisse
 
-_Erbt auch Ereignisse von seinem übergeordneten Interface, {{domxref("HTMLElement")}}._
+_Erbt auch Ereignisse von seiner Elternschnittstelle, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-Hören Sie auf diese Ereignisse mit {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder durch Zuweisen eines Ereignis-Listeners zur `oneventname`-Eigenschaft dieses Interfaces:
+Hören Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisung eines Ereignis-Listeners zur `oneventname`-Eigenschaft dieser Schnittstelle ab:
 
-- {{domxref("HTMLInputElement/invalid_event", "invalid")}}-Ereignis
-  - : Wird ausgelöst, wenn ein Element seine Einschränkungen bei der Constraints-Validierung nicht erfüllt.
-- {{domxref("HTMLInputElement/search_event", "search")}}-Ereignis {{Non-standard_Inline}}
-  - : Wird ausgelöst, wenn eine Suche in einem {{HTMLElement("input")}} vom Typ `search` gestartet wird.
-- {{domxref("HTMLInputElement/select_event", "select")}}-Ereignis
-  - : Wird ausgelöst, wenn Text ausgewählt wurde.
-- {{domxref("HTMLInputElement/selectionchange_event", "selectionchange")}}-Ereignis {{Experimental_Inline}}
+- [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event) Ereignis
+  - : Ausgelöst, wenn ein Element seine Beschränkungen während der Beschränkungsvalidierung nicht erfüllt.
+- [`search`](/de/docs/Web/API/HTMLInputElement/search_event) Ereignis {{Non-standard_Inline}}
+  - : Ausgelöst, wenn eine Suche bei einem {{HTMLElement("input")}} vom Typ `search` initiiert wird.
+- [`select`](/de/docs/Web/API/HTMLInputElement/select_event) Ereignis
+  - : Ausgelöst, wenn Text ausgewählt wurde.
+- [`selectionchange`](/de/docs/Web/API/HTMLInputElement/selectionchange_event) Ereignis {{Experimental_Inline}}
   - : Wird ausgelöst, wenn die Textauswahl in einem {{HTMLElement("input")}}-Element geändert wurde.
 
 ## Spezifikationen

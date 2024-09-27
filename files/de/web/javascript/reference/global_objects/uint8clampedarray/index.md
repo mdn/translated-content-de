@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Das **`Uint8ClampedArray`** getypte Array repräsentiert ein Array von 8-Bit-Integern ohne Vorzeichen, die auf 0–255 begrenzt sind. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden ausdrücklich Initialisierungsdaten bereitgestellt. Nach der Erstellung können Sie auf die Elemente im Array mithilfe der Methoden des Objekts oder mit der Standard-Syntax für Array-Indizes (d.h., unter Verwendung der Klammernotation) zugreifen.
+Die **`Uint8ClampedArray`** typisierte Array stellt ein Array von 8-Bit-Integern dar, die auf 0–255 begrenzt sind. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt. Nachdem es erstellt wurde, können Sie auf Elemente im Array mit den Methoden des Objekts oder mit der Standard-Array-Index-Syntax (d.h. über Klammernotation) zugreifen.
 
-`Uint8ClampedArray` ist eine Unterklasse der verborgenen {{jsxref("TypedArray")}} Klasse.
+`Uint8ClampedArray` ist eine Unterklasse der versteckten {{jsxref("TypedArray")}} Klasse.
 
 ## Konstruktor
 
@@ -18,58 +18,58 @@ Das **`Uint8ClampedArray`** getypte Array repräsentiert ein Array von 8-Bit-Int
 
 ## Statische Eigenschaften
 
-_Erbt auch statische Eigenschaften von der übergeordneten {{jsxref("TypedArray")}}_.
+_Erbt auch statische Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Uint8ClampedArray.BYTES_PER_ELEMENT")}}
   - : Gibt einen Zahlenwert der Elementgröße zurück. `1` im Fall von `Uint8ClampedArray`.
 
 ## Statische Methoden
 
-_Erbt statische Methoden von der übergeordneten {{jsxref("TypedArray")}}_.
+_Erbt statische Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Instanz-Eigenschaften von der übergeordneten {{jsxref("TypedArray")}}_.
+_Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 Diese Eigenschaften sind auf `Uint8ClampedArray.prototype` definiert und werden von allen `Uint8ClampedArray` Instanzen geteilt.
 
 - {{jsxref("TypedArray/BYTES_PER_ELEMENT", "Uint8ClampedArray.prototype.BYTES_PER_ELEMENT")}}
   - : Gibt einen Zahlenwert der Elementgröße zurück. `1` im Fall eines `Uint8ClampedArray`.
 - {{jsxref("Object/constructor", "Uint8ClampedArray.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Uint8ClampedArray` Instanzen ist der Anfangswert der {{jsxref("Uint8ClampedArray/Uint8ClampedArray", "Uint8ClampedArray")}} Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Bei `Uint8ClampedArray` Instanzen ist der Anfangswert der {{jsxref("Uint8ClampedArray/Uint8ClampedArray", "Uint8ClampedArray")}} Konstruktor.
 
 ## Instanz-Methoden
 
-_Erbt Instanz-Methoden von der übergeordneten {{jsxref("TypedArray")}}_.
+_Erbt Instanz-Methoden von seinem Elternteil {{jsxref("TypedArray")}}_.
 
 ## Beispiele
 
-### Verschiedene Methoden, um ein Uint8ClampedArray zu erstellen
+### Verschiedene Wege, um ein Uint8ClampedArray zu erstellen
 
 ```js
-// Aus einer Länge
+// From a length
 const uint8c = new Uint8ClampedArray(2);
 uint8c[0] = 42;
 uint8c[1] = 1337;
 console.log(uint8c[0]); // 42
-console.log(uint8c[1]); // 255 (begrenzt)
+console.log(uint8c[1]); // 255 (clamped)
 console.log(uint8c.length); // 2
 console.log(uint8c.BYTES_PER_ELEMENT); // 1
 
-// Aus einem Array
+// From an array
 const x = new Uint8ClampedArray([21, 31]);
 console.log(x[1]); // 31
 
-// Aus einem anderen TypedArray
+// From another TypedArray
 const y = new Uint8ClampedArray(x);
 console.log(y[0]); // 21
 
-// Aus einem ArrayBuffer
+// From an ArrayBuffer
 const buffer = new ArrayBuffer(8);
 const z = new Uint8ClampedArray(buffer, 1, 4);
 console.log(z.byteOffset); // 1
 
-// Aus einem iterierbaren Objekt
+// From an iterable
 const iterable = (function* () {
   yield* [1, 2, 3];
 })();

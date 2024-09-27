@@ -1,5 +1,5 @@
 ---
-title: "HTMLVideoElement: Methode requestVideoFrameCallback()"
+title: "HTMLVideoElement: requestVideoFrameCallback() Methode"
 short-title: requestVideoFrameCallback()
 slug: Web/API/HTMLVideoElement/requestVideoFrameCallback
 l10n:
@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`requestVideoFrameCallback()`**-Methode der {{domxref("HTMLVideoElement")}}-Schnittstelle registriert eine Callback-Funktion, die ausgeführt wird, wenn ein neues Videobild an den Compositor gesendet wird. Dies ermöglicht es Entwicklern, effiziente Operationen auf jedem Videobild durchzuführen.
+Die **`requestVideoFrameCallback()`** Methode der [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) Schnittstelle registriert eine Callback-Funktion, die ausgeführt wird, wenn ein neues Videobild an den Kompositor gesendet wird. Dies ermöglicht Entwicklern, effiziente Operationen auf jedem Videobild durchzuführen.
 
 ## Beschreibung
 
-Typische Anwendungsfälle für `requestVideoFrameCallback()` umfassen die Videoverarbeitung und das Malen auf eine Leinwand, Videoanalyse und Synchronisierung mit externen Audioquellen. Die Verarbeitung pro Bild erfolgte früher auf weniger effiziente oder genaue Weise, indem Operationen auf der aktuellen Videodarstellung ausgeführt wurden, wann immer das {{domxref("HTMLMediaElement.timeupdate_event", "timeupdate")}}-Ereignis ausgelöst wurde. Diese Technik bot keinen Zugriff auf die tatsächlichen Videobilder.
+Typische Anwendungsfälle für `requestVideoFrameCallback()` umfassen die Videoverarbeitung und das Zeichnen auf eine Leinwand, die Videoanalyse sowie die Synchronisation mit externen Audioquellen. Die Verarbeitung pro Bild wurde früher weniger effizient oder genau durchgeführt, indem Operationen auf dem aktuellen Videodisplay ausgeführt wurden, wann immer das [`timeupdate`](/de/docs/Web/API/HTMLMediaElement/timeupdate_event) Ereignis ausgelöst wurde. Diese Technik bot keinen Zugriff auf die tatsächlichen Videobilder.
 
-`requestVideoFrameCallback()` wird in derselben Weise wie {{domxref("Window.requestAnimationFrame()")}} verwendet. Sie verwenden es, um eine Callback-Funktion auszuführen, die eine Operation ausführt, wenn das nächste Videobild an den Compositor gesendet wird. Der Callback endet, indem `requestVideoFrameCallback()` erneut aufgerufen wird, um den Callback auszuführen, wenn das nächste Videobild zusammengesetzt wird, und so weiter. Allerdings ist `requestVideoFrameCallback()` in mehreren Punkten auf Videooperationen zugeschnitten:
+`requestVideoFrameCallback()` wird auf die gleiche Weise wie [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) verwendet. Sie benutzen es, um eine Callback-Funktion auszuführen, die eine Operation ausführt, wenn das nächste Videobild an den Kompositor gesendet wird. Der Callback endet damit, `requestVideoFrameCallback()` erneut aufzurufen, um den Callback auszuführen, wenn das nächste Videobild zusammengesetzt wird, und so weiter. `requestVideoFrameCallback()` ist jedoch in mehrfacher Hinsicht für Videooperationen zugeschnitten:
 
 - `requestVideoFrameCallback()` bietet zuverlässigen Zugriff auf jedes einzelne Videobild.
-- `requestAnimationFrame()` versucht, die Bildwiederholfrequenz des Displays anzupassen, die typischerweise 60 Hz beträgt. `requestVideoFrameCallback()` hingegen versucht, die Bildrate des Videos anzupassen. Der Callback wird genauer gesagt bei der niedrigeren der Videobildrate und der Browser-Bildwiederholrate ausgeführt. Zum Beispiel würde ein Video mit einer Bildrate von 25 fps, das in einem Browser abgespielt wird, der mit 60 Hz aktualisiert wird, Callbacks mit einer Rate von 25 Hz auslösen. Ein Video mit einer Bildrate von 120 fps, das im selben 60-Hz-Browser ausgeführt wird, würde Callbacks mit 60 Hz auslösen.
+- `requestAnimationFrame()` versucht, die Display-Aktualisierungsrate anzupassen, die typischerweise 60Hz beträgt. `requestVideoFrameCallback()` hingegen versucht, die Video-Bildrate anzupassen. Genauer gesagt wird der Callback mit der niedrigeren Rate zwischen der Video-Bildrate und der Browser-Aktualisierungsrate ausgeführt. Zum Beispiel würde ein Video mit einer Bildrate von 25fps in einem Browser, der mit 60Hz zeichnet, Callbacks mit einer Rate von 25Hz auslösen. Ein Video mit einer Bildrate von 120fps im gleichen 60Hz-Browser würde Callbacks mit 60Hz auslösen.
 - `requestVideoFrameCallback()` macht nützliche Videometadaten in der Callback-Funktion verfügbar.
 
-Ein Punkt, den Sie beachten sollten, ist, dass `requestVideoFrameCallback()` keine strengen Garantien bietet, dass der Output Ihres Callbacks mit der Videobildrate synchron bleibt. Es kann passieren, dass es einen Vertikalsynchronisations-Takt (v-sync) später ausgelöst wird, als das neue Videobild präsentiert wurde. (V-sync ist eine Grafiktechnologie, die die Bildrate eines Videos mit der Bildwiederholfrequenz eines Monitors synchronisiert.)
+Ein Punkt, den Sie beachten sollten, ist, dass `requestVideoFrameCallback()` keine strikten Garantien bietet, dass die Ausgabe Ihres Callbacks mit der Videobildrate synchron bleibt. Es kann sein, dass es eine vertikale Synchronisation (v-sync) später ausgelöst wird, als das neue Videobild präsentiert wurde. (V-sync ist eine Grafiktechnologie, die die Bildrate eines Videos mit der Aktualisierungsrate eines Monitors synchronisiert.)
 
-Die API läuft auf dem Haupt-Thread, während die Videokomposition wahrscheinlich auf einem separaten Kompositions-Thread erfolgt. Sie müssen die Zeit, die für diese Operationen benötigt wird, sowie die Zeit, die für die Anzeige des Videos selbst und das Ergebnis Ihrer `requestVideoFrameCallback()`-Operation benötigt wird, berücksichtigen.
+Die API läuft im Hauptthread, während die Videokomposition wahrscheinlich auf einem separaten Kompositionsthread erfolgt. Sie müssen die Zeit berücksichtigen, die für diese Operationen benötigt wird, sowie die Zeit, die das Video selbst und das Ergebnis Ihrer `requestVideoFrameCallback()`-Operation benötigen, um auf dem Bildschirm angezeigt zu werden.
 
-Sie können die `now`-Callback-Parameter und die `expectedDisplayTime`-Metadaten-Eigenschaft vergleichen, um festzustellen, ob Ihr Callback ein v-sync zu spät ist. Wenn `expectedDisplayTime` innerhalb von etwa fünf bis zehn Mikrosekunden von `now` liegt, ist das Bild bereits gerendert. Wenn `expectedDisplayTime` etwa sechzehn Millisekunden in der Zukunft liegt (angenommen, Ihr Browser/Bildschirm wird mit 60 Hz aktualisiert), dann ist der Callback ein v-sync out.
+Sie können den `now`-Callback-Parameter und die `expectedDisplayTime`-Metadateneigenschaft vergleichen, um festzustellen, ob Ihr Callback eine v-sync-Spätphase hat. Wenn `expectedDisplayTime` innerhalb von etwa fünf bis zehn Mikrosekunden nach `now` liegt, ist das Bild bereits gerendert. Wenn die `expectedDisplayTime` etwa sechzehn Millisekunden in der Zukunft liegt (vorausgesetzt, Ihr Browser/Bildschirm aktualisiert mit 60Hz), dann ist der Callback eine v-sync aus.
 
 ## Syntax
 
@@ -36,41 +36,41 @@ requestVideoFrameCallback(callback)
 
 - `callback`
 
-  - : Die Callback-Funktion, die ausgeführt wird, wenn ein neues Videobild an den Compositor gesendet wird. Diese enthält zwei Parameter:
+  - : Die Callback-Funktion, die ausgeführt wird, wenn ein neues Videobild an den Kompositor gesendet wird. Diese enthält zwei Parameter:
 
     - `now`
-      - : Ein {{domxref("DOMHighResTimeStamp")}} der die Zeit angibt, zu der der Callback aufgerufen wurde.
+      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit repräsentiert, zu der der Callback aufgerufen wurde.
     - `metadata`
 
       - : Ein Objekt, das die folgenden Eigenschaften enthält:
 
-        - `expectedDisplayTime`: Ein {{domxref("DOMHighResTimeStamp")}}, der angibt, wann der Browser erwartet, dass das Bild sichtbar wird.
-        - `height`: Eine Zahl in Mediapixeln, die die Höhe des Videobildes (die sichtbaren dekodierten Pixel, ohne Anpassungen des Seitenverhältnisses) darstellt.
-        - `mediaTime`: Eine Zahl in Sekunden, die den Mediapräsentations-Zeitstempel des dargestellten Bildes darstellt. Dies entspricht dem Zeitstempel des Bildes auf der {{domxref("HTMLMediaElement.currentTime")}}-Timeline.
-        - `presentationTime`: Ein {{domxref("DOMHighResTimeStamp")}}, der den Zeitpunkt darstellt, zu dem der Browser das Bild zur Komposition eingereicht hat.
-        - `presentedFrames`: Eine Zahl, die die Anzahl der bisher gemeinsam mit dem aktuellen Callback für die Komposition eingereichten Bilder darstellt. Dies kann verwendet werden, um festzustellen, ob zwischen den Callback-Instanzen Bilder verpasst wurden.
-        - `processingDuration`: Eine Zahl in Sekunden, die die Dauer zwischen der Einreichung des kodierten Pakets mit demselben Präsentations-Zeitstempel wie dieses Bild beim Decoder (d.h. die `mediaTime`) und dem Zeitpunkt darstellt, zu dem das dekodierte Bild für die Präsentation bereit war.
-        - `width`: Eine Zahl in Mediapixeln, die die Breite des Videobildes (die sichtbaren dekodierten Pixel, ohne Anpassungen des Seitenverhältnisses) darstellt.
+        - `expectedDisplayTime`: Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit repräsentiert, zu der der Browser erwartet, dass das Bild sichtbar wird.
+        - `height`: Eine Zahl in Medienpixeln, die die Höhe des Videobildes repräsentiert (die sichtbaren dekodierten Pixel, ohne Anpassungen des Seitenverhältnisses).
+        - `mediaTime`: Eine Zahl in Sekunden, die den Präsentationszeitstempel des dargestellten Bildes im Medium repräsentiert. Dies entspricht dem Zeitstempel des Bildes auf der [`HTMLMediaElement.currentTime`](/de/docs/Web/API/HTMLMediaElement/currentTime) Zeitleiste.
+        - `presentationTime`: Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit repräsentiert, zu der der Browser das Bild zur Zusammensetzung übergeben hat.
+        - `presentedFrames`: Eine Zahl, die die Anzahl der bisher zusammen mit dem aktuellen Callback zur Zusammensetzung übergebenen Bilder repräsentiert. Dies kann verwendet werden, um zu erkennen, ob Bilder zwischen Callback-Instanzen verpasst wurden.
+        - `processingDuration`: Eine Zahl in Sekunden, die die Dauer zwischen der Übermittlung des kodierten Pakets mit dem gleichen Präsentationszeitstempel wie dieses Bild an den Decoder (d.h. die `mediaTime`) und dem dekodierten Bild, das für die Präsentation bereit ist, repräsentiert.
+        - `width`: Eine Zahl in Medienpixeln, die die Breite des Videobildes repräsentiert (die sichtbaren dekodierten Pixel, ohne Anpassungen des Seitenverhältnisses).
 
-        Zusätzliche Metadaten-Eigenschaften sind möglicherweise innerhalb von `requestVideoFrameCallback()`-Callbacks verfügbar, die in {{domxref("WebRTC_API", "WebRTC", "", "nocode")}}-Anwendungen verwendet werden:
+        Zusätzliche Metadaten-Eigenschaften können innerhalb von in [WebRTC](/de/docs/Web/API/WebRTC_API) Anwendungen verwendeten `requestVideoFrameCallback()` Callbacks verfügbar sein:
 
-        - `captureTime`: Ein {{domxref("DOMHighResTimeStamp")}}, der den Zeitpunkt darstellt, zu dem das Bild aufgenommen wurde. Dies gilt für Videobilder aus einer lokalen oder entfernten Quelle. Bei einer entfernten Quelle wird die Aufnahmezeit anhand von Uhrensynchronisation und RTCP-Senderberichten geschätzt, um RTP-Zeitstempel in Aufnahmezeit umzuwandeln.
-        - `receiveTime`: Ein {{domxref("DOMHighResTimeStamp")}}, der den Zeitpunkt darstellt, zu dem das kodierte Bild von der Plattform empfangen wurde. Dies gilt für Videobilder aus einer entfernten Quelle. Insbesondere entspricht dies dem Zeitpunkt, zu dem das letzte zu diesem Bild gehörende Paket über das Netzwerk empfangen wurde.
-        - `rtpTimestamp`: Eine Zahl, die den RTP-Zeitstempel darstellt, der mit diesem Videobild verknüpft ist.
+        - `captureTime`: Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit repräsentiert, zu der das Bild aufgenommen wurde. Dies gilt für Videobilder, die von einer lokalen oder entfernten Quelle stammen. Für eine entfernte Quelle wird die Aufnahmezeit unter Verwendung von Uhren-Synchronisation und RTCP-Senderberichten geschätzt, um RTP-Zeitstempel in Aufnahmezeiten zu konvertieren.
+        - `receiveTime`: Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit repräsentiert, zu der das kodierte Bild von der Plattform empfangen wurde. Dies gilt für Videobilder, die von einer entfernten Quelle stammen. Insbesondere entspricht dies der Zeit, zu der das letzte Paket, das zu diesem Bild gehört, über das Netzwerk empfangen wurde.
+        - `rtpTimestamp`: Eine Zahl, die den RTP-Zeitstempel repräsentiert, der diesem Videobild zugeordnet ist.
 
-> **Note:** `width` und `height` können sich in bestimmten Fällen (zum Beispiel bei einem anamorphotischen Video mit rechteckigen Pixeln) von {{domxref("HTMLVideoElement.videoWidth")}} und {{domxref("HTMLVideoElement.videoHeight")}} unterscheiden.
+> **Note:** `width` und `height` können in bestimmten Fällen (zum Beispiel bei einem anamorphotischen Video, das rechteckige Pixel aufweist) von [`HTMLVideoElement.videoWidth`](/de/docs/Web/API/HTMLVideoElement/videoWidth) und [`HTMLVideoElement.videoHeight`](/de/docs/Web/API/HTMLVideoElement/videoHeight) abweichen.
 
 ### Rückgabewert
 
-Eine Zahl, die eine eindeutige Callback-ID darstellt.
+Eine Zahl, die eine eindeutige Callback-ID repräsentiert.
 
-Diese kann an {{DOMxRef("HTMLVideoElement.cancelVideoFrameCallback()")}} übergeben werden, um die Callback-Registrierung zu stornieren.
+Diese kann an [`HTMLVideoElement.cancelVideoFrameCallback()`](/de/docs/Web/API/HTMLVideoElement/cancelVideoFrameCallback) übergeben werden, um die Callback-Registrierung abzubrechen.
 
 ## Beispiele
 
 ### Zeichnen von Videobildern auf einer Leinwand
 
-Dieses Beispiel zeigt, wie `requestVideoFrameCallback()` verwendet wird, um die Bilder eines Videos auf ein {{htmlelement("canvas")}}-Element mit genau derselben Bildrate wie das Video zu zeichnen. Es protokolliert auch die Bildmetadaten im DOM zu Debugging-Zwecken.
+Dieses Beispiel zeigt, wie `requestVideoFrameCallback()` verwendet wird, um die Bilder eines Videos auf ein {{htmlelement("canvas")}}-Element mit genau der gleichen Bildrate wie das Video zu zeichnen. Es protokolliert auch die Bildmetadaten im DOM zu Debugging-Zwecken.
 
 ```js
 if ("requestVideoFrameCallback" in HTMLVideoElement.prototype) {
@@ -89,29 +89,29 @@ if ("requestVideoFrameCallback" in HTMLVideoElement.prototype) {
     fpsInfo.innerText = `video fps: ${fps}`;
     metadataInfo.innerText = JSON.stringify(metadata, null, 2);
 
-    // Re-registrieren des Callback, um beim nächsten Bild ausgeführt zu werden
+    // Re-register the callback to run on the next frame
     video.requestVideoFrameCallback(updateCanvas);
   };
 
-  // Erste Registrierung des Callback, um beim ersten Bild ausgeführt zu werden
+  // Initial registration of the callback to run on the first frame
   video.requestVideoFrameCallback(updateCanvas);
 } else {
-  alert("Ihr Browser unterstützt requestVideoFrameCallback() nicht.");
+  alert("Your browser does not support requestVideoFrameCallback().");
 }
 ```
 
-Siehe [requestVideoFrameCallback Demo](https://requestvideoframecallback.glitch.me/) für eine funktionierende Implementierung des obigen Codes.
+Sehen Sie [requestVideoFrameCallback Demo](https://requestvideoframecallback.glitch.me/) für eine funktionierende Implementierung des obigen Codes.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - Das {{HTMLElement("video")}}-Element
-- {{DOMxRef("HTMLVideoElement.cancelVideoFrameCallback()")}}
-- [Effiziente per-Videobild-Operationen mit `requestVideoFrameCallback()` durchführen](https://web.dev/articles/requestvideoframecallback-rvfc) auf developer.chrome.com (2023)
+- [`HTMLVideoElement.cancelVideoFrameCallback()`](/de/docs/Web/API/HTMLVideoElement/cancelVideoFrameCallback)
+- [Effizientes pro-Videobild-Operationen auf Video mit `requestVideoFrameCallback()` durchführen](https://web.dev/articles/requestvideoframecallback-rvfc) auf developer.chrome.com (2023)

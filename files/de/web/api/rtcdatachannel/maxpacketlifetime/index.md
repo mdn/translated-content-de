@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`maxPacketLifeTime`** gibt die Anzahl der Millisekunden zurück, die der Browser maximal Zeit hat, um den Versuch zu unternehmen, eine Nachricht zu übertragen, wie beim Erstellen des Datenkanals festgelegt, oder `null`. Dies begrenzt, wie lange der Browser versucht, die Nachricht zu übertragen und erneut zu übermitteln, bevor er aufgibt.
+Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`maxPacketLifeTime`** gibt die Zeitdauer in Millisekunden zurück, die es dem Browser erlaubt ist, zu versuchen, eine Nachricht zu übertragen, wie beim Erstellen des Datenkanals festgelegt, oder `null`. Dies begrenzt die Zeit, wie lange der Browser versuchen kann, die Nachricht zu übertragen und erneut zu übertragen, bevor er aufgibt.
 
 ## Wert
 
-Die Anzahl der Millisekunden, über die der Browser weiterhin versucht, die Nachricht zu übertragen, bis es entweder gelingt oder aufgegeben wird. Wenn dieser Wert bei dem Aufruf von {{domxref("RTCPeerConnection.createDataChannel()")}} zur Erstellung des Datenkanals nicht gesetzt wurde, ist dieser Wert `null`.
+Die Anzahl der Millisekunden, über die der Browser versuchen kann, die Nachricht zu übertragen, bis er entweder erfolgreich ist oder aufgibt. Wenn dies nicht festgelegt wurde, als [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) aufgerufen wurde, um den Datenkanal zu erstellen, ist dieser Wert `null`.
 
 ## Spezifikationen
 
@@ -25,6 +25,6 @@ Die Anzahl der Millisekunden, über die der Browser weiterhin versucht, die Nach
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCDataChannel")}}
-- {{domxref("RTCDataChannel.maxRetransmits")}}
-- {{domxref("RTCPeerConnection.createDataChannel()")}}
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
+- [`RTCDataChannel.maxRetransmits`](/de/docs/Web/API/RTCDataChannel/maxRetransmits)
+- [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel)

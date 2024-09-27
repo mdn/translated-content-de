@@ -1,5 +1,5 @@
 ---
-title: "Node: nodeName Eigenschaft"
+title: "Node: nodeName-Eigenschaft"
 short-title: nodeName
 slug: Web/API/Node/nodeName
 l10n:
@@ -8,29 +8,30 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`nodeName`** Eigenschaft des {{domxref("Node")}} gibt den Namen des aktuellen Knotens als Zeichenkette zurück.
+Die schreibgeschützte **`nodeName`**-Eigenschaft von [`Node`](/de/docs/Web/API/Node) gibt den Namen des aktuellen Knotens als Zeichenkette zurück.
 
 ## Wert
 
-Eine Zeichenkette. Werte für die verschiedenen Knoten-Typen sind:
+Eine Zeichenkette. Die Werte für die verschiedenen Knotentypen sind:
 
-- {{domxref("Attr")}}
-  - : Der Wert von {{domxref("Attr.name")}}, also der _qualifizierte Name_ des Attributs.
-- {{domxref("CDATASection")}}
+- [`Attr`](/de/docs/Web/API/Attr)
+  - : Der Wert von [`Attr.name`](/de/docs/Web/API/Attr/name), das ist der _qualifizierte Name_ des Attributs.
+- [`CDATASection`](/de/docs/Web/API/CDATASection)
   - : Die Zeichenkette `"#cdata-section"`.
-- {{domxref("Comment")}}
+- [`Comment`](/de/docs/Web/API/Comment)
   - : Die Zeichenkette `"#comment"`.
-- {{domxref("Document")}}
+- [`Document`](/de/docs/Web/API/Document)
   - : Die Zeichenkette `"#document"`.
-- {{domxref("DocumentFragment")}}
+- [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)
   - : Die Zeichenkette `"#document-fragment"`.
-- {{domxref("DocumentType")}}
-  - : Der Wert von {{domxref("DocumentType.name")}}
-- {{domxref("Element")}}
-  - : Der Wert von {{domxref("Element.tagName")}}, also der _großgeschriebene_ Tag-Name des Elements, wenn es sich um ein HTML-Element handelt, oder der _kleingeschriebene_ Element-Tag, wenn es sich um ein XML-Element wie ein SVG- oder MATHML-Element handelt.
-- {{domxref("ProcessingInstruction")}}
-  - : Der Wert von {{domxref("ProcessingInstruction.target")}}
-- {{domxref("Text")}}
+- [`DocumentType`](/de/docs/Web/API/DocumentType)
+  - : Der Wert von [`DocumentType.name`](/de/docs/Web/API/DocumentType/name)
+- [`Element`](/de/docs/Web/API/Element)
+  - : Der Wert von [`Element.tagName`](/de/docs/Web/API/Element/tagName), das ist der _Großbuchstabenname_ des Element-Tags, wenn es sich um ein HTML-Element handelt,
+    oder der _Kleinbuchstabenname_ des Element-Tags, wenn es sich um ein XML-Element handelt (wie ein SVG- oder MATHML-Element).
+- [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)
+  - : Der Wert von [`ProcessingInstruction.target`](/de/docs/Web/API/ProcessingInstruction/target)
+- [`Text`](/de/docs/Web/API/Text)
   - : Die Zeichenkette `"#text"`.
 
 ## Beispiel
@@ -38,22 +39,22 @@ Eine Zeichenkette. Werte für die verschiedenen Knoten-Typen sind:
 Dieses Beispiel zeigt die Knotennamen mehrerer Knoten
 
 ```html
-Dies ist etwas HTML:
-<div id="d1">Hallo Welt</div>
-<!-- Beispiel eines Kommentars -->
+This is some HTML:
+<div id="d1">Hello world</div>
+<!-- Example of comment -->
 Text <span>Text</span> Text<br />
 <svg height="20" width="20">
   <circle cx="10" cy="10" r="5" stroke="black" stroke-width="1" fill="red" />
 </svg>
 <hr />
-<output id="result">Noch nicht berechnet.</output>
+<output id="result">Not calculated yet.</output>
 ```
 
 und das folgende Skript:
 
 ```js
 let node = document.querySelector("body").firstChild;
-let result = "Knotennamen sind:\n";
+let result = "Node names are:\n";
 while (node) {
   result += `${node.nodeName}\n`;
   node = node.nextSibling;
@@ -69,13 +70,13 @@ output.innerText = result;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Element.tagName")}}
-- {{domxref("Attr.name")}}
-- {{domxref("DocumentType.name")}}
-- {{domxref("ProcessingInstruction.target")}}
+- [`Element.tagName`](/de/docs/Web/API/Element/tagName)
+- [`Attr.name`](/de/docs/Web/API/Attr/name)
+- [`DocumentType.name`](/de/docs/Web/API/DocumentType/name)
+- [`ProcessingInstruction.target`](/de/docs/Web/API/ProcessingInstruction/target)

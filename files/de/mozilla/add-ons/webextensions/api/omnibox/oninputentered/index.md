@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Benutzer einen der Vorschläge ausgewählt hat, den Ihre Erweiterung zur Dropdown-Liste der Adressleiste hinzugefügt hat.
+Ausgelöst, wenn der Benutzer einen der Vorschläge ausgewählt hat, die Ihre Erweiterung zur Drop-Down-Liste der Adressleiste hinzugefügt hat.
 
-Verwenden Sie dieses Ereignis, um die Auswahl des Benutzers zu bearbeiten, in der Regel durch das Öffnen der entsprechenden Seite. Der Ereignis-Listener erhält:
+Verwenden Sie dieses Ereignis, um die Auswahl des Benutzers zu verarbeiten, in der Regel durch das Öffnen der entsprechenden Seite. Der Event-Listener erhält:
 
 - die Auswahl des Benutzers
-- ein {{WebExtAPIRef("omnibox.OnInputEnteredDisposition")}}: verwenden Sie dies, um zu bestimmen, ob die neue Seite im aktuellen Tab, in einem neuen Vordergrund-Tab oder in einem neuen Hintergrund-Tab geöffnet werden soll.
+- einen {{WebExtAPIRef("omnibox.OnInputEnteredDisposition")}}: Verwenden Sie dies, um zu bestimmen, ob die neue Seite im aktuellen Tab, in einem neuen Vordergrundtab oder in einem neuen Hintergrundtab geöffnet werden soll.
 
 ## Syntax
 
@@ -25,40 +25,40 @@ browser.omnibox.onInputEntered.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener` Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er aktiv ist, andernfalls `false`.
+  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
-Die Listener-Funktion erhält zwei Parameter: einen String `text` und ein {{WebExtAPIRef("omnibox.OnInputEnteredDisposition")}}.
+Der Listener-Funktion werden zwei Parameter übergeben: ein String `text` und ein {{WebExtAPIRef("omnibox.OnInputEnteredDisposition")}}.
 
 ### Parameter
 
 - `text`
-  - : `String`. Dies ist der Wert der `content`-Eigenschaft des {{WebExtAPIRef("omnibox.SuggestResult")}}-Objekts, das der Benutzer ausgewählt hat.
+  - : `String`. Dies ist der Wert der `content` Eigenschaft des {{WebExtAPIRef("omnibox.SuggestResult")}} Objekts, das der Benutzer ausgewählt hat.
 - `disposition`
-  - : {{WebExtAPIRef("omnibox.OnInputEnteredDisposition", "OnInputEnteredDisposition")}}. Eine {{WebExtAPIRef("omnibox.OnInputEnteredDisposition")}}-Enumeration, die anzeigt, ob die Erweiterung die Seite im aktuellen Tab, in einem neuen Vordergrund-Tab oder in einem neuen Hintergrund-Tab öffnen soll.
+  - : {{WebExtAPIRef("omnibox.OnInputEnteredDisposition", "OnInputEnteredDisposition")}}. Eine {{WebExtAPIRef("omnibox.OnInputEnteredDisposition")}} Enumeration, die angibt, ob die Erweiterung die Seite im aktuellen Tab, in einem neuen Vordergrundtab oder in einem neuen Hintergrundtab öffnen soll.
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Beispiele
 
-Dieses Beispiel interpretiert die Benutzereingabe als CSS-Property-Name und füllt die Dropdown-Liste mit einem {{WebExtAPIRef("omnibox.SuggestResult")}}-Objekt für jede CSS-Eigenschaft, die zur Eingabe passt. Die `description`-Eigenschaft von `SuggestResult` ist der vollständige Name der Eigenschaft, und `content` ist die MDN-Seite für diese Eigenschaft.
+Dieses Beispiel interpretiert die Benutzereingabe als einen CSS-Eigenschaftsnamen und füllt die Drop-Down-Liste mit einem {{WebExtAPIRef("omnibox.SuggestResult")}} Objekt für jede CSS-Eigenschaft, die zur Eingabe passt. Die `description` Eigenschaft von `SuggestResult` ist der vollständige Name der Eigenschaft und der `content` ist die MDN-Seite für diese Eigenschaft.
 
-Das Beispiel hört auch auf `omnibox.onInputEntered` und öffnet die MDN-Seite, die der Auswahl entspricht, gemäß dem {{WebExtAPIRef("omnibox.OnInputEnteredDisposition")}}-Argument.
+Das Beispiel hört auch auf `omnibox.onInputEntered` und öffnet die der Auswahl entsprechende MDN-Seite gemäß dem {{WebExtAPIRef("omnibox.OnInputEnteredDisposition")}} Argument.
 
 ```js
 browser.omnibox.setDefaultSuggestion({
-  description: "Geben Sie den Namen einer CSS-Eigenschaft ein",
+  description: "Type the name of a CSS property",
 });
 
 /*
-Sehr kurze Liste einiger CSS-Eigenschaften.
+Very short list of a few CSS properties.
 */
 const props = [
   "animation",
@@ -81,11 +81,11 @@ const props = [
   "transition",
 ];
 
-const baseURL = "https://developer.mozilla.org/de/docs/Web/CSS/";
+const baseURL = "https://developer.mozilla.org/en-US/docs/Web/CSS/";
 
 /*
-Gibt ein Array von SuggestResult-Objekten zurück,
-eines für jede CSS-Eigenschaft, die zur Benutzereingabe passt.
+Return an array of SuggestResult objects,
+one for each CSS property that matches the user's input.
 */
 function getMatchingProperties(input) {
   const result = [];
@@ -126,4 +126,4 @@ browser.omnibox.onInputEntered.addListener((url, disposition) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/api/omnibox) API.
+> Diese API basiert auf der [`chrome.omnibox`](https://developer.chrome.com/docs/extensions/reference/api/omnibox) API von Chromium.

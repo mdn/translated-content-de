@@ -7,10 +7,10 @@ l10n:
 
 {{GlossarySidebar}}
 
-{{domxref("XMLHttpRequest")}} (XHR) ist eine {{Glossary("JavaScript")}}-{{Glossary("API")}}, um {{Glossary("HTTP")}}-Anfragen zu erstellen. Ihre Methoden bieten die Möglichkeit, Netzwerkanfragen zwischen dem {{Glossary("browser")}} und einem {{Glossary("server")}} zu senden.
+[`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) (XHR) ist eine [JavaScript](/de/docs/Glossary/JavaScript)-[API](/de/docs/Glossary/API) zum Erstellen von [HTTP](/de/docs/Glossary/HTTP)-Anfragen. Ihre Methoden bieten die Möglichkeit, Netzwerkanfragen zwischen dem [Browser](/de/docs/Glossary/browser) und einem [Server](/de/docs/Glossary/server) zu senden.
 
 Die [Fetch API](/de/docs/Web/API/Fetch_API) ist der moderne Ersatz für XMLHttpRequest.
 
 ## Siehe auch
 
-- Die Dokumentation der [XMLHttpRequest API](/de/docs/Web/API/XMLHttpRequest_API).
+- Die [XMLHttpRequest API](/de/docs/Web/API/XMLHttpRequest_API) Dokumentation.

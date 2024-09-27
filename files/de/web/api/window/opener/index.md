@@ -1,5 +1,5 @@
 ---
-title: "Fenster: opener Eigenschaft"
+title: "Window: opener-Eigenschaft"
 short-title: opener
 slug: Web/API/Window/opener
 l10n:
@@ -8,40 +8,40 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`opener`**-Eigenschaft der {{domxref("Window")}}-Schnittstelle gibt eine Referenz auf das Fenster zurück, das das aktuelle Fenster geöffnet hat, entweder mit {{domxref("Window.open", "open()")}} oder durch das Navigieren über einen Link mit einem [`target`](/de/docs/Web/HTML/Element/a#target)-Attribut.
+Die **`opener`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt eine Referenz auf das Fenster zurück, das das aktuelle Fenster geöffnet hat, entweder mit [`open()`](/de/docs/Web/API/Window/open) oder durch das Navigieren eines Links mit einem [`target`](/de/docs/Web/HTML/Element/a#target)-Attribut.
 
 Mit anderen Worten, wenn Fenster `A` Fenster `B` öffnet, gibt `B.opener` `A` zurück.
 
 ## Wert
 
-Ein {{domxref("Window")}}-ähnliches Objekt, das auf das Fenster verweist, das das aktuelle Fenster geöffnet hat (mit {{domxref("window.open()")}} oder durch einen Link mit gesetztem [`target`](/de/docs/Web/HTML/Element/a#target)-Attribut). Wenn dieses Fenster nicht durch Verknüpfung oder Erstellung von einem anderen geöffnet wurde, wird [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurückgegeben.
+Ein [`Window`](/de/docs/Web/API/Window)-ähnliches Objekt, das auf das Fenster verweist, das das aktuelle Fenster geöffnet hat (durch Nutzung von [`window.open()`](/de/docs/Web/API/Window/open) oder durch einen Link mit `target`-Attribut). Wenn dieses Fenster nicht durch eine Verlinkung oder durch ein anderes erstellt wurde, gibt es [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück.
 
-Wenn der Opener nicht im gleichen Ursprung wie die aktuelle Seite ist, ist die Funktionalität des Opener-Objekts eingeschränkt. Zum Beispiel sind Variablen und Funktionen des Fensterobjekts nicht zugänglich. Allerdings ist die Navigation des Opener-Fensters möglich, was bedeutet, dass die geöffnete Seite eine URL im ursprünglichen Tab oder Fenster öffnen kann. In einigen Fällen macht dies Phishing-Angriffe möglich, bei denen eine vertrauenswürdige Seite, die im ursprünglichen Fenster geöffnet wird, durch eine Phishing-Seite von der neu geöffneten Seite ersetzt wird.
+Wenn der Opener nicht denselben Ursprung wie die aktuelle Seite hat, ist die Funktionalität des Opener-Objekts eingeschränkt. Beispielsweise sind Variablen und Funktionen im Fensterobjekt nicht zugänglich. Es ist jedoch möglich, die Navigation des Opener-Fensters zu steuern, was bedeutet, dass die geöffnete Seite eine URL im ursprünglichen Tab oder Fenster öffnen kann. In einigen Fällen kann dies Phishing-Angriffe ermöglichen, bei denen eine vertrauenswürdige Seite im ursprünglichen Fenster durch eine Phishing-Seite von der neu geöffneten Seite ersetzt wird.
 
-Genauer gesagt, für plattformübergreifende Opener-Objekte sind die folgenden Eigenschaften verfügbar:
+Genauer gesagt, für Cross-Origin Opener-Objekte sind die folgenden Eigenschaften verfügbar:
 
-- {{domxref("Window.window", "window")}}
-- {{domxref("Window.self", "self")}}
-- {{domxref("Window.location", "location")}}: nur mit den Eigenschaften {{domxref("Location.replace")}} und {{domxref("Location.href")}}
-- {{domxref("Window.close", "close")}}
-- {{domxref("Window.closed", "closed")}}
-- {{domxref("Window.focus", "focus")}}
-- {{domxref("Window.blur", "blur")}}
-- {{domxref("Window.frames", "frames")}}
-- {{domxref("Window.length", "length")}}
-- {{domxref("Window.top", "top")}}
+- [`window`](/de/docs/Web/API/Window/window)
+- [`self`](/de/docs/Web/API/Window/self)
+- [`location`](/de/docs/Web/API/Window/location): mit nur den Eigenschaften [`Location.replace`](/de/docs/Web/API/Location/replace) und [`Location.href`](/de/docs/Web/API/Location/href)
+- [`close`](/de/docs/Web/API/Window/close)
+- [`closed`](/de/docs/Web/API/Window/closed)
+- [`focus`](/de/docs/Web/API/Window/focus)
+- [`blur`](/de/docs/Web/API/Window/blur)
+- [`frames`](/de/docs/Web/API/Window/frames)
+- [`length`](/de/docs/Web/API/Window/length)
+- [`top`](/de/docs/Web/API/Window/top)
 - `opener`
-- {{domxref("Window.parent", "parent")}}
-- {{domxref("Window.postMessage", "postMessage")}}
+- [`parent`](/de/docs/Web/API/Window/parent)
+- [`postMessage`](/de/docs/Web/API/Window/postMessage)
 - `window[0]`, `window[1]`, etc.
 
-Darüber hinaus gibt es einige Eigenschaften: [`then`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables), {{jsxref("Symbol/toStringTag", "[Symbol.toStringTag]")}}, {{jsxref("Symbol/hasInstance", "[Symbol.hasInstance]")}}, {{jsxref("Symbol/isConcatSpreadable", "[Symbol.isConcatSpreadable]")}}, die von verschiedenen JavaScript-Operationen verwendet werden. Diese Eigenschaften haben den Wert `undefined`. Alle anderen Eigenschaften führen zu einem `SecurityError`-{{domxref("DOMException")}}, wenn darauf zugegriffen wird.
+Zusätzlich gibt es einige Eigenschaften: [`then`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables), {{jsxref("Symbol/toStringTag", "[Symbol.toStringTag]")}}, {{jsxref("Symbol/hasInstance", "[Symbol.hasInstance]")}}, {{jsxref("Symbol/isConcatSpreadable", "[Symbol.isConcatSpreadable]")}}, die von verschiedenen JavaScript-Operationen verwendet werden. Diese Eigenschaften haben den Wert `undefined`. Alle anderen Eigenschaften erzeugen einen `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException), wenn auf sie zugegriffen wird.
 
 In den folgenden Fällen wird `window.opener` vom Browser nicht befüllt, sondern bleibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null):
 
-- Der Opener kann weggelassen werden, indem [`rel=noopener`](/de/docs/Web/HTML/Attributes/rel#noopener) auf einem Link angegeben oder `noopener` im {{domxref("Window.open", "windowFeatures")}}-Parameter übergeben wird.
-- Fenster, die wegen Links mit einem [`target`](/de/docs/Web/HTML/Element/a#target) von `_blank` geöffnet werden, erhalten keinen `opener`, es sei denn, es wird ausdrücklich mit [`rel=opener`](/de/docs/Web/HTML/Attributes/rel#opener) angefordert.
-- Das Vorhandensein eines {{HTTPHeader("Cross-Origin-Opener-Policy")}}-Headers mit einem Wert von `same-origin` verhindert das Setzen von `opener`. Da das neue Fenster in einem anderen Browsing-Kontext geladen wird, hat es keinen Verweis auf das öffnende Fenster.
+- Der Opener kann weggelassen werden, indem [`rel=noopener`](/de/docs/Web/HTML/Attributes/rel#noopener) auf einem Link angegeben wird oder `noopener` im [`windowFeatures`](/de/docs/Web/API/Window/open)-Parameter übergeben wird.
+- Fenster, die durch Links mit einem [`target`](/de/docs/Web/HTML/Element/a#target) von `_blank` geöffnet werden, erhalten keinen `opener`, es sei denn, es wird explizit mit [`rel=opener`](/de/docs/Web/HTML/Attributes/rel#opener) angefordert.
+- Ein {{HTTPHeader("Cross-Origin-Opener-Policy")}}-Header mit dem Wert `same-origin` verhindert das Setzen des `opener`. Da das neue Fenster in einem anderen Browsing-Kontext geladen wird, hat es keine Referenz zu dem öffnenden Fenster.
 
 ## Spezifikationen
 

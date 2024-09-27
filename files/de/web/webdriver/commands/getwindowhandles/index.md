@@ -1,5 +1,5 @@
 ---
-title: Fenster-Handles abrufen
+title: Get Window Handles
 slug: Web/WebDriver/Commands/GetWindowHandles
 l10n:
   sourceCommit: ac24a64c0ab26d0185c7b768aca130f490ea8487
@@ -7,20 +7,20 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Commands")}}
 
-Der _Get Window Handles_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt eine Liste aller [`WebWindow`](/de/docs/Web/WebDriver/WebWindow)s zurück. Jedes Tab oder Fenster, je nachdem, ob Sie einen tabfähigen Browser verwenden, ist mit einem _Fenster-Handle_ verknüpft, das als Referenz verwendet wird, wenn Sie [zum Fenster wechseln](/de/docs/Web/WebDriver/Commands/SwitchToWindow).
+Der _Get Window Handles_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/docs/Web/WebDriver) API gibt eine Liste aller [`WebWindow`](/de/docs/Web/WebDriver/WebWindow)s zurück. Jeder Tab oder jedes Fenster, je nachdem, ob Sie einen tab-basierten Browser verwenden, wird durch einen _Fenstergriff_ identifiziert, der als Referenz beim [Wechseln zum Fenster](/de/docs/Web/WebDriver/Commands/SwitchToWindow) verwendet wird.
 
-Um festzustellen, ob eine bestimmte Interaktion mit dem Browser ein neues Fenster öffnet, kann man die Menge der Fenster-Handles vor der Interaktion abrufen und sie mit der Menge nach der Aktion vergleichen.
+Um festzustellen, ob eine bestimmte Interaktion mit dem Browser ein neues Fenster öffnet, kann man die Menge der Fenstergriffe vor und nach der Interaktion erfassen und vergleichen.
 
 ## Syntax
 
-| Methode                                    | URI-Vorlage                            |
-| ------------------------------------------ | -------------------------------------- |
-| [`GET`](/de/docs/Web/HTTP/Methods/GET)  | `/session/{session id}/window/handles` |
+| Methode                                | URI-Vorlage                            |
+| -------------------------------------- | -------------------------------------- |
+| [`GET`](/de/docs/Web/HTTP/Methods/GET) | `/session/{session id}/window/handles` |
 
 ### URL-Parameter
 
 - `session id`
-  - : Identifikator der Sitzung.
+  - : Bezeichner der Sitzung.
 
 ### Fehler
 
@@ -61,6 +61,6 @@ namespace MDNWebDriverExamples
 
 ## Siehe auch
 
-- [Zum Fenster wechseln](/de/docs/Web/WebDriver/Commands/SwitchToWindow) Befehl
-- [Fenster-Handle abrufen](/de/docs/Web/WebDriver/Commands/GetWindowHandle) Befehl
-- [Fenster schließen](/de/docs/Web/WebDriver/Commands/CloseWindow) Befehl
+- [Switch To Window](/de/docs/Web/WebDriver/Commands/SwitchToWindow) Befehl
+- [Get Window Handle](/de/docs/Web/WebDriver/Commands/GetWindowHandle) Befehl
+- [Close Window](/de/docs/Web/WebDriver/Commands/CloseWindow) Befehl

@@ -1,5 +1,5 @@
 ---
-title: Bereich
+title: Range
 slug: Web/API/Range
 l10n:
   sourceCommit: 2937558d5ed1e03d7f60b2de71dd9c17f490166e
@@ -9,97 +9,97 @@ l10n:
 
 Die **`Range`**-Schnittstelle repräsentiert ein Fragment eines Dokuments, das Knoten und Teile von Textknoten enthalten kann.
 
-Ein Bereich kann mit der Methode {{ domxref("Document.createRange()") }} erstellt werden. Bereichsobjekte können auch mit der Methode {{ domxref("Selection/getRangeAt", "getRangeAt()") }} des {{ domxref("Selection") }}-Objekts oder der Methode {{domxref("Document/caretRangeFromPoint", "caretRangeFromPoint()")}} des {{domxref("Document")}}-Objekts abgerufen werden.
+Ein `Range` kann durch die Verwendung der Methode [`Document.createRange()`](/de/docs/Web/API/Document/createRange) erstellt werden. `Range`-Objekte können auch mit der Methode [`getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt) des [`Selection`](/de/docs/Web/API/Selection) Objekts oder der Methode [`caretRangeFromPoint()`](/de/docs/Web/API/Document/caretRangeFromPoint) des [`Document`](/de/docs/Web/API/Document) Objekts abgerufen werden.
 
-Es gibt auch den {{domxref("Range.Range()", "Range()")}}-Konstruktor.
+Es gibt auch den [`Range()`](/de/docs/Web/API/Range/Range) Konstruktor.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Es gibt keine geerbten Eigenschaften._
 
-- {{domxref("Range.collapsed")}} {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob die Start- und Endpunkte des Bereichs an derselben Position liegen.
-- {{domxref("Range.commonAncestorContainer")}} {{ReadOnlyInline}}
-  - : Gibt den tiefsten {{ domxref("Node") }} zurück, der die `startContainer`- und `endContainer`-Knoten enthält.
-- {{domxref("Range.endContainer")}} {{ReadOnlyInline}}
-  - : Gibt den {{ domxref("Node") }} zurück, in dem der `Range` endet.
-- {{domxref("Range.endOffset")}} {{ReadOnlyInline}}
+- [`Range.collapsed`](/de/docs/Web/API/Range/collapsed) {{ReadOnlyInline}}
+  - : Gibt einen booleschen Wert zurück, der angibt, ob die Anfangs- und Endpunkte des `Range` an derselben Position liegen.
+- [`Range.commonAncestorContainer`](/de/docs/Web/API/Range/commonAncestorContainer) {{ReadOnlyInline}}
+  - : Gibt den tiefsten [`Node`](/de/docs/Web/API/Node) zurück, der die Knoten `startContainer` und `endContainer` enthält.
+- [`Range.endContainer`](/de/docs/Web/API/Range/endContainer) {{ReadOnlyInline}}
+  - : Gibt den [`Node`](/de/docs/Web/API/Node) zurück, in dem der `Range` endet.
+- [`Range.endOffset`](/de/docs/Web/API/Range/endOffset) {{ReadOnlyInline}}
   - : Gibt eine Zahl zurück, die angibt, wo im `endContainer` der `Range` endet.
-- {{domxref("Range.startContainer")}} {{ReadOnlyInline}}
-  - : Gibt den {{ domxref("Node") }} zurück, in dem der `Range` beginnt.
-- {{domxref("Range.startOffset")}} {{ReadOnlyInline}}
+- [`Range.startContainer`](/de/docs/Web/API/Range/startContainer) {{ReadOnlyInline}}
+  - : Gibt den [`Node`](/de/docs/Web/API/Node) zurück, in dem der `Range` beginnt.
+- [`Range.startOffset`](/de/docs/Web/API/Range/startOffset) {{ReadOnlyInline}}
   - : Gibt eine Zahl zurück, die angibt, wo im `startContainer` der `Range` beginnt.
 
 ## Konstruktor
 
-- {{ domxref("Range.Range()", "Range()") }}
-  - : Gibt ein `Range`-Objekt mit dem globalen {{domxref("Document")}} als Start und Ende zurück.
+- [`Range()`](/de/docs/Web/API/Range/Range)
+  - : Gibt ein `Range`-Objekt mit dem globalen [`Document`](/de/docs/Web/API/Document) als Start und Ende zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Es gibt keine geerbten Methoden._
 
-- {{ domxref("Range.collapse()")}}
-  - : Kollabiert den `Range` zu einem seiner Grenzpunkte.
-- {{ domxref("Range.compareBoundaryPoints()")}}
-  - : Vergleicht die Grenzpunkte des `Range` mit einem anderen `Range`.
-- {{ domxref("Range.compareNode()")}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Gibt eine Konstante zurück, die angibt, ob der {{domxref("Node")}} vor, nach, innerhalb oder umgebend den Bereich ist.
-- {{ domxref("Range.comparePoint()")}}
-  - : Gibt -1, 0 oder 1 zurück, um anzuzeigen, ob der Punkt vor, innerhalb oder nach dem `Range` auftritt.
-- {{ domxref("Range.cloneContents()")}}
-  - : Gibt ein {{ domxref("DocumentFragment") }} zurück, das die Knoten eines `Range` kopiert.
-- {{ domxref("Range.cloneRange()")}}
-  - : Gibt ein `Range`-Objekt mit identischen Grenzpunkten zum geklonten `Range` zurück.
-- {{ domxref("Range.createContextualFragment()")}}
-  - : Gibt ein {{ domxref("DocumentFragment") }} zurück, das aus einem gegebenen Code-String erstellt wurde.
-- {{ domxref("Range.deleteContents()")}}
-  - : Entfernt den Inhalt eines `Range` aus dem {{ domxref("Document") }}.
-- {{ domxref("Range.detach()")}}
-  - : Macht nichts. Aus Kompatibilitätsgründen beibehalten.
-- {{ domxref("Range.extractContents()")}}
-  - : Verschiebt Inhalte eines `Range` aus dem Dokumentbaum in ein {{ domxref("DocumentFragment") }}.
-- {{ domxref("Range.getBoundingClientRect()") }}
-  - : Gibt ein {{ domxref("DOMRect") }}-Objekt zurück, das die gesamten Inhalte des `Range` umschließt; dies wäre die Vereinigung aller von {{ domxref("range.getClientRects()") }} zurückgegebenen Rechtecke.
-- {{ domxref("Range.getClientRects()") }}
-  - : Gibt eine Liste von {{ domxref("DOMRect") }}-Objekten zurück, die die Ergebnisse von {{ domxref("Element.getClientRects()") }} für alle Elemente im `Range` aggregiert.
-- {{ domxref("Range.isPointInRange()")}}
-  - : Gibt einen `boolean` zurück, der angibt, ob der gegebene Punkt im `Range` liegt.
-- {{ domxref("Range.insertNode()")}}
-  - : Fügt einen {{ domxref("Node") }} am Anfang eines `Range` ein.
-- {{ domxref("Range.intersectsNode()")}}
-  - : Gibt einen `boolean` zurück, der angibt, ob der gegebene Knoten den `Range` schneidet.
-- {{ domxref("Range.selectNode()")}}
-  - : Setzt den `Range` so, dass er den {{ domxref("Node") }} und seinen Inhalt enthält.
-- {{ domxref("Range.selectNodeContents()")}}
-  - : Setzt den `Range` so, dass er den Inhalt eines {{ domxref("Node") }} enthält.
-- {{ domxref("Range.setEnd()")}}
+- [`Range.collapse()`](/de/docs/Web/API/Range/collapse)
+  - : Kollabiert den `Range` zu einem seiner Begrenzungspunkte.
+- [`Range.compareBoundaryPoints()`](/de/docs/Web/API/Range/compareBoundaryPoints)
+  - : Vergleicht die Begrenzungspunkte des `Range` mit einem anderen `Range`.
+- [`Range.compareNode()`](/de/docs/Web/API/Range/compareNode) {{Deprecated_Inline}} {{Non-standard_Inline}}
+  - : Gibt eine Konstante zurück, die angibt, ob der [`Node`](/de/docs/Web/API/Node) vor, nach, innerhalb oder um den Range herum liegt.
+- [`Range.comparePoint()`](/de/docs/Web/API/Range/comparePoint)
+  - : Gibt -1, 0 oder 1 zurück, je nachdem, ob der Punkt vor, innerhalb oder nach dem `Range` auftritt.
+- [`Range.cloneContents()`](/de/docs/Web/API/Range/cloneContents)
+  - : Gibt ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurück, das die Knoten eines `Range` kopiert.
+- [`Range.cloneRange()`](/de/docs/Web/API/Range/cloneRange)
+  - : Gibt ein `Range`-Objekt mit identischen Begrenzungspunkten wie der geklonte `Range` zurück.
+- [`Range.createContextualFragment()`](/de/docs/Web/API/Range/createContextualFragment)
+  - : Gibt ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurück, das aus einer angegebenen Zeichenkette von Code erstellt wurde.
+- [`Range.deleteContents()`](/de/docs/Web/API/Range/deleteContents)
+  - : Entfernt den Inhalt eines `Range` aus dem [`Document`](/de/docs/Web/API/Document).
+- [`Range.detach()`](/de/docs/Web/API/Range/detach)
+  - : Macht nichts. Wird zur Kompatibilität beibehalten.
+- [`Range.extractContents()`](/de/docs/Web/API/Range/extractContents)
+  - : Verschiebt den Inhalt eines `Range` aus dem Dokumentbaum in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment).
+- [`Range.getBoundingClientRect()`](/de/docs/Web/API/Range/getBoundingClientRect)
+  - : Gibt ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt zurück, das den gesamten Inhalt des `Range` umschließt; dies wäre die Vereinigung aller Rechtecke, die von [`range.getClientRects()`](/de/docs/Web/API/Range/getClientRects) zurückgegeben werden.
+- [`Range.getClientRects()`](/de/docs/Web/API/Range/getClientRects)
+  - : Gibt eine Liste von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten zurück, die die Ergebnisse von [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects) für alle Elemente im `Range` aggregiert.
+- [`Range.isPointInRange()`](/de/docs/Web/API/Range/isPointInRange)
+  - : Gibt ein `boolean` zurück, das angibt, ob der gegebene Punkt im `Range` liegt.
+- [`Range.insertNode()`](/de/docs/Web/API/Range/insertNode)
+  - : Fügt einen [`Node`](/de/docs/Web/API/Node) am Anfang eines `Range` ein.
+- [`Range.intersectsNode()`](/de/docs/Web/API/Range/intersectsNode)
+  - : Gibt ein `boolean` zurück, das angibt, ob der gegebene Knoten den `Range` schneidet.
+- [`Range.selectNode()`](/de/docs/Web/API/Range/selectNode)
+  - : Setzt den `Range` so, dass er den [`Node`](/de/docs/Web/API/Node) und dessen Inhalt enthält.
+- [`Range.selectNodeContents()`](/de/docs/Web/API/Range/selectNodeContents)
+  - : Setzt den `Range` so, dass er den Inhalt eines [`Node`](/de/docs/Web/API/Node) enthält.
+- [`Range.setEnd()`](/de/docs/Web/API/Range/setEnd)
   - : Setzt die Endposition eines `Range`.
-- {{ domxref("Range.setStart()")}}
+- [`Range.setStart()`](/de/docs/Web/API/Range/setStart)
   - : Setzt die Startposition eines `Range`.
-- {{ domxref("Range.setEndAfter()")}}
-  - : Setzt die Endposition eines `Range` relativ zu einem anderen {{ domxref("Node") }}.
-- {{ domxref("Range.setEndBefore()")}}
-  - : Setzt die Endposition eines `Range` relativ zu einem anderen {{ domxref("Node") }}.
-- {{ domxref("Range.setStartAfter()")}}
-  - : Setzt die Startposition eines `Range` relativ zu einem anderen {{ domxref("Node") }}.
-- {{ domxref("Range.setStartBefore()")}}
-  - : Setzt die Startposition eines `Range` relativ zu einem anderen {{ domxref("Node") }}.
-- {{ domxref("Range.surroundContents()")}}
-  - : Verschiebt den Inhalt eines `Range` in einen neuen {{ domxref("Node") }}.
-- {{ domxref("Range.toString()")}}
+- [`Range.setEndAfter()`](/de/docs/Web/API/Range/setEndAfter)
+  - : Setzt die Endposition eines `Range` relativ zu einem anderen [`Node`](/de/docs/Web/API/Node).
+- [`Range.setEndBefore()`](/de/docs/Web/API/Range/setEndBefore)
+  - : Setzt die Endposition eines `Range` relativ zu einem anderen [`Node`](/de/docs/Web/API/Node).
+- [`Range.setStartAfter()`](/de/docs/Web/API/Range/setStartAfter)
+  - : Setzt die Startposition eines `Range` relativ zu einem anderen [`Node`](/de/docs/Web/API/Node).
+- [`Range.setStartBefore()`](/de/docs/Web/API/Range/setStartBefore)
+  - : Setzt die Startposition eines `Range` relativ zu einem anderen [`Node`](/de/docs/Web/API/Node).
+- [`Range.surroundContents()`](/de/docs/Web/API/Range/surroundContents)
+  - : Verschiebt den Inhalt eines `Range` in einen neuen [`Node`](/de/docs/Web/API/Node).
+- [`Range.toString()`](/de/docs/Web/API/Range/toString)
   - : Gibt den Text des `Range` zurück.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Die DOM-Schnittstellenübersicht](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellen-Index](/de/docs/Web/API/Document_Object_Model)

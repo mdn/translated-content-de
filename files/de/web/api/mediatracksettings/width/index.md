@@ -1,5 +1,5 @@
 ---
-title: "MediaTrackSettings: Eigenschaft width"
+title: "MediaTrackSettings: width-Eigenschaft"
 short-title: width
 slug: Web/API/MediaTrackSettings/width
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`width`**-Eigenschaft des {{domxref("MediaTrackSettings")}}-Wörterbuchs ist eine ganze Zahl, die angibt, wie viele Pixel breit der {{domxref("MediaStreamTrack")}} momentan konfiguriert ist. Dies ermöglicht es Ihnen festzustellen, welcher Wert ausgewählt wurde, um den von Ihnen angegebenen Einschränkungen für den Wert dieser Eigenschaft zu entsprechen, wie sie in der von Ihnen bereitgestellten {{domxref("MediaTrackConstraints.width")}}-Eigenschaft beschrieben sind, wenn Sie entweder {{domxref("MediaDevices.getUserMedia", "getUserMedia()")}} oder {{domxref("MediaStreamTrack.applyConstraints()")}} aufrufen.
+Das **`width`**-Attribut des [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuchs ist eine ganze Zahl, die angibt, wie viele Pixel breit der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) derzeit konfiguriert ist. Dies ermöglicht es Ihnen, festzustellen, welcher Wert ausgewählt wurde, um Ihre angegebenen Einschränkungen für den Wert dieser Eigenschaft einzuhalten, wie in der [`MediaTrackConstraints.width`](/de/docs/Web/API/MediaTrackConstraints/width)-Eigenschaft beschrieben, die Sie beim Aufrufen entweder von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) bereitgestellt haben.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von {{domxref("MediaTrackSupportedConstraints.width")}} überprüfen, der durch einen Aufruf von {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle ihnen nicht bekannten Einschränkungen ignorieren.
+Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.width`](/de/docs/Web/API/MediaTrackSupportedConstraints/width) überprüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser jede Einschränkung ignorieren, mit der sie nicht vertraut sind.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Breite der Videospur in Pixeln in der aktuellen Konfiguration angibt.
+Ein ganzzahliger Wert, der die Breite in Pixeln des aktuell konfigurierten Videostreams angibt.
 
 ## Beispiele
 
-Siehe das [Constraint-Übungsbeispiel](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
+Siehe das Beispiel [Constraint exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -32,5 +32,5 @@ Siehe das [Constraint-Übungsbeispiel](/de/docs/Web/API/Media_Capture_and_Stream
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
-- {{domxref("MediaTrackConstraints.width")}}
-- {{domxref("MediaTrackSettings")}}
+- [`MediaTrackConstraints.width`](/de/docs/Web/API/MediaTrackConstraints/width)
+- [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)

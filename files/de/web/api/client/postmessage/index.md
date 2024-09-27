@@ -1,14 +1,18 @@
 ---
-title: "Client: postMessage()-Methode"
+title: "Client: Methode postMessage()"
 short-title: postMessage()
 slug: Web/API/Client/postMessage
 l10n:
-  sourceCommit: e0310b3f565d3147fa80d9e63ace41e0fc244fa6
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("Service Worker API")}}{{AvailableInWorkers("service")}}
 
-Die **`postMessage()`**-Methode der {{domxref("Client")}} Schnittstelle ermöglicht es einem Service Worker, eine Nachricht an einen Client (ein {{domxref("Window")}}, {{domxref("Worker")}} oder {{domxref("SharedWorker")}}) zu senden. Die Nachricht wird im "`message`"-Ereignis auf {{domxref("ServiceWorkerContainer", "navigator.serviceWorker")}} empfangen.
+Die **`postMessage()`**-Methode der
+[`Client`](/de/docs/Web/API/Client)-Schnittstelle ermöglicht es einem Service Worker, eine Nachricht an einen Client
+(ein [`Window`](/de/docs/Web/API/Window), [`Worker`](/de/docs/Web/API/Worker) oder [`SharedWorker`](/de/docs/Web/API/SharedWorker)) zu senden. Die
+Nachricht wird im `message`-Ereignis auf
+[`navigator.serviceWorker`](/de/docs/Web/API/ServiceWorkerContainer) empfangen.
 
 ## Syntax
 
@@ -23,11 +27,11 @@ postMessage(message, options)
 - `message`
   - : Die Nachricht, die an den Client gesendet werden soll. Dies kann jeder [strukturklonbare Typ](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
 - `transfer` {{optional_inline}}
-  - : Ein optionales [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), deren Eigentum übertragen werden soll. Das Eigentum an diesen Objekten wird an die Empfängerseite übergeben und sie sind auf der sendenden Seite nicht mehr verwendbar. Diese übertragbaren Objekte sollten an die Nachricht angehängt werden; andernfalls würden sie verschoben, aber auf der Empfangsseite nicht tatsächlich zugänglich sein.
+  - : Ein optionales [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), deren Eigentumsrechte übertragen werden sollen. Die Eigentumsrechte dieser Objekte werden der Zielseite übertragen und sie sind auf der sendenden Seite nicht mehr nutzbar. Diese übertragbaren Objekte sollten an die Nachricht angehängt werden; andernfalls würden sie verschoben, aber auf der empfangenden Seite nicht tatsächlich zugänglich sein.
 - `options` {{optional_inline}}
   - : Ein optionales Objekt, das die folgenden Eigenschaften enthält:
     - `transfer` {{optional_inline}}
-      - : Hat die gleiche Bedeutung wie der `transfer`-Parameter.
+      - : Hat dieselbe Bedeutung wie der `transfer`-Parameter.
 
 ### Rückgabewert
 
@@ -35,25 +39,25 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Der unten stehende Code sendet eine Nachricht von einem Service Worker an einen Client. Der Client wird mit der {{domxref("Clients.get()", "get()")}}-Methode auf {{domxref("ServiceWorkerGlobalScope.clients", "clients")}}, welche global im Service Worker-Scope ist, abgerufen.
+Der folgende Code sendet eine Nachricht von einem Service Worker an einen Client. Der Client wird mit der [`get()`](/de/docs/Web/API/Clients/get)-Methode auf [`clients`](/de/docs/Web/API/ServiceWorkerGlobalScope/clients), welche im Service Worker Scope global ist, abgerufen.
 
 ```js
 addEventListener("fetch", (event) => {
   event.waitUntil(
     (async () => {
-      // Frühzeitiger Ausstieg, wenn wir keinen Zugriff auf den Client haben.
-      // Z.B., wenn es sich um eine cross-origin Anfrage handelt.
+      // Exit early if we don't have access to the client.
+      // Eg, if it's cross-origin.
       if (!event.clientId) return;
 
-      // Den Client abrufen.
+      // Get the client.
       const client = await self.clients.get(event.clientId);
-      // Frühzeitiger Ausstieg, wenn wir den Client nicht abrufen können.
-      // Z.B., wenn er geschlossen wurde.
+      // Exit early if we don't get the client.
+      // Eg, if it closed.
       if (!client) return;
 
-      // Eine Nachricht an den Client senden.
+      // Send a message to the client.
       client.postMessage({
-        msg: "Hey, ich habe gerade eine Abfrage von Ihnen erhalten!",
+        msg: "Hey I just got a fetch from you!",
         url: event.request.url,
       });
     })(),
@@ -61,7 +65,7 @@ addEventListener("fetch", (event) => {
 });
 ```
 
-Empfang dieser Nachricht:
+Empfangen dieser Nachricht:
 
 ```js
 navigator.serviceWorker.addEventListener("message", (event) => {

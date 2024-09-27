@@ -1,5 +1,5 @@
 ---
-title: "NavigatorUAData: platform Eigenschaft"
+title: "NavigatorUAData: platform-Eigenschaft"
 short-title: platform
 slug: Web/API/NavigatorUAData/platform
 l10n:
@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("User-Agent Client Hints API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`platform`** ist eine schreibgeschützte Eigenschaft der {{domxref("NavigatorUAData")}} Schnittstelle und gibt die Plattformmarkeninformationen zurück.
+Die **`platform`**-Eigenschaft des schreibgeschützten [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData)-Interfaces gibt die Plattformmarkeninformationen zurück.
 
 ## Wert
 
-Ein String, der die Plattformmarke enthält. Zum Beispiel, `"Windows"`.
+Ein String, der die Plattformmarke enthält.
+Zum Beispiel, `"Windows"`.
 
 ## Beispiele
 
@@ -32,4 +33,4 @@ console.log(navigator.userAgentData.platform);
 
 ## Siehe auch
 
-- Der {{HTTPHeader("Sec-CH-UA-Platform")}} Header (ein [niedrig-aufgelöster Client-Hinweis](/de/docs/Web/HTTP/Client_hints#low_entropy_hints)) enthält die gleichen Informationen.
+- Der {{HTTPHeader("Sec-CH-UA-Platform")}}-Header (ein [low-entropy client hint](/de/docs/Web/HTTP/Client_hints#low_entropy_hints)) enthält dieselben Informationen.

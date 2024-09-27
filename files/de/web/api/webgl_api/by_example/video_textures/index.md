@@ -1,5 +1,5 @@
 ---
-title: Videotexturen
+title: Video-Texturen
 slug: Web/API/WebGL_API/By_example/Video_textures
 l10n:
   sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41

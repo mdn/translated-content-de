@@ -1,5 +1,5 @@
 ---
-title: IIFE (sofort aufgerufener Funktionsausdruck)
+title: IIFE
 slug: Glossary/IIFE
 l10n:
   sourceCommit: 998a4e6fc713678381e6bc31130e3a0a53158d69
@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **IIFE** (sofort aufgerufener Funktionsausdruck) ist eine {{glossary("JavaScript")}}-{{glossary("function")}}, die sofort ausgeführt wird, sobald sie definiert ist. Der Begriff IIFE wurde von Ben Alman in [seinem Blog](https://web.archive.org/web/20171201033208/http://benalman.com/news/2010/11/immediately-invoked-function-expression/#iife) bekannt gemacht.
+Ein **IIFE** (Immediately Invoked Function Expression) ist eine [JavaScript](/de/docs/Glossary/JavaScript) [Funktion](/de/docs/Glossary/function), die ausgeführt wird, sobald sie definiert ist. Der Begriff IIFE wurde von Ben Alman in [seinem Blog](https://web.archive.org/web/20171201033208/http://benalman.com/news/2010/11/immediately-invoked-function-expression/#iife) gefördert.
 
 ```js
 (function () {
@@ -23,16 +23,16 @@ Ein **IIFE** (sofort aufgerufener Funktionsausdruck) ist eine {{glossary("JavaSc
 })();
 ```
 
-Es ist ein Entwurfsmuster, das auch als {{glossary("Self-Executing Anonymous Function")}} bekannt ist und zwei Hauptbestandteile hat:
+Es handelt sich um ein Entwurfsmuster, das auch als [Self-Executing Anonymous Function](/de/docs/Glossary/Self-Executing_Anonymous_Function) bekannt ist und aus zwei Hauptteilen besteht:
 
-1. Der erste Bestandteil ist die anonyme Funktion, die mit lexikalischem Gültigkeitsbereich innerhalb des [Gruppierungsoperators](/de/docs/Web/JavaScript/Reference/Operators/Grouping) `()` eingeschlossen ist. Dies verhindert den Zugriff auf Variablen innerhalb des IIFE-Idioms und verhindert eine Verunreinigung des globalen Gültigkeitsbereichs.
-2. Der zweite Bestandteil erstellt den sofort aufgerufenen Funktionsausdruck `()`, den die JavaScript-Engine direkt interpretiert.
+1. Der erste ist die anonyme Funktion mit einem lexikalischen Gültigkeitsbereich, der innerhalb des [Gruppierungsoperators](/de/docs/Web/JavaScript/Reference/Operators/Grouping) `()` eingeschlossen ist. Dies verhindert den Zugriff auf Variablen innerhalb des IIFE-Idioms und schützt den globalen Gültigkeitsbereich vor Verunreinigungen.
+2. Der zweite Teil erzeugt den Immediately Invoked Function Expression `()`, durch den die JavaScript-Engine die Funktion direkt interpretiert.
 
 ## Anwendungsfälle
 
 ### Vermeidung der Verschmutzung des globalen Namensraums
 
-Da unsere Anwendung viele Funktionen und globale Variablen aus verschiedenen Quelldateien enthalten könnte, ist es wichtig, die Anzahl der globalen Variablen zu begrenzen. Wenn wir Initialisierungscode haben, den wir nicht wieder verwenden müssen, könnten wir das IIFE-Muster verwenden. Da wir den Code nicht erneut verwenden werden, ist die Verwendung von IIFE in diesem Fall besser als die Verwendung einer Funktionsdeklaration oder eines Funktionsausdrucks.
+Da unsere Anwendung viele Funktionen und globale Variablen aus verschiedenen Quelldateien enthalten könnte, ist es wichtig, die Anzahl der globalen Variablen zu beschränken. Wenn wir einige Initialisierungscode haben, den wir nicht erneut verwenden müssen, könnten wir das IIFE-Muster verwenden. Da wir den Code nicht erneut verwenden werden, ist die Verwendung von IIFE in diesem Fall besser als die Verwendung einer Funktionsdeklaration oder eines Funktionsausdrucks.
 
 ```js
 (() => {
@@ -41,12 +41,12 @@ Da unsere Anwendung viele Funktionen und globale Variablen aus verschiedenen Que
   let secondVariable;
 })();
 
-// firstVariable und secondVariable werden nach der Ausführung der Funktion verworfen.
+// firstVariable and secondVariable will be discarded after the function is executed.
 ```
 
-### Eine asynchrone Funktion ausführen
+### Ausführen einer asynchronen Funktion
 
-Ein [`async`](/de/docs/Web/JavaScript/Reference/Operators/async_function) IIFE ermöglicht Ihnen die Verwendung von [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) und [`for-await`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of), selbst in älteren Browsern und JavaScript-Laufzeiten, die kein [top-level await](/de/docs/Web/JavaScript/Reference/Operators/await#top_level_await) unterstützen:
+Ein [`async`](/de/docs/Web/JavaScript/Reference/Operators/async_function) IIFE ermöglicht Ihnen die Verwendung von [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) und [`for-await`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of) sogar in älteren Browsern und JavaScript-Laufzeiten, die keinen [top-level await](/de/docs/Web/JavaScript/Reference/Operators/await#top_level_await) haben:
 
 ```js
 const getFileStream = async (url) => {
@@ -63,14 +63,14 @@ const getFileStream = async (url) => {
 
 ### Das Modul-Muster
 
-Wir würden IIFE auch verwenden, um private und öffentliche Variablen und Methoden zu erstellen. Für eine anspruchsvollere Nutzung des Modul-Musters und andere Verwendungen von IIFE könnten Sie das Buch "Learning JavaScript Design Patterns" von Addy Osmani einsehen.
+Wir würden auch IIFE verwenden, um private und öffentliche Variablen und Methoden zu erstellen. Für eine anspruchsvollere Verwendung des Modul-Musters und weitere Anwendungen von IIFE können Sie das Buch "Learning JavaScript Design Patterns" von Addy Osmani einsehen.
 
 ```js
 const makeWithdraw = (balance) =>
   ((copyBalance) => {
-    let balance = copyBalance; // Diese Variable ist privat
+    let balance = copyBalance; // This variable is private
     const doBadThings = () => {
-      console.log("Ich werde schlechte Dinge mit Ihrem Geld tun");
+      console.log("I will do bad things with your money");
     };
     doBadThings();
     return {
@@ -79,24 +79,24 @@ const makeWithdraw = (balance) =>
           balance -= amount;
           return balance;
         }
-        return "Ungenügendes Geld";
+        return "Insufficient money";
       },
     };
   })(balance);
 
-const firstAccount = makeWithdraw(100); // "Ich werde schlechte Dinge mit Ihrem Geld tun"
+const firstAccount = makeWithdraw(100); // "I will do bad things with your money"
 console.log(firstAccount.balance); // undefined
 console.log(firstAccount.withdraw(20)); // 80
 console.log(firstAccount.withdraw(30)); // 50
-console.log(firstAccount.doBadThings); // undefined; diese Methode ist privat
-const secondAccount = makeWithdraw(20); // "Ich werde schlechte Dinge mit Ihrem Geld tun"
-console.log(secondAccount.withdraw(30)); // "Ungenügendes Geld"
+console.log(firstAccount.doBadThings); // undefined; this method is private
+const secondAccount = makeWithdraw(20); // "I will do bad things with your money"
+console.log(secondAccount.withdraw(30)); // "Insufficient money"
 console.log(secondAccount.withdraw(20)); // 0
 ```
 
 ### For-Schleife mit var vor ES6
 
-Wir könnten die folgende Verwendung von IIFE in einigen alten Codes sehen, vor der Einführung der Anweisungen **let** und **const** in **ES6** und dem Blockbereich. Mit der Anweisung **var** haben wir nur Funktionsbereiche und den globalen Bereich. Angenommen, wir wollen 2 Buttons mit den Texten Button 0 und Button 1 erstellen, und wenn wir auf sie klicken, sollten sie 0 und 1 anzeigen. Der folgende Code funktioniert nicht:
+Wir könnten die folgende Verwendung von IIFE in einigen alten Codes sehen, bevor die Anweisungen **let** und **const** in **ES6** und der Blockumfang eingeführt wurden. Mit der Anweisung **var** haben wir nur Funktionsumfänge und den globalen Umfang. Angenommen, wir möchten 2 Schaltflächen mit den Texten Button 0 und Button 1 erstellen und wenn wir sie anklicken, sollen sie 0 und 1 ausgeben. Der folgende Code funktioniert nicht:
 
 ```js
 for (var i = 0; i < 2; i++) {
@@ -110,7 +110,7 @@ for (var i = 0; i < 2; i++) {
 console.log(i); // 2
 ```
 
-Beim Klicken zeigen sowohl Button 0 als auch Button 1 die Zahl 2 an, da `i` global ist, mit dem letzten Wert 2. Um dieses Problem vor ES6 zu beheben, könnten wir das IIFE-Muster verwenden:
+Beim Klicken geben sowohl Button 0 als auch Button 1 die Zahl 2 aus, da `i` global ist und der letzte Wert 2 ist. Um dieses Problem vor ES6 zu beheben, könnten wir das IIFE-Muster verwenden:
 
 ```js
 for (var i = 0; i < 2; i++) {
@@ -126,9 +126,7 @@ for (var i = 0; i < 2; i++) {
 console.log(i); // 2
 ```
 
-Beim Klicken zeigen die Buttons 0 und 1 0 bzw. 1 an.
-Die Variable `i` ist global definiert.
-Mit der Anweisung **let** könnten wir einfach:
+Beim Klicken geben die Buttons 0 und 1 die Zahlen 0 und 1 aus. Die Variable `i` ist global definiert. Mit der Anweisung **let** könnten wir einfach Folgendes tun:
 
 ```js
 for (let i = 0; i < 2; i++) {
@@ -142,11 +140,11 @@ for (let i = 0; i < 2; i++) {
 console.log(i); // Uncaught ReferenceError: i is not defined.
 ```
 
-Beim Klicken zeigen diese Buttons 0 und 1 an.
+Beim Klicken geben diese Buttons die Zahlen 0 und 1 aus.
 
 ## Siehe auch
 
 - [IIFE](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) (Wikipedia)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Function")}}
-  - {{Glossary("Self-Executing Anonymous Function")}}
+  - [Function](/de/docs/Glossary/Function)
+  - [Self-Executing Anonymous Function](/de/docs/Glossary/Self-Executing_Anonymous_Function)

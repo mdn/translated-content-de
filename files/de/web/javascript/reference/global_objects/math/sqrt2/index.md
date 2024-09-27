@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Math.SQRT2`** repräsentiert die Quadratwurzel von 2, ungefähr 1,414.
+Die statische Dateneigenschaft **`Math.SQRT2`** repräsentiert die Quadratwurzel aus 2, ungefähr 1,414.
 
 {{EmbedInteractiveExample("pages/js/math-sqrt2.html", "shorter")}}
 
@@ -23,15 +23,15 @@ Die statische Dateneigenschaft **`Math.SQRT2`** repräsentiert die Quadratwurzel
 
 ## Beschreibung
 
-`Math.SQRT2` ist eine Konstante und eine leistungsfähigere Alternative zu [`Math.sqrt(2)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt).
+`Math.SQRT2` ist eine Konstante und eine leistungsfähigere Entsprechung zu [`Math.sqrt(2)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt).
 
-Da `SQRT2` eine statische Eigenschaft von `Math` ist, verwenden Sie sie immer als `Math.SQRT2`, anstatt sie als Eigenschaft eines erstellten `Math`-Objekts zu verwenden (`Math` ist kein Konstruktor).
+Da `SQRT2` eine statische Eigenschaft von `Math` ist, wird sie immer als `Math.SQRT2` verwendet und nicht als Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
-### Verwendung von Math.SQRT2
+### Nutzung von Math.SQRT2
 
-Die folgende Funktion gibt die Quadratwurzel von 2 zurück:
+Die folgende Funktion gibt die Quadratwurzel aus 2 zurück:
 
 ```js
 function getRoot2() {

@@ -8,14 +8,13 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`z`**-Eigenschaft der
-{{domxref("CSSTranslate")}}-Schnittstelle repräsentiert die z-Komponente des Übersetzungsvektors. Ein positiver Wert bewegt das Element zur Betrachterin hin, ein negativer Wert davon weg.
+Die **`z`**-Eigenschaft der [`CSSTranslate`](/de/docs/Web/API/CSSTranslate)-Schnittstelle repräsentiert die z-Komponente des Übersetzungsvektors. Ein positiver Wert bewegt das Element in Richtung des Betrachters, und ein negativer Wert weiter weg.
 
-Wenn dieser Wert vorhanden ist, handelt es sich bei der Transformation um eine 3D-Transformation und die `is2D`-Eigenschaft wird auf false gesetzt.
+Wenn dieser Wert vorhanden ist, handelt es sich bei der Transformation um eine 3D-Transformation und die Eigenschaft `is2D` wird auf false gesetzt.
 
 ## Wert
 
-Eine {{cssxref('length')}}.
+Ein {{cssxref('length')}}.
 
 ## Beispiele
 
@@ -25,6 +24,6 @@ To Do
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -8,19 +8,21 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`firCount`**-Eigenschaft des {{domxref("RTCOutboundRtpStreamStats")}}-Wörterbuchs gibt die Anzahl der **Full Intra Request** (**FIR**) an, die der entfernte {{domxref("RTCRtpReceiver")}} an diesen {{domxref("RTCRtpSender")}} gesendet hat.
+Die **`firCount`**-Eigenschaft des
+[`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs gibt die Anzahl der **Full Intra Request** (**FIR**) an, die der entfernte
+[`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) an diesen [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) gesendet hat.
 
-Ein FIR-Paket wird gesendet, wenn der Empfänger feststellt, dass er zurückgefallen ist und Frames überspringen muss, um aufzuholen; der Sender sollte als Antwort darauf einen vollständigen Frame anstelle eines Delta-Frames senden.
+Ein FIR-Paket wird gesendet, wenn der Empfänger feststellt, dass er hinterherhinkt und Frames überspringen muss, um aufzuholen; der Sender sollte darauf reagieren, indem er ein vollständiges Frame anstelle eines Delta-Frames sendet.
 
-Verfügbar nur für Videomedien.
+Nur bei Videomedien verfügbar.
 
 ## Wert
 
-Ein Integer-Wert, der angibt, wie viele FIR-Pakete vom Sender während der aktuellen Verbindung empfangen wurden. Diese Statistik ist nur für Videospuren verfügbar.
+Ein ganzzahliger Wert, der angibt, wie viele FIR-Pakete der Sender während der aktuellen Verbindung empfangen hat. Diese Statistik ist nur für Videospuren verfügbar.
 
-Der Empfänger sendet ein FIR-Paket an den Sender, sobald er zurückfällt oder Pakete verliert und aufgrund der verlorenen Daten den eingehenden Stream nicht mehr dekodieren kann. Dies teilt dem Sender mit, dass er einen vollständigen Frame anstelle eines Delta-Frames senden soll, damit der Empfänger aufholen kann.
+Der Empfänger sendet ein FIR-Paket an den Sender, wann immer er zurückfällt oder Pakete verliert und den eingehenden Stream aufgrund der verlorenen Daten nicht mehr dekodieren kann. Dies teilt dem Sender mit, dass er ein vollständiges Frame anstelle eines Delta-Frames senden soll, damit der Empfänger aufholen kann.
 
-Je höher `firCount` ist, desto häufiger wurden Frames verworfen, was ein Hinweis darauf sein kann, dass die Bitrate des Mediums zu hoch für die verfügbare Bandbreite ist oder dass das empfangende Gerät überlastet ist und daher nicht in der Lage ist, die eingehenden Daten zu verarbeiten.
+Je höher `firCount` ist, desto häufiger wurden Frames verworfen, was darauf hinweisen kann, dass die Bitrate der Medien zu hoch für die verfügbare Bandbreite ist oder dass das Empfangsgerät überlastet ist und daher nicht in der Lage ist, die eingehenden Daten zu verarbeiten.
 
 ## Spezifikationen
 

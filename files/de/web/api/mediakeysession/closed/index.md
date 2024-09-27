@@ -1,5 +1,5 @@
 ---
-title: "MediaKeySession: Eigenschaft closed"
+title: "MediaKeySession: closed-Eigenschaft"
 short-title: closed
 slug: Web/API/MediaKeySession/closed
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`closed`** schreibgeschützte Eigenschaft der {{domxref('MediaKeySession')}}-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das signalisiert, wann eine {{domxref('MediaKeySession')}} geschlossen wird. Dieses Promise kann nur erfüllt werden und wird niemals abgelehnt. Das Schließen einer Sitzung bedeutet, dass Lizenzen und Schlüssel, die mit dieser Sitzung verbunden sind, nicht mehr gültig sind, um Mediendaten zu entschlüsseln.
+Die **`closed`** schreibgeschützte Eigenschaft des [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Interfaces gibt ein {{jsxref('Promise')}} zurück, das signalisiert, wann eine [`MediaKeySession`](/de/docs/Web/API/MediaKeySession) geschlossen wird.
+Dieses Promise kann nur erfüllt und wird nie abgelehnt.
+Das Schließen einer Sitzung bedeutet, dass die damit verbundenen Lizenzen und Schlüssel nicht mehr gültig sind, um Mediendaten zu entschlüsseln.
 
 ## Wert
 

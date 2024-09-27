@@ -8,19 +8,19 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`step`**-Eigenschaft der {{domxref("HTMLInputElement")}}-Schnittstelle gibt an, um welchen Schritt numerische oder Datum-Zeit-{{HTMLElement("input")}}-Elemente geändert werden können. Sie spiegelt das [`step`](/de/docs/Web/HTML/Element/input#step)-Attribut des Elements wider. Gültige Werte sind die Zeichenkette `"any"` oder eine Zeichenkette, die eine positive Gleitkommazahl enthält. Wenn das Attribut nicht ausdrücklich gesetzt ist, ist die `step`-Eigenschaft eine leere Zeichenkette.
+Die **`step`**-Eigenschaft der Schnittstelle [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) gibt den Schritt an, mit dem numerische oder datums-/uhrzeitspezifische {{HTMLElement("input")}}-Elemente geändert werden können. Sie spiegelt das [`step`](/de/docs/Web/HTML/Element/input#step)-Attribut des Elements wider. Gültige Werte sind der String `"any"` oder ein String, der eine positive Gleitkommazahl enthält. Wenn das Attribut nicht explizit gesetzt ist, ist die `step`-Eigenschaft ein leerer String.
 
 ## Wert
 
-Eine Zeichenkette, die den `step`-Wert des Elements darstellt, oder eine leere Zeichenkette, wenn kein Schritt ausdrücklich festgelegt ist.
+Ein String, der den `step`-Wert des Elements darstellt, oder ein leerer String, wenn kein Schritt explizit festgelegt ist.
 
 ## Beispiel
 
 ```js
 const inputElement = document.querySelector('[type="number"]');
-console.log(inputElement.step); // der aktuelle Wert des step-Attributs
-inputElement.step = 0.1; // setzt den step-Wert auf "0.1"
-inputElement.step = "any"; // setzt den Schritt auf "any"
+console.log(inputElement.step); // the current value of the step attribute
+inputElement.step = 0.1; // sets the step value to "0.1"
+inputElement.step = "any"; // sets the step to "any"
 ```
 
 ## Spezifikationen
@@ -33,6 +33,6 @@ inputElement.step = "any"; // setzt den Schritt auf "any"
 
 ## Siehe auch
 
-- {{HTMLElement("input")}} vom Typ {{HTMLElement("input/range", "range")}}, {{HTMLElement("input/number", "number")}}, {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, und {{HTMLElement("input/time", "time")}}
-- {{domxref("HTMLInputElement.value")}}
-- {{domxref("HTMLInputElement.type")}}
+- {{HTMLElement("input")}} vom Typ {{HTMLElement("input/range", "range")}}, {{HTMLElement("input/number", "number")}}, {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}} und {{HTMLElement("input/time", "time")}}
+- [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value)
+- [`HTMLInputElement.type`](/de/docs/Web/API/HTMLInputElement/type)

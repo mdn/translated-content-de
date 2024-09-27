@@ -1,5 +1,5 @@
 ---
-title: "MediaKeyStatusMap: get() Methode"
+title: "MediaKeyStatusMap: get()-Methode"
 short-title: get()
 slug: Web/API/MediaKeyStatusMap/get
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`get()`**-Methode der {{domxref("MediaKeyStatusMap")}}-Schnittstelle gibt den Statuswert zurück, der mit dem angegebenen Schlüssel verknüpft ist, oder `undefined`, wenn keiner vorhanden ist.
+Die **`get()`**-Methode der [`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap)-Schnittstelle gibt den Statuswert zurück, der dem gegebenen Schlüssel zugeordnet ist, oder `undefined`, falls keiner vorhanden ist.
 
-Der Statuswert gibt an, ob der spezifische Schlüssel für die Entschlüsselung verwendet werden kann oder nicht.
+Der Statuswert gibt an, ob der spezifische Schlüssel zur Entschlüsselung verwendet werden kann oder nicht.
 
 ## Syntax
 
@@ -21,38 +21,38 @@ get(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel, dessen Wert Sie zurückgeben möchten.
+  - : Der Schlüssel, dessen Wert Sie zurückgegeben haben möchten.
 
 ### Rückgabewert
 
-Ein String, der den Statuswert angibt, der mit dem angegebenen Schlüssel verknüpft ist, oder `undefined`.
+Ein String, der den dem gegebenen Schlüssel zugeordneten Statuswert angibt, oder `undefined`.
 
-Die folgenden Statuswerte sind zulässig:
+Die folgenden Statuswerte sind erlaubt:
 
 - `usable`
-  - : Der Schlüssel kann derzeit für die Entschlüsselung verwendet werden.
+  - : Der Schlüssel kann derzeit zur Entschlüsselung verwendet werden.
 - `expired`
-  - : Der Schlüssel kann nicht mehr für die Entschlüsselung verwendet werden, da seine Ablaufzeit verstrichen ist.
+  - : Der Schlüssel kann nicht mehr zur Entschlüsselung verwendet werden, da seine Ablaufzeit überschritten ist.
 - `released`
   - : Der Schlüssel wurde freigegeben und steht dem CDM nicht mehr zur Verfügung.
-    Allerdings sind Informationen über den Schlüssel verfügbar, wie z.B. ein Nachweis über die Lizenzzerstörung.
+    Informationen über den Schlüssel sind jedoch verfügbar, wie z.B. ein Protokoll der Lizenzzerstörung.
 - `output-restricted`
-  - : Es gibt Ausgangsbeschränkungen, die mit dem Schlüssel basierend auf der angegebenen Richtlinie verbunden sind.
-    Mit diesem Schlüssel entschlüsselte Mediendaten können von der Präsentation blockiert werden.
-    Der Status zeigt an, dass die Verbindung zwischen der Quelle und dem Ausgang (zum Beispiel zwischen Ihrem Computer und einem externen Display) nicht vertrauenswürdig ist.
-    Dies könnte darauf hinweisen, dass es HDCP-Versionsunterschiede zwischen der Quelle, den zwischengeschalteten Geräten und dem Ausgang gibt oder dass zwischengeschaltete Verbindungsgeräte wie HDMI-Kabel oder Videosplitter beschädigt oder nicht konform sind.
-    Eine Anwendung könnte eine höhere HDCP-Version oder Inhalte verwenden, die keine so hohe Version erfordern.
-    Sie sollten auch prüfen, ob zwischengeschaltete Geräte und Kabel HDCP unterstützen, fest verbunden und nicht beschädigt sind.
+  - : Es gibt Ausgangebeschränkungen im Zusammenhang mit dem Schlüssel basierend auf der angegebenen Richtlinie.
+    Mediendaten, die mit diesem Schlüssel entschlüsselt wurden, können von der Präsentation blockiert werden.
+    Der Status zeigt an, dass die Verbindung zwischen der Quelle und dem Ausgabegerät (z.B. Ihrem Computer und einem externen Display) nicht vertrauenswürdig ist.
+    Dies könnte darauf hindeuten, dass es HDCP-Versionsinkompatibilitäten zwischen der Quelle, Zwischenkomponenten und dem Ausgabegerät gibt oder dass zwischengeschaltete Anschlussgeräte wie HDMI-Kabel oder Videosplitter beschädigt oder nicht konform sind.
+    Eine Anwendung könnte sich dafür entscheiden, eine höhere HDCP-Version, Inhalte zu verwenden, die nicht eine so hohe Version erfordern.
+    Sie sollten auch überprüfen, dass Zwischengeräte und -kabel HDCP unterstützen, fest verbunden sind und nicht beschädigt sind.
 - `output-downscaled`
-  - : Es gibt Ausgangsbeschränkungen, die mit dem Schlüssel basierend auf der angegebenen Richtlinie verbunden sind, aber diese Einschränkungen könnten gelockert werden, wenn der Inhalt in niedrigerer Qualität abgespielt wird.
-    Wenn dieser Wert zurückgegeben wird, könnte eine Anwendung den Inhalt in niedrigerer Auflösung abspielen oder eine höhere HDCP-Version verwenden oder andere Inhalte, die keine so hohe HDCP-Version erfordern.
+  - : Es gibt Ausgangebeschränkungen im Zusammenhang mit dem Schlüssel basierend auf der angegebenen Richtlinie, jedoch könnten diese Beschränkungen gelockert werden, wenn die Inhalte in niedrigerer Qualität abgespielt werden.
+    Wenn dieser Wert zurückgegeben wird, könnte eine Anwendung die Inhalte in niedrigerer Auflösung abspielen oder sich dafür entscheiden, eine höhere HDCP-Version zu verwenden oder andere Inhalte zu nutzen, die nicht eine so hohe HDCP-Version erfordern.
 - `usable-in-future`
-  - : Der Schlüssel wird in Zukunft zur Entschlüsselung nutzbar, sobald seine Startzeit erreicht ist.
+  - : Der Schlüssel wird in Zukunft zur Entschlüsselung nutzbar, sobald seine Startzeit erreicht wird.
 - `status-pending`
-  - : Der Status des Schlüssels ist noch nicht bekannt und wird ermittelt.
+  - : Der Status des Schlüssels ist noch nicht bekannt und wird bestimmt.
 - `internal-error`
-  - : Der Schlüssel kann derzeit aufgrund eines Fehlers im CDM nicht zur Entschlüsselung verwendet werden.
-    Die Anwendung kann nichts unternehmen, um diesen Fall zu handhaben.
+  - : Der Schlüssel ist aufgrund eines Fehlers im CDM derzeit nicht zur Entschlüsselung nutzbar.
+    Die Anwendung kann in diesem Fall nichts unternehmen.
 
 ## Spezifikationen
 

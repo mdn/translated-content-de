@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die schreibgeschützte `positionX`-Eigenschaft der {{ domxref("AudioListener") }}-Schnittstelle ist ein {{domxref("AudioParam")}}, das die x-Position des Zuhörers im 3D-kartesischen Raum darstellt.
+Die schreibgeschützte Eigenschaft `positionX` der [`AudioListener`](/de/docs/Web/API/AudioListener)-Schnittstelle ist ein [`AudioParam`](/de/docs/Web/API/AudioParam), das die x-Position des Listeners im 3D-Kartesischen Raum darstellt.
 
 > [!NOTE]
-> Der Parameter ist [_a-rate_](/de/docs/Web/API/AudioParam#a-rate), wenn er mit einem {{domxref("PannerNode")}} verwendet wird, dessen {{domxref("PannerNode.panningModel", "PannerNode")}} auf Equalpower eingestellt ist, oder ansonsten [_k-rate_](/de/docs/Web/API/AudioParam#k-rate).
+> Der Parameter ist [_a-rate_](/de/docs/Web/API/AudioParam#a-rate), wenn er mit einem [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet wird, dessen [`PannerNode`](/de/docs/Web/API/PannerNode/panningModel) auf equalpower gesetzt ist, oder [_k-rate_](/de/docs/Web/API/AudioParam#k-rate) sonst.
 
 ## Wert
 
-Ein {{domxref("AudioParam")}}. Sein Standardwert ist 0 und er kann zwischen positiv und negativ unendlich liegen.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam). Sein Standardwert ist 0 und kann zwischen positiver und negativer Unendlichkeit variieren.
 
 ## Beispiele
 
-Sehen Sie sich für Beispielcode [`BaseAudioContext.createPanner()`](/de/docs/Web/API/BaseAudioContext/createPanner#examples) an.
+Siehe [`BaseAudioContext.createPanner()`](/de/docs/Web/API/BaseAudioContext/createPanner#examples) für Beispielcode.
 
 ## Spezifikationen
 
@@ -31,4 +31,4 @@ Sehen Sie sich für Beispielcode [`BaseAudioContext.createPanner()`](/de/docs/We
 
 ## Siehe auch
 
-- [Verwendung der Web-Audio-API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

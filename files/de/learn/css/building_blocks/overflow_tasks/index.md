@@ -1,5 +1,5 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Überlauf"
+title: "Testen Sie Ihre Fähigkeiten: Overflow"
 slug: Learn/CSS/Building_blocks/Overflow_Tasks
 l10n:
   sourceCommit: 44b18841ff739fbf1a5450805d85f839fa3e68a5
@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}
 
-Das Ziel dieses Fähigkeitstests ist es zu bewerten, ob Sie [Überlauf in CSS verstehen und wie man ihn handhabt](/de/docs/Learn/CSS/Building_blocks/Overflowing_content).
+Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie das [Überlaufverhalten in CSS verstehen und wie Sie es handhaben können](/de/docs/Learn/CSS/Building_blocks/Overflowing_content).
 
 > [!NOTE]
 > Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
@@ -16,11 +16,11 @@ Das Ziel dieses Fähigkeitstests ist es zu bewerten, ob Sie [Überlauf in CSS ve
 
 ## Aufgabe 1
 
-In dieser Aufgabe läuft der Inhalt über die Box hinaus, da sie eine feste Höhe hat. Behalten Sie die Höhe bei, aber sorgen Sie dafür, dass die Box nur dann Scrollbalken hat, wenn genügend Text vorhanden ist, um einen Überlauf zu verursachen. Testen Sie, indem Sie etwas Text aus dem HTML entfernen; wenn nur eine kleine Menge Text vorhanden ist, die nicht überläuft, sollte kein Scrollbalken erscheinen.
+In dieser Aufgabe läuft der Inhalt aus dem Kasten über, weil er eine feste Höhe hat. Behalten Sie die Höhe bei, aber sorgen Sie dafür, dass der Kasten nur dann Bildlaufleisten erhält, wenn genug Text vorhanden ist, um einen Überlauf zu verursachen. Testen Sie, indem Sie etwas Text aus dem HTML entfernen. Wenn nur eine kleine Menge Text vorhanden ist, die nicht überläuft, sollte keine Bildlaufleiste erscheinen.
 
-![Eine kleine Box mit einem Rahmen und einem vertikalen Scrollbalken.](mdn-overflow1.png)
+![Ein kleiner Kasten mit einem Rahmen und einer vertikalen Bildlaufleiste.](mdn-overflow1.png)
 
-Versuchen Sie, den folgenden Live-Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzustellen:
 
 {{EmbedGHLiveSample("css-examples/learn/tasks/overflow/overflow-scroll.html", '100%', 1000)}}
 
@@ -30,13 +30,13 @@ Versuchen Sie, den folgenden Live-Code zu aktualisieren, um das fertige Beispiel
 
 ## Aufgabe 2
 
-In dieser Aufgabe befindet sich ein Bild in der Box, das größer als die Abmessungen der Box ist, sodass es sichtbar überläuft. Ändern Sie es so, dass alle Teile des Bildes, die sich außerhalb der Box befinden, verborgen sind.
+In dieser Aufgabe befindet sich ein Bild im Kasten, das größer als die Abmessungen des Kastens ist, sodass es sichtbar überläuft. Ändern Sie es so, dass jedes Bild außerhalb des Kastens verborgen wird.
 
 Ihr Endergebnis sollte wie das unten stehende Bild aussehen:
 
-![Eine Box mit einem Bild, das die Box füllt, aber nicht über die Ränder hinausläuft.](mdn-overflow2.png)
+![Ein Kasten mit einem Bild, das den Kasten ausfüllt, aber nicht über die Ränder hinausragt.](mdn-overflow2.png)
 
-Versuchen Sie, den folgenden Live-Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzustellen:
 
 {{EmbedGHLiveSample("css-examples/learn/tasks/overflow/overflow-hidden.html", '100%', 1200)}}
 

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`getRemoteParameters()`**-Methode des {{domxref("RTCIceTransport")}}-Interfaces gibt ein {{domxref("RTCIceParameters")}}-Objekt zurück, das Informationen bereitstellt, die den entfernten Peer für die Dauer der ICE-Sitzung eindeutig identifizieren.
+Die **`getRemoteParameters()`**-Methode der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Schnittstelle gibt ein [`RTCIceParameters`](/de/docs/Web/API/RTCIceParameters)-Objekt zurück, das Informationen bereitstellt, die den entfernten Peer während der ICE-Sitzung eindeutig identifizieren.
 
-Die Parameter des entfernten Peers werden während des ICE-Signalings empfangen und an das Transportmittel übermittelt, wenn der Client {{domxref("RTCPeerConnection.setRemoteDescription()")}} aufruft.
+Die Parameter des entfernten Peers werden während des ICE-Signalings empfangen und dem Transport übergeben, wenn der Client [`RTCPeerConnection.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) aufruft.
 
 ## Syntax
 
@@ -24,9 +24,9 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("RTCIceParameters")}}-Objekt, das das {{domxref("RTCIceParameters.usernameFragment", "usernameFragment")}} und das {{domxref("RTCIceParameters.password", "password")}} angibt, die den entfernten Peer für die Dauer der ICE-Sitzung eindeutig identifizieren.
+Ein [`RTCIceParameters`](/de/docs/Web/API/RTCIceParameters)-Objekt, das den [`usernameFragment`](/de/docs/Web/API/RTCIceParameters/usernameFragment) und das [`password`](/de/docs/Web/API/RTCIceParameters/password) angibt, die den entfernten Peer während der ICE-Sitzung eindeutig identifizieren.
 
-Gibt `null` zurück, falls die Parameter noch nicht empfangen wurden.
+Gibt `null` zurück, wenn die Parameter noch nicht empfangen wurden.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: transferIn()-Methode"
+title: "USBDevice: transferIn() Methode"
 short-title: transferIn()
 slug: Web/API/USBDevice/transferIn
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`transferIn()`**-Methode der {{domxref("USBDevice")}}
-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das mit einem
-{{domxref("USBInTransferResult")}} aufgelöst wird, wenn Bulk- oder Interrupt-Daten vom USB-Gerät empfangen werden.
+Die **`transferIn()`** Methode des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird mit einem [`USBInTransferResult`](/de/docs/Web/API/USBInTransferResult), wenn Bulk- oder Unterbrechungsdaten vom USB-Gerät empfangen werden.
 
 ## Syntax
 
@@ -23,11 +21,11 @@ transferIn(endpointNumber, length)
 - `endpointNumber`
   - : Die Nummer eines gerätespezifischen Endpunkts (Puffer).
 - `length`
-  - : Die maximale Anzahl von Bytes, die vom Gerät zurückgelesen werden. Die tatsächlichen Daten befinden sich im {{domxref("USBInTransferResult")}} im aufgelösten Promise.
+  - : Die maximale Anzahl von Bytes, die vom Gerät gelesen werden. Die tatsächlichen Daten befinden sich im [`USBInTransferResult`](/de/docs/Web/API/USBInTransferResult) in dem aufgelösten Promise.
 
 ### Rückgabewert
 
-Ein {{jsxref("promise")}}, das mit einem {{domxref("USBInTransferResult")}} aufgelöst wird.
+Ein {{jsxref("promise")}}, das mit einem [`USBInTransferResult`](/de/docs/Web/API/USBInTransferResult) aufgelöst wird.
 
 ## Spezifikationen
 

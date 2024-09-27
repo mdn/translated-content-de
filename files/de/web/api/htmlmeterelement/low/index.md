@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`low`**-Eigenschaft des {{DOMxRef("HTMLMeterElement")}}-Interfaces repräsentiert die untere Grenze des {{htmlelement("meter")}}-Elements als Fließkommazahl. Sie spiegelt das [`low`](/de/docs/Web/HTML/Element/meter#low)-Attribut des Elements wider oder den Wert von `min`, falls nicht definiert. Der Wert von `low` wird durch die Werte von `min` und `max` begrenzt.
+Die **`low`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces repräsentiert die untere Grenze des {{htmlelement("meter")}}-Elements als Gleitkommazahl. Sie spiegelt das [`low`](/de/docs/Web/HTML/Element/meter#low)-Attribut des Elements wider oder den Wert von `min`, wenn nicht definiert. Der Wert von `low` wird durch die Werte von `min` und `max` begrenzt.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, um beispielsweise einen Standardwert basierend auf einer Bedingung festzulegen.
+Diese Eigenschaft kann auch direkt gesetzt werden, beispielsweise um einen Standardwert basierend auf einer Bedingung festzulegen.
 
 ## Wert
 
-Eine Zahl, die nicht kleiner ist als {{DOMxRef("HTMLMeterElement.min")}} und nicht größer als {{DOMxRef("HTMLMeterElement.max")}}.
+Eine Zahl, die nicht kleiner ist als [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min) und nicht größer als [`HTMLMeterElement.max`](/de/docs/Web/API/HTMLMeterElement/max).
 
 ## Beispiele
 
 ```html
-<label for="fuel">Aktueller Kraftstoffstand:</label>
+<label for="fuel">Current fuel level:</label>
 <meter
   id="fuel"
   min="0"
@@ -48,7 +48,7 @@ console.log(meterElement.low); // 14
 ## Siehe auch
 
 - {{HTMLElement("meter")}}
-- {{DOMXref("HTMLMeterElement.value")}}
-- {{DOMXref("HTMLMeterElement.min")}}
-- {{DOMXref("HTMLMeterElement.high")}}
-- {{DOMXref("HTMLProgressElement")}}
+- [`HTMLMeterElement.value`](/de/docs/Web/API/HTMLMeterElement/value)
+- [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min)
+- [`HTMLMeterElement.high`](/de/docs/Web/API/HTMLMeterElement/high)
+- [`HTMLProgressElement`](/de/docs/Web/API/HTMLProgressElement)

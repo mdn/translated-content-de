@@ -7,10 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Der **`:volume-locked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das in der Lage ist, Töne zu erzeugen, wie z.B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, jedoch ist die Lautstärke des Media-Elements derzeit durch den Benutzer "gesperrt".
+Der **`:volume-locked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das in der Lage ist, Ton zu erzeugen, wie z.B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, jedoch ist die Lautstärke des Medienelements derzeit vom Benutzer "gesperrt".
 
-Benutzeragenten können die Medienwerte [`muted`](/de/docs/Web/API/HTMLMediaElement/muted) oder [`volume`](/de/docs/Web/API/HTMLMediaElement/volume) entsprechend den Benutzerpräferenzen einstellen (z.B. indem der zuletzt eingestellte Wert über Sitzungen hinweg, pro Seite oder auf andere Weise gespeichert wird).
-Ein Element, das `:volume-locked` ist, kann nicht stummgeschaltet, entstummt oder dessen Lautstärke per JavaScript geändert werden. Der gesperrte Status ist eine Präferenz des Betriebssystems oder des Benutzeragents.
+Benutzeragenten können Medien-`muted` oder `volume`-Werte entsprechend den Benutzereinstellungen festlegen (z. B. das letzte eingestellte Volumen über Sitzungen hinweg, für jede Website separat oder anderweitig merken). Ein Element, das `:volume-locked` ist, kann nicht stummgeschaltet, aktiviert oder dessen Lautstärke über JavaScript geändert werden. Der gesperrte Status ist eine Voreinstellung des Betriebssystems oder des Benutzeragenten.
 
 ## Syntax
 
@@ -51,4 +50,4 @@ video:volume-locked {
 - {{cssxref(":seeking")}}
 - {{cssxref(":stalled")}}
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [`volume`](/de/docs/Web/API/HTMLMediaElement/volume) Eigenschaft von {{domxref("HTMLMediaElement")}} Objekten
+- [`volume`](/de/docs/Web/API/HTMLMediaElement/volume)-Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten

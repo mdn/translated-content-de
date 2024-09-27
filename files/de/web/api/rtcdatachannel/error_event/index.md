@@ -1,6 +1,6 @@
 ---
-title: "RTCDataChannel: Fehlerereignis"
-short-title: Fehler
+title: "RTCDataChannel: error-Ereignis"
+short-title: error
 slug: Web/API/RTCDataChannel/error_event
 l10n:
   sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Ein WebRTC-`error`-Ereignis wird an den `onerror`-Ereignishandler eines {{domxref("RTCDataChannel")}}-Objekts gesendet, wenn ein Fehler auf dem Datenkanal auftritt.
+Ein WebRTC `error`-Ereignis wird an den `onerror`-Ereignishandler eines [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekts gesendet, wenn ein Fehler auf dem Datenkanal auftritt.
 
-Das {{domxref("RTCErrorEvent")}}-Objekt liefert Details über den aufgetretenen Fehler; siehe diesen Artikel für weitere Informationen.
+Das [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent)-Objekt bietet Details über den aufgetretenen Fehler. Weitere Informationen finden Sie in diesem Artikel.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Blasenbildung aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder legen Sie eine Ereignishändler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -26,39 +26,39 @@ onerror = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("RTCErrorEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("RTCErrorEvent")}}
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind auch die Eigenschaften der übergeordneten Schnittstelle {{domxref("Event")}} verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref("RTCErrorEvent.error", "error")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("RTCError")}}-Objekt, das den aufgetretenen Fehler angibt; dieses Objekt enthält den Fehler-Typ und Informationen darüber, wo der Fehler aufgetreten ist (zum Beispiel welche Zeilennummer im {{Glossary("SDP")}} oder welcher {{Glossary("SCTP")}}-Ursachencode betroffen war).
+- [`error`](/de/docs/Web/API/RTCErrorEvent/error) {{ReadOnlyInline}}
+  - : Ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, das den aufgetretenen Fehler spezifiziert; dieses Objekt enthält den Fehler-Typ und Informationen darüber, wo der Fehler aufgetreten ist (wie zum Beispiel welche Zeilennummer im [SDP](/de/docs/Glossary/SDP) problematisch war oder welcher [SCTP](/de/docs/Glossary/SCTP)-Ursachencode betroffen war).
 
 ## Beispiele
 
 ```js
-// Strings für jeden der SCTP-Ursachencodes, die in RFC
-// 4960, Abschnitt 3.3.10 gefunden werden:
+// Strings for each of the SCTP cause codes found in RFC
+// 4960, section 3.3.10:
 // https://datatracker.ietf.org/doc/html/rfc4960#section-3.3.10
 
 const sctpCauseCodes = [
-  "Kein SCTP-Fehler",
-  "Ungültige Stream-Kennung",
-  "Fehlender obligatorischer Parameter",
-  "Veralteter Cookie-Fehler",
-  "Absender ist ohne Ressourcen (z.B. Speicher)",
-  "Adresse konnte nicht aufgelöst werden",
-  "Nicht erkannter SCTP-Chunktype empfangen",
-  "Ungültiger obligatorischer Parameter",
-  "Nicht erkannte Parameter",
-  "Keine Benutzerdaten (SCTP DATA-Chunk hat keine Daten)",
-  "Cookie empfangen während Herunterfahren",
-  "Neustart einer Assoziation mit neuen Adressen",
-  "Vom Benutzer initiierter Abbruch",
-  "Protokollverletzung",
+  "No SCTP error",
+  "Invalid stream identifier",
+  "Missing mandatory parameter",
+  "Stale cookie error",
+  "Sender is out of resource (i.e., memory)",
+  "Unable to resolve address",
+  "Unrecognized SCTP chunk type received",
+  "Invalid mandatory parameter",
+  "Unrecognized parameters",
+  "No user data (SCTP DATA chunk has no data)",
+  "Cookie received while shutting down",
+  "Restart of an association with new addresses",
+  "User-initiated abort",
+  "Protocol violation",
 ];
 
 dc.addEventListener(
@@ -66,45 +66,45 @@ dc.addEventListener(
   (ev) => {
     const err = ev.error;
 
-    console.error("WebRTC-Fehler: ", err.message);
+    console.error("WebRTC error: ", err.message);
 
-    // Spezifische Fehlerdetails behandeln
+    // Handle specific error detail types
 
     switch (err.errorDetail) {
       case "sdp-syntax-error":
-        console.error("    SDP-Syntaxfehler in Zeile ", err.sdpLineNumber);
+        console.error("    SDP syntax error in line ", err.sdpLineNumber);
         break;
       case "idp-load-failure":
         console.error(
-          "    Identitätsanbieter-Ladefehler: HTTP-Fehler ",
+          "    Identity provider load failure: HTTP error ",
           err.httpRequestStatusCode,
         );
         break;
       case "sctp-failure":
         if (err.sctpCauseCode < sctpCauseCodes.length) {
-          console.error("    SCTP-Fehler: ", err.sctpCauseCode);
+          console.error("    SCTP failure: ", err.sctpCauseCode);
         } else {
-          console.error("    Unbekannter SCTP-Fehler");
+          console.error("    Unknown SCTP error");
         }
         break;
       case "dtls-failure":
         if (err.receivedAlert) {
-          console.error("    Empfangene DLTS-Fehlerbenachrichtigung: ", err.receivedAlert);
+          console.error("    Received DLTS failure alert: ", err.receivedAlert);
         }
         if (err.sentAlert) {
-          console.error("    Gesendete DLTS-Fehlerbenachrichtigung: ", err.receivedAlert);
+          console.error("    Sent DLTS failure alert: ", err.receivedAlert);
         }
         break;
     }
 
-    // Quell-Dateiname und Zeileninformationen hinzufügen
+    // Add source file name and line information
 
     console.error(
-      "    Fehler in Datei ",
+      "    Error in file ",
       err.filename,
-      " in Zeile ",
+      " at line ",
       err.lineNumber,
-      ", Spalte ",
+      ", column ",
       err.columnNumber,
     );
   },
@@ -112,13 +112,13 @@ dc.addEventListener(
 );
 ```
 
-Das empfangene Ereignis liefert Details in einem {{domxref("RTCError")}}-Objekt namens {{domxref("RTCErrorEvent.error", "error")}}; `RTCError` ist eine Erweiterung der {{domxref("DOMException")}}-Schnittstelle. Der Fehlername {{domxref("DOMException.name", "name")}} ist `RTCError`, und die {{domxref("DOMException.message", "message")}} ist ein Fehlerstring, der von der WebRTC-Schicht angegeben wird.
+Das empfangene Ereignis stellt Details in einem [`RTCError`](/de/docs/Web/API/RTCError)-Objekt bereit, das [`error`](/de/docs/Web/API/RTCErrorEvent/error) genannt wird; `RTCError` ist eine Erweiterung der [`DOMException`](/de/docs/Web/API/DOMException)-Schnittstelle. Der [`name`](/de/docs/Web/API/DOMException/name) des Fehlers ist `RTCError` und die [`message`](/de/docs/Web/API/DOMException/message) ist eine Fehlermeldung, die von der WebRTC-Schicht spezifiziert wird.
 
-Fehlerinformationen werden mit {{domxref("console/error_static", "console.error()")}} in die Konsole ausgegeben. Der `message`-String wird immer ausgegeben, ebenso wie Informationen über den Namen der Quelldatei, die Zeilennummer und die Spaltennummer, an der der Fehler auftrat.
+Fehlerinformationen werden mit [`console.error()`](/de/docs/Web/API/Console/error_static) zur Konsole ausgegeben. Die `message`-Zeichenfolge wird immer ausgegeben, ebenso wie Informationen über den Namen der Quelldatei, die Zeilennummer und die Spaltennummer, an der der Fehler aufgetreten ist.
 
-Darüber hinaus können, abhängig vom Wert der {{domxref("RTCError.errorDetail", "errorDetail")}}, zusätzliche Informationen ausgegeben werden. Jeder Fehlertyp hat eine unterschiedliche Menge an Informationen, die ausgegeben werden. Zum Beispiel zeigt ein SDP-Syntaxfehler die Zeilennummer des Fehlers innerhalb des SDP an, und ein SCTP-Fehler zeigt eine Nachricht entsprechend dem SCTP-Ursachencode an. Andere Fehlertypen geben ähnlich angemessene Informationen aus.
+Zusätzlich dazu können jedoch, abhängig vom Wert von [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail), zusätzliche Informationen ausgegeben werden. Jeder Fehlertyp hat einen unterschiedlichen Satz an ausgegebenen Informationen. Beispielsweise zeigt ein SDP-Syntaxfehler die Zeilennummer des Fehlers innerhalb des SDP an und ein SCTP-Fehler zeigt eine Nachricht an, die dem SCTP-Ursachencode entspricht. Andere Fehlertypen geben ebenfalls angemessene Informationen aus.
 
-Sie können auch einen Ereignishandler für `error`-Ereignisse einrichten, indem Sie die `onerror`-Ereignishändlereigenschaft der `RTCDataChannel`-Schnittstelle verwenden:
+Sie können auch einen Ereignishandler für `error`-Ereignisse mit der `onerror`-Ereignishandler-Eigenschaft der `RTCDataChannel`-Schnittstelle einrichten:
 
 ```js
 dc.onerror = (ev) => {
@@ -129,7 +129,7 @@ dc.onerror = (ev) => {
 ```
 
 > [!NOTE]
-> Da `RTCError` nicht zu den alten Fehlern gehört, ist der Wert von {{domxref("DOMException.code", "RTCError.code")}} immer 0.
+> Da `RTCError` nicht zu den veralteten Fehlern gehört, ist der Wert von [`RTCError.code`](/de/docs/Web/API/DOMException/code) immer 0.
 
 ## Spezifikationen
 
@@ -143,4 +143,4 @@ dc.onerror = (ev) => {
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
 - [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample)
-- Verwandte Ereignisse: {{domxref("RTCDataChannel.open_event", "open")}}, {{domxref("RTCDataChannel.message_event", "message")}}, und {{domxref("RTCDataChannel.close_event", "close")}}
+- Verwandte Ereignisse: [`open`](/de/docs/Web/API/RTCDataChannel/open_event), [`message`](/de/docs/Web/API/RTCDataChannel/message_event) und [`close`](/de/docs/Web/API/RTCDataChannel/close_event)

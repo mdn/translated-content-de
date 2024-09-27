@@ -1,5 +1,5 @@
 ---
-title: "Beschleunigungsmesser: y Eigenschaft"
+title: "Accelerometer: y-Eigenschaft"
 short-title: "y"
 slug: Web/API/Accelerometer/y
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Die **`y`** schreibgeschützte Eigenschaft der {{domxref("Accelerometer")}}-Schnittstelle gibt eine Zahl zurück, die die Beschleunigung des Geräts entlang seiner y-Achse angibt.
+Die **`y`** Eigenschaft der [`Accelerometer`](/de/docs/Web/API/Accelerometer)-Schnittstelle liefert eine Zahl, die die Beschleunigung des Geräts entlang seiner y-Achse angibt.
 
 ## Wert
 
-Eine {{jsxref('Number')}}.
+Ein {{jsxref('Number')}}.
 
 ## Beispiele
 
-Die Beschleunigung wird typischerweise im {{domxref('Sensor.reading_event', 'Lese-')}}Ereignis-Callback erfasst. Im folgenden Beispiel geschieht dies sechzig Mal pro Sekunde.
+Die Beschleunigung wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback ausgelesen. Im untenstehenden Beispiel geschieht dies sechzig Mal pro Sekunde.
 
 ```js
 const accelerometer = new Accelerometer({ frequency: 60 });

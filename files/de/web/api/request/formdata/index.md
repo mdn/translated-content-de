@@ -1,5 +1,5 @@
 ---
-title: "Request: formData() Methode"
+title: "Request: formData()-Methode"
 short-title: formData()
 slug: Web/API/Request/formData
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`formData()`** Methode des {{domxref("Request")}}-Interfaces liest den Anfrage-Body und gibt ihn als ein Versprechen zurück, das mit einem {{domxref("FormData")}}-Objekt aufgelöst wird.
+Die **`formData()`**-Methode des [`Request`](/de/docs/Web/API/Request)-Interfaces liest den Anfragetext und gibt ihn als ein Versprechen zurück, das sich mit einem [`FormData`](/de/docs/Web/API/FormData)-Objekt auflöst.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{domxref("FormData")}}-Objekt aufgelöst wird.
+Ein {{jsxref("Promise")}}, das sich mit einem [`FormData`](/de/docs/Web/API/FormData)-Objekt auflöst.
 
 ## Beispiele
 
@@ -53,4 +53,4 @@ request.formData().then((data) => {
 
 ## Siehe auch
 
-- {{domxref("Response.formData()")}}
+- [`Response.formData()`](/de/docs/Web/API/Response/formData)

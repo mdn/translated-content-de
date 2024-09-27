@@ -1,5 +1,5 @@
 ---
-title: "SVGPointList: Methode replaceItem()"
+title: "SVGPointList: replaceItem() Methode"
 short-title: replaceItem()
 slug: Web/API/SVGPointList/replaceItem
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`replaceItem()`**-Methode des {{domxref("SVGPointList")}}-Interfaces ersetzt einen {{domxref("SVGPoint","Punkt")}} in der Liste.
+Die **`replaceItem()`** Methode des [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Interfaces ersetzt einen [`point`](/de/docs/Web/API/SVGPoint) in der Liste.
 
 ## Syntax
 
@@ -19,24 +19,24 @@ replaceItem(obj, index)
 ### Parameter
 
 - `obj`
-  - : Ein {{domxref("SVGPoint","Punkt")}}-Objekt, das die Koordinaten des einzufügenden Punktes enthält.
+  - : Ein [`point`](/de/docs/Web/API/SVGPoint) Objekt, das die Koordinaten des einzufügenden Punkts enthält.
 - `index`
   - : Der Index des zu ersetzenden Elements.
 
 ### Rückgabewert
 
-Das neue {{domxref("SVGPoint")}}-Objekt.
+Das neue [`SVGPoint`](/de/docs/Web/API/SVGPoint) Objekt.
 
 ### Ausnahmen
 
-- `NoModificationAllowedError` {{domxref("DOMException")}}
+- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Liste schreibgeschützt ist.
-- `IndexSizeError` {{domxref("DOMException")}}
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der übergebene Index größer ist als die Anzahl der Elemente in der Liste.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Ein neues {{domxref("SVGPoint")}} wird erstellt und ersetzt den Punkt an Index `1` (das zweite Element in der Liste).
+Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Ein neues [`SVGPoint`](/de/docs/Web/API/SVGPoint) wird erstellt und ersetzt dann den Punkt an Index `1` (das zweite Element in der Liste).
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -60,6 +60,6 @@ console.log(example.points.replaceItem(svgpoint, 1));
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -8,15 +8,18 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`fecPacketsDiscarded`** Eigenschaft
-des {{domxref("RTCInboundRtpStreamStats")}} Dictionaries ist ein numerischer Wert,
-der die Anzahl der verworfenen {{Glossary("RTP")}} Forward Error Correction (FEC) Pakete angibt.
+Die **`fecPacketsDiscarded`**-Eigenschaft
+des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs ist ein numerischer Wert,
+der die Anzahl der [RTP](/de/docs/Glossary/RTP)-Pakete der Vorwärtsfehlerkorrektur (FEC) angibt, die verworfen wurden.
 
 ## Wert
 
-Ein vorzeichenloser Ganzzahlwert, der angibt, wie viele FEC-Pakete empfangen wurden, deren Fehlerkorrektur-Payload verworfen wurde.
+Ein nicht-negativer ganzzahliger Wert, der angibt, wie viele FEC-Pakete empfangen wurden, deren
+Fehlerkorrektur-Nutzdaten verworfen wurden.
 
-Dies kann passieren, wenn alle von dem FEC-Paket abgedeckten Pakete bereits empfangen oder mit einem anderen FEC-Paket wiederhergestellt wurden, oder wenn das FEC-Paket außerhalb des Wiederherstellungsfensters angekommen ist und die verlorenen RTP-Pakete während der Wiedergabe bereits übersprungen wurden. Der Wert von `fecPacketsReceived` schließt diese verworfenen Pakete ein.
+Dies kann passieren, wenn alle von dem FEC-Paket abgedeckten Pakete bereits empfangen
+oder mithilfe eines anderen FEC-Pakets wiederhergestellt wurden oder wenn das FEC-Paket außerhalb des Wiederherstellungsfensters angekommen ist und die verlorenen RTP-Pakete als Ergebnis während der Wiedergabe bereits übersprungen wurden.
+Der Wert von `fecPacketsReceived` umfasst diese verworfenen Pakete.
 
 ## Spezifikationen
 

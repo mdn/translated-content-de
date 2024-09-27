@@ -8,19 +8,21 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`autoGainControl`**-Attribut des {{domxref("MediaTrackSupportedConstraints")}}-Wörterbuchs ist ein schreibgeschützter Boolean-Wert, der in dem Objekt vorhanden ist (und auf `true` gesetzt ist), welches von {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegeben wird, wenn und nur wenn der {{Glossary("user agent")}} die **`autoGainControl`**-Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, daher wird dieser Wert niemals `false` sein.
+Das **`autoGainControl`**-Attribut des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter Boolean-Wert, der in dem Objekt vorhanden ist (und auf `true` gesetzt wird), das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, wenn und nur wenn der [user agent](/de/docs/Glossary/user_agent) die **`autoGainControl`**-Einschränkung unterstützt.
+Wenn die Einschränkung nicht unterstützt wird, wird sie nicht in die Liste aufgenommen, daher wird dieser Wert niemals `false` sein.
 
 Sie können auf das Wörterbuch der unterstützten Einschränkungen zugreifen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
 
-Die `autoGainControl`-Einschränkung zeigt an, ob der Browser die Fähigkeit bietet, automatisch die Verstärkung (Lautstärke) auf Medientracks zu steuern; dies hängt offensichtlich davon ab, ob das jeweilige Gerät auch die automatische Verstärkungsregelung unterstützt; typischerweise ist es eine Funktion, die von Mikrofonen bereitgestellt wird.
+Die `autoGainControl`-Einschränkung gibt an, ob der Browser die Fähigkeit bietet, den Gain (Lautstärke) auf Medientracks automatisch zu steuern; dies hängt natürlich davon ab, ob das jeweilige Gerät ebenfalls automatische Verstärkungsregelung unterstützt; es ist typischerweise eine Funktion, die von Mikrofonen bereitgestellt wird.
 
 ## Wert
 
-Diese Eigenschaft ist im Wörterbuch vorhanden (und ihr Wert ist immer `true`), wenn der User Agent die `autoGainControl`-Einschränkung unterstützt. Wenn die Eigenschaft nicht vorhanden ist, fehlt diese Eigenschaft im Wörterbuch der unterstützten Einschränkungen, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, ihren Wert abzurufen.
+Diese Eigenschaft ist im Wörterbuch vorhanden (und ihr Wert ist immer `true`), wenn der user agent die `autoGainControl`-Einschränkung unterstützt.
+Wenn die Eigenschaft nicht vorhanden ist, fehlt diese Eigenschaft im unterstützten Einschränkungswörterbuch, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, ihren Wert abzurufen.
 
 ## Beispiele
 
-Dieses Beispiel zeigt an, ob Ihr Browser die `autoGainControl`-Einschränkung unterstützt.
+Dieses Beispiel zeigt, ob Ihr Browser die `autoGainControl`-Einschränkung unterstützt oder nicht.
 
 ```html hidden
 <div id="result"></div>
@@ -56,6 +58,6 @@ result.textContent = supported ? "Supported!" : "Not supported!";
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- {{domxref("MediaDevices.getSupportedConstraints()")}}
-- {{domxref("MediaTrackSupportedConstraints")}}
-- {{domxref("MediaStreamTrack")}}
+- [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
+- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
+- [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

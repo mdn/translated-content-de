@@ -8,26 +8,28 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.readyState`**-Eigenschaft gibt den Bereitschaftszustand des Mediums an.
+Die **`HTMLMediaElement.readyState`**-Eigenschaft gibt den Bereitschaftszustand des Medienelements an.
 
 ## Wert
 
-Eine Zahl, die eine der fünf möglichen Zustandskonstanten ist, die auf der {{domxref("HTMLMediaElement")}}-Schnittstelle definiert sind:
+Eine Zahl, die einem der fünf möglichen Statuskonstanten entspricht, die in der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Schnittstelle definiert sind:
 
 - `HTMLMediaElement.HAVE_NOTHING` (0)
-  - : Es liegen keine Informationen über die Medienressource vor.
+  - : Es sind keine Informationen über die Medienressource verfügbar.
 - `HTMLMediaElement.HAVE_METADATA` (1)
-  - : Es wurde genug von der Medienressource abgerufen, sodass die Metadaten-Attribute initialisiert sind. Eine Suche führt nicht mehr zu einer Ausnahme.
+  - : Genug von der Medienressource wurde abgerufen, damit die Metadaten-Attribute initialisiert sind. Suchen wird keine Ausnahme mehr auslösen.
 - `HTMLMediaElement.HAVE_CURRENT_DATA` (2)
-  - : Daten sind für die aktuelle Wiedergabeposition verfügbar, aber nicht genug, um tatsächlich mehr als einen Frame abzuspielen.
+  - : Daten für die aktuelle Wiedergabeposition sind verfügbar, aber nicht genügend, um mehr als einen Frame abzuspielen.
 - `HTMLMediaElement.HAVE_FUTURE_DATA` (3)
-  - : Daten für die aktuelle Wiedergabeposition sowie für mindestens ein wenig Zeit in die Zukunft sind verfügbar (mit anderen Worten, mindestens zwei Frames eines Videos, zum Beispiel).
+  - : Daten für die aktuelle Wiedergabeposition und für zumindest etwas Zeit in der Zukunft sind verfügbar (mit anderen Worten, beispielsweise mindestens zwei Videoframes).
 - `HTMLMediaElement.HAVE_ENOUGH_DATA` (4)
-  - : Genug Daten sind verfügbar—und die Downloadrate ist hoch genug—damit das Medium bis zum Ende ohne Unterbrechung abgespielt werden kann.
+  - : Genug Daten sind verfügbar—und die Downloadgeschwindigkeit ist hoch genug—dass das Medium ohne Unterbrechung bis zum Ende abgespielt werden kann.
 
 ## Beispiele
 
-Dieses Beispiel wird darauf warten, dass Audiodaten für das Element `example` geladen werden. Es wird dann überprüft, ob mindestens die aktuelle Wiedergabeposition geladen wurde. Falls dies der Fall ist, wird das Audio abgespielt.
+Dieses Beispiel wartet darauf, dass Audiodaten für das Element `example` geladen werden. Es
+überprüft dann, ob mindestens die aktuelle Wiedergabeposition geladen wurde. Wenn ja, wird das
+Audio abgespielt.
 
 ```html
 <audio id="example" preload="auto">
@@ -55,4 +57,4 @@ obj.addEventListener("loadeddata", () => {
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement")}}: Schnittstelle, die verwendet wird, um die `HTMLMediaElement.readyState`-Eigenschaft zu definieren
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die verwendet wird, um die `HTMLMediaElement.readyState`-Eigenschaft zu definieren

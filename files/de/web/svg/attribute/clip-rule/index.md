@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-« [Übersicht der SVG-Attribute](/de/docs/Web/SVG/Attribute)
+« [SVG-Attributreferenz Startseite](/de/docs/Web/SVG/Attribute)
 
-Das `clip-rule` Attribut gilt nur für Grafikelemente, die innerhalb eines {{ SVGElement("clipPath") }} Elements enthalten sind. Das `clip-rule` Attribut funktioniert im Wesentlichen wie das {{ SVGAttr("fill-rule") }} Attribut, mit dem Unterschied, dass es sich auf die Definitionen von {{ SVGElement("clipPath") }} bezieht.
+Das `clip-rule`-Attribut gilt nur für Grafikelemente, die in einem {{ SVGElement("clipPath") }}-Element enthalten sind. Das `clip-rule`-Attribut funktioniert im Wesentlichen wie das {{ SVGAttr("fill-rule") }}-Attribut, außer dass es für {{ SVGElement("clipPath") }}-Definitionen gilt.
 
-Der folgende Codeausschnitt bewirkt, dass eine evenodd-Clipping-Regel auf den Clipping-Pfad angewendet wird, da `clip-rule` am {{ SVGElement("path") }} Element spezifiziert ist, welches die Clipping-Form definiert:
+Der folgende Codeausschnitt sorgt dafür, dass eine ungerade-gerade Clipping-Regel auf den Clipping-Pfad angewendet wird, weil `clip-rule` auf dem {{ SVGElement("path") }}-Element angegeben ist, das die Clipping-Form definiert:
 
 ```html
 <g>
@@ -22,7 +22,7 @@ Der folgende Codeausschnitt bewirkt, dass eine evenodd-Clipping-Regel auf den Cl
 </g>
 ```
 
-Wohingegen der folgende Codeausschnitt nicht dazu führt, dass eine evenodd-Clipping-Regel angewendet wird, da `clip-rule` am referenzierenden Element und nicht am Objekt, das die Clipping-Form definiert, angegeben ist:
+während der folgende Codeausschnitt keine ungerade-gerade Clipping-Regel bewirkt, da `clip-rule` auf dem referenzierenden Element angegeben ist, nicht auf dem Objekt, das die Clipping-Form definiert:
 
 ```html
 <g>
@@ -33,9 +33,9 @@ Wohingegen der folgende Codeausschnitt nicht dazu führt, dass eine evenodd-Clip
 </g>
 ```
 
-Als Präsentationsattribut kann es auch direkt innerhalb eines CSS-Stylesheets als Eigenschaft verwendet werden.
+Als Präsentationsattribut kann es auch direkt in einem CSS-Stylesheet als Eigenschaft verwendet werden.
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -55,9 +55,9 @@ Als Präsentationsattribut kann es auch direkt innerhalb eines CSS-Stylesheets a
 </table>
 
 - nonzero
-  - : Siehe Beschreibung der {{ SVGAttr("fill-rule") }} Eigenschaft.
+  - : Siehe Beschreibung der {{ SVGAttr("fill-rule") }}-Eigenschaft.
 - evenodd
-  - : Siehe Beschreibung der {{ SVGAttr("fill-rule") }} Eigenschaft.
+  - : Siehe Beschreibung der {{ SVGAttr("fill-rule") }}-Eigenschaft.
 
 ## Beispiel
 
@@ -67,18 +67,18 @@ Als Präsentationsattribut kann es auch direkt innerhalb eines CSS-Stylesheets a
   viewBox="0 0 100 90"
   xmlns="http://www.w3.org/2000/svg"
   version="1.1">
-  <!-- Sternpfad definieren -->
+  <!-- Define star path -->
   <defs>
     <path d="M50,0 21,90 98,35 2,35 79,90z" id="star" />
   </defs>
 
-  <!-- Links: evenodd -->
+  <!-- Left: evenodd -->
   <clipPath id="emptyStar">
     <use href="#star" clip-rule="evenodd" />
   </clipPath>
   <rect clip-path="url(#emptyStar)" width="50" height="90" fill="blue" />
 
-  <!-- Rechts: nonzero -->
+  <!-- Right: nonzero -->
   <clipPath id="filledStar">
     <use href="#star" clip-rule="nonzero" />
   </clipPath>
@@ -86,11 +86,11 @@ Als Präsentationsattribut kann es auch direkt innerhalb eines CSS-Stylesheets a
 </svg>
 ```
 
-{{ EmbedLiveSample('Beispiel', '100%', '110') }}
+{{ EmbedLiveSample('Example', '100%', '110') }}
 
 ## Elemente
 
-Die folgenden Elemente können das `clip-rule` Attribut verwenden, jedoch nur, wenn sie sich innerhalb eines {{ SVGElement("clipPath") }} Elements befinden.
+Die folgenden Elemente können das `clip-rule`-Attribut verwenden, jedoch nur, wenn sie sich in einem {{ SVGElement("clipPath") }}-Element befinden.
 
 - [Grafikelemente](/de/docs/Web/SVG/Element#graphics_elements)
 
@@ -98,11 +98,11 @@ Die folgenden Elemente können das `clip-rule` Attribut verwenden, jedoch nur, w
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - {{ SVGElement("clipPath") }}
-- CSS {{cssxref("clip-rule")}} Eigenschaft
+- CSS {{cssxref("clip-rule")}}-Eigenschaft

@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut `lengthAdjust` steuert, wie der Text in die durch das {{SVGAttr("textLength")}}-Attribut definierte Länge gestreckt wird.
+Das `lengthAdjust`-Attribut steuert, wie der Text in die durch das {{SVGAttr("textLength")}}-Attribut definierte Länge gestreckt wird.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 

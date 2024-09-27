@@ -8,19 +8,20 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`webkitRelativePath`** der {{domxref("File")}}-Schnittstelle
-enthält einen String, der den Dateipfad relativ zu dem vom Benutzer im
-{{HTMLElement("input")}} Element ausgewählten Verzeichnis angibt, wenn dessen
+Die schreibgeschützte Eigenschaft **`webkitRelativePath`** des [`File`](/de/docs/Web/API/File)-Interfaces
+enthält einen String, der den relativen Pfad der Datei zum
+vom Benutzer in einem {{HTMLElement("input")}}-Element ausgewählten Verzeichnis angibt, bei dem das
 [`webkitdirectory`](/de/docs/Web/HTML/Element/input#webkitdirectory)-Attribut gesetzt ist.
 
 ## Wert
 
-Ein String, der den Pfad der Datei relativ zu dem übergeordneten
-Verzeichnis enthält, das der Benutzer ausgewählt hat.
+Ein String, der den Pfad der Datei relativ zum vom Benutzer ausgewählten übergeordneten
+Verzeichnis enthält.
 
 ## Beispiel
 
-In diesem Beispiel wird ein Verzeichnis-Auswahlfeld präsentiert, das dem Benutzer ermöglicht, ein oder mehrere Verzeichnisse auszuwählen. Wenn das {{domxref("HTMLElement/change_event", "change")}}-Ereignis auftritt, wird eine Liste aller Dateien innerhalb der ausgewählten Verzeichnishierarchien erstellt und angezeigt.
+In diesem Beispiel wird ein Verzeichnisauswahlfeld angezeigt, das es dem Benutzer ermöglicht, ein oder mehrere
+Verzeichnisse auszuwählen. Wenn das [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis auftritt, wird eine Liste aller Dateien erstellt und angezeigt, die in den ausgewählten Verzeichnishierarchien enthalten sind.
 
 ### HTML
 
@@ -66,5 +67,5 @@ filepicker.addEventListener("change", (event) => {
 ## Siehe auch
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
-- {{domxref("HTMLInputElement.webkitEntries")}}
-- {{domxref("HTMLInputElement.webkitdirectory")}}
+- [`HTMLInputElement.webkitEntries`](/de/docs/Web/API/HTMLInputElement/webkitEntries)
+- [`HTMLInputElement.webkitdirectory`](/de/docs/Web/API/HTMLInputElement/webkitdirectory)

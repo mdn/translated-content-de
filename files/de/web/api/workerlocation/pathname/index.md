@@ -1,5 +1,5 @@
 ---
-title: "WorkerLocation: Eigenschaft pathname"
+title: "WorkerLocation: pathname-Eigenschaft"
 short-title: pathname
 slug: Web/API/WorkerLocation/pathname
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`pathname`**-Eigenschaft eines {{domxref("WorkerLocation")}}-Objekts gibt den {{domxref("URL.pathname", "pathname")}}-Teil des Standorts des Workers zurück.
+Die **`pathname`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) Objekts gibt den [`pathname`](/de/docs/Web/API/URL/pathname) Teil des Standorts des Workers zurück.
 
 ## Wert
 
@@ -17,8 +17,8 @@ Ein String.
 ## Beispiele
 
 ```js
-// In einem Web-Worker, auf der Seite https://developer.mozilla.org/de/docs/Web
-const result = location.pathname; // Gibt '/de/docs/Web' zurück
+// In a Web worker, on the page https://developer.mozilla.org/en-US/docs/Web
+const result = location.pathname; // Returns '/en-US/docs/Web'
 ```
 
 ## Spezifikationen
@@ -31,4 +31,4 @@ const result = location.pathname; // Gibt '/de/docs/Web' zurück
 
 ## Siehe auch
 
-- Das {{domxref("WorkerLocation")}}-Interface, zu dem es gehört.
+- Die [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) Schnittstelle, zu der sie gehört.

@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Zertifiziert** bedeutet, dass eine Anwendung, ein Inhalt oder eine Datenübertragung erfolgreich von Fachleuten mit Expertise auf dem entsprechenden Gebiet evaluiert wurde, wodurch Vollständigkeit, Sicherheit und Vertrauenswürdigkeit angezeigt werden.
+**Zertifiziert** bedeutet, dass eine Anwendung, ein Inhalt oder eine Datenübertragung erfolgreich von Fachleuten mit Expertise im relevanten Bereich evaluiert wurde, was auf Vollständigkeit, Sicherheit und Vertrauenswürdigkeit hinweist.
 
-Für Details zur Zertifizierung in {{glossary("Cryptography")}}, lesen Sie bitte {{glossary("Digital Certificate")}}.
+Für Details zur Zertifizierung in der [Kryptografie](/de/docs/Glossary/Cryptography) lesen Sie bitte das [Digitale Zertifikat](/de/docs/Glossary/Digital_Certificate).
 
 ## Siehe auch
 

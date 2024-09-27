@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das **`textLength`**-Attribut, verfügbar für SVG-{{SVGElement("text")}}- und {{SVGElement("tspan")}}-Elemente, ermöglicht es Ihnen, die Breite des Bereichs zu spezifizieren, in dem der Text dargestellt werden soll. Der {{glossary("user agent")}} stellt sicher, dass der Text nicht über diese Entfernung hinausreicht, indem die Methode oder Methoden verwendet werden, die durch das {{SVGAttr("lengthAdjust")}}-Attribut angegeben sind. Standardmäßig wird nur der Abstand zwischen den Zeichen angepasst, aber auch die Glyphengröße kann angepasst werden, wenn Sie `lengthAdjust` ändern.
+Das **`textLength`**-Attribut, verfügbar auf SVG-Elementen wie {{SVGElement("text")}} und {{SVGElement("tspan")}}, ermöglicht es Ihnen, die Breite des Bereichs anzugeben, in dem der Text dargestellt werden soll. Der [User Agent](/de/docs/Glossary/user_agent) stellt sicher, dass der Text diesen Abstand nicht überschreitet, indem er die durch das {{SVGAttr("lengthAdjust")}}-Attribut festgelegten Methoden verwendet. Standardmäßig wird nur der Abstand zwischen Zeichen angepasst, aber die Glyphengröße kann ebenfalls angepasst werden, wenn Sie `lengthAdjust` ändern.
 
-Durch die Verwendung von `textLength` können Sie sicherstellen, dass Ihr SVG-Text unabhängig von Bedingungen wie dem Fehlschlagen des Ladens von Web-Schriftarten (oder wenn sie noch nicht geladen sind) mit derselben Breite angezeigt wird.
+Mit `textLength` können Sie sicherstellen, dass Ihr SVG-Text unabhängig von Bedingungen wie dem Nichtladen von Webfonts (oder noch nicht geladenen) mit derselben Breite angezeigt wird.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
@@ -37,7 +37,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "100")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -60,13 +60,13 @@ svg {
 </table>
 
 - `<length-percentage>`
-  - : Dieser Wert gibt die Breite des Bereichs an, den der Text als absolute Länge oder Prozentwert einnehmen soll.
+  - : Dieser Wert gibt die Breite des Bereichs an, auf den der Text angepasst werden soll, als absolute Länge oder Prozentsatz.
 - `<number>`
   - : Ein numerischer Wert beschreibt eine Länge, die sich auf die Einheiten des aktuellen Koordinatensystems bezieht.
 
 ## Interaktives Beispiel
 
-Lassen Sie uns ein einfaches Beispiel erstellen, das Text präsentiert, den Sie mit einem {{HTMLElement("input")}}-Element des Typs [`"range"`](/de/docs/Web/HTML/Element/input/range) ändern können.
+Lassen Sie uns ein einfaches Beispiel erstellen, das Text präsentiert, den Sie mithilfe eines {{HTMLElement("input")}}-Elements des Typs [`"range"`](/de/docs/Web/HTML/Element/input/range) in der Größe ändern können.
 
 ### CSS
 
@@ -81,7 +81,7 @@ Lassen Sie uns ein einfaches Beispiel erstellen, das Text präsentiert, den Sie 
 
 ### SVG
 
-Beginnen wir mit dem SVG. Es ist ziemlich einfach, mit einem 1000-mal-300-Pixel-Bereich, der in eine 10 Zentimeter mal 3 Zentimeter Box abgebildet ist.
+Beginnen wir mit dem SVG. Es ist ziemlich einfach, mit einem 1000-mal-300 Pixel großen Bereich, der in ein 10 Zentimeter mal 3 Zentimeter großes Feld abgebildet wird.
 
 ```html
 <svg
@@ -110,11 +110,11 @@ Beginnen wir mit dem SVG. Es ist ziemlich einfach, mit einem 1000-mal-300-Pixel-
 </svg>
 ```
 
-Zuerst wird ein {{SVGElement("rect")}}-Element verwendet, um ein Rechteck zu erstellen und zu zeichnen, das den Text umschließt. Dann wird {{SVGElement("text")}} verwendet, um das Textelement selbst zu erstellen, mit einer {{SVGAttr("id")}} von `"hello"`.
+Zuerst wird ein {{SVGElement("rect")}}-Element verwendet, um ein Rechteck zu erstellen und zu umranden, das den Text enthält. Dann wird {{SVGElement("text")}} verwendet, um das Textelement selbst zu erstellen, mit einer {{SVGAttr("id")}} von `"hello"`.
 
 ### HTML
 
-Das HTML ist ebenfalls einfach, mit nur zwei angezeigten Elementen, die in einem {{HTMLElement("div")}} gruppiert sind:
+Das HTML ist ebenfalls einfach, mit nur zwei angezeigten Elementen, die in einem {{HTMLElement("div")}} enthalten sind:
 
 ```html
 <div class="controls">
@@ -123,11 +123,11 @@ Das HTML ist ebenfalls einfach, mit nur zwei angezeigten Elementen, die in einem
 </div>
 ```
 
-Das {{HTMLElement("input")}}-Element vom Typ `"range"` wird verwendet, um die Schieberegler-Steuerung zu erstellen, die der Benutzer manipulieren wird, um die Breite des Textes zu ändern. Ein {{HTMLElement("span")}}-Element mit der ID `"widthDisplay"` wird bereitgestellt, um den aktuellen Breitenwert anzuzeigen.
+Das {{HTMLElement("input")}}-Element vom Typ `"range"` wird verwendet, um das Steuerungselement zu erstellen, das der Benutzer zur Änderung der Textbreite manipuliert. Ein {{HTMLElement("span")}}-Element mit der ID `"widthDisplay"` wird bereitgestellt, um den aktuellen Breitenwert anzuzeigen.
 
 ### JavaScript
 
-Werfen wir schließlich einen Blick auf den JavaScript-Code. Es beginnt damit, Referenzen auf die Elemente abzulegen, auf die es zugreifen muss, indem {{domxref("Document.getElementById()")}} verwendet wird:
+Schließlich werfen wir einen Blick auf den JavaScript-Code. Er beginnt mit dem Speichern von Referenzen auf die Elemente, die er zugreifen muss, indem [`Document.getElementById()`](/de/docs/Web/API/Document/getElementById) verwendet wird:
 
 ```js
 const widthSlider = document.getElementById("widthSlider");
@@ -152,15 +152,15 @@ widthSlider.addEventListener(
 widthSlider.dispatchEvent(new Event("input"));
 ```
 
-Nachdem die Element-Referenzen geholt wurden, wird ein {{domxref("EventTarget.addEventListener", "Ereignis-Listener", "", 1)}} eingerichtet, indem `addEventListener()` am Schieberegler aufgerufen wird, um alle auftretenden {{domxref("Element/input_event", "input")}}-Ereignisse zu empfangen. Diese Ereignisse werden jedes Mal gesendet, wenn sich der Wert des Schiebereglers ändert, selbst wenn der Benutzer ihn nicht aufgehört hat zu bewegen, sodass wir die Textbreite reaktionsschnell anpassen können.
+Nachdem die Elementreferenzen abgerufen wurden, wird ein {{domxref("EventTarget.addEventListener", "Ereignislistener", "", 1)}} durch Aufrufen von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) am Schieberegler-Steuerelement eingerichtet, um alle [`input`](/de/docs/Web/API/Element/input_event)-Ereignisse zu empfangen, die auftreten. Diese Ereignisse werden jedes Mal gesendet, wenn sich der Wert des Schiebereglers ändert, auch wenn der Benutzer ihn noch nicht losgelassen hat, sodass wir die Textbreite reaktiv anpassen können.
 
-Wenn ein `"input"`-Ereignis auftritt, rufen wir `newValueSpecifiedUnits()` auf, um den Wert von `textLength` auf den neuen Wert des Schiebereglers zu setzen, wobei der `SVGLength`-Schnittstelle der Einheitstyp `SVG_LENGTHTYPE_PX` verwendet wird, um anzuzeigen, dass der Wert Pixel darstellt. Beachten Sie, dass wir in `textLength` gehen müssen, um seine `baseVal`-Eigenschaft zu erhalten; `textLength` wird als ein {{domxref("SVGLength")}}-Objekt gespeichert, daher können wir es nicht wie eine einfache Zahl behandeln.
+Wenn ein `"input"`-Ereignis eintritt, rufen wir `newValueSpecifiedUnits()` auf, um den Wert von `textLength` auf den neuen Wert des Schiebereglers festzulegen, wobei wir den `SVGLength`-Schnittstellenwert `SVG_LENGTHTYPE_PX` verwenden, um anzugeben, dass der Wert Pixel repräsentiert. Beachten Sie, dass wir in `textLength` eintauchen müssen, um die Eigenschaft `baseVal` zu erhalten; `textLength` wird als [`SVGLength`](/de/docs/Web/API/SVGLength)-Objekt gespeichert, sodass wir es nicht wie eine einfache Zahl behandeln können.
 
-Nach dem Aktualisieren der Textbreite werden die Inhalte des `widthDisplay`-Kastens ebenfalls mit dem neuen Wert aktualisiert, und wir sind fertig.
+Nach der Aktualisierung der Textbreite wird der Inhalt des `widthDisplay`-Felds ebenfalls mit dem neuen Wert aktualisiert und wir sind fertig.
 
 ### Ergebnis
 
-So sieht das Beispiel aus. Versuchen Sie, den Schieberegler zu verschieben, um ein Gefühl dafür zu bekommen, was er tut.
+So sieht das Beispiel aus. Versuchen Sie, den Schieberegler hin und her zu bewegen, um ein Gefühl dafür zu bekommen, was er macht.
 
 {{EmbedLiveSample("Interactive_example", 650, 160)}}
 
@@ -175,5 +175,5 @@ So sieht das Beispiel aus. Versuchen Sie, den Schieberegler zu verschieben, um e
 ## Siehe auch
 
 - SVG-Tutorial: [Texte](/de/docs/Web/SVG/Tutorial/Texts)
-- {{domxref("SVGAnimatedLength")}} und {{domxref("SVGLength")}}
+- [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) und [`SVGLength`](/de/docs/Web/API/SVGLength)
 - {{SVGElement("text")}}

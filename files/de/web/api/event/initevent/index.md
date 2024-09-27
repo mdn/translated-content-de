@@ -1,5 +1,5 @@
 ---
-title: "Event: initEvent() Methode"
+title: "Event: Methode initEvent()"
 short-title: initEvent()
 slug: Web/API/Event/initEvent
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}{{deprecated_header}}{{AvailableInWorkers}}
 
-Die **`Event.initEvent()`** Methode wird verwendet, um den Wert eines mit {{domxref("Document.createEvent()")}} erstellten {{domxref("event")}} zu initialisieren.
+Die Methode **`Event.initEvent()`** wird verwendet, um den Wert eines mit [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) erstellten [`Event`](/de/docs/Web/API/Event) zu initialisieren.
 
-Ereignisse, die auf diese Weise initialisiert werden, müssen mit der Methode {{domxref("Document.createEvent()")}} erstellt worden sein. Diese Methode muss aufgerufen werden, um das Ereignis zu setzen, bevor es mit {{domxref("EventTarget.dispatchEvent()")}} ausgelöst wird. Einmal ausgelöst, hat sie keine Wirkung mehr.
+Ereignisse, die auf diese Weise initialisiert werden, müssen mit der Methode [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) erstellt worden sein. Diese Methode muss aufgerufen werden, um das Ereignis festzulegen, bevor es mit [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgesendet wird. Sobald es ausgesendet ist, tut es nichts mehr.
 
 > **Note:** _Verwenden Sie diese Methode nicht mehr, da sie veraltet ist._
-> Stattdessen sollten Sie spezifische Ereignis-Konstruktoren verwenden, wie etwa {{domxref("Event.Event", "Event()")}}.
-> Die Seite [Erstellen und Auslösen von Events](/de/docs/Web/Events/Creating_and_triggering_events) bietet weitere Informationen, wie diese zu verwenden sind.
+> Stattdessen sollten Sie spezifische Ereignis-Konstruktoren wie [`Event()`](/de/docs/Web/API/Event/Event) verwenden.
+> Die Seite [Ereignisse erstellen und auslösen](/de/docs/Web/Events/Creating_and_triggering_events) bietet mehr Informationen über den Weg, diese zu nutzen.
 
 ## Syntax
 
@@ -25,11 +25,12 @@ event.initEvent(type, bubbles, cancelable)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Ereignisses definiert.
+  - : Ein Zeichenfolgenwert, der den Typ des Ereignisses definiert.
 - `bubbles`
-  - : Ein boolescher Wert, der entscheidet, ob das Ereignis in der Ereigniskette nach oben steigen soll oder nicht. Einmal gesetzt, gibt die schreibgeschützte Eigenschaft {{domxref("Event.bubbles")}} ihren Wert zurück.
+  - : Ein boolescher Wert, der bestimmt, ob das Ereignis durch die
+    Ereigniskette nach oben weitergegeben werden soll oder nicht. Einmal festgelegt, gibt die schreibgeschützte Eigenschaft [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) ihren Wert wieder.
 - `cancelable`
-  - : Ein boolescher Wert, der definiert, ob das Ereignis abgebrochen werden kann. Einmal gesetzt, gibt die schreibgeschützte Eigenschaft {{domxref("Event.cancelable")}} ihren Wert zurück.
+  - : Ein boolescher Wert, der festlegt, ob das Ereignis abgebrochen werden kann. Einmal festgelegt, gibt die schreibgeschützte Eigenschaft [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) ihren Wert wieder.
 
 ### Rückgabewert
 
@@ -38,18 +39,18 @@ Keiner.
 ## Beispiel
 
 ```js
-// Erstellen Sie das Ereignis.
+// Create the event.
 const event = document.createEvent("Event");
 
-// Erstellen Sie ein Klick-Ereignis, das nach oben steigt und
-// nicht abgebrochen werden kann
+// Create a click event that bubbles up and
+// cannot be canceled
 event.initEvent("click", true, false);
 
-// Hören Sie auf das Ereignis.
+// Listen for the event.
 elem.addEventListener(
   "click",
   (e) => {
-    // e.target entspricht elem
+    // e.target matches elem
   },
   false,
 );
@@ -67,5 +68,5 @@ elem.dispatchEvent(event);
 
 ## Siehe auch
 
-- Der Konstruktor, der anstelle dieser veralteten Methode verwendet werden sollte:
-  {{domxref("Event.Event", "Event()")}}. Um spezifischere Ereignis-Interfaces als `Event` zu erstellen, verwenden Sie den für das gewünschte Ereignis-Interface definierten Konstruktor.
+- Den Konstruktor, den Sie anstelle dieser veralteten Methode verwenden sollten:
+  [`Event()`](/de/docs/Web/API/Event/Event). Um spezifischere Ereignisschnittstellen als `Event` zu erstellen, verwenden Sie den für die gewünschte Ereignisschnittstelle definierten Konstruktor.

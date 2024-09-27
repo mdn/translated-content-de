@@ -8,16 +8,25 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`transceiver`**-Eigenschaft der WebRTC-API-Schnittstelle {{domxref("RTCTrackEvent")}} gibt den mit dem Ereignis verknüpften {{domxref("RTCRtpTransceiver")}} an, der mit dem {{domxref("RTCTrackEvent.track", "Track")}} verbunden ist.
+Die WebRTC API-Schnittstelle [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent)'s
+schreibgeschützte **`transceiver`** Eigenschaft gibt den
+[`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) an, der mit dem Event's
+[`track`](/de/docs/Web/API/RTCTrackEvent/track) verbunden ist.
 
-Der Transceiver paart den {{domxref("RTCTrackEvent.receiver", "Empfänger")}} des Tracks mit einem {{domxref("RTCRtpSender")}}.
+Der Transceiver koppelt den [`receiver`](/de/docs/Web/API/RTCTrackEvent/receiver) der Spur mit einem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender).
 
 ## Wert
 
-Der {{domxref("RTCRtpTransceiver")}}, der den `receiver` mit einem Sender und anderen Eigenschaften paart, welche einen einzelnen bidirektionalen {{Glossary("RTP", "SRTP")}}-Stream für die Nutzung durch den mit dem `RTCTrackEvent` verbundenen {{domxref("RTCTrackEvent.track", "Track")}} etabliert.
+Der [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver), der den `receiver` mit einem
+Sender und anderen Eigenschaften kombiniert, um einen einzelnen bidirektionalen [SRTP](/de/docs/Glossary/RTP)
+Stream für die Verwendung durch die [`track`](/de/docs/Web/API/RTCTrackEvent/track), die mit dem
+`RTCTrackEvent` verbunden ist, zu erstellen.
 
 > [!NOTE]
-> Der {{domxref("RTCRtpReceiver")}}, auf den dieser verwiesen wird, ist immer derselbe wie die {{domxref("RTCTrackEvent")}}-Eigenschaft des {{domxref("RTCTrackEvent.receiver", "Empfängers")}}.
+> Der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), auf den durch die
+> Eigenschaft `receiver` dieses `RTCRtpReceiver`'s [`receiver`](/de/docs/Web/API/RTCRtpTransceiver/receiver)
+> verwiesen wird, ist immer derselbe wie die [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent)'s
+> [`receiver`](/de/docs/Web/API/RTCTrackEvent/receiver) Eigenschaft.
 
 ## Spezifikationen
 

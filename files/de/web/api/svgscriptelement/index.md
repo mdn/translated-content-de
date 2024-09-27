@@ -11,18 +11,18 @@ Die **`SVGScriptElement`**-Schnittstelle entspricht dem SVG-{{SVGElement("script
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("SVGScriptElement.href")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, das dem {{SVGAttr("href")}}- oder {{SVGAttr("xlink:href")}}-{{deprecated_inline}}-Attribut des angegebenen {{SVGElement("script")}}-Elements entspricht.
-- {{domxref("SVGScriptElement.type")}} {{ReadOnlyInline}}
-  - : Ein String, der dem {{SVGAttr("type")}}-Attribut des angegebenen {{SVGElement("script")}}-Elements entspricht. Ein {{domxref("DOMException")}} wird mit dem Code `NO_MODIFICATION_ALLOWED_ERR` ausgelöst, wenn versucht wird, den Wert eines schreibgeschützten Attributs zu ändern.
-- {{domxref("SVGScriptElement.crossOrigin")}} {{ReadOnlyInline}}
-  - : Ein String, der dem {{SVGAttr("crossorigin")}}-Attribut des angegebenen {{SVGElement("script")}}-Elements entspricht.
+- [`SVGScriptElement.href`](/de/docs/Web/API/SVGScriptElement/href) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}} Attribut des angegebenen {{SVGElement("script")}}-Elements entspricht.
+- [`SVGScriptElement.type`](/de/docs/Web/API/SVGScriptElement/type) {{ReadOnlyInline}}
+  - : Ein String, der dem {{SVGAttr("type")}} Attribut des angegebenen {{SVGElement("script")}}-Elements entspricht. Ein [`DOMException`](/de/docs/Web/API/DOMException) wird mit dem Code `NO_MODIFICATION_ALLOWED_ERR` ausgelöst, wenn versucht wird, den Wert eines schreibgeschützten Attributs zu ändern.
+- [`SVGScriptElement.crossOrigin`](/de/docs/Web/API/SVGScriptElement/crossOrigin) {{ReadOnlyInline}}
+  - : Ein String, der dem {{SVGAttr("crossorigin")}} Attribut des angegebenen {{SVGElement("script")}}-Elements entspricht.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, sondern erbt Methoden von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

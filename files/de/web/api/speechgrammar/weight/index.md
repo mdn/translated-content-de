@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{SeeCompatTable}}
 
-Die optionale **`weight`**-Eigenschaft der
-{{domxref("SpeechGrammar")}}-Schnittstelle setzt und gibt das Gewicht des
+Die optionale **`weight`**-Eigenschaft des
+[`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar) Interfaces setzt und gibt das Gewicht des
 `SpeechGrammar`-Objekts zurück.
 
 ## Wert
 
-Ein Fließkommawert, der das Gewicht der Grammatik angibt, im Bereich von 0,0–1,0.
+Ein `float`, der das Gewicht der Grammatik darstellt, im Bereich von 0,0–1,0.
 
 ## Beispiele
 
@@ -26,8 +26,8 @@ const speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
 recognition.grammars = speechRecognitionList;
 
-console.log(speechRecognitionList[0].src); // sollte den gleichen Wert zurückgeben wie der Inhalt der grammar-Variable
-console.log(speechRecognitionList[0].weight); // sollte 1 zurückgeben - gleich wie das Gewicht, das in addFromString festgelegt wurde.
+console.log(speechRecognitionList[0].src); // should return the same as the contents of the grammar variable
+console.log(speechRecognitionList[0].weight); // should return 1 - the same as the weight set in addFromString.
 ```
 
 ## Spezifikationen

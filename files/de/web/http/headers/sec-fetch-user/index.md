@@ -7,23 +7,23 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Sec-Fetch-User`** {{Glossary("Fetch metadata request header", "fetch metadata request header")}} wird nur für Anfragen gesendet, die durch eine Benutzeraktion initiiert werden, und sein Wert ist immer `?1`.
+Der **`Sec-Fetch-User`** [Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_metadata_request_header) wird nur für Anfragen gesendet, die durch eine Benutzeraktivierung initiiert werden, und sein Wert wird immer `?1` sein.
 
-Ein Server kann diesen Header verwenden, um festzustellen, ob eine Navigationsanfrage von einem Dokument, einem `<iframe>` usw. vom Benutzer ausgelöst wurde.
+Ein Server kann diesen Header verwenden, um zu identifizieren, ob eine Navigationsanfrage von einem Dokument, iframe usw. vom Benutzer initiiert wurde.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>{{Glossary("Fetch Metadata Request Header")}}</td>
+      <th scope="row">Header-Typ</th>
+      <td>[Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_Metadata_Request_Header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja (Präfix <code>Sec-</code>)</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted request header")}}
+        [CORS-gesafelisteter Anforderungsheader](/de/docs/Glossary/CORS-safelisted_request_header)
       </th>
       <td>nein</td>
     </tr>
@@ -38,11 +38,11 @@ Sec-Fetch-User: ?1
 
 ## Direktiven
 
-Der Wert ist immer `?1`. Wenn eine Anfrage nicht durch eine Benutzeraktion ausgelöst wird, verlangt die Spezifikation, dass Browser den Header vollständig weglassen.
+Der Wert wird immer `?1` sein. Wenn eine Anfrage durch etwas anderes als eine Benutzeraktivierung ausgelöst wird, verlangt die Spezifikation von Browsern, den Header vollständig auszulassen.
 
 ## Beispiele
 
-Wenn ein Benutzer auf einen Link auf einer Seite zu einer anderen Seite im selben Ursprung klickt, hätte die resultierende Anfrage die folgenden Header:
+Wenn ein Benutzer auf einen Seitenlink zu einer anderen Seite auf dem gleichen Ursprung klickt, hätte die resultierende Anfrage die folgenden Header:
 
 ```http
 Sec-Fetch-Dest: document
@@ -67,5 +67,5 @@ Sec-Fetch-User: ?1
   - {{HTTPHeader("Sec-Fetch-Mode")}}
   - {{HTTPHeader("Sec-Fetch-Site")}}
 
-- [Schützen Sie Ihre Ressourcen vor Webangriffen mit Fetch Metadata](https://web.dev/articles/fetch-metadata) (web.dev)
-- [Fetch Metadata Request Headers playground](https://secmetadata.appspot.com/) (secmetadata.appspot.com)
+- [Schützen Sie Ihre Ressourcen vor Web-Angriffen mit Fetch-Metadaten](https://web.dev/articles/fetch-metadata) (web.dev)
+- [Fetch Metadata Request Headers Playground](https://secmetadata.appspot.com/) (secmetadata.appspot.com)

@@ -36,11 +36,11 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", '100%', 200)}}
+{{EmbedLiveSample("Beispiel", '100%', 200)}}
 
 ## ellipse
 
-Für {{SVGElement('ellipse')}} definiert `rx` den x-Radius der Form. Bei einem Wert kleiner oder gleich null wird die Ellipse überhaupt nicht gezeichnet.
+Für {{SVGElement('ellipse')}} definiert `rx` den x-Radius der Form. Mit einem Wert kleiner oder gleich Null wird die Ellipse überhaupt nicht gezeichnet.
 
 <table class="properties">
   <tbody>
@@ -73,17 +73,17 @@ Für {{SVGElement('ellipse')}} definiert `rx` den x-Radius der Form. Bei einem W
 </table>
 
 > [!NOTE]
-> Der x-Radius der `<ellipse>` kann auch mit der {{cssxref("rx")}} _Geometrie-Eigenschaft_ definiert werden. Wenn er in CSS gesetzt wird, überschreibt der Wert der `rx`-Eigenschaft den Wert des `rx`-Attributs.
+> Der x-Radius der `<ellipse>` kann auch mit der {{cssxref("rx")}} _Geometrie-Eigenschaft_ definiert werden. Wenn in CSS gesetzt, überschreibt der Wert der `rx` Eigenschaft den Wert des `rx` Attributs.
 
 ## rect
 
-Für {{SVGElement('rect')}} definiert `rx` den x-Achsen-Radius der Ellipse, die verwendet wird, um die Ecken des Rechtecks abzurunden.
+Für {{SVGElement('rect')}} definiert `rx` den x-Achsenradius der Ellipse, die zum Abrunden der Ecken des Rechtecks verwendet wird.
 
-Die Art und Weise, wie der Wert des `rx`-Attributs interpretiert wird, hängt sowohl vom {{SVGAttr("ry")}}-Attribut als auch von der Breite des Rechtecks ab:
+Die Art und Weise, wie der Wert des `rx` Attributs interpretiert wird, hängt sowohl vom {{SVGAttr("ry")}} Attribut als auch von der Breite des Rechtecks ab:
 
-- Wenn ein ordnungsgemäß definierter Wert für `rx`, aber nicht für {{SVGAttr("ry")}} (oder umgekehrt) angegeben ist, betrachtet der Browser den fehlenden Wert als gleich dem definierten.
-- Wenn weder `rx` noch {{SVGAttr("ry")}} einen ordnungsgemäß definierten Wert haben, zeichnet der Browser ein Rechteck mit rechtwinkligen Ecken.
-- Wenn `rx` größer ist als die Hälfte der Breite des Rechtecks, betrachtet der Browser den Wert für `rx` als die Hälfte der Breite des Rechtecks.
+- Wenn ein ordnungsgemäß angegebener Wert für `rx` bereitgestellt wird, nicht jedoch für {{SVGAttr("ry")}} (oder umgekehrt), wird der Browser den fehlenden Wert als gleich dem definierten Wert betrachten.
+- Wenn weder `rx` noch {{SVGAttr("ry")}} einen ordnungsgemäß angegebenen Wert haben, zeichnet der Browser ein Rechteck mit rechteckigen Ecken.
+- Wenn `rx` größer als die Hälfte der Breite des Rechtecks ist, betrachtet der Browser den Wert für `rx` als die Hälfte der Breite des Rechtecks.
 
 <table class="properties">
   <tbody>
@@ -116,7 +116,7 @@ Die Art und Weise, wie der Wert des `rx`-Attributs interpretiert wird, hängt so
 </table>
 
 > [!NOTE]
-> Die horizontale Krümmung der Ecken des `<rect>` kann auch mit der {{cssxref("rx")}} _Geometrie-Eigenschaft_ definiert werden. Wenn er in CSS gesetzt wird, überschreibt der Wert der `rx`-Eigenschaft den Wert des `rx`-Attributs.
+> Die horizontale Krümmung der Ecken der `<rect>` kann auch mit der {{cssxref("rx")}} _Geometrie-Eigenschaft_ definiert werden. Wenn in CSS gesetzt, überschreibt der Wert der `rx` Eigenschaft den Wert des `rx` Attributs.
 
 ## Spezifikationen
 

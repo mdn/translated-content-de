@@ -9,7 +9,7 @@ l10n:
 
 Verschiebt einen oder mehrere Tabs an eine neue Position im selben Fenster oder in ein anderes Fenster.
 
-Sie können Tabs nur zu und von Fenstern verschieben, deren {{WebExtAPIRef('windows.WindowType', 'WindowType')}} `"normal"` ist.
+Sie können Tabs nur zu und von Fenstern bewegen, deren {{WebExtAPIRef('windows.WindowType', 'WindowType')}} `"normal"` ist.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -17,32 +17,32 @@ Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/R
 
 ```js-nolint
 let moving = browser.tabs.move(
-  tabIds,              // integer oder Integer-Array
-  moveProperties       // Objekt
+  tabIds,              // integer or integer array
+  moveProperties       // object
 )
 ```
 
 ### Parameter
 
 - `tabIds`
-  - : `integer` oder `array` von `integer`. ID des zu verschiebenden {{WebExtAPIRef('tabs.Tab', 'Tab')}}, oder ein Array von Tab-IDs.
+  - : `integer` oder `array` von `integer`. ID des zu verschiebenden {{WebExtAPIRef('tabs.Tab', 'tab')}}, oder ein Array von Tab-IDs.
 - `moveProperties`
 
-  - : `object`. Ein Objekt, das angibt, wohin die Tabs verschoben werden sollen.
+  - : `object`. Ein Objekt, das angibt, wohin der/die Tab(s) verschoben werden soll(en).
 
     - `windowId` {{optional_inline}}
-      - : `integer`. Die ID des Fensters, in das der/die Tab(s) verschoben werden sollen. Wenn Sie diesen weglassen, wird jeder Tab in `tabIds` an die Position `index` im aktuellen Fenster verschoben. Wenn Sie diesen angeben und `tabIds` enthält mehr als einen Tab, wird der erste Tab in `tabIds` an die Position `index` verschoben, und die anderen Tabs folgen ihm in der in `tabIds` angegebenen Reihenfolge.
+      - : `integer`. Die ID des Fensters, in das Sie den/die Tab(s) verschieben möchten. Wenn Sie dies weglassen, wird jeder Tab in `tabIds` an `index` im aktuellen Fenster verschoben. Wenn Sie dies angeben und `tabIds` mehr als einen Tab enthält, wird der erste Tab in `tabIds` an `index` verschoben, und die anderen Tabs folgen ihm in der in `tabIds` angegebenen Reihenfolge.
     - `index`
 
       - : `integer`. Die Indexposition, an die der Tab verschoben werden soll, beginnend bei 0. Ein Wert von -1 platziert den Tab am Ende des Fensters.
 
-        Wenn Sie einen Wert kleiner als -1 übergeben, wirft die Funktion einen Fehler.
+        Wenn Sie einen Wert kleiner als -1 übergeben, wird die Funktion einen Fehler auslösen.
 
-        Beachten Sie, dass Sie keine fixierten Tabs an eine Position nach nicht fixierten Tabs in einem Fenster verschieben können oder umgekehrt. Zum Beispiel, wenn Sie ein oder mehrere fixierte Tabs im Ziel-Fenster haben und `tabIds` sich auf einen nicht fixierten Tab bezieht, können Sie hier keine 0 übergeben. Wenn Sie dies versuchen, schlägt die Funktion stillschweigend fehl (sie wirft keinen Fehler).
+        Beachten Sie, dass Sie keine angehefteten Tabs an eine Position verschieben können, die nach nicht angehefteten Tabs in einem Fenster liegt, oder nicht angeheftete Tabs vor angeheftete Tabs verschieben können. Wenn Sie beispielsweise ein oder mehrere angeheftete Tabs im Ziel-Fenster haben und `tabIds` auf einen nicht angehefteten Tab verweist, können Sie hier nicht 0 übergeben. Wenn Sie versuchen, dies zu tun, wird die Funktion leise fehlschlagen (sie wird keinen Fehler auslösen).
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `{{WebExtAPIRef('tabs.Tab')}}`-Objekt oder einem `array` von `{{WebExtAPIRef('tabs.Tab')}}`-Objekten erfüllt wird, das Details über die verschobenen Tabs enthält. Wenn keine Tabs verschoben wurden (zum Beispiel, weil Sie versucht haben, einen nicht fixierten Tab vor einen fixierten Tab zu bewegen), ist dies ein leeres Array. Bei einem Fehler wird das Versprechen mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `{{WebExtAPIRef('tabs.Tab')}}` Objekt oder einem `array` von `{{WebExtAPIRef('tabs.Tab')}}` Objekten erfüllt wird, die Details über die verschobenen Tabs enthalten. Wenn keine Tabs verschoben wurden (z.B. weil Sie versucht haben, einen nicht angehefteten Tab vor einen angehefteten Tab zu verschieben), wird dies ein leeres Array sein. Sollte ein Fehler auftreten, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -71,7 +71,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Verschieben Sie alle Tabs, die über HTTP oder HTTPS von \*.mozilla.org bedient werden, ans Ende ihres Fensters:
+Verschieben Sie alle Tabs, die über HTTP oder HTTPS von \*.mozilla.org bereitgestellt werden, an das Ende ihres Fensters:
 
 ```js
 function onMoved(tab) {
@@ -94,7 +94,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Verschieben Sie alle Tabs, die über HTTP oder HTTPS von \*.mozilla.org bedient werden, in das Fenster, das den ersten solchen Tab hostet, beginnend bei Position 0:
+Verschieben Sie alle Tabs, die über HTTP oder HTTPS von \*.mozilla.org bereitgestellt werden, in das Fenster, das den ersten solchen Tab beherbergt, beginnend bei Position 0:
 
 ```js
 function onMoved(tab) {
@@ -128,4 +128,34 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-move) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-move) API. Diese Dokumentation ist von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+
+<!--
+// Copyright 2015 The Chromium Authors. All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->

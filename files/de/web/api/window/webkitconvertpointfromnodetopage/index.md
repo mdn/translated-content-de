@@ -1,5 +1,5 @@
 ---
-title: "Fenster: webkitConvertPointFromNodeToPage()-Methode"
+title: "Window: webkitConvertPointFromNodeToPage() Methode"
 short-title: webkitConvertPointFromNodeToPage()
 slug: Web/API/Window/webkitConvertPointFromNodeToPage
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef}}{{Non-standard_header}}{{Deprecated_Header}}
 
-Angenommen, ein {{domxref("WebKitPoint")}} wird in einem bestimmten DOM-{{domxref("Node")}}'s Koordinatensystem angegeben. Die **`webkitConvertPointFromNodeToPage()`**-Methode des {{domxref("Window")}} gibt einen `Point` zurück, der die gleiche Position im Koordinatensystem der Seite angibt. Diese Methode ist nicht standardisiert und _sollte nicht verwendet werden_.
+Die [`Window`](/de/docs/Web/API/Window)-Methode **`webkitConvertPointFromNodeToPage()`** gibt einen `Point` zurück, der dieselbe Position im Koordinatensystem der Seite angibt, ausgehend von einem im Koordinatensystem eines bestimmten DOM-[`Node`](/de/docs/Web/API/Node) angegebenen [`WebKitPoint`](/de/docs/Web/API/WebKitPoint). Diese Methode ist nicht standardisiert und _sollte nicht verwendet werden_.
 
 > [!WARNING]
-> Bitte überprüfen Sie den Abschnitt [Browserkompatibilität](#browserkompatibilität), bevor Sie diese Methode verwenden, da sie nicht weit unterstützt wird (ebenso wenig wie das {{domxref("WebKitPoint")}}-Objekt, das sie verwendet).
+> Bitte überprüfen Sie den Abschnitt [Browser-Kompatibilität](#browser-kompatibilität), bevor Sie diese Methode verwenden, da sie nicht weit verbreitet unterstützt wird (ebenso wenig wie das [`WebKitPoint`](/de/docs/Web/API/WebKitPoint)-Objekt, das sie verwendet).
 
 ## Syntax
 
@@ -22,23 +22,23 @@ webkitConvertPointFromNodeToPage(node, nodePoint)
 ### Parameter
 
 - `node`
-  - : Der {{domxref("Node")}}, in dessen Koordinatensystem der von `nodePoint` angegebene `Point` beschrieben wird.
+  - : Der [`Node`](/de/docs/Web/API/Node), in dessen Koordinatensystem der durch `nodePoint` angegebene `Point` beschrieben wird.
 - `nodePoint`
-  - : Ein {{domxref("WebKitPoint")}}-Objekt, das einen Punkt im Koordinatensystem von `node` beschreibt; dieser Punkt wird in das Koordinatensystem der Seite konvertiert.
+  - : Ein [`WebKitPoint`](/de/docs/Web/API/WebKitPoint)-Objekt, das einen Punkt im Koordinatensystem von `node` beschreibt; dieser Punkt wird in das Koordinatensystem der Seite umgewandelt.
 
 ### Rückgabewert
 
-Ein {{domxref("WebKitPoint")}}-Objekt, das einen Punkt im Koordinatensystem der Seite angibt.
+Ein [`WebKitPoint`](/de/docs/Web/API/WebKitPoint)-Objekt, das einen Punkt im Koordinatensystem der Seite angibt.
 
 ## Spezifikationen
 
-Diese Methode wurde im [veralteten Arbeitsentwurf des CSS 2D Transforms Module Level 3 vom 20. März 2009](https://www.w3.org/TR/2009/WD-css3-2d-transforms-20090320/) spezifiziert. Sie ist nicht im aktuellen Arbeitsentwurf des CSS Transforms Module Level 1 enthalten.
+Diese Methode war in [dem eingestellten Arbeitsentwurf vom 20. März 2009 des CSS 2D Transforms Module Level 3](https://www.w3.org/TR/2009/WD-css3-2d-transforms-20090320/) spezifiziert. Sie ist im aktuellen Arbeitsentwurf des CSS Transforms Module Level 1 nicht enthalten.
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Window.webkitConvertPointFromPageToNode")}}
-- Mozilla Implementierungsfehler: [Firefox Bug 850806](https://bugzil.la/850806)
+- [`Window.webkitConvertPointFromPageToNode`](/de/docs/Web/API/Window/webkitConvertPointFromPageToNode)
+- Mozilla Implementierungsfehler: [Firefox Fehler 850806](https://bugzil.la/850806)

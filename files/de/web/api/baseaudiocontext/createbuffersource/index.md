@@ -1,5 +1,5 @@
 ---
-title: "BaseAudioContext: createBufferSource()-Methode"
+title: "BaseAudioContext: Methode createBufferSource()"
 short-title: createBufferSource()
 slug: Web/API/BaseAudioContext/createBufferSource
 l10n:
@@ -8,10 +8,11 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `createBufferSource()`-Methode der {{ domxref("BaseAudioContext") }}-Schnittstelle wird verwendet, um ein neues {{ domxref("AudioBufferSourceNode") }} zu erstellen, das genutzt werden kann, um Audiodaten abzuspielen, die in einem {{ domxref("AudioBuffer") }}-Objekt enthalten sind. {{domxref("AudioBuffer")}}s werden mit {{domxref("BaseAudioContext.createBuffer")}} erstellt oder durch {{domxref("BaseAudioContext.decodeAudioData")}} zurückgegeben, wenn ein Audiotrack erfolgreich dekodiert wurde.
+Die Methode `createBufferSource()` der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle wird verwendet, um ein neues [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) zu erstellen, das zum Abspielen von Audiodaten verwendet werden kann, die in einem [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Objekt enthalten sind. [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) werden mit [`BaseAudioContext.createBuffer`](/de/docs/Web/API/BaseAudioContext/createBuffer) erstellt oder von [`BaseAudioContext.decodeAudioData`](/de/docs/Web/API/BaseAudioContext/decodeAudioData) zurückgegeben, wenn eine Audiospur erfolgreich dekodiert wird.
 
 > [!NOTE]
-> Der {{domxref("AudioBufferSourceNode.AudioBufferSourceNode", "AudioBufferSourceNode()")}}-Konstruktor ist die empfohlene Methode, um ein {{domxref("AudioBufferSourceNode")}} zu erstellen; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`AudioBufferSourceNode()`](/de/docs/Web/API/AudioBufferSourceNode/AudioBufferSourceNode)-Konstruktor ist der empfohlene Weg, um ein [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) zu erstellen; siehe
+> [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -25,14 +26,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("AudioBufferSourceNode")}}.
+Ein [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode).
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen zwei Sekunden langen Puffer, füllen ihn mit Weißem Rauschen und spielen ihn dann über ein {{ domxref("AudioBufferSourceNode") }} ab. Die Kommentare sollten klar erklären, was vor sich geht.
+In diesem Beispiel erstellen wir einen zwei Sekunden langen Buffer, füllen ihn mit weißem Rauschen und spielen ihn dann über ein [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) ab. Die Kommentare sollten klar erklären, was passiert.
 
 > [!NOTE]
-> Sie können den [Code auch live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer/), oder [den Quelltext ansehen](https://github.com/mdn/webaudio-examples/blob/main/audio-buffer/index.html).
+> Sie können den Code auch [live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer/) oder [den Quellcode anzeigen](https://github.com/mdn/webaudio-examples/blob/main/audio-buffer/index.html).
 
 ```js
 const audioCtx = new AudioContext();
@@ -44,8 +45,8 @@ pre.textContent = myScript.textContent;
 
 // Stereo
 const channels = 2;
-// Erstellen eines leeren zweisekündigen Stereo-Puffers mit der
-// Abtastrate des AudioContext
+// Create an empty two second stereo buffer at the
+// sample rate of the AudioContext
 const frameCount = audioCtx.sampleRate * 2.0;
 
 const myArrayBuffer = audioCtx.createBuffer(
@@ -55,27 +56,27 @@ const myArrayBuffer = audioCtx.createBuffer(
 );
 
 button.onclick = () => {
-  // Den Puffer mit Weißem Rauschen füllen;
-  // einfach zufällige Werte zwischen -1,0 und 1,0
+  // Fill the buffer with white noise;
+  //just random values between -1.0 and 1.0
   for (let channel = 0; channel < channels; channel++) {
-    // Dies gibt uns den tatsächlichen ArrayBuffer, der die Daten enthält
+    // This gives us the actual ArrayBuffer that contains the data
     const nowBuffering = myArrayBuffer.getChannelData(channel);
     for (let i = 0; i < frameCount; i++) {
-      // Math.random() liegt in [0; 1.0]
-      // Audio muss in [-1.0; 1.0] liegen
+      // Math.random() is in [0; 1.0]
+      // audio needs to be in [-1.0; 1.0]
       nowBuffering[i] = Math.random() * 2 - 1;
     }
   }
 
-  // Ein AudioBufferSourceNode abrufen.
-  // Dies ist der AudioNode, den wir verwenden, um ein AudioBuffer abzuspielen
+  // Get an AudioBufferSourceNode.
+  // This is the AudioNode to use when we want to play an AudioBuffer
   const source = audioCtx.createBufferSource();
-  // Den Puffer im AudioBufferSourceNode setzen
+  // set the buffer in the AudioBufferSourceNode
   source.buffer = myArrayBuffer;
-  // Das AudioBufferSourceNode mit dem
-  // Ziel verbinden, damit wir den Ton hören können
+  // connect the AudioBufferSourceNode to the
+  // destination so we can hear the sound
   source.connect(audioCtx.destination);
-  // Den Quellcode abspielen
+  // start the source playing
   source.start();
 };
 ```

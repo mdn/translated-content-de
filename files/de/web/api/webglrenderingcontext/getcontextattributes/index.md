@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode getContextAttributes()"
+title: "WebGLRenderingContext: getContextAttributes() Methode"
 short-title: getContextAttributes()
 slug: Web/API/WebGLRenderingContext/getContextAttributes
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode **`WebGLRenderingContext.getContextAttributes()`**
-gibt ein `WebGLContextAttributes`-Objekt zurück, das die tatsächlichen Kontextparameter enthält. Sie gibt möglicherweise [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück, falls der Kontext verloren gegangen ist.
+Die **`WebGLRenderingContext.getContextAttributes()`**-Methode gibt ein `WebGLContextAttributes`-Objekt zurück, das die tatsächlichen Kontextparameter enthält. Kann [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurückgeben, wenn der Kontext verloren gegangen ist.
 
 ## Syntax
 
@@ -23,17 +22,17 @@ Keine.
 
 ### Rückgabewert
 
-Ein `WebGLContextAttributes`-Objekt, das die tatsächlichen Kontextparameter enthält, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), falls der Kontext verloren gegangen ist.
+Ein `WebGLContextAttributes`-Objekt, das die tatsächlichen Kontextparameter enthält, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn der Kontext verloren gegangen ist.
 
 ## Beispiele
 
-Bei dem folgenden {{HTMLElement("canvas")}}-Element
+Angenommen, es gibt dieses {{HTMLElement("canvas")}}-Element
 
 ```html
 <canvas id="canvas"></canvas>
 ```
 
-und dem folgenden WebGL-Kontext
+und diesen WebGL-Kontext
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -41,7 +40,7 @@ const gl = canvas.getContext("webgl");
 gl.getContextAttributes();
 ```
 
-gibt die Methode `getContextAttributes` ein Objekt zurück, das die auf diesem Kontext gesetzten Attribute beschreibt. Beispielsweise:
+die `getContextAttributes`-Methode gibt ein Objekt zurück, das die auf diesem Kontext festgelegten Attribute beschreibt, zum Beispiel:
 
 ```js
 {
@@ -57,15 +56,13 @@ gibt die Methode `getContextAttributes` ein Objekt zurück, das die auf diesem K
 }
 ```
 
-Die Kontextattribute können beim Erstellen des Kontexts mit der
-{{domxref("HTMLCanvasElement.getContext()")}}-Methode festgelegt werden:
+Die Kontextattribute können bei der Erstellung des Kontexts mittels der [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext)-Methode festgelegt werden:
 
 ```js
 canvas.getContext("webgl", { antialias: false, depth: false });
 ```
 
-Siehe {{domxref("HTMLCanvasElement.getContext()", "getContext()")}} für weitere Informationen
-über die einzelnen Attribute.
+Weitere Informationen zu den einzelnen Attributen finden Sie unter [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext).
 
 ## Spezifikationen
 
@@ -77,5 +74,5 @@ Siehe {{domxref("HTMLCanvasElement.getContext()", "getContext()")}} für weitere
 
 ## Siehe auch
 
-- {{domxref("HTMLCanvasElement.getContext()")}}
-- {{domxref("CanvasRenderingContext2D.getContextAttributes()")}}
+- [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext)
+- [`CanvasRenderingContext2D.getContextAttributes()`](/de/docs/Web/API/CanvasRenderingContext2D/getContextAttributes)

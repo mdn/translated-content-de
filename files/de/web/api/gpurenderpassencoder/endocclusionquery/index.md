@@ -3,12 +3,12 @@ title: "GPURenderPassEncoder: endOcclusionQuery()-Methode"
 short-title: endOcclusionQuery()
 slug: Web/API/GPURenderPassEncoder/endOcclusionQuery
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`endOcclusionQuery()`**-Methode der {{domxref("GPURenderPassEncoder")}}-Schnittstelle beendet eine aktive Occlusion Query, die zuvor mit {{domxref("GPURenderPassEncoder.beginOcclusionQuery", "beginOcclusionQuery()")}} gestartet wurde.
+Die **`endOcclusionQuery()`**-Methode der Schnittstelle [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) beendet eine aktive Okklusionsabfrage, die zuvor mit [`beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery) gestartet wurde.
 
 ## Syntax
 
@@ -26,22 +26,22 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`endOcclusionQuery()`** aufgerufen wird. Andernfalls wird ein {{domxref("GPUValidationError")}} erzeugt und die {{domxref("GPURenderPassEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`endOcclusionQuery()`** aufgerufen wird. Andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Eine Occlusion Query ist für diesen Render-Pass aktiv (d. h. durch einen vorherigen `beginOcclusionQuery()`-Aufruf).
+- Eine Okklusionsabfrage ist für diesen Render-Pass aktiv (d. h. über einen vorherigen `beginOcclusionQuery()`-Aufruf).
 
 ## Beispiele
 
 ```js
 // ...
 
-// Erstellen eines Query Sets, um die Occlusion Queries zu halten
+// Create a query set to hold the occlusion queries
 const querySet = device.createQuerySet({
   type: "occlusion",
   count: 32,
 });
 
-// Renderpass-Deskriptorobjekt, einschließlich des querySet
+// Render pass descriptor object, including the querySet
 const renderPassDescriptor = {
   colorAttachments: [
     {
@@ -54,18 +54,18 @@ const renderPassDescriptor = {
   occlusionQuerySet: querySet,
 };
 
-// Beginnen des Render-Passes
+// Begin the render pass
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 
-// Beginnen einer Occlusion Query bei Index 0
+// Begin an occlusion query at index 0
 passEncoder.beginOcclusionQuery(0);
 
-// Ausführen einiger Rendering-Befehle
+// Run some rendering commands
 passEncoder.setPipeline(renderPipeline);
 passEncoder.setVertexBuffer(0, vertexBuffer);
 passEncoder.draw(3);
 
-// Beenden der Occlusion Query
+// End the occlusion query
 passEncoder.endOcclusionQuery();
 
 // ...

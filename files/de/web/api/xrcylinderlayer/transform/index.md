@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`transform`**-Eigenschaft des {{domxref("XRCylinderLayer")}}-Interfaces repräsentiert den Versatz und die Orientierung relativ zum {{domxref("XRCylinderLayer.space", "space")}} der Schicht.
+Die **`transform`**-Eigenschaft des [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer)-Interfaces repräsentiert den Versatz und die Orientierung relativ zum [`space`](/de/docs/Web/API/XRCylinderLayer/space) des Layers.
 
 ## Wert
 
-Ein {{domxref("XRRigidTransform")}}.
+Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform).
 
 ## Beispiele
 
-### Positionierung der Zylinderschicht
+### Festlegen der Position des Zylinder-Layers
 
-Dieser Beispielcode positioniert die Schicht zwei Meter vom Ursprung des `xrReferenceSpace` entfernt.
+Dieses Beispielcode positioniert den Layer zwei Meter entfernt vom Ursprung des `xrReferenceSpace`.
 
 ```js
 const cylinderLayer = xrGlBinding.createCylinderLayer({
@@ -40,5 +40,5 @@ cylinderLayer.transform = new XRRigidTransform({ z: -2 });
 
 ## Siehe auch
 
-- {{domxref("XRRigidTransform")}}
-- {{domxref("XRCylinderLayer.space")}}
+- [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)
+- [`XRCylinderLayer.space`](/de/docs/Web/API/XRCylinderLayer/space)

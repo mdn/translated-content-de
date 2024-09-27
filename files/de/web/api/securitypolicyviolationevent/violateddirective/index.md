@@ -1,20 +1,20 @@
 ---
-title: "SecurityPolicyViolationEvent: violatedDirective-Eigenschaft"
+title: "SecurityPolicyViolationEvent: violatedDirective Eigenschaft"
 short-title: violatedDirective
 slug: Web/API/SecurityPolicyViolationEvent/violatedDirective
 l10n:
-  sourceCommit: a5c1400a03d86162ea5c4342a93c2d96df470630
+  sourceCommit: 701ac4440432ac215713b6b7f274291ca643c49a
 ---
 
-{{APIRef("Reporting API")}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`violatedDirective`**-Eigenschaft der {{domxref("SecurityPolicyViolationEvent")}}-Schnittstelle ist ein String, der die verletzte [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Direktive darstellt.
+Die **`violatedDirective`** schreibgeschützte Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent) Interfaces ist ein String, der die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) Direktive darstellt, die verletzt wurde.
 
-Dies ist ein historisches Alias von {{domxref("SecurityPolicyViolationEvent.effectiveDirective")}} und hat denselben Wert.
+Dies ist ein historisches Alias von [`SecurityPolicyViolationEvent.effectiveDirective`](/de/docs/Web/API/SecurityPolicyViolationEvent/effectiveDirective) und hat denselben Wert.
 
 ## Wert
 
-Ein String, der die verletzte [`Content-Security-Policy`-Direktive](/de/docs/Web/HTTP/Headers/Content-Security-Policy#directives) darstellt.
+Ein String, der die [Content-Security-Policy Direktive](/de/docs/Web/HTTP/Headers/Content-Security-Policy#directives) darstellt, die verletzt wurde.
 
 ## Beispiele
 

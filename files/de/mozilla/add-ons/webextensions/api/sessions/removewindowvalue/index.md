@@ -23,13 +23,13 @@ let removing = browser.sessions.removeWindowValue(
 ### Parameter
 
 - `windowId`
-  - : `integer`. ID des Fensters, dessen Daten Sie zu entfernen versuchen. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
+  - : `integer`. ID des Fensters, dessen Daten Sie entfernen möchten. Ein Fehler wird ausgegeben, wenn die ID ungültig ist.
 - `key`
-  - : `string`. Schlüssel, der den zu entfernenden Wert identifiziert. Dieser muss mit dem zuvor übergebenen Schlüssel bei {{WebExtAPIRef("sessions.setWindowValue")}} übereinstimmen.
+  - : `string`. Schlüssel, der den bestimmten Wert identifiziert, der entfernt werden soll. Dieser muss mit dem zuvor in {{WebExtAPIRef("sessions.setWindowValue")}} angegebenen Schlüssel übereinstimmen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird, wenn das Element erfolgreich entfernt wurde. Wenn der Aufruf fehlschlägt (zum Beispiel, weil die Fenster-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird, wenn das Element erfolgreich entfernt wurde. Wenn der Aufruf fehlschlägt (z. B. weil die Fenster-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -37,7 +37,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Dieser Code fügt zwei Kontextmenüeinträge hinzu: einer speichert einen mit dem aktuellen Fenster verknüpften Wert, der andere entfernt ihn:
+Dieser Code fügt zwei Kontextmenüeinträge hinzu: Einer speichert einen Wert, der mit dem aktuellen Fenster verbunden ist, der andere entfernt ihn:
 
 ```js
 async function setOnActiveWindow() {

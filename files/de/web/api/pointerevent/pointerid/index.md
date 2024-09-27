@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("Pointer Events") }}
 
-Die **`pointerId`**-Eigenschaft (nur lesbar) der
-{{domxref("PointerEvent")}}-Schnittstelle ist ein Bezeichner, der einem bestimmten Pointer-Event zugewiesen wird. Der Bezeichner ist eindeutig und unterscheidet sich von den Bezeichnern aller anderen aktiven Pointer-Events. Da der Wert möglicherweise zufällig generiert wird, ist er nicht garantiert, eine besondere Bedeutung zu vermitteln.
+Die schreibgeschützte Eigenschaft **`pointerId`** des
+[`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interfaces ist ein Bezeichner, der einem bestimmten Zeigerereignis zugewiesen wird. Der Bezeichner ist eindeutig und unterscheidet sich von den Bezeichnern aller anderen aktiven Zeigerereignisse. Da der Wert zufällig generiert werden kann, ist nicht garantiert, dass er eine bestimmte Bedeutung übermittelt.
 
 > [!NOTE]
-> Die `pointerId`-Eigenschaft ist in verschiedenen Browsern inkonsistent implementiert und bleibt nicht immer für jeden Tintenstrich oder jede Interaktion mit dem Bildschirm erhalten. Um mehrere Zeigegeräte auf einem Bildschirm gleichzeitig zuverlässig zu identifizieren, siehe {{domxref("PointerEvent.persistentDeviceId")}}.
+> Die `pointerId`-Eigenschaft wird in den verschiedenen Browsern uneinheitlich implementiert und bleibt nicht immer für jeden Tintenstrich oder jede Interaktion mit dem Bildschirm bestehen. Für eine zuverlässige Methode, um mehrere Zeigegeräte gleichzeitig auf einem Bildschirm zu identifizieren, siehe [`PointerEvent.persistentDeviceId`](/de/docs/Web/API/PointerEvent/persistentDeviceId).
 
 ## Wert
 
@@ -20,17 +20,16 @@ Eine Zahl.
 
 ## Beispiele
 
-Der folgende Code-Snippet vergleicht eine zuvor gespeicherte `pointerId` mit der
-des gerade ausgelösten {{domxref("Element/pointerdown_event", "pointerdown")}}-Events.
+Der folgende Code-Schnipsel vergleicht eine zuvor gespeicherte `pointerId` mit derjenigen des soeben ausgelösten [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event) Ereignisses.
 
 ```js
-let id; // Nehmen wir an, dass dies eine zuvor gespeicherte pointerId ist
+let id; // Let's assume that this is a previously saved pointerId
 
 target.addEventListener(
   "pointerdown",
   (event) => {
-    // Vergleichen Sie die zwischengespeicherte ID des vorherigen Events
-    // mit der aktuellen Event-ID und bearbeiten Sie dementsprechend
+    // Compare previous event's ID that was cached
+    // to current event's ID and handle accordingly
     if (id === event.pointerId) process_event(event);
   },
   false,

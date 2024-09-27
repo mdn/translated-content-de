@@ -7,41 +7,41 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das Attribut `aria-readonly` gibt an, dass das Element nicht bearbeitbar, aber dennoch bedienbar ist.
+Das `aria-readonly`-Attribut gibt an, dass das Element nicht bearbeitbar, jedoch ansonsten bedienbar ist.
 
 ## Beschreibung
 
-Wenn Sie anzeigen möchten, dass ein interaktives Element funktioniert, aber nicht bearbeitbar ist, setzen Sie `aria-readonly="true"`. Dies zeigt dem Benutzer an, dass ein interaktives Element, das normalerweise fokussierbar und kopierbar wäre, sich in einem schreibgeschützten (nicht deaktivierten) Zustand befindet.
+Wenn Sie anzeigen möchten, dass ein interaktives Element funktioniert, aber nicht bearbeitbar ist, setzen Sie `aria-readonly="true"`. Dies zeigt dem Benutzer an, dass ein normalerweise fokussierbares und kopierbares interaktives Element in einen Nur-Lese-Zustand (nicht deaktiviert) versetzt wurde.
 
-Wenn `aria-readonly` auf `true` gesetzt ist, bedeutet dies, dass der Benutzer den Wert des Widgets lesen, aber nicht ändern kann. Schreibgeschützte Elemente sind für den Benutzer weiterhin relevant, daher sollten Sie den Benutzer nicht daran hindern, zu dem Element oder seinen fokussierbaren Nachkommen zu navigieren oder den Wert zu kopieren.
+Wenn `aria-readonly` auf `true` gesetzt ist, bedeutet dies, dass der Benutzer den Wert des Widgets lesen, aber nicht festlegen kann. Nur-Lese-Elemente sind weiterhin für den Benutzer relevant, daher sollten Sie den Benutzer nicht daran hindern, zum Element oder seinen fokussierbaren Nachfahren zu navigieren oder den Wert zu kopieren.
 
 Beispiele umfassen:
 
 - Formularelemente, die nicht geändert werden sollten.
-- Zeilen- und Spaltenüberschriften in einer Tabelle.
+- Zeilen- und Spaltenüberschriften in einer Tabellenkalkulation.
 - Der Gesamtwert in einem Warenkorb.
 
-Wenn der nicht änderbare Wert nicht fokussierbar sein sollte, verwenden Sie stattdessen [`aria-disabled`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-disabled).
+Wenn der nicht änderbare Wert keinen Fokus erhalten soll, verwenden Sie stattdessen [`aria-disabled`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-disabled).
 
 > [!NOTE]
-> Beim Verwenden semantischer HTML-Formularelemente müssen Sie, wenn Sie das Attribut `readonly` setzen, `aria-readonly="true"` nicht zusätzlich einfügen.
+> Wenn Sie semantische HTML-Formularsteuerungen verwenden und das `readonly`-Attribut festlegen, müssen Sie `aria-readonly="true"` nicht einbeziehen.
 
 > [!NOTE]
-> Der Wert von `<input type="checkbox">` kann nicht bearbeitet werden, wodurch `readonly` nicht relevant ist. Wenn jedoch Checkboxen mit `role="checkbox"` erstellt werden, wird das Attribut `aria-readonly` unterstützt.
+> Der Wert von `<input type="checkbox">` kann nicht bearbeitet werden, was `readonly` irrelevant macht. Wenn jedoch Kontrollkästchen mit `role="checkbox"` erstellt werden, wird das `aria-readonly`-Attribut _unterstützt_.
 
 ## Werte
 
 - `true`
-  - : Das Element ist schreibgeschützt.
+  - : Das Element ist nur lesbar.
 - `false` (Standard)
-  - : Das Element ist nicht schreibgeschützt.
+  - : Das Element ist nicht nur lesbar.
 
 ## Zugehörige Schnittstellen
 
-- {{domxref("Element.ariaReadOnly")}}
-  - : Die [`ariaReadOnly`](/de/docs/Web/API/Element/ariaReadOnly)-Eigenschaft, Teil der {{domxref("Element")}}-Schnittstelle, spiegelt den Wert des `aria-readonly`-Attributs wider.
-- {{domxref("ElementInternals.ariaReadOnly")}}
-  - : Die [`ariaReadOnly`](/de/docs/Web/API/ElementInternals/ariaReadOnly)-Eigenschaft, Teil der {{domxref("ElementInternals")}}-Schnittstelle, spiegelt den Wert des `aria-readonly`-Attributs wider.
+- [`Element.ariaReadOnly`](/de/docs/Web/API/Element/ariaReadOnly)
+  - : Die [`ariaReadOnly`](/de/docs/Web/API/Element/ariaReadOnly)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-readonly`-Attributs wider.
+- [`ElementInternals.ariaReadOnly`](/de/docs/Web/API/ElementInternals/ariaReadOnly)
+  - : Die [`ariaReadOnly`](/de/docs/Web/API/ElementInternals/ariaReadOnly)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-readonly`-Attributs wider.
 
 ## Zugehörige Rollen
 
@@ -57,7 +57,7 @@ Verwendet in Rollen:
 - [`spinbutton`](/de/docs/Web/Accessibility/ARIA/Roles/spinbutton_role)
 - [`textbox`](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role)
 
-Vererbt in Rollen:
+Geerbt in Rollen:
 
 - [`columnheader`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role)
 - [`rowheader`](/de/docs/Web/Accessibility/ARIA/Roles/rowheader_role)
@@ -71,5 +71,5 @@ Vererbt in Rollen:
 
 ## Siehe auch
 
-- [HTML `readonly` Attribut](/de/docs/Web/HTML/Attributes/readonly)
+- [HTML-Attribut `readonly`](/de/docs/Web/HTML/Attributes/readonly)
 - [`aria-disabled`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-disabled)

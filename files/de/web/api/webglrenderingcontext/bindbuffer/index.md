@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.bindBuffer()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) bindet einen gegebenen {{domxref("WebGLBuffer")}} an ein Ziel.
+Die **`WebGLRenderingContext.bindBuffer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) bindet einen gegebenen
+[`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) an ein Ziel.
 
 ## Syntax
 
@@ -20,30 +21,30 @@ bindBuffer(target, buffer)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) spezifiziert. Mögliche Werte:
 
     - `gl.ARRAY_BUFFER`
-      - : Puffer, der Vertex-Attribute enthält, wie z.B. Vertex-Koordinaten, Texturkoordinatendaten oder Vertex-Farbwerte.
+      - : Buffer, der Vertex-Attribute enthält, wie z.B. Vertex-Koordinaten, Texturkoordinatendaten oder Vertex-Farbdaten.
     - `gl.ELEMENT_ARRAY_BUFFER`
-      - : Puffer, der für Element-Indizes verwendet wird.
+      - : Buffer, der für Element-Indizes verwendet wird.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}} sind zusätzlich folgende Werte verfügbar:
+    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontextes", "", 1)}} sind zusätzlich folgende Werte verfügbar:
 
     - `gl.COPY_READ_BUFFER`
-      - : Puffer zum Kopieren von einem Pufferobjekt zu einem anderen.
+      - : Buffer zum Kopieren von einem Buffer-Objekt zu einem anderen.
     - `gl.COPY_WRITE_BUFFER`
-      - : Puffer zum Kopieren von einem Pufferobjekt zu einem anderen.
+      - : Buffer zum Kopieren von einem Buffer-Objekt zu einem anderen.
     - `gl.TRANSFORM_FEEDBACK_BUFFER`
-      - : Puffer für Transform-Feedback-Operationen.
+      - : Buffer für Transform-Feedback-Operationen.
     - `gl.UNIFORM_BUFFER`
-      - : Puffer, der zur Speicherung von Uniform-Blöcken verwendet wird.
+      - : Buffer, der für die Speicherung von Uniform-Blöcken verwendet wird.
     - `gl.PIXEL_PACK_BUFFER`
-      - : Puffer für Pixel-Übertragungsoperationen.
+      - : Buffer, der für Pixelübertragungsoperationen verwendet wird.
     - `gl.PIXEL_UNPACK_BUFFER`
-      - : Puffer für Pixel-Übertragungsoperationen.
+      - : Buffer, der für Pixelübertragungsoperationen verwendet wird.
 
 - `buffer`
-  - : Ein zu bindender {{domxref("WebGLBuffer")}}.
+  - : Ein [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), der gebunden werden soll.
 
 ### Rückgabewert
 
@@ -51,13 +52,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Es kann nur ein Ziel an einen gegebenen {{domxref("WebGLBuffer")}} gebunden werden. Ein Versuch, den Puffer an ein anderes Ziel zu binden, wirft einen `INVALID_OPERATION`-Fehler und die aktuelle Pufferbindung bleibt unverändert.
+Es kann nur ein Ziel an einen gegebenen [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) gebunden werden. Ein Versuch, den Buffer an ein anderes Ziel zu binden, löst einen `INVALID_OPERATION`-Fehler aus und die aktuelle Buffer-Bindung bleibt unverändert.
 
-Ein {{domxref("WebGLBuffer")}}, der mit {{domxref("WebGLRenderingContext.deleteBuffer()", "deleteBuffer")}} zur Löschung markiert wurde, kann nicht (erneut) gebunden werden. Ein Versuch, dies zu tun, erzeugt einen `INVALID_OPERATION`-Fehler, und die aktuelle Bindung bleibt unberührt.
+Ein [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), der zur Löschung mit
+[`deleteBuffer`](/de/docs/Web/API/WebGLRenderingContext/deleteBuffer) markiert wurde, kann nicht (erneut) gebunden werden. Ein Versuch dies zu tun, erzeugt einen `INVALID_OPERATION`-Fehler, und die aktuelle Bindung bleibt unberührt.
 
 ## Beispiele
 
-### Binden eines Puffers an ein Ziel
+### Einen Buffer an ein Ziel binden
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -67,9 +69,10 @@ const buffer = gl.createBuffer();
 gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 ```
 
-### Abrufen der aktuellen Bindungen
+### Aktuelle Bindungen abfragen
 
-Um die aktuellen Pufferbindungen zu überprüfen, fragen Sie die Konstanten `ARRAY_BUFFER_BINDING` und `ELEMENT_ARRAY_BUFFER_BINDING` ab.
+Um die aktuellen Buffer-Bindungen zu überprüfen, fragen Sie die Konstanten `ARRAY_BUFFER_BINDING`
+und `ELEMENT_ARRAY_BUFFER_BINDING` ab.
 
 ```js
 gl.getParameter(gl.ARRAY_BUFFER_BINDING);
@@ -86,7 +89,7 @@ gl.getParameter(gl.ELEMENT_ARRAY_BUFFER_BINDING);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.createBuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteBuffer()")}}
-- {{domxref("WebGLRenderingContext.isBuffer()")}}
-- Andere Puffer: {{domxref("WebGLFramebuffer")}}, {{domxref("WebGLRenderbuffer")}}
+- [`WebGLRenderingContext.createBuffer()`](/de/docs/Web/API/WebGLRenderingContext/createBuffer)
+- [`WebGLRenderingContext.deleteBuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteBuffer)
+- [`WebGLRenderingContext.isBuffer()`](/de/docs/Web/API/WebGLRenderingContext/isBuffer)
+- Andere Buffer: [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)

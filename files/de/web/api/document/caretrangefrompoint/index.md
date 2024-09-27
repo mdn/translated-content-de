@@ -1,5 +1,5 @@
 ---
-title: "Document: caretRangeFromPoint()-Methode"
+title: "Document: caretRangeFromPoint() Methode"
 short-title: caretRangeFromPoint()
 slug: Web/API/Document/caretRangeFromPoint
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}{{Non-standard_header}}
 
-Die **`caretRangeFromPoint()`**-Methode des {{domxref("Document")}}-Interfaces gibt ein {{domxref("Range")}}-Objekt für das Dokumentfragment unter den angegebenen Koordinaten zurück.
+Die **`caretRangeFromPoint()`**-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt ein [`Range`](/de/docs/Web/API/Range)-Objekt für das Dokumentfragment zurück, das sich unter den angegebenen Koordinaten befindet.
 
-Diese Methode ist die WebKit-eigene Implementierung der Methode {{domxref("Document.caretPositionFromPoint")}}.
+Diese Methode ist die WebKit-eigene Implementierung der [`Document.caretPositionFromPoint`](/de/docs/Web/API/Document/caretPositionFromPoint)-Methode.
 
 ## Syntax
 
@@ -21,20 +21,20 @@ caretRangeFromPoint(x, y)
 ### Parameter
 
 - `x`
-  - : Eine horizontale Position innerhalb des aktuellen Ansichtsfensters.
+  - : Eine horizontale Position innerhalb des aktuellen Viewports.
 - `y`
-  - : Eine vertikale Position innerhalb des aktuellen Ansichtsfensters.
+  - : Eine vertikale Position innerhalb des aktuellen Viewports.
 
 ### Rückgabewert
 
-Eines der folgenden:
+Einer der folgenden:
 
-- Ein {{domxref("Range")}}.
-- `Null`, wenn _x_ oder _y_ negativ sind, außerhalb des Ansichtsfensters liegen oder es keinen Texteingabeknoten gibt.
+- Ein [`Range`](/de/docs/Web/API/Range).
+- `Null`, wenn _x_ oder _y_ negativ, außerhalb des Viewports sind oder es keinen Texteingabenknoten gibt.
 
 ## Beispiele
 
-Besuchen Sie die Seite {{domxref("Document.caretPositionFromPoint#Examples", "Document.caretPositionFromPoint")}}, um ein Live-Beispiel dieser Methode zu sehen.
+Besuchen Sie die [`Document.caretPositionFromPoint`](/de/docs/Web/API/Document/caretPositionFromPoint#Examples) Seite, um ein Live-Beispiel dieser Methode zu sehen.
 
 ## Spezifikationen
 

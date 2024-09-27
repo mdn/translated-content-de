@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Header-Direktive `otp-credentials` steuert, ob das aktuelle Dokument die Verwendung der [WebOTP API](/de/docs/Web/API/WebOTP_API) zur Anforderung eines Einmalpassworts (OTP) aus einer speziell formatierten SMS-Nachricht, die vom Server der App gesendet wird, zulässt, d.h. über {{domxref("CredentialsContainer.get", "navigator.credentials.get({otp: ..., ...})")}}.
+Die HTTP {{HTTPHeader("Permissions-Policy")}}-Header-Direktive `otp-credentials` steuert, ob das aktuelle Dokument berechtigt ist, die [WebOTP API](/de/docs/Web/API/WebOTP_API) zu verwenden, um ein Einmalpasswort (OTP) aus einer speziell formatierten SMS-Nachricht anzufordern, die vom Server der App gesendet wird, z. B. über [`navigator.credentials.get({otp: ..., ...})`](/de/docs/Web/API/CredentialsContainer/get) .
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, wird das von `navigator.credentials.get({otp})` zurückgegebene {{jsxref("Promise")}} mit einem `SecurityError` {{domxref("DOMException")}} abgelehnt.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, wird das von `navigator.credentials.get({otp})` zurückgegebene {{jsxref("Promise")}} mit einem `SecurityError`-[`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: otp-credentials=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung dieser Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-`allowlist` für `otp-credentials` ist `self`.
+Die standardmäßige Erlaubnisliste für `otp-credentials` ist `self`.
 
 ## Spezifikationen
 
@@ -35,6 +35,6 @@ Die Standard-`allowlist` für `otp-credentials` ist `self`.
 ## Siehe auch
 
 - {{HTTPHeader("Permissions-Policy")}}-Header
-- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)
+- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)
 - [WebOTP API](/de/docs/Web/API/WebOTP_API)
-- {{DOMxRef("OTPCredential")}}-Schnittstelle
+- [`OTPCredential`](/de/docs/Web/API/OTPCredential) Schnittstelle

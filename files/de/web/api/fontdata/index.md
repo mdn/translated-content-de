@@ -7,31 +7,31 @@ l10n:
 
 {{APIRef("Local Font Access API")}}{{SeeCompatTable}}
 
-Das **`FontData`** Interface der {{domxref("Local Font Access API", "Local Font Access API", "", "nocode")}} repräsentiert ein einzelnes lokales Schriftbild.
+Die **`FontData`**-Schnittstelle der [Local Font Access API](/de/docs/Web/API/Local_Font_Access_API) repräsentiert eine einzelne lokale Schriftart.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref('FontData.family')}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die Familie des Schriftbildes zurück.
-- {{domxref('FontData.fullName')}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den vollständigen Namen des Schriftbildes zurück.
-- {{domxref('FontData.postscriptName')}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den PostScript-Namen des Schriftbildes zurück.
-- {{domxref('FontData.style')}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den Stil des Schriftbildes zurück.
+- [`FontData.family`](/de/docs/Web/API/FontData/family) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt die Familie der Schriftart zurück.
+- [`FontData.fullName`](/de/docs/Web/API/FontData/fullName) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt den vollständigen Namen der Schriftart zurück.
+- [`FontData.postscriptName`](/de/docs/Web/API/FontData/postscriptName) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt den PostScript-Namen der Schriftart zurück.
+- [`FontData.style`](/de/docs/Web/API/FontData/style) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt den Stil der Schriftart zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref('FontData.blob()')}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("Blob")}} erfüllt wird, der die Rohdaten der zugrundeliegenden Schriftdatei enthält.
+- [`FontData.blob()`](/de/docs/Web/API/FontData/blob) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) erfüllt wird, der die Rohbytes der zugrunde liegenden Schriftartdatei enthält.
 
 ## Beispiele
 
-Für eine funktionierende Live-Demo, siehe [Font Select Demo](https://local-font-access.glitch.me/demo/).
+Für eine funktionierende Live-Demo siehe [Font Select Demo](https://local-font-access.glitch.me/demo/).
 
-### Schriften Aufzählung
+### Schriftenenumeration
 
-Das folgende Beispiel fragt alle verfügbaren Schriften ab und protokolliert deren Metadaten. Dies könnte beispielsweise verwendet werden, um ein Schriftwahl-Steuerelement zu füllen.
+Der folgende Ausschnitt wird nach allen verfügbaren Schriftarten suchen und Metadaten protokollieren. Dies könnte beispielsweise verwendet werden, um ein Schriftart-Auswahlsteuerung zu füllen.
 
 ```js
 async function logFontData() {
@@ -51,7 +51,7 @@ async function logFontData() {
 
 ### Zugriff auf niedrigstufige Daten
 
-Die Methode {{domxref("FontData.blob", "blob()")}} ermöglicht den Zugriff auf niedrigstufige [SFNT](https://en.wikipedia.org/wiki/SFNT)-Daten — dies ist ein Schriftdateiformat, das andere Schriftformate wie PostScript, TrueType, OpenType oder Web Open Font Format (WOFF) enthalten kann.
+Die Methode [`blob()`](/de/docs/Web/API/FontData/blob) ermöglicht den Zugriff auf niedrigstufige [SFNT](https://en.wikipedia.org/wiki/SFNT)-Daten — dies ist ein Schriftartdateiformat, das andere Schriftformate wie PostScript, TrueType, OpenType oder Web Open Font Format (WOFF) enthalten kann.
 
 ```js
 async function computeOutlineFormat() {
@@ -60,12 +60,12 @@ async function computeOutlineFormat() {
       postscriptNames: ["ComicSansMS"],
     });
     for (const fontData of availableFonts) {
-      // `blob()` gibt ein Blob zurück, das gültige und vollständige
-      // SFNT-umschlossene Schrift-Daten enthält.
+      // `blob()` returns a Blob containing valid and complete
+      // SFNT-wrapped font data.
       const sfnt = await fontData.blob();
-      // Schneiden Sie nur die Bytes aus, die wir benötigen: die ersten 4 Bytes sind die SFNT
-      // Versionsinformationen.
-      // Spezifikation: https://learn.microsoft.com/en-us/typography/opentype/spec/otff#organization-of-an-opentype-font
+      // Slice out only the bytes we need: the first 4 bytes are the SFNT
+      // version info.
+      // Spec: https://learn.microsoft.com/en-us/typography/opentype/spec/otff#organization-of-an-opentype-font
       const sfntVersion = await sfnt.slice(0, 4).text();
 
       let outlineFormat = "UNKNOWN";
@@ -97,5 +97,5 @@ async function computeOutlineFormat() {
 
 ## Siehe auch
 
-- [Erweiterte Typografie mit lokalen Schriften nutzen](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
+- [Verwenden Sie fortgeschrittene Typografie mit lokalen Schriftarten](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
 - {{cssxref("@font-face")}}

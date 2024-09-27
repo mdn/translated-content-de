@@ -1,14 +1,14 @@
 ---
-title: "GPURenderPassEncoder: drawIndirect()-Methode"
+title: "GPURenderPassEncoder: drawIndirect() Methode"
 short-title: drawIndirect()
 slug: Web/API/GPURenderPassEncoder/drawIndirect
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`drawIndirect()`**-Methode der {{domxref("GPURenderPassEncoder")}}-Schnittstelle zeichnet Primitiven mithilfe von Parametern, die aus einem {{domxref("GPUBuffer")}} gelesen werden.
+Die **`drawIndirect()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) Schnittstelle zeichnet Primitiven unter Verwendung von Parametern, die aus einem [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) gelesen werden.
 
 ## Syntax
 
@@ -20,21 +20,21 @@ drawIndirect(indirectBuffer, indirectOffset)
 
 - `indirectBuffer`
 
-  - : Ein {{domxref("GPUBuffer")}}, der die Werte `vertexCount`, `instanceCount`, `firstVertex` und `firstInstance` enthält, die für die Durchführung der Zeichenoperation erforderlich sind. Der Puffer muss einen eng gepackten Block von vier 32-Bit-unsigned-Integer-Werten enthalten, die die Werte (insgesamt 16 Bytes) darstellen, in der gleichen Reihenfolge wie die Argumente für {{domxref("GPURenderPassEncoder.draw()")}}. Beispielsweise:
+  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der die Werte `vertexCount`, `instanceCount`, `firstVertex` und `firstInstance` enthält, die notwendig sind, um die Zeichenoperation durchzuführen. Der Puffer muss einen dicht gepackten Block von vier 32-Bit-unsigned-Integer-Werten enthalten, die die Werte darstellen (insgesamt 16 Bytes), in der gleichen Reihenfolge wie die Argumente für [`GPURenderPassEncoder.draw()`](/de/docs/Web/API/GPURenderPassEncoder/draw). Zum Beispiel:
 
     ```js
     const uint32 = new Uint32Array(4);
-    uint32[0] = 3; // Der Wert von vertexCount
-    uint32[1] = 1; // Der Wert von instanceCount
-    uint32[2] = 0; // Der Wert von firstVertex
-    uint32[3] = 0; // Der Wert von firstInstance
+    uint32[0] = 3; // The vertexCount value
+    uint32[1] = 1; // The instanceCount value
+    uint32[2] = 0; // The firstVertex value
+    uint32[3] = 0; // The firstInstance value
 
-    // Werte in einen GPUBuffer schreiben
+    // Write values into a GPUBuffer
     device.queue.writeBuffer(buffer, 0, uint32, 0, uint32.length);
     ```
 
 - `indirectOffset`
-  - : Der Versatz in Bytes in den `indirectBuffer`, wo die Wertedaten beginnen.
+  - : Der Versatz, in Bytes, im `indirectBuffer`, wo die Wertedaten beginnen.
 
 ### Rückgabewert
 
@@ -42,10 +42,10 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`drawIndirect()`** aufgerufen wird, andernfalls wird ein {{domxref("GPUValidationError")}} generiert und der {{domxref("GPURenderPassEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`drawIndirect()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Die {{domxref("GPUBuffer.usage")}} von `indirectBuffer` enthält das `GPUBufferUsage.INDIRECT`-Flag.
-- `indirectOffset` + die durch die Wertparameter im `indirectBuffer` angegebene Gesamtgröße ist kleiner oder gleich der {{domxref("GPUBuffer.size")}} des `indirectBuffer`.
+- Der [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) von `indirectBuffer` enthält das `GPUBufferUsage.INDIRECT`-Flag.
+- `indirectOffset` + die durch die Wertparameter im `indirectBuffer` spezifizierte Gesamtgröße ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) des `indirectBuffer`.
 - `indirectOffset` ist ein Vielfaches von 4.
 
 ## Beispiele
@@ -53,34 +53,34 @@ Die folgenden Kriterien müssen erfüllt sein, wenn **`drawIndirect()`** aufgeru
 ```js
 // ...
 
-// GPURenderPassEncoder erstellen
+// Create GPURenderPassEncoder
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 
-// Pipeline und Vertexbuffer setzen
+// Set pipeline and vertex buffer
 passEncoder.setPipeline(renderPipeline);
 passEncoder.setVertexBuffer(0, vertexBuffer);
 
-// drawIndirect-Werte erstellen
+// Create drawIndirect values
 const uint32 = new Uint32Array(4);
 uint32[0] = 3;
 uint32[1] = 1;
 uint32[2] = 0;
 uint32[3] = 0;
 
-// Einen GPUBuffer erstellen und die Zeichnungswerte darin schreiben
+// Create a GPUBuffer and write the draw values into it
 const drawValues = device.createBuffer({
   size: 16,
   usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.INDIRECT,
 });
 device.queue.writeBuffer(drawValues, 0, uint32, 0, uint32.length);
 
-// Die Vertices zeichnen
+// Draw the vertices
 passEncoder.drawIndirect(drawValues, 0);
 
-// Den Render-Pass beenden
+// End the render pass
 passEncoder.end();
 
-// Frame beenden, indem ein Array von GPUCommandBuffers an die Befehlswarteschlange zur Ausführung übergeben wird
+// End frame by passing array of GPUCommandBuffers to command queue for execution
 device.queue.submit([commandEncoder.finish()]);
 
 // ...

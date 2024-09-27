@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}}
 
-Die **`errors`** Dateneigenschaft einer {{jsxref("AggregateError")}} Instanz enthält ein Array, das die aggregierten Fehler darstellt.
+Die **`errors`** Dateneigenschaft einer {{jsxref("AggregateError")}} Instanz enthält ein Array, das die zusammengefassten Fehler darstellt.
 
 ## Wert
 
-Ein {{jsxref("Array")}} mit Werten in derselben Reihenfolge wie das Iterable, das als erstes Argument des {{jsxref("AggregateError/AggregateError", "AggregateError()")}} Konstruktors übergeben wurde.
+Ein {{jsxref("Array")}}, das Werte in derselben Reihenfolge enthält wie das Iterable, das als erstes Argument des {{jsxref("AggregateError/AggregateError", "AggregateError()")}} Konstruktors übergeben wurde.
 
 {{js_property_attributes(1, 0, 1)}}
 
@@ -22,7 +22,7 @@ Ein {{jsxref("Array")}} mit Werten in derselben Reihenfolge wie das Iterable, da
 ```js
 try {
   throw new AggregateError(
-    // Ein Iterable von Fehlern
+    // An iterable of errors
     new Set([new Error("some error"), new Error("another error")]),
     "Multiple errors thrown",
   );

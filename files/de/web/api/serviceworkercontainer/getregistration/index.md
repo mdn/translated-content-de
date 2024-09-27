@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerContainer: Methode getRegistration()"
+title: "ServiceWorkerContainer: getRegistration()-Methode"
 short-title: getRegistration()
 slug: Web/API/ServiceWorkerContainer/getRegistration
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`getRegistration()`** Methode des {{domxref("ServiceWorkerContainer")}} Interfaces erhält ein {{domxref("ServiceWorkerRegistration")}} Objekt, dessen Scope-URL mit der angegebenen Client-URL übereinstimmt. Die Methode gibt ein {{jsxref("Promise")}} zurück, das entweder ein {{domxref("ServiceWorkerRegistration")}} oder `undefined` liefert.
+Die **`getRegistration()`**-Methode des [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Interfaces holt ein [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Objekt, dessen Scope-URL zur angegebenen Client-URL passt. Die Methode gibt ein {{jsxref("Promise")}} zurück, das sich zu einem [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) oder `undefined` auflöst.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ getRegistration(clientURL)
 ### Parameter
 
 - `clientURL` {{optional_inline}}
-  - : Die Registrierung, deren Scope mit dieser URL übereinstimmt, wird zurückgegeben. Relative URLs werden mit dem aktuellen Client als Basis aufgelöst. Wenn dieser Parameter nicht angegeben wird, wird standardmäßig die URL des aktuellen Clients verwendet.
+  - : Die Registrierung, deren Scope zu dieser URL passt, wird zurückgegeben. Relative URLs werden mit dem aktuellen Client als Basis aufgelöst. Wenn dieser Parameter nicht angegeben ist, wird standardmäßig die URL des aktuellen Clients verwendet.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich zu einem {{domxref("ServiceWorkerRegistration")}} Objekt oder `undefined` auflöst.
+Ein {{jsxref("Promise")}}, das sich zu einem [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Objekt oder `undefined` auflöst.
 
 ## Beispiele
 
@@ -32,7 +32,7 @@ Ein {{jsxref("Promise")}}, das sich zu einem {{domxref("ServiceWorkerRegistratio
 navigator.serviceWorker.getRegistration("/app").then((registration) => {
   if (registration) {
     document.querySelector("#status").textContent =
-      "ServiceWorkerRegistration gefunden.";
+      "ServiceWorkerRegistration found.";
   }
 });
 ```
@@ -41,6 +41,6 @@ navigator.serviceWorker.getRegistration("/app").then((registration) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -3,12 +3,12 @@ title: "TextEncoder: encode() Methode"
 short-title: encode()
 slug: Web/API/TextEncoder/encode
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
 ---
 
-{{APIRef("Encoding API")}}
+{{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die **`TextEncoder.encode()`**-Methode nimmt einen String als Eingabe und gibt ein {{jsxref("Global_Objects/Uint8Array", "Uint8Array")}} zurück, das den im Parameter angegebenen Text enthält, kodiert mit der spezifischen Methode für dieses {{domxref("TextEncoder")}}-Objekt.
+Die **`TextEncoder.encode()`** Methode nimmt einen String als Eingabe und gibt ein {{jsxref("Global_Objects/Uint8Array", "Uint8Array")}} zurück, das den im Parameter angegebenen Text enthält und mit der spezifischen Methode für das [`TextEncoder`](/de/docs/Web/API/TextEncoder) Objekt kodiert ist.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ encode(string)
 
 ### Rückgabewert
 
-Ein {{jsxref("Uint8Array")}}-Objekt.
+Ein {{jsxref("Uint8Array")}} Objekt.
 
 ## Beispiele
 
@@ -55,4 +55,4 @@ resultPara.textContent += encoded;
 
 ## Siehe auch
 
-- Das {{DOMxRef("TextEncoder")}}-Interface, zu dem es gehört.
+- Die [`TextEncoder`](/de/docs/Web/API/TextEncoder) Schnittstelle, zu der es gehört.

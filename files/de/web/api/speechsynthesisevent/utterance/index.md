@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesisEvent: Eigenschaft utterance"
+title: "SpeechSynthesisEvent: utterance-Eigenschaft"
 short-title: utterance
 slug: Web/API/SpeechSynthesisEvent/utterance
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte Eigenschaft **`utterance`** des {{domxref("SpeechSynthesisUtterance")}} Interfaces gibt die {{domxref("SpeechSynthesisUtterance")}} Instanz zurück, auf die das Ereignis ausgelöst wurde.
+Die **`utterance`** Leseeigenschaft der Schnittstelle [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) gibt die [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) Instanz zurück, auf der das Ereignis ausgelöst wurde.
 
 ## Wert
 
-Ein {{domxref("SpeechSynthesisUtterance")}} Objekt.
+Ein [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) Objekt.
 
 ## Beispiele
 

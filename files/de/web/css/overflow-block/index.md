@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Die **`overflow-block`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, was angezeigt wird, wenn der Inhalt über die blockseitigen Start- und Endkanten eines Elements hinausgeht. Dies kann nichts sein, eine Scrollleiste oder der überlaufende Inhalt.
+Die **`overflow-block`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, was angezeigt wird, wenn Inhalte über die Blockanfangs- und -endkanten eines Kastens hinausgehen. Dies kann nichts, eine Bildlaufleiste oder der überlaufende Inhalt sein.
 
 > [!NOTE]
-> Die Eigenschaft `overflow-block` wird auf {{Cssxref("overflow-y")}} oder {{Cssxref("overflow-x")}} abgebildet, abhängig vom Schreibmodus des Dokuments.
+> Die `overflow-block` Eigenschaft ordnet sich {{Cssxref("overflow-y")}} oder {{Cssxref("overflow-x")}} zu, abhängig vom Schreibmodus des Dokuments.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 overflow-block: visible;
 overflow-block: hidden;
 overflow-block: clip;
 overflow-block: scroll;
 overflow-block: auto;
 
-/* Globale Werte */
+/* Global values */
 overflow-block: inherit;
 overflow-block: initial;
 overflow-block: revert;
@@ -30,20 +30,20 @@ overflow-block: revert-layer;
 overflow-block: unset;
 ```
 
-Die Eigenschaft `overflow-block` wird als einzelnes Schlüsselwort für den Wert {{CSSXref("overflow_value", "&lt;overflow&gt;")}} angegeben:
+Die `overflow-block` Eigenschaft wird als einzelnes {{CSSXref("overflow_value", "&lt;overflow&gt;")}} Schlüsselwortwert angegeben:
 
 ### Werte
 
 - `visible`
-  - : Inhalt wird nicht abgeschnitten und kann außerhalb der Start- und Endkanten des Innenabstandsblocks gerendert werden.
+  - : Der Inhalt wird nicht abgeschnitten und kann außerhalb der Blockanfangs- und -endkanten des Innenabstandsrahmens angezeigt werden.
 - `hidden`
-  - : Inhalt wird gegebenenfalls beschnitten, um in die Blockdimension im Innenabstandsblock zu passen. Es werden keine Scrollleisten bereitgestellt.
+  - : Der Inhalt wird falls nötig abgeschnitten, um die Blockdimension im Innenabstandsrahmen zu passen. Es werden keine Scrollleisten bereitgestellt.
 - `clip`
-  - : Überlaufender Inhalt wird an der Überlaufabschnittkante des Elements abgeschnitten, die durch die Eigenschaft {{CSSXref("overflow-clip-margin")}} definiert wird.
+  - : Überlaufender Inhalt wird an der Überlaufclipkante des Elements abgeschnitten, die unter Verwendung der {{CSSXref("overflow-clip-margin")}} Eigenschaft definiert ist.
 - `scroll`
-  - : Inhalt wird gegebenenfalls beschnitten, um in die Blockdimension im Innenabstandsblock zu passen. Browser zeigen Scrollleisten an, unabhängig davon, ob Inhalt tatsächlich beschnitten ist. (Dies verhindert, dass Scrollleisten erscheinen oder verschwinden, wenn sich der Inhalt ändert.) Drucker können dennoch überlaufenden Inhalt drucken.
+  - : Der Inhalt wird falls nötig abgeschnitten, um in die Blockdimension im Innenabstandsrahmen zu passen. Browser zeigen Scrollleisten, unabhängig davon, ob tatsächlich Inhalt abgeschnitten wird oder nicht. (Dies verhindert das Erscheinen oder Verschwinden von Scrollleisten, wenn sich der Inhalt ändert.) Drucker können überlaufenden Inhalt dennoch drucken.
 - `auto`
-  - : Hängt vom Benutzeragenten ab. Wenn der Inhalt in den Innenabstandsblock passt, sieht es genauso aus wie `visible`, stellt jedoch immer noch einen neuen Block-Formatierungskontext her.
+  - : Hängt vom Benutzeragenten ab. Wenn der Inhalt in den Innenabstandsrahmen passt, sieht es genauso aus wie `visible`, setzt jedoch dennoch einen neuen Blockformatierungskontext.
 
 ## Formale Definition
 
@@ -60,7 +60,7 @@ Die Eigenschaft `overflow-block` wird als einzelnes Schlüsselwort für den Wert
 ```html
 <ul>
   <li>
-    <code>overflow-block: hidden</code> (versteckt den Text außerhalb des Kastens)
+    <code>overflow-block: hidden</code> (hides the text outside the box)
     <div id="hidden">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -71,7 +71,7 @@ Die Eigenschaft `overflow-block` wird als einzelnes Schlüsselwort für den Wert
   </li>
 
   <li>
-    <code>overflow-block: scroll</code> (fügt immer eine Scrollleiste hinzu)
+    <code>overflow-block: scroll</code> (always adds a scrollbar)
     <div id="scroll">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -82,7 +82,8 @@ Die Eigenschaft `overflow-block` wird als einzelnes Schlüsselwort für den Wert
   </li>
 
   <li>
-    <code>overflow-block: clip</code> (versteckt den Text außerhalb des Kastens über die Überlaufabschnittkante hinaus)
+    <code>overflow-block: clip</code> (hides the text outside the box beyond the
+    overflow clip edge)
     <div id="clip">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -93,7 +94,8 @@ Die Eigenschaft `overflow-block` wird als einzelnes Schlüsselwort für den Wert
   </li>
 
   <li>
-    <code>overflow-block: visible</code> (zeigt den Text außerhalb des Kastens an, falls erforderlich)
+    <code>overflow-block: visible</code> (displays the text outside the box if
+    needed)
     <div id="visible">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -104,7 +106,7 @@ Die Eigenschaft `overflow-block` wird als einzelnes Schlüsselwort für den Wert
   </li>
 
   <li>
-    <code>overflow-block: auto</code> (in den meisten Browsern gleichzusetzen mit
+    <code>overflow-block: auto</code> (on most browsers, equivalent to
     <code>scroll</code>)
     <div id="auto">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -161,6 +163,6 @@ div {
 - {{cssxref("text-overflow")}}, {{cssxref("white-space")}}, {{Cssxref("overflow")}}, {{Cssxref("overflow-inline")}}, {{Cssxref("overflow-x")}}, {{Cssxref("overflow-y")}}, {{Cssxref("clip")}}, {{Cssxref("display")}}
 - [CSS logische Eigenschaften](/de/docs/Web/CSS/CSS_logical_properties_and_values)
 - [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS Scrollleisten-Stil](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
-- [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes)
-- [CSS-Grundlagen: Überlaufender Inhalt](/de/docs/Learn/CSS/Building_blocks/Overflowing_content)
+- [CSS Scrollleistenstil](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
+- [CSS Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes)
+- [CSS Bausteine: Überlaufender Inhalt](/de/docs/Learn/CSS/Building_blocks/Overflowing_content)

@@ -1,5 +1,5 @@
 ---
-title: "PushSubscription: Methode unsubscribe()"
+title: "PushSubscription: unsubscribe() Methode"
 short-title: unsubscribe()
 slug: Web/API/PushSubscription/unsubscribe
 l10n:
@@ -8,8 +8,9 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die Methode `unsubscribe()` des {{domxref("PushSubscription")}}-Interfaces
-gibt ein {{jsxref("Promise")}} zurück, das sich auf einen booleschen Wert auflöst, wenn das aktuelle Abonnement erfolgreich abgemeldet ist.
+Die `unsubscribe()`-Methode des [`PushSubscription`](/de/docs/Web/API/PushSubscription) Interfaces
+gibt ein {{jsxref("Promise")}} zurück, das auf einen booleschen Wert aufgelöst wird, wenn das
+aktuelle Abonnement erfolgreich abgemeldet wird.
 
 ## Syntax
 
@@ -23,8 +24,8 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich auf einen booleschen Wert auflöst, wenn das aktuelle
-Abonnement erfolgreich abgemeldet ist.
+Ein {{jsxref("Promise")}}, das auf einen booleschen Wert aufgelöst wird, wenn das aktuelle
+Abonnement erfolgreich abgemeldet wird.
 
 ## Beispiele
 
@@ -53,4 +54,4 @@ navigator.serviceWorker.ready.then((reg) => {
 
 ## Siehe auch
 
-- {{domxref("PushManager.getSubscription")}}
+- [`PushManager.getSubscription`](/de/docs/Web/API/PushManager/getSubscription)

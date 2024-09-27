@@ -7,28 +7,28 @@ l10n:
 
 {{GlossarySidebar}}
 
-**HTML** (HyperText Markup Language) ist eine beschreibende Sprache, die die Struktur von Webseiten festlegt.
+**HTML** (HyperText Markup Language) ist eine Beschreibungssprache, die die Struktur von Webseiten festlegt.
 
 ## Kurze Geschichte
 
-Im Jahr 1990, als Teil seiner Vision vom {{Glossary("World Wide Web","Web")}}, definierte Tim Berners-Lee das Konzept des {{Glossary("hypertext")}}, das Berners-Lee im darauffolgenden Jahr durch eine hauptsächlich auf {{Glossary("SGML")}} basierende Markup-Sprache formalisiert hat. Die {{Glossary("IETF")}} begann 1993, HTML formell zu spezifizieren, und veröffentlichte nach mehreren Entwürfen die Version 2.0 im Jahr 1995. 1994 gründete Berners-Lee das {{Glossary("W3C")}}, um das Web zu entwickeln. 1996 übernahm das W3C die Arbeit an HTML und veröffentlichte ein Jahr später die HTML 3.2-Empfehlung. HTML 4.0 wurde 1999 veröffentlicht und wurde im Jahr 2000 zu einem {{Glossary("ISO")}}-Standard.
+1990 definierte Tim Berners-Lee als Teil seiner Vision des [Webs](/de/docs/Glossary/World_Wide_Web) das Konzept des [Hypertext](/de/docs/Glossary/hypertext), das Berners-Lee im folgenden Jahr durch eine Auszeichnungssprache formalisierte, die hauptsächlich auf [SGML](/de/docs/Glossary/SGML) basierte. Die [IETF](/de/docs/Glossary/IETF) begann 1993 mit der formellen Spezifizierung von HTML und veröffentlichte nach mehreren Entwürfen 1995 die Version 2.0. 1994 gründete Berners-Lee das [W3C](/de/docs/Glossary/W3C), um das Web weiterzuentwickeln. 1996 übernahm das W3C die Arbeit an HTML und veröffentlichte ein Jahr später die Empfehlung für HTML 3.2. HTML 4.0 wurde 1999 veröffentlicht und wurde im Jahr 2000 ein [ISO](/de/docs/Glossary/ISO)-Standard.
 
-Zu dieser Zeit hatte das W3C HTML fast zugunsten von {{Glossary("XHTML")}} aufgegeben, was 2004 zur Gründung einer unabhängigen Gruppe namens {{Glossary("WHATWG")}} führte. Dank der WHATWG wurde die Arbeit an HTML fortgesetzt: Die beiden Organisationen veröffentlichten 2008 den ersten Entwurf von {{Glossary("HTML5")}} und 2014 einen offiziellen Standard. Der Begriff "HTML5" ist nur ein Schlagwort, das sich auf moderne Webtechnologien bezieht, die Teil des [HTML Living Standard](https://html.spec.whatwg.org/) sind.
+Zu dieser Zeit stand das W3C kurz davor, HTML zugunsten von [XHTML](/de/docs/Glossary/XHTML) aufzugeben, was 2004 zur Gründung einer unabhängigen Gruppe namens [WHATWG](/de/docs/Glossary/WHATWG) führte. Dank WHATWG ging die Arbeit an HTML weiter: Die beiden Organisationen veröffentlichten 2008 den ersten Entwurf von [HTML5](/de/docs/Glossary/HTML5) und 2014 einen offiziellen Standard. Der Begriff „HTML5“ ist nur ein Schlagwort, das sich auf moderne Webtechnologien bezieht, die Teil des [HTML Living Standard](https://html.spec.whatwg.org/) sind.
 
 ## Konzept und Syntax
 
-Ein HTML-Dokument ist ein Klartextdokument, das mit {{Glossary("element","Elementen")}} strukturiert ist. Elemente sind von passenden öffnenden und schließenden {{Glossary("tag","Tags")}} umgeben. Jeder Tag beginnt und endet mit spitzen Klammern (`<>`). Es gibt einige leere oder _void_ Elemente, die keinen Text umschließen können, beispielsweise {{htmlelement("img")}}.
+Ein HTML-Dokument ist ein Klartextdokument, das mit [Elementen](/de/docs/Glossary/element) strukturiert ist. Elemente sind von passenden Öffnungs- und Schließ-[Tags](/de/docs/Glossary/tag) umgeben. Jedes Tag beginnt und endet mit spitzen Klammern (`<>`). Es gibt einige leere oder _void_ Elemente, die keinen Text einschließen können, zum Beispiel {{htmlelement("img")}}.
 
-Sie können HTML-Tags mit {{Glossary("attribute","Attributen")}} erweitern, die zusätzliche Informationen bieten, die beeinflussen, wie der Browser das Element interpretiert:
+Sie können HTML-Tags mit [Attributen](/de/docs/Glossary/attribute) erweitern, die zusätzliche Informationen liefern und die Interpretation des Elements durch den Browser beeinflussen:
 
 ![Detail der Struktur eines HTML-Elements](anatomy-of-an-html-element.png)
 
-Eine HTML-Datei wird normalerweise mit der Erweiterung `.htm` oder `.html` gespeichert, von einem {{Glossary("Server","Webserver")}} bereitgestellt und kann von jedem {{Glossary("Browser","Webbrowser")}} gerendert werden.
+Eine HTML-Datei wird normalerweise mit der Erweiterung `.htm` oder `.html` gespeichert, von einem [Webserver](/de/docs/Glossary/Server) bereitgestellt und kann von jedem [Web-Browser](/de/docs/Glossary/Browser) gerendert werden.
 
 ## Siehe auch
 
 - [HTML](https://en.wikipedia.org/wiki/HTML) auf Wikipedia
-- [Unser HTML-Tutorial](/de/docs/Learn/HTML)
-- [Der Webkurs auf codecademy.com](https://www.codecademy.com/learn/learn-html)
+- [Unser HTML-Leitfaden](/de/docs/Learn/HTML)
+- [Der Web-Kurs auf codecademy.com](https://www.codecademy.com/learn/learn-html)
 - [Die HTML-Dokumentation auf MDN](/de/docs/Web/HTML)
 - [Die HTML-Spezifikation](https://html.spec.whatwg.org/multipage/)

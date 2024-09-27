@@ -1,5 +1,5 @@
 ---
-title: "Dokument: fonts-Eigenschaft"
+title: "Document: fonts Eigenschaft"
 short-title: fonts
 slug: Web/API/Document/fonts
 l10n:
@@ -8,30 +8,31 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`fonts`**-Eigenschaft der {{domxref("Document")}}-Schnittstelle gibt die {{domxref("FontFaceSet")}}-Schnittstelle des Dokuments zurück.
+Die **`fonts`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document) Interfaces gibt das [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Interface des Dokuments zurück.
 
 Diese Funktion ist Teil der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API).
 
 ## Wert
 
-Der zurückgegebene Wert ist die {{domxref("FontFaceSet")}}-Schnittstelle des Dokuments. Die `FontFaceSet`-Schnittstelle ist nützlich zum Laden neuer Schriftarten, Überprüfen des Status zuvor geladener Schriftarten usw.
+Der zurückgegebene Wert ist das [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Interface des Dokuments.
+Das `FontFaceSet` Interface ist nützlich zum Laden neuer Schriftarten, Überprüfen des Status zuvor geladener Schriftarten usw.
 
 ## Beispiele
 
-### Operationen ausführen, nachdem Schriftarten geladen sind
+### Operation nach dem Laden von Schriftarten durchführen
 
 ```js
 document.fonts.ready.then((fontFaceSet) => {
-  // Jede Operation, die nur ausgeführt werden muss, nachdem alle verwendeten Schriftarten
-  // fertig geladen sind, kann hier erfolgen.
+  // Any operation that needs to be done only after all used fonts
+  // have finished loading can go here.
   const fontFaces = [...fontFaceSet];
   console.log(fontFaces);
-  // Einige Schriftarten könnten noch nicht geladen sein, wenn sie auf der Seite nicht verwendet werden
+  // some fonts may still be unloaded if they aren't used on the site
   console.log(fontFaces.map((f) => f.status));
 });
 ```
 
-Das Versprechen wird erfüllt, wenn alle Lade- und Layoutoperationen der verwendeten Schriftarten abgeschlossen sind. Der Satz der verwendeten Schriftarten kann sich von dem der _deklarierten_ Schriftarten unterscheiden, z. B. wenn optionale Schriftarten (d. h. Schriftarten, die über `font-display: optional` deklariert wurden) nicht rechtzeitig geladen werden konnten.
+Das Promise wird erfüllt, wenn die Lade- und Layout-Operationen aller verwendeten Schriftarten abgeschlossen sind. Die Menge der verwendeten Schriftarten kann von der Menge der _deklarierten_ Schriftarten abweichen, z.B. wenn optionale Schriftarten (d.h. Schriftarten, die über `font-display: optional` deklariert wurden) nicht rechtzeitig geladen werden konnten.
 
 ## Spezifikationen
 
@@ -43,5 +44,5 @@ Das Versprechen wird erfüllt, wenn alle Lade- und Layoutoperationen der verwend
 
 ## Siehe auch
 
-- {{domxref("FontFaceSet")}} Schnittstelle
-- {{domxref("FontFace")}}
+- [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Interface
+- [`FontFace`](/de/docs/Web/API/FontFace) Interface

@@ -1,6 +1,6 @@
 ---
 title: "ValidityState: gültige Eigenschaft"
-short-title: gültig
+short-title: valid
 slug: Web/API/ValidityState/valid
 l10n:
   sourceCommit: e8805a6eb0b2af30cfd4ec54c30261f7e5f8163e
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`valid`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces zeigt an, ob der Wert eines {{HTMLElement("input")}}-Elements alle seine Validierungsanforderungen erfüllt und daher als gültig angesehen wird.
+Die schreibgeschützte **`valid`**-Eigenschaft der [`ValidityState`](/de/docs/Web/API/ValidityState)-Schnittstelle zeigt an, ob der Wert eines {{HTMLElement("input")}}-Elements alle seine Validierungsanforderungen erfüllt und daher als gültig betrachtet wird.
 
 Wenn `true`, entspricht das Element der {{cssxref(":valid")}} CSS-Pseudoklasse; andernfalls gilt die {{cssxref(":invalid")}} CSS-Pseudoklasse.
 
 ## Wert
 
-Ein Boolean-Wert, der `true` ist, wenn der `ValidityState` allen Beschränkungen entspricht.
+Ein Boolean, der `true` ist, wenn der `ValidityState` allen Anforderungen entspricht.
 
 ## Beispiele
 
-### Anzeigen des Gültigkeitszustands
+### Anzeige des Gültigkeitsstatus
 
 Das folgende Beispiel überprüft die Gültigkeit eines [numerischen Eingabeelements](/de/docs/Web/HTML/Element/input/number).
 Eine Einschränkung wurde mit dem [`min`-Attribut](/de/docs/Web/HTML/Element/input/number#min) hinzugefügt, das einen Mindestwert von `18` für die Eingabe festlegt.
-Wenn der Benutzer einen Wert eingibt, der keine Zahl größer als 17 ist, schlägt die Einschränkungsvalidierung fehl, und die Styles, die `input:invalid` entsprechen, werden angewendet.
+Wenn der Benutzer einen Wert eingibt, der keine Zahl größer als 17 ist, schlägt die Einschränkungsvalidierung fehl, und die mit `input:invalid` übereinstimmenden Stile werden angewendet.
 
 ```css
 input:invalid {
@@ -46,7 +46,7 @@ pre {
 ```
 
 ```html
-<pre id="log">Validierung wird hier protokolliert...</pre>
+<pre id="log">Validation logged here...</pre>
 <input type="number" id="age" min="18" required />
 ```
 
@@ -61,9 +61,9 @@ function log(text) {
 userInput.addEventListener("input", () => {
   userInput.reportValidity();
   if (userInput.validity.valid) {
-    log("Eingabe OK…");
+    log("Input OK…");
   } else {
-    log("Ungültige Eingabe erkannt…");
+    log("Bad input detected…");
   }
 });
 ```

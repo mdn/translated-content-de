@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`unsubscribe()`** Methode der {{domxref("CookieStoreManager")}} Schnittstelle stoppt die {{domxref("ServiceWorkerRegistration")}} von dem Empfang zuvor abonnierter Ereignisse.
+Die **`unsubscribe()`**-Methode der [`CookieStoreManager`](/de/docs/Web/API/CookieStoreManager)-Schnittstelle beendet die Zustellung von zuvor abonnierten Ereignissen an die [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration).
 
 ## Syntax
 
@@ -20,25 +20,25 @@ unsubscribe(subscriptions)
 
 - `subscriptions`
 
-  - : Eine Objektliste, wobei jedes Objekt folgendes enthält:
+  - : Eine Objektliste, bei der jedes Objekt folgendes enthält:
 
     - `name`
       - : Ein String mit dem Namen eines Cookies.
     - `url`
-      - : Ein String mit der URL des Scopes, der verwendet wurde, um dieses Cookie zu abonnieren.
+      - : Ein String mit der URL des Bereichs, der verwendet wurde, um dieses Cookie zu abonnieren.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit {{jsxref("undefined")}} aufgelöst wird, wenn der Service Worker abgemeldet wurde.
+Ein {{jsxref("Promise")}}, das sich mit {{jsxref("undefined")}} auflöst, wenn der Service Worker abgemeldet wurde.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die URL in `subscriptions` nicht mit dem {{domxref("ServiceWorkerRegistration.scope","scope")}} der Service Worker Registrierung übereinstimmt.
+  - : Wird ausgelöst, wenn die in `subscriptions` übergebene URL nicht mit dem [`scope`](/de/docs/Web/API/ServiceWorkerRegistration/scope) der Service Worker-Registrierung übereinstimmt.
 
 ## Beispiele
 
-In diesem Beispiel meldet sich die {{domxref("ServiceWorkerRegistration")}}, dargestellt durch `registration`, von Änderungsereignissen am Cookie mit dem Namen `"cookie1"` mit einem Scope von `"/path1"` ab.
+In diesem Beispiel meldet sich die durch `registration` repräsentierte [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) von Änderungsereignissen für das Cookie mit dem Namen `"cookie1"` und einem Bereich von `"/path1"` ab.
 
 ```js
 const subscriptions = [{ name: "cookie1", url: `/path1` }];

@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`v-alphabetic`** Attribut definiert die Ausrichtungskoordinate für {{Glossary("glyph", "glyphs")}}, um eine alphabetische Basislinienausrichtung zu erreichen. Der Wert ist ein Offset im Schriftkoordinatensystem relativ zum glyzenspezifischen {{SVGAttr("vert-origin-x")}} Attribut.
+Das **`v-alphabetic`** Attribut definiert die Ausrichtungskoordinate für [Glyphen](/de/docs/Glossary/glyph), um eine alphabetische Grundlinienausrichtung zu erreichen. Der Wert ist ein Offset im Schriftkoordinatensystem relativ zum spezifischen {{SVGAttr("vert-origin-x")}} Attribut der Glyphe.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("font-face")}}
 
@@ -23,7 +23,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Keine</em></td>
+      <td><em>None</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>

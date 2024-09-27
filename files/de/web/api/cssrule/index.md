@@ -2,49 +2,49 @@
 title: CSSRule
 slug: Web/API/CSSRule
 l10n:
-  sourceCommit: f9f48866f02963e752717310b76a70d5bdaf554c
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSRule`**-Schnittstelle repräsentiert eine einzelne CSS-Regel. Es gibt mehrere Regeltypen, die Eigenschaften von `CSSRule` erben.
+Die **`CSSRule`**-Schnittstelle stellt eine einzelne CSS-Regel dar. Es gibt mehrere Arten von Regeln, die Eigenschaften von `CSSRule` erben.
 
-- {{DOMXRef("CSSGroupingRule")}}
-- {{DOMXRef("CSSStyleRule")}}
-- {{DOMXRef("CSSImportRule")}}
-- {{DOMXRef("CSSMediaRule")}}
-- {{DOMXRef("CSSFontFaceRule")}}
-- {{DOMXRef("CSSPageRule")}}
-- {{DOMXRef("CSSNamespaceRule")}}
-- {{DOMXRef("CSSKeyframesRule")}}
-- {{DOMXRef("CSSKeyframeRule")}}
-- {{DOMXRef("CSSCounterStyleRule")}}
-- {{DOMXRef("CSSSupportsRule")}}
-- {{DOMXRef("CSSFontFeatureValuesRule")}}
-- {{DOMXRef("CSSFontPaletteValuesRule")}}
-- {{DOMXRef("CSSLayerBlockRule")}}
-- {{DOMXRef("CSSLayerStatementRule")}}
-- {{DOMXRef("CSSPropertyRule")}}
+- [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule)
+- [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule)
+- [`CSSImportRule`](/de/docs/Web/API/CSSImportRule)
+- [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule)
+- [`CSSFontFaceRule`](/de/docs/Web/API/CSSFontFaceRule)
+- [`CSSPageRule`](/de/docs/Web/API/CSSPageRule)
+- [`CSSNamespaceRule`](/de/docs/Web/API/CSSNamespaceRule)
+- [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)
+- [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)
+- [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)
+- [`CSSSupportsRule`](/de/docs/Web/API/CSSSupportsRule)
+- [`CSSFontFeatureValuesRule`](/de/docs/Web/API/CSSFontFeatureValuesRule)
+- [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)
+- [`CSSLayerBlockRule`](/de/docs/Web/API/CSSLayerBlockRule)
+- [`CSSLayerStatementRule`](/de/docs/Web/API/CSSLayerStatementRule)
+- [`CSSPropertyRule`](/de/docs/Web/API/CSSPropertyRule)
 
 ## Instanz-Eigenschaften
 
-Die `CSSRule`-Schnittstelle spezifiziert die Eigenschaften, die allen Regeln gemeinsam sind, während Eigenschaften, die für spezifische Regeltypen einzigartig sind, in den spezialisierteren Schnittstellen für die jeweiligen Regeltypen angegeben werden.
+Die `CSSRule`-Schnittstelle legt die Eigenschaften fest, die allen Regeln gemeinsam sind, während Eigenschaften, die einzigartig für bestimmte Regeltypen sind, in den spezielleren Schnittstellen für diese Regeltypen festgelegt sind.
 
-- {{domxref("CSSRule.cssText")}}
-  - : Repräsentiert die textuelle Darstellung der Regel, z.B. "`h1,h2 { font-size: 16pt }`" oder "`@import 'url'`". Um auf Teile der Regel zuzugreifen oder diese zu ändern (z.B. den Wert von "font-size" im Beispiel), verwenden Sie die Eigenschaften der spezialisierten Schnittstelle für den Regeltyp (siehe oben).
-- {{domxref("CSSRule.parentRule")}} {{ReadOnlyInline}}
-  - : Gibt die übergeordnete Regel zurück, ansonsten `null`. Z.B. wenn diese Regel eine Stilregel innerhalb eines {{cssxref("@media")}}-Blocks ist, wäre die übergeordnete Regel diese {{domxref("CSSMediaRule")}}.
-- {{domxref("CSSRule.parentStyleSheet")}} {{ReadOnlyInline}}
-  - : Gibt das {{domxref("CSSStyleSheet")}}-Objekt für das Stylesheet zurück, das diese Regel enthält.
-- {{domxref("CSSRule.type")}} {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt eine der Typkonstanten zurück, um zu bestimmen, welcher Regeltyp dargestellt wird.
+- [`CSSRule.cssText`](/de/docs/Web/API/CSSRule/cssText)
+  - : Stellt die Textdarstellung der Regel dar, z. B. `"h1,h2 { font-size: 16pt }"` oder `"@import 'url'"`. Um Teile der Regel zuzugreifen oder zu ändern (z. B. den Wert von "font-size" im Beispiel), verwenden Sie die Eigenschaften der spezialisierten Schnittstelle für den Regeltyp (siehe oben).
+- [`CSSRule.parentRule`](/de/docs/Web/API/CSSRule/parentRule) {{ReadOnlyInline}}
+  - : Gibt die umschließende Regel zurück, andernfalls `null`. Z.B. wenn diese Regel eine Stilregel in einem {{cssxref("@media")}}-Block ist, wäre die übergeordnete Regel diese [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule).
+- [`CSSRule.parentStyleSheet`](/de/docs/Web/API/CSSRule/parentStyleSheet) {{ReadOnlyInline}}
+  - : Gibt das [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt für das Stylesheet zurück, das diese Regel enthält.
+- [`CSSRule.type`](/de/docs/Web/API/CSSRule/type) {{ReadOnlyInline}} {{deprecated_inline}}
+  - : Gibt eine der Typ-Konstanten zurück, um zu bestimmen, welcher Regeltyp dargestellt wird.
 
 ## Beispiele
 
-Verweise auf eine `CSSRule` können durch das Betrachten der `cssRules`-Liste eines {{domxref("CSSStyleSheet")}} erhalten werden.
+Referenzen auf eine `CSSRule` können durch das Betrachten der `cssRules`-Liste eines [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) erhalten werden.
 
 ```js
-let myRules = document.styleSheets[0].cssRules; // Gibt eine CSSRuleList zurück
+let myRules = document.styleSheets[0].cssRules; // Returns a CSSRuleList
 console.log(myRules);
 ```
 
@@ -58,4 +58,4 @@ console.log(myRules);
 
 ## Siehe auch
 
-- [Verwendung dynamischer Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [Verwendung dynamischer Stilinformations](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

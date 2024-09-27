@@ -1,5 +1,5 @@
 ---
-title: "Bericht: body-Eigenschaft"
+title: "Report: body-Eigenschaft"
 short-title: body
 slug: Web/API/Report/body
 l10n:
@@ -8,17 +8,11 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die **`body`** schreibgeschützte Eigenschaft des {{domxref("Report")}}
-Interfaces gibt den Inhalt des Berichts zurück, welcher ein `ReportBody`-Objekt
-ist, das die detaillierten Berichtsinformationen enthält.
+Die **`body`** schreibgeschützte Eigenschaft des [`Report`](/de/docs/Web/API/Report)-Interfaces gibt den Inhalt des Berichts zurück, der ein `ReportBody`-Objekt ist und die detaillierten Berichts-Informationen enthält.
 
 ## Wert
 
-Ein `ReportBody`-Objekt, das die detaillierten Berichtsinformationen enthält. Je nachdem,
-welcher `type` der {{domxref("Report")}} ist, wird das zurückgegebene Objekt tatsächlich ein
-{{domxref("DeprecationReportBody")}}, {{domxref("InterventionReportBody")}} oder
-{{domxref("CSPViolationReportBody")}} sein.
-Alle erben von der Basisklasse `ReportBody` — studieren Sie deren Referenzseiten für weitere Informationen darüber, was die speziellen Berichtskörpertypen enthalten.
+Ein `ReportBody`-Objekt, das die detaillierten Berichts-Informationen enthält. Abhängig davon, welcher `type` der [`Report`](/de/docs/Web/API/Report) ist, wird das zurückgegebene Objekt tatsächlich ein [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody), [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody) oder [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody) sein. Diese alle erben von der grundlegenden `ReportBody`-Klasse — studieren Sie deren Referenzseiten, um mehr über den Inhalt der spezifischen Berichtskörpertypen zu erfahren.
 
 ## Beispiele
 
@@ -29,7 +23,7 @@ const options = {
 };
 
 const observer = new ReportingObserver(([firstReport], observer) => {
-  // Loggen Sie den Berichtskörper des ersten Berichts, d.h. ein DeprecationReportBody-Objekt
+  // Log the first report's report body, i.e. a DeprecationReportBody object
   console.log(firstReport.body);
 }, options);
 ```
@@ -38,7 +32,7 @@ const observer = new ReportingObserver(([firstReport], observer) => {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -8,13 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`screenState`**-Eigenschaft der {{domxref("IdleDetector")}}-Schnittstelle
-gibt einen String zurück, der angibt, ob der Bildschirm gesperrt ist, eines von `"locked"` oder
-`"unlocked"`.
+Die schreibgeschützte Eigenschaft **`screenState`** des [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Interfaces gibt einen String zurück, der anzeigt, ob der Bildschirm gesperrt ist. Mögliche Werte sind `"locked"` oder `"unlocked"`.
 
 ## Wert
 
-Entweder `"locked"` oder `"unlocked"`, wenn {{domxref("IdleDetector.start()")}} aufgerufen wurde, oder `null` andernfalls.
+Entweder `"locked"` oder `"unlocked"`, wenn [`IdleDetector.start()`](/de/docs/Web/API/IdleDetector/start) aufgerufen wurde, oder `null` andernfalls.
 
 ## Beispiele
 

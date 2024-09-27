@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`abort()`**-Methode der {{domxref("BackgroundFetchRegistration")}}-Schnittstelle bricht einen aktiven Hintergrundabruf ab.
+Die **`abort()`**-Methode der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Schnittstelle bricht einen aktiven Hintergrundabruf ab.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein {{jsxref("Promise")}}, das mit `true` aufgelöst wird, wenn der Abruf erfolg
 
 ## Beispiele
 
-Verwenden Sie `abort()`, um einen im Gange befindlichen Hintergrundabruf zu beenden.
+Verwenden Sie `abort()`, um einen Hintergrundabruf, der gerade ausgeführt wird, zu beenden.
 
 ```js
 bgFetch.abort();
@@ -36,6 +36,6 @@ bgFetch.abort();
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

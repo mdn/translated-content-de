@@ -7,41 +7,41 @@ l10n:
 
 {{CSSRef}}
 
-Die **`align-self`** [CSS](/de/docs/Web/CSS) Eigenschaft überschreibt den {{cssxref("align-items")}} Wert eines Grid- oder Flex-Items. In Grids richtet sie das Item innerhalb des {{glossary("Grid Areas", "grid area")}} aus. Im Flexbox-Layout richtet sie das Item auf der {{glossary("cross axis")}} aus.
+Die **`align-self`** [CSS](/de/docs/Web/CSS) Eigenschaft überschreibt den Wert von {{cssxref("align-items")}} eines Grid- oder Flex-Elements. In einem Grid richtet es das Element innerhalb des [Gitterbereichs](/de/docs/Glossary/Grid_Areas) aus. Im Flexbox-Kontext richtet es das Element auf der [Querachse](/de/docs/Glossary/cross_axis) aus.
 
 {{EmbedInteractiveExample("pages/css/align-self.html")}}
 
-Die Eigenschaft gilt nicht für Block-Level-Boxen oder Tabellenelemente. Wenn der Abstand eines Flexbox-Items entlang der Querachse `auto` ist, wird `align-self` ignoriert.
+Die Eigenschaft gilt nicht für Block-Level-Boxen oder Tabellenzellen. Wenn der Querachsenrand eines Flexbox-Elements auf `auto` gesetzt ist, wird `align-self` ignoriert.
 
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 align-self: auto;
 align-self: normal;
 
-/* Positionale Ausrichtung */
-/* align-self nimmt keine Werte für links und rechts an */
-align-self: center; /* Platzieren Sie das Element in der Mitte */
-align-self: start; /* Platzieren Sie das Element am Anfang */
-align-self: end; /* Platzieren Sie das Element am Ende */
-align-self: self-start; /* Richten Sie das Element bündig am Anfang aus */
-align-self: self-end; /* Richten Sie das Element bündig am Ende aus */
-align-self: flex-start; /* Platzieren Sie das Flex-Element am Anfang */
-align-self: flex-end; /* Platzieren Sie das Flex-Element am Ende */
+/* Positional alignment */
+/* align-self does not take left and right values */
+align-self: center; /* Put the item around the center */
+align-self: start; /* Put the item at the start */
+align-self: end; /* Put the item at the end */
+align-self: self-start; /* Align the item flush at the start */
+align-self: self-end; /* Align the item flush at the end */
+align-self: flex-start; /* Put the flex item at the start */
+align-self: flex-end; /* Put the flex item at the end */
 align-self: anchor-center;
 
-/* Baseline Ausrichtung */
+/* Baseline alignment */
 align-self: baseline;
 align-self: first baseline;
 align-self: last baseline;
-align-self: stretch; /* Dehnen Sie 'auto'-Größe-Elemente, um den Container zu füllen */
+align-self: stretch; /* Stretch 'auto'-sized items to fit the container */
 
-/* Überlauf-Ausrichtung */
+/* Overflow alignment */
 align-self: safe center;
 align-self: unsafe center;
 
-/* Globale Werte */
+/* Global values */
 align-self: inherit;
 align-self: initial;
 align-self: revert;
@@ -52,38 +52,38 @@ align-self: unset;
 ### Werte
 
 - `auto`
-  - : Berechnet sich zum Wert von {{cssxref("align-items")}} des Elternteils.
+  - : Berechnet sich zum Wert von {{cssxref("align-items")}} des übergeordneten Elements.
 - `normal`
 
-  - : Die Wirkung dieses Schlüsselworts ist abhängig vom Layoutmodus, in dem wir uns befinden:
+  - : Die Wirkung dieses Schlüsselworts hängt vom verwendeten Layoutmodus ab:
 
-    - In absolut positionierten Layouts verhält es sich wie `start` bei _ersetzten_ absolut positionierten Boxen und wie `stretch` bei _allen anderen_ absolut positionierten Boxen.
-    - In der statischen Position absolut positionierter Layouts verhält es sich wie `stretch`.
-    - Für Flex-Items verhält es sich wie `stretch`.
-    - Für Grid-Items führt dieses Schlüsselwort zu einem Verhalten ähnlich wie `stretch`, außer bei Boxen mit einem {{glossary("aspect ratio")}} oder intrinsischen Größen, wo es sich wie `start` verhält.
-    - Die Eigenschaft gilt nicht für Block-Level-Boxen und Tabellenelemente.
+    - In absolut positionierten Layouts verhält sich das Schlüsselwort wie `start` bei _ersetzten_ absolut positionierten Boxen und wie `stretch` bei _allen anderen_ absolut positionierten Boxen.
+    - In der statischen Position von absolut positionierten Layouts verhält sich das Schlüsselwort wie `stretch`.
+    - Bei Flex-Elementen verhält sich das Schlüsselwort wie `stretch`.
+    - Bei Grid-Elementen führt dieses Schlüsselwort zu einem Verhalten ähnlich dem von `stretch`, außer bei Boxen mit einem [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) oder intrinsischen Größen, wo es wie `start` wirkt.
+    - Die Eigenschaft gilt nicht für Block-Level-Boxen und Tabellenzellen.
 
 - `self-start`
-  - : Richtet die Elemente bündig mit dem Rand des Ausrichtungscontainers aus, der der Startseite des Elements auf der Querachse entspricht.
+  - : Richtet die Elemente bündig mit dem Rand des Ausrichtungscontainers aus, der der Startseite des Elements in der Querachse entspricht.
 - `self-end`
-  - : Richtet die Elemente bündig mit dem Rand des Ausrichtungscontainers aus, der der Endseite des Elements auf der Querachse entspricht.
+  - : Richtet die Elemente bündig mit dem Rand des Ausrichtungscontainers aus, der der Endseite des Elements in der Querachse entspricht.
 - `flex-start`
-  - : Der Quer-Start-Abstandsrand des Flex-Items ist bündig mit dem Quer-Start-Rand der Zeile.
+  - : Der Startmarginrand des Flex-Elements ist mit dem Startzeilenrand gespült.
 - `flex-end`
-  - : Der Quer-Ende-Abstandsrand des Flex-Items ist bündig mit dem Quer-Ende-Rand der Zeile.
+  - : Der Endmarginrand des Flex-Elements ist mit dem Endzeilenrand gespült.
 - `center`
-  - : Die Margenbox des Flex-Items wird innerhalb der Zeile auf der Querachse zentriert. Ist die Quergröße des Elements größer als der Flex-Container, wird es in beide Richtungen gleichmäßig überlaufen.
+  - : Die Marginbox des Flex-Elements ist auf der Querachse innerhalb der Zeile zentriert. Ist die Querausdehnung des Elements größer als der Flex-Container, wird es in beide Richtungen gleichmäßig überlaufen.
 - `baseline`, `first baseline`, `last baseline`
-  - : Gibt die Teilnahme an der Ausrichtung der ersten oder letzten Baseline an: richtet die Ausrichtungsbasisline des ersten oder letzten Baseline-Sets der Box mit der entsprechenden Baseline im gemeinsamen ersten oder letzten Baseline-Set aller Boxen in ihrer Baseline-Teilegruppe aus.
-    Die Ersatz-Ausrichtung für `first baseline` ist `start`, die für `last baseline` ist `end`.
+  - : Gibt die Teilnahme an der ersten oder letzten Grundlinienausrichtung an: richtet die Ausrichtungsgrundlinie der ersten oder letzten Grundliniensammlung der Box mit der entsprechenden Grundlinie in der gemeinsamen ersten oder letzten Grundliniensammlung aller Boxen in ihrer Grundliniensharing-Gruppe aus.
+    Das Fallback-Ausrichtung für `first baseline` ist `start`, für `last baseline` ist es `end`.
 - `stretch`
-  - : Wenn die kombinierte Größe der Elemente entlang der Querachse kleiner ist als die Größe des Ausrichtungscontainers und das Element auf `auto`-Größe festgelegt ist, wird seine Größe gleichmäßig (nicht proportional) vergrößert, während die durch {{cssxref("max-height")}}/{{cssxref("max-width")}} (oder gleichwertige Funktionalität) auferlegten Einschränkungen eingehalten werden, sodass die kombinierte Größe aller `auto`-Größe-Elemente genau den Ausrichtungscontainer entlang der Querachse füllt.
+  - : Ist die kombinierte Größe der Elemente entlang der Querachse kleiner als die Größe des Ausrichtungscontainers und ist das Element auf `auto`-Größe eingestellt, wird seine Größe gleichmäßig (nicht proportional) erhöht, während sie die durch {{cssxref("max-height")}}/{{cssxref("max-width")}} (oder entsprechende Funktionalität) auferlegten Beschränkungen respektiert, sodass die kombinierte Größe aller `auto`-größen Elemente genau den Ausrichtungscontainer entlang der Querachse füllt.
 - `anchor-center`
-  - : Im Fall von [anker-positionierten](/de/docs/Web/CSS/CSS_anchor_positioning) Elementen richtet es das Element auf der Block-Richtung zum Zentrum des zugehörigen Anker-Elements aus. Siehe [Zentrieren am Anker mit `anchor-center`](/de/docs/Web/CSS/CSS_anchor_positioning/Using#centering_on_the_anchor_using_anchor-center).
+  - : Im Falle von [anker-positionierten](/de/docs/Web/CSS/CSS_anchor_positioning) Elementen richtet es das Element in der Blockrichtung zum Zentrum des zugehörigen Ankerelements aus. Siehe [Zentrieren auf dem Anker unter Verwendung von `anchor-center`](/de/docs/Web/CSS/CSS_anchor_positioning/Using#centering_on_the_anchor_using_anchor-center).
 - `safe`
-  - : Wenn die Größe des Elements den Ausrichtungscontainer überläuft, wird das Element stattdessen ausgerichtet, als ob der Ausrichtungsmodus `start` wäre.
+  - : Wenn die Größe des Elements den Ausrichtungscontainer überläuft, wird das Element stattdessen so ausgerichtet, als ob der Ausrichtungsmodus `start` wäre.
 - `unsafe`
-  - : Unabhängig von den relativen Größen des Elements und des Ausrichtungscontainers wird der angegebene Ausrichtungswert eingehalten.
+  - : Unabhängig von den relativen Größen des Elements und Ausrichtungscontainers wird der gegebene Ausrichtungswert berücksichtigt.
 
 ## Formale Definition
 
@@ -141,8 +141,8 @@ div:nth-child(3) {
 
 ## Siehe auch
 
-- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+- [Grundkonzepte des Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
 - [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
-- [Box-Ausrichtung in CSS-Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout)
+- [Box-Ausrichtung in CSS-Gitter-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout)
 - [CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment)
 - Die {{cssxref("align-items")}} Eigenschaft

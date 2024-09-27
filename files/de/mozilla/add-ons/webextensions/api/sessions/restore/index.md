@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Stellt einen geschlossenen Tab oder ein geschlossenes Fenster wieder her. Das Wiederherstellen öffnet nicht nur den Tab oder das Fenster erneut, sondern stellt auch die Navigationserfahrung des Tabs wieder her, sodass die Vor-/Zurück-Schaltflächen funktionieren. Bei der Wiederherstellung eines Fensters werden alle Tabs wiederhergestellt, die das Fenster beim Schließen beinhaltete.
+Stellt einen geschlossenen Tab oder ein Fenster wieder her. Die Wiederherstellung öffnet nicht nur den Tab oder das Fenster erneut, sondern stellt auch die Navigationseigenschaften des Tabs wieder her, sodass die Vorwärts-/Rückwärtstasten funktionieren. Die Wiederherstellung eines Fensters stellt alle Tabs wieder her, die das Fenster beim Schließen enthielt.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,11 +22,11 @@ let restoringSession = browser.sessions.restore(
 ### Parameter
 
 - `sessionId`
-  - : `string`. Ein String, der die Sitzungs-ID für das zu wiederherstellende Fenster oder den zu wiederherstellenden Tab enthält. Diese kann in der `sessionId`-Eigenschaft des {{WebExtAPIRef("tabs.Tab", "Tab")}}- oder {{WebExtAPIRef("windows.Window", "Window")}}-Objekts gefunden werden, das in der {{WebExtAPIRef("sessions.Session", "Session")}} zurückgegeben wird, die von {{WebExtAPIRef("sessions.getRecentlyClosed()")}} zurückgegeben wird.
+  - : `string`. Ein String, der die Sitzungs-ID für das Fenster oder den Tab enthält, das wiederhergestellt werden soll. Diese kann in der `sessionId`-Eigenschaft des {{WebExtAPIRef("tabs.Tab", "Tab")}}- oder {{WebExtAPIRef("windows.Window", "Window")}}-Objekts gefunden werden, das in der {{WebExtAPIRef("sessions.Session", "Session")}} zurückgegeben wird von {{WebExtAPIRef("sessions.getRecentlyClosed()")}}.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Dieses wird mit einem {{WebExtAPIRef("sessions.Session", "Session")}}-Objekt erfüllt, das die wiederhergestellte Sitzung repräsentiert.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Dieses wird mit einem {{WebExtAPIRef("sessions.Session", "Session")}}-Objekt erfüllt, das die wiederhergestellte Sitzung darstellt.
 
 ## Browser-Kompatibilität
 
@@ -34,7 +34,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Diese
 
 ## Beispiele
 
-Dies stellt die zuletzt geschlossene Sitzung wieder her, egal ob es sich um ein Fenster oder einen Tab handelt:
+Dies stellt die zuletzt geschlossene Sitzung wieder her, sei es ein Fenster oder Tab:
 
 ```js
 function restoreMostRecent(sessionInfos) {
@@ -69,4 +69,4 @@ browser.browserAction.onClicked.addListener(() => {
 
 ## Bekannte Probleme
 
-[Bug 1538119](https://bugzil.la/1538119) - Doppelter sessionId in browser.sessions.getRecentlyClosed() nach "Vorherige Sitzung wiederherstellen"
+[Bug 1538119](https://bugzil.la/1538119) - Doppelte sessionId in browser.sessions.getRecentlyClosed() nach "Vorherige Sitzung wiederherstellen"

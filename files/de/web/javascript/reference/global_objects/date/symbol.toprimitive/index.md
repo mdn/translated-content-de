@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`[Symbol.toPrimitive]()`** Methode von {{jsxref("Date")}}-Instanzen gibt einen primitiven Wert zurück, der dieses Datum darstellt. Dieser kann je nach Angabe entweder ein String oder eine Zahl sein.
+Die **`[Symbol.toPrimitive]()`** Methode von {{jsxref("Date")}} Instanzen gibt einen primitiven Wert zurück, der dieses Datum repräsentiert. Dieser Wert kann eine Zeichenkette oder eine Zahl sein, abhängig von dem gegebenen Hinweis.
 
 {{EmbedInteractiveExample("pages/js/date-toprimitive.html")}}
 
@@ -20,15 +20,15 @@ date[Symbol.toPrimitive](hint)
 ### Parameter
 
 - `hint`
-  - : Ein String, der den Typ des zurückzugebenden primitiven Wertes darstellt. Die folgenden Werte sind gültig:
-    - `"string"` oder `"default"`: Die Methode sollte einen String zurückgeben.
+  - : Eine Zeichenkette, die den Typ des primitiven Werts darstellt, der zurückgegeben werden soll. Die folgenden Werte sind gültig:
+    - `"string"` oder `"default"`: Die Methode sollte eine Zeichenkette zurückgeben.
     - `"number"`: Die Methode sollte eine Zahl zurückgeben.
 
 ### Rückgabewert
 
-Wenn `hint` `"string"` oder `"default"` ist, liefert diese Methode einen String zurück, indem der `this`-Wert zu einem String [gezwungen wird](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) (zuerst mit `toString()`, dann mit `valueOf()`).
+Falls `hint` `"string"` oder `"default"` ist, gibt diese Methode eine Zeichenkette zurück, indem sie den `this`-Wert [in eine Zeichenkette umwandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) (zuerst wird `toString()` versucht, dann `valueOf()`).
 
-Wenn `hint` `"number"` ist, liefert diese Methode eine Zahl zurück, indem der `this`-Wert zu einer Zahl [gezwungen wird](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) (zuerst mit `valueOf()`, dann mit `toString()`).
+Falls `hint` `"number"` ist, gibt diese Methode eine Zahl zurück, indem sie den `this`-Wert [in eine Zahl umwandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) (zuerst wird `valueOf()` versucht, dann `toString()`).
 
 ### Ausnahmen
 
@@ -37,9 +37,9 @@ Wenn `hint` `"number"` ist, liefert diese Methode eine Zahl zurück, indem der `
 
 ## Beschreibung
 
-Die Methode `[Symbol.toPrimitive]()` ist Teil des [Typumwandlungsprotokolls](/de/docs/Web/JavaScript/Data_structures#type_coercion). JavaScript ruft immer die `[Symbol.toPrimitive]()`-Methode vorrangig auf, um ein Objekt in einen primitiven Wert umzuwandeln. In der Regel müssen Sie die `[Symbol.toPrimitive]()`-Methode nicht selbst aufrufen; JavaScript ruft sie automatisch auf, wenn ein Objekt erwartet wird, bei dem ein primitiver Wert benötigt wird.
+Die `[Symbol.toPrimitive]()`-Methode ist Teil des [Typumwandlungsprotokolls](/de/docs/Web/JavaScript/Data_structures#type_coercion). JavaScript ruft die `[Symbol.toPrimitive]()`-Methode immer vorrangig auf, um ein Objekt in einen primitiven Wert umzuwandeln. Sie müssen die `[Symbol.toPrimitive]()`-Methode selten selbst aufrufen; JavaScript ruft sie automatisch auf, wenn ein Objekt auftritt, wo ein primitiver Wert erwartet wird.
 
-Die `[Symbol.toPrimitive]()`-Methode des {{jsxref("Date")}}-Objekts gibt einen primitiven Wert zurück, indem entweder {{jsxref("Date/valueOf", "this.valueOf()")}} aufgerufen und eine Zahl zurückgegeben wird, oder {{jsxref("Date/toString", "this.toString()")}} aufgerufen und ein String zurückgegeben wird. Sie existiert, um den Standardprozess der [primitiven Umwandlung](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) zu überschreiben, um einen String anstelle einer Zahl zurückzugeben, da die primitive Umwandlung standardmäßig {{jsxref("Date/valueOf", "valueOf()")}} vor {{jsxref("Date/toString", "toString()")}} aufruft. Mit dem benutzerdefinierten `[Symbol.toPrimitive]()`, ergibt `new Date(0) + 1` den Wert `"Thu Jan 01 1970 00:00:00 GMT+0000 (Coordinated Universal Time)1"` (ein String) anstelle von `1` (einer Zahl).
+Die `[Symbol.toPrimitive]()`-Methode des {{jsxref("Date")}}-Objekts gibt einen primitiven Wert zurück, indem sie entweder {{jsxref("Date/valueOf", "this.valueOf()")}} aufruft und eine Zahl zurückgibt oder {{jsxref("Date/toString", "this.toString()")}} aufruft und eine Zeichenkette zurückgibt. Sie existiert, um den Standardprozess der [primitiven Umwandlung](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) zu überschreiben, um eine Zeichenkette statt einer Zahl zurückzugeben, da die primitive Umwandlung standardmäßig {{jsxref("Date/valueOf", "valueOf()")}} vor {{jsxref("Date/toString", "toString()")}} aufruft. Mit dem benutzerdefinierten `[Symbol.toPrimitive]()`, gibt `new Date(0) + 1` `"Thu Jan 01 1970 00:00:00 GMT+0000 (Coordinated Universal Time)1"` (eine Zeichenkette) statt `1` (eine Zahl) zurück.
 
 ## Beispiele
 

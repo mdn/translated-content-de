@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGSetElement`** Schnittstelle entspricht dem {{SVGElement("set")}} Element.
+Die **`SVGSetElement`**-Schnittstelle entspricht dem {{SVGElement("set")}}-Element.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, sondern erbt Eigenschaften von ihrer übergeordneten Schnittstelle, {{domxref("SVGAnimationElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, sondern erbt Eigenschaften von ihrer Elternschnittstelle, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, sondern erbt Methoden von ihrer übergeordneten Schnittstelle, {{domxref("SVGAnimationElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, sondern erbt Methoden von ihrer Elternschnittstelle, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
 
 ## Spezifikationen
 

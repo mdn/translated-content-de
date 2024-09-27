@@ -8,11 +8,14 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.insertNode()`**-Methode fügt einen Knoten am Anfang des {{domxref("Range")}} ein.
+Die **`Range.insertNode()`**-Methode fügt einen Knoten am Anfang
+des [`Range`](/de/docs/Web/API/Range) ein.
 
-Der neue Knoten wird am Startgrenzpunkt des `Range` eingefügt. Wenn der neue Knoten in einen Text-{{domxref("Node")}} eingefügt werden soll, wird dieser `Node` an der Einfügestelle geteilt, und die Einfügung erfolgt zwischen den beiden Textknoten.
+Der neue Knoten wird am Startpunkt des `Range` eingefügt. Wenn der
+neue Knoten zu einem Text-`Node` hinzugefügt werden soll, wird dieser `Node` an der Einfügestelle geteilt,
+und die Einfügung erfolgt zwischen den beiden Textknoten.
 
-Wenn der neue Knoten ein Dokumentfragment ist, werden die Kinder des Dokumentfragments stattdessen eingefügt.
+Wenn der neue Knoten ein Dokumentfragment ist, werden stattdessen die Kinder des Dokumentfragments eingefügt.
 
 ## Syntax
 
@@ -23,7 +26,7 @@ insertNode(newNode)
 ### Parameter
 
 - `newNode`
-  - : Der {{domxref("Node")}}, der am Anfang des `range` eingefügt werden soll.
+  - : Der [`Node`](/de/docs/Web/API/Node), der am Anfang des `range` eingefügt werden soll.
 
 ### Rückgabewert
 

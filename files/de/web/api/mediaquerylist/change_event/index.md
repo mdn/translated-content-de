@@ -1,5 +1,5 @@
 ---
-title: "MediaQueryList: change-Ereignis"
+title: "MediaQueryList: change Ereignis"
 short-title: change
 slug: Web/API/MediaQueryList/change_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Das **`change`**-Ereignis der {{DOMxRef("MediaQueryList")}}-Schnittstelle wird ausgelöst, wenn sich der Status der Medienabfrageunterstützung ändert.
+Das **`change`** Ereignis der Schnittstelle [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) wird ausgelöst, wenn sich der Status der Unterstützung für Media Queries ändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("change", (event) => {});
@@ -22,18 +22,18 @@ onchange = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("MediaQueryListEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MediaQueryListEvent")}}
 
 ## Ereigniseigenschaften
 
-_Die `MediaQueryListEvent`-Schnittstelle erbt Eigenschaften von ihrer übergeordneten Schnittstelle, {{DOMxRef("Event")}}._
+_Die Schnittstelle `MediaQueryListEvent` erbt Eigenschaften von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
-- {{DOMxRef("MediaQueryListEvent.matches")}} {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der `true` ist, wenn das {{DOMxRef("document")}} derzeit die Medienabfrageliste erfüllt, oder `false` andernfalls.
-- {{DOMxRef("MediaQueryListEvent.media")}} {{ReadOnlyInline}}
-  - : Ein String, der eine serialisierte Medienabfrage darstellt.
+- [`MediaQueryListEvent.matches`](/de/docs/Web/API/MediaQueryListEvent/matches) {{ReadOnlyInline}}
+  - : Ein boolescher Wert, der `true` ist, wenn das [`document`](/de/docs/Web/API/Document) derzeit der Media Query Liste entspricht, oder `false`, wenn nicht.
+- [`MediaQueryListEvent.media`](/de/docs/Web/API/MediaQueryListEvent/media) {{ReadOnlyInline}}
+  - : Ein String, der eine serialisierte Media Query darstellt.
 
 ## Beispiel
 
@@ -42,11 +42,11 @@ const mql = window.matchMedia("(max-width: 600px)");
 
 mql.onchange = (e) => {
   if (e.matches) {
-    /* das Ansichtsfenster ist 600 Pixel breit oder weniger */
-    console.log("Dies ist ein schmaler Bildschirm — weniger als 600px breit.");
+    /* the viewport is 600 pixels wide or less */
+    console.log("This is a narrow screen — less than 600px wide.");
   } else {
-    /* das Ansichtsfenster ist mehr als 600 Pixel breit */
-    console.log("Dies ist ein breiter Bildschirm — mehr als 600px breit.");
+    /* the viewport is more than 600 pixels wide */
+    console.log("This is a wide screen — more than 600px wide.");
   }
 };
 ```
@@ -61,8 +61,8 @@ mql.onchange = (e) => {
 
 ## Siehe auch
 
-- [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Medienabfragen aus Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
-- {{DOMxRef("window.matchMedia()")}}
-- {{DOMxRef("MediaQueryList")}}
-- {{DOMxRef("MediaQueryListEvent")}}
+- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwendung von Media Queries im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
+- [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
+- [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

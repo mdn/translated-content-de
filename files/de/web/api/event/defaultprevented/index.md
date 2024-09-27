@@ -1,5 +1,5 @@
 ---
-title: "Ereignis: defaultPrevented Eigenschaft"
+title: "Event: Eigenschaft defaultPrevented"
 short-title: defaultPrevented
 slug: Web/API/Event/defaultPrevented
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`defaultPrevented`** Eigenschaft der {{domxref("Event")}}-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob der Aufruf von {{ domxref("Event.preventDefault()") }} das Ereignis abgebrochen hat oder nicht.
+Die **`defaultPrevented`** schreibgeschützte Eigenschaft des [`Event`](/de/docs/Web/API/Event)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob der Aufruf von [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) das Ereignis abgebrochen hat.
 
 ## Wert
 
-Ein boolescher Wert, wobei `true` anzeigt, dass die Standardaktion des {{glossary("user agent")}} verhindert wurde, und `false` anzeigt, dass dies nicht der Fall war.
+Ein boolescher Wert, wobei `true` anzeigt, dass die Standardaktion des [Benutzeragenten](/de/docs/Glossary/user_agent) verhindert wurde, und `false`, dass sie nicht verhindert wurde.
 
 ## Beispiel
 

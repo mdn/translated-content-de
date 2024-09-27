@@ -3,20 +3,21 @@ title: "GPUUncapturedErrorEvent: error-Eigenschaft"
 short-title: error
 slug: Web/API/GPUUncapturedErrorEvent/error
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`error`**-Eigenschaft der {{domxref("GPUUncapturedErrorEvent")}}-Schnittstelle ist eine {{domxref("GPUError")}}-Objektinstanz, die Zugriff auf die Einzelheiten des Fehlers bietet.
+Die **`error`**-Eigenschaft des
+[`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUncapturedErrorEvent)-Interfaces ist eine Instanz des [`GPUError`](/de/docs/Web/API/GPUError)-Objekts und bietet Zugriff auf die Details des Fehlers.
 
 ## Wert
 
-Eine {{domxref("GPUError")}}-Objektinstanz.
+Eine Instanz des [`GPUError`](/de/docs/Web/API/GPUError)-Objekts.
 
 ## Beispiele
 
-Sehen Sie sich die Hauptseite [`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUncapturedErrorEvent#examples) für ein Beispiel an.
+Sehen Sie sich die Hauptseite von [`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUncapturedErrorEvent#examples) für ein Beispiel an.
 
 ## Spezifikationen
 
@@ -29,4 +30,4 @@ Sehen Sie sich die Hauptseite [`GPUUncapturedErrorEvent`](/de/docs/Web/API/GPUUn
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [Best Practices zur Fehlerbehandlung in WebGPU](https://toji.dev/webgpu-best-practices/error-handling)
+- [WebGPU Best Practices für Fehlerbehandlung](https://toji.dev/webgpu-best-practices/error-handling)

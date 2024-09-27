@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.relList`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut widerspiegelt. Es handelt sich um eine dynamische {{domxref("DOMTokenList")}}, die die Menge der Linktypen enthält, die die Beziehung zwischen der Ressource, die durch das {{HTMLElement("area")}}-Element repräsentiert wird, und dem aktuellen Dokument angeben.
+Die **`HTMLAreaElement.relList`** schreibgeschützte Eigenschaft spiegelt das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut wider. Sie ist eine dynamische [`DOMTokenList`](/de/docs/Web/API/DOMTokenList), die die Menge von Linktypen enthält, die die Beziehung zwischen der Ressource, die durch das {{HTMLElement("area")}}-Element dargestellt wird, und dem aktuellen Dokument angibt.
 
-Die Eigenschaft selbst ist schreibgeschützt, das bedeutet, Sie können die
-{{domxref("DOMTokenList")}} nicht durch eine andere ersetzen, aber der Inhalt der zurückgegebenen Liste kann geändert werden.
+Die Eigenschaft selbst ist schreibgeschützt, was bedeutet, dass Sie die
+[`DOMTokenList`](/de/docs/Web/API/DOMTokenList) nicht durch eine andere ersetzen können, aber der Inhalt der zurückgegebenen Liste kann geändert werden.
 
 ## Wert
 
-Eine dynamische {{domxref("DOMTokenList")}} von Zeichenfolgen.
+Eine dynamische [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) von Zeichenfolgen.
 
 ## Beispiele
 
@@ -41,7 +41,7 @@ for (const area of areas) {
 
 ## Siehe auch
 
-- Die entsprechende Eigenschaft auf {{HTMLElement("a")}} und {{HTMLElement("link")}},
-  {{domxref("HTMLAnchorElement.relList")}} und {{domxref("HTMLLinkElement.relList")}}.
-- Dieselbe Liste, jedoch als durch Leerzeichen getrennte Token in einer Zeichenfolge:
-  {{domxref("HTMLAreaElement.rel")}}
+- Die entsprechende Eigenschaft an {{HTMLElement("a")}} und {{HTMLElement("link")}},
+  [`HTMLAnchorElement.relList`](/de/docs/Web/API/HTMLAnchorElement/relList) und [`HTMLLinkElement.relList`](/de/docs/Web/API/HTMLLinkElement/relList).
+- Die gleiche Liste, jedoch als durch Leerzeichen getrennte Tokens in einem String:
+  [`HTMLAreaElement.rel`](/de/docs/Web/API/HTMLAreaElement/rel)

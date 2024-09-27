@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feTurbulence>`** [SVG](/de/docs/Web/SVG) Filter-Primitive erzeugt ein Bild mit der [Perlin-Turbulenzfunktion](https://en.wikipedia.org/wiki/Perlin_noise). Es ermöglicht die Synthese von künstlichen Texturen wie Wolken oder Marmor. Das resultierende Bild füllt die gesamte Filter-Primitive-Unterregion aus.
+Das **`<feTurbulence>`** [SVG](/de/docs/Web/SVG) Filter-Primitive erstellt ein Bild mithilfe der [Perlin-Turbulenzfunktion](https://en.wikipedia.org/wiki/Perlin_noise). Es ermöglicht die Synthese künstlicher Texturen wie Wolken oder Marmor. Das resultierende Bild wird die gesamte Unterregion des Filter-Primitives ausfüllen.
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -23,7 +23,7 @@ Das **`<feTurbulence>`** [SVG](/de/docs/Web/SVG) Filter-Primitive erzeugt ein Bi
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFETurbulenceElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGFETurbulenceElement`](/de/docs/Web/API/SVGFETurbulenceElement) Schnittstelle.
 
 ## Beispiel
 

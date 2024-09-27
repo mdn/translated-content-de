@@ -8,11 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormElement.action`**-Eigenschaft repräsentiert die Aktion
+Die **`HTMLFormElement.action`**-Eigenschaft repräsentiert die `action`
 des {{HTMLElement("form")}}-Elements.
 
-Die Aktion eines Formulars ist das Programm, das auf dem Server ausgeführt wird, wenn das Formular
-abgeschickt wird. Diese Eigenschaft kann abgerufen oder gesetzt werden.
+Die Aktion eines Formulars ist das Programm, das auf dem Server ausgeführt wird, wenn das Formular abgeschickt wird. Diese Eigenschaft kann abgerufen oder gesetzt werden.
 
 ## Wert
 

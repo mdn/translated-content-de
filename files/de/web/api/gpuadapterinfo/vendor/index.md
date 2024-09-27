@@ -3,12 +3,12 @@ title: "GPUAdapterInfo: vendor-Eigenschaft"
 short-title: vendor
 slug: Web/API/GPUAdapterInfo/vendor
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`vendor`** schreibgeschützte Eigenschaft des {{domxref("GPUAdapterInfo")}}-Interfaces gibt den Namen des Adapterherstellers zurück oder einen leeren String, wenn er nicht verfügbar ist.
+Die schreibgeschützte Eigenschaft **`vendor`** der [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo)-Schnittstelle gibt den Namen des Adapterherstellers zurück oder einen leeren String, wenn er nicht verfügbar ist.
 
 ## Wert
 

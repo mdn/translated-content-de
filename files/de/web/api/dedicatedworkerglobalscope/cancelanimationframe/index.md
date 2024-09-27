@@ -1,5 +1,5 @@
 ---
-title: "DedicatedWorkerGlobalScope: cancelAnimationFrame()-Methode"
+title: "DedicatedWorkerGlobalScope: cancelAnimationFrame() Methode"
 short-title: cancelAnimationFrame()
 slug: Web/API/DedicatedWorkerGlobalScope/cancelAnimationFrame
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}{{AvailableInWorkers("dedicated")}}
 
-Die **`cancelAnimationFrame()`**-Methode des {{domxref("DedicatedWorkerGlobalScope")}}-Interfaces storniert eine Animationsframe-Anfrage, die zuvor durch einen Aufruf von {{domxref("DedicatedWorkerGlobalScope.requestAnimationFrame()", "requestAnimationFrame()")}} geplant wurde.
+Die **`cancelAnimationFrame()`** Methode des [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) Interfaces storniert eine über einen Aufruf von [`requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame) zuvor geplante Animationsrahmenanforderung.
 
-Das Aufrufen der `cancelAnimationFrame()`-Methode erfordert, dass der aktuelle Worker ein zugehöriges Eigentümer-{{domxref("Window", "window")}} hat. Das bedeutet, dass der aktuelle Worker von einem {{domxref("Window", "window")}} oder von einem dedizierten Worker erstellt werden muss, der ebenfalls ein zugehöriges Eigentümer-{{domxref("Window", "window")}} besitzt.
+Das Aufrufen der `cancelAnimationFrame()` Methode erfordert, dass der aktuelle Worker ein zugehöriges Eigentümer-[`window`](/de/docs/Web/API/Window) hat. Das bedeutet, dass der aktuelle Worker durch ein [`window`](/de/docs/Web/API/Window) oder durch einen dedizierten Worker erstellt werden muss, der ebenfalls ein zugehöriges Eigentümer-[`window`](/de/docs/Web/API/Window) besitzt.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ cancelAnimationFrame(handle)
 ### Parameter
 
 - `handle`
-  - : Der ID-Wert, der durch einen Aufruf von {{domxref("DedicatedWorkerGlobalScope.requestAnimationFrame()", "requestAnimationFrame()")}} zurückgegeben wird; der Aufruf muss im gleichen Worker erfolgt sein.
+  - : Der ID-Wert, der von einem Aufruf von [`requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame) zurückgegeben wird; der Aufruf muss im selben Worker erfolgt sein.
 
 ### Rückgabewert
 
@@ -29,12 +29,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Methode vom aktuellen Worker nicht unterstützt wird.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Methode im aktuellen Worker nicht unterstützt wird.
 
 ## Beispiele
 
-Im Hauptthread übertragen wir zunächst die Kontrolle über ein {{HTMLElement("canvas")}}-Element auf ein {{domxref("OffscreenCanvas")}}, indem wir {{domxref("HTMLCanvasElement.transferControlToOffscreen()")}} verwenden, und senden eine Nachricht, um die Arbeit mit dem `offscreen`-Canvas zu `"starten"`:
+Im Hauptthread beginnen wir mit der Übertragung der Steuerung eines {{HTMLElement("canvas")}} Elements an ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas), mit Hilfe von [`HTMLCanvasElement.transferControlToOffscreen()`](/de/docs/Web/API/HTMLCanvasElement/transferControlToOffscreen) und senden eine Nachricht zum `"start"` der Arbeit an den Worker, mit dem Offscreen-Canvas:
 
 ```js
 const offscreenCanvas = document
@@ -50,7 +50,7 @@ worker.postMessage(
 );
 ```
 
-Beim Empfang der `"start"`-Nachricht beginnt der Worker mit der Animation und bewegt das Rechteck von links nach rechts. Beim Empfang einer `"stop"`-Nachricht wird die Animation gestoppt.
+Beim Empfang der `"start"` Nachricht beginnt der Worker die Animation und bewegt das Rechteck von links nach rechts. Bei Empfang einer `"stop"` Nachricht wird er die Animation stoppen.
 
 ```js
 let ctx;
@@ -75,7 +75,7 @@ self.addEventListener("message", (e) => {
 });
 ```
 
-Falls erforderlich, kann der Hauptthread schließlich eine `"stop"`-Nachricht an den Worker senden, um die Animation zu beenden:
+Schließlich kann bei Bedarf der Hauptthread eine `"stop"` Nachricht an den Worker senden, um die Animation zu stoppen:
 
 ```js
 worker.postMessage({
@@ -93,5 +93,5 @@ worker.postMessage({
 
 ## Siehe auch
 
-- {{domxref("DedicatedWorkerGlobalScope.requestAnimationFrame()")}}
-- {{domxref("Window.cancelAnimationFrame()")}}
+- [`DedicatedWorkerGlobalScope.requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame)
+- [`Window.cancelAnimationFrame()`](/de/docs/Web/API/Window/cancelAnimationFrame)

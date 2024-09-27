@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die statische Methode **`redirect()`** der {{domxref("Response")}}-Schnittstelle gibt eine `Response` zurück, die zu der angegebenen URL umleitet.
+Die statische Methode **`redirect()`** der [`Response`](/de/docs/Web/API/Response)-Schnittstelle gibt eine `Response` zurück, die zu der angegebenen URL umleitet.
 
 > [!NOTE]
-> Dies kann zusammen mit der [ServiceWorker-API](/de/docs/Web/API/Service_Worker_API) verwendet werden.
-> Ein kontrollierender Service Worker könnte die Anfrage einer Seite abfangen und nach Bedarf umleiten.
-> Dies führt tatsächlich zu einer echten Umleitung, wenn ein Service Worker sie weiterleitet.
+> Dies kann zusammen mit der [ServiceWorker API](/de/docs/Web/API/Service_Worker_API) verwendet werden.
+> Ein kontrollierender Service Worker könnte die Anfrage einer Seite abfangen und nach Wunsch umleiten.
+> Dies führt tatsächlich zu einer echten Umleitung, wenn ein Service Worker sie nach oben sendet.
 
 ## Syntax
 
@@ -27,11 +27,11 @@ Response.redirect(url, status)
 - `url`
   - : Die URL, von der die neue Antwort stammen soll.
 - `status` {{optional_inline}}
-  - : Eine optionale Zahl, die den Statuscode für die Antwort angibt: einer von {{HTTPStatus("301", "301")}}, {{HTTPStatus("302", "302")}}, {{HTTPStatus("303", "303")}}, {{HTTPStatus("307", "307")}} oder {{HTTPStatus("308", "308")}}. Wenn weggelassen, wird {{HTTPStatus("302", "302 Found")}} standardmäßig verwendet.
+  - : Eine optionale Zahl, die den Statuscode für die Antwort angibt: eine der {{HTTPStatus("301", "301")}}, {{HTTPStatus("302", "302")}}, {{HTTPStatus("303", "303")}}, {{HTTPStatus("307", "307")}} oder {{HTTPStatus("308", "308")}}. Wenn nicht angegeben, wird standardmäßig {{HTTPStatus("302", "302 Found")}} verwendet.
 
 ### Rückgabewert
 
-Ein {{domxref("Response")}}-Objekt.
+Ein [`Response`](/de/docs/Web/API/Response)-Objekt.
 
 ### Ausnahmen
 
@@ -56,6 +56,6 @@ Response.redirect("https://www.example.com", 302);
 
 ## Siehe auch
 
-- [ServiceWorker-API](/de/docs/Web/API/Service_Worker_API)
+- [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
 - [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/CORS)
 - [HTTP](/de/docs/Web/HTTP)

@@ -8,19 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die lese-only-Eigenschaft
-**`HTMLAnchorElement.origin`** ist ein String, der die Unicode-Serialisierung des Ursprungs der dargestellten URL enthält.
+Die schreibgeschützte Eigenschaft **`HTMLAnchorElement.origin`** ist ein String, der die Unicode-Serialisierung des Ursprungs der dargestellten URL enthält.
 
 Das bedeutet:
 
-- Für URLs, die `http` oder `https` verwenden, das Schema gefolgt von
-  `'://'`, gefolgt vom Domainnamen, gefolgt von `':'`, gefolgt
-  vom Port (der Standardport, `80` bzw. `443`, falls
-  explizit angegeben);
-- Für URLs, die das `file:` Schema verwenden, ist der Wert abhängig vom Browser;
-- Für URLs, die das `blob:` Schema verwenden, der Ursprung der URL folgend
-  auf `blob:`. Zum Beispiel wird `"blob:https://mozilla.org"`
-  zu `"https://mozilla.org".`
+- für URLs, die `http` oder `https` verwenden: das Schema, gefolgt von `':'//`, gefolgt von der Domain, gefolgt von `':'`, gefolgt vom Port (der Standardport, `80` und `443` entsprechend, falls explizit angegeben);
+- für URLs, die das `file:`-Schema verwenden, hängt der Wert vom Browser ab;
+- für URLs, die das `blob:`-Schema verwenden, der Ursprung der URL nach `blob:`. Zum Beispiel wird `"blob:https://mozilla.org"` den Ursprung `"https://mozilla.org"` haben.
 
 ## Wert
 
@@ -29,9 +23,9 @@ Ein String.
 ## Beispiele
 
 ```js
-// Ein <a id="myAnchor" href="https://developer.mozilla.org/en-US/HTMLAnchorElement"> Element ist im Dokument
+// An <a id="myAnchor" href="https://developer.mozilla.org/en-US/HTMLAnchorElement"> element is in the document
 const anchor = document.getElementById("myAnchor");
-anchor.origin; // gibt 'https://developer.mozilla.org' zurück
+anchor.origin; // returns 'https://developer.mozilla.org'
 ```
 
 ## Spezifikationen
@@ -44,4 +38,4 @@ anchor.origin; // gibt 'https://developer.mozilla.org' zurück
 
 ## Siehe auch
 
-- Das {{domxref("HTMLAnchorElement")}} Interface, zu dem es gehört.
+- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Interface, zu dem es gehört.

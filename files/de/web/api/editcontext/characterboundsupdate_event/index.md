@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das `characterboundsupdate` Ereignis wird ausgelöst, wenn das Betriebssystem die Grenzen bestimmter Zeichen innerhalb des bearbeitbaren Textbereichs des `EditContext` Objekts kennen muss.
+Das `characterboundsupdate` Ereignis tritt auf, wenn das Betriebssystem die Grenzen bestimmter Zeichen innerhalb eines bearbeitbaren Textbereichs des `EditContext`-Objekts kennen muss.
 
-Dies geschieht, wenn das Betriebssystem eine plattformabhängige benutzerbezogene Bearbeitungsoberfläche wie ein {{glossary("Input Method Editor")}} (IME) Fenster anzeigen muss.
+Dies geschieht, wenn das Betriebssystem eine plattformabhängige, bearbeitungsbezogene Benutzeroberfläche wie ein [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster anzeigen muss.
 
-Wenn das `characterboundsupdate` Ereignis ausgelöst wird, sollten Sie die Zeichenbegrenzungen für den Text berechnen und dann die Methode {{domxref("EditContext.updateCharacterBounds()")}} aufrufen, um dem Betriebssystem die benötigten Informationen bereitzustellen.
+Wenn das `characterboundsupdate` Ereignis auftritt, sollten Sie die Zeichenbegrenzungen für den Text berechnen und dann die Methode [`EditContext.updateCharacterBounds()`](/de/docs/Web/API/EditContext/updateCharacterBounds) aufrufen, um dem Betriebssystem die benötigten Informationen bereitzustellen.
 
-Siehe die Dokumentation der Methode {{domxref("EditContext.updateCharacterBounds()", "updateCharacterBounds")}} für weitere Informationen darüber, wann und wie das `characterboundsupdate` Ereignis verwendet werden sollte.
+Siehe die Dokumentation der Methode [`updateCharacterBounds`](/de/docs/Web/API/EditContext/updateCharacterBounds) für mehr Informationen darüber, wann und wie das `characterboundsupdate` Ereignis verwendet werden sollte.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("characterboundsupdate", (event) => {});
@@ -28,22 +28,22 @@ oncharacterboundsupdate = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("CharacterBoundsUpdateEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`CharacterBoundsUpdateEvent`](/de/docs/Web/API/CharacterBoundsUpdateEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, {{domxref("Event")}}, verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref('CharacterBoundsUpdateEvent.rangeStart')}} {{readonlyinline}}
-  - : Der Offset des ersten Zeichens innerhalb des editierbaren Textbereichs, für das das Betriebssystem die Grenzen benötigt.
-- {{domxref('CharacterBoundsUpdateEvent.rangeEnd')}} {{readonlyinline}}
-  - : Der Offset des letzten Zeichens innerhalb des editierbaren Textbereichs, für das das Betriebssystem die Grenzen benötigt.
+- [`CharacterBoundsUpdateEvent.rangeStart`](/de/docs/Web/API/CharacterBoundsUpdateEvent/rangeStart) {{readonlyinline}}
+  - : Der Versatz des ersten Zeichens innerhalb des bearbeitbaren Textbereichs, für das das Betriebssystem die Grenzen benötigt.
+- [`CharacterBoundsUpdateEvent.rangeEnd`](/de/docs/Web/API/CharacterBoundsUpdateEvent/rangeEnd) {{readonlyinline}}
+  - : Der Versatz des letzten Zeichens innerhalb des bearbeitbaren Textbereichs, für das das Betriebssystem die Grenzen benötigt.
 
 ## Beispiele
 
-### Aktualisierung der Zeichenbegrenzungen bei Bedarf
+### Aktualisieren der Zeichenbegrenzungen bei Bedarf
 
-Dieses Beispiel zeigt, wie die `updateCharacterBounds` Methode verwendet wird, um die Zeichenbegrenzungen im `EditContext` eines `canvas` Elements zu aktualisieren, wenn das Betriebssystem die Informationen benötigt. Beachten Sie, dass der Ereignis-Listener-Callback nur aufgerufen wird, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungsoberflächen verwendet werden, um Text zu verfassen.
+Dieses Beispiel zeigt, wie die `updateCharacterBounds` Methode verwendet wird, um die Zeichenbegrenzungen im `EditContext` eines `canvas` Elements zu aktualisieren, wenn das Betriebssystem angibt, dass es diese Informationen benötigt. Beachten Sie, dass der Ereignis-Listener-Callback nur aufgerufen wird, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungsoberflächen zum Erstellen von Text verwendet werden.
 
 ```html
 <canvas id="editor-canvas"></canvas>
@@ -96,6 +96,6 @@ editContext.addEventListener("characterboundsupdate", (e) => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

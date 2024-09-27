@@ -9,14 +9,11 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die {{domxref("PerformanceNavigationTiming")}}
-> Schnittstelle mit der schreibgeschützten Eigenschaft {{domxref("PerformanceNavigationTiming.loadEventStart")}}.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) als veraltet markiert. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle und deren schreibgeschützte Eigenschaft [`PerformanceNavigationTiming.loadEventStart`](/de/docs/Web/API/PerformanceNavigationTiming/loadEventStart).
 
-Die veraltete
-**`PerformanceTiming.loadEventStart`**
-schreibgeschützte Eigenschaft gibt ein `unsigned long long` zurück, das den Moment darstellt,
-in Millisekunden seit der UNIX-Epoche, als das {{domxref("Window/load_event", "load")}} Ereignis für das
-aktuelle Dokument gesendet wurde. Wenn dieses Ereignis noch nicht gesendet wurde, gibt es `0` zurück.
+Die veraltete,
+schreibgeschützte Eigenschaft **`PerformanceTiming.loadEventStart`**
+gibt ein `unsigned long long` zurück, welches den Moment darstellt (in Millisekunden seit dem UNIX-Epoch), in dem das [`load`](/de/docs/Web/API/Window/load_event) Ereignis für das aktuelle Dokument gesendet wurde. Falls dieses Ereignis noch nicht gesendet wurde, wird `0` zurückgegeben.
 
 ## Wert
 
@@ -32,4 +29,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Die Schnittstelle {{domxref("PerformanceTiming")}}, zu der sie gehört.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle, zu der es gehört.

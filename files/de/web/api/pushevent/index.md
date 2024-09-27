@@ -7,25 +7,25 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die **`PushEvent`**-Schnittstelle des [Push-API](/de/docs/Web/API/Push_API) stellt eine eingegangene Push-Nachricht dar. Dieses Ereignis wird an den [globalen Gültigkeitsbereich](/de/docs/Web/API/ServiceWorkerGlobalScope) eines {{domxref("ServiceWorker")}} gesendet. Es enthält die Informationen, die von einem Anwendungsserver an ein {{domxref("PushSubscription")}} gesendet wurden.
+Das **`PushEvent`**-Interface der [Push-API](/de/docs/Web/API/Push_API) repräsentiert eine Push-Nachricht, die empfangen wurde. Dieses Ereignis wird an den [globalen Geltungsbereich](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) gesendet. Es enthält die Informationen, die von einem Anwendungsserver an ein [`PushSubscription`](/de/docs/Web/API/PushSubscription) gesendet werden.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("PushEvent.PushEvent", "PushEvent()")}}
+- [`PushEvent()`](/de/docs/Web/API/PushEvent/PushEvent)
   - : Erstellt ein neues `PushEvent`-Objekt.
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("ExtendableEvent")}}. Zusätzliche Eigenschaften:_
+_Erbt Eigenschaften von seinem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent). Zusätzliche Eigenschaften:_
 
-- {{domxref("PushEvent.data")}} {{ReadOnlyInline}}
-  - : Gibt eine Referenz zu einem {{domxref("PushMessageData")}}-Objekt zurück, das Daten enthält, die an das {{domxref("PushSubscription")}} gesendet wurden.
+- [`PushEvent.data`](/de/docs/Web/API/PushEvent/data) {{ReadOnlyInline}}
+  - : Gibt eine Referenz auf ein [`PushMessageData`](/de/docs/Web/API/PushMessageData)-Objekt zurück, das Daten enthält, die an das [`PushSubscription`](/de/docs/Web/API/PushSubscription) gesendet wurden.
 
 ## Instanzmethoden
 
-_Erbt Methoden von seinem Elternteil, {{domxref("ExtendableEvent")}}_.
+_Erbt Methoden von seinem Elternteil, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
 
 ## Beispiele
 
@@ -67,5 +67,5 @@ self.addEventListener("push", (event) => {
 
 ## Siehe auch
 
-- [Push API](/de/docs/Web/API/Push_API)
+- [Push-API](/de/docs/Web/API/Push_API)
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)

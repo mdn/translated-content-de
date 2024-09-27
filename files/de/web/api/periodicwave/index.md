@@ -7,26 +7,26 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`PeriodicWave`**-Schnittstelle definiert eine periodische Wellenform, die zur Gestaltung der Ausgabe eines {{domxref("OscillatorNode")}} verwendet werden kann.
+Die **`PeriodicWave`**-Schnittstelle definiert eine periodische Wellenform, die verwendet werden kann, um die Ausgabe eines [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) zu formen.
 
-`PeriodicWave` hat keine Eingaben oder Ausgaben; es wird verwendet, um benutzerdefinierte Oszillatoren zu definieren, wenn {{domxref("OscillatorNode.setPeriodicWave()")}} aufgerufen wird. Der `PeriodicWave` selbst wird durch {{domxref("BaseAudioContext.createPeriodicWave")}} erstellt oder zurückgegeben.
+`PeriodicWave` hat keine Eingaben oder Ausgaben; sie wird verwendet, um benutzerdefinierte Oszillatoren zu definieren, wenn [`OscillatorNode.setPeriodicWave()`](/de/docs/Web/API/OscillatorNode/setPeriodicWave) aufgerufen wird. Die `PeriodicWave` selbst wird von [`BaseAudioContext.createPeriodicWave`](/de/docs/Web/API/BaseAudioContext/createPeriodicWave) erstellt/zurückgegeben.
 
 ## Konstruktor
 
-- {{domxref("PeriodicWave.PeriodicWave", "PeriodicWave()")}}
-  - : Erstellt eine neue `PeriodicWave`-Objektinstanz unter Verwendung der Standardwerte für alle Eigenschaften. Wenn Sie benutzerdefinierte Eigenschaftswerte von Anfang an festlegen möchten, verwenden Sie stattdessen die {{domxref("BaseAudioContext.createPeriodicWave")}}-Fabrikmethode.
+- [`PeriodicWave()`](/de/docs/Web/API/PeriodicWave/PeriodicWave)
+  - : Erstellt eine neue Instanz eines `PeriodicWave`-Objekts mit den Standardwerten für alle Eigenschaften. Wenn Sie benutzerdefinierte Eigenschaftswerte von Anfang an festlegen möchten, verwenden Sie stattdessen die Fabrikmethode [`BaseAudioContext.createPeriodicWave`](/de/docs/Web/API/BaseAudioContext/createPeriodicWave).
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 Keine; außerdem erbt `PeriodicWave` keine Eigenschaften.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 Keine; außerdem erbt `PeriodicWave` keine Methoden.
 
 ## Beispiel
 
-Siehe {{domxref("BaseAudioContext.createPeriodicWave")}} für einfachen Beispielcode, der zeigt, wie ein `PeriodicWave`-Objekt erstellt wird, das eine einfache Sinuswelle enthält.
+Sehen Sie sich [`BaseAudioContext.createPeriodicWave`](/de/docs/Web/API/BaseAudioContext/createPeriodicWave) für einfaches Beispielcode an, das zeigt, wie ein `PeriodicWave`-Objekt erstellt wird, das eine einfache Sinuswelle enthält.
 
 ## Spezifikationen
 

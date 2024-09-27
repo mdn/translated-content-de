@@ -1,5 +1,5 @@
 ---
-title: "NamedNodeMap: Methode getNamedItem()"
+title: "NamedNodeMap: getNamedItem()-Methode"
 short-title: getNamedItem()
 slug: Web/API/NamedNodeMap/getNamedItem
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getNamedItem()`**-Methode des {{domxref("NamedNodeMap")}}-Interfaces gibt das {{domxref("Attr")}} zurück, das dem gegebenen Namen entspricht, oder `null`, wenn kein entsprechendes Attribut vorhanden ist.
+Die **`getNamedItem()`**-Methode der Schnittstelle [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap) gibt das [`Attr`](/de/docs/Web/API/Attr) zurück, das dem angegebenen Namen entspricht, oder `null`, wenn kein entsprechendes Attribut vorhanden ist.
 
 > [!NOTE]
 > Diese Methode wird auch aufgerufen, wenn Sie die Operator-`[]`-Syntax verwenden.
-> So ist `myMap[str]` gleichbedeutend mit `myMap.getNamedItem(str)`, wobei `str` ein String ist.
+> Somit ist `myMap[str]` äquivalent zu `myMap.getNamedItem(str)`, wobei `str` ein String ist.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ getNamedItem(name)
 
 ### Rückgabewert
 
-Ein {{domxref("Attr")}}, das dem als Parameter angegebenen `name` entspricht, oder `null`, wenn keines gefunden wurde.
+Ein [`Attr`](/de/docs/Web/API/Attr), das dem im Parameter angegebenen `name` entspricht, oder `null`, wenn kein entsprechendes Attribut gefunden wurde.
 
 ## Beispiel
 

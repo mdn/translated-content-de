@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die statische Methode **`WebAssembly.validate()`** validiert ein gegebenes [typisiertes Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) von WebAssembly-Binärcode und gibt zurück, ob die Bytes ein gültiges Wasm-Modul bilden (`true`) oder nicht (`false`).
+Die **`WebAssembly.validate()`**-statische Methode validiert ein gegebenes [typisiertes Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) von WebAssembly-Binärcode und gibt zurück, ob die Bytes ein gültiges Wasm-Modul (`true`) bilden oder nicht (`false`).
 
 ## Syntax
 
@@ -32,7 +32,7 @@ Wenn `bufferSource` kein [typisiertes Array](/de/docs/Web/JavaScript/Guide/Typed
 
 ### Verwendung von validate
 
-Das folgende Beispiel (siehe den validate.html [Quellcode](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/validate.html) und [sehen Sie es sich auch live an](https://mdn.github.io/webassembly-examples/js-api-examples/validate.html)) lädt ein Wasm-Modul und wandelt es in ein typisiertes Array um. Die `validate()`-Methode wird dann verwendet, um zu prüfen, ob das Modul gültig ist.
+Das folgende Beispiel (siehe den validate.html [Quellcode](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/validate.html) und [siehe es auch live](https://mdn.github.io/webassembly-examples/js-api-examples/validate.html)) ruft ein Wasm-Modul ab und wandelt es in ein typisiertes Array um. Die `validate()`-Methode wird dann verwendet, um zu überprüfen, ob das Modul gültig ist.
 
 ```js
 fetch("simple.wasm")
@@ -49,7 +49,7 @@ fetch("simple.wasm")
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

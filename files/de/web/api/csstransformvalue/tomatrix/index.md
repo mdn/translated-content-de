@@ -9,7 +9,7 @@ l10n:
 {{APIRef("CSS Typed OM")}}
 
 Die **`toMatrix()`**-Methode der
-{{domxref("CSSTransformValue")}}-Schnittstelle gibt ein {{domxref('DOMMatrix')}}-Objekt zurück.
+[`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue)-Schnittstelle gibt ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt zurück.
 
 ## Syntax
 
@@ -23,12 +23,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref('DOMMatrix')}}-Objekt.
+Ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn Längen, die zur Erzeugung der Matrix verwendet werden, nicht mit px als kompatible Einheiten übereinstimmen (wie relative Längen oder Prozentsätze).
+  - : Wird ausgelöst, wenn Längen, die bei der Erzeugung der Matrix beteiligt sind, keine mit px kompatiblen Einheiten sind (wie relative Längen oder Prozentsätze).
 
 ## Beispiele
 

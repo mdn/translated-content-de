@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`padStart()`**-Methode von {{jsxref("String")}}-Werten füllt diesen String mit einem anderen String (mehrmals, falls nötig) auf, bis die resultierende Länge erreicht ist. Die Auffüllung wird vom Start dieses Strings angewendet.
+Die **`padStart()`** Methode von {{jsxref("String")}}-Werten füllt diese Zeichenkette mit einer anderen Zeichenkette auf (mehrmals, falls nötig), bis die resultierende Zeichenkette die angegebene Länge erreicht. Das Auffüllen erfolgt vom Anfang dieser Zeichenkette.
 
 {{EmbedInteractiveExample("pages/js/string-padstart.html")}}
 
@@ -21,22 +21,21 @@ padStart(targetLength, padString)
 ### Parameter
 
 - `targetLength`
-  - : Die Länge des resultierenden Strings, nachdem der aktuelle `str`
-    aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird `str` unverändert zurückgegeben.
+  - : Die Länge der resultierenden Zeichenkette, nachdem das aktuelle `str` aufgefüllt wurde. Wenn der Wert kleiner oder gleich `str.length` ist, wird `str` unverändert zurückgegeben.
 - `padString` {{optional_inline}}
-  - : Der String, mit dem der aktuelle `str` aufgefüllt werden soll. Wenn
+  - : Die Zeichenkette, mit der das aktuelle `str` aufgefüllt wird. Wenn
     `padString` zu lang ist, um innerhalb der
-    `targetLength` zu bleiben, wird es vom Ende her abgeschnitten.
-    Der Standardwert ist das Unicode-„Leerzeichen“-Zeichen (U+0020).
+    `targetLength` zu bleiben, wird es am Ende abgeschnitten.
+    Der Standardwert ist das Unicode-"Leerzeichen"-Zeichen (U+0020).
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}} der angegebenen `targetLength`, der
-`padString` vom Anfang anwendet.
+Ein {{jsxref("String")}} der angegebenen `targetLength` mit
+`padString`, das vom Anfang angewendet wird.
 
 ## Beispiele
 
-### Grundlegende Beispiele
+### Einfache Beispiele
 
 ```js
 "abc".padStart(10); // "       abc"
@@ -46,10 +45,10 @@ Ein {{jsxref("String")}} der angegebenen `targetLength`, der
 "abc".padStart(1); // "abc"
 ```
 
-### Feste Breite bei der Zahlenkonvertierung
+### Umwandlung von Zahlen in Zeichenketten mit fester Breite
 
 ```js
-// JavaScript-Version von: (unsigned)
+// JavaScript version of: (unsigned)
 // printf "%0*d" width num
 function leftFillNum(num, targetLength) {
   return num.toString().padStart(targetLength, "0");

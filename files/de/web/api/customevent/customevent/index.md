@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Der **`CustomEvent()`** Konstruktor erstellt ein neues {{domxref("CustomEvent")}}-Objekt.
+Der **`CustomEvent()`** Konstruktor erstellt ein neues [`CustomEvent`](/de/docs/Web/API/CustomEvent) Objekt.
 
 ## Syntax
 
@@ -22,19 +22,19 @@ new CustomEvent(type, options)
 - `type`
   - : Ein String, der den Namen des Ereignisses angibt. Ereignisnamen sind groß- und kleinschreibungssensitiv.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den im [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `detail` {{optional_inline}}
-      - : Ein ereignisabhängiger Wert, der mit dem Ereignis verbunden ist. Dieser Wert ist dann für den Handler über die {{domxref("CustomEvent.detail")}}-Eigenschaft verfügbar.
+      - : Ein ereignisabhängiger Wert, der mit dem Ereignis verknüpft ist. Dieser Wert ist dann im Handler über die [`CustomEvent.detail`](/de/docs/Web/API/CustomEvent/detail) Eigenschaft verfügbar.
         Standardmäßig ist er `null`.
 
 ### Rückgabewert
 
-Ein neues {{domxref("CustomEvent")}}-Objekt.
+Ein neues [`CustomEvent`](/de/docs/Web/API/CustomEvent) Objekt.
 
 ## Beispiel
 
 ```js
-// Erstellen von benutzerdefinierten Ereignissen
+// create custom events
 const catFound = new CustomEvent("animalfound", {
   detail: {
     name: "cat",
@@ -46,19 +46,19 @@ const dogFound = new CustomEvent("animalfound", {
   },
 });
 
-const element = document.createElement("div"); // Erstellen eines <div>-Elements
+const element = document.createElement("div"); // create a <div> element
 
-// Hinzufügen eines entsprechenden Ereignis-Listeners
+// add an appropriate event listener
 element.addEventListener("animalfound", (e) => console.log(e.detail.name));
 
-// Ereignisse auslösen
+// dispatch the events
 element.dispatchEvent(catFound);
 element.dispatchEvent(dogFound);
 
-// "cat" und "dog" werden in der Konsole protokolliert
+// "cat" and "dog" logged in the console
 ```
 
-Weitere Beispiele finden Sie unter [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events).
+Zusätzliche Beispiele finden Sie unter [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events).
 
 ## Spezifikationen
 
@@ -70,5 +70,5 @@ Weitere Beispiele finden Sie unter [Erstellen und Auslösen von Ereignissen](/de
 
 ## Siehe auch
 
-- {{domxref("CustomEvent")}}
+- [`CustomEvent`](/de/docs/Web/API/CustomEvent)
 - [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events)

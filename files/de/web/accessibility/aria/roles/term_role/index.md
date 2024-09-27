@@ -1,5 +1,5 @@
 ---
-title: "ARIA: Rolle term"
+title: "ARIA: term-Rolle"
 slug: Web/Accessibility/ARIA/Roles/term_role
 l10n:
   sourceCommit: 194bd13942ad0c532c92d364e0d5d0c36732d98c
@@ -7,20 +7,20 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `term`-Rolle kann für ein Wort oder eine Phrase mit einer optionalen entsprechenden [`definition`](/de/docs/Web/Accessibility/ARIA/Roles/definition_role) verwendet werden.
+Die `term`-Rolle kann für ein Wort oder einen Ausdruck mit einer optionalen entsprechenden [`definition`](/de/docs/Web/Accessibility/ARIA/Roles/definition_role) verwendet werden.
 
 ## Beschreibung
 
-Die `term`-Rolle kann für ein Wort oder eine Phrase mit einer optionalen entsprechenden [`definition`](/de/docs/Web/Accessibility/ARIA/Roles/definition_role) verwendet werden. Sie ist semantisch gleichwertig mit dem HTML-{{HTMLElement('dfn')}}-Element und dem Definitionsterm ({{HTMLElement('dt')}}) innerhalb einer Definitionsliste ({{HTMLElement('dl')}}).
+Die `term`-Rolle kann für ein Wort oder einen Ausdruck mit einer optionalen entsprechenden [`definition`](/de/docs/Web/Accessibility/ARIA/Roles/definition_role) verwendet werden. Sie entspricht in der Semantik dem HTML-{{HTMLElement('dfn')}}-Element und dem Definitionsterm ({{HTMLElement('dt')}}) innerhalb einer Definitionsliste ({{HTMLElement('dl')}}).
 
-Die `term`-Rolle wird verwendet, um ein Wort oder eine Phrase explizit zu identifizieren, für das bzw. die eine Definition vom Autor bereitgestellt wurde oder von Benutzern erwartet wird. Falls eine vorhandene Definition existiert oder ein Formular oder Formularelement zur Eingabe einer Definition vorhanden ist, SOLLTEN Autoren [`aria-details`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-details) so setzen, dass es auf das zugehörige Element verweist.
+Die `term`-Rolle wird verwendet, um ein Wort oder einen Ausdruck explizit zu kennzeichnen, für das oder den eine Definition vom Autor bereitgestellt wurde oder vom Benutzer erwartet wird. Wenn eine bestehende Definition oder ein Formular bzw. ein Formularelement zum Eingeben einer Definition vorhanden ist, SOLLTEN Autoren [`aria-details`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-details) setzen, um auf das zugehörige Element zu verweisen.
 
-Verwenden Sie `role="term"` nicht auf interaktiven Elementen wie Links, da es das Interaktionsvermögen der Benutzer von unterstützender Technologie beeinträchtigen kann. Auch gilt der Begriff selbst als barrierefreier Name, daher sollten weder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) noch [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) verwendet werden.
+Verwenden Sie `role="term"` nicht auf interaktiven Elementen wie Links, da dies die Fähigkeit von Benutzern assistiver Technologien, mit dem Element zu interagieren, beeinträchtigen kann. Außerdem ist der Begriff selbst der barrierefreie Name, verwenden Sie daher weder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) noch [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby).
 
 > [!WARNING]
-> Der barrierefreie Name sollte der Begriff selbst sein, daher NICHT `aria-label` oder `aria-labelledby` verwenden.
+> Der barrierefreie Name sollte der Begriff selbst sein, daher verwenden Sie NICHT `aria-label` oder `aria-labelledby`.
 
-### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
 
 Keine.
 
@@ -45,7 +45,7 @@ Keine.
 </p>
 ```
 
-Unter Berücksichtigung besserer Semantik könnte das obige auch wie folgt geschrieben werden:
+Mit besseren Semantiken könnte das obige auch folgendermaßen geschrieben werden:
 
 ```html
 <p>
@@ -58,7 +58,7 @@ Unter Berücksichtigung besserer Semantik könnte das obige auch wie folgt gesch
 </p>
 ```
 
-oder ohne jegliche ARIA (aber möglicherweise nicht so, wie Sie es präsentieren möchten)
+oder ohne jegliches ARIA (aber möglicherweise nicht so, wie Sie es präsentiert haben möchten)
 
 ```html
 <dl>
@@ -71,13 +71,13 @@ oder ohne jegliche ARIA (aber möglicherweise nicht so, wie Sie es präsentieren
 </dl>
 ```
 
-## Barrierefreiheitsbedenken
+## Barrierefreiheitshinweise
 
-Verwenden Sie `role="term"` nicht auf interaktiven Elementen wie Links, da dies das Interaktionsvermögen der Benutzer von unterstützender Technologie beeinträchtigen kann.
+Verwenden Sie `role="term"` nicht auf interaktiven Elementen wie Links, da dies die Fähigkeit von Benutzern assistiver Technologien, mit dem Element zu interagieren, beeinträchtigen kann.
 
 ## Beste Praktiken
 
-Lassen Sie den Begriff selbst den barrierefreien Namen definieren. Verwenden Sie weder `aria-label` noch `aria-labelledby`.
+Erlauben Sie, dass der Begriff selbst den barrierefreien Namen definiert. Verwenden Sie nicht `aria-label` oder `aria-labelledby`.
 
 ### Bevorzugen Sie HTML
 
@@ -87,5 +87,5 @@ Lassen Sie den Begriff selbst den barrierefreien Namen definieren. Verwenden Sie
 
 ## Siehe auch
 
-- [ARIA: `definition` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/definition_role).
+- [ARIA: `definition`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/definition_role).
 - Das HTML-{{HTMLElement('dfn')}}-Element

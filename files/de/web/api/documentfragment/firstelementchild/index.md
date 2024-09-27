@@ -1,5 +1,5 @@
 ---
-title: "DocumentFragment: firstElementChild-Eigenschaft"
+title: "DocumentFragment: firstElementChild Eigenschaft"
 short-title: firstElementChild
 slug: Web/API/DocumentFragment/firstElementChild
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`DocumentFragment.firstElementChild`** gibt das erste Kindelement des Dokumentfragments als {{domxref("Element")}} zurück, oder `null`, wenn keine Kindelemente vorhanden sind.
+Die schreibgeschützte **`DocumentFragment.firstElementChild`**-Eigenschaft gibt das erste Kind-`Element` des Dokumentfragments zurück oder `null`, wenn keine Kind-Elemente vorhanden sind.
 
 ## Wert
 
-Ein {{domxref("Element")}}, das das erste Kindelement des Objekts ist, oder `null`, wenn keine vorhanden sind.
+Ein [`Element`](/de/docs/Web/API/Element), das das erste Kind-`Element` des Objekts ist, oder `null`, wenn keine vorhanden sind.
 
 ## Beispiele
 
@@ -30,10 +30,10 @@ fragment.firstElementChild; // <p>
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Element.firstElementChild")}}
+- [`Element.firstElementChild`](/de/docs/Web/API/Element/firstElementChild)

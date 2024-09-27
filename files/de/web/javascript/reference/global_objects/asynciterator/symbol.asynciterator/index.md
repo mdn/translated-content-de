@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`[Symbol.asyncIterator]()`** von {{jsxref("AsyncIterator")}}-Instanzen implementiert das [asynchrone iterierbare Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) und ermöglicht es eingebauten asynchronen Iteratoren, von den meisten Syntaxen, die asynchrone Iterables erwarten, wie zum Beispiel [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of)-Schleifen, konsumiert zu werden. Sie gibt den Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) zurück, welches das asynchrone Iteratorobjekt selbst ist.
+Die **`[Symbol.asyncIterator]()`** Methode von {{jsxref("AsyncIterator")}} Instanzen implementiert das [asynchrone Iterationsprotokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) und ermöglicht integrierten asynchronen Iteratoren, von den meisten Syntaxen konsumiert zu werden, die asynchrone Iterables erwarten, wie etwa [`for await...of`](/de/docs/Web/JavaScript/Reference/Statements/for-await...of) Schleifen. Sie gibt den Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) zurück, was das asynchrone Iterator-Objekt selbst ist.
 
 {{EmbedInteractiveExample("pages/js/map-prototype-@@iterator.html")}}
 
@@ -23,13 +23,13 @@ Keine.
 
 ### Rückgabewert
 
-Der Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), welches das asynchrone Iteratorobjekt selbst ist.
+Der Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), welcher das asynchrone Iterator-Objekt selbst ist.
 
 ## Beispiele
 
 ### Iteration mit der for await...of Schleife
 
-Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Das Vorhandensein der Methode `[Symbol.asyncIterator]()` macht alle eingebauten asynchronen Iteratoren [asynchron iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols), und iterierende Syntaxen wie die `for await...of`-Schleife rufen diese Methode automatisch auf, um den asynchronen Iterator zum Durchlaufen zu erhalten.
+Beachten Sie, dass Sie diese Methode selten direkt aufrufen müssen. Die Existenz der `[Symbol.asyncIterator]()` Methode macht alle eingebauten asynchronen Iteratoren [asynchron iterierbar](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols), und Iterations-Syntaxen wie die `for await...of` Schleife rufen diese Methode automatisch auf, um den asynchronen Iterator zum Durchlaufen zu erhalten.
 
 ```js
 const asyncIterator = (async function* () {
@@ -42,7 +42,7 @@ const asyncIterator = (async function* () {
     console.log(value);
   }
 })();
-// Protokolliert: 1, 2, 3
+// Logs: 1, 2, 3
 ```
 
 ## Spezifikationen

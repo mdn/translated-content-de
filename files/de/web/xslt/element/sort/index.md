@@ -2,12 +2,12 @@
 title: <xsl:sort>
 slug: Web/XSLT/Element/sort
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 9df96dcad40bf97f66b317ef6b6bbe64444569eb
 ---
 
 {{XsltSidebar}}
 
-Das `<xsl:sort>`-Element definiert einen Sortierschlüssel für Knoten, die durch `<xsl:apply-templates>` oder `<xsl:for-each>` ausgewählt wurden, und bestimmt die Reihenfolge, in der sie verarbeitet werden.
+Das `<xsl:sort>`-Element definiert einen Sortierschlüssel für Knoten, die durch `<xsl:apply-templates>` oder `<xsl:for-each>` ausgewählt werden und bestimmt die Reihenfolge, in der sie verarbeitet werden.
 
 ## Syntax
 
@@ -29,17 +29,17 @@ Keine.
 - `select`
   - : Verwendet einen XPath-Ausdruck, um die zu sortierenden Knoten zu spezifizieren.
 - `order`
-  - : Gibt an, ob die Knoten in "`ascending`" (aufsteigend) oder "`descending`" (absteigend) Reihenfolge verarbeitet werden sollen. Der Standard ist "`ascending`".
+  - : Gibt an, ob die Knoten in `ascending` (aufsteigender) oder `descending` (absteigender) Reihenfolge verarbeitet werden sollen. Der Standardwert ist `ascending`.
 - `case-order`
-  - : Gibt an, ob Groß- oder Kleinbuchstaben zuerst geordnet werden sollen. Die erlaubten Werte sind "`upper-first`" und "`lower-first`".
+  - : Gibt an, ob Groß- oder Kleinbuchstaben zuerst geordnet werden sollen. Die zulässigen Werte sind `upper-first` und `lower-first`.
 - `lang`
-  - : Gibt an, welche Sprache für die Sortierung verwendet werden soll.
+  - : Bestimmt, welche Sprache für die Sortierung verwendet werden soll.
 - `data-type`
-  - : Definiert, ob Elemente alphabetisch oder numerisch geordnet werden sollen. Die erlaubten Werte sind "`text`" und "`number`", wobei "`text`" der Standard ist.
+  - : Definiert, ob Elemente alphabetisch oder numerisch geordnet werden sollen. Die zulässigen Werte sind `text` und `number`, wobei `text` der Standardwert ist.
 
 ### Typ
 
-Subanweisung, erscheint immer als untergeordnetes Element von \<xsl:for-each>, wo es vor der eigentlichen Vorlage oder von \<xsl:apply-templates> erscheinen muss.
+Subanweisung, tritt immer als Kind von \<xsl:for-each> auf, wobei sie vor der eigentlichen Vorlage erscheinen muss, oder von \<xsl:apply-templates>.
 
 ## Spezifikationen
 

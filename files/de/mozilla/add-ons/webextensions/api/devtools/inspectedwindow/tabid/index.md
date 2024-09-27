@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Die ID des {{WebExtAPIRef("tabs.Tab", "Tabs")}}, an den diese Instanz der Devtools angehängt ist, wird als Zahl dargestellt.
+Die ID des {{WebExtAPIRef("tabs.Tab", "tab")}}, an den diese Instanz der Devtools angehängt ist, wird als Zahl dargestellt.
 
-Diese kann an die Hintergrundseite der Erweiterung gesendet werden, damit die Hintergrundseite die {{WebExtAPIRef("tabs")}} API verwenden kann, um mit dem Tab zu interagieren:
+Diese kann an die Hintergrundseite der Erweiterung gesendet werden, sodass die Hintergrundseite die {{WebExtAPIRef("tabs")}} API verwenden kann, um mit dem Tab zu interagieren:
 
 ```js
 // devtools-panel.js

@@ -9,16 +9,16 @@ l10n:
 
 {{ PreviousNext("Web/SVG/Tutorial/Tools_for_SVG") }}
 
-Diese Seite zeigt die Anwendung von CSS auf die spezielle Sprache zur Erstellung von Grafiken: [SVG](/de/docs/Web/SVG).
+Diese Seite veranschaulicht die Anwendung von CSS auf die spezialisierte Sprache zur Erstellung von Grafiken: [SVG](/de/docs/Web/SVG).
 
-Im Folgenden erstellen Sie eine einfache Demonstration, die in Ihrem SVG-fähigen Browser läuft.
+Im Folgenden erstellen Sie eine einfache Demonstration, die in Ihrem SVG-fähigen Browser ausgeführt wird.
 
 > [!NOTE]
-> Elemente, die von {{SVGElement("use")}} Elementen referenziert werden, erben die Stile von diesem Element. Um ihnen unterschiedliche Stile zuzuweisen, sollten Sie [CSS Custom Properties](/de/docs/Web/CSS/CSS_cascading_variables) verwenden.
+> Elemente, die von {{SVGElement("use")}}-Elementen referenziert werden, erben die Stile von diesem Element. Um ihnen unterschiedliche Stile zuzuweisen, sollten Sie [benutzerdefinierte CSS-Eigenschaften](/de/docs/Web/CSS/CSS_cascading_variables) verwenden.
 
 ## Beispiel
 
-Erstellen Sie ein neues SVG-Dokument als Textdatei, `doc8.svg`. Kopieren Sie den Inhalt von hier und fügen Sie ihn ein, stellen Sie sicher, dass Sie alles erfasst haben:
+Erstellen Sie ein neues SVG-Dokument als Textdatei, `doc8.svg`. Kopieren und fügen Sie den Inhalt von hier ein und achten Sie darauf, dass Sie alles davon erfassen:
 
 ```html
 <svg
@@ -253,7 +253,7 @@ Erstellen Sie ein neues SVG-Dokument als Textdatei, `doc8.svg`. Kopieren Sie den
 </svg>
 ```
 
-Erstellen Sie eine neue CSS-Datei, `style8.css` im selben Verzeichnis wie `doc8.svg`. Kopieren Sie den Inhalt von hier und fügen Sie ihn ein, stellen Sie sicher, dass Sie alles erfasst haben:
+Erstellen Sie eine neue CSS-Datei, `style8.css`, im gleichen Verzeichnis wie `doc8.svg`. Kopieren und fügen Sie den Inhalt von hier ein und achten Sie darauf, dass Sie alles davon erfassen:
 
 ```css
 /*** SVG demonstration ***/
@@ -386,7 +386,7 @@ svg {
 }
 ```
 
-Öffnen Sie das `doc8.svg`-Dokument in Ihrem SVG-fähigen Browser. Bewegen Sie den Mauszeiger über die Grafik, um zu sehen, was geschieht.
+Öffnen Sie das Dokument `doc8.svg` in Ihrem SVG-fähigen Browser. Bewegen Sie Ihren Mauszeiger über die Grafik, um zu sehen, was passiert.
 
 ### Ergebnis
 
@@ -394,13 +394,13 @@ svg {
 
 Anmerkungen zu dieser Demonstration:
 
-- Das SVG-Dokument verlinkt das Stylesheet mit dem folgenden HTML `<link>` Tag:
+- Das SVG-Dokument verlinkt das Stylesheet mit dem folgenden HTML-`<link>`-Tag:
 
   ```html
   <link rel="stylesheet" href="style8.css" type="text/css" />
   ```
 
-  Es kann auch mit der `@import` Regel innerhalb eines `<style>` Tags verlinkt werden:
+  Es kann auch mit der `@import`-Regel innerhalb eines `<style>`-Tags verlinkt werden:
 
   ```html
   <style>
@@ -408,17 +408,17 @@ Anmerkungen zu dieser Demonstration:
   </style>
   ```
 
-- SVG hat eigene CSS-Eigenschaften und Werte. Einige davon sind den CSS-Eigenschaften für HTML ähnlich.
+- SVG hat eigene CSS-Eigenschaften und -Werte. Einige davon ähneln den CSS-Eigenschaften für HTML.
 
 ### Herausforderung
 
-Ändern Sie das Stylesheet so, dass die inneren Blütenblätter alle pink werden, wenn der Mauszeiger über eines von ihnen fährt, ohne die Funktionsweise der äußeren Blütenblätter zu ändern.
+Ändern Sie das Stylesheet so, dass die inneren Blütenblätter alle rosa werden, wenn der Mauszeiger über eines von ihnen bewegt wird, ohne die Funktionsweise der äußeren Blütenblätter zu verändern.
 
-[Sehen Sie sich eine Lösung für diese Herausforderung an.](/de/docs/Web/Guide/CSS/Getting_started/Challenge_solutions#svg_and_css)
+[Sehen Sie eine Lösung für diese Herausforderung.](/de/docs/Web/Guide/CSS/Getting_started/Challenge_solutions#svg_and_css)
 
 ## Vereinfachte Struktur
 
-Die oben gezeigte SVG-Struktur könnte viel kompakter geschrieben werden, indem die einzelnen Teile der Blume über {{SVGElement("use")}}-Elemente referenziert werden. Dieses [Verhalten ist standardisiert](https://www.w3.org/TR/SVG2/struct.html#UseStyleInheritance), aber momentan nur wenige Browser unterstützen die {{cssxref(":hover")}} Pseudoklasse und andere komplexere CSS-Selektoren auf Elementen, die über `<use>`-Elemente referenziert werden. Es gibt [einige Diskussionen darüber, welche Regeln für solche referenzierten Elemente gelten](https://github.com/w3c/svgwg/issues/504).
+Die oben gezeigte SVG-Struktur könnte viel prägnanter geschrieben werden, indem die einzelnen Teile der Blume über {{SVGElement("use")}}-Elemente referenziert werden. Dieses [Verhalten ist standardisiert](https://www.w3.org/TR/SVG2/struct.html#UseStyleInheritance), obwohl derzeit nur wenige Browser die {{cssxref(":hover")}}-Pseudoklasse und andere komplexere CSS-Selektoren auf Elemente, die über `<use>`-Elemente referenziert werden, unterstützen. Es gibt [einige Diskussionen darüber, welche Regeln auf solche referenzierten Elemente angewendet werden](https://github.com/w3c/svgwg/issues/504).
 
 Sehen Sie unten, wie die Struktur dann aussieht.
 
@@ -484,4 +484,4 @@ Sehen Sie unten, wie die Struktur dann aussieht.
 
 ## Was nun?
 
-In dieser Demonstration weiß Ihr SVG-fähiger Browser bereits, wie SVG-Elemente angezeigt werden. Das Stylesheet modifiziert nur in bestimmten Weisen die Anzeige. Dies ist auch bei HTML-Dokumenten der Fall. Aber Sie können CSS auch für allgemeine XML-Dokumente verwenden, bei denen es keinen vordefinierten Weg zur Anzeige der Elemente gibt. Die nächste Seite demonstriert dies: [XML Einführung](/de/docs/Web/XML/XML_introduction)
+In dieser Demonstration weiß Ihr SVG-fähiger Browser bereits, wie SVG-Elemente angezeigt werden. Das Stylesheet verändert die Anzeige nur in bestimmter Weise. Dies trifft auch auf HTML-Dokumente zu. Sie können jedoch CSS für allgemeine XML-Dokumente verwenden, bei denen es keine vordefinierte Möglichkeit gibt, die Elemente anzuzeigen. Die nächste Seite demonstriert dies: [XML-Einführung](/de/docs/Web/XML/XML_introduction)

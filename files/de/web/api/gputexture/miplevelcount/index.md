@@ -3,14 +3,14 @@ title: "GPUTexture: Eigenschaft mipLevelCount"
 short-title: mipLevelCount
 slug: Web/API/GPUTexture/mipLevelCount
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`mipLevelCount`** der {{domxref("GPUTexture")}}-Schnittstelle repräsentiert die Anzahl der Mip-Level der `GPUTexture`.
+Die schreibgeschützte Eigenschaft **`mipLevelCount`** der [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Schnittstelle gibt die Anzahl der Mip-Levels der `GPUTexture` an.
 
-Diese wird über die `mipLevelCount`-Eigenschaft im Deskriptor-Objekt festgelegt, das in den ursprünglich aufgerufenen {{domxref("GPUDevice.createTexture()")}}-Aufruf übergeben wird. Wenn weggelassen, beträgt der Standardwert 1.
+Diese wird über die Eigenschaft `mipLevelCount` im Deskriptorobjekt festgelegt, das in den ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird. Wenn sie weggelassen wird, ist der Standardwert 1.
 
 ## Wert
 

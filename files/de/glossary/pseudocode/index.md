@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Pseudocode bezieht sich auf eine codeähnliche Syntax, die im Allgemeinen verwendet wird, um Menschen zu zeigen, wie eine bestimmte Codesyntax funktioniert, oder um das Design eines Codes zu veranschaulichen. Es **wird nicht** funktionieren, wenn Sie versuchen, es als Code auszuführen.
+Pseudocode bezieht sich auf eine codenahe Syntax, die allgemein dazu verwendet wird, um Menschen zu zeigen, wie eine bestimmte Codesyntax funktioniert oder um das Design eines Codearchitektur-Elements zu veranschaulichen. Es wird **nicht** funktionieren, wenn Sie versuchen, es als Code auszuführen.
 
 ## Siehe auch
 

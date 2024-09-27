@@ -9,9 +9,9 @@ l10n:
 {{APIRef("DOM")}}
 
 Die **`Element.after()`**-Methode fügt eine Reihe von
-{{domxref("Node")}}-Objekten oder Zeichenfolgen in die Kinderliste des
-übergeordneten Elements des `Element` ein, unmittelbar nach dem `Element`.
-Zeichenfolgen werden als äquivalente {{domxref("Text")}}-Knoten eingefügt.
+[`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen in die Kindliste des Elternteils des
+`Element` ein, direkt nach dem `Element`.
+Zeichenfolgen werden als äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ after(node1, node2, /* …, */ nodeN)
 ### Parameter
 
 - `node1`, …, `nodeN`
-  - : Eine Reihe von {{domxref("Node")}}-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -32,8 +32,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
-  - : Wird ausgelöst, wenn der Knoten nicht an der angegebenen Stelle in der Hierarchie eingefügt werden kann.
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
 
 ## Beispiele
 
@@ -88,10 +88,10 @@ console.log(container.outerHTML);
 
 ## Siehe auch
 
-- {{domxref("Element.before()")}}
-- {{domxref("Element.append()")}}
-- {{domxref("Element.insertAdjacentElement()")}}
-- {{domxref("CharacterData.after()")}}
-- {{domxref("DocumentType.after()")}}
-- {{domxref("Node.appendChild()")}}
-- {{domxref("NodeList")}}
+- [`Element.before()`](/de/docs/Web/API/Element/before)
+- [`Element.append()`](/de/docs/Web/API/Element/append)
+- [`Element.insertAdjacentElement()`](/de/docs/Web/API/Element/insertAdjacentElement)
+- [`CharacterData.after()`](/de/docs/Web/API/CharacterData/after)
+- [`DocumentType.after()`](/de/docs/Web/API/DocumentType/after)
+- [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild)
+- [`NodeList`](/de/docs/Web/API/NodeList)

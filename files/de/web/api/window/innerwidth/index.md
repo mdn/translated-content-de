@@ -1,5 +1,5 @@
 ---
-title: "Fenster: innerWidth-Eigenschaft"
+title: "Window: innerWidth Eigenschaft"
 short-title: innerWidth
 slug: Web/API/Window/innerWidth
 l10n:
@@ -8,35 +8,39 @@ l10n:
 
 {{APIRef}}
 
-Die schreibgeschützte {{domxref("Window")}}-Eigenschaft **`innerWidth`** gibt die innere Breite des Fensters in Pixel zurück (also die Breite des {{Glossary("layout viewport")}} des Fensters). Das beinhaltet die Breite der vertikalen Scrollleiste, falls vorhanden.
+Die schreibgeschützte [`Window`](/de/docs/Web/API/Window) Eigenschaft **`innerWidth`** gibt die Innenbreite des Fensters in Pixeln zurück (d.h. die Breite des [Layout-Viewports](/de/docs/Glossary/layout_viewport) des Fensters). Dies schließt die Breite der vertikalen Scrollleiste ein, falls eine vorhanden ist.
 
-Ähnlich kann die innere Höhe des Fensters (also die Höhe des Layout-Viewports) über die {{domxref("Window.innerHeight", "innerHeight")}}-Eigenschaft ermittelt werden. Diese Messung berücksichtigt auch die Höhe der horizontalen Scrollleiste, falls sie sichtbar ist.
+Ähnlich kann die Innenhöhe des Fensters (d.h. die Höhe des Layout-Viewports) mithilfe der [`innerHeight`](/de/docs/Web/API/Window/innerHeight) Eigenschaft erhalten werden. Diese Messung berücksichtigt auch die Höhe der horizontalen Scrollleiste, falls sie sichtbar ist.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Breite des Layout-Viewports des Fensters in Pixel angibt. Diese Eigenschaft ist schreibgeschützt und hat keinen Standardwert.
+Ein ganzzahliger Wert, der die Breite des Layout-Viewports des Fensters in Pixeln angibt. Diese
+Eigenschaft ist schreibgeschützt und hat keinen Standardwert.
 
-Um die Breite des Fensters zu ändern, verwenden Sie eine der {{domxref("Window")}}-Methoden zum Ändern der Fenstergröße, wie {{domxref("Window.resizeBy", "resizeBy()")}} oder {{domxref("Window.resizeTo", "resizeTo()")}}.
+Um die Fensterbreite zu ändern, verwenden Sie eine der Methoden der [`Window`](/de/docs/Web/API/Window) zum Ändern der Fenstergröße, wie z.B. [`resizeBy()`](/de/docs/Web/API/Window/resizeBy) oder
+[`resizeTo()`](/de/docs/Web/API/Window/resizeTo).
 
-## Verwendungshinweise
+## Hinweise zur Nutzung
 
-Wenn Sie die Breite des Fensters abzüglich der Scrollleiste und der Rahmen benötigen, verwenden Sie stattdessen die {{domxref("Element.clientWidth", "clientWidth")}}-Eigenschaft des root {{HTMLElement("html")}}-Elements.
+Wenn Sie die Breite des Fensters abzüglich der Scrollleiste und Ränder benötigen, verwenden Sie stattdessen die
+`clientWidth`-Eigenschaft des Root-{{HTMLElement("html")}}-Elements.
 
-Die `innerWidth`-Eigenschaft ist in jedem Fenster oder Objekt verfügbar, das sich wie ein Fenster verhält, wie z. B. ein Frame oder Tab.
+Die `innerWidth`-Eigenschaft ist in jedem Fenster oder Objekt verfügbar, das sich
+wie ein Fenster verhält, wie beispielsweise ein Frame oder Tab.
 
 ## Beispiele
 
 ```js
-// Dies wird die Breite des Viewports protokollieren
+// This will log the width of the viewport
 console.log(window.innerWidth);
 
-// Dies wird die Breite des Frame-Viewports innerhalb eines Framesets protokollieren
+// This will log the width of the frame viewport within a frameset
 console.log(self.innerWidth);
 
-// Dies wird die Breite des Viewports des nächsten Framesets protokollieren
+// This will log the width of the viewport of the closest frameset
 console.log(parent.innerWidth);
 
-// Dies wird die Breite des Viewports des äußersten Framesets protokollieren
+// This will log the width of the viewport of the outermost frameset
 console.log(top.innerWidth);
 ```
 
@@ -45,9 +49,9 @@ console.log(top.innerWidth);
 ### HTML
 
 ```html
-<p>Ändern Sie die Größe des Browserfensters, um das <code>resize</code>-Ereignis auszulösen.</p>
-<p>Fensterhöhe: <span id="height"></span></p>
-<p>Fensterbreite: <span id="width"></span></p>
+<p>Resize the browser window to fire the <code>resize</code> event.</p>
+<p>Window height: <span id="height"></span></p>
+<p>Window width: <span id="width"></span></p>
 ```
 
 ### JavaScript
@@ -69,18 +73,18 @@ window.addEventListener("resize", updateSize);
 
 {{EmbedLiveSample('Demo')}}
 
-Sie können die {{LiveSampleLink('Demo', 'Ergebnisse des Demo-Codes auf einer separaten Seite anzeigen')}}.
+Sie können auch die {{LiveSampleLink('Demo', 'Ergebnisse des Demo-Codes in einer separaten Seite ansehen')}}.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("window.outerWidth")}}
-- {{domxref("window.innerHeight")}}
-- {{domxref("window.outerHeight")}}
+- [`window.outerWidth`](/de/docs/Web/API/Window/outerWidth)
+- [`window.innerHeight`](/de/docs/Web/API/Window/innerHeight)
+- [`window.outerHeight`](/de/docs/Web/API/Window/outerHeight)

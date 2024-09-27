@@ -1,5 +1,5 @@
 ---
-title: "AudioParam: Methode setValueAtTime()"
+title: "AudioParam: setValueAtTime()-Methode"
 short-title: setValueAtTime()
 slug: Web/API/AudioParam/setValueAtTime
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `setValueAtTime()`-Methode des
-{{domxref("AudioParam")}}-Interfaces plant eine sofortige Änderung des
-`AudioParam`-Wertes zu einer präzisen Zeit, gemessen an
-{{domxref("BaseAudioContext/currentTime", "AudioContext.currentTime")}}. Der neue Wert wird im Parameter `value` angegeben.
+Die `setValueAtTime()`-Methode der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle plant eine sofortige Änderung des `AudioParam`-Wertes zu einem genauen Zeitpunkt, gemessen an [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime). Der neue Wert wird im Wert-Parameter angegeben.
 
 ## Syntax
 
@@ -22,27 +19,23 @@ setValueAtTime(value, startTime)
 ### Parameter
 
 - `value`
-  - : Eine Gleitkommazahl, die den Wert darstellt, zu dem sich das AudioParam
-    zu der angegebenen Zeit ändern wird.
+  - : Eine Fließkommazahl, die den Wert darstellt, auf den sich das AudioParam zum angegebenen Zeitpunkt ändern wird.
 - `startTime`
-  - : Ein Double, das die Zeit (in Sekunden) darstellt, die nach der Erstellung des {{domxref("AudioContext")}} vergangen ist, zu der die Wertänderung erfolgen wird. Wenn die Zeit kleiner als {{domxref("BaseAudioContext/currentTime", "AudioContext.currentTime")}} ist, erfolgt die Änderung sofort. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn dieser Wert negativ ist.
+  - : Ein Double, das die Zeit (in Sekunden) darstellt, nachdem der [`AudioContext`](/de/docs/Web/API/AudioContext) zuerst erstellt wurde, zu der die Wertänderung stattfinden wird. Wenn die Zeit kleiner als [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) ist, erfolgt die Änderung sofort. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn dieser Wert negativ ist.
 
 ### Rückgabewert
 
-Ein Verweis auf dieses `AudioParam`-Objekt. In einigen älteren Browserimplementierungen dieser Schnittstelle wird {{jsxref('undefined')}} zurückgegeben.
+Eine Referenz auf dieses `AudioParam`-Objekt. In einigen Browsern geben ältere Implementierungen dieser Schnittstelle {{jsxref('undefined')}} zurück.
 
 ## Beispiele
 
-Dieses einfache Beispiel zeigt eine Medien-Elementquelle mit zwei Steuerungsknöpfen (siehe unser [webaudio-examples Repo](https://github.com/mdn/webaudio-examples/blob/main/audio-param/index.html) für den Quellcode, oder [sehen Sie sich das Beispiel live an](https://mdn.github.io/webaudio-examples/audio-param/)). Wenn die Knöpfe gedrückt werden, wird die Variable `currGain`
-um 0,25 erhöht/erniedrigt und dann die Methode `setValueAtTime()` verwendet,
-um den Verstärkungswert gleich `currGain` zu setzen, eine Sekunde ab jetzt
-(`audioCtx.currentTime + 1`).
+In diesem einfachen Beispiel gibt es eine Media-Elementquelle mit zwei Steuertasten (sehen Sie sich den Quellcode in unserem [webaudio-examples Repo](https://github.com/mdn/webaudio-examples/blob/main/audio-param/index.html) an oder [sehen Sie sich das Beispiel an](https://mdn.github.io/webaudio-examples/audio-param/)). Wenn die Tasten gedrückt werden, wird die Variable `currGain` um 0,25 erhöht oder verringert, dann wird die `setValueAtTime()`-Methode verwendet, um den Gain-Wert auf `currGain` eine Sekunde von jetzt an (`audioCtx.currentTime + 1`) zu setzen.
 
 ```js
-// audio context erstellen
+// create audio context
 const audioCtx = new AudioContext();
 
-// Grundvariablen für das Beispiel festlegen
+// set basic variables for example
 const myAudio = document.querySelector("audio");
 const pre = document.querySelector("pre");
 const myScript = document.querySelector("script");
@@ -52,21 +45,21 @@ pre.textContent = myScript.textContent;
 const targetAtTimePlus = document.querySelector(".set-target-at-time-plus");
 const targetAtTimeMinus = document.querySelector(".set-target-at-time-minus");
 
-// Erstellen Sie einen MediaElementAudioSourceNode
-// Führen Sie das HTMLMediaElement in ihn ein
+// Create a MediaElementAudioSourceNode
+// Feed the HTMLMediaElement into it
 const source = audioCtx.createMediaElementSource(myAudio);
 
-// Erstellen Sie einen Verstärkungs-Knoten und setzen Sie dessen Verstärkungswert auf 0,5
+// Create a gain node and set its gain value to 0.5
 const gainNode = audioCtx.createGain();
 gainNode.gain.value = 0.5;
 let currGain = gainNode.gain.value;
 
-// Verbinden Sie den AudioBufferSourceNode mit dem gainNode
-// und den gainNode mit dem Ziel
+// connect the AudioBufferSourceNode to the gainNode
+// and the gainNode to the destination
 source.connect(gainNode);
 gainNode.connect(audioCtx.destination);
 
-// Knöpfen eine Funktion für onclick zuweisen
+// set buttons to do something onclick
 targetAtTimePlus.onclick = () => {
   currGain += 0.25;
   gainNode.gain.setValueAtTime(currGain, audioCtx.currentTime + 1);
@@ -82,7 +75,7 @@ targetAtTimeMinus.onclick = () => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

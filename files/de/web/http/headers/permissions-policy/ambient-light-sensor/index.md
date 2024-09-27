@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP-{{HTTPHeader('Permissions-Policy')}}-Header `ambient-light-sensor`-Direktive kontrolliert, ob das aktuelle Dokument berechtigt ist, Informationen über die Lichtmenge in der Umgebung des Geräts über die {{domxref('AmbientLightSensor')}}-Schnittstelle zu sammeln.
+Der HTTP-Header {{HTTPHeader('Permissions-Policy')}} mit der Direktive `ambient-light-sensor` steuert, ob das aktuelle Dokument Informationen über die Lichtmenge in der Umgebung des Geräts über die [`AmbientLightSensor`](/de/docs/Web/API/AmbientLightSensor)-Schnittstelle sammeln darf.
 
-Insbesondere wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe des {{domxref("AmbientLightSensor.AmbientLightSensor", "AmbientLightSensor()")}}-Konstruktors eine {{domxref("DOMException")}} vom Typ `SecurityError` auslösen.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe des Konstruktors [`AmbientLightSensor()`](/de/docs/Web/API/AmbientLightSensor/AmbientLightSensor) eine [`DOMException`](/de/docs/Web/API/DOMException) des Typs `SecurityError` auslösen.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: ambient-light-sensor=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-allowlist für `ambient-light-sensor` ist `self`.
+Die Standard-Allowed-Liste für `ambient-light-sensor` ist `self`.
 
 ## Spezifikationen
 
@@ -35,4 +35,4 @@ Die Standard-allowlist für `ambient-light-sensor` ist `self`.
 ## Siehe auch
 
 - {{HTTPHeader('Permissions-Policy')}}-Header
-- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)
+- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

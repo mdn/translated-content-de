@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`v-hanging`**-Attribut gibt die Ausrichtungskoordinate für {{Glossary("glyph", "Glyphen")}} an, um eine hängende {{Glossary("baseline/typography", "Basislinie")}}-Ausrichtung zu erreichen. Der Wert ist ein Offset im Koordinatensystem der Schriftart relativ zum glyphen-spezifischen {{SVGAttr("vert-origin-x")}}-Attribut.
+Das **`v-hanging`** Attribut gibt die Ausrichtungskoordinate für [Glyphen](/de/docs/Glossary/glyph) an, um eine hängende [Grundlinie](/de/docs/Glossary/baseline/typography) zu erreichen. Der Wert ist ein Versatz im Koordinatensystem der Schriftart relativ zum glyphpsezifischen {{SVGAttr("vert-origin-x")}} Attribut.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("font-face")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -39,7 +39,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die Ausrichtungskoordinate für die Glyphen an, um eine hängende Basislinienausrichtung zu erreichen.
+  - : Dieser Wert gibt die Ausrichtungskoordinate für die Glyphen an, um die hängende Grundlinie zu erreichen.
 
 ## Spezifikationen
 

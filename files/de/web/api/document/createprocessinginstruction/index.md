@@ -1,5 +1,5 @@
 ---
-title: "Document: Methode createProcessingInstruction()"
+title: "Dokument: createProcessingInstruction() Methode"
 short-title: createProcessingInstruction()
 slug: Web/API/Document/createProcessingInstruction
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-`createProcessingInstruction()` erzeugt ein neues [Verarbeitungshinweis](/de/docs/Web/API/ProcessingInstruction)-Knoten und gibt diesen zurück.
+Die Methode `createProcessingInstruction()` erzeugt einen neuen [Verarbeitungsanweisungs-Node](/de/docs/Web/API/ProcessingInstruction) und gibt ihn zurück.
 
-Der neue Knoten wird normalerweise in ein XML-Dokument eingefügt, um etwas damit zu erreichen, beispielsweise mit {{ domxref("node.insertBefore") }}.
+Der neue Node wird üblicherweise in ein XML-Dokument eingefügt, um damit etwas zu erreichen, z. B. mit [`node.insertBefore`](/de/docs/Web/API/Node/insertBefore).
 
 ## Syntax
 
@@ -21,11 +21,11 @@ createProcessingInstruction(target, data)
 ### Parameter
 
 - `piNode`
-  - : Der resultierende {{ domxref("ProcessingInstruction") }}-Knoten.
+  - : Der resultierende [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) Node.
 - `target`
-  - : Ein String, der den ersten Teil des Verarbeitungshinweises enthält (d.h. `<?target … ?>`)
+  - : Ein String, der den ersten Teil der Verarbeitungsanweisung enthält (d. h. `<?target … ?>`).
 - `data`
-  - : Ein String, der jegliche Informationen enthält, die der Verarbeitungshinweis tragen soll, nach dem Ziel. Die Daten sind Ihnen überlassen, sie dürfen jedoch nicht `?>` enthalten, da dies den Verarbeitungshinweis schließt.
+  - : Ein String, der alle Informationen enthält, die die Verarbeitungsanweisung nach dem Ziel tragen soll. Die Daten sind frei wählbar, dürfen jedoch nicht `?>` enthalten, da dadurch die Verarbeitungsanweisung geschlossen wird.
 
 ### Rückgabewert
 
@@ -33,12 +33,12 @@ Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidCharacterError` {{domxref("DOMException")}}
+- `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird ausgelöst, wenn eines der folgenden zutrifft:
+  - : Tritt auf, wenn eines der folgenden zutrifft:
 
-    - Der Wert von [`target`](#target) ist kein gültiger [XML-Name](https://www.w3.org/TR/REC-xml/#dt-name); beispielsweise beginnt er mit einer Zahl, einem Bindestrich oder einem Punkt oder enthält andere Zeichen als alphanumerische Zeichen, Unterstriche, Bindestriche oder Punkte.
-    - Die _abschließende Verarbeitungshinweis-Sequenz_ (`?>`) ist Teil des [`data`](#data)-Werts.
+    - Der [`target`](#target)-Wert ist kein gültiger [XML-Name](https://www.w3.org/TR/REC-xml/#dt-name); zum Beispiel, wenn er mit einer Zahl, einem Bindestrich oder einem Punkt beginnt oder Zeichen enthält, die keine alphanumerischen Zeichen, Unterstriche, Bindestriche oder Punkte sind.
+    - Die _abschließende Verarbeitungsanweisungssequenz_ (`?>`) ist Teil des [`data`](#data) Wertes.
 
 ## Beispiele
 

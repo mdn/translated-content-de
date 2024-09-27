@@ -2,30 +2,30 @@
 title: PictureInPictureEvent
 slug: Web/API/PictureInPictureEvent
 l10n:
-  sourceCommit: 95dff5ec1195f072b8e48a2273294933670b1e99
+  sourceCommit: bb4d21e3c6e71db4e0ba983a450d6ed628e82670
 ---
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die **`PictureInPictureEvent`**-Schnittstelle repräsentiert ereignisbezogene Ereignisse im Bild-im-Bild-Modus, einschließlich {{domxref("HTMLVideoElement/enterpictureinpicture_event", "enterpictureinpicture")}}, {{domxref("HTMLVideoElement/leavepictureinpicture_event", "leavepictureinpicture")}} und {{domxref("PictureInPictureWindow/resize_event", "resize")}}.
+Die **`PictureInPictureEvent`**-Schnittstelle repräsentiert ereignisbezogene Vorgänge des "Picture-in-Picture", einschließlich [`enterpictureinpicture`](/de/docs/Web/API/HTMLVideoElement/enterpictureinpicture_event), [`leavepictureinpicture`](/de/docs/Web/API/HTMLVideoElement/leavepictureinpicture_event) und [`resize`](/de/docs/Web/API/PictureInPictureWindow/resize_event).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("PictureInPictureEvent.PictureInPictureEvent", "PictureInPictureEvent()")}}
+- [`PictureInPictureEvent()`](/de/docs/Web/API/PictureInPictureEvent/PictureInPictureEvent)
   - : Erstellt ein `PictureInPictureEvent`-Ereignis mit den angegebenen Parametern.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
-- {{domxref("PictureInPictureEvent.pictureInPictureWindow")}}
-  - : Gibt das {{domxref("PictureInPictureWindow")}} zurück, auf das sich das Ereignis bezieht.
+- [`PictureInPictureEvent.pictureInPictureWindow`](/de/docs/Web/API/PictureInPictureEvent/pictureInPictureWindow)
+  - : Gibt das [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow) zurück, auf das sich das Ereignis bezieht.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle erbt auch Methoden von ihrem Elternteil {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Methoden von ihrem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
 ## Spezifikationen
 
@@ -37,4 +37,4 @@ _Diese Schnittstelle erbt auch Methoden von ihrem Elternteil {{domxref("Event")}
 
 ## Siehe auch
 
-- Die {{domxref("Event")}} Basisschnittstelle
+- Die [`Event`](/de/docs/Web/API/Event) Basisschnittstelle

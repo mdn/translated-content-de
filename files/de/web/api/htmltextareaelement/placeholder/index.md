@@ -1,5 +1,5 @@
 ---
-title: "HTMLTextAreaElement: Eigenschaft placeholder"
+title: "HTMLTextAreaElement: placeholder-Eigenschaft"
 short-title: placeholder
 slug: Web/API/HTMLTextAreaElement/placeholder
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`placeholder`**-Eigenschaft der {{DOMxRef("HTMLTextAreaElement")}}-Schnittstelle stellt einen Hinweis für den Benutzer dar, was in das Steuerelement eingegeben werden kann. Sie spiegelt das [`placeholder`](/de/docs/Web/HTML/Element/textarea#placeholder)-Attribut des {{htmlelement("textarea")}}-Elements wider.
+Die **`placeholder`**-Eigenschaft der Schnittstelle [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) stellt einen Hinweis für den Benutzer dar, was in das Steuerelement eingegeben werden kann. Sie spiegelt das [`placeholder`](/de/docs/Web/HTML/Element/textarea#placeholder)-Attribut des {{htmlelement("textarea")}}-Elements wider.
 
 ## Wert
 
@@ -32,4 +32,4 @@ console.log(textArea.placeholder);
 ## Siehe auch
 
 - {{HTMLElement("textarea")}}
-- {{DOMXref("HTMLTextAreaElement.value")}}
+- [`HTMLTextAreaElement.value`](/de/docs/Web/API/HTMLTextAreaElement/value)

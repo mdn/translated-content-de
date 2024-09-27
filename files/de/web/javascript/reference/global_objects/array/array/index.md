@@ -1,5 +1,5 @@
 ---
-title: Array()-Konstruktor
+title: Array() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Array/Array
 l10n:
   sourceCommit: e3faa375b0179de77a5eff00074e3d168a0a904c
@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`Array()`**-Konstruktor erstellt {{jsxref("Array")}} Objekte.
+Der **`Array()`** Konstruktor erstellt {{jsxref("Array")}} Objekte.
 
 ## Syntax
 
@@ -30,20 +30,21 @@ Array(arrayLength)
 ### Parameter
 
 - `element1`, …, `elementN`
-  - : Ein JavaScript-Array wird mit den angegebenen Elementen initialisiert, außer wenn ein einziges Argument an den `Array`-Konstruktor übergeben wird und dieses Argument eine Zahl ist (siehe unten den Parameter `arrayLength`). Beachten Sie, dass dieser Sonderfall nur für JavaScript-Arrays gilt, die mit dem `Array`-Konstruktor erstellt wurden, nicht für Array-Literale, die mit der eckigen Klammer-Syntax erstellt wurden.
+  - : Ein JavaScript-Array wird mit den angegebenen Elementen initialisiert, außer in dem Fall, in dem ein einziges Argument an den `Array` Konstruktor übergeben wird und dieses Argument eine Zahl ist (siehe den `arrayLength` Parameter unten). Beachten Sie, dass dieser Sonderfall nur für JavaScript-Arrays gilt, die mit dem `Array` Konstruktor erstellt wurden, nicht für Array-Literale, die mit der Klammer-Syntax erstellt werden.
 - `arrayLength`
-  - : Wenn das einzige Argument, das an den `Array`-Konstruktor übergeben wird, eine ganze Zahl zwischen 0 und 2<sup>32</sup> - 1 (einschließlich) ist, wird ein neues JavaScript-Array mit seiner `length`-Eigenschaft auf diese Zahl gesetzt zurückgegeben (**Hinweis:** dies impliziert ein Array mit `arrayLength` leeren Slots, nicht Slots mit tatsächlichen `undefined`-Werten — siehe [dünn besetzte Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays)).
+  - : Wenn das einzige an den `Array` Konstruktor übergebene Argument eine ganze Zahl zwischen 0 und 2<sup>32</sup> - 1 (einschließlich) ist, wird ein neues JavaScript-Array mit seiner `length` Eigenschaft auf diese Zahl gesetzt zurückgegeben (**Achtung:** dies impliziert ein Array von `arrayLength` leeren Schlitzen, nicht Schlitzen mit tatsächlichen `undefined` Werten – siehe [dünnbesetzte Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays)).
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn nur ein Argument (`arrayLength`) eine Zahl ist, aber dessen Wert keine ganze Zahl oder nicht zwischen 0 und 2<sup>32</sup> - 1 (inklusive) liegt.
+  - : Wird ausgelöst, wenn es nur ein Argument (`arrayLength`) gibt, das eine Zahl ist, aber dessen Wert keine ganze Zahl oder nicht zwischen 0 und 2<sup>32</sup> - 1 (einschließlich) ist.
 
 ## Beispiele
 
 ### Array-Literal-Notation
 
-Arrays können mit der [Literal-Notation](/de/docs/Web/JavaScript/Guide/Grammar_and_types#array_literals) erstellt werden:
+Arrays können mit der [Literal]-(/de/docs/Web/JavaScript/Guide/Grammar_and_types#array_literals)
+Notation erstellt werden:
 
 ```js
 const fruits = ["Apple", "Banana"];
@@ -52,21 +53,21 @@ console.log(fruits.length); // 2
 console.log(fruits[0]); // "Apple"
 ```
 
-### Array-Konstruktor mit einem einzigen Parameter
+### Array-Konstruktor mit einem Parameter
 
-Arrays können mit einem Konstruktor erstellt werden, der einen einzelnen Zahlenparameter hat. Ein Array wird erstellt, dessen `length`-Eigenschaft auf diese Zahl gesetzt ist, und die Array-Elemente sind leere Slots.
+Arrays können mit einem Konstruktor erstellt werden, der einen einzelnen Zahlenparameter hat. Es wird ein Array erstellt, dessen `length` Eigenschaft auf diese Zahl gesetzt ist, und die Array-Elemente sind leere Schlitze.
 
 ```js
 const arrayEmpty = new Array(2);
 
 console.log(arrayEmpty.length); // 2
-console.log(arrayEmpty[0]); // undefined; tatsächlich ist es ein leerer Slot
+console.log(arrayEmpty[0]); // undefined; actually, it is an empty slot
 console.log(0 in arrayEmpty); // false
 console.log(1 in arrayEmpty); // false
 ```
 
 ```js
-const arrayOfOne = new Array("2"); // Nicht die Zahl 2, sondern der String "2"
+const arrayOfOne = new Array("2"); // Not the number 2 but the string "2"
 
 console.log(arrayOfOne.length); // 1
 console.log(arrayOfOne[0]); // "2"
@@ -93,5 +94,5 @@ console.log(fruits[0]); // "Apple"
 
 ## Siehe auch
 
-- [Indexed collections](/de/docs/Web/JavaScript/Guide/Indexed_collections) Guide
+- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array")}}

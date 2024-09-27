@@ -1,6 +1,6 @@
 ---
-title: "SpeechGrammarList: Längeneigenschaft"
-short-title: Länge
+title: "SpeechGrammarList: length-Eigenschaft"
+short-title: length
 slug: Web/API/SpeechGrammarList/length
 l10n:
   sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{ SeeCompatTable() }}
 
-Die schreibgeschützte **`length`**-Eigenschaft des {{domxref("SpeechGrammarList")}}-Interfaces gibt die Anzahl der {{domxref("SpeechGrammar")}}-Objekte zurück, die in der {{domxref("SpeechGrammarList")}} enthalten sind.
+Die schreibgeschützte **`length`**-Eigenschaft des [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList)-Interfaces gibt die Anzahl der [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte zurück, die in der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) enthalten sind.
 
 ## Wert
 
-Eine Zahl, die die Anzahl der {{domxref("SpeechGrammar")}}-Objekte angibt, die in der {{domxref("SpeechGrammarList")}} enthalten sind.
+Eine Zahl, die die Anzahl der [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte angibt, die in der [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList) enthalten sind.
 
 ## Beispiele
 
@@ -24,7 +24,7 @@ const speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
 recognition.grammars = speechRecognitionList;
 
-speechRecognitionList.length; // sollte 1 zurückgeben.
+speechRecognitionList.length; // should return 1.
 ```
 
 ## Spezifikationen

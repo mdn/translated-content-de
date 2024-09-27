@@ -7,10 +7,10 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Deserialisierung** ist der Prozess, bei dem ein niedrigeres Format (z. B. das über ein Netzwerk übertragen oder in einem Datenspeicher gespeichert wurde) in ein lesbares Objekt oder eine andere Datenstruktur umgewandelt wird.
+**Deserialisierung** ist der Prozess, bei dem ein niederstufiges Format (z. B. das über ein Netzwerk übertragen oder in einem Datenspeicher gespeichert wurde) in ein lesbares Objekt oder eine andere Datenstruktur übersetzt wird.
 
-In {{Glossary("JavaScript")}} können Sie beispielsweise eine {{Glossary("JSON")}}-{{Glossary("string")}} in ein Objekt deserialisieren, indem Sie die {{Glossary("function")}} {{jsxref("JSON.parse()")}} aufrufen.
+In [JavaScript](/de/docs/Glossary/JavaScript) können Sie zum Beispiel einen [JSON](/de/docs/Glossary/JSON)-[String](/de/docs/Glossary/string) zu einem Objekt deserialisieren, indem Sie die [Funktion](/de/docs/Glossary/function) {{jsxref("JSON.parse()")}} aufrufen.
 
 ## Siehe auch
 
-- [Serialisierung](https://en.wikipedia.org/wiki/Serialization) auf Wikipedia
+- [Serialization](https://en.wikipedia.org/wiki/Serialization) auf Wikipedia

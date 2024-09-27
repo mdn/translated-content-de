@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Rufen Sie ein {{WebExtAPIRef("permissions.Permissions")}} Objekt ab, das alle derzeit der Erweiterung gewährten Berechtigungen enthält.
+Rufen Sie ein {{WebExtAPIRef("permissions.Permissions")}}-Objekt ab, das alle derzeit der Erweiterung gewährten Berechtigungen enthält.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef("permissions.Permissions")}} Objekt erfüllt wird, das alle derzeit der Erweiterung gewährten Berechtigungen enthält. Dies schließt alle Berechtigungen ein, die die Erweiterung im [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions)-Schlüssel aufgeführt hat, sowie alle Berechtigungen, die im [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) aufgeführt sind, die der Erweiterung durch Aufruf von {{WebExtAPIRef("permissions.request()")}} gewährt wurden.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef("permissions.Permissions")}}-Objekt erfüllt wird, das alle derzeit der Erweiterung gewährten Berechtigungen enthält. Dies umfasst alle Berechtigungen, die die Erweiterung im [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions)-Schlüssel aufgeführt hat, sowie alle Berechtigungen, die im [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) aufgeführt sind und der Erweiterung durch Aufruf von {{WebExtAPIRef("permissions.request()")}} gewährt wurden.
 
 ## Browser-Kompatibilität
 
@@ -32,7 +32,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 ## Beispiele
 
 ```js
-// Erweiterungsberechtigungen sind:
+// Extension permissions are:
 // "webRequest", "tabs", "*://*.mozilla.org/*"
 
 const currentPermissions = await browser.permissions.getAll();
@@ -44,4 +44,4 @@ console.log(currentPermissions.origins); // [ "*://*.mozilla.org/*" ]
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions) API von Chromium.
+> Diese API basiert auf der [`chrome.permissions`](https://developer.chrome.com/docs/extensions/reference/api/permissions)-API von Chromium.

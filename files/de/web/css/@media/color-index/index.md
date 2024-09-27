@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Das **`color-index`** [CSS](/de/docs/Web/CSS) [Medien-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Anzahl der Einträge in der Farbnachschlagetabelle des Ausgabegeräts zu testen.
+Die **`color-index`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Anzahl der Einträge in der Farbsucheintragstabelle des Ausgabegeräts zu testen.
 
 ## Syntax
 
-Das `color-index`-Feature wird als ein {{cssxref("&lt;integer&gt;")}} Wert angegeben, der die Anzahl der Einträge in der Farbnachschlagetabelle des Ausgabegeräts darstellt. (Dieser Wert ist null, wenn das Gerät keine solche Tabelle verwendet.) Es handelt sich um ein Bereichs-Feature, was bedeutet, dass Sie auch die Varianten **`min-color-index`** und **`max-color-index`** verwenden können, um minimale bzw. maximale Werte abzufragen.
+Die `color-index`-Funktion wird als ein {{cssxref("&lt;integer&gt;")}} Wert angegeben, der die Anzahl der Einträge in der Farbsucheintragstabelle des Ausgabegeräts darstellt. (Dieser Wert ist null, wenn das Gerät eine solche Tabelle nicht verwendet.) Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die Präfixvarianten **`min-color-index`** und **`max-color-index`** verwenden können, um Mindest- und Höchstwerte abzufragen.
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Basisbeispiel
 
 #### HTML
 
@@ -49,7 +49,7 @@ p {
 
 ### Benutzerdefiniertes Stylesheet
 
-Dieses HTML wird ein spezielles Stylesheet für Geräte anwenden, die mindestens 256 Farben haben.
+Dieses HTML wendet ein spezielles Stylesheet für Geräte an, die mindestens 256 Farben haben.
 
 ```html
 <link rel="stylesheet" href="http://foo.bar.com/base.css" />

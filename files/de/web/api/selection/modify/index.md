@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Selection.modify()`** Methode wendet eine Änderung auf die aktuelle Auswahl oder die Cursorposition an, unter Verwendung einfacher Textbefehle.
+Die **`Selection.modify()`** Methode wendet eine Änderung auf die
+aktuelle Auswahl oder die Cursorposition an, indem einfache Textbefehle verwendet werden.
 
 ## Syntax
 
@@ -19,17 +20,18 @@ modify(alter, direction, granularity)
 ### Parameter
 
 - `alter`
-  - : Der Typ der anzuwendenden Änderung. Geben Sie `"move"` an, um die aktuelle Cursorposition zu verschieben, oder `"extend"`, um die aktuelle Auswahl zu erweitern.
+  - : Der Änderungstyp, der angewendet werden soll. Geben Sie `"move"` an, um die aktuelle Cursorposition zu verschieben, oder `"extend"`, um die aktuelle Auswahl zu erweitern.
 - `direction`
-  - : Die Richtung, in die die aktuelle Auswahl angepasst werden soll. Sie können `"forward"` oder `"backward"` angeben, um in die entsprechende Richtung basierend auf der Sprache am Auswahlpunkt anzupassen. Wenn Sie in eine bestimmte Richtung anpassen möchten, können Sie `"left"` oder `"right"` angeben.
+  - : Die Richtung, in die die aktuelle Auswahl angepasst werden soll. Sie können
+    `"forward"` oder `"backward"` angeben, um die Auswahl basierend auf der Sprache an der Auswahlposition in die entsprechende Richtung anzupassen. Wenn Sie in eine bestimmte Richtung anpassen möchten, können Sie `"left"` oder `"right"` angeben.
 - `granularity`
-  - : Die Distanz, um die die aktuelle Auswahl oder Cursorposition angepasst werden soll. Sie können um `"character"`, `"word"`, `"sentence"`, `"line"`, `"paragraph"`, `"lineboundary"`, `"sentenceboundary"`, `"paragraphboundary"` oder `"documentboundary"` verschieben.
+  - : Die Entfernung, um die die aktuelle Auswahl oder Cursorposition angepasst werden soll. Sie können nach `"character"`, `"word"`, `"sentence"`, `"line"`, `"paragraph"`, `"lineboundary"`, `"sentenceboundary"`, `"paragraphboundary"` oder `"documentboundary"` verschieben.
 
 > [!NOTE]
-> Firefox implementiert **nicht** `"sentence"`, `"paragraph"`, `"sentenceboundary"`, `"paragraphboundary"` oder `"documentboundary"`. WebKit und Blink tun es.
+> Firefox implementiert **nicht** `"sentence"`, `"paragraph"`, `"sentenceboundary"`, `"paragraphboundary"` oder `"documentboundary"`. WebKit und Blink dagegen schon.
 
 > [!NOTE]
-> Ab Firefox 5 beinhaltet die `"word"` Granularität nicht mehr den nachfolgenden Leerraum, unabhängig vom standardmäßigen Plattformverhalten. Dies macht das Verhalten konsistenter und zudem funktioniert es nun so, wie es früher bei WebKit der Fall war. Leider haben sie kürzlich ihr Verhalten geändert.
+> Ab Firefox 5 umfasst die Granularität `"word"` nicht mehr den folgenden Leerraum, unabhängig vom Standardplattformverhalten. Dies macht das Verhalten konsistenter und gleicht es der früheren Funktionsweise von WebKit an, obwohl sie ihr Verhalten kürzlich geändert haben.
 
 ### Rückgabewert
 
@@ -37,13 +39,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt die verschiedenen `granularity` Optionen zum Ändern einer Auswahl. Klicken Sie irgendwo in das Beispiel (optional, indem Sie etwas Text auswählen), und klicken Sie dann auf die Schaltfläche, um die Auswahl zu erweitern.
+Dieses Beispiel zeigt die verschiedenen `granularity` Optionen für das Ändern einer Auswahl. Klicken Sie irgendwo innerhalb des Beispiels (optional, indem Sie etwas Text auswählen) und klicken Sie dann auf die Schaltfläche, um die Auswahl zu erweitern.
 
 ### HTML
 
 ```html
 <p>
-  Klicken Sie irgendwo in dieses Beispiel. Klicken Sie dann auf die Schaltfläche unten, um die Auswahl zu erweitern. Sehen Sie, was passiert!
+  Click somewhere in this example. Then click the button below to expand the
+  selection. Watch what happens!
 </p>
 <p>
   Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,
@@ -98,4 +101,4 @@ function modify() {
 
 ## Siehe auch
 
-- {{DOMxRef("Selection")}}, das Interface, zu dem es gehört.
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der es gehört.

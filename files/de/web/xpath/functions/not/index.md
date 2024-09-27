@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `not` wertet einen booleschen Ausdruck aus und gibt den gegenteiligen Wert zurück.
+Die `not`-Funktion wertet einen booleschen Ausdruck aus und gibt den entgegengesetzten Wert zurück.
 
 ## Syntax
 
@@ -18,22 +18,22 @@ not( expression )
 ### Parameter
 
 - `expression`
-  - : Der Ausdruck wird genau so ausgewertet, als ob er als Argument an die [boolean()](/de/docs/Web/XPath/Functions/boolean)-Funktion übergeben wurde.
+  - : Der Ausdruck wird genau so ausgewertet, als ob er als Argument an die [boolean()](/de/docs/Web/XPath/Functions/boolean)-Funktion übergeben worden wäre.
 
 ### Rückgabewert
 
-Wahr für einen Ausdruck, der sich zu falsch auswertet; falsch für einen Ausdruck, der sich zu wahr auswertet.
+Wahr für einen Ausdruck, der zu falsch ausgewertet wird; falsch für einen Ausdruck, der zu wahr ausgewertet wird.
 
 ## Beschreibung
 
-- Diese Funktion sollte sich ähnlich wie die [boolean()](/de/docs/Web/XPath/Functions/boolean)-Funktion verhalten, außer dass sie den gegenteiligen Wert zurückgibt.
-- Sie können testen, ob ein Element ein Attribut nicht hat.
+- Diese Funktion sollte sich ähnlich wie die [boolean()](/de/docs/Web/XPath/Functions/boolean)-Funktion verhalten, außer dass sie den entgegengesetzten Wert zurückgibt.
+- Sie können testen, ob ein Element kein bestimmtes Attribut hat.
 
   ```xml
   <xsl:for-each match="//a[not(@name and @name = 'badname')]">
-    <!-- iteriert über jedes <a>-Element im Dokument, das
-          entweder kein 'name'-Attribut hat oder ein solches hat,
-          dessen Wert jedoch nicht "badname" ist. -->
+    <!-- iterates over any <a> element in the document, that
+          either has no 'name' attribute at all, or it has one,
+          but its value is not "badname". -->
   </xsl:template>
   ```
 
@@ -41,6 +41,6 @@ Wahr für einen Ausdruck, der sich zu falsch auswertet; falsch für einen Ausdru
 
 [XPath 1.0 4.3](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-not)
 
-## Gecko-Unterstützung
+## Browser-Kompatibilität
 
 Unterstützt.

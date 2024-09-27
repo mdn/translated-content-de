@@ -1,5 +1,5 @@
 ---
-title: MathML-Brüche und -Wurzeln
+title: MathML Brüche und Wurzeln
 slug: Learn/MathML/First_steps/Fractions_and_roots
 l10n:
   sourceCommit: 865acb22b74a49927b98267566369d4677414f53
@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/MathML/First_steps/Text_containers", "Learn/MathML/First_steps/Scripts", "Learn/MathML/First_steps")}}
 
-Auf Basis von Textcontainern beschreibt dieser Artikel, wie komplexere MathML-Ausdrücke durch Verschachteln von Brüchen und Wurzeln erstellt werden können.
+Dieser Artikel, der sich auf Text-Container stützt, beschreibt, wie komplexere MathML-Ausdrücke durch das Verschachteln von Brüchen und Wurzeln erstellt werden können.
 
 <table>
   <tbody>
@@ -16,12 +16,12 @@ Auf Basis von Textcontainern beschreibt dieser Artikel, wie komplexere MathML-Au
       <td>
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software"
-          >Grundlegende Software installiert</a
-        >, grundlegende Kenntnisse über
+          >Basissoftware installiert</a
+        >, Grundkenntnisse im
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files"
-          >den Umgang mit Dateien</a
-        > und HTML-Grundlagen (lesen Sie
+          >Arbeiten mit Dateien</a
+        > und HTML-Grundlagen (siehe
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
           >Einführung in HTML</a
         >.)
@@ -30,7 +30,7 @@ Auf Basis von Textcontainern beschreibt dieser Artikel, wie komplexere MathML-Au
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Vertrautheit mit MathML-Elementen, die zum Schreiben von Brüchen und Quadratwurzeln verwendet werden.
+        Sich mit den MathML-Elementen vertraut machen, die zum Schreiben von Brüchen und Quadratwurzeln verwendet werden.
       </td>
     </tr>
   </tbody>
@@ -38,7 +38,7 @@ Auf Basis von Textcontainern beschreibt dieser Artikel, wie komplexere MathML-Au
 
 ## Teilbäume von \<mfrac>, \<msqrt> und \<mroot>
 
-Im Artikel [Erste Schritte mit MathML](/de/docs/Learn/MathML/First_steps/Getting_started) haben wir das `<mfrac>`-Element getroffen, um einen Bruch zu beschreiben. Betrachten wir ein einfaches Beispiel, das neue Elemente für Wurzeln (`<msqrt>` und `<mroot>`) hinzufügt:
+Im Artikel [Erste Schritte mit MathML](/de/docs/Learn/MathML/First_steps/Getting_started) haben wir bereits das `<mfrac>`-Element kennengelernt, um einen Bruch darzustellen. Betrachten Sie ein einfaches Beispiel, das neue Elemente für Wurzeln (`<msqrt>` und `<mroot>`) hinzufügt:
 
 ```html
 <math>
@@ -65,24 +65,24 @@ Im Artikel [Erste Schritte mit MathML](/de/docs/Learn/MathML/First_steps/Getting
 </math>
 ```
 
-Unten ist ein Screenshot, wie es von einem Browser gerendert wird:
+Nachfolgend ein Screenshot, wie es von einem Browser gerendert wird:
 
 ![Screenshot von mfrac, msqrt, mroot](mfrac-msqrt-mroot.png)
 
-- Wir wissen bereits, dass das `<mfrac>`-Element als Bruch gerendert wird: Das erste Kind (der Zähler) wird über dem zweiten Kind (dem Nenner) gezeichnet, getrennt durch einen horizontalen Balken.
-- Das `<msqrt>` wird als Quadratwurzel gerendert: Seine Kinder sind angeordnet wie ein [`<mrow>`](/de/docs/Learn/MathML/First_steps/Getting_started#grouping_with_the_mrow_element), dem ein Wurzelsymbol √ vorangestellt ist und das vollständig von einem Überstrich bedeckt ist.
-- Schließlich wird das `<mroot>`-Element als n-te Wurzel gerendert: Das erste Element wird vom Wurzelsymbol bedeckt, während das zweite Element als Grad der Wurzel verwendet und als Präfix-Superskript dargestellt wird.
+- Wir wissen bereits, dass das `<mfrac>`-Element als Bruch gerendert wird: Das erste Kind (der Zähler) wird über dem zweiten Kind (dem Nenner) gezeichnet, getrennt durch einen horizontalen Strich.
+- Das `<msqrt>` wird als Quadratwurzel gerendert: Seine Kinder werden wie ein [`<mrow>`](/de/docs/Learn/MathML/First_steps/Getting_started#grouping_with_the_mrow_element) angeordnet, vorangestellt von einem Wurzelsymbol √ und vollständig von einem Überstrich bedeckt.
+- Schließlich wird das `<mroot>`-Element als n-te Wurzel gerendert: Das erste Element wird vom Radikalsymbol bedeckt, während das zweite Element als Grad der Wurzel und als vorangehendes Hochzeichen gerendert wird.
 
-### Aktives Lernen: Verschachteln verschiedener Elemente
+### Aktives Lernen: Verschachtelung verschiedener Elemente
 
-Hier ist eine einfache Übung, um zu überprüfen, ob Sie die Beziehung zwischen einem MathML-Teilbaum und seiner visuellen Darstellung verstanden haben. Das Dokument enthält eine MathML-Formel und Sie müssen alle Teilbäume überprüfen, die einem Teilbaum in dieser MathML-Formel entsprechen. Sobald Sie fertig sind, können Sie den Quellcode der MathML-Formel untersuchen und überprüfen, ob er mit Ihrer Erwartung übereinstimmt.
+Hier ist eine einfache Übung, um zu überprüfen, ob Sie die Beziehung zwischen einem MathML-Teilbaum und seiner visuellen Darstellung verstanden haben. Das Dokument enthält eine MathML-Formel und Sie müssen alle Teilbäume überprüfen, die einem Teilbaum in dieser MathML-Formel entsprechen. Sobald Sie fertig sind, können Sie den Quellcode der MathML-Formel untersuchen und überprüfen, ob er Ihrer Erwartung entspricht.
 
 ```html hidden
 <!doctype html>
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
-    <title>Meine Seite mit mathematischen Zeichen</title>
+    <title>My page with math characters</title>
     <link
       rel="stylesheet"
       href="https://fred-wang.github.io/MathFonts/LatinModern/mathfonts.css" />
@@ -120,80 +120,82 @@ Hier ist eine einfache Übung, um zu überprüfen, ob Sie die Beziehung zwischen
       <li>
         <input
           type="checkbox"
-          data-comment="Überprüfen Sie die Reihenfolge der Kinder in einem mfrac!" />
-        Ein mfrac mit einem mroot als erstem Kind und einem msqrt als zweitem Kind.
+          data-comment="Verify the order of children in an mfrac!" />
+        An mfrac with an mroot as its first child and an msqrt as its second
+        child.
       </li>
       <li>
         <input
           type="checkbox"
           data-highlight="mroot2"
-          data-comment="Die '6 über 7'-te Wurzel von fünf." />
-        Ein mroot mit einem mn als erstem Kind und einem mfrac als zweitem Kind.
+          data-comment="The '6 over 7'-th root of five." />
+        An mroot with an mn as its first child and mfrac as its second child.
       </li>
       <li>
         <input
           type="checkbox"
-          data-comment="Diese Formel enthält keinen Bruch innerhalb einer Quadratwurzel!" />
-        Ein msqrt, das ein mfrac-Element enthält.
+          data-comment="This formula does not contain any fraction inside a square root!" />
+        An msqrt containing an mfrac element.
       </li>
       <li>
         <input
           type="checkbox"
-          data-comment="Die Quadratwurzel von zwei."
+          data-comment="The square root of two."
           data-highlight="msqrt1" />
-        Ein msqrt mit einem mn-Kind.
+        An msqrt with one mn child.
       </li>
       <li>
         <input
           type="checkbox"
-          data-comment="Überprüfen Sie die Reihenfolge der Kinder in einem mroot!" />
-        Ein mroot mit einem mfrac als erstem Kind und mn als zweitem Kind.
+          data-comment="Verify the order of children in an mroot!" />
+        An mroot with an mfrac as its first child and mn as its second child.
       </li>
       <li>
         <input
           type="checkbox"
-          data-comment="Die Quadratwurzel von 'acht minus neun'."
+          data-comment="The square root of 'eight minus nine'."
           data-highlight="msqrt2" />
-        Ein msqrt mit folgender Kinderliste: mn, mo, mn.
+        An msqrt with the following list of children: mn, mo, mn.
       </li>
       <li>
         <input
           type="checkbox"
-          data-comment="Die Quadratwurzel von zwei über die Kubikwurzel von vier."
+          data-comment="The square root of two over the cubic root of four."
           data-highlight="mfrac1" />
-        Ein mfrac mit einem msqrt als erstem Kind und einem mroot als zweitem Kind.
+        An mfrac with an msqrt as its first child and an mroot as its second
+        child.
       </li>
       <li>
         <input
           type="checkbox"
-          data-comment="mfrac muss genau zwei Kinder haben!" />
-        Ein mfrac mit folgender Kinderliste: msqrt, mn, msqrt.
+          data-comment="mfrac must have exactly two children!" />
+        An mfrac with the following list of children: msqrt, mn, msqrt.
       </li>
       <li>
         <input
           type="checkbox"
-          data-comment="mroot muss genau zwei Kinder haben!" />
-        Ein mroot mit einem mn-Kind.
+          data-comment="mroot must have exactly two children!" />
+        An mroot with one mn child.
       </li>
       <li>
         <input
           type="checkbox"
-          data-comment="Der Bruch sechs über sieben."
+          data-comment="The fraction six over seven."
           data-highlight="mfrac2" />
-        Ein mfrac mit zwei mn-Kindern.
+        An mfrac with two mn children.
       </li>
       <li>
         <input
           type="checkbox"
-          data-comment="Diese Formel enthält keine Quadratwurzel mit mehr als zwei Zahlen!" />
-        Ein msqrt mit fünf mn-Kindern.
+          data-comment="This formula does not contain any square root with more than two numbers!" />
+        An msqrt with five mn children.
       </li>
       <li>
         <input
           type="checkbox"
           data-highlight="mroot1"
-          data-comment="Die Kubikwurzel von vier." />
-        Ein mroot mit zwei mn-Kindern.
+          data-comment="The cubic root of four." />
+        An mroot with two mn children.
       </li>
     </ol>
     <p>
@@ -251,7 +253,7 @@ function verifyOption(checkbox) {
     (checkbox) => !!checkbox.checked === !!checkbox.dataset.highlight,
   );
   status.textContent = finished
-    ? "Herzlichen Glückwunsch, Sie haben alle richtigen Antworten angekreuzt!"
+    ? "Congratulations, you checked all the correct answers!"
     : "";
 }
 checkboxes.forEach((checkbox) => {
@@ -265,7 +267,7 @@ checkboxes.forEach((checkbox) => {
 
 ## Dehnbare Wurzelsymbole
 
-Wie bereits gesehen, erstreckt sich der Überstrich der `<msqrt>`- und `<mroot>`-Elemente horizontal, um ihren Inhalt zu bedecken. Tatsächlich dehnt sich auch das Wurzelsymbol √ vertikal, um so hoch wie ihr Inhalt zu sein.
+Wie zuvor gesehen, erstreckt sich der Überstrich der `<msqrt>`- und `<mroot>`-Elemente horizontal, um ihren Inhalt zu bedecken. Tatsächlich erstreckt sich auch das Wurzelsymbol √, um so hoch wie sein Inhalt zu sein.
 
 ```html hidden
 <link
@@ -290,11 +292,11 @@ Wie bereits gesehen, erstreckt sich der Überstrich der `<msqrt>`- und `<mroot>`
 {{ EmbedLiveSample('Stretchy_radical_symbols', 700, 200, "", "") }}
 
 > [!WARNING]
-> Spezielle [Mathematik-Schriftarten](/de/docs/Web/MathML/Fonts) sind in der Regel erforderlich, um diese Dehnung zu ermöglichen. Das vorherige Beispiel verwendet [Web-Schriftarten](/de/docs/Learn/CSS/Styling_text/Web_fonts).
+> Spezielle [Mathematik-Schriftarten](/de/docs/Web/MathML/Fonts) sind in der Regel erforderlich, um dieses Dehnen zu ermöglichen. Das vorherige Beispiel basiert auf [Webfonts](/de/docs/Learn/CSS/Styling_text/Web_fonts).
 
-## Brüche ohne Balken
+## Brüche ohne Strich
 
-Einige mathematische Konzepte werden manchmal unter Verwendung von bruchähnlichen Notationen geschrieben, wie [binomiale Koeffizienten](https://en.wikipedia.org/wiki/Combination) oder [Legendre-Symbole](https://en.wikipedia.org/wiki/Legendre_symbol). Es ist angebracht, ein `<mfrac>`-Element zu verwenden, um solche Notationen zu markieren. Für bruchähnliche Notationen, die keinen horizontalen Balken zeichnen, fügen Sie ein `linethickness="0"`-Attribut an das `<mfrac>`-Element an:
+Einige mathematische Konzepte werden manchmal mit bruchähnlichen Notationen geschrieben, wie zum Beispiel [Binomialkoeffizienten](https://en.wikipedia.org/wiki/Combination) oder [Legendre-Symbole](https://en.wikipedia.org/wiki/Legendre_symbol). Es ist angemessen, ein `<mfrac>`-Element zu verwenden, um solche Notationen zu markieren. Für bruchähnliche Notationen, die keinen horizontalen Strich zeichnen, fügen Sie dem `<mfrac>`-Element ein `linethickness="0"`-Attribut hinzu:
 
 ```html hidden
 <link
@@ -329,7 +331,7 @@ Einige mathematische Konzepte werden manchmal unter Verwendung von bruchähnlich
 
 ## Zusammenfassung
 
-In dieser Lektion haben wir gesehen, wie man Brüche und Wurzeln mit den `<mfrac>`, `<msqrt>` und `<mroot>`-Elementen erstellt. Wir haben einige spezielle Merkmale dieser Elemente bemerkt, nämlich das Bruch- und Wurzelsymbol. Wir haben gesehen, wie das `linethickness`-Attribut verwendet wird, um Brüche ohne Balken zu zeichnen. Im nächsten Artikel werden wir mit grundlegenden mathematischen Notationen fortfahren und [Skripte](/de/docs/Learn/MathML/First_steps/Scripts) betrachten.
+In dieser Lektion haben wir gesehen, wie man Brüche und Wurzeln mit den `<mfrac>`, `<msqrt>` und `<mroot>`-Elementen erstellt. Wir haben einige besondere Merkmale dieser Elemente bemerkt, nämlich das Bruch- und Wurzelsymbol. Wir haben gesehen, wie man das `linethickness`-Attribut verwendet, um Brüche ohne Striche zu zeichnen. Im nächsten Artikel werden wir mit grundlegenden mathematischen Notationen fortfahren und [Skripte](/de/docs/Learn/MathML/First_steps/Scripts) betrachten.
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/MathML/First_steps/Text_containers", "Learn/MathML/First_steps/Scripts", "Learn/MathML/First_steps")}}
 

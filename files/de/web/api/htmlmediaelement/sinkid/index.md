@@ -8,17 +8,18 @@ l10n:
 
 {{APIRef("Audio Output Devices API")}}{{securecontext_header}}
 
-Die schreibgeschützte **`sinkId`**-Eigenschaft der {{domxref("HTMLMediaElement")}}-Schnittstelle gibt einen String zurück, der die eindeutige ID des Geräts ist, das zur Wiedergabe der Audioausgabe verwendet werden soll.
+Die schreibgeschützte **`sinkId`**-Eigenschaft des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Interfaces gibt einen String zurück, der die eindeutige ID des Geräts ist, das für die Audiowiedergabe verwendet werden soll.
 
-Diese ID sollte eine der {{domxref("MediaDeviceInfo.deviceId")}}-Werte sein, die von {{domxref("MediaDevices.enumerateDevices()")}}, `id-multimedia` oder `id-communications` zurückgegeben werden. Wenn das Standardgerät des Benutzeragenten verwendet wird, wird ein leerer String zurückgegeben.
+Diese ID sollte einer der [`MediaDeviceInfo.deviceId`](/de/docs/Web/API/MediaDeviceInfo/deviceId)-Werte sein, die von [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices), `id-multimedia` oder `id-communications` zurückgegeben werden.
+Wenn das Standardgerät des Benutzeragents verwendet wird, wird ein leerer String zurückgegeben.
 
 ## Wert
 
-Ein String, der das aktuelle Audioausgabegerät angibt, oder der leere String, wenn das Standard-Ausgabegerät des Benutzeragenten verwendet wird.
+Ein String, der das aktuelle Audioausgabegerät angibt, oder ein leerer String, wenn das Standard-Ausgabegerät des Benutzeragents verwendet wird.
 
 ## Sicherheitsanforderungen
 
-Der Zugriff auf die Eigenschaft unterliegt den folgenden Einschränkungen:
+Der Zugriff auf die Eigenschaft unterliegt folgenden Einschränkungen:
 
 - Die Eigenschaft muss in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) aufgerufen werden.
 
@@ -33,5 +34,5 @@ Der Zugriff auf die Eigenschaft unterliegt den folgenden Einschränkungen:
 ## Siehe auch
 
 - [Audio Output Devices API](/de/docs/Web/API/Audio_Output_Devices_API)
-- {{domxref("MediaDevices.selectAudioOutput()")}}
-- {{domxref("HTMLMediaElement.setSinkId()")}}
+- [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput)
+- [`HTMLMediaElement.setSinkId()`](/de/docs/Web/API/HTMLMediaElement/setSinkId)

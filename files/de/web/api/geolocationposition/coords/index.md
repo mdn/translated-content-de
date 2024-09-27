@@ -8,21 +8,21 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die schreibgeschützte Eigenschaft **`coords`** des {{domxref("GeolocationPosition")}}-Interfaces gibt ein {{domxref("GeolocationCoordinates")}}-Objekt zurück, das eine geografische Position darstellt. Es enthält die Position, also Längen- und Breitengrad auf der Erde, die Höhe sowie die Geschwindigkeit des betreffenden Objekts, die in dem zurückgegebenen Wert zusammengefasst sind. Es enthält auch Genauigkeitsinformationen über diese Werte.
+Die **`coords`**-Eigenschaft der schreibgeschützten [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Schnittstelle gibt ein [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Objekt zurück, das eine geografische Position darstellt. Es enthält die Standortdaten, also Längen- und Breitengrad auf der Erde, die Höhe sowie die Geschwindigkeit des betreffenden Objekts, die in der zurückgegebenen Wert zusammengefasst sind. Es enthält auch Genauigkeitsinformationen über diese Werte.
 
 ## Wert
 
-Eine Instanz des {{domxref("GeolocationCoordinates")}}-Objekts.
+Eine Instanz eines [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Objekts.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- {{domxref("GeolocationPosition")}}
+- [Verwendung der Geolocation-API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
+- [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)

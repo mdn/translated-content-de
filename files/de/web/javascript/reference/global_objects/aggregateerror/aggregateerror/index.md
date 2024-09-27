@@ -1,5 +1,5 @@
 ---
-title: AggregateError()-Konstruktor
+title: AggregateError() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/AggregateError/AggregateError
 l10n:
   sourceCommit: 5c3c25fd4f2fbd7a5f01727a65c2f70d73f1880a
@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`AggregateError()`**-Konstruktor erstellt {{jsxref("AggregateError")}}-Objekte.
+Der **`AggregateError()`** Konstruktor erstellt {{jsxref("AggregateError")}} Objekte.
 
 ## Syntax
 
@@ -21,19 +21,18 @@ AggregateError(errors, message)
 AggregateError(errors, message, options)
 ```
 
-> **Note:** `AggregateError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erstellen eine neue `AggregateError`-Instanz.
+> **Note:** `AggregateError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide rufen eine neue `AggregateError` Instanz ins Leben.
 
 ### Parameter
 
 - `errors`
-  - : Ein iterierbares Objekt von Fehlern, muss nicht tatsächlich Instanzen von {{jsxref("Error")}} sein.
+  - : Ein iterierbares Objekt von Fehlern, die möglicherweise keine {{jsxref("Error")}} Instanzen sind.
 - `message` {{optional_inline}}
-  - : Eine optionale, für Menschen lesbare Beschreibung des Aggregatfehlers.
+  - : Eine optionale, für Menschen lesbare Beschreibung des Sammelfehlers.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Beim Abfangen und Neuwerfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
 
 ## Beispiele
 

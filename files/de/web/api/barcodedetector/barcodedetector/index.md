@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Barcode Detector API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Der **`BarcodeDetector()`** Konstruktor erstellt ein neues {{domxref("BarcodeDetector")}}-Objekt, das lineare und zweidimensionale Barcodes in Bildern erkennt.
+Der **`BarcodeDetector()`** Konstruktor erstellt ein neues [`BarcodeDetector`](/de/docs/Web/API/BarcodeDetector)-Objekt, das lineare und zweidimensionale Barcodes in Bildern erkennt.
 
 ## Syntax
 
@@ -21,22 +21,19 @@ new BarcodeDetector(options)
 
 - `options` {{optional_inline}}
 
-  - : Ein Optionsobjekt, das eine Reihe von `BarcodeFormats` enthält, nach denen in den nachfolgenden {{domxref('BarcodeDetector.detect()','detect()')}}-Aufrufen gesucht werden soll. Die Optionen sind:
+  - : Ein Optionsobjekt, das eine Reihe von `BarcodeFormats` enthält, nach denen in den folgenden [`detect()`](/de/docs/Web/API/BarcodeDetector/detect)-Aufrufen gesucht wird. Die Optionen sind:
 
     - `formats` {{optional_inline}}
-      - : Ein {{jsxref('Array')}} von Barcode-Formaten als Strings.
-        Wenn nicht angegeben, durchsuchen `detect()`-Aufrufe alle unterstützten Formate.
-        Es wird daher empfohlen, auf spezifische Formate zu beschränken, um Leistungseinbußen zu vermeiden.
-        Eine vollständige Liste der unterstützten Formate finden Sie unter [unterstützte Barcode-Formate](/de/docs/Web/API/Barcode_Detection_API#supported_barcode_formats).
+      - : Ein {{jsxref('Array')}} von Barcode-Formaten als Strings. Wenn nicht angegeben, suchen `detect()`-Aufrufe nach allen unterstützten Formaten. Aus Leistungsgründen wird empfohlen, auf bestimmte Formate zu beschränken. Eine vollständige Liste der unterstützten Formate finden Sie im Abschnitt [unterstützte Barcode-Formate](/de/docs/Web/API/Barcode_Detection_API#supported_barcode_formats).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn das `formats`-Argument angegeben und der Parameter leer oder `unknown` enthält.
+  - : Ausgelöst, wenn `formats` angegeben wird und der Parameter leer ist oder `unknown` enthält.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein neues Barcode-Detektor-Objekt mit angegebenen unterstützten Formaten und prüft die Browserkompatibilität.
+Dieses Beispiel erstellt ein neues Barcode-Detector-Objekt mit angegebenen unterstützten Formaten und testet die Browser-Kompatibilität.
 
 ```js
 // check compatibility

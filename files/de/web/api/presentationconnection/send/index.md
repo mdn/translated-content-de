@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Presentation")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`send()`**-Methode des
-{{domxref("PresentationConnection")}}-Interfaces weist einen steuernden Browserkontext an,
-binäre oder Textdaten an einen darstellenden Browserkontext zu senden.
+Die **`send()`**-Methode des [`PresentationConnection`](/de/docs/Web/API/PresentationConnection)-Interfaces signalisiert einem steuernden Browsing-Kontext, binäre oder Textdaten an einen präsentierenden Browsing-Kontext zu senden.
 
 ## Syntax
 
@@ -22,10 +20,10 @@ send(data)
 
 - `data`
 
-  - : Die Daten, die an den Präsentationskontext gesendet werden sollen. Diese sind eines der folgenden:
+  - : Die Daten, die an den Präsentationskontext gesendet werden sollen. Sie können eines der folgenden Formate haben:
 
     - {{jsxref("String")}}
-    - {{domxref("Blob")}}
+    - [`Blob`](/de/docs/Web/API/Blob)
     - {{jsxref("Array")}}
 
 ### Rückgabewert

@@ -1,5 +1,5 @@
 ---
-title: "ImageCapture: getPhotoSettings() Methode"
+title: "ImageCapture: getPhotoSettings()-Methode"
 short-title: getPhotoSettings()
 slug: Web/API/ImageCapture/getPhotoSettings
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Image Capture API")}}{{SeeCompatTable}}
 
-Die **`getPhotoSettings()`** Methode der
-{{domxref("ImageCapture")}} Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, das die aktuellen Fotoeinstellungen enthält.
+Die **`getPhotoSettings()`**-Methode der [`ImageCapture`](/de/docs/Web/API/ImageCapture)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, das die aktuellen Fotoeinstellungen enthält.
 
 ## Syntax
 
@@ -26,26 +25,24 @@ Keine.
 Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das die folgenden Eigenschaften enthält:
 
 - `fillLightMode`
-  - : Die Blitz-Einstellung des Aufnahmegeräts, eine der Optionen `"auto"`, `"off"` oder `"flash"`.
+  - : Die Blitzeinstellung des Aufnahmegeräts, eine von `"auto"`, `"off"` oder `"flash"`.
 - `imageHeight`
-  - : Die gewünschte Bildhöhe als Ganzzahl. Der Browser wählt den nächstliegenden Wert, wenn er nur diskrete Höhen unterstützt.
+  - : Die gewünschte Bildhöhe als Ganzzahl. Der Browser wählt den nächstliegenden Wert zu dieser Einstellung, wenn er nur diskrete Höhen unterstützt.
 - `imageWidth`
-  - : Die gewünschte Bildbreite als Ganzzahl. Der Browser wählt den nächstliegenden Wert, wenn er nur diskrete Breiten unterstützt.
+  - : Die gewünschte Bildbreite als Ganzzahl. Der Browser wählt den nächstliegenden Wert zu dieser Einstellung, wenn er nur diskrete Breiten unterstützt.
 - `redEyeReduction`
-  - : Ein boolean-Wert, der angibt, ob die Rote-Augen-Reduktion, falls verfügbar, verwendet werden soll.
+  - : Ein Boolean, der anzeigt, ob die Rote-Augen-Reduzierung verwendet werden soll, falls verfügbar.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wirft eine Ausnahme, wenn die `readyState`-Eigenschaft des `MediaStreamTrack`, das im Konstruktor übergeben wird, nicht `live` ist.
-- `OperationError` {{domxref("DOMException")}}
-  - : Wirft eine Ausnahme, wenn der Vorgang aus irgendeinem Grund nicht abgeschlossen werden kann.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die `readyState`-Eigenschaft des `MediaStreamTrack`, das im Konstruktor übergeben wird, nicht `live` ist.
+- `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Vorgang aus irgendeinem Grund nicht abgeschlossen werden kann.
 
 ## Beispiele
 
-Das folgende Beispiel, entnommen aus [Chrome's Image Capture / Photo Resolution Sample](https://googlechrome.github.io/samples/image-capture/photo-resolution.html), verwendet die Ergebnisse von
-`getPhotoSettings()`, um die Größe eines Eingabebereichs zu ändern. Dieses Beispiel zeigt auch, wie das {{domxref("ImageCapture")}}-Objekt mit einem
-{{domxref("MediaStreamTrack")}}, das von einem Gerät {{domxref("MediaStream")}} abgerufen wird, erstellt wird.
+Das folgende Beispiel, entnommen aus [Chrome's Image Capture / Photo Resolution Sample](https://googlechrome.github.io/samples/image-capture/photo-resolution.html), verwendet die Ergebnisse von `getPhotoSettings()`, um die Größe eines Eingabebereichs zu ändern. Dieses Beispiel zeigt auch, wie das [`ImageCapture`](/de/docs/Web/API/ImageCapture)-Objekt mit einem durch ein Gerät abgerufenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) erstellt wird.
 
 ```js
 const input = document.querySelector('input[type="range"]');

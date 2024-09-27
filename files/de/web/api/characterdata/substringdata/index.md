@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`substringData()`** Methode des {{domxref("CharacterData")}} Interface
+Die **`substringData()`**-Methode der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle
 gibt einen Teil der vorhandenen Daten zurück,
-beginnend bei der angegebenen Indexposition
-und erstreckt sich über eine bestimmte Anzahl von Zeichen danach.
+beginnend am angegebenen Index
+und danach für eine bestimmte Anzahl von Zeichen.
 
 ## Syntax
 
@@ -22,24 +22,24 @@ und erstreckt sich über eine bestimmte Anzahl von Zeichen danach.
 ### Parameter
 
 - `offset`
-  - : Der Index des ersten Zeichens, das im zurückgegebenen Teilstring enthalten sein soll.
-    `0` ist das erste Zeichen des Strings.
+  - : Der Index des ersten Zeichens, das in der zurückgegebenen Teilzeichenfolge enthalten sein soll.
+    `0` ist das erste Zeichen der Zeichenkette.
 - `count`
   - : Die Anzahl der zurückzugebenden Zeichen.
 
 ### Rückgabewert
 
-Ein String mit dem Teilstring.
+Ein String mit der Teilzeichenfolge.
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `offset` + `count` größer ist als die Länge der enthaltenen Daten.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

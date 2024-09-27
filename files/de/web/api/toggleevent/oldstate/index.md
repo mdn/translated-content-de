@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Popover API")}}
 
-Die schreibgeschützte Eigenschaft **`oldState`** der {{domxref("ToggleEvent")}}-Schnittstelle ist ein Zeichenkette, die den Zustand repräsentiert, von dem das Element übergeht.
+Die schreibgeschützte **`oldState`**-Eigenschaft des [`ToggleEvent`](/de/docs/Web/API/ToggleEvent)-Interfaces ist ein String, der den Zustand darstellt, von dem das Element übergeht.
 
 ## Wert
 
-Eine Zeichenkette. Mögliche Werte sind `"open"` (das Popover wechselt von sichtbar zu verborgen) oder `"closed"` (das Popover wechselt von verborgen zu sichtbar).
+Ein String. Mögliche Werte sind `"open"` (das Popover wechselt von sichtbar zu verborgen) oder `"closed"` (das Popover wechselt von verborgen zu sichtbar).
 
 ## Beispiele
 
@@ -23,9 +23,9 @@ const popover = document.getElementById("mypopover");
 
 popover.addEventListener("beforetoggle", (event) => {
   if (event.oldState === "open") {
-    console.log("Popover wird verborgen");
+    console.log("Popover is being hidden");
   } else {
-    console.log("Popover wird angezeigt");
+    console.log("Popover is being shown");
   }
 });
 ```

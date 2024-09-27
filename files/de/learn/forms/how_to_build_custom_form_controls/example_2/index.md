@@ -48,7 +48,7 @@ Dies ist das zweite Beispiel, das erklärt, [wie man benutzerdefinierte Formular
 }
 
 /* --------------- */
-/* Erforderliche Styles */
+/* Required Styles */
 /* --------------- */
 
 .select {
@@ -74,7 +74,7 @@ Dies ist das zweite Beispiel, das erklärt, [wie man benutzerdefinierte Formular
 }
 
 /* ------------ */
-/* Stilvolle Styles */
+/* Fancy Styles */
 /* ------------ */
 
 .select {

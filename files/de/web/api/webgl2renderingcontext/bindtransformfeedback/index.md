@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode bindTransformFeedback()"
+title: "WebGL2RenderingContext: bindTransformFeedback() Methode"
 short-title: bindTransformFeedback()
 slug: Web/API/WebGL2RenderingContext/bindTransformFeedback
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode **`WebGL2RenderingContext.bindTransformFeedback()`** des [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet ein übergebenes {{domxref("WebGLTransformFeedback")}}-Objekt an den aktuellen GL-Zustand.
+Die **`WebGL2RenderingContext.bindTransformFeedback()`**-Methode
+der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet ein
+übergebenes [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt an den aktuellen GL-Zustand.
 
 ## Syntax
 
@@ -19,9 +21,10 @@ bindTransformFeedback(target, transformFeedback)
 ### Parameter
 
 - `target`
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das das Ziel (den Bindungspunkt) angibt. Muss `gl.TRANSFORM_FEEDBACK` sein.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel (Bindepunkt) angibt. Muss
+    `gl.TRANSFORM_FEEDBACK` sein.
 - `transformFeedback`
-  - : Ein {{domxref("WebGLTransformFeedback")}}-Objekt, das gebunden werden soll.
+  - : Ein [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt, das gebunden werden soll.
 
 ### Rückgabewert
 
@@ -38,10 +41,10 @@ gl.bindTransformFeedback(gl.TRANSFORM_FEEDBACK, transformFeedback);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLTransformFeedback")}}
+- [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)

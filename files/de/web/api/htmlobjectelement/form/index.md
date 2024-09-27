@@ -1,5 +1,5 @@
 ---
-title: "HTMLObjectElement: Eigenschaft form"
+title: "HTMLObjectElement: form-Eigenschaft"
 short-title: form
 slug: Web/API/HTMLObjectElement/form
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`form`** des {{domxref("HTMLObjectElement")}}-Interfaces gibt ein {{domxref("HTMLFormElement")}}-Objekt zurück, das dieses {{htmlelement("object")}} besitzt, oder `null`, wenn dieses Objekt-Element zu keinem Formular gehört.
+Die schreibgeschützte **`form`**-Eigenschaft des [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("object")}} besitzt, oder `null`, wenn dieses Objekt-Element nicht von einem Formular besessen wird.
 
 ## Wert
 
-Ein {{domxref("HTMLFormElement")}} oder `null`.
+Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 
 ## Spezifikationen
 
@@ -24,7 +24,7 @@ Ein {{domxref("HTMLFormElement")}} oder `null`.
 
 ## Siehe auch
 
-- {{domxref("HTMLObjectElement")}}
-- {{domxref("HTMLFormElement")}}
+- [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)
+- [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("object")}}
-- [Leitfaden für HTML-Formulare](/de/docs/Learn/Forms)
+- [Leitfaden zu HTML-Formularen](/de/docs/Learn/Forms)

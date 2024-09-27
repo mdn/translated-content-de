@@ -1,5 +1,5 @@
 ---
-title: "MediaRecorder: resume-Ereignis"
+title: "MediaRecorder: resume Ereignis"
 short-title: resume
 slug: Web/API/MediaRecorder/resume_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Das **`resume`**-Ereignis des {{domxref("MediaRecorder")}}-Interfaces wird ausgelöst, wenn {{domxref("MediaRecorder.resume()")}} aufgerufen wird.
+Das **`resume`** Ereignis des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) Interfaces wird ausgelöst, wenn [`MediaRecorder.resume()`](/de/docs/Web/API/MediaRecorder/resume) aufgerufen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("resume", (event) => {});
@@ -22,7 +22,7 @@ onresume = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
@@ -30,21 +30,21 @@ Ein generisches {{domxref("Event")}}.
 pause.onclick = () => {
   if (MediaRecorder.state === "recording") {
     mediaRecorder.pause();
-    // Aufnahme pausiert
+    // recording paused
   } else if (MediaRecorder.state === "paused") {
     mediaRecorder.resume();
-    // Aufnahme fortgesetzt
+    // resume recording
   }
 };
 
 mediaRecorder.onpause = () => {
-  // tun Sie etwas als Reaktion darauf,
-  // dass die Aufnahme pausiert wurde
+  // do something in response to
+  // recording being paused
 };
 
 mediaRecorder.onresume = () => {
-  // tun Sie etwas als Reaktion darauf,
-  // dass die Aufnahme fortgesetzt wurde
+  // do something in response to
+  // recording being resumed
 };
 ```
 
@@ -62,4 +62,4 @@ mediaRecorder.onresume = () => {
 - [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder +
   getUserMedia + Web Audio API Visualisierungsdemo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
 - [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
-- {{domxref("Navigator.getUserMedia")}}
+- [`Navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia)

@@ -1,5 +1,5 @@
 ---
-title: "BackgroundFetchRegistration: match() Methode"
+title: "BackgroundFetchRegistration: match()-Methode"
 short-title: match()
 slug: Web/API/BackgroundFetchRegistration/match
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`match()`** Methode der {{domxref("BackgroundFetchRegistration")}} Schnittstelle gibt den ersten passenden {{domxref("BackgroundFetchRecord")}} zurück.
+Die **`match()`**-Methode der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Schnittstelle gibt den ersten passenden [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord) zurück.
 
 ## Syntax
 
@@ -20,40 +20,42 @@ match(request, options)
 ### Parameter
 
 - `request`
-  - : Der {{domxref("Request")}}, für den Sie versuchen, Datensätze zu finden.
-    Dies kann ein {{domxref("Request")}} Objekt oder eine URL sein.
+  - : Die [`Request`](/de/docs/Web/API/Request), für die unter den Aufzeichnungen gesucht werden soll.
+    Dies kann ein [`Request`](/de/docs/Web/API/Request)-Objekt oder eine URL sein.
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das Optionen für den `match` Vorgang festlegt. Die verfügbaren
+  - : Ein Objekt, das Optionen für die Ausführung der `match`-Operation festlegt. Die verfügbaren
     Optionen sind:
 
     - `ignoreSearch` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob der Abfrage-String in der URL ignoriert werden soll. Beispielsweise würde bei `true` der `?value=bar` Teil von
-        `http://foo.com/?value=bar` ignoriert, wenn ein Abgleich durchgeführt wird.
+      - : Ein boolescher Wert, der angibt, ob die
+        Abfragezeichenfolge in der URL ignoriert werden soll. Zum Beispiel, wenn auf
+        `true` gesetzt, würde der Teil `?value=bar` von
+        `http://foo.com/?value=bar` ignoriert werden, wenn ein Abgleich vorgenommen wird.
         Der Standardwert ist `false`.
     - `ignoreMethod` {{optional_inline}}
-      - : Ein boolescher Wert. Wenn `true`, verhindert dies, dass Matching-Operationen die `http`-Methode des {{domxref("Request")}} validieren.
-        Bei `false` (dem Standardwert) sind nur `GET` und `HEAD` erlaubt.
+      - : Ein boolescher Wert. Wenn `true`,
+        wird verhindert, dass die Abgleichs-Operationen die `HTTP`-Methode der [`Request`](/de/docs/Web/API/Request) validieren.
+        Ist der Wert `false` (der Standardwert), sind nur `GET` und `HEAD` erlaubt.
     - `ignoreVary` {{optional_inline}}
-      - : Ein boolescher Wert. Wenn `true` gibt an, dass der {{HTTPHeader("Vary")}} Header ignoriert werden soll.
+      - : Ein boolescher Wert. Wenn `true`, zeigt dies an, dass der {{HTTPHeader("Vary")}}-Header ignoriert werden soll.
         Der Standardwert ist `false`.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit dem ersten {{domxref("BackgroundFetchRecord")}} aufgelöst wird, der
-der Anfrage entspricht, oder {{jsxref("undefined")}} wenn kein Treffer gefunden wird.
+Ein {{jsxref("Promise")}}, das mit dem ersten [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord) aufgelöst wird, der zur Anfrage passt oder mit {{jsxref("undefined")}}, wenn kein Treffer gefunden wird.
 
-> **Note:** `BackgroundFetchRegistration.match()` ist im Grunde identisch zu
-> {{domxref("BackgroundFetchRegistration.matchAll()")}}, außer dass es anstelle der Auflösung mit einem Array aller passenden Datensätze nur mit dem ersten passenden Datensatz aufgelöst wird.
+> **Note:** `BackgroundFetchRegistration.match()` ist im Wesentlichen identisch mit
+> [`BackgroundFetchRegistration.matchAll()`](/de/docs/Web/API/BackgroundFetchRegistration/matchAll), mit dem Unterschied, dass es nicht mit einem Array aller passenden Aufzeichnungen, sondern nur mit der ersten passenden Aufzeichnung aufgelöst wird.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn Sie `match()` aufrufen, wenn keine Abrufe im Gange sind. Dieser Zustand wird durch {{domxref("BackgroundFetchRegistration.recordsAvailable")}} widergespiegelt, das auf `false` gesetzt ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn Sie `match()` aufrufen, obwohl keine Abrufe im Gange sind. Dieser Zustand wird dadurch angezeigt, dass [`BackgroundFetchRegistration.recordsAvailable`](/de/docs/Web/API/BackgroundFetchRegistration/recordsAvailable) auf `false` gesetzt ist.
 
 ## Beispiele
 
-In diesem Beispiel suchen wir nach einem Datensatz mit der URL "/ep-5.mp3". Wird ein {{domxref("BackgroundFetchRecord")}} gefunden, können wir einige Informationen darüber zurückgeben.
+In diesem Beispiel suchen wir nach einem Datensatz mit der URL "/ep-5.mp3". Wenn ein [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord) gefunden wird, können wir einige Informationen darüber zurückgeben.
 
 ```js
 bgFetch.match("/ep-5.mp3").then(async (record) => {

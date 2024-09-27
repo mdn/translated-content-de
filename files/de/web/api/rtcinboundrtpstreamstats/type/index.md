@@ -1,6 +1,6 @@
 ---
-title: "RTCInboundRtpStreamStats: Typ-Eigenschaft"
-short-title: Typ
+title: "RTCInboundRtpStreamStats: type-Eigenschaft"
+short-title: type
 slug: Web/API/RTCInboundRtpStreamStats/type
 l10n:
   sourceCommit: fbbef300a9a819cdda1171355da5787ad7cdbb6d
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`type`**-Eigenschaft des {{domxref("RTCInboundRtpStreamStats")}} Wörterbuchs ist ein String mit dem Wert `"inbound-rtp"`.
+Die **`type`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs ist ein String mit dem Wert `"inbound-rtp"`.
 
-Verschiedene Statistiken werden durch Iteration über das {{domxref("RTCStatsReport")}} Objekt erlangt, das durch einen Aufruf von {{domxref("RTCPeerConnection.getStats()")}} zurückgegeben wird. Der Typ gibt an, welche Menge von Statistiken im aktuellen Iterationsschritt über das Objekt verfügbar ist. Ein Wert von `"inbound-rtp"` zeigt an, dass die im aktuellen Schritt verfügbaren Statistiken die sind, die in {{domxref("RTCInboundRtpStreamStats")}} definiert sind.
+Unterschiedliche Statistiken werden durch das Iterieren über das [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt erlangt, das durch einen Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird. Der Typ gibt die Menge an Statistiken an, die durch das Objekt in einem bestimmten Iterationsschritt verfügbar sind. Ein Wert von `"inbound-rtp"` zeigt an, dass die in diesem Schritt verfügbaren Statistiken diejenigen sind, die in [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats) definiert sind.
 
 ## Wert
 
@@ -20,6 +20,6 @@ Ein String mit dem Wert `"inbound-rtp"`.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

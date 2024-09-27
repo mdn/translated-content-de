@@ -8,14 +8,14 @@ l10n:
 
 {{ APIRef("Web Audio API") }} {{deprecated_header}}
 
-Die `setPosition()`-Methode der {{ domxref("AudioListener") }}-Schnittstelle definiert die Position des Hörers.
+Die `setPosition()`-Methode des [`AudioListener`](/de/docs/Web/API/AudioListener)-Interfaces definiert die Position des Hörers.
 
-Die drei Parameter `x`, `y` und `z` sind einheitenlos und beschreiben die Position des Hörers im 3D-Raum gemäß dem rechtshändigen kartesischen Koordinatensystem. {{domxref("PannerNode")}}-Objekte verwenden diese Position relativ zu einzelnen Audioquellen für die Raumklangverarbeitung.
+Die drei Parameter `x`, `y` und `z` sind einheitslos und beschreiben die Position des Hörers im 3D-Raum gemäß dem rechtshändigen kartesischen Koordinatensystem. [`PannerNode`](/de/docs/Web/API/PannerNode)-Objekte verwenden diese Position relativ zu einzelnen Audioquellen zur Raumklanggebung.
 
 Der Standardwert des Positionsvektors ist `(0, 0, 0)`.
 
 > [!NOTE]
-> Da diese Methode veraltet ist, verwenden Sie stattdessen die drei Eigenschaften {{domxref("AudioListener.positionX", "positionX")}}, {{domxref("AudioListener.positionY", "positionY")}}, und {{domxref("AudioListener.positionZ", "positionZ")}}.
+> Da diese Methode veraltet ist, verwenden Sie stattdessen die drei Eigenschaften [`positionX`](/de/docs/Web/API/AudioListener/positionX), [`positionY`](/de/docs/Web/API/AudioListener/positionY) und [`positionZ`](/de/docs/Web/API/AudioListener/positionZ).
 
 ## Syntax
 

@@ -1,5 +1,5 @@
 ---
-title: "Element: Methode getAttributeNS()"
+title: "Element: getAttributeNS()-Methode"
 short-title: getAttributeNS()
 slug: Web/API/Element/getAttributeNS
 l10n:
@@ -8,13 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getAttributeNS()`** Methode der {{domxref("Element")}}
-Schnittstelle gibt den Zeichenfolgenwert des Attributs mit dem angegebenen Namensraum und
-Namen zurück. Wenn das benannte Attribut nicht existiert, wird als Wert entweder
-`null` oder `""` (die leere Zeichenkette) zurückgegeben; sehen Sie im Abschnitt [Hinweise](#hinweise)
-nach Details.
+Die **`getAttributeNS()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt den Zeichenfolgenwert des Attributs mit dem angegebenen Namensraum und Namen zurück. Wenn das benannte Attribut nicht existiert, wird entweder `null` oder `""` (die leere Zeichenkette) zurückgegeben; siehe [Anmerkungen](#anmerkungen) für Details.
 
-Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines spezifischen Namensraums angeben müssen, verwenden Sie stattdessen die Methode {{domxref("Element.getAttribute()", "getAttribute()")}}.
+Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines bestimmten Namensraums angeben müssen, verwenden Sie stattdessen die [`getAttribute()`](/de/docs/Web/API/Element/getAttribute)-Methode.
 
 ## Syntax
 
@@ -34,15 +30,11 @@ getAttributeNS(namespace, name)
 Der Zeichenfolgenwert des angegebenen Attributs. Wenn das Attribut nicht existiert, ist das Ergebnis `null`.
 
 > [!NOTE]
-> Frühere Versionen der DOM-Spezifikation beschrieben
-> diese Methode als Rückgabe einer leeren Zeichenkette für nicht existierende Attribute, aber sie
-> wurde typischerweise nicht so implementiert, da null mehr Sinn ergibt. Die DOM4
-> Spezifikation sagt nun, dass diese Methode für nicht existierende Attribute null zurückgeben sollte.
+> Frühere Versionen der DOM-Spezifikation beschrieben diese Methode als Rückgabe einer leeren Zeichenkette für nicht existierende Attribute, aber sie wurde typischerweise nicht so implementiert, da null sinnvoller ist. Die DOM4-Spezifikation besagt jetzt, dass diese Methode null für nicht existierende Attribute zurückgeben soll.
 
 ## Beispiele
 
-Das folgende SVG-Dokument liest den Wert des `foo`-Attributs in einem
-benutzerdefinierten Namensraum.
+Das folgende SVG-Dokument liest den Wert des `foo`-Attributs in einem benutzerdefinierten Namensraum aus.
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg"
@@ -60,15 +52,14 @@ benutzerdefinierten Namensraum.
 </svg>
 ```
 
-In einem HTML-Dokument muss auf das Attribut mit `test:foo` zugegriffen werden, da
-Namensräume nicht unterstützt werden.
+In einem HTML-Dokument muss das Attribut mit `test:foo` zugegriffen werden, da Namensräume nicht unterstützt werden.
 
 ```html
 <!doctype html>
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
-    <title>getAttributeNS() Testseite</title>
+    <title>getAttributeNS() test page</title>
   </head>
   <body>
     <svg
@@ -96,29 +87,22 @@ Namensräume nicht unterstützt werden.
 </html>
 ```
 
-## Hinweise
+## Anmerkungen
 
-`getAttributeNS()` unterscheidet sich von {{domxref("element.getAttribute()", "getAttribute()")}}
-darin, dass Sie das angeforderte Attribut genauer als Teil eines bestimmten Namensraums angeben können, wie im obigen Beispiel, wo das Attribut
-Teil des fiktiven "test"-Namensraums ist.
+`getAttributeNS()` unterscheidet sich von [`getAttribute()`](/de/docs/Web/API/Element/getAttribute) darin, dass Sie das angeforderte Attribut als Teil eines bestimmten Namensraums weiter spezifizieren können, wie im obigen Beispiel, wo das Attribut Teil des fiktiven "test"-Namensraums ist.
 
-Vor der DOM4-Spezifikation war diese Methode so spezifiziert, dass sie eine leere Zeichenkette
-anstatt null für nicht existierende Attribute zurückgibt. Die meisten Browser gaben jedoch stattdessen null zurück. Ab DOM4 sagt die Spezifikation nun, dass null zurückgegeben werden soll. Einige ältere
-Browser geben jedoch eine leere Zeichenkette zurück. Aus diesem Grund sollten Sie
-{{domxref("element.hasAttributeNS()", "hasAttributeNS()")}} verwenden, um die Existenz eines Attributs
-zu überprüfen, bevor Sie `getAttributeNS()` aufrufen, falls das
-angeforderte Attribut möglicherweise nicht auf dem angegebenen Element existiert.
+Vor der DOM4-Spezifikation war diese Methode so spezifiziert, dass sie eine leere Zeichenkette anstelle von null für nicht existierende Attribute zurückgeben sollte. Die meisten Browser gaben jedoch stattdessen null zurück. Ab DOM4 spezifiziert die Spezifikation jetzt, dass null zurückgegeben werden soll. Einige ältere Browser geben jedoch eine leere Zeichenkette zurück. Aus diesem Grund sollten Sie [`hasAttributeNS()`](/de/docs/Web/API/Element/hasAttributeNS) verwenden, um die Existenz eines Attributs zu überprüfen, bevor Sie `getAttributeNS()` aufrufen, wenn es möglich ist, dass das angeforderte Attribut nicht auf dem angegebenen Element existiert.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Element.hasAttributeNS()")}}
-- {{domxref("Element.setAttributeNS()")}}
-- {{domxref("Element.removeAttributeNS()")}}
+- [`Element.hasAttributeNS()`](/de/docs/Web/API/Element/hasAttributeNS)
+- [`Element.setAttributeNS()`](/de/docs/Web/API/Element/setAttributeNS)
+- [`Element.removeAttributeNS()`](/de/docs/Web/API/Element/removeAttributeNS)

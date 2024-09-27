@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Der Konstruktor `SpeechSynthesisUtterance()` der {{domxref("SpeechSynthesisUtterance")}}-Schnittstelle gibt eine neue Instanz des `SpeechSynthesisUtterance`-Objekts zurück.
+Der `SpeechSynthesisUtterance()` Konstruktor der [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) Schnittstelle gibt eine neue `SpeechSynthesisUtterance` Objektinstanz zurück.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ new SpeechSynthesisUtterance(text)
 ### Parameter
 
 - `text`
-  - : Ein String, der den Text enthält, der synthetisiert wird, wenn das Utterance gesprochen wird.
+  - : Ein String, der den Text enthält, der synthetisiert wird, wenn das Gesprochene wiedergegeben wird.
 
 ## Beispiele
 
-Das folgende Beispiel ist aus unserem [Sprachsynthesizer-Demo](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speak-easy-synthesis) entnommen.
+Der folgende Ausschnitt stammt aus unserem [Sprachsynthesizer-Demo](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speak-easy-synthesis).
 
 ```js
 const synth = window.speechSynthesis;

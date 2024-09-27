@@ -9,18 +9,19 @@ l10n:
 {{ApiRef("HTML DOM")}}
 
 Die **`HTMLAnchorElement.href`**-Eigenschaft ist ein
-{{Glossary("stringifier")}}, der einen Zeichenfolgenwert zurückgibt, der die gesamte URL enthält, und ermöglicht es, das href zu aktualisieren.
+[stringifier](/de/docs/Glossary/stringifier), der einen String mit der gesamten URL zurückgibt und es ermöglicht,
+den href zu aktualisieren.
 
 ## Wert
 
-Ein Zeichenkette.
+Ein String.
 
 ## Beispiele
 
 ```js
-// Ein <a id="myAnchor" href="https://developer.mozilla.org/en-US/HTMLAnchorElement"> Element ist im Dokument
+// An <a id="myAnchor" href="https://developer.mozilla.org/en-US/HTMLAnchorElement"> element is in the document
 const anchor = document.getElementById("myAnchor");
-anchor.href; // gibt 'https://developer.mozilla.org/en-US/HTMLAnchorElement' zurück
+anchor.href; // returns 'https://developer.mozilla.org/en-US/HTMLAnchorElement'
 ```
 
 ## Spezifikationen
@@ -33,4 +34,4 @@ anchor.href; // gibt 'https://developer.mozilla.org/en-US/HTMLAnchorElement' zur
 
 ## Siehe auch
 
-- Die {{domxref("HTMLAnchorElement")}}-Schnittstelle, zu der es gehört.
+- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interface, zu dem es gehört.

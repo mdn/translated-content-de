@@ -7,95 +7,95 @@ l10n:
 
 {{learnsidebar}}
 
-Dieser Artikel bietet nützliche Hintergrundinformationen zum Web – wie es entstanden ist, was Webstandard-Technologien sind, wie sie zusammenarbeiten, warum "Web-Entwickler" ein großartiger Beruf ist und welche Best Practices Sie im Laufe des Kurses kennenlernen werden.
+Dieser Artikel bietet einige nützliche Hintergrundinformationen über das Web – wie es entstanden ist, was Webstandard-Technologien sind, wie sie zusammenarbeiten, warum "Webentwickler" eine großartige Berufswahl ist und welche Art von Best Practices Sie im Verlauf des Kurses kennenlernen werden.
 
 ## Kurze Geschichte des Webs
 
-Wir halten dies sehr kurz, da es viele (detailliertere) Berichte über die Geschichte des Webs gibt, auf die wir später verweisen werden (versuchen Sie auch, in Ihrer bevorzugten Suchmaschine nach "Geschichte des Webs" zu suchen, um mehr Details zu erfahren, wenn Sie interessiert sind).
+Wir halten dies sehr kurz, da es viele (detailliertere) Berichte über die Geschichte des Webs gibt, auf die wir später verlinken werden (versuchen Sie auch, in Ihrer bevorzugten Suchmaschine nach "Geschichte des Webs" zu suchen, wenn Sie an mehr Details interessiert sind).
 
-Ende der 1960er Jahre entwickelte das US-Militär ein Kommunikationsnetzwerk namens [ARPANET](/de/docs/Glossary/Arpanet). Dies kann als Vorläufer des Webs betrachtet werden, da es auf [Paketschaltung](https://en.wikipedia.org/wiki/Packet_switching) basierte und die erste Implementierung des [TCP/IP](https://en.wikipedia.org/wiki/Internet_protocol_suite)-Protokollstapels beinhaltete. Diese beiden Technologien bilden die Grundlage der Infrastruktur, auf der das Internet aufgebaut ist.
+Ende der 1960er Jahre entwickelte das US-Militär ein Kommunikationsnetzwerk namens [ARPANET](/de/docs/Glossary/Arpanet). Dies kann als Vorläufer des Webs betrachtet werden, da es auf [Paketvermittlung](https://en.wikipedia.org/wiki/Packet_switching) basierte und die erste Implementierung der [TCP/IP](https://en.wikipedia.org/wiki/Internet_protocol_suite)-Protokollsuite beinhaltete. Diese beiden Technologien bilden die Grundlage der Infrastruktur, auf der das Internet aufgebaut ist.
 
-1980 schrieb Tim Berners-Lee (oft als TimBL bezeichnet) ein Notizbuchprogramm namens ENQUIRE, das das Konzept von Links zwischen verschiedenen Knoten enthielt. Kommt Ihnen das bekannt vor?
+1980 schrieb Tim Berners-Lee (oft als TimBL bezeichnet) ein Notizbuchprogramm namens ENQUIRE, das das Konzept von Links zwischen verschiedenen Knotenpunkten enthielt. Klingt bekannt?
 
-1989 schrieb TimBL [Information Management: A Proposal](https://www.w3.org/History/1989/proposal.html) und HyperText am CERN; diese beiden Veröffentlichungen gemeinsam bildeten den Hintergrund für die Funktionsweise des Webs. Sie erhielten einiges Interesse, genug, um TimBLs Vorgesetzte davon zu überzeugen, ihm die Erlaubnis zu geben, ein globales Hypertext-System zu erstellen.
+Schnell vorwärts ins Jahr 1989, und TimBL schrieb [Information Management: A Proposal](https://www.w3.org/History/1989/proposal.html) und HyperText am CERN; diese beiden Veröffentlichungen boten zusammen den Hintergrund dafür, wie das Web funktionieren würde. Sie erhielten ein beträchtliches Interesse, genug, um TimBLs Vorgesetzte zu überzeugen, ihm zu erlauben, ein globales Hypertext-System zu entwickeln.
 
-Ende 1990 hatte TimBL alle notwendigen Dinge geschaffen, um die erste Version des Webs zu betreiben – [HTTP](/de/docs/Web/HTTP), [HTML](/de/docs/Web/HTML), den ersten Webbrowser, der [WorldWideWeb](https://en.wikipedia.org/wiki/WorldWideWeb) genannt wurde, einen HTTP-Server und einige Webseiten zum Anschauen.
+Ende 1990 hatte TimBL alles geschaffen, was nötig war, um die erste Version des Web zu betreiben — [HTTP](/de/docs/Web/HTTP), [HTML](/de/docs/Web/HTML), den ersten Webbrowser, der [WorldWideWeb](https://en.wikipedia.org/wiki/WorldWideWeb) genannt wurde, einen HTTP-Server und einige Webseiten zum Ansehen.
 
-In den nächsten Jahren explodierte das Web, mit der Veröffentlichung mehrerer Browser, der Einrichtung tausender Webserver und der Erstellung von Millionen von Webseiten. OK, das ist eine sehr einfache Zusammenfassung dessen, was passiert ist, aber wir haben Ihnen ja eine kurze Zusammenfassung versprochen.
+In den folgenden Jahren explodierte das Web, mit der Veröffentlichung mehrerer Browser, dem Einrichten Tausender von Webservern und der Erstellung von Millionen von Webseiten. Okay, das ist eine sehr einfache Zusammenfassung dessen, was passiert ist, aber wir haben Ihnen eine kurze Zusammenfassung versprochen.
 
-Ein letzter bedeutender Punkt ist, dass TimBL 1994 das [World Wide Web Consortium](https://en.wikipedia.org/wiki/World_Wide_Web_Consortium) (W3C) gründete, eine Organisation, die Vertreter vieler verschiedener Technologieunternehmen zusammenbringt, um gemeinsam an der Erstellung von Webtechnologie-Spezifikationen zu arbeiten. Danach folgten andere Technologien wie [CSS](/de/docs/Web/CSS) und [JavaScript](/de/docs/Web/JavaScript), und das Web begann, mehr so auszusehen, wie wir es heute kennen.
+Ein weiterer signifikanter Datenpunkt, den es zu teilen gilt, ist, dass TimBL 1994 das [World Wide Web Consortium](https://en.wikipedia.org/wiki/World_Wide_Web_Consortium) (W3C) gründete, eine Organisation, die Vertreter vieler verschiedener Technologieunternehmen zusammenbringt, um gemeinsam an der Erstellung von Webtechnologie-Spezifikationen zu arbeiten. Danach folgten andere Technologien wie [CSS](/de/docs/Web/CSS) und [JavaScript](/de/docs/Web/JavaScript), und das Web begann mehr so auszusehen, wie wir es heute kennen.
 
 ## Webstandards
 
-**Webstandards** sind die Technologien, die wir zum Erstellen von Websites verwenden. Diese Standards existieren als lange technische Dokumente, sogenannte Spezifikationen, die genau beschreiben, wie die Technologie funktionieren soll. Diese Dokumente sind nicht sehr nützlich, um zu lernen, wie man die beschriebenen Technologien verwendet (deshalb gibt es Seiten wie MDN Web Docs), sondern sollen Software-Ingenieure dabei unterstützen, diese Technologien zu implementieren (gewöhnlich in Webbrowsern).
+**Webstandards** sind die Technologien, die wir zum Erstellen von Websites verwenden. Diese Standards existieren als lange technische Dokumente, sogenannte Spezifikationen, die genau beschreiben, wie die Technologie funktionieren sollte. Diese Dokumente sind nicht sehr nützlich, um zu lernen, wie man die Technologien verwendet, die sie beschreiben (deshalb haben wir Seiten wie MDN Web Docs), sondern sollen stattdessen von Software-Ingenieuren verwendet werden, um diese Technologien zu implementieren (in der Regel in Webbrowsern).
 
-Zum Beispiel beschreibt der [lebende HTML-Standard](https://html.spec.whatwg.org/multipage/) genau, wie HTML (alle HTML-Elemente und ihre zugehörigen APIs sowie andere umgebende Technologien) implementiert werden sollte.
+Zum Beispiel beschreibt der [HTML Living Standard](https://html.spec.whatwg.org/multipage/) genau, wie HTML (alle HTML-Elemente, und ihre zugehörigen APIs und andere umliegende Technologien) implementiert werden sollte.
 
-Webstandards werden von Normungsorganisationen erstellt – Einrichtungen, die Gruppen von Personen aus verschiedenen Technologieunternehmen einladen, zusammenzukommen und darüber zu entscheiden, wie die Technologien am besten funktionieren sollten, um alle ihre Anwendungsfälle zu erfüllen. Das W3C ist die bekannteste Web-Normungsorganisation, aber es gibt andere wie die [WHATWG](https://whatwg.org/) (die die lebenden Standards für die HTML-Sprache pflegen), [ECMA](https://ecma-international.org/) (die den Standard für ECMAScript veröffentlichen, auf dem JavaScript basiert), [Khronos](https://www.khronos.org/) (die Technologien für 3D-Grafiken, wie WebGL, veröffentlichen) und andere.
+Webstandards werden von Normungsorganisationen erstellt – Institutionen, die Gruppen von Menschen aus verschiedenen Technologieunternehmen einladen, zusammenzukommen und sich darauf zu einigen, wie die Technologien am besten arbeiten sollten, um alle ihre Anwendungsfälle zu erfüllen. Das W3C ist die bekannteste Normungsorganisation für Webstandards, aber es gibt auch andere wie die [WHATWG](https://whatwg.org/) (die die Living Standards für die HTML-Sprache pflegen), [ECMA](https://ecma-international.org/) (die den Standard für ECMAScript veröffentlichen, auf dem JavaScript basiert), [Khronos](https://www.khronos.org/) (die Technologien für 3D-Grafik wie WebGL veröffentlichen) und andere.
 
 ### "Offene" Standards
 
-Einer der Schlüsselaspekte von Webstandards, auf den sich TimBL und das W3C von Anfang an einigten, ist, dass das Web (und Webtechnologien) sowohl zur Mitwirkung als auch zur Nutzung kostenlos sein sollten, und nicht durch Patente/Lizenzen belastet werden. Daher kann jeder kostenlos den Code schreiben, um eine Website zu erstellen, und jeder kann am Standardschaffungsprozess mitwirken, bei dem die Spezifikationen geschrieben werden.
+Ein Schlüsselmerkmal der Webstandards, auf das sich TimBL und das W3C von Anfang an geeinigt haben, ist, dass das Web (und Webtechnologien) sowohl zur Mitwirkung als auch zur Nutzung frei sein sollten und nicht durch Patente/Lizenzen belastet werden sollten. Daher kann jeder den Code zum Erstellen einer Webseite kostenlos schreiben, und jeder kann zum Standardisierungsprozess beitragen, bei dem die Spezifikationen geschrieben werden.
 
-Da Webtechnologien offen in Zusammenarbeit zwischen vielen verschiedenen Unternehmen erstellt werden, bedeutet dies, dass kein einziges Unternehmen die Kontrolle über sie hat, was eine wirklich gute Sache ist. Sie würden nicht wollen, dass ein einziges Unternehmen plötzlich beschließt, das gesamte Web hinter einer Bezahlschranke zu verstecken, oder eine neue Version von HTML herauszubringen, die jeder kaufen muss, um weiterhin Websites zu erstellen, oder schlimmer noch, einfach entscheidet, dass es nicht mehr interessiert ist und es einfach abschaltet.
+Da Webtechnologien offen in Zusammenarbeit zwischen vielen verschiedenen Unternehmen erstellt werden, bedeutet dies, dass kein Unternehmen die Kontrolle über sie hat, was eine wirklich gute Sache ist. Sie würden nicht wollen, dass ein einziges Unternehmen plötzlich beschließt, das gesamte Web hinter eine Bezahlschranke zu stellen oder eine neue Version von HTML herauszubringen, die jeder kaufen muss, um weiterhin Websites zu erstellen, oder schlimmer noch, einfach entscheidet, dass es nicht mehr interessiert ist und es einfach abschaltet.
 
-Dies ermöglicht es dem Web, als frei zugängliche öffentliche Ressource erhalten zu bleiben.
+Dies ermöglicht es, dass das Web ein frei zugängliches öffentliches Gut bleibt.
 
-### Brechen Sie das Web nicht
+### Das Web nicht zerstören
 
-Ein weiterer Ausdruck, den Sie im Zusammenhang mit offenen Webstandards hören werden, ist "Brechen Sie das Web nicht" – die Idee ist, dass jede neue Webtechnologie, die eingeführt wird, rückwärtskompatibel mit dem sein sollte, was davor war (d. h. alte Websites werden weiterhin funktionieren), und vorwärtskompatibel (zukünftige Technologien werden wiederum mit dem kompatibel sein, was wir derzeit haben). Wenn Sie das hier vorgestellte Lernmaterial durcharbeiten, werden Sie anfangen zu verstehen, wie dies mit sehr cleverer Design- und Implementierungsarbeit möglich gemacht wird.
+Ein weiterer Satz, den Sie in Bezug auf offene Webstandards hören werden, ist "das Web nicht zerstören" — die Idee ist, dass jede neue Webtechnologie, die eingeführt wird, rückwärtskompatibel mit dem sein sollte, was davor war (d. h. alte Websites werden weiterhin funktionieren) und vorwärtskompatibel (zukünftige Technologien wiederum werden mit dem kompatibel sein, was wir derzeit haben). Während Sie die hier präsentierten Lernmaterialien durchgehen, werden Sie anfangen zu verstehen, wie dies durch sehr cleveres Design und Implementierungsarbeit möglich gemacht wird.
 
-## Webentwickler zu sein ist gut
+## Ein Webentwickler zu sein ist gut
 
-Die Webindustrie ist ein sehr attraktiver Markt, wenn Sie auf der Suche nach einem Job sind. Aktuelle veröffentlichte Zahlen sagen, dass es derzeit weltweit etwa 19 Millionen Webentwickler gibt, und diese Zahl sich im nächsten Jahrzehnt mehr als verdoppeln soll. Gleichzeitig gibt es einen Fachkräftemangel in der Branche – also was könnte ein besserer Zeitpunkt sein, um Webentwicklung zu lernen?
+Die Webbranche ist ein sehr attraktiver Markt, wenn Sie auf der Suche nach einem Job sind. Kürzlich veröffentlichte Zahlen zeigen, dass derzeit weltweit etwa 19 Millionen Webentwickler tätig sind, und diese Zahl sich in den nächsten zehn Jahren mehr als verdoppeln wird. Gleichzeitig gibt es einen Fachkräftemangel in der Branche – was könnte also eine bessere Zeit sein, um Webentwicklung zu lernen?
 
-Es ist jedoch nicht alles nur Spaß und Spiele – das Erstellen von Websites ist eine kompliziertere Angelegenheit als früher, und Sie müssen einige Zeit investieren, um all die verschiedenen Technologien, die Sie verwenden müssen, all die Techniken und Best Practices, die Sie kennen müssen, und all die typischen Muster, die Sie umsetzen müssen, zu studieren. Es wird einige Monate dauern, bis Sie wirklich anfangen, sich einzuarbeiten, und dann müssen Sie ständig weiterlernen, damit Ihr Wissen mit all den neuen Werkzeugen und Funktionen, die auf der Webplattform erscheinen, auf dem neuesten Stand bleibt, und Ihre Fähigkeiten weiter üben und verfeinern.
+Es ist jedoch nicht alles Spaß und Spiel – das Erstellen von Websites ist ein komplizierteres Unterfangen als früher, und Sie müssen einige Zeit darauf verwenden, all die verschiedenen Technologien, die Sie verwenden müssen, zu studieren, alle Techniken und Best Practices, die Sie kennen müssen, und alle typischen Muster, die Sie implementieren sollen. Es wird einige Monate dauern, bis Sie wirklich in die Materie eintauchen, und dann müssen Sie kontinuierlich weiterlernen, damit Ihr Wissen mit all den neuen Tools und Funktionen, die auf der Webplattform erscheinen, auf dem neuesten Stand bleibt, und Ihr Handwerk weiter üben und verfeinern.
 
-_Die einzige Konstante ist der Wandel._
+_Das einzig Beständige ist der Wandel._
 
-Klingt das schwer? Machen Sie sich keine Sorgen – wir möchten Ihnen alles geben, was Sie wissen müssen, um anzufangen, und die Dinge werden einfacher. Sobald Sie den ständigen Wandel und die Unsicherheit des Webs akzeptieren, werden Sie anfangen, es zu genießen. Als Teil der Web-Community haben Sie ein ganzes Netz von Kontakten und nützlichem Material, das Ihnen hilft, und Sie werden anfangen, die kreativen Möglichkeiten zu genießen, die es mit sich bringt.
+Klingt das schwierig? Keine Sorge – wir haben das Ziel, Ihnen alles zu geben, was Sie brauchen, um zu starten, und es wird einfacher. Sobald Sie den ständigen Wechsel und die Unsicherheit des Webs umarmen, werden Sie anfangen, sich daran zu erfreuen. Als Teil der Web-Community haben Sie ein ganzes Netzwerk von Kontakten und nützliche Materialien, die Ihnen helfen, und Sie werden beginnen, die kreativen Möglichkeiten, die es bietet, zu schätzen.
 
 Sie sind jetzt ein digitaler Kreativer. Genießen Sie die Erfahrung und das Potenzial, damit Ihren Lebensunterhalt zu verdienen.
 
 ## Überblick über moderne Webtechnologien
 
-Es gibt eine Reihe von Technologien, die Sie lernen müssen, wenn Sie Front-End-Webentwickler werden möchten. In diesem Abschnitt werden wir sie kurz beschreiben. Für eine ausführlichere Erklärung, wie einige von ihnen zusammenarbeiten, lesen Sie unseren Artikel [Wie das Web funktioniert](/de/docs/Learn/Getting_started_with_the_web/How_the_Web_works).
+Es gibt eine Anzahl von Technologien, die Sie lernen müssen, wenn Sie ein Front-End-Webentwickler werden wollen. In diesem Abschnitt beschreiben wir sie kurz. Für eine detailliertere Erklärung, wie einige von ihnen zusammenarbeiten, lesen Sie unseren Artikel [Wie das Web funktioniert](/de/docs/Learn/Getting_started_with_the_web/How_the_Web_works).
 
 ### Browser
 
-Sie lesen diese Worte wahrscheinlich gerade in einem Webbrowser (es sei denn, Sie haben sie ausgedruckt oder verwenden eine unterstützende Technologie wie einen Bildschirmleser, um sie sich vorlesen zu lassen). Webbrowser sind die Softwareprogramme, die Menschen verwenden, um das Web zu nutzen, und umfassen [Firefox](https://www.mozilla.org/en-US/firefox/), [Chrome](https://www.google.com/chrome/), [Opera](https://www.opera.com/), [Safari](https://www.apple.com/safari/) und [Edge](https://www.microsoft.com/en-us/edge).
+Sie lesen diese Worte wahrscheinlich gerade in einem Webbrowser (es sei denn, Sie haben sie ausgedruckt oder verwenden Assistenztechnologie, wie einen Screenreader, um sie Ihnen vorzulesen). Webbrowser sind die Softwareprogramme, die Menschen verwenden, um im Web zu surfen, und umfassen [Firefox](https://www.mozilla.org/en-US/firefox/), [Chrome](https://www.google.com/chrome/), [Opera](https://www.opera.com/), [Safari](https://www.apple.com/safari/) und [Edge](https://www.microsoft.com/en-us/edge).
 
 ### HTTP
 
-Hypertext Transfer Protocol, oder [HTTP](/de/docs/Web/HTTP/Basics_of_HTTP), ist ein Nachrichtenprotokoll, das es Webbrowsern ermöglicht, mit Webservern zu kommunizieren (wo Websites gespeichert sind). Ein typisches Gespräch verläuft ungefähr so:
+Hypertext Transfer Protocol, oder [HTTP](/de/docs/Web/HTTP/Basics_of_HTTP), ist ein Nachrichtenprotokoll, das es Webbrowsern ermöglicht, mit Webservern (wo Websites gespeichert sind) zu kommunizieren. Eine typische Konversation sieht ungefähr so aus:
 
 ```plain
-"Hallo Webserver. Können Sie mir die Dateien geben, die ich benötige, um bbc.co.uk anzuzeigen"?
+"Hello web server. Can you give me the files I need to render bbc.co.uk"?
 
-"Klar, Webbrowser — hier, bitte sehr"
+"Sure thing web browser — here you go"
 
-[Dateien werden heruntergeladen und die Webseite angezeigt]
+[Downloads files and renders web page]
 ```
 
-Die tatsächliche Syntax für HTTP-Nachrichten (sogenannte Anfragen und Antworten) ist nicht so menschenlesbar, aber das gibt Ihnen eine grundlegende Vorstellung.
+Die eigentliche Syntax für HTTP-Nachrichten (sogenannte Anfragen und Antworten) ist nicht sehr menschenlesbar, aber dies gibt Ihnen die grundlegende Idee.
 
 ### HTML, CSS und JavaScript
 
-[HTML](/de/docs/Web/HTML), [CSS](/de/docs/Web/CSS) und [JavaScript](/de/docs/Web/JavaScript) sind die drei Haupttechnologien, die Sie verwenden werden, um eine Website zu bauen:
+[HTML](/de/docs/Web/HTML), [CSS](/de/docs/Web/CSS) und [JavaScript](/de/docs/Web/JavaScript) sind die Haupttechnologien, die Sie zum Erstellen einer Website verwenden werden:
 
-- HyperText Markup Language, oder **HTML**, ist eine Auszeichnungssprache, die aus verschiedenen Elementen besteht, in die Sie Inhalte einbetten (auszeichnen) können, um ihnen Bedeutung (Semantik) und Struktur zu geben. Einfaches HTML sieht so aus:
+- HyperText Markup Language, oder **HTML**, ist eine Auszeichnungssprache, die aus verschiedenen Elementen besteht, in die Sie Inhalte einwickeln (auszeichnen) können, um ihnen Bedeutung (Semantik) und Struktur zu geben. Einfaches HTML sieht so aus:
 
   ```html
-  <h1>Dies ist eine Überschrift der höchsten Ebene</h1>
+  <h1>This is a top-level heading</h1>
 
-  <p>Dies ist ein Absatz Text.</p>
+  <p>This is a paragraph of text.</p>
 
-  <img src="cat.jpg" alt="Ein Bild meiner Katze" />
+  <img src="cat.jpg" alt="A picture of my cat" />
   ```
 
-  Wenn wir eine Hausbau-Analogie übernehmen, wäre HTML wie das Fundament und die Wände des Hauses, die ihm Struktur geben und es zusammenhalten.
+  Wenn wir eine Hausbau-Analogie verwenden, wäre HTML wie das Fundament und die Wände des Hauses, die ihm Struktur verleihen und es zusammenhalten.
 
-- Cascading Style Sheets (**CSS**) ist eine regelbasierte Sprache, die verwendet wird, um Stile auf Ihr HTML anzuwenden – zum Beispiel, um Text- und Hintergrundfarben festzulegen, Rahmen hinzuzufügen, Dinge zu animieren oder eine Seite auf eine bestimmte Weise anzuordnen. Ein einfaches Beispiel: Der folgende Code würde unseren HTML-Absatz rot färben:
+- Cascading Style Sheets (**CSS**) ist eine regelbasierte Sprache, die verwendet wird, um Stile auf Ihr HTML anzuwenden – zum Beispiel, um Text- und Hintergrundfarben festzulegen, Ränder hinzuzufügen, Dinge zu animieren oder eine Seite auf eine bestimmte Weise anzuordnen. Als einfaches Beispiel würde der folgende Code unseren HTML-Absatz rot färben:
 
   ```css
   p {
@@ -103,56 +103,56 @@ Die tatsächliche Syntax für HTTP-Nachrichten (sogenannte Anfragen und Antworte
   }
   ```
 
-  In der Haus-Analogie sind CSS wie die Farben, Tapeten, Teppiche und Gemälde, die Sie verwenden würden, um das Haus schön aussehen zu lassen.
+  In der Hausanalogie ist CSS wie die Farbe, Tapeten, Teppiche und Gemälde, die Sie verwenden würden, um das Haus schön aussehen zu lassen.
 
-- **JavaScript** ist die Programmiersprache, die wir verwenden, um Websites Interaktivität hinzuzufügen, von dynamischen Stilwechseln über das Abrufen von Aktualisierungen vom Server bis hin zu komplexen 3D-Grafiken. Das folgende einfache JavaScript speichert eine Referenz auf unseren Absatz im Speicher und ändert den darin enthaltenen Text:
+- **JavaScript** ist die Programmiersprache, die wir verwenden, um Interaktivität zu Websites hinzuzufügen, von dynamischem Stilwechsel über das Abrufen von Updates vom Server bis hin zu komplexen 3D-Grafiken. Das folgende einfache JavaScript speichert eine Referenz auf unseren Absatz im Speicher und ändert den Text darin:
 
   ```js
   let pElem = document.querySelector("p");
-  pElem.textContent = "Wir haben den Text geändert!";
+  pElem.textContent = "We changed the text!";
   ```
 
-  In der Haus-Analogie ist JavaScript wie der Herd, der Fernseher, die Mikrowelle oder der Haartrockner – die Dinge, die Ihrem Haus nützliche Funktionalität geben.
+  In der Hausanalogie ist JavaScript wie der Herd, Fernseher, Mikrowelle oder Föhn – die Dinge, die Ihrem Haus nützliche Funktionalität verleihen.
 
 ### Werkzeuge
 
-Sobald Sie die "rohen" Technologien gelernt haben, mit denen man Webseiten erstellen kann (wie HTML, CSS und JavaScript), werden Sie bald auf verschiedene Werkzeuge stoßen, die Ihre Arbeit erleichtern oder effizienter machen können. Beispiele sind:
+Sobald Sie die "rohen" Technologien gelernt haben, die verwendet werden können, um Webseiten zu erstellen (wie HTML, CSS und JavaScript), werden Sie bald auf verschiedene Werkzeuge stoßen, die verwendet werden können, um Ihre Arbeit einfacher oder effizienter zu gestalten. Beispiele umfassen:
 
-- Die [Entwicklerwerkzeuge](/de/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools) in modernen Browsern, die zum Debuggen Ihres Codes verwendet werden können.
+- Die [Entwicklerwerkzeuge](/de/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools) in modernen Browsern, die verwendet werden können, um Ihren Code zu debuggen.
 - [Testwerkzeuge](/de/docs/Learn/Tools_and_testing/Cross_browser_testing), die verwendet werden können, um Tests durchzuführen, die zeigen, ob Ihr Code wie beabsichtigt funktioniert.
-- Bibliotheken und Frameworks, die auf JavaScript aufgebaut sind und es ermöglichen, bestimmte Arten von Websites viel schneller und effektiver zu erstellen.
-- So genannte "Linter", die eine Reihe von Regeln nehmen, Ihren Code betrachten und Stellen hervorheben, an denen Sie die Regeln nicht korrekt befolgt haben.
-- Minifizierer, die alle Leerzeichen aus Ihren Code-Dateien entfernen, um sie kleiner zu machen und sie daher schneller vom Server herunterzuladen.
+- Bibliotheken und Frameworks, die auf JavaScript aufbauen und Ihnen ermöglichen, bestimmte Arten von Websites viel schneller und effektiver zu erstellen.
+- So genannte "Linters", die ein Regelwerk nehmen, Ihren Code betrachten und Stellen hervorheben, an denen Sie die Regeln nicht korrekt befolgt haben.
+- Minifier, die alle Leerzeichen aus Ihren Code-Dateien entfernen, damit sie kleiner sind und daher schneller vom Server heruntergeladen werden können.
 
 ### Serverseitige Sprachen und Frameworks
 
-HTML, CSS und JavaScript sind Front-End- (oder Client-Seiten-) Sprachen, was bedeutet, dass sie vom Browser ausgeführt werden, um ein Website-Frontend zu produzieren, das Ihre Nutzer verwenden können.
+HTML, CSS und JavaScript sind Front-End-(oder clientseitige) Sprachen, was bedeutet, dass sie vom Browser ausgeführt werden, um ein Website-Frontend zu produzieren, das Ihre Benutzer verwenden können.
 
-Es gibt eine andere Klasse von Sprachen, sogenannte Back-End- (oder Server-Seiten-) Sprachen, die auf dem Server ausgeführt werden, bevor das Ergebnis dann an den Browser gesendet wird, um es anzuzeigen. Eine typische Anwendung für eine serverseitige Sprache besteht darin, einige Daten aus einer Datenbank abzurufen und etwas HTML zu generieren, das die Daten enthält, bevor das HTML dann an den Browser gesendet wird, um es dem Nutzer anzuzeigen.
+Es gibt eine andere Klasse von Sprachen, die Back-End- (oder serverseitige) Sprachen genannt werden, was bedeutet, dass sie auf dem Server ausgeführt werden, bevor das Ergebnis dann an den Browser gesendet wird, um es anzuzeigen. Eine typische Verwendung für eine serverseitige Sprache ist das Abrufen von Daten aus einer Datenbank und das Generieren von HTML, um die Daten zu enthalten, bevor das HTML dann an den Browser gesendet wird, um es dem Benutzer anzuzeigen.
 
-Beispielhafte serverseitige Frameworks umfassen ASP.NET (in C#), Django (in Python), Laravel (in PHP) und Next.js (in JavaScript).
+Beispiel für serverseitige Frameworks sind ASP.NET (in C#), Django (in Python), Laravel (in PHP) und Next.js (in JavaScript).
 
-## Web-Best-Practices
+## Beste Praktiken im Web
 
-Wir haben kurz die Technologien besprochen, die Sie zum Erstellen von Websites verwenden werden. Jetzt besprechen wir die Best Practices, die Sie anwenden sollten, um sicherzustellen, dass Sie diese Technologien bestmöglich einsetzen.
+Wir haben kurz über die Technologien gesprochen, die Sie zum Erstellen von Websites verwenden werden. Lassen Sie uns nun über die Best Practices sprechen, die Sie anwenden sollten, um sicherzustellen, dass Sie diese Technologien auf die bestmögliche Weise nutzen.
 
-Beim Webentwickeln stammt die Hauptursache für Unsicherheit oft von der Tatsache, dass Sie nicht wissen, welche Kombination von Technologie jeder Nutzer verwenden wird, um Ihre Website anzusehen:
+Bei der Webentwicklung kommt die Hauptursache für Unsicherheit daher, dass Sie nicht wissen, welche Kombination von Technologien jeder Benutzer verwenden wird, um Ihre Website zu betrachten:
 
-- Nutzer 1 könnte es auf einem iPhone mit einem kleinen, schmalen Bildschirm betrachten.
-- Nutzer 2 könnte es auf einem Windows-Laptop mit einem angeschlossenen Breitbildmonitor ansehen.
-- Nutzer 3 könnte blind sein und einen Bildschirmleser verwenden, um sich die Webseite vorlesen zu lassen.
-- Nutzer 4 könnte einen sehr alten Desktop-Computer verwenden, der keine modernen Browser ausführen kann.
+- Benutzer 1 könnte sie auf einem iPhone mit einem kleinen, schmalen Bildschirm betrachten.
+- Benutzer 2 könnte sie auf einem Windows-Laptop mit einem angeschlossenen Breitbildmonitor betrachten.
+- Benutzer 3 könnte blind sein und einen Screenreader verwenden, um sich die Webseite vorlesen zu lassen.
+- Benutzer 4 könnte einen wirklich alten Desktop-Computer verwenden, der keine modernen Browser ausführen kann.
 
-Da Sie nicht genau wissen, was Ihre Nutzer verwenden werden, müssen Sie defensiv gestalten – machen Sie Ihre Website so flexibel wie möglich, damit alle oben genannten Nutzer sie verwenden können, auch wenn sie möglicherweise nicht alle dieselbe Erfahrung machen. Kurz gesagt, wir versuchen, das Web für alle so gut wie möglich funktionieren zu lassen.
+Da Sie nicht genau wissen, was Ihre Benutzer verwenden werden, müssen Sie defensiv gestalten – machen Sie Ihre Website so flexibel wie möglich, damit alle oben genannten Benutzer sie nutzen können, auch wenn sie möglicherweise nicht alle dasselbe Erlebnis erhalten. Kurz gesagt, wir versuchen, das Web für alle so weit wie möglich zugänglich zu machen.
 
-Sie werden während Ihres Studiums auf die folgenden Konzepte stoßen.
+Sie werden auf die folgenden Konzepte an einem bestimmten Punkt in Ihrem Studium stoßen.
 
-- **Cross-Browser-Kompatibilität** ist die Praxis, sicherzustellen, dass Ihre Webseite auf so vielen Geräten wie möglich funktioniert. Dies umfasst die Verwendung von Technologien, die alle Browser unterstützen, das Bereitstellen besserer Erfahrungen für Browser, die sie handhaben können (progressive Verbesserung), und/oder das Schreiben von Code, der auf eine einfachere, aber immer noch nutzbare Erfahrung in älteren Browsern zurückfällt (Gleitender Rückschritt). Es umfasst auch viele Tests, um zu sehen, ob etwas in bestimmten Browsern fehlschlägt, und dann weitere Arbeit, um diese Fehler zu beheben.
-- **Responsives Webdesign** ist die Praxis, Ihre Funktionalitäten und Layouts flexibel zu gestalten, damit sie sich automatisch an verschiedene Browser anpassen können. Ein offensichtliches Beispiel ist eine Website, die auf einem Breitbildbrowser auf dem Desktop auf eine bestimmte Weise angeordnet ist, aber in mobilen Browsern in einem kompakteren einspaltigen Layout angezeigt wird. Versuchen Sie jetzt, die Breite Ihres Browserfensters anzupassen, und sehen Sie, was passiert.
-- **Performance** bedeutet, Websites so schnell wie möglich zu laden, aber auch intuitiv und benutzerfreundlich zu gestalten, damit Nutzer nicht frustriert werden und woanders hingehen.
-- **Zugänglichkeit** bedeutet, dass Ihre Websites von möglichst vielen verschiedenen Menschen verwendet werden können (verwandte Konzepte sind Vielfalt und Inklusion sowie inklusives Design). Dazu gehören Menschen mit Sehbehinderungen, Hörbehinderungen, kognitiven Behinderungen oder körperlichen Behinderungen. Aber es geht über Menschen mit Behinderungen hinaus – wie wäre es mit jungen oder alten Menschen, Menschen aus verschiedenen Kulturen, Menschen, die mobile Geräte verwenden, oder Menschen mit unzuverlässigen oder langsamen Netzwerkverbindungen?
-- **Internationalisierung** bedeutet, Websites für Menschen aus verschiedenen Kulturen nutzbar zu machen, die andere Sprachen als Ihre eigene sprechen. Es gibt technische Überlegungen (wie das Anpassen Ihres Layouts, damit es auch für von rechts nach links verlaufende oder vertikale Sprachen funktioniert), und menschliche (wie das Verwenden von einfachem, nicht umgangssprachlichem Englisch, sodass Menschen, die Ihre Sprache als zweite oder dritte Sprache haben, Ihr Text besser verstehen können).
-- **Datenschutz & Sicherheit**. Diese beiden Konzepte sind miteinander verwandt, aber unterschiedlich. Datenschutz bezieht sich darauf, Menschen es zu ermöglichen, ihr Geschäft privat zu erledigen und sie nicht auszuspionieren oder mehr Daten von ihnen zu sammeln, als Sie unbedingt benötigen. Sicherheit bezieht sich darauf, Ihre Website auf eine sichere Weise zu gestalten, sodass böswillige Nutzer keine Informationen darauf von Ihnen oder Ihren Nutzern stehlen können.
+- **Cross-Browser-Kompatibilität** ist die Praxis, sicherzustellen, dass Ihre Webseite auf möglichst vielen Geräten funktioniert. Dies umfasst die Verwendung von Technologien, die alle Browser unterstützen, das Bereitstellen besserer Erfahrungen für Browser, die damit umgehen können (progressive Verbesserung) und/oder das Schreiben von Code, der auf eine einfachere, aber dennoch nutzbare Erfahrung in älteren Browsern zurückfällt (graceful degradation). Es beinhaltet auch viel Testen, um zu sehen, ob etwas in bestimmten Browsern fehlschlägt, und dann mehr Arbeit, um diese Fehler zu beheben.
+- **Responsives Webdesign** ist die Praxis, Ihre Funktionalität und Layouts so flexibel zu gestalten, dass sie sich automatisch an verschiedene Browser anpassen können. Ein offensichtliches Beispiel ist eine Website, die in einem Breitbildbrowser auf dem Desktop auf eine Weise angeordnet ist, aber in Mobiltelefon-Browsern als kompakteres, einspaltiges Layout angezeigt wird. Versuchen Sie jetzt, die Breite Ihres Browserfensters anzupassen, und sehen Sie, was passiert.
+- **Performance** bedeutet, Websites so schnell wie möglich laden zu lassen, aber auch intuitiv und einfach zu bedienen, damit Benutzer nicht frustriert werden und woanders hingehen.
+- **Barrierefreiheit** bedeutet, Ihre Websites für möglichst viele verschiedene Arten von Menschen nutzbar zu machen (verwandte Konzepte sind Vielfalt und Inklusion sowie inklusives Design). Dies umfasst Menschen mit Sehbehinderungen, Hörbehinderungen, kognitiven Beeinträchtigungen oder körperlichen Behinderungen. Es geht auch über Menschen mit Behinderungen hinaus – wie wäre es mit jungen oder alten Menschen, Menschen aus verschiedenen Kulturen, Menschen, die mobile Geräte verwenden, oder Menschen mit unzuverlässigen oder langsamen Netzwerkverbindungen?
+- **Internationalisierung** bedeutet, Websites für Menschen nutzbar zu machen, die aus verschiedenen Kulturen stammen und andere Sprachen sprechen als Sie. Hier gibt es technische Überlegungen (z. B. das Ändern Ihres Layouts, sodass es auch für Rechts-nach-Links- oder sogar vertikale Sprachen funktioniert) und menschliche Überlegungen (z. B. die Verwendung einfacher, nicht umgangssprachlicher Sprache, damit Menschen, die Ihre Sprache als zweite oder dritte Sprache haben, eher in der Lage sind, Ihren Text zu verstehen).
+- **Datenschutz & Sicherheit**. Diese beiden Konzepte sind verwandt, aber unterschiedlich. Datenschutz bezieht sich darauf, Menschen zu ermöglichen, ihre Geschäfte privat zu erledigen und sie nicht auszuspionieren oder mehr ihrer Daten zu sammeln, als Sie unbedingt benötigen. Sicherheit bezieht sich darauf, Ihre Website auf eine sichere Weise zu konstruieren, damit böswillige Benutzer keine Informationen darauf von Ihnen oder Ihren Benutzern stehlen können.
 
 ## Siehe auch
 

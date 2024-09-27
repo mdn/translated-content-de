@@ -74,7 +74,7 @@ svg {
 
 {{EmbedLiveSample("Beispiel 2", "220", "250")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -99,7 +99,7 @@ svg {
 
 - `<number-optional-number>`
 
-  - : Wenn zwei Zahlen angegeben sind, repräsentiert die erste die Basisfrequenz in der horizontalen Richtung und die zweite die Basisfrequenz in der vertikalen Richtung. Wenn eine Zahl angegeben ist, wird dieser Wert sowohl für x als auch für y verwendet.
+  - : Wenn zwei Zahlen angegeben sind, repräsentiert die erste die Basisfrequenz in horizontaler Richtung und die zweite die Basisfrequenz in vertikaler Richtung. Wenn eine Zahl angegeben ist, wird dieser Wert für beide Richtungen, x und y, verwendet.
 
     Negative Werte sind verboten.
 
@@ -107,6 +107,6 @@ svg {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -8,11 +8,18 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`ordered`** gibt an, ob der Datenkanal die geordnete Zustellung von Nachrichten garantiert; der Standardwert ist `true`, was bedeutet, dass der Datenkanal tatsächlich geordnet ist. Dies wird festgelegt, wenn das {{domxref("RTCDataChannel")}} erstellt wird, indem die Eigenschaft `ordered` auf dem Objekt gesetzt wird, das als `options`-Parameter von {{domxref("RTCPeerConnection.createDataChannel()")}} angegeben wird.
+Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`ordered`** zeigt an,
+ob der Datenkanal die geordnete Zustellung von Nachrichten garantiert;
+der Standardwert ist `true`,
+was bedeutet, dass der Datenkanal tatsächlich geordnet ist.
+Dies wird beim Erstellen des [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) festgelegt,
+indem die `ordered`-Eigenschaft
+an dem Objekt übergeben wird, das als `options`-Parameter der Methode [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) verwendet wird.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn die geordnete Zustellung garantiert ist, andernfalls `false`.
+Ein boolescher Wert, der `true` ist, wenn die geordnete Zustellung
+garantiert ist, und ansonsten `false`.
 
 ## Beispiel
 
@@ -21,7 +28,7 @@ const pc = new RTCPeerConnection();
 const dc = pc.createDataChannel("my channel");
 
 if (!dc.ordered) {
-  // Ungeordnete Nachrichtenübermittlung verarbeiten
+  // Handle unordered messaging
 }
 ```
 
@@ -36,5 +43,5 @@ if (!dc.ordered) {
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCDataChannel")}}
-- {{domxref("RTCPeerConnection.createDataChannel()")}}
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
+- [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel)

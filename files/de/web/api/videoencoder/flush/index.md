@@ -1,5 +1,5 @@
 ---
-title: "VideoEncoder: Methode flush()"
+title: "VideoEncoder: flush()-Methode"
 short-title: flush()
 slug: Web/API/VideoEncoder/flush
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`flush()`** Methode der {{domxref("VideoEncoder")}}-Schnittstelle erzwingt das Abschließen aller ausstehenden Kodierungen.
+Die **`flush()`**-Methode der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Schnittstelle erzwingt die Fertigstellung aller ausstehenden Kodierungen.
 
 ## Syntax
 
@@ -22,16 +22,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald die Initialisierung des Encoders abgeschlossen ist und alle ausstehenden {{domxref("EncodedVideoChunk")}}s zurückgegeben werden.
+Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald die Initialisierung des Encoders abgeschlossen ist und alle ausstehenden [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)s zurückgegeben werden.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn das Promise abgelehnt wird, weil der {{domxref("VideoEncoder.state","state")}} nicht `configured` ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn das Promise abgelehnt wird, weil der [`state`](/de/docs/Web/API/VideoEncoder/state) nicht `configured` ist.
 
 ## Beispiele
 
-Das folgende Beispiel leert den `VideoEncoder`.
+Das folgende Beispiel führt einen Flush des `VideoEncoder` aus.
 
 ```js
 VideoEncoder.flush();

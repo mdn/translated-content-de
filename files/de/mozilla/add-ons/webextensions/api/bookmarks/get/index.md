@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wenn die ID eines {{WebExtAPIRef("bookmarks.BookmarkTreeNode")}} oder ein Array solcher IDs angegeben wird, ruft die Methode **`bookmarks.get()`** die entsprechenden Knoten ab.
+Geben Sie die ID eines {{WebExtAPIRef("bookmarks.BookmarkTreeNode")}} oder ein Array solcher IDs an, damit die **`bookmarks.get()`**-Methode die passenden Knoten abruft.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,15 +22,15 @@ let getBookmarks = browser.bookmarks.get(
 ### Parameter
 
 - `idOrIdList`
-  - : Ein {{jsxref("string")}} oder ein {{jsxref("array")}} von Zeichenfolgen, die die IDs eines oder mehrerer {{WebExtAPIRef("bookmarks.BookmarkTreeNode", "BookmarkTreeNode")}}-Objekte angeben, die abgerufen werden sollen.
+  - : Ein {{jsxref("string")}} oder ein {{jsxref("array")}} von Strings, die die IDs eines oder mehrerer {{WebExtAPIRef("bookmarks.BookmarkTreeNode", "BookmarkTreeNode")}}-Objekte angeben, die abgerufen werden sollen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von [`BookmarkTreeNode`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks/BookmarkTreeNode) erfüllt wird, eines für jeden passenden Knoten. Separatoren sind in den Ergebnissen nicht enthalten. Wenn keine Knoten gefunden werden konnten, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von [`BookmarkTreeNode`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks/BookmarkTreeNode) erfüllt wird, eines für jeden passenden Knoten. Separatoren sind nicht in den Ergebnissen enthalten. Falls keine Knoten gefunden werden konnten, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieses Beispiel versucht, das Lesezeichen mit der ID `bookmarkAAAA` abzurufen. Wenn kein Lesezeichen mit dieser ID existiert, wird `onRejected` aufgerufen:
+Dieses Beispiel versucht, das Lesezeichen abzurufen, dessen ID `bookmarkAAAA` ist. Wenn kein Lesezeichen mit dieser ID existiert, wird `onRejected` aufgerufen:
 
 ```js
 function onFulfilled(bookmarks) {
@@ -52,7 +52,7 @@ gettingBookmarks.then(onFulfilled, onRejected);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-get) API von Chromium. Diese Dokumentation stammt von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-get)-API von Chromium. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

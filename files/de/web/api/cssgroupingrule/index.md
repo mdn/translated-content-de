@@ -7,34 +7,34 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Das **`CSSGroupingRule`**-Interface des [CSS-Objektmodells](/de/docs/Web/API/CSS_Object_Model) repräsentiert jede CSS-[At-Regel](/de/docs/Web/CSS/At-rule), die andere Regeln innerhalb von sich enthält.
+Das **`CSSGroupingRule`** Interface des [CSS-Objektmodells](/de/docs/Web/API/CSS_Object_Model) repräsentiert jede CSS-[At-Regel](/de/docs/Web/CSS/At-rule), die andere Regeln enthält, die innerhalb von ihr verschachtelt sind.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface erbt auch Eigenschaften von {{domxref("CSSRule")}}._
+_Dieses Interface erbt auch Eigenschaften von [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- {{domxref("CSSGroupingRule.cssRules")}} {{ReadOnlyInline}}
-  - : Gibt eine {{domxref("CSSRuleList")}} der CSS-Regeln in der Medienregel zurück.
+- [`CSSGroupingRule.cssRules`](/de/docs/Web/API/CSSGroupingRule/cssRules) {{ReadOnlyInline}}
+  - : Gibt eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) der CSS-Regeln in der Media-Regel zurück.
 
 ## Instanz-Methoden
 
-_Dieses Interface erbt auch Methoden von {{domxref("CSSRule")}}._
+_Dieses Interface erbt auch Methoden von [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- {{domxref("CSSGroupingRule.deleteRule")}}
+- [`CSSGroupingRule.deleteRule`](/de/docs/Web/API/CSSGroupingRule/deleteRule)
   - : Löscht eine Regel aus dem Stylesheet.
-- {{domxref("CSSGroupingRule.insertRule")}}
+- [`CSSGroupingRule.insertRule`](/de/docs/Web/API/CSSGroupingRule/insertRule)
   - : Fügt eine neue Stilregel in das aktuelle Stylesheet ein.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Verwendung von dynamischen Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [Verwenden dynamischer Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

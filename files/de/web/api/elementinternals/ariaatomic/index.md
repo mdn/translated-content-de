@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaAtomic`**-Eigenschaft des {{domxref("ElementInternals")}}-Interfaces spiegelt den Wert des [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-atomic)-Attributs wider, das angibt, ob unterstützende Technologien entweder den gesamten oder nur Teile des geänderten Bereichs basierend auf den durch das `aria-relevant`-Attribut definierten Änderungsbenachrichtigungen präsentieren werden.
+Die **`ariaAtomic`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-atomic)-Attributs wider, das angibt, ob unterstützende Technologien den gesamten oder nur Teile des geänderten Bereichs präsentieren, basierend auf den durch das `aria-relevant`-Attribut definierten Änderungsbenachrichtigungen.
 
 > [!NOTE]
-> Das Setzen von ARIA-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können von den vom Autor definierten Attributen überschrieben werden, aber es wird sichergestellt, dass die Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärungsdokument](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht die Definition von Standardsemantiken für ein benutzerdefiniertes Element. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Für weitere Informationen siehe das [Accessibility Object Model Explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"false"`
-  - : Unterstützende Technologien präsentieren nur den oder die geänderten Knoten.
+  - : Unterstützende Technologien werden nur den geänderten Knoten oder die Knoten präsentieren.
 - `"true"`
-  - : Unterstützende Technologien präsentieren den gesamten geänderten Bereich als Ganzes, einschließlich des vom Autor definierten Labels, falls eines vorhanden ist.
+  - : Unterstützende Technologien werden den gesamten geänderten Bereich als Ganzes präsentieren, einschließlich des benutzerdefinierten Labels, falls vorhanden.
 
 ## Beispiele
 
-In diesem Beispiel wird der Wert von `ariaAtomic` im Konstruktor eines benutzerdefinierten Elements auf "true" gesetzt.
+In diesem Beispiel wird der Wert von `ariaAtomic` im Konstruktor für ein benutzerdefiniertes Element auf "true" gesetzt.
 
 ```js
 class MyCustomElement extends HTMLElement {

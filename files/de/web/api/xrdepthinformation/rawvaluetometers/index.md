@@ -1,5 +1,5 @@
 ---
-title: "XRDepthInformation: rawValueToMeters-Eigenschaft"
+title: "XRDepthInformation: rawValueToMeters Eigenschaft"
 short-title: rawValueToMeters
 slug: Web/API/XRDepthInformation/rawValueToMeters
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`rawValueToMeters`**-Eigenschaft der {{DOMxRef("XRDepthInformation")}}-Schnittstelle enthält den Skalierungsfaktor, mit dem die Rohwert-Tiefenwerte multipliziert werden müssen, um die Tiefen in Metern zu erhalten.
+Die _schreibgeschützte_ **`rawValueToMeters`** Eigenschaft der [`XRDepthInformation`](/de/docs/Web/API/XRDepthInformation)-Schnittstelle enthält den Skalierungsfaktor, mit dem die rohen Tiefenwerte multipliziert werden müssen, um die Tiefen in Metern zu erhalten.
 
-Für CPU-Tiefeninformationen siehe auch die {{domxref("XRCPUDepthInformation.getDepthInMeters()")}}-Methode.
+Für CPU-Tiefeninformationen, siehe auch die [`XRCPUDepthInformation.getDepthInMeters()`](/de/docs/Web/API/XRCPUDepthInformation/getDepthInMeters)-Methode.
 
 ## Wert
 
@@ -18,9 +18,9 @@ Eine Zahl.
 
 ## Beispiele
 
-Verwenden Sie {{domxref("XRFrame.getDepthInformation()")}} (CPU) oder {{domxref("XRWebGLBinding.getDepthInformation()")}} (WebGL), um Tiefeninformationen zu erhalten. Die zurückgegebenen Objekte enthalten den `rawValueToMeters`-Skalierungsfaktor, der für weitere Berechnungen genutzt werden kann.
+Verwenden Sie [`XRFrame.getDepthInformation()`](/de/docs/Web/API/XRFrame/getDepthInformation) (CPU) oder [`XRWebGLBinding.getDepthInformation()`](/de/docs/Web/API/XRWebGLBinding/getDepthInformation) (WebGL), um Tiefeninformationen zu erhalten. Die zurückgegebenen Objekte werden den `rawValueToMeters` Skalierungsfaktor enthalten, der für weitere Berechnungen verwendet werden kann.
 
-Für CPU-Tiefeninformationen und einen Puffer im "luminance-alpha"-Format:
+Für CPU-Tiefeninformationen und einen Puffer mit dem "luminance-alpha"-Format:
 
 ```js
 const uint16 = new Uint16Array(depthInfo.data);
@@ -30,7 +30,7 @@ const depthInMeters = uint16[index] * depthInfo.rawValueToMeters;
 
 (Verwenden Sie {{jsxref("Float32Array")}} für ein "float32"-Datenformat.)
 
-Beachten Sie, dass die Tiefe in Metern in Tiefenpuffer-Koordinaten angegeben ist. Zusätzliche Schritte sind erforderlich, um sie in normalisierte Ansichtskoordinaten umzuwandeln, oder die {{domxref("XRCPUDepthInformation.getDepthInMeters()")}}-Methode kann verwendet werden.
+Beachten Sie, dass die Tiefe in Metern in Tiefenpufferkoordinaten ist. Zusätzliche Schritte sind erforderlich, um sie in normalisierte Ansichtskoordinaten zu konvertieren, oder die [`XRCPUDepthInformation.getDepthInMeters()`](/de/docs/Web/API/XRCPUDepthInformation/getDepthInMeters)-Methode kann verwendet werden.
 
 ## Spezifikationen
 

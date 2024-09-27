@@ -1,5 +1,5 @@
 ---
-title: Synthetisches Monitoring
+title: Synthetic monitoring
 slug: Glossary/Synthetic_monitoring
 l10n:
   sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
@@ -7,17 +7,17 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Synthetisches Monitoring** umfasst das Überwachen der Leistung einer Seite in einer 'Labor'-Umgebung, typischerweise mit Automatisierungswerkzeugen, in einer Umgebung, die so konsistent wie möglich ist.
+**Synthetic Monitoring** beinhaltet das Überwachen der Leistung einer Seite in einer 'Labor'-Umgebung, typischerweise mit Automatisierungswerkzeugen in einer möglichst konsistenten Umgebung.
 
-Mit einer konsistenten Basislinie eignet sich das synthetische Monitoring gut, um die Auswirkungen von Codeänderungen auf die Leistung zu messen. Es spiegelt jedoch nicht unbedingt das wider, was Benutzer erleben.
+Mit einer konsistenten Basislinie eignet sich Synthetic Monitoring gut, um die Auswirkungen von Codeänderungen auf die Leistung zu messen. Es spiegelt jedoch nicht unbedingt wider, was die Benutzer erleben.
 
-Synthetisches Monitoring beinhaltet das Bereitstellen von Skripten, um den Pfad zu simulieren, den ein Endbenutzer durch eine Webanwendung nehmen könnte, und die Leistungserfahrungen des Simulators zu melden. Beispiele für beliebte synthetische Monitoring-Tools sind [WebPageTest](https://www.webpagetest.org/) und [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/). Der gemessene Datenverkehr stammt nicht von Ihren tatsächlichen Benutzern, sondern von synthetisch generiertem Verkehr, der Daten zur Seitenleistung sammelt.
+Synthetic Monitoring beinhaltet das Bereitstellen von Skripten, um den Weg zu simulieren, den ein Endbenutzer durch eine Webanwendung nehmen könnte, und die Leistungserfahrungen des Simulators zurückzumelden. Beispiele für beliebte Tools zur synthetischen Überwachung sind [WebPageTest](https://www.webpagetest.org/) und [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/). Der gemessene Datenverkehr stammt nicht von Ihren tatsächlichen Benutzern, sondern ist synthetisch generierter Traffic, der Daten über die Seitenleistung sammelt.
 
-Im Gegensatz zu {{Glossary("Real User Monitoring", "RUM")}} bietet das synthetische Monitoring eine eingeschränkte Sicht auf die Leistung, die keine Benutzervariationen berücksichtigt. Es ist nützlich, um grundlegende Daten über die Leistung einer Anwendung zu erhalten und die Leistung in Entwicklungsumgebungen zu überprüfen. In Kombination mit anderen Tools, wie Netzwerkdrosselung, kann es hervorragende Einblicke in potenzielle Problemfelder bieten.
+Im Gegensatz zu [RUM](/de/docs/Glossary/Real_User_Monitoring) bietet Synthetic Monitoring einen eingeschränkten Blick auf die Leistung, der Benutzerunterschiede nicht berücksichtigt. Es ist nützlich, um grundlegende Daten über die Leistung einer Anwendung zu erhalten und die Leistung in Entwicklungsumgebungen stichprobenartig zu überprüfen. Kombiniert mit anderen Tools, wie z. B. der Netzwerkdrosselung, kann es hervorragende Einblicke in potenzielle Problemfelder bieten.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Real User Monitoring")}} (RUM)
-  - {{Glossary("Beacon")}}
-- [Real User Monitoring (RUM) versus Synthetisches Monitoring](/de/docs/Web/Performance/Rum-vs-Synthetic)
+  - [Real User Monitoring](/de/docs/Glossary/Real_User_Monitoring) (RUM)
+  - [Beacon](/de/docs/Glossary/Beacon)
+- [Real User Monitoring (RUM) versus Synthetic Monitoring](/de/docs/Web/Performance/Rum-vs-Synthetic)

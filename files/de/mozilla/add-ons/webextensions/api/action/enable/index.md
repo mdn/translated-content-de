@@ -27,7 +27,7 @@ browser.action.enable(
 
 ## Beispiele
 
-Deaktivieren Sie die Browser-Aktion bei einem Klick und aktivieren Sie sie jedes Mal erneut, wenn ein neuer Tab geöffnet wird:
+Deaktivieren Sie die Browser-Aktion, wenn sie angeklickt wird, und aktivieren Sie sie erneut jedes Mal, wenn ein neuer Tab geöffnet wird:
 
 ```js
 browser.tabs.onCreated.addListener(() => {
@@ -46,7 +46,7 @@ browser.action.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-enable) API von Chromium. Diese Dokumentation leitet sich von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code ab.
+> Diese API basiert auf der Chromium-API [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-enable). Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

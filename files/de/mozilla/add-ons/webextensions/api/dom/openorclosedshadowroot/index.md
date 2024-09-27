@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft den offenen oder den geschlossenen Shadow Root ab, der von dem angegebenen Element gehostet wird. Wenn der Shadow Root nicht an das Element angehängt ist, wird `null` zurückgegeben.
+Ruft die offene oder geschlossene `shadow root` ab, die vom angegebenen Element gehostet wird. Wenn die `shadow root` nicht an das Element angefügt ist, wird `null` zurückgegeben.
 
 > [!NOTE]
-> In Firefox ist die entsprechende Eigenschaft `element.openOrClosedShadowRoot`. Diese schreibgeschützte Eigenschaft repräsentiert den vom Element gehosteten Shadow Root, unabhängig davon, ob sein {{DOMxRef("ShadowRoot.mode", "mode")}} `open` oder `closed` ist.
+> In Firefox ist die entsprechende Eigenschaft `element.openOrClosedShadowRoot`. Diese schreibgeschützte Eigenschaft repräsentiert die `shadow root`, die vom Element gehostet wird, unabhängig davon, ob ihr [`mode`](/de/docs/Web/API/ShadowRoot/mode) `open` oder `closed` ist.
 >
-> Verwenden Sie {{DOMxRef("Element.attachShadow()")}}, um einen Shadow Root zu einem Element hinzuzufügen.
+> Verwenden Sie [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow), um eine `shadow root` zu einem Element hinzuzufügen.
 
 ## Syntax
 
@@ -29,8 +29,9 @@ let shadowRoot = browser.dom.openOrClosedShadowRoot(
 
 ### Rückgabewert
 
-Eine {{DOMxRef("ShadowRoot")}}-Objektinstanz, unabhängig davon, ob sein
-{{DOMxRef("ShadowRoot.mode", "mode")}} auf `open` oder `closed` gesetzt ist, oder `null`, wenn kein Shadow Root vorhanden ist.
+Eine [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objektinstanz, unabhängig davon, ob ihr
+[`mode`](/de/docs/Web/API/ShadowRoot/mode) auf `open` oder
+`closed` eingestellt ist, oder `null`, wenn keine `shadow root` vorhanden ist.
 
 ## Browser-Kompatibilität
 
@@ -38,5 +39,5 @@ Eine {{DOMxRef("ShadowRoot")}}-Objektinstanz, unabhängig davon, ob sein
 
 ## Siehe auch
 
-- {{DOMxRef("Element.shadowRoot")}}
+- [`Element.shadowRoot`](/de/docs/Web/API/Element/shadowRoot)
 - [`chrome.dom.openOrClosedShadowRoot`](https://developer.chrome.com/docs/extensions/reference/api/dom#method-openOrClosedShadowRoot)

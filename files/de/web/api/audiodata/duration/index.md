@@ -1,5 +1,5 @@
 ---
-title: "AudioData: Eigenschaft duration"
+title: "AudioData: duration-Eigenschaft"
 short-title: duration
 slug: Web/API/AudioData/duration
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`duration`** der Schnittstelle {{domxref("AudioData")}} gibt die Dauer in Mikrosekunden dieses `AudioData`-Objekts zurück.
+Die schreibgeschützte Eigenschaft **`duration`** des [`AudioData`](/de/docs/Web/API/AudioData)-Interfaces gibt die Dauer in Mikrosekunden dieses `AudioData`-Objekts zurück.
 
 ## Wert
 

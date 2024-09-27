@@ -8,15 +8,16 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die schreibgeschützte **`form`**-Eigenschaft des {{domxref("ElementInternals")}}-Interfaces gibt das mit diesem Element verknüpfte {{domxref("HTMLFormElement")}} zurück.
+Die schreibgeschützte **`form`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces gibt das [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) zurück, das mit diesem Element verknüpft ist.
 
 ## Wert
 
-Ein {{domxref("HTMLFormElement")}}.
+Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine benutzerdefinierte Checkbox-Komponente innerhalb eines Formulars mit der ID `myForm`. Das Ausdrucken von `form.length` in die Konsole gibt uns den Wert von {{domxref("HTMLFormElement.length")}}.
+Das folgende Beispiel zeigt eine benutzerdefinierte Checkbox-Komponente innerhalb eines Formulars mit der ID `myForm`.
+Das Ausdrucken von `form.length` in die Konsole gibt uns den Wert von [`HTMLFormElement.length`](/de/docs/Web/API/HTMLFormElement/length).
 
 ```html
 <form id="myForm">

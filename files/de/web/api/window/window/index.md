@@ -3,14 +3,14 @@ title: "Window: window-Eigenschaft"
 short-title: window
 slug: Web/API/Window/window
 l10n:
-  sourceCommit: 8d766d1d1c60a2d6d2c95bd2aa9d0b297d9c70ac
+  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
 ---
 
 {{APIRef}}
 
-Die **`window`**-Eigenschaft eines {{domxref("Window")}}-Objekts verweist auf das Fensterobjekt selbst.
+Die **`window`**-Eigenschaft eines [`Window`](/de/docs/Web/API/Window)-Objekts zeigt auf das Fensterobjekt selbst.
 
-Daher geben die folgenden Ausdrücke alle dasselbe Fensterobjekt zurück:
+Dementsprechend liefern die folgenden Ausdrücke alle dasselbe Fensterobjekt zurück:
 
 ```js
 window.window;
@@ -19,27 +19,27 @@ window.window.window.window;
 // …
 ```
 
-Auf Webseiten ist das Fensterobjekt auch ein _globales Objekt_. Das bedeutet:
+In Webseiten ist das Fensterobjekt auch ein _globales Objekt_. Dies bedeutet:
 
-1. Globale Variablen Ihres Skripts sind in Wirklichkeit Eigenschaften von `window`:
+1. Globale Variablen Ihres Skripts sind tatsächlich Eigenschaften von `window`:
 
    ```js
    var global = { data: 0 };
-   alert(global === window.global); // zeigt "true" an
+   alert(global === window.global); // displays "true"
    ```
 
-2. Sie können auf die eingebauten Eigenschaften des Fensterobjekts zugreifen, ohne sie mit `window.` zu präfixieren:
+2. Sie können auf die eingebauten Eigenschaften des Fensterobjekts zugreifen, ohne sie mit `window.` vorwegzunehmen:
 
    ```js
-   setTimeout("alert('Hi!')", 50); // entspricht der Verwendung von window.setTimeout().
-   alert(window === window.window); // zeigt "true" an
+   setTimeout("alert('Hi!')", 50); // equivalent to using window.setTimeout().
+   alert(window === window.window); // displays "true"
    ```
 
-Der Zweck, dass die `window`-Eigenschaft auf das Objekt selbst verweist, war wahrscheinlich, die Referenzierung des globalen Objekts zu erleichtern. Andernfalls müssten Sie am Anfang Ihres Skripts eine manuelle Zuweisung `let window = this;` vornehmen.
+Der Zweck der `window`-Eigenschaft, die auf das Objekt selbst verweist, war wahrscheinlich, um es einfach zu machen, auf das globale Objekt zu verweisen. Andernfalls müssten Sie am Anfang Ihres Skripts manuell `let window = this;` zuweisen.
 
-Ein weiterer Grund ist, dass Sie ohne diese Eigenschaft beispielsweise nicht "{{domxref("window.open","window.open('https://google.com/')")}}" schreiben könnten. Sie müssten stattdessen `open('https://google.com/')` verwenden.
+Ein weiterer Grund ist, dass Sie ohne diese Eigenschaft zum Beispiel nicht [`window.open('https://google.com/')`](/de/docs/Web/API/Window/open) schreiben könnten. Sie müssten stattdessen `open('https://google.com/')` verwenden.
 
-Ein weiterer Grund, diese Eigenschaft zu nutzen, ist für Bibliotheken, die OOP-Versionen und nicht-OOP-Versionen (insbesondere JavaScript-Module) anbieten möchten. Wenn wir beispielsweise auf "this.window\.location.href" verweisen, könnte ein [JavaScript-Modul](/de/docs/Web/JavaScript/Guide/Modules) eine Eigenschaft namens "window" innerhalb einer definierten Klasse einführen (da von Haus aus keine globale "window"-Variable für sie existiert), die nach dem Übergeben eines Fensterobjekts an den Konstruktor der Modulklasse erstellt werden könnte. Somit würde "this.window" innerhalb seiner Funktionen auf dieses Fensterobjekt verweisen. In der nicht-namensbasierten Version würde "this.window" auf "window" zurückverweisen und leicht den Dokumentstandort erhalten können. Ein weiterer Vorteil besteht darin, dass die Objekte einer solchen Klasse (selbst wenn die Klasse außerhalb eines Moduls definiert wäre) ihre Referenz zum Fenster nach Belieben ändern können, was sie nicht könnten, wenn sie eine fest codierte Referenz zu "window" hätten. Der Standard in der Klasse könnte dennoch als das aktuelle Fensterobjekt festgelegt werden.
+Ein weiterer Grund, diese Eigenschaft zu nutzen, sind Bibliotheken, die OOP-Versionen und nicht-OOP-Versionen (insbesondere JavaScript-Module) anbieten möchten. Wenn wir zum Beispiel auf "this.window\.location.href" verweisen, könnte ein [JavaScript-Modul](/de/docs/Web/JavaScript/Guide/Modules) eine Eigenschaft namens "window" innerhalb einer Klasse definieren, die es definiert hat (da standardmäßig keine globale "window"-Variable existiert), die nach Übergeben eines Fensterobjekts an den Konstruktor der Modulklasse erstellt werden könnte. Somit würde "this.window" innerhalb seiner Funktionen auf dieses Fensterobjekt verweisen. In der nicht-namespaced Version würde "this.window" auf "window" zurückverweisen und auch in der Lage sein, den Dokumentstandort leicht zu erhalten. Ein weiterer Vorteil ist, dass die Objekte einer solchen Klasse (selbst wenn die Klasse außerhalb eines Moduls definiert wäre) ihren Verweis auf das Fenster nach Belieben ändern könnten. Sie wären dazu nicht in der Lage, wenn sie einen fest kodierten Verweis auf "window" hätten. Die Standardeinstellung in der Klasse könnte trotzdem als das aktuelle Fensterobjekt gesetzt werden.
 
 ## Spezifikationen
 

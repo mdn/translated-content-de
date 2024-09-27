@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`naturalWidth`** Eigenschaft der Schnittstelle {{domxref("PerformanceElementTiming")}} gibt die intrinsische Breite des Bild-Elements zurück.
+Die **`naturalWidth`** schreibgeschützte Eigenschaft des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces gibt die intrinsische Breite des Bildelements zurück.
 
 ## Wert
 
-Ein unsignierter 32-Bit-Integer (unsigned long), der die intrinsische Breite des Bildes ist, wenn es auf ein Bild angewendet wird, `0` für Text.
+Eine nicht signierte 32-Bit-Ganzzahl (unsigned long), die die intrinsische Breite des Bildes darstellt, wenn sie auf ein Bild angewendet wird, `0` für Text.
 
 ## Beispiele
 
-### `naturalWidth` protokollieren
+### Protokollierung von `naturalWidth`
 
-In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein {{domxref("PerformanceObserver")}} wird registriert, um alle Performance-Einträge vom Typ `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten von vor der Erstellung des Beobachters zuzugreifen. Die Bilddatei hat eine Breite von 1000px und eine Höhe von 750px. Der Aufruf von `entry.naturalWidth` gibt `1000` zurück, was die intrinsische Breite in Pixeln ist.
+In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Performance-Einträge des Typs `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten zuzugreifen, die vor der Erstellung des Observers vorhanden waren. Die Bilddatei hat eine Breite von 1000px und eine Höhe von 750px. Der Aufruf von `entry.naturalWidth` gibt `1000` zurück, was die intrinsische Breite in Pixeln darstellt.
 
 ```html
 <img

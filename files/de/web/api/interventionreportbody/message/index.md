@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`message`** des {{domxref("InterventionReportBody")}}-Interfaces liefert eine lesbare Beschreibung der Intervention, einschließlich Informationen darüber, wie die Intervention vermieden werden könnte. Dies entspricht typischerweise der Nachricht, die ein Browser in seiner DevTools-Konsole anzeigt, wenn eine Intervention vorgenommen wird, falls eine verfügbar ist.
+Die **`message`**-Eigenschaft der [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die eine menschenlesbare Beschreibung der Intervention zurückgibt, einschließlich Informationen darüber, wie die Intervention vermieden werden könnte. Dies entspricht typischerweise der Nachricht, die ein Browser in seiner DevTools-Konsole anzeigt, wenn eine Intervention auferlegt wird, falls eine verfügbar ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen {{domxref("ReportingObserver")}}, um Interventionsberichte zu beobachten, und geben dann den Wert von `message` in die Konsole aus.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Interventionsberichte zu beobachten, und geben dann den Wert von `message` in der Konsole aus.
 
 ```js
 const options = {

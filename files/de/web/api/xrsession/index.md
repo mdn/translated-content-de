@@ -7,82 +7,82 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Die **`XRSession`**-Schnittstelle der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) repräsentiert eine laufende XR-Sitzung und bietet Methoden und Eigenschaften, die zum Interagieren mit und zur Steuerung der Sitzung verwendet werden. Um eine WebXR-Sitzung zu öffnen, verwenden Sie die Methode {{domxref("XRSystem.requestSession", "requestSession()")}} der {{domxref("XRSystem")}}-Schnittstelle.
+Das **`XRSession`** Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) repräsentiert eine laufende XR-Sitzung und bietet Methoden und Eigenschaften, die zur Interaktion und Steuerung der Sitzung verwendet werden. Um eine WebXR-Sitzung zu öffnen, verwenden Sie die Methode [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) des [`XRSystem`](/de/docs/Web/API/XRSystem) Interfaces.
 
-Mit den Methoden von `XRSession` können Sie die Position und Orientierung des Betrachters (die {{domxref("XRViewerPose")}}) abfragen, Informationen über die Umgebung des Benutzers sammeln und Bilder für den Benutzer darstellen. `XRSession` unterstützt sowohl Inline- als auch immersive Modi für virtuelle und erweiterte Realität.
+Mit den `XRSession`-Methoden können Sie die Position und Orientierung des Betrachters (die [`XRViewerPose`](/de/docs/Web/API/XRViewerPose)) abfragen, Informationen über die Umgebung des Benutzers sammeln und Bilder dem Benutzer präsentieren. `XRSession` unterstützt sowohl Inline- als auch immersive Virtual- und Augmented-Reality-Modi.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften erbt `XRSession` Eigenschaften von seiner übergeordneten Schnittstelle, {{domxref("EventTarget")}}._
+_Zusätzlich zu den unten aufgeführten Eigenschaften erbt `XRSession` Eigenschaften von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{DOMxRef("XRSession.depthDataFormat", "depthDataFormat")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Gibt das Format der Tiefensensordaten zurück, mit dem die Sitzung konfiguriert wurde.
-- {{DOMxRef("XRSession.depthUsage", "depthUsage")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Gibt die Nutzung der Tiefensensordaten zurück, mit der die Sitzung konfiguriert wurde.
-- {{DOMxRef("XRSession.domOverlayState", "domOverlayState")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Bietet Informationen über das DOM-Overlay, falls die Funktion aktiviert ist.
-- {{DOMxRef("XRSession.environmentBlendMode", "environmentBlendMode")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Gibt den Blendmodus dieser Sitzung zurück, der angibt, wie viel der realen Umgebung durch das XR-Gerät sichtbar ist und wie das Gerät die Gerätegraphe mit ihr vermischt.
-- {{DOMxRef("XRSession.inputSources", "inputSources")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Gibt eine Liste der {{DOMxRef("XRInputSource")}} dieser Sitzung zurück, die jeweils ein Eingabegerät darstellen, das zum Steuern der Kamera und/oder der Szene verwendet wird.
-- {{DOMxRef("XRSession.interactionMode", "interactionMode")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Gibt den Interaktionsmodus dieser Sitzung zurück, der den besten Raum (laut Benutzeragent) beschreibt, für den die Anwendung interaktive Benutzeroberflächen zeichnen soll.
-- {{DOMxRef("XRSession.preferredReflectionFormat", "preferredReflectionFormat")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Gibt das bevorzugte Reflexionsformat dieser Sitzung zurück, das für Beleuchtungsschätzungen von Texturdaten verwendet wird.
-- {{DOMxRef("XRSession.renderState", "renderState")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein {{domxref("XRRenderState")}}-Objekt, das Optionen enthält, die beeinflussen, wie die Grafik gerendert wird. Dazu gehören Dinge wie die Nah- und Fernabschneideebenen (Abstände, die definieren, wie nahe und wie weit entfernt Objekte sein können und trotzdem gerendert werden), sowie Informationen zum Sichtfeld.
-- {{DOMxRef("XRSession.visibilityState", "visibilityState")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein String, der angibt, ob die Bilder der Sitzung für den Benutzer sichtbar sind und wenn ja, ob sie sichtbar sind aber momentan nicht das Ziel für Benutzereignisse sind.
+- [`depthDataFormat`](/de/docs/Web/API/XRSession/depthDataFormat) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Gibt das Tiefensensor-Datenformat zurück, mit dem die Sitzung konfiguriert wurde.
+- [`depthUsage`](/de/docs/Web/API/XRSession/depthUsage) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Gibt die Tiefensensor-Verwendung zurück, mit der die Sitzung konfiguriert wurde.
+- [`domOverlayState`](/de/docs/Web/API/XRSession/domOverlayState) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Bietet Informationen über das DOM-Overlay, falls das Feature aktiviert ist.
+- [`environmentBlendMode`](/de/docs/Web/API/XRSession/environmentBlendMode) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Gibt den Blend-Modus dieser Sitzung zurück, der angibt, wie viel von der realen Umgebung durch das XR-Gerät sichtbar ist und wie das Gerät die Bilddaten des Geräts damit vermischt.
+- [`inputSources`](/de/docs/Web/API/XRSession/inputSources) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Gibt eine Liste der [`XRInputSource`](/de/docs/Web/API/XRInputSource)s dieser Sitzung zurück, die jeweils ein Eingabegerät darstellen, das zur Steuerung der Kamera und/oder der Szene verwendet wird.
+- [`interactionMode`](/de/docs/Web/API/XRSession/interactionMode) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Gibt den Interaktionsmodus dieser Sitzung zurück, der den besten Bereich (laut des Benutzeragents) beschreibt, um die interaktive Benutzeroberfläche für die aktuelle Sitzung zu zeichnen.
+- [`preferredReflectionFormat`](/de/docs/Web/API/XRSession/preferredReflectionFormat) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Gibt das bevorzugte Reflexionsformat dieser Sitzung zurück, das für die Beleuchtungsschätzungs-Texturdaten verwendet wird.
+- [`renderState`](/de/docs/Web/API/XRSession/renderState) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Ein [`XRRenderState`](/de/docs/Web/API/XRRenderState)-Objekt, das Optionen enthält, die beeinflussen, wie die Bildgebung gerendert wird. Dazu gehören Dinge wie die nahen und fernen Schneide-Ebenen (Entfernungen, die definieren, wie nah und wie weit Objekte entfernt sein können und trotzdem gerendert werden) sowie Informationen über das Sichtfeld.
+- [`visibilityState`](/de/docs/Web/API/XRSession/visibilityState) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Ein String, der angibt, ob das Bildmaterial der Sitzung für den Nutzer sichtbar ist und falls ja, ob es sichtbar ist, aber derzeit nicht das Ziel für Benutzereingaben ist.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_`XRSession` bietet die folgenden Methoden zusätzlich zu denen, die von seiner übergeordneten Schnittstelle, {{domxref("EventTarget")}}, geerbt werden._
+_`XRSession` stellt die folgenden Methoden zusätzlich zu denen, die von seinem übergeordneten Interface [`EventTarget`](/de/docs/Web/API/EventTarget) geerbt werden, bereit._
 
-- {{DOMxRef("XRSession.cancelAnimationFrame", "cancelAnimationFrame()")}} {{Experimental_Inline}}
-  - : Entfernt einen Rückruf aus dem Rückrufset des `XRSession` für die Animationsrahmen-Malerei, basierend auf dem Identifikations-Handle, das von einem vorherigen Aufruf von {{domxref("XRSession.requestAnimationFrame", "requestAnimationFrame()")}} zurückgegeben wurde.
-- {{DOMxRef("XRSession.end", "end()")}} {{Experimental_Inline}}
-  - : Beendet die WebXR-Sitzung. Gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn die Sitzung beendet wurde.
-- {{DOMxRef("XRSession.requestAnimationFrame", "requestAnimationFrame()")}} {{Experimental_Inline}}
-  - : Plant die angegebene Methode für den nächsten Zeitpunkt der Animationsrahmenbearbeitung durch den {{glossary("user agent")}} für das WebXR-Gerät ein. Gibt einen ganzzahligen Wert zurück, der verwendet werden kann, um die Anforderung zum Zwecke der Stornierung des Rückrufs mit `cancelAnimationFrame()` zu identifizieren. Diese Methode ist vergleichbar mit der Methode {{domxref("Window.requestAnimationFrame()")}}.
-- {{DOMxRef("XRSession.requestHitTestSource", "requestHitTestSource()")}} {{Experimental_Inline}}
-  - : Fordert ein {{domxref("XRHitTestSource")}}-Objekt an, das Subskriptionen für Treffer-Tests verwaltet.
-- {{DOMxRef("XRSession.requestHitTestSourceForTransientInput", "requestHitTestSourceForTransientInput()")}} {{Experimental_Inline}}
-  - : Fordert ein {{domxref("XRTransientInputHitTestSource")}}-Objekt an, das Subskriptionen für Treffer-Tests für eine flüchtige Eingabequelle verwaltet.
-- {{DOMxRef("XRSession.requestLightProbe", "requestLightProbe()")}} {{Experimental_Inline}}
-  - : Fordert eine {{domxref("XRLightProbe")}} an, die Lichtinformationen an einem bestimmten Punkt in der Umgebung des Benutzers schätzt.
-- {{DOMxRef("XRSession.requestReferenceSpace", "requestReferenceSpace()")}} {{Experimental_Inline}}
-  - : Fordert an, dass ein neuer {{domxref("XRReferenceSpace")}} des angegebenen Typs erstellt wird. Gibt ein Versprechen zurück, das mit dem angeforderten `XRReferenceSpace` oder {{domxref("XRBoundedReferenceSpace")}} aufgelöst wird, oder löst einen `NotSupportedError` {{domxref("DOMException")}} aus, wenn der angeforderte Raumtyp vom Gerät nicht unterstützt wird.
-- {{DOMxRef("XRSession.updateRenderState", "updateRenderState()")}} {{Experimental_Inline}}
-  - : Aktualisiert die Eigenschaften des Renderzustands der Sitzung.
+- [`cancelAnimationFrame()`](/de/docs/Web/API/XRSession/cancelAnimationFrame) {{Experimental_Inline}}
+  - : Entfernt einen Callback aus dem Animations-Frame-Mal-Callback aus dem Set der Animations-Frame-Rendering-Callbacks von `XRSession`, gegeben durch den identifizierenden Handle, der durch einen vorherigen Aufruf von [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) zurückgegeben wurde.
+- [`end()`](/de/docs/Web/API/XRSession/end) {{Experimental_Inline}}
+  - : Beendet die WebXR-Sitzung. Gibt ein {{jsxref("promise")}} zurück, das sich auflöst, wenn die Sitzung heruntergefahren wurde.
+- [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) {{Experimental_Inline}}
+  - : Plant die angegebene Methode für den nächsten Zeitpunkt ein, zu dem der [User-Agent](/de/docs/Glossary/user_agent) an der Wiedergabe eines Animations-Frames für das WebXR-Gerät arbeitet. Gibt einen ganzzahligen Wert zurück, der zur Identifizierung der Anfrage zum Zweck der Stornierung des Callbacks mittels `cancelAnimationFrame()` genutzt werden kann. Diese Methode ist vergleichbar mit der [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)-Methode.
+- [`requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource) {{Experimental_Inline}}
+  - : Fordert ein [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource)-Objekt an, das die Hit-Test-Abonnementverwaltung übernimmt.
+- [`requestHitTestSourceForTransientInput()`](/de/docs/Web/API/XRSession/requestHitTestSourceForTransientInput) {{Experimental_Inline}}
+  - : Fordert ein [`XRTransientInputHitTestSource`](/de/docs/Web/API/XRTransientInputHitTestSource)-Objekt an, das die Hit-Test-Abonnementverwaltung für eine temporäre Eingabequelle übernimmt.
+- [`requestLightProbe()`](/de/docs/Web/API/XRSession/requestLightProbe) {{Experimental_Inline}}
+  - : Fordert eine [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) an, die Lichtinformationen an einem gegebenen Punkt in der Umgebung des Benutzers schätzt.
+- [`requestReferenceSpace()`](/de/docs/Web/API/XRSession/requestReferenceSpace) {{Experimental_Inline}}
+  - : Fordert an, dass ein neuer [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) des angegebenen Typs erstellt wird. Gibt ein Promise zurück, das sich mit dem angeforderten `XRReferenceSpace` oder [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace) auflöst oder wirft einen `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException), wenn der angeforderte Raumtyp vom Gerät nicht unterstützt wird.
+- [`updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) {{Experimental_Inline}}
+  - : Aktualisiert die Eigenschaften des Render-Status der Sitzung.
 
 ## Ereignisse
 
 _Die folgenden Ereignisse werden an `XRSession`-Objekte gesendet._
 
-- {{domxref("XRSession.end_event", "end")}} {{Experimental_Inline}}
-  - : Wird an das `XRSession`-Objekt gesendet, nachdem die WebXR-Sitzung beendet wurde und alle hardwarebezogenen Funktionen abgeschlossen sind. Das Ereignis wird durch ein Objekt des Typs {{domxref("XRSessionEvent")}} dargestellt. Auch über die `onend`-Ereignishandler-Eigenschaft verfügbar.
-- {{domxref("XRSession.inputsourceschange_event", "inputsourceschange")}} {{Experimental_Inline}}
-  - : Ein Ereignis des Typs {{domxref("XRInputSourcesChangeEvent")}}, das an die `XRSession` gesendet wird, wenn sich die Liste der aktiven XR-Eingabequellen geändert hat. Auch über die `oninputsourceschange`-Ereignishandler-Eigenschaft verfügbar.
-- {{domxref("XRSession.select_event", "select")}} {{Experimental_Inline}}
-  - : Ein Ereignis des Typs {{domxref("XRInputSourceEvent")}}, das an die Sitzung gesendet wird, wenn eine der Eingabequellen der Sitzung erfolgreich eine [primäre Aktion](/de/docs/Web/API/WebXR_Device_API/Inputs#primary_action) abgeschlossen hat. Dies korrespondiert in der Regel mit dem Drücken eines Triggers, Touchpads oder einer Taste, einem gesprochenen Befehl oder einer erkennbaren Geste. Das `select`-Ereignis wird nach dem `selectstart`-Ereignis gesendet und unmittelbar vor dem `selectend`-Ereignis gesendet. Wenn `select` _nicht_ gesendet wird, wurde die Auswahlaktion vor der Fertigstellung abgebrochen. Auch über die `onselect`-Ereignishandler-Eigenschaft verfügbar.
-- {{domxref("XRSession.selectend_event", "selectend")}} {{Experimental_Inline}}
-  - : Ein Ereignis des Typs {{domxref("XRInputSourceEvent")}}, das an das Sitzungsobjekt gesendet wird, wenn eine der Eingabegeräte seine primäre Aktion beendet oder beim Bearbeiten einer primären Aktion getrennt wurde. Zum Beispiel: Bei Taste- oder Triggereingaben bedeutet dies, dass die Taste losgelassen wurde; bei gesprochenen Befehlen bedeutet dies, dass der Benutzer das Sprechen beendet hat. Dies ist das letzte der drei `select*`-Ereignisse, die gesendet werden. Auch über die `onselectend`-Ereignishandler-Eigenschaft verfügbar.
-- {{domxref("XRSession.selectstart_event", "selectstart")}} {{Experimental_Inline}}
-  - : Ein Ereignis des Typs {{domxref("XRInputSourceEvent")}}, das an das Sitzungsobjekt gesendet wird, wenn eine seiner Eingabegeräte vom Benutzer so aktiviert wird, dass die primäre Aktion beginnt. Dies ist das erste der `session*`-Ereignisse, das gesendet wird. Auch über die `onselectstart`-Ereignishandler-Eigenschaft verfügbar.
-- {{domxref("XRSession.squeeze_event", "squeeze")}} {{Experimental_Inline}}
-  - : Ein {{domxref("XRInputSourceEvent")}}, das gesendet wird, um anzuzeigen, dass eine [primäre Quetschaktion](/de/docs/Web/API/WebXR_Device_API/Inputs#primary_squeeze_action) erfolgreich abgeschlossen wurde. Das zeigt an, dass das gequetschte Gerät losgelassen wurde, und kann zum Beispiel das Ablegen eines gegriffenen Objekts darstellen. Es wird unmittelbar vor dem `squeezeend`-Ereignis gesendet, um anzuzeigen, dass die Quetschaktion abgeschlossen ist. Auch über die `onsqueeze`-Ereignishandler-Eigenschaft verfügbar.
-- {{domxref("XRSession.squeezeend_event", "squeezeend")}} {{Experimental_Inline}}
-  - : Ein {{domxref("XRInputSourceEvent")}}, das an die `XRSession` gesendet wird, wenn die [primäre Quetschaktion](/de/docs/Web/API/WebXR_Device_API/Inputs#primary_squeeze_action) endet, unabhängig davon, ob die Aktion erfolgreich war. Auch über die `onsqueezeend`-Ereignishandler-Eigenschaft verfügbar.
-- {{domxref("XRSession.squeezestart_event", "squeezestart")}} {{Experimental_Inline}}
-  - : Ein Ereignis des Typs {{domxref("XRInputSourceEvent")}}, das an die `XRSession` gesendet wird, wenn der Benutzer erstmals einen quetschbaren Controller quetscht. Dies kann zum Beispiel ein Trigger sein, der verwendet wird, um das Greifen von Objekten darzustellen, oder könnte bei Verwendung eines haptischen Handschuhs tatsächlich Quetschen darstellen. Auch über die `onsqueezestart`-Ereignishandler-Eigenschaft verfügbar.
-- {{domxref("XRSession.visibilitychange_event", "visibilitychange")}} {{Experimental_Inline}}
-  - : Ein {{domxref("XRSessionEvent")}}, das an die Sitzung gesendet wird, wenn sich der Sichtbarkeitszustand laut {{domxref("XRSession.visibilityState", "visibilityState")}} ändert. Auch über die `onvisibilitychange`-Ereignishandler-Eigenschaft verfügbar.
+- [`end`](/de/docs/Web/API/XRSession/end_event) {{Experimental_Inline}}
+  - : Wird an das `XRSession`-Objekt gesendet, nachdem die WebXR-Sitzung beendet wurde und alle hardwarebezogenen Funktionen abgeschlossen sind. Das Ereignis wird durch ein Objekt vom Typ [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent) repräsentiert. Auch über die `onend`-Ereignishandler-Eigenschaft verfügbar.
+- [`inputsourceschange`](/de/docs/Web/API/XRSession/inputsourceschange_event) {{Experimental_Inline}}
+  - : Ein Ereignis vom Typ [`XRInputSourcesChangeEvent`](/de/docs/Web/API/XRInputSourcesChangeEvent), das an die `XRSession` gesendet wird, wenn sich die Liste der aktiven XR-Eingabequellen geändert hat. Auch über die `oninputsourceschange`-Ereignishandler-Eigenschaft verfügbar.
+- [`select`](/de/docs/Web/API/XRSession/select_event) {{Experimental_Inline}}
+  - : Ein Ereignis vom Typ [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent), das an die Sitzung gesendet wird, wenn eine der Eingabequellen der Sitzung eine [primäre Aktion](/de/docs/Web/API/WebXR_Device_API/Inputs#primary_action) erfolgreich abgeschlossen hat. Dies entspricht im Allgemeinen dem Drücken eines Triggers, eines Touchpads oder eines Buttons, dem Aussprechen eines Befehls oder dem Ausführen einer erkennbaren Geste durch den Benutzer. Das `select`-Ereignis wird nach dem `selectstart`-Ereignis gesendet und unmittelbar bevor das `selectend`-Ereignis gesendet wird. Wenn `select` _nicht_ gesendet wird, wurde die Auswahlaktion abgebrochen, bevor sie abgeschlossen wurde. Auch über die `onselect`-Ereignishandler-Eigenschaft verfügbar.
+- [`selectend`](/de/docs/Web/API/XRSession/selectend_event) {{Experimental_Inline}}
+  - : Ein Ereignis vom Typ [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent), das an das Sitzungsobjekt gesendet wird, wenn eine seiner Eingabegeräte seine primäre Aktion abgeschlossen hat oder während der Bearbeitung einer primären Handlung getrennt wurde. Beispielsweise: Bei Button- oder Trigger-Aktionen bedeutet dies, dass der Button losgelassen wurde; bei gesprochenen Befehlen bedeutet dies, dass der Benutzer das Sprechen abgeschlossen hat. Dies ist das letzte der drei `select*`-Ereignisse, die gesendet werden. Auch über die `onselectend`-Ereignishandler-Eigenschaft verfügbar.
+- [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event) {{Experimental_Inline}}
+  - : Ein Ereignis vom Typ [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent), das an das Sitzungsobjekt gesendet wird, wenn eines seiner Eingabegeräte vom Benutzer erstmals so engagiert wird, dass die primäre Aktion beginnt. Dies ist das erste der `session*`-Ereignisse, die gesendet werden. Auch über die `onselectstart`-Ereignishandler-Eigenschaft verfügbar.
+- [`squeeze`](/de/docs/Web/API/XRSession/squeeze_event) {{Experimental_Inline}}
+  - : Ein [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent), das gesendet wird, um anzuzeigen, dass eine [primäre Quetschaktion](/de/docs/Web/API/WebXR_Device_API/Inputs#primary_squeeze_action) erfolgreich abgeschlossen wurde. Dies bedeutet, dass das Gerät, das gequetscht wurde, freigegeben wurde, und kann zum Beispiel das Fallenlassen eines aufgenommenen Objekts darstellen. Es wird unmittelbar vor dem `squeezeend`-Ereignis gesendet, um anzuzeigen, dass die Quetschaktion vorbei ist. Auch über die `onsqueeze`-Ereignishandler-Eigenschaft verfügbar.
+- [`squeezeend`](/de/docs/Web/API/XRSession/squeezeend_event) {{Experimental_Inline}}
+  - : Ein [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent), das an die `XRSession` gesendet wird, wenn die [primäre Quetschaktion](/de/docs/Web/API/WebXR_Device_API/Inputs#primary_squeeze_action) endet, unabhängig davon, ob die Aktion erfolgreich war oder nicht. Auch über die `onsqueezeend`-Ereignishandler-Eigenschaft verfügbar.
+- [`squeezestart`](/de/docs/Web/API/XRSession/squeezestart_event) {{Experimental_Inline}}
+  - : Ein Ereignis vom Typ [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent), das an die `XRSession` gesendet wird, wenn der Benutzer erstmals einen quetschbaren Controller zusammendrückt. Dies kann beispielsweise ein Trigger sein, der verwendet wird, um das Greifen von Objekten darzustellen, oder es könnte tatsächliches Quetschen sein, wenn ein haptischer Handschuh getragen wird. Auch über die `onsqueezestart`-Ereignishandler-Eigenschaft verfügbar.
+- [`visibilitychange`](/de/docs/Web/API/XRSession/visibilitychange_event) {{Experimental_Inline}}
+  - : Ein [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent), das an die Sitzung gesendet wird, wenn sich der Sichtbarkeitsstatus der Sitzung, wie von der [`visibilityState`](/de/docs/Web/API/XRSession/visibilityState) angegeben, ändert. Auch über die `onvisibilitychange`-Ereignishandler-Eigenschaft verfügbar.
 
 ## Beispiel
 
-Dieses Beispiel erstellt eine neue `XRSession` im `inline`-Modus, sodass sie innerhalb eines HTML-Elements angezeigt werden kann, ohne dass ein spezielles AR- oder VR-Anzeigegerät wie ein Headset erforderlich ist.
+Dieses Beispiel etabliert eine neue `XRSession` im `inline`-Modus, sodass sie innerhalb eines HTML-Elements angezeigt werden kann, was die Notwendigkeit eines speziellen AR- oder VR-Anzeigegeräts wie eines Headsets vermeidet.
 
 ```js
 const XR = navigator.xr;

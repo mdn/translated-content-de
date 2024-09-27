@@ -8,79 +8,80 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`db`**-Eigenschaft des {{domxref("IDBTransaction")}}-Interfaces gibt die Datenbankverbindung zurück, mit der diese Transaktion verbunden ist.
+Die schreibgeschützte **`db`**-Eigenschaft des [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Interfaces gibt die Datenbankverbindung zurück,
+mit der diese Transaktion verknüpft ist.
 
 ## Wert
 
-Ein {{domxref("IDBDatabase")}}-Objekt.
+Ein [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Objekt.
 
 ## Beispiele
 
-Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen einige Daten in einen Objektspeicher hinzu. Beachten Sie auch die Funktionen, die an die Transaktionsereignis-Handler angehängt sind, um über das Ergebnis der Transaktionseröffnung im Falle eines Erfolgs oder Misserfolgs zu berichten. Am Ende geben wir die zugehörige Datenbankverbindung mit `db` zurück. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen einige Daten zu einem Objekt-Store hinzu. Beachten Sie auch die Funktionen, die den Transaktionsereignishandlern hinzugefügt wurden, um über das Ergebnis der Transaktionsöffnung im Erfolgs- oder Fehlerfall zu berichten. Am Ende geben wir die zugehörige Datenbankverbindung unter Verwendung von `db` zurück. Für ein vollständig funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.getElementById("notifications");
 
-// eine Instanz eines db-Objekts, in dem wir die IDB-Daten speichern
+// an instance of a db object for us to store the IDB data in
 let db;
 
-// Lassen Sie uns unsere Datenbank öffnen
+// Let us open our database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
 DBOpenRequest.onsuccess = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Datenbank initialisiert.";
+    "Database initialized.";
 
-  // Speichern Sie das Ergebnis des Öffnens der Datenbank in der db-Variablen.
-  // Dies wird weiter unten häufig verwendet
+  // store the result of opening the database in the db variable.
+  // This is used a lot below
   db = DBOpenRequest.result;
 
-  // Führen Sie die Funktion addData() aus, um die Daten in die Datenbank einzufügen
+  // Run the addData() function to add the data to the database
   addData();
 };
 
 function addData() {
-  // Erstellen Sie ein neues Objekt, das in die IDB eingefügt wird
+  // Create a new object ready for being inserted into the IDB
   const newItem = [
     {
-      taskTitle: "Hund ausführen",
+      taskTitle: "Walk dog",
       hours: 19,
       minutes: 30,
       day: 24,
-      month: "Dezember",
+      month: "December",
       year: 2013,
-      notified: "nein",
+      notified: "no",
     },
   ];
 
-  // eine Lese-/Schreib-DB-Transaktion öffnen, bereit, um die Daten hinzuzufügen
+  // open a read/write db transaction, ready for adding the data
   const transaction = db.transaction(["toDoList"], "readwrite");
 
-  // Bericht über den Erfolg des Öffnens der Transaktion
+  // report on the success of opening the transaction
   transaction.oncomplete = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion abgeschlossen: Datenbankänderung abgeschlossen.";
+      "Transaction completed: database modification finished.";
   };
 
   transaction.onerror = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion aufgrund eines Fehlers nicht geöffnet. Doppelte Elemente nicht erlaubt.";
+      "Transaction not opened due to error. Duplicate items not allowed.";
   };
 
-  // einen Objektspeicher auf der Transaktion erstellen
+  // create an object store on the transaction
   const objectStore = transaction.objectStore("toDoList");
 
-  // unser newItem-Objekt zum Objektspeicher hinzufügen
+  // add our newItem object to the object store
   const objectStoreRequest = objectStore.add(newItem[0]);
 
   objectStoreRequest.onsuccess = (event) => {
-    // melden Sie den Erfolg der Anfrage (dies bedeutet nicht, dass das Element
-    // erfolgreich in der DB gespeichert wurde - dafür benötigen Sie transaction.onsuccess)
+    // report the success of the request (this does not mean the item
+    // has been stored successfully in the DB - for that you need transaction.onsuccess)
     note.appendChild(document.createElement("li")).textContent =
-      "Anfrage erfolgreich.";
+      "Request successful.";
   };
 
-  // Geben Sie die Datenbankverbindung (IDBDatabase) zurück, mit der diese Transaktion verbunden ist
+  // Return the database (IDBDatabase) connection with which this transaction is associated
   transaction.db;
 }
 ```
@@ -96,9 +97,9 @@ function addData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Einen Bereich von Schlüsseln festlegen: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursorn: {{domxref("IDBCursor")}}
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

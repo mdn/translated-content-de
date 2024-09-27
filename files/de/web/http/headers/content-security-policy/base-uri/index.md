@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}}-Direktive **`base-uri`** beschränkt die URLs, die im {{HTMLElement("base")}}-Element eines Dokuments verwendet werden können. Wenn dieser Wert fehlt, ist jede URI erlaubt. Wenn diese Direktive fehlt, verwendet der Benutzeragent den Wert im {{HTMLElement("base")}}-Element.
+Die HTTP-Richtlinie {{HTTPHeader("Content-Security-Policy")}} **`base-uri`** beschränkt die URLs, die im {{HTMLElement("base")}}-Element eines Dokuments verwendet werden können. Wenn dieser Wert fehlt, ist jede URI erlaubt. Wenn diese Direktive fehlt, verwendet der User-Agent den Wert im {{HTMLElement("base")}}-Element.
 
 <table class="properties">
   <tbody>
@@ -16,19 +16,19 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}}-Direktive **`base-uri`** besc
       <td>2</td>
     </tr>
     <tr>
-      <th scope="row">Direktivtyp</th>
-      <td>{{Glossary("Document directive")}}</td>
+      <th scope="row">Direktiventyp</th>
+      <td>[Dokumentrichtlinie](/de/docs/Glossary/Document_directive)</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Rückfall</th>
-      <td>Nein. Wenn dies nicht festgelegt ist, ist jede URL erlaubt.</td>
+      <th scope="row">{{CSP("default-src")}} Fallback</th>
+      <td>Nein. Wenn dies nicht festgelegt wird, ist jede URL erlaubt.</td>
     </tr>
   </tbody>
 </table>
 
 ## Syntax
 
-Für die base-uri-Richtlinie können eine oder mehrere _Quellen_ erlaubt werden:
+Einer oder mehrere _Quellen_ können für die base-uri-Richtlinie erlaubt werden:
 
 ```http
 Content-Security-Policy: base-uri <source>;
@@ -37,7 +37,7 @@ Content-Security-Policy: base-uri <source> <source>;
 
 ### Quellen
 
-Diese Direktive verwendet dieselbe Syntax für [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) für Argumente wie andere CSP-Direktiven. Allerdings machen nur Werte, die URLs entsprechen, für `base-uri` Sinn, einschließlich `<host-source>`, `<scheme-source>`, `'self'` und `'none'`.
+Diese Direktive verwendet dieselbe Syntax für [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) für Argumente wie andere CSP-Direktiven. Allerdings machen nur Werte, die mit URLs übereinstimmen, für `base-uri` Sinn, einschließlich `<host-source>`, `<scheme-source>`, `'self'` und `'none'`.
 
 ## Beispiele
 
@@ -61,17 +61,18 @@ Header set Content-Security-Policy "base-uri 'self'";
 add_header Content-Security-Policy "base-uri 'self';"
 ```
 
-### Verstoßfall
+### Verletzungsfall
 
-Da Ihre Domain nicht `example.com` ist, wird ein {{HTMLElement("base")}}-Element mit `href` auf `https://example.com` gesetzt zu einem CSP-Verstoß führen.
+Da Ihre Domain nicht `example.com` ist, führt ein {{HTMLElement("base")}}-Element mit `href` gesetzt auf `https://example.com` zu einem CSP-Verstoß.
 
 ```html example-bad
 <meta http-equiv="Content-Security-Policy" content="base-uri 'self'" />
 <base href="https://example.com/" />
 
 <!--
-// Fehler: Die Basis-URI des Dokuments konnte nicht auf 'https://example.com/' gesetzt werden,
-// weil es gegen die folgende Content Security Policy-Direktive verstößt: "base-uri 'self'"
+// Error: Refused to set the document's base URI to 'https://example.com/'
+// because it violates the following Content Security Policy
+// directive: "base-uri 'self'"
 -->
 ```
 
@@ -87,4 +88,4 @@ Da Ihre Domain nicht `example.com` ist, wird ein {{HTMLElement("base")}}-Element
 
 - {{HTTPheader("Content-Security-Policy")}}
 - {{HTMLElement("base")}}
-- {{domxref("Node.baseURI")}}
+- [`Node.baseURI`](/de/docs/Web/API/Node/baseURI)

@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`close()`**-Methode der Schnittstelle {{domxref("ImageDecoder")}} beendet alle noch offenen Arbeiten und gibt Systemressourcen frei.
+Die **`close()`**-Methode des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces beendet alle noch ausstehenden Arbeiten und gibt Systemressourcen frei.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel schließt den `ImageDecoder`.
+Im folgenden Beispiel wird der `ImageDecoder` geschlossen.
 
 ```js
 imageDecoder.close();
@@ -36,6 +36,6 @@ imageDecoder.close();
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

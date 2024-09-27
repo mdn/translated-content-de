@@ -7,23 +7,23 @@ l10n:
 
 {{DefaultAPISidebar("WebSockets API")}}
 
-Dieses Beispiel zeigt Ihnen, wie Sie einen WebSocket-API-Server mit Oracle Java erstellen.
+Dieses Beispiel zeigt Ihnen, wie Sie einen WebSocket-API-Server mit Oracle Java erstellen können.
 
-Obwohl andere serverseitige Sprachen zum Erstellen eines WebSocket-Servers verwendet werden können, wird in diesem Beispiel Oracle Java verwendet, um den Beispielcode zu vereinfachen.
+Obwohl andere serverseitige Sprachen verwendet werden können, um einen WebSocket-Server zu erstellen, verwendet dieses Beispiel Oracle Java, um den Beispielcode zu vereinfachen.
 
-Dieser Server entspricht [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455) und verarbeitet daher nur Verbindungen von Chrome Version 16, Firefox 11, IE 10 und höher.
+Dieser Server entspricht [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455), daher verarbeitet er nur Verbindungen von Chrome Version 16, Firefox 11, IE 10 und höher.
 
 ## Erste Schritte
 
-WebSockets kommunizieren über eine [TCP (Transmission Control Protocol)](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)-Verbindung. Die Java-Klasse [ServerSocket](https://docs.oracle.com/javase/8/docs/api/java/net/ServerSocket.html) befindet sich im Paket `java.net`.
+WebSockets kommunizieren über eine [TCP (Transmission Control Protocol)](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)-Verbindung. Die Java-Klasse [ServerSocket](https://docs.oracle.com/javase/8/docs/api/java/net/ServerSocket.html) befindet sich im `java.net`-Paket.
 
 ### ServerSocket
 
-Der `ServerSocket`-Konstruktor akzeptiert einen einzelnen Parameter `port` vom Typ `int`.
+Der `ServerSocket`-Konstruktor akzeptiert einen einzigen Parameter `port` vom Typ `int`.
 
-Wenn Sie die ServerSocket-Klasse instanziieren, wird sie an die von Ihnen angegebene Portnummer gebunden, die Sie mit dem Argument _port_ festgelegt haben.
+Wenn Sie die ServerSocket-Klasse instanziieren, ist sie an die von Ihnen im _port_-Argument spezifizierte Portnummer gebunden.
 
-Hier ist eine Implementierung, die in Teile aufgeteilt ist:
+Hier ist eine Implementierung, aufgeteilt in Teile:
 
 ```java
 import java.io.IOException;
@@ -50,9 +50,9 @@ public class WebSocket {
 ### Socket-Methoden
 
 - `java.net.Socket.getInputStream()`
-  - : Gibt einen Eingabestream für diesen Socket zurück.
+  - : Gibt einen Eingabestrom für diesen Socket zurück.
 - `java.net.Socket.getOutputStream()`
-  - : Gibt einen Ausgabestream für diesen Socket zurück.
+  - : Gibt einen Ausgabestrom für diesen Socket zurück.
 
 ### OutputStream-Methoden
 
@@ -60,7 +60,7 @@ public class WebSocket {
 write(byte[] b, int off, int len)
 ```
 
-Schreibt `len` Bytes aus dem angegebenen Byte-Array beginnend bei Offset `off` in diesen Ausgabestream.
+Schreibt `len` Bytes aus dem angegebenen Byte-Array ab dem Offset `off` in diesen Ausgabestrom.
 
 ### InputStream-Methoden
 
@@ -68,9 +68,9 @@ Schreibt `len` Bytes aus dem angegebenen Byte-Array beginnend bei Offset `off` i
 read(byte[] b, int off, int len)
 ```
 
-Liest bis zu _len_ Bytes Daten aus dem Eingabestream in ein Byte-Array.
+Liest bis zu _len_ Bytes an Daten aus dem Eingabestrom in ein Array von Bytes.
 
-Erweitern wir unser Beispiel.
+Lassen Sie uns unser Beispiel erweitern.
 
 ```java
 InputStream in = client.getInputStream();
@@ -78,9 +78,9 @@ OutputStream out = client.getOutputStream();
 Scanner s = new Scanner(in, "UTF-8");
 ```
 
-## Handshaking
+## Handshake
 
-Wenn ein Client eine Verbindung zu einem Server herstellt, sendet er eine GET-Anfrage, um die Verbindung von einer einfachen HTTP-Anfrage zu einem WebSocket zu aktualisieren. Dies wird als Handshake bezeichnet.
+Wenn ein Client eine Verbindung zu einem Server herstellt, sendet er eine GET-Anfrage, um die Verbindung von einer einfachen HTTP-Anfrage in eine WebSocket-Verbindung umzuwandeln. Dies wird als Handshaking bezeichnet.
 
 ```java
 try {
@@ -88,14 +88,14 @@ try {
   Matcher get = Pattern.compile("^GET").matcher(data);
 ```
 
-Das Erstellen der Antwort ist einfacher als zu verstehen, warum Sie es auf diese Weise tun müssen.
+Das Erstellen der Antwort ist einfacher, als zu verstehen, warum Sie es auf diese Weise tun müssen.
 
-Sie müssen,
+Sie müssen:
 
-1. Den Wert des _Sec-WebSocket-Key_-Anforderungsheaders ohne führende und nachfolgende Leerzeichen erhalten
+1. Den Wert des _Sec-WebSocket-Key_-Anforderungs-Headers ohne führende und nachfolgende Leerzeichen erhalten
 2. Ihn mit "258EAFA5-E914-47DA-95CA-C5AB0DC85B11" verknüpfen
-3. Den SHA-1- und Base64-Code davon berechnen
-4. Ihn als Wert des _Sec-WebSocket-Accept_-Antwortheaders als Teil einer HTTP-Antwort zurückschreiben.
+3. SHA-1 und Base64 davon berechnen
+4. Ihn als Wert des _Sec-WebSocket-Accept_-Antwort-Headers als Teil einer HTTP-Antwort zurückschreiben.
 
 ```java
 if (get.find()) {
@@ -110,9 +110,9 @@ if (get.find()) {
   out.write(response, 0, response.length);
 ```
 
-## Dekodieren von Nachrichten
+## Nachrichten dekodieren
 
-Nach einem erfolgreichen Handshake kann der Client Nachrichten an den Server senden, diese sind jedoch jetzt kodiert.
+Nach einem erfolgreichen Handshake kann der Client Nachrichten an den Server senden, jedoch sind diese jetzt kodiert.
 
 Wenn wir "abcdef" senden, erhalten wir diese Bytes:
 
@@ -122,27 +122,27 @@ Wenn wir "abcdef" senden, erhalten wir diese Bytes:
 
 - 129:
 
-  | FIN (Ist dies die gesamte Nachricht?) | RSV1 | RSV2 | RSV3 | Opcode   |
-  | ------------------------------------- | ---- | ---- | ---- | -------- |
-  | 1                                     | 0    | 0    | 0    | 0x1=0001 |
+  | FIN (Ist dies die ganze Nachricht?) | RSV1 | RSV2 | RSV3 | Opcode   |
+  | ----------------------------------- | ---- | ---- | ---- | -------- |
+  | 1                                   | 0    | 0    | 0    | 0x1=0001 |
 
-  FIN: Sie können Ihre Nachricht in Frames senden, aber halten Sie es jetzt einfach.
-  Opcode _0x1_ bedeutet, dass dies ein Text ist. [Vollständige Liste der Opcodes](https://datatracker.ietf.org/doc/html/rfc6455#section-5.2)
+  FIN: Sie können Ihre Nachricht in Frames senden, aber wir halten die Dinge jetzt einfach.
+  Opcode _0x1_ bedeutet, dass dies Text ist. [Vollständige Liste der Opcodes](https://datatracker.ietf.org/doc/html/rfc6455#section-5.2)
 
 - 134:
 
-  Wenn das zweite Byte minus 128 zwischen 0 und 125 liegt, ist dies die Länge der Nachricht. Wenn es 126 ist, dann die folgenden 2 Bytes (16-Bit-Unsigned Integer), wenn 127, die folgenden 8 Bytes (64-Bit-Unsigned Integer, das höchstbedeutende Bit MUSS 0 sein) sind die Länge.
+  Wenn das zweite Byte minus 128 zwischen 0 und 125 liegt, ist dies die Länge der Nachricht. Wenn es 126 ist, sind die folgenden 2 Bytes (16-Bit-Integer), wenn 127, sind die folgenden 8 Bytes (64-Bit-Integer, das signifikanteste Bit MUSS 0 sein) die Länge.
 
   > [!NOTE]
-  > Es kann 128 annehmen, weil das erste Bit immer 1 ist.
+  > Es kann 128 nehmen, da das erste Bit immer 1 ist.
 
-- 167, 225, 225 und 210 sind die Bytes des Schlüssels zum Dekodieren. Es ändert sich jedes Mal.
+- 167, 225, 225 und 210 sind die Bytes des Schlüssels zur Dekodierung. Er ändert sich jedes Mal.
 
-- Die verbleibenden kodierten Bytes sind die Nachricht.
+- Die restlichen kodierten Bytes sind die Nachricht.
 
 ### Dekodierungsalgorithmus
 
-dekodiertes Byte = kodiertes Byte XOR (Position des kodierten Bytes BITWISE AND 0x3)-tes Byte des Schlüssels
+Dekodiertes Byte = Kodiertes Byte XOR (Position des kodierten Bytes BITWISE AND 0x3)tes Byte des Schlüssels
 
 Beispiel in Java:
 

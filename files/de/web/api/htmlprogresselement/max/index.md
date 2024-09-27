@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`max`**-Eigenschaft der {{DOMxRef("HTMLProgressElement")}}-Schnittstelle stellt die obere Grenze des Bereichs des {{HTMLElement("progress")}}-Elements dar.
+Die **`max`**-Eigenschaft des [`HTMLProgressElement`](/de/docs/Web/API/HTMLProgressElement)-Interfaces repräsentiert die obere Grenze des Bereichs des {{HTMLElement("progress")}}-Elements.
 
 ## Wert
 
-Eine Gleitkommazahl, die größer als null ist. Der Standardwert ist 1,0.
+Eine Fließkommazahl, die größer als null ist. Der Standardwert ist 1,0.
 
 ## Beispiele
 
 ### HTML
 
 ```html
-Fortschritt: <progress id="pBar"></progress> <span>0</span>%
+Progress: <progress id="pBar"></progress> <span>0</span>%
 ```
 
 ### JavaScript
@@ -40,12 +40,12 @@ setInterval(() => {
 }, 100);
 ```
 
-{{EmbedLiveSample("Examples", "100%", 30)}}
+{{EmbedLiveSample("Beispiele", "100%", 30)}}
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

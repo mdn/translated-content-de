@@ -2,74 +2,74 @@
 title: GPUComputePassEncoder
 slug: Web/API/GPUComputePassEncoder
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUComputePassEncoder`**-Schnittstelle der {{domxref("WebGPU API", "WebGPU API", "", "nocode")}} codiert Befehle, die mit der Steuerung der Compute-Shader-Phase zusammenhängen, wie sie von einer {{domxref("GPUComputePipeline")}} ausgegeben werden. Sie ist Teil der Gesamtcodierungstätigkeit eines {{domxref("GPUCommandEncoder")}}.
+Das **`GPUComputePassEncoder`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) kodiert Befehle zur Steuerung der Compute-Shader-Stufe, wie sie von einer [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) ausgestellt werden. Es ist Teil der gesamten Kodierungsaktivität eines [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder).
 
-Eine Compute-Pipeline enthält eine einzige Compute-Phase, in der ein Compute-Shader allgemeine Daten entgegennimmt, sie parallel über eine angegebene Anzahl von Arbeitsgruppen verarbeitet und dann das Ergebnis in einem oder mehreren Puffern zurückgibt.
+Eine Compute-Pipeline enthält eine einzelne Compute-Stufe, in der ein Compute-Shader allgemeine Daten verarbeitet, diese parallel über eine festgelegte Anzahl von Arbeitsgruppen verarbeitet und das Ergebnis in einem oder mehreren Puffern zurückgibt.
 
-Ein `GPUComputePassEncoder`-Objekt wird über die {{domxref("GPUCommandEncoder.beginComputePass()")}}-Eigenschaft erstellt.
+Ein `GPUComputePassEncoder`-Objekt wird über die Eigenschaft [`GPUCommandEncoder.beginComputePass()`](/de/docs/Web/API/GPUCommandEncoder/beginComputePass) erzeugt.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-- {{domxref("GPUComputePassEncoder.label", "label")}} {{Experimental_Inline}}
-  - : Ein Zeichenkette, die ein Label bereitstellt, das zur Identifikation des Objekts genutzt werden kann, beispielsweise in {{domxref("GPUError")}}-Nachrichten oder Konsolenwarnungen.
+- [`label`](/de/docs/Web/API/GPUComputePassEncoder/label) {{Experimental_Inline}}
+  - : Ein String, der ein Label bereitstellt, mit dem das Objekt identifiziert werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
 
 ## Instanzmethoden
 
-- {{domxref("GPUComputePassEncoder.dispatchWorkgroups", "dispatchWorkgroups()")}} {{Experimental_Inline}}
-  - : Veranlasst ein bestimmtes Raster von Arbeitsgruppen, die Arbeit auszuführen, die von der aktuellen {{domxref("GPUComputePipeline")}} geleistet wird.
-- {{domxref("GPUComputePassEncoder.dispatchWorkgroupsIndirect", "dispatchWorkgroupsIndirect()")}} {{Experimental_Inline}}
-  - : Veranlasst ein Raster von Arbeitsgruppen, das durch die Parameter eines {{domxref("GPUBuffer")}} definiert wird, die Arbeit auszuführen, die von der aktuellen {{domxref("GPUComputePipeline")}} geleistet wird.
-- {{domxref("GPUComputePassEncoder.end", "end()")}} {{Experimental_Inline}}
-  - : Beendet die Aufzeichnung der aktuellen Compute-Pass-Befehlsabfolge.
-- {{domxref("GPUComputePassEncoder.insertDebugMarker", "insertDebugMarker()")}} {{Experimental_Inline}}
-  - : Markiert einen bestimmten Punkt in einer Reihe von codierten Befehlen mit einem Label.
-- {{domxref("GPUComputePassEncoder.popDebugGroup", "popDebugGroup()")}} {{Experimental_Inline}}
-  - : Beendet eine Debug-Gruppe, die mit einem Aufruf von {{domxref("GPUComputePassEncoder.pushDebugGroup", "pushDebugGroup()")}} begonnen wurde.
-- {{domxref("GPUComputePassEncoder.pushDebugGroup", "pushDebugGroup()")}} {{Experimental_Inline}}
-  - : Beginnt eine Debug-Gruppe, die mit einem angegebenen Label markiert wird und alle folgenden codierten Befehle enthält, bis eine {{domxref("GPUComputePassEncoder.popDebugGroup", "popDebugGroup()")}}-Methode aufgerufen wird.
-- {{domxref("GPUComputePassEncoder.setBindGroup", "setBindGroup()")}} {{Experimental_Inline}}
-  - : Setzt die {{domxref("GPUBindGroup")}}, die für nachfolgende Compute-Befehle bei einem gegebenen Index verwendet werden soll.
-- {{domxref("GPUComputePassEncoder.setPipeline", "setPipeline()")}} {{Experimental_Inline}}
-  - : Setzt die {{domxref("GPUComputePipeline")}}, die für diesen Compute-Pass verwendet werden soll.
+- [`dispatchWorkgroups()`](/de/docs/Web/API/GPUComputePassEncoder/dispatchWorkgroups) {{Experimental_Inline}}
+  - : Startet ein spezifisches Raster von Arbeitsgruppen, um die Arbeit auszuführen, die von der aktuellen [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) erledigt wird.
+- [`dispatchWorkgroupsIndirect()`](/de/docs/Web/API/GPUComputePassEncoder/dispatchWorkgroupsIndirect) {{Experimental_Inline}}
+  - : Startet ein Raster von Arbeitsgruppen, definiert durch die Parameter eines [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), um die Arbeit auszuführen, die von der aktuellen [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline) erledigt wird.
+- [`end()`](/de/docs/Web/API/GPUComputePassEncoder/end) {{Experimental_Inline}}
+  - : Beendet die Aufzeichnung der aktuellen Compute-Pass-Befehlssequenz.
+- [`insertDebugMarker()`](/de/docs/Web/API/GPUComputePassEncoder/insertDebugMarker) {{Experimental_Inline}}
+  - : Markiert einen spezifischen Punkt in einer Serie von kodierten Befehlen mit einem Label.
+- [`popDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/popDebugGroup) {{Experimental_Inline}}
+  - : Beendet eine Debug-Gruppe, die mit einem Aufruf von [`pushDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/pushDebugGroup) begonnen wurde.
+- [`pushDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/pushDebugGroup) {{Experimental_Inline}}
+  - : Beginnt eine Debug-Gruppe, die mit einem spezifizierten Label markiert wird und alle nachfolgenden kodierten Befehle bis zum Aufruf der Methode [`popDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/popDebugGroup) enthält.
+- [`setBindGroup()`](/de/docs/Web/API/GPUComputePassEncoder/setBindGroup) {{Experimental_Inline}}
+  - : Setzt die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup), die für nachfolgende Compute-Befehle bei einem gegebenen Index verwendet werden soll.
+- [`setPipeline()`](/de/docs/Web/API/GPUComputePassEncoder/setPipeline) {{Experimental_Inline}}
+  - : Setzt die [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline), die für diesen Compute-Pass verwendet werden soll.
 
 ## Beispiele
 
-In unserem [grundlegenden Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) werden mehrere Befehle über einen {{domxref("GPUCommandEncoder")}} aufgezeichnet. Die meisten dieser Befehle stammen vom `GPUComputePassEncoder`, der über {{domxref("GPUCommandEncoder.beginComputePass()")}} erstellt wurde.
+In unserem [grundlegenden Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen vom `GPUComputePassEncoder`, der über [`GPUCommandEncoder.beginComputePass()`](/de/docs/Web/API/GPUCommandEncoder/beginComputePass) erstellt wurde.
 
 ```js
 // ...
 
-// Erstellen Sie GPUCommandEncoder, um Befehle zu kodieren, die an die GPU gesendet werden sollen
+// Create GPUCommandEncoder to encode commands to issue to the GPU
 const commandEncoder = device.createCommandEncoder();
 
-// Erstellen Sie GPUComputePassEncoder, um die Compute-Pass zu starten
+// Create GPUComputePassEncoder to initiate compute pass
 const passEncoder = commandEncoder.beginComputePass();
 
-// Befehle ausgeben
+// Issue commands
 passEncoder.setPipeline(computePipeline);
 passEncoder.setBindGroup(0, bindGroup);
 passEncoder.dispatchWorkgroups(Math.ceil(BUFFER_SIZE / 64));
 
-// Beenden Sie den Compute-Pass
+// End the compute pass
 passEncoder.end();
 
-// Kopieren Sie den Ausgabepuffer in den Zwischenspeicher
+// Copy output buffer to staging buffer
 commandEncoder.copyBufferToBuffer(
   output,
-  0, // Ausgangsoffset
+  0, // Source offset
   stagingBuffer,
-  0, // Zieloffset
+  0, // Destination offset
   BUFFER_SIZE,
 );
 
-// Beenden Sie den Frame, indem Sie ein Array von Befehls-Puffern an die Befehlswarteschlange zur Ausführung übergeben
+// End frame by passing array of command buffers to command queue for execution
 device.queue.submit([commandEncoder.finish()]);
 
 // ...

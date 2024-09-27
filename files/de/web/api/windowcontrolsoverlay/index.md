@@ -7,26 +7,26 @@ l10n:
 
 {{APIRef("Window Controls Overlay API")}}{{securecontext_header}}{{SeeCompatTable}}
 
-Die **`WindowControlsOverlay`**-Schnittstelle der [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) liefert Informationen über die Geometrie
-des Titelleistenbereichs in Desktop-Progressive-Web-Apps und ein Ereignis, um zu wissen, wann es sich ändert. Diese Schnittstelle ist über {{domxref('Navigator.windowControlsOverlay')}} zugänglich.
+Die **`WindowControlsOverlay`** Schnittstelle der [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) bietet Informationen über die Geometrie
+des Titelleistenbereichs in Desktop-Progressive-Web-Apps und ein Ereignis, um zu wissen, wann sich dieser ändert. Diese Schnittstelle ist über [`Navigator.windowControlsOverlay`](/de/docs/Web/API/Navigator/windowControlsOverlay) zugänglich.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("WindowControlsOverlay.visible")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein {{Glossary("Boolean")}}, der anzeigt, ob das Fenstersteuerungsüberlagerung sichtbar ist oder nicht.
+- [`WindowControlsOverlay.visible`](/de/docs/Web/API/WindowControlsOverlay/visible) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein [Boolean](/de/docs/Glossary/Boolean), der anzeigt, ob das Fenstersteuerungsoverlay sichtbar ist oder nicht.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("WindowControlsOverlay.getTitlebarAreaRect()")}} {{Experimental_Inline}}
+- [`WindowControlsOverlay.getTitlebarAreaRect()`](/de/docs/Web/API/WindowControlsOverlay/getTitlebarAreaRect) {{Experimental_Inline}}
   - : Gibt die Größe und Position der Titelleiste zurück.
 
 ## Ereignisse
 
-Hören Sie auf diese Ereignisse mit {{domxref('EventTarget.addEventListener()')}} oder indem Sie einen Ereignis-Listener auf die entsprechende `oneventname`-Eigenschaft dieser Schnittstelle zuweisen.
+Hören Sie auf diese Ereignisse mit [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder indem Sie einen Ereignis-Listener der entsprechenden `oneventname` Eigenschaft dieser Schnittstelle zuweisen.
 
-- {{domxref("WindowControlsOverlay/geometrychange_event", "geometrychange")}} {{Experimental_Inline}}
+- [`geometrychange`](/de/docs/Web/API/WindowControlsOverlay/geometrychange_event) {{Experimental_Inline}}
   - : Wird ausgelöst, wenn sich die Geometrie des Titelleistenbereichs ändert.
 
 ## Beispiele
@@ -49,6 +49,6 @@ if ("windowControlsOverlay" in navigator) {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

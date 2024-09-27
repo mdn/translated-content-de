@@ -1,5 +1,5 @@
 ---
-title: "FontFace: FontFace() Konstruktor"
+title: "FontFace: FontFace()-Konstruktor"
 short-title: FontFace()
 slug: Web/API/FontFace/FontFace
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Der **`FontFace()`** Konstruktor erstellt ein neues {{domxref("FontFace")}} Objekt.
+Der **`FontFace()`**-Konstruktor erzeugt ein neues [`FontFace`](/de/docs/Web/API/FontFace)-Objekt.
 
 ## Syntax
 
@@ -21,20 +21,20 @@ new FontFace(family, source, descriptors)
 
 - `family`
 
-  - : Gibt einen Schriftfamiliennamen an, der verwendet werden kann, um diese Schriftart beim Gestalten von Elementen zuzuordnen.
+  - : Gibt einen Font-Familiennamen an, der verwendet werden kann, um gegen diesen Font-Face beim Styling von Elementen zu matchen.
 
-    Nimmt die gleichen Werte an wie der {{cssxref("@font-face/font-family", "font-family")}} Deskriptor von {{cssxref("@font-face")}}. Dieser Wert kann auch mit der [`FontFace.family`](/de/docs/Web/API/FontFace/family) Eigenschaft gelesen und gesetzt werden.
+    Nimmt die gleichen Wertetypen wie der {{cssxref("@font-face/font-family", "font-family")}}-Deskriptor von {{cssxref("@font-face")}}. Dieser Wert kann auch über die Eigenschaft [`FontFace.family`](/de/docs/Web/API/FontFace/family) gelesen und gesetzt werden.
 
 - `source`
 
-  - : Die Schriftquelle. Dies kann entweder sein:
+  - : Die Schriftartquelle. Dies kann entweder sein:
 
-    - Eine URL zu einer Schriftartdatei.
+    - Eine URL zu einer Schriftart-Datei.
     - Binäre Schriftartdaten in einem [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) oder einem [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray).
 
 - `descriptors` {{optional_inline}}
 
-  - : Eine Reihe optionaler Deskriptoren, die als Objekt übergeben werden. Es kann jeden der Deskriptoren enthalten, die für `@font-face` verfügbar sind:
+  - : Eine Menge optionaler Deskriptoren, die als Objekt übergeben werden. Es kann jeden der für `@font-face` verfügbaren Deskriptoren enthalten:
 
     - `ascentOverride`
       - : Mit einem zulässigen Wert für {{cssxref("@font-face/ascent-override")}}.
@@ -59,8 +59,8 @@ new FontFace(family, source, descriptors)
 
 ### Ausnahmen
 
-- `SyntaxError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn eine Deskriptorzeichenfolge nicht mit der Grammatik des entsprechenden {{cssxref("@font-face")}} Deskriptors übereinstimmt oder die angegebene binäre Quelle nicht geladen werden kann. Dieser Fehler führt dazu, dass {{domxref("FontFace.status")}} auf `error` gesetzt wird.
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn eine Deskriptor-Zeichenkette nicht mit der Grammatik des entsprechenden {{cssxref("@font-face")}}-Deskriptors übereinstimmt oder die angegebene binäre Quelle nicht geladen werden kann. Dieser Fehler führt dazu, dass [`FontFace.status`](/de/docs/Web/API/FontFace/status) auf `error` gesetzt wird.
 
 ## Beispiele
 
@@ -71,11 +71,11 @@ async function loadFonts() {
     weight: "400",
     stretch: "condensed",
   });
-  // Warten Sie, bis die Schriftart geladen ist
+  // wait for font to be loaded
   await font.load();
-  // Schriftart zum Dokument hinzufügen
+  // add font to document
   document.fonts.add(font);
-  // Schriftart mit CSS-Klasse aktivieren
+  // enable font with CSS class
   document.body.classList.add("fonts-loaded");
 }
 ```

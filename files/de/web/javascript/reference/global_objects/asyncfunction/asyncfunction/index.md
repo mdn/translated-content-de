@@ -15,7 +15,7 @@ Beachten Sie, dass `AsyncFunction` _kein_ globales Objekt ist. Es kann mit dem f
 const AsyncFunction = async function () {}.constructor;
 ```
 
-Der `AsyncFunction()` Konstruktor ist nicht dazu gedacht, direkt verwendet zu werden, und alle in der Beschreibung von {{jsxref("Function/Function", "Function()")}} erwähnten Vorbehalte gelten auch für `AsyncFunction()`.
+Der `AsyncFunction()` Konstruktor ist nicht dazu gedacht, direkt verwendet zu werden, und alle in der Beschreibung von {{jsxref("Function/Function", "Function()")}} erwähnten Einschränkungen gelten auch für `AsyncFunction()`.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ AsyncFunction(arg1, arg2, functionBody)
 AsyncFunction(arg1, arg2, /* …, */ argN, functionBody)
 ```
 
-> **Note:** `AsyncFunction()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue Instanz von `AsyncFunction`.
+> **Note:** `AsyncFunction()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Methoden erzeugen eine neue `AsyncFunction` Instanz.
 
 ### Parameter
 
@@ -39,7 +39,7 @@ Siehe {{jsxref("Function/Function", "Function()")}}.
 
 ## Beispiele
 
-### Erstellen einer asynchronen Funktion über einen AsyncFunction() Konstruktor
+### Erstellen einer Async-Funktion aus einem AsyncFunction() Konstruktor
 
 ```js
 function resolveAfter2Seconds(x) {
@@ -59,7 +59,7 @@ const fn = new AsyncFunction(
 );
 
 fn(10, 20).then((v) => {
-  console.log(v); // druckt 30 nach 4 Sekunden
+  console.log(v); // prints 30 after 4 seconds
 });
 ```
 

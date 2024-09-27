@@ -1,5 +1,5 @@
 ---
-title: "MediaStreamEvent: stream-Eigenschaft"
+title: "MediaStreamEvent: Eigenschaft stream"
 short-title: stream
 slug: Web/API/MediaStreamEvent/stream
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}{{deprecated_header}}{{Non-standard_header}}
 
-Die schreibgeschützte Eigenschaft **`MediaStreamEvent.stream`** gibt den mit dem Ereignis verknüpften {{domxref("MediaStream")}} zurück.
+Die schreibgeschützte Eigenschaft **`MediaStreamEvent.stream`** gibt das mit dem Ereignis verknüpfte [`MediaStream`](/de/docs/Web/API/MediaStream) zurück.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ event.stream
 
 ```js
 pc.onaddstream = (ev) => {
-  alert(`Ein Stream (id: '${ev.stream.id}') wurde zu dieser Verbindung hinzugefügt.`);
+  alert(`A stream (id: '${ev.stream.id}') has been added to this connection.`);
 };
 ```
 
@@ -30,5 +30,5 @@ pc.onaddstream = (ev) => {
 
 ## Siehe auch
 
-- {{domxref("RTCPeerConnection.addstream_event", "addstream")}}, {{domxref("RTCPeerConnection.removestream_event", "removestream")}}
-- {{domxref("RTCPeerConnection")}}
+- [`addstream`](/de/docs/Web/API/RTCPeerConnection/addstream_event), [`removestream`](/de/docs/Web/API/RTCPeerConnection/removestream_event)
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)

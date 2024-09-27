@@ -1,5 +1,5 @@
 ---
-title: "RTCInboundRtpStreamStats: Eigenschaft qpSum"
+title: "RTCInboundRtpStreamStats: qpSum-Eigenschaft"
 short-title: qpSum
 slug: Web/API/RTCInboundRtpStreamStats/qpSum
 l10n:
@@ -9,46 +9,50 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die **`qpSum`**-Eigenschaft des
-{{domxref("RTCInboundRtpStreamStats")}}-Wörterbuchs ist ein Wert, der durch die Addition der
-**Quantisierungsparameter** (**QP**) Werte für jeden gesendeten oder empfangenen Frame
-bisher auf dem Video-Track erzeugt wird, der diesem
-`RTCInboundRtpStreamStats`-Objekt entspricht.
+[`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Dictionaries ist ein Wert, der durch die Addition der
+**Quantisierungsparameter** (**QP**) für jedes bisher gesendete oder empfangene Frame auf der Videospur, die diesem
+`RTCInboundRtpStreamStats`-Objekt entspricht, erzeugt wird.
 
-Im Allgemeinen gilt: Je höher dieser
-Wert ist, desto stärker komprimiert sind die Videodaten.
+Im Allgemeinen gilt: Je höher diese
+Zahl ist, desto stärker komprimiert sind die Videodaten.
 
 ## Wert
 
-Ein nicht signierter 64-Bit-Integer-Wert, der die Summe der Quantisierungsparameter
-(QP)-Werte für jeden bisher auf dem von
-{{domxref("RTCInboundRtpStreamStats")}} beschriebenen Track gesendeten oder empfangenen Frame angibt. Da der QP-Wert typischerweise größer ist, um höhere Kompressionsfaktoren anzuzeigen, deutet eine größere Summe darauf hin, dass der Stream im Allgemeinen stärker komprimiert wurde.
+Ein nicht signierter 64-Bit-Ganzzahlenwert, der die Summe der Quantisierungsparameter
+(QP) für jedes bisher gesendete oder empfangene Frame auf der im
+[`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Objekt beschriebenen Spur angibt. Da der Wert des QP typischerweise
+höher ist, um höhere Kompressionsfaktoren anzuzeigen, gilt im Allgemeinen: Je größer diese Summe ist, desto stärker
+komprimiert war der Stream.
 
 > [!NOTE]
 > Dieser Wert ist nur für Videomedien verfügbar.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 [Quantisierung](https://en.wikipedia.org/wiki/Quantization) ist der Prozess der Anwendung verlustbehafteter Kompression
-auf einen Wertebereich, was zu einem einzelnen **Quantwert** führt. Dieser Wert
-ersetzt den Bereich von Werten, wodurch die Anzahl verschiedener Werte im Gesamtdatensatz verringert wird, was die Daten komprimierbarer macht. Der Quantisierungsprozess und das Maß der Kompression können mit einem oder mehreren Parametern gesteuert werden.
+auf einen Wertebereich, der zu einem einzelnen **Quantwert** führt. Dieser Wert
+ersetzt den Wertebereich und verringert damit die Anzahl der unterschiedlichen Werte,
+die im gesamten Datensatz vorkommen, wodurch die Daten besser komprimierbar werden. Der Quantisierungsprozess und der Grad der Kompression können mit einem oder mehreren Parametern gesteuert werden.
 
 Es ist wichtig zu beachten, dass sich der Wert von QP periodisch ändern kann – sogar bei jedem
-Frame – sodass es schwierig ist, sicher zu wissen, wie erheblich die Kompression ist. Das Beste, was Sie tun können, ist eine Schätzung vorzunehmen. Sie können zum Beispiel den Wert von
-{{domxref("RTCReceivedRtpStreamStats.framesDecoded")}} verwenden, wenn Sie die Medien empfangen, oder
-{{domxref("RTCSentRtpStreamStats.framesEncoded")}}, wenn Sie sie senden, um die Anzahl
-der bisher verarbeiteten Frames zu ermitteln und davon ausgehend einen Durchschnitt zu berechnen. Siehe [Berechnung der durchschnittlichen Quantisierung](#berechnung_der_durchschnittlichen_quantisierung) weiter unten für eine Funktion, die dies tut.
+Frame – daher ist es schwierig, genau zu wissen, wie erheblich die Kompression ist. Das Beste,
+was Sie tun können, ist, eine Schätzung abzugeben. Sie können beispielsweise den Wert von
+[`RTCReceivedRtpStreamStats.framesDecoded`](/de/docs/Web/API/RTCReceivedRtpStreamStats/framesDecoded) verwenden, wenn Sie die Medien empfangen, oder
+[`RTCSentRtpStreamStats.framesEncoded`](/de/docs/Web/API/RTCSentRtpStreamStats/framesEncoded), wenn Sie sie senden, um die Anzahl der
+bisher verarbeiteten Frames zu ermitteln und daraus einen Durchschnitt zu berechnen. Siehe [Berechnung der durchschnittlichen Quantisierung](#berechnung_der_durchschnittlichen_quantisierung) unten für eine Funktion, die dies tut.
 
-Außerdem hängt die genaue Bedeutung des QP-Werts vom verwendeten {{Glossary("codec")}} ab. Beispielsweise kann der QP-Wert für den VP8-Codec anywhere zwischen 1 und 127 liegen und befindet sich im Frame-Header-Element `"y_ac_qi"`, dessen Wert in
-{{RFC(6386, "", "19.2")}} definiert ist. H.264 verwendet einen QP, der von 0 bis 51 reicht; in diesem Fall handelt es sich um einen Index, der verwendet wird, um eine Skalierungsmatrix abzuleiten, die während des Quantisierungsprozesses verwendet wird.
-Zusätzlich ist es unwahrscheinlich, dass QP der einzige Parameter ist, den der Codec verwendet, um die
-Kompression anzupassen. Siehe die einzelnen Codec-Spezifikationen für Details.
+Auch hängt die genaue Bedeutung des QP-Wertes vom verwendeten [Codec](/de/docs/Glossary/codec) ab. Zum Beispiel kann beim VP8-Codec der QP-Wert zwischen 1 und 127 liegen und findet sich im Frame-Header-Element `"y_ac_qi"`, dessen Wert in
+{{RFC(6386, "", "19.2")}} definiert ist. H.264 verwendet ein QP, das von 0 bis 51 reicht; in diesem Fall ist es ein
+Index, der verwendet wird, um eine Skalierungsmatrix während des Quantisierungsprozesses abzuleiten.
+Zusätzlich ist es unwahrscheinlich, dass QP der einzige Parameter ist, den der Codec zur Anpassung der
+Kompression verwendet. Details finden sich in den jeweiligen Codec-Spezifikationen.
 
 ## Beispiele
 
 ### Berechnung der durchschnittlichen Quantisierung
 
-Die `calculateAverageQP()`-Funktion unten berechnet den durchschnittlichen QP für
-das übergebene {{domxref("RTCStatsReport")}}-Objekt, das RTP-Stream-Statistiken enthält, und gibt
+Die unten gezeigte Funktion `calculateAverageQP()` berechnet den durchschnittlichen QP
+für das gegebene [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt, das RTP-Stream-Statistiken enthält, und gibt
 0 zurück, wenn das Objekt keinen RTP-Stream beschreibt.
 
 ```js

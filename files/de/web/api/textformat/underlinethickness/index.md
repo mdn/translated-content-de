@@ -1,5 +1,5 @@
 ---
-title: "TextFormat: Eigenschaft underlineThickness"
+title: "TextFormat: underlineThickness-Eigenschaft"
 short-title: underlineThickness
 slug: Web/API/TextFormat/underlineThickness
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`underlineThickness`** Eigenschaft der {{domxref("TextFormat")}}-Schnittstelle gibt die Dicke der Unterstreichung an, die auf den zu formatierenden Textbereich angewendet werden soll.
+Die **`underlineThickness`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt die Dicke der Unterstreichung an, die auf den zu formatierenden Textbereich angewendet werden muss.
 
 ## Wert
 
-Ein {{jsxref("String")}}, der einen der folgenden Werte darstellt:
+Ein {{jsxref("String")}}, der einen der folgenden Werte hat:
 
 - `"none"`: Keine Unterstreichung.
 - `"thin"`: Eine dünne Unterstreichung.
@@ -20,9 +20,9 @@ Ein {{jsxref("String")}}, der einen der folgenden Werte darstellt:
 
 ## Beispiele
 
-### Lesen der anzuwendenden Unterstreichen-Dicke
+### Lesen der Unterstreichungsdicke, die angewendet werden muss
 
-Das folgende Beispiel zeigt, wie die `underlineThickness`-Eigenschaft des `textformatupdate`-Ereignisses verwendet wird, um die Dicke der Unterstreichung zu bestimmen, die auf den formatierten Text angewendet werden soll. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zur Texteingabe verwendet wird.
+Das folgende Beispiel zeigt, wie die `underlineThickness`-Eigenschaft des `textformatupdate`-Ereignisses verwendet wird, um die Unterstreichungsdicke zu bestimmen, die auf den formatierten Text angewendet werden muss. Beachten Sie, dass der Rückruf des Ereignislisteners in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zur Texteingabe verwendet wird.
 
 ```html
 <div id="editor" style="height:200px;background:#eee;"></div>
@@ -38,7 +38,7 @@ editContext.addEventListener("textformatupdate", (e) => {
 
   for (const format of formats) {
     console.log(
-      `IME möchte eine ${format.underlineThickness} Unterstreichung zwischen ${format.rangeStart} und ${format.rangeEnd} anwenden.`,
+      `IME wants to apply a ${format.underlineThickness} underline between ${format.rangeStart} and ${format.rangeEnd}.`,
     );
   }
 });
@@ -54,4 +54,4 @@ editContext.addEventListener("textformatupdate", (e) => {
 
 ## Siehe auch
 
-- Die zugehörige {{DOMxRef("TextFormat")}}-Schnittstelle.
+- Die [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle, zu der es gehört.

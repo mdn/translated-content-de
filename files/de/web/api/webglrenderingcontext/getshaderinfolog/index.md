@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode getShaderInfoLog"
+title: "WebGLRenderingContext: Methode getShaderInfoLog()"
 short-title: getShaderInfoLog()
 slug: Web/API/WebGLRenderingContext/getShaderInfoLog
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **WebGLRenderingContext.getShaderInfoLog**-Methode gibt das Informationsprotokoll für das angegebene {{domxref("WebGLShader")}}-Objekt zurück. Es enthält Warnungen, Debugging- und Kompiliervorgänge.
+Die **WebGLRenderingContext.getShaderInfoLog** Methode liefert das Informationsprotokoll
+für das angegebene [`WebGLShader`](/de/docs/Web/API/WebGLShader)-Objekt. Es enthält Warnungen, Debugging- und
+Kompilierinformationen.
 
 ## Syntax
 
@@ -19,27 +21,29 @@ getShaderInfoLog(shader)
 ### Parameter
 
 - `shader`
-  - : Ein {{domxref("WebGLShader")}}, der abgefragt werden soll.
+  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader) zum Abfragen.
 
 ### Rückgabewert
 
-Ein String, der Diagnosemeldungen, Warnmeldungen und andere Informationen über den letzten Kompilierungsvorgang enthält. Wenn ein {{domxref("WebGLShader")}}-Objekt ursprünglich erstellt wird, ist sein Informationsprotokoll ein String der Länge 0.
+Ein String, der Diagnosemeldungen, Warnmeldungen und
+andere Informationen über den letzten Kompilierungsvorgang enthält. Wenn ein [`WebGLShader`](/de/docs/Web/API/WebGLShader)-
+Objekt zunächst erstellt wird, ist sein Informationsprotokoll ein String der Länge 0.
 
 ## Beispiele
 
 ### Überprüfen von Kompilierungsnachrichten
 
 ```js
-/* Laden des Shader-Quellcodes. */
+/* load shader source code. */
 gl.shaderSource(shader, shaderCode);
 
-/* Kompilieren des Shader-Quellcodes. */
+/* compile shader source code. */
 gl.compileShader(shader);
 
 const message = gl.getShaderInfoLog(shader);
 
 if (message.length > 0) {
-  /* Nachricht kann ein Fehler oder eine Warnung sein */
+  /* message may be an error or a warning */
   throw message;
 }
 ```
@@ -54,5 +58,6 @@ if (message.length > 0) {
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getShaderParameter()")}} – verwendet mit `gl.COMPILE_STATUS`, um einen fehlgeschlagenen Kompilierungsvorgang zu überprüfen.
-- {{domxref("WebGLRenderingContext.getError()")}}
+- [`WebGLRenderingContext.getShaderParameter()`](/de/docs/Web/API/WebGLRenderingContext/getShaderParameter) – wird mit
+  `gl.COMPILE_STATUS` verwendet, um einen fehlgeschlagenen Kompilierungsvorgang zu überprüfen.
+- [`WebGLRenderingContext.getError()`](/de/docs/Web/API/WebGLRenderingContext/getError)

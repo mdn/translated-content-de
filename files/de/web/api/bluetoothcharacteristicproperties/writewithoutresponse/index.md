@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Bluetooth API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`writeWithoutResponse`**-Eigenschaft der {{domxref("BluetoothCharacteristicProperties")}}-Schnittstelle gibt ein `boolean` zurück, das `true` ist, wenn das Schreiben an die Charakteristik ohne Antwort erlaubt ist.
+Die schreibgeschützte Eigenschaft **`writeWithoutResponse`** der Schnittstelle [`BluetoothCharacteristicProperties`](/de/docs/Web/API/BluetoothCharacteristicProperties) gibt einen `boolean` zurück, der `true` ist, wenn das Schreiben der Eigenschaft ohne Antwort erlaubt ist.
 
 ## Wert
 
-Ein Boolean-Wert.
+Ein boolescher Wert.
 
 ## Spezifikationen
 

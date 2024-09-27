@@ -48,7 +48,7 @@ Dies ist das vierte Beispiel, das erklärt, [wie man benutzerdefinierte Formular
 }
 
 /* --------------- */
-/* Erforderliche Styles */
+/* Required Styles */
 /* --------------- */
 
 .select {
@@ -74,7 +74,7 @@ Dies ist das vierte Beispiel, das erklärt, [wie man benutzerdefinierte Formular
 }
 
 /* ------------ */
-/* Schicke Styles */
+/* Fancy Styles */
 /* ------------ */
 
 .select {
@@ -163,7 +163,7 @@ Dies ist das vierte Beispiel, das erklärt, [wie man benutzerdefinierte Formular
 
 ```js
 // -------------------- //
-// Funktionsdefinitionen //
+// Function definitions //
 // -------------------- //
 
 function deactivateSelect(select) {
@@ -215,7 +215,7 @@ function getIndex(select) {
 }
 
 // ------------- //
-// Ereignisbindung //
+// Event binding //
 // ------------- //
 
 window.addEventListener("load", () => {

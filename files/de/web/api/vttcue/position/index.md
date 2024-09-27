@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`position`**-Eigenschaft der {{domxref("VTTCue")}}-Schnittstelle repräsentiert die Einrückung des Untertitels innerhalb der Zeile.
+Die **`position`**-Eigenschaft der [`VTTCue`](/de/docs/Web/API/VTTCue)-Schnittstelle repräsentiert die Einrückung des Cues innerhalb der Zeile.
 
 ## Wert
 
-Eine Zahl oder `"auto"`, die die Einrückung des Untertitels innerhalb der Zeile darstellt.
+Eine Zahl oder `"auto"`, die die Einrückung des Cues innerhalb der Zeile darstellt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neuer {{domxref("VTTCue")}} erstellt. Der Wert von `position` wird dann auf `2` gesetzt. Der Wert wird anschließend in die Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt und dann der Wert von `position` auf `2` gesetzt. Der Wert wird anschließend in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

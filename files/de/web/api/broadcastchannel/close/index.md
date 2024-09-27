@@ -8,11 +8,7 @@ l10n:
 
 {{APIRef("BroadCastChannel API")}} {{AvailableInWorkers}}
 
-Die **`close()`**-Methode der {{domxref("BroadcastChannel")}}-Schnittstelle beendet die Verbindung zum
-zugrunde liegenden Kanal, sodass das Objekt vom Garbage Collector entfernt werden kann.
-Dies ist ein notwendiger Schritt,
-da es keine andere Möglichkeit für einen Browser gibt zu wissen,
-dass dieser Kanal nicht mehr benötigt wird.
+Die **`close()`**-Methode der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Schnittstelle beendet die Verbindung zum zugrunde liegenden Kanal und ermöglicht es dem Objekt, vom Garbage Collector bereinigt zu werden. Dies ist ein notwendiger Schritt, da es für einen Browser keine andere Möglichkeit gibt zu wissen, dass dieser Kanal nicht mehr benötigt wird.
 
 ## Syntax
 
@@ -23,12 +19,12 @@ close()
 ## Beispiele
 
 ```js
-// Verbindung zu einem Kanal herstellen
+// Connect to a channel
 const bc = new BroadcastChannel("test_channel");
 
-// Weitere Operationen (wie postMessage, …)
+// More operations (like postMessage, …)
 
-// Wenn fertig, die Verbindung zum Kanal trennen
+// When done, disconnect from the channel
 bc.close();
 ```
 
@@ -42,4 +38,4 @@ bc.close();
 
 ## Siehe auch
 
-- {{domxref("BroadcastChannel")}}, die Schnittstelle, zu der es gehört.
+- [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel), die Schnittstelle, zu der sie gehört.

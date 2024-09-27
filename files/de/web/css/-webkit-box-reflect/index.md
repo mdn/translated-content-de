@@ -7,24 +7,24 @@ l10n:
 
 {{CSSRef}}{{Non-standard_Header}}
 
-Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es, den Inhalt eines Elements in eine spezifische Richtung zu spiegeln.
+Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es, den Inhalt eines Elements in eine bestimmte Richtung zu spiegeln.
 
 ## Syntax
 
 ```css
-/* Richtungswerte */
+/* Direction values */
 -webkit-box-reflect: above;
 -webkit-box-reflect: below;
 -webkit-box-reflect: left;
 -webkit-box-reflect: right;
 
-/* Versatzwert */
+/* Offset value */
 -webkit-box-reflect: below 10px;
 
-/* Maskenwert */
+/* Mask value */
 -webkit-box-reflect: below 0 linear-gradient(transparent, white);
 
-/* Globale Werte */
+/* Global values */
 -webkit-box-reflect: inherit;
 -webkit-box-reflect: initial;
 -webkit-box-reflect: revert;
@@ -54,7 +54,7 @@ Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es
 
 ## Spezifikationen
 
-Nicht Teil eines Standards. Der Standardweg, um Spiegelungen in CSS zu realisieren, ist die Verwendung der CSS-Funktion {{CSSxRef("element", "element()")}}.
+Kein Teil eines Standards. Der standardmäßige Weg, um Spiegelungen in CSS zu erstellen, ist die Verwendung der CSS {{CSSxRef("element", "element()")}} Funktion.
 
 ## Browser-Kompatibilität
 

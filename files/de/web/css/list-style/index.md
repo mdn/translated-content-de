@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die **`list-style`** CSS-[Kurzschrift-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) ermöglicht es, alle Listeneigenschaften auf einmal festzulegen.
+Die **`list-style`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) ermöglicht es Ihnen, alle Listengestileigenschaften auf einmal festzulegen.
 
 {{EmbedInteractiveExample("pages/css/list-style.html")}}
 
-Die Werte dieser Eigenschaft werden auf Listeneinträge angewendet, einschließlich {{HTMLElement("li")}}-Elementen und Elementen mit `{{cssxref("display")}}: list-item;`. Da diese Eigenschaft vererbt wird, kann sie auf einem Elternelement (normalerweise {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}) festgelegt werden, um das gleiche Listenstyling auf alle verschachtelten Elemente anzuwenden.
+Die Werte dieser Eigenschaft werden auf Listenelemente angewendet, einschließlich {{HTMLElement("li")}}-Elementen und Elementen mit `{{cssxref("display")}}: list-item;`. Da diese Eigenschaft vererbt wird, kann sie auf ein Elternelement (normalerweise {{HTMLElement("ol")}} oder {{HTMLElement("ul")}}) gesetzt werden, um das gleiche Listenstyling auf alle verschachtelten Elemente anzuwenden.
 
-## Zusammenfassende Eigenschaften
+## Bestandteilende Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschrift für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - [`list-style-image`](/de/docs/Web/CSS/list-style-image)
 - [`list-style-position`](/de/docs/Web/CSS/list-style-position)
@@ -24,26 +24,26 @@ Diese Eigenschaft ist eine Kurzschrift für die folgenden CSS-Eigenschaften:
 ## Syntax
 
 ```css
-/* Typ */
+/* type */
 list-style: square;
 
-/* Bild */
+/* image */
 list-style: url("../img/shape.png");
 
-/* Position */
+/* position */
 list-style: inside;
 
-/* Zwei Werte */
+/* two values */
 list-style: georgian outside;
 list-style: url("img/pip.svg") inside;
 
-/* Drei Werte */
+/* three values */
 list-style: lower-roman url("img/shape.png") outside;
 
-/* Schlüsselwortwert */
+/* Keyword value */
 list-style: none;
 
-/* Globale Werte */
+/* Global values */
 list-style: inherit;
 list-style: initial;
 list-style: revert;
@@ -51,16 +51,16 @@ list-style: revert-layer;
 list-style: unset;
 ```
 
-Die `list-style`-Eigenschaft wird mit einem, zwei oder drei Werten in beliebiger Reihenfolge angegeben. Wenn {{cssxref("list-style-type")}} und {{cssxref("list-style-image")}} beide festgelegt sind, wird der `list-style-type` als Fallback verwendet, falls das Bild nicht verfügbar ist.
+Die `list-style`-Eigenschaft wird als ein, zwei oder drei Werte in beliebiger Reihenfolge angegeben. Wenn {{cssxref("list-style-type")}} und {{cssxref("list-style-image")}} beide festgelegt sind, wird `list-style-type` als Fallback verwendet, wenn das Bild nicht verfügbar ist.
 
 ### Werte
 
 - {{cssxref("list-style-type")}}
-  - : Ein `<counter-style>`, {{cssxref("string")}}, oder `none`. Wenn in der Kurzschrift weggelassen, wird der Standardwert `disc` verwendet. Siehe {{cssxref("list-style-type")}}.
+  - : Ein `<counter-style>`, {{cssxref("string")}}, oder `none`. Wenn es in der Kurzform weggelassen wird, wird der Standardwert `disc` verwendet. Siehe {{cssxref("list-style-type")}}.
 - {{cssxref("list-style-image")}}
-  - : Ein {{cssxref("image")}} oder `none`. Wenn weggelassen, wird der Standardwert `none` verwendet. Siehe {{cssxref("list-style-image")}}.
+  - : Ein {{cssxref("image")}} oder `none`. Wenn es weggelassen wird, wird der Standardwert `none` verwendet. Siehe {{cssxref("list-style-image")}}.
 - {{cssxref("list-style-position")}}
-  - : Entweder `inside` oder `outside`. Wenn weggelassen, wird der Standardwert `outside` verwendet. Siehe {{cssxref("list-style-position")}}.
+  - : Entweder `inside` oder `outside`. Wenn es weggelassen wird, wird der Standardwert `outside` verwendet. Siehe {{cssxref("list-style-position")}}.
 - `none`
   - : Es wird kein Listenstil verwendet.
 
@@ -74,18 +74,18 @@ Die `list-style`-Eigenschaft wird mit einem, zwei oder drei Werten in beliebiger
 
 ## Barrierefreiheit
 
-Safari erkennt geordnete oder ungeordnete Listen im Barrierefreiheitsbaum nicht als Listen, wenn sie einen `list-style`-Wert von `none` haben, es sei denn, die Liste ist innerhalb des Navigations-Elements {{HTMLElement("nav")}} verschachtelt. Dieses [Verhalten ist beabsichtigt](https://webkit.org/b/170179#c1) und wird nicht als Fehler betrachtet.
+Safari erkennt geordnete oder ungeordnete Listen nicht als Listen im Barrierefreiheitsbaum, wenn sie einen `list-style`-Wert von `none` haben, es sei denn, die Liste ist innerhalb des {{HTMLElement("nav")}}-Navigations-Elements verschachtelt. Dieses [Verhalten ist beabsichtigt](https://webkit.org/b/170179#c1) und wird nicht als Fehler betrachtet.
 
-Um sicherzustellen, dass Listen als Listen angesagt werden, fügen Sie [`role="list"`](/de/docs/Web/Accessibility/ARIA/Roles/list_role) zu {{HTMLElement("ol")}} und {{HTMLElement("ul")}}-Elementen hinzu, insbesondere wenn die Liste nicht in einem `<nav>` verschachtelt ist. Dies stellt die Listensemantik wieder her, ohne das Design zu beeinflussen:
+Um sicherzustellen, dass Listen als Listen angekündigt werden, fügen Sie [`role="list"`](/de/docs/Web/Accessibility/ARIA/Roles/list_role) den {{HTMLElement("ol")}}- und {{HTMLElement("ul")}}-Elementen hinzu, insbesondere wenn die Liste nicht in einem `<nav>` verschachtelt ist. Dies stellt die Listensemantik ohne Beeinträchtigung des Designs wieder her:
 
 ```html
 <ul role="list">
-  <li>Ein Eintrag</li>
-  <li>Ein weiterer Eintrag</li>
+  <li>An item</li>
+  <li>Another item</li>
 </ul>
 ```
 
-Wenn eine ARIA-`role`-Lösung für Ihren Code keine Option ist, kann stattdessen CSS verwendet werden. Das Hinzufügen von nicht-leeren [Pseudo-Inhalten](/de/docs/Web/CSS/content) wie Text oder Bildern vor jedem Listeneintrag kann die Listensemantik wiederherstellen, beeinflusst jedoch das visuelle Erscheinungsbild. Safari bestimmt, ob der hinzugefügte Pseudo-Inhalt als zugänglicher Inhalt ausreicht und stellt die Listensemantik wieder her, wenn ja. Im Allgemeinen erachtet Safari Text und Bilder als ausreichend, weshalb `content: "+ ";` unten funktioniert (erfordert jedoch zusätzliche Stilgebung, um das Design nicht zu beeinflussen).
+Wenn eine ARIA `role` keine Option für Ihren Code ist, kann stattdessen CSS verwendet werden. Das Hinzufügen von nicht-leerem [Pseudo-Content](/de/docs/Web/CSS/content) wie Text oder Bildern vor jedem Listenelement kann die Listensemantik wiederherstellen, beeinträchtigt jedoch das visuelle Erscheinungsbild. Safari bestimmt, ob der hinzugefügte Pseudo-Content als barrierefreier Inhalt ausreicht, und stellt die Listensemantik wieder her, wenn dies der Fall ist. Im Allgemeinen betrachtet Safari Text und Bilder als ausreichend, weshalb das `content: "+ ";` unten funktioniert (erfordert jedoch zusätzliche Stilgebung, um das Design nicht zu beeinträchtigen).
 
 ```css
 ul {
@@ -99,31 +99,31 @@ ul li::before {
 
 Eine Deklaration von `content: "";` (ein leerer String) wird ignoriert, ebenso wie `content`-Werte, die nur Leerzeichen enthalten, wie `content: " ";`.
 
-Diese CSS-Workarounds sollten nur verwendet werden, wenn eine HTML-Lösung nicht verfügbar ist, und nur nach Tests, um sicherzustellen, dass sie nicht zu unerwartetem Verhalten führen, das die Benutzererfahrung negativ beeinflussen könnte.
+Diese CSS-Workarounds sollten nur verwendet werden, wenn eine HTML-Lösung nicht verfügbar ist, und nur nach Tests, um sicherzustellen, dass sie keine unerwarteten Verhaltensweisen hervorrufen, die das Benutzererlebnis negativ beeinflussen könnten.
 
 - ['Fixing' Lists](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) (2023)
-- [VoiceOver and list-style-type: none](https://gerardkcohen.me/writing/2017/voiceover-list-style-type.html) (2017)
-- [WCAG verstehen: Erstellen Sie Inhalte, die auf verschiedene Arten dargestellt werden können](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#Guideline_1.3_%E2%80%94_Create_content_that_can_be_presented_in_different_ways)
-- [Erklärung des Erfolgskriteriums 1.3.1: Informationen und Beziehungen | WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html)
+- [VoiceOver und list-style-type: none](https://gerardkcohen.me/writing/2017/voiceover-list-style-type.html) (2017)
+- [WCAG verstehen: Erstellen von Inhalten, die auf verschiedene Arten präsentiert werden können](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#Guideline_1.3_%E2%80%94_Create_content_that_can_be_presented_in_different_ways)
+- [Erfolgskriterium 1.3.1 verstehen: Info und Beziehungen | WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html)
 
 ## Beispiele
 
-### Festlegung des Listentyp- und der Position
+### Listenstiltyp und Position setzen
 
 #### HTML
 
 ```html
-Liste 1
+List 1
 <ul class="one">
-  <li>Listeneintrag 1</li>
-  <li>Listeneintrag 2</li>
-  <li>Listeneintrag 3</li>
+  <li>List Item1</li>
+  <li>List Item2</li>
+  <li>List Item3</li>
 </ul>
-Liste 2
+List 2
 <ul class="two">
-  <li>Listeneintrag A</li>
-  <li>Listeneintrag B</li>
-  <li>Listeneintrag C</li>
+  <li>List Item A</li>
+  <li>List Item B</li>
+  <li>List Item C</li>
 </ul>
 ```
 
@@ -153,7 +153,7 @@ Liste 2
 
 ## Siehe auch
 
-- Komponenten-Eigenschaften: {{Cssxref("list-style-type")}}, {{Cssxref("list-style-image")}}, und {{Cssxref("list-style-position")}}
+- Komponenteneigenschaften: {{Cssxref("list-style-type")}}, {{Cssxref("list-style-image")}}, und {{Cssxref("list-style-position")}}
 - {{Cssxref("::marker")}} Pseudo-Element
 - [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
 - [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul

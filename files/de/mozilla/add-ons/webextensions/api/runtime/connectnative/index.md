@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Verbindet die Erweiterung mit einer nativen Anwendung auf dem Computer des Nutzers. Dies nimmt den Namen einer nativen Anwendung als Parameter entgegen. Es startet die native Anwendung und gibt ein {{WebExtAPIRef("runtime.Port")}}-Objekt an den Aufrufer zurück. Der Aufrufer kann dann den `Port` nutzen, um Nachrichten mit der nativen Anwendung auszutauschen, indem er `Port.postMessage()` und `port.onMessage` verwendet. Die native Anwendung wird ausgeführt, bis sie sich selbst beendet, der Aufrufer `Port.disconnect()` aufruft oder die Seite, die den `Port` erstellt hat, zerstört wird. Sobald der `Port` getrennt wird, gibt der Browser dem Prozess ein paar Sekunden Zeit, um sich ordnungsgemäß zu beenden, und beendet ihn dann, falls er nicht beendet wurde.
+Stellt eine Verbindung der Erweiterung zu einer nativen Anwendung auf dem Computer des Benutzers her. Dabei wird der Name einer nativen Anwendung als Parameter verwendet. Diese startet die native Anwendung und gibt ein {{WebExtAPIRef("runtime.Port")}}-Objekt an den Aufrufer zurück. Der Aufrufer kann dann den `Port` verwenden, um Nachrichten mit der nativen Anwendung über `Port.postMessage()` und `port.onMessage` auszutauschen. Die native Anwendung läuft so lange, bis sie sich selbst beendet, oder der Aufrufer `Port.disconnect()` aufruft, oder die Seite, die den `Port` erstellt hat, zerstört wird. Sobald der `Port` getrennt ist, gibt der Browser dem Prozess einige Sekunden, um sich ordnungsgemäß zu beenden, und beendet ihn dann, wenn er nicht beendet wurde.
 
 Für weitere Informationen siehe [Native Messaging](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging).
 
@@ -22,7 +22,7 @@ let port = browser.runtime.connectNative(
 ### Parameter
 
 - `application`
-  - : `string`. Der Name der nativen Anwendung, zu der eine Verbindung hergestellt werden soll. Dies muss mit der "name"-Eigenschaft in der [Manifestdatei der nativen Anwendung](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging#app_manifest) übereinstimmen.
+  - : `string`. Der Name der nativen Anwendung, zu der die Verbindung hergestellt werden soll. Dieser muss mit der "name"-Eigenschaft in der [Manifestdatei der nativen Anwendung](/de/docs/Mozilla/Add-ons/WebExtensions/Native_messaging#app_manifest) übereinstimmen.
 
 ### Rückgabewert
 
@@ -34,23 +34,23 @@ Ein {{WebExtAPIRef('runtime.Port')}}-Objekt. Der Port, den der Aufrufer verwende
 
 ## Beispiele
 
-Dieses Beispiel verbindet sich mit der nativen Anwendung "ping_pong" und beginnt, Nachrichten von ihr zu empfangen. Es sendet der nativen Anwendung auch eine Nachricht, wenn der Benutzer auf ein Browser-Aktionssymbol klickt:
+Dieses Beispiel stellt eine Verbindung zur nativen Anwendung "ping_pong" her und beginnt, Nachrichten von ihr zu empfangen. Es sendet der nativen Anwendung auch eine Nachricht, wenn der Benutzer auf ein Browser-Aktionssymbol klickt:
 
 ```js
 /*
-Beim Start verbinden mit der "ping_pong"-App.
+On startup, connect to the "ping_pong" app.
 */
 let port = browser.runtime.connectNative("ping_pong");
 
 /*
-Nachrichten von der App empfangen.
+Listen for messages from the app.
 */
 port.onMessage.addListener((response) => {
   console.log(`Received: ${response}`);
 });
 
 /*
-Beim Klick auf die Browser-Aktion, der App eine Nachricht senden.
+On a click on the browser action, send the app a message.
 */
 browser.browserAction.onClicked.addListener(() => {
   console.log("Sending:  ping");
@@ -61,7 +61,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-connectNative)-API von Chromium. Diese Dokumentation leitet sich ab von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#method-connectNative)-API von Chromium. Diese Dokumentation ist aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

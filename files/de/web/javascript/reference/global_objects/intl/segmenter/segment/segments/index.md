@@ -14,7 +14,7 @@ Ein **`Segments`**-Objekt ist eine iterierbare Sammlung der Segmente eines Texts
 ## Instanzmethoden
 
 - [`Segments.prototype.containing()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments/containing)
-  - : Gibt ein Objekt zurück, das das Segment in der Originalzeichenkette beschreibt, das die Codeeinheit an einem angegebenen Index enthält.
+  - : Gibt ein Objekt zurück, das das Segment in der Originalzeichenkette beschreibt, das das Code-Element an einem angegebenen Index enthält.
 - [`Segments.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/segment/Segments/Symbol.iterator)
   - : Gibt einen Iterator zurück, um über die Segmente zu iterieren.
 
@@ -22,7 +22,7 @@ Ein **`Segments`**-Objekt ist eine iterierbare Sammlung der Segmente eines Texts
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 

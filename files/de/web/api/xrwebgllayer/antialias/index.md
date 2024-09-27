@@ -1,5 +1,5 @@
 ---
-title: "XRWebGLLayer: antialias-Eigenschaft"
+title: "XRWebGLLayer: Antialias-Eigenschaft"
 short-title: antialias
 slug: Web/API/XRWebGLLayer/antialias
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`antialias`** von {{domxref("XRWebGLLayer")}} ist ein boolescher Wert, der `true` ist, wenn der Framebuffer der Rendering-Ebene Anti-Aliasing unterstützt. Andernfalls ist der Wert dieser Eigenschaft `false`. Die spezifische Anti-Aliasing-Technik, die verwendet wird, liegt im Ermessen des {{Glossary("user agent", "User-Agents")}} und kann nicht von der Website oder Web-App festgelegt werden.
+Die schreibgeschützte [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Eigenschaft **`antialias`** ist ein boolescher Wert, der `true` ist, wenn der Frame-Puffer der Darstellungsebene Anti-Aliasing unterstützt. Andernfalls ist der Wert dieser Eigenschaft `false`. Die spezifische Anti-Aliasing-Technik wird vom [User Agent](/de/docs/Glossary/user_agent) festgelegt und kann nicht von der Website oder Webanwendung vorgegeben werden.
 
 ## Syntax
 
@@ -18,17 +18,17 @@ xrWebGLLayer.antialias
 
 ### Wert
 
-Ein boolescher Wert, der `true` ist, wenn der Framebuffer der WebGL-Rendering-Ebene so konfiguriert ist, dass er Anti-Aliasing unterstützt. Andernfalls ist diese Eigenschaft `false`.
+Ein boolescher Wert, der `true` ist, wenn der Frame-Puffer der WebGL-Darstellungsebene so konfiguriert ist, dass er Anti-Aliasing unterstützt. Andernfalls ist diese Eigenschaft `false`.
 
-Wenn der [WebXR-Kompositor](/de/docs/Web/API/WebXR_Device_API/Fundamentals#the_webxr_compositor) aktiviert ist, entspricht dieser Wert dem Wert der `antialias`-Eigenschaft des Objekts, das durch die Methode {{domxref("WebGLRenderingContext.getContextAttributes", "getContentAttributes()")}} des WebGL-Kontexts zurückgegeben wird.
+Wenn der [WebXR-Compositor](/de/docs/Web/API/WebXR_Device_API/Fundamentals#the_webxr_compositor) aktiviert ist, entspricht dieser Wert dem Wert der `antialias`-Eigenschaft des Objekts, das von der `getContextAttributes()`-Methode des WebGL-Kontextes zurückgegeben wird.
 
-## Anmerkungen zur Verwendung
+## Hinweise zur Verwendung
 
-Da dies eine schreibgeschützte Eigenschaft ist, können Sie den Anti-Aliasing-Modus nur beim erstmaligen Erstellen von `XRWebGLLayer` festlegen, indem Sie die `antialias`-Eigenschaft im `options`-Konfigurationsobjekt des {{domxref("XRWebGLLayer.XRWebGLLayer", "XRWebGLLayer()")}} Konstruktors angeben.
+Da dies eine schreibgeschützte Eigenschaft ist, können Sie den Anti-Aliasing-Modus nur beim erstmaligen Erstellen der `XRWebGLLayer` festlegen, indem Sie die `antialias`-Eigenschaft im `options`-Konfigurationsobjekt des [`XRWebGLLayer()`](/de/docs/Web/API/XRWebGLLayer/XRWebGLLayer)-Konstruktors angeben.
 
 ## Beispiele
 
-Dieses Snippet überprüft den Wert von `antialias`, um festzustellen, ob es zusätzliche Maßnahmen ergreifen muss, um den Mangel an Anti-Aliasing in der WebGL-Ebene auszugleichen.
+Dieser Codeausschnitt überprüft den Wert von `antialias`, um festzustellen, ob zusätzliche Arbeiten durchgeführt werden sollten, um den Mangel an Anti-Aliasing in der WebGL-Ebene zu kompensieren.
 
 ```js
 let glLayer = xrSession.renderState.baseLayer;

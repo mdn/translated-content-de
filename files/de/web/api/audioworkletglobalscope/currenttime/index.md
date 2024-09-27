@@ -1,5 +1,5 @@
 ---
-title: "AudioWorkletGlobalScope: Eigenschaft currentTime"
+title: "AudioWorkletGlobalScope: currentTime-Eigenschaft"
 short-title: currentTime
 slug: Web/API/AudioWorkletGlobalScope/currentTime
 l10n:
@@ -8,49 +8,49 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte **`currentTime`**-Eigenschaft der {{domxref("AudioWorkletGlobalScope")}}-Schnittstelle gibt einen Double-Wert zurück, der die ständig ansteigende Kontextzeit des bearbeiteten Audio-Blocks darstellt. Sie entspricht der {{domxref("BaseAudioContext.currentTime", "currentTime")}}-Eigenschaft des {{domxref("BaseAudioContext")}}, zu dem der Worklet gehört.
+Die schreibgeschützte **`currentTime`**-Eigenschaft der [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope)-Schnittstelle gibt einen Double-Wert zurück, der die ständig zunehmende Kontextzeit des verarbeiteten Audioblocks darstellt. Sie ist gleich der [`currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime)-Eigenschaft des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext), zu dem der Worklet gehört.
 
 ## Wert
 
-Eine Gleitkommazahl, die die Zeit repräsentiert.
+Eine Fließkommazahl, die die Zeit darstellt.
 
 ## Beispiele
 
-Der {{domxref("AudioWorkletProcessor")}} hat Zugang zu den spezifischen {{domxref("AudioWorkletGlobalScope")}}-Eigenschaften:
+Der [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) hat Zugriff auf die spezifischen [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope)-Eigenschaften:
 
 ```js
-// AudioWorkletProcessor definiert in : test-processor.js
+// AudioWorkletProcessor defined in : test-processor.js
 class TestProcessor extends AudioWorkletProcessor {
   constructor() {
     super();
 
-    // Protokolliert das aktuelle Sample-Frame und die Zeit zum Zeitpunkt der Instanziierung.
-    // Sie sind aus dem AudioWorkletGlobalScope zugänglich.
+    // Logs the current sample-frame and time at the moment of instantiation.
+    // They are accessible from the AudioWorkletGlobalScope.
     console.log(currentFrame);
     console.log(currentTime);
   }
 
-  // Die Prozessmethodik ist erforderlich - gibt Stille aus,
-  // die Ausgaben sind bereits gefüllt.
+  // The process method is required - output silence,
+  // which the outputs are already filled with.
   process(inputs, outputs, parameters) {
     return true;
   }
 }
 
-// Protokolliert die Samplerate, die sich nie ändern wird,
-// da es sich um eine schreibgeschützte Eigenschaft eines BaseAudioContext handelt
-// und nur während seiner Instanziierung gesetzt wird.
+// Logs the sample rate, that is not going to change ever,
+// because it's a read-only property of a BaseAudioContext
+// and is set only during its instantiation.
 console.log(sampleRate);
 
-// Sie können beliebige Variablen deklarieren und in Ihren Prozessoren verwenden,
-// zum Beispiel könnte es ein ArrayBuffer mit einer Wavetable sein.
+// You can declare any variables and use them in your processors
+// for example it may be an ArrayBuffer with a wavetable.
 const usefulVariable = 42;
 console.log(usefulVariable);
 
 registerProcessor("test-processor", TestProcessor);
 ```
 
-Das Hauptskript lädt den Prozessor, erstellt eine Instanz von {{domxref("AudioWorkletNode")}}, übergibt ihm den Namen des Prozessors und verbindet den Node mit einem Audiografen. Wir sollten die Ausgabe der {{domxref("console/log_static", "console.log()")}}-Aufrufe in der Konsole sehen:
+Das Hauptskript lädt den Prozessor, erstellt eine Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode), übergibt den Namen des Prozessors an ihn und verbindet den Node mit einem Audiographen. Wir sollten die Ausgabe von [`console.log()`](/de/docs/Web/API/Console/log_static)-Aufrufen in der Konsole sehen:
 
 ```js
 const audioContext = new AudioContext();

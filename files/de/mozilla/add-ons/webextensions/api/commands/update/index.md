@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ändert die Beschreibung oder Tastenkombination für den angegebenen Befehl.
+Ändern Sie die Beschreibung oder die Tastenkombination für den angegebenen Befehl.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,15 +26,15 @@ browser.commands.update(
   - : `object`. Ein Objekt mit den folgenden Eigenschaften:
 
     - `name`
-      - : `string`. Der Name des zu aktualisierenden Befehls. Dieser muss mit dem Namen eines bestehenden Befehls übereinstimmen, wie er beispielsweise in der `name`-Eigenschaft des {{WebExtAPIRef("commands.Command")}} Objekts angegeben ist.
+      - : `string`. Der Name des Befehls, der aktualisiert werden soll. Dieser muss mit dem Namen eines vorhandenen Befehls übereinstimmen, wie er beispielsweise in der `name`-Eigenschaft des {{WebExtAPIRef("commands.Command")}} Objekts angegeben ist.
     - `description` {{optional_inline}}
-      - : `string`. Eine neue Beschreibung für den Befehl.
+      - : `string`. Eine neue Beschreibung, die für den Befehl festgelegt werden soll.
     - `shortcut` {{optional_inline}}
 
-      - : `string`. Eine neue Tastenkombination für den Befehl. Dies kann sein:
+      - : `string`. Eine neue Tastenkombination, die für den Befehl festgelegt werden soll. Dies kann sein:
 
-        - ein leerer String, um die Tastenkombination zu löschen.
-        - ein String im Format des [`commands` manifest.json keys](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands), um eine neue Tastenkombination festzulegen. Wenn der String dieses Format nicht erfüllt, löst die Funktion einen Fehler aus.
+        - ein leerer String, um die Verknüpfung zu entfernen.
+        - ein String, der dem Format des [`commands` manifest.json Schlüssels](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands) entspricht, um eine neue Tastenkombination festzulegen. Wenn der String dieses Format nicht erfüllt, löst die Funktion einen Fehler aus.
 
 ### Rückgabewert
 
@@ -46,7 +46,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Aktualisiert den Befehl mit dem Namen "my-command" mit dem angegebenen Shortcut-Wert, wenn der Benutzer auf "update" klickt:
+Aktualisiert den Befehl mit dem Namen "my-command" mit dem angegebenen Tastenkombinationswert, wenn der Benutzer auf "aktualisieren" klickt:
 
 ```js
 const commandName = "my-command";

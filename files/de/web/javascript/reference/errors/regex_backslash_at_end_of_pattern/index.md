@@ -7,41 +7,41 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Fehler „\ am Ende des Musters“ tritt auf, wenn ein reguläres Ausdrucksmuster mit einem nicht-escaped Backslash (`\`) endet. In einem Regex-Literal würde der Backslash den abschließenden Schrägstrich `/` zu einem Literalzeichen machen, sodass dies nur beim Verwenden des {{jsxref("RegExp/RegExp", "RegExp()")}} Konstruktors auftreten kann.
+Die JavaScript-Ausnahme „\ am Ende des Musters“ tritt auf, wenn ein regulärer Ausdruck mit einem nicht-escaped Backslash (`\`) endet. In einem Regex-Literal würde der Backslash den abschließenden Schrägstrich `/` zu einem Literalzeichen machen, daher kann dies nur auftreten, wenn der {{jsxref("RegExp/RegExp", "RegExp()")}}-Konstruktor verwendet wird.
 
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: Invalid regular expression: /\/: \ at end of pattern (V8-based)
-SyntaxError: \ am Ende des Musters (Firefox)
+SyntaxError: \ at end of pattern (Firefox)
 SyntaxError: Invalid regular expression: \ at end of pattern (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Ein Backslash kann nicht wörtlich in einem regulären Ausdruck erscheinen. Er wird entweder verwendet, um ein anderes Zeichen zu [escapen](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences), oder er wird selbst durch einen anderen Backslash escaped. Ein Backslash am Ende eines regulären Ausdrucksmusters ist ungültig, da er nichts escapet.
+Ein Backslash kann in einem regulären Ausdruck nicht wörtlich erscheinen. Er geht entweder einem anderen Zeichen voraus, um [es zu escapen](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences), oder er ist selbst durch einen anderen Backslash escaped. Ein Backslash am Ende eines regulären Ausdrucksmusters ist ungültig, da er nichts escapet.
 
 ## Beispiele
 
-### Doppelte Escaping von Backslashes
+### Double-Escaping von Backslashes
 
-Dieser Fehler kann nur beim Verwenden des `RegExp()` Konstruktors auftreten. Betrachten Sie den folgenden Code, der versucht, ein einzelnes Backslash-Zeichen zu matchen:
+Dieser Fehler kann nur bei der Verwendung des `RegExp()`-Konstruktors auftreten. Betrachten Sie den folgenden Code, der beabsichtigt, ein einzelnes Backslash-Zeichen zu erfassen:
 
 ```js example-bad
 const pattern = new RegExp("\\");
 ```
 
-In JavaScript-Strings sind Backslashes ebenfalls Escape-Sequenzen. Daher werden die beiden Backslashes im String-Literal `"\\"` als ein einzelner Backslash interpretiert. Der `RegExp()` Konstruktor sieht dann nur ein einzelnes Backslash-Zeichen in der Regex-Quelle. Um dies zu beheben, müssen Sie den Backslash doppelt escapen:
+In JavaScript-Strings sind Backslashes ebenfalls Escape-Sequenzen. Daher werden die beiden Backslashes im String-Literal `"\\"` als ein einzelner Backslash interpretiert. Der `RegExp()`-Konstruktor sieht dann nur ein einzelnes Backslash-Zeichen in der Regex-Quelle. Um dies zu beheben, müssen Sie den Backslash doppelt escapen:
 
 ```js example-good
 const pattern = new RegExp("\\\\");
 ```
 
-Die vier Backslashes im String-Literal repräsentieren zwei Backslashes in der Regex-Quelle, was dann zu einem [Zeichen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) für ein einzelnes Backslash-Literalzeichen wird.
+Die vier Backslashes im String-Literal repräsentieren zwei Backslashes in der Regex-Quelle, die dann zu einem [Zeichen-escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) für ein einzelnes Backslash-Literalzeichen werden.
 
 ## Siehe auch
 

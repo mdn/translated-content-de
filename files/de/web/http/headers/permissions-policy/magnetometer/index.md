@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Das HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `magnetometer`-Directive steuert, ob das aktuelle Dokument Informationen über die Ausrichtung des Geräts über die {{domxref("Magnetometer")}}-Schnittstelle sammeln darf.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `magnetometer` steuert, ob das aktuelle Dokument Informationen über die Ausrichtung des Geräts über die [`Magnetometer`](/de/docs/Web/API/Magnetometer)-Schnittstelle sammeln darf.
 
-Insbesondere wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe des Konstruktors {{domxref("Magnetometer.Magnetometer", "Magnetometer()")}} eine {{domxref("DOMException")}} vom Typ `SecurityError` auslösen.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, lösen Aufrufe des Konstruktors [`Magnetometer()`](/de/docs/Web/API/Magnetometer/Magnetometer) eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` aus.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: magnetometer=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-`allowlist` für `magnetometer` ist `self`.
+Die Standardliste für `magnetometer` ist `self`.
 
 ## Spezifikationen
 
@@ -34,5 +34,5 @@ Die Standard-`allowlist` für `magnetometer` ist `self`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}}-Header
+- HTTP-Header {{HTTPHeader("Permissions-Policy")}}
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

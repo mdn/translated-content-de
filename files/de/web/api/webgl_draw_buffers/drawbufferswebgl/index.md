@@ -8,14 +8,16 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WEBGL_draw_buffers.drawBuffersWEBGL()`**-Methode ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es Ihnen, die Zeichnungs-Puffer zu definieren, in die alle Fragmentfarben geschrieben werden.
+Die **`WEBGL_draw_buffers.drawBuffersWEBGL()`**-Methode ist Teil
+der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es Ihnen,
+die Ausgabepuffer zu definieren, an die alle Fragmentfarben geschrieben werden.
 
-Diese Methode ist Teil der {{domxref("WEBGL_draw_buffers")}}-Erweiterung.
+Diese Methode ist Teil der [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers) Erweiterung.
 
 > [!NOTE]
-> Bei der Verwendung von {{domxref("WebGL2RenderingContext", "WebGL2")}}
-> ist diese Methode standardmäßig als {{domxref("WebGL2RenderingContext.drawBuffers()", "gl.drawBuffers()")}}
-> verfügbar und die Konstanten werden `gl.COLOR_ATTACHMENT1` usw. ohne das "WEBGL"-Suffix genannt.
+> Bei Verwendung von [`WebGL2`](/de/docs/Web/API/WebGL2RenderingContext)
+> ist diese Methode standardmäßig als [`gl.drawBuffers()`](/de/docs/Web/API/WebGL2RenderingContext/drawBuffers)
+> verfügbar, und die Konstanten sind als `gl.COLOR_ATTACHMENT1` usw. ohne das "WEBGL"-Suffix benannt.
 
 ## Syntax
 
@@ -27,12 +29,12 @@ drawBuffersWEBGL(buffers)
 
 - `buffers`
 
-  - : Ein {{jsxref("Array")}} von {{domxref("WebGL_API/Types", "GLenum")}}-Konstanten, die die Zeichnungs-Puffer definieren.
+  - : Ein {{jsxref("Array")}} von [`GLenum`](/de/docs/Web/API/WebGL_API/Types)-Konstanten, die Ausgabepuffer definieren.
     Mögliche Werte:
 
-    - `gl.NONE`: Der Fragment-Shader wird nicht in einen Farb-Puffer geschrieben.
-    - `gl.BACK`: Der Fragment-Shader wird in den hinteren Farb-Puffer geschrieben.
-    - `ext.COLOR_ATTACHMENT0_WEBGL` Der Fragment-Shader wird in den
+    - `gl.NONE`: Der Fragment-Shader wird nicht in einen Farbpuffer geschrieben.
+    - `gl.BACK`: Der Fragment-Shader wird in den hinteren Farbpuffer geschrieben.
+    - `ext.COLOR_ATTACHMENT0_WEBGL`: Der Fragment-Shader wird in den
       n-ten Farbanhang des Framebuffers geschrieben.
     - `ext.COLOR_ATTACHMENT1_WEBGL`
     - `ext.COLOR_ATTACHMENT2_WEBGL`
@@ -56,7 +58,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Siehe {{domxref("WEBGL_draw_buffers")}} für mehr Kontext mit diesem Beispielcode.
+Siehe [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers) für mehr Kontext mit diesem Beispielcode.
 
 ```js
 ext.drawBuffersWEBGL([
@@ -77,10 +79,10 @@ ext.drawBuffersWEBGL([
 
 ## Siehe auch
 
-- {{domxref("WEBGL_draw_buffers")}}
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLRenderingContext.framebufferRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.framebufferTexture2D()")}}
-- {{domxref("WebGLRenderingContext.getFramebufferAttachmentParameter()")}}
-- {{domxref("WebGLRenderingContext.getParameter()")}}
-- [WebGL Deferred Shading - Mozilla Hacks Blog](https://hacks.mozilla.org/2014/01/webgl-deferred-shading/)
+- [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers)
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLRenderingContext.framebufferRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/framebufferRenderbuffer)
+- [`WebGLRenderingContext.framebufferTexture2D()`](/de/docs/Web/API/WebGLRenderingContext/framebufferTexture2D)
+- [`WebGLRenderingContext.getFramebufferAttachmentParameter()`](/de/docs/Web/API/WebGLRenderingContext/getFramebufferAttachmentParameter)
+- [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter)
+- [WebGL deferred shading - Mozilla Hacks blog](https://hacks.mozilla.org/2014/01/webgl-deferred-shading/)

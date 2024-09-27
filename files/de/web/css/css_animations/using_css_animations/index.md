@@ -7,54 +7,54 @@ l10n:
 
 {{CSSRef}}
 
-**CSS-Animationen** ermöglichen es, Übergänge von einer CSS-Stilkonfiguration zu einer anderen zu animieren. Animationen bestehen aus zwei Komponenten: einem Stil, der die CSS-Animation beschreibt, und einer Reihe von Keyframes, die die Anfangs- und Endzustände des Animationsstils sowie mögliche Zwischenziele angeben.
+**CSS-Animationen** ermöglichen es, Übergänge von einer CSS-Stilkonfiguration zu einer anderen zu animieren. Animationen bestehen aus zwei Komponenten: einem Stil, der die CSS-Animation beschreibt, und einem Satz von Keyframes, die die Start- und Endzustände des Animationsstils sowie mögliche Zwischenwegpunkte angeben.
 
-Es gibt drei wesentliche Vorteile von CSS-Animationen gegenüber traditionellen scriptgesteuerten Animationstechniken:
+Es gibt drei wesentliche Vorteile von CSS-Animationen gegenüber traditionellen, skriptgesteuerten Animationstechniken:
 
-1. Sie sind einfach zu verwenden für einfache Animationen; Sie können diese erstellen, ohne JavaScript kennen zu müssen.
-2. Die Animationen laufen gut, selbst bei moderater Systemauslastung. Einfache Animationen können mit JavaScript oft schlecht performen. Die Render-Engine kann Frame-Skipping und andere Techniken verwenden, um die Performance so flüssig wie möglich zu halten.
-3. Wenn der Browser die Animationssequenz steuert, kann er die Leistung und Effizienz optimieren, indem er zum Beispiel die Aktualisierungsrate von Animationen reduziert, die in Tabs laufen, die derzeit nicht sichtbar sind.
+1. Sie sind einfach zu verwenden für einfache Animationen; Sie können sie erstellen, ohne JavaScript zu kennen.
+2. Die Animationen laufen gut, selbst unter mittlerer Systemlast. Einfache Animationen können in JavaScript oft schlecht ausgeführt werden. Die Rendering-Engine kann Frame-Skipping und andere Techniken verwenden, um die Leistung so reibungslos wie möglich zu halten.
+3. Wenn der Browser die Animationssequenz steuert, kann er die Leistung und Effizienz optimieren, indem er zum Beispiel die Update-Frequenz von Animationen in nicht sichtbaren Tabs reduziert.
 
-## Konfigurieren einer Animation
+## Eine Animation konfigurieren
 
-Um eine CSS-Animationssequenz zu erstellen, stylen Sie das Element, das Sie animieren möchten, mit der {{cssxref("animation")}}-Eigenschaft oder deren Untereigenschaften. Dadurch können Sie das Timing, die Dauer und andere Details festlegen, wie die Animationssequenz ablaufen soll. Dies konfiguriert **nicht** das tatsächliche Erscheinungsbild der Animation, welches mit Hilfe des {{cssxref("@keyframes")}}-At-Regelsatzes definiert wird, wie im Abschnitt [Definieren der Animationssequenz mit Keyframes](#definieren_einer_animationssequenz_mit_keyframes) unten beschrieben.
+Um eine CSS-Animationssequenz zu erstellen, stylen Sie das Element, das Sie animieren möchten, mit der {{cssxref("animation")}}-Eigenschaft oder ihren Untereigenschaften. Dies ermöglicht es Ihnen, das Timing, die Dauer und andere Details darüber, wie die Animationssequenz voranschreiten soll, zu konfigurieren. Dies konfiguriert jedoch **nicht** das tatsächliche Erscheinungsbild der Animation, das mittels der {{cssxref("@keyframes")}}-At-Regel wie im Abschnitt [Animierungssequenz mit Keyframes definieren](#animierungssequenz_mit_keyframes_definieren) beschrieben wird.
 
 Die Untereigenschaften der {{cssxref("animation")}}-Eigenschaft sind:
 
 - {{cssxref("animation-composition")}}
-  - : Gibt die {{Glossary("composite operation")}} an, die verwendet werden soll, wenn mehrere Animationen gleichzeitig dieselbe Eigenschaft beeinflussen. Diese Eigenschaft ist nicht Teil der `animation`-Abkürzungseigenschaft.
+  - : Gibt die [Kompositionsoperation](/de/docs/Glossary/composite_operation) an, die verwendet werden soll, wenn mehrere Animationen dieselbe Eigenschaft gleichzeitig beeinflussen. Diese Eigenschaft ist nicht Teil der Kurzform `animation`.
 - {{cssxref("animation-delay")}}
-  - : Gibt die Verzögerung zwischen dem Laden eines Elements und dem Start einer Animationssequenz an und ob die Animation sofort von ihrem Anfang oder in der Mitte der Animation beginnen soll.
+  - : Gibt die Verzögerung zwischen dem Laden eines Elements und dem Beginn einer Animationssequenz an und ob die Animation sofort von Anfang an oder mitten in der Animation beginnen soll.
 - {{cssxref("animation-direction")}}
-  - : Gibt an, ob die erste Iteration einer Animation vorwärts oder rückwärts verlaufen soll und ob nachfolgende Iterationen die Richtung bei jedem Durchlauf der Sequenz abwechseln oder zum Startpunkt zurückkehren und wiederholen sollen.
+  - : Gibt an, ob die erste Iteration einer Animation vorwärts oder rückwärts erfolgen soll und ob nachfolgende Iterationen die Richtung bei jedem Durchlauf durch die Sequenz wechseln oder zum Startpunkt zurückkehren und wiederholen sollen.
 - {{cssxref("animation-duration")}}
-  - : Gibt die Zeitspanne an, in der eine Animation einen Zyklus abschließt.
+  - : Legt die Zeit fest, in der eine Animation einen Zyklus abschließt.
 - {{cssxref("animation-fill-mode")}}
-  - : Gibt an, wie eine Animation Stile auf ihr Ziel vor und nach ihrer Ausführung anwendet.
+  - : Gibt an, wie eine Animation Stile auf ihr Ziel vor und nach dem Ausführen anwendet.
     > [!NOTE]
-    > Im Fall des [forwards](/de/docs/Web/CSS/animation-fill-mode#forwards) Fill-Modus, verhalten sich animierte Eigenschaften, als wären sie in einem [`will-change`](/de/docs/Web/CSS/will-change)-Eigenschaftswert enthalten. Wenn während der Animation ein neuer Stacking-Kontext erstellt wurde, behält das Zielelement den Stacking-Kontext, nachdem die Animation abgeschlossen ist.
+    > Im Fall des Animations-[vorwärts](/de/docs/Web/CSS/animation-fill-mode#forwards)-Fill-Modus verhalten sich animierte Eigenschaften so, als ob sie in einem `will-change`-Eigenschaftswert enthalten wären. Wenn während der Animation ein neuer Stacking-Kontext erstellt wurde, behält das Zielelement den Stacking-Kontext, nachdem die Animation abgeschlossen ist.
 - {{cssxref("animation-iteration-count")}}
   - : Gibt die Anzahl der Wiederholungen einer Animation an.
 - {{cssxref("animation-name")}}
-  - : Gibt den Namen des {{cssxref("@keyframes")}}-At-Regelsatzes an, der die Keyframes einer Animation beschreibt.
+  - : Gibt den Namen der {{cssxref("@keyframes")}}-At-Regel an, die die Keyframes einer Animation beschreibt.
 - {{cssxref("animation-play-state")}}
-  - : Gibt an, ob eine Animationssequenz angehalten oder abgespielt werden soll.
+  - : Gibt an, ob eine Animationssequenz pausiert oder abgespielt werden soll.
 - {{cssxref("animation-timeline")}}
   - : Gibt die Zeitleiste an, die verwendet wird, um den Fortschritt einer CSS-Animation zu steuern.
 - {{cssxref("animation-timing-function")}}
-  - : Gibt an, wie eine Animation durch Keyframes überführt wird, indem Beschleunigungskurven festgelegt werden.
+  - : Gibt an, wie eine Animation durch Keyframes mittels Beschleunigungskurven übergeht.
 
-## Definieren einer Animationssequenz mit Keyframes
+## Animierungssequenz mit Keyframes definieren
 
-Nachdem Sie das Timing der Animation konfiguriert haben, müssen Sie das Erscheinungsbild der Animation definieren. Dies erfolgt durch Festlegen eines oder mehrerer Keyframes mit der {{cssxref("@keyframes")}}-At-Regel. Jedes Keyframe beschreibt, wie das animierte Element zu einem bestimmten Zeitpunkt während der Animationssequenz dargestellt werden soll.
+Nachdem Sie das Timing der Animation konfiguriert haben, müssen Sie das Erscheinungsbild der Animation definieren. Dies geschieht durch das Festlegen von einem oder mehreren Keyframes mit der {{cssxref("@keyframes")}}-At-Regel. Jedes Keyframe beschreibt, wie das animierte Element zu einem bestimmten Zeitpunkt während der Animationssequenz dargestellt werden soll.
 
-Da das Timing der Animation im CSS-Stil definiert wird, der die Animation konfiguriert, verwenden Keyframes einen {{cssxref("percentage")}}, um den Zeitpunkt in der Animationssequenz anzugeben, zu dem sie stattfinden. 0 % gibt den ersten Moment der Animationssequenz an, während 100 % den Endzustand der Animation kennzeichnen. Da diese beiden Zeitpunkte so wichtig sind, haben sie besondere Aliase: `from` und `to`. Beide sind optional. Wenn `from`/`0%` oder `to`/`100%` nicht angegeben ist, startet oder beendet der Browser die Animation mit den berechneten Werten aller Attribute.
+Da das Timing der Animation im CSS-Stil definiert ist, der die Animation konfiguriert, verwenden Keyframes ein {{cssxref("percentage")}}, um den Zeitpunkt in der Animationssequenz anzugeben, zu dem sie stattfinden. 0% gibt den ersten Moment der Animationssequenz an, während 100% den Endstatus der Animation angibt. Da diese beiden Zeiten so wichtig sind, haben sie spezielle Aliase: `from` und `to`. Beide sind optional. Wenn `from`/`0%` oder `to`/`100%` nicht angegeben sind, beginnt oder endet der Browser die Animation unter Verwendung der berechneten Werte aller Attribute.
 
-Sie können optional zusätzliche Keyframes einfügen, die Zwischenschritte zwischen dem Anfang und Ende der Animation beschreiben.
+Sie können optional zusätzliche Keyframes hinzufügen, die Zwischenschritte zwischen dem Start und dem Ende der Animation beschreiben.
 
-## Verwenden der Animation-Abkürzung
+## Verwendung der Animation-Kurzform
 
-Die {{cssxref("animation")}}-Abkürzung ist nützlich, um Platz zu sparen. Zum Beispiel könnten einige der Regeln, die wir in diesem Artikel verwendet haben:
+Die {{cssxref("animation")}}-Kurzform ist nützlich, um Platz zu sparen. Als Beispiel können einige der Regeln, die wir in diesem Artikel verwendet haben:
 
 ```css
 p {
@@ -65,7 +65,7 @@ p {
 }
 ```
 
-... durch die Verwendung der `animation`-Abkürzung ersetzt werden.
+... durch die Verwendung der `animation`-Kurzform ersetzt werden.
 
 ```css
 p {
@@ -73,13 +73,13 @@ p {
 }
 ```
 
-Um mehr über die Reihenfolge zu erfahren, in der verschiedene Animationswerte mithilfe der `animation`-Abkürzung angegeben werden können, siehe die {{cssxref("animation")}}-Referenzseite.
+Um mehr über die Reihenfolge zu erfahren, in der verschiedene Animationseigenschaftswerte mit der `animation`-Kurzform angegeben werden können, siehe die {{cssxref("animation")}}-Referenzseite.
 
-## Festlegen mehrerer Animationswerte
+## Mehrere Werte für Animationseigenschaften setzen
 
-Die CSS-Animations-Longhand-Eigenschaften können mehrere Werte akzeptieren, getrennt durch Kommas. Diese Funktion kann verwendet werden, wenn Sie mehrere Animationen in einer einzigen Regel anwenden möchten und unterschiedliche Dauern, Iterationsanzahlen usw. für jede der Animationen festlegen möchten. Lassen Sie uns einige schnelle Beispiele durchgehen, um die verschiedenen Permutationen zu erläutern.
+Die CSS-Animations-Langeigenschaften können mehrere Werte akzeptieren, die durch Kommas getrennt sind. Diese Funktion kann verwendet werden, wenn Sie mehrere Animationen in einer einzelnen Regel anwenden und verschiedene Dauern, Iterationszahlen usw. für jede der Animationen festlegen möchten. Schauen wir uns einige schnelle Beispiele an, um die verschiedenen Permutationen zu erklären.
 
-Im ersten Beispiel gibt es drei Dauer- und drei Iterationsanzahl-Werte. Jede Animation wird mit einem Wert für Dauer und Iterationsanzahl mit derselben Position wie der Animationsname zugewiesen. Der `fadeInOut`-Animation wird eine Dauer von `2.5s` und eine Iterationsanzahl von `2` zugewiesen, und der `bounce`-Animation eine Dauer von `1s` und eine Iterationsanzahl von `5`.
+In diesem ersten Beispiel gibt es drei Dauer- und drei Iterationsanzahlwerte. Daher wird jeder Animation ein Wert für die Dauer und die Iterationsanzahl zugewiesen, die dieselbe Position wie der Animationsname hat. Die `fadeInOut`-Animation erhält eine Dauer von `2.5s` und eine Iterationsanzahl von `2`, und die `bounce`-Animation erhält eine Dauer von `1s` und eine Iterationsanzahl von `5`.
 
 ```css
 animation-name: fadeInOut, moveLeft300px, bounce;
@@ -87,7 +87,7 @@ animation-duration: 2.5s, 5s, 1s;
 animation-iteration-count: 2, 1, 5;
 ```
 
-Im zweiten Beispiel sind drei Animationsnamen festgelegt, aber es gibt nur eine Dauer und Iterationsanzahl. In diesem Fall erhalten alle drei Animationen die gleiche Dauer und Iterationsanzahl.
+Im zweiten Beispiel werden drei Animationsnamen festgelegt, es gibt jedoch nur eine Dauer und Iterationsanzahl. In diesem Fall erhalten alle drei Animationen dieselbe Dauer und Iterationsanzahl.
 
 ```css
 animation-name: fadeInOut, moveLeft300px, bounce;
@@ -95,7 +95,7 @@ animation-duration: 3s;
 animation-iteration-count: 1;
 ```
 
-Im dritten Beispiel sind drei Animationen angegeben, aber nur zwei Dauern und Iterationsanzahlen. In solchen Fällen, in denen es nicht genügend Werte in der Liste gibt, um jedem eine separate zuzuweisen, wird die Wertzuweisung vom ersten bis zum letzten Element in der verfügbaren Liste durchlaufen und dann zum ersten Element zurückgesprungen. So erhält `fadeInOut` eine Dauer von `2.5s`, und `moveLeft300px` eine Dauer von `5s`, was der letzte Wert in der Liste der Dauerwerte ist. Die Dauerwertzuweisung wird nun auf den ersten Wert zurückgesetzt; `bounce` erhält daher eine Dauer von `2.5s`. Die Iterationsanzahlwerte (und alle anderen Eigenschaftswerte, die Sie angeben) werden auf die gleiche Weise zugewiesen.
+Im dritten Beispiel werden drei Animationen angegeben, jedoch nur zwei Dauern und Iterationsanzahlen. In solchen Fällen, in denen es nicht genügend Werte in der Liste gibt, um jedem Animation eine separate zuzuweisen, zyklisch wird die Wertezuweisung von dem ersten bis zum letzten Element in der verfügbaren Liste und dann von vorne begonnen. So erhält `fadeInOut` eine Dauer von `2.5s` und `moveLeft300px` eine Dauer von `5s`, was der letzte Wert in der Liste der Dauerwerte ist. Die Dauerwertezuweisung wird nun auf den ersten Wert zurückgesetzt; `bounce` erhält daher eine Dauer von `2.5s`. Die Iterationsanzahlwerte (und alle anderen angegebenen Eigenschaftswerte) werden auf dieselbe Weise zugewiesen.
 
 ```css
 animation-name: fadeInOut, moveLeft300px, bounce;
@@ -103,16 +103,16 @@ animation-duration: 2.5s, 5s;
 animation-iteration-count: 2, 1;
 ```
 
-Wenn das Missverhältnis in der Anzahl der Animationen und Animationswerte umgekehrt ist, zum Beispiel wenn es fünf `animation-duration` Werte für drei `animation-name` Werte gibt, dann gelten die zusätzlichen oder ungenutzten Animationswerte, in diesem Fall zwei `animation-duration` Werte, für keine Animation und werden ignoriert.
+Wenn das Missverhältnis in der Anzahl der Animationen und der Animationswerte invertiert ist, sagen wir es gibt fünf `animation-duration`-Werte für drei `animation-name`-Werte, dann gelten die zusätzlichen oder ungenutzten Animationswerte, in diesem Fall zwei `animation-duration`-Werte, für keine Animation und werden ignoriert.
 
 ## Beispiele
 
 > [!NOTE]
-> Einige ältere Browser (vor 2017) benötigen Präfixe; die Live-Beispiele, die Sie in Ihrem Browser ansehen können, beinhalten die `-webkit`-präfixierte Syntax.
+> Einige ältere Browser (vor 2017) benötigen möglicherweise Präfixe; die Live-Beispiele, die Sie in Ihrem Browser anklicken können, umfassen die `-webkit`-gekennzeichnete Syntax.
 
 ### Text über das Browserfenster gleiten lassen
 
-In diesem einfachen Beispiel wird ein {{HTMLElement("p")}}-Element mit den {{cssxref("translate")}}- und {{cssxref("scale")}}-Übergangseigenschaften formatiert, so dass der Text von außerhalb des rechten Randes des Browserfensters hereinrutscht.
+Dieses grundlegende Beispiel stylt ein {{HTMLElement("p")}}-Element mit den Übergangseigenschaften {{cssxref("translate")}} und {{cssxref("scale")}}, sodass der Text von außerhalb des rechten Rands des Browserfensters hereingleitet.
 
 ```css
 p {
@@ -133,11 +133,11 @@ p {
 }
 ```
 
-In diesem Beispiel spezifiziert der Stil für das {{HTMLElement("p")}}-Element, dass die Animation 3 Sekunden dauern soll, um von Anfang bis Ende auszuführen, indem die {{cssxref("animation-duration")}}-Eigenschaft verwendet wird und dass der Name des {{ cssxref("@keyframes")}}-At-Regelsatzes, der die Keyframes für die Animationssequenz definiert, `slidein` ist.
+In diesem Beispiel spezifiziert der Stil für das {{HTMLElement("p")}}-Element, dass die Animation 3 Sekunden dauern soll, um von Anfang bis Ende auszuführen, unter Verwendung der {{cssxref("animation-duration")}}-Eigenschaft, und dass der Name der {{cssxref("@keyframes")}}-At-Regel, die die Keyframes für die Animationssequenz definiert, `slidein` ist.
 
-In diesem Fall haben wir nur zwei Keyframes. Das erste tritt bei `0%` auf (unter Verwendung des Alias `from`). Hier konfigurieren wir die {{cssxref("translate")}}-Eigenschaft des Elements auf `150vw` (d. h. jenseits des rechten Randes des enthaltenen Elements) und die {{cssxref("scale")}} des Elements auf 200% (oder das Doppelte seiner Standardgröße), wodurch der Absatz doppelt so breit wie sein `<body>`-Block ist. Dies führt dazu, dass der erste Frame der Animation die Kopfzeile außerhalb des rechten Randes des Browserfensters zeichnet.
+In diesem Fall haben wir nur zwei Keyframes. Das erste tritt bei `0%` auf (unter Verwendung des Alias `from`). Hier konfigurieren wir die {{cssxref("translate")}}-Eigenschaft des Elements auf `150vw` (das heißt, über den rechten Rand des enthaltenen Elements hinaus), und die {{cssxref("scale")}} des Elements auf 200% (oder zwei Mal seine Standardgröße), wodurch der Absatz doppelt so breit wie sein `<body>`-enthaltender Block ist. Dies führt dazu, dass der erste Frame der Animation den Header außerhalb des rechten Randes des Browserfensters hat.
 
-Das zweite Keyframe tritt bei `100%` auf (unter Verwendung des Alias `to`). Die {{cssxref("translate")}}-Eigenschaft ist auf `0%` gesetzt und die {{cssxref("scale")}} des Elements auf `1`, also `100%`. Dadurch endet die Kopfzeile ihre Animation in ihrem Standardzustand, bündig mit dem linken Rand des Inhaltsbereichs.
+Das zweite Keyframe tritt bei `100%` auf (unter Verwendung des Alias `to`). Die {{cssxref("translate")}}-Eigenschaft ist auf `0%` gesetzt und die {{cssxref("scale")}} des Elements ist auf `1`, also `100%` gesetzt. Dies führt dazu, dass der Header seine Animation in seinem Standardzustand beendet, direkt am linken Rand des Inhaltsbereichs.
 
 ```html
 <p>
@@ -152,9 +152,9 @@ Das zweite Keyframe tritt bei `100%` auf (unter Verwendung des Alias `to`). Die 
 
 {{EmbedLiveSample("Making_text_slide_across_the_browser_window","100%","250")}}
 
-### Hinzufügen eines weiteren Keyframe-Animations
+### Hinzufügen einer weiteren Keyframe-Animation
 
-Lassen Sie uns der Animation des vorherigen Beispiels ein weiteres Keyframe hinzufügen. Nehmen wir an, wir möchten, dass Alices Name rosa wird und wächst und dann wieder seine ursprüngliche Größe und Farbe annimmt, während er sich von rechts nach links bewegt. Während wir die {{cssxref("font-size")}} ändern könnten, beeinträchtigt das Ändern von Eigenschaften, die das Box-Modell betreffen, die Leistung negativ. Stattdessen wickeln wir ihren Namen in eine {{htmlelement("span")}} und skalieren und weisen dieser separat eine Farbe zu. Das erfordert das Hinzufügen einer zweiten Animation, die nur das `<span>` beeinflusst:
+Fügen wir der Animation des vorherigen Beispiels ein weiteres Keyframe hinzu. Nehmen wir an, wir möchten, dass Alices Name rosa wird und wächst, und dann auf seine ursprüngliche Größe und Farbe zurückschrumpft, während er sich von rechts nach links bewegt. Während wir die {{cssxref("font-size")}} ändern könnten, beeinträchtigt das Ändern von Eigenschaften, die das Boxmodell beeinflussen, die Leistung negativ. Stattdessen packen wir ihren Namen in ein {{htmlelement("span")}} und skalieren und weisen eine Farbe separat zu. Das erfordert das Hinzufügen einer zweiten Animation, die nur das `<span>` betrifft:
 
 ```css
 @keyframes growshrink {
@@ -170,43 +170,9 @@ Lassen Sie uns der Animation des vorherigen Beispiels ein weiteres Keyframe hinz
 }
 ```
 
-Der vollständige Code sieht jetzt wie folgt aus:
+Der vollständige Code sieht jetzt so aus:
 
-```css
-p {
-  animation-duration: 3s;
-  animation-name: slidein;
-}
-p span {
-  display: inline-block;
-  animation-duration: 3s;
-  animation-name: growshrink;
-}
-
-@keyframes slidein {
-  from {
-    translate: 150vw 0;
-    scale: 200% 1;
-  }
-
-  to {
-    translate: 0 0;
-    scale: 100% 1;
-  }
-}
-
-@keyframes growshrink {
-  25%,
-  75% {
-    scale: 100%;
-  }
-
-  50% {
-    scale: 200%;
-    color: magenta;
-  }
-}
-```
+![](8-b5c1ea6.md)
 
 Wir haben ein {{htmlelement("span")}} um "Alice" hinzugefügt:
 
@@ -218,7 +184,7 @@ Wir haben ein {{htmlelement("span")}} um "Alice" hinzugefügt:
 </p>
 ```
 
-Dies teilt dem Browser mit, dass der Name in den ersten und letzten 25 % der Animation normal sein soll, aber in der Mitte rosa wird, während er vergrößert und dann wieder auf die ursprüngliche Größe verkleinert wird. Wir setzen die {{cssxref("display")}}-Eigenschaft des Spans auf `inline-block`, da die `transform`-Eigenschaften den nicht ersetzten {{glossary("inline-level content")}} nicht beeinflussen.
+Dies sagt dem Browser, dass der Name normal für die ersten und letzten 25% der Animation sein soll, aber rosa werden soll, während er in der Mitte vergrößert und wieder verkleinert wird. Wir setzen die {{cssxref("display")}}-Eigenschaft des Spans auf `inline-block`, da die `transform`-Eigenschaften sich nicht auf nicht-ersetzte [inline-level content](/de/docs/Glossary/inline-level_content) auswirken.
 
 > [!NOTE]
 > Seite neu laden, um die Animation zu sehen.
@@ -227,7 +193,7 @@ Dies teilt dem Browser mit, dass der Name in den ersten und letzten 25 % der Ani
 
 ### Wiederholen der Animation
 
-Um die Animation sich selbst wiederholen zu lassen, verwenden Sie die {{cssxref("animation-iteration-count")}}-Eigenschaft, um anzugeben, wie oft die Animation wiederholt werden soll. In diesem Fall verwenden wir `infinite`, um die Animation unendlich oft wiederholen zu lassen:
+Um die Animation sich wiederholen zu lassen, verwenden Sie die {{cssxref("animation-iteration-count")}}-Eigenschaft, um anzugeben, wie oft die Animation wiederholt werden soll. In diesem Fall verwenden wir `infinite`, um die Animation unbegrenzt wiederholen zu lassen:
 
 ```css
 p {
@@ -261,9 +227,9 @@ p {
 
 {{EmbedLiveSample("Repeating_the_animation","100%","250")}}
 
-### Die Animation hin und her bewegen lassen
+### Animation vor- und zurückbewegen lassen
 
-Das ließ sie sich wiederholen, jedoch ist es sehr merkwürdig, dass sie bei jeder neuen Animation zum Anfang zurückspringen. Was wir wirklich wollen, ist, dass sie sich hin und her über den Bildschirm bewegt. Das ist leicht erreicht, indem {{cssxref("animation-direction")}} auf `alternate` gesetzt wird:
+Das führte dazu, dass sie sich wiederholt, aber es ist sehr seltsam, dass sie jedes Mal, wenn sie zu animieren beginnt, zurück zum Anfang springt. Was wir wirklich wollen, ist, dass sie sich hin und her über den Bildschirm bewegt. Das ist leicht erreicht, indem {{cssxref("animation-direction")}} auf `alternate` gesetzt wird:
 
 ```css
 p {
@@ -298,13 +264,13 @@ p {
 
 {{EmbedLiveSample("Making_the_animation_move_back_and_forth","100%","250")}}
 
-### Verwenden von Animationsereignissen
+### Verwendung von Animationsereignissen
 
-Sie können zusätzliche Kontrolle über Animationen erhalten – sowie nützliche Informationen über sie – indem Sie Animationsereignisse verwenden. Diese Ereignisse, dargestellt durch das {{domxref("AnimationEvent")}}-Objekt, können verwendet werden, um zu erkennen, wann Animationen starten, enden und eine neue Iteration beginnen. Jedes Ereignis enthält die Zeit, zu der es auftrat, sowie den Namen der Animation, die das Ereignis auslöste.
+Sie können zusätzliche Kontrolle über Animationen erhalten - ebenso wie nützliche Informationen über sie - durch die Nutzung von Animationsereignissen. Diese Ereignisse, dargestellt durch das [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)-Objekt, können verwendet werden, um zu erkennen, wann Animationen beginnen, enden und eine neue Iteration beginnen. Jedes Ereignis enthält den Zeitpunkt, zu dem es stattfand sowie den Namen der Animation, die das Ereignis ausgelöst hat.
 
-Wir werden das Beispiel mit dem gleitenden Text ändern, um einige Informationen über jedes Animationsereignis auszugeben, wenn es auftritt, damit wir sehen können, wie sie funktionieren.
+Wir werden das Beispiel des gleitenden Texts modifizieren, um einige Informationen über jedes Animationsereignis auszugeben, wenn es stattfindet, damit wir sehen können, wie sie funktionieren.
 
-Wir haben dieselbe Keyframe-Animation wie im vorherigen Beispiel eingebaut. Diese Animation dauert 3 Sekunden, wird "slidein" genannt, wird 3 Mal wiederholt und bewegt sich bei jeder Wiederholung in einer alternierenden Richtung. In den {{cssxref("@keyframes")}} werden die Skalierung und die Translation entlang der x-Achse manipuliert, damit das Element über den Bildschirm gleitet.
+Wir haben dieselbe Keyframe-Animation wie das vorherige Beispiel enthalten. Diese Animation wird 3 Sekunden dauern, den Namen "slidein" tragen, 3 Mal wiederholt werden und jedes Mal in einer alternativen Richtung verlaufen. In den {{cssxref("@keyframes")}} werden die Skalierung und Übersetzung entlang der x-Achse manipuliert, um das Element über den Bildschirm gleiten zu lassen.
 
 ```css
 .slidein {
@@ -329,9 +295,9 @@ Wir haben dieselbe Keyframe-Animation wie im vorherigen Beispiel eingebaut. Dies
 }
 ```
 
-#### Hinzufügen der Animationsereignis-Listener
+#### Hinzufügen der Animations-Ereignis-Listener
 
-Wir werden JavaScript-Code verwenden, um auf alle drei möglichen Animationsereignisse zu lauschen. Dieser Code konfiguriert unsere Ereignis-Listener; wir rufen ihn auf, wenn das Dokument zum ersten Mal geladen wird, um die Dinge einzurichten.
+Wir werden JavaScript-Code verwenden, um alle drei möglichen Animations-Ereignisse abzuhören. Dieser Code konfiguriert unsere Ereignis-Listener; wir rufen ihn auf, wenn das Dokument zum ersten Mal geladen wird, um die Dinge einzurichten.
 
 ```js
 const element = document.getElementById("watchme");
@@ -342,53 +308,54 @@ element.addEventListener("animationiteration", listener, false);
 element.className = "slidein";
 ```
 
-Dieser Code ist ziemlich standardmäßig; Sie können Details dazu finden, wie er funktioniert, in der Dokumentation für {{domxref("eventTarget.addEventListener()")}}. Das Letzte, was dieser Code tut, ist, die `class` des Elements auf "slidein" zu setzen, welches wir animieren werden; wir tun dies, um die Animation selbst zu starten.
+Dieser Code ist ziemlich standardmäßig; Sie können in der Dokumentation von [`eventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) Details dazu erhalten, wie er funktioniert. Das letzte, was dieser Code tut, ist, die `class` des Elements, das wir animieren werden, auf "slidein" zu setzen; wir tun dies, um die Animation zu starten.
 
-Warum? Weil das `animationstart`-Ereignis ausgelöst wird, sobald die Animation beginnt, und in unserem Fall geschieht das, bevor unser Code läuft. Also starten wir die Animation selbst, indem wir die Klasse des Elements nachträglich auf den zu animierenden Stil setzen.
+Warum? Weil das `animationstart`-Ereignis ausgelöst wird, sobald die Animation beginnt, was in unserem Fall vor dem läuft, bevor unser Code gestartet wird. Daher werden wir die Animation selbst starten, indem wir die Klasse des Elements nachträglich auf den zu animierenden Stil setzen.
 
-#### Empfang der Ereignisse
+#### Empfangen der Ereignisse
 
-Die Ereignisse werden an die `listener()`-Funktion geliefert, die nachfolgend gezeigt wird.
+Die Ereignisse werden an die `listener()`-Funktion übermittelt, die unten gezeigt wird.
 
 ```js
 function listener(event) {
   const l = document.createElement("li");
   switch (event.type) {
     case "animationstart":
-      l.textContent = `Gestartet: verstrichene Zeit ist ${event.elapsedTime}`;
+      l.textContent = `Started: elapsed time is ${event.elapsedTime}`;
       break;
     case "animationend":
-      l.textContent = `Beendet: verstrichene Zeit ist ${event.elapsedTime}`;
+      l.textContent = `Ended: elapsed time is ${event.elapsedTime}`;
       break;
     case "animationiteration":
-      l.textContent = `Neue Schleife gestartet bei Zeit ${event.elapsedTime}`;
+      l.textContent = `New loop started at time ${event.elapsedTime}`;
       break;
   }
   document.getElementById("output").appendChild(l);
 }
 ```
 
-Auch dieser Code ist sehr einfach. Er schaut auf den {{domxref("event.type")}}, um zu bestimmen, welche Art von Animationsereignis aufgetreten ist, und fügt dann eine entsprechende Notiz zur {{HTMLElement("ul")}} (ungeordnete Liste) hinzu, die wir verwenden, um diese Ereignisse zu protokollieren.
+Dieser Code ist ebenfalls sehr einfach. Er überprüft den [`event.type`](/de/docs/Web/API/Event/type), um zu bestimmen, welche Art von Animationsereignis aufgetreten ist, und fügt eine entsprechende Notiz zur {{HTMLElement("ul")}} (ungeordnete Liste) hinzu, die wir verwenden, um diese Ereignisse zu protokollieren.
 
-Der Ausgang, wenn alles gesagt und getan ist, sieht etwa so aus:
+Die Ausgabe sieht dann etwa so aus:
 
 - Gestartet: verstrichene Zeit ist 0
-- Neue Schleife gestartet bei Zeit 3.01200008392334
-- Neue Schleife gestartet bei Zeit 6.00600004196167
-- Beendet: verstrichene Zeit ist 9.234000205993652
+- Neue Schleife begann bei Zeit 3,01200008392334
+- Neue Schleife begann bei Zeit 6,00600004196167
+- Beendet: verstrichene Zeit ist 9,234000205993652
 
-Beachten Sie, dass die Zeiten sehr nahe, aber nicht genau, denen entsprechen, die angesichts des beim Konfigurieren der Animation festgelegten Timings erwartet werden. Beachten Sie auch, dass nach der letzten Iteration der Animation das `animationiteration`-Ereignis nicht gesendet wird; stattdessen wird das `animationend`-Ereignis gesendet.
+Beachten Sie, dass die Zeiten sehr nah an, aber nicht genau, denen liegen, die gemäß dem Timing erwartet wurden, als die Animation konfiguriert wurde. Beachten Sie auch, dass nach der letzten Iteration der Animation das `animationiteration`-Ereignis nicht gesendet wird; stattdessen wird das `animationend`-Ereignis gesendet.
 
-Nur der Vollständigkeit halber hier das HTML, das die Seiteninhalte anzeigt, einschließlich der Liste, in die das Skript Informationen über die empfangenen Ereignisse einfügt:
+Nur der Vollständigkeit halber, hier ist das HTML, das den Seiteninhalt anzeigt, einschließlich der Liste, in die das Skript Informationen über die empfangenen Ereignisse einfügt:
 
 ```html
 <h1 id="watchme">Watch me move</h1>
 <p>
-  Dieses Beispiel zeigt, wie man mit CSS-Animationen <code>H1</code>
-  -Elemente über die Seite bewegen lassen kann.
+  This example shows how to use CSS animations to make <code>H1</code>
+  elements move across the page.
 </p>
 <p>
-  Zusätzlich geben wir bei jedem animierten Ereignisanfang etwas Text aus, sodass Sie sie in Aktion sehen können.
+  In addition, we output some text each time an animation event fires, so you
+  can see them in action.
 </p>
 <ul id="output"></ul>
 ```
@@ -400,40 +367,40 @@ Und hier ist die Live-Ausgabe.
 
 {{EmbedLiveSample('Using_animation_events', '600', '300')}}
 
-### Animieren von Display und Content-Visibility
+### Animieren von `display` und `content-visibility`
 
-Dieses Beispiel demonstriert, wie [`display`](/de/docs/Web/CSS/display) und [`content-visibility`](/de/docs/Web/CSS/content-visibility) animiert werden können. Dieses Verhalten ist nützlich, um Entry/Exit-Animationen zu erstellen, bei denen Sie beispielsweise einen Container mit `display: none` aus dem DOM entfernen möchten, aber ihn mit [`opacity`](/de/docs/Web/CSS/opacity) sanft ausblenden möchten, anstatt sofort zu verschwinden.
+Dieses Beispiel demonstriert, wie [`display`](/de/docs/Web/CSS/display) und [`content-visibility`](/de/docs/Web/CSS/content-visibility) animiert werden können. Dieses Verhalten ist nützlich, um Eintritts-/Austrittsanimationen zu erstellen, bei denen Sie beispielsweise einen Container aus dem DOM mit `display: none` entfernen möchten, aber ihn mit [`opacity`](/de/docs/Web/CSS/opacity) sanft ausblenden möchten, anstatt sofort zu verschwinden.
 
-Unterstützende Browser animieren `display` und `content-visibility` mit einer Variation des [diskreten Animationstyps](/de/docs/Web/CSS/CSS_animated_properties#discrete). Dies bedeutet im Allgemeinen, dass Eigenschaften zwischen zwei Werten um 50 % des Animationsverlaufs umschalten.
+Unterstützende Browser animieren `display` und `content-visibility` mit einer Variation des [diskreten Animationstyps](/de/docs/Web/CSS/CSS_animated_properties#discrete). Dies bedeutet im Allgemeinen, dass Eigenschaften zwischen zwei Werten 50 % der Animationsdauer wechseln.
 
-Es gibt jedoch eine Ausnahme, nämlich beim Animieren zu/von `display: none` oder `content-visibility: hidden` zu einem sichtbaren Wert. In diesem Fall schaltet der Browser zwischen den beiden Werten um, so dass der animierte Inhalt die gesamte Animationsdauer über sichtbar ist.
+Es gibt jedoch eine Ausnahme, wenn zu/von `display: none` oder `content-visibility: hidden` zu einem sichtbaren Wert animiert wird. In diesem Fall wird der Browser die beiden Werte umschalten, sodass der animierte Inhalt während der gesamten Animationsdauer sichtbar ist.
 
 Zum Beispiel:
 
-- Beim Animieren von `display` von `none` zu `block` (oder einem anderen sichtbaren `display`-Wert) schaltet der Wert bei `0%` der Animationsdauer auf `block`, so dass er während der gesamten Zeit sichtbar ist.
-- Beim Animieren von `display` von `block` (oder einem anderen sichtbaren `display`-Wert) zu `none` schaltet der Wert bei `100%` der Animationsdauer auf `none`, so dass er während der gesamten Zeit sichtbar ist.
+- Wenn `display` von `none` zu `block` (oder einem anderen sichtbaren `display`-Wert) animiert wird, wird der Wert bei `0%` der Animationsdauer auf `block` umgeschaltet, sodass es die gesamte Zeit sichtbar ist.
+- Wenn `display` von `block` (oder einem anderen sichtbaren `display`-Wert) zu `none` animiert wird, wird der Wert bei `100%` der Animationsdauer auf `none` umgeschaltet, sodass er die gesamte Zeit sichtbar ist.
 
 #### HTML
 
-Das HTML enthält zwei {{htmlelement("p")}}-Elemente mit einem {{htmlelement("div")}} dazwischen, das wir von `display` `none` zu `block` animieren werden.
+Das HTML enthält zwei {{htmlelement("p")}}-Elemente mit einem {{htmlelement("div")}} dazwischen, das von `display` `none` zu `block` animiert wird.
 
 ```html
 <p>
-  Klicken Sie irgendwo auf den Bildschirm oder drücken Sie eine Taste, um das
-  <code>&lt;div&gt;</code> zwischen verborgen und sichtbar umzuschalten.
+  Click anywhere on the screen or press any key to toggle the
+  <code>&lt;div&gt;</code> between hidden and showing.
 </p>
 
 <div>
-  Dies ist ein <code>&lt;div&gt;</code>-Element, das zwischen
-  <code>display: none; opacity: 0</code> und
-  <code>display: block; opacity: 1</code> animiert wird. Ziemlich cool, oder?
+  This is a <code>&lt;div&gt;</code> element that animates between
+  <code>display: none; opacity: 0</code> and
+  <code>display: block; opacity: 1</code>. Neat, huh?
 </div>
 
 <p>
-  Dies ist ein weiterer Absatz, um zu zeigen, dass <code>display: none;</code> auf das obige
-  <code>&lt;div&gt;</code> angewendet und entfernt wird. Wenn nur
-  die <code>opacity</code> geändert würde, würde es immer den Platz im
-  DOM einnehmen.
+  This is another paragraph to show that <code>display: none;</code> is being
+  applied and removed on the above <code>&lt;div&gt; </code>. If only its
+  <code>opacity</code> was being changed, it would always take up the space in
+  the DOM.
 </p>
 ```
 
@@ -454,7 +421,7 @@ div {
   display: none;
 }
 
-/* Animationsklassen */
+/* Animation classes */
 
 div.fade-in {
   display: block;
@@ -465,7 +432,7 @@ div.fade-out {
   animation: fade-out 0.7s ease-out forwards;
 }
 
-/* Animations-Keyframes */
+/* Animation keyframes */
 
 @keyframes fade-in {
   0% {
@@ -496,7 +463,7 @@ Beachten Sie die Einbeziehung der `display`-Eigenschaft in den Keyframe-Animatio
 
 #### JavaScript
 
-Schließlich fügen wir etwas JavaScript hinzu, um Event-Listener einzurichten, die die Animationen auslösen. Konkret fügen wir die Klasse `fade-in` dem `<div>` hinzu, wenn wir es erscheinen lassen möchten, und `fade-out`, wenn wir es verschwinden lassen möchten.
+Schließlich fügen wir etwas JavaScript hinzu, um Ereignis-Listener einzurichten, die die Animationen auslösen. Insbesondere fügen wir die `fade-in`-Klasse zum `<div>` hinzu, wenn wir es erscheinen lassen wollen, und `fade-out`, wenn wir es verschwinden lassen wollen.
 
 ```js
 const divElem = document.querySelector("div");
@@ -518,12 +485,12 @@ function showHide() {
 
 #### Ergebnis
 
-Der Code rendert wie folgt:
+Der Code wird wie folgt gerendert:
 
 {{ EmbedLiveSample("Animating display and content-visibility", "100%", "350") }}
 
 ## Siehe auch
 
-- {{domxref("AnimationEvent", "AnimationEvent")}}
-- [Verwenden von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
-- [Verwenden der Web Animations API](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API)
+- [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)
+- [Verwendung von CSS-Übergängen](/de/docs/Web/CSS/CSS_transitions/Using_CSS_transitions)
+- [Verwendung der Web Animations API](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API)

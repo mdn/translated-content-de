@@ -1,5 +1,5 @@
 ---
-title: "XRFrame: fillPoses()-Methode"
+title: "XRFrame: fillPoses() Methode"
 short-title: fillPoses()
 slug: Web/API/XRFrame/fillPoses
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`fillPoses()`** Methode der {{domxref("XRFrame")}}-Schnittstelle füllt ein {{jsxref("Float32Array")}} mit den Matrizen der Posen relativ zu einem gegebenen Basisspace und gibt `true` zurück, wenn dies für alle Spaces erfolgreich ist.
+Die **`fillPoses()`** Methode der [`XRFrame`](/de/docs/Web/API/XRFrame) Schnittstelle füllt ein {{jsxref("Float32Array")}} mit den Matrizen der Posen relativ zu einem gegebenen Basisspace und gibt `true` zurück, wenn sie für alle Spaces erfolgreich ist.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ fillPoses(spaces, baseSpace, transforms)
 ### Parameter
 
 - `spaces`
-  - : Ein Array von {{domxref("XRSpace")}}-Objekten, für die die Posen ermittelt werden sollen.
+  - : Ein Array von [`XRSpace`](/de/docs/Web/API/XRSpace) Objekten, für die die Posen ermittelt werden sollen.
 - `baseSpace`
-  - : Ein {{domxref("XRSpace")}}-Objekt, das als Basis oder Ursprung für die relative Position und Orientierung verwendet wird.
+  - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace) Objekt, das als Basis oder Ursprung für die relative Position und Orientierung verwendet wird.
 - `transforms`
-  - : Ein {{jsxref("Float32Array")}}, das mit den Matrizen der Posen relativ zum gegebenen `baseSpace` gefüllt wird.
+  - : Ein {{jsxref("Float32Array")}}, das mit den Matrizen der Posen relativ zu dem gegebenen `baseSpace` gefüllt wird.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der angibt, ob alle Spaces eine gültige Pose haben.
+Ein Boolean-Wert, der angibt, ob alle Spaces eine gültige Pose haben.
 
 ### Ausnahmen
 
@@ -36,9 +36,9 @@ Ein boolescher Wert, der angibt, ob alle Spaces eine gültige Pose haben.
 
 ## Beispiele
 
-### Ermitteln der Posen für alle Gelenke einer Hand
+### Erhalten von Posen für alle Gelenke einer Hand
 
-Um effizient alle Posen für alle 25 Gelenke jeder {{domxref("XRHand")}} zu erhalten, können Sie die Methode `fillPoses()` verwenden.
+Um effizient alle Posen für die 25 Gelenke jeder [`XRHand`](/de/docs/Web/API/XRHand) zu erhalten, können Sie die `fillPoses()` Methode verwenden.
 
 ```js
 let poses1 = new Float32Array(16 * 25);
@@ -62,6 +62,6 @@ function onXRFrame(xrFrame, renderer) {
 
 ## Siehe auch
 
-- {{domxref("XRHand")}}
-- {{domxref("XRJointSpace")}}
+- [`XRHand`](/de/docs/Web/API/XRHand)
+- [`XRJointSpace`](/de/docs/Web/API/XRJointSpace)
 - {{jsxref("Float32Array")}}

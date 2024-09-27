@@ -7,31 +7,31 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`NavigationCurrentEntryChangeEvent`**-Schnittstelle der {{domxref("Navigation API", "Navigation API", "", "nocode")}} ist das Ereignisobjekt für das {{domxref("Navigation/currententrychange_event", "currententrychange")}}-Ereignis, das ausgelöst wird, wenn sich das {{domxref("Navigation.currentEntry")}} geändert hat.
+Das **`NavigationCurrentEntryChangeEvent`** Interface der [Navigation API](/de/docs/Web/API/Navigation_API) ist das Ereignisobjekt für das [`currententrychange`](/de/docs/Web/API/Navigation/currententrychange_event) Ereignis, das ausgelöst wird, wenn sich der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) geändert hat.
 
-Dieses Ereignis wird bei Navigationsvorgängen im selben Dokument (z. B. {{domxref("Navigation.back", "back()")}} oder {{domxref("Navigation.traverseTo", "traverseTo()")}}), Ersetzungen (d. h. ein {{domxref("Navigation.navigate", "navigate()")}}-Aufruf mit `history` auf `replace` gesetzt) oder anderen Aufrufen, die den Zustand des Eintrags ändern (z. B. {{domxref("Navigation.updateCurrentEntry", "updateCurrentEntry()")}} oder die {{domxref("History API", "History API", "", "nocode")}}'s {{domxref("History.replaceState()")}}), ausgelöst.
+Dieses Ereignis wird bei gleichbleibenden Dokumentnavigationen (z.B. [`back()`](/de/docs/Web/API/Navigation/back) oder [`traverseTo()`](/de/docs/Web/API/Navigation/traverseTo)), Ersetzungen (d.h. ein [`navigate()`](/de/docs/Web/API/Navigation/navigate) Aufruf mit `history` auf `replace` gesetzt) oder andere Aufrufe, die den Zustand eines Eintrags ändern (z.B. [`updateCurrentEntry()`](/de/docs/Web/API/Navigation/updateCurrentEntry) oder die [History API](/de/docs/Web/API/History_API) mit [`History.replaceState()`](/de/docs/Web/API/History/replaceState)).
 
-Dieses Ereignis wird nach dem Binden der Navigation ausgelöst, was bedeutet, dass sich die sichtbare URL geändert hat und das {{domxref("NavigationHistoryEntry")}} aktualisiert wurde. Es ist nützlich für den Umstieg von der Nutzung älterer API-Funktionen wie der {{domxref("Window/hashchange_event", "hashchange")}}- oder {{domxref("Window/popstate_event", "popstate")}}-Ereignisse.
+Dieses Ereignis wird ausgelöst, nachdem die Navigation festgeschrieben wurde, was bedeutet, dass sich die sichtbare URL geändert hat und die Aktualisierung des [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) erfolgt ist. Es ist nützlich für die Migration von älteren API-Funktionen wie der [`hashchange`](/de/docs/Web/API/Window/hashchange_event) oder [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignisse.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("NavigationCurrentEntryChangeEvent.NavigationCurrentEntryChangeEvent", "NavigationCurrentEntryChangeEvent()")}} {{Experimental_Inline}}
-  - : Erstellt eine neue Instanz des `NavigationCurrentEntryChangeEvent`-Objekts.
+- [`NavigationCurrentEntryChangeEvent()`](/de/docs/Web/API/NavigationCurrentEntryChangeEvent/NavigationCurrentEntryChangeEvent) {{Experimental_Inline}}
+  - : Erstellt eine neue Instanz eines `NavigationCurrentEntryChangeEvent` Objekts.
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{DOMxRef("Event")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("NavigationCurrentEntryChangeEvent.from", "from")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die {{domxref("NavigationHistoryEntry")}} zurück, von der aus navigiert wurde.
-- {{domxref("NavigationCurrentEntryChangeEvent.navigationType", "navigationType")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den Typ der Navigation zurück, die zur Änderung geführt hat.
+- [`from`](/de/docs/Web/API/NavigationCurrentEntryChangeEvent/from) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt den [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) zurück, von dem navigiert wurde.
+- [`navigationType`](/de/docs/Web/API/NavigationCurrentEntryChangeEvent/navigationType) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt den Typ der Navigation zurück, die zur Änderung führte.
 
 ## Beispiele
 
-Berichterstattung von Navigationsdaten:
+Navigationsdaten-Berichterstattung:
 
 ```js
 navigation.addEventListener("currententrychange", () => {
@@ -40,7 +40,7 @@ navigation.addEventListener("currententrychange", () => {
 });
 ```
 
-Einrichtung eines ereignisspezifischen Eintrags:
+Einrichten eines ereignisbezogenen Eintrags:
 
 ```js
 navigation.addEventListener("currententrychange", () => {
@@ -58,6 +58,6 @@ navigation.addEventListener("currententrychange", () => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Routenerstellung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

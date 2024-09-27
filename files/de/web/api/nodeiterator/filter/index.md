@@ -1,5 +1,5 @@
 ---
-title: "NodeIterator: filter-Eigenschaft"
+title: "NodeIterator: filter Eigenschaft"
 short-title: filter
 slug: Web/API/NodeIterator/filter
 l10n:
@@ -8,9 +8,16 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`NodeIterator.filter`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die ein `NodeFilter`-Objekt zurückgibt. Dieses Objekt implementiert die Methode `acceptNode(node)`, die verwendet wird, um Nodes zu filtern.
+Die **`NodeIterator.filter`** schreibgeschützte Eigenschaft gibt ein
+`NodeFilter`-Objekt zurück, das ein Objekt ist, welches eine
+`acceptNode(node)`-Methode implementiert. Diese Methode wird verwendet, um Knoten zu prüfen.
 
-Beim Erstellen des {{domxref("NodeIterator")}} wird das Filterobjekt als dritter Parameter übergeben, und die Objektmethode `acceptNode(node)` wird für jeden einzelnen Node aufgerufen, um zu bestimmen, ob er akzeptiert wird oder nicht. Diese Funktion sollte im Falle, dass der Node akzeptiert werden soll, die Konstante `NodeFilter.FILTER_ACCEPT` zurückgeben, und im Falle, dass der Node abgelehnt werden soll, die Konstante `NodeFilter.FILTER_REJECT`.
+Beim Erstellen des [`NodeIterator`](/de/docs/Web/API/NodeIterator) wird das Filterobjekt als
+dritter Parameter übergeben, und die Objektmethode `acceptNode(node)` wird
+auf jedem einzelnen Knoten aufgerufen, um zu bestimmen, ob er akzeptiert werden soll oder nicht. Diese Funktion
+sollte die Konstante `NodeFilter.FILTER_ACCEPT` zurückgeben, wenn der
+Knoten akzeptiert werden soll, und `NodeFilter.FILTER_REJECT`, wenn der
+Knoten abgelehnt werden soll.
 
 ## Wert
 
@@ -41,4 +48,4 @@ nodeFilter = nodeIterator.filter;
 
 ## Siehe auch
 
-- Die Schnittstelle, zu der diese Eigenschaft gehört: {{domxref("NodeIterator")}}.
+- Die Schnittstelle, zu der diese Eigenschaft gehört: [`NodeIterator`](/de/docs/Web/API/NodeIterator).

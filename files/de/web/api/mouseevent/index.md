@@ -7,89 +7,93 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`MouseEvent`**-Schnittstelle repräsentiert Ereignisse, die durch die Interaktion des Benutzers mit einem Zeigegerät (wie einer Maus) auftreten. Zu den häufigsten Ereignissen, die diese Schnittstelle verwenden, gehören {{domxref("Element/click_event", "click")}}, {{domxref("Element/dblclick_event", "dblclick")}}, {{domxref("Element/mouseup_event", "mouseup")}}, {{domxref("Element/mousedown_event", "mousedown")}}.
+Die **`MouseEvent`**-Schnittstelle repräsentiert Ereignisse, die durch die Interaktion des Benutzers mit einem Zeigegerät (wie einer Maus) auftreten.
+Gängige Ereignisse, die diese Schnittstelle verwenden, sind [`click`](/de/docs/Web/API/Element/click_event), [`dblclick`](/de/docs/Web/API/Element/dblclick_event), [`mouseup`](/de/docs/Web/API/Element/mouseup_event) und [`mousedown`](/de/docs/Web/API/Element/mousedown_event).
 
-`MouseEvent` leitet sich von {{domxref("UIEvent")}} ab, das wiederum von {{domxref("Event")}} abgeleitet ist. Obwohl die Methode {{domxref("MouseEvent.initMouseEvent()")}} aus Gründen der Abwärtskompatibilität beibehalten wird, sollte ein `MouseEvent`-Objekt mit dem {{domxref("MouseEvent.MouseEvent", "MouseEvent()")}}-Konstruktor erstellt werden.
+`MouseEvent` leitet sich von [`UIEvent`](/de/docs/Web/API/UIEvent) ab, welches wiederum von [`Event`](/de/docs/Web/API/Event) abstammt.
+Obwohl die Methode [`MouseEvent.initMouseEvent()`](/de/docs/Web/API/MouseEvent/initMouseEvent) aus Kompatibilitätsgründen beibehalten wird, sollte die Erstellung eines `MouseEvent`-Objekts mit dem [`MouseEvent()`](/de/docs/Web/API/MouseEvent/MouseEvent)-Konstruktor erfolgen.
 
-Mehrere spezifischere Ereignisse basieren auf `MouseEvent`, darunter {{domxref("WheelEvent")}}, {{domxref("DragEvent")}} und {{domxref("PointerEvent")}}.
+Mehrere spezifischere Ereignisse basieren auf `MouseEvent`, darunter [`WheelEvent`](/de/docs/Web/API/WheelEvent), [`DragEvent`](/de/docs/Web/API/DragEvent) und [`PointerEvent`](/de/docs/Web/API/PointerEvent).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("MouseEvent.MouseEvent", "MouseEvent()")}}
+- [`MouseEvent()`](/de/docs/Web/API/MouseEvent/MouseEvent)
   - : Erstellt ein `MouseEvent`-Objekt.
 
 ## Statische Eigenschaften
 
-- {{domxref("MouseEvent.WEBKIT_FORCE_AT_MOUSE_DOWN_static", "MouseEvent.WEBKIT_FORCE_AT_MOUSE_DOWN")}} {{non-standard_inline}} {{ReadOnlyInline}}
+- [`MouseEvent.WEBKIT_FORCE_AT_MOUSE_DOWN`](/de/docs/Web/API/MouseEvent/WEBKIT_FORCE_AT_MOUSE_DOWN_static) {{non-standard_inline}} {{ReadOnlyInline}}
   - : Minimale Kraft, die für einen normalen Klick erforderlich ist.
-- {{domxref("MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN_static", "MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN")}} {{non-standard_inline}} {{ReadOnlyInline}}
-  - : Minimale Kraft, die für einen erzwungenen Klick erforderlich ist.
+- [`MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN`](/de/docs/Web/API/MouseEvent/WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN_static) {{non-standard_inline}} {{ReadOnlyInline}}
+  - : Minimale Kraft, die für einen Kraft-Klick erforderlich ist.
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch die Eigenschaften ihrer Eltern, {{domxref("UIEvent")}} und {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("MouseEvent.altKey")}} {{ReadOnlyInline}}
+- [`MouseEvent.altKey`](/de/docs/Web/API/MouseEvent/altKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>alt</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
-- {{domxref("MouseEvent.button")}} {{ReadOnlyInline}}
-  - : Die Nummer der Taste, die gedrückt wurde (falls zutreffend), als das Mausereignis ausgelöst wurde.
-- {{domxref("MouseEvent.buttons")}} {{ReadOnlyInline}}
-  - : Die Tasten, die (falls vorhanden) gedrückt wurden, als das Mausereignis ausgelöst wurde.
-- {{domxref("MouseEvent.clientX")}} {{ReadOnlyInline}}
+- [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button) {{ReadOnlyInline}}
+  - : Die Nummer der gedrückten Taste (falls zutreffend), als das Mausereignis ausgelöst wurde.
+- [`MouseEvent.buttons`](/de/docs/Web/API/MouseEvent/buttons) {{ReadOnlyInline}}
+  - : Die Tasten, die gedrückt werden (falls vorhanden), als das Mausereignis ausgelöst wurde.
+- [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers in [Viewport-Koordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#viewport).
-- {{domxref("MouseEvent.clientY")}} {{ReadOnlyInline}}
+- [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY) {{ReadOnlyInline}}
   - : Die Y-Koordinate des Mauszeigers in [Viewport-Koordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#viewport).
-- {{domxref("MouseEvent.ctrlKey")}} {{ReadOnlyInline}}
+- [`MouseEvent.ctrlKey`](/de/docs/Web/API/MouseEvent/ctrlKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>control</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
-- {{domxref("MouseEvent.layerX")}} {{Non-standard_inline}} {{ReadOnlyInline}}
-  - : Gibt die horizontale Koordinate des Ereignisses relativ zur aktuellen Schicht zurück.
-- {{domxref("MouseEvent.layerY")}} {{Non-standard_inline}} {{ReadOnlyInline}}
-  - : Gibt die vertikale Koordinate des Ereignisses relativ zur aktuellen Schicht zurück.
-- {{domxref("MouseEvent.metaKey")}} {{ReadOnlyInline}}
+- [`MouseEvent.layerX`](/de/docs/Web/API/MouseEvent/layerX) {{Non-standard_inline}} {{ReadOnlyInline}}
+  - : Gibt die horizontale Koordinate des Ereignisses relativ zur aktuellen Ebene zurück.
+- [`MouseEvent.layerY`](/de/docs/Web/API/MouseEvent/layerY) {{Non-standard_inline}} {{ReadOnlyInline}}
+  - : Gibt die vertikale Koordinate des Ereignisses relativ zur aktuellen Ebene zurück.
+- [`MouseEvent.metaKey`](/de/docs/Web/API/MouseEvent/metaKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>meta</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
-- {{domxref("MouseEvent.movementX")}} {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten {{domxref("Element/mousemove_event", "mousemove")}}-Ereignisses.
-- {{domxref("MouseEvent.movementY")}} {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten {{domxref("Element/mousemove_event", "mousemove")}}-Ereignisses.
-- {{domxref("MouseEvent.offsetX")}} {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position der Polsterkante des Zielknotens.
-- {{domxref("MouseEvent.offsetY")}} {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position der Polsterkante des Zielknotens.
-- {{domxref("MouseEvent.pageX")}} {{ReadOnlyInline}}
+- [`MouseEvent.movementX`](/de/docs/Web/API/MouseEvent/movementX) {{ReadOnlyInline}}
+  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
+- [`MouseEvent.movementY`](/de/docs/Web/API/MouseEvent/movementY) {{ReadOnlyInline}}
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
+- [`MouseEvent.offsetX`](/de/docs/Web/API/MouseEvent/offsetX) {{ReadOnlyInline}}
+  - : Die X-Koordinate des Mauszeigers relativ zur Position des Randelements des Zielknotens.
+- [`MouseEvent.offsetY`](/de/docs/Web/API/MouseEvent/offsetY) {{ReadOnlyInline}}
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position des Randelements des Zielknotens.
+- [`MouseEvent.pageX`](/de/docs/Web/API/MouseEvent/pageX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers relativ zum gesamten Dokument.
-- {{domxref("MouseEvent.pageY")}} {{ReadOnlyInline}}
+- [`MouseEvent.pageY`](/de/docs/Web/API/MouseEvent/pageY) {{ReadOnlyInline}}
   - : Die Y-Koordinate des Mauszeigers relativ zum gesamten Dokument.
-- {{domxref("MouseEvent.relatedTarget")}} {{ReadOnlyInline}}
-  - : Das sekundäre Ziel des Ereignisses, falls vorhanden.
-- {{domxref("MouseEvent.screenX")}} {{ReadOnlyInline}}
+- [`MouseEvent.relatedTarget`](/de/docs/Web/API/MouseEvent/relatedTarget) {{ReadOnlyInline}}
+  - : Das sekundäre Ziel für das Ereignis, falls vorhanden.
+- [`MouseEvent.screenX`](/de/docs/Web/API/MouseEvent/screenX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
-- {{domxref("MouseEvent.screenY")}} {{ReadOnlyInline}}
+- [`MouseEvent.screenY`](/de/docs/Web/API/MouseEvent/screenY) {{ReadOnlyInline}}
   - : Die Y-Koordinate des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
-- {{domxref("MouseEvent.shiftKey")}} {{ReadOnlyInline}}
+- [`MouseEvent.shiftKey`](/de/docs/Web/API/MouseEvent/shiftKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>shift</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
-- {{domxref("MouseEvent.mozInputSource")}} {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Der Gerätetyp, das das Ereignis generiert hat (eine der `MOZ_SOURCE_*` Konstanten). Dies ermöglicht es Ihnen beispielsweise zu bestimmen, ob ein Mausereignis durch eine echte Maus oder durch ein Berührungsereignis erzeugt wurde (was die Genauigkeit beeinflussen kann, mit der Sie die Koordinaten interpretieren, die mit dem Ereignis verbunden sind).
-- {{domxref("MouseEvent.webkitForce")}} {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Die beim Klicken ausgeübte Druckmenge.
-- {{domxref("MouseEvent.x")}} {{ReadOnlyInline}}
-  - : Alias für {{domxref("MouseEvent.clientX")}}.
-- {{domxref("MouseEvent.y")}} {{ReadOnlyInline}}
-  - : Alias für {{domxref("MouseEvent.clientY")}}.
+- [`MouseEvent.mozInputSource`](/de/docs/Web/API/MouseEvent/mozInputSource) {{non-standard_inline()}} {{ReadOnlyInline}}
+  - : Der Typ des Geräts, das das Ereignis erzeugt hat (einer der `MOZ_SOURCE_*`-Konstanten).
+    Damit können Sie beispielsweise feststellen, ob ein Mausereignis durch eine echte Maus oder durch ein Touch-Ereignis erzeugt wurde (was die Genauigkeit beeinflussen könnte, mit der Sie die zum Ereignis gehörenden Koordinaten interpretieren).
+- [`MouseEvent.webkitForce`](/de/docs/Web/API/MouseEvent/webkitForce) {{non-standard_inline()}} {{ReadOnlyInline}}
+  - : Der angewandte Druck beim Klicken.
+- [`MouseEvent.x`](/de/docs/Web/API/MouseEvent/x) {{ReadOnlyInline}}
+  - : Alias für [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX).
+- [`MouseEvent.y`](/de/docs/Web/API/MouseEvent/y) {{ReadOnlyInline}}
+  - : Alias für [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY).
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch die Methoden ihrer Eltern, {{domxref("UIEvent")}} und {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Methoden ihrer Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("MouseEvent.getModifierState()")}}
-  - : Gibt den aktuellen Status der angegebenen Modifikatortaste zurück. Siehe {{domxref("KeyboardEvent.getModifierState", "KeyboardEvent.getModifierState()")}} für weitere Details.
-- {{domxref("MouseEvent.initMouseEvent()")}} {{deprecated_inline}}
-  - : Initialisiert den Wert eines erstellten `MouseEvent`. Wenn das Ereignis bereits gesendet wurde, tut diese Methode nichts.
+- [`MouseEvent.getModifierState()`](/de/docs/Web/API/MouseEvent/getModifierState)
+  - : Gibt den aktuellen Status der angegebenen Modifikatortaste zurück. Siehe [`KeyboardEvent.getModifierState()`](/de/docs/Web/API/KeyboardEvent/getModifierState) für Details.
+- [`MouseEvent.initMouseEvent()`](/de/docs/Web/API/MouseEvent/initMouseEvent) {{deprecated_inline}}
+  - : Initialisiert den Wert eines erstellten `MouseEvent`. Wenn das Ereignis bereits ausgelöst wurde, tut diese Methode nichts.
 
 ## Beispiel
 
-Dieses Beispiel veranschaulicht das Simulieren eines Klicks (programmatisches Generieren eines Klick-Ereignisses) auf einem Kontrollkästchen mithilfe von DOM-Methoden. Der Ereignisstatus (abgebrochen oder nicht) wird dann mit dem Rückgabewert der Methode {{domxref("EventTarget.dispatchEvent", "EventTarget.dispatchEvent()")}} bestimmt.
+Dieses Beispiel demonstriert das Simulieren eines Klicks (programmatisches Erzeugen eines Klick-Ereignisses) auf ein Kontrollkästchen unter Verwendung von DOM-Methoden.
+Der Zustand des Ereignisses (abgebrochen oder nicht) wird dann mit dem Rückgabewert der Methode [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) bestimmt.
 
 ### HTML
 
@@ -136,5 +140,5 @@ document.getElementById("button").addEventListener("click", simulateClick);
 
 ## Siehe auch
 
-- Sein direkter Elternteil, {{domxref("UIEvent")}}
-- {{domxref("PointerEvent")}}: Für erweiterte Zeigereignisse, einschließlich Multi-Touch.
+- Der direkte Elternteil, [`UIEvent`](/de/docs/Web/API/UIEvent)
+- [`PointerEvent`](/de/docs/Web/API/PointerEvent): Für erweiterte Zeigegeräteereignisse, einschließlich Mehrfachtouch

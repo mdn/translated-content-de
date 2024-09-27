@@ -1,5 +1,5 @@
 ---
-title: OES_fbo_render_mipmap-Erweiterung
+title: OES_fbo_render_mipmap Erweiterung
 short-title: OES_fbo_render_mipmap
 slug: Web/API/OES_fbo_render_mipmap
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die `OES_fbo_render_mipmap`-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es, ein beliebiges Level einer Textur an ein Framebuffer-Objekt anzuhängen.
+Die `OES_fbo_render_mipmap` Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht es, jede Ebene einer Textur an ein `framebuffer`-Objekt anzuhängen.
 
-WebGL-Erweiterungen sind über die Methode {{domxref("WebGLRenderingContext.getExtension()")}} verfügbar. Für weitere Informationen, siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
 > Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}} verfügbar.
-> In WebGL2 ist die Funktionalität dieser Erweiterung im WebGL 2-Kontext standardmäßig verfügbar.
+> In WebGL2 ist die Funktionalität dieser Erweiterung standardmäßig im WebGL 2-Kontext verfügbar.
 
 ## Beispiele
 
-Sehen Sie sich den [Beispielcode](https://registry.khronos.org/webgl/extensions/OES_fbo_render_mipmap/) in der Khronos-Spezifikation an.
+Siehe den [Beispielcode](https://registry.khronos.org/webgl/extensions/OES_fbo_render_mipmap/) in der Khronos-Spezifikation.
 
 ## Spezifikationen
 
@@ -30,4 +30,4 @@ Sehen Sie sich den [Beispielcode](https://registry.khronos.org/webgl/extensions/
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)

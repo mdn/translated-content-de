@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das **`font-weight`**-Attribut bezieht sich auf die Fettdruck- oder Leichtdruckstärke der Glyphen, die zur Darstellung des Textes verwendet werden, im Vergleich zu anderen Schriftarten in derselben Schriftfamilie.
+Das **`font-weight`** Attribut bezieht sich auf die Stärke oder Leichtigkeit der Glyphen, die zum Rendern des Textes verwendet werden, relativ zu anderen Schriftarten in derselben Schriftfamilie.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `font-weight` als CSS-Eigenschaft verwendet werden. Siehe die CSS-Eigenschaft {{cssxref("font-weight")}} für weitere Informationen.
+> Als Präsentationsattribut kann `font-weight` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS {{cssxref("font-weight")}} Eigenschaft.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -31,14 +31,14 @@ svg {
 
 ```html
 <svg viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
-  <text y="20" font-weight="normal">Normaler Text</text>
-  <text x="100" y="20" font-weight="bold">Fetter Text</text>
+  <text y="20" font-weight="normal">Normal text</text>
+  <text x="100" y="20" font-weight="bold">Bold text</text>
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "200", "30")}}
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -60,13 +60,13 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte beziehen Sie sich bitte auf die [CSS `font-weight`](/de/docs/Web/CSS/font-weight#values) Eigenschaft.
+Für eine Beschreibung der Werte verweisen wir auf die [CSS `font-weight`](/de/docs/Web/CSS/font-weight#values) Eigenschaft.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

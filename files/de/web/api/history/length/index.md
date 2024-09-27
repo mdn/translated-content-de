@@ -1,5 +1,5 @@
 ---
-title: "History: length-Eigenschaft"
+title: "History: length Eigenschaft"
 short-title: length
 slug: Web/API/History/length
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("History API")}}
 
-Die **`length`** schreibgeschützte Eigenschaft der {{DOMxRef("History")}}-Schnittstelle gibt eine Ganzzahl zurück, die die Anzahl der Einträge in der Sitzungsverlaufshistorie darstellt, einschließlich der aktuell geladenen Seite.
+Die schreibgeschützte **`length`**-Eigenschaft des [`History`](/de/docs/Web/API/History)-Interfaces gibt eine ganze Zahl zurück, die die Anzahl der Einträge in der Sitzungshistorie einschließlich der aktuell geladenen Seite darstellt.
 
-Zum Beispiel liefert diese Eigenschaft für eine in einem neuen Tab geladene Seite den Wert `1`.
+Zum Beispiel gibt diese Eigenschaft für eine Seite, die in einem neuen Tab geladen wird, `1` zurück.
 
 ## Wert
 
@@ -26,4 +26,4 @@ Eine Zahl.
 
 ## Siehe auch
 
-- Die {{domxref("History")}}-Schnittstelle, zu der sie gehört.
+- Das [`History`](/de/docs/Web/API/History)-Interface, zu dem es gehört.

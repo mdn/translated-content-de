@@ -7,19 +7,19 @@ l10n:
 
 {{AddonSidebar}}
 
-Die `privacy.network` Eigenschaft enthält netzwerkbezogene Datenschutzeinstellungen. Jede Eigenschaft ist ein {{WebExtAPIRef("types.BrowserSetting")}} Objekt.
+Die `privacy.network`-Eigenschaft enthält netzwerkbezogene Datenschutzeinstellungen. Jede Eigenschaft ist ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt.
 
-Standardwerte für diese Eigenschaften können zwischen den Browsern variieren.
+Standardwerte für diese Eigenschaften können je nach Browser variieren.
 
 ## Eigenschaften
 
 - `networkPredictionEnabled`
-  - : Ein {{WebExtAPIRef("types.BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein Boolean ist. Wenn `true`, versucht der Browser, das Surfen im Web zu beschleunigen, indem er DNS-Einträge vorab auflöst, Sites prerendert (z. B. mit `<link rel='prefetch' …>`), und TCP- und TLS-Verbindungen zu Servern vorab öffnet.
+  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein boolescher Wert ist. Wenn `true`, versucht der Browser das Surfen zu beschleunigen, indem er DNS-Einträge vorab auflöst, Seiten vorab rendert (zum Beispiel mit `<link rel='prefetch' …>`) und TCP- sowie TLS-Verbindungen zu Servern im Voraus öffnet.
 - `peerConnectionEnabled`
-  - : Ein {{WebExtAPIRef("types.BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein Boolean ist. Wenn `false`, ist die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Schnittstelle deaktiviert. Beachten Sie, dass [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) von dieser Einstellung _nicht_ betroffen ist.
+  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein boolescher Wert ist. Wenn `false`, ist die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle deaktiviert. Beachten Sie, dass die Funktion [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) von dieser Einstellung _nicht_ betroffen ist.
 - `webRTCIPHandlingPolicy`
 
-  - : Ein {{WebExtAPIRef("types.BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein String ist. Diese Einstellung ermöglicht es den Benutzern, die Medienleistung/Datenschutz-Abwägungen zu spezifizieren, die beeinflussen, wie WebRTC-Datenverkehr geroutet wird und wie viele lokale Adressinformationen offengelegt werden. Es kann einen der folgenden Werte annehmen, von am wenigsten privat bis am meisten privat:
+  - : Ein {{WebExtAPIRef("types.BrowserSetting")}}-Objekt, dessen zugrundeliegender Wert ein String ist. Diese Einstellung ermöglicht es dem Benutzer, die Leistungs- und Datenschutzkompromisse festzulegen, die beeinflussen, wie WebRTC-Verkehr weitergeleitet wird und wie viel lokale Adressinformationen preisgegeben werden. Es kann einen der folgenden Werte annehmen, von am wenigsten privat bis am meisten privat:
 
     - `default`
     - `default_public_and_private_interfaces`
@@ -29,15 +29,17 @@ Standardwerte für diese Eigenschaften können zwischen den Browsern variieren.
 
 - `httpsOnlyMode`
 
-  - : Diese Einstellung erlaubt Ihrer Erweiterung zu bestimmen, ob ein Benutzer den [HTTPS-Only-Modus](https://support.mozilla.org/en-US/kb/https-only-prefs) aktiviert hat. Diese Eigenschaft ist auf allen Plattformen schreibgeschützt. Der zugrunde liegende Wert ist ein String, der einen von drei Werten annehmen kann:
+  - : Diese Einstellung erlaubt Ihrer Erweiterung festzustellen, ob ein Benutzer den
+    [HTTPS-Only-Modus](https://support.mozilla.org/en-US/kb/https-only-prefs) aktiviert hat. Diese Eigenschaft ist auf allen Plattformen schreibgeschützt. Der zugrundeliegende Wert ist ein String, der einen von drei Werten annehmen kann:
 
-    - `"always"`: HTTPS-Only-Modus ist aktiviert.
-    - `"never"`: HTTPS-Only-Modus ist deaktiviert.
-    - `"private_browsing"`: HTTPS-Only-Modus ist nur in privaten Browserfenstern aktiviert.
+    - `"always"`: Der HTTPS-Only-Modus ist an.
+    - `"never"`: Der HTTPS-Only-Modus ist aus.
+    - `"private_browsing"`: Der HTTPS-Only-Modus ist nur in privaten Fenstern aktiviert.
 
 - `globalPrivacyControl`
 
-  - : Diese Einstellung erlaubt Ihrer Erweiterung zu bestimmen, ob ein Benutzer das [Global Privacy Control](/de/docs/Web/API/Navigator/globalPrivacyControl) aktiviert hat. Diese Eigenschaft ist auf allen Plattformen schreibgeschützt. Der zugrunde liegende Wert ist ein Boolean, wobei `true` darauf hinweist, dass der Browser Global Privacy Control Signale sendet und `false`, dass der Browser die Signale nicht sendet.
+  - : Diese Einstellung erlaubt Ihrer Erweiterung zu bestimmen, ob ein Benutzer die
+    [Global Privacy Control](/de/docs/Web/API/Navigator/globalPrivacyControl) aktiviert hat. Diese Eigenschaft ist auf allen Plattformen schreibgeschützt. Der zugrundeliegende Wert ist ein boolescher Wert, wobei `true` anzeigt, dass der Browser globale Datenschutzsteuerungssignale sendet, und `false` anzeigt, dass der Browser die Signale nicht sendet.
 
 ## Browser-Kompatibilität
 
@@ -45,7 +47,7 @@ Standardwerte für diese Eigenschaften können zwischen den Browsern variieren.
 
 ## Beispiele
 
-Setzen der `webRTCIPHandlingPolicy` Eigenschaft:
+Setzen der Eigenschaft `webRTCIPHandlingPolicy`:
 
 ```js
 function onSet(result) {
@@ -78,34 +80,4 @@ browser.browserAction.onClicked.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.privacy`](https://developer.chrome.com/docs/extensions/reference/api/privacy) API. Diese Dokumentation ist abgeleitet von [`privacy.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/privacy.json) im Chromium-Code.
-
-<!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
+> Diese API basiert auf der [`chrome.privacy`](https://developer.chrome.com/docs/extensions/reference/api/privacy)-API von Chromium. Diese Dokumentation ist abgeleitet von [`privacy.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/privacy.json) im Chromium-Code.

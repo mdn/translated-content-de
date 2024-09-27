@@ -1,5 +1,5 @@
 ---
-title: "React-Interaktivität: Bearbeiten, Filtern, bedingte Darstellung"
+title: "React-Interaktivität: Bearbeiten, Filtern, konditionales Rendering"
 slug: Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_interactivity_filtering_conditional_rendering
 l10n:
   sourceCommit: 11a08e7da75bfb0b3e606eb26a9a0ad9301a1be5
@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_interactivity_events_state","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_accessibility", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}
 
-Da wir uns dem Ende unserer React-Reise nähern (zumindest vorerst), fügen wir den letzten Schliff zu den Hauptfunktionen unserer To-Do-Liste hinzu. Dies umfasst die Möglichkeit, bestehende Aufgaben zu bearbeiten und die Liste der Aufgaben zwischen allen, erledigten und nicht erledigten Aufgaben zu filtern. Dabei betrachten wir auch die bedingte UI-Darstellung.
+Da wir uns dem Ende unserer React-Reise nähern (zumindest vorerst), werden wir die letzten Schliffe an den Hauptfunktionen unserer To-Do-Listen-App vornehmen. Dies beinhaltet die Möglichkeit, bestehende Aufgaben zu bearbeiten und die Liste der Aufgaben zwischen allen, abgeschlossenen und unvollständigen Aufgaben zu filtern. Auf dem Weg werden wir uns das konditionale UI-Rendering ansehen.
 
 <table>
   <tbody>
@@ -15,21 +15,21 @@ Da wir uns dem Ende unserer React-Reise nähern (zumindest vorerst), fügen wir 
       <th scope="row">Voraussetzungen:</th>
       <td>
         <p>
-          Vertrautheit mit den grundlegenden <a href="/de/docs/Learn/HTML">HTML</a>,
-          <a href="/de/docs/Learn/CSS">CSS</a>, und
-          <a href="/de/docs/Learn/JavaScript">JavaScript</a> Sprachen,
-          Kenntnis des
+          Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn/HTML">HTML</a>,
+          <a href="/de/docs/Learn/CSS">CSS</a> und
+          <a href="/de/docs/Learn/JavaScript">JavaScript</a>, Kenntnisse im
+          Umgang mit dem
           <a
             href="/de/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line"
-            >Terminals/Befehlszeilen</a
+            >Terminal/Kommandozeile</a
           >.
         </p>
       </td>
     </tr>
     <tr>
-      <th scope="row">Ziel:</th>
+      <th scope="row">Zielsetzung:</th>
       <td>
-        Um über die bedingte Darstellung in React zu lernen und die Implementierung von Listenfiltern und einer Bearbeitungs-UI in unserer App zu erproben.
+        Erfahren, wie man konditionales Rendering in React implementiert und eine Listenfilterung und eine Bearbeitungs-UI in unserer App umsetzt.
       </td>
     </tr>
   </tbody>
@@ -37,26 +37,26 @@ Da wir uns dem Ende unserer React-Reise nähern (zumindest vorerst), fügen wir 
 
 ## Bearbeiten des Namens einer Aufgabe
 
-Wir haben noch keine Benutzeroberfläche zum Bearbeiten des Namens einer Aufgabe. Dazu kommen wir gleich. Zunächst können wir zumindest eine `editTask()`-Funktion in `App.jsx` implementieren. Sie ist ähnlich wie `deleteTask()`, da sie eine `id` nimmt, um ihr Zielobjekt zu finden, aber sie nimmt auch eine `newName` Eigenschaft, die den neuen Namen enthält, zu dem die Aufgabe aktualisiert werden soll. Wir verwenden [`Array.prototype.map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map) anstelle von [`Array.prototype.filter()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), da wir ein neues Array mit einigen Änderungen zurückgeben wollen, anstatt etwas aus dem Array zu entfernen.
+Wir haben noch keine Benutzeroberfläche zum Bearbeiten des Namens einer Aufgabe. Darauf kommen wir gleich zurück. Zunächst können wir zumindest eine `editTask()`-Funktion in `App.jsx` implementieren. Sie wird ähnlich wie `deleteTask()` sein, da sie eine `id` benötigt, um ihr Zielobjekt zu finden, aber sie wird auch eine `newName`-Eigenschaft haben, die den Namen enthält, um den die Aufgabe aktualisiert werden soll. Anstatt [`Array.prototype.filter()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) verwenden wir [`Array.prototype.map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map), da wir ein neues Array mit einigen Änderungen zurückgeben wollen, anstatt etwas aus dem Array zu löschen.
 
-Fügen Sie die `editTask()`-Funktion in Ihre `<App />`-Komponente ein, an derselben Stelle wie die anderen Funktionen:
+Fügen Sie die `editTask()`-Funktion in Ihre `<App />`-Komponente ein, und zwar an der Stelle, an der sich auch die anderen Funktionen befinden:
 
 ```jsx
 function editTask(id, newName) {
   const editedTaskList = tasks.map((task) => {
-    // wenn diese Aufgabe dieselbe ID hat wie die bearbeitete Aufgabe
+    // if this task has the same ID as the edited task
     if (id === task.id) {
-      // Kopieren Sie die Aufgabe und aktualisieren Sie ihren Namen
+      // Copy the task and update its name
       return { ...task, name: newName };
     }
-    // Geben Sie die ursprüngliche Aufgabe zurück, wenn sie nicht die bearbeitete Aufgabe ist
+    // Return the original task if it's not the edited task
     return task;
   });
   setTasks(editedTaskList);
 }
 ```
 
-Übergeben Sie `editTask` auf dieselbe Weise als Prop in unsere `<Todo />`-Komponenten wie `deleteTask`:
+Geben Sie `editTask` an unsere `<Todo />`-Komponenten als eine Prop in der gleichen Weise weiter, wie wir es mit `deleteTask` getan haben:
 
 ```jsx
 const taskList = tasks.map((task) => (
@@ -72,26 +72,26 @@ const taskList = tasks.map((task) => (
 ));
 ```
 
-Öffnen Sie nun `Todo.jsx`. Wir werden nun etwas umstrukturieren.
+Öffnen Sie nun `Todo.jsx`. Wir werden etwas umstrukturieren.
 
-## Eine UI zum Bearbeiten
+## Eine Benutzeroberfläche zum Bearbeiten
 
-Um Benutzern zu ermöglichen, eine Aufgabe zu bearbeiten, müssen wir eine Benutzeroberfläche bereitstellen, damit sie dies tun können. Importieren Sie zuerst `useState` in die `<Todo />`-Komponente, wie wir es zuvor mit der `<App />`-Komponente getan haben:
+Um den Nutzern das Bearbeiten einer Aufgabe zu ermöglichen, müssen wir ihnen eine Benutzeroberfläche dafür bieten. Zuerst importieren wir `useState` in die `<Todo />`-Komponente, wie wir es zuvor mit der `<App />`-Komponente gemacht haben:
 
 ```jsx
 import { useState } from "react";
 ```
 
-Wir werden dies verwenden, um einen `isEditing` Zustand mit einem Standardwert von `false` festzulegen. Fügen Sie die folgende Zeile direkt am Anfang der Definition Ihrer `<Todo />`-Komponente hinzu:
+Wir werden dies verwenden, um einen `isEditing`-Status mit einem Standardwert von `false` festzulegen. Fügen Sie die folgende Zeile direkt am Anfang Ihrer `<Todo />`-Komponentendefinition hinzu:
 
 ```jsx
 const [isEditing, setEditing] = useState(false);
 ```
 
-Als nächstes denken wir die `<Todo />`-Komponente neu. Von nun an möchten wir, dass sie eines von zwei möglichen "Templates" anzeigt, anstatt des einzigen Templates, das sie bisher verwendet hat:
+Als Nächstes überdenken wir die `<Todo />`-Komponente. Ab jetzt möchten wir eine von zwei möglichen "Vorlagen" anzeigen, anstatt der einzelnen Vorlage, die bisher verwendet wurde:
 
-- Das "Ansicht"-Template, wenn wir nur ein To-Do anzeigen; dies ist das, was wir im Tutorial bisher verwendet haben.
-- Das "Bearbeitungs"-Template, wenn wir ein To-Do bearbeiten. Dieses werden wir jetzt erstellen.
+- Die "Ansichts"-Vorlage, wenn wir nur eine Aufgabe ansehen; dies ist das, was wir bisher im Tutorial verwendet haben.
+- Die "Bearbeitungs"-Vorlage, wenn wir eine Aufgabe bearbeiten. Diese erstellen wir jetzt.
 
 Kopieren Sie diesen Codeblock in die `Todo()`-Funktion, unterhalb Ihres `useState()`-Hooks, aber oberhalb der `return`-Anweisung:
 
@@ -100,18 +100,18 @@ const editingTemplate = (
   <form className="stack-small">
     <div className="form-group">
       <label className="todo-label" htmlFor={props.id}>
-        Neuer Name für {props.name}
+        New name for {props.name}
       </label>
       <input id={props.id} className="todo-text" type="text" />
     </div>
     <div className="btn-group">
       <button type="button" className="btn todo-cancel">
-        Abbrechen
-        <span className="visually-hidden">Umbenennen von {props.name}</span>
+        Cancel
+        <span className="visually-hidden">renaming {props.name}</span>
       </button>
       <button type="submit" className="btn btn__primary todo-edit">
-        Speichern
-        <span className="visually-hidden">neuer Name für {props.name}</span>
+        Save
+        <span className="visually-hidden">new name for {props.name}</span>
       </button>
     </div>
   </form>
@@ -131,46 +131,46 @@ const viewTemplate = (
     </div>
     <div className="btn-group">
       <button type="button" className="btn">
-        Bearbeiten <span className="visually-hidden">{props.name}</span>
+        Edit <span className="visually-hidden">{props.name}</span>
       </button>
       <button
         type="button"
         className="btn btn__danger"
         onClick={() => props.deleteTask(props.id)}>
-        Löschen <span className="visually-hidden">{props.name}</span>
+        Delete <span className="visually-hidden">{props.name}</span>
       </button>
     </div>
   </div>
 );
 ```
 
-Wir haben jetzt die zwei verschiedenen Template-Strukturen – "editieren" und "ansicht" – innerhalb von zwei separaten Konstanten definiert. Dies bedeutet, dass die `return`-Anweisung von `<Todo />` jetzt redundant ist – sie enthält ebenfalls eine Definition des "Ansicht"-Templates. Wir können dies bereinigen, indem wir eine **bedingte Darstellung** verwenden, um zu bestimmen, welches Template die Komponente zurückgibt und somit in der UI dargestellt wird.
+Jetzt haben wir die beiden unterschiedlichen Vorlagenstrukturen — "edit" und "view" — in zwei separaten Konstanten definiert. Das bedeutet, dass die `return`-Anweisung von `<Todo />` jetzt repetitiv ist — sie enthält auch eine Definition der "view"-Vorlage. Wir können dies aufräumen, indem wir **konditionales Rendering** verwenden, um zu bestimmen, welche Vorlage die Komponente zurückgibt und somit in der UI gerendert wird.
 
-## Bedingte Darstellung
+## Konditionales Rendering
 
-In JSX können wir eine Bedingung verwenden, um zu ändern, was vom Browser dargestellt wird. Um eine Bedingung in JSX zu schreiben, können wir einen [ternären Operator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator) verwenden.
+In JSX können wir eine Bedingung verwenden, um das, was vom Browser gerendert wird, zu ändern. Um eine Bedingung in JSX zu schreiben, können wir einen [ternären Operator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator) verwenden.
 
-Im Fall unserer `<Todo />`-Komponente lautet unsere Bedingung "Wird diese Aufgabe bearbeitet?" Ändern Sie die `return`-Anweisung innerhalb von `Todo()`, sodass sie wie folgt aussieht:
+Im Fall unserer `<Todo />`-Komponente lautet unsere Bedingung "Wird diese Aufgabe bearbeitet?" Ändern Sie die `return`-Anweisung in `Todo()`, damit sie wie folgt aussieht:
 
 ```jsx
 return <li className="todo">{isEditing ? editingTemplate : viewTemplate}</li>;
 ```
 
-Ihr Browser sollte jetzt alle Ihre Aufgaben wie zuvor darstellen. Um das Bearbeitungstemplate zu sehen, müssen Sie den Standardzustand `isEditing` vorübergehend von `false` auf `true` in Ihrem Code ändern; wir werden im nächsten Abschnitt darauf eingehen, den Bearbeiten-Button diese Änderung vornehmen zu lassen!
+Ihr Browser sollte alle Ihre Aufgaben wie zuvor rendern. Um die Bearbeitungsvorlage anzuzeigen, müssen Sie vorerst den Standardwert von `isEditing` in Ihrem Code von `false` auf `true` ändern; wir werden im nächsten Abschnitt darauf schauen, wie die Bearbeitungsschaltfläche dies umschalten kann!
 
-## Umschalten der `<Todo />` Templates
+## Umschalten der `<Todo />`-Vorlagen
 
-Endlich sind wir bereit, unser letztes Hauptmerkmal interaktiv zu machen. Zunächst möchten wir `setEditing()` mit einem Wert von `true` aufrufen, wenn ein Benutzer die Schaltfläche "Bearbeiten" in unserem `viewTemplate` drückt, damit wir die Templates umschalten können.
+Endlich sind wir bereit, unsere letzte Kernfunktion interaktiv zu machen. Zu Beginn möchten wir `setEditing()` mit einem Wert von `true` aufrufen, wenn ein Benutzer die "Bearbeiten"-Schaltfläche in unserer `viewTemplate` drückt, damit wir die Vorlagen umschalten können.
 
 Aktualisieren Sie die "Bearbeiten"-Schaltfläche im `viewTemplate` wie folgt:
 
 ```jsx
 <button type="button" className="btn" onClick={() => setEditing(true)}>
-  Bearbeiten <span className="visually-hidden">{props.name}</span>
+  Edit <span className="visually-hidden">{props.name}</span>
 </button>
 ```
 
-Jetzt fügen wir denselben `onClick`-Handler in der "Abbrechen"-Schaltfläche im `editingTemplate` hinzu, setzen dieses Mal jedoch `isEditing` auf `false`, sodass wir zurück zum Ansichtstemplate wechseln.
+Jetzt fügen wir den gleichen `onClick`-Handler der "Abbrechen"-Schaltfläche im `editingTemplate` hinzu, aber diesmal setzen wir `isEditing` auf `false`, damit wir zurück zur Ansichtsvorlage wechseln.
 
 Aktualisieren Sie die "Abbrechen"-Schaltfläche im `editingTemplate` wie folgt:
 
@@ -179,30 +179,30 @@ Aktualisieren Sie die "Abbrechen"-Schaltfläche im `editingTemplate` wie folgt:
   type="button"
   className="btn todo-cancel"
   onClick={() => setEditing(false)}>
-  Abbrechen
-  <span className="visually-hidden">Umbenennen von {props.name}</span>
+  Cancel
+  <span className="visually-hidden">renaming {props.name}</span>
 </button>
 ```
 
-Mit diesem Code sollten Sie in der Lage sein, die Schaltflächen "Bearbeiten" und "Abbrechen" in Ihren To-Do-Elementen zu drücken, um zwischen den Templates umzuschalten.
+Mit diesem Code sollten Sie in der Lage sein, die "Bearbeiten"- und "Abbrechen"-Schaltflächen in Ihren To-Do-Elementen zu drücken, um zwischen den Vorlagen zu wechseln.
 
-![Das Eat-To-Do-Element zeigt das Ansicht-Template mit verfügbaren Bearbeiten- und Löschen-Schaltflächen](view.png)
+![Die Essens-Aufgabe zeigt die Ansichts-Vorlage mit Bearbeiten- und Löschen-Schaltflächen verfügbar](view.png)
 
-![Das Eat-To-Do-Element zeigt das Bearbeitungs-Template mit einem Eingabefeld für einen neuen Namen sowie verfügbaren Abbrechen- und Speichern-Tasten](edit.png)
+![Die Essens-Aufgabe zeigt die Bearbeitungs-Vorlage mit einem Eingabefeld für einen neuen Namen sowie Abbrechen- und Speichern-Schaltflächen verfügbar](edit.png)
 
-Der nächste Schritt besteht darin, die Bearbeitungsfunktionalität tatsächlich zum Laufen zu bringen.
+Der nächste Schritt besteht darin, die Bearbeitungsfunktionen tatsächlich zu aktivieren.
 
-## Bearbeiten über die UI
+## Bearbeiten von der Benutzeroberfläche aus
 
-Vieles, was wir gleich tun werden, wird die Arbeit widerspiegeln, die wir in `Form.jsx` gemacht haben: Wenn der Benutzer in unser neues Eingabefeld tippt, müssen wir den Text verfolgen, den er eingibt; nachdem er das Formular abgeschickt hat, müssen wir einen Rückruffunktions-Prop verwenden, um unseren Zustand mit dem neuen Namen der Aufgabe zu aktualisieren.
+Vieles von dem, was wir jetzt tun werden, wird die Arbeit in `Form.jsx` widerspiegeln: während der Benutzer in unser neues Eingabefeld tippt, müssen wir den Text verfolgen, den er eingibt; sobald er das Formular übermittelt, müssen wir eine Rückruf-Callback-Prop verwenden, um unseren Zustand mit dem neuen Namen der Aufgabe zu aktualisieren.
 
-Zunächst erstellen wir einen neuen Hook, um den neuen Namen zu speichern und zu setzen. Immer noch in `Todo.jsx`, setzen Sie das folgende unter den bestehenden Hook:
+Wir beginnen damit, einen neuen Hook zum Speichern und Setzen des neuen Namens zu erstellen. Immer noch in `Todo.jsx`, fügen Sie das folgende unterhalb des bestehenden Hooks hinzu:
 
 ```jsx
 const [newName, setNewName] = useState("");
 ```
 
-Erstellen Sie als Nächstes eine `handleChange()`-Funktion, die den neuen Namen setzt; platzieren Sie diese unter den Hooks, aber vor den Templates:
+Als Nächstes erstellen Sie eine `handleChange()`-Funktion, die den neuen Namen setzt; platzieren Sie diese unterhalb der Hooks, aber vor den Vorlagen:
 
 ```jsx
 function handleChange(e) {
@@ -210,7 +210,7 @@ function handleChange(e) {
 }
 ```
 
-Nun aktualisieren wir das `<input />`-Feld unseres `editingTemplate`, setzen ein `value`-Attribut von `newName` und binden unsere `handleChange()`-Funktion an ihr `onChange`-Event. Aktualisieren Sie es wie folgt:
+Nun aktualisieren wir das `<input />`-Feld des `editingTemplate`, indem wir ein `value`-Attribut von `newName` festlegen und unsere `handleChange()`-Funktion an dessen `onChange`-Ereignis binden. Aktualisieren Sie es wie folgt:
 
 ```jsx
 <input
@@ -222,7 +222,7 @@ Nun aktualisieren wir das `<input />`-Feld unseres `editingTemplate`, setzen ein
 />
 ```
 
-Schließlich müssen wir eine Funktion erstellen, um das `onSubmit`-Event des Bearbeitungsformulars zu handhaben. Fügen Sie das folgende direkt unterhalb von `handleChange()` hinzu:
+Abschließend müssen wir eine Funktion erstellen, die das `onSubmit`-Ereignis des Bearbeitungsformulars verarbeitet. Fügen Sie das Folgende direkt unterhalb von `handleChange()` hinzu:
 
 ```jsx
 function handleSubmit(e) {
@@ -233,15 +233,15 @@ function handleSubmit(e) {
 }
 ```
 
-Denken Sie daran, dass unser `editTask()`-Rückruf-Prop sowohl die ID der bearbeiteten Aufgabe als auch ihren neuen Namen benötigt.
+Denken Sie daran, dass unsere `editTask()`-Callback-Prop sowohl die ID der Aufgabe, die wir bearbeiten, als auch ihren neuen Namen benötigt.
 
-Binden Sie diese Funktion an das `submit`-Event des Formulars, indem Sie den folgenden `onSubmit`-Handler dem `<form>` im `editingTemplate` hinzufügen:
+Binden Sie diese Funktion an das `submit`-Ereignis des Formulars, indem Sie den folgenden `onSubmit`-Handler zu dem `<form>` im `editingTemplate` hinzufügen:
 
 ```jsx
 <form className="stack-small" onSubmit={handleSubmit}>
 ```
 
-Sie sollten nun in der Lage sein, eine Aufgabe in Ihrem Browser zu bearbeiten. An diesem Punkt sollte Ihre `Todo.jsx`-Datei folgendermaßen aussehen:
+Sie sollten jetzt in der Lage sein, eine Aufgabe in Ihrem Browser zu bearbeiten. An diesem Punkt sollte Ihre `Todo.jsx`-Datei so aussehen:
 
 ```jsx
 function Todo(props) {
@@ -263,7 +263,7 @@ function Todo(props) {
     <form className="stack-small" onSubmit={handleSubmit}>
       <div className="form-group">
         <label className="todo-label" htmlFor={props.id}>
-          Neuer Name für {props.name}
+          New name for {props.name}
         </label>
         <input
           id={props.id}
@@ -278,12 +278,12 @@ function Todo(props) {
           type="button"
           className="btn todo-cancel"
           onClick={() => setEditing(false)}>
-          Abbrechen
-          <span className="visually-hidden">Umbenennen von {props.name}</span>
+          Cancel
+          <span className="visually-hidden">renaming {props.name}</span>
         </button>
         <button type="submit" className="btn btn__primary todo-edit">
-          Speichern
-          <span className="visually-hidden">neuer Name für {props.name}</span>
+          Save
+          <span className="visually-hidden">new name for {props.name}</span>
         </button>
       </div>
     </form>
@@ -309,13 +309,13 @@ function Todo(props) {
           onClick={() => {
             setEditing(true);
           }}>
-          Bearbeiten <span className="visually-hidden">{props.name}</span>
+          Edit <span className="visually-hidden">{props.name}</span>
         </button>
         <button
           type="button"
           className="btn btn__danger"
           onClick={() => props.deleteTask(props.id)}>
-          Löschen <span className="visually-hidden">{props.name}</span>
+          Delete <span className="visually-hidden">{props.name}</span>
         </button>
       </div>
     </div>
@@ -329,29 +329,29 @@ export default Todo;
 
 ## Zurück zu den Filter-Schaltflächen
 
-Nun, da unsere Hauptfunktionen abgeschlossen sind, können wir über unsere Filter-Schaltflächen nachdenken. Momentan wiederholen sie die "Alle"-Beschriftung und haben keine Funktionalität! Wir werden einige Fähigkeiten, die wir in unserer `<Todo />`-Komponente verwendet haben, wieder anwenden, um:
+Da unsere Hauptfunktionen nun abgeschlossen sind, können wir über unsere Filter-Schaltflächen nachdenken. Derzeit wiederholen sie das Label "All" und haben keine Funktionalität! Wir werden einige der Fähigkeiten, die wir in unserer `<Todo />`-Komponente genutzt haben, erneut verwenden, um:
 
 - Einen Hook für die Speicherung des aktiven Filters zu erstellen.
-- Ein Array von `<FilterButton />`-Elementen darzustellen, die es Benutzern ermöglichen, den aktiven Filter zwischen allen, erledigten und unerledigten Aufgaben zu ändern.
+- Ein Array von `<FilterButton />`-Elementen zu rendern, die es den Benutzern ermöglichen, den aktiven Filter zwischen alle, abgeschlossen und unvollständig zu ändern.
 
-### Hinzufügen eines Filter-Hooks
+### Einen Filter-Hook hinzufügen
 
-Fügen Sie Ihrer `App()`-Funktion einen neuen Hook hinzu, der einen Filter liest und setzt. Wir möchten, dass der Standardfilter `All` ist, da anfangs alle unsere Aufgaben angezeigt werden sollen:
+Fügen Sie Ihrer `App()`-Funktion einen neuen Hook hinzu, der einen Filter liest und einstellt. Wir möchten, dass der Standardfilter `All` ist, da zu Beginn alle Aufgaben angezeigt werden sollen:
 
 ```jsx
 const [filter, setFilter] = useState("All");
 ```
 
-### Definieren unserer Filter
+### Unsere Filter definieren
 
 Unser Ziel ist derzeit zweifach:
 
 - Jeder Filter sollte einen eindeutigen Namen haben.
 - Jeder Filter sollte ein einzigartiges Verhalten haben.
 
-Ein JavaScript-Objekt wäre eine großartige Möglichkeit, Namen mit Verhaltensweisen zu verknüpfen: jeder Schlüssel ist der Name eines Filters; jede Eigenschaft ist das Verhalten, das mit diesem Namen verknüpft ist.
+Ein JavaScript-Objekt wäre eine großartige Möglichkeit, Namen mit Verhalten zu verknüpfen: Jeder Schlüssel ist der Name eines Filters; jede Eigenschaft ist das mit diesem Namen verbundene Verhalten.
 
-Fügen Sie am oberen Rand von `App.jsx`, unter unseren Importen, aber über unserer `App()`-Funktion, ein Objekt namens `FILTER_MAP` hinzu:
+Fügen Sie am Anfang von `App.jsx`, unterhalb unserer Importe, aber oberhalb von `App()`, ein Objekt namens `FILTER_MAP` hinzu:
 
 ```jsx
 const FILTER_MAP = {
@@ -361,26 +361,26 @@ const FILTER_MAP = {
 };
 ```
 
-Die Werte von `FILTER_MAP` sind Funktionen, die wir verwenden werden, um das `tasks` Daten-Array zu filtern:
+Die Werte von `FILTER_MAP` sind Funktionen, die wir verwenden werden, um das `tasks`-Datenarray zu filtern:
 
-- Der `All`-Filter zeigt alle Aufgaben, daher geben wir `true` für alle Aufgaben zurück.
-- Der `Active`-Filter zeigt Aufgaben, deren `completed`-Eigenschaft `false` ist.
+- Der `All`-Filter zeigt alle Aufgaben an, daher geben wir `true` für alle Aufgaben zurück.
+- Der `Active`-Filter zeigt Aufgaben an, deren `completed`-Eigenschaft `false` ist.
 - Der `Completed`-Filter zeigt Aufgaben an, deren `completed`-Eigenschaft `true` ist.
 
-Fügen Sie unter unserer vorherigen Hinzufügung das folgende hinzu — hier verwenden wir die Methode [`Object.keys()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/keys), um ein Array von `FILTER_NAMES` zu sammeln:
+Fügen Sie das Folgende unterhalb unserer vorherigen Ergänzung hinzu — hier verwenden wir die [`Object.keys()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)-Methode, um ein Array von `FILTER_NAMES` zu sammeln:
 
 ```jsx
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 ```
 
 > [!NOTE]
-> Wir definieren diese Konstanten außerhalb unserer `App()`-Funktion, weil sie, wenn sie darin definiert wären, jedes Mal neu berechnet würden, wenn die `<App />`-Komponente neu gerendert wird, und das wollen wir nicht. Diese Informationen werden sich niemals ändern, egal, was unsere Anwendung tut.
+> Wir definieren diese Konstanten außerhalb unserer `App()`-Funktion, da sie, wenn sie innerhalb definiert wären, jedes Mal neu berechnet würden, wenn die `<App />`-Komponente neu gerendert wird, und das wollen wir nicht. Diese Informationen werden sich nie ändern, egal was unsere Anwendung tut.
 
-### Darstellen der Filter
+### Die Filter rendern
 
-Jetzt, da wir das `FILTER_NAMES`-Array haben, können wir es verwenden, um alle drei unserer Filter darzustellen. Innerhalb der `App()`-Funktion können wir eine Konstante namens `filterList` erstellen, die wir verwenden werden, um über unser Array von Namen zu mappen und eine `<FilterButton />`-Komponente zurückzugeben. Denken Sie daran, dass wir hier auch Schlüssel benötigen.
+Da wir nun das `FILTER_NAMES`-Array haben, können wir es verwenden, um alle drei unserer Filter zu rendern. Innerhalb der `App()`-Funktion können wir eine Konstante namens `filterList` erstellen, die wir zum Mapping über unser Namensarray verwenden und eine `<FilterButton />`-Komponente zurückgeben können. Denken Sie daran, dass wir hier auch Schlüssel benötigen.
 
-Fügen Sie das folgende unterhalb Ihrer `taskList` Konstantendeklaration hinzu:
+Fügen Sie das Folgende unterhalb Ihrer `taskList`-Konstantendeklaration hinzu:
 
 ```jsx
 const filterList = FILTER_NAMES.map((name) => (
@@ -388,7 +388,7 @@ const filterList = FILTER_NAMES.map((name) => (
 ));
 ```
 
-Nun ersetzen wir die drei sich wiederholenden `<FilterButton />`s in `App.jsx` durch diese `filterList`. Ersetzen Sie das folgende:
+Jetzt ersetzen wir die drei wiederholten `<FilterButton />`s in `App.jsx` durch diesen `filterList`. Ersetzen Sie das Folgende:
 
 ```jsx
 <FilterButton />
@@ -396,20 +396,20 @@ Nun ersetzen wir die drei sich wiederholenden `<FilterButton />`s in `App.jsx` d
 <FilterButton />
 ```
 
-Durch dieses:
+Mit diesem:
 
 ```jsx-nolint
 {filterList}
 ```
 
-Das wird noch nicht funktionieren. Wir haben noch ein wenig mehr Arbeit zu leisten.
+Das wird noch nicht funktionieren. Wir haben noch ein bisschen Arbeit vor uns.
 
 ### Interaktive Filter
 
-Um unsere Filter-Schaltflächen interaktiv zu machen, sollten wir überlegen, welche Props sie nutzen müssen.
+Um unsere Filter-Schaltflächen interaktiv zu machen, sollten wir überlegen, welche Props sie verwenden müssen.
 
-- Wir wissen, dass der `<FilterButton />` melden sollte, ob er aktuell gedrückt ist, und er sollte gedrückt sein, wenn sein Name mit dem aktuellen Wert unseres Filter-Zustands übereinstimmt.
-- Wir wissen, dass der `<FilterButton />` einen Rückruf benötigt, um den aktiven Filter zu setzen. Wir können direkt unseren `setFilter`-Hook nutzen.
+- Wir wissen, dass der `<FilterButton />` melden sollte, ob er aktuell gedrückt ist, und er sollte gedrückt sein, wenn sein Name dem aktuellen Wert unseres Filterstatus entspricht.
+- Wir wissen, dass der `<FilterButton />` einen Callback benötigt, um den aktiven Filter einzustellen. Wir können unseren `setFilter`-Hook direkt verwenden.
 
 Aktualisieren Sie Ihre `filterList`-Konstante wie folgt:
 
@@ -424,13 +424,13 @@ const filterList = FILTER_NAMES.map((name) => (
 ));
 ```
 
-Auf die gleiche Weise, wie wir es zuvor bei unserer `<Todo />`-Komponente gemacht haben, müssen wir nun `FilterButton.jsx` aktualisieren, um die von uns gegebenen Props zu nutzen. Erledigen Sie dabei jedes der folgenden Dinge und denken Sie daran, geschweifte Klammern zu verwenden, um diese Variablen zu lesen!
+Auf die gleiche Weise wie zuvor mit unserer `<Todo />`-Komponente müssen wir nun `FilterButton.jsx` aktualisieren, um die Props zu verwenden, die wir ihm gegeben haben. Ersetzen Sie jeweils das Folgende, und denken Sie daran, geschweifte Klammern zu verwenden, um diese Variablen zu lesen!
 
 - Ersetzen Sie `all` durch `{props.name}`.
 - Setzen Sie den Wert von `aria-pressed` auf `{props.isPressed}`.
 - Fügen Sie einen `onClick`-Handler hinzu, der `props.setFilter()` mit dem Namen des Filters aufruft.
 
-Mit all dem sollte Ihre `FilterButton.jsx`-Datei so aussehen:
+Nachdem all dies erledigt ist, sollte Ihre `FilterButton.jsx`-Datei so aussehen:
 
 ```jsx
 function FilterButton(props) {
@@ -450,15 +450,15 @@ function FilterButton(props) {
 export default FilterButton;
 ```
 
-Besuchen Sie wieder Ihren Browser. Sie sollten sehen, dass die verschiedenen Schaltflächen ihre jeweiligen Namen erhalten haben. Wenn Sie eine Filter-Schaltfläche drücken, sollten Sie sehen, dass ihr Text einen neuen Umriss erhält — das zeigt Ihnen, dass sie ausgewählt wurde. Und wenn Sie den Page Inspector Ihres DevTools während Sie die Schaltflächen klicken betrachten, sehen Sie, wie sich die `aria-pressed`-Attributwerte entsprechend ändern.
+Besuchen Sie erneut Ihren Browser. Sie sollten sehen, dass die verschiedenen Schaltflächen ihre jeweiligen Namen erhalten haben. Wenn Sie eine Filter-Schaltfläche drücken, sollten Sie sehen, dass ihr Text eine neue Umrandung erhält — dies zeigt, dass sie ausgewählt wurde. Und wenn Sie im Seiteninspektor Ihrer DevTools die Schaltflächen anklicken, sehen Sie, wie sich die Werte des `aria-pressed`-Attributs entsprechend ändern.
 
-![Die drei Filter-Schaltflächen der App - alle, aktiv, und abgeschlossen - mit einem Fokushervorhebung um abgeschlossen](filter-buttons.png)
+![Die drei Filter-Schaltflächen der App - alle, aktiv und abgeschlossen - mit einem Hervorhebungshinweis um abgeschlossen](filter-buttons.png)
 
-Allerdings filtern unsere Schaltflächen die Todos in der Benutzeroberfläche immer noch nicht tatsächlich! Lassen Sie uns das zu Ende bringen.
+Allerdings filtern unsere Schaltflächen die Aufgaben in der UI noch nicht! Lassen Sie uns dies abschließen.
 
 ### Filtern von Aufgaben in der Benutzeroberfläche
 
-Momentan mappt unsere `taskList`-Konstante in `App()` über den Aufgaben-Zustand und gibt eine neue `<Todo />`-Komponente für alle zurück. Das ist nicht, was wir wollen! Eine Aufgabe sollte nur gerendert werden, wenn sie in den Ergebnissen der Anwendung des ausgewählten Filters enthalten ist. Bevor wir über den Aufgaben-Zustand mappen, sollten wir ihn filtern (mit [`Array.prototype.filter()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)), um Objekte zu eliminieren, die wir nicht rendern wollen.
+Derzeit mappt unsere `taskList`-Konstante in `App()` über den Aufgabenstatus und gibt eine neue `<Todo />`-Komponente für alle zurück. Das ist nicht, was wir wollen! Eine Aufgabe sollte nur gerendert werden, wenn sie in den Ergebnissen der Anwendung des ausgewählten Filters enthalten ist. Bevor wir über den Aufgabenstatus mappen, sollten wir ihn filtern (mit [`Array.prototype.filter()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)), um Objekte auszuschließen, die wir nicht rendern wollen.
 
 Aktualisieren Sie Ihre `taskList` wie folgt:
 
@@ -478,14 +478,14 @@ const taskList = tasks
   ));
 ```
 
-Um zu entscheiden, welche Rückruffunktion in `Array.prototype.filter()` verwendet werden soll, greifen wir auf den Wert in `FILTER_MAP` zu, der dem Schlüssel unseres Filterzustands entspricht. Wenn der Filter zum Beispiel `All` ist, wird `FILTER_MAP[filter]` zu `() => true` ausgewertet.
+Um zu entscheiden, welche Callback-Funktion in `Array.prototype.filter()` zu verwenden ist, greifen wir auf den Wert in `FILTER_MAP` zu, der dem Schlüssel unseres Filternzustands entspricht. Wenn der Filter zum Beispiel `All` ist, wird `FILTER_MAP[filter]` als `() => true` ausgewertet.
 
-Das Auswählen eines Filters im Browser wird nun die Aufgaben entfernen, die nicht den Kriterien entsprechen. Die Anzahl in der Überschrift über der Liste ändert sich ebenfalls entsprechend!
+Wenn Sie in Ihrem Browser einen Filter auswählen, werden nun die Aufgaben entfernt, die nicht den Kriterien entsprechen. Die Zählung in der Überschrift über der Liste wird sich auch entsprechend ändern!
 
-![Die App mit den Filter-Schaltflächen an Ort und Stelle. Aktiv ist hervorgehoben, daher werden nur die aktiven To-Do-Elemente angezeigt.](filtered-todo-list.png)
+![Die App mit den Filter-Schaltflächen an ihrem Platz. Aktiv ist hervorgehoben, sodass nur die aktiven Aufgaben angezeigt werden.](filtered-todo-list.png)
 
 ## Zusammenfassung
 
-Das war's — unsere App ist nun funktional komplett. Da wir jedoch alle unsere Funktionen implementiert haben, können wir einige Verbesserungen vornehmen, um sicherzustellen, dass eine breitere Palette von Benutzern unsere App nutzen kann. Unser nächster Artikel schließt unsere React-Tutorials ab, indem er sich mit dem Fokusmanagement in React befasst, welches die Benutzerfreundlichkeit verbessern und Verwirrung reduzieren kann für sowohl Tastaturnutzer als auch Benutzer von Screenreadern.
+Das war's also — unsere App ist jetzt funktional vollständig. Jetzt, da wir alle unsere Features implementiert haben, können wir einige Verbesserungen vornehmen, um sicherzustellen, dass eine breitere Palette von Benutzern unsere App verwenden kann. Unser nächster Artikel rundet unsere React-Tutorials ab, indem er sich mit der Einbeziehung von Fokusmanagement in React befasst, was die Benutzerfreundlichkeit verbessern und Verwirrung sowohl für Tastaturbenutzer als auch für Screenreader-Nutzer verringern kann.
 
 {{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_interactivity_events_state","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_accessibility", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}

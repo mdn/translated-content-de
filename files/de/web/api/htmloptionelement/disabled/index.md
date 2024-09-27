@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`disabled`**-Eigenschaft des {{domxref("HTMLOptionElement")}} ist ein boolescher Wert, der anzeigt, ob das {{htmlelement("option")}}-Element nicht zur Auswahl verfügbar ist. Die Eigenschaft spiegelt den Wert des [`disabled`](/de/docs/Web/HTML/Element/option#disabled)-HTML-Attributs wider.
+Die **`disabled`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) ist ein boolescher Wert, der anzeigt, ob das {{htmlelement("option")}}-Element nicht ausgewählt werden kann. Die Eigenschaft spiegelt den Wert des [`disabled`](/de/docs/Web/HTML/Element/option#disabled) HTML-Attributs wider.
 
-Die Eigenschaft spiegelt den Wert des `disabled`-Attributs auf dem `<option>`-Element selbst wider. Wenn eine Option deaktiviert ist, weil sie ein Kind eines deaktivierten {{HTMLElement("optgroup")}}-Elements ist, wird das `true` der {{domxref("HTMLOptGroupElement.disabled")}}-Eigenschaft nicht von der Option selbst geerbt.
+Die Eigenschaft spiegelt den Wert des `disabled`-Attributs auf dem `<option>`-Element selbst wider. Wenn eine Option deaktiviert ist, weil sie ein Kind eines deaktivierten {{HTMLElement("optgroup")}}-Elements ist, wird das `true` der [`HTMLOptGroupElement.disabled`](/de/docs/Web/API/HTMLOptGroupElement/disabled)-Eigenschaft nicht von der Option selbst geerbt.
 
 ## Wert
 
@@ -21,13 +21,13 @@ Ein boolescher Wert.
 ### HTML
 
 ```html
-<label for="drink-options">Getränkeauswahl:</label>
+<label for="drink-options">Drink selection:</label>
 <select id="drink-options">
-  <option value="water">Wasser</option>
-  <option value="lemonade">Limonade</option>
-  <option value="beer">Bier</option>
+  <option value="water">Water</option>
+  <option value="lemonade">Lemonade</option>
+  <option value="beer">Beer</option>
   <option value="whisky" disabled>Whisky</option>
-</select>
+</option>
 ```
 
 ### JavaScript
@@ -36,7 +36,7 @@ Ein boolescher Wert.
 const drinks = document.querySelectorAll("#drink-options option");
 console.log(drinks[0].disabled); // false
 console.log(drinks[3].disabled); // true
-drinks[1].disabled = true; // deaktiviert die Limonadenoption
+drinks[1].disabled = true; // disables the beer option
 ```
 
 ### Ergebnis
@@ -56,9 +56,9 @@ drinks[1].disabled = true; // deaktiviert die Limonadenoption
 - {{HTMLElement("option")}}
 - {{HTMLElement("select")}}
 - {{HTMLElement("optgroup")}}
-- {{DOMxRef("HTMLSelectElement.disabled")}}
-- {{DOMxRef("HTMLOptGroupElement.disabled")}}
-- {{DOMxRef("HTMLOptionElement.selected")}}
-- {{DOMxRef("HTMLOptionElement.index")}}
-- {{DOMxRef("HTMLOptionsCollection")}}
+- [`HTMLSelectElement.disabled`](/de/docs/Web/API/HTMLSelectElement/disabled)
+- [`HTMLOptGroupElement.disabled`](/de/docs/Web/API/HTMLOptGroupElement/disabled)
+- [`HTMLOptionElement.selected`](/de/docs/Web/API/HTMLOptionElement/selected)
+- [`HTMLOptionElement.index`](/de/docs/Web/API/HTMLOptionElement/index)
+- [`HTMLOptionsCollection`](/de/docs/Web/API/HTMLOptionsCollection)
 - {{cssxref(":disabled")}}

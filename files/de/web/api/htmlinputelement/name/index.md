@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: name-Eigenschaft"
+title: "HTMLInputElement: name Eigenschaft"
 short-title: name
 slug: Web/API/HTMLInputElement/name
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`name`**-Eigenschaft des {{domxref("HTMLInputElement")}}-Interfaces zeigt den Namen des {{HTMLElement("input")}}-Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/input#name)-Attribut des Elements wider.
+Die **`name`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Schnittstelle gibt den Namen des {{HTMLElement("input")}} Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/input#name) Attribut des Elements wider.
 
 ## Wert
 
-Ein String, der den Namen des Elements darstellt.
+Ein String, der den Namen des Elements repräsentiert.
 
 ## Beispiel
 
-Unter Berücksichtigung des folgenden HTML-Codes:
+Für folgendes HTML:
 
 ```html
 <p>
@@ -25,23 +25,23 @@ Unter Berücksichtigung des folgenden HTML-Codes:
 </p>
 ```
 
-Sie können die `name`-Eigenschaft verwenden, um den Namen des `<input>`-Elements abzurufen oder festzulegen:
+Sie können die `name`-Eigenschaft verwenden, um den Namen des `<input>`-Elements abzurufen oder zu setzen:
 
 ```js
 const inputElement = document.querySelector("#planet");
 console.log(`Element's name: ${inputElement.name}`); // "Element's name: origin"
-inputElement.name = "planet"; // aktualisiert den Namen des Elements
+inputElement.name = "planet"; // updates the element's name
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLInputElement.value")}}
-- {{domxref("HTMLInputElement.type")}}
+- [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value)
+- [`HTMLInputElement.type`](/de/docs/Web/API/HTMLInputElement/type)

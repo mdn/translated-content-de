@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`markerHeight`** repräsentiert die Höhe des Ansichtsfensters, in das der {{SVGElement("marker")}} eingefügt wird, wenn es gemäß den Attributen {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} gerendert wird.
+Das **`markerHeight`** Attribut repräsentiert die Höhe des Viewports, in den das {{SVGElement("marker")}} eingefügt wird, wenn es gemäß den Attributen {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} gerendert wird.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("marker")}}
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -37,11 +37,11 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - `<length-percentage>`
   - : Dieser Wert definiert entweder eine absolute oder relative Höhe des Markers.
-    Relative Werte beziehen sich auf die Höhe, die über die Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} festgelegt ist.
+    Relative Werte beziehen sich auf die Höhe, die über die Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} angegeben wurde.
 - `<number>`
-  - : Dieser Wert definiert die Höhe des Markers in den durch das Attribut {{SVGAttr("markerUnits")}} definierten Einheiten.
+  - : Dieser Wert definiert die Höhe des Markers in den Einheiten, die durch das {{SVGAttr("markerUnits")}} Attribut definiert sind.
 
-Ein Wert von null deaktiviert das Rendern des Elements und negative Werte sind ein Fehler.
+Ein Wert von null deaktiviert das Rendern des Elements, und negative Werte sind ein Fehler.
 
 ## Spezifikationen
 

@@ -3,14 +3,14 @@ title: "GPUComputePipeline: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUComputePipeline/label
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der {{domxref("GPUComputePipeline")}}-Schnittstelle bietet eine Bezeichnung, die verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in {{domxref("GPUError")}}-Nachrichten oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline)-Schnittstelle bietet eine Bezeichnung, die verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
 
-Diese kann gesetzt werden, indem eine `label`-Eigenschaft im Deskriptorobjekt angegeben wird, das in den ursprünglichen {{domxref("GPUDevice.createComputePipeline()")}} oder {{domxref("GPUDevice.createComputePipelineAsync()")}}-Aufruf übergeben wird, oder Sie können sie direkt am `GPUComputePipeline`-Objekt abrufen und setzen.
+Diese kann gesetzt werden, indem eine `label`-Eigenschaft im Deskriptorobjekt bereitgestellt wird, das in den Aufruf von [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) oder [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync) übergeben wird, oder Sie können sie direkt am `GPUComputePipeline`-Objekt abrufen und setzen.
 
 ## Wert
 
@@ -38,7 +38,7 @@ computePipeline.label = "mycomputepipeline";
 console.log(computePipeline.label); // "mycomputepipeline"
 ```
 
-Setzen eines Labels über einen {{domxref("GPUDevice.createComputePipeline()")}}-Aufruf und anschließendes Abrufen über `GPUComputePipeline.label`:
+Setzen eines Labels über einen Aufruf von [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) und anschließendes Abrufen über `GPUComputePipeline.label`:
 
 ```js
 // ...

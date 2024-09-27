@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`required`**-Eigenschaft des {{DOMxRef("HTMLSelectElement")}}-Interfaces gibt an, dass der Benutzer eine Option mit einem nicht-leeren Zeichenfolgenwert auswählen muss, bevor ein Formular abgesendet wird. Sie spiegelt das [`required`](/de/docs/Web/HTML/Element/select#required)-Attribut des {{htmlelement("select")}}-Elements wider.
+Die **`required`**-Eigenschaft der [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Schnittstelle legt fest, dass der Benutzer eine Option mit einem nicht-leeren Zeichenfolgenwert auswählen muss, bevor ein Formular abgeschickt werden kann. Sie spiegelt das `required`-Attribut des {{htmlelement("select")}}-Elements wider.
 
 ## Wert
 
@@ -32,5 +32,5 @@ console.log(selectElement.required);
 ## Siehe auch
 
 - {{HTMLElement("select")}}
-- {{DOMXref("HTMLSelectElement.validity")}}
+- [`HTMLSelectElement.validity`](/de/docs/Web/API/HTMLSelectElement/validity)
 - {{cssxref(":required")}} Pseudo-Klasse

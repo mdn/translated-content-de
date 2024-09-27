@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-webkit-inner-spin-button`** CSS-Pseudoelement wird verwendet, um den inneren Teil des Drehknopfes von Zahleneingabe-Elementen zu gestalten.
+Das **`::-webkit-inner-spin-button`** CSS-Pseudoelement wird verwendet, um den inneren Teil des Drehknopfs von Zahlenauswahl-Input-Elementen zu gestalten.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Diese Beispiele funktionieren nur in Browsern, die auf WebKit und Blink basieren
 
 ### Ändern des Cursors in den Drehsteuerungen
 
-In diesem Beispiel wird der CSS-{{cssxref("cursor")}} auf `pointer` geändert, wenn sich der Cursor über dem inneren Teil der Drehsteuerungen des Eingabeelements befindet.
+In diesem Beispiel wird das CSS {{cssxref("cursor")}} auf `pointer` geändert, wenn sich der Cursor über dem inneren Teil der Drehsteuerungen des Eingabefeldes befindet.
 
 #### HTML
 
@@ -45,7 +45,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 

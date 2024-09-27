@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Cookie Store API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`cookiechange`**-Ereignis der {{domxref("ServiceWorkerGlobalScope")}}-Schnittstelle wird ausgelöst, wenn eine Änderung an einem Cookie erfolgt, die mit der Cookie-Änderungsabonnementliste des Service Workers übereinstimmt.
+Das **`cookiechange`**-Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle wird ausgelöst, wenn eine Cookie-Änderung eintritt, die mit der Cookie-Änderungs-Abonnementliste des Service Workers übereinstimmt.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("cookiechange", (event) => {});
@@ -24,7 +24,7 @@ oncookiechange = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ExtendableCookieChangeEvent")}}. Erbt von {{domxref("ExtendableEvent")}}.
+Ein [`ExtendableCookieChangeEvent`](/de/docs/Web/API/ExtendableCookieChangeEvent). Erbt von [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent).
 
 {{InheritanceDiagram("ExtendableCookieChangeEvent")}}
 

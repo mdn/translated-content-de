@@ -1,5 +1,5 @@
 ---
-title: Endianheit
+title: Endianness
 slug: Glossary/Endianness
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,25 +7,25 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Endian** und **Endianheit** (oder "Byte-Reihenfolge") beschreiben, wie Computer die Bytes organisieren, aus denen Zahlen bestehen.
+**Endian** und **Endianness** (oder "Byte-Reihenfolge") beschreiben, wie Computer die Bytes organisieren, aus denen Zahlen bestehen.
 
-Jeder Speicherort hat einen Index oder eine Adresse. Jedes Byte kann eine 8-Bit-Zahl speichern (d.h. zwischen `0x00` und `0xff`), daher müssen Sie mehr als ein Byte reservieren, um eine größere Zahl zu speichern. Die mit Abstand häufigste _Anordnung_ von mehreren Bytes in einer Zahl ist die **Little-Endian**, die auf allen Intel-Prozessoren verwendet wird. Little-Endian bedeutet, Bytes in der Reihenfolge von wenig signifikant zu höchst signifikant zu speichern (wobei das wenig signifikante Byte die erste oder niedrigste Adresse erhält), vergleichbar mit der in Europa üblichen Schreibweise von Daten (z.B. 31. Dezember 2050).
+Jeder Speicherort hat einen Index oder eine Adresse. Jedes Byte kann eine 8-Bit-Zahl speichern (d.h. zwischen `0x00` und `0xff`), sodass Sie mehr als ein Byte reservieren müssen, um eine größere Zahl zu speichern. Bei weitem die häufigste _Anordnung_ von mehreren Bytes in einer Zahl ist die **Little-Endian**, die auf allen Intel-Prozessoren verwendet wird. Little-Endian bedeutet, Bytes in der Reihenfolge von am wenigsten zu am meisten signifikant zu speichern (wobei das am wenigsten signifikante Byte die erste oder niedrigste Adresse einnimmt), vergleichbar mit einer gängigen europäischen Art, Daten zu schreiben (z.B. 31. Dezember 2050).
 
-Natürlich ist **Big-Endian** die entgegengesetzte Ordnung, vergleichbar mit einem ISO-Datum (2050-12-31). Big-Endian wird auch oft als „Network Byte Order“ bezeichnet, da Internetstandards normalerweise verlangen, dass Daten im Big-Endian-Format gespeichert werden, beginnend auf der standardmäßigen UNIX-Socket-Ebene und bis hin zu standardisierten Web-Binärdatenstrukturen. Auch ältere Mac-Computer mit 68000er-Serien und PowerPC-Mikroprozessoren verwendeten früher Big-Endian.
+Natürlich ist **Big-Endian** die entgegengesetzte Reihenfolge, vergleichbar mit einem ISO-Datum (2050-12-31). Big-Endian wird auch oft als "Netzwerk-Byte-Reihenfolge" bezeichnet, weil Internetstandards normalerweise erfordern, dass Daten Big-Endian gespeichert werden, beginnend auf der Ebene der standardisierten UNIX-Sockets bis zu den standardisierten binären Webdatenstrukturen. Außerdem nutzten ältere Mac-Computer, die 68000er-Serie und PowerPC-Mikroprozessoren, früher Big-Endian.
 
-Beispiele mit der Zahl `0x12345678` (d.h. 305 419 896 im Dezimalsystem):
+Beispiele mit der Zahl `0x12345678` (d.h. 305.419.896 dezimal):
 
 - _Little-Endian_: `0x78 0x56 0x34 0x12`
 - _Big-Endian_: `0x12 0x34 0x56 0x78`
-- _Misch-Endian_ (historisch und sehr selten): `0x34 0x12 0x78 0x56`
+- _Mixed-Endian_ (historisch und sehr selten): `0x34 0x12 0x78 0x56`
 
-Der Leitfaden zu typisierten Arrays bietet ein Beispiel, das [jede Zahl in ihre binäre Darstellung unter der gegebenen Endianheit umwandelt](/de/docs/Web/JavaScript/Guide/Typed_arrays#dataview).
+Der Leitfaden zu typisierten Arrays bietet ein Beispiel, das [jede Zahl in ihre binäre Darstellung unter der gegebenen Endianness umwandelt](/de/docs/Web/JavaScript/Guide/Typed_arrays#dataview).
 
 ## Siehe auch
 
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}
 - [Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
-- [Endianheit](https://en.wikipedia.org/wiki/Endianness) (Wikipedia)
+- [Endianness](https://en.wikipedia.org/wiki/Endianness) (Wikipedia)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Data structure")}}
+  - [Datenstruktur](/de/docs/Glossary/Data_structure)

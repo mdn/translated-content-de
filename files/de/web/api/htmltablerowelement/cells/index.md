@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`cells`** schreibgeschützte Eigenschaft der {{domxref("HTMLTableRowElement")}}-Schnittstelle gibt eine Live-{{domxref("HTMLCollection")}} zurück, die die Zellen in der Zeile enthält. Die `HTMLCollection` ist live und wird automatisch aktualisiert, wenn Zellen hinzugefügt oder entfernt werden.
+Die schreibgeschützte **`cells`**-Eigenschaft des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Interfaces gibt eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die die Zellen in der Zeile enthält. Die `HTMLCollection` ist live und wird automatisch aktualisiert, wenn Zellen hinzugefügt oder entfernt werden.
 
 ## Wert
 
-Eine Live-{{domxref("HTMLCollection")}} von {{domxref("HTMLTableCellElement")}}-Objekten.
+Eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Objekten.
 
 ## Beispiele
 
@@ -108,5 +108,5 @@ removeButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("HTMLTableRowElement.insertCell()")}}
-- {{domxref("HTMLTableRowElement.deleteCell()")}}
+- [`HTMLTableRowElement.insertCell()`](/de/docs/Web/API/HTMLTableRowElement/insertCell)
+- [`HTMLTableRowElement.deleteCell()`](/de/docs/Web/API/HTMLTableRowElement/deleteCell)

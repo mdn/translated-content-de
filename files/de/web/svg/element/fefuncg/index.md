@@ -7,15 +7,15 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feFuncG>`** [SVG](/de/docs/Web/SVG)-Filterprimitiv definiert die Transferfunktion für die grüne Komponente der Eingabegrafik des übergeordneten {{SVGElement("feComponentTransfer")}}-Elements.
+Das **`<feFuncG>`** [SVG](/de/docs/Web/SVG) Filter-Primitive definiert die Übertragungsfunktion für die grüne Komponente der grafischen Eingabe des übergeordneten {{SVGElement("feComponentTransfer")}} Elements.
 
-## Anwendungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFEFuncGElement")}}-Schnittstelle.
+Dieses Element implementiert die [`SVGFEFuncGElement`](/de/docs/Web/API/SVGFEFuncGElement) Schnittstelle.
 
 ## Spezifikationen
 
@@ -27,7 +27,7 @@ Dieses Element implementiert die {{domxref("SVGFEFuncGElement")}}-Schnittstelle.
 
 ## Siehe auch
 
-- [SVG-Filterprimitivattribute](/de/docs/Web/SVG/Attribute#filters_attributes)
+- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filters_attributes)
 - {{SVGAttr("flood-color")}} Attribut
 - {{SVGAttr("flood-opacity")}} Attribut
 - {{SVGElement("filter")}}
@@ -37,4 +37,4 @@ Dieses Element implementiert die {{domxref("SVGFEFuncGElement")}}-Schnittstelle.
 - {{SVGElement("feFuncA")}}
 - {{SVGElement("feFuncR")}}
 - {{SVGElement("feFuncB")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Leitfaden: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

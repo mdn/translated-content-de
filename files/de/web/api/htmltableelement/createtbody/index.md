@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`createTBody()`** Methode von
-{{domxref("HTMLTableElement")}} Objekten erstellt und gibt ein neues
-{{HTMLElement("tbody")}} Element zurück, das mit einem gegebenen {{HtmlElement("table")}} verknüpft ist.
+Die **`createTBody()`**-Methode von
+[`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Objekten erstellt und gibt ein neues
+{{HTMLElement("tbody")}}-Element zurück, das mit einem gegebenen {{HtmlElement("table")}} verbunden ist.
 
 > [!NOTE]
-> Im Gegensatz zu {{domxref("HTMLTableElement.createTHead()")}} und
-> {{domxref("HTMLTableElement.createTFoot()")}} erstellt `createTBody()`
-> systematisch ein neues `<tbody>` Element, auch wenn die Tabelle bereits einen oder mehrere Körper enthält. Falls dies der Fall ist, wird das neue nach den bereits vorhandenen eingefügt.
+> Im Gegensatz zu [`HTMLTableElement.createTHead()`](/de/docs/Web/API/HTMLTableElement/createTHead) und
+> [`HTMLTableElement.createTFoot()`](/de/docs/Web/API/HTMLTableElement/createTFoot) erstellt `createTBody()`
+> systematisch ein neues `<tbody>`-Element, selbst wenn die Tabelle bereits einen oder mehrere `tbody`-Elemente enthält. In diesem Fall wird das neue `<tbody>` hinter den bestehenden eingefügt.
 
 ## Syntax
 
@@ -29,13 +29,13 @@ Keine.
 
 ### Rückgabewert
 
-{{domxref("HTMLTableSectionElement")}}
+[`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)
 
 ## Beispiele
 
 ```js
 let mybody = mytable.createTBody();
-// Jetzt sollte dies wahr sein: mybody === mytable.tBodies.item(mytable.tBodies.length - 1)
+// Now this should be true: mybody === mytable.tBodies.item(mytable.tBodies.length - 1)
 ```
 
 ## Spezifikationen

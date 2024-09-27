@@ -9,16 +9,16 @@ l10n:
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
 Die **`ports`** schreibgeschützte Eigenschaft des
-{{domxref("ExtendableMessageEvent")}}-Interfaces gibt das Array zurück, das die
-{{domxref("MessagePort")}}-Objekte repräsentiert, die die Ports des zugehörigen Nachrichtenkanals darstellen (den Kanal, durch den die Nachricht gesendet wird).
+[`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent)-Interfaces gibt das Array zurück, das die
+[`MessagePort`](/de/docs/Web/API/MessagePort)-Objekte enthält, die die Ports des zugehörigen Nachrichtenkanals darstellen (der Kanal, über den die Nachricht gesendet wird).
 
 ## Wert
 
-Ein Array von {{domxref("MessagePort")}}-Objekten.
+Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten.
 
 ## Beispiele
 
-Wenn der folgende Code innerhalb eines Service Workers verwendet wird, um auf Push-Nachrichten zu reagieren, indem er die empfangenen Daten über {{domxref("PushMessageData")}} an den Hauptkontext über eine [Nachrichtenkanal](/de/docs/Web/API/Channel_Messaging_API) sendet, wird das Ereignisobjekt von `onmessage` ein `ExtendableMessageEvent` sein.
+Wenn der folgende Code innerhalb eines Service Workers verwendet wird, um auf Push-Nachrichten zu antworten, indem die empfangenen Daten über [`PushMessageData`](/de/docs/Web/API/PushMessageData) an den Hauptkontext über eine [Nachricht über Kanal](/de/docs/Web/API/Channel_Messaging_API) gesendet werden, wird das Ereignisobjekt von `onmessage` ein `ExtendableMessageEvent` sein.
 
 ```js
 let port;
@@ -49,5 +49,5 @@ self.onmessage = (e) => {
 ## Siehe auch
 
 - [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Code-Beispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Nachrichtenkanal](/de/docs/Web/API/Channel_Messaging_API)
+- [Grundlegendes Beispiel für Service Worker Code](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Channel Messaging](/de/docs/Web/API/Channel_Messaging_API)

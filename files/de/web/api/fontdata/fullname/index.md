@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Local Font Access API")}}{{SeeCompatTable}}
 
-Die **`fullName`** schreibgeschützte Eigenschaft der {{domxref("FontData")}}-Schnittstelle gibt den vollständigen Namen des Schriftbilds zurück. Dies ist normalerweise ein für Menschen lesbarer Name, der zur Identifizierung der Schriftart verwendet wird, z.B. "Optima Bold".
+Die schreibgeschützte **`fullName`**-Eigenschaft der [`FontData`](/de/docs/Web/API/FontData)-Schnittstelle gibt den vollständigen Namen des Schriftbildes zurück. Dies ist in der Regel ein menschenlesbarer Name, der zur Identifizierung der Schriftart verwendet wird, z. B. "Optima Bold".
 
-Beispiele umfassen:
+Beispiele sind:
 
 - Apple SD Gothic Neo UltraLight
 - Arial Black
@@ -24,7 +24,7 @@ Ein String.
 
 ## Beispiele
 
-Im folgenden Beispiel wird nach allen verfügbaren Schriftarten gesucht und Metadaten protokolliert. Dies könnte beispielsweise verwendet werden, um eine Schriftart-Auswahlsteuerung zu füllen.
+Das folgende Code-Snippet fragt alle verfügbaren Schriftarten ab und protokolliert Metadaten. Dies könnte beispielsweise verwendet werden, um eine Schriftart-Auswahlsteuerung zu füllen.
 
 ```js
 async function logFontData() {
@@ -52,5 +52,5 @@ async function logFontData() {
 
 ## Siehe auch
 
-- [Verwenden Sie erweiterte Typografie mit lokalen Schriftarten](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
+- [Erweiterte Typografie mit lokalen Schriftarten verwenden](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
 - {{cssxref("@font-face")}}

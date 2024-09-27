@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Erkennt die Sprache des angegebenen Textes mithilfe des [Compact Language Detector](https://github.com/CLD2Owners/cld2) (CLD).
+Erkennt die Sprache des bereitgestellten Textes mithilfe des [Compact Language Detector](https://github.com/CLD2Owners/cld2) (CLD).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
-Siehe die Seite [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization) für eine Anleitung zur Nutzung dieser Funktion.
+Sehen Sie die Seite [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization) für einen Leitfaden zur Verwendung dieser Funktion ein.
 
 ## Syntax
 
@@ -24,22 +24,22 @@ let detectingLanguages = browser.i18n.detectLanguage(
 ### Parameter
 
 - `text`
-  - : `string`. Vom Benutzer eingegebene Zeichenfolge, die übersetzt werden soll.
+  - : `string`. Vom Benutzer eingegebener Text, der übersetzt werden soll.
 
 ### Rückgabewert
 
 Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Ergebnisobjekt erfüllt wird. Das Ergebnisobjekt hat zwei Eigenschaften:
 
 - `isReliable`
-  - : `boolean`. Ob die Sprache zuverlässig erkannt wurde.
+  - : `boolean`. Gibt an, ob die Sprache zuverlässig erkannt wurde.
 - `languages`
 
-  - : `array` von Objekten, die jeweils zwei Eigenschaften haben:
+  - : `array` von Objekten, von denen jedes zwei Eigenschaften hat:
 
     - `language`
       - : {{WebExtAPIRef('i18n.LanguageCode')}}. Die erkannte Sprache.
     - `percentage`
-      - : `integer`. Der Prozentsatz der Eingabezeichenfolge, der in der erkannten Sprache war.
+      - : `integer`. Der Prozentsatz der Eingabestrings, der in der erkannten Sprache war.
 
 ## Browser-Kompatibilität
 
@@ -64,7 +64,7 @@ detecting.then(onLanguageDetected);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#method-detectLanguage). Diese Dokumentation stammt aus [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#method-detectLanguage) API von Chromium. Diese Dokumentation ist von [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

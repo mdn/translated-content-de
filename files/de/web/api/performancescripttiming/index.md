@@ -7,68 +7,68 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Das **`PerformanceScriptTiming`** Interface ist im Long Animation Frames API spezifiziert und bietet Metriken über einzelne Skripte, die zu langen Animationsrahmen (LoAFs) beitragen.
+Die **`PerformanceScriptTiming`** Schnittstelle ist in der Long Animation Frames API spezifiziert und bietet Metriken zu einzelnen Scripts, die zu langen Animationsbildern (LoAFs) beitragen.
 
 ## Beschreibung
 
-Lange Animationsrahmen (LoAFs) sind Render-Aktualisierungen, die über 50ms hinaus verzögert werden. LoAFs können zu langsamen Benutzeroberflächen-Updates führen, was dazu führt, dass Bedienelemente unempfindlich erscheinen und [ruckelige](/de/docs/Glossary/Jank) (nicht flüssige) Animationseffekte und Scrollen verursacht werden. Dies führt oft zu Benutzungsfrustration.
+Lange Animationsbilder (LoAFs) sind Render-Updates, die sich mehr als 50 ms verzögern. LoAFs können zu langsamen Benutzeroberflächen- (UI) Aktualisierungen führen, wodurch Bedienelemente träge wirken und [ruckelige](/de/docs/Glossary/Jank) (nicht flüssige) Animationseffekte und Scrollen auftreten. Dies führt oft zu Frustration bei den Nutzern.
 
-Das `PerformanceScriptTiming` Interface (dessen Instanzen über die {{domxref("PerformanceLongAnimationFrameTiming.scripts")}} Eigenschaft zugänglich sind) bietet den folgenden detaillierten Satz von Informationen über einzelne Skripte, die zu LoAFs beitragen, um Entwicklern zu helfen, deren Ursachen genauer einzugrenzen:
+Die `PerformanceScriptTiming`-Schnittstelle (deren Instanzen über die Eigenschaft [`PerformanceLongAnimationFrameTiming.scripts`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/scripts) aufgerufen werden) bietet die folgenden detaillierten Informationen über individuelle Scripts, die zu LoAFs beitragen. Dadurch können Entwickler die Ursachen eingrenzen:
 
-- Ein detaillierter Satz von Zeitstempeln für jedes Skript.
-- Die Identität und der Typ des Aufrufers, d.h. das Feature, das bei der Ausführung das Skript gestartet hat.
-- Detaillierte Informationen über jede Skriptquelle einschließlich der URL, des Funktionsnamens und der Zeichenposition, die zum LoAF beigetragen hat.
+- Ein detaillierter Satz von Zeitstempeln für jedes Script.
+- Die Identität und der Typ des Invokers, d.h. das Merkmal, das beim Aufruf das Script ausgeführt hat.
+- Detaillierte Informationen zu jeder Script-Quelldatei, einschließlich der URL, des Funktionsnamens und der Zeichenposition, die zum LoAF beigetragen haben.
 
 ## Vererbung
 
-`PerformanceScriptTiming` erbt von {{domxref("PerformanceEntry")}}.
+`PerformanceScriptTiming` erbt von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry).
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-Dieses Interface erweitert die folgenden {{domxref("PerformanceEntry")}} Eigenschaften für Leistungsaufzeichnungen von langen Animationsrahmen:
+Diese Schnittstelle erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Eigenschaften für Leistungsdaten zu langen Animationsbildern:
 
-- {{domxref("PerformanceEntry.duration")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die verstrichene Zeit in Millisekunden zwischen dem Start und Ende der Skriptausführung darstellt.
-- {{domxref("PerformanceEntry.entryType")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die verstrichene Zeit in Millisekunden zwischen dem Beginn und Ende der Ausführung des Scripts darstellt.
+- [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt den Eintragstyp zurück, der immer `"script"` ist.
-- {{domxref("PerformanceEntry.name")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt den Eintragsnamen zurück, der immer `"script"` ist.
-- {{domxref("PerformanceEntry.startTime")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die Zeit angibt, wann die Skriptausführung gestartet wurde, in Millisekunden.
+- [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit in Millisekunden angibt, zu der die Ausführung des Scripts begann.
 
-Dieses Interface unterstützt auch die folgenden Eigenschaften:
+Diese Schnittstelle unterstützt auch die folgenden Eigenschaften:
 
-- {{domxref("PerformanceScriptTiming.executionStart")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die Zeit angibt, wann die Skriptkompilierung beendet und die Ausführung gestartet wurde.
-- {{domxref("PerformanceScriptTiming.forcedStyleAndLayoutDuration")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die gesamte Zeit darstellt, in Millisekunden, die das Skript mit erzwungenem Layout/Style verbracht hat. Sehen Sie sich [Vermeiden Sie das Layout-Umwerfen](https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing#avoid_layout_thrashing) an, um zu verstehen, was dies verursacht.
-- {{domxref("PerformanceScriptTiming.invoker")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen string-Wert zurück, der die Identität des Features angibt, das bei der Ausführung das Skript gestartet hat.
-- {{domxref("PerformanceScriptTiming.invokerType")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen string-Wert zurück, der den Typ des Features angibt, das bei der Ausführung das Skript gestartet hat.
-- {{domxref("PerformanceScriptTiming.pauseDuration")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die Gesamtzeit darstellt, in Millisekunden, die das Skript für "pausierende" synchrone Operationen (zum Beispiel, {{domxref("Window.alert()")}} Aufrufe oder synchrone {{domxref("XMLHttpRequest")}}s) verbracht hat.
-- {{domxref("PerformanceScriptTiming.sourceCharPosition")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Zahl zurück, die die Zeichenposition des Skript-Features darstellt, das zum LoAF beigetragen hat.
-- {{domxref("PerformanceScriptTiming.sourceFunctionName")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen string zurück, der den Namen der Funktion darstellt, die zum LoAF beigetragen hat.
-- {{domxref("PerformanceScriptTiming.sourceURL")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen string zurück, der die URL des Skripts darstellt.
-- {{domxref("PerformanceScriptTiming.window")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Referenz zu einem {{domxref("Window")}} Objekt zurück, das das `window` des Containers (d.h. entweder das Top-Level-Dokument oder ein {{htmlelement("iframe")}}) darstellt, in dem das LoAF verursachende Skript ausgeführt wurde.
-- {{domxref("PerformanceScriptTiming.windowAttribution")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen aufgezählten Wert zurück, der die Beziehung des Containers (d.h. entweder das Top-Level-Dokument oder ein {{htmlelement("iframe")}}) beschreibt, in dem das LoAF verursachende Skript ausgeführt wurde, relativ zu dem Fenster, das das aktuelle Dokument ausführt.
+- [`PerformanceScriptTiming.executionStart`](/de/docs/Web/API/PerformanceScriptTiming/executionStart) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit angibt, zu der die Script-Kompilierung abgeschlossen und die Ausführung gestartet wurde.
+- [`PerformanceScriptTiming.forcedStyleAndLayoutDuration`](/de/docs/Web/API/PerformanceScriptTiming/forcedStyleAndLayoutDuration) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die gesamte Zeit in Millisekunden angibt, die das Script für die Verarbeitung erzwungener Layouts/Styles aufwandte. Siehe [Avoid layout thrashing](https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing#avoid_layout_thrashing), um zu verstehen, was dies verursacht.
+- [`PerformanceScriptTiming.invoker`](/de/docs/Web/API/PerformanceScriptTiming/invoker) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen Zeichenkettenwert zurück, der die Identität des Merkmals angibt, das beim Aufruf das Script ausgeführt hat.
+- [`PerformanceScriptTiming.invokerType`](/de/docs/Web/API/PerformanceScriptTiming/invokerType) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen Zeichenkettenwert zurück, der den Typ des Merkmals angibt, das beim Aufruf das Script ausgeführt hat.
+- [`PerformanceScriptTiming.pauseDuration`](/de/docs/Web/API/PerformanceScriptTiming/pauseDuration) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die gesamte Zeit in Millisekunden angibt, die das Script für das "Pausieren" synchroner Operationen aufwandte (z.B. [`Window.alert()`](/de/docs/Web/API/Window/alert) Aufrufe oder synchrone [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)s).
+- [`PerformanceScriptTiming.sourceCharPosition`](/de/docs/Web/API/PerformanceScriptTiming/sourceCharPosition) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt eine Zahl zurück, die die Zeichenposition des Script-Features angibt, das zum LoAF beitrug.
+- [`PerformanceScriptTiming.sourceFunctionName`](/de/docs/Web/API/PerformanceScriptTiming/sourceFunctionName) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt eine Zeichenkette zurück, die den Namen der Funktion angibt, die zum LoAF beitrug.
+- [`PerformanceScriptTiming.sourceURL`](/de/docs/Web/API/PerformanceScriptTiming/sourceURL) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt eine Zeichenkette zurück, die die URL des Scripts darstellt.
+- [`PerformanceScriptTiming.window`](/de/docs/Web/API/PerformanceScriptTiming/window) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt eine Referenz zu einem [`Window`](/de/docs/Web/API/Window)-Objekt zurück, das das `window` des Containers (d.h. entweder das oberste Dokument oder ein {{htmlelement("iframe")}}) repräsentiert, in dem das LoAF-verursachende Script ausgeführt wurde.
+- [`PerformanceScriptTiming.windowAttribution`](/de/docs/Web/API/PerformanceScriptTiming/windowAttribution) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen enumerierten Wert zurück, der die Beziehung des Containers (d.h. entweder das oberste Dokument oder ein {{htmlelement("iframe")}}), in dem das LoAF-verursachende Script ausgeführt wurde, relativ zu dem Fenster, das das aktuelle Dokument ausführt, beschreibt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{domxref("PerformanceScriptTiming.toJSON()")}} {{Experimental_Inline}}
-  - : Gibt eine JSON-Repräsentation des `PerformanceScriptTiming` Objekts zurück.
+- [`PerformanceScriptTiming.toJSON()`](/de/docs/Web/API/PerformanceScriptTiming/toJSON) {{Experimental_Inline}}
+  - : Gibt eine JSON-Repräsentation des `PerformanceScriptTiming`-Objekts zurück.
 
 ## Beispiele
 
-Siehe [Lange Animationsrahmen-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit dem Long Animation Frames API.
+Siehe [Langes Animationsbild-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele zur Long Animation Frames API.
 
 ## Spezifikationen
 
@@ -80,5 +80,5 @@ Siehe [Lange Animationsrahmen-Timing](/de/docs/Web/API/Performance_API/Long_anim
 
 ## Siehe auch
 
-- [Lange Animationsrahmen-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
-- {{domxref("PerformanceLongAnimationFrameTiming")}}
+- [Langes Animationsbild-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)

@@ -1,5 +1,5 @@
 ---
-title: "HIDDevice: forget()-Methode"
+title: "HIDDevice: forget() Methode"
 short-title: forget()
 slug: Web/API/HIDDevice/forget
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`forget()`**-Methode der {{domxref("HIDDevice")}}-Schnittstelle schließt die Verbindung zum HID-Gerät und "vergisst" das Gerät.
+Die **`forget()`**-Methode der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle schließt die Verbindung zum HID-Gerät und vergisst das Gerät.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf `undefined` aufgelöst wird, sobald die Verbindung geschlossen ist, das Gerät vergessen wurde und die Berechtigung zurückgesetzt wurde.
+Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald die Verbindung geschlossen, das Gerät vergessen und die Berechtigung zurückgesetzt ist.
 
 ## Beispiel
 
-Im folgenden Beispiel verbinden wir uns mit einem Nintendo Switch Joy-Con Right HID-Gerät, lassen einmal blinken und trennen die Verbindung.
+Im folgenden Beispiel verbinden wir uns mit einem Nintendo Switch Joy-Con Recht HID-Gerät, blinken einmal und trennen die Verbindung wieder.
 
 ```js
 async function blink() {
@@ -40,13 +40,13 @@ async function blink() {
   });
   const device = devices[0];
   await device.open();
-  // Ausschalten
+  // Turn off
   await device.sendFeatureReport(reportId, Uint32Array.from([0, 0]));
   await waitFor(100);
-  // Einschalten
+  // Turn on
   await device.sendFeatureReport(reportId, Uint32Array.from([512, 0]));
   await new Promise((resolve) => setTimeout(resolve, 100));
-  // Schließlich die Verbindung trennen
+  // Finally, disconnect from it
   await device.forget();
 }
 blink();
@@ -56,6 +56,6 @@ blink();
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

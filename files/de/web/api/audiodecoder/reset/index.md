@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`reset()`**-Methode der {{domxref("AudioDecoder")}}-Schnittstelle setzt alle Zustände zurück, einschließlich Konfiguration, Steuerungsmeldungen in der Steuerungsmeldungswarteschlange und alle ausstehenden Rückrufe.
+Die **`reset()`**-Methode des [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Interfaces setzt alle Zustände zurück, einschließlich Konfiguration, Steuerungsnachrichten in der Steuerungsnachrichtenwarteschlange und aller ausstehenden Rückrufe.
 
 ## Syntax
 

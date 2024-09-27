@@ -7,26 +7,26 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGEllipseElement`** Schnittstelle bietet Zugriff auf die Eigenschaften von {{SVGElement("ellipse")}}-Elementen.
+Das **`SVGEllipseElement`** Interface bietet Zugriff auf die Eigenschaften von {{SVGElement("ellipse")}} Elementen.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Erbt Methoden von seiner Elternschnittstelle, {{domxref("SVGGeometryElement")}}._
+_Erbt Methoden von seinem übergeordneten Interface, [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
 
-- {{domxref("SVGEllipseElement.cx")}} {{ReadOnlyInline}}
-  - : Diese Eigenschaft gibt ein {{domxref("SVGAnimatedLength")}} zurück, das das {{SVGAttr("cx")}}-Attribut des betreffenden {{SVGElement("ellipse")}}-Elements widerspiegelt.
-- {{domxref("SVGEllipseElement.cy")}} {{ReadOnlyInline}}
-  - : Diese Eigenschaft gibt ein {{domxref("SVGAnimatedLength")}} zurück, das das {{SVGAttr("cy")}}-Attribut des betreffenden {{SVGElement("ellipse")}}-Elements widerspiegelt.
-- {{domxref("SVGEllipseElement.rx")}} {{ReadOnlyInline}}
-  - : Diese Eigenschaft gibt ein {{domxref("SVGAnimatedLength")}} zurück, das das {{SVGAttr("rx")}}-Attribut des betreffenden {{SVGElement("ellipse")}}-Elements widerspiegelt.
-- {{domxref("SVGEllipseElement.ry")}} {{ReadOnlyInline}}
-  - : Diese Eigenschaft gibt ein {{domxref("SVGAnimatedLength")}} zurück, das das {{SVGAttr("ry")}}-Attribut des betreffenden {{SVGElement("ellipse")}}-Elements widerspiegelt.
+- [`SVGEllipseElement.cx`](/de/docs/Web/API/SVGEllipseElement/cx) {{ReadOnlyInline}}
+  - : Diese Eigenschaft gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das das {{SVGAttr("cx")}} Attribut des gegebenen {{SVGElement("ellipse")}} Elements widerspiegelt.
+- [`SVGEllipseElement.cy`](/de/docs/Web/API/SVGEllipseElement/cy) {{ReadOnlyInline}}
+  - : Diese Eigenschaft gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das das {{SVGAttr("cy")}} Attribut des gegebenen {{SVGElement("ellipse")}} Elements widerspiegelt.
+- [`SVGEllipseElement.rx`](/de/docs/Web/API/SVGEllipseElement/rx) {{ReadOnlyInline}}
+  - : Diese Eigenschaft gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das das {{SVGAttr("rx")}} Attribut des gegebenen {{SVGElement("ellipse")}} Elements widerspiegelt.
+- [`SVGEllipseElement.ry`](/de/docs/Web/API/SVGEllipseElement/ry) {{ReadOnlyInline}}
+  - : Diese Eigenschaft gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das das {{SVGAttr("ry")}} Attribut des gegebenen {{SVGElement("ellipse")}} Elements widerspiegelt.
 
 ## Instanzmethoden
 
-_Erbt Methoden von seiner Elternschnittstelle, {{domxref("SVGGeometryElement")}}._
+_Erbt Methoden von seinem übergeordneten Interface, [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
 
 ## Beispiel
 
@@ -72,4 +72,4 @@ function outputSize() {
 
 ## Siehe auch
 
-- {{SVGElement("ellipse")}} SVG-Element
+- {{SVGElement("ellipse")}} SVG Element

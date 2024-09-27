@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-block-start-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe des logischen Block-Start-Randes eines Elements, welche je nach Schreibrichtung, Ausrichtung und Textorientierung des Elements einer physischen Randfarbe zugeordnet wird. Sie entspricht der {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}} oder {{cssxref("border-left-color")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`border-block-start-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe des logischen block-start Randes eines Elements, der in Abhängigkeit vom Schreibmodus des Elements, der Richtung und der Textorientierung einer physischen Randfarbe zugeordnet wird. Sie entspricht der {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}} oder {{cssxref("border-left-color")}} Eigenschaft, je nach den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definiert sind.
 
 {{EmbedInteractiveExample("pages/css/border-block-start-color.html")}}
 
@@ -17,7 +17,7 @@ Die **`border-block-start-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert
 border-block-start-color: blue;
 border-block-start-color: #4c5d21;
 
-/* Globale Werte */
+/* Global values */
 border-block-start-color: inherit;
 border-block-start-color: initial;
 border-block-start-color: revert;
@@ -25,7 +25,7 @@ border-block-start-color: revert-layer;
 border-block-start-color: unset;
 ```
 
-Verwandte Eigenschaften sind {{cssxref("border-block-end-color")}}, {{cssxref("border-inline-start-color")}}, und {{cssxref("border-inline-end-color")}}, welche die anderen Randfarben des Elements definieren.
+Verwandte Eigenschaften sind {{cssxref("border-block-end-color")}}, {{cssxref("border-inline-start-color")}}, und {{cssxref("border-inline-end-color")}}, die die anderen Randfarben des Elements definieren.
 
 ### Werte
 
@@ -48,7 +48,7 @@ Verwandte Eigenschaften sind {{cssxref("border-block-end-color")}}, {{cssxref("b
 
 ```html
 <div>
-  <p class="exampleText">Beispieltext</p>
+  <p class="exampleText">Example text</p>
 </div>
 ```
 
@@ -82,6 +82,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
 - Diese Eigenschaft wird einer der physischen Rand-Eigenschaften zugeordnet: {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

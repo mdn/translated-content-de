@@ -1,5 +1,5 @@
 ---
-title: 202 Akzeptiert
+title: 202 Accepted
 slug: Web/HTTP/Status/202
 l10n:
   sourceCommit: 3f68a9604259dfa862dd741dc88ebc8fb5fa10fe
@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`202 Akzeptiert`** [erfolgreiche Antwort](/de/docs/Web/HTTP/Status#successful_responses) gibt an, dass eine Anfrage zur Bearbeitung angenommen wurde, die Bearbeitung jedoch nicht abgeschlossen oder möglicherweise nicht begonnen hat. Die tatsächliche Verarbeitung der Anfrage ist nicht garantiert; eine Aufgabe oder Aktion kann fehlschlagen oder abgelehnt werden, wenn ein Server versucht, sie zu verarbeiten.
+Der HTTP-Statuscode **`202 Accepted`** [erfolgreiche Antwort](/de/docs/Web/HTTP/Status#successful_responses) zeigt an, dass eine Anfrage zur Verarbeitung angenommen wurde, die Verarbeitung jedoch nicht abgeschlossen ist oder möglicherweise noch nicht begonnen hat. Die tatsächliche Verarbeitung der Anfrage ist nicht garantiert; eine Aufgabe oder Aktion kann fehlschlagen oder unzulässig sein, wenn ein Server versucht, sie zu verarbeiten.
 
-Eine `202`-Antwort ist unverbindlich, was bedeutet, dass es keine Möglichkeit gibt, später eine asynchrone HTTP-Antwort zu senden, um das Ergebnis der Verarbeitung anzuzeigen. Dieser Antwortcode wird in der Regel verwendet, wenn die Anfrage von einem anderen Prozess oder Server bearbeitet wird oder wenn Anfragen in Chargen verarbeitet werden.
+Eine `202`-Antwort ist unverbindlich, was bedeutet, dass es keinen Weg gibt, später eine asynchrone HTTP-Antwort zu senden, um das Ergebnis der Verarbeitung anzuzeigen. Dieser Antwortcode wird typischerweise verwendet, wenn die Anfrage von einem anderen Prozess oder Server bearbeitet wird oder wenn Anfragen in Batches verarbeitet werden.
 
 ## Status
 
@@ -19,9 +19,9 @@ Eine `202`-Antwort ist unverbindlich, was bedeutet, dass es keine Möglichkeit g
 
 ## Beispiele
 
-### Automatisierte Aufgabe beginnen
+### Automatisierten Task starten
 
-Im folgenden Beispiel möchten wir einen Automatisierungsprozess starten, um Hundebesitzer per E-Mail über eine Abholaufgabe zu informieren:
+Im folgenden Beispiel möchten wir einen Automatisierungsprozess starten, um Hundebesitzer über eine Abholaufgabe per E-Mail zu informieren:
 
 ```http
 POST /tasks HTTP/1.1
@@ -34,7 +34,7 @@ Content-Type: application/json
 }
 ```
 
-Die Antwort zeigt an, dass die Anfrage zur Bearbeitung einer Aufgabe angenommen wurde. Eine URL wird im Antwortkörper gesendet, damit der Client Änderungen am Status der Aufgabe verfolgen kann:
+Die Antwort zeigt an, dass die Anfrage zum Starten eines Tasks zur Verarbeitung angenommen wurde. Eine URL wird im Antwortkörper gesendet, damit der Client Änderungen am Status des Tasks verfolgen kann:
 
 ```http
 HTTP/1.1 202 Accepted

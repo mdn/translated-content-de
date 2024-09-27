@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode cullFace()"
+title: "WebGLRenderingContext: cullFace()-Methode"
 short-title: cullFace()
 slug: Web/API/WebGLRenderingContext/cullFace
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.cullFace()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) legt fest, ob Vorder- und/oder Rückseiten von Polygonen entfernt werden können.
+Die **`WebGLRenderingContext.cullFace()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt an, ob Front- und/oder Rückseiten-Polygone entfernt werden können.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ cullFace(mode)
 
 - `mode`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das angibt, ob Vorder- oder Rückseiten von Polygonen für das Entfernen in Frage kommen. Der Standardwert ist `gl.BACK`. Mögliche Werte sind:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, ob Front- oder Rückseiten-Polygone Kandidaten für das Entfernen sind. Der Standardwert ist `gl.BACK`. Mögliche Werte sind:
 
     - `gl.FRONT`
     - `gl.BACK`
@@ -28,18 +28,18 @@ cullFace(mode)
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keinen ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das Entfernen von Polygonen ist standardmäßig deaktiviert. Um das Entfernen zu aktivieren oder zu deaktivieren, verwenden Sie die Methoden {{domxref("WebGLRenderingContext.enable", "enable()")}} und {{domxref("WebGLRenderingContext.disable", "disable()")}} mit dem Argument `gl.CULL_FACE`.
+Das Entfernen von Polygonen ist standardmäßig deaktiviert. Um das Entfernen zu aktivieren oder zu deaktivieren, verwenden Sie die Methoden [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) und [`disable()`](/de/docs/Web/API/WebGLRenderingContext/disable) mit dem Argument `gl.CULL_FACE`.
 
 ```js
 gl.enable(gl.CULL_FACE);
 gl.cullFace(gl.FRONT_AND_BACK);
 ```
 
-Um den aktuellen Culling-Modus abzufragen, verwenden Sie die Konstante `CULL_FACE_MODE`.
+Um den aktuellen Modus für die zu entfernenden Flächen abzufragen, verwenden Sie die Konstante `CULL_FACE_MODE`.
 
 ```js
 gl.getParameter(gl.CULL_FACE_MODE) === gl.FRONT_AND_BACK;
@@ -56,5 +56,5 @@ gl.getParameter(gl.CULL_FACE_MODE) === gl.FRONT_AND_BACK;
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.enable()")}}
-- {{domxref("WebGLRenderingContext.frontFace()")}}
+- [`WebGLRenderingContext.enable()`](/de/docs/Web/API/WebGLRenderingContext/enable)
+- [`WebGLRenderingContext.frontFace()`](/de/docs/Web/API/WebGLRenderingContext/frontFace)

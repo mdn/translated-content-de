@@ -1,5 +1,5 @@
 ---
-title: "Document: Methode createTouchList()"
+title: "Document: createTouchList() Methode"
 short-title: createTouchList()
 slug: Web/API/Document/createTouchList
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{Deprecated_Header}}{{Non-standard_header}}
 
-Die Methode **`Document.createTouchList()`** erstellt und gibt ein neues {{DOMxRef("TouchList")}}-Objekt zurück.
+Die **`Document.createTouchList()`**-Methode erstellt und gibt ein neues [`TouchList`](/de/docs/Web/API/TouchList)-Objekt zurück.
 
 ## Syntax
 
@@ -21,40 +21,39 @@ createTouchList(touch1, touch2, /* …, */ touchN)
 ### Parameter
 
 - `touch1`, …, `touchN`
-  - : Null oder mehr {{DOMxRef("Touch")}}-Objekte. **Hinweis:** Firefox akzeptiert auch ein [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von
-    {{DOMxRef("Touch")}}-Objekten.
+  - : Null oder mehr [`Touch`](/de/docs/Web/API/Touch)-Objekte. **Hinweis:** Firefox akzeptiert auch ein [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [`Touch`](/de/docs/Web/API/Touch)-Objekten.
 
 ### Rückgabewert
 
 - `list`
-  - : Ein {{DOMxRef("TouchList")}}-Objekt, das die durch den `touches`-Parameter angegebenen {{DOMxRef("Touch")}}-Objekte enthält.
+  - : Ein [`TouchList`](/de/docs/Web/API/TouchList)-Objekt, das die durch den Parameter `touches` angegebenen [`Touch`](/de/docs/Web/API/Touch)-Objekte enthält.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der Methode `Document.createTouchList()`, um {{DOMxRef("TouchList")}}-Objekte zu erstellen.
+Dieses Beispiel veranschaulicht die Verwendung der `Document.createTouchList()`-Methode zur Erstellung von [`TouchList`](/de/docs/Web/API/TouchList)-Objekten.
 
-Im folgenden Code-Snippet werden einige {{DOMxRef("Touch")}}-Objekte für das `target`-Element erstellt, und diese Berührungspunkte werden dann verwendet, um einige {{DOMxRef("TouchList")}}-Objekte zu erstellen.
+Im folgenden Codebeispiel werden einige [`Touch`](/de/docs/Web/API/Touch)-Objekte für das `target` Element erstellt, und diese Berührungspunkte werden dann verwendet, um einige [`TouchList`](/de/docs/Web/API/TouchList)-Objekte zu erstellen.
 
 ```js
 const target = document.getElementById("target");
 
-// Erstellen Sie einige Berührungspunkte
+// Create some touch points
 const touch1 = document.createTouch(window, target, 1, 15, 20, 35, 40);
 const touch2 = document.createTouch(window, target, 2, 25, 30, 45, 50);
 
-// Erstellen Sie leere TouchList-Objekte
+// Create an empty TouchList objects
 const list0 = document.createTouchList();
 
-// Erstellen Sie eine TouchList mit nur einem Touch-Objekt
+// Create a TouchList with only one Touch object
 const list1 = document.createTouchList(touch1);
 
-// Erstellen Sie eine Liste mit zwei Touch-Objekten
+// Create a list with two Touch objects
 const list2 = document.createTouchList(touch1, touch2);
 ```
 
 ## Spezifikationen
 
-Dieses Feature ist Teil keiner aktuellen Spezifikation. Es ist nicht mehr vorgesehen, ein Standard zu werden.
+Diese Funktion ist nicht Teil einer aktuellen Spezifikation. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 
@@ -62,8 +61,8 @@ Dieses Feature ist Teil keiner aktuellen Spezifikation. Es ist nicht mehr vorges
 
 ## Siehe auch
 
-- [Touch-Ereignisse](/de/docs/Web/API/Touch_events)
-- {{DOMxRef("Touch")}}
-- {{DOMxRef("TouchEvent")}}
-- {{DOMxRef("TouchList")}}
-- {{DOMxRef("Document.createTouch()")}}
+- [Touch Events](/de/docs/Web/API/Touch_events)
+- [`Touch`](/de/docs/Web/API/Touch)
+- [`TouchEvent`](/de/docs/Web/API/TouchEvent)
+- [`TouchList`](/de/docs/Web/API/TouchList)
+- [`Document.createTouch()`](/de/docs/Web/API/Document/createTouch)

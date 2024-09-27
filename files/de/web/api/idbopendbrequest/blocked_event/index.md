@@ -1,6 +1,6 @@
 ---
-title: "IDBOpenDBRequest: blockiertes Ereignis"
-short-title: blockiert
+title: "IDBOpenDBRequest: blocked Ereignis"
+short-title: blocked
 slug: Web/API/IDBOpenDBRequest/blocked_event
 l10n:
   sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("IndexedDB")}}
 
-Der `blocked`-Handler wird ausgeführt, wenn eine offene Verbindung zu einer Datenbank eine `versionchange`-Transaktion in derselben Datenbank blockiert.
+Der `blocked` Handler wird ausgeführt, wenn eine offene Verbindung zu einer Datenbank eine `versionchange`-Transaktion auf derselben Datenbank blockiert.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht propagiert.
+Dieses Ereignis kann nicht abgebrochen werden und verbreitet sich nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
 
 ```js
 addEventListener("blocked", (event) => {});
@@ -24,17 +24,17 @@ onblocked = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("IDBVersionChangeEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`IDBVersionChangeEvent`](/de/docs/Web/API/IDBVersionChangeEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("IDBVersionChangeEvent")}}
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seiner Elternschnittstelle {{domxref("Event")}}._
+_Erbt auch Eigenschaften von seiner übergeordneten [`Event`](/de/docs/Web/API/Event)-Schnittstelle._
 
-- {{ domxref("IDBVersionChangeEvent.oldVersion") }} {{ReadOnlyInline}}
+- [`IDBVersionChangeEvent.oldVersion`](/de/docs/Web/API/IDBVersionChangeEvent/oldVersion) {{ReadOnlyInline}}
   - : Gibt die alte Version der Datenbank zurück.
-- {{ domxref("IDBVersionChangeEvent.newVersion") }} {{ReadOnlyInline}}
+- [`IDBVersionChangeEvent.newVersion`](/de/docs/Web/API/IDBVersionChangeEvent/newVersion) {{ReadOnlyInline}}
   - : Gibt die neue Version der Datenbank zurück.
 
 ## Beispiele
@@ -42,22 +42,22 @@ _Erbt auch Eigenschaften von seiner Elternschnittstelle {{domxref("Event")}}._
 Verwendung von `addEventListener()`:
 
 ```js
-// Öffnen der Datenbank
+// Open the database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
 DBOpenRequest.onupgradeneeded = (event) => {
   const db = event.target.result;
 
   db.onerror = () => {
-    console.log("Fehler beim Erstellen der Datenbank");
+    console.log("Error creating database");
   };
 
-  // Erstellen eines objectStore für diese Datenbank
+  // Create an objectStore for this database
   const objectStore = db.createObjectStore("toDoList", {
     keyPath: "taskTitle",
   });
 
-  // Definieren, welche Datenobjekte der objectStore enthalten wird
+  // define what data items the objectStore will contain
   objectStore.createIndex("hours", "hours", { unique: false });
   objectStore.createIndex("minutes", "minutes", { unique: false });
   objectStore.createIndex("day", "day", { unique: false });
@@ -66,35 +66,35 @@ DBOpenRequest.onupgradeneeded = (event) => {
 };
 
 DBOpenRequest.onsuccess = (event) => {
-  // Versuchen wir, dieselbe Datenbank mit einer höheren Revisionsversion zu öffnen
+  // Let's try to open the same database with a higher revision version
   const req2 = indexedDB.open("toDoList", 5);
 
-  // In diesem Fall wird der onblocked-Handler ausgeführt
+  // In this case the onblocked handler will be executed
   req2.addEventListener("blocked", () => {
-    console.log("Anfrage wurde blockiert");
+    console.log("Request was blocked");
   });
 };
 ```
 
-Verwendung der `onblocked`-Eigenschaft:
+Verwendung der `onblocked` Eigenschaft:
 
 ```js
-// Öffnen der Datenbank
+// Open the database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
 DBOpenRequest.onupgradeneeded = (event) => {
   const db = event.target.result;
 
   db.onerror = () => {
-    console.log("Fehler beim Erstellen der Datenbank");
+    console.log("Error creating database");
   };
 
-  // Erstellen eines objectStore für diese Datenbank
+  // Create an objectStore for this database
   const objectStore = db.createObjectStore("toDoList", {
     keyPath: "taskTitle",
   });
 
-  // Definieren, welche Datenobjekte der objectStore enthalten wird
+  // define what data items the objectStore will contain
   objectStore.createIndex("hours", "hours", { unique: false });
   objectStore.createIndex("minutes", "minutes", { unique: false });
   objectStore.createIndex("day", "day", { unique: false });
@@ -103,12 +103,12 @@ DBOpenRequest.onupgradeneeded = (event) => {
 };
 
 DBOpenRequest.onsuccess = (event) => {
-  // Versuchen wir, dieselbe Datenbank mit einer höheren Revisionsversion zu öffnen
+  // Let's try to open the same database with a higher revision version
   const req2 = indexedDB.open("toDoList", 5);
 
-  // In diesem Fall wird der onblocked-Handler ausgeführt
+  // In this case the onblocked handler will be executed
   req2.onblocked = () => {
-    console.log("Anfrage wurde blockiert");
+    console.log("Request was blocked");
   };
 };
 ```

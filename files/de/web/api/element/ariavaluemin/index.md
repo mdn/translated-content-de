@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaValueMin`**-Eigenschaft des {{domxref("Element")}}-Interfaces spiegelt den Wert des [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemin)-Attributs wider, das den minimal zulässigen Wert für ein Bereichs-Widget definiert.
+Die **`ariaValueMin`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-valuemin`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-valuemin)-Attributs wider, das den minimal zulässigen Wert für ein Range-Widget definiert.
 
 ## Wert
 

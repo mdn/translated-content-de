@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt, gegeben eine Tab-ID, Informationen über alle darin enthaltenen Frames zurück.
+Gibt alle Informationen zu den Frames eines Tabs anhand der Tab-ID zurück.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,7 +23,7 @@ let gettingFrames = browser.webNavigation.getAllFrames(
 
 - `details`
 
-  - : `object`. Informationen über das Tab, von dem alle Frames abgerufen werden sollen.
+  - : `object`. Informationen über den Tab, von dem alle Frames abgerufen werden sollen.
 
     - `tabId`
       - : `integer`. Die ID des Tabs.
@@ -35,15 +35,15 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 - `errorOccurred`
   - : `boolean`. True, wenn die letzte Navigation in diesem Frame durch einen Fehler unterbrochen wurde, d.h. das {{WebExtAPIRef("webNavigation.onErrorOccurred", "onErrorOccurred")}}-Ereignis ausgelöst wurde.
 - `processId` {{optional_inline}} {{deprecated_inline}}
-  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt wurde, repräsentierte er die ID des Prozesses, der den Renderer für dieses Tab ausführte.
+  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt wurde, repräsentierte er die ID des Prozesses, der den Renderer für diesen Tab ausführte.
 - `frameId`
   - : `integer`. Die ID des Frames. Wenn dies der Hauptframe ist, dann ist `frameId` null.
 - `parentFrameId`
-  - : `integer`. ID des übergeordneten Frames. Dies ist -1, wenn es keinen übergeordneten Frame gibt: das heißt, wenn dieser Frame der oberste Browsing-Kontext im Tab ist.
+  - : `integer`. ID des übergeordneten Frames. Dies ist -1, wenn kein übergeordneter Frame existiert: das heißt, wenn dieser Frame der oberste Browsing-Kontext im Tab ist.
 - `url`
-  - : `string`. Die URL, die derzeit mit diesem Frame verknüpft ist.
+  - : `string`. Die derzeit mit diesem Frame verknüpfte URL.
 
-Wenn das Tab verworfen wird, wird das Promise stattdessen mit einem Wert von `null` aufgelöst. Wenn das spezifizierte Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Wenn der Tab verworfen wird, wird das Promise stattdessen mit dem Wert `null` aufgelöst. Wenn der angegebene Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -51,7 +51,7 @@ Wenn das Tab verworfen wird, wird das Promise stattdessen mit einem Wert von `nu
 
 ## Beispiele
 
-Dieser Code protokolliert die URLs aller Frames im aktiven Tab, wenn der Nutzer auf eine Browser-Aktion klickt:
+Dieser Code protokolliert die URLs aller Frames im aktiven Tab, wenn der Benutzer auf eine Browser-Aktion klickt:
 
 ```js
 function logFrameInfo(framesInfo) {
@@ -85,4 +85,34 @@ browser.browserAction.onClicked.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#method-getAllFrames) API. Diese Dokumentation ist aus [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#method-getAllFrames) API von Chromium. Diese Dokumentation stammt aus [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+
+<!--
+// Copyright 2015 The Chromium Authors. All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->

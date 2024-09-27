@@ -1,5 +1,5 @@
 ---
-title: "FileSystemDirectoryHandle: values()-Methode"
+title: "FileSystemDirectoryHandle: values() Methode"
 short-title: values()
 slug: Web/API/FileSystemDirectoryHandle/values
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`values()`**-Methode der
-{{domxref("FileSystemDirectoryHandle")}}-Schnittstelle gibt einen neuen asynchronen Iterator
-zurück, um die Werte der Einträge innerhalb des `FileSystemDirectoryHandle` zu iterieren,
-auf dem diese Methode aufgerufen wird.
+Die **`values()`**-Methode des
+[`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Interfaces gibt einen neuen asynchronen Iterator zurück,
+der für die Iteration der Werte der Einträge innerhalb des `FileSystemDirectoryHandle`,
+auf dem diese Methode aufgerufen wird, genutzt wird.
 
 ## Syntax
 
@@ -29,14 +29,14 @@ Ein neuer asynchroner Iterator, der die Handles jedes Eintrags innerhalb des `Fi
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{domxref('PermissionStatus.state')}} für das Handle nicht auf `'granted'` im `read`-Modus steht.
-- `NotFoundError` {{domxref("DOMException")}}
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für das Handle im `read`-Modus nicht `'granted'` ist.
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der aktuelle Eintrag nicht gefunden wird.
 
 ## Beispiele
 
-Die Verwendung der `for await...of`-Schleife kann den Iterationsprozess vereinfachen.
+Die Nutzung der `for await...of`-Schleife kann den Iterationsprozess vereinfachen.
 
 ```js
 const dirHandle = await window.showDirectoryPicker();

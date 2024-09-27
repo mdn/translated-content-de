@@ -8,8 +8,7 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`href`**-Eigenschaft der {{domxref("URL")}}-Schnittstelle ist
-ein String, der die gesamte URL enthält.
+Die **`href`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces ist ein String, der die gesamte URL enthält.
 
 ## Wert
 
@@ -19,19 +18,19 @@ Ein String.
 
 ```js
 const url = new URL(
-  "https://developer.mozilla.org/de/docs/Web/API/URL/href",
+  "https://developer.mozilla.org/en-US/docs/Web/API/URL/href",
 );
-console.log(url.href); // Protokolliert: 'https://developer.mozilla.org/de/docs/Web/API/URL/href'
+console.log(url.href); // Logs: 'https://developer.mozilla.org/en-US/docs/Web/API/URL/href'
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Die {{domxref("URL")}}-Schnittstelle, zu der sie gehört.
+- Das [`URL`](/de/docs/Web/API/URL)-Interface, zu dem es gehört.

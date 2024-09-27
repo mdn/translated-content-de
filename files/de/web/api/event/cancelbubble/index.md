@@ -1,5 +1,5 @@
 ---
-title: "Event: cancelBubble Eigenschaft"
+title: "Event: cancelBubble-Eigenschaft"
 short-title: cancelBubble
 slug: Web/API/Event/cancelBubble
 l10n:
@@ -8,11 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}{{Deprecated_Header}}{{AvailableInWorkers}}
 
-Die **`cancelBubble`** Eigenschaft des {{domxref("Event")}} Interfaces ist veraltet. Verwenden Sie stattdessen {{domxref("Event.stopPropagation()")}}. Wenn der Wert vor der Rückgabe aus einem Ereignishandler auf `true` gesetzt wird, verhindert dies die Weiterleitung des Ereignisses. In späteren Implementierungen hat das Setzen auf `false` keine Auswirkungen. Weitere Informationen finden Sie unter [Browser-Kompatibilität](#browser-kompatibilität).
+Die **`cancelBubble`**-Eigenschaft der [`Event`](/de/docs/Web/API/Event)
+Schnittstelle ist veraltet. Verwenden Sie stattdessen [`Event.stopPropagation()`](/de/docs/Web/API/Event/stopPropagation).
+Das Setzen ihres Wertes auf `true` vor der Rückkehr von einem Ereignishandler verhindert die Verbreitung
+des Ereignisses. In späteren Implementierungen bewirkt das Setzen auf `false` nichts.
+Siehe [Browser-Kompatibilität](#browser-kompatibilität) für Details.
 
 ## Wert
 
-Ein boolescher Wert. Der Wert `true` bedeutet, dass das Ereignis nicht weitergeleitet werden darf.
+Ein boolescher Wert. Der Wert `true` bedeutet, dass das Ereignis nicht weiter verbreitet werden darf.
 
 ## Beispiel
 

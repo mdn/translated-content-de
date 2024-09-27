@@ -9,7 +9,7 @@ l10n:
 
 Ein **URI** _(Uniform Resource Identifier)_ ist eine Zeichenfolge, die auf eine Ressource verweist.
 
-Die gebräuchlichsten sind {{Glossary("URL","URLs")}}, die die Ressource identifizieren, indem sie ihren Standort im Web angeben. {{Glossary("URN","URNs")}} hingegen beziehen sich auf eine Ressource durch einen Namen innerhalb eines gegebenen Namensraums, wie z.B. die ISBN eines Buches.
+Die gebräuchlichsten sind [URLs](/de/docs/Glossary/URL), die die Ressource identifizieren, indem sie ihren Standort im Web angeben. [URNs](/de/docs/Glossary/URN) hingegen beziehen sich auf eine Ressource mittels eines Namens in einem bestimmten Namensraum, wie zum Beispiel der ISBN eines Buches.
 
 ## Siehe auch
 

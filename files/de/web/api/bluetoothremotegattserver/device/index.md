@@ -1,6 +1,6 @@
 ---
 title: "BluetoothRemoteGATTServer: device-Eigenschaft"
-short-title: Gerät
+short-title: device
 slug: Web/API/BluetoothRemoteGATTServer/device
 l10n:
   sourceCommit: bfc735c04506625c8c60054fe6f2f136bc43bbea
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`BluetoothRemoteGATTServer.device`** gibt eine Referenz auf das {{domxref("BluetoothDevice")}} zurück, das den Server ausführt.
+Die schreibgeschützte Eigenschaft **`BluetoothRemoteGATTServer.device`** gibt eine Referenz auf das [`BluetoothDevice`](/de/docs/Web/API/BluetoothDevice) zurück, das den Server ausführt.
 
 ## Wert
 
-Eine Referenz auf das {{domxref("BluetoothDevice")}}.
+Eine Referenz auf das [`BluetoothDevice`](/de/docs/Web/API/BluetoothDevice).
 
 ## Spezifikationen
 

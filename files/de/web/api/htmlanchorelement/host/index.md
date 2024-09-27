@@ -8,7 +8,8 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAnchorElement.host`**-Eigenschaft ist ein String, der den Host enthält, also den _Hostname_, und dann, wenn der _Port_ der URL nicht leer ist, ein `':'` und der _Port_ der URL.
+Die **`HTMLAnchorElement.host`**-Eigenschaft ist ein
+String, der den Host enthält, das ist der _Hostname_, und dann, wenn der _Port_ der URL nicht leer ist, ein `':'`, sowie den _Port_ der URL.
 
 ## Wert
 
@@ -24,7 +25,7 @@ anchor.host === "developer.mozilla.org";
 
 anchor.href = "https://developer.mozilla.org:443/en-US/HTMLAnchorElement";
 anchor.host === "developer.mozilla.org";
-// Die Portnummer wird nicht eingeschlossen, da 443 der Standardport des Schemas ist
+// The port number is not included because 443 is the scheme's default port
 
 anchor.href = "https://developer.mozilla.org:4097/en-US/HTMLAnchorElement";
 anchor.host === "developer.mozilla.org:4097";
@@ -40,4 +41,4 @@ anchor.host === "developer.mozilla.org:4097";
 
 ## Siehe auch
 
-- Das {{domxref("HTMLAnchorElement")}}-Interface, zu dem es gehört.
+- Die [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Schnittstelle, zu der es gehört.

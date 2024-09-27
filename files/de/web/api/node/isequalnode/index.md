@@ -1,5 +1,5 @@
 ---
-title: "Node: isEqualNode()-Methode"
+title: "Node: isEqualNode() Methode"
 short-title: isEqualNode()
 slug: Web/API/Node/isEqualNode
 l10n:
@@ -8,11 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`isEqualNode()`**-Methode der {{domxref("Node")}}-Schnittstelle prüft, ob zwei Knoten gleich sind.
-Zwei Knoten sind gleich, wenn sie denselben Typ, bestimmte definierende Merkmale (bei
-Elementen wäre dies z.B. ihre ID, die Anzahl der Kinder usw.), ihre Attribute
-übereinstimmen und so weiter. Der spezifische Satz von Datenpunkten, die übereinstimmen müssen, variiert je nach
-Typ der Knoten.
+Die **`isEqualNode()`**-Methode der [`Node`](/de/docs/Web/API/Node)-Schnittstelle prüft, ob zwei Knoten gleich sind. Zwei Knoten sind gleich, wenn sie denselben Typ und dieselben bestimmenden Merkmale aufweisen (für Elemente wäre dies ihre ID, die Anzahl der Kinder usw.), ihre Attribute übereinstimmen und so weiter. Die spezifische Menge an Datenpunkten, die übereinstimmen müssen, variiert je nach Typ der Knoten.
 
 ## Syntax
 
@@ -23,27 +19,24 @@ isEqualNode(otherNode)
 ### Parameter
 
 - `otherNode`
-  - : Der {{domxref("Node")}}, mit dem die Gleichheit verglichen wird.
+  - : Der [`Node`](/de/docs/Web/API/Node), um die Gleichheit zu überprüfen.
     > [!NOTE]
-    > Dieser Parameter ist nicht optional, kann jedoch auf `null` gesetzt werden.
+    > Dieser Parameter ist nicht optional, kann aber auf `null` gesetzt werden.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der `true` ist, wenn die beiden Knoten gleich sind, oder `false`, wenn nicht.
-Wenn `otherNode` `null` ist, gibt `isEqualNode()` immer false zurück.
+Ein boolescher Wert, der `true` ist, wenn die beiden Knoten gleich sind, oder `false`, wenn nicht. Wenn `otherNode` `null` ist, gibt `isEqualNode()` immer `false` zurück.
 
 ## Beispiel
 
-In diesem Beispiel erstellen wir drei {{HTMLElement("div")}}-Blöcke. Der erste und dritte
-haben denselben Inhalt und Attribute, während der zweite unterschiedlich ist. Dann führen wir etwas
-JavaScript aus, um die Knoten mit `isEqualNode()` zu vergleichen und die Ergebnisse auszugeben.
+In diesem Beispiel erstellen wir drei {{HTMLElement("div")}} Blöcke. Der erste und der dritte Block haben denselben Inhalt und dieselben Attribute, während der zweite sich unterscheidet. Dann führen wir etwas JavaScript aus, um die Knoten mit `isEqualNode()` zu vergleichen und die Ergebnisse auszugeben.
 
 ### HTML
 
 ```html
-<div>Dies ist das erste Element.</div>
-<div>Dies ist das zweite Element.</div>
-<div>Dies ist das erste Element.</div>
+<div>This is the first element.</div>
+<div>This is the second element.</div>
+<div>This is the first element.</div>
 
 <p id="output"></p>
 ```
@@ -90,4 +83,4 @@ output.innerText += `div 0 equals div 2: ${divList[0].isEqualNode(
 
 ## Siehe auch
 
-- {{domxref("Node.isSameNode()")}}
+- [`Node.isSameNode()`](/de/docs/Web/API/Node/isSameNode)

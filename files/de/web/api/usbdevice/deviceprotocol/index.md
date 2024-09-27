@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: deviceProtocol Eigenschaft"
+title: "USBDevice: deviceProtocol-Eigenschaft"
 short-title: deviceProtocol
 slug: Web/API/USBDevice/deviceProtocol
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die **`deviceProtocol`** Nur-Lese-Eigenschaft des
-{{domxref("USBDevice")}}-Interfaces ist eine von drei Eigenschaften, die USB-Geräte identifizieren, um einen passenden USB-Treiber zu laden. Die anderen beiden Eigenschaften sind `USBDevice.deviceClass`
-und `USBDevice.deviceSubclass`.
+Die **`deviceProtocol`**-Eigenschaft des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces ist eine von drei Eigenschaften, die USB-Geräte identifizieren, um einen USB-Treiber zu laden, der mit diesem Gerät funktioniert. Die anderen beiden Eigenschaften sind `USBDevice.deviceClass` und `USBDevice.deviceSubclass`.
 
 ## Wert
 
@@ -20,6 +18,6 @@ Eine Zahl.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

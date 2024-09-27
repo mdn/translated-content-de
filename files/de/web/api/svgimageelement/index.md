@@ -11,31 +11,31 @@ Die **`SVGImageElement`**-Schnittstelle entspricht dem {{SVGElement("image")}}-E
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten Element, {{domxref("SVGGraphicsElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
-- {{domxref("SVGImageElement.href")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, der dem Attribut {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}} des angegebenen {{SVGElement("image")}}-Elements entspricht.
-- {{domxref("SVGImageElement.decoding")}}
-  - : Stellt einen Hinweis dar, wie der Browser das Bild dekodieren soll. Wenn dieser Wert angegeben wird, muss er einer der möglichen erlaubten Werte sein: `"sync"` zum synchronen Dekodieren des Bildes, `"async"` zum asynchronen Dekodieren oder `"auto"`, um keine Präferenz anzugeben (was Standard ist).
-- {{domxref("SVGImageElement.height")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem Attribut {{SVGAttr("height")}} des angegebenen {{SVGElement("image")}}-Elements entspricht.
-- {{domxref("SVGImageElement.preserveAspectRatio")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedPreserveAspectRatio")}}, das dem Attribut {{SVGAttr("preserveAspectRatio")}} des angegebenen {{SVGElement("image")}}-Elements entspricht.
-- {{domxref("SVGImageElement.width")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem Attribut {{SVGAttr("width")}} des angegebenen {{SVGElement("image")}}-Elements entspricht.
-- {{domxref("SVGImageElement.x")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem Attribut {{SVGAttr("x")}} des angegebenen {{SVGElement("image")}}-Elements entspricht.
-- {{domxref("SVGImageElement.y")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem Attribut {{SVGAttr("y")}} des angegebenen {{SVGElement("image")}}-Elements entspricht.
+- [`SVGImageElement.href`](/de/docs/Web/API/SVGImageElement/href) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}}-Attribut des angegebenen {{SVGElement("image")}}-Elements entspricht.
+- [`SVGImageElement.decoding`](/de/docs/Web/API/SVGImageElement/decoding)
+  - : Repräsentiert einen Hinweis für den Browser, wie das Bild dekodiert werden soll. Wenn dieser Wert angegeben wird, muss er einer der möglichen erlaubten Werte sein: `"sync"` für die synchrone Dekodierung des Bildes, `"async"` für die asynchrone Dekodierung oder `"auto"`, um keine Präferenz anzugeben (was der Standardwert ist).
+- [`SVGImageElement.height`](/de/docs/Web/API/SVGImageElement/height) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}}-Attribut des angegebenen {{SVGElement("image")}}-Elements entspricht.
+- [`SVGImageElement.preserveAspectRatio`](/de/docs/Web/API/SVGImageElement/preserveAspectRatio) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspectRatio), das dem {{SVGAttr("preserveAspectRatio")}}-Attribut des angegebenen {{SVGElement("image")}}-Elements entspricht.
+- [`SVGImageElement.width`](/de/docs/Web/API/SVGImageElement/width) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("width")}}-Attribut des angegebenen {{SVGElement("image")}}-Elements entspricht.
+- [`SVGImageElement.x`](/de/docs/Web/API/SVGImageElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}}-Attribut des angegebenen {{SVGElement("image")}}-Elements entspricht.
+- [`SVGImageElement.y`](/de/docs/Web/API/SVGImageElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y")}}-Attribut des angegebenen {{SVGElement("image")}}-Elements entspricht.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle erbt auch Methoden von ihrer übergeordneten Schnittstelle, {{domxref("SVGGraphicsElement")}}._
+_Diese Schnittstelle erbt auch Methoden von ihrer übergeordneten Schnittstelle [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
-- {{domxref("SVGImageElement.decode()")}}
-  - : Initiert das asynchrone Dekodieren der Bilddaten. Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Bilddaten bereit zur Verwendung sind.
+- [`SVGImageElement.decode()`](/de/docs/Web/API/SVGImageElement/decode)
+  - : Initiates eine asynchrone Dekodierung der Bilddaten. Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Bilddaten zur Nutzung bereit sind.
 
 ## Spezifikationen
 

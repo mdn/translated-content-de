@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die schreibgeschützte **`thresholds`**-Eigenschaft des {{domxref("IntersectionObserver")}}-Interfaces gibt die Liste der Schnittschwellen zurück, die beim Erstellen des Beobachters mit {{domxref("IntersectionObserver.IntersectionObserver", "IntersectionObserver()")}} angegeben wurden. Wenn beim Erstellen des Objekts nur ein Schwellenwert angegeben wurde, wird dies ein Array sein, das diesen einzelnen Wert enthält.
+Die schreibgeschützte **`thresholds`**-Eigenschaft des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Interfaces gibt die Liste der Schnittmengen-Schwellenwerte zurück, die beim Instanziieren des Observers mit [`IntersectionObserver()`](/de/docs/Web/API/IntersectionObserver/IntersectionObserver) festgelegt wurden. Wurde beim Instanziieren des Objekts nur ein Schwellenwert angegeben, handelt es sich um ein Array, das diesen einzelnen Wert enthält.
 
-Sehen Sie sich die Seite [Intersection Observer](/de/docs/Web/API/Intersection_Observer_API#thresholds) an, um zu erfahren, wie Schwellenwerte funktionieren.
+Weitere Informationen darüber, wie Schwellenwerte funktionieren, finden Sie auf der [Intersection Observer](/de/docs/Web/API/Intersection_Observer_API#thresholds)-Seite.
 
 ## Wert
 
-Ein Array von Schnittschwellen, ursprünglich angegeben mit der `threshold`-Eigenschaft beim Erstellen des Beobachters. Wenn nur ein Beobachter angegeben wurde, ohne in einem Array zu sein, ist dieser Wert ein Array mit einem Eintrag, das diese Schwelle enthält. Unabhängig von der Reihenfolge, in der Ihr ursprüngliches `threshold`-Array war, ist dieses immer numerisch aufsteigend sortiert.
+Ein Array von Schnittmengen-Schwellenwerten, ursprünglich festgelegt durch die `threshold`-Eigenschaft beim Instanziieren des Observers. Wurde nur ein Schwellenwert ohne ein Array angegeben, besteht dieser Wert aus einem eintragigen Array mit diesem Schwellenwert. Unabhängig von der Reihenfolge Ihres ursprünglichen `threshold`-Arrays ist dieses immer in numerisch aufsteigender Reihenfolge sortiert.
 
-Wenn keine `threshold`-Option enthalten war, als `IntersectionObserver()` zur Instanzierung des Beobachters verwendet wurde, ist der Wert von `thresholds` `[0]`.
+Wenn beim Instanziieren des Observers mit `IntersectionObserver()` keine `threshold`-Option angegeben wurde, beträgt der Wert von `thresholds` `[0]`.
 
 > [!NOTE]
-> Obwohl das `options`-Objekt, das Sie beim Erstellen eines {{domxref("IntersectionObserver")}} angeben können, ein Feld namens `threshold` hat, heißt diese Eigenschaft `thresholds`. Verwirrend? Ja. Wenn Sie versehentlich `thresholds` als Name des Felds in Ihren `options` verwenden, wird das `thresholds`-Array letztendlich `[0.0]` sein, was wahrscheinlich nicht erwartet wird. Es könnte zu chaotischem Debuggen führen.
+> Obwohl das `options`-Objekt, das Sie beim Erstellen eines [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) angeben können, ein Feld namens `threshold` enthält, heißt diese Eigenschaft `thresholds`. Verwirrend? Ja. Wenn Sie versehentlich `thresholds` als Namen des Feldes in Ihren `options` verwenden, wird das `thresholds`-Array letztendlich `[0.0]` sein, was wahrscheinlich nicht das ist, was Sie erwarten. Debugging-Chaos kann folgen.
 
 ## Spezifikationen
 

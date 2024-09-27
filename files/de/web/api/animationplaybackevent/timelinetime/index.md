@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die schreibgeschützte Eigenschaft **`timelineTime`** des {{domxref("AnimationPlaybackEvent")}}-Interfaces stellt den Zeitwert der Animation auf der {{domxref("AnimationTimeline", "Zeitleiste")}} zu dem Zeitpunkt dar, zu dem das Ereignis in die Warteschlange gestellt wird. Dieser Wert ist nicht aufgelöst, wenn die Animation zum Zeitpunkt der Ereigniserzeugung nicht mit einer Zeitleiste verknüpft war oder wenn die zugehörige Zeitleiste inaktiv war.
+Die **`timelineTime`** schreibgeschützte Eigenschaft der [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent)-Schnittstelle repräsentiert den Zeitwert der [`timeline`](/de/docs/Web/API/AnimationTimeline) einer Animation in dem Moment, in dem das Ereignis in die Warteschlange gestellt wurde. Sie wird nicht aufgelöst, wenn die Animation zum Zeitpunkt der Erzeugung des Ereignisses nicht mit einer Timeline verbunden war oder wenn die zugehörige Timeline inaktiv war.
 
 ## Wert
 
@@ -18,12 +18,12 @@ Eine Zahl, die die aktuelle Zeit in Millisekunden darstellt, oder `null`.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("AnimationPlayBackEvent")}}
-- {{domxref("AnimationTimeline")}}
+- [`AnimationPlayBackEvent`](/de/docs/Web/API/AnimationPlayBackEvent)
+- [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)

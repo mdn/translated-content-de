@@ -1,5 +1,5 @@
 ---
-title: "KeyboardEvent: location Eigenschaft"
+title: "KeyboardEvent: location-Eigenschaft"
 short-title: location
 slug: Web/API/KeyboardEvent/location
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`KeyboardEvent.location`** gibt einen `unsigned long` zurück, der die Position der Taste auf der Tastatur oder einem anderen Eingabegerät darstellt.
+Die Schreibgeschützte **`KeyboardEvent.location`**-Eigenschaft gibt einen
+`unsigned long` zurück, der die Position der Taste auf der Tastatur oder einem anderen
+Eingabegerät darstellt.
 
 Mögliche Werte sind:
 
@@ -25,21 +27,29 @@ Mögliche Werte sind:
       <td><code>DOM_KEY_LOCATION_STANDARD</code></td>
       <td>0</td>
       <td>
-        Die Taste hat nur eine Version oder kann nicht zwischen der linken und der rechten Version der Taste unterschieden werden und wurde nicht auf dem Nummernblock oder einer Taste gedrückt, die als Teil des Nummernblocks gilt.
+        Die Taste hat nur eine Version oder kann nicht zwischen der linken
+        und rechten Version der Taste unterschieden werden und wurde nicht auf dem numerischen Tastenfeld
+        oder einer Taste, die als Teil des Tastenfeldes angesehen wird, gedrückt.
       </td>
     </tr>
     <tr>
       <td><code>DOM_KEY_LOCATION_LEFT</code></td>
       <td>1</td>
       <td>
-        Die Taste war die linke Version der Taste; zum Beispiel wurde die linke <kbd>Strg</kbd>-Taste auf einer Standard-Tastatur mit 101 Tasten (US-Layout) gedrückt. Dieser Wert wird nur für Tasten verwendet, die mehr als eine mögliche Position auf der Tastatur haben.
+        Die Taste war die linke Version der Taste; beispielsweise wurde die linke
+        <kbd>Control</kbd>-Taste auf einer standardmäßigen 101-Tasten-US-Tastatur gedrückt.
+        Dieser Wert wird nur für Tasten verwendet, die mehr als einen möglichen
+        Standort auf der Tastatur haben.
       </td>
     </tr>
     <tr>
       <td><code>DOM_KEY_LOCATION_RIGHT</code></td>
       <td>2</td>
       <td>
-        Die Taste war die rechte Version der Taste; zum Beispiel wird die rechte <kbd>Strg</kbd>-Taste auf einer Standard-Tastatur mit 101 Tasten (US-Layout) gedrückt. Dieser Wert wird nur für Tasten verwendet, die mehr als eine mögliche Position auf der Tastatur haben.
+        Die Taste war die rechte Version der Taste; beispielsweise wird die
+        rechte <kbd>Control</kbd>-Taste auf einer standardmäßigen 101-Tasten-US-Tastatur gedrückt.
+        Dieser Wert wird nur für Tasten verwendet, die mehr als einen möglichen
+        Standort auf der Tastatur haben.
       </td>
     </tr>
     <tr>
@@ -47,16 +57,25 @@ Mögliche Werte sind:
       <td>3</td>
       <td>
         <p>
-          Die Taste befand sich auf dem Nummernblock oder hat einen virtuellen Tastencode, der dem Nummernblock entspricht.
+          Die Taste befand sich auf dem numerischen Tastenfeld oder hat einen
+          virtuellen Tastencode, der dem numerischen Tastenfeld entspricht.
         </p>
         <div class="note">
           <p>
-            <strong>Hinweis:</strong> Wenn <kbd>NumLock</kbd> aktiviert ist, gibt Firefox immer <code>DOM_KEY_LOCATION_NUMPAD</code> für die Tasten auf dem Nummernblock zurück. Andernfalls, wenn <kbd>NumLock</kbd> deaktiviert ist und die Tastatur tatsächlich einen Nummernblock hat, gibt Firefox ebenfalls immer <code>DOM_KEY_LOCATION_NUMPAD</code> zurück. Andererseits, wenn die Tastatur keinen Nummernblock hat, wie bei einem Notebook-Computer, werden einige Tasten nur im Nummernblock aktiv, wenn NumLock aktiviert ist. Wenn solche Tasten Tastenereignisse auslösen, hängt der Wert des location-Attributs von der Taste ab. Das heißt, es darf nicht <code>DOM_KEY_LOCATION_NUMPAD</code> sein.
+            <strong>Hinweis:</strong> Wenn <kbd>NumLock</kbd> aktiviert ist,
+            gibt Firefox immer <code>DOM_KEY_LOCATION_NUMPAD</code> für die Tasten auf dem numerischen Feld zurück.
+            Andernfalls, wenn <kbd>NumLock</kbd> deaktiviert ist und die Tastatur tatsächlich ein numerisches Tastenfeld hat,
+            gibt Firefox ebenfalls immer <code>DOM_KEY_LOCATION_NUMPAD</code> zurück.
+            Andererseits, wenn die Tastatur kein Tastenfeld hat, wie zum Beispiel bei einem Notebook,
+            werden einige Tasten nur dann zum Numpad, wenn NumLock aktiviert ist.
+            Wenn solche Tasten Ereignisse auslösen, hängt der Wert des location-Attributs von der Taste ab. Das heißt, es darf
+            nicht <code>DOM_KEY_LOCATION_NUMPAD</code> sein.
           </p>
         </div>
         <div class="note">
           <p>
-            <strong>Hinweis:</strong> Die Tastenereignisse der <kbd>NumLock</kbd> Taste zeigen sowohl in Firefox als auch in Internet Explorer <code>DOM_KEY_LOCATION_STANDARD</code>.
+            <strong>Hinweis:</strong> Die Key-Events der <kbd>NumLock</kbd>-Taste zeigen sowohl in Firefox als auch im Internet Explorer
+            <code>DOM_KEY_LOCATION_STANDARD</code> an.
           </p>
         </div>
       </td>
@@ -69,7 +88,8 @@ Mögliche Werte sind:
       <td>4</td>
       <td>
         <p>
-          Die Taste befand sich auf einem mobilen Gerät; dies kann auf einem physischen Tastenfeld oder einer virtuellen Tastatur sein.
+          Die Taste befand sich auf einem mobilen Gerät; dies kann auf entweder einem physischen
+          Tastenfeld oder einer virtuellen Tastatur geschehen.
         </p>
       </td>
     </tr>
@@ -81,7 +101,8 @@ Mögliche Werte sind:
       <td>5</td>
       <td>
         <p>
-          Die Taste war eine Taste auf einem Gamecontroller oder einem Joystick auf einem mobilen Gerät.
+          Die Taste war ein Knopf auf einem Game-Controller oder einem Joystick auf einem mobilen
+          Gerät.
         </p>
       </td>
     </tr>
@@ -110,4 +131,4 @@ function keyEvent(event) {
 
 ## Siehe auch
 
-- {{domxref("KeyboardEvent")}}
+- [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)

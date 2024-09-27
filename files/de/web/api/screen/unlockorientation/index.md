@@ -1,5 +1,5 @@
 ---
-title: "Screen: unlockOrientation()-Methode"
+title: "Screen: unlockOrientation() Methode"
 short-title: unlockOrientation()
 slug: Web/API/Screen/unlockOrientation
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Screen Orientation API")}}{{Deprecated_Header}}
 
-Die **`Screen.unlockOrientation()`**-Methode entfernt alle zuvor von der Seite/Anwendung gesetzten Bildschirmsperren. Stattdessen sollte die Methode {{DOMxRef("ScreenOrientation.unlock()")}} verwendet werden.
+Die **`Screen.unlockOrientation()`** Methode entfernt alle zuvor von der Seite/App gesetzten Bildschirmsperren. Stattdessen sollte die [`ScreenOrientation.unlock()`](/de/docs/Web/API/ScreenOrientation/unlock) Methode verwendet werden.
 
 > [!WARNING]
-> Diese Funktion ist veraltet und sollte vermieden werden. Verwenden Sie stattdessen die Methode {{DOMxRef("ScreenOrientation.unlock()")}}.
+> Dieses Feature ist veraltet und sollte vermieden werden. Verwenden Sie stattdessen die [`ScreenOrientation.unlock()`](/de/docs/Web/API/ScreenOrientation/unlock) Methode.
 
 > [!NOTE]
-> Diese Methode funktioniert nur für installierte Web-Apps oder für Webseiten im [Vollbildmodus](/de/docs/Web/API/Fullscreen_API).
+> Diese Methode funktioniert nur bei installierten Web-Apps oder für Webseiten im [Vollbildmodus](/de/docs/Web/API/Fullscreen_API).
 
 ## Syntax
 
@@ -28,7 +28,8 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn die Ausrichtung erfolgreich entsperrt wurde, oder `false`, wenn die Ausrichtung nicht entsperrt werden konnte.
+Gibt `true` zurück, wenn die Ausrichtung erfolgreich entsperrt wurde, oder
+`false`, wenn die Ausrichtung nicht entsperrt werden konnte.
 
 ## Beispiele
 
@@ -40,17 +41,17 @@ const unlockOrientation =
   (screen.orientation && screen.orientation.unlock);
 
 if (unlockOrientation()) {
-  // Ausrichtung wurde entsperrt
+  // orientation was unlocked
 } else {
-  // Entsperrung der Ausrichtung fehlgeschlagen
+  // orientation unlock failed
 }
 ```
 
 ## Spezifikationen
 
-Diese Funktion gehört zu keiner Spezifikation und ist nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Feature gehört zu keiner Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Verwenden Sie stattdessen {{domxref("ScreenOrientation.unlock()")}}.
+Verwenden Sie stattdessen [`ScreenOrientation.unlock()`](/de/docs/Web/API/ScreenOrientation/unlock).
 
 ## Browser-Kompatibilität
 
@@ -58,7 +59,7 @@ Verwenden Sie stattdessen {{domxref("ScreenOrientation.unlock()")}}.
 
 ## Siehe auch
 
-- {{DOMxRef("Screen.orientation")}}
-- {{DOMxRef("Screen.lockOrientation()")}}
-- {{DOMxRef("Screen.orientationchange_event", "orientationchange")}}-Ereignis
+- [`Screen.orientation`](/de/docs/Web/API/Screen/orientation)
+- [`Screen.lockOrientation()`](/de/docs/Web/API/Screen/lockOrientation)
+- [`orientationchange`](/de/docs/Web/API/Screen/orientationchange_event) Ereignis
 - [Verwaltung der Bildschirmausrichtung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)

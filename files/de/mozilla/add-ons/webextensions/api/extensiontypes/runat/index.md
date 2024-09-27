@@ -7,15 +7,15 @@ l10n:
 
 {{AddonSidebar}}
 
-Der früheste Zeitpunkt, zu dem JavaScript oder CSS in den Tab injiziert wird.
+Der früheste Zeitpunkt, zu dem das JavaScript oder CSS in den Tab injiziert wird.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind: `"document_start"`, `"document_end"`, `"document_idle"`.
+Werte dieses Typs sind Zeichenketten. Mögliche Werte sind: `"document_start"`, `"document_end"`, `"document_idle"`.
 
 - `"document_start"`: entspricht `loading`. Das DOM wird noch geladen.
 - `"document_end"`: entspricht `interactive`. Das DOM ist fertig geladen, aber Ressourcen wie Skripte und Bilder können noch geladen werden.
-- `"document_idle"`: entspricht `complete`. Das Dokument und alle seine Ressourcen sind fertig geladen.
+- `"document_idle"`: entspricht `complete`. Das Dokument und alle seine Ressourcen sind vollständig geladen.
 
 Der Standardwert ist `"document_idle"`.
 
@@ -26,7 +26,7 @@ Der Standardwert ist `"document_idle"`.
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extensionTypes`](https://developer.chrome.com/docs/extensions/reference/api/extensionTypes#type-RunAt) API von Chromium. Diese Dokumentation ist abgeleitet von [`extension_types.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/extension_types.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.extensionTypes`](https://developer.chrome.com/docs/extensions/reference/api/extensionTypes#type-RunAt). Diese Dokumentation leitet sich aus [`extension_types.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/extension_types.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

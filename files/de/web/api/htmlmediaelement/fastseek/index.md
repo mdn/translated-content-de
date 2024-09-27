@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: fastSeek()-Methode"
+title: "HTMLMediaElement: fastSeek() Methode"
 short-title: fastSeek()
 slug: Web/API/HTMLMediaElement/fastSeek
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.fastSeek()`**-Methode sucht schnell die Medien auf die neue Zeit mit Präzisionseinbuße.
+Die **`HTMLMediaElement.fastSeek()`** Methode sucht schnell eine neue Zeit im Medium, wobei Präzision gegen Geschwindigkeit eingetauscht wird.
 
 > [!NOTE]
 > Wenn Sie mit Präzision suchen müssen, sollten Sie stattdessen [`HTMLMediaElement.currentTime`](/de/docs/Web/API/HTMLMediaElement/currentTime) setzen.
@@ -30,7 +30,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel sucht schnell zur 20-Sekunden-Position des Videoelements.
+Dieses Beispiel sucht schnell an die 20-Sekunden-Position des `<video>`-Elements.
 
 ```js
 let myVideo = document.getElementById("myVideoElement");
@@ -49,4 +49,4 @@ myVideo.fastSeek(20);
 ## Siehe auch
 
 - [HTMLMediaElement.currentTime](/de/docs/Web/API/HTMLMediaElement/currentTime)
-  für das Suchen ohne Präzisionseinbuße
+  für das Suchen ohne Präzisionseinbußen

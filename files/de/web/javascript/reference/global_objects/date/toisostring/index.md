@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toISOString()`** Methode von {{jsxref("Date")}} Instanzen gibt eine Zeichenkette zurück, die dieses Datum im [Datums-Zeit-Zeichenkettenformat](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format) darstellt. Dies ist ein _vereinfachtes_ Format basierend auf [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), das immer 24 oder 27 Zeichen lang ist (`YYYY-MM-DDTHH:mm:ss.sssZ` oder `±YYYYYY-MM-DDTHH:mm:ss.sssZ`, entsprechend). Die Zeitzone ist immer UTC, was durch das Suffix `Z` angezeigt wird.
+Die **`toISOString()`** Methode von {{jsxref("Date")}} Instanzen gibt einen String zurück, der dieses Datum im [Datum-Zeit-String-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format) darstellt, einem _vereinfachten_ Format basierend auf [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), welches immer 24 oder 27 Zeichen lang ist (`YYYY-MM-DDTHH:mm:ss.sssZ` bzw. `±YYYYYY-MM-DDTHH:mm:ss.sssZ`). Die Zeitzone ist immer UTC, wie durch das Suffix `Z` angezeigt.
 
 {{EmbedInteractiveExample("pages/js/date-toisostring.html")}}
 
@@ -23,12 +23,12 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die das gegebene Datum im [Datums-Zeit-Zeichenkettenformat](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format) gemäß der Weltzeit darstellt. Es ist dasselbe Format, das von {{jsxref("Date.parse()")}} erkannt werden muss.
+Ein String, der das gegebene Datum im [Datum-Zeit-String-Format](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format) gemäß der universellen Zeit darstellt. Es ist dasselbe Format, das erforderlich ist, um von {{jsxref("Date.parse()")}} erkannt zu werden.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist oder wenn es einem Jahr entspricht, das im Datums-Zeichenkettenformat nicht dargestellt werden kann.
+  - : Wird ausgelöst, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist oder einem Jahr entspricht, das im Datum-String-Format nicht dargestellt werden kann.
 
 ## Beispiele
 

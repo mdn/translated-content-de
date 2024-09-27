@@ -1,5 +1,5 @@
 ---
-title: "LayoutShift: Eigenschaft sources"
+title: "LayoutShift: sources-Eigenschaft"
 short-title: sources
 slug: Web/API/LayoutShift/sources
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die **`sources`** schreibgeschützte Eigenschaft des {{domxref("LayoutShift")}}-Interfaces gibt ein Array von {{domxref("LayoutShiftAttribution")}}-Objekten zurück, die die DOM-Elemente anzeigen, die sich während der Layoutverschiebung bewegt haben.
+Die schreibgeschützte **`sources`**-Eigenschaft des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Interfaces gibt ein Array von [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution)-Objekten zurück, die auf die DOM-Elemente hinweisen, die sich während der Layoutverschiebung bewegt haben.
 
 ## Wert
 
-Ein {{jsxref("Array")}} von {{domxref("LayoutShiftAttribution")}}-Objekten. Dieses Array enthält nicht mehr als fünf Quellen. Wenn mehr als fünf Elemente von der Layoutverschiebung betroffen sind, werden die fünf beeinflussendsten Elemente gemeldet.
+Ein {{jsxref("Array")}} von [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution)-Objekten. Dieses Array wird nicht mehr als fünf Quellen enthalten. Wenn mehr als fünf Elemente von der Layoutverschiebung betroffen sind, werden die fünf am stärksten betroffenen Elemente gemeldet.
 
 ## Beispiele
 
-### Protokollieren von Layoutverschiebungsquellen
+### Protokollierung von Layoutverschiebungsquellen
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -40,4 +40,4 @@ observer.observe({ type: "layout-shift", buffered: true });
 
 ## Siehe auch
 
-- {{domxref("LayoutShiftAttribution")}}
+- [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution)

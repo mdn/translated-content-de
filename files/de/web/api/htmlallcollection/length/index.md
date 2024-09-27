@@ -1,6 +1,6 @@
 ---
-title: "HTMLAllCollection: Länge-Eigenschaft"
-short-title: Länge
+title: "HTMLAllCollection: length-Eigenschaft"
+short-title: length
 slug: Web/API/HTMLAllCollection/length
 l10n:
   sourceCommit: e8e22a6e6d6455222c8c1a1e1346a149d300ab35
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`HTMLAllCollection.length`**-Eigenschaft gibt die Anzahl der Elemente in dieser {{domxref("HTMLAllCollection")}} zurück.
+Die **`HTMLAllCollection.length`**-Eigenschaft gibt die Anzahl der Elemente in dieser [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection) zurück.
 
 ## Wert
 
@@ -24,4 +24,4 @@ Ein ganzzahliger Wert, der die Anzahl der Elemente in dieser `HTMLAllCollection`
 
 ## Siehe auch
 
-- {{domxref("HTMLCollection.length")}}
+- [`HTMLCollection.length`](/de/docs/Web/API/HTMLCollection/length)

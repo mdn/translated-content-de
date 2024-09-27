@@ -9,7 +9,7 @@ l10n:
 {{ APIRef("DOM") }}
 
 Der **`DOMException()`** Konstruktor gibt ein
-{{domxref("DOMException")}} Objekt mit einer angegebenen Nachricht und einem Namen zurück.
+[`DOMException`](/de/docs/Web/API/DOMException)-Objekt mit einer angegebenen Nachricht und einem Namen zurück.
 
 ## Syntax
 
@@ -22,22 +22,22 @@ new DOMException(message, name)
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Eine Beschreibung der Ausnahme. Wenn nicht vorhanden, wird der leere String `''` verwendet.
+  - : Eine Beschreibung der Ausnahme. Ist sie nicht vorhanden, wird der leere String `''` verwendet.
 - `name` {{optional_inline}}
-  - : Ein String. Wenn der angegebene Name ein [standardisierter Fehlername](/de/docs/Web/API/DOMException#error_names) ist, wird durch Abrufen der [`code`](/de/docs/Web/API/DOMException/code) Eigenschaft des `DOMException` Objekts die Code-Nummer zurückgegeben, die dem angegebenen Namen entspricht.
+  - : Ein String. Wenn der angegebene Name ein [standardmäßiger Fehlername](/de/docs/Web/API/DOMException#error_names) ist, dann wird beim Abrufen der [`code`](/de/docs/Web/API/DOMException/code) Eigenschaft des `DOMException`-Objekts die Code-Nummer zurückgegeben, die dem angegebenen Namen entspricht.
 
 ### Rückgabewert
 
-Ein neu erstelltes {{domxref("DOMException")}} Objekt.
+Ein neu erstelltes [`DOMException`](/de/docs/Web/API/DOMException) Objekt.
 
 ## Beispiele
 
-In diesem Beispiel führt das Drücken des Buttons dazu, dass eine benutzerdefinierte `DOMException` ausgelöst wird, die dann abgefangen wird und die benutzerdefinierte Fehlermeldung in einem Alert angezeigt wird.
+In diesem Beispiel führt das Drücken der Schaltfläche dazu, dass eine benutzerdefinierte `DOMException` ausgelöst wird, die dann abgefangen wird und die benutzerdefinierte Fehlermeldung in einem Hinweis angezeigt wird.
 
 ### HTML
 
 ```html
-<button>DOM Exception auslösen</button>
+<button>Trigger DOM Exception</button>
 
 <p id="output"></p>
 ```
@@ -64,10 +64,10 @@ button.onclick = () => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Ein Polyfill des `DOMException` Konstruktors](https://github.com/zloirock/core-js#domexception) ist verfügbar in [`core-js`](https://github.com/zloirock/core-js)
+- [Ein Polyfill des `DOMException` Konstruktors](https://github.com/zloirock/core-js#domexception) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar.

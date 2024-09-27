@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `id` findet Knoten, die den angegebenen IDs entsprechen, und gibt eine Knotenmengen zurück, die die identifizierten Knoten enthält.
+Die `id`-Funktion findet Knoten, die den angegebenen IDs entsprechen, und gibt eine Knotengruppe zurück, die die identifizierten Knoten enthält.
 
 ## Syntax
 
@@ -18,16 +18,16 @@ id( expression )
 ### Parameter
 
 - `expression`
-  - : Wenn `expression` eine Knotenmengen ist, wird der Zeichenfolgenwert jedes Knotens in der Knotenmengen als einzelne ID behandelt. Die zurückgegebene Knotenmengen sind die Knoten, die diesen IDs entsprechen.
-    Wenn `expression` eine Zeichenfolge oder etwas anderes als eine Knotenmengen ist, wird `expression` als leerzeichengetrennte Liste von IDs behandelt. Die zurückgegebene Knotenmengen sind die Knoten, die diesen IDs entsprechen.
+  - : Wenn `expression` eine Knotengruppe ist, wird der Zeichenfolgenwert jedes Knotens in der Knotengruppe als individuelle ID behandelt. Die zurückgegebene Knotengruppe sind die Knoten, die diesen IDs entsprechen.
+    Wenn `expression` eine Zeichenfolge oder etwas anderes als eine Knotengruppe ist, wird `expression` als durch Leerzeichen getrennte Liste von IDs behandelt. Die zurückgegebene Knotengruppe sind die Knoten, die diesen IDs entsprechen.
 
 ### Rückgabewert
 
-Eine Knotenmengen, die den durch die angegebene ID oder IDs identifizierten Knoten enthält.
+Eine Knotengruppe, die den durch die gegebene ID oder IDs identifizierten Knoten oder die Knoten enthält.
 
 ## Beschreibung
 
-- Der DTD des XML-Dokuments bestimmt, welches Attribut eine ID ist. Siehe [XPath 1.0 5.2.1](https://www.w3.org/TR/xpath/#unique-id)
+- Die DTD des XML-Dokuments bestimmt, welches Attribut eine ID ist. Siehe [XPath 1.0 5.2.1](https://www.w3.org/TR/xpath/#unique-id)
 
 ## Spezifikationen
 

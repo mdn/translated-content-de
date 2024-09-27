@@ -3,12 +3,12 @@ title: "GPUQuerySet: count-Eigenschaft"
 short-title: count
 slug: Web/API/GPUQuerySet/count
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`count`**-Eigenschaft der {{domxref("GPUQuerySet")}}-Schnittstelle ist eine Zahl, die die Anzahl der vom `GPUQuerySet` verwalteten Abfragen angibt.
+Die **`count`** schreibgeschützte Eigenschaft des [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Interfaces ist eine Zahl, die die Anzahl der Abfragen angibt, die vom `GPUQuerySet` verwaltet werden.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Ein Beispiel finden Sie auf der Hauptseite von [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet#examples).
+Siehe die Hauptseite [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet#examples) für ein Beispiel.
 
 ## Spezifikationen
 

@@ -9,36 +9,36 @@ l10n:
 
 Die **`UIEvent`**-Schnittstelle repräsentiert einfache Benutzeroberflächenereignisse.
 
-`UIEvent` leitet sich von {{domxref("Event")}} ab. Obwohl die Methode {{domxref("UIEvent.initUIEvent()")}} aus Gründen der Rückwärtskompatibilität beibehalten wird, sollten Sie ein `UIEvent`-Objekt unter Verwendung des {{domxref("UIEvent.UIEvent", "UIEvent()")}}-Konstruktors erstellen.
+`UIEvent` leitet sich von [`Event`](/de/docs/Web/API/Event) ab. Obwohl die Methode [`UIEvent.initUIEvent()`](/de/docs/Web/API/UIEvent/initUIEvent) aus Gründen der Abwärtskompatibilität beibehalten wird, sollten Sie ein `UIEvent`-Objekt mit dem [`UIEvent()`](/de/docs/Web/API/UIEvent/UIEvent) Konstruktor erstellen.
 
-Mehrere Schnittstellen sind direkte oder indirekte Nachkommen dieser: {{domxref("MouseEvent")}}, {{domxref("TouchEvent")}}, {{domxref("FocusEvent")}}, {{domxref("KeyboardEvent")}}, {{domxref("WheelEvent")}}, {{domxref("InputEvent")}} und {{domxref("CompositionEvent")}}.
+Verschiedene Schnittstellen sind direkte oder indirekte Nachkommen dieser Schnittstelle: [`MouseEvent`](/de/docs/Web/API/MouseEvent), [`TouchEvent`](/de/docs/Web/API/TouchEvent), [`FocusEvent`](/de/docs/Web/API/FocusEvent), [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent), [`WheelEvent`](/de/docs/Web/API/WheelEvent), [`InputEvent`](/de/docs/Web/API/InputEvent) und [`CompositionEvent`](/de/docs/Web/API/CompositionEvent).
 
 {{InheritanceDiagram}}
 
 ## Konstruktoren
 
-- {{domxref("UIEvent.UIEvent()", "UIEvent()")}}
+- [`UIEvent()`](/de/docs/Web/API/UIEvent/UIEvent)
   - : Erstellt ein `UIEvent`-Objekt.
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften ihres Elternteils, {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften ihres Elternteils, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("UIEvent.detail")}} {{ReadOnlyInline}}
-  - : Gibt ein `long` mit Details über das Ereignis zurück, je nach Ereignistyp.
-- {{domxref("UIEvent.sourceCapabilities")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Gibt eine Instanz der Schnittstelle `InputDeviceCapabilities` zurück, die Informationen über das physische Gerät bietet, das das Berührungsereignis erzeugt hat.
-- {{domxref("UIEvent.view")}} {{ReadOnlyInline}}
-  - : Gibt einen {{glossary("WindowProxy")}} zurück, der die Ansicht enthält, die das Ereignis erzeugt hat.
-- {{domxref("UIEvent.which")}} {{Deprecated_Inline}} {{ReadOnlyInline}}
-  - : Gibt den numerischen `keyCode` der gedrückten Taste oder den Zeichencode (`charCode`) für eine alphanumerische gedrückte Taste zurück.
+- [`UIEvent.detail`](/de/docs/Web/API/UIEvent/detail) {{ReadOnlyInline}}
+  - : Gibt ein `long` mit Details über das Ereignis zurück, abhängig vom Ereignistyp.
+- [`UIEvent.sourceCapabilities`](/de/docs/Web/API/UIEvent/sourceCapabilities) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Gibt eine Instanz der `InputDeviceCapabilities`-Schnittstelle zurück, die Informationen über das physische Gerät liefert, das ein Berührungsereignis erzeugt hat.
+- [`UIEvent.view`](/de/docs/Web/API/UIEvent/view) {{ReadOnlyInline}}
+  - : Gibt einen [WindowProxy](/de/docs/Glossary/WindowProxy) zurück, der die Ansicht enthält, die das Ereignis erzeugt hat.
+- [`UIEvent.which`](/de/docs/Web/API/UIEvent/which) {{Deprecated_Inline}} {{ReadOnlyInline}}
+  - : Gibt den numerischen `keyCode` der gedrückten Taste oder den Zeichenkode (`charCode`) für eine alphanumerische Taste zurück.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch Methoden ihres Elternteils, {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Methoden ihres Elternteils, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("UIEvent.initUIEvent()")}} {{Deprecated_Inline}}
-  - : Initialisiert ein `UIEvent`-Objekt. Wenn das Ereignis bereits gesendet wurde, führt diese Methode nichts aus.
+- [`UIEvent.initUIEvent()`](/de/docs/Web/API/UIEvent/initUIEvent) {{Deprecated_Inline}}
+  - : Initialisiert ein `UIEvent`-Objekt. Wenn das Ereignis bereits gesendet wurde, macht diese Methode nichts.
 
 ## Spezifikationen
 
@@ -51,4 +51,4 @@ _Diese Schnittstelle erbt auch Methoden ihres Elternteils, {{domxref("Event")}}.
 ## Siehe auch
 
 - [Einführung in Ereignisse](/de/docs/Learn/JavaScript/Building_blocks/Events)
-- {{domxref("Event")}}
+- [`Event`](/de/docs/Web/API/Event)

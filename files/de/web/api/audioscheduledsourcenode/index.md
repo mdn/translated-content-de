@@ -7,34 +7,34 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die `AudioScheduledSourceNode`-Schnittstelle—Teil der Web Audio API—ist eine übergeordnete Schnittstelle für mehrere Arten von Audio-Quellknotenschnittstellen, die die Fähigkeit teilen, gestartet und gestoppt zu werden, optional zu angegebenen Zeiten. Diese Schnittstelle definiert speziell die Methoden {{domxref("AudioScheduledSourceNode.start", "start()")}} und {{domxref("AudioScheduledSourceNode.stop", "stop()")}}, sowie das Ereignis {{domxref("AudioScheduledSourceNode.ended_event", "ended")}}.
+Das `AudioScheduledSourceNode`-Interface – Teil der Web Audio API – ist ein übergeordnetes Interface für mehrere Arten von Audiosourcen-Node-Interfaces, die die Fähigkeit teilen, gestartet und gestoppt zu werden, optional zu angegebenen Zeiten. Dieses Interface definiert insbesondere die Methoden [`start()`](/de/docs/Web/API/AudioScheduledSourceNode/start) und [`stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop) sowie das [`ended`](/de/docs/Web/API/AudioScheduledSourceNode/ended_event)-Ereignis.
 
 > [!NOTE]
-> Sie können kein `AudioScheduledSourceNode`-Objekt direkt erstellen. Verwenden Sie stattdessen eine Schnittstelle, die es erweitert, wie zum Beispiel {{domxref("AudioBufferSourceNode")}}, {{domxref("OscillatorNode")}} oder {{domxref("ConstantSourceNode")}}.
+> Sie können kein `AudioScheduledSourceNode`-Objekt direkt erstellen. Stattdessen verwenden Sie ein Interface, das es erweitert, wie zum Beispiel [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode), [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) oder [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode).
 
-Sofern nicht anders angegeben, geben Knoten, die auf `AudioScheduledSourceNode` basieren, Stille aus, wenn sie nicht spielen (das heißt, bevor `start()` aufgerufen wird und nachdem `stop()` aufgerufen wurde). Stille wird, wie immer, durch einen Strom von Abtastwerten mit dem Wert Null (0) dargestellt.
+Sofern nicht anders angegeben, geben Nodes, die auf `AudioScheduledSourceNode` basieren, Stille aus, wenn sie nicht spielen (das heißt, bevor `start()` aufgerufen wird und nachdem `stop()` aufgerufen wurde). Stille wird, wie immer, durch einen Strom von Proben mit dem Wert Null (0) dargestellt.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seiner übergeordneten Schnittstelle, {{domxref("AudioNode")}}._
+_Erbt Eigenschaften von seinem übergeordneten Interface, [`AudioNode`](/de/docs/Web/API/AudioNode)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seiner übergeordneten Schnittstelle, {{domxref("AudioNode")}}, und fügt die folgenden Methoden hinzu:_
+_Erbt Methoden von seinem übergeordneten Interface, [`AudioNode`](/de/docs/Web/API/AudioNode), und fügt die folgenden Methoden hinzu:_
 
-- {{domxref("AudioScheduledSourceNode.start", "start()")}}
-  - : Plant den Knoten so, dass er den konstanten Klang zu der angegebenen Zeit zu spielen beginnt. Wenn keine Zeit angegeben ist, beginnt der Knoten sofort zu spielen.
-- {{domxref("AudioScheduledSourceNode.stop", "stop()")}}
-  - : Plant den Knoten so, dass er zu der angegebenen Zeit aufhört zu spielen. Wenn keine Zeit angegeben ist, stoppt der Knoten sofort das Spielen.
+- [`start()`](/de/docs/Web/API/AudioScheduledSourceNode/start)
+  - : Plant den Node so, dass er den konstanten Ton zur angegebenen Zeit zu spielen beginnt. Wenn keine Zeit angegeben ist, beginnt der Node sofort zu spielen.
+- [`stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop)
+  - : Plant den Node so, dass er zur angegebenen Zeit aufhört zu spielen. Wenn keine Zeit angegeben ist, stoppt der Node sofort das Spielen.
 
 ## Ereignisse
 
-Hören Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder indem Sie einen Ereignis-Listener der `oneventname`-Eigenschaft dieser Schnittstelle zuweisen:
+Hören Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder indem Sie einen Ereignis-Listener der `oneventname`-Eigenschaft dieses Interfaces zuweisen:
 
 - [`ended`](/de/docs/Web/API/AudioScheduledSourceNode/ended_event)
-  - : Wird ausgelöst, wenn der Quellknoten das Abspielen beendet hat, entweder weil eine vorbestimmte Stoppzeit erreicht wurde, die gesamte Dauer des Audios abgespielt wurde oder weil der gesamte Puffer abgespielt wurde.
+  - : Ausgelöst, wenn der Sourcen-Node das Abspielen beendet hat, entweder weil er eine vordefinierte Stoppzeit erreicht hat, die volle Dauer des Audios abgespielt wurde oder weil der gesamte Puffer abgespielt wurde.
 
 ## Spezifikationen
 
@@ -47,4 +47,4 @@ Hören Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTar
 ## Siehe auch
 
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- {{domxref("AudioNode")}}
+- [`AudioNode`](/de/docs/Web/API/AudioNode)

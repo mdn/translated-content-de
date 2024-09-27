@@ -1,5 +1,5 @@
 ---
-title: Beginn unserer Svelte To-do-App
+title: Starten unserer Svelte-To-Do-Liste-App
 slug: Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_Todo_list_beginning
 l10n:
   sourceCommit: cde9330e9bbaddea72febf44dcc3a7db16fe1a11
@@ -8,9 +8,9 @@ l10n:
 {{LearnSidebar}}
 {{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_getting_started","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_variables_props", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}
 
-Da wir jetzt ein grundlegendes Verständnis davon haben, wie Svelte funktioniert, können wir beginnen, unsere Beispiel-App zu entwickeln: eine To-do-Liste. In diesem Artikel werden wir zunächst die gewünschte Funktionalität unserer App betrachten und dann eine `Todos.svelte`-Komponente erstellen und statisches Markup und Styles implementieren. So haben wir alles vorbereitet, um die Funktionen unserer To-do-App zu entwickeln, auf die wir in den folgenden Artikeln eingehen werden.
+Da wir nun ein grundlegendes Verständnis dafür haben, wie Dinge in Svelte funktionieren, können wir beginnen, unsere Beispiel-App zu erstellen: eine To-Do-Liste. In diesem Artikel werden wir zunächst einen Blick auf die gewünschte Funktionalität unserer App werfen, dann erstellen wir eine `Todos.svelte`-Komponente und setzen statisches Markup und Styles ein, um alles bereit zu haben, um mit der Entwicklung unserer To-Do-App-Features zu beginnen, auf die wir in den folgenden Artikeln eingehen werden.
 
-Wir möchten, dass unsere Benutzer Aufgaben durchsuchen, hinzufügen und löschen sowie als erledigt markieren können. Dies wird die grundlegende Funktionalität sein, die wir in dieser Tutorial-Serie entwickeln werden, und wir werden auch einige fortgeschrittenere Konzepte auf dem Weg betrachten.
+Wir möchten, dass unsere Benutzer Aufgaben durchsuchen, hinzufügen und löschen können und diese auch als erledigt markieren können. Dies wird die grundlegende Funktionalität sein, die wir in dieser Tutorial-Serie entwickeln werden. Wir werden uns dabei auch einige fortgeschrittenere Konzepte ansehen.
 
 <table>
   <tbody>
@@ -18,41 +18,41 @@ Wir möchten, dass unsere Benutzer Aufgaben durchsuchen, hinzufügen und lösche
       <th scope="row">Voraussetzungen:</th>
       <td>
         <p>
-          Es wird mindestens empfohlen, dass Sie mit den grundlegenden
+          Es wird mindestens empfohlen, dass Sie mit den Kernsprachen
           <a href="/de/docs/Learn/HTML">HTML</a>,
           <a href="/de/docs/Learn/CSS">CSS</a> und
-          <a href="/de/docs/Learn/JavaScript">JavaScript</a> Sprachen vertraut sind und
+          <a href="/de/docs/Learn/JavaScript">JavaScript</a> vertraut sind und
           Kenntnisse über die
           <a
             href="/de/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line"
-            >Terminal-/Kommandozeile</a
+            >Terminal-/Befehlszeile</a
           > haben.
         </p>
         <p>
-          Sie benötigen ein Terminal mit installiertem node + npm, um Ihre App zu kompilieren und zu bauen.
+          Sie benötigen ein Terminal mit installiertem Node + npm, um Ihre App zu kompilieren und zu bauen.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen, wie man eine Svelte-Komponente erstellt, sie in eine andere Komponente rendert, Daten mit Hilfe von Props übergibt und ihren Zustand speichert.
+        Lernen, wie man eine Svelte-Komponente erstellt, sie innerhalb einer anderen Komponente rendert, Daten mithilfe von Props in sie hinein bringt und ihren Zustand speichert.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Code zusammen mit uns
+## Gemeinsam mit uns programmieren
 
 ### Git
 
-Klonen Sie das GitHub-Repository (wenn Sie es noch nicht gemacht haben) mit:
+Klonen Sie das GitHub-Repository (falls Sie es noch nicht getan haben) mit:
 
 ```bash
 git clone https://github.com/opensas/mdn-svelte-tutorial.git
 ```
 
-Um den aktuellen Zustand der App zu erreichen, führen Sie dann aus
+Um zum aktuellen App-Status zu gelangen, führen Sie aus
 
 ```bash
 cd mdn-svelte-tutorial/02-starting-our-todo-app
@@ -68,49 +68,49 @@ Denken Sie daran, `npm install && npm run dev` auszuführen, um Ihre App im Entw
 
 ### REPL
 
-Um den Code zusammen mit uns im REPL zu erstellen, starten Sie unter
+Um mit uns im REPL zu programmieren, beginnen Sie unter
 
 <https://svelte.dev/repl/b7b831ea3a354d3789cefbc31e2ca495?version=3.23.2>
 
-## To-do-App-Funktionen
+## Funktionen der To-Do-Liste-App
 
-So wird unsere To-do-App aussehen, sobald sie fertig ist:
+So wird unsere To-Do-Liste aussehen, wenn sie fertig ist:
 
-![typische To-do-App mit einem Titel 'Was muss erledigt werden?', einem Eingabefeld für weitere To-dos und einer Liste von To-dos mit Kontrollkästchen](01-todo-list-app.png)
+![typische To-Do-Liste-App, mit einem Titel 'was getan werden muss', einem Eingabefeld, um weitere To-Dos einzugeben, und einer Liste von To-Dos mit Kontrollkästchen](01-todo-list-app.png)
 
 Mit dieser Benutzeroberfläche kann unser Benutzer:
 
-- Aufgaben durchsuchen
-- Aufgaben als abgeschlossen/ausstehend markieren, ohne sie zu löschen
+- Seine Aufgaben durchsuchen
+- Aufgaben als erledigt/ausstehend markieren, ohne sie zu löschen
 - Aufgaben entfernen
 - Neue Aufgaben hinzufügen
-- Aufgaben nach Status filtern: Alle Aufgaben, aktive Aufgaben oder abgeschlossene Aufgaben
+- Aufgaben nach Status filtern: alle Aufgaben, aktive Aufgaben oder erledigte Aufgaben
 - Aufgaben bearbeiten
-- Alle Aufgaben als aktiv/abgeschlossen markieren
-- Abgeschlossene Aufgaben entfernen
+- Alle Aufgaben als aktiv/erledigt markieren
+- Alle erledigten Aufgaben entfernen
 
-## Erstellen unserer ersten Komponente
+## Erstellung unserer ersten Komponente
 
-Lassen Sie uns eine `Todos.svelte`-Komponente erstellen. Diese wird unsere Liste von To-dos enthalten.
+Lassen Sie uns eine `Todos.svelte`-Komponente erstellen. Diese wird unsere Liste der zu erledigenden Aufgaben enthalten.
 
 1. Erstellen Sie einen neuen Ordner — `src/components`.
 
    > [!NOTE]
-   > Sie können Ihre Komponenten überall im Ordner `src` ablegen, aber der `components`-Ordner ist eine anerkannte Konvention, die es Ihnen erleichtert, Ihre Komponenten zu finden.
+   > Sie können Ihre Komponenten überall im `src`-Ordner ablegen, aber der `components`-Ordner ist eine anerkannte Konvention, der Sie folgen sollten, um Ihre Komponenten leicht zu finden.
 
 2. Erstellen Sie eine Datei mit dem Namen `src/components/Todos.svelte` mit folgendem Inhalt:
 
    ```svelte
-   <h1>Svelte To-Do-Liste</h1>
+   <h1>Svelte to-do list</h1>
    ```
 
-3. Ändern Sie das `title`-Element in `public/index.html`, sodass es den Text _Svelte To-Do-Liste_ enthält:
+3. Ändern Sie das `title`-Element in `public/index.html`, um den Text _Svelte to-do list_ zu enthalten:
 
    ```svelte
-   <title>Svelte To-Do-Liste</title>
+   <title>Svelte to-do list</title>
    ```
 
-4. Öffnen Sie `src/App.svelte` und ersetzen Sie dessen Inhalt durch das folgende:
+4. Öffnen Sie `src/App.svelte` und ersetzen Sie den Inhalt mit dem folgenden:
 
    ```svelte
    <script>
@@ -120,7 +120,7 @@ Lassen Sie uns eine `Todos.svelte`-Komponente erstellen. Diese wird unsere Liste
    <Todos />
    ```
 
-5. Im Entwicklungsmodus gibt Svelte eine Warnung in der Browser-Konsole aus, wenn eine nicht vorhandene Prop in der Komponente angegeben wird; in diesem Fall wird eine `name`-Prop angegeben, wenn wir die `App`-Komponente in `src/main.js` instanziieren, die nicht innerhalb von `App` verwendet wird. Die Konsole sollte Ihnen derzeit eine Nachricht in der Art von "\<App> wurde mit unknown prop 'name' erstellt" geben. Um dies zu beseitigen, entfernen Sie die `name`-Prop aus `src/main.js`; es sollte jetzt so aussehen:
+5. Im Entwicklungsmodus wird Svelte eine Warnung in der Browser-Konsole ausgeben, wenn eine nicht existierende Prop angegeben wird; in diesem Fall haben wir eine `name` Prop, die bei der Instanziierung der `App`-Komponente in `src/main.js` angegeben wird, die jedoch innerhalb von `App` nicht verwendet wird. Die Konsole sollte derzeit eine Nachricht ähnlich "\<App> was created with unknown prop 'name'" anzeigen. Um dies zu beseitigen, entfernen Sie die `name` Prop aus `src/main.js`; es sollte nun folgendermaßen aussehen:
 
    ```js
    import App from "./App.svelte";
@@ -132,13 +132,13 @@ Lassen Sie uns eine `Todos.svelte`-Komponente erstellen. Diese wird unsere Liste
    export default app;
    ```
 
-Wenn Sie nun Ihre Testserver-URL überprüfen, sehen Sie, dass unsere `Todos.svelte`-Komponente gerendert wird:
+Wenn Sie jetzt Ihre Testserver-URL überprüfen, sehen Sie, dass unsere `Todos.svelte`-Komponente gerendert wird:
 
-![grundlegendes Komponentrendering mit einem Titel, der 'Svelte To-do-Liste' sagt](02-todos-component-rendered.png)
+![Grundlegende Komponenten-Rendering mit einem Titel, der 'Svelte to-do list' sagt](02-todos-component-rendered.png)
 
 ## Hinzufügen von statischem Markup
 
-Im Moment beginnen wir mit einer statischen Markup-Darstellung unserer App, damit Sie sehen, wie sie aussehen wird. Kopieren Sie den folgenden Inhalt in unsere `Todos.svelte`-Datei und ersetzen Sie den vorhandenen Inhalt:
+Im Moment beginnen wir mit einer statischen Markup-Darstellung unserer App, damit Sie sehen können, wie sie aussehen wird. Kopieren und fügen Sie Folgendes in unsere `Todos.svelte`-Komponentendatei ein, um den bestehenden Inhalt zu ersetzen:
 
 ```svelte
 <!-- Todos.svelte -->
@@ -146,45 +146,45 @@ Im Moment beginnen wir mit einer statischen Markup-Darstellung unserer App, dami
   <!-- NewTodo -->
   <form>
     <h2 class="label-wrapper">
-      <label for="todo-0" class="label__lg"> Was muss erledigt werden? </label>
+      <label for="todo-0" class="label__lg"> What needs to be done? </label>
     </h2>
     <input type="text" id="todo-0" autocomplete="off" class="input input__lg" />
     <button type="submit" disabled="" class="btn btn__primary btn__lg">
-      Hinzufügen
+      Add
     </button>
   </form>
 
   <!-- Filter -->
   <div class="filters btn-group stack-exception">
     <button class="btn toggle-btn" aria-pressed="true">
-      <span class="visually-hidden">Anzeigen</span>
-      <span>Alle</span>
-      <span class="visually-hidden">Aufgaben</span>
+      <span class="visually-hidden">Show</span>
+      <span>All</span>
+      <span class="visually-hidden">tasks</span>
     </button>
     <button class="btn toggle-btn" aria-pressed="false">
-      <span class="visually-hidden">Anzeigen</span>
-      <span>Aktive</span>
-      <span class="visually-hidden">Aufgaben</span>
+      <span class="visually-hidden">Show</span>
+      <span>Active</span>
+      <span class="visually-hidden">tasks</span>
     </button>
     <button class="btn toggle-btn" aria-pressed="false">
-      <span class="visually-hidden">Anzeigen</span>
-      <span>Abgeschlossene</span>
-      <span class="visually-hidden">Aufgaben</span>
+      <span class="visually-hidden">Show</span>
+      <span>Completed</span>
+      <span class="visually-hidden">tasks</span>
     </button>
   </div>
 
   <!-- TodosStatus -->
-  <h2 id="list-heading">2 von 3 Aufgaben erledigt</h2>
+  <h2 id="list-heading">2 out of 3 items completed</h2>
 
   <!-- Todos -->
   <ul role="list" class="todo-list stack-large" aria-labelledby="list-heading">
-    <!-- todo-1 (Bearbeitungsmodus) -->
+    <!-- todo-1 (editing mode) -->
     <li class="todo">
       <div class="stack-small">
         <form class="stack-small">
           <div class="form-group">
             <label for="todo-1" class="todo-label">
-              Neuer Name für 'Erstelle eine Svelte-Starter-App'
+              New name for 'Create a Svelte starter app'
             </label>
             <input
               type="text"
@@ -194,12 +194,12 @@ Im Moment beginnen wir mit einer statischen Markup-Darstellung unserer App, dami
           </div>
           <div class="btn-group">
             <button class="btn todo-cancel" type="button">
-              Abbrechen
-              <span class="visually-hidden">Umbenennung Erstelle eine Svelte-Starter-App</span>
+              Cancel
+              <span class="visually-hidden">renaming Create a Svelte starter app</span>
             </button>
             <button class="btn btn__primary todo-edit" type="submit">
-              Speichern
-              <span class="visually-hidden">neuer Name für Erstelle eine Svelte-Starter-App</span>
+              Save
+              <span class="visually-hidden">new name for Create a Svelte starter app</span>
             </button>
           </div>
         </form>
@@ -212,17 +212,17 @@ Im Moment beginnen wir mit einer statischen Markup-Darstellung unserer App, dami
         <div class="c-cb">
           <input type="checkbox" id="todo-2" checked />
           <label for="todo-2" class="todo-label">
-            Erstellen Sie Ihre erste Komponente
+            Create your first component
           </label>
         </div>
         <div class="btn-group">
           <button type="button" class="btn">
-            Bearbeiten
-            <span class="visually-hidden">Erstellen Sie Ihre erste Komponente</span>
+            Edit
+            <span class="visually-hidden">Create your first component</span>
           </button>
           <button type="button" class="btn btn__danger">
-            Löschen
-            <span class="visually-hidden">Erstellen Sie Ihre erste Komponente</span>
+            Delete
+            <span class="visually-hidden">Create your first component</span>
           </button>
         </div>
       </div>
@@ -234,17 +234,17 @@ Im Moment beginnen wir mit einer statischen Markup-Darstellung unserer App, dami
         <div class="c-cb">
           <input type="checkbox" id="todo-3" />
           <label for="todo-3" class="todo-label">
-            Den Rest des Tutorials abschließen
+            Complete the rest of the tutorial
           </label>
         </div>
         <div class="btn-group">
           <button type="button" class="btn">
-            Bearbeiten
-            <span class="visually-hidden">Den Rest des Tutorials abschließen</span>
+            Edit
+            <span class="visually-hidden">Complete the rest of the tutorial</span>
           </button>
           <button type="button" class="btn btn__danger">
-            Löschen
-            <span class="visually-hidden">Den Rest des Tutorials abschließen</span>
+            Delete
+            <span class="visually-hidden">Complete the rest of the tutorial</span>
           </button>
         </div>
       </div>
@@ -255,45 +255,45 @@ Im Moment beginnen wir mit einer statischen Markup-Darstellung unserer App, dami
 
   <!-- MoreActions -->
   <div class="btn-group">
-    <button type="button" class="btn btn__primary">Alle markieren</button>
-    <button type="button" class="btn btn__primary">Abgeschlossene entfernen</button>
+    <button type="button" class="btn btn__primary">Check all</button>
+    <button type="button" class="btn btn__primary">Remove completed</button>
   </div>
 </div>
 ```
 
-Prüfen Sie das Render-Ergebnis erneut, und Sie werden etwas wie dies sehen:
+Überprüfen Sie die gerenderte Ausgabe erneut, und Sie werden etwas Ähnliches sehen:
 
-![Eine To-do-App, aber ungestylt, mit einem Titel von 'Was muss erledigt werden', Eingabefeldern, Kontrollkästchen, etc.](03-unstyled-todo-app.png)
+![Eine To-Do-Liste-App, aber ungestylt, mit einem Titel 'was getan werden muss', Eingabefeldern, Kontrollkästchen usw.](03-unstyled-todo-app.png)
 
-Das obenstehende HTML-Markup ist nicht sehr schön gestylt und auch funktional nutzlos. Dennoch werfen wir einen Blick auf das Markup und sehen, wie es sich auf unsere gewünschten Funktionen bezieht:
+Das obige HTML-Markup ist nicht sehr schön gestylt und auch funktional nutzlos. Trotzdem lassen Sie uns das Markup betrachten und sehen, wie es sich auf unsere gewünschten Funktionen bezieht:
 
-- Ein Label und eine Textbox zur Eingabe neuer Aufgaben
-- Drei Buttons, um nach Aufgabenstatus zu filtern
-- Ein Label, das die Gesamtzahl der Aufgaben und die erledigten Aufgaben anzeigt
-- Eine ungeordnete Liste, die ein Listenelement für jede Aufgabe enthält
-- Wenn die Aufgabe bearbeitet wird, hat das Listenelement ein Eingabefeld und zwei Buttons, um Änderungen abzubrechen oder zu speichern
-- Wenn die Aufgabe nicht bearbeitet wird, gibt es ein Kontrollkästchen, um den Erledigungsstatus festzulegen, und zwei Buttons, um die Aufgabe zu bearbeiten oder zu löschen
-- Schließlich gibt es zwei Buttons, um alle Aufgaben zu markieren/zu entmarkieren und um erledigte Aufgaben zu entfernen
+- Ein Label und ein Textfeld zum Eingeben neuer Aufgaben
+- Drei Schaltflächen zum Filtern nach Aufgabenstatus
+- Ein Label, das die Gesamtanzahl der Aufgaben und die erledigten Aufgaben anzeigt
+- Eine ungeordnete Liste, die Listenelemente für jede Aufgabe enthält
+- Wenn die Aufgabe bearbeitet wird, enthält das Listenelement ein Eingabefeld und zwei Schaltflächen, um Änderungen abzubrechen oder zu speichern
+- Wenn die Aufgabe nicht bearbeitet wird, gibt es ein Kontrollkästchen, um den Erledigt-Status zu setzen, und zwei Schaltflächen, um die Aufgabe zu bearbeiten oder zu löschen
+- Schließlich gibt es zwei Schaltflächen, um alle Aufgaben auszuwählen/abzuwählen und abgeschlossene Aufgaben zu entfernen
 
 In den folgenden Artikeln werden wir all diese Funktionen zum Laufen bringen und noch mehr.
 
-### Zugänglichkeitsmerkmale der To-do-Liste
+### Barrierefreiheitsfunktionen der To-Do-Liste
 
-Sie bemerken vielleicht einige ungewöhnliche Attribute hier. Zum Beispiel:
+Möglicherweise bemerken Sie hier einige ungewöhnliche Attribute. Zum Beispiel:
 
 ```svelte
 <button class="btn toggle-btn" aria-pressed="true">
-  <span class="visually-hidden">Anzeigen</span>
-  <span>Alle</span>
-  <span class="visually-hidden">Aufgaben</span>
+  <span class="visually-hidden">Show</span>
+  <span>All</span>
+  <span class="visually-hidden">tasks</span>
 </button>
 ```
 
-Hier teilt `aria-pressed` assistiven Technologien (wie Bildschirmlesegeräten) mit, dass der Button in einem von zwei Zuständen sein kann: `gedrückt` oder `nicht gedrückt`. Denken Sie an diese wie an Analogien für ein und aus. Das Setzen eines Wertes von `true` bedeutet, dass der Button standardmäßig gedrückt ist.
+Hier teilt `aria-pressed` assistiven Technologien (wie Bildschirmlesern) mit, dass die Schaltfläche in einem von zwei Zuständen sein kann: `gedrückt` oder `nicht gedrückt`. Denken Sie an diese Zustände als Analogien für an und aus. Ein Wert von `true` bedeutet, dass die Schaltfläche standardmäßig gedrückt ist.
 
-Die Klasse `visually-hidden` hat noch keine Wirkung, da wir noch keine CSS hinzugefügt haben. Sobald wir unsere Styles implementiert haben, wird jedes Element mit dieser Klasse für sehende Benutzer unsichtbar und für Benutzer von Bildschirmlesegeräten weiterhin verfügbar sein - dies liegt daran, dass diese Wörter für sehende Benutzer nicht benötigt werden; sie sollen zusätzliche Informationen darüber liefern, was der Button für Bildschirmlesegeräte-Benutzer tut, die nicht den zusätzlichen visuellen Kontext haben, um ihnen zu helfen.
+Die Klasse `visually-hidden` hat noch keine Wirkung, da wir noch keine CSS hinzugefügt haben. Sobald wir unsere Styles eingebaut haben, wird jedes Element mit dieser Klasse für sehende Benutzer unsichtbar und bleibt trotzdem für Screenreader-Benutzer verfügbar - dies liegt daran, dass diese Wörter für sehende Benutzer nicht erforderlich sind; sie sind da, um weiteren Informationen für Benutzer von Screenreadern bereitzustellen, die nicht den zusätzlichen visuellen Kontext haben, der ihnen hilft.
 
-Weiter unten finden Sie folgendes `<ul>`-Element:
+Weiter unten finden Sie das folgende `<ul>`-Element:
 
 ```svelte
 <ul
@@ -302,22 +302,22 @@ Weiter unten finden Sie folgendes `<ul>`-Element:
   aria-labelledby="list-heading">
 ```
 
-Das `role`-Attribut hilft assistiven Technologien zu erklären, welche Art von semantischem Wert ein Element hat - oder welchen Zweck es hat. Eine `<ul>` wird standardmäßig wie eine Liste behandelt, aber die Styles, die wir hinzufügen werden, werden diese Funktionalität unterbrechen. Diese Rolle wird die "Listen"-Bedeutung für das `<ul>`-Element wiederherstellen. Wenn Sie mehr darüber erfahren möchten, warum dies notwendig ist, können Sie Scott O'Hara's Artikel ["Fixing Lists"](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) (2019) lesen.
+Das `role`-Attribut hilft unterstützenden Technologien zu erklären, welche semantische Bedeutung ein Element hat - oder welchen Zweck es erfüllt. Ein `<ul>` wird standardmäßig wie eine Liste behandelt, aber die Styles, die wir hinzufügen, werden diese Funktionalität zerstören. Diese Rolle stellt die "Listen"-Bedeutung für das `<ul>`-Element wieder her. Wenn Sie mehr darüber erfahren möchten, warum dies notwendig ist, können Sie Scott O'Haras Artikel ["Fixing Lists"](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) (2019) lesen.
 
-Das `aria-labelledby`-Attribut teilt unterstützenden Technologien mit, dass wir unser `<h2>` mit einer `id` von `list-heading` als die Beschriftung behandeln, die den Zweck der Liste darunter beschreibt. Diese Zuordnung gibt der Liste einen informativen Kontext, der Benutzern von Bildschirmlesegeräten helfen könnte, den Zweck besser zu verstehen.
+Das `aria-labelledby`-Attribut teilt unterstützenden Technologien mit, dass wir unser `<h2>` mit einer `id` von `list-heading` als das Etikett behandeln, das den Zweck der Liste darunter beschreibt. Diese Zuordnung gibt der Liste einen informativen Kontext, der Benutzern von Screenreadern helfen könnte, den Zweck besser zu verstehen.
 
 Dies scheint ein guter Zeitpunkt zu sein, um darüber zu sprechen, wie Svelte mit Barrierefreiheit umgeht; lassen Sie uns das jetzt tun.
 
-## Svelte-Zugänglichkeitsunterstützung
+## Svelte-Unterstützung für Barrierefreiheit
 
-Svelte legt besonderen Wert auf Barrierefreiheit. Die Absicht ist, Entwickler zu ermutigen, "standardmäßig" barrierefreieren Code zu schreiben. Als Compiler kann Svelte unsere HTML-Templates statisch analysieren, um Barrierefreiheitswarnungen auszugeben, wenn Komponenten kompiliert werden.
+Svelte legt besonderen Wert auf Barrierefreiheit. Das Ziel ist es, Entwickler zu ermutigen, von Haus aus zugänglichere Code zu schreiben. Als Compiler kann Svelte unsere HTML-Vorlagen statisch analysieren und Barrierefreiheitswarnungen ausgeben, wenn Komponenten kompiliert werden.
 
-Barrierefreiheit (abgekürzt a11y) ist nicht immer einfach richtig hinzubekommen, aber Svelte hilft, indem es Sie warnt, wenn Sie nicht barrierefreies Markup schreiben.
+Barrierefreiheit (abgekürzt a11y) ist nicht immer leicht korrekt umzusetzen, aber Svelte hilft, indem es Sie warnt, wenn sie nicht zugängliches Markup schreiben.
 
-Zum Beispiel, wenn wir ein `<img>`-Element in unsere `todos.svelte`-Komponente ohne das entsprechende `alt`-Attribut hinzufügen:
+Beispielsweise, wenn wir ein `<img>`-Element ohne entsprechendes `alt`-Attribut zu unserer `todos.svelte`-Komponente hinzufügen:
 
 ```svelte
-<h1>Svelte-To-do-Liste</h1>
+<h1>Svelte To-Do list</h1>
 
 <img height="32" width="88" src="https://www.w3.org/WAI/wcag2A" />
 ```
@@ -325,9 +325,9 @@ Zum Beispiel, wenn wir ein `<img>`-Element in unsere `todos.svelte`-Komponente o
 Der Compiler wird die folgende Warnung ausgeben:
 
 ```bash
-(!) Plugin svelte: A11y: <img>-Element sollte ein alt-Attribut haben
+(!) Plugin svelte: A11y: <img> element should have an alt attribute
 src/components/Todos.svelte
-1: <h1>Svelte-To-do-Liste</h1>
+1: <h1>Svelte To-Do list</h1>
 2:
 3: <img height="32" width="88" src="https://www.w3.org/WAI/wcag2A">
    ^
@@ -336,11 +336,11 @@ created public/build/bundle.js in 220ms
 [2020-07-15 04:07:43] waiting for changes...
 ```
 
-Unser Editor kann diese Warnung sogar anzeigen, bevor der Compiler aufgerufen wird:
+Zudem kann unser Editor diese Warnung anzeigen, noch bevor der Compiler aufgerufen wird:
 
-![Ein Code-Editor-Fenster zeigt ein Image-Tag, mit einer Popup-Fehlermeldung, die besagt, dass das Element ein alt-Attribut haben sollte](04-svelte-accessibility-support.png)
+![Ein Code-Editor-Fenster zeigt ein Bild-Tag mit einer Popup-Fehlermeldung, die besagt, dass das Element ein alt-Attribut haben sollte](04-svelte-accessibility-support.png)
 
-Sie können Svelte anweisen, diese Warnung für den nächsten Markupblock mit einem [Kommentar](https://svelte.dev/docs/basic-markup#comments) zu ignorieren, der mit `svelte-ignore` beginnt, wie folgt:
+Sie können Svelte dazu veranlassen, diese Warnung für den nächsten Markup-Block mit einem [Kommentar](https://svelte.dev/docs/basic-markup#comments) zu ignorieren, der mit `svelte-ignore` beginnt, so:
 
 ```svelte
 <!-- svelte-ignore a11y-missing-attribute -->
@@ -348,9 +348,9 @@ Sie können Svelte anweisen, diese Warnung für den nächsten Markupblock mit ei
 ```
 
 > [!NOTE]
-> Mit VSCode können Sie diesen Ignore-Kommentar automatisch hinzufügen, indem Sie auf den _Quick fix…_-Link klicken oder <kbd>Strg</kbd> + <kbd>.</kbd> drücken.
+> Mit VSCode können Sie diesen Ignore-Kommentar automatisch hinzufügen, indem Sie auf den Link _Quick fix…_ klicken oder <kbd>Strg</kbd> + <kbd>.</kbd> drücken.
 
-Wenn Sie diese Warnung global deaktivieren möchten, können Sie diesen `onwarn`-Handler in Ihre `rollup.config.js`-Datei innerhalb der Konfiguration für das `Svelte`-Plugin hinzufügen, wie folgt:
+Wenn Sie diese Warnung global deaktivieren möchten, können Sie diesen `onwarn` Handler in Ihrer `rollup.config.js`-Datei innerhalb der Konfiguration für das `Svelte`-Plugin hinzufügen, so:
 
 ```js
 plugins: [
@@ -359,15 +359,16 @@ plugins: [
     css: (css) => {
       css.write("public/build/bundle.css");
     },
-    // Warnungen werden normalerweise direkt an Rollup übergeben. Sie können sie
-    // optional hier behandeln, zum Beispiel um Warnungen mit einem bestimmten Code zu unterdrücken
+    // Warnings are normally passed straight to Rollup. You can
+    // optionally handle them here, for example to squelch
+    // warnings with a particular code
     onwarn: (warning, handler) => {
-      // z.B. Mir sind Screenreader egal -> BITTE NICHT TUN!!!
+      // e.g. I don't care about screen readers -> please DON'T DO THIS!!!
       if (warning.code === "a11y-missing-attribute") {
         return;
       }
 
-      // Lass Rollup alle anderen Warnungen normal handhaben
+      // let Rollup handle all other warnings normally
       handler(warning);
     },
   }),
@@ -376,16 +377,16 @@ plugins: [
 ];
 ```
 
-Diese Warnungen sind bewusst im Compiler selbst und nicht als Plug-in implementiert, das Sie Ihrem Projekt hinzufügen können. Die Idee ist, standardmäßig auf a11y-Probleme in Ihrem Markup zu prüfen und Ihnen die Möglichkeit zu geben, bestimmte Warnungen abzuwählen.
+Diese Warnungen sind absichtlich im Compiler selbst und nicht als optionales Plug-in implementiert, das Sie Ihrem Projekt hinzufügen könnten. Die Idee ist, standardmäßig a11y-Probleme in Ihrem Markup zu überprüfen und Sie die Möglichkeit zu geben, bestimmte Warnungen zu deaktivieren.
 
 > [!NOTE]
-> Sie sollten diese Warnungen nur deaktivieren, wenn Sie triftige Gründe dafür haben, z.B. während Sie einen schnellen Prototyp erstellen. Es ist wichtig, ein guter Web-Inhaber zu sein und Ihre Seiten möglichst vielen Benutzern zugänglich zu machen.
+> Sie sollten diese Warnungen nur deaktivieren, wenn Sie gute Gründe dafür haben, zum Beispiel beim Aufbau eines schnellen Prototyps. Es ist wichtig, ein guter Web-Bürger zu sein und Ihre Seiten für die größtmögliche Nutzerbasis zugänglich zu machen.
 
-Die von Svelte überprüften Zugänglichkeitsregeln stammen aus [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#supported-rules), einem Plugin für ESLint, das statische Überprüfungen für viele Zugänglichkeitsregeln bei JSX-Elementen bietet. Svelte zielt darauf ab, alle davon in seinem Compiler zu implementieren, und die meisten davon wurden bereits auf Svelte portiert. Auf GitHub können Sie sehen, [welche Zugänglichkeitsprüfungen noch fehlen](https://github.com/sveltejs/svelte/issues/820). Sie können die Bedeutung jeder Regel überprüfen, indem Sie auf ihren Link klicken.
+Die von Svelte überprüften Barrierefreiheitsregeln stammen aus [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y#supported-rules), einem Plugin für ESLint, das statische Überprüfungen für viele Barrierefreiheitsregeln auf JSX-Elementen bietet. Svelte zielt darauf ab, alle von ihnen in seinem Compiler zu implementieren, und die meisten von ihnen wurden bereits zu Svelte portiert. Auf GitHub können Sie sehen, [welche Barrierefreiheitsüberprüfungen noch fehlen](https://github.com/sveltejs/svelte/issues/820). Sie können die Bedeutung jeder Regel anklicken und deren Links überprüfen.
 
 ## Styling unseres Markups
 
-Lassen Sie uns die To-do-Liste besser aussehen lassen. Ersetzen Sie den Inhalt der Datei `public/global.css` durch das folgende:
+Lassen Sie uns die To-Do-Liste etwas ansprechender gestalten. Ersetzen Sie den Inhalt der Datei `public/global.css` durch das Folgende:
 
 ```css
 /* RESETS */
@@ -692,15 +693,15 @@ body {
 }
 ```
 
-Mit unserem stilisierten Markup sieht alles jetzt besser aus:
+Mit unserem gestylten Markup sieht nun alles besser aus:
 
-![Unsere To-do-App, gestylt, mit einem Titel von 'Was muss erledigt werden', einem Eingabefeld für weitere To-dos und einer Liste von To-dos mit Checkboxen](05-styled-todo-app.png)
+![Unsere To-Do-Liste-App, gestylt, mit einem Titel 'was getan werden muss', einem Eingabefeld zum Eingeben von mehr To-Dos und einer Liste von To-Dos mit Kontrollkästchen](05-styled-todo-app.png)
 
-## Der Code bis jetzt
+## Der bisherige Code
 
 ### Git
 
-Um den Codezustand am Ende dieses Artikels zu sehen, greifen Sie auf Ihre Kopie unseres Repos wie folgt zu:
+Um den Stand des Codes am Ende dieses Artikels zu sehen, greifen Sie so auf Ihre Kopie unseres Repos zu:
 
 ```bash
 cd mdn-svelte-tutorial/03-adding-dynamic-behavior
@@ -722,6 +723,6 @@ Um den aktuellen Stand des Codes in einem REPL zu sehen, besuchen Sie:
 
 ## Zusammenfassung
 
-Mit unserem Markup und Styling beginnt unsere To-do-App Form anzunehmen, und wir haben alles bereit, damit wir uns auf die Funktionen konzentrieren können, die wir umsetzen müssen.
+Mit unserem Markup und Styling an Ort und Stelle beginnt unsere To-Do-Liste-App Gestalt anzunehmen, und wir haben alles bereit, um uns auf die Funktionen zu konzentrieren, die wir implementieren müssen.
 
 {{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_getting_started","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_variables_props", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}

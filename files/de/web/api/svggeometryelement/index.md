@@ -7,29 +7,29 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die `SVGGeometryElement`-Schnittstelle repräsentiert SVG-Elemente, deren Darstellung durch Geometrie mit einem äquivalenten Pfad definiert ist und die gefüllt und gestrichen werden können. Dies umfasst Pfade und die Grundformen.
+Das `SVGGeometryElement` Interface repräsentiert SVG-Elemente, deren Rendering durch Geometrie mit einem äquivalenten Pfad definiert wird und die gefüllt und gestrichen werden können. Dazu gehören Pfade und die Grundformen.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle erbt außerdem Eigenschaften von ihrem Elternteil, {{domxref("SVGGraphicsElement")}}._
+_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten Element, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
-- {{domxref("SVGGeometryElement.pathLength")}} {{ReadOnlyInline}}
-  - : Diese Eigenschaft spiegelt das Attribut {{SVGAttr("pathLength")}} wider.
+- [`SVGGeometryElement.pathLength`](/de/docs/Web/API/SVGGeometryElement/pathLength) {{ReadOnlyInline}}
+  - : Diese Eigenschaft entspricht dem {{SVGAttr("pathLength")}}-Attribut.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle erbt außerdem Methoden von ihrem Elternteil, {{domxref("SVGGraphicsElement")}}._
+_Dieses Interface erbt auch Methoden von seinem übergeordneten Element, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
-- {{domxref("SVGGeometryElement.isPointInFill()")}}
-  - : Bestimmt, ob ein gegebener Punkt innerhalb der Füllform eines Elements liegt. Normalerweise gelten die Regeln für das Treffer-Testen; der Wert der {{cssxref("pointer-events")}}-Eigenschaft des Elements bestimmt, ob ein Punkt als innerhalb der Füllung betrachtet wird.
-- {{domxref("SVGGeometryElement.isPointInStroke()")}}
-  - : Bestimmt, ob ein gegebener Punkt innerhalb der Strichform eines Elements liegt. Normalerweise gelten die Regeln für das Treffer-Testen; der Wert der {{cssxref("pointer-events")}}-Eigenschaft des Elements bestimmt, ob ein Punkt als innerhalb des Strichs betrachtet wird.
-- {{domxref("SVGGeometryElement.getTotalLength()")}}
+- [`SVGGeometryElement.isPointInFill()`](/de/docs/Web/API/SVGGeometryElement/isPointInFill)
+  - : Bestimmt, ob ein gegebener Punkt innerhalb der Füllform eines Elements liegt. Normale Hit-Test-Regeln gelten; der Wert der {{cssxref("pointer-events")}}-Eigenschaft auf dem Element bestimmt, ob ein Punkt als innerhalb der Füllung betrachtet wird.
+- [`SVGGeometryElement.isPointInStroke()`](/de/docs/Web/API/SVGGeometryElement/isPointInStroke)
+  - : Bestimmt, ob ein gegebener Punkt innerhalb der Strichform eines Elements liegt. Normale Hit-Test-Regeln gelten; der Wert der {{cssxref("pointer-events")}}-Eigenschaft auf dem Element bestimmt, ob ein Punkt als innerhalb des Strichs betrachtet wird.
+- [`SVGGeometryElement.getTotalLength()`](/de/docs/Web/API/SVGGeometryElement/getTotalLength)
   - : Gibt den vom Benutzeragenten berechneten Wert für die Gesamtlänge des Pfades in Benutzereinheiten zurück.
-- {{domxref("SVGGeometryElement.getPointAtLength()")}}
-  - : Gibt den Punkt an einer bestimmten Distanz entlang des Pfades zurück.
+- [`SVGGeometryElement.getPointAtLength()`](/de/docs/Web/API/SVGGeometryElement/getPointAtLength)
+  - : Gibt den Punkt an einer bestimmten Strecke entlang des Pfades zurück.
 
 ## Spezifikationen
 

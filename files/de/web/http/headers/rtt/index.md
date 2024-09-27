@@ -7,30 +7,30 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Das **`RTT`** [Client-Hinweis](/de/docs/Web/HTTP/Client_hints) Request-Header-Feld liefert die ungefähre Rundlaufzeit auf Anwendungsebene in Millisekunden. Im Gegensatz zur Transportlayer-RTT beinhaltet der RTT-Hinweis auch die Serververarbeitungszeit.
+Das **`RTT`** [Client-Hint](/de/docs/Web/HTTP/Client_hints) Request-Header-Feld liefert die ungefähre Round-Trip-Zeit in der Anwendungsschicht, gemessen in Millisekunden. Der RTT-Hinweis schließt im Gegensatz zu `RTT` auf der Transportschicht die Serververarbeitungszeit ein.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request header")}},
-        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
+        [Request-Header](/de/docs/Glossary/Request_header),
+        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hint</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
 </table>
 
-Der RTT-Wert wird auf die nächsten 25 Millisekunden gerundet, um [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu verhindern. Es gibt viele andere Mechanismen, die ein Angreifer nutzen könnte, um ähnliche Informationen über die Rundlaufzeit zu erhalten.
+Der RTT-Wert wird auf die nächste 25-Millisekunden-Stufe gerundet, um [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu verhindern. Es gibt viele andere Mechanismen, die ein Angreifer nutzen könnte, um ähnliche Informationen zu erhalten.
 
-Der Hinweis ermöglicht einem Server, basierend auf der Netzwerkreaktionsfähigkeit/-latenz zu entscheiden, welche Informationen gesendet werden. Beispielsweise könnte er wählen, weniger Ressourcen zu senden.
+Der Hinweis ermöglicht es einem Server auszuwählen, welche Informationen basierend auf der Netzwerk-Reaktionsfähigkeit/-Latenz gesendet werden. Zum Beispiel könnte er entscheiden, weniger Ressourcen zu senden.
 
 > [!NOTE]
-> Der {{HTTPHeader("Vary")}}-Header wird in Antworten verwendet, um anzuzeigen, dass eine andere Ressource für jeden unterschiedlichen Wert des Headers gesendet wird (siehe [HTTP-Caching Vary](/de/docs/Web/HTTP/Caching#vary)). Auch wenn `RTT` verwendet wird, um zu konfigurieren, welche Ressourcen gesendet werden, erwägen Sie, ihn im {{HTTPHeader("Vary")}}-Header auszulassen — es ist wahrscheinlich, dass er sich häufig ändert, was die Ressource effektiv nicht cachefähig macht.
+> Der {{HTTPHeader("Vary")}}-Header wird in Antworten verwendet, um anzugeben, dass eine andere Ressource für jeden unterschiedlichen Wert des Headers gesendet wird (siehe [HTTP-Caching Vary](/de/docs/Web/HTTP/Caching#vary)). Auch wenn `RTT` verwendet wird, um zu konfigurieren, welche Ressourcen gesendet werden, sollten Sie es im {{HTTPHeader("Vary")}}-Header weglassen — es wird wahrscheinlich häufig ändern, was die Ressource effektiv uncachebar macht.
 
 ## Syntax
 
@@ -41,17 +41,17 @@ RTT: <number>
 ## Direktiven
 
 - \<number>
-  - : Die ungefähre Rundlaufzeit in Millisekunden, gerundet auf die nächsten 25 Millisekunden.
+  - : Die ungefähre Round-Trip-Zeit in Millisekunden, gerundet auf die nächste 25-Millisekunden-Stufe.
 
 ## Beispiele
 
-Ein Server muss zuerst zustimmen, den `RTT`-Header zu empfangen, indem er den {{HTTPHeader("Accept-CH")}}-Response-Header mit `RTT` sendet.
+Ein Server muss zuerst dafür optieren, den `RTT`-Header zu erhalten, indem er den {{HTTPHeader("Accept-CH")}}-Antwort-Header mit `RTT` sendet.
 
 ```http
 Accept-CH: RTT
 ```
 
-Dann kann der Client bei nachfolgenden Anfragen einen `RTT`-Header zurücksenden:
+Dann könnte der Client bei nachfolgenden Anfragen einen `RTT`-Header zurücksenden:
 
 ```http
 RTT: 125
@@ -67,7 +67,7 @@ RTT: 125
 
 ## Siehe auch
 
-- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung der Benutzerprivatsphäre und Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - Netzwerk-Client-Hinweise
 
   - {{HTTPHeader("Downlink")}}
@@ -76,4 +76,4 @@ RTT: 125
 
 - {{HTTPHeader("Accept-CH")}}
 - [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
-- {{domxref("NetworkInformation.effectiveType")}}
+- [`NetworkInformation.effectiveType`](/de/docs/Web/API/NetworkInformation/effectiveType)

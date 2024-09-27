@@ -9,23 +9,23 @@ l10n:
 
 Legt das Symbol für die Seitenleiste fest.
 
-Sie können ein einzelnes Symbol entweder als Pfad zu einer Bilddatei oder als {{WebExtAPIRef('sidebarAction.ImageDataType')}}-Objekt angeben.
+Sie können ein einzelnes Symbol entweder als Pfad zu einer Bilddatei oder als `{{WebExtAPIRef('sidebarAction.ImageDataType')}}`-Objekt angeben.
 
-Sie können mehrere Symbole in verschiedenen Größen angeben, indem Sie ein Wörterbuch mit mehreren Pfaden oder `ImageData`-Objekten bereitstellen. Das bedeutet, dass das Symbol nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss.
+Sie können mehrere Symbole in verschiedenen Größen angeben, indem Sie ein Dictionary mit mehreren Pfaden oder `ImageData`-Objekten bereitstellen. Dies bedeutet, dass das Symbol nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 ## Arten von Symbolen
 
-Ihre Erweiterung sollte ein Symbol für die Seitenleiste im [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action)-Manifest-Key angeben. Dies wird als _"Manifest-Symbol"_ bezeichnet.
+Ihre Erweiterung sollte ein Symbol für die Seitenleiste im [`sidebar_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) Manifest-Schlüssel angeben. Dies wird als _"Manifest-Symbol"_ bezeichnet.
 
-Wenn Sie kein Symbol im `sidebar_action`-Key angeben, erhalten Sie das Standardsymbol des Browsers. Dies wird als _"Standardsymbol"_ bezeichnet.
+Wenn Sie kein Symbol im `sidebar_action`-Schlüssel angeben, erhalten Sie das Standardsymbol des Browsers. Dies wird als _"Standard-Symbol"_ bezeichnet.
 
-Wenn Sie mit `setIcon()` ein neues Symbol setzen und die `tabId`-Option einschließen, wird das Symbol nur für den angegebenen Tab gesetzt. Dieses Symbol wird als _"Tab-spezifisches Symbol"_ bezeichnet.
+Wenn Sie ein neues Symbol mit `setIcon()` festlegen und die Option `tabId` einschließen, wird das Symbol nur für den angegebenen Tab festgelegt. Dieses Symbol wird als _"Tab-spezifisches Symbol"_ bezeichnet.
 
-Wenn Sie mit `setIcon()` ein neues Symbol setzen und die `windowId`-Option einschließen, wird das Symbol nur für das angegebene Fenster gesetzt. Dieses Symbol wird als _"Fenster-spezifisches Symbol"_ bezeichnet und erscheint in allen Tabs dieses Fensters, die kein Tab-spezifisches Symbol gesetzt haben.
+Wenn Sie ein neues Symbol mit `setIcon()` festlegen und die Option `windowId` einschließen, wird das Symbol nur für das angegebene Fenster festgelegt. Dieses Symbol wird als _"Fenster-spezifisches Symbol"_ bezeichnet und erscheint in allen Tabs dieses Fensters, für die kein Tab-spezifisches Symbol festgelegt ist.
 
-Wenn Sie mit `setIcon()` ein neues Symbol setzen und sowohl die Optionen `tabId` als auch `windowId` weglassen, legt dies das _"globale Symbol"_ fest. Das globale Symbol erscheint dann in allen Tabs, die kein Tab-spezifisches Symbol gesetzt haben und deren Fenster kein Fenster-spezifisches Symbol aufweist.
+Wenn Sie ein neues Symbol mit `setIcon()` festlegen und sowohl die Optionen `tabId` als auch `windowId` auslassen, wird das _"globale Symbol"_ festgelegt. Das globale Symbol erscheint dann in allen Tabs, die kein Tab-spezifisches Symbol haben und deren Fenster kein Fenster-spezifisches Symbol hat.
 
 ## Syntax
 
@@ -43,9 +43,9 @@ let settingIcon = browser.sidebarAction.setIcon(
 
     - `imageData` {{optional_inline}}
 
-      - : `{{WebExtAPIRef('sidebarAction.ImageDataType')}}` oder `object`. Dies ist entweder ein einzelnes `ImageData`-Objekt oder ein Wörterbuchobjekt.
+      - : `{{WebExtAPIRef('sidebarAction.ImageDataType')}}` oder `object`. Dies ist entweder ein einzelnes `ImageData`-Objekt oder ein Dictionary-Objekt.
 
-        Verwenden Sie ein Wörterbuchobjekt, um mehrere `ImageData`-Objekte in verschiedenen Größen anzugeben, damit das Symbol nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Wenn `imageData` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein `ImageData`-Objekt und der Name ist seine Größe, so wie hier:
+        Verwenden Sie ein Dictionary-Objekt, um mehrere `ImageData`-Objekte in verschiedenen Größen anzugeben, damit das Symbol nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Wenn `imageData` ein Dictionary ist, ist der Wert jeder Eigenschaft ein `ImageData`-Objekt und der Name ist seine Größe, so wie dies:
 
         ```js
         let settingIcon = browser.action.setIcon({
@@ -56,13 +56,13 @@ let settingIcon = browser.sidebarAction.setIcon(
         });
         ```
 
-        Der Browser wählt das Bild basierend auf der Pixeldichte des Bildschirms aus. Weitere Informationen hierzu finden Sie unter [Auswahl von Symbolgrößen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes).
+        Der Browser wird das Bild auswählen, das je nach Pixeldichte des Bildschirms verwendet werden soll. Siehe [Auswahl von Symbolgrößen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für weitere Informationen.
 
     - `path` {{optional_inline}}
 
-      - : `string` oder `object`. Dies ist entweder ein relativer Pfad zu einer Symboldatei oder ein Wörterbuchobjekt.
+      - : `string` oder `object`. Dies ist entweder ein relativer Pfad zu einer Symboldatei oder ein Dictionary-Objekt.
 
-        Verwenden Sie ein Wörterbuchobjekt, um mehrere Symboldateien in verschiedenen Größen anzugeben, damit das Symbol nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Wenn `path` ein Wörterbuch ist, ist der Wert jeder Eigenschaft ein relativer Pfad und der Name ist dessen Größe, so wie hier:
+        Verwenden Sie ein Dictionary-Objekt, um mehrere Symboldateien in verschiedenen Größen anzugeben, damit das Symbol nicht für ein Gerät mit einer anderen Pixeldichte skaliert werden muss. Wenn `path` ein Dictionary ist, ist der Wert jeder Eigenschaft ein relativer Pfad und der Name ist seine Größe, so wie dies:
 
         ```js
         let settingIcon = browser.action.setIcon({
@@ -73,29 +73,29 @@ let settingIcon = browser.sidebarAction.setIcon(
         });
         ```
 
-        Der Browser wählt das Bild basierend auf der Pixeldichte des Bildschirms aus. Weitere Informationen hierzu finden Sie unter [Auswahl von Symbolgrößen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes).
+        Der Browser wird das Bild auswählen, das je nach Pixeldichte des Bildschirms verwendet werden soll. Siehe [Auswahl von Symbolgrößen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes) für weitere Informationen.
 
-        Wenn `path` ein leerer String ist, verwendet der Browser das Standardsymbol.
+        Wenn `path` ein leerer String ist, wird das Standardsymbol des Browsers verwendet.
 
-        Wenn `path` nicht leer ist, aber nicht auf eine Symboldatei zeigt, wird das Symbol ausgeblendet.
+        Wenn `path` nicht leer ist, aber nicht auf eine Symbol-Datei verweist, wird das Symbol ausgeblendet.
 
-        Wenn `path` `null` ist und `tabId` angegeben wurde und der angegebene Tab ein Tab-spezifisches Symbol gesetzt hatte: dann wird das Tab-spezifische Symbol auf das globale Symbol zurückgesetzt (falls ein globales Symbol festgelegt ist) oder das Manifest-Symbol.
+        Wenn `path` `null` ist und `tabId` angegeben wurde, und der angegebene Tab ein Tab-spezifisches Symbol hatte: wird das Tab-spezifische Symbol auf das globale Symbol zurückgesetzt (wenn ein globales Symbol festgelegt ist) oder auf das Manifest-Symbol.
 
-        Wenn `path` `null` ist, `tabId` weggelassen wurde und ein globales Symbol gesetzt war, wird es auf das Manifest-Symbol zurückgesetzt.
+        Wenn `path` `null` ist und `tabId` weggelassen wurde, und es ein globales Symbol gab, wird es auf das Manifest-Symbol zurückgesetzt.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Setzt das Symbol nur für den angegebenen Tab.
+      - : `integer`. Legt das Symbol nur für den angegebenen Tab fest.
     - `windowId` {{optional_inline}}
-      - : `integer`. Setzt das Symbol nur für das angegebene Fenster.
+      - : `integer`. Legt das Symbol nur für das angegebene Fenster fest.
 
 <!---->
 
-- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und das Symbol wird nicht gesetzt.
-- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird das Symbol global gesetzt.
+- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und das Symbol wird nicht festgelegt.
+- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird das Symbol global festgelegt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, sobald das Symbol gesetzt wurde.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, sobald das Symbol festgelegt wurde.
 
 ## Browser-Kompatibilität
 
@@ -103,7 +103,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Der folgende Code wechselt das Seitenleistensymbol für den aktiven Tab, wenn der Benutzer auf eine Browser-Aktion klickt:
+Der folgende Code schaltet das Seitenleisten-Symbol für den aktiven Tab um, wenn der Benutzer auf eine Browseraktion klickt:
 
 ```js
 let on = false;
@@ -130,4 +130,4 @@ browser.browserAction.onClicked.addListener(toggle);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.sidebarAction`](https://help.opera.com/en/extensions/sidebar-action-api/) API von Opera.
+> Diese API basiert auf der Opera [`chrome.sidebarAction`](https://help.opera.com/en/extensions/sidebar-action-api/) API.

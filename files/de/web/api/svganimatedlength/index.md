@@ -7,17 +7,14 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGAnimatedLength`**-Schnittstelle repräsentiert Attribute vom Typ [\<length>](/de/docs/Web/SVG/Content_type#length), die animiert werden können.
+Die **`SVGAnimatedLength`** Schnittstelle repräsentiert Attribute des Typs [\<length>](/de/docs/Web/SVG/Content_type#length), die animiert werden können.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("SVGAnimatedLength.baseVal", "baseVal")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGLength")}}, der den Basiswert des gegebenen Attributs vor der Anwendung von Animationen darstellt.
-- {{domxref("SVGAnimatedLength.animVal", "animVal")}} {{ReadOnlyInline}}
-  - : Wenn das gegebene Attribut oder die Eigenschaft animiert wird,
-    ein {{domxref("SVGLength")}}, das den aktuellen animierten Wert des Attributs oder der Eigenschaft enthält.
-    Wenn das gegebene Attribut oder die Eigenschaft derzeit nicht animiert wird,
-    ein {{domxref("SVGLength")}}, das denselben Wert wie `baseVal` enthält.
+- [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) {{ReadOnlyInline}}
+  - : Ein [`SVGLength`](/de/docs/Web/API/SVGLength), das den Basiswert des angegebenen Attributs darstellt, bevor Animationen angewendet werden.
+- [`animVal`](/de/docs/Web/API/SVGAnimatedLength/animVal) {{ReadOnlyInline}}
+  - : Wenn das angegebene Attribut oder die Eigenschaft animiert wird, ein [`SVGLength`](/de/docs/Web/API/SVGLength), das den aktuellen animierten Wert des Attributs oder der Eigenschaft enthält. Wenn das angegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, ein [`SVGLength`](/de/docs/Web/API/SVGLength), das denselben Wert wie `baseVal` enthält.
 
 ## Instanz-Methoden
 
@@ -33,4 +30,4 @@ _Diese Schnittstelle implementiert keine spezifischen Methoden._
 
 ## Siehe auch
 
-- {{domxref("SVGLength")}}
+- [`SVGLength`](/de/docs/Web/API/SVGLength)

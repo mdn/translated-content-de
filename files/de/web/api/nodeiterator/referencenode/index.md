@@ -1,5 +1,5 @@
 ---
-title: "NodeIterator: Eigenschaft referenceNode"
+title: "NodeIterator: referenceNode-Eigenschaft"
 short-title: referenceNode
 slug: Web/API/NodeIterator/referenceNode
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`NodeIterator.referenceNode`** schreibgeschützte Eigenschaft gibt den {{domxref("Node")}} zurück, an den der Iterator verankert ist; wenn neue Knoten eingefügt werden, bleibt der Iterator gemäß dieser Eigenschaft an den Referenzknoten verankert.
+Die **`NodeIterator.referenceNode`** Leseeigenschaft gibt den [`Node`](/de/docs/Web/API/Node) zurück, an den der Iterator gebunden ist; während neue Knoten eingefügt werden, bleibt der Iterator an dem durch diese Eigenschaft festgelegten Referenzknoten verankert.
 
 ## Wert
 
-Ein {{domxref("Node")}}.
+Ein [`Node`](/de/docs/Web/API/Node).
 
 ## Beispiele
 
@@ -39,4 +39,4 @@ node = nodeIterator.referenceNode;
 
 ## Siehe auch
 
-- Das Interface, zu dem es gehört: {{domxref("NodeIterator")}}
+- Das Interface, zu dem es gehört: [`NodeIterator`](/de/docs/Web/API/NodeIterator)

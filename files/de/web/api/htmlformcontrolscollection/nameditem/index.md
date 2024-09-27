@@ -1,5 +1,5 @@
 ---
-title: "HTMLFormControlsCollection: Methode namedItem()"
+title: "HTMLFormControlsCollection: namedItem() Methode"
 short-title: namedItem()
 slug: Web/API/HTMLFormControlsCollection/namedItem
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormControlsCollection.namedItem()`**-Methode gibt die {{domxref("RadioNodeList")}} oder das {{domxref("Element")}} in der Sammlung zurück, dessen `name` oder `id` mit dem angegebenen Namen übereinstimmen, oder `null`, wenn kein Knoten übereinstimmt.
+Die **`HTMLFormControlsCollection.namedItem()`** Methode gibt die [`RadioNodeList`](/de/docs/Web/API/RadioNodeList) oder das [`Element`](/de/docs/Web/API/Element) in der Sammlung zurück, dessen `name` oder `id` mit dem angegebenen Namen übereinstimmt, oder `null`, wenn kein Knoten übereinstimmt.
 
-Beachten Sie, dass diese Version von `namedItem()` die von {{domxref("HTMLCollection")}} geerbte Methode verbirgt. Wie diese, ist in JavaScript die Verwendung der Array-Klammer-Syntax mit einem {{jsxref("String")}}, wie `collection["value"]`, gleichwertig mit `collection.namedItem("value")`.
+Beachten Sie, dass diese Version von `namedItem()` die von [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) geerbte Version verdeckt. Wie jene können Sie in JavaScript die Array-Klammer-Syntax mit einem {{jsxref("String")}}, z.B. `collection["value"]`, verwenden, was äquivalent zu `collection.namedItem("value")` ist.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ namedItem(name)
 ### Parameter
 
 - `name`
-  - : Ein String, der verwendet wird, um mit den `name`- oder `id`-Attributen der Steuerungselemente in diesem `HTMLFormControlsCollection`-Objekt übereinzustimmen.
+  - : Ein String, der verwendet wird, um mit den `name`- oder `id`-Attributen der Steuerelemente in diesem `HTMLFormControlsCollection`-Objekt übereinzustimmen.
 
 ### Rückgabewert
 
-- Eine {{domxref("RadioNodeList")}}, ein {{domxref("Element")}}, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
+- Eine [`RadioNodeList`](/de/docs/Web/API/RadioNodeList), ein [`Element`](/de/docs/Web/API/Element) oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
 
 ## Beispiele
 
@@ -36,10 +36,10 @@ namedItem(name)
 
 ```html
 <form>
-  <label for="notes">Notizen:</label>
+  <label for="notes">Notes:</label>
   <input id="notes" name="my-form-control" type="text" />
 
-  <label for="start">Startdatum:</label>
+  <label for="start">Start date:</label>
   <input id="start" name="my-form-control" type="date" />
 </form>
 
@@ -62,7 +62,7 @@ const output = document.querySelector("#output");
 const itemIDs = Array.from(items)
   .map((item) => `"${item.id}"`)
   .join(", ");
-output.textContent = `Meine Elemente: ${itemIDs}`;
+output.textContent = `My items: ${itemIDs}`;
 ```
 
 #### Ergebnis
@@ -73,10 +73,10 @@ output.textContent = `Meine Elemente: ${itemIDs}`;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLCollection.namedItem")}}, die sie ersetzt
+- [`HTMLCollection.namedItem`](/de/docs/Web/API/HTMLCollection/namedItem), das es ersetzt

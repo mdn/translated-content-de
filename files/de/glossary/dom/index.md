@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **DOM** (Document Object Model) ist eine {{glossary("API")}}, die mit jedem auf {{glossary("HTML")}} oder {{glossary("XML")}} basierenden Markup-Dokument interagiert und es darstellt. Der DOM ist ein Dokumentmodell, das im {{glossary("browser")}} geladen wird und das Dokument als ein {{Glossary("Node/DOM","node")}}-Baum oder **DOM-Baum** darstellt, wobei jeder Knoten einen Teil des Dokuments repräsentiert (z.B. ein {{Glossary("element")}}, ein Textstring oder ein Kommentar).
+Das **DOM** (Document Object Model) ist eine [API](/de/docs/Glossary/API), die alle auf [HTML](/de/docs/Glossary/HTML) oder [XML](/de/docs/Glossary/XML) basierenden Markup-Sprachen repräsentiert und mit ihnen interagiert. Das DOM ist ein Dokumentenmodell, das im [Browser](/de/docs/Glossary/browser) geladen wird und das Dokument als einen [Node](/de/docs/Glossary/Node/DOM)-Baum, oder **DOM-Baum**, darstellt, wobei jeder Knoten einen Teil des Dokuments repräsentiert (z.B. ein [Element](/de/docs/Glossary/element), eine Textzeichenkette oder ein Kommentar).
 
-Der DOM ist eine der meistgenutzten {{Glossary("API")}}s im {{glossary("World Wide Web","Web")}}, da er Code, der in einem Browser läuft, ermöglicht, auf jeden Knoten im Dokument zuzugreifen und mit ihm zu interagieren. Knoten können erstellt, verschoben und verändert werden. Ereignis-Listener können Knoten hinzugefügt und bei Auftreten eines bestimmten Ereignisses ausgelöst werden.
+Das DOM gehört zu den am häufigsten genutzten [API](/de/docs/Glossary/API)s im [Web](/de/docs/Glossary/World_Wide_Web), weil es erlaubt, dass Code, der im Browser läuft, auf jeden Knoten im Dokument zugreift und mit ihm interagiert. Knoten können erstellt, verschoben und geändert werden. Ereignis-Listener können Knoten hinzugefügt und bei Auftreten eines bestimmten Ereignisses ausgelöst werden.
 
 ## Siehe auch
 
 - [Die DOM-Dokumentation auf MDN](/de/docs/Web/API/Document_Object_Model)
-- [Der DOM-Standard](https://dom.spec.whatwg.org/)
+- [Der DOM Standard](https://dom.spec.whatwg.org/)
 - [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model) auf Wikipedia

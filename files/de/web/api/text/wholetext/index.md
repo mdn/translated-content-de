@@ -8,14 +8,10 @@ l10n:
 
 {{ apiref("DOM") }}
 
-Die schreibgeschützte **`wholeText`**-Eigenschaft der {{domxref("Text")}}-Schnittstelle
-gibt den vollständigen Text aller {{domxref("Text")}}-Knoten zurück, die logisch an den Knoten angrenzen.
-Der Text wird in Dokumentreihenfolge verkettet.
-Dies ermöglicht es, einen beliebigen Textknoten anzugeben und alle angrenzenden Texte als einzelnen String zu erhalten.
+Die schreibgeschützte **`wholeText`**-Eigenschaft der [`Text`](/de/docs/Web/API/Text)-Schnittstelle gibt den vollständigen Text aller logisch angrenzenden [`Text`](/de/docs/Web/API/Text)-Knoten des Knotens zurück. Der Text wird in Dokumentreihenfolge verkettet. Dies ermöglicht es, einen beliebigen Textknoten anzugeben und den gesamten angrenzenden Text als einen einzigen String zu erhalten.
 
 > [!NOTE]
-> Dies ist ähnlich wie ein Aufruf von {{domxref("Node.normalize()")}} gefolgt von einem Lesen des Textwertes,
-> jedoch ohne den Baum zu verändern.
+> Dies ist ähnlich wie ein Aufruf von [`Node.normalize()`](/de/docs/Web/API/Node/normalize), gefolgt vom Lesen des Textwertes, jedoch ohne den Baum zu verändern.
 
 ## Wert
 
@@ -27,29 +23,29 @@ Angenommen, Sie haben den folgenden einfachen Absatz auf Ihrer Webseite:
 
 ```html
 <p>
-  Durch-wandern ist großartig!
-  <strong>Keine fade Wahlberichterstattung!</strong> Jedoch,
-  <a href="https://en.wikipedia.org/wiki/Absentee_ballot">ist das Wählen</a>
-  schwierig.
+  Through-hiking is great!
+  <strong>No insipid election coverage!</strong> However,
+  <a href="https://en.wikipedia.org/wiki/Absentee_ballot">casting a ballot</a>
+  is tricky.
 </p>
 ```
 
 Sie entscheiden, dass Ihnen der mittlere Satz nicht gefällt, also entfernen Sie ihn:
 
 ```js
-const paragraph = document.querySelector("p"); // Liest den Absatz
-paragraph.removeChild(paragraph.childNodes[1]); // Löscht das strong-Element
+const paragraph = document.querySelector("p"); // Reads the paragraph
+paragraph.removeChild(paragraph.childNodes[1]); // Delete the strong element
 ```
 
-Jetzt haben Sie _"Durch-wandern ist großartig! Jedoch, ist das Wählen schwierig."_, mit zwei Knoten vor dem Hyperlink:
+Nun haben Sie _"Through-hiking is great! However, casting a ballot is tricky."_, mit zwei Knoten vor dem Hyperlink:
 
-1. Ein {{domxref("Text")}}-Knoten, der den String `"Durch-wandern ist großartig!"` enthält
-2. Ein zweiter `Text`-Knoten, der den String `" Jedoch, "` enthält
+1. Ein [`Text`](/de/docs/Web/API/Text), der den String `"Through-hiking is great!"` enthält.
+2. Ein zweiter `Text`-Knoten, der den String `" However, "` enthält.
 
-Um diese beiden Knoten auf einmal zu erhalten, würden Sie `paragraph.childNodes[0].wholeText` aufrufen:
+Um diese zwei Knoten auf einmal zu erhalten, würden Sie `paragraph.childNodes[0].wholeText` aufrufen:
 
 ```js
-console.log(`'${paragraph.childNodes[0].wholeText}'`); // 'Durch-wandern ist großartig!   Jedoch, '
+console.log(`'${paragraph.childNodes[0].wholeText}'`); // 'Through-hiking is great!   However, '
 ```
 
 ## Spezifikationen
@@ -62,4 +58,4 @@ console.log(`'${paragraph.childNodes[0].wholeText}'`); // 'Durch-wandern ist gro
 
 ## Siehe auch
 
-- Die {{domxref("Text")}}-Schnittstelle, zu der es gehört.
+- Die [`Text`](/de/docs/Web/API/Text)-Schnittstelle, zu der sie gehört.

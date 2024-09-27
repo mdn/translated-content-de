@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Die schreibgeschützte Eigenschaft **`y`** der **`DOMRectReadOnly`**-Schnittstelle repräsentiert die y-Koordinate des Ursprungs des `DOMRect`.
+Die **`y`** schreibgeschützte Eigenschaft der **`DOMRectReadOnly`**-Schnittstelle repräsentiert die y-Koordinate des Ursprungs des `DOMRect`.
 
 ## Wert
 
@@ -24,4 +24,4 @@ Ein Double.
 
 ## Siehe auch
 
-- {{domxref("DOMRect")}}
+- [`DOMRect`](/de/docs/Web/API/DOMRect)

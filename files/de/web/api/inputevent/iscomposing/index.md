@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`InputEvent.isComposing`** gibt einen booleschen Wert zurück, der anzeigt, ob das Ereignis nach {{domxref("Element/compositionstart_event", "compositionstart")}} und vor {{domxref("Element/compositionend_event", "compositionend")}} ausgelöst wird.
+Die schreibgeschützte Eigenschaft **`InputEvent.isComposing`** gibt einen booleschen Wert zurück, der angibt, ob das Ereignis nach [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event) und vor [`compositionend`](/de/docs/Web/API/Element/compositionend_event) ausgelöst wurde.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein boolescher Wert.
 
 ```js
 const inputEvent = new InputEvent("syntheticInput", false);
-console.log(inputEvent.isComposing); // gibt false zurück
+console.log(inputEvent.isComposing); // return false
 ```
 
 ## Spezifikationen
@@ -31,5 +31,5 @@ console.log(inputEvent.isComposing); // gibt false zurück
 
 ## Siehe auch
 
-- {{domxref("Element/compositionstart_event", "compositionstart")}} und {{domxref("Element/compositionend_event", "compositionend")}}
-- {{domxref("InputEvent")}}
+- [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event) und [`compositionend`](/de/docs/Web/API/Element/compositionend_event)
+- [`InputEvent`](/de/docs/Web/API/InputEvent)

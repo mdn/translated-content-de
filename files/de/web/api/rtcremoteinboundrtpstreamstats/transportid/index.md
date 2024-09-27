@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`transportId`**-Eigenschaft des {{domxref("RTCRemoteInboundRtpStreamStats")}} Wörterbuchs ist ein String, der das zugehörige {{domxref("RTCTransportStats")}} Statistikobjekt eindeutig identifiziert, das für den zugrunde liegenden Transport dieses RTP-Streams verantwortlich ist.
+Die **`transportId`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs ist ein String, der das zugehörige [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Statistikobjekt für den zugrunde liegenden Transport dieses RTP-Streams eindeutig identifiziert.
 
-`RTCRemoteInboundRtpStreamStats` und `RTCTransportStats` Objekte werden korreliert, indem der {{domxref("RTCStatsReport")}} durchlaufen wird, um die Statistikobjekte zu finden, bei denen `RTCRemoteInboundRtpStreamStats.transportId` gleich {{domxref("RTCTransportStats.id")}} ist.
+`RTCRemoteInboundRtpStreamStats` und `RTCTransportStats`-Objekte werden durch Iterieren des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) korreliert, um die Statistikobjekte zu finden, bei denen `RTCRemoteInboundRtpStreamStats.transportId` gleich [`RTCTransportStats.id`](/de/docs/Web/API/RTCTransportStats/id) ist.
 
 ## Wert
 
-Ein String, der die {{domxref("RTCTransportStats.id","id")}} des Objekts enthält, das untersucht wurde, um das mit diesem RTP-Stream verbundene {{domxref("RTCTransportStats")}} Objekt zu erzeugen.
+Ein String, der die [`id`](/de/docs/Web/API/RTCTransportStats/id) des Objekts enthält, das untersucht wurde, um das [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Objekt zu produzieren, das mit diesem RTP-Stream verbunden ist.
 
 ## Spezifikationen
 

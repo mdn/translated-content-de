@@ -10,7 +10,7 @@ l10n:
 > [!WARNING]
 > Dies ist in Firefox nicht implementiert, da es seit Chrome 33 veraltet ist. Bitte verwenden Sie stattdessen [runtime.onMessage](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage).
 
-Wird ausgelöst, wenn eine Anforderung entweder von einem Erweiterungsprozess oder einem Inhaltsskript gesendet wird.
+Ausgelöst, wenn eine Anfrage entweder von einem Erweiterungsprozess oder einem Inhaltsskript gesendet wird.
 
 ## Syntax
 
@@ -27,26 +27,26 @@ chrome.extension.onRequest.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, auf dieses Ereignis zu lauschen. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, diesem Ereignis zuzuhören. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüfen, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden diese Argumente übergeben:
 
     - `request`
-      - : `any`. Die Anfrage, die vom aufrufenden Skript gesendet wird.
+      - : `any`. Die vom aufrufenden Skript gesendete Anfrage.
     - `sender`
       - : {{WebExtAPIRef('runtime.MessageSender')}}.
     - `sendResponse`
-      - : `function`. Funktion, die (höchstens einmal) aufgerufen wird, wenn eine Antwort vorliegt. Das Argument sollte ein beliebiges JSON-fähiges Objekt sein oder undefined, wenn keine Antwort vorhanden ist. Wenn Sie mehr als einen `onRequest`-Listener im selben Dokument haben, darf nur einer eine Antwort senden.
+      - : `function`. Funktion, die aufgerufen werden soll (höchstens einmal), wenn Sie eine Antwort haben. Das Argument sollte ein beliebiges JSON-fähiges Objekt sein oder undefined, wenn keine Antwort vorliegt. Wenn Sie mehr als einen `onRequest` Listener im selben Dokument haben, darf nur einer eine Antwort senden.
 
 ## Browser-Kompatibilität
 
@@ -55,7 +55,7 @@ Ereignisse haben drei Funktionen:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#event-onRequest)-API von Chromium. Diese Dokumentation stammt aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#event-onRequest) API von Chromium. Diese Dokumentation ist von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

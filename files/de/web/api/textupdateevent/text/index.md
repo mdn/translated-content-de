@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`TextUpdateEvent.text`**-Eigenschaft ist schreibgeschützt und enthält den Text, der innerhalb des aktualisierten Bereichs eines {{domxref("EditContext")}} `textupdate`-Ereignisses eingefügt wurde.
+Die schreibgeschützte Eigenschaft **`TextUpdateEvent.text`** enthält den Text, der innerhalb des aktualisierten Bereichs eines `textupdate`-Ereignisses eines [`EditContext`](/de/docs/Web/API/EditContext) eingefügt wurde.
 
 ## Wert
 
-Ein {{jsxref("String")}}, der den Text enthält, der den Text zwischen den Indizes {{domxref("TextUpdateEvent/updateRangeStart", "updateRangeStart")}} und {{domxref("TextUpdateEvent/updateRangeEnd", "updateRangeEnd")}} ersetzt.
+Ein {{jsxref("String")}}, der den Text enthält, der den Text zwischen den Indizes [`updateRangeStart`](/de/docs/Web/API/TextUpdateEvent/updateRangeStart) und [`updateRangeEnd`](/de/docs/Web/API/TextUpdateEvent/updateRangeEnd) ersetzt.
 
 ## Beispiele
 
-### Verwendung von `textupdate`, um den eingefügten Text und dessen Position anzuzeigen
+### Verwendung von `textupdate`, um den eingefügten Text und die Position anzuzeigen
 
 ```html
 <div id="editor"></div>

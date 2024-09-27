@@ -1,5 +1,5 @@
 ---
-title: Verwenden Sie JavaScript innerhalb einer Webseite
+title: JavaScript innerhalb einer Webseite verwenden
 slug: Learn/HTML/Howto/Use_JavaScript_within_a_webpage
 l10n:
   sourceCommit: 76c1e86a6bf1fd58aa6b0e627842a3c1161add28
@@ -14,16 +14,18 @@ Bringen Sie Ihre Webseiten auf die nächste Stufe, indem Sie JavaScript nutzen. 
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Sie sollten wissen, wie man
+        Sie sollten mit der Erstellung eines
         <a href="/de/docs/Learn/Getting_started_with_the_web"
-          >ein einfaches HTML-Dokument erstellt</a
-        >.
+          >einfachen HTML-Dokuments</a
+        >
+        vertraut sein.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen Sie, wie Sie JavaScript in Ihrer HTML-Datei auslösen, und erfahren Sie die wichtigsten Best Practices, um JavaScript zugänglich zu halten.
+        Erlernen Sie, wie Sie JavaScript in Ihrer HTML-Datei auslösen und die
+        wichtigsten Best Practices, um JavaScript zugänglich zu halten.
       </td>
     </tr>
   </tbody>
@@ -31,18 +33,18 @@ Bringen Sie Ihre Webseiten auf die nächste Stufe, indem Sie JavaScript nutzen. 
 
 ## Über JavaScript
 
-{{Glossary("JavaScript")}} ist eine Programmiersprache, die meist clientseitig eingesetzt wird, um Webseiten interaktiv zu gestalten. Sie _können_ beeindruckende Webseiten ohne JavaScript erstellen, aber JavaScript eröffnet eine ganz neue Ebene von Möglichkeiten.
+[JavaScript](/de/docs/Glossary/JavaScript) ist eine Programmiersprache, die hauptsächlich clientseitig verwendet wird, um Webseiten interaktiv zu gestalten. Sie _können_ großartige Webseiten ohne JavaScript erstellen, aber JavaScript eröffnet eine ganz neue Ebene von Möglichkeiten.
 
 > [!NOTE]
-> In diesem Artikel behandeln wir den HTML-Code, den Sie benötigen, um JavaScript wirksam zu machen. Wenn Sie JavaScript selbst lernen möchten, können Sie mit unserem Artikel [JavaScript-Grundlagen](/de/docs/Learn/Getting_started_with_the_web/JavaScript_basics) beginnen. Wenn Sie bereits etwas über JavaScript wissen oder über Erfahrungen mit anderen Programmiersprachen verfügen, empfehlen wir Ihnen, direkt in unseren [JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide) einzusteigen.
+> In diesem Artikel gehen wir den HTML-Code durch, den Sie benötigen, damit JavaScript wirksam wird. Wenn Sie JavaScript selbst lernen möchten, können Sie mit unserem Artikel [JavaScript-Grundlagen](/de/docs/Learn/Getting_started_with_the_web/JavaScript_basics) beginnen. Wenn Sie bereits etwas über JavaScript wissen oder Erfahrung mit anderen Programmiersprachen haben, empfehlen wir Ihnen, direkt in unseren [JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide) einzusteigen.
 
-## Wie man JavaScript aus HTML auslöst
+## Anleitung zum Auslösen von JavaScript aus HTML
 
-Innerhalb eines Browsers tut JavaScript von selbst nichts. Sie führen JavaScript von Ihren HTML-Webseiten aus aus. Um JavaScript-Code aus HTML heraus aufzurufen, benötigen Sie das {{htmlelement("script")}}-Element. Es gibt zwei Möglichkeiten, `script` zu verwenden, je nachdem, ob Sie auf ein externes Skript verlinken oder ein Skript direkt in Ihre Webseite einbetten.
+Innerhalb eines Browsers tut JavaScript von selbst nichts. Sie führen JavaScript von innerhalb Ihrer HTML-Webseiten aus. Um JavaScript-Code aus HTML auszuführen, benötigen Sie das {{htmlelement("script")}}-Element. Es gibt zwei Möglichkeiten, `script` zu verwenden, je nachdem, ob Sie auf ein externes Skript verlinken oder ein Skript direkt in Ihre Webseite einbetten.
 
-### Ein externes Skript verlinken
+### Verlinken eines externen Skripts
 
-Normalerweise schreiben Sie Skripte in eigenen .js-Dateien. Wenn Sie ein .js-Skript von Ihrer Webseite ausführen möchten, verwenden Sie einfach {{HTMLElement ('script')}} mit einem `src`-Attribut, das auf die Skriptdatei verweist, indem Sie deren [URL](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL) nutzen:
+In der Regel schreiben Sie Skripte in eigenen .js-Dateien. Wenn Sie ein .js-Skript von Ihrer Webseite ausführen möchten, verwenden Sie einfach {{HTMLElement ('script')}} mit einem `src`-Attribut, das auf die Skriptdatei verweist, indem Sie ihre [URL](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL) verwenden:
 
 ```html
 <script src="path/to/my/script.js"></script>
@@ -50,7 +52,7 @@ Normalerweise schreiben Sie Skripte in eigenen .js-Dateien. Wenn Sie ein .js-Skr
 
 ### JavaScript innerhalb von HTML schreiben
 
-Sie können auch JavaScript-Code zwischen `<script>`-Tags hinzufügen, anstatt ein `src`-Attribut anzugeben.
+Sie können auch JavaScript-Code zwischen `<script>`-Tags hinzufügen, anstatt ein `src`-Attribut bereitzustellen.
 
 ```html
 <script>
@@ -60,36 +62,36 @@ Sie können auch JavaScript-Code zwischen `<script>`-Tags hinzufügen, anstatt e
 </script>
 ```
 
-Das ist praktisch, wenn Sie nur eine kleine Menge JavaScript benötigen, aber wenn Sie JavaScript in separaten Dateien halten, werden Sie feststellen, dass es einfacher ist,
+Das ist praktisch, wenn Sie nur eine kleine Menge JavaScript benötigen, aber wenn Sie JavaScript in separaten Dateien aufbewahren, wird es Ihnen leichter fallen,
 
-- sich auf Ihre Arbeit zu konzentrieren,
-- eigenständiges HTML zu schreiben,
-- strukturierte JavaScript-Anwendungen zu erstellen.
+- sich auf Ihre Arbeit zu konzentrieren
+- eigenständiges HTML zu schreiben
+- strukturierte JavaScript-Anwendungen zu schreiben
 
-## Skripting zugänglich verwenden
+## Scripting zugänglich verwenden
 
-Barrierefreiheit ist ein wichtiges Thema in jeder Softwareentwicklung. JavaScript kann Ihre Website zugänglicher machen, wenn Sie es klug einsetzen, oder es kann zu einer Katastrophe werden, wenn Sie Skripting ohne Sorgfalt einsetzen. Damit JavaScript zu Ihrem Vorteil wirkt, lohnt es sich, einige bewährte Verfahren für die Hinzufügung von JavaScript zu kennen:
+Barrierefreiheit ist ein großes Problem in jeder Softwareentwicklung. JavaScript kann Ihre Website zugänglicher machen, wenn Sie es klug einsetzen, oder es kann zu einem Desaster werden, wenn Sie Skripte ohne Sorgfalt verwenden. Damit JavaScript zu Ihrem Vorteil arbeitet, lohnt es sich, bestimmte Best Practices für die Hinzufügung von JavaScript zu kennen:
 
-- **Machen Sie alle Inhalte als (strukturierten) Text verfügbar.** Verlassen Sie sich so weit wie möglich auf HTML für Ihre Inhalte. Wenn Sie zum Beispiel eine schöne JavaScript-Fortschrittsanzeige implementiert haben, stellen Sie sicher, dass Sie sie mit passenden Textprozenten im HTML ergänzen. Ebenso sollten Ihre Dropdown-Menüs als [ungeordnete Listen](/de/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals#lists) von [Links](/de/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks) strukturiert sein.
-- **Machen Sie alle Funktionen über die Tastatur zugänglich.**
+- **Machen Sie alle Inhalte als (strukturierter) Text verfügbar.** Verlassen Sie sich so weit wie möglich auf HTML für Ihre Inhalte. Wenn Sie beispielsweise eine schöne JavaScript-Fortschrittsanzeige implementiert haben, stellen Sie sicher, dass Sie sie mit passenden Textprozentangaben im HTML ergänzen. Ebenso sollten Ihre Dropdown-Menüs als [ungeordnete Listen](/de/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals#lists) von [Links](/de/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks) strukturiert sein.
+- **Machen Sie alle Funktionalitäten über die Tastatur zugänglich.**
 
-  - Ermöglichen Sie es Nutzern, mit der Tabulatortaste durch alle Steuerungen (z. B. Links und Formulareingaben) in einer logischen Reihenfolge zu navigieren.
-  - Wenn Sie Zeigegeräte-Ereignisse (wie Mausereignisse oder Berührungsereignisse) verwenden, duplizieren Sie die Funktionalität mit Tastaturereignissen.
-  - Testen Sie Ihre Website nur mit Tastatureingaben.
+  - Lassen Sie Benutzer durch alle Bedienelemente (z. B. Links und Formulareingaben) in logischer Reihenfolge mit der Tabulatortaste navigieren.
+  - Wenn Sie Zeigereignisse (wie Mausevents oder Touch-Events) verwenden, duplizieren Sie die Funktionalität mit Tastaturevents.
+  - Testen Sie Ihre Website nur mit einer Tastatur.
 
-- **Setzen Sie keine Zeitlimits und raten Sie sie nicht einmal.** Es braucht zusätzliche Zeit, um mit der Tastatur zu navigieren oder vorgelesene Inhalte zu hören. Sie können kaum vorhersagen, wie lange es dauert, bis Benutzer oder Browser einen Prozess abschließen (insbesondere asynchrone Aktionen wie das Laden von Ressourcen).
-- **Halten Sie Animationen dezent und kurz ohne Flackern.** Flackern ist lästig und kann [Anfälle auslösen](https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html). Wenn eine Animation länger als ein paar Sekunden dauert, geben Sie dem Benutzer die Möglichkeit, sie abzubrechen.
-- **Lassen Sie die Benutzer Interaktionen initiieren.** Das bedeutet, aktualisieren Sie Inhalte nicht automatisch, leiten Sie nicht weiter und aktualisieren Sie nicht ohne Vorwarnung. Vermeiden Sie Karussells oder Popups ohne Warnung.
-- **Haben Sie einen Plan B für Benutzer ohne JavaScript.** Personen können JavaScript ausgeschaltet haben, um Geschwindigkeit und Sicherheit zu verbessern. Oftmals treten Netzwerkprobleme auf, die das Laden von Skripten verhindern. Darüber hinaus können Drittanbieter-Skripte (Werbung, Tracking-Skripte, Browser-Erweiterungen) Ihre Skripte stören.
+- **Setzen Sie keine Zeitlimits und raten Sie auch keine.** Es dauert länger, mit der Tastatur zu navigieren oder Inhalte vorgelesen zu bekommen. Sie können kaum vorhersagen, wie lange es für Benutzer oder Browser dauert, einen Prozess abzuschließen (insbesondere asynchrone Aktionen wie das Laden von Ressourcen).
+- **Halten Sie Animationen dezent und kurz ohne Blinken.** Blinken ist störend und kann [Krämpfe auslösen](https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html). Wenn eine Animation mehr als ein paar Sekunden dauert, geben Sie dem Benutzer die Möglichkeit, sie abzubrechen.
+- **Lassen Sie Benutzer Interaktionen einleiten.** Das bedeutet, aktualisieren, leiten Sie nicht automatisch weiter oder aktualisieren Sie die Seite nicht automatisch. Verwenden Sie keine Karussells oder Popups ohne Vorwarnung.
+- **Haben Sie einen Plan B für Benutzer ohne JavaScript.** Menschen können JavaScript deaktiviert haben, um Geschwindigkeit und Sicherheit zu verbessern, und Benutzer haben oft Netzwerkprobleme, die das Laden von Skripten verhindern. Darüber hinaus können Drittanbieter-Skripte (Werbung, Tracking-Skripte, Browser-Erweiterungen) Ihre Skripte beeinträchtigen.
 
-  - Mindestens hinterlassen Sie eine kurze Nachricht mit {{HTMLElement("noscript")}} wie: `<noscript>Um diese Seite zu nutzen, aktivieren Sie bitte JavaScript.</noscript>`
-  - Ideal wäre es, die JavaScript-Funktionalität mit HTML und serverseitigem Skripting zu replizieren, wann immer möglich.
-  - Wenn Sie nur einfache visuelle Effekte suchen, kann CSS oft noch intuitiver zum Einsatz kommen.
+  - Mindestens hinterlassen Sie eine kurze Nachricht mit {{HTMLElement("noscript")}} wie diese: `<noscript>Um diese Seite zu nutzen, aktivieren Sie bitte JavaScript.</noscript>`
+  - Idealerweise replizieren Sie die JavaScript-Funktionalität mit HTML und serverseitigem Scripting, wann immer möglich.
+  - Wenn Sie nur nach einfachen visuellen Effekten suchen, kann CSS oft die Aufgabe sogar intuitiver erledigen.
   - _Da fast jeder **JavaScript** aktiviert hat, ist `<noscript>` keine Entschuldigung für das Schreiben unzugänglicher Skripte._
 
 ## Mehr erfahren
 
 - {{htmlelement("script")}}
 - {{htmlelement("noscript")}}
-- [James Edwards' Einführung in die Verwendung von JavaScript zugänglich](https://www.sitepoint.com/javascript-accessibility-101/)
-- [Richtlinien zur Barrierefreiheit von der W3C](https://www.w3.org/TR/WCAG20/)
+- [James Edwards' Einführung in die zugängliche Verwendung von JavaScript](https://www.sitepoint.com/javascript-accessibility-101/)
+- [Barrierefreiheitsrichtlinien vom W3C](https://www.w3.org/TR/WCAG20/)

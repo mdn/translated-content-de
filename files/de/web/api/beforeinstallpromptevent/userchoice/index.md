@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}{{Non-standard_header}}
 
-Die **`userChoice`** Eigenschaft des {{domxref("BeforeInstallPromptEvent")}}-Interfaces repräsentiert die Installationswahl, die der Benutzer getroffen hat, als er aufgefordert wurde, die App zu installieren.
+Die **`userChoice`**-Eigenschaft der Schnittstelle [`BeforeInstallPromptEvent`](/de/docs/Web/API/BeforeInstallPromptEvent) repräsentiert die Installationsentscheidung, die der Benutzer getroffen hat, als er aufgefordert wurde, die App zu installieren.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}, das zu einem Objekt mit zwei Eigenschaften führt:
+Ein {{jsxref("Promise")}}, das zu einem Objekt auflöst, das zwei Eigenschaften enthält:
 
 - `outcome` {{experimental_inline}} {{non-standard_inline}}
 
@@ -21,7 +21,7 @@ Ein {{jsxref("Promise")}}, das zu einem Objekt mit zwei Eigenschaften führt:
     - `"dismissed"`: Der Benutzer hat die App nicht installiert.
 
 - `platform` {{experimental_inline}} {{non-standard_inline}}
-  - : Wenn der Benutzer sich entschieden hat, die App zu installieren, ist dies ein String, der die gewählte Plattform benennt. Dieser Wert kommt aus der {{domxref("BeforeInstallPromptEvent.platforms")}}-Eigenschaft. Wenn der Benutzer sich entschieden hat, die App nicht zu installieren, ist dies ein leerer String.
+  - : Wenn der Benutzer sich entschieden hat, die App zu installieren, ist dies ein String, der die ausgewählte Plattform benennt. Dieser Wert ist einer der Werte aus der Eigenschaft [`BeforeInstallPromptEvent.platforms`](/de/docs/Web/API/BeforeInstallPromptEvent/platforms). Wenn der Benutzer sich entschieden hat, die App nicht zu installieren, ist dies ein leerer String.
 
 ## Browser-Kompatibilität
 
@@ -29,5 +29,5 @@ Ein {{jsxref("Promise")}}, das zu einem Objekt mit zwei Eigenschaften führt:
 
 ## Siehe auch
 
-- [Making PWAs installierbar](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
-- [Wie Sie Ihre eigene In-App-Installations-Erfahrung bereitstellen können](https://web.dev/articles/customize-install) auf web.dev (2021)
+- [PWAs installierbar machen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
+- [Wie Sie Ihre eigene In-App-Installations-Erfahrung bereitstellen](https://web.dev/articles/customize-install) auf web.dev (2021)

@@ -1,5 +1,5 @@
 ---
-title: "<s>: Das Durchstreich-Element"
+title: "<s>: Das Strikethrough-Element"
 slug: Web/HTML/Element/s
 l10n:
   sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
@@ -7,17 +7,17 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<s>`** [HTML](/de/docs/Web/HTML)-Element zeigt Text mit einem Durchstrich oder einer Linie durch den Text an. Verwenden Sie das `<s>`-Element, um Dinge darzustellen, die nicht mehr relevant oder nicht mehr korrekt sind. Verwenden Sie `<s>` jedoch nicht, um Dokumentenänderungen anzuzeigen; dafür verwenden Sie die Elemente {{HTMLElement("del")}} und {{HTMLElement("ins")}}, je nach Bedarf.
+Das **`<s>`** [HTML](/de/docs/Web/HTML)-Element Darstellung von Text mit einem Strikethrough, oder einer Linie durch den Text. Verwenden Sie das `<s>`-Element, um Dinge darzustellen, die nicht mehr relevant oder nicht mehr zutreffend sind. `<s>` ist jedoch nicht geeignet, um Dokumentänderungen anzuzeigen; hierfür verwenden Sie die {{HTMLElement("del")}} und {{HTMLElement("ins")}} Elemente, je nach Bedarf.
 
 {{EmbedInteractiveExample("pages/tabbed/s.html", "tabbed-shorter")}}
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Barrierefreiheit
 
-Das Vorhandensein des `s`-Elements wird von den meisten Screenreader-Technologien in ihrer Standardkonfiguration nicht angekündigt. Es kann mithilfe der CSS-Eigenschaft {{cssxref("content")}} zusammen mit den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}} zur Ankündigung gebracht werden.
+Das Vorhandensein des `s` Elements wird von den meisten Bildschirmlesetechnologien in der Standardeinstellung nicht angesagt. Es kann angesagt werden, indem man die CSS {{cssxref("content")}} Eigenschaft zusammen mit den {{cssxref("::before")}} und {{cssxref("::after")}} Pseudoelementen verwendet.
 
 ```css
 s::before,
@@ -40,10 +40,10 @@ s::after {
 }
 ```
 
-Einige Personen, die Screenreader verwenden, deaktivieren bewusst das Ankündigen von Inhalten, die zusätzliche Wortfülle erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu übertreiben und sie nur in Situationen anzuwenden, in denen Unkenntnis über den durchgestrichenen Inhalt das Verständnis erheblich beeinträchtigen würde.
+Einige Personen, die Bildschirmlesegeräte verwenden, deaktivieren bewusst das Ansagen von Inhalten, die zusätzliche Ausführlichkeit erzeugen. Deshalb ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Fehlen der Information, dass ein Inhalt durchgestrichen wurde, das Verständnis negativ beeinflussen würde.
 
-- [Kurzer Hinweis zur Zugänglichkeit Ihres Zeichens | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
-- [Anpassung von Textstilebenen | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
+- [Kurze Notiz, um Ihr Zeichen (zugänglicher) zu machen | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
+- [Anpassen von Textlevelstilen | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
 
 ## Beispiele
 
@@ -74,7 +74,7 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst das Ankündige
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phraseninhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
           >Flussinhalt</a
@@ -85,7 +85,7 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst das Ankündige
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phraseninhalt</a
         >.
       </td>
     </tr>
@@ -98,12 +98,12 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst das Ankündige
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phraseninhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles#structural_roles_with_html_equivalents">deletion</a
@@ -113,11 +113,11 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst das Ankündige
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLElement")}}</td>
+      <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
 </table>
@@ -132,6 +132,6 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst das Ankündige
 
 ## Siehe auch
 
-- Das {{HTMLElement("strike")}}-Element, das Alter Ego des `<s>`-Elements, ist veraltet und sollte auf Webseiten nicht mehr verwendet werden.
-- Das {{HTMLElement("del")}}-Element sollte stattdessen verwendet werden, wenn Daten _gelöscht_ wurden.
-- Die CSS-Eigenschaft {{cssxref("text-decoration-line")}} sollte verwendet werden, um den früheren visuellen Aspekt des `<s>`-Elements zu erreichen.
+- Das {{HTMLElement("strike")}} Element, das Alter Ego des `<s>` Elements, ist veraltet und sollte nicht mehr auf Websites verwendet werden.
+- Das {{HTMLElement("del")}} Element sollte verwendet werden, wenn die Daten _gelöscht_ wurden.
+- Die CSS {{cssxref("text-decoration-line")}} Eigenschaft sollte verwendet werden, um den früheren visuellen Aspekt des `<s>` Elements zu erreichen.

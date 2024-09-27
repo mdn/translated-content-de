@@ -1,5 +1,5 @@
 ---
-title: "TextTrackCue: exit-Ereignis"
+title: "TextTrackCue: exit Event"
 short-title: exit
 slug: Web/API/TextTrackCue/exit_event
 l10n:
@@ -12,7 +12,7 @@ Das **`exit`**-Ereignis wird ausgelöst, wenn eine Cue nicht mehr aktiv ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
 
 ```js
 addEventListener("exit", (event) => {});
@@ -22,11 +22,11 @@ onexit = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{DOMxRef("Event")}} ohne zusätzliche Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beispiel
 
-Im folgenden Beispiel gibt `cue1` eine Ausgabe in der Konsole aus, wenn es nicht mehr als aktives Cue angezeigt wird.
+Im folgenden Beispiel wird `cue1` in der Konsole ausgegeben, wenn es nicht mehr als aktive Cue angezeigt wird.
 
 ```js
 cue1.addEventListener("enter", (event) => {
@@ -38,6 +38,6 @@ cue1.addEventListener("enter", (event) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

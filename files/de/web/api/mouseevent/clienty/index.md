@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`clientY`**-Eigenschaft der {{domxref("MouseEvent")}}-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die vertikale Koordinate innerhalb des {{glossary("Viewports")}} der Anwendung bereitstellt, an der das Ereignis aufgetreten ist (im Gegensatz zur Koordinate innerhalb der Seite).
+Die schreibgeschützte Eigenschaft **`clientY`** des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die vertikale Koordinate innerhalb des [Viewports](/de/docs/Glossary/viewport) der Anwendung, an der das Ereignis auftrat (im Gegensatz zur Koordinate auf der Seite).
 
-Ein Beispiel: Ein Klick auf den oberen Rand des Viewports führt immer zu einem Mausereignis mit einem `clientY`-Wert von `0`, unabhängig davon, ob die Seite vertikal gescrollt ist.
+Wenn Sie beispielsweise auf den oberen Rand des Viewports klicken, wird immer ein Mausereignis mit einem `clientY`-Wert von `0` generiert, unabhängig davon, ob die Seite vertikal gescrollt wird.
 
 ## Wert
 
-Ein `double`-Fließkommawert in Pixeln.
+Ein `double` Gleitkommawert in Pixeln.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Koordinaten Ihrer Maus, wann immer Sie das {{domxref("Element/mousemove_event", "mousemove")}}-Ereignis auslösen.
+Dieses Beispiel zeigt die Koordinaten Ihrer Maus an, wann immer Sie das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis auslösen.
 
 ### HTML
 
 ```html
-<p>Bewegen Sie Ihre Maus, um ihre Position zu sehen.</p>
+<p>Move your mouse to see its position.</p>
 <p id="screen-log"></p>
 ```
 
@@ -54,7 +54,7 @@ function logKey(e) {
 
 ## Siehe auch
 
-- {{ domxref("MouseEvent") }}
-- {{domxref("MouseEvent.clientX","clientX")}}
-- {{domxref("MouseEvent.screenX","screenX")}} / {{domxref("MouseEvent.screenY","screenY")}}
+- [`MouseEvent`](/de/docs/Web/API/MouseEvent)
+- [`clientX`](/de/docs/Web/API/MouseEvent/clientX)
+- [`screenX`](/de/docs/Web/API/MouseEvent/screenX) / [`screenY`](/de/docs/Web/API/MouseEvent/screenY)
 - [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)

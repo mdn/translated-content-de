@@ -1,14 +1,15 @@
 ---
-title: "GPUDevice: Methode createShaderModule()"
+title: "GPUDevice: createShaderModule()-Methode"
 short-title: createShaderModule()
 slug: Web/API/GPUDevice/createShaderModule
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createShaderModule()`**-Methode der {{domxref("GPUDevice")}}-Schnittstelle erstellt ein {{domxref("GPUShaderModule")}} aus einem String von [WGSL](https://gpuweb.github.io/gpuweb/wgsl/)-Quellcode.
+Die **`createShaderModule()`**-Methode der
+[`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle erstellt ein [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) aus einem String von [WGSL](https://gpuweb.github.io/gpuweb/wgsl/)-Quellcode.
 
 ## Syntax
 
@@ -26,29 +27,29 @@ createShaderModule(descriptor)
       - : Ein String, der den WGSL-Quellcode für das Shader-Modul darstellt.
     - `hints` {{optional_inline}}
 
-      - : Eine Sequenz von Datensatztypen mit der Struktur `("string", compilationHint)`. Diese verhalten sich wie [geordnete Maps](/de/docs/Web/JavaScript/Reference/Global_Objects/Map). In jedem Fall ist der `"string"` ein Schlüssel, der zum Identifizieren oder Auswählen des Datensatzes verwendet wird, und `compilationHint` ist entweder eine {{domxref("GPUPipelineLayout")}}-Objektinstanz oder ein enumerierter Wert von `"auto"`.
+      - : Eine Sequenz von Record-Typen mit der Struktur `("string", compilationHint)`. Diese verhalten sich wie [geordneten Maps](/de/docs/Web/JavaScript/Reference/Global_Objects/Map). In jedem Fall ist der `"string"` ein Schlüssel zur Identifikation oder Auswahl des Records, und `compilationHint` ist entweder eine [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Objektinstanz oder ein aufgezählter Wert von `"auto"`.
 
-        Der Zweck von `hints` ist es, Informationen über das Pipeline-Layout so früh wie möglich bereitzustellen, um die Leistung zu verbessern. Die Idee ist, die Menge der Kompilierung, die einmalig durch `createShaderModule()` durchgeführt werden kann, zu maximieren, anstatt mehrfach bei mehreren Aufrufen von {{domxref("GPUDevice.createComputePipeline()")}} und {{domxref("GPUDevice.createRenderPipeline()")}}.
+        Der Zweck von `hints` ist es, Informationen über das Pipeline-Layout so früh wie möglich bereitzustellen, um die Leistung zu verbessern. Die Idee ist, die Menge an Kompilierung, die einmal durch `createShaderModule()` erfolgen kann, zu maximieren, anstatt mehrmals in mehreren Aufrufen von [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) und [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline).
 
         > [!NOTE]
-        > Verschiedene Implementierungen können `hints` auf unterschiedliche Weise behandeln, möglicherweise auch vollständig ignorieren. Das Bereitstellen von Hinweisen garantiert keine verbesserte Shaderkompilierungsleistung in allen Browsern/Systemen.
+        > Verschiedene Implementierungen können `hints` auf unterschiedliche Weise behandeln, einschließlich der Möglichkeit, sie vollständig zu ignorieren. Das Bereitstellen von Hinweisen garantiert nicht verbesserte Shader-Kompilierungsleistung in allen Browsern/Systemen.
 
     - `label` {{optional_inline}}
-      - : Ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in {{domxref("GPUError")}}-Meldungen oder Konsolenwarnungen.
+      - : Ein String, der eine Bezeichnung bereitstellt, die zur Identifikation des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
     - `sourceMap` {{optional_inline}}
 
-      - : Eine Quellenkarten-Definition zur Bereitstellung von Entwicklerwerkzeugintegration wie Debugging in der Quellsprache. WGSL-Namen (Bezeichner) in Quellenkarten sollten den Regeln entsprechen, die in [WGSL-Identifier-Vergleich](https://gpuweb.github.io/gpuweb/wgsl/#identifier-comparison) definiert sind. Wenn definiert, kann die Quellenkarte als [source-map-v3-Format](https://sourcemaps.info/spec.html) interpretiert werden.
+      - : Eine Source-Map-Definition zur Bereitstellung von Entwicklertool-Integration wie Debugging in der Quellsprache. WGSL-Namen (Bezeichner) in Source-Maps sollten den Regeln im [WGSL Identifier Comparison](https://gpuweb.github.io/gpuweb/wgsl/#identifier-comparison) folgen. Falls definiert, kann die Source-Map als [source-map-v3 format](https://sourcemaps.info/spec.html) interpretiert werden.
 
         > [!NOTE]
-        > Verschiedene Implementierungen können `sourceMap`s auf unterschiedliche Weise behandeln, möglicherweise auch vollständig ignorieren.
+        > Verschiedene Implementierungen können `sourceMap`s auf unterschiedliche Weise behandeln, einschließlich der Möglichkeit, sie vollständig zu ignorieren.
 
 ### Rückgabewert
 
-Eine Instanz des {{domxref("GPUShaderModule")}}-Objekts.
+Eine [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)-Objektinstanz.
 
 ## Beispiele
 
-In unserem [Grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) wird unser Shader-Modul mit dem folgenden Code erstellt:
+In unserem [Grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) wird unser Shader-Modul mit folgendem Code erstellt:
 
 ```js
 const shaders = `
@@ -87,7 +88,7 @@ async function init() {
   let device = await adapter.requestDevice();
 
   // ...
-  // später
+  // later on
 
   const shaderModule = device.createShaderModule({
     code: shaders,
@@ -108,4 +109,4 @@ async function init() {
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- Die [WebGPU Shading Language-Spezifikation](https://gpuweb.github.io/gpuweb/wgsl/)
+- Die [WebGPU Shading Language Spezifikation](https://gpuweb.github.io/gpuweb/wgsl/)

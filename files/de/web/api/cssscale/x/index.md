@@ -8,20 +8,21 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`x`**-Eigenschaft der {{domxref("CSSScale")}}-Schnittstelle ruft die Abszisse oder x-Achse des Translationsvektors ab und setzt sie.
+Die **`x`**-Eigenschaft der
+[`CSSScale`](/de/docs/Web/API/CSSScale)-Schnittstelle erhält und setzt die Abszisse oder x-Achse des Translationsvektors.
 
 ## Wert
 
-Ein Doppel-Integer oder ein {{domxref("CSSNumericValue")}}
+Ein doppelter Integer oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
 
 ## Beispiele
 
-Zu erledigen
+To Do
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

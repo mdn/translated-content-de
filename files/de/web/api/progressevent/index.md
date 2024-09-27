@@ -13,27 +13,27 @@ Die **`ProgressEvent`**-Schnittstelle repräsentiert Ereignisse, die den Fortsch
 
 ## Konstruktor
 
-- {{domxref("ProgressEvent.ProgressEvent", "ProgressEvent()")}}
-  - : Erstellt ein `ProgressEvent`-Ereignis mit den gegebenen Parametern.
+- [`ProgressEvent()`](/de/docs/Web/API/ProgressEvent/ProgressEvent)
+  - : Erstellt ein `ProgressEvent`-Ereignis mit den angegebenen Parametern.
 
-## Instanz Eigenschaften
+## Eigenschaften der Instanz
 
-_Erbt auch Eigenschaften von seinem übergeordneten {{domxref("Event")}}_.
+_Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
-- {{domxref("ProgressEvent.lengthComputable")}} {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das angibt, ob das Verhältnis zwischen der Größe der bereits übertragenen oder verarbeiteten Daten (`loaded`) und der Gesamtgröße der Daten (`total`) berechnet werden kann. Mit anderen Worten, es gibt an, ob der Fortschritt messbar ist oder nicht.
-- {{domxref("ProgressEvent.loaded")}} {{ReadOnlyInline}}
-  - : Ein 64-Bit-Integer ohne Vorzeichen, der die Größe in Bytes der bereits übertragenen oder verarbeiteten Daten angibt. Das Verhältnis kann berechnet werden, indem `ProgressEvent.total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Körper der HTTP-Nachricht und schließt Header und anderen Overhead aus. Beachten Sie, dass für komprimierte Anfragen unbekannter Gesamtgröße `loaded` möglicherweise die Größe der komprimierten oder dekomprimierten Daten enthält, abhängig vom Browser. Ab 2024 enthält es die Größe der komprimierten Daten in Firefox und die Größe der unkomprimierten Daten in Chrome.
-- {{domxref("ProgressEvent.total")}} {{ReadOnlyInline}}
-  - : Ein 64-Bit-Integer ohne Vorzeichen, das die Gesamtgröße in Bytes der zu übertragenden oder zu verarbeitenden Daten angibt. Beim Herunterladen einer Ressource über HTTP wird dieser Wert aus dem `Content-Length`-Antwort-Header entnommen. Es zählt nur den Körper der HTTP-Nachricht und schließt Header und anderen Overhead aus.
+- [`ProgressEvent.lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
+  - : Ein boolesches Flag, das anzeigt, ob das Verhältnis zwischen der Größe der bereits übertragenen oder verarbeiteten Daten (`loaded`) und der Gesamtgröße der Daten (`total`) berechnet werden kann. Mit anderen Worten, es sagt aus, ob der Fortschritt messbar ist oder nicht.
+- [`ProgressEvent.loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
+  - : Ein 64-Bit-Unsigned-Integer, der die Größe in Bytes der bereits übertragenen oder verarbeiteten Daten angibt. Das Verhältnis kann berechnet werden, indem `ProgressEvent.total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP wird hierbei nur der Hauptteil der HTTP-Nachricht gezählt, nicht jedoch die Header und anderer Overhead. Beachten Sie, dass bei komprimierten Anfragen mit unbekannter Gesamtgröße `loaded` die Größe der komprimierten oder dekomprimierten Daten enthalten kann, je nach Browser. Ab 2024 enthält es die Größe der komprimierten Daten in Firefox und die Größe der unkomprimierten Daten in Chrome.
+- [`ProgressEvent.total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
+  - : Ein 64-Bit-Unsigned-Integer, der die Gesamtgröße in Bytes der übertragenen oder verarbeiteten Daten angibt. Beim Herunterladen einer Ressource über HTTP wird dieser Wert aus dem `Content-Length`-Antwortheader entnommen. Es wird nur der Hauptteil der HTTP-Nachricht gezählt, nicht jedoch die Header und anderer Overhead.
 
-## Instanzmethoden
+## Methoden der Instanz
 
-_Erbt Methoden von seinem übergeordneten {{domxref("Event")}}._
+_Erbt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
-Das folgende Beispiel fügt einem neuen {{domxref("XMLHTTPRequest")}} ein `ProgressEvent` hinzu und verwendet es, um den Status der Anfrage anzuzeigen.
+Das folgende Beispiel fügt einem neuen [`XMLHTTPRequest`](/de/docs/Web/API/XMLHTTPRequest) ein `ProgressEvent` hinzu und verwendet es, um den Status der Anfrage anzuzeigen.
 
 ```js
 const progressBar = document.getElementById("p"),
@@ -61,4 +61,4 @@ client.send();
 
 ## Siehe auch
 
-- Die {{domxref("Event")}}-Basis-Schnittstelle.
+- Die [`Event`](/de/docs/Web/API/Event) Basis-Schnittstelle.

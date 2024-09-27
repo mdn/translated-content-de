@@ -7,22 +7,23 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Hello_GLSL","Learn/WebGL/By_example/Textures_from_code")}}
 
-Dieses WebGL-Beispiel zeigt, wie Shader-Programmierung und Benutzerinteraktion kombiniert werden, indem Benutzereingaben über Vertex-Attribute an den Shader gesendet werden.
+Dieses WebGL-Beispiel zeigt, wie Shader-Programmierung mit Benutzereingaben kombiniert wird, indem Benutzereingaben über Vertex-Attribute an den Shader gesendet werden.
 
-## Hallo Welt-Programm in GLSL
+## Hallo-Welt-Programm in GLSL
 
 {{EmbedLiveSample("Hello_World_program_in_GLSL",660,425)}}
 
-Wie man Eingaben an ein Shader-Programm sendet, indem man Daten im GPU-Speicher speichert.
+Anleitung, wie man Eingaben an ein Shader-Programm sendet, indem Daten im GPU-Speicher gespeichert werden.
 
 ```html hidden
 <p>
-  Erste Begegnung mit Attributen und Senden von Daten an die GPU. Klicken Sie auf die Leinwand, um die horizontale Position des Quadrats zu ändern.
+  First encounter with attributes and sending data to GPU. Click on the canvas
+  to change the horizontal position of the square.
 </p>
 ```
 
 ```html hidden
-<canvas>Ihr Browser scheint HTML-Canvas nicht zu unterstützen.</canvas>
+<canvas>Your browser does not seem to support HTML canvas.</canvas>
 ```
 
 ```css hidden
@@ -103,7 +104,7 @@ function setupWebGL(evt) {
     const linkErrLog = gl.getProgramInfoLog(program);
     cleanup();
     document.querySelector("p").textContent =
-      `Shader-Programm konnte nicht erfolgreich verbunden werden. Fehlerprotokoll: ${linkErrLog}`;
+      `Shader program did not link successfully. Error log: ${linkErrLog}`;
     return;
   }
 
@@ -160,7 +161,7 @@ function getRenderingContext() {
   if (!gl) {
     const paragraph = document.querySelector("p");
     paragraph.textContent =
-      "Fehlgeschlagen. Ihr Browser oder Gerät könnte WebGL nicht unterstützen.";
+      "Failed. Your browser or device may not support WebGL.";
     return null;
   }
   gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);

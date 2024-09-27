@@ -8,26 +8,26 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`unique`** schreibgeschützte Eigenschaft gibt einen booleschen Wert zurück, der angibt, ob der Index doppelte Schlüssel zulässt.
+Die schreibgeschützte Eigenschaft **`unique`** gibt einen booleschen Wert zurück, der angibt, ob der Index doppelte Schlüssel erlaubt.
 
-Dies wird entschieden, wenn der Index erstellt wird, indem die Methode {{domxref("IDBObjectStore.createIndex")}} verwendet wird. Diese Methode nimmt einen optionalen Parameter `unique`, der, wenn auf `true` gesetzt, bedeutet, dass der Index keine doppelten Einträge akzeptieren kann.
+Dies wird beim Erstellen des Indexes entschieden, indem die Methode [`IDBObjectStore.createIndex`](/de/docs/Web/API/IDBObjectStore/createIndex) verwendet wird. Diese Methode akzeptiert einen optionalen Parameter, `unique`, der, wenn er auf `true` gesetzt ist, bedeutet, dass der Index keine doppelten Einträge akzeptieren wird.
 
 ## Wert
 
 Ein boolescher Wert:
 
-| Wert    | Effekt                                                            |
-| ------- | ----------------------------------------------------------------- |
+| Wert    | Effekt                                                                |
+| ------- | --------------------------------------------------------------------- |
 | `true`  | Der aktuelle Index erlaubt keine doppelten Werte für einen Schlüssel. |
-| `false` | Der aktuelle Index erlaubt doppelte Schlüsselwerte.              |
+| `false` | Der aktuelle Index erlaubt doppelte Schlüsselwerte.                   |
 
 ## Beispiele
 
-Im folgenden Beispiel öffnen wir eine Transaktion und einen Objekt-Store und erhalten dann den Index `lName` aus einer einfachen Kontaktdatenbank. Wir öffnen dann einen einfachen Cursor auf dem Index mit {{domxref("IDBIndex.openCursor")}} — dies funktioniert genauso wie das Öffnen eines Cursors direkt auf einem `ObjectStore` mit {{domxref("IDBObjectStore.openCursor")}}, mit der Ausnahme, dass die zurückgegebenen Datensätze basierend auf dem Index und nicht dem Primärschlüssel sortiert sind.
+Im folgenden Beispiel öffnen wir eine Transaktion und einen Objekt-Store und erhalten dann den Index `lName` aus einer einfachen Kontaktdatenbank. Wir öffnen dann einen grundlegenden Cursor im Index, indem wir [`IDBIndex.openCursor`](/de/docs/Web/API/IDBIndex/openCursor) verwenden – dies funktioniert genauso wie das direkte Öffnen eines Cursors auf einem `ObjectStore` unter Verwendung von [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), außer dass die zurückgegebenen Datensätze basierend auf dem Index sortiert sind, nicht auf dem Primärschlüssel.
 
-Der einzigartige Status des Indexes wird in die Konsole protokolliert: Er sollte als `false` zurückgegeben werden.
+Der eindeutige Status des Indexes wird in die Konsole protokolliert: Er sollte als `false` zurückgegeben werden.
 
-Schließlich iterieren wir durch jeden Datensatz und fügen die Daten in eine HTML-Tabelle ein. Für ein vollständiges funktionierendes Beispiel siehe unser [IndexedDB-Beispiel-Repo](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbindex) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbindex/)).
+Schließlich iterieren wir durch jeden Datensatz und fügen die Daten in eine HTML-Tabelle ein. Für ein vollständiges Arbeitsbeispiel, siehe unser [IndexedDB-examples Demo-Repo](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbindex) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbindex/)).
 
 ```js
 function displayDataByIndex() {
@@ -76,10 +76,10 @@ function displayDataByIndex() {
 
 ## Siehe auch
 
-- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Transaktionen verwenden: {{domxref("IDBTransaction")}}
-- Einen Schlüsselbereich festlegen: {{domxref("IDBKeyRange")}}
-- Ihre Daten abrufen und ändern: {{domxref("IDBObjectStore")}}
-- Cursor verwenden: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

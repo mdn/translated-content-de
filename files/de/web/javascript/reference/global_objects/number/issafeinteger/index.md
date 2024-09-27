@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **statische Methode `Number.isSafeInteger()`** bestimmt, ob der bereitgestellte Wert eine Zahl ist, die eine _sichere Ganzzahl_ darstellt.
+Die statische Methode **`Number.isSafeInteger()`** bestimmt, ob der angegebene Wert eine Zahl ist, die ein _sicherer Integer_ ist.
 
 {{EmbedInteractiveExample("pages/js/number-issafeinteger.html")}}
 
@@ -20,24 +20,24 @@ Number.isSafeInteger(testValue)
 ### Parameter
 
 - `testValue`
-  - : Der Wert, der darauf getestet wird, ob er eine sichere Ganzzahl ist.
+  - : Der Wert, der darauf getestet werden soll, ein sicherer Integer zu sein.
 
 ### Rückgabewert
 
-Der boolesche Wert `true`, wenn der angegebene Wert eine Zahl ist, die eine sichere Ganzzahl darstellt. Andernfalls `false`.
+Der boolesche Wert `true`, wenn der gegebene Wert eine Zahl ist, die ein sicherer Integer ist. Andernfalls `false`.
 
 ## Beschreibung
 
-Die sicheren Ganzzahlen umfassen alle Ganzzahlen von -(2<sup>53</sup> - 1) bis 2<sup>53</sup> - 1, einschließlich (±9.007.199.254.740.991). Eine sichere Ganzzahl ist eine Ganzzahl, die:
+Die sicheren Integer bestehen aus allen ganzen Zahlen von -(2<sup>53</sup> - 1) bis 2<sup>53</sup> - 1, inklusive (±9.007.199.254.740.991). Ein sicherer Integer ist ein Integer, der:
 
-- genau als IEEE-754 Doppelpräzisionszahl dargestellt werden kann, und
-- deren IEEE-754 Darstellung nicht das Ergebnis der Rundung einer anderen Ganzzahl ist, um in die IEEE-754 Darstellung zu passen.
+- genau als eine IEEE-754 Gleitkommazahl mit doppelter Genauigkeit dargestellt werden kann, und
+- dessen IEEE-754 Darstellung nicht das Ergebnis der Rundung einer anderen Zahl ist, um die IEEE-754 Darstellung zu passen.
 
-Zum Beispiel ist 2<sup>53</sup> - 1 eine sichere Ganzzahl: Sie kann genau dargestellt werden, und keine andere Ganzzahl rundet auf sie unter irgendeinem IEEE-754 Rundungsmodus. Im Gegensatz dazu ist 2<sup>53</sup> _keine_ sichere Ganzzahl: Sie kann genau in IEEE-754 dargestellt werden, aber die Ganzzahl 2<sup>53</sup> + 1 kann nicht direkt in IEEE-754 dargestellt werden und rundet stattdessen auf 2<sup>53</sup> unter Rundung auf den nächsten Wert und Rundung zu Null.
+Zum Beispiel ist 2<sup>53</sup> - 1 ein sicherer Integer: er kann genau dargestellt werden und keine andere Zahl wird bei irgendeinem IEEE-754-Rundungsmodus auf ihn gerundet. Im Gegensatz dazu ist 2<sup>53</sup> _kein_ sicherer Integer: er kann genau in IEEE-754 dargestellt werden, aber der Integer 2<sup>53</sup> + 1 kann nicht direkt in IEEE-754 dargestellt werden, sondern wird stattdessen unter Rundung auf den nächsten Wert und Rundung zu Null auf 2<sup>53</sup> gerundet.
 
-Um Werte, die größer oder kleiner als ca. 9 Billiarden sind, mit voller Präzision zu handhaben, muss eine [Bibliothek für Arithmetik mit willkürlicher Präzision](https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic) verwendet werden. Siehe [What Every Programmer Needs to Know about Floating Point Arithmetic](https://floating-point-gui.de/) für weitere Informationen über Gleitkommazahldarstellungen.
+Das Bearbeiten von Werten, die größer oder kleiner als \~9 Billiarden sind, mit vollständiger Präzision erfordert die Verwendung einer [arithmetischen Bibliothek für beliebige Präzision](https://de.wikipedia.org/wiki/Arithmetik_mit_beliebiger_Präzision). Weitere Informationen zu Gleitkommadarstellungen von Zahlen finden Sie unter [Was jeder Programmierer über Gleitkommaarithmetik wissen muss](https://floating-point-gui.de/).
 
-Für größere Ganzzahlen sollten Sie den {{jsxref("BigInt")}} Typ verwenden.
+Für größere Integer sollten Sie den {{jsxref("BigInt")}}-Typ in Betracht ziehen.
 
 ## Beispiele
 

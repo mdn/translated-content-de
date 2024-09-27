@@ -1,5 +1,5 @@
 ---
-title: "FileReader: Eigenschaft error"
+title: "FileReader: error-Eigenschaft"
 short-title: error
 slug: Web/API/FileReader/error
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`error`** schreibgeschützte Eigenschaft des {{domxref("FileReader")}}-Interfaces gibt den Fehler zurück, der beim Lesen der Datei aufgetreten ist.
+Die schreibgeschützte **`error`**-Eigenschaft der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle gibt den Fehler zurück, der beim Lesen der Datei auftrat.
 
 ## Wert
 
-Ein {{domxref("DOMException")}}, der den relevanten Fehler enthält.
+Ein [`DOMException`](/de/docs/Web/API/DOMException), der den relevanten Fehler enthält.
 
 ## Spezifikationen
 
@@ -24,4 +24,4 @@ Ein {{domxref("DOMException")}}, der den relevanten Fehler enthält.
 
 ## Siehe auch
 
-- {{domxref("FileReader")}}
+- [`FileReader`](/de/docs/Web/API/FileReader)

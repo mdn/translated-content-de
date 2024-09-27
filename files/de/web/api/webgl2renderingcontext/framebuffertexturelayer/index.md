@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: framebufferTextureLayer()-Methode"
+title: "WebGL2RenderingContext: framebufferTextureLayer() Methode"
 short-title: framebufferTextureLayer()
 slug: Web/API/WebGL2RenderingContext/framebufferTextureLayer
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.framebufferTextureLayer()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet eine einzelne Schicht einer Textur an einen Framebuffer.
+Die **`WebGL2RenderingContext.framebufferTextureLayer()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) bindet eine einzelne Schicht einer Textur an einen `framebuffer`.
 
-Diese Methode ist ähnlich wie {{domxref("WebGLRenderingContext.framebufferTexture2D()")}}, jedoch wird nur eine bestimmte Schicht der Texturebene an den Befestigungspunkt angefügt.
+Diese Methode ähnelt [`WebGLRenderingContext.framebufferTexture2D()`](/de/docs/Web/API/WebGLRenderingContext/framebufferTexture2D), jedoch wird nur eine bestimmte einzelne Schicht des Textur-Levels an den Anhangspunkt gebunden.
 
 ## Syntax
 
@@ -22,27 +22,32 @@ framebufferTextureLayer(target, attachment, texture, level, layer)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Target) angibt. Mögliche Werte:
 
-    - `gl.FRAMEBUFFER`: Sammlung von Pufferdatenspeicher für Farb-, Alpha-, Tiefen- und Schablonenpuffer, die zum Rendern eines Bildes verwendet werden.
+    - `gl.FRAMEBUFFER`: Sammlung von Pufferdatenspeichern der Farb-, Alpha-,
+      Tiefen- und Schablonenpuffer, die zum Rendern eines Bildes verwendet werden.
     - `gl.DRAW_FRAMEBUFFER`: Entspricht `gl.FRAMEBUFFER`.
     - `gl.READ_FRAMEBUFFER`: Wird als Quelle für Leseoperationen verwendet.
 
 - `attachment`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Befestigungspunkt für die `texture` angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Anhangspunkt für die
+    `texture` angibt. Mögliche Werte:
 
-    - `gl.COLOR_ATTACHMENT{0-15}`: Befestigt die Textur an einem der Farbpuffer des Framebuffers.
-    - `gl.DEPTH_ATTACHMENT`: Befestigt die Textur an den Tiefenpuffer des Framebuffers.
-    - `gl.STENCIL_ATTACHMENT`: Befestigt die Textur an den Schablonenpuffer des Framebuffers.
+    - `gl.COLOR_ATTACHMENT{0-15}`: Hängt die Textur an einen der
+      Farb-Puffer des Framebuffers an.
+    - `gl.DEPTH_ATTACHMENT`: Hängt die Textur an den Tiefenpuffer
+      des Framebuffers an.
+    - `gl.STENCIL_ATTACHMENT`: Hängt die Textur an den Schablonenpuffer
+      des Framebuffers an.
     - `gl.DEPTH_STENCIL_ATTACHMENT`: Tiefen- und Schablonenpuffer.
 
 - `texture`
-  - : Ein {{domxref("WebGLTexture")}}-Objekt, dessen Bild angefügt werden soll.
+  - : Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture) Objekt, dessen Bild angehängt werden soll.
 - `level`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der die Mipmap-Ebene des Texturbildes angibt, das angefügt werden soll.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Mipmap-Ebene des Texturbildes angibt, das angehängt werden soll.
 - `layer`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der die Schicht des Texturbildes angibt, die angefügt werden soll.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Schicht des Texturbildes angibt, das angehängt werden soll.
 
 ### Rückgabewert
 
@@ -64,4 +69,4 @@ gl.framebufferTextureLayer(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, texture, 0, 8);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.framebufferTexture2D()")}}
+- [`WebGLRenderingContext.framebufferTexture2D()`](/de/docs/Web/API/WebGLRenderingContext/framebufferTexture2D)

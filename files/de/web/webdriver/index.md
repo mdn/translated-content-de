@@ -7,17 +7,17 @@ l10n:
 
 {{QuickLinksWithSubpages}}
 
-WebDriver ist eine Fernsteuerungsschnittstelle, die Introspektion und Kontrolle von Benutzeragenten ermöglicht. Es bietet ein plattform- und sprachneutrales Drahtprotokoll, das es Prozessen außerhalb des Browsers ermöglicht, das Verhalten von Webbrowsern fernzusteuern.
+WebDriver ist eine Fernsteuerungsschnittstelle, die es ermöglicht, Benutzerschnittstellen zu inspizieren und zu steuern. Es bietet ein plattform- und sprachneutrales Wire-Protokoll, um Programmen außerhalb des Prozesses die Möglichkeit zu geben, das Verhalten von Webbrowsern aus der Ferne zu steuern.
 
-Die Möglichkeit, Anweisungssätze zu schreiben, die in vielen Browsern auf verschiedenen Plattformen austauschbar ausgeführt werden können, ist entscheidend, um den Nutzern ein konsistentes Erlebnis zu bieten. Mit der neuen Entwicklungswelle auf der Webplattform, der zunehmenden Vielfalt an Geräten und der Nachfrage nach echter Interoperabilität zwischen den Technologien bietet WebDriver Werkzeuge für das [Cross-Browser-Testing](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction).
+Die Fähigkeit, Instruktionssätze zu schreiben, die in vielen Browsern auf verschiedenen Plattformen austauschbar ausgeführt werden können, ist entscheidend, um den Benutzern eine konsistente Erfahrung zu bieten. Mit der neuen Welle von Entwicklungen auf der Webplattform, der steigenden Vielfalt an Geräten und dem Bedarf an echter Interoperabilität zwischen den Technologien bietet WebDriver Werkzeuge für das [Cross-Browser-Testing](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction).
 
-Es wird eine Reihe von Schnittstellen bereitgestellt, um DOM-Elemente in Webdokumenten zu entdecken und zu manipulieren und das Verhalten eines Benutzeragenten zu steuern. Es ist in erster Linie dazu gedacht, Webautoren zu ermöglichen, Tests zu schreiben, die einen Benutzeragenten aus einem separat steuernden Prozess automatisieren, kann aber auch so verwendet werden, dass In-Browser-Skripte einen – möglicherweise separaten – Browser steuern.
+Es wird eine Reihe von Schnittstellen bereitgestellt, um DOM-Elemente in Webdokumenten zu entdecken und zu manipulieren und das Verhalten eines Benutzeragenten zu kontrollieren. Es ist in erster Linie dazu gedacht, Webautoren zu ermöglichen, Tests zu schreiben, die einen Benutzeragenten von einem separaten steuernden Prozess aus automatisieren, kann aber auch so verwendet werden, dass Skripte im Browser einen — möglicherweise separaten — Browser steuern können.
 
 ## Verwendung
 
-Was genau ermöglicht Ihnen WebDriver und wie sieht es aus? Da WebDriver programmsprachneutral ist, hängt die Antwort auf diese Frage davon ab, welchen WebDriver-Client Sie verwenden und welche Sprache Sie gewählt haben.
+Was ermöglicht WebDriver Ihnen und wie sieht das aus? Da WebDriver programmneutral ist, hängt die Antwort auf diese Frage davon ab, welchen WebDriver-Client Sie verwenden und welche Programmiersprache Sie wählen.
 
-Wenn Sie jedoch einen beliebten Client verwenden, der in Python geschrieben ist, könnte Ihre Interaktion mit WebDriver wie folgt aussehen:
+Aber bei der Verwendung eines beliebten Clients, der in Python geschrieben wurde, könnte Ihre Interaktion mit WebDriver so aussehen:
 
 ```python
 from selenium import webdriver
@@ -40,7 +40,7 @@ with webdriver.Firefox() as driver:
         print(f'#{i} {elem.text} ({elem.get_attribute("href")})')
 ```
 
-Dies könnte eine Ausgabe ergeben, die dieser ähnelt:
+Dies könnte eine Ausgabe produzieren, die etwa so aussieht:
 
 ```plain
 #1 Cheese - Wikipedia (https://en.wikipedia.org/wiki/Cheese)
@@ -59,7 +59,7 @@ Dies könnte eine Ausgabe ergeben, die dieser ähnelt:
 [Typen](/de/docs/Web/WebDriver/Types)
 
 - [Fehlerobjekt](/de/docs/Web/WebDriver/Errors#payload)
-- [Timeout-Objekt](/de/docs/Web/WebDriver/Timeouts)
+- [Timeouts-Objekt](/de/docs/Web/WebDriver/Timeouts)
 - [WebElement](/de/docs/Web/WebDriver/WebElement)
 - [WebWindow](/de/docs/Web/WebDriver/WebWindow)
 

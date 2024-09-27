@@ -1,5 +1,5 @@
 ---
-title: "Fenster: updateCommands()-Methode"
+title: "Window: updateCommands() Methode"
 short-title: updateCommands()
 slug: Web/API/Window/updateCommands
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef}}{{Non-standard_Header}}
 
-Aktualisiert den Zustand der Befehle des aktuellen Browserfensters (UI).
+Aktualisiert den Zustand von Befehlen des aktuellen Chrome-Fensters (UI).
 
 ## Syntax
 
@@ -19,19 +19,19 @@ updateCommands(commandName)
 ### Parameter
 
 - `commandName`
-  - : Ein String, der beschreibt, um welche Art von Aktualisierungsereignis es sich handelt (z. B. ob wir derzeit fett sind).
+  - : Ein String, der beschreibt, um welche Art von Aktualisierungsereignis es sich handelt (z.B. ob wir gerade fett schreiben).
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Hinweise
 
-Dies aktiviert oder deaktiviert Elemente (setzt oder entfernt das Attribut "disabled" im Befehlsknoten entsprechend) oder stellt sicher, dass der Befehlszustand den Zustand der Auswahl widerspiegelt, indem aktuelle Zustandsinformationen im Attribut "state" der XUL-Befehlsknoten festgelegt werden.
+Dies aktiviert oder deaktiviert Elemente (Indem das "disabled"-Attribut am Befehls-Knoten je nach Bedarf gesetzt oder gelöscht wird) oder stellt sicher, dass der Befehlsstatus den Zustand der Auswahl widerspiegelt, indem aktuelle Statusinformationen im "state"-Attribut der XUL-Befehls-Knoten gesetzt werden.
 
 ## Spezifikationen
 
-DOM Level 0. Nicht Teil einer Spezifikation.
+DOM Level 0. Kein Teil der Spezifikation.
 
 ## Browser-Kompatibilität
 

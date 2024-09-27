@@ -8,42 +8,42 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **XMLHttpRequest.readyState**-Eigenschaft gibt den Zustand zurück, in dem sich ein XMLHttpRequest-Client befindet. Ein XHR-Client existiert in einem der folgenden Zustände:
+Die **XMLHttpRequest.readyState**-Eigenschaft gibt den Zustand zurück, in dem sich ein `XMLHttpRequest`-Client befindet. Ein XHR-Client kann sich in einem der folgenden Zustände befinden:
 
-| Wert  | Zustand            | Beschreibung                                                    |
-| ----- | ------------------ | ----------------------------------------------------------------|
-| `0`   | `UNSENT`           | Klient wurde erstellt. `open()` wurde noch nicht aufgerufen.     |
-| `1`   | `OPENED`           | `open()` wurde aufgerufen.                                       |
-| `2`   | `HEADERS_RECEIVED` | `send()` wurde aufgerufen, und Header und Status sind verfügbar. |
-| `3`   | `LOADING`          | Herunterladen; `responseText` hält teilweise Daten.              |
-| `4`   | `DONE`             | Die Operation ist abgeschlossen.                                 |
+| Wert | Zustand            | Beschreibung                                                     |
+| ---- | ------------------ | ---------------------------------------------------------------- |
+| `0`  | `UNSENT`           | Client wurde erstellt. `open()` wurde noch nicht aufgerufen.     |
+| `1`  | `OPENED`           | `open()` wurde aufgerufen.                                       |
+| `2`  | `HEADERS_RECEIVED` | `send()` wurde aufgerufen, und Header und Status sind verfügbar. |
+| `3`  | `LOADING`          | Herunterladen; `responseText` enthält teilweise Daten.           |
+| `4`  | `DONE`             | Der Vorgang ist abgeschlossen.                                   |
 
 - UNSENT
-  - : Der XMLHttpRequest-Client wurde erstellt, aber die open()-Methode wurde noch nicht aufgerufen.
+  - : Der `XMLHttpRequest`-Client wurde erstellt, aber die Methode `open()` wurde noch nicht aufgerufen.
 - OPENED
-  - : Die open()-Methode wurde aufgerufen. In diesem Zustand können die Anforderungsheader mithilfe der [setRequestHeader()](/de/docs/Web/API/XMLHttpRequest/setRequestHeader)-Methode gesetzt werden, und die [send()](/de/docs/Web/API/XMLHttpRequest/send)-Methode kann aufgerufen werden, was den Abruf initiiert.
+  - : Die Methode `open()` wurde aufgerufen. In diesem Zustand können die Anforderungsheader mit der Methode [setRequestHeader()](/de/docs/Web/API/XMLHttpRequest/setRequestHeader) gesetzt werden, und die Methode [send()](/de/docs/Web/API/XMLHttpRequest/send) kann aufgerufen werden, um den Abruf zu starten.
 - HEADERS_RECEIVED
-  - : send() wurde aufgerufen, alle Weiterleitungen (falls vorhanden) wurden befolgt und die Antwortheader wurden empfangen.
+  - : `send()` wurde aufgerufen, alle Weiterleitungen (falls vorhanden) wurden gefolgt und die Antwort-Header wurden empfangen.
 - LOADING
-  - : Der Antworttext wird empfangen. Wenn [`responseType`](/de/docs/Web/API/XMLHttpRequest/responseType) "text" oder ein leerer String ist, enthält [`responseText`](/de/docs/Web/API/XMLHttpRequest/responseText) den teilweisen Text der Antwort, wie er geladen wird.
+  - : Der Körper der Antwort wird empfangen. Wenn [`responseType`](/de/docs/Web/API/XMLHttpRequest/responseType) "text" oder ein leerer String ist, enthält [`responseText`](/de/docs/Web/API/XMLHttpRequest/responseText) den teilweise geladenen Text der Antwort.
 - DONE
-  - : Die Abrufoperation ist abgeschlossen. Dies könnte bedeuten, dass der Datentransfer entweder erfolgreich abgeschlossen oder fehlgeschlagen ist.
+  - : Der Abrufvorgang ist abgeschlossen. Dies kann bedeuten, dass entweder der Datentransfer erfolgreich abgeschlossen oder fehlgeschlagen ist.
 
 ## Beispiel
 
 ```js
 const xhr = new XMLHttpRequest();
-console.log("UNSENT", xhr.readyState); // readyState wird 0 sein
+console.log("UNSENT", xhr.readyState); // readyState will be 0
 
 xhr.open("GET", "/api", true);
-console.log("OPENED", xhr.readyState); // readyState wird 1 sein
+console.log("OPENED", xhr.readyState); // readyState will be 1
 
 xhr.onprogress = () => {
-  console.log("LOADING", xhr.readyState); // readyState wird 3 sein
+  console.log("LOADING", xhr.readyState); // readyState will be 3
 };
 
 xhr.onload = () => {
-  console.log("DONE", xhr.readyState); // readyState wird 4 sein
+  console.log("DONE", xhr.readyState); // readyState will be 4
 };
 
 xhr.send(null);
@@ -53,6 +53,6 @@ xhr.send(null);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

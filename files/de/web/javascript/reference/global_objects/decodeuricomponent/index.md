@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Objects")}}
 
-Die Funktion **`decodeURIComponent()`** dekodiert eine zuvor erstellte Komponente eines Uniform Resource Identifier (URI) durch {{jsxref("encodeURIComponent()")}} oder durch eine ähnliche Routine.
+Die **`decodeURIComponent()`** Funktion dekodiert eine zuvor durch {{jsxref("encodeURIComponent()")}} oder eine ähnliche Routine erstellte Komponente eines Uniform Resource Identifier (URI).
 
 {{EmbedInteractiveExample("pages/js/globalprops-decodeuricomponent.html")}}
 
@@ -24,22 +24,22 @@ decodeURIComponent(encodedURI)
 
 ### Rückgabewert
 
-Ein neuer String, der die dekodierte Version der gegebenen kodierten URI-Komponente darstellt.
+Ein neuer String, der die dekodierte Version der gegebenen kodierten Komponente eines Uniform Resource Identifier (URI) darstellt.
 
 ### Ausnahmen
 
 - {{jsxref("URIError")}}
-  - : Wird ausgelöst, wenn `encodedURI` ein `%` enthält, dem nicht zwei hexadezimale Ziffern folgen, oder wenn die Escape-Sequenz keinen gültigen UTF-8-Charakter kodiert.
+  - : Wird ausgelöst, wenn `encodedURI` ein `%` enthält, dem keine zwei hexadezimalen Ziffern folgen, oder wenn die Escape-Sequenz kein gültiges UTF-8-Zeichen codiert.
 
 ## Beschreibung
 
-`decodeURIComponent()` ist eine Funktions-Eigenschaft des globalen Objekts.
+`decodeURIComponent()` ist eine Funktionseigenschaft des globalen Objekts.
 
-`decodeURIComponent()` verwendet denselben Dekodierungsalgorithmus wie in {{jsxref("decodeURI()")}} beschrieben. Es dekodiert _alle_ Escape-Sequenzen, einschließlich solcher, die nicht durch {{jsxref("encodeURIComponent")}} erstellt werden, wie `-.!~*'()`.
+`decodeURIComponent()` verwendet denselben Dekodierungsalgorithmus wie in {{jsxref("decodeURI()")}} beschrieben. Es dekodiert _alle_ Escape-Sequenzen, einschließlich solcher, die nicht durch {{jsxref("encodeURIComponent")}} erstellt wurden, wie `-.!~*'()`.
 
 ## Beispiele
 
-### Dekodieren einer kyrillischen URL-Komponente
+### Dekodierung einer kyrillischen URL-Komponente
 
 ```js
 decodeURIComponent("JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B");
@@ -58,9 +58,9 @@ try {
 // URIError: malformed URI sequence
 ```
 
-### Dekodieren von Abfrageparametern aus einer URL
+### Dekodierung von Abfrageparametern aus einer URL
 
-`decodeURIComponent()` kann nicht direkt zum Parsen von Abfrageparametern aus einer URL verwendet werden. Es erfordert ein wenig Vorbereitung.
+`decodeURIComponent()` kann nicht direkt zum Parsen von Abfrageparametern aus einer URL verwendet werden. Es benötigt ein wenig Vorbereitung.
 
 ```js
 function decodeQueryParam(p) {

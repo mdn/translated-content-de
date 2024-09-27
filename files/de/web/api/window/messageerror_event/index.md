@@ -1,5 +1,5 @@
 ---
-title: "Fenster: messageerror-Ereignis"
+title: "Window: messageerror Ereignis"
 short-title: messageerror
 slug: Web/API/Window/messageerror_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das `messageerror`-Ereignis wird auf einem {{domxref('Window')}}-Objekt ausgelöst, wenn es eine Nachricht erhält, die nicht deserialisiert werden kann.
+Das `messageerror` Ereignis wird auf einem [`Window`](/de/docs/Web/API/Window)-Objekt ausgelöst, wenn es eine Nachricht empfängt, die nicht deserialisiert werden kann.
 
-Dieses Ereignis ist nicht abbrichbar und wird nicht gebubbelt.
+Dieses Ereignis ist nicht abbruchbar und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("messageerror", (event) => {});
@@ -24,28 +24,28 @@ onmessageerror = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("MessageEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MessageEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt ebenfalls Eigenschaften von ihrem übergeordneten Element, {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("MessageEvent.data")}} {{ReadOnlyInline}}
-  - : Die vom Nachrichtensender gesendeten Daten.
-- {{domxref("MessageEvent.origin")}} {{ReadOnlyInline}}
+- [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
+  - : Die von der Nachrichtensender gesendeten Daten.
+- [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
   - : Ein String, der den Ursprung des Nachrichtensenders darstellt.
-- {{domxref("MessageEvent.lastEventId")}} {{ReadOnlyInline}}
+- [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
-- {{domxref("MessageEvent.source")}} {{ReadOnlyInline}}
-  - : Eine `MessageEventSource` (die ein {{glossary("WindowProxy")}}, ein {{domxref("MessagePort")}} oder ein {{domxref("ServiceWorker")}} Objekt sein kann), die den Nachrichtensender darstellt.
-- {{domxref("MessageEvent.ports")}} {{ReadOnlyInline}}
-  - : Ein Array von {{domxref("MessagePort")}}-Objekten, die die mit dem Kanal assoziierten Ports darstellen, durch den die Nachricht gesendet wird (wo angemessen, z. B. in Kanalnachrichten oder beim Senden einer Nachricht an einen geteilten Worker).
+- [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
+  - : Eine `MessageEventSource` (die ein [WindowProxy](/de/docs/Glossary/WindowProxy), [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) Objekt sein kann) darstellt den Nachrichtensender.
+- [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort) Objekten, die die mit dem Kanal verbundenen Ports darstellen, über die die Nachricht gesendet wird (sofern zutreffend, z. B. bei Kanalnachrichten oder beim Senden einer Nachricht an einen geteilten Worker).
 
 ## Beispiele
 
-Hören Sie auf `messageerror` mit {{domxref("EventTarget/addEventListener", "addEventListener()")}}:
+Lauschen Sie auf `messageerror` mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js
 window.addEventListener("messageerror", (event) => {
@@ -53,7 +53,7 @@ window.addEventListener("messageerror", (event) => {
 });
 ```
 
-Das gleiche, aber mit der `onmessageerror` Ereignishandler-Eigenschaft:
+Dasselbe, aber mit der `onmessageerror` Ereignis-Handler-Eigenschaft:
 
 ```js
 window.onmessageerror = (event) => {
@@ -71,5 +71,5 @@ window.onmessageerror = (event) => {
 
 ## Siehe auch
 
-- {{domxref("Window.postMessage()")}}
-- Verwandte Ereignisse: {{domxref("Window/message_event", "message")}}.
+- [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage)
+- Verwandte Ereignisse: [`message`](/de/docs/Web/API/Window/message_event).

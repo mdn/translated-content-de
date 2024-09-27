@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`selected`**-Eigenschaft der {{domxref("ImageTrack")}}-Schnittstelle gibt `true` zurück, wenn die Spur zur Dekodierung ausgewählt ist.
+Die **`selected`**-Eigenschaft des [`ImageTrack`](/de/docs/Web/API/ImageTrack)-Interfaces gibt `true` zurück, wenn der Track für das Decodieren ausgewählt ist.
 
 ## Wert
 
-Ein {{jsxref("boolean")}}, wenn `true`, ist die Spur zur Dekodierung ausgewählt.
+Ein {{jsxref("boolean")}}, wenn `true`, dann ist der Track für das Decodieren ausgewählt.
 
 ## Beispiele
 

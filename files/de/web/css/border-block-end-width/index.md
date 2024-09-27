@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-block-end-width`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Breite des logischen Block-End-Randes eines Elements, die je nach Schreibmodus, Richtung und Textorientierung des Elements auf eine physische Randbreite abgebildet wird. Sie entspricht der {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}} oder {{cssxref("border-left-width")}} Eigenschaft, je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`border-block-end-width`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Breite des logischen Block-End-Randes eines Elements, die je nach Schreibmodus, Ausrichtung und Textorientierung des Elements einer physischen Randbreite zugeordnet wird. Sie entspricht der {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}} oder {{cssxref("border-left-width")}} Eigenschaft abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
 {{EmbedInteractiveExample("pages/css/border-block-end-width.html")}}
 
 ## Syntax
 
 ```css
-/* <'border-width'> Werte */
+/* <'border-width'> values */
 border-block-end-width: 5px;
 border-block-end-width: thick;
 
-/* Globale Werte */
+/* Global values */
 border-block-end-width: inherit;
 border-block-end-width: initial;
 border-block-end-width: revert;
@@ -26,7 +26,7 @@ border-block-end-width: revert-layer;
 border-block-end-width: unset;
 ```
 
-Verwandte Eigenschaften sind {{cssxref("border-block-start-width")}}, {{cssxref("border-inline-start-width")}} und {{cssxref("border-inline-end-width")}}, die die anderen Randbreiten des Elements definieren.
+Verwandte Eigenschaften sind {{cssxref("border-block-start-width")}}, {{cssxref("border-inline-start-width")}}, und {{cssxref("border-inline-end-width")}}, die die anderen Randbreiten des Elements definieren.
 
 ### Werte
 
@@ -49,7 +49,7 @@ Verwandte Eigenschaften sind {{cssxref("border-block-start-width")}}, {{cssxref(
 
 ```html
 <div>
-  <p class="exampleText">Beispieltext</p>
+  <p class="exampleText">Example text</p>
 </div>
 ```
 
@@ -83,6 +83,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft wird einer der physischen Rand-Eigenschaften zugeordnet: {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, und {{cssxref("border-left-width")}}
+- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- Diese Eigenschaft entspricht einer der physischen Rand-Eigenschaften: {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, und {{cssxref("border-left-width")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Subtraktionszuweisungsoperator (`-=`)** führt eine [Subtraktion](/de/docs/Web/JavaScript/Reference/Operators/Subtraction) auf die beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
+Der **Subtraktionszuweisungsoperator (`-=`)** führt eine [Subtraktion](/de/docs/Web/JavaScript/Reference/Operators/Subtraction) auf den beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
 
 {{EmbedInteractiveExample("pages/js/expressions-subtraction-assignment.html")}}
 
@@ -19,7 +19,7 @@ x -= y
 
 ## Beschreibung
 
-`x -= y` ist äquivalent zu `x = x - y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x -= y` ist gleichbedeutend mit `x = x - y`, mit der Ausnahme, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
@@ -31,7 +31,7 @@ let bar = 5;
 bar -= 2; // 3
 ```
 
-Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
+Andere nicht-BigInt-Werte werden in Zahlen umgewandelt:
 
 ```js
 bar -= "foo"; // NaN

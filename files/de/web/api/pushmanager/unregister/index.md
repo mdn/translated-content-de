@@ -8,10 +8,10 @@ l10n:
 
 {{ApiRef("Push API")}}{{deprecated_header}}{{non-standard_header}}{{AvailableInWorkers}}
 
-Die **`unregister()`**-Methode wurde verwendet, um das System aufzufordern, den angegebenen Endpunkt abzumelden und zu löschen.
+Die **`unregister()`**-Methode wurde verwendet, um das System aufzufordern, den angegebenen Endpunkt zu deregistrieren und zu löschen.
 
 > [!NOTE]
-> In der aktualisierten API kann ein Abonnement über die Methode {{domxref("PushSubscription.unsubscribe()")}} abgemeldet werden.
+> In der aktualisierten API kann ein Abonnement über die Methode [`PushSubscription.unsubscribe()`](/de/docs/Web/API/PushSubscription/unsubscribe) abgemeldet werden.
 
 ## Syntax
 
@@ -22,21 +22,21 @@ unregister(pushEndpoint)
 ### Parameter
 
 - `pushEndpoint`
-  - : Ein pushEndpoint, der abgemeldet werden soll.
+  - : Ein zu deregistrierender pushEndpoint.
 
 ### Rückgabewert
 
-Ein `DOMRequest`-Objekt zur Handhabung des Erfolgs oder Misserfolgs des Methodenaufrufs.
+Ein `DOMRequest`-Objekt zur Verwaltung des Erfolgs oder Misserfolgs des Methodenaufrufs.
 
-Wenn der Methodenaufruf erfolgreich ist, wird das `result` des Antrags ein
-[PushRegistration](#pushregistration)-Objekt sein, das den abgemeldeten Endpunkt darstellt.
+Wenn der Methodenaufruf erfolgreich ist, wird das `result` der Anfrage ein
+[PushRegistration](#pushregistration)-Objekt darstellen, das den Endpunkt repräsentiert, der deregistriert wurde.
 
 ### PushRegistration
 
 Diese Objekte sind anonyme JavaScript-Objekte mit den folgenden Eigenschaften:
 
 - `pushEndpoint`
-  - : Ein String, der die URL des abgemeldeten Endpunkts darstellt.
+  - : Ein String, der die URL des deregistrierten Endpunkts darstellt.
 - `version`
   - : `Undefined`, wenn `unregister.onsuccess` aufgerufen wird.
 
@@ -65,4 +65,4 @@ Dieses Feature ist nicht mehr Teil einer Spezifikation. Es ist nicht mehr auf de
 
 ## Siehe auch
 
-- {{domxref("PushManager")}}
+- [`PushManager`](/de/docs/Web/API/PushManager)

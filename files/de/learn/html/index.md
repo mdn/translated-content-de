@@ -7,37 +7,37 @@ l10n:
 
 {{LearnSidebar}}
 
-Um Websites zu erstellen, sollten Sie {{Glossary('HTML')}} kennen – die grundlegende Technologie, die verwendet wird, um die Struktur einer Webseite zu definieren. HTML wird verwendet, um anzugeben, ob Ihr Webinhalt als Absatz, Liste, Überschrift, Link, Bild, Multimedia-Player, Formular oder eines der vielen anderen verfügbaren Elemente oder sogar ein neues, von Ihnen definiertes Element erkannt werden soll.
+Um Websites zu erstellen, sollten Sie über [HTML](/de/docs/Glossary/HTML) Bescheid wissen — die grundlegende Technologie zur Definition der Struktur einer Webseite. HTML wird verwendet, um anzugeben, ob Ihr Webinhalt als Absatz, Liste, Überschrift, Link, Bild, Multimedia-Player, Formular oder eines von vielen anderen verfügbaren Elementen oder sogar ein neues Element, das Sie definieren, erkannt werden soll.
 
 ## Voraussetzungen
 
-Bevor Sie dieses Thema beginnen, sollten Sie zumindest grundlegende Kenntnisse im Umgang mit Computern und im passiven Gebrauch des Internets (d.h. das bloße Anschauen und Konsumieren von Inhalten) haben. Sie sollten eine Grundarbeitsumgebung eingerichtet haben, wie in [Grundlegende Softwareinstallation](/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software) beschrieben, und verstehen, wie man Dateien erstellt und verwaltet, wie in [Umgang mit Dateien](/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files) dargestellt – beides sind Teile unseres umfassenden Anfängermoduls [Einstieg ins Internet](/de/docs/Learn/Getting_started_with_the_web).
+Bevor Sie mit diesem Thema beginnen, sollten Sie zumindest grundlegende Kenntnisse im Umgang mit Computern und der passiven Nutzung des Webs (d. h. nur betrachten und Inhalte konsumieren) haben. Sie sollten eine grundlegende Arbeitsumgebung eingerichtet haben, wie im Abschnitt [Installation grundlegender Software](/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software) beschrieben, und verstehen, wie man Dateien erstellt und verwaltet, wie im Abschnitt [Umgang mit Dateien](/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files) beschrieben — beides sind Teile unseres [Einstieg in das Web](/de/docs/Learn/Getting_started_with_the_web) Moduls für absolute Anfänger.
 
-Es wird empfohlen, dass Sie den [Einstieg ins Internet](/de/docs/Learn/Getting_started_with_the_web) durcharbeiten, bevor Sie dieses Thema angehen. Es ist jedoch nicht unbedingt erforderlich; vieles von dem, was im Artikel [Grundlagen von HTML](/de/docs/Learn/Getting_started_with_the_web/HTML_basics) behandelt wird, ist auch in unserem Modul [Einführung in HTML](/de/docs/Learn/HTML/Introduction_to_HTML) enthalten, wenn auch viel detaillierter.
+Es wird empfohlen, dass Sie das Modul [Einstieg in das Web](/de/docs/Learn/Getting_started_with_the_web) durcharbeiten, bevor Sie dieses Thema angehen. Es ist jedoch nicht unbedingt erforderlich; vieles, was im Artikel [HTML-Grundlagen](/de/docs/Learn/Getting_started_with_the_web/HTML_basics) behandelt wird, wird auch in unserem Modul [Einführung in HTML](/de/docs/Learn/HTML/Introduction_to_HTML) behandelt, jedoch deutlich detaillierter.
 
-Nachdem Sie HTML gelernt haben, können Sie sich dann fortgeschrittenen Themen zuwenden wie:
+Nachdem Sie HTML gelernt haben, können Sie sich mit fortgeschritteneren Themen beschäftigen, wie zum Beispiel:
 
-- [CSS](/de/docs/Learn/CSS) und wie Sie es verwenden, um HTML zu gestalten (zum Beispiel, um Ihre Textgröße und verwendeten Schriftarten zu ändern, Ränder und Schlagschatten hinzuzufügen, Ihre Seite mit mehreren Spalten zu gestalten, Animationen und andere visuelle Effekte hinzuzufügen).
-- [JavaScript](/de/docs/Learn/JavaScript) und wie Sie es verwenden, um dynamische Funktionen zu Webseiten hinzuzufügen (zum Beispiel Ihren Standort zu finden und auf einer Karte darzustellen, UI-Elemente erscheinen oder verschwinden zu lassen, wenn Sie einen Knopf umschalten, Benutzerdaten lokal auf ihren Computern zu speichern und vieles mehr).
+- [CSS](/de/docs/Learn/CSS) und wie man es verwendet, um HTML zu stylen (zum Beispiel die Textgröße und die verwendeten Schriften ändern, Ränder und Schlagschatten hinzufügen, Ihre Seite mit mehreren Spalten layouten, Animationen und andere visuelle Effekte hinzufügen).
+- [JavaScript](/de/docs/Learn/JavaScript) und wie man es verwendet, um dynamische Funktionalitäten zu Webseiten hinzuzufügen (zum Beispiel Ihren Standort finden und auf einer Karte darstellen, UI-Elemente erscheinen/verschwinden lassen, wenn Sie einen Button umschalten, Benutzerdaten lokal auf deren Computern speichern und vieles mehr).
 
 ## Module
 
-Dieses Thema enthält die folgenden Module, in einer vorgeschlagenen Reihenfolge, um sie durchzuarbeiten. Sie sollten definitiv mit dem ersten beginnen.
+Dieses Thema enthält die folgenden Module, in einer vorgeschlagenen Reihenfolge, um sie durchzuarbeiten. Sie sollten auf jeden Fall mit dem ersten beginnen.
 
 - [Einführung in HTML](/de/docs/Learn/HTML/Introduction_to_HTML)
-  - : Dieses Modul bereitet Sie auf wichtige Konzepte und Syntax vor, zeigt, wie HTML auf Text angewandt wird, wie Hyperlinks erstellt werden und wie HTML zur Strukturierung einer Webseite verwendet wird.
+  - : Dieses Modul macht Sie mit wichtigen Konzepten und Syntax vertraut, betrachtet die Anwendung von HTML auf Text, wie man Hyperlinks erstellt und wie man HTML verwendet, um eine Webseite zu strukturieren.
 - [Multimedia und Einbettung](/de/docs/Learn/HTML/Multimedia_and_embedding)
-  - : Dieses Modul untersucht, wie HTML verwendet wird, um Multimedia in Ihre Webseiten einzuschließen, einschließlich der verschiedenen Möglichkeiten, Bilder einzubinden, und wie Video, Audio und sogar ganze andere Webseiten eingebettet werden können.
+  - : Dieses Modul untersucht, wie man HTML verwendet, um Multimedia in seine Webseiten einzufügen, einschließlich der verschiedenen Möglichkeiten, Bilder einzufügen, und wie man Video, Audio und sogar komplette andere Webseiten einbettet.
 - [HTML-Tabellen](/de/docs/Learn/HTML/Tables)
-  - : Die Darstellung tabellarischer Daten auf einer Webseite auf verständliche, {{glossary("Barrierefreiheit", "zugängliche")}} Weise kann eine Herausforderung sein. Dieses Modul behandelt die grundlegende Tabellenbeschreibung sowie komplexere Funktionen wie das Implementieren von Beschriftungen und Zusammenfassungen.
+  - : Die Darstellung tabellarischer Daten auf einer Webseite auf eine verständliche, [zugängliche](/de/docs/Glossary/Accessibility) Weise kann eine Herausforderung sein. Dieses Modul behandelt grundlegende Tabellenmarkierungen sowie komplexere Funktionen wie die Implementierung von Bildunterschriften und Zusammenfassungen.
 
-## Häufige HTML-Probleme lösen
+## Lösung häufiger HTML-Probleme
 
-[Verwenden Sie HTML, um häufige Probleme zu lösen](/de/docs/Learn/HTML/Howto) bietet Links zu Inhaltsabschnitten, die erklären, wie HTML verwendet wird, um sehr häufige Probleme beim Erstellen einer Webseite zu lösen: Umgang mit Titeln, Hinzufügen von Bildern oder Videos, Hervorheben von Inhalten, Erstellen eines einfachen Formulars usw.
+[Verwenden Sie HTML, um häufige Probleme zu lösen](/de/docs/Learn/HTML/Howto) bietet Links zu Abschnitten von Inhalten, die erklären, wie man HTML verwendet, um sehr häufige Probleme beim Erstellen einer Webseite zu lösen: Umgang mit Titeln, Hinzufügen von Bildern oder Videos, Hervorheben von Inhalten, Erstellen eines einfachen Formulars usw.
 
 ## Siehe auch
 
 - [Webformulare](/de/docs/Learn/Forms)
-  - : Dieses Modul bietet eine Serie von Artikeln, die Ihnen helfen, die Grundlagen von Webformularen zu meistern. Webformulare sind ein sehr mächtiges Werkzeug für die Interaktion mit Benutzern – am häufigsten werden sie verwendet, um Daten von Benutzern zu sammeln oder ihnen die Steuerung einer Benutzeroberfläche zu ermöglichen. Aufgrund historischer und technischer Gründe ist es jedoch nicht immer offensichtlich, wie man sie ihr volles Potential erreicht. Wir werden alle wesentlichen Aspekte von Webformularen behandeln, einschließlich der Auszeichnung ihrer HTML-Struktur, der Gestaltung von Formularelementen, der Validierung von Formulardaten und der Übermittlung von Daten an den Server.
+  - : Dieses Modul bietet eine Reihe von Artikeln, die Ihnen helfen, die Grundlagen von Webformularen zu meistern. Webformulare sind ein sehr leistungsfähiges Werkzeug zur Interaktion mit Benutzern — am häufigsten werden sie zum Sammeln von Benutzerdaten oder zur Steuerung einer Benutzeroberfläche verwendet. Aufgrund historischer und technischer Gründe ist es jedoch nicht immer offensichtlich, wie man sie optimal nutzt. Wir decken alle wesentlichen Aspekte von Webformularen ab, einschließlich der Kennzeichnung ihrer HTML-Struktur, des Stils von Formularelementen, der Validierung von Formulardaten und der Übermittlung von Daten an den Server.
 - [HTML (HyperText Markup Language) auf MDN](/de/docs/Web/HTML)
-  - : Der Haupteinstiegspunkt für HTML-Referenzdokumentation auf MDN, einschließlich detaillierter Referenzen zu Elementen und Attributen – wenn Sie wissen möchten, welche Attribute ein Element hat oder welche Werte ein Attribut hat, ist dies zum Beispiel ein großartiger Ausgangspunkt.
+  - : Der Haupteinstiegspunkt für HTML-Referenzdokumentation auf MDN, einschließlich detaillierter Element- und Attributreferenzen — wenn Sie wissen möchten, welche Attribute ein Element hat oder welche Werte ein Attribut hat, ist dies ein guter Ausgangspunkt.

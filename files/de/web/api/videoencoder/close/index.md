@@ -1,5 +1,5 @@
 ---
-title: "VideoEncoder: Methode close()"
+title: "VideoEncoder: close()-Methode"
 short-title: close()
 slug: Web/API/VideoEncoder/close
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`close()`** Methode der Schnittstelle {{domxref("VideoEncoder")}} beendet alle laufenden Arbeiten und gibt Systemressourcen frei.
+Die **`close()`**-Methode des [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Interfaces beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -36,6 +36,6 @@ VideoEncoder.close();
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

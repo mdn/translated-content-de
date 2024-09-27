@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte **`matrix`**-Eigenschaft der {{domxref("VideoColorSpace")}}-Schnittstelle gibt den Matrixkoeffizienten des Videos zurück. Matrixkoeffizienten beschreiben die Beziehung zwischen Beispielkomponentenwerten und Farbkoordinaten.
+Die **`matrix`**-Eigenschaft (nur lesbar) der Schnittstelle [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace) gibt den Matrix-Koeffizienten des Videos zurück. Matrix-Koeffizienten beschreiben die Beziehung zwischen den Probenelementwerten und den Farbkoordinaten.
 
 ## Wert
 
 Ein String, der einen der folgenden Werte enthält:
 
 - `"rgb"`
-  - : Matrixkoeffizienten, die von sRGB verwendet werden.
+  - : Matrix-Koeffizienten, die von sRGB verwendet werden.
 - `"bt709"`
-  - : Matrixkoeffizienten, die von BT.709 verwendet werden.
+  - : Matrix-Koeffizienten, die von BT.709 verwendet werden.
 - `"bt470bg"`
-  - : Matrixkoeffizienten, die von BT.601 PAL verwendet werden.
+  - : Matrix-Koeffizienten, die von BT.601 PAL verwendet werden.
 - `"smpte170m"`
-  - : Matrixkoeffizienten, die von BT.601 NTSC verwendet werden.
+  - : Matrix-Koeffizienten, die von BT.601 NTSC verwendet werden.
 
 ## Beispiele
 
-Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von {{domxref("VideoFrame")}} zurückgegeben wird. Der Wert von `matrix` wird in die Konsole ausgegeben.
+Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von [`VideoFrame`](/de/docs/Web/API/VideoFrame) zurückgegeben wird. Der Wert von `matrix` wird in der Konsole ausgegeben.
 
 ```js
 let colorSpace = VideoFrame.colorSpace;

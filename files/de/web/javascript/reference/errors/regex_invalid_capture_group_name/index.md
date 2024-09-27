@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: ungültiger Name der erfassten Gruppe im regulären Ausdruck"
+title: "SyntaxError: ungültiger Name der Capture-Gruppe im regulären Ausdruck"
 slug: Web/JavaScript/Reference/Errors/Regex_invalid_capture_group_name
 l10n:
   sourceCommit: 6aaba8ce85edc3a92fd5e804002cc609c31ce73f
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Fehler "ungültiger Name der erfassten Gruppe im regulären Ausdruck" tritt auf, wenn eine [benannte erfassende Gruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) oder ein [benannter Rückverweis](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference) einen ungültigen [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) enthält.
+Die JavaScript-Ausnahme "ungültiger Name der Capture-Gruppe im regulären Ausdruck" tritt auf, wenn eine [benannte Capture-Gruppe](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) oder ein [benannter Rückverweis](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference) einen ungültigen [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) enthält.
 
 ## Meldung
 
@@ -23,7 +23,7 @@ SyntaxError: Invalid regular expression: invalid group specifier name (Safari)
 
 ## Was ist schiefgelaufen?
 
-Jede benannte erfassende Gruppe muss einen Namen haben, der ein gültiger Bezeichner ist. Sie können keine beliebigen Zeichenfolgen als Gruppenbezeichner verwenden.
+Jede benannte Capture-Gruppe muss einen Namen haben, der ein gültiger Bezeichner ist. Sie können keine beliebigen Zeichenfolgen als Gruppenbezeichner verwenden.
 
 ## Beispiele
 
@@ -33,7 +33,7 @@ Jede benannte erfassende Gruppe muss einen Namen haben, der ein gültiger Bezeic
 /(?<1>\d+) (?<2>\d+)/;
 ```
 
-Oder Sie erstellen den regulären Ausdruck dynamisch:
+Oder Sie erstellen das Regex dynamisch:
 
 ```js example-bad
 const tokenTypes = {
@@ -55,7 +55,7 @@ const tokenPattern = new RegExp(
 /(?<group1>\d+) (?<group2>\d+)/;
 ```
 
-Wenn der reguläre Ausdruck dynamisch erstellt wird, stellen Sie sicher, dass alle Namen gültige Bezeichner sind. Zum Beispiel:
+Wenn das Regex dynamisch erstellt wird, stellen Sie sicher, dass die Namen alle gültige Bezeichner sind. Zum Beispiel:
 
 ```js example-good
 const tokenTypes = {
@@ -74,4 +74,4 @@ const tokenPattern = new RegExp(
 ## Siehe auch
 
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Benannte erfassende Gruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
+- [Benannte Capture-Gruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)

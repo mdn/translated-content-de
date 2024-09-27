@@ -1,5 +1,5 @@
 ---
-title: "PermissionStatus: change-Ereignis"
+title: "PermissionStatus: change Ereignis"
 short-title: change
 slug: Web/API/PermissionStatus/change_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Permissions API")}}{{AvailableInWorkers}}
 
-Das **`change`**-Ereignis der {{domxref("PermissionStatus")}}-Schnittstelle wird ausgelöst, wann immer sich die {{domxref("PermissionStatus.state")}}-Eigenschaft ändert.
+Das **`change`**-Ereignis des [`PermissionStatus`](/de/docs/Web/API/PermissionStatus)-Interfaces wird ausgelöst, wann immer sich die [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state)-Eigenschaft ändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("change", (event) => {});
@@ -22,7 +22,7 @@ onchange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 

@@ -1,20 +1,20 @@
 ---
-title: Verarbeitungsanweisung
+title: ProcessingInstruction
 slug: Web/API/ProcessingInstruction
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ProcessingInstruction`**-Schnittstelle repräsentiert eine [Verarbeitungsanweisung](https://www.w3.org/TR/xml/#sec-pi); das heißt, einen {{domxref("Node")}}, der eine Anweisung einbettet, die auf eine spezifische Anwendung abzielt, aber von allen anderen Anwendungen ignoriert werden kann, die die Anweisung nicht erkennen.
+Die **`ProcessingInstruction`**-Schnittstelle repräsentiert eine [Verarbeitungsanweisung](https://www.w3.org/TR/xml/#sec-pi); das heißt, ein [`Node`](/de/docs/Web/API/Node), das eine Anweisung einbettet, die auf eine bestimmte Anwendung abzielt, aber von allen anderen Anwendungen ignoriert werden kann, die die Anweisung nicht erkennen.
 
-> **Warning:** `ProcessingInstruction`-Knoten werden nur in XML-Dokumenten unterstützt, nicht in HTML-Dokumenten. Darin wird eine Verarbeitungsanweisung als Kommentar betrachtet und als {{domxref("Comment")}}-Objekt im Baum dargestellt.
+> **Warning:** `ProcessingInstruction`-Knoten werden nur in XML-Dokumenten unterstützt, nicht in HTML-Dokumenten. In diesen wird eine Verarbeitungsanweisung als Kommentar betrachtet und wird im Baum als [`Comment`](/de/docs/Web/API/Comment)-Objekt dargestellt.
 
 Eine Verarbeitungsanweisung kann sich von der [XML-Deklaration](/de/docs/Web/XML/XML_introduction#xml_declaration) unterscheiden.
 
 > [!NOTE]
-> Benutzerdefinierte Verarbeitungsanweisungen dürfen nicht mit "`xml`" beginnen, da mit `xml`-präfixierte Zielnamen für Verarbeitungsanweisungen durch die XML-Spezifikation für bestimmte, standardisierte Verwendungen reserviert sind (siehe zum Beispiel `<?xml-stylesheet ?>`).
+> Benutzerdefinierte Verarbeitungsanweisungen dürfen nicht mit `"xml"` beginnen, da `xml`-präfixierte Verarbeitungsanweisungs-Zielnamen in der XML-Spezifikation für besondere, standardisierte Verwendungen reserviert sind (siehe zum Beispiel `<?xml-stylesheet ?>`).
 
 Zum Beispiel:
 
@@ -26,20 +26,20 @@ ist eine Verarbeitungsanweisung, deren `target` `xml` ist.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihren übergeordneten Schnittstellen, {{domxref("CharacterData")}}, {{domxref("Node")}}, und {{domxref("EventTarget")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihren übergeordneten Schnittstellen, [`CharacterData`](/de/docs/Web/API/CharacterData), [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("ProcessingInstruction.sheet")}} {{ReadOnlyInline}}
+- [`ProcessingInstruction.sheet`](/de/docs/Web/API/ProcessingInstruction/sheet) {{ReadOnlyInline}}
 
-  - : Gibt das zugehörige {{domxref("StyleSheet")}}-Objekt zurück, falls vorhanden; oder `null`, wenn keines vorhanden ist.
+  - : Gibt das zugehörige [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt zurück, falls vorhanden; oder `null`, wenn nicht.
 
-- {{domxref("ProcessingInstruction.target")}} {{ReadOnlyInline}}
-  - : Ein Name, der die Anwendung identifiziert, auf die die Anweisung abzielt.
+- [`ProcessingInstruction.target`](/de/docs/Web/API/ProcessingInstruction/target) {{ReadOnlyInline}}
+  - : Ein Name, der die Anwendung identifiziert, an die die Anweisung gerichtet ist.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle hat keine spezifische Methode, erbt aber Methoden von ihren übergeordneten Schnittstellen, {{domxref("CharacterData")}}, {{domxref("Node")}}, und {{domxref("EventTarget")}}._
+_Diese Schnittstelle hat keine spezifische Methode, erbt jedoch Methoden von ihren übergeordneten Schnittstellen, [`CharacterData`](/de/docs/Web/API/CharacterData), [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Spezifikationen
 

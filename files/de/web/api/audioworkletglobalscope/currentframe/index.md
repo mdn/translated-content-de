@@ -1,5 +1,5 @@
 ---
-title: "AudioWorkletGlobalScope: currentFrame Eigenschaft"
+title: "AudioWorkletGlobalScope: currentFrame-Eigenschaft"
 short-title: currentFrame
 slug: Web/API/AudioWorkletGlobalScope/currentFrame
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte **`currentFrame`** Eigenschaft der {{domxref("AudioWorkletGlobalScope")}}-Schnittstelle gibt eine ganze Zahl zurück, die den sich ständig erhöhenden aktuellen Sample-Frame des Audio-Blocks repräsentiert, der gerade verarbeitet wird. Sie wird nach der Verarbeitung jedes Audio-Blocks um 128 (die Größe eines Renderquantums) erhöht.
+Die schreibgeschützte **`currentFrame`**-Eigenschaft des [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope)-Interfaces gibt eine ganze Zahl zurück, die den ständig zunehmenden aktuellen Sample-Frame des zu verarbeitenden Audio-Blocks darstellt. Sie wird nach der Verarbeitung jedes Audio-Blocks um 128 (die Größe eines Render-Quantum) erhöht.
 
 ## Wert
 
@@ -16,42 +16,41 @@ Eine ganze Zahl.
 
 ## Beispiele
 
-Der {{domxref("AudioWorkletProcessor")}} hat Zugriff auf die spezifischen {{domxref("AudioWorkletGlobalScope")}} Eigenschaften:
+Der [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) hat Zugriff auf die spezifischen Eigenschaften von [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope):
 
 ```js
-// AudioWorkletProcessor definiert in: test-processor.js
+// AudioWorkletProcessor defined in : test-processor.js
 class TestProcessor extends AudioWorkletProcessor {
   constructor() {
     super();
 
-    // Protokolliert den aktuellen Sample-Frame und die Zeit
-    // zum Zeitpunkt der Instanziierung.
-    // Sie sind aus dem AudioWorkletGlobalScope zugänglich.
+    // Logs the current sample-frame and time at the moment of instantiation.
+    // They are accessible from the AudioWorkletGlobalScope.
     console.log(currentFrame);
     console.log(currentTime);
   }
 
-  // Die process-Methode ist erforderlich - gibt Stille aus,
-  // da die Ausgaben bereits ausgefüllt sind.
+  // The process method is required - output silence,
+  // which the outputs are already filled with.
   process(inputs, outputs, parameters) {
     return true;
   }
 }
 
-// Protokolliert die Abtastrate, die sich niemals ändern wird,
-// da es sich um eine schreibgeschützte Eigenschaft eines BaseAudioContext handelt
-// und nur während seiner Instanziierung festgelegt wird.
+// Logs the sample rate, that is not going to change ever,
+// because it's a read-only property of a BaseAudioContext
+// and is set only during its instantiation.
 console.log(sampleRate);
 
-// Sie können beliebige Variablen deklarieren und in Ihren Prozessoren verwenden,
-// zum Beispiel kann es ein ArrayBuffer mit einer Wavetable sein.
+// You can declare any variables and use them in your processors
+// for example it may be an ArrayBuffer with a wavetable.
 const usefulVariable = 42;
 console.log(usefulVariable);
 
 registerProcessor("test-processor", TestProcessor);
 ```
 
-Das Hauptskript lädt den Prozessor, erstellt eine Instanz von {{domxref("AudioWorkletNode")}}, übergibt den Namen des Prozessors an diese und verbindet den Knoten mit einem Audiografen. Wir sollten die Ausgabe von {{domxref("console/log_static", "console.log()")}}-Aufrufen in der Konsole sehen:
+Das Hauptskript lädt den Prozessor, erstellt eine Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode), übergibt den Namen des Prozessors und verbindet den Node mit einem Audiograph. Wir sollten die Ausgabe von [`console.log()`](/de/docs/Web/API/Console/log_static) Aufrufen in der Konsole sehen:
 
 ```js
 const audioContext = new AudioContext();
@@ -64,7 +63,7 @@ testNode.connect(audioContext.destination);
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

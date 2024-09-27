@@ -7,30 +7,30 @@ l10n:
 
 {{APIRef("CSS Properties and Values API")}}
 
-Die **`CSSPropertyRule`**-Schnittstelle der [CSS Properties and Values API](/de/docs/Web/API/CSS_Properties_and_Values_API) repräsentiert eine einzelne CSS {{cssxref("@property")}}-Regel.
+Die **`CSSPropertyRule`**-Schnittstelle der [CSS Properties and Values API](/de/docs/Web/API/CSS_Properties_and_Values_API) repräsentiert eine einzelne CSS-{{cssxref("@property")}}-Regel.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Vorfahren {{domxref("CSSRule")}}._
+_Erbt Eigenschaften von ihrem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- {{domxref("CSSPropertyRule.inherits")}} {{ReadOnlyInline}}
-  - : Gibt das Vererbungsflag der benutzerdefinierten Eigenschaft zurück.
-- {{domxref("CSSPropertyRule.initialValue")}} {{ReadOnlyInline}}
+- [`CSSPropertyRule.inherits`](/de/docs/Web/API/CSSPropertyRule/inherits) {{ReadOnlyInline}}
+  - : Gibt das Vererbungs-Flag der benutzerdefinierten Eigenschaft zurück.
+- [`CSSPropertyRule.initialValue`](/de/docs/Web/API/CSSPropertyRule/initialValue) {{ReadOnlyInline}}
   - : Gibt den Anfangswert der benutzerdefinierten Eigenschaft zurück.
-- {{domxref("CSSPropertyRule.name")}} {{ReadOnlyInline}}
+- [`CSSPropertyRule.name`](/de/docs/Web/API/CSSPropertyRule/name) {{ReadOnlyInline}}
   - : Gibt den Namen der benutzerdefinierten Eigenschaft zurück.
-- {{domxref("CSSPropertyRule.syntax")}} {{ReadOnlyInline}}
+- [`CSSPropertyRule.syntax`](/de/docs/Web/API/CSSPropertyRule/syntax) {{ReadOnlyInline}}
   - : Gibt die wörtliche Syntax der benutzerdefinierten Eigenschaft zurück.
 
 ## Instanz-Methoden
 
-_Keine spezifischen Methoden; erbt Methoden von seinem Vorfahren {{domxref("CSSRule")}}._
+_Keine spezifischen Methoden; erbt Methoden von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-Dieses Stylesheet enthält eine einzelne {{cssxref("@property")}}-Regel. Die erste zurückgegebene {{domxref("CSSRule")}} wird eine `CSSPropertyRule` sein, mit den Eigenschaften und Werten, die durch die Regel in CSS definiert sind.
+Dieses Stylesheet enthält eine einzelne {{cssxref("@property")}}-Regel. Die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) wird eine `CSSPropertyRule` mit den Eigenschaften und Werten sein, die durch die Regel in CSS definiert sind.
 
 ```css
 @property --property-name {

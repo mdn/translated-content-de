@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerGlobalScope: backgroundfetchabort Ereignis"
+title: "ServiceWorkerGlobalScope: backgroundfetchabort-Ereignis"
 short-title: backgroundfetchabort
 slug: Web/API/ServiceWorkerGlobalScope/backgroundfetchabort_event
 l10n:
@@ -8,58 +8,46 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`backgroundfetchabort`** Ereignis des {{domxref("ServiceWorkerGlobalScope")}}-Interfaces wird ausgelöst, wenn der Benutzer oder die App selbst eine [Background Fetch](/de/docs/Web/API/Background_Fetch_API)-Operation abbricht.
+Das **`backgroundfetchabort`**-Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle wird ausgelöst, wenn der Benutzer oder die App selbst eine [Background Fetch](/de/docs/Web/API/Background_Fetch_API)-Operation abbricht.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und steigt nicht auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
-
-```js
-addEventListener("backgroundfetchabort", (event) => {});
-
-onbackgroundfetchabort = (event) => {};
-```
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ## Ereignistyp
 
-Ein {{domxref("BackgroundFetchEvent")}}.
+Ein [`BackgroundFetchEvent`](/de/docs/Web/API/BackgroundFetchEvent).
 
 {{InheritanceDiagram("BackgroundFetchEvent")}}
 
 ## Ereigniseigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("ExtendableEvent")}}._
+_Erbt Eigenschaften von seinem übergeordneten [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)._
 
-- {{domxref("BackgroundFetchEvent.registration")}}
-  - : Gibt die {{domxref("BackgroundFetchRegistration")}} für den abgebrochenen Fetch zurück.
+- [`BackgroundFetchEvent.registration`](/de/docs/Web/API/BackgroundFetchEvent/registration)
+  - : Gibt die [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) für den abgebrochenen Fetch zurück.
 
 ## Beschreibung
 
-In der Background Fetch API zeigt der Browser dem Benutzer ein UI-Element an, um den Fortschritt der Operation anzuzeigen. Dieses Element ermöglicht es dem Benutzer auch, den Fetch abzubrechen. Die App selbst kann den Fetch ebenfalls abbrechen, indem sie {{domxref("BackgroundFetchRegistration.abort()")}} aufruft.
+In der Background Fetch API zeigt der Browser dem Benutzer ein UI-Element an, um den Fortschritt der Operation anzuzeigen. Dieses Element ermöglicht es dem Benutzer auch, den Fetch abzubrechen. Die App selbst kann den Fetch ebenfalls abbrechen, indem sie [`BackgroundFetchRegistration.abort()`](/de/docs/Web/API/BackgroundFetchRegistration/abort) aufruft.
 
-Wenn der Fetch abgebrochen wird, bricht der Browser den Fetch ab, startet gegebenenfalls den Servicearbeiter und löst das `backgroundfetchabort` Ereignis im globalen Scope des Servicearbeiters aus.
+Wenn der Fetch abgebrochen wird, bricht der Browser den Fetch ab, startet bei Bedarf den Service Worker und löst das `backgroundfetchabort`-Ereignis im globalen Bereich des Service Workers aus.
 
-Im Handler für dieses Ereignis kann der Servicearbeiter alle zugehörigen Daten für die Operation bereinigen. Er kann auch alle erfolgreichen Antworten abrufen und speichern (zum Beispiel mit der {{domxref("Cache")}} API). Um auf die Antwortdaten zuzugreifen, verwendet der Servicearbeiter die {{domxref("BackgroundFetchEvent/registration", "registration")}}-Eigenschaft des Ereignisses.
+Im Handler für dieses Ereignis kann der Service Worker alle zugehörigen Daten für die Operation bereinigen. Er kann auch alle erfolgreichen Antworten abrufen und speichern (z. B. unter Verwendung der [`Cache`](/de/docs/Web/API/Cache) API). Um auf die Antwortdaten zuzugreifen, verwendet der Service Worker die [`registration`](/de/docs/Web/API/BackgroundFetchEvent/registration)-Eigenschaft des Ereignisses.
 
 ## Beispiele
 
-### Bereinigung
+### Aufräumen
 
-Dieser Ereignishandler könnte alle mit dem abgebrochenen Fetch verbundenen Daten bereinigen.
-
-```js
-addEventListener("backgroundfetchabort", (event) => {
-  // Bereinigung von zugehörigen Daten
-});
-```
+Dieser Ereignishandler könnte jegliche Bereinigung von Daten durchführen, die mit dem abgebrochenen Fetch verbunden sind.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

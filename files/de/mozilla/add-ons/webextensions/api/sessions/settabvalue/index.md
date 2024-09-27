@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Speichert ein Schlüssel/Wert-Paar zur Zuordnung mit einem bestimmten Tab. Sie können diesen Wert anschließend mit {{WebExtAPIRef("sessions.getTabValue")}} abrufen.
+Speichert ein Schlüssel/Wert-Paar, das mit einem bestimmten Tab verknüpft wird. Sie können diesen Wert anschließend mit {{WebExtAPIRef("sessions.getTabValue")}} abrufen.
 
 Beachten Sie, dass diese Daten nur für die Erweiterung sichtbar sind, die sie gesetzt hat, und nicht für andere Erweiterungen.
 
@@ -28,13 +28,13 @@ let storing = browser.sessions.setTabValue(
 - `tabId`
   - : `integer`. ID des Tabs, mit dem Sie die Daten verknüpfen möchten. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
 - `key`
-  - : `string`. Schlüssel, den Sie später verwenden können, um diesen bestimmten Datenwert abzurufen.
+  - : `string`. Schlüssel, den Sie später verwenden können, um diesen speziellen Datenwert abzurufen.
 - `value`
-  - : `string` oder `object`. Wenn dies ein Objekt ist, wird es [stringifiziert](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify), sodass Objektmethoden, zum Beispiel, ausgelassen werden. Wenn hier eine Funktion angegeben wird, wird sie als Wert `null` gespeichert.
+  - : `string` oder `object`. Wenn dies ein Objekt ist, wird es [stringified](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify), sodass Objektmethoden beispielsweise ausgelassen werden. Wenn hier eine Funktion angegeben wird, wird sie als Wert `null` gespeichert.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit keinen Argumenten aufgelöst wird, wenn der Aufruf erfolgreich war. Wenn der Aufruf fehlschlägt (zum Beispiel, weil die Tab-ID nicht gefunden werden konnte), wird das Versprechen mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird, wenn der Aufruf erfolgreich war. Wenn der Aufruf fehlschlug (zum Beispiel, weil die Tab-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -42,7 +42,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Setzen Sie einen Wert auf dem aktiven Tab, wenn der Benutzer ein Menüelement auswählt. Beachten Sie, dass Sie die Berechtigung "menus" [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) benötigen, um dieses Beispiel auszuführen:
+Setzen Sie einen Wert auf dem aktiven Tab, wenn der Benutzer ein Menüelement auswählt. Beachten Sie, dass Sie die "menus"-[Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) benötigen, um dieses Beispiel auszuführen:
 
 ```js
 async function setOnActiveTab() {

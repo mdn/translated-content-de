@@ -14,14 +14,14 @@ Die {{cssxref("mask-border-slice")}} Eigenschaft wird verwendet, um das Quellbil
 ## Syntax
 
 ```css
-/* Schlüsselwortwert */
+/* Keyword value */
 mask-border-source: none;
 
-/* <image> Werte */
+/* <image> values */
 mask-border-source: url(image.jpg);
 mask-border-source: linear-gradient(to top, red, yellow);
 
-/* Globale Werte */
+/* Global values */
 mask-border-source: inherit;
 mask-border-source: initial;
 mask-border-source: revert;
@@ -48,26 +48,26 @@ mask-border-source: unset;
 
 ### Grundlegende Verwendung
 
-Diese Eigenschaft scheint derzeit noch nicht unterstützt zu werden. Sobald sie unterstützt wird, dient sie dazu, die Quelle der Randmaske zu definieren.
+Diese Eigenschaft wird derzeit offenbar noch nicht unterstützt. Sobald sie schließlich unterstützt wird, dient sie dazu, die Quelle des Maskenrands zu definieren.
 
 ```css
 mask-border-source: url(image.jpg);
 ```
 
-Chromium-basierte Browser unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-source` — mit einem Präfix:
+Auf Chromium basierende Browser unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-source` — mit einem Präfix:
 
 ```css
 -webkit-mask-box-image-source: url(image.jpg);
 ```
 
 > [!NOTE]
-> Die Seite [`mask-border`](/de/docs/Web/CSS/mask-border) enthält ein funktionierendes Beispiel (unter Verwendung der veralteten, in Chromium unterstützten maskierten Randpräfix-Eigenschaften), sodass Sie eine Vorstellung von der Wirkung erhalten können.
+> Die Seite [`mask-border`](/de/docs/Web/CSS/mask-border) bietet ein funktionierendes Beispiel (unter Verwendung der veralteten gefüllten Maskenrand-Eigenschaften, die in Chromium unterstützt werden), damit Sie eine Vorstellung vom Effekt bekommen.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Unterstützung in Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 

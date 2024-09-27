@@ -21,14 +21,14 @@ Die **`:first-of-type`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS
 
 ## Beispiele
 
-### Stil des ersten Absatzes
+### Stilierung des ersten Absatzes
 
 #### HTML
 
 ```html
-<h2>Überschrift</h2>
-<p>Absatz 1</p>
-<p>Absatz 2</p>
+<h2>Heading</h2>
+<p>Paragraph 1</p>
+<p>Paragraph 2</p>
 ```
 
 #### CSS
@@ -46,20 +46,20 @@ p:first-of-type {
 
 ### Verschachtelte Elemente
 
-Dieses Beispiel zeigt, wie auch verschachtelte Elemente angesprochen werden können. Beachten Sie, dass der [Universalselektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert ist, wenn kein Typselektor geschrieben wird.
+Dieses Beispiel zeigt, wie verschachtelte Elemente ebenfalls angesprochen werden können. Beachten Sie, dass der [Universalselektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert wird, wenn kein Typselektor geschrieben wird.
 
 #### HTML
 
 ```html
 <article>
-  <div>Dieses `div` ist zuerst!</div>
-  <div>Dieses <span>verschachtelte `span` ist zuerst</span>!</div>
+  <div>This `div` is first!</div>
+  <div>This <span>nested `span` is first</span>!</div>
   <div>
-    Dieses <em>verschachtelte `em` ist zuerst</em>, aber dieses <em>verschachtelte `em` ist zuletzt</em>!
+    This <em>nested `em` is first</em>, but this <em>nested `em` is last</em>!
   </div>
-  <div>Dieses <span>verschachtelte `span` wird gestylt</span>!</div>
-  <p>Dieses `p` qualifiziert sich!</p>
-  <div>Dies ist das letzte `div`.</div>
+  <div>This <span>nested `span` gets styled</span>!</div>
+  <p>This `p` qualifies!</p>
+  <div>This is the final `div`.</div>
 </article>
 ```
 

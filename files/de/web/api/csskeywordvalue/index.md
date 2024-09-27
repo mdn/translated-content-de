@@ -7,29 +7,29 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Das **`CSSKeywordValue`** Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) erstellt ein Objekt zur Darstellung von CSS-Schlüsselwörtern und anderen Identifikatoren.
+Die **`CSSKeywordValue`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) erstellt ein Objekt, um CSS-Schlüsselwörter und andere Bezeichner darzustellen.
 
-Der Instanzname des Interfaces ist ein {{Glossary("stringifier")}}, was bedeutet, dass, wenn es an einer Stelle verwendet wird, an der ein String erwartet wird, der Wert von `CSSKeyword.value` zurückgegeben wird.
+Der Instanzname der Schnittstelle ist ein [Stringifier](/de/docs/Glossary/stringifier), was bedeutet, dass er überall dort, wo ein String erwartet wird, den Wert von `CSSKeyword.value` zurückgibt.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("CSSKeywordValue.CSSKeywordValue", "CSSKeywordValue()")}}
-  - : Erstellt ein neues `CSSKeywordValue` Objekt.
+- [`CSSKeywordValue()`](/de/docs/Web/API/CSSKeywordValue/CSSKeywordValue)
+  - : Erstellt ein neues `CSSKeywordValue`-Objekt.
 
 ## Instanzeigenschaften
 
-- {{domxref('CSSKeywordValue.value')}}
-  - : Gibt den Wert des `CSSKeywordValue` zurück oder setzt ihn.
+- [`CSSKeywordValue.value`](/de/docs/Web/API/CSSKeywordValue/value)
+  - : Gibt den Wert von `CSSKeywordValue` zurück oder setzt ihn.
 
 ## Instanzmethoden
 
-_Erbt Methoden von {{domxref('CSSStyleValue')}}._
+_Erbt Methoden von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)._
 
 ## Beispiele
 
-Das folgende Beispiel setzt die CSS-{{cssxref('display')}}-Eigenschaft auf ihre Standardwerte zurück und legt das Inline-Attribut [`style`](/de/docs/Web/HTML/Global_attributes/style) auf `style="display: initial"` fest, wenn es im [Entwickler-Tools-Inspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html) betrachtet wird.
+Das folgende Beispiel setzt die CSS-Eigenschaft {{cssxref('display')}} auf ihre Standardwerte zurück, indem das inline [`style`](/de/docs/Web/HTML/Global_attributes/style)-Attribut beim Betrachten im [Developer Tools Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/select_an_element/index.html) auf `style="display: initial"` gesetzt wird.
 
 ```css hidden
 #myElement {
@@ -39,8 +39,8 @@ Das folgende Beispiel setzt die CSS-{{cssxref('display')}}-Eigenschaft auf ihre 
 
 ```html hidden
 <div id="myElement">
-  Überprüfen Sie die Entwickler-Tools, um das Protokoll in der Konsole zu sehen und das
-  style-Attribut in diesem div zu inspizieren.
+  Check the developer tools to see the log in the console and to inspect the
+  style attribute on this div.
 </div>
 ```
 
@@ -57,14 +57,14 @@ console.log(myElement.get("display").value); // 'initial'
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref('CSSImageValue')}}
-- {{domxref('CSSNumericValue')}}
-- {{domxref('CSSPositionValue')}}
-- {{domxref('CSSTransformValue')}}
-- {{domxref('CSSUnparsedValue')}}
+- [`CSSImageValue`](/de/docs/Web/API/CSSImageValue)
+- [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
+- [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue)
+- [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue)
+- [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue)

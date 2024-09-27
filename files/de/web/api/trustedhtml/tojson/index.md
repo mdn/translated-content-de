@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`toJSON()`**-Methode des {{domxref("TrustedHTML")}}-Interfaces gibt eine JSON-Darstellung der gespeicherten Daten zurück.
+Die **`toJSON()`**-Methode des [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Interfaces gibt eine JSON-Darstellung der gespeicherten Daten zurück.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein String, der eine JSON-Darstellung der gespeicherten Daten enthält.
 
 ## Beispiele
 
-Die Konstante `escaped` ist ein Objekt, das über die Trusted Types-Policy escapeHTMLPolicy erstellt wurde. Die `toString()`-Methode gibt einen String zurück, der sicher in ein Dokument eingefügt werden kann.
+Die Konstante `escaped` ist ein Objekt, das über die Trusted Types Policy escapeHTMLPolicy erstellt wurde. Die `toString()`-Methode gibt einen String zurück, der sicher in ein Dokument eingefügt werden kann.
 
 ```js
 const escapeHTMLPolicy = trustedTypes.createPolicy("myEscapePolicy", {

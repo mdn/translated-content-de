@@ -7,22 +7,22 @@ l10n:
 
 {{AddonSidebar}}
 
-Das Objekt, das die auszuführenden Aktionen für übereinstimmende Anfragen beschreibt. Diese können in den statischen Regelressourcen festgelegt werden, die durch den [manifest.json-Schlüssel `declarative_net_request`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) verknüpft sind, oder dynamischer durch die Methoden {{WebExtAPIRef("declarativeNetRequest.updateDynamicRules")}} oder {{WebExtAPIRef("declarativeNetRequest.updateSessionRules")}}.
+Das Objekt, das die auszuführenden Aktionen für übereinstimmende Anfragen beschreibt. Diese können in den statischen Regelressourcen angegeben werden, die durch den [manifest.json `declarative_net_request` Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) verknüpft sind, oder dynamischer durch die Methoden {{WebExtAPIRef("declarativeNetRequest.updateDynamicRules")}} oder {{WebExtAPIRef("declarativeNetRequest.updateSessionRules")}}.
 
-Weitere Informationen zu Regeln finden Sie unter [Rules](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#rules) auf der API-Übersichtsseite.
+Weitere Informationen zu Regeln finden Sie unter [Regeln](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#rules) auf der Übersichtsseite der API.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten folgende Eigenschaften:
 
 - `action`
-  - : {{WebExtAPIRef("declarativeNetRequest.RuleAction")}}. Die Aktion, die ausgeführt wird, wenn diese Regel übereinstimmt.
+  - : {{WebExtAPIRef("declarativeNetRequest.RuleAction")}}. Die auszuführende Aktion, wenn diese Regel übereinstimmt.
 - `condition`
   - : {{WebExtAPIRef("declarativeNetRequest.RuleCondition")}}. Die Bedingung, unter der diese Regel ausgelöst wird.
 - `id`
-  - : `number`. Eine ID, die eine Regel innerhalb eines Regelsets eindeutig identifiziert. Pflichtfeld und sollte >= 1 sein.
+  - : `number`. Eine ID, die eine Regel innerhalb eines Regelsets eindeutig identifiziert. Obligatorisch und sollte >= 1 sein.
 - `priority` {{optional_inline}}
-  - : `number`. Regelpriorität. Standardwert ist 1. Wenn angegeben, sollte sie >= 1 sein. Weitere Informationen dazu, wie die Priorität beeinflusst, welche Regeln angewendet werden, finden Sie unter [Matching precedents](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#matching_precedents).
+  - : `number`. Regelpriorität. Standardwert ist 1. Wenn angegeben, sollte sie >= 1 sein. Siehe [Übereinstimmungspräzedenzfälle](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#matching_precedents) für Details darüber, wie die Priorität beeinflusst, welche Regeln angewendet werden.
 
 {{WebExtExamples("h2")}}
 

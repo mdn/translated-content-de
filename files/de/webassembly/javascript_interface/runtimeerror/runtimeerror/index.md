@@ -7,7 +7,9 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Der **`WebAssembly.RuntimeError()`**-Konstruktor erstellt ein neues WebAssembly-`RuntimeError`-Objekt – der Typ, der immer dann ausgelöst wird, wenn WebAssembly eine [Trap](https://webassembly.github.io/simd/core/intro/overview.html#trap) angibt.
+Der **`WebAssembly.RuntimeError()`** Konstruktor erstellt ein neues
+WebAssembly `RuntimeError` Objekt – der Typ, der immer dann geworfen wird, wenn
+WebAssembly eine [Trap](https://webassembly.github.io/simd/core/intro/overview.html#trap) bestimmt.
 
 ## Syntax
 
@@ -24,9 +26,10 @@ new WebAssembly.RuntimeError(message, fileName, lineNumber)
 - `message` {{optional_inline}}
   - : Menschlich lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt mit folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut ausgelöst wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
+        Wenn ein Fehler mit einer spezifischeren oder nützlicheren Fehlermeldung abgefangen und erneut geworfen wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übermitteln.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -36,7 +39,8 @@ new WebAssembly.RuntimeError(message, fileName, lineNumber)
 
 ### Erstellen einer neuen RuntimeError-Instanz
 
-Der folgende Codeausschnitt erstellt eine neue `RuntimeError`-Instanz und protokolliert deren Details in der Konsole:
+Das folgende Beispiel erstellt eine neue `RuntimeError`-Instanz und protokolliert deren
+Details in der Konsole:
 
 ```js
 try {
@@ -48,7 +52,7 @@ try {
   console.log(e.fileName); // "someFile"
   console.log(e.lineNumber); // 10
   console.log(e.columnNumber); // 0
-  console.log(e.stack); // gibt den Ort zurück, an dem der Code ausgeführt wurde
+  console.log(e.stack); // returns the location where the code was run
 }
 ```
 
@@ -64,4 +68,4 @@ try {
 
 - [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

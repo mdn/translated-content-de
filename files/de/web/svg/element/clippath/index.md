@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<clipPath>`** [SVG](/de/docs/Web/SVG)-Element definiert einen Clipping-Pfad, der von der {{SVGAttr("clip-path")}}-Eigenschaft verwendet wird.
+Das **`<clipPath>`** [SVG](/de/docs/Web/SVG) Element definiert einen Clipping-Pfad, der von der {{SVGAttr("clip-path")}} Eigenschaft verwendet wird.
 
-Ein Clipping-Pfad beschränkt den Bereich, auf den Farbe angewendet werden kann. Konzeptionell werden Teile der Zeichnung, die außerhalb des Bereichs liegen, der vom Clipping-Pfad begrenzt wird, nicht gezeichnet.
+Ein Clipping-Pfad beschränkt den Bereich, auf den Farbe aufgetragen werden kann. Konzeptionell werden Teile der Zeichnung, die außerhalb des durch den Clipping-Pfad begrenzten Bereichs liegen, nicht gezeichnet.
 
 ## Beispiel
 
@@ -25,28 +25,28 @@ svg {
 <svg viewBox="0 0 100 100">
   <clipPath id="myClip">
     <!--
-      Alles außerhalb des Kreises wird
-      abgeschnitten und daher unsichtbar.
+      Everything outside the circle will be
+      clipped and therefore invisible.
     -->
     <circle cx="40" cy="35" r="35" />
   </clipPath>
 
-  <!-- Das ursprüngliche schwarze Herz zur Referenz -->
+  <!-- The original black heart, for reference -->
   <path
     id="heart"
     d="M10,30 A20,20,0,0,1,50,30 A20,20,0,0,1,90,30 Q90,60,50,90 Q10,60,10,30 Z" />
 
   <!--
-    Nur der Teil des roten Herzens
-    innerhalb des Clip-Kreises ist sichtbar.
+    Only the portion of the red heart
+    inside the clip circle is visible.
   -->
   <use clip-path="url(#myClip)" href="#heart" fill="red" />
 </svg>
 ```
 
 ```css
-/* Mit einem Hauch von CSS für Browser, die *
- * die r-Geometry-Eigenschaft implementiert haben. */
+/* With a touch of CSS for browsers who *
+ * implemented the r Geometry Property. */
 
 @keyframes openYourHeart {
   from {
@@ -62,19 +62,19 @@ svg {
 }
 ```
 
-{{EmbedLiveSample('Beispiel', 100, 100)}}
+{{EmbedLiveSample('Example', 100, 100)}}
 
-Ein Clipping-Pfad ist konzeptionell gleichbedeutend mit einem benutzerdefinierten Ansichtsfenster für das referenzierende Element. Daher beeinflusst er das _Rendering_ eines Elements, aber nicht die _inhärente Geometrie_ des Elements. Die Begrenzungsbox eines beschnittenen Elements (d. h. eines Elements, das ein `<clipPath>`-Element über eine {{SVGAttr("clip-path")}}-Eigenschaft referenziert, oder eines Kindes des referenzierenden Elements) muss gleich bleiben, als ob es nicht beschnitten wäre.
+Ein Clipping-Pfad ist konzeptionell äquivalent zu einem benutzerdefinierten Viewport für das referenzierende Element. Daher beeinflusst es die _Darstellung_ eines Elements, aber nicht die _eigentliche Geometrie_ des Elements. Die Begrenzungsbox eines beschnittenen Elements (das bedeutet, ein Element, das auf ein `<clipPath>` Element über eine {{SVGAttr("clip-path")}} Eigenschaft verweist, oder ein Kind des referenzierenden Elements) muss gleich bleiben, als ob es nicht beschnitten wäre.
 
-Standardmäßig werden {{cssxref("pointer-events")}} nicht in beschnittenen Bereichen ausgelöst. Zum Beispiel wird ein Kreis mit einem Radius von `10`, der zu einem Kreis mit einem Radius von `5` beschnitten wird, keine "Klick"-Ereignisse außerhalb des kleineren Radius erhalten.
+Standardmäßig werden {{cssxref("pointer-events")}} in beschnittenen Bereichen nicht gesendet. Zum Beispiel empfängt ein Kreis mit einem Radius von `10`, der auf einen Kreis mit einem Radius von `5` beschnitten ist, außerhalb des kleineren Radius keine "Klick" Ereignisse.
 
 ## Attribute
 
 - {{SVGAttr("clipPathUnits")}}
-  - : Definiert das Koordinatensystem für den Inhalt des `<clipPath>`-Elements.
+  - : Definiert das Koordinatensystem für den Inhalt des `<clipPath>` Elements.
     _Wertetyp_: `userSpaceOnUse`|`objectBoundingBox`; _Standardwert_: `userSpaceOnUse`; _Animierbar_: **ja**
 
-## Einsatzkontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -86,7 +86,7 @@ Standardmäßig werden {{cssxref("pointer-events")}} nicht in beschnittenen Bere
 
 {{Compat}}
 
-## Verwandte Themen
+## Verwandt
 
-- Andere Clipping- und Maskierungselemente in SVG: {{SVGElement("mask")}}
+- Andere Clipping- und Masking-SVG-Elemente: {{SVGElement("mask")}}
 - Einige CSS-Eigenschaften: {{cssxref("clip-path")}}, {{cssxref("pointer-events")}}

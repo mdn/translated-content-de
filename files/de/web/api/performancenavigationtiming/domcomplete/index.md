@@ -8,38 +8,38 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`domComplete`** schreibgeschützte Eigenschaft gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die Zeit unmittelbar bevor der Benutzeragent den [`readyState`](/de/docs/Web/API/Document/readyState) des Dokuments auf `"complete"` setzt, darstellt.
+Die **`domComplete`** schreibgeschützte Eigenschaft gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit unmittelbar bevor der User-Agent den [`readyState`](/de/docs/Web/API/Document/readyState) des Dokuments auf `"complete"` setzt, darstellt.
 
-Siehe auch den `complete`-Zustand von {{domxref("Document.readyState")}}, der dieser Eigenschaft entspricht und sich auf den Zustand bezieht, in dem das Dokument und alle Subressourcen das Laden abgeschlossen haben. Der Zustand zeigt auch an, dass das {{domxref("Window/load_event", "load")}}-Ereignis gleich ausgelöst wird.
+Siehe auch den `complete`-Status des [`Document.readyState`](/de/docs/Web/API/Document/readyState), der dieser Eigenschaft entspricht und sich auf den Zustand bezieht, in dem das Dokument und alle Unterressourcen das Laden abgeschlossen haben. Der Zustand zeigt auch an, dass das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis kurz davor steht, ausgelöst zu werden.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}, der die Zeit unmittelbar bevor der Benutzeragent den [`readyState`](/de/docs/Web/API/Document/readyState) des Dokuments auf `"complete"` setzt, darstellt.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit unmittelbar bevor der User-Agent den [`readyState`](/de/docs/Web/API/Document/readyState) des Dokuments auf `"complete"` setzt, darstellt.
 
 ## Beispiele
 
 ### Protokollierung der DOM-Abschlusszeit
 
-Die `domComplete`-Eigenschaft kann verwendet werden, um die Zeit zu protokollieren, wenn der DOM abgeschlossen ist.
+Die `domComplete`-Eigenschaft kann verwendet werden, um die Zeit zu protokollieren, zu der das DOM abgeschlossen ist.
 
-Beispiel mit einem {{domxref("PerformanceObserver")}}, der über neue `navigation`-Performance-Einträge benachrichtigt, sobald diese in der Leistungstimeline des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation` Performance-Einträge benachrichtigt, wie sie in der Performance-Zeitleiste des Browsers erfasst werden. Verwenden Sie die `buffered`-Option, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden waren.
 
 ```js
 const observer = new PerformanceObserver((list) => {
   list.getEntries().forEach((entry) => {
-    console.log(`${entry.name}: domComplete Zeit: ${entry.domComplete}ms`);
+    console.log(`${entry.name}: domComplete time: ${entry.domComplete}ms`);
   });
 });
 
 observer.observe({ type: "navigation", buffered: true });
 ```
 
-Beispiel mit {{domxref("Performance.getEntriesByType()")}}, die nur `navigation`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungstimeline des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `navigation` Performance-Einträge anzeigt, die zu dem Zeitpunkt, an dem diese Methode aufgerufen wird, in der Performance-Zeitleiste des Browsers vorhanden sind:
 
 ```js
 const entries = performance.getEntriesByType("navigation");
 entries.forEach((entry) => {
-  console.log(`${entry.name}: domComplete Zeit: ${entry.domComplete}ms`);
+  console.log(`${entry.name}: domComplete time: ${entry.domComplete}ms`);
 });
 ```
 
@@ -53,4 +53,4 @@ entries.forEach((entry) => {
 
 ## Siehe auch
 
-- {{domxref("Document.readyState")}}
+- [`Document.readyState`](/de/docs/Web/API/Document/readyState)

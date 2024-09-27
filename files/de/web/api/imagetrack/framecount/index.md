@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`frameCount`**-Eigenschaft des {{domxref("ImageTrack")}} Interfaces gibt die Anzahl der Frames im Track zurück.
+Die **`frameCount`**-Eigenschaft des [`ImageTrack`](/de/docs/Web/API/ImageTrack)-Interfaces gibt die Anzahl der Frames im Track zurück.
 
 ## Wert
 
-Ein Integer.
+Ein ganzzahliger Wert.
 
 ## Beispiele
 
@@ -27,6 +27,6 @@ console.log(track.frameCount);
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

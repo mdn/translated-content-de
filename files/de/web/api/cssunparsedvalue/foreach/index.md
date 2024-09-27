@@ -1,5 +1,5 @@
 ---
-title: "CSSUnparsedValue: Methode forEach()"
+title: "CSSUnparsedValue: forEach() Methode"
 short-title: forEach()
 slug: Web/API/CSSUnparsedValue/forEach
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`CSSUnparsedValue.forEach()`**-Methode führt eine bereitgestellte Funktion einmal für jedes Element des {{domxref('CSSUnparsedValue')}} aus.
+Die **`CSSUnparsedValue.forEach()`** Methode
+führt eine bereitgestellte Funktion einmal für jedes Element von
+[`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) aus.
 
 ## Syntax
 
@@ -21,21 +23,22 @@ forEach(callbackFn, thisArg)
 
 - `callbackFn`
 
-  - : Die Funktion, die für jedes Element ausgeführt wird, wobei drei Argumente übergeben werden:
+  - : Die Funktion, die für jedes Element ausgeführt werden soll, unter Verwendung von drei Argumenten:
 
     - `currentValue`
       - : Der Wert des aktuell verarbeiteten Elements.
     - `index` {{optional_inline}}
       - : Der Index des aktuell verarbeiteten Elements.
     - `array` {{optional_inline}}
-      - : Das `CSSUnparsedValue`, auf dem `forEach()` aufgerufen wird.
+      - : Der `CSSUnparsedValue`, auf den `forEach()` aufgerufen wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Der Wert, der als **`this`** (d. h. das Referenzobjekt `Object`) beim Ausführen von `callback` verwendet wird.
+  - : Wert, der als **`this`** (d. h. die Referenz
+    `Object`) bei der Ausführung von `callback` verwendet wird.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
@@ -47,10 +50,10 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- {{domxref("CSSUnparsedValue.CSSUnparsedValue", "CSSUnparsedValue()")}}
-- {{domxref("CSSUnparsedValue.entries")}}
-- {{domxref("CSSUnparsedValue.keys")}}
-- {{domxref("CSSUnparsedValue.length")}}
-- {{domxref("CSSUnparsedValue.values")}}
+- [`CSSUnparsedValue()`](/de/docs/Web/API/CSSUnparsedValue/CSSUnparsedValue)
+- [`CSSUnparsedValue.entries`](/de/docs/Web/API/CSSUnparsedValue/entries)
+- [`CSSUnparsedValue.keys`](/de/docs/Web/API/CSSUnparsedValue/keys)
+- [`CSSUnparsedValue.length`](/de/docs/Web/API/CSSUnparsedValue/length)
+- [`CSSUnparsedValue.values`](/de/docs/Web/API/CSSUnparsedValue/values)
 - [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)

@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `floor` bewertet eine Dezimalzahl und gibt die größte ganze Zahl zurück, die kleiner oder gleich der Dezimalzahl ist.
+Die `floor`-Funktion bewertet eine Dezimalzahl und gibt die größte ganze Zahl zurück, die kleiner oder gleich der Dezimalzahl ist.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ floor( number )
 
 ### Rückgabewert
 
-Die nächstgelegene ganze Zahl, die kleiner oder gleich `number` ist.
+Die nächstliegende ganze Zahl, die kleiner oder gleich `number` ist.
 
 ## Spezifikationen
 

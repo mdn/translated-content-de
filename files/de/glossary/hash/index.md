@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-Die Hash-Funktion nimmt eine Eingabe in variabler Länge und erzeugt eine Ausgabe in fester Länge. Sie liegt häufig in Form eines 128-Bit-„Fingerabdrucks“ oder „Nachrichtenzusammenfassung“ vor. Hashes sind sehr nützlich für die {{glossary("cryptography", "Kryptographie")}} — sie gewährleisten die Integrität von übertragenen Daten und bilden die Grundlage für {{glossary("HMAC")}}, die die Nachrichtenauthentifizierung ermöglicht.
+Die Hash-Funktion nimmt eine Nachrichteneingabe variabler Länge und erzeugt eine Hash-Ausgabe fester Länge. Sie liegt üblicherweise in Form eines 128-Bit-"Fingerabdrucks" oder "Message Digest" vor. Hashes sind sehr nützlich für die [Kryptographie](/de/docs/Glossary/cryptography) — sie gewährleisten die Integrität der übertragenen Daten und bilden die Grundlage für [HMAC](/de/docs/Glossary/HMAC), das die Nachrichtenauthentifizierung ermöglicht.
 
 ## Siehe auch
 
-- [Hash-Funktion](https://en.wikipedia.org/wiki/Hash_function) auf Wikipedia
+- [Hashfunktion](https://en.wikipedia.org/wiki/Hash_function) auf Wikipedia

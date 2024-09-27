@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: audioend Ereignis"
+title: "SpeechRecognition: audioend-Ereignis"
 short-title: audioend
 slug: Web/API/SpeechRecognition/audioend_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`audioend`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Benutzeragent das Aufnehmen von Audio für die Spracherkennung beendet hat.
+Das **`audioend`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der User-Agent die Audioaufnahme für die Spracherkennung abgeschlossen hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("audioend", (event) => {});
@@ -22,7 +22,7 @@ onaudioend = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{DOMxRef("Event")}} ohne hinzugefügte Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beispiele
 
@@ -36,7 +36,7 @@ recognition.addEventListener("audioend", () => {
 });
 ```
 
-Oder die `onaudioend`-Ereignis-Handler-Eigenschaft nutzen:
+Oder verwenden Sie die `onaudioend`-Ereignis-Handler-Eigenschaft:
 
 ```js
 recognition.onaudioend = () => {

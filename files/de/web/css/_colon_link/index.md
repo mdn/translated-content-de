@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:link`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das noch nicht besucht wurde. Sie entspricht jedem unbesuchten {{HTMLElement("a")}} oder {{HTMLElement("area")}} Element, das ein `href` Attribut hat.
+Die **`:link`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das noch nicht besucht wurde. Sie stimmt mit jedem unbesuchten {{HTMLElement("a")}}- oder {{HTMLElement("area")}}-Element mit einem `href`-Attribut überein.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-link.html", "tabbed-shorter")}}
 
-Von den Pseudoklassen `:link` und [`:visited`](/de/docs/Web/CSS/:visited) definierte Stile können durch alle nachfolgenden Benutzeraktions-Pseudoklassen ({{cssxref(":hover")}} oder {{cssxref(":active")}}) mit mindestens gleicher Spezifität überschrieben werden. Um Links angemessen zu stylen, setzen Sie die `:link` Regel vor alle anderen linkbezogenen Regeln, wie es durch die _LVHA-Reihenfolge_ definiert ist: `:link` — `:visited` — `:hover` — `:active`. Die `:visited` Pseudoklasse und die `:link` Pseudoklasse schließen sich gegenseitig aus.
+Stile, die durch die `:link`- und [`:visited`](/de/docs/Web/CSS/:visited)-Pseudoklassen definiert sind, können durch nachfolgende Benutzeraktions-Pseudoklassen ({{cssxref(":hover")}} oder {{cssxref(":active")}}) überschrieben werden, die mindestens die gleiche Spezifität aufweisen. Um Links richtig zu stylen, sollten Sie die `:link`-Regel vor allen anderen linkbezogenen Regeln platzieren, gemäß der _LVHA-Reihenfolge_: `:link` — `:visited` — `:hover` — `:active`. Die `:visited`-Pseudoklasse und die `:link`-Pseudoklasse schließen sich gegenseitig aus.
 
 > [!NOTE]
 > Verwenden Sie {{cssxref(":any-link")}}, um ein Element unabhängig davon auszuwählen, ob es besucht wurde oder nicht.
@@ -26,14 +26,14 @@ Von den Pseudoklassen `:link` und [`:visited`](/de/docs/Web/CSS/:visited) defini
 
 ## Beispiele
 
-Standardmäßig wenden die meisten Browser einen speziellen {{cssxref("color")}} Wert auf besuchte Links an. Daher werden die Links in diesem Beispiel wahrscheinlich nur spezielle Schriftfarben haben, bevor Sie sie besuchen. (Danach müssen Sie Ihren Browserverlauf löschen, um sie erneut zu sehen.) Die {{cssxref("background-color")}} Werte bleiben jedoch wahrscheinlich erhalten, da die meisten Browser diese Eigenschaft bei besuchten Links standardmäßig nicht setzen.
+Standardmäßig wenden die meisten Browser einen speziellen {{cssxref("color")}}-Wert auf besuchte Links an. Daher werden die Links in diesem Beispiel wahrscheinlich nur vor dem Besuch spezielle Schriftfarben haben. (Danach müssen Sie Ihren Browser-Verlauf löschen, um sie erneut zu sehen.) Jedoch werden die {{cssxref("background-color")}}-Werte wahrscheinlich bestehen bleiben, da die meisten Browser diese Eigenschaft standardmäßig nicht auf besuchte Links anwenden.
 
 ### HTML
 
 ```html
-<a href="#ordinary-target">Dies ist ein gewöhnlicher Link.</a><br />
-<a href="">Diesen Link haben Sie bereits besucht.</a><br />
-<a>Platzhalterlink (wird nicht gestylt)</a>
+<a href="#ordinary-target">This is an ordinary link.</a><br />
+<a href="">You've already visited this link.</a><br />
+<a>Placeholder link (won't get styled)</a>
 ```
 
 ### CSS
@@ -59,4 +59,4 @@ a:link {
 
 ## Siehe auch
 
-- Link-bezogene Pseudoklassen: {{ cssxref(":visited") }}, {{ cssxref(":hover") }}, {{ cssxref(":active") }}
+- Linkbezogene Pseudoklassen: {{ cssxref(":visited") }}, {{ cssxref(":hover") }}, {{ cssxref(":active") }}

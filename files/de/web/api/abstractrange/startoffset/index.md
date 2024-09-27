@@ -1,5 +1,5 @@
 ---
-title: "AbstractRange: Eigenschaft startOffset"
+title: "AbstractRange: startOffset-Eigenschaft"
 short-title: startOffset
 slug: Web/API/AbstractRange/startOffset
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`startOffset`**-Eigenschaft des {{domxref("AbstractRange")}} Interfaces gibt den Offset im Startknoten der Startposition des Bereichs zurück.
+Die schreibgeschützte **`startOffset`**-Eigenschaft der [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Schnittstelle gibt den Versatz in den Startknoten der Startposition der Range zurück.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der Zeichen im {{domxref("Node")}}, angegeben durch {{domxref("AbstractRange.startContainer", "startContainer")}}, angibt, an der sich das erste Zeichen des Bereichs befindet.
+Ein ganzzahliger Wert, der die Anzahl der Zeichen in dem von [`startContainer`](/de/docs/Web/API/AbstractRange/startContainer) angegebenen [`Node`](/de/docs/Web/API/Node) angibt, an der sich das erste Zeichen des Bereichs befindet.
 
 ## Beispiel
 
@@ -24,6 +24,6 @@ let startOffset = range.startOffset;
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

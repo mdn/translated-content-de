@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`getAll()`**-Methode des {{domxref("CookieStore")}}-Interfaces gibt eine Liste von Cookies zurück, die mit dem übergebenen `name` oder den `options` übereinstimmen. Wenn keine Parameter übergeben werden, werden alle Cookies für den aktuellen Kontext zurückgegeben.
+Die **`getAll()`**-Methode der [`CookieStore`](/de/docs/Web/API/CookieStore)-Schnittstelle gibt eine Liste von Cookies zurück, die dem übergebenen `name` oder `options` entsprechen. Ohne Parameter werden alle Cookies für den aktuellen Kontext zurückgegeben.
 
 ## Syntax
 
@@ -34,11 +34,11 @@ Oder
       - : Ein String mit der URL eines Cookies.
 
 > [!NOTE]
-> Die `url`-Option ermöglicht die Änderung eines Cookies, das unter einer bestimmten URL steht. Service-Arbeiter können Cookies erhalten, die an jede URL unter ihrem Bereich gesendet werden würden. Von einem Dokument aus können Sie nur die Cookies an der aktuellen URL abrufen, daher ist die einzige gültige URL im Kontext eines Dokuments die URL des Dokuments.
+> Die `url`-Option ermöglicht die Änderung eines Cookies, das unter einer bestimmten URL eingegrenzt ist. Servicearbeiter können Cookies abrufen, die an jede URL unter ihrem Geltungsbereich gesendet würden. Von einem Dokument aus können Sie nur die Cookies an der aktuellen URL abrufen, sodass die einzige gültige URL im Dokumentenkontext die URL des Dokuments ist.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Array von Objekten aufgelöst wird, das Cookies darstellt, die mit dem angegebenen `name` oder den `options` übereinstimmen.
+Ein {{jsxref("Promise")}}, das mit einem Array von Objekten aufgelöst wird, die Cookies repräsentieren, die dem angegebenen `name` oder `options` entsprechen.
 
 Jedes Objekt enthält die folgenden Eigenschaften:
 
@@ -56,7 +56,7 @@ Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `partitioned`
 
-  - : Ein boolescher Wert, der angibt, ob das Cookie ein partitioniertes Cookie ist (`true`) oder nicht (`false`). Weitere Informationen finden Sie unter [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies).
+  - : Ein boolescher Wert, der angibt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Siehe [Cookies mit unabhängigem partitionierten Zustand (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies) für weitere Informationen.
 
 - `path`
 
@@ -67,9 +67,9 @@ Jedes Objekt enthält die folgenden Eigenschaften:
   - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value)-Werte:
 
     - `"strict"`
-      - : Cookies werden nur in einem Erstparteien-Kontext gesendet und nicht mit Anfragen, die von Drittanbieter-Websites initiiert werden.
+      - : Cookies werden nur in einem Erstanbieter-Kontext gesendet und nicht mit Anfragen von Drittanbieter-Websites.
     - `"lax"`
-      - : Cookies werden bei normalen Cross-Site-Unteranfragen (z.B. zum Laden von Bildern oder Frames in eine Drittanbieterseite) nicht gesendet, werden jedoch gesendet, wenn ein Nutzer innerhalb der Ursprungsseite navigiert (z.B. beim Folgen eines Links).
+      - : Cookies werden bei normalen Cross-Site-Subanfragen (z. B. zum Laden von Bildern oder Frames in ein Drittanbieter-Site) nicht gesendet, aber sie werden gesendet, wenn ein Benutzer innerhalb der Ursprungsseite navigiert (d. h. beim Folgen eines Links).
     - `"none"`
       - : Cookies werden in allen Kontexten gesendet.
 
@@ -82,17 +82,17 @@ Jedes Objekt enthält die folgenden Eigenschaften:
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Ursprung sich nicht zu einer URL {{glossary("Serialization", "serialisieren")}} lässt.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Ursprung nicht in eine URL [serialisierbar](/de/docs/Glossary/Serialization) ist.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn:
-    - Die `url`-Option vorhanden ist und nicht gleich der Erstellungs-URL ist, wenn im Haupt-Thread.
+    - Die `url`-Option vorhanden ist und nicht gleich der Erstellungs-URL ist, falls im Hauptthread.
     - Die `url`-Option vorhanden ist und ihr Ursprung nicht derselbe ist wie der Ursprung der Erstellungs-URL.
-    - Die Abfrage der Cookies, repräsentiert durch den gegebenen `name` oder `options`, fehlschlägt.
+    - Die Abfrage der Cookies, die durch den angegebenen `name` oder `options` dargestellt werden, fehlschlägt.
 
 ## Beispiele
 
-In diesem Beispiel verwenden wir `getAll()` ohne Parameter. Dies gibt alle Cookies für diesen Kontext als ein Array von Objekten zurück.
+In diesem Beispiel verwenden wir `getAll()` ohne Parameter. Dies gibt alle Cookies für diesen Kontext als Array von Objekten zurück.
 
 ```js
 const cookies = await cookieStore.getAll();

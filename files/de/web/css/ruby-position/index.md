@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`ruby-position`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Position eines Ruby-Elements relativ zu seinem Basiselement. Es kann über dem Element (`over`), unter ihm (`under`) oder zwischen den Zeichen auf ihrer rechten Seite (`inter-character`) positioniert werden.
+Die **`ruby-position`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Position eines `ruby`-Elements relativ zu seinem Basiselement. Es kann über dem Element (`over`), unter diesem (`under`) oder zwischen den Zeichen auf ihrer rechten Seite (`inter-character`) positioniert werden.
 
 {{EmbedInteractiveExample("pages/css/ruby-position.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 ruby-position: over;
 ruby-position: under;
 ruby-position: alternate;
@@ -22,7 +22,7 @@ ruby-position: alternate over;
 ruby-position: alternate under;
 ruby-position: inter-character;
 
-/* Globale Werte */
+/* Global values */
 ruby-position: inherit;
 ruby-position: initial;
 ruby-position: revert;
@@ -33,15 +33,15 @@ ruby-position: unset;
 ### Werte
 
 - `over`
-  - : ![Over example](screen_shot_2015-03-04_at_13.02.20.png)
-    Ist ein Schlüsselwort, das angibt, dass die Ruby über dem Haupttext für horizontale Schriften und rechts daneben für vertikale Schriften platziert werden soll.
+  - : ![Beispiel Over](screen_shot_2015-03-04_at_13.02.20.png)
+    Ist ein Schlüsselwort, das angibt, dass das `ruby` über dem Haupttext für horizontale Schriften und rechts davon für vertikale Schriften platziert werden muss.
 - `under`
-  - : ![Under example](screen_shot_2015-03-04_at_13.02.07.png)
-    Ist ein Schlüsselwort, das angibt, dass die Ruby unter dem Haupttext für horizontale Schriften und links daneben für vertikale Schriften platziert werden soll.
+  - : ![Beispiel Under](screen_shot_2015-03-04_at_13.02.07.png)
+    Ist ein Schlüsselwort, das angibt, dass das `ruby` unter dem Haupttext für horizontale Schriften und links davon für vertikale Schriften platziert werden muss.
 - `alternate`
-  - : Ist ein Schlüsselwort, das angibt, dass die Ruby zwischen über und unter wechselt, wenn es mehrere Annotationsstufen gibt.
+  - : Ist ein Schlüsselwort, das angibt, dass das `ruby` zwischen `over` und `under` wechselt, wenn es mehrere Annotationsebenen gibt.
 - `inter-character`
-  - : Wenn angegeben, verhält es sich wie `over` in vertikalen Schreibmodi. Andernfalls gibt es an, dass die Ruby zwischen den verschiedenen Zeichen platziert werden soll, auf der rechten Seite des Basiselements im horizontalen Text erscheint und die Kinder des Ruby-Annotationscontainers dazu zwingt, einen `vertical-rl`-Schreibmodus zu haben.
+  - : Wenn angegeben, verhält es sich wie `over` in vertikalen Schreibmodi. Andernfalls wird angegeben, dass das `ruby` zwischen den verschiedenen Zeichen platziert werden muss, wobei es im horizontalen Text rechts von der Basis erscheint und die Kinder des `ruby`-Annotationscontainers dazu zwingt, einen `vertical-rl` Schreibmodus zu haben.
 
 ## Formale Definition
 
@@ -53,7 +53,7 @@ ruby-position: unset;
 
 ## Beispiele
 
-### Ruby über dem Text positioniert
+### `Ruby` über dem Text positioniert
 
 #### HTML
 
@@ -76,7 +76,7 @@ ruby {
 
 {{EmbedLiveSample("Ruby_positioned_over_the_text", 100, 40)}}
 
-### Ruby unter dem Text positioniert
+### `Ruby` unter dem Text positioniert
 
 #### HTML
 
@@ -99,7 +99,7 @@ ruby {
 
 {{EmbedLiveSample("Ruby_positioned_under_the_text", 100, 40)}}
 
-### Ruby abwechselnd
+### `Ruby` abwechselnd
 
 #### HTML
 
@@ -127,7 +127,7 @@ ruby {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

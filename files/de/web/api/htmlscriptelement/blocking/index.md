@@ -1,5 +1,5 @@
 ---
-title: "HTMLScriptElement: blocking-Eigenschaft"
+title: "HTMLScriptElement: blocking Eigenschaft"
 short-title: blocking
 slug: Web/API/HTMLScriptElement/blocking
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Die **`blocking`**-Eigenschaft der {{domxref("HTMLScriptElement")}}-Schnittstelle ist ein String, der angibt, dass bestimmte Vorgänge beim Abrufen des Skripts blockiert werden sollen.
+Die **`blocking`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces ist ein String, der angibt, dass bestimmte Operationen beim Laden des Skripts blockiert werden sollen.
 
 Sie spiegelt das `blocking`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
 ## Wert
 
-Ein String. Muss eine durch Leerzeichen getrennte Liste der nachstehend aufgeführten Blocking-Tokens sein, die die Vorgänge angeben, die blockiert werden sollen:
+Ein String. Muss eine durch Leerzeichen getrennte Liste der unten aufgeführten Blockierungs-Token sein, die die blockierten Operationen angeben:
 
 - `render`
-  - : Das Rendern von Inhalten auf dem Bildschirm wird blockiert.
+  - : Das Rendering von Inhalten auf dem Bildschirm wird blockiert.
 
 ## Beispiele
 
@@ -40,5 +40,5 @@ console.log(el.blocking); // Output: "render"
 
 ## Siehe auch
 
-- {{domxref("HTMLLinkElement.blocking")}}
-- {{domxref("HTMLStyleElement.blocking")}}
+- [`HTMLLinkElement.blocking`](/de/docs/Web/API/HTMLLinkElement/blocking)
+- [`HTMLStyleElement.blocking`](/de/docs/Web/API/HTMLStyleElement/blocking)

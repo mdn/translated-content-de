@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`forEach()`**-Methode des {{domxref("CustomStateSet")}}-Interfaces führt eine bereitgestellte Funktion für jedes Element im `CustomStateSet`-Objekt aus.
+Die **`forEach()`**-Methode der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Schnittstelle führt eine bereitgestellte Funktion für jeden Wert im `CustomStateSet`-Objekt aus.
 
 ## Syntax
 
@@ -20,17 +20,17 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Funktion, die für jedes Element ausgeführt wird und drei Argumente nimmt:
+  - : Funktion, die für jedes Element ausgeführt wird und drei Argumente annimmt:
     - `value`, `key`
-      - : Das aktuell in Bearbeitung befindliche Element im `CustomStateSet`. Da es in einem `CustomStateSet` keine Schlüssel gibt, wird der Wert für beide Argumente übergeben.
+      - : Das aktuelle Element, das im `CustomStateSet` verarbeitet wird. Da es in einem `CustomStateSet` keine Schlüssel gibt, wird der Wert für beide Argumente übergeben.
     - `set`
-      - : Das `CustomStateSet`, auf das `forEach()` angewendet wurde.
+      - : Das `CustomStateSet`, auf dem `forEach()` aufgerufen wurde.
 - `thisArg`
-  - : Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird.
+  - : Wert, der als `this` verwendet wird, wenn `callbackFn` ausgeführt wird.
 
 ### Rückgabewert
 
-Undefiniert.
+Undefined.
 
 ## Spezifikationen
 

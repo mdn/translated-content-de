@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`setCodecPreferences()`**-Methode des {{domxref("RTCRtpTransceiver")}}-Interfaces wird verwendet, um die Codecs festzulegen, die der Transceiver für das Dekodieren von _empfangenen_ Daten in absteigender Prioritätsreihenfolge zulässt.
+Die **`setCodecPreferences()`**-Methode der [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Schnittstelle wird verwendet, um die Codecs festzulegen, die der Transceiver für das Dekodieren empfangener Daten in abnehmender Präferenzreihenfolge zulässt.
 
-Die mit dieser Methode festgelegten Präferenzen beeinflussen, welche Codecs mit dem entfernten Partner für die Codierung der von ihm gesendeten Daten ausgehandelt werden, einschließlich derjenigen, die für erneute Übertragungen, Redundanz und Vorwärtsfehlerkorrektur verwendet werden. Codecs, die nicht in der Präferenzliste enthalten sind, werden nicht in die Verhandlung einbezogen. Beachten Sie, dass die von diesem Transceiver für das _Senden_ von Inhalten verwendeten Präferenzen von den Präferenzen des entfernten Partners abhängen.
+Die mit dieser Methode festgelegten Präferenzen beeinflussen, welche Codecs mit dem entfernten Peer für die Kodierung der gesendeten Daten ausgehandelt werden, einschließlich derjenigen, die für Wiederübertragung, Redundanz und Vorwärtsfehlerkorrektur verwendet werden. Codecs, die nicht in der Präferenzliste enthalten sind, werden nicht Bestandteil der Aushandlung. Beachten Sie, dass die Präferenzen, die dieser Transceiver zum _Senden_ von Inhalten verwendet, von den Präferenzen des entfernten Peers abhängen.
 
-Der empfohlene Weg, um Codec-Präferenzen festzulegen, besteht darin, zuerst das Array der Codecs zu erhalten, die tatsächlich für das Dekodieren empfangener Daten unterstützt werden, und diese dann in absteigender Präferenzordnung neu zu ordnen. Dies stellt sicher, dass das Array in der erforderlichen Reihenfolge geordnet ist, keine nicht unterstützten Codecs enthält und auch Codecs enthält, die für erneute Übertragungen, Redundanz und Vorwärtsfehlerkorrektur benötigt werden.
+Die empfohlene Vorgehensweise zum Festlegen von Codec-Präferenzen besteht darin, zunächst das Array der Codecs zu erhalten, die tatsächlich für das Dekodieren empfangener Daten unterstützt werden, und diese dann in der Reihenfolge Ihrer abnehmenden Präferenz neu zu ordnen. Dies stellt sicher, dass das Array wie erforderlich geordnet ist, keine nicht unterstützten Codecs enthält und dass es auch Codecs enthält, die für Wiederübertragung, Redundanz und Vorwärtsfehlerkorrektur benötigt werden.
 
-Die angegebene Menge an Codecs wird für alle zukünftigen Verbindungen verwendet, die diesen Transceiver beinhalten, bis diese Methode erneut aufgerufen wird.
+Der angegebene Satz von Codecs wird für alle zukünftigen Verbindungen verwendet, die diesen Transceiver enthalten, bis diese Methode erneut aufgerufen wird.
 
-Bei der Vorbereitung zum Öffnen einer {{domxref("RTCPeerConnection")}} sollten die Codecs mit `setCodecPreferences()` _vor_ dem Aufrufen von entweder {{domxref("RTCPeerConnection.createOffer()")}} oder {{domxref("RTCPeerConnection.createAnswer", "createAnswer()")}}, da diese die Verhandlung initiieren (und standardmäßig Codec-Parameter aus der Standardkonfiguration des {{Glossary("user agent", "Benutzeragenten")}} verwenden).
+Bei der Vorbereitung zur Eröffnung einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) sollten die Codecs mit `setCodecParameters()` festgelegt werden, _bevor_ entweder [`RTCPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) oder [`createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer) aufgerufen werden, da diese die Verhandlung initiieren (und standardmäßig Codec-Parameter aus der [Standardkonfiguration des Benutzer-Agenten](/de/docs/Glossary/user_agent) verwenden).
 
-Die Codecs können geändert werden, während eine Kommunikation im Gange ist, aber Sie müssen zuerst `setCodecPreferences()` aufrufen und dann eine neue Verhandlung einleiten. Eine WebRTC-Anwendung wird bereits Code dafür im [`negotiationneeded`-Ereignishandler](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) haben. Beachten Sie jedoch, dass zum Zeitpunkt des Schreibens das Ereignis nicht automatisch ausgelöst wird, wenn Sie `setCodecPreferences()` aufrufen, sodass Sie `onnegotiationneeded` selbst aufrufen müssen.
+Die Codecs können geändert werden, wenn Sie über eine laufende Kommunikation verfügen, aber Sie müssen zuerst `setCodecParameters()` aufrufen und dann eine neue Verhandlung anstoßen. Eine WebRTC-Anwendung wird bereits Code dafür im [`negotiationneeded`-Ereignishandler](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) haben. Beachten Sie jedoch, dass zum Zeitpunkt des Schreibens das Ereignis nicht automatisch ausgelöst wird, wenn Sie `setCodecParameters()` aufrufen, sodass Sie `onnegotiationneeded` selbst aufrufen müssen.
 
-Ein Leitfaden zu den von WebRTC unterstützten Codecs—und zu den positiven und negativen Merkmalen jedes Codecs—finden Sie in [Codecs used by WebRTC](/de/docs/Web/Media/Formats/WebRTC_codecs).
+Ein Leitfaden zu den von WebRTC unterstützten Codecs – und den Vor- und Nachteilen jedes Codecs – finden Sie unter [Codecs used by WebRTC](/de/docs/Web/Media/Formats/WebRTC_codecs).
 
 ## Syntax
 
@@ -32,66 +32,56 @@ setCodecPreferences(codecs)
 
 - `codecs`
 
-  - : Ein Array von Objekten, von denen jedes die Parameter für einen der vom Transceiver unterstützten [Media-Codecs](/de/docs/Web/Media/Formats/WebRTC_codecs) in bevorzugter Reihenfolge bereitstellt.
-    Wenn `codecs` leer ist, werden alle Codec-Konfigurationen auf die Standardwerte des Benutzeragenten zurückgesetzt.
+  - : Ein Array von Objekten, die jeweils die Parameter für einen der unterstützten [Media-Codecs](/de/docs/Web/Media/Formats/WebRTC_codecs) des Transceivers bereitstellen, geordnet nach Präferenz. Wenn `codecs` leer ist, werden die Codec-Konfigurationen alle auf die Standardwerte des Benutzer-Agenten zurückgesetzt.
 
     > [!NOTE]
-    > Alle Codecs, die nicht in `codecs` enthalten sind, werden während des Aushandlungsprozesses einer Verbindung nicht berücksichtigt.
-    > Auf diese Weise können Sie die Verwendung von Codecs verhindern, die Sie nicht verwenden möchten.
+    > Alle Codecs, die nicht in `codecs` enthalten sind, werden bei der Aushandlung einer Verbindung nicht berücksichtigt.
+    > Dies ermöglicht es Ihnen, die Verwendung von Codecs zu verhindern, die Sie nicht verwenden möchten.
 
     Jedes Codec-Objekt im Array hat die folgenden Eigenschaften:
 
     - `channels` {{optional_inline}}
 
-      - : Eine positive ganze Zahl, die angibt, wie viele Kanäle der Codec unterstützt.
-        Zum Beispiel gibt für Audio-Codecs ein Wert von 1 Mono-Sound an, während 2 Stereo bedeutet.
+      - : Eine positive Ganzzahl, die die Anzahl der vom Codec unterstützten Kanäle angibt. Zum Beispiel spezifiziert bei Audiocodecs ein Wert von 1 Mono-Ton, während 2 Stereo bedeutet.
 
     - `clockRate`
 
-      - : Eine positive ganze Zahl, die die Abtastrate des Codecs in Hertz (Hz) angibt.
-        Die Abtastrate ist die Rate, mit der sich der RTP-Zeitstempel des Codecs erhöht.
-        Die meisten Codecs haben spezifische Werte oder Wertebereiche, die sie zulassen.
-        Die IANA pflegt eine [Liste von Codecs und ihren Parametern](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-1), einschließlich ihrer Abtastraten.
+      - : Eine positive Ganzzahl, die die Taktfrequenz des Codecs in Hertz (Hz) angibt. Die Taktfrequenz ist die Rate, mit der der RTP-Zeitstempel des Codecs fortschreitet. Die meisten Codecs haben bestimmte Werte oder Wertbereiche, die sie zulassen. Die IANA führt eine [Liste von Codecs und deren Parametern](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-1), einschließlich ihrer Taktfrequenzen.
 
     - `mimeType`
 
-      - : Ein String, der den MIME-Mediatyp und Subtyp des Codecs angibt, spezifiziert als eine Zeichenkette der Form `"type/subtype"`.
-        Die MIME-Typ-Zeichenfolgen, die von RTP verwendet werden, unterscheiden sich von denen, die an anderer Stelle verwendet werden.
-        IANA pflegt ein [Register gültiger MIME-Typen](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2).
-        Siehe auch [Codecs used by WebRTC](/de/docs/Web/Media/Formats/WebRTC_codecs) für Details zu potenziellen Codecs, die hier referenziert werden könnten.
+      - : Ein String, der den MIME-Medientyp und -subtyp des Codecs angibt, angegeben als String der Form `"type/subtype"`. Die von RTP verwendeten MIME-Typstrings unterscheiden sich von denen, die an anderer Stelle verwendet werden. Die IANA führt ein [Register gültiger MIME-Typen](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2). Siehe auch [Codecs used by WebRTC](/de/docs/Web/Media/Formats/WebRTC_codecs) für Details zu potenziellen Codecs, auf die hier verwiesen werden kann.
 
     - `sdpFmtpLine` {{optional_inline}}
 
-      - : Eine Zeichenfolge, die das formatspezifische Parameterfeld der `a=fmtp`-Zeile im {{Glossary("SDP")}} angibt, die dem Codec entspricht, falls das Feld vorhanden ist.
-        Wenn kein Parameterfeld vorhanden ist, wird diese Eigenschaft ausgelassen.
+      - : Ein String, der das Format-spezifische Parameterfeld von der `a=fmtp`-Zeile im [SDP](/de/docs/Glossary/SDP) angibt, das dem Codec entspricht, falls das Feld vorhanden ist. Falls es kein Parameterfeld gibt, wird diese Eigenschaft weggelassen.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidAccessError` {{domxref("DOMException")}}
-  - : Die `codecs`-Liste enthält einen oder mehrere Codecs, die von dem mit dem Transceiver verbundenen {{domxref("RTCRtpReceiver")}} nicht unterstützt werden.
-- `InvalidModificationError` {{domxref("DOMException")}}
-  - : Die `codecs`-Liste enthält nur Einträge für RTX, RED, FEC oder Comfort Noise oder ist eine leere Menge.
-    Die Codecs müssen immer einen Codec für die Medien enthalten.
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die `codecs`-Liste enthält einen oder mehrere Codecs, die vom `RTCRtpReceiver`, der mit dem Transceiver verbunden ist, nicht unterstützt werden.
+- `InvalidModificationError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die `codecs`-Liste enthält nur Einträge für RTX, RED, FEC oder Comfort Noise oder ist eine leere Menge. Die Codecs müssen immer einen Codec für die Medien enthalten.
 
 ## Beispiele
 
-### Erstellen des Arrays bevorzugter Codecs
+### Erstellen des Arrays präferierter Codecs
 
-Der empfohlene Weg, um Codec-Präferenzen festzulegen, besteht darin, zuerst das Array der Codecs zu erhalten, die tatsächlich für das Dekodieren empfangener Daten unterstützt werden, und dann die Liste in absteigender Präferenzreihenfolge neu zu ordnen.
+Die empfohlene Vorgehensweise zum Festlegen von Codec-Präferenzen besteht darin, zunächst das Array der Codecs zu erhalten, die tatsächlich für das Dekodieren empfangener Daten unterstützt werden, und dann die Liste in der Reihenfolge abnehmender Präferenz neu zu ordnen.
 
-Es ist wichtig, mit der Liste der unterstützten Codecs zu beginnen (und nicht mit einer fest codierten Liste Ihrer bevorzugten Codecs), da, wenn Sie Codecs einschließen, die nicht vom zugehörigen {{domxref("RTCRtpReceiver")}} unterstützt werden, der Browser eine `InvalidAccessError`-Ausnahme wirft, wenn Sie die `setCodecPreferences()`-Methode aufrufen. Darüber hinaus muss das Array geeignete Codecs für erneute Übertragungen, Redundanz und Vorwärtsfehlerkorrektur enthalten, und mit der Liste der unterstützten Codecs zu beginnen, stellt sicher, dass diese vorhanden sind.
+Es ist wichtig, mit der Liste der unterstützten Codecs zu beginnen (und nicht mit einer hart codierten Liste Ihrer bevorzugten Codecs), da der Browser eine `InvalidAccessError`-Ausnahme auslöst, wenn Sie Codecs einbeziehen, die vom assoziierten [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) nicht unterstützt werden, wenn Sie die Methode `setCodecPreferences()` aufrufen. Zudem muss das Array geeignete Codecs für Wiederübertragung, Redundanz und Vorwärtsfehlerkorrektur enthalten, und der Beginn mit der Liste der unterstützten Codecs stellt sicher, dass diese vorhanden sind.
 
-Sie können die Codecs, die für die Decodierung von Daten unterstützt werden, mit der statischen Methode {{domxref("RTCRtpReceiver.getCapabilities_static", "RTCRtpReceiver.getCapabilities()")}} wie gezeigt erhalten:
+Sie können die unterstützten Codecs für das Dekodieren von Daten mit der statischen Methode [`RTCRtpReceiver.getCapabilities()`](/de/docs/Web/API/RTCRtpReceiver/getCapabilities_static) abrufen, wie gezeigt:
 
 ```js
 const availReceiveCodecs = transceiver.receiver.getCapabilities("video").codecs;
 ```
 
-Um das Codecs-Array in unsere bevorzugte Reihenfolge neu zu ordnen, können wir die untenstehende Sortierfunktion verwenden, um nach MIME-Typ zu sortieren (dieses Beispiel stammt aus [setCodecPreferences is now in all browsers!](https://blog.mozilla.org/webrtc/cross-browser-support-for-choosing-webrtc-codecs/) auf blog.mozilla.org (2024)).
+Um das Codecs-Array in unsere bevorzugte Reihenfolge umzuwandeln, können wir die unten angegebene Sortierfunktion verwenden, um nach MIME-Typ zu sortieren (dies stammt von [setCodecPreferences is now in all browsers!](https://blog.mozilla.org/webrtc/cross-browser-support-for-choosing-webrtc-codecs/) auf blog.mozilla.org (2024)).
 
 ```js
 function sortByMimeTypes(codecs, preferredOrder) {
@@ -105,15 +95,15 @@ function sortByMimeTypes(codecs, preferredOrder) {
 }
 ```
 
-Die Methode nimmt die Liste der unterstützten Codecs und ein Array, das die bevorzugten MIME-Typen in abnehmender Reihenfolge enthält, und gibt das Array sortiert zurück. Der untenstehende Code zeigt, wie dies verwendet wird, vorausgesetzt, dass Sie bereits eine Peer-Verbindung (`peerConnection`) eingerichtet haben:
+Die Methode nimmt die Liste der unterstützten Codecs und ein Array, das die bevorzugten MIME-Typen in abnehmender Reihenfolge enthält, und gibt das in-place sortierte Array zurück. Der unten stehende Code zeigt, wie dies verwendet wird, vorausgesetzt, dass Sie bereits eine Peer-Verbindung (`peerConnection`) eingerichtet haben:
 
 ```js
-// Holen Sie die unterstützten Codecs und sortieren Sie nach den bevorzugten Codecs
+// Get supported codecs the sort using preferred codecs
 const supportedCodecs = RTCRtpReceiver.getCapabilities("video").codecs;
 const preferredCodecs = ["video/H264", "video/VP8", "video/VP9"];
 const sortedCodecs = sortByMimeTypes(supportedCodecs, preferredCodecs);
 
-// Holen Sie den Transceiver für die Verbindung und setzen Sie die Präferenzen
+// Get transceiver for connection and set the preferences
 const [transceiver] = peerConnection.getTransceivers();
 transceiver.setCodecPreferences(sortedCodecs); // <---
 ```
@@ -132,4 +122,4 @@ transceiver.setCodecPreferences(sortedCodecs); // <---
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
 - [Codecs used by WebRTC](/de/docs/Web/Media/Formats/WebRTC_codecs)
 - [Einführung in das Real-time Transport Protocol (RTP)](/de/docs/Web/API/WebRTC_API/Intro_to_RTP)
-- [Web-Medientechnologien](/de/docs/Web/Media)
+- [Webmedien-Technologien](/de/docs/Web/Media)

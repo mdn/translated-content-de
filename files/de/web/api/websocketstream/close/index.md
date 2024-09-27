@@ -1,16 +1,16 @@
 ---
-title: "WebSocketStream: close() Methode"
+title: "WebSocketStream: close()-Methode"
 short-title: close()
 slug: Web/API/WebSocketStream/close
 l10n:
-  sourceCommit: bd8dbe863a306cf7114752bd936d012524b13517
+  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
 ---
 
-{{APIRef("WebSockets API")}}{{SeeCompatTable}}
+{{APIRef("WebSockets API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`close()`** Methode des {{domxref("WebSocketStream")}}-Interfaces schließt die WebSocket-Verbindung. Die Methode akzeptiert optional ein Objekt, das einen benutzerdefinierten Code und/oder Grund enthält, der angibt, warum die Verbindung geschlossen wurde.
+Die **`close()`**-Methode der [`WebSocketStream`](/de/docs/Web/API/WebSocketStream)-Schnittstelle schließt die WebSocket-Verbindung. Die Methode akzeptiert optional ein Objekt, das einen benutzerdefinierten Code und/oder Grund angibt, warum die Verbindung geschlossen wurde.
 
-Ein alternativer Mechanismus zum Schließen eines `WebSocketStream` besteht darin, bei der Erstellung ein {{domxref("AbortSignal")}} in der [`signal`](/de/docs/Web/API/WebSocketStream/WebSocketStream#signal)-Option des Konstruktors anzugeben. Der zugehörige {{domxref("AbortController")}} kann dann verwendet werden, um die WebSocket-Verbindung zu schließen. Dies ist im Allgemeinen der bevorzugte Mechanismus. `close()` kann jedoch verwendet werden, wenn Sie einen benutzerdefinierten Code und/oder Grund angeben möchten.
+Ein alternativer Mechanismus zum Schließen eines `WebSocketStream` ist die Angabe eines [`AbortSignal`](/de/docs/Web/API/AbortSignal) in der [`signal`](/de/docs/Web/API/WebSocketStream/WebSocketStream#signal)-Option des Konstruktors bei der Erstellung. Der zugehörige [`AbortController`](/de/docs/Web/API/AbortController) kann dann verwendet werden, um die WebSocket-Verbindung zu schließen. Dies ist im Allgemeinen der bevorzugte Mechanismus. `close()` kann jedoch verwendet werden, wenn Sie einen benutzerdefinierten Code und/oder Grund angeben möchten.
 
 ## Syntax
 
@@ -22,14 +22,14 @@ close(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
+  - : Ein Optionsobjekt mit den folgenden Eigenschaften:
     - `closeCode` {{optional_inline}}
-      - : Eine Zahl, die den Schließcode darstellt (sehen Sie sich die vollständige Liste der [`CloseEvent` Statuscodes](/de/docs/Web/API/CloseEvent/code#value) an).
+      - : Eine Zahl, die den Schließcode darstellt (siehe die vollständige Liste der [`CloseEvent`-Statuscodes](/de/docs/Web/API/CloseEvent/code#value)).
     - `reason` {{optional_inline}}
-      - : Ein String, der eine für Menschen lesbare Beschreibung des Grundes darstellt, warum die Socket-Verbindung geschlossen wird. Die maximal zulässige Länge für einen `reason`-String beträgt 123 Bytes. Der String wird automatisch als UTF-8 kodiert, wenn die Funktion aufgerufen wird.
+      - : Ein String, der eine menschenlesbare Beschreibung des Grundes darstellt, warum die Socket-Verbindung geschlossen wurde. Die maximal zulässige Länge für einen `reason`-String beträgt 123 Bytes. Der String wird automatisch als UTF-8 kodiert, wenn die Funktion aufgerufen wird.
 
 > [!NOTE]
-> Je nach Serverkonfiguration und dem verwendeten Statuscode kann es sein, dass der Server einen benutzerdefinierten Code zugunsten eines gültigen Codes, der für den Schließgrund korrekt ist, ignoriert. Gültige Codes sind 1000 und jeder Code im Bereich von 3000 bis einschließlich 4999.
+> Je nach Serverkonfiguration und verwendetem Statuscode kann der Server möglicherweise einen benutzerdefinierten Code zugunsten eines gültigen Codes ignorieren, der für den Schließgrund korrekt ist. Gültige Codes sind 1000 und jeder Code innerhalb des Bereichs von 3000 bis 4999, einschließlich.
 
 ### Rückgabewert
 
@@ -37,7 +37,7 @@ Keiner (`undefined`).
 
 ### Ausnahmen
 
-- `SyntaxError` {{domxref("DOMException")}}
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der angegebene `reason` länger ist als die maximal zulässige Länge von 123 Bytes.
 
 ## Beispiele
@@ -64,4 +64,4 @@ Derzeit nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/websocke
 
 ## Siehe auch
 
-- [WebSocketStream: integrating streams with the WebSocket API](https://developer.chrome.com/docs/capabilities/web-apis/websocketstream), developer.chrome.com (2020)
+- [WebSocketStream: Integration von Streams mit der WebSocket API](https://developer.chrome.com/docs/capabilities/web-apis/websocketstream), developer.chrome.com (2020)

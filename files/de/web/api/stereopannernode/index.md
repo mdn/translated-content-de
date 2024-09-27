@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Das `StereoPannerNode`-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) repräsentiert einen einfachen Stereo-Panner-Knoten, der verwendet werden kann, um einen Audiostream nach links oder rechts zu schwenken. Es ist ein {{domxref("AudioNode")}} Audioverarbeitungsmodul, das einen eingehenden Audiostream mit einem kostengünstigen gleichmäßigen [Panning-Algorithmus](https://webaudio.github.io/web-audio-api/#panning-algorithm) in einem Stereobild positioniert.
+Das `StereoPannerNode`-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) repräsentiert einen einfachen Stereo-Panner-Knoten, der verwendet werden kann, um einen Audio-Stream nach links oder rechts zu pannen. Es ist ein [`AudioNode`](/de/docs/Web/API/AudioNode)-Audiobearbeitungsmodul, das einen eingehenden Audio-Stream mithilfe eines kostengünstigen Equal-Power-[Panorama-Algorithmus](https://webaudio.github.io/web-audio-api/#panning-algorithm) in einem Stereo-Bild positioniert.
 
-Die {{domxref("StereoPannerNode.pan", "pan")}} Eigenschaft nimmt einen einheitenlosen Wert zwischen `-1` (vollständige Links-Panorama) und `1` (vollständige Rechts-Panorama) an. Dieses Interface wurde eingeführt, um einen einfachen Panning-Effekt wesentlich einfacher anzuwenden, als einen vollständigen {{domxref("PannerNode")}} verwenden zu müssen.
+Die [`pan`](/de/docs/Web/API/StereoPannerNode/pan)-Eigenschaft nimmt einen einheitslosen Wert zwischen `-1` (volle Links-Panoramierung) und `1` (volle Rechts-Panoramierung) an. Dieses Interface wurde eingeführt, um eine viel einfachere Möglichkeit zu bieten, einen einfachen Panning-Effekt anzuwenden, als einen vollständigen [`PannerNode`](/de/docs/Web/API/PannerNode) zu verwenden.
 
-![Der Stereo Panner Node hat die Position des Klangs von der Mitte der beiden Lautsprecher nach links verschoben.](stereopannernode.png)
+![Der Stereo-Panner-Knoten verschiebt die Position des Tons von der Mitte zweier Lautsprecher nach links.](stereopannernode.png)
 
 {{InheritanceDiagram}}
 
@@ -26,7 +26,7 @@ Die {{domxref("StereoPannerNode.pan", "pan")}} Eigenschaft nimmt einen einheiten
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalzählungsmodus</th>
+      <th scope="row">Channel-Count-Modus</th>
       <td><code>"clamped-max"</code></td>
     </tr>
     <tr>
@@ -34,7 +34,7 @@ Die {{domxref("StereoPannerNode.pan", "pan")}} Eigenschaft nimmt einen einheiten
       <td><code>2</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalauslegung</th>
+      <th scope="row">Kanalinterpretation</th>
       <td><code>"speakers"</code></td>
     </tr>
   </tbody>
@@ -42,19 +42,19 @@ Die {{domxref("StereoPannerNode.pan", "pan")}} Eigenschaft nimmt einen einheiten
 
 ## Konstruktor
 
-- {{domxref("StereoPannerNode.StereoPannerNode", "StereoPannerNode()")}}
+- [`StereoPannerNode()`](/de/docs/Web/API/StereoPannerNode/StereoPannerNode)
   - : Erstellt eine neue Instanz eines `StereoPannerNode`-Objekts.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("AudioNode")}}_.
+_Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
-- {{domxref("StereoPannerNode.pan")}} {{ReadOnlyInline}}
-  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) {{domxref("AudioParam")}}, der den anzuwendenden Panning-Betrag darstellt.
+- [`StereoPannerNode.pan`](/de/docs/Web/API/StereoPannerNode/pan) {{ReadOnlyInline}}
+  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), der die anzuwendende Panoramierung darstellt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, {{domxref("AudioNode")}}_.
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 ## Beispiel
 
@@ -64,7 +64,7 @@ Siehe [`BaseAudioContext.createStereoPanner()`](/de/docs/Web/API/BaseAudioContex
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<path>`** [SVG](/de/docs/Web/SVG) Element ist das generische Element zur Definition einer Form. Alle grundlegenden Formen können mit einem path-Element erstellt werden.
+Das **`<path>`** [SVG](/de/docs/Web/SVG) Element ist das generische Element zur Definition einer Form. Alle Grundformen können mit einem `path`-Element erstellt werden.
 
 ## Beispiel
 
@@ -36,12 +36,12 @@ svg {
 
 - {{SVGAttr("d")}}
   - : Dieses Attribut definiert die Form des Pfades.
-    _Werttyp_: **\<string>** ; _Standardwert_: `''`; _Animierbar_: **ja**
+    _Wertetyp_: **\<string>** ; _Standardwert_: `''`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Dieses Attribut erlaubt es Autoren, die Gesamtlänge des Pfades in Benutzereinheiten anzugeben.
-    _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _keiner_; _Animierbar_: **ja**
+  - : Dieses Attribut ermöglicht es Autoren, die Gesamtlänge des Pfades in Benutzereinheiten anzugeben.
+    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _keiner_; _Animierbar_: **ja**
 
-## Verwendungskontext
+## Verwendungszusammenhang
 
 {{svginfo}}
 
@@ -55,5 +55,5 @@ svg {
 
 ## Siehe auch
 
-- SVG-Grundformen: {{ SVGElement('circle') }}, {{ SVGElement('ellipse') }}, {{ SVGElement('line') }}, {{ SVGElement('polygon') }}, {{ SVGElement('polyline') }}, {{ SVGElement('rect') }}
-- [Das MDN SVG "Einstieg in die Pfade" Tutorial](/de/docs/Web/SVG/Tutorial/Paths)
+- SVG Grundformen: {{ SVGElement('circle') }}, {{ SVGElement('ellipse') }}, {{ SVGElement('line') }}, {{ SVGElement('polygon') }}, {{ SVGElement('polyline') }}, {{ SVGElement('rect') }}
+- [Das MDN SVG „Erste Schritte“-Tutorial: Pfad](/de/docs/Web/SVG/Tutorial/Paths)

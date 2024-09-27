@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`Headers.keys()`**-Methode gibt einen {{jsxref("Iteration_protocols",'iterator')}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Schlüssel zu durchlaufen. Die Schlüssel sind {{jsxref("String")}}-Objekte.
+Die **`Headers.keys()`**-Methode gibt einen
+{{jsxref("Iteration_protocols",'Iterator')}} zurück, mit dem alle in diesem Objekt enthaltenen Schlüssel durchlaufen werden können. Die Schlüssel sind {{jsxref("String")}}-Objekte.
 
 ## Syntax
 
@@ -22,17 +23,17 @@ Keine.
 
 ### Rückgabewert
 
-Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
+Gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück.
 
 ## Beispiele
 
 ```js
-// Erstellen eines Test-Headers Objekts
+// Create a test Headers object
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "text/xml");
 myHeaders.append("Vary", "Accept-Language");
 
-// Anzeige der Schlüssel
+// Display the keys
 for (const key of myHeaders.keys()) {
   console.log(key);
 }

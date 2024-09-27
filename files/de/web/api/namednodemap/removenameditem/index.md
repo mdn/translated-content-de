@@ -1,5 +1,5 @@
 ---
-title: "NamedNodeMap: removeNamedItem()-Methode"
+title: "NamedNodeMap: Methode removeNamedItem()"
 short-title: removeNamedItem()
 slug: Web/API/NamedNodeMap/removeNamedItem
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`removeNamedItem()`**-Methode der {{domxref("NamedNodeMap")}}-Schnittstelle entfernt das dem angegebenen Namen entsprechende {{domxref("Attr")}} aus der Map.
+Die **`removeNamedItem()`**-Methode der [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Schnittstelle entfernt das [`Attr`](/de/docs/Web/API/Attr), das dem angegebenen Namen im Map entspricht.
 
 ## Syntax
 
@@ -19,16 +19,16 @@ removeNamedItem(attrName)
 ### Parameter
 
 - `attrName`
-  - : Der Name des Attributs, das aus der Map entfernt werden soll.
+  - : Der Name des Attributs, das aus dem Map entfernt werden soll.
 
 ### Rückgabewert
 
-Das entfernte {{domxref("Attr")}}.
+Das entfernte [`Attr`](/de/docs/Web/API/Attr).
 
 ### Ausnahmen
 
-- `NotFoundError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn kein Attribut mit dem angegebenen Namen vorhanden ist.
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn kein Attribut mit dem angegebenen Namen existiert.
 
 ## Beispiel
 
@@ -40,14 +40,14 @@ Das entfernte {{domxref("Attr")}}.
 const pre = document.querySelector("pre");
 const attrMap = pre.attributes;
 
-let result = `Das 'test'-Attribut enthält zunächst '${attrMap["test"].value}'.\n`;
+let result = `The 'test' attribute initially contains '${attrMap["test"].value}'.\n`;
 
-result += "Wir entfernen es.\n\n";
+result += "We remove it.\n\n";
 attrMap.removeNamedItem("test");
 
 result += attrMap.getNamedItem("test")
-  ? "Und 'test' existiert weiterhin."
-  : "Und 'test' ist nicht mehr zu finden.";
+  ? "And 'test' still exists."
+  : "And 'test' is no more to be found.";
 
 pre.textContent = result;
 ```
@@ -58,6 +58,6 @@ pre.textContent = result;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

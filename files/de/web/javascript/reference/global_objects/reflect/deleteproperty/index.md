@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Reflect.deleteProperty()`** ähnelt dem {{jsxref("Operators/delete", "delete")}} Operator, jedoch als Funktion. Sie löscht eine Eigenschaft aus einem Objekt.
+Die statische Methode **`Reflect.deleteProperty()`** ist wie der Operator {{jsxref("Operators/delete", "delete")}}, jedoch als Funktion. Sie löscht eine Eigenschaft aus einem Objekt.
 
 {{EmbedInteractiveExample("pages/js/reflect-deleteproperty.html", "taller")}}
 
@@ -20,7 +20,7 @@ Reflect.deleteProperty(target, propertyKey)
 ### Parameter
 
 - `target`
-  - : Das Zielobjekt, von dem die Eigenschaft gelöscht werden soll.
+  - : Das Zielobjekt, bei dem die Eigenschaft gelöscht werden soll.
 - `propertyKey`
   - : Der Name der zu löschenden Eigenschaft.
 
@@ -35,19 +35,19 @@ Ein Boolean, der angibt, ob die Eigenschaft erfolgreich gelöscht wurde oder nic
 
 ## Beschreibung
 
-`Reflect.deleteProperty()` bietet die reflektive Semantik des [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) Operators. Das heißt, `Reflect.deleteProperty(target, propertyKey)` ist semantisch gleichbedeutend mit:
+`Reflect.deleteProperty()` bietet die reflektierende Semantik des [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)-Operators. Das heißt, `Reflect.deleteProperty(target, propertyKey)` ist semantisch äquivalent zu:
 
 ```js
 delete target.propertyKey;
 ```
 
-Auf sehr niedriger Ebene gibt das Löschen einer Eigenschaft ein Boolean zurück (wie im Fall des [Proxy-Handlers](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/deleteProperty)). `Reflect.deleteProperty()` gibt direkt den Status zurück, während `delete` in [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) einen {{jsxref("TypeError")}} auslösen würde, wenn der Status `false` ist. Im Nicht-strict mode haben `delete` und `Reflect.deleteProperty()` dasselbe Verhalten.
+Auf der sehr niedrigen Ebene gibt das Löschen einer Eigenschaft einen Boolean zurück (wie es bei [dem Proxy-Handler](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/deleteProperty) der Fall ist). `Reflect.deleteProperty()` gibt direkt den Status zurück, während `delete` einen {{jsxref("TypeError")}} im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) auslösen würde, wenn der Status `false` ist. Im nicht-strengen Modus haben `delete` und `Reflect.deleteProperty()` dasselbe Verhalten.
 
-`Reflect.deleteProperty()` ruft die `[[Delete]]` [objektinterne Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
+`Reflect.deleteProperty()` ruft die `[[Delete]]`-Methode des [internen Objektverfahrens](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
 ## Beispiele
 
-### Nutzung von Reflect.deleteProperty()
+### Verwendung von Reflect.deleteProperty()
 
 ```js
 const obj = { x: 1, y: 2 };
@@ -58,10 +58,10 @@ const arr = [1, 2, 3, 4, 5];
 Reflect.deleteProperty(arr, "3"); // true
 console.log(arr); // [1, 2, 3, undefined, 5]
 
-// Gibt true zurück, wenn keine solche Eigenschaft existiert
+// Returns true if no such property exists
 Reflect.deleteProperty({}, "foo"); // true
 
-// Gibt false zurück, wenn eine Eigenschaft nicht konfigurierbar ist
+// Returns false if a property is unconfigurable
 Reflect.deleteProperty(Object.freeze({ foo: 1 }), "foo"); // false
 ```
 

@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLUnknownElement`**-Interface repräsentiert ein ungültiges HTML-Element und leitet sich vom {{DOMxRef("HTMLElement")}}-Interface ab, ohne jedoch zusätzliche Eigenschaften oder Methoden zu implementieren.
+Die **`HTMLUnknownElement`**-Schnittstelle repräsentiert ein ungültiges HTML-Element und leitet sich von der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle ab, ohne jedoch zusätzliche Eigenschaften oder Methoden zu implementieren.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Keine spezifischen Eigenschaften; erbt Eigenschaften von seinem übergeordneten Element, {{DOMxRef("HTMLElement")}}._
+_Keine spezifischen Eigenschaften; erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifischen Methoden; erbt Methoden von seinem übergeordneten Element, {{DOMxRef("HTMLElement")}}._
+_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 

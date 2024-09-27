@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode getShaderSource()"
+title: "WebGLRenderingContext: getShaderSource() Methode"
 short-title: getShaderSource()
 slug: Web/API/WebGLRenderingContext/getShaderSource
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.getShaderSource()`**-Methode der
-[WebGL-API](/de/docs/Web/API/WebGL_API) gibt den Quellcode eines
-{{domxref("WebGLShader")}} als Zeichenfolge zurück.
+Die **`WebGLRenderingContext.getShaderSource()`** Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) gibt den Quellcode eines
+[`WebGLShader`](/de/docs/Web/API/WebGLShader) als Zeichenkette zurück.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ getShaderSource(shader)
 ### Parameter
 
 - `shader`
-  - : Ein {{domxref("WebGLShader")}}-Objekt, von dem der Quellcode abgerufen werden soll.
+  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader) Objekt, von dem der Quellcode abgerufen werden soll.
 
 ### Rückgabewert
 
-Eine Zeichenfolge, die den Quellcode des Shaders enthält.
+Eine Zeichenkette, die den Quellcode des Shaders enthält.
 
 ## Beispiele
 
@@ -46,6 +46,6 @@ const source = gl.getShaderSource(shader);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.createShader()")}}
-- {{domxref("WebGLRenderingContext.isShader()")}}
-- {{domxref("WebGLRenderingContext.deleteShader()")}}
+- [`WebGLRenderingContext.createShader()`](/de/docs/Web/API/WebGLRenderingContext/createShader)
+- [`WebGLRenderingContext.isShader()`](/de/docs/Web/API/WebGLRenderingContext/isShader)
+- [`WebGLRenderingContext.deleteShader()`](/de/docs/Web/API/WebGLRenderingContext/deleteShader)

@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Latenz** ist die Netzwerkzeit, die ein angefordertes Element benötigt, um sein Ziel zu erreichen. Niedrige Latenz ist gut, bedeutet, dass es wenig oder keine Verzögerung gibt. Hohe Latenz ist schlecht, bedeutet, dass es lange dauert, bis das angeforderte Element sein Ziel erreicht.
+**Latenz** ist die Netzwerkzeit, die ein angefordertes Ressourcen benötigt, um ihr Ziel zu erreichen. Geringe Latenz ist gut, bedeutet wenig oder keine Verzögerung. Hohe Latenz ist schlecht, bedeutet, dass es lange dauert, bis die angeforderte Ressource ihr Ziel erreicht.
 
-Latenz kann ein Faktor bei jedem Datenfluss sein, wird jedoch am häufigsten im Hinblick auf Netzwerklatenz (die Zeit, die ein Datenpaket benötigt, um von der Quelle zum Ziel zu gelangen) und Medien-Codecs-Latenz (die Zeit, die benötigt wird, damit die Quelldaten codiert oder decodiert werden und den Verbraucher der resultierenden Daten erreichen) diskutiert.
+Latenz kann ein Faktor bei jedem Datenfluss sein, wird jedoch am häufigsten im Hinblick auf Netzwerklatenz (die Zeit, die ein Datenpaket benötigt, um von der Quelle zum Ziel zu gelangen) und Media-Codec-Latenz (die Zeit, die benötigt wird, um die Quelldaten zu kodieren oder zu dekodieren und den Verbraucher der resultierenden Daten zu erreichen) diskutiert.
 
 ## Siehe auch
 

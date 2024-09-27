@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Subtraktionsoperator (`-`)** subtrahiert die beiden Operanden, wodurch deren Differenz entsteht.
+Der **Subtraktionsoperator (`-`)** subtrahiert die beiden Operanden und erzeugt deren Differenz.
 
 {{EmbedInteractiveExample("pages/js/expressions-subtraction.html")}}
 
@@ -19,7 +19,7 @@ x - y
 
 ## Beschreibung
 
-Der `-` Operator ist für zwei Arten von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt zuerst beide Operanden zu numerischen Werten](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und überprüft deren Typen. Er führt eine BigInt-Subtraktion durch, wenn beide Operanden zu BigInts werden; andernfalls wird eine Zahlensubtraktion durchgeführt. Ein {{jsxref("TypeError")}} wird geworfen, wenn ein Operand zu einem BigInt wird, der andere jedoch zu einer Zahl.
+Der `-`-Operator ist für zwei Typen von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Zuerst [wandelt er beide Operanden in numerische Werte um](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und prüft deren Typen. Er führt eine BigInt-Subtraktion durch, wenn beide Operanden BigInts werden; andernfalls führt er eine Zahlensubtraktion durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch zu einer Zahl.
 
 ## Beispiele
 
@@ -30,11 +30,11 @@ Der `-` Operator ist für zwei Arten von Operanden überladen: Zahl und [BigInt]
 3 - 5; // -2
 ```
 
-Andere, nicht-BigInt-Werte, werden in Zahlen umgewandelt:
+Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 
 ```js
-"foo" - 3; // NaN; "foo" wird in die Zahl NaN umgewandelt
-5 - "3"; // 2; "3" wird in die Zahl 3 umgewandelt
+"foo" - 3; // NaN; "foo" is converted to the number NaN
+5 - "3"; // 2; "3" is converted to the number 3
 ```
 
 ### Subtraktion mit BigInts
@@ -74,5 +74,5 @@ Number(2n) - 1; // 1
 - [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 - [Inkrementierung (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
 - [Dekrementierung (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
-- [Unäre Negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
-- [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)
+- [Unary negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
+- [Unary plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

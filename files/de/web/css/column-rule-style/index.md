@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`column-rule-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Linie fest, die zwischen Spalten in einem Mehrspaltenlayout gezeichnet wird.
+Die **`column-rule-style`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt den Stil der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
 
 {{EmbedInteractiveExample("pages/css/column-rule-style.html")}}
 
 ## Syntax
 
 ```css
-/* <'border-style'> Werte */
+/* <'border-style'> values */
 column-rule-style: none;
 column-rule-style: hidden;
 column-rule-style: dotted;
@@ -26,7 +26,7 @@ column-rule-style: ridge;
 column-rule-style: inset;
 column-rule-style: outset;
 
-/* Globale Werte */
+/* Global values */
 column-rule-style: inherit;
 column-rule-style: initial;
 column-rule-style: revert;
@@ -34,12 +34,12 @@ column-rule-style: revert-layer;
 column-rule-style: unset;
 ```
 
-Die Eigenschaft `column-rule-style` wird als einzelner `<'border-style'>` Wert angegeben.
+Die `column-rule-style`-Eigenschaft wird als einzelner `<'border-style'>`-Wert angegeben.
 
 ### Werte
 
 - `<'border-style'>`
-  - : Ist ein durch {{ cssxref("border-style") }} definierter Schlüsselwortwert, der den Stil der Regel beschreibt. Das Styling muss wie im zusammenbrechenden Rahmenmodell interpretiert werden.
+  - : Ist ein Schlüsselwort, das durch {{ cssxref("border-style") }} definiert wird und den Stil der Linie beschreibt. Die Gestaltung muss wie im Kollaps-Grenzmodell interpretiert werden.
 
 ## Formale Definition
 
@@ -51,16 +51,15 @@ Die Eigenschaft `column-rule-style` wird als einzelner `<'border-style'>` Wert a
 
 ## Beispiele
 
-### Eine gestrichelte Spaltenregel setzen
+### Festlegen eines gestrichelten Spaltenlinie
 
 #### HTML
 
 ```html
 <p>
-  Dies ist ein Text, der in drei Spalten aufgeteilt ist. Die
-  `column-rule-style` Eigenschaft wird verwendet, um den Stil der Linie
-  zu ändern, die zwischen den Spalten gezeichnet wird. Finden Sie das
-  nicht wunderbar?
+  This is a bunch of text split into three columns. The `column-rule-style`
+  property is used to change the style of the line that is drawn between
+  columns. Don't you think that's wonderful?
 </p>
 ```
 

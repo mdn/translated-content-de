@@ -8,20 +8,16 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die [WebRTC API](/de/docs/Web/API/WebRTC_API)
-Schnittstelle {{domxref("RTCTrackEvent")}} hat die schreibgeschützte
-**`streams`**-Eigenschaft, die ein Array von
-{{domxref("MediaStream")}}-Objekten angibt, eins für jeden der Streams, die den
-Track bilden, der zur {{domxref("RTCPeerConnection")}} hinzugefügt wird.
+Die [WebRTC API](/de/docs/Web/API/WebRTC_API)-Schnittstelle [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent) besitzt die schreibgeschützte **`streams`**-Eigenschaft, die ein Array von [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekten angibt, eines für jeden der Streams, die die Spur ausmachen, die zur [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt wird.
 
 ## Wert
 
-Ein {{jsxref("Array")}} von {{domxref("MediaStream")}}-Objekten, eins für jeden Stream, der den neuen Track bildet.
+Ein {{jsxref("Array")}} von [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekten, eines für jeden Stream, der die neue Spur ausmacht.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

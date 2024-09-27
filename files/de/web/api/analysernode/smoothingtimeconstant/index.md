@@ -1,5 +1,5 @@
 ---
-title: "AnalyserNode: smoothingTimeConstant-Eigenschaft"
+title: "AnalyserNode: smoothingTimeConstant Eigenschaft"
 short-title: smoothingTimeConstant
 slug: Web/API/AnalyserNode/smoothingTimeConstant
 l10n:
@@ -8,24 +8,24 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`smoothingTimeConstant`**-Eigenschaft der {{ domxref("AnalyserNode") }}-Schnittstelle ist ein Double-Wert, der die Mittelungskonstante mit dem letzten Analyse-Frame darstellt. Es handelt sich im Wesentlichen um einen Durchschnitt zwischen dem aktuellen Puffer und dem letzten Puffer, den der `AnalyserNode` verarbeitet hat, und führt zu einer viel glatteren Veränderung der Werte im Laufe der Zeit.
+Die **`smoothingTimeConstant`**-Eigenschaft der [`AnalyserNode`](/de/docs/Web/API/AnalyserNode)-Schnittstelle ist ein Double-Wert, der die Durchschnittsbildungskonstante mit dem letzten Analyse-Frame darstellt. Im Grunde handelt es sich um einen Mittelwert zwischen dem aktuellen Puffer und dem letzten vom `AnalyserNode` verarbeiteten Puffer, was zu wesentlich sanfteren Werteänderungen im Laufe der Zeit führt.
 
 ## Wert
 
-Ein Double innerhalb des Bereichs von `0` bis `1` (`0` bedeutet keine Zeitmittelung). Der Standardwert ist `0.8`.
+Ein Double im Bereich von `0` bis `1` (`0` bedeutet keine Zeitdurchschnittsbildung). Der Standardwert ist `0.8`.
 
-Wenn 0 festgelegt ist, wird keine Mittelung durchgeführt, während ein Wert von 1 bedeutet, "den vorherigen und aktuellen Puffer beim Berechnen des Wertes stark zu überlappen", was im Wesentlichen die Änderungen über {{domxref("AnalyserNode.getFloatFrequencyData")}}/{{domxref("AnalyserNode.getByteFrequencyData")}}-Aufrufe glättet.
+Wird 0 gesetzt, erfolgt keine Durchschnittsbildung, während ein Wert von 1 bedeutet, dass der vorherige und aktuelle Puffer bei der Wertberechnung stark überlappen, was im Wesentlichen die Änderungen über Aufrufe von [`AnalyserNode.getFloatFrequencyData`](/de/docs/Web/API/AnalyserNode/getFloatFrequencyData)/[`AnalyserNode.getByteFrequencyData`](/de/docs/Web/API/AnalyserNode/getByteFrequencyData) glättet.
 
-In technischen Begriffen wenden wir ein [Blackman-Fenster](https://webaudio.github.io/web-audio-api/#blackman-window) an und glätten die Werte über die Zeit. Der Standardwert ist für die meisten Fälle ausreichend.
+In technischen Begriffen wenden wir ein [Blackman-Fenster](https://webaudio.github.io/web-audio-api/#blackman-window) an und glätten die Werte im Laufe der Zeit. Der Standardwert ist für die meisten Fälle ausreichend.
 
 > [!NOTE]
-> Wird ein Wert außerhalb des Bereichs 0–1 festgelegt, wird eine `INDEX_SIZE_ERR`-Ausnahme ausgelöst.
+> Wenn ein Wert außerhalb des Bereichs 0–1 gesetzt wird, wird eine `INDEX_SIZE_ERR`-Ausnahme ausgelöst.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines {{domxref("AudioContext")}}, um einen `AnalyserNode` zu erstellen, dann {{domxref("window.requestAnimationFrame()","requestAnimationFrame")}} und {{htmlelement("canvas")}}, um wiederholt Frequenzdaten zu sammeln und eine "Winamp-Balkendiagramm-ähnliche" Ausgabe des aktuellen Audioeingangs zu zeichnen. Für vollständigere angewandte Beispiele/Informationen, schauen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um ein `AnalyserNode` zu erstellen, dann [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) und {{htmlelement("canvas")}}, um wiederholt Frequenzdaten zu sammeln und eine "Winamp-Balkendiagramm-Stil"-Ausgabe der aktuellen Audioeingaben zu zeichnen. Für vollständigere angewandte Beispiele/Informationen schauen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
 
-Wenn Sie neugierig auf den Effekt sind, den `smoothingTimeConstant()` hat, versuchen Sie, das obige Beispiel zu klonen und `analyser.smoothingTimeConstant = 0;` stattdessen einzustellen. Sie werden feststellen, dass die Werteänderungen viel drastischer sind.
+Wenn Sie neugierig auf die Wirkung der `smoothingTimeConstant()` sind, versuchen Sie, das obige Beispiel zu klonen und `analyser.smoothingTimeConstant = 0;` stattdessen zu setzen. Sie werden feststellen, dass die Wertänderungen viel abrupter sind.
 
 ```js
 const audioCtx = new AudioContext();

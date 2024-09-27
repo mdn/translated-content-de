@@ -10,11 +10,11 @@ l10n:
 
 Das **`beforeprint`** Ereignis wird ausgelöst, wenn das zugehörige Dokument gedruckt oder zur Druckvorschau vorbereitet wird.
 
-Die {{domxref("Window.afterprint_event", "afterprint")}} und `beforeprint` Ereignisse ermöglichen es Seiten, ihren Inhalt zu ändern, bevor das Drucken beginnt (zum Beispiel, um ein Banner zu entfernen) und diese Änderungen nach Abschluss des Druckvorgangs zurückzusetzen. Im Allgemeinen sollten Sie die Verwendung einer [`@media print`](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types) CSS At-Regel bevorzugen, aber in einigen Fällen kann es notwendig sein, diese Ereignisse zu verwenden.
+Die [`afterprint`](/de/docs/Web/API/Window/afterprint_event) und `beforeprint` Ereignisse ermöglichen es Seiten, ihren Inhalt zu ändern, bevor der Druck beginnt (vielleicht um ein Banner zu entfernen, zum Beispiel) und diese Änderungen nach Abschluss des Druckvorgangs wieder rückgängig zu machen. Im Allgemeinen sollten Sie die Verwendung einer [`@media print`](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types) CSS-Regel bevorzugen, aber es kann in einigen Fällen notwendig sein, diese Ereignisse zu nutzen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("beforeprint", (event) => {});
@@ -23,7 +23,7 @@ onbeforeprint = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -53,4 +53,4 @@ window.onbeforeprint = (event) => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("Window/afterprint_event", "afterprint")}}
+- Verwandte Ereignisse: [`afterprint`](/de/docs/Web/API/Window/afterprint_event)

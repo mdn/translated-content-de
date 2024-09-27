@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.deleteShader()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) markiert ein angegebenes {{domxref("WebGLShader")}}-Objekt zur Löschung. Es wird dann gelöscht, wenn der Shader nicht mehr verwendet wird. Diese Methode hat keinen Effekt, wenn der Shader bereits gelöscht wurde, und das {{domxref("WebGLShader")}} wird automatisch zur Löschung markiert, wenn es vom Garbage Collector zerstört wird.
+Die **`WebGLRenderingContext.deleteShader()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) markiert ein angegebenes [`WebGLShader`](/de/docs/Web/API/WebGLShader)-Objekt zur Löschung. Es wird dann gelöscht, sobald der Shader nicht mehr verwendet wird. Diese Methode hat keine Wirkung, wenn der Shader bereits gelöscht wurde, und der [`WebGLShader`](/de/docs/Web/API/WebGLShader) wird automatisch zur Löschung markiert, wenn er vom Garbage Collector zerstört wird.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteShader(shader)
 ### Parameter
 
 - `shader`
-  - : Ein {{domxref("WebGLShader")}}-Objekt, das gelöscht werden soll.
+  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader)-Objekt, das gelöscht werden soll.
 
 ### Rückgabewert
 
@@ -43,6 +43,6 @@ gl.deleteShader(shader);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.createShader()")}}
-- {{domxref("WebGLRenderingContext.isShader()")}}
-- {{domxref("WebGLRenderingContext.getAttachedShaders()")}}
+- [`WebGLRenderingContext.createShader()`](/de/docs/Web/API/WebGLRenderingContext/createShader)
+- [`WebGLRenderingContext.isShader()`](/de/docs/Web/API/WebGLRenderingContext/isShader)
+- [`WebGLRenderingContext.getAttachedShaders()`](/de/docs/Web/API/WebGLRenderingContext/getAttachedShaders)

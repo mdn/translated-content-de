@@ -7,29 +7,29 @@ l10n:
 
 {{PWASidebar}}
 
-Anwendungsfreigabe ist die Fähigkeit einer Anwendung, Informationen oder Daten an eine andere Anwendung auf demselben Gerät zu übermitteln. Diese Funktion ist für Benutzer nützlich, da sie es ermöglicht, Informationen zwischen zwei Anwendungen zu teilen, ohne dass diese Anwendungen voreinander Kenntnis haben müssen.
+Das Teilen zwischen Anwendungen ist die Fähigkeit einer Anwendung, Informationen oder Daten an eine andere Anwendung auf demselben Gerät zu übergeben. Diese Funktion ist für Benutzer nützlich, da sie Informationen zwischen zwei Anwendungen teilen können, ohne dass diese Anwendungen bereits voneinander wissen müssen.
 
-Zum Beispiel können Sie auf Ihrem Mobilgerät Fotos oder Videos von Ihrer Foto-App an eine andere Anwendung weitergeben, die Bilder akzeptiert, wie z.B. eine E-Mail-Anwendung. Dieses Freigabemuster wird durch das Betriebssystem (OS) gesteuert, auf dem die beiden Anwendungen installiert sind:
+Zum Beispiel können Sie auf Ihrem Mobilgerät Fotos oder Videos aus Ihrer Foto-App mit einer anderen Anwendung teilen, die Bilder akzeptiert, wie etwa einer E-Mail-Anwendung. Dieses Teilen wird durch das Betriebssystem (OS) orchestriert, auf dem die beiden Anwendungen installiert sind:
 
-1. Wenn die Weitergabe des Fotos vom Benutzer initiiert wird, bereitet die Foto-Anwendung die Daten des ausgewählten Bildes vor und übergibt sie an das Betriebssystem.
-2. Das Betriebssystem wählt die Liste der Anwendungen aus, die die geteilten Bilddaten verarbeiten können, und zeigt sie dem Benutzer an.
+1. Wenn das Teilen eines Fotos vom Benutzer initiiert wird, bereitet die Fotoanwendung die Daten für das ausgewählte Bild vor und übergibt sie an das Betriebssystem.
+2. Das Betriebssystem wählt die Liste von Anwendungen aus, die mit den geteilten Bilddaten umgehen können, und zeigt sie dem Benutzer an.
 3. Sobald der Benutzer eine der Zielanwendungen auswählt, startet das Betriebssystem diese mit dem geteilten Bild.
 
-[Progressive Web Apps](/de/docs/Web/Progressive_web_apps) (PWAs) haben auch die Fähigkeit, Informationen mithilfe des gleichen, vom Betriebssystem orchestrierten Musters zu teilen. PWAs können sowohl Daten teilen als auch geteilte Daten akzeptieren.
+[Progressive Web Apps](/de/docs/Web/Progressive_web_apps) (PWAs) haben ebenfalls die Fähigkeit, Informationen unter Verwendung des gleichen, vom Betriebssystem orchestrierten Musters zu teilen. PWAs können sowohl Daten teilen als auch geteilte Daten akzeptieren.
 
-Wenn Sie eine PWA entwickeln, kann das Akzeptieren von geteilten Daten Ihre PWA bekannter und natürlicher in die Geräte Ihrer Benutzer integrieren lassen.
+Wenn Sie eine PWA erstellen, kann das Akzeptieren geteilter Daten Ihre PWA vertrauter und natürlicher in die Geräte Ihrer Benutzer integrieren.
 
 ## Daten mit anderen Apps teilen
 
-Um es Benutzern zu ermöglichen, Daten von Ihrer PWA mit anderen Apps zu teilen, verwenden Sie die [Web Share API](/de/docs/Web/API/Web_Share_API). Die Web Share API ermöglicht es Ihrer App, Text, Links oder Dateien über den zugrunde liegenden Freigabemechanismus des Betriebssystems mit anderen Apps zu teilen.
+Um es Benutzern zu ermöglichen, Daten von Ihrer PWA mit anderen Apps zu teilen, verwenden Sie die [Web Share API](/de/docs/Web/API/Web_Share_API). Die Web Share API ermöglicht es Ihrer App, Text, Links oder Dateien über den zugrunde liegenden Betriebssystem-Sharing-Mechanismus mit anderen Apps zu teilen.
 
-Um Daten zu teilen, verwenden Sie die {{domxref("navigator.share()")}}-Methode als Reaktion auf eine Benutzeraktion, wie z.B. einen Button-Klick.
+Um Daten zu teilen, verwenden Sie die Methode [`navigator.share()`](/de/docs/Web/API/Navigator/share) als Reaktion auf eine Benutzeraktion, wie einen Button-Klick.
 
-### Unterstützung prüfen
+### Überprüfung der Unterstützung
 
-Bevor Sie die Benutzeroberfläche zur Inhaltsfreigabe in Ihrer Anwendung anzeigen, prüfen Sie, ob die Funktionalität der Web Share API unterstützt wird. Selbst die Browser, die die Web Share API unterstützen, unterstützen nicht alle das Teilen aller Datentypen. Daher ist es ratsam, zuerst die {{domxref("navigator.canShare()")}}-Methode zu verwenden, um zu validieren, ob die Daten, die Sie teilen möchten, tatsächlich von dem Browser geteilt werden können, der Ihre App ausführt.
+Bevor Sie die Benutzeroberfläche für das Teilen von Inhalten in Ihrer Anwendung anzeigen, überprüfen Sie, ob das Feature der Web Share API unterstützt wird. Selbst in den Browsern, die die Web Share API unterstützen, werden nicht alle Datentypen unterstützt. Daher ist es empfehlenswert, zuerst die Methode [`navigator.canShare()`](/de/docs/Web/API/Navigator/canShare) zu verwenden, um zu validieren, ob die Daten, die Sie teilen möchten, vom Browser, der Ihre App ausführt, teilbar sind.
 
-Dieses Beispiel zeigt, wie geprüft wird, ob die Web Share API unterstützt wird und ob die Daten geteilt werden können:
+Dieses Beispiel zeigt, wie man überprüft, ob die Web Share API unterstützt wird und ob die Daten geteilt werden können:
 
 ```js
 function canBrowserShareData(data) {
@@ -54,11 +54,11 @@ if (canBrowserShareData(sharedDataSample)) {
 }
 ```
 
-### Ausnahmen behandeln
+### Umgang mit Ausnahmen
 
-Die {{domxref("navigator.share()")}}-Methode gibt ein {{jsxref("Promise")}} zurück, das in Fällen abgelehnt werden kann, wie wenn die geteilten Daten falsch sind, wenn der Benutzer den Freigabevorgang abbricht oder wenn die Datenübertragung fehlgeschlagen ist.
+Die Methode [`navigator.share()`](/de/docs/Web/API/Navigator/share) gibt ein {{jsxref("Promise")}} zurück, das in Fällen abgelehnt werden kann, in denen die geteilten Daten inkorrekt sind, der Benutzer den Sharing-Vorgang abbricht oder die Datenübertragung fehlschlägt.
 
-Es ist daher wichtig, die Promise-Abkehr zu erfassen, um Fehler im JavaScript-Code Ihrer App zu vermeiden.
+Es ist daher wichtig, den Promise-Ablehnung zu behandeln, um Fehler im JavaScript-Code Ihrer App zu vermeiden.
 
 ```js
 async function shareData(data) {
@@ -72,9 +72,9 @@ async function shareData(data) {
 }
 ```
 
-### Textdaten teilen
+### Teilen von Textdaten
 
-Das folgende Beispiel demonstriert, wie ein Link und ein Text geteilt werden, wenn ein Button in der App geklickt wird. Die im Beispiel verwendete Funktion `canBrowserShareData` wird in [Unterstützung prüfen](#unterstützung_prüfen) beschrieben und hier nicht erneut dargestellt.
+Das folgende Beispiel zeigt, wie man einen Link und etwas Text teilt, wenn ein Button in der App geklickt wird. Die Funktion `canBrowserShareData`, die im Beispiel verwendet wird, wird in [Überprüfung der Unterstützung](#überprüfung_der_unterstützung) beschrieben und hier nicht wiederholt.
 
 ```js
 // Retrieve the button from the DOM. The button is hidden for now.
@@ -100,9 +100,9 @@ if (canBrowserShareData({ text: "text", url: "https://example.com" })) {
 }
 ```
 
-### Dateien teilen
+### Teilen von Dateien
 
-Das folgende Codebeispiel zeigt, wie eine Datei geteilt wird, wenn ein Button in der App geklickt wird. Die Funktion `canBrowserShareFiles` wird verwendet, um den Freigabe-Button nur anzuzeigen, wenn der Browser das Teilen von Dateien unterstützt.
+Das folgende Codebeispiel zeigt, wie man eine Datei teilt, wenn ein Button in der App geklickt wird. Die Funktion `canBrowserShareFiles` wird verwendet, um den Teilen-Button nur anzuzeigen, wenn der Browser das Teilen von Dateien unterstützt.
 
 ```js
 function canBrowserShareFiles() {
@@ -146,19 +146,19 @@ if (canBrowserShareFiles()) {
 }
 ```
 
-Für weitere Informationen siehe das [Beispiel zum Teilen von Dateien](/de/docs/Web/API/Navigator/share#sharing_files) auf der `navigator.share()`-Methodenseite.
+Für weitere Informationen, siehe das [Beispiel zum Teilen von Dateien](/de/docs/Web/API/Navigator/share#sharing_files) auf der Seite der Methode `navigator.share()`.
 
-## Behandlung von geteilten Daten von anderen Apps
+## Umgehen mit geteilten Daten von anderen Apps
 
-Um Ihre PWA als Ziel für die geteilten Daten anderer Apps zu registrieren, verwenden Sie die [Web Share Target API](https://developer.chrome.com/docs/capabilities/web-apis/web-share-target) und insbesondere das [`share_target`](/de/docs/Web/Manifest/share_target)-Mitglied des Web-App-Manifests.
+Um Ihre PWA als Ziel für die von anderen Apps geteilten Daten zu registrieren, verwenden Sie die [Web Share Target API](https://developer.chrome.com/docs/capabilities/web-apis/web-share-target) und insbesondere das `share_target`-Element im Web-App-Manifest.
 
-Das `share_target`-Manifestmitglied ermöglicht es einer installierten PWA, auf Betriebssystemebene als potenzielles Ziel für von anderen Apps geteilte Inhalte registriert zu werden. Das bedeutet, dass wenn ein Benutzer Daten teilt, die mit Ihrer PWA kompatibel sind, aus einer anderen App, das Betriebssystem Ihre PWA neben anderen typischen Freigabezielen wie E-Mail- oder Messaging-Apps auflistet. Beachten Sie, dass die PWA installiert sein muss, um als potenzielles Ziel für den Empfang von geteilten Daten angezeigt zu werden.
+Das `share_target`-Element im Manifest ermöglicht es einer installierten PWA, auf Betriebssystemebene als mögliches Ziel für von anderen Apps geteilte Inhalte registriert zu werden. Das bedeutet, wenn ein Benutzer einige Daten von einer anderen App teilt, die mit Ihrer PWA kompatibel sind, wird Ihr PWA vom Betriebssystem zusammen mit anderen typischen Zielen, wie E-Mail- oder Messaging-Apps, aufgeführt. Beachten Sie, dass die PWA installiert sein muss, um als potenzielles Ziel für den Empfang geteilter Daten angezeigt zu werden.
 
-Die Informationen, die Sie mit dem `share_target`-Mitglied in Ihrer Manifestdatei bereitstellen, definieren, für welche Daten Ihre App ein Ziel sein kann und wie das Betriebssystem Ihre App starten soll, wenn der Benutzer sie als Ziel auswählt.
+Die Informationen, die Sie mit dem `share_target`-Element in Ihrer Manifest-Datei bereitstellen, definieren, für welche Daten Ihre App ein Ziel sein kann und wie das Betriebssystem Ihre App starten soll, wenn der Benutzer sie als Ziel auswählt.
 
-### Verarbeitung von Textdaten
+### Umgang mit Textdaten
 
-Hier ist ein Beispiel eines Web-App-Manifests, das das `share_target`-Mitglied verwendet:
+Hier ist ein Web-App-Manifest-Beispiel, das das `share_target`-Element verwendet:
 
 ```json
 {
@@ -183,13 +183,13 @@ Hier ist ein Beispiel eines Web-App-Manifests, das das `share_target`-Mitglied v
 }
 ```
 
-Wenn Ihre App vom Benutzer ausgewählt wird, um die geteilten Inhalte einer anderen App zu übernehmen, wird Ihre App gestartet und die geteilten Inhalte werden ihr auf ähnliche Weise übergeben, wie {{htmlelement("form")}}-Elemente abgesendet werden.
+Wenn der Benutzer Ihre App auswählt, um die von anderen Apps geteilten Inhalte zu verarbeiten, wird Ihre App gestartet und die geteilten Inhalte werden in ähnlicher Weise an sie übergeben, wie {{htmlelement("form")}}-Elemente übermittelt werden.
 
-Im vorherigen Web-App-Manifest-Codebeispiel, wenn die ChattyBox-App als Ziel ausgewählt wird, wird sie gestartet, indem eine HTTP-[`GET`](/en-US/docs/Web/HTTP/Methods/GET)-Anfrage an die URL `/share-handler` gesendet wird, wobei die geteilten Daten als Anfrageparameter `description` und `link` übergeben werden.
+Im vorherigen Web-App-Manifest-Codebeispiel, wenn die ChattyBox-App als Ziel ausgewählt wird, wird sie gestartet, indem eine HTTP-`GET`-Anfrage an die URL `/share-handler` gesendet wird, wobei die geteilten Daten als Anforderungsparameter mit den Namen `description` und `link` übergeben werden.
 
-Die `GET`-Anfrage sieht so aus: `/shared-handler?description=...&link=...`.
+Die `GET`-Anfrage sieht folgendermaßen aus: `/shared-handler?description=...&link=...`.
 
-Der Haupt-JavaScript-Code Ihrer App kann die geteilten Daten dann mithilfe der [URLSearchParams](/de/docs/Web/API/URLSearchParams)-Schnittstelle abrufen:
+Der Haupt-JavaScript-Code Ihrer App kann dann die geteilten Daten mithilfe der [URLSearchParams](/de/docs/Web/API/URLSearchParams)-Schnittstelle abrufen:
 
 ```js
 const url = new URL(document.location);
@@ -197,13 +197,13 @@ const sharedDescription = url.searchParams.get("description");
 const sharedLink = url.searchParams.get("link");
 ```
 
-Für weitere Informationen siehe das Beispiel [Empfangen von geteilten Daten mit GET](/de/docs/Web/Manifest/share_target#receiving_share_data_using_get) auf der `share_target`-Web-App-Manifestmitgliedsseite.
+Für weitere Informationen, siehe das Beispiel [Empfangen von geteilten Daten mit GET](/de/docs/Web/Manifest/share_target#receiving_share_data_using_get) auf der `share_target`-Seite des Web-App-Manifests.
 
-### Verarbeitung von geteilten Dateien
+### Umgang mit geteilten Dateien
 
-Im vorherigen Beispiel wurden Textdaten als `GET`-Anfrage verarbeitet. Die Verarbeitung von Dateien erfordert jedoch die Verwendung einer [`POST`](/de/docs/Web/HTTP/Methods/POST)-Anfrage mit einem `multipart/form-data`-[Verschlüsselungstyp](/de/docs/Web/API/HTMLFormElement/enctype).
+Im vorherigen Beispiel wurden Textdaten als `GET`-Anfrage verarbeitet. Das Verarbeiten von Dateien erfordert jedoch die Verwendung einer `POST`-Anfrage mit einem `multipart/form-data` [Codierungstyp](/de/docs/Web/API/HTMLFormElement/enctype).
 
-Der folgende Codeabschnitt zeigt, wie eine PWA konfiguriert werden kann, um verschiedene Arten von geteilten Dateien zu akzeptieren:
+Der folgende Codeausschnitt zeigt, wie eine PWA konfiguriert werden kann, um verschiedene Arten von geteilten Dateien zu akzeptieren:
 
 ```json
 {
@@ -241,11 +241,11 @@ Der folgende Codeabschnitt zeigt, wie eine PWA konfiguriert werden kann, um vers
 }
 ```
 
-Wie dieses Beispiel zeigt, muss jedes Dateiobjekt in der `files`-Eigenschaft eine `name`-Eigenschaft und eine `accept`-Eigenschaft haben. Die `accept`-Eigenschaft muss die akzeptierten [MIME-Typen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) oder Dateierweiterungen angeben.
+Wie aus diesem Beispiel ersichtlich ist, muss jedes Dateiobjekt in der `files`-Eigenschaft eine `name`-Eigenschaft und eine `accept`-Eigenschaft haben. Die `accept`-Eigenschaft muss die akzeptierten [MIME-Typen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) oder Dateierweiterungen spezifizieren.
 
-Wenn die App vom Benutzer ausgewählt wird, um eine geteilte Datei (oder Dateien) zu verarbeiten, wird die App mit einer `POST`-Anfrage an die URL `/share-file-handler` gestartet, mit kodierten Formulardaten.
+Wenn der Benutzer die App auswählt, um eine geteilte Datei (oder Dateien) zu verarbeiten, wird die App mit einer `POST`-Anfrage an die URL `/share-file-handler` gestartet, mit codierten Formulardaten.
 
-Da es sich um eine `POST`-Anfrage handelt, kann der Haupt-JavaScript-Code Ihrer App nicht direkt auf die Formulardaten zugreifen. Sie können die übermittelten Dateien in Ihrem serverseitigen Code verarbeiten, indem Sie sie am `/share-file-handler` URL-Endpunkt empfangen. Für eine bessere Benutzererfahrung, die offline funktioniert, können Sie die Dateien jedoch im Code Ihres Service Workers mit einem [`fetch`-Ereignishandler](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event) verarbeiten, wie hier gezeigt:
+Da dies eine `POST`-Anfrage ist, kann der Haupt-JavaScript-Code Ihrer App nicht direkt auf die Formulardaten zugreifen. Sie können die übermittelten Dateien in Ihrem Server-seitigen Code verarbeiten, indem Sie sie am Endpunkt der URL `/share-file-handler` empfangen. Für ein besseres Nutzererlebnis, das auch offline funktioniert, können Sie die Dateien in Ihrem Service-Worker-Code mit einem [`fetch`-Event-Handler](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event) behandeln, wie hier gezeigt:
 
 ```js
 // service-worker.js
@@ -280,14 +280,14 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-In diesem Codebeispiel werden die geteilten Dateien aus den Formulardaten extrahiert und der Benutzer zu einer anderen Seite weitergeleitet. Es liegt an Ihnen, mit dem Code in Ihrem Service Worker die extrahierten Dateien so zu handhaben, wie Sie möchten. Zum Beispiel können Sie sie mit der {{domxref("Worker.postMessage()")}}-Methode an den Haupt-JavaScript-Code Ihrer App senden oder in einer [Indexed DB](/de/docs/Web/API/IndexedDB_API)-Datenbank speichern, die sowohl von Ihrem Service Worker als auch vom Haupt-JavaScript-Code Ihrer App zugegriffen werden kann.
+In diesem Codebeispiel werden die geteilten Dateien aus den Formulardaten extrahiert und der Benutzer wird zu einer anderen Seite weitergeleitet. Es liegt an Ihnen, mithilfe des Codes in Ihrem Serviceworker die extrahierten Dateien nach Ihren Wünschen zu verarbeiten. Sie können sie z.B. mit der Methode [`Worker.postMessage()`](/de/docs/Web/API/Worker/postMessage) an den Haupt-JavaScript-Code Ihrer App senden oder in einer [Indexed DB](/de/docs/Web/API/IndexedDB_API)-Datenbank speichern, die sowohl von Ihrem Service-Worker als auch von dem Haupt-JavaScript-Code Ihrer App zugänglich ist.
 
-Für weitere Informationen siehe das [Beispiel zum Empfangen von geteilten Dateien](/de/docs/Web/Manifest/share_target#receiving_shared_files) auf der `share_target`-Web-App-Manifestmitgliedsseite.
+Für weitere Informationen, siehe das Beispiel [Empfangen geteilte Dateien](/de/docs/Web/Manifest/share_target#receiving_shared_files) auf der `share_target`-Seite des Web-App-Manifests.
 
 ## Siehe auch
 
 - [Web Share API](/de/docs/Web/API/Web_Share_API)
 - [`share_target`-Manifestmitglied](/de/docs/Web/Manifest/share_target)
-- [Integration mit der OS-Freigabe-UI über die Web Share API](https://web.dev/articles/web-share) auf web.dev
+- [Integration mit dem OS-Sharing-UI mit der Web Share API](https://web.dev/articles/web-share) auf web.dev
 - [Empfangen von geteilten Daten mit der Web Share Target API](https://developer.chrome.com/docs/capabilities/web-apis/web-share-target) auf developer.chrome.com
 - [Inhalte mit anderen Apps teilen](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/share) auf microsoft.com

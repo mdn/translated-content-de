@@ -7,20 +7,20 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Hello_vertex_attributes","Learn/WebGL/By_example/Video_textures")}}
 
-Dieses WebGL-Beispiel bietet eine einfache Demonstration der prozeduralen Texturierung mit Fragment-Shadern. Das heißt, es wird Code verwendet, um Texturen für die Schattierung von WebGL-Objekten zu erzeugen.
+Dieses WebGL-Beispiel bietet eine einfache Demonstration der prozeduralen Texturierung mit Fragment-Shadern. Das heißt, mit Code Texturen zu erzeugen, die zur Schattierung von WebGL-Objekten verwendet werden.
 
 ## Zeichnen von Texturen mit Code
 
 {{EmbedLiveSample("Drawing_textures_with_code", 660, 425)}}
 
-Texturierung eines Punkt-Sprites mit pro-Pixel-Berechnungen im Fragment-Shader.
+Texturierung eines Punktsprites mit Berechnungen, die pro Pixel im Fragment-Shader durchgeführt werden.
 
 ```html hidden
-<p>Textur aus Code. Einfache Demonstration der prozeduralen Texturierung</p>
+<p>Texture from code. Simple demonstration of procedural texturing</p>
 ```
 
 ```html hidden
-<canvas>Ihr Browser scheint keine Canvas zu unterstützen.</canvas>
+<canvas>Your browser does not seem to support canvases.</canvas>
 ```
 
 ```css hidden
@@ -110,7 +110,7 @@ function setupWebGL(evt) {
     const linkErrLog = gl.getProgramInfoLog(program);
     cleanup();
     document.querySelector("p").textContent =
-      `Shader-Programm konnte nicht erfolgreich verknüpft werden. Fehlerprotokoll: ${linkErrLog}`;
+      `Shader program did not link successfully. Error log: ${linkErrLog}`;
     return;
   }
   initializeAttributes();
@@ -149,7 +149,7 @@ function getRenderingContext() {
   if (!gl) {
     const paragraph = document.querySelector("p");
     paragraph.textContent =
-      "Fehlgeschlagen. Ihr Browser oder Gerät unterstützt möglicherweise kein WebGL.";
+      "Failed. Your browser or device may not support WebGL.";
     return null;
   }
   gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);

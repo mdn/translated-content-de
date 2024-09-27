@@ -10,7 +10,7 @@ l10n:
 > [!WARNING]
 > Dieses Ereignis ist veraltet. Verwenden Sie stattdessen {{WebExtAPIRef("tabs.onActivated")}}.
 
-Wird ausgelöst, wenn sich der ausgewählte Tab in einem Fenster ändert. Beachten Sie, dass die URL des Tabs möglicherweise noch nicht festgelegt ist, wenn dieses Ereignis ausgelöst wird. Sie können jedoch {{WebExtAPIRef('tabs.onUpdated')}}-Ereignisse anhören, um benachrichtigt zu werden, wenn eine URL festgelegt wird.
+Dieses Ereignis wird ausgelöst, wenn sich der ausgewählte Tab in einem Fenster ändert. Beachten Sie, dass die URL des Tabs möglicherweise nicht gesetzt ist, wenn dieses Ereignis ausgelöst wird. Sie können jedoch {{WebExtAPIRef('tabs.onUpdated')}}-Ereignisse abonnieren, um benachrichtigt zu werden, wenn eine URL gesetzt wird.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ browser.tabs.onActiveChanged.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Anhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüfen Sie, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -35,7 +35,7 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
 
     - `tabId`
       - : `integer`. Die ID des Tabs, der aktiv geworden ist.

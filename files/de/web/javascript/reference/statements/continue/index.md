@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Die **`continue`**-Anweisung beendet die Ausführung der Anweisungen in der aktuellen Iteration der aktuellen oder beschrifteten Schleife und setzt die Ausführung der Schleife mit der nächsten Iteration fort.
+Die **`continue`**-Anweisung beendet die Ausführung der Anweisungen in der aktuellen Iteration der aktuellen oder benannten Schleife und setzt die Ausführung der Schleife mit der nächsten Iteration fort.
 
 {{EmbedInteractiveExample("pages/js/statement-continue.html")}}
 
@@ -19,7 +19,7 @@ continue label;
 ```
 
 - `label` {{optional_inline}}
-  - : Kennung, die mit der Bezeichnung der Anweisung verbunden ist.
+  - : Identifikator, der mit dem Label der Anweisung verknüpft ist.
 
 ## Beschreibung
 
@@ -27,11 +27,11 @@ Im Gegensatz zur {{jsxref("Statements/break", "break")}}-Anweisung beendet `cont
 
 - In einer {{jsxref("Statements/while", "while")}}- oder {{jsxref("Statements/do...while", "do...while")}}-Schleife springt es zurück zur Bedingung.
 - In einer {{jsxref("Statements/for", "for")}}-Schleife springt es zum Aktualisierungsausdruck.
-- In einer {{jsxref("Statements/for...in", "for...in")}}, {{jsxref("Statements/for...of", "for...of")}}, oder {{jsxref("Statements/for-await...of", "for await...of")}}-Schleife springt es zur nächsten Iteration.
+- In einer {{jsxref("Statements/for...in", "for...in")}}, {{jsxref("Statements/for...of", "for...of")}} oder {{jsxref("Statements/for-await...of", "for await...of")}}-Schleife springt es zur nächsten Iteration.
 
-Die `continue`-Anweisung kann ein optionales Label enthalten, das es dem Programm ermöglicht, zur nächsten Iteration einer beschrifteten Schleifenanweisung statt der innersten Schleife zu springen. In diesem Fall muss die `continue`-Anweisung innerhalb dieser beschrifteten Anweisung geschachtelt sein.
+Die `continue`-Anweisung kann ein optionales Label enthalten, das dem Programm erlaubt, zur nächsten Iteration einer benannten Schleifenanweisung statt der innersten Schleife zu springen. In diesem Fall muss die `continue`-Anweisung innerhalb dieser benannten Anweisung geschachtelt sein.
 
-Eine `continue`-Anweisung, mit oder ohne folgendem Label, kann nicht auf der obersten Ebene eines Skripts, Moduls, Funktionskörpers oder [statischen Initialisierungsblocks](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) verwendet werden, selbst wenn die Funktion oder Klasse weiter innerhalb einer Schleife enthalten ist.
+Eine `continue`-Anweisung, ob mit oder ohne folgendes Label, kann nicht auf der obersten Ebene eines Skripts, Moduls, Funktionskörpers oder [statischen Initialisierungsblocks](/de/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks) verwendet werden, selbst wenn die Funktion oder Klasse weiter in einer Schleife enthalten ist.
 
 ## Beispiele
 
@@ -56,9 +56,9 @@ while (i < 5) {
 
 ### Verwendung von continue mit einem Label
 
-Im folgenden Beispiel enthält eine Anweisung mit dem Label `checkIAndJ` eine Anweisung mit dem Label `checkJ`. Wenn `continue` auftritt, setzt das Programm am Anfang der `checkJ`-Anweisung fort. Jedes Mal, wenn `continue` auftritt, wird `checkJ` erneut durchlaufen, bis seine Bedingung `false` zurückgibt. Wenn `false` zurückgegeben wird, wird der Rest der `checkIAndJ`-Anweisung abgeschlossen.
+Im folgenden Beispiel enthält eine Anweisung mit dem Label `checkIAndJ` eine Anweisung mit dem Label `checkJ`. Wird `continue` aufgerufen, setzt das Programm an der Spitze der `checkJ`-Anweisung fort. Jedes Mal, wenn `continue` aufgerufen wird, wiederholt `checkJ` die Ausführung, bis seine Bedingung false zurückgibt. Wenn false zurückgegeben wird, wird der Rest der `checkIAndJ`-Anweisung abgeschlossen.
 
-Wenn `continue` ein Label von `checkIAndJ` hätte, würde das Programm am Anfang der `checkIAndJ`-Anweisung fortsetzen.
+Wenn `continue` das Label `checkIAndJ` hätte, würde das Programm an der Spitze der `checkIAndJ`-Anweisung fortfahren.
 
 ```js
 let i = 0;
@@ -112,7 +112,7 @@ j = 4
 
 ### Unsachgemäße continue-Anweisungen
 
-`continue` darf innerhalb von Schleifen an Funktionsgrenzen nicht verwendet werden.
+`continue` kann nicht innerhalb von Schleifen über Funktionsgrenzen hinweg verwendet werden.
 
 ```js-nolint example-bad
 for (let i = 0; i < 10; i++) {
@@ -122,7 +122,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-Wenn auf ein Label verwiesen wird, muss die beschriftete Anweisung die `continue`-Anweisung enthalten.
+Beim Verweisen auf ein Label muss die benannte Anweisung die `continue`-Anweisung enthalten.
 
 ```js-nolint example-bad
 label: for (let i = 0; i < 10; i++) {
@@ -134,7 +134,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-Die beschriftete Anweisung muss eine Schleife sein.
+Die benannte Anweisung muss eine Schleife sein.
 
 ```js-nolint example-bad
 label: {
@@ -148,7 +148,7 @@ label: {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

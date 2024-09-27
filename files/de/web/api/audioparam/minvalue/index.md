@@ -8,14 +8,13 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die **`minValue`**
-schreibgeschützte Eigenschaft der {{domxref("AudioParam")}}-Schnittstelle stellt den minimal möglichen Wert für den nominalen (effektiven) Bereich des Parameters dar.
+Die **`minValue`**-Eigenschaft der [`AudioParam`](/de/docs/Web/API/AudioParam)-Schnittstelle gibt den minimal möglichen Wert für den nominalen (effektiven) Bereich des Parameters an und ist schreibgeschützt.
 
 ## Wert
 
-Eine Fließkommazahl ({{jsxref("Number")}}), die den minimal zulässigen Wert für den nominalen Bereich des Parameters angibt.
+Eine Gleitkomma-{{jsxref("Number")}}, die den minimal zulässigen Wert für den nominalen Bereich des Parameters angibt.
 
-Der Standardwert von `minValue` ist der minimale negative Wert eines Gleitkommas mit einfacher Genauigkeit (-340.282.346.638.528.859.811.704.183.484.516.925.440).
+Der Standardwert von `minValue` ist der minimale negative Einzelpräzisions-Gleitkommawert (-340.282.346.638.528.859.811.704.183.484.516.925.440).
 
 ## Beispiele
 
@@ -35,4 +34,4 @@ console.log(gainNode.gain.minValue); // -3.4028234663852886e38
 
 ## Siehe auch
 
-- {{domxref("AudioParam.maxValue")}}
+- [`AudioParam.maxValue`](/de/docs/Web/API/AudioParam/maxValue)

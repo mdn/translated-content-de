@@ -7,48 +7,48 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-`XMLHttpRequestEventTarget` ist das Interface, das die gemeinsamen Ereignishandler von {{domxref("XMLHttpRequest")}} und {{domxref("XMLHttpRequestUpload")}} beschreibt.
+`XMLHttpRequestEventTarget` ist das Interface, das die Ereignishandler beschreibt, die bei [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) und [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload) gemeinsam genutzt werden.
 
-Sie verwenden `XMLHttpRequestEventTarget` nicht direkt; stattdessen interagieren Sie mit den Unterklassen.
+Sie verwenden `XMLHttpRequestEventTarget` nicht direkt; stattdessen arbeiten Sie mit den Unterklassen.
 
 ## Vererbung für `XMLHttpRequest`
 
 {{InheritanceDiagram("XMLHttpRequest")}}
 
-Die folgenden Ereignisse sind für {{domxref("XMLHttpRequest")}} verfügbar:
+Die folgenden Ereignisse sind bei [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) verfügbar:
 
-- {{domxref("XMLHttpRequest/abort_event", "abort")}}
-- {{domxref("XMLHttpRequest/error_event", "error")}}
-- {{domxref("XMLHttpRequest/load_event", "load")}}
-- {{domxref("XMLHttpRequest/loadend_event", "loadend")}}
-- {{domxref("XMLHttpRequest/loadstart_event", "loadstart")}}
-- {{domxref("XMLHttpRequest/progress_event", "progress")}}
-- {{domxref("XMLHttpRequest/readystatechange_event", "readystatechange")}}
-- {{domxref("XMLHttpRequest/timeout_event", "timeout")}}
+- [`abort`](/de/docs/Web/API/XMLHttpRequest/abort_event)
+- [`error`](/de/docs/Web/API/XMLHttpRequest/error_event)
+- [`load`](/de/docs/Web/API/XMLHttpRequest/load_event)
+- [`loadend`](/de/docs/Web/API/XMLHttpRequest/loadend_event)
+- [`loadstart`](/de/docs/Web/API/XMLHttpRequest/loadstart_event)
+- [`progress`](/de/docs/Web/API/XMLHttpRequest/progress_event)
+- [`readystatechange`](/de/docs/Web/API/XMLHttpRequest/readystatechange_event)
+- [`timeout`](/de/docs/Web/API/XMLHttpRequest/timeout_event)
 
 ## Vererbung für `XMLHttpRequestUpload`
 
 {{InheritanceDiagram("XMLHttpRequestUpload")}}
 
-Die folgenden Ereignisse sind für {{domxref("XMLHttpRequestUpload")}} verfügbar:
+Die folgenden Ereignisse sind bei [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload) verfügbar:
 
-- {{domxref("XMLHttpRequestUpload/abort_event", "abort")}}
-- {{domxref("XMLHttpRequestUpload/error_event", "error")}}
-- {{domxref("XMLHttpRequestUpload/load_event", "load")}}
-- {{domxref("XMLHttpRequestUpload/loadend_event", "loadend")}}
-- {{domxref("XMLHttpRequestUpload/loadstart_event", "loadstart")}}
-- {{domxref("XMLHttpRequestUpload/progress_event", "progress")}}
-- {{domxref("XMLHttpRequestUpload/timeout_event", "timeout")}}
+- [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event)
+- [`error`](/de/docs/Web/API/XMLHttpRequestUpload/error_event)
+- [`load`](/de/docs/Web/API/XMLHttpRequestUpload/load_event)
+- [`loadend`](/de/docs/Web/API/XMLHttpRequestUpload/loadend_event)
+- [`loadstart`](/de/docs/Web/API/XMLHttpRequestUpload/loadstart_event)
+- [`progress`](/de/docs/Web/API/XMLHttpRequestUpload/progress_event)
+- [`timeout`](/de/docs/Web/API/XMLHttpRequestUpload/timeout_event)
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("XMLHttpRequest")}}
-- {{domxref("XMLHttpRequestUpload")}}
+- [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
+- [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload)

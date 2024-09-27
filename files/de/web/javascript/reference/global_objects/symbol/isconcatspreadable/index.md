@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Symbol.isConcatSpreadable`** statische Dateneigenschaft repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.isConcatSpreadable`. Die Methode {{jsxref("Array.prototype.concat()")}} überprüft dieses Symbol auf jedem Objekt, das zusammengefügt wird, um festzustellen, ob es als array-ähnliches Objekt behandelt und auf seine Array-Elemente abgeflacht werden soll.
+Die statische Dateneigenschaft **`Symbol.isConcatSpreadable`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.isConcatSpreadable`. Die Methode {{jsxref("Array.prototype.concat()")}} sucht bei jedem zu verkettenden Objekt nach diesem Symbol, um zu bestimmen, ob es als array-ähnliches Objekt behandelt und auf seine Array-Elemente abgeflacht werden soll.
 
 {{EmbedInteractiveExample("pages/js/symbol-isconcatspreadable.html")}}
 
@@ -19,16 +19,16 @@ Das wohlbekannte Symbol `Symbol.isConcatSpreadable`.
 
 ## Beschreibung
 
-Die Eigenschaft `[Symbol.isConcatSpreadable]` kann als eigene oder vererbte Eigenschaft definiert werden und ihr Wert ist ein boolescher Wert. Sie kann das Verhalten für Arrays und array-ähnliche Objekte steuern:
+Die Eigenschaft `[Symbol.isConcatSpreadable]` kann als eigene oder geerbte Eigenschaft definiert werden, und ihr Wert ist ein boolean. Sie kann das Verhalten für Arrays und array-ähnliche Objekte steuern:
 
-- Für Array-Objekte ist das Standardverhalten das Aufspalten (Abflachen) von Elementen. `Symbol.isConcatSpreadable` kann das Abflachen in diesen Fällen vermeiden.
-- Für array-ähnliche Objekte ist das Standardverhalten keine Verbreitung oder Abflachung. `Symbol.isConcatSpreadable` kann in diesen Fällen eine Abflachung erzwingen.
+- Für Array-Objekte ist das Standardverhalten, Elemente zu verbreiten (abzuflachen). `Symbol.isConcatSpreadable` kann das Abflachen in diesen Fällen vermeiden.
+- Für array-ähnliche Objekte ist das Standardverhalten kein Verbreiten oder Abflachen. `Symbol.isConcatSpreadable` kann das Abflachen in diesen Fällen erzwingen.
 
 ## Beispiele
 
 ### Arrays
 
-Standardmäßig verteilt (abflacht) {{jsxref("Array.prototype.concat()")}} Arrays in seinem Ergebnis:
+Standardmäßig verbreitet (flacht) {{jsxref("Array.prototype.concat()")}} Arrays in seinem Ergebnis:
 
 ```js
 const alpha = ["a", "b", "c"];
@@ -36,10 +36,10 @@ const numeric = [1, 2, 3];
 
 const alphaNumeric = alpha.concat(numeric);
 
-console.log(alphaNumeric); // Ergebnis: ['a', 'b', 'c', 1, 2, 3]
+console.log(alphaNumeric); // Result: ['a', 'b', 'c', 1, 2, 3]
 ```
 
-Wenn `Symbol.isConcatSpreadable` auf `false` gesetzt wird, können Sie das Standardverhalten deaktivieren:
+Wenn Sie `Symbol.isConcatSpreadable` auf `false` setzen, können Sie das Standardverhalten deaktivieren:
 
 ```js
 const alpha = ["a", "b", "c"];
@@ -48,12 +48,12 @@ const numeric = [1, 2, 3];
 numeric[Symbol.isConcatSpreadable] = false;
 const alphaNumeric = alpha.concat(numeric);
 
-console.log(alphaNumeric); // Ergebnis: ['a', 'b', 'c', [1, 2, 3] ]
+console.log(alphaNumeric); // Result: ['a', 'b', 'c', [1, 2, 3] ]
 ```
 
 ### Array-ähnliche Objekte
 
-Für array-ähnliche Objekte besteht der Standard darin, nicht zu verteilen. `Symbol.isConcatSpreadable` muss auf `true` gesetzt werden, um ein abgeflachtes Array zu erhalten:
+Für array-ähnliche Objekte ist der Standard, nicht zu verbreiten. `Symbol.isConcatSpreadable` muss auf `true` gesetzt werden, um ein abgeflachtes Array zu erhalten:
 
 ```js
 const x = [1, 2, 3];
@@ -69,7 +69,7 @@ x.concat(fakeArray); // [1, 2, 3, "hello", "world"]
 ```
 
 > [!NOTE]
-> Die Eigenschaft `length` wird verwendet, um die Anzahl der hinzuzufügenden Objekteigenschaften zu steuern. Im obigen Beispiel zeigt `length:2` an, dass zwei Eigenschaften hinzugefügt werden müssen.
+> Die `length`-Eigenschaft wird verwendet, um die Anzahl der hinzuzufügenden Objekteigenschaften zu steuern. Im obigen Beispiel gibt `length:2` an, dass zwei Eigenschaften hinzugefügt werden müssen.
 
 ## Spezifikationen
 

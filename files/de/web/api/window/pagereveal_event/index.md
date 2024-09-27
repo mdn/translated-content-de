@@ -1,5 +1,5 @@
 ---
-title: "Window: pagereveal-Ereignis"
+title: "Window: pagereveal-Event"
 short-title: pagereveal
 slug: Web/API/Window/pagereveal_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{seecompattable}}
 
-Das **`pagereveal`**-Ereignis wird ausgelöst, wenn ein Dokument zum ersten Mal gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus dem [Back/Forward-Cache](/de/docs/Glossary/bfcache) (bfcache) oder [Prerender](/de/docs/Glossary/Prerender)).
+Das **`pagereveal`**-Ereignis wird ausgelöst, wenn ein Dokument erstmals gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus dem [Back/Forward-Cache](/de/docs/Glossary/bfcache) (bfcache) oder [Prerender](/de/docs/Glossary/Prerender)).
 
-Dies ist nützlich im Fall von Cross-Dokument (MPA) [Ansichtstransitionen](/de/docs/Web/API/View_Transitions_API), um eine aktive Transition von der eingehenden Seite einer Navigation zu manipulieren. Beispielsweise könnten Sie die Transition überspringen oder die eingehende Übergangsanimation über JavaScript anpassen.
+Dies ist nützlich im Fall von Cross-Dokument- (MPA) [View-Transitions](/de/docs/Web/API/View_Transitions_API), um eine aktive Transition von der eingehenden Seite einer Navigation zu manipulieren. Zum Beispiel könnten Sie die Transition überspringen oder die eingehende Transition-Animation über JavaScript anpassen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("pagereveal", (event) => {});
@@ -23,40 +23,40 @@ onpagereveal = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("PageRevealEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`PageRevealEvent`](/de/docs/Web/API/PageRevealEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("PageRevealEvent")}}
 
 ## Ereigniseigenschaften
 
-- {{domxref("PageRevealEvent.viewTransition")}} {{ReadOnlyInline}}
-  - : Gibt das {{domxref("ViewTransition")}}-Objekt zurück, das die eingehende Cross-Dokument-Ansichtstransition repräsentiert, falls eine aktiv ist, wenn das Ereignis ausgelöst wird. Andernfalls wird `null` zurückgegeben.
+- [`PageRevealEvent.viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition) {{ReadOnlyInline}}
+  - : Gibt das [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zurück, das die eingehende Cross-Dokument-View-Transition darstellt, falls eine aktiv ist, wenn das Ereignis ausgelöst wird. Ist dies nicht der Fall, wird `null` zurückgegeben.
 
 ## Beispiele
 
 ```js
 window.addEventListener("pagereveal", async (e) => {
-  // Wenn der "from"-Verlaufseintrag nicht existiert, zurückkehren
+  // If the "from" history entry does not exist, return
   if (!navigation.activation.from) return;
 
-  // Führen Sie dies nur aus, wenn eine aktive Ansichtstransition existiert
+  // Only run this if an active view transition exists
   if (e.viewTransition) {
     const fromUrl = new URL(navigation.activation.from.url);
     const currentUrl = new URL(navigation.activation.entry.url);
 
-    // Vom Profilseite zur Startseite gegangen
-    // ~> Setze VT-Namen auf das relevante Listenelement
+    // Went from profile page to homepage
+    // ~> Set VT names on the relevant list item
     if (isProfilePage(fromUrl) && isHomePage(currentUrl)) {
       const profile = extractProfileNameFromUrl(fromUrl);
 
-      // Setze view-transition-name Werte auf die Elemente, die animiert werden sollen
+      // Set view-transition-name values on the elements to animate
       document.querySelector(`#${profile} span`).style.viewTransitionName =
         "name";
       document.querySelector(`#${profile} img`).style.viewTransitionName =
         "avatar";
 
-      // Entfernen Sie Namen, nachdem Snapshots gemacht wurden
-      // um bereit für die nächste Navigation zu sein
+      // Remove names after snapshots have been taken
+      // so that we're ready for the next navigation
       await e.viewTransition.ready;
       document.querySelector(`#${profile} span`).style.viewTransitionName =
         "none";
@@ -64,17 +64,17 @@ window.addEventListener("pagereveal", async (e) => {
         "none";
     }
 
-    // Zur Profilseite gegangen
-    // ~> Setze VT-Namen auf den Haupttitel und das Bild
+    // Went to profile page
+    // ~> Set VT names on the main title and image
     if (isProfilePage(currentUrl)) {
-      // Setze view-transition-name Werte auf die Elemente, die animiert werden sollen
+      // Set view-transition-name values on the elements to animate
       document.querySelector(`#detail main h1`).style.viewTransitionName =
         "name";
       document.querySelector(`#detail main img`).style.viewTransitionName =
         "avatar";
 
-      // Entfernen Sie Namen, nachdem Snapshots gemacht wurden
-      // um bereit für die nächste Navigation zu sein
+      // Remove names after snapshots have been taken
+      // so that we're ready for the next navigation
       await e.viewTransition.ready;
       document.querySelector(`#detail main h1`).style.viewTransitionName =
         "none";
@@ -92,11 +92,11 @@ window.addEventListener("pagereveal", async (e) => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Verwendung der View Transitions API](/de/docs/Web/API/View_Transitions_API/Using)
-- {{domxref("Window.pageswap_event", "pageswap")}}-Ereignis
+- [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignis

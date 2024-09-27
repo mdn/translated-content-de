@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerGlobalScope: Eigenschaft cookieStore"
+title: "ServiceWorkerGlobalScope: cookieStore-Eigenschaft"
 short-title: cookieStore
 slug: Web/API/ServiceWorkerGlobalScope/cookieStore
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Cookie Store API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die **`cookieStore`** Eigentum der {{domxref("ServiceWorkerGlobalScope")}} Schnittstelle gibt einen Verweis auf das {{domxref("CookieStore")}}-Objekt zurück, das diesem Service Worker zugeordnet ist.
+Die schreibgeschützte Eigenschaft **`cookieStore`** des [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Interfaces gibt eine Referenz auf das [`CookieStore`](/de/docs/Web/API/CookieStore)-Objekt zurück, das mit diesem Service Worker verknüpft ist.
 
 ## Wert
 
-Eine Instanz des {{domxref("CookieStore")}}-Objekts.
+Eine Instanz eines [`CookieStore`](/de/docs/Web/API/CookieStore)-Objekts.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

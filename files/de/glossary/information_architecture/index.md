@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Informationsarchitektur, wie sie im Webdesign und in der Webentwicklung angewendet wird, ist die Praxis, die Informationen/Inhalte/Funktionalitäten einer Website so zu organisieren, dass sie die bestmögliche Benutzererfahrung bietet, wobei Informationen und Dienstleistungen leicht nutzbar und auffindbar sind.
+Informationsarchitektur, angewandt auf Webdesign und -entwicklung, ist die Praxis, die Informationen/Inhalte/Funktionalitäten einer Website so zu organisieren, dass sie die bestmögliche Benutzererfahrung bietet, wobei Informationen und Dienste leicht nutzbar und auffindbar sind.
 
 ## Siehe auch
 

@@ -7,33 +7,33 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der **`Save-Data`** [Netzwerk-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#network_client_hints) ist ein booleanischer Anfrage-Header, der die Präferenz des Clients für einen reduzierten Datenverbrauch angibt. Dies kann aus Gründen wie hohen Übertragungskosten, langsamen Verbindungs-geschwindigkeiten usw. der Fall sein.
+Das **`Save-Data`** [Netzwerk-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#network_client_hints) Anforderungsheader-Feld ist ein boolescher Wert, der die Präferenz des Clients für eine reduzierte Datennutzung angibt. Dies könnte aus Gründen wie hohe Übertragungskosten, langsame Verbindungsgeschwindigkeit usw. sein.
 
-**`Save-Data`** ist ein [Hinweis mit niedriger Entropie](/de/docs/Web/HTTP/Client_hints#low_entropy_hints). Daher kann es vom Client gesendet werden, auch wenn es nicht vom Server über einen {{HTTPHeader("Accept-CH")}} Antwort-Header angefordert wurde. Darüber hinaus sollte es verwendet werden, um die zum Client gesendeten Daten zu reduzieren, unabhängig von den Werten anderer Client-Hinweise, die die Netzwerkfähigkeit angeben, wie {{HTTPHeader("Downlink")}} und {{HTTPHeader("RTT")}}.
+**`Save-Data`** ist ein [Hinweis mit niedriger Entropie](/de/docs/Web/HTTP/Client_hints#low_entropy_hints) und kann daher vom Client gesendet werden, auch wenn dies nicht vom Server mit einem {{HTTPHeader("Accept-CH")}} Antwort-Header angefordert wurde. Außerdem sollte es verwendet werden, um die an den Client gesendeten Daten zu reduzieren, unabhängig von den Werten anderer Client-Hinweise, die die Netzwerkfähigkeit anzeigen, wie {{HTTPHeader("Downlink")}} und {{HTTPHeader("RTT")}}.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request header")}},
-        <a href="/de/docs/Web/HTTP/Client_hints">Client hint</a>
+        [Anforderungsheader](/de/docs/Glossary/Request_header),
+        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted response header")}}
+        [CORS-gesafelisteter Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header)
       </th>
       <td>nein</td>
     </tr>
   </tbody>
 </table>
 
-Ein Wert von `On` zeigt an, dass der Benutzer ausdrücklich der Reduzierung des Datenverbrauchs auf dem Client zustimmt, und ermöglicht es den Ursprüngen, alternative Inhalte zu liefern, um die heruntergeladene Datenmenge zu reduzieren, wie z.B. kleinere Bild- und Videoressourcen, unterschiedliche Markup- und Stilarten, deaktiviertes Polling und automatische Updates usw.
+Ein Wert von `On` zeigt die ausdrückliche Benutzerzustimmung für einen reduzierten Datennutzungsmodus auf dem Client an und ermöglicht es Ursprüngen, alternative Inhalte bereitzustellen, um die heruntergeladenen Daten zu reduzieren, wie z.B. kleinere Bild- und Videoressourcen, unterschiedliche Markup- und Stilgestaltungen, deaktiviertes Polling und automatische Updates usw.
 
 > [!NOTE]
 > Das Deaktivieren von HTTP/2 Server Push ({{RFC("7540", "Server Push", "8.2")}}) könnte ebenfalls wünschenswert sein, um Daten-Downloads zu reduzieren.
@@ -47,11 +47,12 @@ Save-Data: <sd-token>
 ## Direktiven
 
 - `<sd-token>`
-  - : Ein Wert, der angibt, ob der Client in den Modus für reduzierten Datenverbrauch wechseln möchte. `on` bedeutet ja, während `off` (der Standardwert) nein bedeutet.
+  - : Ein Wert, der angibt, ob der Client in einen reduzierten Datennutzungsmodus wechseln möchte.
+    `on` bedeutet ja, während `off` (der Standard) nein bedeutet.
 
 ## Beispiele
 
-Der {{HTTPHeader("Vary")}} Header stellt sicher, dass der Inhalt korrekt zwischengespeichert wird (z.B. um sicherzustellen, dass dem Benutzer kein Bild mit niedrigerer Qualität aus dem Cache bereitgestellt wird, wenn der `Save-Data` Header nicht mehr vorhanden ist \[_z.B._ nach dem Wechsel von Mobilfunk zu Wi-Fi]).
+Der {{HTTPHeader("Vary")}} Header stellt sicher, dass der Inhalt ordnungsgemäß zwischengespeichert wird (z.B. um sicherzustellen, dass dem Benutzer nicht ein qualitativ minderwertiges Bild aus dem Cache angeboten wird, wenn der `Save-Data` Header nicht mehr vorhanden ist \[_z.B._ nach einem Wechsel von Mobilfunk zu WLAN]).
 
 ### Mit `Save-Data: on`
 
@@ -106,9 +107,9 @@ Content-Type: image/jpeg
 
 ## Siehe auch
 
-- [Helfen Sie Ihren Benutzern `Save-Data` - CSS Tricks](https://css-tricks.com/help-users-save-data/)
-- [Bereitstellung schneller und leichter Anwendungen mit Save-Data - web.dev](https://web.dev/articles/optimizing-content-efficiency-save-data)
-- {{HTTPHeader("Vary")}} Header, der anzeigt, dass der bereitgestellte Inhalt je nach Wert von `Save-Data` variiert (siehe [HTTP Caching > Vary](/de/docs/Web/HTTP/Caching#vary))
+- [Helfen Sie Ihren Nutzern, Daten zu sparen - CSS Tricks](https://css-tricks.com/help-users-save-data/)
+- [Schnelle und leichte Anwendungen mit Save-Data bereitstellen - web.dev](https://web.dev/articles/optimizing-content-efficiency-save-data)
+- Der {{HTTPHeader("Vary")}} Header, der anzeigt, dass der bereitgestellte Inhalt abhängig vom Wert von `Save-Data` variiert (siehe [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary))
 - CSS @media Feature [`prefers-reduced-data`](/de/docs/Web/CSS/@media/prefers-reduced-data) {{experimental_inline}}
-- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
-- {{domxref("NetworkInformation.saveData")}}
+- [Verbesserung der Benutzerprivatsphäre und Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [`NetworkInformation.saveData`](/de/docs/Web/API/NetworkInformation/saveData)

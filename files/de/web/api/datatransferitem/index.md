@@ -7,33 +7,33 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Das **`DataTransferItem`**-Objekt repräsentiert ein Ziehdaten-Element. Während eines _Ziehvorgangs_ hat jedes {{domxref("DragEvent")}} eine {{domxref("DragEvent.dataTransfer","dataTransfer")}}-Eigenschaft, die eine {{domxref("DataTransferItemList","Liste")}} von Ziehdaten-Elementen enthält. Jedes Element in der Liste ist ein `DataTransferItem`-Objekt.
+Das **`DataTransferItem`**-Objekt repräsentiert ein Drag-Daten-Element. Während einer _Drag-Operation_ hat jedes [`DragEvent`](/de/docs/Web/API/DragEvent) eine [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer)-Eigenschaft, die eine [`list`](/de/docs/Web/API/DataTransferItemList) von Drag-Daten-Elementen enthält. Jedes Element in der Liste ist ein `DataTransferItem`-Objekt.
 
-`DataTransferItem` wurde primär für die [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) entwickelt und ist immer noch im HTML-Bereich für Ziehen und Ablegen spezifiziert. Mittlerweile wird es auch von anderen APIs, wie {{domxref("ClipboardEvent.clipboardData")}} und {{domxref("InputEvent.dataTransfer")}}, verwendet. Die Dokumentation von `DataTransferItem` wird sich hauptsächlich mit der Nutzung in Ziehen-und-Ablegen-Operationen befassen; für die Verwendung von `DataTransferItem` in diesen Kontexten sollten Sie die Dokumentation der anderen APIs konsultieren.
+`DataTransferItem` wurde hauptsächlich für die [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) entwickelt und wird immer noch im HTML-Bereich für Drag-and-Drop spezifiziert, aber es wird jetzt auch von anderen APIs wie [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) und [`InputEvent.dataTransfer`](/de/docs/Web/API/InputEvent/dataTransfer) verwendet. Die Dokumentation von `DataTransferItem` behandelt hauptsächlich die Nutzung in Drag-and-Drop-Operationen, und Sie sollten sich auf die Dokumentation der anderen APIs beziehen, um die Nutzung von `DataTransferItem` in diesen Kontexten zu verstehen.
 
-Diese Schnittstelle hat keinen Konstruktor.
+Dieses Interface hat keinen Konstruktor.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("DataTransferItem.kind")}} {{ReadOnlyInline}}
-  - : Die _Art_ des Ziehdaten-Elements, `string` oder `file`.
-- {{domxref("DataTransferItem.type")}} {{ReadOnlyInline}}
-  - : Der Typ des Ziehdaten-Elements, typischerweise ein MIME-Typ.
+- [`DataTransferItem.kind`](/de/docs/Web/API/DataTransferItem/kind) {{ReadOnlyInline}}
+  - : Die _Art_ des Drag-Daten-Elements, `string` oder `file`.
+- [`DataTransferItem.type`](/de/docs/Web/API/DataTransferItem/type) {{ReadOnlyInline}}
+  - : Der Typ des Drag-Daten-Elements, typischerweise ein MIME-Typ.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{domxref("DataTransferItem.getAsFile()")}}
-  - : Gibt das mit dem Ziehdaten-Element verknüpfte {{domxref("File")}}-Objekt zurück (oder null, wenn das Ziehelement keine Datei ist).
-- {{domxref("DataTransferItem.getAsFileSystemHandle()")}} {{Experimental_Inline}}
-  - : Gibt ein {{domxref('FileSystemFileHandle')}} zurück, wenn das gezogene Element eine Datei ist, oder ein {{domxref('FileSystemDirectoryHandle')}} zurück, wenn das gezogene Element ein Verzeichnis ist.
-- {{domxref("DataTransferItem.getAsString()")}}
-  - : Ruft den angegebenen Callback mit der Zeichenkette des Ziehdaten-Elements als Argument auf.
-- {{domxref("DataTransferItem.webkitGetAsEntry()")}}
-  - : Gibt ein Objekt basierend auf {{domxref("FileSystemEntry")}} zurück, das den gewählten Datei-Eintrag im Dateisystem repräsentiert. In der Regel handelt es sich hierbei entweder um ein {{domxref("FileSystemFileEntry")}}- oder {{domxref("FileSystemDirectoryEntry")}}-Objekt.
+- [`DataTransferItem.getAsFile()`](/de/docs/Web/API/DataTransferItem/getAsFile)
+  - : Gibt das [`File`](/de/docs/Web/API/File)-Objekt zurück, das mit dem Drag-Daten-Element verknüpft ist (oder null, wenn das Drag-Element keine Datei ist).
+- [`DataTransferItem.getAsFileSystemHandle()`](/de/docs/Web/API/DataTransferItem/getAsFileSystemHandle) {{Experimental_Inline}}
+  - : Gibt ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) zurück, wenn das gezogene Element eine Datei ist, oder ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle), wenn das gezogene Element ein Verzeichnis ist.
+- [`DataTransferItem.getAsString()`](/de/docs/Web/API/DataTransferItem/getAsString)
+  - : Ruft den angegebenen Callback mit dem Drag-Daten-Element-String als Argument auf.
+- [`DataTransferItem.webkitGetAsEntry()`](/de/docs/Web/API/DataTransferItem/webkitGetAsEntry)
+  - : Gibt ein auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) basierendes Objekt zurück, das den Eintrag der ausgewählten Datei im Dateisystem repräsentiert. Dies wird im Allgemeinen entweder ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) oder ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)-Objekt sein.
 
 ## Beispiel
 
-Alle Methoden und Eigenschaften dieser Schnittstelle haben ihre eigene Referenzseite und jede Referenzseite enthält ein Beispiel für ihre Verwendung.
+Alle Methoden und Eigenschaften dieses Interfaces haben eine eigene Referenzseite, und jede Referenzseite enthält ein Beispiel für deren Verwendung.
 
 ## Spezifikationen
 

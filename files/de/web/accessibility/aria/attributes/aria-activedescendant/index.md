@@ -7,38 +7,38 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das Attribut `aria-activedescendant` identifiziert das derzeit aktive Element, wenn sich der Fokus auf einem [`composite`](/de/docs/Web/Accessibility/ARIA/Roles/composite_role)-Widget, [`combobox`](/de/docs/Web/Accessibility/ARIA/Roles/combobox_role), [`textbox`](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role), [`group`](/de/docs/Web/Accessibility/ARIA/Roles/group_role) oder einer [`application`](/de/docs/Web/Accessibility/ARIA/Roles/application_role) befindet.
+Das `aria-activedescendant`-Attribut identifiziert das aktuell aktive Element, wenn der Fokus auf einem [`composite`](/de/docs/Web/Accessibility/ARIA/Roles/composite_role)-Widget, einer [`combobox`](/de/docs/Web/Accessibility/ARIA/Roles/combobox_role), einer [`textbox`](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role), einer [`group`](/de/docs/Web/Accessibility/ARIA/Roles/group_role) oder einer [`application`](/de/docs/Web/Accessibility/ARIA/Roles/application_role) liegt.
 
 ## Beschreibung
 
-Die Eigenschaft `aria-activedescendant` bietet eine Methode zur Verwaltung des Fokus für unterstützende Technologien auf interaktiven Elementen, wenn diese mehrere fokussierbare Nachkommen enthalten, wie Menüs, Raster und Werkzeugleisten. Anstatt dass der Screenreader den Fokus zwischen besitzenden Elementen verschiebt, kann `aria-activedescendant` auf Containerelemente angewendet werden, um auf das derzeit aktive Element zu verweisen und Benutzer von unterstützender Technologie über das derzeit aktive Element zu informieren, wenn der Fokus darauf liegt.
+Die Eigenschaft `aria-activedescendant` bietet eine Methode zur Verwaltung des Fokus für unterstützende Technologien auf interaktiven Elementen, wenn sie mehrere fokussierbare Nachfahren enthalten, wie z.B. Menüs, Raster und Werkzeugleisten. Anstatt dass der Screenreader den Fokus zwischen den zugehörigen Elementen bewegt, kann `aria-activedescendant` auf Containerelementen verwendet werden, um auf das aktuell aktive Element zu verweisen und den Benutzern unterstützender Technologien das aktuell aktive Element bei Fokus mitzuteilen.
 
-Mit `aria-activedescendant` behält der Browser den DOM-Fokus auf dem Containerelement oder einem Eingabeelement, das das Containerelement steuert. Der Benutzeragent kommuniziert jedoch Desktop-Fokus-Ereignisse und Zustände an die unterstützende Technologie, als ob das von `aria-activedescendant` referenzierte Element den Fokus hätte.
+Mit `aria-activedescendant` hält der Browser den DOM-Fokus auf dem Containerelement oder auf einem Eingabeelement, das das Containerelement steuert. Der Benutzeragent überträgt jedoch Desktop-Fokusereignisse und -zustände an die unterstützende Technologie, als ob das durch `aria-activedescendant` referenzierte Element den Fokus hätte.
 
-Dieses Attribut ist nur relevant für Elemente mit der Rolle eines [`composite`](/de/docs/Web/Accessibility/ARIA/Roles/composite_role)-Widgets, [`combobox`](/de/docs/Web/Accessibility/ARIA/Roles/combobox_role), [`textbox`](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role), [`group`](/de/docs/Web/Accessibility/ARIA/Roles/group_role) oder einer [`application`](/de/docs/Web/Accessibility/ARIA/Roles/application_role), deren `id` als Attributwert referenziert wird.
+Dieses Attribut ist nur relevant für Elemente mit der Rolle eines [`composite`](/de/docs/Web/Accessibility/ARIA/Roles/composite_role)-Widgets, einer [`combobox`](/de/docs/Web/Accessibility/ARIA/Roles/combobox_role), einer [`textbox`](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role), einer [`group`](/de/docs/Web/Accessibility/ARIA/Roles/group_role) oder einer [`application`](/de/docs/Web/Accessibility/ARIA/Roles/application_role), deren `id` als Attributwert angegeben ist.
 
-Das Attribut liefert unterstützenden Technologien Informationen darüber, welches Element den Fokus hat, erzeugt aber nicht tatsächlich den Fokus. Das Ändern des Fokus und die Verwaltung des Attributwerts erfolgen mit JavaScript. Zusätzlich zur Verwaltung dieses Attributwerts, stellen Sie sicher, dass der derzeit aktive Nachkomme sichtbar und im Sichtfeld ist (oder in das Sichtfeld scrollt), wenn er fokussiert ist.
+Das Attribut stellt unterstützenden Technologien Informationen darüber zur Verfügung, welches Element den Fokus hat, erzeugt jedoch keinen tatsächlichen Fokus. Das Ändern des Fokus und das Verwalten des Attributwerts erfolgt mit JavaScript. Zusätzlich zur Verwaltung des Attributwerts stellen Sie sicher, dass das aktuell aktive Nachfahrelement sichtbar ist und im Sichtfeld bleibt (oder in das Sichtfeld scrollt), wenn es fokussiert wird.
 
-Beim Festlegen des Werts von `aria-activedescendant` auf ein Element mit DOM-Fokus, stellen Sie sicher, dass der Wert auf ein besessenes Element verweist - entweder ein Nachkomme des Elements mit DOM-Fokus ODER ein logischer Nachkomme, wie es durch das [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-owns) Attribut angezeigt wird.
+Bei der Festlegung des Werts von `aria-activedescendant` auf einem Element mit DOM-Fokus, stellen Sie sicher, dass der Wert sich auf ein untergeordnetes Element bezieht - entweder ein Nachfahre des Elements mit DOM-Fokus ODER ein logischer Nachfahre, wie durch das [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-owns)-Attribut angegeben.
 
-Wenn das Element mit DOM-Fokus eine Combobox, Textbox oder Suchbox ist, fügen Sie [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-controls) hinzu, um auf das Element zu verweisen, das `aria-activedescendant` unterstützt.
+Wenn das Element mit DOM-Fokus eine Combobox, Textbox oder Suchbox ist, verwenden Sie [`aria-controls`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-controls), um auf das Element zu verweisen, das `aria-activedescendant` unterstützt.
 
-Der Wert von `aria-activedescendant` verweist auf ein besessenes Element des kontrollierten Elements. Zum Beispiel, in einer Combobox kann der Fokus auf der Combobox bleiben, während der Wert von `aria-activedescendant` auf dem Combobox-Element auf einen Nachkommen einer Popup-Liste verweist, die von der Combobox gesteuert wird.
-
-> [!NOTE]
-> Das Attribut wird nur von wenigen Rollen unterstützt. Zum Beispiel unterstützen `dialog`s nicht `aria-activedescendant`. Wenn eine Combobox einen Dialog öffnet, wechselt der DOM-Fokus vom Combobox in den Dialog, da dieser nicht mit diesem Attribut referenzierbar ist.
+Der Wert von `aria-activedescendant` bezieht sich auf ein untergeordnetes Element des gesteuerten Elements. In einer Combobox kann der Fokus beispielsweise auf der Combobox bleiben, während der Wert von `aria-activedescendant` auf dem Combobox-Element auf einen Nachfahren einer Popup-Liste verweist, die von der Combobox gesteuert wird.
 
 > [!NOTE]
-> Wenn ein Nachkomme eines `listbox`-, `grid`- oder `tree`-Popups fokussiert ist, bleibt der DOM-Fokus auf der Combobox und die Combobox hat `aria-activedescendant`, das auf ein fokussiertes Element innerhalb des Popups verweist.
+> Das Attribut wird nur bei wenigen Rollen unterstützt. Zum Beispiel unterstützen `dialog`s `aria-activedescendant` nicht. Wenn eine Combobox einen Dialog öffnet, wird der DOM-Fokus aus der Combobox in den Dialog verschoben, da er mit diesem Attribut nicht referenziert werden kann.
+
+> [!NOTE]
+> Wenn ein Nachfahre eines `listbox`-, `grid`- oder `tree`-Popups fokussiert ist, bleibt der DOM-Fokus auf der Combobox und die Combobox hat `aria-activedescendant` auf einen Wert gesetzt, der sich auf das im Popup fokussierte Element bezieht.
 
 ## Werte
 
 - ID-Referenz
-  - : nimmt als Wert die `id` des derzeit fokussierten Elements.
+  - : nimmt als Wert die `id` des aktuell fokussierten Elements an.
 
 ## Zugehörige Rollen
 
-Relevant nur als Attribut auf Elementen mit folgenden Rollen:
+Nur relevant als Attribut auf Elementen mit den folgenden Rollen:
 
 - [`application`](/de/docs/Web/Accessibility/ARIA/Roles/application_role)
 - [`combobox`](/de/docs/Web/Accessibility/ARIA/Roles/combobox_role)

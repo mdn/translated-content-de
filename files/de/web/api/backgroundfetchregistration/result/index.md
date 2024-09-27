@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`result`** schreibgeschützte Eigenschaft der {{domxref("BackgroundFetchRegistration")}}-Schnittstelle gibt einen String zurück, der angibt, ob das Hintergrund-Fetch erfolgreich war oder fehlgeschlagen ist.
+Die **`result`**-Eigenschaft des [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Interfaces ist eine schreibgeschützte Eigenschaft, die einen String zurückgibt, der angibt, ob der Hintergrundabruf erfolgreich war oder fehlgeschlagen ist.
 
-Wenn sich der Wert dieser Eigenschaft ändert, wird das [progress](/de/docs/Web/API/BackgroundFetchRegistration/progress_event)-Ereignis am zugehörigen {{domxref("BackgroundFetchRegistration")}}-Objekt ausgelöst.
+Wenn sich der Wert dieser Eigenschaft ändert, wird das [progress](/de/docs/Web/API/BackgroundFetchRegistration/progress_event)-Ereignis am zugehörigen [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Objekt ausgelöst.
 
 ## Wert
 
 Einer der folgenden Strings:
 
 - `""`
-  - : Das Fetch ist aktiv, daher gibt es kein Ergebnis.
+  - : Der Abruf ist aktiv, daher gibt es kein Ergebnis.
 - `"success"`
-  - : Das Hintergrund-Fetch war erfolgreich.
+  - : Der Hintergrundabruf war erfolgreich.
 - `"failure"`
-  - : Das Hintergrund-Fetch ist fehlgeschlagen. Dies erscheint nur, wenn der Browser nicht in der Lage ist, es erneut zu versuchen.
+  - : Der Hintergrundabruf ist fehlgeschlagen. Dies tritt nur auf, wenn der Browser nicht erneut versuchen kann.
 
 ## Beispiele
 
-Das Protokollieren dieser Eigenschaft in der Konsole gibt einen String zurück, der den Status anzeigt, oder einen leeren String, wenn das Fetch noch aktiv ist.
+Das Protokollieren dieser Eigenschaft in der Konsole gibt einen String zurück, der den Status anzeigt, oder einen leeren String, wenn der Abruf noch aktiv ist.
 
 ```js
 console.log(bgFetch.result);

@@ -1,5 +1,5 @@
 ---
-title: "WebTransportDatagramDuplexStream: Eigenschaft incomingHighWaterMark"
+title: "WebTransportDatagramDuplexStream: incomingHighWaterMark-Eigenschaft"
 short-title: incomingHighWaterMark
 slug: Web/API/WebTransportDatagramDuplexStream/incomingHighWaterMark
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`incomingHighWaterMark`**-Eigenschaft der {{domxref("WebTransportDatagramDuplexStream")}}-Schnittstelle erhält oder setzt den High Water Mark für eingehende Datenblöcke – dies ist die maximale Größe in Blöcken, die die interne Warteschlange des eingehenden {{domxref("ReadableStream")}} erreichen kann, bevor sie als voll betrachtet wird. Weitere Informationen finden Sie unter [Interne Warteschlangen und Warteschlangenstrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies).
+Die Eigenschaft **`incomingHighWaterMark`** des [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Interfaces holt oder setzt die Höchstmarke für eingehende Datenblöcke — dies ist die maximale Größe in Blöcken, die die interne Warteschlange des eingehenden [`ReadableStream`](/de/docs/Web/API/ReadableStream) erreichen kann, bevor sie als voll betrachtet wird. Weitere Informationen finden Sie unter [Interne Warteschlangen und Warteschlangenstrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies).
 
 ## Wert
 
@@ -47,6 +47,6 @@ async function initTransport(url) {
 ## Siehe auch
 
 - [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

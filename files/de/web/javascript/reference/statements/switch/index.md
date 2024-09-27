@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Die **`switch`**-Anweisung wertet einen [Ausdruck](/de/docs/Web/JavaScript/Guide/Expressions_and_operators) aus, vergleicht den Wert des Ausdrucks mit einer Reihe von `case`-Klauseln und führt [Anweisungen](/de/docs/Web/JavaScript/Reference/Statements) nach der ersten `case`-Klausel mit übereinstimmendem Wert aus, bis eine `break`-Anweisung gefunden wird. Die `default`-Klausel einer `switch`-Anweisung wird ausgeführt, wenn keine `case` den Wert des Ausdrucks trifft.
+Die **`switch`**-Anweisung bewertet einen [Ausdruck](/de/docs/Web/JavaScript/Guide/Expressions_and_operators), vergleicht den Wert des Ausdrucks mit einer Reihe von `case`-Klauseln und führt die [Anweisungen](/de/docs/Web/JavaScript/Reference/Statements) nach der ersten `case`-Klausel mit einem passenden Wert aus, bis eine `break`-Anweisung erreicht wird. Die `default`-Klausel einer `switch`-Anweisung wird angesprungen, wenn keine `case`-Klauseln mit dem Wert des Ausdrucks übereinstimmen.
 
 {{EmbedInteractiveExample("pages/js/statement-switch.html", "taller")}}
 
@@ -30,31 +30,31 @@ switch (expression) {
 - `expression`
   - : Ein Ausdruck, dessen Ergebnis mit jeder `case`-Klausel verglichen wird.
 - `caseExpressionN` {{optional_inline}}
-  - : Eine `case`-Klausel, die zur Übereinstimmung mit `expression` verwendet wird. Wenn der Wert von `expression` dem Wert einer beliebigen `caseExpressionN` entspricht, beginnt die Ausführung mit der ersten Anweisung nach dieser `case`-Klausel bis entweder zum Ende der `switch`-Anweisung oder der ersten gefundenen `break`.
+  - : Eine `case`-Klausel, die mit `expression` verglichen wird. Wenn der Wert von `expression` mit dem Wert von `caseExpressionN` übereinstimmt, beginnt die Ausführung ab der ersten Anweisung nach dieser `case`-Klausel bis entweder zum Ende der `switch`-Anweisung oder zum ersten `break`.
 - `default` {{optional_inline}}
-  - : Eine `default`-Klausel; wenn vorhanden, wird diese Klausel ausgeführt, wenn der Wert von `expression` mit keiner der `case`-Klauseln übereinstimmt. Eine `switch`-Anweisung kann nur eine `default`-Klausel haben.
+  - : Eine `default`-Klausel; falls vorhanden, wird diese Klausel ausgeführt, wenn der Wert von `expression` mit keiner der `case`-Klauseln übereinstimmt. Eine `switch`-Anweisung kann nur eine `default`-Klausel haben.
 
 ## Beschreibung
 
-Eine `switch`-Anweisung wertet zuerst ihren Ausdruck aus. Dann sucht sie nach der ersten `case`-Klausel, deren Ausdruck zum gleichen Wert wie das Ergebnis des Eingangsausdrucks ausgewertet wird (unter Verwendung des [strikten Gleichheitsvergleichs](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality)) und überträgt die Kontrolle an diese Klausel, wobei alle darauf folgenden Anweisungen ausgeführt werden.
+Eine `switch`-Anweisung bewertet zunächst ihren Ausdruck. Sie sucht dann nach der ersten `case`-Klausel, deren Ausdruck den gleichen Wert ergibt wie das Ergebnis des Eingabeausdrucks (unter Verwendung des [strikten Gleichheitsvergleichs](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality)) und überträgt die Kontrolle auf diese Klausel, wobei alle nachfolgenden Anweisungen dieser Klausel ausgeführt werden.
 
-Die Klauselausdrücke werden nur bei Bedarf ausgewertet — wenn eine Übereinstimmung bereits gefunden wurde, werden nachfolgende `case`-Klauselausdrücke nicht ausgewertet, auch wenn sie durch [Fall-Through](#unterbrechen_und_fall-through) besucht werden.
+Die Klauselausdrücke werden nur bei Bedarf ausgewertet — wenn bereits eine Übereinstimmung gefunden wurde, werden nachfolgende Klauselausdrücke nicht ausgewertet, selbst wenn sie durch [Fall-through](#unterbrechung_und_fall-through) erreicht werden.
 
 ```js
 switch (undefined) {
   case console.log(1):
   case console.log(2):
 }
-// Protokolliert nur 1
+// Only logs 1
 ```
 
-Wenn keine übereinstimmende `case`-Klausel gefunden wird, sucht das Programm nach der optionalen `default`-Klausel und, falls gefunden, überträgt die Kontrolle an diese Klausel, wobei Anweisungen nach dieser Klausel ausgeführt werden. Wenn keine `default`-Klausel gefunden wird, setzt das Programm die Ausführung bei der Anweisung nach dem Ende von `switch` fort. Der Konvention nach ist die `default`-Klausel die letzte Klausel, aber das muss nicht so sein. Eine `switch`-Anweisung darf nur eine `default`-Klausel haben; mehrere `default`-Klauseln führen zu einem {{jsxref("SyntaxError")}}.
+Wenn keine passende `case`-Klausel gefunden wird, sucht das Programm nach der optionalen `default`-Klausel, und falls sie gefunden wird, wird die Kontrolle auf diese Klausel übertragen und deren nachfolgende Anweisungen ausgeführt. Wenn keine `default`-Klausel gefunden wird, setzt das Programm die Ausführung bei der Anweisung nach dem Ende des `switch` fort. Üblicherweise ist die `default`-Klausel die letzte Klausel, doch das muss nicht zwangsläufig so sein. Eine `switch`-Anweisung kann nur eine `default`-Klausel haben; mehrere `default`-Klauseln führen zu einem {{jsxref("SyntaxError")}}.
 
-### Unterbrechen und Fall-Through
+### Unterbrechung und Fall-through
 
-Sie können die [`break`](/de/docs/Web/JavaScript/Reference/Statements/break)-Anweisung innerhalb des Körpers einer `switch`-Anweisung verwenden, um frühzeitig zu unterbrechen, häufig wenn alle Anweisungen zwischen zwei `case`-Klauseln ausgeführt worden sind. Die Ausführung wird bei der ersten Anweisung nach `switch` fortgesetzt.
+Sie können die [`break`](/de/docs/Web/JavaScript/Reference/Statements/break)-Anweisung innerhalb des Körpers einer `switch`-Anweisung verwenden, um frühzeitig zu unterbrechen, oft, wenn alle Anweisungen zwischen zwei `case`-Klauseln ausgeführt wurden. Die Ausführung wird bei der ersten Anweisung nach `switch` fortgesetzt.
 
-Wenn `break` weggelassen wird, wird die Ausführung zur nächsten `case`-Klausel fortgesetzt, selbst zur `default`-Klausel, unabhängig davon, ob der Wert des Ausdrucks dieser Klausel übereinstimmt. Dieses Verhalten wird als "Fall-Through" bezeichnet.
+Wenn `break` weggelassen wird, wird die Ausführung zur nächsten `case`-Klausel fortgesetzt, auch zur `default`-Klausel, unabhängig davon, ob der Wert des Ausdrucks dieser Klausel übereinstimmt. Dieses Verhalten wird als "Fall-through" bezeichnet.
 
 ```js
 const foo = 0;
@@ -62,26 +62,26 @@ switch (foo) {
   case -1:
     console.log("negative 1");
     break;
-  case 0: // Der Wert von foo entspricht diesem Kriterium; die Ausführung beginnt hier
+  case 0: // Value of foo matches this criteria; execution starts from here
     console.log(0);
-  // Vergessenes Break! Die Ausführung geht weiter
-  case 1: // Kein Break in 'case 0:' daher wird auch diese Klausel ausgeführt
+  // Forgotten break! Execution falls through
+  case 1: // no break statement in 'case 0:' so this case will run as well
     console.log(1);
-    break; // Break gefunden; geht nicht weiter in 'case 2:'
+    break; // Break encountered; will not continue into 'case 2:'
   case 2:
     console.log(2);
     break;
   default:
     console.log("default");
 }
-// Protokolliert 0 und 1
+// Logs 0 and 1
 ```
 
-Im geeigneten Kontext haben andere Kontrollflussanweisungen ebenfalls die Wirkung, die `switch`-Anweisung zu verlassen. Zum Beispiel, wenn die `switch`-Anweisung in einer Funktion eingeschlossen ist, dann beendet eine [`return`](/de/docs/Web/JavaScript/Reference/Statements/return)-Anweisung die Ausführung des Funktionskörpers und somit die `switch`-Anweisung. Wenn die `switch`-Anweisung in einer Schleife eingeschlossen ist, stoppt eine [`continue`](/de/docs/Web/JavaScript/Reference/Statements/continue)-Anweisung die `switch`-Anweisung und springt zur nächsten Iteration der Schleife.
+In einem entsprechenden Kontext haben andere Kontrollfluss-Anweisungen ebenfalls den Effekt, die `switch`-Anweisung zu beenden. Beispielsweise, wenn die `switch`-Anweisung in einer Funktion enthalten ist, beendet eine [`return`](/de/docs/Web/JavaScript/Reference/Statements/return)-Anweisung die Ausführung des Funktionskörpers und somit der `switch`-Anweisung. Wenn die `switch`-Anweisung in einer Schleife enthalten ist, beendet eine [`continue`](/de/docs/Web/JavaScript/Reference/Statements/continue)-Anweisung die `switch`-Anweisung und wechselt zur nächsten Schleifeniteration.
 
-### Lexikalische Bereich
+### Lexikalische Einbindung
 
-Die `case`- und `default`-Klauseln sind wie [Labels](/de/docs/Web/JavaScript/Reference/Statements/label): sie kennzeichnen mögliche Stellen, zu denen der Kontrollfluss springen kann. Sie schaffen jedoch keine lexikalischen [Bereiche](/de/docs/Glossary/Scope) für sich selbst (ebenso wenig brechen sie automatisch aus, wie oben gezeigt). Zum Beispiel:
+Die `case`- und `default`-Klauseln ähneln [Marken](/de/docs/Web/JavaScript/Reference/Statements/label): Sie kennzeichnen mögliche Stellen, zu denen der Kontrollfluss springen kann. Jedoch erzeugen sie keine eigenen lexikalischen [Scopes](/de/docs/Glossary/Scope) (sie unterbrechen auch nicht automatisch - wie oben gezeigt). Zum Beispiel:
 
 ```js-nolint example-bad
 const action = "say_hello";
@@ -99,9 +99,9 @@ switch (action) {
 }
 ```
 
-Dieses Beispiel wird den Fehler "Uncaught SyntaxError: Identifier 'message' has already been declared" ausgeben, weil die erste `const message = 'hello';` mit der zweiten `const message = 'hi';`-Deklaration in Konflikt steht, selbst wenn sie in separaten `case`-Klauseln sind. Letztendlich liegt dies daran, dass beide `const`-Deklarationen im gleichen Blockbereich, der durch den `switch`-Körper erstellt wurde, liegen.
+Dieses Beispiel wird den Fehler "Uncaught SyntaxError: Identifier 'message' has already been declared" ausgeben, da die erste `const message = 'hello';` mit der zweiten `const message = 'hi';` Deklaration in Konflikt steht, auch wenn sie in ihren eigenen separaten `case`-Klauseln sind. Letztendlich liegt dies daran, dass beide `const`-Deklarationen im selben Blockscope erstellt werden, das durch den `switch`-Körper definiert wird.
 
-Um dies zu beheben, umgeben Sie die `let`- oder `const`-Deklarationen in einer `case`-Klausel immer mit einem Block, wann immer Sie sie verwenden müssen.
+Um dies zu beheben, sollten Sie, wann immer Sie `let`- oder `const`-Deklarationen in einer `case`-Klausel verwenden müssen, diese in einen Block einfügen.
 
 ```js
 const action = "say_hello";
@@ -122,13 +122,13 @@ switch (action) {
 }
 ```
 
-Dieser Code wird jetzt korrekt `hello` in der Konsole ausgeben, ohne Fehler.
+Dieses Codebeispiel gibt nun `hello` in der Konsole aus, wie es soll, ohne Fehler.
 
 ## Beispiele
 
-### Verwendung der switch-Anweisung
+### Verwenden von switch
 
-Im folgenden Beispiel, wenn `expr` auf `Bananas` ausgewertet wird, vergleicht das Programm den Wert mit `case 'Bananas'` und führt die zugehörige Anweisung aus. Wenn `break` erreicht wird, verlässt das Programm die `switch`-Anweisung und führt die Anweisung nach `switch` aus. Wenn `break` weggelassen würde, würde auch die Anweisung für `case 'Cherries'` ausgeführt.
+Im folgenden Beispiel, wenn `expr` den Wert `Bananas` ergibt, stimmt das Programm den Wert mit `case 'Bananas'` ab und führt die zugehörige Anweisung aus. Wenn `break` erreicht wird, beendet das Programm `switch` und führt die Anweisung nach `switch` aus. Wenn `break` weggelassen worden wäre, würde auch die Anweisung für `case 'Cherries'` ausgeführt werden.
 
 ```js
 switch (expr) {
@@ -155,19 +155,19 @@ switch (expr) {
 console.log("Is there anything else you'd like?");
 ```
 
-### Platzieren der Default-Klausel zwischen zwei Case-Klauseln
+### Die default-Klausel zwischen zwei case-Klauseln setzen
 
-Wenn keine Übereinstimmung gefunden wird, beginnt die Ausführung bei der `default`-Klausel und führt alle darauf folgenden Anweisungen aus.
+Wenn keine Übereinstimmung gefunden wird, beginnt die Ausführung bei der `default`-Klausel und führt alle nachfolgenden Anweisungen aus.
 
 ```js
 const foo = 5;
 switch (foo) {
   case 2:
     console.log(2);
-    break; // es trifft auf dieses Break und wird nicht in 'default:' fortfahren
+    break; // it encounters this break so will not continue into 'default:'
   default:
     console.log("default");
-  // Fall-Through
+  // fall-through
   case 1:
     console.log("1");
 }
@@ -175,11 +175,11 @@ switch (foo) {
 
 Es funktioniert auch, wenn Sie `default` vor allen anderen `case`-Klauseln setzen.
 
-### Nutzen des Fall-Throughs
+### Nutzung des Fall-throughs
 
-Diese Methode nutzt die Tatsache aus, dass, wenn unterhalb einer `case`-Klausel kein `break` vorhanden ist, die Ausführung zur nächsten `case`-Klausel fortgesetzt wird, unabhängig davon, ob diese `case` das Kriterium erfüllt.
+Diese Methode nutzt aus, dass, wenn kein `break` unterhalb einer `case`-Klausel vorhanden ist, die Ausführung zur nächsten `case`-Klausel weitergeht, unabhängig davon, ob diese `case` die Kriterien erfüllt.
 
-Das folgende ist ein Beispiel für eine Einzeloperation sequenzieller `case`-Anweisung, bei der vier verschiedene Werte genau dasselbe bewirken.
+Das folgende ist ein Beispiel für eine einfache sequentielle `case`-Anweisung, bei der vier verschiedene Werte exakt dasselbe ausführen.
 
 ```js
 const Animal = "Giraffe";
@@ -196,7 +196,7 @@ switch (Animal) {
 }
 ```
 
-Das folgende ist ein Beispiel für eine Mehrfachoperation sequenzieller `case`-Klausel, bei der Sie je nach übergebener Ganzzahl unterschiedliche Ausgaben erhalten können. Dies zeigt, dass es in der Reihenfolge, in der Sie die `case`-Klauseln angeben, durchlaufen wird und numerisch nicht sequenziell sein muss. In JavaScript können Sie auch Zeichenketten in diese `case`-Anweisungen mischen.
+Das folgende ist ein Beispiel für eine multiple sequentielle `case`-Klausel, bei der abhängig von der angegebenen Nummer unterschiedliche Ausgaben erfolgen. Dies zeigt Ihnen, dass die Bearbeitung in der Reihenfolge erfolgt, in der Sie die `case`-Klauseln anordnen und dass diese nicht numerisch sein müssen. In JavaScript können Sie sogar Definitionen von Zeichenketten in diese `case`-Anweisungen einfügen.
 
 ```js
 const foo = 1;
@@ -224,21 +224,21 @@ switch (foo) {
 }
 ```
 
-Die Ausgabe aus diesem Beispiel:
+Die Ausgabe dieses Beispiels:
 
-| Wert                                                 | Protokolltext                     |
-| ---------------------------------------------------- | --------------------------------- |
-| `foo` ist `NaN` oder nicht `1`, `2`, `3`, `4`, `5` oder `0` | Please pick a number from 0 to 5! |
-| `0`                                                  | Output: So What Is Your Name?     |
-| `1`                                                  | Output: What Is Your Name?        |
-| `2`                                                  | Output: Your Name?                |
-| `3`                                                  | Output: Name?                     |
-| `4`                                                  | Output: ?                         |
-| `5`                                                  | Output: !                         |
+| Wert                                                    | Konsolentext                                 |
+| ------------------------------------------------------- | -------------------------------------------- |
+| `foo` ist `NaN` oder nicht `1`, `2`, `3`, `4`, `5`, `0` | Bitte wählen Sie eine Zahl zwischen 0 bis 5! |
+| `0`                                                     | Ausgabe: So What Is Your Name?               |
+| `1`                                                     | Ausgabe: What Is Your Name?                  |
+| `2`                                                     | Ausgabe: Your Name?                          |
+| `3`                                                     | Ausgabe: Name?                               |
+| `4`                                                     | Ausgabe: ?                                   |
+| `5`                                                     | Ausgabe: !                                   |
 
 ### Eine Alternative zu if...else-Ketten
 
-Sie finden sich möglicherweise oft in der Situation, eine Reihe von [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Vergleichen durchzuführen.
+Sie werden sich oft dabei ertappen, eine Serie von [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Übereinstimmungen auszuführen.
 
 ```js
 if ("fetch" in globalThis) {
@@ -250,7 +250,7 @@ if ("fetch" in globalThis) {
 }
 ```
 
-Dieses Muster führt keine Abfolge von `===`-Vergleichen durch, aber Sie können es dennoch in eine `switch`-Konstruktion umwandeln.
+Dieses Muster führt keine Sequenz von `===`-Vergleichen durch, aber Sie können es trotzdem in eine `switch`-Konstruktion umwandeln.
 
 ```js
 switch (true) {
@@ -266,13 +266,13 @@ switch (true) {
 }
 ```
 
-Das `switch (true)`-Muster als Alternative zu `if...else` ist besonders nützlich, wenn Sie das Fall-Through-Verhalten nutzen möchten.
+Das `switch (true)`-Muster als Alternative zu `if...else` ist besonders nützlich, wenn Sie das Fall-through-Verhalten nutzen möchten.
 
 ```js
 switch (true) {
   case isSquare(shape):
     console.log("This shape is a square.");
-  // Fall-Through, da ein Quadrat auch ein Rechteck ist!
+  // Fall-through, since a square is a rectangle as well!
   case isRectangle(shape):
     console.log("This shape is a rectangle.");
   case isQuadrilateral(shape):

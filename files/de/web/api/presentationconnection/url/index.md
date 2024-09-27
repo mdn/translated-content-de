@@ -8,8 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Presentation API")}}{{SecureContext_Header}}
 
-Die **`url`** schreibgeschützte Eigenschaft der
-{{domxref("PresentationConnection")}} Schnittstelle gibt die URL zurück, die verwendet wurde, um die Präsentation zu erstellen oder wiederherzustellen.
+Die schreibgeschützte **`url`**-Eigenschaft der [`PresentationConnection`](/de/docs/Web/API/PresentationConnection)-Schnittstelle gibt die URL zurück, die zum Erstellen oder Wiederverbinden mit der Präsentation verwendet wird.
 
 ## Wert
 
@@ -19,6 +18,6 @@ Ein String, der eine URL enthält.
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

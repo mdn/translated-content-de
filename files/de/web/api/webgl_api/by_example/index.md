@@ -7,53 +7,53 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{Next("Learn/WebGL/By_example/Detect_WebGL")}}
 
-_WebGL anhand von Beispielen_ ist eine Serie von Live-Beispielen mit kurzen Erklärungen, die WebGL-Konzepte und -Fähigkeiten veranschaulichen.
+_WebGL anhand von Beispielen_ ist eine Serie von interaktiven Beispielen mit kurzen Erklärungen, die WebGL-Konzepte und -Fähigkeiten demonstrieren.
 
-Die Beispiele sind nach Thema und Schwierigkeitsgrad geordnet und decken den WebGL-Rendering-Kontext, Shader-Programmierung, Texturen, Geometrie, Benutzerinteraktion und mehr ab.
+Die Beispiele sind nach Themen und Schwierigkeitsgrad sortiert, sie decken den WebGL-Rendering-Kontext, Shader-Programmierung, Texturen, Geometrie, Benutzerinteraktion und mehr ab.
 
 ## Beispiele nach Thema
 
-Die Beispiele sind in aufsteigender Schwierigkeitsordnung sortiert. Anstatt sie jedoch nur in einer einzigen langen Liste zu präsentieren, sind sie zusätzlich in Themen unterteilt. Manchmal kehren wir zu einem Thema mehrmals zurück, zum Beispiel, wenn wir es zunächst auf einer grundlegenden Ebene und später auf mittleren und fortgeschrittenen Ebenen besprechen müssen.
+Die Beispiele sind in aufsteigender Schwierigkeit geordnet. Statt sie jedoch nur in einer langen Liste zu präsentieren, sind sie auch in Themen unterteilt. Manchmal wird ein Thema mehrmals behandelt, zum Beispiel wenn es zunächst auf einem einfachen Niveau diskutiert und später auf mittlerem und fortgeschrittenem Niveau erörtert wird.
 
-Anstatt schon im ersten Programm Shader, Geometrie und das Arbeiten mit {{Glossary("GPU")}}-Speicher jonglieren zu müssen, werden die Beispiele hier schrittweise erkundet. Wir glauben, dass dies zu einem effektiveren Lernerlebnis und letztendlich zu einem tieferen Verständnis der zugrunde liegenden Konzepte führt.
+Anstatt schon im ersten Programm Shader, Geometrie und den Umgang mit [GPU](/de/docs/Glossary/GPU)-Speicher zu jonglieren, erkunden die Beispiele hier WebGL auf eine schrittweise Weise. Wir sind der Meinung, dass dies zu einem effektiveren Lernerlebnis und letztendlich zu einem tieferen Verständnis der zugrunde liegenden Konzepte führt.
 
-Erklärungen zu den Beispielen finden sich sowohl im Haupttext als auch in Kommentaren innerhalb des Codes. Sie sollten alle Kommentare lesen, da bei fortgeschritteneren Beispielen möglicherweise keine Kommentare zu Codeabschnitten wiederholt werden, die zuvor erklärt wurden.
+Erklärungen zu den Beispielen finden sich sowohl im Haupttext als auch in Kommentaren im Code. Sie sollten alle Kommentare lesen, da bei fortgeschritteneren Beispielen Kommentare zu bereits erklärten Code-Teilen möglicherweise nicht wiederholt werden.
 
-### Den Rendering-Kontext kennenlernen
+### Kennenlernen des Rendering-Kontexts
 
 - [WebGL erkennen](/de/docs/Web/API/WebGL_API/By_example/Detect_WebGL)
-  - : Dieses Beispiel zeigt, wie ein {{Glossary("WebGL")}}-Rendering-Kontext erkannt wird und das Ergebnis dem Benutzer gemeldet wird.
+  - : Dieses Beispiel zeigt, wie man einen [WebGL](/de/docs/Glossary/WebGL)-Rendering-Kontext erkennt und das Ergebnis dem Benutzer meldet.
 - [Mit Farben löschen](/de/docs/Web/API/WebGL_API/By_example/Clearing_with_colors)
-  - : Wie der Rendering-Kontext mit einer Volltonfarbe gelöscht wird.
+  - : Wie man den Rendering-Kontext mit einer Volltonfarbe löscht.
 - [Durch Klicken löschen](/de/docs/Web/API/WebGL_API/By_example/Clearing_by_clicking)
-  - : Wie Benutzerinteraktion mit Grafikoperationen kombiniert wird. Der Rendering-Kontext wird mit einer zufälligen Farbe gelöscht, wenn der Benutzer klickt.
+  - : Wie man Benutzerinteraktion mit Grafikoperationen kombiniert. Löschen des Rendering-Kontexts mit einer zufälligen Farbe, wenn der Benutzer klickt.
 - [Einfache Farbanimation](/de/docs/Web/API/WebGL_API/By_example/Simple_color_animation)
-  - : Eine sehr grundlegende Farbanimation, bei der der {{Glossary("WebGL")}}-Zeichenpuffer jede Sekunde mit einer anderen zufälligen Farbe gelöscht wird.
+  - : Eine sehr grundlegende Farbanimation, erzeugt durch das Löschen des [WebGL](/de/docs/Glossary/WebGL)-Zeichnungsbuffers mit einer anderen zufälligen Farbe jede Sekunde.
 - [Farbmaskierung](/de/docs/Web/API/WebGL_API/By_example/Color_masking)
-  - : Zufällige Farben modifizieren, indem Farbmaskierung angewendet wird, um so den Bereich der angezeigten Farben auf bestimmte Schattierungen zu begrenzen.
+  - : Zufällige Farben durch Farbmaskierung modifizieren und somit den Bereich der angezeigten Farben auf bestimmte Schattierungen beschränken.
 - [Grundlegendes Ausschneiden](/de/docs/Web/API/WebGL_API/By_example/Basic_scissoring)
-  - : Wie einfache Rechtecke und Quadrate mit Ausschneideoperationen gezeichnet werden.
+  - : Wie man einfache Rechtecke und Quadrate mit Ausschneideoperationen zeichnet.
 - [Canvas-Größe und WebGL](/de/docs/Web/API/WebGL_API/By_example/Canvas_size_and_WebGL)
-  - : Das Beispiel untersucht die Auswirkung davon, die Canvas-Größe auf ihre Elementgröße in {{Glossary("CSS")}}-Pixeln zu setzen oder nicht, wie sie im Browserfenster erscheint.
-- [Grundgerüst 1](/de/docs/Web/API/WebGL_API/By_example/Boilerplate_1)
-  - : Das Beispiel beschreibt wiederkehrende Codeabschnitte, die von nun an ausgeblendet werden, sowie die Definition einer JavaScript-Hilfsfunktion, um die WebGL-Initialisierung zu erleichtern.
+  - : Das Beispiel untersucht die Auswirkung davon, die Canvas-Größe auf ihre Elementgröße in [CSS](/de/docs/Glossary/CSS)-Pixeln im Browserfenster einzustellen oder nicht.
+- [Gerüst 1](/de/docs/Web/API/WebGL_API/By_example/Boilerplate_1)
+  - : Das Beispiel beschreibt wiederholte Codeabschnitte, die ab jetzt verborgen werden, sowie die Definition einer JavaScript-Utility-Funktion, um die WebGL-Initialisierung zu erleichtern.
 - [Ausschneideanimation](/de/docs/Web/API/WebGL_API/By_example/Scissor_animation)
-  - : Ein bisschen Animationsspaß mit Ausschneide- und Löschoperationen.
-- [Regen von Rechtecken](/de/docs/Web/API/WebGL_API/By_example/Raining_rectangles)
-  - : Ein einfaches Spiel, das Löschen mit Volltonfarben, Ausschneiden, Animation und Benutzerinteraktion demonstriert.
+  - : Etwas Animationsspaß mit Ausschneide- und Löschoperationen.
+- [Regnende Rechtecke](/de/docs/Web/API/WebGL_API/By_example/Raining_rectangles)
+  - : Ein einfaches Spiel, das Löschen mit Volltonfarben, Ausschnitte, Animation und Benutzerinteraktion demonstriert.
 
 ### Grundlagen der Shader-Programmierung
 
 - [Hallo GLSL](/de/docs/Web/API/WebGL_API/By_example/Hello_GLSL)
-  - : Ein sehr einfaches Shader-Programm, das ein einfarbiges Quadrat zeichnet.
+  - : Ein sehr einfaches Shader-Programm, das ein Volltonfarbquadrat zeichnet.
 - [Hallo Vertex-Attribute](/de/docs/Web/API/WebGL_API/By_example/Hello_vertex_attributes)
-  - : Shader-Programmierung und Benutzerinteraktion durch Vertex-Attribute kombinieren.
+  - : Kombination aus Shader-Programmierung und Benutzerinteraktion durch Vertex-Attribute.
 - [Texturen aus Code](/de/docs/Web/API/WebGL_API/By_example/Textures_from_code)
-  - : Eine einfache Demonstration der prozeduralen Texturierung mit Fragment-Shadern.
+  - : Eine einfache Demonstration von prozeduralen Texturen mit Fragment-Shadern.
 
 ### Verschiedene fortgeschrittene Beispiele
 
 - [Video-Texturen](/de/docs/Web/API/WebGL_API/By_example/Video_textures)
-  - : Dieses Beispiel zeigt, wie Videodateien als Texturen verwendet werden.
+  - : Dieses Beispiel zeigt, wie man Video-Dateien als Texturen verwendet.
 
 {{Next("Learn/WebGL/By_example/Detect_WebGL")}}

@@ -1,5 +1,5 @@
 ---
-title: "HTMLOptionElement: label Eigenschaft"
+title: "HTMLOptionElement: label-Eigenschaft"
 short-title: label
 slug: Web/API/HTMLOptionElement/label
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`label`**-Eigenschaft des {{domxref("HTMLOptionElement")}} repräsentiert den Text, der für eine Option in einem {{htmlelement("select")}}-Element angezeigt wird oder als Teil einer Liste von Vorschlägen in einem {{htmlelement("datalist")}}-Element. Sie spiegelt das [`label`](/de/docs/Web/HTML/Element/option#label)-Attribut des {{htmlelement("option")}}-Elements wider.
+Die **`label`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) stellt den Text dar, der für eine Option in einem {{htmlelement("select")}}-Element oder als Teil einer Liste von Vorschlägen in einem {{htmlelement("datalist")}}-Element angezeigt wird. Sie spiegelt das [`label`](/de/docs/Web/HTML/Element/option#label)-Attribut des {{htmlelement("option")}}-Elements wider.
 
-Wenn das Attribut weggelassen wird oder ein leerer String ist, gibt die `label`-Eigenschaft den {{domxref("HTMLOptionElement.text", "text")}}-Inhalt des Elements zurück.
+Wenn das Attribut ausgelassen oder der leere String verwendet wird, gibt die `label`-Eigenschaft den [`text`](/de/docs/Web/API/HTMLOptionElement/text)-Inhalt des Elements zurück.
 
 ## Wert
 
@@ -34,8 +34,8 @@ optionElement.label = "Updated label";
 
 ## Siehe auch
 
-- {{domxref("HTMLOptionElement.value")}}
-- {{domxref("HTMLOptionElement.label")}}
+- [`HTMLOptionElement.value`](/de/docs/Web/API/HTMLOptionElement/value)
+- [`HTMLOptionElement.label`](/de/docs/Web/API/HTMLOptionElement/label)
 - {{HTMLElement("select")}}
 - {{HTMLElement("datalist")}}
 - {{HTMLElement("optgroup")}}

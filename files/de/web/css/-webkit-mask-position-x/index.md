@@ -12,26 +12,26 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` legt die anfängliche horizontale 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 -webkit-mask-position-x: left;
 -webkit-mask-position-x: center;
 -webkit-mask-position-x: right;
 
-/* <Prozent> Werte */
+/* <percentage> values */
 -webkit-mask-position-x: 100%;
 -webkit-mask-position-x: -50%;
 
-/* <Längen> Werte */
+/* <length> values */
 -webkit-mask-position-x: 50px;
 -webkit-mask-position-x: -1cm;
 
-/* Mehrere Werte */
+/* Multiple values */
 -webkit-mask-position-x:
   50px,
   25%,
   -3em;
 
-/* Globale Werte */
+/* Global values */
 -webkit-mask-position-x: inherit;
 -webkit-mask-position-x: initial;
 -webkit-mask-position-x: revert;
@@ -42,7 +42,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` legt die anfängliche horizontale 
 ### Werte
 
 - `<length-percentage>`
-  - : Eine Länge, die die Position der linken Kante des Bildes relativ zur linken Innenkante des Blocks angibt. Prozentsätze werden basierend auf der horizontalen Dimension des Innenbereichs des Blocks berechnet. Das bedeutet, ein Wert von `0%` bedeutet, dass die linke Kante des Bildes mit der linken Innenkante des Blocks ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die rechte Kante des Bildes mit der rechten Innenkante des Blocks ausgerichtet ist.
+  - : Eine Länge, die die Position der linken Kante des Bildes relativ zur linken Kante des Box-Innenabstands angibt. Prozentwerte werden basierend auf der horizontalen Dimension des Box-Innenabstands berechnet. Ein Wert von `0%` bedeutet, dass die linke Kante des Bildes mit der linken Kante des Box-Innenabstands ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die rechte Kante des Bildes mit der rechten Kante des Box-Innenabstands ausgerichtet ist.
 - `left`
   - : Entspricht `0%`.
 - `center`
@@ -79,7 +79,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-x` legt die anfängliche horizontale 
 
 ## Spezifikationen
 
-Kein Teil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

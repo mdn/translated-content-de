@@ -1,5 +1,5 @@
 ---
-title: "XPathResult: stringValue-Eigenschaft"
+title: "XPathResult: Eigenschaft stringValue"
 short-title: stringValue
 slug: Web/API/XPathResult/stringValue
 l10n:
@@ -8,31 +8,31 @@ l10n:
 
 {{APIRef("DOM XPath")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`stringValue`**-Eigenschaft der
-{{domxref("XPathResult")}}-Schnittstelle gibt den String-Wert eines Ergebnisses zurück, bei dem der
-{{domxref("XPathResult.resultType")}} `STRING_TYPE` ist.
+Die schreibgeschützte **`stringValue`**-Eigenschaft des
+[`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt den String-Wert eines Ergebnisses zurück, wobei
+[`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `STRING_TYPE` ist.
 
 ## Wert
 
-Der Rückgabewert ist der String-Wert des `XPathResult`, das von
-{{domxref("Document.evaluate()")}} zurückgegeben wird.
+Der Rückgabewert ist der String-Wert des von
+[`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegebenen `XPathResult`.
 
 ### Ausnahmen
 
 #### TYPE_ERR
 
-Falls {{domxref("XPathResult.resultType")}} nicht `STRING_TYPE` ist, wird eine
-{{domxref("XPathException")}} vom Typ `TYPE_ERR` ausgelöst.
+Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `STRING_TYPE` ist, wird eine
+[`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Nutzung der `stringValue`-Eigenschaft.
+Das folgende Beispiel zeigt die Verwendung der `stringValue`-Eigenschaft.
 
 ### HTML
 
 ```html
-<div>XPath-Beispiel</div>
-<div>Textinhalt des obigen &lt;div&gt;: <output></output></div>
+<div>XPath example</div>
+<div>Text content of the &lt;div&gt; above: <output></output></div>
 ```
 
 ### JavaScript

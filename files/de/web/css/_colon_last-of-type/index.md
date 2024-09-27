@@ -26,9 +26,9 @@ Die **`:last-of-type`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/
 #### HTML
 
 ```html
-<h2>Überschrift</h2>
-<p>Absatz 1</p>
-<p>Absatz 2</p>
+<h2>Heading</h2>
+<p>Paragraph 1</p>
+<p>Paragraph 2</p>
 ```
 
 #### CSS
@@ -46,19 +46,19 @@ p:last-of-type {
 
 ### Verschachtelte Elemente
 
-Dieses Beispiel zeigt, wie auch verschachtelte Elemente angesprochen werden können. Beachten Sie, dass der [Universalselektor](/de/docs/Web/CSS/Universal_selectors) (`*`) vorausgesetzt ist, wenn kein einfacher Selektor geschrieben wird.
+Dieses Beispiel zeigt, wie auch verschachtelte Elemente gezielt angesprochen werden können. Beachten Sie, dass der [universelle Selektor](/de/docs/Web/CSS/Universal_selectors) (`*`) impliziert wird, wenn kein einfacher Selektor geschrieben ist.
 
 #### HTML
 
 ```html
 <article>
-  <div>Dieses `div` ist das erste.</div>
-  <div>Dieses <span>verschachtelte `span` ist das letzte</span>!</div>
+  <div>This `div` is first.</div>
+  <div>This <span>nested `span` is last</span>!</div>
   <div>
-    Dieses <em>verschachtelte `em` ist das erste</em>, aber dieses <em>verschachtelte `em` ist das letzte</em>!
+    This <em>nested `em` is first</em>, but this <em>nested `em` is last</em>!
   </div>
-  <p>Dieses `p` qualifiziert sich!</p>
-  <div>Dies ist das letzte `div`!</div>
+  <p>This `p` qualifies!</p>
+  <div>This is the final `div`!</div>
 </article>
 ```
 
@@ -76,24 +76,27 @@ article :last-of-type {
 
 ### Elemente mit mehreren Selektoren
 
-Dieses HTML-Beispiel enthält verschachtelte Elemente verschiedener Typen. Das CSS enthält sowohl Typ-Selektoren als auch Klassen-Selektoren.
+Dieses HTML-Beispiel enthält verschachtelte Elemente unterschiedlicher Typen. Das CSS enthält sowohl Typselektoren als auch Klassenselektoren.
 
 #### HTML
 
 ```html
-<p>Dieses `p` wird nicht ausgewählt.</p>
-<p>Dieses `p` wird ebenfalls nicht ausgewählt.</p>
+<p>This `p` is not selected.</p>
+<p>This `p` is not selected either.</p>
 <p>
-  Dieses `p` ist das letzte `p`-Element seines übergeordneten Elements, z.B. `body`, ausgewählt durch den `p`-Typ-Selektor.
+  This `p` is last `p` element of its parent e.g. `body` selected by `p` type
+  selector.
 </p>
 <div class="container">
-  <div class="item">Dieses `div` wird nicht ausgewählt.</div>
-  <div class="item">Dieses `div` wird ebenfalls nicht ausgewählt.</div>
+  <div class="item">This `div` is not selected.</div>
+  <div class="item">This `div` is not selected either.</div>
   <div class="item">
-    Dieses `div` ist das letzte `div`-Element seines übergeordneten `div`, ausgewählt durch den `.container .item`-Klassen-Selektor.
+    This `div` is last `div` element of its parent `div` selected by `.container
+    .item` class selector.
   </div>
   <p class="item">
-    Dieses `p` ist das letzte `p`-Element seines übergeordneten `div`, ausgewählt durch den `.container .item`-Klassen-Selektor.
+    This `p` is last `p` element of its parent `div` selected by `.container
+    .item` class selector.
   </p>
 </div>
 ```
@@ -115,7 +118,7 @@ p:last-of-type {
 
 {{EmbedLiveSample('Multiple_selectors_elements', 500)}}
 
-Das letzte `<div>` und das letzte `<p>` sind beide rot und fett, da `.item:last-of-type` das letzte jedes Typs auswählt, wenn dieses letzte Element auch die Klasse `item` hat.
+Das letzte `<div>` und das letzte `<p>` sind beide rot und fettgedruckt, da `.item:last-of-type` das letzte eines jeden Typs auswählt, wenn dieses letzte Element auch die `item` Klasse hat.
 
 ## Spezifikationen
 

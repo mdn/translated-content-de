@@ -1,5 +1,5 @@
 ---
-title: Skripting
+title: scripting
 slug: Web/CSS/@media/scripting
 l10n:
   sourceCommit: 0702c8b455d44d12892863735bf7f507ea8eb1cf
@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}
 
-Das **`scripting`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, ob Skripting (wie JavaScript) verfügbar ist.
+Das **`scripting`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, ob Scripting (wie JavaScript) verfügbar ist.
 
 > [!NOTE]
-> Die Erkennung erfolgt durch die Browser basierend auf den Benutzereinstellungen. Einige Browser-Erweiterungen können das Blockieren von Skripten mit verschiedenen Techniken implementieren. In solchen Fällen funktioniert das `scripting` Media-Feature möglicherweise nicht wie erwartet.
+> Die Erkennung erfolgt durch die Browser basierend auf den Benutzereinstellungen. Einige Browser-Erweiterungen können Skript-Blockierung mit unterschiedlichen Techniken implementieren. In solchen Fällen kann es sein, dass das `scripting` Media-Feature nicht wie erwartet funktioniert.
 
 ## Syntax
 
-Das `scripting`-Feature wird als Schlüsselwortwert angegeben, der aus der unten stehenden Liste ausgewählt wird.
+Das `scripting`-Feature wird als Schlüsselwortwert aus der folgenden Liste festgelegt.
 
 - `none`
-  - : Skripting ist im aktuellen Dokument vollständig nicht verfügbar.
+  - : Scripting ist im aktuellen Dokument vollständig nicht verfügbar.
 - `initial-only`
-  - : Skripting ist nur während des initialen Seitenladens aktiviert, aber danach nicht mehr.
+  - : Scripting ist während des initialen Seitenladens aktiviert, aber danach nicht mehr.
 - `enabled`
-  - : Skripting wird im aktuellen Dokument unterstützt und ist aktiv.
+  - : Scripting wird im aktuellen Dokument unterstützt und ist aktiv.
 
 ## Beispiele
 
@@ -76,4 +76,4 @@ p {
 ## Siehe auch
 
 - [@media](/de/docs/Web/CSS/@media)
-- [Media Queries verwenden](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Verwenden von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)

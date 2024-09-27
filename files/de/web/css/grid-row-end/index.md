@@ -7,29 +7,29 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-row-end`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Endposition eines Grid-Elements innerhalb der Grid-Zeile an, indem sie eine Linie, eine Spanne oder nichts (automatisch) zu ihrer Grid-Platzierung beiträgt und damit die Inline-Endkante ihres {{glossary("grid areas", "Grid-Bereichs")}} festlegt.
+Die **`grid-row-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt die Endposition eines Grid-Elements innerhalb der Grid-Reihe an, indem sie eine Linie, eine Spannweite oder nichts (automatisch) zu ihrer Gitterplatzierung beiträgt. Dabei wird die inline-end Begrenzung ihrer [Gitterfläche](/de/docs/Glossary/grid_areas) spezifiziert.
 
 {{EmbedInteractiveExample("pages/css/grid-row-end.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwert */
+/* Keyword value */
 grid-row-end: auto;
 
-/* <custom-ident> Werte */
+/* <custom-ident> values */
 grid-row-end: somegridarea;
 
-/* <integer> + <custom-ident> Werte */
+/* <integer> + <custom-ident> values */
 grid-row-end: 2;
 grid-row-end: somegridarea 4;
 
-/* span + <integer> + <custom-ident> Werte */
+/* span + <integer> + <custom-ident> values */
 grid-row-end: span 3;
 grid-row-end: span somegridarea;
 grid-row-end: 5 somegridarea span;
 
-/* Globale Werte */
+/* Global values */
 grid-row-end: inherit;
 grid-row-end: initial;
 grid-row-end: revert;
@@ -40,45 +40,45 @@ grid-row-end: unset;
 ### Werte
 
 - `auto`
-  - : Ist ein Schlüsselwort, das anzeigt, dass die Eigenschaft nichts zur Platzierung des Grid-Elements beiträgt, was eine automatische Platzierung, eine automatische Spanne oder eine Standardsparne von `1` bedeutet.
+  - : Ist ein Schlüsselwort, das anzeigt, dass die Eigenschaft nichts zur Platzierung des Grid-Elements beiträgt und auf Auto-Platzierung, eine automatische Spannweite oder eine Standardsprungweite von `1` hinweist.
 - `<custom-ident>`
 
-  - : Wenn es eine benannte Linie mit dem Namen '\<custom-ident>-end' gibt, trägt sie die erste derartige Linie zur Platzierung des Grid-Elements bei.
+  - : Gibt es eine benannte Linie mit dem Namen '\<custom-ident>-end', trägt sie die erste solcher Linien zur Grid-Platzierung des Elements bei.
 
     > [!NOTE]
-    > Benannte Grid-Bereiche erzeugen automatisch implizite benannte Linien dieser Form, sodass die Angabe von `grid-row-end: foo;` die Endkante des benannten Grid-Bereichs wählt (es sei denn, eine andere Linie namens `foo-end` wurde zuvor explizit angegeben).
+    > Benannte Gitterflächen erzeugen automatisch implizite benannte Linien dieser Form, sodass die Angabe von `grid-row-end: foo;` die Endbegrenzung dieser benannten Gitterfläche wählt (es sei denn, eine andere Linie namens `foo-end` wurde vorher explizit angegeben).
 
-    Andernfalls wird dies behandelt, als wäre die Ganzzahl `1` zusammen mit dem `<custom-ident>` angegeben worden.
+    Andernfalls wird dies so behandelt, als ob der Integer `1` zusammen mit dem `<custom-ident>` angegeben worden wäre.
 
-    Das `<custom-ident>` kann nicht den Wert `span` annehmen.
+    Der `<custom-ident>` kann nicht den `span`-Wert annehmen.
 
 - `<integer> && <custom-ident>?`
 
-  - : Trägt die n-te Gitternetzlinie zur Platzierung des Grid-Elements bei. Wenn eine negative Ganzzahl angegeben wird, wird stattdessen rückwärts gezählt, beginnend mit der Endkante des expliziten Gitters.
+  - : Trägt die n-te Gitterlinie zur Platzierung des Grid-Elements bei. Wird eine negative Zahl angegeben, wird in umgekehrter Richtung gezählt, beginnend von der Endbegrenzung des expliziten Gitters.
 
-    Wenn ein Name als \<custom-ident> angegeben ist, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Gitternetzlinien diesen Namen haben, um diese Position zu bestimmen.
+    Wird ein Name als \<custom-ident> angegeben, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen vorhanden sind, wird angenommen, dass alle impliziten Gitterlinien diesen Namen für den Zweck haben, diese Position zu finden.
 
-    Ein {{cssxref("Ganzzahl")}} Wert von `0` ist ungültig.
+    Ein {{cssxref("integer")}}-Wert von `0` ist ungültig.
 
 - `span && [ <integer> || <custom-ident> ]`
 
-  - : Trägt eine Gitternetzspanne zur Platzierung des Grid-Elements bei, sodass die Endkante der Reihe des Grid-Bereichs des Grid-Elements n Linien von der Startkante entfernt ist.
+  - : Trägt eine Gitterspannweite zur Platzierung des Grid-Elements bei, sodass die Reihe an der Endbegrenzung der Gitterfläche des Grid-Elements n Linien von der Startbegrenzung entfernt ist.
 
-    Wenn ein Name als \<custom-ident> angegeben ist, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Gitternetzlinien auf der Seite des expliziten Gitters, die der Suchrichtung entspricht, diesen Namen haben, um diese Spanne zu zählen.
+    Wird ein Name als \<custom-ident> angegeben, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen vorhanden sind, wird angenommen, dass alle impliziten Gitterlinien auf der Seite des expliziten Gitters, die mit der Suchrichtung übereinstimmt, diesen Namen haben für das Zählen dieser Spannweite.
 
-    Wenn die \<integer> weggelassen wird, wird standardmäßig `1` angenommen. Negative Ganzzahlen oder 0 sind ungültig.
+    Ist der \<integer> weggelassen, wird dieser standardmäßig als `1` betrachtet. Negative Ganzzahlen oder 0 sind ungültig.
 
-## Formale Definition
+## Formelle Definition
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formelle Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Festlegen des Zeilenendes für ein Grid-Element
+### Festlegen des Zeilenendpunktes für ein Grid-Element
 
 #### HTML
 
@@ -161,5 +161,5 @@ grid-row-end: unset;
 - {{cssxref("grid-column-start")}}
 - {{cssxref("grid-column-end")}}
 - {{cssxref("grid-column")}}
-- [Zeilenbasierte Platzierung mit CSS-Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-- Video: [Zeilenbasierte Platzierung](https://gridbyexample.com/video/series-line-based-placement/)
+- [Linienbasierte Platzierung mit CSS Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
+- Video: [Linienbasierte Platzierung](https://gridbyexample.com/video/series-line-based-placement/)

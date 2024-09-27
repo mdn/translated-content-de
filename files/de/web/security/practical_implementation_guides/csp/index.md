@@ -1,5 +1,5 @@
 ---
-title: Implementierung von Content Security Policy (CSP)
+title: Content Security Policy (CSP) Implementierung
 slug: Web/Security/Practical_implementation_guides/CSP
 l10n:
   sourceCommit: 6b4c6ac616502ec3378cfa5f42a9724d4e5a3f18
@@ -7,58 +7,58 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Der [`Content-Security-Policy`](/de/docs/Web/HTTP/Headers/Content-Security-Policy) HTTP-Header bietet eine detaillierte Kontrolle darüber, von welchen Standorten Ressourcen auf einer Website geladen werden können.
+Der HTTP-Header [`Content-Security-Policy`](/de/docs/Web/HTTP/Headers/Content-Security-Policy) bietet eine feinkörnige Kontrolle über die Orte, von denen Ressourcen auf einer Website geladen werden können.
 
 ## Problem
 
-Das Hauptproblem, auf das sich dieser Artikel konzentriert, sind Cross-Site-Scripting ({{Glossary("Cross-site_scripting", "XSS")}})-Angriffe. Diese entstehen in der Regel durch mangelnde Kontrolle und Bewusstsein über die Quellen, von denen Seitenressourcen geladen werden. Dieses Problem wird schwieriger zu handhaben, je größer und komplexer Websites werden und je mehr sie sich auf Drittanbieter-Ressourcen wie JavaScript-Bibliotheken verlassen.
+Das Hauptproblem, auf das sich dieser Artikel konzentriert, sind Cross-Site-Scripting ([XSS](/de/docs/Glossary/Cross-site_scripting)) Angriffe. Diese treten in der Regel aufgrund fehlender Kontrolle und Bewusstsein über die Quellen auf, von denen Ressourcen einer Website geladen werden. Dieses Problem wird schwieriger zu handhaben, je größer und komplexer die Websites werden und verstärkt auf Drittanbieter-Ressourcen wie JavaScript-Bibliotheken angewiesen sind.
 
-CSP kann auch dabei helfen, andere Probleme zu beheben, die in anderen Artikeln behandelt werden:
+CSP kann auch helfen, andere Probleme zu beheben, die in anderen Artikeln behandelt werden:
 
-- [Verhinderung von Clickjacking](/de/docs/Web/Security/Practical_implementation_guides/Clickjacking) durch das Stoppen der Einbettung Ihrer Website in {{htmlelement("iframe")}}-Elemente. Dies geschieht durch die CSP-Direktive [`frame-ancestors`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors).
-- Verhinderung von [Manipulator-in-the-Middle](/de/docs/Glossary/MitM) (MiTM)-Angriffen durch das Hochstufen aller HTTP-Verbindungen auf HTTPS. Dies wird durch die CSP-Direktive [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors) unterstützt. Weitere Details finden Sie in der [HSTS-Implementierung](/de/docs/Web/Security/Practical_implementation_guides/TLS#http_strict_transport_security_implementation).
+- [Verhinderung von Clickjacking](/de/docs/Web/Security/Practical_implementation_guides/Clickjacking) durch Verhinderung, dass Ihre Website in {{htmlelement("iframe")}}-Elemente eingebettet wird. Dies erfolgt durch die CSP-Direktive [`frame-ancestors`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors).
+- Verhinderung von [Manipulator-in-the-Middle](/de/docs/Glossary/MitM) (MiTM) Angriffen durch Upgraden aller HTTP-Verbindungen auf HTTPS. Dies wird durch die CSP-Direktive [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors) unterstützt. Weitere Details finden Sie unter [HSTS-Implementierung](/de/docs/Web/Security/Practical_implementation_guides/TLS#http_strict_transport_security_implementation).
 
 ## Lösung
 
 Die Implementierung einer robusten CSP ist der beste Weg, um XSS-Schwachstellen zu verhindern.
 
-Der Hauptvorteil von CSP besteht darin, die Verwendung von unsicherem Inline-JavaScript zu deaktivieren. Inline-JavaScript, ob reflektiert oder gespeichert, ermöglicht es, dass unsachgemäß kodierte Benutzereingaben Code erzeugen, der vom Webbrowser als JavaScript interpretiert wird. Durch die Verwendung von CSP zum Deaktivieren von Inline-JavaScript können Sie fast alle XSS-Angriffe gegen Ihre Website eliminieren.
+Der Hauptvorteil von CSP besteht darin, die Verwendung von unsicherem Inline-JavaScript zu deaktivieren. Inline-JavaScript, egal ob reflektiert oder gespeichert, ermöglicht schlecht bereinigten Benutzereingaben die Generierung von Code, der vom Webbrowser als JavaScript interpretiert wird. Durch die Verwendung von CSP zur Deaktivierung von Inline-JavaScript können Sie fast alle XSS-Angriffe gegen Ihre Website eliminieren.
 
-Das Deaktivieren von Inline-JavaScript bedeutet, dass _alle_ JavaScript von externen Dateien über {{htmlelement("script")}}-Elemente mit `src`-Attributen geladen werden müssen. Inline-[Ereignis-Handler-Attribute](/de/docs/Web/HTML/Attributes#event_handler_attributes), wie `onclick`, und JavaScript, das direkt in `<script>`-Tags eingefügt wird, funktionieren nicht. Außerdem kann CSP auch interne Stylesheets (innerhalb von {{htmlelement("style")}}-Tags) und Inline-Stile (unter Verwendung des [`style`](/de/docs/Web/HTML/Global_attributes/style)-Attributs) deaktivieren.
+Die Deaktivierung von Inline-JavaScript bedeutet, dass _alles_ JavaScript aus externen Dateien über {{htmlelement("script")}}-Elemente mit `src`-Attributen geladen werden muss. Inline [Event-Handler-Attribute](/de/docs/Web/HTML/Attributes#event_handler_attributes) wie `onclick` und JavaScript, das direkt in `<script>`-Tags eingefügt wurde, werden nicht funktionieren. Darüber hinaus kann CSP auch interne Stylesheets (in {{htmlelement("style")}}-Tags) und Inline-Stile (mit dem [`style`](/de/docs/Web/HTML/Global_attributes/style) Attribut) deaktivieren.
 
 Daher sollten Websites sorgfältig gestaltet werden, um sicherzustellen, dass CSP weniger Probleme verursacht und einfacher zu implementieren ist.
 
-CSP kann auch verwendet werden, um eine feingranulare Kontrolle über folgende Dinge zu bieten:
+CSP kann auch verwendet werden, um eine granulare Kontrolle über Folgendes bereitzustellen:
 
-- Das Laden anderer Ressourcen wie Bilder, Videos und Audios ([Fetch-Direktiven](/de/docs/Glossary/Fetch_directive) steuern das Laden von Ressourcen).
-- [Web Workers](/de/docs/Web/API/Web_Workers_API) (über [Dokumenten-Direktiven](/de/docs/Glossary/Document_directive)).
+- Laden anderer Ressourcen wie Bilder, Videos und Audio ([Fetch-Direktiven](/de/docs/Glossary/Fetch_directive) steuern das Laden von Ressourcen).
+- [Web Worker](/de/docs/Web/API/Web_Workers_API) (über [Dokument-Direktiven](/de/docs/Glossary/Document_directive)).
 - Eingebettete (d.h. {{htmlelement("iframe")}}) Inhalte.
-- Navigationsziele und Formulareinreichungen (über [Navigationsdirektiven](/de/docs/Glossary/Navigation_directive)).
+- Navigationsziele und Formulareinreichungsziele (über [Navigations-Direktiven](/de/docs/Glossary/Navigation_directive)).
 
 ### Schritte zur Implementierung von CSP
 
 > [!NOTE]
-> Bevor Sie eine tatsächliche CSP mit dem `Content-Security-Policy`-Header implementieren, sollten Sie diese zuerst mit dem [`Content-Security-Policy-Report-Only`](/de/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only) HTTP-Header testen. Diese Vorgehensweise ermöglicht es Ihnen zu sehen, ob Verstöße gegen diese Richtlinie aufgetreten wären. Dieser Test erfordert die Verwendung von `report-to` (oder dem veralteten `report-uri`), wie unten erklärt.
+> Bevor Sie eine tatsächliche CSP mit dem `Content-Security-Policy`-Header implementieren, wird empfohlen, sie zuerst mit dem HTTP-Header [`Content-Security-Policy-Report-Only`](/de/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only) zu testen. Auf diese Weise können Sie sehen, ob Verstöße gegen diese Richtlinie auftreten würden. Dieser Test erfordert die Verwendung von `report-to` (oder dem veralteten `report-uri`), wie unten erläutert.
 
-1. Beginnen Sie mit dem Ausprobieren einer Richtlinie von `default-src https:`. Dies ist ein großartiges erstes Ziel, da es Inline-Code deaktiviert und Browser zwingt, HTTPS beim Laden von Ressourcen zu verwenden. Dadurch können Sie auch beginnen, die Ressourcen zu identifizieren, die aufgrund der Richtlinie nicht geladen werden können. [`default-src`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/default-src) dient als Fallback für die anderen CSP-Fetch-Direktiven.
-2. Machen Sie die Richtlinie im nächsten Schritt spezifischer, um die von Ihnen benötigten Punkte zuzulassen, während sie unerwünschte Elemente blockieren. Sie könnten zuerst den Anwendungsbereich der Richtlinie mit einer vernünftig abgesicherten Richtlinie erweitern, wie etwa `default-src 'none'; form-action 'self'; img-src 'self'; object-src 'none'; script-src 'self'; style-src 'self';`.
-3. Fügen Sie dann die während des Testens hervorgehobenen spezifischen Quellen hinzu; zum Beispiel `style-src 'self' https://example.com/`.
-4. API-Endpunkte sollten eine Richtlinie verwenden, die das Laden von Ressourcen und das Einbetten deaktiviert; zum Beispiel `Content-Security-Policy: default-src 'none'; frame-ancestors 'none'`.
-5. Für bestehende Websites mit großem Codebestand, bei denen das Deaktivieren von Inline-Skripten zu viel Arbeit wäre, können Sie einige CSP-Funktionen verwenden, die für die Erleichterung der Übernahme auf Legacy-Seiten entwickelt wurden. Zum Beispiel erfordert die Direktive [`nonce-*`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#nonce-), dass ein `<script>` dasselbe Nonce in seinem [`nonce`](/de/docs/Web/HTML/Element/script#nonce)-Attribut spezifiziert, damit es geladen werden kann, während die Direktive [`script-dynamic`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#strict-dynamic) das Vertrauen, das einem begleitenden Nonce entgegengebracht wird, auf andere Skripte, die das Top-Level-Skript lädt, ausdehnt.
+1. Beginnen Sie mit dem Ausprobieren einer Richtlinie von `default-src https:`. Dies ist ein guter erster Schritt, da es Inline-Code deaktiviert und Browser dazu zwingt, HTTPS zu verwenden, wenn Ressourcen geladen werden. Es wird Ihnen auch ermöglichen, die Ressourcen zu identifizieren, die aufgrund der Richtlinie nicht geladen werden können. [`default-src`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/default-src) dient als Fallback für die anderen CSP-Fetch-Direktiven.
+2. Beginnen Sie dann, die Richtlinie spezifischer zu machen, um die benötigten Elemente zuzulassen und unerwünschte zu blockieren. Sie könnten zuerst den Umfang der Richtlinie mit einer vernünftig gesperrten Richtlinie erweitern, wie z. B. `default-src 'none'; form-action 'self'; img-src 'self'; object-src 'none'; script-src 'self'; style-src 'self';`.
+3. Aktualisieren Sie die Richtlinie mit den spezifischen Quellen, die während des Tests hervorgehoben wurden; beispielsweise `style-src 'self' https://example.com/`.
+4. API-Endpunkte sollten eine Richtlinie verwenden, die das Laden und Einbetten von Ressourcen deaktiviert; zum Beispiel `Content-Security-Policy: default-src 'none'; frame-ancestors 'none'`.
+5. Für bestehende Websites mit großen Codebasen, die zu viel Arbeit erfordern würden, um Inline-Skripte zu deaktivieren, können Sie einige CSP-Features verwenden, die entwickelt wurden, um die Annahme auf Legacy-Seiten zu erleichtern. Beispielsweise erfordert die [`nonce-*`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#nonce-) Direktive, dass ein `<script>` das gleiche Nonce in seinem [`nonce`](/de/docs/Web/HTML/Element/script#nonce) Attribut angibt, damit das Laden erfolgreich ist, während die [`script-dynamic`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#strict-dynamic) Direktive das Vertrauen, das einem begleitenden Nonce entgegengebracht wird, auf andere Skripte erweitert, die das Hauptskript lädt.
 
 Beachten Sie die folgenden Punkte:
 
-- Wenn Sie den `Content-Security-Policy`-Header nicht verwenden können, können stattdessen Seiten ein [`<meta http-equiv="Content-Security-Policy" content="…">`](/de/docs/Web/HTML/Element/meta#http-equiv)-Element enthalten. Dies sollte das erste {{htmlelement("meta")}}-Element sein, das im Dokumenten-{{htmlelement("head")}} erscheint.
-- Vorsicht ist geboten bei `data:`-URIs, da diese innerhalb von `script-src` und `object-src` (oder `default-src`) unsicher sind.
-- Ebenso kann die Verwendung von `script-src 'self'` unsicher sein für Websites mit JSONP-Endpunkten. Diese Websites sollten ein `script-src` verwenden, das den Pfad zu ihrem JavaScript-Quellordner enthält.
-- Websites sollten die [Reporting-Direktiven](/de/docs/Glossary/Reporting_directive) [`report-to`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/report-to) und [`report-uri`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/report-uri) verwenden.
-  Diese veranlassen den Browser dazu, JSON-Berichte über CSP-Verstöße an Endpunkte zu [`POST`](/de/docs/Web/HTTP/Methods/POST) (im {{httpheader("Reporting-Endpoints")}}-Header im Falle von `report-to`) zu senden. Dies erlaubt es, CSP-Verstöße schnell zu erkennen und zu beheben.
+- Wenn Sie den `Content-Security-Policy`-Header nicht verwenden können, können Seiten stattdessen ein [`<meta http-equiv="Content-Security-Policy" content="…">`](/de/docs/Web/HTML/Element/meta#http-equiv)-Element einfügen. Dies sollte das erste {{htmlelement("meta")}}-Element sein, das im Dokument{{htmlelement("head")}} erscheint.
+- Vorsicht ist geboten bei `data:`-URIs, da diese im `script-src` und `object-src` (oder `default-src`) unsicher sind.
+- Ebenso kann die Verwendung von `script-src 'self'` für Seiten mit JSONP-Endpunkten unsicher sein. Diese Seiten sollten einen `script-src` verwenden, der den Pfad zu ihrem JavaScript-Quellenordner(n) enthält.
+- Websites sollten die [`report-to`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/report-to) und [`report-uri`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/report-uri) [Reporting-Direktiven](/de/docs/Glossary/Reporting_directive) verwenden.
+  Diese verursachen, dass der Browser JSON-Berichte über CSP-Verstöße an Endpunkte sendet (angegeben im {{httpheader("Reporting-Endpoints")}}-Header im Falle von `report-to`). Dadurch können CSP-Verstöße schnell erkannt und behoben werden.
 
-  > [!NOTE] > `report-to` wird dem veralteten `report-uri` vorgezogen; jedoch werden beide noch benötigt, da `report-to` noch nicht vollständig browserübergreifend unterstützt wird.
+  > [!NOTE] > `report-to` wird gegenüber dem veralteten `report-uri` bevorzugt; beide werden jedoch weiterhin benötigt, da `report-to` noch keine vollständige Unterstützung in allen Browsern hat.
 
-- Schließen Sie keine unsicheren Quellen in Ihre CSP ein. Beispiele dafür sind `unsafe-inline` oder `data:`-URIs innerhalb von `script-src` und zu breite Quellen oder Ziele für Formulareinreichungen.
-- Sofern Websites nicht die Möglichkeit benötigen, Plugins auszuführen, sollte deren Ausführung mit `object-src 'none'` deaktiviert werden.
-- Wenn Sie SVG-Sprites, die in externen Dateien definiert sind, über das [`<use>`](/de/docs/Web/SVG/Element/use)-Element einbetten, zum Beispiel:
+- Schließen Sie keine unsicheren Quellen in Ihre CSP ein. Beispiele hierfür sind `unsafe-inline` oder `data:`-URIs innerhalb von `script-src` und zu breite Quellen oder Ziele für Formulareinreichungen.
+- Wenn Websites nicht die Möglichkeit benötigen, Plugins auszuführen, sollte deren Ausführung mit `object-src 'none'` deaktiviert werden.
+- Wenn Sie SVG-Sprites, die in externen Dateien definiert sind, über das [`<use>`](/de/docs/Web/SVG/Element/use)-Element einbetten, z.B.:
 
   ```svg
   <svg>
@@ -66,13 +66,13 @@ Beachten Sie die folgenden Punkte:
   </svg>
   ```
 
-  Werden Ihre SVG-Bilder in Firefox blockiert, wenn Sie eine `default-src 'none'`-Richtlinie festgelegt haben. Firefox behandelt das SVG nicht als eingebettetes Bild wie andere Browser, daher wird `img-src 'self'` nicht zulassen, dass sie geladen werden. Sie müssen `default-src 'self'` verwenden, wenn Sie möchten, dass Ihre externen Sprites in Firefox geladen werden (siehe [Bug 1773976](https://bugzilla.mozilla.org/show_bug.cgi?id=1773976) und [dieses CSP-Spezifikationsproblem](https://github.com/w3c/webappsec-csp/issues/199) für weitere Informationen).
+  werden Ihre SVG-Bilder in Firefox blockiert, wenn Sie eine `default-src 'none'`-Richtlinie festgelegt haben. Firefox behandelt das SVG nicht als eingebettetes Bild wie andere Browser, daher wird `img-src 'self'` diese nicht laden lassen. Sie müssen `default-src 'self'` verwenden, wenn Sie möchten, dass Ihre externen Sprites in Firefox geladen werden (siehe [Fehler 1773976](https://bugzilla.mozilla.org/show_bug.cgi?id=1773976) und [dieses CSP-Spezifikationsproblem](https://github.com/w3c/webappsec-csp/issues/199) für weitere Informationen).
 
-  Alternativ, wenn die `default-src 'none'`-Richtlinie eine zwingende Anforderung ist, können Sie die SVG-Sprites inline auf der HTML-Seite einfügen — siehe [CSP: default-src](/de/docs/Web/HTTP/Headers/Content-Security-Policy/default-src#firefox_default-src_none_svg_sprite_blocking_issue) für ein Beispiel.
+  Alternativ, wenn die `default-src 'none'`-Richtlinie eine harte Anforderung ist, können Sie die SVG-Sprites inline auf der HTML-Seite einfügen — siehe [CSP: default-src](/de/docs/Web/HTTP/Headers/Content-Security-Policy/default-src#firefox_default-src_none_svg_sprite_blocking_issue) für ein Beispiel.
 
 ## Beispiele
 
-Deaktivieren Sie unsichere Inline-/eval-Skripte und erlauben Sie nur das Laden von Ressourcen (Bilder, Schriften, Skripte usw.) über HTTPS:
+Deaktivieren unsicherer Inline/Eval und erlauben nur das Laden von Ressourcen (Bilder, Schriften, Skripte usw.) über HTTPS:
 
 ```http
 Content-Security-Policy: default-src https:
@@ -84,20 +84,20 @@ Tun Sie dasselbe, aber mit einem `<meta>`-Element:
 <meta http-equiv="Content-Security-Policy" content="default-src https:" />
 ```
 
-Deaktivieren Sie die Verwendung von unsicherem Inline-/eval-Skripten und erlauben Sie alles andere außer der Ausführung von Plugins:
+Deaktivieren Sie die Verwendung von unsicherem Inline/Eval und erlauben alles andere außer der Ausführung von Plugins:
 
 ```http
 Content-Security-Policy: default-src *; object-src 'none'
 ```
 
-Deaktivieren Sie unsichere Inline-/eval-Skripte und laden Sie nur Ressourcen vom selben Ursprung mit Ausnahme von Bildern, die von `https://i.imgur.com` geladen werden können. Dies deaktiviert auch die Ausführung von Plugins:
+Deaktivieren Sie unsichere Inline/Eval und laden Sie Ressourcen nur aus demselben Ursprung, mit Ausnahme von Bildern, die von `https://i.imgur.com` geladen werden können. Dies deaktiviert auch die Ausführung von Plugins:
 
 ```http-nolint
 Content-Security-Policy: default-src 'self'; img-src 'self' https://i.imgur.com;
   object-src 'none'
 ```
 
-Deaktivieren Sie unsichere Inline-/eval-Skripte und Plugins, laden Sie nur Skripte und Stylesheets vom selben Ursprung, erlauben Sie das Laden von Schriften von `https://fonts.gstatic.com` und das Laden von Bildern vom selben Ursprung und `https://i.imgur.com`. Websites sollten auf solche Richtlinien abzielen:
+Deaktivieren Sie unsichere Inline/Eval-Skripte und Plugins, laden Sie Skripte und Stylesheets nur vom selben Ursprung, erlauben Sie das Laden von Schriften von `https://fonts.gstatic.com`, und erlauben Sie das Laden von Bildern vom selben Ursprung und `https://i.imgur.com`. Websites sollten Richtlinien wie diese anstreben:
 
 ```http-nolint
 Content-Security-Policy: default-src 'none'; font-src https://fonts.gstatic.com;
@@ -105,7 +105,7 @@ Content-Security-Policy: default-src 'none'; font-src https://fonts.gstatic.com;
   style-src 'self'
 ```
 
-Erlauben Sie es veralteten Websites, Skripte sicher zu laden, mit einem erhöhten Vertrauensniveau, das durch einen Nonce bereitgestellt wird:
+Erlauben Sie älteren Websites, Skripte sicher zu laden, indem sie ein erhöhtes Vertrauensniveau durch einen Nonce bieten:
 
 ```html
 <script nonce="2726c7f26c">
@@ -128,7 +128,7 @@ Content-Security-Policy-Report-Only: default-src https:;
   report-to csp-endpoint;
 ```
 
-Deaktivieren Sie das Laden von Ressourcen und Einbettung. APIs sollten eine derartige Richtlinie verwenden:
+Deaktivieren Sie das Laden und Einbetten von Ressourcen. APIs sollten eine Richtlinie wie diese verwenden:
 
 ```http
 Content-Security-Policy: default-src 'none'; frame-ancestors 'none'

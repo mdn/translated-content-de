@@ -8,24 +8,23 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`clone()`**-Methode des {{domxref("Response")}}-Interfaces erstellt ein Duplikat eines Response-Objekts, das in jeder Hinsicht identisch ist, jedoch in einer anderen Variablen gespeichert wird.
+Die **`clone()`**-Methode der [`Response`](/de/docs/Web/API/Response)-Schnittstelle erstellt eine Kopie eines Response-Objekts, die in jeder Hinsicht identisch ist, aber in einer anderen Variablen gespeichert wird.
 
-Wie die zugrunde liegende {{domxref("ReadableStream.tee")}} API,
-signalisiert das {{domxref("Response.body", "body")}} einer geklonten `Response`
-Rückstau im Tempo des _schnelleren_ Verbrauchers der beiden Bodies,
-und ungelesene Daten werden intern in dem langsamer konsumierten `body` ohne Begrenzung oder Rückstau eingereiht.
-Rückstau bezieht sich auf den Mechanismus, durch den der Datenverbraucher
+Wie bei der zugrunde liegenden [`ReadableStream.tee`](/de/docs/Web/API/ReadableStream/tee)-API
+signalisiert der [`body`](/de/docs/Web/API/Response/body) einer geklonten `Response`
+Rückstau mit der Geschwindigkeit des _schnelleren_ Verbrauchers der beiden Bodies,
+und nicht gelesene Daten werden intern auf dem langsamer konsumierten `body`
+ohne Begrenzung oder Rückstau eingereiht.
+Rückstau bezieht sich auf den Mechanismus, bei dem der Daten verbrauchende Stream
 (in diesem Fall der Code, der den Body liest)
-den Data Producer (wie zum Beispiel den TCP-Server) verlangsamt,
-um große Datenmengen im Speicher zu vermeiden,
-die darauf warten, von der Anwendung verwendet zu werden.
-Wenn nur ein Zweig des geklonten Objekts konsumiert wird, wird der gesamte Body im Speicher gepuffert.
-Daher ist `clone()` eine Möglichkeit, eine Antwort zweimal nacheinander zu lesen,
-aber Sie sollten es nicht verwenden, um sehr große Bodies
-parallel mit unterschiedlichen Geschwindigkeiten zu lesen.
+den Daten produzierenden Stream (wie den TCP-Server) verlangsamt,
+um nicht große Datenmengen im Speicher zu laden, die darauf warten, von der Anwendung genutzt zu werden.
+Wenn nur einer der geklonten Zweige konsumiert wird, wird der gesamte Body im Speicher gepuffert.
+Daher ist `clone()` eine Möglichkeit, eine Antwort zweimal hintereinander zu lesen,
+aber Sie sollten es nicht verwenden, um sehr große Bodies parallel mit unterschiedlichen Geschwindigkeiten zu lesen.
 
 `clone()` wirft einen {{jsxref("TypeError")}}, wenn der Response-Body bereits verwendet wurde.
-Tatsächlich besteht der Hauptgrund für die Existenz von `clone()` darin, die mehrfache Verwendung von Body-Objekten zu ermöglichen (wenn diese nur einmal verwendet werden können).
+Tatsächlich existiert `clone()` hauptsächlich, um die mehrfache Nutzung von Body-Objekten zu ermöglichen (wenn diese nur einmal verwendet werden können).
 
 ## Syntax
 
@@ -39,14 +38,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("Response")}}-Objekt.
+Ein [`Response`](/de/docs/Web/API/Response)-Objekt.
 
 ## Beispiele
 
-In unserem [Fetch Response clone Beispiel](https://github.com/mdn/dom-examples/blob/main/fetch/fetch-response-clone/index.html) (siehe [Fetch Response clone live](https://mdn.github.io/dom-examples/fetch/fetch-response-clone/)) erstellen wir ein neues {{domxref("Request")}}-Objekt mit dem {{domxref("Request.Request","Request()")}}-Konstruktor, indem wir ihm einen JPG-Pfad übergeben.
-Dann führen wir diesen Request mit {{domxref("Window/fetch", "fetch()")}} aus.
-Wenn der Fetch erfolgreich aufgelöst wird, klonen wir ihn und extrahieren ein Blob aus beiden Antworten, indem wir zwei {{domxref("Response.blob")}}-Aufrufe verwenden. Wir erstellen Objekt-URLs aus den Blobs mit
-{{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}}, und zeigen sie in zwei separaten {{htmlelement("img")}}-Elementen an.
+In unserem [Beispiel zur Fetch-Response-Klonung](https://github.com/mdn/dom-examples/blob/main/fetch/fetch-response-clone/index.html) (siehe [Fetch Response clone live](https://mdn.github.io/dom-examples/fetch/fetch-response-clone/)) erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor und übergeben ihm einen JPG-Pfad.
+Anschließend holen wir diese Anfrage mit [`fetch()`](/de/docs/Web/API/Window/fetch) ab.
+Wenn das Fetch erfolgreich abgeschlossen wird, klonen wir sie, extrahieren ein Blob aus beiden Antworten mit zwei Aufrufen von [`Response.blob`](/de/docs/Web/API/Response/blob), erstellen Objekt-URLs aus den Blobs mit
+[`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static), und zeigen sie in zwei separaten {{htmlelement("img")}}-Elementen an.
 
 ```js
 const image1 = document.querySelector(".img1");

@@ -1,5 +1,5 @@
 ---
-title: Leerlauf-Detektions-API
+title: Idle Detection API
 slug: Web/API/Idle_Detection_API
 l10n:
   sourceCommit: 21d3e89589aaf9e5cfa667de679134513ab833f3
@@ -7,20 +7,20 @@ l10n:
 
 {{securecontext_header}}{{DefaultAPISidebar("Idle Detection API")}}{{SeeCompatTable}}
 
-Die Leerlauf-Detektions-API bietet eine Möglichkeit, den Leerlaufstatus des Benutzers zu erkennen - aktiv, inaktiv und gesperrt - und benachrichtigt zu werden, wenn sich der Leerlaufstatus ändert, ohne dass ein Skript Abfragen durchführen muss.
+Die Idle Detection API bietet eine Möglichkeit, um den Leerlaufstatus des Benutzers zu erkennen, speziell aktiv, inaktiv und gesperrt, und um über Änderungen des Leerlaufstatus ohne Abfragen von einem Skript benachrichtigt zu werden.
 
 ## Konzepte und Verwendung
 
-Native Anwendungen und Browser-Erweiterungen verwenden die Leerlauferkennung, um Benutzererfahrungen darauf zu basieren, wann ein Benutzer mit einem Gerät interagiert. Beispielsweise können Chat-Anwendungen anderen Benutzern einer Anwendung anzeigen, ob jemand verfügbar ist. Andere Anwendungen könnten wählen, Benachrichtigungen nur dann zu zeigen, wenn ein Benutzer mit der App interagiert. Eine Webanwendung könnte diese API für ähnliche Anwendungsfälle verwenden. Darüber hinaus könnte eine progressive Web-App die Leerlauferkennung verwenden, um ein Service-Worker-Update auszulösen, wenn die App nicht genutzt wird.
+Native Anwendungen und Browsererweiterungen nutzen Leerlauferkennung, basierend auf der Benutzererfahrung, wenn ein Benutzer mit einem Gerät interagiert. Zum Beispiel können Chat-Anwendungen anderen Nutzern einer Anwendung anzeigen, ob jemand verfügbar ist. Andere Anwendungen könnten sich entscheiden, Benachrichtigungen nur anzuzeigen, wenn ein Benutzer mit der App interagiert. Eine Webanwendung könnte diese API für ähnliche Anwendungsfälle nutzen. Zudem könnte eine progressive Web-App die Leerlauferkennung verwenden, um ein Service Worker-Update auszulösen, wenn die App nicht genutzt wird.
 
 ## Schnittstellen
 
-- {{domxref("IdleDetector")}} {{Experimental_Inline}}
+- [`IdleDetector`](/de/docs/Web/API/IdleDetector) {{Experimental_Inline}}
   - : Bietet Methoden und Ereignisse zur Erkennung der Benutzeraktivität auf einem Gerät oder Bildschirm.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein Detektor erstellt wird und Änderungen im Leerlaufzustand des Benutzers protokolliert werden. Eine Schaltfläche wird verwendet, um die notwendige Benutzeraktivierung zu erhalten, bevor die Erlaubnis angefordert wird.
+Das folgende Beispiel zeigt, wie man einen Detektor erstellt und Änderungen des Leerlaufstatus des Benutzers protokolliert. Eine Schaltfläche wird verwendet, um die notwendige Benutzeraktivierung vor der Anforderung von Berechtigungen zu erhalten.
 
 ```js
 const controller = new AbortController();

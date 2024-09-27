@@ -1,5 +1,5 @@
 ---
-title: "DOMTokenList: contains() Methode"
+title: "DOMTokenList: contains()-Methode"
 short-title: contains()
 slug: Web/API/DOMTokenList/contains
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`contains()`** Methode der {{domxref("DOMTokenList")}} Schnittstelle
-gibt einen booleschen Wert zurück — `true`, wenn die zugrunde liegende Liste den angegebenen Token enthält, andernfalls `false`.
+Die **`contains()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle gibt einen booleschen Wert zurück — `true`, wenn die zugrunde liegende Liste das gegebene Token enthält, andernfalls `false`.
 
 ## Syntax
 
@@ -20,21 +19,15 @@ contains(token)
 ### Parameter
 
 - `token`
-  - : Ein String, der den Token darstellt,
-    den Sie auf seine Existenz in der Liste überprüfen möchten.
+  - : Ein String, der das Token darstellt, dessen Existenz in der Liste Sie überprüfen möchten.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der `true` ist, wenn die aufrufende Liste
-`token` enthält, andernfalls `false`.
+Ein boolescher Wert, der `true` ist, wenn die aufrufende Liste `token` enthält, andernfalls `false`.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste von Klassen ab, die auf einem
-{{htmlelement("span")}}-Element als `DOMTokenList` festgelegt sind, mittels
-{{domxref("Element.classList")}}. Wir testen dann auf das Vorhandensein von `"c"` in
-der Liste und schreiben das Ergebnis in den `<span>`'s
-{{domxref("Node.textContent")}}.
+Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("span")}}-Element über [`Element.classList`](/de/docs/Web/API/Element/classList) als `DOMTokenList` gesetzt sind. Wir testen dann das Vorhandensein von `"c"` in der Liste und schreiben das Ergebnis in das `<span>`'s [`Node.textContent`](/de/docs/Web/API/Node/textContent).
 
 Zuerst das HTML:
 
@@ -42,7 +35,7 @@ Zuerst das HTML:
 <span class="a b c"></span>
 ```
 
-Jetzt das JavaScript:
+Nun das JavaScript:
 
 ```js
 const span = document.querySelector("span");
@@ -51,7 +44,7 @@ span.textContent = span.classList.contains("c")
   : "The classList does not contain 'c'";
 ```
 
-Der Output sieht folgendermaßen aus:
+Die Ausgabe sieht folgendermaßen aus:
 
 {{ EmbedLiveSample('Examples', '100%', 60) }}
 

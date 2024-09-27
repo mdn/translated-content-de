@@ -1,5 +1,5 @@
 ---
-title: akkumulieren
+title: accumulate
 slug: Web/SVG/Attribute/accumulate
 l10n:
   sourceCommit: 54eb3a678b4d4cbc94588d2234103e74dfa063a0
@@ -9,7 +9,7 @@ l10n:
 
 Das Attribut **`accumulate`** steuert, ob eine Animation kumulativ ist oder nicht.
 
-Es ist häufig nützlich, wenn wiederholte Animationen auf den vorherigen Ergebnissen aufbauen und sich mit jeder Iteration akkumulieren. Dieses Attribut gibt der Animation an, ob der Wert bei jeder Iteration zum vorherigen Wert des animierten Attributs hinzugefügt wird.
+Es ist oft nützlich, dass sich wiederholende Animationen auf den vorherigen Ergebnissen aufbauen und sich mit jeder Iteration akkumulieren. Dieses Attribut gibt an, ob der Wert bei jeder Iteration zum vorher animierten Attributwert hinzugefügt wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -17,7 +17,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("animateMotion")}}
 - {{SVGElement("animateTransform")}}
 
-## Verwendungshinweise
+## Hinweise zur Nutzung
 
 <table class="properties">
   <tbody>
@@ -37,13 +37,13 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `sum`
-  - : Spezifiziert, dass jede Wiederholung nach der ersten auf dem letzten Wert der vorherigen Iteration aufbaut.
+  - : Gibt an, dass jede wiederholte Iteration nach der ersten auf den letzten Wert der vorherigen Iteration aufbaut.
 - `none`
-  - : Spezifiziert, dass Wiederholungen nicht kumulativ sind.
+  - : Gibt an, dass sich wiederholende Iterationen nicht kumulativ sind.
 
 Dieses Attribut wird ignoriert, wenn der Zielattributwert keine Addition unterstützt oder wenn das Animationselement nicht wiederholt wird.
 
-Dieses Attribut wird ignoriert, wenn die Animationsfunktion nur mit dem Attribut {{SVGAttr("to")}} angegeben ist.
+Dieses Attribut wird ignoriert, wenn die Animationsfunktion nur mit dem {{SVGAttr("to")}}-Attribut angegeben wird.
 
 ## Spezifikationen
 
@@ -51,4 +51,4 @@ Dieses Attribut wird ignoriert, wenn die Animationsfunktion nur mit dem Attribut
 
 ## Siehe auch
 
-- [SMIL Animationsspezifikation](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#AccumulateAttribute)
+- [SMIL-Animationsspezifikation](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#AccumulateAttribute)

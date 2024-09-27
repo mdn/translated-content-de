@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`href`**-Eigenschaft der {{domxref("HTMLBaseElement")}}-Schnittstelle enthält eine Zeichenfolge, die die URL darstellt, die als Basis für [relative URLs](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#absolute_urls_vs._relative_urls) verwendet wird.
+Die **`href`**-Eigenschaft der [`HTMLBaseElement`](/de/docs/Web/API/HTMLBaseElement)-Schnittstelle enthält eine Zeichenkette, die die URL darstellt, die als Basis für [relative URLs](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#absolute_urls_vs._relative_urls) dient.
 
 Sie spiegelt das `href`-Attribut des {{HTMLElement("base")}}-Elements wider.
 
 ## Wert
 
-Eine Zeichenfolge, die eine URL enthält, oder die leere Zeichenfolge (`""`), wenn das entsprechende `<base>`-Element das `href`-Attribut nicht enthält.
+Eine Zeichenkette, die eine URL enthält, oder die leere Zeichenkette (`""`), wenn das entsprechende `<base>`-Element das `href`-Attribut nicht beinhaltet.
 
 ## Beispiele
 
 ### HTML mit Basis-URL
 
-Dieses Beispiel demonstriert, dass das `href`-Attribut in `<base>` in der `href`-Eigenschaft von `HTMLBaseElement` reflektiert wird.
+Dieses Beispiel zeigt, dass das `href`-Attribut in `<base>` in der `href`-Eigenschaft des `HTMLBaseElement` widergespiegelt wird.
 
 ```html hidden
 <pre id="log"></pre>

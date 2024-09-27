@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-"Normativ" ist ein Wort, das häufig in Software-{{Glossary("specification", "Spezifikationen")}} verwendet wird, um Abschnitte zu kennzeichnen, die standardisiert sind und als Regel befolgt werden müssen. Spezifikationen können auch Abschnitte enthalten, die als _{{Glossary("non-normative")}}_ oder _informativ_ gekennzeichnet sind, was bedeutet, dass sie dort bereitgestellt werden, um dem Leser zu helfen, die Spezifikationen besser zu verstehen oder um ein Beispiel oder eine bewährte Praxis zu zeigen, die nicht als Regel befolgt werden muss.
+"Normativ" ist ein Begriff, der in Software-[Spezifikationen](/de/docs/Glossary/specification) häufig verwendet wird, um Abschnitte zu kennzeichnen, die standardisiert sind und als Regel befolgt werden müssen. Spezifikationen können auch Abschnitte enthalten, die als _[nicht-normativ](/de/docs/Glossary/non-normative)_ oder _informativ_ markiert sind. Diese dienen dazu, dem Leser zu helfen, die Spezifikationen besser zu verstehen, oder ein Beispiel oder eine bewährte Praxis zu präsentieren, die nicht als Regel befolgt werden muss.
 
 ## Siehe auch
 

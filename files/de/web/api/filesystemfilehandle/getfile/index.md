@@ -8,9 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`getFile()`**-Methode der {{domxref("FileSystemFileHandle")}}-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das auf ein {{domxref('File')}}-Objekt auflöst, welches den Zustand auf der Festplatte des durch den Handle dargestellten Eintrags repräsentiert.
+Die **`getFile()`**-Methode des [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)-Interfaces gibt ein {{jsxref('Promise')}} zurück, das zu einem [`File`](/de/docs/Web/API/File)-Objekt aufgelöst wird, welches den Zustand auf der Festplatte des durch das Handle repräsentierten Eintrags darstellt.
 
-Wenn die Datei auf der Festplatte geändert oder entfernt wird, nachdem diese Methode aufgerufen wurde, wird das zurückgegebene {{domxref('File')}}-Objekt wahrscheinlich nicht mehr lesbar sein.
+Wenn die Datei auf der Festplatte geändert oder entfernt wird, nachdem diese Methode aufgerufen wurde, ist das zurückgegebene [`File`](/de/docs/Web/API/File)-Objekt wahrscheinlich nicht mehr lesbar.
 
 ## Syntax
 
@@ -24,25 +24,25 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das auf ein {{domxref('File')}}-Objekt auflöst.
+Ein {{jsxref('Promise')}}, das zu einem [`File`](/de/docs/Web/API/File)-Objekt aufgelöst wird.
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{domxref('PermissionStatus.state')}} nicht auf `granted` im `read`-Modus gesetzt ist.
-- `NotFoundError` {{domxref("DOMException")}}
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) im `read`-Modus nicht `granted` ist.
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der aktuelle Eintrag nicht gefunden wird.
 
 ## Beispiele
 
-Die folgende asynchrone Funktion präsentiert einen Dateipicker und verwendet die `getFile()`-Methode, um die Inhalte abzurufen, sobald eine Datei ausgewählt wurde.
+Die folgende asynchrone Funktion präsentiert einen Dateiauswahldialog und verwendet, nachdem eine Datei ausgewählt wurde, die `getFile()`-Methode, um den Inhalt abzurufen.
 
 ```js
 async function getTheFile() {
-  // Dateipicker öffnen
+  // open file picker
   [fileHandle] = await window.showOpenFilePicker(pickerOpts);
 
-  // Dateiinhalt abrufen
+  // get file contents
   const fileData = await fileHandle.getFile();
 }
 ```

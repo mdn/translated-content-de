@@ -1,5 +1,5 @@
 ---
-title: "XRSessionEvent: Eigenschaft session"
+title: "XRSessionEvent: session-Eigenschaft"
 short-title: session
 slug: Web/API/XRSessionEvent/session
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`session`** der {{domxref("XRSessionEvent")}}-Schnittstelle zeigt an, um welche {{domxref("XRSession")}} es in dem Ereignis geht.
+Die schreibgeschützte **`session`**-Eigenschaft des [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent)-Interfaces zeigt an, welche [`XRSession`](/de/docs/Web/API/XRSession) mit dem Ereignis verbunden ist.
 
 ## Wert
 
-Ein {{domxref("XRSession")}}-Objekt, das angibt, auf welche WebXR-Sitzung sich das Ereignis bezieht.
+Ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt, das angibt, auf welche WebXR-Session sich das Ereignis bezieht.
 
 ## Beispiele
 
-In diesem Beispiel wird die `session`-Eigenschaft verwendet, um das Sitzungsobjekt zu erhalten, um zu verwalten, wann ein Ereignis empfangen wird.
+In diesem Beispiel wird die `session`-Eigenschaft verwendet, um das Sitzungsobjekt zu erhalten, um auf ein empfangenes Ereignis zu reagieren.
 
 ```js
 xrSession.addEventListener("visibilitychange", (e) => {

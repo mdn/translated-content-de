@@ -1,5 +1,5 @@
 ---
-title: "BackgroundFetchManager: get()-Methode"
+title: "BackgroundFetchManager: get() Methode"
 short-title: get()
 slug: Web/API/BackgroundFetchManager/get
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`get()`**-Methode der Schnittstelle {{domxref("BackgroundFetchManager")}} gibt ein {{jsxref("Promise")}} zurück, das mit der {{domxref("BackgroundFetchRegistration")}} aufgelöst wird, die mit der angegebenen `id` verknüpft ist, oder {{jsxref("undefined")}}, falls die `id` nicht gefunden wird.
+Die **`get()`**-Methode der [`BackgroundFetchManager`](/de/docs/Web/API/BackgroundFetchManager)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) aufgelöst wird, die mit der angegebenen `id` verbunden ist, oder mit {{jsxref("undefined")}}, wenn die `id` nicht gefunden wird.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ get(id)
 ### Parameter
 
 - `id`
-  - : Die ID einer {{domxref("BackgroundFetchRegistration")}}, die durch den Aufruf von {{domxref("BackgroundFetchManager.fetch","fetch()")}} definiert wurde.
+  - : Die ID einer [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration), definiert durch den Aufruf von [`fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch).
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer {{domxref("BackgroundFetchRegistration")}} oder {{jsxref("undefined")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einer [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) oder {{jsxref("undefined")}} aufgelöst wird.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie `get()` verwendet wird, um eine {{domxref("BackgroundFetchRegistration")}} abzurufen. Mit einem aktiven [Service Worker](/de/docs/Web/API/ServiceWorker) verwenden Sie die {{domxref('ServiceWorkerRegistration.backgroundFetch')}} um auf das `BackgroundFetchManager`-Objekt zuzugreifen und dessen `get()`-Methode aufzurufen.
+Das folgende Beispiel zeigt, wie `get()` verwendet wird, um eine [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration) abzurufen. Mit einem aktiven [Service Worker](/de/docs/Web/API/ServiceWorker) verwenden Sie die [`ServiceWorkerRegistration.backgroundFetch`](/de/docs/Web/API/ServiceWorkerRegistration/backgroundFetch), um auf das `BackgroundFetchManager`-Objekt zuzugreifen und dessen `get()`-Methode aufzurufen.
 
 ```js
 navigator.serviceWorker.ready.then(async (swReg) => {

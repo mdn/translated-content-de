@@ -1,5 +1,5 @@
 ---
-title: "DataTransferItemList: remove()-Methode"
+title: "DataTransferItemList: remove() Methode"
 short-title: remove()
 slug: Web/API/DataTransferItemList/remove
 l10n:
@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransferItemList.remove()`**-Methode entfernt das {{domxref("DataTransferItem")}} an dem angegebenen Index aus der Liste. Wenn der Index kleiner als null oder größer als eins weniger als die Länge der Liste ist, wird die Liste nicht geändert.
+Die **`DataTransferItemList.remove()`**-Methode entfernt das
+[`DataTransferItem`](/de/docs/Web/API/DataTransferItem) an dem angegebenen Index aus der Liste. Ist der Index
+kleiner als null oder größer als die Länge der Liste minus eins, wird die Liste nicht
+verändert.
 
 ## Syntax
 
@@ -19,7 +22,9 @@ remove(index)
 ### Parameter
 
 - `index`
-  - : Der nullbasierte Index des Elements in der Drag-Datenliste, das entfernt werden soll. Wenn der `index` nicht einem vorhandenen Element in der Liste entspricht, bleibt die Liste unverändert.
+  - : Die nullbasierte Indexnummer des Elements in der Drag-Datenliste, das entfernt werden soll. Wenn der
+    `index` keinem vorhandenen Element in der Liste entspricht, bleibt die Liste
+    unverändert.
 
 ### Rückgabewert
 
@@ -27,12 +32,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Drag-Datenspeicher nicht im Lese-/Schreibmodus ist und daher das Element nicht entfernt werden kann.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Drag-Datenspeicher nicht im Lese-/Schreibmodus ist und das Element daher nicht entfernt werden kann.
 
 ## Beispiele
 
-### Ein Element ziehen und ablegen
+### Ziehen und Ablegen eines Elements
 
 Dieses Beispiel zeigt die Verwendung der `remove()`-Methode.
 
@@ -41,10 +46,11 @@ Dieses Beispiel zeigt die Verwendung der `remove()`-Methode.
 ```html
 <div>
   <p id="source" draggable="true">
-    Wählen Sie dieses Element aus, ziehen Sie es zur Ablagezone und lassen Sie die Auswahl los, um das Element zu bewegen.
+    Select this element, drag it to the Drop Zone and then release the selection
+    to move the element.
   </p>
 </div>
-<div id="target">Ablagezone</div>
+<div id="target">Drop Zone</div>
 ```
 
 #### CSS
@@ -135,7 +141,7 @@ target.addEventListener("dragover", dragover_handler);
 
 #### Ergebnis
 
-{{ EmbedLiveSample('Dragging and dropping an element', 100, '300px')}}
+{{ EmbedLiveSample('Ziehen und Ablegen eines Elements', 100, '300px')}}
 
 ## Spezifikationen
 

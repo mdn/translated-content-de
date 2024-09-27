@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`timestamp`** schreibgeschützte Eigenschaft der {{domxref("EncodedAudioChunk")}}-Schnittstelle gibt einen ganzzahligen Wert zurück, der den Zeitstempel des Audios in Mikrosekunden angibt.
+Die schreibgeschützte Eigenschaft **`timestamp`** des [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces gibt eine ganze Zahl zurück, die den Zeitstempel des Audios in Mikrosekunden angibt.
 
 ## Wert
 
-Ein ganzzahliger Wert.
+Eine ganze Zahl.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der `timestamp` in der Konsole ausgegeben.
+Im folgenden Beispiel wird der `timestamp` in die Konsole ausgegeben.
 
 ```js
 const init = {

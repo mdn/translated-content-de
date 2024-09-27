@@ -1,5 +1,5 @@
 ---
-title: "MouseEvent: x-Eigenschaft"
+title: "MouseEvent: x Eigenschaft"
 short-title: x
 slug: Web/API/MouseEvent/x
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`MouseEvent.x`**-Eigenschaft ist ein Alias für die {{domxref("MouseEvent.clientX")}}-Eigenschaft.
+Die **`MouseEvent.x`**-Eigenschaft ist ein Alias für die [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX)-Eigenschaft.
 
 ## Spezifikationen
 

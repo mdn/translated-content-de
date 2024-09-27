@@ -1,5 +1,5 @@
 ---
-title: "HTMLTextAreaElement: setSelectionRange()-Methode"
+title: "HTMLTextAreaElement: setSelectionRange() Methode"
 short-title: setSelectionRange()
 slug: Web/API/HTMLTextAreaElement/setSelectionRange
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **setSelectionRange()**-Methode der {{domxref("HTMLTextAreaElement")}}-Schnittstelle setzt die Start- und Endpositionen der aktuellen Textauswahl und optional die Richtung in einem {{HTMLElement("textarea")}}-Element. Die Richtung zeigt an, in welcher der Auswahlvorgang stattgefunden haben soll; beispielsweise, dass die Auswahl dadurch gesetzt wurde, dass der Benutzer vom Ende des ausgewählten Textes zum Anfang geklickt und gezogen hat. Darüber hinaus werden die Ereignisse {{domxref("HTMLTextAreaElement.select_event", "select")}} und {{domxref("HTMLTextAreaElement.selectionchange_event", "selectchange")}} ausgelöst.
+Die **setSelectionRange()**-Methode der Schnittstelle [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) legt die Start- und Endpositionen der aktuellen Textauswahl und optional die Richtung in einem {{HTMLElement("textarea")}}-Element fest. Die Richtung gibt an, in welcher die Auswahl erfolgt sein soll; zum Beispiel, dass die Auswahl durch Klicken und Ziehen vom Ende des ausgewählten Textes zum Anfang durch den Benutzer vorgenommen wurde. Zusätzlich werden die Ereignisse [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event) und [`selectchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event) ausgelöst.
 
-Diese Methode aktualisiert auch die Eigenschaften {{domxref("HTMLTextAreaElement.selectionStart")}}, {{domxref("HTMLTextAreaElement.selectionEnd")}} und {{domxref("HTMLTextAreaElement.selectionDirection")}}.
+Diese Methode aktualisiert auch die Eigenschaften [`HTMLTextAreaElement.selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart), [`HTMLTextAreaElement.selectionEnd`](/de/docs/Web/API/HTMLTextAreaElement/selectionEnd) und [`HTMLTextAreaElement.selectionDirection`](/de/docs/Web/API/HTMLTextAreaElement/selectionDirection).
 
 > [!NOTE]
-> Das `<textarea>` muss fokussiert sein, um einen Teil des Textes mit der Methode `setSelectionRange()` auswählen zu können. Das Setzen des Fokus löst auch ein `selectchange`-Ereignis aus.
+> Das `<textarea>` muss fokussiert sein, um die Auswahl eines Teilbereichs des Textes mit der `setSelectionRange()`-Methode zu ermöglichen. Der Fokus auf das Element löst auch ein `selectchange`-Ereignis aus.
 
-Um **den gesamten** Text eines `<textarea>`-Elements auszuwählen, verwenden Sie die {{domxref("HTMLTextAreaElement.select()")}}-Methode.
+Um **alle** Texte eines `<textarea>`-Elements auszuwählen, verwenden Sie die Methode [`HTMLTextAreaElement.select()`](/de/docs/Web/API/HTMLTextAreaElement/select).
 
 ## Syntax
 
@@ -27,11 +27,11 @@ setSelectionRange(selectionStart, selectionEnd, selectionDirection)
 ### Parameter
 
 - `selectionStart`
-  - : Der Index des ersten ausgewählten Zeichens. Ein Index, der größer ist als die Länge des Elementwerts, wird als Verweis auf das Ende des Wertes behandelt. Siehe die {{domxref("HTMLTextAreaElement.selectionStart", "selectionStart")}}-Eigenschaft für weitere Informationen.
+  - : Der Index des ersten ausgewählten Zeichens. Ein Index, der größer als die Länge des Wertes des Elements ist, wird als Verweis auf das Ende des Wertes behandelt. Siehe die [`selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart)-Eigenschaft für weitere Informationen.
 - `selectionEnd`
-  - : Der Index des Zeichens _nach_ dem letzten ausgewählten Zeichen. Ein Index, der größer ist als die Länge des Elementwerts, wird als Verweis auf das Ende des Wertes behandelt. Wenn `selectionEnd` kleiner als `selectionStart` ist, werden beide als der Wert von `selectionEnd` behandelt. Siehe die {{domxref("HTMLTextAreaElement.selectionEnd", "selectionEnd")}}-Eigenschaft für weitere Informationen.
+  - : Der Index des Zeichens _nach_ dem letzten ausgewählten Zeichen. Ein Index, der größer als die Länge des Wertes des Elements ist, wird als Verweis auf das Ende des Wertes behandelt. Wenn `selectionEnd` kleiner als `selectionStart` ist, werden beide als der Wert von `selectionEnd` behandelt. Siehe die [`selectionEnd`](/de/docs/Web/API/HTMLTextAreaElement/selectionEnd)-Eigenschaft für weitere Informationen.
 - `selectionDirection` {{optional_inline}}
-  - : Das Schlüsselwort `"forward"`, `"backward"` oder der Standardwert `"none"`, welches die Richtung angibt, in der die Auswahl durchgeführt wurde. Siehe die {{domxref("HTMLTextAreaElement.selectionDirection", "selectionDirection")}}-Eigenschaft für weitere Informationen.
+  - : Das Schlüsselwort `"forward"`, `"backward"` oder der Standardwert `"none"`, das die Richtung angibt, in der die Auswahl als durchgeführt betrachtet wird. Siehe die [`selectionDirection`](/de/docs/Web/API/HTMLTextAreaElement/selectionDirection)-Eigenschaft für weitere Informationen.
 
 ### Rückgabewert
 
@@ -42,15 +42,15 @@ Keiner ({{jsxref("undefined")}}).
 ```js
 const textarea = document.getElementById("text-box");
 const chars = textarea.textLength;
-// wenn der Wert mehr als 10 Zeichen lang ist
+// if the value is more than 10 characters long
 if (chars > 10) {
-  // Das Element muss fokussiert werden, um einen Textbereich darin auszuwählen
+  // Element must be focused to select a range of text within it
   textarea.focus();
-  // den Text zwischen dem fünften Zeichen vom Anfang und
-  // dem fünften Zeichen vom Ende auswählen
+  // select the text between the fifth character from the start and
+  // the fifth character from the end
   textarea.setSelectionRange(5, chars - 5);
 } else {
-  // andernfalls gesamten Text auswählen
+  // otherwise select all the text
   textarea.select();
 }
 ```
@@ -66,8 +66,8 @@ if (chars > 10) {
 ## Siehe auch
 
 - {{HTMLElement("textarea")}}
-- {{domxref("HTMLTextAreaElement")}}
-- {{domxref("HTMLTextAreaElement.select()")}}
-- {{domxref("HTMLTextAreaElement.textLength")}}
-- {{domxref("Selection")}}
+- [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)
+- [`HTMLTextAreaElement.select()`](/de/docs/Web/API/HTMLTextAreaElement/select)
+- [`HTMLTextAreaElement.textLength`](/de/docs/Web/API/HTMLTextAreaElement/textLength)
+- [`Selection`](/de/docs/Web/API/Selection)
 - {{cssxref("::selection")}} Pseudo-Element

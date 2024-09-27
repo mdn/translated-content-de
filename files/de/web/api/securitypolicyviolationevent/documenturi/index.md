@@ -3,16 +3,16 @@ title: "SecurityPolicyViolationEvent: documentURI-Eigenschaft"
 short-title: documentURI
 slug: Web/API/SecurityPolicyViolationEvent/documentURI
 l10n:
-  sourceCommit: a5c1400a03d86162ea5c4342a93c2d96df470630
+  sourceCommit: 701ac4440432ac215713b6b7f274291ca643c49a
 ---
 
-{{APIRef("Reporting API")}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`documentURI`** schreibgeschützte Eigenschaft der {{domxref("SecurityPolicyViolationEvent")}}-Schnittstelle ist ein Zeichenfolgenwert, der die URI des Dokuments oder Arbeiters darstellt, in dem die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Verletzung auftrat.
+Die schreibgeschützte Eigenschaft **`documentURI`** des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein String, der die URI des Dokuments oder des Workers darstellt, in dem die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Verletzung aufgetreten ist.
 
 ## Wert
 
-Eine Zeichenfolge, die die URI des Dokuments oder Arbeiters darstellt, in dem die Verletzung auftrat.
+Ein String, der die URI des Dokuments oder des Workers darstellt, in dem der Verstoß aufgetreten ist.
 
 ## Beispiele
 
@@ -32,4 +32,4 @@ document.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- [`CSPViolationReportBody.documentURL`](/de/docs/Web/API/CSPViolationReportBody#cspviolationreportbody.documenturl)
+- [`CSPViolationReportBody.documentURL`](/de/docs/Web/API/CSPViolationReportBody/documentURL)

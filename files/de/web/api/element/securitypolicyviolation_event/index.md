@@ -1,5 +1,5 @@
 ---
-title: "Element: securitypolicyviolation-Ereignis"
+title: "Element: securitypolicyviolation Ereignis"
 short-title: securitypolicyviolation
 slug: Web/API/Element/securitypolicyviolation_event
 l10n:
@@ -8,20 +8,19 @@ l10n:
 
 {{APIRef}}
 
-Das **`securitypolicyviolation`**-Ereignis wird ausgelöst, wenn eine [Content Security Policy](/de/docs/Web/HTTP/CSP) verletzt wird.
+Das **`securitypolicyviolation`** Ereignis wird ausgelöst, wenn eine [Content-Security-Policy](/de/docs/Web/HTTP/CSP) verletzt wird.
 
-Das Ereignis wird auf dem Element ausgelöst, wenn es eine Verletzung der CSP-Richtlinie gibt.
+Das Ereignis wird auf dem Element ausgelöst, wenn es zu einem Verstoß gegen die CSP-Richtlinie kommt.
 
-Dieses Ereignis [bubbelt](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling) und ist [zusammengesetzt](/de/docs/Web/API/Event/composed).
-Es wird normalerweise von einem Ereignishandler auf dem {{domxref("Window")}}- oder {{domxref("Document")}}-Objekt behandelt.
+Dieses Ereignis [blubbert](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling) und ist [zusammengesetzt](/de/docs/Web/API/Event/composed). Es wird normalerweise von einem Ereignishandler auf dem [`Window`](/de/docs/Web/API/Window)- oder [`Document`](/de/docs/Web/API/Document)-Objekt behandelt.
 
 > [!NOTE]
-> Sie sollten den Handler für dieses Ereignis zu einem obersten Objekt hinzufügen (d.h. {{domxref("Window")}} oder {{domxref("Document")}}).
-> Obwohl die Eigenschaft in HTML-Elementen existiert, können Sie keinen Handler an die Eigenschaft zuweisen, bis die Elemente geladen sind, zu diesem Zeitpunkt wird dieses Ereignis bereits ausgelöst worden sein.
+> Sie sollten den Handler für dieses Ereignis zu einem übergeordneten Objekt hinzufügen (d.h. [`Window`](/de/docs/Web/API/Window) oder [`Document`](/de/docs/Web/API/Document)).
+> Obwohl die Eigenschaft in HTML-Elementen existiert, kann der Handler der Eigenschaft nicht zugewiesen werden, bis die Elemente geladen sind, zu welchem Zeitpunkt dieses Ereignis bereits ausgelöst worden ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("securitypolicyviolation", (event) => {});
@@ -31,17 +30,17 @@ onsecuritypolicyviolation = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("SecurityPolicyViolationEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("SecurityPolicyViolationEvent")}}
 
 ## Beispiele
 
-Der untenstehende Code zeigt, wie Sie eine Ereignishandlerfunktion mit der globalen Ereignishandler-Eigenschaft `onsecuritypolicyviolation` oder `addEventListener()` auf dem obersten `Window` hinzufügen könnten (Sie könnten genau denselben Ansatz auch auf `Document` verwenden).
+Der folgende Code zeigt, wie Sie möglicherweise eine Ereignishandlerfunktion mit der globalen Ereignishandler-Eigenschaft `onsecuritypolicyviolation` oder `addEventListener()` auf dem übergeordneten `Window` hinzufügen (Sie könnten denselben Ansatz auf `Document` verwenden).
 
 > [!NOTE]
-> Das Beispiel weist den Handler nicht direkt einem Element zu, da, wie oben erwähnt, für in HTML definierte Elemente das Ereignis ausgelöst würde, bevor dieser Code ausgeführt werden könnte.
-> Sie könnten jedoch den Ereignis-Listener direkt einem dynamisch konstruierten Element hinzufügen!
+> Das Beispiel weist den Handler nicht direkt einem Element zu, da, wie oben erwähnt, bei in HTML definierten Elementen das Ereignis ausgelöst würde, bevor dieser Code ausgeführt werden könnte.
+> Sie könnten jedoch den Ereignislistener direkt zu einem Element hinzufügen, das dynamisch konstruiert wird!
 
 ```js
 window.onsecuritypolicyviolation = (e) => {
@@ -63,6 +62,6 @@ window.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- Das {{domxref("Document/securitypolicyviolation_event", "securitypolicyviolation")}}-Ereignis der {{domxref("Document")}}-Schnittstelle
-- Das {{domxref("WorkerGlobalScope/securitypolicyviolation_event", "securitypolicyviolation")}}-Ereignis der {{domxref("WorkerGlobalScope")}}-Schnittstelle
-- [HTTP > Content Security Policy](/de/docs/Web/HTTP/CSP)
+- Das [`securitypolicyviolation`](/de/docs/Web/API/Document/securitypolicyviolation_event) Ereignis der [`Document`](/de/docs/Web/API/Document) Schnittstelle
+- Das [`securitypolicyviolation`](/de/docs/Web/API/WorkerGlobalScope/securitypolicyviolation_event) Ereignis der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) Schnittstelle
+- [HTTP > Content-Security-Policy](/de/docs/Web/HTTP/CSP)

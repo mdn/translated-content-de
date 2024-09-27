@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`EXT_disjoint_timer_query.deleteQueryEXT()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes {{domxref("WebGLQuery")}}-Objekt.
+Die **`EXT_disjoint_timer_query.deleteQueryEXT()`**-Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes
+[`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt.
 
 ## Syntax
 
@@ -19,7 +21,7 @@ deleteQueryEXT(query)
 ### Parameter
 
 - `query`
-  - : Ein {{domxref("WebGLQuery")}}-Objekt, das gelöscht werden soll.
+  - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt, das gelöscht werden soll.
 
 ### Rückgabewert
 
@@ -46,6 +48,6 @@ ext.deleteQueryEXT(query);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLQuery")}}
-- {{domxref("EXT_disjoint_timer_query")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)
+- [`EXT_disjoint_timer_query`](/de/docs/Web/API/EXT_disjoint_timer_query)

@@ -7,11 +7,11 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Errors")}}
 
-Der Fehler **ungültige Cookie-Domain** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn ein illegitimer Versuch unternommen wird, ein [Cookie](/de/docs/Glossary/Cookie) unter einer anderen [Domain](/de/docs/Glossary/Domain) als der des aktuellen Dokuments zu setzen.
+Der **ungültige Cookie-Domain**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn ein illegaler Versuch unternommen wurde, ein [Cookie](/de/docs/Glossary/Cookie) unter einer anderen [Domain](/de/docs/Glossary/Domain) als der des aktuellen Dokuments zu setzen.
 
-Im WebDriver ist es nicht erlaubt, Cookies für andere Domains als die Domain des [aktuellen Browserkontextes](/de/docs/Glossary/Browsing_context) des [Dokuments](/de/docs/Web/API/Document) zu setzen.
+In WebDriver ist es nicht zulässig, Cookies für andere Domains als die Domain des [aktuellen Browsing-Kontexts](/de/docs/Glossary/Browsing_context)'s [Dokuments](/de/docs/Web/API/Document) zu setzen.
 
-Dieser Fehler tritt auch auf, wenn das Dokument _cookie-avers_ ist, das heißt, wenn das Dokument nicht über `http://`, `https://` oder `ftp://` geladen wird.
+Dieser Fehler tritt auch auf, wenn das Dokument _cookie-abgeneigt_ ist, das heißt, wenn das Dokument nicht über `http://`, `https://` oder `ftp://` geladen wird.
 
 ## Beispiel
 
@@ -40,9 +40,9 @@ Ausgabe:
 InvalidCookieDomainException: https://example.org/
 ```
 
-### Cookie-averse Dokumente
+### Cookie-abgeneigte Dokumente
 
-Dieser Fehler kann auch auftreten, wenn Sie ein cookie-averses Dokument besuchen, wie beispielsweise eine Datei auf Ihrer lokalen Festplatte:
+Dieser Fehler kann auch auftreten, wenn Sie ein cookie-abgeneigtes Dokument aufrufen, z. B. eine Datei auf Ihrer lokalen Festplatte:
 
 ```python
 from selenium import webdriver
@@ -68,8 +68,8 @@ InvalidCookieDomainException: Document is cookie-averse
 - [Liste der WebDriver-Fehler](/de/docs/Web/WebDriver/Errors)
 - Relevante WebDriver-Befehle:
 
-  - [Cookie hinzufügen](/de/docs/Web/WebDriver/Commands/AddCookie)
-  - [Cookie löschen](/de/docs/Web/WebDriver/Commands/DeleteCookie)
-  - [Alle Cookies löschen](/de/docs/Web/WebDriver/Commands/DeleteAllCookies)
-  - [Alle Cookies abrufen](/de/docs/Web/WebDriver/Commands/GetAllCookies)
-  - [Benanntes Cookie abrufen](/de/docs/Web/WebDriver/Commands/GetNamedCookie)
+  - [Add Cookie](/de/docs/Web/WebDriver/Commands/AddCookie)
+  - [Delete Cookie](/de/docs/Web/WebDriver/Commands/DeleteCookie)
+  - [Delete All Cookies](/de/docs/Web/WebDriver/Commands/DeleteAllCookies)
+  - [Get All Cookies](/de/docs/Web/WebDriver/Commands/GetAllCookies)
+  - [Get Named Cookie](/de/docs/Web/WebDriver/Commands/GetNamedCookie)

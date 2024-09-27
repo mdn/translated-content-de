@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die **`origin`** schreibgeschützte Eigenschaft der {{domxref("WorkerGlobalScope")}}-Schnittstelle gibt den Ursprung des globalen Bereichs zurück, seralisiert als String.
+Die **`origin`** schreibgeschützte Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) Interfaces gibt den Ursprung des globalen Scopes zurück, serialisiert als String.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Ausgeführt im Worker-Bereich, wird der folgende Codeausschnitt bei jeder Nachricht, die empfangen wird, den Ursprung des globalen Bereichs des Workers in der Konsole protokollieren.
+Innerhalb des Worker-Scopes ausgeführt, wird das folgende Snippet bei jedem Empfang einer Nachricht den Ursprung des globalen Scopes des Workers in die Konsole protokollieren.
 
 ```js
 self.onmessage = () => {
@@ -24,7 +24,7 @@ self.onmessage = () => {
 };
 ```
 
-Wenn der Ursprung kein Schema/Host/Port-Tupel ist (z.B. wenn Sie versuchen, es lokal auszuführen, d.h. über `file://` URL), wird `origin` den String `"null"` zurückgeben.
+Wenn der Ursprung kein Schema/Host/Port-Tupel ist (angenommen, Sie versuchen es lokal auszuführen, d. h. über `file://` URL), wird `origin` den String `"null"` zurückgeben.
 
 ## Spezifikationen
 
@@ -37,4 +37,4 @@ Wenn der Ursprung kein Schema/Host/Port-Tupel ist (z.B. wenn Sie versuchen, es l
 ## Siehe auch
 
 - [`Window.origin`](/de/docs/Web/API/Window/origin)
-- {{Glossary("origin")}} Glossareintrag
+- [origin](/de/docs/Glossary/origin) Glossarbegriff

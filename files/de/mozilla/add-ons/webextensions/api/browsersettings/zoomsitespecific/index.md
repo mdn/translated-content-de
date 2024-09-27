@@ -7,23 +7,23 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein Boolean ist.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein boolescher Wert ist.
 
-Diese Eigenschaft setzt die [Konfigurationseinstellung](https://support.mozilla.org/en-US/kb/about-config-editor-firefox) `browser.zoom.siteSpecific`, die steuert, wie Zoom-Einstellungen auf Websites und Tabs angewendet werden.
+Diese Eigenschaft legt die [Konfigurationseinstellung](https://support.mozilla.org/en-US/kb/about-config-editor-firefox) `browser.zoom.siteSpecific` fest, die steuert, wie Zoom-Einstellungen auf Webseiten und Tabs angewendet werden.
 
-Wenn `browser.zoom.siteSpecific` wahr ist, gelten Zoom-Operationen für alle Seiten derselben Website, sodass:
+Wenn `browser.zoom.siteSpecific` wahr ist, gelten Zoom-Vorgänge für alle Seiten derselben Website, sodass:
 
-- beim Laden einer Seite, falls ein Zoom-Level für diese Website vorhanden ist, dieses auf die Seite angewendet wird, andernfalls wird das globale Standard-Zoom-Level angewendet.
-- wenn sich das Zoom-Level einer Seite ändert, werden die Zoom-Levels anderer Seiten dieser Website in anderen Tabs ebenfalls geändert.
+- wenn eine Seite geladen wird, ein Zoom-Level für diese Website angewendet wird, sofern vorhanden, oder andernfalls das globale Standard-Zoom-Level angewendet wird.
+- wenn sich der Zoom-Level einer Seite ändert, werden auch die Zoom-Level anderer Seiten der Website in anderen Tabs geändert.
 
-Wenn `browser.zoom.siteSpecific` auf falsch gesetzt ist, gelten Zoom-Operationen nur für den aktiven Tab, sodass:
+Wenn `browser.zoom.siteSpecific` auf falsch gesetzt ist, gelten Zoom-Vorgänge nur für den aktiven Tab, sodass:
 
-- beim Öffnen eines neuen Tabs das globale Standard-Zoom-Level angewendet wird.
-- wenn sich das Zoom-Level in einem Tab ändert, bleibt es über Seitenladevorgänge hinweg bestehen und wirkt sich nicht auf das Zoom-Level in einem anderen Tab aus.
+- wenn ein neuer Tab geöffnet wird, das globale Standard-Zoom-Level angewendet wird.
+- wenn sich der Zoom-Level in einem Tab ändert, bleibt er über Seitenladungen hinweg erhalten und beeinflusst nicht den Zoom-Level in anderen Tabs.
 
-Beim Installieren von Firefox ist `browser.zoom.siteSpecific` wahr.
+Wenn Firefox installiert wird, ist `browser.zoom.siteSpecific` wahr.
 
-Wenn [`privacy.websites`](/de/docs/Mozilla/Add-ons/WebExtensions/API/privacy/websites)`.resistFingerprinting` wahr ist, hat diese Einstellung keine Wirkung, und das Zoom wird pro Tab gesetzt.
+Wenn [`privacy.websites`](/de/docs/Mozilla/Add-ons/WebExtensions/API/privacy/websites)`.resistFingerprinting` wahr ist, hat diese Einstellung keine Wirkung und der Zoom wird tabweise festgelegt.
 
 ## Browser-Kompatibilität
 

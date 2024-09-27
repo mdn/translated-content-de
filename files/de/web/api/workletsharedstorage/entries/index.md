@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`entries()`**-Methode der {{domxref("WorkletSharedStorage")}}-Schnittstelle gibt einen [asynchronen Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) zurück. Der Iterator liefert ein Array von `[key, value]`-Paaren, die den aufzählbaren Eigenschaften einer `WorkletSharedStorage`-Instanz entsprechen. Die Reihenfolge dieser Paare ist ähnlich wie bei einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife, obwohl eine `for...in`-Schleife auch Eigenschaften aus der Prototypkette aufzählt.
+Die **`entries()`**-Methode des [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Interfaces gibt einen [asynchronen Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) zurück. Der Iterator liefert ein Array von `[key, value]`-Paaren, die den aufzählbaren Eigenschaften einer `WorkletSharedStorage`-Instanz entsprechen. Die Reihenfolge dieser Paare ist ähnlich wie in einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife, obwohl eine `for...in`-Schleife auch Eigenschaften aus der Prototypkette auflistet.
 
 ## Syntax
 
@@ -22,17 +22,17 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array der aufzählbaren Eigenschafts-Schlüssel-Wert-Paare von `WorkletSharedStorage`.
+Ein Array der aufzählbaren Eigenschaftsschlüssel-Werte-Paare von `WorkletSharedStorage`.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird geworfen, wenn die aufrufende Stelle die Shared Storage API nicht in einem erfolgreichen [Enrollment-Prozess der Privacy Sandbox](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) enthalten hat.
+  - : Wird ausgelöst, wenn die aufrufende Stelle die Shared Storage API nicht in einem erfolgreichen [Privacy Sandbox Registrierungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) enthalten hat.
 
 ## Beispiele
 
 ```js
-// entries() verfügbar innerhalb eines Shared Storage Worklet-Moduls
+// entries() available inside a shared storage worklet module
 const storage = await this.sharedStorage;
 
 async function logEntries() {

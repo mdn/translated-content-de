@@ -8,31 +8,31 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`vAlign`**-Eigenschaft des {{domxref("HTMLTableColElement")}}-Interfaces ist ein String, der angibt, wie Text in einem Tabellen-{{htmlelement("col")}} Spaltenelement vertikal ausgerichtet wird.
+Die **`vAlign`**-Eigenschaft des [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement)-Interfaces ist ein String, der angibt, wie Text in einem Tabellen-{{htmlelement("col")}}-Element vertikal ausgerichtet werden soll.
 
 > [!NOTE]
-> Diese Eigenschaft ist veraltet, und CSS sollte verwendet werden, um Text in einer Spalte vertikal auszurichten. Verwenden Sie die CSS-{{cssxref("vertical-align")}}-Eigenschaft, die Vorrang hat, um Text in jeder Spaltenzelle vertikal auszurichten.
+> Diese Eigenschaft ist veraltet, und CSS sollte verwendet werden, um Text vertikal in einer Spalte auszurichten. Verwenden Sie die CSS-{{cssxref("vertical-align")}}-Eigenschaft, die Vorrang hat, um Text in jeder Spaltenzelle vertikal auszurichten.
 >
-> Da {{htmlelement("td")}} keine Kinder von {{htmlelement("col")}} sind, können Sie es nicht direkt auf einem {{HTMLElement("col")}}-Element festlegen. Sie müssen die Zellen der Spalte mit `td:nth-child(n)` oder ähnlich auswählen (`n` ist die Spaltennummer).
+> Da {{htmlelement("td")}} keine Kinder von {{htmlelement("col")}} sind, können Sie dies nicht direkt auf einem {{HTMLElement("col")}}-Element festlegen. Sie müssen die Zellen der Spalte mithilfe von `td:nth-child(n)` oder Ähnlichem auswählen (`n` ist die Spaltennummer).
 
 ## Wert
 
 Die möglichen Werte sind: `"top"`, `"middle"`, `"bottom"` oder `"baseline"`
 
 - `top`
-  - : Richten Sie den Text oben in der Spalte aus. Verwenden Sie stattdessen `vertical-align: top`.
+  - : Richten Sie den Text am oberen Rand der Spalte aus. Verwenden Sie stattdessen `vertical-align: top`.
 - `center`
   - : Zentrieren Sie den Text vertikal in der Spalte. Synonym für `middle`. Verwenden Sie stattdessen `vertical-align: middle`.
 - `middle`
   - : Zentrieren Sie den Text vertikal in der Spalte. Verwenden Sie stattdessen `vertical-align: middle`.
 - `bottom`
-  - : Richten Sie den Text unten in der Spalte aus. Verwenden Sie stattdessen `vertical-align: bottom`.
+  - : Richten Sie den Text am unteren Rand der Spalte aus. Verwenden Sie stattdessen `vertical-align: bottom`.
 - `baseline`
-  - : Ähnlich wie `top`, aber richten Sie die Basislinie des Textes so nahe wie möglich am oberen Rand aus, sodass kein Teil des Zeichens außerhalb der Zelle ist.
+  - : Ähnlich wie `top`, aber richtet die Grundlinie des Textes so nah wie möglich am oberen Rand aus, sodass kein Teil des Zeichens außerhalb der Zelle liegt.
 
 ## Beispiele
 
-Verwenden Sie CSS `vertical-align`. Da {{htmlelement("td")}}-Elemente einer Spalte keine Kinder von {{htmlelement("col")}} sind, können Sie es nicht direkt auf einem {{HTMLElement("col")}} festlegen. Sie müssen die Zellen mit `td:nth-child(n)` oder ähnlich auswählen (`n` ist die Spaltennummer).
+Verwenden Sie CSS-`vertical-align`. Da {{htmlelement("td")}}-Elemente einer Spalte keine Kinder von {{htmlelement("col")}} sind, können Sie dies nicht direkt auf einem {{HTMLElement("col")}} festlegen. Sie müssen die Zellen mithilfe von `td:nth-child(n)` oder Ähnlichem auswählen (`n` ist die Spaltennummer).
 
 Ein [Beispiel](/de/docs/Web/CSS/:nth-child#styling_a_table_column) ist auf der {{cssxref(":nth-child()")}}-Seite verfügbar.
 

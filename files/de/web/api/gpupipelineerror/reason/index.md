@@ -3,25 +3,25 @@ title: "GPUPipelineError: reason-Eigenschaft"
 short-title: reason
 slug: Web/API/GPUPipelineError/reason
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`reason`** des {{domxref("GPUPipelineError")}}-Interfaces definiert den Grund, warum die Pipelinenerstellung in einer maschinenlesbaren Form fehlgeschlagen ist.
+Die schreibgeschützte Eigenschaft **`reason`** des [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError)-Interfaces definiert den Grund, warum die Pipeline-Erstellung maschinenlesbar fehlgeschlagen ist.
 
 ## Wert
 
 Ein enumerierter Wert, der einer der folgenden sein kann:
 
 - `"internal"`
-  - : Pipelinenerstellung ist aufgrund eines internen Fehlers fehlgeschlagen (siehe {{domxref("GPUInternalError")}} für weitere Informationen zu diesen Fehlerarten.)
+  - : Die Pipeline-Erstellung ist aufgrund eines internen Fehlers fehlgeschlagen (siehe [`GPUInternalError`](/de/docs/Web/API/GPUInternalError) für weitere Informationen zu dieser Art von Fehlern).
 - `"validation"`
-  - : Pipelinenerstellung ist aufgrund eines Validierungsfehlers fehlgeschlagen (siehe {{domxref("GPUValidationError")}} für weitere Informationen zu diesen Fehlerarten.)
+  - : Die Pipeline-Erstellung ist aufgrund eines Validierungsfehlers fehlgeschlagen (siehe [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) für weitere Informationen zu dieser Art von Fehlern).
 
 ## Beispiele
 
-Sehen Sie sich die Hauptseite [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError#examples) für ein Beispiel an, das eine `GPUPipelineError`-Objektinstanz beinhaltet.
+Siehe die Hauptseite [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError#examples) für ein Beispiel mit einer `GPUPipelineError`-Objektinstanz.
 
 ## Spezifikationen
 

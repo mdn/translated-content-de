@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: depthMask()-Methode"
+title: "WebGLRenderingContext: depthMask() Methode"
 short-title: depthMask()
 slug: Web/API/WebGLRenderingContext/depthMask
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.depthMask()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt fest, ob das Schreiben in den Tiefenpuffer aktiviert oder deaktiviert ist.
+Die **`WebGLRenderingContext.depthMask()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) legt fest, ob das Schreiben in den Tiefenpuffer aktiviert oder deaktiviert ist.
 
 ## Syntax
 
@@ -19,8 +19,7 @@ depthMask(flag)
 ### Parameter
 
 - `flag`
-  - : Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob das Schreiben in den Tiefenpuffer
-    aktiviert ist oder nicht. Standardwert: `true`, was bedeutet, dass das Schreiben aktiviert ist.
+  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das Schreiben in den Tiefenpuffer aktiviert ist oder nicht. Standardwert: `true`, was bedeutet, dass das Schreiben aktiviert ist.
 
 ### Rückgabewert
 
@@ -32,7 +31,7 @@ Keiner ({{jsxref("undefined")}}).
 gl.depthMask(false);
 ```
 
-Um die aktuelle Tiefenmaske zu erhalten, fragen Sie die Konstante `DEPTH_WRITEMASK` ab, die einen booleschen Wert zurückgibt.
+Um die aktuelle Tiefenmaske abzurufen, fragen Sie die `DEPTH_WRITEMASK` Konstante ab, die einen booleschen Wert zurückgibt.
 
 ```js
 gl.getParameter(gl.DEPTH_WRITEMASK);
@@ -49,5 +48,5 @@ gl.getParameter(gl.DEPTH_WRITEMASK);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.colorMask()")}}
-- {{domxref("WebGLRenderingContext.stencilMask()")}}
+- [`WebGLRenderingContext.colorMask()`](/de/docs/Web/API/WebGLRenderingContext/colorMask)
+- [`WebGLRenderingContext.stencilMask()`](/de/docs/Web/API/WebGLRenderingContext/stencilMask)

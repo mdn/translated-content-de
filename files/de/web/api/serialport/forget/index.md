@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web Serial API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`SerialPort.forget()`**-Methode des {{domxref("SerialPort")}}-Interfaces gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der serielle Port geschlossen und vergessen wird.
+Die **`SerialPort.forget()`** Methode der [`SerialPort`](/de/docs/Web/API/SerialPort) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der serielle Port geschlossen und vergessen ist.
 
 ## Syntax
 

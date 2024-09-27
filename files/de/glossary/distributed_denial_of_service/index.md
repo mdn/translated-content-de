@@ -1,5 +1,5 @@
 ---
-title: Verteilte Dienstverweigerung
+title: Distributed Denial of Service
 slug: Glossary/Distributed_Denial_of_Service
 l10n:
   sourceCommit: 7a551aaa034fbada3eb99e6fc924a0313b78307f
@@ -7,24 +7,24 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **verteiltes Dienstverweigerung** (DDoS) ist ein Angriff, bei dem viele kompromittierte Systeme benutzt werden, um ein einzelnes Ziel anzugreifen, mit dem Ziel, Server-Ressourcen zu überfluten und legitime Benutzer zu blockieren.
+Ein **Distributed Denial-of-Service** (DDoS) ist ein Angriff, bei dem viele kompromittierte Systeme dazu gebracht werden, ein einzelnes Ziel anzugreifen, um Serverressourcen zu überfluten und legitime Benutzer zu blockieren.
 
-Normalerweise greifen viele Personen mit vielen Bots hochkarätige Web-{{glossary("server","Server")}} wie Banken oder Kreditkarten-Zahlungsgateways an. DDoS betrifft Computernetzwerke und das Management von CPU-Ressourcen.
+Normalerweise greifen viele Personen unter Verwendung vieler Bots hochkarätige Web-[Server](/de/docs/Glossary/server) wie Banken oder Kreditkartenzahlungsgateways an. DDoS betrifft Computernetzwerke und die Verwaltung von CPU-Ressourcen.
 
-Bei einem typischen DDoS-Angriff beginnt der Angreifer damit, eine Schwachstelle in einem Computersystem auszunutzen und es zum DDoS-Master zu machen. Der Angriffsmaster, auch bekannt als Botmaster, identifiziert und infiziert andere anfällige Systeme mit Malware. Schließlich instruiert der Angreifer die kontrollierten Maschinen, einen Angriff gegen ein bestimmtes Ziel zu starten.
+Bei einem typischen DDoS-Angriff beginnt der Angreifer mit der Ausnutzung einer Schwachstelle in einem Computersystem und macht es zum DDoS-Master. Der Angriffsmaster, auch als Botmaster bekannt, identifiziert und infiziert andere anfällige Systeme mit Malware. Schließlich weist der Angreifer die kontrollierten Maschinen an, einen Angriff gegen ein bestimmtes Ziel zu starten.
 
-Es gibt zwei Arten von DDoS-Angriffen: einen netzwerkzentrierten Angriff (der einen Dienst durch Bandbreitenauslastung überlastet) und einen anwendungsorientierten Angriff (der einen Dienst oder eine Datenbank mit Anwendungsaufrufen überlastet). Der Datenüberfluss auf das Ziel führt zu einer Sättigung der Zielmaschine, sodass sie entweder nicht oder nur sehr langsam auf legitimen Datenverkehr reagieren kann (daher der Name „Dienstverweigerung“). Die Besitzer der infizierten Computer wissen normalerweise nicht, dass ihre Computer kompromittiert wurden und leiden ebenfalls unter einem Dienstverlust.
+Es gibt zwei Arten von DDoS-Angriffen: einen netzwerkzentrierten Angriff (der einen Dienst überlastet, indem er Bandbreite verbraucht) und einen anwendungszentrierten Angriff (der einen Dienst oder eine Datenbank mit Anwendungsaufrufen überlastet). Der Datenüberfluss zum Ziel führt zu einer Sättigung der Zielmaschine, sodass sie auf legitimen Datenverkehr nicht mehr oder nur sehr langsam reagiert (daher der Name "Dienstverweigerung"). Die Besitzer der infizierten Computer wissen normalerweise nicht, dass ihre Computer kompromittiert wurden, und sie erleiden ebenfalls einen Dienstausfall.
 
-Ein Computer unter Kontrolle eines Eindringlings wird als Zombie oder Bot bezeichnet. Ein Netzwerk von co-infizierten Computern ist als Botnetz oder Zombie-Armee bekannt. Sowohl Kaspersky Labs als auch Symantec haben Botnets - nicht Spam, Viren oder Würmer - als die größte Bedrohung für die Internetsicherheit identifiziert.
+Ein Computer unter der Kontrolle eines Eindringlings wird als Zombie oder Bot bezeichnet. Ein Netzwerk von co-infizierten Computern ist als Botnet oder Zombie-Armee bekannt. Sowohl Kaspersky Labs als auch Symantec haben Botnets — nicht Spam, Viren oder Würmer — als die größte Bedrohung für die Internetsicherheit identifiziert.
 
-Das United States Computer Emergency Readiness Team (US-CERT) definiert Symptome von Dienstverweigerungsangriffen folgendermaßen:
+Das United States Computer Emergency Readiness Team (US-CERT) definiert die Symptome von Dienstverweigerungsangriffen wie folgt:
 
-- Ungewöhnlich langsame Netzwerkleistung (Öffnen von Dateien oder Zugriff auf Websites)
-- Nichtverfügbarkeit einer bestimmten Webseite
+- Ungewöhnlich langsame Netzwerkleistung (beim Öffnen von Dateien oder Zugreifen auf Websites)
+- Nichtverfügbarkeit einer bestimmten Website
 - Unfähigkeit, auf irgendeine Website zuzugreifen
-- Dramatische Zunahme der Anzahl empfangener Spam-E-Mails – (diese Art von DoS-Angriff wird als E-Mail-Bombe betrachtet)
+- Dramatischer Anstieg der Anzahl der empfangenen Spam-E-Mails — (dieser Typ von DoS-Angriff wird als E-Mail-Bombe betrachtet)
 - Trennung einer drahtlosen oder kabelgebundenen Internetverbindung
-- Langfristige Verweigerung des Zugangs zum Web oder zu irgendwelchen Internetdiensten
+- Langfristige Verweigerung des Zugangs zum Web oder zu irgendeinem Internetdienst
 
 ## Siehe auch
 

@@ -2,108 +2,108 @@
 title: DOMException
 slug: Web/API/DOMException
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: 8b6cec0ceff01e7a9d6865cf5306788e15cce4b8
 ---
 
 {{ APIRef("DOM") }}
 
-Die **`DOMException`** Schnittstelle repräsentiert ein ungewöhnliches Ereignis (genannt **Ausnahme**), das als Ergebnis des Aufrufs einer Methode oder des Zugriffs auf eine Eigenschaft einer Web-API auftritt. So werden Fehlersituationen in Web-APIs beschrieben.
+Die **`DOMException`**-Schnittstelle stellt ein ungewöhnliches Ereignis (eine **Ausnahme**) dar, das als Ergebnis eines Methodenaufrufs oder des Zugriffs auf eine Eigenschaft einer Web-API auftritt. Dies ist die Art und Weise, wie Fehlerbedingungen in Web-APIs beschrieben werden.
 
-Jede Ausnahme hat einen **Namen**, der ein kurzer, in "PascalCase" stilisierter String ist, der den Fehler oder die ungewöhnliche Bedingung identifiziert.
+Jede Ausnahme hat einen **Name**, ein kurzer, im "PascalCase"-Stil gehaltener String, der den Fehler oder die außergewöhnliche Bedingung identifiziert.
 
-`DOMException` ist ein {{Glossary("Serializable object")}}, daher kann es mit {{domxref("structuredClone()")}} geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit {{domxref("Worker.postMessage()", "postMessage()")}} kopiert werden.
+`DOMException` ist ein [serialisierbares Objekt](/de/docs/Glossary/Serializable_object), sodass es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden kann.
 
 ## Konstruktor
 
-- {{domxref("DOMException.DOMException()", "DOMException()")}}
+- [`DOMException()`](/de/docs/Web/API/DOMException/DOMException)
   - : Gibt ein `DOMException`-Objekt mit einer angegebenen Nachricht und einem Namen zurück.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("DOMException.code")}} {{deprecated_inline}} {{ReadOnlyInline}}
-  - : Gibt einen der veralteten Fehlercode-Konstanten zurück oder `0`, falls keine übereinstimmen.
-- {{domxref("DOMException.message")}} {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der eine Nachricht oder Beschreibung repräsentiert, die mit dem angegebenen [Fehlernamen](#fehlernamen) verbunden ist.
-- {{domxref("DOMException.name")}} {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der einen der mit einem [Fehlernamen](#fehlernamen) verbundenen Strings enthält.
+- [`DOMException.code`](/de/docs/Web/API/DOMException/code) {{deprecated_inline}} {{ReadOnlyInline}}
+  - : Gibt einen der veralteten Fehlercode-Konstanten zurück oder `0`, wenn keiner übereinstimmt.
+- [`DOMException.message`](/de/docs/Web/API/DOMException/message) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der eine mit dem gegebenen [Fehlernamen](#fehlernamen) verbundene Nachricht oder Beschreibung darstellt.
+- [`DOMException.name`](/de/docs/Web/API/DOMException/name) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der eine der mit einem [Fehlernamen](#fehlernamen) verbundenen Zeichenfolgen enthält.
 
 ## Fehlernamen
 
-Häufige Fehlernamen sind hier aufgelistet. Einige APIs definieren ihre eigenen Namenssätze, daher ist dies möglicherweise keine vollständige Liste.
+Häufige Fehlernamen sind hier aufgeführt. Einige APIs definieren ihre eigenen Namenssätze, sodass dies nicht unbedingt eine vollständige Liste ist.
 
-Beachten Sie, dass die folgenden veralteten historischen Fehler keinen Fehlernamen haben, sondern nur einen Legacy-Konstantenwert und einen Legacy-Konstantennamen:
+Beachten Sie, dass die folgenden veralteten historischen Fehler keinen Fehlernamen haben, sondern stattdessen nur einen veralteten Konstantencode-Wert und einen veralteten Konstantennamen:
 
-- Legacy-Code-Wert: `2`, Legacy-Konstantenname: `DOMSTRING_SIZE_ERR`
-- Legacy-Code-Wert: `6`, Legacy-Konstantenname: `NO_DATA_ALLOWED_ERR`
-- Legacy-Code-Wert: `16`, Legacy-Konstantenname: `VALIDATION_ERR`
+- Veralteter Code-Wert: `2`, veralteter Konstantenname: `DOMSTRING_SIZE_ERR`
+- Veralteter Code-Wert: `6`, veralteter Konstantenname: `NO_DATA_ALLOWED_ERR`
+- Veralteter Code-Wert: `16`, veralteter Konstantenname: `VALIDATION_ERR`
 
 > [!NOTE]
-> Da Fehler historisch durch einen numerischen Wert identifiziert wurden, der mit einer benannten Variablen korrespondierte, die diesen Wert hatte, deuten einige der folgenden Einträge den veralteten Code-Wert und den konstanten Namen an, die in der Vergangenheit verwendet wurden.
+> Da Fehler historisch gesehen durch einen numerischen Wert identifiziert wurden, der mit einer benannten Variablen übereinstimmte, die diesen Wert definiert, geben einige der folgenden Einträge den veralteten Code-Wert und den konstanten Namen an, die in der Vergangenheit verwendet wurden.
 
 - `IndexSizeError`
-  - : Der Index liegt nicht im erlaubten Bereich. Zum Beispiel kann dies vom {{ domxref("Range") }}-Objekt ausgelöst werden. (Legacy-Code-Wert: `1` und Legacy-Konstantenname: `INDEX_SIZE_ERR`)
+  - : Der Index befindet sich nicht im erlaubten Bereich. Zum Beispiel kann dies vom [`Range`](/de/docs/Web/API/Range)-Objekt ausgelöst werden. (Veralteter Code-Wert: `1` und veralteter Konstantenname: `INDEX_SIZE_ERR`)
 - `HierarchyRequestError`
-  - : Die Knotenbaum-Hierarchie ist nicht korrekt. (Legacy-Code-Wert: `3` und Legacy-Konstantenname: `HIERARCHY_REQUEST_ERR`)
+  - : Die Knotenbaum-Hierarchie ist nicht korrekt. (Veralteter Code-Wert: `3` und veralteter Konstantenname: `HIERARCHY_REQUEST_ERR`)
 - `WrongDocumentError`
-  - : Das Objekt befindet sich im falschen {{ domxref("Document") }}. (Legacy-Code-Wert: `4` und Legacy-Konstantenname: `WRONG_DOCUMENT_ERR`)
+  - : Das Objekt befindet sich im falschen [`Document`](/de/docs/Web/API/Document). (Veralteter Code-Wert: `4` und veralteter Konstantenname: `WRONG_DOCUMENT_ERR`)
 - `InvalidCharacterError`
-  - : Der String enthält ungültige Zeichen. (Legacy-Code-Wert: `5` und Legacy-Konstantenname: `INVALID_CHARACTER_ERR`)
+  - : Der String enthält ungültige Zeichen. (Veralteter Code-Wert: `5` und veralteter Konstantenname: `INVALID_CHARACTER_ERR`)
 - `NoModificationAllowedError`
-  - : Das Objekt kann nicht modifiziert werden. (Legacy-Code-Wert: `7` und Legacy-Konstantenname: `NO_MODIFICATION_ALLOWED_ERR`)
+  - : Das Objekt kann nicht modifiziert werden. (Veralteter Code-Wert: `7` und veralteter Konstantenname: `NO_MODIFICATION_ALLOWED_ERR`)
 - `NotFoundError`
-  - : Das Objekt kann hier nicht gefunden werden. (Legacy-Code-Wert: `8` und Legacy-Konstantenname: `NOT_FOUND_ERR`)
+  - : Das Objekt kann hier nicht gefunden werden. (Veralteter Code-Wert: `8` und veralteter Konstantenname: `NOT_FOUND_ERR`)
 - `NotSupportedError`
-  - : Die Operation wird nicht unterstützt. (Legacy-Code-Wert: `9` und Legacy-Konstantenname: `NOT_SUPPORTED_ERR`)
+  - : Die Operation wird nicht unterstützt. (Veralteter Code-Wert: `9` und veralteter Konstantenname: `NOT_SUPPORTED_ERR`)
 - `InvalidStateError`
-  - : Das Objekt befindet sich in einem ungültigen Zustand. (Legacy-Code-Wert: `11` und Legacy-Konstantenname: `INVALID_STATE_ERR`)
+  - : Das Objekt befindet sich in einem ungültigen Zustand. (Veralteter Code-Wert: `11` und veralteter Konstantenname: `INVALID_STATE_ERR`)
 - `InUseAttributeError`
-  - : Das Attribut ist in Gebrauch. (Legacy-Code-Wert: `10` und Legacy-Konstantenname: `INUSE_ATTRIBUTE_ERR`)
+  - : Das Attribut wird verwendet. (Veralteter Code-Wert: `10` und veralteter Konstantenname: `INUSE_ATTRIBUTE_ERR`)
 - `SyntaxError`
-  - : Der String passt nicht zu dem erwarteten Muster. (Legacy-Code-Wert: `12` und Legacy-Konstantenname: `SYNTAX_ERR`)
+  - : Der String entsprach nicht dem erwarteten Muster. (Veralteter Code-Wert: `12` und veralteter Konstantenname: `SYNTAX_ERR`)
 - `InvalidModificationError`
-  - : Das Objekt kann nicht auf diese Weise modifiziert werden. (Legacy-Code-Wert: `13` und Legacy-Konstantenname: `INVALID_MODIFICATION_ERR`)
+  - : Das Objekt kann auf diese Weise nicht modifiziert werden. (Veralteter Code-Wert: `13` und veralteter Konstantenname: `INVALID_MODIFICATION_ERR`)
 - `NamespaceError`
-  - : Die Operation ist durch Namespaces in XML nicht erlaubt. (Legacy-Code-Wert: `14` und Legacy-Konstantenname: `NAMESPACE_ERR`)
+  - : Die Operation wird von Namespaces in XML nicht erlaubt. (Veralteter Code-Wert: `14` und veralteter Konstantenname: `NAMESPACE_ERR`)
 - `InvalidAccessError`
-  - : Das Objekt unterstützt die Operation oder das Argument nicht. (Legacy-Code-Wert: `15` und Legacy-Konstantenname: `INVALID_ACCESS_ERR`)
+  - : Das Objekt unterstützt die Operation oder das Argument nicht. (Veralteter Code-Wert: `15` und veralteter Konstantenname: `INVALID_ACCESS_ERR`)
 - `TypeMismatchError` {{deprecated_inline}}
-  - : Der Typ des Objekts stimmt nicht mit dem erwarteten Typ überein. (Legacy-Code-Wert: `17` und Legacy-Konstantenname: `TYPE_MISMATCH_ERR`) Dieser Wert ist veraltet; die JavaScript-{{jsxref("TypeError")}}-Ausnahme wird nun anstelle einer `DOMException` mit diesem Wert ausgelöst.
+  - : Der Typ des Objekts stimmt nicht mit dem erwarteten Typ überein. (Veralteter Code-Wert: `17` und veralteter Konstantenname: `TYPE_MISMATCH_ERR`) Dieser Wert ist veraltet; die JavaScript {{jsxref("TypeError")}}-Ausnahme wird jetzt anstelle einer `DOMException` mit diesem Wert ausgelöst.
 - `SecurityError`
-  - : Die Operation ist unsicher. (Legacy-Code-Wert: `18` und Legacy-Konstantenname: `SECURITY_ERR`)
+  - : Die Operation ist unsicher. (Veralteter Code-Wert: `18` und veralteter Konstantenname: `SECURITY_ERR`)
 - `NetworkError` {{experimental_inline}}
-  - : Ein Netzwerkfehler ist aufgetreten. (Legacy-Code-Wert: `19` und Legacy-Konstantenname: `NETWORK_ERR`)
+  - : Ein Netzwerkfehler ist aufgetreten. (Veralteter Code-Wert: `19` und veralteter Konstantenname: `NETWORK_ERR`)
 - `AbortError` {{experimental_inline}}
-  - : Die Operation wurde abgebrochen. (Legacy-Code-Wert: `20` und Legacy-Konstantenname: `ABORT_ERR`)
+  - : Die Operation wurde abgebrochen. (Veralteter Code-Wert: `20` und veralteter Konstantenname: `ABORT_ERR`)
 - `URLMismatchError` {{experimental_inline}}
-  - : Die angegebene URL stimmt nicht mit einer anderen URL überein. (Legacy-Code-Wert: `21` und Legacy-Konstantenname: `URL_MISMATCH_ERR`)
+  - : Die angegebene URL stimmt nicht mit einer anderen URL überein. (Veralteter Code-Wert: `21` und veralteter Konstantenname: `URL_MISMATCH_ERR`)
 - `QuotaExceededError` {{experimental_inline}}
-  - : Das Quota wurde überschritten. (Legacy-Code-Wert: `22` und Legacy-Konstantenname: `QUOTA_EXCEEDED_ERR`)
+  - : Das Kontingent wurde überschritten. (Veralteter Code-Wert: `22` und veralteter Konstantenname: `QUOTA_EXCEEDED_ERR`)
 - `TimeoutError`
-  - : Die Operation ist abgelaufen. (Legacy-Code-Wert: `23` und Legacy-Konstantenname: `TIMEOUT_ERR`)
+  - : Die Operation ist abgelaufen. (Veralteter Code-Wert: `23` und veralteter Konstantenname: `TIMEOUT_ERR`)
 - `InvalidNodeTypeError` {{experimental_inline}}
-  - : Der Knoten ist falsch oder hat einen falschen Vorfahren für diese Operation. (Legacy-Code-Wert: `24` und Legacy-Konstantenname: `INVALID_NODE_TYPE_ERR`)
+  - : Der Knoten ist für diese Operation falsch oder hat einen falschen Vorfahren. (Veralteter Code-Wert: `24` und veralteter Konstantenname: `INVALID_NODE_TYPE_ERR`)
 - `DataCloneError` {{experimental_inline}}
-  - : Das Objekt kann nicht geklont werden. (Legacy-Code-Wert: `25` und Legacy-Konstantenname: `DATA_CLONE_ERR`)
+  - : Das Objekt kann nicht geklont werden. (Veralteter Code-Wert: `25` und veralteter Konstantenname: `DATA_CLONE_ERR`)
 - `EncodingError` {{experimental_inline}}
-  - : Die Kodier- oder Dekodieroperation ist fehlgeschlagen (Kein Legacy-Code-Wert und Konstantenname).
+  - : Die Kodierungs- oder Dekodierungsoperation ist fehlgeschlagen (Kein veralteter Code-Wert und Konstantenname).
 - `NotReadableError` {{experimental_inline}}
-  - : Die Ein-/Ausgabe-Leseoperation ist fehlgeschlagen (Kein Legacy-Code-Wert und Konstantenname).
+  - : Die Ein-/Ausleseoperation ist fehlgeschlagen (Kein veralteter Code-Wert und Konstantenname).
 - `UnknownError` {{experimental_inline}}
-  - : Die Operation ist aus einem unbekannten temporären Grund fehlgeschlagen (z.B. Speichermangel) (Kein Legacy-Code-Wert und Konstantenname).
+  - : Die Operation ist aus einem unbekannten vorübergehenden Grund fehlgeschlagen (z. B. nicht genügend Speicher) (Kein veralteter Code-Wert und Konstantenname).
 - `ConstraintError` {{experimental_inline}}
-  - : Eine Mutationsoperation in einer Transaktion ist fehlgeschlagen, weil eine Einschränkung nicht erfüllt wurde (Kein Legacy-Code-Wert und Konstantenname).
+  - : Eine Mutation in einer Transaktion ist fehlgeschlagen, weil eine Einschränkung nicht erfüllt wurde (Kein veralteter Code-Wert und Konstantenname).
 - `DataError` {{experimental_inline}}
-  - : Zur Verfügung gestellte Daten sind unzureichend (Kein Legacy-Code-Wert und Konstantenname).
+  - : Die bereitgestellten Daten sind unzureichend (Kein veralteter Code-Wert und Konstantenname).
 - `TransactionInactiveError` {{experimental_inline}}
-  - : Eine Anfrage wurde gegen eine Transaktion gestellt, die derzeit nicht aktiv oder abgeschlossen ist (Kein Legacy-Code-Wert und Konstantenname).
+  - : Eine Anfrage wurde gegen eine Transaktion gestellt, die derzeit nicht aktiv ist oder beendet wurde (Kein veralteter Code-Wert und Konstantenname).
 - `ReadOnlyError` {{experimental_inline}}
-  - : Die mutierende Operation wurde in einer "readonly"-Transaktion versucht (Kein Legacy-Code-Wert und Konstantenname).
+  - : Der Versuch einer Änderung in einer "read-only"-Transaktion wurde unternommen (Kein veralteter Code-Wert und Konstantenname).
 - `VersionError` {{experimental_inline}}
-  - : Es wurde versucht, eine Datenbank mit einer niedrigeren Version als der vorhandenen Version zu öffnen (Kein Legacy-Code-Wert und Konstantenname).
+  - : Es wurde versucht, eine Datenbank mit einer niedrigeren Version als der vorhandenen zu öffnen (Kein veralteter Code-Wert und Konstantenname).
 - `OperationError` {{experimental_inline}}
-  - : Die Operation ist aus einem operationsspezifischen Grund fehlgeschlagen (Kein Legacy-Code-Wert und Konstantenname).
+  - : Die Operation ist aus einem spezifikationsspezifischen Grund fehlgeschlagen (Kein veralteter Code-Wert und Konstantenname).
 - `NotAllowedError`
-  - : Die Anfrage wird vom Benutzeragenten oder der Plattform im aktuellen Kontext nicht zugelassen, möglicherweise, weil der Benutzer die Erlaubnis verweigerte (Kein Legacy-Code-Wert und Konstantenname).
+  - : Die Anfrage wird vom Benutzeragenten oder der Plattform im aktuellen Kontext nicht erlaubt, möglicherweise weil der Benutzer die Erlaubnis verweigert hat (Kein veralteter Code-Wert und Konstantenname).
 
 ## Spezifikationen
 
@@ -115,5 +115,5 @@ Beachten Sie, dass die folgenden veralteten historischen Fehler keinen Fehlernam
 
 ## Siehe auch
 
-- [Ein Polyfill von `DOMException`](https://github.com/zloirock/core-js#domexception) ist verfügbar in [`core-js`](https://github.com/zloirock/core-js)
-- {{ domxref("DOMError") }}
+- [Ein Polyfill für `DOMException`](https://github.com/zloirock/core-js#domexception) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar
+- [`DOMError`](/de/docs/Web/API/DOMError)

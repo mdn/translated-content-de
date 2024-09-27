@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}{{Deprecated_Header}}
 
-Das **`DOMActivate`**-Ereignis wird bei einem Element ausgelöst, wenn es aktiv wird, z. B. wenn es mit der Maus angeklickt wird oder eine Tastatureingabe verwendet wird, um zu ihm zu navigieren.
+Das **`DOMActivate`**-Ereignis wird bei einem Element ausgelöst, wenn es aktiv wird, etwa wenn es mit der Maus angeklickt oder durch einen Tastendruck angesteuert wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("DOMActivate", (event) => {});
@@ -22,7 +22,7 @@ onDOMActivate = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("MouseEvent")}}. Erbt von {{domxref("UIEvent")}} und {{domxref("Event")}}.
+Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MouseEvent")}}
 
@@ -41,9 +41,9 @@ Ein {{domxref("MouseEvent")}}. Erbt von {{domxref("UIEvent")}} und {{domxref("Ev
   width="6cm"
   height="5cm"
   viewBox="0 0 600 500">
-  <desc>Beispiel: Eine ECMAScript-Funktion mit einem DOMActivate-Ereignis aufrufen</desc>
+  <desc>Example: invoke an ECMAScript function from a DOMActivate event</desc>
 
-  <!-- ECMAScript zur Änderung des Radius -->
+  <!-- ECMAScript to change the radius -->
   <script type="application/ecmascript">
     <![CDATA[ function change(evt) { const circle = evt.target; const
     currentRadius = circle.getFloatTrait("r"); if (currentRadius === 100) {
@@ -51,7 +51,7 @@ Ein {{domxref("MouseEvent")}}. Erbt von {{domxref("UIEvent")}} und {{domxref("Ev
     circle.setFloatTrait("r", currentRadius * 0.5); } } ]]>
   </script>
 
-  <!-- Reagieren auf jedes DOMActivate-Ereignis -->
+  <!-- Act on each DOMActivate event -->
   <circle cx="300" cy="225" r="100" fill="red">
     <handler type="application/ecmascript" ev:event="DOMActivate">
       change(evt);
@@ -64,7 +64,7 @@ Ein {{domxref("MouseEvent")}}. Erbt von {{domxref("UIEvent")}} und {{domxref("Ev
     font-family="Verdana"
     font-size="35"
     text-anchor="middle">
-    Aktivieren Sie den Kreis, um seine Größe zu ändern
+    Activate the circle to change its size
   </text>
 </svg>
 ```
@@ -75,13 +75,13 @@ Ein {{domxref("MouseEvent")}}. Erbt von {{domxref("UIEvent")}} und {{domxref("Ev
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("MouseEvent")}}
-- {{domxref("Element/mousedown_event", "mousedown")}}
-- {{domxref("Element/mouseup_event", "mouseup")}}
-- {{domxref("Element/mousemove_event", "mousemove")}}
+- [`MouseEvent`](/de/docs/Web/API/MouseEvent)
+- [`mousedown`](/de/docs/Web/API/Element/mousedown_event)
+- [`mouseup`](/de/docs/Web/API/Element/mouseup_event)
+- [`mousemove`](/de/docs/Web/API/Element/mousemove_event)

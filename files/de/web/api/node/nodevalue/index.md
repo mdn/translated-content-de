@@ -1,5 +1,5 @@
 ---
-title: "Node: nodeValue-Eigenschaft"
+title: "Node: nodeValue Eigenschaft"
 short-title: nodeValue
 slug: Web/API/Node/nodeValue
 l10n:
@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`nodeValue`**-Eigenschaft des {{domxref("Node")}}-Interfaces gibt den Wert des aktuellen Knotens zurück oder setzt ihn.
+Die **`nodeValue`** Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt den Wert des aktuellen Knotens zurück oder setzt ihn.
 
 ## Wert
 
 Ein String, der den Wert des aktuellen Knotens enthält, falls vorhanden. Für das Dokument selbst gibt `nodeValue` `null` zurück. Für Text-, Kommentar- und CDATA-Knoten gibt `nodeValue` den Inhalt des Knotens zurück. Für Attributknoten wird der Wert des Attributs zurückgegeben.
 
-Die folgende Tabelle zeigt die Rückgabewerte für verschiedene Typen von Knoten.
+Die folgende Tabelle zeigt die Rückgabewerte für verschiedene Knotentypen.
 
-| Knoten                               | Wert von nodeValue                  |
-| ------------------------------------ | ----------------------------------- |
-| {{domxref("CDATASection")}}          | Inhalt der CDATA-Sequenz            |
-| {{domxref("Comment")}}               | Inhalt des Kommentars               |
-| {{domxref("Document")}}              | `null`                              |
-| {{domxref("DocumentFragment")}}      | `null`                              |
-| {{domxref("DocumentType")}}          | `null`                              |
-| {{domxref("Element")}}               | `null`                              |
-| {{domxref("NamedNodeMap")}}          | `null`                              |
-| {{domxref("ProcessingInstruction")}} | Gesamter Inhalt ohne das Ziel       |
-| {{domxref("Text")}}                  | Inhalt des Textknotens              |
+| Knoten                                                            | Wert von nodeValue            |
+| ----------------------------------------------------------------- | ----------------------------- |
+| [`CDATASection`](/de/docs/Web/API/CDATASection)                   | Inhalt des CDATA-Bereichs     |
+| [`Comment`](/de/docs/Web/API/Comment)                             | Inhalt des Kommentars         |
+| [`Document`](/de/docs/Web/API/Document)                           | `null`                        |
+| [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)           | `null`                        |
+| [`DocumentType`](/de/docs/Web/API/DocumentType)                   | `null`                        |
+| [`Element`](/de/docs/Web/API/Element)                             | `null`                        |
+| [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)                   | `null`                        |
+| [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) | Gesamter Inhalt ohne das Ziel |
+| [`Text`](/de/docs/Web/API/Text)                                   | Inhalt des Textknotens        |
 
 > [!NOTE]
 > Wenn `nodeValue` als `null` definiert ist, hat das Setzen keinen Effekt.
@@ -35,17 +35,17 @@ Die folgende Tabelle zeigt die Rückgabewerte für verschiedene Typen von Knoten
 
 ```html
 <div id="d1">Hello world</div>
-<!-- Beispiel eines Kommentars -->
-<output id="result">Noch nicht berechnet.</output>
+<!-- Example of comment -->
+<output id="result">Not calculated yet.</output>
 ```
 
-und das folgende Script:
+und das folgende Skript:
 
 ```js
 let node = document.querySelector("body").firstChild;
-let result = "Knotennamen sind:\n";
+let result = "Node names are:\n";
 while (node) {
-  result += `Wert von ${node.nodeName}: ${node.nodeValue}\n`;
+  result += `Value of ${node.nodeName}: ${node.nodeValue}\n`;
   node = node.nextSibling;
 }
 

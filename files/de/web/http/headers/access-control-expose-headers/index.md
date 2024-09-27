@@ -7,18 +7,18 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der Antwortheader **`Access-Control-Expose-Headers`** ermöglicht es einem Server anzugeben, welche Antwortheader den im Browser ausgeführten Skripten im Zuge einer Cross-Origin-Anfrage zugänglich gemacht werden sollen.
+Der **`Access-Control-Expose-Headers`** Antwort-Header ermöglicht es einem Server, anzugeben, welche Antwort-Header für Skripte im Browser verfügbar gemacht werden sollen, als Antwort auf eine Cross-Origin-Anfrage.
 
-Nur die {{Glossary("CORS-safelisted response header", "CORS-safelisted response headers")}} sind standardmäßig zugänglich. Damit Clients auf andere Header zugreifen können, muss der Server sie im `Access-Control-Expose-Headers`-Header aufführen.
+Standardmäßig sind nur die [CORS-safelisted Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header) zugänglich. Damit Clients auf andere Header zugreifen können, muss der Server sie im `Access-Control-Expose-Headers` Header auflisten.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response header")}}</td>
+      <th scope="row">Headertyp</th>
+      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -34,32 +34,32 @@ Access-Control-Expose-Headers: *
 ## Direktiven
 
 - \<header-name>
-  - : Eine Liste von null oder mehr durch Kommas getrennten [Header-Namen](/de/docs/Web/HTTP/Headers), auf die Clients über eine Antwort zugreifen dürfen. Diese sind _zusätzlich_ zu den {{Glossary("CORS-safelisted response header", "CORS-safelisted response headers")}}.
+  - : Eine Liste von null oder mehr durch Kommata getrennten [Header-Namen](/de/docs/Web/HTTP/Headers), auf die Clients aus einer Antwort zugreifen dürfen. Diese kommen _zusätzlich_ zu den [CORS-safelisted Antwort-Headern](/de/docs/Glossary/CORS-safelisted_response_header).
 - `*` (Wildcard)
-  - : Der Wert `*` zählt nur als spezieller Wildcard-Wert für Anfragen ohne Berechtigungsnachweise (Anfragen ohne [HTTP-Cookies](/de/docs/Web/HTTP/Cookies) oder HTTP-Authentifizierungsinformationen).
-    Bei Anfragen mit Berechtigungsnachweisen wird er als der literal Header-Name `*` behandelt.
+  - : Der Wert `*` zählt nur als spezieller Wildcard-Wert für Anfragen ohne Anmeldedaten (Anfragen ohne [HTTP-Cookies](/de/docs/Web/HTTP/Cookies) oder HTTP-Authentisierungsinformationen).
+    Bei Anfragen mit Anmeldedaten wird es als der literale Header-Name `*` behandelt.
 
 ## Beispiele
 
-Die {{Glossary("CORS-safelisted response header", "CORS-safelisted response headers")}} sind: {{HTTPHeader("Cache-Control")}}, {{HTTPHeader("Content-Language")}}, {{HTTPHeader("Content-Length")}}, {{HTTPHeader("Content-Type")}}, {{HTTPHeader("Expires")}}, {{HTTPHeader("Last-Modified")}}, {{HTTPHeader("Pragma")}}. Um einen nicht-CORS-safelisted Antwortheader freizugeben, können Sie angeben:
+Die [CORS-safelisted Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header) sind: {{HTTPHeader("Cache-Control")}}, {{HTTPHeader("Content-Language")}}, {{HTTPHeader("Content-Length")}}, {{HTTPHeader("Content-Type")}}, {{HTTPHeader("Expires")}}, {{HTTPHeader("Last-Modified")}}, {{HTTPHeader("Pragma")}}. Um einen nicht CORS-safelisted Antwort-Header offenzulegen, können Sie angeben:
 
 ```http
 Access-Control-Expose-Headers: Content-Encoding
 ```
 
-Um zusätzlich einen benutzerdefinierten Header, wie `Kuma-Revision`, freizugeben, können Sie mehrere Header durch ein Komma getrennt angeben:
+Um zusätzlich einen benutzerdefinierten Header, wie `Kuma-Revision`, offenzulegen, können Sie mehrere Header durch Kommata getrennt angeben:
 
 ```http
 Access-Control-Expose-Headers: Content-Encoding, Kuma-Revision
 ```
 
-Für Anfragen ohne Berechtigungsnachweise kann ein Server auch mit einem Wildcard-Wert antworten:
+Für Anfragen ohne Anmeldedaten kann ein Server auch mit einem Wildcard-Wert antworten:
 
 ```http
 Access-Control-Expose-Headers: *
 ```
 
-Ein Server kann auch auf Anfragen mit Berechtigungsnachweisen mit dem `*` Wert antworten, in diesem Fall würde er sich auf einen Header namens `*` beziehen.
+Ein Server kann auch mit dem Wert `*` für Anfragen mit Anmeldedaten antworten, aber in diesem Fall würde er sich auf einen Header namens `*` beziehen.
 
 ## Spezifikationen
 

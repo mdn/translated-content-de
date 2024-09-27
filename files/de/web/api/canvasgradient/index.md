@@ -7,28 +7,28 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Das **`CanvasGradient`**-Interface repräsentiert ein [opakes Objekt](https://en.wikipedia.org/wiki/Opaque_data_type), das einen Verlauf beschreibt. Es wird durch die Methoden {{domxref("CanvasRenderingContext2D.createLinearGradient()")}}, {{domxref("CanvasRenderingContext2D.createConicGradient()")}} oder {{domxref("CanvasRenderingContext2D.createRadialGradient()")}} zurückgegeben.
+Die **`CanvasGradient`**-Schnittstelle repräsentiert ein [opakes Objekt](https://en.wikipedia.org/wiki/Opaque_data_type), das einen Farbverlauf beschreibt. Es wird durch die Methoden [`CanvasRenderingContext2D.createLinearGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createLinearGradient), [`CanvasRenderingContext2D.createConicGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createConicGradient) oder [`CanvasRenderingContext2D.createRadialGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createRadialGradient) zurückgegeben.
 
-Es kann als {{domxref("CanvasRenderingContext2D.fillStyle", "fillStyle")}} oder {{domxref("CanvasRenderingContext2D.strokeStyle", "strokeStyle")}} verwendet werden.
+Es kann als [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) verwendet werden.
 
 ## Instanz-Eigenschaften
 
-_Als opakes Objekt gibt es keine offengelegten Eigenschaften._
+_Als opaikes Objekt gibt es keine offengelegten Eigenschaften._
 
 ## Instanz-Methoden
 
-- {{domxref("CanvasGradient.addColorStop()")}}
-  - : Fügt dem Verlauf einen neuen Stopp hinzu, der durch einen `offset` und eine `color` definiert ist.
+- [`CanvasGradient.addColorStop()`](/de/docs/Web/API/CanvasGradient/addColorStop)
+  - : Fügt dem Farbverlauf einen neuen Stopp hinzu, der durch einen `offset` und eine `color` definiert ist.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Erstellmethoden in {{domxref("CanvasRenderingContext2D")}}.
-- Das {{HTMLElement("canvas")}}-Element und sein zugehöriges Interface, {{domxref("HTMLCanvasElement")}}.
+- Erzeugungsmethoden in [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D).
+- Das {{HTMLElement("canvas")}}-Element und seine zugehörige Schnittstelle, [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement).

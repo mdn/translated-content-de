@@ -8,11 +8,11 @@ l10n:
 
 {{apiref("Network Information API")}} {{AvailableInWorkers}}
 
-Das **`change`** Ereignis der {{domxref("NetworkInformation")}} Schnittstelle wird ausgelöst, wenn sich Verbindungsinformationen ändern, und das Ereignis wird vom {{domxref("NetworkInformation")}} Objekt empfangen.
+Das **`change`** Ereignis des [`NetworkInformation`](/de/docs/Web/API/NetworkInformation) Interfaces wird ausgelöst, wenn sich die Verbindungsinformationen ändern, und das Ereignis wird vom [`NetworkInformation`](/de/docs/Web/API/NetworkInformation) Objekt empfangen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignisbehandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("change", (event) => {});
@@ -22,28 +22,28 @@ onchange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
 ```js
-// Erhalten Sie den Verbindungstyp.
+// Get the connection type.
 const type = navigator.connection.type;
 
 function changeHandler(e) {
-  // Handhaben Sie hier die Änderung des Verbindungstyps.
+  // Handle change of connection type here.
 }
 
-// Melden Sie sich für Ereignisänderungen an:
+// Register for event changes:
 navigator.connection.onchange = changeHandler;
 
-// Eine andere Möglichkeit: navigator.connection.addEventListener('change', changeHandler);
+// Another way: navigator.connection.addEventListener('change', changeHandler);
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

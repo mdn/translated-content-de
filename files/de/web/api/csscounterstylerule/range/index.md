@@ -1,5 +1,5 @@
 ---
-title: "CSSCounterStyleRule: range Eigenschaft"
+title: "CSSCounterStyleRule: range-Eigenschaft"
 short-title: range
 slug: Web/API/CSSCounterStyleRule/range
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Counter Styles")}}
 
-Die **`range`**-Eigenschaft des {{domxref("CSSCounterStyleRule")}}-Interfaces erhält und setzt den Wert des {{cssxref("@counter-style/range","range")}}-Descriptors. Wenn der Descriptor keinen Wert gesetzt hat, gibt dieses Attribut einen leeren String zurück.
+Die **`range`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle ruft den Wert des {{cssxref("@counter-style/range","range")}}-Deskriptors ab und setzt ihn. Wenn der Deskriptor keinen Wert zugewiesen hat, gibt dieses Attribut einen leeren String zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel. Das Zurückgeben von `range` gibt uns den Wert "2 4, 7 9".
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel. Wird `range` zurückgegeben, erhalten wir den Wert "2 4, 7 9".
 
 ```css
 @counter-style range-multi-example {

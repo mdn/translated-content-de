@@ -7,21 +7,21 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`CountQueuingStrategy`**-Schnittstelle der [Streams API](/de/docs/Web/API/Streams_API) bietet eine eingebaute Warteschlangenstrategie, die bei der Erstellung von Streams verwendet werden kann.
+Die **`CountQueuingStrategy`**-Schnittstelle der [Streams API](/de/docs/Web/API/Streams_API) bietet eine eingebaute Chunk-Zählwarteschlangenstrategie, die beim Erstellen von Streams verwendet werden kann.
 
 ## Konstruktor
 
-- {{domxref("CountQueuingStrategy.CountQueuingStrategy", "CountQueuingStrategy()")}}
-  - : Erstellt eine neue Instanz eines `CountQueuingStrategy`-Objekts.
+- [`CountQueuingStrategy()`](/de/docs/Web/API/CountQueuingStrategy/CountQueuingStrategy)
+  - : Erstellt eine neue `CountQueuingStrategy` Objektinstanz.
 
 ## Instanzeigenschaften
 
-- {{domxref("CountQueuingStrategy.highWaterMark")}} {{ReadOnlyInline}}
-  - : Die Gesamtanzahl der Datenblöcke, die in der internen Warteschlange enthalten sein können, bevor [Backpressure](/de/docs/Web/API/Streams_API/Concepts#backpressure) angewendet wird.
+- [`CountQueuingStrategy.highWaterMark`](/de/docs/Web/API/CountQueuingStrategy/highWaterMark) {{ReadOnlyInline}}
+  - : Die Gesamtanzahl an Chunks, die in der internen Warteschlange enthalten sein können, bevor [Backpressure](/de/docs/Web/API/Streams_API/Concepts#backpressure) angewendet wird.
 
 ## Instanzmethoden
 
-- {{domxref("CountQueuingStrategy.size()")}}
+- [`CountQueuingStrategy.size()`](/de/docs/Web/API/CountQueuingStrategy/size)
   - : Gibt immer `1` zurück.
 
 ## Beispiele
@@ -31,7 +31,7 @@ const queueingStrategy = new CountQueuingStrategy({ highWaterMark: 1 });
 
 const writableStream = new WritableStream(
   {
-    // Implementieren Sie das Ziel
+    // Implement the sink
     write(chunk) {
       // …
     },
@@ -52,12 +52,12 @@ const size = queueingStrategy.size();
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
-- {{domxref("CountQueuingStrategy.CountQueuingStrategy", "CountQueuingStrategy()")}} Konstruktor
+- [Streams API](/de/docs/Web/API/Streams_API)
+- [`CountQueuingStrategy()`](/de/docs/Web/API/CountQueuingStrategy/CountQueuingStrategy) Konstruktor
 - [Interne Warteschlangen und Warteschlangenstrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies)

@@ -1,5 +1,5 @@
 ---
-title: Leere Anweisung
+title: Leerer Ausdruck
 slug: Web/JavaScript/Reference/Statements/Empty
 l10n:
   sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
@@ -7,8 +7,8 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Eine **leere Anweisung** wird verwendet, um keine Anweisung bereitzustellen, obwohl die
-JavaScript-Syntax eine erwarten würde.
+Ein **leerer Ausdruck** wird verwendet, um keinen Ausdruck bereitzustellen, obwohl die
+JavaScript-Syntax einen erwarten würde.
 
 {{EmbedInteractiveExample("pages/js/statement-empty.html")}}
 
@@ -20,25 +20,21 @@ JavaScript-Syntax eine erwarten würde.
 
 ## Beschreibung
 
-Die leere Anweisung ist ein Semikolon (`;`), das anzeigt, dass keine Anweisung
-ausgeführt wird, selbst wenn die JavaScript-Syntax eine erfordert.
+Der leere Ausdruck ist ein Semikolon (`;`), das anzeigt, dass kein Ausdruck ausgeführt wird, selbst wenn die JavaScript-Syntax einen verlangt.
 
-Das entgegengesetzte Verhalten, bei dem Sie mehrere Anweisungen wünschen, JavaScript jedoch nur eine
-zulässt, ist mit einer [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block) möglich,
-die mehrere Anweisungen zu einer einzigen kombiniert.
+Das gegenteilige Verhalten, bei dem Sie mehrere Ausdrücke haben möchten, JavaScript jedoch nur einen zulässt, ist mithilfe eines [Block-Ausdrucks](/de/docs/Web/JavaScript/Reference/Statements/block) möglich, der mehrere Ausdrücke zu einem einzigen kombiniert.
 
 ## Beispiele
 
 ### Leerer Schleifenkörper
 
-Die leere Anweisung wird manchmal mit Schleifenanweisungen verwendet. Sehen Sie sich das folgende Beispiel
-mit einem leeren Schleifenkörper an:
+Der leere Ausdruck wird manchmal mit Schleifenanweisungen verwendet. Sehen Sie sich das folgende Beispiel mit einem leeren Schleifenkörper an:
 
 ```js-nolint
 const arr = [1, 2, 3];
 
-// Weisen Sie allen Array-Werten 0 zu
-for (let i = 0; i < arr.length; arr[i++] = 0) /* leere Anweisung */ ;
+// Assign all array values to 0
+for (let i = 0; i < arr.length; arr[i++] = 0) /* empty statement */ ;
 
 console.log(arr);
 // [0, 0, 0]
@@ -46,14 +42,13 @@ console.log(arr);
 
 ### Unbeabsichtigte Verwendung
 
-Es ist eine gute Idee, die _beabsichtigte_ Verwendung der leeren Anweisung zu kommentieren, da es
-nicht wirklich offensichtlich ist, sie von einem normalen Semikolon zu unterscheiden.
+Es ist eine gute Idee, die _beabsichtigte_ Verwendung des leeren Ausdrucks zu kommentieren, da es nicht wirklich offensichtlich ist, ihn von einem normalen Semikolon zu unterscheiden.
 
 Im folgenden Beispiel ist die Verwendung wahrscheinlich nicht beabsichtigt:
 
 ```js-nolint example-bad
-if (condition);      // Vorsicht, diese "if"-Anweisung macht nichts!
-  killTheUniverse(); // Daher wird dies immer ausgeführt!!!
+if (condition);      // Caution, this "if" does nothing!
+  killTheUniverse(); // So this always gets executed!!!
 ```
 
 ## Spezifikationen
@@ -66,4 +61,4 @@ if (condition);      // Vorsicht, diese "if"-Anweisung macht nichts!
 
 ## Siehe auch
 
-- [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block)
+- [Block-Ausdruck](/de/docs/Web/JavaScript/Reference/Statements/block)

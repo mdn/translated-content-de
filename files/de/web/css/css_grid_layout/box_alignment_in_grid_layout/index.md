@@ -7,29 +7,29 @@ l10n:
 
 {{CSSRef}}
 
-Das CSS-Grid-Layout implementiert die Spezifikation [Box Alignment Level 3](https://drafts.csswg.org/css-align/), die auch von [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) zum Ausrichten von Elementen in ihrem flexiblen Container verwendet wird. Diese Spezifikation legt fest, wie die Ausrichtung in allen verschiedenen Layout-Methoden funktionieren sollte. Layout-Methoden werden, sofern möglich, der Spezifikation entsprechen und individuelles Verhalten basierend auf ihren Unterschieden (Eigenschaften und Einschränkungen) implementieren. Während die Spezifikation derzeit Ausrichtungsdetails für alle Layout-Methoden festlegt, haben Browser noch nicht alle Aspekte der Spezifikation vollständig implementiert; jedoch wurde die CSS-Grid-Layout-Methode weitgehend übernommen.
+Das CSS-Grid-Layout implementiert die Spezifikation [Box Alignment Level 3](https://drafts.csswg.org/css-align/), die denselben Standard wie [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) verwendet, um Elemente innerhalb seines Flex-Containers auszurichten. Diese Spezifikation beschreibt, wie die Ausrichtung in allen verschiedenen Layout-Methoden funktionieren sollte. Layout-Methoden werden sich, wo möglich, an die Spezifikation anpassen und individuelles Verhalten basierend auf ihren Unterschieden (Merkmale und Einschränkungen) implementieren. Obwohl die Spezifikation derzeit Ausrichtungsdetails für alle Layout-Methoden spezifiziert, haben Browser noch nicht alle Teile der Spezifikation vollständig implementiert; jedoch wurde die CSS-Grid-Layout-Methode weitgehend übernommen.
 
-Dieses Handbuch bietet Demonstrationen, wie die Box-Ausrichtung im Grid-Layout funktioniert. Sie werden viele Ähnlichkeiten in der Funktionsweise dieser Eigenschaften und Werte in Flexbox erkennen. Aufgrund der zweidimensionalen Natur von Grid und der eindimensionalen Natur von Flexbox gibt es jedoch einige kleine Unterschiede, auf die Sie achten sollten. Daher beginnen wir mit einem Blick auf die beiden Achsen, mit denen wir bei der Ausrichtung von Elementen im Grid arbeiten.
+Dieser Leitfaden zeigt Demonstrationen, wie die Box-Ausrichtung im Grid-Layout funktioniert. Sie werden viele Ähnlichkeiten in der Funktionsweise dieser Eigenschaften und Werte in Flexbox sehen. Da Grid zweidimensional und Flexbox eindimensional ist, gibt es einige kleine Unterschiede, auf die Sie achten sollten. Daher beginnen wir mit einem Blick auf die beiden Achsen, mit denen wir bei der Ausrichtung von Dingen in einem Raster arbeiten.
 
 ## Die zwei Achsen eines Grid-Layouts
 
-Beim Arbeiten mit Grid-Layout stehen Ihnen zwei Achsen zur Verfügung, mit denen Sie Elemente ausrichten können – die _Block-Achse_ und die _Inline-Achse_. Die Block-Achse ist die Achse, auf der Blöcke im Block-Layout angeordnet werden. Wenn Sie zwei Absätze auf Ihrer Seite haben, werden diese untereinander angezeigt. Dies ist die Richtung, die wir als Block-Achse beschreiben.
+Bei der Arbeit mit Grid-Layout stehen Ihnen zwei Achsen zur Verfügung, gegen die Sie Dinge ausrichten können – die _Block-Achse_ und die _Inline-Achse_. Die Block-Achse ist die Achse, auf der Blöcke im Block-Layout angeordnet werden. Wenn Sie zwei Absätze auf Ihrer Seite haben, werden diese übereinander angezeigt, also in dieser Richtung, die wir als Block-Achse beschreiben.
 
 ![Blockachsen sind vertikal.](block_axis.png)
 
-Die _Inline-Achse_ verläuft quer zur Block-Achse. Es ist die Richtung, in die Text im regulären Inline-Fluss verläuft.
+Die _Inline-Achse_ verläuft quer zur Block-Achse, in der Richtung, in der Text im normalen Inline-Fluss verläuft.
 
-![Inline- / Zeilenachse sind horizontal.](7_inline_axis.png)
+![Inline- / Zeilenachsen sind horizontal.](7_inline_axis.png)
 
 Wir können den Inhalt innerhalb von Grid-Bereichen und die Grid-Tracks selbst auf diesen beiden Achsen ausrichten.
 
 ## Ausrichten von Elementen auf der Block-Achse
 
-Die Eigenschaften {{cssxref("align-self")}} und {{cssxref("align-items")}} steuern die Ausrichtung auf der Block-Achse. Wenn wir diese Eigenschaften verwenden, ändern wir die Ausrichtung des Elements innerhalb des Grid-Bereichs, in dem Sie es platziert haben.
+Die {{cssxref("align-self")}}- und {{cssxref("align-items")}}-Eigenschaften steuern die Ausrichtung auf der Block-Achse. Wenn wir diese Eigenschaften verwenden, ändern wir die Ausrichtung des Elements innerhalb des zugewiesenen Grid-Bereichs.
 
-### Die Verwendung von align-items
+### Verwenden von align-items
 
-Im folgenden Beispiel habe ich vier Grid-Bereiche innerhalb meines Grids. Ich kann die Eigenschaft {{cssxref("align-items")}} auf den Grid-Container anwenden, um die Elemente mit einem der folgenden Werte auszurichten:
+Im folgenden Beispiel habe ich vier Grid-Bereiche innerhalb meines Grids. Ich kann die {{cssxref("align-items")}}-Eigenschaft auf dem Grid-Container verwenden, um die Elemente mit einem der folgenden Werte auszurichten:
 
 - `auto`
 - `normal`
@@ -99,13 +99,13 @@ Im folgenden Beispiel habe ich vier Grid-Bereiche innerhalb meines Grids. Ich ka
 
 {{ EmbedLiveSample('Using_align-items', '500', '500') }}
 
-Denken Sie daran, dass sobald Sie `align-items: start` setzen, die Höhe jedes Kind-`<div>` durch den Inhalt des `<div>` bestimmt wird. Dies steht im Gegensatz zum vollständigen Weglassen von [`align-items`](/de/docs/Web/CSS/align-items), in welchem Fall die Höhe jedes `<div>` sich streckt, um seinen Grid-Bereich auszufüllen.
+Beachten Sie, dass, sobald Sie `align-items: start` setzen, die Höhe jedes `<div>`-Kindesbereichs durch den Inhalt des `<div>` bestimmt wird. Dies steht im Gegensatz dazu, [`align-items`](/de/docs/Web/CSS/align-items) komplett wegzulassen, wobei die Höhe jedes `<div>` so gedehnt wird, dass es seinen Grid-Bereich ausfüllt.
 
-Die Eigenschaft {{cssxref("align-items")}} setzt die Eigenschaft {{cssxref("align-self")}} für alle Kind-Grid-Elemente. Das bedeutet, dass Sie die Eigenschaft individuell über `align-self` auf ein Grid-Element anwenden können.
+Die Eigenschaft {{cssxref("align-items")}} setzt die Eigenschaft {{cssxref("align-self")}} für alle untergeordneten Grid-Elemente. Das bedeutet, dass Sie die Eigenschaft individuell festlegen können, indem Sie `align-self` auf einem Grid-Element verwenden.
 
-### Die Verwendung von align-self
+### Verwenden von align-self
 
-Im nächsten Beispiel demonstriere ich mithilfe der Eigenschaft `align-self` die unterschiedlichen Ausrichtungswerte. Der erste Bereich zeigt das Standardverhalten von `align-self`, das `stretch` ist. Das zweite Element hat einen `align-self`-Wert von `start`, das dritte `end` und das vierte `center`.
+Im nächsten Beispiel verwende ich die `align-self`-Eigenschaft, um die unterschiedlichen Ausrichtungswerte zu demonstrieren. Der erste Bereich zeigt das Standardverhalten von `align-self`, welches auf Stretch eingestellt ist. Das zweite Element hat einen `align-self`-Wert von `start`, das dritte `end` und das vierte `center`.
 
 ```css hidden
 * {
@@ -169,13 +169,13 @@ Im nächsten Beispiel demonstriere ich mithilfe der Eigenschaft `align-self` die
 
 ### Elemente mit einem intrinsischen Seitenverhältnis
 
-Die Spezifikation beschreibt, dass das Standardverhalten bei {{cssxref("align-self")}} `stretch` ist, außer bei Elementen mit einem intrinsischen {{glossary("aspect ratio")}}. In diesem Fall verhalten sie sich wie `start`. Der Grund dafür ist, dass, wenn Elemente mit einem Seitenverhältnis auf `stretch` gesetzt werden, diese Standardeinstellung sie verzerren würde.
+Die Spezifikation legt fest, dass das Standardverhalten bei {{cssxref("align-self")}} auf Stretch eingestellt ist, außer für Elemente mit einem intrinsischen [Seitenverhältnis](/de/docs/Glossary/aspect_ratio), die sich in diesem Fall wie `start` verhalten. Der Grund dafür ist, dass, wenn Elemente mit einem Seitenverhältnis auf Stretch gesetzt werden, diese Vorgabe sie verzerren würde.
 
-Dieses Verhalten wurde nun in der Spezifikation klargestellt, obwohl die Browser das korrekte Verhalten noch nicht implementiert haben. Bis dies geschieht, können Sie sicherstellen, dass sich Elemente, wie Bilder, die direkte Kinder des Grids sind, nicht strecken, indem Sie {{cssxref("align-self")}} und {{cssxref("justify-self")}} auf start setzen. Dies wird das korrekte Verhalten nachahmen, sobald es implementiert ist.
+Dieses Verhalten wurde nun in der Spezifikation klargestellt, wobei Browser die richtige Implementierung noch umsetzen müssen. Bis dies erfolgt, können Sie sicherstellen, dass Elemente, wie Bilder, die direkte Kinder des Grids sind, nicht gestreckt werden, indem Sie {{cssxref("align-self")}} und {{cssxref("justify-self")}} auf Start setzen. Dies wird das korrekte Verhalten nach der Implementierung nachahmen.
 
-## Justierung von Elementen auf der Inline-Achse
+## Rechtfertigung der Elemente auf der Inline-Achse
 
-Während {{cssxref("align-items")}} und {{cssxref("align-self")}} die Ausrichtung von Elementen auf der Block-Achse regeln, übernehmen {{cssxref("justify-items")}} und {{cssxref("justify-self")}} dieselbe Aufgabe auf der Inline-Achse. Die Werte, die Sie auswählen können, sind die gleichen wie bei `align-self`.
+Während {{cssxref("align-items")}} und {{cssxref("align-self")}} die Ausrichtung von Elementen auf der Block-Achse steuern, übernehmen {{cssxref("justify-items")}} und {{cssxref("justify-self")}} dieselbe Aufgabe auf der Inline-Achse. Die Werte, aus denen Sie wählen können, sind dieselben wie bei `align-self`.
 
 - `auto`
 - `normal`
@@ -187,9 +187,9 @@ Während {{cssxref("align-items")}} und {{cssxref("align-self")}} die Ausrichtun
 - `first baseline`
 - `last baseline`
 
-Sie können das gleiche Beispiel wie für {{cssxref("align-items")}} unten sehen. Dieses Mal wenden wir die {{cssxref("justify-self")}}-Eigenschaft an.
+Sie können dasselbe Beispiel wie für {{cssxref("align-items")}} unten sehen. Dieses Mal wenden wir die {{cssxref("justify-self")}}-Eigenschaft an.
 
-Auch hier ist die Standardeinstellung `stretch`, außer bei Elementen mit einem intrinsischen Seitenverhältnis. Das bedeutet, dass Grid-Elemente standardmäßig ihren Grid-Bereich abdecken, es sei denn, Sie ändern dies, indem Sie die Ausrichtung einstellen. Das erste Element im Beispiel demonstriert diese Standardausrichtung:
+Auch hier ist der Standard `stretch`, es sei denn, es handelt sich um Elemente mit einem intrinsischen Seitenverhältnis. Dies bedeutet, dass Grid-Elemente standardmäßig ihren Grid-Bereich abdecken, es sei denn, Sie ändern dies durch Setzen der Ausrichtung. Das erste Element im Beispiel zeigt diese Standardausrichtung:
 
 ```css hidden
 * {
@@ -251,19 +251,19 @@ Auch hier ist die Standardeinstellung `stretch`, außer bei Elementen mit einem 
 
 {{ EmbedLiveSample('Justifying_Items_on_the_Inline_Axis', '500', '500') }}
 
-Wie bei {{cssxref("align-self")}} und {{cssxref("align-items")}}, können Sie {{cssxref("justify-items")}} auf den Grid-Container anwenden, um den {{cssxref("justify-self")}}-Wert für alle Elemente festzulegen.
+Wie bei {{cssxref("align-self")}} und {{cssxref("align-items")}}, können Sie {{cssxref("justify-items")}} auf den Grid-Container anwenden, um den {{cssxref("justify-self")}}-Wert für alle Elemente zu setzen.
 
-Die Eigenschaften {{cssxref("justify-self")}} und {{cssxref("justify-items")}} sind in Flexbox nicht implementiert. Dies liegt an der eindimensionalen Natur von [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) und daran, dass es mehrere Elemente entlang der Achse geben kann, wodurch es unmöglich ist, ein einzelnes Element zu justieren. Um Elemente entlang der Haupt-Inline-Achse in Flexbox auszurichten, verwenden Sie die Eigenschaft {{cssxref("justify-content")}}.
+Die {{cssxref("justify-self")}}- und {{cssxref("justify-items")}}-Eigenschaften sind in Flexbox nicht implementiert. Dies liegt an der eindimensionalen Natur von [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) und daran, dass es mehrere Elemente entlang der Achse geben kann, was es unmöglich macht, ein einzelnes Element zu rechtfertigen. Um Elemente entlang der Haupt-, Inline-Achse in Flexbox auszurichten, verwenden Sie die {{cssxref("justify-content")}}-Eigenschaft.
 
-### Kurzschreibweise-Eigenschaften
+### Kurzform-Eigenschaften
 
-Die {{CSSxRef("place-items")}}-Eigenschaft ist eine Kurzschreibweise für {{CSSxRef("align-items")}} und {{CSSxRef("justify-items")}}.
+Die {{CSSxRef("place-items")}}-Eigenschaft ist eine Kurzform für {{CSSxRef("align-items")}} und {{CSSxRef("justify-items")}}.
 
-Die {{CSSxRef("place-self")}}-Eigenschaft ist eine Kurzschreibweise für {{CSSxRef("align-self")}} und {{CSSxRef("justify-self")}}.
+Die {{CSSxRef("place-self")}}-Eigenschaft ist eine Kurzform für {{CSSxRef("align-self")}} und {{CSSxRef("justify-self")}}.
 
 ## Ein Element im Bereich zentrieren
 
-Durch Kombinieren der Align- und Justify-Eigenschaften können wir ein Element leicht innerhalb eines Grid-Bereichs zentrieren.
+Durch Kombinieren der Ausrichtungs- und Rechtfertigungseigenschaften können wir ein Element einfach innerhalb eines Grid-Bereichs zentrieren.
 
 ```css hidden
 * {
@@ -312,7 +312,7 @@ Durch Kombinieren der Align- und Justify-Eigenschaften können wir ein Element l
 
 ## Ausrichten der Grid-Tracks auf der Block-Achse
 
-Wenn Sie eine Situation haben, in der Ihre Grid-Tracks einen Bereich nutzen, der kleiner als der Grid-Container ist, können Sie die Grid-Tracks selbst innerhalb dieses Containers ausrichten. Wieder einmal funktioniert dies auf der Block- und Inline-Achse, wobei {{cssxref("align-content")}} die Tracks auf der Block-Achse ausrichtet und {{cssxref("justify-content")}} die Ausrichtung auf der Inline-Achse übernimmt. Die {{CSSxRef("place-content")}}-Eigenschaft ist eine Kurzschreibweise für {{cssxref("align-content")}} und {{cssxref("justify-content")}}. Die Werte für {{cssxref("align-content")}}, {{cssxref("justify-content")}} und {{cssxref("place-content")}} sind:
+Wenn Sie eine Situation haben, in der Ihre Grid-Tracks einen Bereich verwenden, der kleiner ist als der Grid-Container, dann können Sie die Grid-Tracks selbst innerhalb dieses Containers ausrichten. Wiederum arbeitet dies auf den Block- und Inline-Achsen, mit {{cssxref("align-content")}}, das die Tracks auf der Block-Achse ausrichtet, und {{cssxref("justify-content")}}, das die Ausrichtung auf der Inline-Achse durchführt. Die {{CSSxRef("place-content")}}-Eigenschaft ist eine Kurzform für {{cssxref("align-content")}} und {{cssxref("justify-content")}}. Die Werte für {{cssxref("align-content")}}, {{cssxref("justify-content")}} und {{cssxref("place-content")}} sind:
 
 - `normal`
 - `start`
@@ -326,13 +326,13 @@ Wenn Sie eine Situation haben, in der Ihre Grid-Tracks einen Bereich nutzen, der
 - `first baseline`
 - `last baseline`
 
-Im folgenden Beispiel habe ich einen Grid-Container von 500 Pixeln mal 500 Pixeln. Ich habe 3 Reihen und Spalten-Tracks mit jeweils 100 Pixeln und einem 10 Pixel-Gitter definiert. Das bedeutet, dass in dem Grid-Container Raum sowohl in Block- als auch in Inline-Richtung vorhanden ist.
+Im folgenden Beispiel habe ich einen Grid-Container von 500 Pixeln mal 500 Pixeln. Ich habe 3 Zeilen- und Spuren-Layouts von jeweils 100 Pixeln mit einem 10-Pixel-Rahmen definiert. Das bedeutet, dass sowohl in Block- als auch in Inline-Richtung Platz im Grid-Container ist.
 
 Die `align-content`-Eigenschaft wird auf den Grid-Container angewendet, da sie auf das gesamte Grid wirkt.
 
 ### Standardausrichtung
 
-Das Standardverhalten im Grid-Layout ist `start`, weshalb sich unsere Grid-Tracks in der oberen linken Ecke des Grids befinden und gegen die Start-Grid-Linien ausgerichtet sind:
+Das Standardverhalten im Grid-Layout ist `start`, weshalb unsere Grid-Tracks in der oberen linken Ecke des Grids, an den Startlinien des Grids ausgerichtet sind:
 
 ```css
 * {
@@ -394,7 +394,7 @@ Das Standardverhalten im Grid-Layout ist `start`, weshalb sich unsere Grid-Track
 
 ### Festlegen von align-content: end
 
-Wenn ich `align-content` auf meinen Container anwende, mit einem Wert von `end`, bewegen sich die Tracks alle zur Endlinie des Grid-Containers in der Block-Dimension:
+Wenn ich `align-content` zu meinem Container hinzufüge, mit einem Wert von `end`, verschieben sich die Tracks alle zur Endlinie des Grid-Containers in der Block-Dimension:
 
 ```css hidden
 * {
@@ -457,7 +457,7 @@ Wenn ich `align-content` auf meinen Container anwende, mit einem Wert von `end`,
 
 ### Festlegen von align-content: space-between
 
-Wir können auch Werte für diese Eigenschaft verwenden, die Sie vielleicht bereits von Flexbox kennen; die Raumverteilungswerte `space-between`, `space-around` und `space-evenly`. Wenn wir {{cssxref("align-content")}} auf `space-between` aktualisieren, können Sie sehen, wie sich die Elemente in unserem Grid verteilen:
+Wir können auch Werte für diese Eigenschaft verwenden, die Sie möglicherweise aus Flexbox kennen; die Raumverteilungswerte von `space-between`, `space-around` und `space-evenly`. Wenn wir {{cssxref("align-content")}} auf `space-between` aktualisieren, können Sie sehen, wie die Elemente in unserem Grid sich verteilen:
 
 ```css hidden
 * {
@@ -518,17 +518,17 @@ Wir können auch Werte für diese Eigenschaft verwenden, die Sie vielleicht bere
 
 {{ EmbedLiveSample('Setting_align-content_space-between', '500', '600') }}
 
-Es ist zu beachten, dass die Verwendung dieser Raumverteilungswerte dazu führen kann, dass Elemente in Ihrem Grid größer werden. Wenn ein Element mehr als einen Grid-Track überspannt, wird der zusätzliche Platz, der zwischen den Tracks hinzugefügt wird, von diesem Element absorbiert, wodurch es größer wird. Wir arbeiten stets in einem strikten Grid. Daher, wenn Sie diese Werte verwenden möchten, stellen Sie sicher, dass der Inhalt Ihrer Tracks mit dem zusätzlichen Raum umgehen kann oder dass Sie Ausrichtungseigenschaften auf die Elemente angewendet haben, um sie dazu zu bringen, sich an den Anfang zu bewegen, anstatt sich zu strecken.
+Es ist erwähnenswert, dass die Verwendung dieser Raumverteilungswerte möglicherweise dazu führen kann, dass Elemente in Ihrem Grid größer werden. Wenn ein Element mehr als einen Grid-Track überspannt, muss es größer werden, um den zusätzlichen Raum aufzunehmen, der zwischen diesen Tracks hinzugefügt wird. Wir arbeiten immer innerhalb eines strengen Grids. Daher, wenn Sie sich entscheiden, diese Werte zu verwenden, stellen Sie sicher, dass der Inhalt Ihrer Tracks mit dem zusätzlichen Raum zurechtkommt, oder dass Sie Ausrichtungs-Eigenschaften auf die Elemente angewendet haben, um sie zu veranlassen, sich zum Anfang zu bewegen anstatt sich zu dehnen.
 
-Im folgenden Bild habe ich das Grid mit `align-content` mit einem Wert von `start` neben das Grid gesetzt, wenn `align-content` den Wert `space-between` hat. Sie können sehen, wie die Elemente 1 und 2, die zwei Reihen-Tracks überspannen, zusätzliche Höhe erhalten haben, da sie den zusätzlichen Raum übernommen haben, der zum Abstand zwischen diesen beiden Tracks hinzugefügt wurde:
+Im folgenden Bild habe ich das Grid mit `align-content`, mit einem Wert von `start` neben das Grid gestellt, wenn `align-content` einen Wert von `space-between` hat. Sie können sehen, wie sich die Elemente 1 und 2, die zwei Zeilen-Tracks überspannen, zusätzliche Höhe angenommen haben, da sie den zusätzlichen Raum zwischen diesen beiden Tracks erhalten:
 
-![Darstellung, wie Elemente größer werden, wenn wir space-between verwenden.](7_space-between.png)
+![Demonstration, wie Elemente größer werden, wenn wir space-between verwenden.](7_space-between.png)
 
-## Justierung der Grid-Tracks auf der Inline-Achse
+## Rechtfertigung der Grid-Tracks auf der Inline-Achse
 
-Auf der Inline-Achse können wir {{cssxref("justify-content")}} verwenden, um die gleiche Art der Ausrichtung zu erreichen, die wir mit {{cssxref("align-content")}} auf der Block-Achse angewendet haben.
+Auf der Inline-Achse können wir {{cssxref("justify-content")}} verwenden, um dieselbe Art von Ausrichtung vorzunehmen, die wir mit {{cssxref("align-content")}} auf der Block-Achse vorgenommen haben.
 
-Im gleichen Beispiel setze ich {{cssxref("justify-content")}} auf `space-around`. Dies führt erneut dazu, dass Tracks, die mehr als einen Spalten-Track überspannen, zusätzlichen Platz gewinnen:
+Mit demselben Beispiel setze ich {{cssxref("justify-content")}} auf `space-around`. Dies führt erneut dazu, dass Tracks, die mehr als eine Spalte-Track überspannen, zusätzlichen Raum erhalten:
 
 ```css hidden
 * {
@@ -592,9 +592,9 @@ Im gleichen Beispiel setze ich {{cssxref("justify-content")}} auf `space-around`
 
 ## Ausrichtung und automatische Ränder
 
-Ein weiterer Weg, Elemente innerhalb ihres Bereichs auszurichten, ist die Verwendung von automatischen Rändern. Wenn Sie jemals Ihr Layout im Viewport zentriert haben, indem Sie den rechten und linken Rand des Container-Blocks auf `auto` gesetzt haben, wissen Sie, dass ein automatischer Rand den gesamten verfügbaren Platz aufnimmt. Durch das Setzen des Rands auf beiden Seiten auf `auto`, wird der Block in die Mitte geschoben, da beide Ränder versuchen, den gesamten Raum zu nutzen.
+Eine weitere Möglichkeit, Elemente innerhalb ihres Bereichs auszurichten, ist die Verwendung von automatischen Rändern. Wenn Sie jemals Ihr Layout in der Ansicht zentriert haben, indem Sie den rechten und linken Rand des Container-Blocks auf `auto` gesetzt haben, wissen Sie, dass ein automatischer Rand den gesamten verfügbaren Platz absorbiert. Durch Setzen des Randes auf beiden Seiten auf `auto` wird der Block in die Mitte geschoben, da beide Ränder versuchen, den gesamten Raum einzunehmen.
 
-Im nächsten Beispiel habe ich dem Element 1 einen linken Rand von `auto` gegeben. Sie können sehen, wie sich der Inhalt nun auf die rechte Seite des Bereichs verschoben hat, da der automatische Rand den verbleibenden Platz einnimmt, nachdem dem Inhalt dieses Elements Raum zugewiesen wurde:
+Im nächsten Beispiel habe ich dem Element 1 einen linken Rand von `auto` gegeben. Sie können sehen, wie der Inhalt nun auf die rechte Seite des Bereichs verschoben wird, da der automatische Rand den verbleibenden Raum einnimmt, nachdem der Raum für den Inhalt dieses Elements zugewiesen wurde:
 
 ```css hidden
 * {
@@ -655,14 +655,14 @@ Im nächsten Beispiel habe ich dem Element 1 einen linken Rand von `auto` gegebe
 
 {{ EmbedLiveSample('Alignment_and_auto_margins', '500', '550') }}
 
-Sie können sehen, wie das Element durch die Verwendung des [Firefox-Grid-Highlighter](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html) ausgerichtet ist:
+Sie können sehen, wie das Element mit dem [Firefox Grid Highlighter](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html) ausgerichtet ist:
 
-![Bild, das automatische Ränder mit dem Grid-Highlighter zeigt.](7_auto_margins.png)
+![Abbildung, die automatische Ränder mit dem Grid Highlighter zeigt.](7_auto_margins.png)
 
-## Ausrichtung und Schreibmodi
+## Ausrichtung und Schreibrichtungen
 
-In all diesen Beispielen habe ich mit Englisch gearbeitet, was eine Sprache ist, die von links nach rechts verläuft. Das bedeutet, dass unsere Startlinien oben und links unseres Grids sind, wenn wir in physischen Richtungen denken.
+In all diesen Beispielen habe ich in Englisch gearbeitet, das eine links-nach-rechts-Sprache ist. Das bedeutet, dass unsere Startlinien oben links in unserem Raster sind, wenn wir in physikalischen Richtungen denken.
 
-CSS-Grid-Layout und die Box Alignment-Spezifikation sind so gestaltet, dass sie mit Schreibmodi in CSS arbeiten. Das bedeutet, dass, wenn Sie mit einer Sprache arbeiten, die von rechts nach links verläuft, wie Arabisch, der Start des Grids oben und rechts wäre, so dass der Standard von `justify-content: start` die Grid-Tracks auf der rechten Seite des Grids starten würde.
+CSS-Grid-Layout und die Box-Ausrichtungsspezifikation sind darauf ausgelegt, mit Schreibrichtungen in CSS zu arbeiten. Dies bedeutet, dass, wenn Sie in einer rechts-nach-links-Sprache arbeiten, wie Arabisch, der Anfang des Grids oben rechts wäre, sodass der Standard für `justify-content: start` wäre, dass die Grid-Tracks auf der rechten Seite des Grids beginnen.
 
-Das Festlegen von automatischen Rändern, indem `margin-right` oder `margin-left` verwendet wird, oder das absolut Positionieren von Elementen mit den Versätzen `top`, `right`, `bottom` und `left` würde die Schreibmodi jedoch nicht berücksichtigen. Im nächsten Leitfaden werden wir uns weiter mit dieser Interaktion zwischen CSS-Grid-Layout, Box-Ausrichtung und Schreibmodi befassen. Dies wird wichtig sein zu verstehen, wenn Sie Websites entwickeln, die in mehreren Sprachen angezeigt werden, oder wenn Sie Sprachen oder Schreibmodi in einem Design mischen möchten.
+Durch das Setzen automatischer Ränder, mit `margin-right` oder `margin-left` jedoch, oder das absolute Positionieren von Elementen mit den Versetzungen `top`, `right`, `bottom` und `left` würden Schreibrichtungen nicht berücksichtigt. Im nächsten Leitfaden werden wir uns weiter mit dieser Interaktion zwischen CSS-Grid-Layout, Box-Ausrichtung und Schreibrichtungen befassen. Dies wird wichtig zu verstehen sein, wenn Sie Websites entwickeln, die dann in mehreren Sprachen angezeigt werden, oder wenn Sie Sprachen oder Schreibrichtungen in einem Design mischen möchten.

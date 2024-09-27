@@ -1,5 +1,5 @@
 ---
-title: "CSSScale: z Eigenschaft"
+title: "CSSScale: z-Eigenschaft"
 short-title: z
 slug: Web/API/CSSScale/z
 l10n:
@@ -9,17 +9,17 @@ l10n:
 {{APIRef("CSS Typed OM")}}
 
 Die **`z`**-Eigenschaft der
-{{domxref("CSSScale")}}-Schnittstelle repräsentiert die z-Komponente des Übersetzungsvectors. Ein positiver Wert bewegt das Element in Richtung des Betrachters, und ein negativer Wert weiter weg.
+[`CSSScale`](/de/docs/Web/API/CSSScale)-Schnittstelle repräsentiert die z-Komponente des Übersetzungsvektors. Ein positiver Wert bewegt das Element in Richtung des Betrachters, und ein negativer Wert weiter weg.
 
-Wenn dieser Wert vorhanden ist, handelt es sich um eine 3D-Transformation und die `is2D`-Eigenschaft wird auf false gesetzt.
+Wenn dieser Wert vorhanden ist, handelt es sich bei der Transformation um eine 3D-Transformation und die `is2D`-Eigenschaft wird auf false gesetzt.
 
 ## Wert
 
-Ein Doppel-Integer oder ein {{domxref("CSSNumericValue")}}
+Ein Double-Integer oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
 
 ## Beispiele
 
-To Do
+Zu erledigen
 
 ## Spezifikationen
 

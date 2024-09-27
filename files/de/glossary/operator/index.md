@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Reservierte **Syntax**, bestehend aus Satzzeichen oder alphanumerischen Zeichen, die eine eingebaute Funktionalität ausführt. Zum Beispiel addiert in JavaScript der Additionsoperator ("+") Zahlen und verkettet Zeichenfolgen, während der "nicht"-Operator ("!") einen Ausdruck negiert — zum Beispiel macht er eine `true`-Aussage zu `false`.
+Reservierte **Syntax**, bestehend aus Satzzeichen oder alphanumerischen Zeichen, die eingebaute Funktionalitäten ausführt. Zum Beispiel führt in JavaScript der Additionsoperator ("+") das Addieren von Zahlen und das Verkettung von Zeichenketten aus, während der "Not"-Operator ("!") einen Ausdruck negiert — beispielsweise eine `true`-Aussage in `false` umwandelt.
 
 ## Siehe auch
 

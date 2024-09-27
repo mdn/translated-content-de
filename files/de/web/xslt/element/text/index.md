@@ -2,12 +2,12 @@
 title: <xsl:text>
 slug: Web/XSLT/Element/text
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 9df96dcad40bf97f66b317ef6b6bbe64444569eb
 ---
 
 {{XsltSidebar}}
 
-Das `<xsl:text>`-Element schreibt wörtlichen Text in den Ausgabebaum. Es kann `#PCDATA`, wörtlichen Text und Entity-Referenzen enthalten.
+Das `<xsl:text>`-Element schreibt literalen Text in den Ausgabebaum. Es kann `#PCDATA`, literalen Text und Entitätsreferenzen enthalten.
 
 ## Syntax
 
@@ -23,8 +23,12 @@ Keine.
 
 ### Optionale Attribute
 
-- `disable-output-escaping` (Netscape serialisiert das Ergebnis der Transformation nicht - das untenstehende „Output“ -, daher ist dieses Attribut im Kontext im Wesentlichen irrelevant. Um HTML-Entities auszugeben, verwenden Sie stattdessen numerische Werte, z. B. `&#160;` für `&nbsp;`)
-  - : Gibt an, ob Sonderzeichen bei der Ausgabe maskiert werden. Die verfügbaren Werte sind "`yes`" oder "`no`". Wenn "`yes`" gesetzt ist, wird zum Beispiel das Zeichen `>` als `>` und nicht als `&gt;` ausgegeben.
+- `disable-output-escaping`
+
+  - : Gibt an, ob Sonderzeichen beim Schreiben in die Ausgabe unescaped sind. Die verfügbaren Werte sind `yes` oder `no`. Wenn `yes` gesetzt ist, wird zum Beispiel das Zeichen `>` als `>` und nicht als `&gt;` ausgegeben.
+
+    > [!NOTE]
+    > Ältere Browser können das Ergebnis der Transformation (die „Ausgabe“ unten) möglicherweise nicht serialisieren, was dieses Attribut in solchen Kontexten irrelevant macht. Verwenden Sie stattdessen numerische Werte, um HTML-Entitäten auszugeben, z. B. `&#160;` für `&nbsp;`.
 
 ### Typ
 

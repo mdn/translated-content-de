@@ -7,40 +7,40 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("dedicated")}}
 
-Das **`DedicatedWorkerGlobalScope`**-Objekt (der globale Gültigkeitsbereich des {{domxref("Worker")}}) ist über das Schlüsselwort {{domxref("WorkerGlobalScope.self","self")}} zugänglich. Einige zusätzliche globale Funktionen, Namensräume und Konstruktoren, die normalerweise nicht mit dem globalen Worker-Gültigkeitsbereich in Verbindung stehen, aber verfügbar sind, sind im [JavaScript Reference](/de/docs/Web/JavaScript/Reference) aufgeführt. Siehe auch: [Funktionen, die für Worker verfügbar sind](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers).
+Das **`DedicatedWorkerGlobalScope`**-Objekt (der globale [`Worker`](/de/docs/Web/API/Worker)-Bereich) ist über das Schlüsselwort [`self`](/de/docs/Web/API/WorkerGlobalScope/self) zugänglich. Einige zusätzliche globale Funktionen, Namespace-Objekte und Konstruktoren, die normalerweise nicht mit dem globalen Worker-Bereich in Verbindung gebracht werden, aber darauf verfügbar sind, werden in der [JavaScript-Referenz](/de/docs/Web/JavaScript/Reference) aufgeführt. Siehe auch: [Funktionen, die Arbeitern zur Verfügung stehen](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers).
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von der {{domxref("WorkerGlobalScope")}}-Schnittstelle und ihrem Elternteil {{domxref("EventTarget")}}._
+_Diese Schnittstelle erbt Eigenschaften von der Schnittstelle [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) und deren Elternschnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("DedicatedWorkerGlobalScope.name")}} {{ReadOnlyInline}}
-  - : Der Name, der dem {{domxref("Worker")}} (optional) bei seiner Erstellung durch den {{domxref("Worker.Worker", "Worker()")}}-Konstruktor gegeben wurde. Dies ist hauptsächlich für Debugging-Zwecke nützlich.
+- [`DedicatedWorkerGlobalScope.name`](/de/docs/Web/API/DedicatedWorkerGlobalScope/name) {{ReadOnlyInline}}
+  - : Der Name, der dem [`Worker`](/de/docs/Web/API/Worker) (optional) gegeben wurde, als er mit dem [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktor erstellt wurde. Dies ist hauptsächlich für Debugging-Zwecke nützlich.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle erbt Methoden von der {{domxref("WorkerGlobalScope")}}-Schnittstelle und ihrem Elternteil {{domxref("EventTarget")}}._
+_Diese Schnittstelle erbt Methoden von der Schnittstelle [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) und deren Elternschnittstelle [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("DedicatedWorkerGlobalScope.close()")}}
-  - : Verwirft alle Aufgaben, die in der Ereignisschleife des `WorkerGlobalScope`-Bereichs eingereiht sind, und schließt diesen Bereich effektiv.
-- {{domxref("DedicatedWorkerGlobalScope.postMessage()")}}
-  - : Sendet eine Nachricht — die aus einem beliebigen JavaScript-Objekt bestehen kann — an das übergeordnete Dokument, das den Worker ursprünglich erstellt hat.
-- {{domxref("DedicatedWorkerGlobalScope.cancelAnimationFrame()")}}
-  - : Bricht eine bereits geplante Animation Frame-Anforderung ab, die zuvor durch einen Aufruf von {{domxref("DedicatedWorkerGlobalScope.requestAnimationFrame()", "requestAnimationFrame()")}} geplant wurde.
-- {{domxref("DedicatedWorkerGlobalScope.requestAnimationFrame()")}}
-  - : Führt eine Animation Frame-Anforderung aus und ruft eine vom Benutzer bereitgestellte Rückruffunktion vor dem nächsten Neuzeichnen auf.
+- [`DedicatedWorkerGlobalScope.close()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/close)
+  - : Verwirft alle Aufgaben, die in der Ereignisschleife des `WorkerGlobalScope` eingereiht sind, und schließt diesen bestimmten Bereich effektiv.
+- [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage)
+  - : Sendet eine Nachricht – die aus einem beliebigen JavaScript-Objekt bestehen kann – an das übergeordnete Dokument, das den Worker ursprünglich gestartet hat.
+- [`DedicatedWorkerGlobalScope.cancelAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/cancelAnimationFrame)
+  - : Hebt eine zuvor durch einen Aufruf von [`requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame) geplante Animationsframe-Anforderung auf.
+- [`DedicatedWorkerGlobalScope.requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame)
+  - : Führt eine Animationsframe-Anforderung aus und ruft eine benutzerdefinierte Callback-Funktion vor der nächsten Neudarstellung auf.
 
 ## Ereignisse
 
-Hören Sie dieses Ereignis mit {{domxref("EventTarget/addEventListener()", "addEventListener()")}} oder indem Sie einen Ereignislistener der `oneventname`-Eigenschaft dieser Schnittstelle zuweisen.
+Hören Sie auf dieses Ereignis, indem Sie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden oder einen Ereignis-Listener der `oneventname`-Eigenschaft dieser Schnittstelle zuweisen.
 
-- {{domxref("DedicatedWorkerGlobalScope/message_event", "message")}}
-  - : Wird ausgelöst, wenn der Worker eine Nachricht von seinem Elternteil erhält.
-- {{domxref("DedicatedWorkerGlobalScope/messageerror_event", "messageerror")}}
-  - : Wird ausgelöst, wenn ein Worker eine Nachricht erhält, die nicht deserialisiert werden kann.
-- {{domxref("DedicatedWorkerGlobalScope/rtctransform_event", "rtctransform")}}
-  - : Wird ausgelöst, wenn ein codiertes Video- oder Audio-Frame zur Verarbeitung durch eine {{domxref("WebRTC API/Using Encoded Transforms", "WebRTC Encoded Transform", "", "nocode")}} eingereiht wurde.
+- [`message`](/de/docs/Web/API/DedicatedWorkerGlobalScope/message_event)
+  - : Wird ausgelöst, wenn der Worker eine Nachricht von seinem übergeordneten Element empfängt.
+- [`messageerror`](/de/docs/Web/API/DedicatedWorkerGlobalScope/messageerror_event)
+  - : Wird ausgelöst, wenn ein Worker eine Nachricht empfängt, die nicht deserialisiert werden kann.
+- [`rtctransform`](/de/docs/Web/API/DedicatedWorkerGlobalScope/rtctransform_event)
+  - : Wird ausgelöst, wenn ein codierter Video- oder Audio-Frame zur Verarbeitung durch eine [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) eingereiht wurde.
 
 ## Spezifikationen
 
@@ -52,7 +52,7 @@ Hören Sie dieses Ereignis mit {{domxref("EventTarget/addEventListener()", "addE
 
 ## Siehe auch
 
-- {{domxref("Worker")}}
-- {{domxref("WorkerGlobalScope")}}
-- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
-- [Funktionen, die für Worker verfügbar sind](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers)
+- [`Worker`](/de/docs/Web/API/Worker)
+- [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
+- [Verwendung von Webarbeitern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Funktionen, die Arbeitern zur Verfügung stehen](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers)

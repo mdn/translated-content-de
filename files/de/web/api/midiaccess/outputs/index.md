@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die **`outputs`**-Eigenschaft (nur lesbar) des {{domxref("MIDIAccess")}}-Interfaces ermöglicht den Zugriff auf verfügbare MIDI-Ausgangsports.
+Die schreibgeschützte **`outputs`**-Eigenschaft des [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)-Interfaces bietet Zugriff auf alle verfügbaren MIDI-Ausgangsports.
 
 ## Wert
 
-Eine Instanz der {{domxref("MIDIOutputMap")}}.
+Eine Instanz von [`MIDIOutputMap`](/de/docs/Web/API/MIDIOutputMap).
 
 ## Beispiele
 
-Die Methode {{domxref("Navigator.requestMIDIAccess()")}} gibt ein Versprechen zurück, das zu einem {{domxref("MIDIAccess")}}-Objekt aufgelöst wird. Das Ausgeben des Wertes von `outputs` in der Konsole gibt eine {{domxref("MIDIOutputMap")}} zurück.
+Die Methode [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) gibt ein Promise zurück, das mit einem [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)-Objekt erfüllt wird. Wenn Sie den Wert von `outputs` in die Konsole ausgeben, erhalten Sie eine [`MIDIOutputMap`](/de/docs/Web/API/MIDIOutputMap).
 
 ```js
 navigator.requestMIDIAccess().then((access) => {
@@ -28,6 +28,6 @@ navigator.requestMIDIAccess().then((access) => {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

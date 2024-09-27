@@ -7,19 +7,19 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein boolescher Wert ist.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein boolean ist.
 
-Wenn auf `true` gesetzt, werden die Suchergebnisse, wenn der Benutzer einen Begriff im Suchfeld des Browsers auswählt, in einem neuen Tab angezeigt. Wenn auf `false` gesetzt (Standard), werden die Suchergebnisse im aktuellen Tab angezeigt.
+Wenn auf `true` gesetzt, werden die Suchergebnisse in einem neuen Tab angezeigt, wenn der Benutzer einen Begriff im Suchfeld des Browsers auswählt. Wenn auf `false` gesetzt (Standard), werden die Suchergebnisse im aktuellen Tab angezeigt.
 
-Bitte beachten Sie, dass dies das Verhalten beim Auswählen von Elementen in der Omnibox/Awesomebar nicht beeinflusst, sondern nur das dedizierte Suchfeld.
+Beachten Sie, dass dies das Verhalten beim Auswählen von Einträgen aus der Omnibox/Awesomebar nicht beeinflusst, sondern nur das dedizierte Suchfeld.
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Beispiele
 
-Die Einstellung auf `true` setzen:
+Setzen Sie die Einstellung auf `true`:
 
 ```js
 function logResult(result) {

@@ -1,5 +1,5 @@
 ---
-title: "Fenster: matchMedia()-Methode"
+title: "Window: matchMedia()-Methode"
 short-title: matchMedia()
 slug: Web/API/Window/matchMedia
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die **`matchMedia()`**-Methode der {{domxref("Window")}}-Schnittstelle
-gibt ein neues {{domxref("MediaQueryList")}}-Objekt zurück, das dann verwendet werden kann, um festzustellen, ob
-das {{domxref("document")}} mit dem [Media-Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)-String übereinstimmt. Außerdem kann das Dokument überwacht werden, um zu erkennen, wann es dieser Abfrage entspricht (oder nicht mehr entspricht).
+Die **`matchMedia()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt ein neues [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt zurück, das dann verwendet werden kann, um festzustellen, ob das [`document`](/de/docs/Web/API/Document) der [Media Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)-Zeichenfolge entspricht. Außerdem kann damit das Dokument überwacht werden, um zu erkennen, wann es mit dieser Media Query übereinstimmt (oder nicht mehr übereinstimmt).
 
 ## Syntax
 
@@ -21,23 +19,23 @@ matchMedia(mediaQueryString)
 ### Parameter
 
 - `mediaQueryString`
-  - : Ein String, der die Medienabfrage spezifiziert, die in eine {{domxref("MediaQueryList")}} geparst werden soll.
+  - : Eine Zeichenfolge, die die Media Query angibt, die in ein [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) geparst werden soll.
 
 ### Rückgabewert
 
-Ein neues {{domxref("MediaQueryList")}}-Objekt für die Medienabfrage. Verwenden Sie die Eigenschaften und Ereignisse dieses Objekts, um Übereinstimmungen zu erkennen und Änderungen dieser Übereinstimmungen im Laufe der Zeit zu überwachen.
+Ein neues [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Objekt für die Media Query. Verwenden Sie die Eigenschaften und Ereignisse dieses Objekts, um Übereinstimmungen zu erkennen und Änderungen dieser Übereinstimmungen im Laufe der Zeit zu überwachen.
 
 ## Nutzungshinweise
 
-Sie können die zurückgegebene Medienabfrage verwenden, um sowohl sofortige als auch ereignisgesteuerte Überprüfungen durchzuführen, ob das Dokument mit der Medienabfrage übereinstimmt.
+Sie können die zurückgegebene Media Query sowohl für sofortige als auch für ereignisgesteuerte Prüfungen verwenden, um festzustellen, ob das Dokument der Media Query entspricht.
 
-Um eine einmalige, sofortige Überprüfung durchzuführen, ob das Dokument mit der Medienabfrage übereinstimmt, schauen Sie sich den Wert der {{domxref("MediaQueryList.matches", "matches")}}-Eigenschaft an, die `true` ist, wenn das Dokument die Anforderungen der Medienabfrage erfüllt.
+Um eine einmalige, sofortige Prüfung durchzuführen, ob das Dokument der Media Query entspricht, betrachten Sie den Wert der [`matches`](/de/docs/Web/API/MediaQueryList/matches)-Eigenschaft, die `true` ist, wenn das Dokument die Anforderungen der Media Query erfüllt.
 
-Wenn Sie stets darüber informiert werden möchten, ob das Dokument mit der Medienabfrage übereinstimmt oder nicht, können Sie stattdessen auf das {{domxref("MediaQueryList.change_event", "change")}}-Ereignis achten, das an das Objekt gesendet wird. [Ein gutes Beispiel dafür](/de/docs/Web/API/Window/devicePixelRatio#monitoring_screen_resolution_or_zoom_level_changes) finden Sie im Artikel zu {{domxref("Window.devicePixelRatio")}}.
+Wenn Sie ständig darüber informiert werden müssen, ob das Dokument der Media Query entspricht oder nicht, können Sie stattdessen das [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis überwachen, das an das Objekt gesendet wird. Im Artikel über [`Window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio) gibt es [ein gutes Beispiel dafür](/de/docs/Web/API/Window/devicePixelRatio#monitoring_screen_resolution_or_zoom_level_changes).
 
 ## Beispiele
 
-Dieses Beispiel führt die Medienabfrage `(max-width: 600px)` aus und zeigt den Wert der `matches`-Eigenschaft des resultierenden `MediaQueryList` in einem {{HTMLElement("span")}} an. Das Ergebnis zeigt "true" an, wenn der Ansichtsbereich kleiner oder gleich 600 Pixel breit ist, und zeigt "false" an, wenn das Fenster breiter ist.
+Dieses Beispiel führt die Media Query `(max-width: 600px)` aus und zeigt den Wert der `matches`-Eigenschaft des resultierenden `MediaQueryList` in einem {{HTMLElement("span")}} an; dementsprechend wird die Ausgabe "true" sein, wenn der Ansichtsbereich 600 Pixel oder schmaler ist, und "false", wenn das Fenster breiter ist.
 
 ### JavaScript
 
@@ -47,7 +45,7 @@ let mql = window.matchMedia("(max-width: 600px)");
 document.querySelector(".mq-value").innerText = mql.matches;
 ```
 
-Der JavaScript-Code übergibt die Medienabfrage an `matchMedia()`, um sie zu kompilieren, und setzt dann den {{domxref("HTMLElement.innerText", "innerText")}} des `<span>` auf den Wert der {{domxref("MediaQueryList.matches", "matches")}}-Eigenschaft der Ergebnisse, um anzuzeigen, ob das Dokument im Moment des Ladens der Seite mit der Medienabfrage übereinstimmt oder nicht.
+Der JavaScript-Code übergibt die zu prüfende Media Query an `matchMedia()`, um sie zu kompilieren, und setzt dann den [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<span>` auf den Wert der [`matches`](/de/docs/Web/API/MediaQueryList/matches)-Eigenschaft des Ergebnisses, sodass angezeigt wird, ob das Dokument der Media Query zu dem Zeitpunkt entspricht, zu dem die Seite geladen wurde.
 
 ### HTML
 
@@ -73,7 +71,7 @@ Ein einfaches `<span>`, um die Ausgabe zu empfangen.
 
 {{EmbedLiveSample("Examples", "100%", "60")}}
 
-Unter [Testen von Medienabfragen programmatisch](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries) finden Sie zusätzliche Code-Beispiele.
+Für zusätzliche Codebeispiele siehe [Testing media queries programmatically](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries).
 
 ## Spezifikationen
 
@@ -85,6 +83,6 @@ Unter [Testen von Medienabfragen programmatisch](/de/docs/Web/CSS/CSS_media_quer
 
 ## Siehe auch
 
-- [Medienabfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Medienabfragen im Code verwenden](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
-- {{domxref("MediaQueryList")}}
+- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Using media queries from code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)

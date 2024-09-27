@@ -7,7 +7,7 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`str:split()` teilt einen String anhand eines Muster-Strings, um zu bestimmen, wo die Trennungen vorgenommen werden sollen, und gibt eine Knotenmenge zurück, die die resultierenden Strings enthält.
+`str:split()` teilt einen String, indem ein Musterstring verwendet wird, um festzulegen, wo die Teilungen erfolgen sollen, und gibt eine Knotenmenge zurück, die die resultierenden Strings enthält.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ str:split(string, pattern)
 
 ### Rückgabewert
 
-Eine Knotenmenge von `token`-Elementen, die jeweils ein Element aus dem `string` enthalten.
+Eine Knotenmenge von `token`-Elementen, von denen jedes ein Token aus dem `string` enthält.
 
 ## Beispiel
 
@@ -32,7 +32,7 @@ Eine Knotenmenge von `token`-Elementen, die jeweils ein Element aus dem `string`
 str:split('book, phone, computer, chair', ', ')
 ```
 
-Gibt eine Knotenmenge zurück wie:
+Gibt eine Knotenmenge wie folgt zurück:
 
 ```xml
 <token>book</token>

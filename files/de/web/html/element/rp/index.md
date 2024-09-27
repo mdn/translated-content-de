@@ -1,5 +1,5 @@
 ---
-title: "<rp>: Das Ruby-Fallback-Klammer-Element"
+title: "<rp>: Das Ruby-Ersatzklammer-Element"
 slug: Web/HTML/Element/rp
 l10n:
   sourceCommit: e04d8d2766c468f149445c0bf438d09f9b2d188c
@@ -7,17 +7,17 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<rp>`**-[HTML](/de/docs/Web/HTML)-Element wird verwendet, um Klammern darzustellen, wenn Browser die Anzeige von Ruby-Anmerkungen mithilfe des {{HTMLElement("ruby") }}-Elements nicht unterstützen. Ein `<rp>`-Element sollte jeweils die öffnenden und schließenden Klammern einschließen, die das {{HTMLElement("rt")}}-Element umgeben, das den Text der Anmerkung enthält.
+Das **`<rp>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um Ersatzklammern für Browser bereitzustellen, die keine Ruby-Anmerkungen mit dem {{HTMLElement("ruby")}}-Element anzeigen können. Ein `<rp>`-Element sollte jeweils die öffnende und schließende Klammer um das {{HTMLElement("rt")}}-Element einschließen, das den Anmerkungstext enthält.
 
 {{EmbedInteractiveExample("pages/tabbed/rp.html", "tabbed-shorter")}}
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-- Ruby-Anmerkungen dienen dazu, die Aussprache von ostasiatischen Zeichen anzuzeigen, wie die Verwendung von japanischen Furigana oder taiwanesischen Bopomofo-Zeichen. Das `<rp>`-Element wird in Ermangelung der Unterstützung für das {{HTMLElement("ruby")}}-Element verwendet; der Inhalt von `<rp>` gibt an, was angezeigt werden soll, um die Anwesenheit einer Ruby-Anmerkung zu kennzeichnen, normalerweise in Form von Klammern.
+- Ruby-Anmerkungen dienen zur Anzeige der Aussprache ostasiatischer Zeichen, wie z.B. mit japanischen Furigana oder taiwanischen Bopomofo-Zeichen. Das `<rp>`-Element wird verwendet, wenn die Unterstützung für das {{HTMLElement("ruby")}}-Element fehlt; der `<rp>`-Inhalt gibt an, was angezeigt werden soll, um das Vorhandensein einer Ruby-Anmerkung zu kennzeichnen, üblicherweise Klammern.
 
 ## Beispiele
 
@@ -41,11 +41,11 @@ body {
 
 {{EmbedLiveSample("Using_ruby_annotations", 600, 60)}}
 
-Siehe den Artikel über das {{HTMLElement("ruby")}}-Element für weitere Beispiele.
+Lesen Sie den Artikel über das {{HTMLElement("ruby")}}-Element für weitere Beispiele.
 
 ### Ohne Ruby-Unterstützung
 
-Wenn Ihr Browser keine Ruby-Anmerkungen unterstützt, sieht das Ergebnis stattdessen so aus:
+Wenn Ihr Browser keine Ruby-Anmerkungen unterstützt, sieht das Ergebnis stattdessen folgendermaßen aus:
 
 ```html hidden
 漢 (Kan) 字 (ji)
@@ -72,22 +72,23 @@ body {
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>Text</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das End-Tag kann weggelassen werden, wenn das Element unmittelbar von einem
-        {{HTMLElement("rt")}}- oder einem weiteren <code>&#x3C;rp></code>-Element
-        gefolgt wird oder wenn im Elternelement kein weiterer Inhalt vorhanden ist.
+        Das End-Tag kann weggelassen werden, wenn das Element sofort von einem
+        {{HTMLElement("rt")}}- oder einem anderen `<rp>`-Element gefolgt wird,
+        oder wenn es keinen weiteren Inhalt im Elternelement gibt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Ein {{HTMLElement("ruby")}}-Element. <code>&#x3C;rp></code> muss
-        unmittelbar vor oder nach einem {{HTMLElement("rt")}}-Element positioniert sein.
+        Ein {{HTMLElement("ruby")}}-Element. `<rp>` muss
+        unmittelbar vor oder nach einem
+        {{HTMLElement("rt")}}-Element platziert sein.
       </td>
     </tr>
     <tr>
@@ -104,7 +105,7 @@ body {
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLElement")}}</td>
+      <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
 </table>

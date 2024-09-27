@@ -8,21 +8,20 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.fontStretch`**-Eigenschaft der [Canvas API](/de/docs/Web/API/Canvas_API) legt fest, wie die Schrift beim Zeichnen von Text erweitert oder komprimiert werden kann.
+Die **`CanvasRenderingContext2D.fontStretch`**-Eigenschaft der [Canvas API](/de/docs/Web/API/Canvas_API) gibt an, wie die Schriftart beim Zeichnen von Text erweitert oder komprimiert werden kann.
 
-Die Eigenschaft entspricht der [`font-stretch`](/de/docs/Web/CSS/font-stretch) CSS-Eigenschaft, wenn sie mit Schlüsselwörtern verwendet wird (Prozentwerte werden nicht unterstützt).
+Die Eigenschaft entspricht der CSS-Eigenschaft [`font-stretch`](/de/docs/Web/CSS/font-stretch), wenn sie mit Schlüsselwörtern verwendet wird (Prozentwerte werden nicht unterstützt).
 
 ## Wert
 
-Der Schriftdehnungswert als Zeichenkette.
-Dies ist eine der folgenden: `ultra-condensed`, `extra-condensed`, `condensed`, `semi-condensed`, `normal` (Standard), `semi-expanded`, `expanded`, `extra-expanded`, `ultra-expanded`.
+Der Schriftdehnungswert als Zeichenkette. Dies ist eines von: `ultra-condensed`, `extra-condensed`, `condensed`, `semi-condensed`, `normal` (Standard), `semi-expanded`, `expanded`, `extra-expanded`, `ultra-expanded`.
 
-Die Eigenschaft kann verwendet werden, um den Schriftdehnungswert zu lesen oder zu setzen.
+Die Eigenschaft kann verwendet werden, um den Schriftdehnungswert abzufragen oder zu setzen.
 
 ## Beispiele
 
-In diesem Beispiel zeigen wir den Text "Hello World" unter Verwendung jedes der unterstützten Werte der `fontStretch`-Eigenschaft.
-Der Dehnungswert wird ebenfalls in jedem Fall durch das Auslesen der Eigenschaft angezeigt.
+In diesem Beispiel wird der Text "Hello World" mit jedem der unterstützten Werte der `fontStretch`-Eigenschaft angezeigt.
+Der Dehnungswert wird auch für jeden Fall angezeigt, indem die Eigenschaft ausgelesen wird.
 
 ### HTML
 
@@ -32,18 +31,18 @@ Der Dehnungswert wird ebenfalls in jedem Fall durch das Auslesen der Eigenschaft
 
 ### JavaScript
 
-Zuerst holen wir das im HTML-Dokument deklarierte Canvas-Element und nutzen es, um den `CanvasRenderingContext2D` zu erhalten, der später zum Zeichnen von Text verwendet wird.
+Zuerst erhalten wir das im HTML-Dokument deklarierte Canvas und verwenden es, um den `CanvasRenderingContext2D` zu erhalten, der später zum Zeichnen von Text verwendet wird.
 
 ```js
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 ```
 
-Der nächste Schritt im Beispiel ist das Laden einer variablen Schriftart, die in der Breitenachse variierbar ist.
-Dies ist notwendig, da `fontStretch` nur eine Schriftart strecken kann, die Informationen darüber enthält, wie Glyphen beim Strecken gezeichnet werden — andernfalls wird der Text unter Verwendung des nächstverfügbaren Schriftdehnungswerts für die Schriftart gezeichnet, was oft die normale Breite sein wird.
+Der nächste Schritt im Beispiel besteht darin, eine variable Schriftart zu laden, die in der Breitenachse variabel ist.
+Dies ist erforderlich, da `fontStretch` nur eine Schriftart dehnen kann, die Informationen darüber enthält, wie Glyphen im gedehnten Zustand gezeichnet werden. Andernfalls wird der Text mit dem für die Schriftart nächstgelegenen verfügbaren Dehnungswert gezeichnet, der häufig die normale Breite ist.
 
-In diesem Fall verwenden wir [`FontFace`](/de/docs/Web/API/FontFace), um eine Schriftart für die [Inconsolata](https://fonts.google.com/specimen/Inconsolata/tester) Google Font zu definieren, die Schriftbreiten von 50% bis 200% unterstützt (was es uns ermöglicht, `fontStretch`-Werte von `ultra-condensed` bis `ultra-expanded` zu demonstrieren).
-Wir fügen dies dann dem [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) ([`document.fonts`](/de/docs/Web/API/Document/fonts)) des Dokuments hinzu, damit es zum Zeichnen verwendet werden kann.
+In diesem Fall verwenden wir [`FontFace`](/de/docs/Web/API/FontFace) zur Definition eines Schriftbilds für die [Inconsolata](https://fonts.google.com/specimen/Inconsolata/tester) Google-Schriftart, die Schriftbreiten von 50% bis 200% unterstützt (was es uns ermöglicht, `fontStretch`-Werte von `ultra-condensed` bis `ultra-expanded` zu demonstrieren).
+Wir fügen dies dann zum [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) des Dokuments ([`document.fonts`](/de/docs/Web/API/Document/fonts)) hinzu, damit es zum Zeichnen verwendet werden kann.
 
 ```js
 const fontFile = new FontFace(
@@ -55,11 +54,11 @@ const fontFile = new FontFace(
 document.fonts.add(fontFile);
 ```
 
-Der untenstehende Code ruft dann [`FontFaceSet.load()`](/de/docs/Web/API/FontFaceSet/load) auf, um die Google Font abzurufen und zu laden.
-Beachten Sie, dass dieser Aufruf die Größe der benötigten Schriftart festlegt und ein Promise zurückgibt, das aufgelöst wird, wenn die Schriftart geladen wurde.
+Der folgende Code ruft dann [`FontFaceSet.load()`](/de/docs/Web/API/FontFaceSet/load) auf, um die Google-Schriftart abzurufen und zu laden.
+Beachten Sie, dass dieser Aufruf die benötigte Schriftgröße festlegt und ein Promise zurückgibt, das beim Laden der Schrift abgeschlossen wird.
 
-Wir weisen dann der heruntergeladenen Schriftart dem Kontext zu und verwenden den Kontext, um Text auf der Leinwand in jedem der Schlüsselwort-Dehnungsstufen zu zeichnen.
-Beachten Sie, dass auch hier die Größe der gewünschten Schriftart angegeben ist (sie muss nicht mit der geladenen Schriftgröße übereinstimmen).
+Dann weisen wir die geladene Schrift dem Kontext zu und verwenden den Kontext, um Text auf der Leinwand auf jeder der Schlüsselwort-Dehnungsstufen zu zeichnen.
+Beachten Sie, dass erneut die Größe der gewünschten Schriftart spezifiziert wird (dies muss nicht mit der geladenen Schriftgröße übereinstimmen).
 
 ```js
 document.fonts.load("30px Inconsolata").then(

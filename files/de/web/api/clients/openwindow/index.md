@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`openWindow()`**-Methode der {{domxref("Clients")}}-Schnittstelle erstellt einen neuen obersten Browsing-Kontext und lädt eine gegebene URL. Wenn das aufrufende Skript nicht die Erlaubnis hat, Popups anzuzeigen, wirft `openWindow()` einen `InvalidAccessError`.
+Die **`openWindow()`**-Methode der [`Clients`](/de/docs/Web/API/Clients)-Schnittstelle erstellt einen neuen übergeordneten Browsing-Kontext und lädt eine angegebene URL. Wenn das aufrufende Skript nicht die Berechtigung hat, Popups anzuzeigen, wirft `openWindow()` einen `InvalidAccessError`.
 
-In Firefox ist die Methode nur erlaubt, Popups anzuzeigen, wenn sie als Ergebnis eines Benachrichtigungsklickereignisses aufgerufen wird.
+In Firefox darf die Methode Popups nur anzeigen, wenn sie als Ergebnis eines Benachrichtigungs-Klickereignisses aufgerufen wird.
 
-In Chrome für Android kann die Methode stattdessen die URL in einem bestehenden Browsing-Kontext öffnen, der von einer zuvor dem Startbildschirm des Benutzers hinzugefügten [Stand-Alone-Web-App](/de/docs/Web/Progressive_web_apps) bereitgestellt wird. Seit kurzem funktioniert dies auch in Chrome für Windows.
+In Chrome für Android kann die Methode stattdessen die URL in einem bestehenden Browsing-Kontext öffnen, der von einer zuvor auf dem Startbildschirm des Benutzers hinzugefügten [Standalone-Web-App](/de/docs/Web/Progressive_web_apps) bereitgestellt wird. Kürzlich funktioniert dies auch auf Chrome für Windows.
 
 ## Syntax
 
@@ -23,51 +23,51 @@ openWindow(url)
 ### Parameter
 
 - `url`
-  - : Ein String, der die URL des Clients darstellt, den Sie im Fenster öffnen möchten. Im Allgemeinen muss dieser Wert eine URL aus demselben Ursprung wie das aufrufende Skript sein.
+  - : Ein String, der die URL des Clients darstellt, den Sie im Fenster öffnen möchten. Im Allgemeinen muss dieser Wert eine URL aus demselben Ursprung sein wie das aufrufende Skript.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich in ein {{domxref("WindowClient")}}-Objekt auflöst, wenn die URL aus demselben Ursprung wie der Service-Worker stammt, oder andernfalls ein {{Glossary("null", "null value")}}.
+Ein {{jsxref("Promise")}}, das zu einem [`WindowClient`](/de/docs/Web/API/WindowClient)-Objekt aufgelöst wird, wenn die URL aus demselben Ursprung wie der Service Worker stammt oder andernfalls ein [null-Wert](/de/docs/Glossary/null).
 
 ### Ausnahmen
 
-- `InvalidAccessError` {{domxref("DOMException")}}
-  - : Das Versprechen wird mit dieser Ausnahme zurückgewiesen, wenn keines der Fenster im Ursprungs der App eine [vorübergehende Aktivierung](/de/docs/Web/Security/User_activation) hat.
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Das Versprechen wird mit dieser Ausnahme abgelehnt, wenn keines der Fenster im Ursprung der App eine [vorübergehende Aktivierung](/de/docs/Web/Security/User_activation) hat.
 
 ## Sicherheitsanforderungen
 
-- Mindestens ein Fenster im Ursprungs der App muss [vorübergehende Aktivierung](/de/docs/Web/Security/User_activation) haben.
+- Mindestens ein Fenster im Ursprung der App muss eine [vorübergehende Aktivierung](/de/docs/Web/Security/User_activation) haben.
 
 ## Beispiele
 
 ```js
-// Senden Sie eine Benachrichtigung an das Betriebssystem, wenn zutreffend
+// Send notification to OS if applicable
 if (self.Notification.permission === "granted") {
   const notificationObject = {
-    body: "Klicken Sie hier, um Ihre Nachrichten anzusehen.",
+    body: "Click here to view your messages.",
     data: { url: `${self.location.origin}/some/path` },
     // data: { url: 'http://example.com' },
   };
   self.registration.showNotification(
-    "Sie haben Nachrichten!",
+    "You've got messages!",
     notificationObject,
   );
 }
 
-// Benachrichtigungsklick-Ereignislistener
+// Notification click event listener
 self.addEventListener("notificationclick", (e) => {
-  // Schließen Sie das Benachrichtigungs-Popout
+  // Close the notification popout
   e.notification.close();
-  // Holen Sie sich alle Fenster-Clients
+  // Get all the Window clients
   e.waitUntil(
     clients.matchAll({ type: "window" }).then((clientsArr) => {
-      // Wenn ein Fenster-Tab existiert, der die Ziel-URL bereits hat, fokussieren Sie diesen;
+      // If a Window tab matching the targeted URL already exists, focus that;
       const hadWindowToFocus = clientsArr.some((windowClient) =>
         windowClient.url === e.notification.data.url
           ? (windowClient.focus(), true)
           : false,
       );
-      // Andernfalls öffnen Sie einen neuen Tab zur entsprechenden URL und fokussieren ihn.
+      // Otherwise, open a new tab to the applicable URL and focus it.
       if (!hadWindowToFocus)
         clients
           .openWindow(e.notification.data.url)

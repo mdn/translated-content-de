@@ -1,5 +1,5 @@
 ---
-title: "CSSKeyframesRule: appendRule()-Methode"
+title: "CSSKeyframesRule: appendRule() Methode"
 short-title: appendRule()
 slug: Web/API/CSSKeyframesRule/appendRule
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM") }}
 
-Die **`appendRule()`**-Methode des {{domxref("CSSKeyframeRule")}}-Interfaces fügt eine {{domxref("CSSKeyFrameRule")}} am Ende der Regeln hinzu.
+Die **`appendRule()`** Methode der [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule) Schnittstelle fügt eine [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyFrameRule) am Ende der Regeln hinzu.
 
 ## Syntax
 
@@ -27,10 +27,10 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das CSS enthält eine Keyframes-At-Regel. Dies wird die erste {{domxref("CSSRule")}} sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
-`myRules[0]` gibt ein {{domxref("CSSKeyframesRule")}}-Objekt zurück. Das Zurückgeben der `cssRules`-Eigenschaft würde eine {{domxref("CSSRuleList")}} mit einer Regel zurückgeben.
+Das CSS beinhaltet eine Keyframes-At-Regel. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
+`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule) Objekt zurück. Die Rückgabe der `cssRules`-Eigenschaft würde eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) enthalten, die eine Regel enthält.
 
-Nach dem Hinzufügen einer weiteren Regel mit `appendRule` gibt die `cssRules`-Eigenschaft eine {{domxref("CSSRuleList")}} mit zwei Regeln zurück.
+Nach dem Hinzufügen einer weiteren Regel mit `appendRule` gibt die `cssRules`-Eigenschaft eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) zurück, die zwei Regeln enthält.
 
 ```css
 @keyframes slidein {

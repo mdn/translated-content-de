@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`NodeIterator.whatToShow`** repräsentiert
-einen `unsigned integer`, der eine Bitmaske darstellt, die angibt, welche Arten von Knoten
-vom {{domxref("NodeIterator")}} zurückgegeben werden sollen.
+Die schreibgeschützte Eigenschaft **`NodeIterator.whatToShow`** stellt eine `unsigned integer` dar, die eine Bitmaske repräsentiert und angibt, welche Arten von Knoten durch den [`NodeIterator`](/de/docs/Web/API/NodeIterator) zurückgegeben werden sollen.
 
 ## Wert
 
@@ -32,7 +30,7 @@ Die Werte, die kombiniert werden können, um die Bitmaske zu bilden, sind:
       <td>
         <code>4294967295</code> (das ist der Maximalwert von <code>unsigned long</code>)
       </td>
-      <td>Zeigt alle Knoten an.</td>
+      <td>Zeigt alle Knoten.</td>
     </tr>
     <tr>
       <td>
@@ -40,13 +38,7 @@ Die Werte, die kombiniert werden können, um die Bitmaske zu bilden, sind:
       </td>
       <td><code>2</code></td>
       <td>
-        Zeigt Attribut-{{ domxref("Attr") }}-Knoten an. Dies ergibt nur dann Sinn,
-        wenn ein {{ domxref("NodeIterator") }} oder
-        {{ domxref("TreeWalker") }} mit einem
-        {{ domxref("Attr") }}-Knoten als Wurzel erstellt wird; in diesem Fall bedeutet es,
-        dass der Attributknoten an der ersten Position der
-        Iteration oder Durchlauf erscheint. Da Attribute niemals Kinder anderer
-        Knoten sind, erscheinen sie nicht beim Durchlaufen des Dokumentenbaums.
+        Zeigt Attribut-[`Attr`](/de/docs/Web/API/Attr)-Knoten. Dies ist nur sinnvoll, wenn ein [`NodeIterator`](/de/docs/Web/API/NodeIterator) oder [`TreeWalker`](/de/docs/Web/API/TreeWalker) mit einem [`Attr`](/de/docs/Web/API/Attr)-Knoten als Wurzel erstellt wird; in diesem Fall bedeutet es, dass der Attributknoten in der ersten Position der Iteration oder Durchwanderung erscheint. Da Attribute niemals Kinder anderer Knoten sind, erscheinen sie nicht, wenn über den Dokumentbaum gegangen wird.
       </td>
     </tr>
     <tr>
@@ -54,32 +46,32 @@ Die Werte, die kombiniert werden können, um die Bitmaske zu bilden, sind:
         <code>NodeFilter.SHOW_CDATA_SECTION</code> {{deprecated_inline}}
       </td>
       <td><code>8</code></td>
-      <td>Zeigt {{ domxref("CDATASection") }}-Knoten an.</td>
+      <td>Zeigt [`CDATASection`](/de/docs/Web/API/CDATASection)-Knoten.</td>
     </tr>
     <tr>
       <td><code>NodeFilter.SHOW_COMMENT</code></td>
       <td><code>128</code></td>
-      <td>Zeigt {{ domxref("Comment") }}-Knoten an.</td>
+      <td>Zeigt [`Comment`](/de/docs/Web/API/Comment)-Knoten.</td>
     </tr>
     <tr>
       <td><code>NodeFilter.SHOW_DOCUMENT</code></td>
       <td><code>256</code></td>
-      <td>Zeigt {{ domxref("Document") }}-Knoten an.</td>
+      <td>Zeigt [`Document`](/de/docs/Web/API/Document)-Knoten.</td>
     </tr>
     <tr>
       <td><code>NodeFilter.SHOW_DOCUMENT_FRAGMENT</code></td>
       <td><code>1024</code></td>
-      <td>Zeigt {{ domxref("DocumentFragment") }}-Knoten an.</td>
+      <td>Zeigt [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Knoten.</td>
     </tr>
     <tr>
       <td><code>NodeFilter.SHOW_DOCUMENT_TYPE</code></td>
       <td><code>512</code></td>
-      <td>Zeigt {{ domxref("DocumentType") }}-Knoten an.</td>
+      <td>Zeigt [`DocumentType`](/de/docs/Web/API/DocumentType)-Knoten.</td>
     </tr>
     <tr>
       <td><code>NodeFilter.SHOW_ELEMENT</code></td>
       <td><code>1</code></td>
-      <td>Zeigt {{ domxref("Element") }}-Knoten an.</td>
+      <td>Zeigt [`Element`](/de/docs/Web/API/Element)-Knoten.</td>
     </tr>
     <tr>
       <td><code>NodeFilter.SHOW_ENTITY</code> {{deprecated_inline}}</td>
@@ -104,12 +96,12 @@ Die Werte, die kombiniert werden können, um die Bitmaske zu bilden, sind:
     <tr>
       <td><code>NodeFilter.SHOW_PROCESSING_INSTRUCTION</code></td>
       <td><code>64</code></td>
-      <td>Zeigt {{ domxref("ProcessingInstruction") }}-Knoten an.</td>
+      <td>Zeigt [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Knoten.</td>
     </tr>
     <tr>
       <td><code>NodeFilter.SHOW_TEXT</code></td>
       <td><code>4</code></td>
-      <td>Zeigt {{ domxref("Text") }}-Knoten an.</td>
+      <td>Zeigt [`Text`](/de/docs/Web/API/Text)-Knoten.</td>
     </tr>
   </tbody>
 </table>
@@ -126,7 +118,7 @@ if (
   nodeIterator.whatToShow & NodeFilter.SHOW_ALL ||
   nodeIterator.whatToShow & NodeFilter.SHOW_COMMENT
 ) {
-  // nodeIterator wird Kommentare anzeigen
+  // nodeIterator will show comments
 }
 ```
 
@@ -140,4 +132,4 @@ if (
 
 ## Siehe auch
 
-- Die Schnittstelle, zu der diese Eigenschaft gehört: {{domxref("NodeIterator")}}.
+- Die Schnittstelle, zu der diese Eigenschaft gehört: [`NodeIterator`](/de/docs/Web/API/NodeIterator).

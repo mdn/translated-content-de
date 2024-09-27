@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte **`mediaElement`**-Eigenschaft des {{domxref("MediaElementAudioSourceNode")}}-Interfaces gibt das {{domxref("HTMLMediaElement")}} an, das den Audiotrack enthält, von dem der Knoten Audio empfängt.
+Die schreibgeschützte **`mediaElement`**-Eigenschaft des [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode)-Interfaces zeigt das [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) an, das den Audio-Track enthält, von dem der Knoten Audio empfängt.
 
-Dieser Stream wurde beim ersten Erstellen des Knotens angegeben, entweder durch den {{domxref("MediaElementAudioSourceNode.MediaElementAudioSourceNode", "MediaElementAudioSourceNode()")}}-Konstruktor oder die {{domxref("AudioContext.createMediaElementSource()")}}-Methode.
+Dieser Stream wurde beim Erstellen des Knotens angegeben, entweder mithilfe des [`MediaElementAudioSourceNode()`](/de/docs/Web/API/MediaElementAudioSourceNode/MediaElementAudioSourceNode)-Konstruktors oder der Methode [`AudioContext.createMediaElementSource()`](/de/docs/Web/API/AudioContext/createMediaElementSource).
 
 ## Wert
 
-Ein {{domxref("HTMLMediaElement")}}, das das Element darstellt, das die Audioquelle für den Knoten enthält.
+Ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement), das das Element darstellt, welches die Audioquelle für den Knoten enthält.
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "GPUCommandEncoder: copyTextureToTexture() Methode"
+title: "GPUCommandEncoder: copyTextureToTexture()-Methode"
 short-title: copyTextureToTexture()
 slug: Web/API/GPUCommandEncoder/copyTextureToTexture
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`copyTextureToTexture()`** Methode des {{domxref("GPUCommandEncoder")}}-Interfaces kodiert einen Befehl, der Daten von einer {{domxref("GPUTexture")}} zu einer anderen kopiert.
+Die **`copyTextureToTexture()`**-Methode der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle kodiert einen Befehl, der Daten von einer [`GPUTexture`](/de/docs/Web/API/GPUTexture) zu einer anderen kopiert.
 
 ## Syntax
 
@@ -19,14 +19,14 @@ copyTextureToTexture(source, destination, copySize)
 ### Parameter
 
 - `source`
-  - : Ein Objekt (siehe [Struktur des Kopier-Textur-Objekts](#struktur_des_kopier-textur-objekts)), das die Textur definiert, von der die Daten kopiert werden. Zusammen mit `copySize` definiert dies den Bereich der Quelltextur-Subressource.
+  - : Ein Objekt (siehe [Aufbau eines Kopier-Texturobjekts](#aufbau_eines_kopier-texturobjekts)), das die Textur definiert, aus der die Daten kopiert werden sollen. Zusammen mit `copySize` definiert es den Bereich der Quelltextur-Subressource.
 - `destination`
-  - : Ein Objekt (siehe [Struktur des Kopier-Textur-Objekts](#struktur_des_kopier-textur-objekts)), das die Textur definiert, in die die Daten geschrieben werden. Zusammen mit `copySize` definiert dies den Bereich der Zieltextur-Subressource.
+  - : Ein Objekt (siehe [Aufbau eines Kopier-Texturobjekts](#aufbau_eines_kopier-texturobjekts)), das die Textur definiert, in die die Daten geschrieben werden sollen. Zusammen mit `copySize` definiert es den Bereich der Zieltextur-Subressource.
 - `copySize`
 
-  - : Ein Objekt oder Array, das die Breite, Höhe und Tiefe/Array-Schichtanzahl der kopierten Daten spezifiziert. Der Breitenwert muss immer angegeben werden, während die Werte für Höhe und Tiefe/Array-Schichtanzahl optional sind und standardmäßig 1 betragen, wenn sie weggelassen werden.
+  - : Ein Objekt oder Array, das die Breite, Höhe und Tiefe/Anzahl der Array-Schichten der kopierten Daten angibt. Der Breitenwert muss immer angegeben werden, während die Höhen- und Tiefen/Array-Schichtenzahlen optional sind und standardmäßig auf 1 gesetzt werden, wenn sie weggelassen werden.
 
-    Nachfolgend ein Beispiel für ein `copySize` Array:
+    Im Folgenden ein Beispiel für ein `copySize`-Array:
 
     ```js
     [16, 16, 2];
@@ -42,30 +42,30 @@ copyTextureToTexture(source, destination, copySize)
     }
     ```
 
-### Struktur des Kopier-Textur-Objekts
+### Aufbau eines Kopier-Texturobjekts
 
-Ein Kopier-Textur-Objekt hat die folgende Struktur:
+Ein Kopier-Texturobjekt hat folgende Struktur:
 
 - `aspect` {{optional_inline}}
 
-  - : Ein enumerierter Wert, der definiert, welche Aspekte der Textur die Daten von/zu kopieren sind. Mögliche Werte sind:
+  - : Ein aufgezählter Wert, der definiert, welche Aspekte der Textur die Daten kopiert werden sollen. Mögliche Werte sind:
 
     - `"all"`
-      - : Alle verfügbaren Aspekte des Texturformats werden von/zu kopiert, was alle oder beliebige von Farbe, Tiefe und Stencil umfassen kann, abhängig von dem Format, mit dem Sie arbeiten.
+      - : Alle verfügbaren Aspekte des Texturformats werden kopiert, was je nach Format alle oder einige der Farbe, Tiefe und Stencil sein können.
     - `"depth-only"`
-      - : Nur der Tiefenaspekt eines [Tiefen-oder-Stencil-Formats](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format) wird von/zu kopiert.
+      - : Nur der Tiefenaspekt eines [depth-or-stencil format](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format) wird kopiert.
     - `"stencil-only"`
-      - : Nur der Stencil-Aspekt eines Tiefen-oder-Stencil-Formats wird von/zu kopiert.
+      - : Nur der Stencil-Aspekt eines depth-or-stencil-Formats wird kopiert.
 
     Wenn weggelassen, nimmt `aspect` den Wert `"all"` an.
 
 - `mipLevel` {{optional_inline}}
-  - : Eine Zahl, die die Mip-Map-Ebene der Textur repräsentiert, von/zu der die Daten kopiert werden. Wenn weggelassen, ist `mipLevel` standardmäßig 0.
+  - : Eine Zahl, die das Mip-Map-Level der Textur darstellt, von oder zu der die Daten kopiert werden sollen. Wenn weggelassen, ist `mipLevel` standardmäßig 0.
 - `origin` {{optional_inline}}
 
-  - : Ein Objekt oder Array, das den Ursprung des Kopier-/Zielbereichs spezifiziert — die minimale Ecke des Texturbereichs, von/zu dem die Daten kopiert werden. Zusammen mit `size` definiert dies den gesamten Bereich, der kopiert werden soll. Die Werte für `x`, `y` und `z` sind standardmäßig 0, wenn irgendein Teil oder das gesamte `origin` weggelassen wird.
+  - : Ein Objekt oder Array, das den Ursprung der Kopie/des Ziels angibt — die minimale Ecke des Texturbereichs, von oder zu der die Daten kopiert werden sollen. Zusammen mit `size` definiert es den gesamten Umfang des zu kopierenden Bereichs. Die Werte `x`, `y` und `z` sind standardmäßig 0, wenn `origin` ganz oder teilweise weggelassen wird.
 
-    Nachfolgend ein Beispiel-Array:
+    Im Folgenden ein Beispiel für ein Array:
 
     ```js
     [0, 0, 0];
@@ -82,7 +82,7 @@ Ein Kopier-Textur-Objekt hat die folgende Struktur:
     ```
 
 - `texture`
-  - : Ein {{domxref("GPUTexture")}} Objekt, das die Textur repräsentiert, von/zu der die Daten kopiert werden.
+  - : Ein [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objekt, das die Textur repräsentiert, von oder zu der die Daten kopiert werden sollen.
 
 ### Rückgabewert
 
@@ -90,28 +90,28 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`copyTextureToTexture()`** aufgerufen wird, andernfalls wird ein {{domxref("GPUValidationError")}} erzeugt und der {{domxref("GPUCommandEncoder")}} wird ungültig.
+Die folgenden Kriterien müssen erfüllt sein, wenn **`copyTextureToTexture()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) wird ungültig.
 
-Für die `source`:
+Für das `source`:
 
-- Die {{domxref("GPUTexture.usage")}} der `source` enthält das `GPUTextureUsage.COPY_SRC` Flag.
+- Das [`GPUTexture.usage`](/de/docs/Web/API/GPUTexture/usage) des `source` enthält das `GPUTextureUsage.COPY_SRC`-Flag.
 
-Für die `destination`:
+Für das `destination`:
 
-- Die {{domxref("GPUTexture.usage")}} der `destination` enthält das `GPUTextureUsage.COPY_DST` Flag.
+- Das [`GPUTexture.usage`](/de/docs/Web/API/GPUTexture/usage) des `source` enthält das `GPUTextureUsage.COPY_DST`-Flag.
 
 Für `source` und `destination`:
 
-- `mipLevel` ist kleiner als die {{domxref("GPUTexture.mipLevelCount")}}.
-- `origin.x` ist ein Vielfaches der Texelblockbreite des {{domxref("GPUTexture.format")}}.
-- `origin.y` ist ein Vielfaches der Texelblockhöhe des {{domxref("GPUTexture.format")}}.
-- Die Quell- und Zieltexturformate {{domxref("GPUTexture.format")}} sind kopier-kompatibel.
-- Die Quell- und Zieltexturen haben die gleiche Anzahl von Proben {{domxref("GPUTexture.sampleCount")}}.
-- Wenn das {{domxref("GPUTexture.format")}} ein [Tiefen-oder-Stencil-Format](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format) ist oder {{domxref("GPUTexture.sampleCount")}} größer als 1 ist, ist die Subressourcengröße gleich `size`.
-- Die {{domxref("GPUTexture.sampleCount")}} der `texture` ist 1.
-- `aspect` bezieht sich auf einen einzelnen Aspekt des {{domxref("GPUTexture.format")}}.
-- Dieser Aspekt ist eine gültige Bildkopiequelle/-ziel gemäß [Tiefen-oder-Stencil-Formaten](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format).
-- Die `texture` ist kompatibel mit der `copySize`.
+- `mipLevel` ist kleiner als die [`GPUTexture.mipLevelCount`](/de/docs/Web/API/GPUTexture/mipLevelCount).
+- `origin.x` ist ein Vielfaches der Texel-Block-Breite des [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format).
+- `origin.y` ist ein Vielfaches der Texel-Block-Höhe des [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format).
+- Die `texture`-Formate [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format) der Quelle und des Ziels sind kopierkompatibel.
+- Die `texture`-Abtastzahlen [`GPUTexture.sampleCount`](/de/docs/Web/API/GPUTexture/sampleCount) der Quelle und des Ziels sind gleich.
+- Wenn das [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format) ein [depth-or-stencil format](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format) ist oder [`GPUTexture.sampleCount`](/de/docs/Web/API/GPUTexture/sampleCount) mehr als 1 ist, ist die Subressourcengröße gleich `size`.
+- Die `texture` hat eine [`GPUTexture.sampleCount`](/de/docs/Web/API/GPUTexture/sampleCount) von 1.
+- `aspect` bezieht sich auf einen einzelnen Aspekt des [`GPUTexture.format`](/de/docs/Web/API/GPUTexture/format).
+- Dieser Aspekt ist eine gültige Bildkopiequelle/-ziel gemäß [depth-or-stencil formats](https://gpuweb.github.io/gpuweb/#combined-depth-stencil-format).
+- Die `texture` ist kompatibel mit `copySize`.
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "<p>: Das Absatz-Element"
+title: "<p>: Das Paragraph-Element"
 slug: Web/HTML/Element/p
 l10n:
   sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
@@ -7,9 +7,9 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<p>`** [HTML](/de/docs/Web/HTML) Element repräsentiert einen Absatz. Absätze werden in visuellen Medien normalerweise als Textblöcke dargestellt, die durch Leerzeilen und/oder Einrückungen der ersten Zeile von benachbarten Blöcken getrennt sind. HTML-Absätze können jedoch jede strukturelle Gruppierung verwandter Inhalte sein, wie z.B. Bilder oder Formularelemente.
+Das **`<p>`**-Element [HTML](/de/docs/Web/HTML) stellt einen Absatz dar. Absätze werden in visuellen Medien normalerweise als Textblöcke dargestellt, die durch Leerzeilen und/oder Einzüge der ersten Zeile von angrenzenden Blöcken getrennt sind. HTML-Absätze können jedoch auch jede strukturelle Gruppierung von verwandtem Inhalt, wie Bilder oder Formularelemente, umfassen.
 
-Absätze sind [block-level Elemente](/de/docs/Glossary/Block-level_content) und schließen sich automatisch, wenn ein anderes Block-Element vor dem schließenden `</p>`-Tag analysiert wird. Siehe "Tag-Auslassung" unten.
+Absätze sind [Block-Elemente](/de/docs/Glossary/Block-level_content) und schließen sich automatisch, wenn ein anderes Block-Element vor dem schließenden `</p>`-Tag geparst wird. Siehe "Tag-Auslassung" unten.
 
 {{EmbedInteractiveExample("pages/tabbed/p.html", "tabbed-standard")}}
 
@@ -22,15 +22,15 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 ## Barrierefreiheit
 
-Das Aufteilen von Inhalten in Absätze trägt zur Verbesserung der Zugänglichkeit einer Seite bei. Screenreader und andere unterstützende Technologien bieten Abkürzungen, die es ihren Nutzern ermöglichen, zum nächsten oder vorherigen Absatz zu springen, wodurch sie Inhalte durchfliegen können, ähnlich wie Weißraum es visuellen Nutzern ermöglicht, hin und her zu springen.
+Das Aufteilen von Inhalten in Absätze trägt zur Zugänglichkeit einer Seite bei. Screenreader und andere unterstützende Technologien bieten Abkürzungen, damit ihre Benutzer zum nächsten oder vorherigen Absatz springen können, was ihnen ermöglicht, den Inhalt zu überfliegen, ähnlich wie Leerraum es visuellen Nutzern ermöglicht, zwischen Inhalten zu springen.
 
-Die Verwendung leerer `<p>`-Elemente, um Platz zwischen Absätzen zu schaffen, ist problematisch für Menschen, die mit Bildschirmlesetechnologie navigieren. Bildschirmleser können das Vorhandensein des Absatzes ankündigen, aber keinen Inhalt – da keiner vorhanden ist. Dies kann die Person verwirren und frustrieren, die den Screenreader benutzt.
+Leere `<p>`-Elemente zu verwenden, um Platz zwischen Absätzen zu schaffen, kann für Personen, die mit Screenreader-Technologie navigieren, problematisch sein. Screenreader könnten das Vorhandensein des Absatzes ankündigen, aber keinen Inhalt innerhalb desselben - da keiner vorhanden ist. Dies kann die Person, die den Screenreader verwendet, verwirren und frustrieren.
 
-Wenn mehr Platz gewünscht ist, verwenden Sie {{glossary("CSS")}}-Eigenschaften wie {{cssxref("margin")}}, um den Effekt zu erzielen:
+Wenn zusätzlicher Platz gewünscht wird, verwenden Sie [CSS](/de/docs/Glossary/CSS)-Eigenschaften wie {{cssxref("margin")}}, um den Effekt zu erzielen:
 
 ```css
 p {
-  margin-bottom: 2em; /* erhöht den Leerraum nach einem Absatz */
+  margin-bottom: 2em; /* increase white space after a paragraph */
 }
 ```
 
@@ -40,12 +40,12 @@ p {
 
 ```html
 <p>
-  Dies ist der erste Absatz des Textes. Dies ist der erste Absatz des Textes. Dies
-  ist der erste Absatz des Textes. Dies ist der erste Absatz des Textes.
+  This is the first paragraph of text. This is the first paragraph of text. This
+  is the first paragraph of text. This is the first paragraph of text.
 </p>
 <p>
-  Dies ist der zweite Absatz. Dies ist der zweite Absatz. Dies ist der zweite
-  Absatz. Dies ist der zweite Absatz.
+  This is the second paragraph. This is the second paragraph. This is the second
+  paragraph. This is the second paragraph.
 </p>
 ```
 
@@ -55,35 +55,33 @@ p {
 
 ## Absätze stylen
 
-Standardmäßig trennen Browser Absätze mit einer einzelnen Leerzeile. Alternative Trennmethoden, wie z.B. Einrückung der ersten Zeile, können mit {{glossary("CSS")}} erreicht werden:
+Standardmäßig trennen Browser Absätze mit einer einzelnen Leerzeile. Alternativen zur Trennung, wie Einzüge der ersten Zeile, können mit [CSS](/de/docs/Glossary/CSS) erreicht werden:
 
 ### HTML
 
 ```html
 <p>
-  Absätze mit Leerzeilen zu trennen, ist am einfachsten für Leser zu erfassen,
-  aber sie können auch durch Einrücken ihrer ersten Zeilen getrennt werden. Dies
-  wird oft verwendet, um weniger Platz einzunehmen, z.B. um Papier im Druck zu
-  sparen.
+  Separating paragraphs with blank lines is easiest for readers to scan, but
+  they can also be separated by indenting their first lines. This is often used
+  to take up less space, such as to save paper in print.
 </p>
 
 <p>
-  Texte, die bearbeitet werden sollen, wie Schularbeiten und Rohentwürfe,
-  verwenden sowohl Leerzeilen als auch Einrückungen zur Trennung. In fertigen
-  Arbeiten wird die Kombination beider als redundant und unprofessionell
-  betrachtet.
+  Writing that is intended to be edited, such as school papers and rough drafts,
+  uses both blank lines and indentation for separation. In finished works,
+  combining both is considered redundant and amateurish.
 </p>
 
 <p>
-  In sehr alten Schriften wurden Absätze mit einem speziellen Zeichen getrennt: ¶,
-  dem <i>Absatzzeichen</i>. Heutzutage wird dies als klaustrophobisch und schwer
-  lesbar angesehen.
+  In very old writing, paragraphs were separated with a special character: ¶,
+  the <i>pilcrow</i>. Nowadays, this is considered claustrophobic and hard to
+  read.
 </p>
 
 <p>
-  Wie schwer lesbar? Sehen Sie selbst:
-  <button data-toggle-text="Oh nein! Wechseln Sie zurück!">
-    Verwenden Sie das Absatzzeichen für Absätze
+  How hard to read? See for yourself:
+  <button data-toggle-text="Oh no! Switch back!">
+    Use pilcrow for paragraphs
   </button>
 </p>
 ```
@@ -130,29 +128,23 @@ document.querySelector("button").addEventListener("click", (event) => {
   <tbody>
     <tr>
       <th scope="row">
-        <a href="/de/docs/Web/HTML/Content_categories"
-          >Inhaltskategorien</a
-        >
+        <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
-        >, greifbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließender Inhalt</a>, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
-        >.
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phrase-Inhalte</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Starttag ist erforderlich. Das Endtag kann weggelassen werden, wenn das
-        <code>&lt;p&gt;</code>-Element unmittelbar gefolgt wird von einem
+        Das Start-Tag ist erforderlich. Das End-Tag kann ausgelassen werden, wenn das
+        <code>&lt;p&gt;</code>-Element direkt von einem
         {{HTMLElement("address")}},
         {{HTMLElement("article")}}, {{HTMLElement("aside")}},
         {{HTMLElement("blockquote")}}, {{HTMLElement("details")}}, {{HTMLElement("div")}},
@@ -166,39 +158,35 @@ document.querySelector("button").addEventListener("click", (event) => {
         {{HTMLElement("main")}}, {{HTMLElement("menu")}}, {{HTMLElement("nav")}},
         {{HTMLElement("ol")}}, {{HTMLElement("pre")}}, {{HTMLElement("search")}},
         {{HTMLElement("section")}}, {{HTMLElement("table")}},
-        {{HTMLElement("ul")}} oder einem anderen <code>&lt;p&gt;</code>
-        Element, oder wenn kein weiterer Inhalt im übergeordneten Element vorhanden ist und das
-        übergeordnete Element kein {{HTMLElement("a")}}, {{HTMLElement("audio")}},
+        {{HTMLElement("ul")}} oder einem anderen <code>&lt;p&gt;</code>-Element gefolgt ist,
+        oder wenn es im Elternelement keinen weiteren Inhalt gibt und das
+        Elternelement kein {{HTMLElement("a")}}, {{HTMLElement("audio")}},
         {{HTMLElement("del")}}, {{HTMLElement("ins")}}, {{HTMLElement("map")}},
-        {{HTMLElement("noscript")}} oder {{HTMLElement("video")}} Element ist,
-        oder ein autonomes benutzerdefiniertes Element.
+        {{HTMLElement("noscript")}} oder {{HTMLElement("video")}}-Element
+        oder ein autonomes benutzerdefiniertes Element ist.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >fließenden Inhalt</a
-        >
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">fließenden Inhalt</a>
         akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles"
-          >Absatz</a
-        >
+        <a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles">paragraph</a>
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <td>Any</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLParagraphElement")}}</td>
+      <td>[`HTMLParagraphElement`](/de/docs/Web/API/HTMLParagraphElement)</td>
     </tr>
   </tbody>
 </table>

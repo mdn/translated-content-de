@@ -7,25 +7,25 @@ l10n:
 
 {{HTMLSidebar}}{{Deprecated_Header}}
 
-Das **`<font>`** [HTML](/de/docs/Web/HTML)-Element definiert die Schriftgröße, Farbe und Schriftart für seinen Inhalt.
+Das **`<font>`**-[HTML](/de/docs/Web/HTML)-Element definiert die Schriftgröße, die Farbe und das Schriftbild für seinen Inhalt.
 
 > [!WARNING]
-> Verwenden Sie dieses Element nicht. Nutzen Sie die CSS-[Schriftarten](/de/docs/Web/CSS/CSS_fonts)-Eigenschaften, um Text zu formatieren.
+> Verwenden Sie dieses Element nicht. Nutzen Sie stattdessen die CSS-[Fonts](/de/docs/Web/CSS/CSS_fonts)-Eigenschaften, um Text zu gestalten.
 
 ## Attribute
 
 Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `color` {{Deprecated_Inline}}
-  - : Dieses Attribut legt die Textfarbe entweder mit einem benannten Farbwert oder im hexadezimalen #RRGGBB-Format fest.
+  - : Dieses Attribut legt die Textfarbe entweder mit einem benannten Farbwert oder einem Farbwert im hexadezimalen Format #RRGGBB fest.
 - `face` {{Deprecated_Inline}}
-  - : Dieses Attribut enthält eine durch Kommas getrennte Liste von einem oder mehreren Schriftnamen. Der Dokumenttext im Standardstil wird in der ersten Schriftart gerendert, die der Browser des Clients unterstützt. Wenn keine der aufgelisteten Schriften auf dem lokalen System installiert ist, verwendet der Browser in der Regel die proportionale oder festbreite Schriftart für dieses System.
+  - : Dieses Attribut enthält eine durch Kommas getrennte Liste von einem oder mehreren Schriftartnamen. Der Text des Dokuments in der Standarddarstellung wird in der ersten Schriftart gerendert, die der Browser des Clients unterstützt. Wenn keine der aufgeführten Schriftarten auf dem lokalen System installiert ist, wechselt der Browser typischerweise zur proportialen oder festbreiten Schriftart für dieses System.
 - `size` {{Deprecated_Inline}}
-  - : Dieses Attribut gibt die Schriftgröße entweder als numerischen oder relativen Wert an. Numerische Werte reichen von `1` bis `7`, wobei `1` die kleinste und `3` die Standardgröße ist. Es kann mit einem relativen Wert wie `+2` oder `-3` definiert werden, der relativ zu `3`, dem Standardwert, gesetzt wird.
+  - : Dieses Attribut gibt die Schriftgröße entweder als numerischen oder relativen Wert an. Numerische Werte reichen von `1` bis `7`, wobei `1` die kleinste und `3` die Standardeinstellung ist. Es kann mit einem relativen Wert angegeben werden, wie `+2` oder `-3`, der es relativ zu `3`, dem Standardwert, festlegt.
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("HTMLFontElement")}} Schnittstelle.
+Dieses Element implementiert die [`HTMLFontElement`](/de/docs/Web/API/HTMLFontElement)-Schnittstelle.
 
 <!-- ## Technische Zusammenfassung -->
 

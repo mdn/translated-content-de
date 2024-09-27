@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`height`**-Eigenschaft des {{domxref("HTMLIFrameElement")}}-Interfaces gibt einen String zurück, der das `height`-Attribut des {{HTMLElement("iframe")}}-Elements widerspiegelt und die Höhe des Rahmens in CSS-Pixeln angibt.
+Die **`height`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Interfaces gibt einen String zurück, der das `height`-Attribut des {{HTMLElement("iframe")}}-Elements widerspiegelt und die Höhe des Rahmens in CSS-Pixeln angibt.
 
 ## Wert
 
@@ -22,7 +22,7 @@ Ein String, der die Höhe des Rahmens in CSS-Pixeln angibt.
 
 ```js
 const el = document.getElementById("el");
-console.log(el.height); // Ausgabe: '600'
+console.log(el.height); // Output: '600'
 ```
 
 ## Spezifikationen
@@ -35,9 +35,9 @@ console.log(el.height); // Ausgabe: '600'
 
 ## Siehe auch
 
-- {{domxref("HTMLCanvasElement.height")}}
-- {{domxref("HTMLEmbedElement.height")}}
-- {{domxref("HTMLImageElement.height")}}
-- {{domxref("HTMLObjectElement.height")}}
-- {{domxref("HTMLSourceElement.height")}}
-- {{domxref("HTMLVideoElement.height")}}
+- [`HTMLCanvasElement.height`](/de/docs/Web/API/HTMLCanvasElement/height)
+- [`HTMLEmbedElement.height`](/de/docs/Web/API/HTMLEmbedElement/height)
+- [`HTMLImageElement.height`](/de/docs/Web/API/HTMLImageElement/height)
+- [`HTMLObjectElement.height`](/de/docs/Web/API/HTMLObjectElement/height)
+- [`HTMLSourceElement.height`](/de/docs/Web/API/HTMLSourceElement/height)
+- [`HTMLVideoElement.height`](/de/docs/Web/API/HTMLVideoElement/height)

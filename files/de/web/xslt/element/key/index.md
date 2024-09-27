@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:key>`-Element deklariert einen benannten Schlüssel, der an anderer Stelle im Stylesheet mit der `key()`-Funktion verwendet werden kann.
+Das `<xsl:key>`-Element deklariert einen benannten Schlüssel, der an anderer Stelle im Stylesheet mit der Funktion `key( )` verwendet werden kann.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Das `<xsl:key>`-Element deklariert einen benannten Schlüssel, der an anderer St
 ### Erforderliche Attribute
 
 - `name`
-  - : Spezifiziert einen Namen für diesen Schlüssel. Muss ein QName sein.
+  - : Gibt einen Namen für diesen Schlüssel an. Muss ein QName sein.
 - `match`
   - : Definiert die Knoten, für die dieser Schlüssel anwendbar ist.
 - `use`
@@ -31,12 +31,12 @@ Keine.
 
 ### Typ
 
-Top-Level, muss Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
+Oberste Ebene, muss das Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
 
 ## Spezifikationen
 
 XSLT, Abschnitt 12.2.
 
-## Gecko-Unterstützung
+## Browser-Kompatibilität
 
 Unterstützt.

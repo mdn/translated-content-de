@@ -1,5 +1,5 @@
 ---
-title: "SVGLengthList: Methode insertItemBefore()"
+title: "SVGLengthList: insertItemBefore()-Methode"
 short-title: insertItemBefore()
 slug: Web/API/SVGLengthList/insertItemBefore
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`insertItemBefore()`**-Methode der {{domxref("SVGLengthList")}}-Schnittstelle fügt ein neues Element an der angegebenen Position in die Liste ein. Das erste Element hat den Index 0. Wenn das neue Element bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Wenn sich das Element bereits in dieser Liste befindet, beachten Sie, dass der Index des Elements, vor dem eingefügt werden soll, vor der Entfernung des Elements steht. Wenn der Index gleich 0 ist, wird das neue Element an den Anfang der Liste eingefügt. Wenn der Index größer oder gleich der {{domxref("SVGLengthList.length", "length")}} ist, wird das neue Element an das Ende der Liste angehängt.
+Die **`insertItemBefore()`**-Methode der [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Schnittstelle fügt ein neues Element an der angegebenen Position in die Liste ein. Das erste Element ist mit 0 indiziert. Wenn das neue Element bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Wenn sich das Element bereits in dieser Liste befindet, beachten Sie, dass der Index des einzufügenden Elements vor der Entfernung des Elements liegt. Wenn der Index gleich 0 ist, wird das neue Element am Anfang der Liste eingefügt. Wenn der Index größer oder gleich der [`length`](/de/docs/Web/API/SVGLengthList/length) ist, wird das neue Element am Ende der Liste angehängt.
 
 ## Syntax
 
@@ -19,27 +19,27 @@ insertItemBefore(newItem, index)
 ### Parameter
 
 - `newItem`
-  - : Der {{domxref("SVGLength")}} der zur Liste hinzugefügt werden soll.
+  - : Das [`SVGLength`](/de/docs/Web/API/SVGLength), das der Liste hinzugefügt werden soll.
 - `index`
-  - : Ein nicht-negativer ganzzahliger Wert, der den Index des Elements angibt, vor dem das neue Element eingefügt werden soll.
+  - : Eine nicht negative Ganzzahl, die den Index des Elements angibt, vor dem das neue Element eingefügt werden soll.
 
 ### Rückgabewert
 
-Der {{domxref("SVGLength")}}, der zur Liste hinzugefügt wurde.
+Das [`SVGLength`](/de/docs/Web/API/SVGLength), das der Liste hinzugefügt wurde.
 
 ### Ausnahmen
 
-- {{domxref("DOMException")}} `NoModificationAllowedError`
+- [`DOMException`](/de/docs/Web/API/DOMException) `NoModificationAllowedError`
   - : Wird ausgelöst, wenn die Liste schreibgeschützt ist.
 
 ## Beispiele
 
-Siehe {{domxref("SVGLengthList")}} für ein vollständiges Beispiel.
+Siehe [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) für ein vollständiges Beispiel.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

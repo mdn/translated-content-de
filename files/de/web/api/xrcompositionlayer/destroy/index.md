@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`destroy()`**-Methode der {{domxref("XRCompositionLayer")}}-Schnittstelle löscht die Referenzen zur zugrunde liegenden Grafikbibliothek für die Ebene. Sie setzt außerdem die Farbtexturen und die Tiefenstencil-Texturarrays auf ein leeres Array.
+Die **`destroy()`**-Methode der [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)-Schnittstelle löscht die Verweise auf die zugrunde liegende Grafikbibliothek für die Ebene. Sie setzt zudem die Farbetexturen und Tiefenstencil-Texturarrays auf ein leeres Array.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 

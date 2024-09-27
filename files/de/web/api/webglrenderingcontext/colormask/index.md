@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode colorMask()"
+title: "WebGLRenderingContext: colorMask() Methode"
 short-title: colorMask()
 slug: Web/API/WebGLRenderingContext/colorMask
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.colorMask()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) legt fest, welche Farbkomponenten beim Zeichnen oder Rendern in einen {{domxref("WebGLFramebuffer")}} aktiviert oder deaktiviert werden sollen.
+Die **`WebGLRenderingContext.colorMask()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt fest, welche Farbkomponenten aktiviert oder deaktiviert werden sollen, wenn zu einem [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) gezeichnet oder gerendert wird.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ colorMask(red, green, blue, alpha)
 ### Parameter
 
 - `red`
-  - : Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob die rote Farbkomponente in den Framebuffer geschrieben werden kann oder nicht. Standardwert: `true`.
+  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die rote Farbkomponente in den Frame-Buffer geschrieben werden kann oder nicht. Standardwert: `true`.
 - `green`
-  - : Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob die grüne Farbkomponente in den Framebuffer geschrieben werden kann oder nicht. Standardwert: `true`.
+  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die grüne Farbkomponente in den Frame-Buffer geschrieben werden kann. Standardwert: `true`.
 - `blue`
-  - : Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob die blaue Farbkomponente in den Framebuffer geschrieben werden kann oder nicht. Standardwert: `true`.
+  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die blaue Farbkomponente in den Frame-Buffer geschrieben werden kann. Standardwert: `true`.
 - `alpha`
-  - : Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob die Alpha- (Transparenz-)Komponente in den Framebuffer geschrieben werden kann oder nicht. Standardwert: `true`.
+  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die Alpha- (Transparenz) Komponente in den Frame-Buffer geschrieben werden kann. Standardwert: `true`.
 
 ### Rückgabewert
 
@@ -37,7 +37,7 @@ Keiner ({{jsxref("undefined")}}).
 gl.colorMask(true, true, true, false);
 ```
 
-Um die aktuelle Farbmaske zu erhalten, fragen Sie die Konstante `COLOR_WRITEMASK` ab, die ein {{jsxref("Array")}} zurückgibt.
+Um die aktuelle Farbmaske zu erhalten, fragen Sie die `COLOR_WRITEMASK` Konstante ab, die ein {{jsxref("Array")}} zurückgibt.
 
 ```js
 gl.getParameter(gl.COLOR_WRITEMASK);
@@ -54,5 +54,5 @@ gl.getParameter(gl.COLOR_WRITEMASK);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.depthMask()")}}
-- {{domxref("WebGLRenderingContext.stencilMask()")}}
+- [`WebGLRenderingContext.depthMask()`](/de/docs/Web/API/WebGLRenderingContext/depthMask)
+- [`WebGLRenderingContext.stencilMask()`](/de/docs/Web/API/WebGLRenderingContext/stencilMask)

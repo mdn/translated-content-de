@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`drop`**-Ereignis wird ausgelöst, wenn ein Element oder eine Textauswahl auf ein gültiges Ziehziel abgelegt wird. Um sicherzustellen, dass das `drop`-Ereignis immer wie erwartet ausgelöst wird, sollten Sie immer einen Aufruf von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) in dem Teil Ihres Codes einfügen, der das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis behandelt.
+Das **`drop`**-Ereignis wird ausgelöst, wenn ein Element oder eine Textauswahl auf ein gültiges Ziel für das Ablegen fallen gelassen wird. Um sicherzustellen, dass das `drop`-Ereignis immer wie erwartet ausgelöst wird, sollten Sie in dem Teil Ihres Codes, der das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignis behandelt, immer einen Aufruf von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) einfügen.
 
-Dieses Ereignis kann abgebrochen werden und kann bis zum {{domxref("Document")}} und {{domxref("Window")}}-Objekten hochblubbern.
+Dieses Ereignis kann abgebrochen werden und kann sich bis zu den [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekten ausbreiten.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("drop", (event) => {});
@@ -24,30 +24,30 @@ ondrop = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("DragEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("DragEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle {{domxref("Event")}} verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref('DragEvent.dataTransfer')}} {{ReadOnlyInline}}
+- [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
   - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
 
 ## Beispiele
 
 ### Ein minimales Drag-and-Drop-Beispiel
 
-In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, über den anderen Container zu ziehen und loszulassen.
+In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu ergreifen, es über den anderen Container zu ziehen und es loszulassen.
 
-Wir verwenden hier drei Ereignishandler:
+Wir verwenden hier drei Ereignis-Handler:
 
-- Im `dragstart`-Ereignishandler erhalten wir eine Referenz zu dem Element, das der Benutzer gezogen hat
-- Im `dragover`-Ereignishandler für den Zielcontainer rufen wir `event.preventDefault()` auf, was es ermöglicht, `drop`-Ereignisse zu empfangen.
-- Im `drop`-Ereignishandler für die Ablagezone behandeln wir das Verschieben des ziehbaren Elements vom ursprünglichen Container zur Ablagezone.
+- Im `dragstart`-Ereignis-Handler erhalten wir eine Referenz auf das Element, das der Benutzer gezogen hat.
+- Im `dragover`-Ereignis-Handler für den Zielcontainer rufen wir `event.preventDefault()` auf, was ihm ermöglicht, `drop`-Ereignisse zu empfangen.
+- Im `drop`-Ereignis-Handler für die Ablagezone behandeln wir das Verschieben des ziehbaren Elements vom ursprünglichen Container zur Ablagezone.
 
-Für ein vollständigeres Beispiel von Drag and Drop sehen Sie sich die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis an.
+Für ein vollständigeres Beispiel zum Ziehen und Ablegen, siehe die Seite zum [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
 #### HTML
 
@@ -62,7 +62,7 @@ Für ein vollständigeres Beispiel von Drag and Drop sehen Sie sich die Seite f�
 
 ```css
 body {
-  /* Verhindern Sie, dass der Benutzer im Beispiel Text auswählt */
+  /* Prevent the user from selecting text in the example */
   user-select: none;
 }
 
@@ -122,11 +122,11 @@ target.addEventListener("drop", (event) => {
 
 ## Siehe auch
 
-- Andere Drag and Drop-Ereignisse:
+- Andere Drag-and-Drop-Ereignisse:
 
-  - {{domxref("HTMLElement/drag_event", "drag")}}
-  - {{domxref("HTMLElement/dragstart_event", "dragstart")}}
-  - {{domxref("HTMLElement/dragend_event", "dragend")}}
-  - {{domxref("HTMLElement/dragover_event", "dragover")}}
-  - {{domxref("HTMLElement/dragenter_event", "dragenter")}}
-  - {{domxref("HTMLElement/dragleave_event", "dragleave")}}
+  - [`drag`](/de/docs/Web/API/HTMLElement/drag_event)
+  - [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)
+  - [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)
+  - [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)
+  - [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)
+  - [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)

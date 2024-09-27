@@ -7,43 +7,43 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCRtpSender`**-Interface bietet die Möglichkeit, die Kodierung und den Versand eines bestimmten {{domxref("MediaStreamTrack")}} an einen entfernten Peer zu steuern und Details darüber zu erhalten.
+Das **`RTCRtpSender`**-Interface bietet die Möglichkeit, die Kodierung und Übertragung eines bestimmten [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zu einem entfernten Peer zu steuern und Details darüber zu erhalten.
 
-Damit können Sie die für den entsprechenden Track verwendete Kodierung konfigurieren, Informationen über die Medienfähigkeiten des Geräts abrufen und so weiter. Sie können auch auf einen {{domxref("RTCDTMFSender")}} zugreifen, der verwendet werden kann, um {{Glossary("DTMF")}}-Codes (zur Simulation des Drückens von Tasten auf einer Telefontastatur) an den entfernten Peer zu senden.
+Damit können Sie die für den entsprechenden Track verwendete Kodierung konfigurieren, Informationen über die Medienfähigkeiten des Geräts erhalten und so weiter. Sie können auch auf einen [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) zugreifen, der verwendet werden kann, um [DTMF](/de/docs/Glossary/DTMF)-Codes (um das Drücken von Tasten auf dem Wähltastenfeld eines Telefons zu simulieren) an den entfernten Peer zu senden.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("RTCRtpSender.dtmf")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("RTCDTMFSender")}}, mit dem {{Glossary("DTMF")}}-Töne unter Verwendung von `telephone-event`-Payloads auf der {{Glossary("RTP")}}-Sitzung gesendet werden können, die durch das `RTCRtpSender`-Objekt dargestellt wird. Wenn `null`, unterstützt der Track und/oder die Verbindung keine DTMF. Nur Audio-Tracks können DTMF unterstützen.
-- {{domxref("RTCRtpSender.track")}} {{ReadOnlyInline}}
-  - : Der {{domxref("MediaStreamTrack")}}, der vom `RTCRtpSender` behandelt wird. Wenn `track` `null` ist, sendet der `RTCRtpSender` nichts.
-- {{domxref("RTCRtpSender.transport")}} {{ReadOnlyInline}}
-  - : Der {{domxref("RTCDtlsTransport")}}, über den der Sender die RTP- und RTCP-Pakete austauscht, die für die Übermittlung von Medien- und Steuerdaten verwendet werden. Dieser Wert ist `null`, bis der Transport hergestellt ist. Wenn Bündelung verwendet wird, können mehr als ein Transceiver das gleiche Transportobjekt teilen.
-- {{domxref("RTCRtpSender.transform")}}
-  - : Ein {{domxref("RTCRtpScriptTransform")}}<!-- or {{domxref("SFrameTransform")}} --> wird verwendet, um einen Transformationsstrom ({{domxref("TransformStream")}}), der in einem Worker-Thread ausgeführt wird, in die Sender-Pipeline einzufügen, sodass Stream-Transformationen auf kodierte Video- und Audio-Frames angewendet werden können, nachdem sie von einem Codec ausgegeben und bevor sie gesendet werden.
+- [`RTCRtpSender.dtmf`](/de/docs/Web/API/RTCRtpSender/dtmf) {{ReadOnlyInline}}
+  - : Ein [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender), der verwendet werden kann, um [DTMF](/de/docs/Glossary/DTMF)-Töne mit `telephone-event`-Payloads in der [RTP](/de/docs/Glossary/RTP)-Sitzung, die durch das `RTCRtpSender`-Objekt dargestellt wird, zu senden. Wenn `null`, unterstützt der Track und/oder die Verbindung kein DTMF. Nur Audio-Tracks können DTMF unterstützen.
+- [`RTCRtpSender.track`](/de/docs/Web/API/RTCRtpSender/track) {{ReadOnlyInline}}
+  - : Der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der vom `RTCRtpSender` verarbeitet wird. Wenn `track` `null` ist, überträgt der `RTCRtpSender` nichts.
+- [`RTCRtpSender.transport`](/de/docs/Web/API/RTCRtpSender/transport) {{ReadOnlyInline}}
+  - : Der [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport), über den der Sender die RTP- und RTCP-Pakete austauscht, die zur Verwaltung der Übertragung von Medien- und Steuerdaten verwendet werden. Dieser Wert ist `null`, bis der Transport etabliert ist. Wenn Bündelung verwendet wird, können mehrere Transceiver das gleiche Transport-Objekt gemeinsam nutzen.
+- [`RTCRtpSender.transform`](/de/docs/Web/API/RTCRtpSender/transform)
+  - : Ein [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)<!-- oder [`SFrameTransform`](/de/docs/Web/API/SFrameTransform) --> wird verwendet, um einen Transformationsstream ([`TransformStream`](/de/docs/Web/API/TransformStream)) in einem Worker-Thread in die Sender-Pipeline einzufügen, sodass Stream-Transformationen auf kodierte Video- und Audio-Frames angewendet werden können, nachdem sie von einem Codec ausgegeben wurden und bevor sie gesendet werden.
 
 ### Veraltete Eigenschaften
 
 - `rtcpTransport` {{deprecated_inline}}
-  - : Diese Eigenschaft wurde entfernt; die RTP- und RTCP-Transporte wurden in einem einzigen Transport kombiniert. Verwenden Sie stattdessen die {{domxref("RTCRtpSender.transport", "transport")}}-Eigenschaft.
+  - : Diese Eigenschaft wurde entfernt; die RTP- und RTCP-Transporte wurden in einem einzigen Transport zusammengefasst. Verwenden Sie stattdessen die [`transport`](/de/docs/Web/API/RTCRtpSender/transport)-Eigenschaft.
 
 ## Statische Methoden
 
-- {{domxref("RTCRtpSender.getCapabilities_static", "RTCRtpSender.getCapabilities()")}}
-  - : Gibt ein Objekt zurück, das die Systemfähigkeiten für das Senden einer bestimmten Art von Mediendaten beschreibt.
+- [`RTCRtpSender.getCapabilities()`](/de/docs/Web/API/RTCRtpSender/getCapabilities_static)
+  - : Gibt ein Objekt zurück, das die Fähigkeiten des Systems für das Senden eines bestimmten Medientyps beschreibt.
 
 ## Instanz-Methoden
 
-- {{domxref("RTCRtpSender.getParameters()")}}
+- [`RTCRtpSender.getParameters()`](/de/docs/Web/API/RTCRtpSender/getParameters)
   - : Gibt ein Objekt zurück, das die aktuelle Konfiguration für die Kodierung und Übertragung von Medien auf dem `track` beschreibt.
-- {{domxref("RTCRtpSender.getStats()")}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("RTCStatsReport")}} erfüllt wird und statistische Daten für alle ausgehenden Streams liefert, die mit diesem `RTCRtpSender` gesendet werden.
-- {{domxref("RTCRtpSender.setParameters()")}}
-  - : Wendet Änderungen an Parametern an, die konfigurieren, wie der `track` kodiert und an den entfernten Peer übertragen wird.
-- {{domxref("RTCRtpSender.setStreams()")}}
-  - : Legt die mit dem vom Sender übertragenen {{domxref("RTCRtpSender.track", "track")}} assoziierten {{domxref("MediaStream", "stream(s)", "", 1)}} fest.
-- {{domxref("RTCRtpSender.replaceTrack()")}}
-  - : Versucht, den aktuell vom `RTCRtpSender` gesendeten Track ohne erneute Verhandlung durch einen anderen Track zu ersetzen. Diese Methode kann beispielsweise verwendet werden, um zwischen der Front- und Rückkamera eines Geräts zu wechseln.
+- [`RTCRtpSender.getStats()`](/de/docs/Web/API/RTCRtpSender/getStats)
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) erfüllt wird, das Statistikdaten für alle ausgehenden Streams bereitstellt, die mit diesem `RTCRtpSender` gesendet werden.
+- [`RTCRtpSender.setParameters()`](/de/docs/Web/API/RTCRtpSender/setParameters)
+  - : Wendet Änderungen an den Parametern an, die konfigurieren, wie der `track` kodiert und an den entfernten Peer gesendet wird.
+- [`RTCRtpSender.setStreams()`](/de/docs/Web/API/RTCRtpSender/setStreams)
+  - : Setzt die {{domxref("MediaStream", "Stream(s)", "", 1)}}, die mit dem [`track`](/de/docs/Web/API/RTCRtpSender/track) verknüpft sind, der von diesem Sender übertragen wird.
+- [`RTCRtpSender.replaceTrack()`](/de/docs/Web/API/RTCRtpSender/replaceTrack)
+  - : Versucht, den derzeit vom `RTCRtpSender` gesendeten Track durch einen anderen Track zu ersetzen, ohne eine Neuverhandlung durchzuführen. Diese Methode kann beispielsweise verwendet werden, um zwischen den nach vorne und hinten gerichteten Kameras eines Geräts zu wechseln.
 
 ## Spezifikationen
 
@@ -56,6 +56,6 @@ Damit können Sie die für den entsprechenden Track verwendete Kodierung konfigu
 ## Siehe auch
 
 - WebRTC API
-- {{domxref("RTCPeerConnection.addTrack()")}}
-- {{domxref("RTCPeerConnection.getSenders()")}}
-- {{domxref("RTCRtpReceiver")}}
+- [`RTCPeerConnection.addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack)
+- [`RTCPeerConnection.getSenders()`](/de/docs/Web/API/RTCPeerConnection/getSenders)
+- [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)

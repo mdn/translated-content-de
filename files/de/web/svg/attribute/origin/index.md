@@ -1,5 +1,5 @@
 ---
-title: Herkunft
+title: origin
 slug: Web/SVG/Attribute/origin
 l10n:
   sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`origin`** Attribut gibt den Ursprung der Bewegung für eine Animation an. Es hat keine Wirkung in SVG.
+Das **`origin`** Attribut bestimmt den Ursprung der Bewegung für eine Animation. Es hat keine Wirkung in SVG.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animateMotion")}}
 
@@ -38,4 +38,4 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## Siehe auch
 
-- [Definition von `origin` in der SMIL-Animationsspezifikation](https://www.w3.org/TR/smil-animation/#MotionOriginAttribute)
+- [Definition von `origin` in der SMIL Animation Spezifikation](https://www.w3.org/TR/smil-animation/#MotionOriginAttribute)

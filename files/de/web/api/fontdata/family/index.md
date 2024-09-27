@@ -1,5 +1,5 @@
 ---
-title: "FontData: Eigenschaft family"
+title: "FontData: family-Eigenschaft"
 short-title: family
 slug: Web/API/FontData/family
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Local Font Access API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`family`** der Schnittstelle {{domxref("FontData")}} gibt die Familie des Schriftbildes zurück.
+Die **`family`** schreibgeschützte Eigenschaft der [`FontData`](/de/docs/Web/API/FontData)-Schnittstelle gibt die Familie des Schriftbilds zurück.
 
-Dies ist der Name, der beim Verweisen auf die Schriftfamilie aus dem Code verwendet wird, zum Beispiel in der {{cssxref("font-family")}}-Eigenschaft oder an Stellen innerhalb der {{cssxref("@font-face")}}-Regel wie der `local()`-Funktion.
+Dies ist der Name, der verwendet wird, wenn vom Code aus auf die Schriftfamilie verwiesen wird, zum Beispiel in der {{cssxref("font-family")}}-Eigenschaft oder in Bereichen innerhalb der {{cssxref("@font-face")}}-Regel wie der `local()`-Funktion.
 
-Beispiele sind:
+Beispiele umfassen:
 
 - Apple SD Gothic Neo
 - Arial Black
@@ -26,7 +26,7 @@ Ein String.
 
 ## Beispiele
 
-Der folgende Ausschnitt wird alle verfügbaren Schriftarten abfragen und Metadaten protokollieren. Dies könnte beispielsweise verwendet werden, um ein Schriftart-Auswahl-Steuerelement auszufüllen.
+Das folgende Snippet wird nach allen verfügbaren Schriftarten suchen und Metadaten protokollieren. Dies könnte zum Beispiel verwendet werden, um ein Schriftartenauswahlsteuerung zu füllen.
 
 ```js
 async function logFontData() {
@@ -54,5 +54,5 @@ async function logFontData() {
 
 ## Siehe auch
 
-- [Verwenden Sie erweiterte Typografie mit lokalen Schriftarten](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
+- [Erweiterte Typografie mit lokalen Schriftarten verwenden](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
 - {{cssxref("@font-face")}}

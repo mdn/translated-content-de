@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die Schnittstelle **`MediaStreamTrackAudioSourceNode`** ist eine Art von {{domxref("AudioNode")}}, die eine Quelle von Audiodaten darstellt, die von einem bestimmten {{domxref("MediaStreamTrack")}} stammen, das durch die [WebRTC](/de/docs/Web/API/WebRTC_API) oder [Media Capture and Streams](/de/docs/Web/API/Media_Capture_and_Streams_API) APIs gewonnen wurde.
+Das **`MediaStreamTrackAudioSourceNode`** Interface ist eine Art von [`AudioNode`](/de/docs/Web/API/AudioNode), die eine Quelle für Audiodaten darstellt, die aus einem spezifischen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) stammen, welcher über die [WebRTC](/de/docs/Web/API/WebRTC_API) oder [Media Capture and Streams](/de/docs/Web/API/Media_Capture_and_Streams_API) APIs erhalten wurde.
 
-Das Audio selbst könnte von einem Mikrofon oder einem anderen Audio-Aufnahmegerät stammen oder durch eine {{domxref("RTCPeerConnection")}} empfangen werden, neben weiteren möglichen Optionen.
+Das Audio kann von einem Mikrofon oder einem anderen Audiosampling-Gerät stammen oder über eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) empfangen werden, neben anderen möglichen Optionen.
 
-Ein `MediaStreamTrackAudioSourceNode` hat keine Eingänge und genau einen Ausgang und wird durch die Methode {{domxref("AudioContext.createMediaStreamTrackSource()")}} erstellt. Diese Schnittstelle ähnelt {{domxref("MediaStreamAudioSourceNode")}}, erlaubt es Ihnen jedoch, ausdrücklich das zu verwendende Track anzugeben, anstatt das erste Audio-Track in einem Stream anzunehmen.
+Ein `MediaStreamTrackAudioSourceNode` hat keine Eingänge und genau einen Ausgang und wird mittels der Methode [`AudioContext.createMediaStreamTrackSource()`](/de/docs/Web/API/AudioContext/createMediaStreamTrackSource) erstellt. Dieses Interface ist ähnlich zum [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode), mit dem Unterschied, dass es Ihnen ermöglicht, explizit den zu verwendenden Track anzugeben, anstatt automatisch den ersten Audiotrack eines Streams anzunehmen.
 
 {{InheritanceDiagram}}
 
@@ -26,12 +26,11 @@ Ein `MediaStreamTrackAudioSourceNode` hat keine Eingänge und genau einen Ausgan
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Anzahl der Kanäle</th>
+      <th scope="row">Kanalanzahl</th>
       <td>
-        definiert durch das erste Audio {{domxref("MediaStreamTrack")}}
-        das an die
-        {{domxref("AudioContext.createMediaStreamTrackSource()")}}
-        Methode übergeben wurde, die es erstellt hat.
+        definiert durch den ersten Audio-`MediaStreamTrack`, der zur
+        [`AudioContext.createMediaStreamTrackSource()`](/de/docs/Web/API/AudioContext/createMediaStreamTrackSource)
+        Methode übergeben wird, die ihn erstellt hat.
       </td>
     </tr>
   </tbody>
@@ -39,16 +38,16 @@ Ein `MediaStreamTrackAudioSourceNode` hat keine Eingänge und genau einen Ausgan
 
 ## Konstruktor
 
-- {{domxref("MediaStreamTrackAudioSourceNode.MediaStreamTrackAudioSourceNode", "MediaStreamTrackAudioSourceNode()")}}
-  - : Erstellt eine neue Instanz eines `MediaStreamTrackAudioSourceNode`-Objekts mit den angegebenen Optionen.
+- [`MediaStreamTrackAudioSourceNode()`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode/MediaStreamTrackAudioSourceNode)
+  - : Erstellt eine neue `MediaStreamTrackAudioSourceNode` Objektinstanz mit den angegebenen Optionen.
 
 ## Instanz-Eigenschaften
 
-_Die `MediaStreamTrackAudioSourceNode`-Schnittstelle hat keine eigenen Eigenschaften; sie erbt jedoch die Eigenschaften ihres Elternteils, {{domxref("AudioNode")}}._
+_Das `MediaStreamTrackAudioSourceNode` Interface hat keine eigenen Eigenschaften; es erbt jedoch die Eigenschaften seines Elternteils, [`AudioNode`](/de/docs/Web/API/AudioNode)._
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seinem Eltern, {{domxref("AudioNode")}}_.
+_Erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 ## Beispiel
 
@@ -67,4 +66,4 @@ Siehe [`AudioContext.createMediaStreamSource()`](/de/docs/Web/API/AudioContext/c
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
 - [Media Capture and Streams API (Media Streams)](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- {{domxref("MediaStreamAudioSourceNode")}}
+- [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)

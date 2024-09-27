@@ -8,12 +8,12 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.hostname`**-Eigenschaft ist eine Zeichenkette, die die Domain der URL enthält.
+Die **`HTMLAreaElement.hostname`**-Eigenschaft ist ein String, der die Domain der URL enthält.
 
 ## Wert
 
-Eine Zeichenkette, die die Domain der URL enthält, die mit dem `area`-Element verknüpft ist.
-Sie kann sowohl als Setter als auch als Getter verwendet werden.
+Ein String, der die Domain der URL enthält, die mit dem `area`-Element verknüpft ist.
+Er kann sowohl als Setter als auch als Getter verwendet werden.
 
 ## Beispiele
 
@@ -24,7 +24,7 @@ Sie kann sowohl als Setter als auch als Getter verwendet werden.
     id="area1"
     shape="rect"
     coords="184,6,253,27"
-    href="/de/docs/HTMLAreaElement"
+    href="/en-US/docs/HTMLAreaElement"
     target="_blank"
     alt="Mozilla" />
   <area
@@ -38,7 +38,7 @@ Sie kann sowohl als Setter als auch als Getter verwendet werden.
 ```
 
 ```js
-// Ein Element befindet sich im Dokument
+// An element is in the document
 const area1 = document.getElementById("area1");
 const area2 = document.getElementById("area2");
 
@@ -59,4 +59,4 @@ log.textContent += `area2 hostname: ${area2.hostname}`; // 'coolexample.com'
 
 ## Siehe auch
 
-- Die {{domxref("HTMLAreaElement")}}-Schnittstelle, zu der es gehört.
+- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle, zu der es gehört.

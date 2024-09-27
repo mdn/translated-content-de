@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Math.sin()`** statische Methode gibt den Sinus einer Zahl im Bogenmaß (Radians) zurück.
+Die statische Methode **`Math.sin()`** gibt den Sinus einer Zahl in Bogenmaß zurück.
 
 {{EmbedInteractiveExample("pages/js/math-sin.html")}}
 
@@ -20,15 +20,15 @@ Math.sin(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl, die einen Winkel im Bogenmaß darstellt.
+  - : Eine Zahl, die einen Winkel in Bogenmaß darstellt.
 
 ### Rückgabewert
 
-Der Sinus von `x`, zwischen -1 und 1, inklusive. Wenn `x` {{jsxref("Infinity")}}, `-Infinity`, oder {{jsxref("NaN")}} ist, gibt es {{jsxref("NaN")}} zurück.
+Der Sinus von `x`, zwischen -1 und 1 inklusive. Wenn `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `sin()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sin()`, anstatt als Methode eines erstellten `Math` Objekts (`Math` ist kein Konstruktor).
+Da `sin()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sin()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "CSSUnparsedValue: keys()-Methode"
+title: "CSSUnparsedValue: keys() Methode"
 short-title: keys()
 slug: Web/API/CSSUnparsedValue/keys
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`CSSUnparsedValue.keys()`**-Methode
+Die **`CSSUnparsedValue.keys()`** Methode
 gibt ein neues _Array-Iterator_-Objekt zurück, das die Schlüssel
 für jeden Index im Array enthält.
 
@@ -36,10 +36,10 @@ Ein neues {{jsxref("Array")}}.
 
 ## Siehe auch
 
-- {{domxref("CSSUnparsedValue.CSSUnparsedValue", "CSSUnparsedValue()")}}
-- {{domxref("CSSUnparsedValue.entries")}}
-- {{domxref("CSSUnparsedValue.forEach")}}
-- {{domxref("CSSUnparsedValue.length")}}
-- {{domxref("CSSUnparsedValue.values")}}
+- [`CSSUnparsedValue()`](/de/docs/Web/API/CSSUnparsedValue/CSSUnparsedValue)
+- [`CSSUnparsedValue.entries`](/de/docs/Web/API/CSSUnparsedValue/entries)
+- [`CSSUnparsedValue.forEach`](/de/docs/Web/API/CSSUnparsedValue/forEach)
+- [`CSSUnparsedValue.length`](/de/docs/Web/API/CSSUnparsedValue/length)
+- [`CSSUnparsedValue.values`](/de/docs/Web/API/CSSUnparsedValue/values)
 - [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)

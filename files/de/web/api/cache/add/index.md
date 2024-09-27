@@ -1,5 +1,5 @@
 ---
-title: "Cache: Methode add()"
+title: "Cache: add()-Methode"
 short-title: add()
 slug: Web/API/Cache/add
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`add()`**-Methode des {{domxref("Cache")}}-Interfaces nimmt eine URL, ruft sie ab und fügt das resultierende Response-Objekt dem angegebenen Cache hinzu.
+Die **`add()`**-Methode des [`Cache`](/de/docs/Web/API/Cache)-Interfaces nimmt eine URL, ruft sie ab und fügt das resultierende Antwortobjekt dem angegebenen Cache hinzu.
 
 Die `add()`-Methode ist funktional äquivalent zu folgendem:
 
@@ -21,9 +21,9 @@ fetch(url).then((response) => {
 });
 ```
 
-Für komplexere Operationen müssen Sie {{domxref("Cache.put","Cache.put()")}} direkt verwenden.
+Für komplexere Operationen müssen Sie [`Cache.put()`](/de/docs/Web/API/Cache/put) direkt verwenden.
 
-> **Note:** `add()` überschreibt jedes zuvor im Cache gespeicherte Schlüssel/Wert-Paar, das der Anfrage entspricht.
+> **Note:** `add()` wird jedes zuvor im Cache gespeicherte Schlüssel/Wert-Paar überschreiben, das der Anfrage entspricht.
 
 ## Syntax
 
@@ -35,9 +35,9 @@ add(request)
 
 - `request`
 
-  - : Eine Anfrage für die Resource, die Sie dem Cache hinzufügen möchten. Dies kann ein {{domxref("Request")}}-Objekt oder eine URL sein.
+  - : Eine Anfrage für die Ressource, die Sie dem Cache hinzufügen möchten. Dies kann ein [`Request`](/de/docs/Web/API/Request)-Objekt oder eine URL sein.
 
-    Dieser Parameter wird als Parameter des {{domxref("Request.Request()", "Request()")}}-Konstruktors verwendet, sodass URLs den gleichen Regeln wie für diesen Konstruktor folgen. Insbesondere können URLs relativ zur Basis-URL sein, die in einem Fenster-Kontext die {{domxref("Node.baseURI", "baseURI")}} des Dokuments ist oder {{domxref("WorkerGlobalScope.location")}} in einem Worker-Kontext.
+    Dieser Parameter wird als Parameter an den [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor übergeben, sodass URLs denselben Regeln wie für diesen Konstruktor folgen. Insbesondere können URLs relativ zur Basis-URL sein, die im Fensterkontext die [`baseURI`](/de/docs/Web/API/Node/baseURI) des Dokuments ist, oder im Worker-Kontext [`WorkerGlobalScope.location`](/de/docs/Web/API/WorkerGlobalScope/location).
 
 ### Rückgabewert
 
@@ -49,11 +49,11 @@ Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird.
 
   - : Das URL-Schema ist nicht `http` oder `https`.
 
-    Der Response-Status liegt nicht im 200-Bereich (d.h., keine erfolgreiche Antwort). Dies tritt auf, wenn die Anfrage nicht erfolgreich zurückkehrt, aber auch wenn die Anfrage eine _cross-origin no-cors_-Anfrage ist (in diesem Fall ist der gemeldete Status immer 0.)
+    Der Antwortstatus liegt nicht im 200er-Bereich (d. h. keine erfolgreiche Antwort). Dies tritt auf, wenn die Anfrage nicht erfolgreich zurückkehrt, aber auch, wenn die Anfrage eine _cross-origin no-cors_-Anfrage ist (in diesem Fall wird der gemeldete Status immer als 0 angegeben.)
 
 ## Beispiele
 
-Dieser Codeblock wartet, bis ein {{domxref("InstallEvent")}} ausgelöst wird, und ruft dann {{domxref("ExtendableEvent.waitUntil","waitUntil()")}} auf, um den Installationsprozess der App zu handhaben. Dies besteht darin, {{domxref("CacheStorage.open")}} aufzurufen, um einen neuen Cache zu erstellen, und dann `Cache.add` zu verwenden, um ein Asset hinzuzufügen.
+Dieser Codeblock wartet auf das Auslösen eines [`InstallEvent`](/de/docs/Web/API/InstallEvent) und ruft dann [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) auf, um den Installationsprozess für die App zu handhaben. Dies besteht darin, [`CacheStorage.open`](/de/docs/Web/API/CacheStorage/open) aufzurufen, um einen neuen Cache zu erstellen, und dann `Cache.add` zu verwenden, um ein Asset hinzuzufügen.
 
 ```js
 this.addEventListener("install", (event) => {
@@ -71,6 +71,6 @@ this.addEventListener("install", (event) => {
 
 ## Siehe auch
 
-- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- {{domxref("Cache")}}
-- {{domxref("Window.caches")}} und {{domxref("WorkerGlobalScope.caches")}}
+- [Service Workers verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [`Cache`](/de/docs/Web/API/Cache)
+- [`Window.caches`](/de/docs/Web/API/Window/caches) und [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches)

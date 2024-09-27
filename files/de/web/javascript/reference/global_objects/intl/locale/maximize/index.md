@@ -7,7 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die **`maximize()`**-Methode von Instanzen von {{jsxref("Intl.Locale")}} ermittelt die wahrscheinlichsten Werte für die Sprache, das Skript und die Region dieses Gebietsschemas basierend auf bestehenden Werten.
+Die **`maximize()`**-Methode von Instanzen von {{jsxref("Intl.Locale")}} ermittelt
+die wahrscheinlichsten Werte für Sprache, Schrift und Region dieses Gebietsschemas basierend
+auf bestehenden Werten.
 
 {{EmbedInteractiveExample("pages/js/intl-locale-prototype-maximize.html")}}
 
@@ -23,11 +25,12 @@ Keine.
 
 ### Rückgabewert
 
-Eine Instanz von {{jsxref("Intl.Locale")}}, deren `baseName`-Eigenschaft das Ergebnis des [Add Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags)-Algorithmus zurückgibt, der gegen _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_ ausgeführt wird.
+Eine {{jsxref("Intl.Locale")}}-Instanz, deren `baseName`-Eigenschaft das Ergebnis des [Add Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags)-Algorithmus zurückgibt, der auf _{{jsxref("Intl/Locale/baseName", "locale.baseName")}}_ ausgeführt wurde.
 
 ## Beschreibung
 
-Manchmal ist es nützlich, die wahrscheinlichsten Subtags des Sprachbezeichners eines Gebietsschemas basierend auf einer unvollständigen Sprach-ID identifizieren zu können. Der Add Likely Subtags-Algorithmus bietet uns diese Funktionalität. Zum Beispiel würde der Algorithmus bei der Sprach-ID "en" "en-Latn-US" zurückgeben, da Englisch nur im lateinischen Skript geschrieben werden kann und höchstwahrscheinlich in den Vereinigten Staaten verwendet wird, da dies das größte englischsprachige Land der Welt ist. Diese Funktionalität wird JavaScript-Programmierern über die `maximize()`-Methode zur Verfügung gestellt. `maximize()` beeinflusst nur die Haupt-Subtags, die den [Sprachkennzeichner](https://www.unicode.org/reports/tr35/#Language_Locale_Field_Definitions) bilden: Sprache, Skript und Regions-Subtags. Andere Subtags nach dem "-u" im Gebietsschema-Bezeichner werden Erweiterungs-Subtags genannt und sind von der `maximize()`-Methode nicht betroffen. Beispiele für diese Subtags sind {{jsxref("Intl/Locale/hourCycle", "hourCycle")}}, {{jsxref("Intl/Locale/calendar", "calendar")}} und {{jsxref("Intl/Locale/numeric", "numeric")}}.
+Manchmal ist es nützlich, die wahrscheinlichsten Teilkennzeichen einer Sprache für ein unvollständiges Sprachkennzeichen zu identifizieren. Der Algorithmus "Add Likely Subtags" bietet diese Funktionalität. Beispielsweise gibt der Algorithmus für das Sprachkennzeichen "en" "en-Latn-US" zurück, da Englisch nur in lateinischer Schrift geschrieben werden kann und höchstwahrscheinlich in den Vereinigten Staaten verwendet wird, da es das größte englischsprachige Land der Welt ist. Diese Funktionalität wird JavaScript-Entwicklern über die `maximize()`-Methode zur Verfügung gestellt. `maximize()` wirkt sich nur auf die Hauptteilkennzeichen des [Sprachkennzeichens](https://www.unicode.org/reports/tr35/#Language_Locale_Field_Definitions) aus: die Sprach-, Schrift- und Regionsteilkennzeichen. Andere Teilkennzeichen nach dem "-u" im Gebietsschema-Bezeichner werden als Erweiterungsteilkennzeichen bezeichnet und werden von der `maximize()`-Methode nicht beeinflusst. Beispiele für diese Teilkennzeichen sind {{jsxref("Intl/Locale/hourCycle", "hourCycle")}},
+{{jsxref("Intl/Locale/calendar", "calendar")}}, und {{jsxref("Intl/Locale/numeric", "numeric")}}.
 
 ## Beispiele
 
@@ -38,16 +41,16 @@ const myLocale = new Intl.Locale("fr", {
   hourCycle: "h12",
   calendar: "gregory",
 });
-console.log(myLocale.baseName); // Gibt "fr" aus
-console.log(myLocale.toString()); // Gibt "fr-u-ca-gregory-hc-h12" aus
+console.log(myLocale.baseName); // Prints "fr"
+console.log(myLocale.toString()); // Prints "fr-u-ca-gregory-hc-h12"
 const myLocMaximized = myLocale.maximize();
 
-// Gibt "fr-Latn-FR" aus. Die Tags "Latn" und "FR" werden hinzugefügt,
-// da Französisch nur im lateinischen Skript geschrieben wird und höchstwahrscheinlich in Frankreich gesprochen wird.
+// Prints "fr-Latn-FR". The "Latn" and "FR" tags are added,
+// since French is only written in the Latin script and is most likely to be spoken in France.
 console.log(myLocMaximized.baseName);
 
-// Gibt "fr-Latn-FR-u-ca-gregory-hc-h12" aus.
-// Beachten Sie, dass die Erweiterungs-Tags (nach "-u") unverändert bleiben.
+// Prints "fr-Latn-FR-u-ca-gregory-hc-h12".
+// Note that the extension tags (after "-u") remain unchanged.
 console.log(myLocMaximized.toString());
 ```
 
@@ -63,4 +66,4 @@ console.log(myLocMaximized.toString());
 
 - {{jsxref("Intl.Locale")}}
 - {{jsxref("Intl/Locale/baseName", "baseName")}}
-- [Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags) in der Unicode-Locale-Datenmarkup-Sprachspezifikation
+- [Likely Subtags](https://www.unicode.org/reports/tr35/#Likely_Subtags) in der Unicode-Locale-Daten-Auszeichnungssprache-Spezifikation

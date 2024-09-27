@@ -1,5 +1,5 @@
 ---
-title: "PaintWorkletGlobalScope: Methode registerPaint()"
+title: "PaintWorkletGlobalScope: registerPaint()-Methode"
 short-title: registerPaint()
 slug: Web/API/PaintWorkletGlobalScope/registerPaint
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("CSS Painting API")}}{{SeeCompatTable}}
 
-Die **`registerPaint()`** Methode der
-{{domxref("PaintWorkletGlobalScope")}} Schnittstelle registriert eine Klasse, um programmgesteuert ein Bild zu erzeugen, wo eine CSS-Eigenschaft eine Datei erwartet.
+Die **`registerPaint()`**-Methode des [`PaintWorkletGlobalScope`](/de/docs/Web/API/PaintWorkletGlobalScope)-Interfaces registriert eine Klasse, um programmgesteuert ein Bild zu erzeugen, bei dem eine CSS-Eigenschaft eine Datei erwartet.
 
 ## Syntax
 
@@ -20,7 +19,7 @@ registerPaint(name, classRef)
 ### Parameter
 
 - `name`
-  - : Der Name der Worklet-Klasse, die registriert werden soll.
+  - : Der Name der zu registrierenden Worklet-Klasse.
 - `classRef`
   - : Eine Referenz auf die Klasse, die das Worklet implementiert.
 
@@ -32,23 +31,19 @@ Keiner ({{jsxref("undefined")}}).
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn eines der Argumente ungültig oder fehlend ist.
-- `InvalidModificationError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn bereits ein Worklet mit dem angegebenen Namen existiert.
+- `InvalidModificationError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn ein Worklet mit dem angegebenen Namen bereits existiert.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein Beispiel-Worklet-Modul registriert wird. Dies sollte in einer separaten
-JS-Datei erfolgen. Beachten Sie, dass `registerPaint()` ohne einen Bezug zu
-`PaintWorkletGlobalScope` aufgerufen wird. Die Datei selbst wird über
-`CSS.paintWorklet.addModule()` geladen (dokumentiert hier auf der übergeordneten Klasse
-von PaintWorklet, unter {{domxref('Worklet.addModule()')}}.
+Das folgende Beispiel zeigt das Registrieren eines Worklet-Moduls. Dies sollte in einer separaten JavaScript-Datei erfolgen. Beachten Sie, dass `registerPaint()` ohne eine Referenz zu `PaintWorkletGlobalScope` aufgerufen wird. Die Datei selbst wird über `CSS.paintWorklet.addModule()` geladen (dokumentiert hier in der übergeordneten Klasse von PaintWorklet, bei [`Worklet.addModule()`](/de/docs/Web/API/Worklet/addModule)).
 
 ```js
 /* checkboardWorklet.js */
 
 class CheckerboardPainter {
   paint(ctx, geom, properties) {
-    // Verwenden Sie `ctx` als wäre es ein normales Canvas
+    // Use `ctx` as if it was a normal canvas
     const colors = ["red", "green", "blue"];
     const size = 32;
     for (let y = 0; y < geom.height / size; y++) {
@@ -63,13 +58,11 @@ class CheckerboardPainter {
   }
 }
 
-// Registrieren Sie unsere Klasse unter einem bestimmten Namen
+// Register our class under a specific name
 registerPaint("checkerboard", CheckerboardPainter);
 ```
 
-Der erste Schritt bei der Verwendung eines Paint-Worklets besteht darin, das Paint-Worklet mit der
-`registerPaint()` Funktion zu definieren, wie oben gezeigt. Um es zu verwenden, registrieren Sie es mit der
-`CSS.paintWorklet.addModule()` Methode:
+Der erste Schritt bei der Verwendung eines Paintworklets besteht darin, das Paintworklet mit der `registerPaint()`-Funktion zu definieren, wie oben dargestellt. Um es zu verwenden, registrieren Sie es mit der Methode `CSS.paintWorklet.addModule()`:
 
 ```html
 <script>
@@ -77,8 +70,7 @@ Der erste Schritt bei der Verwendung eines Paint-Worklets besteht darin, das Pai
 </script>
 ```
 
-Sie können dann die `{{cssxref('image/paint', 'paint()')}}` CSS-Funktion in Ihrem
-CSS verwenden, wo immer ein {{cssxref('&lt;image&gt;')}} Wert gültig ist.
+Sie können dann die `{{cssxref('image/paint', 'paint()')}}`-CSS-Funktion in Ihrem CSS überall dort verwenden, wo ein {{cssxref('&lt;image&gt;')}}-Wert gültig ist.
 
 ```css
 li {

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}}
 
-Die statische Methode **`console.clear()`** leert die Konsole, wenn diese es zulässt. Eine grafische Konsole, wie sie in Browsern läuft, erlaubt dies; eine Konsole, die im Terminal angezeigt wird, wie zum Beispiel unter Node, wird es nicht unterstützen und hat keine Wirkung (und erzeugt keinen Fehler).
+Die **`console.clear()`** statische Methode leert die Konsole, sofern die Konsole dies zulässt. Eine grafische Konsole, wie sie in Browsern läuft, wird dies erlauben; eine Konsole, die im Terminal angezeigt wird, wie z.B. die, die in Node läuft, wird dies nicht unterstützen und wird keine Auswirkungen haben (und auch keinen Fehler).
 
 ## Syntax
 
@@ -22,18 +22,18 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Dokumentation von Microsoft Edge für `console.clear()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#clear)
-- [Node.JS-Dokumentation für `console.clear()`](https://nodejs.org/docs/latest/api/console.html#consoleclear)
-- [Dokumentation von Google Chrome für `console.clear()`](https://developer.chrome.com/docs/devtools/console/api/#clear)
+- [Microsoft Edges Dokumentation für `console.clear()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#clear)
+- [Node.JS Dokumentation für `console.clear()`](https://nodejs.org/docs/latest/api/console.html#consoleclear)
+- [Google Chromes Dokumentation für `console.clear()`](https://developer.chrome.com/docs/devtools/console/api/#clear)

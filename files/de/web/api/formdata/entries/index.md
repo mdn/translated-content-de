@@ -1,5 +1,5 @@
 ---
-title: "FormData: entries()-Methode"
+title: "FormData: entries() Methode"
 short-title: entries()
 slug: Web/API/FormData/entries
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
-Die **`FormData.entries()`**-Methode gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der durch alle in der {{domxref("FormData")}} enthaltenen Schlüssel/Wert-Paare iteriert. Der Schlüssel jedes Paares ist ein String, und der Wert ist entweder ein String oder ein {{domxref("Blob")}}.
+Die **`FormData.entries()`** Methode gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der durch alle in der [`FormData`](/de/docs/Web/API/FormData) enthaltenen Schlüssel/Wert-Paare iteriert. Der Schlüssel jedes Paares ist ein String, und der Wert ist entweder ein String oder ein [`Blob`](/de/docs/Web/API/Blob).
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) der Schlüssel/Wert-Paare von {{domxref("FormData")}}.
+Ein [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) der Schlüssel/Wert-Paare von [`FormData`](/de/docs/Web/API/FormData).
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ Ein [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) der Schlü
 formData.append("key1", "value1");
 formData.append("key2", "value2");
 
-// Anzeige der Schlüssel/Wert-Paare
+// Display the key/value pairs
 for (const pair of formData.entries()) {
   console.log(pair[0], pair[1]);
 }

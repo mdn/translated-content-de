@@ -1,5 +1,5 @@
 ---
-title: "Fenster: credentialless-Eigenschaft"
+title: "Window: credentialless-Eigenschaft"
 short-title: credentialless
 slug: Web/API/Window/credentialless
 l10n:
@@ -8,30 +8,30 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}
 
-Die **`window.credentialless`** Schreibgeschützt-Eigenschaft gibt einen Boolean zurück, der anzeigt, ob das aktuelle Dokument innerhalb eines credentialless {{htmlelement("iframe")}} geladen wurde, was bedeutet, dass es in einem neuen, flüchtigen Kontext geladen ist.
+Die schreibgeschützte Eigenschaft **`window.credentialless`** gibt einen Boolean zurück, der angibt, ob das aktuelle Dokument in einem credentialless {{htmlelement("iframe")}} geladen wurde, was bedeutet, dass es in einem neuen, flüchtigen Kontext geladen ist.
 
-Dieser Kontext hat keinen Zugriff auf das Netzwerk, Cookies und Speicherdaten, die mit seinem Ursprung verbunden sind. Er verwendet einen neuen Kontext, der lokal zur Lebensdauer des obersten Dokuments ist. Im Gegenzug können die Einbettungsregeln der {{httpheader("Cross-Origin-Embedder-Policy")}} (COEP) aufgehoben werden, sodass Dokumente mit gesetztem COEP Drittanbieterdokumente einbetten können, die dies nicht tun.
+Dieser Kontext hat keinen Zugriff auf das Netzwerk, Cookies und Speicherdaten, die mit seinem Ursprung verbunden sind. Er verwendet einen neuen Kontext, der lokal an die Lebensdauer des obersten Dokuments gebunden ist. Im Gegenzug können die Einbettungsregeln des {{httpheader("Cross-Origin-Embedder-Policy")}} (COEP) gelockert werden, sodass Dokumente mit gesetztem COEP Drittanbieterdokumente einbetten können, die dies nicht tun.
 
-Siehe [IFrame credentialless](/de/docs/Web/Security/IFrame_credentialless) für eine tiefere Erklärung.
+Siehe [IFrame credentialless](/de/docs/Web/Security/IFrame_credentialless) für eine ausführlichere Erklärung.
 
 ## Wert
 
-Ein Boolean. Ein Wert von `true` zeigt an, dass das Dokument innerhalb eines credentialless `<iframe>` geladen wurde; `false` zeigt an, dass es nicht der Fall war.
+Ein Boolean. Ein Wert von `true` zeigt an, dass das Dokument innerhalb eines credentialless `<iframe>` geladen wurde; `false` gibt an, dass dies nicht der Fall war.
 
 ## Beispiele
 
-Sie können ein credentialless `<iframe>` folgendermaßen spezifizieren:
+Sie können ein credentialless `<iframe>` folgendermaßen angeben:
 
 ```html
 <iframe
   src="https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)"
-  title="Wikipedia-Seite zu Spectre-Sicherheitslücke"
+  title="Spectre vulnerability Wikipedia page"
   width="960"
   height="600"
   credentialless></iframe>
 ```
 
-In unterstützenden Browsern würde die folgende Zeile, die im `<iframe>` geladene Dokument läuft, `true` zurückgeben:
+In unterstützenden Browsern würde bei einem im `<iframe>` geladenen Dokument die folgende Zeile `true` zurückgeben:
 
 ```js
 console.log(window.credentialless);

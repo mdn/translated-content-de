@@ -7,33 +7,33 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Das **`TextTrackCue`**-Interface der [WebVTT API](/de/docs/Web/API/WebVTT_API) ist die abstrakte Basisklasse für die verschiedenen abgeleiteten Cues, wie zum Beispiel {{domxref("VTTCue")}}; Sie arbeiten mit diesen abgeleiteten Typen anstelle der Basisklasse.
+Das **`TextTrackCue`** Interface der [WebVTT API](/de/docs/Web/API/WebVTT_API) ist die abstrakte Basisklasse für die verschiedenen abgeleiteten Cue-Typen, wie z.B. [`VTTCue`](/de/docs/Web/API/VTTCue); Sie werden mit diesen abgeleiteten Typen arbeiten und nicht mit der Basisklasse.
 
-Diese Cues repräsentieren Textzeilen, die für eine bestimmte Dauer während der Wiedergabe eines {{domxref("TextTrack")}} angezeigt werden. Der Cue umfasst die Startzeit (die Zeit, zu der der Text angezeigt wird) und die Endzeit (die Zeit, zu der er von der Anzeige entfernt wird) sowie weitere Informationen.
+Diese Cues repräsentieren Textstränge, die für eine bestimmte Dauer während der Wiedergabe eines [`TextTrack`](/de/docs/Web/API/TextTrack) präsentiert werden. Der Cue enthält die Startzeit (die Zeit, zu der der Text angezeigt wird) und die Endzeit (die Zeit, zu der er von der Anzeige entfernt wird) sowie andere Informationen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface erbt auch Eigenschaften von {{domxref("EventTarget")}}._
+_Dieses Interface erbt auch Eigenschaften von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("TextTrackCue.track")}} {{ReadOnlyInline}}
-  - : Das {{domxref("TextTrack")}}, zu dem dieser Cue gehört, oder `null`, wenn er zu keinem gehört.
-- {{domxref("TextTrackCue.id")}}
-  - : Ein String, der den Cue identifiziert.
-- {{domxref("TextTrackCue.startTime")}}
-  - : Ein `double`, der die Videowiedergabezeit angibt, zu der der Cue angezeigt wird, in Sekunden.
-- {{domxref("TextTrackCue.endTime")}}
-  - : Ein `double`, der die Videowiedergabezeit angibt, zu der der Cue nicht mehr angezeigt wird, in Sekunden.
-- {{domxref("TextTrackCue.pauseOnExit")}}
-  - : Ein `boolean`, der angibt, ob das Video pausiert wird, wenn dieser Cue nicht mehr angezeigt wird.
+- [`TextTrackCue.track`](/de/docs/Web/API/TextTrackCue/track) {{ReadOnlyInline}}
+  -: Der [`TextTrack`](/de/docs/Web/API/TextTrack), zu dem dieser Cue gehört, oder `null`, wenn er zu keinem gehört.
+- [`TextTrackCue.id`](/de/docs/Web/API/TextTrackCue/id)
+  -: Ein String, der den Cue identifiziert.
+- [`TextTrackCue.startTime`](/de/docs/Web/API/TextTrackCue/startTime)
+  -: Ein `double`, das die Videozeit repräsentiert, zu der der Cue angezeigt wird, in Sekunden.
+- [`TextTrackCue.endTime`](/de/docs/Web/API/TextTrackCue/endTime)
+  -: Ein `double`, das die Videozeit repräsentiert, zu der der Cue nicht mehr angezeigt wird, in Sekunden.
+- [`TextTrackCue.pauseOnExit`](/de/docs/Web/API/TextTrackCue/pauseOnExit)
+  -: Ein `boolean`, der angibt, ob das Video pausiert, wenn dieser Cue nicht mehr angezeigt wird.
 
 ## Ereignisse
 
-- {{domxref("TextTrackCue.enter_event", "enter")}}
-  - : Wird ausgelöst, wenn ein Cue aktiv wird.
-- {{domxref("TextTrackCue.exit_event", "exit")}}
-  - : Wird ausgelöst, wenn der Cue nicht mehr aktiv ist.
+- [`enter`](/de/docs/Web/API/TextTrackCue/enter_event)
+  -: Wird ausgelöst, wenn ein Cue aktiv wird.
+- [`exit`](/de/docs/Web/API/TextTrackCue/exit_event)
+  -: Wird ausgelöst, wenn der Cue nicht mehr aktiv ist.
 
 ## Spezifikationen
 

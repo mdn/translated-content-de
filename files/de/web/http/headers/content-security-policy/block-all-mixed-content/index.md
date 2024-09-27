@@ -8,18 +8,18 @@ l10n:
 {{HTTPSidebar}}{{deprecated_header}}
 
 > [!WARNING]
-> Diese Richtlinie ist in der Spezifikation als veraltet markiert.
-> Diese Richtlinie wurde früher verwendet, um das unsichere Abrufen und Anzeigen von "optional blockierbaren" Mixed Content zu verhindern.
-> Inhalte, die nicht blockiert werden, werden jetzt immer auf eine sichere Verbindung aufgewertet, sodass diese Richtlinie nicht mehr erforderlich ist.
+> Diese Direktive ist in der Spezifikation als veraltet markiert.
+> Diese Direktive wurde früher verwendet, um zu verhindern, dass "optional blockierbarer" gemischter Inhalt unsicher abgerufen und angezeigt wird.
+> Inhalte, die nicht blockiert werden, werden jetzt immer auf eine sichere Verbindung aktualisiert, weshalb diese Direktive nicht mehr notwendig ist.
 
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`block-all-mixed-content`**-Direktive verhindert das Laden von Assets über HTTP, wenn die Seite HTTPS verwendet.
+Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} (CSP) **`block-all-mixed-content`** verhindert das Laden jeglicher Assets über HTTP, wenn die Seite HTTPS verwendet.
 
-Alle [Mixed Content](/de/docs/Web/Security/Mixed_content)-Ressourcenanfragen werden blockiert, einschließlich sowohl blockierbarer als auch aufwertbarer Mixed Content.
-Dies gilt auch für {{HTMLElement("iframe")}}-Dokumente, um sicherzustellen, dass die gesamte Seite frei von Mixed Content ist.
+Alle [gemischte Inhalte](/de/docs/Web/Security/Mixed_content)-Ressourcenanfragen werden blockiert, einschließlich blockierbarer und aktualisierbarer gemischter Inhalte.
+Dies gilt auch für {{HTMLElement("iframe")}}-Dokumente, um sicherzustellen, dass die gesamte Seite frei von gemischtem Inhalt ist.
 
 > [!NOTE]
-> Die {{CSP("upgrade-insecure-requests")}}-Direktive wird vor `block-all-mixed-content` ausgewertet.
-> Wenn die erstgenannte eingestellt ist, bewirkt die letztgenannte nichts, daher sollten Sie eine der beiden Richtlinien setzen – nicht beide, es sei denn, Sie möchten HTTPS in älteren Browsern erzwingen, die es nach einer Umleitung zu HTTP nicht erzwingen.
+> Die Direktive {{CSP("upgrade-insecure-requests")}} wird vor `block-all-mixed-content` ausgewertet.
+> Wenn erstere gesetzt ist, tut letztere nichts, daher setzen Sie eine Direktive oder die andere – nicht beide, es sei denn, Sie möchten HTTPS auf älteren Browsern erzwingen, die es nach einer Umleitung auf HTTP nicht erzwingen.
 
 ## Syntax
 
@@ -35,8 +35,8 @@ Content-Security-Policy: block-all-mixed-content;
 <meta http-equiv="Content-Security-Policy" content="block-all-mixed-content">
 ```
 
-Um HTTP-Assets auf einer detaillierteren Ebene zu untersagen, können Sie auch einzelne Direktiven auf `https:` setzen.
-Beispielsweise, um unsichere HTTP-Bilder zu verbieten:
+Um HTTP-Assets auf einer feineren Ebene zu verhindern, können Sie auch einzelne Direktiven auf `https:` setzen.
+Zum Beispiel, um unsichere HTTP-Bilder zu verbieten:
 
 ```http
 Content-Security-Policy: img-src https:
@@ -44,8 +44,8 @@ Content-Security-Policy: img-src https:
 
 ## Spezifikationen
 
-Teil keiner aktuellen Spezifikation.
-Früher in der veralteten [Mixed Content Level 1](https://www.w3.org/TR/2015/CR-mixed-content-20150317/#strict-opt-in)-Spezifikation definiert.
+Nicht Teil einer aktuellen Spezifikation.
+Wurde früher in der veralteten [Mixed Content Level 1](https://www.w3.org/TR/2015/CR-mixed-content-20150317/#strict-opt-in)-Spezifikation definiert.
 
 ## Browser-Kompatibilität
 
@@ -55,4 +55,4 @@ Früher in der veralteten [Mixed Content Level 1](https://www.w3.org/TR/2015/CR-
 
 - {{HTTPHeader("Content-Security-Policy")}}
 - {{CSP("upgrade-insecure-requests")}}
-- [Mixed content](/de/docs/Web/Security/Mixed_content)
+- [Gemischter Inhalt](/de/docs/Web/Security/Mixed_content)

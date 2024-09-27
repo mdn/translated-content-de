@@ -1,5 +1,5 @@
 ---
-title: "WindowClient: navigate() Methode"
+title: "WindowClient: navigate()-Methode"
 short-title: navigate()
 slug: Web/API/WindowClient/navigate
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`navigate()`** Methode des {{domxref("WindowClient")}}
-Interfaces lädt eine angegebene URL in eine kontrollierte Client-Seite und gibt dann ein
-{{jsxref("Promise")}} zurück, das auf den bestehenden {{domxref("WindowClient")}} aufgelöst wird.
+Die **`navigate()`**-Methode der [`WindowClient`](/de/docs/Web/API/WindowClient)-Schnittstelle lädt eine angegebene URL in eine kontrollierte Client-Seite und gibt dann ein {{jsxref("Promise")}} zurück, das auf den existierenden [`WindowClient`](/de/docs/Web/API/WindowClient) aufgelöst wird.
 
 ## Syntax
 
@@ -25,7 +23,7 @@ navigate(url)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf den bestehenden {{domxref("WindowClient")}} aufgelöst wird, wenn die URL vom gleichen Ursprung wie der Service Worker stammt, oder {{jsxref("Operators/null", "null")}} sonst.
+Ein {{jsxref("Promise")}}, das auf den existierenden [`WindowClient`](/de/docs/Web/API/WindowClient) aufgelöst wird, wenn die URL aus demselben Ursprung wie der Service Worker stammt, oder auf {{jsxref("Operators/null", "null")}} andernfalls.
 
 ## Spezifikationen
 

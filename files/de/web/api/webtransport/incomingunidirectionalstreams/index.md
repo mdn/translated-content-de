@@ -1,5 +1,5 @@
 ---
-title: "WebTransport: Eigenschaft incomingUnidirectionalStreams"
+title: "WebTransport: incomingUnidirectionalStreams-Eigenschaft"
 short-title: incomingUnidirectionalStreams
 slug: Web/API/WebTransport/incomingUnidirectionalStreams
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`incomingUnidirectionalStreams`** Schreibgeschützte Eigenschaft des {{domxref("WebTransport")}}-Interfaces repräsentiert einen oder mehrere unidirektionale Streams, die vom Server geöffnet wurden. Sie gibt einen {{domxref("ReadableStream")}} von {{domxref("WebTransportReceiveStream")}}-Objekten zurück. Jedes davon kann verwendet werden, um zuverlässig Daten vom Server zu lesen.
+Die **`incomingUnidirectionalStreams`** schreibgeschützte Eigenschaft des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces repräsentiert einen oder mehrere unidirektionale Streams, die vom Server geöffnet werden. Sie gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)-Objekten zurück. Jedes dieser Objekte kann verwendet werden, um zuverlässig Daten vom Server zu lesen.
 
-"Zuverlässig" bedeutet, dass die Übertragung und die Reihenfolge der Daten garantiert sind. Dies sorgt für eine langsamere Übermittlung (wenn auch schneller als mit WebSockets) als {{domxref("WebTransport.datagrams", "Datagramme")}}, wird jedoch in Situationen benötigt, in denen Zuverlässigkeit und Reihenfolge wichtig sind, wie z.B. in Chat-Anwendungen.
+„Zuverlässig“ bedeutet, dass die Übertragung und Reihenfolge der Daten garantiert sind. Dies bietet eine langsamere Übermittlung (wenn auch schneller als mit WebSockets) als [`datagrams`](/de/docs/Web/API/WebTransport/datagrams), ist jedoch in Situationen erforderlich, in denen Zuverlässigkeit und Reihenfolge wichtig sind, wie z.B. bei Chat-Anwendungen.
 
 ## Wert
 
-Ein {{domxref("ReadableStream")}} von {{domxref("WebTransportReceiveStream")}}-Objekten.
+Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)-Objekten.
 
 ## Beispiele
 
-Eine anfängliche Funktion wird verwendet, um die {{domxref("WebTransportReceiveStream")}}-Objekte aus dem {{domxref("ReadableStream")}} zu lesen. Jedes Objekt wird dann an eine andere Funktion übergeben, um von diesen Streams zu lesen.
+Eine anfängliche Funktion wird verwendet, um die [`WebTransportReceiveStream`](/de/docs/Web/API/WebTransportReceiveStream)-Objekte aus dem [`ReadableStream`](/de/docs/Web/API/ReadableStream) zu lesen. Jedes Objekt wird dann an eine andere Funktion weitergegeben, um aus diesen Streams zu lesen.
 
 ```js
 async function receiveUnidirectional() {
@@ -57,7 +57,7 @@ async function readData(receiveStream) {
 
 ## Siehe auch
 
-- [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

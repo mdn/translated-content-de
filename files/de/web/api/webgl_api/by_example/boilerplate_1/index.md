@@ -7,17 +7,17 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Canvas_size_and_WebGL","Learn/WebGL/By_example/Scissor_animation")}}
 
-Dieses Beispiel beschreibt wiederkehrende Code-Teile, die nun verborgen werden, sowie die Definition einer JavaScript-Hilfsfunktion, die die Initialisierung von WebGL erleichtert.
+Dieses Beispiel beschreibt sich wiederholende Code-Abschnitte, die von nun an ausgeblendet werden, sowie die Definition einer JavaScript-Hilfsfunktion, um die Initialisierung von WebGL zu erleichtern.
 
-## Boilerplate-Code zum Einrichten des WebGL-Rendering-Kontextes
+## Boilerplate-Code zur Einrichtung des WebGL-Rendering-Kontexts
 
-Bis jetzt sind Sie daran gewöhnt, dieselben Teile von {{Glossary("HTML")}}, {{Glossary("CSS")}} und {{Glossary("JavaScript")}} immer wieder zu sehen. Deshalb werden wir sie jetzt verbergen. Dies ermöglicht es uns, uns auf die interessanten Code-Teile zu fokussieren, die für das Lernen von {{Glossary("WebGL")}} am relevantesten sind.
+Bis jetzt sind Sie es gewohnt, dieselben Abschnitte von [HTML](/de/docs/Glossary/HTML), [CSS](/de/docs/Glossary/CSS) und [JavaScript](/de/docs/Glossary/JavaScript) immer wieder zu sehen. Daher werden wir sie von nun an ausblenden. Dies ermöglicht es uns, uns auf die interessanten Code-Teile zu konzentrieren, die am relevantesten für das Lernen von [WebGL](/de/docs/Glossary/WebGL) sind.
 
-Konkret enthält das HTML ein {{HTMLElement("p")}}-Element, das einen beschreibenden Text über die Seite enthält und möglicherweise auch Fehlermeldungen beherbergen kann; ein {{HTMLElement("canvas")}}-Element; und optional einen {{HTMLElement("button")}}. Das CSS enthält Regeln für `body`, `canvas` und `button`. Jegliches zusätzliche nicht-triviale CSS und HTML wird auf den Seiten spezifischer Beispiele angezeigt.
+Konkret hat das HTML ein {{HTMLElement("p")}}-Element, das einige beschreibende Texte über die Seite enthält und möglicherweise auch Fehlermeldungen; ein {{HTMLElement("canvas")}}-Element; und optional ein {{HTMLElement("button")}}. Das CSS enthält Regeln für `body`, `canvas` und `button`. Jegliches zusätzliche nicht-triviale CSS und HTML wird auf den Seiten spezifischer Beispiele angezeigt.
 
-In den folgenden Beispielen werden wir eine JavaScript-Hilfsfunktion `getRenderingContext()` verwenden, um den {{domxref("WebGLRenderingContext","WebGL-Rendering-Kontext", "", 1)}} zu initialisieren. Inzwischen sollten Sie verstehen, was die Funktion macht. Im Wesentlichen holt sie den WebGL-Rendering-Kontext vom Canvas-Element, initialisiert den Zeichenpuffer, löscht ihn schwarz und gibt den initialisierten Kontext zurück. Im Fehlerfall wird eine Fehlermeldung angezeigt und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurückgegeben.
+In den folgenden Beispielen verwenden wir eine JavaScript-Hilfsfunktion, `getRenderingContext()`, um den {{domxref("WebGLRenderingContext","WebGL rendering context", "", 1)}} zu initialisieren. Sie sollten inzwischen verstehen, was die Funktion tut. Im Wesentlichen holt sie den WebGL-Rendering-Kontext vom Canvas-Element, initialisiert den Zeichenpuffer, leert ihn schwarz und gibt den initialisierten Kontext zurück. Im Fehlerfall wird eine Fehlermeldung angezeigt und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurückgegeben.
 
-Schließlich wird der gesamte JavaScript-Code innerhalb einer sofort ausgeführten Funktion laufen, was eine gängige JavaScript-Technik ist (siehe {{Glossary("Function")}}). Die Funktionsdeklaration und der Aufruf werden ebenfalls verborgen.
+Abschließend wird der gesamte JavaScript-Code innerhalb einer unmittelbaren Funktion ausgeführt, was eine gängige JavaScript-Technik ist (siehe [Funktion](/de/docs/Glossary/Function)). Die Funktionsdeklaration und der Aufruf werden ebenfalls ausgeblendet.
 
 ### HTML
 

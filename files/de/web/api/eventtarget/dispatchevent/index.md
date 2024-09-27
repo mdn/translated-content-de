@@ -1,5 +1,5 @@
 ---
-title: "EventTarget: dispatchEvent() Methode"
+title: "EventTarget: dispatchEvent()-Methode"
 short-title: dispatchEvent()
 slug: Web/API/EventTarget/dispatchEvent
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`dispatchEvent()`** Methode des {{domxref("EventTarget")}} sendet ein {{domxref("Event")}} an das Objekt und ruft (synchron) die betroffenen Ereignislistener in der entsprechenden Reihenfolge auf. Die normalen Regeln der Ereignisverarbeitung (einschließlich der Erfassungs- und optionalen Bubbling-Phase) gelten auch für Ereignisse, die manuell mit `dispatchEvent()` gesendet werden.
+Die **`dispatchEvent()`**-Methode von [`EventTarget`](/de/docs/Web/API/EventTarget) sendet ein [`Event`](/de/docs/Web/API/Event) an das Objekt und ruft dabei (synchron) die betroffenen Ereignis-Listener in der entsprechenden Reihenfolge auf. Die normalen Ereignisverarbeitungsregeln (einschließlich der Erfassungs- und optionalen Blasphase) gelten auch für Ereignisse, die manuell mit `dispatchEvent()` ausgelöst werden.
 
-Der Aufruf von `dispatchEvent()` ist der letzte Schritt, um ein Ereignis _auszulösen_. Das Ereignis sollte bereits erstellt und mit einem {{domxref("Event/Event", "Event()")}} Konstruktor initialisiert worden sein.
+Der Aufruf von `dispatchEvent()` ist der letzte Schritt zum _Auslösen eines Ereignisses_. Das Ereignis sollte bereits erstellt und mit einem [`Event()`](/de/docs/Web/API/Event/Event) Konstruktor initialisiert worden sein.
 
 > [!NOTE]
-> Beim Aufruf dieser Methode wird die Eigenschaft {{domxref("Event.target")}} auf das aktuelle `EventTarget` initialisiert.
+> Beim Aufruf dieser Methode wird die [`Event.target`](/de/docs/Web/API/Event/target)-Eigenschaft auf das aktuelle `EventTarget` initialisiert.
 
-Im Gegensatz zu "nativen" Ereignissen, die vom Browser ausgelöst werden und Ereignis-Handler asynchron über die [Ereignisschleife](/de/docs/Web/JavaScript/Event_loop) aufrufen, ruft `dispatchEvent()` Ereignis-Handler _synchron_ auf. Alle anwendbaren Ereignis-Handler werden aufgerufen und geben zurück, bevor `dispatchEvent()` zurückkehrt.
+Im Gegensatz zu "nativen" Ereignissen, die vom Browser ausgelöst werden und Ereignishandler asynchron über die [Ereignisschleife](/de/docs/Web/JavaScript/Event_loop) aufrufen, ruft `dispatchEvent()` Ereignishandler _synchron_ auf. Alle anwendbaren Ereignishandler werden aufgerufen und abgeschlossen, bevor `dispatchEvent()` zurückkehrt.
 
 ## Syntax
 
@@ -26,19 +26,19 @@ dispatchEvent(event)
 ### Parameter
 
 - `event`
-  - : Das zu versendende {{domxref("Event")}} Objekt. Seine {{domxref("Event.target")}} Eigenschaft wird auf das aktuelle {{domxref("EventTarget")}} gesetzt.
+  - : Das zu versendende [`Event`](/de/docs/Web/API/Event)-Objekt. Seine [`Event.target`](/de/docs/Web/API/Event/target)-Eigenschaft wird auf das aktuelle [`EventTarget`](/de/docs/Web/API/EventTarget) gesetzt.
 
 ### Rückgabewert
 
-`false`, wenn `event` abbrechbar ist und mindestens einer der Ereignis-Handler, der `event` erhalten hat, {{domxref("Event.preventDefault()")}} aufgerufen hat. Andernfalls `true`.
+`false`, wenn `event` abbruchfähig ist und mindestens einer der Ereignishandler, der `event` erhalten hat, [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufgerufen hat. Andernfalls `true`.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DomException")}}
+- `InvalidStateError` [`DomException`](/de/docs/Web/API/DomException)
   - : Wird ausgelöst, wenn der Ereignistyp während der Ereignisinitialisierung nicht angegeben wurde.
 
 > [!WARNING]
-> Ausnahmen, die von Ereignis-Handlern geworfen werden, werden als nicht abgefangene Ausnahmen gemeldet. Die Ereignis-Handler laufen auf einem geschachtelten Aufrufstack; sie blockieren den Aufrufer, bis sie abgeschlossen sind, aber Ausnahmen werden nicht an den Aufrufer weitergegeben.
+> Von Ereignishandlern ausgelöste Ausnahmen werden als unbehandelte Ausnahmen gemeldet. Die Ereignishandler laufen in einem verschachtelten Aufrufstapel; sie blockieren den Aufrufer, bis sie abgeschlossen sind, aber Ausnahmen breiten sich nicht zum Aufrufer aus.
 
 ## Beispiel
 
@@ -54,4 +54,4 @@ Siehe [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and
 
 ## Siehe auch
 
-- Das [Ereignis-Objekt-Referenz](/de/docs/Web/API/Event)
+- Die [Ereignisobjekt-Referenz](/de/docs/Web/API/Event)

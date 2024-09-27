@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Eigenschaft drawingBufferHeight"
+title: "WebGLRenderingContext: drawingBufferHeight Eigenschaft"
 short-title: drawingBufferHeight
 slug: Web/API/WebGLRenderingContext/drawingBufferHeight
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die schreibgeschützte **`WebGLRenderingContext.drawingBufferHeight`**-Eigenschaft repräsentiert die tatsächliche Höhe des aktuellen Zeichenpuffers. Sie sollte dem `height`-Attribut des mit diesem Kontext verbundenen {{HTMLElement("canvas")}} Elements entsprechen, kann jedoch abweichen, wenn die Implementierung nicht in der Lage ist, die angeforderte Höhe bereitzustellen.
+Die schreibgeschützte **`WebGLRenderingContext.drawingBufferHeight`**
+Eigenschaft repräsentiert die tatsächliche Höhe des aktuellen Zeichnungspuffers. Sie sollte mit dem
+`height`-Attribut des mit diesem Kontext verbundenen {{HTMLElement("canvas")}}-Elements übereinstimmen, kann jedoch abweichen, wenn die Implementierung nicht in der Lage ist, die gewünschte Höhe bereitzustellen.
 
 ## Wert
 
@@ -16,13 +18,13 @@ Eine Zahl.
 
 ## Beispiele
 
-Gegeben ist dieses {{HTMLElement("canvas")}} Element:
+Gegebenes {{HTMLElement("canvas")}}-Element:
 
 ```html
 <canvas id="canvas"></canvas>
 ```
 
-Sie können die Höhe des Zeichenpuffers mit den folgenden Zeilen abrufen:
+Sie können die Höhe des Zeichnungspuffers mit den folgenden Zeilen ermitteln:
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -40,5 +42,5 @@ gl.drawingBufferHeight; // 150
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.drawingBufferWidth")}}
-- {{domxref("WebGLRenderingContext.viewport()")}}
+- [`WebGLRenderingContext.drawingBufferWidth`](/de/docs/Web/API/WebGLRenderingContext/drawingBufferWidth)
+- [`WebGLRenderingContext.viewport()`](/de/docs/Web/API/WebGLRenderingContext/viewport)

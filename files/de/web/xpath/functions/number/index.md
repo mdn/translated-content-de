@@ -1,5 +1,5 @@
 ---
-title: Zahl
+title: number
 slug: Web/XPath/Functions/number
 l10n:
   sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `number` wandelt ein Objekt in eine Zahl um und gibt die Zahl zurück.
+Die `number`-Funktion konvertiert ein Objekt in eine Zahl und gibt die Zahl zurück.
 
 ## Syntax
 
@@ -22,14 +22,14 @@ number( [object] )
 
 ### Rückgabewert
 
-Die resultierende Zahl nach der Umwandlung des Objekts.
+Die resultierende Zahl nach der Konvertierung des Objekts.
 
 ## Beschreibung
 
-- Zeichenketten werden in eine Zahl umgewandelt, indem führende Leerzeichen vor der Zahl entfernt werden und Leerzeichen nach der Zahl ignoriert werden. Wenn die Zeichenkette diesem Muster nicht entspricht, wird sie in NaN umgewandelt.
-- Boolean true wird in 1 umgewandelt. False wird in 0 umgewandelt.
-- Eine Knotenmenge wird zuerst in eine Zeichenkette umgewandelt, als ob sie durch einen Aufruf der Funktion [string()](/de/docs/Web/XPath/Functions/string) konvertiert wird, und dann auf die gleiche Weise wie ein Zeichenkettenargument konvertiert.
-- Ein Objekt eines anderen Typs als der vier Grundtypen wird auf eine von diesem Typ abhängige Weise in eine Zahl umgewandelt.
+- Zeichenfolgen werden in eine Zahl umgewandelt, indem führende Leerzeichen in der Zeichenfolge vor der Zahl entfernt und Leerzeichen nach der Zahl ignoriert werden. Wenn die Zeichenfolge diesem Muster nicht entspricht, wird sie in NaN umgewandelt.
+- Wahrheitswerte werden folgendermaßen umgewandelt: Wahr wird zu 1, Falsch wird zu 0.
+- Eine Knotenmenge wird zuerst in eine Zeichenfolge umgewandelt, als ob der [string()](/de/docs/Web/XPath/Functions/string)-Funktion aufgerufen worden wäre, und dann auf dieselbe Weise wie ein Zeichenfolgenargument konvertiert.
+- Ein Objekt eines anderen Typs als der vier Grundtypen wird in einer von diesem Typ abhängigen Weise in eine Zahl umgewandelt.
 
 ## Spezifikationen
 

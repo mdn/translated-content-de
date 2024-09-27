@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das `statechange`-Ereignis wird ausgelöst, wenn sich der {{domxref("ServiceWorker.state")}} ändert.
+Das `statechange`-Ereignis wird ausgelöst, wenn sich der [`ServiceWorker.state`](/de/docs/Web/API/ServiceWorker/state) ändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("statechange", (event) => {});
@@ -22,11 +22,11 @@ onstatechange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieser Codeausschnitt stammt aus dem [Service-Worker-Registration-Events-Beispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/registration-events/index.html) ([Live-Demo](https://googlechrome.github.io/samples/service-worker/registration-events/)). Der Code lauscht auf Änderungen im {{domxref("ServiceWorker.state")}}
+Dieser Codeausschnitt stammt aus dem [service worker registration-events sample](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/registration-events/index.html) ([live demo](https://googlechrome.github.io/samples/service-worker/registration-events/)). Der Code lauscht auf jede Änderung im [`ServiceWorker.state`](/de/docs/Web/API/ServiceWorker/state)
 und gibt dessen Wert zurück.
 
 ```js
@@ -50,16 +50,16 @@ if (serviceWorker) {
 }
 ```
 
-Beachten Sie, dass, wenn `statechange` ausgelöst wird, sich die Referenzen des Service Workers geändert haben können. Zum Beispiel:
+Beachten Sie, dass wenn `statechange` ausgelöst wird, sich die Referenzen des Service Workers geändert haben können. Beispielsweise:
 
 ```js
 navigator.serviceWorker.register("/sw.js").then((swr) => {
   swr.installing.state = "installing";
   swr.installing.onstatechange = () => {
     swr.installing = null;
-    // An diesem Punkt könnte swr.waiting ODER swr.active wahr sein. Dies liegt daran,
-    // dass das statechange-Ereignis in die Warteschlange gestellt wird, während der zugrunde liegende
-    // Worker möglicherweise in den Wartestatus wechselt und sofort aktiviert wird, wenn dies möglich ist.
+    // At this point, swr.waiting OR swr.active might be true. This is because the statechange
+    // event gets queued, meanwhile the underlying worker may have gone into the waiting
+    // state and will be immediately activated if possible.
   };
 });
 ```

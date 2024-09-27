@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`depthStencilTexture`**-Eigenschaft des {{domxref("XRWebGLSubImage")}}-Interfaces repräsentiert das Depth/Stencil-{{domxref("WebGLTexture")}}-Objekt für das {{domxref("XRCompositionLayer")}}, das gerendert werden soll.
+Die schreibgeschützte **`depthStencilTexture`**-Eigenschaft der [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Schnittstelle repräsentiert das Depth/Stencel [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt für das [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer) zur Darstellung.
 
 ## Wert
 
-Eine undurchsichtige {{domxref("WebGLTexture")}}. Weitere Details finden Sie unter [WebXR opaque textures](/de/docs/Web/API/WebGLTexture#webxr_opaque_textures).
+Ein undurchsichtiges [`WebGLTexture`](/de/docs/Web/API/WebGLTexture). Weitere Details finden Sie unter [WebXR undurchsichtige Texturen](/de/docs/Web/API/WebGLTexture#webxr_opaque_textures).
 
 ### Verwendung von `depthStencilTexture`
 
-Die `depthStencilTexture`-Eigenschaft kann an {{domxref("WebGL2RenderingContext.framebufferTextureLayer()")}} übergeben werden, um die Depth-Textur an ein Framebuffer anzuhängen.
+Die `depthStencilTexture`-Eigenschaft kann an [`WebGL2RenderingContext.framebufferTextureLayer()`](/de/docs/Web/API/WebGL2RenderingContext/framebufferTextureLayer) übergeben werden, um die Depth-Texture an einen Framebuffer anzuhängen.
 
 ```js
 const xrGlBinding = new XRWebGLBinding(xrSession, gl);
@@ -67,4 +67,4 @@ function onXRFrame(time, xrFrame) {
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.framebufferTextureLayer()")}}
+- [`WebGL2RenderingContext.framebufferTextureLayer()`](/de/docs/Web/API/WebGL2RenderingContext/framebufferTextureLayer)

@@ -7,33 +7,33 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HashChangeEvent`**-Schnittstelle stellt Ereignisse dar, die ausgelöst werden, wenn sich der Fragmentbezeichner der URL geändert hat.
+Die Schnittstelle **`HashChangeEvent`** repräsentiert Ereignisse, die ausgelöst werden, wenn sich der Fragmentbezeichner der URL ändert.
 
-Der Fragmentbezeichner ist der Teil der URL, der auf das `#`-Symbol folgt (und dieses einschließt).
+Der Fragmentbezeichner ist der Teil der URL, der dem `#`-Symbol folgt (und dieses einschließt).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("HashChangeEvent.HashChangeEvent", "HashChangeEvent()")}}
+- [`HashChangeEvent()`](/de/docs/Web/API/HashChangeEvent/HashChangeEvent)
   - : Erstellt ein neues `HashChangeEvent`-Objekt.
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch die Eigenschaften ihres Elternteils, {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch die Eigenschaften ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("HashChangeEvent.newURL")}} {{ReadOnlyInline}}
+- [`HashChangeEvent.newURL`](/de/docs/Web/API/HashChangeEvent/newURL) {{ReadOnlyInline}}
   - : Die neue URL, zu der das Fenster navigiert.
-- {{domxref("HashChangeEvent.oldURL")}} {{ReadOnlyInline}}
-  - : Die vorherige URL, von der das Fenster navigiert wurde.
+- [`HashChangeEvent.oldURL`](/de/docs/Web/API/HashChangeEvent/oldURL) {{ReadOnlyInline}}
+  - : Die vorherige URL, von der aus das Fenster navigierte.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch die Methoden ihres Elternteils, {{domxref("Event")}}._
+_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch die Methoden ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
-### Einfache Beispiel
+### Einfaches Beispiel
 
 ```js
 function locationHashChanged() {
@@ -55,5 +55,5 @@ window.addEventListener("hashchange", locationHashChanged);
 
 ## Verwandte Ereignisse
 
-- {{domxref("window.hashchange_event", "hashchange")}}
-- {{domxref("window.popstate_event", "popstate")}}
+- [`hashchange`](/de/docs/Web/API/Window/hashchange_event)
+- [`popstate`](/de/docs/Web/API/Window/popstate_event)

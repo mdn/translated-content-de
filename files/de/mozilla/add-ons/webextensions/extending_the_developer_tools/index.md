@@ -1,5 +1,5 @@
 ---
-title: Erweitern Sie die Entwicklertools
+title: Erweitern Sie die Entwicklerwerkzeuge
 slug: Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools
 l10n:
   sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
@@ -8,33 +8,33 @@ l10n:
 {{AddonSidebar}}
 
 > [!NOTE]
-> Diese Seite beschreibt die Devtools-APIs in Firefox 55. Obwohl die APIs auf den [Chrome devtools APIs](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools) basieren, implementiert Firefox nicht alle diese Funktionen; daher sind hier nicht alle Funktionen dokumentiert. Um zu sehen, welche Funktionen fehlen, lesen Sie bitte [Limitations of the devtools APIs](#einschränkungen_der_devtools-apis).
+> Diese Seite beschreibt die Devtools-APIs in Firefox 55. Obwohl die APIs auf den [Chrome-Devtools-APIs](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools) basieren, implementiert Firefox nicht alle diese Funktionen; daher sind nicht alle Funktionen hier dokumentiert. Um zu sehen, welche Funktionen fehlen, lesen Sie [Einschränkungen der Devtools-APIs](#einschränkungen_der_devtools-apis).
 
-Sie können die WebExtensions-APIs verwenden, um die integrierten Entwicklertools des Browsers zu erweitern. Um eine Devtools-Erweiterung zu erstellen, fügen Sie den Schlüssel "[devtools_page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page)" in Ihre [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei ein:
+Sie können WebExtensions-APIs verwenden, um die integrierten Entwicklerwerkzeuge des Browsers zu erweitern. Um eine Devtools-Erweiterung zu erstellen, fügen Sie den Schlüssel "[devtools_page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page)" in Ihre [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei ein:
 
 ```json
 "devtools_page": "devtools/devtools-page.html"
 ```
 
-Der Wert dieses Schlüssels ist eine URL, die auf eine HTML-Datei verweist, die mit Ihrer Erweiterung gebündelt ist, eine spezielle Erweiterungsseite namens Devtools-Seite. Die URL muss relativ zur manifest.json Datei sein.
+Der Wert dieses Schlüssels ist eine URL, die auf eine HTML-Datei verweist, die mit Ihrer Erweiterung gebündelt ist, eine spezielle Erweiterungsseite namens Devtools-Seite. Die URL muss relativ zur manifest.json-Datei sein.
 
-Dieser Manifest-Schlüssel setzt implizit die `"devtools"`-Berechtigung, die eine [eine Warnung zur Berechtigungsanforderung bei der Installation über Devtools](https://support.mozilla.org/en-US/kb/permission-request-messages-firefox-extensions#w_extend-developer-tools-to-access-your-data-in-open-tabs) auslöst. Um diese Warnung zu vermeiden, markieren Sie die Funktion als optional, indem Sie die `"devtools"`-Berechtigung im [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) Manifest-Schlüssel auflisten. Die Festlegung der optionalen Berechtigung kann besonders hilfreich sein, wenn Devtools-Funktionen in einem Update eingeführt werden, da dies verhindert, dass die Erweiterung deaktiviert (in Chrome) oder die Aktualisierung blockiert wird (in Firefox).
+Dieses Manifest-Schlüssel setzt implizit die Berechtigung `"devtools"`, was eine [Installationswarnung über Devtools](https://support.mozilla.org/en-US/kb/permission-request-messages-firefox-extensions#w_extend-developer-tools-to-access-your-data-in-open-tabs) auslöst. Um diese Warnung zu vermeiden, markieren Sie die Funktion als optional, indem Sie die Berechtigung `"devtools"` im [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) Manifest-Schlüssel auflisten. Das Festlegen der optionalen Berechtigung kann besonders hilfreich sein, wenn Sie Devtools-Funktionen in einem Update einführen, da es verhindert, dass die Erweiterung deaktiviert wird (in Chrome) oder dass das Update blockiert wird (in Firefox).
 
 ## Die Devtools-Seite
 
-Die Devtools-Seite wird geladen, wenn die Browser-Entwicklertools geöffnet werden, und entladen, wenn sie geschlossen werden. Beachten Sie, dass, da das Devtools-Fenster einem einzelnen Tab zugeordnet ist, es durchaus möglich ist, dass mehr als ein Devtools-Fenster – und damit mehr als eine Devtools-Seite – gleichzeitig existiert.
+Die Devtools-Seite wird geladen, wenn die Browser-Devtools geöffnet werden, und entladen, wenn sie geschlossen werden. Beachten Sie, dass, da das Devtools-Fenster mit einem einzelnen Tab verknüpft ist, es sehr wohl möglich ist, dass mehr als ein Devtools-Fenster - und daher mehr als eine Devtools-Seite - gleichzeitig existiert.
 
-Die Devtools-Seite hat keine sichtbare DOM, kann aber JavaScript-Quellen mit [`<script>`](/de/docs/Web/HTML/Element/script) Tags beinhalten. Die Quellen müssen mit der Erweiterung selbst gebündelt sein. Die Quellen haben Zugriff auf:
+Die Devtools-Seite hat keinen sichtbaren DOM, kann aber JavaScript-Quellen mit `<script>`-Tags einbinden. Die Quellen müssen mit der Erweiterung selbst gebündelt werden. Die Quellen haben Zugriff auf:
 
-- Die normalen DOM-APIs, die über das globale [`window`](/de/docs/Web/API/Window) Objekt erreichbar sind
-- Dieselben [WebExtension-APIs wie in Inhalts-Skripten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#webextension_apis)
+- Die normalen DOM-APIs, die durch das globale `window`-Objekt zugänglich sind
+- Die gleichen [WebExtension-APIs wie in Inhaltsskripten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#webextension_apis)
 - Die Devtools-APIs:
 
-  - [`devtools.inspectedWindow`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/inspectedWindow)
-  - [`devtools.network`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/network)
-  - [`devtools.panels`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels)
+  - `devtools.inspectedWindow`
+  - `devtools.network`
+  - `devtools.panels`
 
-Beachten Sie, dass die Devtools-Seite keinen Zugriff auf andere WebExtension-APIs erhält, und die Hintergrundseite keinen Zugriff auf die Devtools-APIs hat. Stattdessen müssen die Devtools-Seite und die Hintergrundseite über die `runtime` Messaging-APIs kommunizieren. Hier ist ein Beispiel:
+Beachten Sie, dass die Devtools-Seite keinen Zugriff auf andere WebExtension-APIs hat und die Hintergrundseite keinen Zugriff auf die Devtools-APIs hat. Stattdessen müssen die Devtools-Seite und die Hintergrundseite mithilfe der `runtime`-Messaging-APIs kommunizieren. Hier ist ein Beispiel:
 
 ```html
 <!doctype html>
@@ -49,13 +49,13 @@ Beachten Sie, dass die Devtools-Seite keinen Zugriff auf andere WebExtension-API
 </html>
 ```
 
-Die Datei `devtools.js` enthält den eigentlichen Code, der Ihre Devtools-Erweiterungen erstellt.
+Die Datei `devtools.js` enthält den tatsächlichen Code, der Ihre Devtools-Erweiterungen erstellt.
 
 ## Erstellen von Panels
 
-Das Devtools-Fenster beherbergt mehrere separate Werkzeuge - den JavaScript-Debugger, den Netzwerkmonitor und so weiter. Eine Reihe von Tabs oben ermöglicht dem Benutzer, zwischen den verschiedenen Werkzeugen zu wechseln. Das Fenster, das die Benutzeroberfläche jedes Werkzeugs hostet, wird als "Panel" bezeichnet.
+Das Devtools-Fenster hostet eine Reihe von separaten Werkzeugen - den JavaScript-Debugger, den Netzwerk-Monitor und so weiter. Eine Reihe von Tabs oben ermöglicht dem Benutzer, zwischen den verschiedenen Werkzeugen zu wechseln. Das Fenster, das die Benutzeroberfläche jedes Werkzeugs hostet, wird als "Panel" bezeichnet.
 
-Mit der `devtools.panels.create()` API können Sie Ihr eigenes Panel im Devtools-Fenster erstellen:
+Mit der API `devtools.panels.create()` können Sie Ihr eigenes Panel im Devtools-Fenster erstellen:
 
 ```js
 browser.devtools.panels
@@ -70,28 +70,28 @@ browser.devtools.panels
   });
 ```
 
-Dies erfordert drei obligatorische Argumente: den Titel, das Symbol und den Inhalt des Panels. Es gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das zu einem `devtools.panels.ExtensionPanel` Objekt aufgelöst wird, das das neue Panel darstellt.
+Dies nimmt drei obligatorische Argumente: den Titel des Panels, das Icon und den Inhalt. Es gibt ein `Promise` zurück, das sich zu einem `devtools.panels.ExtensionPanel`-Objekt auflöst, das das neue Panel darstellt.
 
 ## Interaktion mit dem Ziel-Fenster
 
-Die Entwicklertools sind immer mit einem bestimmten Browser-Tab verbunden. Dies wird als das "Ziel" der Entwicklertools oder das "untersuchte Fenster" bezeichnet. Sie können mit dem untersuchten Fenster mithilfe der [`devtools.inspectedWindow`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/inspectedWindow) API interagieren.
+Die Entwicklerwerkzeuge sind immer an einen bestimmten Browser-Tab angehängt. Dies wird als das "Ziel" für die Entwicklerwerkzeuge oder das "inspekte Fenster" bezeichnet. Sie können mit dem inspizierten Fenster über die API `devtools.inspectedWindow` interagieren.
 
 ### Ausführen von Code im Ziel-Fenster
 
-Das [`devtools.inspectedWindow.eval()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/inspectedWindow/eval) bietet eine Möglichkeit, Code im untersuchten Fenster auszuführen.
+Die Funktion `devtools.inspectedWindow.eval()` bietet eine Möglichkeit, Code im inspizierten Fenster auszuführen.
 
-Dies ähnelt dem Verwenden von {{WebExtAPIRef("tabs.executeScript()")}}, um ein Inhalts-Skript einzufügen, jedoch mit einem wichtigen Unterschied:
+Dies ähnelt der Verwendung von {{WebExtAPIRef("tabs.executeScript()")}}, um ein Inhaltsskript zu injizieren, aber mit einem wichtigen Unterschied:
 
-- Im Gegensatz zu Inhalts-Skripten erhalten Skripte, die mit `devtools.inspectedWindow.eval()` geladen werden, **keinen** [einen "sauberen Blick auf das DOM"](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#dom_access): das heißt, sie können Änderungen an der Seite sehen, die durch Seiten-Skripte vorgenommen werden.
+- Anders als Inhaltsskripte erhalten Scripts, die mit `devtools.inspectedWindow.eval()` geladen wurden, **keinen** [ein "sauberes Bild des DOM"](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#dom_access): Das bedeutet, dass sie Änderungen an der Seite sehen können, die von Seitenskripten vorgenommen wurden.
 
 > [!NOTE]
-> Ein sauberer Blick auf das DOM ist eine Sicherheitsfunktion, die dazu gedacht ist, böswillige Seiten daran zu hindern, Erweiterungen zu täuschen, indem sie das Verhalten nativer DOM-Funktionen neu definieren. Das bedeutet, dass Sie sehr vorsichtig im Umgang mit eval() sein müssen und ein normales Inhalts-Skript verwenden sollten, wenn möglich.
+> Ein sauberes Bild des DOM ist ein Sicherheitsmerkmal, das verhindern soll, dass es feindlichen Seiten gelingt, Erweiterungen durch Neudefinieren des Verhaltens nativer DOM-Funktionen zu täuschen. Das bedeutet, dass Sie bei der Verwendung von eval() sehr vorsichtig sein müssen und, falls möglich, ein normales Inhaltsskript verwenden sollten.
 
-Skripte, die mit `devtools.inspectedWindow.eval()` geladen werden, sehen auch keine JavaScript-Variablen, die von Inhalts-Skripten definiert wurden.
+Scripts, die mit `devtools.inspectedWindow.eval()` geladen wurden, sehen auch keine JavaScript-Variablen, die durch Inhaltsskripte definiert wurden.
 
-### Arbeiten mit Inhalts-Skripten
+### Arbeiten mit Inhaltsskripten
 
-Ein Devtools-Dokument hat keinen direkten Zugriff auf {{WebExtAPIRef("tabs.executeScript()")}}, daher muss das Devtools-Dokument eine Nachricht an das Hintergrund-Skript senden, um es zu bitten, das Skript einzufügen. Die [`devtools.inspectedWindow.tabId`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/inspectedWindow/tabId) liefert die ID des Ziel-Tabs: das Devtools-Dokument kann dies an das Hintergrund-Skript übermitteln, und das Hintergrund-Skript kann es wiederum in {{WebExtAPIRef("tabs.executeScript()")}} übergeben:
+Ein Devtools-Dokument hat keinen direkten Zugriff auf {{WebExtAPIRef("tabs.executeScript()")}}, daher muss das Devtools-Dokument eine Nachricht an das Hintergrundskript senden und es darum bitten, das Skript zu injizieren. Die Funktion `devtools.inspectedWindow.tabId` liefert die ID des Ziel-Tabs: Das Devtools-Dokument kann dies an das Hintergrundskript weitergeben, und das Hintergrundskript kann es wiederum in {{WebExtAPIRef("tabs.executeScript()")}} übergeben:
 
 ```js
 // devtools-panel.js
@@ -118,17 +118,17 @@ function handleMessage(request, sender, sendResponse) {
 browser.runtime.onMessage.addListener(handleMessage);
 ```
 
-Wenn Sie Nachrichten zwischen den Inhalts-Skripten, die im Ziel-Fenster ausgeführt werden, und einem Devtools-Dokument austauschen müssen, ist es eine gute Idee, {{WebExtAPIRef("runtime.connect()")}} und {{WebExtAPIRef("runtime.onConnect")}} zu verwenden, um eine Verbindung zwischen der Hintergrundseite und dem Devtools-Dokument herzustellen. Die Hintergrundseite kann dann eine Zuordnung zwischen Tab-IDs und {{WebExtAPIRef("runtime.Port")}} Objekten aufrechterhalten und diese verwenden, um Nachrichten zwischen den beiden Bereichen zu leiten.
+Wenn Sie Nachrichten zwischen den in das Ziel-Fenster laufenden Inhaltsskripten und einem Devtools-Dokument austauschen müssen, ist es eine gute Idee, die {{WebExtAPIRef("runtime.connect()")}} und {{WebExtAPIRef("runtime.onConnect")}} zu verwenden, um eine Verbindung zwischen der Hintergrundseite und dem Devtools-Dokument einzurichten. Die Hintergrundseite kann dann eine Zuordnung zwischen Tab-IDs und {{WebExtAPIRef("runtime.Port")}}-Objekten pflegen und diese verwenden, um Nachrichten zwischen den beiden Bereichen zu leiten.
 
-![Die Hintergrundseite Tab-ID ist mit dem Inhalts-Skript auf der Inhaltsseite durch ein runtime.sendmessage() Objekt verbunden. Der Port der Hintergrundseite ist mit dem Port des Devtools-Dokuments durch ein port.postMessage() Objekt verbunden.](devtools-content-scripts.png)
+![Die Tab ID der Hintergrundseite ist mit dem Inhaltsskript auf der Inhaltsseite durch ein runtime.sendmessage() Objekt verbunden. Der Port der Hintergrundseite ist mit dem Port des Devtools-Dokuments durch ein port.postMessage() Objekt verbunden.](devtools-content-scripts.png)
 
 ## Einschränkungen der Devtools-APIs
 
-Diese APIs basieren auf den Chrome-Devtools-APIs, aber viele Funktionen fehlen noch im Vergleich zu Chrome. Dieser Abschnitt listet die Funktionen auf, die in Firefox 54 noch nicht implementiert sind. Beachten Sie, dass die Devtools-APIs aktiv entwickelt werden und wir erwarten, die meisten von ihnen in zukünftigen Versionen zu unterstützen.
+Diese APIs basieren auf den Chrome-Devtools-APIs, aber viele Funktionen fehlen noch im Vergleich zu Chrome. Dieser Abschnitt listet die Funktionen auf, die ab Firefox 54 noch nicht implementiert sind. Beachten Sie, dass die Devtools-APIs aktiv weiterentwickelt werden, und wir erwarten, die Unterstützung für die meisten von ihnen in zukünftigen Versionen hinzuzufügen.
 
 ### devtools.inspectedWindow
 
-Folgende Funktionen werden nicht unterstützt:
+Folgendes wird nicht unterstützt:
 
 - `inspectedWindow.getResources()`
 - `inspectedWindow.onResourceAdded`
@@ -136,11 +136,11 @@ Folgende Funktionen werden nicht unterstützt:
 
 Keine der Optionen zu `inspectedWindow.eval()` werden unterstützt.
 
-Skripte, die mit `inspectedWindow.eval()` eingefügt werden, können nicht alle Befehlszeilen-Hilfsfunktionen der Konsole verwenden, aber `$0` und `inspect()` werden beide unterstützt (ab Firefox 55).
+Scripts, die unter Verwendung von `inspectedWindow.eval()` injiziert werden, können nicht alle Befehlszeilen-Hilfsfunktionen der Konsole nutzen, aber `$0` und `inspect()` werden beide unterstützt (ab Firefox 55).
 
 ### devtools.panels
 
-Folgende Funktionen werden nicht unterstützt:
+Folgendes wird nicht unterstützt:
 
 - `panels.elements`
 - `panels.sources`
@@ -153,6 +153,6 @@ Folgende Funktionen werden nicht unterstützt:
 
 ## Beispiele
 
-Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repo auf GitHub enthält mehrere Beispiele für Erweiterungen, die Devtools-Panels verwenden:
+Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält mehrere Beispiele für Erweiterungen, die Devtools-Panels verwenden:
 
-- [devtools-panels](https://github.com/mdn/webextensions-examples/tree/main/devtools-panels) verwenden Devtools-Panels:
+- [devtools-panels](https://github.com/mdn/webextensions-examples/tree/main/devtools-panels) nutzen Devtools-Panels:

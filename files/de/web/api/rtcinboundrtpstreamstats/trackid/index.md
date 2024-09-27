@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("WebRTC")}} {{Deprecated_Header}}
 
-Die **`trackId`**-Eigenschaft des {{domxref("RTCInboundRtpStreamStats")}}-Wörterbuchs gibt die {{domxref("RTCInboundRtpStreamStats.id", "id")}} des {{domxref("RTCReceiverAudioTrackAttachmentStats")}}- oder {{domxref("RTCReceiverVideoTrackAttachmentStats")}}-Objekts an, das die {{domxref("MediaStreamTrack")}} repräsentiert, die die eingehenden Medien empfängt.
+Die **`trackId`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs gibt die [`id`](/de/docs/Web/API/RTCInboundRtpStreamStats/id) des [`RTCReceiverAudioTrackAttachmentStats`](/de/docs/Web/API/RTCReceiverAudioTrackAttachmentStats)- oder [`RTCReceiverVideoTrackAttachmentStats`](/de/docs/Web/API/RTCReceiverVideoTrackAttachmentStats)-Objekts an, das die [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) repräsentiert, die die eingehenden Medien empfängt.
 
 ## Wert
 
-Ein Zeichenfolgenwert, der die ID des {{domxref("RTCReceiverAudioTrackAttachmentStats")}}- oder {{domxref("RTCReceiverVideoTrackAttachmentStats")}}-Objekts enthält, das den Track repräsentiert, welcher die Medien von dieser RTP-Sitzung empfängt.
+Ein String, der die ID des [`RTCReceiverAudioTrackAttachmentStats`](/de/docs/Web/API/RTCReceiverAudioTrackAttachmentStats)- oder [`RTCReceiverVideoTrackAttachmentStats`](/de/docs/Web/API/RTCReceiverVideoTrackAttachmentStats)-Objekts enthält, das den Track repräsentiert, der die Medien aus dieser RTP-Sitzung empfängt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

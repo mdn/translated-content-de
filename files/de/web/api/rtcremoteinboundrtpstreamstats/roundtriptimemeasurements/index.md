@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`roundTripTimeMeasurements`**-Eigenschaft des {{domxref("RTCRemoteInboundRtpStreamStats")}}-Wörterbuchs enthält einen positiven ganzzahligen Wert, der die Gesamtanzahl der gültigen Round-Trip-Time-Messungen für diese [synchronisierende Quelle](#ssrc) darstellt.
+Die **`roundTripTimeMeasurements`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs enthält einen positiven ganzzahligen Wert, der die Gesamtanzahl der gültigen Round-Trip-Time-Messungen repräsentiert, die für diese [synchronisierende Quelle](#ssrc) empfangen wurden.
 
-Die Anzahl kann als Maß für die Verfügbarkeit und Zuverlässigkeit von Round-Trip-Time-Messdaten verwendet werden.
+Die Anzahl kann als Maß für die Verfügbarkeit und Zuverlässigkeit der Round-Trip-Time-Messdaten verwendet werden.
 
 ## Wert
 
 Eine positive Zahl, die die Anzahl der gültigen Round-Trip-Time-Messungen angibt.
 
-Dies ist die Anzahl der _RTCP Receiver Reports (RR)_, die für diese [synchronisierende Quelle](#ssrc) empfangen wurden und die einen nicht-null Wert für das Feld "delay since last SR (DLSR)" enthalten.
+Dies ist die Anzahl der empfangenen _RTCP Receiver Reports (RR)_ für diese [synchronisierende Quelle](#ssrc), die einen nicht nullwertigen Eintrag im Feld "delay since last SR (DLSR)" enthalten.
 
 ## Spezifikationen
 

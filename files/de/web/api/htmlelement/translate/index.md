@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: Eigenschaft translate"
+title: "HTMLElement: translate Eigenschaft"
 short-title: translate
 slug: Web/API/HTMLElement/translate
 l10n:
@@ -8,28 +8,28 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`translate`**-Eigenschaft des {{domxref("HTMLElement")}}-Interfaces gibt an, ob die Attributwerte eines Elements und die Werte seiner {{domxref("Text")}}-Knoten-Kinder übersetzt werden sollen, wenn die Seite lokalisiert wird, oder ob sie unverändert bleiben sollen.
+Die **`translate`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces zeigt an, ob die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knoten-Kinder bei der Lokalisierung der Seite übersetzt werden sollen oder ob sie unverändert bleiben.
 
-Sie spiegelt den Wert des [`translate`](/de/docs/Web/HTML/Global_attributes/translate) HTML-Globalattributs wider.
+Sie spiegelt den Wert des globalen HTML-Attributs [`translate`](/de/docs/Web/HTML/Global_attributes/translate) wider.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn die Attributwerte eines Elements und die Werte seiner {{domxref("Text")}}-Knoten-Kinder übersetzt werden sollen, wenn die Seite lokalisiert wird, andernfalls `false`.
+Ein boolescher Wert, der `true` ist, wenn die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knoten-Kinder bei der Lokalisierung der Seite übersetzt werden sollen; andernfalls `false`.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie die Übersetzung über ein Skript aktiviert oder deaktiviert werden kann:
+Das folgende Beispiel zeigt, wie die Übersetzung mittels Skript aktiviert oder deaktiviert werden kann:
 
 ```html
 <div>
-  <span>Der Inhalt darf immer übersetzt werden: </span>
-  <span translate="yes">El contenido será traducido</span>
+  <span>The content may always be translated: </span>
+  <span translate="yes">El contenido será traducido</div>
 </div>
 <div>
-  <span id="translate-label">Der Inhalt darf übersetzt werden:</span>
-  <span id="translate-element" translate="no">El contenido puede ser traducido.</span>
+  <span id="translate-label">The content may be translated:</span>
+  <span id="translate-element" translate="no">El contenido puede ser traducido.</div>
 </div>
-<input id="translate-controller" type="checkbox" /> Übersetzung aktivieren
+<input id="translate-controller" type="checkbox" /> Enable translation
 ```
 
 ```js
@@ -40,10 +40,10 @@ const controller = document.getElementById("translate-controller");
 controller.addEventListener("change", (e) => {
   if (controller.checked) {
     element.translate = true;
-    label.innerText = "Der Inhalt darf übersetzt werden:";
+    label.innerText = "The content may be translated:";
   } else {
     element.translate = false;
-    label.innerText = "Der Inhalt darf nicht übersetzt werden:";
+    label.innerText = "The content may not be translated:";
   }
 });
 ```
@@ -60,4 +60,4 @@ controller.addEventListener("change", (e) => {
 
 ## Siehe auch
 
-- [`translate`](/de/docs/Web/HTML/Global_attributes#translate) HTML-Globalattribut
+- [`translate`](/de/docs/Web/HTML/Global_attributes#translate) globales HTML-Attribut

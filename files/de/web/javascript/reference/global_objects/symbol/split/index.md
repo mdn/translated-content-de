@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Symbol.split`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.split`. Die Methode {{jsxref("String.prototype.split()")}} sucht dieses Symbol in ihrem ersten Argument für die Methode, die einen String an den Indizes aufteilt, die mit dem aktuellen Objekt übereinstimmen.
+Das statische Dateneigenschaft **`Symbol.split`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.split`. Die Methode {{jsxref("String.prototype.split()")}} sucht dieses Symbol in ihrem ersten Argument, um die Methode zu finden, die einen `string` an den Indizes aufteilt, die mit dem aktuellen Objekt übereinstimmen.
 
 Für weitere Informationen siehe [`RegExp.prototype[Symbol.split]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.split) und {{jsxref("String.prototype.split()")}}.
 
@@ -21,7 +21,7 @@ Das wohlbekannte Symbol `Symbol.split`.
 
 ## Beispiele
 
-### Benutzerdefiniertes reverse split
+### Benutzerdefiniertes reverses Split
 
 ```js
 class ReverseSplit {

@@ -1,5 +1,5 @@
 ---
-title: "RTCInboundRtpStreamStats: remoteId-Eigenschaft"
+title: "RTCInboundRtpStreamStats: Eigenschaft remoteId"
 short-title: remoteId
 slug: Web/API/RTCInboundRtpStreamStats/remoteId
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`remoteId`** Eigenschaft des {{domxref("RTCInboundRtpStreamStats")}}-Wörterbuchs gibt die {{domxref("RTCInboundRtpStreamStats.id", "id")}} des {{domxref("RTCRemoteOutboundRtpStreamStats")}} Objekts an, das den {{domxref("RTCRtpSender")}} des entfernten Peers darstellt, der die Medien an den lokalen Peer sendet.
+Die **`remoteId`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs gibt die [`id`](/de/docs/Web/API/RTCInboundRtpStreamStats/id) des [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Objekts an, das den `RTCRtpSender` des entfernten Peers darstellt, der die Medien an den lokalen Peer sendet.
 
 ## Wert
 
-Ein String, der die ID des {{domxref("RTCRemoteOutboundRtpStreamStats")}} Objekts enthält, das den {{domxref("RTCRtpSender")}} des entfernten Peers für die durch dieses Statistikobjekt repräsentierte Synchronisationsquelle darstellt.
+Ein String, der die ID des [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Objekts enthält, das den `RTCRtpSender` des entfernten Peers für die Synchronisationsquelle darstellt, die durch dieses Statistikobjekt repräsentiert wird.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

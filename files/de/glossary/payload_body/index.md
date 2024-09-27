@@ -1,5 +1,5 @@
 ---
-title: Nutzlastkörper
+title: Payload body
 slug: Glossary/Payload_body
 l10n:
   sourceCommit: 998a4e6fc713678381e6bc31130e3a0a53158d69
@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **Nutzlastkörper** (payload body) einer HTTP-Nachricht ist der _Informationsteil_ ("Nutzlast") der Daten, die im HTTP-Nachrichtenkörper gesendet werden (falls vorhanden), bevor die [Transfer-Codierung](/de/docs/Web/HTTP/Headers/Transfer-Encoding) angewendet wird. Wenn keine Transfer-Codierung verwendet wird, sind der _Nutzlastkörper_ und der _Nachrichtenkörper_ identisch!
+Der **Payload-Body** einer HTTP-Nachricht ist der _Informationsteil_ ("Nutzlast") der Daten, die im HTTP-Nachrichtenkörper gesendet werden (falls vorhanden), bevor die [Transfer-Encoding](/de/docs/Web/HTTP/Headers/Transfer-Encoding) angewendet wird. Wenn kein Transfer-Encoding verwendet wird, sind der _Payload-Body_ und der _Nachrichtenkörper_ identisch!
 
-Beispielsweise enthält in dieser Antwort der Nachrichtenkörper nur den Nutzlastkörper: "Mozilla Developer Network":
+Zum Beispiel enthält der Nachrichtenkörper in dieser Antwort nur den Payload-Body: "Mozilla Developer Network":
 
 ```http
 HTTP/1.1 200 OK
@@ -18,7 +18,7 @@ Content-Type: text/plain
 Mozilla Developer Network
 ```
 
-Im Gegensatz dazu verwendet die folgende Antwort eine _Transfer-Codierung_, um den Nutzlastkörper in Stücke zu codieren. Die gesendete Nutzlast (Information) ist immer noch "Mozilla Developer Network", aber der Nachrichtenkörper enthält zusätzliche Daten, um die Stücke zu trennen:
+Im Gegensatz dazu verwendet die nachstehende Antwort _Transfer-Encoding_, um den Payload-Body in Teile zu kodieren. Der gesendete Payload-Body (Informationen) ist immer noch "Mozilla Developer Network", aber der Nachrichtenkörper enthält zusätzliche Daten, um die Teile zu trennen:
 
 ```http
 HTTP/1.1 200 OK

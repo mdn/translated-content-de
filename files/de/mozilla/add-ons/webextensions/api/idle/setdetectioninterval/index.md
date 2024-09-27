@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Legt das Intervall in Sekunden fest, das verwendet wird, um zu bestimmen, wann das System für {{WebExtAPIRef("idle.onStateChanged")}}-Ereignisse in einem Ruhezustand ist. Das Standardintervall beträgt 60 Sekunden.
+Legt das Intervall in Sekunden fest, das verwendet wird, um zu bestimmen, wann das System für {{WebExtAPIRef("idle.onStateChanged")}}-Ereignisse in einem Leerlaufzustand ist. Das Standardintervall beträgt 60 Sekunden.
 
-Das Erkennungsintervall ist spezifisch für die Erweiterung, die die Methode aufruft. Wenn das Intervall in einer Erweiterung geändert wird, beeinflusst dies nicht das Erkennungsintervall einer anderen Erweiterung.
+Das Erkennungsintervall ist spezifisch für die Erweiterung, die die Methode aufruft. Eine Änderung des Intervalls in einer Erweiterung hat keine Auswirkungen auf das Erkennungsintervall in einer anderen Erweiterung.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ browser.idle.setDetectionInterval(
 ### Parameter
 
 - `intervalInSeconds`
-  - : `integer`. Schwellenwert in Sekunden, der verwendet wird, um zu bestimmen, wann das System in einem Ruhezustand ist. Der Mindestwert, den Sie hier angeben können, beträgt 15.
+  - : `integer`. Schwellenwert in Sekunden, der verwendet wird, um zu bestimmen, wann das System in einem Leerlaufzustand ist. Der minimale Wert, den Sie hier angeben können, ist 15.
 
 ## Browser-Kompatibilität
 
@@ -37,40 +37,34 @@ browser.idle.setDetectionInterval(15);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#method-setDetectionInterval) API. Diese Dokumentation stammt von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#method-setDetectionInterval) API von Chromium. Diese Dokumentation ist abgeleitet von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
 
 <!--
-// Urheberrecht 2015 Die Chromium-Autoren. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Redistribution und Nutzung in Quell- und Binärform, mit oder ohne
-// Modifikation, sind unter den folgenden Bedingungen gestattet:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weiterverteilungen des Quellcodes müssen den obigen Urheberrechtshinweis,
-// diese Liste der Bedingungen und den folgenden Haftungsausschluss enthalten.
-//    * Weiterverteilungen in binärer Form müssen den obigen Urheberrechtshinweis,
-// diese Liste der Bedingungen und den folgenden Haftungsausschluss in der
-// Dokumentation und/oder anderen Materialien enthalten, die mit der
-// Verteilung bereitgestellt werden.
-//    * Weder der Name Google Inc. noch die Namen seiner
-// Beitragenden dürfen verwendet werden, um Produkte, die von dieser
-// Software abgeleitet sind, zu unterstützen oder zu bewerben, ohne
-// vorherige schriftliche Genehmigung.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND BEITRAGENDEN
-// "WIE BESEHEN" BEREITGESTELLT, UND JEGLICHE AUSDRÜCKLICHEN ODER
-// IMPLIZIERTEN GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT
-// BESCHRÄNKT AUF DIE IMPLIZIERTEN GEWÄHRLEISTUNGEN DER
-// MARKTFÄHIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK,
-// SIND AUSGESCHLOSSEN. IN KEINEM FALL HAFTEN DIE
-// URHEBERRECHTSINHABER ODER BEITRAGENDEN FÜR JEGLICHE DIREKTEN,
-// INDIREKTEN, ZUFÄLLIGEN, BESONDEREN, EXEMPLARISCHEN ODER
-// FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE
-// BESCHAFFUNG VON ERSATZGÜTERN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST,
-// DATENVERLUST ODER ENTGANGENEN GEWINN; ODER
-// BETRIEBSUNTERBRECHUNG) IN IRGENDEINER WEISE UND UNTER
-// JEGLICHER HAFTUNGSTHEORIE, OB VERTRAG, STRIKTE HAFTUNG ODER
-// UNERLAUBTE HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER
-// SONSTIGEM), DIE AUF IRGENDEINE WEISE AUS DER NUTZUNG DER
-// SOFTWARE ENTSTANDEN SIND, SELBST WENN ÜBER DIE MÖGLICHKEIT
-// SOLCHER SCHÄDEN INFORMIERT WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

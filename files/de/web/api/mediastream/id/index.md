@@ -1,5 +1,5 @@
 ---
-title: "MediaStream: id-Eigenschaft"
+title: "MediaStream: id Eigenschaft"
 short-title: id
 slug: Web/API/MediaStream/id
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die schreibgeschützte **`id`**-Eigenschaft der {{domxref("MediaStream")}}-Schnittstelle ist ein
-String, der 36 Zeichen enthält, die einen eindeutigen Bezeichner (GUID)
-für das Objekt darstellen.
+Die **`id`** schreibgeschützte Eigenschaft der [`MediaStream`](/de/docs/Web/API/MediaStream)-Schnittstelle ist ein String, der 36 Zeichen enthält und eine eindeutige Kennung (GUID) für das Objekt angibt.
 
 ## Wert
 
@@ -33,10 +31,10 @@ promise.then((stream) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("MediaStream")}}, die Schnittstelle, zu der diese Eigenschaft gehört.
+- [`MediaStream`](/de/docs/Web/API/MediaStream), die Schnittstelle, zu der diese Eigenschaft gehört.

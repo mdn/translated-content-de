@@ -1,5 +1,5 @@
 ---
-title: Gehege
+title: Fence
 slug: Web/API/Fence
 l10n:
   sourceCommit: f430d277573ba0b06b1ac33ae8017fd90f170bef
@@ -7,23 +7,23 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
 
-Die **`Fence`**-Schnittstelle der {{domxref("Fenced Frame API", "Fenced Frame API", "", "nocode")}} enthält mehrere Funktionen, die für die Funktionalität von {{htmlelement("fencedframe")}} relevant sind.
+Das **`Fence`** Interface der [Fenced Frame API](/de/docs/Web/API/Fenced_Frame_API) enthält mehrere Funktionen, die relevant für die Funktionalität von {{htmlelement("fencedframe")}} sind.
 
-`Fence`-Objekte werden über die {{domxref("Window.fence")}}-Eigenschaft zugegriffen, sind jedoch nur für Dokumente verfügbar, die in {{htmlelement("fencedframe")}}s eingebettet sind (geladen über {{domxref("FencedFrameConfig")}}s) oder in {{htmlelement("iframe")}}s (geladen über opake URNs).
+`Fence`-Objekte werden über die [`Window.fence`](/de/docs/Web/API/Window/fence)-Eigenschaft aufgerufen, sind jedoch nur für Dokumente verfügbar, die innerhalb von {{htmlelement("fencedframe")}}s eingebettet sind (geladen über [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)s) oder {{htmlelement("iframe")}}s (geladen über opake URNs).
 
 > [!NOTE]
-> Siehe [Wie funktionieren `<fencedframe>`s?](/de/docs/Web/API/Fenced_frame_API#how_do_fencedframes_work) für eine Beschreibung zu `FencedFrameConfig`s und opaken URNs.
+> Weitere Informationen zu `FencedFrameConfig`s und opaken URNs finden Sie unter [Wie funktionieren `<fencedframe>`s?](/de/docs/Web/API/Fenced_frame_API#how_do_fencedframes_work).
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
-- {{domxref("Fence.getNestedConfigs", "getNestedConfigs()")}} {{Experimental_Inline}}
-  - : Gibt die {{domxref("FencedFrameConfig")}}s zurück, die in `<fencedframe>`s geladen sind, die innerhalb des aktuellen `<fencedframe>`s eingebettet sind.
-- {{domxref("Fence.reportEvent", "reportEvent()")}} {{Experimental_Inline}}
-  - : Löst die Übermittlung von Berichterstattungsdaten über ein [beacon](/de/docs/Web/API/Beacon_API) zu einem oder mehreren spezifischen URLs aus, die über die {{domxref("InterestGroupReportingScriptRunnerGlobalScope.registerAdBeacon", "registerAdBeacon()")}}-Methode der [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) registriert wurden, um Ergebnisse von Werbeauktionen zu sammeln.
-- {{domxref("Fence.setReportEventDataForAutomaticBeacons", "setReportEventDataForAutomaticBeacons()")}} {{Experimental_Inline}}
-  - : Gibt Ereignisdaten an, die gesendet werden, wenn eine Navigation innerhalb eines `<fencedframe>`s erfolgt. Diese Daten werden automatisch über ein Beacon zu einem oder mehreren spezifischen URLs gesendet, die über die {{domxref("InterestGroupReportingScriptRunnerGlobalScope.registerAdBeacon", "registerAdBeacon()")}}-Methode der [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) registriert wurden, um Berichtsdaten für Werbeaktionsergebnisse zu sammeln.
+- [`getNestedConfigs()`](/de/docs/Web/API/Fence/getNestedConfigs) {{Experimental_Inline}}
+  - : Gibt die [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)s zurück, die in `<fencedframe>`s geladen sind, die im aktuellen `<fencedframe>` eingebettet sind.
+- [`reportEvent()`](/de/docs/Web/API/Fence/reportEvent) {{Experimental_Inline}}
+  - : Löst die Übermittlung von Berichtsdaten über ein [beacon](/de/docs/Web/API/Beacon_API) an eine oder mehrere spezifische URLs aus, die über die [`registerAdBeacon()`](/de/docs/Web/API/InterestGroupReportingScriptRunnerGlobalScope/registerAdBeacon)-Methode der [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) registriert wurden, um Ergebnisse von Anzeigenauktionen zu sammeln.
+- [`setReportEventDataForAutomaticBeacons()`](/de/docs/Web/API/Fence/setReportEventDataForAutomaticBeacons) {{Experimental_Inline}}
+  - : Gibt Ereignisdaten an, die gesendet werden, wenn eine Navigation innerhalb eines `<fencedframe>` erfolgt. Diese Daten werden über ein automatisches Beacon an eine oder mehrere spezifische URLs gesendet, die über die [`registerAdBeacon()`](/de/docs/Web/API/InterestGroupReportingScriptRunnerGlobalScope/registerAdBeacon)-Methode der [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) registriert wurden, um Berichtsdaten für Anzeigenauktionsergebnisse zu sammeln.
 
 ## Beispiele
 

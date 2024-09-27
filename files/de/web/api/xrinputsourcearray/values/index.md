@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die Methode **`values()`** des {{domxref("XRInputSourceArray")}} gibt einen {{Glossary("JavaScript")}} [`iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, der über die Liste der im Array enthaltenen {{domxref("XRInputSource")}} Objekte von vorne nach hinten gehen kann.
+Die Methode **`values()`** von [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray) gibt einen [JavaScript](/de/docs/Glossary/JavaScript) [`Iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, der über die Liste der im Array enthaltenen [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekte von Anfang bis Ende gehen kann.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein JavaScript [`iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), der verwendet werden kann, um durch die Liste der {{domxref("XRInputSource")}} Objekte im Array zu gehen, beginnend mit dem ersten Eintrag (an Index 0) und direkt durch die Liste fortschreitend.
+Ein JavaScript [`Iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), der verwendet werden kann, um durch die Liste der [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekte im Array zu gehen, beginnend mit dem ersten Eintrag (bei Index 0) und direkt durch die Liste fortfahrend.
 
 ## Beispiele
 
-Dieses Beispiel durchläuft jedes Eingabeelement und ruft die Funktion `checkInput()` mit jedem zurückgegebenen Wert auf.
+Dieses Beispiel durchläuft jedes Eingabegerät und ruft die Funktion `checkInput()` mit jedem zurückgegebenen Wert auf.
 
 ```js
 for (const source of xrSession.inputSources.values()) {
@@ -34,7 +34,7 @@ for (const source of xrSession.inputSources.values()) {
 }
 ```
 
-Hier wird [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) verwendet, um über den Inhalt des Arrays zu iterieren. Bei jedem Durchlauf der Schleife ist `source` das nächste {{domxref("XRInputSource")}} in der Liste. Die Schleife endet, sobald jeder Input an `checkInput()` übergeben wurde.
+Hier wird [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) verwendet, um über den Inhalt des Arrays zu iterieren. Bei jedem Durchlauf der Schleife ist `source` das nächste [`XRInputSource`](/de/docs/Web/API/XRInputSource) in der Liste. Die Schleife endet, sobald jedes Eingabegerät an `checkInput()` übergeben wurde.
 
 ## Spezifikationen
 
@@ -46,7 +46,7 @@ Hier wird [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) ve
 
 ## Siehe auch
 
-- [Inputs und Eingabequellen](/de/docs/Web/API/WebXR_Device_API/Inputs)
-- Die {{domxref("XRInputSourceArray")}} Methode {{domxref("XRInputSourceArray.keys", "keys()")}}
+- [Eingaben und Eingabequellen](/de/docs/Web/API/WebXR_Device_API/Inputs)
+- Die [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray) Methode [`keys()`](/de/docs/Web/API/XRInputSourceArray/keys)
 - Die [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) Methode `values()`
-- {{domxref("XRInputSource")}}
+- [`XRInputSource`](/de/docs/Web/API/XRInputSource)

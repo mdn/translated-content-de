@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Das `ConstantSourceNode` Interface – ein Teil der Web Audio API – repräsentiert eine Audioquelle (basierend auf {{domxref("AudioScheduledSourceNode")}}), deren Ausgabe ein einzelner unveränderlicher Wert ist. Dies ist nützlich in Situationen, in denen Sie einen konstanten Wert von einer Audioquelle benötigen. Darüber hinaus kann es wie ein konstruierbares {{domxref("AudioParam")}} verwendet werden, indem der Wert seines {{domxref("ConstantSourceNode.offset", "offset")}} automatisiert oder ein anderer Knoten daran angeschlossen wird; siehe [Steuerung mehrerer Parameter mit ConstantSourceNode](/de/docs/Web/API/Web_Audio_API/Controlling_multiple_parameters_with_ConstantSourceNode).
+Das `ConstantSourceNode`-Interface – Teil der Web Audio API – repräsentiert eine Audioquelle (basierend auf [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)), deren Ausgabe ein einziger unveränderlicher Wert ist. Dies macht es nützlich für Fälle, in denen Sie einen konstanten Wert von einer Audioquelle benötigen. Darüber hinaus kann es wie ein konstruierbarer [`AudioParam`](/de/docs/Web/API/AudioParam) verwendet werden, indem der Wert seines [`offset`](/de/docs/Web/API/ConstantSourceNode/offset) automatisiert oder ein anderer Knoten damit verbunden wird; siehe [Steuerung mehrerer Parameter mit ConstantSourceNode](/de/docs/Web/API/Web_Audio_API/Controlling_multiple_parameters_with_ConstantSourceNode).
 
-Ein `ConstantSourceNode` hat keine Eingänge und genau einen monauralen (einzelkanaligen) Ausgang. Der Wert der Ausgabe entspricht immer dem Wert des {{domxref("ConstantSourceNode.offset", "offset")}} Parameters.
+Ein `ConstantSourceNode` hat keine Eingänge und genau einen monauralen (einkanaligen) Ausgang. Der Wert des Ausgangs ist immer derselbe wie der Wert des [`offset`](/de/docs/Web/API/ConstantSourceNode/offset)-Parameters.
 
 {{InheritanceDiagram}}
 
@@ -28,41 +28,41 @@ Ein `ConstantSourceNode` hat keine Eingänge und genau einen monauralen (einzelk
 
 ## Konstruktor
 
-- {{domxref("ConstantSourceNode.ConstantSourceNode", "ConstantSourceNode()")}}
-  - : Erstellt und gibt eine neue `ConstantSourceNode` Instanz zurück, wobei optional ein Objekt angegeben wird, das Anfangswerte für die Eigenschaften des Objekts festlegt. Alternativ können Sie die {{domxref("BaseAudioContext.createConstantSource()")}} Fabrikmethode verwenden; siehe [Erstellung eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+- [`ConstantSourceNode()`](/de/docs/Web/API/ConstantSourceNode/ConstantSourceNode)
+  - : Erstellt und gibt eine neue Instanz von `ConstantSourceNode` zurück und spezifiziert optional ein Objekt, das Anfangswerte für die Eigenschaften des Objekts festlegt. Alternativ können Sie die [`BaseAudioContext.createConstantSource()`](/de/docs/Web/API/BaseAudioContext/createConstantSource) Factory-Methode verwenden; siehe [Erstellung eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem übergeordneten Interface, {{domxref("AudioScheduledSourceNode")}}, und fügt die folgenden Eigenschaften hinzu:_
+_Erbt Eigenschaften von seinem übergeordneten Interface, [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode), und fügt die folgenden Eigenschaften hinzu:_
 
-- {{domxref("ConstantSourceNode.offset", "offset")}}
-  - : Ein {{domxref("AudioParam")}}, das den kontinuierlich ausgegebenen Wert dieser Quelle spezifiziert. Der Standardwert ist 1.0.
+- [`offset`](/de/docs/Web/API/ConstantSourceNode/offset)
+  - : Ein [`AudioParam`](/de/docs/Web/API/AudioParam), der den Wert angibt, den diese Quelle kontinuierlich ausgibt. Der Standardwert ist 1.0.
 
 ### Ereignisse
 
-_Erbt Ereignisse von seinem übergeordneten Interface, {{domxref("AudioScheduledSourceNode")}}._
+_Erbt Ereignisse von seinem übergeordneten Interface, [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)._
 
 > [!NOTE]
-> Einige Browser implementieren diese Ereignisse als Teil des {{domxref("AudioScheduledSourceNode")}} Interfaces.
+> Die Implementierungen dieser Ereignisse in einigen Browsern sind Teil des [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)-Interfaces.
 
-- {{domxref("AudioScheduledSourceNode.ended_event","ended")}}
-  - : Wird ausgelöst, wenn die `ConstantSourceNode`-Daten nicht mehr abgespielt werden.
+- [`ended`](/de/docs/Web/API/AudioScheduledSourceNode/ended_event)
+  - : Wird ausgelöst, sobald die `ConstantSourceNode`-Daten nicht mehr abgespielt werden.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seinem übergeordneten Interface, {{domxref("AudioScheduledSourceNode")}}._
+_Erbt Methoden von seinem übergeordneten Interface, [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)._
 
 > [!NOTE]
-> Einige Browser implementieren diese Methoden als Teil des {{domxref("AudioScheduledSourceNode")}} Interfaces.
+> Die Implementierungen dieser Methoden in einigen Browsern sind Teil des [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)-Interfaces.
 
-- {{domxref("AudioScheduledSourceNode.start", "start()")}}
-  - : Plant die Wiedergabe eines Sounds zu einer genauen Zeit.
-- {{domxref("AudioScheduledSourceNode.stop", "stop()")}}
-  - : Plant das Stoppen der Wiedergabe eines Sounds zu einer genauen Zeit.
+- [`start()`](/de/docs/Web/API/AudioScheduledSourceNode/start)
+  - : Plant die Wiedergabe eines Tons zu einer genauen Zeit.
+- [`stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop)
+  - : Plant das Anhalten der Wiedergabe eines Tons zu einer genauen Zeit.
 
 ## Beispiel
 
-Im Artikel [Steuerung mehrerer Parameter mit ConstantSourceNode](/de/docs/Web/API/Web_Audio_API/Controlling_multiple_parameters_with_ConstantSourceNode) wird ein `ConstantSourceNode` erstellt, um es einem Schieberegler zu ermöglichen, die Verstärkung von zwei {{domxref("GainNode")}}s zu ändern. Die drei Knoten werden wie folgt eingerichtet:
+Im Artikel [Steuerung mehrerer Parameter mit ConstantSourceNode](/de/docs/Web/API/Web_Audio_API/Controlling_multiple_parameters_with_ConstantSourceNode) wird ein `ConstantSourceNode` erstellt, um einem einzigen Schieberegler die Möglichkeit zu geben, den Gain von zwei [`GainNode`](/de/docs/Web/API/GainNode)s zu ändern. Die drei Knoten werden wie folgt eingerichtet:
 
 ```js
 gainNode2 = context.createGain();
@@ -79,11 +79,11 @@ gainNode2.connect(context.destination);
 gainNode3.connect(context.destination);
 ```
 
-Dieser Code beginnt mit der Erstellung der Gain-Knoten und der Einstellung dieser sowie der Lautstärkesteuerung auf 0.5. Dann wird das `ConstantSourceNode` durch Aufruf von {{domxref("BaseAudioContext/createConstantSource", "AudioContext.createConstantSource()")}} erstellt, und die Gain-Parameter jedes der beiden Gain-Knoten werden mit dem `ConstantSourceNode` verbunden. Nach dem Starten der Konstanten Quelle durch Aufrufen seiner {{domxref("AudioScheduledSourceNode.start", "start()")}} Methode, werden die beiden Gain-Knoten schließlich mit dem Audioziel (typischerweise Lautsprecher oder Kopfhörer) verbunden.
+Dieser Code beginnt mit der Erstellung der Gain-Knoten, wobei diese und der Lautstärkeregler, der ihren Wert anpasst, alle auf 0,5 gesetzt sind. Dann wird das `ConstantSourceNode` durch Aufruf von [`AudioContext.createConstantSource()`](/de/docs/Web/API/BaseAudioContext/createConstantSource) erstellt, und die Gain-Parameter jedes der beiden Gain-Knoten werden mit dem `ConstantSourceNode` verbunden. Nachdem die konstante Quelle durch Aufrufen ihrer [`start()`](/de/docs/Web/API/AudioScheduledSourceNode/start)-Methode gestartet wurde. Schließlich werden die beiden Gain-Knoten mit dem Audioziel (typischerweise Lautsprecher oder Kopfhörer) verbunden.
 
-Jetzt, immer wenn sich der Wert von {{domxref("ConstantSourceNode.offset", "constantNode.offset")}} ändert, wird sich die Verstärkung sowohl von `gainNode2` als auch `gainNode3` ändern, um diesen gleichen Wert anzunehmen.
+Jetzt, wann immer sich der Wert von [`constantNode.offset`](/de/docs/Web/API/ConstantSourceNode/offset) ändert, wird das Gain bei beiden `gainNode2` und `gainNode3` so geändert, dass es denselben Wert hat.
 
-Um dieses Beispiel in Aktion zu sehen und den restlichen Code zu lesen, aus dem diese Ausschnitte stammen, siehe [Steuerung mehrerer Parameter mit ConstantSourceNode.](/de/docs/Web/API/Web_Audio_API/Controlling_multiple_parameters_with_ConstantSourceNode)
+Um dieses Beispiel in Aktion zu sehen und auch den restlichen Code zu lesen, aus dem diese Code-Snippets abgeleitet wurden, siehe [Steuerung mehrerer Parameter mit ConstantSourceNode.](/de/docs/Web/API/Web_Audio_API/Controlling_multiple_parameters_with_ConstantSourceNode)
 
 ## Spezifikationen
 
@@ -95,6 +95,6 @@ Um dieses Beispiel in Aktion zu sehen und den restlichen Code zu lesen, aus dem 
 
 ## Siehe auch
 
-- [Web Audio API verwenden](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- {{domxref("AudioScheduledSourceNode")}}
-- {{domxref("AudioNode")}}
+- [Die Web Audio API verwenden](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)
+- [`AudioNode`](/de/docs/Web/API/AudioNode)

@@ -1,5 +1,5 @@
 ---
-title: "Dokument: linkColor-Eigenschaft"
+title: "Document: linkColor-Eigenschaft"
 short-title: linkColor
 slug: Web/API/Document/linkColor
 l10n:
@@ -8,15 +8,19 @@ l10n:
 
 {{APIRef("DOM")}} {{Deprecated_header}}
 
-Die **`Document.linkColor`**-Eigenschaft ruft die Farbe der Links im Dokument ab oder setzt sie.
+Die **`Document.linkColor`**-Eigenschaft erhält/setzt die Farbe von
+Links innerhalb des Dokuments.
 
-Diese Eigenschaft ist veraltet. Als Alternative können Sie die CSS-{{cssxref("color")}}-Eigenschaft entweder auf HTML-Anker-Links ({{HtmlElement("a")}}) oder auf {{cssxref(":link")}}-Pseudoklassen anwenden. Eine weitere Alternative ist `document.body.link`, obwohl dies [in HTML 4.01 veraltet ist](https://www.w3.org/TR/html401/struct/global.html#adef-link).
+Diese Eigenschaft ist veraltet. Als Alternative kann die CSS
+{{cssxref("color")}}-Eigenschaft entweder auf HTML-Ankerlinks ({{HtmlElement("a")}}) oder auf
+{{cssxref(":link")}} Pseudoklassen gesetzt werden. Eine andere Alternative ist
+`document.body.link`, obwohl diese in [HTML 4.01 veraltet ist](https://www.w3.org/TR/html401/struct/global.html#adef-link).
 
 ## Wert
 
-Ein String, der die Farbe als Wort (z.B. `red`) oder hexadezimalen Wert (z.B. `#ff0000`) darstellt.
+Ein String, der die Farbe als Wort (z. B. `red`) oder hexadezimalen Wert (z. B. `#ff0000`) darstellt.
 
-Wenn auf den `null`-Wert gesetzt, wird dieser `null`-Wert in den leeren String (`""`) konvertiert, daher ist `document.linkColor = null` gleichbedeutend mit `document.linkColor = ""`.
+Wenn auf den Wert `null` gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, daher ist `document.linkColor = null` gleichbedeutend mit `document.linkColor = ""`.
 
 ## Beispiele
 
@@ -33,9 +37,9 @@ document.linkColor = "blue";
 {{Compat}}
 
 Der Standardwert für diese Eigenschaft in Mozilla Firefox ist blau (`#0000ee` in
-hexadezimal).
+hexadecimal).
 
 ## Siehe auch
 
-- {{domxref("document.vlinkColor")}}
-- {{domxref("document.alinkColor")}}
+- [`document.vlinkColor`](/de/docs/Web/API/Document/vlinkColor)
+- [`document.alinkColor`](/de/docs/Web/API/Document/alinkColor)

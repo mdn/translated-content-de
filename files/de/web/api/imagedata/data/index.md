@@ -1,6 +1,6 @@
 ---
-title: "ImageData: Daten-Eigenschaft"
-short-title: daten
+title: "ImageData: data-Eigenschaft"
+short-title: data
 slug: Web/API/ImageData/data
 l10n:
   sourceCommit: daeff1a2efaae366bcc8b6d911d86985646e665e
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
 Die schreibgeschützte **`ImageData.data`**-Eigenschaft gibt ein
-{{jsxref("Uint8ClampedArray")}} zurück, das die Pixeldaten des {{domxref("ImageData")}}-Objekts enthält. Die Daten werden als eindimensionales Array im RGBA-Format gespeichert, mit ganzzahligen Werten zwischen `0` und `255` (einschließlich).
+{{jsxref("Uint8ClampedArray")}} zurück, das die Pixeldaten des [`ImageData`](/de/docs/Web/API/ImageData)-Objekts enthält. Die Daten werden als eindimensionales Array im RGBA-Format gespeichert, mit ganzzahligen Werten zwischen `0` und `255` (einschließlich).
 
 ## Wert
 
@@ -19,9 +19,7 @@ Ein {{jsxref("Uint8ClampedArray")}}.
 
 ### Abrufen der Pixeldaten eines ImageData-Objekts
 
-Dieses Beispiel erstellt ein `ImageData`-Objekt, das 100 Pixel breit und 100
-Pixel hoch ist, was insgesamt 10.000 Pixel ergibt. Das `data`-Array speichert vier Werte
-für jedes Pixel, also 4 x 10.000 oder insgesamt 40.000 Werte.
+Dieses Beispiel erstellt ein `ImageData`-Objekt, das 100 Pixel breit und 100 Pixel hoch ist, insgesamt also 10.000 Pixel. Das `data`-Array speichert vier Werte für jedes Pixel, insgesamt also 4 x 10.000 oder 40.000 Werte.
 
 ```js
 let imageData = new ImageData(100, 100);
@@ -29,7 +27,7 @@ console.log(imageData.data); // Uint8ClampedArray[40000]
 console.log(imageData.data.length); // 40000
 ```
 
-### Ausfüllen eines leeren ImageData-Objekts
+### Füllen eines leeren ImageData-Objekts
 
 Dieses Beispiel erstellt und füllt ein neues `ImageData`-Objekt mit bunten Pixeln.
 
@@ -41,29 +39,28 @@ Dieses Beispiel erstellt und füllt ein neues `ImageData`-Objekt mit bunten Pixe
 
 #### JavaScript
 
-Da jedes Pixel aus vier Werten innerhalb des `data`-Arrays besteht, iteriert die
-`for`-Schleife in Viererschritten. Die Werte, die jedem Pixel zugeordnet sind, sind R (rot), G (grün), B (blau) und A (alpha), in dieser Reihenfolge.
+Da jedes Pixel aus vier Werten im `data`-Array besteht, iteriert die `for`-Schleife in Vielfachen von vier. Die mit jedem Pixel verbundenen Werte sind R (Rot), G (Grün), B (Blau) und A (Alpha) in dieser Reihenfolge.
 
 ```js
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const imageData = ctx.createImageData(100, 100);
 
-// Füllen des Arrays mit RGBA-Werten
+// Fill the array with RGBA values
 for (let i = 0; i < imageData.data.length; i += 4) {
-  // Prozentsatz in x-Richtung, multipliziert mit 255
+  // Percentage in the x direction, times 255
   let x = ((i % 400) / 400) * 255;
-  // Prozentsatz in y-Richtung, multipliziert mit 255
+  // Percentage in the y direction, times 255
   let y = (Math.ceil(i / 400) / 100) * 255;
 
-  // Modifizieren der Pixeldaten
-  imageData.data[i + 0] = x; // R-Wert
-  imageData.data[i + 1] = y; // G-Wert
-  imageData.data[i + 2] = 255 - x; // B-Wert
-  imageData.data[i + 3] = 255; // A-Wert
+  // Modify pixel data
+  imageData.data[i + 0] = x; // R value
+  imageData.data[i + 1] = y; // G value
+  imageData.data[i + 2] = 255 - x; // B value
+  imageData.data[i + 3] = 255; // A value
 }
 
-// Zeichnen der Bilddaten auf das Canvas
+// Draw image data to the canvas
 ctx.putImageData(imageData, 20, 20);
 ```
 
@@ -73,9 +70,7 @@ ctx.putImageData(imageData, 20, 20);
 
 ### Weitere Beispiele
 
-Für weitere Beispiele zur Verwendung von `ImageData.data`, siehe [Pixelmanipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas),
-{{domxref("CanvasRenderingContext2D.createImageData()")}}, und
-{{domxref("CanvasRenderingContext2D.putImageData()")}}.
+Weitere Beispiele zur Verwendung von `ImageData.data` finden Sie unter [Pixelmanipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas), [`CanvasRenderingContext2D.createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData) und [`CanvasRenderingContext2D.putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData).
 
 ## Spezifikationen
 
@@ -87,9 +82,9 @@ Für weitere Beispiele zur Verwendung von `ImageData.data`, siehe [Pixelmanipula
 
 ## Siehe auch
 
-- {{domxref("ImageData.height")}}
-- {{domxref("ImageData.width")}}
-- {{domxref("ImageData")}}
-- {{domxref("CanvasRenderingContext2D.createImageData()")}}
-- {{domxref("CanvasRenderingContext2D.putImageData()")}}
+- [`ImageData.height`](/de/docs/Web/API/ImageData/height)
+- [`ImageData.width`](/de/docs/Web/API/ImageData/width)
+- [`ImageData`](/de/docs/Web/API/ImageData)
+- [`CanvasRenderingContext2D.createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData)
+- [`CanvasRenderingContext2D.putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/putImageData)
 - [Pixelmanipulation mit Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas)

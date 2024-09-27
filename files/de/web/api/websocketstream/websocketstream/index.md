@@ -3,12 +3,12 @@ title: "WebSocketStream: WebSocketStream() Konstruktor"
 short-title: WebSocketStream()
 slug: Web/API/WebSocketStream/WebSocketStream
 l10n:
-  sourceCommit: bd8dbe863a306cf7114752bd936d012524b13517
+  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
 ---
 
-{{APIRef("WebSockets API")}}{{SeeCompatTable}}
+{{APIRef("WebSockets API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Der **`WebSocketStream()`** Konstruktor erstellt eine neue Instanz des {{domxref("WebSocketStream")}} Objekts.
+Der **`WebSocketStream()`**-Konstruktor erstellt eine neue Instanz des [`WebSocketStream`](/de/docs/Web/API/WebSocketStream)-Objekts.
 
 ## Syntax
 
@@ -20,28 +20,28 @@ new WebSocketStream(url, options)
 ### Parameter
 
 - `url`
-  - : Ein String, der die URL des WebSocket-Servers darstellt, zu dem Sie mit dieser `WebSocketStream` Instanz eine Verbindung herstellen möchten. Zulässige URL-Schemata sind `"ws"`, `"wss"`, `"http"` und `"https"`.
+  - : Ein String, der die URL des WebSocket-Servers darstellt, zu dem Sie mit dieser `WebSocketStream`-Instanz eine Verbindung herstellen möchten. Erlaubte URL-Schemata sind `"ws"`, `"wss"`, `"http"` und `"https"`.
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
     - `protocols` {{optional_inline}}
-      - : Ein einzelner String oder ein Array von Strings, die das/die Subprotokoll(e) darstellen, das/die der Client verwenden möchte, zum Beispiel `"amqp"` oder `"mqtt"`. Subprotokolle können aus dem [IANA WebSocket Subprotocol Name Registry](https://www.iana.org/assignments/websocket/websocket.xml#subprotocol-name) ausgewählt werden oder es können benutzerdefinierte Namen sein, die vom Client und dem Server gemeinsam verstanden werden. Ein einzelner Server kann mehrere WebSocket-Subprotokolle implementieren und je nach angegebenem Wert unterschiedliche Arten von Interaktionen behandeln. Wenn es weggelassen wird, wird standardmäßig ein leeres Array verwendet. Wenn `protocols` enthalten ist, wird die Verbindung nur hergestellt, wenn der Server meldet, dass er eines dieser Subprotokolle ausgewählt hat.
+      - : Ein einzelner String oder ein Array von Strings, die das/die Subprotokoll(e) repräsentieren, die der Client verwenden möchte, z. B. `"amqp"` oder `"mqtt"`. Subprotokolle können aus dem [IANA-WebSocket-Subprotokollnamen-Register](https://www.iana.org/assignments/websocket/websocket.xml#subprotocol-name) ausgewählt oder individuell zwischen Client und Server vereinbart werden. Ein einzelner Server kann mehrere WebSocket-Subprotokolle implementieren und verschiedene Arten von Interaktionen abhängig vom angegebenen Wert verarbeiten. Wenn es weggelassen wird, wird standardmäßig ein leeres Array verwendet. Wenn `protocols` eingeschlossen ist, wird die Verbindung nur hergestellt, wenn der Server berichtet, dass er eines dieser Subprotokolle ausgewählt hat.
     - `signal` {{optional_inline}}
-      - : Ein {{domxref("AbortSignal")}}, das zu einem {{domxref("AbortController")}} gehört, den Sie verwenden möchten, um die WebSocket-Verbindung zu schließen.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), das zu einem [`AbortController`](/de/docs/Web/API/AbortController) gehört, den Sie verwenden möchten, um die WebSocket-Verbindung zu schließen.
 
 ### Ausnahmen
 
-- `SyntaxError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das URL-Schema nicht eines von `"ws"`, `"wss"`, `"http"` oder `"https"` ist.
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das URL-Schema nicht eines der folgenden ist: `"ws"`, `"wss"`, `"http"` oder `"https"`.
 
 ## Beispiele
 
-Das einfachste Beispiel verwendet die URL eines WebSocket-Servers als Argument:
+Das einfachste Beispiel nimmt die URL eines WebSocket-Servers als Argument:
 
 ```js
 const wss = new WebSocketStream("wss://example.com/wss");
 ```
 
-Ein fortgeschritteneres Beispiel könnte auch ein Optionsobjekt enthalten, das benutzerdefinierte Protokolle und/oder ein {{domxref("AbortSignal")}} beinhaltet:
+Ein fortgeschritteneres Beispiel kann auch ein Optionsobjekt enthalten, das benutzerdefinierte Protokolle und/oder ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) enthält:
 
 ```js
 const controller = new AbortController();
@@ -51,19 +51,19 @@ const queueWSS = new WebSocketStream("wss://example.com/queue", {
 });
 ```
 
-Zu einem späteren Zeitpunkt kann {{domxref("AbortController.abort()")}} aufgerufen werden, um die Verbindung bei Bedarf zu schließen:
+Zu einem späteren Zeitpunkt kann [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) aufgerufen werden, wenn erforderlich, um die Verbindung zu schließen:
 
 ```js
 controller.abort();
 ```
 
-Alternativ können Sie die {{domxref("WebSocketStream.close()")}} Methode verwenden, um eine Verbindung zu schließen. Dies ist jedoch hauptsächlich erforderlich, wenn Sie einen benutzerdefinierten Code und/oder einen Grund angeben möchten, den der Server melden soll.
+Alternativ können Sie die Methode [`WebSocketStream.close()`](/de/docs/Web/API/WebSocketStream/close) verwenden, um eine Verbindung zu schließen, dies ist jedoch hauptsächlich erforderlich, wenn Sie einen benutzerdefinierten Code und/oder einen Grund für die Berichterstattung durch den Server angeben möchten.
 
-Siehe [Verwendung von WebSocketStream zur Erstellung eines Clients](/de/docs/Web/API/WebSockets_API/Using_WebSocketStream) für ein vollständiges Beispiel mit ausführlicher Erklärung.
+siehe [Using WebSocketStream to write a client](/de/docs/Web/API/WebSockets_API/Using_WebSocketStream) für ein vollständiges Beispiel mit kompletter Erklärung.
 
 ## Spezifikationen
 
-Zurzeit nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/websockets/pull/48 für den Fortschritt der Standardisierung.
+Derzeit nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/websockets/pull/48 für den Stand der Standardisierung.
 
 ## Browser-Kompatibilität
 
@@ -71,4 +71,4 @@ Zurzeit nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/websocke
 
 ## Siehe auch
 
-- [WebSocketStream: Integration von Streams mit der WebSocket API](https://developer.chrome.com/docs/capabilities/web-apis/websocketstream), developer.chrome.com (2020)
+- [WebSocketStream: Integrating streams with the WebSocket API](https://developer.chrome.com/docs/capabilities/web-apis/websocketstream), developer.chrome.com (2020)

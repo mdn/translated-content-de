@@ -7,22 +7,22 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Ein Objekt, das das **`CSSConditionRule`**-Interface implementiert, repräsentiert eine einzelne Bedingung für eine CSS-[At-Regel](/de/docs/Web/CSS/At-rule), die aus einer Bedingung und einem Anweisungsblock besteht.
+Ein Objekt, das die **`CSSConditionRule`**-Schnittstelle implementiert, repräsentiert eine einzelne Bedingungs-CSS-[At-Regel](/de/docs/Web/CSS/At-rule), die aus einer Bedingung und einem Anweisungsblock besteht.
 
-Drei Objekte leiten sich von `CSSConditionRule` ab: {{domxref("CSSMediaRule")}}, {{domxref("CSSContainerRule")}} und {{domxref("CSSSupportsRule")}}.
+Drei Objekte leiten sich von `CSSConditionRule` ab: [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule), [`CSSContainerRule`](/de/docs/Web/API/CSSContainerRule) und [`CSSSupportsRule`](/de/docs/Web/API/CSSSupportsRule).
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinen Vorfahren {{domxref("CSSGroupingRule")}} und {{domxref("CSSRule")}}._
+_Erbt Eigenschaften von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- {{domxref("CSSConditionRule.conditionText")}} {{ReadOnlyInline}}
+- [`CSSConditionRule.conditionText`](/de/docs/Web/API/CSSConditionRule/conditionText) {{ReadOnlyInline}}
   - : Repräsentiert den Text der Bedingung der Regel.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seinen Vorfahren {{domxref("CSSGroupingRule")}} und {{domxref("CSSRule")}}._
+_Erbt Methoden von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Spezifikationen
 

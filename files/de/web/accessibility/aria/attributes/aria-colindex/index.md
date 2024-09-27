@@ -7,25 +7,25 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das Attribut `aria-colindex` definiert den Spaltenindex oder die Position eines Elements in Bezug auf die Gesamtanzahl der Spalten innerhalb einer `table`, `grid` oder `treegrid`.
+Das `aria-colindex`-Attribut definiert den Spaltenindex oder die Position eines Elements in Bezug auf die Gesamtanzahl der Spalten innerhalb einer `table`, `grid` oder `treegrid`.
 
 ## Beschreibung
 
-Einige Tabellen sind sehr groß und deshalb wird nur ein Teil ihres Inhalts zunächst angezeigt. Während das Laden nur eines Abschnitts der Spalten die Benutzererfahrung verbessern kann, müssen Sie allen Nutzern mitteilen, welche Teile des Inhalts angezeigt werden und dass nicht der gesamte Inhalt der Tabelle vorhanden ist.
+Einige Tabellen sind sehr groß, und daher wird anfänglich nur ein Teil ihres Inhalts angezeigt. Obwohl das Laden nur eines Teilabschnitts der Spalten die Benutzererfahrung verbessern kann, müssen Sie alle Benutzer darüber informieren, welche Teile des Inhalts angezeigt werden und dass nicht der gesamte Tabelleninhalt vorhanden ist.
 
-ARIA bietet mehrere Attribute, um Informationen über Strukturen wie `table`, `grid` und `treegrid` bereitzustellen. Das Attribut `aria-colindex` definiert die Unterstruktur, den Spaltenindex oder die Position eines Elements in Bezug auf die Gesamtanzahl der Spalten innerhalb solcher Strukturen.
+ARIA bietet mehrere Attribute, um Informationen über `table`, `grid` und `treegrid`-Strukturen bereitzustellen. Das `aria-colindex`-Attribut definiert die Substruktur, den Spaltenindex oder die Position eines Elements in Bezug auf die Gesamtanzahl der Spalten innerhalb solcher Strukturen.
 
-In Verbindung mit dem Attribut [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colcount), das assistiven Technologien mitteilt, wie viele Spalten die Tabelle hätte, wenn alle Spalten vorhanden wären, wird `aria-colindex` verwendet, um den Spaltenindex oder die Position eines Elements in Bezug auf diese Gesamtanzahl der Spalten anzugeben.
+In Verbindung mit dem [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colcount) Attribut, das unterstützenden Technologien mitteilt, wie viele Spalten die Tabelle hätten, wenn alle Spalten vorhanden wären, wird `aria-colindex` verwendet, um den Spaltenindex oder die Position eines Elements in Bezug auf diese Gesamtzahl der Spalten anzugeben.
 
-Wenn alle Spalten im DOM vorhanden sind, ist es nicht notwendig, `aria-colindex` zu inkludieren, da User Agents den Spaltenindex jeder Zelle oder jedes Gitterfeldes berechnen können. Wenn jedoch zu einem beliebigen Zeitpunkt Spalten aus dem DOM entfernt werden, verwenden Sie `aria-colindex`, um die Spalte jeder Zelle oder jedes Gitterfeldes in Bezug auf die gesamte Tabelle anzugeben.
+Wenn alle Spalten im DOM vorhanden sind, ist `aria-colindex` nicht erforderlich, da Benutzeragenten den Spaltenindex jeder Zelle oder jedes Rasterfelds berechnen können. Wenn jedoch eine beliebige Spalte zu irgendeinem Zeitpunkt aus dem DOM ausgelassen wird, verwenden Sie `aria-colindex`, um die Spalte jeder Zelle oder jedes Rasterfelds in Bezug auf die vollständige Tabelle zu kennzeichnen.
 
-Der Wert für `aria-colindex` ist eine Ganzzahl, die größer oder gleich 1 ist. Jeder Wert sollte größer sein als der `aria-colindex` der vorherigen Spalte und kleiner oder gleich der Anzahl der Spalten in der vollständigen Tabelle.
+Der Wert für `aria-colindex` ist eine Ganzzahl, die größer oder gleich 1 ist. Jeder Wert sollte größer als der `aria-colindex` der vorherigen Spalte und kleiner oder gleich der Anzahl der Spalten in der vollständigen Tabelle sein.
 
-Wenn eine Zelle oder ein Gitterfeld mehrere Spalten überspannt, setzen Sie [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colspan) auf die Anzahl der Spalten, die es überspannt, falls Sie nicht die HTML-Elemente {{htmlelement('td')}} und {{htmlelement('th')}} verwenden, und setzen Sie `aria-colindex` auf den Wert des Beginns der Spanne; den Wert, den es gehabt hätte, wenn es nur eine Spalte breit wäre und nur die erste seiner Spalten überspannen würde.
+Wenn eine Zelle oder ein Rasterfeld sich über mehrere Spalten erstreckt, setzen Sie [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colspan) auf die Anzahl der Spalten, die es überspannt, wenn Sie nicht die {{htmlelement('td')}} und {{htmlelement('th')}} HTML-Elemente verwenden, und setzen Sie `aria-colindex` auf den Wert des Beginns der Spanne; den Wert, den es hätte, wenn es nur eine Spalte breit wäre und sich nur über seine erste Spalte erstreckte.
 
-Wenn die im DOM vorhandene Spaltenmenge zusammenhängend ist und es keine Zellen gibt, die innerhalb dieses Satzes mehr als eine Zeile oder Spalte überspannen, müssen Sie den `aria-colindex` nur einmal in jeder Zeile in der ersten Spalte des Satzes angeben. Wenn die Spalten nicht zusammenhängend sind, geben Sie den `aria-colindex`-Wert für alle Kinder oder zugeordneten Elemente jeder Zeile an.
+Wenn die Menge der Spalten, die im DOM vorhanden ist, zusammenhängend ist und es in diesem Satz keine Zellen gibt, die sich über mehr als eine Zeile oder Spalte erstrecken, müssen Sie `aria-colindex` nur einmal pro Zeile in der ersten Spalte des Satzes setzen. Wenn die Spalten nicht zusammenhängend sind, geben Sie den `aria-colindex`-Wert für alle Kinder oder besessenen Elemente jeder Zeile an.
 
-Das folgende Beispiel zeigt ein Raster mit 6 Spalten, von denen die Spalten 1, 2, 5 und 6 dem Benutzer angezeigt werden. Die Gesamtzahl der Spalten, aus denen die Tabelle besteht, ist als `aria-colcount="6"` an der Tabelle selbst eingestellt. Da die Spalten nicht zusammenhängend sind, haben alle [`cell`](/de/docs/Web/Accessibility/ARIA/Roles/cell_role)-Elemente - in diesem Fall [`columnheader`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role) und [`gridcell`](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role) - das Attribut `aria-colindex` gesetzt.
+Das folgende Beispiel zeigt ein Raster mit 6 Spalten, von denen die Spalten 1, 2, 5 und 6 dem Benutzer angezeigt werden. Die Gesamtanzahl der Spalten, die die Tabelle bilden, wird als `aria-colcount="6"` auf der Tabelle selbst festgelegt. Da die Spalten nicht zusammenhängend sind, haben alle [`cell`](/de/docs/Web/Accessibility/ARIA/Roles/cell_role) - in diesem Fall [`columnheader`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role) und [`gridcell`](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role) Elemente - das `aria-colindex`-Attribut gesetzt.
 
 ```html
 <div role="grid" aria-colcount="6">
@@ -49,9 +49,9 @@ Das folgende Beispiel zeigt ein Raster mit 6 Spalten, von denen die Spalten 1, 2
 </div>
 ```
 
-Die erste Regel bei der Verwendung von ARIA lautet: "Wenn Sie ein natives Feature verwenden können, dessen Semantik und Verhalten bereits eingebaut sind, anstatt ein Element umzufunktionieren und eine ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen, dann tun Sie dies." Wenn wir native HTML-Semantik mit {{HTMLElement('table')}}, {{HTMLElement('th')}}, {{HTMLElement('td')}} usw. verwenden und nur einen Teil der Spalten anzeigen, sind die Attribute `aria-colcount` und `aria-colindex` dennoch erforderlich, aber das Markup ist nicht so umfangreich.
+Die erste Regel zur Verwendung von ARIA ist: "Wenn Sie eine native Funktion mit den bereits eingebauten Semantiken und Verhaltensweisen verwenden können, anstatt ein Element umzufunktionieren und **eine** ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen, dann tun Sie dies." Wenn wir native HTML-Semantiken mit {{HTMLElement('table')}}, {{HTMLElement('th')}}, {{HTMLElement('td')}} etc. verwenden und nur einen Teilabschnitt der Spalten anzeigen, sind das `aria-colcount`- und `aria-colindex`-Attribut immer noch notwendig, aber das Markup ist nicht so ausführlich.
 
-Wenn semantische Tabellenkopfelemente verwendet werden und nicht alle Spalten im DOM vorhanden sind, muss das Attribut `aria-colindex` nur einmal pro Spalte in der Spaltenüberschrift {{HTMLElement('th')}} definiert werden.
+Wenn semantische Tabellenkopf-Elemente verwendet werden und nicht alle Spalten im DOM sind, muss das `aria-colindex`-Attribut nur einmal pro Spalte im Tabellenkopf {{HTMLElement('th')}} definiert werden.
 
 ```html
 <table aria-colcount="6">
@@ -80,14 +80,14 @@ Wenn alle Spalten im DOM vorhanden sind, sind weder `aria-colcount` noch `aria-c
 ## Werte
 
 - `<integer>`
-  - : Ganzzahl, die größer oder gleich 1 und kleiner oder gleich der Gesamtzahl der Spalten ist, wenn alle vorhanden wären.
+  - : Ganzzahl, die größer oder gleich 1 ist und kleiner oder gleich der Gesamtanzahl der Spalten, wenn alle vorhanden wären.
 
 ## Zugehörige Schnittstellen
 
-- {{domxref("Element.ariaColIndex")}}
-  - : Die [`ariaColIndex`](/de/docs/Web/API/Element/ariaColIndex)-Eigenschaft, Teil der {{domxref("Element")}}-Schnittstelle, spiegelt den Wert des `aria-colindex`-Attributs wider.
-- {{domxref("ElementInternals.ariaColIndex")}}
-  - : Die [`ariaColIndex`](/de/docs/Web/API/ElementInternals/ariaColIndex)-Eigenschaft, Teil der {{domxref("ElementInternals")}}-Schnittstelle, spiegelt den Wert des `aria-colindex`-Attributs wider.
+- [`Element.ariaColIndex`](/de/docs/Web/API/Element/ariaColIndex)
+  - : Die [`ariaColIndex`](/de/docs/Web/API/Element/ariaColIndex) Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle, spiegelt den Wert des `aria-colindex`-Attributs wider.
+- [`ElementInternals.ariaColIndex`](/de/docs/Web/API/ElementInternals/ariaColIndex)
+  - : Die [`ariaColIndex`](/de/docs/Web/API/ElementInternals/ariaColIndex) Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle, spiegelt den Wert des `aria-colindex`-Attributs wider.
 
 ## Zugehörige Rollen
 
@@ -108,9 +108,9 @@ Vererbt in Rollen:
 
 ## Siehe auch
 
-- Attribut [`aria-colindextext`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colindextext)
-- Attribut [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colcount)
-- Attribut [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colspan)
-- HTML-Element {{HTMLElement('table')}}
-- HTML-Element {{HTMLElement('th')}}
-- HTML-Element {{HTMLElement('td')}}
+- [`aria-colindextext`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colindextext) Attribut
+- [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colcount) Attribut
+- [`aria-colspan`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colspan) Attribut
+- HTML {{HTMLElement('table')}} Element
+- HTML {{HTMLElement('th')}} Element
+- HTML {{HTMLElement('td')}} Element

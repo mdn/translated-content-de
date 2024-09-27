@@ -7,23 +7,23 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`TextTrackCueList`**-Schnittstelle der [WebVTT-API](/de/docs/Web/API/WebVTT_API) ist ein array-ähnliches Objekt, das eine dynamisch aktualisierte Liste von {{domxref("TextTrackCue")}}-Objekten darstellt.
+Die **`TextTrackCueList`** Schnittstelle der [WebVTT API](/de/docs/Web/API/WebVTT_API) ist ein array-ähnliches Objekt, das eine dynamisch aktualisierende Liste von [`TextTrackCue`](/de/docs/Web/API/TextTrackCue) Objekten darstellt.
 
-Eine Instanz dieses Typs wird von {{domxref('TextTrack.cues')}} abgerufen, um alle Cues im {{domxref("TextTrack")}}-Objekt zu erhalten. Diese Schnittstelle besitzt keinen Konstruktor.
+Eine Instanz dieses Typs wird von [`TextTrack.cues`](/de/docs/Web/API/TextTrack/cues) abgerufen, um alle Cues im [`TextTrack`](/de/docs/Web/API/TextTrack) Objekt zu erhalten. Diese Schnittstelle hat keinen Konstruktor.
 
 ## Instanzeigenschaften
 
-- {{domxref('TextTrackCueList.length')}} {{ReadOnlyInline}}
-  - : Ein `unsigned long`, der die Anzahl der Cues in der Liste darstellt.
+- [`TextTrackCueList.length`](/de/docs/Web/API/TextTrackCueList/length) {{ReadOnlyInline}}
+  - : Ein `unsigned long`, das die Anzahl der Cues in der Liste angibt.
 
 ## Instanzmethoden
 
-- {{domxref('TextTrackCueList.getCueById()')}}
-  - : Gibt das erste {{domxref('TextTrackCue')}}-Objekt mit dem übergebenen Identifikator zurück.
+- [`TextTrackCueList.getCueById()`](/de/docs/Web/API/TextTrackCueList/getCueById)
+  - : Gibt das erste [`TextTrackCue`](/de/docs/Web/API/TextTrackCue) Objekt mit der übergebenen Kennung zurück.
 
 ## Beispiele
 
-Die {{domxref("HTMLMediaElement.textTracks")}}-Eigenschaft gibt ein {{domxref("TextTrackList")}}-Objekt zurück, das alle {{domxref("TextTrack")}}-Objekte auflistet, eines für jede mit dem Medium verknüpfte Textspur. Die {{domxref("TextTrack.cues")}}-Eigenschaft gibt dann eine `TextTrackCueList` zurück, die die Cues für diese bestimmte Spur enthält.
+Die [`HTMLMediaElement.textTracks`](/de/docs/Web/API/HTMLMediaElement/textTracks) Eigenschaft gibt ein [`TextTrackList`](/de/docs/Web/API/TextTrackList) Objekt zurück, das alle [`TextTrack`](/de/docs/Web/API/TextTrack) Objekte auflistet, eines für jede Textspur, die mit dem Medium verknüpft ist. Die [`TextTrack.cues`](/de/docs/Web/API/TextTrack/cues) Eigenschaft gibt dann eine `TextTrackCueList` zurück, die die Cues für diese bestimmte Spur enthält.
 
 ```js
 const video = document.getElementById("video");
@@ -36,6 +36,6 @@ video.onplay = () => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

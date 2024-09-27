@@ -1,5 +1,5 @@
 ---
-title: Leitfaden zu Web-Audiocodecs
+title: Web Audio Codec Leitfaden
 slug: Web/Media/Formats/Audio_codecs
 l10n:
   sourceCommit: 810682f11400bad32c92ae7182daddfc0ca973b3
@@ -7,21 +7,21 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Media")}}
 
-Selbst Ton mit bescheidener Qualität und hochauflösender Stereoqualität kann eine beträchtliche Menge an Festplattenspeicher beanspruchen. Für Webentwickler ist ein noch größeres Anliegen die Netzwerkbandbreite, die zum Übertragen von Audio benötigt wird, sei es für Streaming oder zum Herunterladen für die Nutzung während eines Spiels. Die Verarbeitung von Audiodaten zum Codieren und Dekodieren wird von einem Audio-**{{Glossary("codec")}}** (**CO**der/**DEC**oder) übernommen. In diesem Artikel betrachten wir Audio-Codecs, die im Web zum Komprimieren und Dekomprimieren von Audio verwendet werden, welche Fähigkeiten und Anwendungsfälle sie haben und geben Ratschläge zur Auswahl von Audiocodecs für Ihre Inhalte.
+Selbst moderat hochwertige, hochfidele Stereo-Sounds können eine beträchtliche Menge an Speicherplatz beanspruchen. Für Webentwickler ist die benötigte Netzwerkbandbreite zum Übertragen von Audio, sei es zum Streaming oder Herunterladen für den Einsatz in Spielen, ein noch größeres Anliegen. Die Verarbeitung von Audiodaten zur Kodierung und Dekodierung wird von einem Audio-**[Codec](/de/docs/Glossary/codec)** (**CO**der/**DEC**oder) gehandhabt. In diesem Artikel betrachten wir die auf dem Web verwendeten Audiocodecs zur Komprimierung und Dekomprimierung von Audio, was ihre Fähigkeiten und Anwendungsfälle sind, und bieten Orientierungshilfe bei der Auswahl von Audiocodecs für Ihre Inhalte.
 
-Darüber hinaus verwenden WebRTC-Implementierungen in der Regel eine Teilmenge dieser Codecs für die Codierung und Decodierung von Medien und unterstützen möglicherweise zusätzliche Codecs, um eine optimale plattformübergreifende Unterstützung von Video- und Audiokonferenzen zu gewährleisten und eine bessere Integration in ältere Telekommunikationslösungen zu ermöglichen. Weitere Informationen finden Sie unter [Codecs, die von WebRTC verwendet werden](/de/docs/Web/Media/Formats/WebRTC_codecs).
+Darüber hinaus verwenden WebRTC-Implementierungen in der Regel eine Teilmenge dieser Codecs für die Kodierung und Dekodierung von Medien und können ebenfalls zusätzliche Codecs zur Unterstützung der plattformübergreifenden Video- und Audiokonferenzen sowie zur besseren Integration mit älteren Telekommunikationslösungen unterstützen. Details finden Sie unter [Codecs used by WebRTC](/de/docs/Web/Media/Formats/WebRTC_codecs).
 
-Für Informationen über die grundlegenden Konzepte, wie digitale Audio funktioniert, lesen Sie den Artikel [Konzepte der digitalen Audioverarbeitung](/de/docs/Web/Media/Formats/Audio_concepts).
+Für Informationen über die grundlegenden Konzepte hinter der Funktionsweise digitaler Audioinhalte siehe den Artikel [Digital audio concepts](/de/docs/Web/Media/Formats/Audio_concepts).
 
-## Häufige Codecs
+## Häufig verwendete Codecs
 
-Die folgende Liste zeigt die am häufigsten im Web verwendeten Codecs und welche Container (Dateitypen) sie unterstützen. Wenn Sie nur wissen müssen, welche Codecs überhaupt verwendet werden können, ist dies für Sie. Natürlich können einzelne Browser entscheiden, ob sie alle diese Codecs unterstützen oder nicht, und die Unterstützung dafür, welche Containerarten sie verwenden können, kann ebenfalls variieren. Darüber hinaus können Browser entscheiden, zusätzliche Codecs zu unterstützen, die nicht in dieser Liste enthalten sind.
+Die folgende Liste zeigt die Codecs, die auf dem Web am häufigsten verwendet werden, und welche Container (Dateitypen) sie unterstützen. Wenn Sie lediglich wissen möchten, welche Codecs überhaupt verwendet werden können, ist dies für Sie relevant. Selbstverständlich können einzelne Browser wählen, ob sie alle diese Codecs unterstützen, und ihre Unterstützung dafür, welche Containertypen sie verwenden können, kann ebenfalls variieren. Außerdem können Browser zusätzliche Codecs unterstützen, die nicht in dieser Liste enthalten sind.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="row">Codename (Kurz)</th>
-      <th scope="col">Vollständiger Codename</th>
+      <th scope="row">Codec-Name (kurz)</th>
+      <th scope="col">Vollständiger Codec-Name</th>
       <th scope="col">Container-Unterstützung</th>
     </tr>
   </thead>
@@ -66,18 +66,18 @@ Die folgende Liste zeigt die am häufigsten im Web verwendeten Codecs und welche
       </th>
       <td>Pulse Code Modulation (PCM) von Sprachfrequenzen</td>
       <td>
-        {{Glossary("RTP")}} /
+        [RTP](/de/docs/Glossary/RTP) /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a>
       </td>
     </tr>
     <tr>
       <th scope="row"><a href="#g.722_64_kbps_7_khz_audio_coding">G.722</a></th>
       <td>
-        7 kHz Audiocodierung innerhalb von 64 kbps (für
-        Telefonie/{{Glossary("VoIP")}})
+        7 kHz Audiokodierung innerhalb von 64 kbps (für
+        Telefonie/[VoIP](/de/docs/Glossary/VoIP))
       </td>
       <td>
-        {{Glossary("RTP")}} /
+        [RTP](/de/docs/Glossary/RTP) /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a>
       </td>
     </tr>
@@ -90,7 +90,7 @@ Die folgende Liste zeigt die am häufigsten im Web verwendeten Codecs und welche
         <a href="/de/docs/Web/Media/Formats/Containers#mpegmpeg-2">MPEG</a>,
         <a href="/de/docs/Web/Media/Formats/Containers#3gp">3GP</a>
         <p>
-          Wenn MPEG-1 Audio Layer III Codec-Daten in einer MPEG-Datei gespeichert sind und es keinen Video-Track gibt, wird die Datei typischerweise als MP3-Datei bezeichnet, obwohl es sich immer noch um eine MPEG-Formatdatei handelt.
+          Wenn MPEG-1 Audio Layer III Codec-Daten in einer MPEG-Datei gespeichert sind und keine Videospur in der Datei vorhanden ist, wird die Datei in der Regel als MP3-Datei bezeichnet, obwohl es sich immer noch um eine MPEG-Formatdatei handelt.
         </p>
       </td>
     </tr>
@@ -116,18 +116,17 @@ Die folgende Liste zeigt die am häufigsten im Web verwendeten Codecs und welche
 
 ## Faktoren, die das kodierte Audio beeinflussen
 
-Es gibt zwei allgemeine Kategorien von Faktoren, die das codierte Audio beeinflussen, das von einem Audio-Codec-Encoder ausgegeben wird: Details über das Format und die Inhalte des Quell-Audios sowie der Codec und seine Konfiguration während des Kodierungsprozesses.
+Es gibt zwei allgemeine Kategorien von Faktoren, die das kodierte Audio, das von einem Audio-Codec-Encoder ausgegeben wird, beeinflussen: Details über das Format und den Inhalt des Quell-Audios sowie der Codec und seine Konfiguration während des Kodierungsprozesses.
 
-Für jeden Faktor, der das kodierte Audio beeinflusst, gibt es eine einfache Regel, die fast immer wahr ist: Da die Klangtreue digitaler Audioaufnahmen durch die Granularität und Präzision der zur Umwandlung in einen Datenstrom genommenen Samples bestimmt wird, gilt: Je mehr Daten verwendet werden, um die digitale Version des Audios darzustellen, desto näher wird der aufgenommene Klang dem Quellmaterial entsprechen.
+Für jeden Faktor, der das kodierte Audio beeinflusst, gibt es eine einfache Regel, die fast immer zutrifft: Da die Klangtreue des digitalen Audios durch die Granularität und Präzision der genommenen Proben bestimmt wird, die in einen Datenstrom umgewandelt werden, trifft der gesampelte Klang die Vorlage umso genauer, je mehr Daten für die Darstellung der digitalen Version des Audios verwendet werden.
 
-### Die Auswirkung des Quellaudioformats auf die kodierte Audioausgabe
+### Die Auswirkungen des Quell-Audioformats auf das kodierte Audio
 
-Da codiertes Audio inhärent weniger Bits zur Darstellung jedes Samples verwendet, kann das Quell-Audioformat tatsächlich weniger Einfluss auf die Größe des codierten Audios haben, als man erwarten könnte. Eine Reihe von Faktoren beeinflussen jedoch dennoch die Qualität und Größe des kodierten Audios. Die folgende Tabelle listet eine Reihe von Schlüsselmerkmalen des Quell-Audio-Dateiformats und deren Einfluss auf das kodierte Audio auf.
+Da kodierte Audioinhalte von Natur aus weniger Bits verwenden, um jedes Sample darzustellen, könnte das Quell-Audioformat tatsächlich weniger Einfluss auf die Größe des kodierten Audios haben, als man vielleicht erwartet. Dennoch beeinflussen mehrere Faktoren die Qualität und Größe des kodierten Audios. Die folgende Tabelle listet einige Schlüsselfaktoren des Quell-Audio-Dateiformats und ihre Auswirkungen auf das kodierte Audio auf.
 
 <table class="standard-table">
   <caption>
-    Die Auswirkung des Quell-Audioformats und -inhalts auf die Qualität und
-    Größe des kodierten Audios
+    Die Auswirkungen von Quell-Audioformat und -inhalten auf die Qualität und Größe des kodierten Audios
   </caption>
   <thead>
     <tr>
@@ -141,36 +140,36 @@ Da codiertes Audio inhärent weniger Bits zur Darstellung jedes Samples verwende
       <th scope="row">
         <a
           href="/de/docs/Web/Media/Formats/Audio_concepts#audio_data_format_and_structure"
-          >Anzahl der Kanäle</a
+          >Kanalanzahl</a
         >
       </th>
       <td>
         Die Anzahl der Kanäle beeinflusst nur die Wahrnehmung der Richtung, nicht die Qualität.
       </td>
       <td>
-        Jeder Kanal kann die Größe des kodierten Audios erheblich vergrößern, abhängig von den Inhalten und Encoder-Einstellungen.
+        Jeder Kanal kann die Größe des kodierten Audios erheblich erhöhen, abhängig von den Inhalten und den Encoder-Einstellungen.
       </td>
     </tr>
     <tr>
       <th scope="row">Rauschen / Zischen</th>
       <td>
-        Unerwünschtes Hintergrundrauschen oder Zischen neigt dazu, die Audioqualität direkt (indem die Details des Vordergrund-Audios verdeckt werden) und indirekt (indem die Audio-Wellenform komplizierter und somit schwieriger in der Größe zu reduzieren ist, während die Präzision beibehalten wird) zu reduzieren.
+        Unerwünschtes Hintergrundrauschen oder Zischen neigt dazu, die Audioqualität sowohl direkt (indem Details des Vordergrundaudios maskiert werden) als auch indirekt (indem die Audiowellenform komplizierter wird und daher schwerer bei gleichzeitiger Beibehaltung der Präzision zu reduzieren ist) zu verringern.
       </td>
       <td>
-        Zischen, Rauschen oder Hintergrundgeräusche erhöhen die Audiokomplexität, was im Allgemeinen die Kompressionsmöglichkeiten verringert.
+        Zischen, statische Geräusche oder Hintergrundgeräusche erhöhen die Audiokomplexität, was im Allgemeinen die mögliche Komprimierung verringert.
       </td>
     </tr>
     <tr>
       <th scope="row">
         <a href="/de/docs/Web/Media/Formats/Audio_concepts#sampling_audio"
-          >Samplerate</a
+          >Samplingrate</a
         >
       </th>
       <td>
-        Je mehr Samples pro Sekunde verfügbar sind, desto höher ist die Wahrscheinlichkeit, dass die resultierende kodierte Audiotreue höher ist.
+        Je mehr Samples pro Sekunde zur Verfügung stehen, desto höher ist die resultierende Klangtreue des kodierten Audios.
       </td>
       <td>
-        Eine Erhöhung der Samplerate erhöht die Größe der kodierten Audiodatei.
+        Das Erhöhen der Samplingrate erhöht die Größe der kodierten Audiodatei.
       </td>
     </tr>
     <tr>
@@ -181,22 +180,22 @@ Da codiertes Audio inhärent weniger Bits zur Darstellung jedes Samples verwende
         >
       </th>
       <td>
-        Je größer die Samples, desto mehr Details kann jedes Sample enthalten, was zu einer genaueren Darstellung jedes Samples führt.
+        Je größer die Samples sind, desto mehr Details kann jedes Sample enthalten, was zu einer genaueren Darstellung jedes Samples führt.
       </td>
       <td>
-        Hängt vom Codec ab; Codecs haben normalerweise ein internes Sample-Format, das möglicherweise mit der ursprünglichen Samplegröße übereinstimmen kann oder nicht. Mehr Quelldetails können die kodierte Datei jedoch vergrößern; sie wird dadurch niemals kleiner.
+        Hängt vom Codec ab; Codecs haben typischerweise ein internes Sampleformat, das möglicherweise nicht mit der ursprünglichen Samplegröße übereinstimmt. Mehr Details in der Quelle können die kodierte Datei größer machen; sie wird niemals kleiner.
       </td>
     </tr>
   </tbody>
 </table>
 
-Natürlich können diese Effekte durch Entscheidungen während der Codierung des Audios verändert werden. Wenn der Encoder beispielsweise so konfiguriert ist, dass die Samplerate reduziert wird, wird der Einfluss der Samplerate auf die Ausgabedatei entsprechend reduziert.
+Selbstverständlich können diese Effekte durch Entscheidungen geändert werden, die während der Kodierung des Audios getroffen werden. Wenn der Encoder beispielsweise so konfiguriert ist, dass die Sample-Rate reduziert wird, wird die Auswirkung der Sample-Rate auf die Ausgabedatei entsprechend verringert.
 
-Für weitere Informationen zu diesen und anderen Merkmalen von Audiodaten lesen Sie [Audio-Datenformat und Struktur](/de/docs/Web/Media/Formats/Audio_concepts#audio_data_format_and_structure).
+Weitere Informationen zu diesen und anderen Merkmalen von Audiodaten finden Sie unter [Audio data format and structure](/de/docs/Web/Media/Formats/Audio_concepts#audio_data_format_and_structure).
 
-### Der Einfluss der Codec-Konfiguration auf die kodierte Audioausgabe
+### Die Auswirkung der Codec-Konfiguration auf das kodierte Audio
 
-Audiocodecs verwenden in der Regel clever gestaltete und hochkomplexe mathematische Algorithmen, um die Quell-Audiodaten zu nehmen und sie zu komprimieren, damit sie erheblich weniger Speicher oder Netzwerkbandbreite beanspruchen. Neben der Auswahl der Art des zu verwendenden Encoders haben Sie möglicherweise die Möglichkeit, den Encoder mithilfe von Parametern anzupassen, die bestimmte Algorithmen wählen, diese Algorithmen abstimmen und angeben, wie viele Durchgänge während der Codierung durchgeführt werden sollen.
+Audiocodecs verwenden typischerweise clever entwickelte und hochkomplexe mathematische Algorithmen, um Quelldaten zu komprimieren, um im Speicher oder bei der Netzwerkbandbreite weniger Platz zu beanspruchen. Neben der Wahl des Encodertyps können Sie den Encoder möglicherweise mit Parametern anpassen, die spezifische Algorithmen auswählen, diese Algorithmen abstimmen und angeben, wie viele Durchläufe während der Kodierung angewendet werden sollen.
 
 <table class="standard-table">
   <caption>
@@ -218,19 +217,18 @@ Audiocodecs verwenden in der Regel clever gestaltete und hochkomplexe mathematis
         >
       </th>
       <td>Kein Verlust an Klangtreue</td>
-      <td>Es ist unwahrscheinlich, mehr als 40-50% an Komprimierung zu erzielen</td>
+      <td>Wahrscheinlich nicht mehr als 40-50% Kompression</td>
     </tr>
     <tr>
       <th scope="row">
         <a
           href="/de/docs/Web/Media/Formats/Audio_concepts#lossy_vs._lossless_compression"
           >Verlustbehaftete Kompression</a
-        >
-      </th>
+        ></th>
       <td>
-        Immer ein gewisser Verlust an Klangtreue, je höher die Kompression, desto größer der Verlust
+        Immer ein bisschen Verlust an Klangtreue; je höher die Kompression, desto mehr der Verlust
       </td>
-      <td>Eine Komprimierung von bis zu 80-95% ist möglich</td>
+      <td>Kompression von bis zu 80-95% möglich</td>
     </tr>
     <tr>
       <th scope="row">
@@ -240,7 +238,7 @@ Audiocodecs verwenden in der Regel clever gestaltete und hochkomplexe mathematis
       </th>
       <td>Je höher die Bitrate, desto höher kann die Qualität sein</td>
       <td>
-        Je höher die Bitrate, desto größer ist die kodierte Datei
+        Je höher die Bitrate, desto größer ist die kodierte Datei wahrscheinlich
       </td>
     </tr>
     <tr>
@@ -251,10 +249,10 @@ Audiocodecs verwenden in der Regel clever gestaltete und hochkomplexe mathematis
         >
       </th>
       <td>
-        Wenn es irgendeinen Ton im entfernten Frequenzband gibt, kann ein merklicher Verlust an Klangtreue auftreten
+        Wenn es in dem/den entfernten Frequenzband(bändern) Audio gibt, kann es einen spürbaren Verlust an Klangtreue geben
       </td>
       <td>
-        Das Entfernen von Frequenzbändern bedeutet weniger Daten zum Kodieren, daher kleinere kodierte Dateien
+        Entfernen von Frequenzbändern bedeutet weniger Daten zum Kodieren, also kleinere kodierte Dateien
       </td>
     </tr>
     <tr>
@@ -268,65 +266,65 @@ Audiocodecs verwenden in der Regel clever gestaltete und hochkomplexe mathematis
         Einfache Stereo- und
         <a
           href="/de/docs/Web/Media/Formats/Audio_concepts#mid-side_stereo_coding"
-          >Mid-Side-Stereo-Kodierung</a
+          >Mittel-Seiten-Stereo-Kodierung</a
         >
-        beeinträchtigen die Qualität nicht;
+        beeinflussen die Qualität nicht;
         <a
           href="/de/docs/Web/Media/Formats/Audio_concepts#intensity_stereo_coding"
           >Intensitäts-Stereokodierung</a
         >
-        führt jedoch zu einem Verlust an Details.
+        führt jedoch zu einem Verlust an Detailgenauigkeit.
       </td>
       <td>
-        Joint Stereo kann die Größe des kodierten Audios in gewissem Maße reduzieren
+        Gemeinsame Stereokodierung kann die Größe des kodierten Audios etwas reduzieren
       </td>
     </tr>
   </tbody>
 </table>
 
-Die verfügbaren Parameter sowie der Bereich möglicher Werte variiert von Codec zu Codec und sogar unter den verschiedenen Codierungsprogrammen für denselben Codec. Lesen Sie deshalb die Dokumentation, die mit der von Ihnen verwendeten Codierungssoftware geliefert wird, um mehr zu erfahren.
+Die verfügbaren Parameter und der Bereich möglicher Werte variieren von Codec zu Codec und sogar unter verschiedenen Kodierungsdiensten für denselben Codec. Lesen Sie daher die mit der von Ihnen verwendeten Kodierungssoftware bereitgestellte Dokumentation, um mehr zu erfahren.
 
-### Merkmale, die die Größe des kodierten Audios beeinflussen
+### Funktionen, die die Größe des kodierten Audios beeinflussen
 
-Mehrere Faktoren beeinflussen die Größe des kodierten Audios. Einige davon hängen von den Eigenschaften des Quell-Audios ab; andere stehen im Zusammenhang mit Entscheidungen, die während der Codierung des Audios getroffen werden.
+Mehrere Faktoren beeinflussen die Größe des kodierten Audios. Einige davon sind eine Frage der Form des Quell-Audios; andere sind mit Entscheidungen verbunden, die während der Kodierung des Audios getroffen werden.
 
-#### Verlustfreie versus verlustbehaftete Codecs
+#### Verlustfrei versus verlustbehaftete Codecs
 
-Es gibt zwei grundlegende Kategorien der Audiokompression. **Verlustfreie** Kompressionsalgorithmen reduzieren die Größe des Audios, ohne die Qualität oder Klangtreue zu beeinträchtigen. Beim Dekomprimieren von Audio, das mit einem verlustfreien Codec wie [FLAC](#flac_free_lossless_audio_codec) oder [ALAC](#alac_apple_lossless_audio_codec) komprimiert wurde, ist das Ergebnis in jeder Hinsicht identisch mit dem ursprünglichen Klang, bis hin zum Bit.
+Es gibt zwei grundlegende Kategorien der Audiokomprimierung. **Verlustfreie** Kompressionsalgorithmen reduzieren die Größe des Audios, ohne die Qualität oder Klangtreue des Klangs zu beeinträchtigen. Beim Dekodieren von Audio, das mit einem verlustfreien Codec wie [FLAC](#flac_free_lossless_audio_codec) oder [ALAC](#alac_apple_lossless_audio_codec) komprimiert wurde, ist das Ergebnis in jeder Hinsicht identisch mit dem Originalton bis hin zum einzelnen Bit.
 
-**Verlustbehaftete** Codecs hingegen nutzen die Tatsache aus, dass das menschliche Ohr kein perfekter Interpret von Audio ist und dass das menschliche Gehirn wichtige Informationen aus unvollkommenen oder rauschenden Audio aufnehmen kann. Sie entfernen Audiofrequenzen, die nicht viel genutzt werden, tolerieren den Verlust an Präzision in der dekodierten Ausgabe und verwenden andere Methoden, um Audioinhalte, Qualität und Klangtreue zu verlieren, um kleinere kodierte Medien zu erzeugen. Bei der Dekomprimierung ist die Ausgabe in unterschiedlichem Maße immer noch verständlich. Der spezifische verwendete Codec und die gewählte Kompressionseinstellung bestimmen, wie nahe die Ausgabe dem ursprünglichen, unkomprimierten Audiosignal zu sein scheint, wenn sie vom menschlichen Ohr gehört wird.
+**Verlustbehaftete** Codecs hingegen nutzen den Umstand, dass das menschliche Ohr kein perfekter Interpret von Audio ist und dass das menschliche Gehirn in der Lage ist, die wichtigen Informationen aus unvollkommenem oder rauschenden Audio herauszupicken. Sie entfernen Audiofrequenzen, die nicht häufig genutzt werden, tolerieren Verlust an Präzision im dekodierten Ausgang und verwenden andere Methoden, um Audiomaterial, Qualität und Klangtreue zu verlieren, um kleinere codierte Medien zu erzeugen. Beim Dekodieren ist der Ausgang, in unterschiedlichem Maße, immer noch verständlich. Der verwendete spezifische Codec und die gewählte Kompressionskonfiguration bestimmen, wie nahe der Ausgang dem ursprünglichen, unkomprimierten Audiosignal kommt, wenn es vom menschlichen Ohr gehört wird.
 
-Aufgrund der Unterschiede, wie verlustbehaftete Codecs im Vergleich zu verlustfreien arbeiten, insbesondere der Tatsache, dass verlustfreie viel konservativer in ihrer Kompression sein müssen, führen verlustbehaftete Codecs fast immer zu signifikant kleineren komprimierten Audios, als es verlustfreie Codecs tun.
+Aufgrund der Unterschiede in der Funktionsweise von verlustbehafteten Codecs im Vergleich zu verlustfreien Codecs, insbesondere der Tatsache, dass verlustfreie Codecs viel konservativer in ihrer Komprimierung sein müssen, resultieren verlustbehaftete Codecs fast immer in bedeutend kleineren komprimierten Audiodaten als verlustfreie Codecs.
 
-Im Allgemeinen sind die häufigsten Gründe, verlustfreie Audio zu wählen, dass Sie Archivierungsqualität benötigen oder dass die Audiodateien neu gemischt und erneut komprimiert werden und Sie die Verstärkung von Artefakten im Audio durch die erneute Komprimierung vermeiden möchten. Für Echtzeit-Streaming von Audio ist ein verlustbehafteter Codec normalerweise erforderlich, um sicherzustellen, dass der Datenfluss mit der Audiowiedergabegeschwindigkeit Schritt halten kann, unabhängig von der Netzwerkleistung.
+Im Allgemeinen sind die häufigsten Gründe für die Wahl von verlustfreiem Audio, dass eine archivierungsqualität Speicher erforderlich ist oder dass die Audiodaten zum Mischen und erneutem Komprimieren verwendet werden sollen und Sie vermeiden möchten, dass die Artefakte im Audio durch erneute Kompression verstärkt werden. Für das Echtzeit-Streaming von Audio wird in der Regel ein verlustbehafteter Codec benötigt, um sicherzustellen, dass der Datenfluss mit der Audiowiedergabegeschwindigkeit mithalten kann, unabhängig von der Netzwerkleistung.
 
 ### Maximale Anzahl von Kanälen
 
-Der Ton, der an jeden Lautsprecher in einem Soundsystem ausgegeben wird, wird durch einen Audio-Kanal in einem Stream bereitgestellt. Mono-Sound ist ein einziger Kanal. Stereo-Sound umfasst zwei. 5.1 Surround-Sound hat fünf Audiokanäle sowie einen **Low Frequency Enhancement** (**LFE**)-Kanal.
+Der an jeden Lautsprecher in einem Soundsystem gelieferte Ton wird durch einen Audiokanal in einem Stream bereitgestellt. Monotone ist ein einzelner Kanal. Stereo-Ton hat zwei. 5.1 Surround-Sound hat fünf Audiokanäle sowie einen **Low Frequency Enhancement** (**LFE**)-Kanal.
 
-LFE-Kanäle sind speziell dafür ausgelegt, Audio-Daten niedriger Frequenz zu speichern, und werden häufig verwendet, um Audio-Daten für Subwoofer bereitzustellen. Wenn Sie die Anzahl der Audiokanäle in der Form X.Y (wie 2.1 oder 5.1) geschrieben sehen, stellt die Zahl nach dem Dezimalpunkt, Y, die Anzahl der LFE-Kanäle dar. Zum Beispiel unterstützt MP3 einen LFE-Kanal, während AAC bis zu 16 unterstützen kann.
+LFE-Kanäle sind speziell gestaltet, um niedrige Frequenzen im Audio zu speichern, und werden häufig verwendet, um Audiodaten für Subwoofer bereitzustellen. Wenn die Anzahl der Audiokanäle in der Form X.Y geschrieben wird, entspricht die Zahl nach dem Dezimalpunkt, Y, der Anzahl der LFE-Kanäle. Zum Beispiel unterstützt MP3 einen LFE-Kanal, während AAC bis zu 16 unterstützt.
 
-Zusätzlich zur Bereitstellung von Audio für bestimmte Lautsprecher in einem Soundsystem erlauben einige Codecs möglicherweise, dass Audiokanäle verwendet werden, um alternative Audio, wie Gesang in verschiedenen Sprachen oder beschreibendes Audio für sehbehinderte Personen, bereitzustellen.
+Zusätzlich zur Bereitstellung von Audio für spezifische Lautsprecher eines Soundsystems können einige Codecs es ermöglichen, Audio-Kanäle für alternative Audioinhalte zu verwenden, wie Beispiel Gesang in verschiedenen Sprachen oder beschreibendes Audio für Sehbehinderte.
 
 ### Audiofrequenzbandbreite
 
-Die **Audiofrequenzbandbreite** eines Codecs gibt den Bereich der Audiofrequenzen an, die unter Verwendung des Codecs dargestellt werden können. Einige Codecs funktionieren spezifisch durch Eliminierung von Audio, das außerhalb eines bestimmten Frequenzbereichs liegt. Es gibt eine Korrelation zwischen der Samplerate und der maximalen Tonfrequenz, die von einer durch einen Codec dargestellten Wellenform dargestellt werden kann. Auf theoretischer Ebene ist die maximale Frequenz, die ein Codec darstellen kann, die Samplerate, geteilt durch zwei; diese Frequenz wird als [Nyquist-Frequenz](https://de.wikipedia.org/wiki/Nyquist-Frequenz) bezeichnet. In der Realität ist das Maximum etwas niedriger, liegt aber nahe.
+Die **Audiofrequenzbandbreite** eines Codecs gibt den Bereich der Audiofrequenzen an, die unter Verwendung des Codecs dargestellt werden können. Einige Codecs funktionieren speziell, indem sie Audio eliminieren, das außerhalb eines gegebenen Frequenzbereichs liegt. Es gibt eine Korrelation zwischen der Samplerate und der maximalen Frequenz, die durch eine von einem Codec dargestellte Wellenform dargestellt werden kann. Auf theoretischer Ebene ist die maximale Frequenz, die ein Codec darstellen kann, die Samplerate geteilt durch zwei; diese Frequenz wird als [Nyquist-Frequenz](https://de.wikipedia.org/wiki/Nyquist-Frequenz) bezeichnet. In Wirklichkeit ist das Maximum etwas niedriger, aber es ist nah dran.
 
-Die Audiofrequenzbandbreite kommt besonders dann ins Spiel, wenn ein Codec speziell entwickelt oder konfiguriert wurde, um menschliche Sprache darzustellen, anstatt ein breites Spektrum an Klängen. Menschliche Sprache liegt im Allgemeinen im Frequenzbereich von 300 Hz bis 18 kHz. Der größte Teil der menschlichen Sprachlaute existiert jedoch im Bereich von 300 Hz bis 8 kHz, und Sie können genug menschlicher Sprachlaute im Frequenzbereich von 500 Hz bis 3 kHz erfassen, um immer noch verständlich zu sein.
+Die Audiofrequenzbandbreite kommt besonders zu tragen, wenn ein Codec speziell oder konfiguriert ist, um menschliche Sprache anstelle eines breiten Klangbereichs darzustellen. Menschliche Sprache liegt allgemein im Audiofrequenzbereich von 300 Hz bis 18 kHz. Die überwiegende Mehrheit menschlicher Vokalisierungen existiert jedoch im Bereich von 300 Hz bis 8 kHz, und Sie können genug von den menschlichen Vokalisierungen im Frequenzbereich 500 Hz bis 3 kHz ermitteln, um dennoch verständlich zu bleiben.
 
-Aus diesem Grund beginnen sprachspezifische Codecs häufig damit, Geräusche zu entfernen, die außerhalb eines festgelegten Bereichs liegen. Dieser Bereich ist die Audiofrequenzbandbreite. G.722 entfernt beispielsweise Töne außerhalb der Audiofrequenzbandbreite von 50 Hz bis 7 kHz. Dies reduziert die Menge an Daten, die von Anfang an kodiert werden müssen.
+Daher beginnen sprachspezifische Codecs oft damit, Klänge fallen zu lassen, die außerhalb eines festgelegten Bereichs liegen. Dieser Bereich ist die Audiofrequenzbandbreite. G.722 zum Beispiel entfernt Klänge, die außerhalb der Audiofrequenzbandbreite von 50 Hz bis 7 kHz liegen. Dies reduziert bereits von vornherein die zu kodierende Datenmenge.
 
-## Codec-Details
+## Details zu den Codecs
 
-Im Folgenden werfen wir einen kurzen Blick auf jeden dieser Codecs und betrachten ihre grundlegenden Fähigkeiten und ihre primären Anwendungsfälle.
+Unten werfen wir einen kurzen Blick auf jeden dieser Codecs, wobei wir ihre grundlegenden Fähigkeiten und ihre primären Anwendungsfälle betrachten.
 
 ### AAC (Advanced Audio Coding)
 
-Der **Advanced Audio Coding** (**AAC**)-Codec wird als Teil des MPEG-4 (H.264)-Standards definiert; genauer gesagt als Teil von [MPEG-4 Part 3](https://www.iso.org/standard/53943.html) und [MPEG-2 Part 7](https://www.iso.org/standard/43345.html). AAC wurde entwickelt, um mehr Kompression mit höherer Audiotreue als MP3 zu bieten, und ist eine beliebte Wahl geworden. Es ist das Standardformat für Audio in vielen Medienarten, einschließlich Blu-Ray-Discs und HDTV, sowie das Format, das für von Online-Anbietern wie iTunes gekaufte Lieder verwendet wird.
+Der **Advanced Audio Coding** (**AAC**) Codec ist Teil des MPEG-4 (H.264)-Standards; genauer gesagt, als Teil von [MPEG-4 Part 3](https://www.iso.org/standard/53943.html) und [MPEG-2 Part 7](https://www.iso.org/standard/43345.html) definiert. Er wurde entwickelt, um mehr Kompression mit höherer Klangtreue als MP3 zu bieten, und hat sich zu einer beliebten Wahl entwickelt und ist das Standardformat für Audio in vielen Medientypen, einschließlich Blu-Ray-Discs und HDTV sowie das Format, das für Songs verwendet wird, die bei Online-Verkäufern wie iTunes gekauft werden.
 
-AAC verfügt über eine Reihe von Profilen, die Methoden zur Komprimierung von Audio für bestimmte Anwendungsfälle definieren und alles von hochqualitativem Surround-Sound bis zu niedrigauflösendem Audio für reine Sprachverwendung umfassen.
+AAC verfügt über eine Reihe von Profilen, die Methoden zur Komprimierung von Audio für spezielle Anwendungsfälle definieren, die von qualitativ hochwertigem Surround-Sound bis hin zu Einzelzweck-Audio für Audio lediglich für Sprachzwecke reichen.
 
-Als patentbelastetes Format ist die Unterstützung von AAC weniger vorhersehbar. Zum Beispiel unterstützt Firefox AAC nur, wenn die Unterstützung durch das Betriebssystem oder eine externe Bibliothek bereitgestellt wird.
+Als patentbehaftetes Format ist die AAC-Unterstützung etwas weniger vorhersehbar. Beispielsweise unterstützt Firefox AAC nur, wenn die Unterstützung durch das Betriebssystem oder eine externe Bibliothek bereitgestellt wird.
 
 <table class="standard-table">
   <tbody>
@@ -335,7 +333,7 @@ Als patentbelastetes Format ist die Unterstützung von AAC weniger vorhersehbar.
       <td>Beliebig, bis zu 512 kbps</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung für Variable Bitrate (VBR)</th>
+      <th scope="row">Variable Bitrate (VBR) Unterstützung</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -355,13 +353,14 @@ Als patentbelastetes Format ist die Unterstützung von AAC weniger vorhersehbar.
       <td>Verlustbehaftet</td>
     </tr>
     <tr>
-      <th scope="row">Maximale Audio-Kanäle</th>
-      <td>48 (plus 16 Low Frequency Enhancement-Kanäle)</td>
+      <th scope="row">Maximale Audiokanäle</th>
+      <td>48 (plus 16 Low Frequency Enhancement Kanäle)</td>
     </tr>
     <tr>
       <th scope="row">Audiofrequenzbandbreite</th>
       <td>
-        0 Hz - 96 kHz (Standard-Audiokanäle)<br />0 Hz - 120 Hz (LFE-Kanäle)
+        0 Hz - 96 kHz (Standard Audiokanäle)<br />0 Hz - 120 Hz (LFE
+        Kanäle)
       </td>
     </tr>
     <tr>
@@ -372,10 +371,10 @@ Als patentbelastetes Format ist die Unterstützung von AAC weniger vorhersehbar.
       <th scope="row">Browser-Kompatibilität</th>
       <td>
         <p>
-          Aufgrund von Patentproblemen unterstützt Firefox AAC nicht direkt. Stattdessen verlässt sich Firefox auf die native Plattformunterstützung für AAC. Diese Fähigkeit wurde auf jeder Plattform in verschiedenen Firefox-Versionen eingeführt:
+          Aufgrund von Patentproblemen unterstützt Firefox AAC nicht direkt. Stattdessen verlässt sich Firefox auf die native AAC-Unterstützung einer Plattform. Diese Fähigkeit wurde in jeder Plattform in verschiedene Firefox-Veröffentlichungen eingeführt:
         </p>
         <p>
-          Chrome unterstützt AAC nur in MP4-Containern und unterstützt nur das Hauptprofil von AAC. Darüber hinaus ist AAC in Chromium-Builds nicht verfügbar.
+          Chrome unterstützt AAC nur in MP4-Containern und nur das Hauptprofil von AAC. Darüber hinaus ist AAC in Chromium-Builds nicht verfügbar.
         </p>
       </td>
     </tr>
@@ -385,7 +384,7 @@ Als patentbelastetes Format ist die Unterstützung von AAC weniger vorhersehbar.
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("RTP")}} /
+        [RTP](/de/docs/Glossary/RTP) /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Ja</td>
@@ -393,8 +392,9 @@ Als patentbelastetes Format ist die Unterstützung von AAC weniger vorhersehbar.
     <tr>
       <th scope="row">Lizenzierung</th>
       <td>
-        Für das Streaming oder die Verteilung von AAC-kodierten Inhalten: Keine Lizenz erforderlich; Entwickler von Codecs sind verpflichtet, eine Patentlizenz über
-        <a href="https://www.via-la.com/licensing-2/aac/">VIA Licensing</a> zu erhalten
+        Für Streaming oder Verbreitung von AAC-kodierten Inhalten: keine Lizenz erforderlich; Entwickler von Codecs müssen eine Patentlizenz über
+        <a href="https://www.via-la.com/licensing-2/aac/">VIA Licensing</a>
+        erwerben
       </td>
     </tr>
   </tbody>
@@ -402,22 +402,22 @@ Als patentbelastetes Format ist die Unterstützung von AAC weniger vorhersehbar.
 
 ### ALAC (Apple Lossless Audio Codec)
 
-Der **Apple Lossless Audio Codec** (**ALAC** oder **Apple Lossless**) ist ein verlustfreier Codec, der von Apple entwickelt wurde. Nachdem es sich zunächst um ein geschlossenes Format handelte, öffnete Apple es später unter einer Apache-Lizenz.
+Der **Apple Lossless Audio Codec** (**ALAC** oder **Apple Lossless**) ist ein verlustfreier Codec, der von Apple entwickelt wurde. Nachdem er zunächst ein geschlossenes Format war, wurde er von Apple unter einer Apache-Lizenz geöffnet.
 
-Die plattform- und browserübergreifende Unterstützung für ALAC ist nicht sehr stark, was es zu einer weniger idealen Wahl für die allgemeine Nutzung macht. Wenn sich Ihr Ziel jedoch hauptsächlich auf macOS- und iOS-Benutzer konzentriert, kann es sich lohnen, diesen in Betracht zu ziehen, da die Betriebssysteme über integrierte Unterstützung für ALAC verfügen. Andernfalls ist FLAC wahrscheinlich eine bessere Wahl, wenn Sie einen verlustfreien Codec verwenden müssen.
+Die plattform- und browserübergreifende Unterstützung für ALAC ist nicht sehr stark, was es zu einer weniger idealen Wahl für den allgemeinen Gebrauch macht. Wenn Ihr Ziel jedoch hauptsächlich Benutzer von macOS und iOS sind, könnte es sich lohnen, es in Betracht zu ziehen, da das Betriebssystem integrierte Unterstützung für ALAC hat. Andernfalls ist FLAC wahrscheinlich eine bessere Wahl, wenn Sie einen verlustfreien Codec verwenden müssen.
 
-Denken Sie jedoch daran, dass verlustfreie Codecs erheblich mehr Bandbreite und Speicherkapazität erfordern und möglicherweise keine gute Wahl außerhalb sehr spezifischer Anwendungsfälle sind.
+Denken Sie jedoch daran, dass verlustfreie Codecs deutlich mehr Bandbreite und Speicherkapazität erfordern und möglicherweise außerhalb sehr spezifischer Anwendungsfälle keine gute Wahl sind.
 
 <table class="standard-table">
   <tbody>
     <tr>
       <th scope="row">Unterstützte Bitraten</th>
       <td>
-        Basierend auf dem Sample-Format und der Samplerate sowie der Komprimierungsstufe
+        Basierend auf dem Sample-Format und der Sample-Rate sowie dem Kompressionsgrad
       </td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung für Variable Bitrate (VBR)</th>
+      <th scope="row">Variable Bitrate (VBR) Unterstützung</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -426,7 +426,7 @@ Denken Sie jedoch daran, dass verlustfreie Codecs erheblich mehr Bandbreite und 
     </tr>
     <tr>
       <th scope="row">Unterstützte Sampleraten</th>
-      <td>1 Hz bis 384,000 Hz</td>
+      <td>1 Hz bis 384.000 Hz</td>
     </tr>
     <tr>
       <th scope="row">Empfohlene Mindestbitrate für Stereo-Sound</th>
@@ -437,7 +437,7 @@ Denken Sie jedoch daran, dass verlustfreie Codecs erheblich mehr Bandbreite und 
       <td>Verlustfrei; bis zu 45-60%</td>
     </tr>
     <tr>
-      <th scope="row">Maximale Audio-Kanäle</th>
+      <th scope="row">Maximale Audiokanäle</th>
       <td>8 (bis zu 7.1 Surround)</td>
     </tr>
     <tr>
@@ -479,7 +479,7 @@ Denken Sie jedoch daran, dass verlustfreie Codecs erheblich mehr Bandbreite und 
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("RTP")}} /
+        [RTP](/de/docs/Glossary/RTP) /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Nein</td>
@@ -489,7 +489,7 @@ Denken Sie jedoch daran, dass verlustfreie Codecs erheblich mehr Bandbreite und 
       <td>
         Offene Lizenz (Apache License 2.0);
         <a href="https://github.com/macosforge/alac"
-          >Quellcode auf GitHub verfügbar</a
+          >Quellcode verfügbar auf GitHub</a
         >
       </td>
     </tr>
@@ -498,26 +498,26 @@ Denken Sie jedoch daran, dass verlustfreie Codecs erheblich mehr Bandbreite und 
 
 ### AMR (Adaptive Multi-Rate)
 
-Der **[Adaptive Multi-Rate Audio Codec](https://voiceage.com/AMR-NB.AMR.html)** ist für effizientes Kodieren menschlicher Sprache optimiert. Er wurde 1999 als Teil des 3GPP-Audiostandards standardisiert, der sowohl für [GSM](https://de.wikipedia.org/wiki/GSM) als auch für [UMTS](https://de.wikipedia.org/wiki/UMTS) Mobiltelefonie verwendet wird, und verwendet einen Multi-Rate-Schmalband-Algorithmus zur Kodierung von Audiofrequenzen mit einer Sprachqualität auf Telefonieniveau bei etwa 7,4 kbps. Neben der Verwendung für Echtzeittelefonie kann AMR-Audio auch für Voicemail und andere kurze Tonaufnahmen verwendet werden.
+Der **[Adaptive Multi-Rate Audio Codec](https://voiceage.com/AMR-NB.AMR.html)** ist optimiert, um menschliche Sprache effizient zu kodieren. Er wurde 1999 als Teil des 3GPP-Audiostandards standardisiert, der sowohl für [GSM](https://de.wikipedia.org/wiki/GSM) als auch für [UMTS](https://de.wikipedia.org/wiki/UMTS) Mobiltelefonie verwendet wird, und verwendet einen Multirate-Schmalkanal-Algorithmus, um Audiofrequenzen mit einer Telefongüte von etwa 7,4 kbps zu kodieren. Zusätzlich zur Verwendung für die Echtzeit-Telefonie kann AMR-Audio für Voicemail und andere kurze Audioaufnahmen verwendet werden.
 
-AMR-Audio, das in Dateien gespeichert wird, kann die Endung `.amr` haben, kann aber auch in `.3gp`-Dateien eingebettet werden.
+AMR-Audio, das in Dateien gespeichert ist, kann entweder mit `.amr` typisiert werden, kann jedoch auch in `.3gp` Dateien gekapselt werden.
 
-Als sprachspezifischer Codec ist AMR praktisch unbrauchbar für jeden anderen Inhalt, einschließlich Audio, das nur Gesangsstimmen enthält. Außerdem, da AMR darauf ausgelegt ist, die Kapazitätsanforderungen zu minimieren, erfasst es nur den Teil der vollständigen Audiofrequenzbandbreite der menschlichen Sprache, der absolut notwendig ist, um zu verstehen, was gesagt wird, sodass die Qualität entsprechend reduziert ist. Wenn Sie die Möglichkeit benötigen, Audio mit minimalem Einfluss auf Netzwerk- und/oder Speicherkapazität aufzunehmen, kann AMR eine gute Wahl sein. Wenn Sie jedoch eine hochauflösende Wiedergabe menschlicher Sprache oder auch nur eine niedrige Musikqualität benötigen, müssen Sie ein anderes Format wählen.
+Als sprachspezifischer Codec ist AMR für jegliche anderen Inhalte im Wesentlichen nutzlos, einschließlich von Audio, das nur singende Stimmen enthält. Zudem erfasst AMR, da es darauf ausgelegt ist, die Kapazitätsanforderungen zu minimieren, nur den Teil der vollen Audiofrequenzbandbreite der menschlichen Sprache, die absolut notwendig ist, um zu verstehen, was gesagt wird; die Qualität wird entsprechend reduziert. Wenn Sie die Möglichkeit benötigen, Audio mit minimalem Einfluss auf Netzwerk- und/oder Speicherkapazität aufzunehmen, kann AMR eine großartige Wahl sein. Wenn Sie jedoch eine hochfidele Wiedergabe der menschlichen Sprache oder sogar eine niedrige Musikqualität benötigen, müssen Sie ein anderes Format wählen.
 
 <table class="standard-table">
   <tbody>
     <tr>
       <th rowspan="2" scope="row">Unterstützte Bitraten</th>
       <td>
-        <strong>Halbrate (HR) und Volle Rate (FR):</strong> 1,8 kbps, 4,75 kbps,
-        5,15 kbps, 5,9 kbps, 6,7 kbps, 7,4 kbps, 7,95 kbps
+        <strong>Halbrate (HR) und Volle Rate (FR):</strong> 1.8 kbps, 4.75 kbps,
+        5.15 kbps, 5.9 kbps, 6.7 kbps, 7.4 kbps, 7.95 kbps
       </td>
     </tr>
     <tr>
-      <td><strong>Volle Rate (FR) nur:</strong> 10,2 kbps und 12,2 kbps</td>
+      <td><strong>Volle Rate (FR) nur:</strong> 10.2 kbps und 12.2 kbps</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung für Variable Bitrate (VBR)</th>
+      <th scope="row">Variable Bitrate (VBR) Unterstützung</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -537,7 +537,7 @@ Als sprachspezifischer Codec ist AMR praktisch unbrauchbar für jeden anderen In
       <td>Verlustbehaftet</td>
     </tr>
     <tr>
-      <th scope="row">Maximale Audio-Kanäle</th>
+      <th scope="row">Maximale Audiokanäle</th>
       <td>1</td>
     </tr>
     <tr>
@@ -572,8 +572,7 @@ Als sprachspezifischer Codec ist AMR praktisch unbrauchbar für jeden anderen In
           </tbody>
         </table>
         <p>
-          Während der Chrome-Browser AMR nicht unterstützt, unterstützt ChromeOS
-          AMR-NB (Schmalband) und AMR-WB (Breitband).
+          Während der Chrome-Browser AMR nicht unterstützt, unterstützt ChromeOS AMR-NB (Schmalkanal) und AMR-WB (Breitband).
         </p>
       </td>
     </tr>
@@ -583,7 +582,7 @@ Als sprachspezifischer Codec ist AMR praktisch unbrauchbar für jeden anderen In
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("RTP")}} /
+        [RTP](/de/docs/Glossary/RTP) /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Nein</td>
@@ -591,10 +590,11 @@ Als sprachspezifischer Codec ist AMR praktisch unbrauchbar für jeden anderen In
     <tr>
       <th scope="row">Lizenzierung</th>
       <td>
-        Nicht kostenlos; Lizenzgebühren und jährliche Lizenzgebühren gelten. Weitere Informationen erhalten Sie unter
+        Nicht-frei; Lizenzgebühren und jährliche Royalty-Gebühren fallen an. Siehe
         <a href="https://voiceage.com/Overview-lic.html"
-          >VoiceAge-Lizenzierung</a>
-        .
+          >VoiceAge-Lizenzierung</a
+        >
+        für Details
       </td>
     </tr>
   </tbody>
@@ -602,9 +602,9 @@ Als sprachspezifischer Codec ist AMR praktisch unbrauchbar für jeden anderen In
 
 ### FLAC (Free Lossless Audio Codec)
 
-**FLAC** (**Free Lossless Audio Codec**) ist ein verlustfreier Audio-Codec, der von der [Xiph.org Foundation](https://xiph.org/) veröffentlicht wurde. Er bietet gute Komprimierungsraten ohne Verlust der Audiotreue; das heißt, das dekomprimierte Audio ist identisch mit dem Original. Da der Komprimierungsalgorithmus speziell für Audio entwickelt wurde, liefert er bessere Ergebnisse als ein allgemeiner Komprimierungsalgorithmus.
+**FLAC** (**Free Lossless Audio Codec**) ist ein verlustfreier Audio-Codec, der von der [Xiph.org Foundation](https://xiph.org/) veröffentlicht wurde. Er bietet gute Kompressionsraten ohne Verlust der Klangtreue; das heißt, das dekomprimierte Audio ist mit dem Original identisch. Da der Kompressionsalgorithmus speziell für Audio entwickelt wurde, liefert er bessere Ergebnisse, als dies mit einem generellen Kompressionsalgorithmus erzielt werden könnte.
 
-FLAC ist eine ausgezeichnete Wahl für kleinere Audioeffekt-Dateien, bei denen eine einwandfreie Qualität und Tonalität gewünscht sind, sowie für die Archivierung von Musik.
+FLAC ist eine großartige Wahl für kleinere Audioeffektdateien, bei denen makellose Qualität und tonale Genauigkeit gewünscht sind sowie für die Archivierung von Musik.
 
 <table class="standard-table">
   <tbody>
@@ -613,7 +613,7 @@ FLAC ist eine ausgezeichnete Wahl für kleinere Audioeffekt-Dateien, bei denen e
       <td>—</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung für Variable Bitrate (VBR)</th>
+      <th scope="row">Variable Bitrate (VBR) Unterstützung</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -633,19 +633,19 @@ FLAC ist eine ausgezeichnete Wahl für kleinere Audioeffekt-Dateien, bei denen e
     </tr>
     <tr>
       <th scope="row">Kompression</th>
-      <td>Verlustfrei; bis zu 40-50% Größenreduzierung</td>
+      <td>Verlustfrei; bis zu 40-50% Größenreduktion</td>
     </tr>
     <tr>
-      <th scope="row">Maximale Audio-Kanäle</th>
+      <th scope="row">Maximale Audiokanäle</th>
       <td>8</td>
     </tr>
     <tr>
       <th scope="row">Audiofrequenzbandbreite</th>
-      <td>Volles Spektrum</td>
+      <td>Volles Frequenzspektrum</td>
     </tr>
     <tr>
       <th scope="row">Latenz</th>
-      <td>4.3 ms bis 92 ms, mit 46.4 ms als typischem Durchschnitt</td>
+      <td>4.3 ms bis 92 ms, wobei 46.4 ms typischer Durchschnitt sind</td>
     </tr>
     <tr>
       <th scope="row">Browser-Kompatibilität</th>
@@ -678,27 +678,27 @@ FLAC ist eine ausgezeichnete Wahl für kleinere Audioeffekt-Dateien, bei denen e
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("RTP")}} /
+        [RTP](/de/docs/Glossary/RTP) /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Nein</td>
     </tr>
     <tr>
       <th scope="row">Lizenzierung</th>
-      <td>Vollständig offen und frei von jeglichen Lizenzanforderungen</td>
+      <td>Vollkommen offen und ohne Lizenzanforderungen</td>
     </tr>
   </tbody>
 </table>
 
-### G.711 (Puls-Code-Modulation von Sprachfrequenzen)
+### G.711 (Impuls-Code-Modulation von Sprachfrequenzen)
 
-Die **G.711**-Spezifikation, veröffentlicht von der International Telecommunications Union (ITU), wurde 1972 herausgegeben, um ein standardisiertes Audio-Codierverfahren für Telefonanwendungen zu definieren. Sie unterstützt sprachqualitatives Audio, das Frequenzen von 300 bis 3400 Hz abdeckt. Sie wird umfangreich für Telefongespräche und Voicemail verwendet und ist die höchste Audioqualität, die über das öffentliche Telefonnetz übertragen werden kann.
+Die **G.711** Spezifikation, veröffentlicht von der International Telecommunications Union (ITU), wurde 1972 herausgegeben, um die Standardkodierung für Telefonanwendungen zu definieren. Sie unterstützt sprachfähige Audiofrequenzen von 300 bis 3400 Hz. Sie wird umfangreich für Telefonanrufe und Voicemail genutzt und ist die Audio-Kodierung mit der höchsten Qualität, die über das öffentliche Telefonnetz übertragen werden kann.
 
-G.711 ist kein Hochleistungs-Codec, sondern wurde stattdessen optimiert, um eine breite Palette von Sprachpegeln (vom Flüstern bis zum Schreien) zu unterstützen, während gleichzeitig eine hohe Verständlichkeit und niedrige rechnerische Komplexität gewahrt wird. G.711 verwendet einen logarithmischen Kompanding-Algorithmus, der 14 Bit Dynamikbereich in einer 8-Bit-Abtastung bietet. Es verwendet eine Abtastrate von 8000 Abtastungen/Sekunde, was einer Bitrate von 64000 bps entspricht.
+G.711 ist kein Hochfidelität-Codec, sondern optimiert für die Unterstützung einer breiten Palette von Sprachniveaus (vom Flüstern bis zum Schreien), während sie hohe Verständlichkeit und geringe Rechenkomplexität aufrechterhält. G.711 verwendet einen logarithmischen Kompandierungsalgorithmus, der in einer 8-Bit-Probe eine dynamische Reichweite von 14 Bits bietet. Sie verwendet eine Abtastrate von 8000 Proben/Sekunde, entsprechend einer Bitrate von 64000 bps.
 
-Es gibt zwei Varianten von G.711, die die genaue mathematische Gleichung für den Algorithmus angeben: [µ-law](https://en.wikipedia.org/wiki/M-law) (üblicherweise in Nordamerika und Japan verwendet) und [A-law](https://en.wikipedia.org/wiki/A-law) (in anderen Teilen der Welt üblich). Es gibt keine wesentlichen Qualitätsunterschiede zwischen den beiden Gesetzen, und es ist einfach, Audio von einem zum anderen zu transcoden. Dennoch ist es wichtig, anzugeben, welches Gesetz in jeder Wiedergabeanwendung oder -dateiformat verwendet wird. A-law-Audio wird schlecht wiedergegeben, wenn es fälschlicherweise mit dem µ-law-Algorithmus dekomprimiert wird und umgekehrt.
+Es gibt zwei Varianten von G.711, die die genaue mathematische Gleichung für den Algorithmus angeben: [µ-law](https://de.wikipedia.org/wiki/M-law) (üblich verwendet in Nordamerika und Japan) und [A-law](https://de.wikipedia.org/wiki/A-law) (üblich im Rest der Welt). Es gibt keine wesentlichen Qualitätsunterschiede zwischen den beiden Gesetzen, und es ist einfach, Audio von einem in das andere zu transcodieren. Nichtsdestotrotz ist es wichtig anzugeben, welches Gesetz in jeder Wiedergabeanwendung oder Dateiformat verwendet wird. A-law Audio spielt schlecht ab, wenn es versehentlich mit dem µ-law-Algorithmus dekomprimiert wird und umgekehrt.
 
-Dieser Codec muss von allen [WebRTC](/de/docs/Web/API/WebRTC_API)-Lösungen unterstützt werden, da er einfach, leicht zu implementieren, weit verbreitet und umfassend kompatibel über alle modernen Rechnerplattformen hinweg ist.
+Dieser Codec muss von allen [WebRTC](/de/docs/Web/API/WebRTC_API)-Lösungen unterstützt werden, weil er einfach, leicht zu implementieren, weit verbreitet und breit kompatibel auf allen modernen Computerplattformen ist.
 
 <table class="standard-table">
   <tbody>
@@ -707,12 +707,12 @@ Dieser Codec muss von allen [WebRTC](/de/docs/Web/API/WebRTC_API)-Lösungen unte
       <td>64 kbps</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung für Variable Bitrate (VBR)</th>
+      <th scope="row">Variable Bitrate (VBR) Unterstützung</th>
       <td>Nein</td>
     </tr>
     <tr>
       <th scope="row">Unterstützte Sample-Formate</th>
-      <td>Kodiertes Audio ist 8 Bit pro Abtastung</td>
+      <td>kodiertes Audio ist 8 Bits pro Sample</td>
     </tr>
     <tr>
       <th scope="row">Unterstützte Sampleraten</th>
@@ -724,19 +724,19 @@ Dieser Codec muss von allen [WebRTC](/de/docs/Web/API/WebRTC_API)-Lösungen unte
     </tr>
     <tr>
       <th scope="row">Kompression</th>
-      <td>Logarithmisches Kompanding (µ-law oder A-law)</td>
+      <td>Logarithmische Kompandierung (µ-law oder A-law)</td>
     </tr>
     <tr>
-      <th scope="row">Maximale Audio-Kanäle</th>
+      <th scope="row">Maximale Audiokanäle</th>
       <td>2</td>
     </tr>
     <tr>
       <th scope="row">Audiofrequenzbandbreite</th>
-      <td>300 Hz – 3400 Hz</td>
+      <td>300 Hz – 3,400 Hz</td>
     </tr>
     <tr>
       <th scope="row">Latenz</th>
-      <td>0,125 ms</td>
+      <td>0.125 ms</td>
     </tr>
     <tr>
       <th scope="row">Browser-Kompatibilität</th>
@@ -770,7 +770,7 @@ Dieser Codec muss von allen [WebRTC](/de/docs/Web/API/WebRTC_API)-Lösungen unte
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("RTP")}} /
+        [RTP](/de/docs/Glossary/RTP) /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Ja</td>
@@ -778,7 +778,7 @@ Dieser Codec muss von allen [WebRTC](/de/docs/Web/API/WebRTC_API)-Lösungen unte
     <tr>
       <th scope="row">Lizenzierung</th>
       <td>
-        Alle anwendbaren Patente sind abgelaufen, sodass G.711 ohne Einschränkungen verwendet werden kann
+        Alle anwendbaren Patente sind abgelaufen, sodass G.711 frei verwendet werden kann, ohne Einschränkungen
       </td>
     </tr>
   </tbody>
@@ -786,22 +786,22 @@ Dieser Codec muss von allen [WebRTC](/de/docs/Web/API/WebRTC_API)-Lösungen unte
 
 ### G.722 (64 kbps (7 kHz) Audiokodierung)
 
-Veröffentlicht von der International Telecommunications Union (ITU), ist der **G.722**-Codec speziell für die Sprachkompression konzipiert. Seine Audio-Codierbandbreite ist auf den Bereich von 50 Hz bis 7,000 Hz begrenzt, der den größten Teil des Frequenzbereichs typischer menschlicher Stimmgebung abdeckt. Dies macht ihn ungeeignet für das Handling von Audio, das außerhalb des menschlichen Sprachbereichs liegen könnte, wie Musik.
+Veröffentlicht von der International Telecommunications Union (ITU), ist der **G.722** Codec speziell für Sprachkompression entwickelt worden. Seine Audiokodierungsbandbreite ist auf den Bereich von 50 Hz bis 7,000 Hz begrenzt, der den größten Teil des Frequenzbereichs der typischen menschlichen Vokalisierung abdeckt. Dies macht ihn unpassend für die Handhabung von jeglichem Audio, das möglicherweise außerhalb des menschlichen Sprachbereichs liegt, wie Musik.
 
-G.722-Audio wird unter Verwendung von Adaptive Differential Pulse Code Modulation (ADPCM) kodiert, wobei jedes Sample nicht durch seinen absoluten Wert dargestellt wird, sondern als Wert, der angibt, wie sehr sich das neue Sample vom vorherigen Sample unterscheidet.
+G.722 Audio wird unter Verwendung von Adaptive Differential Pulse Code Modulation (ADPCM) kodiert, bei dem jedes Sample nicht durch seinen absoluten Wert repräsentiert wird, sondern als Wert, der anzeigt, wie stark sich das neue Sample vom vorherigen Sample unterscheidet.
 
-G.722 wird hauptsächlich mit WebRTC-Verbindungen verwendet, da es einer der Audiocodecs ist, die von der WebRTC-Spezifikation vorgeschrieben sind.
+G.722 wird hauptsächlich für WebRTC-Verbindungen verwendet, da es einer der Audiocodecs ist, die von der WebRTC-Spezifikation gefordert werden.
 
 <table class="standard-table">
   <tbody>
     <tr>
       <th scope="row">Unterstützte Bitraten</th>
       <td>
-        G.722: 48 kbps, 56 kbps und 64 kbps; in der Praxis werden jedoch immer 64 kbps verwendet<br />G.722 Anhang B Super-Breitband: 64 kbps, 80 kbps und 96 kbps<br />G.722 Anhang D Stereo-Breitband: 64 kbps und 80 kbps<br />G.722 Anhang D Stereo-Super-Breitband: 80 kbps, 96 kbps, 112 kbps und 128 kbps
+        G.722: 48 kbps, 56 kbps und 64 kbps; allerdings wird in der Praxis immer 64 kbps verwendet<br />G.722 Anhang B Super Breitband: 64 kbps, 80 kbps und 96 kbps<br />G.722 Anhang D Stereo Breitband: 64 kbps und 80 kbps<br />G.722 Anhang D Stereo Super Breitband: 80 kbps, 96 kbps, 112 kbps und 128 kbps
       </td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung für Variable Bitrate (VBR)</th>
+      <th scope="row">Variable Bitrate (VBR) Unterstützung</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -811,19 +811,19 @@ G.722 wird hauptsächlich mit WebRTC-Verbindungen verwendet, da es einer der Aud
     <tr>
       <th scope="row">Unterstützte Sampleraten</th>
       <td>
-        16 kHz (ADPCM ist spezifiziert, um 8 kHz, 11.025 kHz, 22.05 kHz, 44.1 kHz zu ermöglichen, aber G.722 verwendet 16 kHz)
+        16 kHz (ADPCM erlaubt theoretisch 8 kHz, 11.025 kHz, 22.05 kHz, 44.1 kHz, aber G.722 verwendet 16 kHz)
       </td>
     </tr>
     <tr>
       <th scope="row">Empfohlene Mindestbitrate für Stereo-Sound</th>
-      <td>128 kbps bei 44,1 kHz Samplerate</td>
+      <td>128 kbps bei einer Samplingrate von 44.1 kHz</td>
     </tr>
     <tr>
       <th scope="row">Kompression</th>
       <td>Verlustbehaftet</td>
     </tr>
     <tr>
-      <th scope="row">Maximale Audio-Kanäle</th>
+      <th scope="row">Maximale Audiokanäle</th>
       <td>2</td>
     </tr>
     <tr>
@@ -857,7 +857,7 @@ G.722 wird hauptsächlich mit WebRTC-Verbindungen verwendet, da es einer der Aud
             </tr>
           </tbody>
         </table>
-        <p>Nur WebRTC.</p>
+        <p>Nur für WebRTC.</p>
       </td>
     </tr>
     <tr>
@@ -866,7 +866,7 @@ G.722 wird hauptsächlich mit WebRTC-Verbindungen verwendet, da es einer der Aud
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("RTP")}} /
+        [RTP](/de/docs/Glossary/RTP) /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Ja</td>
@@ -874,8 +874,7 @@ G.722 wird hauptsächlich mit WebRTC-Verbindungen verwendet, da es einer der Aud
     <tr>
       <th scope="row">Lizenzierung</th>
       <td>
-        Alle anwendbaren Patente sind abgelaufen; G.722 kann ohne
-        Einschränkungen verwendet werden
+        Alle relevanten Patente sind abgelaufen; G.722 ist ohne Einschränkungen frei nutzbar
       </td>
     </tr>
   </tbody>
@@ -883,33 +882,33 @@ G.722 wird hauptsächlich mit WebRTC-Verbindungen verwendet, da es einer der Aud
 
 ### MP3 (MPEG-1 Audio Layer III)
 
-Von den Audiiformaten, die durch die MPEG/MPEG-2-Standards spezifiziert werden, ist **MPEG-1 Audio Layer III**—auch bekannt als **[MP3](https://en.wikipedia.org/wiki/MP3)**—bei weitem das am weitesten verbreitete und bekannteste. Der MP3-Codec wird durch [MPEG-1 Part 3](https://www.iso.org/standard/22412.html) und [MPEG-2 Part 3](https://www.iso.org/standard/26797.html) definiert und wurde 1991 eingeführt (und 1992 finalisiert).
+Von den Audioformaten, die in den MPEG/MPEG-2-Standards spezifiziert sind, ist **MPEG-1 Audio Layer III**—auch bekannt als **[MP3](https://de.wikipedia.org/wiki/MP3)**—bei weitem am meist verwendeten und bekanntesten. Der MP3-Codec ist in [MPEG-1 Part 3](https://www.iso.org/standard/22412.html) und [MPEG-2 Part 3](https://www.iso.org/standard/26797.html) definiert und wurde 1991 eingeführt (und 1992 abgeschlossen).
 
-Wenn MP3-formatierter Audio innerhalb eines MPEG Containers gespeichert wird, wird die resultierende Datei ebenfalls als einfach "MP3-Datei" oder "MP3" bezeichnet. Dateien mit der weit verbreiteten `.mp3`-Erweiterung sind in dem vielleicht am weitesten verbreiteten Audio-Dateiformat der Welt gespeichert, das in großem Maße für die digitale Audiosrevolution der späten 1990er und frühen 2000er Jahre verantwortlich ist.
+Wenn Audiodaten im MP3-Format in einem MPEG-Container gespeichert werden, wird die resultierende Datei ebenfalls als einfach eine „MP3-Datei“ oder „MP3“ bezeichnet. Dateien mit der allgegenwärtigen `.mp3`-Erweiterung werden in einem vielleicht am weitesten verbreiteten Audio-Dateiformat in der Welt gespeichert, was zu einem großen Teil verantwortlich für die digitale Audiorevolution Ende der 1990er und Anfang der 2000er Jahre war.
 
-MP3-Audio im MPEG-1-Format unterstützt höhere Bitraten sowie höhere Abtastraten als MPEG-2-Dateien im MP3-Audioformat. MPEG-1-Format-MP3 ist im Allgemeinen am besten für Musik oder andere komplexe Audiodaten geeignet, während MPEG-2-Modus-MP3-Audio für Sprache und andere einfachere Klänge akzeptabel ist.
+Das MPEG-1 MP3-Audio unterstützt höhere Bitraten sowie höhere Samplerraten als MP3-Audio in MPEG-2-Dateien. Das MPEG-1-Format MP3 ist im Allgemeinen am besten für Musik oder andere komplexe Audioinhalte geeignet, während das MPEG-2-Modus MP3-Audio für Sprache und andere einfachere Klänge akzeptabel ist.
 
-Die hinter MP3 stehenden Patente sind abgelaufen, wodurch viele oder die meisten Lizenzierungsbedenken beim Einsatz von MP3-Dateien in Ihren Projekten entfallen. Dies macht sie zu einer guten Wahl für viele Projekte.
+Die Patente hinter MP3 sind abgelaufen, was viele oder die meisten Lizenzprobleme beim Einsatz von MP3-Dateien in Ihren Projekten beseitigt. Das macht sie zu einer guten Wahl für viele Projekte.
 
 <table class="standard-table">
   <tbody>
     <tr>
       <th rowspan="2" scope="row">Unterstützte Bitraten</th>
       <td>
-        <strong>MPEG-1-Modus:</strong> 32 kbps, 40 kbps, 48 kbps, 56 kbps, 64
+        <strong>MPEG-1 Modus:</strong> 32 kbps, 40 kbps, 48 kbps, 56 kbps, 64
         kbps, 80 kbps, 96 kbps, 112 kbps, 128 kbps, 160 kbps, 192 kbps, 224
         kbps, 256 kbps, 320 kbps
       </td>
     </tr>
     <tr>
       <td>
-        <strong>MPEG-2-Modus:</strong> 8 kbps, 16 kbps, 24 kbps, 32 kbps, 40
+        <strong>MPEG-2 Modus:</strong> 8 kbps, 16 kbps, 24 kbps, 32 kbps, 40
         kbps, 48 kbps, 56 kbps, 64 kbps, 80 kbps, 96 kbps, 112 kbps, 128 kbps,
         144 kbps, 160 kbps
       </td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung für Variable Bitrate (VBR)</th>
+      <th scope="row">Variable Bitrate (VBR) Unterstützung</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -918,11 +917,11 @@ Die hinter MP3 stehenden Patente sind abgelaufen, wodurch viele oder die meisten
     </tr>
     <tr>
       <th rowspan="2" scope="row">Unterstützte Sampleraten</th>
-      <td><strong>MPEG-1-Modus:</strong> 32000 Hz, 44100 Hz, 48000 Hz</td>
+      <td><strong>MPEG-1 Modus:</strong> 32000 Hz, 44100 Hz, 48000 Hz</td>
     </tr>
     <tr>
       <td>
-        <strong>MPEG-2-Modus:</strong> 16000 Hz, 22050 Hz, 24000 Hz (Die Hälfte der Frequenz der MPEG-1-unterstützten Modi)
+        <strong>MPEG-2 Modus:</strong> 16000 Hz, 22050 Hz, 24000 Hz (Die Hälfte der Frequenz der im MPEG-1 unterstützten Modi)
       </td>
     </tr>
     <tr>
@@ -934,18 +933,18 @@ Die hinter MP3 stehenden Patente sind abgelaufen, wodurch viele oder die meisten
       <td>Verlustbehaftet</td>
     </tr>
     <tr>
-      <th rowspan="2" scope="row">Maximale Audio-Kanäle</th>
-      <td><strong>MPEG-1-Modus:</strong> 2 [2.0]</td>
+      <th rowspan="2" scope="row">Maximale Audiokanäle</th>
+      <td><strong>MPEG-1 Modus:</strong> 2 [2.0]</td>
     </tr>
     <tr>
       <td>
-        <strong>MPEG-2-Modus:</strong> 5 (plus 1 optionaler Low Frequency
-        Enhancement-Kanal) [5.1]
+        <strong>MPEG-2 Modus:</strong> 5 (plus 1 optionaler Low Frequency
+        Enhancement Kanal) [5.1]
       </td>
     </tr>
     <tr>
       <th scope="row">Audiofrequenzbandbreite</th>
-      <td>Variiert, abhängig von Bitrate und psychoakustischer Analyse</td>
+      <td>Varriert, abhängig von Bitrate und psychoakustischer Analyse</td>
     </tr>
     <tr>
       <th scope="row">Latenz</th>
@@ -982,7 +981,7 @@ Die hinter MP3 stehenden Patente sind abgelaufen, wodurch viele oder die meisten
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("RTP")}} /
+        [RTP](/de/docs/Glossary/RTP) /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Nein</td>
@@ -990,14 +989,14 @@ Die hinter MP3 stehenden Patente sind abgelaufen, wodurch viele oder die meisten
     <tr>
       <th scope="row">Lizenzierung</th>
       <td>
-        Patentfrei in der EU seit 2012; patentfrei in den Vereinigten Staaten seit
-        dem 16. April 2017; jetzt frei verwendbar
+        Patentfrei in der EU seit 2012; patentfrei in den Vereinigten Staaten seit dem
+        16. April 2017; jetzt frei nutzbar
       </td>
     </tr>
   </tbody>
 </table>
 
-Aus patentrechtlichen Gründen hat Firefox MP3 vor Version 71 nicht direkt unterstützt; stattdessen wurden plattformnative Bibliotheken verwendet, um MP3 zu unterstützen. Diese Fähigkeit wurde auf jeder Plattform in verschiedenen Firefox-Versionen eingeführt:
+Aus patentrechtlichen Gründen hat Firefox MP3 vor Version 71 nicht direkt unterstützt; stattdessen wurden plattformnativ Bibliotheken genutzt, um MP3 zu unterstützen. Diese Fähigkeit wurde auf jeder Plattform in verschiedenen Firefox-Versionen eingeführt:
 
 <table class="standard-table" style="margin-left: 4em; max-width: 30em">
   <caption>
@@ -1011,7 +1010,7 @@ Aus patentrechtlichen Gründen hat Firefox MP3 vor Version 71 nicht direkt unter
   </thead>
   <tbody>
     <tr>
-      <th scope="row">Windows (Vista und neuer)</th>
+      <th scope="row">Windows (Vista und später)</th>
       <td>22</td>
     </tr>
     <tr>
@@ -1034,11 +1033,11 @@ Aus patentrechtlichen Gründen hat Firefox MP3 vor Version 71 nicht direkt unter
 
 ### Opus
 
-Das [Opus-Format](<https://de.wikipedia.org/wiki/Opus_(Codec)>) wurde von der Xiph.org Foundation als vollständig offenes Audioformat entwickelt; es wurde vom [IETF](https://www.ietf.org/) als {{RFC(6716)}} standardisiert. Es ist ein guter Allzweck-Audio-Codec, der sowohl einfache Audio wie Sprache als auch Musik und andere komplexere Geräusche effizient behandeln kann.
+Das [Opus](<https://de.wikipedia.org/wiki/Opus_(Audioformat)>) Audioformat wurde von der Xiph.org Foundation als vollständig offenes Audioformat entwickelt; es wurde von der [IETF](https://www.ietf.org/) als {{RFC(6716)}} standardisiert. Es ist ein guter allgemeiner Audiocodec, der sowohl niederkomplexe Audiodaten wie Sprache als auch Musik und andere hochkomplexe Klänge effizient verarbeiten kann.
 
-Opus unterstützt mehrere Kompressionsalgorithmen und kann sogar mehr als einen Algorithmus in derselben Audiodatei nutzen, da der Encoder die Bitrate, die Audio-Bandbreite, den Algorithmus und andere Details der Kompressionseinstellungen für jeden Audio-Frame auswählen kann.
+Opus unterstützt mehrere Kompressionsalgorithmen und kann sogar mehr als einen Algorithmus in derselben Audiodatei verwenden, da der Encoder die Bitrate, die Audiofrequenzbandbreite, den Algorithmus und andere Details der Kompressionseinstellungen für jeden Frame von Audio auswählen kann.
 
-Opus ist ein guter Allround-Audio-Codec für die Verwendung in Ihren Webanwendungen und kann für alle Audiotätigkeiten verwendet werden, die Sie im Sinn haben.
+Opus ist ein guter universeller Audiocodec für Ihre Webanwendungen und kann für alle audiobezogenen Aufgaben verwendet werden, die Sie intern bearbeiten.
 
 <table class="standard-table">
   <tbody>
@@ -1047,7 +1046,7 @@ Opus ist ein guter Allround-Audio-Codec für die Verwendung in Ihren Webanwendun
       <td>6 kbps - 510 kbps</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung für Variable Bitrate (VBR)</th>
+      <th scope="row">Variable Bitrate (VBR) Unterstützung</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -1076,21 +1075,18 @@ Opus ist ein guter Allround-Audio-Codec für die Verwendung in Ihren Webanwendun
               <td>16 kHz</td>
             </tr>
             <tr>
-              <th scope="row">Super-Breitband (SWB)</th>
+              <th scope="row">Super Breitband (SWB)</th>
               <td>24 kHz</td>
             </tr>
             <tr>
-              <th scope="row">Vollband (FB)</th>
+              <th scope="row">Fullband (FB)</th>
               <td>48 kHz</td>
             </tr>
           </tbody>
         </table>
         <p>
-          Die angegebenen Sampleraten sind <em>effektive Sampleraten</em>. Opus
-          verwendet einen Algorithmus, der auf Audiobandbreiten anstelle von Sampleraten basiert.
-          Siehe {{RFC(6716, "", 2)}} für Details. Darüber hinaus gibt es einen
-          <em>optional</em>en Teil der Opus-Spezifikation (Opus Custom), der
-          nicht standardmäßige Sampleraten zulässt, aber die Verwendung dieser Funktion wird nicht empfohlen.
+          Die angegebenen Sampleraten sind <em>effektive Sampleraten</em>. Opus verwendet einen Algorithmus, der auf Audiofrequenzbreiten anstelle von Sampleraten basiert. Siehe {{RFC(6716, "", 2)}} für Details. Außerdem gibt es einen
+          <em>optional</em> Teil der Opus-Spezifikation (Opus Custom), der die Verwendung nicht standardmäßiger Sampleraten erlaubt, die Verwendung dieses Merkmals jedoch nicht empfohlen wird.
         </p>
       </td>
     </tr>
@@ -1103,7 +1099,7 @@ Opus ist ein guter Allround-Audio-Codec für die Verwendung in Ihren Webanwendun
       <td>Verlustbehaftet</td>
     </tr>
     <tr>
-      <th scope="row">Maximale Audio-Kanäle</th>
+      <th scope="row">Maximale Audiokanäle</th>
       <td>255 (bis zu 1 LFE-Kanal)</td>
     </tr>
     <tr>
@@ -1113,7 +1109,7 @@ Opus ist ein guter Allround-Audio-Codec für die Verwendung in Ihren Webanwendun
           <thead>
             <tr>
               <th scope="row">Profil</th>
-              <th scope="col">Audio-Bandbreite</th>
+              <th scope="col">Audiofrequenzbandbreite</th>
             </tr>
           </thead>
           <tbody>
@@ -1130,19 +1126,19 @@ Opus ist ein guter Allround-Audio-Codec für die Verwendung in Ihren Webanwendun
               <td>8 kHz</td>
             </tr>
             <tr>
-              <th scope="row">Super-Breitband (SWB)</th>
+              <th scope="row">Super Breitband (SWB)</th>
               <td>12 kHz</td>
             </tr>
             <tr>
-              <th scope="row">Vollband (FB)</th>
+              <th scope="row">Fullband (FB)</th>
               <td>20 kHz</td>
             </tr>
           </tbody>
         </table>
         <p>
-          Obwohl das
-          <a href="https://de.wikipedia.org/wiki/Abtasttheorem">Nyquist–Shannon-Abtasttheorem</a>
-          zeigt, dass die Audiobandbreite bis zur Hälfte der Samplerate betragen kann, erlaubt Opus keine Kodierung außerhalb eines maximalen 20 kHz Audiobandbreits. Da das menschliche Ohr ohnehin nichts über den 20 kHz-Punkt wahrnehmen kann, spart dies etwas Platz im kodierten Audio.
+          Obwohl die
+          <a href="https://de.wikipedia.org/wiki/Nyquist%E2%80%93Shannon-Abtasttheorem">Nyquist–Shannon-Abtasttheorem</a>
+          zeigt, dass die Audiofrequenzbandbreite bei der Hälfte der Samplerate liegen kann, erlaubt Opus keine Kodierung außerhalb eines maximalen 20 kHz Audiofrequenzbands, da das menschliche Ohr ohnehin nichts über dem 20 kHz-Punkt wahrnehmen kann. Das spart etwas Platz im kodierten Audio.
         </p>
       </td>
     </tr>
@@ -1174,13 +1170,13 @@ Opus ist ein guter Allround-Audio-Codec für die Verwendung in Ihren Webanwendun
           </tbody>
         </table>
         <p>
-          Diese Informationen beziehen sich auf die Unterstützung für Opus in HTML
+          Diese Informationen beziehen sich auf die Unterstützung von Opus in HTML
           {{HTMLElement("audio")}} und {{HTMLElement("video")}}
           Elementen und nicht auf WebRTC.
         </p>
         <p>
           Safari unterstützt Opus im {{HTMLElement("audio")}}-Element
-          nur, wenn es in einer CAF-Datei verpackt ist, und nur auf macOS High Sierra
+          nur wenn es in einer CAF-Datei verpackt ist und nur auf macOS High Sierra
           (10.13) oder iOS 11.
         </p>
       </td>
@@ -1191,7 +1187,7 @@ Opus ist ein guter Allround-Audio-Codec für die Verwendung in Ihren Webanwendun
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("RTP")}} /
+        [RTP](/de/docs/Glossary/RTP) /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Ja</td>
@@ -1205,9 +1201,9 @@ Opus ist ein guter Allround-Audio-Codec für die Verwendung in Ihren Webanwendun
 
 ### Vorbis
 
-[Vorbis](https://www.xiph.org/vorbis/) ist ein offenes Format von der [Xiph.org Foundation](https://xiph.org/), das eine breite Palette von Kanal-Kombinationen unterstützt, darunter monoaurale, stereophone, polyphone, quadriphonische, 5.1-Surround-, ambisonische oder bis zu 255 diskrete Audiokanäle. Je nach Qualitätseinstellung, die während des Encodings verwendet wird, kann die resultierende Bitrate zwischen etwa 45 kbps und 500 kbps variieren. Vorbis verwendet von Natur aus eine variable Bitrate-Codierung; die Bitrate kann von einem Sample zum nächsten variieren, wie während des Kompressionsprozesses erforderlich.
+[Vorbis](https://www.xiph.org/vorbis/) ist ein offenes Format von der [Xiph.org Foundation](https://xiph.org/), das eine breite Palette von Kanal-Kombinationen unterstützt, einschließlich monaural, stereo, polyphonisch, quadraphonisch, 5.1 Surround, ambisonisch oder bis zu 255 diskreten Audiokanälen. Abhängig von der während der Kodierung gewählten Qualitätsstufe kann sich die resultierende Bitrate von etwa 45 kbps bis 500 kbps variieren. Vorbis verwendet von Natur aus variable Bitrate-Kodierung; die Bitrate kann von einer Probe zur nächsten gewählt werden, wenn sie während des Kompressionsprozesses benötigt wird.
 
-Im Allgemeinen ist Vorbis in Bezug auf Größe und Bitrate effizienter als MP3 bei ähnlichen Qualitätsniveaus. Dies und seine freie und offene Lizenz machen es zu einer guten Wahl für viele Arten von Audiodaten, solange seine hohe Latenz kein Problem darstellt.
+Im Allgemeinen ist Vorbis hinsichtlich Größe und Bitrate effizienter als MP3 bei ähnlichen Qualitätsniveaus. Diese und seine freie und offene Lizenz, machen es zu einer guten Wahl für viele Arten von Audiodaten, solange seine hohe Latenz kein Problem darstellt.
 
 <table class="standard-table">
   <tbody>
@@ -1216,7 +1212,7 @@ Im Allgemeinen ist Vorbis in Bezug auf Größe und Bitrate effizienter als MP3 b
       <td>45 kbps - 500 kbps</td>
     </tr>
     <tr>
-      <th scope="row">Unterstützung für Variable Bitrate (VBR)</th>
+      <th scope="row">Variable Bitrate (VBR) Unterstützung</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -1230,8 +1226,7 @@ Im Allgemeinen ist Vorbis in Bezug auf Größe und Bitrate effizienter als MP3 b
     <tr>
       <th scope="row">Empfohlene Mindestbitrate für Stereo-Sound</th>
       <td>
-        192 kbps bei 48 kHz; dies wird typischerweise erreicht, indem die
-        Qualitätsstufe auf 6 bis 8 gesetzt wird.
+        192 kbps bei 48 kHz; dies wird in der Regel erreicht, indem die Qualitätsstufe auf 6 bis 8 eingestellt wird.
       </td>
     </tr>
     <tr>
@@ -1239,7 +1234,7 @@ Im Allgemeinen ist Vorbis in Bezug auf Größe und Bitrate effizienter als MP3 b
       <td>Verlustbehaftet</td>
     </tr>
     <tr>
-      <th scope="row">Maximale Audio-Kanäle</th>
+      <th scope="row">Maximale Audiokanäle</th>
       <td>255</td>
     </tr>
     <tr>
@@ -1274,7 +1269,7 @@ Im Allgemeinen ist Vorbis in Bezug auf Größe und Bitrate effizienter als MP3 b
           </tbody>
         </table>
         <p>
-          Diese Informationen beziehen sich auf die Unterstützung für Vorbis in HTML
+          Diese Informationen beziehen sich auf die Unterstützung von Vorbis in HTML
           {{HTMLElement("audio")}} und {{HTMLElement("video")}}
           Elementen und nicht auf WebRTC.
         </p>
@@ -1286,7 +1281,7 @@ Im Allgemeinen ist Vorbis in Bezug auf Größe und Bitrate effizienter als MP3 b
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("RTP")}} /
+        [RTP](/de/docs/Glossary/RTP) /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Ja</td>
@@ -1300,46 +1295,44 @@ Im Allgemeinen ist Vorbis in Bezug auf Größe und Bitrate effizienter als MP3 b
 
 ## Auswahl eines Audiocodecs
 
-In der Regel gilt: Unabhängig von dem verwendeten Codec wird die Arbeit erledigt, auch wenn er nicht die ideale Wahl ist, solange Sie keinen Codec wählen, der speziell für eine völlig andere Art von Quell-Audio entwickelt wurde. Wenn Sie beispielsweise einen reinen Sprachcodec auswählen und versuchen, ihn für Musik zu verwenden, werden Sie keine brauchbaren Ergebnisse erzielen.
+Typischerweise wird, unabhängig davon, welchen Codec Sie verwenden, die Arbeit erledigt, auch wenn er nicht die ideale Wahl ist, solange Sie einen Codec wählen, der nicht speziell für eine völlig andere Art von Quell-Audio entwickelt wurde. Wenn Sie beispielsweise einen Sprach-Codec auswählen und versuchen, ihn für Musik zu verwenden, werden Sie keine brauchbaren Ergebnisse erzielen.
 
-Einige Codecs können die Kompatibilität einschränken, während andere für Ihre Bedürfnisse optimaler sein können als andere. Hier geben wir Anleitungen, die Ihnen helfen, einen geeigneten Codec für Ihren Anwendungsfall auszuwählen.
+Einige Codecs können jedoch die Kompatibilität einschränken, während andere möglicherweise optimaler für Ihre Anforderungen sind. Hier bieten wir Ihnen Orientierungshilfe, um Ihnen bei der Auswahl eines geeigneten Codecs für Ihren Anwendungsfall zu helfen.
 
 Bei der Auswahl eines Codecs für Ihr Audio sollten Sie zunächst die folgenden Fragen berücksichtigen:
 
-- Wird das kodierte Audio neu gemischt oder neu komprimiert? Wenn ja, vermeiden Sie verlustbehaftete Kompression, die durch erneutes Komprimieren des Audios verstärkt würde; oder verwenden Sie zumindest so wenig Kompression wie möglich.
-- Wenn das Audio in eine bestimmte Dateityp eingesetzt werden muss, denken Sie daran, da Mediencontainer in der Regel einen bestimmten Untersetzl der verfügbaren Codecs unterstützen.
-- Welche Art von Audiocontent wird vom Codec gehandhabt? Bestimmte Codecs sind speziell für reinen Sprachinhalt konzipiert (sie nutzen den reduzierten Frequenzbereich der menschlichen Sprache). Andere können eine algorithmische Tendenz haben, bei der Kodierung bestimmter Musikgenres schlechter abzuschneiden.
+- Wird das kodierte Audio remixt oder erneut komprimiert? Wenn ja, vermeiden Sie verlustbehaftete Kompressionen, die durch erneute Komprimierung verstärkt würden; oder verwenden Sie zumindest so wenig Kompression wie möglich.
+- Wenn das Audio in eine spezielle Dateityp gehen muss, behalten Sie dies im Hinterkopf, da Mediencontainer in der Regel eine spezifische Teilmenge der verfügbaren Codecs unterstützen.
+- Welche Art von Audioinhalten wird der Codec handhaben? Bestimmte Codecs sind speziell für Sprachinhalte konzipiert (sie nutzen den reduzierten Frequenzbereich, der für menschliche Sprache erforderlich ist). Andere können eine algorithmische Tendenz haben, schlechter zu funktionieren, wenn sie bestimmte Musikgenres kodieren.
 - Welche Bitraten und anderen konfigurierbaren Eigenschaften hat jeder Codec, die ihn zu einer guten (oder schlechten) Wahl machen könnten?
-- Inwieweit ist die Latenz für Ihre Bedürfnisse von Bedeutung? Wenn Sie Klang benötigen, der sehr präzise getimed ist, desto niedriger die Latenz, desto besser.
-- Wie viel Komprimierung müssen Sie erreichen?
+- In welchem Umfang, falls überhaupt, spielt die Latenz für Ihre Bedürfnisse eine Rolle? Wenn Sie einen sehr präzise getimten Klang benötigen, ist eine niedrigere Latenz besser.
+- Wie viel Kompression müssen Sie erreichen?
 
-Lassen Sie uns einige gängige Szenarien betrachten, um ein Gefühl für den Entscheidungsprozess zu bekommen.
+Lassen Sie uns einige häufige Szenarien betrachten, um ein Gefühl für den Entscheidungsprozess zu bekommen.
 
-### Beispiel: Musikstreaming
+### Beispiel: Musik zum Streaming
 
-Zum Streaming von Musik möchten Sie einen Codec auswählen, der die Bandbreitennutzung so weit wie möglich minimiert, während er so wenige Artefakte wie möglich durch die Kompression in das Audio einführt. Dies ist notwendig, weil die Rate, mit der die Musik heruntergeladen wird, nicht höher sein sollte als die verfügbare Bandbreite im Netzwerk, und idealerweise sollte Platz für Schwankungen der Netzwerkgeschwindigkeit und die Nutzung des Netzwerks durch andere Anwendungen bleiben.
+Beim Streaming von Musik möchten Sie einen Codec auswählen, der die Bandbreitennutzung so weit wie möglich minimiert, während so wenige Artefakte wie möglich durch die Kompression in das Audio eingebracht werden. Dies ist notwendig, da die Geschwindigkeit, mit der die Musik heruntergeladen wird, nicht höher sein sollte als die Menge an verfügbarer Bandbreite im Netzwerk, und idealerweise sollte noch Platz für Schwankungen der Netzwerkgeschwindigkeit und die Nutzung des Netzwerks durch andere Anwendungen vorhanden sein.
 
-Es sei denn, es gibt einen spezifischen Bedarf für verlustfreie Kompression oder die Netzwerkbandbreite ist garantiert hoch genug, um dies zu unterstützen, ist eine verlustbehaftete Kompressionsmethode eine gute Wahl. Welchen Sie wählen, hängt von der Browserkompatibilität und der Verfügbarkeit bestimmter Funktionen ab, die der Codec unterstützen muss.
+Sofern keine spezifische Notwendigkeit für verlustfreie Kompression besteht oder die Netzwerkbandbreite garantiert hoch genug ist, um sie zu unterstützen, ist ein verlustbehaftetes Kompressionsschema eine gute Wahl. Welches Sie wählen, hängt von der Browserkompatibilität und der Verfügbarkeit von etwaigen Spezialfunktionen ab, die der Codec unterstützen muss.
 
-_Normalerweise_ ist die Latenz beim Streaming von Musik nicht von großer Bedeutung. Mögliche Ausnahmen sind Schleifenmusik, bei der Sie Musik ohne Unterbrechung wiederholt abspielen müssen, oder wenn Sie Songs ohne Pause zwischen ihnen abspielen müssen. Dies kann besonders wichtig für klassische Musik, Theatersoundtracks und für Hintergrundmusik während des Spiels sein.
+In der Regel ist die Latenz beim Streaming von Musik nicht besonders wichtig. Mögliche Ausnahmen sind wiederholte Musik, bei der Musik ununterbrochen immer wieder abgespielt werden muss, oder wenn Sie Songs direkt hintereinander ohne Lücke dazwischen abspielen müssen. Dies kann besonders wichtig für klassische Musik, theatralische Soundtracks und für Hintergrundmusik während des Spielens sein.
 
-Für die allgemeine Musikwiedergabe sind die drei wahrscheinlichsten Kandidaten MP3, AAC und Vorbis.
+Für allgemeine Musikwiedergabe sind die drei wahrscheinlichsten Kandidaten MP3, AAC und Vorbis.
 
-- AAC in einem MP4-Container wird von allen großen Browsern unterstützt, was diese zu einer ausgezeichneten Wahl macht.
-- Vorbis wird fast immer in Ogg-Dateien verwendet, aber Ogg-Container werden nicht überall unterstützt. Sogar Microsoft Edge, das Vorbis unterstützt, unterstützt bisher noch keine Ogg-Container.
-- MP3 (MPEG-1 Audio Layer III) wird von allen großen Browsern unterstützt. Diese Dateien sind MPEG-1-Dateien, die eine Audio Layer III-Spur enthalten.
+- AAC in einem MP4-Container wird von allen großen Browsern unterstützt, was diese zu einer großartigen Wahl macht.
+- Vorbis wird normalerweise in Ogg-Dateien verwendet, aber Ogg-Container werden nicht universell unterstützt. Sogar Microsoft Edge, das Vorbis unterstützt, unterstützt Ogg-Container nicht.
+- MP3 (MPEG-1 Audio Layer III) wird von allen großen Browsern unterstützt. Diese Dateien sind MPEG-1-Dateien, die eine Audio Layer III Spur enthalten.
 
-Wenn Sie die Latenz bei der Musikwiedergabe minimieren müssen, sollten Sie Opus stark in Betracht ziehen, das die niedrigste Latenz bei den allgemeinen Codecs hat (5 ms bis 66,5 ms, verglichen mit mindestens 100 ms bei den anderen).
+Wenn Sie die Latenz bei der Musikwiedergabe minimieren müssen, sollten Sie Opus in Betracht ziehen, der von den allgemeinen Codecs die geringste Bandbreite an Latenzen aufweist (5 ms bis 66.5 ms, verglichen mit mindestens 100 ms für die anderen).
 
 > [!NOTE]
-> Die hier beschriebene Kompatibilitätsinformation ist im Allgemeinen korrekt zum Zeitpunkt der Abfassung dieses Artikels; es kann jedoch Vorbehalte und Ausnahmen geben. Achten Sie darauf, die Kompatibilitätstabellen zu überprüfen, bevor Sie sich für ein bestimmtes Medienformat entscheiden.
+> Die hier beschriebenen Kompatibilitätsinformationen sind im Allgemeinen korrekt zum Zeitpunkt der Erstellung dieses Artikels; es können jedoch Einschränkungen und Ausnahmen bestehen. Vergewissern Sie sich, dass Sie sich an den Kompatibilitätstabellen orientieren, bevor Sie sich für ein bestimmtes Medienformat entscheiden.
 
-Basierend darauf ist AAC wahrscheinlich Ihre beste Wahl, wenn Sie nur ein Audioformat unterstützen können. Natürlich, wenn Sie mehrere Formate bereitstellen können (zum Beispiel durch Verwendung des {{HTMLElement("source")}}-Elements innerhalb Ihrer {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elemente), können Sie viele oder alle dieser Ausnahmen vermeiden.
+Basierend darauf ist AAC wahrscheinlich Ihre beste Wahl, wenn Sie nur ein Audioformat unterstützen können. Wenn Sie natürlich mehrere Formate bereitstellen können (z. B. unter Verwendung des {{HTMLElement("source")}}-Elements innerhalb Ihrer {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elemente), können Sie viele oder alle dieser Ausnahmen vermeiden.
 
-### Beispiel: Musik zum Download
+### Beispiel: Musik zum Herunterladen
 
-Musik, die vom Benutzer heruntergeladen wird, kann zu einer größeren Dateigröße komprimiert werden als gestreamte Musik, da (im Gegensatz zum Streaming) die Downloadgeschwindigkeit nicht durch die Wiedergabegeschwindigkeit der Medien unterbrochen wird. Das bedeutet, dass Sie in Erwägung ziehen könnten, verlustbehaftete Kompression mit höheren Bitraten zu verwenden, was zu größeren Dateien führt, aber mit weniger Verlust der Klangtreue. Oder Sie können ein verlustfreies Format wählen. Die Wahl hängt weitgehend von den Anforderungen Ihrer Anwendung und den Präferenzen Ihrer Benutzer ab.
+Musik, die vom Benutzer heruntergeladen wird, kann zu einer insgesamt größeren Dateigröße komprimiert werden als gestreamte Musik, da es (im Gegensatz zum Streaming) keine Rolle spielt, ob die Downloadgeschwindigkeit langsamer ist als die Wiedergabegeschwindigkeit der Medien. Das bedeutet, dass Sie verlusthafte Kompression bei höheren Bitraten in Betracht ziehen können, was zu größeren Dateien, aber mit weniger Verlust an Klangtreue führt. Oder Sie können sich für ein verlustfreies Format entscheiden. Die Wahl hängt weitgehend von den Anforderungen Ihrer Anwendung und den Vorlieben Ihrer Benutzer ab.
 
-Für einen tatsächlichen Musik-Download-Dienst könnten Sie Lieder als 128 kbps MP3-Dateien, 256 kbps AAC-Dateien (in MP4-Containern) oder FLAC-Dateien anbieten, abhängig von einer vom Benutzer gewählten Präferenz. Wenn Sie nur ein Format wählen müssen, wählen Sie eines, das angesichts Ihrer Anforderungen und der Art der heruntergeladenen Audiocontents sinnvoll ist.
-
-Im Allgemeinen ist MP3 natürlich das am häufigsten verwendete Format
+Für einen tatsächlichen Musik-Download-Service könnten Sie Songs zum Download als 128 kbps MP3-Dateien, 256 kbps AAC-Dateien (in MP4-Containern) oder FLAC-Dateien anbieten, abhängig von einer vom Benutzer gewählten Präferenz. Wenn Sie nur ein Format auswählen müssen, wählen Sie eines, das Sinn macht, basierend auf Ihren Anforderungen und der Art der heruntergeladenen

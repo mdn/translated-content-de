@@ -1,5 +1,5 @@
 ---
-title: "Fehler: Berechtigung verweigert, um auf die Eigenschaft \"x\" zuzugreifen"
+title: 'Fehler: Zugriff auf Eigenschaft "x" verweigert'
 slug: Web/JavaScript/Reference/Errors/Property_access_denied
 l10n:
   sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
@@ -7,27 +7,27 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Fehler "Berechtigung verweigert, um auf die Eigenschaft zuzugreifen" tritt auf, wenn versucht wurde, auf ein Objekt zuzugreifen, für das Sie keine Berechtigung haben.
+Die JavaScript-Ausnahme "Permission denied to access property" tritt auf, wenn versucht wurde, auf ein Objekt zuzugreifen, für das Sie keine Berechtigung haben.
 
-## Nachricht
+## Meldung
 
 ```plain
-DOMException: Blocked a frame with origin "x" from accessing a cross-origin frame. (Chromium-basiert)
+DOMException: Blocked a frame with origin "x" from accessing a cross-origin frame. (Chromium-based)
 DOMException: Permission denied to access property "x" on cross-origin object (Firefox)
 SecurityError: Blocked a frame with origin "x" from accessing a cross-origin frame. Protocols, domains, and ports must match. (Safari)
 ```
 
 ## Fehlertyp
 
-{{domxref("DOMException")}}.
+[`DOMException`](/de/docs/Web/API/DOMException).
 
-## Was ist schiefgegangen?
+## Was ist schiefgelaufen?
 
-Es wurde versucht, auf ein Objekt zuzugreifen, für das Sie keine Berechtigung haben. Dies ist wahrscheinlich ein {{HTMLElement("iframe")}}-Element, das von einer anderen Domain geladen wurde, für das Sie gegen die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) verstoßen haben.
+Es wurde versucht, auf ein Objekt zuzugreifen, für das Sie keine Berechtigung haben. Dies ist wahrscheinlich ein {{HTMLElement("iframe")}}-Element, das von einer anderen Domäne geladen wurde und gegen die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) verstößt.
 
 ## Beispiele
 
-### Keine Berechtigung zum Zugriff auf das Dokument
+### Keine Berechtigung für den Zugriff auf das Dokument
 
 ```html
 <!doctype html>

@@ -7,57 +7,57 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`EditContext`**-Schnittstelle repräsentiert den Textbearbeitungskontext eines Elements, das durch die Verwendung der {{domxref("EditContext API", "", "", "nocode")}} bearbeitbar gemacht wurde.
+Das **`EditContext`**-Interface repräsentiert den Texteingabekontext eines Elements, das durch die Verwendung der [EditContext API](/de/docs/Web/API/EditContext_API) bearbeitbar gemacht wurde.
 
-Die {{domxref("EditContext API", "", "", "nocode")}} kann genutzt werden, um reichhaltige Texteditoren im Web zu erstellen, die fortgeschrittene Texteingabeerlebnisse unterstützen, wie zum Beispiel die Zusammensetzung über ein {{glossary("Input Method Editor")}} (IME), Emoji-Auswahl oder andere plattformspezifische, bearbeitungsbezogene Benutzeroberflächen.
+Die [EditContext API](/de/docs/Web/API/EditContext_API) kann verwendet werden, um Rich-Text-Editoren im Web zu erstellen, die fortgeschrittene Texterfahrungen unterstützen, wie z.B. die Komposition mit einem [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME), Emoji-Auswahl oder andere plattform-spezifische, bearbeitungsbezogene Benutzeroberflächen.
 
 ## Konstruktor
 
-- {{domxref("EditContext.EditContext", "EditContext()")}} {{experimental_inline}}
+- [`EditContext()`](/de/docs/Web/API/EditContext/EditContext) {{experimental_inline}}
   - : Gibt eine neue Instanz von `EditContext` zurück.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("EditContext.text")}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Der editierbare Inhalt des Elements.
-- {{domxref("EditContext.selectionStart")}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Der Offset innerhalb des editierbaren Textinhalts, an dem die aktuelle Auswahl beginnt.
-- {{domxref("EditContext.selectionEnd")}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Der Offset innerhalb des editierbaren Textinhalts, an dem die aktuelle Auswahl endet.
-- {{domxref("EditContext.characterBoundsRangeStart")}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Der Offset innerhalb des editierbaren Textinhalts, an dem die letzte IME-Zusammensetzung begonnen hat.
+- [`EditContext.text`](/de/docs/Web/API/EditContext/text) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Der bearbeitbare Inhalt des Elements.
+- [`EditContext.selectionStart`](/de/docs/Web/API/EditContext/selectionStart) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Der Offset innerhalb des bearbeitbaren Textinhalts, an dem die aktuelle Auswahl beginnt.
+- [`EditContext.selectionEnd`](/de/docs/Web/API/EditContext/selectionEnd) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Der Offset innerhalb des bearbeitbaren Textinhalts, an dem die aktuelle Auswahl endet.
+- [`EditContext.characterBoundsRangeStart`](/de/docs/Web/API/EditContext/characterBoundsRangeStart) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Der Offset innerhalb des bearbeitbaren Textinhalts, an dem die letzte IME-Komposition begann.
 
 ## Instanz-Methoden
 
-_`EditContext` basiert auf der {{domxref("EventTarget")}}-Schnittstelle und umfasst deren Methoden._
+_`EditContext` basiert auf dem [`EventTarget`](/de/docs/Web/API/EventTarget)-Interface und beinhaltet dessen Methoden._
 
-- {{domxref("EditContext.attachedElements()")}} {{experimental_inline}}
-  - : Ein {{jsxref("Array")}} enthaltend ein {{domxref("HTMLElement")}}-Objekt, das das mit dem `EditContext`-Objekt assoziierte Element ist.
-- {{domxref("EditContext.characterBounds()")}} {{experimental_inline}}
+- [`EditContext.attachedElements()`](/de/docs/Web/API/EditContext/attachedElements) {{experimental_inline}}
+  - : Ein {{jsxref("Array")}}, das ein [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objekt enthält, welches das mit dem `EditContext`-Objekt assoziierte Element ist.
+- [`EditContext.characterBounds()`](/de/docs/Web/API/EditContext/characterBounds) {{experimental_inline}}
   - : Die Liste der Begrenzungsrechtecke für die Zeichen im `EditContext`-Objekt.
-- {{domxref("EditContext.updateText()")}} {{experimental_inline}}
+- [`EditContext.updateText()`](/de/docs/Web/API/EditContext/updateText) {{experimental_inline}}
   - : Aktualisiert den internen Textinhalt des `EditContext`-Objekts.
-- {{domxref("EditContext.updateSelection()")}} {{experimental_inline}}
-  - : Aktualisiert den internen Zustand der Auswahl innerhalb des editierbaren Textkontexts.
-- {{domxref("EditContext.updateControlBounds()")}} {{experimental_inline}}
-  - : Informiert das Betriebssystem über die Position und Größe des editierbaren Textbereichs.
-- {{domxref("EditContext.updateSelectionBounds()")}} {{experimental_inline}}
-  - : Informiert das Betriebssystem über die Position und Größe der Auswahl innerhalb des editierbaren Textbereichs.
-- {{domxref("EditContext.updateCharacterBounds()")}} {{experimental_inline}}
+- [`EditContext.updateSelection()`](/de/docs/Web/API/EditContext/updateSelection) {{experimental_inline}}
+  - : Aktualisiert den internen Zustand der Auswahl innerhalb des bearbeitbaren Textkontexts.
+- [`EditContext.updateControlBounds()`](/de/docs/Web/API/EditContext/updateControlBounds) {{experimental_inline}}
+  - : Informiert das Betriebssystem über die Position und Größe des bearbeitbaren Textbereichs.
+- [`EditContext.updateSelectionBounds()`](/de/docs/Web/API/EditContext/updateSelectionBounds) {{experimental_inline}}
+  - : Informiert das Betriebssystem über die Position und Größe der Auswahl innerhalb des bearbeitbaren Textbereichs.
+- [`EditContext.updateCharacterBounds()`](/de/docs/Web/API/EditContext/updateCharacterBounds) {{experimental_inline}}
   - : Informiert das Betriebssystem über die Position und Größe der Zeichen im `EditContext`-Objekt.
 
 ## Ereignisse
 
-- {{domxref("EditContext.textupdate_event", "textupdate")}} {{experimental_inline}}
+- [`textupdate`](/de/docs/Web/API/EditContext/textupdate_event) {{experimental_inline}}
   - : Wird ausgelöst, wenn der Benutzer Änderungen am Text oder der Auswahl vorgenommen hat.
-- {{domxref("EditContext.textformatupdate_event", "textformatupdate")}} {{experimental_inline}}
-  - : Wird ausgelöst, wenn eine Zusammensetzung mit einem {{glossary("Input Method Editor")}} (IME)-Fenster stattfindet und das IME entscheidet, dass bestimmte Teile des zu komponierenden Textes unterschiedlich formatiert werden sollten, um den Zustand der Zusammensetzung anzuzeigen.
-- {{domxref("EditContext.characterboundsupdate_event", "characterboundsupdate")}} {{experimental_inline}}
-  - : Wird ausgelöst, wenn das Betriebssystem die Größe und Position bestimmter Zeichen innerhalb des editierbaren Textbereichs des `EditContext`-Objekts wissen muss, um ein IME-Fenster anzuzeigen.
-- {{domxref("EditContext.compositionstart_event", "compositionstart")}} {{experimental_inline}}
-  - : Wird ausgelöst, wenn eine Zusammensetzung mit einem IME-Fenster beginnt.
-- {{domxref("EditContext.compositionend_event", "compositionend")}} {{experimental_inline}}
-  - : Wird ausgelöst, wenn eine Zusammensetzung mit einem IME-Fenster endet.
+- [`textformatupdate`](/de/docs/Web/API/EditContext/textformatupdate_event) {{experimental_inline}}
+  - : Wird ausgelöst, wenn eine Komposition mit einem [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster stattfindet und der IME entscheidet, dass bestimmte Teile des komponierten Textes unterschiedlich formatiert werden sollen, um den Kompositionsstatus anzuzeigen.
+- [`characterboundsupdate`](/de/docs/Web/API/EditContext/characterboundsupdate_event) {{experimental_inline}}
+  - : Wird ausgelöst, wenn das Betriebssystem die Größe und Position bestimmter Zeichen innerhalb des bearbeitbaren Textbereichs des `EditContext`-Objekts wissen muss, um ein IME-Fenster anzuzeigen.
+- [`compositionstart`](/de/docs/Web/API/EditContext/compositionstart_event) {{experimental_inline}}
+  - : Wird ausgelöst, wenn eine Komposition mit einem IME-Fenster beginnt.
+- [`compositionend`](/de/docs/Web/API/EditContext/compositionend_event) {{experimental_inline}}
+  - : Wird ausgelöst, wenn eine Komposition mit einem IME-Fenster endet.
 
 ## Spezifikationen
 

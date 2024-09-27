@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-color`** [Kurzform](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des Rahmens eines Elements fest.
+Die **`border-color`** [Shorthand](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des Rahmens eines Elements fest.
 
 {{EmbedInteractiveExample("pages/css/border-color.html")}}
 
-Jede Seite kann individuell festgelegt werden mit {{CSSxRef("border-top-color")}}, {{CSSxRef("border-right-color")}}, {{CSSxRef("border-bottom-color")}}, und {{CSSxRef("border-left-color")}}; oder mit den schreibmodusabhängigen {{CSSxRef("border-block-start-color")}}, {{CSSxRef("border-block-end-color")}}, {{CSSxRef("border-inline-start-color")}}, und {{CSSxRef("border-inline-end-color")}}.
+Jede Seite kann individuell festgelegt werden, indem {{CSSxRef("border-top-color")}}, {{CSSxRef("border-right-color")}}, {{CSSxRef("border-bottom-color")}} und {{CSSxRef("border-left-color")}} verwendet werden; oder unter Berücksichtigung des Schreibmodus mit {{CSSxRef("border-block-start-color")}}, {{CSSxRef("border-block-end-color")}}, {{CSSxRef("border-inline-start-color")}} und {{CSSxRef("border-inline-end-color")}}.
 
-Weitere Informationen über Rahmenfarben finden Sie unter [Anwenden von Farben auf HTML-Elemente](/de/docs/Web/CSS/CSS_colors/Applying_color#borders).
+Weitere Informationen zu Rahmenfarben finden Sie unter [Weisen Sie HTML-Elementen Farben zu](/de/docs/Web/CSS/CSS_colors/Applying_color#borders).
 
-## Bestandteileigenschaften
+## Bestandteilseigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -27,19 +27,19 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 ## Syntax
 
 ```css
-/* <color> Werte */
+/* <color> values */
 border-color: red;
 
-/* oben und unten | links und rechts */
+/* top and bottom | left and right */
 border-color: red #f015ca;
 
-/* oben | links und rechts | unten */
+/* top | left and right | bottom */
 border-color: red rgb(240 30 50 / 70%) green;
 
-/* oben | rechts | unten | links */
+/* top | right | bottom | left */
 border-color: red yellow green blue;
 
-/* Globale Werte */
+/* Global values */
 border-color: inherit;
 border-color: initial;
 border-color: revert;
@@ -49,10 +49,10 @@ border-color: unset;
 
 Die `border-color` Eigenschaft kann mit einem, zwei, drei oder vier Werten angegeben werden.
 
-- Wenn **ein** Wert angegeben wird, wird dieselbe Farbe auf **alle vier Seiten** angewendet.
-- Wenn **zwei** Werte angegeben werden, wird die erste Farbe auf **oben und unten** angewendet, die zweite auf **links und rechts**.
-- Wenn **drei** Werte angegeben werden, wird die erste Farbe auf **oben** angewendet, die zweite auf **links und rechts**, die dritte auf **unten**.
-- Wenn **vier** Werte angegeben werden, werden die Farben auf **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn) angewendet.
+- Wenn **ein** Wert angegeben wird, wird die gleiche Farbe auf **alle vier Seiten** angewendet.
+- Wenn **zwei** Werte angegeben werden, gilt die erste Farbe für **oben und unten**, die zweite für **links und rechts**.
+- Wenn **drei** Werte angegeben werden, gilt die erste Farbe für **oben**, die zweite für **links und rechts**, die dritte für **unten**.
+- Wenn **vier** Werte angegeben werden, gelten die Farben in dieser Reihenfolge (im Uhrzeigersinn) für **oben**, **rechts**, **unten** und **links**.
 
 ### Werte
 
@@ -69,13 +69,13 @@ Die `border-color` Eigenschaft kann mit einem, zwei, drei oder vier Werten angeg
 
 ## Beispiele
 
-### Vollständige Nutzung von border-color
+### Vollständige border-color Nutzung
 
 #### HTML
 
 ```html
 <div id="justone">
-  <p><code>border-color: red;</code> ist gleichbedeutend mit</p>
+  <p><code>border-color: red;</code> is equivalent to</p>
   <ul>
     <li><code>border-top-color: red;</code></li>
     <li><code>border-right-color: red;</code></li>
@@ -84,7 +84,7 @@ Die `border-color` Eigenschaft kann mit einem, zwei, drei oder vier Werten angeg
   </ul>
 </div>
 <div id="horzvert">
-  <p><code>border-color: gold red;</code> ist gleichbedeutend mit</p>
+  <p><code>border-color: gold red;</code> is equivalent to</p>
   <ul>
     <li><code>border-top-color: gold;</code></li>
     <li><code>border-right-color: red;</code></li>
@@ -93,7 +93,7 @@ Die `border-color` Eigenschaft kann mit einem, zwei, drei oder vier Werten angeg
   </ul>
 </div>
 <div id="topvertbott">
-  <p><code>border-color: red cyan gold;</code> ist gleichbedeutend mit</p>
+  <p><code>border-color: red cyan gold;</code> is equivalent to</p>
   <ul>
     <li><code>border-top-color: red;</code></li>
     <li><code>border-right-color: cyan;</code></li>
@@ -102,7 +102,7 @@ Die `border-color` Eigenschaft kann mit einem, zwei, drei oder vier Werten angeg
   </ul>
 </div>
 <div id="trbl">
-  <p><code>border-color: red cyan black gold;</code> ist gleichbedeutend mit</p>
+  <p><code>border-color: red cyan black gold;</code> is equivalent to</p>
   <ul>
     <li><code>border-top-color: red;</code></li>
     <li><code>border-right-color: cyan;</code></li>
@@ -131,7 +131,7 @@ Die `border-color` Eigenschaft kann mit einem, zwei, drei oder vier Werten angeg
   border-color: red cyan black gold;
 }
 
-/* Setzt Breite und Stil für alle divs */
+/* Set width and style for all divs */
 div {
   border: solid 0.3em;
   width: auto;
@@ -159,8 +159,8 @@ ul {
 
 ## Siehe auch
 
-- Border-color verwandte CSS-Eigenschaften: {{CSSxRef("border")}}, {{CSSxRef("border-top-color")}}, {{CSSxRef("border-right-color")}}, {{CSSxRef("border-bottom-color")}}, {{CSSxRef("border-left-color")}},
-- Andere border-bezogene CSS-Eigenschaften: {{CSSxRef("border-width")}}, {{CSSxRef("border-style")}}
+- Rahmenfarbeneigenschaften: {{CSSxRef("border")}}, {{CSSxRef("border-top-color")}}, {{CSSxRef("border-right-color")}}, {{CSSxRef("border-bottom-color")}}, {{CSSxRef("border-left-color")}},
+- Andere rahmenbezogene CSS-Eigenschaften: {{CSSxRef("border-width")}}, {{CSSxRef("border-style")}}
 - Der {{CSSxRef("&lt;color&gt;")}} Datentyp
 - Andere farbbezogene Eigenschaften: {{CSSxRef("color")}}, {{CSSxRef("background-color")}}, {{CSSxRef("outline-color")}}, {{CSSxRef("text-decoration-color")}}, {{CSSxRef("text-emphasis-color")}}, {{CSSxRef("text-shadow")}}, {{CSSxRef("caret-color")}}, und {{CSSxRef("column-rule-color")}}
-- [Anwendung von Farbe auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color)
+- [Farbe auf HTML-Elemente mit CSS anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)

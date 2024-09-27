@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Legt die URL fest, die beim Deinstallieren der Erweiterung besucht werden soll. Dies kann verwendet werden, um serverseitige Daten zu bereinigen, Analysen durchzuführen oder Umfragen zu implementieren. Die URL kann bis zu 1023 Zeichen lang sein. Dieses Limit war früher 255, siehe [Browser-Kompatibilität](#browser-kompatibilität) für weitere Details.
+Legt die URL fest, die besucht werden soll, wenn die Erweiterung deinstalliert wird. Dies kann verwendet werden, um serverseitige Daten aufzuräumen, Analysen durchzuführen oder Umfragen zu implementieren. Die URL kann bis zu 1023 Zeichen lang sein. Dieses Limit war früher auf 255 begrenzt, siehe [Browser-Kompatibilität](#browser-kompatibilität) für weitere Details.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,7 +26,7 @@ let settingUrl = browser.runtime.setUninstallURL(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die URL gesetzt wird, oder mit einer Fehlermeldung abgelehnt wird, falls der Vorgang fehlschlägt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die URL gesetzt ist, oder mit einer Fehlermeldung abgelehnt wird, falls die Operation fehlschlägt.
 
 ## Browser-Kompatibilität
 

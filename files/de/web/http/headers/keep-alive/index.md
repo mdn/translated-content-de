@@ -7,28 +7,29 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der allgemeine Header **`Keep-Alive`** ermöglicht dem Absender, einen Hinweis darauf zu geben, wie die Verbindung verwendet werden kann, um ein Timeout und eine maximale Anzahl von Anfragen festzulegen.
+Der **`Keep-Alive`** allgemeine Header erlaubt es dem Absender, Hinweise darüber zu geben, wie die Verbindung genutzt werden kann, um ein Timeout und eine maximale Anzahl von Anfragen festzulegen.
 
 > [!NOTE]
-> Setzen Sie den {{HTTPHeader("Connection")}}-Header auf "keep-alive", damit dieser Header eine Wirkung hat.
+> Setzen Sie den {{HTTPHeader("Connection")}} Header auf "keep-alive", damit dieser Header irgendeine Wirkung hat.
 
 > [!WARNING]
 > Verbindungsspezifische Header-Felder wie
-> {{HTTPHeader("Connection")}} und `Keep-Alive` sind in [HTTP/2](https://httpwg.org/specs/rfc9113.html#ConnectionSpecific) und
+> {{HTTPHeader("Connection")}} und `Keep-Alive` sind in
+> [HTTP/2](https://httpwg.org/specs/rfc9113.html#ConnectionSpecific) und
 > [HTTP/3](https://httpwg.org/specs/rfc9114.html#header-formatting) verboten. Chrome und
-> Firefox ignorieren sie in HTTP/2-Antworten, aber Safari entspricht den HTTP/2-Spezifikationsanforderungen und lädt keine Antwort, die sie enthält.
+> Firefox ignorieren sie in HTTP/2-Antworten, aber Safari entspricht den Anforderungen der HTTP/2-Spezifikation und lädt keine Antwort, die sie enthält.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request header")}},
-        {{Glossary("Response header")}}
+        [Anfrage-Header](/de/docs/Glossary/Request_header),
+        [Antwort-Header](/de/docs/Glossary/Response_header)
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -44,10 +45,10 @@ Keep-Alive: parameters
 
 - `parameters`
 
-  - : Eine durch Komma getrennte Liste von Parametern, die jeweils aus einem Identifikator und einem durch das Gleichheitszeichen (`'='`) getrennten Wert bestehen. Die folgenden Identifikatoren sind möglich:
+  - : Eine durch Kommata getrennte Liste von Parametern, die jeweils aus einem Bezeichner und einem durch das Gleichheitszeichen (`'='`) getrennten Wert bestehen. Die folgenden Bezeichner sind möglich:
 
-    - `timeout`: Eine ganze Zahl, die angibt, wie viele Sekunden der Host eine inaktive Verbindung offen lassen wird, bevor sie geschlossen wird. Eine Verbindung ist inaktiv, wenn von einem Host keine Daten gesendet oder empfangen werden. Ein Host kann eine inaktive Verbindung länger als `timeout` Sekunden offen halten, sollte jedoch versuchen, eine Verbindung mindestens `timeout` Sekunden aufrechtzuerhalten.
-    - `max`: Eine ganze Zahl, die die maximale Anzahl von Anfragen angibt, die über diese Verbindung gesendet werden können, bevor sie geschlossen wird. Außer `0` wird dieser Wert bei nicht-pipelined Verbindungen ignoriert, da eine andere Anfrage in der nächsten Antwort gesendet wird. Eine HTTP-Pipeline kann ihn verwenden, um das Pipelining zu begrenzen.
+    - `timeout`: Eine ganze Zahl, die die Zeit in Sekunden angibt, die der Host einer inaktiven Verbindung erlaubt, offen zu bleiben, bevor sie geschlossen wird. Eine Verbindung ist inaktiv, wenn kein Datenversand oder -empfang durch einen Host erfolgt. Ein Host kann eine inaktive Verbindung länger als die angegebenen `timeout`-Sekunden offen halten, sollte jedoch versuchen, eine Verbindung für mindestens `timeout`-Sekunden aufrechtzuerhalten.
+    - `max`: Eine ganze Zahl, die die maximale Anzahl von Anfragen angibt, die auf dieser Verbindung gesendet werden können, bevor sie geschlossen wird. Es sei denn, `0`, dieser Wert wird für nicht-pipelined Verbindungen ignoriert, da eine weitere Anfrage in der nächsten Antwort gesendet wird. Ein HTTP-Pipeline kann es verwenden, um das Pipelining zu begrenzen.
 
 ## Beispiele
 

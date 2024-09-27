@@ -1,5 +1,5 @@
 ---
-title: "FileSystemEntry: moveTo() Methode"
+title: "FileSystemEntry: moveTo()-Methode"
 short-title: moveTo()
 slug: Web/API/FileSystemEntry/moveTo
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die Methode **`moveTo()`** der {{domxref("FileSystemEntry")}}-Schnittstelle bewegt die durch den Eintrag spezifizierte Datei an einen neuen Ort im Dateisystem oder benennt die Datei um, wenn das Zielverzeichnis das gleiche wie das Quellverzeichnis ist.
+Die Methode **`moveTo()`** des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Interfaces verschiebt die durch den Eintrag spezifizierte Datei an einen neuen Ort im Dateisystem oder benennt die Datei um, wenn das Zielverzeichnis dasselbe wie das Quellverzeichnis ist.
 
-Es gibt einige typische Einschränkungen, was Sie tun können:
+Es gibt einige typische Einschränkungen für das, was Sie tun können:
 
 - Ein Verzeichnis kann nicht in sich selbst verschoben werden.
-- Ein Eintrag kann nicht in sein übergeordnetes Verzeichnis verschoben werden, es sei denn, Sie geben einen neuen Namen an. Das Angeben eines neuen Namens lässt `moveTo()` auch als Umbenennungsvorgang fungieren.
+- Ein Eintrag kann nicht in sein übergeordnetes Verzeichnis verschoben werden, es sei denn, Sie geben einen neuen Namen an. Durch Angabe eines neuen Namens kann `moveTo()` gleichzeitig als Umbenennung verwendet werden.
 - Beim Verschieben eines Verzeichnisses ist der Vorgang immer rekursiv; Unterordner können nicht ausgelassen werden.
-- Sie können keine Datei so bewegen, dass sie ein bestehendes Verzeichnis ersetzt, und Sie können kein Verzeichnis so bewegen, dass es eine bestehende Datei ersetzt. Eine Datei kann jedoch eine Datei und ein Verzeichnis ein anderes Verzeichnis ersetzen.
-- Ein Verzeichnis kann nur überschrieben werden, wenn es leer ist.
+- Sie können eine Datei nicht so verschieben, dass sie ein vorhandenes Verzeichnis ersetzt, und Sie können ein Verzeichnis nicht so verschieben, dass es eine vorhandene Datei ersetzt. Eine Datei kann jedoch eine andere Datei ersetzen, und ein Verzeichnis kann ein anderes Verzeichnis ersetzen.
+- Sie können ein Verzeichnis nur überschreiben, wenn es leer ist.
 
 ## Syntax
 
@@ -29,13 +29,13 @@ moveTo(newParent, newName, successCallback, errorCallback)
 ### Parameter
 
 - `newParent`
-  - : Ein {{domxref("FileSystemDirectoryEntry")}}-Objekt, das das Zielverzeichnis für den Verschiebevorgang angibt.
+  - : Ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)-Objekt, das das Zielverzeichnis für die Verschiebungsoperation angibt.
 - `newName` {{optional_inline}}
-  - : Wenn dieser Parameter angegeben wird, wird der Eintrag umbenannt und erhält diesen String als neuen Datei- oder Verzeichnisnamen.
+  - : Wenn dieser Parameter angegeben wird, wird der Eintrag umbenannt, um diesen String als neuen Datei- oder Verzeichnisnamen zu haben.
 - `successCallback` {{optional_inline}}
-  - : Eine Funktion, die aufgerufen wird, wenn der Verschiebevorgang erfolgreich abgeschlossen wurde. Sie erhält einen einzigen Eingabeparameter: ein auf {{domxref("FileSystemEntry")}} basierendes Objekt, das die neuen Details des verschobenen Elements bereitstellt.
+  - : Eine Funktion, die aufgerufen wird, wenn die Verschiebungsoperation erfolgreich abgeschlossen ist. Empfängt einen einzigen Eingabeparameter: ein auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) basierendes Objekt, das die neuen Details des verschobenen Objekts bietet.
 - `errorCallback` {{optional_inline}}
-  - : Ein optionaler Rückruf, der ausgeführt wird, wenn beim Verschieben der Elemente ein Fehler auftritt. Es gibt einen einzigen Parameter: ein {{domxref("FileError")}}, der beschreibt, was schiefgelaufen ist.
+  - : Ein optionaler Callback, der ausgeführt wird, wenn beim Verschieben der Objekte ein Fehler auftritt. Es gibt einen einzigen Parameter: ein [`FileError`](/de/docs/Web/API/FileError), der beschreibt, was schiefgelaufen ist.
 
 ### Rückgabewert
 
@@ -44,13 +44,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `FileError.INVALID_MODIFICATION_ERR`
-  - : Der angeforderte Vorgang beinhaltet eine unmögliche Änderung, wie das Verschieben eines Verzeichnisses in sich selbst oder in eines seiner eigenen Unterverzeichnisse, oder das Kopieren eines Elements innerhalb desselben Verzeichnisses ohne Umbenennung.
+  - : Die angeforderte Operation beinhaltet eine unmögliche Änderung, wie das Verschieben eines Verzeichnisses in sich selbst oder eines seiner eigenen Unterverzeichnisse oder das Kopieren eines Elements innerhalb desselben Verzeichnisses ohne es umzubenennen.
 - `FileError.QUOTA_EXCEEDED_ERR`
-  - : Der Vorgang hat das Speicherlimit des Benutzers überschritten oder es steht nicht genug Speicherplatz zur Verfügung, um den Vorgang abzuschließen.
+  - : Die Operation hat das Speicherlimit des Benutzers überschritten, oder es ist nicht genügend Speicherplatz verfügbar, um die Operation abzuschließen.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie eine temporäre Protokolldatei in ein dauerhaftes "Log"-Verzeichnis verschoben wird, wenn sie eine Größe von einem Megabyte überschreitet.
+Dieses Beispiel zeigt, wie eine temporäre Protokolldatei in ein dauerhaftes "log"-Verzeichnis verschoben werden könnte, wenn sie eine Größe von einem Megabyte überschreitet.
 
 ```js
 workingDirectory.getFile(
@@ -74,7 +74,7 @@ workingDirectory.getFile(
 );
 ```
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -82,4 +82,4 @@ workingDirectory.getFile(
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
 - [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
-- {{domxref("FileSystemEntry.copyTo()")}}
+- [`FileSystemEntry.copyTo()`](/de/docs/Web/API/FileSystemEntry/copyTo)

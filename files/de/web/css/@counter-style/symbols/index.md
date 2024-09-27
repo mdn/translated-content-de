@@ -1,5 +1,5 @@
 ---
-title: Symbole
+title: symbols
 slug: Web/CSS/@counter-style/symbols
 l10n:
   sourceCommit: 5178e1e7c9edf0c9c652275ae62f090042ce2422
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`symbols`** [CSS](/de/docs/Web/CSS)-Deskriptor der {{cssxref("@counter-style")}}-At-Regel wird verwendet, um die Symbole zur Erstellung von Zählerdarstellungen im angegebenen Zählsystem festzulegen. Die Angabe dieses Deskriptors ist obligatorisch, wenn der Wert des {{cssxref('@counter-style/system', 'system')}}-Deskriptors `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` ist.
+Der **`symbols`** [CSS](/de/docs/Web/CSS) Deskriptor der {{cssxref("@counter-style")}} At-Regel wird verwendet, um die Symbole für die Erstellung von Zählerdarstellungen im angegebenen Zählsystem zu spezifizieren. Die Angabe dieses Deskriptors ist obligatorisch, wenn der Wert des {{cssxref('@counter-style/system', 'system')}} Deskriptors `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` ist.
 
 ## Syntax
 
@@ -21,23 +21,23 @@ symbols: indic-numbers;
 
 ### Werte
 
-Der `symbols`-Deskriptor wird als Liste von einem oder mehreren durch Leerzeichen getrennten `<symbol>`-Werten angegeben.
+Der `symbols` Deskriptor wird als Liste von einem oder mehreren durch Leerzeichen getrennten `<symbol>` Werten spezifiziert.
 
 - `<symbol>`
-  - : Gibt das Symbol an, das im Zählsystem verwendet werden soll. Jedes Symbol in der Liste kann entweder ein {{cssxref("&lt;string&gt;")}}, ein {{cssxref("&lt;image&gt;")}} oder ein {{cssxref("&lt;custom-ident&gt;")}} sein. Der `<image>`-Wert kann als {{cssxref("&lt;url&gt;")}} oder {{cssxref("&lt;gradient&gt;")}} angegeben werden.
+  - : Gibt das Symbol an, das innerhalb des Zählsystems verwendet werden soll. Jedes Symbol in der Liste kann entweder ein {{cssxref("&lt;string&gt;")}}, ein {{cssxref("&lt;image&gt;")}}, oder ein {{cssxref("&lt;custom-ident&gt;")}} sein. Der `<image>` Wert kann seinerseits als {{cssxref("&lt;url&gt;")}} oder {{cssxref("&lt;gradient&gt;")}} angegeben werden.
 
 > [!NOTE]
-> Wenn ein {{glossary("identifier")}} für ein Symbol verwendet wird, beachten Sie, dass {{glossary("ASCII")}}-Nicht-Buchstaben wie `*`, `"`, und `\` nicht als Identifikatoren gelten. Sie müssen entweder als Zeichenfolge in Anführungszeichen gesetzt oder maskiert werden.
+> Wenn Sie einen [Identifier](/de/docs/Glossary/identifier) für ein Symbol verwenden, beachten Sie, dass [ASCII](/de/docs/Glossary/ASCII) Nicht-Buchstaben wie `*`, `"`, und `\` nicht als Identifier angesehen werden. Diese müssen entweder als Zeichenfolge zitiert oder maskiert werden.
 
 ## Beschreibung
 
-Ein Symbol kann eine Zeichenfolge, ein Bild oder ein Identifikator sein. Es wird innerhalb der {{cssxref("@counter-style")}} [At-Regel](/de/docs/Web/CSS/At-rule) verwendet.
+Ein Symbol kann eine Zeichenfolge, ein Bild oder ein Identifier sein. Es wird innerhalb der {{cssxref("@counter-style")}} [At-Regel](/de/docs/Web/CSS/At-rule) verwendet.
 
-Wenn der Wert des {{cssxref('@counter-style/system', 'system')}}-Deskriptors `cyclic`, `numeric`, `alphabetic`, `symbolic` oder `fixed` ist, muss der `symbols`-Deskriptor angegeben werden. Für das `additive` System verwenden Sie stattdessen den {{cssxref('@counter-style/additive-symbols', 'additive-symbols')}}-Deskriptor, um die Symbole anzugeben.
+Wenn der Wert des {{cssxref('@counter-style/system', 'system')}} Deskriptors `cyclic`, `numeric`, `alphabetic`, `symbolic`, oder `fixed` ist, muss der `symbols` Deskriptor angegeben werden. Für das `additive` System verwenden Sie stattdessen den {{cssxref('@counter-style/additive-symbols', 'additive-symbols')}} Deskriptor, um die Symbole zu spezifizieren.
 
-Während ein Leerzeichen zwischen zitierten Symbolen nicht erforderlich ist, macht es CSS lesbarer. Um ein Anführungszeichen als Symbol zu verwenden, maskieren Sie entweder das Anführungszeichen oder setzen Sie es in andere Anführungszeichen, wie `"'"`.
+Während ein Leerzeichen zwischen zitierten Symbolen nicht erforderlich ist, macht es CSS lesbarer. Um ein Anführungszeichen als Symbol zu verwenden, maskieren Sie entweder das Anführungszeichen-Zeichen oder schließen Sie das Zeichen in unterschiedliche Anführungszeichen ein, z.B. `"'"`.
 
-Wenn Sie Symbole mit Identifikatoren anstelle von Zeichenfolgen definieren, stellen Sie sicher, dass Sie die Syntaxregeln für Identifikatoren verwenden. Zum Beispiel müssen, wie oben erwähnt, ASCII-Nicht-Buchstaben wie `*` entweder in Anführungszeichen gesetzt oder maskiert werden. Hex-Escape-Zeichen werden von einem Leerzeichen gefolgt. Dieses Leerzeichen mag wie das Leerzeichen aussehen, das zwei Identifikatoren trennt, ermöglicht es jedoch, dass Ziffern den Hex-Escaped-Zeichen folgen. Das bedeutet, dass zwei Leerzeichen nach einem Hex-Escaped-Identifikator eingefügt werden müssen, um ihn vom nächsten Identifikator zu trennen. Es ist besser, die Zeichenfolge `"\2A 1"` statt `\2A  1` mit zwei Leerzeichen zu verwenden, da Ihre Codewerkzeuge möglicherweise doppelte Leerzeichen entfernen. Es ist generell sicherer, Identifikatoren, die maskiert werden müssen, zu zitieren oder Zeichenfolgen zu verwenden.
+Beim Definieren von Symbolen mit Identifikatoren anstelle von Zeichenfolgen, achten Sie darauf, Syntaxregeln für Identifikatoren zu befolgen. Zum Beispiel sind ASCII Nicht-Buchstaben wie `*` keine Identifikatoren und müssen entweder zitiert oder maskiert werden. Hexadezimal maskierte Zeichen folgen einem Leerzeichen. Dieses Leerzeichen kann wie der Abstand aussehen, der zwei Identifikatoren trennt, ermöglicht aber, dass Ziffern hexadezimal maskierten Zeichen folgen. Dies bedeutet, dass zwei Leerzeichen nach einem hexadezimal maskierten Identifikator eingefügt werden müssen, um ihn vom nächsten Identifikator zu trennen. Beispielsweise ist es besser, die Zeichenfolge `"\2A 1"` anstelle von `\2A  1` mit zwei Leerzeichen zu verwenden, da Ihre Codenwerkzeuge vielleicht doppelte Leerzeichen entfernen. Es ist im Allgemeinen sicherer, Identifikatoren, die maskiert werden müssen, zu zitieren oder Zeichenfolgen zu verwenden.
 
 ## Formale Definition
 
@@ -49,19 +49,19 @@ Wenn Sie Symbole mit Identifikatoren anstelle von Zeichenfolgen definieren, stel
 
 ## Beispiele
 
-### Einstellen von Zählersymbolen
+### Zählsymbole festlegen
 
-In diesem Beispiel umfasst die Liste der Werte für den `symbols`-Deskriptor Buchstaben (`A`, `D`, `E`), eine Zahl in Anführungszeichen (`"1"`) und einen Hex-Escape-Identifikator in Anführungszeichen (`"\24B7"`) für das Zeichen `Ⓑ`.
+In diesem Beispiel umfasst die Liste der Werte für den `symbols` Deskriptor Buchstaben (`A`, `D`, `E`), eine Zahl in Anführungszeichen (`"1"`), und einen hexadezimal maskierten Identifier in Anführungszeichen (`"\24B7"`) für das Zeichen `Ⓑ`.
 
 #### HTML
 
 ```html
 <ul class="list">
-  <li>Eins</li>
-  <li>Zwei</li>
-  <li>Drei</li>
-  <li>Vier</li>
-  <li>Fünf</li>
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+  <li>Four</li>
+  <li>Five</li>
 </ul>
 ```
 
@@ -96,4 +96,4 @@ In diesem Beispiel umfasst die Liste der Werte für den `symbols`-Deskriptor Buc
 - Listeneigenschaften: {{cssxref("list-style")}}, {{cssxref("list-style-image")}}, {{cssxref("list-style-position")}}
 - {{cssxref("symbols", "symbols()")}} Funktion
 - {{cssxref("url_value", "&lt;url&gt;")}} Typ
-- [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- [CSS Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul

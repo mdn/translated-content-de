@@ -1,5 +1,5 @@
 ---
-title: "VideoEncoder: Eigenschaft encodeQueueSize"
+title: "VideoEncoder: encodeQueueSize-Eigenschaft"
 short-title: encodeQueueSize
 slug: Web/API/VideoEncoder/encodeQueueSize
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`encodeQueueSize`** der Schnittstelle {{domxref("VideoEncoder")}} gibt die Anzahl der ausstehenden Codierungsanfragen in der Warteschlange zurück.
+Die schreibgeschützte Eigenschaft **`encodeQueueSize`** des [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Interfaces gibt die Anzahl der ausstehenden Kodierungsanforderungen in der Warteschlange zurück.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der Anfragen enthält.
+Ein Integer, der die Anzahl der Anforderungen enthält.
 
 ## Beispiele
 

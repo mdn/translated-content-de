@@ -1,5 +1,5 @@
 ---
-title: "Fenster: prompt()-Methode"
+title: "Window: prompt() Methode"
 short-title: prompt()
 slug: Web/API/Window/prompt
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("Window")}}
 
-`window.prompt()` weist den Browser an, ein Dialogfenster mit einer optionalen Nachricht anzuzeigen, das den Benutzer auffordert, einen Text einzugeben, und zu warten, bis der Benutzer den Text entweder einreicht oder das Dialogfenster abbricht.
+`window.prompt()` weist den Browser an, ein Dialogfeld mit einer optionalen Nachricht anzuzeigen, das den Benutzer dazu auffordert, einen Text einzugeben, und wartet, bis der Benutzer entweder den Text übermittelt oder den Dialog abbricht.
 
-Unter bestimmten Bedingungen - zum Beispiel, wenn der Benutzer die Registerkarten wechselt - wird der Browser möglicherweise kein Dialogfenster anzeigen oder nicht darauf warten, dass der Benutzer Text eingibt oder das Dialogfenster abbricht.
+Unter bestimmten Bedingungen – zum Beispiel, wenn der Benutzer zu einem anderen Tab wechselt – zeigt der Browser möglicherweise keinen Dialog an oder wartet nicht darauf, dass der Benutzer den Text übermittelt oder den Dialog abbricht.
 
 ## Syntax
 
@@ -23,13 +23,13 @@ prompt(message, defaultValue)
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Ein Zeichenfolgen-Text, der dem Benutzer angezeigt wird. Kann weggelassen werden, wenn es nichts im Eingabefenster zu zeigen gibt.
+  - : Ein Textstring, der dem Benutzer angezeigt wird. Kann weggelassen werden, wenn es nichts im Dialogfenster anzuzeigen gibt.
 - `defaultValue` {{optional_inline}}
-  - : Eine Zeichenfolge, die den Standardwert enthält, der im Texteingabefeld angezeigt wird.
+  - : Ein String, der den Standardwert enthält, der im Texteingabefeld angezeigt wird.
 
 ### Rückgabewert
 
-Eine Zeichenfolge, die den vom Benutzer eingegebenen Text enthält, oder `null`.
+Ein String, der den vom Benutzer eingegebenen Text enthält, oder `null`.
 
 ## Beispiele
 
@@ -40,32 +40,32 @@ if (sign.toLowerCase() === "scorpio") {
   alert("Wow! I'm a Scorpio too!");
 }
 
-// es gibt viele Möglichkeiten, die prompt-Funktion zu verwenden
-sign = window.prompt(); // öffnet das leere Eingabefenster
-sign = prompt(); //  öffnet das leere Eingabefenster
-sign = window.prompt("Are you feeling lucky"); // öffnet das Fenster mit dem Text "Are you feeling lucky"
-sign = window.prompt("Are you feeling lucky", "sure"); // öffnet das Fenster mit dem Text "Are you feeling lucky" und dem Standardwert "sure"
+// there are many ways to use the prompt feature
+sign = window.prompt(); // open the blank prompt window
+sign = prompt(); //  open the blank prompt window
+sign = window.prompt("Are you feeling lucky"); // open the window with Text "Are you feeling lucky"
+sign = window.prompt("Are you feeling lucky", "sure"); // open the window with Text "Are you feeling lucky" and default value "sure"
 ```
 
-Wenn der Benutzer die OK-Schaltfläche klickt, wird der im Eingabefeld eingegebene Text zurückgegeben. Wenn der Benutzer auf OK klickt, ohne Text einzugeben, wird eine leere Zeichenfolge zurückgegeben. Wenn der Benutzer die Abbrechen-Schaltfläche klickt, gibt diese Funktion `null` zurück.
+Wenn der Benutzer die OK-Schaltfläche klickt, wird der im Eingabefeld eingegebene Text zurückgegeben. Wenn der Benutzer auf OK klickt, ohne Text einzugeben, wird ein leerer String zurückgegeben. Wenn der Benutzer die Abbrechen-Schaltfläche klickt, gibt diese Funktion `null` zurück.
 
-Das oben gezeigte Eingabefenster erscheint wie folgt (in Chrome auf macOS):
+Der obige Dialog wird wie folgt angezeigt (in Chrome auf macOS):
 
 ![prompt() Dialog in Chrome auf macOS](prompt.png)
 
 ## Hinweise
 
-Ein Eingabedialog enthält ein einzeiliges Textfeld, eine Abbrechen-Schaltfläche und eine OK-Schaltfläche und gibt den (möglicherweise leeren) Text zurück, den der Benutzer in das Textfeld eingegeben hat.
+Ein Eingabeaufforderungsdialog enthält ein einzeiliges Textfeld, eine Abbrechen-Schaltfläche und eine OK-Schaltfläche und gibt den (möglicherweise leeren) Text zurück, den der Benutzer in dieses Textfeld eingegeben hat.
 
-Bitte beachten Sie, dass das Ergebnis eine Zeichenfolge ist. Das bedeutet, dass Sie den vom Benutzer angegebenen Wert manchmal umwandeln sollten. Zum Beispiel, wenn seine Antwort eine Zahl sein soll, sollten Sie den Wert in eine Zahl umwandeln.
+Bitte beachten Sie, dass das Ergebnis ein String ist. Das bedeutet, dass Sie den vom Benutzer bereitgestellten Wert manchmal umwandeln sollten. Zum Beispiel sollten Sie, wenn die Antwort eine Zahl sein soll, den Wert in eine Zahl umwandeln.
 
 ```js
 const aNumber = Number(window.prompt("Type a number", ""));
 ```
 
-Dialogfelder sind modale Fenster; sie verhindern, dass der Benutzer auf den Rest der Programmoberfläche zugreift, bis das Dialogfeld geschlossen wird. Aus diesem Grund sollten Sie keine Funktion übermäßig verwenden, die ein Dialogfeld (oder ein modales Fenster) erstellt.
+Dialogfelder sind modale Fenster; sie verhindern, dass der Benutzer auf den Rest der Benutzeroberfläche des Programms zugreift, bis das Dialogfeld geschlossen wird. Aus diesem Grund sollten Sie keine Funktion übermäßig verwenden, die ein Dialogfeld (oder modales Fenster) erstellt.
 
-Alternativ kann das {{HTMLElement("dialog")}}-Element verwendet werden, um Benutzereingaben entgegenzunehmen.
+Alternativ kann das {{HTMLElement("dialog")}} Element verwendet werden, um Benutzereingaben entgegenzunehmen.
 
 ## Spezifikationen
 
@@ -77,6 +77,6 @@ Alternativ kann das {{HTMLElement("dialog")}}-Element verwendet werden, um Benut
 
 ## Siehe auch
 
-- {{HTMLElement("dialog")}}-Element
-- {{domxref("window.alert", "alert")}}
-- {{domxref("window.confirm", "confirm")}}
+- {{HTMLElement("dialog")}} Element
+- [`alert`](/de/docs/Web/API/Window/alert)
+- [`confirm`](/de/docs/Web/API/Window/confirm)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`type`**-Eigenschaft des {{domxref("HTMLScriptElement")}}-Interfaces ist ein String, der den Typ des Skripts widerspiegelt.
+Die **`type`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces ist ein String, der den Typ des Skripts widerspiegelt.
 
 Sie spiegelt das `type`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
@@ -16,18 +16,18 @@ Sie spiegelt das `type`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
 Ein String. Der Wert dieser Eigenschaft kann einer der folgenden sein:
 
-- **Attribut ist nicht gesetzt (Standard), ein leerer String oder ein JavaScript MIME-Typ**
-  - : Gibt an, dass das Skript ein "klassisches Skript" ist, das JavaScript-Code enthält.
+- **Attribut ist nicht gesetzt (Standard), ein leerer String oder ein JavaScript-MIME-Typ**
+  - : Dies zeigt an, dass das Skript ein "klassisches Skript" ist, das JavaScript-Code enthält.
 - `module`
-  - : Dieser Wert führt dazu, dass der Code als JavaScript-Modul behandelt wird.
+  - : Dieser Wert bewirkt, dass der Code als JavaScript-Modul behandelt wird.
 - `importmap`
-  - : Dieser Wert gibt an, dass der Inhalt des Elements eine Importkarte enthält.
+  - : Dieser Wert zeigt an, dass der Inhalt des Elements eine Import Map enthält.
 - `speculationrules` {{experimental_inline}}
-  - : Dieser Wert gibt an, dass der Inhalt des Elements Spekulationsregeln enthält.
+  - : Dieser Wert zeigt an, dass der Inhalt des Elements Spekulationsregeln enthält.
 - **Jeder andere Wert**
   - : Der eingebettete Inhalt wird als Datenblock behandelt und nicht vom Browser verarbeitet.
 
-Für weitere Informationen lesen Sie bitte das [`type`](/de/docs/Web/HTML/Element/script/type)-Attribut des {{HTMLElement("script")}}-Elements.
+Für weitere Informationen verweisen Sie bitte auf das [`type`](/de/docs/Web/HTML/Element/script/type)-Attribut des {{HTMLElement("script")}}-Elements.
 
 ## Beispiele
 

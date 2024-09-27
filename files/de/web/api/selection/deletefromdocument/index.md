@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`deleteFromDocument()`**-Methode des {{domxref("Selection")}}-Interfaces ruft die {{domxref("Range.deleteContents()")}}-Methode auf dem ausgewählten {{domxref("Range")}} auf.
+Die **`deleteFromDocument()`**-Methode der [`Selection`](/de/docs/Web/API/Selection)-Schnittstelle ruft die [`Range.deleteContents()`](/de/docs/Web/API/Range/deleteContents)-Methode für den ausgewählten [`Range`](/de/docs/Web/API/Range) auf.
 
 ## Syntax
 
@@ -22,21 +22,21 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+None ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel ermöglicht es Ihnen, ausgewählten Text und/oder Knoten durch Klicken auf eine Schaltfläche zu löschen. Beim Klicken auf die Schaltfläche erhält die Methode {{domxref("Window.getSelection()")}} den ausgewählten Inhalt und die `deleteFromDocument()`-Methode entfernt ihn.
+Dieses Beispiel ermöglicht es Ihnen, ausgewählten Text und/oder Knoten durch Klicken auf eine Schaltfläche zu löschen. Beim Klicken auf die Schaltfläche ruft die Methode [`Window.getSelection()`](/de/docs/Web/API/Window/getSelection) den ausgewählten Inhalt ab, und die Methode `deleteFromDocument()` entfernt ihn.
 
 ### HTML
 
 ```html
-<p>Versuchen Sie, einige der Elemente in diesen Absätzen zu markieren.</p>
+<p>Try highlighting some of the elements in these paragraphs.</p>
 <p>
-  Sobald Sie das getan haben, können Sie den ausgewählten Inhalt durch Klicken auf die untenstehende Schaltfläche entfernen.
+  Once you do, you can remove the selected content by clicking the button below.
 </p>
-<h2>Alle ausgewählten Texte/Knoten werden entfernt.</h2>
-<button>Ausgewählten Text löschen</button>
+<h2>All of the selected text/nodes will be removed.</h2>
+<button>Delete selected text</button>
 ```
 
 ### JavaScript
@@ -65,4 +65,4 @@ function deleteSelection() {
 
 ## Siehe auch
 
-- {{domxref("Selection")}}, das Interface, das diese Methode definiert
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, die diese Methode definiert

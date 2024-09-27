@@ -1,5 +1,5 @@
 ---
-title: "ValidityState: Eigenschaft valueMissing"
+title: "ValidityState: valueMissing Eigenschaft"
 short-title: valueMissing
 slug: Web/API/ValidityState/valueMissing
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`valueMissing`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces gibt an, ob ein mit [`required`](/de/docs/Web/HTML/Attributes/required) gekennzeichnetes Steuerelement, wie ein {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}}, einen leeren Wert hat.
+Die schreibgeschützte **`valueMissing`** Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces zeigt an, ob ein mit dem [`required`](/de/docs/Web/HTML/Attributes/required)-Attribut versehenes Steuerelement, wie ein {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}}, einen leeren Wert hat.
 
-Wenn das Attribut `required` gesetzt ist und keine {{HTMLElement("option")}} ausgewählt ist oder ein `<textarea>` oder ein vom Benutzer editierbares `<input>` leer ist, wird die Eigenschaft `valueMissing` den Wert `true` haben. Die Eigenschaft ist nur `true`, wenn das Feld erforderlich ist und keinen Wert hat; wenn das Feld nicht erforderlich ist oder wenn das Feld erforderlich ist und einen Wert hat, ist der Wert `false`.
+Wenn das `required`-Attribut gesetzt ist und keine {{HTMLElement("option")}} ausgewählt ist oder ein `<textarea>` oder benutzereingabefähiges `<input>` leer ist, wird die `valueMissing`-Eigenschaft `true`. Die Eigenschaft ist nur `true`, wenn das Feld erforderlich ist und keinen Wert hat; wenn das Feld nicht erforderlich ist oder wenn das Feld erforderlich ist und einen Wert hat, ist der Wert `false`.
 
 ## Wert
 
@@ -18,9 +18,7 @@ Ein boolescher Wert, der `true` ist, wenn der `ValidityState` nicht gesetzt ist 
 
 ### Fehlender erforderlicher Eingabewert
 
-Das folgende Beispiel überprüft die Gültigkeit eines [Zahlen-Eingabefelds](/de/docs/Web/HTML/Element/input/number).
-Beschränkungen wurden unter Verwendung des [`min`-Attributs](/de/docs/Web/HTML/Element/input/number#min) hinzugefügt, das einen Minimalwert von `18` für die Eingabe festlegt, und des [`required`-Attributs](/de/docs/Web/HTML/Attributes/required), das leere Werte verbietet.
-Wenn der Benutzer einen Wert eingibt, der keine Zahl größer als 17 ist, schlägt die Einschränkungsvalidierung fehl, und die Stile, die mit {{cssxref(":invalid")}} übereinstimmen, werden angewendet.
+Das folgende Beispiel überprüft die Gültigkeit eines [numerischen Eingabeelements](/de/docs/Web/HTML/Element/input/number). Es wurden Einschränkungen mithilfe des [`min`-Attributs](/de/docs/Web/HTML/Element/input/number#min) hinzugefügt, das einen Mindestwert von `18` für die Eingabe festlegt, sowie des [`required`-Attributs](/de/docs/Web/HTML/Attributes/required), das leere Werte nicht zulässt. Wenn der Benutzer einen Wert eingibt, der keine Zahl größer als 17 ist, schlägt die Constraint-Validierung fehl, und die Stile, die mit {{cssxref(":invalid")}} übereinstimmen, werden angewendet.
 
 ```css
 input:invalid {
@@ -78,6 +76,6 @@ userInput.addEventListener("input", () => {
 ## Siehe auch
 
 - ValidityState [badInput](/de/docs/Web/API/ValidityState/badInput), [valid](/de/docs/Web/API/ValidityState/valid) Eigenschaften.
-- [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- [Formulare: Datenformularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Constraint Validation](/de/docs/Web/HTML/Constraint_validation)
+- [Formulare: Validierung von Formulardaten](/de/docs/Learn/Forms/Form_validation)
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions)

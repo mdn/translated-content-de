@@ -7,26 +7,26 @@ l10n:
 
 {{learnsidebar}}
 
-Ziel dieses Fähigkeitstests ist es zu überprüfen, ob Sie die [Hintergründe und Rahmen von Boxen in CSS](/de/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders) verstehen.
+Das Ziel dieses Fähigkeitstests ist es, zu bewerten, ob Sie die [Hintergründe und Rahmen von Boxen in CSS](/de/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders) verstehen.
 
 > [!NOTE]
-> Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/), oder [Glitch](https://glitch.com/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie einem Seitenkopf einen Hintergrund, einen Rahmen und einige einfache Stylings hinzufügen:
+In dieser Aufgabe möchten wir, dass Sie einem Seitenkopf einen Hintergrund, einen Rahmen und einige einfache Formatierungen hinzufügen:
 
-1. Geben Sie der Box einen 5px schwarzen festen Rahmen mit abgerundeten Ecken von 10px.
-2. Fügen Sie ein Hintergrundbild hinzu (verwenden Sie die URL `balloons.jpg`) und passen Sie es so an, dass es die Box abdeckt.
-3. Geben Sie dem `<h2>` eine halbtransparente schwarze Hintergrundfarbe und machen Sie den Text weiß.
+1. Geben Sie der Box einen 5px schwarzen, soliden Rahmen mit abgerundeten Ecken von 10px.
+2. Fügen Sie ein Hintergrundbild hinzu (verwenden Sie die URL `balloons.jpg`) und passen Sie die Größe so an, dass es die Box abdeckt.
+3. Geben Sie dem `<h2>` eine halb-transparente schwarze Hintergrundfarbe und machen Sie den Text weiß.
 
-Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
+Ihr Endergebnis sollte dem unten gezeigten Bild ähneln:
 
-![Bild zeigt eine Box mit einem Fotohintergrund, einem abgerundeten Rahmen und weißem Text auf einem halbtransparenten schwarzen Hintergrund.](backgrounds-task1.png)
+![Das Bild zeigt eine Box mit einem Foto-Hintergrund, abgerundetem Rahmen und weißem Text auf einem halb-transparenten schwarzen Hintergrund.](backgrounds-task1.png)
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel zu erstellen:
+Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel zu reproduzieren:
 
 {{EmbedGHLiveSample("css-examples/learn/tasks/backgrounds/backgrounds1.html", '100%', 700)}}
 
@@ -36,17 +36,17 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel zu 
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie einer dekorativen Box Hintergrundbilder, einen Rahmen und einige andere Stylings hinzufügen:
+In dieser Aufgabe möchten wir, dass Sie dekorativen Boxen Hintergrundbilder, einen Rahmen und einige andere Formatierungen hinzufügen:
 
 - Geben Sie der Box einen 5px hellblauen Rahmen und runden Sie die obere linke Ecke mit 20px und die untere rechte Ecke mit 40px ab.
-- Die Überschrift verwendet das Bild `star.png` als Hintergrundbild, mit einem einzelnen zentrierten Stern links und einem sich wiederholenden Muster von Sternen rechts.
-- Stellen Sie sicher, dass der Text der Überschrift nicht das Bild überlagert und dass er zentriert ist — Sie müssen Techniken anwenden, die Sie in vorherigen Lektionen gelernt haben, um dies zu erreichen.
+- Die Überschrift verwendet das Bild `star.png` als Hintergrundbild, mit einem einzelnen zentrierten Stern auf der linken Seite und einem sich wiederholenden Muster von Sternen auf der rechten Seite.
+- Stellen Sie sicher, dass der Überschriftstext nicht das Bild überlagert und dass er zentriert ist — Sie müssen Techniken anwenden, die in vorherigen Lektionen gelernt wurden, um dies zu erreichen.
 
-Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
+Ihr Endergebnis sollte dem unten gezeigten Bild ähneln:
 
-![Bild zeigt eine Box mit einem blauen Rahmen, der an der oberen linken und unteren rechten Ecke abgerundet ist. Links vom Text befindet sich ein einzelner Stern, rechts drei Sterne.](backgrounds-task2.png)
+![Das Bild zeigt eine Box mit einem blauen Rahmen, der an den oberen linken und unteren rechten Ecken abgerundet ist. Links vom Text ist ein einzelner Stern, rechts drei Sterne.](backgrounds-task2.png)
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel zu erstellen:
+Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel zu reproduzieren:
 
 {{EmbedGHLiveSample("css-examples/learn/tasks/backgrounds/backgrounds2.html", '100%', 700)}}
 

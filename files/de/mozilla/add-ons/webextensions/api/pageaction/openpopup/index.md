@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Öffnen Sie das Popup der Page Action.
+Öffnet das Popup der Seitenaktion.
 
 Sie können diese Funktion nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen.
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der ohne Argumente aufgelöst wird.
 
 ## Browser-Kompatibilität
 

@@ -7,69 +7,69 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLDialogElement`** Schnittstelle bietet Methoden zur Manipulation von {{HTMLElement("dialog")}}-Elementen. Es erbt Eigenschaften und Methoden von der {{domxref("HTMLElement")}} Schnittstelle.
+Die **`HTMLDialogElement`**-Schnittstelle bietet Methoden zum Manipulieren von {{HTMLElement("dialog")}}-Elementen. Sie erbt Eigenschaften und Methoden von der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von ihrem übergeordneten Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLDialogElement.open")}}
-  - : Ein boolescher Wert, der das [`open`](/de/docs/Web/HTML/Element/dialog#open) HTML-Attribut widerspiegelt und anzeigt, ob der Dialog zur Interaktion verfügbar ist.
-- {{domxref("HTMLDialogElement.returnValue")}}
-  - : Ein String, der den Rückgabewert für den Dialog festlegt oder zurückgibt.
+- [`HTMLDialogElement.open`](/de/docs/Web/API/HTMLDialogElement/open)
+  - : Ein boolescher Wert, der das HTML-Attribut [`open`](/de/docs/Web/HTML/Element/dialog#open) widerspiegelt und anzeigt, ob das Dialogfeld für die Interaktion verfügbar ist.
+- [`HTMLDialogElement.returnValue`](/de/docs/Web/API/HTMLDialogElement/returnValue)
+  - : Ein String, der den Rückgabewert für das Dialogfeld festlegt oder zurückgibt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Methoden von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Methoden von ihrem übergeordneten Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLDialogElement.close()")}}
-  - : Schließt den Dialog. Ein optionaler String kann als Argument übergeben werden, das den `returnValue` des Dialogs aktualisiert.
-- {{domxref("HTMLDialogElement.show()")}}
-  - : Zeigt den Dialog nicht modal an, d.h. er ermöglicht weiterhin die Interaktion mit Inhalten außerhalb des Dialogs.
-- {{domxref("HTMLDialogElement.showModal()")}}
-  - : Zeigt den Dialog als modal an, über allen anderen möglicherweise vorhandenen Dialogen. Alles außerhalb des Dialogs ist [inert](/de/docs/Web/API/HTMLElement/inert) und Interaktionen außerhalb des Dialogs werden blockiert.
+- [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)
+  - : Schließt das Dialogfeld. Ein optionaler String kann als Argument übergeben werden, um den `returnValue` des Dialogfelds zu aktualisieren.
+- [`HTMLDialogElement.show()`](/de/docs/Web/API/HTMLDialogElement/show)
+  - : Zeigt das Dialogfeld modellfrei an, d.h. erlaubt weiterhin die Interaktion mit Inhalten außerhalb des Dialogfelds.
+- [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal)
+  - : Zeigt das Dialogfeld als modales Fenster an, überlagert über anderen möglicherweise vorhandenen Dialogen. Alles außerhalb des Dialogfelds ist [inert](/de/docs/Web/API/HTMLElement/inert) und Interaktionen außerhalb des Dialogfelds werden blockiert.
 
 ## Ereignisse
 
-_Erbt auch Ereignisse von seiner Elternschnittstelle, {{DOMxRef("HTMLElement")}}._
+_Erbt auch Ereignisse von ihrer übergeordneten Schnittstelle, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-Hören Sie diese Ereignisse mit {{DOMxRef("EventTarget.addEventListener", "addEventListener()")}} ab oder indem Sie einen Ereignis-Listener der `oneventname`-Eigenschaft dieser Schnittstelle zuweisen.
+Diese Ereignisse können Sie mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) abhören oder indem Sie einen Ereignislistener der `oneventname`-Eigenschaft dieser Schnittstelle zuweisen.
 
-- {{domxref("HTMLDialogElement/close_event", "close")}}
-  - : Wird ausgelöst, wenn der Dialog geschlossen wird, sei es mit der Escape-Taste, der Methode `HTMLDialogElement.close()`, oder durch das Einreichen eines Formulars innerhalb des Dialogs mit [`method="dialog"`](/de/docs/Web/HTML/Element/form#method).
+- [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)
+  - : Wird ausgelöst, wenn das Dialogfeld geschlossen wird, sei es durch die Escape-Taste, die `HTMLDialogElement.close()`-Methode oder durch das Absenden eines Formulars innerhalb des Dialogfelds mit [`method="dialog"`](/de/docs/Web/HTML/Element/form#method).
 
 ## Beispiele
 
 ### Öffnen eines modalen Dialogs
 
-Das folgende Beispiel zeigt einen Button, der beim Klicken ein modales {{htmlelement("dialog")}} öffnet, das ein Formular über die {{domxref("HTMLDialogElement.showModal()")}} Funktion enthält. Wenn es geöffnet ist, ist alles außer dem Inhalt des modalen Dialogs inert. Von dort aus können Sie auf die Schaltfläche _Abbrechen_ klicken, um den Dialog zu schließen (über die {{domxref("HTMLDialogElement.close()")}} Funktion), oder das Formular über die Absenden-Schaltfläche einreichen. Die Auswahl der Abbrechen-Schaltfläche schließt den Dialog und erzeugt ein {{domxref("HTMLDialogElement/close_event", "close")}} Ereignis, kein {{domxref("HTMLElement/cancel_event", "cancel")}} Ereignis.
+Das folgende Beispiel zeigt einen Button, der beim Klicken ein modales {{htmlelement("dialog")}} mit einem Formular über die Funktion [`HTMLDialogElement.showModal()`](/de/docs/Web/API/HTMLDialogElement/showModal) öffnet. Während es geöffnet ist, ist alles andere als der Inhalt des modalen Dialogs inert. Von dort aus können Sie den _Abbrechen_-Button klicken, um das Dialogfeld zu schließen (über die Funktion [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)), oder das Formular über den Submit-Button absenden. Das Auswählen des Abbrechen-Buttons schließt das Dialogfeld und erzeugt ein [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis, kein [`cancel`](/de/docs/Web/API/HTMLElement/cancel_event)-Ereignis.
 
 #### HTML
 
 ```html
-<!-- Pop-up-Dialogbox, die ein Formular enthält -->
+<!-- pop-up dialog box, containing a form -->
 <dialog id="favDialog">
   <form method="dialog">
     <p>
-      <label for="favAnimal">Lieblingstier:</label>
+      <label for="favAnimal">Favorite animal:</label>
       <select id="favAnimal" name="favAnimal">
         <option></option>
-        <option>Salmine</option>
-        <option>Roter Panda</option>
-        <option>Spinnenaffe</option>
+        <option>Brine shrimp</option>
+        <option>Red panda</option>
+        <option>Spider monkey</option>
       </select>
     </p>
     <div>
-      <button id="cancel" type="reset">Abbrechen</button>
-      <button type="submit">Bestätigen</button>
+      <button id="cancel" type="reset">Cancel</button>
+      <button type="submit">Confirm</button>
     </div>
   </form>
 </dialog>
 
 <div>
-  <button id="updateDetails">Details aktualisieren</button>
+  <button id="updateDetails">Update details</button>
 </div>
 ```
 
@@ -89,13 +89,13 @@ function openCheck(dialog) {
   }
 }
 
-// Update-Button öffnet einen modalen Dialog
+// Update button opens a modal dialog
 updateButton.addEventListener("click", () => {
   dialog.showModal();
   openCheck(dialog);
 });
 
-// Formular-Abbrechen-Schaltfläche schließt die Dialogbox
+// Form cancel button closes the dialog box
 cancelButton.addEventListener("click", () => {
   dialog.close("animalNotChosen");
   openCheck(dialog);

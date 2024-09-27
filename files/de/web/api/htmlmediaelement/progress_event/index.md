@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: Progress-Ereignis"
+title: "HTMLMediaElement: progress-Ereignis"
 short-title: progress
 slug: Web/API/HTMLMediaElement/progress_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`progress`**-Ereignis wird periodisch ausgelöst, während der Browser eine Ressource lädt.
+Das **`progress`**-Ereignis wird periodisch ausgelöst, wenn der Browser eine Ressource lädt.
 
-Dieses Ereignis kann nicht abgebrochen werden und breitet sich nicht weiter aus.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Weitergabe der Ereigniskette aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandler-Eigenschaft.
 
 ```js
 addEventListener("progress", (event) => {});
@@ -24,7 +24,7 @@ onprogress = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -34,11 +34,11 @@ Ein generisches {{domxref("Event")}}.
 
 ```html
 <div class="example">
-  <button type="button">Video laden</button>
+  <button type="button">Load video</button>
   <video controls width="250"></video>
 
   <div class="event-log">
-    <label for="eventLog">Ereignisprotokoll:</label>
+    <label for="eventLog">Event log:</label>
     <textarea readonly class="event-log-contents" id="eventLog"></textarea>
   </div>
 </div>
@@ -100,7 +100,7 @@ loadVideo.addEventListener("click", () => {
   if (source) {
     document.location.reload();
   } else {
-    loadVideo.textContent = "Beispiel zurücksetzen";
+    loadVideo.textContent = "Reset example";
     source = document.createElement("source");
     source.setAttribute(
       "src",
@@ -127,7 +127,7 @@ loadVideo.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("HTMLAudioElement")}}
-- {{domxref("HTMLVideoElement")}}
+- [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement)
+- [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)
 - {{HTMLElement("audio")}}
 - {{HTMLElement("video")}}

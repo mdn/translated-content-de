@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Browser beginnt, eine Gruppe von Lesezeichen zu importieren.
+Wird ausgelöst, wenn der Browser mit dem Importieren eines Satzes von Lesezeichen begonnen hat.
 
-Während eine Gruppe von Lesezeichen importiert wird, kann {{WebExtAPIRef("bookmarks.onCreated", "onCreated")}} häufig ausgelöst werden. Wenn Ihre Erweiterung auf `onCreated` hört und der Listener ressourcenintensiv ist, sollten Sie auch auf `onImportBegan` und {{WebExtAPIRef("bookmarks.onImportEnded", "onImportEnded")}} hören. Wenn Sie `onImportBegan` empfangen, ignorieren Sie `onCreated`, bis Sie `onImportEnded` erhalten. Sie können alle anderen Benachrichtigungen wie gewohnt behandeln.
+Während ein Satz von Lesezeichen importiert wird, kann {{WebExtAPIRef("bookmarks.onCreated", "onCreated")}} sehr häufig ausgelöst werden. Wenn Ihre Erweiterung auf `onCreated` hört und der Listener aufwendig ist, sollten Sie auch `onImportBegan` und {{WebExtAPIRef("bookmarks.onImportEnded", "onImportEnded")}} abhören. Wenn Sie `onImportBegan` empfangen, ignorieren Sie `onCreated`, bis Sie `onImportEnded` empfangen. Sie können alle anderen Benachrichtigungen wie gewohnt behandeln.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stellt das Zuhören dieses Ereignisses ein. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Hören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## Syntax von addListener
+## addListener-Syntax
 
 ### Parameter
 
@@ -43,11 +43,11 @@ Ereignisse haben drei Funktionen:
 
 ```js
 function handleImportBegan() {
-  console.log("Import wird durchgeführt…");
+  console.log("Importing…");
 }
 
 function handleImportEnded() {
-  console.log("Import abgeschlossen.");
+  console.log("Import finished.");
 }
 
 function handleClick() {

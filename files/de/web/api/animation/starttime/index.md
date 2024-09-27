@@ -8,64 +8,64 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`Animation.startTime`**-Eigenschaft des {{domxref("Animation")}}-Interfaces ist ein Gleitkommawert mit doppelter Genauigkeit, der die geplante Zeit angibt, wann die Wiedergabe einer Animation beginnen soll.
+Die **`Animation.startTime`**-Eigenschaft des [`Animation`](/de/docs/Web/API/Animation)-Interfaces ist ein doppelt-genauer Gleitkommawert, der die geplante Zeit angibt, wann die Wiedergabe einer Animation beginnen soll.
 
-Die **Startzeit** einer Animation ist der Zeitwert ihrer {{domxref("DocumentTimeline","Timeline")}}, wenn ihr Ziel-{{domxref("KeyframeEffect")}} zur Wiedergabe geplant ist. Die **Startzeit** einer Animation ist zunächst ungelöst (was bedeutet, dass sie `null` ist, da sie keinen Wert hat).
+Die **Startzeit** einer Animation ist der Zeitwert ihrer [`timeline`](/de/docs/Web/API/DocumentTimeline), wenn deren Ziel-`KeyframeEffect`(/de/docs/Web/API/KeyframeEffect) geplant ist, die Wiedergabe zu beginnen. Die **Startzeit** einer Animation ist anfänglich ungelöst (bedeutet, dass sie `null` ist, da sie keinen Wert hat).
 
 ## Wert
 
-Eine Gleitkommazahl, die die aktuelle Zeit in Millisekunden darstellt, oder `null`, wenn keine Zeit festgelegt ist. Sie können diesen Wert auslesen, um zu bestimmen, auf welche Startzeit er derzeit eingestellt ist, und Sie können diesen Wert ändern, um die Animation zu einem anderen Zeitpunkt starten zu lassen.
+Eine Gleitkommazahl, die die aktuelle Zeit in Millisekunden darstellt, oder `null`, wenn keine Zeit festgelegt ist. Sie können diesen Wert lesen, um zu bestimmen, was die aktuelle Startzeit ist, und Sie können diesen Wert ändern, um die Animation zu einem anderen Zeitpunkt starten zu lassen.
 
 ## Beispiele
 
-Im Beispiel [Running on Web Animations API](https://codepen.io/rachelnabors/pen/zxYexJ?editors=0010) können wir alle neuen animierten Katzen synchronisieren, indem wir ihnen dieselbe `startTime` wie der ursprünglichen laufenden Katze zuweisen:
+Im [Beispiel zur Web Animations API](https://codepen.io/rachelnabors/pen/zxYexJ?editors=0010) können wir alle neuen animierten Katzen synchronisieren, indem wir ihnen allen die gleiche `startTime` wie der ursprünglichen laufenden Katze geben:
 
 ```js
 const catRunning = document
   .getElementById("withWAAPI")
   .animate(keyframes, timing);
 
-/* Eine Funktion, die neue Katzen erstellt. */
+/* A function that makes new cats. */
 function addCat() {
   const newCat = document.createElement("div");
   newCat.classList.add("cat");
   return newCat;
 }
 
-/* Dies ist die Funktion, die eine Katze zur WAAPI-Spalte hinzufügt */
+/* This is the function that adds a cat to the WAAPI column */
 function animateNewCatWithWAAPI() {
-  // Erstelle eine neue Katze
+  // make a new cat
   const newCat = addCat();
 
-  // Animieren Sie die besagte Katze mit der "animate"-Funktion der WAAPI
+  // animate said cat with the WAAPI's "animate" function
   const newAnimationPlayer = newCat.animate(keyframes, timing);
 
-  // Setzen Sie die Startzeit der Animation auf dieselbe wie die der ursprünglichen .cat#withWAAPI
+  // set the animation's start time to be the same as the original .cat#withWAAPI
   newAnimationPlayer.startTime = catRunning.startTime;
 
-  // Fügen Sie die Katze zum Stapel hinzu.
+  // Add the cat to the pile.
   WAAPICats.appendChild(newCat);
 }
 ```
 
-## Reduzierte Zeitgenauigkeit
+## Reduzierte Zeitpräzision
 
-Zum Schutz vor Timing-Angriffen und [Fingerprinting](/de/docs/Glossary/Fingerprinting) kann die Genauigkeit von `animation.startTime` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt 2ms. Sie können auch `privacy.resistFingerprinting` aktivieren, in diesem Fall beträgt die Genauigkeit 100ms oder den Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher Wert größer ist.
+Um Schutz vor Timing-Angriffen und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, kann die Präzision von `animation.startTime` abhängig von den Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren, wobei die Präzision dann 100 ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist, beträgt.
 
-Zum Beispiel wird bei reduzierter Zeitgenauigkeit das Ergebnis von `animation.startTime` immer ein Vielfaches von 0,002 oder ein Vielfaches von 0,1 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) mit aktiviertem `privacy.resistFingerprinting` sein.
+Beispielsweise wird bei reduzierter Zeitpräzision das Ergebnis von `animation.startTime` immer ein Vielfaches von 0,002 sein, oder ein Vielfaches von 0,1 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`), wenn `privacy.resistFingerprinting` aktiviert ist.
 
 ```js
-// reduzierte Zeitgenauigkeit (2ms) in Firefox 60
+// reduced time precision (2ms) in Firefox 60
 animation.startTime;
-// Könnte sein:
+// Might be:
 // 23.404
 // 24.192
 // 25.514
 // …
 
-// reduzierte Zeitgenauigkeit mit aktiviertem `privacy.resistFingerprinting`
+// reduced time precision with `privacy.resistFingerprinting` enabled
 animation.startTime;
-// Könnte sein:
+// Might be:
 // 49.8
 // 50.6
 // 51.7
@@ -83,5 +83,5 @@ animation.startTime;
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("Animation")}}
-- {{domxref("Animation.currentTime")}} für die aktuelle Zeit der Animation.
+- [`Animation`](/de/docs/Web/API/Animation)
+- [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) für die aktuelle Zeit der Animation.

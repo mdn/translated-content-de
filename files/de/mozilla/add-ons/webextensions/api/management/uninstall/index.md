@@ -27,16 +27,16 @@ let uninstalling = browser.management.uninstall(
 - `id`
   - : `string`. ID des zu deinstallierenden Add-ons.
 - `options` {{optional_inline}}
-  - : `object`. Objekt, das eine einzelne Eigenschaft enthalten kann, `showConfirmDialog`. Wenn `showConfirmDialog` `true` ist, zeigt der Browser ein Dialogfeld an, in dem der Benutzer gefragt wird, ob das Add-on deinstalliert werden soll.
+  - : `object`. Objekt, das eine einzige Eigenschaft enthalten kann, `showConfirmDialog`. Wenn `showConfirmDialog` `true` ist, zeigt der Browser einen Dialog an, in dem der Benutzer gefragt wird, ob das Add-on deinstalliert werden soll.
 
 <!---->
 
-- Wenn `id` die ID des aufrufenden Add-ons ist, ist `showConfirmDialog` standardmäßig `false`.
-- Wenn `id` die ID eines anderen Add-ons ist, wird die `showConfirmDialog`-Option ignoriert und das Bestätigungsdialogfeld wird immer angezeigt.
+- Wenn `id` die ID des aufrufenden Add-ons ist, wird `showConfirmDialog` standardmäßig auf `false` gesetzt.
+- Wenn `id` die ID eines anderen Add-ons ist, wird die Option `showConfirmDialog` ignoriert und der Bestätigungsdialog wird immer angezeigt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Fehlermeldung abgelehnt wird, wenn der Benutzer die Deinstallation abbricht.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Fehlermeldung abgelehnt wird, wenn der Benutzer die Deinstallation abgebrochen hat.
 
 ## Browser-Kompatibilität
 
@@ -44,9 +44,9 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Deinstallieren Sie das Add-on mit der ID "my-addon-id", wobei der Benutzer um Bestätigung gebeten wird. Im Callback wird überprüft, ob der Benutzer die Deinstallation abgebrochen hat.
+Deinstallieren Sie das Add-on, dessen ID "my-addon-id" ist, und fragen Sie den Benutzer um Bestätigung. Überprüfen Sie im Callback, ob der Benutzer die Deinstallation abgebrochen hat.
 
-Beachten Sie, dass wir keinen Erfüllungs-Handler übergeben haben, da das Add-on, wenn die Deinstallation erfolgreich ist, nicht mehr vorhanden ist, um es zu bearbeiten.
+Beachten Sie, dass wir keinen Erfüllungshandler übergeben haben, da, wenn die Deinstallation erfolgreich ist, das Add-on nicht mehr vorhanden ist, um es zu verarbeiten.
 
 ```js
 let id = "my-addon-id";
@@ -62,7 +62,7 @@ uninstalling.then(null, onCanceled);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-uninstall) API. Diese Dokumentation ist von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#method-uninstall) API von Chromium. Diese Dokumentation stammt aus [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

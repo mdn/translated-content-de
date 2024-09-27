@@ -8,8 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die schreibgeschützte Eigenschaft **`requestId`** des
-{{domxref("PaymentResponse")}}-Interfaces gibt die frei formatierbare Kennung zurück, die vom `PaymentResponse()`-Konstruktor durch details.id bereitgestellt wird.
+Die schreibgeschützte **`requestId`**-Eigenschaft des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Interfaces gibt die frei definierbare Kennung zurück, die vom `PaymentResponse()`-Konstruktor durch `details.id` bereitgestellt wird.
 
 ## Wert
 

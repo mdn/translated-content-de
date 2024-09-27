@@ -24,11 +24,11 @@ Math.abs(x)
 
 ### Rückgabewert
 
-Der Absolutwert von `x`. Wenn `x` negativ oder `-0` ist, wird seine gegenteilige Zahl `-x` zurückgegeben (die nicht negativ ist). Andernfalls wird `x` selbst zurückgegeben. Das Ergebnis ist daher immer eine positive Zahl oder `0`.
+Der Absolutwert von `x`. Wenn `x` negativ oder `-0` ist, gibt es die entgegengesetzte Zahl `-x` zurück (welche nicht negativ ist). Andernfalls gibt es `x` selbst zurück. Das Ergebnis ist daher immer eine positive Zahl oder `0`.
 
 ## Beschreibung
 
-Da `abs()` eine statische Methode von `Math` ist, wird sie immer als `Math.abs()` verwendet, und nicht als eine Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `abs()` eine statische Methode von `Math` ist, verwenden Sie sie stets als `Math.abs()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -43,9 +43,9 @@ Math.abs(1); // 1
 Math.abs(Infinity); // Infinity
 ```
 
-### Erzwungene Typumwandlung des Parameters
+### Zwangskonvertierung des Parameters
 
-`Math.abs()` [erzwingt eine Typumwandlung seines Parameters zu einer Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion). Nicht umwandelbare Werte werden zu `NaN`, sodass `Math.abs()` auch `NaN` zurückgibt.
+`Math.abs()` [konvertiert seinen Parameter in eine Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion). Nicht konvertierbare Werte werden zu `NaN`, und `Math.abs()` gibt ebenfalls `NaN` zurück.
 
 ```js
 Math.abs("-1"); // 1

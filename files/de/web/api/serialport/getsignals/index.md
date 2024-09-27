@@ -1,5 +1,5 @@
 ---
-title: "SerialPort: getSignals()-Methode"
+title: "SerialPort: getSignals() Methode"
 short-title: getSignals()
 slug: Web/API/SerialPort/getSignals
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{SecureContext_Header}}{{APIRef("Web Serial API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`SerialPort.getSignals()`**-Methode der {{domxref("SerialPort")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, das den aktuellen Zustand der Steuerungssignale des Ports enthält.
+Die **`SerialPort.getSignals()`**-Methode der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, welches den aktuellen Zustand der Steuerungssignale des Ports enthält.
 
 ## Syntax
 
@@ -22,22 +22,22 @@ Keine.
 
 ### Rückgabewert
 
-Gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, das die folgenden Mitglieder enthält:
+Gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, welches die folgenden Mitglieder enthält:
 
 - `clearToSend`
-  - : Ein Boolean-Wert, der dem anderen Ende einer seriellen Verbindung anzeigt, dass es bereit ist, Daten zu senden.
+  - : Ein boolescher Wert, der dem anderen Ende einer seriellen Verbindung anzeigt, dass es in Ordnung ist, Daten zu senden.
 - `dataCarrierDetect`
-  - : Ein Boolean-Wert, der das Steuerungssignal umschaltet, das für die Kommunikation über eine serielle Verbindung erforderlich ist.
+  - : Ein boolescher Wert, der das benötigte Steuersignal umschaltet, um über eine serielle Verbindung zu kommunizieren.
 - `dataSetReady`
-  - : Ein Boolean-Wert, der angibt, ob das Gerät bereit ist, Daten zu senden und zu empfangen.
+  - : Ein boolescher Wert, der anzeigt, ob das Gerät bereit ist, Daten zu senden und zu empfangen.
 - `ringIndicator`
-  - : Ein Boolean-Wert, der anzeigt, ob ein Klingelsignal über die serielle Verbindung gesendet werden soll.
+  - : Ein boolescher Wert, der anzeigt, ob ein Klingelsignal über die serielle Verbindung gesendet werden soll.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn der Port nicht geöffnet ist. Rufen Sie {{domxref("SerialPort.open()")}} auf, um diesen Fehler zu vermeiden.
-- `NetworkError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn der Port nicht geöffnet ist. Rufen Sie [`SerialPort.open()`](/de/docs/Web/API/SerialPort/open) auf, um diesen Fehler zu vermeiden.
+- `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn die Signale auf dem Gerät nicht gelesen werden konnten.
 
 ## Spezifikationen

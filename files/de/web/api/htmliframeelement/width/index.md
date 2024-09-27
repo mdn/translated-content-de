@@ -1,5 +1,5 @@
 ---
-title: "HTMLIFrameElement: width-Eigenschaft"
+title: "HTMLIFrameElement: width Eigenschaft"
 short-title: width
 slug: Web/API/HTMLIFrameElement/width
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`**-Eigenschaft der {{domxref("HTMLIFrameElement")}}-Schnittstelle gibt einen String zurück, der das `width`-Attribut des {{HTMLElement("iframe")}}-Elements widerspiegelt und die Breite des Rahmens in CSS-Pixeln angibt.
+Die **`width`** Eigenschaft der [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement) Schnittstelle gibt einen String zurück, der das `width` Attribut des {{HTMLElement("iframe")}} Elements widerspiegelt und die Breite des Rahmens in CSS-Pixeln angibt.
 
 ## Wert
 
@@ -22,7 +22,7 @@ Ein String, der die Breite des Rahmens in CSS-Pixeln angibt.
 
 ```js
 const el = document.getElementById("el");
-console.log(el.width); // Ausgabe: '800'
+console.log(el.width); // Output: '800'
 ```
 
 ## Spezifikationen
@@ -35,9 +35,9 @@ console.log(el.width); // Ausgabe: '800'
 
 ## Siehe auch
 
-- {{domxref("HTMLCanvasElement.width")}}
-- {{domxref("HTMLEmbedElement.width")}}
-- {{domxref("HTMLImageElement.width")}}
-- {{domxref("HTMLObjectElement.width")}}
-- {{domxref("HTMLSourceElement.width")}}
-- {{domxref("HTMLVideoElement.width")}}
+- [`HTMLCanvasElement.width`](/de/docs/Web/API/HTMLCanvasElement/width)
+- [`HTMLEmbedElement.width`](/de/docs/Web/API/HTMLEmbedElement/width)
+- [`HTMLImageElement.width`](/de/docs/Web/API/HTMLImageElement/width)
+- [`HTMLObjectElement.width`](/de/docs/Web/API/HTMLObjectElement/width)
+- [`HTMLSourceElement.width`](/de/docs/Web/API/HTMLSourceElement/width)
+- [`HTMLVideoElement.width`](/de/docs/Web/API/HTMLVideoElement/width)

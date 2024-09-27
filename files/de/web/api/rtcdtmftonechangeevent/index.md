@@ -7,29 +7,29 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCDTMFToneChangeEvent`**-Schnittstelle repräsentiert Ereignisse, die gesendet werden, um anzuzeigen, dass {{Glossary("DTMF")}}-Töne begonnen haben oder aufgehört haben zu spielen. Diese Schnittstelle wird vom [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event)-Ereignis verwendet.
+Die **`RTCDTMFToneChangeEvent`**-Schnittstelle repräsentiert Ereignisse, die anzeigen, dass [DTMF](/de/docs/Glossary/DTMF)-Töne begonnen haben oder fertig gespielt wurden. Diese Schnittstelle wird vom [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event)-Ereignis verwendet.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Neben den Eigenschaften von {{domxref("Event")}} bietet diese Schnittstelle Folgendes:_
+_Neben den Eigenschaften von [`Event`](/de/docs/Web/API/Event) bietet diese Schnittstelle folgende:_
 
-- {{domxref("RTCDTMFToneChangeEvent.tone")}} {{ReadOnlyInline}}
-  - : Ein String, der den Ton angibt, der zu spielen begonnen hat, oder ein leerer String (`""`), wenn der vorherige Ton aufgehört hat zu spielen.
+- [`RTCDTMFToneChangeEvent.tone`](/de/docs/Web/API/RTCDTMFToneChangeEvent/tone) {{ReadOnlyInline}}
+  - : Ein String, der den Ton angibt, der begonnen hat zu spielen, oder ein leerer String (`""`), wenn der vorherige Ton beendet wurde.
 
 ## Konstruktoren
 
-- {{domxref("RTCDTMFToneChangeEvent.RTCDTMFToneChangeEvent()", "RTCDTMFToneChangeEvent()")}}
-  - : Gibt ein neues `RTCDTMFToneChangeEvent` zurück. Es nimmt zwei Parameter, der erste ist ein String, der den Typ des Ereignisses repräsentiert (immer `"tonechange"`); der zweite ist ein Wörterbuch, das den Anfangszustand der Eigenschaften des Ereignisses enthält.
+- [`RTCDTMFToneChangeEvent()`](/de/docs/Web/API/RTCDTMFToneChangeEvent/RTCDTMFToneChangeEvent)
+  - : Gibt ein neues `RTCDTMFToneChangeEvent` zurück. Es nimmt zwei Parameter: der erste ist ein String, der den Typ des Ereignisses darstellt (immer `"tonechange"`); der zweite ist ein Dictionary, das den anfänglichen Zustand der Eigenschaften des Ereignisses enthält.
 
 ## Instanz-Methoden
 
-_Unterstützt die in {{domxref("Event")}} definierten Methoden. Es gibt keine zusätzlichen Methoden._
+_Unterstützt die in [`Event`](/de/docs/Web/API/Event) definierten Methoden. Es gibt keine zusätzlichen Methoden._
 
 ## Beispiele
 
-Dieses Snippet ist lose abgeleitet von dem vollständigen, funktionierenden Beispiel, das Sie im Abschnitt [Wenn ein Ton das Abspielen beendet hat](/de/docs/Web/API/WebRTC_API/Using_DTMF#when_a_tone_finishes_playing) finden. Es fügt jeden Ton zu einem Anzeigefeld hinzu, sobald er gespielt wird, und aktiviert, nachdem alle Töne gesendet wurden, eine zuvor deaktivierte "Senden"-Schaltfläche wieder, sodass die nächste DMTF-Zeichenfolge eingegeben werden kann.
+Dieses Snippet ist locker von dem vollständigen, funktionierenden Beispiel abgeleitet, das Sie im Abschnitt [Wenn ein Ton fertig gespielt ist](/de/docs/Web/API/WebRTC_API/Using_DTMF#when_a_tone_finishes_playing) finden. Es fügt jeden Ton zu einer Anzeige hinzu, während er gespielt wird, und sobald alle Töne gesendet wurden, wird eine zuvor deaktivierte "Senden"-Taste wieder aktiviert, sodass der nächste DMTF-String eingegeben werden kann.
 
 ```js
 dtmfSender.addEventListener(
@@ -56,4 +56,4 @@ dtmfSender.addEventListener(
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- Üblicher Zielort: {{domxref("RTCDTMFSender")}}.
+- Sein üblicher Ziel: [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender).

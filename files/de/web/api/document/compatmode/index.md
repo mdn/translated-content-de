@@ -3,28 +3,28 @@ title: "Document: compatMode-Eigenschaft"
 short-title: compatMode
 slug: Web/API/Document/compatMode
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{ ApiRef("DOM") }}
 
-Die **`Document.compatMode`** schreibgeschützte Eigenschaft gibt an, ob das Dokument im [Quirks-Modus](/de/docs/Web/HTML/Quirks_Mode_and_Standards_Mode) oder im Standardsmodus gerendert wird.
+Die schreibgeschützte **`Document.compatMode`**-Eigenschaft zeigt an, ob das Dokument im [Quirks-Modus](/de/docs/Web/HTML/Quirks_Mode_and_Standards_Mode) oder im Standards-Modus gerendert wird.
 
 ## Wert
 
-Ein enumerierter Wert, der sein kann:
+Ein String, der einer der folgenden ist:
 
-- "`BackCompat`", wenn das Dokument im Quirks-Modus ist.
-- "`CSS1Compat`", wenn das Dokument im No-Quirks-Modus (auch bekannt als "Standards") oder im eingeschränkten Quirks-Modus (auch bekannt als "Fast-Standards") ist.
+- `"BackCompat"`, wenn sich das Dokument im Quirks-Modus befindet.
+- `"CSS1Compat"`, wenn sich das Dokument im No-Quirks-Modus (auch bekannt als "Standards") oder im Limited-Quirks-Modus (auch bekannt als "Almost Standards") befindet.
 
 > [!NOTE]
-> Alle diese Modi sind jetzt standardisiert, daher sind die älteren Bezeichnungen "Standards" und "Fast-Standards" unsinnig und werden in Standards nicht mehr verwendet.
+> All diese Modi sind nun standardisiert, daher sind die älteren Bezeichnungen "Standards" und "Almost Standards" unsinnig und werden in Standards nicht mehr verwendet.
 
 ## Beispiele
 
 ```js
 if (document.compatMode === "BackCompat") {
-  // im Quirks-Modus
+  // in Quirks mode
 }
 ```
 
@@ -32,6 +32,6 @@ if (document.compatMode === "BackCompat") {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -7,13 +7,13 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das globale `aria-description` Attribut definiert einen Zeichenfolgenwert, der das aktuelle Element beschreibt oder kommentiert.
+Das globale `aria-description`-Attribut definiert einen Zeichenfolgewert, der das aktuelle Element beschreibt oder kommentiert.
 
-> **Note:** `aria-description` befindet sich noch im W3C Editor's Draft für ARIA 1.3. Verwenden Sie bis auf Weiteres [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby), das seit ARIA 1.1 unterstützt wird.
+> **Note:** `aria-description` befindet sich noch im W3C Editor's Draft für ARIA 1.3. Verwenden Sie vorerst weiterhin [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby), das seit ARIA 1.1 unterstützt wird.
 
 ## Beschreibung
 
-Das globale `aria-description` Attribut bietet Entwicklern eine Möglichkeit, das aktuelle Element zu beschreiben oder zu kommentieren und bietet somit mehr Kontext für Benutzer von unterstützenden Technologien.
+Das globale `aria-description`-Attribut bietet Entwicklern eine Möglichkeit, das aktuelle Element zu beschreiben oder zu kommentieren und Benutzern von unterstützender Technologie einen größeren Kontext bereitzustellen.
 
 ```html
 <div
@@ -25,27 +25,27 @@ Das globale `aria-description` Attribut bietet Entwicklern eine Möglichkeit, da
 </div>
 ```
 
-Das `aria-description` Attribut ist ähnlich wie [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label), da beide dem Element eine Textzeichenfolge zuordnen. Ein Label sollte jedoch kurz und prägnant sein, während die Beschreibung länger sein kann, da sie mehr Kontext und Informationen bieten soll.
+Das `aria-description`-Attribut ähnelt [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) darin, dass beide eine Textzeichenfolge zur Verfügung stellen, die mit dem Element verknüpft werden soll. Ein Label sollte jedoch kurz und prägnant sein, während die Beschreibung länger sein kann, da sie mehr Kontext und Informationen bieten soll.
 
-Die Eigenschaften `aria-description` und `aria-describedby` verfolgen denselben Zweck; beide bieten dem Nutzer zusätzlichen beschreibenden Text für das Objekt, auf dem sie gesetzt sind. Wenn beschreibender Text im DOM verfügbar ist, verwenden Sie stattdessen [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby).
+Die Eigenschaften `aria-description` und `aria-describedby` haben denselben Zweck; beide bieten dem Benutzer zusätzlichen beschreibenden Text für das Objekt, auf dem sie gesetzt sind. Wenn beschreibender Text im DOM verfügbar ist, verwenden Sie stattdessen [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby).
 
-Die Eigenschaft `aria-description` sollte nur verwendet werden, wenn eine sichtbare Beschreibung nicht das gewünschte Benutzererlebnis darstellt. Das `aria-describedby` Attribut nimmt als Wert eine Liste von `id`s der Elemente, die beschreibenden Text über das Objekt enthalten. Das `aria-description` wird verwendet, wenn kein geeigneter beschreibender Text vorhanden ist, der durch `id`-Referenz mit dem Objekt verknüpft werden kann. Wenn beide Attribute vorhanden sind, hat `aria-describedby` Vorrang bei der Definition der {{glossary("accessible description")}}-Eigenschaft.
+Die Eigenschaft `aria-description` sollte nur verwendet werden, wenn es nicht das gewünschte Benutzererlebnis ist, eine sichtbare Beschreibung bereitzustellen. Das `aria-describedby`-Attribut nimmt als Wert eine Liste von `id`s der Elemente, die beschreibenden Text über das Objekt enthalten. Die `aria-description` wird verwendet, wenn es keinen geeigneten beschreibenden Text gibt, der dem Objekt per `id`-Referenz zugeordnet werden kann. Wenn beide Attribute vorhanden sind, hat `aria-describedby` Vorrang bei der Definition der [zugänglichen Beschreibung](/de/docs/Glossary/accessible_description) Eigenschaft.
 
-Der Inhalt der Beschreibung, ob festgelegt durch `aria-description` oder `aria-describedby`, sollte flacher Text sein. Wenn der Inhalt sehr lang ist, semantische Bedeutungsanforderungen hat oder eine Navigationsstruktur hat, verwenden Sie stattdessen [`aria-details`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-details).
+Der Inhalt der Beschreibung, ob durch `aria-description` oder `aria-describedby` festgelegt, sollte flacher Text sein. Wenn der Inhalt sehr lang ist, semantische Bedeutungsanforderungen hat oder eine Navigationsstruktur aufweist, verwenden Sie stattdessen [`aria-details`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-details).
 
 ## Werte
 
 - `<string>`
-  - : Der Wert ist eine Zeichenfolge, ein unbeschränkter Werttyp, der dem Benutzer von unterstützenden Technologien übermittelt werden soll.
+  - : Der Wert ist eine Zeichenfolge, ein unbeschränkter Werttyp, der dem Benutzer von unterstützender Technologie vermittelt werden soll.
 
 ## Zugehörige Schnittstellen
 
-- {{domxref("Element.ariaDescription")}}
-  - : Die [`ariaDescription`](/de/docs/Web/API/Element/ariaDescription) Eigenschaft, Teil der {{domxref("Element")}} Schnittstelle, spiegelt den Wert des `aria-description` Attributs wider, das eine Zeichenfolge definiert, die das aktuelle Element beschreibt oder kommentiert.
+- [`Element.ariaDescription`](/de/docs/Web/API/Element/ariaDescription)
+  - : Die [`ariaDescription`](/de/docs/Web/API/Element/ariaDescription)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-description`-Attributs wider, der einen Zeichenfolgewert definiert, der das aktuelle Element beschreibt oder kommentiert.
 
 ## Zugehörige Rollen
 
-Verwendet in **ALLEN** Rollen.
+Wird in **ALLE** Rollen verwendet.
 
 ## Spezifikationen
 
@@ -53,6 +53,6 @@ Verwendet in **ALLEN** Rollen.
 
 ## Siehe auch
 
-- [HTML `title` Attribut](/de/docs/Web/HTML/Global_attributes/title)
+- [HTML `title`-Attribut](/de/docs/Web/HTML/Global_attributes/title)
 - [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby)
 - [`aria-details`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-details)

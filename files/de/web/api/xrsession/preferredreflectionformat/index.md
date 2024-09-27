@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`preferredReflectionFormat`**-Eigenschaft der {{DOMxRef("XRSession")}}-Schnittstelle gibt das bevorzugte Reflexionsformat dieser Sitzung zurück, das für Lichtschätzungs-Texturdaten verwendet wird.
+Die _schreibgeschützte_ **`preferredReflectionFormat`**-Eigenschaft des [`XRSession`](/de/docs/Web/API/XRSession)-Interfaces gibt das bevorzugte Reflexionsformat dieser Sitzung zurück, das für die Texturdaten zur Beleuchtungsschätzung verwendet wird.
 
 ## Wert
 
 Ein String, der das Reflexionsformat darstellt. Mögliche Werte:
 
-| XRReflectionFormat | WebGL-Format | WebGL-Internes Format | WebGPU-Format     | HDR |
+| XRReflectionFormat | WebGL Format | WebGL Internal Format | WebGPU Format     | HDR |
 | ------------------ | ------------ | --------------------- | ----------------- | --- |
 | "srgba8"           | RGBA         | SRGB8_ALPHA8          | "rgba8unorm-srgb" |     |
 | "rgba16f"          | RGBA         | RGBA16F               | "rgba16float"     | ✓   |
@@ -23,7 +23,7 @@ Ein String, der das Reflexionsformat darstellt. Mögliche Werte:
 
 ### Anfordern einer Lichtsonde mit dem bevorzugten Format des Systems
 
-Sie können eine Lichtsonde mit {{domxref("XRSession.requestLightProbe()")}} anfordern und das bevorzugte Format des Systems angeben, indem Sie die `reflectionFormat`-Option auf `XRSession.preferredReflectionFormat` setzen.
+Sie können eine Lichtsonde mit [`XRSession.requestLightProbe()`](/de/docs/Web/API/XRSession/requestLightProbe) anfordern und das bevorzugte Format des Systems festlegen, indem Sie die `reflectionFormat`-Option gleich `XRSession.preferredReflectionFormat` setzen.
 
 ```js
 const lightProbe = await xrSession.requestLightProbe({
@@ -41,4 +41,4 @@ const lightProbe = await xrSession.requestLightProbe({
 
 ## Siehe auch
 
-- {{domxref("XRSession.requestLightProbe()")}}
+- [`XRSession.requestLightProbe()`](/de/docs/Web/API/XRSession/requestLightProbe)

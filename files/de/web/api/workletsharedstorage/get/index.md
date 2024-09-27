@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`get()`**-Methode der {{domxref("WorkletSharedStorage")}}-Schnittstelle ruft einen Wert aus dem geteilten Speicher ab.
+Die **`get()`**-Methode der [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Schnittstelle ruft einen Wert aus dem gemeinsamen Speicher ab.
 
 ## Syntax
 
@@ -23,21 +23,21 @@ get(key)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem String erfüllt wird, der dem Wert des abgerufenen Schlüssel-Wert-Paares entspricht, oder `undefined`, wenn der angegebene `key` im geteilten Speicher nicht gefunden wird.
+Ein {{jsxref("Promise")}}, das entweder mit einem String erfüllt wird, der dem Wert des abgerufenen Schlüssel-Wert-Paares entspricht, oder mit `undefined`, wenn der angegebene `key` nicht im gemeinsamen Speicher gefunden wird.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn:
-    - Das Worklet-Modul noch nicht mit {{domxref("Worklet.addModule", "addModule()")}} hinzugefügt wurde.
+    - Das Worklet-Modul noch nicht mit [`addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde.
     - `key` die vom Browser definierte maximale Länge überschreitet.
-    - Die aufrufende Seite die Shared Storage API nicht in einem erfolgreichen [Privacy Sandbox Enrollment-Prozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) aufgenommen hat.
+    - Die aufrufende Seite die Shared Storage API nicht in einem erfolgreichen [Privacy Sandbox Registrierungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) eingeschlossen hat.
 
 ## Beispiele
 
-### Messung der K+-Frequenz
+### Messen der K+-Frequenz
 
-Das folgende Beispiel misst die K+-Frequenz von Inhaltsansichten. Manchmal als "effektive Frequenz" beschrieben, bezeichnet die K-Frequenz die minimale Anzahl von Ansichten, bevor ein Benutzer bestimmte Inhalte erkennt oder sich daran erinnert (häufig im Kontext von Anzeigenansichten verwendet).
+Das folgende Beispiel misst die K+-Frequenz von Inhaltsaufrufen. Manchmal als "effektive Frequenz" beschrieben, bezieht sich die K-Frequenz auf die Mindestanzahl von Ansichten, bevor ein Benutzer bestimmte Inhalte erkennen oder sich daran erinnern kann (oft im Kontext von Anzeigenansichten verwendet).
 
 Das Hauptseitenskript:
 
@@ -45,10 +45,10 @@ Das Hauptseitenskript:
 // k-frequency-measurement.js
 
 async function injectContent() {
-  // Das Shared Storage Worklet laden
+  // Load the Shared Storage worklet
   await window.sharedStorage.worklet.addModule('k-freq-measurement-worklet.js');
 
-  // Die K-Frequenz-Messoperation ausführen
+  // Run the K-frequency measurement operation
   await window.sharedStorage.run('k-freq-measurement', { data: { kFreq: 3, contentId: 123 });
 }
 
@@ -60,13 +60,13 @@ Das Worklet-Modul wird unten gezeigt:
 ```js
 // k-frequency-measurement-worklet.js
 
-// Skalierungsfaktor zum Umgang mit Rauschen, das den Daten hinzugefügt wird
+// Scale factor for handling noise added to data
 const SCALE_FACTOR = 65536;
 
 /**
- * Der Bucket-Schlüssel muss eine Zahl sein, und in diesem Fall ist er 
- * einfach die Inhalts-ID selbst. Für komplexere Bucket-Schlüsselkonstruktionen
- * siehe andere Anwendungsfälle in diesem Demo.
+ * The bucket key must be a number, and in this case, it is simply the content
+ * ID itself. For more complex bucket key construction, see other use cases in
+ * this demo.
  */
 function convertContentIdToBucket(contentId) {
   return BigInt(contentId);
@@ -76,7 +76,7 @@ class KFreqMeasurementOperation {
   async run(data) {
     const { kFreq, contentId } = data;
 
-    // Aus dem geteilten Speicher lesen
+    // Read from Shared Storage
     const hasReportedContentKey = "has-reported-content";
     const impressionCountKey = "impression-count";
     const hasReportedContent =
@@ -85,34 +85,34 @@ class KFreqMeasurementOperation {
       (await this.sharedStorage.get(impressionCountKey)) || 0,
     );
 
-    // Nicht berichten, wenn ein Bericht bereits gesendet wurde
+    // Do not report if a report has been sent already
     if (hasReportedContent) {
       return;
     }
 
-    // Impressionenanzahl gegen Frequenzgrenze überprüfen
+    // Check impression count against frequency limit
     if (impressionCount < kFreq) {
       await this.sharedStorage.set(impressionCountKey, impressionCount + 1);
       return;
     }
 
-    // Den Aggregationsschlüssel und den aggregierbaren Wert generieren
+    // Generate the aggregation key and the aggregatable value
     const bucket = convertContentIdToBucket(contentId);
     const value = 1 * SCALE_FACTOR;
 
-    // Einen aggregierbaren Bericht über die Private Aggregation API senden
+    // Send an aggregatable report via the Private Aggregation API
     privateAggregation.sendHistogramReport({ bucket, value });
 
-    // Den Berichtsübermittlungsstatus setzen
+    // Set the report submission status flag
     await this.sharedStorage.set(hasReportedContentKey, "true");
   }
 }
 
-// Die Operation registrieren
+// Register the operation
 register("k-freq-measurement", KFreqMeasurementOperation);
 ```
 
-Für weitere Details zu diesem Beispiel siehe [K+-Frequenzmessung](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/k-freq-reach). Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Seite für Links zu weiteren Beispielen.
+Weitere Details zu diesem Beispiel finden Sie unter [K+-Frequenzmessung](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/k-freq-reach). Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Starseite für Links zu weiteren Beispielen.
 
 ## Spezifikationen
 
@@ -125,4 +125,4 @@ Für weitere Details zu diesem Beispiel siehe [K+-Frequenzmessung](https://devel
 ## Siehe auch
 
 - [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)
-- [Rauschen und Skalierung](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/fundamentals#noise_and_scaling) auf developers.google.com (2023)
+- [Noise und Skalierung](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/fundamentals#noise_and_scaling) auf developers.google.com (2023)

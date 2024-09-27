@@ -7,12 +7,12 @@ l10n:
 
 {{SVGRef}}
 
-Das **`alignment-baseline`** Attribut legt fest, wie ein Objekt im Verhältnis zu seinem übergeordneten Element ausgerichtet wird. Diese Eigenschaft gibt an, welche Basislinie dieses Elements mit der entsprechenden Basislinie des übergeordneten Elements ausgerichtet werden soll. Zum Beispiel ermöglicht dies, dass die alphabetischen Basislinien im römischen Text bei Änderungen der Schriftgröße ausgerichtet bleiben. Standardmäßig wird die Basislinie mit demselben Namen wie der berechnete Wert der `alignment-baseline` Eigenschaft verwendet.
+Das **`alignment-baseline`** Attribut legt fest, wie ein Objekt in Bezug auf sein übergeordnetes Element ausgerichtet wird. Diese Eigenschaft legt fest, welche Grundlinie dieses Elements mit der entsprechenden Grundlinie des übergeordneten Elements ausgerichtet werden soll. Zum Beispiel ermöglicht dies, dass alphabetische Grundlinien in römischem Text über Änderungen der Schriftgröße hinweg ausgerichtet bleiben. Standardmäßig wird die Grundlinie mit dem gleichen Namen wie der berechnete Wert der `alignment-baseline` Eigenschaft verwendet.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `alignment-baseline` als eine CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut kann `alignment-baseline` als CSS-Eigenschaft verwendet werden.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("tspan")}}
 - {{SVGElement("text")}}
@@ -46,51 +46,51 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `auto` {{deprecated_inline}}
-  - : Der Wert ist die dominierende Basislinie des Skripts, zu dem das Zeichen gehört - d.h. verwenden Sie die dominierende Basislinie des übergeordneten Elements.
+  - : Der Wert ist die dominante Grundlinie des Skripts, zu dem das Zeichen gehört - d. h. verwenden Sie die dominante Grundlinie des Elternteils.
 - `baseline`
-  - : Nutzt die {{Glossary("dominant baseline")}} Wahl des übergeordneten Elements. Passt die entsprechende {{Glossary("baseline/typography", "Basislinie")}} der Box der des übergeordneten Elements an.
+  - : Verwendet die Auswahl der [dominanten Grundlinie](/de/docs/Glossary/dominant_baseline) des übergeordneten Elements. Passt die entsprechende [Grundlinie](/de/docs/Glossary/baseline/typography) des Rahmens an die seines Elternteils an.
 - `before-edge` {{deprecated_inline}}
-  - : Der Ausrichtungspunkt des Objekts wird mit der "before-edge"-Basislinie des übergeordneten Textinhalts-Elements ausgerichtet.
+  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "before-edge" Grundlinie des übergeordneten Textelementes ausgerichtet.
 - `text-bottom`
-  - : Passt den unteren Bereich der Box an den oberen Bereich des Inhaltsbereichs des übergeordneten Elements an.
+  - : Passt den unteren Rand des Rahmens an den oberen Rand des Inhaltsbereichs des Elternteils an.
 - `text-before-edge`
 
-  - : Der Ausrichtungspunkt des Objekts wird mit der "text-before-edge"-Basislinie des übergeordneten Textinhalts-Elements ausgerichtet.
+  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "text-before-edge" Grundlinie des übergeordneten Textelementes ausgerichtet.
 
     > [!NOTE]
-    > Dieses Schlüsselwort kann auf `text-top` abgebildet werden.
+    > Dieses Schlüsselwort kann `text-top` zugeordnet werden.
 
 - `middle`
-  - : Richtet den vertikalen Mittelpunkt der Box an der Basislinie der übergeordneten Box plus die Hälfte der x-Höhe des übergeordneten Elements aus.
+  - : Richtet den vertikalen Mittelpunkt des Rahmens mit der Basislinie des übergeordneten Rahmens plus Hälfte der x-Höhe des Elternteils aus.
 - `central`
-  - : Passt die zentrale Basislinie der Box an die zentrale Basislinie ihres übergeordneten Elements an.
+  - : Passt die zentrale Grundlinie des Rahmens an die zentrale Grundlinie seines Elternteils an.
 - `after-edge` {{deprecated_inline}}
-  - : Der Ausrichtungspunkt des Objekts wird mit der "after-edge"-Basislinie des übergeordneten Textinhalts-Elements ausgerichtet.
+  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "after-edge" Grundlinie des übergeordneten Textelementes ausgerichtet.
 - `text-top`
-  - : Passt den oberen Bereich der Box an den oberen Bereich des Inhaltsbereichs des übergeordneten Elements an.
+  - : Passt den oberen Rand des Rahmens an den oberen Rand des Inhaltsbereichs des Elternteils an.
 - `text-after-edge`
 
-  - : Der Ausrichtungspunkt des Objekts wird mit der "text-after-edge"-Basislinie des übergeordneten Textinhalts-Elements ausgerichtet.
+  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "text-after-edge" Grundlinie des übergeordneten Textelementes ausgerichtet.
 
     > [!NOTE]
-    > Dieses Schlüsselwort kann auf `text-bottom` abgebildet werden.
+    > Dieses Schlüsselwort kann `text-bottom` zugeordnet werden.
 
 - `ideographic`
-  - : Passt die ideografische Zeichenflächen-Unterseiten-Basislinie der Box an die ihres übergeordneten Elements an.
+  - : Passt die ideografische Zeichenfläche des Rahmens an die des Elternteils an.
 - `alphabetic`
-  - : Passt die alphabetische Basislinie der Box an die ihres übergeordneten Elements an.
+  - : Passt die alphabetische Grundlinie des Rahmens an die des Elternteils an.
 - `hanging`
-  - : Der Ausrichtungspunkt des Objekts wird mit der "hanging"-Basislinie des übergeordneten Textinhalts-Elements ausgerichtet.
+  - : Der Ausrichtungspunkt des auszurichtenden Objekts wird mit der "hanging" Grundlinie des übergeordneten Textelementes ausgerichtet.
 - `mathematical`
-  - : Passt die mathematische Basislinie der Box an die ihres übergeordneten Elements an.
+  - : Passt die mathematische Grundlinie des Rahmens an die des Elternteils an.
 - `top`
-  - : Richtet den oberen Bereich des ausgerichteten Teilbaums an der oberen Linie der Box aus.
+  - : Richtet den oberen Rand des ausgerichteten Teilbaums mit dem oberen Rand des Linienrahmens aus.
 - `center`
-  - : Richtet den mittleren Bereich des ausgerichteten Teilbaums an der Mitte der Linienbox aus.
+  - : Richtet das Zentrum des ausgerichteten Teilbaums mit dem Zentrum des Linienrahmens aus.
 - `bottom`
-  - : Richtet den unteren Bereich des ausgerichteten Teilbaums am unteren Ende der Linienbox aus.
+  - : Richtet den unteren Rand des ausgerichteten Teilbaums mit dem unteren Rand des Linienrahmens aus.
 
-SVG 2 führt einige Änderungen in der Definition dieser Eigenschaft ein. Insbesondere: die Werte `auto`, `before-edge` und `after-edge` wurden entfernt. Für die Rückwärtskompatibilität kann `text-before-edge` auf `text-top` und `text-after-edge` auf `text-bottom` abgebildet werden. Weder `text-before-edge` noch `text-after-edge` sollten mit der {{cssxref("vertical-align")}} Eigenschaft verwendet werden.
+SVG 2 führt einige Änderungen an der Definition dieser Eigenschaft ein. Insbesondere: Die Werte `auto`, `before-edge` und `after-edge` wurden entfernt. Aus Gründen der Rückwärtskompatibilität kann `text-before-edge` `text-top` und `text-after-edge` `text-bottom` zugeordnet werden. Weder `text-before-edge` noch `text-after-edge` sollten mit der {{cssxref("vertical-align")}} Eigenschaft verwendet werden.
 
 ## Beispiel
 
@@ -100,7 +100,7 @@ SVG 2 führt einige Änderungen in der Definition dieser Eigenschaft ein. Insbes
   height="120"
   viewBox="0 0 300 120"
   xmlns="http://www.w3.org/2000/svg">
-  <!-- Darstellung der Ankerpunkte -->
+  <!-- Materialization of anchors -->
   <path
     d="M60,10 L60,110
               M30,10 L300,10
@@ -109,14 +109,14 @@ SVG 2 führt einige Änderungen in der Definition dieser Eigenschaft ein. Insbes
               "
     stroke="grey" />
 
-  <!-- Ankerpunkte in Aktion -->
+  <!-- Anchors in action -->
   <text alignment-baseline="hanging" x="60" y="10">A hanging</text>
 
   <text alignment-baseline="middle" x="60" y="65">A middle</text>
 
   <text alignment-baseline="baseline" x="60" y="110">A baseline</text>
 
-  <!-- Darstellung der Ankerpunkte -->
+  <!-- Materialization of anchors -->
   <circle cx="60" cy="10" r="3" fill="red" />
   <circle cx="60" cy="65" r="3" fill="red" />
   <circle cx="60" cy="110" r="3" fill="red" />

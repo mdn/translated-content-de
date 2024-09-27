@@ -8,33 +8,32 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `Q`-Eigenschaft der {{ domxref("BiquadFilterNode") }}-Schnittstelle ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) {{domxref("AudioParam")}}, ein Double, das einen [Q-Faktor](https://en.wikipedia.org/wiki/Q_factor) oder Qualitätsfaktor darstellt.
+Die `Q`-Eigenschaft des [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) Interfaces ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), ein Double, das einen [Q-Faktor](https://en.wikipedia.org/wiki/Q_factor), oder _Gütefaktor_, darstellt.
 
 Es handelt sich um einen dimensionslosen Wert mit einem Standardwert von `1` und einem nominalen Bereich von `0.0001` bis `1000`.
 
 ## Wert
 
-Ein {{domxref("AudioParam")}}.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam).
 
 > [!NOTE]
-> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es darstellt, dies nicht.
+> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es darstellt, nicht schreibgeschützt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines Biquad-Filterknotens.
-Für vollständigere Anwendungsbeispiele/Informationen, sehen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic)-Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines Biquad-Filterknotens. Für vollständigere umgesetzte Beispiele/Informationen schauen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
 
 ```js
 const audioCtx = new AudioContext();
 
-// Richten Sie die verschiedenen Audio-Knoten ein, die wir für die App verwenden werden
+//set up the different audio nodes we will use for the app
 const analyser = audioCtx.createAnalyser();
 const distortion = audioCtx.createWaveShaper();
 const gainNode = audioCtx.createGain();
 const biquadFilter = audioCtx.createBiquadFilter();
 const convolver = audioCtx.createConvolver();
 
-// Verbinden Sie die Knoten miteinander
+// connect the nodes together
 
 source = audioCtx.createMediaStreamSource(stream);
 source.connect(analyser);
@@ -44,7 +43,7 @@ biquadFilter.connect(convolver);
 convolver.connect(gainNode);
 gainNode.connect(audioCtx.destination);
 
-// Manipulieren Sie den Biquad-Filter
+// Manipulate the Biquad filter
 
 biquadFilter.type = "lowshelf";
 biquadFilter.frequency.value = 1000;
@@ -66,4 +65,4 @@ biquadFilter.gain.value = 25;
 
 ## Siehe auch
 
-- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwendung des Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

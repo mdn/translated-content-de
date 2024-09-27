@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Legt den Badgetext für die Browser-Aktion fest. Das Badge wird über dem Symbol angezeigt.
+Legt den Abzeichen-Text für die Browser-Aktion fest. Das Abzeichen wird über dem Symbol angezeigt.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
 
-Tabs ohne spezifischen Badgetext erben den globalen Badgetext, der standardmäßig `""` ist.
+Tabs ohne einen bestimmten Abzeichen-Text erben den globalen Abzeichen-Text, der standardmäßig `""` ist.
 
 ## Syntax
 
@@ -32,27 +32,27 @@ Diese API ist auch als `chrome.action.setBadgeText()` verfügbar.
 
     - `text`
 
-      - : `string` oder `null`. Es können beliebig viele Zeichen übergeben werden, jedoch passen nur etwa vier in den verfügbaren Platz.
+      - : `string` oder `null`. Es können beliebig viele Zeichen übergeben werden, aber nur etwa vier passen in den Platz.
 
-        Verwenden Sie einen leeren String - `""` - wenn Sie kein Badge wünschen.
+        Verwenden Sie eine leere Zeichenkette - `""` - wenn Sie kein Abzeichen möchten.
 
-        Wenn eine `tabId` angegeben ist, entfernt `null` den tab-spezifischen Badgetext, sodass der Tab den globalen Badgetext erbt. Andernfalls wird der globale Badgetext auf `""` zurückgesetzt.
+        Wenn eine `tabId` angegeben ist, entfernt `null` den tabspezifischen Abzeichen-Text, sodass der Tab den globalen Abzeichen-Text erbt. Andernfalls setzt es den globalen Abzeichen-Text auf `""` zurück.
 
-        Wenn eine `windowId` angegeben ist, entfernt `null` den fensterspezifischen Badgetext, sodass der Tab den globalen Badgetext erbt. Andernfalls wird der globale Badgetext auf `""` zurückgesetzt.
+        Wenn eine `windowId` angegeben ist, entfernt `null` den fensterspezifischen Abzeichen-Text, sodass der Tab den globalen Abzeichen-Text erbt. Andernfalls setzt es den globalen Abzeichen-Text auf `""` zurück.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Setzt den Badgetext nur für den angegebenen Tab. Der Text wird zurückgesetzt, wenn der Benutzer diesen Tab auf eine neue Seite navigiert.
+      - : `integer`. Setzt den Abzeichen-Text nur für den angegebenen Tab. Der Text wird zurückgesetzt, wenn der Benutzer diesen Tab auf eine neue Seite navigiert.
     - `windowId` {{optional_inline}}
-      - : `integer`. Setzt den Badgetext für das angegebene Fenster.
+      - : `integer`. Setzt den Abzeichen-Text für das angegebene Fenster.
 
 <!---->
 
-- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl.
-- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird das globale Badge gesetzt.
+- Wenn `windowId` und `tabId` beide angegeben sind, schlägt die Funktion fehl.
+- Wenn `windowId` und `tabId` beide weggelassen werden, wird das globale Abzeichen gesetzt.
 
 ## Beispiele
 
-Fügen Sie ein Badge hinzu, das anzeigt, wie oft der Benutzer den Button geklickt hat:
+Fügen Sie ein Abzeichen hinzu, das anzeigt, wie oft der Benutzer die Schaltfläche geklickt hat:
 
 ```js
 let clicks = 0;
@@ -71,7 +71,7 @@ browser.action.onClicked.addListener(increment);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-setBadgeText) API von Chromium. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-setBadgeText). Diese Dokumentation leitet sich von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

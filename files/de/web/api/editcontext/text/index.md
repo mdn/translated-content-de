@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`text`**-Eigenschaft des {{domxref("EditContext")}}-Interfaces ist eine schreibgeschützte Eigenschaft, die den bearbeitbaren Inhalt des Elements darstellt.
+Die schreibgeschützte **`text`**-Eigenschaft des [`EditContext`](/de/docs/Web/API/EditContext)-Interfaces repräsentiert den bearbeitbaren Inhalt des Elements.
 
 ## Wert
 
-Ein String, der den aktuellen bearbeitbaren Inhalt des an das `EditContext`-Objekt gebundenen Elements enthält. Der anfängliche Wert ist der leere String.
+Ein String, der den aktuellen bearbeitbaren Inhalt des Elements enthält, das mit dem `EditContext`-Objekt verbunden ist. Sein Anfangswert ist der leere String.
 
-Dieser String kann dem Wert der {{domxref("Node.textContent", "textContent")}}-Eigenschaft des dem `EditContext` zugeordneten DOM-Elements entsprechen oder nicht. Das zugeordnete Element könnte zum Beispiel ein `<canvas>`-Element sein, das keine `textContent`-Eigenschaft hat. Oder das zugeordnete Element könnte ein `<div>`-Element sein, das Text enthält, der sich von dem `EditContext.text`-Wert unterscheidet, um ein fortgeschritteneres Rendering vorzunehmen.
+Dieser String kann mit dem Wert der [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft des DOM-Elements, das mit dem `EditContext` assoziiert ist, übereinstimmen oder auch nicht. Das assoziierte Element könnte zum Beispiel ein `<canvas>`-Element sein, das keine `textContent`-Eigenschaft besitzt. Oder das assoziierte Element könnte ein `<div>`-Element sein, das Text enthält, der sich vom `EditContext.text`-Wert unterscheidet, für eine erweiterte Darstellung.
 
-Die `text`-Eigenschaft des `EditContext`-Objekts kann als Modell für den bearbeitbaren Textbereich verwendet werden. Andere Eigenschaften des `EditContext`-Objekts, wie `selectionStart` und `selectionEnd`, beziehen sich auf Offsets innerhalb des `text`-Strings.
+Die `text`-Eigenschaft des `EditContext`-Objekts kann als Modell für den bearbeitbaren Textbereich verwendet werden. Andere Eigenschaften des `EditContext`-Objekts, wie `selectionStart` und `selectionEnd`, beziehen sich auf die Offsets innerhalb des `text`-Strings.
 
 ## Beispiele
 
-### Verwendung von `text`, um den Text in einem bearbeitbaren Canvas darzustellen
+### Verwendung von `text` zum Rendern des Textes in einem bearbeitbaren Canvas
 
 Im folgenden Beispiel wird die EditContext-API verwendet, um den Text, den ein Benutzer in ein `<canvas>`-Element eingibt, darzustellen.
 
@@ -35,10 +35,10 @@ const editContext = new EditContext();
 canvas.editContext = editContext;
 
 editContext.addEventListener("textupdate", (e) => {
-  // Wenn der Benutzer den Fokus auf dem <canvas> hat und Text eingibt,
-  // wird dieses Ereignis ausgelöst und dient dazu, den Text neu darzustellen.
+  // When the user has focus on the <canvas> and enters text,
+  // this event is fired, and we use it to re-render the text.
   console.log(
-    `Der Benutzer hat den Text eingegeben: ${e.text}. Der gesamte EditContext-Text wird neu gerendert`,
+    `The user entered the text: ${e.text}. Re-rendering the full EditContext text`,
   );
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillText(editContext.text, 10, 10);

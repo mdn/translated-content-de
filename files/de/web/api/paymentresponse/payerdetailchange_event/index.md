@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}
 
-Ein **`payerdetailchange`** Ereignis wird durch die [Payment Request API](/de/docs/Web/API/Payment_Request_API) an ein {{domxref("PaymentResponse")}}-Objekt ausgelöst, wenn der Benutzer seine persönlichen Informationen während des Ausfüllens eines Zahlungsanforderungsformulars ändert. Dies kann passieren, wenn der Zahler versucht, seine Details erneut einzureichen, nachdem ein Fehler festgestellt wurde.
+Ein **`payerdetailchange`** Ereignis wird von der [Payment Request API](/de/docs/Web/API/Payment_Request_API) an ein [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt ausgelöst, wenn der Benutzer Änderungen an seinen persönlichen Informationen vornimmt, während er ein Zahlungsformular ausfüllt. Dies kann passieren, wenn der Zahler versucht, seine Daten nach der Erkennung eines Fehlers erneut einzugeben.
 
-Der Ereignis-Handler für `payerdetailchange` sollte jede geänderte Eingabe im Formular überprüfen und sicherstellen, dass die Werte gültig sind. Wenn einige ungültig sind, sollten geeignete Fehlermeldungen konfiguriert werden und die Methode {{domxref("PaymentResponse.retry", "retry()")}} sollte auf dem {{domxref("PaymentResponse")}} aufgerufen werden, um den Benutzer aufzufordern, die ungültigen Eingaben zu aktualisieren.
+Der Ereignis-Handler für `payerdetailchange` sollte jeden Wert im Formular prüfen, der geändert wurde, und sicherstellen, dass die Werte gültig sind. Wenn irgendwelche Werte ungültig sind, sollten entsprechende Fehlermeldungen konfiguriert werden, und die Methode [`retry()`](/de/docs/Web/API/PaymentResponse/retry) sollte auf dem [`PaymentResponse`](/de/docs/Web/API/PaymentResponse) aufgerufen werden, um den Benutzer zu bitten, die ungültigen Einträge zu aktualisieren.
 
-Dieses Ereignis kann nicht abgebrochen werden und verbreitet sich nicht.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine weitere Verarbeitung durch den DOM-Baum aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("payerdetailchange", async (event) => {});
@@ -26,21 +26,21 @@ onpayerdetailchange = async (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("PaymentRequestUpdateEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("PaymentRequestUpdateEvent")}}
 
 ## Ereigniseigenschaften
 
-Obwohl es sich bei diesem Ereignistyp um ein {{domxref("PaymentRequestUpdateEvent")}} handelt, implementiert es keine Eigenschaften, die nicht bereits auf {{domxref("Event")}} vorhanden sind.
+Obwohl dieser Ereignistyp ein [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent) ist, implementiert er keine Eigenschaft, die nicht bereits auf [`Event`](/de/docs/Web/API/Event) vorhanden ist.
 
 ## Beispiele
 
-Im untenstehenden Beispiel wird `onpayerdetailchange` verwendet, um einen Listener für das `payerdetailchange`-Ereignis einzurichten, um die vom Benutzer eingegebenen Informationen zu validieren und eventuell gemachte Fehler zu korrigieren.
+Im folgenden Beispiel wird `onpayerdetailchange` verwendet, um einen Listener für das `payerdetailchange` Ereignis einzurichten, um die vom Benutzer eingegebenen Informationen zu validieren und zu verlangen, dass eventuelle Fehler korrigiert werden.
 
 ```js
-// Optionen für PaymentRequest(), die angeben, dass die Versandadresse,
-// die E-Mail-Adresse des Zahlers, der Name und die Telefonnummer erfasst werden sollen.
+// Options for PaymentRequest(), indicating that shipping address,
+// payer email address, name, and phone number all be collected.
 
 const options = {
   requestShipping: true,
@@ -51,7 +51,7 @@ const options = {
 const request = new PaymentRequest(methods, details, options);
 const response = request.show();
 
-// Die Daten aus der Antwort abrufen
+// Get the data from the response
 
 let {
   payerName: oldPayerName,
@@ -59,15 +59,16 @@ let {
   payerPhone: oldPayerPhone,
 } = response;
 
-// Einen Handler für payerdetailchange-Ereignisse einrichten,
-// um bei Bedarf Korrekturen anzufordern.
+// Set up a handler for payerdetailchange events, to
+// request corrections as needed.
 
 response.onpayerdetailchange = async (ev) => {
   const promisesToValidate = [];
   const { payerName, payerEmail, payerPhone } = response;
 
-  // Jede geänderte Eingabe validieren, indem eine Funktion aufgerufen wird,
-  // die jeden Datentyp validiert und ein Promise zurückgibt, das aufgelöst wird, wenn die Daten gültig sind.
+  // Validate each value which changed by calling a function
+  // that validates each type of data, returning a promise which
+  // resolves if the data is valid.
 
   if (oldPayerName !== payerName) {
     promisesToValidate.push(validateName(payerName));
@@ -82,19 +83,19 @@ response.onpayerdetailchange = async (ev) => {
     oldPayerPhone = payerPhone;
   }
 
-  // Sobald jedes Validierungs-Promise aufgelöst ist, die Ergebnisse zur
-  // Fehlerliste hinzufügen
+  // As each validation promise resolves, add the results of the
+  // validation to the errors list
 
   const errors = await Promise.all(promisesToValidate).then((results) =>
     results.reduce((errors, result), Object.assign(errors, result)),
   );
 
-  // Wenn wir Fehler gefunden haben, warten, bis sie korrigiert sind
+  // If we found any errors, wait for them to be corrected
 
   if (Object.getOwnPropertyNames(errors).length) {
     await response.retry(errors);
   } else {
-    // Wir haben eine gültige Zahlung; die Daten an den Server senden
+    // We have a good payment; send the data to the server
     await fetch("/pay-for-things/", { method: "POST", body: response.json() });
     response.complete("success");
   }
@@ -102,15 +103,15 @@ response.onpayerdetailchange = async (ev) => {
 
 await response.retry({
   payer: {
-    email: "ungültige Domain.",
-    phone: "ungültige Nummer.",
+    email: "invalid domain.",
+    phone: "invalid number.",
   },
 });
 ```
 
 ### addEventListener-Äquivalent
 
-Sie können den Ereignis-Handler auch mit der Methode `addEventListener()` einrichten:
+Sie könnten den Ereignis-Handler auch mit der Methode `addEventListener()` einrichten:
 
 ```js
 response.addEventListener("payerdetailchange", async (ev) => {
@@ -130,7 +131,7 @@ response.addEventListener("payerdetailchange", async (ev) => {
 
 - [Payment Request API](/de/docs/Web/API/Payment_Request_API)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- {{domxref("PaymentResponse")}}
+- [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)
 - [`paymentmethodchange`](/de/docs/Web/API/PaymentRequest/paymentmethodchange_event)
 - [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event)
 - [`shippingoptionchange`](/de/docs/Web/API/PaymentRequest/shippingoptionchange_event)

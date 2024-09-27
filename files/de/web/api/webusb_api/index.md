@@ -1,5 +1,5 @@
 ---
-title: WebUSB-API
+title: WebUSB API
 slug: Web/API/WebUSB_API
 l10n:
   sourceCommit: c29cee3dcb0d0e66093dd0c18aa82e0eab9d6d14
@@ -7,52 +7,52 @@ l10n:
 
 {{securecontext_header}}{{DefaultAPISidebar("WebUSB API")}}{{SeeCompatTable}}
 
-Die **WebUSB-API** bietet eine Möglichkeit, nicht-standardisierte Universal Serial Bus (USB) kompatible Geräteservices im Web zugänglich zu machen, um USB sicherer und benutzerfreundlicher zu gestalten.
+Die **WebUSB API** bietet eine Möglichkeit, nicht standardisierte Universal Serial Bus (USB)-kompatible Gerätedienste im Web zu exponieren, um die Nutzung von USB sicherer und einfacher zu gestalten.
 
 ## Konzepte und Nutzung
 
-USB ist der De-facto-Standard für kabelgebundene Peripheriegeräte. Die USB-Geräte, die Sie mit Ihrem Computer verbinden, sind typischerweise in eine Reihe von Geräteklassen gruppiert - wie Tastaturen, Mäuse, Videogeräte und so weiter. Diese werden durch den Klassentreiber des Betriebssystems unterstützt. Viele dieser Geräte sind auch über die [WebHID-API](/de/docs/Web/API/WebHID_API) im Web zugänglich.
+USB ist der De-facto-Standard für kabelgebundene Peripheriegeräte. Die USB-Geräte, die Sie mit Ihrem Computer verbinden, werden typischerweise in mehrere Gerätekategorien eingeteilt—wie Tastaturen, Mäuse, Videogeräte usw. Diese werden durch den Klassentreiber des Betriebssystems unterstützt. Viele davon sind über die [WebHID API](/de/docs/Web/API/WebHID_API) auch im Web zugänglich.
 
-Zusätzlich zu diesen standardisierten Geräten gibt es eine große Anzahl von Geräten, die in keine Klasse passen. Diese benötigen benutzerdefinierte Treiber und sind aufgrund des erforderlichen nativen Codes vom Web aus nicht zugänglich. Die Installation eines dieser Geräte erfordert oft die Suche nach Treibern auf der Website des Herstellers und, wenn Sie das Gerät auf einem anderen Computer verwenden möchten, das wiederholte Durchlaufen des Prozesses.
+Neben diesen standardisierten Geräten gibt es eine große Anzahl von Geräten, die in keine Kategorie passen. Diese benötigen benutzerdefinierte Treiber und sind aufgrund des benötigten nativen Codes nicht über das Web zugänglich. Die Installation eines solchen Geräts erfordert oft das Suchen nach Treibern auf der Website des Herstellers und, sollte man das Gerät auf einem anderen Computer nutzen wollen, das Wiederholen des Prozesses.
 
-WebUSB bietet einen Weg, um diese nicht-standardisierten USB-Geräteservices im Web zugänglich zu machen. Das bedeutet, dass Hardwarehersteller eine Möglichkeit bereitstellen können, damit auf ihr Gerät vom Web aus zugegriffen werden kann, ohne dass sie eine eigene API bereitstellen müssen.
+WebUSB bietet eine Möglichkeit, diese nicht standardisierten USB-Gerätedienste im Web zugänglich zu machen. Dies bedeutet, dass Hardwarehersteller eine Möglichkeit bereitstellen können, auf ihre Geräte über das Web zuzugreifen, ohne eine eigene API bereitstellen zu müssen.
 
-Beim Anschließen eines neuen WebUSB-kompatiblen Geräts zeigt der Browser eine Benachrichtigung an, die einen Link zur Website des Herstellers bereitstellt. Beim Besuch der Website fordert der Browser die Erlaubnis zum Verbinden mit dem Gerät an, und dann ist das Gerät einsatzbereit. Es müssen keine Treiber heruntergeladen und installiert werden.
+Beim Anschluss eines neuen WebUSB-kompatiblen Geräts zeigt der Browser eine Benachrichtigung an, die einen Link zur Website des Herstellers enthält. Beim Besuch der Website wird der Browser um Erlaubnis zur Verbindung mit dem Gerät bitten, danach ist das Gerät einsatzbereit. Es müssen keine Treiber heruntergeladen und installiert werden.
 
 ## Schnittstellen
 
-- {{domxref("USB")}}
-  - : Bietet Attribute und Methoden zum Finden und Verbinden von USB-Geräten von einer Webseite aus.
-- {{domxref("USBConnectionEvent")}}
-  - : Der Ereignistyp, der an `USB` {{domxref("USB.connect_event", "connect")}} oder {{domxref("USB.disconnect_event", "disconnect")}} Ereignisse übergeben wird, wenn der Benutzeragent erkennt, dass ein neues USB-Gerät verbunden oder vom Host getrennt wurde.
-- {{domxref("USBDevice")}}
-  - : Bietet Zugriff auf Metadaten über ein verbundenes USB-Gerät und Methoden zu seiner Steuerung.
-- {{domxref("USBInTransferResult")}}
-  - : Stellt das Ergebnis eines Anforderungstransfers von Daten vom USB-Gerät zum USB-Host dar.
-- {{domxref("USBOutTransferResult")}}
-  - : Stellt das Ergebnis eines Anforderungstransfers von Daten vom USB-Host zum USB-Gerät dar.
-- {{domxref("USBIsochronousInTransferPacket")}}
-  - : Stellt den Status eines individuellen Pakets einer Anforderung zum Datentransfer vom USB-Gerät zum USB-Host über einen isochronen Endpunkt dar.
-- {{domxref("USBIsochronousInTransferResult")}}
-  - : Stellt das Ergebnis eines Anforderungstransfers von Daten vom USB-Gerät zum USB-Host dar.
-- {{domxref("USBIsochronousOutTransferPacket")}}
-  - : Stellt den Status eines individuellen Pakets einer Anforderung zum Datentransfer vom USB-Host zum USB-Gerät über einen isochronen Endpunkt dar.
-- {{domxref("USBIsochronousOutTransferResult")}}
-  - : Stellt das Ergebnis eines Anforderungstransfers von Daten vom USB-Host zum USB-Gerät dar.
-- {{domxref("USBConfiguration")}}
-  - : Bietet Informationen über eine bestimmte Konfiguration eines USB-Geräts und die Schnittstellen, die es unterstützt.
-- {{domxref("USBInterface")}}
-  - : Bietet Informationen über eine von dem USB-Gerät bereitgestellte Schnittstelle.
-- {{domxref("USBAlternateInterface")}}
-  - : Bietet Informationen über eine bestimmte Konfiguration einer von dem USB-Gerät bereitgestellten Schnittstelle.
-- {{domxref("USBEndPoint")}}
-  - : Bietet Informationen über einen von dem USB-Gerät bereitgestellten Endpunkt.
+- [`USB`](/de/docs/Web/API/USB)
+  - : Bietet Attribute und Methoden zum Auffinden und Verbinden von USB-Geräten von einer Webseite aus.
+- [`USBConnectionEvent`](/de/docs/Web/API/USBConnectionEvent)
+  - : Der Ereignistyp, der an `USB`- [connect](/de/docs/Web/API/USB/connect_event) oder [disconnect](/de/docs/Web/API/USB/disconnect_event) Ereignisse übergeben wird, wenn der Benutzeragent ein neues USB-Gerät erkennt, das mit dem Host verbunden oder vom Host getrennt wurde.
+- [`USBDevice`](/de/docs/Web/API/USBDevice)
+  - : Bietet Zugriff auf Metadaten über ein gekoppeltes USB-Gerät und Methoden zu dessen Steuerung.
+- [`USBInTransferResult`](/de/docs/Web/API/USBInTransferResult)
+  - : Stellt das Ergebnis einer Anforderung zum Übertragen von Daten vom USB-Gerät zum USB-Host dar.
+- [`USBOutTransferResult`](/de/docs/Web/API/USBOutTransferResult)
+  - : Stellt das Ergebnis einer Anforderung zum Übertragen von Daten vom USB-Host zum USB-Gerät dar.
+- [`USBIsochronousInTransferPacket`](/de/docs/Web/API/USBIsochronousInTransferPacket)
+  - : Repräsentiert den Status eines einzelnen Pakets von einer Anforderung zur Datenübertragung vom USB-Gerät zum USB-Host über einen isochronen Endpunkt.
+- [`USBIsochronousInTransferResult`](/de/docs/Web/API/USBIsochronousInTransferResult)
+  - : Stellt das Ergebnis einer Anforderung zum Übertragen von Daten vom USB-Gerät zum USB-Host dar.
+- [`USBIsochronousOutTransferPacket`](/de/docs/Web/API/USBIsochronousOutTransferPacket)
+  - : Repräsentiert den Status eines einzelnen Pakets von einer Anforderung zur Datenübertragung vom USB-Host zum USB-Gerät über einen isochronen Endpunkt.
+- [`USBIsochronousOutTransferResult`](/de/docs/Web/API/USBIsochronousOutTransferResult)
+  - : Stellt das Ergebnis einer Anforderung zum Übertragen von Daten vom USB-Host zum USB-Gerät dar.
+- [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)
+  - : Bietet Informationen über eine bestimmte Konfiguration eines USB-Geräts und die von ihm unterstützten Schnittstellen.
+- [`USBInterface`](/de/docs/Web/API/USBInterface)
+  - : Bietet Informationen über eine vom USB-Gerät bereitgestellte Schnittstelle.
+- [`USBAlternateInterface`](/de/docs/Web/API/USBAlternateInterface)
+  - : Bietet Informationen über eine bestimmte Konfiguration einer vom USB-Gerät bereitgestellten Schnittstelle.
+- [`USBEndPoint`](/de/docs/Web/API/USBEndPoint)
+  - : Bietet Informationen über einen vom USB-Gerät bereitgestellten Endpunkt.
 
 ## Beispiele
 
 ### Zugriff auf ein verbundenes Gerät
 
-Das folgende Beispiel zeigt, wie Sie mit {{domxref("USB.requestDevice()")}} auf ein verbundenes Arduino-Gerät zugreifen können, das eine vendorId von `0x2341` hat.
+Das folgende Beispiel demonstriert, wie man mit einem verbundenen Arduino-Gerät unter Verwendung von [`USB.requestDevice()`](/de/docs/Web/API/USB/requestDevice) mit einer vendorId von `0x2341` zugreift.
 
 ```js
 navigator.usb
@@ -68,7 +68,7 @@ navigator.usb
 
 ### Finden aller verbundenen Geräte
 
-Sie können alle verbundenen Geräte mit {{domxref("USB.getDevices()")}} finden. Im folgenden Beispiel werden, mit dem verbundenen Arduino-Gerät, der Produkt- und Herstellername in die Konsole ausgegeben.
+Sie können alle verbundenen Geräte mit [`USB.getDevices()`](/de/docs/Web/API/USB/getDevices) finden. Im folgenden Beispiel werden mit dem verbundenen Arduino-Gerät der Produkt- und Herstellername in die Konsole ausgegeben.
 
 ```js
 navigator.usb.getDevices().then((devices) => {
@@ -85,4 +85,4 @@ navigator.usb.getDevices().then((devices) => {
 
 ## Siehe auch
 
-- [Zugriff auf USB-Geräte im Web](https://developer.chrome.com/docs/capabilities/usb)
+- [Access USB Devices on the Web](https://developer.chrome.com/docs/capabilities/usb)

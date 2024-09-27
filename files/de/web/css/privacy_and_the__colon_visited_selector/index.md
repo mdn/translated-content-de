@@ -1,5 +1,5 @@
 ---
-title: Privatsphäre und der :visited-Selektor
+title: Datenschutz und der :visited-Selektor
 slug: Web/CSS/Privacy_and_the_:visited_selector
 l10n:
   sourceCommit: 9428e6f9ac2fd4166b5cf245fb674123209787ff
@@ -7,59 +7,59 @@ l10n:
 
 {{CSSRef}}
 
-Vor etwa 2010 ermöglichte der [CSS](/de/docs/Web/CSS) {{ cssxref(":visited") }}-Selektor Websites, den Verlauf des Nutzers auszuspionieren und herauszufinden, welche Webseiten der Nutzer besucht hatte. Dies wurde durch {{domxref("window.getComputedStyle")}} und andere Techniken erreicht. Dieser Prozess konnte schnell ausgeführt werden und machte es nicht nur möglich, zu bestimmen, wo der Nutzer im Web gewesen war, sondern konnte auch verwendet werden, um viele Informationen über die Identität des Nutzers abzuleiten.
+Vor etwa 2010 erlaubte der [CSS](/de/docs/Web/CSS) {{ cssxref(":visited") }}-Selektor Websites, den Browserverlauf eines Benutzers zu enthüllen und herauszufinden, welche Seiten der Benutzer besucht hatte. Dies wurde durch [`window.getComputedStyle`](/de/docs/Web/API/Window/getComputedStyle) und andere Techniken ermöglicht. Dieser Prozess war schnell durchzuführen und ermöglichte es nicht nur festzustellen, wo der Benutzer im Web war, sondern konnte auch verwendet werden, um viele Informationen über die Identität des Benutzers zu erraten.
 
-Um dieses Problem zu mildern, haben Browser die Menge an Informationen eingeschränkt, die aus besuchten Links gewonnen werden können.
+Um dieses Problem zu mildern, haben Browser die Menge an Informationen eingeschränkt, die von besuchten Links abgerufen werden können.
 
 ## Kleine Notlügen
 
-Um die Privatsphäre der Nutzer zu schützen, täuschen Firefox und andere Browser Webanwendungen in bestimmten Situationen:
+Um die Privatsphäre der Benutzer zu schützen, werden Firefox und andere Browser unter bestimmten Umständen Webanwendungen belügen:
 
-- Die Methode `window.getComputedStyle` und ähnliche Funktionen wie {{ domxref("element.querySelector") }} geben immer Werte zurück, die anzeigen, dass ein Nutzer keinen der Links auf einer Seite besucht hat.
-- Wenn Sie einen Geschwister-Selektor wie `:visited + span` verwenden, wird das benachbarte Element (in diesem Beispiel `span`) so gestylt, als wäre der Link unbesucht.
-- In seltenen Fällen, wenn Sie verschachtelte Link-Elemente verwenden und das Element, das übereinstimmt, sich von dem Link unterscheidet, dessen Präsenz in der Historie getestet wird, wird das Element ebenfalls so gerendert, als wäre der Link unbesucht.
+- Die `window.getComputedStyle`-Methode und ähnliche Funktionen wie [`element.querySelector`](/de/docs/Web/API/Element/querySelector) geben immer Werte zurück, die darauf hinweisen, dass ein Benutzer keine der Links auf einer Seite besucht hat.
+- Wenn Sie einen Geschwister-Selektor wie `:visited + span` verwenden, wird das benachbarte Element (in diesem Beispiel `span`) so gestylt, als ob der Link unbesucht wäre.
+- In seltenen Szenarien, wenn Sie verschachtelte Link-Elemente verwenden und das übereinstimmende Element sich von dem Link unterscheidet, dessen Präsenz im Verlauf getestet wird, wird das Element ebenfalls so gerendert, als ob der Link unbesucht wäre.
 
-## Grenzen der Stilformatierung besuchter Links
+## Grenzen für besuchte Link-Stile
 
-Sie können besuchte Links stylen, aber es gibt Einschränkungen, welche Stile verwendet werden können. Nur die folgenden Stile können auf besuchte Links angewendet werden:
+Sie können besuchte Links stylen, aber es gibt Grenzen, welche Stile verwendet werden können. Nur die folgenden Stile können auf besuchte Links angewendet werden:
 
 - {{ cssxref("color") }}
 - {{ cssxref("background-color") }}
-- {{ cssxref("border-color") }} (und seine Untereigenschaften)
+- {{ cssxref("border-color") }} (und seine Unter-Eigenschaften)
 - {{ cssxref("column-rule-color") }}
 - {{ cssxref("outline-color") }}
 - {{ cssxref("text-decoration-color") }}
 - {{ cssxref("text-emphasis-color") }}
-- Die Farbanteile der {{SVGAttr("fill")}}- und {{SVGAttr("stroke")}}-Attribute
+- Die Farbteile der {{SVGAttr("fill")}}- und {{SVGAttr("stroke")}}-Attribute
 
-Zusätzlich können Sie auch für die obigen Stile die Transparenz zwischen unbesuchten und besuchten Links nicht ändern, wie Sie es sonst mit dem `alpha`-Parameter bei [`rgb()`](/de/docs/Web/CSS/color_value/rgb) oder [`hsl()`](/de/docs/Web/CSS/color_value/hsl) oder dem [`transparent`](/de/docs/Web/CSS/named-color#transparent)-Schlüsselwort könnten.
+Darüber hinaus können Sie selbst für die oben genannten Stile die Transparenz zwischen unbesuchten und besuchten Links nicht ändern, wie Sie dies normalerweise mit dem `alpha`-Parameter für [`rgb()`](/de/docs/Web/CSS/color_value/rgb) oder [`hsl()`](/de/docs/Web/CSS/color_value/hsl) oder dem [`transparent`](/de/docs/Web/CSS/named-color#transparent)-Schlüsselwort tun könnten.
 
-Hier ist ein Beispiel, wie man Stile mit den oben genannten Einschränkungen verwendet:
+Hier ist ein Beispiel dafür, wie Sie Stile mit den oben genannten Einschränkungen verwenden können:
 
 ```css
 :link {
-  outline: 1px gepunktet blau;
-  background-color: weiß;
-  /* Der Standardwert von background-color ist `transparent`. Sie müssen
-     einen anderen Wert angeben, sonst werden Änderungen bei :visited nicht übernommen. */
+  outline: 1px dotted blue;
+  background-color: white;
+  /* The default value of background-color is `transparent`. You need to
+     specify a different value, otherwise changes on :visited won't apply. */
 }
 
 :visited {
-  outline-color: orange; /* Besuchte Links haben eine orangefarbene Umrandung */
-  background-color: grün; /* Besuchte Links haben einen grünen Hintergrund */
-  color: gelb; /* Besuchte Links haben gelb gefärbten Text */
+  outline-color: orange; /* Visited links have an orange outline */
+  background-color: green; /* Visited links have a green background */
+  color: yellow; /* Visited links have yellow colored text */
 }
 ```
 
 ## Auswirkungen auf Webentwickler
 
-Insgesamt sollten diese Einschränkungen Webentwickler nicht allzu sehr beeinträchtigen. Es können jedoch folgende Änderungen an bestehenden Websites erforderlich sein:
+Insgesamt sollten diese Einschränkungen Webentwickler nicht zu sehr beeinflussen. Dennoch können sie folgende Änderungen an bestehenden Websites erfordern:
 
-- Die Verwendung von Hintergrundbildern zur Gestaltung von Links, basierend darauf, ob sie besucht wurden, wird nicht mehr funktionieren, da nur Farben verwendet werden können, um besuchte Links zu stylen.
-- Farben, die normalerweise transparent sind, werden nicht erscheinen, wenn sie in einem `:visited`-Selektor gestylt werden.
+- Die Verwendung von Hintergrundbildern zum Stylen von Links basierend darauf, ob sie besucht wurden, wird nicht mehr funktionieren, da nur Farben verwendet werden können, um besuchte Links zu stylen.
+- Farben, die ansonsten transparent sind, werden nicht angezeigt, wenn sie in einem `:visited`-Selektor gestylt werden.
 
 ## Siehe auch
 
-- [privacy-related changes coming to CSS :visited](https://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/) auf Mozilla Hacks
-- [Plugging the CSS History Leak](https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/) auf dem Mozilla Security Blog
+- [Privacy-related changes coming to CSS :visited](https://hacks.mozilla.org/2010/03/privacy-related-changes-coming-to-css-vistited/) auf Mozilla Hacks
+- [Plugging the CSS History Leak](https://blog.mozilla.org/security/2010/03/31/plugging-the-css-history-leak/) im Mozilla Security Blog
 - [Preventing attacks on a user's history through CSS :visited selectors](https://dbaron.org/mozilla/visited-privacy)

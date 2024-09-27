@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feDiffuseLighting>`** [SVG](/de/docs/Web/SVG) Filterprimitive beleuchtet ein Bild, indem der Alpha-Kanal als Bump-Map verwendet wird. Das resultierende Bild, das ein undurchsichtiges RGBA-Bild ist, hängt von der Lichtfarbe, der Lichtposition und der Oberflächengeometrie der Eingabe-Bump-Map ab.
+Die **`<feDiffuseLighting>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv beleuchtet ein Bild unter Verwendung des Alpha-Kanals als Bump-Map. Das resultierende Bild, welches ein undurchsichtiges RGBA-Bild ist, hängt von der Lichtfarbe, der Position der Lichtquelle und der Oberflächengeometrie der Eingabe-Bump-Map ab.
 
-Die durch dieses Filterprimitive erzeugte Lichtkarte kann mithilfe des Multiplikationsterm des `arithmetic` Operators des {{SVGElement("feComposite")}} Filterprimitives mit einem Texturbild kombiniert werden. Mehrere Lichtquellen können simuliert werden, indem mehrere dieser Lichtkarten miteinander kombiniert werden, bevor sie auf das Texturbild angewendet werden.
+Die durch dieses Filter-Primitiv erzeugte Lichtkarte kann mit einem Texturbild kombiniert werden, indem der Multiplikationsterm des `arithmetic` Operators des {{SVGElement("feComposite")}} Filter-Primitivs verwendet wird. Mehrere Lichtquellen können simuliert werden, indem mehrere dieser Lichtkarten zusammengefügt werden, bevor sie auf das Texturbild angewendet werden.
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -24,19 +24,19 @@ Die durch dieses Filterprimitive erzeugte Lichtkarte kann mithilfe des Multiplik
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFEDiffuseLightingElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGFEDiffuseLightingElement`](/de/docs/Web/API/SVGFEDiffuseLightingElement) Schnittstelle.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt die Wirkung des `<feDiffuseLighting>` Elements auf einen Kreis mit jeder verfügbaren Lichtquelle. Jedes Mal kommt das Licht aus der oberen linken Ecke.
+Das folgende Beispiel zeigt den Effekt des `<feDiffuseLighting>` Elements auf einen Kreis mit jeder verfügbaren Lichtquelle. Jedes Mal kommt das Licht aus der oberen linken Ecke.
 
 ```html
 <svg width="440" height="140" xmlns="http://www.w3.org/2000/svg">
-  <!-- Kein Licht wird angewendet -->
+  <!-- No light is applied -->
   <text text-anchor="middle" x="60" y="22">No Light</text>
   <circle cx="60" cy="80" r="50" fill="green" />
 
-  <!-- die Lichtquelle ist ein fePointLight Element -->
+  <!-- the light source is a fePointLight element -->
   <text text-anchor="middle" x="170" y="22">fePointLight</text>
   <filter id="lightMe1">
     <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="white">
@@ -55,7 +55,7 @@ Das folgende Beispiel zeigt die Wirkung des `<feDiffuseLighting>` Elements auf e
 
   <circle cx="170" cy="80" r="50" fill="green" filter="url(#lightMe1)" />
 
-  <!-- die Lichtquelle ist ein feDistantLight Element -->
+  <!-- the light source is a feDistantLight element -->
   <text text-anchor="middle" x="280" y="22">feDistantLight</text>
   <filter id="lightMe2">
     <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="white">
@@ -74,7 +74,7 @@ Das folgende Beispiel zeigt die Wirkung des `<feDiffuseLighting>` Elements auf e
 
   <circle cx="280" cy="80" r="50" fill="green" filter="url(#lightMe2)" />
 
-  <!-- die Lichtquelle ist ein feSpotLight Element -->
+  <!-- the light source is a feSpotLight source -->
   <text text-anchor="middle" x="390" y="22">feSpotLight</text>
   <filter id="lightMe3">
     <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="white">
@@ -120,7 +120,7 @@ Live-Darstellung:
 
 ## Siehe auch
 
-- [SVG Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes)
+- [SVG-Filter-Primitiv-Attribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}
@@ -140,4 +140,4 @@ Live-Darstellung:
 - {{SVGElement("feSpotLight")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filter-Effekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

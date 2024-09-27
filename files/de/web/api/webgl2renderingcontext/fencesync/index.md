@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: fenceSync()-Methode"
+title: "WebGL2RenderingContext: fenceSync() Methode"
 short-title: fenceSync()
 slug: Web/API/WebGL2RenderingContext/fenceSync
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("WebGL")}}
 
 Die **`WebGL2RenderingContext.fenceSync()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) erstellt ein neues
-{{domxref("WebGLSync")}}-Objekt und fügt es in den GL-Befehlstrom ein.
+[`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt und fügt es in den GL-Befehlstrom ein.
 
 ## Syntax
 
@@ -20,18 +20,17 @@ fenceSync(condition, flags)
 ### Parameter
 
 - `condition`
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das die Bedingung angibt, die erfüllt sein muss, um den Status des Sync-Objekts auf "signaled" zu setzen. Muss `gl.SYNC_GPU_COMMANDS_COMPLETE` sein.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die Bedingung angibt, die erfüllt sein muss, damit der Status des Sync-Objekts auf "signaled" gesetzt wird. Muss `gl.SYNC_GPU_COMMANDS_COMPLETE` sein.
 - `flags`
-  - : Ein {{domxref("WebGL_API/Types", "GLbitfield")}}, das eine bitweise Kombination von Flags zur Steuerung des Verhaltens des Sync-Objekts angibt. Muss `0` sein (existiert nur für Erweiterungen).
+  - : Ein [`GLbitfield`](/de/docs/Web/API/WebGL_API/Types), der eine bitweise Kombination von Flags angibt, die das Verhalten des Sync-Objekts steuern. Muss `0` sein (existiert nur für Erweiterungen).
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLSync")}}-Objekt.
+Ein [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt.
 
 ## Beispiele
 
-`gl` muss ein {{domxref("WebGL2RenderingContext")}} sein. `WebGLSync`
-Objekte sind in WebGL 1 nicht verfügbar.
+`gl` muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein. `WebGLSync`-Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
 const sync = gl.fenceSync(gl.SYNC_GPU_COMMANDS_COMPLETE, 0);
@@ -47,4 +46,4 @@ const sync = gl.fenceSync(gl.SYNC_GPU_COMMANDS_COMPLETE, 0);
 
 ## Siehe auch
 
-- {{domxref("WebGLSync")}}
+- [`WebGLSync`](/de/docs/Web/API/WebGLSync)

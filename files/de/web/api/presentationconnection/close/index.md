@@ -1,5 +1,5 @@
 ---
-title: "PresentationConnection: close()-Methode"
+title: "PresentationConnection: Methode close()"
 short-title: close()
 slug: Web/API/PresentationConnection/close
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Presentation API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Wenn die `close()`-Methode auf einer {{domxref("PresentationConnection")}} aufgerufen wird, beginnt der {{Glossary("user agent")}} den Vorgang, die Verbindung zu schließen, indem eine leere `closeMessage` gesendet wird und der `closeReason` auf `closed` gesetzt wird.
+Wenn die `close()`-Methode auf eine [`PresentationConnection`](/de/docs/Web/API/PresentationConnection) aufgerufen wird, beginnt der [User-Agent](/de/docs/Glossary/user_agent) den Prozess, die Verbindung zu schließen, indem er eine leere `closeMessage` mit dem `closeReason` auf `closed` sendet.
 
 ## Syntax
 
@@ -28,6 +28,6 @@ Keiner ({{jsxref("undefined")}}).
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

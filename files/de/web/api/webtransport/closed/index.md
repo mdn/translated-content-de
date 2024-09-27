@@ -1,5 +1,5 @@
 ---
-title: "WebTransport: Eigenschaft closed"
+title: "WebTransport: closed-Eigenschaft"
 short-title: closed
 slug: Web/API/WebTransport/closed
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`closed`** schreibgeschützte Eigenschaft des {{domxref("WebTransport")}}-Interfaces gibt ein Promise zurück, das aufgelöst wird, wenn der Transport geschlossen wird.
+Die schreibgeschützte **`closed`**-Eigenschaft der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle gibt ein Versprechen zurück, das aufgelöst wird, wenn der Transport geschlossen wird.
 
 ## Wert
 
@@ -25,10 +25,10 @@ Ein {{jsxref("Promise")}}, das zu einem Objekt aufgelöst wird, das die folgende
 const url = "https://example.com:4999/wt";
 
 async function initTransport(url) {
-  // Transportverbindung initialisieren
+  // Initialize transport connection
   const transport = new WebTransport(url);
 
-  // Die Verbindung kann verwendet werden, sobald ready erfüllt ist
+  // The connection can be used once ready fulfills
   await transport.ready;
 
   // ...
@@ -37,12 +37,12 @@ async function initTransport(url) {
 // ...
 
 async function closeTransport(transport) {
-  // Auf das Schließen der Verbindung reagieren
+  // Respond to connection closing
   try {
     await transport.closed;
-    console.log(`Die HTTP/3-Verbindung zu ${url} wurde ordnungsgemäß geschlossen.`);
+    console.log(`The HTTP/3 connection to ${url} closed gracefully.`);
   } catch (error) {
-    console.error(`Die HTTP/3-Verbindung zu ${url} wurde aufgrund von ${error} geschlossen.`);
+    console.error(`The HTTP/3 connection to ${url} closed due to ${error}.`);
   }
 }
 ```
@@ -58,6 +58,6 @@ async function closeTransport(transport) {
 ## Siehe auch
 
 - [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

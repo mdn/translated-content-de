@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.deleteVertexArray()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes {{domxref("WebGLVertexArrayObject")}}-Objekt.
+Die **`WebGL2RenderingContext.deleteVertexArray()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteVertexArray(vertexArray)
 ### Parameter
 
 - `vertexArray`
-  - : Ein {{domxref("WebGLVertexArrayObject")}} (VAO)-Objekt, das gelöscht werden soll.
+  - : Ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) (VAO)-Objekt, das gelöscht werden soll.
 
 ### Rückgabewert
 
@@ -46,4 +46,4 @@ gl.deleteVertexArray(vao);
 
 ## Siehe auch
 
-- {{domxref("WebGLVertexArrayObject")}}
+- [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)

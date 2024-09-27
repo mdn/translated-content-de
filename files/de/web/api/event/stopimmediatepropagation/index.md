@@ -1,5 +1,5 @@
 ---
-title: "Event: Methode stopImmediatePropagation()"
+title: "Event: stopImmediatePropagation() Methode"
 short-title: stopImmediatePropagation()
 slug: Web/API/Event/stopImmediatePropagation
 l10n:
@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`stopImmediatePropagation()`**-Methode des
-{{domxref("Event")}}-Interfaces verhindert, dass andere Listener des gleichen Ereignisses aufgerufen werden.
+Die **`stopImmediatePropagation()`** Methode der [`Event`](/de/docs/Web/API/Event) Schnittstelle verhindert, dass andere Listener desselben Ereignisses aufgerufen werden.
 
-Wenn mehrere Listener an dasselbe Element für den gleichen Ereignistyp angehängt sind, werden sie in der Reihenfolge aufgerufen, in der sie hinzugefügt wurden. Wenn `stopImmediatePropagation()` während eines solchen Aufrufs aufgerufen wird, werden keine verbleibenden Listener aufgerufen, weder auf diesem Element noch auf einem anderen Element.
+Wenn mehrere Listener an dasselbe Element für denselben Ereignistyp angehängt sind, werden sie in der Reihenfolge aufgerufen, in der sie hinzugefügt wurden. Wenn `stopImmediatePropagation()` während eines solchen Aufrufs aufgerufen wird, werden keine verbleibenden Listener aufgerufen, weder an diesem Element noch an einem anderen Element.
 
 ## Syntax
 
@@ -21,27 +20,27 @@ event.stopImmediatePropagation()
 
 ## Beispiele
 
-### Vergleich von ereignisunterbrechenden Funktionen
+### Vergleich von Funktionen zur Ereignisbeendigung
 
-Das folgende Beispiel enthält drei Schaltflächen innerhalb von drei verschachtelten divs. Jede Schaltfläche hat drei Event-Listener, die für Klickereignisse registriert sind, und jedes div hat ebenfalls einen Event-Listener, der für Klickereignisse registriert ist.
+Das folgende Beispiel enthält drei Schaltflächen innerhalb von drei verschachtelten Divs. Jede Schaltfläche hat drei Event-Listener für Klickereignisse registriert, und jedes Div hat ebenfalls einen Event-Listener, der für Klickereignisse registriert ist.
 
-- Die obere Schaltfläche erlaubt die normale Ereignisweitergabe.
+- Die obere Schaltfläche ermöglicht die normale Ereignisfortpflanzung.
 - Die mittlere Schaltfläche ruft `stopPropagation()` in ihrem ersten Event-Handler auf.
 - Die untere Schaltfläche ruft `stopImmediatePropagation()` in ihrem ersten Event-Handler auf.
 
 #### HTML
 
 ```html
-<h2>Klicken Sie auf die Schaltflächen</h2>
+<h2>Click on the buttons</h2>
 <div>
-  äußeres div<br />
+  outer div<br />
   <div>
-    mittleres div<br />
+    middle div<br />
     <div>
-      inneres div<br />
-      <button>Weitergabe erlauben</button><br />
-      <button id="stopPropagation">Weitergabe stoppen</button><br />
-      <button id="stopImmediatePropagation">Weitergabe sofort stoppen</button>
+      inner div<br />
+      <button>allow propagation</button><br />
+      <button id="stopPropagation">stop propagation</button><br />
+      <button id="stopImmediatePropagation">immediate stop propagation</button>
     </div>
   </div>
 </div>
@@ -113,7 +112,7 @@ document
 
 #### Ergebnis
 
-Jeder Klick-Event-Handler zeigt eine Statusmeldung an, wenn er aufgerufen wird. Wenn Sie die mittlere Schaltfläche drücken, sehen Sie, dass `stopPropagation()` alle Event-Handler zulässt, die für Klicks auf dieser Schaltfläche registriert sind, aber die Ausführung der Klick-Event-Handler für die divs verhindert, die normalerweise folgen würden. Wenn Sie jedoch die untere Schaltfläche drücken, stoppt `stopImmediatePropagation()` jegliche Weitergabe nach dem Ereignis, das es aufgerufen hat.
+Jeder Klick-Event-Handler zeigt eine Statusmeldung an, wenn er aufgerufen wird. Wenn Sie die mittlere Schaltfläche drücken, werden Sie feststellen, dass `stopPropagation()` alle Event-Handler, die für Klicks auf dieser Schaltfläche registriert sind, ausführen lässt, aber die Ausführung der Klick-Event-Handler für die Divs verhindert, die normalerweise folgen würden. Wenn Sie jedoch die untere Schaltfläche drücken, stoppt `stopImmediatePropagation()` jegliche Fortpflanzung nach dem Ereignis, das sie aufgerufen hat.
 
 {{ EmbedLiveSample("Comparing event-stopping functions", 500, 550) }}
 

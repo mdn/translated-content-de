@@ -3,14 +3,14 @@ title: "TaskSignal: any() statische Methode"
 short-title: any()
 slug: Web/API/TaskSignal/any_static
 l10n:
-  sourceCommit: 9bad86bae21d5a6b7e2118482badfb69889c86f5
+  sourceCommit: 33313b7c9e37253c0141e22558e298d08c060be5
 ---
 
-{{APIRef("Prioritized Task Scheduling API")}}{{SeeCompatTable}}
+{{APIRef("Prioritized Task Scheduling API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die statische Methode **`TaskSignal.any()`** nimmt ein iterierbares Objekt von {{domxref("AbortSignal")}}-Objekten und gibt ein {{domxref("TaskSignal")}} zurück. Das zurückgegebene Task-Signal wird abgebrochen, wenn eines der Abbruchsignale abgebrochen wird.
+Die statische Methode **`TaskSignal.any()`** nimmt ein Iterable von [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekten und gibt ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) zurück. Das zurückgegebene Task-Signal wird abgebrochen, wenn eines der Abbruchsignale abgebrochen wird.
 
-Wenn das Task-Signal abgebrochen wird, wird seine {{domxref("AbortSignal.reason", "reason")}}-Eigenschaft auf den Grund des ersten abgebrochenen Signals gesetzt.
+Wenn das Task-Signal abgebrochen wird, ist seine [`reason`](/de/docs/Web/API/AbortSignal/reason)-Eigenschaft auf den Grund des ersten abgebrochenen Signals gesetzt.
 
 ## Syntax
 
@@ -22,30 +22,30 @@ TaskSignal.any(signals, init)
 ### Parameter
 
 - `signals`
-  - : Ein [iterierbares](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) Objekt (wie ein {{jsxref("Array")}}) von Abbruchsignalen.
+  - : Ein [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) (wie ein {{jsxref("Array")}}) von Abbruchsignalen.
 - `init` {{optional_inline}}
   - : Enthält optionale Konfigurationsparameter. Derzeit ist nur eine Eigenschaft definiert:
     - `priority` {{optional_inline}}
       - : Einer der folgenden Werte:
         - Ein String, der entweder `user-blocking`, `user-visible` oder `background` ist.
-        - Ein {{domxref("TaskSignal")}}.
+        - Ein [`TaskSignal`](/de/docs/Web/API/TaskSignal).
 
 ### Rückgabewert
 
-Eine `TaskSignal`-Instanz. Diese wird abgebrochen, wenn das erste in `signals` übergebene Signal abgebrochen wird. Wenn dies geschieht:
+Eine `TaskSignal`-Instanz. Sie wird abgebrochen, wenn das erste Signal in `signals` abgebrochen wird. In diesem Fall:
 
-- Seine {{domxref("AbortSignal.reason", "reason")}}-Eigenschaft wird auf den Grund des Signals gesetzt, das das Abbrechen verursacht hat.
+- Seine [`reason`](/de/docs/Web/API/AbortSignal/reason)-Eigenschaft wird auf den Grund des Signals gesetzt, das dieses Signal zum Abbrechen brachte.
 
-- Seine {{domxref("TaskSignal.priority", "priority")}}-Eigenschaft wird durch den `priority`-Parameter bestimmt:
+- Seine [`priority`](/de/docs/Web/API/TaskSignal/priority)-Eigenschaft wird vom `priority`-Parameter bestimmt:
 
-  - Wenn der `priority`-Parameter ein String war, wird dieser als Wert verwendet.
-  - Wenn der `priority`-Parameter ein `TaskSignal` war, wird der Wert der `priority` dieses Signals verwendet.
+  - Wenn der `priority`-Parameter ein String war, wird dies der Wert des Strings sein.
+  - Wenn der `priority`-Parameter ein `TaskSignal` war, wird es der Wert der `priority` dieses Signals sein.
 
 ## Beispiele
 
 ### Verwendung von `TaskSignal.any()`
 
-Dieses Beispiel demonstriert die Kombination eines Signals von einem {{domxref("TaskController")}} und eines Timeout-Signals von {{domxref("AbortSignal/timeout_static", "TaskSignal.timeout()")}}.
+Dieses Beispiel zeigt die Kombination eines Signals von einem [`TaskController`](/de/docs/Web/API/TaskController) und eines Timeout-Signals von [`TaskSignal.timeout()`](/de/docs/Web/API/AbortSignal/timeout_static).
 
 ```js
 const cancelDownloadButton = document.getElementById("cancelDownloadButton");
@@ -58,10 +58,10 @@ cancelDownloadButton.addEventListener("click", () => {
   userCancelController.abort();
 });
 
-// Timeout nach 5 Minuten
+// Timeout after 5 minutes
 const timeoutSignal = TaskSignal.timeout(1_000 * 60 * 5);
 
-// Dieses Signal wird abgebrochen, wenn entweder der Benutzer den Abbrechen-Button klickt oder 5 Minuten um sind, je nachdem, was zuerst passiert
+// This signal will abort when either the user clicks the cancel button or 5 minutes is up whichever is sooner
 const combinedSignal = TaskSignal.any([
   userCancelController.signal,
   timeoutSignal,
@@ -69,19 +69,19 @@ const combinedSignal = TaskSignal.any([
 
 try {
   const res = await fetch(someUrlToDownload, {
-    // Beenden Sie den Fetch, wenn eines der
+    // Stop the fetch when any of the
     signal: combinedSignal,
   });
   const body = await res.blob();
-  // Machen Sie etwas mit dem heruntergeladenen Inhalt
+  // Do something with downloaded content
   // ...
 } catch (e) {
   if (e.name === "AbortError") {
-    // Vom Benutzer abgebrochen
+    // Cancelled by the user
   } else if (e.name === "TimeoutError") {
-    // Benutzer zeigen, dass der Download abgelaufen ist
+    // Show user that download timed out
   } else {
-    // Anderer Fehler, z.B. Netzwerkfehler
+    // Other error, e.g. network error
   }
 }
 ```
@@ -96,4 +96,4 @@ try {
 
 ## Siehe auch
 
-- {{domxref("AbortSignal/any_static", "AbortSignal.any()")}}
+- [`AbortSignal.any()`](/de/docs/Web/API/AbortSignal/any_static)

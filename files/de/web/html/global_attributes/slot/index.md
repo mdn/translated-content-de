@@ -7,15 +7,15 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`slot`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) weist einem Element einen Slot in einem [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) Shadow-Baum zu: Ein Element mit einem `slot`-Attribut wird dem Slot zugewiesen, der durch das {{HTMLElement("slot")}}-Element erstellt wurde, dessen [`name`](/de/docs/Web/HTML/Element/slot#name)-Attributswert dem Wert des `slot`-Attributs entspricht.
+Das **`slot`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) weist einem Element in einem [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) Schattenbaum einen Slot zu: Ein Element mit einem `slot`-Attribut wird dem Slot zugewiesen, der durch das {{HTMLElement("slot")}}-Element erstellt wurde und dessen [`name`](/de/docs/Web/HTML/Element/slot#name)-Attributswert mit dem Wert des `slot`-Attributs übereinstimmt.
 
-Für Beispiele schauen Sie in unseren Leitfaden [Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots).
+Beispiele finden Sie in unserem [Leitfaden zur Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -25,5 +25,5 @@ Für Beispiele schauen Sie in unseren Leitfaden [Verwendung von Templates und Sl
 - HTML {{HTMLElement("slot")}}-Element
 - HTML {{HTMLElement("template")}}-Element
 - CSS {{CSSXref("::slotted")}} Pseudo-Element
-- [CSS Scoping](/de/docs/Web/CSS/CSS_scoping) Modul
+- [CSS Scoping](/de/docs/Web/CSS/CSS_scoping)-Modul
 - [Web Components](/de/docs/Web/API/Web_components)

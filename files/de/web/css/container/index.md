@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **container** [Kurzform](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt das Element als Abfrage-Container fest und spezifiziert den Namen und Typ des [Enthaltungskontexts](/de/docs/Web/CSS/CSS_containment/Container_queries#naming_containment_contexts), der in einer [Container-Abfrage](/de/docs/Web/CSS/CSS_containment/Container_queries) verwendet wird.
+Die **container** [Shorthand](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft etabliert das Element als Abfragecontainer und gibt den Namen und Typ des [Containment-Kontexts](/de/docs/Web/CSS/CSS_containment/Container_queries#naming_containment_contexts) an, der in einer [Container-Abfrage](/de/docs/Web/CSS/CSS_containment/Container_queries) verwendet wird.
 
-## Zusammengesetzte Eigenschaften
+## Bestandteile der Eigenschaft
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -25,7 +25,7 @@ container: my-layout;
 /* <container-name> / <container-type> */
 container: my-layout / size;
 
-/* Globale Werte */
+/* Global Values */
 container: inherit;
 container: initial;
 container: revert;
@@ -36,10 +36,10 @@ container: unset;
 ### Werte
 
 - `<container-name>`
-  - : Ein case-sensitiver Name für den Enthaltungskontext.
+  - : Ein groß-/kleinschreibungssensitiver Name für den Containment-Kontext.
     Weitere Details zur Syntax finden Sie auf der {{cssxref("container-name")}} Eigenschaftsseite.
 - `<container-type>`
-  - : Der Typ des Enthaltungskontexts.
+  - : Der Typ des Containment-Kontexts.
     Weitere Details zur Syntax finden Sie auf der {{cssxref("container-type")}} Eigenschaftsseite.
 
 ## Formale Definition
@@ -54,7 +54,7 @@ container: unset;
 
 ### Festlegung der Inline-Größenbeschränkung
 
-Gegeben ist das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Bild, einem Titel und etwas Text darstellt:
+Angenommen, das folgende HTML-Beispiel ist eine Kartenkomponente mit einem Bild, einem Titel und etwas Text:
 
 ```html
 <div class="post">
@@ -65,7 +65,7 @@ Gegeben ist das folgende HTML-Beispiel, das eine Kartenkomponente mit einem Bild
 </div>
 ```
 
-Die explizite Möglichkeit, einen Container-Kontext zu erstellen, besteht darin, einen `container-type` mit einem optionalen `container-name` zu deklarieren:
+Der explizite Weg, einen Container-Kontext zu erstellen, besteht darin, einen `container-type` mit einem optionalen `container-name` zu deklarieren:
 
 ```css
 .post {
@@ -74,7 +74,7 @@ Die explizite Möglichkeit, einen Container-Kontext zu erstellen, besteht darin,
 }
 ```
 
-Die `container` Kurzform ist dafür gedacht, dies einfacher in einer einzelnen Deklaration zu definieren:
+Die `container` Shorthand ist dazu gedacht, dies in einer einzigen Deklaration einfacher zu definieren:
 
 ```css
 .post {
@@ -82,7 +82,7 @@ Die `container` Kurzform ist dafür gedacht, dies einfacher in einer einzelnen D
 }
 ```
 
-Sie können dann diesen Container namentlich durch die {{cssxref("@container")}} At-Regel ansprechen:
+Sie können diesen Container dann mit dem Namen unter Verwendung der {{cssxref("@container")}} At-Regel anvisieren:
 
 ```css
 @container sidebar (min-width: 400px) {
@@ -101,7 +101,7 @@ Sie können dann diesen Container namentlich durch die {{cssxref("@container")}}
 ## Siehe auch
 
 - [CSS Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
-- [Verwendung von Container-Größen- und Stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
+- [Verwendung von Container- und Stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
 - {{Cssxref("@container")}} At-Regel
 - CSS {{Cssxref("contain")}} Eigenschaft
 - CSS {{Cssxref("container-type")}} Eigenschaft

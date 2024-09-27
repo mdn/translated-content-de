@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Benutzer seine Interaktion mit Ihrer Erweiterung abgebrochen hat (zum Beispiel durch Klicken außerhalb der Adressleiste).
+Wird ausgelöst, wenn der Benutzer die Interaktion mit Ihrer Erweiterung abgebrochen hat (zum Beispiel durch Klicken außerhalb der Adressleiste).
 
 ## Syntax
 
@@ -17,16 +17,16 @@ browser.omnibox.onInputCancelled.removeListener(listener)
 browser.omnibox.onInputCancelled.hasListener(listener)
 ```
 
-Ereignisse haben drei Funktionen:
+Ereignisse verfügen über drei Funktionen:
 
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, auf dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob der `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn ein Listener aktiv ist, andernfalls `false`.
 
-## addListener Syntax
+## addListener syntax
 
 Der Listener-Funktion werden keine Parameter übergeben.
 

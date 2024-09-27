@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: showPopover() Methode"
+title: "HTMLElement: showPopover()-Methode"
 short-title: showPopover()
 slug: Web/API/HTMLElement/showPopover
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Popover API")}}
 
-Die **`showPopover()`** Methode der {{domxref("HTMLElement")}} Schnittstelle zeigt ein {{domxref("Popover_API", "Popover", "", "nocode")}} Element (d.h. eines, das ein gültiges [`popover`](/de/docs/Web/HTML/Global_attributes/popover) Attribut hat) durch Hinzufügen zur {{glossary("Top-Ebene")}} an.
+Die **`showPopover()`**-Methode der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle zeigt ein [Popover](/de/docs/Web/API/Popover_API)-Element (d.h. eines, das ein gültiges [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut hat) an, indem es in die [oberste Ebene](/de/docs/Glossary/top_layer) eingefügt wird.
 
-Wenn `showPopover()` bei einem Element mit dem derzeit verborgenen [`popover`](/de/docs/Web/HTML/Global_attributes/popover) Attribut aufgerufen wird, wird ein {{domxref("HTMLElement/beforetoggle_event", "beforetoggle")}} Ereignis ausgelöst, gefolgt vom Anzeigen des Popovers, und dann das {{domxref("HTMLElement/toggle_event", "toggle")}} Ereignis ausgelöst. Wenn das Element bereits angezeigt wird, wird ein Fehler ausgelöst.
+Wenn `showPopover()` auf ein Element mit dem [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut angewendet wird, das derzeit ausgeblendet ist, wird ein [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event)-Ereignis ausgelöst, gefolgt vom Anzeigen des Popovers und anschließendem Auslösen des [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignisses. Wenn das Element bereits angezeigt wird, wird ein Fehler ausgelöst.
 
 ## Syntax
 
@@ -28,33 +28,33 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Popover bereits angezeigt wird.
 
 ## Beispiele
 
-Das folgende Beispiel bietet Funktionalität, um ein Popover durch Drücken einer bestimmten Taste auf der Tastatur anzuzeigen.
+Das folgende Beispiel bietet die Funktionalität, ein Popover durch Drücken einer bestimmten Taste auf der Tastatur anzuzeigen.
 
-Zuerst ein wenig HTML:
+Zuerst etwas HTML:
 
 ```html
 <div id="mypopover" popover>
-  <h2>Hilfe!</h2>
+  <h2>Help!</h2>
 
-  <p>Sie können die folgenden Befehle verwenden, um die App zu steuern</p>
+  <p>You can use the following commands to control the app</p>
 
   <ul>
-    <li>Drücken Sie <ins>C</ins>, um Käse zu bestellen</li>
-    <li>Drücken Sie <ins>T</ins>, um Tofu zu bestellen</li>
-    <li>Drücken Sie <ins>B</ins>, um Speck zu bestellen</li>
+    <li>Press <ins>C</ins> to order cheese</li>
+    <li>Press <ins>T</ins> to order tofu</li>
+    <li>Press <ins>B</ins> to order bacon</li>
     <hr />
-    <li>Sagen Sie "Service", um den Roboterkellner zu rufen, um Ihre Bestellung aufzunehmen</li>
-    <li>Sagen Sie "Escape", um den Schleudersitz zu aktivieren</li>
+    <li>Say "Service" to summon the robot waiter to take your order</li>
+    <li>Say "Escape" to engage the ejector seat</li>
   </ul>
 </div>
 ```
 
-Und nun das JavaScript, um die Funktionalität anzuschließen:
+Und nun das JavaScript, um die Funktionalität einzurichten:
 
 ```js
 const popover = document.getElementById("mypopover");

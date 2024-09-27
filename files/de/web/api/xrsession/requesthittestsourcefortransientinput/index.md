@@ -1,5 +1,5 @@
 ---
-title: "XRSession: Methode requestHitTestSourceForTransientInput()"
+title: "XRSession: requestHitTestSourceForTransientInput()-Methode"
 short-title: requestHitTestSourceForTransientInput()
 slug: Web/API/XRSession/requestHitTestSourceForTransientInput
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`requestHitTestSourceForTransientInput()`**-Methode des
-{{domxref("XRSession")}}-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("XRTransientInputHitTestSource")}}-Objekt aufgelöst wird, das an {{domxref("XRFrame.getHitTestResultsForTransientInput()")}} übergeben werden kann.
+Die **`requestHitTestSourceForTransientInput()`**-Methode der [`XRSession`](/de/docs/Web/API/XRSession)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`XRTransientInputHitTestSource`](/de/docs/Web/API/XRTransientInputHitTestSource)-Objekt erfüllt wird. Dieses Objekt kann an [`XRFrame.getHitTestResultsForTransientInput()`](/de/docs/Web/API/XRFrame/getHitTestResultsForTransientInput) übergeben werden.
 
 ## Syntax
 
@@ -20,38 +19,37 @@ requestHitTestSourceForTransientInput(options)
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das Konfigurationsoptionen enthält, insbesondere:
+  - : Ein Objekt mit Konfigurationsoptionen, insbesondere:
     - `profile`
-      - : Ein String, der den [Eingabeprofilnamen](/de/docs/Web/API/XRInputSource) der vorübergehenden Eingabequelle angibt, die zur Berechnung der Treffertestergebnisse verwendet wird.
+      - : Ein Zeichenfolgenwert, der den [Eingabedateiname](/de/docs/Web/API/XRInputSource) der transienten Eingabequelle angibt, die zur Berechnung der Hit-Test-Ergebnisse verwendet wird.
     - `entityTypes` {{Optional_Inline}}
-      - : Ein {{jsxref("Array")}}, das die Arten von Entitäten spezifiziert, die zur Erstellung der Treffertestquelle verwendet werden sollen. Wenn kein Entitätstyp angegeben ist, wird das Array standardmäßig auf ein Einzelnes Element mit dem Typ `plane` gesetzt. Mögliche Typen:
-        - `point`: Berechnet Treffertestergebnisse basierend auf erkannten charakteristischen Punkten.
-        - `plane`: Berechnet Treffertestergebnisse basierend auf erkannten realen Ebenen.
-        - `mesh`: Berechnet Treffertestergebnisse basierend auf erkannten Meshes.
+      - : Ein {{jsxref("Array")}}, das die Typen von Entitäten angibt, die für die Erstellung der Hit-Test-Quelle verwendet werden. Wenn kein Entitätstyp angegeben wird, wird das Array standardmäßig auf ein Element mit dem Typ `plane` gesetzt. Mögliche Typen:
+        - `point`: Berechnet Hit-Test-Ergebnisse basierend auf charakteristischen erkannten Punkten.
+        - `plane`: Berechnet Hit-Test-Ergebnisse basierend auf erkannten realen Ebenen.
+        - `mesh`: Berechnet Hit-Test-Ergebnisse basierend auf erkannten Meshes.
     - `offsetRay` {{Optional_Inline}}
-      - : Das {{domxref("XRRay")}}-Objekt, das verwendet wird, um den Treffertest durchzuführen. Wenn kein `XRRay`-Objekt bereitgestellt wurde, wird ein neues `XRRay`-Objekt ohne Parameter erstellt.
+      - : Das [`XRRay`](/de/docs/Web/API/XRRay)-Objekt, das verwendet wird, um den Hit-Test durchzuführen. Wenn kein `XRRay`-Objekt bereitgestellt wurde, wird ein neues `XRRay`-Objekt ohne Parameter erstellt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{domxref("XRTransientInputHitTestSource")}}-Objekt aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einem [`XRTransientInputHitTestSource`](/de/docs/Web/API/XRTransientInputHitTestSource)-Objekt erfüllt wird.
 
 ### Ausnahmen
 
-Anstatt echte Ausnahmen zu werfen, lehnt `requestHitTestSourceForTransientInput()` das
-zurückgegebene Versprechen mit einem {{domxref("DOMException")}} ab, insbesondere einer der folgenden:
+Anstelle von echten Ausnahmen lehnt `requestHitTestSourceForTransientInput()` das zurückgegebene Promise mit einer [`DOMException`](/de/docs/Web/API/DOMException) ab, insbesondere einer der folgenden:
 
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `hit-test` keine aktivierte Funktion in {{domxref("XRSystem.requestSession()")}} ist.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Sitzung bereits beendet ist.
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn es eine unvernünftige Anzahl von Anfragen gibt. Einige Benutzeragenten könnten die Nutzung aus Datenschutzgründen einschränken.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn `hit-test` keine aktivierte Funktion in [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn die Sitzung bereits beendet ist.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn es eine unzumutbare Menge an Anfragen gibt. Einige User Agents könnten die Nutzung aus Datenschutzgründen einschränken.
 
 ## Beispiele
 
-### Anfordern einer vorübergehenden Treffertestquelle
+### Anfordern einer transienten Hit-Test-Quelle
 
-Um eine Treffertestquelle anzufordern, starten Sie eine {{domxref("XRSession")}} mit der aktivierten `hit-test`-Sitzungsfunktion. Konfigurieren Sie als nächstes die Treffertestquelle und speichern Sie sie für die spätere Verwendung in der Frame-Schleife, und rufen Sie {{domxref("XRFrame.getHitTestResultsForTransientInput()")}} auf, um das Ergebnis zu erhalten.
+Um eine Hit-Test-Quelle anzufordern, starten Sie eine [`XRSession`](/de/docs/Web/API/XRSession) mit der aktivierten `hit-test`-Sitzungsfunktion. Konfigurieren Sie anschließend die Hit-Test-Quelle und speichern Sie sie zur späteren Verwendung in der Frame-Schleife. Rufen Sie [`XRFrame.getHitTestResultsForTransientInput()`](/de/docs/Web/API/XRFrame/getHitTestResultsForTransientInput) auf, um das Ergebnis zu erhalten.
 
 ```js
 const xrSession = navigator.xr.requestSession("immersive-ar", {
@@ -75,7 +73,7 @@ function onXRFrame(time, xrFrame) {
     transientHitTestSource,
   );
 
-  // Dinge mit den vorübergehenden Treffertestergebnissen tun
+  // do things with the transient hit test results
 }
 ```
 
@@ -89,4 +87,4 @@ function onXRFrame(time, xrFrame) {
 
 ## Siehe auch
 
-- {{domxref("XRSession.requestHitTestSource()")}}
+- [`XRSession.requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource)

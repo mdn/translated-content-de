@@ -1,26 +1,25 @@
 ---
-title: "WebSocketStream: closed Eigenschaft"
+title: "WebSocketStream: closed-Eigenschaft"
 short-title: closed
 slug: Web/API/WebSocketStream/closed
 l10n:
-  sourceCommit: bd8dbe863a306cf7114752bd936d012524b13517
+  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
 ---
 
-{{APIRef("WebSockets API")}}{{SeeCompatTable}}
+{{APIRef("WebSockets API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`closed`** schreibgeschützte Eigenschaft der
-{{domxref("WebSocketStream")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt erfüllt wird, sobald die Socket-Verbindung geschlossen ist. Das Objekt enthält den Schließcode und den Grund.
+Die schreibgeschützte Eigenschaft **`closed`** der [`WebSocketStream`](/de/docs/Web/API/WebSocketStream)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt erfüllt wird, sobald die Socket-Verbindung geschlossen ist. Das Objekt enthält den Schließcode und den Grund.
 
 ## Wert
 
 Ein Promise, das mit einem Objekt erfüllt wird, das die folgenden Eigenschaften enthält:
 
 - `closeCode`
-  - : Eine Zahl, die den Schließcode darstellt (siehe die vollständige Liste der [`CloseEvent` Status-Codes](/de/docs/Web/API/CloseEvent/code#value)).
+  - : Eine Zahl, die den Schließcode darstellt (siehe die vollständige Liste der [`CloseEvent`-Statuscodes](/de/docs/Web/API/CloseEvent/code#value)).
 - `reason`
-  - : Ein String, der eine lesbare Beschreibung des Grundes darstellt, warum die Socket-Verbindung geschlossen wurde.
+  - : Ein String, der eine menschenlesbare Beschreibung des Grundes darstellt, warum die Socket-Verbindung geschlossen wurde.
 
-Das Promise wird abgelehnt, wenn die WebSocket-Verbindung nicht sauber geschlossen wurde (für ein sauberes Schließen muss die zugehörige TCP-Verbindung _nachdem_ das WebSocket-Schlusshandshake abgeschlossen ist, geschlossen werden).
+Das Promise wird abgelehnt, wenn die WebSocket-Verbindung nicht sauber geschlossen wurde (für einen sauberen Abschluss muss die zugehörige TCP-Verbindung _nach_ dem Abschluss des WebSocket-Schließen-Handshakes geschlossen werden).
 
 ## Beispiele
 
@@ -36,11 +35,11 @@ wss.closed.then((result) => {
 });
 ```
 
-Siehe [Using WebSocketStream to write a client](/de/docs/Web/API/WebSockets_API/Using_WebSocketStream) für ein vollständiges Beispiel mit ausführlicher Erklärung.
+Siehe [Verwendung von WebSocketStream zum Schreiben eines Clients](/de/docs/Web/API/WebSockets_API/Using_WebSocketStream) für ein vollständiges Beispiel mit vollständiger Erklärung.
 
 ## Spezifikationen
 
-Momentan nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/websockets/pull/48 für den Standardisierungsfortschritt.
+Zurzeit nicht Bestandteil einer Spezifikation. Siehe https://github.com/whatwg/websockets/pull/48 für den Standardisierungsfortschritt.
 
 ## Browser-Kompatibilität
 
@@ -48,4 +47,4 @@ Momentan nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/websock
 
 ## Siehe auch
 
-- [WebSocketStream: Integrating streams with the WebSocket API](https://developer.chrome.com/docs/capabilities/web-apis/websocketstream), developer.chrome.com (2020)
+- [WebSocketStream: Integration von Streams mit der WebSocket API](https://developer.chrome.com/docs/capabilities/web-apis/websocketstream), developer.chrome.com (2020)

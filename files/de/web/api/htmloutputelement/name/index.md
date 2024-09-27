@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`name`**-Eigenschaft der {{domxref("HTMLOutputElement")}}-Schnittstelle gibt den Namen des {{HTMLElement("output")}}-Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/output#name)-Attribut des Elements wider.
+Die **`name`**-Eigenschaft der [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Schnittstelle gibt den Namen des {{HTMLElement("output")}}-Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/output#name)-Attribut des Elements wider.
 
 ## Wert
 
@@ -32,6 +32,6 @@ outputElement.name = "sum"; // sets or updates the element's name
 
 ## Siehe auch
 
-- {{domxref("HTMLOutputElement.defaultValue")}}
-- {{domxref("HTMLOutputElement.htmlFor")}}
-- {{domxref("HTMLOutputElement.labels")}}
+- [`HTMLOutputElement.defaultValue`](/de/docs/Web/API/HTMLOutputElement/defaultValue)
+- [`HTMLOutputElement.htmlFor`](/de/docs/Web/API/HTMLOutputElement/htmlFor)
+- [`HTMLOutputElement.labels`](/de/docs/Web/API/HTMLOutputElement/labels)

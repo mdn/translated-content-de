@@ -1,5 +1,5 @@
 ---
-title: "Element: Methode requestFullscreen()"
+title: "Element: requestFullscreen()-Methode"
 short-title: requestFullscreen()
 slug: Web/API/Element/requestFullscreen
 l10n:
@@ -10,7 +10,7 @@ l10n:
 
 Die **`Element.requestFullscreen()`**-Methode sendet eine asynchrone Anfrage, um das Element im Vollbildmodus anzuzeigen.
 
-Es ist nicht garantiert, dass das Element in den Vollbildmodus versetzt wird. Wenn die Erlaubnis zum Wechsel in den Vollbildmodus erteilt wird, löst das zurückgegebene {{JSxRef("Promise")}} auf, und das Element erhält ein {{domxref("Element/fullscreenchange_event", "fullscreenchange")}}-Ereignis, um anzuzeigen, dass es jetzt im Vollbildmodus ist. Wenn die Erlaubnis verweigert wird, wird das Versprechen abgelehnt, und das Element erhält stattdessen ein {{domxref("Element/fullscreenerror_event", "fullscreenerror")}}-Ereignis. Wenn das Element aus dem ursprünglichen Dokument entfernt wurde, empfängt das Dokument diese Ereignisse stattdessen.
+Es ist nicht garantiert, dass das Element in den Vollbildmodus versetzt wird. Wenn die Erlaubnis zum Eintritt in den Vollbildmodus erteilt wird, wird das zurückgegebene {{JSxRef("Promise")}} aufgelöst und das Element erhält ein [`fullscreenchange`](/de/docs/Web/API/Element/fullscreenchange_event)-Ereignis, um mitzuteilen, dass es sich jetzt im Vollbildmodus befindet. Wenn die Erlaubnis verweigert wird, wird das Promise abgelehnt und das Element erhält stattdessen ein [`fullscreenerror`](/de/docs/Web/API/Element/fullscreenerror_event)-Ereignis. Wenn das Element aus dem ursprünglichen Dokument entfernt wurde, erhält das Dokument stattdessen diese Ereignisse.
 
 ## Syntax
 
@@ -24,61 +24,69 @@ requestFullscreen(options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das das Verhalten des Übergangs in den Vollbildmodus steuert. Die verfügbaren Optionen sind:
     - `navigationUI` {{optional_inline}}
-      - : Steuert, ob die Navigations-UI angezeigt wird, während das Element im Vollbildmodus ist. Der Standardwert ist `"auto"`, was bedeutet, dass der Browser entscheiden sollte, was zu tun ist.
+      - : Steuert, ob die Navigations-Benutzeroberfläche angezeigt wird, während sich das Element im Vollbildmodus befindet.
+        Der Standardwert ist `"auto"`, was bedeutet, dass der Browser entscheiden sollte, was zu tun ist.
         - `"hide"`
-          - : Die Navigationsoberfläche des Browsers wird ausgeblendet, und die gesamten Dimensionen des Bildschirms werden für die Anzeige des Elements genutzt.
+          - : Die Navigationsoberfläche des Browsers wird ausgeblendet
+            und die gesamten Abmessungen des Bildschirms werden zur Anzeige des Elements genutzt.
         - `"show"`
-          - : Der Browser zeigt die Seitennavigationskontrollen und möglicherweise weitere Benutzeroberflächen an; die Maße des Elements (und die wahrgenommene Größe des Bildschirms) werden so angepasst, dass Platz für diese Benutzeroberfläche bleibt.
+          - : Der Browser präsentiert Seitennavigationssteuerelemente und möglicherweise andere
+            Benutzeroberflächen; die Abmessungen des Elements (und die wahrgenommene Größe des Bildschirms) werden angepasst, um Platz für diese Benutzeroberfläche zu lassen.
         - `"auto"`
-          - : Der Browser wählt aus, welche der obigen Einstellungen angewendet wird. Dies ist der Standardwert.
+          - : Der Browser wählt, welche der oben genannten Einstellungen angewendet werden sollen.
+            Dies ist der Standardwert.
     - `screen` {{optional_inline}} {{experimental_inline}}
-      - : Gibt an, auf welchem Bildschirm das Element im Vollbildmodus angezeigt werden soll. Dies nimmt ein {{domxref("ScreenDetailed")}}-Objekt als Wert an, das den gewählten Bildschirm darstellt.
+      - : Gibt an, auf welchem Bildschirm Sie das Element im Vollbildmodus anzeigen möchten. Dies nimmt ein [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekt als Wert, das den ausgewählten Bildschirm darstellt.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das mit einem Wert von `undefined` aufgelöst wird, wenn der Übergang in den Vollbildmodus abgeschlossen ist.
+Ein {{JSxRef("Promise")}}, das mit einem Wert von `undefined` aufgelöst wird, wenn der Übergang zum Vollbildmodus abgeschlossen ist.
 
 ### Ausnahmen
 
-_Anstatt eine traditionelle Ausnahme zu werfen, kündigt das `requestFullscreen()`-Verfahren Fehlerbedingungen an, indem es das zurückgegebene `Promise` ablehnt. Der Ablehnungshandler erhält einen der folgenden Ausnahme-Werte:_
+_Anstatt eine herkömmliche Ausnahme zu werfen, gibt das `requestFullscreen()`-Verfahren Fehlerbedingungen durch Ablehnen des zurückgegebenen `Promise` bekannt. Der Ablehnungshandler erhält einen der folgenden Ausnahme-Werte:_
 
 - {{jsxref("TypeError")}}
 
-  - : Die Ausnahme `TypeError` kann in einer der folgenden Situationen auftreten:
+  - : Die `TypeError`-Ausnahme kann in einer der folgenden
+    Situationen auftreten:
 
-    - Das Dokument, das das Element enthält, ist nicht vollständig aktiv; das heißt, es ist nicht das aktuelle aktive Dokument.
-    - Das Element wird nicht durch ein Dokument enthalten.
-    - Dem Element ist es nicht gestattet, die `fullscreen`-Funktion zu verwenden, entweder aufgrund der [Permissions-Policy](/de/docs/Web/HTTP/Permissions_Policy)-Konfiguration oder anderer Zugriffskontrollfunktionen.
+    - Das Dokument, das das Element enthält, ist nicht vollständig aktiv, das heißt, es ist nicht das aktuelle aktive Dokument.
+    - Das Element ist nicht in einem Dokument enthalten.
+    - Das Element darf das `fullscreen`-Feature nicht verwenden,
+      entweder aufgrund der [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)-Konfiguration oder anderer Zugriffskontrollfunktionen.
     - Das Element und sein Dokument sind derselbe Knoten.
-    - Das Element ist ein [Popover](/de/docs/Web/API/Popover_API), das bereits über {{domxref("HTMLElement.showPopover()")}} angezeigt wird.
+    - Das Element ist ein [Popover](/de/docs/Web/API/Popover_API), das bereits über [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover) angezeigt wird.
 
 ## Sicherheit
 
-Eine [transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit dieses Feature funktioniert.
 
-## Hinweise zur Verwendung
+## Anwendungsnotizen
 
 ### Kompatible Elemente
 
-Ein Element, das Sie in den Vollbildmodus versetzen möchten, muss eine kleine Anzahl einfacher Anforderungen erfüllen:
+Ein Element, das Sie im Vollbildmodus anzeigen möchten, muss eine kleine Anzahl einfacher Anforderungen erfüllen:
 
-- Es muss eines der standardmäßigen HTML-Elemente oder ein {{SVGElement("svg")}} oder {{MathMLElement("math")}} sein.
+- Es muss eines der Standard-HTML-Elemente oder ein {{SVGElement("svg")}} oder
+  {{MathMLElement("math")}} sein.
 - Es ist _kein_ {{HTMLElement("dialog")}}-Element.
-- Es muss sich entweder innerhalb des obersten Dokuments befinden oder in einem {{HTMLElement("iframe")}}, das das Attribut [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen) hat.
+- Es muss entweder im Top-Level-Dokument platziert sein oder in einem
+  {{HTMLElement("iframe")}}, das das [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen)-Attribut aufweist.
 
-Zusätzlich müssen alle festgelegten Berechtigungsrichtlinien die Verwendung dieser Funktion erlauben.
+Zusätzlich müssen alle festgelegten Berechtigungsrichtlinien die Verwendung dieses Features zulassen.
 
-### Erkennen der Aktivierung des Vollbildmodus
+### Erkennung der Vollbildaktivierung
 
-Sie können feststellen, ob Ihr Versuch, in den Vollbildmodus zu wechseln, erfolgreich ist, indem Sie das von `requestFullscreen()` zurückgegebene {{jsxref("Promise")}} verwenden, wie in den [Beispielen](#beispiele) unten zu sehen.
+Sie können feststellen, ob Ihr Versuch, in den Vollbildmodus zu wechseln, erfolgreich ist, indem Sie das von `requestFullscreen()` zurückgegebene {{jsxref("Promise")}} verwenden, wie in den [Beispielen](#beispiele) unten gezeigt.
 
-Um zu erfahren, wann anderer Code den Vollbildmodus aktiviert oder deaktiviert, sollten Sie Listener für das {{domxref("Document/fullscreenchange_event", "fullscreenchange")}}-Ereignis auf dem {{domxref("Document")}} einrichten. Es ist auch wichtig, auf `fullscreenchange` zu achten, um informiert zu werden, wenn beispielsweise der Benutzer manuell den Vollbildmodus umschaltet oder die Anwendung wechselt, was dazu führt, dass Ihre Anwendung vorübergehend den Vollbildmodus verlässt.
+Um zu erfahren, wann anderer Code den Vollbildmodus umgeschaltet hat, sollten Sie Listener für das [`fullscreenchange`](/de/docs/Web/API/Document/fullscreenchange_event)-Ereignis im [`Document`](/de/docs/Web/API/Document) einrichten. Es ist auch wichtig, `fullscreenchange` zu lauschen, um z.B. zu erfahren, wann der Benutzer den Vollbildmodus manuell umschaltet oder wenn der Benutzer die Anwendung wechselt, wodurch Ihre Anwendung vorübergehend den Vollbildmodus verlässt.
 
 ## Beispiele
 
-### Anfordern des Vollbildmodus
+### Anforderung des Vollbildmodus
 
-Diese Funktion schaltet das erste {{HTMLElement("video")}}-Element im Dokument in den Vollbildmodus um und zurück.
+Diese Funktion schaltet das erste {{HTMLElement("video")}}-Element, das im Dokument gefunden wird, in den und aus dem Vollbildmodus.
 
 ```js
 function toggleFullscreen() {
@@ -96,15 +104,15 @@ function toggleFullscreen() {
 }
 ```
 
-Wenn das Dokument nicht bereits im Vollbildmodus ist – festgestellt durch Überprüfung, ob {{domxref("document.fullscreenElement")}} einen Wert hat – rufen wir die `requestFullscreen()`-Methode des Videos auf. Wir müssen nichts Besonderes tun, wenn erfolgreich, aber wenn die Anfrage fehlschlägt, zeigt der `catch()`-Handler unseres Versprechens eine Warnung mit einer entsprechenden Fehlermeldung an.
+Wenn sich das Dokument noch nicht im Vollbildmodus befindet — erkennbar daran, ob [`document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement) einen Wert hat — rufen wir die `requestFullscreen()`-Methode des Videos auf. Wir müssen nichts Besonderes tun, wenn es erfolgreich ist, aber wenn die Anfrage fehlschlägt, zeigt der `catch()`-Handler unseres Promises eine Warnung mit einer entsprechenden Fehlermeldung an.
 
-Wenn hingegen der Vollbildmodus bereits aktiv ist, rufen wir {{domxref("document.exitFullscreen()")}} auf, um den Vollbildmodus zu deaktivieren.
+Wenn andererseits bereits der Vollbildmodus aktiviert ist, rufen wir [`document.exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen) auf, um den Vollbildmodus zu deaktivieren.
 
-Sie können [dieses Beispiel in Aktion sehen](https://fullscreen-requestfullscreen-demo.glitch.me/) oder [den Code anzeigen oder remixen](https://glitch.com/edit/#!/fullscreen-requestfullscreen-demo) auf [Glitch](https://glitch.com/).
+Sie können [dieses Beispiel in Aktion sehen](https://fullscreen-requestfullscreen-demo.glitch.me/) oder [den Code ansehen oder remixen](https://glitch.com/edit/#!/fullscreen-requestfullscreen-demo) auf [Glitch](https://glitch.com/).
 
 ### Verwendung von navigationUI
 
-In diesem Beispiel wird das gesamte Dokument in den Vollbildmodus gesetzt, indem `requestFullscreen()` auf dem {{DOMxRef("Document.documentElement")}} des Dokuments aufgerufen wird, das das Wurzelelement {{HTMLElement("html")}} des Dokuments ist.
+In diesem Beispiel wird das gesamte Dokument in den Vollbildmodus versetzt, indem `requestFullscreen()` auf dem [`Document.documentElement`](/de/docs/Web/API/Document/documentElement) des Dokuments aufgerufen wird, das das Root-{{HTMLElement("html")}}-Element des Dokuments ist.
 
 ```js
 let elem = document.documentElement;
@@ -119,11 +127,11 @@ elem
   });
 ```
 
-Der Resolve-Handler des Versprechens macht nichts, aber wenn das Versprechen abgelehnt wird, wird eine Fehlermeldung durch Aufruf von {{DOMxRef("Window.alert", "alert()")}} angezeigt.
+Der Besätigungs-Handler des Promises tut nichts, aber wenn das Promise abgelehnt wird, wird eine Fehlermeldung durch Aufruf von [`alert()`](/de/docs/Web/API/Window/alert) angezeigt.
 
 ### Verwendung der Bildschirmoption
 
-Wenn Sie das Element auf dem primären Betriebssystembildschirm im Vollbildmodus anzeigen möchten, könnten Sie einen Code wie den folgenden verwenden:
+Wenn Sie das Element im Vollbildmodus auf dem primären Betriebssystembildschirm anzeigen möchten, könnten Sie Code wie folgt verwenden:
 
 ```js
 try {
@@ -136,21 +144,21 @@ try {
 }
 ```
 
-Die Methode {{domxref("Window.getScreenDetails()")}} wird verwendet, um das {{domxref("ScreenDetails")}}-Objekt für das aktuelle Gerät abzurufen, das {{domxref("ScreenDetailed")}}-Objekte enthält, die die verschiedenen verfügbaren Bildschirme darstellen.
+Die Methode [`Window.getScreenDetails()`](/de/docs/Web/API/Window/getScreenDetails) wird verwendet, um das [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objekt für das aktuelle Gerät abzurufen, das [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekte für die verschiedenen verfügbaren Bildschirme enthält.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Fullscreen API](/de/docs/Web/API/Fullscreen_API)
-- {{DOMxRef("Document.exitFullscreen()")}}
-- {{DOMxRef("Document.fullscreen")}}
-- {{DOMxRef("Document.fullscreenElement")}}
+- [`Document.exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen)
+- [`Document.fullscreen`](/de/docs/Web/API/Document/fullscreen)
+- [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement)
 - {{CSSxRef(":fullscreen")}}
 - [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen)

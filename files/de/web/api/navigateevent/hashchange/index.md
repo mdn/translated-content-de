@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`hashChange`**-Eigenschaft der {{domxref("NavigateEvent")}}-Schnittstelle gibt `true` zurück, wenn es sich bei der Navigation um eine Fragment-Navigation handelt (d.h. zu einem Fragmentbezeichner im selben Dokument), oder `false` in anderen Fällen.
+Die schreibgeschützte **`hashChange`**-Eigenschaft des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt `true` zurück, wenn es sich bei der Navigation um eine Fragmentnavigation handelt (d. h. zu einem Fragmentbezeichner im selben Dokument), andernfalls `false`.
 
 ## Wert
 
-Ein boolescher Wert—`true`, wenn die Navigation eine Fragment-Navigation ist, `false`, wenn nicht.
+Ein boolescher Wert—`true` wenn es sich um eine Fragmentnavigation handelt, `false` wenn nicht.
 
 ## Beispiele
 
 ```js
 navigation.addEventListener("navigate", (event) => {
-  // Einige Navigationen, z.B. Cross-Origin-Navigationen, 
-  // können wir nicht abfangen. Lassen Sie den Browser diese normal behandeln.
+  // Some navigations, e.g. cross-origin navigations, we
+  // cannot intercept. Let the browser handle those normally.
   if (!event.canIntercept) {
     return;
   }
 
-  // Fragment-Navigationen oder Downloads nicht abfangen.
+  // Don't intercept fragment navigations or downloads.
   if (event.hashChange || event.downloadRequest !== null) {
     return;
   }
@@ -51,6 +51,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routen: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Live-Demo zur Navigation API](https://gigantic-honored-octagon.glitch.me/)
+- [Modernes client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API-Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)

@@ -1,5 +1,5 @@
 ---
-title: "IntersectionObserver: takeRecords() Methode"
+title: "IntersectionObserver: takeRecords()-Methode"
 short-title: takeRecords()
 slug: Web/API/IntersectionObserver/takeRecords
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die Methode **`takeRecords()`** des {{domxref("IntersectionObserver")}} gibt ein Array von {{domxref("IntersectionObserverEntry")}}-Objekten zurück, eines für jedes gezielte Element, das seit der letzten Überprüfung der Schnittmengen eine Veränderung erfahren hat, entweder explizit durch einen Aufruf dieser Methode oder implizit durch einen automatischen Aufruf des Beobachter-Callbacks.
+Die Methode **`takeRecords()`** des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) gibt ein Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten zurück, eines für jedes gezielte Element, das seit der letzten Überprüfung der Schnittpunkte eine Schnittpunktänderung erfahren hat, entweder explizit durch einen Aufruf dieser Methode oder implizit durch einen automatischen Aufruf des Rückrufs des Beobachters.
 
 > [!NOTE]
-> Wenn Sie das Callback verwenden, um diese Änderungen zu überwachen, müssen Sie diese Methode nicht aufrufen. Ein Aufruf dieser Methode löscht die ausstehende Schnittmengenliste, sodass das Callback nicht ausgeführt wird.
+> Wenn Sie den Rückruf verwenden, um diese Änderungen zu überwachen, müssen Sie diese Methode nicht aufrufen. Der Aufruf dieser Methode löscht die ausstehenden Schnittpunktlisten, sodass der Rückruf nicht ausgeführt wird.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von {{domxref("IntersectionObserverEntry")}}-Objekten, eines für jedes Zielobjekt, dessen Schnittpunkt mit dem Root sich seit der letzten Überprüfung der Schnittmengen geändert hat.
+Ein Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten, eines für jedes Ziel-Element, dessen Schnittpunkt mit der Wurzel sich seit der letzten Überprüfung der Schnittpunkte geändert hat.
 
 ## Spezifikationen
 

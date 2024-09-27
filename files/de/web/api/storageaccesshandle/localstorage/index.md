@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Storage Access API")}}
 
-Die **`localStorage`**-Eigenschaft der {{domxref("StorageAccessHandle")}}-Schnittstelle gibt ein nicht partitioniertes lokales {{domxref("Storage")}}-Objekt zurück, wenn der Zugriff gewährt wurde, und löst andernfalls eine `SecurityError` {{DOMxRef("DOMException")}} aus.
+Die **`localStorage`**-Eigenschaft des [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle)-Interfaces gibt ein unpartitioniertes lokales [`Storage`](/de/docs/Web/API/Storage)-Objekt zurück, wenn der Zugriff gewährt wurde, und wirft ansonsten einen `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException).
 
 ## Wert
 
-Ein {{domxref("Storage")}}-Objekt.
+Ein [`Storage`](/de/docs/Web/API/Storage)-Objekt.
 
 ## Beispiele
 
@@ -29,7 +29,7 @@ document.requestStorageAccess({ localStorage: true }).then(
 ```
 
 > [!NOTE]
-> Sehen Sie [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
+> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
 
 ## Spezifikationen
 
@@ -41,5 +41,5 @@ document.requestStorageAccess({ localStorage: true }).then(
 
 ## Siehe auch
 
-- {{domxref("Document.requestStorageAccess()")}}
-- [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
+- [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
+- [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)

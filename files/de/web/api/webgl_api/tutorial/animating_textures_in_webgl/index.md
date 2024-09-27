@@ -1,5 +1,5 @@
 ---
-title: Texturen in WebGL animieren
+title: Animation von Texturen in WebGL
 slug: Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL
 l10n:
   sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
@@ -7,17 +7,17 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}} {{Previous("Web/API/WebGL_API/Tutorial/Lighting_in_WebGL")}}
 
-In dieser Demonstration erweitern wir das vorherige Beispiel, indem wir unsere statischen Texturen durch die Frames einer mp4-Videodatei ersetzen, die abgespielt wird. Das ist tatsächlich ziemlich einfach zu machen und interessant zu beobachten, also lassen Sie uns anfangen. Sie können ähnlichen Code verwenden, um jede Art von Daten (wie ein {{ HTMLElement("canvas") }}) als Quelle für Ihre Texturen zu verwenden.
+In dieser Demonstration bauen wir auf dem vorherigen Beispiel auf, indem wir unsere statischen Texturen durch die Frames einer MP4-Videodatei ersetzen, die abgespielt wird. Das ist tatsächlich ziemlich einfach zu machen und macht Spaß zuzusehen, also legen wir los. Sie können ähnlichen Code verwenden, um jede Art von Daten (wie ein {{ HTMLElement("canvas") }}) als Quelle für Ihre Texturen zu verwenden.
 
 ## Zugriff auf das Video erhalten
 
-Der erste Schritt ist, das {{ HTMLElement("video") }}-Element zu erstellen, das wir verwenden werden, um die Video-Frames abzurufen.
+Der erste Schritt besteht darin, das {{ HTMLElement("video") }}-Element zu erstellen, das wir verwenden, um die Videoframes abzurufen.
 
 > [!NOTE]
 > Fügen Sie diese Deklaration zu Beginn Ihres "webgl-demo.js"-Skripts hinzu:
 
 ```js
-// wird auf true gesetzt, wenn das Video in die Textur kopiert werden kann
+// will set to true when video can be copied to texture
 let copyVideo = false;
 ```
 
@@ -35,8 +35,8 @@ function setupVideo(url) {
   video.muted = true;
   video.loop = true;
 
-  // Das Warten auf diese 2 Ereignisse stellt sicher,
-  // dass Daten im Video vorhanden sind
+  // Waiting for these 2 events ensures
+  // there is data in the video
 
   video.addEventListener(
     "playing",
@@ -69,28 +69,28 @@ function setupVideo(url) {
 }
 ```
 
-Zuerst erstellen wir ein Video-Element. Wir stellen es auf Autoplay, schalten den Ton stumm und lassen das Video in einer Schleife wiederholen. Dann richten wir zwei Ereignisse ein, um sicherzustellen, dass das Video abgespielt wird und die Zeit aktualisiert wurde. Wir benötigen beide Überprüfungen, da es zu einem Fehler führt, wenn Sie ein Video in WebGL hochladen, das noch keine Daten verfügbar hat. Die Überprüfung auf beide Ereignisse garantiert, dass Daten verfügbar sind, und es ist sicher, mit dem Hochladen des Videos zu einer WebGL-Textur zu beginnen. Im obigen Code bestätigen wir, ob wir beide dieser Ereignisse erhalten haben; falls ja, setzen wir eine globale Variable, `copyVideo`, auf true, um anzuzeigen, dass es sicher ist, das Video in eine Textur zu kopieren.
+Zuerst erstellen wir ein Videoelement. Wir setzen es auf Autoplay, schalten den Ton stumm und lassen das Video in einer Schleife abspielen. Dann richten wir zwei Ereignisse ein, um sicherzustellen, dass das Video abgespielt wird und die Zeit aktualisiert wurde. Wir benötigen beide Prüfungen, da es zu einem Fehler kommt, wenn Sie ein Video zu WebGL hochladen, das noch keine Daten zur Verfügung hat. Die Überprüfung auf beide Ereignisse garantiert, dass Daten vorhanden sind und es sicher ist, das Video in eine WebGL-Textur hochzuladen. Im obigen Code bestätigen wir, ob wir beide Ereignisse erhalten haben; wenn ja, setzen wir eine globale Variable `copyVideo` auf "true", um anzuzeigen, dass es sicher ist, mit dem Kopieren des Videos in eine Textur zu beginnen.
 
-Und schließlich setzen wir das `src`-Attribut, um das Laden und Abspielen des Videos zu starten, und rufen `play` auf.
+Und schließlich setzen wir das `src`-Attribut, um mit dem Laden und Abspielen des Videos zu beginnen, und rufen `play` auf.
 
-Das Video muss von einer sicheren Quelle geladen werden, um Texturdaten an WebGL zur Verfügung zu stellen. Das bedeutet, dass Sie nicht nur Code auf einem sicheren Webserver bereitstellen müssen, sondern auch einen sicheren Server zum Testen benötigen. Siehe [Wie richtet man einen lokalen Testserver ein?](/de/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server) für Hilfe.
+Das Video muss von einer sicheren Quelle geladen werden, um als Texturdaten für WebGL verwendet zu werden. Das bedeutet, dass Sie nicht nur Code wie die Verwendung eines sicheren Webservers bereitstellen müssen, sondern auch einen sicheren Server zum Testen benötigen. Siehe [Wie richtet man einen lokalen Testserver ein?](/de/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server) für Hilfe.
 
-## Die Video-Frames als Textur verwenden
+## Nutzung der Videoframes als Textur
 
-Die nächste Änderung besteht darin, die Textur zu initialisieren, was viel einfacher wird, da wir keine Bilddatei mehr laden müssen. Stattdessen erstellen wir ein leeres Texturobjekt, setzen ein einzelnes Pixel ein und richten die Filterung für die spätere Verwendung ein.
+Die nächste Änderung besteht darin, die Textur zu initialisieren, was viel einfacher wird, da wir keine Bilddatei mehr laden müssen. Stattdessen erstellen wir ein leeres Texturobjekt, platzieren ein einzelnes Pixel darin und setzen dessen Filterung für die spätere Verwendung.
 
 > [!NOTE]
-> Ersetzen Sie die `loadTexture()`-Funktion in "webgl-demo.js" durch den folgenden Code:
+> Ersetzen Sie die `loadTexture()`-Funktion in "webgl-demo.js" mit folgendem Code:
 
 ```js
 function initTexture(gl) {
   const texture = gl.createTexture();
   gl.bindTexture(gl.TEXTURE_2D, texture);
 
-  // Da das Video über das Internet heruntergeladen werden muss,
-  // kann es einen Moment dauern, bis es bereit ist, also
-  // fügen wir ein einzelnes Pixel in die Textur ein, sodass wir
-  // es sofort verwenden können.
+  // Because video has to be download over the internet
+  // they might take a moment until it's ready so
+  // put a single pixel in the texture so we can
+  // use it immediately.
   const level = 0;
   const internalFormat = gl.RGBA;
   const width = 1;
@@ -98,7 +98,7 @@ function initTexture(gl) {
   const border = 0;
   const srcFormat = gl.RGBA;
   const srcType = gl.UNSIGNED_BYTE;
-  const pixel = new Uint8Array([0, 0, 255, 255]); // opakes Blau
+  const pixel = new Uint8Array([0, 0, 255, 255]); // opaque blue
   gl.texImage2D(
     gl.TEXTURE_2D,
     level,
@@ -111,8 +111,8 @@ function initTexture(gl) {
     pixel,
   );
 
-  // Schalten Sie Mips aus und setzen Sie das Wrapping auf Clamp-to-Edge,
-  // damit es unabhängig von den Abmessungen des Videos funktioniert.
+  // Turn off mips and set wrapping to clamp to edge so it
+  // will work regardless of the dimensions of the video.
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
@@ -142,12 +142,12 @@ function updateTexture(gl, texture, video) {
 }
 ```
 
-Sie haben diesen Code schon gesehen. Er ist fast identisch mit der image onload-Funktion im vorherigen Beispiel — jedoch rufen wir `texImage2D()` auf und übergeben statt eines `Image`-Objekts das {{ HTMLElement("video") }}-Element. WebGL weiß, wie es den aktuellen Frame herauszieht und als Textur verwendet.
+Sie haben diesen Code schon einmal gesehen. Er ist fast identisch mit der Bild-Onload-Funktion im vorherigen Beispiel – außer dass wir `texImage2D()` aufrufen und anstelle eines `Image`-Objekts das {{ HTMLElement("video") }}-Element übergeben. WebGL weiß, wie man das aktuelle Frame auswählt und als Textur verwendet.
 
-Als Nächstes müssen wir diese neuen Funktionen aus unserer `main()`-Funktion aufrufen.
+Als nächstes müssen wir diese neuen Funktionen von unserer `main()`-Funktion aus aufrufen.
 
 > [!NOTE]
-> Ersetzen Sie den Aufruf von `loadTexture()` in Ihrer `main()`-Funktion durch diesen Code:
+> Ersetzen Sie in Ihrer `main()`-Funktion den Aufruf von `loadTexture()` durch diesen Code:
 
 ```js
 const texture = initTexture(gl);
@@ -158,12 +158,12 @@ const video = setupVideo("Firefox.mp4");
 > Sie müssen auch die Datei [Firefox.mp4](https://github.com/mdn/dom-examples/blob/main/webgl-examples/tutorial/sample8/Firefox.mp4) in dasselbe lokale Verzeichnis wie Ihre JavaScript-Dateien herunterladen.
 
 > [!NOTE]
-> Ersetzen Sie die `render()`-Funktion in Ihrer `main()`-Funktion durch diese:
+> Ersetzen Sie in Ihrer `main()`-Funktion die `render()`-Funktion mit dieser:
 
 ```js
-// Zeichnen Sie die Szene wiederholt
+// Draw the scene repeatedly
 function render(now) {
-  now *= 0.001; // Umrechnen in Sekunden
+  now *= 0.001; // convert to seconds
   deltaTime = now - then;
   then = now;
 
@@ -178,9 +178,9 @@ function render(now) {
 }
 ```
 
-Wenn `copyVideo` true ist, rufen wir `updateTexture()` auf, bevor wir die `drawScene()`-Funktion aufrufen.
+Wenn `copyVideo` wahr ist, rufen wir `updateTexture()` direkt vor `drawScene()` auf.
 
-Das ist alles!
+Das ist alles, was es dazu gibt!
 
 {{EmbedGHLiveSample('dom-examples/webgl-examples/tutorial/sample8/index.html', 670, 510) }}
 
@@ -188,6 +188,6 @@ Das ist alles!
 
 ## Siehe auch
 
-- [Audio und Video in Firefox verwenden](/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content)
+- [Verwendung von Audio und Video in Firefox](/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content)
 
 {{Previous("Web/API/WebGL_API/Tutorial/Lighting_in_WebGL")}}

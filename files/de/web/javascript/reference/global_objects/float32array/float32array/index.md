@@ -1,5 +1,5 @@
 ---
-title: Float32Array()-Konstruktor
+title: Float32Array() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Float32Array/Float32Array
 l10n:
   sourceCommit: dd339290fa3a42d9a7f079e17a62e1df1206f29d
@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`Float32Array()`**-Konstruktor erstellt {{jsxref("Float32Array")}}-Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`Float32Array()`** Konstruktor erstellt {{jsxref("Float32Array")}} Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ new Float32Array(buffer, byteOffset)
 new Float32Array(buffer, byteOffset, length)
 ```
 
-> **Note:** `Float32Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, ihn ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `Float32Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -37,27 +37,27 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 ### Verschiedene Möglichkeiten, ein Float32Array zu erstellen
 
 ```js
-// Aus einer Länge
+// From a length
 const float32 = new Float32Array(2);
 float32[0] = 42;
 console.log(float32[0]); // 42
 console.log(float32.length); // 2
 console.log(float32.BYTES_PER_ELEMENT); // 4
 
-// Aus einem Array
+// From an array
 const x = new Float32Array([21, 31]);
 console.log(x[1]); // 31
 
-// Aus einem anderen TypedArray
+// From another TypedArray
 const y = new Float32Array(x);
 console.log(y[0]); // 21
 
-// Aus einem ArrayBuffer
+// From an ArrayBuffer
 const buffer = new ArrayBuffer(32);
 const z = new Float32Array(buffer, 4, 4);
 console.log(z.byteOffset); // 4
 
-// Aus einem iterablen Objekt
+// From an iterable
 const iterable = (function* () {
   yield* [1, 2, 3];
 })();
@@ -77,7 +77,7 @@ console.log(float32FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Float32Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- Leitfaden zu [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

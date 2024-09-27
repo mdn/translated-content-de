@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Datagram Transport Layer Security** (**DTLS**) ist ein Protokoll, das zur Sicherung datagrammbasierter Kommunikation verwendet wird. Es basiert auf dem stromorientierten Transport Layer Security ({{Glossary("TLS")}}) und bietet ein ähnliches Sicherheitsniveau. Als Datagrammprotokoll garantiert DTLS weder die Reihenfolge der Nachrichtenübermittlung noch dass Nachrichten überhaupt zugestellt werden. Allerdings profitiert DTLS auch von den Vorteilen der Datagrammprotokolle, insbesondere dem geringeren Overhead und der reduzierten Latenz.
+**Datagram Transport Layer Security** (**DTLS**) ist ein Protokoll, das verwendet wird, um datagrammbasierte Kommunikation abzusichern. Es basiert auf dem stream-fokussierten Transport Layer Security ([TLS](/de/docs/Glossary/TLS)) und bietet ein ähnliches Sicherheitsniveau. Als Datagrammprotokoll garantiert DTLS nicht die Reihenfolge der Nachrichtenübermittlung oder überhaupt, dass Nachrichten zugestellt werden. DTLS profitiert jedoch auch von den Vorteilen von Datagrammprotokollen, insbesondere dem geringeren Overhead und der reduzierten Latenz.
 
-Diese Eigenschaften sind besonders nützlich für einen der häufigsten Anwendungsbereiche, in denen DTLS zum Einsatz kommt: {{Glossary("WebRTC")}}. Alle mit WebRTC verbundenen Protokolle müssen ihre Kommunikation mithilfe von DTLS verschlüsseln; dies schließt {{Glossary("SCTP")}}, {{Glossary("RTP", "SRTP")}} und {{Glossary("STUN")}} ein.
+Diese Eigenschaften sind besonders nützlich für einen der häufigsten Anwendungsbereiche von DTLS: [WebRTC](/de/docs/Glossary/WebRTC). Alle mit WebRTC verbundenen Protokolle müssen ihre Kommunikation mit DTLS verschlüsseln; dazu gehören [SCTP](/de/docs/Glossary/SCTP), [SRTP](/de/docs/Glossary/RTP) und [STUN](/de/docs/Glossary/STUN).
 
 ## Siehe auch
 

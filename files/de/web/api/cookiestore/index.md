@@ -7,31 +7,31 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Das **`CookieStore`** Interface der {{domxref("Cookie Store API", "", "", "nocode")}} stellt Methoden zum asynchronen Abrufen und Setzen von Cookies entweder von einer Seite oder einem Service Worker bereit.
+Das **`CookieStore`** Interface der [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) bietet Methoden zum asynchronen Abrufen und Setzen von Cookies, entweder von einer Seite oder einem Service Worker.
 
-Das `CookieStore` wird über Attribute im globalen Kontext in einem {{domxref("Window")}} oder {{domxref("ServiceWorkerGlobalScope")}} Kontext aufgerufen. Daher gibt es keinen Konstruktor.
+Das `CookieStore` wird über Attribute im globalen Scope in einem [`Window`](/de/docs/Web/API/Window) oder [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) Kontext zugegriffen. Daher gibt es keinen Konstruktor.
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
-- {{domxref("CookieStore.delete()")}}
-  - : Die `delete()`-Methode löscht ein Cookie mit dem angegebenen `name` oder `options`-Objekt und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn das Löschen abgeschlossen ist.
-- {{domxref("CookieStore.get()")}}
-  - : Die `get()`-Methode ruft ein einzelnes Cookie mit dem angegebenen `name` oder `options`-Objekt ab und gibt ein {{jsxref("Promise")}} zurück, das mit den Details eines einzelnen Cookies aufgelöst wird.
-- {{domxref("CookieStore.getAll()")}}
-  - : Die `getAll()`-Methode ruft alle übereinstimmenden Cookies ab und gibt ein {{jsxref("Promise")}} zurück, das mit einer Liste von Cookies aufgelöst wird.
-- {{domxref("CookieStore.set()")}}
-  - : Die `set()`-Methode setzt ein Cookie mit dem angegebenen `name` und `value` oder `options`-Objekt und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn das Cookie gesetzt wurde.
+- [`CookieStore.delete()`](/de/docs/Web/API/CookieStore/delete)
+  - : Die `delete()` Methode löscht ein Cookie mit dem gegebenen `name` oder `options` Objekt. Sie gibt ein {{jsxref("Promise")}} zurück, das sich auflöst, wenn das Löschen abgeschlossen ist.
+- [`CookieStore.get()`](/de/docs/Web/API/CookieStore/get)
+  - : Die `get()` Methode ruft ein einzelnes Cookie mit dem gegebenen `name` oder `options` Objekt ab. Sie gibt ein {{jsxref("Promise")}} zurück, das sich mit den Details eines einzelnen Cookies auflöst.
+- [`CookieStore.getAll()`](/de/docs/Web/API/CookieStore/getAll)
+  - : Die `getAll()` Methode ruft alle passenden Cookies ab. Sie gibt ein {{jsxref("Promise")}} zurück, das sich mit einer Liste von Cookies auflöst.
+- [`CookieStore.set()`](/de/docs/Web/API/CookieStore/set)
+  - : Die `set()` Methode setzt ein Cookie mit dem gegebenen `name` und `value` oder `options` Objekt. Sie gibt ein {{jsxref("Promise")}} zurück, das sich auflöst, wenn das Cookie gesetzt ist.
 
 ## Ereignisse
 
-- {{domxref("CookieStore.change_event", "change")}}
-  - : Das `change`-Ereignis wird ausgelöst, wenn eine Änderung an einem beliebigen Cookie vorgenommen wird.
+- [`change`](/de/docs/Web/API/CookieStore/change_event)
+  - : Das `change` Ereignis wird ausgelöst, wenn eine Veränderung an einem Cookie vorgenommen wird.
 
 ## Beispiele
 
-In diesem Beispiel setzen wir ein Cookie und schreiben in die Konsole, ob der Vorgang erfolgreich war oder fehlgeschlagen ist.
+In diesem Beispiel setzen wir ein Cookie und schreiben eine Rückmeldung in die Konsole, ob die Operation erfolgreich war oder fehlgeschlagen ist.
 
 ```js
 const day = 24 * 60 * 60 * 1000;

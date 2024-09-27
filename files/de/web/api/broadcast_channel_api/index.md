@@ -7,12 +7,12 @@ l10n:
 
 {{DefaultAPISidebar("Broadcast Channel API")}} {{AvailableInWorkers}}
 
-Die **Broadcast Channel API** ermöglicht grundlegende Kommunikation zwischen {{glossary("browsing context", "browsing contexts")}} (also _Fenstern_, _Tabs_, _Frames_ oder _iframes_) und Workern auf dem gleichen {{glossary("origin")}}.
+Die **Broadcast Channel API** ermöglicht eine grundlegende Kommunikation zwischen [Browsing-Kontexten](/de/docs/Glossary/browsing_context) (das heißt, _Fenstern_, _Tabs_, _Frames_ oder _iframes_) und Workern im selben [Ursprung](/de/docs/Glossary/origin).
 
 > [!NOTE]
-> Genauer gesagt, ist die Kommunikation zwischen Browsing-Kontexten erlaubt, die denselben [Speicherbereich](/de/docs/Web/Privacy/State_Partitioning) nutzen. Speicher wird zunächst entsprechend den obersten Seiten partitioniert. Wenn Sie z. B. eine geöffnete Seite auf `a.com` haben, die ein iframe von `b.com` einbettet, und eine weitere Seite auf `b.com` geöffnet ist, kann das iframe nicht mit der zweiten Seite kommunizieren, obwohl sie technisch denselben Ursprung haben. Wenn jedoch die erste Seite ebenfalls auf `b.com` ist, kann das iframe mit der zweiten Seite kommunizieren.
+> Genauer gesagt, Kommunikation ist zwischen Browsing-Kontexten erlaubt, die denselben [Speicherbereich](/de/docs/Web/Privacy/State_Partitioning) verwenden. Der Speicher wird zunächst gemäß den Top-Level-Sites partitioniert. Beispielsweise, wenn Sie eine Seite bei `a.com` geöffnet haben, die ein iframe von `b.com` einbettet, und eine andere Seite zu `b.com` geöffnet ist, kann das iframe nicht mit der zweiten Seite kommunizieren, obwohl sie technisch den gleichen Ursprung haben. Wenn die erste Seite jedoch auch auf `b.com` ist, kann das iframe mit der zweiten Seite kommunizieren.
 
-Durch das Erstellen eines {{domxref("BroadcastChannel")}}-Objekts können Sie alle Nachrichten empfangen, die an diesen gesendet werden. Sie müssen keine Referenz zu den Frames oder Workern halten, mit denen Sie kommunizieren möchten: Sie können sich „anmelden“ zu einem bestimmten Kanal, indem sie ihren eigenen {{domxref("BroadcastChannel")}} mit demselben Namen erstellen, und bidirektionale Kommunikation zwischen ihnen allen haben.
+Durch das Erstellen eines [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Objekts können Sie alle Nachrichten empfangen, die an diesen gesendet werden. Es ist nicht notwendig, eine Referenz zu den Frames oder Workern zu halten, mit denen Sie kommunizieren möchten: Sie können sich "anmelden", indem sie ihren eigenen [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) mit demselben Namen erstellen, und eine bidirektionale Kommunikation zwischen allen haben.
 
 ![Das Prinzip der Broadcast Channel API](broadcastchannel.png)
 
@@ -20,32 +20,32 @@ Durch das Erstellen eines {{domxref("BroadcastChannel")}}-Objekts können Sie al
 
 ### Erstellen oder Beitreten zu einem Kanal
 
-Ein Client tritt einem Broadcast-Kanal bei, indem er ein {{domxref("BroadcastChannel")}}-Objekt erstellt. Sein [Konstruktor](/de/docs/Web/API/BroadcastChannel/BroadcastChannel) nimmt einen einzigen Parameter: den _Namen_ des Kanals. Wenn dies die erste Verbindung zu diesem Broadcast-Kanalnamen ist, wird der zugrunde liegende Kanal erstellt.
+Ein Client tritt einem Broadcast-Kanal bei, indem er ein [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Objekt erstellt. Sein [Konstruktor](/de/docs/Web/API/BroadcastChannel/BroadcastChannel) akzeptiert einen einzigen Parameter: den _Namen_ des Kanals. Wenn er der erste ist, der eine Verbindung zu diesem Broadcast-Kanalnamen herstellt, wird der zugrunde liegende Kanal erstellt.
 
 ```js
-// Verbindung zu einem Broadcast-Kanal
+// Connection to a broadcast channel
 const bc = new BroadcastChannel("test_channel");
 ```
 
 ### Senden einer Nachricht
 
-Es reicht aus, die {{domxref("BroadcastChannel.postMessage", "postMessage()")}} Methode auf dem erstellten `BroadcastChannel`-Objekt aufzurufen, das ein beliebiges Objekt als Argument annimmt. Ein Beispiel für eine einfache Zeichenfolgenachricht:
+Es genügt, die Methode [`postMessage()`](/de/docs/Web/API/BroadcastChannel/postMessage) auf dem erstellten `BroadcastChannel`-Objekt aufzurufen, die ein beliebiges Objekt als Argument annimmt. Ein Beispiel einer Nachrichtenkette:
 
 ```js
-// Beispiel für das Senden einer sehr einfachen Nachricht
+// Example of sending of a very simple message
 bc.postMessage("This is a test message.");
 ```
 
-Die an den Kanal gesendeten Daten werden mit dem [strukturierten Klon-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) serialisiert. Das bedeutet, dass Sie eine Vielzahl von Datenobjekten sicher senden können, ohne sie selbst serialisieren zu müssen.
+Die an den Kanal gesendeten Daten werden mit dem [strukturierten Klon-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) serialisiert. Das bedeutet, Sie können eine breite Vielzahl von Datenobjekten sicher senden, ohne sie selbst serialisieren zu müssen.
 
-Die API verknüpft keine Semantik mit Nachrichten, daher muss der Code wissen, welche Art von Nachrichten zu erwarten sind und was damit zu tun ist.
+Die API assoziiert keine Semantik mit Nachrichten, daher liegt es am Code zu wissen, welche Art von Nachrichten zu erwarten sind und was mit ihnen zu tun ist.
 
-### Empfang einer Nachricht
+### Empfangen einer Nachricht
 
-Wenn eine Nachricht gepostet wird, wird ein [`message`](/de/docs/Web/API/BroadcastChannel/message_event) Ereignis an jedes mit diesem Kanal verbundene {{domxref("BroadcastChannel")}}-Objekt gesendet. Eine Funktion kann für dieses Ereignis mit dem {{domxref("BroadcastChannel/message_event", "onmessage")}} Ereignishandler ausgeführt werden:
+Wenn eine Nachricht gesendet wird, wird ein [`message`](/de/docs/Web/API/BroadcastChannel/message_event) Ereignis an jedes [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Objekt, das mit diesem Kanal verbunden ist, gesendet. Eine Funktion kann für dieses Ereignis über den [`onmessage`](/de/docs/Web/API/BroadcastChannel/message_event) Ereignis-Handler ausgeführt werden:
 
 ```js
-// Ein Handler, der das Ereignis nur im Konsolenprotokoll ausgibt:
+// A handler that only logs the event to the console:
 bc.onmessage = (event) => {
   console.log(event);
 };
@@ -53,32 +53,32 @@ bc.onmessage = (event) => {
 
 ### Trennen eines Kanals
 
-Um einen Kanal zu verlassen, rufen Sie die {{domxref("BroadcastChannel.close", "close()")}} Methode auf dem Objekt auf. Dies trennt das Objekt vom zugrunde liegenden Kanal und ermöglicht die Speicherbereinigung.
+Um einen Kanal zu verlassen, rufen Sie die Methode [`close()`](/de/docs/Web/API/BroadcastChannel/close) auf dem Objekt auf. Dadurch wird das Objekt vom zugrunde liegenden Kanal getrennt und ermöglicht die Speicherbereinigung.
 
 ```js
-// Den Kanal trennen
+// Disconnect the channel
 bc.close();
 ```
 
 ## Fazit
 
-Die in sich geschlossene Schnittstelle der Broadcast Channel API ermöglicht die Kommunikation zwischen verschiedenen Kontexten. Sie kann verwendet werden, um Benutzeraktionen in anderen Tabs innerhalb eines Ursprungs zu erkennen, z. B. wenn sich der Benutzer anmeldet oder abmeldet.
+Die in sich geschlossene Schnittstelle der Broadcast Channel API ermöglicht die Kommunikation über Kontexte hinweg. Sie kann verwendet werden, um Benutzeraktionen in anderen Tabs innerhalb desselben Ursprungs zu erkennen, wie wenn der Benutzer sich ein- oder ausloggt.
 
-Das Nachrichtenprotokoll ist nicht definiert und die verschiedenen Browsing-Kontexte müssen es selbst implementieren; es gibt keine Aushandlung oder Anforderung von der Spezifikation.
+Das Nachrichtenprotokoll ist nicht definiert und die verschiedenen Browsing-Kontexte müssen es selbst implementieren; es gibt keine Verhandlung oder Anforderung von der Spezifikation.
 
 ## Schnittstellen
 
-- {{domxref("BroadcastChannel")}}
-  - : Repräsentiert einen benannten Kanal, zu dem jeder {{glossary("browsing context")}} eines gegebenen {{glossary("origin")}} abonnieren kann.
+- [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)
+  - : Stellt einen benannten Kanal dar, den jeder [Browsing-Kontext](/de/docs/Glossary/browsing_context) eines bestimmten [Ursprungs](/de/docs/Glossary/origin) abonnieren kann.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("BroadcastChannel")}}, die Schnittstelle, die sie implementiert.
+- [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel), die implementierende Schnittstelle.

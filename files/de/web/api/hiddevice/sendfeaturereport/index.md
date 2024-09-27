@@ -8,9 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`sendFeatureReport()`**-Methode der {{domxref("HIDDevice")}}-Schnittstelle sendet einen Feature-Bericht an das HID-Gerät. Feature-Berichte sind eine Möglichkeit für HID-Geräte und Anwendungen, nicht standardisierte HID-Daten auszutauschen.
+Die **`sendFeatureReport()`**-Methode des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces sendet einen Feature-Bericht an das HID-Gerät. Feature-Berichte sind eine Möglichkeit, nicht standardisierte HID-Daten zwischen HID-Geräten und Anwendungen auszutauschen.
 
-Die `reportId` für jedes der von diesem Gerät unterstützten Berichtsformate kann von {{domxref("HIDDevice.collections")}} abgerufen werden.
+Die `reportId` für jedes der vom Gerät unterstützten Berichtformate kann aus [`HIDDevice.collections`](/de/docs/Web/API/HIDDevice/collections) abgerufen werden.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ sendFeatureReport(reportId, data)
 - `reportId`
   - : Eine 8-Bit-Berichts-ID. Wenn das HID-Gerät keine Berichts-IDs verwendet, senden Sie `0`.
 - `data`
-  - : Bytes als {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}.
+  - : Bytes als ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}.
 
 ### Rückgabewert
 
@@ -31,7 +31,7 @@ Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald der Beric
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Senden des Berichts aus irgendeinem Grund fehlschlägt.
 
 ## Beispiele

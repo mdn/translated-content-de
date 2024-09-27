@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`transferSize`** repräsentiert die Größe (in Oktetten) der abgerufenen Ressource. Die Größe umfasst die Antwortheaderfelder sowie den Antwortnutzlastkörper (wie in [RFC7230](https://httpwg.org/specs/rfc7230.html#message.body) definiert).
+Die **`transferSize`** schreibgeschützte Eigenschaft repräsentiert die Größe (in Oktetten) der abgerufenen Ressource. Die Größe umfasst die Antwortheader-Felder sowie den Antwort-Payload-Body (wie in [RFC7230](https://httpwg.org/specs/rfc7230.html#message.body) definiert).
 
-Wenn die Ressource aus einem lokalen Cache abgerufen wird oder eine Cross-Origin-Ressource ist, gibt diese Eigenschaft null zurück.
+Wenn die Ressource aus einem lokalen Cache abgerufen wird oder wenn es sich um eine Cross-Origin-Ressource handelt, gibt diese Eigenschaft null zurück.
 
 ## Wert
 
-Die Eigenschaft `transferSize` kann die folgenden Werte haben:
+Die `transferSize`-Eigenschaft kann folgende Werte haben:
 
-- Eine Zahl, die die Größe (in Oktetten) der abgerufenen Ressource darstellt. Die Größe umfasst die Antwortheaderfelder sowie den [Antwortnutzlastkörper](https://httpwg.org/specs/rfc7230.html#message.body) (RFC7230).
+- Eine Zahl, die die Größe (in Oktetten) der abgerufenen Ressource darstellt. Die Größe umfasst die Antwortheader-Felder sowie den [Antwort-Payload-Body](https://httpwg.org/specs/rfc7230.html#message.body) (RFC7230).
 - `0`, wenn die Ressource sofort aus einem Cache abgerufen wurde.
 - `0`, wenn die Ressource eine Cross-Origin-Anfrage ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwortheader verwendet wird.
 
 ## Beispiele
 
-### Überprüfung, ob ein Cache-Treffer vorliegt
+### Überprüfen, ob ein Cache getroffen wurde
 
-Für Umgebungen, die die Eigenschaft {{domxref("PerformanceResourceTiming.responseStatus", "responseStatus")}} nicht unterstützen, kann die Eigenschaft `transferSize` verwendet werden, um Cache-Treffer zu bestimmen. Wenn `transferSize` null ist und die Ressource eine nicht-null dekodierte Körpergröße hat (was bedeutet, dass die Ressource mit gleicher Herkunft ist oder {{HTTPHeader("Timing-Allow-Origin")}} hat), wurde die Ressource aus einem lokalen Cache abgerufen.
+Für Umgebungen, die die [`responseStatus`](/de/docs/Web/API/PerformanceResourceTiming/responseStatus)-Eigenschaft nicht unterstützen, kann die `transferSize`-Eigenschaft verwendet werden, um Cache-Treffer zu bestimmen. Wenn `transferSize` null ist und die Ressource eine nicht-null Decoded-Body-Size hat (was bedeutet, dass die Ressource Same-Origin ist oder {{HTTPHeader("Timing-Allow-Origin")}} hat), wurde die Ressource aus einem lokalen Cache abgerufen.
 
-Beispiel mit einem {{domxref("PerformanceObserver")}}, der Benachrichtigungen über neue `resource` Leistungsbeiträge gibt, während sie in der Leistungstimeline des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um Einträge vor der Erstellung des Observers zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Leistungseinträge benachrichtigt, wenn sie in der Leistungszeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge von vor der Observer-Erstellung zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -40,7 +40,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel mit {{domxref("Performance.getEntriesByType()")}}, das nur `resource` Leistungsbeiträge zeigt, die in der Leistungstimeline des Browsers vorhanden sind, wenn Sie diese Methode aufrufen:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Leistungseinträge zeigt, die sich zum Zeitpunkt des Aufrufs dieser Methode in der Leistungszeitleiste des Browsers befinden:
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -51,11 +51,11 @@ resources.forEach((entry) => {
 });
 ```
 
-### Informationen zur Inhaltsgröße bei Cross-Origin
+### Cross-Origin-Inhaltsgrößeninformationen
 
-Wenn der Wert der Eigenschaft `transferSize` `0` ist und nicht aus einem lokalen Cache geladen wurde, könnte die Ressource eine Cross-Origin-Anfrage sein. Um Informationen zur Inhaltsgröße von Cross-Origin-Ressourcen offenzulegen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwortheader gesetzt werden.
+Wenn der Wert der `transferSize`-Eigenschaft `0` ist und nicht aus einem lokalen Cache geladen wurde, könnte die Ressource eine Cross-Origin-Anfrage sein. Um Cross-Origin-Inhaltsgrößeninformationen offenzulegen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwortheader festgelegt werden.
 
-Zum Beispiel, um `https://developer.mozilla.org` zu ermöglichen, Inhaltsgrößen zu sehen, sollte die Cross-Origin-Ressource senden:
+Zum Beispiel, um `https://developer.mozilla.org` zu erlauben, Inhaltsgrößen zu sehen, sollte die Cross-Origin-Ressource senden:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org

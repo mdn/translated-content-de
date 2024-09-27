@@ -1,5 +1,5 @@
 ---
-title: "KeyboardEvent: initKeyboardEvent() Methode"
+title: "KeyboardEvent: initKeyboardEvent()-Methode"
 short-title: initKeyboardEvent()
 slug: Web/API/KeyboardEvent/initKeyboardEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}{{Deprecated_Header}}
 
-Die Methode **`KeyboardEvent.initKeyboardEvent()`** initialisiert die Attribute eines Keyboard-Event-Objekts. Diese Methode wurde in einem Entwurf von DOM Level 3 Events eingeführt, aber in neueren Entwürfen als veraltet markiert. Gecko wird diese Funktion nicht unterstützen, da die Implementierung dieser Methode als experimentelles Feature bestehende Webanwendungen zerstörte (siehe [Firefox Bug 999645](https://bugzil.la/999645)). Webanwendungen sollten stattdessen den Konstruktor verwenden, falls verfügbar.
+Die **`KeyboardEvent.initKeyboardEvent()`**-Methode initialisiert die Attribute eines Keyboard-Event-Objekts. Diese Methode wurde im Entwurf der DOM Level 3 Events eingeführt, aber in neueren Entwürfen als veraltet eingestuft. Gecko wird dieses Feature nicht unterstützen, da die Implementierung dieser Methode als experimentell bestehende Webanwendungen beschädigte (siehe [Firefox Bug 999645](https://bugzil.la/999645)). Webanwendungen sollten stattdessen den Konstruktor verwenden, wenn dieser verfügbar ist.
 
 ## Syntax
 
@@ -21,25 +21,25 @@ initKeyboardEvent(type, canBubble, cancelable,
 ### Parameter
 
 - `type`
-  - : Der Typ des Tastaturereignisses; Browser setzen diesen immer auf einen der Werte `keydown`, `keypress` oder `keyup`.
+  - : Der Typ des Keyboard-Events; Browser setzen ihn immer auf einen der Werte `keydown`, `keypress` oder `keyup`.
 - `canBubble` {{optional_inline}}
-  - : Gibt an, ob das Ereignis sprudeln kann oder nicht. Standardwert ist `false`.
+  - : Gibt an, ob das Ereignis hochblasen kann oder nicht. Standardmäßig `false`.
 - `cancelable` {{optional_inline}}
-  - : Gibt an, ob das Ereignis abgebrochen werden kann oder nicht. Standardwert ist `false`.
+  - : Gibt an, ob das Ereignis abgebrochen werden kann oder nicht. Standardmäßig `false`.
 - `view` {{optional_inline}}
-  - : Das zugeordnete {{glossary("WindowProxy")}}. Standardwert ist `null`.
+  - : Der [WindowProxy](/de/docs/Glossary/WindowProxy), mit dem es verknüpft ist. Standardmäßig `null`.
 - `key` {{optional_inline}}
-  - : Der Wert des Schlüsselattributs. Standardwert ist `""`.
+  - : Der Wert des key-Attributs. Standardmäßig `""`.
 - `location` {{optional_inline}}
-  - : Der Wert des Standortattributs. Standardwert ist `0`.
+  - : Der Wert des location-Attributs. Standardmäßig `0`.
 - `ctrlKey` {{optional_inline}}
-  - : Gibt an, ob die Steuerungstaste aktiv ist. Standardwert ist `false`.
+  - : Gibt an, ob der Steuerungstastenmodifikator aktiv ist. Standardmäßig `false`.
 - `altKey` {{optional_inline}}
-  - : Gibt an, ob die Alt-Taste aktiv ist. Standardwert ist `false`.
+  - : Gibt an, ob der Alt-Tasten-Modifikator aktiv ist. Standardmäßig `false`.
 - `shiftKey` {{optional_inline}}
-  - : Gibt an, ob die Umschalttaste aktiv ist. Standardwert ist `false`.
+  - : Gibt an, ob der Umschalttastenmodifikator aktiv ist. Standardmäßig `false`.
 - `metaKey` {{optional_inline}}
-  - : Gibt an, ob die Meta-Taste aktiv ist. Standardwert ist `false`.
+  - : Gibt an, ob der Meta-Tasten-Modifikator aktiv ist. Standardmäßig `false`.
 
 ### Rückgabewert
 
@@ -49,7 +49,7 @@ Keiner ({{jsxref("undefined")}}).
 
 {{Specifications}}
 
-Die `KeyboardEvent`-Schnittstellenspezifikation durchlief zahlreiche Entwurfsstadien, zunächst unter DOM Events Level 2, wo sie fallen gelassen wurde, da kein Konsens erzielt wurde, und dann unter DOM Events Level 3. Dies führte zur Implementierung von nicht standardisierten Initialisierungsmethoden, der frühen DOM Events Level 2 Version, {{domxref("KeyboardEvent.initKeyEvent()")}} durch Gecko-Browser und der frühen DOM Events Level 3 Version, `KeyboardEvent.initKeyboardEvent()` durch andere. Beide wurden durch die moderne Verwendung eines Konstruktors ersetzt: {{domxref("KeyboardEvent.KeyboardEvent", "KeyboardEvent()")}}.
+Die `KeyboardEvent`-Schnittstellenspezifikation durchlief zahlreiche Entwurfsphasen, zuerst unter DOM Events Level 2, wo sie fallengelassen wurde, da kein Konsens erreicht wurde, dann unter DOM Events Level 3. Dies führte zur Implementierung nicht standardmäßiger Initialisierungsmethoden, der frühen DOM Events Level 2-Version, [`KeyboardEvent.initKeyEvent()`](/de/docs/Web/API/KeyboardEvent/initKeyEvent) von Gecko-Browsern und der frühen DOM Events Level 3-Version, `KeyboardEvent.initKeyboardEvent()` von anderen. Beide wurden durch die moderne Nutzung eines Konstruktors ersetzt: [`KeyboardEvent()`](/de/docs/Web/API/KeyboardEvent/KeyboardEvent).
 
 ## Browser-Kompatibilität
 

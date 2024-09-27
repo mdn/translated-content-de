@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`delete()`**-Methode des {{domxref("SharedStorage")}}-Interfaces löscht ein bestehendes Schlüssel-Wert-Paar aus dem gemeinsamen Speicher des aktuellen Ursprungs.
+Die **`delete()`**-Methode der [`SharedStorage`](/de/docs/Web/API/SharedStorage)-Schnittstelle löscht ein vorhandenes Schlüssel-Wert-Paar aus dem gemeinsamen Speicher des aktuellen Ursprungs.
 
 ## Syntax
 
@@ -19,26 +19,26 @@ delete(key)
 ### Parameter
 
 - `key`
-  - : Ein String, der den Schlüssel des Schlüssel-Wert-Paares darstellt, das Sie löschen möchten.
+  - : Ein String, der den Schlüssel des zu löschenden Schlüssel-Wert-Paares darstellt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der sich mit `undefined` erfüllt.
+Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird.
 
 ### Ausnahmen
 
 - Das `Promise` wird mit einem {{jsxref("TypeError")}} abgelehnt, wenn:
-  - Die Datenbank nicht erfolgreich geleert wurde, da der gemeinsame Speicher nicht verfügbar ist (zum Beispiel, wenn er durch eine Browsereinstellung deaktiviert ist).
+  - Die Datenbank nicht erfolgreich gelöscht wurde, weil der gemeinsame Speicher nicht verfügbar ist (zum Beispiel, wenn er durch eine Browsereinstellung deaktiviert wurde).
   - `key` die vom Browser definierte maximale Länge überschreitet.
-  - Die aufrufende Seite die Shared Storage API nicht in einem erfolgreichen [Privacy Sandbox-Einschreibungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) enthalten hat.
-- Im Fall von {{domxref("WorkletSharedStorage")}} wird das `Promise` mit einem {{jsxref("TypeError")}} abgelehnt, wenn:
-  - Das Worklet-Modul nicht mit {{domxref("Worklet.addModule", "SharedStorageWorklet.addModule()")}} hinzugefügt wurde.
+  - Die aufrufende Stelle die Shared Storage API nicht in einem erfolgreichen [Privacy Sandbox Aufnahmeprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) eingeschlossen hat.
+- Im Fall von [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage) wird das `Promise` mit einem {{jsxref("TypeError")}} abgelehnt, wenn:
+  - Das Worklet-Modul nicht mit [`SharedStorageWorklet.addModule()`](/de/docs/Web/API/Worklet/addModule) hinzugefügt wurde.
 
 > [!NOTE]
-> Wenn das Schlüssel-Wert-Paar nicht im gemeinsamen Speicher existiert, wird kein Fehler geworfen — die Operation erfüllt sich dennoch mit `undefined`.
+> Wenn das Schlüssel-Wert-Paar im gemeinsamen Speicher nicht existiert, wird kein Fehler ausgelöst – der Vorgang wird trotzdem mit `undefined` erfüllt.
 
 > [!NOTE]
-> Im Fall von {{domxref("WindowSharedStorage")}}, wenn die `delete()`-Operation aus einem anderen Grund als der Nichtverfügbarkeit des gemeinsamen Speichers nicht erfolgreich in die Datenbank geschrieben wird, wird kein Fehler geworfen — die Operation erfüllt sich dennoch mit `undefined`.
+> Im Fall von [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage), wenn der `delete()`-Vorgang nicht erfolgreich in die Datenbank schreibt, aus einem anderen Grund als dass der gemeinsame Speicher nicht verfügbar ist, wird kein Fehler ausgelöst – der Vorgang wird trotzdem mit `undefined` erfüllt.
 
 ## Beispiele
 

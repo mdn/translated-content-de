@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:root`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) entspricht dem Wurzelelement eines Baumes, der das Dokument darstellt. In HTML repräsentiert `:root` das {{HTMLElement("html")}}-Element und ist identisch mit dem Selektor `html`, außer dass seine [Spezifität](/de/docs/Web/CSS/Specificity) höher ist.
+Die **`:root`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) entspricht dem Wurzelelement eines Baums, der das Dokument darstellt. In HTML repräsentiert `:root` das {{HTMLElement("html")}}-Element und ist identisch mit dem Selektor `html`, außer dass seine [Spezifität](/de/docs/Web/CSS/Specificity) höher ist.
 
 ```css
-/* Wählt das Wurzelelement des Dokuments aus:
-   <html> im Fall von HTML */
+/* Selects the root element of the document:
+   <html> in the case of HTML */
 :root {
   background: yellow;
 }
@@ -27,7 +27,7 @@ Die **`:root`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-c
 
 ## Beispiele
 
-### Deklarieren von globalen CSS-Variablen
+### Globale CSS-Variablen deklarieren
 
 `:root` kann nützlich sein, um globale [CSS-Variablen](/de/docs/Web/CSS/Using_CSS_custom_properties) zu deklarieren:
 
@@ -49,7 +49,7 @@ Die **`:root`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-c
 ## Siehe auch
 
 - {{HTMLElement("html")}}
-- {{domxref("Document.rootElement")}}
-- {{domxref("Node.getRootNode()")}}
-- {{domxref("Element.shadowRoot")}}
-- {{domxref("ShadowRoot")}}
+- [`Document.rootElement`](/de/docs/Web/API/Document/rootElement)
+- [`Node.getRootNode()`](/de/docs/Web/API/Node/getRootNode)
+- [`Element.shadowRoot`](/de/docs/Web/API/Element/shadowRoot)
+- [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)

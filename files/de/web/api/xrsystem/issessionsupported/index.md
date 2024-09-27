@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die Methode **`isSessionSupported()`** von {{domxref("XRSystem")}} gibt ein Promise zurück, das auf `true` aufgelöst wird, wenn der angegebene WebXR-Sitzungsmodus vom WebXR-Gerät des Benutzers unterstützt wird. Andernfalls wird das Promise mit `false` aufgelöst.
+Die Methode **`isSessionSupported()`** des [`XRSystem`](/de/docs/Web/API/XRSystem) gibt ein Versprechen zurück, das bei Erfolg zu `true` aufgelöst wird, wenn der angegebene WebXR-Sitzungsmodus vom WebXR-Gerät des Benutzers unterstützt wird. Andernfalls wird das Versprechen mit `false` aufgelöst.
 
-Wenn keine Geräte verfügbar sind oder der Browser keine Berechtigung hat, das XR-Gerät zu verwenden, wird das Promise mit einem entsprechenden {{domxref("DOMException")}} abgelehnt.
+Wenn keine Geräte verfügbar sind oder der Browser keine Berechtigung hat, das XR-Gerät zu verwenden, wird das Versprechen mit einem entsprechenden [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ isSessionSupported(mode)
 
 - `mode`
 
-  - : Ein {{jsxref("String")}}, der den WebXR-Sitzungsmodus angibt, für den die Unterstützung überprüft werden soll. Mögliche Modi zur Überprüfung:
+  - : Ein {{jsxref("String")}}, der den WebXR-Sitzungsmodus angibt, für den die Unterstützung geprüft werden soll. Mögliche Modi, die geprüft werden können:
 
     - `immersive-ar` {{Experimental_Inline}}
     - `immersive-vr`
@@ -30,20 +30,20 @@ isSessionSupported(mode)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf `true` aufgelöst wird, wenn der angegebene Sitzungsmodus unterstützt wird; andernfalls wird das Promise mit `false` aufgelöst.
+Ein {{jsxref("Promise")}}, das zu `true` aufgelöst wird, wenn der angegebene Sitzungsmodus unterstützt wird; ansonsten wird das Versprechen zu `false` aufgelöst.
 
 ### Ausnahmen
 
-Anstatt echte Ausnahmen zu werfen, weist `isSessionSupported()` das zurückgegebene Promise ab und übergibt dem Ablehnungshandler ein {{domxref("DOMException")}}, dessen `name` einer der folgenden Zeichenfolgen ist.
+Anstatt tatsächlicher Ausnahmen löst `isSessionSupported()` das zurückgegebene Versprechen ab und übergibt dem Ablehnungs-Handler ein [`DOMException`](/de/docs/Web/API/DOMException), dessen `name` eine der folgenden Zeichenfolgen ist.
 
 - `SecurityError`
-  - : Die Nutzung dieser Funktion wird durch eine `xr-spatial-tracking` [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+  - : Die Nutzung dieser Funktion wird durch eine `xr-spatial-tracking` [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
 
 ## Beispiele
 
-In diesem Beispiel sehen wir, wie `isSessionSupported()` verwendet wird, um zu erkennen, ob das Gerät den VR-Modus unterstützt, indem überprüft wird, ob eine `immersive-vr`-Sitzung unterstützt wird. Wenn ja, stellen wir einen Button bereit, dessen Beschriftung "Enter XR" lautet, eine Methode `onButtonClicked()` aufruft und den Button aktiviert.
+In diesem Beispiel wird `isSessionSupported()` verwendet, um zu erkennen, ob das Gerät den VR-Modus unterstützt, indem geprüft wird, ob eine `immersive-vr`-Sitzung unterstützt wird. Wenn ja, richten wir eine Schaltfläche ein, die "Enter XR" liest, um eine Methode `onButtonClicked()` aufzurufen und die Schaltfläche zu aktivieren.
 
-Wenn keine Sitzung bereits läuft, fordern wir die VR-Sitzung an und richten sie bei Erfolg in einer Methode namens `onSessionStarted()` ein, die hier nicht gezeigt wird. Wenn bereits eine Sitzung läuft, wenn der Button geklickt wird, rufen wir die {{domxref("XRSession.end", "end()")}}-Methode des `xrSession`-Objekts auf, um die WebXR-Sitzung zu beenden.
+Wenn keine Sitzung bereits läuft, fordern wir die VR-Sitzung an und richten bei Erfolg die Sitzung in einer Methode namens `onSessionStarted()` ein, die nicht gezeigt wird. Wenn bereits eine Sitzung läuft, wenn die Schaltfläche geklickt wird, rufen wir die [`end()`](/de/docs/Web/API/XRSession/end)-Methode des `xrSession`-Objekts auf, um die WebXR-Sitzung zu beenden.
 
 ```js
 if (navigator.xr) {
@@ -60,11 +60,11 @@ function onButtonClicked() {
   if (!xrSession) {
     navigator.xr.requestSession("immersive-vr").then((session) => {
       xrSession = session;
-      // onSessionStarted() nicht gezeigt aus Gründen der Kürze und Klarheit.
+      // onSessionStarted() not shown for reasons of brevity and clarity.
       onSessionStarted(xrSession);
     });
   } else {
-    // Button ist ein Umschaltknopf.
+    // Button is a toggle button.
     xrSession.end();
   }
 }

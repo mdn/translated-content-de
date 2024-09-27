@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die **`DeviceMotionEventAcceleration`**-Schnittstelle der {{domxref("Device Orientation Events", "", "", "nocode")}} liefert Informationen über die Beschleunigung, die das Gerät entlang aller drei Achsen erfährt.
+Die **`DeviceMotionEventAcceleration`**-Schnittstelle der [Device Orientation Events](/de/docs/Web/API/Device_Orientation_Events) liefert Informationen über die Höhe der Beschleunigung, die das Gerät entlang aller drei Achsen erfährt.
 
-## Instanz-Eigenschaften
+## Instanz Eigenschaften
 
-- {{domxref("DeviceMotionEventAcceleration.x")}} {{ReadOnlyInline}}
-  - : Die Beschleunigung entlang der X-Achse.
-- {{domxref("DeviceMotionEventAcceleration.y")}} {{ReadOnlyInline}}
-  - : Die Beschleunigung entlang der Y-Achse.
-- {{domxref("DeviceMotionEventAcceleration.z")}} {{ReadOnlyInline}}
-  - : Die Beschleunigung entlang der Z-Achse.
+- [`DeviceMotionEventAcceleration.x`](/de/docs/Web/API/DeviceMotionEventAcceleration/x) {{ReadOnlyInline}}
+  - : Die Höhe der Beschleunigung entlang der X-Achse.
+- [`DeviceMotionEventAcceleration.y`](/de/docs/Web/API/DeviceMotionEventAcceleration/y) {{ReadOnlyInline}}
+  - : Die Höhe der Beschleunigung entlang der Y-Achse.
+- [`DeviceMotionEventAcceleration.z`](/de/docs/Web/API/DeviceMotionEventAcceleration/z) {{ReadOnlyInline}}
+  - : Die Höhe der Beschleunigung entlang der Z-Achse.
 
 ## Spezifikationen
 

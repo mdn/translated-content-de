@@ -1,5 +1,5 @@
 ---
-title: "CSSNumericValue: parse()-statische Methode"
+title: "CSSNumericValue: parse() statische Methode"
 short-title: parse()
 slug: Web/API/CSSNumericValue/parse_static
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`parse()`**-statische Methode der
-{{domxref("CSSNumericValue")}}-Schnittstelle wandelt einen Wertstring in ein Objekt um, dessen
-Mitglieder aus dem Wert und den Einheiten bestehen.
+Die statische Methode **`parse()`** der
+[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Schnittstelle wandelt einen Wertstring in ein Objekt um, dessen
+Mitglieder der Wert und die Einheiten sind.
 
 ## Syntax
 
@@ -21,22 +21,22 @@ CSSNumericValue.parse(cssText)
 ### Parameter
 
 - `cssText`
-  - : ein String, der numerische und Einheitsbestandteile enthält.
+  - : ein String, der numerische und Einheitsteile enthält.
 
 ### Rückgabewert
 
-Ein {{domxref('CSSNumericValue')}}.
+Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ### Ausnahmen
 
-- `SyntaxError` {{domxref("DOMException")}}
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : TBD
 
 ## Beispiele
 
-Das Folgende gibt ein {{domxref('CSSUnitValue')}}-Objekt zurück mit einer `unit`
-Eigenschaft gleich `"px"` und einer `value`-Eigenschaft gleich
-`42`.
+Das folgende Beispiel gibt ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) Objekt zurück mit einer `unit`
+Eigenschaft, die gleich `"px"` ist, und einer `value` Eigenschaft, die gleich
+`42` ist.
 
 ```js
 let numValue = CSSNumericValue.parse("42.0px");

@@ -8,9 +8,8 @@ l10n:
 
 {{APIRef("Media Session API")}}
 
-Die **`album`**-Eigenschaft der
-{{domxref("MediaMetadata")}}-Schnittstelle gibt den Namen des Albums oder der
-Sammlung zurück oder legt diesen fest, die das abzuspielende Medium enthalten.
+Die **`album`**-Eigenschaft des
+[`MediaMetadata`](/de/docs/Web/API/MediaMetadata)-Interfaces gibt den Namen des Albums oder der Sammlung zurück, die das abzuspielende Medium enthält, oder setzt diesen.
 
 ## Wert
 

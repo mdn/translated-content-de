@@ -8,7 +8,9 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`bound()`** statische Methode der {{domxref("IDBKeyRange")}}-Schnittstelle erzeugt einen neuen Schlüsselbereich mit den angegebenen oberen und unteren Grenzen. Die Grenzen können offen sein (das heißt, die Grenzen schließen die Endpunktwerte aus) oder geschlossen (das heißt, die Grenzen schließen die Endpunktwerte ein). Standardmäßig sind die Grenzen geschlossen.
+Die **`bound()`** statische Methode der [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+Schnittstelle erstellt einen neuen Schlüsselbereich mit den angegebenen oberen und unteren Grenzen. Die
+Grenzen können offen sein (d. h. die Grenzen schließen die Endpunktwerte aus) oder geschlossen (d. h. die Grenzen schließen die Endpunktwerte ein). Standardmäßig sind die Grenzen geschlossen.
 
 ## Syntax
 
@@ -25,28 +27,38 @@ IDBKeyRange.bound(lower, upper, lowerOpen, upperOpen)
 - `upper`
   - : Gibt die obere Grenze des neuen Schlüsselbereichs an.
 - `lowerOpen` {{optional_inline}}
-  - : Gibt an, ob die untere Grenze den Endpunktwert ausschließt. Der Standardwert ist false.
+  - : Gibt an, ob die untere Grenze den Endpunktwert ausschließt. Der Standardwert ist
+    false.
 - `upperOpen` {{optional_inline}}
-  - : Gibt an, ob die obere Grenze den Endpunktwert ausschließt. Der Standardwert ist false.
+  - : Gibt an, ob die obere Grenze den Endpunktwert ausschließt. Der Standardwert ist
+    false.
 
 ### Rückgabewert
 
-{{domxref("IDBKeyRange")}}: Der neu erstellte Schlüsselbereich.
+[`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange): Der neu erstellte Schlüsselbereich.
 
 ### Ausnahmen
 
-- `DataError` {{domxref("DOMException")}}
+- `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn eine der folgenden Bedingungen erfüllt ist:
-    - Die Parameter lower oder upper hatten keinen gültigen Schlüssel.
+    - Die unteren oder oberen Parameter wurden mit einem ungültigen Schlüssel übergeben.
     - Der untere Schlüssel ist größer als der obere Schlüssel.
-    - Der untere und der obere Schlüssel stimmen überein und eine der Grenzen ist offen.
+    - Der untere Schlüssel und der obere Schlüssel stimmen überein und einer der Grenzen ist offen.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Sie einen gebundenen Schlüsselbereich verwenden würden. Hier definieren wir `keyRangeValue = IDBKeyRange.bound("A", "F");` — ein Bereich zwischen den Werten "A" und "F". Wir öffnen eine Transaktion (mit {{domxref("IDBTransaction")}}) und ein Objekt-Store, und öffnen einen Cursor mit {{domxref("IDBObjectStore.openCursor")}}, wobei wir `keyRangeValue` als den optionalen Schlüsselbereichswert deklarieren. Das bedeutet, dass der Cursor nur Datensätze mit Schlüsseln innerhalb dieses Bereichs abrufen wird. Dieser Bereich schließt die Werte "A" und "F" ein, da wir nicht angegeben haben, dass sie offene Grenzen sein sollen. Wenn wir `IDBKeyRange.bound("A", "F", true, true);` verwendet hätten, würde der Bereich `"A"` und `"F"` nicht einschließen, sondern nur die Werte dazwischen.
+Das folgende Beispiel zeigt, wie Sie einen gebundenen Schlüsselbereich verwenden würden. Hier deklarieren wir
+einen `keyRangeValue = IDBKeyRange.bound("A", "F");` — einen Bereich zwischen den Werten
+"A" und "F". Wir öffnen eine Transaktion (mit [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)) und einen Objektspeicher und öffnen einen Cursor mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor),
+wobei wir `keyRangeValue` als optionalen Schlüsselbereichswert angeben. Dies bedeutet, dass
+der Cursor nur Datensätze mit Schlüsseln innerhalb dieses Bereichs abruft. Dieser Bereich schließt
+die Werte "A" und "F" ein, da wir nicht deklariert haben, dass sie offene Grenzen sein sollten. Wenn wir
+`IDBKeyRange.bound("A", "F", true, true);` verwendet hätten, würde der Bereich
+nicht `"A"` und `"F"`, sondern nur die Werte dazwischen einschließen.
 
 > [!NOTE]
-> Für ein umfassenderes Beispiel, das Ihnen ermöglicht, mit dem Schlüsselbereich zu experimentieren, werfen Sie einen Blick auf das idbkeyrange-Verzeichnis im [indexeddb-examples](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbkeyrange) Repository. (Sehen Sie sich das Beispiel auch [live](https://mdn.github.io/dom-examples/indexeddb-examples/idbkeyrange/) an.)
+> Für ein vollständigeres Beispiel, das es Ihnen ermöglicht, mit dem
+> Schlüsselbereich zu experimentieren, werfen Sie einen Blick auf das idbkeyrange-Verzeichnis im [indexeddb-examples](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbkeyrange) Repository. (Sehen Sie sich das Beispiel auch [live](https://mdn.github.io/dom-examples/indexeddb-examples/idbkeyrange/) an.
 
 ```js
 function displayData() {
@@ -64,7 +76,7 @@ function displayData() {
 
       cursor.continue();
     } else {
-      console.log("Alle Einträge angezeigt.");
+      console.log("Entries all displayed.");
     }
   };
 }
@@ -81,9 +93,9 @@ function displayData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Einen Bereich von Schlüsseln festlegen: {{domxref("IDBKeyRange")}}
-- Ihre Daten abrufen und ändern: {{domxref("IDBObjectStore")}}
-- Cursors verwenden: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Sehen Sie das Beispiel live](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einrichten eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenz-Beispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Sehen Sie sich das Beispiel live an](https://mdn.github.io/dom-examples/to-do-notifications/)).

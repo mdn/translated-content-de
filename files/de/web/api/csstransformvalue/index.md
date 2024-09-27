@@ -7,53 +7,53 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`CSSTransformValue`**-Schnittstelle des [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert `transform-list`-Werte, die von der CSS {{CSSxref('transform')}}-Eigenschaft verwendet werden.
+Die **`CSSTransformValue`**-Schnittstelle des [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert `transform-list`-Werte, wie sie durch die CSS {{CSSxref('transform')}}-Eigenschaft verwendet werden.
 
 {{InheritanceDiagram}}
 
 ## Schnittstellen basierend auf CSSTransformValue
 
-Im Folgenden finden Sie eine Liste von Schnittstellen, die auf der `CSSTransformValue`-Schnittstelle basieren.
+Nachfolgend finden Sie eine Liste von Schnittstellen, die auf der `CSSTransformValue`-Schnittstelle basieren.
 
-- {{domxref('CSSTranslate')}}
-- {{domxref('CSSRotate')}}
-- {{domxref('CSSScale')}}
-- {{domxref('CSSSkew')}}
-- {{domxref('CSSSkewX')}}
-- {{domxref('CSSSkewY')}}
-- {{domxref('CSSPerspective')}}
-- {{domxref('CSSMatrixComponent')}}
+- [`CSSTranslate`](/de/docs/Web/API/CSSTranslate)
+- [`CSSRotate`](/de/docs/Web/API/CSSRotate)
+- [`CSSScale`](/de/docs/Web/API/CSSScale)
+- [`CSSSkew`](/de/docs/Web/API/CSSSkew)
+- [`CSSSkewX`](/de/docs/Web/API/CSSSkewX)
+- [`CSSSkewY`](/de/docs/Web/API/CSSSkewY)
+- [`CSSPerspective`](/de/docs/Web/API/CSSPerspective)
+- [`CSSMatrixComponent`](/de/docs/Web/API/CSSMatrixComponent)
 
 ## Konstruktor
 
-- {{domxref("CSSTransformValue.CSSTransformValue", "CSSTransformValue()")}}
+- [`CSSTransformValue()`](/de/docs/Web/API/CSSTransformValue/CSSTransformValue)
   - : Erstellt ein neues `CSSTransformValue`-Objekt.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("CSSTransformValue.length")}} {{ReadOnlyInline}}
-  - : Gibt zurück, wie viele Transformationskomponenten im `CSSTransformValue` enthalten sind.
-- {{domxref("CSSTransformValue.is2D")}} {{ReadOnlyInline}}
-  - : Gibt einen Boolean zurück, der angibt, ob die Transformation 2D oder 3D ist.
+- [`CSSTransformValue.length`](/de/docs/Web/API/CSSTransformValue/length) {{ReadOnlyInline}}
+  - : Gibt an, wie viele Transformationskomponenten im `CSSTransformValue` enthalten sind.
+- [`CSSTransformValue.is2D`](/de/docs/Web/API/CSSTransformValue/is2D) {{ReadOnlyInline}}
+  - : Gibt einen booleschen Wert zurück, der angibt, ob die Transformation 2D oder 3D ist.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seinem Vorfahren {{domxref('CSSStyleValue')}}._
+_Erbt Methoden von seinem Vorfahren [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)._
 
-- {{domxref("CSSTransformValue.toMatrix()")}}
-  - : Gibt ein neues {{domxref('DOMMatrix')}}-Objekt zurück.
-- {{domxref('CSSTransformValue.entries()')}}
-  - : Gibt ein Array der eigenen aufzählbaren Eigenschaften `[key, value]`-Paare eines gegebenen Objekts in der gleichen Reihenfolge zurück, wie sie von einer {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird (mit dem Unterschied, dass eine for-in-Schleife auch Eigenschaften in der Prototyp-Kette aufzählt).
-- {{domxref('CSSTransformValue.forEach()')}}
+- [`CSSTransformValue.toMatrix()`](/de/docs/Web/API/CSSTransformValue/toMatrix)
+  - : Gibt ein neues [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt zurück.
+- [`CSSTransformValue.entries()`](/de/docs/Web/API/CSSTransformValue/entries)
+  - : Gibt ein Array der eigenen aufzählbaren `[key, value]`-Eigenschaftenpaare eines Objekts in derselben Reihenfolge zurück, wie es von einer {{jsxref("Statements/for...in", "for...in")}}-Schleife bereitgestellt wird (der Unterschied besteht darin, dass eine for-in-Schleife auch Eigenschaften in der Prototypkette aufzählt).
+- [`CSSTransformValue.forEach()`](/de/docs/Web/API/CSSTransformValue/forEach)
   - : Führt eine bereitgestellte Funktion einmal für jedes Element des `CSSTransformValue`-Objekts aus.
-- {{domxref('CSSTransformValue.keys()')}}
+- [`CSSTransformValue.keys()`](/de/docs/Web/API/CSSTransformValue/keys)
   - : Gibt ein neues _Array-Iterator_-Objekt zurück, das die Schlüssel für jeden Index im `CSSTransformValue`-Objekt enthält.
-- {{domxref('CSSTransformValue.values()')}}
+- [`CSSTransformValue.values()`](/de/docs/Web/API/CSSTransformValue/values)
   - : Gibt ein neues _Array-Iterator_-Objekt zurück, das die Werte für jeden Index im `CSSTransformValue`-Objekt enthält.
 
 ## Beispiele
 
-Noch ausstehend.
+Zu erledigen.
 
 ## Spezifikationen
 

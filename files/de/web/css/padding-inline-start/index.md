@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}
 
-Die **`padding-inline-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Anfang des Inline-Innenabstands eines Elements, der je nach Schreibmodus, Richtung und Textorientierung des Elements zu einem physischen Innenabstand wird.
+Die **`padding-inline-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Inline-Start-Abstand eines Elements, der sich je nach Schreibmodus, Richtung und Textorientierung des Elements auf einen physischen Abstand abbildet.
 
 {{EmbedInteractiveExample("pages/css/padding-inline-start.html")}}
 
 ## Syntax
 
 ```css
-/* <length> Werte */
-padding-inline-start: 10px; /* Eine absolute Länge */
-padding-inline-start: 1em; /* Eine Länge relativ zur Textgröße */
+/* <length> values */
+padding-inline-start: 10px; /* An absolute length */
+padding-inline-start: 1em; /* A length relative to the text size */
 
-/* <percentage> Wert */
-padding-inline-start: 5%; /* Ein Innenabstand relativ zur Breite des Blockcontainers */
+/* <percentage> value */
+padding-inline-start: 5%; /* A padding relative to the block container's width */
 
-/* Globale Werte */
+/* Global values */
 padding-inline-start: inherit;
 padding-inline-start: initial;
 padding-inline-start: revert;
@@ -32,17 +32,17 @@ padding-inline-start: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Innenabstands als fester Wert. Muss nicht negativ sein.
+  - : Die Größe des Abstands als fester Wert. Muss nicht negativ sein.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Innenabstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/Containing_block). Muss nicht negativ sein.
+  - : Die Größe des Abstands als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Containing_block). Muss nicht negativ sein.
 
 ## Beschreibung
 
-In einer englischen, links-nach-rechts und oben-nach-unten Sprache entspricht die Eigenschaft `padding-inline-start` für diesen Textabsatz der {{cssxref("padding-top")}}-Eigenschaft. Ob diese logische Eigenschaft jedoch der `padding-top`, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}} oder {{cssxref("padding-left")}} entspricht, hängt vom {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} des Elements ab.
+In einer englischen Sprache, die von links nach rechts und von oben nach unten verläuft, entspricht die `padding-inline-start`-Eigenschaft für diesen Textabschnitt der {{cssxref("padding-top")}}-Eigenschaft. Ob diese logische Eigenschaft der `padding-top`, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}} oder {{cssxref("padding-left")}} entspricht, hängt jedoch vom {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} des Elements ab.
 
-Es steht in Beziehung zu {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}} und {{cssxref("padding-inline-end")}}, die die anderen Innenabstände des Elements definieren.
+Sie steht in Beziehung zu {{cssxref("padding-block-start")}}, {{cssxref("padding-block-end")}} und {{cssxref("padding-inline-end")}}, die die anderen Abstände des Elements definieren.
 
-## Formale Definition
+## Formaldefinition
 
 {{cssinfo}}
 
@@ -52,7 +52,7 @@ Es steht in Beziehung zu {{cssxref("padding-block-start")}}, {{cssxref("padding-
 
 ## Beispiele
 
-### Einstellen des Inline-Anfangsinnenabstands für vertikalen Text
+### Festlegen des Inline-Startabstands für vertikalen Text
 
 #### HTML
 
@@ -92,6 +92,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS-Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
 - Die abgebildeten physischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

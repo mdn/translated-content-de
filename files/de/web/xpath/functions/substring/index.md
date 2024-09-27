@@ -1,5 +1,5 @@
 ---
-title: Teilzeichenfolge
+title: substring
 slug: Web/XPath/Functions/substring
 l10n:
   sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
@@ -21,10 +21,10 @@ substring(string, start, length)
 - `string`
   - : Der zu evaluierende String.
 - `start`
-  - : Die Position innerhalb des `string`, an der die Teilzeichenfolge beginnt.
+  - : Die Position innerhalb des `string`, an der der Teilstring beginnt.
 - `length` {{optional_inline}}
-  - : Die Länge der Teilzeichenfolge.
-    Wenn weggelassen, enthält der zurückgegebene String alle Zeichen von der Position `start` bis zum Ende des `string`.
+  - : Die Länge des Teilstrings.
+    Wenn ausgelassen, wird der zurückgegebene String jedes Zeichen von der `start`-Position bis zum Ende des `string` enthalten.
 
 ### Rückgabewert
 
@@ -32,7 +32,7 @@ Ein String.
 
 ## Beschreibung
 
-Wie bei anderen XPath-Funktionen beginnt die Position nicht bei null. Das erste Zeichen im String hat die Position 1, nicht 0.
+Wie bei anderen XPath-Funktionen ist die Position nicht nullbasiert. Das erste Zeichen im String hat die Position 1, nicht 0.
 
 ## Spezifikationen
 

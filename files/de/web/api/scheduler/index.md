@@ -2,31 +2,33 @@
 title: Scheduler
 slug: Web/API/Scheduler
 l10n:
-  sourceCommit: 4ba12fec878a1f941492ada3edd467bfd76532cf
+  sourceCommit: 3c359c63c1b58e10bdfe3bec2c245ea626560427
 ---
 
-{{APIRef("Priorisierte Aufgabenplanung API")}}
+{{APIRef("Prioritized Task Scheduling API")}}{{AvailableInWorkers}}
 
-Das **`Scheduler`**-Interface der [Priorisierte Aufgabenplanung API](/de/docs/Web/API/Prioritized_Task_Scheduling_API) stellt die Methode {{domxref('Scheduler.postTask()')}} bereit, die zum Hinzufügen prioritärer Aufgaben zur Planung verwendet werden kann.
+Die **`Scheduler`**-Schnittstelle der [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API) bietet Methoden zum Planen von priorisierten Aufgaben.
 
-Ein `Scheduler` kann vom globalen Objekt {{domxref("Window")}} oder {{domxref("WorkerGlobalScope")}} (`this.scheduler`) aus zugegriffen werden.
+Ein `Scheduler` kann über das globale Objekt mit [`Window.scheduler`](/de/docs/Web/API/Window/scheduler) oder innerhalb eines Workers mit [`WorkerGlobalScope.scheduler`](/de/docs/Web/API/WorkerGlobalScope/scheduler) aufgerufen werden.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 Keine.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref('Scheduler.postTask()')}}
-  - : Fügt dem Scheduler eine Aufgabe als Callback hinzu, wobei optional Priorität, Verzögerung und/oder ein Signal zum Abbrechen der Aufgabe angegeben werden können.
+- [`Scheduler.postTask()`](/de/docs/Web/API/Scheduler/postTask)
+  - : Fügt dem Scheduler eine Aufgabe als Rückruf hinzu, wobei optional eine Priorität, ein Verzögerungszeitraum und/oder ein Signal zum Abbrechen der Aufgabe angegeben werden kann.
+- [`Scheduler.yield()`](/de/docs/Web/API/Scheduler/yield)
+  - : Gibt die Kontrolle des Hauptthreads an den Browser zurück und gibt ein Promise zurück, das aufgelöst wird, um die Ausführung dort fortzusetzen, wo sie unterbrochen wurde.
 
 ## Beispiele
 
-Wenn die Funktion definiert ist, wird in sowohl Workern als auch im Hauptthread eine Instanz dieses Objekts vom globalen `this` zurückgegeben.
-Die einzige Eigenschaft des Interfaces ist die Methode {{domxref('Scheduler.postTask()','postTask()')}}, die verwendet wird, um die Aufgabe zu posten und ein Versprechen zurückzugeben.
+Wenn das Feature definiert ist, wird von der {{jsxref("globalThis")}}-Eigenschaft sowohl in Workern als auch im Hauptthread eine Instanz dieses Objekts zurückgegeben.
 
-Der nachfolgende Code zeigt eine einfache Aufgabe, die mit dem Text 'Task executing' aufgelöst wird. Dieser Text wird bei Erfolg protokolliert.
-Der Code zeigt auch einen `catch`-Block, der in komplexerem Code erforderlich wäre, um zu handhaben, wenn eine Aufgabe abgebrochen wird oder einen Fehler wirft.
+Der folgende Code zeigt eine einfache Aufgabe, die mit dem Text 'Task executing' erfüllt wird.
+Dieser Text wird bei Erfolg protokolliert.
+Der Code zeigt auch einen `catch`-Block, der in komplexeren Codes erforderlich wäre, um zu behandeln, wenn eine Aufgabe abgebrochen wird oder ein Fehler auftritt.
 
 ```js
 if ("scheduler" in this) {
@@ -39,7 +41,7 @@ if ("scheduler" in this) {
 }
 ```
 
-Für umfassendere Beispielcodes siehe [Priorisierte Aufgabenplanung API > Beispiele](/de/docs/Web/API/Prioritized_Task_Scheduling_API#examples).
+Für einen umfassenderen Beispielcode siehe [Prioritized Task Scheduling API > Beispiele](/de/docs/Web/API/Prioritized_Task_Scheduling_API#examples).
 
 ## Spezifikationen
 

@@ -7,30 +7,30 @@ l10n:
 
 {{CSSRef}}
 
-Die **`video-dynamic-range`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Kombination aus Helligkeit, Kontrastverhältnis und Farbtiefe zu testen, die vom Videobereich des {{glossary("user agent")}} und dem Ausgabegerät unterstützt werden.
+Das **`video-dynamic-range`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Kombination aus Helligkeit, Kontrastverhältnis und Farbtiefe zu testen, die von der Videoebene des [User-Agents](/de/docs/Glossary/user_agent) und dem Ausgabegerät unterstützt werden.
 
-Einige User Agents, einschließlich vieler Fernseher, rendern Video und Grafiken auf zwei separaten Ebenen (Bi-Ebene) mit unterschiedlichen Bildschirmmerkmalen. Die `video-dynamic-range`-Funktion wird verwendet, um die Merkmale in der Videoebene zu testen.
+Einige User-Agents, einschließlich vieler Fernseher, rendern Video und Grafik in zwei separaten Ebenen (biplane) mit unterschiedlichen Bildschirmeigenschaften. Das `video-dynamic-range` Merkmal wird verwendet, um die Eigenschaften in der Videoebene zu testen.
 
 ## Syntax
 
-Die `video-dynamic-range`-Funktion wird als ein Schlüsselwortwert angegeben, der aus der untenstehenden Liste ausgewählt wird.
+Das `video-dynamic-range` Merkmal wird als ein Schlüsselwortwert angegeben, der aus der folgenden Liste gewählt wird.
 
 - `standard`
 
-  - : Dieser Wert passt zu jedem visuellen Gerät und schließt Geräte ohne visuelle Fähigkeiten aus. Ein User Agent oder ein Ausgabegerät, das mit `high` übereinstimmt, wird auch mit dem `standard`-Wert übereinstimmen.
+  - : Dieser Wert passt zu jedem visuellen Gerät und schließt Geräte ohne visuelle Fähigkeiten aus. Ein User-Agent oder Ausgabegerät, das `high` entspricht, wird auch dem `standard` Wert entsprechen.
 
 - `high`
-  - : Dieser Wert passt zu User Agents und Ausgabegeräten, die hohe Spitzenhelligkeit, hohes Kontrastverhältnis und eine Farbtiefe von mehr als 24 Bit oder 8 Bit pro Farbkomponente von RGB unterstützen. **Spitzenhelligkeit** bezieht sich darauf, wie hell der hellste Punkt eines lichtemittierenden Geräts, wie z.B. eines LCD-Bildschirms, darstellen kann. Bei einem lichtreflektierenden Gerät, wie Papier oder E-Ink, bezieht sich die Spitzenhelligkeit auf den Punkt, der zumindest Licht absorbiert. **Kontrastverhältnis** bezieht sich auf das Verhältnis der Leuchtdichte der hellsten Farbe zur dunkelsten Farbe, die das System erzeugen kann. Derzeit gibt es keine präzise Möglichkeit, Spitzenhelligkeit und Kontrastverhältnis zu messen, und die Bestimmung dessen, was als hohe Spitzenhelligkeit und hohes Kontrastverhältnis zählt, hängt vom User Agent ab.
+  - : Dieser Wert passt zu User-Agents und Ausgabegeräten, die hohe Spitzenhelligkeit, hohes Kontrastverhältnis und eine Farbtiefe von mehr als 24 Bit oder 8 Bit pro Farbkomponente von RGB unterstützen. **Spitzenhelligkeit** bezieht sich darauf, wie hell der hellste Punkt, den ein lichtemittierendes Gerät wie ein LCD-Bildschirm erzeugen kann, ist. Bei einem lichtreflektierenden Gerät, wie Papier oder E-Ink, bezieht sich die Spitzenhelligkeit auf den Punkt, der am wenigsten Licht absorbiert. **Kontrastverhältnis** bezieht sich auf das Verhältnis der Leuchtdichte der hellsten Farbe zu der der dunkelsten Farbe, die das System erzeugen kann. Derzeit gibt es keine präzise Möglichkeit, Spitzenhelligkeit und Kontrastverhältnis zu messen. Die Entscheidung darüber, was als hohe Spitzenhelligkeit und hohes Kontrastverhältnis zählt, hängt vom User-Agent ab.
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 
-## Browser compatibility
+## Browser-Kompatibilität
 
 {{Compat}}
 
-## See also
+## Siehe auch
 
 - [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
 - [@media](/de/docs/Web/CSS/@media)

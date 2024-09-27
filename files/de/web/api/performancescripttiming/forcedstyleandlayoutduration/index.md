@@ -1,5 +1,5 @@
 ---
-title: "PerformanceScriptTiming: forcedStyleAndLayoutDuration-Eigenschaft"
+title: "PerformanceScriptTiming: forcedStyleAndLayoutDuration Eigenschaft"
 short-title: forcedStyleAndLayoutDuration
 slug: Web/API/PerformanceScriptTiming/forcedStyleAndLayoutDuration
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die **`forcedStyleAndLayoutDuration`** schreibgeschützte Eigenschaft der {{domxref("PerformanceScriptTiming")}}-Schnittstelle gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die gesamte Zeit angibt, die vom Skript für erzwungene Layout-/Stilverarbeitung in Millisekunden aufgewendet wurde. Siehe [Vermeidung von Layout-Thrashing](https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing#avoid_layout_thrashing), um zu verstehen, was dies verursacht.
+Die schreibgeschützte Eigenschaft **`forcedStyleAndLayoutDuration`** der [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Schnittstelle gibt ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, das die gesamte Zeit in Millisekunden angibt, die das Skript mit erzwungenem Layout/Stil verbringt. Siehe [Vermeiden von Layout Thrashing](https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing#avoid_layout_thrashing), um zu verstehen, was dies verursacht.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Siehe [Zeitmessung von langen Animationsbildern](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animat
 
 ## Siehe auch
 
-- [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
-- {{domxref("PerformanceLongAnimationFrameTiming")}}
+- [Zeitmessung von langen Animationsbildern](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)

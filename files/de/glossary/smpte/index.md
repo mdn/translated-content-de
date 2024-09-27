@@ -9,4 +9,4 @@ l10n:
 
 Die **Society of Motion Picture and Television Engineers** (**[SMPTE](https://www.smpte.org/)**) ist der Berufsverband von Ingenieuren und Wissenschaftlern, die Standards und Technologien entwickeln und definieren, die zur Erstellung, Übertragung, Speicherung und Präsentation von Unterhaltungsmedien verwendet werden.
 
-Zum Beispiel definiert SMPTE die Standards, die für digitales Kino in modernen digitalen Kinos verwendet werden.
+Zum Beispiel definiert SMPTE die Standards für das digitale Kino, das in modernen digitalen Kinos verwendet wird.

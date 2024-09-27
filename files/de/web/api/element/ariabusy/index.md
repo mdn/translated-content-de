@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaBusy`**-Eigenschaft des {{domxref("Element")}}-Interfaces spiegelt den Wert des [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy)-Attributs wider, welches angibt, ob ein Element verändert wird. Assistive Technologien könnten warten, bis die Änderungen abgeschlossen sind, bevor sie diese dem Benutzer präsentieren.
+Die **`ariaBusy`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy)-Attributs wider, das angibt, ob ein Element modifiziert wird. Assistive Technologien könnten warten wollen, bis die Modifikationen abgeschlossen sind, bevor sie dem Benutzer zugänglich gemacht werden.
 
 ## Wert
 
@@ -17,7 +17,7 @@ Ein String mit einem der folgenden Werte:
 - `"true"`
   - : Das Element wird aktualisiert.
 - `"false"`
-  - : Es sind keine erwarteten Änderungen für das Element vorhanden.
+  - : Es sind keine erwarteten Aktualisierungen für das Element.
 
 ## Beispiele
 

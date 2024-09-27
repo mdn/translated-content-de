@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`selectstart`**-Ereignis der [Selection-API](/de/docs/Web/API/Selection) wird ausgelöst, wenn ein Benutzer eine neue Auswahl beginnt.
+Das **`selectstart`**-Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn ein Benutzer eine neue Auswahl beginnt.
 
-Wenn das Ereignis abgebrochen wird, ändert sich die Auswahl nicht.
+Wenn das Ereignis abgebrochen wird, wird die Auswahl nicht geändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("selectstart", (event) => {});
@@ -24,17 +24,17 @@ onselectstart = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
 ```js
-// addEventListener-Version
+// addEventListener version
 document.addEventListener("selectstart", () => {
   console.log("Selection started");
 });
 
-// onselectstart-Version
+// onselectstart version
 document.onselectstart = () => {
   console.log("Selection started.");
 };
@@ -50,4 +50,4 @@ document.onselectstart = () => {
 
 ## Siehe auch
 
-- {{domxref("Document/selectionchange_event", "selectionchange")}}
+- [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event)

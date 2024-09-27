@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toReversed()`** Methode von {{jsxref("TypedArray")}} Instanzen ist das [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Gegenstück zur {{jsxref("TypedArray/reverse", "reverse()")}} Methode. Sie gibt ein neues typisiertes Array zurück, dessen Elemente in umgekehrter Reihenfolge angeordnet sind. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.toReversed()")}}.
+Die **`toReversed()`**-Methode von {{jsxref("TypedArray")}}-Instanzen ist das [kopierende](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods) Gegenstück zur {{jsxref("TypedArray/reverse", "reverse()")}}-Methode. Sie gibt ein neues typisiertes Array mit den Elementen in umgekehrter Reihenfolge zurück. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.toReversed()")}}.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Ein neues typisiertes Array, das die Elemente in umgekehrter Reihenfolge enthäl
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.toReversed()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur bei typisierten Array-Instanzen aufgerufen werden.
+Siehe {{jsxref("Array.prototype.toReversed()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 

@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die **`rotate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element um einen festen Punkt auf der 2D-Ebene dreht, ohne es zu verformen. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`rotate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element auf einer festen Punkt auf der 2D-Ebene dreht, ohne es zu verformen. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-rotate.html")}}
 
-Der feste Punkt, um den sich das Element dreht — wie oben erwähnt — ist auch als **Transformationsursprung** bekannt. Dieser ist standardmäßig das Zentrum des Elements, aber Sie können Ihren eigenen benutzerdefinierten Transformationsursprung mit der {{ cssxref("transform-origin") }} Eigenschaft festlegen.
+Der feste Punkt, um den das Element gedreht wird — wie oben erwähnt — ist auch als **transform origin** bekannt. Dies ist standardmäßig das Zentrum des Elements, aber Sie können mit der {{ cssxref("transform-origin") }} Eigenschaft einen eigenen Transformationsursprung festlegen.
 
 ## Syntax
 
-Das Ausmaß der durch `rotate()` erzeugten Drehung wird durch ein {{cssxref("&lt;angle&gt;")}} angegeben. Ist der Wert positiv, erfolgt die Bewegung im Uhrzeigersinn; bei negativen Werten gegen den Uhrzeigersinn. Eine Drehung um 180° wird als _Punktspiegelung_ bezeichnet.
+Der durch `rotate()` erzeugte Drehungsbetrag wird durch einen {{cssxref("&lt;angle&gt;")}} angegeben. Wenn positiv, erfolgt die Bewegung im Uhrzeigersinn; wenn negativ, erfolgt sie gegen den Uhrzeigersinn. Eine Drehung um 180° wird Punktspiegelung genannt.
 
 ```css
 rotate(a)
@@ -24,7 +24,7 @@ rotate(a)
 ### Werte
 
 - _a_
-  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und stellt den Winkel der Drehung dar. Die Richtung der Drehung hängt von der Schreibrichtung ab. In einem links-nach-rechts Kontext bedeutet ein positiver Winkel eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung entgegen dem Uhrzeigersinn. In einem rechts-nach-links Kontext bedeutet ein positiver Winkel eine Drehung entgegen dem Uhrzeigersinn, ein negativer Winkel eine Drehung im Uhrzeigersinn.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }} und repräsentiert den Winkel der Drehung. Die Drehrichtung hängt von der Schreibrichtung ab. In einem Kontext von links nach rechts bezeichnet ein positiver Winkel eine Drehung im Uhrzeigersinn, ein negativer Winkel eine Drehung gegen den Uhrzeigersinn. In einem Kontext von rechts nach links bezeichnet ein positiver Winkel eine Drehung gegen den Uhrzeigersinn, ein negativer Winkel eine Drehung im Uhrzeigersinn.
 
 <table class="standard-table">
   <thead>
@@ -66,13 +66,13 @@ rotate(a)
 
 ## Beispiele
 
-### Einfache Beispiel
+### Einfaches Beispiel
 
 #### HTML
 
 ```html
 <div>Normal</div>
-<div class="rotated">Rotiert</div>
+<div class="rotated">Rotated</div>
 ```
 
 #### CSS
@@ -94,17 +94,17 @@ div {
 
 {{EmbedLiveSample("Basic_example", "auto", 180)}}
 
-### Kombinieren der Rotation mit einer anderen Transformation
+### Kombination der Drehung mit einer anderen Transformation
 
-Wenn Sie mehrere Transformationen auf ein Element anwenden möchten, seien Sie vorsichtig mit der Reihenfolge, in der Sie Ihre Transformationen angeben. Zum Beispiel, wenn Sie zuerst rotieren und dann übersetzen, erfolgt die Übersetzung entlang der neuen Drehachse!
+Wenn Sie mehrere Transformationen auf ein Element anwenden möchten, achten Sie darauf, in welcher Reihenfolge Sie Ihre Transformationen angeben. Wenn Sie zum Beispiel zuerst rotieren und dann übersetzen, erfolgt die Übersetzung entlang der neuen Rotationsachse!
 
 #### HTML
 
 ```html
 <div>Normal</div>
-<div class="rotate">Rotiert</div>
-<div class="rotate-translate">Rotiert + Übersetzt</div>
-<div class="translate-rotate">Übersetzt + Rotiert</div>
+<div class="rotate">Rotated</div>
+<div class="rotate-translate">Rotated + Translated</div>
+<div class="translate-rotate">Translated + Rotated</div>
 ```
 
 #### CSS

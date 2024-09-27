@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`register()`** von {{jsxref("FinalizationRegistry")}}-Instanzen registriert einen Wert bei dieser `FinalizationRegistry`, sodass, wenn der Wert vom Garbage Collector entfernt wird, der Callback der Registry aufgerufen werden kann.
+Die **`register()`**-Methode von {{jsxref("FinalizationRegistry")}}-Instanzen registriert einen Wert mit diesem `FinalizationRegistry`, sodass die Callback-Funktion des Registrars aufgerufen werden kann, wenn der Wert garbage-collected wird.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ register(target, heldValue, unregisterToken)
 - `target`
   - : Der zu registrierende Zielwert.
 - `heldValue`
-  - : Der Wert, der an den Finalizer für dieses `target` übergeben wird. Dies kann nicht das `target` selbst sein, kann jedoch alles andere sein, einschließlich Funktionen und primitiver Werte.
+  - : Der Wert, der an den Finalizer für diesen `target` übergeben wird. Dies kann nicht der `target` selbst sein, aber alles andere, einschließlich Funktionen und primitiver Datentypen.
 - `unregisterToken` {{optional_inline}}
-  - : Ein Token, das später mit der `unregister`-Methode verwendet werden kann, um den Zielwert abzumelden. Wenn angegeben (und nicht `undefined`), muss dies ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Wenn nicht angegeben, kann das Ziel nicht abgemeldet werden.
+  - : Ein Token, das später mit der `unregister`-Methode verwendet werden kann, um den Zielwert abzuregistrieren. Wenn angegeben (und nicht `undefined`), muss es ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Wenn nicht angegeben, kann das Ziel nicht abregistriert werden.
 
 ### Rückgabewert
 
@@ -33,25 +33,31 @@ Keiner ({{jsxref("undefined")}}).
 
 - {{jsxref("TypeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - `target` ist kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) (Objekt gegenüber Primitiven; Funktionen sind ebenfalls Objekte)
-    - `target` ist dasselbe wie `heldValue` (`target === heldValue`)
+    - `target` ist kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) (Objekte im Gegensatz zu Primitiven; Funktionen sind ebenfalls Objekte)
+    - `target` ist identisch mit `heldValue` (`target === heldValue`)
     - `unregisterToken` ist kein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry)
 
 ## Beschreibung
 
-Siehe die Abschnitte [Vermeiden, wo möglich](/de/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry#avoid_where_possible) und [Hinweise zu Bereinigungs-Callbacks](/de/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry#notes_on_cleanup_callbacks) auf der Seite {{jsxref("FinalizationRegistry")}} für wichtige Hinweise.
+Siehe die Abschnitte [Nach Möglichkeit vermeiden](/de/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry#avoid_where_possible)
+und [Hinweise zu Bereinigungsrückrufen](/de/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry#notes_on_cleanup_callbacks)
+auf der {{jsxref("FinalizationRegistry")}}-Seite für wichtige Warnhinweise.
 
 ## Beispiele
 
 ### Verwendung von register
 
-Das folgende Beispiel registriert den durch `target` referenzierten Wert, übergibt den gehaltenen Wert `"some value"` und übergibt das Ziel selbst als Abmeldetoken:
+Das folgende Beispiel registriert den durch `target` referenzierten Wert,
+übergibt den gehaltenen Wert `"some value"` und übergibt das Ziel selbst
+als Deregistrierungstoken:
 
 ```js
 registry.register(target, "some value", target);
 ```
 
-Das folgende Beispiel registriert den durch `target` referenzierten Wert, übergibt ein anderes Objekt als gehaltenen Wert und übergibt kein Abmeldetoken (was bedeutet, dass `target` nicht abgemeldet werden kann):
+Das folgende Beispiel registriert den durch `target` referenzierten Wert,
+indem es ein anderes Objekt als gehaltenen Wert übergibt und kein Deregistrierungstoken übergibt
+(was bedeutet, dass `target` nicht abregistriert werden kann):
 
 ```js
 registry.register(target, { useful: "info about target" });

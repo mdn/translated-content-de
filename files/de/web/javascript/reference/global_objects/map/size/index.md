@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`size`**-Zugriffseigenschaft der {{jsxref("Map")}}-Instanzen gibt die Anzahl der Elemente in dieser Karte zurück.
+Die **`size`**-Zugriffseigenschaft von {{jsxref("Map")}}-Instanzen gibt die Anzahl der Elemente in dieser Map zurück.
 
 {{EmbedInteractiveExample("pages/js/map-prototype-size.html")}}
 
@@ -17,7 +17,7 @@ Der Wert von `size` ist eine Ganzzahl, die angibt, wie viele Einträge das `Map`
 
 ## Beispiele
 
-### Verwendung von size
+### Nutzung von size
 
 ```js
 const myMap = new Map();

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`size`**-Eigenschaft der {{domxref("CustomStateSet")}}-Schnittstelle gibt die Anzahl der Werte im `CustomStateSet` zurück.
+Die **`size`**-Eigenschaft des [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Interfaces gibt die Anzahl der Werte im `CustomStateSet` zurück.
 
 ## Wert
 
-Eine Ganzzahl, die angibt, wie viele Eigenschaften das `CustomStateSet` hat.
+Eine ganze Zahl, die angibt, wie viele Eigenschaften das `CustomStateSet` hat.
 
 ## Spezifikationen
 

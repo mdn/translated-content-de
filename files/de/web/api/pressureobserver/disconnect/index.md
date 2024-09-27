@@ -1,5 +1,5 @@
 ---
-title: "PressureObserver: Methode disconnect()"
+title: "PressureObserver: disconnect()-Methode"
 short-title: disconnect()
 slug: Web/API/PressureObserver/disconnect
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`disconnect()`**-Methode der {{domxref('PressureObserver')}}-Schnittstelle stoppt den Drucküberwachungs-Callback, sodass von allen Quellen keine weiteren Druckaufzeichnungen mehr empfangen werden.
+Die **`disconnect()`**-Methode des [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Interfaces stoppt den Druckbeobachter-Callback, damit keine Druckdatensätze mehr von allen Quellen empfangen werden.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Stoppen eines Druckbeobachters
 
-Im folgenden Beispiel werden 20 Stichproben gesammelt und anschließend der Druckbeobachter getrennt, um den Empfang weiterer Druckaufzeichnungen zu deaktivieren.
+Das folgende Beispiel sammelt 20 Proben und trennt dann den Druckbeobachter, um den Empfang weiterer Druckdatensätze zu deaktivieren.
 
 ```js
 const samples = [];
@@ -36,7 +36,7 @@ const samples = [];
 function pressureChange(records, observer) {
   for (const record of records) {
     samples.push(record.state);
-    // Wir möchten nur 20 Stichproben
+    // We only want 20 samples
     if (samples.length === 20) {
       observer.disconnect();
       return;
@@ -50,7 +50,7 @@ try {
     sampleInterval: 1000, // 1000ms
   });
 } catch (error) {
-  // Fehler beim Einrichten des Beobachters melden
+  // report error setting up the observer
 }
 ```
 

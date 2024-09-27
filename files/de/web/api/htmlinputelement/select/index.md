@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: select()-Methode"
+title: "HTMLInputElement: select() Methode"
 short-title: select()
 slug: Web/API/HTMLInputElement/select
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLInputElement.select()`**-Methode wählt den gesamten Text in einem {{HTMLElement("textarea")}}-Element oder in einem {{HTMLElement("input")}}-Element aus, das ein Textfeld enthält.
+Die **`HTMLInputElement.select()`** Methode wählt den gesamten Text in einem {{HTMLElement("textarea")}}-Element oder in einem {{HTMLElement("input")}}-Element aus, das ein Textfeld enthält.
 
 ## Syntax
 
@@ -26,8 +26,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Klicken Sie auf die Schaltfläche in diesem Beispiel, um den gesamten Text im
-`<input>`-Element auszuwählen.
+Klicken Sie auf die Schaltfläche in diesem Beispiel, um den gesamten Text im `<input>`-Element auszuwählen.
 
 ### HTML
 
@@ -52,13 +51,13 @@ function selectText() {
 
 ## Hinweise
 
-Das Aufrufen von `element.select()` fokussiert das Eingabefeld nicht unbedingt, daher wird es oft zusammen mit {{domxref("HTMLElement.focus")}} verwendet.
+Ein Aufruf von `element.select()` wird das Eingabefeld nicht unbedingt fokussieren, daher wird es oft zusammen mit [`HTMLElement.focus`](/de/docs/Web/API/HTMLElement/focus) verwendet.
 
-In Browsern, die es nicht unterstützen, kann es durch einen Aufruf von [HTMLInputElement.setSelectionRange()](/de/docs/Web/API/HTMLInputElement/setSelectionRange) mit den Parametern 0 und der Länge des Eingabewertes ersetzt werden:
+In Browsern, in denen es nicht unterstützt wird, kann es durch einen Aufruf von [HTMLInputElement.setSelectionRange()](/de/docs/Web/API/HTMLInputElement/setSelectionRange) mit den Parametern 0 und der Länge des Eingabewerts ersetzt werden:
 
 ```html
 <input onClick="this.select();" value="Sample Text" />
-<!-- äquivalent zu -->
+<!-- equivalent to -->
 <input
   onClick="this.setSelectionRange(0, this.value.length);"
   value="Sample Text" />
@@ -76,5 +75,5 @@ In Browsern, die es nicht unterstützen, kann es durch einen Aufruf von [HTMLInp
 
 - {{ HTMLElement("input") }}
 - {{ HTMLElement("textarea") }}
-- {{ domxref("HTMLInputElement") }}
-- {{ domxref("HTMLInputElement.setSelectionRange") }}
+- [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
+- [`HTMLInputElement.setSelectionRange`](/de/docs/Web/API/HTMLInputElement/setSelectionRange)

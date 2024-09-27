@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`bytes()`**-Methode des {{domxref("Response")}}-Interfaces nimmt einen {{domxref("Response")}}-Stream und liest ihn vollständig aus.
+Die **`bytes()`**-Methode der [`Response`](/de/docs/Web/API/Response)-Schnittstelle nimmt einen [`Response`](/de/docs/Web/API/Response)-Stream und liest ihn vollständig aus.
 Sie gibt ein Promise zurück, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
 
 ## Syntax
@@ -27,10 +27,10 @@ Ein Promise, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
 
 ### Ausnahmen
 
-- {{domxref("DOMException")}} `AbortError`
+- [`DOMException`](/de/docs/Web/API/DOMException) `AbortError`
   - : Die Anfrage wurde [abgebrochen](/de/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
 - {{jsxref("TypeError")}}
-  - : Ausgelöst aus einem der folgenden Gründe:
+  - : Ausgeworfen aus einem der folgenden Gründe:
     - Der Antwortkörper ist [gestört oder gesperrt](/de/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
     - Es gab einen Fehler beim Dekodieren des Körperinhalts (zum Beispiel, weil der {{httpheader("Content-Encoding")}}-Header falsch ist).
 - {{jsxref("RangeError")}}
@@ -41,7 +41,7 @@ Ein Promise, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
 
 ### Abrufen und Dekodieren einer Datei
 
-Der folgende Code zeigt, wie Sie eine Textdatei abrufen, den Körper als {{jsxref("Uint8Array")}} zurückgeben und diesen dann in einen String dekodieren können.
+Der untenstehende Code zeigt, wie Sie eine Textdatei abrufen, den Körper als {{jsxref("Uint8Array")}} zurückgeben und dann in einen String dekodieren können.
 
 ```js
 const response = await fetch("https://www.example.com/textfile.txt");
@@ -50,19 +50,19 @@ const string = new TextDecoder().decode(textFile);
 console.log(string);
 ```
 
-### Abrufen einer Bilddateisignatur
+### Abrufen einer Bilddatei-Signatur
 
-Dieses Beispiel zeigt, wie Sie `bytes()` verwenden können, um die Signatur-Bytes einer Reihe von Bilddateien zu lesen und den Typ zu identifizieren.
+Dieses Beispiel zeigt, wie Sie `bytes()` verwenden können, um die Signatur-Bytes einer Anzahl von Bilddateien zu lesen und den Typ zu identifizieren.
 
 #### HTML
 
-Zuerst definieren wir ein {{htmlelement("select")}}-Element zur Auswahl des Dateityps, mit entsprechenden Werten, die auf die spezifische Datei auf WikiMedia Commons hinweisen, die abgerufen werden soll.
+Zuerst definieren wir ein {{htmlelement("select")}}-Element zur Auswahl des Dateityps mit entsprechenden Werten, die die spezifische Datei auf WikiMedia Commons angeben, die abgerufen werden soll.
 
 ```html
-<label for="file-select">Datei auswählen:</label>
+<label for="file-select">Choose a file:</label>
 
 <select name="Files" id="file-select">
-  <option value="">--Bildtyp auswählen--</option>
+  <option value="">--Select an image type--</option>
   <option
     value="https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png">
     PNG
@@ -102,8 +102,8 @@ function log(text) {
 ```
 
 Der Code prüft zuerst, ob die `bytes()`-Methode unterstützt wird.
-Wenn die Methode unterstützt wird, fügt er einen Ereignishandler für das [`change` event](/de/docs/Web/API/HTMLElement/change_event) des `<select>`-Elements hinzu.
-Wenn sich der Wert ändert, übergibt er den Wert der Auswahl (eine URL für eine Bilddatei) an die unten definierte `checkSignature()`-Methode.
+Wenn die Methode unterstützt wird, fügt sie einen Ereignishandler für das [`change` event](/de/docs/Web/API/HTMLElement/change_event) Ereignis auf dem `<select>`-Element hinzu.
+Wenn sich der Wert ändert, wird der Wert der Auswahl (eine URL für eine Bilddatei) an die unten definierte `checkSignature()`-Methode übergeben.
 Wenn die Methode nicht unterstützt wird, wird diese Information protokolliert.
 
 ```js
@@ -117,23 +117,23 @@ if ("bytes" in Response.prototype) {
     }
   });
 } else {
-  log("Response.bytes() wird nicht unterstützt");
+  log("Response.bytes() not supported");
 }
 ```
 
 Die `checkSignature()`-Methode wird unten definiert.
 Diese ruft eine Datei unter der angegebenen `url` ab und verwendet `response.bytes()`, um deren Inhalt als Byte-Array zu erhalten.
-Die Anfangsbytes werden dann mit den Anfangssignatur-Bytes einer Reihe von gängigen Dateitypen verglichen.
+Die Anfangsbytes werden dann mit den Anfangssignatur-Bytes einer Anzahl gängiger Dateitypen verglichen.
 Der Dateiname und der Dateityp werden dann protokolliert.
 
 ```js
 async function checkSignature(url) {
   if (url == "") return;
-  log(`Datei: ${url}`);
+  log(`File: ${url}`);
   const response = await fetch(url);
   const image = await response.bytes();
 
-  // Dateisignaturen von: https://de.wikipedia.org/wiki/Liste_von_Dateierkennungen
+  // File signatures from: https://en.wikipedia.org/wiki/List_of_file_signatures
   const jpgSignature = [0xff, 0xd8, 0xff, 0xe0];
   const pngSignature = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
   const gif89aSignature = [0x47, 0x49, 0x46, 0x38, 0x39, 0x61];
@@ -143,29 +143,29 @@ async function checkSignature(url) {
       .slice(0, jpgSignature.length)
       .every((byte, index) => byte === jpgSignature[index])
   ) {
-    log(`JPG-Signatur: FF D8 FF E0`);
+    log(`JPG signature: FF D8 FF E0`);
   } else if (
     image
       .slice(0, pngSignature.length)
       .every((byte, index) => byte === pngSignature[index])
   ) {
-    log(`PNG-Signatur: 89 50 4E 47 0D 0A 1A 0A`);
+    log(`PNG signature: 89 50 4E 47 0D 0A 1A 0A`);
   } else if (
     image
       .slice(0, gif89aSignature.length)
       .every((byte, index) => byte === gif89aSignature[index])
   ) {
-    log(`GIF (GIF89a) Signatur: 47 49 46 38 39 61`);
+    log(`GIF (GIF89a) signature: 47 49 46 38 39 61`);
   } else {
-    log("Unbekanntes Format");
+    log("Unknown format");
   }
 }
 ```
 
 #### Ergebnis
 
-Wählen Sie einen Bildtyp über die Auswahliste aus.
-Der Log sollte dann den Dateinamen sowie den Dateityp anzeigen, der aus der Signatur der Datei ermittelt wurde.
+Wählen Sie einen Bildtyp aus der Auswahlliste.
+Das Protokoll sollte dann den Dateinamen sowie den Dateityp anzeigen, der aus der Signatur der Datei ermittelt wurde.
 
 {{EmbedLiveSample("Getting an image file signature", "100", "200px")}}
 

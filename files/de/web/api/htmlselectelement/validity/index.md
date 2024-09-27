@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`validity`** Eigenschaft der Schnittstelle {{domxref("HTMLSelectElement")}} gibt ein schreibgeschütztes {{domxref("ValidityState")}}-Objekt zurück, das die Gültigkeitszustände des Elements darstellt.
+Die schreibgeschützte Eigenschaft **`validity`** der Schnittstelle [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die Gültigkeitszustände darstellt, in denen sich dieses Element befindet.
 
 ## Wert
 
-Ein {{domxref("ValidityState")}}-Objekt.
+Ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt.
 
 ## Beispiel
 
-Das folgende Beispiel ermittelt den Gültigkeitszustand eines Auswahl-Elements und verarbeitet es, wenn es nicht gültig ist:
+Das folgende Beispiel erfasst den Gültigkeitszustand eines `select`-Elements und verarbeitet ihn, wenn er nicht gültig ist:
 
 ```js
 const select = document.getElementById("mySelect");
 const validityState = select.validity;
 if (!validityState.valid) {
-  // Testen Sie jeden Gültigkeitszustand
+  // Test each validity state
 }
 ```
 
@@ -36,8 +36,8 @@ if (!validityState.valid) {
 
 ## Siehe auch
 
-- {{domxref("HTMLSelectElement.checkValidity()")}}
+- [`HTMLSelectElement.checkValidity()`](/de/docs/Web/API/HTMLSelectElement/checkValidity)
 - {{HTMLElement("select")}}
 - {{HTMLElement("form")}}
-- [Learn: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Guide: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Erfahren Sie mehr: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Leitfaden: Constraint-Validierung](/de/docs/Web/HTML/Constraint_validation)

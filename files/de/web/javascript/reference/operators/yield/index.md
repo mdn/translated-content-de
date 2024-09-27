@@ -21,31 +21,31 @@ yield expression
 ### Parameter
 
 - `expression` {{optional_inline}}
-  - : Der Wert, der aus der Generatorfunktion über [das Iterationsprotokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) geliefert werden soll. Wenn weggelassen, wird `undefined` geliefert.
+  - : Der Wert, der von der Generatorfunktion über [das Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) erzeugt wird. Wenn dieser weggelassen wird, wird `undefined` erzeugt.
 
 ### Rückgabewert
 
-Gibt den optionalen Wert zurück, der an die `next()` Methode des Generators übergeben wurde, um die Ausführung fortzusetzen.
+Gibt den optionalen Wert zurück, der der `next()`-Methode des Generators übergeben wird, um deren Ausführung fortzusetzen.
 
 > [!NOTE]
-> Dies bedeutet, dass `next()` asymmetrisch ist: Es sendet immer einen Wert an das derzeit angehaltene `yield`, gibt jedoch den Operanden des nächsten `yield` zurück. Das Argument, das beim ersten Aufruf von `next()` übergeben wird, kann nicht abgerufen werden, da es kein derzeit angehaltenes `yield` gibt.
+> Dies bedeutet, dass `next()` asymmetrisch ist: Es sendet immer einen Wert an das derzeit pausierte `yield`, gibt aber den Operanden des nächsten `yield` zurück. Das Argument, das an den ersten `next()`-Aufruf übergeben wird, kann nicht abgerufen werden, da es kein derzeit pausiertes `yield` gibt.
 
 ## Beschreibung
 
-Das Schlüsselwort `yield` pausiert die Ausführung der Generatorfunktion und der Wert des Ausdrucks, der dem `yield` Schlüsselwort folgt, wird an den Aufrufer des Generators zurückgegeben. Es kann als eine auf Generatoren basierende Version des Schlüsselworts `return` gesehen werden.
+Das `yield` Schlüsselwort pausiert die Ausführung der Generatorfunktion und der Wert des Ausdrucks, der dem `yield` Schlüsselwort folgt, wird an den Aufrufer des Generators zurückgegeben. Es kann als eine Generator-basierte Version des `return` Schlüsselworts betrachtet werden.
 
 `yield` kann nur direkt innerhalb der Generatorfunktion verwendet werden, die es enthält. Es kann nicht innerhalb verschachtelter Funktionen verwendet werden.
 
-Das Aufrufen einer Generatorfunktion konstruiert ein {{jsxref("Generator")}} Objekt. Jedes Mal, wenn die {{jsxref("Generator/next", "next()")}} Methode des Generators aufgerufen wird, setzt der Generator die Ausführung fort und läuft, bis er einen der folgenden Punkte erreicht:
+Der Aufruf einer Generatorfunktion erstellt ein {{jsxref("Generator")}} Objekt. Jedes Mal, wenn die {{jsxref("Generator/next", "next()")}} Methode des Generators aufgerufen wird, wird der Generator weiter ausgeführt und läuft, bis einer der folgenden Punkte erreicht wird:
 
-- Einen `yield` Ausdruck. In diesem Fall pausiert der Generator, und die `next()` Methode gibt ein [Iteratorergebnis](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) Objekt mit zwei Eigenschaften zurück: `value` und `done`. Die `value` Eigenschaft ist der Wert des Ausdrucks nach dem `yield` Operator, und `done` ist `false`, was darauf hinweist, dass die Generatorfunktion nicht vollständig abgeschlossen ist.
-- Das Ende der Generatorfunktion. In diesem Fall endet die Ausführung des Generators, und die `next()` Methode gibt ein Iteratorergebnisobjekt zurück, bei dem `value` {{jsxref("undefined")}} ist und `done` `true`.
-- Eine {{jsxref("Statements/return", "return")}} Anweisung. In diesem Fall endet die Ausführung des Generators, und die `next()` Methode gibt ein Iteratorergebnisobjekt zurück, bei dem `value` der angegebene Rückgabewert ist und `done` `true`.
-- Eine {{jsxref("Statements/throw", "throw")}} Anweisung. In diesem Fall stoppt die Ausführung des Generators vollständig, und die `next()` Methode wirft die angegebene Ausnahme.
+- Ein `yield` Ausdruck. In diesem Fall pausiert der Generator, und die `next()`-Methode gibt ein [Iterator-Ergebnis](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol) Objekt mit zwei Eigenschaften zurück: `value` und `done`. Die `value`-Eigenschaft ist der Wert des Ausdrucks nach dem `yield` Operator, und `done` ist `false`, was darauf hinweist, dass die Generatorfunktion noch nicht vollständig abgeschlossen ist.
+- Das Ende der Generatorfunktion. In diesem Fall endet die Ausführung des Generators, und die `next()`-Methode gibt ein Iterator-Ergebnis-Objekt zurück, bei dem der `value` {{jsxref("undefined")}} und `done` `true` ist.
+- Eine {{jsxref("Statements/return", "return")}} Anweisung. In diesem Fall endet die Ausführung des Generators, und die `next()`-Methode gibt ein Iterator-Ergebnis-Objekt zurück, bei dem der `value` der angegebene Rückgabewert ist und `done` `true` ist.
+- Eine {{jsxref("Statements/throw", "throw")}} Anweisung. In diesem Fall wird die Ausführung des Generators vollständig angehalten, und die `next()`-Methode löst die angegebene Ausnahme aus.
 
-Sobald der Generator an einem `yield` Ausdruck pausiert, bleibt die Codeausführung des Generators pausiert, bis die `next()` Methode des Generators erneut aufgerufen wird. Wenn ein optionaler Wert an die `next()` Methode des Generators übergeben wird, wird dieser Wert der von der aktuellen `yield` Operation des Generators zurückgegebene Wert. Der erste `next()` Aufruf hat keine entsprechende angehaltene `yield` Operation, daher gibt es keine Möglichkeit, das übergebene Argument des ersten `next()` Aufrufs zu erhalten.
+Sobald ein `yield` Ausdruck pausiert ist, bleibt die Code-Ausführung des Generators pausiert, bis die `next()`-Methode des Generators erneut aufgerufen wird. Wenn ein optionaler Wert an die `next()`-Methode des Generators übergeben wird, wird dieser Wert zum Wert, der von der aktuellen `yield`-Operation des Generators zurückgegeben wird. Der erste `next()`-Aufruf hat keine entsprechende pausierte `yield`-Operation, daher gibt es keine Möglichkeit, das Argument des ersten `next()`-Aufrufs abzurufen.
 
-Wenn die {{jsxref("Generator/return", "return()")}} oder {{jsxref("Generator/throw", "throw()")}} Methode des Generators aufgerufen wird, verhält es sich so, als ob eine {{jsxref("Statements/return", "return")}} oder {{jsxref("Statements/throw", "throw")}} Anweisung an dem pausierten `yield` Ausdruck ausgeführt wurde. Sie können {{jsxref("Statements/try...catch", "try...catch...finally")}} im Körper der Generatorfunktion verwenden, um mit diesen vorzeitigen Abschlüssen umzugehen. Wenn die `return()` oder `throw()` Methode aufgerufen wird, es aber keinen angehaltenen `yield` Ausdruck gibt (weil `next()` noch nicht aufgerufen wurde oder der Generator bereits abgeschlossen ist), können die vorzeitigen Abschlüsse nicht behandelt werden und beenden den Generator immer.
+Wenn die {{jsxref("Generator/return", "return()")}} oder {{jsxref("Generator/throw", "throw()")}} Methode des Generators aufgerufen wird, verhält es sich so, als ob eine {{jsxref("Statements/return", "return")}} oder {{jsxref("Statements/throw", "throw")}} Anweisung an dem pausierten `yield` Ausdruck ausgeführt wurde. Sie können {{jsxref("Statements/try...catch", "try...catch...finally")}} innerhalb des Generatorfunktion-Körpers verwenden, um diese frühen Abschlüsse zu behandeln. Wenn die `return()` oder `throw()` Methode aufgerufen wird, aber kein pausierter `yield` Ausdruck vorhanden ist (weil `next()` noch nicht aufgerufen wurde oder weil der Generator bereits abgeschlossen ist), dann können die frühen Abschlüsse nicht behandelt werden und beenden den Generator immer.
 
 ## Beispiele
 
@@ -62,7 +62,7 @@ function* countAppleSales() {
 }
 ```
 
-Sobald eine Generatorfunktion definiert ist, kann sie verwendet werden, indem ein Iterator konstruiert wird, wie gezeigt.
+Sobald eine Generatorfunktion definiert ist, kann sie verwendet werden, indem ein Iterator wie gezeigt erstellt wird.
 
 ```js
 const appleStore = countAppleSales(); // Generator { }
@@ -72,7 +72,7 @@ console.log(appleStore.next()); // { value: 5, done: false }
 console.log(appleStore.next()); // { value: undefined, done: true }
 ```
 
-Sie können auch einen Wert mit `next(value)` in den Generator senden. `step` wird als Rückgabewert des `yield` Ausdrucks ausgewertet — obwohl der Wert, der der `next()` Methode des Generators beim ersten Aufruf von `next()` übergeben wird, ignoriert wird.
+Sie können auch einen Wert mit `next(value)` in den Generator senden. `step` wird bei jedem Aufruf von `yield` als Rückgabewert ausgewertet - obwohl der Wert, der beim ersten Aufruf von `next()` an die `next()` Methode des Generators übergeben wird, ignoriert wird.
 
 ```js
 function* counter(value) {

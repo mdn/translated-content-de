@@ -1,5 +1,5 @@
 ---
-title: Seitenverhältnis
+title: aspect-ratio
 slug: Web/CSS/@media/aspect-ratio
 l10n:
   sourceCommit: 2ef2c905a7322f5a533cf7c96ec5a337fc614359
@@ -7,17 +7,17 @@ l10n:
 
 {{CSSRef}}
 
-Das **`aspect-ratio`** [CSS](/de/docs/Web/CSS) [Medien-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um das {{glossary("Seitenverhältnis")}} des {{glossary("Viewports")}} zu testen.
+Die **`aspect-ratio`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des [Viewports](/de/docs/Glossary/viewport) zu testen.
 
 ## Syntax
 
-Das `aspect-ratio` Feature wird als ein {{cssxref("&lt;ratio&gt;")}} Wert angegeben, der das Breite-zu-Höhe-Seitenverhältnis des Viewports darstellt. Es handelt sich um ein Bereichs-Feature, das bedeutet, Sie können auch die Präfixe **`min-aspect-ratio`** und **`max-aspect-ratio`** verwenden, um jeweils Mindest- und Höchstwerte abzufragen.
+Das `aspect-ratio`-Feature wird als {{cssxref("&lt;ratio&gt;")}}-Wert angegeben, der das Breite-zu-Höhe-Verhältnis des Viewports darstellt. Es handelt sich um ein Bereichs-Feature, was bedeutet, dass Sie auch die präfixierten Varianten **`min-aspect-ratio`** und **`max-aspect-ratio`** verwenden können, um Minimum- bzw. Maximumwerte abzufragen.
 
 ## Beispiele
 
-Das folgende Beispiel ist in einem {{htmlElement("iframe")}} enthalten, das seinen eigenen Viewport erstellt. Ändern Sie die Größe des `<iframe>`, um `aspect-ratio` in Aktion zu sehen.
+Das untenstehende Beispiel ist in einem {{htmlElement("iframe")}} enthalten, das seinen eigenen Viewport erstellt. Ändern Sie die Größe des `<iframe>`, um `aspect-ratio` in Aktion zu sehen.
 
-Beachten Sie, dass, wenn keine der Medienabfragebedingungen zutrifft, der Hintergrund weiß wird, da keine der unten stehenden Regeln auf das `<div>` innerhalb des `<iframe>` angewendet wird. Sehen Sie, ob Sie herausfinden können, welche Breiten- und Höhenwerte dies auslösen!
+Beachten Sie, dass sich der Hintergrund weiß färbt, wenn keine der Medienabfrage-Bedingungen wahr ist, da keine der untenstehenden Regeln auf das `<div>` innerhalb des `<iframe>` angewendet wird. Finden Sie heraus, welche Breiten- und Höhenwerte dies auslösen!
 
 ### HTML
 
@@ -30,24 +30,24 @@ Beachten Sie, dass, wenn keine der Medienabfragebedingungen zutrifft, der Hinter
 ### CSS
 
 ```css
-/* Minimales Seitenverhältnis */
+/* Minimum aspect ratio */
 @media (min-aspect-ratio: 8/5) {
   div {
-    background: #9af; /* blau */
+    background: #9af; /* blue */
   }
 }
 
-/* Maximales Seitenverhältnis */
+/* Maximum aspect ratio */
 @media (max-aspect-ratio: 3/2) {
   div {
     background: #9ff; /* cyan */
   }
 }
 
-/* Genaues Seitenverhältnis, setzen Sie es am Ende, um Überschreibungen zu vermeiden */
+/* Exact aspect ratio, put it at the bottom to avoid override*/
 @media (aspect-ratio: 1/1) {
   div {
-    background: #f9a; /* rot */
+    background: #f9a; /* red */
   }
 }
 ```
@@ -91,7 +91,7 @@ h.onchange = h.oninput = () => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -1,5 +1,5 @@
 ---
-title: "MutationRecord: Eigenschaft attributeNamespace"
+title: "MutationRecord: attributeNamespace-Eigenschaft"
 short-title: attributeNamespace
 slug: Web/API/MutationRecord/attributeNamespace
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`attributeNamespace`** von {{domxref("MutationRecord")}} gibt den Namensraum des mutierten Attributs in dem durch einen {{domxref("MutationObserver")}} beobachteten {{domxref("MutationRecord")}} an.
+Die schreibgeschützte Eigenschaft **`attributeNamespace`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) ist der Namespace des veränderten Attributs im [`MutationRecord`](/de/docs/Web/API/MutationRecord), der von einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
 
 ## Wert
 
-Wenn der `type` des Datensatzes [`attributes`](/de/docs/Web/API/MutationRecord/type) ist, ist die Eigenschaft eine Zeichenkette, die den Namensraum des mutierten Attributs des Mutation-Ziels darstellt. Andernfalls ist der Wert `null`.
+Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Datensatzes `attributes` ist, ist die Eigenschaft eine Zeichenkette, die den Namespace des veränderten Attributs des Mutationstargets repräsentiert. Andernfalls ist der Wert `null`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

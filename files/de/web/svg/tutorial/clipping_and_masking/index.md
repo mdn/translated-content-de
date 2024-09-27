@@ -9,13 +9,13 @@ l10n:
 
 {{ PreviousNext("Web/SVG/Tutorial/Basic_Transformations", "Web/SVG/Tutorial/Other_content_in_SVG") }}
 
-Es mag zunächst widersprüchlich erscheinen, einen Teil dessen, was Sie erstellt haben, zu löschen. Aber wenn Sie zum Beispiel versuchen, einen Halbkreis in SVG zu erstellen, werden Sie die Verwendung der folgenden Eigenschaften schnell erkennen:
+Das Entfernen eines Teils dessen, was Sie erstellt haben, mag auf den ersten Blick widersprüchlich erscheinen. Wenn Sie jedoch beispielsweise versuchen, einen Halbkreis in SVG zu erstellen, werden Sie schnell die Verwendung der folgenden Eigenschaften verstehen:
 
-- **Clipping**, bezieht sich auf das Entfernen von Teilen von Elementen, die durch andere Teile definiert sind. In diesem Fall sind halbtransparente Effekte nicht möglich; es ist ein Alles-oder-Nichts-Ansatz.
+- **Clipping**, das sich auf das Entfernen von Teilen von Elementen durch andere Teile bezieht. In diesem Fall sind halbtransparente Effekte nicht möglich; es ist ein Alles-oder-Nichts-Ansatz.
 
-- **Maskierung**, ermöglicht hingegen weiche Kanten, indem sie Transparenz und Graustufen der Maske berücksichtigt.
+- **Maskierung**, die hingegen weiche Kanten ermöglicht, indem die Transparenz- und Graustufenwerte der Maske berücksichtigt werden.
 
-## Erstellen von Clips
+## Clips erstellen
 
 Wir erstellen den oben erwähnten Halbkreis basierend auf einem `circle`-Element:
 
@@ -34,17 +34,17 @@ Wir erstellen den oben erwähnten Halbkreis basierend auf einem `circle`-Element
 </svg>
 ```
 
-Zentriert bei (100,100) wird ein Kreis mit Radius 100 gezeichnet. Das Attribut `clip-path` referenziert ein `{{ SVGElement("clipPath") }}`-Element mit einem einzelnen `rect`-Element. Dieses Rechteck würde für sich allein genommen die obere Hälfte der Leinwand schwarz malen. Beachten Sie, dass das `clipPath`-Element üblicherweise in einem `defs`-Abschnitt platziert wird.
+Zentriert bei (100,100) wird ein Kreis mit einem Radius von 100 gezeichnet. Das Attribut `clip-path` verweist auf ein `{{ SVGElement("clipPath") }}`-Element mit einem einzelnen `rect`-Element. Dieses Rechteck würde für sich genommen die obere Hälfte der Leinwand schwarz malen. Beachten Sie, dass das `clipPath`-Element üblicherweise in einem `defs`-Abschnitt platziert wird.
 
-Das `rect` wird jedoch nicht gezeichnet. Stattdessen werden die Pixelinformationen verwendet, um zu bestimmen, welche Pixel des Kreises es in die endgültige Darstellung schaffen. Da das Rechteck nur die obere Hälfte des Kreises abdeckt, wird die untere Hälfte des Kreises verschwinden:
+Das `rect` wird jedoch nicht gemalt. Stattdessen werden seine Pixeldaten verwendet, um zu bestimmen, welche Pixel des Kreises im endgültigen Rendering erscheinen. Da das Rechteck nur die obere Hälfte des Kreises abdeckt, verschwindet die untere Hälfte des Kreises:
 
 {{ EmbedLiveSample('Creating_clips','240','240') }}
 
-Wir haben jetzt einen Halbkreis, ohne uns mit Bögen in Pfadelementen auseinandersetzen zu müssen. Bei der Maskierung wird jeder Pfad innerhalb des `clipPath` inspiziert und zusammen mit seinen Stricheigenschaften und Transformationen bewertet. Jeder Teil des Ziels, der in einem transparenten Bereich des resultierenden Inhalts des `clipPath` liegt, wird nicht dargestellt. Farbe, Deckkraft und dergleichen haben keinen Einfluss, solange sie keine Teile vollständig verschwinden lassen.
+Jetzt haben wir einen Halbkreis, ohne uns mit Bögen in Pfadelementen auseinandersetzen zu müssen. Für das Clipping wird jeder Pfad im `clipPath` überprüft und zusammen mit seinen Stricheigenschaften und Transformationen ausgewertet. Dann wird jeder Teil des Ziels, der in einem transparenten Bereich des resultierenden `clipPath`-Inhalts liegt, nicht gerendert. Farbe, Deckkraft und dergleichen haben keinen Effekt, solange sie Teile nicht vollständig verschwinden lassen.
 
 ## Maskierung
 
-Der Effekt der Maskierung wird am eindrucksvollsten mit einem Farbverlauf präsentiert. Wenn Sie möchten, dass ein Element ausblendet, können Sie diesen Effekt recht schnell mit Masken erzielen.
+Der Effekt der Maskierung wird am eindrucksvollsten mit einem Farbverlauf präsentiert. Wenn Sie möchten, dass ein Element ausblendet, können Sie diesen Effekt ziemlich schnell mit Masken erreichen.
 
 ```html
 <svg
@@ -68,19 +68,19 @@ Der Effekt der Maskierung wird am eindrucksvollsten mit einem Farbverlauf präse
 </svg>
 ```
 
-Sie sehen ein grün gefülltes `rect` auf der untersten Ebene und darüber ein rot gefülltes `rect`. Letzteres hat das `mask`-Attribut, das auf das `mask`-Element verweist. Der Inhalt der Maske ist ein einzelnes `rect`-Element, das mit einem Schwarz-zu-Weiß-Verlauf gefüllt ist. Dadurch verwenden die Pixel des roten Rechtecks den Luminanzwert des Maskeninhalts als Alphawert (die Transparenz), und wir sehen einen Grün-zu-Rot-Verlauf als Ergebnis:
+Sie sehen ein grün gefülltes `rect` in der untersten Ebene und darüber ein rot gefülltes `rect`. Letzteres hat das `mask`-Attribut, das auf das `mask`-Element zeigt. Der Inhalt der Maske ist ein einzelnes `rect`-Element, das mit einem Schwarz-zu-Weiß-Verlauf gefüllt ist. Dadurch verwenden die Pixel des roten Rechtecks den Helligkeitswert des Maskeninhalts als Alphawert (die Transparenz), und wir sehen einen Grün-zu-Rot-Verlauf als Ergebnis:
 
 {{ EmbedLiveSample('Masking','240','240') }}
 
 ## Transparenz mit `opacity`
 
-Das `opacity`-Attribut ermöglicht es Ihnen, die Transparenz für ein ganzes Element festzulegen:
+Das Attribut `opacity` ermöglicht es Ihnen, die Transparenz für ein ganzes Element festzulegen:
 
 ```xml
 <rect x="0" y="0" width="100" height="100" opacity=".5" />
 ```
 
-Das obige Rechteck wird halbtransparent gezeichnet. Für die Füllung und den Umriss gibt es zwei separate Attribute, `fill-opacity` und `stroke-opacity`, die die Transparenzen dieser Eigenschaften jeweils separat steuern. Beachten Sie, dass der Umriss über der Füllung gezeichnet wird. Wenn Sie also eine Umrissdeckkraft bei einem Element einstellen, das auch eine Füllung hat, wird die Füllung auf der Hälfte des Umrisses durchscheinen, während auf der anderen Hälfte der Hintergrund erscheint:
+Das obige Rechteck wird halbtransparent gemalt. Für die Füllung und den Strich gibt es zwei separate Attribute, `fill-opacity` und `stroke-opacity`, die jeweils die Deckkraft dieser Eigenschaften steuern. Beachten Sie, dass der Strich über der Füllung gemalt wird. Wenn Sie also eine Strichdeckung auf einem Element setzen, das auch eine Füllung hat, wird die Füllung auf die Hälfte des Strichs durchscheinen, während auf der anderen Hälfte der Hintergrund erscheint:
 
 ```html
 <svg
@@ -103,10 +103,10 @@ Das obige Rechteck wird halbtransparent gezeichnet. Für die Füllung und den Um
 
 {{ EmbedLiveSample('Transparency_with_opacity','240','240') }}
 
-Sie sehen in diesem Beispiel den roten Kreis auf blauem Hintergrund. Der gelbe Umriss ist auf 50% Deckkraft gesetzt, was effektiv zu einem zweifarbigen Umriss führt.
+In diesem Beispiel sehen Sie den roten Kreis auf einem blauen Hintergrund. Der gelbe Strich ist auf 50% Deckkraft gesetzt, was effektiv zu einem zweifarbigen Strich führt.
 
 ## Verwendung bekannter CSS-Techniken
 
-Eines der mächtigsten Werkzeuge im Werkzeugkasten eines Webentwicklers ist `display: none`. Es ist daher keine Überraschung, dass beschlossen wurde, diese CSS-Eigenschaft auch in SVG zu integrieren, zusammen mit `visibility` und `clip`, wie in CSS 2 definiert. Um ein zuvor gesetztes `display: none` rückgängig zu machen, ist es wichtig zu wissen, dass der Initialwert für alle SVG-Elemente `inline` ist.
+Eines der mächtigsten Werkzeuge im Werkzeugkasten eines Webentwicklers ist `display: none`. Es ist daher keine Überraschung, dass beschlossen wurde, diese CSS-Eigenschaft auch in SVG zu integrieren, zusammen mit `visibility` und `clip`, wie sie von CSS 2 definiert wurden. Um ein zuvor gesetztes `display: none` rückgängig zu machen, ist es wichtig zu wissen, dass der Initialwert für alle SVG-Elemente `inline` ist.
 
 {{ PreviousNext("Web/SVG/Tutorial/Basic_Transformations", "Web/SVG/Tutorial/Other_content_in_SVG") }}

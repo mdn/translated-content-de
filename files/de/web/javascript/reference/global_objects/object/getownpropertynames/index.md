@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Object.getOwnPropertyNames()`** gibt ein Array aller Eigenschaften (einschließlich nicht aufzählbarer Eigenschaften außer denen, die Symbol verwenden) zurück, die direkt in einem gegebenen Objekt gefunden werden.
+Die statische Methode **`Object.getOwnPropertyNames()`** gibt ein Array aller Eigenschaften (einschließlich nicht aufgezählter Eigenschaften mit Ausnahme derjenigen, die `Symbol` verwenden) zurück, die direkt in einem gegebenen Objekt gefunden werden.
 
 {{EmbedInteractiveExample("pages/js/object-getownpropertynames.html")}}
 
@@ -20,7 +20,7 @@ Object.getOwnPropertyNames(obj)
 ### Parameter
 
 - `obj`
-  - : Das Objekt, dessen aufzählbare und nicht aufzählbare Eigenschaften zurückgegeben werden sollen.
+  - : Das Objekt, dessen aufgezählte und nicht aufgezählte Eigenschaften zurückgegeben werden sollen.
 
 ### Rückgabewert
 
@@ -28,16 +28,16 @@ Ein Array von Zeichenfolgen, das den direkt im gegebenen Objekt gefundenen Eigen
 
 ## Beschreibung
 
-`Object.getOwnPropertyNames()` gibt ein Array zurück, dessen Elemente Zeichenfolgen sind, die den aufzählbaren und nicht aufzählbaren Eigenschaften entsprechen, die direkt in einem gegebenen Objekt `obj` gefunden werden. Die Reihenfolge der aufzählbaren Eigenschaften im Array entspricht der Reihenfolge, die von einer {{jsxref("Statements/for...in", "for...in")}} Schleife (oder von {{jsxref("Object.keys()")}}) über die Eigenschaften des Objekts ausgestellt wird. Die nicht-negativen ganzzahligen Schlüssel des Objekts (sowohl aufzählbar als auch nicht aufzählbar) werden zuerst in aufsteigender Reihenfolge zum Array hinzugefügt, gefolgt von den Zeichenfolgen-Schlüsseln in der Reihenfolge ihrer Einfügung.
+`Object.getOwnPropertyNames()` gibt ein Array zurück, dessen Elemente Zeichenfolgen sind, die den aufgezählten und nicht aufgezählten Eigenschaften entsprechen, die direkt in einem gegebenen Objekt `obj` gefunden werden. Die Anordnung der aufgezählten Eigenschaften im Array entspricht der im {{jsxref("Statements/for...in", "for...in")}}-Schleife (oder {{jsxref("Object.keys()")}}) über die Eigenschaften des Objekts. Die nicht-negativen ganzzahligen Schlüssel des Objekts (sowohl aufgezählte als auch nicht aufgezählte) werden zuerst in aufsteigender Reihenfolge dem Array hinzugefügt, gefolgt von den Zeichenfolgenschlüsseln in der Reihenfolge der Einfügung.
 
-In ES5 führt das Argument dieser Methode, wenn es kein Objekt (ein primitiver Wert) ist, zu einem {{jsxref("TypeError")}}. In ES2015 wird ein nicht-objektives Argument zu einem Objekt koerziert.
+In ES5 wird ein {{jsxref("TypeError")}} ausgelöst, wenn das Argument dieser Methode kein Objekt (ein primitiver Wert) ist. In ES2015 wird ein Argument, das kein Objekt ist, in ein Objekt umgewandelt.
 
 ```js
 Object.getOwnPropertyNames("foo");
-// TypeError: "foo" ist kein Objekt (ES5 Code)
+// TypeError: "foo" is not an object (ES5 code)
 
 Object.getOwnPropertyNames("foo");
-// ["0", "1", "2", "length"]  (ES2015 Code)
+// ["0", "1", "2", "length"]  (ES2015 code)
 ```
 
 ## Beispiele
@@ -49,7 +49,7 @@ const arr = ["a", "b", "c"];
 console.log(Object.getOwnPropertyNames(arr).sort());
 // ["0", "1", "2", "length"]
 
-// Objekt, das einem Array ähnelt
+// Array-like object
 const obj = { 0: "a", 1: "b", 2: "c" };
 console.log(Object.getOwnPropertyNames(obj).sort());
 // ["0", "1", "2"]
@@ -61,7 +61,7 @@ Object.getOwnPropertyNames(obj).forEach((val, idx, array) => {
 // 1 -> b
 // 2 -> c
 
-// nicht aufzählbare Eigenschaft
+// non-enumerable property
 const myObj = Object.create(
   {},
   {
@@ -78,9 +78,9 @@ myObj.foo = 1;
 console.log(Object.getOwnPropertyNames(myObj).sort()); // ["foo", "getFoo"]
 ```
 
-Wenn Sie nur die aufzählbaren Eigenschaften wünschen, siehe {{jsxref("Object.keys()")}} oder verwenden Sie eine {{jsxref("Statements/for...in", "for...in")}} Schleife (beachten Sie, dass diese auch aufzählbare Eigenschaften, die entlang der Prototyp-Kette des Objekts gefunden werden, zurückgibt, es sei denn, letzteres wird mit {{jsxref("Object.hasOwn()")}} gefiltert).
+Wenn Sie nur die aufgezählten Eigenschaften wünschen, verwenden Sie {{jsxref("Object.keys()")}} oder eine {{jsxref("Statements/for...in", "for...in")}}-Schleife (beachten Sie, dass dies auch aufgezählte Eigenschaften entlang der Prototypenkette für das Objekt zurückgibt, es sei denn, letztere werden mit {{jsxref("Object.hasOwn()")}} gefiltert).
 
-Elemente in der Prototyp-Kette werden nicht aufgelistet:
+Elemente in der Prototypenkette werden nicht aufgelistet:
 
 ```js
 function ParentClass() {}
@@ -97,9 +97,9 @@ console.log(Object.getOwnPropertyNames(new ChildClass()));
 // ["prop", "method"]
 ```
 
-### Nur nicht aufzählbare Eigenschaften erhalten
+### Nur nicht aufgezählte Eigenschaften abrufen
 
-Dies verwendet die {{jsxref("Array.prototype.filter()")}} Funktion, um die aufzählbaren Schlüssel (erhalten mit {{jsxref("Object.keys()")}}) aus einer Liste aller Schlüssel (erhalten mit `Object.getOwnPropertyNames()`) zu entfernen, wodurch nur die nicht aufzählbaren Schlüssel als Ausgabe übrig bleiben.
+Dies verwendet die Funktion {{jsxref("Array.prototype.filter()")}}, um die aufgezählten Schlüssel (erhalten mit {{jsxref("Object.keys()")}}) aus einer Liste aller Schlüssel (erhalten mit `Object.getOwnPropertyNames()`) zu entfernen, wodurch nur die nicht aufgezählten Schlüssel als Ausgabe zurückgegeben werden.
 
 ```js
 const target = myObject;

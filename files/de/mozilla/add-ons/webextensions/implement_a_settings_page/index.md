@@ -7,22 +7,23 @@ l10n:
 
 {{AddonSidebar}}
 
-Eine Einstellungsseite bietet den Benutzern die Möglichkeit, Einstellungen (manchmal auch "Präferenzen" oder "Optionen" genannt) für die Erweiterung anzusehen und zu ändern.
+Eine Einstellungsseite bietet den Nutzern die Möglichkeit, Einstellungen (manchmal auch "Präferenzen" oder "Optionen" genannt) für die Erweiterung anzuzeigen und zu ändern.
 
-Mit den WebExtension-APIs werden Einstellungen generell mittels der [`storage`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage) API gespeichert. Die Implementierung einer Einstellungsseite erfolgt in drei Schritten:
+Mit den WebExtension-APIs werden Einstellungen im Allgemeinen mit der [`storage`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage) API gespeichert.
+Die Implementierung einer Einstellungsseite erfolgt in drei Schritten:
 
-- Schreiben Sie eine HTML-Datei, die Einstellungen anzeigt und es dem Benutzer ermöglicht, diese zu ändern.
-- Schreiben Sie ein Skript, das von der HTML-Datei inkludiert wird und die Einstellungsseite aus dem Speicher auffüllt und gespeicherte Einstellungen aktualisiert, wenn der Benutzer Änderungen vornimmt.
-- Setzen Sie den Pfad zur HTML-Datei als den [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui) Schlüssel in `manifest.json`. Dadurch wird das HTML-Dokument im Add-on-Manager des Browsers neben dem Namen und der Beschreibung der Erweiterung angezeigt.
+- Schreiben Sie eine HTML-Datei, die die Einstellungen anzeigt und dem Benutzer ermöglicht, diese zu ändern.
+- Schreiben Sie ein Skript, das aus der HTML-Datei eingebunden wird, um die Einstellungsseite aus dem Speicher zu füllen und die gespeicherten Einstellungen zu aktualisieren, wenn der Benutzer sie ändert.
+- Setzen Sie den Pfad zur HTML-Datei als [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui) Schlüssel in `manifest.json`. Dadurch wird das HTML-Dokument im Add-on-Manager des Browsers zusammen mit dem Namen und der Beschreibung der Erweiterung angezeigt.
 
 > [!NOTE]
-> Sie können diese Seite auch programmgesteuert mit der Funktion [`runtime.openOptionsPage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/openOptionsPage) öffnen.
+> Sie können diese Seite auch programmatisch mit der [`runtime.openOptionsPage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/openOptionsPage) Funktion öffnen.
 
 ## Eine einfache Erweiterung
 
-Zuerst schreiben wir eine Erweiterung, die allen von dem Benutzer besuchten Seiten einen blauen Rand hinzufügt.
+Zunächst schreiben wir eine Erweiterung, die allen vom Benutzer besuchten Seiten einen blauen Rand hinzufügt.
 
-Erstellen Sie ein neues Verzeichnis namens `settings`, und erstellen Sie dann darin eine Datei mit dem Namen `manifest.json` mit folgendem Inhalt:
+Erstellen Sie ein neues Verzeichnis mit dem Namen `settings`, und erstellen Sie darin eine Datei namens `manifest.json` mit folgendem Inhalt:
 
 ```json
 {
@@ -41,7 +42,7 @@ Erstellen Sie ein neues Verzeichnis namens `settings`, und erstellen Sie dann da
 
 Diese Erweiterung weist den Browser an, ein Inhalts-Skript namens "borderify.js" in alle vom Benutzer besuchten Webseiten zu laden.
 
-Erstellen Sie als nächstes eine Datei namens `borderify.js` im `settings` Verzeichnis und geben Sie ihr folgenden Inhalt:
+Erstellen Sie als Nächstes eine Datei namens `borderify.js` im Verzeichnis `settings` und geben Sie ihr diesen Inhalt:
 
 ```js
 document.body.style.border = "10px solid blue";
@@ -51,11 +52,11 @@ Dies fügt der Seite einfach einen blauen Rand hinzu.
 
 Nun [installieren](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/) und testen Sie die Erweiterung.
 
-## Einstellungen hinzufügen
+## Hinzufügen von Einstellungen
 
-Nun erstellen wir eine Einstellungsseite, die es dem Benutzer ermöglicht, die Farbe des Randes festzulegen.
+Lassen Sie uns nun eine Einstellungsseite erstellen, um dem Benutzer die Möglichkeit zu geben, die Farbe des Randes festzulegen.
 
-Aktualisieren Sie zuerst `manifest.json`, sodass es diesen Inhalt hat:
+Aktualisieren Sie zuerst `manifest.json`, damit es diesen Inhalt hat:
 
 ```json
 {
@@ -86,14 +87,14 @@ Aktualisieren Sie zuerst `manifest.json`, sodass es diesen Inhalt hat:
 
 Wir haben drei neue Manifest-Schlüssel hinzugefügt:
 
-- [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui)
-  - : Dies setzt ein HTML-Dokument als Einstellungsseite (auch Optionsseite genannt) für diese Erweiterung.
-- [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions)
-  - : Wir werden die [`storage`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage) API verwenden, um die Einstellungen zu speichern, und müssen die Erlaubnis anfordern, diese API zu nutzen.
-- [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings)
-  - : Sie müssen eine Erweiterungs-ID einschließen, um Einstellungen aus dem synchronisierten Speicher zu speichern und abzurufen.
+- [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui):
+  - : Dies legt ein HTML-Dokument als Einstellungsseite (auch Optionsseite genannt) für diese Erweiterung fest.
+- [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions):
+  - : Wir werden die [`storage`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage) API verwenden, um die Einstellungen zu speichern, und müssen um Erlaubnis bitten, diese API zu nutzen.
+- [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings):
+  - : Sie müssen eine Erweiterungs-ID angeben, um Einstellungen aus dem synchronisierten Speicher zu speichern und abzurufen.
 
-Da wir `options.html` zur Verfügung stellen müssen, erstellen wir es. Erstellen Sie eine Datei mit diesem Namen im `settings` Verzeichnis und geben Sie ihr folgenden Inhalt:
+Als nächstes erstellen wir `options.html`, da wir versprochen haben, diese bereitzustellen. Erstellen Sie eine Datei mit diesem Namen im Verzeichnis `settings` und geben Sie ihr folgenden Inhalt:
 
 ```html
 <!doctype html>
@@ -113,9 +114,9 @@ Da wir `options.html` zur Verfügung stellen müssen, erstellen wir es. Erstelle
 </html>
 ```
 
-Dies definiert ein {{htmlelement("form")}} mit einem beschrifteten Textfeld {{htmlelement("input")}} und einem Absende-{{htmlelement("button")}}. Es inkludiert ebenfalls ein Skript namens `options.js`.
+Dies definiert ein {{htmlelement("form")}} mit einem beschrifteten Text-{{htmlelement("input")}} und einem {{htmlelement("button")}} zum Absenden. Es enthält auch ein Skript namens `options.js`.
 
-Erstellen Sie `options.js` ebenfalls im `settings` Verzeichnis und geben Sie ihm folgenden Inhalt:
+Erstellen Sie `options.js` ebenfalls im Verzeichnis `settings` und geben Sie ihm folgenden Inhalt:
 
 ```js
 function saveOptions(e) {
@@ -142,20 +143,20 @@ document.addEventListener("DOMContentLoaded", restoreOptions);
 document.querySelector("form").addEventListener("submit", saveOptions);
 ```
 
-Dies tut zwei Dinge:
+Dies erfüllt zwei Aufgaben:
 
-- Wenn das Dokument geladen wurde, wird der Wert von `"color"` mittels [`storage.sync.get()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/get) aus dem Speicher abgerufen. Wenn der Wert nicht gesetzt ist, wird der Standardwert `"blue"` verwendet. Dies ruft die Werte aus dem `sync` Speicherbereich ab.
-- Wenn der Benutzer das Formular durch Klicken auf Speichern absendet, wird der Wert des Textfeldes mittels [`storage.sync.set()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/set) gespeichert. Dies speichert den Wert im `sync` Speicherbereich.
-
-> [!NOTE]
-> Es ist erforderlich, eine separate `.js` Datei anzugeben. Sie können kein Inline-JavaScript verwenden.
-
-Sie könnten die Einstellungswerte stattdessen im lokalen Speicher speichern, wenn Sie der Meinung sind, dass der lokale Speicher für Ihre Erweiterung vorzuziehen ist.
+- Beim Laden des Dokuments wird der Wert von `"color"` aus dem Speicher mit [`storage.sync.get()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/get) abgerufen. Falls der Wert nicht gesetzt ist, wird der Standardwert `"blue"` verwendet. Dies ruft die Werte aus dem `sync` Speicherbereich ab.
+- Wenn der Benutzer das Formular durch Klicken auf Speichern absendet, wird der Wert des Textfeldes mit [`storage.sync.set()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/set) gespeichert. Dies speichert den Wert im `sync` Speicherbereich.
 
 > [!NOTE]
-> Die Implementierung von `storage.sync` in Firefox basiert auf der Add-on-ID. Wenn Sie `storage.sync` verwenden, müssen Sie eine ID für Ihre Erweiterung unter Verwendung des [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) Schlüssels in `manifest.json` setzen, wie im obigen Beispiel-Manifest gezeigt. Siehe [Firefox-Bug 1323228](https://bugzil.la/1323228) für verwandte Informationen.
+> Es ist notwendig, eine separate `.js` Datei anzugeben. Sie können kein Inline-JavaScript verwenden.
 
-Aktualisieren Sie abschließend `borderify.js`, um die Randfarbe aus dem Speicher zu lesen:
+Sie könnten die Einstellungswerte stattdessen auch im lokalen Speicher ablegen, falls dies für Ihre Erweiterung vorzuziehen ist.
+
+> [!NOTE]
+> Die Implementierung von `storage.sync` in Firefox basiert auf der Add-on-ID. Wenn Sie `storage.sync` verwenden, müssen Sie in `manifest.json` eine ID für Ihre Erweiterung mit dem [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) Schlüssel festlegen, wie im obigen Beispielmanifest gezeigt. Siehe [Firefox Bug 1323228](https://bugzil.la/1323228) für weitere Informationen.
+
+Zuletzt aktualisieren Sie `borderify.js`, um die Rahmenfarbe aus dem Speicher auszulesen:
 
 ```js
 function onError(error) {
@@ -174,7 +175,7 @@ const getting = browser.storage.sync.get("color");
 getting.then(onGot, onError);
 ```
 
-An diesem Punkt sollte die vollständige Erweiterung wie folgt aussehen:
+An diesem Punkt sollte die vollständige Erweiterung so aussehen:
 
 ```plain
 settings/
@@ -184,18 +185,18 @@ settings/
     options.js
 ```
 
-Nun:
+Jetzt:
 
 - [laden Sie die Erweiterung neu](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/#reloading_a_temporary_add-on)
 - laden Sie eine Webseite
-- besuchen Sie "`about:addons`", um die Einstellungen zu öffnen, und klicken Sie auf die Schaltfläche "Einstellungen" neben dem Eintrag der Erweiterung, um die Randfarbe zu ändern.
+- besuchen Sie "`about:addons`", um die Einstellungen zu öffnen, und klicken Sie auf die Schaltfläche Präferenzen neben dem Eintrag der Erweiterung, um die Rahmenfarbe zu ändern.
 - laden Sie die Webseite neu, um den Unterschied zu sehen.
 
 ## Erfahren Sie mehr
 
-- [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui) Schlüssel der Referenzdokumentation von `manifest.json`
+- [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui) Schlüssel der `manifest.json` Referenzdokumentation
 - [`storage`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage) API Referenzdokumentation
-- öffnen Sie die Einstellungsseite direkt aus Ihrer Erweiterung mit der [`runtime.openOptionsPage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/openOptionsPage) API
+- Öffnen Sie die Einstellungsseite direkt aus Ihrer Erweiterung mit der [`runtime.openOptionsPage()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/openOptionsPage) API
 - Einstellungsseiten-Beispiel:
 
   - [favourite-colour](https://github.com/mdn/webextensions-examples/tree/main/favourite-colour)

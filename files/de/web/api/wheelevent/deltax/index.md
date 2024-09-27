@@ -9,8 +9,8 @@ l10n:
 {{APIRef("UI Events")}}
 
 Die **`WheelEvent.deltaX`** schreibgeschützte Eigenschaft ist ein
-`double`, das die horizontale Scrollmenge in der
-{{domxref("WheelEvent.deltaMode")}} Einheit darstellt.
+`double`, der die horizontale Scrollmenge in der
+[`WheelEvent.deltaMode`](/de/docs/Web/API/WheelEvent/deltaMode) Einheit darstellt.
 
 ## Wert
 
@@ -37,5 +37,5 @@ console.log(syntheticEvent.deltaX);
 
 ## Siehe auch
 
-- {{domxref("Element/wheel_event","wheel")}}
-- {{domxref("WheelEvent")}}
+- [`wheel`](/de/docs/Web/API/Element/wheel_event)
+- [`WheelEvent`](/de/docs/Web/API/WheelEvent)

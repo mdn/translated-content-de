@@ -8,34 +8,34 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`newVersion`** der {{domxref("IDBVersionChangeEvent")}} Schnittstelle gibt die neue Versionsnummer der Datenbank zurück.
+Die **`newVersion`** schreibgeschützte Eigenschaft der [`IDBVersionChangeEvent`](/de/docs/Web/API/IDBVersionChangeEvent) Schnittstelle gibt die neue Versionsnummer der Datenbank zurück.
 
 ## Wert
 
-Eine Zahl, die ein 64-Bit-Integer ist oder null, wenn die Datenbank gelöscht wird.
+Eine Zahl, die eine 64-Bit-Ganzzahl ist oder null, wenn die Datenbank gelöscht wird.
 
 ## Beispiele
 
-Im folgenden Codeausschnitt stellen wir eine Anfrage zum Öffnen einer Datenbank und fügen Handler für Erfolgs- und Fehlerfälle ein. Diese Ereignisse werden über die benutzerdefinierte `IDBVersionChangeEvent` Schnittstelle ausgelöst. Für ein vollständiges funktionierendes Beispiel, siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Codebeispiel machen wir eine Anfrage zum Öffnen einer Datenbank und fügen Handler für die Erfolgs- und Fehlerszenarien hinzu. Diese Ereignisse werden über die benutzerdefinierte `IDBVersionChangeEvent`-Schnittstelle ausgelöst. Ein vollständiges funktionierendes Beispiel finden Sie in unserer [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.querySelector("ul");
 
-// Lassen Sie uns Version 4 unserer Datenbank öffnen
+// Let us open version 4 of our database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
-// Diese beiden Ereignishandler wirken auf das Öffnen der Datenbank
+// these two event handlers act on the database being opened
 DBOpenRequest.onerror = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Fehler beim Laden der Datenbank.";
+    "Error loading database.";
 };
 
 DBOpenRequest.onsuccess = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Datenbank initialisiert.";
+    "Database initialized.";
 
-  // Speichern Sie das Ergebnis des Öffnens der Datenbank in der db-Variablen.
-  // Diese wird später häufig verwendet, um Transaktionen zu öffnen und dergleichen.
+  // store the result of opening the database in the db variable.
+  // This is used a lot later on, for opening transactions and suchlike.
   const db = DBOpenRequest.result;
 };
 ```
@@ -51,9 +51,9 @@ DBOpenRequest.onsuccess = (event) => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Schlüsselspektrums: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwenden von Cursoren: {{domxref("IDBCursor")}}
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

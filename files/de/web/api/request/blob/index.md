@@ -1,5 +1,5 @@
 ---
-title: "Request: blob()-Methode"
+title: "Request: blob() Methode"
 short-title: blob()
 slug: Web/API/Request/blob
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`blob()`**-Methode der {{domxref("Request")}}-Schnittstelle
-liest den Anfragekörper aus und gibt ein Promise zurück, das mit einem {{domxref("Blob")}} aufgelöst wird.
+Die **`blob()`** Methode der [`Request`](/de/docs/Web/API/Request)-Schnittstelle liest den Anfragetext und gibt ihn als Promise zurück, die mit einem [`Blob`](/de/docs/Web/API/Blob) aufgelöst wird.
 
 ## Syntax
 
@@ -23,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Promise, das mit einem {{domxref("Blob")}} aufgelöst wird.
+Ein Promise, der mit einem [`Blob`](/de/docs/Web/API/Blob) aufgelöst wird.
 
 ## Beispiele
 
@@ -53,4 +52,4 @@ request.blob().then((myBlob) => {
 
 ## Siehe auch
 
-- {{domxref("Response.blob()")}}
+- [`Response.blob()`](/de/docs/Web/API/Response/blob)

@@ -18,27 +18,27 @@ Es ist ein Objekt mit den folgenden Eigenschaften:
 - `disabledReason`
   - : `string`. Wenn das Add-on deaktiviert ist, der Grund für die Deaktivierung. Einer von "unknown" oder "permissions_increase".
 - `enabled`
-  - : `boolean`. Ob das Add-on derzeit aktiviert ist oder nicht.
+  - : `boolean`. Ob das Add-on aktuell aktiviert ist.
 - `homepageUrl`
   - : `string`. Die Homepage-URL des Add-ons, entnommen aus dem manifest.json [homepage_url](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url) Schlüssel.
 - `hostPermissions`
   - : `array` von `string`. Die [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) des Add-ons.
 - `icons`
 
-  - : `array` von `object`. Informationen über die Icons des Add-ons. Ein Array von Objekten, eines für jedes Icon. Jedes Objekt enthält zwei Eigenschaften:
+  - : `array` von `object`. Informationen über die Symbole des Add-ons. Ein Array von Objekten, eines für jedes Symbol. Jedes Objekt enthält zwei Eigenschaften:
 
-    - `size`: ein Integer, der die Breite und Höhe des Icons in Pixeln darstellt.
-    - `url`: ein String, der eine relative URL zum Icon enthält, beginnend am Stamm des Add-ons.
+    - `size`: eine ganze Zahl, die die Breite und Höhe des Symbols in Pixeln darstellt.
+    - `url`: ein String, der eine relative URL zum Symbol enthält, beginnend am Root des Add-ons.
 
 - `id`
   - : `string`. Die ID des Add-ons.
 - `installType`
 
-  - : `string`. Ein String, der beschreibt, wie das Add-on installiert wurde. Einer der folgenden:
+  - : `string`. String, der beschreibt, wie das Add-on installiert wurde. Eine der folgenden:
 
     - "admin": Das Add-on wurde aufgrund einer administrativen Richtlinie installiert.
     - "development": Das Add-on wurde unverpackt von der Festplatte installiert.
-    - "normal": Das Add-on wurde normal aus einem Installationspaket installiert.
+    - "normal": Das Add-on wurde normal von einem Installationspaket installiert.
     - "sideload": Das Add-on wurde von einer anderen Software auf dem Computer des Benutzers installiert.
     - "other": Das Add-on wurde auf andere Weise installiert.
 
@@ -47,18 +47,18 @@ Es ist ein Objekt mit den folgenden Eigenschaften:
 - `name`
   - : `string`. Der Name des Add-ons, entnommen aus dem manifest.json [name](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name) Schlüssel.
 - `offlineEnabled`
-  - : `boolean`. Ob das Add-on angibt, offline zu unterstützen.
+  - : `boolean`. Ob das Add-on vorgibt, offline zu unterstützen.
 - `optionsUrl`
-  - : `string`. URL für die [Optionsseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) des Elements, falls vorhanden. Dies ist eine relative URL, beginnend am Stamm des Add-ons.
+  - : `string`. URL für die [Optionsseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) des Elements, falls vorhanden. Dies ist eine relative URL, beginnend am Root des Add-ons.
 - `permissions`
   - : `array` von `string`. Die [API-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) des Add-ons.
 - `shortName`
   - : `string`. Eine kurze Version des Namens des Add-ons, entnommen aus dem manifest.json [short_name](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/short_name) Schlüssel.
 - `type`
 
-  - : `string`. Ein String, der den Typ des Add-ons beschreibt. Dies wird verwendet, um Erweiterungen von Apps und Themes zu unterscheiden. Es kann einen der folgenden Werte annehmen:
+  - : `string`. String, der den Typ des Add-ons beschreibt. Dies wird verwendet, um Erweiterungen von Apps und Themes zu unterscheiden. Es kann einen der folgenden Werte annehmen:
 
-    - "extension": am häufigsten vorkommender Add-on-Typ.
+    - "extension": Häufigster Typ von Add-on.
     - "hosted_app"
     - "packaged_app"
     - "legacy_packaged_app"
@@ -78,7 +78,7 @@ Es ist ein Objekt mit den folgenden Eigenschaften:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.management`](https://developer.chrome.com/docs/extensions/reference/api/management#type-ExtensionInfo) API. Diese Dokumentation ist abgeleitet von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code.
+> Diese API basiert auf der `chrome.management` API von Chromium. Diese Dokumentation leitet sich von [`management.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/management.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

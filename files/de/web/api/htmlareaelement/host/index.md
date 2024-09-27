@@ -8,7 +8,10 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.host`**-Eigenschaft ist ein String, der den Host enthält, also den _Hostname_ und dann, wenn der _Port_ der URL nicht leer ist, ein `':'` und den _Port_ der URL.
+Die **`HTMLAreaElement.host`**-Eigenschaft ist ein
+String, der den Host enthält, das heißt den _hostname_ und dann,
+falls der _port_ der URL nicht leer ist, ein `':'` und den _port_
+der URL.
 
 ## Wert
 
@@ -24,7 +27,7 @@ area.host === "developer.mozilla.org";
 
 area.href = "https://developer.mozilla.org:443/en-US/HTMLAreaElement";
 area.host === "developer.mozilla.org";
-// Die Portnummer wird nicht eingeschlossen, da 443 der Standardport des Schemas ist
+// The port number is not included because 443 is the scheme's default port
 
 area.href = "https://developer.mozilla.org:4097/en-US/HTMLAreaElement";
 area.host === "developer.mozilla.org:4097";
@@ -40,4 +43,4 @@ area.host === "developer.mozilla.org:4097";
 
 ## Siehe auch
 
-- Das {{domxref("HTMLAreaElement")}}-Interface, zu dem es gehört.
+- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.

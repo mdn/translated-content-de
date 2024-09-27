@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: illegales Zeichen"
+title: "SyntaxError: unzulässiges Zeichen"
 slug: Web/JavaScript/Reference/Errors/Illegal_character
 l10n:
   sourceCommit: 6deab4bdc0b2563d1e32047c4f5b25c3a8f02850
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Fehler "illegales Zeichen" tritt auf, wenn der [Lexer](/de/docs/Web/JavaScript/Reference/Lexical_grammar) ein Zeichen liest, das nicht Teil eines Zeichenketten-Literals ist und kein gültiges Token in der Sprache darstellen kann.
+Die JavaScript-Ausnahme "unzulässiges Zeichen" tritt auf, wenn der [Lexer](/de/docs/Web/JavaScript/Reference/Lexical_grammar) ein Zeichen liest, das nicht Teil eines Zeichenfolgenliterales ist und kein gültiges Token in der Sprache darstellen kann.
 
 ## Meldung
 
@@ -17,32 +17,32 @@ SyntaxError: illegal character U+201C (Firefox)
 SyntaxError: Invalid character '\u201c' (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Es gibt ein ungültiges Zeichen, das der Interpreter nicht versteht. Sie sollten es entweder in ein Zeichenketten-Literal einfügen oder durch ein anderes Zeichen ersetzen. Verwenden Sie einen Editor, der Syntaxhervorhebung unterstützt, und prüfen Sie sorgfältig Ihren Code auf Unterschiede wie ein Minuszeichen (`-`) gegenüber einem Bindestrich (`–`) oder einfache Anführungszeichen (`"`) gegenüber nicht standardmäßigen Anführungszeichen (`“`).
+Es gibt ein ungültiges Zeichen, das der Interpreter nicht versteht. Sie sollten es entweder in ein Zeichenfolgenliteral setzen oder durch ein anderes Zeichen ersetzen. Verwenden Sie einen Editor, der Syntaxhervorhebung unterstützt, und prüfen Sie Ihren Code sorgfältig auf Missverständnisse, wie etwa Minuszeichen (`-`) versus Bindestrich (`–`) oder einfache Anführungszeichen (`"`) versus nicht standardisierte Anführungszeichen (`“`).
 
 ## Beispiele
 
 ### Nicht übereinstimmende Zeichen
 
-Einige Zeichen sehen ähnlich aus, führen jedoch dazu, dass der Parser Ihren Code nicht interpretieren kann. Bekannte Beispiele dafür sind Anführungszeichen, das Minuszeichen oder das Semikolon ([griechisches Fragezeichen (U+37e)](https://en.wikipedia.org/wiki/Question_mark#Greek_question_mark) sieht gleich aus).
+Einige Zeichen sehen ähnlich aus, verursachen jedoch das Versagen des Parsers beim Interpretieren Ihres Codes. Berühmte Beispiele hierfür sind Anführungszeichen, das Minus oder das Semikolon (das [griechische Fragezeichen (U+37e)](https://en.wikipedia.org/wiki/Question_mark#Greek_question_mark) sieht gleich aus).
 
 ```js-nolint example-bad
-“This looks like a string”; // SyntaxError: illegales Zeichen
-// “ und ” sind nicht " sehen jedoch so aus
+“This looks like a string”; // SyntaxError: illegal character
+// “ and ” are not " but look like it
 
-42 – 13; // SyntaxError: illegales Zeichen
-// – (Gedankenstrich) ist nicht - sieht jedoch so aus
+42 – 13; // SyntaxError: illegal character
+// – (en-dash) is not - but looks like it
 
-const foo = "bar"; // SyntaxError: illegales Zeichen
-// <37e> ist nicht ; sieht jedoch so aus
+const foo = "bar"; // SyntaxError: illegal character
+// <37e> is not ; but looks like it
 ```
 
-Dies sollte funktionieren:
+Das sollte funktionieren:
 
 ```js example-good
 "This is actually a string";
@@ -50,15 +50,15 @@ Dies sollte funktionieren:
 const foo = "bar";
 ```
 
-Einige Editoren und IDEs werden Sie darauf hinweisen oder verwenden zumindest eine leicht unterschiedliche Hervorhebung dafür, aber nicht alle. Wenn so etwas in Ihrem Code passiert und Sie die Ursache des Problems nicht finden können, ist es oft am besten, einfach die problematische Zeile zu löschen und neu zu schreiben.
+Einige Editoren und IDEs benachrichtigen Sie oder verwenden zumindest eine leicht unterschiedliche Hervorhebung dafür, aber nicht alle. Wenn so etwas mit Ihrem Code passiert und Sie die Quelle des Problems nicht finden können, ist es oft am besten, die problematische Zeile einfach zu löschen und neu zu schreiben.
 
 ### Vergessene Zeichen
 
-Es ist leicht, ein Zeichen hier oder da zu vergessen.
+Es ist leicht, hier oder dort ein Zeichen zu vergessen.
 
 ```js-nolint example-bad
 const operators = ["+", "-", ×", "÷"];
-// SyntaxError: illegales Zeichen U+00D7
+// SyntaxError: illegal character U+00D7
 ```
 
 Fügen Sie das fehlende Anführungszeichen für `"×"` hinzu.
@@ -69,14 +69,15 @@ const operators = ["+", "-", "×", "÷"];
 
 ### Versteckte Zeichen
 
-Beim Kopieren von Code aus externen Quellen könnten ungültige Zeichen vorhanden sein. Seien Sie wachsam!
+Beim Kopieren und Einfügen von Code aus externen Quellen können ungültige Zeichen vorhanden sein. Achten Sie darauf!
 
 ```js-nolint example-bad
 const foo = "bar";​
-// SyntaxError: illegales Zeichen
+// SyntaxError: illegal character
 ```
 
-Wenn Sie diesen Code in einem Editor wie Vim untersuchen, können Sie sehen, dass tatsächlich ein Zeichen für ein [Leerzeichen mit Breite Null (ZWSP) (U+200B)](https://en.wikipedia.org/wiki/Zero-width_space) vorhanden ist.
+Wenn Sie diesen Code in einem Editor wie Vim überprüfen, sehen Sie, dass tatsächlich ein
+[Zero-width Space (ZWSP) (U+200B)](https://en.wikipedia.org/wiki/Zero-width_space) Zeichen vorhanden ist.
 
 ```js-nolint
 const foo = "bar";<200b>

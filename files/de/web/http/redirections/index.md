@@ -1,5 +1,5 @@
 ---
-title: Umleitungen in HTTP
+title: Weiterleitungen in HTTP
 slug: Web/HTTP/Redirections
 l10n:
   sourceCommit: cb132bc83b660e51be8959de5336c00b08030104
@@ -7,229 +7,171 @@ l10n:
 
 {{HTTPSidebar}}
 
-**URL-Weiterleitung**, auch bekannt als _URL-Weiterleitung_, ist eine Technik, um einer Seite, einem Formular, einer gesamten Website oder einer Webanwendung mehr als eine URL-Adresse zu geben. HTTP hat eine spezielle Art von Antwort, genannt **_HTTP-Umleitung_**, für diesen Vorgang.
+**URL-Weiterleitung**, auch bekannt als _URL-Weiterleitung_, ist eine Technik, um einer Seite, einem Formular, einer gesamten Website oder einer Webanwendung mehr als eine URL-Adresse zuzuweisen. HTTP verfügt über eine spezielle Art von Antwort, die als **_HTTP-Weiterleitung_** bezeichnet wird, für diese Operation.
 
-Umleitungen erfüllen zahlreiche Ziele:
+Weiterleitungen erfüllen zahlreiche Ziele:
 
-- Temporäre Umleitungen während der Wartung oder Ausfallzeiten der Website
-- Permanente Umleitungen, um bestehende Links/Lesezeichen nach Änderung der URLs der Website zu erhalten, Fortschrittsseiten beim Hochladen einer Datei usw.
+- Temporäre Weiterleitungen während der Wartung oder Ausfallzeit der Website
+- Permanente Weiterleitungen zur Erhaltung bestehender Links/Lesezeichen nach Änderung der URLs der Website, Fortschrittsseiten beim Hochladen einer Datei usw.
 
 ## Prinzip
 
-In HTTP wird die Umleitung durch einen speziellen _Umleitungs_antwort des Servers auf eine Anfrage ausgelöst. Umleitungsantworten haben [Statuscodes](/de/docs/Web/HTTP/Status), die mit `3` beginnen, und einen {{ httpheader("Location") }} Header, der die Umleitungs-URL enthält.
+Im HTTP wird eine Weiterleitung ausgelöst, indem ein Server eine spezielle \_Weiterleitungs_antwort auf eine Anfrage sendet. Weiterleitungsantworten haben [Statuscodes](/de/docs/Web/HTTP/Status), die mit `3` beginnen, und einen {{ httpheader("Location") }}-Header, der die URL enthält, zu der weitergeleitet werden soll.
 
-Wenn Browser eine Umleitung erhalten, laden sie sofort die neue URL aus dem `Location`-Header. Abgesehen von dem kleinen Leistungseinbruch durch eine zusätzliche Round-Trip fällt den Nutzern die Umleitung selten auf.
+Wenn Browser eine Weiterleitung erhalten, laden sie sofort die neue URL, die im `Location`-Header angegeben ist. Abgesehen von dem kleinen Leistungsaufwand für eine zusätzliche Übertragung bemerken Benutzer die Weiterleitung kaum.
 
-<!--
-%%{init: { "sequence": { "wrap": true, "width":250, "noteAlign": "center", "messageAlign": "center" }} }%%
+![Eine Anfrage vom Client an den Server. Der Server antwortet mit "301: dauerhaft verschoben" und der neuen URL für die Ressource. Der Client stellt eine GET-Anfrage für die neue URL, die vom Server mit einer 200 OK-Antwort zurückgegeben wird.](httpredirect.svg)
 
-sequenceDiagram
-    participant Client
-    participant Server
+Es gibt mehrere Arten von Weiterleitungen, die in drei Kategorien unterteilt sind:
 
-    Note left of Client: Anforderung der Ressource
-    Client->>Server: GET /doc HTTP/1.1
-    Note right of Server: Ressource verschoben<br>Antwort mit neuer Lokation
-    Server->>Client: HTTP/1.1 301 Moved Permanently<br/>Location: /doc_new
+1. [Permanente Weiterleitungen](#permanente_weiterleitungen)
+2. [Temporäre Weiterleitungen](#temporäre_weiterleitungen)
+3. [Spezielle Weiterleitungen](#spezielle_weiterleitungen)
 
-    Note left of Client: Anforderung der Ressource an der neuen Lokation
-    Client->>Server: GET /doc_new HTTP/1.1
-    Note right of Server: Rückgabe der Ressource
-    Server->>Client: HTTP/1.1 200 OK
--->
+### Permanente Weiterleitungen
 
-![Eine Anfrage vom Client an den Server. Der Server antwortet mit "301:moved permanently" und der neuen URL für die Ressource. Der Client stellt eine GET-Anfrage für die neue URL, die vom Server mit einer 200 OK-Antwort zurückgegeben wird.](httpredirect.svg)
+Diese Weiterleitungen sind dazu gedacht, dauerhaft zu bestehen. Sie implizieren, dass die ursprüngliche URL nicht mehr verwendet und durch die neue ersetzt werden sollte. Suchmaschinen-Roboter, RSS-Reader und andere Crawler werden die ursprüngliche URL für die Ressource aktualisieren.
 
-Es gibt verschiedene Arten von Umleitungen, die in drei Kategorien unterteilt sind:
+| Code  | Text                 | Methodenumgang                                                                                           | Typischer Anwendungsfall                                        |
+| ----- | -------------------- | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `301` | `Moved Permanently`  | {{HTTPMethod("GET")}}-Methoden unverändert. Andere können auf {{HTTPMethod("GET")}} geändert werden. [1] | Umstrukturierung einer Website.                                 |
+| `308` | `Permanent Redirect` | Methode und Inhalt nicht geändert.                                                                       | Umstrukturierung einer Website mit Nicht-GET-Links/Operationen. |
 
-1. [Permanente Umleitungen](#permanente_umleitungen)
-2. [Temporäre Umleitungen](#temporäre_umleitungen)
-3. [Spezielle Umleitungen](#spezielle_umleitungen)
+\[1] Die Spezifikation beabsichtigte nicht, Methodenänderungen zuzulassen, aber es gibt bestehende Benutzeragenten, die ihre Methode ändern. {{HTTPStatus("308")}} wurde erstellt, um die Mehrdeutigkeit des Verhaltens bei der Verwendung von Nicht-`GET`-Methoden zu beseitigen.
 
-### Permanente Umleitungen
+### Temporäre Weiterleitungen
 
-Diese Umleitungen sollen dauerhaft bestehen. Sie implizieren, dass die ursprüngliche URL nicht mehr verwendet und durch die neue ersetzt werden sollte. Suchmaschinen-Roboter, RSS-Reader und andere Crawler werden die ursprüngliche URL der Ressource aktualisieren.
+Manchmal kann auf die angeforderte Ressource nicht von ihrem kanonischen Standort aus zugegriffen werden, aber von einem anderen Ort aus. In diesem Fall kann eine temporäre Weiterleitung verwendet werden.
 
-| Code  | Text                   | Methodenumgang                                                                                             | Typischer Anwendungsfall                                     |
-| ----- | ---------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| `301` | `Moved Permanently`    | {{HTTPMethod("GET")}}-Methoden unverändert. Andere können, müssen aber nicht in {{HTTPMethod("GET")}} geändert werden. [1] | Reorganisation einer Website.                                |
-| `308` | `Permanent Redirect`   | Methode und Body nicht geändert.                                                                          | Reorganisation einer Website mit nicht-GET-Links/Vorgängen.  |
+Suchmaschinen-Roboter und andere Crawler speichern die neue, temporäre URL nicht. Temporäre Weiterleitungen werden auch beim Erstellen, Aktualisieren oder Löschen von Ressourcen verwendet, um temporäre Fortschrittsseiten anzuzeigen.
 
-\[1] Die Spezifikation beabsichtigte nicht, Methodenänderungen zuzulassen, aber es gibt bestehende Benutzeragenten, die ihre Methode ändern. {{HTTPStatus("308")}} wurde erstellt, um die Verhaltensmehrdeutigkeit beim Verwenden von nicht-`GET`-Methoden zu beseitigen.
+| Code  | Text                 | Methodenumgang                                                                                                            | Typischer Anwendungsfall                                                                                                                                                   |
+| ----- | -------------------- | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `302` | `Found`              | {{HTTPMethod("GET")}}-Methoden unverändert. Andere können oder können nicht in {{HTTPMethod("GET")}} geändert werden. [2] | Die Webseite ist vorübergehend aus unvorhergesehenen Gründen nicht verfügbar.                                                                                              |
+| `303` | `See Other`          | {{HTTPMethod("GET")}}-Methoden unverändert. Andere werden in `GET` geändert (Inhalt verloren).                            | Wird nach einer {{HTTPMethod("PUT")}}- oder {{HTTPMethod("POST")}}-Weiterleitung verwendet, sodass das Aktualisieren der Ergebnisseite die Operation nicht erneut auslöst. |
+| `307` | `Temporary Redirect` | Methode und Inhalt nicht geändert                                                                                         | Die Webseite ist vorübergehend aus unvorhergesehenen Gründen nicht verfügbar. Besser als `302`, wenn auf der Seite Nicht-`GET`-Operationen verfügbar sind.                 |
 
-### Temporäre Umleitungen
+\[2] Die Spezifikation beabsichtigte nicht, Methodenänderungen zuzulassen, aber es gibt bestehende Benutzeragenten, die ihre Methode ändern. {{HTTPStatus("307")}} wurde erstellt, um die Mehrdeutigkeit des Verhaltens bei der Verwendung von Nicht-`GET`-Methoden zu beseitigen.
 
-Manchmal kann die angeforderte Ressource nicht von ihrem kanonischen Ort aus aufgerufen werden, aber sie ist von einem anderen Ort aus erreichbar. In diesem Fall kann eine temporäre Umleitung verwendet werden.
+### Spezielle Weiterleitungen
 
-Suchmaschinen-Roboter und andere Crawler merken sich die neue, temporäre URL nicht. Temporäre Umleitungen werden auch beim Erstellen, Aktualisieren oder Löschen von Ressourcen verwendet, um vorübergehende Fortschrittsseiten anzuzeigen.
+{{HTTPStatus("304")}} (Not Modified) leitet eine Seite auf die lokal zwischengespeicherte Kopie (die veraltet war) um, und {{HTTPStatus("300")}} (Multiple Choices) ist eine manuelle Weiterleitung: Der Inhalt, der vom Browser als Webseite präsentiert wird, listet die möglichen Weiterleitungen auf, und der Benutzer klickt auf eine, um sie auszuwählen.
 
-| Code  | Text                   | Methodenumgang                                                                                               | Typischer Anwendungsfall                                                                                                                                   |
-| ----- | ---------------------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `302` | `Found`                | {{HTTPMethod("GET")}}-Methoden unverändert. Andere können, müssen aber nicht in {{HTTPMethod("GET")}} geändert werden. [2] | Die Webseite ist vorübergehend aus unvorhergesehenen Gründen nicht verfügbar.                                                                              |
-| `303` | `See Other`            | {{HTTPMethod("GET")}}-Methoden unverändert. Andere werden in `GET` geändert (Body verloren).                  | Wird verwendet, um nach einer {{HTTPMethod("PUT")}} oder einer {{HTTPMethod("POST")}} umzuleiten, sodass das Aktualisieren der Ergebnisseite die Operation nicht erneut auslöst. |
-| `307` | `Temporary Redirect`   | Methode und Body nicht geändert                                                                              | Die Webseite ist vorübergehend aus unvorhergesehenen Gründen nicht verfügbar. Besser als `302`, wenn auf der Website nicht-`GET`-Vorgänge verfügbar sind. |
+| Code  | Text               | Typischer Anwendungsfall                                                                                                                                                               |
+| ----- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `300` | `Multiple Choices` | Nicht viele: Die Optionen werden in einer HTML-Seite im Inhalt aufgelistet. Maschinell lesbare Optionen sollten als {{HTTPHeader("Link")}}-Header mit `rel=alternate` gesendet werden. |
+| `304` | `Not Modified`     | Wird für erneuerte bedingte Anfragen gesendet. Zeigt an, dass die zwischengespeicherte Antwort noch frisch ist und verwendet werden kann.                                              |
 
-\[2] Die Spezifikation beabsichtigte nicht, Methodenänderungen zuzulassen, aber es gibt bestehende Benutzeragenten, die ihre Methode ändern. {{HTTPStatus("307")}} wurde erstellt, um die Verhaltensmehrdeutigkeit beim Verwenden von nicht-`GET`-Methoden zu beseitigen.
+## Alternative Möglichkeit zur Angabe von Weiterleitungen
 
-### Spezielle Umleitungen
+HTTP-Weiterleitungen sind nicht die einzige Möglichkeit, Weiterleitungen zu definieren. Es gibt zwei weitere:
 
-{{HTTPStatus("304")}} (Not Modified) leitet eine Seite zu der lokal zwischengespeicherten Kopie (die veraltet war) um, und {{HTTPStatus("300")}} (Multiple Choices) ist eine manuelle Umleitung: Der Body, der vom Browser als Webseite präsentiert wird, listet die möglichen Umleitungen auf und der Benutzer klickt auf eine, um sie auszuwählen.
+1. HTML-Weiterleitungen mit dem {{HTMLElement("meta")}}-Element
+2. JavaScript-Weiterleitungen über das [DOM](/de/docs/Web/API/Document_Object_Model)
 
-| Code  | Text                 | Typischer Anwendungsfall                                                                                                                                                 |
-| ----- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `300` | `Multiple Choices`   | Nicht viele: Die Auswahlmöglichkeiten werden in einer HTML-Seite im Body aufgelistet. Maschinenlesbare Auswahlmöglichkeiten sollten als {{HTTPHeader("Link")}} Headers mit `rel=alternate` gesendet werden. |
-| `304` | `Not Modified`       | Wird für erneuerte bedingte Anfragen gesendet. Zeigt an, dass die zwischengespeicherte Antwort noch frisch ist und verwendet werden kann.                                |
+### HTML-Weiterleitungen
 
-## Alternative Möglichkeiten zur Angabe von Umleitungen
+HTTP-Weiterleitungen sind die beste Möglichkeit, Weiterleitungen zu erstellen, aber manchmal haben Sie keine Kontrolle über den Server. In diesem Fall versuchen Sie ein {{HTMLElement("meta")}}-Element mit seinem [`http-equiv`](/de/docs/Web/HTML/Element/meta#http-equiv)-Attribut, das auf `Refresh` im {{HTMLElement("head")}} der Seite gesetzt ist. Beim Anzeigen der Seite wird der Browser zur angegebenen URL weitergeleitet.
 
-HTTP-Umleitungen sind nicht der einzige Weg, Umleitungen zu definieren. Es gibt zwei weitere:
-
-1. HTML-Umleitungen mit dem {{HTMLElement("meta")}}-Element
-2. JavaScript-Umleitungen über das [DOM](/de/docs/Web/API/Document_Object_Model)
-
-### HTML-Umleitungen
-
-HTTP-Umleitungen sind der beste Weg, Umleitungen zu erstellen, aber manchmal hat man keine Kontrolle über den Server. In diesem Fall versuchen Sie ein {{HTMLElement("meta")}}-Element mit seinem [`http-equiv`](/de/docs/Web/HTML/Element/meta#http-equiv)-Attribut, das auf `Refresh` im {{HTMLElement("head")}} der Seite gesetzt ist. Beim Anzeigen der Seite wird der Browser zur angegebenen URL weitergeleitet.
-
-```html
-<head>
-  <meta http-equiv="Refresh" content="0; URL=https://example.com/" />
-</head>
-```
-
-Das [`content`](/de/docs/Web/HTML/Element/meta#content)-Attribut sollte mit einer Zahl beginnen, die angibt, wie viele Sekunden der Browser warten soll, bevor er zur angegebenen URL umleitet. Setzen Sie es immer auf `0`, um die Barrierefreiheit zu gewährleisten.
+Der [`content`](/de/docs/Web/HTML/Element/meta#content)-Attribut sollte mit einer Zahl beginnen, die angibt, wie viele Sekunden der Browser warten soll, bevor er zur angegebenen URL weiterleitet. Setzen Sie ihn immer auf `0`, um die Barrierefreiheit zu gewährleisten.
 
 Offensichtlich funktioniert diese Methode nur mit HTML und kann nicht für Bilder oder andere Arten von Inhalten verwendet werden.
 
-### JavaScript-Umleitungen
+### JavaScript-Weiterleitungen
 
-Umleitungen in JavaScript werden durch Setzen einer URL-Zeichenfolge auf die {{domxref("window.location")}}-Eigenschaft ausgeführt, wodurch die neue Seite geladen wird:
+Weiterleitungen in JavaScript werden durchgeführt, indem eine URL-Zeichenfolge auf die [`window.location`](/de/docs/Web/API/Window/location)-Eigenschaft gesetzt wird, die die neue Seite lädt:
 
-```js
-window.location = "https://example.com/";
-```
-
-Wie HTML-Umleitungen funktioniert dies nicht bei allen Ressourcen und offensichtlich funktioniert es nur bei Clients, die JavaScript ausführen. Auf der anderen Seite gibt es mehr Möglichkeiten: Zum Beispiel können Sie die Umleitung nur dann auslösen, wenn bestimmte Bedingungen erfüllt sind.
+Wie HTML-Weiterleitungen kann diese nicht bei allen Ressourcen funktionieren, und offensichtlich funktioniert sie nur bei Clients, die JavaScript ausführen. Andererseits gibt es mehr Möglichkeiten: Zum Beispiel können Sie die Weiterleitung nur dann auslösen, wenn bestimmte Bedingungen erfüllt sind.
 
 ### Reihenfolge der Priorität
 
-Mit drei Möglichkeiten, Umleitungen auszulösen, können mehrere gleichzeitig verwendet werden. Aber welche wird zuerst angewendet?
+Bei drei Möglichkeiten, Weiterleitungen auszulösen, können mehrere gleichzeitig verwendet werden. Aber welche wird zuerst ausgeführt?
 
-1. HTTP-Umleitungen werden immer zuerst ausgeführt – sie existieren, wenn noch keine übertragene Seite vorhanden ist.
-2. Etwas überraschend erfolgt die JavaScript-Umleitung als Nächstes, vor den HTML-Umleitungen. Dies liegt daran, dass die `<meta>`-Umleitung nach dem vollständigen Laden der Seite erfolgt, also nachdem alle Skripte ausgeführt wurden.
-3. HTML-Umleitungen ({{HTMLElement("meta")}}) werden ausgeführt, wenn keine HTTP-Umleitungen oder JavaScript-Umleitungen vor dem Laden der Seite ausgeführt wurden.
-4. Wenn es eine JavaScript-Umleitung gibt, die nach dem Laden der Seite erfolgt (zum Beispiel bei einem Klick auf eine Schaltfläche), wird sie zuletzt ausgeführt, wenn die Seite nicht bereits durch die vorherigen Methoden umgeleitet wurde.
+1. HTTP-Weiterleitungen werden immer zuerst ausgeführt — sie existieren, wenn noch nicht einmal eine übertragene Seite vorhanden ist.
+2. Etwas überraschend werden JavaScript-Weiterleitungen als nächstes ausgeführt, noch vor HTML-Weiterleitungen. Dies liegt daran, dass das `<meta>`-Redirect erst nach dem vollständigen Laden der Seite erfolgt, was nach allen ausgeführten Skripten ist.
+3. HTML-Weiterleitungen ({{HTMLElement("meta")}}) werden ausgeführt, wenn keine HTTP-Weiterleitungen oder JavaScript-Weiterleitungen vor dem Laden der Seite ausgeführt wurden.
+4. Wenn eine JavaScript-Weiterleitung erfolgt, die nach dem Laden der Seite erfolgt (z. B. bei einem Klick auf eine Schaltfläche), wird diese zuletzt ausgeführt, wenn die Seite nicht bereits durch die vorherigen Methoden weitergeleitet wurde.
 
-Verwenden Sie nach Möglichkeit HTTP-Umleitungen und fügen Sie keine {{HTMLElement("meta")}}-Element-Umleitungen hinzu. Wenn jemand die HTTP-Umleitungen ändert, aber vergisst, die HTML-Umleitungen zu ändern, sind die Umleitungen nicht mehr identisch, was zu einer Endlosschleife oder anderen Albträumen führen könnte.
+Wenn möglich, verwenden Sie HTTP-Weiterleitungen und fügen Sie keine {{HTMLElement("meta")}}-Element-Weiterleitungen hinzu. Wenn jemand die HTTP-Weiterleitungen ändert, aber vergisst, die HTML-Weiterleitungen zu ändern, sind die Weiterleitungen nicht mehr identisch, was zu einer Endlosschleife oder anderen Problemen führen könnte.
 
 ## Anwendungsfälle
 
-Es gibt zahlreiche Anwendungsfälle für Umleitungen, aber da die Leistung mit jeder Umleitung beeinträchtigt wird, sollte ihre Nutzung auf ein Minimum beschränkt werden.
+Es gibt zahlreiche Anwendungsfälle für Weiterleitungen, aber da die Leistung mit jeder Weiterleitung beeinträchtigt wird, sollte ihre Verwendung auf ein Minimum beschränkt werden.
 
 ### Domain-Aliasing
 
 Idealerweise gibt es einen Standort und daher eine URL für jede Ressource. Aber es gibt Gründe für alternative Namen für eine Ressource:
 
 - Erweiterung der Reichweite Ihrer Website
-  - : Ein häufiger Fall ist, dass eine Website unter `www.example.com` liegt, aber auch von `example.com` aus erreichbar sein soll. Umleitungen von `example.com` zu `www.example.com` werden daher eingerichtet. Sie könnten auch von allgemeinen Synonymen oder häufigen Tippfehlern Ihrer Domains umleiten.
+  - : Ein häufiger Fall ist, wenn eine Website unter `www.example.com` angesiedelt ist, sie aber auch von `example.com` aus zugänglich sein soll. Weiterleitungen von `example.com` zu `www.example.com` werden daher eingerichtet. Möglicherweise leiten Sie auch von häufigen Synonymen oder häufigen Tippfehlern Ihrer Domains um.
 - Umzug zu einer neuen Domain
-  - : Zum Beispiel wurde Ihr Unternehmen umbenannt, aber Sie möchten, dass vorhandene Links oder Lesezeichen Sie auch unter dem neuen Namen finden.
-- Erzwungene Verwendung von [HTTPS](/de/docs/Glossary/HTTPS)
+  - : Zum Beispiel wurde Ihr Unternehmen umbenannt, aber Sie möchten, dass bestehende Links oder Lesezeichen Sie immer noch unter dem neuen Namen finden.
+- Erzwingung von [HTTPS](/de/docs/Glossary/HTTPS)
   - : Anfragen an die `http://`-Version Ihrer Website werden zur `https://`-Version Ihrer Website umgeleitet.
 
-### Erhaltung von Links
+### Links am Leben erhalten
 
-Wenn Sie Websites umstrukturieren, ändern sich URLs. Auch wenn Sie die Links Ihrer Website aktualisieren, um die neuen URLs zu matchen, haben Sie keine Kontrolle über die von externen Ressourcen verwendeten URLs.
+Wenn Sie Websites umstrukturieren, ändern sich URLs. Auch wenn Sie die Links Ihrer Website aktualisieren, um den neuen URLs zu entsprechen, haben Sie keine Kontrolle über die von externen Ressourcen verwendeten URLs.
 
-Sie möchten diese Links nicht brechen, da sie wertvolle Nutzer bringen und Ihr SEO unterstützen. Daher richten Sie Umleitungen von den alten URLs zu den neuen ein.
+Sie möchten diese Links nicht brechen, da sie wertvolle Nutzer bringen und Ihrem SEO helfen, daher richten Sie Weiterleitungen von den alten URLs zu den neuen ein.
 
 > [!NOTE]
-> Diese Technik funktioniert auch für interne Links, aber versuchen Sie, interne Umleitungen zu vermeiden. Eine Umleitung hat einen erheblichen Leistungseinbruch (da eine zusätzliche HTTP-Anfrage erfolgt). Wenn Sie dies vermeiden können, indem Sie interne Links korrigieren, sollten Sie diese Links stattdessen beheben.
+> Diese Technik funktioniert auch für interne Links, aber versuchen Sie zu vermeiden, interne Weiterleitungen zu haben. Eine Weiterleitung hat erhebliche Leistungskosten (da eine zusätzliche HTTP-Anfrage erfolgt). Wenn Sie dies vermeiden können, indem Sie interne Links korrigieren, sollten Sie diese Links stattdessen beheben.
 
 ### Temporäre Antworten auf unsichere Anfragen
 
-{{Glossary("Safe/HTTP", "Unsicher")}}-Anfragen ändern den Zustand des Servers, und der Benutzer sollte diese nicht unbeabsichtigt erneut senden.
+[Unsichere](/de/docs/Glossary/Safe/HTTP) Anfragen ändern den Zustand des Servers, und der Benutzer sollte sie nicht unbeabsichtigt erneut senden.
 
-Normalerweise möchten Sie nicht, dass Ihre Benutzer {{HTTPMethod("PUT")}}, {{HTTPMethod("POST")}} oder {{HTTPMethod("DELETE")}}-Anfragen erneut senden. Wenn Sie die Antwort als Ergebnis dieser Anfrage liefern, führt ein einfaches Drücken der Neuladen-Schaltfläche dazu, dass die Anfrage erneut gesendet wird (möglicherweise nach einer Bestätigungsmeldung).
+In der Regel möchten Sie nicht, dass Ihre Benutzer {{HTTPMethod("PUT")}}, {{HTTPMethod("POST")}} oder {{HTTPMethod("DELETE")}}-Anfragen erneut senden. Wenn Sie die Antwort als Ergebnis dieser Anfrage bereitstellen, löst ein einfaches drücken der Aktualisierungstaste die Anfrage erneut aus (möglicherweise nach einer Bestätigungsmeldung).
 
-In diesem Fall kann der Server eine {{HTTPStatus("303")}} (See Other)-Antwort für eine URL zurücksenden, welche die richtigen Informationen enthält. Wenn die Neuladen-Schaltfläche gedrückt wird, wird nur diese Seite erneut angezeigt, ohne die unsicheren Anfragen erneut auszuführen.
+In diesem Fall kann der Server eine {{HTTPStatus("303")}} (See Other)-Antwort auf eine URL senden, die die richtigen Informationen enthält. Wenn die Aktualisierungstaste gedrückt wird, wird nur diese Seite erneut angezeigt, ohne dass die unsicheren Anfragen erneut abgespielt werden.
 
 ### Temporäre Antworten auf lange Anfragen
 
-Einige Anfragen benötigen möglicherweise mehr Zeit auf dem Server, wie {{HTTPMethod("DELETE")}}-Anfragen, die für eine spätere Bearbeitung geplant sind. In diesem Fall ist die Antwort eine {{HTTPStatus("303")}} (See Other)-Weiterleitung, die auf eine Seite verweist, die anzeigt, dass die Aktion geplant wurde und gegebenenfalls über ihren Fortschritt informiert oder ermöglicht, sie abzubrechen.
+Einige Anfragen benötigen möglicherweise mehr Zeit auf dem Server, wie {{HTTPMethod("DELETE")}}-Anfragen, die für eine spätere Bearbeitung geplant sind. In diesem Fall ist die Antwort eine {{HTTPStatus("303")}} (See Other)-Weiterleitung, die auf eine Seite verweist, die anzeigt, dass die Aktion geplant wurde, und möglicherweise über ihren Fortschritt informiert oder es ermöglicht, sie abzubrechen.
 
-## Konfiguration von Umleitungen in gängigen Servern
+## Konfigurieren von Weiterleitungen in gängigen Servern
 
 ### Apache
 
-Umleitungen können entweder in der Server-Konfigurationsdatei oder in der `.htaccess` jedes Verzeichnisses festgelegt werden.
+Weiterleitungen können entweder in der Serverkonfigurationsdatei oder in der `.htaccess` jeder Verzeichnisebene eingerichtet werden.
 
-Das [`mod_alias`](https://httpd.apache.org/docs/current/mod/mod_alias.html)-Modul hat `Redirect`- und `RedirectMatch`-Direktiven, die standardmäßig {{HTTPStatus("302")}} Umleitungen einrichten:
+Das [`mod_alias`](https://httpd.apache.org/docs/current/mod/mod_alias.html)-Modul verfügt über `Redirect`- und `RedirectMatch`-Direktiven, die standardmäßig {{HTTPStatus("302")}}-Weiterleitungen einrichten:
 
-```apacheconf
-<VirtualHost *:443>
-  ServerName example.com
-  Redirect / https://www.example.com
-</VirtualHost>
-```
+Die URL `https://example.com/` wird auf `https://www.example.com/` umgeleitet, ebenso wie alle Dateien oder Verzeichnisse darunter (`https://example.com/some-page` wird auf `https://www.example.com/some-page` umgeleitet).
 
-Die URL `https://example.com/` wird zu `https://www.example.com/` umgeleitet, ebenso wie alle darunter liegenden Dateien oder Verzeichnisse (`https://example.com/some-page` wird zu `https://www.example.com/some-page` umgeleitet).
+`RedirectMatch` macht dasselbe, verwendet jedoch einen [regulären Ausdruck](/de/docs/Glossary/regular_expression) um eine Sammlung betroffener URLs zu definieren.
 
-`RedirectMatch` tut dasselbe, verwendet jedoch einen {{glossary("regulären Ausdruck")}}, um eine Sammlung betroffener URLs zu definieren:
+Alle Dokumente im `images/`-Verzeichnis werden auf eine andere Domain umgeleitet.
 
-```apacheconf
-RedirectMatch ^/images/(.*)$ https://images.example.com/$1
-```
+Wenn Sie keine temporäre Weiterleitung möchten, kann ein zusätzliches Parameter (entweder der zu verwendende HTTP-Statuscode oder das Schlüsselwort `permanent`) verwendet werden, um eine andere Weiterleitung einzustellen.
 
-Alle Dokumente im `images/`-Verzeichnis werden zu einer anderen Domain umgeleitet.
-
-Wenn Sie keine temporäre Umleitung möchten, kann ein zusätzlicher Parameter (entweder der zu verwendende HTTP-Statuscode oder das Schlüsselwort `permanent`) verwendet werden, um eine andere Umleitung einzustellen:
-
-```apacheconf
-Redirect permanent / https://www.example.com
-# … wirkt genauso wie:
-Redirect 301 / https://www.example.com
-```
-
-Das [`mod_rewrite`](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)-Modul kann ebenfalls Umleitungen erstellen. Es ist flexibler, aber etwas komplexer.
+Das [`mod_rewrite`](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)-Modul kann auch Weiterleitungen erstellen. Es ist flexibler, aber etwas komplexer.
 
 ### Nginx
 
 In Nginx erstellen Sie einen spezifischen Serverblock für den Inhalt, den Sie umleiten möchten:
 
-```nginx
-server {
-  listen 80;
-  server_name example.com;
-  return 301 $scheme://www.example.com$request_uri;
-}
-```
-
-Um eine Umleitung auf ein Verzeichnis oder nur bestimmte Seiten anzuwenden, verwenden Sie die `rewrite`-Direktive:
-
-```nginx
-rewrite ^/images/(.*)$ https://images.example.com/$1 redirect;
-rewrite ^/images/(.*)$ https://images.example.com/$1 permanent;
-```
+Um eine Weiterleitung auf ein Verzeichnis oder nur bestimmte Seiten anzuwenden, verwenden Sie die `rewrite`-Direktive.
 
 ### IIS
 
-In IIS verwenden Sie das [`<httpRedirect>`](https://learn.microsoft.com/en-us/iis/configuration/system.webServer/httpRedirect/) Element, um Umleitungen zu konfigurieren.
+In IIS verwenden Sie das [`<httpRedirect>`](https://learn.microsoft.com/en-us/iis/configuration/system.webServer/httpRedirect/)-Element, um Weiterleitungen zu konfigurieren.
 
-## Umleitungsschleifen
+## Weiterleitungsschleifen
 
-Umleitungsschleifen treten auf, wenn zusätzliche Umleitungen derjenigen folgen, die bereits gefolgt wurde. Mit anderen Worten, es gibt eine Schleife, die niemals beendet wird und keine Seite jemals gefunden wird.
+Weiterleitungsschleifen treten auf, wenn zusätzliche Weiterleitungen derjenigen folgen, die bereits befolgt wurden. Mit anderen Worten, es gibt eine Schleife, die niemals abgeschlossen wird, und es wird nie eine Seite gefunden werden.
 
-Meistens ist dies ein Serverproblem, und wenn der Server es erkennen kann, wird er einen {{HTTPStatus("500")}} `Internal Server Error` zurücksenden. Wenn Sie auf einen solchen Fehler stoßen, nachdem Sie die Serverkonfiguration geändert haben, handelt es sich wahrscheinlich um eine Umleitungsschleife.
+In den meisten Fällen ist dies ein Serverproblem, und wenn der Server es erkennen kann, sendet er eine {{HTTPStatus("500")}} `Internal Server Error` zurück. Wenn Sie auf einen solchen Fehler kurz nach der Änderung einer Serverkonfiguration stoßen, handelt es sich wahrscheinlich um eine Weiterleitungsschleife.
 
-Manchmal wird der Server es nicht erkennen: Eine Umleitungsschleife kann sich über mehrere Server erstrecken, die jeweils nicht das vollständige Bild haben. In diesem Fall werden Browser es erkennen und eine Fehlermeldung anzeigen. Firefox zeigt an:
+Manchmal erkennt der Server es nicht: Eine Weiterleitungsschleife kann sich über mehrere Server erstrecken, die jeweils das Gesamtbild nicht sehen. In diesem Fall erkennen Browser es und zeigen eine Fehlermeldung an. Firefox zeigt an:
 
-> Firefox hat erkannt, dass der Server die Anfrage für diese Adresse auf eine Weise umleitet, die niemals endet.
+> Firefox hat erkannt, dass der Server die Anfrage für diese Adresse in einer Weise weiterleitet, die niemals endet.
 
-…während Chrome anzeigt:
+… während Chrome anzeigt:
 
-> Diese Webseite hat eine Umleitungsschleife
+> Diese Webseite hat eine Weiterleitungsschleife
 
-In beiden Fällen kann der Benutzer nicht viel tun (es sei denn, es tritt ein Korruptionsproblem auf seiner Seite auf, wie ein Cache- oder Cookie-Fehler).
+In beiden Fällen kann der Benutzer nicht viel tun (es sei denn, es tritt eine Beschädigung auf seiner Seite auf, wie ein Cache- oder Cookie-Konflikt).
 
-Es ist wichtig, Umleitungsschleifen zu vermeiden, da sie das Benutzererlebnis vollständig beeinträchtigen.
+Es ist wichtig, Weiterleitungsschleifen zu vermeiden, da sie das Benutzererlebnis vollständig zerstören.

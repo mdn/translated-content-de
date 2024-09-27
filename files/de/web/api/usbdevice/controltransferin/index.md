@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: controlTransferIn() Methode"
+title: "USBDevice: controlTransferIn()-Methode"
 short-title: controlTransferIn()
 slug: Web/API/USBDevice/controlTransferIn
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`controlTransferIn()`** Methode der {{domxref("USBDevice")}} Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("USBInTransferResult")}} aufgelöst wird, wenn ein Befehl oder Statusanfrage an das USB-Gerät übertragen (empfangen) wurde.
+Die **`controlTransferIn()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`USBInTransferResult`](/de/docs/Web/API/USBInTransferResult) aufgelöst wird, wenn ein Befehl oder Statusanfrage an das USB-Gerät übertragen (empfangen) wurde.
 
 ## Syntax
 
@@ -20,25 +20,25 @@ controlTransferIn(setup, length)
 
 - `setup`
 
-  - : Ein Objekt, das Optionen festlegt. Die verfügbaren Optionen sind:
+  - : Ein Objekt, das Optionen setzt für. Die verfügbaren Optionen sind:
 
     - `requestType`
-      - : Muss einer von drei Werten sein, die angeben, ob die Übertragung `"standard"` (gemeinsam für alle USB-Geräte), `"class"` (gemeinsam für eine industriestandardisierte Klasse von Geräten) oder `"vendor"` ist.
+      - : Muss einer der drei Werte sein, die angeben, ob die Übertragung `"standard"` (üblich für alle USB-Geräte), `"class"` (üblich für eine industriestandardisierte Klasse von Geräten) oder `"vendor"` ist.
     - `recipient`
-      - : Gibt das Ziel der Übertragung auf dem Gerät an, eines von `"device"`, `"interface"`, `"endpoint"` oder `"other"`.
+      - : Spezifiziert das Ziel der Übertragung auf dem Gerät, eins von `"device"`, `"interface"`, `"endpoint"` oder `"other"`.
     - `request`
       - : Ein herstellerspezifischer Befehl.
     - `value`
-      - : Herstellerspezifische Anfrageparameter.
+      - : Herstellerspezifische Anforderungsparameter.
     - `index`
       - : Die Schnittstellennummer des Empfängers.
 
 - `length`
-  - : Die maximale Anzahl von Bytes, die vom Gerät gelesen werden sollen. Die tatsächlichen Daten befinden sich im {{domxref("USBInTransferResult")}} im aufgelösten Promise.
+  - : Die maximale Anzahl von Bytes, die vom Gerät gelesen werden sollen. Die tatsächlichen Daten befinden sich im [`USBInTransferResult`](/de/docs/Web/API/USBInTransferResult) im aufgelösten Promise.
 
 ### Rückgabewert
 
-{{jsxref("promise")}}, das mit einem {{domxref("USBInTransferResult")}} aufgelöst wird.
+{{jsxref("promise")}}, das mit einem [`USBInTransferResult`](/de/docs/Web/API/USBInTransferResult) aufgelöst wird.
 
 ## Spezifikationen
 

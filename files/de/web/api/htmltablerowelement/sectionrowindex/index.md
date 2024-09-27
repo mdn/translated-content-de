@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`sectionRowIndex`**-Eigenschaft der {{domxref("HTMLTableRowElement")}}-Schnittstelle ist schreibgeschützt und repräsentiert die Position einer Zeile innerhalb des aktuellen Abschnitts ({{htmlelement("thead")}}, {{htmlelement("tbody")}} oder {{htmlelement("tfoot")}}).
+Die **`sectionRowIndex`** schreibgeschützte Eigenschaft des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Interfaces stellt die Position einer Zeile innerhalb des aktuellen Abschnitts dar ({{htmlelement("thead")}}, {{htmlelement("tbody")}} oder {{htmlelement("tfoot")}}).
 
 ## Wert
 
-Der Index der Zeile, oder `-1`, wenn die Zeile nicht Teil des Abschnitts ist.
+Der Index der Zeile oder `-1`, wenn die Zeile nicht Teil des Abschnitts ist.
 
 ## Beispiele
 
@@ -77,4 +77,4 @@ rows.forEach((row) => {
 
 ## Siehe auch
 
-- {{domxref("HTMLTableRowElement.rowIndex")}}
+- [`HTMLTableRowElement.rowIndex`](/de/docs/Web/API/HTMLTableRowElement/rowIndex)

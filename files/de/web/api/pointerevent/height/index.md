@@ -1,5 +1,5 @@
 ---
-title: "PointerEvent: height Eigenschaft"
+title: "PointerEvent: Höhe Eigenschaft"
 short-title: height
 slug: Web/API/PointerEvent/height
 l10n:
@@ -8,9 +8,10 @@ l10n:
 
 {{ APIRef("Pointer Events") }}
 
-Die **`height`**-Eigenschaft des schreibgeschützten {{domxref("PointerEvent")}}-Interfaces gibt die Höhe der Kontaktgeometrie des Zeigers entlang der y-Achse (in CSS-Pixeln) an. Abhängig von der Quelle des Zeigereingabegeräts (z. B. einem Finger) kann jeder Ereignis für einen bestimmten Zeiger einen unterschiedlichen Wert erzeugen.
+Die **`height`** schreibgeschützte Eigenschaft der
+[`PointerEvent`](/de/docs/Web/API/PointerEvent)-Schnittstelle repräsentiert die Höhe der Kontaktgeometrie des Zeigers entlang der y-Achse (in CSS-Pixeln). Je nach Quelle des Zeigereingabegeräts (zum Beispiel ein Finger) kann für einen gegebenen Zeiger jedes Ereignis einen anderen Wert ergeben.
 
-Wenn die Eingabehardware die Geometrie des Kontakts nicht an den Browser melden kann, ist die Höhe standardmäßig auf `1` gesetzt.
+Wenn die Eingabegeräte-Hardware die Kontaktgeometrie nicht an den Browser melden kann, beträgt die standardmäßige Höhe `1`.
 
 ## Wert
 
@@ -18,7 +19,7 @@ Die Höhe des Kontaktbereichs des Ereignisses (in CSS-Pixeln).
 
 ## Beispiele
 
-Ein Beispiel für diese Eigenschaft finden Sie im [PointerEvent.width Beispiel](/de/docs/Web/API/PointerEvent/width#examples).
+Ein Beispiel für diese Eigenschaft ist im [PointerEvent.width Beispiel](/de/docs/Web/API/PointerEvent/width#examples) enthalten.
 
 ## Spezifikationen
 

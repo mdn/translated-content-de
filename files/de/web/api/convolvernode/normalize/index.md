@@ -8,9 +8,16 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `normalize`-Eigenschaft des {{ domxref("ConvolverNode") }}-Interface ist ein boolescher Wert, der kontrolliert, ob die Impulsantwort aus dem Puffer durch eine gleichstarke Normalisierung skaliert wird, wenn das `buffer`-Attribut gesetzt ist, oder nicht.
+Die `normalize`-Eigenschaft des [`ConvolverNode`](/de/docs/Web/API/ConvolverNode)-Interfaces
+ist ein boolescher Wert, der steuert, ob die Impulsantwort aus dem Puffer
+durch eine Gleichstrom-Normalisierung skaliert wird, wenn das `buffer` Attribut gesetzt ist,
+oder nicht.
 
-Ihr Standardwert ist `true`, um einen gleichmäßigeren Ausgangspegel vom Convolver zu erreichen, wenn dieser mit unterschiedlichen Impulsantworten geladen wird. Wenn `normalize` auf `false` gesetzt ist, wird die Faltung ohne Vorverarbeitung/Skalierung der Impulsantwort ausgeführt. Änderungen an diesem Wert treten erst in Kraft, wenn das `buffer`-Attribut das nächste Mal gesetzt wird.
+Der Standardwert ist `true`, um ein gleichmäßigeres Ausgangsniveau
+des Convolvers zu erreichen, wenn er mit unterschiedlichen Impulsantworten geladen wird. Wenn `normalize`
+auf `false` gesetzt wird, dann wird die Faltung ohne
+Vorverarbeitung/Skalierung der Impulsantwort durchgeführt. Änderungen an diesem Wert werden erst
+beim nächsten Setzen des `buffer` Attributs wirksam.
 
 ## Wert
 
@@ -20,7 +27,7 @@ Ein boolescher Wert.
 
 ### Normalisierung ausschalten
 
-Das folgende Beispiel erstellt einen Convolver-Knoten und weist ihm einen {{domxref("AudioBuffer")}} zu. Bevor der Audio-Puffer zugewiesen wird, wird `normalize` auf `false` gesetzt.
+Das folgende Beispiel erstellt einen Convolver-Knoten und weist ihm einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) zu. Bevor der Audio-Puffer zugewiesen wird, wird `normalize` auf `false` gesetzt.
 
 ```js
 const audioCtx = new AudioContext();
@@ -29,14 +36,14 @@ const audioCtx = new AudioContext();
 const convolver = audioCtx.createConvolver();
 // ...
 
-// Audiotrack über fetch() für Convolver-Knoten abrufen
+// Grab audio track via fetch() for convolver node
 try {
   const response = await fetch(
     "https://mdn.github.io/voice-change-o-matic/audio/concert-crowd.ogg",
   );
   const arrayBuffer = await response.arrayBuffer();
   const decodedAudio = await audioCtx.decodeAudioData(arrayBuffer);
-  convolver.normalize = false; // muss vor dem Puffer gesetzt werden, um zu wirken
+  convolver.normalize = false; // must be set before the buffer, to take effect
   convolver.buffer = decodedAudio;
 } catch (error) {
   console.error(

@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: Zahlen in {}-Quantifizierer in falscher Reihenfolge."
+title: "SyntaxError: numbers out of order in {} quantifier."
 slug: Web/JavaScript/Reference/Errors/Regex_numbers_out_of_order_in_quantifier
 l10n:
   sourceCommit: 6aaba8ce85edc3a92fd5e804002cc609c31ce73f
@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "numbers out of order in {} quantifier" tritt auf, wenn ein [Quantifizierer](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) in einem regulären Ausdruck die `{n,m}`-Syntax verwendet, aber `m` kleiner als `n` ist.
+Die JavaScript-Ausnahme „numbers out of order in {} quantifier“ tritt auf, wenn ein [Quantifier](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) in einem regulären Ausdruck die `{n,m}`-Syntax verwendet, aber `m` kleiner als `n` ist.
 
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: Invalid regular expression: /1{2,1}/: numbers out of order in {} quantifier (V8-based)
@@ -23,7 +23,7 @@ SyntaxError: Invalid regular expression: numbers out of order in {} quantifier (
 
 ## Was ist schiefgelaufen?
 
-Die `{n,m}`-Syntax in einem regulären Ausdruck wird verwendet, um anzugeben, dass das vorangehende Element mindestens `n`-mal, aber nicht mehr als `m`-mal auftreten soll. Wenn `m` kleiner als `n` ist, ist der Quantifizierer unsinnig, da ein Zeichen zum Beispiel nicht mindestens 2-mal, aber nicht mehr als 1-mal erscheinen kann. Daher wird ein Fehler ausgelöst.
+Die `{n,m}`-Syntax in einem regulären Ausdruck wird verwendet, um anzugeben, dass das vorhergehende Element mindestens `n`-mal, aber nicht mehr als `m`-mal gematcht werden soll. Wenn `m` kleiner als `n` ist, ist der Quantifizierer unsinnig, weil z.B. ein Zeichen nicht mindestens 2-mal, aber nicht mehr als 1-mal vorkommen kann. Daher wird ein Fehler ausgelöst.
 
 ## Beispiele
 
@@ -42,4 +42,4 @@ Die `{n,m}`-Syntax in einem regulären Ausdruck wird verwendet, um anzugeben, da
 ## Siehe auch
 
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Quantifizierer: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)
+- [Quantifier: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)

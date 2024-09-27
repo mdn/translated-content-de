@@ -7,13 +7,13 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<time>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen spezifischen Zeitraum. Es kann das Attribut `datetime` enthalten, um Daten in ein maschinenlesbares Format zu übersetzen, was zu besseren Suchmaschinenergebnissen oder benutzerdefinierten Funktionen wie Erinnerungen führen kann.
+Das **`<time>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen bestimmten Zeitraum. Es kann das `datetime`-Attribut enthalten, um Daten in ein maschinenlesbares Format zu übersetzen, was bessere Suchmaschinenergebnisse oder benutzerdefinierte Funktionen wie Erinnerungen ermöglicht.
 
 Es kann eines der folgenden darstellen:
 
-- Eine Zeit auf einer 24-Stunden-Uhr.
+- Eine Uhrzeit auf einer 24-Stunden-Uhr.
 - Ein genaues Datum im [Gregorianischen Kalender](https://en.wikipedia.org/wiki/Gregorian_calendar) (mit optionalen Zeit- und Zeitzoneninformationen).
-- [Ein gültiger Zeitdauer-String](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-duration-string).
+- [Eine gültige Zeitdauer](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-duration-string).
 
 {{EmbedInteractiveExample("pages/tabbed/time.html", "tabbed-shorter")}}
 
@@ -26,13 +26,13 @@ Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribu
 
 ## Nutzungshinweise
 
-Dieses Element dient zur Darstellung von Daten und Zeiten in einem maschinenlesbaren Format. Zum Beispiel kann dies einem Benutzeragenten helfen, ein Ereignis dem Kalender eines Benutzers hinzuzufügen.
+Dieses Element dient der Darstellung von Daten und Zeiten in einem maschinenlesbaren Format. Zum Beispiel kann es einem Benutzeragenten helfen, ein Ereignis dem Kalender eines Benutzers hinzuzufügen.
 
 Dieses Element sollte nicht für Daten vor der Einführung des Gregorianischen Kalenders verwendet werden (aufgrund von Komplikationen bei der Berechnung dieser Daten).
 
-Der _datetime-Wert_ (der maschinenlesbare Wert des Datetime-Wertes) ist der Wert des `datetime`-Attributs des Elements, das im richtigen Format sein muss (siehe unten). Wenn das Element kein `datetime`-Attribut hat, **darf es keine Nachkommen-Elemente haben**, und der _datetime-Wert_ ist der Textinhalt des Elements.
+Der _datetime-Wert_ (der maschinenlesbare Wert des Datums) ist der Wert des `datetime`-Attributs des Elements, der im richtigen Format vorliegen muss (siehe unten). Falls das Element kein `datetime`-Attribut hat, **darf es keine Element-Nachkommen haben**, und der _datetime-Wert_ ist der Textinhalt der Kindelemente.
 
-### Gültige datetime-Werte
+### Gültige Datetime-Werte
 
 <table class="no-markdown">
   <thead>
@@ -44,22 +44,22 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des Datetime-Wertes) ist der Wert
   </thead>
   <tbody>
     <tr>
-      <td>Gültiger Monat-String</td>
+      <td>Gültiger Monatsstring</td>
       <td><code><em>YYYY</em>-<em>MM</em></code></td>
       <td><code>2011-11</code>, <code>2013-05</code></td>
     </tr>
     <tr>
-      <td>Gültiger Datums-String</td>
+      <td>Gültiger Datumsstring</td>
       <td><code><em>YYYY</em>-<em>MM</em>-<em>DD</em></code></td>
       <td><code>1887-12-01</code></td>
     </tr>
     <tr>
-      <td>Gültiger Jahrloser Datums-String</td>
+      <td>Gültiger datumsloser Datumsstring</td>
       <td><code><em>MM</em>-<em>DD</em></code></td>
       <td><code>11-12</code></td>
     </tr>
     <tr>
-      <td>Gültiger Zeit-String</td>
+      <td>Gültiger Zeitstring</td>
       <td>
         <code><em>HH</em>:<em>MM</em></code><br />
         <code><em>HH</em>:<em>MM</em>:<em>SS</em></code><br />
@@ -72,7 +72,7 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des Datetime-Wertes) ist der Wert
       </td>
     </tr>
     <tr>
-      <td>Gültiger lokaler Datum- und Zeit-String</td>
+      <td>Gültiger lokaler Datums- und Zeitstring</td>
       <td>
         <code><em>YYYY</em>-<em>MM</em>-<em>DD</em><em>HH</em>:<em>MM</em></code><br />
         <code><em>YYYY</em>-<em>MM</em>-<em>DD</em> <em>HH</em>:<em>MM</em>:<em>SS</em></code><br />
@@ -108,10 +108,10 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des Datetime-Wertes) ist der Wert
       </td>
     </tr>
     <tr>
-      <td>Gültiger globaler Datum- und Zeit-String</td>
+      <td>Gültiger globaler Datums- und Zeitstring</td>
       <td style="max-width:12em">
-        Jede Kombination aus einem gültigen lokalen Datum- und Zeit-String gefolgt von einem
-        gültigen Zeitzonen-Offset-String
+        Jede Kombination eines gültigen lokalen Datums- und Zeitstrings
+        gefolgt von einem gültigen Zeitzonen-Offset-String
       </td>
       <td>
         <code>2013-12-25 11:12+0200</code><br />
@@ -121,7 +121,7 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des Datetime-Wertes) ist der Wert
       </td>
     </tr>
     <tr>
-      <td>Gültiger Wochen-String</td>
+      <td>Gültiger Wochenstring</td>
       <td><code><em>YYYY</em>-W<em>WW</em></code></td>
       <td><code>2013-W46</code></td>
     </tr>
@@ -131,7 +131,7 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des Datetime-Wertes) ist der Wert
       <td><code>2013</code>, <code>0001</code></td>
     </tr>
     <tr>
-      <td>Gültiger Dauer-String</td>
+      <td>Gültiger Dauerstring</td>
       <td>
         <code>P<em>d</em>DT<em>h</em>H<em>m</em>M<em>s</em>S</code><br />
         <code>P<em>d</em>DT<em>h</em>H<em>m</em>M<em>s</em>.<em>X</em>S<br />
@@ -165,20 +165,20 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des Datetime-Wertes) ist der Wert
 #### HTML
 
 ```html
-<p>Das Konzert beginnt um <time datetime="2018-07-07T20:00:00">20:00</time>.</p>
+<p>The concert starts at <time datetime="2018-07-07T20:00:00">20:00</time>.</p>
 ```
 
 #### Ergebnis
 
 {{EmbedLiveSample('Simple_example', 250, 80)}}
 
-### `datetime` Beispiel
+### Beispiel für `datetime`
 
 #### HTML
 
 ```html
 <p>
-  Das Konzert fand am <time datetime="2001-05-15T19:00">15. Mai</time> statt.
+  The concert took place on <time datetime="2001-05-15T19:00">May 15</time>.
 </p>
 ```
 
@@ -198,36 +198,36 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des Datetime-Wertes) ist der Wert
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließendes Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
-        >, palpable content.
+          >Formatierter Inhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >Formatierter Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Weglassen des Tags</th>
-      <td>Keine, sowohl der startende als auch der endende Tag sind obligatorisch.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >formatierten Inhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles#structural_roles_with_html_equivalents">time</a
@@ -236,12 +236,12 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des Datetime-Wertes) ist der Wert
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>
-      <th scope="row">DOM-Interface</th>
-      <td>{{domxref("HTMLTimeElement")}}</td>
+      <th scope="row">DOM-Schnittstelle</th>
+      <td>[`HTMLTimeElement`](/de/docs/Web/API/HTMLTimeElement)</td>
     </tr>
   </tbody>
 </table>

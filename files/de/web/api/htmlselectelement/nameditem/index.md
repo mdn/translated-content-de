@@ -8,12 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLSelectElement.namedItem()`**-Methode gibt das
-{{domxref("HTMLOptionElement")}} zurück, das dem {{domxref("HTMLOptionElement")}}
-entspricht, dessen `name` oder `id` mit dem angegebenen Namen übereinstimmt, oder
-`null`, wenn keine Option übereinstimmt.
+Die **`HTMLSelectElement.namedItem()`**-Methode gibt das [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) zurück, das dem [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) entspricht, dessen `name` oder `id` mit dem angegebenen Namen übereinstimmt, oder `null`, wenn keine Option übereinstimmt.
 
-In JavaScript ist die Verwendung von `selectElt.namedItem('value')` gleichbedeutend mit `selectElt.options.namedItem('value')`.
+In JavaScript entspricht die Verwendung von `selectElt.namedItem('value')` der Verwendung von `selectElt.options.namedItem('value')`.
 
 ## Syntax
 
@@ -28,7 +25,7 @@ namedItem(str)
 
 ### Rückgabewert
 
-Ein {{domxref("HTMLOptionElement")}} oder `null`.
+Ein [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) oder `null`.
 
 ## Beispiele
 
@@ -47,15 +44,15 @@ Ein {{domxref("HTMLOptionElement")}} oder `null`.
 
 ```js
 let selectElt = document.getElementById("myFormControl");
-elem1 = selectElt.namedItem("o1"); // Gibt das HTMLOptionElement zurück, das #o1 repräsentiert
+elem1 = selectElt.namedItem("o1"); // Returns the HTMLOptionElement representing #o1
 ```
 
 Aber Sie können nicht schreiben:
 
 ```js
 let selectElt = document.getElementById("myFormControl");
-elem1 = selectElt.o1; // Gibt undefined zurück
-elem1 = selectElt["o1"]; // Gibt undefined zurück
+elem1 = selectElt.o1; // Returns undefined
+elem1 = selectElt["o1"]; // Returns undefined
 ```
 
 ## Spezifikationen
@@ -68,4 +65,4 @@ elem1 = selectElt["o1"]; // Gibt undefined zurück
 
 ## Siehe auch
 
-- {{domxref("HTMLSelectElement")}}, das dies implementiert.
+- [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement), das es implementiert.

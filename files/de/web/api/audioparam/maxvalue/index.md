@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die **`maxValue`** Schreibgeschützte Eigenschaft der {{domxref("AudioParam")}}-Schnittstelle repräsentiert den maximal möglichen Wert für den nominalen (effektiven) Wertebereich des Parameters.
+Die **`maxValue`** schreibgeschützte Eigenschaft des [`AudioParam`](/de/docs/Web/API/AudioParam)-Interfaces repräsentiert den maximal möglichen Wert für den nominalen (effektiven) Bereich des Parameters.
 
 ## Wert
 
-Eine Gleitkommazahl {{jsxref("Number")}}, die den maximal erlaubten Wert für den nominalen Bereich des Parameters angibt.
+Ein Fließkommawert {{jsxref("Number")}}, der den maximal zulässigen Wert für den nominalen Bereich des Parameters angibt.
 
-Der Standardwert von `maxValue` ist der maximal positive Wert einer einzelpräzisen Gleitkommazahl (+340.282.346.638.528.859.811.704.183.484.516.925.440).
+Der Standardwert von `maxValue` ist der maximale positive Wert im Gleitkomma-Einzelpräzisionsformat (+340.282.346.638.528.859.811.704.183.484.516.925.440).
 
 ## Beispiele
 
@@ -34,4 +34,4 @@ console.log(gainNode.gain.maxValue); // 3.4028234663852886e38
 
 ## Siehe auch
 
-- {{domxref("AudioParam.minValue")}}
+- [`AudioParam.minValue`](/de/docs/Web/API/AudioParam/minValue)

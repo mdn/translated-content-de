@@ -7,12 +7,12 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}{{SeeCompatTable}}
 
-Das **`virtualkeyboardpolicy`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein enumeriertes Attribut. Wenn es auf einem Element angegeben ist, dessen Inhalt bearbeitbar ist (zum Beispiel ein {{htmlelement("input")}}- oder {{htmlelement("textarea")}}-Element oder ein Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Attribut gesetzt), steuert es das Verhalten der Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten, auf denen möglicherweise keine Hardwaretastatur verfügbar ist.
+Das **`virtualkeyboardpolicy`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein enumeriertes Attribut. Wenn es auf einem Element angegeben ist, dessen Inhalt bearbeitbar ist (zum Beispiel ein {{htmlelement("input")}}- oder {{htmlelement("textarea")}}-Element oder ein Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Attribut), steuert es das Verhalten der virtuellen Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten, auf denen möglicherweise keine Hardwaretastatur verfügbar ist.
 
 Das Attribut muss einen der folgenden Werte annehmen:
 
-- `auto` oder eine _leere Zeichenfolge_, die die Bildschirmtastatur automatisch anzeigt, wenn das Element fokussiert oder angetippt wird.
-- `manual`, das den Fokus und das Antippen des Elements vom Zustand der Bildschirmtastatur entkoppelt.
+- `auto` oder ein _leerer String_, wodurch die virtuelle Tastatur automatisch angezeigt wird, wenn das Element fokussiert oder angetippt wird.
+- `manual`, wodurch der Fokus und das Tippen auf das Element von dem Zustand der virtuellen Tastatur entkoppelt wird.
 
 ## Spezifikationen
 
@@ -25,5 +25,5 @@ Das Attribut muss einen der folgenden Werte annehmen:
 ## Siehe auch
 
 - Alle [globalen Attribute](/de/docs/Web/HTML/Global_attributes)
-- {{domxref("HTMLElement.contentEditable")}} und {{domxref("HTMLElement.isContentEditable")}}
-- {{domxref("VirtualKeyboard_API", "Die VirtualKeyboard API", "", "nocode")}}
+- [`HTMLElement.contentEditable`](/de/docs/Web/API/HTMLElement/contentEditable) und [`HTMLElement.isContentEditable`](/de/docs/Web/API/HTMLElement/isContentEditable)
+- [Die VirtualKeyboard-API](/de/docs/Web/API/VirtualKeyboard_API)

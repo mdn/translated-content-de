@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: finish()-Methode"
+title: "WebGLRenderingContext: finish() Methode"
 short-title: finish()
 slug: Web/API/WebGLRenderingContext/finish
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.finish()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) blockiert die Ausführung, bis alle zuvor aufgerufenen Befehle abgeschlossen sind.
+Die **`WebGLRenderingContext.finish()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) blockiert die Ausführung, bis alle zuvor aufgerufenen Befehle abgeschlossen sind.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Kein Wert ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
@@ -34,5 +34,5 @@ Keine ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.flush()")}}
-- [Best Practices für WebGL](/de/docs/Web/API/WebGL_API/WebGL_best_practices) (was empfiehlt, `finish()` zu vermeiden, da es die Haupt-Rendering-Schleife verlangsamen kann)
+- [`WebGLRenderingContext.flush()`](/de/docs/Web/API/WebGLRenderingContext/flush)
+- [Beste Praktiken für WebGL](/de/docs/Web/API/WebGL_API/WebGL_best_practices) (welche empfehlen, `finish()` zu vermeiden, da es möglicherweise die Haupt-Rendering-Schleife verlangsamt)

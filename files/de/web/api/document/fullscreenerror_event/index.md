@@ -3,22 +3,22 @@ title: "Dokument: fullscreenerror-Ereignis"
 short-title: fullscreenerror
 slug: Web/API/Document/fullscreenerror_event
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 8a12b2889c9dbcb7d9ed026cac3a8538ec5cb277
 ---
 
-{{APIRef}}
+{{APIRef("Fullscreen API")}}
 
-Das `fullscreenerror`-Ereignis wird ausgelöst, wenn der Browser nicht in den Vollbildmodus wechseln kann.
+Das **`fullscreenerror`**-Ereignis wird ausgelöst, wenn der Browser nicht in den Vollbildmodus wechseln kann.
 
-Wie beim [`fullscreenchange`-Ereignis](/de/docs/Web/API/Document/fullscreenchange_event) werden zwei `fullscreenerror`-Ereignisse ausgelöst; das erste wird an das {{domxref("Element")}} gesendet, das den Modus nicht wechseln konnte, und das zweite wird an das {{domxref("Document")}} gesendet, dem dieses Element gehört.
+Wie beim [`fullscreenchange`-Ereignis](/de/docs/Web/API/Document/fullscreenchange_event) werden zwei `fullscreenerror`-Ereignisse gesendet; das erste wird an das [`Element`](/de/docs/Web/API/Element) gesendet, das den Moduswechsel nicht durchgeführt hat, und das zweite an das [`Document`](/de/docs/Web/API/Document), dem dieses Element gehört.
 
-Einige Gründe, warum der Wechsel in den Vollbildmodus fehlschlagen könnte, finden Sie im [Leitfaden zur Fullscreen API](/de/docs/Web/API/Fullscreen_API/Guide).
+Einige Gründe, warum das Umschalten in den Vollbildmodus fehlschlagen könnte, finden Sie im [Leitfaden zur Fullscreen API](/de/docs/Web/API/Fullscreen_API/Guide).
 
 Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
 
 ```js
 addEventListener("fullscreenerror", (event) => {});
@@ -28,7 +28,7 @@ onfullscreenerror = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -41,7 +41,7 @@ function handleError(event) {
 }
 
 document.addEventListener("fullscreenerror", handleError);
-// oder
+// or
 document.onfullscreenerror = handleError;
 
 requestor.requestFullscreen();
@@ -57,7 +57,7 @@ requestor.requestFullscreen();
 
 ## Siehe auch
 
-- {{domxref("Document/fullscreenchange_event", "fullscreenchange")}}
-- {{domxref("Element")}}: {{domxref("Element/fullscreenerror_event", "fullscreenerror")}}-Ereignis
+- [`fullscreenchange`](/de/docs/Web/API/Document/fullscreenchange_event)
+- [`Element`](/de/docs/Web/API/Element): [`fullscreenerror`](/de/docs/Web/API/Element/fullscreenerror_event) Ereignis
 - [Fullscreen API](/de/docs/Web/API/Fullscreen_API)
 - [Leitfaden zur Fullscreen API](/de/docs/Web/API/Fullscreen_API/Guide)

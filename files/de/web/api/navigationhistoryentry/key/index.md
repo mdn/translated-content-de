@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`key`** Eigenschaft des {{domxref("NavigationHistoryEntry")}}-Interfaces gibt den `key` des Verlaufs-Eintrags zurück oder einen leeren String, wenn das aktuelle Dokument nicht vollständig aktiv ist. Dies ist ein einzigartiger, vom UA generierter Wert, der den Platz des Verlaufs-Eintrags in der Eintragsliste darstellt. Er wird verwendet, um zu diesem speziellen Platz über {{domxref("Navigation.traverseTo()")}} zu navigieren. Der `key` wird von anderen Einträgen wiederverwendet, die den Eintrag in der Liste ersetzen (das heißt, wenn der {{domxref("NavigateEvent.navigationType")}} `replace` ist).
+Die schreibgeschützte Eigenschaft **`key`** der Schnittstelle [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) gibt den `key` des Verlaufseintrags zurück oder einen leeren String, wenn das aktuelle Dokument nicht vollständig aktiv ist. Dies ist ein eindeutiger, vom User-Agent generierter Wert, der den Slot des Verlaufseintrags in der Eintragsliste repräsentiert. Er wird verwendet, um zu diesem speziellen Slot über [`Navigation.traverseTo()`](/de/docs/Web/API/Navigation/traverseTo) zu navigieren. Der `key` wird von anderen Einträgen, die den Eintrag in der Liste ersetzen, wiederverwendet (das heißt, wenn der [`NavigateEvent.navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) `replace` ist).
 
-Dies unterscheidet sich von der {{domxref("NavigationHistoryEntry.id", "id")}} eines Verlaufs-Eintrags. Die `id` ist ein einzigartiger, vom UA generierter Wert, der immer einen spezifischen Verlaufs-Eintrag und nicht seinen Platz in der Eintragsliste darstellt. Dies ist nützlich, um ihn mit einer externen Ressource wie einem Speicher-Cache zu korrelieren.
+Dies unterscheidet sich von der [`id`](/de/docs/Web/API/NavigationHistoryEntry/id) eines Verlaufseintrags. Die `id` ist ein eindeutiger, vom User-Agent generierter Wert, der immer einen bestimmten Verlaufseintrag und nicht seinen Slot in der Eintragsliste darstellt. Dies ist nützlich, um ihn mit einer externen Ressource wie einem Speicher-Cache zu korrelieren.
 
 ## Wert
 
-Ein String, der den `key` des {{domxref("NavigationHistoryEntry")}} darstellt.
+Ein String, der den `key` des [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) darstellt.
 
 ## Beispiele
 
@@ -25,24 +25,24 @@ const current = navigation.currentEntry;
 console.log(current.key);
 ```
 
-### Einrichten eines Startseiten-Buttons
+### Einrichten eines Home-Buttons
 
 ```js
 function initHomeBtn() {
-  // Holen Sie sich den Schlüssel des zuerst geladenen Eintrags,
-  // damit der Benutzer immer zu dieser Ansicht zurückkehren kann.
+  // Get the key of the first loaded entry
+  // so the user can always go back to this view.
   const { key } = navigation.currentEntry;
   backToHomeButton.onclick = () => {
     navigation.traverseTo(key);
   };
 }
-// Abfangen von Navigations-Events, wie Link-Klicks, und
-// sie durch Single-Page-Navigationen ersetzen
+// Intercept navigate events, such as link clicks, and
+// replace them with single-page navigations
 navigation.addEventListener("navigate", (event) => {
   event.intercept({
     async handler() {
-      // Navigieren Sie zu einer anderen Ansicht,
-      // aber der "Home"-Button wird immer funktionieren.
+      // Navigate to a different view,
+      // but the "home" button will always work.
     },
   });
 });
@@ -58,6 +58,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

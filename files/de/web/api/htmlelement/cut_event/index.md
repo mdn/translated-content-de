@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: cut-Ereignis"
+title: "HTMLElement: cut Ereignis"
 short-title: cut
 slug: Web/API/HTMLElement/cut_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Das **`cut`**-Ereignis wird ausgelöst, wenn der Benutzer eine Ausschneiden-Aktion über die Benutzeroberfläche des Browsers initiiert.
+Das **`cut`** Ereignis wird ausgelöst, wenn der Benutzer eine Ausschneideaktion über die Benutzeroberfläche des Browsers initiiert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("cut", (event) => {});
@@ -22,30 +22,30 @@ oncut = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ClipboardEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ClipboardEvent")}}
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem Eltern-{{domxref("Event")}}_.
+_Erbt auch Eigenschaften von seinem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
 
-- {{domxref("ClipboardEvent.clipboardData")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("DataTransfer")}}-Objekt, das die von der benutzerinitiierten Ausschneide-, {{domxref("HTMLElement/copy_event", "Kopier")}}- oder {{domxref("HTMLElement/paste_event", "Einfüge")}}-Operation betroffenen Daten sowie deren MIME-Typ enthält.
+- [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) {{ReadOnlyInline}}
+  - : Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt, das die vom benutzerinitiierten `cut`, [`copy`](/de/docs/Web/API/HTMLElement/copy_event) oder [`paste`](/de/docs/Web/API/HTMLElement/paste_event) Vorgang betroffenen Daten zusammen mit ihrem MIME-Typ enthält.
 
 ## Beispiel
 
-Dieses Beispiel ermöglicht das Kopieren von Text aus dem {{htmlElement("textarea")}}, erlaubt jedoch nicht das Ausschneiden von Text. Es protokolliert auch jeden Kopier- und Ausschneideversuch.
+Dieses Beispiel erlaubt das Kopieren von Text aus dem {{htmlElement("textarea")}}, verhindert jedoch das Ausschneiden von Text. Außerdem wird jeder Kopier- und Ausschneidevorgang protokolliert.
 
 ### HTML
 
 ```html
-<h3>Spielen Sie mit diesem Textbereich:</h3>
+<h3>Play with this text area:</h3>
 <textarea id="editor" rows="3">
-Versuchen Sie, den Text in diesem Feld zu kopieren und auszuschneiden!
+Try copying and cutting the text in this field!
 </textarea>
 
-<h3>Protokoll:</h3>
+<h3>Log:</h3>
 <p id="log"></p>
 ```
 
@@ -53,12 +53,12 @@ Versuchen Sie, den Text in diesem Feld zu kopieren und auszuschneiden!
 
 ```js
 function logCopy(event) {
-  log.innerText = `Kopiert!\n${log.innerText}`;
+  log.innerText = `Copied!\n${log.innerText}`;
 }
 
 function preventCut(event) {
   event.preventDefault();
-  log.innerText = `Ausschneiden blockiert!\n${log.innerText}`;
+  log.innerText = `Cut blocked!\n${log.innerText}`;
 }
 
 const editor = document.getElementById("editor");
@@ -83,5 +83,5 @@ editor.oncut = preventCut;
 ## Siehe auch
 
 - Verwandte Ereignisse
-  - {{domxref("HTMLElement.copy_event", "kopieren")}}-Ereignis
-  - {{domxref("HTMLElement.paste_event", "einfügen")}}-Ereignis
+  - [`copy`](/de/docs/Web/API/HTMLElement/copy_event) Ereignis
+  - [`paste`](/de/docs/Web/API/HTMLElement/paste_event) Ereignis

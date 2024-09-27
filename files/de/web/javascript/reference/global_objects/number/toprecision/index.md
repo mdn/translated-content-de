@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toPrecision()`** Methode von {{jsxref("Number")}}-Werten gibt eine Zeichenkette zurück, die diese Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt.
+Die **`toPrecision()`** Methode von {{jsxref("Number")}} Werten gibt einen String zurück, der diese Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt.
 
 {{EmbedInteractiveExample("pages/js/number-toprecision.html")}}
 
@@ -21,13 +21,13 @@ toPrecision(precision)
 ### Parameter
 
 - `precision` {{optional_inline}}
-  - : Eine ganze Zahl, die die Anzahl der signifikanten Stellen angibt.
+  - : Ein ganzzahliger Wert, der die Anzahl der signifikanten Stellen angibt.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn diese Methode für ein Objekt aufgerufen wird, das kein {{jsxref("Number")}} ist.
+  - : Wird ausgelöst, wenn diese Methode auf einem Objekt aufgerufen wird, das kein {{jsxref("Number")}} ist.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die die angegebene Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt. Wissenschaftliche Notation wird verwendet, wenn der Exponent größer oder gleich `precision` oder kleiner als -6 ist. Hat dasselbe Verhalten wie {{jsxref("Number.prototype.toString()")}}, wenn das `precision`-Argument weggelassen wird.
+Ein String, der die angegebene Zahl mit der angegebenen Anzahl signifikanter Stellen darstellt. Wissenschaftliche Notation wird verwendet, wenn der Exponent größer oder gleich `precision` oder kleiner als -6 ist. Hat das gleiche Verhalten wie {{jsxref("Number.prototype.toString()")}}, wenn das Argument `precision` weggelassen wird.
 
 ### Ausnahmen
 
@@ -39,7 +39,7 @@ Eine Zeichenkette, die die angegebene Zahl mit der angegebenen Anzahl signifikan
 ### Verwendung von `toPrecision`
 
 ```js
-// Diese Zahl hat Exponent 0, daher wird keine exponentielle Notation verwendet
+// This number has exponent 0, so it will never use exponential notation
 let num = 5.123456;
 
 console.log(num.toPrecision()); // '5.123456'
@@ -47,7 +47,7 @@ console.log(num.toPrecision(5)); // '5.1235'
 console.log(num.toPrecision(2)); // '5.1'
 console.log(num.toPrecision(1)); // '5'
 
-// Diese Zahl hat Exponent -4, daher wird keine exponentielle Notation verwendet
+// This number has exponent -4, so it will never use exponential notation
 num = 0.000123;
 
 console.log(num.toPrecision()); // '0.000123'
@@ -55,13 +55,13 @@ console.log(num.toPrecision(5)); // '0.00012300'
 console.log(num.toPrecision(2)); // '0.00012'
 console.log(num.toPrecision(1)); // '0.0001'
 
-// Diese Zahl hat Exponent 3, daher wird exponentielle Notation verwendet, wenn die Präzision kleiner als 4 ist
+// This number has exponent 3, so it will use exponential notation if precision is less than 4
 num = 1234.5;
 console.log(num.toPrecision(1)); // '1e+3'
 console.log(num.toPrecision(2)); // '1.2e+3'
 console.log(num.toPrecision(6)); // '1234.50'
 
-// Diese Zahl hat Exponent -7, daher wird immer exponentielle Notation verwendet
+// This number has exponent -7, so it will always use exponential notation
 num = 0.00000012345;
 console.log(num.toPrecision(1)); // '1e-7'
 console.log(num.toPrecision(10)); // '1.234500000e-7'

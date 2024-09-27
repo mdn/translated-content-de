@@ -2,27 +2,27 @@
 title: Einführung in Django
 slug: Learn/Server-side/Django/Introduction
 l10n:
-  sourceCommit: 88467d31d2ad7bdfade8b38ec69f6702fee080d1
+  sourceCommit: 9df96dcad40bf97f66b317ef6b6bbe64444569eb
 ---
 
 {{LearnSidebar}}{{NextMenu("Learn/Server-side/Django/development_environment", "Learn/Server-side/Django")}}
 
-Im ersten Django-Artikel beantworten wir die Frage "Was ist Django?" und geben Ihnen einen Überblick über das, was dieses Web-Framework besonders macht.
+In diesem ersten Artikel zu Django beantworten wir die Frage "Was ist Django?" und geben Ihnen einen Überblick darüber, was dieses Web-Framework besonders macht.
 
-Wir skizzieren die Hauptmerkmale, einschließlich einiger der fortgeschrittenen Funktionen, auf die wir in diesem Modul nicht im Detail eingehen können. Wir zeigen Ihnen auch einige der Hauptbausteine einer Django-Anwendung (obwohl Sie an diesem Punkt noch keine Entwicklungsumgebung haben, in der Sie sie testen können).
+Wir skizzieren die Hauptmerkmale, einschließlich einiger fortgeschrittener Funktionen, die wir in diesem Modul nicht im Detail behandeln können. Wir zeigen Ihnen auch einige der Hauptbausteine einer Django-Anwendung (obwohl Sie zu diesem Zeitpunkt noch keine Entwicklungsumgebung haben, in der Sie sie testen können).
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Ein allgemeines Verständnis der <a href="/de/docs/Learn/Server-side/First_steps">serverseitigen Website-Programmierung</a> und insbesondere der Mechanismen von <a href="/de/docs/Learn/Server-side/First_steps/Client-Server_overview">Client-Server-Interaktionen in Websites</a>.
+        Ein allgemeines Verständnis von <a href="/de/docs/Learn/Server-side/First_steps">serverseitiger Webseitenprogrammierung</a> und insbesondere der Mechanismen von <a href="/de/docs/Learn/Server-side/First_steps/Client-Server_overview">Client-Server-Interaktionen in Websites</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Vertrautheit mit Django zu gewinnen, welche Funktionalitäten es bietet und welche die Hauptbausteine einer Django-Anwendung sind.
+        Vertrautheit mit Django erlangen, welche Funktionalitäten es bietet und die Hauptbausteine einer Django-Anwendung kennenlernen.
       </td>
     </tr>
   </tbody>
@@ -30,106 +30,104 @@ Wir skizzieren die Hauptmerkmale, einschließlich einiger der fortgeschrittenen 
 
 ## Was ist Django?
 
-Django ist ein High-Level-Python-Web-Framework, das die schnelle Entwicklung sicherer und wartbarer Websites ermöglicht. Entwickelt von erfahrenen Entwicklern, übernimmt Django viele der lästigen Aufgaben der Webentwicklung, sodass Sie sich darauf konzentrieren können, Ihre App zu schreiben, ohne das Rad neu erfinden zu müssen. Es ist kostenlos und Open Source, hat eine florierende und aktive Community, großartige Dokumentation und viele Optionen für kostenlosen und kostenpflichtigen Support.
+Django ist ein High-Level-Python-Web-Framework, das die schnelle Entwicklung sicherer und wartbarer Websites ermöglicht. Es wurde von erfahrenen Entwicklern erstellt und nimmt Ihnen einen Großteil der Mühen der Webentwicklung ab, so dass Sie sich darauf konzentrieren können, Ihre App zu schreiben, ohne das Rad neu erfinden zu müssen. Es ist kostenlos und quelloffen und verfügt über eine florierende und aktive Community, großartige Dokumentation und viele Möglichkeiten für kostenlose und kostenpflichtige Unterstützung.
 
 Django hilft Ihnen, Software zu schreiben, die:
 
-- Komplett ist
-  - : Django folgt der "Batteries included"-Philosophie und bietet fast alles, was Entwickler "out of the box" benötigen könnten. Da alles, was Sie brauchen, Teil eines einzelnen "Produkts" ist, funktioniert alles nahtlos zusammen, folgt konsistenten Designprinzipien und hat eine umfangreiche und [aktuelle Dokumentation](https://docs.djangoproject.com/en/stable/).
+- Vollständig ist
+  - : Django folgt der "Batterien enthalten"-Philosophie und bietet fast alles, was Entwickler "out of the box" tun möchten. Da alles, was Sie brauchen, Teil eines "Produkts" ist, arbeitet es nahtlos zusammen, folgt konsistenten Designprinzipien und verfügt über umfassende und [aktuelle Dokumentation](https://docs.djangoproject.com/en/stable/).
 - Vielseitig
 
-  - : Django kann (und wurde bereits) verwendet, um fast jede Art von Website zu erstellen — von Content-Management-Systemen und Wikis bis hin zu sozialen Netzwerken und Nachrichtenseiten. Es kann mit jedem clientseitigen Framework arbeiten und Inhalte in fast jedem Format liefern (einschließlich HTML, RSS-Feeds, JSON und XML).
+  - : Django kann (und wurde) verwendet werden, um fast jede Art von Website zu erstellen — von Content-Management-Systemen und Wikis über soziale Netzwerke bis hin zu Nachrichtenseiten. Es kann mit jedem clientseitigen Framework arbeiten und Inhalte in fast jedem Format liefern (einschließlich HTML, RSS-Feeds, JSON und XML).
 
-    Innerhalb des Systems bietet es zwar Auswahlmöglichkeiten für fast jede gewünschte Funktion (z.B. mehrere beliebte Datenbanken, Template-Engines usw.), kann aber auch erweitert werden, um andere Komponenten zu verwenden, falls erforderlich.
+    Intern bietet es Auswahlmöglichkeiten für fast jede Funktionalität, die Sie möglicherweise wünschen (z.B. mehrere beliebte Datenbanken, Template-Engines usw.), kann jedoch auch erweitert werden, um bei Bedarf andere Komponenten zu verwenden.
 
 - Sicher
 
-  - : Django hilft Entwicklern, viele häufige Sicherheitsfehler zu vermeiden, indem es ein Framework bereitstellt, das so konzipiert wurde, dass es automatisch die "richtigen Dinge" tut, um die Website zu schützen. Beispielsweise bietet Django eine sichere Methode zur Verwaltung von Benutzerkonten und Passwörtern, wobei häufige Fehler vermieden werden, wie das Speichern von Sitzungsinformationen in Cookies, wo sie anfällig sind (stattdessen enthalten Cookies nur einen Schlüssel, und die tatsächlichen Daten werden in der Datenbank gespeichert) oder das direkte Speichern von Passwörtern anstelle eines Passwort-Hashes.
+  - : Django hilft Entwicklern, viele gängige Sicherheitsfehler zu vermeiden, indem es ein Framework bereitstellt, das so konzipiert wurde, dass es automatisch "das Richtige" tut, um die Website zu schützen. Zum Beispiel bietet Django eine sichere Möglichkeit, Benutzerkonten und Passwörter zu verwalten, wodurch häufige Fehler wie das Ablegen von Sitzungsinformationen in Cookies, bei denen sie anfällig sind, vermieden werden (anstattdessen enthalten Cookies nur einen Schlüssel, und die eigentlichen Daten werden in der Datenbank gespeichert) oder Passwörter direkt zu speichern anstelle eines Passwort-Hashes.
 
-    _Ein Passwort-Hash ist ein Wert fester Länge, der durch das Senden des Passworts durch eine [kryptografische Hash-Funktion](https://en.wikipedia.org/wiki/Cryptographic_hash_function) erstellt wird. Django kann prüfen, ob ein eingegebenes Passwort korrekt ist, indem es es durch die Hash-Funktion laufen lässt und die Ausgabe mit dem gespeicherten Hash-Wert vergleicht. Aufgrund der „einseitigen“ Natur der Funktion ist es jedoch schwierig für einen Angreifer, das ursprüngliche Passwort herauszufinden, selbst wenn ein gespeicherter Hash-Wert beeinträchtigt wird._
+    _Ein Passwort-Hash ist ein Wert fester Länge, der erstellt wird, indem das Passwort durch eine [kryptographische Hash-Funktion](https://en.wikipedia.org/wiki/Cryptographic_hash_function) gesendet wird. Django kann überprüfen, ob ein eingegebenes Passwort korrekt ist, indem es es durch die Hash-Funktion führt und die Ausgabe mit dem gespeicherten Hash-Wert vergleicht. Aufgrund der "Einweg"-Natur der Funktion ist es jedoch selbst dann, wenn ein gespeicherter Hash-Wert kompromittiert wird, schwierig für einen Angreifer, das ursprüngliche Passwort herauszufinden._
 
-    Django bietet von Haus aus Schutz gegen viele Schwachstellen, einschließlich SQL-Injection, Cross-Site-Scripting, Cross-Site-Request-Forgery und [Clickjacking](/de/docs/Glossary/Clickjacking) (siehe [Website-Sicherheit](/de/docs/Learn/Server-side/First_steps/Website_security) für weitere Details zu solchen Angriffen).
+    Django bietet standardmäßig Schutz gegen viele Schwachstellen, einschließlich SQL-Injection, Cross-Site-Scripting, Cross-Site-Request-Forgery und [Clickjacking](/de/docs/Glossary/Clickjacking) (siehe [Website-Sicherheit](/de/docs/Learn/Server-side/First_steps/Website_security) für weitere Einzelheiten zu solchen Angriffen).
 
 - Skalierbar
-  - : Django verwendet eine komponentenbasierte "[shared-nothing](https://en.wikipedia.org/wiki/Shared_nothing_architecture)"-Architektur (jeder Teil der Architektur ist unabhängig von den anderen und kann daher bei Bedarf ersetzt oder geändert werden). Die klare Trennung zwischen den verschiedenen Teilen bedeutet, dass es für erhöhten Datenverkehr skalierbar ist, indem Hardware auf jeder Ebene hinzugefügt wird: Caching-Server, Datenbank-Server oder Anwendungsserver. Einige der meistbesuchten Websites haben Django erfolgreich skaliert, um ihren Anforderungen gerecht zu werden (z.B. Instagram und Disqus, um nur zwei zu nennen).
+  - : Django verwendet eine komponentenbasierte "[Shared-Nothing](https://en.wikipedia.org/wiki/Shared_nothing_architecture)"-Architektur (jeder Teil der Architektur ist unabhängig von den anderen und kann daher bei Bedarf ersetzt oder geändert werden). Eine klare Trennung zwischen den verschiedenen Teilen bedeutet, dass es für erhöhten Traffic skaliert werden kann, indem Hardware auf jeder Ebene hinzugefügt wird: Caching-Server, Datenbank-Server oder Anwendungsserver. Einige der meistbesuchten Websites haben erfolgreich Django skaliert, um ihren Anforderungen gerecht zu werden (z.B. Instagram und Disqus, um nur zwei zu nennen).
 - Wartbar
-  - : Django-Code wird nach Designprinzipien und Mustern geschrieben, die die Erstellung wartbarer und wiederverwendbarer Codes fördern. Insbesondere macht es Gebrauch vom Don't Repeat Yourself (DRY)-Prinzip, sodass keine unnötige Duplikation stattfindet und die Codegröße reduziert wird. Django fördert auch die Gruppierung verwandter Funktionalitäten in wiederverwendbare „Anwendungen“ und, auf niedrigerer Ebene, die Gruppierung verwandten Codes in Module (entlang der Linien des [Model-View-Controller (MVC)](/de/docs/Glossary/MVC)-Musters).
+  - : Django-Code wird unter Anwendung von Design-Prinzipien und Mustern geschrieben, die die Erstellung von wartbarem und wiederverwendbarem Code fördern. Insbesondere nutzt es das Don't Repeat Yourself (DRY)-Prinzip, um unnötige Duplikationen zu vermeiden und die Menge des Codes zu reduzieren. Django fördert auch die Gruppierung verwandter Funktionalitäten in wiederverwendbare "Anwendungen" und gruppiert auf niedrigerer Ebene verwandten Code in Modulen (nach dem [Model View Controller (MVC)](/de/docs/Glossary/MVC)-Muster).
 - Portabel
-  - : Django ist in Python geschrieben, welches auf vielen Plattformen läuft. Das bedeutet, dass Sie nicht an eine bestimmte Server-Plattform gebunden sind und Ihre Anwendungen auf vielen Varianten von Linux, Windows und macOS ausführen können. Darüber hinaus wird Django von vielen Webhosting-Anbietern gut unterstützt, die oft spezifische Infrastruktur und Dokumentation für das Hosting von Django-Sites bereitstellen.
+  - : Django ist in Python geschrieben, das auf vielen Plattformen läuft. Das bedeutet, dass Sie nicht an eine bestimmte Server-Plattform gebunden sind und Ihre Anwendungen auf vielen Varianten von Linux, Windows und macOS ausführen können. Darüber hinaus wird Django von vielen Webhosting-Anbietern gut unterstützt, die oft spezifische Infrastruktur und Dokumentation für das Hosting von Django-Sites bereitstellen.
 
-## Woher kommt Django?
+## Woher kommt es?
 
-Django wurde ursprünglich zwischen 2003 und 2005 von einem Web-Team entwickelt, das für die Erstellung und Wartung von Zeitungswebsites verantwortlich war. Nachdem sie eine Reihe von Sites erstellt hatten, begann das Team damit, viel gemeinsamen Code und Designmuster zu extrahieren und wiederzuverwenden. Dieser gemeinsame Code entwickelte sich zu einem generischen Webentwicklungs-Framework, das im Juli 2005 als "Django"-Projekt open-sourced wurde.
+Django wurde ursprünglich zwischen 2003 und 2005 von einem Webteam entwickelt, das für die Erstellung und Wartung von Zeitungs-Websites verantwortlich war. Nachdem eine Reihe von Sites erstellt wurde, begann das Team, viel gemeinsamen Code und Designmuster herauszufiltern und wiederzuverwenden. Dieser gemeinsame Code entwickelte sich zu einem generischen Webentwicklungs-Framework, das im Juli 2005 als "Django"-Projekt als Open Source veröffentlicht wurde.
 
-Django ist gewachsen und hat sich weiterentwickelt, von seiner ersten Meilensteinversion (1.0) im September 2008 bis zur Version 5.0 Ende 2023. Jede Version hat neue Funktionalitäten und Fehlerbehebungen hinzugefügt, von der Unterstützung für neue Arten von Datenbanken, Template-Engines und Caching bis hin zur Einführung von "generischen" View-Funktionen und Klassen (die die Menge an Code reduzieren, die Entwickler für eine Anzahl von Programmieraufgaben schreiben müssen).
+Django ist weiterhin gewachsen und hat sich verbessert, von seiner ersten Meilenstein-Version (1.0) im September 2008 bis zur Version 5.0 Ende 2023. Jede Veröffentlichung brachte neue Funktionalitäten und Fehlerbehebungen, von der Unterstützung neuer Datenbanktypen, Template-Engines und Caching bis hin zur Einführung "generischer" View-Funktionen und -Klassen (die die Menge des Codes, den Entwickler für eine Reihe von Programmieraufgaben schreiben müssen, reduzieren).
 
 > [!NOTE]
-> Sehen Sie sich die [Release Notes](https://docs.djangoproject.com/en/stable/releases/) auf der Django-Website an, um zu sehen, was sich in den letzten Versionen geändert hat und wie viel Arbeit darauf verwendet wird, Django zu verbessern.
+> Sehen Sie sich die [Releasenotizen](https://docs.djangoproject.com/en/stable/releases/) auf der Django-Website an, um zu sehen, was sich in den letzten Versionen geändert hat und wie viel Arbeit investiert wird, um Django zu verbessern.
 
-Django ist inzwischen ein florierendes, kollaboratives Open-Source-Projekt mit vielen Tausenden von Benutzern und Mitwirkenden. Während es immer noch einige Merkmale aufweist, die seine Herkunft widerspiegeln, hat sich Django zu einem vielseitigen Framework entwickelt, das in der Lage ist, jede Art von Website zu entwickeln.
+Django ist jetzt ein florierendes, kollaboratives Open-Source-Projekt mit vielen Tausenden von Benutzern und Mitwirkenden. Während es immer noch einige Funktionen hat, die seine Herkunft widerspiegeln, hat sich Django zu einem vielseitigen Framework entwickelt, das in der Lage ist, jede Art von Website zu entwickeln.
 
-## Wie populär ist Django?
+## Wie beliebt ist Django?
 
-Es gibt keine leicht verfügbaren und endgültigen Messungen der Popularität von serverseitigen Frameworks (obwohl man die Popularität über Mechanismen wie die Zählung der Anzahl von GitHub-Projekten und StackOverflow-Fragen für jede Plattform schätzen kann). Eine bessere Frage ist, ob Django „populär genug“ ist, um die Probleme unbeliebter Plattformen zu vermeiden. Entwickelt es sich weiter? Können Sie Hilfe bekommen, wenn Sie sie benötigen? Gibt es eine Gelegenheit, dass Sie bezahlte Arbeit bekommen, wenn Sie Django lernen?
+Es gibt keine leicht verfügbaren und endgültigen Messungen der Beliebtheit von serverseitigen Frameworks (obwohl Sie die Beliebtheit durch Mechanismen wie das Zählen der Anzahl von GitHub-Projekten und StackOverflow-Fragen für jede Plattform abschätzen können). Eine bessere Frage ist, ob Django "beliebt genug" ist, um die Probleme unpopulärer Plattformen zu vermeiden. Entwickelt es sich weiter? Können Sie Hilfe bekommen, wenn Sie sie brauchen? Gibt es die Möglichkeit, bezahlte Arbeit zu bekommen, wenn Sie Django lernen?
 
-Basierend auf der Anzahl der hochkarätigen Sites, die Django verwenden, der Anzahl der Personen, die zum Codebase beitragen, und der Anzahl der Personen, die kostenlosen oder kostenpflichtigen Support anbieten, ja, Django ist ein populäres Framework!
+Basierend auf der Anzahl hochkarätiger Sites, die Django verwenden, der Anzahl der Personen, die zum Code beitragen, und der Anzahl der Personen, die sowohl kostenlose als auch kostenpflichtige Unterstützung bieten, ist Django definitiv ein beliebtes Framework!
 
-Bekannte Sites, die Django verwenden, sind: Disqus, Instagram, Knight Foundation, MacArthur Foundation, Mozilla, National Geographic, Open Knowledge Foundation, Pinterest und Open Stack (Quelle: [Django-Übersichtsseite](https://www.djangoproject.com/start/overview/)).
+Hochkarätige Sites, die Django verwenden, sind unter anderem: Disqus, Instagram, Knight Foundation, MacArthur Foundation, Mozilla, National Geographic, Open Knowledge Foundation, Pinterest und Open Stack (Quelle: [Django-Übersichtsseite](https://www.djangoproject.com/start/overview/)).
 
 ## Ist Django meinungsstark?
 
-Web-Frameworks bezeichnen sich häufig als „meinungsstark“ oder „unmeinungsstark“.
+Web-Frameworks bezeichnen sich oft als "meinungsstark" oder "meinungsarm".
 
-Meinungsstarke Frameworks sind diejenigen, die Meinungen dazu haben, wie man bestimmte Aufgaben „richtig“ erledigt. Sie unterstützen häufig die schnelle Entwicklung _in einem bestimmten Bereich_ (Lösen von Problemen einer bestimmten Art), weil der richtige Weg, etwas zu tun, in der Regel klar verstanden und gut dokumentiert ist. Sie können jedoch weniger flexibel sein beim Lösen von Problemen außerhalb ihres Hauptbereiches und bieten tendenziell weniger Auswahlmöglichkeiten für Komponenten und Ansätze, die sie verwenden können.
+Meinungsstarke Frameworks sind solche, die Meinungen darüber haben, wie eine bestimmte Aufgabe "richtig" zu handhaben ist. Sie unterstützen oft die schnelle Entwicklung _in einem bestimmten Bereich_ (Lösung von Problemen eines bestimmten Typs), da der richtige Weg, etwas zu tun, normalerweise gut verstanden und dokumentiert ist. Allerdings können sie weniger flexibel bei der Lösung von Problemen außerhalb ihres Hauptbereichs sein und neigen dazu, weniger Auswahlmöglichkeiten für die zu verwendenden Komponenten und Ansätze zu bieten.
 
-Unmeinungsstarke Frameworks hingegen haben weit weniger Einschränkungen, wie man Komponenten am besten zusammenfügt, um ein Ziel zu erreichen, oder welche Komponenten verwendet werden sollten. Sie erleichtern es Entwicklern, die am besten geeigneten Werkzeuge für eine bestimmte Aufgabe zu verwenden, wenn auch auf Kosten, dass Sie diese Komponenten selbst finden müssen.
+Meinungsarme Frameworks hingegen haben weit weniger Einschränkungen bezüglich des besten Weges, Komponenten zusammenzukleben, um ein Ziel zu erreichen, oder welche Komponenten überhaupt verwendet werden sollten. Sie erleichtern es Entwicklern, die am besten geeigneten Werkzeuge zu verwenden, um eine bestimmte Aufgabe zu erledigen, allerdings mit dem Nachteil, dass Sie diese Komponenten selbst finden müssen.
 
-Django ist „etwas meinungsstark“ und bietet daher das „Beste aus beiden Welten“. Es stellt eine Reihe von Komponenten zur Verfügung, um die meisten Webentwicklungsaufgaben zu bewältigen, sowie eine (oder zwei) bevorzugte Wege, diese zu nutzen. Dennoch bedeutet die entkoppelte Architektur von Django, dass Sie in der Regel aus einer Reihe von verschiedenen Optionen wählen oder die Unterstützung für völlig neue hinzufügen können, falls gewünscht.
+Django ist "einigermaßen meinungsstark" und liefert damit das "Beste aus beiden Welten". Es bietet eine Reihe von Komponenten, um die meisten Aufgaben der Webentwicklung zu bewältigen, und eine (oder zwei) bevorzugte Wege, um sie zu verwenden. Jedoch ermöglicht es Djangos entkoppelte Architektur normalerweise, aus einer Reihe verschiedener Optionen auszuwählen oder Unterstützung für komplett neue hinzuzufügen, falls gewünscht.
 
 ## Wie sieht Django-Code aus?
 
-In einer traditionellen datengesteuerten Website wartet eine Webanwendung auf HTTP-Anfragen des Webbrowsers (oder eines anderen Clients). Bei Eingang einer Anfrage ermittelt die Anwendung, was benötigt wird, basierend auf der URL und möglicherweise Informationen in `POST`-Daten oder `GET`-Daten. Je nachdem, was erforderlich ist, kann sie dann Informationen aus einer Datenbank lesen oder schreiben oder andere Aufgaben ausführen, die zur Erfüllung der Anfrage erforderlich sind. Die Anwendung gibt dann eine Antwort an den Webbrowser zurück, erstellt häufig dynamisch eine HTML-Seite für den Browser, indem sie die abgerufenen Daten in Platzhalter in einer HTML-Vorlage einfügt.
+In einer traditionellen datengesteuerten Website wartet eine Webanwendung auf HTTP-Anfragen des Webbrowsers (oder eines anderen Clients). Wenn eine Anfrage empfangen wird, arbeitet die Anwendung heraus, was basierend auf der URL und möglicherweise Informationen in `POST`-Daten oder `GET`-Daten benötigt wird. Je nach Anforderung kann es dann Informationen aus einer Datenbank lesen oder schreiben oder andere Aufgaben ausführen, die zur Erfüllung der Anfrage erforderlich sind. Die Anwendung gibt dann eine Antwort an den Webbrowser zurück und erstellt oft dynamisch eine HTML-Seite für den Browser, indem die abgerufenen Daten in Platzhalter in einem HTML-Template eingefügt werden.
 
-Django-Webanwendungen gruppieren den Code, der jeden dieser Schritte bearbeitet, typischerweise in separate Dateien:
+Django-Webanwendungen gruppieren den Code, der jeden dieser Schritte ausführt, typischerweise in separate Dateien:
 
-![Django - Dateien für Ansichten, Modell, URLs, Vorlage](basic-django.png)
+![Django - Dateien für Views, Modell, URLs, Template](basic-django.png)
 
-- **URLs:** Während es möglich ist, Anfragen von jeder einzelnen URL über eine einzige Funktion zu verarbeiten, ist es viel wartbarer, eine separate Ansichtsfunktion zu schreiben, um jede Ressource zu bearbeiten. Ein URL-Mapper wird verwendet, um HTTP-Anfragen basierend auf der Anfrage-URL an die entsprechende Ansicht umzuleiten. Der URL-Mapper kann auch bestimmte Muster von Zeichenfolgen oder Ziffern, die in einer URL erscheinen, erkennen und diese als Daten an eine Ansichtsfunktion übergeben.
-- **View:** Eine Ansicht ist eine Anfrageverarbeitungsfunktion, die HTTP-Anfragen empfängt und HTTP-Antworten zurückgibt. Ansichten greifen auf die zum Erfüllen der Anfragen benötigten Daten über _Modelle_ zu und delegieren die Formatierung der Antwort an _Templates_.
-- **Models:** Modelle sind Python-Objekte, die die Struktur der Daten einer Anwendung definieren und Mechanismen bereitstellen, um Datensätze in der Datenbank zu verwalten (hinzufügen, ändern, löschen) und abzufragen.
-- **Templates:** Ein Template ist eine Textdatei, die die Struktur oder das Layout einer Datei (wie z.B. einer HTML-Seite) definiert und Platzhalter verwendet, um den tatsächlichen Inhalt darzustellen. Eine _Ansicht_ kann eine HTML-Seite dynamisch mit Hilfe eines HTML-Templates erstellen und sie mit Daten aus einem _Modell_ füllen. Ein Template kann verwendet werden, um die Struktur jedes Dateityps zu definieren; es muss nicht HTML sein!
+- **URLs:** Auch wenn es möglich wäre, Anfragen von jeder einzelnen URL über eine einzige Funktion zu bearbeiten, ist es viel wartbarer, eine separate View-Funktion zu schreiben, um jede Ressource zu bearbeiten. Ein URL-Mapping wird verwendet, um HTTP-Anfragen basierend auf der Anforderungs-URL an den entsprechenden View weiterzuleiten. Das URL-Mapping kann auch bestimmte Muster von Zeichenfolgen oder Ziffern, die in einer URL erscheinen, zu einer View-Funktion als Daten übergeben.
+- **View:** Ein View ist eine Anforderungshandler-Funktion, die HTTP-Anfragen empfängt und HTTP-Antworten zurückgibt. Views greifen auf die benötigten Daten zur Erfüllung der Anfragen über _Modelle_ zu und delegieren das Formatieren der Antwort an _Templates_.
+- **Models:** Modelle sind Python-Objekte, die die Struktur der Daten einer Anwendung definieren und Mechanismen zum Verwalten (Hinzufügen, Ändern, Löschen) und Abfragen von Datensätzen in der Datenbank bereitstellen.
+- **Templates:** Ein Template ist eine Textdatei, die die Struktur oder das Layout einer Datei (wie einer HTML-Seite) definiert, mit Platzhaltern, die den eigentlichen Inhalt repräsentieren. Ein _View_ kann eine HTML-Seite dynamisch mithilfe eines HTML-Templates erstellen und mit Daten aus einem _Modell_ füllen. Ein Template kann verwendet werden, um die Struktur jeder Art von Datei zu definieren; es muss nicht HTML sein!
 
 > [!NOTE]
-> Django bezeichnet diese Organisation als „Model View Template (MVT)“-Architektur. Sie hat viele Ähnlichkeiten mit der bekannteren [Model View Controller](/de/docs/Glossary/MVC)-Architektur.
+> Django bezeichnet diese Organisation als "Model View Template (MVT)"-Architektur. Sie weist viele Ähnlichkeiten mit der eher bekannten [Model View Controller](/de/docs/Glossary/MVC)-Architektur auf.
 
 Die folgenden Abschnitte geben Ihnen eine Vorstellung davon, wie diese Hauptteile einer Django-App aussehen (wir werden später im Kurs, nachdem wir eine Entwicklungsumgebung eingerichtet haben, ausführlicher darauf eingehen).
 
-### Die Anfrage an die richtige Ansicht senden (urls.py)
+### Weiterleiten der Anforderung an den richtigen View (urls.py)
 
 Ein URL-Mapper wird typischerweise in einer Datei namens **urls.py** gespeichert.
-Im folgenden Beispiel definiert der Mapper (`urlpatterns`) eine Liste von Zuordnungen zwischen _Routen_ (spezifische URL-_Muster)_ und entsprechenden Ansichts-Funktionen.
-Wenn eine HTTP-Anfrage mit einer URL eingeht, die einem bestimmten Muster entspricht, wird die zugehörige Ansichts-Funktion aufgerufen und die Anfrage übergeben.
+Im folgenden Beispiel definiert der Mapper (`urlpatterns`) eine Liste von Zuordnungen zwischen _Routen_ (bestimmte URL-_Muster)_ und entsprechenden View-Funktionen.
+Wenn eine HTTP-Anfrage empfangen wird, die mit einem bestimmten Muster übereinstimmt, wird die zugeordnete View-Funktion aufgerufen und die Anfrage übergeben.
 
-```python
+````python
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('book/<int:id>/', views.book_detail, name='book_detail'),
     path('catalog/', include('catalog.urls')),
-    re_path(r'^([0-9]+)/$', views.best),
-]
-```
+    re_path(r'^([0-9]+)/
 
-Das `urlpatterns`-Objekt ist eine Liste von `path()`- und/oder `re_path()`-Funktionen (Python-Listen werden mit eckigen Klammern definiert, wobei die Elemente durch Kommas getrennt sind und ein [optional abschließendes Komma](https://docs.python.org/3/faq/design.html#why-does-python-allow-commas-at-the-end-of-lists-and-tuples) haben können. Zum Beispiel: `[item1, item2, item3,]`).
+Das `urlpatterns`-Objekt ist eine Liste von `path()`- und/oder `re_path()`-Funktionen (Python-Listen werden mit eckigen Klammern definiert, wobei die Elemente durch Kommas getrennt werden und ein [optionales abschließendes Komma](https://docs.python.org/3/faq/design.html#why-does-python-allow-commas-at-the-end-of-lists-and-tuples) haben können. Zum Beispiel: `[item1, item2, item3,]`).
 
-Das erste Argument für beide Methoden ist eine Route (ein Muster), die übereinstimmen wird. Die `path()`-Methode verwendet spitze Klammern, um Teile einer URL zu definieren, die erfasst und als benannte Argumente an die Ansichts-Funktion übergeben werden. Die `re_path()`-Funktion verwendet einen flexiblen, als regulärer Ausdruck bekannten Ansatz zur Mustererkennung. Wir werden später in einem anderen Artikel darüber sprechen!
+Das erste Argument beider Methoden ist ein Route (Muster), das übereinstimmt. Die `path()`-Methode verwendet spitze Klammern, um Teile einer URL zu definieren, die erfasst und der View-Funktion als benannte Argumente übergeben werden. Die `re_path()`-Funktion verwendet einen flexiblen Musterabgleichs-Ansatz, der als regulärer Ausdruck bekannt ist. Wir werden später in einem Artikel darüber sprechen!
 
-Das zweite Argument ist eine andere Funktion, die aufgerufen wird, wenn das Muster übereinstimmt. Die Notation `views.book_detail` gibt an, dass die Funktion `book_detail()` heißt und in einem Modul namens `views` gefunden werden kann (d.h. in einer Datei namens `views.py`).
+Das zweite Argument ist eine weitere Funktion, die aufgerufen wird, wenn das Muster übereinstimmt. Die Notation `views.book_detail` gibt an, dass die Funktion `book_detail()` heißt und in einem Modul namens `views` gefunden werden kann (d.h. innerhalb einer Datei namens `views.py`).
 
-### Die Anfrage bearbeiten (views.py)
+### Bearbeitung der Anforderung (views.py)
 
-Ansichten sind das Herz der Webanwendung, da sie HTTP-Anfragen von Webclients empfangen und HTTP-Antworten zurückgeben. Dazwischen koordinieren sie die anderen Ressourcen des Frameworks, um auf Datenbanken zuzugreifen, Templates zu rendern usw.
+Views sind das Herz der Webanwendung, empfangen HTTP-Anfragen von Webclients und geben HTTP-Antworten zurück. Dazwischen koordinieren sie die anderen Ressourcen des Frameworks, um auf Datenbanken, Templates usw. zuzugreifen.
 
-Das folgende Beispiel zeigt eine minimale Ansichts-Funktion `index()`, die von unserem URL-Mapper im vorherigen Abschnitt aufgerufen worden sein könnte. Wie alle Ansichts-Funktionen empfängt sie ein `HttpRequest`-Objekt als Parameter (`request`) und gibt ein `HttpResponse`-Objekt zurück. In diesem Fall tun wir nichts mit der Anfrage, und unsere Antwort liefert eine fest codierte Zeichenfolge zurück. Wir werden Ihnen später eine Anfrage zeigen, die interessantere Dinge macht.
+Das Beispiel unten zeigt eine minimale View-Funktion `index()`, die von unserem URL-Mapping im vorherigen Abschnitt aufgerufen worden sein könnte. Wie alle View-Funktionen empfängt sie ein `HttpRequest`-Objekt als Parameter (`request`) und gibt ein `HttpResponse`-Objekt zurück. In diesem Fall tun wir nichts mit der Anforderung, und unsere Antwort gibt eine fest kodierte Zeichenfolge zurück. Wir werden Ihnen später eine Anforderung zeigen, die interessanter ist.
 
 ```python
 # filename: views.py (Django view functions)
@@ -141,21 +139,21 @@ def index(request):
     # perform operations using information from the request.
     # Return HttpResponse
     return HttpResponse('Hello from Django!')
-```
+````
 
 > [!NOTE]
-> Ein wenig Python:
+> Ein bisschen Python:
 >
-> - [Python-Module](https://docs.python.org/3/tutorial/modules.html) sind „Bibliotheken“ von Funktionen, die in separaten Dateien gespeichert sind und die wir in unserem Code verwenden möchten. Hier importieren wir nur das `HttpResponse`-Objekt aus dem `django.http`-Modul, damit wir es in unserer Ansicht verwenden können: `from django.http import HttpResponse`. Es gibt andere Möglichkeiten, einige oder alle Objekte aus einem Modul zu importieren.
-> - Funktionen werden mit dem Schlüsselwort `def` deklariert, wie oben gezeigt, mit benannten Parametern, die in Klammern nach dem Funktionsnamen aufgeführt werden; die ganze Zeile endet mit einem Doppelpunkt. Beachten Sie, wie die nächsten Zeilen alle **eingezogen** sind. Die Einrückung ist wichtig, da sie angibt, dass die Codezeilen innerhalb dieses Blockes sind (zwingende Einrückung ist ein wesentliches Merkmal von Python und einer der Gründe, warum Python-Code so leicht zu lesen ist).
+> - [Python-Module](https://docs.python.org/3/tutorial/modules.html) sind "Bibliotheken" von Funktionen, die in separaten Dateien gespeichert sind, und die wir möglicherweise in unserem Code verwenden möchten. Hier importieren wir nur das `HttpResponse`-Objekt aus dem `django.http`-Modul, damit wir es in unserem View verwenden können: `from django.http import HttpResponse`. Es gibt andere Möglichkeiten, einige oder alle Objekte aus einem Modul zu importieren.
+> - Funktionen werden mit dem Schlüsselwort `def` deklariert, wie oben gezeigt, wobei benannte Parameter in Klammern nach dem Funktionsnamen aufgelistet sind; die ganze Zeile endet mit einem Doppelpunkt. Beachten Sie, wie die nächsten Zeilen alle **eingerückt** sind. Die Einrückung ist wichtig, da sie angibt, dass die Codezeilen in diesem bestimmten Block sind (eine zwingende Einrückung ist ein Hauptmerkmal von Python und einer der Gründe, warum Python-Code so leicht zu lesen ist).
 
-Ansichten werden normalerweise in einer Datei namens **views.py** gespeichert.
+Views werden normalerweise in einer Datei namens **views.py** gespeichert.
 
-### Datenmodelle definieren (models.py)
+### Definition von Datenmodellen (models.py)
 
-Django-Webanwendungen verwalten und fragen Daten durch als Modelle bezeichnete Python-Objekte ab. Modelle definieren die Struktur der gespeicherten Daten, einschließlich der Feld_typen_ und möglicherweise auch ihrer maximalen Größe, Standardwerte, Auswahllistenoptionen, Hilfetexten für Dokumentation, Bezeichnungsfeldtexte für Formulare usw. Die Definition des Modells ist unabhängig von der zugrunde liegenden Datenbank — Sie können eine von mehreren als Teil Ihrer Projekteinstellungen auswählen. Sobald Sie gewählt haben, welche Datenbank Sie verwenden möchten, müssen Sie überhaupt nicht direkt mit ihr sprechen – Sie schreiben einfach Ihre Modellstruktur und anderen Codes, und Django erledigt die gesamte „Drecksarbeit“ der Kommunikation mit der Datenbank für Sie.
+Django-Webanwendungen verwalten und durchsuchen Daten durch Python-Objekte, die als Modelle bezeichnet werden. Modelle definieren die Struktur der gespeicherten Daten, einschließlich der Feld*typs* und möglicherweise auch ihrer maximalen Größe, Standardwerte, Auswahlmöglichkeiten für Listen, Hilfetext für Dokumentation, Beschriftungstext für Formulare usw. Die Definition des Modells ist unabhängig von der zugrunde liegenden Datenbank — Sie können eine von mehreren im Rahmen Ihrer Projekteinstellungen auswählen. Sobald Sie sich entschieden haben, welche Datenbank Sie verwenden möchten, müssen Sie nicht direkt mit ihr kommunizieren — Sie schreiben einfach Ihre Modellstruktur und anderen Code, und Django erledigt alle "dreckigen Arbeiten", die mit der Kommunikation mit der Datenbank verbunden sind, für Sie.
 
-Der folgende Codeausschnitt zeigt ein sehr einfaches Django-Modell für ein `Team`-Objekt. Die `Team`-Klasse leitet sich von der Django-Klasse `models.Model` ab. Sie definiert den Teamnamen und die Teamstufe als Zeichenfelder und gibt eine maximale Anzahl von Zeichen an, die für jeden Datensatz gespeichert werden sollen. Die `team_level` kann einen von mehreren Werten haben, also definieren wir es als Auswahlfeld und bieten eine Zuordnung zwischen den anzuzeigenden Auswahlmöglichkeiten und den zu speichernden Daten sowie einen Standardwert.
+Der folgende Codeausschnitt zeigt ein sehr einfaches Django-Modell für ein `Team`-Objekt. Die `Team`-Klasse leitet sich von der Django-Klasse `models.Model` ab. Es definiert den Teamnamen und die Teamstufe als Zeichenfelder und gibt eine maximale Anzahl von Zeichen an, die für jeden Datensatz gespeichert werden sollen. Die `team_level` kann einer von mehreren Werten sein, also definieren wir es als Auswahlfeld und stellen eine Zuordnung zwischen den anzuzeigenden Optionen und den zu speichernden Daten bereit, zusammen mit einem Standardwert.
 
 ```python
 # filename: models.py
@@ -176,17 +174,17 @@ class Team(models.Model):
 ```
 
 > [!NOTE]
-> Ein wenig Python:
+> Ein bisschen Python:
 >
-> Python unterstützt „objektorientierte Programmierung“, einen Programmierstil, bei dem wir unseren Code in Objekte organisieren, die verwandte Daten und Funktionen zur Operation über diese Daten enthalten. Objekte können auch von anderen Objekten erben/erweitern/ableiten, wodurch gemeinsames Verhalten zwischen verwandten Objekten geteilt werden kann. In Python verwenden wir das Schlüsselwort `class`, um den „Bauplan“ für ein Objekt zu definieren. Wir können mehrere spezifische _Instanzen_ des Objekttyps basierend auf dem Modell in der Klasse erstellen.
+> Python unterstützt "objektorientierte Programmierung", ein Programmierstil, bei dem wir unseren Code in Objekte organisieren, die verwandte Daten und Funktionen zur Verarbeitung dieser Daten enthalten. Objekte können auch von anderen Objekten erben/erweitern/abgeleitet werden, wodurch gemeinsames Verhalten zwischen verwandten Objekten geteilt werden kann. In Python verwenden wir das Schlüsselwort `class`, um den "Bauplan" für ein Objekt zu definieren. Wir können mehrere spezifische _Instanzen_ des Objekttyps basierend auf dem Modell in der Klasse erstellen.
 >
-> Beispielsweise haben wir hier eine `Team`-Klasse, die sich von der `Model`-Klasse ableitet. Das bedeutet, dass es sich um ein Modell handelt, und dass es alle Methoden eines Modells enthalten wird, aber wir können ihm auch spezialisierte Funktionen hinzufügen. In unserem Modell definieren wir die Felder, die unsere Datenbank benötigt, um unsere Daten zu speichern, und geben ihnen spezifische Namen. Django verwendet diese Definitionen, einschließlich der Feldnamen, um die zugrunde liegende Datenbank zu erstellen.
+> So haben wir hier zum Beispiel eine `Team`-Klasse, die sich von der `Model`-Klasse ableitet. Das bedeutet, dass es ein Modell ist und alle Methoden eines Modells enthalten wird, aber wir können ihm auch spezielle Funktionen hinzufügen. In unserem Modell definieren wir die Felder, die unsere Datenbank benötigt, um unsere Daten zu speichern, und geben ihnen spezifische Namen. Django verwendet diese Definitionen, einschließlich der Feldnamen, um die zugrunde liegende Datenbank zu erstellen.
 
-### Daten abfragen (views.py)
+### Abfragen von Daten (views.py)
 
-Das Django-Modell bietet eine einfache Abfrage-API, um die zugehörige Datenbank zu durchsuchen. Dies kann gegen eine Anzahl von Feldern auf einmal mit unterschiedlichen Kriterien (z.B. exakt, case-insensitiv, größer als usw.) übereinstimmen und kann komplexe Aussagen unterstützen (zum Beispiel können Sie eine Suche nach U11-Teams spezifizieren, die einen Teamname haben, der mit "Fr" beginnt oder endet mit "al").
+Das Django-Modell bietet eine einfache Abfrage-API zum Durchsuchen der zugehörigen Datenbank. Diese kann nach mehreren Feldern gleichzeitig mit verschiedenen Kriterien durchsucht werden (z.B. exakt, nicht case-sensitiv, größer als, usw.) und kann komplexe Aussagen unterstützen (z.B. können Sie eine Suche nach U11-Teams spezifizieren, die einen Teamnamen haben, der mit "Fr" beginnt oder mit "al" endet).
 
-Der Codeausschnitt zeigt eine Ansichts-Funktion (Ressourcenhandler) zur Anzeige aller unserer U09-Teams. Die Zeile `list_teams = Team.objects.filter(team_level__exact="U09")` zeigt, wie wir die Modellabfrage-API verwenden können, um alle Datensätze zu filtern, bei denen das Feld `team_level` genau den Text '`U09`' enthält (beachten Sie, wie dieses Kriterium an die `filter()`-Funktion als Argument übergeben wird, wobei der Feldname und der übereinstimmungtyp durch ein Doppelunterstrich getrennt sind: **`team_level__exact`**).
+Der Codeausschnitt zeigt eine View-Funktion (Ressourcen-Handler) zur Anzeige aller unserer U09-Teams. Die Zeile `list_teams = Team.objects.filter(team_level__exact="U09")` zeigt, wie wir die Modell-Abfrage-API verwenden können, um alle Datensätze zu filtern, bei denen das Feld `team_level` genau den Text `U09` enthält (beachten Sie, wie dieses Kriterium an die `filter()`-Funktion als Argument übergeben wird, wobei der Feldname und der Abgleichtyp durch einen Doppelpunkt getrennt sind: **`team_level__exact`**).
 
 ```python
 ## filename: views.py
@@ -200,13 +198,13 @@ def index(request):
     return render(request, '/best/index.html', context)
 ```
 
-Diese Funktion verwendet die `render()`-Funktion, um die `HttpResponse` zu erstellen, die an den Browser zurückgesendet wird. Diese Funktion ist ein _Verfahren_; es erstellt eine HTML-Datei, indem es ein angegebenes HTML-Template und einige Daten kombiniert, die in das Template eingefügt werden sollen (bereitgestellt in der Variablen mit dem Namen "`context`"). Im nächsten Abschnitt zeigen wir, wie das Template die Daten in ihm eingefügt bekommt, um das HTML zu erstellen.
+Diese Funktion verwendet die `render()`-Funktion, um die `HttpResponse` zu erstellen, die an den Browser zurückgesendet wird. Diese Funktion ist eine _Abkürzung_; sie erstellt eine HTML-Datei, indem sie ein bestimmtes HTML-Template und einige Daten kombiniert, die in das Template eingefügt werden sollen (bereitgestellt in der Variable namens `context`). Im nächsten Abschnitt zeigen wir, wie das Template die Daten einfügt, um das HTML zu erstellen.
 
-### Daten darstellen (HTML-Templates)
+### Daten rendern (HTML-Templates)
 
-Templatesysteme ermöglichen es Ihnen, die Struktur eines Ausgabedokuments anzugeben, wobei Platzhalter für Daten verwendet werden, die beim Generieren einer Seite ausgefüllt werden. Templates werden häufig verwendet, um HTML zu erstellen, können aber auch andere Dokumenttypen erstellen. Django unterstützt sowohl sein natives Templatesystem als auch eine andere beliebte Python-Bibliothek namens Jinja2 out of the box (es kann bei Bedarf auch so konfiguriert werden, andere Systeme zu unterstützen).
+Templatesysteme ermöglichen es Ihnen, die Struktur eines Ausgabedokuments zu spezifizieren, indem Sie Platzhalter für Daten verwenden, die beim Generieren einer Seite gefüllt werden. Templates werden oft verwendet, um HTML zu erstellen, können aber auch andere Arten von Dokumenten erstellen. Django unterstützt sowohl sein natives Templatesystem als auch eine andere beliebte Python-Bibliothek namens Jinja2 out of the box (bei Bedarf können auch andere Systeme unterstützt werden).
 
-Der Codeausschnitt zeigt, wie das HTML-Template aussieht, das von der `render()`-Funktion im vorherigen Abschnitt aufgerufen wird. Dieses Template wurde unter der Annahme geschrieben, dass es beim Rendern Zugriff auf eine Listenvariable namens `youngest_teams` haben wird (diese ist in der `context`-Variablen innerhalb der `render()`-Funktion oben enthalten). Innerhalb des HTML-Skeletts haben wir einen Ausdruck, der zunächst prüft, ob die Variable `youngest_teams` existiert, und dann in einer `for`-Schleife darüber iteriert. Bei jeder Iteration zeigt das Template den `team_name`-Wert jedes Teams in einem `{{htmlelement("li")}}` Element an.
+Der Codeausschnitt zeigt, wie das HTML-Template aussehen könnte, das von der `render()`-Funktion im vorherigen Abschnitt aufgerufen wurde. Dieses Template wurde unter der Annahme geschrieben, dass es beim Rendern Zugriff auf eine Listenvariable namens `youngest_teams` hat (diese ist in der `context`-Variablen innerhalb der oben stehenden `render()`-Funktion enthalten). Innerhalb des HTML-Skeletts haben wir einen Ausdruck, der zuerst überprüft, ob die Variable `youngest_teams` existiert, und diese dann in einer `for`-Schleife durchläuft. Bei jeder Iteration zeigt das Template den `team_name`-Wert jedes Teams in einem `<li>`-Element an.
 
 ```django
 ## filename: best/templates/best/index.html
@@ -231,20 +229,97 @@ Der Codeausschnitt zeigt, wie das HTML-Template aussieht, das von der `render()`
 </html>
 ```
 
-## Was können Sie sonst noch tun?
+## Was kann man sonst noch machen?
 
-Die vorhergehenden Abschnitte zeigen die Hauptfunktionen, die Sie in fast jeder Webanwendung verwenden werden: URL-Mapping, Ansichten, Modelle und Templates. Ein paar von den anderen Dingen, die von Django bereitgestellt werden, sind:
+Die vorangegangenen Abschnitte zeigen die Hauptmerkmale, die Sie in fast jeder Webanwendung verwenden werden: URL-Mapping, Views, Modelle und Templates. Einige der anderen Dinge, die Django bietet, sind:
 
-- **Forms**: HTML-Formulare werden verwendet, um Benutzerdaten zur Verarbeitung auf dem Server zu sammeln. Django vereinfacht die Erstellung, Validierung und Verarbeitung von Formularen.
-- **Benutzerauthentifizierung und Berechtigungen**: Django enthält ein robustes Benutzerauthentifizierungs- und Berechtigungssystem, das mit Blick auf Sicherheit entwickelt wurde.
-- **Caching**: Dynamische Inhaltserstellung ist viel rechenintensiver (und langsamer) als das Bereitstellen statischer Inhalte. Django bietet flexibles Caching, damit Sie alle oder Teile einer gerenderten Seite speichern können, sodass sie nur bei Bedarf neu gerendert wird.
-- **Verwaltungsseite**: Die Django-Verwaltungsseite ist standardmäßig enthalten, wenn Sie eine App mit dem Basisskelett erstellen. Es macht es kinderleicht, eine Admin-Seite für Site-Administratoren bereitzustellen, um beliebige Datenmodelle in Ihrer Site zu erstellen, zu bearbeiten und anzuzeigen.
-- **Datenserialisierung**: Django erleichtert das Serialisieren und Bereitstellen Ihrer Daten als XML oder JSON. Dies kann nützlich sein, wenn Sie einen Webdienst erstellen (eine Website, die ausschließlich Daten bereitstellt, die von anderen Anwendungen oder Sites konsumiert werden sollen, und nichts selbst anzeigt), oder wenn Sie eine Website erstellen, auf der der clientseitige Code die gesamte Darstellung der Daten behandelt.
+- **Formulare**: HTML-Formulare werden verwendet, um Benutzerdaten zur Verarbeitung auf dem Server zu sammeln. Django vereinfacht die Erstellung, Validierung und Verarbeitung von Formularen.
+- **Benutzerauthentifizierung und Berechtigungen**: Django enthält ein robustes Benutzerauthentifizierungs- und Berechtigungssystem, das unter Berücksichtigung der Sicherheit entwickelt wurde.
+- **Caching**: Die dynamische Erstellung von Inhalten ist viel rechenintensiver (und langsamer) als das Bereitstellen statischer Inhalte. Django bietet flexibles Caching, sodass Sie alle oder Teile einer gerenderten Seite speichern können, sodass sie nur bei Bedarf erneut gerendert werden.
+- **Administrationssite**: Die Django-Administrationssite ist standardmäßig enthalten, wenn Sie eine App mit dem grundlegenden Skelett erstellen. Sie macht es trivial einfach, eine Admin-Seite für Site-Administratoren bereitzustellen, um Datenmodelle Ihrer Site zu erstellen, zu bearbeiten und anzuzeigen.
+- **Serialisierung von Daten**: Django macht es einfach, Ihre Daten als XML oder JSON zu serialisieren und bereitzustellen. Dies kann nützlich sein, wenn Sie einen Webdienst erstellen (eine Website, die ausschließlich Daten bereitstellt, die von anderen Anwendungen oder Sites konsumiert werden sollen, und nichts selbst anzeigt), oder wenn Sie eine Website erstellen, auf der der Client-seitige Code die gesamte Datenpräsentation übernimmt.
 
 ## Zusammenfassung
 
-Herzlichen Glückwunsch, Sie haben den ersten Schritt auf Ihrer Django-Reise abgeschlossen! Sie sollten nun die Hauptvorteile von Django verstehen, etwas über seine Geschichte wissen und ungefähr wissen, wie jeder der Hauptteile einer Django-App aussehen könnte. Sie sollten auch einige Dinge über die Programmiersprache Python gelernt haben, einschließlich der Syntax für Listen, Funktionen und Klassen.
+Herzlichen Glückwunsch, Sie haben den ersten Schritt Ihrer Django-Reise abgeschlossen! Sie sollten nun die Hauptvorteile von Django verstehen, ein wenig über seine Geschichte wissen und ungefähr erkennen können, wie jeder der Hauptteile einer Django-App aussehen könnte. Sie sollten auch einige Dinge über die Python-Programmiersprache gelernt haben, einschließlich der Syntax für Listen, Funktionen und Klassen.
 
-Sie haben oben bereits ein paar echte Django-Codes gesehen, aber im Gegensatz zu clientseitigem Code müssen Sie eine Entwicklungsumgebung einrichten, um ihn auszuführen. Das ist unser nächster Schritt.
+Sie haben bereits einige echte Django-Codes oben gesehen, aber im Gegensatz zu Client-seitigen Codes müssen Sie eine Entwicklungsumgebung einrichten, um sie auszuführen. Das ist unser nächster Schritt.
+
+{{NextMenu("Learn/Server-side/Django/development_environment", "Learn/Server-side/Django")}}, views.best),
+]
+
+```
+
+Das `urlpatterns`-Objekt ist eine Liste von `path()`- und/oder `re_path()`-Funktionen (Python-Listen werden mit eckigen Klammern definiert, wobei die Elemente durch Kommas getrennt werden und ein [optionales abschließendes Komma](https://docs.python.org/3/faq/design.html#why-does-python-allow-commas-at-the-end-of-lists-and-tuples) haben können. Zum Beispiel: `[item1, item2, item3,]`).
+
+Das erste Argument beider Methoden ist ein Route (Muster), das übereinstimmt. Die `path()`-Methode verwendet spitze Klammern, um Teile einer URL zu definieren, die erfasst und der View-Funktion als benannte Argumente übergeben werden. Die `re_path()`-Funktion verwendet einen flexiblen Musterabgleichs-Ansatz, der als regulärer Ausdruck bekannt ist. Wir werden später in einem Artikel darüber sprechen!
+
+Das zweite Argument ist eine weitere Funktion, die aufgerufen wird, wenn das Muster übereinstimmt. Die Notation `views.book_detail` gibt an, dass die Funktion `book_detail()` heißt und in einem Modul namens `views` gefunden werden kann (d.h. innerhalb einer Datei namens `views.py`).
+
+### Bearbeitung der Anforderung (views.py)
+
+Views sind das Herz der Webanwendung, empfangen HTTP-Anfragen von Webclients und geben HTTP-Antworten zurück. Dazwischen koordinieren sie die anderen Ressourcen des Frameworks, um auf Datenbanken, Templates usw. zuzugreifen.
+
+Das Beispiel unten zeigt eine minimale View-Funktion `index()`, die von unserem URL-Mapping im vorherigen Abschnitt aufgerufen worden sein könnte. Wie alle View-Funktionen empfängt sie ein `HttpRequest`-Objekt als Parameter (`request`) und gibt ein `HttpResponse`-Objekt zurück. In diesem Fall tun wir nichts mit der Anforderung, und unsere Antwort gibt eine fest kodierte Zeichenfolge zurück. Wir werden Ihnen später eine Anforderung zeigen, die interessanter ist.
+
+![](1-0882d572.md)
+
+> [!NOTE]
+> Ein bisschen Python:
+>
+> - [Python-Module](https://docs.python.org/3/tutorial/modules.html) sind "Bibliotheken" von Funktionen, die in separaten Dateien gespeichert sind, und die wir möglicherweise in unserem Code verwenden möchten. Hier importieren wir nur das `HttpResponse`-Objekt aus dem `django.http`-Modul, damit wir es in unserem View verwenden können: `from django.http import HttpResponse`. Es gibt andere Möglichkeiten, einige oder alle Objekte aus einem Modul zu importieren.
+> - Funktionen werden mit dem Schlüsselwort `def` deklariert, wie oben gezeigt, wobei benannte Parameter in Klammern nach dem Funktionsnamen aufgelistet sind; die ganze Zeile endet mit einem Doppelpunkt. Beachten Sie, wie die nächsten Zeilen alle **eingerückt** sind. Die Einrückung ist wichtig, da sie angibt, dass die Codezeilen in diesem bestimmten Block sind (eine zwingende Einrückung ist ein Hauptmerkmal von Python und einer der Gründe, warum Python-Code so leicht zu lesen ist).
+
+Views werden normalerweise in einer Datei namens **views.py** gespeichert.
+
+### Definition von Datenmodellen (models.py)
+
+Django-Webanwendungen verwalten und durchsuchen Daten durch Python-Objekte, die als Modelle bezeichnet werden. Modelle definieren die Struktur der gespeicherten Daten, einschließlich der Feld_typs_ und möglicherweise auch ihrer maximalen Größe, Standardwerte, Auswahlmöglichkeiten für Listen, Hilfetext für Dokumentation, Beschriftungstext für Formulare usw. Die Definition des Modells ist unabhängig von der zugrunde liegenden Datenbank — Sie können eine von mehreren im Rahmen Ihrer Projekteinstellungen auswählen. Sobald Sie sich entschieden haben, welche Datenbank Sie verwenden möchten, müssen Sie nicht direkt mit ihr kommunizieren — Sie schreiben einfach Ihre Modellstruktur und anderen Code, und Django erledigt alle "dreckigen Arbeiten", die mit der Kommunikation mit der Datenbank verbunden sind, für Sie.
+
+Der folgende Codeausschnitt zeigt ein sehr einfaches Django-Modell für ein `Team`-Objekt. Die `Team`-Klasse leitet sich von der Django-Klasse `models.Model` ab. Es definiert den Teamnamen und die Teamstufe als Zeichenfelder und gibt eine maximale Anzahl von Zeichen an, die für jeden Datensatz gespeichert werden sollen. Die `team_level` kann einer von mehreren Werten sein, also definieren wir es als Auswahlfeld und stellen eine Zuordnung zwischen den anzuzeigenden Optionen und den zu speichernden Daten bereit, zusammen mit einem Standardwert.
+
+![](2-a39a77b5.md)
+
+> [!NOTE]
+> Ein bisschen Python:
+>
+> Python unterstützt "objektorientierte Programmierung", ein Programmierstil, bei dem wir unseren Code in Objekte organisieren, die verwandte Daten und Funktionen zur Verarbeitung dieser Daten enthalten. Objekte können auch von anderen Objekten erben/erweitern/abgeleitet werden, wodurch gemeinsames Verhalten zwischen verwandten Objekten geteilt werden kann. In Python verwenden wir das Schlüsselwort `class`, um den "Bauplan" für ein Objekt zu definieren. Wir können mehrere spezifische _Instanzen_ des Objekttyps basierend auf dem Modell in der Klasse erstellen.
+>
+> So haben wir hier zum Beispiel eine `Team`-Klasse, die sich von der `Model`-Klasse ableitet. Das bedeutet, dass es ein Modell ist und alle Methoden eines Modells enthalten wird, aber wir können ihm auch spezielle Funktionen hinzufügen. In unserem Modell definieren wir die Felder, die unsere Datenbank benötigt, um unsere Daten zu speichern, und geben ihnen spezifische Namen. Django verwendet diese Definitionen, einschließlich der Feldnamen, um die zugrunde liegende Datenbank zu erstellen.
+
+### Abfragen von Daten (views.py)
+
+Das Django-Modell bietet eine einfache Abfrage-API zum Durchsuchen der zugehörigen Datenbank. Diese kann nach mehreren Feldern gleichzeitig mit verschiedenen Kriterien durchsucht werden (z.B. exakt, nicht case-sensitiv, größer als, usw.) und kann komplexe Aussagen unterstützen (z.B. können Sie eine Suche nach U11-Teams spezifizieren, die einen Teamnamen haben, der mit "Fr" beginnt oder mit "al" endet).
+
+Der Codeausschnitt zeigt eine View-Funktion (Ressourcen-Handler) zur Anzeige aller unserer U09-Teams. Die Zeile `list_teams = Team.objects.filter(team_level__exact="U09")` zeigt, wie wir die Modell-Abfrage-API verwenden können, um alle Datensätze zu filtern, bei denen das Feld `team_level` genau den Text `U09` enthält (beachten Sie, wie dieses Kriterium an die `filter()`-Funktion als Argument übergeben wird, wobei der Feldname und der Abgleichtyp durch einen Doppelpunkt getrennt sind: **`team_level__exact`**).
+
+![](3-28415562.md)
+
+Diese Funktion verwendet die `render()`-Funktion, um die `HttpResponse` zu erstellen, die an den Browser zurückgesendet wird. Diese Funktion ist eine _Abkürzung_; sie erstellt eine HTML-Datei, indem sie ein bestimmtes HTML-Template und einige Daten kombiniert, die in das Template eingefügt werden sollen (bereitgestellt in der Variable namens `context`). Im nächsten Abschnitt zeigen wir, wie das Template die Daten einfügt, um das HTML zu erstellen.
+
+### Daten rendern (HTML-Templates)
+
+Templatesysteme ermöglichen es Ihnen, die Struktur eines Ausgabedokuments zu spezifizieren, indem Sie Platzhalter für Daten verwenden, die beim Generieren einer Seite gefüllt werden. Templates werden oft verwendet, um HTML zu erstellen, können aber auch andere Arten von Dokumenten erstellen. Django unterstützt sowohl sein natives Templatesystem als auch eine andere beliebte Python-Bibliothek namens Jinja2 out of the box (bei Bedarf können auch andere Systeme unterstützt werden).
+
+Der Codeausschnitt zeigt, wie das HTML-Template aussehen könnte, das von der `render()`-Funktion im vorherigen Abschnitt aufgerufen wurde. Dieses Template wurde unter der Annahme geschrieben, dass es beim Rendern Zugriff auf eine Listenvariable namens `youngest_teams` hat (diese ist in der `context`-Variablen innerhalb der oben stehenden `render()`-Funktion enthalten). Innerhalb des HTML-Skeletts haben wir einen Ausdruck, der zuerst überprüft, ob die Variable `youngest_teams` existiert, und diese dann in einer `for`-Schleife durchläuft. Bei jeder Iteration zeigt das Template den `team_name`-Wert jedes Teams in einem `<li>`-Element an.
+
+![](4-4857788a.md)
+
+## Was kann man sonst noch machen?
+
+Die vorangegangenen Abschnitte zeigen die Hauptmerkmale, die Sie in fast jeder Webanwendung verwenden werden: URL-Mapping, Views, Modelle und Templates. Einige der anderen Dinge, die Django bietet, sind:
+
+- **Formulare**: HTML-Formulare werden verwendet, um Benutzerdaten zur Verarbeitung auf dem Server zu sammeln. Django vereinfacht die Erstellung, Validierung und Verarbeitung von Formularen.
+- **Benutzerauthentifizierung und Berechtigungen**: Django enthält ein robustes Benutzerauthentifizierungs- und Berechtigungssystem, das unter Berücksichtigung der Sicherheit entwickelt wurde.
+- **Caching**: Die dynamische Erstellung von Inhalten ist viel rechenintensiver (und langsamer) als das Bereitstellen statischer Inhalte. Django bietet flexibles Caching, sodass Sie alle oder Teile einer gerenderten Seite speichern können, sodass sie nur bei Bedarf erneut gerendert werden.
+- **Administrationssite**: Die Django-Administrationssite ist standardmäßig enthalten, wenn Sie eine App mit dem grundlegenden Skelett erstellen. Sie macht es trivial einfach, eine Admin-Seite für Site-Administratoren bereitzustellen, um Datenmodelle Ihrer Site zu erstellen, zu bearbeiten und anzuzeigen.
+- **Serialisierung von Daten**: Django macht es einfach, Ihre Daten als XML oder JSON zu serialisieren und bereitzustellen. Dies kann nützlich sein, wenn Sie einen Webdienst erstellen (eine Website, die ausschließlich Daten bereitstellt, die von anderen Anwendungen oder Sites konsumiert werden sollen, und nichts selbst anzeigt), oder wenn Sie eine Website erstellen, auf der der Client-seitige Code die gesamte Datenpräsentation übernimmt.
+
+## Zusammenfassung
+
+Herzlichen Glückwunsch, Sie haben den ersten Schritt Ihrer Django-Reise abgeschlossen! Sie sollten nun die Hauptvorteile von Django verstehen, ein wenig über seine Geschichte wissen und ungefähr erkennen können, wie jeder der Hauptteile einer Django-App aussehen könnte. Sie sollten auch einige Dinge über die Python-Programmiersprache gelernt haben, einschließlich der Syntax für Listen, Funktionen und Klassen.
+
+Sie haben bereits einige echte Django-Codes oben gesehen, aber im Gegensatz zu Client-seitigen Codes müssen Sie eine Entwicklungsumgebung einrichten, um sie auszuführen. Das ist unser nächster Schritt.
 
 {{NextMenu("Learn/Server-side/Django/development_environment", "Learn/Server-side/Django")}}
+```

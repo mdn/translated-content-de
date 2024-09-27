@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:last-child`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert das letzte Element einer Gruppe von Geschwisterelementen.
+Die **`:last-child`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert das letzte Element innerhalb einer Gruppe von Geschwisterelementen.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-last-child.html", "tabbed-shorter")}}
 
@@ -21,7 +21,7 @@ Die **`:last-child`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Ps
 
 ## Beispiele
 
-### Grundlegendes Beispiel
+### Einfaches Beispiel
 
 #### HTML
 

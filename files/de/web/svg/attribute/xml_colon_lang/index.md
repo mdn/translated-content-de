@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`xml:lang`**-Attribut gibt die Hauptsprache an, die in Inhalten und Attributen mit Textinhalt bestimmter Elemente verwendet wird.
+Das **`xml:lang`** Attribut gibt die primäre Sprache an, die in Inhalten und Attributen mit Textinhalt bestimmter Elemente verwendet wird.
 
-Es ist ein universelles Attribut, das in allen XML-Dialekten erlaubt ist, um die natürliche menschliche Sprache zu markieren, die ein Element enthält.
+Es handelt sich um ein universelles Attribut, das in allen XML-Dialekten erlaubt ist, um die natürliche menschliche Sprache eines Elements zu kennzeichnen.
 
-Es gibt auch ein {{SVGAttr("lang")}}-Attribut (ohne Namensraum). Wenn beide definiert sind, wird das mit Namensraum verwendet, und das ohne Namensraum wird ignoriert.
+Es gibt auch ein {{SVGAttr("lang")}} Attribut (ohne Namespace). Wenn beide definiert sind, wird das Attribut mit Namespace verwendet und das ohne ignoriert.
 
 ## Elemente
 
@@ -38,9 +38,9 @@ Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
 - `<language-tag>`
 
-  - : Dieser Wert gibt die für das Element verwendete Sprache an. Die Syntax dieses Wertes ist in {{RFC(5646, "Tags for Identifying Languages (also known as BCP 47)")}} definiert.
+  - : Dieser Wert spezifiziert die für das Element verwendete Sprache. Die Syntax dieses Wertes ist in {{RFC(5646, "Tags for Identifying Languages (also known as BCP 47)")}} definiert.
 
-    Die gebräuchlichste Syntax ist ein Wert, der aus einem zweistelligen Kleinschreibteil für die Sprache und einem zweistelligen Großschreibteil für die Region oder das Land besteht, getrennt durch einen Bindestrich, z.B. `en-US` für US-Englisch oder `de-AT` für Österreichisches Deutsch.
+    Die gebräuchlichste Syntax ist ein Wert, der aus einem zweistelligen, kleingeschriebenen Teil für die Sprache und einem zweistelligen, großgeschriebenen Teil für die Region oder das Land besteht, getrennt durch einen Bindestrich, z.B. `en-US` für US-Englisch oder `de-AT` für Österreichisches Deutsch.
 
 ## Beispiele
 

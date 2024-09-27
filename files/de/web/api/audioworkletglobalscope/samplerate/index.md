@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die nur lesbare **`sampleRate`**-Eigenschaft der {{domxref("AudioWorkletGlobalScope")}}-Schnittstelle gibt einen Float-Wert zurück, der die Abtastrate des zugehörigen {{domxref("BaseAudioContext")}} darstellt, zu dem der Worklet gehört.
+Die schreibgeschützte **`sampleRate`**-Eigenschaft des [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope)-Interfaces gibt eine Gleitkommazahl zurück, die die Abtastrate des zugehörigen [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) darstellt, zu dem der Worklet gehört.
 
 ## Wert
 
@@ -16,43 +16,41 @@ Eine Gleitkommazahl, die die zugehörige Abtastrate darstellt.
 
 ## Beispiele
 
-Der {{domxref("AudioWorkletProcessor")}} hat Zugriff auf die spezifischen Eigenschaften des {{domxref("AudioWorkletGlobalScope")}}:
+Der [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) hat Zugriff auf die spezifischen Eigenschaften des [`AudioWorkletGlobalScope`](/de/docs/Web/API/AudioWorkletGlobalScope):
 
 ```js
-// AudioWorkletProcessor definiert in: test-processor.js
+// AudioWorkletProcessor defined in : test-processor.js
 class TestProcessor extends AudioWorkletProcessor {
   constructor() {
     super();
 
-    // Protokolliert den aktuellen Sample-Frame und die Zeit
-    // zum Zeitpunkt der Instanziierung.
-    // Sie sind vom AudioWorkletGlobalScope zugänglich.
+    // Logs the current sample-frame and time at the moment of instantiation.
+    // They are accessible from the AudioWorkletGlobalScope.
     console.log(currentFrame);
     console.log(currentTime);
   }
 
-  // Die process-Methode ist erforderlich - gibt Stille aus,
-  // welche die Ausgaben bereits gefüllt hat.
+  // The process method is required - output silence,
+  // which the outputs are already filled with.
   process(inputs, outputs, parameters) {
     return true;
   }
 }
 
-// Protokolliert die Abtastrate, die sich niemals
-// ändern wird, da es sich um eine nur lesbare
-// Eigenschaft eines BaseAudioContext handelt
-// und nur bei der Instanziierung gesetzt wird.
+// Logs the sample rate, that is not going to change ever,
+// because it's a read-only property of a BaseAudioContext
+// and is set only during its instantiation.
 console.log(sampleRate);
 
-// Sie können Variablen deklarieren und in Ihren Prozessoren verwenden,
-// beispielsweise könnte es ein ArrayBuffer mit einer Wavetable sein.
+// You can declare any variables and use them in your processors
+// for example it may be an ArrayBuffer with a wavetable.
 const usefulVariable = 42;
 console.log(usefulVariable);
 
 registerProcessor("test-processor", TestProcessor);
 ```
 
-Das Hauptskript lädt den Prozessor, erstellt eine Instanz von {{domxref("AudioWorkletNode")}}, übergibt den Namen des Prozessors an ihn und verbindet den Knoten mit einem Audiographen. Wir sollten die Ausgabe von {{domxref("console/log_static", "console.log()")}}-Aufrufen in der Konsole sehen:
+Das Hauptskript lädt den Prozessor, erstellt eine Instanz von [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode), übergibt den Namen des Prozessors und verbindet den Knoten mit einem Audiographen. Wir sollten die Ausgabe der [`console.log()`](/de/docs/Web/API/Console/log_static)-Aufrufe in der Konsole sehen:
 
 ```js
 const audioContext = new AudioContext();
@@ -72,4 +70,4 @@ testNode.connect(audioContext.destination);
 ## Siehe auch
 
 - [Web Audio API](/de/docs/Web/API/Web_Audio_API)
-- [Web Audio API verwenden](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

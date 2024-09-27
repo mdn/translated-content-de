@@ -1,5 +1,5 @@
 ---
-title: "TextFormat: Eigenschaft underlineStyle"
+title: "TextFormat: underlineStyle-Eigenschaft"
 short-title: underlineStyle
 slug: Web/API/TextFormat/underlineStyle
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`underlineStyle`**-Eigenschaft der {{domxref("TextFormat")}}-Schnittstelle gibt den Stil der Unterstreichung an, die auf den zu formatierenden Textbereich angewendet werden soll.
+Die **`underlineStyle`**-Eigenschaft der [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle gibt den Stil der Unterstreichung an, der auf den zu formatierenden Textrahmen angewendet werden soll.
 
 ## Wert
 
-Ein {{jsxref("String")}}, der einen der folgenden Werte annehmen kann:
+Ein {{jsxref("String")}}, der einen der folgenden Werte hat:
 
 - `"none"`: Keine Unterstreichung.
 - `"solid"`: Eine durchgehende Unterstreichung.
@@ -23,9 +23,9 @@ Ein {{jsxref("String")}}, der einen der folgenden Werte annehmen kann:
 
 ## Beispiele
 
-### Lesen des anzuwendenden Unterstreichungsstils
+### Lesen des zu verwendenden Unterstreichungsstils
 
-Das folgende Beispiel zeigt, wie die `underlineStyle`-Eigenschaft des `textformatupdate`-Ereignisses verwendet wird, um den Unterstreichungsstil zu ermitteln, der auf den zu formatierenden Text angewendet werden soll. Beachten Sie, dass der Rückruf des Ereignis-Listeners in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster verwendet wird, um Text zu komponieren.
+Das folgende Beispiel zeigt, wie die `underlineStyle`-Eigenschaft des `textformatupdate`-Ereignisses verwendet wird, um den Unterstreichungsstil zu bestimmen, der auf den zu formatierenden Text angewendet werden soll. Beachten Sie, dass der Ereignis-Listener-Callback in diesem Beispiel nur aufgerufen wird, wenn ein IME-Fenster zum Verfassen von Text verwendet wird.
 
 ```html
 <div id="editor" style="height:200px;background:#eee;"></div>
@@ -41,7 +41,7 @@ editContext.addEventListener("textformatupdate", (e) => {
 
   for (const format of formats) {
     console.log(
-      `IME möchte eine ${format.underlineStyle} Unterstreichung zwischen ${format.rangeStart} und ${format.rangeEnd} anwenden.`,
+      `IME wants to apply a ${format.underlineStyle} underline between ${format.rangeStart} and ${format.rangeEnd}.`,
     );
   }
 });
@@ -57,4 +57,4 @@ editContext.addEventListener("textformatupdate", (e) => {
 
 ## Siehe auch
 
-- Die {{DOMxRef("TextFormat")}}-Schnittstelle, zu der es gehört.
+- Die [`TextFormat`](/de/docs/Web/API/TextFormat)-Schnittstelle, zu der sie gehört.

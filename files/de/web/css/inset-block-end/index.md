@@ -7,28 +7,28 @@ l10n:
 
 {{CSSRef}}
 
-Die **`inset-block-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Block-Ende-Versatz eines Elements, der je nach Schreibrichtung, Richtung und Textorientierung des Elements auf eine physische Einfügung abgebildet wird. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, oder {{cssxref("left")}} Eigenschaft, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definierten Werten.
+Die **`inset-block-end`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Block-End-Versatz eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements auf einen physischen Inset abgebildet wird. Sie entspricht der Eigenschaft {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Diese {{glossary("inset properties", "Einfügungs-Eigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
+Diese [Inset-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-block-end.html")}}
 
 ## Syntax
 
 ```css
-/* <length> Werte */
+/* <length> values */
 inset-block-end: 3px;
 inset-block-end: 2.4em;
 inset-block-end: calc(anchor(start) + 20px);
 inset-block-end: anchor(--myAnchor 50%);
 
-/* <percentage> der Breite oder Höhe des enthaltenen Blocks */
+/* <percentage>s of the width or height of the containing block */
 inset-block-end: 10%;
 
-/* Schlüsselwort-Wert */
+/* Keyword value */
 inset-block-end: auto;
 
-/* Globale Werte */
+/* Global values */
 inset-block-end: inherit;
 inset-block-end: initial;
 inset-block-end: revert;
@@ -38,7 +38,7 @@ inset-block-end: unset;
 
 ### Werte
 
-Die `inset-block-end` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}} Eigenschaft an.
+Die `inset-block-end`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}}-Eigenschaft an.
 
 ## Formale Definition
 
@@ -50,13 +50,13 @@ Die `inset-block-end` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("le
 
 ## Beispiele
 
-### Setzen des Block-Ende-Versatzes
+### Block-End-Versatz setzen
 
 #### HTML
 
 ```html
 <div>
-  <p class="exampleText">Beispieltext</p>
+  <p class="exampleText">Example text</p>
 </div>
 ```
 
@@ -91,6 +91,6 @@ div {
 
 ## Siehe auch
 
-- Die Eigenschaften, welche andere Einfügungen definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}
-- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
+- Die Eigenschaften, die andere Insets definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}
+- Die abgebildeten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

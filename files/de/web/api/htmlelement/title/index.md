@@ -9,8 +9,7 @@ l10n:
 {{ APIRef("HTML DOM") }}
 
 Die **`HTMLElement.title`**-Eigenschaft
-repräsentiert den Titel des Elements: Der Text wird normalerweise in einem 'Tooltip'-Popup angezeigt,
-wenn die Maus über dem Knoten schwebt.
+repräsentiert den Titel des Elements: den Text, der normalerweise in einem 'Tooltip'-Popup angezeigt wird, wenn die Maus über dem Knoten schwebt.
 
 ## Wert
 

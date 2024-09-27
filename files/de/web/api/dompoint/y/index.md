@@ -1,5 +1,5 @@
 ---
-title: "DOMPoint: y-Eigenschaft"
+title: "DOMPoint: y Eigenschaft"
 short-title: "y"
 slug: Web/API/DOMPoint/y
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DOMPoint`**-Schnittstelle hat eine
-**`y`**-Eigenschaft, die die vertikale Koordinate, _y_,
-für einen Punkt im Raum festhält.
+Die **`DOMPoint`**-Schnittstelle
+enthält die Eigenschaft **`y`**, die die vertikale Koordinate, _y_,
+für einen Punkt im Raum hält.
 
 Sofern keine Transformationen angewendet wurden, um die
 Ausrichtung zu ändern, erhöht sich der Wert von `y` nach unten und verringert sich nach oben.
@@ -18,7 +18,9 @@ Ausrichtung zu ändern, erhöht sich der Wert von `y` nach unten und verringert 
 ## Wert
 
 Ein Gleitkommawert mit doppelter Genauigkeit, der den Wert der _y_-Koordinate
-für den Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich oder ungültig sein kann (d.h. sein Wert könnte {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
+für den Punkt angibt. Dieser Wert ist **unrestricted**, was bedeutet, dass er
+unendlich oder ungültig sein kann (das heißt, sein Wert kann {{jsxref("NaN")}} oder
+{{jsxref("Infinity", "±Infinity")}} sein).
 
 ## Spezifikationen
 
@@ -30,5 +32,5 @@ für den Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er 
 
 ## Siehe auch
 
-- Die anderen Koordinateneigenschaften: {{domxref("DOMPoint.x", "x")}},
-  {{domxref("DOMPoint.z", "z")}}, und der perspektivische Wert, {{domxref("DOMPoint.w", "w")}}.
+- Die anderen Koordinateneigenschaften: [`x`](/de/docs/Web/API/DOMPoint/x),
+  [`z`](/de/docs/Web/API/DOMPoint/z), und der perspektivische Wert [`w`](/de/docs/Web/API/DOMPoint/w).

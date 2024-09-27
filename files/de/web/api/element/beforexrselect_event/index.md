@@ -1,5 +1,5 @@
 ---
-title: "Element: beforexrselect-Ereignis"
+title: "Element: beforexrselect Ereignis"
 short-title: beforexrselect
 slug: Web/API/Element/beforexrselect_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}
 
-Das **`beforexrselect`**-Ereignis wird vor der Auslösung von WebXR-Auswahlereignissen ({{domxref("XRSession/select_event", "select")}}, {{domxref("XRSession/selectstart_event", "selectstart")}}, {{domxref("XRSession/selectend_event", "selectend")}}) ausgelöst. Es kann verwendet werden, um XR-Welteingabeereignisse zu unterdrücken, während der Benutzer mit einer DOM-Overlay-Benutzeroberfläche interagiert.
+Das **`beforexrselect`** Ereignis wird ausgelöst, bevor WebXR-Auswahlereignisse ([`select`](/de/docs/Web/API/XRSession/select_event), [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event), [`selectend`](/de/docs/Web/API/XRSession/selectend_event)) gesendet werden. Es kann verwendet werden, um XR-Welt-Eingabeereignisse zu unterdrücken, während der Benutzer mit einer DOM-Overlay-Benutzeroberfläche interagiert.
 
-Dieses Ereignis [bubbles](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling), ist [stornierbar](/de/docs/Web/API/Event/cancelable) und ist [zusammengesetzt](/de/docs/Web/API/Event/composed).
+Dieses Ereignis [bubbelt](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling), ist [abbrechbar](/de/docs/Web/API/Event/cancelable) und ist [zusammengesetzt](/de/docs/Web/API/Event/composed).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("beforexrselect", (event) => {});
@@ -24,28 +24,28 @@ onbeforexrselect = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("XRSessionEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("XRSessionEvent")}}
 
 ## Ereigniseigenschaften
 
-- {{domxref("XRSessionEvent.session", "session")}} {{ReadOnlyInline}}
-  - : Die {{domxref("XRSession")}}, auf die sich das Ereignis bezieht.
+- [`session`](/de/docs/Web/API/XRSessionEvent/session) {{ReadOnlyInline}}
+  - : Die [`XRSession`](/de/docs/Web/API/XRSession), auf die sich das Ereignis bezieht.
 
 ## Ereignisverfügbarkeit
 
-Das **`beforexrselect`**-Ereignis ist ein globales Ereignis und für die folgenden Schnittstellen verfügbar:
+Das **`beforexrselect`** Ereignis ist ein globales Ereignis und für die folgenden Schnittstellen verfügbar:
 
-- {{domxref("Window")}}
-- {{domxref("Document")}}
-- {{domxref("HTMLElement")}}
-- {{domxref("SVGElement")}}
-- {{domxref("MathMLElement")}}
+- [`Window`](/de/docs/Web/API/Window)
+- [`Document`](/de/docs/Web/API/Document)
+- [`HTMLElement`](/de/docs/Web/API/HTMLElement)
+- [`SVGElement`](/de/docs/Web/API/SVGElement)
+- [`MathMLElement`](/de/docs/Web/API/MathMLElement)
 
 ## Beispiele
 
-Um WebXR-Auswahlereignisse ({{domxref("XRSession/select_event", "select")}}, {{domxref("XRSession/selectstart_event", "selectstart")}}, {{domxref("XRSession/selectend_event", "selectend")}}) zu unterdrücken, kann eine Anwendung auf das `beforexrselect`-Ereignis hören. Das Ereignis wird verbreitet, sodass ein Aufruf von {{domxref("Event/preventDefault", "preventDefault()")}} auf dem DOM-Overlay-Element alle WebXR-Auswahlereignisse innerhalb dieses Containers verhindert, wodurch die Interaktion mit dem DOM-Element ermöglicht wird und doppelte Ereigniseingaben in die XR-Welt vermieden werden.
+Um WebXR-Auswahlereignisse ([`select`](/de/docs/Web/API/XRSession/select_event), [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event), [`selectend`](/de/docs/Web/API/XRSession/selectend_event)) zu unterdrücken, kann eine Anwendung auf das `beforexrselect` Ereignis horchen. Das Ereignis bubbelt, daher verhindert ein Aufruf von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf dem DOM-Overlay-Element alle WebXR-Auswahlereignisse innerhalb dieses Containers, wodurch die Interaktion mit dem DOM-Element ermöglicht und doppelte Ereigniseingaben in die XR-Welt vermieden werden.
 
 ```js
 document
@@ -63,6 +63,6 @@ document
 
 ## Siehe auch
 
-- {{domxref("XRSession/select_event", "select")}} Ereignis
-- {{domxref("XRSession/selectstart_event", "selectstart")}} Ereignis
-- {{domxref("XRSession/selectend_event", "selectend")}} Ereignis
+- [`select`](/de/docs/Web/API/XRSession/select_event) Ereignis
+- [`selectstart`](/de/docs/Web/API/XRSession/selectstart_event) Ereignis
+- [`selectend`](/de/docs/Web/API/XRSession/selectend_event) Ereignis

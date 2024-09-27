@@ -8,20 +8,22 @@ l10n:
 
 {{APIRef("CSSOM")}}{{Deprecated_header}}
 
-Die **`cssValueType`** Leseeigenschaft der
-{{domxref("CSSValue")}}-Schnittstelle stellt den Typ der aktuellen berechneten CSS-Eigenschaft dar.
+Die **`cssValueType`** schreibgeschützte Eigenschaft der
+[`CSSValue`](/de/docs/Web/API/CSSValue)-Schnittstelle repräsentiert den Typ des aktuellen berechneten CSS
+Eigenschaftswertes.
 
 > [!NOTE]
-> Diese Eigenschaft war Teil eines Versuchs, ein typisiertes CSS-Objektmodell zu erstellen. Dieser Versuch wurde aufgegeben und die meisten Browser implementieren es nicht.
+> Diese Eigenschaft war Teil eines Versuchs, ein typisiertes CSS Object Model zu erstellen. Dieser Versuch wurde aufgegeben und die meisten Browser implementieren es nicht.
 >
-> Um Ihre Ziele zu erreichen, können Sie verwenden:
+> Um Ihr Ziel zu erreichen, können Sie folgende Optionen nutzen:
 >
-> - das untypisierte [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model), das weitgehend unterstützt wird, oder
+> - das untypisierte [CSS Object Model](/de/docs/Web/API/CSS_Object_Model), das weitgehend unterstützt wird, oder
 > - das moderne [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API), das weniger unterstützt wird und als experimentell gilt.
 
 ## Wert
 
-Ein `unsigned short`, der einen Code darstellt, der den Typ des Wertes definiert. Mögliche Werte sind:
+Ein `unsigned short`, der einen Code darstellt, der den Typ des Wertes definiert.
+Mögliche Werte sind:
 
 <table class="no-markdown">
   <thead>
@@ -38,7 +40,7 @@ Ein `unsigned short`, der einen Code darstellt, der den Typ des Wertes definiert
     <tr>
       <td><code>CSS_INHERIT</code></td>
       <td>
-        Der Wert wird vererbt und das <code>cssText</code> enthält
+        Der Wert wird vererbt und <code>cssText</code> enthält
         <code>"inherit"</code>.
       </td>
     </tr>
@@ -46,8 +48,7 @@ Ein `unsigned short`, der einen Code darstellt, der den Typ des Wertes definiert
       <td><code>CSS_PRIMITIVE_VALUE</code></td>
       <td>
         Der Wert ist ein primitiver Wert und eine Instanz der
-        {{domxref("CSSPrimitiveValue")}}-Schnittstelle kann durch
-        verwendung bindungsspezifischer Casting-Methoden auf dieser Instanz der
+        [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue)-Schnittstelle kann durch die Verwendung von Bindungs-spezifischen Casting-Methoden auf dieser Instanz der
         <code>CSSValue</code>-Schnittstelle erhalten werden.
       </td>
     </tr>
@@ -55,8 +56,7 @@ Ein `unsigned short`, der einen Code darstellt, der den Typ des Wertes definiert
       <td><code>CSS_VALUE_LIST</code></td>
       <td>
         Der Wert ist eine <code>CSSValue</code>-Liste und eine Instanz der
-        {{domxref("CSSValueList")}}-Schnittstelle kann durch
-        Verwendung bindungsspezifischer Casting-Methoden auf dieser Instanz der
+        [`CSSValueList`](/de/docs/Web/API/CSSValueList)-Schnittstelle kann durch die Verwendung von Bindungs-spezifischen Casting-Methoden auf dieser Instanz der
         <code>CSSValue</code>-Schnittstelle erhalten werden.
       </td>
     </tr>
@@ -73,9 +73,9 @@ console.log(cssValue.cssValueType);
 
 ## Spezifikationen
 
-Dieses Merkmal wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/)-Spezifikation definiert, wurde jedoch seitdem aus allen Standardisierungsbemühungen gestrichen.
+Dieses Feature wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/) Spezifikation definiert, ist jedoch seitdem aus jeglichen Standardisierungsbemühungen herausgenommen worden.
 
-Es wurde durch ein modernes, aber inkompatibles [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, das sich nun auf dem Standardisierungspfad befindet.
+Es wurde durch ein modernes, aber inkompatibles [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, das sich nun auf dem Standardisierungsweg befindet.
 
 ## Browser-Kompatibilität
 

@@ -1,5 +1,5 @@
 ---
-title: "NDEFRecord: Eigenschaft recordType"
+title: "NDEFRecord: recordType-Eigenschaft"
 short-title: recordType
 slug: Web/API/NDEFRecord/recordType
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die **`recordType`**-Eigenschaft der {{DOMxRef("NDEFRecord")}}-Schnittstelle gibt den Datensatztyp des Datensatzes zurück.
+Die **`recordType`**-Eigenschaft des [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Interfaces gibt den Typ des Datensatzes zurück.
 
 ## Syntax
 
@@ -31,14 +31,13 @@ Ein String, der einer der folgenden Werte sein kann:
 - `"absolute-url"`
   - : Ein absoluter URL-NDEF-Datensatz.
 - `"mime"`
-  - : Ein {{Glossary("MIME type")}} NDEF-Datensatz.
+  - : Ein [MIME type](/de/docs/Glossary/MIME_type) NDEF-Datensatz.
 - `"unknown"`
-  - : Der NDEF-Datensatztyp ist nicht bekannt.
+  - : Der Typ des NDEF-Datensatzes ist nicht bekannt.
 - lokaler Typname
-  - : Repräsentiert einen lokalen Typnamen, häufig verwendet, um einen eingebetteten NDEF-Datensatz
-    in einem anderen Datensatz zu spezifizieren.
+  - : Repräsentiert einen lokalen Typnamen, der häufig verwendet wird, um einen in einem anderen Datensatz eingebetteten NDEF-Datensatz zu spezifizieren.
 - externer Typname
-  - : Ein benutzerdefinierter String, bestehend aus einem Domain-Namen und einem benutzerdefinierten Typnamen, getrennt durch einen Doppelpunkt (":").
+  - : Ein benutzerdefinierter String, der aus einem Domainnamen und einem benutzerdefinierten Typnamen besteht, die durch einen Doppelpunkt (":") getrennt sind.
 
 ## Spezifikationen
 

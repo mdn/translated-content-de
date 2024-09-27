@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die
-**`BluetoothRemoteGATTDescriptor.readValue()`**
-Methode gibt ein {{jsxref("Promise")}} zurück, das in ein {{jsxref("ArrayBuffer")}} aufgelöst wird, welches eine Kopie der `value`-Eigenschaft enthält, wenn diese verfügbar und unterstützt ist. Andernfalls wird ein Fehler ausgelöst.
+Die **`BluetoothRemoteGATTDescriptor.readValue()`**-Methode gibt ein {{jsxref("Promise")}} zurück, das auf einen {{jsxref("ArrayBuffer")}} aufgelöst wird, der eine Kopie der `value`-Eigenschaft enthält, wenn diese verfügbar und unterstützt ist. Andernfalls wird ein Fehler geworfen.
 
 ## Syntax
 
@@ -24,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das in ein {{jsxref("ArrayBuffer")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, das auf einen {{jsxref("ArrayBuffer")}} aufgelöst wird.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

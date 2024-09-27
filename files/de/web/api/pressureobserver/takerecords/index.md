@@ -1,5 +1,5 @@
 ---
-title: "PressureObserver: Methode takeRecords()"
+title: "PressureObserver: takeRecords()-Methode"
 short-title: takeRecords()
 slug: Web/API/PressureObserver/takeRecords
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`takeRecords()`** Methode der {{domxref('PressureObserver')}}-Schnittstelle gibt die aktuelle Liste der in der Pressure Observer gespeicherten Druckaufzeichnungen zurück und leert sie.
+Die **`takeRecords()`**-Methode der [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Schnittstelle gibt die aktuelle Liste der im Pressure Observer gespeicherten Druckaufzeichnungen zurück und leert diese.
 
-Sie ist nützlich, wenn Sie das Beobachten einer Quelle stoppen möchten, aber sicherstellen wollen, dass Sie alle Aufzeichnungen erhalten, die noch nicht an den Observer-Callback übergeben wurden.
+Dies ist nützlich, wenn Sie die Beobachtung einer Quelle stoppen möchten, aber sicherstellen wollen, dass alle Aufzeichnungen erfasst werden, die noch nicht in den Observer-Callback übergeben wurden.
 
 ## Syntax
 
@@ -24,20 +24,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von {{domxref("PressureRecord")}}-Objekten.
+Ein {{jsxref("Array")}} von [`PressureRecord`](/de/docs/Web/API/PressureRecord)-Objekten.
 
 ## Beispiele
 
-### Aufzeichnungen nehmen
+### Aufzeichnungen entnehmen
 
-Das folgende Beispiel speichert die aktuelle Liste der Druckaufzeichnungen in `records` und leert den Pressure Observer.
+Im folgenden Beispiel wird die aktuelle Liste der Druckaufzeichnungen in `records` gespeichert und der Pressure Observer geleert.
 
 ```js
 const observer = new PressureObserver(callback):
 observer.observe("cpu");
 
 const records = observer.takeRecords();
-observer.disconnect(); // Beobachter jetzt abschalten, nachdem wir die Aufzeichnungen genommen haben
+observer.disconnect(); // shut down observer now that we've taken records
 
 if (records.length > 0) {
   console.log(records[0].state);
@@ -49,6 +49,6 @@ if (records.length > 0) {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

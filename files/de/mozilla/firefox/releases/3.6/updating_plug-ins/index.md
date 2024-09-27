@@ -7,21 +7,21 @@ l10n:
 
 {{FirefoxSidebar}}
 
-In Gecko 1.9.2 wurden mehrere Änderungen vorgenommen, die insbesondere Plug-in-Entwickler betreffen können. Dieser Artikel bietet eine Liste dieser Änderungen.
+Mehrere Änderungen wurden in Gecko 1.9.2 vorgenommen, die insbesondere Plug-in-Entwickler betreffen könnten. Dieser Artikel bietet eine Liste dieser Änderungen.
 
 ## Schnittstellenänderungen
 
-Die Methode `destroy()` von `nsIPluginInstance` wurde entfernt, da sie ohnehin nichts bewirkte.
+Die Methode `destroy()` von `nsIPluginInstance` wurde entfernt, da sie ohnehin nichts bewirkt hat.
 
-## Mac OS X-spezifische Änderungen
+## Spezifische Änderungen für Mac OS X
 
 ### CFM-Plug-ins werden nicht mehr unterstützt
 
-Ab Gecko 1.9.2 werden alte CFM-Binärdateien (Code Fragment Manager) für Plug-ins nicht mehr unterstützt. CFM-Plug-ins sind seit August 2008 veraltet.
+Mit Gecko 1.9.2 werden alte CFM- (Code Fragment Manager) Binärdateien für Plug-ins nicht mehr unterstützt. CFM-Plug-ins sind seit August 2008 veraltet.
 
-### main() wird als Einstiegspunkt nicht mehr unterstützt
+### main() wird nicht mehr als Einstiegspunkt unterstützt
 
-Im August 2008 wurden Plug-in-Entwickler darüber informiert, dass `main()` als Einstiegspunkt nicht mehr unterstützt wird. Diese Änderung ist in Gecko 1.9.2 wirksam geworden. Plug-ins müssen so aktualisiert werden, dass sie stattdessen `NPN_GetEntryPoints()` verwenden.
+Im August 2008 wurden Plug-in-Entwickler darüber informiert, dass `main()` nicht mehr als Einstiegspunkt unterstützt wird. Diese Änderung tritt in Gecko 1.9.2 in Kraft. Plug-ins müssen aktualisiert werden, um stattdessen `NPN_GetEntryPoints()` zu verwenden.
 
 ## Siehe auch
 

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`codecId`**-Eigenschaft des {{domxref("RTCRtpStreamStats")}}-Wörterbuchs ist ein String, der das Objekt eindeutig identifiziert, das zur Erstellung der Daten in den {{domxref("RTCCodecStats")}} für den {{Glossary("RTP")}}-Stream untersucht wurde.
+Die **`codecId`**-Eigenschaft des [`RTCRtpStreamStats`](/de/docs/Web/API/RTCRtpStreamStats)-Wörterbuchs ist ein String, der das Objekt eindeutig identifiziert, das inspiziert wurde, um die Daten in den [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) für den [RTP](/de/docs/Glossary/RTP)-Stream zu erzeugen.
 
 ## Wert
 
-Ein String, der das Objekt eindeutig identifiziert, aus dem die Inhalte der {{domxref("RTCCodecStats")}} des Streams abgeleitet sind.
+Ein String, der das Objekt eindeutig identifiziert, aus dem die Inhalte der [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) des Streams abgeleitet sind.
 
 ## Spezifikationen
 

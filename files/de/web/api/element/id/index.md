@@ -1,5 +1,5 @@
 ---
-title: "Element: id-Eigenschaft"
+title: "Element: `id`-Eigenschaft"
 short-title: id
 slug: Web/API/Element/id
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`id`**-Eigenschaft des {{domxref("Element")}}-Interfaces repräsentiert die Kennung des Elements, die das globale [**`id`**](/de/docs/Web/HTML/Global_attributes/id) Attribut widerspiegelt.
+Die **`id`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle repräsentiert den Bezeichner des Elements und spiegelt das [**`id`**](/de/docs/Web/HTML/Global_attributes/id) globale Attribut wider.
 
-Wenn der `id`-Wert nicht der leere String ist, muss er innerhalb eines Dokuments eindeutig sein.
+Wenn der `id`-Wert nicht der leere String ist, muss er in einem Dokument eindeutig sein.
 
-Die `id` wird häufig mit {{domxref("Document.getElementById()", "getElementById()")}} verwendet, um ein bestimmtes Element abzurufen. Ein weiterer häufiger Anwendungsfall ist die Verwendung der [ID eines Elements als Selektor](/de/docs/Web/CSS/ID_selectors) beim Stylen des Dokuments mit [CSS](/de/docs/Web/CSS).
+Die `id` wird häufig mit [`getElementById()`](/de/docs/Web/API/Document/getElementById) verwendet, um ein bestimmtes Element abzurufen. Ein weiterer häufiger Fall ist die Verwendung der [ID als Selektor](/de/docs/Web/CSS/ID_selectors), um das Dokument mit [CSS](/de/docs/Web/CSS) zu stylen.
 
 > [!NOTE]
-> Kennungen sind groß- und kleinschreibungssensitiv, aber Sie sollten es vermeiden, IDs zu erstellen, die sich nur in der Groß- und Kleinschreibung unterscheiden.
+> Bezeichner sind case-sensitiv, aber Sie sollten vermeiden, IDs zu erstellen, die sich nur in der Groß- und Kleinschreibung unterscheiden.
 
 ## Wert
 
@@ -31,5 +31,4 @@ Ein String.
 
 ## Siehe auch
 
-- Das DOM [**id**](/de/docs/Web/HTML/Global_attributes/id)
-  globale Attribut.
+- Das DOM [**id**](/de/docs/Web/HTML/Global_attributes/id) globale Attribut.

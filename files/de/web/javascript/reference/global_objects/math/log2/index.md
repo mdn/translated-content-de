@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Math.log2()`** gibt den Basis-2-Logarithmus einer Zahl zurück. Das heißt:
+Die **`Math.log2()`** statische Methode gibt den Logarithmus zur Basis 2 einer Zahl zurück. Das bedeutet,
 
 <!-- prettier-ignore-start -->
 <math display="block">
-  <semantics><mrow><mo>∀</mo><mi>x</mi><mo>&gt;</mo><mn>0</mn><mo>,</mo><mspace width="0.2777777777777778em"></mspace><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚕𝚘𝚐𝟸</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><msub><mo lspace="0em" rspace="0em">log</mo><mn>2</mn></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mtext>der eindeutige&nbsp;</mtext><mi>y</mi><mtext>&nbsp;so dass&nbsp;</mtext><msup><mn>2</mn><mi>y</mi></msup><mo>=</mo><mi>x</mi></mrow><annotation encoding="TeX">\forall x > 0,\;\mathtt{\operatorname{Math.log2}(x)} = \log_2(x) = \text{der eindeutige } y \text{ so dass } 2^y = x</annotation></semantics>
+  <semantics><mrow><mo>∀</mo><mi>x</mi><mo>&gt;</mo><mn>0</mn><mo>,</mo><mspace width="0.2777777777777778em"></mspace><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚕𝚘𝚐𝟸</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><msub><mo lspace="0em" rspace="0em">log</mo><mn>2</mn></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mtext>the unique&nbsp;</mtext><mi>y</mi><mtext>&nbsp;such that&nbsp;</mtext><msup><mn>2</mn><mi>y</mi></msup><mo>=</mo><mi>x</mi></mrow><annotation encoding="TeX">\forall x > 0,\;\mathtt{\operatorname{Math.log2}(x)} = \log_2(x) = \text{the unique } y \text{ such that } 2^y = x</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
@@ -30,17 +30,17 @@ Math.log2(x)
 
 ### Rückgabewert
 
-Der Basis-2-Logarithmus von `x`. Wenn `x < 0`, wird {{jsxref("NaN")}} zurückgegeben.
+Der Logarithmus zur Basis 2 von `x`. Wenn `x < 0`, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `log2()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.log2()`, und nicht als Methode eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktor).
+Da `log2()` eine statische Methode von `Math` ist, wird sie immer als `Math.log2()` verwendet und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
-Diese Funktion entspricht `Math.log(x) / Math.log(2)`. Für `log2(e)` verwenden Sie die Konstante {{jsxref("Math.LOG2E")}}, welche 1 / {{jsxref("Math.LN2")}} ist.
+Diese Funktion entspricht `Math.log(x) / Math.log(2)`. Für `log2(e)` verwenden Sie die Konstante {{jsxref("Math.LOG2E")}}, die 1 / {{jsxref("Math.LN2")}} ist.
 
 ## Beispiele
 
-### Verwendung von Math.log2()
+### Nutzung von Math.log2()
 
 ```js
 Math.log2(-2); // NaN

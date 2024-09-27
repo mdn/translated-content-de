@@ -8,18 +8,18 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`type`**-Eigenschaft des {{domxref("HTMLOListElement")}}-Interfaces gibt die Art des Markers an, der verwendet werden soll, um eine geordnete Liste anzuzeigen.
+Die **`type`**-Eigenschaft der Schnittstelle [`HTMLOListElement`](/de/docs/Web/API/HTMLOListElement) gibt die Art des Markers an, der zur Darstellung einer geordneten Liste verwendet werden soll.
 
 Sie spiegelt das [`type`](/de/docs/Web/HTML/Element/ol#type)-Attribut des {{HTMLElement("ol")}}-Elements wider.
 
 > [!NOTE]
-> Der `type` kann mit der {{CSSxRef("list-style-type")}}-Eigenschaft in CSS definiert werden. Die Eigenschaft `list-style-type` bietet viele weitere Werte.
+> Der `type` kann in CSS mit der {{CSSxRef("list-style-type")}}-Eigenschaft definiert werden. Die `list-style-type`-Eigenschaft bietet viele weitere Werte.
 
 ## Wert
 
 Ein String, der den Typ darstellt.
 
-Die möglichen Werte sind im Abschnitt [marker types](/de/docs/Web/HTML/Element/ol#type) des Attributs aufgeführt.
+Die möglichen Werte sind im Abschnitt [Markertypen](/de/docs/Web/HTML/Element/ol#type) des Attributs aufgelistet.
 
 ## Beispiele
 

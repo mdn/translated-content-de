@@ -7,23 +7,23 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die **`GeolocationPosition`** Schnittstelle repräsentiert die Position des betreffenden Geräts zu einem gegebenen Zeitpunkt. Die Position wird durch ein {{domxref("GeolocationCoordinates")}}-Objekt dargestellt und umfasst die 2D-Position des Geräts auf einem Sphäroid, das die Erde repräsentiert, sowie dessen Höhe und Geschwindigkeit.
+Die **`GeolocationPosition`**-Schnittstelle repräsentiert die Position des betreffenden Geräts zu einem bestimmten Zeitpunkt. Die Position, dargestellt durch ein [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates) Objekt, umfasst die 2D-Position des Geräts auf einem die Erde repräsentierenden Rotationsellipsoid, aber auch seine Höhe und Geschwindigkeit.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Die `GeolocationPosition` Schnittstelle erbt keine Eigenschaften._
+_Die `GeolocationPosition`-Schnittstelle erbt keine Eigenschaften._
 
-- {{domxref("GeolocationPosition.coords")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("GeolocationCoordinates")}}-Objekt zurück, das den aktuellen Standort definiert.
-- {{domxref("GeolocationPosition.timestamp")}} {{ReadOnlyInline}}
-  - : Gibt einen Zeitstempel zurück, der als {{Glossary("Unix time")}} in Millisekunden angegeben ist und die Zeit darstellt, zu der der Standort abgerufen wurde.
+- [`GeolocationPosition.coords`](/de/docs/Web/API/GeolocationPosition/coords) {{ReadOnlyInline}}
+  - : Gibt ein [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates) Objekt zurück, das den aktuellen Standort definiert.
+- [`GeolocationPosition.timestamp`](/de/docs/Web/API/GeolocationPosition/timestamp) {{ReadOnlyInline}}
+  - : Gibt einen Zeitstempel zurück, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, der den Zeitpunkt darstellt, zu dem der Standort abgerufen wurde.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Die `GeolocationPosition` Schnittstelle erbt keine Methoden._
+_Die `GeolocationPosition`-Schnittstelle erbt keine Methoden._
 
-- {{domxref("GeolocationPosition.toJSON()")}}
-  - : Gibt eine JSON-Darstellung des `GeolocationPosition`-Objekts zurück und ermöglicht die Serialisierung mit {{jsxref("JSON.stringify()")}}.
+- [`GeolocationPosition.toJSON()`](/de/docs/Web/API/GeolocationPosition/toJSON)
+  - : Gibt eine JSON-Darstellung des `GeolocationPosition` Objekts zurück und ermöglicht die Serialisierung mit {{jsxref("JSON.stringify()")}}.
 
 ## Spezifikationen
 
@@ -36,4 +36,4 @@ _Die `GeolocationPosition` Schnittstelle erbt keine Methoden._
 ## Siehe auch
 
 - [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- {{domxref("Geolocation")}}
+- [`Geolocation`](/de/docs/Web/API/Geolocation)

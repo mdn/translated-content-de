@@ -8,18 +8,21 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.lineWidth`**-Eigenschaft der 2D-Canvas-API legt die Stärke von Linien fest.
+Die **`CanvasRenderingContext2D.lineWidth`**-Eigenschaft der Canvas 2D API legt die Dicke von Linien fest.
 
 > [!NOTE]
-> Linien können gezeichnet werden mit den Methoden {{domxref("CanvasRenderingContext2D.stroke()", "stroke()")}}, {{domxref("CanvasRenderingContext2D.strokeRect()", "strokeRect()")}} und {{domxref("CanvasRenderingContext2D.strokeText()", "strokeText()")}}.
+> Linien können mit den Methoden
+> [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke),
+> [`strokeRect()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect)
+> und [`strokeText()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeText) gezeichnet werden.
 
 ## Wert
 
-Eine Zahl, die die Linienbreite in Knoteneinheiten angibt. Werte von Null, negativ, {{jsxref("Infinity")}} und {{jsxref("NaN")}} werden ignoriert. Der Standardwert ist `1.0`.
+Eine Zahl, die die Linienbreite in Einheiten des Koordinatenraums angibt. Werte wie Null, negative Zahlen, {{jsxref("Infinity")}} und {{jsxref("NaN")}} werden ignoriert. Der Standardwert ist `1.0`.
 
 ## Beispiele
 
-### Linienbreite ändern
+### Ändern der Linienbreite
 
 Dieses Beispiel zeichnet eine Linie und ein Rechteck mit einer Linienbreite von 15 Einheiten.
 
@@ -50,7 +53,7 @@ ctx.stroke();
 
 ### Weitere Beispiele
 
-Für weitere Beispiele und Erklärungen zu dieser Eigenschaft, siehe [Stile und Farbe anwenden](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors) im [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial).
+Weitere Beispiele und Erklärungen zu dieser Eigenschaft finden Sie unter [Anwendung von Stilen und Farbe](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors) im [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial).
 
 ## Spezifikationen
 
@@ -62,7 +65,7 @@ Für weitere Beispiele und Erklärungen zu dieser Eigenschaft, siehe [Stile und 
 
 ## Siehe auch
 
-- Das Interface, das diese Eigenschaft definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasRenderingContext2D.lineCap")}}
-- {{domxref("CanvasRenderingContext2D.lineJoin")}}
-- [Stile und Farbe anwenden](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors)
+- Die Schnittstelle, die diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasRenderingContext2D.lineCap`](/de/docs/Web/API/CanvasRenderingContext2D/lineCap)
+- [`CanvasRenderingContext2D.lineJoin`](/de/docs/Web/API/CanvasRenderingContext2D/lineJoin)
+- [Anwendung von Stilen und Farbe](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors)

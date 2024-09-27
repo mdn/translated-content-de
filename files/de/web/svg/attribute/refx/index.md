@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`refX`** Attribut definiert die x-Koordinate des Referenzpunkts eines Elements.
+Das **`refX`**-Attribut definiert die x-Koordinate des Referenzpunktes eines Elements.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -16,7 +16,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## marker
 
-Für {{SVGElement("marker")}} definiert `refX` die x-Koordinate des Referenzpunkts des Markers, der genau an der Position des Markers auf der Form platziert wird.
+Für {{SVGElement("marker")}} definiert `refX` die x-Koordinate des Referenzpunktes des Markers, der genau an der Position des Markers auf der Form platziert werden soll.
 
 <table class="properties">
   <tbody>
@@ -41,27 +41,27 @@ Für {{SVGElement("marker")}} definiert `refX` die x-Koordinate des Referenzpunk
 
 - `<length-percentage>`
 
-  - : Längen werden im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} Attribute.
+  - : Längen werden im Koordinatensystem der Marker-Inhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}}- und {{SVGAttr("preserveAspectRatio")}}-Attribute.
 
-    Prozentuale Werte werden als Anteil der Breite der {{SVGAttr("viewBox")}} interpretiert.
+    Prozentwerte werden als Prozentsatz der Breite der {{SVGAttr("viewBox")}} interpretiert.
 
 - `<number>`
-  - : Zahlen werden im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} Attribute.
+  - : Zahlen werden im Koordinatensystem der Marker-Inhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}}- und {{SVGAttr("preserveAspectRatio")}}-Attribute.
 - `left`
-  - : Der Referenzpunkt des Markers befindet sich am linken Rand der Form.
+  - : Der Referenzpunkt des Markers wird an der linken Kante der Form platziert.
 - `center`
-  - : Der Referenzpunkt des Markers befindet sich in der horizontalen Mitte der Form.
+  - : Der Referenzpunkt des Markers wird am horizontalen Zentrum der Form platziert.
 - `right`
-  - : Der Referenzpunkt des Markers befindet sich am rechten Rand der Form.
+  - : Der Referenzpunkt des Markers wird an der rechten Kante der Form platziert.
 
 ## symbol
 
-Für {{SVGElement("symbol")}} definiert `refX` die x-Koordinate des Symbols, die durch die kumulative Wirkung des {{SVGAttr("x")}} Attributs und aller Transformationen auf das {{SVGElement("symbol")}} sowie dessen Host-{{SVGElement("use")}}-Element bestimmt wird.
+Für {{SVGElement("symbol")}} definiert `refX` die x-Koordinate des Symbols, die durch den kumulativen Effekt des {{SVGAttr("x")}}-Attributs und aller Transformationen auf das {{SVGElement("symbol")}} und sein Host-{{SVGElement("use")}}-Element bestimmt wird.
 
-Im Gegensatz zu anderen Positionierungsattributen wird `refX` im Koordinatensystem der Symbolinhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} Attribute. Wenn das Attribut nicht angegeben ist, erfolgt keine horizontale Anpassung, und die linke Seite des rechteckigen Ansichtsbereichs des Symbols (unabhängig von der `viewBox`-Koordinate) wird an der x-Koordinate positioniert.
+Im Gegensatz zu anderen Positionierungsattributen wird `refX` im Koordinatensystem der Symbolinhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}}- und {{SVGAttr("preserveAspectRatio")}}-Attribute. Wenn das Attribut nicht angegeben ist, wird keine horizontale Anpassung vorgenommen, und die linke Seite des rechteckigen Ansichtsbereichs des Symbols (unabhängig von der `viewBox`-Koordinate) wird an der x-Koordinate positioniert.
 
 > [!NOTE]
-> Aus Gründen der Abwärtskompatibilität unterscheidet sich das Verhalten, wenn `refX` bei einem `<symbol>`-Element nicht angegeben ist, von dem, wenn es mit einem Wert von `0` angegeben ist, und somit von dem Verhalten, wenn ein gleichwertiges Attribut bei einem {{SVGElement("marker")}}-Element nicht angegeben ist.
+> Aus Kompatibilitätsgründen verhält sich das Fehlen des `refX`-Attributs auf einem `<symbol>`-Element anders als wenn es mit einem Wert von `0` angegeben wird, und somit anders als wenn ein ähnliches Attribut auf einem {{SVGElement("marker")}}-Element nicht angegeben wird.
 
 <table class="properties">
   <tbody>
@@ -85,18 +85,18 @@ Im Gegensatz zu anderen Positionierungsattributen wird `refX` im Koordinatensyst
 
 - `<length-percentage>`
 
-  - : Längen werden im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} Attribute.
+  - : Längen werden im Koordinatensystem der Marker-Inhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}}- und {{SVGAttr("preserveAspectRatio")}}-Attribute.
 
-    Prozentuale Werte werden als Anteil der Breite der {{SVGAttr("viewBox")}} interpretiert.
+    Prozentwerte werden als Prozentsatz der Breite der {{SVGAttr("viewBox")}} interpretiert.
 
 - `<number>`
-  - : Zahlen werden im Koordinatensystem der Markerinhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} Attribute.
+  - : Zahlen werden im Koordinatensystem der Marker-Inhalte interpretiert, nach Anwendung der {{SVGAttr("viewBox")}}- und {{SVGAttr("preserveAspectRatio")}}-Attribute.
 - `left`
-  - : Der Referenzpunkt des Markers befindet sich am linken Rand der Form.
+  - : Der Referenzpunkt des Markers wird an der linken Kante der Form platziert.
 - `center`
-  - : Der Referenzpunkt des Markers befindet sich in der horizontalen Mitte der Form.
+  - : Der Referenzpunkt des Markers wird am horizontalen Zentrum der Form platziert.
 - `right`
-  - : Der Referenzpunkt des Markers befindet sich am rechten Rand der Form.
+  - : Der Referenzpunkt des Markers wird an der rechten Kante der Form platziert.
 
 ## Spezifikationen
 

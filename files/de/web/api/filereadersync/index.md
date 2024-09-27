@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("File API")}} {{AvailableInWorkers("worker_except_service")}}
 
-Die **`FileReaderSync`**-Schnittstelle ermöglicht das synchrone Lesen von {{DOMxRef("File")}}- oder {{DOMxRef("Blob")}}-Objekten. Diese Schnittstelle ist [nur verfügbar](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) in [Workern](/de/docs/Web/API/Worker), da sie synchrones I/O ermöglicht, das potenziell blockieren könnte.
+Die **`FileReaderSync`**-Schnittstelle ermöglicht das synchrone Lesen von [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekten. Diese Schnittstelle ist [nur verfügbar](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) in [Workern](/de/docs/Web/API/Worker), da sie synchrones I/O ermöglicht, das potenziell blockieren könnte.
 
 ## Konstruktor
 
-- {{domxref("FileReaderSync.FileReaderSync", "FileReaderSync()")}}
+- [`FileReaderSync()`](/de/docs/Web/API/FileReaderSync/FileReaderSync)
   - : Gibt ein neues `FileReaderSync`-Objekt zurück.
 
 ## Instanzeigenschaften
@@ -20,14 +20,14 @@ Diese Schnittstelle hat keine Eigenschaften.
 
 ## Instanzmethoden
 
-- {{DOMxRef("FileReaderSync.readAsArrayBuffer","FileReaderSync.readAsArrayBuffer()")}}
-  - : Diese Methode wandelt ein angegebenes {{DOMxRef("Blob")}} oder eine {{DOMxRef("File")}} in einen {{jsxref("ArrayBuffer")}} um, der die Eingabedaten als binären String darstellt.
-- {{DOMxRef("FileReaderSync.readAsBinaryString","FileReaderSync.readAsBinaryString()")}} {{deprecated_inline}}
-  - : Diese Methode wandelt ein angegebenes {{DOMxRef("Blob")}} oder eine {{DOMxRef("File")}} in einen String um, der die Eingabedaten als binären String darstellt. Diese Methode ist veraltet, verwenden Sie stattdessen `readAsArrayBuffer()`.
-- {{DOMxRef("FileReaderSync.readAsText","FileReaderSync.readAsText()")}}
-  - : Diese Methode wandelt ein angegebenes {{DOMxRef("Blob")}} oder eine {{DOMxRef("File")}} in einen String um, der die Eingabedaten als Textstring darstellt. Der optionale **`encoding`**-Parameter gibt die zu verwendende Kodierung an (z. B. iso-8859-1 oder UTF-8). Falls nicht vorhanden, wird die Methode einen Erkennungsalgorithmus anwenden.
-- {{DOMxRef("FileReaderSync.readAsDataURL","FileReaderSync.readAsDataURL()")}}
-  - : Diese Methode wandelt ein angegebenes {{DOMxRef("Blob")}} oder eine {{DOMxRef("File")}} in einen String um, der die Eingabedaten als Data-URL darstellt.
+- [`FileReaderSync.readAsArrayBuffer()`](/de/docs/Web/API/FileReaderSync/readAsArrayBuffer)
+  - : Diese Methode konvertiert ein angegebenes [`Blob`](/de/docs/Web/API/Blob) oder eine [`File`](/de/docs/Web/API/File) in einen {{jsxref("ArrayBuffer")}}, der die Eingabedaten als binären String darstellt.
+- [`FileReaderSync.readAsBinaryString()`](/de/docs/Web/API/FileReaderSync/readAsBinaryString) {{deprecated_inline}}
+  - : Diese Methode konvertiert ein angegebenes [`Blob`](/de/docs/Web/API/Blob) oder eine [`File`](/de/docs/Web/API/File) in einen String, der die Eingabedaten als binären String darstellt. Diese Methode ist veraltet, es wird empfohlen, stattdessen `readAsArrayBuffer()` zu verwenden.
+- [`FileReaderSync.readAsText()`](/de/docs/Web/API/FileReaderSync/readAsText)
+  - : Diese Methode konvertiert ein angegebenes [`Blob`](/de/docs/Web/API/Blob) oder eine [`File`](/de/docs/Web/API/File) in einen String, der die Eingabedaten als Text-String darstellt. Der optionale **`encoding`**-Parameter gibt die zu verwendende Kodierung an (z.B. iso-8859-1 oder UTF-8). Wenn nicht vorhanden, wendet die Methode einen Erkennungsalgorithmus dafür an.
+- [`FileReaderSync.readAsDataURL()`](/de/docs/Web/API/FileReaderSync/readAsDataURL)
+  - : Diese Methode konvertiert ein angegebenes [`Blob`](/de/docs/Web/API/Blob) oder eine [`File`](/de/docs/Web/API/File) in einen String, der die Eingabedaten als Daten-URL darstellt.
 
 ## Spezifikationen
 
@@ -39,6 +39,6 @@ Diese Schnittstelle hat keine Eigenschaften.
 
 ## Siehe auch
 
-- {{DOMxRef("FileReader")}}
-- {{DOMxRef("Blob")}}
-- {{DOMxRef("File")}}
+- [`FileReader`](/de/docs/Web/API/FileReader)
+- [`Blob`](/de/docs/Web/API/Blob)
+- [`File`](/de/docs/Web/API/File)

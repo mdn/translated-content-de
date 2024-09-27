@@ -8,23 +8,19 @@ l10n:
 
 {{APIRef("Resize Observer API")}}
 
-Die schreibgeschützte Eigenschaft **`borderBoxSize`** der {{domxref("ResizeObserverEntry")}}-Schnittstelle gibt ein Array zurück, das die neue Größe der Rahmenbox des beobachteten Elements enthält, wenn der Callback ausgeführt wird.
+Die schreibgeschützte **`borderBoxSize`**-Eigenschaft der [`ResizeObserverEntry`](/de/docs/Web/API/ResizeObserverEntry)-Schnittstelle gibt ein Array zurück, das die neue Größe des Border-Box des beobachteten Elements enthält, wenn der Callback ausgeführt wird.
 
 ## Wert
 
-Ein Array, das Objekte mit der neuen Größe der Rahmenbox des beobachteten Elements enthält. Das Array ist notwendig, um Elemente zu unterstützen, die mehrere Fragmente haben, wie sie in Mehrspalten-Szenarien auftreten. Jedes Objekt im Array enthält zwei Eigenschaften:
+Ein Array, das Objekte mit der neuen Größe des Border-Box des beobachteten Elements enthält. Das Array ist notwendig, um Elemente zu unterstützen, die mehrere Fragmente haben, was in Mehrspalten-Szenarien vorkommt. Jedes Objekt im Array enthält zwei Eigenschaften:
 
 - `blockSize`
-  - : Die Länge der Rahmenbox des beobachteten Elements in der Blockdimension. Für Boxen
-    mit einem horizontalen {{cssxref("writing-mode")}} ist dies die vertikale Dimension oder
-    Höhe; wenn der Schriftschnitt vertikal ist, ist dies die horizontale Dimension oder Breite.
+  - : Die Länge des Border-Box des beobachteten Elements in der Blockdimension. Für Kästen mit einem horizontalen {{cssxref("writing-mode")}} ist dies die vertikale Dimension oder Höhe; wenn der Schreibmodus vertikal ist, ist dies die horizontale Dimension oder Breite.
 - `inlineSize`
-  - : Die Länge der Rahmenbox des beobachteten Elements in der Inline-Dimension. Für Boxen
-    mit einem horizontalen {{cssxref("writing-mode")}} ist dies die horizontale Dimension oder
-    Breite; wenn der Schriftschnitt vertikal ist, ist dies die vertikale Dimension oder Höhe.
+  - : Die Länge des Border-Box des beobachteten Elements in der Inline-Dimension. Für Kästen mit einem horizontalen {{cssxref("writing-mode")}} ist dies die horizontale Dimension oder Breite; wenn der Schreibmodus vertikal ist, ist dies die vertikale Dimension oder Höhe.
 
 > [!NOTE]
-> Für mehr Erklärungen zu Schriftschnitten und Block- und Inline-Dimensionen lesen Sie [Umgang mit verschiedenen Textausrichtungen](/de/docs/Learn/CSS/Building_blocks/Handling_different_text_directions).
+> Für eine ausführlichere Erklärung der Schreibmodi und Block- und Inline-Dimensionen lesen Sie [Umgang mit unterschiedlichen Textausrichtungen](/de/docs/Learn/CSS/Building_blocks/Handling_different_text_directions).
 
 ## Beispiele
 

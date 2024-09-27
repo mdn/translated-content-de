@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Der **`AbortController()`** Konstruktor erstellt eine neue Instanz des {{domxref("AbortController")}} Objekts.
+Der **`AbortController()`**-Konstruktor erstellt eine neue Instanz des [`AbortController`](/de/docs/Web/API/AbortController)-Objekts.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ## Beispiele
 
-Im folgenden Beispiel wollen wir ein Video mit der [Fetch API](/de/docs/Web/API/Fetch_API) herunterladen.
+Im folgenden Beispiel versuchen wir, ein Video mit der [Fetch API](/de/docs/Web/API/Fetch_API) herunterzuladen.
 
-Wir erstellen zuerst einen Controller mit dem `AbortController()` Konstruktor und greifen dann über die {{domxref("AbortController.signal")}} Eigenschaft auf das zugeordnete {{domxref("AbortSignal")}} Objekt zu.
+Wir erstellen zunächst einen Controller mit dem `AbortController()`-Konstruktor und erhalten dann eine Referenz auf das zugehörige [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekt über die [`AbortController.signal`](/de/docs/Web/API/AbortController/signal)-Eigenschaft.
 
-Wenn die [fetch-Anfrage](/de/docs/Web/API/Window/fetch) initiiert wird, übergeben wir das `AbortSignal` als Option innerhalb des Optionsobjekts der Anfrage (das `{ signal }` unten). Dadurch wird das Signal und der Controller mit der Fetch-Anfrage verknüpft und ermöglicht es uns, diese durch Aufrufen von {{domxref("AbortController.abort()")}} abzubrechen, wie unten im zweiten Event-Listener zu sehen ist.
+Wenn die [Fetch-Anfrage](/de/docs/Web/API/Window/fetch) gestartet wird, übergeben wir das `AbortSignal` als Option innerhalb des Optionsobjekts der Anfrage (das `{ signal }` unten). Dies verknüpft das Signal und den Controller mit der Fetch-Anfrage und ermöglicht es uns, sie abzubrechen, indem wir [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) aufrufen, wie unten im zweiten Event-Listener zu sehen ist.
 
 ```js
 const controller = new AbortController();
@@ -40,24 +40,24 @@ downloadBtn.addEventListener("click", fetchVideo);
 
 abortBtn.addEventListener("click", () => {
   controller.abort();
-  console.log("Download abgebrochen");
+  console.log("Download aborted");
 });
 
 function fetchVideo() {
   fetch(url, { signal })
     .then((response) => {
-      console.log("Download abgeschlossen", response);
+      console.log("Download complete", response);
     })
     .catch((err) => {
-      console.error(`Download-Fehler: ${err.message}`);
+      console.error(`Download error: ${err.message}`);
     });
 }
 ```
 
 > [!NOTE]
-> Wenn `abort()` aufgerufen wird, schlägt das `fetch()`-Promise mit einem `AbortError` fehl.
+> Wenn `abort()` aufgerufen wird, wird das `fetch()`-Promise mit einem `AbortError` abgelehnt.
 
-Sie finden ein [voll funktionsfähiges Beispiel auf GitHub](https://github.com/mdn/dom-examples/tree/main/abort-api); Sie können es auch [live laufen sehen](https://mdn.github.io/dom-examples/abort-api/).
+Sie finden ein [voll funktionsfähiges Beispiel auf GitHub](https://github.com/mdn/dom-examples/tree/main/abort-api); Sie können es auch [live ausführen](https://mdn.github.io/dom-examples/abort-api/).
 
 ## Spezifikationen
 

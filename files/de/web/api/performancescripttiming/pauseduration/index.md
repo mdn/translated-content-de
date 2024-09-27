@@ -1,5 +1,5 @@
 ---
-title: "PerformanceScriptTiming: Eigenschaft pauseDuration"
+title: "PerformanceScriptTiming: pauseDuration-Eigenschaft"
 short-title: pauseDuration
 slug: Web/API/PerformanceScriptTiming/pauseDuration
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`pauseDuration`** der {{domxref("PerformanceScriptTiming")}}-Schnittstelle gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die Gesamtzeit in Millisekunden angibt, die das Skript mit dem "Pausieren" synchroner Operationen (zum Beispiel {{domxref("Window.alert()")}}-Aufrufe oder synchrone {{domxref("XMLHttpRequest")}}s) verbringt.
+Die **`pauseDuration`** schreibgeschützte Eigenschaft des [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Interfaces gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die gesamte Zeit in Millisekunden angibt, die das Skript für das "Pausieren" synchroner Operationen aufgewendet hat (zum Beispiel bei Aufrufen von [`Window.alert()`](/de/docs/Web/API/Window/alert) oder synchronen [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)s).
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Siehe [Langes Animationsrahmen-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Sehen Sie sich [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele in Bezug auf die Long Animation Frames API an.
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ Siehe [Langes Animationsrahmen-Timing](/de/docs/Web/API/Performance_API/Long_ani
 
 ## Siehe auch
 
-- [Langes Animationsrahmen-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
-- {{domxref("PerformanceLongAnimationFrameTiming")}}
+- [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`previousRect`**-Eigenschaft der {{domxref("LayoutShiftAttribution")}}-Schnittstelle gibt ein {{domxref("DOMRectReadOnly")}}-Objekt zurück, das die Position des Elements vor der Verschiebung darstellt.
+Die **`previousRect`**-Eigenschaft der Schnittstelle [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution) gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt zurück, das die Position des Elements vor der Verschiebung darstellt.
 
 ## Wert
 
-Ein {{domxref("DOMRectReadOnly")}}-Objekt.
+Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel gibt das `previousRect` des ersten Elements in {{domxref("LayoutShift.sources")}} in der Konsole aus.
+Das folgende Beispiel gibt die `previousRect` des ersten Elements in [`LayoutShift.sources`](/de/docs/Web/API/LayoutShift/sources) in der Konsole aus.
 
 ```js
 new PerformanceObserver((list) => {
@@ -32,6 +32,6 @@ new PerformanceObserver((list) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

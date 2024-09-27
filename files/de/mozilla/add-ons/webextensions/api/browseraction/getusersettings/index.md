@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ermittelt die vom Benutzer festgelegten Einstellungen für die Browser-Aktion.
+Ruft die vom Benutzer angegebenen Einstellungen für die Browser-Aktion ab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,25 +23,25 @@ Diese Funktion benötigt keine Parameter.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, welches diese Eigenschaften enthält:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ein Objekt mit folgenden Eigenschaften erfüllt:
 
 - `userSettings`
 
-  - : Ein Objekt, das die vom Benutzer angegebenen Einstellungen für die Browser-Aktion mit diesen Eigenschaften enthält:
+  - : Ein Objekt, das die vom Benutzer angegebenen Einstellungen für die Browser-Aktion enthält, mit folgenden Eigenschaften:
 
     - `isOnToolbar` {{optional_inline}}
-      - : `boolean`. Ob der Benutzer das Aktionssymbol an die Benutzeroberfläche des Browsers angeheftet hat. Diese Einstellung zeigt nicht, ob das Aktionssymbol sichtbar ist. Die Sichtbarkeit des Symbols hängt von der Größe des Browserfensters und dem Layout der Benutzeroberfläche des Browsers ab.
+      - : `boolean`. Gibt an, ob der Benutzer das Symbol der Aktion an die Browser-Oberfläche angeheftet hat. Diese Einstellung gibt nicht an, ob das Aktionssymbol sichtbar ist. Die Sichtbarkeit des Symbols hängt von der Größe des Browserfensters und dem Layout der Browser-Oberfläche ab.
 
 ## Beispiele
 
-Dieser Code protokolliert eine Nachricht, die angibt, ob die Browser-Aktion angeheftet ist oder nicht:
+Dieser Code gibt eine Meldung aus, die anzeigt, ob die Browser-Aktion angeheftet ist oder nicht:
 
 ```js
 function gotSettings(userSettings) {
   if (userSettings.isOnToolbar) {
-    console.log("Browser-Aktion ist an die Symbolleiste angeheftet.");
+    console.log("Browser action is pinned to toolbar.");
   } else {
-    console.log("Browser-Aktion ist nicht an die Symbolleiste angeheftet.");
+    console.log("Browser action is not pinned to toolbar.");
   }
 }
 

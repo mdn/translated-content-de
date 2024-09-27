@@ -7,7 +7,7 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`regexp:replace()` ersetzt die Teile eines Strings, die einem vorgegebenen regulären Ausdruck entsprechen, durch den Inhalt eines anderen Strings.
+`regexp:replace()` ersetzt die Teile eines Strings, die mit einem bestimmten regulären Ausdruck übereinstimmen, durch den Inhalt eines anderen Strings.
 
 ## Syntax
 
@@ -18,20 +18,20 @@ regexp:replace(originalString, regExpString, flagsString, replaceString)
 ### Parameter
 
 - `originalString`
-  - : Der String, bei dem eine Such-und-Ersetzungsoperation durchgeführt werden soll.
+  - : Der String, an dem eine Such- und Ersetzungsoperation durchgeführt wird.
 - `regExpString`
-  - : Der reguläre Ausdruck im JavaScript-Stil, der ausgewertet werden soll.
+  - : Der zu evaluierende reguläre Ausdruck im JavaScript-Stil.
 - `flagsString`
-  - : Der String, der Zeichenflaggen enthält.
+  - : Der String, der Zeichenflags enthält.
 - `replaceString`
   - : Der String, durch den die übereinstimmenden Teilstrings ersetzt werden sollen.
 
-Die Zeichenflaggen sind:
+Die Zeichenflags sind:
 
-- `g` - Globaler Ersatz
+- `g` - Globales Ersetzen
   - : Wenn dieses Flag angegeben ist, werden alle Vorkommen des regulären Ausdrucks innerhalb des `originalString` ersetzt. Andernfalls wird nur das erste Vorkommen ersetzt.
-- `i` - Groß- und Kleinschreibung ignorieren
-  - : Wenn dieses Flag angegeben ist, erfolgt der Abgleich ohne Berücksichtigung der Groß- und Kleinschreibung.
+- `i` - Unabhängig von Groß-/Kleinschreibung
+  - : Wenn dieses Flag angegeben ist, wird die Übereinstimmung ohne Berücksichtigung der Groß-/Kleinschreibung durchgeführt.
 
 ### Rückgabewert
 

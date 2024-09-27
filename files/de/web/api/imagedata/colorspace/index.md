@@ -1,5 +1,5 @@
 ---
-title: "ImageData: colorSpace-Eigenschaft"
+title: "ImageData: colorSpace Eigenschaft"
 short-title: colorSpace
 slug: Web/API/ImageData/colorSpace
 l10n:
@@ -10,21 +10,20 @@ l10n:
 
 Die schreibgeschützte **`ImageData.colorSpace`**-Eigenschaft ist ein String, der den Farbraum der Bilddaten angibt.
 
-Der Farbraum kann während der `ImageData`-Initialisierung mit entweder dem [`ImageData()`](/de/docs/Web/API/ImageData/ImageData)-Konstruktor oder der [`createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData)-Methode festgelegt werden.
+Der Farbraum kann während der `ImageData`-Initialisierung entweder mit dem [`ImageData()`](/de/docs/Web/API/ImageData/ImageData)-Konstruktor oder der [`createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData)-Methode festgelegt werden.
 
 ## Wert
 
-Diese Eigenschaft kann folgende Werte haben:
+Diese Eigenschaft kann die folgenden Werte haben:
 
-- `"srgb"` repräsentiert den [sRGB-Farbraum](https://en.wikipedia.org/wiki/SRGB).
-- `"display-p3"` repräsentiert den [display-p3-Farbraum](https://en.wikipedia.org/wiki/DCI-P3).
+- `"srgb"` repräsentiert den [sRGB Farbraum](https://de.wikipedia.org/wiki/SRGB).
+- `"display-p3"` repräsentiert den [display-p3 Farbraum](https://de.wikipedia.org/wiki/DCI-P3).
 
 ## Beispiele
 
-### Ermitteln des Farbraums von Canvas-Bilddaten
+### Den Farbraum von Canvas-Bilddaten ermitteln
 
-Die Methode [`getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) erlaubt es Ihnen, einen Farbraum explizit anzufordern. Wenn er nicht mit dem Farbraum übereinstimmt, mit dem das Canvas initialisiert wurde, wird eine Konvertierung durchgeführt.
-Verwenden Sie die `colorSpace`-Eigenschaft, um zu wissen, in welchem Farbraum sich Ihr `ImageData`-Objekt befindet.
+Die Methode [`getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) erlaubt Ihnen, explizit einen Farbraum anzufordern. Wenn dieser nicht mit dem Farbraum übereinstimmt, mit dem das Canvas initialisiert wurde, wird eine Konvertierung durchgeführt. Verwenden Sie die `colorSpace`-Eigenschaft, um zu erfahren, in welchem Farbraum sich Ihr `ImageData`-Objekt befindet.
 
 ```js
 const context = canvas.getContext("2d", { colorSpace: "display-p3" });
@@ -42,7 +41,7 @@ console.log(srgbImageData.colorSpace); // "srgb"
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -50,7 +49,7 @@ console.log(srgbImageData.colorSpace); // "srgb"
 
 - [`CanvasRenderingContext2D.createImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/createImageData)
 - [`CanvasRenderingContext2D.getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData)
-- Einstellung des `colorSpace`-Parameters in `canvas.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext#colorspace)
-- Einstellen von WebGL-Farbräumen:
+- [`colorSpace` Einstellung in `canvas.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext#colorspace)
+- Festlegen von WebGL-Farbräumen:
   - [`WebGLRenderingContext.drawingBufferColorSpace`](/de/docs/Web/API/WebGLRenderingContext/drawingBufferColorSpace)
   - [`WebGLRenderingContext.unpackColorSpace`](/de/docs/Web/API/WebGLRenderingContext/unpackColorSpace)

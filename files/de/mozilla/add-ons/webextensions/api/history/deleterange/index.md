@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Entfernt alle Besuche von Seiten, die der Benutzer während des angegebenen Zeitraums gemacht hat. Wenn dadurch alle Besuche zu einer bestimmten Seite entfernt werden, wird die Seite nicht mehr im Browserverlauf angezeigt, und {{WebExtAPIRef("history.onVisitRemoved")}} wird ausgelöst.
+Entfernt alle Besuche von Seiten, die der Benutzer im angegebenen Zeitraum gemacht hat. Wenn dadurch alle Besuche zu einer bestimmten Seite entfernt werden, erscheint die Seite nicht mehr im Browser-Verlauf und {{WebExtAPIRef("history.onVisitRemoved")}} wird dafür ausgelöst.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,16 +23,16 @@ let deletingRange = browser.history.deleteRange(
 
 - `range`
 
-  - : `object`. Spezifikation des Zeitraums, für den Besuche gelöscht werden sollen.
+  - : `object`. Spezifikation des Zeitrahmens, für den Besuche gelöscht werden sollen.
 
     - `startTime`
-      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann als: ein [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date)-Objekt, ein [ISO 8601-Datumsstring](https://www.iso.org/iso-8601-date-and-time-format.html) oder die Anzahl der [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time) dargestellt werden. Gibt die Startzeit für den Zeitraum an.
+      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann dargestellt werden als: ein [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Objekt, ein [ISO 8601 Datum-Zeit-String](https://www.iso.org/iso-8601-date-and-time-format.html) oder die Anzahl der [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time). Gibt die Startzeit für den Zeitraum an.
     - `endTime`
-      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann als: ein [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date)-Objekt, ein [ISO 8601-Datumsstring](https://www.iso.org/iso-8601-date-and-time-format.html) oder die Anzahl der [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time) dargestellt werden. Gibt die Endzeit für den Zeitraum an.
+      - : `number` oder `string` oder `object`. Ein Wert, der ein Datum und eine Uhrzeit angibt. Dies kann dargestellt werden als: ein [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) Objekt, ein [ISO 8601 Datum-Zeit-String](https://www.iso.org/iso-8601-date-and-time-format.html) oder die Anzahl der [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time). Gibt die Endzeit für den Zeitraum an.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) wird ohne Parameter erfüllt, wenn der Zeitraum gelöscht wurde.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Parameter erfüllt wird, wenn der Zeitraum gelöscht wurde.
 
 ## Browser-Kompatibilität
 
@@ -58,7 +58,7 @@ browser.history.deleteRange({
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-deleteRange)-API von Chromium. Diese Dokumentation ist abgeleitet von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-deleteRange) API. Diese Dokumentation stammt aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

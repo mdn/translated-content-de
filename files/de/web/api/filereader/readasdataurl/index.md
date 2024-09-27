@@ -8,15 +8,10 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`readAsDataURL()`** Methode der {{domxref("FileReader")}} Schnittstelle wird verwendet, um die Inhalte des angegebenen
-{{domxref("Blob")}} oder {{domxref("File")}} zu lesen. Wenn der Lesevorgang abgeschlossen ist, wird die
-{{domxref("FileReader.readyState","readyState")}} Eigenschaft `DONE`, und das
-{{domxref("FileReader/loadend_event", "loadend")}} Ereignis wird ausgelöst. Zu diesem Zeitpunkt enthält das
-{{domxref("FileReader.result","result")}} Attribut die Daten als [data: URL](/de/docs/Web/URI/Schemes/data), die die
-Dateidaten als Base64-kodierter String darstellt.
+Die **`readAsDataURL()`** Methode des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces wird verwendet, um den Inhalt des angegebenen [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File) zu lesen. Wenn der Lesevorgang abgeschlossen ist, wird die [`readyState`](/de/docs/Web/API/FileReader/readyState)-Eigenschaft auf `DONE` gesetzt, und das [`loadend`](/de/docs/Web/API/FileReader/loadend_event)-Ereignis wird ausgelöst. Zu diesem Zeitpunkt enthält das [`result`](/de/docs/Web/API/FileReader/result)-Attribut die Daten als [data: URL](/de/docs/Web/URI/Schemes/data), die die Daten der Datei als Base64-codierten String repräsentiert.
 
 > [!NOTE]
-> Das {{domxref("FileReader.result","result")}} des Blobs kann nicht direkt als Base64 dekodiert werden, ohne zuerst die Data-URL-Deklaration vor den Base64-kodierten Daten zu entfernen. Um nur den Base64-kodierten String zu erhalten, entfernen Sie zuerst `data:*/*;base64,` aus dem Ergebnis.
+> Das [`result`](/de/docs/Web/API/FileReader/result) des Blobs kann nicht direkt als Base64 dekodiert werden, ohne zuvor die Data-URL-Deklaration vor den Base64-codierten Daten zu entfernen. Um nur den Base64-codierten String zu erhalten, entfernen Sie zuerst `data:*/*;base64,` aus dem Ergebnis.
 
 ## Syntax
 
@@ -27,7 +22,7 @@ readAsDataURL(blob)
 ### Parameter
 
 - `blob`
-  - : Das {{domxref("Blob")}} oder {{domxref("File")}}, aus dem gelesen werden soll.
+  - : Das [`Blob`](/de/docs/Web/API/Blob) oder die [`File`](/de/docs/Web/API/File), von der gelesen werden soll.
 
 ### Rückgabewert
 
@@ -35,7 +30,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Einzelne Datei lesen
+### Lesen einer einzelnen Datei
 
 #### HTML
 
@@ -55,7 +50,7 @@ function previewFile() {
   reader.addEventListener(
     "load",
     () => {
-      // Bilddatei in Base64-String konvertieren
+      // convert image file to base64 string
       preview.src = reader.result;
     },
     false,
@@ -71,7 +66,7 @@ function previewFile() {
 
 {{EmbedLiveSample("Reading a single file", "100%", 240)}}
 
-### Mehrere Dateien lesen
+### Lesen mehrerer Dateien
 
 #### HTML
 
@@ -88,7 +83,7 @@ function previewFiles() {
   const files = document.querySelector("input[type=file]").files;
 
   function readAndPreview(file) {
-    // Sicherstellen, dass `file.name` unseren Kriterien für Erweiterungen entspricht
+    // Make sure `file.name` matches our extensions criteria
     if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
       const reader = new FileReader();
 
@@ -131,5 +126,5 @@ picker.addEventListener("change", previewFiles);
 
 ## Siehe auch
 
-- {{domxref("FileReader")}}
-- {{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}}
+- [`FileReader`](/de/docs/Web/API/FileReader)
+- [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static)

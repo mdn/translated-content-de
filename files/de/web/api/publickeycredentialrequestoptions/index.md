@@ -7,86 +7,86 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Das **`PublicKeyCredentialRequestOptions`**-Dictionary repräsentiert das Objekt, das als Wert der `publicKey`-Option an {{domxref("CredentialsContainer.get()")}} übergeben wird.
+Das **`PublicKeyCredentialRequestOptions`**-Wörterbuch stellt das Objekt dar, das an [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get) als Wert der `publicKey`-Option übergeben wird.
 
-Es wird verwendet, um ein {{domxref("PublicKeyCredential")}} anzufordern, das von einem {{glossary("authenticator")}} bereitgestellt wird, das die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) unterstützt.
+Es wird verwendet, um ein [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) anzufordern, das von einem [Authenticator](/de/docs/Glossary/authenticator) bereitgestellt wird, der die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) unterstützt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - `allowCredentials` {{optional_inline}}
 
-  - : Ein Array von Objekten, das verwendet wird, um die Liste der akzeptablen Anmeldeinformationen einzuschränken. Ein leeres Array gibt an, dass jede Anmeldeinformation akzeptabel ist.
+  - : Ein Array von Objekten, das dazu verwendet wird, die Liste der akzeptablen Anmeldedaten einzuschränken. Ein leeres Array zeigt an, dass jede Anmeldeinformation akzeptabel ist.
 
     Jedes Objekt im Array enthält die folgenden Eigenschaften:
 
     - `id`
 
-      - : Ein {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}} oder {{jsxref("DataView")}}, das die ID der abzurufenden Public-Key-Anmeldeinformation darstellt. Dieser Wert wird durch die {{domxref("PublicKeyCredential.rawId", "rawId")}}-Eigenschaft des {{domxref("PublicKeyCredential")}}-Objekts widergespiegelt, das durch einen erfolgreichen `get()`-Aufruf zurückgegeben wird.
+      - : Ein {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}} oder {{jsxref("DataView")}}, das die ID des zu beziehenden Public-Key-Credentials darstellt. Dieser Wert wird durch die [`rawId`](/de/docs/Web/API/PublicKeyCredential/rawId)-Eigenschaft des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekts widergespiegelt, das durch einen erfolgreichen `get()`-Aufruf zurückgegeben wird.
 
     - `transports`
 
-      - : Ein Array von Strings, das Hinweise auf die Methoden gibt, die der Client verwenden könnte, um mit dem relevanten Authenticator der abzurufenden Public-Key-Anmeldeinformation zu kommunizieren. Mögliche Transports sind: `"ble"`, `"hybrid"`, `"internal"`, `"nfc"` und `"usb"`.
+      - : Ein Array von Zeichenfolgen, das Hinweise darauf gibt, welche Methoden der Client verwenden könnte, um mit dem relevanten Authenticator des abzurufenden Public-Key-Credentials zu kommunizieren. Mögliche Transports sind: `"ble"`, `"hybrid"`, `"internal"`, `"nfc"` und `"usb"`.
 
         > [!NOTE]
-        > Dieser Wert wird durch den Rückgabewert der {{domxref("AuthenticatorAttestationResponse.getTransports", "PublicKeyCredential.response.getTransports()")}}-Methode des {{domxref("PublicKeyCredential")}}-Objekts widergespiegelt, das durch den `create()`-Aufruf, der ursprünglich die Anmeldeinformation erstellt hat, zurückgegeben wurde.
-        > Zu diesem Zeitpunkt sollte es von der App für die spätere Verwendung gespeichert werden.
+        > Dieser Wert wird durch den Rückgabewert der [`PublicKeyCredential.response.getTransports()`](/de/docs/Web/API/AuthenticatorAttestationResponse/getTransports)-Methode des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekts widergespiegelt, das durch den `create()`-Aufruf zurückgegeben wird, der die Anmeldeinformationen ursprünglich erstellt hat.
+        > An dieser Stelle sollte es von der App für die spätere Verwendung gespeichert werden.
 
     - `type`
 
-      - : Ein String, der den Typ der abzurufenden Public-Key-Anmeldeinformation definiert. Dieser kann derzeit nur einen Wert, `"public-key"`, annehmen, aber in Zukunft können weitere Werte hinzugefügt werden. Dieser Wert wird durch die {{domxref("Credential.type", "type")}}-Eigenschaft des {{domxref("PublicKeyCredential")}}-Objekts widergespiegelt, das durch einen erfolgreichen `get()`-Aufruf zurückgegeben wird.
+      - : Eine Zeichenkette, die den Typ des abzurufenden Public-Key-Credentials definiert. Derzeit kann dieser Wert nur `"public-key"` annehmen, aber möglicherweise werden in Zukunft weitere Werte hinzugefügt. Dieser Wert wird durch die [`type`](/de/docs/Web/API/Credential/type)-Eigenschaft des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekts widergespiegelt, das durch einen erfolgreichen `get()`-Aufruf zurückgegeben wird.
 
     Dieser Wert ist standardmäßig ein leeres Array.
 
 - `challenge`
 
-  - : Ein {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}} oder {{jsxref("DataView")}}, das vom Server der vertrauenden Partei stammt und als [kryptografische Herausforderung](https://de.wikipedia.org/wiki/Challenge-Response-Authentifizierung) verwendet wird. Dieser Wert wird vom Authenticator signiert und die Signatur wird als Teil der {{domxref("AuthenticatorAssertionResponse.signature")}} (verfügbar in der {{domxref("PublicKeyCredential.response", "response")}}-Eigenschaft des {{domxref("PublicKeyCredential")}}-Objekts, das durch einen erfolgreichen `get()`-Aufruf zurückgegeben wird) zurückgesendet.
+  - : Ein {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}} oder {{jsxref("DataView")}}, das vom Server der vertrauenden Partei stammt und als [kryptografische Herausforderung](https://en.wikipedia.org/wiki/Challenge%E2%80%93response_authentication) verwendet wird. Dieser Wert wird vom Authenticator signiert und die Signatur wird als Teil der [`AuthenticatorAssertionResponse.signature`](/de/docs/Web/API/AuthenticatorAssertionResponse/signature) (verfügbar in der [`response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekts, das durch einen erfolgreichen `get()`-Aufruf zurückgegeben wird) zurückgesendet.
 
 - `extensions` {{optional_inline}}
 
-  - : Ein Objekt, das Eigenschaften repräsentiert, die die Eingabewerte für angeforderte Erweiterungen darstellen. Diese Erweiterungen werden verwendet, um zusätzliche Verarbeitung durch den Client oder Authenticator während des Authentifizierungsprozesses zu spezifizieren. Beispiele umfassen den Umgang mit Legacy-FIDO-API-Anmeldeinformationen und die Bewertung von Ausgaben von einer pseudo-zufälligen Funktion (PRF), die mit einer Anmeldeinformation verbunden ist.
+  - : Ein Objekt, das Eigenschaften enthält, die die Eingabewerte für alle angeforderten Erweiterungen darstellen. Diese Erweiterungen werden verwendet, um zusätzliche Verarbeitung durch den Client oder Authenticator während des Authentifizierungsprozesses durchzuführen. Beispiele beinhalten das Umgang mit Legacy-FIDO-API-Anmeldeinformationen und die Auswertung von Ausgaben einer pseudozufälligen Funktion (PRF), die mit einer Anmeldeinformation verbunden ist.
 
-    Erweiterungen sind optional und verschiedene Browser erkennen möglicherweise verschiedene Erweiterungen. Die Verarbeitung von Erweiterungen ist für den Client immer optional: Wenn ein Browser eine bestimmte Erweiterung nicht erkennt, wird sie einfach ignoriert. Informationen zur Verwendung von Erweiterungen und welche von welchen Browsern unterstützt werden, finden Sie unter [Web Authentication extensions](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions).
+    Erweiterungen sind optional und unterschiedliche Browser können unterschiedliche Erweiterungen erkennen. Die Verarbeitung von Erweiterungen ist für den Client immer optional: Wenn ein Browser eine gegebene Erweiterung nicht erkennt, ignoriert er sie einfach. Für Informationen zur Verwendung von Erweiterungen und welche von welchen Browsern unterstützt werden, siehe [Web Authentication-Erweiterungen](/de/docs/Web/API/Web_Authentication_API/WebAuthn_extensions).
 
 - `hints` {{optional_inline}}
 
-  - : Ein Array von Strings, das Hinweise darauf gibt, welche Authentifizierungs-UI der Benutzeragent dem Benutzer bereitstellen sollte.
+  - : Ein Array von Zeichenfolgen, das Hinweise darauf gibt, welche Authentifizierungs-UI der Benutzer-Agent dem Benutzer bereitstellen sollte.
 
     Die Werte können folgende sein:
 
     - `"security-key"`
-      - : Die Authentifizierung erfordert ein separates physisches Gerät, um den Schlüssel bereitzustellen.
+      - : Die Authentifizierung erfordert ein separates, dediziertes physisches Gerät zur Bereitstellung des Schlüssels.
     - `"client-device"`
-      - : Der Benutzer authentifiziert sich mit seinem eigenen Gerät, wie einem Telefon.
+      - : Der Benutzer authentifiziert sich mit seinem eigenen Gerät, wie z. B. einem Telefon.
     - `"hybrid"`
-      - : Die Authentifizierung basiert auf einer Kombination von Autorisierungs-/Authentifizierungsmethoden, die möglicherweise sowohl auf benutzer- als auch serverbasierten Mechanismen beruhen.
+      - : Die Authentifizierung basiert auf einer Kombination von Autorisierungs-/Authentifizierungsmethoden, die potenziell sowohl auf Benutzer- als auch auf Server-Mechanismen basieren.
 
 - `rpId` {{optional_inline}}
 
-  - : Ein String, der den Bezeichner der vertrauenden Partei angibt (zum Beispiel `"login.example.org"`). Aus Sicherheitsgründen:
+  - : Eine Zeichenkette, die den Bezeichner der vertrauenden Partei angibt (zum Beispiel `"login.example.org"`). Aus Sicherheitsgründen:
 
     - Die aufrufende Web-App überprüft, dass `rpId` mit dem Ursprung der vertrauenden Partei übereinstimmt.
-    - Der Authenticator überprüft, dass `rpId` mit dem `rpId` der für die Authentifizierungszeremonie verwendeten Anmeldeinformation übereinstimmt.
+    - Der Authenticator überprüft, dass `rpId` mit dem `rpId` der für die Authentifizierungszeremonie verwendeten Anmeldeinformationen übereinstimmt.
 
-    Dieser Wert ist standardmäßig auf die Domain des aktuellen Ursprungs festgelegt.
+    Dieser Wert ist standardmäßig die Domain des aktuellen Ursprungs.
 
 - `timeout` {{optional_inline}}
 
-  - : Ein numerischer Hinweis in Millisekunden, der die Zeit angibt, die die vertrauende Partei bereit ist zu warten, bis der Abrufvorgang abgeschlossen ist. Dieser Hinweis kann vom Browser überschrieben werden.
+  - : Ein numerischer Hinweis in Millisekunden, der angibt, wie lange die vertrauende Partei bereit ist, auf den Abschluss der Abrufoperation zu warten. Dieser Hinweis kann vom Browser überschrieben werden.
 
 - `userVerification` {{optional_inline}}
 
-  - : Ein String, der die Anforderungen der vertrauenden Partei an die Benutzerverifizierung des Authentifizierungsprozesses spezifiziert. Diese Verifizierung wird vom Authenticator initiiert, der den Benutzer auffordert, einen verfügbaren Faktor anzugeben (zum Beispiel eine PIN oder einen biometrischen Input).
+  - : Eine Zeichenkette, die die Anforderungen der vertrauenden Partei für die Benutzerüberprüfung des Authentifizierungsprozesses spezifiziert. Diese Überprüfung wird vom Authenticator initiiert, der den Benutzer auffordert, einen verfügbaren Faktor bereitzustellen (z. B. eine PIN oder eine biometrische Eingabe).
 
     Der Wert kann einer der folgenden sein:
 
     - `"required"`
-      - : Die vertrauende Partei verlangt eine Benutzerverifizierung, und der Vorgang wird fehlschlagen, wenn sie nicht erfolgt.
+      - : Die vertrauende Partei erfordert eine Benutzerverifizierung, und der Vorgang schlägt fehl, wenn sie nicht erfolgt.
     - `"preferred"`
-      - : Die vertrauende Partei bevorzugt eine Benutzerverifizierung, wenn möglich, aber der Vorgang wird nicht fehlschlagen, wenn sie nicht erfolgt.
+      - : Die vertrauende Partei bevorzugt die Benutzerverifizierung, wenn möglich, aber der Vorgang schlägt nicht fehl, wenn sie nicht erfolgt.
     - `"discouraged"`
-      - : Die vertrauende Partei wünscht keine Benutzerverifizierung, um die Benutzerinteraktion so reibungslos wie möglich zu gestalten.
+      - : Die vertrauende Partei möchte keine Benutzerverifizierung, um die Benutzerinteraktion so reibungslos wie möglich zu gestalten.
 
-    Dieser Wert ist standardmäßig auf `"preferred"` gesetzt.
+    Dieser Wert ist standardmäßig `"preferred"`.
 
 ## Spezifikationen
 

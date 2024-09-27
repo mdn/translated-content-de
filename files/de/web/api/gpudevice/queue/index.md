@@ -1,22 +1,22 @@
 ---
-title: "GPUDevice: Warteschlangen-Eigenschaft"
-short-title: Warteschlange
+title: "GPUDevice: queue-Eigenschaft"
+short-title: queue
 slug: Web/API/GPUDevice/queue
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`queue`** schreibgeschützte Eigenschaft der {{domxref("GPUDevice")}}-Schnittstelle gibt die primäre {{domxref("GPUQueue")}} des Geräts zurück.
+Die schreibgeschützte Eigenschaft **`queue`** des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces gibt die primäre [`GPUQueue`](/de/docs/Web/API/GPUQueue) für das Gerät zurück.
 
 ## Wert
 
-Eine {{domxref("GPUQueue")}}-Objektinstanz.
+Eine Instanz des [`GPUQueue`](/de/docs/Web/API/GPUQueue)-Objekts.
 
 ## Beispiele
 
-Grundlegender Zugriff auf {{domxref("GPUQueue")}}:
+Grundlegender Zugriff auf die [`GPUQueue`](/de/docs/Web/API/GPUQueue):
 
 ```js
 async function init() {
@@ -43,7 +43,7 @@ async function init() {
 ```
 
 > [!NOTE]
-> Für weitere Beispiele zur Warteschlange, siehe die {{domxref("GPUQueue")}}-Referenzseiten.
+> Weitere Queue-Beispiele finden Sie auf den Referenzseiten der [`GPUQueue`](/de/docs/Web/API/GPUQueue).
 
 ## Spezifikationen
 
@@ -55,4 +55,4 @@ async function init() {
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

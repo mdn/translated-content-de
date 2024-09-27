@@ -8,25 +8,24 @@ l10n:
 
 {{SecureContext_Header}}{{APIRef("")}}
 
-Die schreibgeschützte Eigenschaft **`windowControlsOverlay`** des {{domxref("Navigator")}}
-Interfaces gibt das {{domxref("WindowControlsOverlay")}}-Interface zurück, das Informationen über die Geometrie der Titelleiste in Desktop-Progressive-Web-Apps bereitstellt, die die [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) verwenden.
+Die **`windowControlsOverlay`**-schreibgeschützte Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle liefert die [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Schnittstelle, die Informationen über die Geometrie der Titelleiste in Desktop-Progressive Web Apps bereitstellt, die die [Window Controls Overlay API](/de/docs/Web/API/Window_Controls_Overlay_API) nutzen.
 
-Progressive Web Apps, die auf Desktop-Betriebssystemen installiert sind, können das Window Controls Overlay-Feature aktivieren, indem sie den Wert `window-controls-overlay` im [`display_override`](/de/docs/Web/Manifest/display_override)-Element des Web-App-Manifests verwenden.
+Progressive Web Apps, die auf Desktop-Betriebssystemen installiert sind, können die Window Controls Overlay-Funktion durch Verwendung des Werts `window-controls-overlay` im `display_override`-Mitglied des Web-App-Manifests aktivieren.
 
-Dadurch wird die Standardtitelleiste des Fensters ausgeblendet und die App erhält Zugriff auf den gesamten Bereich des App-Fensters.
+Dadurch wird die standardmäßige Fenstertitelleiste ausgeblendet und die App erhält Zugriff auf den gesamten Bereich des App-Fensters.
 
 ## Wert
 
-Das {{domxref("WindowControlsOverlay")}}-Interface.
+Die [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Schnittstelle.
 
 ## Beispiele
 
 ```js
 if ("windowControlsOverlay" in navigator) {
   const rect = navigator.windowControlsOverlay.getTitlebarAreaRect();
-  // Machen Sie etwas mit dem Rechteck der Titelleiste.
+  // Do something with the title bar area rectangle.
 } else {
-  // Das Window Controls Overlay-Feature ist nicht verfügbar.
+  // The Window Controls Overlay feature is not available.
 }
 ```
 
@@ -34,6 +33,6 @@ if ("windowControlsOverlay" in navigator) {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

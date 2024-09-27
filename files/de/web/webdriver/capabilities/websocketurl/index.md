@@ -7,13 +7,13 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Capabilities")}}
 
-Wenn die `webSocketUrl` Fähigkeit auf `true` gesetzt ist, wird im Browser ein WebSocket-Server gestartet, der bidirektionale Kommunikation mit dem [WebDriver BiDi-Protokoll](https://w3c.github.io/webdriver-bidi/) unterstützt. Wenn die [Neue Sitzung](/de/docs/Web/WebDriver/Commands/NewSession) Anfrage die `webSocketUrl` Fähigkeit auf `true` gesetzt hat und die Sitzung erfolgreich startet, wird der Wert des `capabilities`-Feldes in der Antwort eine `webSocketUrl` Eigenschaft enthalten, die auf die URL des WebSocket-Servers gesetzt ist.
+Mit der Fähigkeit `webSocketUrl` auf `true` wird ein WebSocket-Server im Browser gestartet, der durch das Verwenden des [WebDriver BiDi-Protokolls](https://w3c.github.io/webdriver-bidi/) bidirektionale Kommunikation unterstützt. Wenn die [New Session](/de/docs/Web/WebDriver/Commands/NewSession)-Anfrage die Fähigkeit `webSocketUrl` auf `true` gesetzt hat und die Sitzung erfolgreich gestartet wird, hat das Feld `capabilities` in der Antwort eine `webSocketUrl`-Eigenschaft, die auf die URL des WebSocket-Servers gesetzt ist.
 
 ## Beispiel
 
-Anforderen der WebSocket URL durch Setzen der `webSocketUrl` Fähigkeit auf `true`:
+Anfordern der WebSocket-URL, indem die Fähigkeit `webSocketUrl` auf `true` gesetzt wird:
 
-Anforderung:
+Anfrage:
 
 ```http
 POST /session HTTP/1.1
@@ -29,5 +29,5 @@ Antwort:
 ## Siehe auch
 
 - [Liste der WebDriver-Fähigkeiten](/de/docs/Web/WebDriver/Capabilities)
-- [Neue Sitzung](/de/docs/Web/WebDriver/Commands/NewSession) Befehl
-- [Herstellung einer WebDriver BiDi-Verbindung](https://w3c.github.io/webdriver-bidi/#establishing)
+- [New Session](/de/docs/Web/WebDriver/Commands/NewSession)-Befehl
+- [Herstellen einer WebDriver BiDi-Verbindung](https://w3c.github.io/webdriver-bidi/#establishing)

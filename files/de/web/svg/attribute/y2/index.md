@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`y2`**-Attribut wird verwendet, um die zweite y-Koordinate für das Zeichnen eines SVG-Elements anzugeben, das mehr als eine Koordinate benötigt. Elemente, die nur eine Koordinate benötigen, verwenden stattdessen das {{SVGAttr("y")}}-Attribut.
+Das **`y2`**-Attribut wird verwendet, um die zweite y-Koordinate für das Zeichnen eines SVG-Elements anzugeben, das mehr als eine Koordinate erfordert. Elemente, die nur eine Koordinate benötigen, verwenden stattdessen das {{SVGAttr("y")}}-Attribut.
 
 ## Elemente
 
@@ -72,7 +72,7 @@ svg {
 
 ### `<linearGradient>`
 
-Für {{SVGElement('linearGradient')}} definiert `y2` die y-Koordinate des Endpunkts des _Gradientenvektors_, der verwendet wird, um die Werte der Farbabstufungen zuzuordnen. Das genaue Verhalten dieses Attributs wird durch die {{SVGAttr('gradientUnits')}}-Attribute beeinflusst.
+Für {{SVGElement('linearGradient')}} definiert `y2` die y-Koordinate des Endpunkts des _Gradientenvektors_, der verwendet wird, um die Werte der Gradientenstopps zuzuordnen. Das genaue Verhalten dieses Attributs wird durch die {{SVGAttr('gradientUnits')}}-Attribute beeinflusst.
 
 <table class="properties">
   <tbody>

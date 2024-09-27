@@ -1,5 +1,5 @@
 ---
-title: "LayoutShiftAttribution: Eigenschaft currentRect"
+title: "LayoutShiftAttribution: currentRect-Eigenschaft"
 short-title: currentRect
 slug: Web/API/LayoutShiftAttribution/currentRect
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`currentRect`** schreibgeschützte Eigenschaft des {{domxref("LayoutShiftAttribution")}}-Interfaces gibt ein {{domxref("DOMRectReadOnly")}}-Objekt zurück, das die Position des Elements nach der Verschiebung darstellt.
+Die **`currentRect`**-Schreibgeschützte Eigenschaft des [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution)-Interfaces gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt zurück, das die Position des Elements nach der Verschiebung darstellt.
 
 ## Wert
 
-Ein {{domxref("DOMRectReadOnly")}}-Objekt.
+Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel druckt `currentRect` des ersten Elements in {{domxref("LayoutShift.sources")}} in die Konsole.
+Das folgende Beispiel druckt das `currentRect` des ersten Elements in [`LayoutShift.sources`](/de/docs/Web/API/LayoutShift/sources) in die Konsole.
 
 ```js
 new PerformanceObserver((list) => {

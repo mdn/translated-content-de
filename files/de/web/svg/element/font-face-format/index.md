@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Das **`<font-face-format>`** [SVG](/de/docs/Web/SVG)-Element beschreibt den Typ der Schriftart, die durch das übergeordnete {{SVGElement("font-face-uri")}} referenziert wird.
+Das **`<font-face-format>`** [SVG](/de/docs/Web/SVG)-Element beschreibt den Fonttyp, der durch seinen übergeordneten {{SVGElement("font-face-uri")}} referenziert wird.
 
-## Verwendungskontext
+## Verwendungszusammenhang
 
 {{svginfo}}
 
@@ -19,7 +19,7 @@ Das **`<font-face-format>`** [SVG](/de/docs/Web/SVG)-Element beschreibt den Typ 
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFontFaceFormatElement")}}-Schnittstelle.
+Dieses Element implementiert die [`SVGFontFaceFormatElement`](/de/docs/Web/API/SVGFontFaceFormatElement)-Schnittstelle.
 
 ## Spezifikationen
 
@@ -32,4 +32,4 @@ Dieses Element implementiert die {{domxref("SVGFontFaceFormatElement")}}-Schnitt
 ## Siehe auch
 
 - {{SVGElement("font-face-uri")}}
-- [SVG-Tutorial: SVG-Schriftarten](/de/docs/Web/SVG/Tutorial/SVG_fonts)
+- [SVG Leitfaden: SVG Fonts](/de/docs/Web/SVG/Tutorial/SVG_fonts)

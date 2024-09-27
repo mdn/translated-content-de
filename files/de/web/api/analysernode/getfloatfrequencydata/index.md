@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`getFloatFrequencyData()`**-Methode der {{domxref("AnalyserNode")}}-Schnittstelle kopiert die aktuelle Frequenzdaten in ein übergebenes {{jsxref("Float32Array")}}-Array. Jeder Array-Wert ist ein _Sample_, die Amplitude des Signals zu einem bestimmten Zeitpunkt.
+Die **`getFloatFrequencyData()`**-Methode der [`AnalyserNode`](/de/docs/Web/API/AnalyserNode)-Schnittstelle kopiert die aktuellen Frequenzdaten in ein übergebenes {{jsxref("Float32Array")}}-Array. Jeder Array-Wert ist eine _Probe_, die den Amplitudenwert des Signals zu einem bestimmten Zeitpunkt darstellt.
 
-Jedes Element im Array steht für den Dezibel-Wert einer bestimmten Frequenz. Die Frequenzen sind linear von 0 bis zur Hälfte der Abtastrate verteilt. Beispielsweise repräsentiert bei einer Abtastrate von `48000` Hz das letzte Element des Arrays den Dezibel-Wert für `24000` Hz.
+Jedes Element im Array stellt den Dezibelwert für eine bestimmte Frequenz dar. Die Frequenzen sind linear von 0 bis zur Hälfte der Abtastrate verteilt. Zum Beispiel repräsentiert bei einer Abtastrate von `48000` Hz das letzte Element des Arrays den Dezibelwert für `24000` Hz.
 
-Falls Sie eine höhere Leistung benötigen und Genauigkeit weniger wichtig ist, können Sie stattdessen {{domxref("AnalyserNode.getByteFrequencyData()")}} verwenden, das mit einem {{jsxref("Uint8Array")}} arbeitet.
+Wenn Sie eine höhere Leistung benötigen und die Präzision unwichtig ist, können Sie stattdessen [`AnalyserNode.getByteFrequencyData()`](/de/docs/Web/API/AnalyserNode/getByteFrequencyData) verwenden, das auf einem {{jsxref("Uint8Array")}} arbeitet.
 
 ## Syntax
 
@@ -23,29 +23,29 @@ getFloatFrequencyData(array)
 ### Parameter
 
 - `array`
-  - : Das {{jsxref("Float32Array")}}, in das die Frequenzbereichsdaten kopiert werden. Für jede stille Probe lautet der Wert `-Infinity`.
-    Wenn das Array weniger Elemente als {{domxref("AnalyserNode.frequencyBinCount")}} hat, werden überschüssige Elemente verworfen. Wenn es mehr Elemente als nötig hat, werden überschüssige Elemente ignoriert.
+  - : Das {{jsxref("Float32Array")}}, in das die Frequenzbereichsdaten kopiert werden. Bei einer stillen Probe ist der Wert `-Infinity`.
+    Wenn das Array weniger Elemente als die [`AnalyserNode.frequencyBinCount`](/de/docs/Web/API/AnalyserNode/frequencyBinCount) hat, werden überschüssige Elemente verworfen. Hat es mehr Elemente als erforderlich, werden überschüssige Elemente ignoriert.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ```js
 const audioCtx = new AudioContext();
 const analyser = audioCtx.createAnalyser();
-// Float32Array sollte die gleiche Länge wie frequencyBinCount haben
+// Float32Array should be the same length as the frequencyBinCount
 const myDataArray = new Float32Array(analyser.frequencyBinCount);
-// Füllen Sie das Float32Array mit Daten aus getFloatFrequencyData()
+// fill the Float32Array with data returned from getFloatFrequencyData()
 analyser.getFloatFrequencyData(myDataArray);
 ```
 
 ### Zeichnen eines Spektrums
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines {{domxref("AudioContext")}}, um einen {{domxref("MediaElementAudioSourceNode")}} mit einem `AnalyserNode` zu verbinden. Während die Audio abgespielt wird, sammeln wir kontinuierlich die Frequenzdaten mit {{domxref("window.requestAnimationFrame()","requestAnimationFrame()")}} und zeichnen ein "Winamp-Balkendiagramm" auf ein {{htmlelement("canvas")}}-Element.
+Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode) mit einem `AnalyserNode` zu verbinden. Während die Audioausgabe läuft, sammeln wir die Frequenzdaten wiederholt mit [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) und zeichnen ein "Winamp-Balkendiagramm" auf ein {{htmlelement("canvas")}}-Element.
 
-Für vollständigere angewandte Beispiele/Informationen, sehen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
+Für vollständigere angewandte Beispiele/Informationen werfen Sie einen Blick auf unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
 
 ```html
 <!doctype html>
@@ -53,25 +53,25 @@ Für vollständigere angewandte Beispiele/Informationen, sehen Sie sich unser [V
   <script>
     const audioCtx = new AudioContext();
 
-    //Audioquelle erzeugen
-    //Hier verwenden wir eine Audiodatei, aber dies könnte auch z.B. ein Mikrofoneingang sein
+    //Create audio source
+    //Here, we use an audio file, but this could also be e.g. microphone input
     const audioEle = new Audio();
-    audioEle.src = "my-audio.mp3"; //Dateiname hier einsetzen
+    audioEle.src = "my-audio.mp3"; //insert file name here
     audioEle.autoplay = true;
     audioEle.preload = "auto";
     const audioSourceNode = audioCtx.createMediaElementSource(audioEle);
 
-    //Analyser-Node erzeugen
+    //Create analyser node
     const analyserNode = audioCtx.createAnalyser();
     analyserNode.fftSize = 256;
     const bufferLength = analyserNode.frequencyBinCount;
     const dataArray = new Float32Array(bufferLength);
 
-    //Audio-Netzwerk aufbauen
+    //Set up audio node network
     audioSourceNode.connect(analyserNode);
     analyserNode.connect(audioCtx.destination);
 
-    //2D-Canvas erzeugen
+    //Create 2D canvas
     const canvas = document.createElement("canvas");
     canvas.style.position = "absolute";
     canvas.style.top = "0";
@@ -83,17 +83,17 @@ Für vollständigere angewandte Beispiele/Informationen, sehen Sie sich unser [V
     canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
 
     function draw() {
-      //Nächste Neuzeichnung planen
+      //Schedule next redraw
       requestAnimationFrame(draw);
 
-      //Spektrumdaten abrufen
+      //Get spectrum data
       analyserNode.getFloatFrequencyData(dataArray);
 
-      //Schwarzen Hintergrund zeichnen
+      //Draw black background
       canvasCtx.fillStyle = "rgb(0 0 0)";
       canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
 
-      //Spektrum zeichnen
+      //Draw spectrum
       const barWidth = (canvas.width / bufferLength) * 2.5;
       let posX = 0;
       for (let i = 0; i < bufferLength; i++) {

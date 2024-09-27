@@ -18,17 +18,17 @@ Werte dieses Typs sind Objekte.
 - {{WebExtAPIRef("events.Event.addListener","events.Event.addListener()")}}
   - : Registriert einen Ereignis-Listener für ein Ereignis.
 - {{WebExtAPIRef("events.Event.removeListener","events.Event.removeListener()")}}
-  - : Entfernt die Registrierung eines Ereignis-Listeners von einem Ereignis.
+  - : Deregistriert einen Ereignis-Listener von einem Ereignis.
 - {{WebExtAPIRef("events.Event.hasListener","events.Event.hasListener()")}}
-  - : Prüft den Registrierungsstatus eines Listeners.
+  - : Überprüft den Registrierungsstatus eines Listeners.
 - {{WebExtAPIRef("events.Event.hasListeners","events.Event.hasListeners()")}}
-  - : Prüft, ob irgendwelche Listener für das Ereignis registriert sind.
+  - : Überprüft, ob irgendwelche Listener für das Ereignis registriert sind.
 - {{WebExtAPIRef("events.Event.addRules","events.Event.addRules()")}}
-  - : Registriert Regeln zur Handhabung von Ereignissen.
+  - : Registriert Regeln zur Behandlung von Ereignissen.
 - {{WebExtAPIRef("events.Event.getRules","events.Event.getRules()")}}
-  - : Gibt derzeit registrierte Regeln zurück.
+  - : Gibt die derzeit registrierten Regeln zurück.
 - {{WebExtAPIRef("events.Event.removeRules","events.Event.removeRules()")}}
-  - : Hebt die Registrierung derzeit registrierter Regeln auf.
+  - : Entfernt derzeit registrierte Regeln.
 
 ## Browser-Kompatibilität
 
@@ -37,7 +37,7 @@ Werte dieses Typs sind Objekte.
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#type-Event) API. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
+> Diese API basiert auf der API [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#type-Event) von Chromium. Diese Dokumentation stammt von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -46,25 +46,31 @@ Werte dieses Typs sind Objekte.
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Redistributions von Quellcode müssen den obigen Copyright-Hinweis,
+// diese Liste von Bedingungen und den folgenden Haftungsausschluss
+// enthalten.
+//    * Redistributions in binärer Form müssen den obigen
+// Copyright-Hinweis, diese Liste von Bedingungen und den folgenden
+// Haftungsausschluss in der Dokumentation und/oder anderen Materialien
+// enthalten, die mit der Verteilung bereitgestellt werden.
+//    * Weder der Name Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die von dieser
+// Software abgeleitet sind, zu unterstützen oder zu fördern, ohne
+// vorherige schriftliche Genehmigung.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND MITWIRKENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE
+// GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE
+// IMPLIZIERTEN GARANTIEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN
+// BESTIMMTEN ZWECK, SIND ABGELEHNT. IN KEINEM FALL SIND DIE
+// COPYRIGHT-INHABER ODER MITWIRKENDEN HAFTBAR FÜR JEDWEDEN DIREKTEN,
+// INDIREKTEN, ZUFÄLLIGEN, BESONDEREN, EXEMPLARISCHEN ODER FOLGESCHÄDEN
+// (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, BESCHAFFUNG VON
+// ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATEN ODER
+// GEWINNE; ODER BETRIEBSUNTERBRECHUNG) WIE AUCH IMMER VERURSACHT UND
+// UNTER JEGLICHER HAFTUNGSTHEORIE, SEI ES IN VERTRAG, STRIKTER HAFTUNG
+// ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER
+// ANDERWEITIG), DIE IN IRGENDEINER WEISE AUS DER NUTZUNG DIESER SOFTWARE
+// ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN
+// WURDE.
 -->

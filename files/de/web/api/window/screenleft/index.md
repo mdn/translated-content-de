@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef}}
 
-Die **`Window.screenLeft`** schreibgeschützte Eigenschaft gibt die horizontale Distanz, in CSS-Pixeln, von der linken Grenze des Browser-Viewports des Nutzers bis zur linken Seite des Bildschirms zurück.
+Die **`Window.screenLeft`** schreibgeschützte Eigenschaft gibt die horizontale Entfernung in CSS-Pixeln von der linken Kante des Browser-Viewports des Benutzers bis zur linken Seite des Bildschirms zurück.
 
 > **Note:** `screenLeft` ist ein Alias der älteren
-> {{domxref("Window.screenX")}}-Eigenschaft. `screenLeft` wurde ursprünglich nur in IE unterstützt, aber aufgrund der Beliebtheit überall eingeführt.
+> [`Window.screenX`](/de/docs/Web/API/Window/screenX)-Eigenschaft. `screenLeft` wurde ursprünglich nur in IE unterstützt, aber aufgrund seiner Beliebtheit überall eingeführt.
 
 ## Wert
 
-Eine Zahl, die der Anzahl der CSS-Pixel vom linken Rand des Browser-Viewports bis zum linken Rand des Bildschirms entspricht.
+Eine Zahl, die der Anzahl der CSS-Pixel von der linken Kante des Browser-Viewports zur linken Kante des Bildschirms entspricht.
 
 ## Beispiele
 
 In unserem [screenleft-screentop](https://mdn.github.io/dom-examples/screenleft-screentop/)
-Beispiel sehen Sie eine Leinwand, auf die ein Kreis gezeichnet wurde. In diesem Beispiel verwenden wir `screenLeft`/`screenTop` sowie
-{{domxref("Window.requestAnimationFrame()")}}, um den Kreis ständig an derselben physischen Position auf dem Bildschirm neu zu zeichnen, selbst wenn die Fensterposition verschoben wird.
+Beispiel sehen Sie eine Leinwand, auf die ein Kreis gezeichnet wurde. In diesem Beispiel verwenden wir `screenLeft`/`screenTop` zusammen mit
+[`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), um den Kreis ständig an derselben physischen Position auf dem Bildschirm neu zu zeichnen, selbst wenn die Fensterposition verschoben wird.
 
 ```js
 initialLeft = window.screenLeft + canvasElem.offsetLeft;
@@ -56,8 +56,8 @@ function positionElem() {
 window.requestAnimationFrame(positionElem);
 ```
 
-Auch im Code fügen wir ein Snippet ein, das überprüft, ob `screenLeft` unterstützt wird, und, falls nicht, `screenLeft`/`screenTop` mithilfe von
-{{domxref("Window.screenX")}}/{{domxref("Window.screenY")}} ergänzt.
+Auch im Code fügen wir ein Snippet ein, das erkennt, ob `screenLeft` unterstützt wird, und falls nicht, `screenLeft`/`screenTop` mithilfe von
+[`Window.screenX`](/de/docs/Web/API/Window/screenX)/[`Window.screenY`](/de/docs/Web/API/Window/screenY) auffüllt.
 
 ```js
 if (!window.screenLeft) {
@@ -76,5 +76,5 @@ if (!window.screenLeft) {
 
 ## Siehe auch
 
-- {{domxref("window.screenTop")}}
-- {{domxref("Window.screenX")}}
+- [`window.screenTop`](/de/docs/Web/API/Window/screenTop)
+- [`Window.screenX`](/de/docs/Web/API/Window/screenX)

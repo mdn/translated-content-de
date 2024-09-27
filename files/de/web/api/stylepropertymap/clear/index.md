@@ -1,5 +1,5 @@
 ---
-title: "StylePropertyMap: clear()-Methode"
+title: "StylePropertyMap: clear() Methode"
 short-title: clear()
 slug: Web/API/StylePropertyMap/clear
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`clear()`**-Methode der {{domxref("StylePropertyMap")}}-Schnittstelle entfernt alle Deklarationen im `StylePropertyMap`.
+Die **`clear()`** Methode des [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap) Interface entfernt alle Deklarationen im `StylePropertyMap`.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

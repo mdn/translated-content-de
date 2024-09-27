@@ -8,21 +8,20 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`baseURI`**-Eigenschaft der {{domxref("Node")}}-Schnittstelle gibt die absolute Basis-URL des Dokuments zurück, das den Knoten enthält.
+Die schreibgeschützte **`baseURI`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt die absolute Basis-URL des Dokuments zurück, das den Knoten enthält.
 
-Die Basis-URL wird verwendet, um relative URLs aufzulösen, wenn der Browser eine absolute URL benötigt. Dies ist beispielsweise der Fall, wenn der `src`-Attribut eines HTML {{HTMLElement("img")}}-Elements oder die `xlink:href` {{deprecated_inline}} oder `href`-Attribute in SVG verarbeitet werden.
+Die Basis-URL wird verwendet, um relative URLs in absolute URLs aufzulösen, wenn der Browser diese benötigt, z.B. beim Verarbeiten des `src`-Attributs des HTML-{{HTMLElement("img")}}-Elements oder der `xlink:href` {{deprecated_inline}} oder `href`-Attribute in SVG.
 
-Obwohl diese Eigenschaft schreibgeschützt ist, wird ihr Wert bei jedem Zugriff auf die Eigenschaft durch einen Algorithmus bestimmt und kann sich ändern, wenn sich die Bedingungen geändert haben.
+Obwohl diese Eigenschaft schreibgeschützt ist, wird ihr Wert jedes Mal, wenn die Eigenschaft abgerufen wird, durch einen Algorithmus bestimmt und kann sich ändern, wenn sich die Bedingungen geändert haben.
 
 Die Basis-URL wird wie folgt bestimmt:
 
-1. Standardmäßig ist die Basis-URL der Speicherort des Dokuments (wie durch {{domxref("window.location")}} bestimmt).
-2. Handelt es sich um ein HTML-Dokument und es gibt ein {{HTMLElement("Base")}}-Element im Dokument,
-   wird stattdessen der `href`-Wert des _ersten_ `Base`-Elements mit einem solchen Attribut verwendet.
+1. Standardmäßig ist die Basis-URL der Speicherort des Dokuments (wie durch [`window.location`](/de/docs/Web/API/Window/location) bestimmt).
+2. Handelt es sich um ein HTML-Dokument und befindet sich ein {{HTMLElement("Base")}}-Element im Dokument, wird stattdessen der `href`-Wert des _ersten_ `Base`-Elements mit einem solchen Attribut verwendet.
 
 ## Wert
 
-Ein String, der die Basis-URL des {{domxref("Node")}} darstellt.
+Ein String, der die Basis-URL des [`Node`](/de/docs/Web/API/Node) darstellt.
 
 ## Beispiele
 
@@ -57,7 +56,7 @@ output.value = output.baseURI;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`mid`**-Eigenschaft der {{domxref("RTCRtpTransceiver")}}-Schnittstelle gibt die ausgehandelte Medien-ID (`mid`) an, auf die sich die lokalen und entfernten Peers geeinigt haben, um die Zuordnung von Sender und Empfänger des Streams eindeutig zu identifizieren.
+Die schreibgeschützte Eigenschaft **`mid`** des [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Interfaces gibt die vereinbarte Medien-ID (`mid`) an, die die lokalen und entfernten Peers zur eindeutigen Identifizierung der Verknüpfung von Sender und Empfänger des Streams ausgehandelt haben.
 
 ## Wert
 
-Ein String, der die Zuordnung von Quelle und Ziel des Transceiver-Streams eindeutig identifiziert. Sein Wert wird von der Medien-ID der SDP m-line übernommen. Dieser Wert ist `null`, wenn die Verhandlung noch nicht abgeschlossen ist.
+Ein String, der die Verknüpfung von Quelle und Ziel des Streams des Transceivers eindeutig identifiziert. Sein Wert stammt aus der Medien-ID der SDP m-line. Dieser Wert ist `null`, wenn die Verhandlung nicht abgeschlossen ist.
 
 ## Spezifikationen
 
@@ -24,4 +24,4 @@ Ein String, der die Zuordnung von Quelle und Ziel des Transceiver-Streams eindeu
 
 ## Siehe auch
 
-- [Einführung in das Real-time Transport Protocol (RTP)](/de/docs/Web/API/WebRTC_API/Intro_to_RTP)
+- [Einführung in das Echtzeit-Transportprotokoll (RTP)](/de/docs/Web/API/WebRTC_API/Intro_to_RTP)

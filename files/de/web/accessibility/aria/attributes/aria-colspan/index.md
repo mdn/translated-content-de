@@ -7,22 +7,22 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das Attribut `aria-colspan` definiert die Anzahl der Spalten, die von einer Zelle oder Grid-Zelle innerhalb einer [`table`](/de/docs/Web/Accessibility/ARIA/Roles/table_role), eines [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role) oder eines [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role) überspannt werden.
+Das `aria-colspan` Attribut definiert die Anzahl der Spalten, die von einer Zelle oder `gridcell` in einer [`table`](/de/docs/Web/Accessibility/ARIA/Roles/table_role), [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role) überspannt werden.
 
 ## Beschreibung
 
-Gedacht für [`cells`](/de/docs/Web/Accessibility/ARIA/Roles/cell_role) und [`gridcells`](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role), die nicht in einer nativen HTML {{HTMLElement('table')}} enthalten sind. Der Wert der `aria-colspan` Eigenschaft legt die Anzahl der Spalten fest, die von einer einzelnen Zelle in einer ARIA [`table`](/de/docs/Web/Accessibility/ARIA/Roles/table_role), einem [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role) oder einem [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role) überspannt werden.
+Vorgesehen für [`cell`s](/de/docs/Web/Accessibility/ARIA/Roles/cell_role) und [`gridcell`s](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role), die nicht in einem nativen HTML {{HTMLElement('table')}} enthalten sind, definiert der Wert der `aria-colspan` Eigenschaft die Anzahl der Spalten, die von einer einzelnen Zelle in einer ARIA [`table`](/de/docs/Web/Accessibility/ARIA/Roles/table_role), [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role) überspannt werden.
 
-In HTML haben {{HTMLElement('th')}} und {{HTMLElement('td')}} Elemente das Attribut [`colspan`](/de/docs/Web/HTML/Element/td#attributes). Wenn Sie die semantische {{HTMLElement('table')}} verwenden, nutzen Sie das native `colspan` Attribut wie vorgesehen. Dieses ARIA-Attribut ist für Zellen und Grid-Zellen gedacht, die nicht in einer nativen Tabelle enthalten sind, und wird ignoriert, wenn es auf einer Zelle in einer {{HTMLElement('table')}} verwendet wird.
+In HTML haben {{HTMLElement('th')}} und {{HTMLElement('td')}} Elemente das [`colspan`](/de/docs/Web/HTML/Element/td#attributes) Attribut. Bei der Verwendung des semantischen {{HTMLElement('table')}} sollten Sie das native `colspan` Attribut so verwenden, wie es vorgesehen ist. Dieses ARIA-Attribut ist für Zellen und `gridcell`s gedacht, die nicht in einer nativen Tabelle enthalten sind, und wird ignoriert, wenn es auf eine Zelle in einem {{HTMLElement('table')}} verwendet wird.
 
 > [!NOTE]
-> Die erste Regel für den Einsatz von ARIA lautet: Wenn Sie ein natives Feature mit der benötigten Semantik und verhalten nutzen können, anstatt ein Element umzufunktionieren und **ein** ARIA-Rolle, -Status oder -Eigenschaft hinzuzufügen, um es zugänglich zu machen, dann tun Sie dies. Verwenden Sie HTML {{HTMLelement('table')}}-Elemente, einschließlich {{HTMLelement('td')}} und {{HTMLelement('th')}} mit dem `colspan` Attribut, anstelle von nicht-semantischen Elementen mit ARIA-Rollen und -Attributen, wann immer möglich.
+> Die erste Regel der ARIA-Nutzung ist, dass wenn Sie eine native Funktion mit den erforderlichen Semantiken und Verhaltensweisen verwenden können, anstelle ein Element umzufunktionieren und **ein** ARIA Rolle, Zustand oder Eigenschaft hinzuzufügen, um es zugänglich zu machen, tun Sie dies. Verwenden Sie HTML {{HTMLelement('table')}} Elemente, einschließlich {{HTMLelement('td')}} und {{HTMLelement('th')}} mit dem `colspan` Attribut anstelle von nicht-semantischen Elementen mit ARIA Rollen und Attributen wann immer möglich.
 
-Der Wert von `aria-colspan` sollte eine positive ganze Zahl sein. Der Standard- oder angenommene Wert einer Zellenspanne beträgt 1. Stellen Sie sicher, dass der enthaltene Wert nicht dazu führt, dass die Zelle oder Grid-Zelle die nächste Zelle oder Grid-Zelle in derselben Zeile überlappt und nicht dazu führt, dass die Zelle außerhalb der enthaltenden Tabelle, des Gitters oder des Baumgitters gespannt wird.
+Der Wert von `aria-colspan` sollte eine positive ganze Zahl sein. Der Standardwert oder angenommene Wert des Zellenspans ist 1. Stellen Sie sicher, dass der angegebene Wert nicht dazu führt, dass die Zelle oder `gridcell` die nächste Zelle oder `gridcell` in derselben Zeile überlappt und nicht das Überspannen der Zelle außerhalb der enthaltenen Tabelle, des Gitters oder `treegrid` verursacht.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt einen Ausschnitt seiner eines Bowling-Turnier-Liga-Punktzettels. Jedes Spiel umfasst 10 Frames, und jeder Frame umfasst 3 Punkte: zwei Würfe und das aktuelle Gesamtergebnis. Der 10. (und letzte) Frame in jedem Spiel umfasst 4 Spalten, falls jemand alle Strikes erzielt.
+Das folgende Beispiel ist ein Teil eines Punktespreadsheets einer Bowlingturnier-Liga. Jedes Spiel erstreckt sich über 10 Frames und jedes Frame erstreckt sich über 3 Wertungen: zwei Würfe und die aktuelle Gesamtpunktzahl. Der 10. (und letzte) Frame in jedem Spiel erstreckt sich über 4 Spalten, falls jemand nur Strikes wirft.
 
 ```html
 <div role="grid" aria-rowcount="27">
@@ -30,10 +30,9 @@ Das folgende Beispiel zeigt einen Ausschnitt seiner eines Bowling-Turnier-Liga-P
   <div role="rowgroup">
     <div role="row" aria-rowindex="1">
       <!--
-            aria-rowspan und aria-colspan stellen
-            unterstützenden Technologien die korrekten Datenzellen-Kopfzeilen-
-            informationen zur Verfügung, wenn Kopfzeilen-Zellen mehr als eine
-            Zeile oder Spalte umfassen.
+            aria-rowspan and aria-colspan provide
+            assistive technologies with the correct data cell header information
+            when header cells span more than one row or column.
           -->
 
       <span role="columnheader" aria-rowspan="2">Team</span>
@@ -136,17 +135,17 @@ Das folgende Beispiel zeigt einen Ausschnitt seiner eines Bowling-Turnier-Liga-P
 </div>
 ```
 
-Hätten wir eine {{HTMLElement('table')}} und semantische Tabellenelemente verwendet, wäre unser Markup weniger ausführlich und von Haus aus zugänglicher gewesen.
+Wenn wir ein {{HTMLElement('table')}} und semantische Tabellenelemente verwendet hätten, wäre unser Markup weniger ausführlich und standardmäßig zugänglicher gewesen.
 
 ## Werte
 
 - `<integer>`
-  - : Eine ganze Zahl größer oder gleich dem Standardwert von 1, die die Anzahl der Spalten definiert, die von der Zelle überspannt werden. Der Wert muss kleiner sein als der, der dazu führen würde, dass eine Zelle die nächste Zelle in derselben Zeile überlappt.
+  - : Eine ganze Zahl, die größer oder gleich dem Standardwert von 1 ist und die Anzahl der Spalten definiert, die von der Zelle überspannt werden. Der Wert muss kleiner sein, als was dazu führen würde, dass eine Zelle die nächste Zelle in derselben Zeile überlappt.
 
 ## Zugehörige Schnittstellen
 
-- {{domxref("Element.ariaColSpan")}}
-  - : Die [`ariaColSpan`](/de/docs/Web/API/Element/ariaColSpan) Eigenschaft, Teil der Schnittstelle jedes Elements, spiegelt den Wert des `aria-colspan` Attributs wider, das die Anzahl der Spalten definiert, die von einer Zelle oder Grid-Zelle innerhalb einer Tabelle, eines Gitters oder eines Baumgitters überspannt werden.
+- [`Element.ariaColSpan`](/de/docs/Web/API/Element/ariaColSpan)
+  - : Die [`ariaColSpan`](/de/docs/Web/API/Element/ariaColSpan) Eigenschaft, die Teil der Schnittstelle jedes Elements ist, spiegelt den Wert des `aria-colspan` Attributs wider, welches die Anzahl der Spalten definiert, die von einer Zelle oder einer `gridcell` innerhalb einer Tabelle, eines Grids oder `treegrid` überspannt werden.
 
 ## Zugehörige Rollen
 
@@ -154,7 +153,7 @@ Verwendet in Rollen:
 
 - [`cell`](/de/docs/Web/Accessibility/ARIA/Roles/cell_role)
 
-Vererbt in Rollen:
+Erbt in Rollen:
 
 - [`columnheader`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role)
 - [`rowheader`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role)

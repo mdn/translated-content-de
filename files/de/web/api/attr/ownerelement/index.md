@@ -1,5 +1,5 @@
 ---
-title: "Attr: ownerElement-Eigenschaft"
+title: "Attr: ownerElement Eigenschaft"
 short-title: ownerElement
 slug: Web/API/Attr/ownerElement
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`ownerElement`**-Eigenschaft des {{domxref("Attr")}}-Interfaces gibt das {{domxref("Element")}} zurück, zu dem das Attribut gehört.
+Die schreibgeschützte **`ownerElement`**-Eigenschaft des [`Attr`](/de/docs/Web/API/Attr)-Interfaces gibt das [`Element`](/de/docs/Web/API/Element) zurück, zu dem das Attribut gehört.
 
 ## Wert
 
-Das {{domxref("Element")}}, zu dem das Attribut gehört, oder `null`, wenn das Attribut keinem Element zugeordnet ist.
+Das [`Element`](/de/docs/Web/API/Element), zu dem das Attribut gehört, oder `null`, wenn das Attribut nicht mit einem Element verknüpft ist.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt den qualifizierten Namen des Elements der beiden ersten Elemente an, wenn wir auf die entsprechende Schaltfläche klicken.
+Das folgende Beispiel zeigt den qualifizierten Namen des Elements der ersten beiden Elemente an, wenn Sie auf den entsprechenden Button klicken.
 
 ### HTML
 

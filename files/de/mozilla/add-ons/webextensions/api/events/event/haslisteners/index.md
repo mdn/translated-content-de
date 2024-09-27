@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Prüft, ob irgendwelche Listener für das Ereignis registriert sind.
+Prüft, ob Listener für das Ereignis registriert sind.
 
 ## Syntax
 
@@ -21,14 +21,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein boolescher Wert: `true`, wenn irgendwelche Listener für das Ereignis registriert sind. Andernfalls `false`.
+Ein boolescher Wert: `true`, wenn Listener für das Ereignis registriert sind. Andernfalls `false`.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-hasListeners) API von Chromium. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-hasListeners) API von Chromium. Diese Dokumentation ist aus [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -10,11 +10,11 @@ l10n:
 
 Das **`resize`**-Ereignis wird ausgelöst, wenn das schwebende Video-Fenster in der Größe verändert wurde.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergereicht.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling-Ereignisse aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("resize", (event) => {});
@@ -24,25 +24,25 @@ onresize = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("PictureInPictureEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("PictureInPictureEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle {{domxref("Event")}} verfügbar._
+_Neben den unten aufgeführten Eigenschaften stehen auch Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), zur Verfügung._
 
-- {{domxref("PictureInPictureEvent.pictureInPictureWindow")}}
-  - : Gibt das {{domxref("PictureInPictureWindow")}} zurück, das in der Größe verändert wurde.
+- [`PictureInPictureEvent.pictureInPictureWindow`](/de/docs/Web/API/PictureInPictureEvent/pictureInPictureWindow)
+  - : Gibt das [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow) zurück, das in der Größe verändert wurde.
 
 ## Beispiele
 
-### Fenstergrößen-Protokollierer
+### Fenstergrößenprotokollierer
 
 ```html
-<p>Ändern Sie die Größe des schwebenden Video-Fensters, um das <code>resize</code>-Ereignis auszulösen.</p>
-<p>Fensterhöhe: <span id="height"></span></p>
-<p>Fensterbreite: <span id="width"></span></p>
+<p>Resize the floating video window to fire the <code>resize</code> event.</p>
+<p>Window height: <span id="height"></span></p>
+<p>Window width: <span id="width"></span></p>
 <video id="video" src="" muted autoplay></video>
 ```
 
@@ -58,7 +58,7 @@ function resize(evt) {
 
 video.requestPictureInPicture().then((pictureInPictureWindow) => {
   pictureInPictureWindow.onresize = resize;
-  // oder
+  // or
   pictureInPictureWindow.addEventListener("resize", resize);
 });
 ```

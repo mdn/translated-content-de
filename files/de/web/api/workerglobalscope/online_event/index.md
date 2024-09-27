@@ -1,5 +1,5 @@
 ---
-title: "WorkerGlobalScope: online-Ereignis"
+title: "WorkerGlobalScope: online-Event"
 short-title: online
 slug: Web/API/WorkerGlobalScope/online_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Das **`online`**-Ereignis des {{domxref("WorkerGlobalScope")}} wird ausgelöst, wenn das Gerät wieder eine Verbindung zum Internet herstellt.
+Das **`online`**-Ereignis des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) wird ausgelöst, wenn das Gerät wieder mit dem Internet verbunden ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("online", (event) => {});
@@ -22,11 +22,11 @@ ononline = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Der folgende Codeausschnitt zeigt einen `onoffline`-Handler, der innerhalb eines Workers gesetzt wird:
+Der folgende Codeausschnitt zeigt einen `onoffline`-Handler, der innerhalb eines Workers gesetzt wurde:
 
 ```js
 self.ononline = () => {
@@ -34,7 +34,7 @@ self.ononline = () => {
 };
 ```
 
-Der gleiche Codeausschnitt, aber mit Verwendung von `addEventListener()`:
+Dasselbe Snippet, aber mit `addEventListener()`:
 
 ```js
 self.addEventListener("online", () => {
@@ -52,4 +52,4 @@ self.addEventListener("online", () => {
 
 ## Siehe auch
 
-Das {{domxref("WorkerGlobalScope")}}-Interface, zu dem es gehört.
+Das [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interface, zu dem es gehört.

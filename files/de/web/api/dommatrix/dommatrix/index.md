@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Geometry Interfaces")}}
 
 Der **`DOMMatrix`** Konstruktor erstellt ein neues
-{{domxref("DOMMatrix")}} Objekt, das 4x4 Matrizen darstellt, geeignet für 2D- und 3D-Operationen.
+[`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Objekt, das 4x4 Matrizen darstellt, geeignet für 2D- und 3D-Operationen.
 
 ## Syntax
 
@@ -22,17 +22,17 @@ new DOMMatrix(init)
 
 - `init` {{optional_inline}}
 
-  - : Ein Array von Zahlen, das die Matrix spezifiziert, die Sie erstellen möchten, oder ein CSS-Transformations-String.
+  - : Ein Array von Zahlen, das die Matrix spezifiziert, die Sie erstellen möchten, oder ein CSS-Transform-String.
 
-    Falls ein Array von Zahlen übergeben wird, hängt das Verhalten von der Länge des Arrays ab:
+    Falls ein Zahlen-Array übergeben wird, hängt das Verhalten von der Länge des Arrays ab:
 
-    - Bei einem Array mit 6 Elementen in der Form `[a, b, c, d, e, f]` wird eine 2D-Matrix erstellt, die mit den angegebenen Komponenten initialisiert wird.
-    - Bei einem Array mit 16 Elementen (im Spalten-Major-Order) in der Form `[m11, m12, m13, …, m42, m43, m44]` wird eine 3D-Matrix erstellt, die mit den angegebenen Komponenten initialisiert wird.
+    - für ein 6-Elemente-Array mit Komponenten in der Form `[a, b, c, d, e, f]` wird eine 2D-Matrix erstellt, initialisiert mit den bereitgestellten Komponenten.
+    - für ein 16-Elemente-Array mit Komponenten (in Spalten-Major-Order) in der Form `[m11, m12, m13, …, m42, m43, m44]` wird eine 3D-Matrix erstellt, initialisiert mit den bereitgestellten Komponenten.
 
 ## Beispiele
 
-Dieses Beispiel erstellt eine DOMMatrix, um sie als Argument für den Aufruf von
-{{domxref("DOMPointReadOnly.matrixTransform()")}} zu verwenden.
+Dieses Beispiel erstellt eine DOMMatrix, die als Argument für den Aufruf von
+[`DOMPointReadOnly.matrixTransform()`](/de/docs/Web/API/DOMPointReadOnly/matrixTransform) verwendet werden soll.
 
 ```js
 const point = new DOMPoint(5, 4);

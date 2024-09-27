@@ -7,20 +7,20 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der **`Attribution-Reporting-Eligible`** Anforderungsheader zeigt an, dass die entsprechende Antwort berechtigt ist, eine Attributionsquelle oder einen Auslöser zu registrieren.
+Der **`Attribution-Reporting-Eligible`** Anforderungsheader gibt an, dass die entsprechende Antwort berechtigt ist, eine Attributionsquelle oder einen Auslöser zu registrieren.
 
-Dieser Header wird niemals manuell gesetzt, sondern vom Browser als Antwort auf verschiedene HTML-Element- oder JavaScript-Anforderungseinstellungen gesendet. Je nach den in dem `Attribution-Reporting-Eligible`-Wert spezifizierten erlaubten Registrierungen wird erwartet, dass der Server mit einem {{httpheader("Attribution-Reporting-Register-Source")}} oder {{httpheader("Attribution-Reporting-Register-Trigger")}} Header antwortet, um die Registrierung einer Attributionsquelle oder eines Auslösers abzuschließen.
+Dieser Header wird niemals manuell gesetzt und stattdessen vom Browser als Antwort auf verschiedene HTML-Element- oder JavaScript-Anforderungseinstellungen gesendet. Abhängig von den erlaubten Registrierungen, die im Wert `Attribution-Reporting-Eligible` angegeben sind, wird erwartet, dass der Server mit einem {{httpheader("Attribution-Reporting-Register-Source")}} oder {{httpheader("Attribution-Reporting-Register-Trigger")}} Header antwortet, um die Registrierung einer Attributionsquelle oder eines Auslösers abzuschließen.
 
-Siehe die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) für weitere Details.
+Weitere Details finden Sie in der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request header")}}</td>
+      <td>[Anforderungsheader](/de/docs/Glossary/Request_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -32,12 +32,12 @@ Siehe die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API
 Attribution-Reporting-Eligible: <allowed-registrations>
 ```
 
-## Richtlinien
+## Direktiven
 
 - `<allowed-registrations>`
   - : Ein strukturiertes Header-Wörterbuch, das die in der entsprechenden Antwort erlaubten Registrierungen darstellt. Mögliche Schlüssel sind:
     - `event-source`
-      - : Eine [ereignisbasiertes Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#event-based_attribution_sources) kann registriert werden.
+      - : Eine [ereignisbasierte Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#event-based_attribution_sources) kann registriert werden.
     - `navigation-source`
       - : Eine [navigationsbasierte Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#navigation-based_attribution_sources) kann registriert werden.
     - `trigger`

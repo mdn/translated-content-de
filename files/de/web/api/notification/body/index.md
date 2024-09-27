@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`body`** schreibgeschützte Eigenschaft der
-{{domxref("Notification")}} Schnittstelle gibt den Textkörper der Benachrichtigung an, wie
-im `body`-Parameter des
-{{domxref("Notification.Notification","Notification()")}} Konstruktors angegeben.
+Die schreibgeschützte Eigenschaft **`body`** der Schnittstelle [`Notification`](/de/docs/Web/API/Notification) gibt den Textkörper der Benachrichtigung an, wie in der `body`-Option des Konstruktors [`Notification()`](/de/docs/Web/API/Notification/Notification) angegeben.
 
 ## Wert
 

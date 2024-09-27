@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}{{deprecated_header}}{{non-standard_header}}
 
-Die readonly **`timestamp`**-Eigenschaft der {{domxref("RTCEncodedVideoFrame")}}-Schnittstelle gibt die Zeit an, zu der das Frame-Sampling begonnen wurde.
+Die readonly **`timestamp`**-Eigenschaft des [`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame)-Interfaces gibt den Zeitpunkt an, zu dem die Rahmenabtastung begonnen hat.
 
 ## Wert
 
-Ein positiver Integer, der den Sampling-Zeitpunkt des ersten Bytes in diesem Frame in Mikrosekunden enthält.
+Ein positiver Integer, der den Abtastzeitpunkt des ersten Bytes in diesem Rahmen in Mikrosekunden enthält.
 
 ## Spezifikationen
 

@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Sprachen mit **dynamischer Typisierung** sind solche (wie {{glossary("JavaScript")}}), bei denen der Interpreter zur Laufzeit einem {{glossary("variable","Variablen")}} einen {{glossary("type","Typen")}} basierend auf dem {{glossary("value","Wert")}} der Variablen zu diesem Zeitpunkt zuweist.
+**Dynamisch typisierte Sprachen** sind solche (wie [JavaScript](/de/docs/Glossary/JavaScript)), bei denen der Interpreter [Variablen](/de/docs/Glossary/variable) zur Laufzeit basierend auf dem [Wert](/de/docs/Glossary/value) der Variablen zu diesem Zeitpunkt einen [Typ](/de/docs/Glossary/type) zuweist.
 
 ## Siehe auch
 
-- [JavaScript-Datentypen und Datenstrukturen](/de/docs/Web/JavaScript/Data_structures)
+- [JavaScript Datentypen und Datenstrukturen](/de/docs/Web/JavaScript/Data_structures)
 - [Type system](https://en.wikipedia.org/wiki/Type_system#DYNAMIC) auf Wikipedia

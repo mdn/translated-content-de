@@ -7,11 +7,11 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das Schlüsselwort **`preconnect`** für das [`rel`](/de/docs/Web/HTML/Element/link#rel)-Attribut des {{HTMLElement("link")}}-Elements ist ein Hinweis für Browser, dass der Benutzer wahrscheinlich Ressourcen vom Ursprung der Zielressource benötigt. Daher kann der Browser die Benutzererfahrung wahrscheinlich verbessern, indem er proaktiv eine Verbindung zu diesem Ursprung herstellt. Vorabverbindungen beschleunigen zukünftige Ladevorgänge von einem bestimmten Ursprung, indem sie teilweise oder vollständig den Handshake (DNS+TCP für HTTP und DNS+TCP+TLS für HTTPS-Ursprünge) vorab ausführen.
+Das **`preconnect`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Element/link#rel)-Attribut des {{HTMLElement("link")}}-Elements ist ein Hinweis für Browser, dass der Benutzer wahrscheinlich Ressourcen vom Ursprung der Zielressource benötigt. Daher kann der Browser die Benutzererfahrung wahrscheinlich verbessern, indem er proaktiv eine Verbindung zu diesem Ursprung herstellt. Preconnect beschleunigt zukünftige Ladungen von einem gegebenen Ursprung, indem es einen Teil oder das gesamte Handshake-Verfahren (DNS+TCP für HTTP und DNS+TCP+TLS für HTTPS-Ursprünge) vorzeitig durchführt.
 
-Ein `<link rel="preconnect">` bietet einen Vorteil für jede zukünftige Cross-Origin-HTTP-Anfrage, Navigation oder Unterressource. Es hat keinen Nutzen für same-origin-Anfragen, da die Verbindung bereits geöffnet ist.
+`<link rel="preconnect">` bietet einen Vorteil für alle zukünftigen Cross-Origin HTTP-Anfragen, Navigationen oder Unterressourcen. Es bringt keinen Vorteil bei gleichen Ursprunganfragen, da die Verbindung bereits geöffnet ist.
 
-Wenn eine Seite Verbindungen zu vielen Drittanbietern herstellen muss, kann es kontraproduktiv sein, sie alle vorab zu verbinden. Der `<link rel="preconnect">`-Hinweis ist am besten für nur die kritischsten Verbindungen geeignet. Für die anderen verwenden Sie einfach [`<link rel="dns-prefetch">`](/de/docs/Web/HTML/Attributes/rel/dns-prefetch), um Zeit bei dem ersten Schritt zu sparen – dem DNS-Lookup.
+Wenn eine Seite Verbindungen zu vielen Drittanbieter-Domains herstellen muss, kann das Preconnecten aller Verbindungen kontraproduktiv sein. Der `<link rel="preconnect">`-Hinweis ist am besten nur für die kritischsten Verbindungen zu verwenden. Für die anderen nutzen Sie einfach [`<link rel="dns-prefetch">`](/de/docs/Web/HTML/Attributes/rel/dns-prefetch), um Zeit beim ersten Schritt — dem DNS-Lookup — zu sparen.
 
 ## Beispiele
 
@@ -19,7 +19,7 @@ Wenn eine Seite Verbindungen zu vielen Drittanbietern herstellen muss, kann es k
 <link rel="preconnect" href="https://example.com" />
 ```
 
-Sie können Preconnect auch als HTTP-[Link](/de/docs/Web/HTTP/Headers/Link)-Header implementieren, zum Beispiel:
+Sie können Preconnect auch als HTTP [Link](/de/docs/Web/HTTP/Headers/Link)-Header implementieren, zum Beispiel:
 
 ```http
 Link: <https://example.com>; rel="preconnect"
@@ -35,4 +35,4 @@ Link: <https://example.com>; rel="preconnect"
 
 ## Siehe auch
 
-- [Spekulatives Laden](/de/docs/Web/Performance/Speculative_loading) für einen Vergleich von `<link rel="preconnect">` und anderen ähnlichen Leistungsverbesserungsfunktionen.
+- [Spekulatives Laden](/de/docs/Web/Performance/Speculative_loading) für einen Vergleich von `<link rel="preconnect">` und anderen ähnlichen Leistungsverbesserungsmerkmalen.

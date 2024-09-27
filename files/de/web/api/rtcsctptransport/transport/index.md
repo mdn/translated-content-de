@@ -1,5 +1,5 @@
 ---
-title: "RTCSctpTransport: transport Eigenschaft"
+title: "RTCSctpTransport: transport-Eigenschaft"
 short-title: transport
 slug: Web/API/RTCSctpTransport/transport
 l10n:
@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`transport`** der {{DOMxRef("RTCSctpTransport")}}-Schnittstelle gibt ein {{DOMxRef("RTCDtlsTransport")}}-Objekt zurück, das den für die Übertragung und den Empfang von Datenpaketen verwendeten {{Glossary("DTLS")}}-Transport darstellt.
+Die **`transport`**-Eigenschaft des [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Interfaces gibt ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Objekt zurück, das den [DTLS](/de/docs/Glossary/DTLS)-Transport darstellt, der für die Übertragung und den Empfang von Datenpaketen verwendet wird.
 
 ## Wert
 
-Ein {{DOMxRef("RTCDtlsTransport")}}-Objekt, das den für die Übertragung und den Empfang von Datenpaketen verwendeten {{Glossary("DTLS")}}-Transport darstellt.
+Ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Objekt, das den [DTLS](/de/docs/Glossary/DTLS)-Transport darstellt, der für die Übertragung und den Empfang von Datenpaketen verwendet wird.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{DOMxRef("RTCSctpTransport")}}
+- [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)

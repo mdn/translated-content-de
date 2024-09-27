@@ -8,7 +8,12 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`replace()`** Methode der {{DOMXref("Location")}} Schnittstelle ersetzt die aktuelle Ressource mit derjenigen an der angegebenen URL. Der Unterschied zur {{domxref("Location.assign","assign()")}} Methode besteht darin, dass nach der Verwendung von `replace()` die aktuelle Seite nicht in der Sitzungs-{{domxref("History")}} gespeichert wird, was bedeutet, dass der Benutzer die _Zurück_-Taste nicht verwenden kann, um zu ihr zu navigieren. Nicht zu verwechseln mit der {{jsxref("String")}} Methode {{jsxref("String.prototype.replace()")}}.
+Die **`replace()`**-Methode des [`Location`](/de/docs/Web/API/Location)
+Interfaces ersetzt die aktuelle Ressource mit der Ressource an der angegebenen URL. Der Unterschied
+zur [`assign()`](/de/docs/Web/API/Location/assign)-Methode besteht darin, dass nach der Verwendung von
+`replace()` die aktuelle Seite nicht in der Sitzungs-`History` gespeichert wird,
+was bedeutet, dass der Benutzer nicht die _Zurück_-Schaltfläche verwenden kann, um zu dieser zurückzukehren.
+Nicht zu verwechseln mit der {{jsxref("String")}} Methode {{jsxref("String.prototype.replace()")}}.
 
 ## Syntax
 
@@ -23,21 +28,21 @@ replace(url)
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Browser drosseln Navigationsversuche und könnten diesen Fehler auslösen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig aufgerufen wird.
-- `SyntaxError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der übergebene `url` Parameter keine gültige URL ist.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Browser beschränken Navigationsaufrufe und können diesen Fehler werfen, eine Warnung erzeugen oder den Aufruf ignorieren, wenn er zu häufig aufgerufen wird.
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der übergebene `url`-Parameter keine gültige URL ist.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ```js
-// Navigiere zum Artikel Location.reload, indem diese Seite ersetzt wird
+// Navigate to the Location.reload article by replacing this page
 window.location.replace(
-  "https://developer.mozilla.org/de/docs/Web/API/Location.reload",
+  "https://developer.mozilla.org/en-US/docs/Web/API/Location.reload",
 );
 ```
 
@@ -51,6 +56,6 @@ window.location.replace(
 
 ## Siehe auch
 
-- Die {{domxref("Location")}} Schnittstelle, zu der sie gehört.
-- Ähnliche Methoden: {{domxref("Location.assign()")}} und
-  {{domxref("Location.reload()")}}.
+- Das [`Location`](/de/docs/Web/API/Location) Interface, zu dem es gehört.
+- Ähnliche Methoden: [`Location.assign()`](/de/docs/Web/API/Location/assign) und
+  [`Location.reload()`](/de/docs/Web/API/Location/reload).

@@ -7,14 +7,14 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt ein Array von [Window](/de/docs/Web/API/Window)-Objekten für jede der Seiten zurück, die innerhalb der aktuellen Erweiterung ausgeführt werden. Dies umfasst beispielsweise:
+Gibt ein Array der [Window](/de/docs/Web/API/Window)-Objekte für jede der Seiten zurück, die im aktuellen Add-on ausgeführt werden. Dies umfasst zum Beispiel:
 
-- die Hintergrundseite, falls definiert
-- alle Popup-Seiten, falls definiert und geladen
-- alle Optionsseiten, falls definiert und geladen
-- alle Browser-Tabs, die Inhalte der Erweiterung hosten
+- die Hintergrundseite, wenn eine definiert ist
+- alle Popup-Seiten, wenn definiert und geladen
+- alle Optionsseiten, wenn definiert und geladen
+- alle Browser-Tabs, die Inhalte des Add-ons hosten
 
-In Firefox, wenn diese Methode von einer Seite aufgerufen wird, die Teil eines privaten Browsing-Fensters ist, wie zum Beispiel eine Seitenleiste in einem privaten Fenster oder ein Popup, das von einem privaten Fenster geöffnet wurde, wird der Rückgabewert nicht die Hintergrundseite der Erweiterung enthalten.
+In Firefox wird der Rückgabewert dieser Methode, wenn sie von einer Seite aus aufgerufen wird, die Teil eines privaten Fensters ist, wie etwa einer Seitenleiste in einem privaten Fenster oder einem Popup, das aus einem privaten Fenster geöffnet wurde, die Hintergrundseite des Add-ons nicht einschließen.
 
 ## Syntax
 
@@ -28,12 +28,12 @@ let windows = browser.extension.getViews(
 
 - `fetchProperties` {{optional_inline}}
 
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt mit folgenden Eigenschaften:
 
     - `type` {{optional_inline}}
-      - : `string`. Ein {{WebExtAPIRef('extension.ViewType')}} zur Angabe des Typs der anzuzeigenden Ansicht. Wenn weggelassen, gibt diese Funktion alle Ansichten zurück.
+      - : `string`. Ein {{WebExtAPIRef('extension.ViewType')}} zur Angabe des Typs der anzufordernden Ansicht. Wird weggelassen, gibt diese Funktion alle Ansichten zurück.
     - `windowId` {{optional_inline}}
-      - : `integer`. Das Fenster, auf das die Suche eingeschränkt werden soll. Wenn weggelassen, gibt diese Funktion alle Ansichten zurück. In Firefox Version 92 und früher werden Seitenleistenansichten nicht abgeglichen und daher nicht zurückgegeben.
+      - : `integer`. Das Fenster, auf das sich die Suche beschränken soll. Wird weggelassen, gibt diese Funktion alle Ansichten zurück. In Firefox Version 92 und früher werden Seitenleistenansichten nicht abgeglichen und daher nicht zurückgegeben.
 
 ### Rückgabewert
 
@@ -45,7 +45,7 @@ let windows = browser.extension.getViews(
 
 ## Beispiele
 
-Holen Sie alle Fenster, die zu dieser Erweiterung gehören, und protokollieren Sie ihre URLs:
+Alle Fenster gehören zu diesem Add-on abrufen und ihre URLs protokollieren:
 
 ```js
 const windows = browser.extension.getViews();
@@ -55,13 +55,13 @@ for (const extensionWindow of windows) {
 }
 ```
 
-Holen Sie nur Fenster in Browser-Tabs, die Inhalte der Erweiterung hosten:
+Nur Fenster in Browser-Tabs, die Inhalte des Add-ons hosten, abrufen:
 
 ```js
 const windows = browser.extension.getViews({ type: "tab" });
 ```
 
-Holen Sie nur Fenster in Popups:
+Nur Fenster in Popups abrufen:
 
 ```js
 const windows = browser.extension.getViews({ type: "popup" });
@@ -70,7 +70,7 @@ const windows = browser.extension.getViews({ type: "popup" });
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getViews) API von Chromium. Diese Dokumentation stammt aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getViews). Diese Dokumentation stammt aus der Datei [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

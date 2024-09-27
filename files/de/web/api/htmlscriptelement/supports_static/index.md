@@ -1,5 +1,5 @@
 ---
-title: "HTMLScriptElement: supports()-Methode"
+title: "HTMLScriptElement: supports() statische Methode"
 short-title: supports()
 slug: Web/API/HTMLScriptElement/supports_static
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`supports()`** statische Methode des {{domxref("HTMLScriptElement")}} Interfaces bietet eine einfache und konsistente Möglichkeit, um festzustellen, welche Arten von Skripten vom Benutzeragenten unterstützt werden.
+Die **`supports()`** statische Methode der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle bietet eine einfache und konsistente Methode zur Feature-Erkennung, welche Arten von Skripten von der Benutzerumgebung unterstützt werden.
 
-Es wird erwartet, dass die Methode `true` für klassische und Modul-Skripte zurückgibt, die von den meisten modernen Browsern unterstützt werden.
+Es wird erwartet, dass die Methode `true` für klassische und Modulscripte zurückgibt, die von den meisten modernen Browsern unterstützt werden.
 
 ## Syntax
 
@@ -22,19 +22,20 @@ HTMLScriptElement.supports(type)
 
 - `type`
 
-  - : Ein Zeichenfolgenliteral, das den Skripttyp angibt, für den die Unterstützung überprüft werden soll. Die unterstützten Werte sind groß-/kleinschreibungssensitiv und umfassen:
+  - : Ein String-Literal, das den Skripttyp angibt, für den die Unterstützung überprüft werden soll.
+    Unterstützte Werte sind groß- und kleinschreibungssensitiv und umfassen:
 
     - `"classic"`
-      - : Testen, ob _klassische Skripte_ unterstützt werden.
-        "Klassische" Skripte sind die normalen/traditionellen JavaScript-Dateien, die Modulscripten vorausgehen.
+      - : Testet, ob _klassische Skripte_ unterstützt werden.
+        "Klassische" Skripte sind die normalen/traditionellen JavaScript-Dateien, die Modulscripten vorausgingen.
     - `"module"`
-      - : Testen, ob [Modul-Skripte](/de/docs/Web/JavaScript/Guide/Modules) unterstützt werden.
+      - : Testet, ob [Modulscripte](/de/docs/Web/JavaScript/Guide/Modules) unterstützt werden.
     - `"importmap"`
-      - : Testen, ob [Import Maps](/de/docs/Web/HTML/Element/script/type/importmap) unterstützt werden.
+      - : Testet, ob [Import Maps](/de/docs/Web/HTML/Element/script/type/importmap) unterstützt werden.
     - `"speculationrules"`
-      - : Testen, ob [Spekulationsregeln](/de/docs/Web/API/Speculation_Rules_API) unterstützt und aktiviert sind.
+      - : Testet, ob [Spekulationsregeln](/de/docs/Web/API/Speculation_Rules_API) unterstützt und aktiviert sind.
 
-    Jeder andere Wert wird dazu führen, dass die Methode `false` zurückgibt.
+    Jeder andere Wert führt dazu, dass die Methode `false` zurückgibt.
 
 ### Rückgabewert
 
@@ -42,7 +43,7 @@ Gibt `true` zurück, wenn der angegebene Skripttyp unterstützt wird, und `false
 
 ## Beispiele
 
-Der untenstehende Code zeigt, wie man überprüft, ob `HTMLScriptElement.supports()` definiert ist, und wenn ja, wie man es verwendet, um zu testen, ob bestimmte Skripttypen unterstützt werden.
+Der untenstehende Code zeigt, wie man überprüft, ob `HTMLScriptElement.supports()` definiert ist, und falls ja, wie man es verwendet, um zu testen, ob bestimmte Arten von Skripten unterstützt werden.
 
 ```js
 const log = document.getElementById("log");
@@ -55,12 +56,12 @@ function checkSupport(type) {
 if (typeof HTMLScriptElement.supports === "undefined") {
   log.textContent = "HTMLScriptElement.supports() method is not supported";
 } else {
-  // Überprüfen, ob verschiedene Skripttypen unterstützt werden
+  // Check if various script types are supported
   checkSupport("module");
   checkSupport("classic");
   checkSupport("importmap");
   checkSupport("speculationrules");
-  // Jeder andere Wert wird dazu führen, dass die Methode false zurückgibt
+  // Any other value will cause the method to return false
   checkSupport("anything else");
 }
 ```
@@ -81,7 +82,7 @@ if (typeof HTMLScriptElement.supports === "undefined") {
 
 ## Siehe auch
 
-- {{domxref("HTMLScriptElement")}}
+- [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)
 - {{HTMLElement("script")}}
 - [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules)
-- {{domxref("Worker/Worker","Worker")}} Konstruktor
+- [`Worker`](/de/docs/Web/API/Worker/Worker)-Konstruktor

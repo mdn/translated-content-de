@@ -1,5 +1,5 @@
 ---
-title: "ValidityState: Eigenschaft rangeUnderflow"
+title: "ValidityState: rangeUnderflow-Eigenschaft"
 short-title: rangeUnderflow
 slug: Web/API/ValidityState/rangeUnderflow
 l10n:
@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`rangeUnderflow`**-Eigenschaft der [`ValidityState`](/de/docs/Web/API/ValidityState)-Schnittstelle zeigt an, ob der Wert eines {{HTMLElement("input")}}, nachdem er vom Benutzer bearbeitet wurde, nicht den durch das [`min`](/de/docs/Web/HTML/Attributes/min)-Attribut des Elements gesetzten Beschränkungen entspricht.
+Die schreibgeschützte **`rangeUnderflow`**-Eigenschaft der [`ValidityState`](/de/docs/Web/API/ValidityState)-Schnittstelle gibt an, ob der Wert eines {{HTMLElement("input")}}, nachdem er vom Benutzer bearbeitet wurde, nicht den durch das [`min`](/de/docs/Web/HTML/Attributes/min)-Attribut festgelegten Einschränkungen entspricht.
 
-Wenn das Feld numerischer Natur ist, einschließlich der Typen {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}} und ein `min`-Wert festgelegt ist, wird die `rangeUnderflow`-Eigenschaft wahr sein, wenn der Wert nicht den durch den [`min`](/de/docs/Web/HTML/Attributes/step)-Wert gesetzten Beschränkungen entspricht.
+Wenn das Feld numerischer Natur ist, einschließlich der Typen {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}} und ein `min`-Wert gesetzt ist, wird die `rangeUnderflow`-Eigenschaft auf true gesetzt, wenn der Wert nicht den durch den [`min`](/de/docs/Web/HTML/Attributes/step)-Wert festgelegten Einschränkungen entspricht.
 
 ## Wert
 
-Ein Boolean, der `true` ist, wenn der `ValidityState` nicht den Beschränkungen entspricht.
+Ein boolescher Wert, der `true` ist, wenn der `ValidityState` nicht den Einschränkungen entspricht.
 
 ## Beispiele
 
-### Eingabe mit numerischem Underflow
+### Eingabe mit numerischem Unterlauf
 
 Das folgende Beispiel überprüft die Gültigkeit eines [numerischen Eingabeelements](/de/docs/Web/HTML/Element/input/number).
-Eine Beschränkung wurde mit dem [`min`-Attribut](/de/docs/Web/HTML/Element/input/number#min) hinzugefügt, das einen Mindestwert von `18` für die Eingabe festlegt.
-Wenn der Benutzer eine Zahl kleiner als 18 eingibt, schlägt die Beschränkungsprüfung fehl, und die Stile, die auf die CSS-Pseudoklassen {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} passen
+Eine Einschränkung wurde mit dem [`min`-Attribut](/de/docs/Web/HTML/Element/input/number#min) hinzugefügt, das einen Mindestwert von `18` für die Eingabe festlegt.
+Wenn der Benutzer eine Zahl kleiner als 18 eingibt, schlägt die Validierung der Einschränkungen fehl, und die Stile, die den CSS-Pseudoklassen {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} entsprechen, werden angewendet.
 
 ```css
-/* oder :invalid */
+/* or :invalid */
 input:out-of-range {
   outline: red solid 3px;
 }
@@ -44,7 +44,7 @@ pre {
 ```
 
 ```html
-<pre id="log">Validierung hier protokolliert...</pre>
+<pre id="log">Validation logged here...</pre>
 <input type="number" id="age" min="18" />
 ```
 
@@ -59,9 +59,9 @@ function log(text) {
 userInput.addEventListener("input", () => {
   userInput.reportValidity();
   if (userInput.validity.rangeUnderflow) {
-    log("Nummer ist zu niedrig!");
+    log("Number is too low!");
   } else {
-    log("Gültig…");
+    log("Valid…");
   }
 });
 ```
@@ -78,8 +78,8 @@ userInput.addEventListener("input", () => {
 
 ## Siehe auch
 
-- {{domxref("ValidityState.rangeOverflow")}}
+- [`ValidityState.rangeOverflow`](/de/docs/Web/API/ValidityState/rangeOverflow)
 - [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- [Formulare: Datenformularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Formulare: Datenvalidierung von Formularen](/de/docs/Learn/Forms/Form_validation)
 - [`step`-Attribut](/de/docs/Web/HTML/Attributes/step)
 - [`max`-Attribut](/de/docs/Web/HTML/Attributes/max)

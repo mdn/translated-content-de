@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`respond()`**-Methode der {{domxref("ReadableStreamBYOBRequest")}}-Schnittstelle wird verwendet, um dem zugehörigen [lesbaren Bytestream](/de/docs/Web/API/Streams_API/Using_readable_byte_streams) mitzuteilen, dass die angegebene Anzahl von Bytes in die {{domxref("ReadableStreamBYOBRequest.view")}} geschrieben wurden.
+Die **`respond()`**-Methode des [`ReadableStreamBYOBRequest`](/de/docs/Web/API/ReadableStreamBYOBRequest)-Interfaces wird verwendet, um dem zugehörigen [lesbaren Bytestream](/de/docs/Web/API/Streams_API/Using_readable_byte_streams) mitzuteilen, dass die angegebene Anzahl von Bytes in die [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view) geschrieben wurde.
 
-Nachdem diese Methode aufgerufen wurde, wird der {{domxref("ReadableStreamBYOBRequest/view","view")}} übertragen und kann nicht mehr verändert werden.
+Nachdem diese Methode aufgerufen wurde, wird die [`view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view) übertragen und kann nicht mehr verändert werden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ respond(bytesWritten)
 ### Parameter
 
 - `bytesWritten`
-  - : Die Anzahl der Bytes, die in die {{domxref("ReadableStreamBYOBRequest.view")}} geschrieben wurden.
+  - : Die Anzahl der Bytes, die in [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view) geschrieben wurden.
 
 ### Rückgabewert
 
@@ -30,16 +30,15 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Die Anforderung hat keinen zugeordneten {{domxref("ReadableByteStreamController")}} oder der View-Puffer ist nicht abgetrennt/kann nicht übertragen werden.
+  - : Die Anfrage hat keinen zugeordneten [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController) oder der View-Buffer ist nicht getrennt/kann nicht übertragen werden.
 
 ## Beispiele
 
-Der untenstehende Code stammt aus den Live-Beispielen in [Verwendung eines lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams).
+Der unten stehende Code stammt aus den Live-Beispielen in [Using readable byte stream](/de/docs/Web/API/Streams_API/Using_readable_byte_streams).
 
-Die Methode wird von einer zugrunde liegenden Bytequelle aufgerufen, um eine Zero-Copy-Übertragung von Daten zu ermöglichen, um eine ausstehende Leseanforderung eines Verbrauchers zu erfüllen.
-Die zugrunde liegende Quelle schreibt zuerst Daten in die {{domxref("ReadableStreamBYOBRequest.view")}} und ruft dann diese `respond()`-Methode auf, um anzuzeigen, _wie viel_ Daten in den Puffer kopiert wurden und die Daten zum Leser zu übertragen.
+Die Methode wird von einer zugrundeliegenden Bytequelle als Teil eines Zero-Copy-Datenübertrags verwendet, um eine ausstehende Leseanforderung eines Verbrauchers zu erfüllen. Die zugrundeliegende Quelle schreibt zuerst Daten in die [`ReadableStreamBYOBRequest.view`](/de/docs/Web/API/ReadableStreamBYOBRequest/view) und ruft dann diese `respond()`-Methode auf, um anzuzeigen, _wie_ viel Daten in den Puffer kopiert wurden, und um den Datenübertrag an den Leser zu veranlassen.
 
-Der folgende Code zeigt diesen Fall mit einer hypothetischen `readInto()`-Methode, um Daten in die View zu kopieren:
+Der folgende Code zeigt diesen Fall unter Verwendung einer hypothetischen `readInto()`-Methode zum Kopieren von Daten in die View:
 
 ```js
 const v = controller.byobRequest.view;
@@ -47,16 +46,16 @@ bytesRead = socket.readInto(v.buffer, v.byteOffset, v.byteLength);
 controller.byobRequest.respond(bytesRead);
 ```
 
-Nach der Operation ist die `byobRequest.view` abgetrennt und die Anforderung sollte verworfen werden.
+Nach der Operation wird die `byobRequest.view` getrennt und die Anfrage sollte verworfen werden.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Verwendung eines lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [Using readable byte stream](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)

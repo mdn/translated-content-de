@@ -1,5 +1,5 @@
 ---
-title: "OES_vertex_array_object: Methode createVertexArrayOES()"
+title: "OES_vertex_array_object: createVertexArrayOES()-Methode"
 short-title: createVertexArrayOES()
 slug: Web/API/OES_vertex_array_object/createVertexArrayOES
 l10n:
@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode **`OES_vertex_array_object.createVertexArrayOES()`** des [WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein {{domxref("WebGLVertexArrayObject")}}-Objekt, das ein Vertex Array Object (VAO) repräsentiert, das auf Vertex-Array-Daten zeigt und Namen für verschiedene Sätze von Vertex-Daten bereitstellt.
+Die **`OES_vertex_array_object.createVertexArrayOES()`**-Methode
+der [WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein
+[`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt, das ein Vertex-Array-Objekt (VAO) darstellt,
+welches auf Vertex-Array-Daten verweist und Namen für verschiedene Sätze von Vertexdaten bereitstellt.
 
 ## Syntax
 
@@ -22,7 +25,8 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLVertexArrayObject")}}, das ein Vertex Array Object (VAO) repräsentiert, welches auf Vertex-Array-Daten zeigt.
+Ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject), das ein Vertex-Array-Objekt (VAO) darstellt, welches
+auf Vertex-Array-Daten verweist.
 
 ## Beispiele
 
@@ -32,8 +36,8 @@ const vao = ext.createVertexArrayOES();
 ext.bindVertexArrayOES(vao);
 
 // …
-// Aufrufe von bindBuffer oder vertexAttribPointer
-// die im VAO "aufgezeichnet" werden
+// calls to bindBuffer or vertexAttribPointer
+// which will be "recorded" in the VAO
 // …
 ```
 
@@ -47,6 +51,6 @@ ext.bindVertexArrayOES(vao);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLRenderingContext.vertexAttribPointer()")}}
-- WebGL2-Äquivalent: {{domxref("WebGL2RenderingContext.createVertexArray()")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLRenderingContext.vertexAttribPointer()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer)
+- WebGL2-Äquivalent: [`WebGL2RenderingContext.createVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/createVertexArray)

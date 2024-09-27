@@ -1,5 +1,5 @@
 ---
-title: "Fenster: devicemotion-Ereignis"
+title: "Window: devicemotion Ereignis"
 short-title: devicemotion
 slug: Web/API/Window/devicemotion_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Das **`devicemotion`**-Ereignis wird in regelmäßigen Intervallen ausgelöst und zeigt die Beschleunigungsrate des Geräts mit/ohne den Beitrag der Gravitationskraft zu diesem Zeitpunkt an. Es liefert auch Informationen über die Rotationsrate, falls verfügbar.
+Das **`devicemotion`** Ereignis wird in regelmäßigen Abständen ausgelöst und gibt die Beschleunigungsrate des Geräts mit/ohne den Einfluss der Gravitationskraft zu diesem Zeitpunkt an. Es stellt auch Informationen über die Rotationsrate bereit, sofern verfügbar.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht über die Ereigniskette weitergeleitet.
+Dieses Ereignis ist nicht abbrichbar und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder definieren Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("devicemotion", (event) => {});
@@ -24,20 +24,20 @@ ondevicemotion = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("DeviceMotionEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("DeviceMotionEvent")}}
 
 ## Ereigniseigenschaften
 
-- {{DOMxRef("DeviceMotionEvent.acceleration")}} {{ReadOnlyInline}}
-  - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen: x, y und z angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt.
-- {{DOMxRef("DeviceMotionEvent.accelerationIncludingGravity")}} {{ReadOnlyInline}}
-  - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen: x, y und z mit dem Effekt der Schwerkraft angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt.
-- {{DOMxRef("DeviceMotionEvent.rotationRate")}} {{ReadOnlyInline}}
-  - : Ein Objekt, das die Änderungsrate der Orientierung des Geräts auf den drei Orientierungsachsen: alpha, beta und gamma angibt. Die Rotationsrate wird in Grad pro Sekunde ausgedrückt.
-- {{DOMxRef("DeviceMotionEvent.interval")}} {{ReadOnlyInline}}
-  - : Eine Zahl, die das Zeitintervall in Millisekunden darstellt, in dem die Daten vom Gerät empfangen werden.
+- [`DeviceMotionEvent.acceleration`](/de/docs/Web/API/DeviceMotionEvent/acceleration) {{ReadOnlyInline}}
+  - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen x, y und z angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt.
+- [`DeviceMotionEvent.accelerationIncludingGravity`](/de/docs/Web/API/DeviceMotionEvent/accelerationIncludingGravity) {{ReadOnlyInline}}
+  - : Ein Objekt, das die Beschleunigung des Geräts auf den drei Achsen x, y und z mit dem Effekt der Gravitation angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt.
+- [`DeviceMotionEvent.rotationRate`](/de/docs/Web/API/DeviceMotionEvent/rotationRate) {{ReadOnlyInline}}
+  - : Ein Objekt, das die Änderungsrate der Orientierung des Geräts auf den drei Orientierungsachsen alpha, beta und gamma angibt. Die Rotationsrate wird in Grad pro Sekunde ausgedrückt.
+- [`DeviceMotionEvent.interval`](/de/docs/Web/API/DeviceMotionEvent/interval) {{ReadOnlyInline}}
+  - : Eine Zahl, die das Zeitintervall in Millisekunden darstellt, in dem Daten vom Gerät erhalten werden.
 
 ## Beispiele
 
@@ -63,5 +63,5 @@ window.addEventListener("devicemotion", handleMotionEvent, true);
 
 ## Siehe auch
 
-- {{domxref("Window.deviceorientation_event", "deviceorientation")}}
+- [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event)
 - [DeviceOrientation Event](https://www.w3.org/TR/orientation-event/#devicemotion)

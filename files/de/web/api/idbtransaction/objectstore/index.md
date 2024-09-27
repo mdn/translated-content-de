@@ -8,13 +8,12 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`objectStore()`**-Methode der
-{{domxref("IDBTransaction")}}-Schnittstelle gibt einen Object Store zurück, der bereits zur
-Reichweite dieser Transaktion hinzugefügt wurde.
+Die **`objectStore()`**-Methode des
+[`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Interfaces gibt einen Object Store zurück, der bereits zum Umfang dieser Transaktion hinzugefügt wurde.
 
-Jeder Aufruf dieser Methode auf demselben Transaktionsobjekt mit demselben Namen gibt
-dasselbe {{domxref("IDBObjectStore")}}-Exemplar zurück. Wenn diese Methode auf einem anderen
-Transaktionsobjekt aufgerufen wird, wird ein anderes {{domxref("IDBObjectStore")}}-Exemplar zurückgegeben.
+Jeder Aufruf dieser Methode auf dem gleichen Transaktionsobjekt mit dem gleichen Namen gibt
+die gleiche [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Instanz zurück. Wird diese Methode auf einem anderen
+Transaktionsobjekt aufgerufen, wird eine andere [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Instanz zurückgegeben.
 
 ## Syntax
 
@@ -29,43 +28,43 @@ objectStore(name)
 
 ### Rückgabewert
 
-Ein {{domxref("IDBObjectStore")}}-Objekt zum Zugriff auf einen Object Store.
+Ein [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Objekt zum Zugriff auf einen Object Store.
 
 ### Ausnahmen
 
-- `NotFoundError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der angeforderte Object Store nicht im Geltungsbereich dieser Transaktion ist.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Anfrage an ein Quellobjekt gestellt wurde, das gelöscht oder entfernt wurde, oder wenn die Transaktion beendet ist.
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der angeforderte Object Store nicht im Umfang dieser Transaktion ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Anforderung an einem Quellobjekt gestellt wurde, das gelöscht oder entfernt wurde, oder wenn die Transaktion abgeschlossen ist.
 
 ## Beispiele
 
-Im folgenden Code-Snippet öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen
-einige Daten zu einem Object Store hinzu. Beachten Sie auch die Funktionen, die an die Ereignishandler der Transaktion angehängt sind, um über das Ergebnis der Transaktionsöffnung im Falle eines Erfolgs oder Fehlers zu berichten. Für ein vollständiges Arbeitsbeispiel sehen Sie sich bitte unsere [To-Do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App an ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Code-Snippet öffnen wir eine Lese-/Schreib-Transaktion auf unserer Datenbank und fügen
+einige Daten zu einem Object Store hinzu. Beachten Sie auch die Funktionen, die an die Transaktionsereignishandler angehängt sind, um über das Ergebnis der Transaktionsöffnung im Erfolgs- oder Misserfolgsfall zu berichten. Ein vollständiges funktionierendes Beispiel finden Sie in unserer [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.getElementById("notifications");
 
-// ein Instanz eines db-Objekts, um die IDB-Daten darin zu speichern
+// an instance of a db object for us to store the IDB data in
 let db;
 
-// Lassen Sie uns unsere Datenbank öffnen
+// Let us open our database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
 DBOpenRequest.onsuccess = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Datenbank initialisiert.";
+    "Database initialized.";
 
-  // speichern Sie das Ergebnis des Öffnens der Datenbank in der db-Variablen.
-  // Dies wird im Folgenden oft verwendet
+  // store the result of opening the database in the db variable.
+  // This is used a lot below
   db = DBOpenRequest.result;
 
-  // Führen Sie die addData()-Funktion aus, um die Daten zur Datenbank hinzuzufügen
+  // Run the addData() function to add the data to the database
   addData();
 };
 
 function addData() {
-  // Erstellen Sie ein neues Objekt, das bereit ist, in die IDB eingefügt zu werden
+  // Create a new object ready for being inserted into the IDB
   const newItem = [
     {
       taskTitle: "Walk dog",
@@ -78,31 +77,31 @@ function addData() {
     },
   ];
 
-  // Öffnen Sie eine Lese-/Schreib-Datenbanktransaktion, bereit zum Hinzufügen der Daten
+  // open a read/write db transaction, ready for adding the data
   const transaction = db.transaction(["toDoList"], "readwrite");
 
-  // Bericht über den Erfolg der Öffnung der Transaktion
+  // report on the success of opening the transaction
   transaction.oncomplete = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion abgeschlossen: Datenbankänderung beendet.";
+      "Transaction completed: database modification finished.";
   };
 
   transaction.onerror = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion aufgrund eines Fehlers nicht geöffnet. Doppelte Einträge nicht erlaubt.";
+      "Transaction not opened due to error. Duplicate items not allowed.";
   };
 
-  // Erstellen Sie einen Object Store für die Transaktion
+  // create an object store on the transaction
   const objectStore = transaction.objectStore("toDoList");
 
-  // Fügen Sie unser newItem-Objekt dem Object Store hinzu
+  // add our newItem object to the object store
   const objectStoreRequest = objectStore.add(newItem[0]);
 
   objectStoreRequest.onsuccess = (event) => {
-    // Bericht über den Erfolg der Anfrage (dies bedeutet nicht, dass das Element
-    // erfolgreich in der DB gespeichert wurde - dafür benötigen Sie transaction.onsuccess)
+    // report the success of the request (this does not mean the item
+    // has been stored successfully in the DB - for that you need transaction.onsuccess)
     note.appendChild(document.createElement("li")).textContent =
-      "Anfrage erfolgreich.";
+      "Request successful.";
   };
 }
 ```
@@ -118,9 +117,9 @@ function addData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Schlüsselspektrums: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursoren: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

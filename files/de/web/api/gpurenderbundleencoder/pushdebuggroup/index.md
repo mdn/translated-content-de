@@ -3,17 +3,17 @@ title: "GPURenderBundleEncoder: pushDebugGroup()-Methode"
 short-title: pushDebugGroup()
 slug: Web/API/GPURenderBundleEncoder/pushDebugGroup
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushDebugGroup()`**-Methode der {{domxref("GPURenderBundleEncoder")}}-Schnittstelle beginnt mit einer Render-Bundle-Debuggruppe, die mit einem angegebenen Label markiert wird und alle nachfolgenden codierten Befehle bis zur Ausführung einer {{domxref("GPURenderBundleEncoder.popDebugGroup", "popDebugGroup()")}}-Methode enthält.
+Die **`pushDebugGroup()`**-Methode der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle beginnt eine Render-Bundle-Debug-Gruppe, die mit einem angegebenen Label markiert wird und alle nachfolgenden kodierten Befehle enthält, bis eine [`popDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/popDebugGroup)-Methode aufgerufen wird.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in {{domxref("GPUError")}}-Nachrichten, Entwicklerwerkzeugen des Browsers oder anderen Diensten zur Fehlerbehebung dienen.
+Dies könnte für Telemetrie verwendet werden oder in der Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Entwicklerwerkzeugen im Browser oder anderen Diensten zur Unterstützung des Debuggings genutzt werden.
 
 > [!NOTE]
-> Diese Methode ist funktional identisch mit ihrem Äquivalent auf {{domxref("GPURenderPassEncoder")}} — {{domxref("GPURenderPassEncoder.pushDebugGroup", "pushDebugGroup()")}}.
+> Diese Methode ist funktional identisch mit ihrem Äquivalent auf [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup).
 
 ## Syntax
 
@@ -24,7 +24,7 @@ pushDebugGroup(groupLabel)
 ### Parameter
 
 - `groupLabel`
-  - : Ein String, der das Label für die Debuggruppe darstellt.
+  - : Ein String, der das Label für die Debug-Gruppe darstellt.
 
 ### Rückgabewert
 
@@ -37,7 +37,7 @@ Keiner ({{jsxref("Undefined")}}).
 
 const bundleEncoder = device.createRenderBundleEncoder(renderBundleDescriptor);
 
-bundleEncoder.pushDebugGroup("mygroupmarker"); // Start der gekennzeichneten Debuggruppe
+bundleEncoder.pushDebugGroup("mygroupmarker"); // Start labeled debug group
 
 bundleEncoder.setPipeline(renderPipeline);
 bundleEncoder.setVertexBuffer(0, vertexBuffer);

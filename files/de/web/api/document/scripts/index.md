@@ -1,5 +1,5 @@
 ---
-title: "Document: Eigenschaft scripts"
+title: "Document: scripts-Eigenschaft"
 short-title: scripts
 slug: Web/API/Document/scripts
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`scripts`**-Eigenschaft des {{domxref("Document")}}-Interfaces gibt eine Liste der {{HTMLElement("script")}}-Elemente im Dokument zurück. Das zurückgegebene Objekt ist eine {{domxref("HTMLCollection")}}.
+Die **`scripts`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt eine Liste der {{HTMLElement("script")}}-Elemente im Dokument zurück. Das zurückgegebene Objekt ist eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
 
 ## Wert
 
-Eine {{domxref("HTMLCollection")}}. Sie können diese wie ein Array verwenden, um alle Elemente in der Liste zu erhalten.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection). Sie können diese wie ein Array verwenden, um auf alle Elemente in der Liste zuzugreifen.
 
 ## Beispiele
 

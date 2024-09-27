@@ -1,5 +1,5 @@
 ---
-title: 431 Anforderungsheaderfelder zu groß
+title: 431 Request Header Fields Too Large
 slug: Web/HTTP/Status/431
 l10n:
   sourceCommit: ba53fe04589c36a2210d7549c003f3016093ef8e
@@ -7,12 +7,12 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`431 Anforderungsheaderfelder zu groß`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) gibt an, dass der Server die Anfrage ablehnt, da die [HTTP-Header](/de/docs/Web/HTTP/Headers) der Anfrage zu lang sind.
-Die Anfrage kann erneut eingereicht werden, nachdem die Größe der Anfrage-Header reduziert wurde.
+Der HTTP-Statuscode **`431 Request Header Fields Too Large`** ([Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses)) gibt an, dass der Server die Anfrage ablehnt, weil die [HTTP-Header](/de/docs/Web/HTTP/Headers) der Anfrage zu lang sind.
+Die Anfrage kann erneut gestellt werden, nachdem die Größe der Anfrage-Header reduziert wurde.
 
 431 kann verwendet werden, wenn die Gesamtgröße der Anfrage-Header zu groß ist oder wenn ein einzelnes Header-Feld zu groß ist.
-Um Clients zu helfen, die auf diesen Fehler stoßen, sollten Sie im Antworttext angeben, welches der beiden das Problem darstellt und idealerweise angeben, welche Header zu groß sind.
-Dies ermöglicht es den Benutzern, das Problem zu lösen, zum Beispiel durch Löschen von Cookies.
+Um Clients zu helfen, die auf diesen Fehler stoßen, geben Sie im Antwortkörper an, welches der beiden Probleme vorliegt und idealerweise, welche Header zu groß sind.
+Dies ermöglicht es den Nutzern, das Problem zu beheben, z.B. durch das Löschen von Cookies.
 
 Server erzeugen diesen Status häufig, wenn:
 
@@ -37,7 +37,7 @@ Host: example.com
 Cookie: cookie1=value1; cookie2=value2; cookie3=[…]
 ```
 
-Der Server antwortet mit einer Nachricht, die angibt, welcher Header problematisch war:
+Der Server antwortet mit einer Meldung, die angibt, welcher Header problematisch war:
 
 ```http
 HTTP/1.1 431 Request Header Fields Too Large
@@ -60,6 +60,6 @@ Content-Type: text/html
 
 ## Siehe auch
 
-- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
+- [HTTP-Statuscodes](/de/docs/Web/HTTP/Status)
 - {{HTTPStatus("414", "414 URI Too Long")}}
-- {{Glossary("Request header")}}
+- [Anfrage-Header](/de/docs/Glossary/Request_header)

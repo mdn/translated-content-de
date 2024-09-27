@@ -8,16 +8,16 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
 
-Die schreibgeschützte Eigenschaft `fence` der {{domxref("Window")}}-Schnittstelle gibt eine Instanz eines {{domxref("Fence")}}-Objekts für den aktuellen Dokumentkontext zurück.
+Die schreibgeschützte `fence`-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt eine [`Fence`](/de/docs/Web/API/Fence)-Objektinstanz für den aktuellen Dokumentkontext zurück.
 
-`Fence`-Objekte sind nur für Dokumente verfügbar, die innerhalb von {{htmlelement("fencedframe")}}s (geladen über {{domxref("FencedFrameConfig")}}s) oder {{htmlelement("iframe")}}s (geladen über undurchsichtige URNs) eingebettet sind.
+`Fence`-Objekte sind nur für Dokumente verfügbar, die in {{htmlelement("fencedframe")}}s (geladen über [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)s) oder in {{htmlelement("iframe")}}s (geladen über undurchsichtige URNs) eingebettet sind.
 
 > [!NOTE]
-> Weitere Informationen finden Sie unter [Wie funktionieren `<fencedframe>`s?](/de/docs/Web/API/Fenced_frame_API#how_do_fencedframes_work) für einige Beschreibungen zu `FencedFrameConfig`s und undurchsichtigen URNs.
+> Siehe [Wie funktionieren `<fencedframe>`s?](/de/docs/Web/API/Fenced_frame_API#how_do_fencedframes_work) für eine Beschreibung zu `FencedFrameConfig`s und undurchsichtigen URNs.
 
 ## Wert
 
-Eine Instanz eines {{domxref("Fence")}}-Objekts oder `null`, wenn der Dokumentkontext keinen Zugriff auf ein {{domxref("Fence")}}-Objekt hat.
+Eine [`Fence`](/de/docs/Web/API/Fence)-Objektinstanz oder `null`, wenn der Dokumentkontext keinen Zugriff auf ein [`Fence`](/de/docs/Web/API/Fence)-Objekt hat.
 
 ## Beispiele
 
@@ -39,5 +39,5 @@ window.fence.reportEvent({
 
 ## Siehe auch
 
-- [Fenced Frames](https://developers.google.com/privacy-sandbox/private-advertising/fenced-frame) auf developers.google.com
-- [The Privacy Sandbox](https://developers.google.com/privacy-sandbox) auf developers.google.com
+- [Fenced frames](https://developers.google.com/privacy-sandbox/private-advertising/fenced-frame) auf developers.google.com
+- [Die Privacy Sandbox](https://developers.google.com/privacy-sandbox) auf developers.google.com

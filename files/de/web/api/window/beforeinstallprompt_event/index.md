@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef}}
 
-Das **`beforeinstallprompt`**-Ereignis wird ausgelöst, wenn der Browser erkennt, dass eine Website [als Progressive Web App installiert](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable) werden kann.
+Das **`beforeinstallprompt`**-Ereignis wird ausgelöst, wenn der Browser erkennt, dass eine Website [als Progressive Web App installiert werden kann](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable).
 
 Es gibt keine garantierte Zeit, zu der dieses Ereignis ausgelöst wird, aber es passiert normalerweise beim Laden der Seite.
 
-Der typische Anwendungsfall für dieses Ereignis ist, wenn eine Web-App ihre eigene In-App-Benutzeroberfläche bereitstellen möchte, um den Benutzer einzuladen, die App zu installieren, anstatt der generischen, die vom Browser bereitgestellt wird. Dies ermöglicht der App, mehr Kontext über die App bereitzustellen und dem Benutzer zu erklären, warum er sie möglicherweise installieren möchte.
+Der typische Anwendungsfall für dieses Ereignis ist, wenn eine Web-App ihre eigene In-App-Benutzeroberfläche bereitstellen möchte, um den Nutzer zur Installation der App einzuladen, anstatt der generischen, die vom Browser bereitgestellt wird. Dies ermöglicht es der App, mehr Kontext über die App bereitzustellen und dem Nutzer zu erklären, warum sie die Installation in Betracht ziehen sollten.
 
 In diesem Szenario wird der Handler für dieses Ereignis:
 
-- Eine Referenz auf das {{domxref("BeforeInstallPromptEvent")}}-Objekt behalten, das an ihn übergeben wird
-- Seine In-App-Installationsoberfläche anzeigen (diese sollte standardmäßig ausgeblendet sein, da nicht alle Browser die Installation unterstützen).
+- Eine Referenz zum [`BeforeInstallPromptEvent`](/de/docs/Web/API/BeforeInstallPromptEvent)-Objekt halten, das an ihn übergeben wird
+- Seine In-App-Installations-UI anzeigen (diese sollte standardmäßig ausgeblendet sein, da nicht alle Browser die Installation unterstützen).
 
-Wenn der Benutzer die In-App-Installationsoberfläche verwendet, um die App zu installieren, ruft die In-App-Installationsoberfläche die {{domxref("BeforeInstallPromptEvent.prompt()", "prompt()")}}-Methode des beibehaltenen `BeforeInstallPromptEvent`-Objekts auf, um die Installationsaufforderung anzuzeigen.
+Wenn der Nutzer die In-App-Installations-UI verwendet, um die App zu installieren, ruft die In-App-Installations-UI die [`prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt)-Methode des gespeicherten `BeforeInstallPromptEvent`-Objekts auf, um das Installationsdialogfeld anzuzeigen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("beforeinstallprompt", (event) => {});
@@ -31,39 +31,39 @@ addEventListener("beforeinstallprompt", (event) => {});
 onbeforeinstallprompt = (event) => {};
 ```
 
-## Ereignetyp
+## Ereignistyp
 
-Ein {{domxref("BeforeInstallPromptEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`BeforeInstallPromptEvent`](/de/docs/Web/API/BeforeInstallPromptEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("BeforeInstallPromptEvent")}}
 
 ## Ereigniseigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("Event")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("BeforeInstallPromptEvent.platforms")}} {{ReadOnlyInline}}{{Non-standard_Inline}} {{Experimental_Inline}}
-  - : Gibt ein Array von Zeichenfolgen-Elementen zurück, die die Plattformen enthalten, auf denen das Ereignis ausgelöst wurde. Dies wird für Benutzeragenten bereitgestellt, die eine Auswahl an Versionen für den Benutzer präsentieren möchten, wie z.B. "web" oder "play", wodurch der Benutzer zwischen einer Webversion oder einer Android-Version wählen kann.
-- {{domxref("BeforeInstallPromptEvent.userChoice")}} {{ReadOnlyInline}}{{Non-standard_Inline}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das zu einem Objekt aufgelöst wird, das die Wahl des Benutzers beschreibt, wenn er zur Installation der App aufgefordert wurde.
+- [`BeforeInstallPromptEvent.platforms`](/de/docs/Web/API/BeforeInstallPromptEvent/platforms) {{ReadOnlyInline}}{{Non-standard_Inline}} {{Experimental_Inline}}
+  - : Gibt ein Array von Strings zurück, das die Plattformen enthält, auf denen das Ereignis ausgelöst wurde. Dies wird für User Agents bereitgestellt, die dem Nutzer eine Auswahl an Versionen präsentieren möchten, wie beispielsweise "web" oder "play", was es dem Nutzer ermöglicht, zwischen einer Web-Version oder einer Android-Version zu wählen.
+- [`BeforeInstallPromptEvent.userChoice`](/de/docs/Web/API/BeforeInstallPromptEvent/userChoice) {{ReadOnlyInline}}{{Non-standard_Inline}} {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das zu einem Objekt aufgelöst wird, das die Wahl des Nutzers beschreibt, als er zur Installation der App aufgefordert wurde.
 
 ## Ereignismethoden
 
-- {{domxref("BeforeInstallPromptEvent.prompt()")}}{{Non-standard_Inline}} {{Experimental_Inline}}
-  - : Zeigt eine Aufforderung an, die den Benutzer fragt, ob er die App installieren möchte. Diese Methode gibt ein {{jsxref("Promise")}} zurück, das sich zu einem Objekt auflöst, das die Wahl des Benutzers beschreibt, wenn er zur Installation der App aufgefordert wurde.
+- [`BeforeInstallPromptEvent.prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt){{Non-standard_Inline}} {{Experimental_Inline}}
+  - : Zeigt ein Dialogfeld an, das den Nutzer fragt, ob er die App installieren möchte. Diese Methode gibt ein {{jsxref("Promise")}} zurück, das zu einem Objekt aufgelöst wird, das die Wahl des Nutzers beschreibt, als er zur Installation der App aufgefordert wurde.
 
 ## Beispiele
 
-Im folgenden Beispiel bietet eine App ihren eigenen Installations-Button an, der eine `id` von `"install"` hat. Der Button ist zunächst ausgeblendet.
+Im folgenden Beispiel stellt eine App ihren eigenen Installationsbutton bereit, der die `id` "install" hat. Der Button ist zunächst ausgeblendet.
 
 ```html
-<button id="install" hidden>Installieren</button>
+<button id="install" hidden>Install</button>
 ```
 
 Der `beforeinstallprompt`-Handler:
 
-- Bricht das Ereignis ab, wodurch verhindert wird, dass der Browser seine eigene Installationsoberfläche auf einigen Plattformen anzeigt
-- Weist das `BeforeInstallPromptEvent`-Objekt einer Variable zu, damit es später verwendet werden kann
-- Zeigt den Installations-Button der App an.
+- Bricht das Ereignis ab, um zu verhindern, dass der Browser seine eigene Installations-UI auf einigen Plattformen zeigt
+- Weist das `BeforeInstallPromptEvent`-Objekt einer Variablen zu, damit es später verwendet werden kann
+- Macht den Installationsbutton der App sichtbar.
 
 ```js
 let installPrompt = null;
@@ -76,10 +76,10 @@ window.addEventListener("beforeinstallprompt", (event) => {
 });
 ```
 
-Wenn der Installations-Button der App angeklickt wird:
+Beim Klicken auf den Installationsbutton der App:
 
-- Ruft die {{domxref("BeforeInstallPromptEvent.prompt()", "prompt()")}}-Methode des gespeicherten Ereignisobjekts auf, um die Installationsaufforderung auszulösen.
-- Setzt seinen Zustand zurück, indem es die `installPrompt`-Variable löscht und sich wieder ausblendet.
+- Wird die [`prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt)-Methode des gespeicherten Ereignisobjekts aufgerufen, um den Installationsdialog auszulösen.
+- Setzt es seinen Zustand zurück, indem es die `installPrompt`-Variable löscht und sich selbst wieder verbirgt.
 
 ```js
 installButton.addEventListener("click", async () => {
@@ -87,7 +87,7 @@ installButton.addEventListener("click", async () => {
     return;
   }
   const result = await installPrompt.prompt();
-  console.log(`Installationsaufforderung war: ${result.outcome}`);
+  console.log(`Install prompt was: ${result.outcome}`);
   installPrompt = null;
   installButton.setAttribute("hidden", "");
 });
@@ -103,5 +103,5 @@ installButton.addEventListener("click", async () => {
 
 ## Siehe auch
 
-- {{domxref("BeforeInstallPromptEvent.prompt")}}
-- {{domxref("BeforeInstallPromptEvent")}}
+- [`BeforeInstallPromptEvent.prompt`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt)
+- [`BeforeInstallPromptEvent`](/de/docs/Web/API/BeforeInstallPromptEvent)

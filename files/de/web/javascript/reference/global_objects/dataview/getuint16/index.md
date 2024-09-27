@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getUint16()`**-Methode von {{jsxref("DataView")}} Instanzen liest 2 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 16-Bit-Unsigned-Integer. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem innerhalb der Grenzen liegenden Offset abgerufen werden.
+Die **`getUint16()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 2 Bytes, beginnend beim angegebenen Byte-Offset dieses `DataView`, und interpretiert sie als ein 16-Bit-unsigned-Integer. Es gibt keine Ausrichtungsbeschränkung; Mehrbytewerte können von jedem innerhalb der Grenzen liegenden Offset abgerufen werden.
 
 {{EmbedInteractiveExample("pages/js/dataview-getuint16.html")}}
 
@@ -21,18 +21,18 @@ getUint16(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes, ab dem Anfang der Ansicht, von dem die Daten gelesen werden.
+  - : Der Offset in Bytes, von dem aus die Daten aus der Ansicht gelesen werden.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness) Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness)-Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
-Ein Integer von 0 bis 65535, einschließlich.
+Ein Integer von 0 bis 65535, inklusive.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so eingestellt ist, dass er über das Ende der Ansicht hinaus lesen würde.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt wird, dass er über das Ende der Ansicht hinaus lesen würde.
 
 ## Beispiele
 
@@ -48,13 +48,13 @@ console.log(dataview.getUint16(1)); // 258
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Uint16Array")}}

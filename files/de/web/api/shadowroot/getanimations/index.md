@@ -1,5 +1,5 @@
 ---
-title: "ShadowRoot: Methode getAnimations()"
+title: "ShadowRoot: getAnimations() Methode"
 short-title: getAnimations()
 slug: Web/API/ShadowRoot/getAnimations
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Animations")}}
 
-Die **`getAnimations()`** Methode der {{domxref("ShadowRoot")}}-Schnittstelle gibt ein Array aller derzeit wirksamen {{domxref("Animation")}}-Objekte zurück, deren Zielelemente Nachkommen des Schattenbaums sind. Dieses Array umfasst [CSS Animationen](/de/docs/Web/CSS/CSS_animations), [CSS Transitionen](/de/docs/Web/CSS/CSS_transitions) und [Web Animationen](/de/docs/Web/API/Web_Animations_API).
+Die **`getAnimations()`** Methode des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Interfaces gibt ein Array aller aktuell wirksamen [`Animation`](/de/docs/Web/API/Animation) Objekte zurück, deren Ziel-Elemente Nachkommen des Shadow-Dom sind. Dieses Array umfasst [CSS-Animationen](/de/docs/Web/CSS/CSS_animations), [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) und [Web-Animationen](/de/docs/Web/API/Web_Animations_API).
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von {{domxref("Animation")}}-Objekten, die jeweils eine Animation darstellen, die derzeit mit Elementen verknüpft ist, die Nachkommen der {{domxref("ShadowRoot")}} sind, auf der sie aufgerufen wurde.
+Ein {{jsxref("Array")}} von [`Animation`](/de/docs/Web/API/Animation) Objekten, die jeweils eine derzeit mit Elementen assoziierte Animation darstellen, die Nachkommen der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) sind, auf der sie aufgerufen wird.
 
 ## Beispiele
 
-Der folgende Codeausschnitt verlangsamt alle Animationen in einem Schattenbaum, indem er ihre {{domxref("Animation.playbackRate")}} halbiert.
+Der folgende Code-Schnipsel wird alle Animationen in einem Shadow-Dom verlangsamen, indem ihre [`Animation.playbackRate`](/de/docs/Web/API/Animation/playbackRate) halbiert wird.
 
 ```js
 let customElem = document.querySelector("my-shadow-dom-element");
@@ -47,7 +47,7 @@ shadow.getAnimations().forEach((animation) => {
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS Animationen](/de/docs/Web/CSS/CSS_animations)
-- [CSS Transitionen](/de/docs/Web/CSS/CSS_transitions)
-- {{domxref("Element.getAnimations()")}} - Abrufen nur der Animationen auf einem einzelnen {{domxref("Element")}} und seinen Nachkommen.
-- {{domxref("Animation")}}
+- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)
+- [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions)
+- [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) - Abrufen nur der Animationen eines einzelnen [`Element`](/de/docs/Web/API/Element) und seiner Nachkommen.
+- [`Animation`](/de/docs/Web/API/Animation)

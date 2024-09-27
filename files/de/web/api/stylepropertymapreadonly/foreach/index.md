@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`StylePropertyMapReadOnly.forEach()`**-Methode führt eine bereitgestellte Funktion einmal für jedes Element von {{domxref('StylePropertyMapReadOnly')}} aus.
+Die **`StylePropertyMapReadOnly.forEach()`**-Methode führt eine gegebene Funktion für jedes Element von [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly) einmal aus.
 
 ## Syntax
 
@@ -21,17 +21,18 @@ forEach(callbackFn, thisArg)
 
 - `callbackFn`
 
-  - : Die Funktion, die für jedes Element ausgeführt wird, sie nimmt drei Argumente:
+  - : Die auszuführende Funktion für jedes Element, mit drei Argumenten:
 
     - `currentValue`
-      - : Der Wert des aktuell verarbeiteten Elements.
+      - : Der Wert des aktuellen Elements, das verarbeitet wird.
     - `index` {{optional_inline}}
-      - : Der Index des aktuell verarbeiteten Elements.
+      - : Der Index des aktuellen Elements, das verarbeitet wird.
     - `array` {{optional_inline}}
       - : Das StylePropertyMapReadOnly, auf dem `forEach()` aufgerufen wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Wert, der als **`this`** (d.h. das Referenz-`Object`) beim Ausführen von `callback` verwendet wird.
+  - : Wert, der als **`this`** (d.h., die Referenz
+    `Object`) bei der Ausführung von `callback` verwendet wird.
 
 ### Rückgabewert
 
@@ -39,8 +40,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Hier ist ein Beispiel für die Verwendung von `forEach()` auf einer abgerufenen
-{{domxref('Element.computedStyleMap()')}}.
+Hier ist ein Beispiel für die Verwendung von `forEach()` auf einem abgerufenen [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap).
 
 ```js
 // get a button element
@@ -59,6 +59,6 @@ allComputedStyles.forEach((elem, index, arr) => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

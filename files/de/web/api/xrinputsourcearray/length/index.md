@@ -1,6 +1,6 @@
 ---
-title: "XRInputSourceArray: Länge-Eigenschaft"
-short-title: Länge
+title: "XRInputSourceArray: length-Eigenschaft"
+short-title: length
 slug: Web/API/XRInputSourceArray/length
 l10n:
   sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
@@ -8,36 +8,36 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`length`**-Eigenschaft gibt einen ganzzahligen Wert zurück, der die Anzahl der Elemente in der Eingabequellenliste angibt, die durch das {{domxref("XRInputSourceArray")}}-Objekt dargestellt wird.
+Die schreibgeschützte **`length`**-Eigenschaft gibt einen ganzzahligen Wert zurück, der die Anzahl der Elemente in der Eingabequellenliste angibt, die vom [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray)-Objekt dargestellt wird.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der {{domxref("XRInputSource")}}-Objekte angibt, die WebXR-Eingabequellen repräsentieren und in dem Array enthalten sind.
+Ein ganzzahliger Wert, der angibt, wie viele [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekte, die WebXR-Eingabequellen repräsentieren, im Array enthalten sind.
 
 ## Beispiele
 
-In diesem Beispiel verwendet ein Spiel, das mindestens eine Eingabequelle benötigt, die `length`-Eigenschaft, um dies zu überprüfen, bevor der Benutzer das Spiel spielen darf.
+In diesem Beispiel verwendet ein Spiel, das mindestens eine Eingabequelle erfordert, `length`, um dies zu überprüfen, bevor der Benutzer das Spiel spielen darf.
 
 ```js
 let sources = xrSession.inputSources;
 
 if (sources.length === 0) {
   showAlertDialog(
-    "Sie benötigen mindestens einen Controller, um Super Duper Shark Jump Fest 9000 zu spielen.",
+    "You need to have at least one controller to play Super Duper Shark Jump Fest 9000.",
     [
       { label: "Shop Now", url: "https://www.example.com/shop/controllers" },
-      { label: "Beenden", handler: quitGame },
+      { label: "Quit", handler: quitGame },
     ],
   );
 }
 ```
 
-Hier wird, wenn `length` 0 ist, eine hypothetische `showAlertDialog()`-Funktion mit einer Aufforderungszeichenkette aufgerufen, die den Bedarf an einem Controller erklärt, sowie mit einem Array von Objekten, von denen jedes eine Schaltfläche und die Aktion beschreibt, die beim Klicken darauf ausgeführt werden soll. Die erste Option führt den Benutzer zu einer Amazon.com-Suche nach VR-Controllern, und die zweite ruft eine `quitGame()`-Funktion auf, um das Beenden des Spiels einzuleiten.
+Hier wird bei `length` gleich 0 eine hypothetische `showAlertDialog()`-Funktion mit einem Eingabeaufforderungs-String aufgerufen, der die Notwendigkeit eines Controllers erklärt. Diese Funktion enthält ein Array von Objekten, von denen jedes eine Schaltfläche beschreibt und was passieren soll, wenn diese angeklickt wird. Die erste führt den Benutzer zu einer Amazon.com-Suche nach VR-Controllern, und die zweite ruft eine `quitGame()`-Funktion auf, um das Spielprogramm zu schließen.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

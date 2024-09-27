@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}{{SeeCompatTable}}
 
-Das **`::-moz-list-bullet`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die das Markierungselement (typischerweise einen Punkt) eines Listenelements ({{htmlelement("li")}}) in einer ungeordneten Liste ({{htmlelement("ul")}}) darstellt.
+Das **`::-moz-list-bullet`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die den Marker (typischerweise ein Aufzählungszeichen) eines Listenelements ({{htmlelement("li")}}) in einer ungeordneten Liste ({{htmlelement("ul")}}) darstellt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ li::-moz-list-bullet {
 
 ## Beispiele
 
-### Gestaltung von Listenelement-Markierungen
+### Styling von Listenmarkierungen
 
 #### HTML
 

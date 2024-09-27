@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Image Capture API")}}{{SeeCompatTable}}
 
-Die **`track`** Nur-Lese-Eigenschaft des {{domxref("ImageCapture")}}-Interfaces liefert eine Referenz auf den {{domxref("MediaStreamTrack")}}, der an den {{domxref("ImageCapture.ImageCapture","ImageCapture()")}}-Konstruktor übergeben wurde.
+Die schreibgeschützte **`track`**-Eigenschaft des [`ImageCapture`](/de/docs/Web/API/ImageCapture)-Interfaces gibt eine Referenz auf den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zurück, der an den [`ImageCapture()`](/de/docs/Web/API/ImageCapture/ImageCapture)-Konstruktor übergeben wurde.
 
 ## Wert
 
-Ein {{domxref("MediaStreamTrack")}}-Objekt.
+Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt.
 
 ## Spezifikationen
 

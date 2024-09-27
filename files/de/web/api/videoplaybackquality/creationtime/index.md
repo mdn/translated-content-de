@@ -1,5 +1,5 @@
 ---
-title: "VideoPlaybackQuality: Eigenschaft creationTime"
+title: "VideoPlaybackQuality: creationTime-Eigenschaft"
 short-title: creationTime
 slug: Web/API/VideoPlaybackQuality/creationTime
 l10n:
@@ -8,19 +8,17 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`creationTime`**-Eigenschaft der
-{{domxref("VideoPlaybackQuality")}}-Schnittstelle gibt die Anzahl der Millisekunden an, die seit der Erstellung des Browsing-Kontexts vergangen sind, als diese Qualitätsprobe aufgezeichnet wurde.
+Die schreibgeschützte **`creationTime`**-Eigenschaft des [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Interfaces gibt die Anzahl der Millisekunden an, die seit der Erstellung des Browsing-Kontextes vergangen sind, als diese Qualitätsprobe aufgezeichnet wurde.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}-Objekt, das die Anzahl der Millisekunden angibt, die zwischen der Erstellung des Browsing-Kontexts und dem Zeitpunkt, zu dem diese Probe der Videoqualität erfasst wurde, vergangen sind.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das anzeigt, wie viele Millisekunden zwischen der Erstellung des Browsing-Kontextes und dem Zeitpunkt vergangen sind, zu dem diese Probe der Videoqualität erhalten wurde.
 
-Für Details dazu, wie die Zeit bestimmt wird, siehe {{domxref("Performance.now()")}}.
+Einzelheiten dazu, wie die Zeit bestimmt wird, finden Sie unter [`Performance.now()`](/de/docs/Web/API/Performance/now).
 
 ## Beispiele
 
-Dieses Beispiel ruft `getVideoPlaybackQuality()` auf, um ein
-{{domxref("VideoPlaybackQuality")}}-Objekt zu erhalten, und bestimmt dann, welcher Prozentsatz der Frames entweder durch Beschädigung oder durch das Verwerfen verloren gegangen ist. Wenn dieser über 10% (0.1) liegt, wird eine Funktion `lostFramesThresholdExceeded()` aufgerufen, möglicherweise um einen Qualitätsindikator zu aktualisieren, der einen Anstieg des Frameverlusts anzeigt.
+Dieses Beispiel ruft `getVideoPlaybackQuality()` auf, um ein [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Objekt zu erhalten, und bestimmt dann, welcher Prozentsatz der Frames entweder durch Beschädigung oder durch fallen gelassen zu werden, verloren gegangen ist. Wenn dieser Wert 10% (0,1) übersteigt, wird eine Funktion namens `lostFramesThresholdExceeded()` aufgerufen, um möglicherweise einen Qualitätsindikator zu aktualisieren, um eine Zunahme des Frame-Verlusts anzuzeigen.
 
 ```js
 const videoElem = document.getElementById("my_vid");
@@ -45,5 +43,4 @@ if (
 
 ## Siehe auch
 
-- Die {{domxref("HTMLVideoElement.getVideoPlaybackQuality()")}}-Methode, die
-  `VideoPlaybackQuality`-Objekte zurückgibt.
+- Die [`HTMLVideoElement.getVideoPlaybackQuality()`](/de/docs/Web/API/HTMLVideoElement/getVideoPlaybackQuality)-Methode, die `VideoPlaybackQuality`-Objekte zurückgibt

@@ -1,5 +1,5 @@
 ---
-title: "HTMLCanvasElement: webglcontextlost-Ereignis"
+title: "HTMLCanvasElement: webglcontextlost Ereignis"
 short-title: webglcontextlost
 slug: Web/API/HTMLCanvasElement/webglcontextlost_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`webglcontextlost`**-Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der User-Agent erkennt, dass der mit einem {{domxref("WebGLRenderingContext")}}-Objekt verbundene Zeichnungspuffer verloren gegangen ist.
+Das **`webglcontextlost`** Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der Benutzeragent feststellt, dass der Zeichenpuffer, der mit einem [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Objekt verbunden ist, verloren gegangen ist.
 
-Dieses Ereignis wird nicht gebubbelt.
+Dieses Ereignis ist nicht bubble-fähig.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("webglcontextlost", (event) => {});
@@ -24,20 +24,20 @@ onwebglcontextlost = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("WebGLContextEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("WebGLContextEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrer übergeordneten Schnittstelle, {{domxref("Event")}}._
+_Diese Schnittstelle erbt Eigenschaften von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("WebGLContextEvent.statusMessage")}}
+- [`WebGLContextEvent.statusMessage`](/de/docs/Web/API/WebGLContextEvent/statusMessage)
   - : Eine schreibgeschützte Eigenschaft, die zusätzliche Informationen über das Ereignis enthält.
 
 ## Beispiel
 
-Mit Hilfe der {{domxref("WEBGL_lose_context")}}-Erweiterung können Sie das `webglcontextlost`-Ereignis simulieren:
+Mit Hilfe der [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context) Erweiterung können Sie das `webglcontextlost` Ereignis simulieren:
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -49,7 +49,7 @@ canvas.addEventListener("webglcontextlost", (event) => {
 
 gl.getExtension("WEBGL_lose_context").loseContext();
 
-// "webglcontextlost"-Ereignis wird protokolliert.
+// "webglcontextlost" event is logged.
 ```
 
 ## Spezifikationen
@@ -62,6 +62,6 @@ gl.getExtension("WEBGL_lose_context").loseContext();
 
 ## Siehe auch
 
-- {{domxref("WebGLContextEvent")}}
-- {{domxref("WebGLRenderingContext.isContextLost()")}}
-- {{domxref("WEBGL_lose_context")}}, {{domxref("WEBGL_lose_context.loseContext()")}}, {{domxref("WEBGL_lose_context.restoreContext()")}}
+- [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent)
+- [`WebGLRenderingContext.isContextLost()`](/de/docs/Web/API/WebGLRenderingContext/isContextLost)
+- [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context), [`WEBGL_lose_context.loseContext()`](/de/docs/Web/API/WEBGL_lose_context/loseContext), [`WEBGL_lose_context.restoreContext()`](/de/docs/Web/API/WEBGL_lose_context/restoreContext)

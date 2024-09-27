@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Math.LOG10E`** repräsentiert den Logarithmus zur Basis 10 von [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E), ungefähr 0.434.
+Die **`Math.LOG10E`** statische Dateneigenschaft repräsentiert den logarithmus zur Basis 10 von [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E), ungefähr 0,434.
 
 {{EmbedInteractiveExample("pages/js/math-log10e.html", "shorter")}}
 
@@ -23,13 +23,13 @@ Die statische Dateneigenschaft **`Math.LOG10E`** repräsentiert den Logarithmus 
 
 ## Beschreibung
 
-Da `LOG10E` eine statische Eigenschaft von `Math` ist, verwenden Sie es immer als `Math.LOG10E` und nicht als Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `LOG10E` eine statische Eigenschaft von `Math` ist, verwenden Sie sie immer als `Math.LOG10E` und nicht als Eigenschaft eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
 ### Verwendung von Math.LOG10E
 
-Die folgende Funktion gibt den Logarithmus zur Basis 10 von e zurück:
+Die folgende Funktion gibt den logarithmus zur Basis 10 von e zurück:
 
 ```js
 function getLog10e() {

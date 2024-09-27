@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`height`**-Attribut des {{domxref("MediaTrackSupportedConstraints")}}-Wörterbuchs ist ein schreibgeschützter boolescher Wert, der im Objekt, das von {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegeben wird, vorhanden ist (und auf `true` gesetzt), wenn und nur wenn der {{Glossary("user agent")}} die `height`-Beschränkung unterstützt. Wenn die Beschränkung nicht unterstützt wird, wird sie nicht in die Liste aufgenommen, sodass dieser Wert niemals `false` sein wird.
+Die **`height`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter Boolean-Wert, der im Objekt enthalten ist (und auf `true` gesetzt wird), welches von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, wenn und nur wenn der [user agent](/de/docs/Glossary/user_agent) die `height`-Einschränkung unterstützt. Falls die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, sodass dieser Wert niemals `false` ist.
 
-Sie können das Wörterbuch der unterstützten Beschränkungen abrufen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
+Sie können auf das Wörterbuch mit den unterstützten Einschränkungen zugreifen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
 
 ## Wert
 
-Diese Eigenschaft ist im Wörterbuch vorhanden (und ihr Wert ist immer `true`), wenn der User-Agent die `height`-Beschränkung unterstützt. Wenn die Eigenschaft nicht vorhanden ist, fehlt diese Eigenschaft im Wörterbuch der unterstützten Beschränkungen, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, ihren Wert abzurufen.
+Diese Eigenschaft ist im Wörterbuch vorhanden (und ihr Wert ist immer `true`), wenn der User Agent die `height`-Einschränkung unterstützt. Wenn die Eigenschaft nicht vorhanden ist, fehlt sie im Wörterbuch der unterstützten Einschränkungen, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, auf ihren Wert zuzugreifen.
 
 ## Beispiele
 
@@ -51,6 +51,6 @@ result.textContent = supported ? "Supported!" : "Not supported!";
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- {{domxref("MediaDevices.getSupportedConstraints()")}}
-- {{domxref("MediaTrackSupportedConstraints")}}
-- {{domxref("MediaStreamTrack")}}
+- [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
+- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
+- [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

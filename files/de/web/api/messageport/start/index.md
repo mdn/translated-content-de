@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Die **`start()`**-Methode der {{domxref("MessagePort")}}-Schnittstelle startet das Senden von Nachrichten, die in der Warteschlange des Ports stehen. Diese Methode ist nur erforderlich, wenn Sie {{domxref("EventTarget.addEventListener")}} verwenden; sie wird impliziert, wenn Sie {{domxref("MessagePort.message_event", "onmessage")}} nutzen.
+Die **`start()`**-Methode der [`MessagePort`](/de/docs/Web/API/MessagePort)-Schnittstelle startet das Senden von Nachrichten, die in der Warteschlange des Ports stehen. Diese Methode wird nur benötigt, wenn [`EventTarget.addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) verwendet wird; sie ist impliziert, wenn [`onmessage`](/de/docs/Web/API/MessagePort/message_event) verwendet wird.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Codeblock sehen Sie eine `handleMessage`-Handlerfunktion, die ausgeführt wird, wenn eine Nachricht mit `onmessage` an dieses Dokument gesendet wird:
+Im folgenden Codeblock sehen Sie eine `handleMessage`-Handler-Funktion, die ausgeführt wird, wenn eine Nachricht mit `onmessage` an dieses Dokument zurückgesendet wird:
 
 ```js
 channel.port1.onmessage = handleMessage;
@@ -35,7 +35,7 @@ function handleMessage(e) {
 }
 ```
 
-Eine weitere Möglichkeit wäre, dies mit {{domxref("EventTarget.addEventListener")}} zu tun. Wenn jedoch diese Methode verwendet wird, müssen Sie `start()` ausdrücklich aufrufen, um den Nachrichtenfluss zu diesem Dokument zu beginnen:
+Eine andere Möglichkeit wäre die Nutzung von [`EventTarget.addEventListener`](/de/docs/Web/API/EventTarget/addEventListener). In diesem Fall müssen Sie jedoch `start()` explizit aufrufen, um den Nachrichtenfluss zu diesem Dokument zu starten:
 
 ```js
 channel.port1.addEventListener("message", handleMessage, false);

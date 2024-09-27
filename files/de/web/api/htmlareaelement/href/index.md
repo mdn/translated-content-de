@@ -9,7 +9,7 @@ l10n:
 {{ApiRef("HTML DOM")}}
 
 Die **`HTMLAreaElement.href`**-Eigenschaft ist ein
-{{Glossary("stringifier")}}, der einen String mit der vollständigen URL zurückgibt und es ermöglicht, das href zu aktualisieren.
+[Stringifier](/de/docs/Glossary/stringifier), der einen String zurückgibt, der die gesamte URL enthält, und es ermöglicht, das href zu aktualisieren.
 
 ## Wert
 
@@ -18,9 +18,9 @@ Ein String.
 ## Beispiele
 
 ```js
-// Ein <area id="myArea" href="https://developer.mozilla.org/en-US/HTMLAreaElement"> Element befindet sich im Dokument
+// An <area id="myArea" href="https://developer.mozilla.org/en-US/HTMLAreaElement"> element is in the document
 const area = document.getElementById("myArea");
-area.href; // gibt 'https://developer.mozilla.org/en-US/HTMLAreaElement' zurück
+area.href; // returns 'https://developer.mozilla.org/en-US/HTMLAreaElement'
 ```
 
 ## Spezifikationen
@@ -33,4 +33,4 @@ area.href; // gibt 'https://developer.mozilla.org/en-US/HTMLAreaElement' zurück
 
 ## Siehe auch
 
-- Das {{domxref("HTMLAreaElement")}}-Interface, zu dem es gehört.
+- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface, zu dem es gehört.

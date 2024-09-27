@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormElement.encoding`**-Eigenschaft ist ein alternativer Name für das {{domxref("HTMLFormElement.enctype","enctype")}}-Element im DOM-Objekt {{domxref("HTMLFormElement")}}.
+Die **`HTMLFormElement.encoding`**-Eigenschaft ist ein alternativer Name für das [`enctype`](/de/docs/Web/API/HTMLFormElement/enctype)-Element im DOM-Objekt [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

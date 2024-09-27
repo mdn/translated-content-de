@@ -1,5 +1,5 @@
 ---
-title: "Benachrichtigung: dir-Eigenschaft"
+title: "Notification: dir-Eigenschaft"
 short-title: dir
 slug: Web/API/Notification/dir
 l10n:
@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`dir`**-Eigenschaft der {{domxref("Notification")}}-Schnittstelle gibt die Textrichtung der Benachrichtigung an, wie sie in der `dir`-Option des {{domxref("Notification.Notification","Notification()")}}-Konstruktors spezifiziert ist.
+Die **`dir`** schreibgeschützte Eigenschaft des [`Notification`](/de/docs/Web/API/Notification) Interface zeigt die Textrichtung der Benachrichtigung an, wie sie in der `dir`-Option des [`Notification()`](/de/docs/Web/API/Notification/Notification) Konstruktors angegeben ist.
 
 ## Wert
 
 Ein String, der die Textrichtung angibt. Mögliche Werte sind:
 
 - `auto`
-  - : Übernimmt das Sprachverhalten des Browsers (die Standardeinstellung).
+  - : übernimmt das Verhaltensmuster der Spracheinstellung des Browsers (Standard.)
 - `ltr`
   - : Links nach rechts.
 - `rtl`
   - : Rechts nach links.
 
 > [!NOTE]
-> Die meisten Browser scheinen explizite ltr- und rtl-Einstellungen zu ignorieren und verwenden stattdessen die browserweite Einstellung.
+> Die meisten Browser scheinen die expliziten Einstellungen für ltr und rtl zu ignorieren und verwenden stattdessen die allgemeine Browsereinstellung.
 
 ## Beispiele
 
-Das folgende Beispiel löst eine Benachrichtigung aus. Ein einfaches `options`-Objekt wird erstellt, dann wird die Benachrichtigung mithilfe des `Notification()`-Konstruktors ausgelöst.
+Der folgende Ausschnitt löst eine Benachrichtigung aus; ein einfaches `options`-Objekt wird erstellt, dann wird die Benachrichtigung mittels des `Notification()` Konstruktors ausgelöst.
 
 ```js
 const options = {

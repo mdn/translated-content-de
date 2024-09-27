@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Shim** ist ein Stück Code, das verwendet wird, um das Verhalten von bereits existierendem Code zu korrigieren, normalerweise durch Hinzufügen einer neuen API, die das Problem umgeht. Dies unterscheidet sich von einem {{Glossary("polyfill")}}, der eine neue API implementiert, die vom mitgelieferten Browser nicht unterstützt wird.
+Ein **Shim** ist ein Code-Segment, das verwendet wird, um das Verhalten von bereits existierendem Code zu korrigieren, in der Regel durch das Hinzufügen einer neuen API, die das Problem umgeht. Dies unterscheidet sich von einem [Polyfill](/de/docs/Glossary/polyfill), das eine neue API implementiert, die vom mitgelieferten Standardbrowser nicht unterstützt wird.
 
 ## Siehe auch
 

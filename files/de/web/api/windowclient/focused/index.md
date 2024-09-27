@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`focused`**-Schreibgeschützte Eigenschaft des
-{{domxref("WindowClient")}}-Interface ist ein boolescher Wert, der angibt, ob der aktuelle Client den Fokus hat.
+Die **`focused`**-Eigenschaft des schreibgeschützten Interfaces [`WindowClient`](/de/docs/Web/API/WindowClient) ist ein boolescher Wert, der anzeigt, ob der aktuelle Client den Fokus hat.
 
 ## Wert
 
@@ -19,11 +18,11 @@ Ein boolescher Wert.
 
 ```js
 self.addEventListener("notificationclick", (event) => {
-  console.log("Bei Benachrichtigungsklick: ", event.notification.tag);
+  console.log("On notification click: ", event.notification.tag);
   event.notification.close();
 
-  // Dies prüft, ob das aktuelle Fenster bereits geöffnet ist und
-  // fokussiert es, falls es geöffnet ist
+  // This looks to see if the current is already open and
+  // focuses if it is
   event.waitUntil(
     clients
       .matchAll({

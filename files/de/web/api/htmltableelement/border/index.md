@@ -9,16 +9,16 @@ l10n:
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}
 
 Die **`HTMLTableElement.border`**-Eigenschaft repräsentiert die
-Rahmenbreite des {{HtmlElement("table")}}-Elements.
+Randbreite des {{HtmlElement("table")}}-Elements.
 
 ## Wert
 
-Ein String, der die Breite des Rahmens in Pixeln darstellt.
+Ein String, der die Breite des Rands in Pixeln darstellt.
 
 ## Beispiele
 
 ```js
-// Setzen Sie die Breite eines Tabellenrahmens auf 2 Pixel
+// Set the width of a table border to 2 pixels
 const t = document.getElementById("TableA");
 t.border = "2";
 ```

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`setUint16()`** Methode von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl und speichert sie als 16-Bit-Unsigned-Integer in den 2 Bytes, beginnend bei dem angegebenen Byte-Offset dieses `DataView`. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können an jedem Offset innerhalb der Grenzen gespeichert werden.
+Die Methode **`setUint16()`** von {{jsxref("DataView")}} Instanzen nimmt eine Zahl und speichert sie als 16-Bit-unsigned integer in den 2 Bytes, die beim angegebenen Byte-Offset dieses `DataView` beginnen. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können an jedem Offset innerhalb der Grenzen gespeichert werden.
 
 {{EmbedInteractiveExample("pages/js/dataview-setuint16.html")}}
 
@@ -21,11 +21,11 @@ setUint16(byteOffset, value, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset, in Bytes, vom Anfang der Ansicht, an dem die Daten gespeichert werden sollen.
+  - : Der Offset in Bytes vom Anfang der Ansicht, um die Daten zu speichern.
 - `value`
-  - : Der Wert, der gesetzt werden soll. Wie der Wert in Bytes codiert wird, finden Sie unter [Wertcodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
+  - : Der Wert, der gesetzt werden soll. Für Informationen zur Kodierung der Werte in Bytes siehe [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im [Little- oder Big-Endian-Format](/de/docs/Glossary/Endianness) gespeichert werden. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
+  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness) Format gespeichert werden. Falls `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
 
 ### Rückgabewert
 
@@ -34,7 +34,7 @@ setUint16(byteOffset, value, littleEndian)
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinaus speichern würde.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt wird, dass es über das Ende der Ansicht hinaus speichern würde.
 
 ## Beispiele
 

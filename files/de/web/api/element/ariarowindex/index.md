@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaRowIndex`**-Eigenschaft des {{domxref("Element")}}-Interfaces spiegelt den Wert des [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindex)-Attributs wider, welches den Zeilenindex oder die Position eines Elements in Bezug auf die Gesamtanzahl der Zeilen innerhalb einer Tabelle, eines Rasters oder eines Baumrasters definiert.
+Die **`ariaRowIndex`** Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindex)-Attributs wider, welches den Zeilenindex oder die Position eines Elements in Bezug auf die Gesamtanzahl der Zeilen innerhalb einer Tabelle, eines Rasters oder eines Baumrasters definiert.
 
 ## Wert
 
-Ein String, der eine Ganzzahl enthält.
+Ein String, der eine ganze Zahl enthält.
 
 ## Beispiele
 
@@ -84,4 +84,4 @@ console.log(el.ariaRowIndex); // 2
 
 ## Siehe auch
 
-- [ARIA: Tabellenrolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Roles/table_role)

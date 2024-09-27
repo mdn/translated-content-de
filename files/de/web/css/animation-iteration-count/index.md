@@ -11,22 +11,22 @@ Die **`animation-iteration-count`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fes
 
 {{EmbedInteractiveExample("pages/css/animation-iteration-count.html")}}
 
-Es ist oft praktisch, die Kurzform-Eigenschaft {{cssxref("animation")}} zu nutzen, um alle Animations-Eigenschaften auf einmal festzulegen.
+Es ist oft praktisch, die Kurzschreibweiseigenschaft {{cssxref("animation")}} zu verwenden, um alle Animations-Eigenschaften auf einmal festzulegen.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwert */
+/* Keyword value */
 animation-iteration-count: infinite;
 
-/* <number> Werte */
+/* <number> values */
 animation-iteration-count: 3;
 animation-iteration-count: 2.4;
 
-/* Mehrere Werte */
+/* Multiple values */
 animation-iteration-count: 2, 0, infinite;
 
-/* Globale Werte */
+/* Global values */
 animation-iteration-count: inherit;
 animation-iteration-count: initial;
 animation-iteration-count: revert;
@@ -34,20 +34,20 @@ animation-iteration-count: revert-layer;
 animation-iteration-count: unset;
 ```
 
-Die **`animation-iteration-count`** Eigenschaft wird als ein oder mehrere durch Kommas getrennte Werte angegeben.
+Die **`animation-iteration-count`** Eigenschaft wird als eine oder mehrere durch Kommas getrennte Werte angegeben.
 
 ### Werte
 
 - `infinite`
-  - : Die Animation wird unendlich oft wiederholt.
+  - : Die Animation wird für immer wiederholt.
 - {{cssxref("&lt;number&gt;")}}
-  - : Die Anzahl der Wiederholungen der Animation; standardmäßig ist dies `1`. Sie können nicht ganzzahlige Werte angeben, um einen Teil eines Animationszyklus abzuspielen: Zum Beispiel wird `0.5` einen halben Animationszyklus abspielen. Negative Werte sind ungültig.
+  - : Die Anzahl der Wiederholungen der Animation; standardmäßig ist dies `1`. Sie können Nicht-Integer-Werte angeben, um einen Teil eines Animationszyklus abzuspielen: zum Beispiel spielt `0.5` die Hälfte des Animationszyklus ab. Negative Werte sind ungültig.
 
 > [!NOTE]
-> Wenn Sie mehrere durch Kommas getrennte Werte auf einer `animation-*` Eigenschaft angeben, werden diese in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+> Wenn Sie mehrere durch Kommas getrennte Werte für eine `animation-*` Eigenschaft angeben, werden sie in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. Für Situationen, in denen die Anzahl der Animationen und `animation-*` Eigenschaftswerte nicht übereinstimmen, siehe [Festlegen mehrerer Animations-Eigenschaftswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
 
 > [!NOTE]
-> Bei der Erstellung von [CSS scroll-driven animations](/de/docs/Web/CSS/CSS_scroll-driven_animations), bewirkt die Angabe eines `animation-iteration-count`, dass die Animation entsprechend der Fortschritt der Zeitachse mehrmals wiederholt wird. Wenn kein `animation-iteration-count` angegeben wird, tritt die Animation nur einmal auf. `infinite` ist ein gültiger Wert für scroll-gesteuerte Animationen, führt jedoch zu einer nicht funktionierenden Animation.
+> Beim Erstellen von [CSS scroll-gesteuerten Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations) führt die Angabe einer `animation-iteration-count` dazu, dass die Animation so oft wiederholt wird, wie es der Verlauf der Zeitachse vorgibt. Wenn keine `animation-iteration-count` angegeben wird, tritt die Animation nur einmal auf. `infinite` ist ein gültiger Wert für scroll-gesteuerte Animationen, führt jedoch zu einer Animation, die nicht funktioniert.
 
 ## Formale Definition
 
@@ -59,9 +59,9 @@ Die **`animation-iteration-count`** Eigenschaft wird als ein oder mehrere durch 
 
 ## Beispiele
 
-### Iterationsanzahl festlegen
+### Festlegen der Iterationsanzahl
 
-Diese Animation wird 10-mal ausgeführt.
+Diese Animation wird 10 Mal ausgeführt.
 
 #### HTML
 
@@ -97,22 +97,22 @@ Diese Animation wird 10-mal ausgeführt.
 
 #### Ergebnis
 
-Bewegen Sie den Mauszeiger über das Rechteck, um die Animation zu starten.
+Fahren Sie mit der Maus über das Rechteck, um die Animation zu starten.
 
 {{EmbedLiveSample("Setting iteration count","100%","250")}}
 
-Sehen Sie sich [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) für Beispiele an.
+Siehe [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) für Beispiele.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
-- JavaScript {{domxref("AnimationEvent")}} API
-- Andere verwandte Animationseigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-name")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}
+- JavaScript [`AnimationEvent`](/de/docs/Web/API/AnimationEvent) API
+- Andere verwandte Animations-Eigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-name")}}, {{cssxref("animation-play-state")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}

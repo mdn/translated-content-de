@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`size`**-Eigenschaft des {{domxref("VTTCue")}}-Interfaces repräsentiert die Größe des Cues als Prozentsatz der Videogröße.
+Die **`size`**-Eigenschaft der [`VTTCue`](/de/docs/Web/API/VTTCue)-Schnittstelle repräsentiert die Größe des Cues als Prozentsatz der Videogröße.
 
 ## Wert
 
-Eine Zahl, die die Größe des Cues als Prozentsatz der Videogröße angibt.
+Eine Zahl, die die Größe des Cues als Prozentsatz der Videogröße darstellt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues {{domxref("VTTCue")}} erstellt und der Wert von `size` auf `50` gesetzt. Der Wert wird dann in die Konsole ausgegeben.
+Im folgenden Beispiel wird eine neue [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `size` auf `50` gesetzt. Der Wert wird anschließend in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

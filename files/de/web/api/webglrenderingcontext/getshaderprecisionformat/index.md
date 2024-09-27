@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode getShaderPrecisionFormat()"
+title: "WebGLRenderingContext: getShaderPrecisionFormat()-Methode"
 short-title: getShaderPrecisionFormat()
 slug: Web/API/WebGLRenderingContext/getShaderPrecisionFormat
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode **`WebGLRenderingContext.getShaderPrecisionFormat()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt ein neues {{domxref("WebGLShaderPrecisionFormat")}}-Objekt zurück, das Bereich und Präzision für das angegebene numerische Shader-Format beschreibt.
+Die Methode **`WebGLRenderingContext.getShaderPrecisionFormat()`** der [WebGL API](/de/docs/Web/API/WebGL_API) gibt ein neues [`WebGLShaderPrecisionFormat`](/de/docs/Web/API/WebGLShaderPrecisionFormat)-Objekt zurück, das Bereich und Präzision für das angegebene numerische Shader-Format beschreibt.
 
 ## Syntax
 
@@ -21,20 +21,20 @@ getShaderPrecisionFormat(shaderType, precisionType)
 - `shaderType`
   - : Entweder ein `gl.FRAGMENT_SHADER` oder ein `gl.VERTEX_SHADER`.
 - `precisionType`
-  - : Ein Präzisionstyp-Wert. Entweder `gl.LOW_FLOAT`, `gl.MEDIUM_FLOAT`, `gl.HIGH_FLOAT`, `gl.LOW_INT`, `gl.MEDIUM_INT` oder `gl.HIGH_INT`.
+  - : Ein Präzisionstypwert. Entweder `gl.LOW_FLOAT`, `gl.MEDIUM_FLOAT`, `gl.HIGH_FLOAT`, `gl.LOW_INT`, `gl.MEDIUM_INT` oder `gl.HIGH_INT`.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLShaderPrecisionFormat")}}-Objekt oder `null`, falls ein Fehler auftritt.
+Ein [`WebGLShaderPrecisionFormat`](/de/docs/Web/API/WebGLShaderPrecisionFormat)-Objekt oder `null`, falls ein Fehler auftritt.
 
 ### Ausnahmen
 
-- `gl.INVALID_ENUM`, wenn die Shader- oder Präzisionstypen nicht erkannt werden.
+- `gl.INVALID_ENUM`, wenn der Shader- oder Präzisionstyp nicht erkannt wird.
 - `gl.INVALID_OPERATION`, wenn der Shader-Compiler nicht unterstützt wird.
 
 ## Beispiele
 
-Der folgende Code erhält das Präzisionsformat eines `gl.VERTEX_SHADER` mit einem `gl.MEDIUM_FLOAT` Präzisionstyp.
+Der folgende Code ermittelt das Präzisionsformat eines `gl.VERTEX_SHADER` mit einem `gl.MEDIUM_FLOAT` Präzisionstyp.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -54,4 +54,4 @@ gl.getShaderPrecisionFormat(gl.VERTEX_SHADER, gl.MEDIUM_FLOAT);
 
 ## Siehe auch
 
-- {{domxref("WebGLShaderPrecisionFormat")}}
+- [`WebGLShaderPrecisionFormat`](/de/docs/Web/API/WebGLShaderPrecisionFormat)

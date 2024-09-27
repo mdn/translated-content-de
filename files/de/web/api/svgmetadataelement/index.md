@@ -11,13 +11,13 @@ Die **`SVGMetadataElement`**-Schnittstelle entspricht dem {{SVGElement("metadata
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, erbt aber Eigenschaften von ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt aber Methoden von ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

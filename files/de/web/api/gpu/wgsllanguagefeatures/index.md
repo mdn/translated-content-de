@@ -3,19 +3,19 @@ title: "GPU: Eigenschaft wgslLanguageFeatures"
 short-title: wgslLanguageFeatures
 slug: Web/API/GPU/wgslLanguageFeatures
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`wgslLanguageFeatures`** der {{domxref("GPU")}}-Schnittstelle gibt ein {{domxref("WGSLLanguageFeatures")}}-Objekt zurück, das die von der WebGPU-Implementierung unterstützten [WGSL-Spracherweiterungen](https://gpuweb.github.io/gpuweb/wgsl/#language-extension) meldet.
+Die schreibgeschützte Eigenschaft **`wgslLanguageFeatures`** der [`GPU`](/de/docs/Web/API/GPU)-Schnittstelle gibt ein [`WGSLLanguageFeatures`](/de/docs/Web/API/WGSLLanguageFeatures)-Objekt zurück, das die von der WebGPU-Implementierung unterstützten [WGSL-Spracherweiterungen](https://gpuweb.github.io/gpuweb/wgsl/#language-extension) anzeigt.
 
 > [!NOTE]
 > Nicht alle WGSL-Spracherweiterungen stehen WebGPU in allen Browsern zur Verfügung, die die API unterstützen. Wir empfehlen, dass Sie alle Erweiterungen, die Sie verwenden möchten, gründlich testen.
 
 ## Wert
 
-Eine Instanz des {{domxref("WGSLLanguageFeatures")}}-Objekts. Dies ist ein [setlike](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekt.
+Eine Instanz des [`WGSLLanguageFeatures`](/de/docs/Web/API/WGSLLanguageFeatures)-Objekts. Dies ist ein [mengeähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekt.
 
 ## Beispiele
 

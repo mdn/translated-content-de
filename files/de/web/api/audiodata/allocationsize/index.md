@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`allocationSize()`**-Methode der {{domxref("AudioData")}}-Schnittstelle gibt die Größe in Bytes zurück, die erforderlich ist, um das aktuelle Sample zu speichern, gefiltert durch die in die Methode übergebenen Optionen.
+Die **`allocationSize()`**-Methode des [`AudioData`](/de/docs/Web/API/AudioData)-Interfaces gibt die Größe in Bytes zurück, die benötigt wird, um die aktuelle Abtastung zu speichern, wie sie durch Optionen gefiltert wird, die in die Methode übergeben werden.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ allocationSize(options)
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das Folgendes enthält:
+  - : Ein Objekt, das folgendes enthält:
     - `planeIndex`
       - : Der Index der Ebene, deren Größe zurückgegeben werden soll.
     - `frameOffset` {{optional_inline}}
-      - : Ein Integer, der einen Versatz in den Ebenendaten angibt und angibt, von welcher Ebene aus begonnen werden soll. Standardmäßig `0`.
+      - : Ein ganzzahliger Wert, der einen Versatz in die Plan-Daten angibt und bestimmt, von welcher Ebene begonnen werden soll. Standardmäßig `0`.
     - `frameCount` {{optional_inline}}
-      - : Ein Integer, der die Anzahl der Frames angibt, deren Größe zurückgegeben werden soll. Wenn weggelassen, werden alle Frames in der Ebene verwendet, beginnend mit dem im `frameOffset` angegebenen Frame.
+      - : Eine Ganzzahl, die die Anzahl der Frames angibt, deren Größe zurückgegeben werden soll. Wenn weggelassen, werden alle Frames in der Ebene verwendet, beginnend mit dem in `frameOffset` angegebenen Frame.
 
 ### Rückgabewert
 
-Ein Integer, der die Anzahl der Bytes enthält, die benötigt werden, um die durch `options` beschriebenen Samples zu speichern.
+Eine Ganzzahl, die die Anzahl der Bytes enthält, die benötigt werden, um die durch `options` beschriebenen Abtastungen zu speichern.
 
 ## Beispiele
 

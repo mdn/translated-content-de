@@ -14,17 +14,17 @@ Die **`or`**-Anweisungen werden verwendet, um ein bitweises ODER durchzuführen,
 ## Syntax
 
 ```wasm
-;; zwei Zahlen auf den Stack laden
+;; load two numbers onto the stack
 i32.const 5   ;; 00000101
 i32.const 3   ;; 00000011
 
-;; ein bitweises ODER durchführen
+;; perform a bitwise OR
 i32.or
 
-;; das oberste Element auf dem Stack wird jetzt 7 sein (00000111)
+;; the top item on the stack will now be 7 (00000111)
 ```
 
-| Anweisung  | Binärer Opcode |
-| -----------| -------------- |
-| `i32.or`   | `0x72`         |
-| `i64.or`   | `0x84`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `i32.or`  | `0x72`         |
+| `i64.or`  | `0x84`         |

@@ -1,5 +1,5 @@
 ---
-title: "Dokument: Methode createEvent()"
+title: "Document: createEvent() Methode"
 short-title: createEvent()
 slug: Web/API/Document/createEvent
 l10n:
@@ -9,12 +9,10 @@ l10n:
 {{APIRef("DOM")}}
 
 > [!WARNING]
-> Viele Methoden, die mit `createEvent` verwendet werden, wie beispielsweise `initCustomEvent`, sind veraltet.
-> Verwenden Sie stattdessen [Event-Konstruktoren](/de/docs/Web/API/CustomEvent).
+> Viele Methoden, die mit `createEvent` verwendet werden, wie z.B. `initCustomEvent`, sind veraltet.
+> Verwenden Sie stattdessen [Ereigniskonstruktoren](/de/docs/Web/API/CustomEvent).
 
-Erstellt ein [Ereignis](/de/docs/Web/API/Event) des angegebenen Typs. Das
-zurückgegebene Objekt sollte zuerst initialisiert werden und kann dann an
-{{domxref("EventTarget.dispatchEvent")}} übergeben werden.
+Erstellt ein [Ereignis](/de/docs/Web/API/Event) des angegebenen Typs. Das zurückgegebene Objekt sollte zuerst initialisiert werden und kann dann an [`EventTarget.dispatchEvent`](/de/docs/Web/API/EventTarget/dispatchEvent) übergeben werden.
 
 ## Syntax
 
@@ -25,38 +23,37 @@ createEvent(type)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des zu erstellenden Ereignisses darstellt. Mögliche Ereignistypen sind `"UIEvents"`, `"MouseEvents"`, `"MutationEvents"` und `"HTMLEvents"`. Siehe den Abschnitt [Anmerkungen](#anmerkungen) für Details.
+  - : Ein Zeichenfolgenwert, der den zu erstellenden Ereignistyp darstellt. Mögliche Ereignistypen sind `"UIEvents"`, `"MouseEvents"`, `"MutationEvents"` und `"HTMLEvents"`. Siehe den Abschnitt [Hinweise](#hinweise) für Details.
 
 ### Rückgabewert
 
-Ein [Event](/de/docs/Web/API/Event)-Objekt.
+Ein [Ereignis](/de/docs/Web/API/Event)-Objekt.
 
 ## Beispiele
 
 ```js
-// Erstellen Sie das Ereignis.
+// Create the event.
 const event = document.createEvent("Event");
 
-// Definieren Sie, dass der Ereignisname 'build' ist.
+// Define that the event name is 'build'.
 event.initEvent("build", true, true);
 
-// Hören Sie auf das Ereignis.
+// Listen for the event.
 elem.addEventListener(
   "build",
   (e) => {
-    // e.target entspricht elem
+    // e.target matches elem
   },
   false,
 );
 
-// Ziel kann jedes Element oder ein anderer EventTarget sein.
+// Target can be any Element or other EventTarget.
 elem.dispatchEvent(event);
 ```
 
-## Anmerkungen
+## Hinweise
 
-Ereignistyp-Strings, die für `createEvent()` geeignet sind, sind im
-[DOM-Standard — siehe die Tabelle in Schritt 2](https://dom.spec.whatwg.org/#dom-document-createevent) aufgeführt. Beachten Sie, dass die meisten Ereignisobjekte jetzt Konstruktoren haben, die die modern empfohlene Methode zum Erstellen von Ereignisobjektinstanzen sind.
+Ereignistyp-Strings, die an `createEvent()` übergeben werden können, sind im [DOM-Standard — siehe die Tabelle in Schritt 2](https://dom.spec.whatwg.org/#dom-document-createevent) aufgeführt. Beachten Sie, dass die meisten Ereignisobjekte jetzt Konstruktoren haben, die der moderne empfohlene Weg sind, um Ereignisobjektinstanzen zu erstellen.
 
 ## Spezifikationen
 

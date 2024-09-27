@@ -8,8 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`deviceVersionSubminor`** der
-{{domxref("USBDevice")}}-Schnittstelle gibt die Patch-Versionsnummer des Geräts in einem semantischen Versionsschema an.
+Die schreibgeschützte Eigenschaft **`deviceVersionSubminor`** der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt die Patch-Versionsnummer des Geräts gemäß einem semantischen Versionsschema an.
 
 ## Wert
 

@@ -1,6 +1,6 @@
 ---
-title: "Fenster: Einfügeereignis"
-short-title: Einfügen
+title: "Window: paste-Ereignis"
+short-title: paste
 slug: Web/API/Window/paste_event
 l10n:
   sourceCommit: cc070123f72376faec06e36622c4fc723a75325f
@@ -10,11 +10,11 @@ l10n:
 
 Das **`paste`**-Ereignis wird ausgelöst, wenn der Benutzer eine "Einfügen"-Aktion über die Benutzeroberfläche des Browsers initiiert hat.
 
-Das ursprüngliche Ziel dieses Ereignisses ist das {{domxref("Element")}}, das das beabsichtigte Ziel des Einfügevorgangs war. Sie können auf dieses Ereignis auf der {{domxref("Window")}}-Schnittstelle hören, um es in den Capture- oder Bubble-Phasen zu handhaben. Für vollständige Details zu diesem Ereignis siehe bitte die Seite über das [Element: Einfügeereignis](/de/docs/Web/API/Element/paste_event).
+Das ursprüngliche Ziel dieses Ereignisses ist das [`Element`](/de/docs/Web/API/Element), das das beabsichtigte Ziel der Einfügeaktion war. Sie können dieses Ereignis auf der [`Window`](/de/docs/Web/API/Window)-Schnittstelle anhören, um es in den Capture- oder Bubbling-Phasen zu verarbeiten. Für vollständige Details zu diesem Ereignis besuchen Sie bitte die Seite über das [Element: paste-Ereignis](/de/docs/Web/API/Element/paste_event).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("paste", (event) => {});
@@ -24,7 +24,7 @@ onpaste = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ClipboardEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ClipboardEvent")}}
 
@@ -46,6 +46,6 @@ window.addEventListener("paste", (event) => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("Window/cut_event", "cut")}}, {{domxref("Window/copy_event", "copy")}}
-- Dieses Ereignis auf {{domxref("Element")}}-Zielen: {{domxref("Element/paste_event", "paste")}}
-- Dieses Ereignis auf {{domxref("Document")}}-Zielen: {{domxref("Document/paste_event", "paste")}}
+- Verwandte Ereignisse: [`cut`](/de/docs/Web/API/Window/cut_event), [`copy`](/de/docs/Web/API/Window/copy_event)
+- Dieses Ereignis auf [`Element`](/de/docs/Web/API/Element)-Ziele: [`paste`](/de/docs/Web/API/Element/paste_event)
+- Dieses Ereignis auf [`Document`](/de/docs/Web/API/Document)-Ziele: [`paste`](/de/docs/Web/API/Document/paste_event)

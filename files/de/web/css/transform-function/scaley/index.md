@@ -7,14 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`scaleY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element entlang der
-y-Achse (vertikal) in der Größe verändert. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scaleY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element entlang der y-Achse (vertikal) vergrößert oder verkleinert. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-scaleY.html")}}
 
-Sie verändert die Ordinate (vertikal, y-Koordinate) jedes Punktes eines Elements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 ist. In diesem Fall ist die Funktion die identische Transformation. Die Skalierung ist nicht isotrop, und die Winkel des Elements werden nicht beibehalten.
-`scaleY(-1)` definiert eine [axiale Symmetrie](https://en.wikipedia.org/wiki/Axial_symmetry), mit einer horizontalen Achse, die durch den Ursprung verläuft (wie durch die {{cssxref("transform-origin")}}
-Eigenschaft angegeben).
+Sie verändert die Ordinate (vertikal, y-Koordinate) jedes Elementpunkts um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 beträgt. In diesem Fall ist die Funktion die Identitätstransformation. Die Skalierung ist nicht isotrop und die Winkel des Elements werden nicht beibehalten. `scaleY(-1)` definiert eine [achsensymmetrische](https://en.wikipedia.org/wiki/Axial_symmetry) Transformation, mit einer horizontalen Achse, die durch den Ursprung verläuft (wie durch die {{cssxref("transform-origin")}} Eigenschaft spezifiziert).
 
 > **Note:** `scaleY(sy)` entspricht
 > `scale(1, sy)` oder
@@ -31,8 +28,7 @@ scaleY(s)
 ### Werte
 
 - `s`
-  - : Ist eine {{cssxref("&lt;number&gt;")}}, die den Skalierungsfaktor darstellt, der auf die Ordinate (vertikal, y-Koordinate) jedes Punktes des
-    Elements angewendet wird.
+  - : Ist ein {{cssxref("&lt;number&gt;")}}, der den Skalierungsfaktor darstellt, der auf die Ordinate (vertikal, y-Koordinate) jedes Punktes des Elements angewendet wird.
 
 <table class="standard-table">
   <thead>

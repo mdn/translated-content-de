@@ -1,5 +1,5 @@
 ---
-title: HTMLSammlung
+title: HTMLCollection
 slug: Web/API/HTMLCollection
 l10n:
   sourceCommit: cfa628aedb53a83b315943ef19fa6c73298fb7d5
@@ -7,55 +7,55 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`HTMLCollection`**-Schnittstelle repräsentiert eine generische Sammlung (array-ähnliches Objekt ähnlich wie {{jsxref("Functions/arguments", "arguments")}}) von Elementen (in Dokumentreihenfolge) und bietet Methoden und Eigenschaften zum Auswählen aus der Liste.
+Das **`HTMLCollection`**-Interface repräsentiert eine generische Sammlung (ein array-ähnliches Objekt ähnlich dem {{jsxref("Functions/arguments", "arguments")}}) von Elementen (in Dokumentreihenfolge) und bietet Methoden und Eigenschaften zum Auswählen aus der Liste.
 
-Eine `HTMLCollection` im HTML-DOM ist dynamisch; sie wird automatisch aktualisiert, wenn das zugrunde liegende Dokument verändert wird. Aus diesem Grund ist es ratsam, eine Kopie zu erstellen (z. B. mit {{jsxref("Array/from", "Array.from")}}), um darüber zu iterieren, falls Knoten hinzugefügt, verschoben oder entfernt werden.
+Eine `HTMLCollection` im HTML-DOM ist live; sie wird automatisch aktualisiert, wenn das zugrunde liegende Dokument geändert wird. Aus diesem Grund ist es eine gute Idee, eine Kopie zu erstellen (z. B. mit {{jsxref("Array/from", "Array.from")}}), um darüber zu iterieren, wenn Knoten hinzugefügt, verschoben oder entfernt werden.
 
-Diese Schnittstelle wird aus historischen Gründen `HTMLCollection` genannt, da vor dem modernen DOM Sammlungen, die diese Schnittstelle implementierten, nur HTML-Elemente als ihre Elemente haben konnten.
+Dieses Interface wird aus historischen Gründen als `HTMLCollection` bezeichnet, da Sammlungen, die dieses Interface implementieren, vor dem modernen DOM nur HTML-Elemente als ihre Elemente haben konnten.
 
-Diese Schnittstelle war ein [Versuch, eine nicht-modifizierbare Liste zu erstellen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) und wird weiterhin unterstützt, um bestehenden Code nicht zu brechen. Moderne APIs repräsentieren Listenstrukturen mit Typen, die auf JavaScript-[Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) basieren, wodurch viele Array-Methoden verfügbar sind und zugleich zusätzliche Semantiken auf deren Verwendung auferlegt werden (wie das Festlegen, dass ihre Elemente schreibgeschützt sind).
+Dieses Interface war ein [Versuch, eine unveränderliche Liste zu erstellen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) und wird weiterhin unterstützt, um bestehenden Code nicht zu brechen, der es bereits verwendet. Moderne APIs repräsentieren Listenstrukturen mithilfe von Typen, die auf JavaScript-[Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) basieren, wodurch viele Array-Methoden verfügbar gemacht werden, und gleichzeitig zusätzliche Semantiken für deren Verwendung auferlegen (wie beispielsweise, dass ihre Elemente schreibgeschützt sind).
 
-Diese historischen Gründe bedeuten nicht, dass Entwickler `HTMLCollection` vermeiden sollten. Sie erstellen keine `HTMLCollection`-Objekte selbst, sondern erhalten sie von APIs wie {{domxref("Document.getElementsByClassName()")}}, und diese APIs sind nicht veraltet. Allerdings sollten Sie sich der semantischen Unterschiede zu einem echten Array bewusst sein.
+Diese historischen Gründe bedeuten nicht, dass Sie als Entwickler `HTMLCollection` vermeiden sollten. Sie erstellen `HTMLCollection`-Objekte nicht selbst, sondern erhalten sie von APIs wie [`Document.getElementsByClassName()`](/de/docs/Web/API/Document/getElementsByClassName), und diese APIs sind nicht veraltet. Seien Sie jedoch vorsichtig hinsichtlich der semantischen Unterschiede zu einem echten Array.
 
 ## Instanzeigenschaften
 
-- {{domxref("HTMLCollection.length")}} {{ReadOnlyInline}}
+- [`HTMLCollection.length`](/de/docs/Web/API/HTMLCollection/length) {{ReadOnlyInline}}
   - : Gibt die Anzahl der Elemente in der Sammlung zurück.
 
 ## Instanzmethoden
 
-- {{domxref("HTMLCollection.item()")}}
+- [`HTMLCollection.item()`](/de/docs/Web/API/HTMLCollection/item)
 
-  - : Gibt das spezifische Element an dem gegebenen nullbasierten `index` in der Liste zurück. Gibt `null` zurück, wenn der `index` außerhalb des Bereichs liegt.
+  - : Gibt das spezifische Element an der gegebenen nullbasierten `index`-Position in der Liste zurück. Gibt `null` zurück, wenn der `index` außerhalb des Bereichs liegt.
 
-    Eine Alternative zum Zugriff auf `collection[i]` (was stattdessen `undefined` zurückgibt, wenn `i` außerhalb des Bereichs liegt). Dies ist hauptsächlich nützlich für Nicht-JavaScript-DOM-Implementierungen.
+    Eine Alternative zum Zugreifen über `collection[i]` (was stattdessen `undefined` zurückgibt, wenn `i` außerhalb des Bereichs liegt). Dies ist hauptsächlich für nicht-JavaScript-DOM-Implementierungen nützlich.
 
-- {{domxref("HTMLCollection.namedItem()")}}
+- [`HTMLCollection.namedItem()`](/de/docs/Web/API/HTMLCollection/namedItem)
 
-  - : Gibt den spezifischen Knoten zurück, dessen ID oder als Fallback Name mit dem durch `name` angegebenen Zeichenfolge übereinstimmt. Die Übereinstimmung nach Name erfolgt nur als letztes Mittel, nur in HTML und nur, wenn das referenzierte Element das `name`-Attribut unterstützt. Gibt `null` zurück, wenn kein Knoten mit dem angegebenen Namen existiert.
+  - : Gibt den spezifischen Knoten zurück, dessen ID oder, zur Not, Name dem durch `name` angegebenen String entspricht. Das Abgleichen nach Name erfolgt nur als letztes Mittel, nur in HTML, und nur, wenn das referenzierte Element das `name`-Attribut unterstützt. Gibt `null` zurück, wenn kein Knoten mit dem gegebenen Namen existiert.
 
-    Eine Alternative zum Zugriff auf `collection[name]` (was stattdessen `undefined` zurückgibt, wenn `name` nicht existiert). Dies ist hauptsächlich nützlich für Nicht-JavaScript-DOM-Implementierungen.
+    Eine Alternative zum Zugriff über `collection[name]` (was stattdessen `undefined` zurückgibt, wenn `name` nicht existiert). Dies ist hauptsächlich für nicht-JavaScript-DOM-Implementierungen nützlich.
 
 ## Verwendung in JavaScript
 
-`HTMLCollection` stellt seine Mitglieder auch als Eigenschaften nach Name und Index zur Verfügung. HTML-IDs dürfen `:` und `.` als gültige Zeichen enthalten, was die Verwendung von Klammernotation für den Eigenschaftszugriff erforderlich machen würde. Derzeit erkennt ein `HTMLCollection`-Objekt keine rein numerischen IDs, was einen Konflikt mit dem array-artigen Zugriff verursachen würde, obwohl HTML diese erlaubt.
+`HTMLCollection` macht seine Mitglieder auch als Eigenschaften nach Name und Index zugänglich. HTML-IDs können `:` und `.` als gültige Zeichen enthalten, was die Verwendung der Klammernotation für den Eigenschaftszugriff erforderlich machen würde. Derzeit erkennt ein `HTMLCollection`-Objekt keine rein numerischen IDs, was einen Konflikt mit dem Array-ähnlichen Zugriff verursachen würde, obwohl HTML diese erlaubt.
 
-Zum Beispiel, angenommen, es gibt ein `<form>`-Element im Dokument und seine `id` ist `myForm`:
+Zum Beispiel, angenommen es gibt ein `<form>`-Element im Dokument und dessen `id` ist `myForm`:
 
 ```js
 let elem1, elem2;
 
-// document.forms ist eine HTMLCollection
+// document.forms is an HTMLCollection
 
 elem1 = document.forms[0];
 elem2 = document.forms.item(0);
 
-alert(elem1 === elem2); // zeigt: "true"
+alert(elem1 === elem2); // shows: "true"
 
 elem1 = document.forms.myForm;
 elem2 = document.forms.namedItem("myForm");
 
-alert(elem1 === elem2); // zeigt: "true"
+alert(elem1 === elem2); // shows: "true"
 
 elem1 = document.forms["named.item.with.periods"];
 ```
@@ -64,11 +64,11 @@ elem1 = document.forms["named.item.with.periods"];
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("NodeList")}}
-- {{domxref("HTMLFormControlsCollection")}}, {{domxref("HTMLOptionsCollection")}}
+- [`NodeList`](/de/docs/Web/API/NodeList)
+- [`HTMLFormControlsCollection`](/de/docs/Web/API/HTMLFormControlsCollection), [`HTMLOptionsCollection`](/de/docs/Web/API/HTMLOptionsCollection)

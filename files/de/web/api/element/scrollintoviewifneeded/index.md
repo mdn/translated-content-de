@@ -1,5 +1,5 @@
 ---
-title: "Element: Methode scrollIntoViewIfNeeded()"
+title: "Element: scrollIntoViewIfNeeded() Methode"
 short-title: scrollIntoViewIfNeeded()
 slug: Web/API/Element/scrollIntoViewIfNeeded
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{Non-standard_header}}
 
-Die Methode **`Element.scrollIntoViewIfNeeded()`** scrollt das aktuelle Element in den sichtbaren Bereich des Browserfensters, wenn es sich nicht bereits im sichtbaren Bereich des Browserfensters befindet. Befindet sich das Element bereits im sichtbaren Bereich des Browserfensters, erfolgt kein Scrollen. Diese Methode ist eine proprietäre Variante der standardmäßigen [`Element.scrollIntoView()`](/de/docs/Web/API/Element/scrollIntoView) Methode.
+Die **`Element.scrollIntoViewIfNeeded()`**-Methode scrollt das aktuelle Element in den sichtbaren Bereich des Browserfensters, falls es sich nicht bereits darin befindet. Wenn das Element bereits im sichtbaren Bereich des Browserfensters ist, erfolgt kein Scrollen. Diese Methode ist eine proprietäre Variante der standardmäßigen [`Element.scrollIntoView()`](/de/docs/Web/API/Element/scrollIntoView)-Methode.
 
 ## Syntax
 
@@ -21,10 +21,10 @@ scrollIntoViewIfNeeded(centerIfNeeded)
 
 - `centerIfNeeded` {{optional_inline}}
 
-  - : Ein optionaler boolescher Wert mit einem Standardwert von `true`:
+  - : Ein optionaler boolean Wert mit einem Standardwert von `true`:
 
     - Wenn `true`, wird das Element so ausgerichtet, dass es im sichtbaren Bereich des scrollbaren Vorfahren zentriert ist.
-    - Wenn `false`, wird das Element an der nächstgelegenen Kante des sichtbaren Bereichs des scrollbaren Vorfahren ausgerichtet. Je nachdem, welche Kante des sichtbaren Bereichs dem Element am nächsten ist, wird entweder die Oberkante des Elements an der Oberkante des sichtbaren Bereichs ausgerichtet oder die Unterkante des Elements an der Unterkante des sichtbaren Bereichs.
+    - Wenn `false`, wird das Element zur nächstgelegenen Kante des sichtbaren Bereichs des scrollbaren Vorfahren ausgerichtet. Abhängig davon, welche Kante des sichtbaren Bereichs dem Element am nächsten ist, wird entweder der obere Rand des Elements zum oberen Rand des sichtbaren Bereichs oder der untere Rand des Elements zum unteren Rand des sichtbaren Bereichs ausgerichtet.
 
 ### Rückgabewert
 
@@ -35,13 +35,13 @@ Keiner ({{jsxref("undefined")}}).
 ```js
 const element = document.getElementById("my-el");
 
-element.scrollIntoViewIfNeeded(); // Zentriert das Element im sichtbaren Bereich
-element.scrollIntoViewIfNeeded(false); // Richtet das Element an der nächstgelegenen Kante im sichtbaren Bereich aus
+element.scrollIntoViewIfNeeded(); // Centers the element in the visible area
+element.scrollIntoViewIfNeeded(false); // Aligns the element to the nearest edge in the visible area
 ```
 
 ## Spezifikationen
 
-Nicht Teil einer Spezifikation. Dies ist eine proprietäre, WebKit-spezifische Methode.
+Teil keiner Spezifikation. Dies ist eine proprietäre, WebKit-spezifische Methode.
 
 ## Browser-Kompatibilität
 
@@ -49,4 +49,4 @@ Nicht Teil einer Spezifikation. Dies ist eine proprietäre, WebKit-spezifische M
 
 ## Siehe auch
 
-- [W3C CSSOM Bug 17152: Support centering an element when scrolling into view.](https://www.w3.org/Bugs/Public/show_bug.cgi?id=17152) (Funktionsanfrage für ein standardisiertes Äquivalent zu `scrollIntoViewIfNeeded`)
+- [W3C CSSOM Bug 17152: Unterstützung für das Zentrieren eines Elements beim Scrollen in die Ansicht.](https://www.w3.org/Bugs/Public/show_bug.cgi?id=17152) (Funktionsanfrage für ein standardisiertes Äquivalent zu `scrollIntoViewIfNeeded`)

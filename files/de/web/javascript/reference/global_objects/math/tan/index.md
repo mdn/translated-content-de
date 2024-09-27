@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Math.tan()`** gibt den Tangens einer Zahl in Radianten zurück.
+Die statische Methode **`Math.tan()`** gibt den Tangens einer Zahl im Bogenmaß zurück.
 
 {{EmbedInteractiveExample("pages/js/math-tan.html")}}
 
@@ -20,14 +20,14 @@ Math.tan(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl, die einen Winkel in Radianten darstellt.
+  - : Eine Zahl, die einen Winkel im Bogenmaß darstellt.
 
 ### Rückgabewert
 
-Der Tangens von `x`. Wenn `x` gleich {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
+Der Tangens von `x`. Falls `x` {{jsxref("Infinity")}}, `-Infinity` oder {{jsxref("NaN")}} ist, wird {{jsxref("NaN")}} zurückgegeben.
 
 > [!NOTE]
-> Aufgrund der Gleitkommagenauigkeit ist es nicht möglich, den exakten Wert von π/2 zu erhalten, daher ist das Ergebnis immer endlich, wenn es nicht `NaN` ist.
+> Aufgrund der Gleitkomma-Genauigkeit ist es nicht möglich, den exakten Wert π/2 zu erhalten, daher ist das Ergebnis immer endlich, wenn es nicht `NaN` ist.
 
 ## Beschreibung
 
@@ -35,14 +35,14 @@ Da `tan()` eine statische Methode von `Math` ist, wird sie immer als `Math.tan()
 
 ## Beispiele
 
-### Nutzung von Math.tan()
+### Verwendung von Math.tan()
 
 ```js
 Math.tan(-Infinity); // NaN
 Math.tan(-0); // -0
 Math.tan(0); // 0
 Math.tan(1); // 1.5574077246549023
-Math.tan(Math.PI / 4); // 0.9999999999999999 (Gleitkommafehler)
+Math.tan(Math.PI / 4); // 0.9999999999999999 (Floating point error)
 Math.tan(Infinity); // NaN
 ```
 
@@ -57,7 +57,7 @@ Math.tan(Math.PI / 2 + Number.EPSILON); // -6218431163823738
 
 ### Verwendung von Math.tan() mit einem Gradwert
 
-Da die Funktion `Math.tan()` Radianten akzeptiert, es aber oft einfacher ist, mit Grad zu arbeiten, akzeptiert die folgende Funktion einen Wert in Grad, konvertiert ihn in Radianten und gibt den Tangens zurück.
+Da die Funktion `Math.tan()` Bogenmaß akzeptiert, es jedoch oft einfacher ist, mit Grad zu arbeiten, akzeptiert die folgende Funktion einen Wert in Grad, konvertiert ihn in Bogenmaß und gibt den Tangens zurück.
 
 ```js
 function getTanDeg(deg) {

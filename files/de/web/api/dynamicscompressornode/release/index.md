@@ -1,5 +1,5 @@
 ---
-title: "DynamicsCompressorNode: release Eigenschaft"
+title: "DynamicsCompressorNode: release-Eigenschaft"
 short-title: release
 slug: Web/API/DynamicsCompressorNode/release
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `release`-Eigenschaft des {{ domxref("DynamicsCompressorNode") }}-Interfaces ist ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) {{domxref("AudioParam")}}, das die Zeitspanne, in Sekunden, darstellt, die benötigt wird, um den Gewinn um 10 dB zu erhöhen. Es definiert, wie schnell das Signal angepasst wird, wenn dessen Lautstärke reduziert wird.
+Die `release`-Eigenschaft der [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode)-Schnittstelle ist ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Zeitspanne in Sekunden darstellt, die benötigt wird, um den Gain um 10 dB zu erhöhen. Sie definiert, wie schnell das Signal angepasst wird, wenn dessen Lautstärke verringert wird.
 
-Der Standardwert der `release`-Eigenschaft ist `0.25` und kann zwischen `0` und `1` eingestellt werden.
+Der Standardwert der `release`-Eigenschaft ist `0.25` und sie kann zwischen `0` und `1` eingestellt werden.
 
 ## Wert
 
-Ein {{domxref("AudioParam")}}.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam).
 
 > [!NOTE]
-> Obwohl das zurückgegebene {{domxref("AudioParam")}} schreibgeschützt ist, ist der repräsentierte Wert es nicht.
+> Obwohl das zurückgegebene [`AudioParam`](/de/docs/Web/API/AudioParam) schreibgeschützt ist, ist der Wert, den es repräsentiert, dies nicht.
 
 ## Beispiele
 
@@ -27,7 +27,7 @@ const compressor = audioCtx.createDynamicsCompressor();
 compressor.release.value = 0.25;
 ```
 
-Siehe [`BaseAudioContext.createDynamicsCompressor()`](/de/docs/Web/API/BaseAudioContext/createDynamicsCompressor#examples) für vollständigere Beispielcode.
+Sehen Sie sich die [`BaseAudioContext.createDynamicsCompressor()`](/de/docs/Web/API/BaseAudioContext/createDynamicsCompressor#examples) für vollständigeren Beispielcode an.
 
 ## Spezifikationen
 

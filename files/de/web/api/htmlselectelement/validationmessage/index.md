@@ -1,5 +1,5 @@
 ---
-title: "HTMLSelectElement: validationMessage Eigenschaft"
+title: "HTMLSelectElement: validationMessage-Eigenschaft"
 short-title: validationMessage
 slug: Web/API/HTMLSelectElement/validationMessage
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`validationMessage`** Eigenschaft des {{domxref("HTMLSelectElement")}} Interface gibt einen String zurück, der eine lokalisierte Nachricht darstellt, die die Validierungseinschränkungen beschreibt, die das {{htmlelement("select")}}-Steuerelement nicht erfüllt (falls vorhanden). Dies ist der leere String, wenn das Steuerelement kein Kandidat für die Einschränkungsvalidierung ist ({{domxref("HTMLSelectElement.willValidate")}} ist `false`) oder seine Einschränkungen erfüllt.
+Die schreibgeschützte **`validationMessage`**-Eigenschaft der Schnittstelle [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) gibt ein lokalisierter Nachrichtentext zurück, der die Validierungseinschränkungen beschreibt, die das {{htmlelement("select")}}-Steuerelement nicht erfüllt (falls vorhanden). Dies ist der leere String, wenn das Steuerelement kein Kandidat für die Validierung ist ([`HTMLSelectElement.willValidate`](/de/docs/Web/API/HTMLSelectElement/willValidate) ist `false`), oder es seine Einschränkungen erfüllt.
 
-Falls das `<select>`-Element ein Kandidat für die Einschränkungsvalidierung ist (`willValidate` ist `true`) und die Einschränkungen nicht erfüllt sind (die `valid` Eigenschaft des {{domxref("HTMLSelectElement.validity")}} Objekts ist `false`), ist der Wert die Fehlermeldung, die dem Benutzer während der Validierung angezeigt würde.
+Wenn das `<select>`-Element ein Kandidat für die Validierung ist (`willValidate` ist `true`) und die Einschränkungen nicht erfüllt werden (die `valid`-Eigenschaft des [`HTMLSelectElement.validity`](/de/docs/Web/API/HTMLSelectElement/validity)-Objekts ist `false`), ist der Wert die Fehlermeldung, die dem Benutzer während der Validierung angezeigt würde.
 
 ## Wert
 
@@ -27,19 +27,19 @@ const errorMessage = select.validationMessage;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - {{HTMLelement("select")}}
-- {{domxref("HTMLSelectElement")}}
-- {{domxref("HTMLSelectElement.willValidate")}}
-- {{domxref("HTMLSelectElement.validity")}}
-- {{domxref("HTMLSelectElement.checkValidity()")}}
-- {{domxref("HTMLSelectElement.reportValidity()")}}
-- {{domxref("HTMLSelectElement.setCustomValidity()")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)
+- [`HTMLSelectElement.willValidate`](/de/docs/Web/API/HTMLSelectElement/willValidate)
+- [`HTMLSelectElement.validity`](/de/docs/Web/API/HTMLSelectElement/validity)
+- [`HTMLSelectElement.checkValidity()`](/de/docs/Web/API/HTMLSelectElement/checkValidity)
+- [`HTMLSelectElement.reportValidity()`](/de/docs/Web/API/HTMLSelectElement/reportValidity)
+- [`HTMLSelectElement.setCustomValidity()`](/de/docs/Web/API/HTMLSelectElement/setCustomValidity)
+- [Lernen: Formularvalidierung auf der Client-Seite](/de/docs/Learn/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
 - CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

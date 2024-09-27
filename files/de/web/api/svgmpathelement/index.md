@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die Schnittstelle **`SVGMPathElement`** entspricht dem {{SVGElement("mpath")}}-Element.
+Die **`SVGMPathElement`**-Schnittstelle entspricht dem {{SVGElement("mpath")}}-Element.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, {{domxref("SVGElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGMPathElement.href")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, das dem {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}} Attribut des angegebenen {{SVGElement("mpath")}}-Elements entspricht.
+- [`SVGMPathElement.href`](/de/docs/Web/API/SVGMPathElement/href) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}} Attribut des angegebenen {{SVGElement("mpath")}}-Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer Elternschnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

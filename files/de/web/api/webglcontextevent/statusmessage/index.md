@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die schreibgeschützte **`WebGLContextEvent.statusMessage`**-Eigenschaft enthält zusätzliche Statusinformationen zum Event oder ist ein leerer String, wenn keine zusätzlichen Informationen verfügbar sind.
+Die schreibgeschützte **`WebGLContextEvent.statusMessage`**-Eigenschaft enthält zusätzliche Informationen zum Ereignisstatus oder ist ein leerer String, falls keine zusätzlichen Informationen verfügbar sind.
 
 ## Beispiele
 
-Die `statusMessage`-Eigenschaft kann eine plattformabhängige Zeichenfolge mit Details zu einem Ereignis enthalten. Dies kann beispielsweise auftreten, wenn das {{domxref("HTMLCanvasElement/webglcontextcreationerror_event", "webglcontextcreationerror")}}-Ereignis ausgelöst wird.
+Die `statusMessage`-Eigenschaft kann eine plattformabhängige Zeichenkette mit Details zu einem Ereignis enthalten. Dies kann zum Beispiel geschehen, wenn das [`webglcontextcreationerror`](/de/docs/Web/API/HTMLCanvasElement/webglcontextcreationerror_event)-Ereignis ausgelöst wird.
 
 ```js
 const canvas = document.getElementById("canvas");

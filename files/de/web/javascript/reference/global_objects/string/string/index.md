@@ -1,5 +1,5 @@
 ---
-title: String()-Konstruktor
+title: String() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/String/String
 l10n:
   sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`String()`**-Konstruktor erstellt {{jsxref("String")}}-Objekte. Wenn er als Funktion aufgerufen wird, gibt er primitive Werte vom Typ String zurück.
+Der **`String()`** Konstruktor erstellt {{jsxref("String")}} Objekte. Wenn er als Funktion aufgerufen wird, gibt er primitive Werte des Typs String zurück.
 
 ## Syntax
 
@@ -21,39 +21,39 @@ String(thing)
 ### Parameter
 
 - `thing`
-  - : Alles, was in einen String konvertiert werden soll.
+  - : Alles, was in einen String umgewandelt werden soll.
 
 ### Rückgabewert
 
-Wenn `String()` als Funktion (ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)) aufgerufen wird, gibt es `value` [in einen primitiven String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) zurück. Insbesondere werden [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)-Werte in `"Symbol(description)"` konvertiert, wobei `description` die [Beschreibung](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/description) des Symbols ist, anstatt einen Fehler zu werfen.
+Wenn `String()` als Funktion (ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)) aufgerufen wird, gibt es `value` [in einen String-Primitivwert umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) zurück. Insbesondere werden [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)-Werte in `"Symbol(description)"` umgewandelt, wobei `description` die [Beschreibung](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/description) des Symbols ist, anstatt einen Fehler auszulösen.
 
-Wenn `String()` als Konstruktor (mit `new`) aufgerufen wird, wandelt es `value` in einen primitiven String um (ohne spezielle Symbolbehandlung) und gibt ein umschließendes {{jsxref("String")}}-Objekt zurück, das **kein** primitiver Typ ist.
+Wenn `String()` als Konstruktor (mit `new`) aufgerufen wird, wird `value` in einen String-Primitivwert umgewandelt (ohne spezielle Symbolbehandlung) und ein umschließendes {{jsxref("String")}} Objekt zurückgegeben, das **kein** Primitivwert ist.
 
 > [!WARNING]
-> Sie sollten selten den `String`-Konstruktor verwenden.
+> Sie sollten selten in die Verlegenheit kommen, `String` als Konstruktor zu verwenden.
 
 ## Beispiele
 
-### String-Konstruktor und String-Funktion
+### String Konstruktor und String Funktion
 
-String-Funktion und String-Konstruktor liefern unterschiedliche Ergebnisse:
+String-Funktion und String-Konstruktor erzeugen unterschiedliche Ergebnisse:
 
 ```js
-const a = new String("Hello world"); // a === "Hello world" ist false
-const b = String("Hello world"); // b === "Hello world" ist true
-a instanceof String; // ist true
-b instanceof String; // ist false
+const a = new String("Hello world"); // a === "Hello world" is false
+const b = String("Hello world"); // b === "Hello world" is true
+a instanceof String; // is true
+b instanceof String; // is false
 typeof a; // "object"
 typeof b; // "string"
 ```
 
-Hier erzeugt die Funktion einen String (den {{Glossary("primtiven")}} Typ) wie versprochen.
-Der Konstruktor jedoch erzeugt eine Instanz des Typs String (einen Objekt-Wrapper), und
-deshalb sollten Sie den String-Konstruktor nur selten verwenden.
+Hier produziert die Funktion einen String (den [primitiven](/de/docs/Glossary/primitive) Typ), wie versprochen.
+Der Konstruktor hingegen erzeugt eine Instanz des Typs String (einen Objekt-Wrapper), und
+deshalb sollten Sie den String-Konstruktor in der Regel gar nicht verwenden.
 
-### Verwendung von String(), um ein Symbol in einen String umzuwandeln
+### Verwendung von String() zur Umwandlung eines Symbols in einen String
 
-`String()` ist der einzige Fall, in dem ein Symbol ohne Fehler in einen String umgewandelt werden kann, da es sehr explizit ist.
+`String()` ist der einzige Fall, in dem ein Symbol in einen String umgewandelt werden kann, ohne dass ein Fehler ausgelöst wird, da dies sehr explizit erfolgt.
 
 ```js example-bad
 const sym = Symbol("example");
@@ -77,4 +77,4 @@ String(sym); // "Symbol(example)"
 
 ## Siehe auch
 
-- Leitfaden zum [Textformatieren](/de/docs/Web/JavaScript/Guide/Text_formatting)
+- [Textformatierung](/de/docs/Web/JavaScript/Guide/Text_formatting) Leitfaden

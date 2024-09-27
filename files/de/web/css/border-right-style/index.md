@@ -7,17 +7,17 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-right-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienstil des rechten {{cssxref("border")}} eines Elements fest.
+Die **`border-right-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Stil der Linie des rechten {{cssxref("border")}} eines Elements fest.
 
 {{EmbedInteractiveExample("pages/css/border-right-style.html")}}
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie Ecken verbunden werden, wenn die Begrenzungen unterschiedliche Stile haben.
+> Die Spezifikation definiert nicht, wie sich Grenzen unterschiedlicher Stile in den Ecken verbinden.
 
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 border-right-style: none;
 border-right-style: hidden;
 border-right-style: dotted;
@@ -29,7 +29,7 @@ border-right-style: ridge;
 border-right-style: inset;
 border-right-style: outset;
 
-/* Globale Werte */
+/* Global values */
 border-right-style: inherit;
 border-right-style: initial;
 border-right-style: revert;
@@ -37,13 +37,13 @@ border-right-style: revert-layer;
 border-right-style: unset;
 ```
 
-Die `border-right-style` Eigenschaft wird als einzelnes {{cssxref("line-style")}} Schlüsselwort angegeben.
+Die Eigenschaft `border-right-style` wird als einzelnes {{cssxref("line-style")}} Schlüsselwort angegeben.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
@@ -77,7 +77,7 @@ Die `border-right-style` Eigenschaft wird als einzelnes {{cssxref("line-style")}
 #### CSS
 
 ```css
-/* Erscheinungsbild der Tabelle definieren */
+/* Define look of the table */
 table {
   border-width: 2px;
   background-color: #52e385;
@@ -87,7 +87,7 @@ td {
   padding: 3px;
 }
 
-/* border-right-style Beispielklassen */
+/* border-right-style example classes */
 .b1 {
   border-right-style: none;
 }
@@ -128,7 +128,7 @@ td {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

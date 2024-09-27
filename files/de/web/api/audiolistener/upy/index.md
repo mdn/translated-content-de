@@ -1,5 +1,5 @@
 ---
-title: "AudioListener: upY Eigenschaft"
+title: "AudioListener: upY-Eigenschaft"
 short-title: upY
 slug: Web/API/AudioListener/upY
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die schreibgeschützte Eigenschaft `upY` der {{ domxref("AudioListener") }}-Schnittstelle ist ein {{domxref("AudioParam")}}, das den y-Wert des Richtungsvektors darstellt, der die Aufwärtsrichtung definiert, in die der Zuhörer zeigt.
+Die `upY`-Eigenschaft des [`AudioListener`](/de/docs/Web/API/AudioListener)-Interfaces ist eine schreibgeschützte [`AudioParam`](/de/docs/Web/API/AudioParam), die den y-Wert des Richtungsvektors darstellt, der die Aufwärtsrichtung definiert, in die der Zuhörer zeigt.
 
 > [!NOTE]
-> Der Parameter ist _a-rate_, wenn er mit einem {{domxref("PannerNode")}} verwendet wird, dessen {{domxref("PannerNode.panningModel", "PannerNode")}} auf Ortgleichgewicht (equalpower) gesetzt ist, oder _k-rate_ andernfalls.
+> Der Parameter ist _a-rate_, wenn er mit einem [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet wird, dessen [`PannerNode`](/de/docs/Web/API/PannerNode/panningModel) auf equalpower gesetzt ist, oder sonst _k-rate_.
 
 ## Wert
 
-Ein {{domxref("AudioParam")}}. Der Standardwert ist 1 und kann zwischen positiver und negativer Unendlichkeit liegen.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam). Der Standardwert ist 1, und er kann zwischen positivem und negativem Unendlichkeit variieren.
 
 ## Beispiele
 

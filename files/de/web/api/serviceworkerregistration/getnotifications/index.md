@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerRegistration: Die Methode getNotifications()"
+title: "ServiceWorkerRegistration: getNotifications()-Methode"
 short-title: getNotifications()
 slug: Web/API/ServiceWorkerRegistration/getNotifications
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`getNotifications()`** Methode der {{domxref("ServiceWorkerRegistration")}}-Schnittstelle gibt eine Liste der Benachrichtigungen in der Reihenfolge zurück, in der sie vom aktuellen Ursprung über die aktuelle Service Worker-Registrierung erstellt wurden. Ursprünge können viele aktive, aber unterschiedlich umfangreiche Service Worker-Registrierungen haben. Benachrichtigungen, die von einem Service Worker am gleichen Ursprung erstellt wurden, sind für andere aktive Service Worker am gleichen Ursprung nicht verfügbar.
+Die **`getNotifications()`**-Methode der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle gibt eine Liste der Benachrichtigungen in der Reihenfolge zurück, in der sie von der aktuellen Herkunft über die aktuelle Service Worker-Registrierung erstellt wurden. Herkünfte können viele aktive, aber unterschiedlich abgegrenzte Service Worker-Registrierungen haben. Benachrichtigungen, die von einem Service Worker auf derselben Herkunft erstellt wurden, sind für andere aktive Service Worker auf dieser gleichen Herkunft nicht verfügbar.
 
 ## Syntax
 
@@ -21,14 +21,14 @@ getNotifications(options)
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt mit Optionen, um die zurückgegebenen Benachrichtigungen zu filtern. Die verfügbaren Optionen sind:
+  - : Ein Objekt, das Optionen enthält, um die zurückgegebenen Benachrichtigungen zu filtern. Die verfügbaren Optionen sind:
 
     - `tag` {{optional_inline}}
       - : Ein String, der ein Benachrichtigungstag darstellt. Wenn angegeben, werden nur Benachrichtigungen zurückgegeben, die dieses Tag haben.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einer Liste von {{domxref("Notification")}} Objekten aufgelöst wird.
+Ein {{jsxref("Promise")}}, das zu einer Liste von [`Notification`](/de/docs/Web/API/Notification)-Objekten aufgelöst wird.
 
 ## Beispiele
 
@@ -39,7 +39,7 @@ const options = { tag: "user_alerts" };
 
 navigator.serviceWorker.ready.then((registration) => {
   registration.getNotifications(options).then((notifications) => {
-    // etwas mit Ihren Benachrichtigungen tun
+    // do something with your notifications
   });
 });
 ```

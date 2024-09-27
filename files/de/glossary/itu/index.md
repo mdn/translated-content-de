@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-Die Internationale Fernmeldeunion (ITU) ist die von den Vereinten Nationen autorisierte Organisation für die Festlegung von Standards und Regeln für Telekommunikation, einschließlich Telegraphie, Radio, Telefonie und das Internet.
+Die Internationale Fernmeldeunion (ITU) ist die von den Vereinten Nationen autorisierte Organisation zur Festlegung von Standards und Regeln für die Telekommunikation, einschließlich Telegrafie, Funk, Telefonie und Internet.
 
-Von der Definition von Regeln zur Sicherstellung, dass Übertragungen dort ankommen, wo sie hin sollen, bis hin zur Erstellung des im Morsecode verwendeten Warnsignals "SOS" hat die ITU lange Zeit eine Schlüsselrolle dabei gespielt, wie wir Technologie nutzen, um Informationen und Ideen auszutauschen.
+Von der Definition von Regeln zur Sicherstellung, dass Übertragungen ihr Ziel erreichen, bis hin zur Schaffung des "SOS"-Alarmsignals, das im Morsecode verwendet wird, hat die ITU lange eine Schlüsselrolle in der Art und Weise gespielt, wie wir Technologie nutzen, um Informationen und Ideen auszutauschen.
 
-Im Internetzeitalter umfasst die Rolle der ITU das Festlegen von Standards für Video- und Audiodatenformate, die für Streaming, Videokonferenzen und andere Zwecke verwendet werden. Zum Beispiel hat die ITU zusammen mit der Moving Picture Experts Group (MPEG) an der Entwicklung, Veröffentlichung und Wartung der verschiedenen MPEG-Spezifikationen gearbeitet, wie beispielsweise MPEG-2 (ITU H.262), AVC (ITU H.264) und HEVC (ITU H.265).
+Im Internetzeitalter übernimmt die ITU die Rolle der Festlegung von Standards für Video- und Audiodatenformate, die zum Streaming, für Videokonferenzen und andere Zwecke verwendet werden. Zum Beispiel hat die ITU gemeinsam mit der Moving Picture Experts Group (MPEG) an der Entwicklung, Veröffentlichung und Pflege der verschiedenen MPEG-Spezifikationen gearbeitet, wie MPEG-2 (ITU H.262), AVC (ITU H.264) und HEVC (ITU H.265).
 
 ## Siehe auch
 
-- [ITU-Website](https://www.itu.int/)
-- [ITU-Geschichtsportal](https://www.itu.int/en/history/Pages/ITUsHistory.aspx)
+- [ITU Website](https://www.itu.int/)
+- [ITU Geschichtsportal](https://www.itu.int/en/history/Pages/ITUsHistory.aspx)

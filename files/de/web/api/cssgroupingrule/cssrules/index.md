@@ -8,11 +8,12 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **`cssRules`**-Eigenschaft des {{domxref("CSSGroupingRule")}}-Interfaces gibt eine {{domxref("CSSRuleList")}} zurück, die eine Sammlung von {{domxref("CSSRule")}}-Objekten enthält.
+Die **`cssRules`**-Eigenschaft des
+[`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule)-Interfaces gibt eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) zurück, die eine Sammlung von [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekten enthält.
 
 ## Wert
 
-eine {{domxref("CSSRuleList")}}.
+eine [`CSSRuleList`](/de/docs/Web/API/CSSRuleList).
 
 ## Beispiele
 

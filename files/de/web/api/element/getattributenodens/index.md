@@ -1,5 +1,5 @@
 ---
-title: "Element: getAttributeNodeNS()-Methode"
+title: "Element: getAttributeNodeNS() Methode"
 short-title: getAttributeNodeNS()
 slug: Web/API/Element/getAttributeNodeNS
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`getAttributeNodeNS()`**-Methode des {{domxref("Element")}} Interfaces gibt den namensraumbezogenen {{domxref("Attr")}}-Knoten eines Elements zurück.
+Die **`getAttributeNodeNS()`** Methode des [`Element`](/de/docs/Web/API/Element) Interface gibt den namespacedefinierten [`Attr`](/de/docs/Web/API/Attr) Knoten eines Elements zurück.
 
-Diese Methode ist nützlich, wenn Sie die Instanzeigenschaften eines namensraumbezogenen Attributs benötigen. Wenn Sie nur den Wert des namensraumbezogenen Attributs benötigen, können Sie stattdessen die {{domxref("Element.getAttributeNS()", "getAttributeNS()")}}-Methode verwenden.
+Diese Methode ist nützlich, wenn Sie die Instanzeigenschaften des namespacedefinierten Attributs benötigen. Wenn Sie nur den Wert des namespacedefinierten Attributs benötigen, können Sie stattdessen die [`getAttributeNS()`](/de/docs/Web/API/Element/getAttributeNS) Methode verwenden.
 
-Wenn Sie den {{domxref("Attr")}}-Knoten eines Elements in HTML-Dokumenten benötigen und das Attribut nicht namensraumbezogen ist, verwenden Sie stattdessen die {{domxref("Element.getAttributeNode()", "getAttributeNode()")}}-Methode.
+Wenn Sie den [`Attr`](/de/docs/Web/API/Attr) Knoten eines Elements in HTML-Dokumenten benötigen und das Attribut nicht namespacedefiniert ist, verwenden Sie stattdessen die [`getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode) Methode.
 
 ## Syntax
 
@@ -33,18 +33,18 @@ Der Knoten für das angegebene Attribut.
 
 ## Hinweise
 
-`getAttributeNodeNS` ist spezifischer als [getAttributeNode](/de/docs/Web/API/Element/getAttributeNode), da es Ihnen ermöglicht, Attribute anzugeben, die Teil eines bestimmten Namespaces sind. Die entsprechende Settermethode ist [setAttributeNodeNS](/de/docs/Web/API/Element/setAttributeNodeNS).
+`getAttributeNodeNS` ist spezifischer als [getAttributeNode](/de/docs/Web/API/Element/getAttributeNode), da es Ihnen erlaubt, Attribute anzugeben, die Teil eines bestimmten Namespaces sind. Die entsprechende Setzermethode ist [setAttributeNodeNS](/de/docs/Web/API/Element/setAttributeNodeNS).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Document.createAttribute()")}}
-- {{domxref("Document.createAttributeNS()")}}
-- {{domxref("Element.setAttributeNodeNS()")}}
+- [`Document.createAttribute()`](/de/docs/Web/API/Document/createAttribute)
+- [`Document.createAttributeNS()`](/de/docs/Web/API/Document/createAttributeNS)
+- [`Element.setAttributeNodeNS()`](/de/docs/Web/API/Element/setAttributeNodeNS)

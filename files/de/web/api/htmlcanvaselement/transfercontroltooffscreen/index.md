@@ -1,5 +1,5 @@
 ---
-title: "HTMLCanvasElement: Methode transferControlToOffscreen()"
+title: "HTMLCanvasElement: transferControlToOffscreen() Methode"
 short-title: transferControlToOffscreen()
 slug: Web/API/HTMLCanvasElement/transferControlToOffscreen
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}
 
-Die Methode **`HTMLCanvasElement.transferControlToOffscreen()`** überträgt die Kontrolle zu einem {{domxref("OffscreenCanvas")}}-Objekt, entweder im Hauptthread oder in einem Worker.
+Die **`HTMLCanvasElement.transferControlToOffscreen()`** Methode überträgt die Kontrolle auf ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt, entweder im Haupt-Thread oder in einem Worker.
 
 ## Syntax
 
@@ -22,21 +22,21 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("OffscreenCanvas")}}-Objekt.
+Ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie die Kontrolle zu einem {{domxref("OffscreenCanvas")}}-Objekt im Hauptthread übertragen wird.
+Das folgende Beispiel zeigt, wie die Kontrolle auf ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt im Haupt-Thread übertragen wird.
 
 ```js
 const htmlCanvas = document.createElement("canvas");
 const offscreen = htmlCanvas.transferControlToOffscreen();
 const gl = offscreen.getContext("webgl");
 
-// Einige Zeichenoperationen mit dem gl Kontext…
+// Some drawing using the gl context…
 ```
 
-Das folgende Beispiel zeigt, wie die Kontrolle zu einem {{domxref("OffscreenCanvas")}}-Objekt in einem Worker übertragen wird.
+Das folgende Beispiel zeigt, wie die Kontrolle auf ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt in einem Worker übertragen wird.
 
 ```js
 const offscreen = document.querySelector("canvas").transferControlToOffscreen();
@@ -54,5 +54,5 @@ worker.postMessage({ canvas: offscreen }, [offscreen]);
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert, {{domxref("HTMLCanvasElement")}}
-- {{domxref("OffscreenCanvas")}}
+- Das Interface, das diese Methode definiert, [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)
+- [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)

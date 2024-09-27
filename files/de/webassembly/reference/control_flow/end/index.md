@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-**`end`** wird verwendet, um einen `block`, `loop`, `if` oder `else` zu beenden. In den anderen Beispielen haben wir die s-Ausdruck-Syntax verwendet, die nicht das `end` erfordert, daher werden Sie es in den anderen Beispielen hier nicht finden. Es ist jedoch dennoch nützlich zu wissen, da dies das ist, was die Browser in den Entwicklertools anzeigen.
+**`end`** wird verwendet, um einen `block`, `loop`, `if` oder `else` zu beenden. In den anderen Beispielen haben wir die S-Ausdruck-Syntax verwendet, die das `end` nicht benötigt, daher werden Sie es in den anderen hier gezeigten Beispielen nicht finden. Es ist jedoch nützlich, davon zu wissen, da dies das ist, was die Browser in den Entwicklerwerkzeugen anzeigen.
 
 {{EmbedInteractiveExample("pages/wat/end.html", "tabbed-taller")}}
 
@@ -20,6 +20,6 @@ if
 end
 ```
 
-| Instruction | Binary opcode |
-| ----------- | ------------- |
-| `end`       | `0x0b`        |
+| Instruktion | Binärer Opcode |
+| ----------- | -------------- |
+| `end`       | `0x0b`         |

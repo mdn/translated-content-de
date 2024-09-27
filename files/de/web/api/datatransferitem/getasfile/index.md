@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Wenn das Element eine Datei ist, gibt die **`DataTransferItem.getAsFile()`**-Methode das {{domxref("File")}}-Objekt des Drag-Datenelements zurück. Wenn das Element keine Datei ist, gibt diese Methode `null` zurück.
+Wenn das Element eine Datei ist, gibt die Methode **`DataTransferItem.getAsFile()`** das [`File`](/de/docs/Web/API/File)-Objekt des Ziehdatenobjekts zurück. Wenn das Element keine Datei ist, gibt diese Methode `null` zurück.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-- {{domxref("File")}}
-  - : Wenn das Drag-Datenelement eine Datei ist, wird ein {{domxref("File")}}-Objekt zurückgegeben; andernfalls wird `null` zurückgegeben.
+- [`File`](/de/docs/Web/API/File)
+  - : Wenn das Ziehdatenobjekt eine Datei ist, wird ein [`File`](/de/docs/Web/API/File)-Objekt zurückgegeben; andernfalls wird `null` zurückgegeben.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der `getAsFile()`-Methode in einem {{domxref("HTMLElement/drop_event", "drop")}}-Ereignishandler.
+Dieses Beispiel zeigt die Verwendung der `getAsFile()`-Methode in einem [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignishandler.
 
 ```js
 function dropHandler(ev) {
@@ -36,21 +36,21 @@ function dropHandler(ev) {
   const data = ev.dataTransfer.items;
   for (let i = 0; i < data.length; i += 1) {
     if (data[i].kind === "string" && data[i].type.match("^text/plain")) {
-      // Dieses Element ist der Zielknoten
+      // This item is the target node
       data[i].getAsString((s) => {
         ev.target.appendChild(document.getElementById(s));
       });
     } else if (data[i].kind === "string" && data[i].type.match("^text/html")) {
-      // Drag-Datenelement ist HTML
+      // Drag data item is HTML
       console.log("… Drop: HTML");
     } else if (
       data[i].kind === "string" &&
       data[i].type.match("^text/uri-list")
     ) {
-      // Drag-Datenelement ist URI
+      // Drag data item is URI
       console.log("… Drop: URI");
     } else if (data[i].kind === "file" && data[i].type.match("^image/")) {
-      // Drag-Datenelement ist eine Bilddatei
+      // Drag data item is an image file
       const f = data[i].getAsFile();
       console.log("… Drop: File");
     }
@@ -68,4 +68,4 @@ function dropHandler(ev) {
 
 ## Siehe auch
 
-- {{domxref("DataTransfer.files")}}
+- [`DataTransfer.files`](/de/docs/Web/API/DataTransfer/files)

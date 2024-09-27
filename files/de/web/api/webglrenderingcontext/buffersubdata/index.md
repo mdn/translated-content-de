@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.bufferSubData()`** Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) aktualisiert einen Teil des Datenspeichers eines Pufferobjekts.
+Die **`WebGLRenderingContext.bufferSubData()`**-Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) aktualisiert einen Teil des Datenbereichs eines Pufferobjekts.
 
 ## Syntax
 
@@ -22,17 +22,16 @@ bufferSubData(target, offset, srcData)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Bindungspunkt (Ziel) angibt. Mögliche Werte sind:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
 
     - `gl.ARRAY_BUFFER`
-      - : Puffer, der Vertex-Attribute enthält, wie z.B.
-        Vertex-Koordinaten, Texturkoordinatendaten oder Vertex-Farbdaten.
+      - : Puffer, der Vertex-Attribute wie Vertex-Koordinaten, Texturkoordinaten-Daten oder Vertex-Farbdaten enthält.
     - `gl.ELEMENT_ARRAY_BUFFER`
 
-      - : Puffer, der für Elementindices verwendet wird.
+      - : Puffer, der für Elementindizes verwendet wird.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontext", "", 1)}},
-    sind zusätzlich die folgenden Werte verfügbar:
+    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}},
+    sind zusätzlich folgende Werte verfügbar:
 
     - `gl.COPY_READ_BUFFER`
       - : Puffer zum Kopieren von einem Pufferobjekt zu einem anderen.
@@ -41,23 +40,21 @@ bufferSubData(target, offset, srcData)
     - `gl.TRANSFORM_FEEDBACK_BUFFER`
       - : Puffer für Transform-Feedback-Operationen.
     - `gl.UNIFORM_BUFFER`
-      - : Puffer zur Speicherung von Uniform-Blöcken.
+      - : Puffer, der zur Speicherung von Uniform-Blöcken verwendet wird.
     - `gl.PIXEL_PACK_BUFFER`
-      - : Puffer zur Durchführung von Pixelübertragungsoperationen.
+      - : Puffer, der für Pixelübertragungsoperationen verwendet wird.
     - `gl.PIXEL_UNPACK_BUFFER`
-      - : Puffer zur Durchführung von Pixelübertragungsoperationen.
+      - : Puffer, der für Pixelübertragungsoperationen verwendet wird.
 
 - `dstByteOffset`
-  - : Ein {{domxref("WebGL_API/Types", "GLintptr")}}, das den Offset in Bytes angibt, ab dem der Datenaustausch
-    beginnen soll.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der einen Versatz in Bytes angibt, an dem der Datenersatz beginnen soll.
 - `srcData` {{optional_inline}}
   - : Ein {{jsxref("ArrayBuffer")}}, {{jsxref("SharedArrayBuffer")}}, ein {{jsxref("DataView")}} oder ein {{jsxref("TypedArray")}},
-    das in den Datenspeicher kopiert wird.
+    das in den Datenbereich kopiert wird.
 - `srcOffset`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der den Elementindex-Offset angibt, ab dem der Puffer
-    gelesen werden soll.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Elementindex-Versatz angibt, ab dem der Puffer gelesen werden soll.
 - `length` {{optional_inline}}
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, standardmäßig 0.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der standardmäßig auf 0 gesetzt ist.
 
 ### Rückgabewert
 
@@ -65,10 +62,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Ein `gl.INVALID_VALUE` Fehler wird ausgelöst, wenn die Daten über das Ende des Puffers hinaus geschrieben würden
-  oder wenn `data` `null` ist.
-- Ein `gl.INVALID_ENUM` Fehler wird ausgelöst, wenn `target` nicht einer der
-  erlaubten Enums ist.
+- Ein `gl.INVALID_VALUE`-Fehler wird ausgelöst, wenn die Daten über das Ende des Puffers hinaus geschrieben würden oder wenn `data` `null` ist.
+- Ein `gl.INVALID_ENUM`-Fehler wird ausgelöst, wenn `target` nicht einer der zulässigen Enums ist.
 
 ## Beispiele
 
@@ -94,7 +89,7 @@ gl.bufferSubData(gl.ARRAY_BUFFER, 512, data);
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.bufferSubData()")}}
-- {{domxref("WebGLRenderingContext.createBuffer()")}}
-- {{domxref("WebGLRenderingContext.bufferData()")}}
-- Andere Puffer: {{domxref("WebGLFramebuffer")}}, {{domxref("WebGLRenderbuffer")}}
+- [`WebGL2RenderingContext.bufferSubData()`](/de/docs/Web/API/WebGL2RenderingContext/bufferSubData)
+- [`WebGLRenderingContext.createBuffer()`](/de/docs/Web/API/WebGLRenderingContext/createBuffer)
+- [`WebGLRenderingContext.bufferData()`](/de/docs/Web/API/WebGLRenderingContext/bufferData)
+- Andere Puffer: [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)

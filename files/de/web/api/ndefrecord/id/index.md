@@ -1,5 +1,5 @@
 ---
-title: "NDEFRecord: Eigenschaft id"
+title: "NDEFRecord: id-Eigenschaft"
 short-title: id
 slug: Web/API/NDEFRecord/id
 l10n:
@@ -8,12 +8,10 @@ l10n:
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die **`id`**-Eigenschaft der
-{{DOMxRef("NDEFRecord")}}-Schnittstelle gibt den Datensatzidentifikator zurück, der eine
-absolute oder relative URL ist, die zur Identifizierung des Datensatzes verwendet wird.
+Die **`id`**-Eigenschaft des
+[`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Interfaces gibt den Datensatz-Identifier zurück, bei dem es sich um eine absolute oder relative URL handelt, die zur Identifizierung des Datensatzes verwendet wird.
 
-Dieser Identifikator wird vom Ersteller des Datensatzes erstellt, der allein für die
-Durchsetzung der Einzigartigkeit des Datensatzidentifikators verantwortlich ist. Web NFC signiert den NFC-Inhalt nicht, daher sollten Konsumenten des Datensatzes keine Annahmen über die Integrität oder Authentizität des Identifikators oder eines anderen Teils der Datensätze treffen.
+Dieser Identifier wird vom Erzeuger des Datensatzes erstellt, der allein für die Durchsetzung der Eindeutigkeit des Datensatz-Identifiers verantwortlich ist. Web NFC signiert den NFC-Inhalt nicht, daher sollte der Datensatzverbraucher keine Annahmen über die Integrität oder Authentizität des Identifiers oder eines anderen Teils der Datensätze treffen.
 
 ## Syntax
 

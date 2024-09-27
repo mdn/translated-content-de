@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:transform>`-Element ist genau gleichbedeutend mit dem [`<xsl:stylesheet>`](/de/docs/Web/XSLT/Element/stylesheet)-Element.
+Das `<xsl:transform>`-Element entspricht genau dem [`<xsl:stylesheet>`](/de/docs/Web/XSLT/Element/stylesheet)-Element.
 
 ## Gecko-Unterstützung
 

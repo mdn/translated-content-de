@@ -1,5 +1,5 @@
 ---
-title: "Animation: reverse()-Methode"
+title: "Animation: reverse() Methode"
 short-title: reverse()
 slug: Web/API/Animation/reverse
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Animations")}}
 
-Die **`Animation.reverse()`**-Methode des {{ domxref("Animation") }} Interfaces kehrt die Abspielrichtung um, was bedeutet, dass die Animation an ihrem Anfang endet. Wenn sie auf eine nicht abgespielte Animation angewandt wird, wird die gesamte Animation rückwärts abgespielt. Wenn sie auf eine pausierte Animation angewandt wird, setzt die Animation rückwärts fort.
+Die **`Animation.reverse()`** Methode der [`Animation`](/de/docs/Web/API/Animation) Schnittstelle kehrt die Abspielrichtung um, was bedeutet, dass die Animation an ihrem Anfang endet. Wenn sie auf eine nicht abgespielte Animation angewendet wird, wird die gesamte Animation rückwärts abgespielt. Wenn sie auf eine pausierte Animation angewendet wird, wird die Animation rückwärts fortgesetzt.
 
 ## Syntax
 
@@ -26,27 +26,27 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im [Wachsend/Sich verkleinerndes Alice Spiel](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) Beispiel bewirkt das Klicken oder Tippen auf die Flasche, dass die Wachstumsanimation von Alice (`aliceChange`) rückwärts abgespielt wird und sie dadurch kleiner wird. Dies wird erreicht, indem `aliceChange` {{ domxref("Animation.playbackRate") }} auf `-1` gesetzt wird, wie folgt:
+Im [Growing/Shrinking Alice Game](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) Beispiel führt ein Klick oder Tippen auf die Flasche dazu, dass die Wachstumsanimation von Alice (`aliceChange`) rückwärts abgespielt wird, wodurch sie kleiner wird. Dies wird erreicht, indem `aliceChange`s [`Animation.playbackRate`](/de/docs/Web/API/Animation/playbackRate) auf `-1` gesetzt wird, wie folgt:
 
 ```js
 const shrinkAlice = () => {
-  // Spielt die Animation von Alice rückwärts ab
+  // play Alice's animation in reverse
   aliceChange.playbackRate = -1;
   aliceChange.play();
 
-  // Spielt die Animation der Flasche ab
+  // play the bottle's animation
   drinking.play();
 };
 ```
 
-Aber es könnte auch durch das Aufrufen von `reverse()` auf `aliceChange` erreicht werden, wie folgt:
+Es könnte aber auch durch Aufrufen von `reverse()` auf `aliceChange` getan werden, wie folgt:
 
 ```js
 const shrinkAlice = () => {
-  // Spielt die Animation von Alice rückwärts ab
+  // play Alice's animation in reverse
   aliceChange.reverse();
 
-  // Spielt die Animation der Flasche ab
+  // play the bottle's animation
   drinking.play();
 };
 ```
@@ -62,6 +62,6 @@ const shrinkAlice = () => {
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("Animation")}} für andere Methoden und Eigenschaften, die Sie zur Steuerung der Webseiten-Animation verwenden können.
-- {{domxref("Animation.pause()")}} um eine Animation zu pausieren.
-- {{domxref("Animation.play()")}} um eine Animation vorwärts zu bewegen.
+- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, die Sie verwenden können, um die Animation einer Webseite zu steuern.
+- [`Animation.pause()`](/de/docs/Web/API/Animation/pause) zum Pausieren einer Animation.
+- [`Animation.play()`](/de/docs/Web/API/Animation/play) um eine Animation vorwärts zu bewegen.

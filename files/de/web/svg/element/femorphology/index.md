@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feMorphology>`** [SVG](/de/docs/Web/SVG) Filterprimitive wird verwendet, um das Eingabebild zu erodieren oder zu dilatieren. Seine Nützlichkeit liegt besonders in der Vergrößerung oder Verkleinerung von Effekten.
+Das **`<feMorphology>`** [SVG](/de/docs/Web/SVG) Filter-Primitive wird verwendet, um das Eingabebild zu erodieren oder zu erweitern. Seine Nützlichkeit liegt besonders in Fettungs- oder Verdünnungseffekten.
 
-## Verwendungskontext
+## Einsatzkontext
 
 {{svginfo}}
 
@@ -21,11 +21,11 @@ Das **`<feMorphology>`** [SVG](/de/docs/Web/SVG) Filterprimitive wird verwendet,
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFEMorphologyElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGFEMorphologyElement`](/de/docs/Web/API/SVGFEMorphologyElement) Schnittstelle.
 
 ## Beispiele
 
-### SVG-Inhalt filtern
+### Filtern von SVG-Inhalten
 
 #### SVG
 
@@ -62,7 +62,7 @@ text {
 
 {{EmbedLiveSample("Filtering_SVG_content", 340, 180)}}
 
-### HTML-Inhalt filtern
+### Filtern von HTML-Inhalten
 
 #### SVG
 
@@ -129,4 +129,4 @@ p {
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Leitfaden: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

@@ -7,18 +7,18 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Max-Forwards`** HTTP-Request-Header wird mit der [`TRACE`](/de/docs/Web/HTTP/Methods/TRACE)-Methode verwendet, um die Anzahl der Knoten (normalerweise Proxys) zu begrenzen, die eine Anfrage passiert. Sein Wert ist eine Ganzzahl, die die _maximale Anzahl_ an Knoten angibt, die besucht werden muss. An jedem Knoten wird der Wert dekrementiert und die `TRACE`-Anfrage zum nächsten Knoten weitergeleitet, bis das Ziel erreicht ist oder der empfangene Wert von `Max-Forwards` null ist. Die Anfrage wird dann mit Ausnahme einiger Header als Body einer `200 OK`-Antwort zurückgesendet.
+Der **`Max-Forwards`** Anforderungs-HTTP-Header wird mit der [`TRACE`](/de/docs/Web/HTTP/Methods/TRACE)-Methode verwendet, um die Anzahl der Knoten (normalerweise Proxies) zu begrenzen, die die Anforderung durchläuft. Sein Wert ist ein ganzzahliger Wert, der die _maximale Anzahl_ der Knoten angibt, die er besuchen muss. An jedem Knoten wird der Wert verringert, und die `TRACE`-Anforderung wird an den nächsten Knoten weitergeleitet, bis das Ziel erreicht ist oder der empfangene Wert von `Max-Forwards` null ist. Die Anforderung wird dann, mit Ausnahme einiger Header, als der Body einer `200 OK`-Antwort zurückgesendet.
 
-Wenn der `Max-Forwards`-Header in einer `TRACE`-Anfrage nicht vorhanden ist, wird ein Knoten annehmen, dass es keine maximale Anzahl von Weiterleitungen gibt.
+Wenn der `Max-Forwards`-Header in einer `TRACE`-Anforderung nicht vorhanden ist, nimmt ein Knoten an, dass es keine maximale Anzahl von Weiterleitungen gibt.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>{{Glossary("Request header")}}</td>
+      <th scope="row">Header-Typ</th>
+      <td>[Request header](/de/docs/Glossary/Request_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Verbotener Headername")}}</th>
+      <th scope="row">[Forbidden header name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -41,9 +41,9 @@ Max-Forwards: 10
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
-Dieses Feature ist weder auf Browser ausgerichtet noch in diesen implementiert.
+Dieses Feature ist weder für Browser gedacht noch in ihnen implementiert.
 
 ## Siehe auch
 

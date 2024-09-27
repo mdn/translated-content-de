@@ -8,8 +8,8 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Credential Management API")}}{{SecureContext_Header}}
 
-Die **`provider`**-Eigenschaft des
-{{domxref("FederatedCredential")}}-Interfaces gibt einen String
+Die **`provider`**-Eigenschaft der
+[`FederatedCredential`](/de/docs/Web/API/FederatedCredential) Schnittstelle gibt einen String
 zurück, der den föderierten Identitätsanbieter eines Berechtigungsnachweises enthält.
 
 ## Wert

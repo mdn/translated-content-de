@@ -1,5 +1,5 @@
 ---
-title: "AnimationEffect: Methode updateTiming()"
+title: "AnimationEffect: updateTiming() Methode"
 short-title: updateTiming()
 slug: Web/API/AnimationEffect/updateTiming
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die Methode `updateTiming()` der {{domxref("AnimationEffect")}}-Schnittstelle aktualisiert die angegebenen Timing-Eigenschaften für einen Animationseffekt.
+Die `updateTiming()`-Methode der [`AnimationEffect`](/de/docs/Web/API/AnimationEffect)-Schnittstelle aktualisiert die angegebenen Timing-Eigenschaften für einen Animationseffekt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ updateTiming(timing)
 ### Parameter
 
 - `timing` {{optional_inline}}
-  - : Ein Objekt, das null oder mehr der Eigenschaften aus dem Rückgabewert von {{domxref("AnimationEffect.getTiming()")}} enthält und die zu aktualisierenden Timing-Eigenschaften darstellt.
+  - : Ein Objekt, das null oder mehr der Eigenschaften aus dem Rückgabewert von [`AnimationEffect.getTiming()`](/de/docs/Web/API/AnimationEffect/getTiming) enthält und die zu aktualisierenden Timing-Eigenschaften darstellt.
 
 ### Rückgabewert
 
@@ -32,9 +32,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Beispiele
 
-#### Seiteneffekte
+#### Nebeneffekte
 
-`updateTiming()` kann dazu führen, dass eine zugehörige {{domxref("Animation")}} startet oder stoppt, zum Beispiel wenn der Effekt einer laufenden Animation verkürzt wird, sodass ihre Endzeit vor {{domxref("Animation.currentTime")}} liegt, oder wenn der Effekt einer abgeschlossenen Animation verlängert wird, sodass ihre Endzeit nach {{domxref("Animation.currentTime")}} liegt.
+`updateTiming()` kann dazu führen, dass eine zugeordnete [`Animation`](/de/docs/Web/API/Animation) startet oder stoppt, wenn zum Beispiel der Effekt einer laufenden Animation so verkürzt wird, dass ihre Endzeit vor [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) liegt, oder der Effekt einer abgeschlossenen Animation so verlängert wird, dass ihre Endzeit nach [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime) liegt.
 
 ```js
 const animation = document.body.animate([], { duration: 1000 });
@@ -55,7 +55,7 @@ console.log(animation.playState); // running
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("AnimationEffect")}}
-- {{domxref("Animation")}}
-- {{domxref("AnimationEffect.getTiming()")}}
-- {{domxref("AnimationEffect.getComputedTiming()")}}
+- [`AnimationEffect`](/de/docs/Web/API/AnimationEffect)
+- [`Animation`](/de/docs/Web/API/Animation)
+- [`AnimationEffect.getTiming()`](/de/docs/Web/API/AnimationEffect/getTiming)
+- [`AnimationEffect.getComputedTiming()`](/de/docs/Web/API/AnimationEffect/getComputedTiming)

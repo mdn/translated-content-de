@@ -8,11 +8,10 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.extractContents()`**-Methode verschiebt Inhalte des
-{{ domxref("Range") }} aus dem Dokumentbaum in ein {{ domxref("DocumentFragment") }}.
+Die **`Range.extractContents()`**-Methode bewegt Inhalte des
+[`Range`](/de/docs/Web/API/Range) aus dem Dokumentbaum in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment).
 
-Während der Extraktion werden Ereignis-Listener, die mit DOM-Events hinzugefügt wurden, nicht beibehalten. HTML-Attribut-Ereignisse dagegen werden erhalten oder dupliziert, wie bei der
-{{domxref("Node.cloneNode()")}}-Methode. HTML-`id`-Attribute werden ebenfalls geklont, was zu einem ungültigen Dokument führen kann, wenn ein teilweise ausgewählter Knoten extrahiert und dem Dokument hinzugefügt wird.
+Event-Listener, die mit DOM-Events hinzugefügt wurden, werden während der Extraktion nicht beibehalten. HTML-Attribut-Events werden beibehalten oder dupliziert, wie es bei der [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode)-Methode der Fall ist. HTML-`id`-Attribute werden ebenfalls geklont, was zu einem ungültigen Dokument führen kann, wenn ein teilweise ausgewählter Knoten extrahiert und dem Dokument hinzugefügt wird.
 
 Teilweise ausgewählte Knoten werden geklont, um die übergeordneten Tags einzuschließen, die erforderlich sind, um das Dokumentfragment gültig zu machen.
 
@@ -28,7 +27,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{ domxref("DocumentFragment") }}-Objekt.
+Ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt.
 
 ## Beispiele
 
@@ -43,13 +42,13 @@ document.body.appendChild(documentFragment);
 
 ### Elemente zwischen Containern verschieben
 
-Dieses Beispiel ermöglicht es Ihnen, Elemente zwischen zwei Containern zu verschieben. Wählen Sie ein oder mehrere Elemente aus und klicken Sie dann auf "Wechseln", um sie in den gegenüberliegenden Container zu verschieben.
+Dieses Beispiel ermöglicht es Ihnen, Elemente zwischen zwei Containern zu verschieben. Wählen Sie ein oder mehrere Elemente aus und klicken Sie dann auf "swap", um sie in den gegenüberliegenden Container zu verschieben.
 
 #### HTML
 
 ```html
 <p id="list1">123456</p>
-<button id="swap">Wechseln ausgewählte(s) Element(e)</button>
+<button id="swap">Swap selected item(s)</button>
 <p id="list2">abcdef</p>
 ```
 
@@ -117,4 +116,4 @@ button.addEventListener("click", (e) => {
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellen-Index](/de/docs/Web/API/Document_Object_Model)

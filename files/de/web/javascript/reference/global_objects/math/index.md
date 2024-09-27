@@ -1,5 +1,5 @@
 ---
-title: Mathematik
+title: Math
 slug: Web/JavaScript/Reference/Global_Objects/Math
 l10n:
   sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
@@ -7,18 +7,18 @@ l10n:
 
 {{JSRef}}
 
-Das **`Math`** Namensraum-Objekt enthält statische Eigenschaften und Methoden für mathematische Konstanten und Funktionen.
+Das **`Math`** Namensraumobjekt beinhaltet statische Eigenschaften und Methoden für mathematische Konstanten und Funktionen.
 
 `Math` arbeitet mit dem {{jsxref("Number")}} Typ. Es funktioniert nicht mit {{jsxref("BigInt")}}.
 
 ## Beschreibung
 
-Anders als die meisten globalen Objekte ist `Math` kein Konstruktor. Sie können es nicht mit dem [`new` Operator](/de/docs/Web/JavaScript/Reference/Operators/new) verwenden oder das `Math` Objekt als Funktion aufrufen. Alle Eigenschaften und Methoden von `Math` sind statisch.
+Im Gegensatz zu den meisten globalen Objekten ist `Math` kein Konstruktor. Sie können es weder mit dem [`new` Operator](/de/docs/Web/JavaScript/Reference/Operators/new) verwenden noch das `Math` Objekt als Funktion aufrufen. Alle Eigenschaften und Methoden von `Math` sind statisch.
 
 > [!NOTE]
-> Viele `Math` Funktionen haben eine Präzision, die _implementierungsabhängig_ ist.
+> Viele `Math` Funktionen haben eine Präzision, die von der _Implementierung abhängig_ ist.
 >
-> Das bedeutet, dass verschiedene Browser unterschiedliche Ergebnisse liefern können. Sogar die gleiche JavaScript-Engine auf einem anderen Betriebssystem oder einer anderen Architektur kann unterschiedliche Ergebnisse liefern!
+> Das bedeutet, dass verschiedene Browser unterschiedliche Ergebnisse liefern können. Selbst die gleiche JavaScript-Engine auf einem anderen Betriebssystem oder einer anderen Architektur kann unterschiedliche Ergebnisse liefern!
 
 ## Statische Eigenschaften
 
@@ -44,7 +44,7 @@ Anders als die meisten globalen Objekte ist `Math` kein Konstruktor. Sie können
 ## Statische Methoden
 
 - {{jsxref("Math.abs()")}}
-  - : Gibt den absoluten Wert der Eingabe zurück.
+  - : Gibt den Absolutwert der Eingabe zurück.
 - {{jsxref("Math.acos()")}}
   - : Gibt den Arkuskosinus der Eingabe zurück.
 - {{jsxref("Math.acosh()")}}
@@ -64,21 +64,21 @@ Anders als die meisten globalen Objekte ist `Math` kein Konstruktor. Sie können
 - {{jsxref("Math.ceil()")}}
   - : Gibt die kleinste ganze Zahl zurück, die größer oder gleich der Eingabe ist.
 - {{jsxref("Math.clz32()")}}
-  - : Gibt die Anzahl der führenden Nullen des 32-Bit-Integer-Eingabewerts zurück.
+  - : Gibt die Anzahl führender Nullen der 32-Bit-Integer-Eingabe zurück.
 - {{jsxref("Math.cos()")}}
   - : Gibt den Kosinus der Eingabe zurück.
 - {{jsxref("Math.cosh()")}}
   - : Gibt den hyperbolischen Kosinus der Eingabe zurück.
 - {{jsxref("Math.exp()")}}
-  - : Gibt e<sup>x</sup> zurück, wobei x das Argument ist und e die Eulersche Zahl (`2.718`…, die Basis des natürlichen Logarithmus).
+  - : Gibt e<sup>x</sup> zurück, wobei x das Argument ist und e die Eulersche Zahl (`2.718`… die Basis des natürlichen Logarithmus) ist.
 - {{jsxref("Math.expm1()")}}
-  - : Gibt `1` von `exp(x)` subtrahiert zurück.
+  - : Gibt zurück, indem `1` von `exp(x)` subtrahiert wird.
 - {{jsxref("Math.floor()")}}
   - : Gibt die größte ganze Zahl zurück, die kleiner oder gleich der Eingabe ist.
 - {{jsxref("Math.f16round()")}}
-  - : Gibt die nächste [halbe Präzision](https://en.wikipedia.org/wiki/Half-precision_floating-point_format) Float-Darstellung der Eingabe zurück.
+  - : Gibt die nächste [Halbpräzision](https://en.wikipedia.org/wiki/Half-precision_floating-point_format) Fließkommadarstellung der Eingabe zurück.
 - {{jsxref("Math.fround()")}}
-  - : Gibt die nächste [einfache Präzision](https://en.wikipedia.org/wiki/Single-precision_floating-point_format) Float-Darstellung der Eingabe zurück.
+  - : Gibt die nächste [Einzelpräzision](https://en.wikipedia.org/wiki/Single-precision_floating-point_format) Fließkommadarstellung der Eingabe zurück.
 - {{jsxref("Math.hypot()")}}
   - : Gibt die Quadratwurzel der Summe der Quadrate seiner Argumente zurück.
 - {{jsxref("Math.imul()")}}
@@ -92,17 +92,17 @@ Anders als die meisten globalen Objekte ist `Math` kein Konstruktor. Sie können
 - {{jsxref("Math.log2()")}}
   - : Gibt den Logarithmus zur Basis 2 der Eingabe zurück.
 - {{jsxref("Math.max()")}}
-  - : Gibt die größte der null oder mehr Zahlen zurück.
+  - : Gibt die größte von null oder mehr Zahlen zurück.
 - {{jsxref("Math.min()")}}
-  - : Gibt die kleinste der null oder mehr Zahlen zurück.
+  - : Gibt die kleinste von null oder mehr Zahlen zurück.
 - {{jsxref("Math.pow()")}}
-  - : Gibt die Basis `x` zur Exponentenstärke `y` zurück (d. h. `x`<sup><code>y</code></sup>).
+  - : Gibt die Basis `x` zur Potenz `y` (das heißt, `x`<sup><code>y</code></sup>) zurück.
 - {{jsxref("Math.random()")}}
-  - : Gibt eine pseudorandomisierte Zahl zwischen `0` und `1` zurück.
+  - : Gibt eine pseudozufällige Zahl zwischen `0` und `1` zurück.
 - {{jsxref("Math.round()")}}
-  - : Gibt den Wert der Eingabe gerundet auf die nächste ganze Zahl zurück.
+  - : Gibt den Wert der Eingabe zurück, gerundet auf die nächste ganze Zahl.
 - {{jsxref("Math.sign()")}}
-  - : Gibt das Vorzeichen der Eingabe zurück, was angibt, ob sie positiv, negativ oder null ist.
+  - : Gibt das Vorzeichen der Eingabe zurück, das anzeigt, ob es positiv, negativ oder null ist.
 - {{jsxref("Math.sin()")}}
   - : Gibt den Sinus der Eingabe zurück.
 - {{jsxref("Math.sinh()")}}
@@ -114,15 +114,15 @@ Anders als die meisten globalen Objekte ist `Math` kein Konstruktor. Sie können
 - {{jsxref("Math.tanh()")}}
   - : Gibt den hyperbolischen Tangens der Eingabe zurück.
 - {{jsxref("Math.trunc()")}}
-  - : Gibt den ganzzahligen Teil der Eingabe zurück und entfernt alle Nachkommastellen.
+  - : Gibt den ganzzahligen Teil der Eingabe zurück, indem jegliche Nachkommastellen entfernt werden.
 
 ## Beispiele
 
-### Umrechnen zwischen Grad und Bogenmaß
+### Umrechnung zwischen Grad und Bogenmaß
 
-Die trigonometrischen Funktionen `sin()`, `cos()`, `tan()`, `asin()`, `acos()`, `atan()` und `atan2()` erwarten (und geben) Winkel im _Bogenmaß_ zurück.
+Die trigonometrischen Funktionen `sin()`, `cos()`, `tan()`, `asin()`, `acos()`, `atan()` und `atan2()` erwarten (und liefern) Winkel im _Bogenmaß_.
 
-Da Menschen dazu neigen, in Grad zu denken, und einige Funktionen (wie CSS-Transformationen) Grad akzeptieren können, ist es sinnvoll, Funktionen zur Hand zu haben, die zwischen den beiden umrechnen:
+Da Menschen dazu neigen, in Grad zu denken, und einige Funktionen (wie CSS-Transformationen) Grad akzeptieren können, ist es eine gute Idee, Funktionen griffbereit zu haben, die zwischen den beiden konvertieren:
 
 ```js
 function degToRad(degrees) {
@@ -136,21 +136,21 @@ function radToDeg(rad) {
 
 ### Berechnung der Höhe eines gleichseitigen Dreiecks
 
-Wenn wir die Höhe eines gleichseitigen Dreiecks berechnen möchten und wissen, dass die Seitenlänge 100 beträgt, können wir die Formel verwenden: _Länge der Anlegeseite multipliziert mit dem Tangens des Winkels gleich Gegenkathete._
+Wenn wir die Höhe eines gleichseitigen Dreiecks berechnen möchten und wissen, dass seine Seitenlänge 100 ist, können wir die Formel verwenden: _Länge der anliegenden Seite multipliziert mit dem Tangens des Winkels ist gleich der gegenüberliegenden Seite._
 
-![Ein gleichseitiges Dreieck, bei dem eine Senkrechte von einer Kante vom gegenüberliegenden Eckpunkt gezogen wird, was ein rechtwinkliges Dreieck mit drei Seiten bildet, die als "adjacent" (Anlegekanten), "opposite" (Gegenkathete) und "hypotenuse" (Hypotenuse) markiert sind. Der Winkel zwischen der "adjacent" und "hypotenuse" Seite beträgt 60 Grad.](trigonometry.png)
+![Ein gleichseitiges Dreieck, bei dem ein Lot von einer Ecke einer Seite gezogen wurde und ein rechtwinkliges Dreieck mit drei Seiten gebildet hat, die als "angrenzend", "gegenüberliegend" und "Hypotenuse" markiert sind. Der Winkel zwischen den "anliegenden" und "Hypotenuse" Seiten beträgt 60 Grad.](trigonometry.png)
 
-In JavaScript machen wir das folgendermaßen:
+In JavaScript können wir dies mit folgendem tun:
 
 ```js
 50 * Math.tan(degToRad(60));
 ```
 
-Wir verwenden unsere Funktion `degToRad()`, um 60 Grad in Bogenmaß umzuwandeln, da {{jsxref("Math.tan()")}} einen Eingabewert im Bogenmaß erwartet.
+Wir verwenden unsere `degToRad()` Funktion, um 60 Grad in Bogenmaß umzuwandeln, da {{jsxref("Math.tan()")}} einen Eingabewert im Bogenmaß erwartet.
 
-### Zurückgeben einer zufälligen Ganzzahl zwischen zwei Grenzen
+### Rückgabe einer zufälligen Ganzzahl zwischen zwei Grenzen
 
-Dies kann mit einer Kombination aus {{jsxref("Math.random()")}} und {{jsxref("Math.floor()")}} erreicht werden:
+Dies kann mit einer Kombination von {{jsxref("Math.random()")}} und {{jsxref("Math.floor()")}} erreicht werden:
 
 ```js
 function random(min, max) {

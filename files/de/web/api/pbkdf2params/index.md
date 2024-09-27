@@ -7,31 +7,31 @@ l10n:
 
 {{ APIRef("Web Crypto API") }}
 
-Das **`Pbkdf2Params`**-Dictionary der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert das Objekt, das als `algorithm`-Parameter an {{domxref("SubtleCrypto.deriveKey()")}} übergeben werden sollte, wenn der [PBKDF2](/de/docs/Web/API/SubtleCrypto/deriveKey#pbkdf2)-Algorithmus verwendet wird.
+Das **`Pbkdf2Params`** Wörterbuch der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert das Objekt, das als `algorithm`-Parameter in [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) übergeben werden sollte, wenn der [PBKDF2](/de/docs/Web/API/SubtleCrypto/deriveKey#pbkdf2) Algorithmus verwendet wird.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - `name`
   - : Ein String. Dieser sollte auf `PBKDF2` gesetzt werden.
 - `hash`
 
-  - : Ein String, der den zu verwendenden [Digest-Algorithmus](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms) repräsentiert. Dieser kann einer der folgenden sein:
+  - : Ein String, der den zu verwendenden [Digest-Algorithmus](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms) darstellt. Dies kann einer der folgenden sein:
 
     - `SHA-1`
     - `SHA-256`
     - `SHA-384`
     - `SHA-512`
 
-    > **Warning:** `SHA-1` wird in den meisten kryptografischen Anwendungen als unsicher angesehen, gilt aber in PBKDF2 immer noch als sicher. Dennoch ist es ratsam, von seiner Verwendung abzusehen, daher sollte, sofern Sie `SHA-1` nicht unbedingt benötigen, ein anderer Digest-Algorithmus verwendet werden.
+    > **Warning:** `SHA-1` gilt in den meisten kryptografischen Anwendungen als unsicher, wird jedoch in PBKDF2 noch als sicher betrachtet. Es wird jedoch empfohlen, überall von `SHA-1` wegzugehen, es sei denn, Sie müssen `SHA-1` verwenden. Verwenden Sie stattdessen einen anderen Digest-Algorithmus.
 
 - `salt`
-  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}. Dies sollte ein zufälliger oder pseudo-zufälliger Wert von mindestens 16 Byte sein. Im Gegensatz zu dem in [`deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) eingegebenen Schlüsselmaterial muss `salt` nicht geheim gehalten werden.
+  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}. Dies sollte ein zufälliger oder pseudo-zufälliger Wert von mindestens 16 Byte sein. Im Gegensatz zum in [`deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) eingegebenen Schlüsselmaterial muss `salt` nicht geheim gehalten werden.
 - `iterations`
-  - : Eine `Number`, die die Anzahl der Ausführungen der Hash-Funktion in `deriveKey()` darstellt. Diese bestimmt, wie rechenintensiv (d.h. langsam) die `deriveKey()`-Operation sein wird. In diesem Kontext ist langsam gut, da es den Aufwand für einen Angreifer erhöht, einen {{Glossary("dictionary attack")}} auf die Schlüssel auszuführen. Die allgemeine Empfehlung lautet, so viele Iterationen wie möglich zu verwenden, solange die Leistung Ihrer Anwendung akzeptabel bleibt.
+  - : Eine `Number`, die die Anzahl der Ausführungen der Hash-Funktion in `deriveKey()` darstellt. Dies bestimmt, wie rechenintensiv (das heißt, langsam) die `deriveKey()`-Operation sein wird. In diesem Kontext ist langsam gut, da es für einen Angreifer teurer wird, einen [Wörterbuchangriff](/de/docs/Glossary/dictionary_attack) gegen die Schlüssel auszuführen. Die allgemeine Empfehlung hier ist, so viele Iterationen wie möglich zu verwenden, sofern ein akzeptables Leistungsniveau für Ihre Anwendung beibehalten wird.
 
 ## Beispiele
 
-Siehe die Beispiele für {{domxref("SubtleCrypto.deriveKey()")}}.
+Siehe die Beispiele für [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey).
 
 ## Spezifikationen
 
@@ -39,8 +39,8 @@ Siehe die Beispiele für {{domxref("SubtleCrypto.deriveKey()")}}.
 
 ## Browser-Kompatibilität
 
-Browser, die den "PBKDF2"-Algorithmus für die {{domxref("SubtleCrypto.deriveKey()")}}-Methode unterstützen, werden diesen Typ unterstützen.
+Browser, die den "PBKDF2"-Algorithmus für die [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) Methode unterstützen, werden diesen Typ unterstützen.
 
 ## Siehe auch
 
-- {{domxref("SubtleCrypto.deriveKey()")}}.
+- [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey).

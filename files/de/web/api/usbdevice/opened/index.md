@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die **`opened`** schreibgeschützte Eigenschaft des {{domxref("USBDevice")}}-Interfaces zeigt an, ob eine Sitzung mit einem gekoppelten USB-Gerät gestartet wurde. Ein Gerät muss geöffnet werden, bevor es von einer Webseite gesteuert werden kann.
+Die schreibgeschützte **`opened`**-Eigenschaft der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt an, ob eine Sitzung mit einem gekoppelten USB-Gerät gestartet wurde. Ein Gerät muss geöffnet werden, bevor es von einer Webseite gesteuert werden kann.
 
 ## Wert
 
@@ -16,16 +16,16 @@ Ein {{jsxref("boolean")}}.
 
 ## Beispiele
 
-Dieses Beispiel bezieht sich auf ein hypothetisches USB-Gerät mit einer mehrfarbigen LED. Es zeigt, wie überprüft wird, ob ein Gerät geöffnet ist, bevor {{domxref("USBDevice.controlTransferOut")}} aufgerufen wird, um eine bestimmte LED-Farbe einzustellen.
+Dieses Beispiel ist für ein hypothetisches USB-Gerät mit einer mehrfarbigen LED. Es zeigt, wie man prüft, ob ein Gerät geöffnet ist, bevor [`USBDevice.controlTransferOut`](/de/docs/Web/API/USBDevice/controlTransferOut) aufgerufen wird, um eine bestimmte LED-Farbe einzustellen.
 
 > [!NOTE]
-> Welche Daten an ein USB-Gerät übermittelt werden können und wie sie übermittelt werden, ist spezifisch und einzigartig für jedes Gerät.
+> Welche Daten an ein USB-Gerät übergeben werden können und wie dies geschieht, ist speziell und einzigartig für jedes Gerät.
 
 ```js
 async function setDeviceColor(usbDevice, r, g, b) {
   if (device.opened) {
-    // Dieses hypothetische USB-Gerät erfordert, dass die an es
-    // übergebenen Daten in einer Uint8Array vorliegen.
+    // This hypothetical USB device requires that the data passed to
+    // it be in a Uint8Array.
     const payload = new Uint8Array([r, g, b]);
 
     await usbDevice.controlTransferOut(

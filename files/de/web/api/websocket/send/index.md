@@ -3,12 +3,12 @@ title: "WebSocket: send()-Methode"
 short-title: send()
 slug: Web/API/WebSocket/send
 l10n:
-  sourceCommit: eba47bb55d10e6dc73f61dbefc9d3da2abf1fd78
+  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
 ---
 
-{{APIRef("WebSockets API")}}
+{{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Die **`WebSocket.send()`**-Methode reiht die angegebenen Daten zur Übertragung an den Server über die WebSocket-Verbindung ein und erhöht den Wert von `bufferedAmount` um die Anzahl der Bytes, die zum Speichern der Daten erforderlich sind. Wenn die Daten nicht gesendet werden können (zum Beispiel, weil sie gepuffert werden müssen, der Puffer jedoch voll ist), wird die Verbindung automatisch geschlossen. Der Browser wirft eine Ausnahme, wenn Sie `send()` aufrufen, während die Verbindung im `CONNECTING`-Zustand ist. Wenn Sie `send()` aufrufen, während die Verbindung im `CLOSING`- oder `CLOSED`-Zustand ist, verwirft der Browser die Daten stillschweigend.
+Die **`WebSocket.send()`**-Methode stellt die angegebene Datenmenge zur Übertragung an den Server über die WebSocket-Verbindung in die Warteschlange, wodurch der Wert von `bufferedAmount` um die Anzahl der Bytes erhöht wird, die zur Speicherung der Daten benötigt werden. Wenn die Daten nicht gesendet werden können (zum Beispiel, weil sie gepuffert werden müssen, der Puffer jedoch voll ist), wird der Socket automatisch geschlossen. Der Browser wirft eine Ausnahme, wenn Sie `send()` aufrufen, während die Verbindung im Zustand `CONNECTING` ist. Wenn Sie `send()` im Zustand `CLOSING` oder `CLOSED` aufrufen, wird der Browser die Daten stillschweigend verwerfen.
 
 ## Syntax
 
@@ -20,16 +20,16 @@ send(data)
 
 - `data`
 
-  - : Die zu sendenden Daten an den Server. Sie können einer der folgenden Typen sein:
+  - : Die Daten, die an den Server gesendet werden sollen. Sie können einen der folgenden Typen haben:
 
     - `string`
-      - : Eine Textzeichenkette. Die Zeichenkette wird dem Puffer im UTF-8-Format hinzugefügt, und der Wert von `bufferedAmount` wird um die Anzahl der Bytes erhöht, die zum Darstellen der UTF-8-Zeichenkette erforderlich sind.
+      - : Ein Text-String. Der String wird im UTF-8-Format in den Puffer hinzugefügt, und der Wert von `bufferedAmount` wird um die Anzahl der Bytes erhöht, die zur Darstellung des UTF-8-Strings erforderlich sind.
     - {{jsxref("ArrayBuffer")}}
-      - : Sie können die zugrunde liegenden Binärdaten eines typisierten Array-Objekts senden; dessen Binärdateninhalt wird in den Puffer eingereiht, wodurch der Wert von `bufferedAmount` um die erforderliche Anzahl von Bytes erhöht wird.
-    - {{domxref("Blob")}}
-      - : Die Angabe eines `Blob` reiht die Rohdaten des Blobs zur Übertragung in einem binären Frame ein (der {{domxref("Blob.type")}} wird ignoriert). Der Wert von `bufferedAmount` wird um die Byte-Größe dieser Rohdaten erhöht.
+      - : Sie können die zugrunde liegenden Binärdaten verwenden, die von einem typisierten Array-Objekt verwendet werden; deren Binärdateninhalte werden im Puffer in die Warteschlange gestellt, wodurch der Wert von `bufferedAmount` um die erforderliche Anzahl von Bytes erhöht wird.
+    - [`Blob`](/de/docs/Web/API/Blob)
+      - : Die Angabe eines `Blob` stellt die Rohdaten des Blobs in eine binäre Rahmen in die Warteschlange, wobei der [`Blob.type`](/de/docs/Web/API/Blob/type) ignoriert wird. Der Wert von `bufferedAmount` wird um die Byte-Größe dieser Rohdaten erhöht.
     - {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}
-      - : Sie können jedes [JavaScript-typisierte Array](/de/docs/Web/JavaScript/Guide/Typed_arrays)-Objekt als binären Frame senden; dessen Binärdateninhalt wird in den Puffer eingereiht, wodurch der Wert von `bufferedAmount` um die erforderliche Anzahl von Bytes erhöht wird.
+      - : Sie können jedes [JavaScript-typisierte Array](/de/docs/Web/JavaScript/Guide/Typed_arrays)-Objekt als binären Rahmen senden; dessen Binärdateninhalte werden im Puffer in die Warteschlange gestellt, wodurch der Wert von `bufferedAmount` um die erforderliche Anzahl von Bytes erhöht wird.
 
 ### Rückgabewert
 
@@ -37,8 +37,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn {{domxref("WebSocket/readyState", "WebSocket.readyState")}} `CONNECTING` ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn [`WebSocket.readyState`](/de/docs/Web/API/WebSocket/readyState) `CONNECTING` ist.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "Dokument: close()-Methode"
+title: "Document: close() Methode"
 short-title: close()
 slug: Web/API/Document/close
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Document.close()`**-Methode beendet das Schreiben in ein Dokument, das mit {{domxref("Document.open()")}} geöffnet wurde.
+Die **`Document.close()`** Methode beendet das Schreiben in ein Dokument, das mit [`Document.open()`](/de/docs/Web/API/Document/open) geöffnet wurde.
 
 ## Syntax
 
@@ -27,13 +27,13 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```js
-// Öffnen Sie ein Dokument, um in es zu schreiben
+// Open a document to write to it
 document.open();
 
-// Schreiben Sie den Inhalt des Dokuments
+// Write the content of the document
 document.write("<p>The one and only content.</p>");
 
-// Schließen Sie das Dokument
+// Close the document
 document.close();
 ```
 

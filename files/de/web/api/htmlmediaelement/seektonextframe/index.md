@@ -9,24 +9,22 @@ l10n:
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}{{non-standard_header}}
 
 Die **`HTMLMediaElement.seekToNextFrame()`** Methode
-verschiebt asynchron die aktuelle Wiedergabeposition auf den nächsten Frame im Medium.
+verschiebt asynchron die aktuelle Abspielposition zum nächsten Frame im Medium.
 
 > [!WARNING]
-> Diese nicht standardisierte Methode ist Teil eines Experimentierprozesses, um die Unterstützung für
-> den nicht in Echtzeit erfolgenden Zugriff auf Medien für Aufgaben wie Filterung, Bearbeitung usw. zu erproben.
-> Sie sollten diese Methode _nicht_ in Produktionscode verwenden, da ihre Implementierung
-> sich ohne Vorankündigung ändern kann oder vollständig entfernt werden könnte. Sie sind jedoch eingeladen,
+> Diese nicht-standardisierte Methode ist Teil eines Experimentierprozesses zur Unterstützung von
+> nicht-echtzeitlichem Zugang zu Medien für Aufgaben wie Filterung, Bearbeitung und Ähnliches.
+> Sie sollten diese Methode _nicht_ im Produktionscode verwenden, da ihre Implementierung
+> sich ändern kann—oder sogar ganz entfernt werden kann—ohne Ankündigung. Sie sind jedoch eingeladen,
 > damit zu experimentieren.
 
-Diese Methode ermöglicht Ihnen den Zugriff auf Einzelbilder von Videomedien, ohne dass das Medium in
-Echtzeit abgespielt wird. Dadurch können Sie auf Medien zugreifen, indem Sie Frames als Suchkriterium anstelle von
-Zeitcodes verwenden (allerdings nur durch das Suchen einzelner Frames, bis Sie zum gewünschten Frame gelangen). Mögliche Verwendungen dieser Methode umfassen die Filterung und Bearbeitung von Videoinhalten.
+Diese Methode ermöglicht es Ihnen, auf Frames von Videomedien zuzugreifen, ohne dass das Medium in
+Echtzeit abgespielt wird. Dies ermöglicht es auch, Medien mit Frames als Suchgröße statt
+Zeitcodes zu verwenden (wenn auch nur durch das Suchen eines Frames nach dem anderen, bis Sie den gewünschten Frame erreichen). Mögliche Verwendungen dieser Methode umfassen die Filterung und Bearbeitung von Videoinhalten.
 
-Diese Methode gibt sofort zurück und liefert ein {{jsxref("Promise")}}, dessen Fulfillment-Handler aufgerufen wird, wenn die Suchoperation abgeschlossen ist. Zusätzlich wird ein
-{{domxref("HTMLMediaElement/seeked_event", "seeked")}}-Ereignis gesendet, um Interessenten darüber zu informieren, dass eine Suche stattgefunden hat. Wenn die Suche fehlschlägt, weil das Medium bereits am letzten Frame ist, tritt ein
-{{domxref("HTMLMediaElement/seeked_event", "seeked")}}-Ereignis auf, gefolgt unmittelbar von einem {{domxref("HTMLMediaElement/ended_event", "ended")}}-Ereignis.
+Diese Methode gibt sofort ein {{jsxref("Promise")}} zurück, dessen Erfüllungs-Handler aufgerufen wird, wenn der Suchvorgang abgeschlossen ist. Zusätzlich wird ein [`seeked`](/de/docs/Web/API/HTMLMediaElement/seeked_event) Ereignis gesendet, um interessierte Parteien darüber zu informieren, dass eine Suche stattgefunden hat. Wenn die Suche fehlschlägt, weil das Medium bereits im letzten Frame ist, tritt ein [`seeked`](/de/docs/Web/API/HTMLMediaElement/seeked_event) Ereignis auf, gefolgt direkt von einem [`ended`](/de/docs/Web/API/HTMLMediaElement/ended_event) Ereignis.
 
-Wenn es kein Video auf dem Medien-Element gibt oder das Medium nicht durchsuchbar ist, passiert nichts.
+Wenn kein Video auf dem Medienelement vorhanden ist oder das Medium nicht suchbar ist, passiert nichts.
 
 ## Syntax
 
@@ -40,11 +38,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das erfüllt wird, sobald die Suchoperation abgeschlossen ist.
+Ein {{jsxref("Promise")}}, das erfüllt wird, sobald der Suchvorgang abgeschlossen ist.
 
 ## Spezifikationen
 
-Nicht Teil einer Spezifikation.
+Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 

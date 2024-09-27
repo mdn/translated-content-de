@@ -9,15 +9,11 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die {{domxref("PerformanceNavigationTiming")}}
-> Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
 
-Die veraltete
+Die veraltete, schreibgeschützte Eigenschaft
 **`PerformanceTiming.responseEnd`**
-schreibgeschützte Eigenschaft gibt eine `unsigned long long` zurück, die den Zeitpunkt darstellt,
-in Millisekunden seit der UNIX-Epoche, zu dem der Browser das letzte Byte der
-Antwort empfangen hat, oder wenn die Verbindung geschlossen wurde, falls dies zuerst geschah, vom Server,
-aus einem Cache oder aus einer lokalen Ressource.
+gibt ein `unsigned long long` zurück, das den Moment in Millisekunden seit der UNIX-Epoche repräsentiert, in dem der Browser das letzte Byte der Antwort empfangen hat oder als die Verbindung geschlossen wird, wenn dies zuerst geschieht, vom Server, aus einem Cache oder einer lokalen Ressource.
 
 ## Wert
 
@@ -33,4 +29,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Die {{domxref("PerformanceTiming")}} Schnittstelle, zu der sie gehört.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle, zu der es gehört.

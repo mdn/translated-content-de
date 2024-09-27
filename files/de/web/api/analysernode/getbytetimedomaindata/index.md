@@ -1,5 +1,5 @@
 ---
-title: "AnalyserNode: Methode getByteTimeDomainData()"
+title: "AnalyserNode: getByteTimeDomainData()-Methode"
 short-title: getByteTimeDomainData()
 slug: Web/API/AnalyserNode/getByteTimeDomainData
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`getByteTimeDomainData()`** Methode der {{ domxref("AnalyserNode") }}-Schnittstelle kopiert die aktuelle Wellenform- oder Zeitbereichsdaten in ein übergebenes {{jsxref("Uint8Array")}} (unsigniertes Byte-Array).
+Die **`getByteTimeDomainData()`**-Methode der [`AnalyserNode`](/de/docs/Web/API/AnalyserNode)-Schnittstelle kopiert die aktuelle Wellenform- oder Zeitbereichsdaten in eine übergebene {{jsxref("Uint8Array")}} (unsigned byte array).
 
-Wenn das Array weniger Elemente enthält als die {{domxref("AnalyserNode.fftSize")}}, werden überschüssige Elemente verworfen. Wenn es mehr Elemente hat, als benötigt werden, werden überschüssige Elemente ignoriert.
+Wenn das Array weniger Elemente als die [`AnalyserNode.fftSize`](/de/docs/Web/API/AnalyserNode/fftSize) hat, werden überschüssige Elemente verworfen. Hat es mehr Elemente als benötigt, werden überschüssige Elemente ignoriert.
 
 ## Syntax
 
@@ -21,8 +21,8 @@ getByteTimeDomainData(array)
 ### Parameter
 
 - `array`
-  - : Das {{jsxref("Uint8Array")}}, in das die Zeitbereichsdaten kopiert werden.
-    Wenn das Array weniger Elemente enthält als die {{domxref("AnalyserNode.fftSize")}}, werden überschüssige Elemente verworfen. Wenn es mehr Elemente hat, als benötigt werden, werden überschüssige Elemente ignoriert.
+  - : Die {{jsxref("Uint8Array")}}, in die die Zeitbereichsdaten kopiert werden.
+    Wenn das Array weniger Elemente als die [`AnalyserNode.fftSize`](/de/docs/Web/API/AnalyserNode/fftSize) hat, werden überschüssige Elemente verworfen. Hat es mehr Elemente als benötigt, werden überschüssige Elemente ignoriert.
 
 ### Rückgabewert
 
@@ -30,8 +30,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines {{domxref("AudioContext")}}, um einen `AnalyserNode` zu erstellen, und dann {{domxref("window.requestAnimationFrame()","requestAnimationFrame")}} und {{htmlelement("canvas")}}, um wiederholt Zeitbereichsdaten zu sammeln und eine "Oszilloskop-ähnliche" Ausgabe der aktuellen Audioeingabe zu zeichnen.
-Für vollständigere angewandte Beispiele/Informationen werfen Sie einen Blick auf unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen `AnalyserNode` zu erstellen. Anschließend wird `requestAnimationFrame` und ein {{htmlelement("canvas")}} verwendet, um wiederholt Zeitbereichsdaten zu sammeln und eine "Oszilloskop-ähnliche" Ausgabe des aktuellen Audioeingangs zu zeichnen.
+Für vollständigere praktische Beispiele/Informationen sehen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic)-Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
 
 ```js
 const audioCtx = new AudioContext();

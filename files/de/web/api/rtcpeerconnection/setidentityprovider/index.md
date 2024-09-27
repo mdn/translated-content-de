@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: Methode setIdentityProvider()"
+title: "RTCPeerConnection: setIdentityProvider() Methode"
 short-title: setIdentityProvider()
 slug: Web/API/RTCPeerConnection/setIdentityProvider
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`setIdentityProvider()`** Methode des {{domxref("RTCPeerConnection")}} Interfaces setzt den Identitätsanbieter (IdP) auf das in den Parametern angegebene Triplet: seinen Namen, das Protokoll, das zur Kommunikation mit ihm verwendet wird (optional) und einen optionalen Benutzernamen. Der IdP wird nur dann verwendet, wenn eine Assertion benötigt wird.
+Die **`setIdentityProvider()`** Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Schnittstelle setzt den Identitätsanbieter (IdP) auf das im Parameter angegebene Tripel: seinen Namen, das Protokoll, das zur Kommunikation mit ihm verwendet wird (optional) und einen optionalen Benutzernamen. Der IdP wird nur verwendet, wenn eine Bestätigung erforderlich ist.
 
-Wenn der {{domxref("RTCPeerConnection.signalingState", "signalingState")}} auf `"closed"` gesetzt ist, wird ein `InvalidStateError` ausgelöst.
+Wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) auf `"closed"` gesetzt ist, wird ein `InvalidStateError` ausgelöst.
 
 ## Syntax
 
@@ -23,11 +23,12 @@ setIdentityProvider(domainname, protocol, username)
 ### Parameter
 
 - `domainname`
-  - : Eine Zeichenkette, die den Domainnamen repräsentiert, bei dem sich der IdP befindet.
+  - : Eine Zeichenkette, die den Domainnamen darstellt, an dem der IdP sich befindet.
 - `protocol` {{optional_Inline}}
-  - : Eine Zeichenkette, die das Protokoll repräsentiert, das zur Kommunikation mit dem IdP verwendet wird. Es wird standardmäßig auf `"default"` gesetzt und wird verwendet, um die URL zu bestimmen, wo der IdP zuhört.
+  - : Eine Zeichenkette, die das Protokoll darstellt, welches zur Kommunikation mit dem IdP verwendet wird.
+    Standardmäßig ist dies `"default"` und wird verwendet, um die URL zu bestimmen, an der der IdP zuhört.
 - `username` {{optional_Inline}}
-  - : Eine Zeichenkette, die den mit dem IdP verbundenen Benutzernamen repräsentiert.
+  - : Eine Zeichenkette, die den Benutzernamen darstellt, der mit dem IdP verbunden ist.
 
 ### Rückgabewert
 

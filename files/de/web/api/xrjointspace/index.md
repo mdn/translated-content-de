@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("WebXR Device API")}}
 
-Das **`XRJointSpace`** Interface ist eine {{domxref("XRSpace")}} und repräsentiert die Position und Orientierung eines Gelenks einer {{domxref("XRHand")}}.
+Die **`XRJointSpace`**-Schnittstelle ist ein [`XRSpace`](/de/docs/Web/API/XRSpace) und repräsentiert die Position und Ausrichtung eines [`XRHand`](/de/docs/Web/API/XRHand)-Gelenks.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("XRJointSpace.jointName")}} {{ReadOnlyInline}}
-  - : Der Name des Gelenks, das verfolgt wird. Siehe {{domxref("XRHand")}} für mögliche Handgelenk-Namen.
+- [`XRJointSpace.jointName`](/de/docs/Web/API/XRJointSpace/jointName) {{ReadOnlyInline}}
+  - : Der Name des verfolgten Gelenks. Siehe [`XRHand`](/de/docs/Web/API/XRHand) für mögliche Namen von Handgelenken.
 
 ## Beispiele
 
-### Verwendung von `XRJointSpace` Objekten
+### Verwendung von `XRJointSpace`-Objekten
 
-Sie können ein `XRJointSpace` Objekt und einen {{domxref("XRReferenceSpace")}} verwenden, um eine {{domxref("XRJointPose")}} zu erhalten, indem Sie {{domxref("XRFrame.getJointPose()")}} aufrufen.
+Sie können ein `XRJointSpace`-Objekt und ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) verwenden, um eine [`XRJointPose`](/de/docs/Web/API/XRJointPose) zu erhalten, indem Sie [`XRFrame.getJointPose()`](/de/docs/Web/API/XRFrame/getJointPose) aufrufen.
 
 ```js
 navigator.xr
@@ -50,7 +50,7 @@ function renderFrame(session, frame) {
 
 ## Siehe auch
 
-- {{domxref("XRHand")}}
-- {{domxref("XRReferenceSpace")}}
-- {{domxref("XRJointPose")}}
-- {{domxref("XRFrame.getJointPose()")}}
+- [`XRHand`](/de/docs/Web/API/XRHand)
+- [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)
+- [`XRJointPose`](/de/docs/Web/API/XRJointPose)
+- [`XRFrame.getJointPose()`](/de/docs/Web/API/XRFrame/getJointPose)

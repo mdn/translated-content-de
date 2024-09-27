@@ -7,8 +7,8 @@ l10n:
 
 {{CSSRef}}
 
-Der **`:playing`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert den Wiedergabestatus eines abspielbaren Elements, wie zum Beispiel {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn dieses Element "spielt".
-Ein Element wird als spielend betrachtet, wenn es die Mediendatei derzeit abspielt, oder wenn es vorübergehend aus anderen Gründen als einer Benutzerabsicht gestoppt wurde (wie zum Beispiel bei {{cssxref(":buffering")}} oder {{cssxref(":stalled")}}).
+Der **`:playing`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert den Wiedergabestatus eines Elements, das abspielbar ist, wie zum Beispiel ein {{htmlelement("audio")}}- oder {{htmlelement("video")}}-Element, wenn dieses Element "spielt".
+Ein Element wird als spielend betrachtet, wenn es derzeit die Mediendatei abspielt oder wenn es temporär aus Gründen pausiert ist, die nicht auf Absicht des Nutzers basieren (wie {{cssxref(":buffering")}} oder {{cssxref(":stalled")}}).
 
 ## Syntax
 
@@ -44,4 +44,4 @@ Ein Element wird als spielend betrachtet, wenn es die Mediendatei derzeit abspie
 - {{cssxref(":seeking")}}
 - {{cssxref(":stalled")}}
 - {{cssxref(":volume-locked")}}
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors)

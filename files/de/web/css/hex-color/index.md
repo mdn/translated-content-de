@@ -1,5 +1,5 @@
 ---
-title: <hex-farbe>
+title: <hex-color>
 slug: Web/CSS/hex-color
 l10n:
   sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
@@ -7,38 +7,38 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<hex-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) ist eine Notation zur Beschreibung der _hexadezimalen Farbsyntax_ einer [sRGB](/de/docs/Glossary/RGB)-Farbe unter Verwendung ihrer Primärfarbkomponenten (Rot, Grün, Blau), die als hexadezimale Zahlen geschrieben sind, sowie ihrer Transparenz.
+Der **`<hex-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) ist eine Notation zur Beschreibung der _hexadezimalen Farbsyntax_ einer [sRGB](/de/docs/Glossary/RGB) Farbe unter Verwendung ihrer Hauptfarbkomponenten (Rot, Grün, Blau), die als hexadezimale Zahlen geschrieben werden, sowie ihrer Transparenz.
 
-Ein `<hex-color>`-Wert kann überall dort verwendet werden, wo ein [`<color>`](/de/docs/Web/CSS/color_value) verwendet werden kann.
+Ein `<hex-color>` Wert kann überall dort verwendet werden, wo ein [`<color>`](/de/docs/Web/CSS/color_value) verwendet werden kann.
 
 ## Syntax
 
 ```plain
-#RGB        // Die Drei-Werte-Syntax
-#RGBA       // Die Vier-Werte-Syntax
-#RRGGBB     // Die Sechs-Werte-Syntax
-#RRGGBBAA   // Die Acht-Werte-Syntax
+#RGB        // The three-value syntax
+#RGBA       // The four-value syntax
+#RRGGBB     // The six-value syntax
+#RRGGBBAA   // The eight-value syntax
 ```
 
 ### Wert
 
 - `R` oder `RR`
-  - : Die _rote_ Komponente der Farbe, als ein nicht-case-sensitiver hexadezimaler Zahlwert zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie dupliziert: `1` bedeutet `11`.
+  - : Die _rote_ Komponente der Farbe, als nicht empfindliche Hexadezimalzahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie dupliziert: `1` bedeutet `11`.
 - `G` oder `GG`
-  - : Die _grüne_ Komponente der Farbe, als ein nicht-case-sensitiver hexadezimaler Zahlwert zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie dupliziert: `c` bedeutet `cc`.
+  - : Die _grüne_ Komponente der Farbe, als nicht empfindliche Hexadezimalzahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie dupliziert: `c` bedeutet `cc`.
 - `B` oder `BB`
-  - : Die _blaue_ Komponente der Farbe, als ein nicht-case-sensitiver hexadezimaler Zahlwert zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie dupliziert: `9` bedeutet `99`.
+  - : Die _blaue_ Komponente der Farbe, als nicht empfindliche Hexadezimalzahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie dupliziert: `9` bedeutet `99`.
 - `A` oder `AA` {{optional_inline}}
-  - : Die _Alpha_-Komponente der Farbe, die ihre Transparenz angibt, als ein nicht-case-sensitiver hexadezimaler Zahlwert zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie dupliziert: `e` bedeutet `ee`. `0`, oder `00`, steht für eine vollständig transparente Farbe, und `f`, oder `ff`, für eine vollständig opake.
+  - : Die _alpha_ Komponente der Farbe, die ihre Transparenz angibt, als nicht empfindliche Hexadezimalzahl zwischen `0` und `ff` (255). Wenn es nur eine Zahl gibt, wird sie dupliziert: `e` bedeutet `ee`. `0`, oder `00`, repräsentiert eine vollständig transparente Farbe, und `f`, oder `ff`, eine vollständig opake.
 
 > [!NOTE]
-> Die Syntax ist nicht-case-sensitiv: `#00ff00` ist dasselbe wie `#00FF00`.
+> Die Syntax ist nicht case-sensitive: `#00ff00` ist dasselbe wie `#00FF00`.
 
 ## Beispiele
 
 ### Hexadezimales Pink
 
-Dieses Beispiel enthält vier pinke Quadrate mit vollständig opaken oder halbtransparenten Hintergründen, erstellt mit vier unterschiedlich langen nicht-case-sensitiven Hex-Farbsytnaxen.
+Dieses Beispiel zeigt vier pinke Quadrate mit vollständig opaken oder halbtransparenten Hintergründen, erstellt mit vier unterschiedlich langen, nicht fall-sensitiven Hex-Color-Syntaxen.
 
 #### HTML
 
@@ -63,7 +63,7 @@ Dieses Beispiel enthält vier pinke Quadrate mit vollständig opaken oder halbtr
 
 #### CSS
 
-Die pinken Hintergrundfarben werden mit den Drei-, Vier-, Sechs- und Acht-Wert-Hex-Notationen erstellt, unter Verwendung sowohl von Groß- als auch von Kleinbuchstaben.
+Die pinkfarbenen Hintergrundfarben werden unter Verwendung der drei-, vier-, sechs- und achtwertigen Hex-Notationen erstellt, wobei sowohl Groß- als auch Kleinbuchstaben verwendet werden.
 
 ```css hidden
 body {
@@ -115,4 +115,4 @@ div {
 - [`<color>`](/de/docs/Web/CSS/color_value) Datentyp
 - {{cssxref("named-color")}} Datentyp
 - [`rgb()`](/de/docs/Web/CSS/color_value/rgb) Farb-Funktion
-- [CSS-Farbmodul](/de/docs/Web/CSS/CSS_colors)
+- [CSS Farbe](/de/docs/Web/CSS/CSS_colors) Modul

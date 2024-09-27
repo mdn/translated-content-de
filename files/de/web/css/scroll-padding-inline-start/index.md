@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-padding-inline-start` definiert Versätze für die Startkante in der Inlinerichtung der _optimalen Betrachtungsregion_ des Scrollports: die Region, die als Zielregion verwendet wird, um Dinge im Blickfeld des Benutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports, die durch andere Inhalte verdeckt sind (wie beispielsweise fest positionierte Werkzeugleisten oder Seitenleisten), auszuschließen oder mehr Abstand zwischen einem angezielten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-inline-start` definiert Versätze für die Startkante in der Inline-Dimension des _optimalen Betrachtungsbereichs_ des Scrollports: der Bereich, der als Zielregion für die Platzierung von Elementen im Sichtbereich des Nutzers verwendet wird. Dadurch kann der Autor Regionen des Scrollports ausschließen, die von anderem Inhalt verdeckt werden (wie zum Beispiel fest positionierte Werkzeugleisten oder Seitenleisten) oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports schaffen.
 
 {{EmbedInteractiveExample("pages/css/scroll-padding-inline-start.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 scroll-padding-inline-start: auto;
 
-/* <Längen>-Werte */
+/* <length> values */
 scroll-padding-inline-start: 10px;
 scroll-padding-inline-start: 1em;
 scroll-padding-inline-start: 10%;
 
-/* Globale Werte */
+/* Global values */
 scroll-padding-inline-start: inherit;
 scroll-padding-inline-start: initial;
 scroll-padding-inline-start: revert;
@@ -33,9 +33,9 @@ scroll-padding-inline-start: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Versatz von der Inline-Startkante des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Versatz von der Inline-Startkante des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Im Allgemeinen wird dies 0px sein, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein nicht-null Wert angemessener ist.
+  - : Der Versatz wird vom Nutzeragenten bestimmt. Dies ist in der Regel 0px, aber ein Nutzeragent kann etwas anderes erkennen und tun, wenn ein nicht-nullwertiger Wert angemessener ist.
 
 ## Formale Definition
 

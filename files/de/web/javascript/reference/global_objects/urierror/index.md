@@ -2,14 +2,14 @@
 title: URIError
 slug: Web/JavaScript/Reference/Global_Objects/URIError
 l10n:
-  sourceCommit: fb85334ffa4a2c88d209b1074909bee0e0abd57a
+  sourceCommit: 8b6cec0ceff01e7a9d6865cf5306788e15cce4b8
 ---
 
 {{JSRef}}
 
-Das **`URIError`**-Objekt repräsentiert einen Fehler, wenn eine globale URI-Verarbeitungsfunktion auf falsche Weise verwendet wurde.
+Das **`URIError`**-Objekt repräsentiert einen Fehler, wenn eine globale URI-Verarbeitungsfunktion falsch verwendet wurde.
 
-`URIError` ist ein {{Glossary("serializable object", "serialisierbares Objekt")}}, sodass es mit {{domxref("structuredClone()")}} geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit {{domxref("Worker/postMessage()", "postMessage()")}} kopiert werden kann.
+`URIError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mittels [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
 `URIError` ist eine Unterklasse von {{jsxref("Error")}}.
 
@@ -48,7 +48,7 @@ try {
 }
 ```
 
-### Erstellen eines URIError
+### Erzeugung eines URIError
 
 ```js
 try {
@@ -65,7 +65,7 @@ try {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

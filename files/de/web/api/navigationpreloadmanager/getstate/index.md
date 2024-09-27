@@ -1,5 +1,5 @@
 ---
-title: "NavigationPreloadManager: getState()-Methode"
+title: "NavigationPreloadManager: getState() Methode"
 short-title: getState()
 slug: Web/API/NavigationPreloadManager/getState
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`getState()`**-Methode der {{domxref("NavigationPreloadManager")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das zu einem Objekt aufgelöst wird. Dieses Objekt enthält Eigenschaften, die anzeigen, ob Preload aktiviert ist und welcher Wert im {{HTTPHeader("Service-Worker-Navigation-Preload")}} HTTP-Header gesendet wird.
+Die **`getState()`** Methode der [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das sich zu einem Objekt auflöst, dessen Eigenschaften angeben, ob das Vorladen aktiviert ist und welcher Wert im {{HTTPHeader("Service-Worker-Navigation-Preload")}} HTTP-Header gesendet wird.
 
 ## Syntax
 
@@ -22,22 +22,22 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das die folgenden Eigenschaften hat:
+Ein {{jsxref("Promise")}}, das sich mit einem Objekt auflöst, das die folgenden Eigenschaften hat:
 
 - `enabled`
-  - : `true`, wenn Preloading aktiviert ist, andernfalls `false`.
+  - : `true`, wenn das Vorladen aktiviert ist, andernfalls `false`.
 - `headerValue`
-  - : Ein String, der den Wert enthält, der im `Service-Worker-Navigation-Preload` HTTP-Header nach einem Preloading {{domxref("Window/fetch", "fetch()")}} gesendet wird.
-    Dieser Standardwert ist `true`, es sei denn, der Wert wurde mit {{domxref("NavigationPreloadManager.setHeaderValue()")}} geändert.
+  - : Eine Zeichenkette, die den Wert enthält, der im `Service-Worker-Navigation-Preload` HTTP-Header nach einem Vorladen mit [`fetch()`](/de/docs/Web/API/Window/fetch) gesendet wird.
+    Dies ist standardmäßig `true`, es sei denn, der Wert wurde mit [`NavigationPreloadManager.setHeaderValue()`](/de/docs/Web/API/NavigationPreloadManager/setHeaderValue) geändert.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Es ist kein aktiver Worker mit der Registrierung verbunden, zu der dieser {{domxref("NavigationPreloadManager")}} gehört.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Es gibt keinen aktiven Worker, der mit der Registrierung verbunden ist, zu der dieser [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager) gehört.
 
 ## Beispiele
 
-Der unten stehende Code zeigt eine Anfrage nach dem aktuellen Status, die durchgeführt wird, sobald der Service Worker bereit ist.
+Der unten stehende Code zeigt eine Anfrage für den aktuellen Status, die gestellt wird, sobald der Service Worker bereit ist.
 
 ```js
 navigator.serviceWorker.ready

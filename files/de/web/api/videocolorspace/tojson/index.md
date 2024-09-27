@@ -1,5 +1,5 @@
 ---
-title: "VideoColorSpace: toJSON() Methode"
+title: "VideoColorSpace: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/VideoColorSpace/toJSON
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`toJSON()`** Methode der {{domxref("VideoColorSpace")}} Schnittstelle ist ein _Serializer_, der eine JSON-Repräsentation des `VideoColorSpace` Objekts zurückgibt.
+Die **`toJSON()`**-Methode der [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Schnittstelle ist ein _Serializer_, der eine JSON-Darstellung des `VideoColorSpace`-Objekts zurückgibt.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein JSON-Objekt.
 
 ## Beispiele
 
-Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace` Objekt, das von {{domxref("VideoFrame")}} zurückgegeben wird. Dieses Objekt wird dann als JSON in der Konsole ausgegeben.
+Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von [`VideoFrame`](/de/docs/Web/API/VideoFrame) zurückgegeben wird. Dieses Objekt wird dann als JSON in der Konsole ausgegeben.
 
 ```js
 let colorSpace = VideoFrame.colorSpace;

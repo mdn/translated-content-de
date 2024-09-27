@@ -8,11 +8,14 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Keyboard API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`keyboard`** der {{domxref("Navigator")}}-Schnittstelle gibt ein {{domxref('Keyboard')}}-Objekt zurück, das Zugriff auf Funktionen bietet, um Tastaturlayout-Zuordnungen abzurufen und das Erfassen von Tastenanschlägen von der physischen Tastatur ein- oder auszuschalten.
+Die schreibgeschützte **`keyboard`**-Eigenschaft
+der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt ein [`Keyboard`](/de/docs/Web/API/Keyboard)-Objekt zurück,
+das Zugriff auf Funktionen bietet, die Tastaturlayout-Karten abrufen und das Erfassen von Tasteneingaben
+von der physischen Tastatur umschalten.
 
 ## Wert
 
-Ein {{domxref('Keyboard')}}-Objekt.
+Ein [`Keyboard`](/de/docs/Web/API/Keyboard)-Objekt.
 
 ## Spezifikationen
 

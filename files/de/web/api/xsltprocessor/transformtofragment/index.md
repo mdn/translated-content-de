@@ -1,5 +1,5 @@
 ---
-title: "XSLTProcessor: transformToFragment()-Methode"
+title: "XSLTProcessor: transformToFragment() Methode"
 short-title: transformToFragment()
 slug: Web/API/XSLTProcessor/transformToFragment
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XSLT")}}
 
-Die `transformToFragment()`-Methode der {{domxref("XSLTProcessor")}}-Schnittstelle transformiert eine bereitgestellte {{DOMxRef("Node")}}-Quelle in ein {{domxref("DocumentFragment")}} unter Verwendung des dem `XSLTProcessor` zugeordneten XSLT-Stylesheets.
+Die `transformToFragment()` Methode der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor) Schnittstelle transformiert eine bereitgestellte [`Node`](/de/docs/Web/API/Node) Quelle in ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) unter Verwendung des mit dem `XSLTProcessor` assoziierten XSLT-Stilsheets.
 
 ## Syntax
 
@@ -19,19 +19,19 @@ transformToFragment(source, document)
 ### Parameter
 
 - `source`
-  - : Die {{DOMxRef("Node")}}-Quelle, auf die das XSLT-Stylesheet angewendet werden soll.
+  - : Die [`Node`](/de/docs/Web/API/Node) Quelle, auf die das XSLT-Stylesheet angewendet werden soll.
 - `document`
-  - : Das {{DOMxRef("Document")}}, dem das Dokumentfragment zugeordnet wird. (Jedes Dokumentfragment ist mit einem Dokument verknüpft, zu dem es hinzugefügt werden kann).
+  - : Das [`Document`](/de/docs/Web/API/Document), mit dem das Dokumentfragment verbunden wird. (Jedes Dokumentfragment ist mit einem Dokument verbunden, zu dem es hinzugefügt werden kann).
 
 ### Rückgabewert
 
-Ein {{domxref("DocumentFragment")}}.
+Ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment).
 
 ## Beispiele
 
 ### Verwendung von transformToFragment()
 
-Dieses Beispiel demonstriert, wie `transformToFragment()` genutzt wird, um XML-Daten in HTML zu transformieren, das dann direkt als Dokumentfragment in das DOM eingefügt werden kann.
+Dieses Beispiel zeigt, wie `transformToFragment()` verwendet wird, um XML-Daten in HTML zu transformieren, das dann direkt als Dokumentfragment in das DOM eingefügt werden kann.
 
 #### HTML
 
@@ -78,10 +78,10 @@ const xsltDoc = parser.parseFromString(xsltString, "application/xml");
 const xsltProcessor = new XSLTProcessor();
 xsltProcessor.importStylesheet(xsltDoc);
 
-// Führen Sie die Transformation durch und geben Sie das Ergebnis als Dokumentfragment zurück
+// Perform the transformation, returning the result as a document fragment
 const resultFragment = xsltProcessor.transformToFragment(xmlDoc, document);
 
-// Fügen Sie das Ergebnis in die Seite ein
+// Insert the result into the page
 document.getElementById("result").appendChild(resultFragment);
 ```
 
@@ -99,4 +99,4 @@ document.getElementById("result").appendChild(resultFragment);
 
 ## Siehe auch
 
-- {{domxref("XSLTProcessor.transformToDocument()")}}
+- [`XSLTProcessor.transformToDocument()`](/de/docs/Web/API/XSLTProcessor/transformToDocument)

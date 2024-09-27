@@ -1,14 +1,14 @@
 ---
-title: "GPURenderPassEncoder: Methode beginOcclusionQuery()"
+title: "GPURenderPassEncoder: beginOcclusionQuery()-Methode"
 short-title: beginOcclusionQuery()
 slug: Web/API/GPURenderPassEncoder/beginOcclusionQuery
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`beginOcclusionQuery()`**-Methode der {{domxref("GPURenderPassEncoder")}}-Schnittstelle startet eine Occlusion Query am angegebenen Index des entsprechenden {{domxref("GPUQuerySet")}} (bereitgestellt als Wert der `occlusionQuerySet` Beschreibereigenschaft beim Aufrufen von {{domxref("GPUCommandEncoder.beginRenderPass()")}}, um den Render-Pass auszuführen).
+Die **`beginOcclusionQuery()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beginnt eine Okklusionsabfrage an dem angegebenen Index des entsprechenden [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) (bereitgestellt als Wert der `occlusionQuerySet` Deskriptoreigenschaft, wenn [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) aufgerufen wird, um den Renderpass auszuführen).
 
 ## Syntax
 
@@ -19,7 +19,7 @@ beginOcclusionQuery(queryIndex)
 ### Parameter
 
 - `queryIndex`
-  - : Der Index im {{domxref("GPUQuerySet")}}, an dem die Occlusion Query gestartet wird.
+  - : Der Index im [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet), an dem die Okklusionsabfrage begonnen werden soll.
 
 ### Rückgabewert
 
@@ -27,25 +27,25 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`beginOcclusionQuery()`** aufgerufen wird, ansonsten wird ein {{domxref("GPUValidationError")}} erzeugt und der {{domxref("GPURenderPassEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`beginOcclusionQuery()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Ein {{domxref("GPUQuerySet")}} wurde in der `occlusionQuerySet` Beschreibereigenschaft angegeben, als der ursprüngliche {{domxref("GPUCommandEncoder.beginRenderPass()")}} aufgerufen wurde.
-- `queryIndex` ist kleiner als {{domxref("GPUQuerySet.count")}}.
-- Der `queryIndex` wurde im selben Render-Pass noch nicht beschrieben.
-- Eine Occlusion Query ist für diesen Render-Pass noch nicht aktiv (d. h. durch einen vorherigen `beginOcclusionQuery()`-Aufruf).
+- Ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) wurde in der `occlusionQuerySet` Deskriptoreigenschaft angegeben, als der ursprüngliche [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) aufgerufen wurde.
+- `queryIndex` ist kleiner als [`GPUQuerySet.count`](/de/docs/Web/API/GPUQuerySet/count).
+- Der `queryIndex` wurde im selben Renderpass noch nicht geschrieben.
+- Eine Okklusionsabfrage ist nicht bereits für diesen Renderpass aktiv (d.h. durch einen vorherigen `beginOcclusionQuery()`-Aufruf).
 
 ## Beispiele
 
 ```js
 // ...
 
-// Ein Query-Set erstellen, um die Occlusion Queries zu speichern
+// Create a query set to hold the occlusion queries
 const querySet = device.createQuerySet({
   type: "occlusion",
   count: 32,
 });
 
-// Render-Pass-Deskriptor-Objekt, einschließlich des querySet
+// Render pass descriptor object, including the querySet
 const renderPassDescriptor = {
   colorAttachments: [
     {
@@ -58,18 +58,18 @@ const renderPassDescriptor = {
   occlusionQuerySet: querySet,
 };
 
-// Den Render-Pass beginnen
+// Begin the render pass
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 
-// Eine Occlusion Query bei Index 0 starten
+// Begin an occlusion query at index 0
 passEncoder.beginOcclusionQuery(0);
 
-// Einige Rendering-Befehle ausführen
+// Run some rendering commands
 passEncoder.setPipeline(renderPipeline);
 passEncoder.setVertexBuffer(0, vertexBuffer);
 passEncoder.draw(3);
 
-// Die Occlusion Query beenden
+// End the occlusion query
 passEncoder.endOcclusionQuery();
 
 // ...

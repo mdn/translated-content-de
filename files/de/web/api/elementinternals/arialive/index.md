@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaLive`**-Eigenschaft der {{domxref("ElementInternals")}}-Schnittstelle spiegelt den Wert des [`aria-live`](/de/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)-Attributs wider, das angibt, dass ein Element aktualisiert wird, und beschreibt die Arten von Updates, die von Benutzeragenten, unterstützenden Technologien und dem Benutzer in der Live-Region erwartet werden können.
+Die **`ariaLive`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-live`](/de/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)-Attributs wider, das angibt, dass ein Element aktualisiert wird und die Arten von Aktualisierungen beschreibt, die von Benutzeragenten, unterstützenden Technologien und dem Benutzer in der Live-Region erwartet werden können.
 
 > [!NOTE]
-> Das Setzen von Aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Für weitere Informationen siehe den [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"assertive"`
-  - : Gibt an, dass Updates der Region die höchste Priorität haben und dem Benutzer sofort präsentiert werden sollten.
+  - : Gibt an, dass Aktualisierungen der Region die höchste Priorität haben und dem Benutzer sofort präsentiert werden sollen.
 - `"off"`
-  - : Gibt an, dass Updates der Region dem Benutzer nicht präsentiert werden sollten, es sei denn, der Benutzer ist derzeit auf diese Region fokussiert.
+  - : Gibt an, dass Aktualisierungen der Region nicht dem Benutzer präsentiert werden sollen, es sei denn, der Benutzer fokussiert sich derzeit auf diese Region.
 - `"polite"`
-  - : Gibt an, dass Updates der Region bei der nächsten günstigen Gelegenheit präsentiert werden sollten, z. B. am Ende des Sprechens des aktuellen Satzes oder wenn der Benutzer das Tippen unterbricht.
+  - : Gibt an, dass Aktualisierungen der Region bei der nächsten günstigen Gelegenheit präsentiert werden sollen, z. B. am Ende des aktuellen Satzes oder wenn der Benutzer das Tippen unterbricht.
 
 ## Beispiele
 

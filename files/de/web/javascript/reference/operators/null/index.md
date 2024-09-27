@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **`null`**-Wert repräsentiert das absichtliche Fehlen eines Objektwertes. Es ist einer der [primitiven Werte](/de/docs/Glossary/Primitive) von JavaScript und wird für boolesche Operationen als [falsy](/de/docs/Glossary/Falsy) behandelt.
+Der Wert **`null`** repräsentiert das bewusste Fehlen eines Objektwerts. Er gehört zu den [primitiven Werten](/de/docs/Glossary/Primitive) in JavaScript und wird bei booleschen Operationen als [falsy](/de/docs/Glossary/Falsy) behandelt.
 
 {{EmbedInteractiveExample("pages/js/globalprops-null.html")}}
 
@@ -20,27 +20,27 @@ null
 ## Beschreibung
 
 Der Wert `null` wird mit einem Literal geschrieben: `null`.
-`null` ist kein Bezeichner für eine Eigenschaft des globalen Objekts, wie es {{jsxref("undefined")}} sein kann. Stattdessen drückt `null` einen Mangel an Identifikation aus und zeigt an, dass eine Variable auf kein Objekt verweist. In APIs wird `null` oft an Stellen abgerufen, an denen ein Objekt erwartet werden kann, aber kein Objekt relevant ist.
+`null` ist kein Bezeichner für eine Eigenschaft des globalen Objekts, wie es {{jsxref("undefined")}} sein kann. Stattdessen drückt `null` einen Mangel an Identifikation aus und zeigt an, dass eine Variable auf kein Objekt verweist. In APIs wird `null` oft in einem Kontext abgerufen, in dem ein Objekt erwartet wird, aber kein Objekt relevant ist.
 
 ```js
-// foo existiert nicht. Es ist nicht definiert und wurde nie initialisiert:
-foo; // ReferenceError: foo is not defined
+// foo does not exist. It is not defined and has never been initialized:
+foo; //ReferenceError: foo is not defined
 ```
 
 ```js
-// foo ist jetzt bekannt, existiert, hat aber keinen Typ oder Wert:
+// foo is known to exist now but it has no type or value:
 const foo = null;
-foo; // null
+foo; //null
 ```
 
 ## Beispiele
 
 ### Unterschied zwischen `null` und `undefined`
 
-Beim Prüfen auf `null` oder `undefined` seien Sie sich der [Unterschiede zwischen Gleichheits- (==) und Identitätsoperatoren (===)](/de/docs/Web/JavaScript/Reference/Operators) bewusst, da der erste eine Typumwandlung durchführt.
+Wenn Sie auf `null` oder `undefined` prüfen, achten Sie auf die [Unterschiede zwischen den Gleichheitsoperatoren (==) und den Identitätsoperatoren (===)](/de/docs/Web/JavaScript/Reference/Operators), da ersterer eine Typkonvertierung durchführt.
 
 ```js
-typeof null; // "object" (nicht "null" aus historischen Gründen)
+typeof null; // "object" (not "null" for legacy reasons)
 typeof undefined; // "undefined"
 null === undefined; // false
 null == undefined; // true
@@ -55,7 +55,7 @@ Number.isNaN(1 + undefined); // true
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

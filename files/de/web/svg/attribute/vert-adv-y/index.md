@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`vert-adv-y`** Attribut gibt den vertikalen Vorlauf nach dem Rendern eines {{Glossary("glyph")}} in vertikaler Ausrichtung an.
+Das **`vert-adv-y`** Attribut gibt den vertikalen Vorschub nach dem Rendern eines [glyph](/de/docs/Glossary/glyph) in vertikaler Ausrichtung an.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -17,7 +17,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## font
 
-Für {{SVGElement("font")}}-Elemente gibt `vert-adv-y` den Standardwert für den vertikalen Vorlauf eines Glyphs in vertikaler Ausrichtung an.
+Für {{SVGElement("font")}} Elemente gibt `vert-adv-y` den standardmäßigen vertikalen Vorschub für ein Glyph in vertikaler Ausrichtung an.
 
 <table class="properties">
   <tbody>
@@ -43,11 +43,11 @@ Für {{SVGElement("font")}}-Elemente gibt `vert-adv-y` den Standardwert für den
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt den Standardwert für den vertikalen Vorlauf des Glyphs in vertikaler Richtung an.
+  - : Dieser Wert gibt den standardmäßigen vertikalen Vorschub des Glyphs in vertikaler Richtung an
 
 ## glyph, missing-glyph
 
-Für {{SVGElement("glyph")}} und {{SVGElement("missing-glyph")}}-Elemente gibt `vert-adv-y` den vertikalen Vorlauf eines Glyphs in vertikaler Ausrichtung an.
+Für {{SVGElement("glyph")}} und {{SVGElement("missing-glyph")}} Elemente gibt `vert-adv-y` den vertikalen Vorschub für ein Glyph in vertikaler Ausrichtung an.
 
 <table class="properties">
   <tbody>
@@ -75,13 +75,13 @@ Für {{SVGElement("glyph")}} und {{SVGElement("missing-glyph")}}-Elemente gibt `
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt den vertikalen Vorlauf des Glyphs in vertikaler Richtung an.
+  - : Dieser Wert gibt den vertikalen Vorschub des Glyphs in vertikaler Richtung an
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

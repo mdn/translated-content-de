@@ -1,5 +1,5 @@
 ---
-title: "Dokument: createTextNode()-Methode"
+title: "Document: Methode createTextNode()"
 short-title: createTextNode()
 slug: Web/API/Document/createTextNode
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Erstellt einen neuen {{domxref("Text")}}-Knoten. Diese Methode kann verwendet werden, um HTML-Zeichen zu maskieren.
+Erstellt einen neuen [`Text`](/de/docs/Web/API/Text)-Knoten. Diese Methode kann verwendet werden, um HTML-Zeichen zu maskieren.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ createTextNode(data)
 ### Parameter
 
 - `data`
-  - : Ein String, der die Daten enthält, die in den Textknoten eingefügt werden sollen.
+  - : Ein String, der die Daten enthält, die im Textknoten eingefügt werden sollen.
 
 ### Rückgabewert
 
-Ein {{domxref("Text")}}-Knoten.
+Ein [`Text`](/de/docs/Web/API/Text)-Knoten.
 
 ## Beispiele
 
@@ -31,7 +31,7 @@ Ein {{domxref("Text")}}-Knoten.
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Beispiel für createTextNode</title>
+    <title>createTextNode example</title>
     <script>
       function addTextNode(text) {
         const newtext = document.createTextNode(text);
@@ -43,13 +43,13 @@ Ein {{domxref("Text")}}-Knoten.
   </head>
 
   <body>
-    <button onclick="addTextNode('YES! ');">JA!</button>
-    <button onclick="addTextNode('NO! ');">NEIN!</button>
-    <button onclick="addTextNode('WE CAN! ');">WIR KÖNNEN!</button>
+    <button onclick="addTextNode('YES! ');">YES!</button>
+    <button onclick="addTextNode('NO! ');">NO!</button>
+    <button onclick="addTextNode('WE CAN! ');">WE CAN!</button>
 
     <hr />
 
-    <p id="p1">Erste Zeile des Absatzes.</p>
+    <p id="p1">First line of paragraph.</p>
   </body>
 </html>
 ```

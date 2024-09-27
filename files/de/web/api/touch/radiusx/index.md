@@ -1,5 +1,5 @@
 ---
-title: "Touch: radiusX-Eigenschaft"
+title: "Touch: radiusX Eigenschaft"
 short-title: radiusX
 slug: Web/API/Touch/radiusX
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Die schreibgeschützte **`radiusX`**-Eigenschaft der {{domxref("Touch")}}-Schnittstelle gibt den X-Radius der Ellipse zurück, die den Kontaktbereich mit der Touch-Oberfläche am genauesten umschreibt. Der Wert wird in CSS-Pixeln derselben Skala wie {{ domxref("Touch.screenX") }} angegeben.
+Die schreibgeschützte Eigenschaft **`radiusX`** des [`Touch`](/de/docs/Web/API/Touch)-Interfaces gibt den X-Radius der Ellipse zurück, die am engsten den Berührungsbereich auf der Berührungsoberfläche umschreibt. Der Wert ist in CSS-Pixeln derselben Skala wie [`Touch.screenX`](/de/docs/Web/API/Touch/screenX).
 
-Dieser Wert bildet zusammen mit {{ domxref("Touch.radiusY") }} und {{ domxref("Touch.rotationAngle") }} eine Ellipse, die Größe und Form des Kontaktbereichs zwischen dem Benutzer und dem Bildschirm annähernd wiedergibt. Dies kann eine relativ große Ellipse sein, die den Kontakt zwischen einer Fingerspitze und dem Bildschirm darstellt, oder ein kleiner Bereich, der die Spitze eines Stifts repräsentiert.
+Dieser Wert bildet zusammen mit [`Touch.radiusY`](/de/docs/Web/API/Touch/radiusY) und [`Touch.rotationAngle`](/de/docs/Web/API/Touch/rotationAngle) eine Ellipse, die die Größe und Form des Berührungsbereichs zwischen Benutzer und Bildschirm annähernd beschreibt. Dies kann eine relativ große Ellipse sein, die den Kontakt zwischen einer Fingerspitze und dem Bildschirm darstellt, oder ein kleiner Bereich, der zum Beispiel die Spitze eines Stifts darstellt.
 
 ## Wert
 
@@ -18,9 +18,9 @@ Eine Zahl.
 
 ## Beispiele
 
-Dieses Beispiel veranschaulicht die Verwendung der `Touch.radiusX`-, `Touch.radiusX`- und {{domxref("Touch.rotationAngle")}}-Eigenschaften der {{domxref("Touch")}}-Schnittstelle. Die `Touch.radiusX`-Eigenschaft ist der Radius der Ellipse, die den Berührungsbereich (z.B. Finger, Stift) entlang der Achse **umschreibt**, die durch den Berührungspunkt {{domxref("Touch.rotationAngle")}} angegeben wird. Ebenso ist die {{domxref("Touch.radiusY")}}-Eigenschaft der Radius der Ellipse, die den Berührungsbereich (z.B. Finger, Stift) entlang der Achse **senkrecht** zu der durch {{domxref("Touch.rotationAngle")}} angegebenen Achse umschreibt. Der {{domxref("Touch.rotationAngle")}} ist der Winkel (in Grad), um den die durch `radiusX` und `radiusY` beschriebene Ellipse um ihren Mittelpunkt im Uhrzeigersinn gedreht wird.
+Dieses Beispiel veranschaulicht die Verwendung der Eigenschaften `Touch.radiusX`, `Touch.radiusY` und [`Touch.rotationAngle`](/de/docs/Web/API/Touch/rotationAngle) des [`Touch`](/de/docs/Web/API/Touch)-Interfaces. Die `Touch.radiusX` Eigenschaft ist der Radius der Ellipse, die den Berührungsbereich (z. B. Finger, Stift) entlang der Achse **umkreist**, die durch den Berührungspunkt von [`Touch.rotationAngle`](/de/docs/Web/API/Touch/rotationAngle) angegeben wird. Ebenso ist die [`Touch.radiusY`](/de/docs/Web/API/Touch/radiusY) Eigenschaft der Radius der Ellipse, die den Berührungsbereich (z. B. Finger, Stift) entlang der Achse **senkrecht** zu der von [`Touch.rotationAngle`](/de/docs/Web/API/Touch/rotationAngle) angegebenen Achse umkreist. Der [`Touch.rotationAngle`](/de/docs/Web/API/Touch/rotationAngle) ist der Winkel (in Grad), um den die durch `radiusX` und `radiusY` beschriebene Ellipse im Uhrzeigersinn um ihren Mittelpunkt gedreht wird.
 
-Das folgende einfache Code-Snippet registriert einen einzigen Handler für die {{domxref("Element/touchstart_event", "touchstart")}}-, {{domxref("Element/touchmove_event", "touchmove")}}- und {{domxref("Element/touchend_event", "touchend")}}-Events. Wenn das `src`-Element berührt wird, werden die Breite und Höhe des Elements basierend auf den `radiusX`- und `radiusY`-Werten des Berührungspunkts berechnet, und das Element wird dann mithilfe des `rotationAngle`-Werts des Berührungspunkts gedreht.
+Der folgende einfache Codeausschnitt registriert einen einzelnen Handler für die [`touchstart`](/de/docs/Web/API/Element/touchstart_event), [`touchmove`](/de/docs/Web/API/Element/touchmove_event) und [`touchend`](/de/docs/Web/API/Element/touchend_event) Ereignisse. Wenn das `src`-Element berührt wird, werden die Breite und Höhe des Elements basierend auf den `radiusX`- und `radiusY`-Werten des Berührungspunkts berechnet und das Element wird dann unter Verwendung des `rotationAngle` des Berührungspunkts gedreht.
 
 ```html
 <div id="src">…</div>
@@ -36,10 +36,10 @@ src.addEventListener("touchend", rotate);
 function rotate(e) {
   const touch = e.changedTouches.item(0);
 
-  // Deaktivieren der Standard-Event-Handhabung
+  // Turn off default event handling
   e.preventDefault();
 
-  // Drehen des Elements 'src'.
+  // Rotate element 'src'.
   src.style.width = `${touch.radiusX * 2}px`;
   src.style.height = `${touch.radiusY * 2}px`;
   src.style.transform = `rotate(${touch.rotationAngle}deg)`;

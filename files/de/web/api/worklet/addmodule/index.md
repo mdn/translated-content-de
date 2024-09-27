@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Worklets")}}{{SecureContext_Header}}
 
-Die **`addModule()`**-Methode des
-{{domxref("Worklet")}}-Interfaces lädt das Modul aus der angegebenen JavaScript-Datei und
-fügt es dem aktuellen `Worklet` hinzu.
+Die **`addModule()`**-Methode der [`Worklet`](/de/docs/Web/API/Worklet)-Schnittstelle lädt das Modul in der angegebenen JavaScript-Datei und fügt es dem aktuellen `Worklet` hinzu.
 
 ## Syntax
 
@@ -22,13 +20,13 @@ addModule(moduleURL, options)
 ### Parameter
 
 - `moduleURL`
-  - : Ein {{jsxref("String")}}, der die URL einer JavaScript-Datei mit dem hinzuzufügenden Modul enthält.
+  - : Ein {{jsxref("String")}}, das die URL einer JavaScript-Datei mit dem hinzuzufügenden Modul enthält.
 - `options` {{optional_inline}}
 
   - : Ein Objekt mit einer der folgenden Optionen:
 
     - `credentials`
-      - : Ein {{domxref("Request.credentials")}}-Wert, der angibt, ob beim Laden des Moduls Berechtigungsnachweise (z.B. Cookies und HTTP-Authentifizierung) gesendet werden sollen. Kann einer der folgenden Werte sein: `"omit"`, `"same-origin"` oder `"include"`. Standardwert ist `"same-origin"`. Siehe auch {{domxref("Request.credentials")}}.
+      - : Ein [`Request.credentials`](/de/docs/Web/API/Request/credentials)-Wert, der angibt, ob Anmeldeinformationen (z.B. Cookies und HTTP-Authentifizierung) beim Laden des Moduls gesendet werden sollen. Kann einer der Werte `"omit"`, `"same-origin"` oder `"include"` sein. Standardmäßig ist `"same-origin"` eingestellt. Siehe auch [`Request.credentials`](/de/docs/Web/API/Request/credentials).
 
 ### Rückgabewert
 
@@ -36,11 +34,11 @@ Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald das Modul von der angegeb
 
 ### Ausnahmen
 
-Wenn `addModule()` fehlschlägt, wird das Promise abgelehnt und einer der folgenden Fehler an den Ablehnungs-Handler übergeben.
+Wenn `addModule()` fehlschlägt, wird das Promise zurückgewiesen und einer der folgenden Fehler an den Ablehnungshandler übermittelt.
 
-- `AbortError` {{domxref("DOMException")}}
+- `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Das angegebene Skript ist ungültig oder konnte nicht geladen werden.
-- `SyntaxError` {{domxref("DOMException")}}
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Die angegebene `moduleURL` ist ungültig.
 
 ## Beispiele
@@ -63,7 +61,7 @@ CSS.paintWorklet.addModule(
 );
 ```
 
-Sobald das Skript zum [Paint Worklet](/de/docs/Web/API/CSS/paintWorklet_static) hinzugefügt wurde, kann die CSS-{{cssxref("image/paint", "paint()")}}-Funktion verwendet werden, um das vom Worklet erstellte Bild einzufügen:
+Sobald das Skript dem [PaintWorklet](/de/docs/Web/API/CSS/paintWorklet_static) hinzugefügt wurde, kann die CSS-{{cssxref("image/paint", "paint()")}}-Funktion verwendet werden, um das vom Worklet erstellte Bild einzufügen:
 
 ```css
 @supports (background-image: paint(id)) {
@@ -77,6 +75,6 @@ Sobald das Skript zum [Paint Worklet](/de/docs/Web/API/CSS/paintWorklet_static) 
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

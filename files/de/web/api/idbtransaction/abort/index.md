@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`abort()`**-Methode des {{domxref("IDBTransaction")}}-Interfaces macht alle Änderungen an Objekten in der mit dieser Transaktion verbundenen Datenbank rückgängig.
+Die **`abort()`**-Methode der Schnittstelle [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) macht alle Änderungen an Objekten in der Datenbank, die mit dieser Transaktion verbunden sind, rückgängig.
 
-Alle ausstehenden {{domxref("IDBRequest")}}-Objekte, die während dieser Transaktion erstellt wurden, haben ihr {{domxref("IDBRequest.error")}}-Attribut auf einen `AbortError` {{domxref("DOMException")}} gesetzt.
+Alle während dieser Transaktion erstellten ausstehenden [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekte haben ihr [`IDBRequest.error`](/de/docs/Web/API/IDBRequest/error)-Attribut auf einen `AbortError` [`DOMException`](/de/docs/Web/API/DOMException) gesetzt.
 
 ## Syntax
 
@@ -24,39 +24,39 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wirft einen Fehler, wenn die Transaktion bereits abgeschlossen oder abgebrochen wurde.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Transaktion bereits festgeschrieben oder abgebrochen wurde.
 
 ## Beispiele
 
-Im folgenden Codebeispiel öffnen wir eine Lese-/Schreib-Transaktion in unserer Datenbank und fügen einige Daten zu einem Objekt-Store hinzu. Beachten Sie auch die Funktionen, die an Ereignis-Handler der Transaktion angehängt sind, um über das Ergebnis des Öffnens der Transaktion im Erfolgs- oder Fehlerfall zu berichten. Am Ende brechen wir alle Aktivitäten ab, die unter der aktuellen Transaktion mit `abort()` durchgeführt wurden. Für ein voll funktionsfähiges Beispiel sehen Sie sich unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App an ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen einem Objekt-Store einige Daten hinzu. Beachten Sie auch die Funktionen, die an die Transaktions-Event-Handler angehängt sind, um über das Ergebnis des Transaktionsöffnens im Falle eines Erfolgs oder Fehlers zu berichten. Am Ende brechen wir alle Aktivitäten ab, die unter der aktuellen Transaktion mit `abort()` durchgeführt wurden. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.getElementById("notifications");
 
-// eine Instanz eines DB-Objekts für die Speicherung der IDB-Daten
+// an instance of a db object for us to store the IDB data in
 let db;
 
-// Lassen Sie uns unsere Datenbank öffnen
+// Let us open our database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
 DBOpenRequest.onsuccess = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Datenbank initialisiert.";
+    "Database initialized.";
 
-  // Speichern Sie das Ergebnis des Öffnens der Datenbank in der db-Variablen. Diese wird oft unten verwendet
+  // store the result of opening the database in the db variable. This is used a lot below
   db = DBOpenRequest.result;
 
-  // Führen Sie die addData()-Funktion aus, um die Daten zur Datenbank hinzuzufügen
+  // Run the addData() function to add the data to the database
   addData();
 };
 
 function addData() {
-  // Ein neues Objekt erstellen, das in die IDB eingefügt werden soll
+  // Create a new object ready for being inserted into the IDB
   const newItem = [
     {
       taskTitle: "Walk dog",
@@ -69,33 +69,34 @@ function addData() {
     },
   ];
 
-  // Öffnen Sie eine Lese-/Schreib-DB-Transaktion, bereit zum Hinzufügen der Daten
+  // open a read/write db transaction, ready for adding the data
   const transaction = db.transaction(["toDoList"], "readwrite");
 
-  // Bericht über den Erfolg des Öffnens der Transaktion
+  // report on the success of opening the transaction
   transaction.oncomplete = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion abgeschlossen: Datenbankmodifikation beendet.";
+      "Transaction completed: database modification finished.";
   };
 
   transaction.onerror = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion nicht geöffnet aufgrund eines Fehlers. Doppelte Elemente sind nicht erlaubt.";
+      "Transaction not opened due to error. Duplicate items not allowed.";
   };
 
-  // Einen Objekt-Store auf der Transaktion erstellen
+  // create an object store on the transaction
   const objectStore = transaction.objectStore("toDoList");
 
-  // Unser newItem-Objekt zum Objekt-Store hinzufügen
+  // add our newItem object to the object store
   const objectStoreRequest = objectStore.add(newItem[0]);
 
   objectStoreRequest.onsuccess = (event) => {
-    // Bericht über den Erfolg der Anfrage (dies bedeutet nicht, dass das Element erfolgreich in der DB gespeichert wurde - dazu benötigen Sie transaction.onsuccess)
+    // report the success of the request (this does not mean the item
+    // has been stored successfully in the DB - for that you need transaction.onsuccess)
     note.appendChild(document.createElement("li")).textContent =
-      "Anfrage erfolgreich.";
+      "Request successful.";
   };
 
-  // Die Transaktion, die wir gerade gemacht haben, abbrechen
+  // Abort the transaction we just did
   transaction.abort();
 }
 ```
@@ -111,9 +112,9 @@ function addData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Transaktionen verwenden: {{domxref("IDBTransaction")}}
-- Einen Schlüsselbereich festlegen: {{domxref("IDBKeyRange")}}
-- Ihre Daten abrufen und Änderungen vornehmen: {{domxref("IDBObjectStore")}}
-- Cursors verwenden: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegung eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

@@ -1,5 +1,5 @@
 ---
-title: "MutationObserver: Methode takeRecords()"
+title: "MutationObserver: takeRecords() Methode"
 short-title: takeRecords()
 slug: Web/API/MutationObserver/takeRecords
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM WHATWG")}}
 
-Die Methode **`takeRecords()`** des {{domxref("MutationObserver")}} gibt eine Liste aller übereinstimmenden DOM-Änderungen zurück, die erkannt, aber noch nicht von der Callback-Funktion des Observers verarbeitet wurden. Dadurch wird die Mutationswarteschlange geleert.
+Die [`MutationObserver`](/de/docs/Web/API/MutationObserver)-Methode **`takeRecords()`** gibt eine Liste aller passenden DOM-Änderungen zurück, die erkannt, aber noch nicht von der Callback-Funktion des Beobachters verarbeitet wurden, wodurch die Mutationswarteschlange geleert wird.
 
-Der häufigste Anwendungsfall ist, alle ausstehenden Mutationsdatensätze unmittelbar vor dem Trennen des Observers abzurufen, sodass alle ausstehenden Mutationen verarbeitet werden können, wenn der Observer heruntergefahren wird.
+Der häufigste Anwendungsfall hierfür besteht darin, alle ausstehenden Mutationsprotokolle sofort vor der Trennung des Beobachters abzurufen, sodass alle ausstehenden Mutationen bei der Beendigung des Beobachters verarbeitet werden können.
 
 ## Syntax
 
@@ -24,14 +24,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von {{domxref("MutationRecord")}}-Objekten, von denen jedes eine Änderung beschreibt, die auf den beobachteten Teil des DOM-Baums des Dokuments angewendet wurde.
+Ein Array von [`MutationRecord`](/de/docs/Web/API/MutationRecord)-Objekten, die jeweils eine Änderung beschreiben, die auf den beobachteten Teil des DOM-Baums des Dokuments angewendet wurde.
 
 > [!NOTE]
-> Die Warteschlange von Mutationen, die aufgetreten sind, aber nicht an die Callback-Funktion des Observers geliefert wurden, wird nach dem Aufruf von `takeRecords()` geleert.
+> Die Warteschlange der Mutationen, die aufgetreten, aber nicht an den Callback des Beobachters übergeben wurden, ist nach dem Aufruf von `takeRecords()` leer.
 
 ## Beispiele
 
-In diesem Beispiel zeigen wir, wie Sie nicht gelieferte {{domxref("MutationRecord")}}s behandeln, indem Sie `takeRecords()` direkt vor dem Trennen des Observers aufrufen.
+In diesem Beispiel zeigen wir, wie nicht zugestellte [`MutationRecord`](/de/docs/Web/API/MutationRecord)s behandelt werden, indem `takeRecords()` kurz vor dem Trennen des Beobachters aufgerufen wird.
 
 ```js
 const targetNode = document.querySelector("#someElement");
@@ -43,9 +43,9 @@ const observerOptions = {
 const observer = new MutationObserver(callback);
 observer.observe(targetNode, observerOptions);
 
-/* später, wenn es Zeit ist, die Beobachtung zu beenden… */
+/* later, when it's time to stop observing… */
 
-/* alle noch ausstehenden Mutationen behandeln */
+/* handle any still-pending mutations */
 
 let mutations = observer.takeRecords();
 
@@ -56,7 +56,7 @@ if (mutations.length > 0) {
 }
 ```
 
-Der Code ruft unverarbeitete Mutationsdatensätze ab und ruft dann den Callback mit den Datensätzen auf, damit sie verarbeitet werden können. Dies geschieht unmittelbar vor dem Aufruf von {{domxref("MutationObserver.disconnect", "disconnect()")}}, um die Beobachtung des DOM zu stoppen.
+Der Code ruft alle nicht verarbeiteten Mutationsprotokolle ab und ruft dann den Callback mit den Protokollen auf, damit sie verarbeitet werden können. Dies geschieht unmittelbar vor dem Aufruf von [`disconnect()`](/de/docs/Web/API/MutationObserver/disconnect), um die Beobachtung des DOM zu beenden.
 
 ## Spezifikationen
 

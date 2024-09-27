@@ -1,5 +1,5 @@
 ---
-title: "HTMLTextAreaElement: checkValidity() Methode"
+title: "HTMLTextAreaElement: checkValidity()-Methode"
 short-title: checkValidity()
 slug: Web/API/HTMLTextAreaElement/checkValidity
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`checkValidity()`** Methode des {{domxref("HTMLTextAreaElement")}}-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob das Element alle [Einschränkungsvalidierungsregeln](/de/docs/Web/HTML/Constraint_validation) erfüllt, die auf es angewendet wurden. Wenn der Wert `false` ist, löst die Methode außerdem ein {{domxref("HTMLElement/invalid_event", "invalid")}}-Ereignis auf dem Element aus. Da es kein Standardverhalten des Browsers für `checkValidity()` gibt, hat das Abbrechen dieses `invalid`-Ereignisses keine Auswirkung.
+Die **`checkValidity()`**-Methode des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob das Element alle angewendeten [Constraints zur Validierung](/de/docs/Web/HTML/Constraint_validation) erfüllt. Wenn dies nicht der Fall ist, löst die Methode auch ein [`invalid`](/de/docs/Web/API/HTMLElement/invalid_event)-Ereignis auf dem Element aus. Da es kein standardmäßiges Browser-Verhalten für `checkValidity()` gibt, hat das Abbrechen dieses `invalid`-Ereignisses keine Wirkung.
 
 > [!NOTE]
-> Ein HTML {{htmlelement("textarea")}}-Element mit einer nicht-null {{domxref("HTMLTextAreaElement.validationMessage", "validationMessage")}} gilt als ungültig, entspricht der CSS-{{cssxref(":invalid")}}-Pseudoklasse und führt dazu, dass `checkValidity()` `false` zurückgibt. Verwenden Sie die {{domxref("HTMLTextAreaElement.setCustomValidity()")}}-Methode, um die {{domxref("HTMLTextAreaElement.validationMessage")}} auf einen leeren String zu setzen, um den {{domxref("HTMLTextAreaElement.validity", "validity")}}-Status auf gültig zu setzen.
+> Ein HTML-{{htmlelement("textarea")}}-Element mit einer nicht-null [`validationMessage`](/de/docs/Web/API/HTMLTextAreaElement/validationMessage) wird als ungültig betrachtet, entspricht der CSS-{{cssxref(":invalid")}}-Pseudoklasse und führt dazu, dass `checkValidity()` false zurückgibt. Verwenden Sie die [`HTMLTextAreaElement.setCustomValidity()`](/de/docs/Web/API/HTMLTextAreaElement/setCustomValidity)-Methode, um die [`HTMLTextAreaElement.validationMessage`](/de/docs/Web/API/HTMLTextAreaElement/validationMessage) auf den leeren String zu setzen, um den [`validity`](/de/docs/Web/API/HTMLTextAreaElement/validity)-Status auf gültig zu setzen.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme hat; andernfalls gibt er `false` zurück.
+Gibt `true` zurück, wenn der Wert des Elements keine Validitätsprobleme aufweist; andernfalls wird `false` zurückgegeben.
 
 ## Beispiele
 
@@ -40,15 +40,15 @@ console.log(element.checkValidity());
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLTextAreaElement.reportValidity()")}}
+- [`HTMLTextAreaElement.reportValidity()`](/de/docs/Web/API/HTMLTextAreaElement/reportValidity)
 - {{HTMLElement("textarea")}}
 - {{HTMLElement("form")}}
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen
+- [Leitfaden: Constraint-Validierung](/de/docs/Web/HTML/Constraint_validation)
+- CSS-{{cssxref(":valid")}}- und {{cssxref(":invalid")}}-Pseudoklassen

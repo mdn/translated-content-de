@@ -12,15 +12,15 @@ Die **`mask-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die durch 
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 mask-mode: alpha;
 mask-mode: luminance;
 mask-mode: match-source;
 
-/* Mehrere Werte */
+/* Multiple values */
 mask-mode: alpha, match-source;
 
-/* Globale Werte */
+/* Global values */
 mask-mode: inherit;
 mask-mode: initial;
 mask-mode: revert;
@@ -28,19 +28,19 @@ mask-mode: revert-layer;
 mask-mode: unset;
 ```
 
-Die `mask-mode` Eigenschaft wird als eines oder mehrere der unten aufgeführten Schlüsselwort-Werte angegeben, getrennt durch Kommas.
+Die `mask-mode` Eigenschaft wird als eines oder mehrere der unten aufgeführten Schlüsselwortwerte angegeben, getrennt durch Kommas.
 
 ### Werte
 
 - `alpha`
-  - : Dieses Schlüsselwort gibt an, dass die Transparenzwerte (Alpha-Kanal) des Maskenebenenbildes als Maskenwerte verwendet werden sollen.
+  - : Dieses Schlüsselwort gibt an, dass die Transparenzwerte (Alpha-Kanal) des Maskenschichtbildes als Maskenwerte verwendet werden sollen.
 - `luminance`
-  - : Dieses Schlüsselwort gibt an, dass die Luminanzwerte des Maskenebenenbildes als Maskenwerte verwendet werden sollen.
+  - : Dieses Schlüsselwort gibt an, dass die Luminanzwerte des Maskenschichtbildes als Maskenwerte verwendet werden sollen.
 - `match-source`
 
-  - : Wenn die {{cssxref("mask-image")}} Eigenschaft vom Typ `<mask-source>` ist, sollen die Luminanzwerte des Maskenebenenbildes als Maskenwerte verwendet werden.
+  - : Wenn die Eigenschaft {{cssxref("mask-image")}} vom Typ `<mask-source>` ist, sollten die Luminanzwerte des Maskenschichtbildes als Maskenwerte verwendet werden.
 
-    Ist sie vom Typ {{cssxref("&lt;image&gt;")}}, sollen die Alphawerte des Maskenebenenbildes als Maskenwerte verwendet werden.
+    Handelt es sich um den Typ {{cssxref("&lt;image&gt;")}}, sollten die Alphawerte des Maskenschichtbildes als Maskenwerte verwendet werden.
 
 ## Formale Definition
 
@@ -52,7 +52,7 @@ Die `mask-mode` Eigenschaft wird als eines oder mehrere der unten aufgeführten 
 
 ## Beispiele
 
-### Verwendung des Alpha-Maskenmodus
+### Verwendung von Alphamaskenmodus
 
 {{EmbedGHLiveSample("css-examples/masking/mask-mode.html", '100%', 760)}}
 
@@ -66,4 +66,4 @@ Die `mask-mode` Eigenschaft wird als eines oder mehrere der unten aufgeführten 
 
 ## Siehe auch
 
-- [Clipping und Masking in CSS](https://css-tricks.com/clipping-masking-css/)
+- [Clipping und Maskierung in CSS](https://css-tricks.com/clipping-masking-css/)

@@ -1,5 +1,5 @@
 ---
-title: "Dateisystem: root-Eigenschaft"
+title: "FileSystem: root-Eigenschaft"
 short-title: root
 slug: Web/API/FileSystem/root
 l10n:
@@ -8,13 +8,11 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die schreibgeschützte **`root`**-Eigenschaft der
-{{domxref("FileSystem")}}-Schnittstelle spezifiziert ein {{domxref("FileSystemDirectoryEntry")}}
-Objekt, das das Wurzelverzeichnis des Dateisystems repräsentiert, zur Verwendung mit der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
+Die schreibgeschützte **`root`**-Eigenschaft der [`FileSystem`](/de/docs/Web/API/FileSystem)-Schnittstelle spezifiziert ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)-Objekt, das das Stammverzeichnis des Dateisystems darstellt, zur Verwendung mit der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
 
 ## Wert
 
-Ein {{domxref("FileSystemDirectoryEntry")}}, das das Wurzelverzeichnis des Dateisystems repräsentiert.
+Ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry), das das Stammverzeichnis des Dateisystems darstellt.
 
 ## Beispiele
 
@@ -34,4 +32,4 @@ Ein {{domxref("FileSystemDirectoryEntry")}}, das das Wurzelverzeichnis des Datei
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
 - [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
-- {{domxref("FileSystem")}}
+- [`FileSystem`](/de/docs/Web/API/FileSystem)

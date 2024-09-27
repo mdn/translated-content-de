@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt die Anzahl der statischen Regeln zurück, die aktiviert werden können, bevor das globale Limit für statische Regeln erreicht wird. Weitere Informationen über das statische Regelwerk und die Begrenzungen finden Sie unter [statische Regelwerkbegrenzungen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
+Gibt die Anzahl von statischen Regeln zurück, die aktiviert werden können, bevor das globale statische Regel-Limit erreicht ist. Weitere Informationen zu den statischen Regel-Limits finden Sie unter [statistische Regel-Limits](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
 
 ## Syntax
 
@@ -17,11 +17,11 @@ let count = await browser.declarativeNetRequest.getAvailableStaticRuleCount();
 
 ### Parameter
 
-Diese Funktion nimmt keine Parameter entgegen.
+Diese Funktion nimmt keine Parameter an.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Zahl erfüllt wird, die angibt, wie viele statische Regeln aktiviert werden können, bevor das globale Limit für statische Regeln erreicht wird. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Zahl erfüllt wird, die angibt, wie viele statische Regeln aktiviert werden können, bevor das globale statische Regel-Limit erreicht ist. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 

@@ -7,16 +7,16 @@ l10n:
 
 {{AddonSidebar}}
 
-Die Kategorie der Warnung, die das Ereignis {{WebExtAPIRef("runtime.onPerformanceWarning")}} ausgelöst hat.
+Die Kategorie der Warnung, die das {{WebExtAPIRef("runtime.onPerformanceWarning")}}-Ereignis ausgelöst hat.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Die Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 
-- `"content_script"`: Die Leistungswarnung bezieht sich auf ein langsames Content-Skript in der lauschenden Erweiterung.
+- `"content_script"`: Die Leistungswarnung betrifft ein langsames `content script` in der hörenden Erweiterung.
 
 {{WebExtExamples("h2")}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

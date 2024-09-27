@@ -1,5 +1,5 @@
 ---
-title: Erlauben grenzüberschreitender Nutzung von Bildern und Canvas
+title: Zulassen der Cross-Origin-Verwendung von Bildern und Canvas
 slug: Web/HTML/CORS_enabled_image
 l10n:
   sourceCommit: 5afc72ba4e64ba90815d6a435a5300fd77d11fdf
@@ -7,36 +7,36 @@ l10n:
 
 {{HTMLSidebar}}
 
-HTML bietet ein [`crossorigin`](/de/docs/Web/HTML/Element/img#crossorigin)-Attribut für Bilder an, das in Kombination mit einem geeigneten {{Glossary("CORS")}}-Header ermöglicht, dass Bilder, die durch das {{ HTMLElement("img") }}-Element definiert und aus fremden Ursprüngen geladen werden, in einem {{HTMLElement("canvas")}} verwendet werden können, als ob sie vom aktuellen Ursprung geladen worden wären.
+HTML bietet ein [`crossorigin`](/de/docs/Web/HTML/Element/img#crossorigin)-Attribut für Bilder, das in Kombination mit einem geeigneten [CORS](/de/docs/Glossary/CORS)-Header erlaubt, dass Bilder, die durch das {{ HTMLElement("img") }}-Element definiert sind und von fremden Ursprüngen geladen werden, in einem {{HTMLElement("canvas")}} verwendet werden können, als ob sie vom aktuellen Ursprung geladen worden wären.
 
-Siehe [CORS-Attribut-Einstellungen](/de/docs/Web/HTML/Attributes/crossorigin) für weitere Details zur Verwendung des `crossorigin`-Attributs.
+Siehe [CORS Einstellungen Attribute](/de/docs/Web/HTML/Attributes/crossorigin) für Details zur Nutzung des `crossorigin`-Attributs.
 
-## Sicherheit und verfälschte Canvas
+## Sicherheit und veränderte Canvas
 
-Da die Pixel in einer Canvas-Bitmap aus verschiedenen Quellen stammen können, einschließlich Bilder oder Videos, die von anderen Hosts abgerufen werden, ist es unvermeidlich, dass Sicherheitsprobleme auftreten können.
+Da die Pixel in einer Bitmap eines Canvas aus verschiedenen Quellen stammen können, einschließlich Bilder oder Videos, die von anderen Hosts abgerufen werden, ist es unvermeidlich, dass Sicherheitsprobleme auftreten können.
 
-Sobald Sie in eine Canvas Daten einfügen, die ohne CORS-Zustimmung aus einem anderen Ursprung geladen wurden, wird die Canvas als **verfälscht** betrachtet. Eine verfälschte Canvas wird nicht mehr als sicher angesehen, und jeder Versuch, Bilddaten aus der Canvas abzurufen, wird eine Ausnahme auslösen.
+Sobald Sie Daten, die ohne CORS-Zustimmung von einem anderen Ursprung geladen wurden, in ein Canvas zeichnen, wird das Canvas **verändert**. Ein verändertes Canvas gilt nicht mehr als sicher, und jeder Versuch, Bilddaten von dem Canvas zurückzugewinnen, führt dazu, dass eine Ausnahme ausgelöst wird.
 
-Wenn die Quelle des fremden Inhalts ein HTML {{HTMLElement("img")}}- oder SVG {{SVGElement("svg")}}-Element ist, ist der Versuch, die Inhalte der Canvas abzurufen, nicht gestattet.
+Wenn die Quelle des fremden Inhalts ein HTML {{HTMLElement("img")}}- oder SVG {{SVGElement("svg")}}-Element ist, ist es nicht erlaubt, die Inhalte des Canvas abzurufen.
 
-Wenn der fremde Inhalt von einem Bild stammt, das entweder aus {{domxref("HTMLCanvasElement")}} oder {{domxref("ImageBitMap")}} bezogen wurde, und die Bildquelle nicht den gleichen Ursprungsregeln entspricht, werden Versuche, den Inhalt der Canvas zu lesen, blockiert.
+Stammen die fremden Inhalte aus einem Bild, das entweder als [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`ImageBitMap`](/de/docs/Web/API/ImageBitMap) erhalten wurde, und die Bildquelle entspricht nicht den gleichen Ursprungsregeln, werden Versuche, die Inhalte des Canvas zu lesen, blockiert.
 
-Aufrufen eines der folgenden Methoden auf einer verfälschten Canvas wird zu einem Fehler führen:
+Ein Aufruf einer der folgenden Methoden auf einem veränderten Canvas führt zu einem Fehler:
 
-- Aufruf von {{domxref("CanvasRenderingContext2D.getImageData", "getImageData()")}} auf dem Canvas-Kontext
-- Aufruf von {{domxref("HTMLCanvasElement.toBlob", "toBlob()")}}, {{domxref("HTMLCanvasElement.toDataURL", "toDataURL()")}} oder {{domxref("HTMLCanvasElement.captureStream", "captureStream()")}} auf dem {{HTMLElement("canvas")}}-Element selbst
+- Aufruf von [`getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) auf dem Canvas-Kontext
+- Aufruf von [`toBlob()`](/de/docs/Web/API/HTMLCanvasElement/toBlob), [`toDataURL()`](/de/docs/Web/API/HTMLCanvasElement/toDataURL) oder [`captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream) auf dem {{HTMLElement("canvas")}}-Element selbst
 
-Versuche, diese durchzuführen, wenn die Canvas verfälscht ist, werden einen `SecurityError` auslösen. Dies schützt die Benutzer davor, dass private Daten ohne Erlaubnis durch die Nutzung von Bildern von entfernten Websites preisgegeben werden.
+Der Versuch, eine dieser Methoden auf einem veränderten Canvas auszuführen, führt zu einem `SecurityError`. Dies schützt die Benutzer davor, dass private Daten durch die Verwendung von Bildern, um ohne Erlaubnis Informationen von entfernten Websites abzurufen, freigelegt werden.
 
-## Speichern eines Bildes aus einem fremden Ursprung
+## Speichern eines Bildes von einem fremden Ursprung
 
-In diesem Beispiel möchten wir erlauben, dass Bilder aus einem fremden Ursprung abgerufen und im lokalen Speicher gespeichert werden können. Die Umsetzung erfordert die Konfiguration des Servers sowie das Schreiben von Code für die Website selbst.
+In diesem Beispiel möchten wir erlauben, dass Bilder von einem fremden Ursprung abgerufen und im lokalen Speicher gespeichert werden können. Dies erfordert sowohl die Konfiguration des Servers als auch das Schreiben von Code für die Website selbst.
 
-### Web-Server-Konfiguration
+### Webserver-Konfiguration
 
-Als erstes benötigen wir einen Server, der konfiguriert ist, um Bilder mit dem {{HTTPHeader("Access-Control-Allow-Origin")}}-Header zu hosten, der den grenzüberschreitenden Zugriff auf Bilddateien erlaubt.
+Das Erste, was wir benötigen, ist ein Server, der so konfiguriert ist, dass er Bilder mit dem {{HTTPHeader("Access-Control-Allow-Origin")}}-Header hostet, der den Cross-Origin-Zugriff auf Bilddateien erlaubt.
 
-Angenommen, wir betreiben unsere Website mit [Apache](https://httpd.apache.org/). Beachten Sie die HTML5 Boilerplate [Apache-Server-Konfigurationsdatei für CORS-Bilder](https://github.com/h5bp/server-configs-apache/blob/main/h5bp/cross-origin/images.conf), die unten dargestellt ist:
+Angenommen, wir verwenden [Apache](https://httpd.apache.org/) für unsere Website. Betrachten Sie die HTML5 Boilerplate [Apache-Serverkonfigurationsdatei für CORS-Bilder](https://github.com/h5bp/server-configs-apache/blob/main/h5bp/cross-origin/images.conf), die unten gezeigt wird:
 
 ```xml
 <IfModule mod_setenvif.c>
@@ -49,17 +49,17 @@ Angenommen, wir betreiben unsere Website mit [Apache](https://httpd.apache.org/)
 </IfModule>
 ```
 
-Kurz gesagt, konfiguriert dies den Server so, dass Grafikdateien (mit den Erweiterungen ".bmp", ".cur", ".gif", ".ico", ".jpg", ".jpeg", ".png", ".svg", ".svgz" und ".webp") von überall im Internet grenzüberschreitend zugegriffen werden können.
+Kurz gesagt, dies konfiguriert den Server, um Grafikdateien (die mit den Erweiterungen ".bmp", ".cur", ".gif", ".ico", ".jpg", ".jpeg", ".png", ".svg", ".svgz" und ".webp") von überall im Internet Cross-Origin zugänglich zu machen.
 
-### Implementierung der Speicherfunktion
+### Implementierung der Speichern-Funktion
 
-Nachdem der Server so konfiguriert wurde, dass Bilder grenzüberschreitend abgerufen werden können, können wir den Code schreiben, der es dem Benutzer ermöglicht, sie im [lokalen Speicher](/de/docs/Web/API/Web_Storage_API) zu speichern, als ob sie vom selben Domain-Dienst bereitgestellt würden, auf dem der Code ausgeführt wird.
+Da der Server jetzt so konfiguriert ist, dass er den Abruf der Bilder Cross-Origin erlaubt, können wir den Code schreiben, der dem Benutzer erlaubt, sie im [lokalen Speicher](/de/docs/Web/API/Web_Storage_API) zu speichern, als ob sie vom gleichen Domain-Dienst bereitgestellt würden, von dem der Code ausgeführt wird.
 
-Der Schlüssel ist die Verwendung des [`crossorigin`](/de/docs/Web/HTML/Element/img#crossorigin)-Attributs, indem {{domxref("HTMLImageElement.crossOrigin", "crossOrigin")}} auf dem {{domxref("HTMLImageElement")}} gesetzt wird, in den das Bild geladen wird. Dies teilt dem Browser mit, beim Herunterladen des Bildes grenzüberschreitenden Zugriff anzufordern.
+Der Schlüssel besteht darin, das [`crossorigin`](/de/docs/Web/HTML/Element/img#crossorigin)-Attribut zu verwenden, indem [`crossOrigin`](/de/docs/Web/API/HTMLImageElement/crossOrigin) auf dem [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) gesetzt wird, in das das Bild geladen wird. Dies teilt dem Browser mit, beim Herunterladen der Bilddaten Cross-Origin-Zugriff anzufordern.
 
 #### Starten des Downloads
 
-Der Code, der den Download startet (zum Beispiel, wenn der Benutzer auf einen "Download"-Button klickt), sieht wie folgt aus:
+Der Code, der den Download startet (zum Beispiel, wenn der Benutzer auf eine Schaltfläche "Download" klickt), sieht so aus:
 
 ```js
 function startDownload() {
@@ -75,13 +75,13 @@ function startDownload() {
 }
 ```
 
-Wir verwenden hier eine fest codierte URL (`imageURL`) und zugehörigen beschreibenden Text (`imageDescription`), aber das könnte leicht von überall kommen. Um mit dem Herunterladen des Bildes zu beginnen, erstellen wir ein neues {{domxref("HTMLImageElement")}}-Objekt durch die Verwendung des {{domxref("HTMLImageElement.Image", "Image()")}}-Konstruktors. Das Bild wird dann so konfiguriert, dass das Herunterladen über Kreuz erlaubt wird, indem sein `crossOrigin`-Attribut auf `"anonymous"` gesetzt wird (d.h. das nicht authentifizierte Herunterladen des Bildes über Kreuz erlauben). Ein Ereignislistener wird für das {{domxref("Window/load_event", "load")}}-Ereignis hinzugefügt, das auf dem Bild-Element ausgelöst wird, was bedeutet, dass die Bilddaten empfangen wurden. Alternativer Text wird dem Bild hinzugefügt; obwohl `<canvas>` das `alt`-Attribut nicht unterstützt, kann der Wert verwendet werden, um ein `aria-label` oder den inneren Inhalt der Canvas zu setzen.
+Wir verwenden hier eine fest codierte URL (`imageURL`) und zugehörigen beschreibenden Text (`imageDescription`), aber das könnte leicht von überall herkommen. Um den Bild-Download zu starten, erstellen wir ein neues [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Objekt, indem wir den [`Image()`](/de/docs/Web/API/HTMLImageElement/Image)-Konstruktor verwenden. Das Bild wird dann konfiguriert, um Cross-Origin-Downloads durch das Setzen seines `crossOrigin`-Attributs auf `"anonymous"` zu erlauben (das heißt, nicht-authentifiziertes Herunterladen des Bildes Cross-Origin zu erlauben). Ein Event-Listener wird für das [`load`](/de/docs/Web/API/Window/load_event)-Event hinzugefügt, welches auf dem Bildelement ausgelöst wird, was bedeutet, dass die Bilddaten empfangen wurden. Alternativer Text wird dem Bild hinzugefügt; während `<canvas>` das `alt`-Attribut nicht unterstützt, kann der Wert verwendet werden, um ein `aria-label` oder den inneren Inhalt des Canvas zu setzen.
 
-Schließlich wird das {{domxref("HTMLImageElement.src", "src")}}-Attribut des Bildes auf die URL des Bildes gesetzt, das heruntergeladen werden soll; dies löst den Beginn des Downloads aus.
+Schließlich wird das [`src`](/de/docs/Web/API/HTMLImageElement/src)-Attribut des Bildes auf die URL des herunterzuladenden Bildes gesetzt; dies löst den Start des Downloads aus.
 
 #### Empfangen und Speichern des Bildes
 
-Der Code, der das neu heruntergeladene Bild handhabt, befindet sich in der Methode `imageReceived()`:
+Der Code, der mit dem neu heruntergeladenen Bild umgeht, befindet sich in der Methode `imageReceived()`:
 
 ```js
 function imageReceived() {
@@ -103,11 +103,11 @@ function imageReceived() {
 }
 ```
 
-`imageReceived()` wird aufgerufen, um das `"load"`-Ereignis auf dem `HTMLImageElement` zu behandeln, das das heruntergeladene Bild empfängt. Dieses Ereignis wird ausgelöst, sobald alle heruntergeladenen Daten verfügbar sind. Es beginnt mit der Erstellung eines neuen {{HTMLElement("canvas")}}-Elements, das wir verwenden, um das Bild in eine Daten-URL umzuwandeln, und durch den Zugriff auf den 2D-Zeichenkontext der Canvas ({{domxref("CanvasRenderingContext2D")}}) in der Variable `context`.
+`imageReceived()` wird aufgerufen, um das `"load"`-Event auf dem `HTMLImageElement` zu behandeln, das das heruntergeladene Bild erhält. Dieses Event wird ausgelöst, sobald die heruntergeladenen Daten vollständig verfügbar sind. Es beginnt mit der Erstellung eines neuen {{HTMLElement("canvas")}}-Elements, das wir verwenden werden, um das Bild in eine Daten-URL zu konvertieren, und indem wir auf den 2D-Zeichnungskontext des Canvas ([`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)) in der Variable `context` zugreifen.
 
-Die Größe der Canvas wird angepasst, um dem empfangenen Bild zu entsprechen, der innenstehende Text wird auf die Bildbeschreibung gesetzt, dann wird das Bild mit {{domxref("CanvasRenderingContext2D.drawImage", "drawImage()")}} in die Canvas gezeichnet. Die Canvas wird dann ins Dokument eingefügt, damit das Bild sichtbar ist.
+Die Größe des Canvas wird angepasst, um das empfangene Bild wiederzugeben, der innere Text wird auf die Bildbeschreibung gesetzt, dann wird das Bild mit [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) in das Canvas gezeichnet. Das Canvas wird dann in das Dokument eingefügt, sodass das Bild sichtbar ist.
 
-Jetzt ist es an der Zeit, das Bild tatsächlich lokal zu speichern. Dazu verwenden wir den lokalen Speichermechanismus der Web Storage API, der über den globalen {{domxref("Window.localStorage", "localStorage")}} zugegriffen wird. Die Canvas-Methode {{domxref("HTMLCanvasElement.toDataURL", "toDataURL()")}} wird verwendet, um das Bild in eine data://-URL umzuwandeln, die ein PNG-Bild darstellt, das dann über {{domxref("Storage.setItem", "setItem()")}} im lokalen Speicher gespeichert wird.
+Jetzt ist es Zeit, das Bild tatsächlich lokal zu speichern. Dazu verwenden wir den lokalen Speichermodus des Web Storage APIs, auf den über das globale [`localStorage`](/de/docs/Web/API/Window/localStorage) zugegriffen wird. Die Canvas-Methode [`toDataURL()`](/de/docs/Web/API/HTMLCanvasElement/toDataURL) wird verwendet, um das Bild in eine data:// URL zu konvertieren, die ein PNG-Bild darstellt und dann mit [`setItem()`](/de/docs/Web/API/Storage/setItem) im lokalen Speicher gespeichert wird.
 
 ## Siehe auch
 

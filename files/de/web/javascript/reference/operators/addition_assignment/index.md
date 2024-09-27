@@ -1,5 +1,5 @@
 ---
-title: Additionszuweisung (+=)
+title: Addition Assignment (+=)
 slug: Web/JavaScript/Reference/Operators/Addition_assignment
 l10n:
   sourceCommit: 145e8c316fcdd8f67f3595fc52b0bbfacf7b949d
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Additionszuweisungsoperator (`+=`)** führt eine [Addition](/de/docs/Web/JavaScript/Reference/Operators/Addition) (entweder numerische Addition oder Zeichenfolgenverkettung) auf den beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
+Der **Addition Assignment (`+=`)** Operator führt eine [Addition](/de/docs/Web/JavaScript/Reference/Operators/Addition) (entweder numerische Addition oder String-Verkettung) der beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
 {{EmbedInteractiveExample("pages/js/expressions-addition-assignment.html")}}
 
@@ -19,18 +19,18 @@ x += y
 
 ## Beschreibung
 
-`x += y` ist gleichbedeutend mit `x = x + y`, mit dem Unterschied, dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x += y` ist gleichbedeutend mit `x = x + y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
-### Additionszuweisung bei Zahlen
+### Addition Assignment mit Zahlen
 
 ```js
 let bar = 5;
 bar += 2; // 7
 ```
 
-Andere Nicht-Zeichenfolgen- und Nicht-BigInt-Werte werden in Zahlen umgewandelt:
+Andere Werte, die keine Strings oder BigInts sind, werden in Zahlen umgewandelt:
 
 ```js
 let baz = true;
@@ -38,7 +38,7 @@ baz += 1; // 2
 baz += false; // 2
 ```
 
-### Additionszuweisung bei BigInts
+### Addition Assignment mit BigInts
 
 ```js
 let x = 1n;
@@ -47,7 +47,7 @@ x += 2n; // 3n
 x += 1; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 ```
 
-### Additionszuweisung bei Zeichenfolgen
+### Addition Assignment mit Strings
 
 ```js
 let foo = "foo";
@@ -68,5 +68,5 @@ bar += "foo"; // "5foo"
 
 ## Siehe auch
 
-- [Zuweisungsoperatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
+- [Assignment-Operatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
 - [Addition (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Addition)

@@ -1,5 +1,5 @@
 ---
-title: "Dokument: evaluate()-Methode"
+title: "Document: evaluate() Methode"
 short-title: evaluate()
 slug: Web/API/Document/evaluate
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`evaluate()`**-Methode des {{domxref("Document")}} Schnittstelle wählt Elemente basierend auf dem [XPath](/de/docs/Web/XPath)
-Ausdruck aus, der in den Parametern angegeben ist.
+Die **`evaluate()`**-Methode der [`Document`](/de/docs/Web/API/Document)-Schnittstelle wählt Elemente basierend auf dem im Parameter angegebenen [XPath](/de/docs/Web/XPath)-Ausdruck aus.
 
 XPath-Ausdrücke können sowohl in HTML- als auch in XML-Dokumenten ausgewertet werden.
 
@@ -22,82 +21,79 @@ evaluate(xpathExpression, contextNode, namespaceResolver, resultType, result)
 ### Parameter
 
 - `xpathExpression`
-  - : Ein String, der das zu evaluierende _xpath_ darstellt.
+  - : Ein String, der den zu bewertenden _xpath_ darstellt.
 - `contextNode`
-  - : Der _Kontextknoten_ für die Abfrage (siehe die [XPath Spezifikation](https://www.w3.org/TR/1999/REC-xpath-19991116/)).
+  - : Der _Kontextknoten_ für die Abfrage (siehe die [XPath-Spezifikation](https://www.w3.org/TR/1999/REC-xpath-19991116/)).
     Es ist üblich, `document` als Kontextknoten zu übergeben.
 - `namespaceResolver`
-  - : Eine Funktion, die alle Namensraum-Präfixe übergeben bekommt
-    und einen String zurückgeben sollte, der den zugehörigen Namensraum-URI für dieses Präfix darstellt.
-    Es wird verwendet, um Präfixe innerhalb des _xpath_ selbst zu lösen,
-    sodass sie mit dem Dokument in Einklang gebracht werden können.
-    Der Wert `null` ist üblich für HTML-Dokumente oder wenn keine Namensraum-Präfixe verwendet werden.
+  - : Eine Funktion, die alle Namespace-Präfixe übergeben bekommt
+    und einen String zurückgeben sollte, der den mit diesem Präfix verbundenen Namespace-URI darstellt.
+    Sie wird verwendet, um Präfixe innerhalb des _xpath_ selbst aufzulösen,
+    sodass sie mit dem Dokument übereinstimmen können.
+    Der Wert `null` ist üblich für HTML-Dokumente oder wenn keine Namespace-Präfixe verwendet werden.
 - `resultType`
 
-  - : Eine ganze Zahl, die dem Typ des zu retournierenden Ergebnisses `XPathResult` entspricht.
+  - : Eine Ganzzahl, die dem Typ des zurückgegebenen `XPathResult` entspricht.
     Folgende Werte sind möglich:
     - `ANY_TYPE` (`0`)
-      - : Jeder Typ, der natürlicherweise aus dem gegebenen Ausdruck resultiert.
+      - : Welcher Typ auch immer natürlich aus dem gegebenen Ausdruck resultiert.
     - `NUMBER_TYPE` (`1`)
-      - : Eine Ergebnisgruppe, die eine einzelne Zahl enthält. Nützlich zum Beispiel in einem
-        _xpath_-Ausdruck, der die `count()` Funktion verwendet.
+      - : Eine Ergebnismenge, die eine einzelne Zahl enthält. Nützlich z.B. in einem _xpath_-Ausdruck mit der Funktion `count()`.
     - `STRING_TYPE` (`2`)
-      - : Eine Ergebnisgruppe, die einen einzelnen String enthält.
+      - : Eine Ergebnismenge, die einen einzelnen String enthält.
     - `BOOLEAN_TYPE` (`3`)
-      - : Eine Ergebnisgruppe, die einen einzigen booleschen Wert enthält. Nützlich, zum Beispiel, in einem
-        _xpath_-Ausdruck, der die `not()` Funktion verwendet.
+      - : Eine Ergebnismenge, die einen einzelnen booleschen Wert enthält. Nützlich z.B. in einem _xpath_-Ausdruck mit der Funktion `not()`.
     - `UNORDERED_NODE_ITERATOR_TYPE` (`4`)
-      - : Eine Ergebnisgruppe, die alle Knoten enthält, die dem Ausdruck entsprechen. Die Knoten
-        in der Ergebnisgruppe sind nicht notwendigerweise in der gleichen Reihenfolge wie sie
-        im Dokument erscheinen.
+      - : Eine Ergebnismenge, die alle Knoten enthält, die mit dem Ausdruck übereinstimmen. Die Knoten
+        in der Ergebnismenge sind nicht unbedingt in der Reihenfolge, in der sie im Dokument erscheinen.
         > [!NOTE]
         > Ergebnisse dieses Typs enthalten Referenzen auf Knoten im Dokument.
-        > Das Ändern eines Knotens wird den Iterator ungültig machen.
-        > Nach der Änderung eines Knotens führt der Versuch, die Ergebnisse zu iterieren, zu einem Fehler.
+        > Eine Änderung an einem Knoten macht den Iterator ungültig.
+        > Ein Versuch, nach einer Änderung eines Knotens durch die Ergebnisse zu iterieren, führt zu einem Fehler.
     - `ORDERED_NODE_ITERATOR_TYPE` (`5`)
-      - : Eine Ergebnisgruppe, die alle Knoten enthält, die dem Ausdruck entsprechen. Die Knoten
-        in der Ergebnisgruppe sind in der gleichen Reihenfolge wie sie im Dokument erscheinen.
+      - : Eine Ergebnismenge, die alle Knoten enthält, die mit dem Ausdruck übereinstimmen. Die Knoten
+        in der Ergebnismenge sind in der Reihenfolge, in der sie im Dokument erscheinen.
         > [!NOTE]
         > Ergebnisse dieses Typs enthalten Referenzen auf Knoten im Dokument.
-        > Das Ändern eines Knotens wird den Iterator ungültig machen.
-        > Nach der Änderung eines Knotens führt der Versuch, die Ergebnisse zu iterieren, zu einem Fehler.
+        > Eine Änderung an einem Knoten macht den Iterator ungültig.
+        > Ein Versuch, nach einer Änderung eines Knotens durch die Ergebnisse zu iterieren, führt zu einem Fehler.
     - `UNORDERED_NODE_SNAPSHOT_TYPE` (`6`)
-      - : Eine Ergebnisgruppe, die Momentaufnahmen aller Knoten enthält, die dem
-        Ausdruck entsprechen. Die Knoten in der Ergebnisgruppe sind nicht notwendigerweise in der gleichen
-        Reihenfolge wie sie im Dokument erscheinen.
+      - : Eine Ergebnismenge, die Schnappschüsse aller Knoten enthält, die mit dem
+        Ausdruck übereinstimmen. Die Knoten in der Ergebnismenge sind nicht unbedingt in der gleichen
+        Reihenfolge, in der sie im Dokument erscheinen.
         > [!NOTE]
-        > Ergebnisse dieses Typs sind Momentaufnahmen, die im Wesentlichen Listen von übereinstimmenden Knoten sind.
-        > Sie können Änderungen am Dokument vornehmen, indem Sie die Momentaufnahme-Knoten verändern.
-        > Das Ändern des Dokuments macht die Momentaufnahme nicht ungültig;
-        > jedoch, wenn das Dokument geändert wird, kann die Momentaufnahme nicht mehr zum aktuellen Stand des Dokuments übereinstimmen,
-        > da Knoten sich möglicherweise bewegt, verändert, hinzugefügt oder entfernt haben.
+        > Ergebnisse dieses Typs sind Schnappschüsse, die im Wesentlichen Listen der passenden Knoten sind.
+        > Sie können Änderungen am Dokument vornehmen, indem Sie Schnappschuss-Knoten ändern.
+        > Eine Änderung am Dokument macht den Schnappschuss nicht ungültig;
+        > jedoch kann der Schnappschuss, wenn das Dokument geändert wurde, nicht mehr dem aktuellen Zustand des Dokuments entsprechen,
+        > da sich Knoten möglicherweise bewegt haben, geändert, hinzugefügt oder entfernt wurden.
     - `ORDERED_NODE_SNAPSHOT_TYPE` (`7`)
-      - : Eine Ergebnisgruppe, die Momentaufnahmen aller Knoten enthält, die dem
-        Ausdruck entsprechen. Die Knoten in der Ergebnisgruppe sind in der gleichen Reihenfolge wie sie
+      - : Eine Ergebnismenge, die Schnappschüsse aller Knoten enthält, die mit dem
+        Ausdruck übereinstimmen. Die Knoten in der Ergebnismenge sind in der gleichen Reihenfolge, in der sie
         im Dokument erscheinen.
         > [!NOTE]
-        > Ergebnisse dieses Typs sind Momentaufnahmen, die im Wesentlichen Listen von übereinstimmenden Knoten sind.
-        > Sie können Änderungen am Dokument vornehmen, indem Sie die Momentaufnahme-Knoten verändern.
-        > Das Ändern des Dokuments macht die Momentaufnahme nicht ungültig;
-        > jedoch, wenn das Dokument geändert wird, kann die Momentaufnahme nicht mehr zum aktuellen Stand des Dokuments übereinstimmen,
-        > da Knoten sich möglicherweise bewegt, verändert, hinzugefügt oder entfernt haben.
+        > Ergebnisse dieses Typs sind Schnappschüsse, die im Wesentlichen Listen der passenden Knoten sind.
+        > Sie können Änderungen am Dokument vornehmen, indem Sie Schnappschuss-Knoten ändern.
+        > Eine Änderung am Dokument macht den Schnappschuss nicht ungültig;
+        > jedoch kann der Schnappschuss, wenn das Dokument geändert wurde, nicht mehr dem aktuellen Zustand des Dokuments entsprechen,
+        > da sich Knoten möglicherweise bewegt haben, geändert, hinzugefügt oder entfernt wurden.
     - `ANY_UNORDERED_NODE_TYPE` (`8`)
-      - : Eine Ergebnisgruppe, die irgendeinen einzelnen Knoten enthält, der dem Ausdruck entspricht. Der
-        Knoten ist nicht notwendigerweise der erste Knoten im Dokument, der dem Ausdruck entspricht.
+      - : Eine Ergebnismenge, die jeden einzelnen Knoten enthält, der mit dem Ausdruck übereinstimmt. Der
+        Knoten ist nicht unbedingt der erste Knoten im Dokument, der mit dem Ausdruck übereinstimmt.
     - `FIRST_ORDERED_NODE_TYPE` (`9`)
-      - : Eine Ergebnisgruppe, die den ersten Knoten im Dokument enthält, der dem Ausdruck entspricht.
+      - : Eine Ergebnismenge, die den ersten Knoten im Dokument enthält, der mit dem Ausdruck übereinstimmt.
 
 - `result`
   - : Ein vorhandenes `XPathResult` zur Verwendung für die Ergebnisse. Wenn auf `null` gesetzt, erstellt und gibt die Methode ein neues `XPathResult` zurück.
 
 ### Rückgabewert
 
-Ein {{domxref("XPathResult")}}, das auf die ausgewählten Knoten verweist. Wenn `result` `null` war, ist es ein neues Objekt,
-andernfalls ist es dasselbe Objekt wie das, das als `result`-Parameter übergeben wurde.
+Ein [`XPathResult`](/de/docs/Web/API/XPathResult), das auf die ausgewählten Knoten verweist. Wenn `result` `null` war, ist es ein neues Objekt,
+wenn nicht, ist es dasselbe Objekt wie dasjenige, das als `result`-Parameter übergeben wurde.
 
 ## Beispiele
 
-### Alle H2-Überschriften per XPath finden
+### Finden aller H2-Überschriften mittels XPath
 
 ```js
 const headings = document.evaluate(
@@ -107,43 +103,40 @@ const headings = document.evaluate(
   XPathResult.ANY_TYPE,
   null,
 );
-/* Durchsucht das Dokument nach allen h2-Elementen.
- * Das Ergebnis wird wahrscheinlich ein ungeordneter Knoten-Iterator sein. */
+/* Search the document for all h2 elements.
+ * The result will likely be an unordered node iterator. */
 let thisHeading = headings.iterateNext();
-let alertText = "Überschriften der Ebene 2 in diesem Dokument sind:\n";
+let alertText = "Level 2 headings in this document are:\n";
 while (thisHeading) {
   alertText += `${thisHeading.textContent}\n`;
   thisHeading = headings.iterateNext();
 }
-alert(alertText); // Warnmeldung mit dem Text aller h2-Elemente
+alert(alertText); // Alerts the text of all h2 elements
 ```
 
-Beachten Sie im obigen Beispiel, dass ein ausführlicherer _xpath_ gegenüber gängigen Abkürzungen
-wie `//h2` bevorzugt wird. Im Allgemeinen geben spezifischere _xpath_-Selektoren, wie im obigen
-Beispiel, in der Regel eine signifikante Leistungsverbesserung, insbesondere bei sehr großen
-Dokumenten. Dies liegt daran, dass die Auswertung der Abfrage keine Zeit damit verschwendet,
-unnötige Knoten zu besuchen. Die Verwendung von // ist im Allgemeinen langsam, da sie _jeden_
-Knoten vom Root aus und alle Unteknoten besucht, um mögliche Übereinstimmungen zu finden.
+Beachten Sie im obigen Beispiel, dass ein ausführlicherer _xpath_ gegenüber üblichen Abkürzungen wie `//h2` bevorzugt wird.
+Allgemein bieten spezifischere _xpath_-Selektoren, wie im obigen Beispiel, normalerweise eine signifikante Leistungssteigerung, besonders bei sehr großen
+Dokumenten. Dies liegt daran, dass die Bewertung der Abfrage keine Zeit verschwendet,
+um unnötige Knoten zu besuchen. Die Verwendung von // ist im Allgemeinen langsam, da sie _jeden_
+Knoten aus der Wurzel und allen Unterknoten besucht, um mögliche Übereinstimmungen zu finden.
 
-Weiterhin kann eine Optimierung durch sorgfältige Verwendung des Kontextparameters erreicht werden. Wenn
-Sie zum Beispiel wissen, dass der gesuchte Inhalt irgendwo innerhalb des body-Tags liegt,
+Weitere Optimierungen können durch eine sorgfältige Verwendung des Kontext Parameters erreicht werden. Wenn Sie zum Beispiel wissen, dass der gesuchte Inhalt irgendwo im body-Tag enthalten ist,
 können Sie dies verwenden:
 
 ```js
 document.evaluate(".//h2", document.body, null, XPathResult.ANY_TYPE, null);
 ```
 
-Beachten Sie, dass im obigen `document.body` als Kontext statt
-`document` verwendet wurde, sodass der _xpath_ vom body-Element aus startet. (In diesem Beispiel ist das
-`"."` wichtig, um anzugeben, dass die Abfrage vom
-Kontextknoten `document.body` aus starten soll. Wenn das "." ausgelassen würde (bei
-`//h2`) würde die Abfrage vom Root-Knoten (`html`) starten, was verschwenderischer wäre.)
+Beachten Sie im obigen Beispiel, dass `document.body` als Kontext verwendet wird, anstatt `document`, sodass der _xpath_ bei dem body-Element beginnt. (In diesem Beispiel ist der
+`"."` wichtig, um anzuzeigen, dass die Abfrage beim
+Kontextknoten, document.body, beginnen soll. Wenn der "." weggelassen würde (wobei `//h2` übrig bliebe), würde die
+Abfrage beim Wurzelknoten (`html`) beginnen, was verschwenderischer wäre.)
 
-Siehe [Einführung in die Verwendung von XPath in JavaScript](/de/docs/Web/XPath/Introduction_to_using_XPath_in_JavaScript) für mehr Informationen.
+Weitere Informationen finden Sie unter [Einführung in die Verwendung von XPath in JavaScript](/de/docs/Web/XPath/Introduction_to_using_XPath_in_JavaScript).
 
-### Element über xml:id erhalten
+### Element durch xml:id erhalten
 
-Diese Funktion ist ein Ersatz für {{domxref("Document.getElementById()")}}, wenn Sie stattdessen nach `xml:id` suchen müssen.
+Diese Funktion ist ein Ersatz für [`Document.getElementById()`](/de/docs/Web/API/Document/getElementById) für den Fall, dass Sie nach `xml:id` suchen müssen.
 
 ```js
 function getElementByIdWrapper(xmldoc, id) {
@@ -167,6 +160,6 @@ function getElementByIdWrapper(xmldoc, id) {
 
 ## Siehe auch
 
-- {{domxref("Document.createExpression()")}}
-- {{domxref("XPathResult")}}
-- [Prüfen Sie die Browser-Kompatibilität](https://codepen.io/johan/full/DJoqaX)
+- [`Document.createExpression()`](/de/docs/Web/API/Document/createExpression)
+- [`XPathResult`](/de/docs/Web/API/XPathResult)
+- [Browserunterstützung überprüfen](https://codepen.io/johan/full/DJoqaX)

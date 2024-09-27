@@ -1,5 +1,5 @@
 ---
-title: "PageRevealEvent: PageRevealEvent() Konstruktor"
+title: "PageRevealEvent: PageRevealEvent()-Konstruktor"
 short-title: PageRevealEvent()
 slug: Web/API/PageRevealEvent/PageRevealEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Der **`PageRevealEvent()`** Konstruktor erstellt eine neue Instanz des {{domxref("PageRevealEvent")}} Objekts.
+Der **`PageRevealEvent()`**-Konstruktor erstellt eine neue [`PageRevealEvent`](/de/docs/Web/API/PageRevealEvent)-Objektinstanz.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ new PageRevealEvent(type, init)
 - `type`
   - : Ein String, der den Typ des Ereignisses darstellt. Im Fall von `PageRevealEvent` ist dies immer `pagereveal`.
 - `init`
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `viewTransition` {{optional_inline}}
-      - : Ein {{domxref("ViewTransition")}} Objekt, das den aktiven Blickwechsel für die zugehörige Navigation darstellt. Standardmäßig `null`, wenn kein aktiver Blickwechsel vorhanden ist.
+      - : Ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das den aktiven Ansichtswechsel für die zugehörige Navigation darstellt. Standardmäßig `null`, wenn kein aktiver Ansichtswechsel vorhanden ist.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `PageRevealEvent` Objekt wird erstellt, wenn ein Handler als Ergebnis des {{domxref("Window.pagereveal_event", "pagereveal")}} Ereignisses ausgelöst wird.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `PageRevealEvent`-Objekt wird erstellt, wenn ein Handler als Ergebnis des Auslösens des [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Ereignisses aufgerufen wird.
 
 ## Spezifikationen
 

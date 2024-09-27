@@ -27,13 +27,13 @@ Die **`:first-child`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/P
 
 ```html
 <div>
-  <p>Dieser Text wird ausgewählt!</p>
-  <p>Dieser Text wird nicht ausgewählt.</p>
+  <p>This text is selected!</p>
+  <p>This text isn't selected.</p>
 </div>
 
 <div>
-  <h2>Dieser Text wird nicht ausgewählt: Es ist kein `p`.</h2>
-  <p>Dieser Text wird nicht ausgewählt.</p>
+  <h2>This text isn't selected: it's not a `p`.</h2>
+  <p>This text isn't selected.</p>
 </div>
 ```
 
@@ -57,14 +57,14 @@ p:first-child {
 
 ```html
 <ul>
-  <li>Element 1</li>
-  <li>Element 2</li>
+  <li>Item 1</li>
+  <li>Item 2</li>
   <li>
-    Element 3
+    Item 3
     <ul>
-      <li>Element 3.1</li>
-      <li>Element 3.2</li>
-      <li>Element 3.3</li>
+      <li>Item 3.1</li>
+      <li>Item 3.2</li>
+      <li>Item 3.3</li>
     </ul>
   </li>
 </ul>

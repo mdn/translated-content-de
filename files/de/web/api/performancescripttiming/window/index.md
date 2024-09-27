@@ -1,6 +1,6 @@
 ---
-title: "PerformanceScriptTiming: Fenster-Eigenschaft"
-short-title: Fenster
+title: "PerformanceScriptTiming: window-Eigenschaft"
+short-title: window
 slug: Web/API/PerformanceScriptTiming/window
 l10n:
   sourceCommit: 1391eec245db45782d4c73572ce7b375cbe43989
@@ -8,25 +8,25 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die **`window`** schreibgeschützte Eigenschaft der {{domxref("PerformanceScriptTiming")}}-Schnittstelle gibt eine Referenz auf ein {{domxref("Window")}}-Objekt zurück, das das `window` des Containers (d. h. entweder das Dokument auf oberster Ebene oder ein {{htmlelement("iframe")}}) darstellt, in dem das die lange Animationsphase (LoAF) verursachende Skript ausgeführt wurde.
+Die **`window`** schreibgeschützte Eigenschaft der [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Schnittstelle gibt einen Verweis auf ein [`Window`](/de/docs/Web/API/Window)-Objekt zurück, das das `window` des Containers (d. h. entweder das Dokument der obersten Ebene oder einem {{htmlelement("iframe")}}) repräsentiert, in dem das Skript mit dem langen Animationsrahmen (LoAF) ausgeführt wurde.
 
 ## Wert
 
-Ein {{domxref("Window")}}-Objekt oder `null`, wenn das Fenster nicht mehr aktiv ist (die Objektreferenz ist ein [`WeakRef`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef)).
+Ein [`Window`](/de/docs/Web/API/Window)-Objekt oder `null`, wenn das Fenster nicht mehr aktiv ist (der Objektverweis ist ein [`WeakRef`](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef)).
 
 ## Beispiele
 
-Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Siehe [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele in Bezug auf die Long Animation Frames API.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
-- {{domxref("PerformanceLongAnimationFrameTiming")}}
+- [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)

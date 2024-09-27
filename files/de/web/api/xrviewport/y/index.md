@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`y`**-Eigenschaft der {{domxref("XRViewport")}}-Schnittstelle gibt den Versatz von der unteren Kante der Zieloberfläche (typischerweise eine {{domxref("XRWebGLLayer")}}) zur unteren Kante des Viewports innerhalb der Oberfläche an, in die WebXR-Inhalte gerendert werden sollen. Die {{domxref("XRViewport.x", "x")}}-Eigenschaft des Viewports identifiziert die `x`-Komponente des Ursprungs, und wird durch die Eigenschaften {{domxref("XRViewPort.width", "width")}} und {{domxref("XRViewport.height", "height")}} angegeben.
+Die schreibgeschützte Schnittstelle [`XRViewport`](/de/docs/Web/API/XRViewport) verfügt über die Eigenschaft **`y`**, die den Versatz vom unteren Rand der Zieloberfläche (typischerweise ein [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)) bis zum unteren Rand des Viewports innerhalb der Oberfläche angibt, in die WebXR-Inhalte gerendert werden sollen. Die [`x`](/de/docs/Web/API/XRViewport/x)-Eigenschaft des Viewports identifiziert die `x`-Komponente des Ursprungs, und dieser wird durch die Eigenschaften [`width`](/de/docs/Web/API/XRViewPort/width) und [`height`](/de/docs/Web/API/XRViewport/height) definiert.
 
 ## Wert
 
-Der Versatz von der unteren Kante der Rendering-Oberfläche zur unteren Kante des Viewports, in Pixeln.
+Der Versatz vom unteren Rand der Rendering-Oberfläche zum unteren Rand des Viewports, in Pixeln.
 
 > [!NOTE]
-> Obwohl andere Web-APIs typischerweise die `y`-Achse als beginnend oben und nach unten hin wachsend betrachten, kehrt WebGL dies um, wobei `y` nach oben hin auf dem Bildschirm größer wird.
+> Obwohl andere Web-APIs typischerweise davon ausgehen, dass die `y`-Achse am oberen Rand beginnt und mit zunehmendem Abstand nach unten größer wird, kehrt WebGL dies um, sodass `y` größer wird, wenn es nach oben auf dem Bildschirm geht.
 
 ## Beispiele
 
-Siehe die Hauptseite von {{domxref("XRViewport")}} für Beispiele.
+Siehe die Hauptseite von [`XRViewport`](/de/docs/Web/API/XRViewport) für Beispiele.
 
 ## Spezifikationen
 

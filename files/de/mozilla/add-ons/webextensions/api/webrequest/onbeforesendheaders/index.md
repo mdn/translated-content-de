@@ -7,21 +7,21 @@ l10n:
 
 {{AddonSidebar}}
 
-Dieses Ereignis wird ausgelöst, bevor irgendwelche HTTP-Daten gesendet werden, jedoch nachdem alle HTTP-Header verfügbar sind. Dies ist ein guter Ort, um zuzuhören, wenn Sie HTTP-Anforderungsheader ändern möchten.
+Dieses Ereignis wird ausgelöst, bevor HTTP-Daten gesendet werden, jedoch nachdem alle HTTP-Header verfügbar sind. Dies ist ein guter Zeitpunkt, um zu lauschen, wenn Sie HTTP-Anfrageheader ändern möchten.
 
-Um die Anforderungsheader zusammen mit den restlichen Anforderungsdaten an den Listener zu übergeben, fügen Sie `"requestHeaders"` in das `extraInfoSpec`-Array ein.
+Um die Anfrageheader zusammen mit den restlichen Anfragedaten an den Listener zu übergeben, geben Sie `"requestHeaders"` im `extraInfoSpec`-Array an.
 
-Um die Header synchron zu ändern: Fügen Sie `"blocking"` in `extraInfoSpec` ein, und geben Sie dann in Ihrem Event-Listener ein [`BlockingResponse`](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/BlockingResponse) mit einer Eigenschaft namens `requestHeaders` zurück, deren Wert das Set von zu sendenden Anforderungsheadern ist.
+Um die Header synchron zu ändern: Geben Sie `"blocking"` in `extraInfoSpec` an, und geben Sie in Ihrem Ereignis-Listener eine [`BlockingResponse`](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/BlockingResponse) mit einer Eigenschaft namens `requestHeaders` zurück, deren Wert die zu sendenden Anfrageheader sind.
 
-Um die Header asynchron zu ändern: Fügen Sie `"blocking"` in `extraInfoSpec` ein, und geben Sie dann in Ihrem Event-Listener ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das mit einem `BlockingResponse` aufgelöst wird.
+Um die Header asynchron zu ändern: Geben Sie `"blocking"` in `extraInfoSpec` an, und geben Sie in Ihrem Ereignis-Listener ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das mit einer `BlockingResponse` aufgelöst wird.
 
-Wenn Sie `"blocking"` verwenden, müssen Sie die [API-Berechtigung "webRequestBlocking"](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) in Ihrer manifest.json haben.
+Wenn Sie `"blocking"` verwenden, müssen Sie die ["webRequestBlocking" API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) in Ihrer manifest.json haben.
 
-Es ist möglich, dass Erweiterungen hier in Konflikt geraten. Wenn zwei Erweiterungen `onBeforeSendHeaders` für dieselbe Anfrage anhören, wird der zweite Listener die von dem ersten Listener vorgenommenen Änderungen sehen und kann diese rückgängig machen. Zum Beispiel, wenn der erste Listener einen `Cookie`-Header hinzufügt und der zweite alle `Cookie`-Header entfernt, gehen die Änderungen des ersten Listeners verloren. Wenn Sie die Header sehen möchten, die tatsächlich gesendet werden, ohne das Risiko, dass eine andere Erweiterung sie anschließend ändert, verwenden Sie {{WebExtAPIRef("webRequest.onSendHeaders", "onSendHeaders")}}, obwohl Sie die Header bei diesem Ereignis nicht ändern können.
+Es ist möglich, dass Erweiterungen hier in Konflikt geraten. Wenn zwei Erweiterungen bei derselben Anfrage auf `onBeforeSendHeaders` lauschen, sieht der zweite Listener die vom ersten Listener vorgenommenen Änderungen und kann alle vom ersten Listener vorgenommenen Änderungen rückgängig machen. Beispielsweise, wenn der erste Listener einen `Cookie`-Header hinzufügt und der zweite Listener alle `Cookie`-Header entfernt, gehen die Änderungen des ersten Listeners verloren. Wenn Sie die tatsächlich gesendeten Header sehen möchten, ohne das Risiko, dass eine andere Erweiterung sie anschließend ändert, verwenden Sie {{WebExtAPIRef("webRequest.onSendHeaders", "onSendHeaders")}}, obwohl Sie die Header bei diesem Ereignis nicht ändern können.
 
-Nicht alle tatsächlich gesendeten Header sind immer in `requestHeaders` enthalten. Insbesondere Header, die sich auf das Caching beziehen (zum Beispiel `Cache-Control`, `If-Modified-Since`, `If-None-Match`), werden nie gesendet. Das Verhalten kann sich auch zwischen den Browsern unterscheiden.
+Nicht alle tatsächlich gesendeten Header sind immer in den `requestHeaders` enthalten. Insbesondere Header, die sich auf das Caching beziehen (zum Beispiel `Cache-Control`, `If-Modified-Since`, `If-None-Match`), werden nie gesendet. Auch hier kann das Verhalten zwischen den Browsern unterschiedlich sein.
 
-Gemäß der Spezifikation sind Header-Namen nicht zwischen Groß- und Kleinschreibung zu unterscheiden. Das bedeutet, dass der Listener den Namen in Kleinbuchstaben umwandeln sollte, bevor er einen bestimmten Header vergleicht:
+Laut Spezifikation sind Headernamen nicht groß- und kleinschreibungssensitiv. Dies bedeutet, dass der Listener, um einen bestimmten Header abzugleichen, den Namen vor dem Vergleich klein schreiben sollte:
 
 ```js
 for (const header of e.requestHeaders) {
@@ -31,7 +31,7 @@ for (const header of e.requestHeaders) {
 }
 ```
 
-Der Browser bewahrt die ursprüngliche Groß- und Kleinschreibung des von ihm erzeugten Headernamens. Wenn der Listener der Erweiterung die Groß- und Kleinschreibung ändert, bleibt diese Änderung nicht erhalten.
+Der Browser bewahrt die ursprüngliche Groß- und Kleinschreibung des vom Browser generierten Headernamens. Wenn der Listener der Erweiterung die Groß- und Kleinschreibung ändert, wird diese Änderung nicht beibehalten.
 
 ## Syntax
 
@@ -50,9 +50,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener, filter, extraInfoSpec)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen für dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, und `false`, wenn nicht.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, `false` andernfalls.
 
 ## addListener-Syntax
 
@@ -63,50 +63,50 @@ Ereignisse haben drei Funktionen:
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `details`
-      - : `object`. Details der Anfrage. Dazu gehören die Anforderungsheader, wenn Sie `"requestHeaders"` in `extraInfoSpec` enthalten haben. Weitere Informationen finden Sie im Abschnitt [details](#details_2).
+      - : `object`. Details der Anfrage. Dazu gehören Anfrageheader, wenn Sie `"requestHeaders"` in `extraInfoSpec` enthalten haben. Weitere Informationen finden Sie im Abschnitt [details](#details_2).
 
-    Gibt zurück: {{WebExtAPIRef('webRequest.BlockingResponse')}}. Wenn `"blocking"` im `extraInfoSpec`-Parameter angegeben ist, sollte der Event-Listener ein `BlockingResponse`-Objekt zurückgeben und seine `requestHeaders`-Eigenschaft setzen können.
+    Rückgabe: {{WebExtAPIRef('webRequest.BlockingResponse')}}. Wenn `"blocking"` im `extraInfoSpec`-Parameter angegeben ist, sollte der Ereignis-Listener ein `BlockingResponse`-Objekt zurückgeben und kann seine `requestHeaders`-Eigenschaft festlegen.
 
 - `filter`
-  - : {{WebExtAPIRef('webRequest.RequestFilter')}}. Eine Reihe von Filtern, die die Ereignisse einschränken, die an diesen Listener gesendet werden.
+  - : {{WebExtAPIRef('webRequest.RequestFilter')}}. Eine Reihe von Filtern, die die an diesen Listener gesendeten Ereignisse einschränken.
 - `extraInfoSpec` {{optional_inline}}
 
-  - : `array` von `string`. Zusätzliche Optionen für das Ereignis. Sie können jeden der folgenden Werte übergeben:
+  - : `array` von `string`. Zusätzliche Optionen für das Ereignis. Sie können einen der folgenden Werte übergeben:
 
-    - `"blocking"`: macht die Anforderung synchron, sodass Sie Anforderungsheader ändern können
-    - `"requestHeaders"`: fügt die Anforderungsheader in das an den Listener übergebene `details`-Objekt ein
+    - `"blocking"`: macht die Anfrage synchron, sodass Sie Anfrageheader ändern können
+    - `"requestHeaders"`: beinhalten die Anfrageheader im `details`-Objekt, das an den Listener übergeben wird
 
 ## Zusätzliche Objekte
 
 ### details
 
 - `cookieStoreId`
-  - : `string`. Falls die Anfrage aus einem Tab mit einer kontextuellen Identität stammt, die Cookie-Store-ID der kontextuellen Identität. Weitere Informationen finden Sie unter [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
+  - : `string`. Wenn die Anfrage von einem Tab erfolgt, der in einer kontextbezogenen Identität geöffnet ist, die Cookie-Store-ID der kontextbezogenen Identität. Weitere Informationen finden Sie unter [Arbeiten mit kontextbezogenen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
 - `documentUrl`
-  - : `string`. URL des Dokuments, in dem die Ressource geladen wird. Wenn z.B. die Webseite "https\://example.com" ein Bild oder ein iframe enthält, dann wird `documentUrl` für das Bild oder iframe "https\://example.com" sein. Für ein Top-Level-Dokument ist `documentUrl` undefiniert.
+  - : `string`. URL des Dokuments, in dem die Ressource geladen wird. Wenn beispielsweise die Webseite unter "https\://example.com" ein Bild oder ein iframe enthält, dann wird die `documentUrl` für das Bild oder das iframe "https\://example.com" sein. Für ein Dokument auf der obersten Ebene ist `documentUrl` undefiniert.
 - `frameAncestors`
-  - : `array`. Enthält Informationen für jedes Dokument in der Rahmenhierarchie bis zum Top-Level-Dokument. Das erste Element im Array enthält Informationen über das direkte übergeordnete Dokument des angeforderten Dokuments, und das letzte Element enthält Informationen über das Top-Level-Dokument. Wenn das Laden tatsächlich für das Top-Level-Dokument erfolgt, ist dieses Array leer.
+  - : `array`. Enthält Informationen für jedes Dokument in der Rahmenhierarchie bis zum obersten Dokument. Das erste Element im Array enthält Informationen über das unmittelbare übergeordnete Dokument des angeforderten Dokuments, und das letzte Element enthält Informationen über das oberste Dokument. Wenn der Ladevorgang tatsächlich für das oberste Dokument erfolgt, ist dieses Array leer.
     - `url`
       - : `string`. Die URL, von der das Dokument geladen wurde.
     - `frameId`
-      - : `integer`. Die `frameId` des Dokuments. `details.frameAncestors[0].frameId` ist das gleiche wie `details.parentFrameId`.
+      - : `integer`. Die `frameId` des Dokuments. `details.frameAncestors[0].frameId` entspricht `details.parentFrameId`.
 - `frameId`
-  - : `integer`. Null, wenn die Anfrage im Hauptframe erfolgt; ein positiver Wert ist die ID eines Unterrahmens, in dem die Anfrage erfolgt. Wenn das Dokument eines (Unter-)Rahmen geladen wird (`type` ist `main_frame` oder `sub_frame`), zeigt `frameId` die ID dieses Rahmens an, nicht die ID des äußeren Rahmens. Rahmen-IDs sind innerhalb eines Tabs eindeutig.
+  - : `integer`. Null, wenn die Anfrage im Hauptframe erfolgt; ein positiver Wert ist die ID eines Unterrahmens, in dem die Anfrage erfolgt. Wenn das Dokument eines (Unter-)Rahmens geladen wird (`type` ist `main_frame` oder `sub_frame`), gibt `frameId` die ID dieses Rahmens an, nicht die ID des äußeren Rahmens. Rahmen-IDs sind innerhalb eines Tabs eindeutig.
 - `incognito`
-  - : `boolean`. Ob die Anfrage von einem privaten Browserfenster stammt.
+  - : `boolean`. Ob die Anfrage aus einem privaten Browserfenster stammt.
 - `method`
-  - : `string`. Standard HTTP-Methode: zum Beispiel "GET" oder "POST".
+  - : `string`. Standard-HTTP-Methode: Beispielsweise "GET" oder "POST".
 - `originUrl`
 
-  - : `string`. URL der Ressource, die die Anfrage ausgelöst hat. Wenn z. B. "https\://example.com" einen Link enthält und der Benutzer auf den Link klickt, dann ist die `originUrl` für die resultierende Anfrage "https\://example.com".
+  - : `string`. URL der Ressource, die die Anfrage ausgelöst hat. Wenn beispielsweise "https\://example.com" einen Link enthält und der Benutzer darauf klickt, dann ist die `originUrl` für die resultierende Anfrage "https\://example.com".
 
-    Die `originUrl` ist oft, aber nicht immer die gleiche wie die `documentUrl`. Wenn z. B. eine Seite ein iframe enthält und das iframe einen Link enthält, der ein neues Dokument in das iframe lädt, ist die `documentUrl` für die resultierende Anfrage das übergeordnete Dokument des iframes, aber die `originUrl` ist die URL des Dokuments im iframe, das den Link enthielt.
+    Die `originUrl` ist oft, aber nicht immer, dieselbe wie die `documentUrl`. Wenn eine Seite beispielsweise ein iframe enthält und das iframe einen Link enthält, der ein neues Dokument in das iframe lädt, dann ist die `documentUrl` für die resultierende Anfrage das übergeordnete Dokument des iframes, die `originUrl` jedoch die URL des Dokuments im iframe, das den Link enthielt.
 
 - `parentFrameId`
-  - : `integer`. ID des Rahmens, der den Rahmen enthält, welcher die Anfrage gesendet hat. Auf -1 gesetzt, wenn kein übergeordneter Rahmen existiert.
+  - : `integer`. ID des Rahmens, der den Rahmen enthält, der die Anfrage gesendet hat. Wird auf -1 gesetzt, wenn kein übergeordneter Rahmen existiert.
 - `proxyInfo`
 
-  - : `object`. Diese Eigenschaft ist nur vorhanden, wenn die Anfrage über einen Proxy geleitet wird. Es enthält die folgenden Eigenschaften:
+  - : `object`. Diese Eigenschaft ist nur vorhanden, wenn die Anfrage über einen Proxy läuft. Sie enthält die folgenden Eigenschaften:
 
     - `host`
       - : `string`. Der Hostname des Proxy-Servers.
@@ -118,30 +118,30 @@ Ereignisse haben drei Funktionen:
 
         - "http": HTTP-Proxy (oder SSL CONNECT für HTTPS)
         - "https": HTTP-Proxying über TLS-Verbindung zum Proxy
-        - "socks": SOCKS v5 Proxy
-        - "socks4": SOCKS v4 Proxy
+        - "socks": SOCKS v5-Proxy
+        - "socks4": SOCKS v4-Proxy
         - "direct": kein Proxy
         - "unknown": unbekannter Proxy
 
     - `username`
       - : `string`. Benutzername für den Proxydienst.
     - `proxyDNS`
-      - : `boolean`. Wahr, wenn der Proxy die DNS-Auflösung basierend auf dem angegebenen Hostnamen durchführt, d. h. der Client sollte keinen eigenen DNS-Lookup durchführen.
+      - : `boolean`. Wahr, wenn der Proxy die Auflösung von Domainnamen basierend auf dem bereitgestellten Hostnamen vornimmt, was bedeutet, dass der Client keine eigene DNS-Abfrage durchführen sollte.
     - `failoverTimeout`
-      - : `integer`. Failover-Timeout in Sekunden. Wenn die Proxy-Verbindung fehlschlägt, wird der Proxy für diesen Zeitraum nicht erneut verwendet.
+      - : `integer`. Failover-Timeout in Sekunden. Wenn die Proxyverbindung fehlschlägt, wird der Proxy während dieses Zeitraums nicht mehr verwendet.
 
 - `requestHeaders` {{optional_inline}}
-  - : {{WebExtAPIRef('webRequest.HttpHeaders')}}. Die HTTP-Anforderungsheader, die mit dieser Anfrage gesendet werden.
+  - : {{WebExtAPIRef('webRequest.HttpHeaders')}}. Die HTTP-Anfrageheader, die mit dieser Anfrage gesendet werden.
 - `requestId`
-  - : `string`. Die ID der Anfrage. Anforderungs-IDs sind innerhalb einer Browsersitzung eindeutig, sodass Sie sie verwenden können, um verschiedene Ereignisse zuzuordnen, die mit derselben Anfrage verbunden sind.
+  - : `string`. Die ID der Anfrage. Anfrage-IDs sind innerhalb einer Browsersitzung eindeutig, sodass Sie sie verwenden können, um verschiedene Ereignisse zu verknüpfen, die mit derselben Anfrage zusammenhängen.
 - `tabId`
-  - : `integer`. ID des Tabs, in dem die Anfrage stattfindet. Auf -1 gesetzt, wenn die Anfrage nicht mit einem Tab verbunden ist.
+  - : `integer`. ID des Tabs, in dem die Anfrage erfolgt. Wird auf -1 gesetzt, wenn die Anfrage nicht mit einem Tab verbunden ist.
 - `thirdParty`
-  - : `boolean`. Gibt an, ob die Anfrage und ihre Inhaltsfensterhierarchie von Dritten stammen.
+  - : `boolean`. Gibt an, ob die Anfrage und ihre Fensterhierarchie von Drittanbietern stammt.
 - `timeStamp`
-  - : `number`. Die Zeit, zu der dieses Ereignis ausgelöst wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+  - : `number`. Die Zeit, zu der dieses Ereignis ausgelöst wurde, in [Millisekunden seit der Epoche](https://de.wikipedia.org/wiki/Unixzeit).
 - `type`
-  - : {{WebExtAPIRef('webRequest.ResourceType')}}. Die Art der angeforderten Ressource: zum Beispiel "image", "script", "stylesheet".
+  - : {{WebExtAPIRef('webRequest.ResourceType')}}. Der Typ der angeforderten Ressource: zum Beispiel "image", "script", "stylesheet".
 - `url`
   - : `string`. Ziel der Anfrage.
 - `urlClassification`
@@ -151,18 +151,18 @@ Ereignisse haben drei Funktionen:
     - `firstParty`
       - : `array` von `strings`. Klassifizierungsflags für die erste Partei der Anfrage.
     - `thirdParty`
-      - : `array` von `strings`. Klassifizierungsflags für die dritte Partei der Anfrage oder ihrer Fensterhierarchie.
+      - : `array` von `strings`. Klassifizierungsflags für die Drittparteien der Anfrage oder ihrer Fensterhierarchie.
 
     Die Klassifizierungsflags umfassen:
 
-    - `fingerprinting` und `fingerprinting_content`: gibt an, dass die Anfrage am Fingerprinting beteiligt ist ("ein Ursprung, der Fingerprinting erkannt wird").
-      - `fingerprinting` gibt an, dass die Domain in der Fingerprinting- und Tracking-Kategorie ist. Beispiele für diese Art von Domain sind Werbetreibende, die ein Profil mit dem besuchenden Benutzer verknüpfen möchten.
-      - `fingerprinting_content` gibt an, dass die Domain in der Fingerprinting-Kategorie, aber nicht in der Tracking-Kategorie ist. Beispiele für diese Art von Domain sind Zahlungsanbieter, die Fingerprinting-Techniken verwenden, um den besuchenden Benutzer zu Identifikationszwecken bei Betrugserkennung zu identifizieren.
+    - `fingerprinting` und `fingerprinting_content`: zeigt an, dass die Anfrage an der Fingerabdruckerstellung beteiligt ist („eine Herkunft wurde gefunden, um einen Fingerabdruck zu erstellen“).
+      - `fingerprinting` zeigt an, dass die Domain in der Fingerprinting- und Tracking-Kategorie enthalten ist. Beispiele für diese Art von Domain sind Werbetreibende, die ein Profil mit dem besuchenden Benutzer verknüpfen möchten.
+      - `fingerprinting_content` zeigt an, dass die Domain in der Fingerprinting-Kategorie, aber nicht in der Tracking-Kategorie enthalten ist. Beispiele für diese Art von Domain sind Zahlungsanbieter, die Fingerprinting-Techniken verwenden, um den besuchenden Benutzer zur Betrugsbekämpfung zu identifizieren.
     - `cryptomining` und `cryptomining_content`: ähnlich der Fingerprinting-Kategorie, jedoch für Cryptomining-Ressourcen.
-    - `tracking`, `tracking_ad`, `tracking_analytics`, `tracking_social`, und `tracking_content`: gibt an, dass die Anfrage am Tracking beteiligt ist. `tracking` ist jede allgemeine Tracking-Anfrage, die `ad`, `analytics`, `social`, und `content` Suffixe identifizieren die Art des Trackers.
-    - `any_basic_tracking`: ein Meta-Flag, das Tracking- und Fingerprinting-Flags kombiniert, ausgenommen `tracking_content` und `fingerprinting_content`.
-    - `any_strict_tracking`: ein Meta-Flag, das alle Tracking- und Fingerprinting-Flags kombiniert.
-    - `any_social_tracking`: ein Meta-Flag, das alle sozialen Tracking-Flags kombiniert.
+    - `tracking`, `tracking_ad`, `tracking_analytics`, `tracking_social` und `tracking_content`: zeigt an, dass die Anfrage am Tracking beteiligt ist. `tracking` ist jede allgemeine Tracking-Anfrage, die `ad`, `analytics`, `social` und `content` Suffixe identifizieren den Typ des Trackers.
+    - `any_basic_tracking`: ein Metaflag, das Tracking- und Fingerprinting-Flags kombiniert, ohne `tracking_content` und `fingerprinting_content`.
+    - `any_strict_tracking`: ein Metaflag, das alle Tracking- und Fingerprinting-Flags kombiniert.
+    - `any_social_tracking`: ein Metaflag, das alle sozialen Tracking-Flags kombiniert.
 
 ## Browser-Kompatibilität
 
@@ -170,24 +170,24 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Dieser Code ändert den "User-Agent"-Header, sodass sich der Browser als Opera 12.16 identifiziert, jedoch nur beim Besuch von Seiten unter `https://httpbin.org/`.
+Dieser Code ändert den "User-Agent"-Header, sodass sich der Browser als Opera 12.16 ausgibt, jedoch nur beim Besuch von Seiten unter `https://httpbin.org/`.
 
 ```js
 "use strict";
 
 /*
-Dies ist die Seite, für die wir den User-Agent-Header umschreiben möchten.
+This is the page for which we want to rewrite the User-Agent header.
 */
 const targetPage = "https://httpbin.org/*";
 
 /*
-Setzen Sie den UA-String auf Opera 12
+Set UA string to Opera 12
 */
 const ua =
   "Opera/9.80 (X11; Linux i686; Ubuntu/14.10) Presto/2.12.388 Version/12.16";
 
 /*
-Schreiben Sie den User-Agent-Header auf "ua" um.
+Rewrite the User-Agent header to "ua".
 */
 function rewriteUserAgentHeader(e) {
   for (const header of e.requestHeaders) {
@@ -199,10 +199,10 @@ function rewriteUserAgentHeader(e) {
 }
 
 /*
-Fügen Sie rewriteUserAgentHeader als Listener zu onBeforeSendHeaders hinzu,
-nur für die Zielseite.
+Add rewriteUserAgentHeader as a listener to onBeforeSendHeaders,
+only for the target page.
 
-Machen Sie es "blocking", damit wir die Header ändern können.
+Make it "blocking" so we can modify the headers.
 */
 browser.webRequest.onBeforeSendHeaders.addListener(
   rewriteUserAgentHeader,
@@ -217,18 +217,18 @@ Dieser Code ist genau wie das vorherige Beispiel, außer dass der Listener async
 "use strict";
 
 /*
-Dies ist die Seite, für die wir den User-Agent-Header umschreiben möchten.
+This is the page for which we want to rewrite the User-Agent header.
 */
 const targetPage = "https://httpbin.org/*";
 
 /*
-Setzen Sie den UA-String auf Opera 12
+Set UA string to Opera 12
 */
 const ua =
   "Opera/9.80 (X11; Linux i686; Ubuntu/14.10) Presto/2.12.388 Version/12.16";
 
 /*
-Schreiben Sie den User-Agent-Header auf "ua" um.
+Rewrite the User-Agent header to "ua".
 */
 function rewriteUserAgentHeaderAsync(e) {
   const asyncRewrite = new Promise((resolve, reject) => {
@@ -246,10 +246,10 @@ function rewriteUserAgentHeaderAsync(e) {
 }
 
 /*
-Fügen Sie rewriteUserAgentHeader als Listener zu onBeforeSendHeaders hinzu,
-nur für die Zielseite.
+Add rewriteUserAgentHeader as a listener to onBeforeSendHeaders,
+only for the target page.
 
-Machen Sie es "blocking", damit wir die Header ändern können.
+Make it "blocking" so we can modify the headers.
 */
 browser.webRequest.onBeforeSendHeaders.addListener(
   rewriteUserAgentHeaderAsync,
@@ -261,7 +261,7 @@ browser.webRequest.onBeforeSendHeaders.addListener(
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#event-onBeforeSendHeaders) API von Chromium. Diese Dokumentation ist von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#event-onBeforeSendHeaders) API von Chromium. Diese Dokumentation basiert auf [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -1,5 +1,5 @@
 ---
-title: "Dokument: prepend()-Methode"
+title: "Document: prepend() Methode"
 short-title: prepend()
 slug: Web/API/Document/prepend
 l10n:
@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Document.prepend()`**-Methode fügt eine Sammlung von {{domxref("Node")}}-Objekten oder Zeichenketten vor dem ersten Kind des Dokuments ein. Zeichenketten werden als gleichwertige {{domxref("Text")}}-Knoten eingefügt.
+Die **`Document.prepend()`**-Methode fügt ein Set von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen vor dem ersten Kind des Dokuments ein. Zeichenfolgen
+werden als gleichwertige [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
-Diese Methode setzt ein Kind an den Anfang eines `Document`. Um an ein beliebiges Element im Baum anzufügen, siehe {{domxref("Element.prepend()")}}.
+Diese Methode fügt ein Kind zu einem `Document` hinzu. Um zu einem beliebigen Element im Baum hinzuzufügen, siehe [`Element.prepend()`](/de/docs/Web/API/Element/prepend).
 
 ## Syntax
 
@@ -23,7 +24,7 @@ prepend(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Sammlung von {{domxref("Node")}}-Objekten oder Zeichenketten, die eingefügt werden sollen.
+  - : Ein Satz von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -31,22 +32,22 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Knoten nicht an der angegebenen Stelle in der Hierarchie eingefügt werden kann.
 
 ## Beispiele
 
-### Einfügen eines Wurzelelements in ein Dokument
+### Ein Wurzelelement zu einem Dokument hinzufügen
 
-Wenn Sie versuchen, ein Element in ein vorhandenes HTML-Dokument einzufügen, könnte ein `HierarchyRequestError' {{domxref("DOMException")}} ausgelöst werden, wenn bereits ein {{HTMLElement("html")}}-Element existiert.
+Wenn Sie versuchen, ein Element zu einem bestehenden HTML-Dokument hinzuzufügen, könnte ein `HierarchyRequestError' [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst werden, wenn bereits ein {{HTMLElement("html")}}-Element existiert.
 
 ```js
 let html = document.createElement("html");
 document.prepend(html);
-// HierarchyRequestError: Die Operation würde einen inkorrekten Knotenbaum ergeben.
+// HierarchyRequestError: The operation would yield an incorrect node tree.
 ```
 
-Wenn Sie ein neues Dokument ohne vorhandene Elemente erstellen, können Sie ein HTML-Wurzelelement (oder ein SVG-Wurzelelement) einfügen:
+Wenn Sie ein neues Dokument ohne vorhandenes Element erstellen, können Sie ein HTML-Wurzelelement (oder ein SVG-Wurzelelement) hinzufügen:
 
 ```js
 let doc = new Document();
@@ -66,5 +67,5 @@ doc.children; // HTMLCollection [<html>]
 
 ## Siehe auch
 
-- {{domxref("Document.append()")}}
-- {{domxref("Element.prepend()")}}
+- [`Document.append()`](/de/docs/Web/API/Document/append)
+- [`Element.prepend()`](/de/docs/Web/API/Element/prepend)

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt die kanonische URL der Captive-Portal-Erkennungsseite zurück. Schreibgeschützt.
+Gibt die kanonische URL der Erkennungsseite des Captive-Portals zurück. Schreibgeschützt.
 
 ## Browser-Kompatibilität
 
@@ -16,7 +16,7 @@ Gibt die kanonische URL der Captive-Portal-Erkennungsseite zurück. Schreibgesch
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#property-TAB_ID_NONE) API von Chromium. Diese Dokumentation wird aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#property-TAB_ID_NONE) API von Chromium. Diese Dokumentation wurde aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

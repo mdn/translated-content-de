@@ -8,18 +8,20 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`type`**-Eigenschaft des {{domxref("RTCPeerConnectionStats")}}-Wörterbuchs ist ein Zeichenkette mit dem Wert `"peer-connection"`.
+Die **`type`**-Eigenschaft des [`RTCPeerConnectionStats`](/de/docs/Web/API/RTCPeerConnectionStats)-Wörterbuchs ist ein String mit dem Wert `"peer-connection"`.
 
-Verschiedene Statistiken werden durch Iteration des {{domxref("RTCStatsReport")}}-Objekts, das durch einen Aufruf von {{domxref("RTCPeerConnection.getStats()")}} zurückgegeben wird, erhalten. Der Typ gibt die Gruppe von Statistiken an, die durch das Objekt in einem bestimmten Iterationsschritt zur Verfügung stehen. Ein Wert von `"peer-connection"` zeigt an, dass die Statistiken, die im aktuellen Schritt zur Verfügung stehen, diejenigen sind, die in {{domxref("RTCPeerConnectionStats")}} definiert sind.
+Unterschiedliche Statistiken werden durch das Iterieren des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekts erhalten, das von einem Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird.
+Der Typ gibt die Menge der verfügbaren Statistiken durch das Objekt in einem bestimmten Iterationsschritt an.
+Ein Wert von `"peer-connection"` zeigt an, dass die in diesem Schritt verfügbaren Statistiken diejenigen sind, die in [`RTCPeerConnectionStats`](/de/docs/Web/API/RTCPeerConnectionStats) definiert sind.
 
 ## Wert
 
-Eine Zeichenkette mit dem Wert `"peer-connection"`.
+Ein String mit dem Wert `"peer-connection"`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

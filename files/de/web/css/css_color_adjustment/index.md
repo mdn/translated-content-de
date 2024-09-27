@@ -1,5 +1,5 @@
 ---
-title: Anpassung von Farben in CSS
+title: CSS Farbkorrektur
 slug: Web/CSS/CSS_color_adjustment
 l10n:
   sourceCommit: 8d03307af2cee96a307c22b5d52b93f155f11524
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Modul zur Farbkorrektur** bietet ein Modell und die Möglichkeit der automatischen Farbkorrektur durch den Benutzeragenten, um Benutzerpräferenzen wie "Dark Mode", Kontrasteinstellung und andere Farbschema-Einstellungen zu berücksichtigen.
+Das **CSS Farbkorrektur**-Modul bietet ein Modell und steuert die automatische Farbkorrektur durch den Benutzeragenten, um Benutzerpräferenzen wie "Dunkelmodus", Kontrasteinstellung und andere Farbschema-Präferenzen zu handhaben.
 
 Zusammen mit den {{CSSxRef("@media")}}-Funktionen {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}}, {{cssxref("@media/prefers-contrast", "prefers-contrast")}} und {{cssxref("@media/forced-colors", "forced-colors")}} definiert dieses Modul, wie und wann Farben automatisch durch den Browser angepasst werden.
 
@@ -21,12 +21,12 @@ Zusammen mit den {{CSSxRef("@media")}}-Funktionen {{cssxref("@media/prefers-colo
 
 ## Verwandte Konzepte
 
-- {{cssxref("&lt;color&gt;")}} CSS-Datentyp
+- {{cssxref("&lt;color&gt;")}} CSS Datentyp
 - Verwandte {{CSSxRef("@media")}}-Funktionen:
   - {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}}
   - {{cssxref("@media/prefers-contrast", "prefers-contrast")}}
   - {{cssxref("@media/forced-colors", "forced-colors")}}
-- Eigenschaften, die vom Modus für erzwungene Farben betroffen sind
+- Eigenschaften, die durch den Modus erzwungener Farben betroffen sind
   - {{cssxref("accent-color")}}
   - {{cssxref("background-color")}}
   - {{cssxref("background-image")}}
@@ -54,4 +54,4 @@ Zusammen mit den {{CSSxRef("@media")}}-Funktionen {{cssxref("@media/prefers-colo
 
 ## Siehe auch
 
-- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul

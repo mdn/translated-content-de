@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: drawFocusIfNeeded()-Methode"
+title: "CanvasRenderingContext2D: drawFocusIfNeeded() Methode"
 short-title: drawFocusIfNeeded()
 slug: Web/API/CanvasRenderingContext2D/drawFocusIfNeeded
 l10n:
@@ -8,8 +8,10 @@ l10n:
 
 {{APIRef}}
 
-Die
-**`CanvasRenderingContext2D.drawFocusIfNeeded()`**-Methode der Canvas 2D API zeichnet einen Fokusring um den aktuellen oder gegebenen Pfad, wenn das angegebene Element fokussiert ist.
+Die Methode
+**`CanvasRenderingContext2D.drawFocusIfNeeded()`**
+des Canvas 2D API zeichnet einen Fokusring um den aktuellen oder gegebenen Pfad, wenn das
+angegebene Element fokussiert ist.
 
 ## Syntax
 
@@ -23,7 +25,7 @@ drawFocusIfNeeded(path, element)
 - `element`
   - : Das Element, das überprüft wird, ob es fokussiert ist oder nicht.
 - `path`
-  - : Ein {{domxref("Path2D")}}-Pfad, der verwendet wird.
+  - : Ein [`Path2D`](/de/docs/Web/API/Path2D) Pfad, der verwendet werden soll.
 
 ### Rückgabewert
 
@@ -33,7 +35,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwaltung des Schaltflächenfokus
 
-Dieses Beispiel zeichnet zwei Schaltflächen auf eine Leinwand. Die `drawFocusIfNeeded()`-Methode wird verwendet, um bei Bedarf einen Fokusring zu zeichnen.
+Dieses Beispiel zeichnet zwei Schaltflächen auf eine Leinwand. Die Methode `drawFocusIfNeeded()` wird verwendet, um bei Bedarf einen Fokusring zu zeichnen.
 
 #### HTML
 
@@ -64,17 +66,17 @@ function redraw() {
 }
 
 function handleClick(e) {
-  // Klickkoordinaten berechnen
+  // Calculate click coordinates
   const x = e.clientX - canvas.offsetLeft;
   const y = e.clientY - canvas.offsetTop;
 
-  // button1 fokussieren, falls zutreffend
+  // Focus button1, if appropriate
   drawButton(button1, 20, 20);
   if (ctx.isPointInPath(x, y)) {
     button1.focus();
   }
 
-  // button2 fokussieren, falls zutreffend
+  // Focus button2, if appropriate
   drawButton(button2, 20, 80);
   if (ctx.isPointInPath(x, y)) {
     button2.focus();
@@ -86,22 +88,22 @@ function drawButton(el, x, y) {
   const width = 150;
   const height = 40;
 
-  // Schaltflächenhintergrund
+  // Button background
   ctx.fillStyle = active ? "pink" : "lightgray";
   ctx.fillRect(x, y, width, height);
 
-  // Schaltflächentext
+  // Button text
   ctx.font = "15px sans-serif";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillStyle = active ? "blue" : "black";
   ctx.fillText(el.textContent, x + width / 2, y + height / 2);
 
-  // Klickbaren Bereich definieren
+  // Define clickable area
   ctx.beginPath();
   ctx.rect(x, y, width, height);
 
-  // Fokusring zeichnen, falls zutreffend
+  // Draw focus ring, if appropriate
   ctx.drawFocusIfNeeded(el);
 }
 ```
@@ -120,4 +122,4 @@ function drawButton(el, x, y) {
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

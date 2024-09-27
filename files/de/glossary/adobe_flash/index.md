@@ -7,18 +7,18 @@ l10n:
 
 {{GlossarySidebar}}
 
-[**Flash**](https://en.wikipedia.org/wiki/Adobe_Flash) ist eine _veraltete_ Technologie, die von Adobe entwickelt wurde, um ausdrucksstarke Webanwendungen, multimediale Inhalte und Streaming-Medien anzuzeigen. Es kann in einem Web-{{glossary("browser")}} unter Verwendung des Flash Player-{{glossary("plugin")}} genutzt werden, welches für die meisten Desktop- und mobilen Plattformen verfügbar war, bis es 2021 das Ende des Lebenszyklus erreichte.
+[**Flash**](https://de.wikipedia.org/wiki/Adobe_Flash) ist eine _veraltete_ Technologie, die von Adobe für das Anzeigen von ausdrucksstarken Webanwendungen, multimedialen Inhalten und Streaming-Medien entwickelt wurde. Es konnte in einem Web-[Browser](/de/docs/Glossary/browser) mithilfe des Flash Player-[Plugins](/de/docs/Glossary/plugin) verwendet werden, das bis zum Erreichen des End-of-Life im Jahr 2021 für die meisten Desktop- und Mobilplattformen verfügbar war.
 
 ## Siehe auch
 
-- [Flash](https://en.wikipedia.org/wiki/Adobe_Flash) auf Wikipedia
-- [Adobe Flash Player](https://en.wikipedia.org/wiki/Adobe_Flash_Player) auf Wikipedia
-- [Adobe Flash End-of-Life Ankündigung](https://www.adobe.com/products/flashplayer/end-of-life-alternative.html)
-  - Chrome: [Saying goodbye to Flash in Chrome](https://blog.google/products/chrome/saying-goodbye-flash-chrome/)
-  - Firefox: [Firefox Roadmap für das Ende der Flash-Unterstützung](https://blog.mozilla.org/futurereleases/2017/07/25/firefox-roadmap-flash-end-life/)
-  - Safari: [Adobe kündigt das Ende der Flash-Verteilung und -Updates an](https://webkit.org/blog/7839/adobe-announces-flash-distribution-and-updates-to-end/)
-  - Edge: [Das Ende einer Ära – Die nächsten Schritte für Adobe Flash](https://blogs.windows.com/msedgedev/2017/07/25/flash-on-windows-timeline/)
-  - Windows: [Entfernung des Microsoft Windows Flash Players](https://blogs.windows.com/msedgedev/2020/09/04/update-adobe-flash-end-support/)
-  - Facebook: [Migration von Spielen von Flash zu offenen Webstandards auf Facebook](https://developers.facebook.com/blog/post/2017/07/25/Games-Migration-to-Open-Web-Standards/)
+- [Flash](https://de.wikipedia.org/wiki/Adobe_Flash) auf Wikipedia
+- [Adobe Flash Player](https://de.wikipedia.org/wiki/Adobe_Flash_Player) auf Wikipedia
+- [Ankündigung zum End-Of-Life von Adobe Flash](https://www.adobe.com/products/flashplayer/end-of-life-alternative.html)
+  - Chrome: [Abschied von Flash in Chrome](https://blog.google/products/chrome/saying-goodbye-flash-chrome/)
+  - Firefox: [Firefox-Zeitplan für das Ende von Flash](https://blog.mozilla.org/futurereleases/2017/07/25/firefox-roadmap-flash-end-life/)
+  - Safari: [Adobe kündigt Ende der Flash-Distribution und Updates an](https://webkit.org/blog/7839/adobe-announces-flash-distribution-and-updates-to-end/)
+  - Edge: [Das Ende einer Ära – Nächste Schritte für Adobe Flash](https://blogs.windows.com/msedgedev/2017/07/25/flash-on-windows-timeline/)
+  - Windows: [Entfernung von Microsoft Windows Flash Player](https://blogs.windows.com/msedgedev/2020/09/04/update-adobe-flash-end-support/)
+  - Facebook: [Migration von Spielen von Flash zu offenen Web-Standards auf Facebook](https://developers.facebook.com/blog/post/2017/07/25/Games-Migration-to-Open-Web-Standards/)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Plugin")}}
+  - [Plugin](/de/docs/Glossary/Plugin)

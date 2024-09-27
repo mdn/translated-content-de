@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`createAnchor()`**-Methode der {{domxref("XRFrame")}}-Schnittstelle erstellt ein freischwebendes {{domxref("XRAnchor")}}, das relativ zur realen Welt fixiert wird.
+Die **`createAnchor()`**-Methode der [`XRFrame`](/de/docs/Web/API/XRFrame)-Schnittstelle erstellt einen frei schwebenden [`XRAnchor`](/de/docs/Web/API/XRAnchor), der relativ zur realen Welt fixiert wird.
 
-Siehe {{domxref("XRHitTestResult.createAnchor()")}} für das Erstellen eines Ankers aus einem Treffergebnis, das an ein reales Objekt angehängt ist.
+Siehe [`XRHitTestResult.createAnchor()`](/de/docs/Web/API/XRHitTestResult/createAnchor) für das Erstellen eines Ankers aus einem Trefferergebnis, das an ein Objekt in der realen Welt gebunden ist.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ createAnchor(pose, space)
 ### Parameter
 
 - `pose`
-  - : Ein {{domxref("XRRigidTransform")}}-Objekt mit der anfänglichen Pose, an der der Anker erstellt werden soll. Das System wird sicherstellen, dass die Beziehung zur physischen Welt, die in diesem Moment hergestellt wird, aufrechterhalten wird, während sich das Verständnis des Trackingsystems für die Welt weiterentwickelt.
+  - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt mit der anfänglichen Pose, an der der Anker erstellt werden soll. Das System stellt sicher, dass die in diesem Moment hergestellte Beziehung zur physischen Welt aufrechterhalten wird, während sich das Verständnis des Trackingsystems von der Welt weiterentwickelt.
 - `space`
-  - : Ein {{domxref("XRSpace")}}-Objekt, auf das sich die Pose bezieht.
+  - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace)-Objekt, relativ zu dem die Pose ist.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem {{domxref("XRAnchor")}}-Objekt aufgelöst wird.
+Ein {{jsxref("Promise")}}, das zu einem [`XRAnchor`](/de/docs/Web/API/XRAnchor)-Objekt aufgelöst wird.
 
 ## Beispiele
 
@@ -48,10 +48,10 @@ frame.createAnchor(anchorPose, referenceSpace).then(
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("XRHitTestResult.createAnchor()")}}
+- [`XRHitTestResult.createAnchor()`](/de/docs/Web/API/XRHitTestResult/createAnchor)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Die **`scale()`**-Methode der {{domxref("DOMMatrixReadOnly")}}-Schnittstelle erstellt eine neue Matrix, die das Ergebnis der ursprünglichen Matrix mit einer angewendeten Skalentransformation ist.
+Die **`scale()`**-Methode der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Schnittstelle erstellt eine neue Matrix, die das Ergebnis der ursprünglichen Matrix mit einer angewendeten Skalentransformation ist.
 
 ## Syntax
 
@@ -26,27 +26,27 @@ DOMMatrixReadOnly.scale(scaleX, scaleY, scaleZ, originX, originY, originZ);
 ### Parameter
 
 - `scaleX`
-  - : Ein Multiplikator für den Skalierungswert auf der x-Achse.
+  - : Ein Multiplikator für den Skalenwert auf der x-Achse.
 - `scaleY` {{optional_inline}}
-  - : Ein Multiplikator für den Skalierungswert auf der y-Achse. Wenn nicht angegeben, ist der Standardwert der Wert von `scaleX`.
+  - : Ein Multiplikator für den Skalenwert auf der y-Achse. Wenn nicht angegeben, wird dies auf den Wert von `scaleX` gesetzt.
 - `scaleZ` {{optional_inline}}
-  - : Ein Multiplikator für den Skalierungswert auf der z-Achse. Wenn dieser Wert ungleich 1 ist, wird die resultierende Matrix 3D sein.
+  - : Ein Multiplikator für den Skalenwert auf der z-Achse. Wenn dieser Wert ungleich 1 ist, wird die resultierende Matrix 3D sein.
 - `originX` {{optional_inline}}
-  - : Eine x-Koordinate für den Ursprung der Transformation. Wenn kein Ursprung angegeben ist, ist der Standardwert 0.
+  - : Eine x-Koordinate für den Ursprung der Transformation. Wenn kein Ursprung angegeben ist, wird dies auf 0 gesetzt.
 - `originY` {{optional_inline}}
-  - : Eine y-Koordinate für den Ursprung der Transformation. Wenn kein Ursprung angegeben ist, ist der Standardwert 0.
+  - : Eine y-Koordinate für den Ursprung der Transformation. Wenn kein Ursprung angegeben ist, wird dies auf 0 gesetzt.
 - `originZ` {{optional_inline}}
-  - : Eine z-Koordinate für den Ursprung der Transformation. Wenn kein Ursprung angegeben ist, ist der Standardwert 0. Wenn dieser Wert ungleich 0 ist, wird die resultierende Matrix 3D sein.
+  - : Eine z-Koordinate für den Ursprung der Transformation. Wenn kein Ursprung angegeben ist, wird dies auf 0 gesetzt. Ist dieser Wert ungleich 0, wird die resultierende Matrix 3D sein.
 
 ### Rückgabewert
 
-Gibt eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die eine neue Matrix enthält, wobei die x- und y-Dimensionen der Matrix um den angegebenen Faktor skaliert sind, zentriert auf den angegebenen Ursprung. Die ursprüngliche Matrix wird nicht geändert.
+Gibt eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die eine neue Matrix enthält, das Ergebnis der Skalierung der x- und y-Dimensionen der Matrix um den gegebenen Faktor, zentriert auf dem angegebenen Ursprung. Die ursprüngliche Matrix wird nicht verändert.
 
-Wenn eine Skalierung über die z-Achse angewendet wird, ist die resultierende Matrix eine 4✕4 3D-Matrix.
+Wenn eine Skalierung um die z-Achse angewandt wird, ist die resultierende Matrix eine 4✕4 3D-Matrix.
 
 ## Beispiele
 
-Dieses SVG enthält drei Quadrate, eines rot, eines blau und eines grün, die alle am Dokumentursprung positioniert sind:
+Dieses SVG enthält drei Quadrate, eines rot, eines blau und eines grün, die jeweils am Ursprung des Dokuments positioniert sind:
 
 ```html
 <svg width="250" height="250" viewBox="0 0 25 25">
@@ -56,13 +56,13 @@ Dieses SVG enthält drei Quadrate, eines rot, eines blau und eines grün, die al
 </svg>
 ```
 
-Dieses JavaScript erstellt zunächst eine Identitätsmatrix und verwendet dann die `scale()`-Methode, um eine neue Matrix mit einem einzigen Parameter zu erstellen.
+Dieses JavaScript erstellt zunächst eine Identitätsmatrix und verwendet dann die `scale()`-Methode, um eine neue Matrix mit einem einzelnen Parameter zu erstellen.
 
-Wir testen, ob der Browser eine sechsteilige `scale()`-Methode unterstützt, indem wir eine neue Matrix mit drei Parametern erstellen und deren `is2D`-Eigenschaft beobachten. Wenn diese `false` ist, dann wurde der dritte Parameter vom Browser als `scaleZ`-Parameter akzeptiert, was diese Matrix 3D macht.
+Wir prüfen, ob der Browser eine sechsstufige `scale()`-Methode unterstützt, indem wir eine neue Matrix mit drei Parametern erstellen und die `is2D`-Eigenschaft beobachten. Wenn diese `false` ist, wurde der dritte Parameter vom Browser als `scaleZ`-Parameter akzeptiert, was diese Matrix zu einer 3D-Matrix macht.
 
-Wir erstellen dann eine neue Matrix, die um einen gegebenen Ursprung skaliert ist, indem wir je nach Browserunterstützung entweder drei oder sechs Parameter verwenden.
+Wir erstellen dann eine neue Matrix, die um einen bestimmten Ursprung skaliert ist, wobei entweder drei oder sechs Parameter verwendet werden, abhängig von der Unterstützung des Browsers.
 
-Diese neuen Matrizen werden dann auf das blaue und grüne Quadrat als `Transform` angewendet, wodurch deren Dimensionen und Position geändert werden. Das rote Quadrat bleibt unverändert.
+Diese neuen Matrizen werden dann auf die blauen und grünen Quadrate als `transform` angewendet, wodurch sich deren Dimensionen und Positionen ändern. Das rote Quadrat bleibt unverändert.
 
 ```js
 const matrix = new DOMMatrixReadOnly();

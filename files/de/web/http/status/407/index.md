@@ -1,5 +1,5 @@
 ---
-title: 407 Proxy-Authentifizierung erforderlich
+title: 407 Proxy Authentication Required
 slug: Web/HTTP/Status/407
 l10n:
   sourceCommit: ba53fe04589c36a2210d7549c003f3016093ef8e
@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`407 Proxy Authentication Required`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass die Anfrage nicht erfolgreich war, da sie keine gültigen Authentifizierungsdaten für den {{Glossary("proxy server")}} besitzt, der zwischen dem Client und dem Server mit Zugriff auf die angeforderte Ressource sitzt.
+Der HTTP-Statuscode **`407 Proxy Authentication Required`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass die Anfrage nicht erfolgreich war, da sie keine gültigen Authentifizierungsnachweise für den [Proxy-Server](/de/docs/Glossary/proxy_server) enthält, der zwischen dem Client und dem Server mit Zugriff auf die angeforderte Ressource sitzt.
 
-Diese Antwort wird mit einem {{HTTPHeader("Proxy-Authenticate")}}-Header gesendet, der Informationen darüber enthält, wie Anfragen korrekt authentifiziert werden können. Der Client kann die Anfrage mit einem neuen oder ersetzten {{HTTPHeader("Proxy-Authorization")}}-Header-Feld wiederholen.
+Diese Antwort wird mit einem {{HTTPHeader("Proxy-Authenticate")}}-Header gesendet, der Informationen darüber enthält, wie Anfragen korrekt authentifiziert werden. Der Client kann die Anfrage mit einem neuen oder ersetzten {{HTTPHeader("Proxy-Authorization")}}-Header-Feld wiederholen.
 
 ## Status
 
@@ -21,14 +21,14 @@ Diese Antwort wird mit einem {{HTTPHeader("Proxy-Authenticate")}}-Header gesende
 
 ### Proxy-Authentifizierung
 
-Ein GET-Anfrage wird an `example.com/admin` gesendet:
+Eine GET-Anfrage wird an `example.com/admin` gestellt:
 
 ```http
 GET /admin HTTP/1.1
 Host: example.com
 ```
 
-Unterwegs informiert ein Zwischensystem den Client darüber, dass Clients authentifiziert werden müssen und stellt Informationen über das Authentifizierungsschema bereit:
+Auf dem Weg teilt ein Vermittler dem Client mit, dass Clients authentifiziert werden müssen und bietet Informationen über das Authentifizierungsschema an:
 
 ```http
 HTTP/1.1 407 Proxy Authentication Required

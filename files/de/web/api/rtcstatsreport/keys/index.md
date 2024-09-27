@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`keys()`**-Methode der Schnittstelle {{domxref("RTCStatsReport")}} gibt ein neues _[Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das verwendet werden kann, um durch die Schlüssel jedes Elements im `RTCStatsReport`-Objekt in Einfügereihenfolge zu iterieren.
+Die **`keys()`**-Methode der [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Schnittstelle gibt ein neues _[Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_-Objekt zurück, das verwendet werden kann, um die Schlüssel für jedes Element im `RTCStatsReport`-Objekt in der Reihenfolge ihrer Einfügung zu durchlaufen.
 
-Die Schlüssel im `RTCStatsReport` sind eindeutige string `id`-Werte, die die überwachten Statistikobjekte repräsentieren, aus denen die Statistiken abgeleitet werden.
+Die Schlüssel im `RTCStatsReport` sind einzigartige Zeichenkettenwerte `id`, die die überwachten Statistikobjekte darstellen, aus denen die Statistiken abgeleitet werden.
 
-Die Methode funktioniert ansonsten genauso wie {{jsxref("Map.prototype.keys()")}}.
+Die Methode entspricht ansonsten der Methode {{jsxref("Map.prototype.keys()")}}.
 
 ## Syntax
 
@@ -26,12 +26,12 @@ Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Globa
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie man mit dem von `keys()` zurückgegebenen Iterator durch ein {{domxref("RTCStatsReport")}} iterieren kann.
+Dieses Beispiel zeigt, wie man mit dem von `keys()` zurückgegebenen Iterator durch ein [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) iteriert.
 
-Gegeben ist eine Variable `myPeerConnection`, die eine Instanz von `RTCPeerConnection` ist. Der Code ruft [`getStats()`](/de/docs/Web/API/RTCRtpReceiver/getStats) mit `await` auf, um auf den Statistikbericht zu warten.
-Anschließend wird eine [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife verwendet, um mit dem Iterator, der von `keys()` zurückgegeben wird, durch die IDs zu iterieren.
-Jede ID wird verwendet, um das entsprechende Statistik-Dictionary abzurufen.
-Die Eigenschaften von Statistikobjekten mit dem `type` von `outbound-rtp` werden in die Konsole protokolliert (andere Objekte werden verworfen).
+Angenommen, es gibt eine Variable `myPeerConnection`, die eine Instanz von `RTCPeerConnection` ist, ruft der Code [`getStats()`](/de/docs/Web/API/RTCRtpReceiver/getStats) mit `await` auf, um auf den Statistikbericht zu warten.
+Anschließend wird eine [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife verwendet, um mit dem von `keys()` zurückgegebenen Iterator durch die IDs zu iterieren.
+Jede ID wird verwendet, um das entsprechende Statistikdikt zu erhalten.
+Die Eigenschaften von Statistikobjekten mit dem `type` von `outbound-rtp` werden in die Konsole ausgegeben (andere Objekte werden verworfen).
 
 ```js
 const stats = await myPeerConnection.getStats();
@@ -47,8 +47,8 @@ for (const id of stats.keys()) {
 ```
 
 Beachten Sie, dass dieses Beispiel etwas konstruiert ist.
-Es wäre einfacher, mit {{domxref("RTCStatsReport.entries()","entries()")}} oder {{domxref("RTCStatsReport.values()","values()")}} zu iterieren und die ID nicht auf einen Wert abbilden zu müssen.
-Sie können sogar direkt über das {{domxref("RTCStatsReport")}} iterieren, da es die Methode [`[Symbol.iterator]()`](/de/docs/Web/API/RTCStatsReport/Symbol.iterator) hat!
+Sie könnten leichter mit [`entries()`](/de/docs/Web/API/RTCStatsReport/entries) oder [`values()`](/de/docs/Web/API/RTCStatsReport/values) iterieren und müssten nicht die ID zu einem Wert zuordnen.
+Sie können sogar das [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) selbst iterieren, da es die Methode [`[Symbol.iterator]()`](/de/docs/Web/API/RTCStatsReport/Symbol.iterator) hat!
 
 ## Spezifikationen
 
@@ -61,5 +61,5 @@ Sie können sogar direkt über das {{domxref("RTCStatsReport")}} iterieren, da e
 ## Siehe auch
 
 - {{jsxref("Map.prototype.keys()")}}
-- {{domxref("RTCStatsReport.values()")}}
-- {{domxref("RTCStatsReport.entries()")}}
+- [`RTCStatsReport.values()`](/de/docs/Web/API/RTCStatsReport/values)
+- [`RTCStatsReport.entries()`](/de/docs/Web/API/RTCStatsReport/entries)

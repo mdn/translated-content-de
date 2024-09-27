@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.compareBoundaryPoints()`** Methode vergleicht die Grenzpunkte des {{domxref("Range")}} mit denen eines anderen Ranges.
+Die **`Range.compareBoundaryPoints()`**-Methode vergleicht die Begrenzungspunkte des [`Range`](/de/docs/Web/API/Range) mit denen eines anderen Ranges.
 
 ## Syntax
 
@@ -22,26 +22,22 @@ compareBoundaryPoints(how, sourceRange)
 
   - : Eine Konstante, die die Vergleichsmethode beschreibt:
 
-    - `Range.END_TO_END` vergleicht den End-Grenzpunkt von
-      _sourceRange_ mit dem End-Grenzpunkt des `Range`.
-    - `Range.END_TO_START` vergleicht den End-Grenzpunkt von
-      _sourceRange_ mit dem Start-Grenzpunkt des `Range`.
-    - `Range.START_TO_END` vergleicht den Start-Grenzpunkt von
-      _sourceRange_ mit dem End-Grenzpunkt des `Range`.
-    - `Range.START_TO_START` vergleicht den Start-Grenzpunkt von
-      _sourceRange_ mit dem Start-Grenzpunkt des `Range`.
+    - `Range.END_TO_END` vergleicht den Endbegrenzungspunkt von _sourceRange_ mit dem Endbegrenzungspunkt des `Range`.
+    - `Range.END_TO_START` vergleicht den Endbegrenzungspunkt von _sourceRange_ mit dem Startbegrenzungspunkt des `Range`.
+    - `Range.START_TO_END` vergleicht den Startbegrenzungspunkt von _sourceRange_ mit dem Endbegrenzungspunkt des `Range`.
+    - `Range.START_TO_START` vergleicht den Startbegrenzungspunkt von _sourceRange_ mit dem Startbegrenzungspunkt des `Range`.
 
 - `sourceRange`
-  - : Ein {{domxref("Range")}}, mit dem die Grenzpunkte verglichen werden.
+  - : Ein [`Range`](/de/docs/Web/API/Range), dessen Begrenzungspunkte mit denen des Ranges verglichen werden sollen.
 
 ### Rückgabewert
 
-Eine Zahl, `-1`, `0` oder `1`, die angibt, ob der entsprechende Grenzpunkt des {{domxref("Range")}} jeweils vor, gleich oder nach dem entsprechenden Grenzpunkt von _sourceRange_ liegt.
+Eine Zahl, `-1`, `0` oder `1`, die angibt, ob der entsprechende Begrenzungspunkt des [`Range`](/de/docs/Web/API/Range) jeweils vor, gleich oder nach dem entsprechenden Begrenzungspunkt von _sourceRange_ liegt.
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Wert des `how` Parameters ungültig ist.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Wert des `how`-Parameters ungültig ist.
 
 ## Beispiele
 
@@ -63,4 +59,4 @@ const compare = range.compareBoundaryPoints(Range.START_TO_END, sourceRange);
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)
+- [Der DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)

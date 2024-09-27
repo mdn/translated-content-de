@@ -1,5 +1,5 @@
 ---
-title: "HighlightRegistry: clear()-Methode"
+title: "HighlightRegistry: clear() Methode"
 short-title: clear()
 slug: Web/API/HighlightRegistry/clear
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`clear()`**-Methode der {{domxref("HighlightRegistry")}}-Schnittstelle entfernt alle in der `HighlightRegistry` registrierten {{domxref("Highlight")}}-Objekte.
+Die **`clear()`**-Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle entfernt alle in der `HighlightRegistry` registrierten [`Highlight`](/de/docs/Web/API/Highlight)-Objekte.
 
-`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies vergleichbar mit der Verwendung von {{jsxref("Map.clear()")}}.
+`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Map.clear()")}}.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Der folgende Code-Schnipsel registriert zwei Highlight-Objekte im Register und löscht anschließend das Register:
+Im folgenden Codebeispiel werden zwei Highlight-Objekte im Registry registriert und dann die Registry geleert:
 
 ```js
 const customHighlight1 = new Highlight(range1, range2);
@@ -49,5 +49,5 @@ console.log(CSS.highlights.size); // 0
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "Die CSS Custom Highlight API", "", "nocode")}}
-- [CSS Custom Highlight API: Die Zukunft des Textmarkierens im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

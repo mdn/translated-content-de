@@ -8,23 +8,21 @@ l10n:
 
 {{deprecated_header}}{{APIRef("UI Events")}}{{Non-standard_header}}
 
-Die **`locale`**-Schreibgeschützte Eigenschaft der
-{{domxref("CompositionEvent")}}-Schnittstelle gibt das Gebietsschema der aktuellen Eingabemethode zurück
-(zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Komposition mit einem {{glossary("IME")}} verbunden ist).
+Die **`locale`** Schreibgeschützte Eigenschaft des
+[`CompositionEvent`](/de/docs/Web/API/CompositionEvent)-Interfaces gibt das Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Gebietsschema des Tastaturlayouts, wenn die Eingabe mit einem [IME](/de/docs/Glossary/IME) assoziiert ist).
 
 > [!WARNING]
-> Selbst bei Browsern, die dies unterstützen, sollten Sie dem Wert in dieser Eigenschaft nicht vertrauen.
-> Auch wenn er technisch zugänglich ist, ist die Einrichtung beim Erstellen eines {{domxref("CompositionEvent")}}
-> nicht zwingend konsistent.
+> Selbst für Browser, die es unterstützen, sollten Sie dem in dieser Eigenschaft enthaltenen Wert nicht vertrauen.
+> Auch wenn er technisch zugänglich ist, ist es nicht garantiert, dass die Einrichtung bei der Erstellung eines [`CompositionEvent`](/de/docs/Web/API/CompositionEvent)
+> kohärent ist.
 
 ## Wert
 
-Ein String, der das Gebietsschema der aktuellen Eingabemethode darstellt.
+Ein String, der das Gebietsschema der aktuellen Eingabemethode repräsentiert.
 
 ## Spezifikationen
 
-Diese Eigenschaft war in frühen Versionen verschiedener Spezifikationen enthalten. Sie wird jetzt nur noch aus Kompatibilitätsgründen beibehalten, und die Art und Weise,
-wie ihr Wert bei der Erstellung eines {{domxref("CompositionEvent")}} festgelegt werden kann, ist [nicht gut definiert](https://github.com/w3c/uievents/issues/48).
+Diese Eigenschaft war in frühen Versionen verschiedener Spezifikationen enthalten. Sie wird jetzt nur aus Kompatibilitätsgründen beibehalten, und die Methode, ihren Wert bei der Erstellung eines [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) festzulegen, ist [nicht gut definiert](https://github.com/w3c/uievents/issues/48).
 
 ## Browser-Kompatibilität
 
@@ -32,4 +30,4 @@ wie ihr Wert bei der Erstellung eines {{domxref("CompositionEvent")}} festgelegt
 
 ## Siehe auch
 
-- {{domxref("CompositionEvent")}}
+- [`CompositionEvent`](/de/docs/Web/API/CompositionEvent)

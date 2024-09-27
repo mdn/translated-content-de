@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**[WebM](/de/docs/Web/Media/Formats/Containers#webm)** ist ein lizenzfreies und offenes Videoformat für das Web, das in allen modernen Browsern nativ unterstützt wird.
+**[WebM](/de/docs/Web/Media/Formats/Containers#webm)** ist ein lizenzfreies und offenes Web-Videoformat, das von allen modernen Browsern nativ unterstützt wird.
 
 ## Siehe auch
 

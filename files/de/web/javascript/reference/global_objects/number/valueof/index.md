@@ -27,7 +27,7 @@ Eine Zahl, die den primitiven Wert des angegebenen {{jsxref("Number")}} Objekts 
 
 ## Beschreibung
 
-Diese Methode wird in der Regel intern von JavaScript aufgerufen und nicht explizit im Webcode.
+Diese Methode wird normalerweise intern von JavaScript aufgerufen und nicht explizit im Webcode.
 
 ## Beispiele
 

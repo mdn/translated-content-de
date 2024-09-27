@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode getFragDataLocation()"
+title: "WebGL2RenderingContext: getFragDataLocation()-Methode"
 short-title: getFragDataLocation()
 slug: Web/API/WebGL2RenderingContext/getFragDataLocation
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("WebGL")}}
 
 Die **`WebGL2RenderingContext.getFragDataLocation()`**-Methode
-der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt die Bindung von Farbnummmern zu benutzerdefinierten ausgehenden Variablen zurück.
+der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt die Zuordnung von Farbnummen zu benutzerdefinierten `varying out`-Variablen zurück.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ getFragDataLocation(program, name)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}, das abgefragt werden soll.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das abgefragt werden soll.
 - `name`
-  - : Ein String, der den Namen der benutzerdefinierten ausgehenden Variablen angibt.
+  - : Ein String, der den Namen der benutzerdefinierten `varying out`-Variablen angibt.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API/Types", "GLint")}}, der die zugewiesene Farbzahlen-Bindung anzeigt, oder `-1`, wenn keine vorhanden ist.
+Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die zugewiesene Farbnummen-Zuordnung angibt, oder `-1` andernfalls.
 
 ## Beispiele
 
@@ -40,17 +40,17 @@ gl.getFragDataLocation(program, "fragColor");
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.createProgram()")}}
-- {{domxref("WebGLRenderingContext.deleteProgram()")}}
-- {{domxref("WebGLRenderingContext.isProgram()")}}
-- {{domxref("WebGLRenderingContext.linkProgram()")}}
-- {{domxref("WebGLRenderingContext.useProgram()")}}
-- {{domxref("WebGLRenderingContext.validateProgram()")}}
-- {{domxref("WebGLRenderingContext.getProgramParameter()")}}
-- {{domxref("WebGLRenderingContext.getProgramInfoLog()")}}
+- [`WebGLRenderingContext.createProgram()`](/de/docs/Web/API/WebGLRenderingContext/createProgram)
+- [`WebGLRenderingContext.deleteProgram()`](/de/docs/Web/API/WebGLRenderingContext/deleteProgram)
+- [`WebGLRenderingContext.isProgram()`](/de/docs/Web/API/WebGLRenderingContext/isProgram)
+- [`WebGLRenderingContext.linkProgram()`](/de/docs/Web/API/WebGLRenderingContext/linkProgram)
+- [`WebGLRenderingContext.useProgram()`](/de/docs/Web/API/WebGLRenderingContext/useProgram)
+- [`WebGLRenderingContext.validateProgram()`](/de/docs/Web/API/WebGLRenderingContext/validateProgram)
+- [`WebGLRenderingContext.getProgramParameter()`](/de/docs/Web/API/WebGLRenderingContext/getProgramParameter)
+- [`WebGLRenderingContext.getProgramInfoLog()`](/de/docs/Web/API/WebGLRenderingContext/getProgramInfoLog)

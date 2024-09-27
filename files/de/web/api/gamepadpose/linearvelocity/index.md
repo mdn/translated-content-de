@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebVR API")}}{{SeeCompatTable}}
 
-Die **`linearVelocity`** schreibgeschützte Eigenschaft des {{domxref("GamepadPose")}}-Interfaces gibt ein Array zurück, das den linearen Geschwindigkeitsvektor des {{domxref("Gamepad")}} in Metern pro Sekunde darstellt.
+Die schreibgeschützte Eigenschaft **`linearVelocity`** der [`GamepadPose`](/de/docs/Web/API/GamepadPose)-Schnittstelle gibt ein Array zurück, das den linearen Geschwindigkeitsvektor des [`Gamepad`](/de/docs/Web/API/Gamepad) in Metern pro Sekunde darstellt.
 
-Mit anderen Worten: die aktuelle Geschwindigkeit, mit der sich der Sensor entlang der `x`-, `y`- und `z`-Achsen bewegt.
+Mit anderen Worten, die aktuelle Geschwindigkeit, mit der sich der Sensor entlang der `x`-, `y`- und `z`-Achsen bewegt.
 
 ## Wert
 
-Ein {{jsxref("Float32Array")}} oder `null`, wenn das Gamepad keine Daten zur linearen Geschwindigkeit bereitstellen kann.
+Ein {{jsxref("Float32Array")}}, oder `null`, wenn das Gamepad keine Daten zur linearen Geschwindigkeit bereitstellen kann.
 
 ## Beispiele
 

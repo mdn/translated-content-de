@@ -7,23 +7,23 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`WebTransportError`**-Schnittstelle der {{domxref("WebTransport API", "WebTransport API", "", "nocode")}} repräsentiert einen mit der API verbundenen Fehler, der durch Serverfehler, Netzwerkverbindungsprobleme oder durch den Client initiierte Abbruchvorgänge (zum Beispiel durch einen Aufruf von {{domxref("WritableStream.abort()")}}) entstehen kann.
+Die **`WebTransportError`**-Schnittstelle der [WebTransport-API](/de/docs/Web/API/WebTransport_API) repräsentiert einen Fehler im Zusammenhang mit der API, der durch Serverfehler, Netzwerkverbindungsprobleme oder vom Client initiierte Abbruchoperationen entstehen kann (zum Beispiel durch einen Aufruf von [`WritableStream.abort()`](/de/docs/Web/API/WritableStream/abort)).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("WebTransportError.WebTransportError", "WebTransportError()")}}
-  - : Erstellt eine neue Instanz des `WebTransportError`-Objekts.
+- [`WebTransportError()`](/de/docs/Web/API/WebTransportError/WebTransportError)
+  - : Erstellt eine neue Instanz eines `WebTransportError`-Objekts.
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem übergeordneten Element, {{DOMxRef("DOMException")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`DOMException`](/de/docs/Web/API/DOMException)._
 
-- {{domxref("WebTransportError.source", "source")}} {{ReadOnlyInline}}
+- [`source`](/de/docs/Web/API/WebTransportError/source) {{ReadOnlyInline}}
   - : Gibt einen enumerierten Wert zurück, der die Quelle des Fehlers angibt – kann entweder `stream` oder `session` sein.
-- {{domxref("WebTransportError.streamErrorCode", "streamErrorCode")}} {{ReadOnlyInline}}
-  - : Gibt eine Zahl im Bereich 0-255 zurück, die den Anwendungsprotokoll-Fehlercode für diesen Fehler angibt, oder `null`, wenn keiner verfügbar ist.
+- [`streamErrorCode`](/de/docs/Web/API/WebTransportError/streamErrorCode) {{ReadOnlyInline}}
+  - : Gibt eine Zahl im Bereich 0-255 zurück, die den Fehlercode des Anwendungsprotokolls für diesen Fehler angibt, oder `null`, wenn keiner verfügbar ist.
 
 ## Beispiele
 
@@ -40,10 +40,10 @@ async function initTransport(url) {
 
     // ...
   } catch (error) {
-    const msg = `Transport initialisierung fehlgeschlagen.
-                 Grund: ${error.message}.
-                 Quelle: ${error.source}.
-                 Fehlercode: ${error.streamErrorCode}.`;
+    const msg = `Transport initialization failed.
+                 Reason: ${error.message}.
+                 Source: ${error.source}.
+                 Error code: ${error.streamErrorCode}.`;
     console.log(msg);
   }
 }
@@ -59,7 +59,7 @@ async function initTransport(url) {
 
 ## Siehe auch
 
-- [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
-- [WebTransport over HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)
+- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
+- [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

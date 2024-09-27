@@ -7,13 +7,13 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## Schnittstelle SVG preserveAspectRatio
+## SVG preserveAspectRatio Schnittstelle
 
-Die `SVGPreserveAspectRatio`-Schnittstelle entspricht dem {{ SVGAttr("preserveAspectRatio") }}-Attribut, das bei einigen SVG-Elementen verfügbar ist.
+Die `SVGPreserveAspectRatio` Schnittstelle entspricht dem {{ SVGAttr("preserveAspectRatio") }} Attribut, das für einige der SVG-Elemente verfügbar ist.
 
-Ein `SVGPreserveAspectRatio`-Objekt kann als nur lesbar gekennzeichnet werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen.
+Ein `SVGPreserveAspectRatio` Objekt kann als schreibgeschützt definiert werden, was bedeutet, dass Versuche, das Objekt zu ändern, zu einer Ausnahme führen werden.
 
-### Schnittstellenüberblick
+### Schnittstellenübersicht
 
 <table class="no-markdown">
   <tbody>
@@ -86,7 +86,7 @@ Ein `SVGPreserveAspectRatio`-Objekt kann als nur lesbar gekennzeichnet werden, w
       </td>
       <td>0</td>
       <td>
-        Die Enumeration wurde auf einen Wert gesetzt, der nicht einer der vordefinierten Typen ist. Es ist ungültig zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert zu diesem Typ zu ändern.
+        Die Enumeration wurde auf einen Wert gesetzt, der nicht einer der vordefinierten Typen ist. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert zu diesem Typ zu ändern.
       </td>
     </tr>
     <tr>
@@ -193,7 +193,7 @@ Ein `SVGPreserveAspectRatio`-Objekt kann als nur lesbar gekennzeichnet werden, w
       <td><code>SVG_MEETORSLICE_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Die Enumeration wurde auf einen Wert gesetzt, der nicht einer der vordefinierten Typen ist. Es ist ungültig zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert zu diesem Typ zu ändern.
+        Die Enumeration wurde auf einen Wert gesetzt, der nicht einer der vordefinierten Typen ist. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert zu diesem Typ zu ändern.
       </td>
     </tr>
     <tr>
@@ -215,7 +215,7 @@ Ein `SVGPreserveAspectRatio`-Objekt kann als nur lesbar gekennzeichnet werden, w
   </tbody>
 </table>
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 <table class="no-markdown">
   <thead>
@@ -230,29 +230,31 @@ Ein `SVGPreserveAspectRatio`-Objekt kann als nur lesbar gekennzeichnet werden, w
       <td><code>align</code></td>
       <td>unsigned short</td>
       <td>
-        Der Typ des Ausrichtungswertes, wie er durch eine der auf dieser Schnittstelle definierten <code>SVG_PRESERVEASPECTRATIO_*</code>-Konstanten angegeben wird.
+        Der Typ des Ausrichtungswertes, wie er durch eine der
+        <code>SVG_PRESERVEASPECTRATIO_*</code> Konstanten definiert wird, die auf dieser Schnittstelle definiert sind.
       </td>
     </tr>
     <tr>
       <td><code>meetOrSlice</code></td>
       <td>unsigned short</td>
       <td>
-        Der Typ des Meet-or-Slice-Wertes, wie er durch eine der auf dieser Schnittstelle definierten <code>SVG_MEETORSLICE_*</code>-Konstanten angegeben wird.
+        Der Typ des meet-or-slice-Wertes, wie er durch eine der
+        <code>SVG_MEETORSLICE_*</code> Konstanten definiert wird, die auf dieser Schnittstelle definiert sind.
       </td>
     </tr>
   </tbody>
 </table>
 
-**Ausnahmen beim Setzen:** Eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `NO_MODIFICATION_ALLOWED_ERR` wird ausgelöst, wenn versucht wird, den Wert eines Attributs an einem nur lesbaren Objekt zu ändern.
+**Ausnahmen bei der Einstellung:** Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code `NO_MODIFICATION_ALLOWED_ERR` wird ausgelöst, wenn versucht wird, den Wert eines Attributs an einem schreibgeschützten Objekt zu ändern.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-Die `SVGPreserveAspectRatio`-Schnittstelle stellt keine spezifischen Methoden bereit.
+Die `SVGPreserveAspectRatio` Schnittstelle bietet keine spezifischen Methoden.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

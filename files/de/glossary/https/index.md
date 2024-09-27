@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**HTTPS** (**_HyperText Transfer Protocol Secure_**) ist eine verschlüsselte Version des {{Glossary("HTTP")}}-Protokolls. Es verwendet {{Glossary("TLS")}}, um die gesamte Kommunikation zwischen einem Client und einem Server zu verschlüsseln. Diese sichere Verbindung ermöglicht es Clients, vertrauliche Daten sicher mit einem Server auszutauschen, wie zum Beispiel bei Bankgeschäften oder Online-Einkäufen.
+**HTTPS** (**_HyperText Transfer Protocol Secure_**) ist eine verschlüsselte Version des [HTTP](/de/docs/Glossary/HTTP)-Protokolls. Es nutzt [TLS](/de/docs/Glossary/TLS), um die gesamte Kommunikation zwischen einem Client und einem Server zu verschlüsseln. Diese sichere Verbindung ermöglicht es Clients, sensible Daten sicher mit einem Server auszutauschen, wie z.B. bei Bankgeschäften oder Online-Einkäufen.
 
 ## Siehe auch
 
@@ -15,6 +15,6 @@ l10n:
 - [Moving to HTTPS community guide](https://movingtohttps.com/)
 - [Secure Contexts](/de/docs/Web/Security/Secure_Contexts)
 - Verwandte Glossarbegriffe:
-  - {{glossary("HTTP")}}
-  - {{glossary("TLS")}}
-  - {{glossary("SSL")}}
+  - [HTTP](/de/docs/Glossary/HTTP)
+  - [TLS](/de/docs/Glossary/TLS)
+  - [SSL](/de/docs/Glossary/SSL)

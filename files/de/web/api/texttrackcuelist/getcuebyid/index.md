@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`getCueById()`**-Methode der {{domxref("TextTrackCueList")}}-Schnittstelle gibt den ersten {{domxref("VTTCue")}} in der Liste zurück, die durch das `TextTrackCueList`-Objekt dargestellt wird, dessen Identifikator mit dem Wert von `id` übereinstimmt.
+Die **`getCueById()`**-Methode des [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList)-Interfaces gibt die erste [`VTTCue`](/de/docs/Web/API/VTTCue) in der Liste zurück, die durch das `TextTrackCueList`-Objekt repräsentiert wird, deren Kennung mit dem Wert von `id` übereinstimmt.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ getCueById(id)
 ### Parameter
 
 - `id`
-  - : Ein String, der ein Identifikator für das Cue ist.
+  - : Ein Zeichenstring, der eine Kennung für das Cue ist.
 
 ### Rückgabewert
 
-Ein {{domxref("VTTCue")}}-Objekt.
+Ein [`VTTCue`](/de/docs/Web/API/VTTCue)-Objekt.
 
 ## Beispiele
 
-Die {{domxref("TextTrack.cues")}}-Eigenschaft gibt eine {{domxref("TextTrackCueList")}} zurück, die die aktuellen Cues für diesen bestimmten Track enthält. Der Aufruf von `cues.getCueById("second")` gibt den {{domxref("VTTCue")}} mit der ID "second" zurück.
+Die [`TextTrack.cues`](/de/docs/Web/API/TextTrack/cues)-Eigenschaft gibt eine [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList) zurück, die die aktuellen Cues für diesen speziellen Track enthält. Das Aufrufen von `cues.getCueById("second")` gibt die [`VTTCue`](/de/docs/Web/API/VTTCue) mit einer ID von "second" zurück.
 
 ```plain
 WEBVTT
@@ -44,7 +44,7 @@ How are you?
 ```js
 const video = document.getElementById("video");
 video.onplay = () => {
-  console.log(video.textTracks[0].cues.getCueById("second")); // ein VTTCue-Objekt;
+  console.log(video.textTracks[0].cues.getCueById("second")); // a VTTCue object;
 };
 ```
 
@@ -52,6 +52,6 @@ video.onplay = () => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

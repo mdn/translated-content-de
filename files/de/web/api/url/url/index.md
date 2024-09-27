@@ -1,5 +1,5 @@
 ---
-title: "URL: URL()-Konstruktor"
+title: "URL: URL() Konstruktor"
 short-title: URL()
 slug: Web/API/URL/URL
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Der **`URL()`**-Konstruktor gibt ein neu erstelltes {{domxref("URL")}}-Objekt zurück, das die durch die Parameter definierte URL darstellt.
+Der **`URL()`** Konstruktor gibt ein neu erstelltes [`URL`](/de/docs/Web/API/URL) Objekt zurück, das die durch die Parameter definierte URL repräsentiert.
 
-Wenn die angegebene Basis-URL oder die resultierende URL keine gültigen URLs sind, wird die JavaScript-{{jsxref("TypeError")}}-Ausnahme ausgelöst.
+Wenn die angegebene Basis-URL oder die resultierende URL keine gültigen URLs sind, wird die JavaScript {{jsxref("TypeError")}} Ausnahme ausgelöst.
 
 ## Syntax
 
@@ -22,36 +22,36 @@ new URL(url, base)
 ### Parameter
 
 - `url`
-  - : Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier")}}, das eine absolute URL oder einen relativen Bezug zu einer Basis-URL darstellt.
-    Wenn `url` ein relativer Bezug ist, ist `base` erforderlich und wird verwendet, um die endgültige URL zu ermitteln.
+  - : Ein String oder ein anderes Objekt mit einem [Stringifier](/de/docs/Glossary/stringifier), das eine absolute URL oder einen relativen Verweis auf eine Basis-URL darstellt.
+    Wenn `url` ein relativer Verweis ist, ist `base` erforderlich und wird verwendet, um die endgültige URL zu lösen.
     Wenn `url` eine absolute URL ist, wird eine angegebene `base` nicht verwendet, um die resultierende URL zu erstellen.
 - `base` {{optional_inline}}
 
-  - : Ein String, der die Basis-URL darstellt, die in Fällen verwendet wird, in denen `url` ein relativer Bezug ist.
+  - : Ein String, der die Basis-URL darstellt, die in Fällen verwendet wird, in denen `url` ein relativer Verweis ist.
     Wenn nicht angegeben, ist der Standardwert `undefined`.
 
-    Wenn eine `base` angegeben ist, ist die ermittelte URL nicht einfach eine Verkettung von `url` und `base`.
-    Relative Bezüge zum übergeordneten und aktuellen Verzeichnis werden relativ zum aktuellen Verzeichnis der `base`-URL aufgelöst, was Pfadsegmente bis hin zum letzten Schrägstrich, aber keine danach, umfasst.
-    Relative Bezüge zur Wurzel werden relativ zum Basisursprung aufgelöst.
-    Weitere Informationen finden Sie unter [Auflösen relativer Bezüge zu einer URL](/de/docs/Web/API/URL_API/Resolving_relative_references).
+    Wenn eine `base` angegeben ist, ist die aufgelöste URL nicht einfach eine Verkettung von `url` und `base`.
+    Relative Verweise zum übergeordneten und aktuellen Verzeichnis werden relativ zum aktuellen Verzeichnis der `base` URL, welches Pfadsegmente bis zum letzten Schrägstrich enthält, aber keine danach, aufgelöst.
+    Relative Verweise auf das Wurzelverzeichnis werden relativ zum Basis-Ursprung aufgelöst.
+    Weitere Informationen finden Sie unter [Auflösen relativer Verweise auf eine URL](/de/docs/Web/API/URL_API/Resolving_relative_references).
 
 > [!NOTE]
-> Die Argumente `url` und `base` werden aus dem von Ihnen übergebenen Wert, wie einem {{domxref("HTMLAnchorElement")}}- oder {{domxref("HTMLAreaElement")}}-Element, stringifiziert, genau wie bei anderen Web-APIs, die einen String akzeptieren.
-> Insbesondere können Sie ein bestehendes {{domxref("URL")}}-Objekt für ein beliebiges Argument verwenden, und es wird aus der {{domxref("URL.href", "href")}}-Eigenschaft des Objekts stringifiziert.
+> Die Argumente `url` und `base` werden von welchem Wert auch immer Sie übergeben, wie einem [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) oder [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) Element, genau wie bei anderen Web-APIs, die einen String akzeptieren, stringifiziert.
+> Insbesondere können Sie ein bestehendes [`URL`](/de/docs/Web/API/URL) Objekt für eines der Argumente verwenden, und es wird aus der [`href`](/de/docs/Web/API/URL/href) Eigenschaft des Objekts stringifiziert.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : `url` (bei absoluten URLs) oder `base` + `url` (bei relativen Bezügen) ist keine gültige URL.
+  - : `url` (im Fall von absoluten URLs) oder `base` + `url` (im Fall von relativen Verweisen) ist keine gültige URL.
 
 ## Beispiele
 
 Hier sind einige Beispiele für die Verwendung des Konstruktors.
 
-> **Hinweis:** [Auflösen relativer Bezüge zu einer URL](/de/docs/Web/API/URL_API/Resolving_relative_references) bietet zusätzliche Beispiele, die zeigen, wie unterschiedliche `url`- und `base`-Werte zu einer endgültigen absoluten URL aufgelöst werden.
+> **Hinweis:** [Auflösen relativer Verweise auf eine URL](/de/docs/Web/API/URL_API/Resolving_relative_references) bietet zusätzliche Beispiele, die demonstrieren, wie unterschiedliche `url` und `base` Werte zu einer endgültigen absoluten URL gelöst werden.
 
 ```js
-// Basis-URLs:
+// Base URLs:
 let baseUrl = "https://developer.mozilla.org";
 
 let A = new URL("/", baseUrl);
@@ -80,12 +80,12 @@ Hier sind einige Beispiele für ungültige URLs:
 
 ```js
 new URL("/en-US/docs", "");
-// Löst eine TypeError-Ausnahme aus, da '' keine gültige URL ist
+// Raises a TypeError exception as '' is not a valid URL
 
 new URL("/en-US/docs");
-// Löst eine TypeError-Ausnahme aus, da '/en-US/docs' keine gültige URL ist
+// Raises a TypeError exception as '/en-US/docs' is not a valid URL
 
-// Andere Fälle:
+// Other cases:
 
 new URL("http://www.example.com");
 // => 'http://www.example.com/'
@@ -94,25 +94,25 @@ new URL("http://www.example.com", B);
 // => 'http://www.example.com/'
 
 new URL("", "https://example.com/?query=1");
-// => 'https://example.com/?query=1' (Edge before 79 entfernt Abfrageargumente)
+// => 'https://example.com/?query=1' (Edge before 79 removes query arguments)
 
 new URL("/a", "https://example.com/?query=1");
-// => 'https://example.com/a' (siehe relative URLs)
+// => 'https://example.com/a' (see relative URLs)
 
 new URL("//foo.com", "https://example.com");
-// => 'https://foo.com/' (siehe relative URLs)
+// => 'https://foo.com/' (see relative URLs)
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("URL.parse_static", "URL.parse()")}}, eine alternative Methode zu diesem Konstruktor, die keine Ausnahme wirft
+- [`URL.parse()`](/de/docs/Web/API/URL/parse_static), eine nicht werfende Alternative zu diesem Konstruktor
 - [Polyfill von `URL` in `core-js`](https://github.com/zloirock/core-js#url-and-urlsearchparams)
-- Die zugehörige Schnittstelle: {{domxref("URL")}}.
+- Die Schnittstelle, zu der es gehört: [`URL`](/de/docs/Web/API/URL).

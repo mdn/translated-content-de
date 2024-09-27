@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLBaseElement`**-Schnittstelle enthält die Basis-URI für ein Dokument. Dieses Objekt erbt alle Eigenschaften und Methoden, wie in der {{domxref("HTMLElement")}}-Schnittstelle beschrieben.
+Die Schnittstelle **`HTMLBaseElement`** enthält die Basis-URI für ein Dokument. Dieses Objekt erbt alle Eigenschaften und Methoden, wie sie in der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle beschrieben sind.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLBaseElement.href")}}
-  - : Ein Zeichenfolgenwert, der das [`href`](/de/docs/Web/HTML/Element/base#href) HTML-Attribut widerspiegelt und eine Basis-URL für relative URLs im Dokument enthält.
-- {{domxref("HTMLBaseElement.target")}}
-  - : Ein Zeichenfolgenwert, der das [`target`](/de/docs/Web/HTML/Element/base#target) HTML-Attribut widerspiegelt und einen Standard-Ziel-Browsing-Kontext oder Frame für Elemente enthält, die keine Zielreferenz spezifiziert haben.
+- [`HTMLBaseElement.href`](/de/docs/Web/API/HTMLBaseElement/href)
+  - : Ein String, der das HTML-Attribut [`href`](/de/docs/Web/HTML/Element/base#href) widerspiegelt und eine Basis-URL für relative URLs im Dokument enthält.
+- [`HTMLBaseElement.target`](/de/docs/Web/API/HTMLBaseElement/target)
+  - : Ein String, der das HTML-Attribut [`target`](/de/docs/Web/HTML/Element/base#target) widerspiegelt und einen Standard-Ziel-Browsing-Kontext oder -Frame für Elemente enthält, die keine Zielreferenz angegeben haben.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 

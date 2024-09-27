@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM") }}
 
-Die **`keyText`**-Eigenschaft des {{domxref("CSSKeyframeRule")}} Interfaces repräsentiert den Keyframe-Selektor als eine durch Kommata getrennte Liste von Prozentwerten. Die Schlüsselwörter from und to entsprechen jeweils 0% und 100%.
+Die **`keyText`**-Eigenschaft des [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Interfaces repräsentiert den Keyframe-Selektor als durch Kommas getrennte Liste von Prozentwerten. Die Schlüsselwörter `from` und `to` entsprechen dabei 0 % und 100 %.
 
 ## Wert
 
@@ -17,12 +17,11 @@ Ein String.
 ### Ausnahmen
 
 - {{jsxref("SyntaxError")}}
-  - : Wird ausgelöst, wenn `keyText` mit einem ungültigen Keyframe-Selektor aktualisiert wird. In diesem Fall bleibt `keyText` unverändert.
+  - : Wird ausgelöst, wenn `keyText` mit einem ungültigen Keyframe-Selektor aktualisiert wird, in diesem Fall bleibt `keyText` unverändert.
 
 ## Beispiele
 
-Das CSS enthält eine Keyframes-At-Regel. Dies wird die erste {{domxref("CSSRule")}}, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
-`myRules[0]` gibt ein {{domxref("CSSKeyframesRule")}} Objekt zurück, das einzelne {{domxref("CSSKeyFrameRule")}} Objekte für jeden Keyframe enthalten wird.
+Das CSS enthält eine `@keyframes`-Regel. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird. `myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück, das einzelne [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyFrameRule)-Objekte für jeden Keyframe enthält.
 
 ```css
 @keyframes slidein {
@@ -39,7 +38,7 @@ Das CSS enthält eine Keyframes-At-Regel. Dies wird die erste {{domxref("CSSRule
 ```js
 let myRules = document.styleSheets[0].cssRules;
 let keyframes = myRules[0]; // a CSSKeyframesRule
-console.log(keyframes[0].keyText); // ein String, der 0% enthält
+console.log(keyframes[0].keyText); // a string containing 0%
 ```
 
 ## Spezifikationen

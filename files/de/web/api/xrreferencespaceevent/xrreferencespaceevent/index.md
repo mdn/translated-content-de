@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Der **`XRReferenceSpaceEvent()`** Konstruktor wird verwendet, um ein neues {{domxref("XRReferenceSpaceEvent")}} Objekt zu erstellen, das ein Ereignis bezüglich des Zustands eines WebXR-Referenzraum-Objekts, {{domxref("XRReferenceSpace")}}, darstellt.
+Der **`XRReferenceSpaceEvent()`** Konstruktor wird verwendet, um ein neues [`XRReferenceSpaceEvent`](/de/docs/Web/API/XRReferenceSpaceEvent) Objekt zu erstellen, das ein Ereignis bezüglich des Zustands eines WebXR-Referenzraumobjekts, [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace), darstellt.
 
 ## Syntax
 
@@ -19,21 +19,21 @@ new XRReferenceSpaceEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Es ist unterscheidet zwischen Groß- und Kleinschreibung und Browser setzen es immer auf `reset`.
+  - : Ein String mit dem Namen des Ereignisses. Es ist groß-/kleinschreibungssensitiv und Browser setzen es immer auf `reset`.
 - `options`
-  - : Ein Objekt, das, zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften, folgende Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften enthalten kann:
     - `referenceSpace`
-      - : Der {{domxref("XRReferenceSpace")}}, von dem das Ereignis stammt.
+      - : Der [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace), von dem das Ereignis stammt.
     - `transform`
-      - : Ein {{domxref("XRRigidTransform")}}, das das alte Koordinatensystem (von vor den durch dieses Ereignis angezeigten Änderungen) auf das neue Koordinatensystem abbildet.
+      - : Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform), das das alte Koordinatensystem (von vor den durch dieses Ereignis angezeigten Änderungen) auf das neue Koordinatensystem abbildet.
 
 ### Rückgabewert
 
-Ein neues `XRReferenceSpaceEvent` Objekt, das gemäß den Eingabewerten initialisiert wurde.
+Ein neues `XRReferenceSpaceEvent`-Objekt, das gemäß den Eingabeparametern initialisiert wurde.
 
 ## Beispiele
 
-Dieses einfache Snippet ruft den Konstruktor auf, um ein neues Referenzraumereignis vom Typ {{domxref("XRReferenceSpace.reset_event", "reset")}} zu erstellen.
+Dieses einfache Snippet ruft den Konstruktor auf, um ein neues Referenzraumereignis des Typs [`reset`](/de/docs/Web/API/XRReferenceSpace/reset_event) zu erstellen.
 
 ```js
 let refSpaceEvent = new XRReferenceSpaceEvent("reset", {

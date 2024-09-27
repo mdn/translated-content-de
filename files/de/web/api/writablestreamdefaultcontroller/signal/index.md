@@ -1,5 +1,5 @@
 ---
-title: "WritableStreamDefaultController: Eigenschaft signal"
+title: "WritableStreamDefaultController: signal-Eigenschaft"
 short-title: signal
 slug: Web/API/WritableStreamDefaultController/signal
 l10n:
@@ -8,52 +8,52 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`signal`** des {{domxref("WritableStreamDefaultController")}}-Interfaces gibt das mit dem Controller verknüpfte {{domxref("AbortSignal")}} zurück.
+Die schreibgeschützte **`signal`**-Eigenschaft der Schnittstelle [`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController) gibt das mit dem Controller verbundene [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück.
 
 ## Wert
 
-Ein {{domxref("AbortSignal")}}-Objekt.
+Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekt.
 
 ## Beispiele
 
-### Abbrechen einer langen Schreiboperation
+### Abbrechen eines langen Schreibvorgangs
 
-In diesem Beispiel simulieren wir eine langsame Operation mit einem lokalen Ziel: Wir tun nichts, wenn einige Daten geschrieben werden, außer eine Sekunde zu warten. Dies gibt uns genug Zeit, um die Methode `writer.abort()` aufzurufen und das Versprechen sofort abzulehnen.
+In diesem Beispiel simulieren wir eine langsame Operation mit einem lokalen Sink: Wir tun nichts, wenn einige Daten geschrieben werden, außer eine Sekunde zu warten. Dies gibt uns genügend Zeit, die Methode `writer.abort()` aufzurufen und das Versprechen sofort abzulehnen.
 
 ```js
 const writingStream = new WritableStream({
-  // Definieren Sie das langsame lokale Ziel, um eine lange Operation zu simulieren
+  // Define the slow local sink to simulate a long operation
   write(chunk, controller) {
     return new Promise((resolve, reject) => {
       controller.signal.addEventListener("abort", () =>
         reject(controller.signal.reason),
       );
 
-      // Tun Sie nichts, außer mit den Daten zu warten: Es ist ein lokales Ziel
-      setTimeout(resolve, 1000); // Timeout, um eine langsame Operation zu simulieren
+      // Do nothing but wait with the data: it is a local sink
+      setTimeout(resolve, 1000); // Timeout to simulate a slow operation
     });
   },
 });
 
-// Führen Sie den Schreibvorgang aus
+// Perform the write
 const writer = writingStream.getWriter();
 writer.write("Lorem ipsum test data");
 
-// Brechen Sie den Schreibvorgang manuell ab
+// Abort the write manually
 await writer.abort("Manual abort!");
 ```
 
-### Übertragung des `AbortSignal` auf die zugrunde liegende Schicht
+### Übertragen des `AbortSignal` an die zugrunde liegende Ebene
 
-In diesem Beispiel verwenden wir die [Fetch-API](/de/docs/Web/API/Fetch_API), um die Nachricht tatsächlich an einen Server zu senden. Die Fetch-API unterstützt auch {{domxref("AbortSignal")}}: Es ist möglich, dasselbe Objekt sowohl für die `fetch`-Methode als auch für den {{domxref("WritableStreamDefaultController")}} zu verwenden.
+In diesem Beispiel verwenden wir die [Fetch API](/de/docs/Web/API/Fetch_API), um die Nachricht tatsächlich an einen Server zu senden. Die Fetch API unterstützt auch [`AbortSignal`](/de/docs/Web/API/AbortSignal): Es ist möglich, dasselbe Objekt sowohl für die `fetch`-Methode als auch den [`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController) zu verwenden.
 
 ```js
-const endpoint = "https://www.example.com/api"; // Gefälschte URL zu Beispielzwecken
+const endpoint = "https://www.example.com/api"; // Fake URL for example purpose
 const writingStream = new WritableStream({
   async write(chunk, controller) {
-    // Schreiben Sie mit der Fetch-API an den Server
+    // Write to the server using the Fetch API
     const response = await fetch(endpoint, {
-      signal: controller.signal, // Wir verwenden dasselbe Objekt für sowohl fetch als auch controller
+      signal: controller.signal, // We use the same object for both fetch and controller
       method: "POST",
       body: chunk,
     });
@@ -61,11 +61,11 @@ const writingStream = new WritableStream({
   },
 });
 
-// Führen Sie den Schreibvorgang aus
+// Perform the write
 const writer = writingStream.getWriter();
 writer.write("Lorem ipsum test data");
 
-// Brechen Sie den Schreibvorgang manuell ab
+// Abort the write manually
 await writer.abort("Manual abort!");
 ```
 

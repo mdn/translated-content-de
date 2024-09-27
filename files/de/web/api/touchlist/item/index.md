@@ -1,5 +1,5 @@
 ---
-title: "TouchList: Methode item()"
+title: "TouchList: item() Methode"
 short-title: item()
 slug: Web/API/TouchList/item
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Die **`item()`**-Methode gibt das {{ domxref("Touch") }}
-Objekt am angegebenen Index in der {{ domxref("TouchList") }} zurück.
+Die **`item()`** Methode gibt das [`Touch`](/de/docs/Web/API/Touch)-Objekt am angegebenen Index in der [`TouchList`](/de/docs/Web/API/TouchList) zurück.
 
 ## Syntax
 
@@ -20,19 +19,17 @@ item(index)
 ### Parameter
 
 - `index`
-  - : Der Index des abzurufenden {{ domxref("Touch") }} Objekts. Der Index ist eine Zahl im Bereich von 0 bis eins weniger als die Länge der {{ domxref("TouchList") }}.
+  - : Der Index des abzurufenden [`Touch`](/de/docs/Web/API/Touch)-Objekts. Der Index ist eine Zahl im Bereich von 0 bis einer weniger als die Länge der [`TouchList`](/de/docs/Web/API/TouchList).
 
 ### Rückgabewert
 
 - `touchPoint`
-  - : Das angeforderte {{ domxref("Touch") }} Objekt aus der {{ domxref("TouchList") }}.
+  - : Das angeforderte [`Touch`](/de/docs/Web/API/Touch)-Objekt aus der [`TouchList`](/de/docs/Web/API/TouchList).
     Gibt `null` zurück, wenn der Index nicht kleiner als die Länge der Liste ist.
 
 ## Beispiele
 
-Dieses Codebeispiel veranschaulicht die Verwendung der Methode `item` der {{domxref("TouchList")}}
-Schnittstelle und der
-{{domxref("TouchList.length","length")}} Eigenschaft.
+Dieses Codebeispiel zeigt die Verwendung der `item`-Methode der [`TouchList`](/de/docs/Web/API/TouchList)-Schnittstelle und der [`length`](/de/docs/Web/API/TouchList/length)-Eigenschaft.
 
 ```js
 const target = document.getElementById("target");
@@ -40,9 +37,9 @@ const target = document.getElementById("target");
 target.addEventListener(
   "touchstart",
   (ev) => {
-    // Wenn dieses touchstart-Ereignis auf dem Element target begonnen hat,
-    // setzen Sie touch auf das erste Element in der targetTouches-Liste;
-    // andernfalls setzen Sie touch auf das erste Element in der touches-Liste
+    // If this touchstart event started on element target,
+    // set touch to the first item in the targetTouches list;
+    // otherwise set touch to the first item in the touches list
     const touch =
       ev.targetTouches.length >= 1
         ? ev.targetTouches.item(0)

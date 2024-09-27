@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.disableVertexAttribArray()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) schaltet das generische Vertex-Attribut-Array an einer angegebenen Indexposition aus.
+Die **`WebGLRenderingContext.disableVertexAttribArray()`**
+Methode der [WebGL API](/de/docs/Web/API/WebGL_API) deaktiviert das generische
+Vertex-Attribut-Array an einer angegebenen Indexposition.
 
 ## Syntax
 
@@ -19,7 +21,7 @@ disableVertexAttribArray(index)
 ### Parameter
 
 - `index`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, das den Index des zu deaktivierenden Vertex-Attributs angibt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), das den Index des zu deaktivierenden Vertex-Attributs angibt.
 
 ### Rückgabewert
 
@@ -41,4 +43,4 @@ gl.disableVertexAttribArray(0);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.enableVertexAttribArray()")}}
+- [`WebGLRenderingContext.enableVertexAttribArray()`](/de/docs/Web/API/WebGLRenderingContext/enableVertexAttribArray)

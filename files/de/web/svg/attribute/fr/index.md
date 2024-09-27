@@ -23,7 +23,7 @@ svg {
 }
 ```
 
-### Ändern des Wertes von `fr`
+### Änderung des Wertes von `fr`
 
 Das folgende Beispiel zeigt zwei Kreise: Der erste hat `fr` auf `5%` gesetzt, während der andere Kreis `fr` auf `25%` hat.
 
@@ -72,7 +72,7 @@ Das folgende Beispiel zeigt zwei Kreise: Der erste hat `fr` auf `5%` gesetzt, w�
 
 ### Die Beziehung des Brennpunkts zu `(fx, fy)`
 
-Dieses Beispiel hat `fr` gleich `5%` und stellt dar, wie die Attribute `fx` und `fy` (die Punkte, die in der SVG so gekennzeichnet sind) als Ursprung für den Brennpunkt des radialen Verlaufs fungieren. Dieser Brennpunkt ist ein Kreis, dessen Radius (der Wert von `fr`) definiert, wann der erste Farbhalt, in diesem Fall die Farbe Rot, in den anderen Farbhalt, der in diesem Fall Blau ist, übergehen soll.
+In diesem Beispiel ist `fr` gleich `5%` und zeigt, wie die Attribute `fx` und `fy` (die als solche im SVG gekennzeichneten Punkte) als Ursprung für den Brennpunkt des radialen Verlaufs fungieren. Dieser Brennpunkt ist ein Kreis, dessen Radius (der Wert von `fr`) bestimmt, wann der erste Farbüberlauf, in diesem Fall die Farbe Rot, in den anderen Farbüberlauf, in diesem Fall die Farbe Blau, übergehen soll.
 
 ```html
 <svg
@@ -125,7 +125,7 @@ Dieses Beispiel hat `fr` gleich `5%` und stellt dar, wie die Attribute `fx` und 
 
 {{EmbedLiveSample("the_focal_points_relationship_to_fx_fy", "200", "200")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -139,7 +139,7 @@ Dieses Beispiel hat `fr` gleich `5%` und stellt dar, wie die Attribute `fx` und 
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Keiner</td>
+      <td>None</td>
     </tr>
   </tbody>
 </table>

@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Die Funktion **`acceptDanger()`** der {{WebExtAPIRef("downloads")}} API fordert den Benutzer auf, entweder einen potenziell gefährlichen Download zu akzeptieren oder abzubrechen.
+Die Funktion **`acceptDanger()`** der {{WebExtAPIRef("downloads")}} API fordert den Benutzer auf, einen potenziell gefährlichen Download entweder anzunehmen oder abzulehnen.
 
-Diese Funktion kann nicht aus Hintergrundskripten aufgerufen werden, sondern nur in Skripten, die in einem sichtbaren Fenster ausgeführt werden (wie z.B. im Popup einer Browser- oder Seitenaktion).
+Diese Funktion kann nicht aus Hintergrundskripten aufgerufen werden, sondern nur aus Skripten, die in einem sichtbaren Fenster ausgeführt werden (wie z.B. in einem Browser- oder Page-Action-Popup).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -24,7 +24,7 @@ let prompting = browser.downloads.acceptDanger(
 ### Parameter
 
 - `downloadId`
-  - : Ein `integer`, der die `id` des betreffenden {{WebExtAPIRef("downloads.DownloadItem", "DownloadItem")}} darstellt.
+  - : Ein `integer`, der die `id` des betreffenden {{WebExtAPIRef("downloads.DownloadItem", "DownloadItem")}} repräsentiert.
 
 ### Rückgabewert
 
@@ -37,7 +37,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn 
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-acceptDanger) API von Chromium.
+> Diese API basiert auf der Chromium [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-acceptDanger) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

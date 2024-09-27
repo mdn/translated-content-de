@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`trustedTypes`**-Eigenschaft der {{domxref("WorkerGlobalScope")}}-Schnittstelle gibt das mit dem globalen Objekt verknüpfte {{domxref("TrustedTypePolicyFactory")}}-Objekt zurück und bietet den Einstiegspunkt für die Verwendung der {{domxref("Trusted Types API", "", "", "nocode")}}.
+Die schreibgeschützte Eigenschaft **`trustedTypes`** des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) Schnittstelle gibt das [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory) Objekt zurück, das mit dem globalen Objekt verknüpft ist und den Einstiegspunkt für die Nutzung der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) bietet.
 
 ## Wert
 
-Ein {{domxref("TrustedTypePolicyFactory")}}-Objekt.
+Ein [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory) Objekt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

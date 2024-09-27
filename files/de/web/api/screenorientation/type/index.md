@@ -1,6 +1,6 @@
 ---
 title: "ScreenOrientation: Typ-Eigenschaft"
-short-title: Typ
+short-title: type
 slug: Web/API/ScreenOrientation/type
 l10n:
   sourceCommit: 85ceac6cab16f46ba87007f5d60a920b26d105b1
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Screen Orientation")}}
 
-Die schreibgeschützte **`type`**-Eigenschaft der
-{{domxref("ScreenOrientation")}}-Schnittstelle gibt den aktuellen Orientierungstyp des Dokuments zurück, einer von `portrait-primary`, `portrait-secondary`, `landscape-primary` oder
-`landscape-secondary`.
+Die schreibgeschützte **`type`**-Eigenschaft des [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)-Interfaces gibt den aktuellen Orientierungstyp des Dokuments zurück, einer von `portrait-primary`, `portrait-secondary`, `landscape-primary` oder `landscape-secondary`.
 
 ## Wert
 
@@ -20,6 +18,6 @@ Ein {{jsxref("String")}}.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

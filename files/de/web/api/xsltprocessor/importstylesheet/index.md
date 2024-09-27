@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XSLT")}}
 
-Die `importStylesheet()`-Methode der {{domxref("XSLTProcessor")}}-Schnittstelle importiert ein XSLT-Stylesheet für den Prozessor.
+Die `importStylesheet()`-Methode der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Schnittstelle importiert ein XSLT-Stylesheet für den Prozessor.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ importStylesheet(style)
 ### Parameter
 
 - `style`
-  - : Der zu importierende {{DOMxRef("Node")}}. Es kann sich um ein XML-Dokument handeln (also ein {{domxref("Document")}} mit {{domxref("Document.doctype", "doctype")}}, dessen {{domxref("DocumentType.name", "name")}} `"xml"` ist), das ein XSLT-Stylesheet oder eine [literal result element transform](https://www.w3.org/TR/xslt/#result-element-stylesheet) enthält, oder um ein {{domxref("Element")}}, das ein `<xsl:stylesheet>` oder `<xsl:transform>` darstellt.
+  - : Der zu importierende [`Node`](/de/docs/Web/API/Node). Es kann sich um ein XML-Dokument handeln (also ein [`Document`](/de/docs/Web/API/Document) mit [`doctype`](/de/docs/Web/API/Document/doctype), dessen [`name`](/de/docs/Web/API/DocumentType/name) `"xml"` ist), das ein XSLT-Stylesheet oder eine [literal result element transform](https://www.w3.org/TR/xslt/#result-element-stylesheet) enthält, oder um ein [`Element`](/de/docs/Web/API/Element), das ein `<xsl:stylesheet>` oder `<xsl:transform>` repräsentiert.
 
 ### Rückgabewert
 
@@ -65,13 +65,13 @@ const xsltDoc = parser.parseFromString(xsltString, "application/xml");
 
 const xsltProcessor = new XSLTProcessor();
 
-// Importieren des XSLT-Stylesheets in den XSLTProcessor
+// Import the XSLT stylesheet into the XSLTProcessor
 xsltProcessor.importStylesheet(xsltDoc);
 
-// Durchführung der Transformation von XML zu HTML
+// Perform the transformation from XML to HTML
 const resultFragment = xsltProcessor.transformToFragment(xmlDoc, document);
 
-// Anzeige des transformierten Ergebnisses auf der Seite
+// Display the transformed result in the page
 document.getElementById("result").appendChild(resultFragment);
 ```
 

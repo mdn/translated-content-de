@@ -1,5 +1,5 @@
 ---
-title: "HTMLSelectElement: reportValidity()-Methode"
+title: "HTMLSelectElement: reportValidity() Methode"
 short-title: reportValidity()
 slug: Web/API/HTMLSelectElement/reportValidity
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`**-Methode des {{domxref("HTMLSelectElement")}}-Interfaces führt dieselben Schritte zur Gültigkeitsprüfung durch wie die {{domxref("HTMLSelectElement.checkValidity", "checkValidity()")}}-Methode. Darüber hinaus zeigt der Browser das Problem dem Benutzer an, wenn das {{domxref("HTMLElement/invalid_event", "ungültig")}}-Ereignis nicht abgebrochen wird.
+Die **`reportValidity()`**-Methode der [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Schnittstelle führt die gleichen Gültigkeitsprüfschritte wie die [`checkValidity()`](/de/docs/Web/API/HTMLSelectElement/checkValidity)-Methode aus. Zusätzlich zeigt der Browser das Problem dem Benutzer an, wenn das [`invalid`](/de/docs/Web/API/HTMLElement/invalid_event)-Ereignis nicht abgebrochen wird.
 
 ## Syntax
 
@@ -34,9 +34,9 @@ Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufwe
 
 ## Siehe auch
 
-- {{domxref("HTMLSelectElement.checkValidity()")}}
+- [`HTMLSelectElement.checkValidity()`](/de/docs/Web/API/HTMLSelectElement/checkValidity)
 - {{HTMLElement("select")}}
 - {{HTMLElement("form")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Erlernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
 - CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

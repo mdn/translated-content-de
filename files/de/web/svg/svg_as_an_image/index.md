@@ -7,26 +7,26 @@ l10n:
 
 {{SVGRef}}
 
-SVG-Bilder können in verschiedenen Kontexten als Bildformat verwendet werden. Browser unterstützen SVG-Bilder in:
+SVG-Bilder können als Bildformat in verschiedenen Kontexten verwendet werden. Browser unterstützen SVG-Bilder in:
 
-- HTML-{{HTMLElement("img")}} oder {{SVGElement("svg")}}-Elementen
+- HTML-Elementen {{HTMLElement("img")}} oder {{SVGElement("svg")}}
 - CSS {{cssxref("background-image")}}
 - CSS {{cssxref("list-style-image")}}
 - CSS {{cssxref("content")}}
-- SVG-{{SVGElement("image")}}-Element
-- SVG-{{SVGElement("feImage")}}-Element
+- SVG-Element {{SVGElement("image")}}
+- SVG-Element {{SVGElement("feImage")}}
 - Canvas-Funktion [`drawImage`](/de/docs/Web/API/Canvas_API/Tutorial/Using_images#drawing_images)
 
 ### Einschränkungen
 
-Aus Sicherheitsgründen gibt es bei Gecko einige Einschränkungen für SVG-Inhalte, wenn sie als Bild verwendet werden:
+Aus Sicherheitsgründen legt Gecko einige Einschränkungen für SVG-Inhalte fest, wenn diese als Bild verwendet werden:
 
 - [JavaScript](/de/docs/Web/JavaScript) ist deaktiviert.
-- Externe Ressourcen (z. B. Bilder, Stylesheets) können nicht geladen werden, sie können jedoch verwendet werden, wenn sie über data:-URLs eingebettet sind.
-- {{cssxref(":visited")}}-Link-Stile werden nicht dargestellt.
-- Plattformnative Widget-Stilgebung (basierend auf dem Betriebssystem-Thema) ist deaktiviert.
+- Externe Ressourcen (z. B. Bilder, Stylesheets) können nicht geladen werden, obwohl sie genutzt werden können, wenn sie über data: URLs eingebettet sind.
+- {{cssxref(":visited")}}-Link-Stile werden nicht gerendert.
+- Die Plattform-native Widget-Stilgebung (basierend auf dem Betriebssystemthema) ist deaktiviert.
 
-Beachten Sie, dass die oben genannten Einschränkungen spezifisch für Bildkontexte sind; sie gelten nicht, wenn SVG-Inhalte direkt angezeigt werden oder wenn sie als Dokument über die {{HTMLElement("iframe")}}, {{HTMLElement("object")}} oder {{HTMLElement("embed")}}-Elemente eingebettet werden.
+Beachten Sie, dass die oben genannten Einschränkungen speziell für Bildkontexte gelten; sie treffen nicht zu, wenn SVG-Inhalte direkt betrachtet werden oder wenn sie als Dokument über die Elemente {{HTMLElement("iframe")}}, {{HTMLElement("object")}} oder {{HTMLElement("embed")}} eingebettet sind.
 
 ## Spezifikationen
 

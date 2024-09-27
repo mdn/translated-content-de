@@ -3,21 +3,21 @@ title: "GPURenderBundleEncoder: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPURenderBundleEncoder/label
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`** schreibgeschützte Eigenschaft des {{domxref("GPURenderBundleEncoder")}}-Interfaces ist ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in {{domxref("GPUError")}}-Nachrichten oder Konsolenwarnungen.
+Die **`label`** schreibgeschützte Eigenschaft des [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Interfaces ist eine Zeichenkette, die ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann festgelegt werden, indem eine `label`-Eigenschaft im Deskripturobjekt bereitgestellt wird, das in den ursprünglichen {{domxref("GPUDevice.createRenderBundleEncoder()")}}-Aufruf übergeben wird, oder Sie können es direkt auf dem `GPURenderBundleEncoder`-Objekt abrufen und festlegen.
+Dies kann durch Bereitstellen einer `label`-Eigenschaft im Deskriptor-Objekt festgelegt werden, das in den ursprünglichen Aufruf von [`GPUDevice.createRenderBundleEncoder()`](/de/docs/Web/API/GPUDevice/createRenderBundleEncoder) übergeben wird, oder Sie können es direkt am `GPURenderBundleEncoder`-Objekt abrufen und festlegen.
 
 > [!NOTE]
-> Diese Eigenschaft ist funktional identisch mit ihrem Äquivalent auf {{domxref("GPURenderPassEncoder")}} — {{domxref("GPURenderPassEncoder.label", "label")}}.
+> Diese Eigenschaft ist funktional identisch mit ihrem Äquivalent auf [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`label`](/de/docs/Web/API/GPURenderPassEncoder/label).
 
 ## Wert
 
-Ein String. Wenn zuvor kein Label-Wert festgelegt wurde, gibt das Abrufen des Labels einen leeren String zurück.
+Eine Zeichenkette. Wenn zuvor kein Labelwert festgelegt wurde, gibt das Abrufen des Labels eine leere Zeichenkette zurück.
 
 ## Beispiele
 
@@ -32,7 +32,7 @@ renderBundleEncoder.label = "myrenderbundleencoder";
 console.log(renderBundleEncoder.label); // "myrenderbundleencoder"
 ```
 
-Festlegen eines Labels über den ursprünglichen {{domxref("GPUDevice.createRenderBundleEncoder()")}}-Aufruf und anschließendes Abrufen über `GPURenderBundleEncoder.label`:
+Festlegen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createRenderBundleEncoder()`](/de/docs/Web/API/GPUDevice/createRenderBundleEncoder) und anschließendes Abrufen über `GPURenderBundleEncoder.label`:
 
 ```js
 const renderBundleEncoder = device.createRenderBundleEncoder({

@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Document.adoptNode()`** Methode überträgt einen {{Glossary("node/dom", "Knoten")}} aus einem anderen {{domxref("Document", "Dokument", "", "1")}} in das Dokument der Methode. Der übernommene Knoten und sein Unterbaum werden aus ihrem ursprünglichen Dokument (falls vorhanden) entfernt und ihr {{domxref("Node.ownerDocument", "Besitzerdokument")}} wird auf das aktuelle Dokument geändert. Der Knoten kann dann in das aktuelle Dokument eingefügt werden.
+Die **`Document.adoptNode()`** Methode überträgt einen [Knoten](/de/docs/Glossary/node/dom) aus einem anderen [Dokument](/de/docs/Web/API/Document) in das Dokument der Methode. Der übernommene Knoten und sein Unterbaum werden aus ihrem ursprünglichen Dokument entfernt (falls vorhanden), und ihr [`ownerDocument`](/de/docs/Web/API/Node/ownerDocument) wird auf das aktuelle Dokument geändert. Der Knoten kann dann in das aktuelle Dokument eingefügt werden.
 
 ## Syntax
 
@@ -23,13 +23,12 @@ adoptNode(externalNode)
 
 ### Rückgabewert
 
-Der kopierte `importedNode` im Kontext des importierenden Dokuments.
+Der kopierte `importedNode` im Geltungsbereich des importierenden Dokuments.
 
-Nach dem Aufruf dieser Methode sind `importedNode` und
-`externalNode` dasselbe Objekt.
+Nach dem Aufrufen dieser Methode sind `importedNode` und `externalNode` dasselbe Objekt.
 
 > **Note:** `importedNode`'s
-> {{domxref("Node.parentNode")}} ist `null`, da es noch nicht in den Dokumentenbaum eingefügt wurde!
+> [`Node.parentNode`](/de/docs/Web/API/Node/parentNode) ist `null`, da er noch nicht in den Dokumentbaum eingefügt wurde!
 
 ## Beispiele
 
@@ -43,14 +42,14 @@ iframeImages.forEach((imgEl) => {
 });
 ```
 
-## Hinweise
+## Anmerkungen
 
 Bevor sie in das aktuelle Dokument eingefügt werden können, sollten Knoten aus externen Dokumenten entweder:
 
-- geklont werden mit {{domXref("document.importNode()")}}; oder
-- übernommen werden mit `document.adoptNode()`.
+- mit [`document.importNode()`](/de/docs/Web/API/Document/importNode) geklont; oder
+- mit `document.adoptNode()` übernommen werden.
 
-Weitere Informationen zu den {{domXref("Node.ownerDocument")}}-Problemen finden Sie in den [W3C DOM FAQ](https://www.w3.org/DOM/faq.html#ownerdoc).
+Weitere Informationen zu den [`Node.ownerDocument`](/de/docs/Web/API/Node/ownerDocument)-Problemen finden Sie in den [W3C DOM FAQ](https://www.w3.org/DOM/faq.html#ownerdoc).
 
 ## Spezifikationen
 
@@ -62,4 +61,4 @@ Weitere Informationen zu den {{domXref("Node.ownerDocument")}}-Problemen finden 
 
 ## Siehe auch
 
-- {{domxref("document.importNode()")}}
+- [`document.importNode()`](/de/docs/Web/API/Document/importNode)

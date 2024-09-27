@@ -7,41 +7,41 @@ l10n:
 
 {{DefaultAPISidebar("History API")}}
 
-Die History API ermöglicht es einer Website, mit der Sitzungsverlaufshistorie des Browsers zu interagieren: Das ist die Liste der Seiten, die der Benutzer in einem bestimmten Fenster besucht hat. Wenn der Benutzer neue Seiten besucht, zum Beispiel durch Klicken auf Links, werden diese neuen Seiten zur Sitzungsverlaufshistorie hinzugefügt. Der Benutzer kann auch mit den "Zurück" und "Vorwärts" Buttons des Browsers durch die Historie navigieren.
+Die History API ermöglicht es einer Website, mit der Sitzungshistorie des Browsers zu interagieren: also mit der Liste der Seiten, die der Benutzer in einem bestimmten Fenster besucht hat. Wenn der Benutzer neue Seiten besucht, zum Beispiel durch Anklicken von Links, werden diese neuen Seiten zur Sitzungshistorie hinzugefügt. Der Benutzer kann auch mit den "Zurück"- und "Vorwärts"-Schaltflächen des Browsers durch die Historie navigieren.
 
-Die Hauptschnittstelle, die in der History API definiert ist, ist die {{domxref("History")}} Schnittstelle, und diese definiert zwei ziemlich unterschiedliche Gruppen von Methoden:
+Das Hauptinterface, das in der History API definiert ist, ist das [`History`](/de/docs/Web/API/History) Interface, und dieses definiert zwei recht unterschiedliche Gruppen von Methoden:
 
-1. Methoden, um zu einer Seite im Sitzungsverlauf zu navigieren:
+1. Methoden, um zu einer Seite in der Sitzungshistorie zu navigieren:
 
-   - {{domxref("History.back()")}}
-   - {{domxref("History.forward()")}}
-   - {{domxref("History.go()")}}
+   - [`History.back()`](/de/docs/Web/API/History/back)
+   - [`History.forward()`](/de/docs/Web/API/History/forward)
+   - [`History.go()`](/de/docs/Web/API/History/go)
 
-2. Methoden, um den Sitzungsverlauf zu ändern:
+2. Methoden, um die Sitzungshistorie zu ändern:
 
-   - {{domxref("History.pushState()")}}
-   - {{domxref("History.replaceState()")}}
+   - [`History.pushState()`](/de/docs/Web/API/History/pushState)
+   - [`History.replaceState()`](/de/docs/Web/API/History/replaceState)
 
-In diesem Leitfaden konzentrieren wir uns nur auf die zweite Gruppe von Methoden, da diese ein komplexeres Verhalten haben.
+In diesem Leitfaden beschäftigen wir uns nur mit der zweiten Gruppe von Methoden, da diese ein komplexeres Verhalten aufweisen.
 
-Die `pushState()` Methode fügt einen neuen Eintrag zur Sitzungsverlaufshistorie hinzu, während die `replaceState()` Methode den Sitzungsverlaufseintrag für die aktuelle Seite aktualisiert. Beide Methoden nehmen einen `state` Parameter an, der ein beliebiges {{Glossary("Serializable_object", "serialisierbares Objekt")}} enthalten kann. Wenn der Browser zu diesem Verlaufseintrag navigiert, löst der Browser ein {{domxref("Window.popstate_event", "popstate")}} Ereignis aus, das das mit diesem Eintrag verbundene Statusobjekt enthält.
+Die Methode `pushState()` fügt der Sitzungshistorie einen neuen Eintrag hinzu, während die Methode `replaceState()` den Sitzungshistorieneintrag für die aktuelle Seite aktualisiert. Beide Methoden nehmen einen Parameter `state`, der ein beliebiges [serialisierbares Objekt](/de/docs/Glossary/Serializable_object) enthalten kann. Wenn der Browser zu diesem Historieneintrag navigiert, löst der Browser ein [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignis aus, das das mit diesem Eintrag verbundene Zustandsobjekt enthält.
 
-Der Hauptzweck dieser APIs ist die Unterstützung von Websites wie {{Glossary("SPA", "Single-Page-Applications")}}, die JavaScript-APIs wie {{domxref("Window/fetch", "fetch()")}} verwenden, um die Seite mit neuen Inhalten zu aktualisieren, anstatt eine komplett neue Seite zu laden.
+Der Hauptzweck dieser APIs ist die Unterstützung von Websites wie [Single-Page-Anwendungen](/de/docs/Glossary/SPA), die JavaScript-APIs wie [`fetch()`](/de/docs/Web/API/Window/fetch) verwenden, um die Seite mit neuem Inhalt zu aktualisieren, anstatt eine komplett neue Seite zu laden.
 
-## Single-Page-Applications und Sitzungsverlauf
+## Einseitige Anwendungen und Sitzungshistorie
 
-Traditionell werden Websites als eine Sammlung von Seiten implementiert. Wenn Benutzer durch Klicken auf Links zu verschiedenen Teilen der Seite navigieren, lädt der Browser jedes Mal eine komplett neue Seite.
+Traditionell werden Websites als Sammlung von Seiten implementiert. Wenn Benutzer zu verschiedenen Teilen der Website navigieren, indem sie Links anklicken, lädt der Browser jedes Mal eine komplett neue Seite.
 
-Obwohl dies für viele Websites hervorragend ist, kann es einige Nachteile haben:
+Obwohl dies für viele Seiten gut funktioniert, kann es einige Nachteile haben:
 
-- Es kann ineffizient sein, jedes Mal eine ganze Seite zu laden, wenn nur ein Teil der Seite aktualisiert werden muss.
-- Es ist schwierig, den Anwendungsstatus beim Navigieren über Seiten hinweg zu verwalten.
+- Es kann ineffizient sein, jedes Mal eine komplette Seite zu laden, wenn nur ein Teil der Seite aktualisiert werden muss.
+- Es ist schwierig, den Anwendungszustand beim Navigieren über Seiten hinweg zu erhalten.
 
-Aus diesen Gründen ist ein beliebtes Muster für Web-Apps die {{Glossary("SPA", "Single-Page-Application")}} (SPA), bei der die Seite aus einer einzigen Seite besteht, und wenn der Benutzer Links anklickt, die Seite:
+Aus diesen Gründen ist ein beliebtes Muster für Web-Apps die [Einseitige Anwendung](/de/docs/Glossary/SPA) (SPA), bei der die Website aus einer einzigen Seite besteht und wenn der Benutzer Links anklickt, die Seite:
 
 1. Verhindert das Standardverhalten, eine neue Seite zu laden
-2. {{domxref("Window/fetch", "Lädt", "", "nocode")}} neue Inhalte zum Anzeigen
-3. Aktualisiert die Seite mit den neuen Inhalten
+2. [Holt](/de/docs/Web/API/Window/fetch) neue Inhalte zum Anzeigen ab
+3. Aktualisiert die Seite mit dem neuen Inhalt
 
 Zum Beispiel:
 
@@ -49,13 +49,13 @@ Zum Beispiel:
 document.addEventListener("click", async (event) => {
   const creature = event.target.getAttribute("data-creature");
   if (creature) {
-    // Verhindert das Laden einer neuen Seite
+    // Prevent a new page from loading
     event.preventDefault();
     try {
-      // Lädt neue Inhalte
+      // Fetch new content
       const response = await fetch(`creatures/${creature}.json`);
       const json = await response.json();
-      // Aktualisiert die Seite mit den neuen Inhalten
+      // Update the page with the new content
       displayContent(json);
     } catch (err) {
       console.error(err);
@@ -64,27 +64,27 @@ document.addEventListener("click", async (event) => {
 });
 ```
 
-In diesem Click-Handler, wenn der Link ein Datenattribut `"data-creature"` enthält, verwenden wir den Wert dieses Attributs, um eine JSON-Datei mit dem neuen Inhalt für die Seite abzurufen.
+In diesem Klick-Handler, wenn der Link ein Datenattribut `"data-creature"` enthält, verwenden wir den Wert dieses Attributs, um eine JSON-Datei zu holen, die den neuen Inhalt für die Seite enthält.
 
 Die JSON-Datei könnte so aussehen:
 
 ```json
 {
-  "description": "Weißkopfseeadler sind eigentlich nicht kahl.",
+  "description": "Bald eagles are not actually bald.",
   "image": {
     "src": "images/eagle.jpg",
-    "alt": "Ein Weißkopfseeadler"
+    "alt": "A bald eagle"
   },
-  "name": "Adler"
+  "name": "Eagle"
 }
 ```
 
-Unsere `displayContent()` Funktion aktualisiert die Seite mit dem JSON:
+Unsere Funktion `displayContent()` aktualisiert die Seite mit dem JSON:
 
 ```js
-// Aktualisiert die Seite mit den neuen Inhalten
+// Update the page with the new content
 function displayContent(content) {
-  document.title = `Kreaturen: ${content.name}`;
+  document.title = `Creatures: ${content.name}`;
 
   const description = document.querySelector("#description");
   description.textContent = content.description;
@@ -95,17 +95,17 @@ function displayContent(content) {
 }
 ```
 
-Das Problem ist, dass es das erwartete Verhalten der Zurück- und Vorwärts-Buttons des Browsers bricht.
+Das Problem ist, dass es das erwartete Verhalten der "Zurück"- und "Vorwärts"-Schaltflächen des Browsers unterbricht.
 
-Aus Sicht des Benutzers hat er auf einen Link geklickt und die Seite wurde aktualisiert, sodass es wie eine neue Seite aussieht. Wenn er dann den Zurück-Button des Browsers drückt, erwartet er, zum Zustand vor dem Klick auf den Link zurückzukehren.
+Aus Sicht des Benutzers haben sie auf einen Link geklickt und die Seite wurde aktualisiert, sodass es wie eine neue Seite aussieht. Wenn sie dann die "Zurück"-Schaltfläche des Browsers drücken, erwarten sie, zum Zustand vor dem Klick auf den Link zu gelangen.
 
-Aber aus Sicht des Browsers hat der letzte Link keine neue Seite geladen, daher würde "Zurück" den Browser zu der Seite führen, die vor dem Öffnen der SPA geladen wurde.
+Aber aus Sicht des Browsers hat der letzte Link keine neue Seite geladen, daher wird "Zurück" den Browser zu der Seite führen, die geladen wurde, bevor der Benutzer die SPA geöffnet hat.
 
-Dies ist im Wesentlichen das Problem, das `pushState()`, `replaceState()` und das `popstate` Ereignis lösen. Sie ermöglichen es uns, Verlaufseinträge zu synthetisieren und benachrichtigt zu werden, wenn der aktuelle Sitzungsverlaufseintrag in einen dieser Einträge geändert wird (zum Beispiel, weil der Benutzer die Zurück- oder Vorwärts-Tasten gedrückt hat).
+Dies ist im Wesentlichen das Problem, das `pushState()`, `replaceState()` und das `popstate`-Ereignis lösen. Sie ermöglichen es uns, Historieneinträge zu synthetisieren und benachrichtigt zu werden, wenn der aktuelle Sitzungshistorieneintrag zu einem dieser Einträge wechselt (zum Beispiel, weil der Benutzer die "Zurück"- oder "Vorwärts"-Schaltflächen gedrückt hat).
 
 ## Verwendung von `pushState()`
 
-Wir können dem Klick-Handler oben wie folgt einen Verlaufseintrag hinzufügen:
+Wir können dem Klick-Handler oben einen Historieneintrag hinzufügen wie folgt:
 
 ```js
 document.addEventListener("click", async (event) => {
@@ -116,8 +116,8 @@ document.addEventListener("click", async (event) => {
       const response = await fetch(`creatures/${creature}.json`);
       const json = await response.json();
       displayContent(json);
-      // Fügen Sie einen neuen Eintrag in den Verlauf hinzu.
-      // Dies simuliert das Laden einer neuen Seite.
+      // Add a new entry to the history.
+      // This simulates loading a new page.
       history.pushState(json, "", creature);
     } catch (err) {
       console.error(err);
@@ -128,27 +128,27 @@ document.addEventListener("click", async (event) => {
 
 Hier rufen wir `pushState()` mit drei Argumenten auf:
 
-- `json`: dies ist der Inhalt, den wir gerade abgerufen haben. Er wird mit dem Verlaufseintrag gespeichert und später als die {{domxref("PopStateEvent.state", "state")}} Eigenschaft des Arguments in den `popstate` Event-Handler aufgenommen.
-- `""`: dies ist zur Rückwärtskompatibilität mit alten Websites erforderlich und sollte immer ein leerer String sein.
-- `creature`: dies wird als URL für den Eintrag verwendet. Es wird in der URL-Leiste des Browsers angezeigt und als Wert des {{httpheader("Referer")}} Headers in allen HTTP-Anfragen verwendet, die die Seite macht. Beachten Sie, dass dies {{Glossary("Same-origin policy", "gleicher Herkunft")}} mit der Seite sein muss.
+- `json`: dies ist der Inhalt, den wir gerade geholt haben. Er wird mit dem Historieneintrag gespeichert und später als die [`state`](/de/docs/Web/API/PopStateEvent/state) Eigenschaft des Argumentes im `popstate`-Ereignis-Handler enthalten sein.
+- `""`: dies ist aus Kompatibilitätsgründen mit älteren Seiten notwendig und sollte immer ein leerer String sein
+- `creature`: dies wird als die URL für den Eintrag verwendet. Es wird in der URL-Leiste des Browsers angezeigt und als Wert des {{httpheader("Referer")}}-Headers in allen HTTP-Anfragen verwendet, die die Seite macht. Beachten Sie, dass dies [gleich-origin](/de/docs/Glossary/Same-origin_policy) mit der Seite sein muss.
 
-## Verwendung des `popstate` Ereignisses
+## Verwendung des `popstate`-Ereignisses
 
 Angenommen, der Benutzer:
 
-1. Klickt auf einen Link in unserer SPA, sodass wir die Seite aktualisieren und einen Verlaufseintrag A mit `pushState()` hinzufügen.
-2. Klickt auf einen weiteren Link in unserer SPA, sodass wir die Seite aktualisieren und einen Verlaufseintrag B mit `pushState()` hinzufügen.
-3. Drückt die "Zurück"-Taste.
+1. Klickt auf einen Link in unserer SPA, sodass wir die Seite aktualisieren und einen Historieneintrag A mit `pushState()` hinzufügen
+2. Klickt auf einen weiteren Link in unserer SPA, sodass wir die Seite aktualisieren und einen Historieneintrag B mit `pushState()` hinzufügen
+3. Drückt die "Zurück"-Schaltfläche
 
-Nun ist der neue aktuelle Verlaufseintrag A, sodass der Browser das `popstate` Ereignis auslöst, und das Argument des Ereignis-Handlers umfasst das JSON, das wir an `pushState()` übergeben haben, als wir die Navigation zu A behandelt haben. Das bedeutet, dass wir den richtigen Inhalt mit einem Event-Handler wie folgt wiederherstellen können:
+Nun ist der neue aktuelle Historieneintrag A, sodass der Browser das `popstate`-Ereignis auslöst, und das Ereignis-Handler-Argument enthält das JSON, das wir an `pushState()` übergeben haben, als wir die Navigation zu A bearbeiteten. Das bedeutet, dass wir den korrekten Inhalt mit einem Ereignis-Handler wie diesem wiederherstellen können:
 
 ```js
-// Behandeln Sie Vorwärts-/Rückwärts-Tasten
+// Handle forward/back buttons
 window.addEventListener("popstate", (event) => {
-  // Wenn ein Zustand bereitgestellt wurde, haben wir eine "simulierte" Seite
-  // und wir aktualisieren die aktuelle Seite.
+  // If a state has been provided, we have a "simulated" page
+  // and we update the current page.
   if (event.state) {
-    // Simulieren Sie das Laden der vorherigen Seite
+    // Simulate the loading of the previous page
     displayContent(event.state);
   }
 });
@@ -156,18 +156,18 @@ window.addEventListener("popstate", (event) => {
 
 ## Verwendung von `replaceState()`
 
-Es gibt noch ein weiteres Puzzleteil, das wir hinzufügen müssen. Wenn der Benutzer die SPA lädt, fügt der Browser einen Verlaufseintrag hinzu. Da dies ein tatsächlicher Seitenaufruf war, ist mit diesem Eintrag kein Zustand verbunden. Angenommen, der Benutzer:
+Es gibt noch einen Punkt, den wir hinzufügen müssen. Wenn der Benutzer die SPA lädt, fügt der Browser einen Historieneintrag hinzu. Da dies ein tatsächlicher Seitenaufruf war, hat der Eintrag keinen zugeordneten Zustand. Angenommen, der Benutzer:
 
-1. Lädt die SPA: Der Browser fügt einen Verlaufseintrag hinzu.
-2. Klickt auf einen Link in der SPA: Der Klick-Handler aktualisiert die Seite und fügt einen Verlaufseintrag mit `pushState()` hinzu.
-3. Drückt die "Zurück"-Taste.
+1. Lädt die SPA: der Browser fügt einen Historieneintrag hinzu
+2. Klickt auf einen Link in der SPA: der Klick-Handler aktualisiert die Seite und fügt mit `pushState()` einen Historieneintrag hinzu
+3. Drückt die "Zurück"-Schaltfläche
 
-Nun möchten wir zum ursprünglichen Zustand der SPA zurückkehren, aber da dies eine Navigation im selben Dokument ist, wird die Seite nicht neu geladen, und da der Verlaufseintrag für die Anfangsseite keinen Zustand hat, können wir `popstate` nicht verwenden, um ihn wiederherzustellen.
+Nun wollen wir zum Anfangszustand der SPA zurückkehren, aber da dies eine Navigation im gleichen Dokument ist, wird die Seite nicht neu geladen und da der Historieneintrag für die anfängliche Seite keinen Zustand hat, können wir `popstate` nicht verwenden, um ihn wiederherzustellen.
 
-Die Lösung hier ist, `replaceState()` zu verwenden, um das Statusobjekt für die anfängliche Seite zu setzen. Zum Beispiel:
+Die Lösung besteht darin, `replaceState()` zu verwenden, um das Zustandsobjekt für die anfängliche Seite festzulegen. Zum Beispiel:
 
 ```js
-// Erstellen Sie den Zustand beim Seitenaufruf und ersetzen Sie den aktuellen Verlauf durch diesen
+// Create state on page load and replace the current history with it
 const image = document.querySelector("#photo");
 const initialState = {
   description: document.querySelector("#description").textContent,
@@ -180,15 +180,15 @@ const initialState = {
 history.replaceState(initialState, "", document.location.href);
 ```
 
-Beim Seitenaufruf sammeln wir alle Teile der Seite, die wir wiederherstellen müssen, wenn der Benutzer zum Ausgangspunkt der SPA zurückkehrt. Dies hat die gleiche Struktur wie das JSON, das wir beim Umgang mit anderen Navigationen abrufen. Wir übergeben dieses `initialState` Objekt in `replaceState()`, was effektiv das Zustandsobjekt zum aktuellen Verlaufseintrag hinzufügt.
+Beim Laden der Seite sammeln wir alle Teile der Seite, die wir wiederherstellen müssen, wenn der Benutzer zum Startpunkt der SPA zurückkehrt. Dies hat die gleiche Struktur wie das JSON, das wir beim Bearbeiten anderer Navigationen holen. Wir übergeben dieses `initialState`-Objekt an `replaceState()`, was effektiv das Zustandsobjekt zum aktuellen Historieneintrag hinzufügt.
 
-Wenn der Benutzer zu unserem Ausgangspunkt zurückkehrt, wird das `popstate` Ereignis diesen Anfangszustand enthalten, und wir können unsere `displayContent()` Funktion verwenden, um die Seite zu aktualisieren.
+Wenn der Benutzer zu unserem Startpunkt zurückkehrt, enthält das `popstate`-Ereignis diesen anfänglichen Zustand und wir können unsere `displayContent()`-Funktion verwenden, um die Seite zu aktualisieren.
 
 ## Ein vollständiges Beispiel
 
-Dieses vollständige Beispiel finden Sie unter <https://github.com/mdn/dom-examples/tree/main/history-api> und das Demo live unter <https://mdn.github.io/dom-examples/history-api/>.
+Sie finden dieses vollständige Beispiel unter <https://github.com/mdn/dom-examples/tree/main/history-api> und sehen Sie sich die Demo live unter <https://mdn.github.io/dom-examples/history-api/> an.
 
 ## Siehe auch
 
 - [History API](/de/docs/Web/API/History_API)
-- {{domxref("window.history", "history")}} globales Objekt
+- [`history`](/de/docs/Web/API/Window/history) globales Objekt

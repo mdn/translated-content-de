@@ -8,26 +8,17 @@ l10n:
 
 {{APIRef("Resize Observer API")}}
 
-Die schreibgeschützte Eigenschaft **`target`** der
-{{domxref("ResizeObserverEntry")}}-Schnittstelle gibt eine Referenz auf das
-{{domxref('Element')}} oder {{domxref('SVGElement')}} zurück, das beobachtet wird.
+Die **`target`** schreibgeschützte Eigenschaft des [`ResizeObserverEntry`](/de/docs/Web/API/ResizeObserverEntry)-Interfaces gibt eine Referenz auf das [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement) zurück, das beobachtet wird.
 
 ## Wert
 
-Ein {{domxref('Element')}} oder {{domxref('SVGElement')}} repräsentiert das beobachtete Element.
+Ein [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement), das das beobachtete Element darstellt.
 
 ## Beispiele
 
-Das folgende Beispiel stammt aus dem Beispiel [resize-observer-border-radius.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-border-radius.html)
-([siehe Quelle](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-border-radius.html)). Dieses Beispiel beinhaltet ein grünes Kästchen, das als Prozentsatz der
-Viewport-Größe skaliert wird. Wenn die Größe des Viewports verändert wird, ändern sich
-die abgerundeten Ecken des Kästchens im Verhältnis zur Größe des Kästchens. Wir könnten dies einfach durch die Implementierung von {{cssxref("border-radius")}} mit einem Prozentsatz erreichen, aber das führt schnell zu unschön aussehenden
-elliptischen Ecken; diese Lösung gibt Ihnen schöne quadratische Ecken, die mit der Boxgröße skalieren.
+Der folgende Codeausschnitt stammt aus dem Beispiel [resize-observer-border-radius.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-border-radius.html) ([siehe Quellcode](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-border-radius.html)). Dieses Beispiel enthält ein grünes Kästchen, das als Prozentsatz der Viewport-Größe dimensioniert ist. Wenn die Größe des Viewports geändert wird, ändern sich die abgerundeten Ecken des Kästchens proportional zur Größe des Kästchens. Wir könnten dies einfach mit {{cssxref("border-radius")}} mit einem Prozentsatz umsetzen, aber das führt schnell zu unschönen ellipsenförmigen Ecken; diese Lösung bietet Ihnen schöne rechteckige Ecken, die mit der Boxgröße skalieren.
 
-Um eine Referenz auf das beobachtete Element zu erhalten, damit wir seinen
-{{cssxref("border-radius")}}-Wert nach jeder Änderung aktualisieren können, verwenden wir
-die `target`-Eigenschaft jedes Eintrags —
-`entry.target.style.borderRadius`.
+Um eine Referenz auf das beobachtete Element zu erfassen, damit wir seinen {{cssxref("border-radius")}}-Wert nach jeder Änderung aktualisieren können, verwenden wir die `target`-Eigenschaft jedes Eintrags — `entry.target.style.borderRadius`.
 
 ```js
 const resizeObserver = new ResizeObserver((entries) => {

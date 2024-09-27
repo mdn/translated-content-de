@@ -8,27 +8,27 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte Eigenschaft **`DragEvent.dataTransfer`** enthält die Daten der Ziehoperation (als ein {{domxref("DataTransfer")}}-Objekt).
+Die schreibgeschützte Eigenschaft **`DragEvent.dataTransfer`** enthält die Daten der Drag-Operation (als ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt).
 
 ## Wert
 
-Ein {{domxref("DataTransfer")}}-Objekt, das die Daten des {{domxref("DragEvent","Ziehen-Ereignisses", "", 1)}} enthält.
+Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die {{domxref("DragEvent","Daten des Drag-Ereignisses", "", 1)}} enthält.
 
-Die Eigenschaft kann `null` sein, wenn das Ereignis mit dem Konstruktor erstellt wird. Sie ist nie `null`, wenn es vom Browser ausgelöst wird.
+Die Eigenschaft kann `null` sein, wenn das Ereignis mit dem Konstruktor erstellt wurde. Sie ist niemals `null`, wenn sie vom Browser ausgelöst wird.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie die Zieh-und-Abwurf-Daten innerhalb des {{domxref("HTMLElement/dragend_event", "dragend")}}-Ereignishandlers zugegriffen werden.
+Dieses Beispiel zeigt den Zugriff auf die Drag-and-Drop-Daten innerhalb des [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignishandlers.
 
 ```js
 function processData(d) {
-  // Verarbeiten Sie die Daten …
+  // Process the data …
 }
 
 dragTarget.addEventListener(
   "dragend",
   (ev) => {
-    // Rufen Sie den Zieh-und-Abwurf-Datenprozessor auf
+    // Call the drag and drop data processor
     if (ev.dataTransfer !== null) processData(ev.dataTransfer);
   },
   false,

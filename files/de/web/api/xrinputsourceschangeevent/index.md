@@ -7,36 +7,36 @@ l10n:
 
 {{APIRef("WebXR Device API")}} {{SecureContext_Header}}
 
-Das WebXR Device API-Interface **`XRInputSourcesChangeEvent`** wird verwendet, um das {{domxref("XRSession.inputsourceschange_event", "inputsourceschange")}}-Ereignis zu repräsentieren, das an eine {{domxref("XRSession")}} gesendet wird, wenn sich die verfügbaren WebXR-Eingabesteuerungen ändern.
+Das WebXR Device API-Interface **`XRInputSourcesChangeEvent`** wird verwendet, um das [`inputsourceschange`](/de/docs/Web/API/XRSession/inputsourceschange_event)-Ereignis darzustellen, das an eine [`XRSession`](/de/docs/Web/API/XRSession) gesendet wird, wenn sich der Satz der verfügbaren WebXR-Eingabegeräte ändert.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("XRInputSourcesChangeEvent.XRInputSourcesChangeEvent", "XRInputSourcesChangeEvent()")}}
-  - : Erstellt und gibt ein neues `XRInputSourcesChangeEvent`-Objekt zurück. Der angegebene Typ muss `inputsourceschange` sein, welches das einzige Ereignis ist, das dieses Interface verwendet.
+- [`XRInputSourcesChangeEvent()`](/de/docs/Web/API/XRInputSourcesChangeEvent/XRInputSourcesChangeEvent)
+  - : Erzeugt und gibt ein neues `XRInputSourcesChangeEvent`-Objekt zurück. Der angegebene Typ muss `inputsourceschange` sein, welches das einzige Ereignis ist, das dieses Interface verwendet.
 
-## Instanzeigenschaften
+## Eigenschaften der Instanz
 
-- {{domxref("XRInputSourcesChangeEvent.added", "added")}} {{ReadOnlyInline}}
-  - : Ein Array von null oder mehr {{domxref("XRInputSource")}}-Objekten, von denen jedes ein Eingabegerät darstellt, das neu angeschlossen oder zur Nutzung aktiviert wurde.
-- {{domxref("XRInputSourcesChangeEvent.removed", "removed")}} {{ReadOnlyInline}}
-  - : Ein Array von null oder mehr {{domxref("XRInputSource")}}-Objekten, die die neu angeschlossenen oder aktivierten Eingabegeräte darstellen.
-- {{domxref("XRInputSourcesChangeEvent.session", "session")}} {{ReadOnlyInline}}
-  - : Die {{domxref("XRSession")}}, an die dieses Eingabequellenänderungsereignis gerichtet ist.
+- [`added`](/de/docs/Web/API/XRInputSourcesChangeEvent/added) {{ReadOnlyInline}}
+  - : Ein Array von null oder mehr [`XRInputSource`](/de/docs/Web/API/XRInputSource) Objekten, von denen jedes ein neu verbundenes oder zur Nutzung aktiviertes Eingabegerät darstellt.
+- [`removed`](/de/docs/Web/API/XRInputSourcesChangeEvent/removed) {{ReadOnlyInline}}
+  - : Ein Array von null oder mehr [`XRInputSource`](/de/docs/Web/API/XRInputSource) Objekten, die die neu verbundenen oder zur Nutzung aktivierten Eingabegeräte darstellen.
+- [`session`](/de/docs/Web/API/XRInputSourcesChangeEvent/session) {{ReadOnlyInline}}
+  - : Die [`XRSession`](/de/docs/Web/API/XRSession), an die dieses Eingabeänderungsereignis gerichtet ist.
 
 ## Instanzmethoden
 
-_Obwohl `XRInputSourcesChangeEvent` keine eigenen Methoden definiert, erbt es Methoden von seinem übergeordneten Interface, {{domxref("Event")}}._
+_Obwohl `XRInputSourcesChangeEvent` keine eigenen Methoden definiert, erbt es Methoden von seinem übergeordneten Interface, [`Event`](/de/docs/Web/API/Event)._
 
 ## Ereignistypen
 
-- {{domxref("XRSession.inputsourceschange_event", "inputsourceschange")}}
-  - : Wird an die {{domxref("XRSession")}} geliefert, wenn sich der Satz von Eingabegeräten, die ihr zur Verfügung stehen, ändert.
+- [`inputsourceschange`](/de/docs/Web/API/XRSession/inputsourceschange_event)
+  - : Wird an die [`XRSession`](/de/docs/Web/API/XRSession) übermittelt, wenn sich der Satz der ihr zur Verfügung stehenden Eingabegeräte ändert.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein Ereignishandler eingerichtet wird, der `inputsourceschange`-Ereignisse verwendet, um neu verfügbare Zeigegeräte zu erkennen und deren Modelle zu laden, um sie im nächsten Animationsframe anzuzeigen.
+Das folgende Beispiel zeigt, wie man einen Ereignis-Handler einrichtet, der `inputsourceschange`-Ereignisse nutzt, um neu verfügbare Zeigegeräte zu erkennen und deren Modelle zu laden, um sie im nächsten Animationsbild darzustellen.
 
 ```js
 xrSession.addEventListener("inputsourceschange", onInputSourcesChange);
@@ -50,7 +50,7 @@ function onInputSourcesChange(event) {
 }
 ```
 
-Sie können auch einen Handler für `inputsourceschange`-Ereignisse hinzufügen, indem Sie den `oninputsourceschange` Ereignishandler festlegen:
+Sie können auch einen Handler für `inputsourceschange`-Ereignisse hinzufügen, indem Sie den `oninputsourceschange` Ereignis-Handler festlegen:
 
 ```js
 xrSession.oninputsourceschange = onInputSourcesChange;

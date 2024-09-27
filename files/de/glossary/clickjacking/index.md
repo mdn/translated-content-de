@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Clickjacking** ist ein angriffsbasierter Angriff, der Website-Benutzer dazu bringt, ungewollt auf schädliche Links zu klicken. Beim Clickjacking betten die Angreifer ihre schädlichen Links in Schaltflächen oder legitime Seiten einer Website ein. In einer infizierten {{glossary("Site")}}, wenn ein Benutzer auf einen legitimen Link klickt, erhält der Angreifer die vertraulichen Informationen dieses Benutzers, was letztendlich die Privatsphäre des Benutzers im Internet gefährdet.
+**Clickjacking** ist ein interface-basierter Angriff, bei dem Website-Nutzer dazu verleitet werden, unwissentlich auf bösartige Links zu klicken. Beim Clickjacking betten die Angreifer ihre bösartigen Links in Schaltflächen oder legitime Seiten einer Website ein. In einer infizierten [Site](/de/docs/Glossary/Site) erhält der Angreifer, wann immer ein Benutzer auf einen legitimen Link klickt, die vertraulichen Informationen des Nutzers, was letztlich die Privatsphäre des Nutzers im Internet gefährdet.
 
-Clickjacking kann verhindert werden, indem eine [Content Security Policy (frame-ancestors)](/de/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors) implementiert wird und [Set-Cookie-Attribute](/de/docs/Web/HTTP/Headers/Set-Cookie#attributes) angewendet werden.
+Clickjacking kann verhindert werden, indem eine [Content Security Policy (frame-ancestors)](/de/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors) implementiert und [Set-Cookie attributes](/de/docs/Web/HTTP/Headers/Set-Cookie#attributes) verwendet werden.
 
 ## Siehe auch
 
-- [Websicherheit: Clickjacking-Schutz](/de/docs/Web/Security/Practical_implementation_guides/Clickjacking)
+- [Web-Sicherheit: Schutz vor Clickjacking](/de/docs/Web/Security/Practical_implementation_guides/Clickjacking)
 - [Clickjacking](https://en.wikipedia.org/wiki/Clickjacking) auf Wikipedia
 - [Clickjacking](https://owasp.org/www-community/attacks/Clickjacking) auf OWASP

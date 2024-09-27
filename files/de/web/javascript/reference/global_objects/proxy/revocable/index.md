@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Proxy.revocable()`** statische Methode erstellt ein widerrufbares {{jsxref("Proxy")}}-Objekt.
+Die statische Methode **`Proxy.revocable()`** erstellt ein widerrufbares {{jsxref("Proxy")}}-Objekt.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ Proxy.revocable(target, handler)
 ### Parameter
 
 - `target`
-  - : Ein Zielobjekt, das mit `Proxy` umschlossen werden soll. Es kann jegliche Art von Objekt sein, einschließlich eines nativen Arrays, einer Funktion oder sogar eines anderen Proxys.
+  - : Ein Zielobjekt, das mit `Proxy` umwickelt wird. Es kann sich um jegliche Art von Objekt handeln, einschließlich eines nativen Arrays, einer Funktion oder sogar eines anderen Proxys.
 - `handler`
   - : Ein Objekt, dessen Eigenschaften Funktionen sind, die das Verhalten des `proxy` definieren, wenn eine Operation darauf ausgeführt wird.
 
@@ -27,19 +27,19 @@ Proxy.revocable(target, handler)
 Ein einfaches Objekt mit den folgenden zwei Eigenschaften:
 
 - `proxy`
-  - : Ein Proxy-Objekt, genau wie eines, das mit einem [`new Proxy(target, handler)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy) Aufruf erstellt wurde.
+  - : Ein Proxy-Objekt, das genau das gleiche ist wie eines, das mit einem Aufruf von [`new Proxy(target, handler)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy) erstellt wurde.
 - `revoke`
-  - : Eine Funktion ohne Parameter, um den `proxy` zu widerrufen (abzuschalten).
+  - : Eine Funktion ohne Parameter, um den `proxy` zu widerrufen (deaktivieren).
 
 ## Beschreibung
 
-Die `Proxy.revocable()` Fabrikfunktion ist dieselbe wie der [`Proxy()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)-Konstruktor, außer dass sie zusätzlich zum Erstellen eines Proxy-Objekts auch eine `revoke`-Funktion erstellt, die aufgerufen werden kann, um den Proxy zu deaktivieren. Das Proxy-Objekt und die `revoke`-Funktion sind in ein einfaches Objekt eingeschlossen.
+Die Fabrikfunktion `Proxy.revocable()` ist die gleiche wie der [`Proxy()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)-Konstruktor, mit dem Unterschied, dass zusätzlich zum Erstellen eines Proxy-Objekts auch eine `revoke`-Funktion erstellt wird, die aufgerufen werden kann, um den Proxy zu deaktivieren. Das Proxy-Objekt und die `revoke`-Funktion sind in einem einfachen Objekt verpackt.
 
-Die `revoke`-Funktion nimmt keine Parameter an und ist nicht auf den `this`-Wert angewiesen. Das erstellte `proxy`-Objekt ist über eine [private Eigenschaft](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) an die `revoke`-Funktion gebunden, auf die die `revoke`-Funktion zugreift, wenn sie aufgerufen wird (das Vorhandensein der privaten Eigenschaft ist von außen nicht beobachtbar, hat jedoch Auswirkungen darauf, wie die Speicherbereinigung erfolgt). Das `proxy`-Objekt wird _nicht_ innerhalb der [Closure](/de/docs/Web/JavaScript/Closures) der `revoke`-Funktion erfasst (was die Speicherbereinigung des `proxy` unmöglich machen würde, wenn `revoke` noch vorhanden ist).
+Die `revoke`-Funktion nimmt keine Parameter entgegen und verlässt sich nicht auf den `this`-Wert. Das erstellte `proxy`-Objekt ist an die `revoke`-Funktion als [private Eigenschaft](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) angehängt, auf die die `revoke`-Funktion beim Aufruf zugreift (das Vorhandensein der privaten Eigenschaft ist von außen nicht sichtbar, aber es hat Auswirkungen darauf, wie die Speicherbereinigung stattfindet). Das `proxy`-Objekt wird _nicht_ innerhalb des [Closures](/de/docs/Web/JavaScript/Closures) der `revoke`-Funktion erfasst (was die Speicherbereinigung des `proxy` unmöglich machen würde, wenn `revoke` noch existiert).
 
-Nachdem die `revoke()`-Funktion aufgerufen wurde, wird der Proxy unbrauchbar: Jegliche Falle zu einem Handler wirft einen {{jsxref("TypeError")}}. Sobald ein Proxy widerrufen wird, bleibt er widerrufen, und ein erneuter Aufruf von `revoke()` hat keine Wirkung – tatsächlich trennt der Aufruf von `revoke()` das `proxy`-Objekt von der `revoke`-Funktion, sodass die `revoke`-Funktion den Proxy nicht mehr erneut aufrufen kann. Wenn der Proxy nicht an anderer Stelle referenziert wird, ist er zur Speicherbereinigung bereit. Die `revoke`-Funktion trennt auch `target` und `handler` vom `proxy`, sodass `target` zur Speicherbereinigung bereit ist, wenn es an anderer Stelle nicht referenziert wird, auch wenn sein Proxy noch aktiv ist, da es keine Möglichkeit mehr gibt, sinnvoll mit dem Zielobjekt zu interagieren.
+Nachdem die `revoke()`-Funktion aufgerufen wird, wird der Proxy unbrauchbar: Jeder Versuch, einen Handler zu verwenden, wirft einen {{jsxref("TypeError")}}. Sobald ein Proxy widerrufen wird, bleibt er widerrufen, und ein erneuter Aufruf von `revoke()` hat keinen Effekt — tatsächlich trennt der Aufruf von `revoke()` das `proxy`-Objekt von der `revoke`-Funktion, sodass die `revoke`-Funktion nicht mehr in der Lage ist, auf den Proxy zuzugreifen. Wenn der Proxy nicht anderswo referenziert wird, wird er für die Speicherbereinigung infrage kommen. Die `revoke`-Funktion trennt auch `target` und `handler` vom `proxy`, sodass `target` ebenfalls für die Speicherbereinigung infrage kommt, wenn es nicht anderswo referenziert wird, selbst wenn sein Proxy noch existiert, da es keine Möglichkeit mehr gibt, mit dem Zielobjekt auf sinnvolle Weise zu interagieren.
 
-Benutzern die Interaktion mit einem Objekt über einen widerrufbaren Proxy zu ermöglichen, erlaubt Ihnen, die [Lebensdauer](/de/docs/Web/JavaScript/Memory_management) des dem Benutzer bereitgestellten Objekts zu kontrollieren – Sie können das Objekt zur Speicherbereinigung bereit machen, auch wenn der Benutzer noch eine Referenz auf seinen Proxy hält.
+Das Zulassen, dass Benutzer über einen widerrufbaren Proxy mit einem Objekt interagieren, ermöglicht es Ihnen, [die Lebensdauer](/de/docs/Web/JavaScript/Memory_management) des dem Benutzer bereitgestellten Objekts zu kontrollieren – Sie können das Objekt sogar dann für die Speicherbereinigung freigeben, wenn der Benutzer noch eine Referenz auf seinen Proxy hat.
 
 ## Beispiele
 
@@ -59,10 +59,10 @@ console.log(proxy.foo); // "[[foo]]"
 
 revocable.revoke();
 
-console.log(proxy.foo); // TypeError wird ausgelöst
-proxy.foo = 1; // Noch einmal TypeError
-delete proxy.foo; // immer noch TypeError
-typeof proxy; // "object", typeof löst keine Falle aus
+console.log(proxy.foo); // TypeError is thrown
+proxy.foo = 1; // TypeError again
+delete proxy.foo; // still TypeError
+typeof proxy; // "object", typeof doesn't trigger any trap
 ```
 
 ## Spezifikationen

@@ -1,5 +1,5 @@
 ---
-title: "WorkerLocation: toString()-Methode"
+title: "WorkerLocation: toString() Methode"
 short-title: toString()
 slug: Web/API/WorkerLocation/toString
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`toString()`** {{Glossary("stringifier")}}-Methode eines {{domxref("WorkerLocation")}}-Objekts gibt einen String zurück, der die serialisierte {{domxref("URL")}} für die Position des Workers enthält. Sie ist ein Synonym für {{domxref("WorkerLocation.href")}}.
+Die **`toString()`**-[Stringifier](/de/docs/Glossary/stringifier)-Methode eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt einen String zurück, der die serialisierte [`URL`](/de/docs/Web/API/URL) für den Speicherort des Workers enthält. Es ist ein Synonym für [`WorkerLocation.href`](/de/docs/Web/API/WorkerLocation/href).
 
 ## Syntax
 
@@ -27,8 +27,8 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```js
-// In einem Web-Worker, auf der Seite https://developer.mozilla.org/de/docs/Web
-const result = location.toString(); // Gibt 'https://developer.mozilla.org/de/docs/Web' zurück
+// In a Web worker, on the page https://developer.mozilla.org/en-US/docs/Web
+const result = location.toString(); // Returns 'https://developer.mozilla.org/en-US/docs/Web'
 ```
 
 ## Spezifikationen
@@ -41,4 +41,4 @@ const result = location.toString(); // Gibt 'https://developer.mozilla.org/de/do
 
 ## Siehe auch
 
-- Das {{domxref("WorkerLocation")}}-Interface, zu dem es gehört.
+- Die [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Schnittstelle, zu der sie gehört.

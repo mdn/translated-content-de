@@ -8,21 +8,21 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAnchorElement.username`**-Eigenschaft ist eine
-Zeichenkette, die den Benutzernamen enthält, der vor dem Domainnamen angegeben wurde.
+Die **`HTMLAnchorElement.username`**-Eigenschaft ist ein
+Zeichenfolge, die den Benutzernamen enthält, der vor dem Domainnamen angegeben ist.
 
 ## Wert
 
-Eine Zeichenkette.
+Eine Zeichenfolge.
 
 ## Beispiele
 
-### Den Benutzernamen aus einem Anker-Link abrufen
+### Den Benutzernamen aus einem Ankerlink erhalten
 
 ```js
-// Ein <a id="myAnchor" href="https://anonymous:flabada@developer.mozilla.org/de/docs/HTMLAnchorElement"> Element befindet sich im Dokument
+// An <a id="myAnchor" href="https://anonymous:flabada@developer.mozilla.org/en-US/docs/HTMLAnchorElement"> element is in the document
 const anchor = document.getElementByID("myAnchor");
-anchor.username; // gibt 'anonymous' zurück
+anchor.username; // returns 'anonymous'
 ```
 
 ## Spezifikationen
@@ -35,4 +35,4 @@ anchor.username; // gibt 'anonymous' zurück
 
 ## Siehe auch
 
-- Das {{domxref("HTMLAnchorElement")}}-Interface, zu dem es gehört.
+- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interface, zu dem es gehört.

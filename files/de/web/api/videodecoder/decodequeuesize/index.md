@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`decodeQueueSize`** des {{domxref("VideoDecoder")}}-Interfaces gibt die Anzahl der ausstehenden Decodierungsanfragen in der Warteschlange zurück.
+Die schreibgeschützte **`decodeQueueSize`**-Eigenschaft der [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Schnittstelle gibt die Anzahl der ausstehenden Dekodierungsanforderungen in der Warteschlange zurück.
 
 ## Wert
 
-Ein Integer, der die Anzahl der Anfragen enthält.
+Ein Integer, der die Anzahl der Anforderungen enthält.
 
 ## Beispiele
 

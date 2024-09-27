@@ -1,5 +1,5 @@
 ---
-title: "Zaun: setReportEventDataForAutomaticBeacons()-Methode"
+title: "Fence: setReportEventDataForAutomaticBeacons() Methode"
 short-title: setReportEventDataForAutomaticBeacons()
 slug: Web/API/Fence/setReportEventDataForAutomaticBeacons
 l10n:
@@ -8,10 +8,9 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
 
-Die **`setReportEventDataForAutomaticBeacons()`**-Methode der
-{{domxref("Fence")}}-Schnittstelle legt Ereignisdaten fest, die gesendet werden, wenn eine Navigation innerhalb eines {{htmlelement("fencedframe")}} stattfindet. Diese Daten werden über ein automatisches [Beacon](/de/docs/Web/API/Beacon_API) an eine oder mehrere spezifische URLs gesendet, die über die Methode {{domxref("InterestGroupReportingScriptRunnerGlobalScope.registerAdBeacon", "registerAdBeacon()")}} der [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) registriert wurden, um Berichts daten für Auktionsergebnisse zu sammeln.
+Die **`setReportEventDataForAutomaticBeacons()`** Methode der [`Fence`](/de/docs/Web/API/Fence) Schnittstelle legt Ereignisdaten fest, die gesendet werden, wenn eine Navigation innerhalb eines {{htmlelement("fencedframe")}} erfolgt. Diese Daten werden über ein automatisches [Beacon](/de/docs/Web/API/Beacon_API) an eine oder mehrere spezifische URLs gesendet, die über die [`registerAdBeacon()`](/de/docs/Web/API/InterestGroupReportingScriptRunnerGlobalScope/registerAdBeacon) Methode der [Protected Audience API](https://developers.google.com/privacy-sandbox/private-advertising/protected-audience) registriert wurden, um Berichtsdatenerfassung für die Ergebnisse von Werbeauktionen zu ermöglichen.
 
-> **Note:** {{domxref("Fence.reportEvent", "reportEvent()")}} bietet eine ähnliche Berichtsdateneinreichung, außer dass in diesem Fall die Einreichung durch einen expliziten Methodenaufruf und nicht durch eine Navigation ausgelöst wird.
+> **Note:** [`reportEvent()`](/de/docs/Web/API/Fence/reportEvent) bietet eine ähnliche Übermittlung von Berichtsdatendaten, außer dass in diesem Fall die Übermittlung durch einen expliziten Methodenaufruf statt durch eine Navigation ausgelöst wird.
 
 ## Syntax
 
@@ -24,24 +23,24 @@ setReportEventDataForAutomaticBeacons(event)
 - `event`
   - : Ein Objekt, das die zu sendenden Daten darstellt. Die möglichen Eigenschaften sind wie folgt:
     - `eventType`
-      - : Ein String, der den Typ des gemeldeten Ereignisses darstellt. Die verfügbaren Werte sind:
+      - : Ein String, der den Typ des berichteten Ereignisses darstellt. Die verfügbaren Werte sind:
         - `reserved.top_navigation_start`: Ein Ereignis, das ausgelöst wird, wenn eine Top-Level-Navigation beginnt.
         - `reserved.top_navigation_commit`: Ein Ereignis, das ausgelöst wird, wenn eine Top-Level-Navigation abgeschlossen ist.
     - `eventData`
       - : Ein String, der die zu sendenden Daten darstellt.
     - `destination`
-      - : Ein Array, das einen oder mehrere enumerierte Werte enthält, die die Zieltypen darstellen. Diese sind die beteiligten Parteien, die die Daten an ihre registrierten URLs erhalten werden (d. h. über {{domxref("InterestGroupReportingScriptRunnerGlobalScope.registerAdBeacon", "registerAdBeacon()")}}). Die möglichen Werte sind:
-        - `"buyer"`: Der Bieter in der Anzeigenauktion.
-        - `"seller"`: Der Top-Level-Verkäufer, der die Anzeigenauktion durchführt.
+      - : Ein Array, das einen oder mehrere aufgezählte Werte enthält, die die Zieltypen darstellen. Dies sind die beteiligten Parteien, die die Daten an ihre registrierten URLs erhalten (d.h. via [`registerAdBeacon()`](/de/docs/Web/API/InterestGroupReportingScriptRunnerGlobalScope/registerAdBeacon)). Die möglichen Werte sind:
+        - `"buyer"`: Der Bieter in der Werbeauktion.
+        - `"seller"`: Der oberste Verkäufer, der die Werbeauktion durchführt.
         - `"component-seller"`: Der Verkäufer für eine Komponentenauktion in einer mehrstufigen Auktion.
         - `"direct-seller"`: Der Verkäufer, der direkt die Auktion durchgeführt hat, in der der Käufer geboten hat. Wenn die Anzeige eine einstufige Auktion war, wird der Wert `"seller"` verwendet. Wenn die Anzeige eine mehrstufige Auktion war, wird der Wert `"component-seller"` verwendet.
-        - `"shared-storage-select-url"`: Ein [Shared Storage API](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage) Speicherort, wie in einem {{domxref("WindowSharedStorage.selectURL", "Window.sharedStorage.selectURL()")}}-Methodenaufruf definiert.
+        - `"shared-storage-select-url"`: Ein [Shared Storage API](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage) Speicherort, wie in einem [`Window.sharedStorage.selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL) Methodenaufruf definiert.
     - `once` {{optional_inline}}
-      - : Ein boolescher Wert. Wenn auf `true` gesetzt, wird das automatische Beacon nur für das nächste Ereignis gesendet, und Beacons werden nicht für nachfolgende Ereignisse gesendet, bis `setReportEventDataForAutomaticBeacons()` erneut aufgerufen wird. Zum Beispiel, wenn es mit einem `click`-Handler verwendet wird, kann dies genutzt werden, um Beacon-Daten nur für bestimmte Top-Level-Navigationen zu senden, anstatt für jede Top-Level-Navigation. Diese Eigenschaft ist standardmäßig `false`.
+      - : Ein boolescher Wert. Wenn auf `true` gesetzt, wird das automatische Beacon nur für das nächste Ereignis gesendet, und Beacons werden nicht für nachfolgende Ereignisse gesendet, bis `setReportEventDataForAutomaticBeacons()` erneut aufgerufen wird. Dies kann beispielsweise mit einem `click` Handler verwendet werden, um Beacon-Daten nur für bestimmte Top-Level-Navigationen zu senden, anstatt für jede Top-Level-Navigation. Diese Eigenschaft hat standardmäßig den Wert `false`.
 
 ### Rückgabewert
 
-Kein (`Undefined`).
+Keiner (`Undefined`).
 
 ## Beispiele
 

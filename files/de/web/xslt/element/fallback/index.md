@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:fallback>`-Element gibt an, welches Template verwendet werden soll, wenn ein bestimmtes Erweiterungs- (oder schließlich neueres Versions-) Element nicht unterstützt wird.
+Das `<xsl:fallback>`-Element gibt an, welche Vorlage verwendet werden soll, wenn ein bestimmtes Erweiterungselement (oder, gegebenenfalls, eine neuere Version) nicht unterstützt wird.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Keine.
 
 ### Typ
 
-Anweisung, erscheint innerhalb eines Templates.
+Anweisung, erscheint innerhalb einer Vorlage.
 
 ## Spezifikationen
 

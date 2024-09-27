@@ -7,38 +7,38 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die **`MIDIAccess`**-Schnittstelle der [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) bietet Methoden zum Auflisten von MIDI-Eingabe- und -Ausgabegeräten sowie zum Zugriff auf diese Geräte.
+Die **`MIDIAccess`**-Schnittstelle der [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) stellt Methoden zum Auflisten von MIDI-Eingabe- und -Ausgabegeräten sowie zum Zugreifen auf diese Geräte bereit.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-- {{domxref("MIDIAccess.inputs")}} {{ReadOnlyInline}}
-  - : Gibt eine Instanz von {{domxref("MIDIInputMap")}} zurück, die Zugriff auf alle verfügbaren MIDI-Eingangsports bietet.
-- {{domxref("MIDIAccess.outputs")}} {{ReadOnlyInline}}
-  - : Gibt eine Instanz von {{domxref("MIDIOutputMap")}} zurück, die Zugriff auf alle verfügbaren MIDI-Ausgangsports bietet.
-- {{domxref("MIDIAccess.sysexEnabled")}} {{ReadOnlyInline}}
+- [`MIDIAccess.inputs`](/de/docs/Web/API/MIDIAccess/inputs) {{ReadOnlyInline}}
+  - : Gibt eine Instanz von [`MIDIInputMap`](/de/docs/Web/API/MIDIInputMap) zurück, die Zugriff auf alle verfügbaren MIDI-Eingangsanschlüsse bietet.
+- [`MIDIAccess.outputs`](/de/docs/Web/API/MIDIAccess/outputs) {{ReadOnlyInline}}
+  - : Gibt eine Instanz von [`MIDIOutputMap`](/de/docs/Web/API/MIDIOutputMap) zurück, die Zugriff auf alle verfügbaren MIDI-Ausgangsanschlüsse bietet.
+- [`MIDIAccess.sysexEnabled`](/de/docs/Web/API/MIDIAccess/sysexEnabled) {{ReadOnlyInline}}
   - : Ein boolesches Attribut, das angibt, ob die Unterstützung für System-Exklusiv-Daten auf der aktuellen MIDIAccess-Instanz aktiviert ist.
 
 ### Ereignisse
 
-- {{domxref("MIDIAccess.statechange_event", "statechange")}}
-  - : Wird aufgerufen, wenn ein neuer MIDI-Port hinzugefügt wird oder ein vorhandener Port seinen Status ändert.
+- [`statechange`](/de/docs/Web/API/MIDIAccess/statechange_event)
+  - : Wird aufgerufen, wenn ein neuer MIDI-Anschluss hinzugefügt wird oder sich der Zustand eines bestehenden Anschlusses ändert.
 
 ## Beispiele
 
-Die Methode {{domxref("Navigator.requestMIDIAccess()")}} gibt ein Promise zurück, das mit einem `MIDIAccess`-Objekt aufgelöst wird. Informationen über die Eingabe- und Ausgabeverbindungen werden zurückgegeben.
+Die Methode [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) gibt ein Versprechen zurück, das mit einem `MIDIAccess`-Objekt aufgelöst wird. Informationen über die Ein- und Ausgansanschlüsse werden zurückgegeben.
 
-Wenn sich der Status eines Ports ändert, werden Informationen zu diesem Port in der Konsole ausgegeben.
+Wenn sich der Zustand eines Anschlusses ändert, werden Informationen über diesen Anschluss in der Konsole ausgegeben.
 
 ```js
 navigator.requestMIDIAccess().then((access) => {
-  // Listen der verfügbaren MIDI-Controller abrufen
+  // Get lists of available MIDI controllers
   const inputs = access.inputs.values();
   const outputs = access.outputs.values();
 
   access.onstatechange = (event) => {
-    // Informationen über den (dis) verbundenen MIDI-Controller ausgeben
+    // Print information about the (dis)connected MIDI controller
     console.log(event.port.name, event.port.manufacturer, event.port.state);
   };
 });
@@ -48,6 +48,6 @@ navigator.requestMIDIAccess().then((access) => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

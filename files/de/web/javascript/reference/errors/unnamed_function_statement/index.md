@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: Funktionsanweisung erfordert einen Namen"
+title: "SyntaxError: function statement requires a name"
 slug: Web/JavaScript/Reference/Errors/Unnamed_function_statement
 l10n:
   sourceCommit: e3faa375b0179de77a5eff00074e3d168a0a904c
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "function statement requires a name" tritt auf, wenn es im Code eine [Funktionsanweisung](/de/docs/Web/JavaScript/Reference/Statements/function) gibt, die einen Namen erfordert.
+Der JavaScript-Fehler "function statement requires a name" tritt auf, wenn im Code eine [Funktionsdefinition](/de/docs/Web/JavaScript/Reference/Statements/function) vorhanden ist, die einen Namen benötigt.
 
 ## Nachricht
 
@@ -23,19 +23,19 @@ SyntaxError: Function statements must have a name. (Safari)
 
 ## Was ist schiefgelaufen?
 
-Es gibt eine [Funktionsanweisung](/de/docs/Web/JavaScript/Reference/Statements/function) im Code, die einen Namen erfordert. Sie müssen überprüfen, wie Funktionen definiert sind, und ob Sie einen Namen dafür angeben müssen oder ob die betreffende Funktion ein Funktionsausdruck, ein [IIFE](/de/docs/Glossary/IIFE) sein muss, oder ob der Funktionscode in diesem Kontext überhaupt richtig platziert ist.
+Im Code befindet sich eine [Funktionsdefinition](/de/docs/Web/JavaScript/Reference/Statements/function), die einen Namen benötigt. Sie müssen überprüfen, wie Funktionen definiert werden und ob Sie einen Namen dafür angeben müssen, oder ob die betreffende Funktion als Funktionsausdruck, als [IIFE](/de/docs/Glossary/IIFE) oder überhaupt korrekt in diesem Kontext platziert werden muss.
 
 ## Beispiele
 
 ### Anweisungen vs. Ausdrücke
 
-Eine _[Funktionsanweisung](/de/docs/Web/JavaScript/Reference/Statements/function)_ (oder _Funktionsdeklaration_) erfordert einen Namen. Dies wird nicht funktionieren:
+Eine _[Funktionsdefinition](/de/docs/Web/JavaScript/Reference/Statements/function)_ (oder _Funktionsdeklaration_) erfordert einen Namen. Dies wird nicht funktionieren:
 
 ```js-nolint example-bad
 function () {
   return "Hello world";
 }
-// SyntaxError: Funktionsanweisung erfordert einen Namen
+// SyntaxError: function statement requires a name
 ```
 
 Sie können stattdessen einen [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) (Zuweisung) verwenden:
@@ -46,7 +46,7 @@ const greet = function () {
 };
 ```
 
-Wenn Ihre Funktion als ein [IIFE](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) (Immediately Invoked Function Expression, also eine Funktion, die ausgeführt wird, sobald sie definiert ist) gedacht ist, müssen Sie ein paar weitere Klammern hinzufügen:
+Wenn Ihre Funktion als [IIFE](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) (Immediately Invoked Function Expression, eine Funktion, die sofort ausgeführt wird, wenn sie definiert ist) gedacht ist, müssen Sie ein paar weitere Klammern hinzufügen:
 
 ```js example-good
 (function () {
@@ -54,9 +54,9 @@ Wenn Ihre Funktion als ein [IIFE](https://en.wikipedia.org/wiki/Immediately-invo
 })();
 ```
 
-### Beschriftete Funktionen
+### Bezeichnete Funktionen
 
-[Etiketten](/de/docs/Web/JavaScript/Reference/Statements/label) sind eine ganz andere Funktion als Funktionsnamen. Sie können kein Etikett als Funktionsnamen verwenden.
+[Labels](/de/docs/Web/JavaScript/Reference/Statements/label) sind eine völlig andere Funktion als Funktionsnamen. Sie können ein Label nicht als Funktionsnamen verwenden.
 
 ```js-nolint example-bad
 function Greeter() {
@@ -64,10 +64,10 @@ function Greeter() {
     return "Moin";
   }
 }
-// SyntaxError: Funktionsanweisung erfordert einen Namen
+// SyntaxError: function statement requires a name
 ```
 
-Darüber hinaus sind beschriftete Funktionsdeklarationen selbst ein veraltetes Feature. Verwenden Sie stattdessen reguläre Funktionsdeklarationen.
+Darüber hinaus sind bezeichnete Funktionsdeklarationen selbst ein veraltetes Feature. Verwenden Sie stattdessen reguläre Funktionsdeklarationen.
 
 ```js example-good
 function Greeter() {
@@ -79,7 +79,7 @@ function Greeter() {
 
 ### Objektmethoden
 
-Wenn Sie beabsichtigt haben, eine Methode eines Objekts zu erstellen, müssen Sie ein Objekt erstellen. Die folgende Syntax ohne einen Namen nach dem `function`-Schlüsselwort ist dann gültig.
+Wenn Sie beabsichtigen, eine Methode eines Objekts zu erstellen, müssen Sie ein Objekt erstellen. Die folgende Syntax ohne einen Namen nach dem `function`-Schlüsselwort ist dann gültig.
 
 ```js example-good
 const greeter = {
@@ -101,7 +101,7 @@ const greeter = {
 
 ### Callback-Syntax
 
-Überprüfen Sie auch Ihre Syntax bei der Verwendung von Rückrufen. Klammern und Kommas können schnell verwirrend werden.
+Überprüfen Sie auch Ihre Syntax bei der Verwendung von Callbacks. Klammern und Kommas können schnell verwirrend werden.
 
 ```js-nolint example-bad
 promise.then(
@@ -111,7 +111,7 @@ promise.then(
   function () {
     console.log("error");
 }
-// SyntaxError: Funktionsanweisung erfordert einen Namen
+// SyntaxError: function statement requires a name
 ```
 
 Korrekt wäre:
@@ -131,6 +131,6 @@ promise.then(
 
 - [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) Leitfaden
 - [`function`](/de/docs/Web/JavaScript/Reference/Statements/function)
-- [`function` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function)
-- {{Glossary("IIFE")}}
-- [Beschriftete Anweisung](/de/docs/Web/JavaScript/Reference/Statements/label)
+- [`function` expression](/de/docs/Web/JavaScript/Reference/Operators/function)
+- [IIFE](/de/docs/Glossary/IIFE)
+- [Bezeichnete Anweisung](/de/docs/Web/JavaScript/Reference/Statements/label)

@@ -3,13 +3,12 @@ title: "BluetoothRemoteGATTDescriptor: uuid-Eigenschaft"
 short-title: uuid
 slug: Web/API/BluetoothRemoteGATTDescriptor/uuid
 l10n:
-  sourceCommit: 167995d99581b23663efd975c8cf68659f901307
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`BluetoothRemoteGATTDescriptor.uuid`** gibt die {{Glossary("UUID")}} des Merkmalsdeskriptors zurück.
-Beispielsweise '`00002902-0000-1000-8000-00805f9b34fb`' für den Client Characteristic Configuration-Deskriptor.
+Die schreibgeschützte **`BluetoothRemoteGATTDescriptor.uuid`**-Eigenschaft gibt die [UUID](/de/docs/Glossary/UUID) des Merkmal-Descriptors zurück. Zum Beispiel `"00002902-0000-1000-8000-00805f9b34fb"` für den Client Characteristic Configuration Descriptor.
 
 ## Wert
 

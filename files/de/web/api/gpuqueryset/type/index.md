@@ -3,25 +3,25 @@ title: "GPUQuerySet: type-Eigenschaft"
 short-title: type
 slug: Web/API/GPUQuerySet/type
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`type`**-Eigenschaft der {{domxref("GPUQuerySet")}}-Schnittstelle ist ein aufzählbarer Wert, der den Typ der Abfragen spezifiziert, die vom `GPUQuerySet` verwaltet werden.
+Die **`type`** schreibgeschützte Eigenschaft der [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Schnittstelle ist ein enumerierter Wert, der den Typ der von `GPUQuerySet` verwalteten Abfragen angibt.
 
 ## Wert
 
-Ein aufzählbarer Wert. Mögliche Werte sind:
+Ein enumerierter Wert. Mögliche Werte sind:
 
 - `"occlusion"`
-  - : Das `GPUQuerySet` verwaltet Occlusion-Abfragen.
+  - : Der `GPUQuerySet` verwaltet Occlusion-Abfragen.
 - `"timestamp"`
-  - : Das `GPUQuerySet` verwaltet Timestamp-Abfragen.
+  - : Der `GPUQuerySet` verwaltet Zeitstempel-Abfragen.
 
 ## Beispiele
 
-Ein Beispiel finden Sie auf der Hauptseite von [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet#examples).
+Sehen Sie sich die Hauptseite von [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet#examples) für ein Beispiel an.
 
 ## Spezifikationen
 

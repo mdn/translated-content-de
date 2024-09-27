@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte Eigenschaft **`sittingToStandingTransform`** der Schnittstelle {{domxref("VRStageParameters")}} enthält eine Matrix, die die Sitzraum-Ansichts-Matrizen von {{domxref("VRFrameData")}} in den Stehraum transformiert.
+Die schreibgeschützte Eigenschaft **`sittingToStandingTransform`** der Schnittstelle [`VRStageParameters`](/de/docs/Web/API/VRStageParameters) enthält eine Matrix, die die Sitzraum-Sichtbarkeitsmatrizen von [`VRFrameData`](/de/docs/Web/API/VRFrameData) in den Steh-Raum transformiert.
 
 > [!NOTE]
-> Diese Eigenschaft war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
+> Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
 
-Grundsätzlich kann dies in Ihren WebGL-Code eingefügt werden, um die gerenderte Ansicht von einer Sitz- zu einer Stehansicht zu transformieren.
+Im Grunde kann dies in Ihren WebGL-Code eingefügt werden, um die gerenderte Ansicht von einer Sitz- zu einer Stehansicht zu transformieren.
 
 ## Wert
 
@@ -25,9 +25,9 @@ Siehe [`VRStageParameters`](/de/docs/Web/API/VRStageParameters#examples) für Be
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Leitfaden zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder auf ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verlassen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Leitfaden zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 
@@ -35,4 +35,4 @@ Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundam
 
 ## Siehe auch
 
-- [WebVR-API](/de/docs/Web/API/WebVR_API)
+- [WebVR API](/de/docs/Web/API/WebVR_API)

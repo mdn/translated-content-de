@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die schreibgeschützte **`pictureInPictureEnabled`**-Eigenschaft des {{domxref("Document")}}-Interfaces zeigt an, ob der Bild-in-Bild-Modus verfügbar ist oder nicht.
+Die schreibgeschützte **`pictureInPictureEnabled`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces zeigt an, ob der Bild-in-Bild-Modus verfügbar ist oder nicht.
 
-Der Bild-in-Bild-Modus ist standardmäßig verfügbar, es sei denn, es wurde anderweitig durch eine [Permissions-Policy](/de/docs/Web/HTTP/Headers/Permissions-Policy/picture-in-picture) festgelegt.
+Der Bild-in-Bild-Modus ist standardmäßig verfügbar, sofern nicht anderweitig durch eine [Permissions-Policy](/de/docs/Web/HTTP/Headers/Permissions-Policy/picture-in-picture) festgelegt.
 
-Obwohl diese Eigenschaft schreibgeschützt ist, wird sie keine Ausnahme auslösen, wenn sie modifiziert wird (selbst im Strict-Modus); der Setter ist eine Nicht-Operation und wird ignoriert.
+Obwohl diese Eigenschaft schreibgeschützt ist, wird sie keine Fehler auslösen, wenn sie modifiziert wird (auch nicht im strikten Modus); der Setter ist eine No-Operation und wird ignoriert.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn ein Video in den Bild-in-Bild-Modus wechseln und in einem schwebenden Fenster angezeigt werden kann, indem {{domxref("HTMLVideoElement.requestPictureInPicture()")}} aufgerufen wird. Wenn der Bild-in-Bild-Modus nicht verfügbar ist, ist dieser Wert `false`.
+Ein boolescher Wert, der `true` ist, wenn ein Video in den Bild-in-Bild-Modus wechseln und in einem schwebenden Fenster angezeigt werden kann, indem [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) aufgerufen wird. Ist der Bild-in-Bild-Modus nicht verfügbar, ist dieser Wert `false`.
 
 ## Beispiele
 
@@ -27,7 +27,7 @@ function requestPictureInPicture() {
   if (document.pictureInPictureEnabled) {
     videoElement.requestPictureInPicture();
   } else {
-    console.log("Ihr Browser kann momentan kein Bild-in-Bild verwenden");
+    console.log("Your browser cannot use picture-in-picture right now");
   }
 }
 ```
@@ -42,8 +42,8 @@ function requestPictureInPicture() {
 
 ## Siehe auch
 
-- {{DOMxRef("HTMLVideoElement.requestPictureInPicture()")}}
-- {{DOMxRef("HTMLVideoElement.disablePictureInPicture")}}
-- {{DOMxRef("Document.exitPictureInPicture()")}}
-- {{DOMxRef("Document.pictureInPictureElement")}}
+- [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture)
+- [`HTMLVideoElement.disablePictureInPicture`](/de/docs/Web/API/HTMLVideoElement/disablePictureInPicture)
+- [`Document.exitPictureInPicture()`](/de/docs/Web/API/Document/exitPictureInPicture)
+- [`Document.pictureInPictureElement`](/de/docs/Web/API/Document/pictureInPictureElement)
 - {{CSSxRef(":picture-in-picture")}}

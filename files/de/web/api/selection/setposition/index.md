@@ -1,5 +1,5 @@
 ---
-title: "Selection: setPosition()-Methode"
+title: "Selection: Methode setPosition()"
 short-title: setPosition()
 slug: Web/API/Selection/setPosition
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Selection.setPosition()`**-Methode reduziert die aktuelle Auswahl auf einen einzelnen Punkt. Das Dokument wird dabei nicht geändert. Wenn der Inhalt fokussiert und bearbeitbar ist, blinkt der Cursor an dieser Stelle.
+Die **`Selection.setPosition()`**-Methode reduziert die aktuelle Auswahl auf einen einzigen Punkt. Das Dokument wird nicht verändert. Wenn der Inhalt fokussiert und bearbeitbar ist, blinkt dort der Cursor.
 
 > [!NOTE]
-> Diese Methode ist ein Alias für die Methode {{domxref("Selection.collapse()")}}.
+> Diese Methode ist ein Alias für die [`Selection.collapse()`](/de/docs/Web/API/Selection/collapse)-Methode.
 
 ## Syntax
 
@@ -23,9 +23,13 @@ setPosition(node, offset)
 ### Parameter
 
 - `node`
-  - : Die Cursor-Position wird sich innerhalb dieses Knotens befinden. Dieser Wert kann auch auf `null` gesetzt werden — wenn `null` angegeben ist, verhält sich die Methode wie {{domxref("Selection.removeAllRanges()")}}, d.h. alle Bereiche werden aus der Auswahl entfernt.
+  - : Die Cursorposition wird innerhalb dieses Knotens sein. Dieser Wert kann auch auf
+    `null` gesetzt werden — wenn `null` angegeben ist, wird die Methode sich wie
+    [`Selection.removeAllRanges()`](/de/docs/Web/API/Selection/removeAllRanges) verhalten, d.h. alle Bereiche werden aus der
+    Auswahl entfernt.
 - `offset` {{optional_inline}}
-  - : Der Offset in `node`, auf den die Auswahl reduziert wird. Wenn nicht angegeben, wird der Standardwert `0` verwendet.
+  - : Der Versatz in `node`, auf den die Auswahl reduziert wird. Wenn nicht
+    angegeben, wird der Standardwert `0` verwendet.
 
 ### Rückgabewert
 
@@ -34,7 +38,7 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```js
-// Platziert den Cursor am Anfang des body-Elements eines HTML-Dokuments.
+// Place the caret at the beginning of an HTML document's body.
 const body = document.querySelector("body");
 window.getSelection().setPosition(body, 0);
 ```
@@ -49,4 +53,4 @@ window.getSelection().setPosition(body, 0);
 
 ## Siehe auch
 
-- {{domxref("Selection.collapse()")}}
+- [`Selection.collapse()`](/de/docs/Web/API/Selection/collapse)

@@ -2,14 +2,14 @@
 title: patternUnits
 slug: Web/SVG/Attribute/patternUnits
 l10n:
-  sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
+  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
 ---
 
 {{SVGRef}}
 
-Das **`patternUnits`**-Attribut gibt an, welches Koordinatensystem für die Geometrieeigenschaften des {{ SVGElement("pattern") }}-Elements verwendet werden soll.
+Das Attribut **`patternUnits`** gibt an, welches Koordinatensystem für die Geometrieeigenschaften des {{ SVGElement("pattern") }}-Elements verwendet werden soll.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('pattern')}}
 
@@ -25,7 +25,7 @@ svg {
 
 ```html
 <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Alle Geometrieeigenschaften sind relativ zum aktuellen Benutzerkoordinatensystem -->
+  <!-- All geometry properties are relative to the current user space -->
   <pattern
     id="p1"
     x="12.5"
@@ -36,7 +36,7 @@ svg {
     <circle cx="10" cy="10" r="10" />
   </pattern>
 
-  <!-- Alle Geometrieeigenschaften sind relativ zum Zielbegrenzungsrahmen -->
+  <!-- All geometry properties are relative to the target bounding box -->
   <pattern
     id="p2"
     x=".125"
@@ -47,15 +47,15 @@ svg {
     <circle cx="10" cy="10" r="10" />
   </pattern>
 
-  <!-- Linkes Quadrat mit Benutzerkoordinatensystem-Kacheln -->
+  <!-- Left square with user space tiles -->
   <rect x="10" y="10" width="80" height="80" fill="url(#p1)" />
 
-  <!-- Rechtes Quadrat mit Begrenzungsrahmen-Kacheln -->
+  <!-- Right square with bounding box tiles -->
   <rect x="110" y="10" width="80" height="80" fill="url(#p2)" />
 </svg>
 ```
 
-{{EmbedLiveSample("Example", '100%', 200)}}
+{{EmbedLiveSample("Beispiel", '100%', 200)}}
 
 ## pattern
 
@@ -79,14 +79,14 @@ Für {{SVGElement('pattern')}} definiert `patternUnits` das verwendete Koordinat
 </table>
 
 - `userSpaceOnUse`
-  - : Dieser Wert gibt an, dass alle Koordinaten für die Geometrieeigenschaften sich auf das Benutzerkoordinatensystem beziehen, wie es definiert wurde, als das Muster angewendet wurde.
+  - : Dieser Wert gibt an, dass sich alle Koordinaten für die Geometrieeigenschaften auf das Benutzerkoordinatensystem beziehen, wie es definiert war, als das Muster angewendet wurde.
 - `objectBoundingBox`
-  - : Dieser Wert gibt an, dass alle Koordinaten für die Geometrieeigenschaften Brüche oder Prozentsätze des Begrenzungsrahmens des Elements darstellen, auf das das Muster angewendet wird. Ein Begrenzungsrahmen könnte als identisch betrachtet werden, als ob der Inhalt des {{ SVGElement("pattern") }} an eine "`0 0 1 1`" {{ SVGAttr("viewBox") }} gebunden wäre.
+  - : Dieser Wert gibt an, dass alle Koordinaten für die Geometrieeigenschaften Brüche oder Prozentsätze des Begrenzungsrahmens des Elements darstellen, auf das das Muster angewendet wird. Ein Begrenzungsrahmen könnte als dasselbe angesehen werden, als ob der Inhalt des {{ SVGElement("pattern") }} an eine `"0 0 1 1"` {{ SVGAttr("viewBox") }} gebunden wäre.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

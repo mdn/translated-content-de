@@ -8,13 +8,12 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die **{{domxref("HTMLVideoElement")}}** Methode
-**`requestPictureInPicture()`** sendet eine asynchrone Anfrage,
-um das Video im Bild-in-Bild-Modus anzuzeigen.
+Die Methode **[`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)**
+**`requestPictureInPicture()`** stellt eine asynchrone Anfrage, um das Video im Bild-im-Bild-Modus anzuzeigen.
 
-Es ist nicht garantiert, dass das Video in den Bild-in-Bild-Modus versetzt wird. Wenn die Erlaubnis
-zum Betreten dieses Modus erteilt wird, wird das zurückgegebene {{jsxref("Promise")}} aufgelöst und das
-Video erhält ein {{domxref("HTMLVideoElement.enterpictureinpicture_event", "enterpictureinpicture")}}-Ereignis, um zu erfahren, dass es sich jetzt im Bild-in-Bild-Modus befindet.
+Es ist nicht garantiert, dass das Video in den Bild-im-Bild-Modus versetzt wird. Wenn die Erlaubnis
+für diesen Modus erteilt wird, wird das zurückgegebene {{jsxref("Promise")}}
+aufgelöst, und das Video erhält ein [`enterpictureinpicture`](/de/docs/Web/API/HTMLVideoElement/enterpictureinpicture_event)-Ereignis, um zu signalisieren, dass es sich nun im Bild-im-Bild-Modus befindet.
 
 ## Syntax
 
@@ -28,27 +27,26 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem {{domxref("PictureInPictureWindow")}}
-Objekt aufgelöst wird, das verwendet werden kann, um zu hören, wann ein Benutzer dieses schwebende Fenster vergrößert.
+Ein {{jsxref("Promise")}} das zu einem [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow) Objekt aufgelöst wird, das verwendet werden kann, um zu erkennen, wann ein Benutzer dieses schwebende Fenster vergrößert.
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Funktion nicht unterstützt wird (zum Beispiel deaktiviert durch eine Benutzereinstellung oder aufgrund einer Plattformbeschränkung).
-- `SecurityError` {{domxref("DOMException")}}
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Funktion nicht unterstützt wird (beispielsweise deaktiviert durch eine Benutzereinstellung oder durch eine Plattformbeschränkung).
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Funktion durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert wird.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der `readState` des Videoelements `HAVE_NOTHING` ist, oder wenn das Videoelement keinen Videotrack hat, oder wenn das `disablePictureInPicture` Attribut des Videoelements `true` ist.
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `document.pictureInPictureElement` `null` ist und das Dokument keine {{Glossary("transient activation")}} hat.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der `readState` des Video-Elements `HAVE_NOTHING` ist, oder wenn das Video-Element keine Video-Spur hat, oder wenn das `disablePictureInPicture` Attribut des Video-Elements `true` ist.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `document.pictureInPictureElement` `null` ist und das Dokument keine [transiente Aktivierung](/de/docs/Glossary/transient_activation) hat.
 
 ## Sicherheit
 
-[Vorübergehende Nutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Nutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+Für die Nutzung ist eine [transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 
-Dieses Beispiel fordert, dass das Video in den Bild-in-Bild-Modus wechselt, und setzt einen Ereignislistener, um die Größenänderung des schwebenden Fensters zu bearbeiten.
+Dieses Beispiel fordert, dass das Video in den Bild-im-Bild-Modus wechselt, und setzt einen Ereignislistener, um die Größenänderung des schwebenden Fensters zu behandeln.
 
 ```js
 function enterPictureInPicture() {
@@ -66,15 +64,15 @@ function enterPictureInPicture() {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - Das {{HTMLElement("video")}} Element
-- {{DOMxRef("HTMLVideoElement.disablePictureInPicture")}}
-- {{DOMxRef("Document.pictureInPictureEnabled")}}
-- {{DOMxRef("Document.exitPictureInPicture()")}}
-- {{DOMxRef("Document.pictureInPictureElement")}}
+- [`HTMLVideoElement.disablePictureInPicture`](/de/docs/Web/API/HTMLVideoElement/disablePictureInPicture)
+- [`Document.pictureInPictureEnabled`](/de/docs/Web/API/Document/pictureInPictureEnabled)
+- [`Document.exitPictureInPicture()`](/de/docs/Web/API/Document/exitPictureInPicture)
+- [`Document.pictureInPictureElement`](/de/docs/Web/API/Document/pictureInPictureElement)
 - {{CSSxRef(":picture-in-picture")}}

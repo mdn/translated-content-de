@@ -1,5 +1,5 @@
 ---
-title: "HTMLSelectElement: Eigenschaft value"
+title: "HTMLSelectElement: value-Eigenschaft"
 short-title: value
 slug: Web/API/HTMLSelectElement/value
 l10n:
@@ -10,21 +10,21 @@ l10n:
 
 Die **`HTMLSelectElement.value`**-Eigenschaft enthält den Wert des ersten ausgewählten {{htmlelement("option")}}-Elements, das mit diesem {{htmlelement("select")}}-Element verknüpft ist.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um basierend auf einer Bedingung einen Standardwert zu setzen.
+Diese Eigenschaft kann auch direkt gesetzt werden, um beispielsweise einen Standardwert basierend auf einer Bedingung festzulegen.
 
 ## Wert
 
-Ein String, der den Wert des ersten ausgewählten {{htmlelement("option")}}-Elements in diesem {{htmlelement("select")}}-Element enthält oder den leeren String, wenn keine Optionen ausgewählt sind.
+Ein String, der den Wert des ersten ausgewählten {{htmlelement("option")}}-Elements in diesem {{htmlelement("select")}}-Element enthält, oder der leere String, wenn keine Optionen ausgewählt sind.
 
 ## Beispiele
 
 ### Abrufen des ausgewählten Wertes
 
 ```html
-<label for="bird-select">Wählen Sie einen Vogel:</label>
+<label for="bird-select">Choose a bird:</label>
 
 <select name="birds" id="bird-select">
-  <option value="">--Bitte wählen Sie eine Option--</option>
+  <option value="">--Please choose an option--</option>
   <option value="Scarlet ibis">Scarlet ibis</option>
   <option value="Marabou stork">Marabou stork</option>
   <option value="Roseate spoonbill">Roseate spoonbill</option>
@@ -53,7 +53,7 @@ select.addEventListener("change", () => {
 }
 ```
 
-{{EmbedLiveSample("Retrieving the selected value")}}
+{{EmbedLiveSample("Abrufen des ausgewählten Wertes")}}
 
 ## Spezifikationen
 
@@ -65,4 +65,4 @@ select.addEventListener("change", () => {
 
 ## Siehe auch
 
-- Das {{HTMLElement("select")}} HTML-Element, das dieses Interface implementiert.
+- Das {{HTMLElement("select")}}-HTML-Element, das dieses Interface implementiert.

@@ -7,49 +7,49 @@ l10n:
 
 {{DefaultAPISidebar("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **Trusted Types API** bietet Webentwicklern eine Möglichkeit, unsichere Teile der {{domxref("Document Object Model","DOM API", "", "nocode")}} abzusichern, um clientseitige {{Glossary("Cross-site scripting")}} (XSS) Angriffe zu verhindern.
+Die **Trusted Types API** bietet Webentwicklern eine Möglichkeit, unsichere Teile der [DOM API](/de/docs/Web/API/Document_Object_Model) abzuriegeln, um clientseitige [Cross-site Scripting](/de/docs/Glossary/Cross-site_scripting) (XSS) Angriffe zu verhindern.
 
 ## Konzepte und Nutzung
 
-Client-seitige oder DOM-basierte XSS-Angriffe treten auf, wenn von einem Benutzer kontrollierte Daten (wie etwa die Eingabe in ein Formularfeld) eine Funktion erreichen, die diese Daten ausführen kann. Diese Funktionen werden als _Injection Sinks_ bezeichnet. DOM-basierte XSS-Angriffe passieren, wenn ein Benutzer in der Lage ist, beliebigen JavaScript-Code zu schreiben und ihn von einer dieser Funktionen ausführen zu lassen.
+Clientseitige oder DOM-basierte XSS-Angriffe geschehen, wenn von einem Benutzer kontrollierte Daten (wie jene in ein Formularfeld eingegebene Daten) eine Funktion erreichen, die diese Daten ausführen kann. Diese Funktionen werden als _Injection Sinks_ bezeichnet. DOM-basierte XSS-Angriffe geschehen, wenn ein Benutzer in der Lage ist, beliebigen JavaScript-Code zu schreiben und von einer dieser Funktionen ausführen zu lassen.
 
-Die Trusted Types API sperrt risikoreiche Injection Sinks und erfordert, dass Sie die Daten verarbeiten, bevor Sie sie an eine dieser Funktionen übergeben. Wenn Sie einen String verwenden, wird der Browser einen {{jsxref("TypeError")}} auslösen und die Verwendung der Funktion verhindern.
+Die Trusted Types API schränkt riskante Injection Sinks ein, indem sie verlangt, dass die Daten verarbeitet werden, bevor sie an eine dieser Funktionen übergeben werden. Wenn Sie einen String verwenden, wird der Browser eine {{jsxref("TypeError")}} auslösen und die Nutzung der Funktion verhindern.
 
-Trusted Types arbeitet zusammen mit [Content-Security-Policy](/de/docs/Web/HTTP/CSP) unter Verwendung der {{CSP("trusted-types")}}- und {{CSP("require-trusted-types-for")}}-Direktiven.
+Trusted Types arbeitet in Verbindung mit [Content-Security Policy](/de/docs/Web/HTTP/CSP) mit den Direktiven {{CSP("trusted-types")}} und {{CSP("require-trusted-types-for")}}.
 
 ### Injection Sinks
 
-Die Trusted Types API sperrt Injection Sinks, die als Vektor für DOM-XSS-Angriffe dienen können. Ein Injection Sink ist jede Web API-Funktion, die nur mit vertrauenswürdigen, validierten oder gesäuberten Eingaben aufgerufen werden sollte. Beispiele für Injection Sinks umfassen:
+Die Trusted Types API beschränkt Injection Sinks, die als Einfallstor für DOM-XSS-Angriffe fungieren können. Ein Injection Sink ist jede Web-API-Funktion, die nur mit vertrauenswürdigen, validierten oder bereinigten Eingaben aufgerufen werden sollte. Beispiele für Injection Sinks sind:
 
-- Funktionen, die HTML in das Dokument einfügen, wie {{domxref("Element.innerHTML")}}, {{domxref("Element.outerHTML")}} oder {{domxref("Document.write()")}}.
-- Funktionen, die ein neues gleichherkunftsberechtigtes {{domxref("Document")}} mit vom Aufrufer kontrolliertem Markup erstellen, wie {{domxref("DOMParser.parseFromString()")}}.
+- Funktionen, die HTML in das Dokument einfügen, wie [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML), [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML) oder [`Document.write()`](/de/docs/Web/API/Document/write).
+- Funktionen, die ein neues, gleichherkunftliches [`Document`](/de/docs/Web/API/Document) mit vom Aufrufer kontrolliertem Markup erstellen, wie [`DOMParser.parseFromString()`](/de/docs/Web/API/DOMParser/parseFromString).
 - Funktionen, die Code ausführen, wie {{jsxref("Global_Objects/eval", "eval()")}}.
-- Setzmethoden für {{domxref("Element")}}-Attribute, die eine URL von Code akzeptieren, der geladen oder ausgeführt werden soll.
+- Setter für [`Element`](/de/docs/Web/API/Element)-Attribute, die eine URL zum Laden oder Ausführen von Code akzeptieren.
 
-Trusted Types wird Sie zwingen, die Daten zu verarbeiten, bevor sie an einen Injection Sink übergeben werden, anstatt einen String zu verwenden. Dies stellt sicher, dass die Daten vertrauenswürdig sind.
+Trusted Types zwingt Sie dazu, die Daten zu verarbeiten, bevor Sie sie an einen Injection Sink übergeben, anstatt einen String zu verwenden. Dies gewährleistet, dass die Daten vertrauenswürdig sind.
 
 ### Trusted Type Policies
 
-Eine Richtlinie ist eine Fabrik für Trusted Types. Webentwickler können ein Set von Richtlinien festlegen, die zur Erstellung von typisierten Objekten verwendet werden, die die vertrauenswürdige Codebasis für gültige Trusted Type-Objekte bilden.
+Eine Policy ist eine Fabrik für Trusted Types. Webentwickler können einen Satz von Policies festlegen, die für die Erstellung typisierter Objekte verwendet werden, die den vertrauenswürdigen Codebase für gültige Trusted Type Objekte bilden.
 
 ## Schnittstellen
 
-- {{domxref("TrustedHTML")}}
-  - : Repräsentiert einen String, der in einen Injection Sink eingefügt wird und als HTML gerendert wird.
-- {{domxref("TrustedScript")}}
-  - : Repräsentiert einen String, der in einen Injection Sink eingefügt wird und zur Ausführung des Skripts führen könnte.
-- {{domxref("TrustedScriptURL")}}
-  - : Repräsentiert einen String, der in einen Injection Sink eingefügt wird und als URL einer externen Skript-Ressource geparst wird.
-- {{domxref("TrustedTypePolicy")}}
-  - : Definiert die Funktionen, die zur Erstellung der oben genannten Trusted Type-Objekte verwendet werden.
-- {{domxref("TrustedTypePolicyFactory")}}
-  - : Erstellt Richtlinien und überprüft, dass Trusted Type-Objektinstanzen über eine der Richtlinien erstellt wurden.
+- [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)
+  - : Stellt einen String dar, der in einen Injection Sink eingefügt wird, der ihn als HTML rendert.
+- [`TrustedScript`](/de/docs/Web/API/TrustedScript)
+  - : Stellt einen String dar, der in einen Injection Sink eingefügt wird, der dazu führen kann, dass das Skript ausgeführt wird.
+- [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)
+  - : Stellt einen String dar, der in einen Injection Sink eingefügt wird, der ihn als URL einer externen Skriptressource parsen wird.
+- [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy)
+  - : Definiert die Funktionen, die zur Erstellung der oben genannten Trusted Type Objekte verwendet werden.
+- [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)
+  - : Erstellt Policies und überprüft, dass Trusted Type Objektinstanzen über eine der Policies erstellt wurden.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine Richtlinie, die {{domxref("TrustedHTML")}}-Objekte mit {{domxref("TrustedTypePolicyFactory.createPolicy()")}} erstellt. Wir können dann {{domxref("TrustedTypePolicy.createHTML()")}} verwenden, um einen gesäuberten HTML-String zu erstellen, der in das Dokument eingefügt wird.
+Im folgenden Beispiel erstellen wir eine Policy, die [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte mit [`TrustedTypePolicyFactory.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) erstellt. Wir können dann [`TrustedTypePolicy.createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML) verwenden, um einen bereinigten HTML-String zu erstellen, der in das Dokument eingefügt werden soll.
 
-Der gesäuberte Wert kann dann mit {{domxref("Element.innerHTML")}} verwendet werden, um sicherzustellen, dass keine neuen HTML-Elemente eingefügt werden können.
+Der bereinigte Wert kann dann mit [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwendet werden, um sicherzustellen, dass keine neuen HTML-Elemente eingefügt werden können.
 
 ```html
 <div id="myDiv"></div>
@@ -71,7 +71,7 @@ console.log(escaped instanceof TrustedHTML); // true
 el.innerHTML = escaped;
 ```
 
-Lesen Sie mehr über dieses Beispiel und entdecken Sie weitere Möglichkeiten, Eingaben zu säubern, im Artikel [Verhindern Sie DOM-basierte Cross-Site-Scripting-Schwachstellen mit Trusted Types](https://web.dev/articles/trusted-types).
+Lesen Sie mehr über dieses Beispiel und entdecken Sie weitere Möglichkeiten zur Bereinigung von Eingaben im Artikel [Prevent DOM-based cross-site scripting vulnerabilities with Trusted Types](https://web.dev/articles/trusted-types).
 
 ## Spezifikationen
 
@@ -83,5 +83,5 @@ Lesen Sie mehr über dieses Beispiel und entdecken Sie weitere Möglichkeiten, E
 
 ## Siehe auch
 
-- [Verhindern Sie DOM-basierte Cross-Site-Scripting-Schwachstellen mit Trusted Types](https://web.dev/articles/trusted-types)
-- [Trusted Types Polyfill](https://github.com/w3c/trusted-types#polyfill) (auch als [npm-Paket](https://www.npmjs.com/package/trusted-types) verfügbar)
+- [Prevent DOM-based cross-site scripting vulnerabilities with Trusted Types](https://web.dev/articles/trusted-types)
+- [Trusted Types polyfill](https://github.com/w3c/trusted-types#polyfill) (ebenfalls verfügbar als [npm package](https://www.npmjs.com/package/trusted-types))

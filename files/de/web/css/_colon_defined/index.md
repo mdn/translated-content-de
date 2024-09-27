@@ -1,5 +1,5 @@
 ---
-title: ":definiert"
+title: ":defined"
 slug: Web/CSS/:defined
 l10n:
   sourceCommit: 415caa6799f43a4e5d47a8dbc7ed6089730109bf
@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:defined`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes Element, das definiert wurde. Dies schließt sowohl Standard-Elemente, die in den Browser integriert sind, als auch benutzerdefinierte Elemente ein, die erfolgreich definiert wurden (z. B. mit der Methode {{domxref("CustomElementRegistry.define()")}}).
+Die **`:defined`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes Element, das definiert wurde. Dies schließt alle standardmäßigen, im Browser integrierten Elemente und benutzerdefinierte Elemente ein, die erfolgreich definiert wurden (d. h. mit der Methode [`CustomElementRegistry.define()`](/de/docs/Web/API/CustomElementRegistry/define)).
 
 ```css
-/* Wählt jedes definierte Element aus */
+/* Selects any defined element */
 :defined {
   font-style: italic;
 }
 
-/* Wählt jede Instanz eines spezifischen benutzerdefinierten Elements aus */
+/* Selects any instance of a specific custom element */
 simple-custom:defined {
   display: block;
 }
@@ -33,21 +33,21 @@ simple-custom:defined {
 
 ### Elemente ausblenden, bis sie definiert sind
 
-In dieser Demo definieren wir ein einfaches benutzerdefiniertes Element namens `<custom-element>` und verwenden die Selektoren `:not(:defined)` und `:defined`, um das Element vor und nach seiner Definition zu stylen. Dies ist nützlich, wenn Sie ein komplexes benutzerdefiniertes Element haben, das einige Zeit benötigt, um in die Seite geladen zu werden — möglicherweise möchten Sie Instanzen des Elements ausblenden, bis die Definition abgeschlossen ist, um Blinkeffekte von unschönen, ungestylten Elementen auf der Seite zu vermeiden.
+In diesem Beispiel definieren wir ein einfaches benutzerdefiniertes Element namens `<custom-element>` und verwenden die Selektoren `:not(:defined)` und `:defined`, um das Element vor und nach seiner Definition zu gestalten. Dies ist nützlich, wenn Sie ein komplexes benutzerdefiniertes Element haben, das eine Weile braucht, um in die Seite geladen zu werden – möglicherweise möchten Sie Instanzen des Elements ausblenden, bis die Definition abgeschlossen ist, um Blitze von ungestalteten, unschönen Elementen auf der Seite zu vermeiden.
 
 #### HTML
 
-Der folgende HTML-Code verwendet das benutzerdefinierte Element, aber das Element wurde noch nicht definiert. Wir fügen auch einen {{htmlelement("button")}} hinzu, der das benutzerdefinierte Element beim Klicken definiert und Ihnen ermöglicht, seinen Zustand vor und nach der Definition zu sehen.
+Der folgende HTML-Code verwendet das benutzerdefinierte Element, aber das Element wurde noch nicht definiert. Wir fügen auch ein {{htmlelement("button")}} hinzu, das das benutzerdefinierte Element definiert, wenn es geklickt wird, sodass Sie dessen Zustand vor und nach der Definition sehen können.
 
 ```html
 <custom-element>
   <p>
-    Geladener Inhalt: Lorem ipsum tel sed tellus eiusmod tellus. Aenean. Semper
+    Loaded content: Lorem ipsum tel sed tellus eiusmod tellus. Aenean. Semper
     dolor sit nisi. Elit porttitor nisi sit vivamus.
   </p>
 </custom-element>
 
-<button id="btn">Definieren Sie das <code>&lt;custom-element&gt;</code></button>
+<button id="btn">define the <code>&lt;custom-element&gt;</code></button>
 ```
 
 #### CSS
@@ -74,7 +74,7 @@ code {
 }
 ```
 
-In dem folgenden CSS verwenden wir den `custom-element:not(:defined)` Selektor, um das Element auszuwählen und es grau zu färben, solange es nicht definiert ist, und den `custom-element:defined` Selektor, um das Element auszuwählen und es schwarz zu färben, nachdem es definiert wurde.
+Im folgenden CSS verwenden wir den Selektor `custom-element:not(:defined)`, um das Element auszuwählen und es grau zu färben, während es noch nicht definiert ist, und den Selektor `custom-element:defined`, um das Element auszuwählen und es schwarz zu färben, nachdem es definiert wurde.
 
 ```css
 custom-element:not(:defined) {
@@ -88,9 +88,9 @@ custom-element:defined {
   color: black;
 }
 
-/* Lade-Nachricht anzeigen */
+/* show loading message */
 custom-element:not(:defined)::before {
-  content: "Lädt...";
+  content: "Loading...";
   position: absolute;
   inset: 0 0 0 0;
   align-content: center;
@@ -100,15 +100,15 @@ custom-element:not(:defined)::before {
   border-radius: 1rem;
 }
 
-/* Lade-Nachricht entfernen */
+/* remove the loading message */
 custom-element:defined::before {
   content: "";
 }
 ```
 
-Wir haben auch das [`::before`](/de/docs/Web/CSS/::before) Pseudoelement verwendet, um eine "Lädt..." Overlay-Nachricht anzuzeigen, bis das Element definiert ist. Nach der Definition wird es durch Setzen des [`content`](/de/docs/Web/CSS/content) auf einen leeren String entfernt.
+Wir haben auch das [`::before`](/de/docs/Web/CSS/::before) Pseudoelement verwendet, um eine "Laden..."-Overlay-Nachricht anzuzeigen, bis das Element definiert ist. Nach der Definition wird es entfernt, indem der [`content`](/de/docs/Web/CSS/content) auf einen leeren String gesetzt wird.
 
-Das folgende JavaScript wurde verwendet, um das benutzerdefinierte Element zu definieren. Um Ihnen den Zustand des benutzerdefinierten Elements vor und nach der Definition zu zeigen, führen wir die Methode {{domxref("CustomElementRegistry.define", "define()")}} aus, wenn der Button angeklickt wird.
+Der folgende JavaScript-Code wurde verwendet, um das benutzerdefinierte Element zu definieren. Um Ihnen die Möglichkeit zu geben, den Zustand des benutzerdefinierten Elements vor und nach der Definition zu sehen, führen wir die Methode [`define()`](/de/docs/Web/API/CustomElementRegistry/define) aus, wenn der Button geklickt wird.
 
 ```js
 const btn = document.querySelector("#btn");
@@ -133,4 +133,4 @@ btn.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [Webkomponenten](/de/docs/Web/API/Web_components)
+- [Web-Komponenten](/de/docs/Web/API/Web_components)

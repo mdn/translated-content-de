@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`completed`** schreibgeschützte Eigenschaft des {{domxref("ImageDecoder")}}-Interfaces gibt ein Promise zurück, das sich auflöst, sobald die kodierten Daten das Puffern abgeschlossen haben.
+Die schreibgeschützte **`completed`**-Eigenschaft des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces gibt ein Promise zurück, das aufgelöst wird, sobald die kodierten Daten vollständig gepuffert sind.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}, das sich mit {{jsxref("undefined")}} auflöst, sobald {{domxref("ImageDecoder.complete")}} `true` ist.
+Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird, sobald [`ImageDecoder.complete`](/de/docs/Web/API/ImageDecoder/complete) `true` ist.
 
 ## Beispiele
 

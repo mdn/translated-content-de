@@ -1,5 +1,5 @@
 ---
-title: "ExtendableMessageEvent: ExtendableMessageEvent() Konstruktor"
+title: "ExtendableMessageEvent: ExtendableMessageEvent()-Konstruktor"
 short-title: ExtendableMessageEvent()
 slug: Web/API/ExtendableMessageEvent/ExtendableMessageEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Der **`ExtendableMessageEvent()`** Konstruktor erstellt ein neues {{domxref("ExtendableMessageEvent")}}-Objekt.
+Der **`ExtendableMessageEvent()`**-Konstruktor erstellt ein neues [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent)-Objekt.
 
 ## Syntax
 
@@ -21,26 +21,26 @@ new ExtendableMessageEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist case-sensitive, und Browser setzen ihn auf `messageerror` oder `message`.
+    Es ist groß- und kleinschreibungssensitiv und Browser setzen es auf `messageerror` oder `message`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das zusätzlich zu den in {{domxref("ExtendableEvent/ExtendableEvent", "ExtendableEvent()")}} definierten Eigenschaften die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `data` {{optional_inline}}
-      - : Die Daten des Ereignisses; dies kann jeder Datentyp sein. Der Standardwert ist `null`.
+      - : Die Daten des Ereignisses; dies kann ein beliebiger Datentyp sein. Standardmäßig `null`.
     - `origin` {{optional_inline}}
-      - : Ein String, der den Ursprung des entsprechenden Umgebungs-Einstellungsobjekts des Service Workers definiert.
-        Der Standardwert ist `""`.
+      - : Ein String, der den Ursprung des entsprechenden Service-Worker-Umgebungs-Einstellungsobjekts definiert.
+        Standardmäßig `""`.
     - `lastEventId` {{optional_inline}}
-      - : Ein String, der die letzte Ereignis-ID der Ereignisquelle definiert. Der Standardwert ist `""`.
+      - : Ein String, der die letzte Ereignis-ID der Ereignisquelle definiert. Standardmäßig `""`.
     - `source` {{optional_inline}}
-      - : Der {{domxref("Client")}}, {{domxref("ServiceWorker")}} oder {{domxref("MessagePort")}}, der die Nachricht gesendet hat.
-        Der Standardwert ist `null`.
+      - : Der [`Client`](/de/docs/Web/API/Client), [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) oder [`MessagePort`](/de/docs/Web/API/MessagePort), der die Nachricht gesendet hat.
+        Standardmäßig `null`.
     - `ports` {{optional_inline}}
-      - : Ein Array, das die {{domxref("MessagePort")}}-Objekte enthält, die mit dem Kanal verbunden sind, der die Nachricht sendet.
-        Der Standardwert ist ein leeres Array.
+      - : Ein Array, das die [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekte enthält, die mit dem Kanal verbunden sind, der die Nachricht sendet.
+        Standardmäßig ein leeres Array.
 
 ### Rückgabewert
 
-Ein neues {{domxref("ExtendableMessageEvent")}}-Objekt.
+Ein neues [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent)-Objekt.
 
 ## Beispiele
 
@@ -64,6 +64,6 @@ const myEME = new ExtendableMessageEvent("message", init);
 
 ## Siehe auch
 
-- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Codebeispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Channel Messaging](/de/docs/Web/API/Channel_Messaging_API)
+- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Code-Beispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Kanal-Messaging](/de/docs/Web/API/Channel_Messaging_API)

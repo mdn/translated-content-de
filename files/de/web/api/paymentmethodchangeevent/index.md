@@ -7,27 +7,27 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die **`PaymentMethodChangeEvent`**-Schnittstelle der [Payment Request API](/de/docs/Web/API/Payment_Request_API) beschreibt das {{domxref("PaymentRequest/paymentmethodchange_event", "paymentmethodchange")}}-Ereignis, das von einigen Zahlungshandlungen ausgelöst wird, wenn der Benutzer das Zahlungsmittel wechselt (z.B. wenn ein Benutzer eine "store"-Karte auswählt, um einen Kauf mit Apple Pay zu tätigen).
+Die **`PaymentMethodChangeEvent`**-Schnittstelle der [Payment Request API](/de/docs/Web/API/Payment_Request_API) beschreibt das [`paymentmethodchange`](/de/docs/Web/API/PaymentRequest/paymentmethodchange_event)-Ereignis, das von einigen Zahlungsabwicklern ausgelöst wird, wenn der Benutzer das Zahlungsmittel wechselt (z. B. wenn ein Benutzer beim Verwenden von Apple Pay eine "Shop"-Karte auswählt, um einen Kauf zu tätigen).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("PaymentMethodChangeEvent.PaymentMethodChangeEvent", "PaymentMethodChangeEvent()")}}
+- [`PaymentMethodChangeEvent()`](/de/docs/Web/API/PaymentMethodChangeEvent/PaymentMethodChangeEvent)
   - : Erstellt und gibt ein neues `PaymentMethodChangeEvent`-Objekt zurück.
 
 ## Instanz-Eigenschaften
 
-_Neben den unten aufgeführten Eigenschaften beinhaltet diese Schnittstelle auch Eigenschaften, die von {{domxref("PaymentRequestUpdateEvent")}} geerbt werden._
+_Zusätzlich zu den untenstehenden Eigenschaften enthält diese Schnittstelle Eigenschaften, die von [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent) geerbt wurden._
 
-- {{domxref("PaymentMethodChangeEvent.methodDetails", "methodDetails")}} {{ReadOnlyInline}}
-  - : Ein Objekt, das zahlungsmethoden-spezifische Daten enthält, die nützlich sind, wenn ein Zahlungsmethodenwechsel bearbeitet wird. Wenn keine solche Information verfügbar ist, hat dieser Wert `null`.
-- {{domxref("PaymentMethodChangeEvent.methodName", "methodName")}} {{ReadOnlyInline}}
-  - : Ein String, der den Bezeichner der Zahlungsmethode enthält, ein String, der eine bestimmte Zahlungsmethode eindeutig identifiziert. Dieser Bezeichner ist üblicherweise eine URL, die während des Zahlungsvorgangs verwendet wird, kann aber auch ein standardisierter, nicht-URL-String wie `basic-card` sein. Der Standardwert ist der leere String, `""`.
+- [`methodDetails`](/de/docs/Web/API/PaymentMethodChangeEvent/methodDetails) {{ReadOnlyInline}}
+  - : Ein Objekt, das zahlungsmethodenspezifische Daten enthält, die nützlich sind, wenn eine Zahlungsmethode geändert wird. Wenn keine solchen Informationen verfügbar sind, ist dieser Wert `null`.
+- [`methodName`](/de/docs/Web/API/PaymentMethodChangeEvent/methodName) {{ReadOnlyInline}}
+  - : Ein String, der den Identifikator der Zahlungsmethode enthält, ein String, der eine bestimmte Zahlungsmethode eindeutig identifiziert. Dieser Identifikator ist normalerweise eine URL, die während des Zahlungsvorgangs verwendet wird, kann aber auch ein standardisierter, nicht URL-basierter String wie `basic-card` sein. Der Standardwert ist der leere String `""`.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle beinhaltet Methoden, die von {{domxref("PaymentRequestUpdateEvent")}} geerbt werden._
+_Diese Schnittstelle enthält Methoden, die von [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent) geerbt wurden._
 
 ## Spezifikationen
 

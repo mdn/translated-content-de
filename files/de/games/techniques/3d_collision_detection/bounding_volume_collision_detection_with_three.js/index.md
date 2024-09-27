@@ -1,5 +1,5 @@
 ---
-title: Begrenzungsvolumen-Kollisionsdetektion mit THREE.js
+title: Kollisionsdetektion mit Begrenzungsvolumen in THREE.js
 slug: Games/Techniques/3D_collision_detection/Bounding_volume_collision_detection_with_THREE.js
 l10n:
   sourceCommit: b0d4232c133f19213742db2286d2c293ce71f674
@@ -7,15 +7,15 @@ l10n:
 
 {{GamesSidebar}}
 
-Dieser Artikel zeigt, wie man **Kollisionsdetektion zwischen Begrenzungsboxen und Kugeln mit der Three.js**-Bibliothek implementiert. Es wird davon ausgegangen, dass Sie vor dem Lesen dieses Artikels bereits unseren einführenden Artikel zur [3D-Kollisionsdetektion](/de/docs/Games/Techniques/3D_collision_detection) gelesen haben und Grundkenntnisse über Three.js besitzen.
+Dieser Artikel zeigt, wie Sie **Kollisionsdetektion zwischen Begrenzungsboxen und -kugeln mit der Bibliothek Three.js** implementieren können. Es wird vorausgesetzt, dass Sie vorher unseren einführenden Artikel zur [3D-Kollisionsdetektion](/de/docs/Games/Techniques/3D_collision_detection) gelesen haben und über grundlegende Kenntnisse von Three.js verfügen.
 
-## Verwendung von `Box3` und `Sphere`
+## Verwenden von `Box3` und `Sphere`
 
-Three.js bietet Objekte, die **mathematische Volumen** und Formen darstellen – für 3D-AABB und Begrenzungskugeln können wir die **[`Box3`](https://threejs.org/docs/#api/math/Box3)**- und **[`Sphere`](https://threejs.org/docs/#api/math/Sphere)**-Objekte verwenden. Nach der Instanziierung stehen sie für Schnittstellentests mit anderen Volumen zur Verfügung.
+Three.js bietet Objekte, die **mathematische Volumen** und Formen darstellen — für 3D-AABB und Begrenzungskugeln können wir die **[`Box3`](https://threejs.org/docs/#api/math/Box3)** und **[`Sphere`](https://threejs.org/docs/#api/math/Sphere)** Objekte verwenden. Nach der Instanziierung können diese Methoden verwenden, um Schnittmengentests mit anderen Volumina durchzuführen.
 
-### Instanziieren von Boxen
+### Instanziierung von Boxen
 
-Um eine **`Box3`-Instanz** zu erstellen, müssen wir die **unteren und oberen Grenzen** der Box angeben. Normalerweise möchten wir, dass diese AABB mit einem Objekt in unserer 3D-Welt "verbunden" ist (wie einem Charakter). In Three.js haben `Geometry`-Instanzen eine `boundingBox`-Eigenschaft mit den `min` und `max` Grenzen des Objekts. Beachten Sie, dass Sie diese Eigenschaft manuell mit `Geometry.computeBoundingBox` definieren müssen.
+Um eine **`Box3` Instanz** zu erstellen, müssen wir die **unteren und oberen Grenzen** der Box angeben. Normalerweise möchten wir dieses AABB mit einem Objekt in unserer 3D-Welt (wie einem Charakter) "verknüpfen". In Three.js haben `Geometry`-Instanzen eine `boundingBox` Eigenschaft mit `min` und `max` Grenzen für das Objekt. Beachten Sie, dass Sie diese Eigenschaft manuell mit `Geometry.computeBoundingBox` definieren müssen.
 
 ```js
 const knot = new THREE.Mesh(
@@ -31,9 +31,9 @@ const knotBBox = new Box3(
 ```
 
 > [!NOTE]
-> Die `boundingBox`-Eigenschaft bezieht sich auf die `Geometry` selbst und nicht auf das `Mesh`. Daher werden bei der Berechnung der Box Transformationen wie Skalierung, Positionierung usw., die auf das `Mesh` angewendet werden, ignoriert.
+> Die `boundingBox`-Eigenschaft bezieht sich auf die `Geometry` selbst und nicht auf das `Mesh`. Daher werden bei der Berechnung der Box Transformationen wie Skalierung, Positionierung usw., die auf das `Mesh` angewendet wurden, ignoriert.
 
-Eine einfachere Alternative, die das vorherige Problem behebt, besteht darin, diese Grenzen später mit `Box3.setFromObject` festzulegen, wodurch die Dimensionen unter Berücksichtigung der **Transformationen _und_ aller Kind-Meshes** einer 3D-Einheit berechnet werden.
+Eine einfachere Alternative, die das vorherige Problem behebt, besteht darin, diese Grenzen später mit `Box3.setFromObject` festzulegen, wodurch die Abmessungen unter Berücksichtigung der **Transformationen _und_ aller Kind-Meshes** einer 3D-Entität berechnet werden.
 
 ```js
 const knot = new THREE.Mesh(
@@ -45,9 +45,9 @@ const knotBBox = new Box3(new THREE.Vector3(), new THREE.Vector3());
 knotBBox.setFromObject(knot);
 ```
 
-### Instanziieren von Kugeln
+### Instanziierung von Kugeln
 
-Das Erstellen von **`Sphere`-Objekten** ist ähnlich. Wir müssen das Zentrum der Kugel und den Radius angeben, die zur `boundingSphere`-Eigenschaft der `Geometry` hinzugefügt werden können.
+Die Instanziierung von **`Sphere`-Objekten** ist ähnlich. Wir müssen das Zentrum und den Radius der Kugel angeben, die zur `boundingSphere`-Eigenschaft in `Geometry` hinzugefügt werden können.
 
 ```js
 const knot = new THREE.Mesh(
@@ -61,18 +61,18 @@ const knotBSphere = new Sphere(
 );
 ```
 
-Leider gibt es kein Äquivalent zu `Box3.setFromObject` für Kugel-Instanzen. Wenn wir also Transformationen anwenden oder die Position des `Mesh` ändern, müssen wir die Begrenzungskugel manuell aktualisieren. Beispielsweise:
+Leider gibt es kein Äquivalent zu `Box3.setFromObject` für Sphere-Instanzen. Wenn wir also Transformationen anwenden oder die Position des `Mesh` ändern, müssen wir die Begrenzungskugel manuell aktualisieren. Zum Beispiel:
 
 ```js
 knot.scale.set(2, 2, 2);
 knotBSphere.radius = knot.geometry.radius * 2;
 ```
 
-### Schnittstellentests
+### Schnittmengentests
 
 #### Punkt vs. `Box3` / `Sphere`
 
-Sowohl `Box3` als auch `Sphere` haben eine **`containsPoint`**-Methode für diesen Test.
+Sowohl `Box3` als auch `Sphere` haben eine **`containsPoint`**-Methode, um diesen Test durchzuführen.
 
 ```js
 const point = new THREE.Vector3(2, 4, 7);
@@ -81,7 +81,7 @@ knotBBox.containsPoint(point);
 
 #### `Box3` vs. `Box3`
 
-Die **`Box3.intersectsBox`**-Methode ist für diesen Test verfügbar.
+Die **`Box3.intersectsBox`**-Methode ist verfügbar, um diesen Test durchzuführen.
 
 ```js
 knotBbox.intersectsBox(otherBox);
@@ -92,7 +92,7 @@ knotBbox.intersectsBox(otherBox);
 
 #### `Sphere` vs. `Sphere`
 
-Ähnlich wie zuvor gibt es eine **`Sphere.intersectsSphere`**-Methode, um diesen Test durchzuführen.
+In ähnlicher Weise wie zuvor gibt es eine **`Sphere.intersectsSphere`**-Methode, um diesen Test durchzuführen.
 
 ```js
 knotBSphere.intersectsSphere(otherSphere);
@@ -100,16 +100,16 @@ knotBSphere.intersectsSphere(otherSphere);
 
 #### `Sphere` vs. `Box3`
 
-Leider ist dieser Test in Three.js nicht implementiert, aber wir können `Sphere` erweitern, um einen [Sphere vs. AABB Schnittstellenalgorithmus](/de/docs/Games/Techniques/3D_collision_detection) zu implementieren.
+Leider ist dieser Test in Three.js nicht implementiert, aber wir können Sphere erweitern, um einen [Sphere vs. AABB Schnittmengen-Algorithmus](/de/docs/Games/Techniques/3D_collision_detection) zu implementieren.
 
 ```js
-// erweitern Sie THREE.js Sphere für Kollisionsprüfungen vs. Box3
-// wir erstellen einen Vektor außerhalb des Methodenbereichs, um
-// die Erstellung einer neuen Instanz von Vector3 bei jeder Überprüfung zu vermeiden
+// expand THREE.js Sphere to support collision tests vs. Box3
+// we are creating a vector outside the method scope to
+// avoid spawning a new instance of Vector3 on every check
 
 THREE.Sphere.__closest = new THREE.Vector3();
 THREE.Sphere.prototype.intersectsBox = function (box) {
-  // ermittle den Boxnächsten Punkt zum Kugelzentrum durch Klammern
+  // get box closest point to sphere center by clamping
   THREE.Sphere.__closest.set(this.center.x, this.center.y, this.center.z);
   THREE.Sphere.__closest.clamp(box.min, box.max);
 
@@ -120,29 +120,29 @@ THREE.Sphere.prototype.intersectsBox = function (box) {
 
 ### Demos
 
-Wir haben einige [Live-Demos](https://mozdevs.github.io/gamedev-js-3d-aabb/) vorbereitet, um diese Techniken zu demonstrieren. Der [Quellcode](https://github.com/mozdevs/gamedev-js-3d-aabb) kann untersucht werden.
+Wir haben einige [Live-Demos](https://mozdevs.github.io/gamedev-js-3d-aabb/) vorbereitet, um diese Techniken zu demonstrieren, mit [Quellcode](https://github.com/mozdevs/gamedev-js-3d-aabb) zur Einsichtnahme.
 
 - [Punkt vs. Box und Kugel](https://mozdevs.github.io/gamedev-js-3d-aabb/raw_point.html)
 - [Box vs. Box und Kugel](https://mozdevs.github.io/gamedev-js-3d-aabb/raw_box.html)
 - [Kugel vs. Box und Kugel](https://mozdevs.github.io/gamedev-js-3d-aabb/raw_sphere.html)
 
-![Ein Knotenobjekt, ein großes Kugelobjekt und ein kleines Kugelobjekt im 3D-Raum. Drei Vektoren sind auf der kleinen Kugel gezeichnet. Die Vektoren zeigen in die Richtungen der drei Achsen, die den Raum definieren. Am unteren Rand steht: Bewege die Kugel herum.](screen_shot_2015-10-20_at_15.19.16.png)
+![Ein Knot-Objekt, ein großes Kugelobjekt und ein kleines Kugelobjekt im 3D-Raum. Drei Vektoren sind auf der kleinen Kugel dargestellt. Die Vektoren zeigen in die Richtungen der drei Achsen, die den Raum definieren. Text unten zeigt: Ziehen Sie den Ball herum.](screen_shot_2015-10-20_at_15.19.16.png)
 
-## Verwendung von `BoxHelper`
+## Verwenden von `BoxHelper`
 
-Als Alternative zur Verwendung roher `Box3`- und `Sphere`-Objekte bietet Three.js ein nützliches Objekt, um die Handhabung von **Begrenzungsboxen zu erleichtern: [`BoxHelper`](https://threejs.org/docs/#api/helpers/BoxHelper)** (zuvor `BoundingBoxHelper`, das veraltet ist). Dieser Helfer nimmt ein `Mesh` und berechnet ein Begrenzungsbox-Volumen dafür (einschließlich seiner Kindermeshes). Dies führt zu einem neuen Box-`Mesh`, das die Form der Begrenzungsbox zeigt und an die zuvor gesehene `setFromObject`-Methode übergeben werden kann, um eine Begrenzungsbox zu erhalten, die dem `Mesh` entspricht.
+Alternativ zur Verwendung von rohen `Box3`- und `Sphere`-Objekten bietet Three.js ein nützliches Objekt, um die Handhabung von **Begrenzungsboxen einfacher zu gestalten: [`BoxHelper`](https://threejs.org/docs/#api/helpers/BoxHelper)** (früher `BoundingBoxHelper`, welches veraltet ist). Dieser Helfer nimmt ein `Mesh` und berechnet ein Begrenzungsbox-Volumen dafür (einschließlich seiner Kind-Meshes). Dies resultiert in einem neuen Box-`Mesh`, das die Form der Begrenzungsbox zeigt und an die zuvor gesehene `setFromObject`-Methode übergeben werden kann, um eine zugehörige Begrenzungsbox für das `Mesh` zu erhalten.
 
-`BoxHelper` ist die **empfohlene** Methode zur Handhabung von 3D-Kollisionen mit Begrenzungsvolumen in Three.js. Sie werden auf Kugeltests verzichten, aber der Kompromiss lohnt sich.
+`BoxHelper` ist der **empfohlene** Weg, um 3D-Kollisionen mit Begrenzungsvolumina in Three.js zu handhaben. Sie werden Kugeltests verpassen, aber die Kompromisse lohnen sich.
 
 Die Vorteile der Verwendung dieses Helfers sind:
 
-- Er hat eine `update()`-Methode, die sein Begrenzungsbox-Mesh **vergrößert**, wenn das verknüpfte Mesh rotiert oder seine Dimensionen ändert, und seine **Position** aktualisiert.
-- Er berücksichtigt die Kindermeshes bei der Berechnung der Größe der Begrenzungsbox, sodass das ursprüngliche Mesh und all seine Kinder umschlossen sind.
-- Wir können Kollisionen leicht debuggen, indem wir die vom `BoxHelper` erstellten `Mesh`es **rendern**. Standardmäßig werden sie mit einem `LineBasicMaterial`-Material (ein Three.js-Material zum Zeichnen von Drahtgitter-Geomatrie) erstellt.
+- Er hat eine `update()`-Methode, die seine Begrenzungsbox-Mesh **neu dimensioniert**, wenn das verknüpfte Mesh rotiert oder seine Abmessungen ändert, und seine **Position** aktualisiert.
+- Er **berücksichtigt die Kind-Meshes**, wenn er die Größe der Begrenzungsbox berechnet, sodass das ursprüngliche Mesh und all seine Kinder eingeschlossen sind.
+- Wir können Kollisionen einfach debuggen, indem wir die von `BoxHelper` erstellten `Mesh`-Objekte **anzeigen**. Standardmäßig werden sie mit einem `LineBasicMaterial` Material (einem Three.js-Material für das Zeichnen von Drahtgitter-Geometrien) erstellt.
 
-Der Hauptnachteil ist, dass er **nur Box-Begrenzungsvolumen erstellt**, sodass Sie, wenn Sie Kugel-gegen-AABB-Tests benötigen, Ihre eigenen `Sphere`-Objekte erstellen müssen.
+Der Hauptnachteil besteht darin, dass es **nur Box-Begrenzungsvolumen erstellt**, sodass Sie, wenn Sie Kugel-gegen-AABB-Tests benötigen, Ihre eigenen `Sphere`-Objekte erstellen müssen.
 
-Um ihn zu verwenden, müssen wir eine neue `BoxHelper`-Instanz erstellen und die Geometrie und — optional — eine Farbe angeben, die für das Drahtgittermaterial verwendet wird. Wir müssen das neu erstellte Objekt auch zur `three.js`-Szene hinzufügen, um es darzustellen. Wir nehmen an, dass unsere Szenenvariable `scene` genannt wird.
+Um es zu verwenden, müssen wir eine neue `BoxHelper`-Instanz erstellen und die Geometrie und — optional — eine Farbe angeben, die für das Drahtgitter-Material verwendet wird. Wir müssen das neu erstellte Objekt auch zur `three.js`-Szene hinzufügen, damit es gerendert wird. Wir nehmen an, dass unsere Szenenvariable `scene` genannt wird.
 
 ```js
 const knot = new THREE.Mesh(
@@ -153,34 +153,34 @@ const knotBoxHelper = new THREE.BoxHelper(knot, 0x00ff00);
 scene.add(knotBoxHelper);
 ```
 
-Um auch unsere tatsächliche `Box3`-Begrenzungsbox zu haben, erstellen wir ein neues `Box3`-Objekt und lassen es die Form und Position des `BoxHelper` übernehmen.
+Um auch unsere tatsächliche `Box3`-Begrenzungsbox zu erstellen, erstellen wir ein neues `Box3`-Objekt und lassen es die Form und Position des `BoxHelper` übernehmen.
 
 ```js
 const box3 = new THREE.Box3();
 box3.setFromObject(knotBoxHelper);
 ```
 
-Wenn wir die Position, Drehung, Skalierung usw. des `Mesh` ändern, müssen wir die `update()`-Methode aufrufen, damit die `BoxHelper`-Instanz mit ihrem verknüpften `Mesh` übereinstimmt. Wir müssen auch erneut `setFromObject` aufrufen, damit die `Box3` dem `Mesh` folgt.
+Wenn wir die `Mesh`-Position, -Rotation, -Skalierung usw. ändern, müssen wir die `update()`-Methode aufrufen, damit die `BoxHelper`-Instanz mit ihrem verknüpften `Mesh` übereinstimmt. Wir müssen auch `setFromObject` erneut aufrufen, um die `Box3` dem `Mesh` folgen zu lassen.
 
 ```js
 knot.position.set(-3, 2, 1);
 knot.rotation.x = -Math.PI / 4;
-// aktualisieren Sie die Begrenzungsbox, damit sie den Knoten weiterhin umschließt
+// update the bounding box so it stills wraps the knot
 knotBoxHelper.update();
 box3.setFromObject(knotBoxHelper);
 ```
 
-Das Durchführen von **Kollisionsprüfungen** erfolgt auf die gleiche Weise wie im obigen Abschnitt erklärt — wir verwenden unser Box3-Objekt auf die gleiche Weise wie oben beschrieben.
+Das Durchführen von **Kollisionstests** erfolgt auf die gleiche Weise wie im obigen Abschnitt erläutert — wir verwenden unser Box3-Objekt auf die gleiche Weise wie oben beschrieben.
 
 ```js
-// Box vs. Box
+// box vs. box
 box3.intersectsBox(otherBox3);
-// Box vs. Punkt
+// box vs. point
 box3.containsPoint(point.position);
 ```
 
 ### Demos
 
-Es gibt **zwei Demos**, die Sie auf unserer [Live-Demos-Seite](https://mozdevs.github.io/gamedev-js-3d-aabb/) anschauen können. Die [erste](https://mozdevs.github.io/gamedev-js-3d-aabb/api_point.html) zeigt Punkt-gegen-Box-Kollisionen mit `BoxHelper`. Die [zweite](https://mozdevs.github.io/gamedev-js-3d-aabb/api_box.html) führt Box-gegen-Box-Tests durch.
+Es gibt **zwei Demos**, die Sie auf unserer [Live-Demos-Seite](https://mozdevs.github.io/gamedev-js-3d-aabb/) ansehen können. Die [erste](https://mozdevs.github.io/gamedev-js-3d-aabb/api_point.html) zeigt Punkt-gegen-Box-Kollisionen mit `BoxHelper`. Die [zweite](https://mozdevs.github.io/gamedev-js-3d-aabb/api_box.html) führt Box-gegen-Box-Tests durch.
 
-![Ein Knotenobjekt, ein Kugelobjekt und ein Würfelobjekt im 3D-Raum. Der Knoten und die Kugel sind von einer virtuellen Begrenzungsbox umgeben. Der Würfel schneidet die Begrenzungsbox der Kugel. Am unteren Rand steht: Bewege den Würfel herum. Drücke Esc, um B-Boxen umzuschalten.](screen_shot_2015-10-19_at_12.10.06.png)
+![Ein Knot-Objekt, ein Kugelobjekt und ein Würfelobjekt im 3D-Raum. Der Knoten und die Kugel sind von einer virtuellen Begrenzungsbox umschlossen. Der Würfel schneidet die Begrenzungsbox der Kugel. Text unten zeigt: Ziehen Sie den Würfel herum. Drücken Sie Esc, um B-Boxen umzuschalten.](screen_shot_2015-10-19_at_12.10.06.png)

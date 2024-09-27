@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "ungültige Identitätsflucht in regulärem Ausdruck" tritt auf, wenn ein [Unicode-bewusstes](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) regulärer Ausdruck ein [Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) enthält, die keine anerkannte Escape-Sequenz darstellt.
+Die JavaScript-Ausnahme "ungültige Identitätsflucht in regulärem Ausdruck" tritt auf, wenn ein [Unicode-bewusstes](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) Muster für reguläre Ausdrücke eine [Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) enthält, die keine anerkannte Escape-Sequenz darstellt.
 
 ## Meldung
 
@@ -23,11 +23,11 @@ SyntaxError: Invalid regular expression: invalid escaped character for Unicode p
 
 ## Was ist schiefgelaufen?
 
-Im Unicode-unbewussten Modus konnte `\` verwendet werden, um jedes Zeichen zu maskieren, auch solche ohne definierte Bedeutung. In diesen Fällen repräsentiert das maskierte Zeichen sich selbst. Zum Beispiel würde `\q` das Zeichen `q` matchen. Dies schränkt die Möglichkeit ein, in der Zukunft neue Escape-Sequenzen hinzuzufügen. Deshalb sind im Unicode-bewussten Modus nur anerkannte Escape-Sequenzen erlaubt. Fügen Sie `\` nicht überflüssig hinzu.
+Im Unicode-unbewussten Modus konnte `\` verwendet werden, um jedes Zeichen zu maskieren, auch solche ohne festgelegte Bedeutung. In diesen Fällen repräsentiert das maskierte Zeichen sich selbst. Zum Beispiel würde `\q` das Zeichen `q` matchen. Dies schränkt die Möglichkeit ein, in der Zukunft neue Escape-Sequenzen hinzuzufügen. Daher sind im Unicode-bewussten Modus nur anerkannte Escape-Sequenzen erlaubt. Fügen Sie `\` nicht unnötigerweise hinzu.
 
-Dieser Fehler wird auch ausgelöst, wenn das `\x` [Zeichen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) nicht von zwei hexadezimalen Ziffern gefolgt wird.
+Dieser Fehler wird auch ausgelöst, wenn der `\x` [Zeichen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) nicht von zwei hexadezimalen Ziffern gefolgt wird.
 
-Für eine vollständige Liste der verfügbaren Escape-Sequenzen siehe das [Referenz zu regulären Ausdrücken](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences). Für eine Tabelle, welche Zeichen sowohl maskiert als auch unmaskiert in jedem Kontext erscheinen können, siehe [literale Zeichen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character).
+Für eine vollständige Liste der verfügbaren Escape-Sequenzen sehen Sie sich die [Referenz zu regulären Ausdrücken](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences) an. Für eine Tabelle, welche Zeichen in jedem Kontext wörtlich maskiert oder unmaskiert erscheinen können, siehe [wörtliche Zeichen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character).
 
 ## Beispiele
 
@@ -40,7 +40,7 @@ Für eine vollständige Liste der verfügbaren Escape-Sequenzen siehe das [Refer
 ### Gültige Fälle
 
 ```js example-good
-// Es ist nicht nötig, den Leerraum zu maskieren
+// There's no need to escape the space
 /[\f\v\n\t ]/u;
 ```
 
@@ -49,4 +49,4 @@ Für eine vollständige Liste der verfügbaren Escape-Sequenzen siehe das [Refer
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
 - [Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Regular_expressions#escape_sequences)
 - [Zeichen-Escape: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
-- [Literales Zeichen: `a`, `b`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character)
+- [Wörtliches Zeichen: `a`, `b`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character)

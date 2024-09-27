@@ -1,5 +1,5 @@
 ---
-title: "Element: releasePointerCapture()-Methode"
+title: "Element: releasePointerCapture() Methode"
 short-title: releasePointerCapture()
 slug: Web/API/Element/releasePointerCapture
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`releasePointerCapture()`**-Methode der
-{{domxref("Element")}}-Schnittstelle löst (stoppt) [_Pointer-Erfassung_](/de/docs/Web/API/Pointer_events#pointer_capture), die zuvor für einen bestimmten ({{domxref("PointerEvent")}}) _Zeiger_ gesetzt wurde.
+Die **`releasePointerCapture()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle löst (stoppt) eine zuvor gesetzte [_Zeigererfassung_](/de/docs/Web/API/Pointer_events#pointer_capture) für einen bestimmten ([`PointerEvent`](/de/docs/Web/API/PointerEvent))-Zeiger auf.
 
 ## Syntax
 
@@ -20,8 +19,8 @@ releasePointerCapture(pointerId)
 ### Parameter
 
 - `pointerId`
-  - : Die {{domxref("PointerEvent.pointerId", "pointerId")}} eines
-    {{domxref("PointerEvent")}}-Objekts.
+  - : Die [`pointerId`](/de/docs/Web/API/PointerEvent/pointerId) eines
+    [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Objekts.
 
 ### Rückgabewert
 
@@ -29,12 +28,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `NotFoundError` {{domxref("DOMException")}}
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `pointerId` keinem aktiven Zeiger entspricht.
 
 ## Beispiele
 
-Dieses Beispiel setzt die Pointer-Erfassung auf einem {{HtmlElement("div")}}, wenn Sie darauf drücken. Dadurch können Sie das Element horizontal verschieben, auch wenn Ihr Zeiger sich außerhalb seiner Grenzen bewegt.
+Dieses Beispiel setzt die Zeigererfassung auf einem {{HtmlElement("div")}}, wenn Sie darauf drücken. Dadurch können Sie das Element horizontal verschieben, selbst wenn Ihr Zeiger sich außerhalb seiner Grenzen bewegt.
 
 ### HTML
 
@@ -92,6 +91,6 @@ slider.onpointerup = stopSliding;
 
 ## Siehe auch
 
-- {{ domxref("Element.hasPointerCapture","Element.hasPointerCapture()") }}
-- {{ domxref("Element.setPointerCapture","Element.setPointerCapture()") }}
-- [Pointer-Events](/de/docs/Web/API/Pointer_events)
+- [`Element.hasPointerCapture()`](/de/docs/Web/API/Element/hasPointerCapture)
+- [`Element.setPointerCapture()`](/de/docs/Web/API/Element/setPointerCapture)
+- [Pointer events](/de/docs/Web/API/Pointer_events)

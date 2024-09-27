@@ -1,5 +1,5 @@
 ---
-title: "AudioContext: createMediaStreamTrackSource()-Methode"
+title: "AudioContext: Methode createMediaStreamTrackSource()"
 short-title: createMediaStreamTrackSource()
 slug: Web/API/AudioContext/createMediaStreamTrackSource
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`createMediaStreamTrackSource()`**-Methode des {{domxref("AudioContext")}}-Interfaces erstellt und gibt einen {{domxref("MediaStreamTrackAudioSourceNode")}} zurück, der eine Audioquelle darstellt, deren Daten von dem angegebenen {{domxref("MediaStreamTrack")}} stammen.
+Die **`createMediaStreamTrackSource()`**-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle erstellt und gibt einen [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode) zurück, der eine Audioquelle darstellt, deren Daten von dem angegebenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) stammen.
 
-Dies unterscheidet sich von {{domxref("AudioContext.createMediaStreamSource", "createMediaStreamSource()")}}, die einen {{domxref("MediaStreamAudioSourceNode")}} erstellt, dessen Audio von dem Audiotrack in einem angegebenen {{domxref("MediaStream")}} stammt, dessen {{domxref("MediaStreamTrack.id", "id")}} lexikographisch (alphabetisch) zuerst ist.
+Dies unterscheidet sich von [`createMediaStreamSource()`](/de/docs/Web/API/AudioContext/createMediaStreamSource), das einen [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode) erstellt, dessen Audio von der Tonspur in einem angegebenen [`MediaStream`](/de/docs/Web/API/MediaStream) kommt, dessen [`id`](/de/docs/Web/API/MediaStreamTrack/id) zuerst lexikografisch (alphabetisch) ist.
 
 ## Syntax
 
@@ -21,17 +21,17 @@ createMediaStreamTrackSource(track)
 ### Parameter
 
 - `track`
-  - : Der {{domxref("MediaStreamTrack")}}, der als Quelle für alle Audiodaten des neuen Knotens verwendet wird.
+  - : Der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der als Quelle aller Audiodaten für den neuen Knoten verwendet werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("MediaStreamTrackAudioSourceNode")}}-Objekt, das als Quelle für Audiodaten im angegebenen Audiotrack dient.
+Ein [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode)-Objekt, das als Quelle für Audiodaten der angegebenen Tonspur dient.
 
 ## Beispiele
 
-In diesem Beispiel wird {{domxref("MediaDevices.getUserMedia", "getUserMedia()")}} verwendet, um Zugriff auf das Mikrofon des Benutzers anzufordern. Sobald dieser Zugriff gewährt wurde, wird ein Audiokontext erstellt und ein {{domxref("MediaStreamTrackAudioSourceNode")}} mithilfe von `createMediaStreamTrackSource()` erstellt, der sein Audio aus dem ersten Audiotrack im Stream bezieht, der von `getUserMedia()` zurückgegeben wird.
+In diesem Beispiel wird [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) verwendet, um Zugriff auf das Mikrofon des Benutzers anzufordern. Sobald dieser Zugriff gewährt wird, wird ein Audiokontext erstellt und ein [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode) mittels `createMediaStreamTrackSource()` erstellt, der seinen Ton von der ersten Tonspur im Stream nimmt, der von `getUserMedia()` zurückgegeben wird.
 
-Dann wird ein {{domxref("BiquadFilterNode")}} mit {{domxref("BaseAudioContext/createBiquadFilter", "createBiquadFilter()")}} erstellt und so konfiguriert, dass ein Tiefenfilter auf das Audio von der Quelle angewendet wird. Die Ausgabe des Mikrofons wird dann in den neuen Biquad-Filter geleitet und die Ausgabe des Filters wiederum an das {{domxref("BaseAudioContext/destination", "Ziel")}} des Audiokontexts weitergeleitet.
+Dann wird ein [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) mit [`createBiquadFilter()`](/de/docs/Web/API/BaseAudioContext/createBiquadFilter) erstellt, und es wird nach Bedarf konfiguriert, um einen Low-Shelf-Filter auf das Audiosignal der Quelle anzuwenden. Die Ausgabe des Mikrofons wird dann in den neuen Biquad-Filter geleitet, und die Ausgabe des Filters wird wiederum zum [`destination`](/de/docs/Web/API/BaseAudioContext/destination) des Audiokontexts geführt.
 
 ```js
 navigator.mediaDevices
@@ -72,4 +72,4 @@ navigator.mediaDevices
 
 - Web Audio API
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- {{domxref("MediaStreamTrackAudioSourceNode")}}
+- [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode)

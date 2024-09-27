@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`MediaStreamTrackEvent`**-Schnittstelle der {{domxref("Media Capture and Streams API", "", "", "nocode")}} repräsentiert Ereignisse, die anzeigen, dass einem {{domxref("MediaStream")}} über Methodenaufrufe der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) Spuren hinzugefügt oder aus dem Stream entfernt wurden. Diese Ereignisse werden an den Stream gesendet, wenn diese Änderungen auftreten.
+Die **`MediaStreamTrackEvent`**-Schnittstelle der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) repräsentiert Ereignisse, die anzeigen, dass einem [`MediaStream`](/de/docs/Web/API/MediaStream) durch Aufrufe von Methoden der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) Tracks hinzugefügt oder entfernt wurden. Diese Ereignisse werden an den Stream gesendet, wenn diese Änderungen auftreten.
 
 {{InheritanceDiagram}}
 
-Die auf dieser Schnittstelle basierenden Ereignisse sind {{domxref("MediaStream/addtrack_event", "addtrack")}} und {{domxref("MediaStream/removetrack_event", "removetrack")}}.
+Die auf dieser Schnittstelle basierenden Ereignisse sind [`addtrack`](/de/docs/Web/API/MediaStream/addtrack_event) und [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event).
 
 ## Konstruktor
 
-- {{domxref("MediaStreamTrackEvent.MediaStreamTrackEvent", "MediaStreamTrackEvent()")}}
+- [`MediaStreamTrackEvent()`](/de/docs/Web/API/MediaStreamTrackEvent/MediaStreamTrackEvent)
   - : Erstellt ein neues `MediaStreamTrackEvent` mit der angegebenen Konfiguration.
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von ihrer Elternschnittstelle, {{domxref("Event")}}._
+_Erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("MediaStreamTrackEvent.track")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("MediaStreamTrack")}}-Objekt zurück, das die mit dem Ereignis verknüpfte Spur darstellt.
+- [`MediaStreamTrackEvent.track`](/de/docs/Web/API/MediaStreamTrackEvent/track) {{ReadOnlyInline}}
+  - : Gibt ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekt zurück, das den mit dem Ereignis verbundenen Track darstellt.
 
 ## Instanz-Methoden
 
-_Erbt auch Methoden von ihrer Elternschnittstelle, {{domxref("Event")}}._
+_Erbt auch Methoden von ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
 ## Spezifikationen
 
@@ -39,6 +39,6 @@ _Erbt auch Methoden von ihrer Elternschnittstelle, {{domxref("Event")}}._
 
 ## Siehe auch
 
-- {{domxref("MediaStream")}}: Ereignisse {{domxref("MediaStream/addtrack_event", "addtrack")}} und {{domxref("MediaStream/removetrack_event", "removetrack")}}
-- {{domxref("MediaStreamTrack")}}
+- [`MediaStream`](/de/docs/Web/API/MediaStream): [`addtrack`](/de/docs/Web/API/MediaStream/addtrack_event) und [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event) Ereignisse
+- [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)

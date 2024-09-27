@@ -1,22 +1,22 @@
 ---
-title: "TextDecoderStream: Lesbare Eigenschaft"
-short-title: lesbar
+title: "TextDecoderStream: readable-Eigenschaft"
+short-title: readable
 slug: Web/API/TextDecoderStream/readable
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
 ---
 
-{{APIRef("Encoding API")}}
+{{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die **`readable`** schreibgeschützte Eigenschaft des {{domxref("TextDecoderStream")}} Interfaces gibt einen {{domxref("ReadableStream")}} zurück.
+Die **`readable`** schreibgeschützte Eigenschaft der [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream)-Schnittstelle gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück.
 
 ## Wert
 
-Ein {{domxref("ReadableStream")}}.
+Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie ein {{domxref("ReadableStream")}} von einem `TextDecoderStream` zurückgegeben wird.
+Dieses Beispiel zeigt, wie ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) aus einem `TextDecoderStream` zurückgegeben wird.
 
 ```js
 stream = new TextDecoderStream();
@@ -27,6 +27,6 @@ console.log(stream.readable); //a ReadableStream
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

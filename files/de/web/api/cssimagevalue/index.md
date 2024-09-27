@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Das **`CSSImageValue`** Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte für Eigenschaften, die ein Bild erfordern, wie zum Beispiel {{cssxref('background-image')}}, {{cssxref('list-style-image')}} oder {{cssxref('border-image-source')}}.
+Die **`CSSImageValue`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte für Eigenschaften, die ein Bild akzeptieren, beispielsweise {{cssxref('background-image')}}, {{cssxref('list-style-image')}} oder {{cssxref('border-image-source')}}.
 
-Das CSSImageValue-Objekt repräsentiert ein [`<image>`](/de/docs/Web/CSS/image), das eine URL beinhaltet, wie [`url()`](/de/docs/Web/CSS/url_function) oder [`image()`](/de/docs/Web/CSS/image), jedoch nicht [`linear-gradient()`](/de/docs/Web/CSS/gradient/linear-gradient) oder [`element()`](/de/docs/Web/CSS/element).
+Das CSSImageValue-Objekt stellt ein [`<image>`](/de/docs/Web/CSS/image) dar, das eine URL beinhaltet, wie zum Beispiel [`url()`](/de/docs/Web/CSS/url_function) oder [`image()`](/de/docs/Web/CSS/image), jedoch nicht [`linear-gradient()`](/de/docs/Web/CSS/gradient/linear-gradient) oder [`element()`](/de/docs/Web/CSS/element).
 
 {{InheritanceDiagram}}
 
@@ -19,7 +19,7 @@ Keine.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von {{domxref('CSSStyleValue')}}._
+_Erbt Methoden von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)._
 
 ## Beispiele
 
@@ -29,7 +29,7 @@ Wir erstellen ein Element
 <button>Magic Wand</button>
 ```
 
-Wir fügen etwas CSS hinzu, einschließlich eines Hintergrundbildes, das eine Binärdatei anfordert:
+Wir fügen ein wenig CSS hinzu, einschließlich eines Hintergrundbildes, das eine Binärdatei anfordert:
 
 ```css
 button {
@@ -40,7 +40,7 @@ button {
 }
 ```
 
-Wir holen die Stil-Map des Elements. Dann verwenden wir get(), um das Hintergrundbild aus der Stil-Map zu erhalten und wandeln es in einen String um:
+Wir holen die Style-Map des Elements ab. Dann holen wir das Hintergrundbild aus der Style-Map mit `get()` und konvertieren es in einen String:
 
 ```js
 // get the element
@@ -66,8 +66,8 @@ console.log(allComputedStyles.get("background-image").toString());
 
 ## Siehe auch
 
-- {{domxref('CSSKeywordValue')}}
-- {{domxref('CSSNumericValue')}}
-- {{domxref('CSSPositionValue')}}
-- {{domxref('CSSTransformValue')}}
-- {{domxref('CSSUnparsedValue')}}
+- [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)
+- [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
+- [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue)
+- [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue)
+- [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue)

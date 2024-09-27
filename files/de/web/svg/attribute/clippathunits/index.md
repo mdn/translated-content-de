@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`clipPathUnits`**-Attribut gibt an, welches Koordinatensystem für den Inhalt des {{SVGElement("clipPath")}}-Elements verwendet werden soll.
+Das **`clipPathUnits`** Attribut gibt an, welches Koordinatensystem für den Inhalt des {{ SVGElement("clipPath") }} Elements verwendet werden soll.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -33,18 +33,18 @@ svg {
     <circle cx=".5" cy=".5" r=".35" />
   </clipPath>
 
-  <!-- Ein Referenzrechteck, um den Clip-Pfad zu materialisieren -->
+  <!-- Some reference rect to materialized to clip path -->
   <rect id="r1" x="0" y="0" width="45" height="45" />
   <rect id="r2" x="0" y="55" width="45" height="45" />
   <rect id="r3" x="55" y="55" width="45" height="45" />
   <rect id="r4" x="55" y="0" width="45" height="45" />
 
-  <!-- Die ersten 3 Rechtecke werden mit userSpaceOnUse-Einheiten beschnitten -->
+  <!-- The first 3 rect are clipped with userSpaceOnUse units -->
   <use clip-path="url(#myClip1)" href="#r1" fill="red" />
   <use clip-path="url(#myClip1)" href="#r2" fill="red" />
   <use clip-path="url(#myClip1)" href="#r3" fill="red" />
 
-  <!-- Das letzte Rechteck wird mit objectBoundingBox-Einheiten beschnitten -->
+  <!-- The last rect is clipped with objectBoundingBox units -->
   <use clip-path="url(#myClip2)" href="#r4" fill="red" />
 </svg>
 ```
@@ -53,7 +53,7 @@ svg {
 
 ## clipPath
 
-Für {{SVGElement('clipPath')}} definiert `clipPathUnits` das verwendete Koordinatensystem für den Inhalt des Elements.
+Für {{SVGElement('clipPath')}} definiert `clipPathUnits` das Koordinatensystem, das für den Inhalt des Elements verwendet wird.
 
 <table class="properties">
   <tbody>
@@ -73,9 +73,9 @@ Für {{SVGElement('clipPath')}} definiert `clipPathUnits` das verwendete Koordin
 </table>
 
 - userSpaceOnUse
-  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('clipPath')}}-Elements sich auf das Benutzerräumliche Koordinatensystem beziehen, wie es beim Erstellen des Clip-Pfads definiert wurde.
+  - : Dieser Wert gibt an, dass sich alle Koordinaten innerhalb des {{SVGElement('clipPath')}}-Elements auf das Benutzerkoordinatensystem beziehen, wie es definiert war, als der Clip-Pfad erstellt wurde.
 - objectBoundingBox
-  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('clipPath')}}-Elements relativ zum Begrenzungsrahmen des Elements sind, auf das der Clip-Pfad angewendet wird. Das bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke des Begrenzungsrahmens des Objekts ist und die Breite und Höhe des Begrenzungsrahmens des Objekts als Länge von 1 Einheit betrachtet werden.
+  - : Dieser Wert gibt an, dass sich alle Koordinaten innerhalb des {{SVGElement('clipPath')}}-Elements relativ zur Begrenzungsbox des Elements beziehen, auf das der Clip-Pfad angewendet wird. Dies bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke der Objekt-Begrenzungsbox ist und die Breite und Höhe der Objekt-Begrenzungsbox auf eine Länge von 1 Einheitwert betrachtet werden.
 
 ## Spezifikationen
 

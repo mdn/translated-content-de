@@ -2,26 +2,26 @@
 title: grid-area
 slug: Web/CSS/grid-area
 l10n:
-  sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
+  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
 ---
 
 {{CSSRef}}
 
-Die **`grid-area`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt die Größe und Position eines Grid-Elements innerhalb eines {{glossary("grid", "Rasters")}} fest, indem sie eine Linie, eine Spanne oder nichts (automatisch) zu ihrer Grid-Platzierung beiträgt und so die Ränder ihres {{glossary("grid areas", "Rasterbereichs")}} definiert.
+Die **`grid-area`** CSS-[Kurzform-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) legt die Größe und Position eines Grid-Elements innerhalb eines [Grids](/de/docs/Glossary/grid) fest, indem sie eine Linie, einen Spannbereich oder nichts (automatisch) zu seiner Grid-Positionierung beiträgt und damit die Ränder seines [Grid-Bereichs](/de/docs/Glossary/grid_areas) angibt.
 
 {{EmbedInteractiveExample("pages/css/grid-area.html")}}
 
-Wenn vier `<grid-line>`-Werte angegeben sind, wird `grid-row-start` auf den ersten Wert gesetzt, `grid-column-start` auf den zweiten Wert, `grid-row-end` auf den dritten Wert und `grid-column-end` auf den vierten Wert.
+Wenn vier `<grid-line>` Werte angegeben werden, wird `grid-row-start` auf den ersten Wert gesetzt, `grid-column-start` auf den zweiten Wert, `grid-row-end` auf den dritten Wert, und `grid-column-end` auf den vierten Wert.
 
-Wenn `grid-column-end` ausgelassen wird und `grid-column-start` ein {{cssxref("&lt;custom-ident&gt;")}} ist, wird `grid-column-end` auf dieses `<custom-ident>` gesetzt; andernfalls wird es auf `auto` gesetzt.
+Wenn `grid-column-end` weggelassen wird, wird, falls `grid-column-start` ein {{cssxref("&lt;custom-ident&gt;")}} ist, `grid-column-end` auf dieses `<custom-ident>` gesetzt; andernfalls wird es auf `auto` gesetzt.
 
-Wenn `grid-row-end` ausgelassen wird und `grid-row-start` ein `<custom-ident>` ist, wird `grid-row-end` auf dieses `<custom-ident>` gesetzt; andernfalls wird es auf `auto` gesetzt.
+Wenn `grid-row-end` weggelassen wird, wird, falls `grid-row-start` ein `<custom-ident>` ist, `grid-row-end` auf dieses `<custom-ident>` gesetzt; andernfalls wird es auf `auto` gesetzt.
 
-Wenn `grid-column-start` ausgelassen wird und `grid-row-start` ein `<custom-ident>` ist, werden alle vier Langformen auf diesen Wert gesetzt. Andernfalls wird es auf `auto` gesetzt.
+Wenn `grid-column-start` weggelassen wird, werden, falls `grid-row-start` ein `<custom-ident>` ist, alle vier Langformen auf diesen Wert gesetzt. Andernfalls wird es auf `auto` gesetzt.
 
-Die Eigenschaft `grid-area` kann auch auf ein {{cssxref("&lt;custom-ident&gt;")}} gesetzt werden, das als Name für den Bereich dient und dann mithilfe von {{cssxref("grid-template-areas")}} platziert werden kann.
+Die `grid-area` Eigenschaft kann auch auf ein {{cssxref("&lt;custom-ident&gt;")}} gesetzt werden, das als Name für den Bereich fungiert, der dann mit {{cssxref("grid-template-areas")}} platziert werden kann.
 
-## Zusammengesetzte Eigenschaften
+## Bestandteilseigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -33,26 +33,26 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 ## Syntax
 
 ```css
-/* Keyword-Werte */
+/* Keyword values */
 grid-area: auto;
 grid-area: auto / auto;
 grid-area: auto / auto / auto;
 grid-area: auto / auto / auto / auto;
 
-/* <custom-ident> Werte */
+/* <custom-ident> values */
 grid-area: some-grid-area;
 grid-area: some-grid-area / another-grid-area;
 
-/* <integer> && <custom-ident>? Werte */
+/* <integer> && <custom-ident>? values */
 grid-area: 4 some-grid-area;
 grid-area: 4 some-grid-area / 2 another-grid-area;
 
-/* span && [ <integer> || <custom-ident> ] Werte */
+/* span && [ <integer> || <custom-ident> ] values */
 grid-area: span 3;
 grid-area: span 3 / span some-grid-area;
 grid-area: 2 span / another-grid-area span;
 
-/* Globale Werte */
+/* Global values */
 grid-area: inherit;
 grid-area: initial;
 grid-area: revert;
@@ -63,31 +63,31 @@ grid-area: unset;
 ### Werte
 
 - `auto`
-  - : Ist ein Schlüsselwort, das angibt, dass die Eigenschaft nichts zur Platzierung des Grid-Elements beiträgt und eine automatische Platzierung oder eine Standardspanne von `1` anzeigt.
+  - : Ist ein Schlüsselwort, das anzeigt, dass die Eigenschaft nichts zur Platzierung des Grid-Elements beiträgt, was eine automatische Platzierung oder eine Standardeinstellung von `1` bedeutet.
 - `<custom-ident>`
 
-  - : Wenn es eine benannte Linie mit dem Namen '`<custom-ident>-start`'/'`<custom-ident>-end`' gibt, trägt es die erste solche Linie zur Platzierung des Grid-Elements bei.
+  - : Wenn es eine benannte Linie mit dem Namen `<custom-ident>-start` oder `<custom-ident>-end` gibt, trägt es die erste solche Linie zur Platzierung des Grid-Elements bei.
 
     > [!NOTE]
-    > Benannte Rasterbereiche generieren automatisch implizit benannte Linien dieser Form, sodass das Festlegen von `grid-area: foo;` die Start-/Endkante dieses benannten Rasterbereichs wählt (sofern nicht vorher explizit eine andere Linie namens `foo-start`/`foo-end` angegeben wurde).
+    > Benannte Grid-Bereiche erzeugen automatisch implizit benannte Linien dieser Form, sodass die Angabe von `grid-area: foo;` die Start-/Endkante dieses benannten Grid-Bereichs auswählt (es sei denn, eine andere Linie mit dem Namen `foo-start`/`foo-end` wurde vorher explizit angegeben).
 
-    Andernfalls wird dies so behandelt, als wäre die Ganzzahl `1` zusammen mit dem `<custom-ident>` angegeben worden.
+    Andernfalls wird dies so behandelt, als wäre die ganze Zahl `1` zusammen mit dem `<custom-ident>` angegeben worden.
 
 - `<integer> && <custom-ident>?`
 
-  - : Trägt die n-te Rasterlinie zur Platzierung des Grid-Elements bei. Wenn eine negative Ganzzahl angegeben wird, zählt sie stattdessen rückwärts beginnend vom Endrand des expliziten Rasters.
+  - : Trägt die n-te Grid-Linie zur Platzierung des Grid-Elements bei. Wenn eine negative ganze Zahl angegeben wird, zählt sie stattdessen rückwärts, beginnend von der Endkante des expliziten Grids.
 
-    Wenn ein Name als {{cssxref("&lt;custom-ident&gt;")}} angegeben ist, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Rasterlinien diesen Namen für den Zweck der Positionsbestimmung haben.
+    Wenn ein Name als {{cssxref("&lt;custom-ident&gt;")}} angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Grid-Linien diesen Namen haben, um diese Position zu finden.
 
-    Ein {{cssxref("&lt;integer&gt;")}}-Wert von `0` ist ungültig.
+    Ein {{cssxref("&lt;integer&gt;")}} Wert von `0` ist ungültig.
 
 - `span && [ <integer> || <custom-ident> ]`
 
-  - : Trägt eine Rasterspanne zur Platzierung des Grid-Elements bei, sodass der entsprechende Rand des Rasterbereichs des Grid-Elements _n_ Linien vom gegenüberliegenden Rand entfernt ist.
+  - : Trägt einen Grid-Spannbereich zur Platzierung des Grid-Elements bei, sodass die entsprechende Kante des Grid-Bereichs des Grid-Elements _n_ Linien von der gegenüberliegenden Kante entfernt ist.
 
-    Wenn ein Name als {{cssxref("&lt;custom-ident&gt;")}} angegeben ist, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Rasterlinien auf der Seite des expliziten Rasters, die der Suchrichtung entspricht, diesen Namen haben, um diese Spanne zu zählen.
+    Wenn ein Name als {{cssxref("&lt;custom-ident&gt;")}} angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Grid-Linien auf der Seite des expliziten Grids, die der Suchrichtung entspricht, diesen Namen haben, um diesen Spannbereich zu zählen.
 
-    Wenn die {{cssxref("&lt;integer&gt;")}} weggelassen wird, ist der Standardwert `1`. Negative Ganzzahlen oder 0 sind ungültig.
+    Wenn das {{cssxref("&lt;integer&gt;")}} weggelassen wird, ist der Standardwert `1`. Negative ganze Zahlen oder 0 sind ungültig.
 
 ## Formale Definition
 
@@ -99,7 +99,7 @@ grid-area: unset;
 
 ## Beispiele
 
-### Festlegen von Rasterbereichen
+### Grid-Bereiche festlegen
 
 #### HTML
 

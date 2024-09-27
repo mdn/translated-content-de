@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`hash`** schreibgeschützte Eigenschaft der {{domxref("URLPattern")}}-Schnittstelle ist ein String, der das Muster enthält, das verwendet wird, um den Fragmentteil einer URL abzugleichen. Dieser Wert kann sich aufgrund der Normalisierung von der Eingabe des Konstruktors unterscheiden.
+Die schreibgeschützte **`hash`**-Eigenschaft des [`URLPattern`](/de/docs/Web/API/URLPattern)-Interfaces ist ein String, der das Muster enthält, das verwendet wird, um den Fragmentteil einer URL zu matchen. Dieser Wert kann aufgrund von Normalisierung von der Eingabe des Konstruktors abweichen.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt ein {{domxref("URLPattern")}}-Objekt mit `books/:id` für den `hash`-Teil. Dieses Muster stimmt mit jedem Fragment überein, das mit `books/` beginnt und mit einem beliebigen String-Identifier endet.
+Das folgende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `books/:id` für den `hash`-Teil. Dieses Muster matcht jedes Fragment, das mit `books/` beginnt und mit einem beliebigen Zeichenfolgen-Identifikator endet.
 
 ```js
 const pattern = new URLPattern("https://example.org#books/:id");

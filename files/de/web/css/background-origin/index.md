@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}
 
-Die **`background-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung des Hintergrunds fest: vom Randanfang, innerhalb des Rands oder innerhalb des Innenabstands.
+Die **`background-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung des Hintergrunds fest: vom Randbeginn, innerhalb des Randes oder innerhalb des Paddings.
 
 {{EmbedInteractiveExample("pages/css/background-origin.html")}}
 
-Beachten Sie, dass `background-origin` ignoriert wird, wenn {{cssxref("background-attachment")}} `fixed` ist.
+Beachten Sie, dass `background-origin` ignoriert wird, wenn {{cssxref("background-attachment")}} auf `fixed` gesetzt ist.
 
 ## Syntax
 
 ```css
-/* Keywordwerte */
+/* Keyword values */
 background-origin: border-box;
 background-origin: padding-box;
 background-origin: content-box;
 
-/* Globale Werte */
+/* Global values */
 background-origin: inherit;
 background-origin: initial;
 background-origin: revert;
@@ -29,14 +29,14 @@ background-origin: revert-layer;
 background-origin: unset;
 ```
 
-Die `background-origin` Eigenschaft wird als einer der unten aufgef체hrten Schl체sselwortwerte angegeben.
+Die Eigenschaft `background-origin` wird als eines der unten aufgef체hrten Schl체sselwortwerte angegeben.
 
 ### Werte
 
 - `border-box`
   - : Der Hintergrund wird relativ zur Randbox positioniert.
 - `padding-box`
-  - : Der Hintergrund wird relativ zur Innenabstandsbox positioniert.
+  - : Der Hintergrund wird relativ zur Padding-Box positioniert.
 - `content-box`
   - : Der Hintergrund wird relativ zur Inhaltsbox positioniert.
 
@@ -50,7 +50,7 @@ Die `background-origin` Eigenschaft wird als einer der unten aufgef체hrten Schl�
 
 ## Beispiele
 
-### Setzen von Hintergrundurspr체ngen
+### Festlegen von Hintergrundurspr체ngen
 
 ```css
 .example {
@@ -74,7 +74,7 @@ Die `background-origin` Eigenschaft wird als einer der unten aufgef체hrten Schl�
 
 ```css
 div {
-  background-image: url("logo.jpg"), url("mainback.png"); /* Wendet zwei Bilder auf den Hintergrund an */
+  background-image: url("logo.jpg"), url("mainback.png"); /* Applies two images to the background */
   background-position:
     top right,
     0px 0px;
@@ -84,7 +84,7 @@ div {
 
 ### Verwendung von zwei Verl채ufen
 
-In diesem Beispiel hat die Box einen dicken gepunkteten Rahmen. Der erste Verlauf verwendet die `padding-box` als `background-origin`, und daher sitzt der Hintergrund innerhalb des Rahmens. Der zweite verwendet die `content-box` und wird somit nur hinter dem Inhalt angezeigt.
+In diesem Beispiel hat die Box einen dicken gepunkteten Rand. Der erste Verlauf verwendet die `padding-box` als `background-origin` und daher sitzt der Hintergrund innerhalb des Randes. Der zweite verwendet die `content-box` und wird somit nur hinter dem Inhalt angezeigt.
 
 ```css
 .box {

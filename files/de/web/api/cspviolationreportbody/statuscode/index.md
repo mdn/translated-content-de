@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die **`statusCode`**-Eigenschaft der schreibgeschützten Schnittstelle {{domxref("CSPViolationReportBody")}} ist eine Zahl, die den [HTTP-Statuscode](/de/docs/Web/HTTP/Status) der Antwort auf die Anfrage darstellt, die eine Verletzung der [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) ausgelöst hat (beim Laden eines Fensters oder eines Workers).
+Die **`statusCode`**-Eigenschaft der [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Schnittstelle ist eine schreibgeschützte Zahl, die den [HTTP-Statuscode](/de/docs/Web/HTTP/Status) der Antwort auf die Anfrage darstellt, die eine Verletzung der [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) ausgelöst hat (beim Laden eines Fensters oder Workers).
 
 ## Wert
 
@@ -16,13 +16,14 @@ Eine Zahl, die den HTTP-Statuscode der Antwort auf die Anfrage darstellt, die di
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen {{domxref("ReportingObserver")}}, um Berichte über Inhaltsverletzungen vom Typ `"csp-violation"` zu beobachten. Jedes Mal, wenn die Callback-Funktion aufgerufen wird, protokollieren wir den Statuscode für den ersten Eintrag des Berichtsarrays.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs `"csp-violation"` zu beobachten.
+Jedes Mal, wenn die Callback-Funktion aufgerufen wird, protokollieren wir den Statuscode für den ersten Eintrag des Berichtsarrays.
 
 ```js
 const observer = new ReportingObserver(
   (reports, observer) => {
     console.log(`statusCode: ${reports[0].body.statusCode}`);
-    // Zum Beispiel: 200
+    // For example: 200
   },
   {
     types: ["csp-violation"],
@@ -33,7 +34,7 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Beachten Sie, dass, obwohl es mehrere Berichte im zurückgegebenen Array geben kann, wir der Kürze halber nur den Statuscode des ersten Berichts protokollieren.
+Beachten Sie, dass es zwar mehrere Berichte im zurückgegebenen Array geben kann, aber aus Gründen der Übersichtlichkeit protokollieren wir nur den Statuscode des ersten Berichts.
 
 ## Spezifikationen
 
@@ -45,4 +46,4 @@ Beachten Sie, dass, obwohl es mehrere Berichte im zurückgegebenen Array geben k
 
 ## Siehe auch
 
-- {{domxref("SecurityPolicyViolationEvent.statusCode")}}
+- [`SecurityPolicyViolationEvent.statusCode`](/de/docs/Web/API/SecurityPolicyViolationEvent/statusCode)

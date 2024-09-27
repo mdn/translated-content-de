@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
-Die **`append()`**-Methode des {{domxref("FormData")}}-Interfaces fügt einen neuen Wert einem bestehenden Schlüssel innerhalb eines `FormData`-Objekts hinzu oder fügt den Schlüssel hinzu, wenn er noch nicht existiert.
+Die **`append()`**-Methode der [`FormData`](/de/docs/Web/API/FormData)-Schnittstelle fügt einen neuen Wert zu einem vorhandenen Schlüssel in einem `FormData`-Objekt hinzu oder fügt den Schlüssel hinzu, wenn er noch nicht existiert.
 
-Der Unterschied zwischen {{domxref("FormData.set", "set()")}} und `append()` besteht darin, dass `set()` alle bestehenden Werte mit dem neuen überschreibt, wenn der angegebene Schlüssel bereits existiert, während `append()` den neuen Wert an das Ende der bestehenden Werteliste anhängt.
+Der Unterschied zwischen [`set()`](/de/docs/Web/API/FormData/set) und `append()` besteht darin, dass, wenn der angegebene Schlüssel bereits existiert, `set()` alle vorhandenen Werte mit dem neuen überschreibt, während `append()` den neuen Wert am Ende der vorhandenen Wertemenge anhängt.
 
 ## Syntax
 
@@ -24,12 +24,12 @@ append(name, value, filename)
 - `name`
   - : Der Name des Feldes, dessen Daten in `value` enthalten sind.
 - `value`
-  - : Der Wert des Feldes. Dies kann ein String oder ein {{domxref("Blob")}} (einschließlich Unterklassen wie {{domxref("File")}}) sein. Wenn keiner dieser Typen angegeben ist, wird der Wert in einen String konvertiert.
+  - : Der Wert des Feldes. Dies kann eine Zeichenkette oder ein [`Blob`](/de/docs/Web/API/Blob) sein (einschließlich Unterklassen wie [`File`](/de/docs/Web/API/File)). Wenn keines davon angegeben ist, wird der Wert in eine Zeichenkette konvertiert.
 - `filename` {{optional_inline}}
-  - : Der Dateiname, der dem Server gemeldet wird (ein String), wenn ein {{domxref("Blob")}} oder {{domxref("File")}} als zweiter Parameter übergeben wird. Der Standarddateiname für {{domxref("Blob")}}-Objekte ist "blob". Der Standarddateiname für {{domxref("File")}}-Objekte ist der Dateiname der Datei.
+  - : Der Dateiname, der an den Server gemeldet wird (eine Zeichenkette), wenn ein [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File) als zweiter Parameter übergeben wird. Der standardmäßige Dateiname für [`Blob`](/de/docs/Web/API/Blob)-Objekte ist "blob". Der standardmäßige Dateiname für [`File`](/de/docs/Web/API/File)-Objekte ist der Dateiname der Datei.
 
 > [!NOTE]
-> Wenn Sie ein {{domxref("Blob")}} als die Daten angeben, die dem `FormData`-Objekt hinzugefügt werden sollen, kann der Dateiname, der dem Server im "Content-Disposition"-Header gemeldet wird, je nach Browser variieren.
+> Wenn Sie ein [`Blob`](/de/docs/Web/API/Blob) als die Daten angeben, die dem `FormData`-Objekt hinzugefügt werden sollen, variiert der Dateiname, der an den Server im "Content-Disposition"-Header gemeldet wird, von Browser zu Browser.
 
 ### Rückgabewert
 
@@ -41,20 +41,20 @@ Keiner ({{jsxref("undefined")}}).
 formData.append("username", "Chris");
 ```
 
-Wenn der Wert ein {{domxref("Blob")}} (oder eine {{domxref("File")}}) ist, können Sie seinen Namen mit dem `filename`-Parameter angeben:
+Wenn der Wert ein [`Blob`](/de/docs/Web/API/Blob) (oder eine [`File`](/de/docs/Web/API/File)) ist, können Sie dessen Namen mit dem `filename`-Parameter angeben:
 
 ```js
 formData.append("userpic", myFileInput.files[0], "chris.jpg");
 ```
 
-Wie bei regulären Formulardaten können Sie mehrere Werte mit demselben Namen hinzufügen:
+Wie bei regulären Formulardaten können Sie mehrere Werte mit demselben Namen anhängen:
 
 ```js
 formData.append("userpic", myFileInput.files[0], "chris1.jpg");
 formData.append("userpic", myFileInput.files[1], "chris2.jpg");
 ```
 
-Wenn der Wert kein String oder `Blob` ist, wird `append()` ihn automatisch in einen String konvertieren:
+Wenn der Wert weder eine Zeichenkette noch ein `Blob` ist, wird `append()` ihn automatisch in eine Zeichenkette umwandeln:
 
 ```js
 formData.append("name", true);
@@ -72,5 +72,5 @@ formData.getAll("name"); // ["true", "72"]
 
 ## Siehe auch
 
-- [Verwendung von FormData-Objekten](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
+- [Using FormData objects](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
 - {{HTMLElement("Form")}}

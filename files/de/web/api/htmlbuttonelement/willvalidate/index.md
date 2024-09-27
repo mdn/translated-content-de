@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`willValidate`**-Eigenschaft der {{domxref("HTMLButtonElement")}}-Schnittstelle gibt an, ob das {{htmlelement("button")}}-Element ein Kandidat für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) ist. Sie ist `false`, wenn Bedingungen es von der Einschränkungsvalidierung ausschließen, einschließlich:
+Die schreibgeschützte Eigenschaft **`willValidate`** des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces gibt an, ob das {{htmlelement("button")}}-Element ein Kandidat für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) ist. Sie ist `false`, wenn irgendwelche Bedingungen es von der Einschränkungsvalidierung ausschließen, einschließlich:
 
-- Sein {{domxref("HTMLButtonElement.type", "type")}} ist `reset` oder `button`;
-- Es hat einen {{HTMLElement("datalist")}} Vorfahren;
-- Die {{domxref("HTMLButtonElement.disabled", "disabled")}}-Eigenschaft ist `true`.
+- Sein [`type`](/de/docs/Web/API/HTMLButtonElement/type) ist `reset` oder `button`;
+- Es hat einen {{HTMLElement("datalist")}}-Vorfahren;
+- Die [`disabled`](/de/docs/Web/API/HTMLButtonElement/disabled)-Eigenschaft ist `true`.
 
 ## Wert
 
@@ -22,13 +22,13 @@ Ein boolescher Wert.
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLButtonElement.checkValidity()")}}
+- [`HTMLButtonElement.checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity)
 - {{HTMLElement("button")}}
 - {{HTMLElement("form")}}
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)

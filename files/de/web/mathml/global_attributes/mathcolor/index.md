@@ -10,37 +10,37 @@ l10n:
 Das **`mathcolor`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) setzt die [Farbe](/de/docs/Web/CSS/color) eines MathML-Elements.
 
 > [!NOTE]
-> Verwenden Sie wann immer möglich CSS zur Gestaltung von MathML. Das `mathcolor`-Attribut sollte nur für Anwendungen einbezogen werden, die CSS nicht kennen, und wird von der CSS-`color`-Eigenschaft überschrieben, falls diese gesetzt ist.
+> Verwenden Sie wann immer möglich CSS, um MathML zu stylen. Das `mathcolor`-Attribut sollte nur in Anwendungen verwendet werden, die nicht CSS-fähig sind, und wird von der CSS `color`-Eigenschaft überschrieben, wenn diese gesetzt ist.
 
 ## Syntax
 
 ```html-nolint
-<!-- Schlüsselwort-Werte -->
+<!-- Keyword values -->
 <math mathcolor="currentcolor">
 
-<!-- <named-color> Werte -->
+<!-- <named-color> values -->
 <math mathcolor="red">
 <math mathcolor="orange">
 <math mathcolor="tan">
 <math mathcolor="rebeccapurple">
 
-<!-- <hex-color> Werte -->
+<!-- <hex-color> values -->
 <math mathcolor="#090">
 <math mathcolor="#009900">
 <math mathcolor="#090a">
 <math mathcolor="#009900aa">
 
-<!-- <rgb()> Werte -->
+<!-- <rgb()> values -->
 <math mathcolor="rgb(34, 12, 64, 0.6)">
 <math mathcolor="rgb(34 12 64 / 0.6)">
 <math mathcolor="rgb(34.6 12 64 / 60%)">
 
-<!-- <hsl()> Werte -->
+<!-- <hsl()> values -->
 <math mathcolor="hsl(30, 100%, 50%, 0.6)">
 <math mathcolor="hsl(30 100% 50% / 0.6)">
 <math mathcolor="hsl(30.2 100% 50% / 60%)">
 
-<!-- <hwb()> Werte -->
+<!-- <hwb()> values -->
 <math mathcolor="hwb(90 10% 10%)">
 <math mathcolor="hwb(90 10% 10% / 0.5)">
 <math mathcolor="hwb(90deg 10% 10%)">
@@ -51,18 +51,19 @@ Das **`mathcolor`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) se
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Setzt die Farbe der textuellen und dekorativen Teile des Elements,
-    einschließlich z.B. Bruchstrichen oder Wurzelsymbolen.
+  - : Legt die Farbe der textuellen und dekorativen Teile des Elements fest, einschließlich z.B. Bruchstriche oder Wurzelsymbole.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-- In MathML 3 und früheren Versionen wurde ein eingeschränkter Satz von Werten unterstützt. Seit MathML Core entspricht die Syntax den CSS-{{cssxref("&lt;color&gt;")}}-Werten.
+- In MathML 3 und früheren Versionen wurde nur ein begrenzter Satz von Werten unterstützt.
+  Seit MathML Core entspricht die Syntax den CSS-{{cssxref("&lt;color&gt;")}}-Werten.
 
-- Dieses Attribut wurde für MathML-Anwendungen konzipiert, die CSS nicht kennen. Seit MathML Core wird stattdessen die Verwendung von äquivalentem CSS empfohlen.
+- Dieses Attribut wurde für MathML-Anwendungen entwickelt, die nicht CSS-fähig sind.
+  Seit MathML Core wird stattdessen die Verwendung von äquivalentem CSS empfohlen.
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

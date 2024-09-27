@@ -7,37 +7,37 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Das **`SharedStorageWorklet`**-Interface der {{domxref("Shared Storage API", "Shared Storage API", "", "nocode")}} repräsentiert das Shared Storage Worklet für den aktuellen Ursprung.
+Das **`SharedStorageWorklet`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert das Shared Storage Worklet für den aktuellen Ursprung.
 
-`SharedStorageWorklet` hat keine eigenen Eigenschaften oder Methoden. Stattdessen erbt es die {{domxref("Worklet.addModule", "addModule()")}}-Methode vom {{domxref("Worklet")}}-Interface. Diese Methode wird verwendet, um ein Modul hinzuzufügen.
+`SharedStorageWorklet` besitzt keine eigenen Eigenschaften oder Methoden. Vielmehr erbt es die Methode [`addModule()`](/de/docs/Web/API/Worklet/addModule) von der [`Worklet`](/de/docs/Web/API/Worklet)-Schnittstelle. Diese Methode wird verwendet, um ein Modul hinzuzufügen.
 
-Im Unterschied zu einem regulären {{domxref("Worklet")}}:
+Im Gegensatz zu einem regulären [`Worklet`](/de/docs/Web/API/Worklet):
 
-- Wenn die aufrufende Seite die Shared Storage API nicht in einem [Anmeldeverfahren für Datenschutz-Sandboxen](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) einbezogen hat, werden Aufrufe von `sharedStorageWorklet.addModule()` abgelehnt.
-- `SharedStorageWorklet` erlaubt aus Datenschutzgründen nur das Hinzufügen eines einzelnen Moduls. Selbst bei erfolgreicher Anmeldung werden wiederholte Aufrufe von `addModule()` auf demselben Shared Storage Worklet abgelehnt.
+- Wenn die aufrufende Stelle die Shared Storage API nicht in einen [Privacy Sandbox Registrierungsvorgang](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) einbezogen hat, werden Aufrufe von `sharedStorageWorklet.addModule()` abgelehnt.
+- `SharedStorageWorklet` erlaubt aus Datenschutzgründen nur das Hinzufügen eines einzigen Moduls. Selbst bei einer erfolgreichen Registrierung werden wiederholte Aufrufe von `addModule()` auf dasselbe Shared Storage Worklet abgelehnt.
 
-Auf `SharedStorageWorklet` wird über {{domxref("WindowSharedStorage.worklet")}} zugegriffen.
+Auf `SharedStorageWorklet` wird über [`WindowSharedStorage.worklet`](/de/docs/Web/API/WindowSharedStorage/worklet) zugegriffen.
 
 {{InheritanceDiagram}}
 
 ## Beispiele
 
 ```js
-// Weist einem Benutzer zufällig eine Gruppe 0 oder 1 zu
+// Randomly assigns a user to a group 0 or 1
 function getExperimentGroup() {
   return Math.round(Math.random());
 }
 
 async function injectContent() {
-  // Fügen Sie das Modul zum Shared Storage Worklet hinzu
+  // Add the module to the shared storage worklet
   await window.sharedStorage.worklet.addModule("ab-testing-worklet.js");
 
-  // Weisen Sie dem Benutzer eine zufällige Gruppe (0 oder 1) zu und speichern Sie sie im Shared Storage
+  // Assign user to a random group (0 or 1) and store it in shared storage
   window.sharedStorage.set("ab-testing-group", getExperimentGroup(), {
     ignoreIfPresent: true,
   });
 
-  // Führen Sie den URL-Auswahlprozess aus
+  // Run the URL selection operation
   const fencedFrameConfig = await window.sharedStorage.selectURL(
     "ab-testing",
     [
@@ -49,14 +49,14 @@ async function injectContent() {
     },
   );
 
-  // Rendern Sie die ausgewählte URL in einem fenced frame
+  // Render the chosen URL into a fenced frame
   document.getElementById("content-slot").config = fencedFrameConfig;
 }
 
 injectContent();
 ```
 
-Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) Einstiegsseite für eine Schritt-für-Schritt-Anleitung zu diesem Beispiel und Links zu weiteren Beispielen.
+Sehen Sie sich die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) Einstiegsseite für eine Schritt-für-Schritt-Anleitung zu diesem Beispiel und Links zu weiteren Beispielen an.
 
 ## Spezifikationen
 

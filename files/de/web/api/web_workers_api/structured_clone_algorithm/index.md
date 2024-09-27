@@ -1,27 +1,27 @@
 ---
-title: Der strukturierte Klonalgorithmus
+title: Der Structured Clone Algorithm
 slug: Web/API/Web_Workers_API/Structured_clone_algorithm
 l10n:
-  sourceCommit: 7349ddd2035059d215d6bc92e0dd77ca22b45a4f
+  sourceCommit: 8b6cec0ceff01e7a9d6865cf5306788e15cce4b8
 ---
 
 {{DefaultAPISidebar("Web Workers API") }}
 
-Der **strukturierte Klonalgorithmus** kopiert komplexe JavaScript-Objekte. Er wird intern verwendet, wenn {{domxref("structuredClone()")}} aufgerufen wird, um Daten zwischen [Workers](/de/docs/Web/API/Worker) mittels {{domxref("Worker.postMessage()", "postMessage()")}} zu übertragen, Objekte mit [IndexedDB](/de/docs/Glossary/IndexedDB) zu speichern oder Objekte für [andere APIs](#siehe_auch) zu kopieren.
+Der **Structured Clone Algorithm** kopiert komplexe JavaScript-Objekte. Er wird intern verwendet, wenn [`structuredClone()`](/de/docs/Web/API/WorkerGlobalScope/structuredClone) aufgerufen wird, um Daten zwischen [Workers](/de/docs/Web/API/Worker) via [`postMessage()`](/de/docs/Web/API/Worker/postMessage) zu übertragen, Objekte mit [IndexedDB](/de/docs/Glossary/IndexedDB) zu speichern oder Objekte für [andere APIs](#siehe_auch) zu kopieren.
 
-Er klont, indem er das Eingabeobjekt rekursiv durchläuft und dabei eine Karte von bereits besuchten Referenzen führt, um unendliches Durchlaufen von Zyklen zu vermeiden.
+Er klont, indem er durch das Eingabeobjekt rekursiv durchläuft und dabei eine Karte zuvor besuchter Referenzen beibehält, um endlos kreisende Zyklen zu vermeiden.
 
-## Dinge, die nicht mit strukturiertem Klonen funktionieren
+## Dinge, die mit Structured Clone nicht funktionieren
 
-- {{jsxref("Function")}}-Objekte können nicht vom strukturierten Klonalgorithmus dupliziert werden; ein Versuch führt zu einer `DataCloneError`-Ausnahme.
+- {{jsxref("Function")}}-Objekte können vom Structured Clone Algorithm nicht dupliziert werden; ein Versuch führt zu einer `DataCloneError`-Ausnahme.
 - Das Klonen von DOM-Knoten wirft ebenfalls eine `DataCloneError`-Ausnahme.
 - Bestimmte Objekteigenschaften werden nicht beibehalten:
 
   - Die `lastIndex`-Eigenschaft von {{jsxref("RegExp")}}-Objekten wird nicht beibehalten.
-  - Eigenschaftsbeschreibungen, Setter, Getter und ähnliche Metadaten werden nicht dupliziert.
-    Zum Beispiel wird ein Objekt, das mit einem [Eigenschaftsbeschreiber](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor) als schreibgeschützt markiert ist, im Duplikat als schreib/lesbar markiert, da dies der Standard ist.
-  - Die Prototypenkette wird nicht durchlaufen oder dupliziert.
-  - [Klassen-private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) werden nicht dupliziert. (Obwohl private Eigenschaften eingebauter Typen es sein können.)
+  - Eigenschaftsbeschreibungen, Setter, Getter und ähnliche metadatenartige Merkmale werden nicht dupliziert.
+    Wenn ein Objekt beispielsweise mit einem [Eigenschaftsbeschreiber](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor) als schreibgeschützt markiert ist, wird es im Duplikat als schreib/lesbar sein, da dies der Standard ist.
+  - Die Prototypkette wird nicht durchlaufen oder dupliziert.
+  - [Klasseneigene private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) werden nicht dupliziert. (Obwohl private Eigenschaften von eingebauten Typen dupliziert werden können.)
 
 ## Unterstützte Typen
 
@@ -32,7 +32,7 @@ Er klont, indem er das Eingabeobjekt rekursiv durchläuft und dabei eine Karte v
 - {{jsxref("Boolean")}}
 - {{jsxref("DataView")}}
 - {{jsxref("Date")}}
-- {{jsxref("Error")}}-Typen (aber siehe [Fehlertypen](#fehlertypen) unten).
+- {{jsxref("Error")}}-Typen (siehe jedoch [Fehlertypen](#fehlertypen) unten).
 - {{jsxref("Map")}}
 - {{jsxref("Number")}}
 - {{jsxref("Object")}}-Objekte: aber nur einfache Objekte (z.B. aus Objektliteralen).
@@ -44,43 +44,44 @@ Er klont, indem er das Eingabeobjekt rekursiv durchläuft und dabei eine Karte v
 
 #### Fehlertypen
 
-Bei `Error`-Typen muss der Fehlername einer der folgenden sein: {{jsxref("Error")}}, {{JSxRef("EvalError")}}, {{JSxRef("RangeError")}}, {{JSxRef("ReferenceError")}}, {{JSxRef("SyntaxError")}}, {{JSxRef("TypeError")}}, {{JSxRef("URIError")}} (oder er wird auf "Error" gesetzt).
+Für `Error`-Typen muss der Fehlertyp einer der folgenden sein: {{jsxref("Error")}}, {{JSxRef("EvalError")}}, {{JSxRef("RangeError")}}, {{JSxRef("ReferenceError")}}, {{JSxRef("SyntaxError")}}, {{JSxRef("TypeError")}}, {{JSxRef("URIError")}} (oder wird auf "Error" gesetzt).
 
-Browser müssen die Eigenschaften `name` und `message` serialisieren und sollen andere "interessante" Eigenschaften der Fehler wie `stack`, `cause`, etc. serialisieren.
+Browser müssen die Eigenschaften `name` und `message` serialisieren und sollen auch andere "interessante" Eigenschaften der Fehler wie `stack`, `cause` usw. serialisieren.
 
-Unterstützung für {{JSxRef("AggregateError")}} wird voraussichtlich in die Spezifikation aufgenommen werden unter [whatwg/html#5749](https://github.com/whatwg/html/pull/5749) (und wird bereits in einigen Browsern unterstützt).
+Die Unterstützung für {{JSxRef("AggregateError")}} wird voraussichtlich zur Spezifikation in [whatwg/html#5749](https://github.com/whatwg/html/pull/5749) hinzugefügt (und ist bereits in einigen Browsern unterstützt).
 
 ### Web/API-Typen
 
-- {{domxref("AudioData")}}
-- {{domxref("Blob")}}
-- {{domxref("CropTarget")}}
-- {{domxref("CryptoKey")}}
-- {{domxref("DOMException")}}: Browser müssen die Eigenschaften {{domxref("DOMException.name","name")}} und {{domxref("DOMException.message","message")}} serialisieren. Andere Attribute können ebenfalls serialisiert/geklont werden.
-- {{domxref("DOMMatrix")}}
-- {{domxref("DOMMatrixReadOnly")}}
-- {{domxref("DOMPoint")}}
-- {{domxref("DOMPointReadOnly")}}
-- {{domxref("DOMQuad")}}
-- {{domxref("DOMRect")}}
-- {{domxref("DOMRectReadOnly")}}
-- {{domxref("File")}}
-- {{domxref("FileList")}}
-- {{domxref("FileSystemDirectoryHandle")}}
-- {{domxref("FileSystemFileHandle")}}
-- {{domxref("FileSystemHandle")}}
-- {{domxref("GPUCompilationInfo")}}
-- {{domxref("GPUCompilationMessage")}}
-- {{domxref("ImageBitmap")}}
-- {{domxref("ImageData")}}
-- {{domxref("RTCCertificate")}}
-- {{domxref("VideoFrame")}}
+- [`AudioData`](/de/docs/Web/API/AudioData)
+- [`Blob`](/de/docs/Web/API/Blob)
+- [`CropTarget`](/de/docs/Web/API/CropTarget)
+- [`CryptoKey`](/de/docs/Web/API/CryptoKey)
+- [`DOMException`](/de/docs/Web/API/DOMException): Browser müssen die Eigenschaften [`name`](/de/docs/Web/API/DOMException/name) und [`message`](/de/docs/Web/API/DOMException/message) serialisieren. Andere Attribute können ebenfalls serialisiert/gekloont werden.
+- [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)
+- [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)
+- [`DOMPoint`](/de/docs/Web/API/DOMPoint)
+- [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)
+- [`DOMQuad`](/de/docs/Web/API/DOMQuad)
+- [`DOMRect`](/de/docs/Web/API/DOMRect)
+- [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)
+- [`File`](/de/docs/Web/API/File)
+- [`FileList`](/de/docs/Web/API/FileList)
+- [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)
+- [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)
+- [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)
+- [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo)
+- [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)
+- [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)
+- [`ImageData`](/de/docs/Web/API/ImageData)
+- [`RTCCertificate`](/de/docs/Web/API/RTCCertificate)
+- [`VideoFrame`](/de/docs/Web/API/VideoFrame)
 
 ## Siehe auch
 
 - [HTML-Spezifikation: Sichere Übergabe strukturierter Daten](https://html.spec.whatwg.org/multipage/infrastructure.html#safe-passing-of-structured-data)
-- [Transferierbare Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects)
-- {{domxref("structuredClone()")}}
-- {{domxref("window.postMessage()")}}
+- [Transferable Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects)
+- [`Window.structuredClone()`](/de/docs/Web/API/Window/structuredClone)
+- [`WorkerGlobalScope.structuredClone()`](/de/docs/Web/API/WorkerGlobalScope/structuredClone)
+- [`window.postMessage()`](/de/docs/Web/API/Window/postMessage)
 - [Web Workers](/de/docs/Web/API/Web_Workers_API)
 - [IndexedDB](/de/docs/Web/API/IndexedDB_API)

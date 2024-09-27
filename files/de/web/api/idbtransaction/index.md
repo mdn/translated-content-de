@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Das **`IDBTransaction`**-Interface der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) bietet eine statische, asynchrone Transaktion auf einer Datenbank unter Verwendung von Event-Handler-Attributen. Alle Lese- und Schreibvorgänge von Daten erfolgen innerhalb von Transaktionen. Sie verwenden {{domxref("IDBDatabase")}}, um Transaktionen zu starten, `IDBTransaction`, um den Modus der Transaktion festzulegen (z.B. ob sie `readonly` oder `readwrite` ist), und Sie greifen auf einen {{domxref("IDBObjectStore")}} zu, um eine Anfrage zu stellen. Sie können ein `IDBTransaction`-Objekt auch verwenden, um Transaktionen abzubrechen.
+Die **`IDBTransaction`**-Schnittstelle der [IndexedDB-API](/de/docs/Web/API/IndexedDB_API) bietet eine statische, asynchrone Transaktion auf einer Datenbank unter Verwendung von Ereignis-Handler-Attributen. Alle Lese- und Schreibvorgänge erfolgen innerhalb von Transaktionen. Sie verwenden [`IDBDatabase`](/de/docs/Web/API/IDBDatabase), um Transaktionen zu starten, `IDBTransaction`, um den Modus der Transaktion festzulegen (z. B. ob sie `readonly` oder `readwrite` ist), und Sie greifen auf einen [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) zu, um eine Anfrage zu stellen. Sie können auch ein `IDBTransaction`-Objekt verwenden, um Transaktionen abzubrechen.
 
 {{InheritanceDiagram}}
 
-Transaktionen werden gestartet, wenn die Transaktion erstellt wird, nicht wenn die erste Anfrage gestellt wird; beispielsweise betrachten Sie folgendes:
+Transaktionen werden gestartet, wenn die Transaktion erstellt wird, nicht wenn die erste Anfrage gestellt wird; Betrachten Sie beispielsweise folgendes:
 
 ```js
 const trans1 = db.transaction("foo", "readwrite");
@@ -22,71 +22,71 @@ objectStore2.put("2", "key");
 objectStore1.put("1", "key");
 ```
 
-Nach der Ausführung des Codes sollte der Objektstore den Wert "2" enthalten, da `trans2` nach `trans1` ausgeführt werden sollte.
+Nachdem der Code ausgeführt wurde, sollte der Objekt-Store den Wert "2" enthalten, da `trans2` nach `trans1` ausgeführt werden sollte.
 
-Eine Transaktion wechselt zwischen _aktiven_ und _inaktiven_ Zuständen zwischen den Aufgaben der Event-Schleife. Sie ist in der Aufgabe aktiv, als sie erstellt wurde, und in jeder Aufgabe der Event-Handler für die `success`- oder `error`-Ereignisse der Anfragen. Sie ist in allen anderen Aufgaben inaktiv, in denen die Platzierung von Anfragen fehlschlägt. Wenn keine neuen Anfragen gestellt werden, während die Transaktion aktiv ist, und es keine anderen ausstehenden Anfragen gibt, wird die Transaktion automatisch festgeschrieben.
+Eine Transaktion wechselt zwischen _aktiven_ und _inaktiven_ Zuständen zwischen Aufgaben der Ereignisschleife. Sie ist aktiv in der Aufgabe, in der sie erstellt wurde, und in jeder Aufgabe der [`success`](/de/docs/Web/API/IDBRequest/success_event)- oder [`error`](/de/docs/Web/API/IDBRequest/error_event)-Ereignishandler der Anfragen. Sie ist in allen anderen Aufgaben inaktiv; in diesem Fall wird das Stellen von Anfragen fehlschlagen. Wenn keine neuen Anfragen gestellt werden, wenn die Transaktion aktiv ist, und keine anderen ausstehenden Anfragen vorhanden sind, wird die Transaktion automatisch abgeschlossen.
 
 ## Transaktionsfehler
 
-Transaktionen können aus einer begrenzten Anzahl von Gründen fehlschlagen, von denen alle (außer einem Absturz des Benutzeragenten) einen Abbruch-Callback auslösen:
+Transaktionen können aus einer bestimmten Anzahl von Gründen fehlschlagen, die alle (außer dem Absturz des Benutzeragenten) einen Abbruch-Callback auslösen:
 
-- Abbruch aufgrund fehlerhafter Anfragen, z.B. wenn versucht wird, den gleichen Schlüssel zweimal hinzuzufügen (add()) oder mit demselben Indexschlüssel mit einer Einzigartigkeitseinschränkung put() zu verwenden. Dies verursacht einen Fehler bei der Anfrage, der sich zu einem Fehler bei der Transaktion entwickeln kann, wodurch die Transaktion abgebrochen wird. Dies kann verhindert werden, indem `preventDefault()` beim Fehlerereignis der Anfrage verwendet wird.
-- Ein expliziter `abort()`-Aufruf aus dem Skript.
+- Abbruch aufgrund fehlerhafter Anfragen, z. B. beim Versuch, denselben Schlüssel zweimal mit `add()` hinzuzufügen oder `put()` mit demselben Indexschlüssel mit einem Eindeutigkeitsconstraint. Dies führt zu einem Fehler bei der Anfrage, der zu einem Fehler bei der Transaktion eskalieren kann, wodurch die Transaktion abgebrochen wird. Dies kann verhindert werden, indem `preventDefault()` bei der Fehler-Ereignis der Anfrage verwendet wird.
+- Ein expliziter `abort()`-Aufruf durch ein Skript.
 - Eine nicht abgefangene Ausnahme im `success`/`error`-Handler der Anfrage.
-- Ein I/O-Fehler (z.B. ein tatsächliches Scheitern beim Schreiben auf die Festplatte oder ein anderer OS/Hardware-Fehler).
-- Quota überschritten.
+- Ein E/A-Fehler (z. B. ein tatsächlicher Fehler beim Schreiben auf die Festplatte oder ein anderer OS/Hardware-Fehler).
+- Überschrittenes Kontingent.
 - Ein Absturz des Benutzeragenten.
 
-## Firefox-Haltbarkeitsgarantien
+## Haltbarkeitsgarantien in Firefox
 
-Beachten Sie, dass ab Firefox 40 die Haltbarkeitsgarantien von IndexedDB-Transaktionen gelockert wurden, um die Leistung zu steigern (siehe [Firefox bug 1112702](https://bugzil.la/1112702)). Zuvor wurde bei einer `readwrite`-Transaktion ein {{domxref("IDBTransaction.complete_event","complete")}}-Ereignis nur ausgelöst, wenn alle Daten garantiert auf die Festplatte geschrieben wurden. In Firefox 40+ wird das `complete`-Ereignis ausgelöst, nachdem dem Betriebssystem mitgeteilt wurde, die Daten zu schreiben, möglicherweise bevor diese Daten tatsächlich auf die Festplatte geschrieben wurden. Das `complete`-Ereignis kann daher schneller als zuvor geliefert werden, jedoch besteht eine geringe Chance, dass die gesamte Transaktion verloren geht, wenn das Betriebssystem abstürzt oder es zu einem Stromausfall des Systems kommt, bevor die Daten auf die Festplatte geschrieben wurden. Da solche katastrophalen Ereignisse selten sind, müssen sich die meisten Anwender nicht weiter darum kümmern.
+Beachten Sie, dass ab Firefox 40, IndexedDB-Transaktionen entspannte Haltbarkeitsgarantien haben, um die Leistung zu steigern (siehe [Firefox Bug 1112702](https://bugzil.la/1112702)). Früher wurde in einer `readwrite`-Transaktion ein [`complete`](/de/docs/Web/API/IDBTransaction/complete_event)-Ereignis erst ausgelöst, wenn alle Daten garantiert auf die Festplatte geschrieben wurden. In Firefox 40+ wird das `complete`-Ereignis ausgelöst, nachdem das Betriebssystem angewiesen wurde, die Daten zu schreiben, jedoch möglicherweise bevor diese Daten tatsächlich auf die Festplatte geschrieben wurden. Das `complete`-Ereignis kann also schneller als zuvor ausgeliefert werden, allerdings besteht eine geringe Chance, dass die gesamte Transaktion verloren geht, wenn das Betriebssystem abstürzt oder die Systemleistung unterbrochen wird, bevor die Daten auf die Festplatte geschrieben wurden. Da solche katastrophalen Ereignisse selten sind, müssen sich die meisten Benutzer nicht weiter darum kümmern.
 
-Wenn Sie aus irgendeinem Grund Haltbarkeit sicherstellen müssen (z.B. weil Sie kritische Daten speichern, die später nicht neu berechnet werden können), können Sie eine Transaktion dazu zwingen, vor der Lieferung des `complete`-Ereignisses auf die Festplatte zu schreiben, indem Sie eine Transaktion mit dem experimentellen (nicht standardisierten) `readwriteflush`-Modus erstellen (siehe {{domxref("IDBDatabase.transaction")}}).
+Wenn Sie aus irgendeinem Grund Haltbarkeit sicherstellen müssen (z. B. weil Sie kritische Daten speichern, die später nicht neu berechnet werden können), können Sie eine Transaktion zwingen, auf die Festplatte geschrieben zu werden, bevor das `complete`-Ereignis ausgeliefert wird, indem Sie eine Transaktion mit dem experimentellen (nicht standardisierten) `readwriteflush`-Modus erstellen (siehe [`IDBDatabase.transaction`](/de/docs/Web/API/IDBDatabase/transaction)).
 
 ## Instanz-Eigenschaften
 
-- {{domxref("IDBTransaction.db")}} {{ReadOnlyInline}}
-  - : Die Datenbankverbindung, mit der diese Transaktion verbunden ist.
-- {{domxref("IDBTransaction.durability")}} {{ReadOnlyInline}}
-  - : Gibt den Haltbarkeitshinweis zurück, mit dem die Transaktion erstellt wurde.
-- {{domxref("IDBTransaction.error")}} {{ReadOnlyInline}}
-  - : Gibt eine {{domxref("DOMException")}} zurück, die den Fehlertyp angibt, der aufgetreten ist, wenn eine Transaktion nicht erfolgreich ist. Diese Eigenschaft ist `null`, wenn die Transaktion nicht abgeschlossen ist, abgeschlossen und erfolgreich festgeschrieben wurde oder mit der {{domxref("IDBTransaction.abort()")}} Funktion abgebrochen wurde.
-- {{domxref("IDBTransaction.mode")}} {{ReadOnlyInline}}
-  - : Der Modus zur Isolierung des Zugriffs auf Daten in den Objektstores, die im Bereich der Transaktion enthalten sind. Der Standardwert ist `readonly`.
-- {{domxref("IDBTransaction.objectStoreNames")}} {{ReadOnlyInline}}
-  - : Gibt eine {{domxref("DOMStringList")}} der Namen der {{domxref("IDBObjectStore")}}-Objekte zurück, die mit der Transaktion verbunden sind.
+- [`IDBTransaction.db`](/de/docs/Web/API/IDBTransaction/db) {{ReadOnlyInline}}
+  - : Die Datenbankverbindung, mit der diese Transaktion verknüpft ist.
+- [`IDBTransaction.durability`](/de/docs/Web/API/IDBTransaction/durability) {{ReadOnlyInline}}
+  - : Gibt den Haltbarkeits-Hinweis zurück, mit dem die Transaktion erstellt wurde.
+- [`IDBTransaction.error`](/de/docs/Web/API/IDBTransaction/error) {{ReadOnlyInline}}
+  - : Gibt eine [`DOMException`](/de/docs/Web/API/DOMException) zurück, die den Fehlertyp angibt, der aufgetreten ist, wenn eine Transaktion nicht erfolgreich war. Diese Eigenschaft ist `null`, wenn die Transaktion nicht abgeschlossen oder erfolgreich durchgeführt wurde oder mit der Funktion [`IDBTransaction.abort()`](/de/docs/Web/API/IDBTransaction/abort) abgebrochen wurde.
+- [`IDBTransaction.mode`](/de/docs/Web/API/IDBTransaction/mode) {{ReadOnlyInline}}
+  - : Der Modus zur Isolation des Datenzugriffs in den im Geltungsbereich der Transaktion befindlichen Objekt-Store. Der Standardwert ist `readonly`.
+- [`IDBTransaction.objectStoreNames`](/de/docs/Web/API/IDBTransaction/objectStoreNames) {{ReadOnlyInline}}
+  - : Gibt eine [`DOMStringList`](/de/docs/Web/API/DOMStringList) der Namen der mit der Transaktion verbundenen [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Objekte zurück.
 
 ## Instanz-Methoden
 
-Erbt von: {{domxref("EventTarget")}}
+Erbt von: [`EventTarget`](/de/docs/Web/API/EventTarget)
 
-- {{domxref("IDBTransaction.abort()")}}
-  - : Macht alle Änderungen an Objekten in der mit dieser Transaktion verbundenen Datenbank rückgängig. Wenn diese Transaktion bereits abgebrochen oder abgeschlossen wurde, wird bei diesem Aufruf ein Fehlerereignis ausgelöst.
-- {{domxref("IDBTransaction.objectStore()")}}
-  - : Gibt ein {{domxref("IDBObjectStore")}}-Objekt zurück, das einen Objektstore repräsentiert, der Teil des Bereichs dieser Transaktion ist.
-- {{domxref("IDBTransaction.commit()")}}
-  - : Für eine aktive Transaktion bestätigt die Transaktion. Beachten Sie, dass dies normalerweise nicht _erforderlich_ ist — eine Transaktion wird automatisch festgeschrieben, wenn alle ausstehenden Anfragen erfüllt wurden und keine neuen Anfragen gestellt wurden. `commit()` kann verwendet werden, um den Bestätigungsprozess zu starten, ohne auf Ereignisse von ausstehenden Anfragen zu warten.
+- [`IDBTransaction.abort()`](/de/docs/Web/API/IDBTransaction/abort)
+  - : Macht alle Änderungen an Objekten in der mit dieser Transaktion verbundenen Datenbank rückgängig. Wenn diese Transaktion abgebrochen oder abgeschlossen wurde, löst diese Methode ein Fehlerereignis aus.
+- [`IDBTransaction.objectStore()`](/de/docs/Web/API/IDBTransaction/objectStore)
+  - : Gibt ein [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Objekt zurück, das einen Objekt-Store darstellt, der Teil des Geltungsbereichs dieser Transaktion ist.
+- [`IDBTransaction.commit()`](/de/docs/Web/API/IDBTransaction/commit)
+  - : Für eine aktive Transaktion, bestätigt die Transaktion. Beachten Sie, dass dies normalerweise nicht _unbedingt_ aufgerufen werden muss – eine Transaktion wird automatisch abgeschlossen, wenn alle ausstehenden Anfragen erfüllt wurden und keine neuen Anfragen gestellt wurden. `commit()` kann verwendet werden, um den Abschlussvorgang zu starten, ohne auf Ereignisse von ausstehenden Anfragen zu warten.
 
 ## Ereignisse
 
-Hören Sie diese Ereignisse mittels `addEventListener()` oder indem Sie einen Event-Listener auf die `oneventname`-Eigenschaft dieses Interfaces zuweisen.
+Verwenden Sie `addEventListener()`, um diesen Ereignissen zuzuhören, oder weisen Sie einen Ereignis-Listener der Eigenschaft `oneventname` dieser Schnittstelle zu.
 
 - [`abort`](/de/docs/Web/API/IDBTransaction/abort_event)
   - : Ein Ereignis, das ausgelöst wird, wenn die `IndexedDB`-Transaktion abgebrochen wird.
-    Auch über die `onabort`-Eigenschaft verfügbar; dieses Ereignis steigt bis zu {{domxref("IDBDatabase")}} auf.
+    Auch über die Eigenschaft `onabort` verfügbar; dieses Ereignis gelangt zur [`IDBDatabase`](/de/docs/Web/API/IDBDatabase).
 - [`complete`](/de/docs/Web/API/IDBTransaction/complete_event)
-  - : Ein Ereignis, das ausgelöst wird, wenn die Transaktion erfolgreich abgeschlossen wurde.
-    Auch über die `oncomplete`-Eigenschaft verfügbar.
+  - : Ein Ereignis, das ausgelöst wird, wenn die Transaktion erfolgreich abgeschlossen wird.
+    Auch über die Eigenschaft `oncomplete` verfügbar.
 - [`error`](/de/docs/Web/API/IDBTransaction/error_event)
-  - : Ein Ereignis, das ausgelöst wird, wenn eine Anfrage einen Fehler erzeugt und das Ereignis bis zum Verbindungsobjekt ({{domxref("IDBDatabase")}}) aufsteigt.
-    Auch über die `onerror`-Eigenschaft verfügbar.
+  - : Ein Ereignis, das ausgelöst wird, wenn eine Anfrage einen Fehler zurückgibt und das Ereignis zum Verbindungsobjekt ([`IDBDatabase`](/de/docs/Web/API/IDBDatabase)) durchdringt.
+    Auch über die Eigenschaft `onerror` verfügbar.
 
 ## Modus-Konstanten
 
 {{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Konstanten sind nicht mehr verfügbar — sie wurden in Gecko 25 entfernt. Sie sollten stattdessen die String-Konstanten direkt verwenden. ([Firefox bug 888598](https://bugzil.la/888598))
+> Diese Konstanten sind nicht mehr verfügbar — sie wurden in Gecko 25 entfernt. Sie sollten stattdessen die Zeichenketten-Konstanten direkt verwenden. ([Firefox Bug 888598](https://bugzil.la/888598))
 
 Transaktionen können einen von drei Modi haben:
 
@@ -112,7 +112,7 @@ Transaktionen können einen von drei Modi haben:
       </td>
       <td>"readwrite" (1 in Chrome)</td>
       <td>
-        Erlaubt das Lesen und Ändern von Daten in vorhandenen Datenspeichern.
+        Erlaubt das Lesen und Schreiben von Daten in bestehenden Datenspeichern.
       </td>
     </tr>
     <tr>
@@ -121,16 +121,13 @@ Transaktionen können einen von drei Modi haben:
       </td>
       <td>"versionchange" (2 in Chrome)</td>
       <td>
-        Erlaubt alle Operationen, einschließlich derjenigen, die Objektstores
-        und Indizes löschen und erstellen. Transaktionen dieses Modus können
-        nicht gleichzeitig mit anderen Transaktionen ausgeführt werden.
-        Transaktionen in diesem Modus sind als "Upgrade-Transaktionen" bekannt.
+        Erlaubt alle Operationen, einschließlich solcher, die Objekt-Store und Indizes löschen und erstellen. Transaktionen in diesem Modus können nicht gleichzeitig mit anderen Transaktionen ausgeführt werden. Transaktionen in diesem Modus sind als "Upgrade-Transaktionen" bekannt.
       </td>
     </tr>
   </tbody>
 </table>
 
-Auch wenn diese Konstanten jetzt veraltet sind, können Sie sie immer noch verwenden, um die Rückwärtskompatibilität sicherzustellen, falls erforderlich (in Chrome [wurde die Änderung in Version 21 vorgenommen](https://peter.sh/2012/05/tab-sizing-string-values-for-indexeddb-and-chrome-21/)). Sie sollten vorsichtig programmieren, falls das Objekt nicht mehr verfügbar ist:
+Auch wenn diese Konstanten jetzt veraltet sind, können Sie sie immer noch verwenden, um bei Bedarf eine Rückwärtskompatibilität zu gewährleisten (in Chrome [wurde die Änderung in Version 21 vorgenommen](https://peter.sh/2012/05/tab-sizing-string-values-for-indexeddb-and-chrome-21/)). Sie sollten defensiv programmieren, falls das Objekt nicht mehr verfügbar ist:
 
 ```js
 const myIDBTransaction = window.IDBTransaction ||
@@ -139,68 +136,68 @@ const myIDBTransaction = window.IDBTransaction ||
 
 ## Beispiele
 
-Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen einem Objektstore einige Daten hinzu. Beachten Sie auch die Funktionen, die an die Transaktions-Event-Handler angehängt sind, um über das Ergebnis der Transaktionsöffnung im Erfolgs- oder Fehlerfall zu berichten. Für ein vollständiges funktionierendes Beispiel sehen Sie sich unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)) an.
+Im folgenden Code-Beispiel öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen einige Daten zu einem Objekt-Store hinzu. Beachten Sie auch die Funktionen, die an die Transaktions-Ereignishandler angehängt sind, um über den Ausgang der Transaktionsöffnung im Erfolgs- oder Misserfolgsfall zu berichten. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.getElementById("notifications");
 
-// eine Instanz eines db-Objekts, um die IDB-Daten zu speichern
+// an instance of a db object for us to store the IDB data in
 let db;
 
-// Lassen Sie uns unsere Datenbank öffnen
+// Let us open our database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
 DBOpenRequest.onsuccess = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Datenbank initialisiert.";
+    "Database initialized.";
 
-  // Speichern Sie das Ergebnis des Öffnens der Datenbank in der db
-  // Variable. Diese wird unten oft verwendet
+  // store the result of opening the database in the db
+  // variable. This is used a lot below
   db = DBOpenRequest.result;
 
-  // Fügen Sie die Daten zur Datenbank hinzu
+  // Add the data to the database
   addData();
 };
 
 function addData() {
-  // Erstellen Sie ein neues Objekt, das in die IDB eingefügt werden soll
+  // Create a new object to insert into the IDB
   const newItem = [
     {
-      taskTitle: "Hund ausführen",
+      taskTitle: "Walk dog",
       hours: 19,
       minutes: 30,
       day: 24,
-      month: "Dezember",
+      month: "December",
       year: 2013,
-      notified: "nein",
+      notified: "no",
     },
   ];
 
-  // Öffnen Sie eine Lese-/Schreibdatenbanktransaktion, um Daten hinzuzufügen
+  // open a read/write db transaction, ready to add data
   const transaction = db.transaction(["toDoList"], "readwrite");
 
-  // Bericht über den Erfolg der Transaktionsöffnung
+  // report on the success of opening the transaction
   transaction.oncomplete = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion abgeschlossen: Datenbankänderung abgeschlossen.";
+      "Transaction completed: database modification finished.";
   };
 
   transaction.onerror = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion nicht eröffnet aufgrund eines Fehlers. Doppelte Einträge nicht erlaubt.";
+      "Transaction not opened due to error. Duplicate items not allowed.";
   };
 
-  // Erstellen Sie einen Objektstore auf der Transaktion
+  // create an object store on the transaction
   const objectStore = transaction.objectStore("toDoList");
 
-  // Fügen Sie unser newItem-Objekt dem Objekt-Store hinzu
+  // add our newItem object to the object store
   const objectStoreRequest = objectStore.add(newItem[0]);
 
   objectStoreRequest.onsuccess = (event) => {
-    // Berichten Sie über den Erfolg der Anfrage (dies bedeutet nicht, dass das Element
-    // erfolgreich in der DB gespeichert wurde - hierfür benötigen Sie transaction.oncomplete)
+    // report the success of the request (this does not mean the item
+    // has been stored successfully in the DB - for that you need transaction.oncomplete)
     note.appendChild(document.createElement("li")).textContent =
-      "Anfrage erfolgreich.";
+      "Request successful.";
   };
 }
 ```
@@ -216,8 +213,8 @@ function addData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Festlegen eines Bereichs von Schlüsseln: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursor: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Einen Bereich von Schlüsseln festlegen: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Änderungen Ihrer Daten vornehmen: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenz-Beispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

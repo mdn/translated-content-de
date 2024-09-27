@@ -1,5 +1,5 @@
 ---
-title: "XRCylinderLayer: Eigenschaft aspectRatio"
+title: "XRCylinderLayer: aspectRatio-Eigenschaft"
 short-title: aspectRatio
 slug: Web/API/XRCylinderLayer/aspectRatio
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`aspectRatio`**-Eigenschaft der {{domxref("XRCylinderLayer")}}-Schnittstelle stellt das Verhältnis des sichtbaren Zylinderschnitts dar. Es ist das Verhältnis der Breite des sichtbaren Abschnitts des Zylinders zu seiner Höhe. Die Breite wird berechnet, indem der {{domxref("XRCylinderLayer.radius", "Radius")}} mit dem {{domxref("XRCylinderLayer.centralAngle", "Zentralwinkel")}} multipliziert wird.
+Die **`aspectRatio`**-Eigenschaft der [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer)-Schnittstelle repräsentiert das Verhältnis des sichtbaren Zylinderabschnitts. Es ist das Verhältnis der Breite des sichtbaren Abschnitts des Zylinders zu seiner Höhe. Die Breite wird berechnet, indem der [`radius`](/de/docs/Web/API/XRCylinderLayer/radius) mit dem [`centralAngle`](/de/docs/Web/API/XRCylinderLayer/centralAngle) multipliziert wird.
 
 ## Wert
 
-Eine Zahl, die das Verhältnis des sichtbaren Zylinderschnitts darstellt.
+Eine Zahl, die das Verhältnis des sichtbaren Zylinderabschnitts darstellt.
 
 ## Beispiele
 
 ### Abrufen des Seitenverhältnisses einer Ebene
 
-Die Methode {{domxref("XRWebGLBinding.createCylinderLayer()")}} erstellt eine zylindrische Ebene und ermöglicht die Angabe eines `aspectRatio`. Die Eigenschaft `XRCylinder.aspectRatio` kann nach der Erstellung der Ebene verwendet werden, um das verwendete {{glossary("Seitenverhältnis")}} zu erhalten oder es auf ein neues festzulegen.
+Die Methode [`XRWebGLBinding.createCylinderLayer()`](/de/docs/Web/API/XRWebGLBinding/createCylinderLayer) erstellt eine Zylinderebene und erlaubt es, ein `aspectRatio` anzugeben. Die Eigenschaft `XRCylinder.aspectRatio` kann nach der Erstellung der Ebene verwendet werden, um das verwendete [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) abzurufen oder um es auf ein neues zu setzen.
 
 ```js
 const cylinderLayer = xrGlBinding.createCylinderLayer({
@@ -44,5 +44,5 @@ cylinderLayer.aspectRatio; // 2
 
 ## Siehe auch
 
-- {{domxref("XRCylinderLayer.centralAngle")}}
-- {{domxref("XRCylinderLayer.radius")}}
+- [`XRCylinderLayer.centralAngle`](/de/docs/Web/API/XRCylinderLayer/centralAngle)
+- [`XRCylinderLayer.radius`](/de/docs/Web/API/XRCylinderLayer/radius)

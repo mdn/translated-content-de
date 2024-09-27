@@ -1,6 +1,6 @@
 ---
-title: "DocumentPictureInPictureEvent: Fenster-Eigenschaft"
-short-title: Fenster
+title: "DocumentPictureInPictureEvent: window-Eigenschaft"
+short-title: window
 slug: Web/API/DocumentPictureInPictureEvent/window
 l10n:
   sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`window`** schreibgeschützte Eigenschaft des {{domxref("DocumentPictureInPictureEvent")}}-Interfaces gibt eine {{domxref("Window")}}-Instanz zurück, die den Browsing-Kontext innerhalb des `DocumentPictureInPicture`-Fensters darstellt, für das das Ereignis ausgelöst wurde.
+Die **`window`** schreibgeschützte Eigenschaft der [`DocumentPictureInPictureEvent`](/de/docs/Web/API/DocumentPictureInPictureEvent)-Schnittstelle gibt eine [`Window`](/de/docs/Web/API/Window)-Instanz zurück, die den Browserkontext innerhalb des `DocumentPictureInPicture`-Fensters darstellt, auf dem das Ereignis ausgelöst wurde.
 
 ## Wert
 
-Ein {{domxref("Window")}}-Objektinstanz.
+Ein [`Window`](/de/docs/Web/API/Window)-Objekt-Instanz.
 
 ## Beispiele
 
 ```js
 documentPictureInPicture.addEventListener("enter", (event) => {
   const pipWindow = event.window;
-  console.log("Videoplayer hat das PiP-Fenster betreten");
+  console.log("Video player has entered the pip window");
 
   const pipMuteButton = pipWindow.document.createElement("button");
   pipMuteButton.textContent = "Mute";
@@ -48,5 +48,5 @@ documentPictureInPicture.addEventListener("enter", (event) => {
 
 ## Siehe auch
 
-- {{domxref("Document Picture-in-Picture API", "Document Picture-in-Picture API", "", "nocode")}}
+- [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API)
 - [Verwendung der Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API/Using)

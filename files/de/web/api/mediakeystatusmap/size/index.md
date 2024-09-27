@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`size`** schreibgeschützte Eigenschaft des {{domxref("MediaKeyStatusMap")}} Interfaces gibt die Anzahl der Schlüssel/Wert-Paare in der Statuskarte zurück.
+Die schreibgeschützte **`size`**-Eigenschaft des [`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap)-Interfaces gibt die Anzahl der Schlüssel/Wert-Paare in der Statuskarte zurück.
 
 ## Wert
 
-Ein ganzzahliger langer Wert.
+Eine lange Ganzzahl.
 
 ## Spezifikationen
 

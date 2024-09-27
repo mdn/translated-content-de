@@ -1,5 +1,5 @@
 ---
-title: "<body>: Das Dokumentkörper-Element"
+title: "<body>: Das Dokument-Körper-Element"
 slug: Web/HTML/Element/body
 l10n:
   sourceCommit: e3f162d122a38c8dc81a1e733894c5c54d134454
@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<body>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert den Inhalt eines HTML-Dokuments. Es kann nur ein `<body>`-Element in einem Dokument geben.
+Das **`<body>`** [HTML](/de/docs/Web/HTML) Element repräsentiert den Inhalt eines HTML-Dokuments. Es kann nur ein `<body>` Element in einem Dokument geben.
 
 ## Attribute
 
@@ -15,28 +15,28 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
 
 - `alink` {{deprecated_inline}}
   - : Farbe des Textes für Hyperlinks, wenn ausgewählt.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit der Pseudoklasse {{cssxref(":active")}}.**
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS {{cssxref("color")}} Eigenschaft in Verbindung mit der {{cssxref(":active")}} Pseudoklasse.**
 - `background` {{deprecated_inline}}
   - : URI eines Bildes, das als Hintergrund verwendet wird.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("background")}} auf dem Element.**
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS {{cssxref("background")}} Eigenschaft auf dem Element.**
 - `bgcolor` {{deprecated_inline}}
-  - : Hintergrundfarbe des Dokuments.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("background-color")}} auf dem Element.**
+  - : Hintergrundfarbe für das Dokument.
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS {{cssxref("background-color")}} Eigenschaft auf dem Element.**
 - `bottommargin` {{deprecated_inline}}
-  - : Der untere Rand des Körpers.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-bottom")}} auf dem Element.**
+  - : Der Abstand des unteren Randes des Körpers.
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS {{cssxref("margin-bottom")}} Eigenschaft auf dem Element.**
 - `leftmargin` {{deprecated_inline}}
-  - : Der linke Rand des Körpers.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-left")}} auf dem Element.**
+  - : Der Abstand des linken Randes des Körpers.
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS {{cssxref("margin-left")}} Eigenschaft auf dem Element.**
 - `link` {{deprecated_inline}}
   - : Farbe des Textes für nicht besuchte Hypertext-Links.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit der Pseudoklasse {{cssxref(":link")}}.**
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS {{cssxref("color")}} Eigenschaft in Verbindung mit der {{cssxref(":link")}} Pseudoklasse.**
 - `onafterprint`
   - : Funktion, die aufgerufen wird, nachdem der Benutzer das Dokument gedruckt hat.
 - `onbeforeprint`
   - : Funktion, die aufgerufen wird, wenn der Benutzer das Drucken des Dokuments anfordert.
 - `onbeforeunload`
-  - : Funktion, die aufgerufen wird, wenn das Dokument entladen wird.
+  - : Funktion, die aufgerufen wird, bevor das Dokument entladen wird.
 - `onblur`
   - : Funktion, die aufgerufen wird, wenn das Dokument den Fokus verliert.
 - `onerror`
@@ -44,37 +44,37 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
 - `onfocus`
   - : Funktion, die aufgerufen wird, wenn das Dokument den Fokus erhält.
 - `onhashchange`
-  - : Funktion, die aufgerufen wird, wenn sich der Fragmentidentifikator-Teil (beginnend mit dem Zeichen `'#'`) der aktuellen Adresse des Dokuments ändert.
+  - : Funktion, die aufgerufen wird, wenn sich der Fragment-Identifikator-Teil (beginnend mit dem Hash (`'#'`)-Zeichen) der aktuellen Adresse des Dokuments geändert hat.
 - `onlanguagechange`
   - : Funktion, die aufgerufen wird, wenn sich die bevorzugten Sprachen geändert haben.
 - `onload`
   - : Funktion, die aufgerufen wird, wenn das Dokument fertig geladen ist.
 - `onmessage`
-  - : Funktion, die aufgerufen wird, wenn das Dokument eine Nachricht empfangen hat.
+  - : Funktion, die aufgerufen wird, wenn das Dokument eine Nachricht erhält.
 - `onoffline`
-  - : Funktion, die aufgerufen wird, wenn die Netzwerkkommunikation fehlgeschlagen ist.
+  - : Funktion, die aufgerufen wird, wenn die Netzwerkkommunikation gescheitert ist.
 - `ononline`
   - : Funktion, die aufgerufen wird, wenn die Netzwerkkommunikation wiederhergestellt wurde.
 - `onpopstate`
-  - : Funktion, die aufgerufen wird, wenn der Benutzer im Sitzungsverlauf navigiert hat.
+  - : Funktion, die aufgerufen wird, wenn der Benutzer durch den Sitzungsverlauf navigiert.
 - `onresize`
   - : Funktion, die aufgerufen wird, wenn das Dokument in der Größe verändert wurde.
 - `onstorage`
-  - : Funktion, die aufgerufen wird, wenn der Speicherbereich geändert wurde.
+  - : Funktion, die aufgerufen wird, wenn sich der Speicherbereich geändert hat.
 - `onunload`
-  - : Funktion, die aufgerufen wird, wenn das Dokument verlassen wird.
+  - : Funktion, die aufgerufen wird, wenn das Dokument beendet wird.
 - `rightmargin` {{deprecated_inline}}
-  - : Der rechte Rand des Körpers.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-right")}} auf dem Element.**
+  - : Der Abstand des rechten Randes des Körpers.
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS {{cssxref("margin-right")}} Eigenschaft auf dem Element.**
 - `text` {{deprecated_inline}}
   - : Vordergrundfarbe des Textes.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} auf dem Element.**
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS {{cssxref("color")}} Eigenschaft auf dem Element.**
 - `topmargin` {{deprecated_inline}}
-  - : Der obere Rand des Körpers.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-top")}} auf dem Element.**
+  - : Der Abstand des oberen Randes des Körpers.
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS {{cssxref("margin-top")}} Eigenschaft auf dem Element.**
 - `vlink` {{deprecated_inline}}
   - : Farbe des Textes für besuchte Hypertext-Links.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit der Pseudoklasse {{cssxref(":visited")}}.**
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS {{cssxref("color")}} Eigenschaft in Verbindung mit der {{cssxref(":visited")}} Pseudoklasse.**
 
 ## Beispiele
 
@@ -115,24 +115,26 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag kann weggelassen werden, wenn das erste Element im Inneren kein Leerzeichen, Kommentar oder {{HTMLElement("script")}}-Element oder {{HTMLElement("style")}}-Element ist. Das End-Tag kann weggelassen werden, wenn das <code>&#x3C;body></code>-Element Inhalte oder ein Start-Tag hat und nicht sofort von einem Kommentar gefolgt wird.
+        Das Start-Tag kann weggelassen werden, wenn das erste Element darin kein Leerzeichen, Kommentar, {{HTMLElement("script")}} Element oder
+        {{HTMLElement("style")}} Element ist. Das End-Tag kann weggelassen werden, wenn das <code>&#x3C;body></code> Element Inhalte hat oder ein Start-Tag besitzt und nicht unmittelbar von einem Kommentar gefolgt wird.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Es muss das zweite Element eines {{HTMLElement("html")}}-Elements sein.
+        Es muss das zweite Element eines {{HTMLElement("html")}}
+        Elements sein.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
@@ -146,17 +148,17 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
       <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
-      <th scope="row">DOM-Schnittstelle</th>
+      <th scope="row">DOM Schnittstelle</th>
       <td>
-        {{domxref("HTMLBodyElement")}}
+        [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
         <ul>
           <li>
-            Das <code>&#x3C;body></code>-Element stellt die
-            {{domxref("HTMLBodyElement")}}-Schnittstelle bereit.
+            Das <code>&#x3C;body></code> Element stellt die
+            [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement) Schnittstelle bereit.
           </li>
           <li>
-            Sie können auf das <code>&#x3C;body></code>-Element über die
-            {{domxref("document.body")}}-Eigenschaft zugreifen.
+            Sie können auf das <code>&#x3C;body></code> Element über die
+            [`document.body`](/de/docs/Web/API/Document/body) Eigenschaft zugreifen.
           </li>
         </ul>
       </td>

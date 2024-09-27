@@ -7,16 +7,16 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`FileSystemSyncAccessHandle`** Schnittstelle der {{domxref("File System API", "File System API", "", "nocode")}} repräsentiert einen synchronen Zugriff auf einen Datei-Systemeintrag.
+Das **`FileSystemSyncAccessHandle`** Interface der [File System API](/de/docs/Web/API/File_System_API) stellt einen synchronen Zugriff auf einen Eintrag des Dateisystems dar.
 
-Diese Klasse ist nur innerhalb dedizierter [Web Worker](/de/docs/Web/API/Web_Workers_API) zugänglich (sodass ihre Methoden die Ausführung im Hauptthread nicht blockieren) für Dateien innerhalb des [ursprungsbasierten privaten Dateisystems](/de/docs/Web/API/File_System_API/Origin_private_file_system), das für Endbenutzer nicht sichtbar ist.
+Diese Klasse ist nur in dedizierten [Web Workers](/de/docs/Web/API/Web_Workers_API) zugänglich (damit ihre Methoden die Ausführung im Haupt-Thread nicht blockieren) für Dateien im [origin private file system](/de/docs/Web/API/File_System_API/Origin_private_file_system), welches für Endnutzer nicht sichtbar ist.
 
-Infolgedessen unterliegen ihre Methoden nicht denselben Sicherheitsüberprüfungen wie Methoden, die auf Dateien innerhalb des für Benutzer sichtbaren Dateisystems ausgeführt werden, und sind daher wesentlich performanter. Dies macht sie geeignet für bedeutende, umfangreiche Dateiaktualisierungen wie z.B. [SQLite](https://www.sqlite.org/wasm) Datenbankmodifikationen.
+Daher unterliegen ihre Methoden nicht den gleichen Sicherheitsüberprüfungen wie Methoden, die auf Dateien im für Nutzer sichtbaren Dateisystem ausgeführt werden, und sind daher wesentlich performanter. Dies macht sie geeignet für signifikante, groß angelegte Dateiaktualisierungen wie zum Beispiel [SQLite](https://www.sqlite.org/wasm)-Datenbankänderungen.
 
-Die Schnittstelle wird über die {{domxref('FileSystemFileHandle.createSyncAccessHandle()')}} Methode aufgerufen.
+Das Interface wird über die [`FileSystemFileHandle.createSyncAccessHandle()`](/de/docs/Web/API/FileSystemFileHandle/createSyncAccessHandle) Methode angesprochen.
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation wurden {{domxref("FileSystemSyncAccessHandle.close()", "close()")}}, {{domxref("FileSystemSyncAccessHandle.flush()", "flush()")}}, {{domxref("FileSystemSyncAccessHandle.getSize()", "getSize()")}} und {{domxref("FileSystemSyncAccessHandle.truncate()", "truncate()")}} fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Alle aktuellen Browser, die diese Methoden unterstützen, implementieren sie jedoch als synchrone Methoden.
+> In früheren Versionen der Spezifikation wurden [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize), und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementierten sie auf diese Weise. Allerdings implementieren alle aktuellen Browser, die diese Methoden unterstützen, sie als synchrone Methoden.
 
 ## Instanz-Eigenschaften
 
@@ -24,28 +24,28 @@ Keine.
 
 ## Instanz-Methoden
 
-- {{domxref('FileSystemSyncAccessHandle.close', 'close()')}}
-  - : Schließt einen offenen synchronen Dateizugriff, deaktiviert weitere Operationen darauf und gibt das zuvor auf die Datei gesetzte exklusive Sperre frei.
-- {{domxref('FileSystemSyncAccessHandle.flush', 'flush()')}}
-  - : Sichert alle mit der {{domxref('FileSystemSyncAccessHandle.write', 'write()')}} Methode über den Zugriffshandle vorgenommenen Änderungen an der Datei auf der Festplatte.
-- {{domxref('FileSystemSyncAccessHandle.getSize', 'getSize()')}}
-  - : Gibt die Größe der Datei, die mit dem Handle verknüpft ist, in Bytes zurück.
-- {{domxref('FileSystemSyncAccessHandle.read', 'read()')}}
-  - : Liest den Inhalt der Datei, die mit dem Handle verknüpft ist, in einen angegebenen Puffer, optional an einem bestimmten Offset.
-- {{domxref('FileSystemSyncAccessHandle.truncate', 'truncate()')}}
-  - : Ändert die Größe der Datei, die mit dem Handle verknüpft ist, auf eine angegebene Anzahl von Bytes.
-- {{domxref('FileSystemSyncAccessHandle.write', 'write()')}}
-  - : Schreibt den Inhalt eines angegebenen Puffers in die Datei, die mit dem Handle verknüpft ist, optional an einem bestimmten Offset.
+- [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close)
+  - : Schließt einen offenen synchronen Dateizugriffsgriff, wodurch weitere Operationen darauf deaktiviert werden und die zuvor auf die mit dem Dateigriff verknüpfte Datei angewendete exklusive Sperre freigegeben wird.
+- [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush)
+  - : Speichert alle über die [`write()`](/de/docs/Web/API/FileSystemSyncAccessHandle/write) Methode vorgenommenen Änderungen an der mit dem Griff verbundenen Datei auf die Festplatte.
+- [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize)
+  - : Gibt die Größe der mit dem Griff verbundenen Datei in Bytes zurück.
+- [`read()`](/de/docs/Web/API/FileSystemSyncAccessHandle/read)
+  - : Liest den Inhalt der mit dem Griff verbundenen Datei in einen angegebenen Puffer, optional ab einer gegebenen Position.
+- [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate)
+  - : Passt die Größe der mit dem Griff verbundenen Datei auf eine angegebene Anzahl von Bytes an.
+- [`write()`](/de/docs/Web/API/FileSystemSyncAccessHandle/write)
+  - : Schreibt den Inhalt eines angegebenen Puffers in die mit dem Griff verbundene Datei, optional ab einer gegebenen Position.
 
 ## Beispiele
 
-Die folgende asynchrone Ereignishandlerfunktion ist innerhalb eines Web Workers enthalten. Bei Empfang einer Nachricht vom Haupt-Thread:
+Die folgende asynchrone Ereignishandlerfunktion befindet sich innerhalb eines Web Workers. Bei Erhalt einer Nachricht vom Haupt-Thread führt sie aus:
 
-- Erstellt sie einen synchronen Dateizugriffshandle.
-- Ermittelt die Größe der Datei und erstellt einen {{jsxref("ArrayBuffer")}}, um diese zu enthalten.
-- Liest die Dateiinhalte in den Puffer.
-- Kodiert die Nachricht und schreibt sie an das Ende der Datei.
-- Sichert die Änderungen auf der Festplatte und schließt den Zugriffshandle.
+- Erstellt einen synchronen Dateizugriffsgriff.
+- Ruft die Größe der Datei ab und erstellt einen {{jsxref("ArrayBuffer")}}, um ihn zu enthalten.
+- Liest den Dateiinhalt in den Puffer.
+- Codiert die Nachricht und schreibt sie an das Ende der Datei.
+- Speichert die Änderungen auf die Festplatte und schließt den Zugriffsgriff.
 
 ```js
 onmessage = async (e) => {

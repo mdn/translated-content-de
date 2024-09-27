@@ -7,22 +7,22 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Das **`HTMLHtmlElement`**-Interface dient als Wurzelknoten für ein bestimmtes HTML-Dokument. Dieses Objekt erbt die Eigenschaften und Methoden, die im {{domxref("HTMLElement")}}-Interface beschrieben sind.
+Das **`HTMLHtmlElement`**-Interface dient als Wurzelknoten für ein bestimmtes HTML-Dokument. Dieses Objekt erbt die Eigenschaften und Methoden, die in der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle beschrieben sind.
 
-Sie können das `HTMLHtmlElement`-Objekt für ein bestimmtes Dokument abrufen, indem Sie den Wert der {{domxref("document.documentElement")}}-Eigenschaft lesen.
+Sie können das `HTMLHtmlElement`-Objekt für ein gegebenes Dokument abrufen, indem Sie den Wert der [`document.documentElement`](/de/docs/Web/API/Document/documentElement)-Eigenschaft lesen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLHtmlElement.version")}} {{deprecated_inline}}
-  - : Ein String, der die Version der HTML Document Type Definition (DTD) repräsentiert, die dieses Dokument regelt. Diese Eigenschaft sollte nicht mehr verwendet werden, da sie nicht mehr konform ist. Lassen Sie sie weg.
+- [`HTMLHtmlElement.version`](/de/docs/Web/API/HTMLHtmlElement/version) {{deprecated_inline}}
+  - : Ein String, der die Version der HTML Document Type Definition (DTD) darstellt, die dieses Dokument steuert. Diese Eigenschaft sollte nicht mehr verwendet werden, da sie nicht konform ist. Bitte weglassen.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 
@@ -34,4 +34,4 @@ _Keine spezifische Methode; erbt Methoden von seinem Elternteil, {{domxref("HTML
 
 ## Siehe auch
 
-- HTML-Element, das dieses Interface implementiert: {{HTMLElement("html")}}.
+- HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("html")}}.

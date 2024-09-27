@@ -1,5 +1,5 @@
 ---
-title: Nachfolger-Geschwister-Kombinator
+title: Nächste-Geschwister-Kombinator
 slug: Web/CSS/Next-sibling_combinator
 l10n:
   sourceCommit: 297664ddfb70a04e87a73cd10ac06414245082be
@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}
 
-Der **Nachfolger-Geschwister-Kombinator** (`+`) trennt zwei Selektoren und wählt das zweite Element nur aus, wenn es _unmittelbar_ auf das erste Element folgt, und beide Kinder desselben übergeordneten {{DOMxRef("element")}} sind.
+Der **nächste-Geschwister-Kombinator** (`+`) trennt zwei Selektoren und wählt das zweite Element nur aus, wenn es _unmittelbar_ auf das erste Element folgt und beide Kinder desselben Eltern-[`elements`](/de/docs/Web/API/Element) sind.
 
 ```css
-/* Absätze, die unmittelbar nach einem Bild kommen */
+/* Paragraphs that come immediately after any image */
 img + p {
   font-weight: bold;
 }
@@ -19,7 +19,7 @@ img + p {
 ## Syntax
 
 ```css-nolint
-/* Der Leerraum um den + Kombinator ist optional, aber empfohlen. */
+/* The white space around the + combinator is optional but recommended. */
 former_element + target_element { style properties }
 ```
 
@@ -27,11 +27,11 @@ former_element + target_element { style properties }
 
 ### Grundlegende Verwendung
 
-Dieses Beispiel zeigt, wie man das nächste Geschwisterelement auswählt, wenn dieses nächste Geschwisterelement einem bestimmten Typ entspricht.
+Dieses Beispiel zeigt, wie man das nächste Geschwister auswählt, wenn dieses nächste Geschwister von einem bestimmten Typ ist.
 
 #### CSS
 
-Wir stylen nur das `<li>`, das unmittelbar nach einem `<li>` kommt, das das erste seiner Art ist:
+Wir stylen nur das `<li>`, das unmittelbar auf ein `<li>` folgt, das das erste seines Typs ist:
 
 ```css
 li:first-of-type + li {
@@ -44,9 +44,9 @@ li:first-of-type + li {
 
 ```html
 <ul>
-  <li>Eins</li>
-  <li>Zwei!</li>
-  <li>Drei</li>
+  <li>One</li>
+  <li>Two!</li>
+  <li>Three</li>
 </ul>
 ```
 
@@ -56,11 +56,11 @@ li:first-of-type + li {
 
 ### Auswahl eines vorhergehenden Geschwisters
 
-Der Nachfolger-Geschwister-Kombinator kann innerhalb des funktionalen Selektors {{cssxref(":has", ":has()")}} integriert werden, um das vorhergehende Geschwisterelement auszuwählen.
+Der nächste-Geschwister-Kombinator kann innerhalb des funktionalen Selektors {{cssxref(":has", ":has()")}} verwendet werden, um das vorhergehende Geschwister auszuwählen.
 
 #### CSS
 
-Wir stylen nur das `<li>`, mit einem nachfolgenden Geschwisterelement, das ein `<li>` ist und das letzte seiner Art ist:
+Wir stylen nur das `<li>`, das ein folgendes Geschwister hat, das ein `<li>` ist und das letzte seines Typs ist:
 
 ```css
 li:has(+ li:last-of-type) {
@@ -73,10 +73,10 @@ li:has(+ li:last-of-type) {
 
 ```html
 <ul>
-  <li>Eins</li>
-  <li>Zwei</li>
-  <li>Drei!</li>
-  <li>Vier</li>
+  <li>One</li>
+  <li>Two</li>
+  <li>Three!</li>
+  <li>Four</li>
 </ul>
 ```
 
@@ -94,4 +94,4 @@ li:has(+ li:last-of-type) {
 
 ## Siehe auch
 
-- [Nachfolgender-Geschwister-Kombinator](/de/docs/Web/CSS/Subsequent-sibling_combinator)
+- [Nachfolgender Geschwisterkombinator](/de/docs/Web/CSS/Subsequent-sibling_combinator)

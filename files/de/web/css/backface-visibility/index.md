@@ -7,20 +7,20 @@ l10n:
 
 {{CSSRef}}
 
-Die **`backface-visibility`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob die Rückseite eines Elements sichtbar ist, wenn sie dem Benutzer zugewandt ist.
+Die **`backface-visibility`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Rückseite eines Elements sichtbar ist, wenn es dem Benutzer zugewandt ist.
 
 {{EmbedInteractiveExample("pages/css/backface-visibility.html")}}
 
-Die Rückseite eines Elements ist ein Spiegelbild seiner Vorderseite. Obwohl sie in 2D unsichtbar ist, kann die Rückseite sichtbar werden, wenn eine Transformation das Element im 3D-Raum dreht. (Diese Eigenschaft hat keine Auswirkungen auf 2D-Transformationen, die keine Perspektive haben.)
+Die Rückseite eines Elements ist ein Spiegelbild seiner Vorderseite. Obwohl unsichtbar in 2D, kann die Rückseite sichtbar werden, wenn eine Transformation dazu führt, dass das Element im 3D-Raum gedreht wird. (Diese Eigenschaft hat keine Wirkung auf 2D-Transformationen, die keine Perspektive haben.)
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 backface-visibility: visible;
 backface-visibility: hidden;
 
-/* Globale Werte */
+/* Global values */
 backface-visibility: inherit;
 backface-visibility: initial;
 backface-visibility: revert;
@@ -35,7 +35,7 @@ Die `backface-visibility` Eigenschaft wird als eines der unten aufgeführten Sch
 - `visible`
   - : Die Rückseite ist sichtbar, wenn sie dem Benutzer zugewandt ist.
 - `hidden`
-  - : Die Rückseite ist verborgen, wodurch das Element effektiv unsichtbar wird, wenn es vom Benutzer weg gedreht ist.
+  - : Die Rückseite ist verborgen und macht das Element effektiv unsichtbar, wenn es weg vom Benutzer gedreht wird.
 
 ## Formale Definition
 
@@ -47,9 +47,9 @@ Die `backface-visibility` Eigenschaft wird als eines der unten aufgeführten Sch
 
 ## Beispiele
 
-### Würfel mit transparenten und opaken Flächen
+### Würfel mit transparenten und undurchsichtigen Flächen
 
-Dieses Beispiel zeigt einen Würfel mit transparenten Flächen und einen mit opaken Flächen.
+Dieses Beispiel zeigt einen Würfel mit transparenten Flächen und einen mit undurchsichtigen Flächen.
 
 #### HTML
 
@@ -72,8 +72,8 @@ Dieses Beispiel zeigt einen Würfel mit transparenten Flächen und einen mit opa
         </div>
       </div>
       <p>
-        Da alle Flächen teilweise transparent sind, sind die Rückseiten (2, 4, 5)
-        durch die Vorderseiten (1, 3, 6) sichtbar.
+        Since all faces are partially transparent, the back faces (2, 4, 5) are
+        visible through the front faces (1, 3, 6).
       </p>
     </td>
     <td>
@@ -87,7 +87,7 @@ Dieses Beispiel zeigt einen Würfel mit transparenten Flächen und einen mit opa
           <div class="face bottom">6</div>
         </div>
       </div>
-      <p>Die drei Rückseiten (2, 4, 5) sind verborgen.</p>
+      <p>The three back faces (2, 4, 5) are hidden.</p>
     </td>
   </tr>
 </table>
@@ -96,7 +96,8 @@ Dieses Beispiel zeigt einen Würfel mit transparenten Flächen und einen mit opa
 #### CSS
 
 ```css
-/* Klassen, die die drei Rückseiten des "Würfels" zeigen oder verbergen */
+/* Classes that will show or hide the
+   three back faces of the "cube" */
 .showbf div {
   backface-visibility: visible;
 }
@@ -105,7 +106,7 @@ Dieses Beispiel zeigt einen Würfel mit transparenten Flächen und einen mit opa
   backface-visibility: hidden;
 }
 
-/* Definieren Sie das Container-div, das Würfel-div und eine allgemeine Fläche */
+/* Define the container div, the cube div, and a generic face */
 .container {
   width: 150px;
   height: 150px;
@@ -134,7 +135,7 @@ Dieses Beispiel zeigt einen Würfel mit transparenten Flächen und einen mit opa
   text-align: center;
 }
 
-/* Definieren Sie jede Fläche basierend auf der Richtung */
+/* Define each face based on direction */
 .front {
   background: rgb(0 0 0 / 30%);
   transform: translateZ(50px);
@@ -166,7 +167,7 @@ Dieses Beispiel zeigt einen Würfel mit transparenten Flächen und einen mit opa
   transform: rotateX(-90deg) translateZ(50px);
 }
 
-/* Das Table etwas hübscher machen */
+/* Make the table a little nicer */
 th,
 p,
 td {
@@ -192,4 +193,4 @@ td {
 
 ## Siehe auch
 
-- [CSS-Transformationen verwenden](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
+- [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)

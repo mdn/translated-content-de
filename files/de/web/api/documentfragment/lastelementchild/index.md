@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`DocumentFragment.lastElementChild`** gibt das letzte Kind-{{domxref("Element")}} des Dokumentfragments zurück oder `null`, wenn es keine Kind-Elemente gibt.
+Die schreibgeschützte Eigenschaft **`DocumentFragment.lastElementChild`** gibt das letzte Kind-`Element` des Dokumentfragments zurück oder `null`, wenn es keine Kindelemente gibt.
 
 ## Wert
 
-Ein {{domxref("Element")}}, das das letzte Kind-`Element` des Objekts ist, oder `null`, wenn es keine gibt.
+Ein [`Element`](/de/docs/Web/API/Element), das das letzte Kind-`Element` des Objekts ist, oder `null`, wenn keine vorhanden sind.
 
 ## Beispiele
 
@@ -36,4 +36,4 @@ fragment.lastElementChild; // <p>
 
 ## Siehe auch
 
-- {{domxref("Element.lastElementChild")}}
+- [`Element.lastElementChild`](/de/docs/Web/API/Element/lastElementChild)

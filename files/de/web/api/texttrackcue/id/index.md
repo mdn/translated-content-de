@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`id`**-Eigenschaft des {{domxref("TextTrackCue")}}-Interfaces gibt den Bezeichner für diese Cue zurück und setzt ihn.
+Die **`id`**-Eigenschaft des [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Interfaces gibt die Kennung für dieses Cue zurück und setzt sie.
 
 ## Wert
 
-Ein String, der die ID dieser Cue enthält.
+Ein String, der die ID dieses Cues enthält.
 
 ## Beispiele
 
-Im folgenden Beispiel wird eine neue {{domxref("VTTCue")}} (die von `TextTrackCue` erbt) erstellt. Die `id`-Eigenschaft wird dann auf "first" gesetzt, bevor die Cue hinzugefügt wird.
+Im folgenden Beispiel wird ein neuer [`VTTCue`](/de/docs/Web/API/VTTCue) (der von `TextTrackCue` erbt) erstellt. Die `id`-Eigenschaft wird dann auf "first" gesetzt, bevor das Cue hinzugefügt wird.
 
 ```js
 let video = document.querySelector("video");

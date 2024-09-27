@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das **`diffuseConstant`** Attribut repräsentiert den k<sub>d</sub>-Wert im [Phong-Beleuchtungsmodell](https://en.wikipedia.org/wiki/Phong_reflection_model). In SVG kann dies eine beliebige nicht-negative Zahl sein.
+Das Attribut **`diffuseConstant`** repräsentiert den k<sub>d</sub>-Wert im [Phong-Beleuchtungsmodell](https://en.wikipedia.org/wiki/Phong_reflection_model). In SVG kann dies jede nicht-negative Zahl sein.
 
-Es wird verwendet, um den endgültigen RGB-Wert eines gegebenen Pixels zu bestimmen. Je heller die Beleuchtungsfarbe, desto kleiner sollte diese Zahl sein.
+Es wird verwendet, um den endgültigen RGB-Wert eines bestimmten Pixels zu bestimmen. Je heller die Beleuchtungsfarbe, desto kleiner sollte diese Zahl sein.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feDiffuseLighting")}}
 
@@ -53,9 +53,9 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", "420", "200")}}
+{{EmbedLiveSample("Beispiel", "420", "200")}}
 
-## Nutzungshinweise
+## Hinweise zur Nutzung
 
 <table class="properties">
   <tbody>
@@ -84,4 +84,4 @@ svg {
 
 ## Siehe auch
 
-- [Beschreibung des Phong-Reflektionsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)
+- [Beschreibung des Phong-Reflexionsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)

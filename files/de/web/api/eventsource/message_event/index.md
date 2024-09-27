@@ -1,5 +1,5 @@
 ---
-title: "EventSource: message-Ereignis"
+title: "EventSource: message Ereignis"
 short-title: message
 slug: Web/API/EventSource/message_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das `message`-Ereignis der {{domxref("EventSource")}} API wird ausgelöst, wenn Daten über eine Ereignisquelle empfangen werden.
+Das `message` Ereignis der [`EventSource`](/de/docs/Web/API/EventSource) API wird ausgelöst, wenn Daten über eine Ereignisquelle empfangen werden.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling aus.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder legen Sie eine Ereignishandlereigenschaft fest.
 
 ```js
 addEventListener("message", (event) => {});
@@ -24,28 +24,28 @@ onmessage = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("MessageEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MessageEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("MessageEvent.data")}} {{ReadOnlyInline}}
+- [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
   - : Die vom Nachrichtensender gesendeten Daten.
-- {{domxref("MessageEvent.origin")}} {{ReadOnlyInline}}
-  - : Ein String, der die Herkunft des Nachrichtensenders repräsentiert.
-- {{domxref("MessageEvent.lastEventId")}} {{ReadOnlyInline}}
+- [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
+  - : Ein String, der den Ursprung des Nachrichtensenders darstellt.
+- [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
-- {{domxref("MessageEvent.source")}} {{ReadOnlyInline}}
-  - : Ein `MessageEventSource` (das ein {{glossary("WindowProxy")}}, {{domxref("MessagePort")}} oder {{domxref("ServiceWorker")}} Objekt sein kann), das den Nachrichtensender repräsentiert.
-- {{domxref("MessageEvent.ports")}} {{ReadOnlyInline}}
-  - : Ein Array von {{domxref("MessagePort")}} Objekten, die die mit dem Kanal verbundenen Ports darstellen, durch den die Nachricht gesendet wird (wo zutreffend, z.B. bei der Kanalnachrichtübertragung oder beim Senden einer Nachricht an einen Shared Worker).
+- [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
+  - : Eine `MessageEventSource` (die ein [WindowProxy](/de/docs/Glossary/WindowProxy), [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) Objekt sein kann), die den Nachrichtensender darstellt.
+- [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort) Objekten, die die mit dem Kanal verbundenen Ports darstellen, über den die Nachricht gesendet wird (wo zutreffend, z.B. bei der Kanalnachricht oder beim Senden einer Nachricht an einen geteilten Worker).
 
 ## Beispiele
 
-In diesem einfachen Beispiel wird ein `EventSource` erstellt, um Ereignisse vom Server zu empfangen; eine Seite mit dem Namen `sse.php` ist für die Generierung der Ereignisse verantwortlich.
+In diesem einfachen Beispiel wird ein `EventSource` erstellt, um Ereignisse vom Server zu empfangen; eine Seite mit dem Namen `sse.php` ist verantwortlich für die Generierung der Ereignisse.
 
 ```js
 const evtSource = new EventSource("sse.php");
@@ -59,7 +59,7 @@ evtSource.addEventListener("message", (e) => {
 });
 ```
 
-### Äquivalent zu onmessage
+### onmessage Äquivalent
 
 ```js
 evtSource.onmessage = (e) => {

@@ -7,16 +7,16 @@ l10n:
 
 {{DefaultAPISidebar("WebSockets API")}}
 
-Wenn Sie die WebSocket-API verwenden möchten, ist es nützlich, einen Server zu haben. In diesem Artikel zeige ich Ihnen, wie Sie einen in C# schreiben. Sie können es in jeder serverseitigen Sprache tun, aber um die Dinge einfach und verständlich zu halten, habe ich Microsofts Sprache gewählt.
+Wenn Sie die WebSocket-API verwenden möchten, ist es nützlich, wenn Sie einen Server haben. In diesem Artikel zeige ich Ihnen, wie Sie einen in C# schreiben. Sie können dies in jeder serverseitigen Sprache tun, aber um es einfach und verständlich zu halten, habe ich Microsofts Sprache gewählt.
 
 Dieser Server entspricht [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455), daher wird er nur Verbindungen von Chrome Version 16, Firefox 11, IE 10 und höher behandeln.
 
 ## Erste Schritte
 
-WebSockets kommunizieren über eine [TCP (Transmission Control Protocol)](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)-Verbindung. Glücklicherweise hat C# eine [TcpListener](https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.tcplistener?view=net-6.0)-Klasse, die genau das tut, was der Name vermuten lässt. Sie befindet sich im Namespace `System.Net.Sockets`.
+WebSockets kommunizieren über eine [TCP (Transmission Control Protocol)](https://de.wikipedia.org/wiki/Transmission_Control_Protocol)-Verbindung. Glücklicherweise hat C# eine [TcpListener](https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.tcplistener?view=net-6.0)-Klasse, die das tut, was der Name vermuten lässt. Sie befindet sich im Namespace `System.Net.Sockets`.
 
 > [!NOTE]
-> Es ist eine gute Idee, den Namespace mit dem `using`-Schlüsselwort einzubinden, um weniger schreiben zu müssen. Es ermöglicht die Nutzung von Klassen eines Namespaces, ohne jedes Mal den vollständigen Namespace eingeben zu müssen.
+> Es ist eine gute Idee, den Namespace mit dem Schlüsselwort `using` einzuschließen, um weniger zu schreiben. Es ermöglicht die Verwendung von Klassen eines Namespace, ohne immer den vollständigen Namespace schreiben zu müssen.
 
 ### TcpListener
 
@@ -26,7 +26,7 @@ Konstruktor:
 TcpListener(System.Net.IPAddress localaddr, int port)
 ```
 
-`localaddr` gibt die IP des Listeners an, und `port` gibt den Port an.
+`localaddr` gibt die IP-Adresse des Listeners an und `port` gibt den Port an.
 
 > [!NOTE]
 > Um ein `IPAddress`-Objekt aus einem `string` zu erstellen, verwenden Sie die statische Methode `Parse` von `IPAddress`.
@@ -35,9 +35,9 @@ Methoden:
 
 - `Start()`
 - `System.Net.Sockets.TcpClient AcceptTcpClient()`
-  Wartet auf eine TCP-Verbindung, akzeptiert sie und gibt sie als TcpClient-Objekt zurück.
+  Wartet auf eine Tcp-Verbindung, akzeptiert sie und gibt sie als TcpClient-Objekt zurück.
 
-Hier ist eine Minimalimplementierung eines Servers:
+Hier ist eine Grundimplementierung eines Servers:
 
 ```cs
 using System.Net.Sockets;
@@ -49,11 +49,11 @@ class Server {
         TcpListener server = new TcpListener(IPAddress.Parse("127.0.0.1"), 80);
 
         server.Start();
-        Console.WriteLine("Server wurde auf 127.0.0.1:80 gestartet.{0}Warte auf eine Verbindung…", Environment.NewLine);
+        Console.WriteLine("Server has started on 127.0.0.1:80.{0}Waiting for a connection…", Environment.NewLine);
 
         TcpClient client = server.AcceptTcpClient();
 
-        Console.WriteLine("Ein Client hat sich verbunden.");
+        Console.WriteLine("A client connected.");
     }
 }
 ```
@@ -74,7 +74,7 @@ Eigenschaften:
 
 Methoden:
 
-- Schreibt Bytes aus dem Buffer, `offset` und `size` bestimmen die Länge der Nachricht.
+- Schreibt Bytes aus dem Puffer, Offset und Größe bestimmen die Länge der Nachricht.
 
   ```cs
   Write(byte[] buffer, int offset, int size)
@@ -91,11 +91,11 @@ Lassen Sie uns unser Beispiel erweitern.
 ```cs
 TcpClient client = server.AcceptTcpClient();
 
-Console.WriteLine("Ein Client hat sich verbunden.");
+Console.WriteLine("A client connected.");
 
 NetworkStream stream = client.GetStream();
 
-// in eine unendliche Schleife gehen, um jede Änderung im Stream behandeln zu können
+//enter to an infinite cycle to be able to handle every change in stream
 while (true) {
     while (!stream.DataAvailable);
 
@@ -107,7 +107,7 @@ while (true) {
 
 ## Handshaking
 
-Wenn ein Client eine Verbindung zu einem Server herstellt, sendet er eine GET-Anfrage, um die Verbindung von einer einfachen HTTP-Anfrage auf eine WebSocket-Verbindung zu aktualisieren. Dies wird als Handshaking bezeichnet.
+Wenn ein Client eine Verbindung zu einem Server herstellt, sendet er eine GET-Anfrage, um die Verbindung von einer einfachen HTTP-Anfrage auf ein WebSocket zu aktualisieren. Dies wird als Handshaking bezeichnet.
 
 Dieser Beispielcode kann ein GET vom Client erkennen. Beachten Sie, dass dies blockiert, bis die ersten 3 Bytes einer Nachricht verfügbar sind. Alternative Lösungen sollten für Produktionsumgebungen untersucht werden.
 
@@ -117,14 +117,14 @@ using System.Text.RegularExpressions;
 
 while(client.Available < 3)
 {
-   // auf genügend verfügbare Bytes warten
+   // wait for enough bytes to be available
 }
 
 byte[] bytes = new byte[client.Available];
 
 stream.Read(bytes, 0, bytes.Length);
 
-// Bytes der Anfrage in String übersetzen
+//translate bytes of request to string
 String data = Encoding.UTF8.GetString(bytes);
 
 if (Regex.IsMatch(data, "^GET")) {
@@ -134,19 +134,19 @@ if (Regex.IsMatch(data, "^GET")) {
 }
 ```
 
-Die Antwort ist einfach zu erstellen, kann aber etwas schwer zu verstehen sein. Die vollständige Erklärung des Server-Handshakes finden Sie in RFC 6455, Abschnitt 4.2.2. Für unsere Zwecke werden wir einfach eine einfache Antwort erstellen.
+Die Antwort ist einfach zu erstellen, könnte aber etwas schwer zu verstehen sein. Die vollständige Erklärung des Server-Handshakes finden Sie in RFC 6455, Abschnitt 4.2.2. Für unsere Zwecke bauen wir einfach eine einfache Antwort.
 
 Sie müssen:
 
-1. Den Wert des "Sec-WebSocket-Key"-Anforderungsheaders ohne führende oder nachfolgende Leerzeichen erhalten
-2. Ihn mit "258EAFA5-E914-47DA-95CA-C5AB0DC85B11" (eine spezielle GUID, die von RFC 6455 angegeben wird) verketten
-3. SHA-1 und Base64-Hash des neuen Wertes berechnen
+1. Den Wert des "Sec-WebSocket-Key" Anfrage-Headers ohne führende oder nachfolgende Leerzeichen erhalten
+2. Es mit "258EAFA5-E914-47DA-95CA-C5AB0DC85B11" (einer speziellen GUID, die von RFC 6455 spezifiziert wird) verketten
+3. SHA-1 und Base64-Hash des neuen Werts berechnen
 4. Den Hash als Wert des {{httpheader("Sec-WebSocket-Accept")}} Antwort-Headers in einer HTTP-Antwort zurückschreiben
 
 ```cs
 if (new System.Text.RegularExpressions.Regex("^GET").IsMatch(data))
 {
-    const string eol = "\r\n"; // HTTP/1.1 definiert die Sequenz CR LF als End-of-Line-Markierung
+    const string eol = "\r\n"; // HTTP/1.1 defines the sequence CR LF as the end-of-line marker
 
     byte[] response = Encoding.UTF8.GetBytes("HTTP/1.1 101 Switching Protocols" + eol
         + "Connection: Upgrade" + eol
@@ -166,7 +166,7 @@ if (new System.Text.RegularExpressions.Regex("^GET").IsMatch(data))
 
 ## Nachrichten dekodieren
 
-Nach einem erfolgreichen Handshake sendet der Client codierte Nachrichten an den Server.
+Nach einem erfolgreichen Handshake sendet der Client kodierte Nachrichten an den Server.
 
 Wenn wir "MDN" senden, erhalten wir diese Bytes:
 
@@ -176,37 +176,37 @@ Wenn wir "MDN" senden, erhalten wir diese Bytes:
 
 Schauen wir uns an, was diese Bytes bedeuten.
 
-Das erste Byte, das derzeit den Wert 129 hat, ist ein Bitfeld, das sich wie folgt aufschlüsselt:
+Das erste Byte, das derzeit den Wert 129 hat, ist ein Bitfeld, das wie folgt aufgeschlüsselt wird:
 
 | FIN (Bit 0) | RSV1 (Bit 1) | RSV2 (Bit 2) | RSV3 (Bit 3) | Opcode (Bit 4:7) |
 | ----------- | ------------ | ------------ | ------------ | ---------------- |
 | 1           | 0            | 0            | 0            | 0x1=0001         |
 
-- FIN-Bit: Dieses Bit gibt an, ob die vollständige Nachricht vom Client gesendet wurde. Nachrichten können in Frames gesendet werden, aber für jetzt halten wir die Dinge einfach.
-- RSV1, RSV2, RSV3: Diese Bits müssen 0 sein, es sei denn, eine Erweiterung wird verhandelt, die ihnen einen ungleich null Wert zuweist.
-- Opcode: Diese Bits beschreiben den Typ der empfangenen Nachricht. Opcode 0x1 bedeutet, dass dies eine Textnachricht ist. [Komplette Liste der Opcodes](https://datatracker.ietf.org/doc/html/rfc6455#section-5.2)
+- FIN-Bit: Dieses Bit zeigt an, ob die vollständige Nachricht vom Client gesendet wurde. Nachrichten können in Frames gesendet werden, aber für jetzt halten wir es einfach.
+- RSV1, RSV2, RSV3: Diese Bits müssen 0 sein, es sei denn, es wird eine Erweiterung ausgehandelt, die ihnen einen ungleich null Wert zuweist.
+- Opcode: Diese Bits beschreiben den Typ der empfangenen Nachricht. Opcode 0x1 bedeutet, dass dies eine Textnachricht ist. [Vollständige Liste der OpCodes](https://datatracker.ietf.org/doc/html/rfc6455#section-5.2)
 
-Das zweite Byte, das derzeit den Wert 131 hat, ist ein weiteres Bitfeld, das sich wie folgt aufschlüsselt:
+Das zweite Byte, das derzeit den Wert 131 hat, ist ein weiteres Bitfeld, das wie folgt aufgeschlüsselt wird:
 
-| MASK (Bit 0) | Payload-Länge (Bit 1:7) |
-| ------------ | ----------------------- |
-| 1            | 0x83=0000011            |
+| MASK (Bit 0) | Payload Length (Bit 1:7) |
+| ------------ | ------------------------ |
+| 1            | 0x83=0000011             |
 
-- MASK-Bit: Gibt an, ob die "Payload-Daten" maskiert sind. Wenn es auf 1 gesetzt ist, ist ein Masking-Schlüssel in Masking-Key vorhanden, und dieser wird verwendet, um die "Payload-Daten" zu entmaskieren. Alle Nachrichten vom Client zum Server haben dieses Bit gesetzt.
-- Payload-Länge: Wenn dieser Wert zwischen 0 und 125 liegt, dann ist es die Länge der Nachricht. Wenn es 126 ist, sind die folgenden 2 Bytes (16-bit unsigned integer) die Länge. Wenn es 127 ist, sind die folgenden 8 Bytes (64-bit unsigned integer) die Länge.
+- MASK-Bit: Definiert, ob die "Payload-Daten" maskiert sind. Wenn es auf 1 gesetzt ist, ist ein Maskierungsschlüssel in Masking-Key vorhanden, und dieser wird verwendet, um die "Payload-Daten" zu demaskieren. Alle Nachrichten vom Client zum Server haben dieses Bit gesetzt.
+- Payload-Länge: Wenn dieser Wert zwischen 0 und 125 liegt, dann ist es die Länge der Nachricht. Wenn es 126 ist, sind die folgenden 2 Bytes (16-Bit-Ganzzahl ohne Vorzeichen) die Länge. Wenn es 127 ist, sind die folgenden 8 Bytes (64-Bit-Ganzzahl ohne Vorzeichen) die Länge.
 
 > [!NOTE]
-> Da das erste Bit immer 1 für Nachrichten vom Client zum Server ist, können Sie 128 von diesem Byte abziehen, um das MASK-Bit zu entfernen.
+> Weil das erste Bit immer 1 für Client-zu-Server-Nachrichten ist, können Sie 128 von diesem Byte subtrahieren, um das MASK-Bit loszuwerden.
 
-Beachten Sie, dass das MASK-Bit in unserer Nachricht gesetzt ist. Das bedeutet, dass die nächsten vier Bytes (61, 84, 35 und 6) die Maskenbytes sind, die verwendet werden, um die Nachricht zu dekodieren. Diese Bytes ändern sich mit jeder Nachricht.
+Beachten Sie, dass das MASK-Bit in unserer Nachricht gesetzt ist. Dies bedeutet, dass die nächsten vier Bytes (61, 84, 35, und 6) die Maskenbytes sind, die verwendet werden, um die Nachricht zu dekodieren. Diese Bytes ändern sich bei jeder Nachricht.
 
-Die restlichen Bytes sind die kodierte Nachrichten-Nutzlast.
+Die verbleibenden Bytes sind die codierte Nachrichten-Nutzlast.
 
 ### Dekodierungsalgorithmus
 
 _D_i_ = _E_i_ XOR _M_\_(_i_ mod 4)
 
-wobei _D_ das dekodierte Nachrichtenfeld ist, _E_ das kodierte Nachrichtenfeld, _M_ das Maskenbyte-Feld und _i_ der Index des zu dekodierenden Nachrichtenbytes ist.
+wobei _D_ das dekodierte Nachrichtenarray ist, _E_ das kodierte Nachrichtenarray, _M_ das Maskenbytearray ist und _i_ der Index des zu dekodierenden Nachrichtenbytes ist.
 
 Beispiel in C#:
 
@@ -220,7 +220,7 @@ for (int i = 0; i < encoded.Length; i++) {
 }
 ```
 
-## Zusammenfügen
+## Zusammengestellt
 
 ### wsserver.cs
 
@@ -242,35 +242,35 @@ class Server {
         var server = new TcpListener(IPAddress.Parse(ip), port);
 
         server.Start();
-        Console.WriteLine("Server wurde auf {0}:{1} gestartet, warte auf eine Verbindung…", ip, port);
+        Console.WriteLine("Server has started on {0}:{1}, Waiting for a connection…", ip, port);
 
         TcpClient client = server.AcceptTcpClient();
-        Console.WriteLine("Ein Client hat sich verbunden.");
+        Console.WriteLine("A client connected.");
 
         NetworkStream stream = client.GetStream();
 
-        // in eine unendliche Schleife gehen, um jede Änderung im Stream behandeln zu können
+        // enter to an infinite cycle to be able to handle every change in stream
         while (true) {
             while (!stream.DataAvailable);
-            while (client.Available < 3); // auf "GET" prüfen
+            while (client.Available < 3); // match against "get"
 
             byte[] bytes = new byte[client.Available];
             stream.Read(bytes, 0, bytes.Length);
             string s = Encoding.UTF8.GetString(bytes);
 
             if (Regex.IsMatch(s, "^GET", RegexOptions.IgnoreCase)) {
-                Console.WriteLine("=====Handshaking vom Client=====\n{0}", s);
+                Console.WriteLine("=====Handshaking from client=====\n{0}", s);
 
-                // 1. Den Wert des "Sec-WebSocket-Key"-Anforderungsheaders ohne führende oder nachfolgende Leerzeichen erhalten
-                // 2. Ihn mit "258EAFA5-E914-47DA-95CA-C5AB0DC85B11" (eine spezielle GUID, die von RFC 6455 angegeben wird) verketten
-                // 3. SHA-1 und Base64-Hash des neuen Wertes berechnen
-                // 4. Den Hash als Wert des "Sec-WebSocket-Accept"-Antwort-Headers in einer HTTP-Antwort zurückschreiben
+                // 1. Obtain the value of the "Sec-WebSocket-Key" request header without any leading or trailing whitespace
+                // 2. Concatenate it with "258EAFA5-E914-47DA-95CA-C5AB0DC85B11" (a special GUID specified by RFC 6455)
+                // 3. Compute SHA-1 and Base64 hash of the new value
+                // 4. Write the hash back as the value of "Sec-WebSocket-Accept" response header in an HTTP response
                 string swk = Regex.Match(s, "Sec-WebSocket-Key: (.*)").Groups[1].Value.Trim();
                 string swka = swk + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
                 byte[] swkaSha1 = System.Security.Cryptography.SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(swka));
                 string swkaSha1Base64 = Convert.ToBase64String(swkaSha1);
 
-                // HTTP/1.1 definiert die Sequenz CR LF als End-of-Line-Markierung
+                // HTTP/1.1 defines the sequence CR LF as the end-of-line marker
                 byte[] response = Encoding.UTF8.GetBytes(
                     "HTTP/1.1 101 Switching Protocols\r\n" +
                     "Connection: Upgrade\r\n" +
@@ -280,20 +280,20 @@ class Server {
                 stream.Write(response, 0, response.Length);
             } else {
                 bool fin = (bytes[0] & 0b10000000) != 0,
-                    mask = (bytes[1] & 0b10000000) != 0; // muss wahr sein, "Alle Nachrichten vom Client zum Server haben dieses Bit gesetzt"
-                int opcode = bytes[0] & 0b00001111; // erwarten 1 - Textnachricht
+                    mask = (bytes[1] & 0b10000000) != 0; // must be true, "All messages from the client to the server have this bit set"
+                int opcode = bytes[0] & 0b00001111; // expecting 1 - text message
                 ulong offset = 2,
                       msglen = bytes[1] & (ulong)0b01111111;
 
                 if (msglen == 126) {
-                    // Die Bytes sind umgekehrt, da WebSocket sie im Big-Endian-Format ausgibt,
-                    // während BitConverter sie im Little-Endian-Format auf Windows haben möchte
+                    // bytes are reversed because websocket will print them in Big-Endian, whereas
+                    // BitConverter will want them arranged in little-endian on windows
                     msglen = BitConverter.ToUInt16(new byte[] { bytes[3], bytes[2] }, 0);
                     offset = 4;
                 } else if (msglen == 127) {
-                    // Um den folgenden Code zu testen, müssen wir größere Nachrichten manuell puffern, da das
-                    // automatische Puffern der Netzwerkkarte zu latenzfreundlich für diesen Code sein könnte (das heißt, wir haben möglicherweise
-                    // nur einige der Bytes in diesem WebSocket-Frame durch client.Available verfügbar).
+                    // To test the below code, we need to manually buffer larger messages — since the NIC's autobuffering
+                    // may be too latency-friendly for this code to run (that is, we may have only some of the bytes in this
+                    // websocket frame available through client.Available).
                     msglen = BitConverter.ToUInt64(new byte[] { bytes[9], bytes[8], bytes[7], bytes[6], bytes[5], bytes[4], bytes[3], bytes[2] },0);
                     offset = 10;
                 }
@@ -311,7 +311,7 @@ class Server {
                     string text = Encoding.UTF8.GetString(decoded);
                     Console.WriteLine("{0}", text);
                 } else
-                    Console.WriteLine("Maskenbit nicht gesetzt");
+                    Console.WriteLine("mask bit not set");
 
                 Console.WriteLine();
             }
@@ -343,9 +343,9 @@ class Server {
     }
   </style>
   <body>
-    <h2>WebSocket-Test</h2>
+    <h2>WebSocket Test</h2>
     <textarea cols="60" rows="6"></textarea>
-    <button>senden</button>
+    <button>send</button>
     <div id="output"></div>
   </body>
   <script>
@@ -359,24 +359,24 @@ class Server {
     button.addEventListener("click", onClickButton);
 
     websocket.onopen = (e) => {
-      writeToScreen("VERBUNDEN");
+      writeToScreen("CONNECTED");
       doSend("WebSocket rocks");
     };
 
     websocket.onclose = (e) => {
-      writeToScreen("GETRENNT");
+      writeToScreen("DISCONNECTED");
     };
 
     websocket.onmessage = (e) => {
-      writeToScreen(`<span>ANTWORT: ${e.data}</span>`);
+      writeToScreen(`<span>RESPONSE: ${e.data}</span>`);
     };
 
     websocket.onerror = (e) => {
-      writeToScreen(`<span class="error">FEHLER:</span> ${e.data}`);
+      writeToScreen(`<span class="error">ERROR:</span> ${e.data}`);
     };
 
     function doSend(message) {
-      writeToScreen(`GESENDET: ${message}`);
+      writeToScreen(`SENT: ${message}`);
       websocket.send(message);
     }
 

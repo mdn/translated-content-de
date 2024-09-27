@@ -1,5 +1,5 @@
 ---
-title: "Range: Methode createContextualFragment()"
+title: "Range: createContextualFragment() Methode"
 short-title: createContextualFragment()
 slug: Web/API/Range/createContextualFragment
 l10n:
@@ -8,12 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.createContextualFragment()`**-Methode gibt ein
-{{domxref("DocumentFragment")}} zurück, indem sie den HTML-Fragment-Parsings-Algorithmus oder den
-XML-Fragment-Parsings-Algorithmus mit dem Anfang des Bereichs (dem _Elternteil_ des
-ausgewählten Knotens) als Kontextknoten aufruft. Der HTML-Fragment-Parsings-Algorithmus wird verwendet, wenn
-der Bereich zu einem `Document` gehört, dessen HTML-Bit gesetzt ist. Im HTML-Fall, wenn
-der Kontextknoten `html` wäre, wird aus historischen Gründen der Fragmentparsing-Algorithmus stattdessen mit `body` als Kontext aufgerufen.
+Die **`Range.createContextualFragment()`**-Methode gibt ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurück, indem der HTML-Fragment-Parsing-Algorithmus oder der XML-Fragment-Parsing-Algorithmus mit dem Start der Range (dem _Elternteil_ des ausgewählten Knotens) als Kontextknoten aufgerufen wird. Der HTML-Fragment-Parsing-Algorithmus wird verwendet, wenn die Range zu einem `Document` gehört, dessen HTML-Bit gesetzt ist. Im HTML-Fall, wenn der Kontextknoten `html` wäre, wird aus historischen Gründen der Fragment-Parsing-Algorithmus stattdessen mit `body` als Kontext aufgerufen.
 
 ## Syntax
 
@@ -24,11 +19,11 @@ createContextualFragment(tagString)
 ### Parameter
 
 - `tagString`
-  - : Text, der Text und Tags enthält, die in ein DocumentFragment umgewandelt werden sollen.
+  - : Text, der Text und Tags enthält, die in ein Dokumentfragment umgewandelt werden sollen.
 
 ### Rückgabewert
 
-Ein {{domxref("DocumentFragment")}}-Objekt.
+Ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt.
 
 ## Beispiele
 
@@ -36,7 +31,7 @@ Ein {{domxref("DocumentFragment")}}-Objekt.
 const tagString = "<div>I am a div node</div>";
 const range = document.createRange();
 
-// Machen Sie das Elternteil des ersten div im Dokument zum Kontextknoten
+// Make the parent of the first div in the document become the context node
 range.selectNode(document.getElementsByTagName("div").item(0));
 const documentFragment = range.createContextualFragment(tagString);
 document.body.appendChild(documentFragment);
@@ -52,4 +47,4 @@ document.body.appendChild(documentFragment);
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)
+- [Die DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)

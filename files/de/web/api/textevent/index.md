@@ -7,35 +7,35 @@ l10n:
 
 {{APIRef("UI Events")}}{{deprecated_header}}
 
-Die **`TextEvent`**-Schnittstelle ist eine veraltete UI-Ereignisschnittstelle zur Übermittlung von Änderungen an Text-UI-Elementen.
+Die Schnittstelle **`TextEvent`** ist eine veraltete UI-Ereignisschnittstelle zur Meldung von Änderungen an Texteingabeelementen.
 
-> **Note:** Die `TextEvent`-Ereignisse wurden durch Ereignisse wie `input`, `beforeinput`, `keypress`, `keyup` und `keydown` ersetzt.
+> **Note:** `TextEvent`-Ereignisse wurden durch Ereignisse wie `input`, `beforeinput`, `keypress`, `keyup` und `keydown` ersetzt.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten {{domxref("UIEvent")}} und indirekt von {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten [`UIEvent`](/de/docs/Web/API/UIEvent) und indirekt von [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("TextEvent.data")}} {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt die mit dem Ereignis verknüpften Daten an.
+- [`TextEvent.data`](/de/docs/Web/API/TextEvent/data) {{ReadOnlyInline}} {{deprecated_inline}}
+  - : Gibt die mit dem Ereignis verbundenen Daten an.
 
 ## Instanz-Methoden
 
-- {{domxref("TextEvent.initTextEvent()")}} {{deprecated_inline}}
-  - : Befüllt die Werte dieses (neuen) `TextEvent` mit den angegebenen Parametern.
+- [`TextEvent.initTextEvent()`](/de/docs/Web/API/TextEvent/initTextEvent) {{deprecated_inline}}
+  - : Füllt die Werte dieses (neuen) `TextEvent` mit den angegebenen Parametern.
 
 ## Ereignisliste
 
-Die folgende Liste zeigt alle `TextEvent`-Ereignisse:
+Die folgende Liste enthält alle `TextEvent`-Ereignisse:
 
 - `textinput`
 
 ## Beispiele
 
-### Lauschen auf Texteingabe-Ereignisse
+### Auf Ereignisse der Texteingabe lauschen
 
-Sie können einen Listener für Texteingabe-Ereignisse mit {{DOMxRef("EventTarget.addEventListener()")}} wie folgt registrieren:
+Sie können einen Listener für Texteingabeereignisse wie folgt registrieren, indem Sie [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden:
 
 ```js
 element.addEventListener(
@@ -47,10 +47,10 @@ element.addEventListener(
 );
 ```
 
-### Einfacher Logger, der Eingabeereignisse zeigt
+### Einfache Protokollierung der Eingabeereignisse
 
 Dieses Beispiel lauscht auf eine Reihe von Ereignissen, die bei einer Eingabe ausgelöst werden, einschließlich `textInput`.
-Der Ereignistyp und die Ereignisdaten werden protokolliert, sodass Sie sehen können, wo `textInput` im Verhältnis zu anderen Ereignissen auftritt, die durch Tastendrücke generiert werden.
+Der Ereignistyp und die Ereignisdaten werden protokolliert, sodass Sie sehen können, wo `textInput` im Vergleich zu anderen durch Tastendruck generierten Ereignissen ausgegeben wird.
 
 #### HTML
 

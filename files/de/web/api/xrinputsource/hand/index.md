@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`hand`**-Eigenschaft der {{domxref("XRInputSource")}}-Schnittstelle ist ein {{domxref("XRHand")}}-Objekt, das Zugriff auf ein Hand-Tracking-Gerät bietet.
+Die schreibgeschützte **`hand`**-Eigenschaft des [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Interfaces ist ein [`XRHand`](/de/docs/Web/API/XRHand)-Objekt, das Zugang zu einem Handverfolgungsgerät bietet.
 
 ## Wert
 
-Ein {{domxref("XRHand")}}-Objekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn die {{domxref("XRSession")}} nicht mit dem Feature-Deskriptor `hand-tracking` [angefordert](/de/docs/Web/API/XRSystem/requestSession) wurde.
+Ein [`XRHand`](/de/docs/Web/API/XRHand)-Objekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn die [`XRSession`](/de/docs/Web/API/XRSession) nicht mit dem `hand-tracking` Feature-Descriptor [angefordert](/de/docs/Web/API/XRSystem/requestSession) wurde.
 
 ## Beispiele
 
@@ -26,7 +26,7 @@ function renderFrame(session, frame) {
 
   for (const inputSource of session.inputSources) {
     if (inputSource.hand) {
-      // ein Handmodell rendern, Gestenerkennung durchführen, etc.
+      // render a hand model, perform gesture detection, etc.
     }
   }
 }
@@ -42,4 +42,4 @@ function renderFrame(session, frame) {
 
 ## Siehe auch
 
-- {{domxref("XRHand")}}
+- [`XRHand`](/de/docs/Web/API/XRHand)

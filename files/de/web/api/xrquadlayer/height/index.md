@@ -1,5 +1,5 @@
 ---
-title: "XRQuadLayer: height Eigenschaft"
+title: "XRQuadLayer: height-Eigenschaft"
 short-title: height
 slug: Web/API/XRQuadLayer/height
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`height`**-Eigenschaft des {{domxref("XRQuadLayer")}}-Interfaces gibt die Höhe der Ebene in Metern an.
+Die **`height`**-Eigenschaft der [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer)-Schnittstelle repräsentiert die Höhe der Ebene in Metern.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine Zahl, die die Höhe der Ebene in Metern darstellt.
 
 ### Festlegen der Dimension und Position einer Ebene
 
-Dieses Beispiel platziert die Ebene zwei Meter vom Ursprung des `xrReferenceSpace` mit einer `height` und `width` von 1,5 Metern entfernt.
+Dieser Beispielcode positioniert die Ebene zwei Meter vom Ursprung des `xrReferenceSpace` entfernt mit einer `height` und `width` von 1,5 Metern.
 
 ```js
 const quadLayer = xrGlBinding.createQuadLayer({
@@ -42,4 +42,4 @@ quadLayer.height = 1.5;
 
 ## Siehe auch
 
-- {{domxref("XRQuadLayer.width")}}
+- [`XRQuadLayer.width`](/de/docs/Web/API/XRQuadLayer/width)

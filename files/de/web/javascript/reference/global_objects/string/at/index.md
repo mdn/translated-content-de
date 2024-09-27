@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`at()`**-Methode von {{jsxref("String")}}-Werten nimmt einen ganzzahligen Wert und gibt einen neuen {{jsxref("String")}} zurück, der aus der einzelnen UTF-16-Codeeinheit besteht, die an dem angegebenen Offset zu finden ist. Diese Methode erlaubt sowohl positive als auch negative Ganzzahlen. Negative Ganzzahlen zählen rückwärts vom letzten Zeichen des Strings.
+Die **`at()`**-Methode der {{jsxref("String")}}-Werte nimmt einen Ganzzahlwert und gibt einen neuen {{jsxref("String")}} zurück, der aus der einzelnen UTF-16-Codeeinheit besteht, die sich am angegebenen Offset befindet. Diese Methode erlaubt positive und negative Ganzzahlen. Negative Ganzzahlen zählen vom letzten Zeichen des Strings rückwärts.
 
 {{EmbedInteractiveExample("pages/js/string-at.html")}}
 
@@ -20,20 +20,20 @@ at(index)
 ### Parameter
 
 - `index`
-  - : Der Index (Position) des String-Zeichens, das zurückgegeben werden soll. Unterstützt relatives Indizieren vom Ende des Strings, wenn ein negativer Index übergeben wird; d.h. wenn eine negative Zahl verwendet wird, wird das zurückgegebene Zeichen durch Rückwärtszählen vom Ende des Strings gefunden.
+  - : Der Index (Position) des String-Zeichens, das zurückgegeben werden soll. Unterstützt die relative Indizierung vom Ende des Strings, wenn ein negativer Index übergeben wird; d.h. wenn eine negative Zahl verwendet wird, wird das zurückgegebene Zeichen durch Rückwärtszählen vom Ende des Strings ermittelt.
 
 ### Rückgabewert
 
-Ein {{jsxref("String")}} bestehend aus der einzelnen UTF-16-Codeeinheit, die an der angegebenen Position zu finden ist. Gibt {{jsxref("undefined")}} zurück, wenn der angegebene Index nicht gefunden werden kann.
+Ein {{jsxref("String")}}, der aus der einzelnen UTF-16-Codeeinheit besteht, die sich an der angegebenen Position befindet. Gibt {{jsxref("undefined")}} zurück, wenn der angegebene Index nicht gefunden werden kann.
 
 ## Beispiele
 
-### Rückgabe des letzten Zeichens eines Strings
+### Das letzte Zeichen eines Strings zurückgeben
 
-Das folgende Beispiel stellt eine Funktion bereit, die das letzte Zeichen in einem angegebenen String zurückgibt.
+Das folgende Beispiel bietet eine Funktion, die das letzte Zeichen eines angegebenen Strings zurückgibt.
 
 ```js
-// Eine Funktion, die das letzte Zeichen eines gegebenen Strings zurückgibt
+// A function which returns the last character of a given string
 function returnLast(str) {
   return str.at(-1);
 }
@@ -47,22 +47,22 @@ invoiceRef = "myinvoice02";
 console.log(returnLast(invoiceRef)); // '2'
 ```
 
-### Methoden vergleichen
+### Vergleich von Methoden
 
-Hier vergleichen wir verschiedene Möglichkeiten, um das vorletzte (zweitletzte) Zeichen eines {{jsxref("String")}} auszuwählen. Während alle unten stehenden Methoden gültig sind, wird die Prägnanz und Lesbarkeit der `at()`-Methode hervorgehoben.
+Hier vergleichen wir verschiedene Methoden, um das vorletzte (vor dem letzten) Zeichen eines {{jsxref("String")}} auszuwählen. Während alle unten genannten Methoden gültig sind, wird die Kürze und Lesbarkeit der `at()`-Methode hervorgehoben.
 
 ```js
 const myString = "Every green bus drives fast.";
 
-// Nutzung der length-Eigenschaft und der charAt()-Methode
+// Using length property and charAt() method
 const lengthWay = myString.charAt(myString.length - 2);
 console.log(lengthWay); // 't'
 
-// Nutzung der slice()-Methode
+// Using slice() method
 const sliceWay = myString.slice(-2, -1);
 console.log(sliceWay); // 't'
 
-// Nutzung der at()-Methode
+// Using at() method
 const atWay = myString.at(-2);
 console.log(atWay); // 't'
 ```

@@ -7,23 +7,23 @@ l10n:
 
 {{CSSRef}}
 
-Die **`@scope`**-[CSS](/de/docs/Web/CSS)-[Regel](/de/docs/Web/CSS/At-rule) ermöglicht es Ihnen, Elemente in bestimmten DOM-Teilbäumen auszuwählen und gezielt anzusprechen, ohne übermäßig spezifische Selektoren zu schreiben, die schwer zu überschreiben sind, und ohne Ihre Selektoren zu eng an die DOM-Struktur zu koppeln.
+Die **`@scope`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) ermöglicht es Ihnen, Elemente in bestimmten DOM-Teilbäumen auszuwählen, um Elemente präzise zu bestimmen, ohne übermäßig spezifische Selektoren schreiben zu müssen, die schwer zu überschreiben sind, und ohne Ihre Selektoren zu eng an die DOM-Struktur zu koppeln.
 
-In JavaScript kann `@scope` über die CSS-Objektmodell-Schnittstelle {{DOMxRef("CSSScopeRule")}} aufgerufen werden.
+In JavaScript kann auf `@scope` über die CSS-Objektmodell-Schnittstelle [`CSSScopeRule`](/de/docs/Web/API/CSSScopeRule) zugegriffen werden.
 
 ## Syntax
 
-Die `@scope`-Regel enthält ein oder mehrere Regelsätze (genannt **scoped style rules**) und definiert einen Bereich, in dem sie auf ausgewählte Elemente angewendet werden. `@scope` kann auf zwei Arten verwendet werden:
+Die `@scope` At-Regel enthält eine oder mehrere Regelmengen (genannt **scoped style rules**) und definiert einen Geltungsbereich, in dem sie auf ausgewählte Elemente angewendet werden. `@scope` kann auf zwei Arten verwendet werden:
 
-1. Als eigenständiger Block in Ihrem CSS, wobei ein Prelude-Abschnitt inkludiert ist, der **Scope-Root**- und optionale **Scope-Limit**-Selektoren umfasst – diese definieren die oberen und unteren Grenzen des Bereichs.
+1. Als eigenständiger Block innerhalb Ihres CSS, wobei es einen Vorspannbereich umfasst, der **scope root** und optionale **scope limit** Selektoren enthält — diese definieren die oberen und unteren Grenzen des Geltungsbereichs.
 
    ```css
    @scope (scope root) to (scope limit) {
-     règlesets
+     rulesets
    }
    ```
 
-2. Als inline Styles in einem {{htmlelement("style")}}-Element in Ihrem HTML, wobei der Prelude weggelassen wird und der eingeschlossene Regelsatz automatisch in den umgebenden Elternelement-Bereich des `<style>`-Elements integriert ist.
+2. Als Inline-Stile innerhalb eines {{htmlelement("style")}}-Elements in Ihrem HTML enthalten, wobei der Vorspannbereich weggelassen wird, und die eingeschlossene Regelmenge automatisch auf das übergeordnete Element des `<style>` Elements begrenzt ist.
 
    ```html
    <parent-element>
@@ -37,7 +37,7 @@ Die `@scope`-Regel enthält ein oder mehrere Regelsätze (genannt **scoped style
 
 ## Beschreibung
 
-Ein komplexes Web-Dokument könnte Komponenten wie Header, Footer, Nachrichtenartikel, Karten, Media-Player, und Anzeigen enthalten. Je mehr die Komplexität zunimmt, desto wichtiger wird das effektive Management des Stylings dieser Komponenten. Effektives Scoping der Styles hilft dabei, diese Komplexität zu bewältigen. Betrachten wir den folgenden DOM-Baum:
+Ein komplexes Webdokument könnte Komponenten wie Header, Footer, Nachrichtenartikel, Karten, Mediaplayer, Anzeigen und andere enthalten. Mit zunehmender Komplexität wird das effektive Verwalten des Stylings dieser Komponenten zu einem größeren Problem, und die effektive Begrenzung von Stilen hilft uns, diese Komplexität zu bewältigen. Betrachten wir den folgenden DOM-Baum:
 
 ```plain-nolint
 body
@@ -60,12 +60,12 @@ body
       └─ img
 ```
 
-Wenn Sie das {{htmlelement("img")}}-Element innerhalb eines {{htmlelement("section")}} mit der Klasse `article-body` auswählen möchten, könnten Sie Folgendes tun:
+Wenn Sie das {{htmlelement("img")}} Element innerhalb des {{htmlelement("section")}} mit einer Klasse von `article-body` auswählen möchten, könnten Sie Folgendes tun:
 
-- Einen Selektor wie `.feature > .article-body > img` schreiben. Das hat jedoch eine hohe Spezifität, die schwer zu überschreiben ist, und ist auch eng an die DOM-Struktur gekoppelt. Sollte sich die Struktur Ihres Markups zukünftig ändern, könnte es notwendig sein, Ihr CSS umzuschreiben.
-- Etwas weniger Spezifisches wie `.article-body img` schreiben. Das würde jedoch alle Bilder innerhalb der `section` auswählen.
+- Einen Selektor wie `.feature > .article-body > img` schreiben. Das hat jedoch eine hohe Spezifität, ist schwer zu überschreiben und fest mit der DOM-Struktur gekoppelt. Wenn sich Ihre Markup-Struktur in Zukunft ändert, müssen Sie möglicherweise Ihr CSS umschreiben.
+- Etwas weniger Spezifisches wie `.article-body img` schreiben. Das würde jedoch alle Bilder innerhalb des `section` auswählen.
 
-Hier ist `@scope` nützlich. Es ermöglicht Ihnen, einen genauen Bereich zu definieren, innerhalb dessen Ihre Selektoren erlaubt sind, Elemente anzusprechen. Sie könnten das oben genannte Problem mit einem eigenständigen `@scope`-Block wie dem folgenden lösen:
+Hier kommt `@scope` ins Spiel. Es erlaubt Ihnen, einen präzisen Bereich zu definieren, innerhalb dessen Ihre Selektoren Elemente ansprechen dürfen. Zum Beispiel könnten Sie das oben genannte Problem mit einem eigenständigen `@scope` Block wie dem folgenden lösen:
 
 ```css
 @scope (.article-body) to (figure) {
@@ -76,12 +76,12 @@ Hier ist `@scope` nützlich. Es ermöglicht Ihnen, einen genauen Bereich zu defi
 }
 ```
 
-Der `.article-body`-Scope-Root-Selektor definiert die obere Grenze des DOM-Baum-Scope, in dem der Regelsatz angewendet wird, und der `figure`-Scope-Limit-Selektor definiert die untere Grenze. Somit werden nur {{htmlelement("img")}}-Elemente innerhalb eines `<section>` mit der Klasse `article-body`, aber nicht innerhalb von {{htmlelement("figure")}}-Elementen ausgewählt.
+Der `.article-body` scope root Selektor definiert die obere Grenze des DOM-Baum-Bereichs, in dem die Regelmenge angewendet wird, und der `figure` scope limit Selektor definiert die untere Grenze. Als Ergebnis werden nur {{htmlelement("img")}} Elemente innerhalb eines `<section>` mit einer Klasse von `article-body`, jedoch nicht innerhalb von {{htmlelement("figure")}} Elementen, ausgewählt.
 
 > [!NOTE]
-> Diese Art von Scoping — mit einer oberen und unteren Grenze — wird oft als **Donut Scope** bezeichnet.
+> Diese Art der Begrenzung — mit einer oberen und einer unteren Grenze — wird gemeinhin als **Donut-Bereich** bezeichnet.
 
-Wenn Sie alle Bilder innerhalb eines `<section>` mit der Klasse `article-body` auswählen möchten, können Sie das Scope-Limit weglassen:
+Wenn Sie alle Bilder innerhalb eines `<section>` mit einer Klasse von `article-body` auswählen möchten, können Sie das scope limit weglassen:
 
 ```css
 @scope (.article-body) {
@@ -92,7 +92,7 @@ Wenn Sie alle Bilder innerhalb eines `<section>` mit der Klasse `article-body` a
 }
 ```
 
-Oder Sie könnten Ihren `@scope`-Block inline innerhalb eines `<style>`-Elements platzieren, das wiederum innerhalb des `<section>` mit der Klasse `article-body` steht:
+Oder Sie könnten Ihren `@scope` Block inline innerhalb eines `<style>` Elements einschließen, das wiederum innerhalb des `<section>` mit der Klasse `article-body` ist:
 
 ```html
 <section class="article-body">
@@ -110,11 +110,11 @@ Oder Sie könnten Ihren `@scope`-Block inline innerhalb eines `<style>`-Elements
 ```
 
 > [!NOTE]
-> Es ist wichtig zu verstehen, dass, obwohl `@scope` es ermöglicht, die Anwendung von Selektoren auf bestimmte DOM-Teilbäume zu isolieren, die angewendeten Stile nicht vollständig innerhalb dieser Teilbäume isoliert sind. Dies ist am auffälligsten bei der Vererbung — Eigenschaften, die von Kindern geerbt werden (zum Beispiel {{cssxref("color")}} oder {{cssxref("font-family")}}), werden weiterhin vererbt, über jede festgelegte Scope-Grenze hinaus.
+> Es ist wichtig zu verstehen, dass, während `@scope` es Ihnen ermöglicht, die Anwendung von Selektoren auf spezifische DOM-Teilbäume einzuschränken, es die angewendeten Stile nicht vollständig innerhalb dieser Teilbäume isoliert hält. Dies ist am deutlichsten bei Vererbung zu bemerken — Eigenschaften, die von Kindern geerbt werden (zum Beispiel {{cssxref("color")}} oder {{cssxref("font-family")}}), werden weiterhin über ein festgelegtes scope limit hinaus vererbt.
 
-### Die `:scope` Pseudoklasse
+### Die `:scope` Pseudo-Klasse
 
-Im Kontext eines `@scope`-Blocks steht die {{cssxref(":scope")}}-Pseudoklasse für den Scope-Root — sie bietet eine einfache Möglichkeit, Styles auf den Scope-Root selbst anzuwenden, von innerhalb des Scope:
+Im Kontext eines `@scope` Blocks repräsentiert die {{cssxref(":scope")}} Pseudo-Klasse die scope root — sie bietet eine einfache Möglichkeit, Stile auf die scope root selbst anzuwenden, von innerhalb des Bereichs:
 
 ```css
 @scope (.feature) {
@@ -126,9 +126,9 @@ Im Kontext eines `@scope`-Blocks steht die {{cssxref(":scope")}}-Pseudoklasse f�
 }
 ```
 
-Tatsächlich wird `:scope` implizit allen scoped style rules vorangestellt. Wenn Sie möchten, können Sie `:scope` explizit voranstellen oder den [Verschachtelungsselektor](/de/docs/Web/CSS/CSS_nesting) (`&`) verwenden, um den gleichen Effekt zu erzielen, wenn Sie diese Darstellungen leichter verständlich finden.
+Tatsächlich wird `:scope` implizit allen scoped style rules vorangestellt. Wenn Sie möchten, können Sie `:scope` explizit voranstellen oder den [Nesting](/de/docs/Web/CSS/CSS_nesting) Selektor (`&`) voranstellen, um denselben Effekt zu erzielen, wenn Sie diese Darstellungen leichter verständlich finden.
 
-Die drei Regeln im folgenden Block sind in dem, was sie auswählen, gleichwertig:
+Die drei Regeln im folgenden Block sind alle gleichwertig hinsichtlich dessen, was sie auswählen:
 
 ```css
 @scope (.feature) {
@@ -140,25 +140,25 @@ Die drei Regeln im folgenden Block sind in dem, was sie auswählen, gleichwertig
 }
 ```
 
-### Hinweise zur Verwendung von Scoped-Selektoren
+### Anmerkungen zur Verwendung von selektierten Selektoren
 
-- Ein Scope-Limit kann `:scope` verwenden, um eine spezifische Beziehungsanforderung zwischen dem Scope-Limit und Root anzugeben. Zum Beispiel:
+- Ein scope limit kann `:scope` verwenden, um eine spezifische Beziehungsanforderung zwischen dem scope limit und dem root zu spezifizieren. Zum Beispiel:
 
   ```css
-  /* figure ist nur ein Limit, wenn es ein direktes Kind des :scope ist */
+  /* figure is only a limit when it is a direct child of the :scope */
   @scope (.article-body) to (:scope > figure) { ... }
   ```
 
-- Ein Scope-Limit kann Elemente außerhalb des Scope-Roots mit `:scope` referenzieren. Zum Beispiel:
+- Ein scope limit kann Elemente außerhalb des scope root mit `:scope` referenzieren. Zum Beispiel:
 
   ```css
-  /* figure ist nur ein Limit, wenn das :scope innerhalb von .feature ist */
+  /* figure is only a limit when the :scope is inside .feature */
   @scope (.article-body) to (.feature :scope figure) { ... }
   ```
 
-- Scoped style rules können den Teilbaum nicht verlassen. Selektionen wie `:scope + p` sind ungültig, weil diese Auswahl außerhalb des Teilbaums liegen würde.
+- Scoped style Regeln können den Teilbaum nicht verlassen. Auswahlen wie `:scope + p` sind ungültig, weil diese Auswahl außerhalb des Teilbaums liegen würde.
 
-- Es ist vollkommen legitim, sowohl den Scope-Root als auch das Limit als Selektorliste zu definieren, in welchem Fall mehrere Scopes definiert werden. Im folgenden Beispiel werden die Styles auf jedes `<img>` innerhalb eines `<section>` mit der Klasse `article-hero` oder `article-body`, aber nicht wenn es innerhalb eines `<figure>` genestet ist, angewendet:
+- Es ist völlig valide, den scope root und das limit als Selektorliste zu definieren, in welchem Fall mehrere Bereiche definiert werden. Im folgenden Beispiel werden die Stile auf jedes `<img>` innerhalb eines `<section>` mit einer Klasse von `article-hero` oder `article-body` angewendet, jedoch nicht, wenn es in einem `<figure>` verschachtelt ist:
 
   ```css
   @scope (.article-hero, .article-body) to (figure) {
@@ -171,25 +171,25 @@ Die drei Regeln im folgenden Block sind in dem, was sie auswählen, gleichwertig
 
 ### Spezifität in `@scope`
 
-Die Einbeziehung eines Regelsatzes innerhalb eines `@scope`-Blocks beeinflusst nicht die Spezifität des Selektors, unabhängig von den Selektoren, die innerhalb des Scope-Roots und Limits verwendet werden. Zum Beispiel:
+Das Einschließen eines Regelwerks innerhalb eines `@scope` Blocks beeinflusst nicht die Spezifität seines Selektors, unabhängig von den innerhalb des scope root und limit verwendeten Selektoren. Zum Beispiel:
 
 ```css
 @scope (.article-body) {
-  /* img hat eine Spezifität von 0-0-1, wie erwartet */
+  /* img has a specificity of 0-0-1, as expected */
   img { ... }
 }
 ```
 
-Falls Sie sich entscheiden, die `:scope`-Pseudoklasse explizit Ihren Scoped-Selektoren voranzustellen, müssen Sie diese in die Berechnung ihrer Spezifität einbeziehen. `:scope`, wie alle regulären Pseudoklassen, hat eine Spezifität von 0-1-0. Zum Beispiel:
+Wenn Sie sich jedoch entscheiden, die `:scope` Pseudo-Klasse ausdrücklich Ihren scoped Selektoren voranzustellen, müssen Sie dies beim Berechnen ihrer Spezifität berücksichtigen. `:scope`, wie alle regulären Pseudo-Klassen, hat eine Spezifität von 0-1-0. Zum Beispiel:
 
 ```css
 @scope (.article-body) {
-  /* :scope img hat eine Spezifität von 0-1-0 + 0-0-1 = 0-1-1 */
+  /* :scope img has a specificity of 0-1-0 + 0-0-1 = 0-1-1 */
   :scope img { ... }
 }
 ```
 
-Bei der Verwendung des `&`-Selektors innerhalb eines `@scope`-Blocks repräsentiert `&` den Scope-Root-Selektor; er wird intern als dieser Selektor, eingebettet in eine {{cssxref(":is", ":is()")}}-Pseudoklassenfunktion, berechnet. Also zum Beispiel, in:
+Bei der Verwendung des `&` Selektors innerhalb eines `@scope` Blocks repräsentiert `&` den scope root Selektor; es wird intern als dieser Selektor innerhalb einer {{cssxref(":is", ":is()")}} Pseudo-Klassenfunktion berechnet. Zum Beispiel, in:
 
 ```css
 @scope (figure, #primary) {
@@ -197,41 +197,41 @@ Bei der Verwendung des `&`-Selektors innerhalb eines `@scope`-Blocks repräsenti
 }
 ```
 
-`& img` ist gleichwertig mit `:is(figure, #primary) img`. Da `:is()` die Spezifität seines spezifischsten Arguments annimmt (`#primary`, in diesem Fall), ist die Spezifität des scoped `& img`-Selektors daher 1-0-0 + 0-0-1 = 1-0-1.
+`& img` ist gleichwertig zu `:is(figure, #primary) img`. Da `:is()` die Spezifität seines spezifischsten Arguments (`#primary` in diesem Fall) übernimmt, ist die Spezifität des scoped `& img` Selektors daher 1-0-0 + 0-0-1 = 1-0-1.
 
 ### Der Unterschied zwischen `:scope` und `&` innerhalb von `@scope`
 
-`:scope` repräsentiert den gefundenen Scope-Root, während `&` den Selektor repräsentiert, der verwendet wird, um den Scope-Root zu finden. Deshalb ist es möglich, `&` mehrfach zu verketten. Sie können `:scope` jedoch nur einmal verwenden — Sie können keinen Scope-Root innerhalb eines Scope-Roots anvisieren.
+`:scope` repräsentiert den erfassten scope root, während `&` den Selektor repräsentiert, der verwendet wird, um den scope root zu erfassen. Daher ist es möglich, `&` mehrmals zu verketten. Sie können `:scope` jedoch nur einmal verwenden — Sie können keinen scope root innerhalb eines scope root erfassen.
 
 ```css
 @scope (.feature) {
-  /* Wählt eine .feature innerhalb der gefundenen Root .feature aus */
+  /* Selects a .feature inside the matched root .feature */
   & & { ... }
 
-  /* Funktioniert nicht */
+  /* Doesn't work */
   :scope :scope { ... }
 }
 ```
 
-### Wie Konflikte in `@scope` gelöst werden
+### Wie `@scope` Konflikte gelöst werden
 
-`@scope` fügt ein neues Kriterium zur [CSS-Kaskade](/de/docs/Web/CSS/CSS_cascade) hinzu: **Scoping-Nähe**. Dies besagt, dass wenn zwei Scopes widersprüchliche Stile haben, der Stil angewendet wird, der die geringste Anzahl an Sprüngen den DOM-Baum entlang bis zum Scope-Root hat. Sehen wir uns ein Beispiel an, um zu verstehen, was dies bedeutet.
+`@scope` fügt ein neues Kriterium zur [CSS-Kaskade](/de/docs/Web/CSS/CSS_cascade) hinzu: **Scoping-Nähe**. Dies besagt, dass, wenn zwei Bereiche widersprüchliche Styles haben, der Stil angewendet wird, der die geringste Anzahl von Sprüngen entlang der DOM-Baum-Hierarchie zum scope root hat. Lassen Sie uns ein Beispiel betrachten, um zu sehen, was das bedeutet.
 
-Betrachten Sie den folgenden HTML-Schnipsel, bei dem unterschiedliche Themenkarten ineinander verschachtelt sind:
+Nehmen Sie den folgenden HTML-Auszug, in dem unterschiedlich thematisierte Karten ineinander verschachtelt sind:
 
 ```html
 <div class="light-theme">
-  <p>Text im Light Theme</p>
+  <p>Light theme text</p>
   <div class="dark-theme">
-    <p>Text im Dark Theme</p>
+    <p>Dark theme text</p>
     <div class="light-theme">
-      <p>Text im Light Theme</p>
+      <p>Light theme text</p>
     </div>
   </div>
 </div>
 ```
 
-Wenn Sie das CSS für das Thema wie folgt schreiben würden, würden Sie Probleme bekommen:
+Wenn Sie das Thema CSS so schreiben würden, hätten Sie ein Problem:
 
 ```css
 .light-theme {
@@ -251,9 +251,9 @@ Wenn Sie das CSS für das Thema wie folgt schreiben würden, würden Sie Problem
 }
 ```
 
-Der innerste Absatz sollte schwarz gefärbt werden, da er in einer Light-Theme-Karte enthalten ist. Er wird jedoch sowohl von `.light-theme p` als auch von `.dark-theme p` ausgewählt. Da die `.dark-theme p`-Regel später in der Quellreihenfolge erscheint, wird sie angewendet, und der Absatz wird fälschlicherweise weiß gefärbt.
+Der innerste Absatz soll schwarz gefärbt sein, da er sich innerhalb einer Karte im hellen Thema befindet. Er wird jedoch sowohl von `.light-theme p` als auch `.dark-theme p` angesprochen. Da die `.dark-theme p` Regel später in der Quellreihenfolge erscheint, wird sie angewendet, und der Absatz wird fälschlicherweise weiß eingefärbt.
 
-Um dies zu beheben, können Sie `@scope` wie folgt verwenden:
+Um dies zu beheben, können Sie `@scope` folgendermaßen verwenden:
 
 ```css
 @scope (.light-theme) {
@@ -275,10 +275,10 @@ Um dies zu beheben, können Sie `@scope` wie folgt verwenden:
 }
 ```
 
-Jetzt wird der innerste Absatz korrekt schwarz gefärbt. Das liegt daran, dass er nur eine DOM-Baum-Hierarchie-Ebene vom `.light-theme`-Scope-Root entfernt ist, aber zwei Ebenen vom `.dark-theme`-Scope-Root. Somit gewinnt der Light-Style.
+Nun ist der innerste Absatz korrekt schwarz eingefärbt. Dies liegt daran, dass er nur eine Dom Baum-Hierarchiestufe vom `.light-theme` scope root entfernt ist, aber zwei Stufen vom `.dark-theme` scope root entfernt. Daher gewinnt der helle Stil.
 
 > [!NOTE]
-> Die Scoping-Nähe übersteuert die Quellreihenfolge, wird jedoch selbst von anderen, höher priorisierten Kriterien wie [Bedeutung](/de/docs/Web/CSS/important), [Layers](/de/docs/Learn/CSS/Building_blocks/Cascade_layers) und [Spezifität](/de/docs/Web/CSS/Specificity) übersteuert.
+> Scoping-Nähe übertrumpft die Quellreihenfolge, wird aber selbst von anderen, höher priorisierten Kriterien wie [Wichtigkeit](/de/docs/Web/CSS/important), [Ebenen](/de/docs/Learn/CSS/Building_blocks/Cascade_layers) und [Spezifität](/de/docs/Web/CSS/Specificity) übertroffen.
 
 ## Formale Syntax
 
@@ -286,28 +286,28 @@ Jetzt wird der innerste Absatz korrekt schwarz gefärbt. Das liegt daran, dass e
 
 ## Beispiele
 
-### Grundlegender Stil innerhalb von Scopes
+### Grundlegender Stil innerhalb von scope roots
 
-In diesem Beispiel verwenden wir zwei separate `@scope`-Blöcke, um Links innerhalb von Elementen mit einer `.light-scheme`- bzw. `.dark-scheme`-Klasse zuzuordnen. Beachten Sie, wie `:scope` verwendet wird, um den Scope-Roots selbst Styling zu verleihen. In diesem Beispiel sind die Scope-Roots die {{htmlelement("div")}}-Elemente, denen die Klassen zugeordnet sind.
+In diesem Beispiel verwenden wir zwei separate `@scope` Blöcke, um Links innerhalb von Elementen mit einer `.light-scheme` und `.dark-scheme` Klasse abzugleichen. Beachten Sie, wie `:scope` verwendet wird, um die scope roots selbst auszuwählen und zu gestalten. In diesem Beispiel sind die scope roots die {{htmlelement("div")}} Elemente, auf die die Klassen angewendet werden.
 
 #### HTML
 
 ```html
 <div class="light-scheme">
   <p>
-    MDN enthält viele Informationen über
-    <a href="/de/docs/Web/HTML">HTML</a>,
-    <a href="/de/docs/Web/CSS">CSS</a> und
-    <a href="/de/docs/Web/JavaScript">JavaScript</a>.
+    MDN contains lots of information about
+    <a href="/en-US/docs/Web/HTML">HTML</a>,
+    <a href="/en-US/docs/Web/CSS">CSS</a>, and
+    <a href="/en-US/docs/Web/JavaScript">JavaScript</a>.
   </p>
 </div>
 
 <div class="dark-scheme">
   <p>
-    MDN enthält viele Informationen über
-    <a href="/de/docs/Web/HTML">HTML</a>,
-    <a href="/de/docs/Web/CSS">CSS</a> und
-    <a href="/de/docs/Web/JavaScript">JavaScript</a>.
+    MDN contains lots of information about
+    <a href="/en-US/docs/Web/HTML">HTML</a>,
+    <a href="/en-US/docs/Web/CSS">CSS</a>, and
+    <a href="/en-US/docs/Web/JavaScript">JavaScript</a>.
   </p>
 </div>
 ```
@@ -343,29 +343,29 @@ div {
 }
 ```
 
-#### Resultat
+#### Ergebnis
 
-Der obige Code wird wie folgt dargestellt:
+Der obige Code rendert wie folgt:
 
-{{ EmbedLiveSample("Grundlegender Stil innerhalb von Scopes", "100%", "150") }}
+{{ EmbedLiveSample("Basic style inside scope roots", "100%", "150") }}
 
-### Scope-Roots und Scope-Limits
+### Scope roots und scope limits
 
-In diesem Beispiel haben wir ein HTML-Schnipsel, das der DOM-Struktur entspricht, über die wir zuvor im Abschnitt [Beschreibung](#beschreibung) gesprochen haben. Diese Struktur repräsentiert eine typische Artikelzusammenfassung. Die wichtigsten Merkmale sind die {{htmlelement("img")}}-Elemente, die auf verschiedenen Ebenen innerhalb der Struktur verschachtelt sind.
+In diesem Beispiel haben wir einen HTML-Auszug, der die DOM-Struktur abgleicht, die wir bereits im [Beschreibung](#beschreibung) Abschnitt besprochen haben. Diese Struktur stellt eine typische Artikelzusammenfassung dar. Die Schlüsselelemente sind die {{htmlelement("img")}} Elemente, die auf verschiedenen Ebenen in der Struktur verschachtelt sind.
 
-Das Ziel dieses Beispiels ist es zu zeigen, wie man einen Scope-Root und ein Limit verwenden kann, um `<img>`-Elemente von der Spitze der Hierarchie an zu stylen, jedoch nur bis zu (und ohne) das `<img>` innerhalb des {{htmlelement("figure")}}-Elements — effektiv einen Donut-Scope zu erstellen.
+Das Ziel dieses Beispiels ist es, zu zeigen, wie ein scope root und limit verwendet werden kann, um `<img>` Elemente zu gestalten, beginnend bei der Spitze der Hierarchie, jedoch nur bis zu (und nicht einschließlich) dem `<img>` innerhalb des {{htmlelement("figure")}} Elements — in der eigentlichen Schaffung eines Donut-Bereichs.
 
 #### HTML
 
 ```html
 <article class="feature">
   <section class="article-hero">
-    <h2>Artikelüberschrift</h2>
-    <img alt="Bild" />
+    <h2>Article heading</h2>
+    <img alt="image" />
   </section>
 
   <section class="article-body">
-    <h3>Artikel-Unterüberschrift</h3>
+    <h3>Article subheading</h3>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod
       consectetur leo, nec eleifend quam volutpat vitae. Duis quis felis at
@@ -373,19 +373,19 @@ Das Ziel dieses Beispiels ist es zu zeigen, wie man einen Scope-Root und ein Lim
       pharetra velit nisi, ac efficitur magna luctus nec.
     </p>
 
-    <img alt="Bild" />
+    <img alt="image" />
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
     <figure>
-      <img alt="Bild" />
-      <figcaption>Meine Infografik</figcaption>
+      <img alt="image" />
+      <figcaption>My infographic</figcaption>
     </figure>
   </section>
 
   <footer>
-    <p>Geschrieben von Chris Mills.</p>
-    <img alt="Bild" />
+    <p>Written by Chris Mills.</p>
+    <img alt="image" />
   </footer>
 </article>
 ```
@@ -421,10 +421,10 @@ img {
 }
 ```
 
-In unserem CSS haben wir zwei `@scope`-Blöcke:
+In unserem CSS haben wir zwei `@scope` Blöcke:
 
-- Der erste `@scope`-Block definiert sein Scope-Root als Elemente mit der Klasse `.feature` (in diesem Fall nur das äußere `<div>`), und demonstriert, wie `@scope` verwendet werden kann, um einen bestimmten HTML-Ausschnitt zu thematisieren.
-- Der zweite `@scope`-Block definiert ebenfalls sein Scope-Root als Elemente mit der Klasse `.feature`, ergänzt jedoch ein Scope-Limit von `figure`. Dies stellt sicher, dass enthaltene Regelsätze nur auf übereinstimmende Elemente innerhalb des Scope-Roots angewendet werden (`<div class="figure"> ... </div>` in diesem Fall), die **nicht** innerhalb von nachgeordneten `<figure>`-Elementen verschachtelt sind. Dieser `@scope`-Block enthält einen einzelnen Regelsatz, der `<img>`-Elemente mit einem dicken schwarzen Rahmen und einer goldenen Hintergrundfarbe stylt.
+- Der erste `@scope` Block definiert seine scope root als Elemente mit einer Klasse von `.feature` (in diesem Fall nur das äußere `<div>`), was zeigt, wie `@scope` verwendet werden kann, um ein spezifisches HTML-Subset zu gestalten.
+- Der zweite `@scope` Block definiert ebenfalls seine scope root als Elemente mit einer Klasse von `.feature`, aber zusätzlich definiert er ein scope limit von `figure`. Dies stellt sicher, dass die enthaltenen Regelmengen nur auf übereinstimmende Elemente innerhalb der scope root (`<div class="figure"> ... </div>` in diesem Fall) angewandt werden, die **nicht** innerhalb nachgeordneter `<figure>` Elemente verschachtelt sind. Dieser `@scope` Block enthält eine einzelne Regelmenge, die `<img>` Elemente mit einem dicken schwarzen Rand und einer goldenen Hintergrundfarbe gestaltet.
 
 ```css
 /* Scoped CSS */
@@ -444,7 +444,7 @@ In unserem CSS haben wir zwei `@scope`-Blöcke:
   }
 }
 
-/* Donut-Scope */
+/* Donut scope */
 
 @scope (.feature) to (figure) {
   img {
@@ -454,11 +454,11 @@ In unserem CSS haben wir zwei `@scope`-Blöcke:
 }
 ```
 
-#### Resultat
+#### Ergebnis
 
-Im gerenderten Code, beachten Sie, wie alle `<img>`-Elemente mit dem dicken Rahmen und dem goldenen Hintergrund gestylt sind, mit Ausnahme desjenigen innerhalb des `<figure>`-Elements (bezeichnet mit "Meine Infografik").
+Im gerenderten Code beachten Sie, wie alle `<img>` Elemente mit dem dicken Rand und der goldenen Hintergrundfarbe gestaltet sind, mit Ausnahme desjenigen innerhalb des `<figure>` Elements (als "My infographic" bezeichnet).
 
-{{ EmbedLiveSample("Scope-Roots und Scope-Limits", "100%", "400") }}
+{{ EmbedLiveSample("Scope roots and scope limits", "100%", "400") }}
 
 ## Spezifikationen
 
@@ -471,5 +471,5 @@ Im gerenderten Code, beachten Sie, wie alle `<img>`-Elemente mit dem dicken Rahm
 ## Siehe auch
 
 - {{CSSxRef(":scope")}}
-- {{DOMxRef("CSSScopeRule")}}
-- [Begrenzen Sie die Reichweite Ihrer Selektoren mit der CSS-`@scope`-Regel](https://developer.chrome.com/docs/css-ui/at-scope) auf developer.chrome.com (2023)
+- [`CSSScopeRule`](/de/docs/Web/API/CSSScopeRule)
+- [Beschränken Sie die Reichweite Ihrer Selektoren mit der CSS `@scope` At-Regel](https://developer.chrome.com/docs/css-ui/at-scope) auf developer.chrome.com (2023)

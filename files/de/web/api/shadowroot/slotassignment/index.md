@@ -8,29 +8,29 @@ l10n:
 
 {{APIRef("Shadow DOM")}}
 
-Die schreibgeschützte **`slotAssignment`**-Eigenschaft der {{domxref("ShadowRoot")}}-Schnittstelle gibt den _Slot-Zuweisungsmodus_ für den Shadow-DOM-Baum zurück. Knoten werden entweder automatisch zugewiesen (`named`) oder manuell zugewiesen (`manual`). Der Wert dieser Eigenschaft wird durch die `slotAssignment`-Option festgelegt, wenn {{domxref("Element.attachShadow()")}} aufgerufen wird.
+Die schreibgeschützte **`slotAssignment`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces gibt den _Slot-Zuweisungsmodus_ für den Shadow-DOM-Baum zurück. Knoten werden entweder automatisch zugewiesen (`named`) oder manuell zugewiesen (`manual`). Der Wert dieser Eigenschaft wird mit der Option `slotAssignment` festgelegt, wenn [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) aufgerufen wird.
 
 ## Wert
 
-Ein String, der einen der folgenden Werte haben kann:
+Ein String, der einer der folgenden sein kann:
 
 - `named`
-  - : Elemente werden automatisch {{HTMLElement("slot")}}-Elementen innerhalb dieses Shadow-Roots zugewiesen. Alle Nachkommen des Hosts mit einem `slot`-Attribut, das mit dem `name`-Attribut eines `<slot>` innerhalb dieses Shadow-Roots übereinstimmt, werden diesem Slot zugewiesen. Alle obersten Kinder des Hosts ohne `slot`-Attribut werden einem `<slot>` ohne `name`-Attribut (der "Standard-Slot") zugewiesen, wenn einer vorhanden ist.
+  - : Elemente werden automatisch den {{HTMLElement("slot")}}-Elementen innerhalb dieses Shadow-Roots zugewiesen. Alle Nachkommen des Hosts mit einem `slot`-Attribut, das dem `name`-Attribut eines `<slot>` innerhalb dieses Shadow-Roots entspricht, werden diesem Slot zugewiesen. Alle obersten Kinder des Hosts ohne `slot`-Attribut werden einem `<slot>` ohne `name`-Attribut (der "Standard-Slot") zugewiesen, falls vorhanden.
 - `manual`
-  - : Elemente werden nicht automatisch {{HTMLElement("slot")}}-Elementen zugewiesen. Stattdessen müssen sie manuell mit {{domxref("HTMLSlotElement.assign()")}} zugewiesen werden.
+  - : Elemente werden nicht automatisch den {{HTMLElement("slot")}}-Elementen zugewiesen. Stattdessen müssen sie manuell mit [`HTMLSlotElement.assign()`](/de/docs/Web/API/HTMLSlotElement/assign) zugewiesen werden.
 
 ## Beispiele
 
-Im folgenden Beispiel wird die `assign()`-Methode verwendet, um den richtigen Tab in einer Registerkartenanwendung anzuzeigen. Die Funktion wird aufgerufen und das anzuzeigende Panel übergeben, das dann dem Slot zugewiesen wird. Wir testen, ob das `slotAssignment` `named` ist, um zu verhindern, dass eine Ausnahme ausgelöst wird, wenn {{domxref("HTMLSlotElement.assign()")}} aufgerufen wird.
+Im folgenden Beispiel wird die `assign()`-Methode verwendet, um den richtigen Tab in einer Tab-Anwendung anzuzeigen. Die Funktion wird aufgerufen und das anzuzeigende Panel übergeben, welches dann dem Slot zugewiesen wird. Wir prüfen, ob das `slotAssignment` `named` ist, um eine Ausnahme zu vermeiden, wenn [`HTMLSlotElement.assign()`](/de/docs/Web/API/HTMLSlotElement/assign) aufgerufen wird.
 
 ```js
 function UpdateDisplayTab(elem, tabIdx) {
   const shadow = elem.shadowRoot;
 
-  // Dieser Test ist normalerweise nicht erforderlich, kann aber beim Debuggen nützlich sein
+  // This test is usually not needed, but can be useful when debugging
   if (shadow.slotAssignment === "named") {
     console.error(
-      "Versuch, einen Slot manuell einem automatisch zugewiesenen (named) Slot zuzuweisen",
+      "Trying to manually assign a slot on an automatically-assigned (named) slot",
     );
   }
   const slot = shadow.querySelector("slot");
@@ -53,5 +53,5 @@ function UpdateDisplayTab(elem, tabIdx) {
 
 ## Siehe auch
 
-- {{domxref("Element.attachShadow()")}}
-- {{domxref("HTMLSlotElement.assign()")}}
+- [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow)
+- [`HTMLSlotElement.assign()`](/de/docs/Web/API/HTMLSlotElement/assign)

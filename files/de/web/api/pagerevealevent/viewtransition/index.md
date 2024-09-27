@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`viewTransition`** des {{domxref("PageRevealEvent")}}-Interfaces enthält ein {{domxref("ViewTransition")}}-Objekt, das die aktive Übergangsansicht für die Dokumentübergreifende Navigation repräsentiert.
+Die **`viewTransition`** schreibgeschützte Eigenschaft des [`PageRevealEvent`](/de/docs/Web/API/PageRevealEvent)-Interfaces enthält ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das die aktive Ansichtstransition für die dokumentübergreifende Navigation darstellt.
 
 ## Wert
 
-Ein {{domxref("ViewTransition")}}-Objekt oder `null`, wenn kein Ansichtsübergang aktiv ist, wenn das Ereignis ausgelöst wird.
+Ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt oder `null`, falls keine Ansichtstransition aktiv ist, wenn das Ereignis ausgelöst wird.
 
 ## Beispiele
 
-Siehe die Hauptseite von {{domxref("PageRevealEvent")}}.
+Siehe die Hauptseite [`PageRevealEvent`](/de/docs/Web/API/PageRevealEvent).
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ Siehe die Hauptseite von {{domxref("PageRevealEvent")}}.
 
 ## Siehe auch
 
-- [Navigations-API](/de/docs/Web/API/Navigation_API)
+- [Navigation API](/de/docs/Web/API/Navigation_API)
 - [View Transitions API](/de/docs/Web/API/View_Transitions_API)

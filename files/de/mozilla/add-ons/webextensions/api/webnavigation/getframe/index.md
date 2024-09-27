@@ -23,25 +23,25 @@ let gettingFrame = browser.webNavigation.getFrame(
 
 - `details`
 
-  - : `object`. Informationen über den Frame, zu dem Informationen abgerufen werden sollen.
+  - : `object`. Informationen über den Frame, über den Informationen abgerufen werden sollen.
 
     - `tabId`
       - : `integer`. Die ID des Tabs, in dem sich der Frame befindet.
     - `processId` {{optional_inline}} {{deprecated_inline}}
-      - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt war, repräsentierte er die ID des Prozesses, der das Renderer für diesen Tab ausführt.
+      - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Als er gesetzt war, repräsentierte er die ID des Prozesses, der das Renderer für diesen Tab ausführte.
     - `frameId`
-      - : `integer`. Die ID des Frames im gegebenen Tab.
+      - : `integer`. Die ID des Frames im angegebenen Tab.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, welches die folgenden Eigenschaften enthält:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt, das die folgenden Eigenschaften enthält, erfüllt wird:
 
 - `errorOccurred`
   - : `boolean`. Wahr, wenn die letzte Navigation in diesem Frame durch einen Fehler unterbrochen wurde, d.h. das {{WebExtAPIRef("webNavigation.onErrorOccurred", "onErrorOccurred")}}-Ereignis ausgelöst wurde.
 - `url`
-  - : `string`. Die URL, die derzeit mit diesem Frame verknüpft ist, falls der Frame, identifiziert durch `frameId`, zu einem Zeitpunkt im Tab, identifiziert durch `tabId`, existierte. Die Tatsache, dass eine URL mit einer bestimmten `frameId` verknüpft ist, impliziert nicht, dass der entsprechende Frame noch existiert.
+  - : `string`. Die mit diesem Frame derzeit verknüpfte URL, wenn der Frame, der durch `frameId` identifiziert wird, zu einem bestimmten Zeitpunkt im Tab, der durch `tabId` identifiziert wird, existiert hat. Die Tatsache, dass eine URL mit einer bestimmten `frameId` verknüpft ist, impliziert nicht, dass der entsprechende Frame noch existiert.
 - `parentFrameId`
-  - : `integer`. ID des Eltern-Frames dieses Frames. Dies ist -1, wenn kein Eltern-Frame vorhanden ist: das heißt, wenn dieser Frame der oberste Browsing-Kontext im Tab ist.
+  - : `integer`. ID des übergeordneten Frames dieses Frames. Dies ist -1, wenn kein übergeordneter Frame existiert: das heißt, wenn dieser Frame der oberste Browsing-Kontext im Tab ist.
 
 Wenn der Tab verworfen wird, wird das Promise stattdessen mit einem `null`-Wert aufgelöst. Wenn die angegebene Tab- oder Frame-ID nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
@@ -65,7 +65,7 @@ let gettingFrame = browser.webNavigation.getFrame({
   frameId: 1537,
 });
 
-// Edge spezifisch - processId ist erforderlich, nicht optional, muss eine ganze Zahl sein, nicht null
+// Edge specific - processId is required not optional, must be integer not null
 //let gettingFrame = browser.webNavigation.getFrame({ tabId: 19, processId: 0, frameId: 1537 });
 
 gettingFrame.then(onGot, onError);
@@ -74,7 +74,7 @@ gettingFrame.then(onGot, onError);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#method-getFrame)-API von Chromium. Diese Dokumentation stammt aus [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#method-getFrame) API von Chromium. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

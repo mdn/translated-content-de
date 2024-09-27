@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerGlobalScope: fetch-Ereignis"
+title: "ServiceWorkerGlobalScope: fetch Event"
 short-title: fetch
 slug: Web/API/ServiceWorkerGlobalScope/fetch_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`fetch`**-Ereignis des {{domxref("ServiceWorkerGlobalScope")}}-Interfaces wird im globalen Kontext des Service Workers ausgelöst, wenn der Hauptanwendungsthread eine Netzwerkanforderung stellt. Dadurch kann der Service Worker Netzwerkanforderungen abfangen und angepasste Antworten senden (z.B. aus einem lokalen Cache).
+Das **`fetch`**-Event der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle wird im globalen Kontext des Service-Workers ausgelöst, wenn der Haupt-App-Thread eine Netzwerk-Anfrage stellt. Es ermöglicht dem Service-Worker, Netzwerk-Anfragen abzufangen und angepasste Antworten zu senden (zum Beispiel aus einem lokalen Cache).
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
+Dieses Ereignis ist nicht abbruchbar und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("fetch", (event) => {});
@@ -24,24 +24,24 @@ onfetch = (event) => {};
 
 ## Beschreibung
 
-Das `fetch`-Ereignis wird im globalen Kontext des Service Workers ausgelöst, wenn der Hauptanwendungsthread eine Netzwerkanforderung stellt. Dies umfasst nicht nur explizite {{domxref("WorkerGlobalScope/fetch", "fetch()")}}-Aufrufe aus dem Hauptthread, sondern auch implizite Netzwerkanforderungen zum Laden von Seiten und Subressourcen (wie JavaScript, CSS und Bilder), die vom Browser bei der Navigation ausgeführt werden.
+Das `fetch`-Event wird im globalen Kontext des Service-Workers ausgelöst, wenn der Haupt-App-Thread eine Netzwerk-Anfrage stellt. Dies schließt nicht nur explizite [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)-Aufrufe vom Hauptthread ein, sondern auch implizite Netzwerk-Anfragen zum Laden von Seiten und Subressourcen (wie JavaScript, CSS und Bilder), die vom Browser nach einer Seitennavigation gestellt werden.
 
-Der Event-Handler erhält ein {{domxref("FetchEvent")}}-Objekt, das Zugriff auf die Anforderung als {{domxref("Request")}}-Instanz bietet.
+Der Ereignis-Handler erhält ein [`FetchEvent`](/de/docs/Web/API/FetchEvent)-Objekt übergeben, das Zugriff auf die Anfrage als [`Request`](/de/docs/Web/API/Request)-Instanz bietet.
 
-Das `FetchEvent` bietet auch eine {{domxref("FetchEvent.respondWith()", "respondWith()")}}-Methode, die eine {{domxref("Response")}} (oder ein `Promise`, das in eine `Response` aufgelöst wird) als Parameter annimmt.
-Dies ermöglicht es dem Service Worker-Event-Handler, die Antwort bereitzustellen, die an die Anforderung im Hauptthread zurückgegeben wird.
+Das `FetchEvent` stellt auch eine [`respondWith()`](/de/docs/Web/API/FetchEvent/respondWith)-Methode zur Verfügung, die eine [`Response`](/de/docs/Web/API/Response) (oder ein `Promise`, das in eine `Response` aufgelöst wird) als Parameter annimmt.
+Dies ermöglicht es dem Event-Handler des Service-Workers, die Antwort zu liefern, die an die Anfrage im Hauptthread zurückgegeben wird.
 
-Der Service Worker kann zum Beispiel Folgendes zurückgeben:
+Der Service-Worker kann zum Beispiel Folgendes zurückgeben:
 
-- Eine lokal zwischengespeicherte Antwort, die über das {{domxref("Cache")}}-Interface abgerufen wurde.
-- Eine Antwort, die der Service Worker synthetisiert, unter Verwendung von Methoden wie {{domxref("Response.json()")}} oder dem {{domxref("Response.Response()", "Response()")}}-Konstruktor.
-- Einen Netzwerkfehler, mit der Methode {{domxref("Response.error_static()", "Response.error()")}}. Dadurch wird der `fetch()`-Aufruf abgelehnt.
+- Eine lokal zwischengespeicherte Antwort, die über das [`Cache`](/de/docs/Web/API/Cache)-Interface abgerufen wurde.
+- Eine Antwort, die der Service-Worker generiert, unter Verwendung von Methoden wie [`Response.json()`](/de/docs/Web/API/Response/json) oder dem [`Response()`](/de/docs/Web/API/Response/Response)-Konstruktor.
+- Einen Netzwerkfehler mit der Methode [`Response.error()`](/de/docs/Web/API/Response/error_static). Dies führt dazu, dass der `fetch()`-Aufruf abgelehnt wird.
 
-Die Methode `respondWith()` kann nur einmal für eine gegebene Anforderung aufgerufen werden. Wenn mehrere `fetch`-Ereignis-Listener hinzugefügt werden, werden sie in der Reihenfolge aufgerufen, in der sie registriert wurden, bis einer von ihnen `respondWith()` aufruft.
+Die `respondWith()`-Methode kann nur einmal für eine gegebene Anfrage aufgerufen werden. Wenn mehrere `fetch`-Event-Listener hinzugefügt werden, werden sie in der Reihenfolge aufgerufen, in der sie registriert wurden, bis einer von ihnen `respondWith()` aufruft.
 
-Die Methode `respondWith()` muss synchron aufgerufen werden: das bedeutet, dass Sie sie nicht in einem `then`-Handler aufrufen können.
+Die `respondWith()`-Methode muss synchron aufgerufen werden: das heißt, Sie können sie nicht in einem `then`-Handler aufrufen.
 
-Typischerweise führt ein `fetch`-Ereignis-Handler unterschiedliche Strategien abhängig von den Eigenschaften der Anforderung wie ihrer URL aus:
+Typischerweise führt ein `fetch`-Ereignis-Handler verschiedene Strategien aus, abhängig von Merkmalen der Anfrage, wie zum Beispiel ihrer URL:
 
 ```js
 function strategy1() {
@@ -65,18 +65,18 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-Falls `respondWith()` nicht im Handler aufgerufen wird, führt der User Agent die ursprüngliche Netzwerkabfrage automatisch aus.
-Zum Beispiel werden in dem obigen Code alle Anfragen, die weder `pattern1` noch `pattern2` entsprechen, ausgeführt, als ob der Service Worker nicht existieren würde.
+Wenn `respondWith()` nicht im Handler aufgerufen wird, führt der Benutzeragent automatisch die ursprüngliche Netzwerk-Anfrage aus.
+Zum Beispiel werden im obigen Code alle Anfragen, die nicht `muster1` oder `muster2` entsprechen, so ausgeführt, als ob der Service-Worker nicht existieren würde.
 
 ## Ereignistyp
 
-Ein {{domxref("FetchEvent")}}.
+Ein [`FetchEvent`](/de/docs/Web/API/FetchEvent).
 
 ## Beispiele
 
-### Cache mit Fallback auf Netzwerk
+### Cache bei Fehlen Rückgriff auf Netzwerk
 
-Dieser `fetch`-Ereignis-Handler versucht zuerst, die Antwort im Cache zu finden. Wenn eine Antwort gefunden wird, gibt er die gecachte Antwort zurück. Andernfalls versucht er, die Ressource aus dem Netzwerk abzurufen.
+Dieser `fetch`-Ereignis-Handler versucht zunächst, die Antwort im Cache zu finden. Wenn eine Antwort gefunden wird, gibt er die zwischengespeicherte Antwort zurück. Andernfalls versucht er, die Ressource aus dem Netzwerk abzurufen.
 
 ```js
 async function cacheThenNetwork(request) {
@@ -97,8 +97,8 @@ self.addEventListener("fetch", (event) => {
 
 ### Nur Cache
 
-Dieser `fetch`-Ereignis-Handler implementiert eine "Nur-Cache"-Strategie für Skripte und Stylesheets. Wenn die {{domxref("Request.destination", "destination")}}-Eigenschaft der Anforderung `"script"` oder `"style"` ist, sucht der Handler nur im Cache und gibt einen Fehler zurück, wenn die Antwort nicht gefunden wurde.
-Alle anderen Anfragen gehen direkt über das Netzwerk.
+Dieser `fetch`-Ereignis-Handler implementiert eine "Nur Cache"-Policy für Skripte und Stylesheets. Wenn die [`destination`](/de/docs/Web/API/Request/destination)-Eigenschaft der Anfrage `"script"` oder `"style"` ist, sucht der Handler nur im Cache und gibt einen Fehler zurück, wenn die Antwort nicht gefunden wurde.
+Alle anderen Anfragen werden über das Netzwerk geleitet.
 
 ```js
 async function cacheOnly(request) {
@@ -130,8 +130,8 @@ self.addEventListener("fetch", (event) => {
 
 ## Siehe auch
 
-- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Beispielcode für grundlegende Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- {{domxref("WorkerGlobalScope/fetch", "fetch()")}}-Methode
-- {{domxref("Request")}}-Interface
-- {{domxref("Response")}}-Interface
+- [Verwendung von Service-Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Codebeispiel für Service-Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)-Methode
+- [`Request`](/de/docs/Web/API/Request)-Schnittstelle
+- [`Response`](/de/docs/Web/API/Response)-Schnittstelle

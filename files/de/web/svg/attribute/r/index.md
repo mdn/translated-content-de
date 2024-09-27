@@ -7,14 +7,14 @@ l10n:
 
 {{SVGRef}}
 
-Das **`r`** Attribut definiert den Radius eines Kreises.
+Das **`r`**-Attribut definiert den Radius eines Kreises.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("circle")}}
 - {{SVGElement("radialGradient")}}
 
-Wenn der Wert als Prozentsatz festgelegt ist, bezieht er sich auf die normalisierte Diagonale des aktuellen SVG-Ansichtsfensters.
+Wenn der Wert als Prozentsatz angegeben ist, bezieht er sich auf die normierte Diagonale des aktuellen SVG-Viewports.
 
 ## Beispiel
 
@@ -51,7 +51,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Example", '100%', 200)}}
+{{EmbedLiveSample("Beispiel", '100%', 200)}}
 
 ## circle
 
@@ -87,13 +87,13 @@ Für {{SVGElement('circle')}} definiert `r` den Radius des Kreises und damit sei
 </table>
 
 > [!NOTE]
-> Die Radiusgröße eines `<circle>` kann auch mit der {{cssxref("r")}} _Geometrieeigenschaft_ definiert werden.
+> Die Radiusgröße eines `<circle>` kann auch mit der {{cssxref("r")}} _Geometrie-Eigenschaft_ definiert werden.
 
 ## radialGradient
 
 Für {{ SVGElement("radialGradient") }} definiert `r` den Radius des Endkreises für den radialen Verlauf.
 
-Der Verlauf wird so gezeichnet, dass der **100%** -Verlaufsstopp auf den Umfang dieses Endkreises abgebildet wird. Ein Wert kleiner oder gleich null führt dazu, dass der Bereich als Einzelfarbe unter Verwendung der Farbe und der Deckkraft des letzten Verlaufs-{{ SVGElement("stop") }} gemalt wird.
+Der Verlauf wird so gezeichnet, dass der **100%** Verlaufstopp auf den Umfang dieses Endkreises abgebildet wird. Ein Wert kleiner oder gleich null bewirkt, dass der Bereich als eine einzige Farbe unter Verwendung der Farbe und Deckkraft des letzten Verlaufs-{{ SVGElement("stop") }} gefärbt wird.
 
 <table class="properties">
   <tbody>

@@ -1,5 +1,5 @@
 ---
-title: 409 Konflikt
+title: 409 Conflict
 slug: Web/HTTP/Status/409
 l10n:
   sourceCommit: ba53fe04589c36a2210d7549c003f3016093ef8e
@@ -7,11 +7,11 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`409 Konflikt`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) gibt an, dass ein Anfragekonflikt mit dem aktuellen Zustand der Zielressource besteht.
+Der HTTP-Statuscode **`409 Conflict`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt einen Anforderungskonflikt mit dem aktuellen Zustand der Zielressource an.
 
-Im {{glossary("WebDAV")}}-Remote-Webauthoring sind 409-Konfliktantworten Fehler, die an den Client gesendet werden, damit der Benutzer möglicherweise einen Konflikt lösen und die Anfrage erneut senden kann. Konflikte treten beispielsweise auf, wenn eine Anfrage zur Erstellung der Sammlung `/a/b/c/d/` gestellt wird und `/a/b/c/` nicht existiert. Die Anfrage muss mit einem 409 fehlschlagen. Darüber hinaus können Sie eine 409-Antwort erhalten, wenn Sie eine Datei hochladen, die älter ist als die auf dem Server vorhandene, was zu einem Versionskontrollkonflikt führt.
+Im [WebDAV](/de/docs/Glossary/WebDAV) Remote-Webauthoring sind 409 Konfliktantworten Fehler, die an den Client gesendet werden, damit ein Benutzer möglicherweise einen Konflikt lösen und die Anforderung erneut senden kann. Zum Beispiel treten Konflikte auf, wenn eine Anforderung zur Erstellung der Sammlung `/a/b/c/d/` gestellt wird und `/a/b/c/` nicht existiert. In diesem Fall muss die Anforderung mit einem 409 fehlschlagen. Außerdem könnten Sie eine 409-Antwort erhalten, wenn Sie eine Datei hochladen, die älter ist als die bereits auf dem Server vorhandene, was zu einem Versionskontrollkonflikt führt.
 
-In anderen Systemen können 409-Antworten für implementierungsspezifische Zwecke verwendet werden, z. B. um anzuzeigen, dass der Server mehrere Anfragen zum Aktualisieren derselben Ressource empfangen hat.
+In anderen Systemen können 409-Antworten für implementierungsspezifische Zwecke verwendet werden, wie beispielsweise um anzuzeigen, dass der Server mehrere Anfragen zum Aktualisieren derselben Ressource erhalten hat.
 
 ## Status
 
@@ -23,7 +23,7 @@ In anderen Systemen können 409-Antworten für implementierungsspezifische Zweck
 
 ### Gleichzeitige Aufgaben nicht erlaubt
 
-Im folgenden Beispiel möchten wir einen Automatisierungsprozess starten, der eine gängige Aufgabe im System ausführt:
+Im folgenden Beispiel möchten wir einen Automatisierungsprozess starten, der eine häufige Aufgabe im System ausführt:
 
 ```http
 POST /tasks HTTP/1.1
@@ -36,7 +36,7 @@ Content-Type: application/json
 }
 ```
 
-In dieser Implementierung verbietet der Server das gleichzeitige Ausführen von zwei Aufträgen und gibt einen 409 zurück, wodurch der Client die Möglichkeit erhält zu prüfen, ob die Aktion beabsichtigt war oder eine andere Aufgabe ausgeführt werden soll:
+In dieser Implementierung erlaubt der Server nicht, dass zwei gleichzeitige Jobs ausgeführt werden, und gibt einen 409 zurück, wodurch der Client die Möglichkeit erhält zu überprüfen, ob er die Aktion durchführen oder eine andere Aufgabe ausführen wollte:
 
 ```http
 HTTP/1.1 409 Conflict

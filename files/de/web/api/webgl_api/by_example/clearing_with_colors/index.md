@@ -1,5 +1,5 @@
 ---
-title: Löschen mit Farben
+title: Mit Farben löschen
 slug: Web/API/WebGL_API/By_example/Clearing_with_colors
 l10n:
   sourceCommit: 8799df4d0dbc74bdcf0de1e7a24563a46dcb2478
@@ -7,25 +7,25 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Detect_WebGL","Learn/WebGL/By_example/Clearing_by_clicking")}}
 
-Ein Beispiel, das zeigt, wie man einen WebGL-Rendering-Kontext mit einer Vollfarbe löscht.
+Ein Beispiel, das zeigt, wie ein WebGL-Rendering-Kontext mit einer Volltonfarbe gelöscht wird.
 
-## Löschen des WebGL-Kontextes mit einer Vollfarbe
+## Löschen des WebGL-Kontexts mit einer Volltonfarbe
 
 {{EmbedLiveSample("Clearing_the_WebGL_context_with_a_solid_color",660,425)}}
 
-Das einfachste grafische {{Glossary("WebGL")}}-Programm. Richten Sie den {{domxref("WebGLRenderingContext","Rendering-Kontext", "", 1)}} ein und löschen Sie ihn dann vollständig in Grün. Beachten Sie, dass {{Glossary("CSS")}} die Hintergrundfarbe des Canvas auf Schwarz setzt, sodass wir, wenn das Canvas grün wird, wissen, dass die Magie von {{Glossary("WebGL")}} funktioniert hat.
+Das einfachste grafische [WebGL](/de/docs/Glossary/WebGL)-Programm. Richten Sie den {{domxref("WebGLRenderingContext","rendering context", "", 1)}} ein und löschen Sie ihn dann einfach vollständig in Grün. Beachten Sie, dass [CSS](/de/docs/Glossary/CSS) die Hintergrundfarbe des Canvas auf Schwarz setzt, sodass wir wissen, dass die Magie von [WebGL](/de/docs/Glossary/WebGL) funktioniert hat, wenn das Canvas grün wird.
 
-Darüber hinaus können Sie feststellen, dass das Löschen des Zeichenpuffers mit einer Vollfarbe ein zweistufiger Prozess ist. Zuerst setzen wir die Clear-Farbe auf Grün, indem wir die Methode {{domxref("WebGLRenderingContext.clearColor()","clearColor()")}} verwenden. Dies ändert nur einige interne Zustände von {{Glossary("WebGL")}}, zeichnet jedoch noch nichts. Anschließend führen wir das eigentliche Zeichnen durch Aufruf der {{domxref("WebGLRenderingContext.clear()","clear()")}}-Methode durch. Dies ist typisch dafür, wie mit WebGL gezeichnet wird. Es gibt nur eine Handvoll Methoden zum tatsächlichen Zeichnen (`clear()` ist eine davon). Alle anderen Methoden dienen dem Setzen und Abfragen von WebGL-Zustandsvariablen (wie der Clear-Farbe).
+Außerdem werden Sie feststellen, dass das Löschen des Zeichenpuffers mit einer Volltonfarbe ein zweistufiger Prozess ist. Zuerst setzen wir die Löschfarbe auf Grün, indem wir die Methode [`clearColor()`](/de/docs/Web/API/WebGLRenderingContext/clearColor) verwenden. Dies ändert nur einen internen Zustand von [WebGL](/de/docs/Glossary/WebGL), zeichnet aber noch nichts. Danach führen wir das Zeichnen tatsächlich aus, indem wir die Methode [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) aufrufen. Dies ist typisch dafür, wie mit WebGL gezeichnet wird. Es gibt nur eine Handvoll Methoden für das eigentliche Zeichnen (`clear()` ist eine davon). Alle anderen Methoden dienen der Einstellung und Abfrage von WebGL-Zustandsvariablen (wie der Löschfarbe).
 
-Es gibt viele "Regler" und "Schalter", die das Zeichnen mit {{Glossary("WebGL")}} beeinflussen. Die Clear-Farbe ist nur der erste von vielen, die Sie kennenlernen werden. Deshalb wird {{Glossary("WebGL")}}/{{Glossary("OpenGL")}} oft eine _Zustandsmaschine_ genannt. Durch das Verstellen dieser "Regler" und "Schalter" können Sie den internen Zustand der WebGL-Maschine ändern, was wiederum beeinflusst, wie Eingaben (in diesem Fall ein Clear-Befehl) in Ausgaben (in diesem Fall werden alle Pixel auf Grün gesetzt) übersetzt werden.
+Es gibt viele „Regler“ und „Schalter“, die das Zeichnen mit [WebGL](/de/docs/Glossary/WebGL) beeinflussen. Die Löschfarbe ist nur der erste von vielen, die Sie kennenlernen werden. Deshalb wird [WebGL](/de/docs/Glossary/WebGL)/[OpenGL](/de/docs/Glossary/OpenGL) oft als _Zustandsmaschine_ bezeichnet. Indem man diese „Regler“ und „Schalter“ anpasst, kann man den internen Zustand der WebGL-Maschine ändern, was wiederum beeinflusst, wie Eingaben (in diesem Fall ein Löschbefehl) in Ausgaben (in diesem Fall werden alle Pixel auf Grün gesetzt) übersetzt werden.
 
-Schließlich sei angemerkt, dass Farbe in WebGL normalerweise im {{Glossary("RGB", "RGBA")}}-Format vorliegt, das heißt vier numerische Komponenten für Rot, Grün, Blau und Alpha (Transparenz). Daher nimmt `clearColor()` vier Argumente entgegen.
+Schließlich sei angemerkt, dass Farbe in WebGL normalerweise im [RGBA](/de/docs/Glossary/RGB)-Format vorliegt, das heißt vier numerische Komponenten für Rot, Grün, Blau und Alpha (Deckkraft). Daher nimmt `clearColor()` vier Argumente entgegen.
 
 ```html
-<p>Ein sehr einfaches WebGL-Programm, das etwas Farbe zeigt.</p>
-<!-- Text innerhalb eines Canvas-Elements wird nur angezeigt,
-    wenn das Canvas nicht unterstützt wird. -->
-<canvas>Ihr Browser scheint HTML-Canvas nicht zu unterstützen.</canvas>
+<p>A very simple WebGL program that shows some color.</p>
+<!-- Text within a canvas element is displayed
+    only if canvas is not supported. -->
+<canvas>Your browser does not seem to support HTML canvas.</canvas>
 ```
 
 ```css
@@ -44,45 +44,42 @@ canvas {
 ```
 
 ```js
-// Alles innerhalb des Ereignisbehandlers für das Laden des Fensters
-// ausführen, um sicherzustellen, dass der DOM vollständig geladen
-// und gestylt ist, bevor versucht wird, ihn zu manipulieren,
-// und um den globalen Bereich nicht durcheinanderzubringen.
-// Wir geben dem Ereignisbehandler einen Namen (setupWebGL),
-// damit wir innerhalb der Funktion selbst auf das
-// Funktionsobjekt verweisen können.
+// Run everything inside window load event handler, to make sure
+// DOM is fully loaded and styled before trying to manipulate it,
+// and to not mess up the global scope. We are giving the event
+// handler a name (setupWebGL) so that we can refer to the
+// function object within the function itself.
 window.addEventListener(
   "load",
   function setupWebGL(evt) {
     "use strict";
 
-    // Nach sich selbst aufräumen. Der Ereignisbehandler
-    // entfernt sich selbst, da er nur einmal ausgeführt werden muss.
+    // Cleaning after ourselves. The event handler removes
+    // itself, because it only needs to run once.
     window.removeEventListener(evt.type, setupWebGL, false);
 
-    // Referenzen auf die Dokumentenelemente.
+    // References to the document elements.
     const paragraph = document.querySelector("p"),
       canvas = document.querySelector("canvas");
 
-    // Den WebGL-Rendering-Kontext erhalten.
+    // Getting the WebGL rendering context.
     const gl =
-      canvas.getContext("webgl") ||
-      canvas.getContext("experimental-webgl");
+      canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
 
-    // Im Falle eines Fehlers den Benutzer informieren. Andernfalls den
-    // Zeichenpuffer (das Viewport) initialisieren und den Kontext
-    // mit einer Vollfarbe löschen.
+    // If failed, inform user of failure. Otherwise, initialize
+    // the drawing buffer (the viewport) and clear the context
+    // with a solid color.
     if (!gl) {
       paragraph.textContent =
-        "WebGL-Kontext konnte nicht abgerufen werden. Ihr Browser oder Gerät unterstützt möglicherweise kein WebGL.";
+        "Failed to get WebGL context. Your browser or device may not support WebGL.";
       return;
     }
-    paragraph.textContent = "Glückwunsch! Ihr Browser unterstützt WebGL.";
+    paragraph.textContent = "Congratulations! Your browser supports WebGL.";
     gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-    // Die Clear-Farbe auf ein dunkleres Grün setzen.
+    // Set the clear color to darkish green.
     gl.clearColor(0.0, 0.5, 0.0, 1.0);
-    // Den Kontext mit der neu gesetzten Farbe löschen. Dieser
-    // Funktionsaufruf führt tatsächlich das Zeichnen aus.
+    // Clear the context with the newly set color. This is
+    // the function call that actually does the drawing.
     gl.clear(gl.COLOR_BUFFER_BIT);
   },
   false,

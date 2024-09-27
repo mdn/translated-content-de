@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die Methode **`forEach()`** des {{domxref("XRInputSourceArray")}} führt den angegebenen Rückruf einmal für jede Eingabequelle im Array aus, beginnend bei Index 0 und fortschreitend bis zum Ende der Liste.
+Die Methode **`forEach()`** von [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray) führt den angegebenen Callback einmal für jede Eingabequelle im Array aus, beginnend bei Index 0 und fortlaufend bis zum Ende der Liste.
 
 ## Syntax
 
@@ -21,17 +21,17 @@ forEach(callback, thisArg)
 
 - `callback`
 
-  - : Eine Funktion, die einmal für jeden Eintrag im Array `xrInputSourceArray` ausgeführt wird. Der Rückruf akzeptiert bis zu drei Parameter:
+  - : Eine Funktion, die einmal für jeden Eintrag im Array `xrInputSourceArray` ausgeführt wird. Der Callback akzeptiert bis zu drei Parameter:
 
     - `currentValue`
-      - : Ein {{domxref("XRInputSource")}}-Objekt, das den Wert des aktuell im `xrInputSourceArray` verarbeiteten Elements darstellt.
+      - : Ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt, welches den Wert des aktuell verarbeiteten Elements aus dem `xrInputSourceArray` darstellt.
     - `currentIndex` {{Optional_Inline}}
-      - : Ein ganzzahliger Wert, der den Index im Array angibt, an dem sich das durch `currentValue` gegebene Element befindet. Wenn Sie die Indexnummer nicht benötigen, können Sie diese weglassen.
+      - : Ein ganzzahliger Wert, der den Index im Array angibt, an dem sich das durch `currentValue` gegebene Element befindet. Wenn der Index nicht benötigt wird, kann dies ausgelassen werden.
     - `sourceList` {{Optional_Inline}}
-      - : Das bearbeitete {{domxref("XRInputSourceArray")}}-Objekt. Wenn Sie diese Information nicht benötigen, können Sie darauf verzichten.
+      - : Das [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray)-Objekt, das verarbeitet wird. Diese Information kann weggelassen werden, wenn sie nicht benötigt wird.
 
 - `thisArg` {{Optional_Inline}}
-  - : Der Wert, der für [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) beim Ausführen des Rückrufs verwendet wird. Beachten Sie, dass Sie, wenn Sie [Pfeilfunktionsnotation](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) (`=>`) verwenden, um den Rückruf bereitzustellen, `thisArg` weglassen können, da alle Pfeilfunktionen `this` lexikalisch binden.
+  - : Der Wert, der verwendet wird für [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), während der Ausführung des Callbacks. Beachten Sie, dass `thisArg` ausgelassen werden kann, wenn die [Pfeilfunktion-Notation](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) (`=>`) zur Bereitstellung des Callbacks verwendet wird, da alle Pfeilfunktionen `this` lexikalisch binden.
 
 ### Rückgabewert
 
@@ -39,7 +39,7 @@ Undefiniert.
 
 ## Beispiele
 
-Dieses Beispiel ruft die Liste der Eingaben für eine Sitzung ab und versucht, jeden unterstützten Eingabegerätetyp zu verarbeiten.
+Dieses Beispiel-Snippet holt die Liste der Eingaben für eine Sitzung und versucht, jede unterstützte Art von Eingabegerät zu handhaben.
 
 ```js
 let inputSources = xrSession.inputSources;
@@ -59,21 +59,20 @@ inputSources.forEach((input) => {
 });
 ```
 
-Für jede Eingabe in der Liste leitet der Rückruf Gamepad-Eingaben an `checkGamepad()` weiter, unter Verwendung des {{domxref("Gamepad")}}-Objekts der Eingabe, das aus der {{domxref("XRInputSource.gamepad", "gamepad")}}-Eigenschaft übernommen wird.
+Für jede Eingabe in der Liste übergibt der Callback die Gamepad-Eingaben an eine `checkGamepad()`-Funktion, mit dem `Gamepad`-Objekt des Eingangs, das aus der [`gamepad`](/de/docs/Web/API/XRInputSource/gamepad)-Eigenschaft entnommen wird, als Eingabewert.
 
-Bei anderen Geräten suchen wir nach `tracked-pointer`-Geräten in der Haupthand des Spielers und leiten diese an eine `handleMainHandInput()`-Methode weiter.
+Bei anderen Geräten suchen wir nach `tracked-pointer`-Geräten in der Haupthand des Spielers und übergeben diese an eine `handleMainHandInput()`-Methode.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Eingaben und Eingabequellen](/de/docs/Web/API/WebXR_Device_API/Inputs)
-- Die
-  [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array)-Methode `forEach()`
-- {{domxref("XRInputSource")}}
+- Die [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array)-Methode `forEach()`
+- [`XRInputSource`](/de/docs/Web/API/XRInputSource)

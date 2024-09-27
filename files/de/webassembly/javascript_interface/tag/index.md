@@ -7,14 +7,19 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Das **`WebAssembly.Tag`**-Objekt definiert einen _Typ_ einer WebAssembly-Ausnahme, die vom/zum WebAssembly-Code geworfen werden kann.
+Das **`WebAssembly.Tag`**-Objekt definiert einen _Typ_ einer WebAssembly-Ausnahme, die zu/von WebAssembly-Code geworfen werden kann.
 
-Beim Erstellen einer [`WebAssembly.Exception`](/de/docs/WebAssembly/JavaScript_interface/Exception) definiert das Tag die Datentypen und die Reihenfolge der von der Ausnahme getragenen Werte. Derselbe eindeutige Tag-Instanz muss verwendet werden, um die Werte der Ausnahme zuzugreifen (zum Beispiel bei der Verwendung von [`Exception.prototype.getArg()`](/de/docs/WebAssembly/JavaScript_interface/Exception/getArg)).
+Beim Erstellen einer [`WebAssembly.Exception`](/de/docs/WebAssembly/JavaScript_interface/Exception) definiert der Tag die Datentypen und die Reihenfolge der von der Ausnahme getragenen Werte.
+Dasselbe eindeutige Tag-Exemplar muss verwendet werden, um auf die Werte der Ausnahme zuzugreifen (zum Beispiel beim Verwenden von [`Exception.prototype.getArg()`](/de/docs/WebAssembly/JavaScript_interface/Exception/getArg)).
 
-Das [Konstruktieren](/de/docs/WebAssembly/JavaScript_interface/Tag/Tag) einer Instanz von `Tag` erstellt ein neues eindeutiges Tag. Dieses Tag kann als Tag-Import in ein WebAssembly-Modul übergeben werden, wo es zu einem typisierten Tag wird, das im _Tag-Abschnitt_ des WebAssembly-Moduls definiert ist. Sie können auch ein in einem Modul definiertes Tag exportieren und es verwenden, um Ausnahmen zu inspizieren, die aus dem Modul geworfen werden.
+[Das Erstellen](/de/docs/WebAssembly/JavaScript_interface/Tag/Tag) eines Exemplars von `Tag` erzeugt einen neuen eindeutigen Tag.
+Dieser Tag kann als Tag-Import an ein WebAssembly-Modul übergeben werden, wo er zu einem typisierten Tag wird, der im _Tag-Bereich_ des WebAssembly-Moduls definiert ist.
+Sie können auch einen in einem Modul definierten Tag exportieren und ihn verwenden, um Ausnahmen zu untersuchen, die von dem Modul geworfen werden.
 
 > [!NOTE]
-> Sie können nicht auf die Werte einer Ausnahme mit einem neuen Tag zugreifen, das zufällig dieselben Parameter hat; es handelt sich um ein anderes Tag! Dies stellt sicher, dass WebAssembly-Module die Ausnahmeinformationen intern halten können, wenn erforderlich. Code kann weiterhin Ausnahmen abfangen und neu werfen, die er nicht versteht.
+> Sie können nicht mit einem neuen Tag, das zufällig dieselben Parameter hat, auf die Werte einer Ausnahme zugreifen; es ist ein anderer Tag!
+> Dies stellt sicher, dass WebAssembly-Module bei Bedarf Ausnahmeinformationen intern halten können.
+> Code kann dennoch Ausnahmen abfangen und erneut werfen, die er nicht versteht.
 
 ## Konstruktor
 
@@ -24,17 +29,17 @@ Das [Konstruktieren](/de/docs/WebAssembly/JavaScript_interface/Tag/Tag) einer In
 ## Instanzmethoden
 
 - [`Tag.prototype.type()`](/de/docs/WebAssembly/JavaScript_interface/Tag/type)
-  - : Gibt das Objekt zurück, das das Datenarten-Array für das Tag definiert (wie in seinem Konstruktor festgelegt).
+  - : Gibt das Objekt zurück, das das Datentypen-Array für den Tag definiert (wie im Konstruktor festgelegt).
 
 ## Beispiele
 
-Dieser Codeausschnitt erstellt eine neue `Tag`-Instanz.
+Dieses Code-Snippet erstellt ein neues `Tag`-Exemplar.
 
 ```js
 const tagToImport = new WebAssembly.Tag({ parameters: ["i32", "f32"] });
 ```
 
-Das folgende Beispiel zeigt, wie wir es bei der Instanziierung eines Moduls **example.wasm** unter Verwendung eines "Import-Objekts" übergeben könnten.
+Das folgende Snippet zeigt, wie wir es einem Modul **example.wasm** während der Instanziierung unter Verwendung eines "Importobjekts" übergeben könnten.
 
 ```js
 const importObject = {
@@ -50,7 +55,7 @@ WebAssembly.instantiateStreaming(fetch("example.wasm"), importObject).then(
 );
 ```
 
-Das WebAssembly-Modul könnte das Tag dann wie unten gezeigt importieren:
+Das WebAssembly-Modul könnte den Tag dann wie unten gezeigt importieren:
 
 ```wasm
 (module
@@ -58,10 +63,10 @@ Das WebAssembly-Modul könnte das Tag dann wie unten gezeigt importieren:
 )
 ```
 
-Wenn das Tag verwendet wurde, um eine Ausnahme zu werfen, die in JavaScript propagiert wurde, könnten wir das Tag verwenden, um seine Werte zu inspizieren.
+Wenn der Tag verwendet wurde, um eine Ausnahme zu werfen, die nach JavaScript propagiert wurde, könnten wir den Tag verwenden, um seine Werte zu untersuchen.
 
 > [!NOTE]
-> Es gibt viele Alternativen. Wir könnten das Tag auch verwenden, um eine [`WebAssembly.Exception`](/de/docs/WebAssembly/JavaScript_interface/Exception) zu erstellen und diese von einer Funktion werfen, die von WebAssembly aufgerufen wird.
+> Es gibt viele Alternativen. Wir könnten den Tag auch verwenden, um eine [`WebAssembly.Exception`](/de/docs/WebAssembly/JavaScript_interface/Exception) zu erstellen und diese von einer Funktion zu werfen, die von WebAssembly aufgerufen wird.
 
 ## Spezifikationen
 
@@ -73,6 +78,6 @@ Wenn das Tag verwendet wurde, um eine Ausnahme zu werfen, die in JavaScript prop
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly) Überblick
+- Überblick über [WebAssembly](/de/docs/WebAssembly)
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

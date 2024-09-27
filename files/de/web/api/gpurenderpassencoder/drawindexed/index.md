@@ -3,12 +3,12 @@ title: "GPURenderPassEncoder: drawIndexed()-Methode"
 short-title: drawIndexed()
 slug: Web/API/GPURenderPassEncoder/drawIndexed
 l10n:
-  sourceCommit: 0c3f18aca2c8a93d3982183f64bf7762c2c310b0
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`drawIndexed()`**-Methode der {{domxref("GPURenderPassEncoder")}}-Schnittstelle zeichnet indizierte Primitiven basierend auf den Vertex- und Index-Puffern, die durch {{domxref("GPURenderPassEncoder.setVertexBuffer", "setVertexBuffer()")}} und {{domxref("GPURenderPassEncoder.setIndexBuffer", "setIndexBuffer()")}} bereitgestellt werden.
+Die **`drawIndexed()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle zeichnet indizierte Primitiven basierend auf den durch [`setVertexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setVertexBuffer) und [`setIndexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setIndexBuffer) bereitgestellten Vertex- und Index-Puffern.
 
 ## Syntax
 
@@ -23,15 +23,15 @@ drawIndexed(indexCount, instanceCount, firstIndex, baseVertex, firstInstance)
 ### Parameter
 
 - `indexCount`
-  - : Eine Zahl, die die Anzahl der Indizes definiert, die gezeichnet werden sollen.
+  - : Eine Zahl, die die Anzahl der zu zeichnenden Indizes definiert.
 - `instanceCount` {{optional_inline}}
-  - : Eine Zahl, die die Anzahl der Instanzen definiert, die gezeichnet werden sollen. Wenn weggelassen, ist `instanceCount` standardmäßig 1.
+  - : Eine Zahl, die die Anzahl der zu zeichnenden Instanzen definiert. Wenn ausgelassen, ist der Standardwert für `instanceCount` 1.
 - `firstIndex` {{optional_inline}}
-  - : Eine Zahl, die den Offset in den Indexpuffer, in Indizes, definiert, von dem das Zeichnen beginnen soll. Wenn weggelassen, ist `firstIndex` standardmäßig 0.
+  - : Eine Zahl, die die Verschiebung in den Index-Puffer in Indizes definiert, ab der gezeichnet werden soll. Wenn ausgelassen, ist der Standardwert für `firstIndex` 0.
 - `baseVertex` {{optional_inline}}
-  - : Eine Zahl, die zu jedem Indexwert hinzugefügt wird, bevor in die Vertex-Puffer indiziert wird. Wenn weggelassen, ist `baseVertex` standardmäßig 0.
+  - : Eine Zahl, die zu jedem Indexwert hinzugefügt wird, bevor in die Vertex-Puffer indiziert wird. Wenn ausgelassen, ist der Standardwert für `baseVertex` 0.
 - `firstInstance` {{optional_inline}}
-  - : Eine Zahl, die die erste zu zeichnende Instanz definiert. Wenn weggelassen, ist `firstInstance` standardmäßig 0.
+  - : Eine Zahl, die die erste zu zeichnende Instanz definiert. Wenn ausgelassen, ist der Standardwert für `firstInstance` 0.
 
 ### Rückgabewert
 
@@ -39,7 +39,7 @@ Keiner ({{jsxref("Undefined")}}).
 
 ## Beispiele
 
-Im WebGPU-Sample [Shadow Mapping](https://webgpu.github.io/webgpu-samples/samples/shadowMapping/) wird `drawIndexed()` in zwei separaten Render-Pässen in jedem Animationsrahmen verwendet, einer zum Befüllen des Schattenpuffers und einer, um die Hauptansicht der Szene zu zeichnen. Studieren Sie das Beispiel-Code-Listing für den vollständigen Kontext.
+Im WebGPU-Musterbeispiel [Shadow Mapping](https://webgpu.github.io/webgpu-samples/samples/shadowMapping/) wird `drawIndexed()` in zwei separaten Render-Pässen in jedem Animationsframe verwendet, einer zur Befüllung des Schattenpuffers und einer zum Zeichnen der Hauptansicht der Szene. Studieren Sie den Beispiel-Code für den vollständigen Kontext.
 
 ```js
 // ...

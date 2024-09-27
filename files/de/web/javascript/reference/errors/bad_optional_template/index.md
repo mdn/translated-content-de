@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: Ein getaggtes Template kann nicht mit optionaler Verkettung verwendet werden"
+title: "SyntaxError: getaggte Vorlage kann nicht mit optionalem Chaining verwendet werden"
 slug: Web/JavaScript/Reference/Errors/Bad_optional_template
 l10n:
   sourceCommit: 7ca1d16101f5f4a1adf7293f2ad295ca337c59b2
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "Ein getaggtes Template kann nicht mit optionaler Verkettung verwendet werden" tritt auf, wenn der Ausdruck eines [getaggten Template-Literals](/de/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) eine [optionale Verkettung](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) ist oder wenn eine optionale Verkettung zwischen dem Tag und dem Template besteht.
+Die JavaScript-Ausnahme "tagged template cannot be used with optional chain" tritt auf, wenn der Tag-Ausdruck eines [getaggten Template-Literals](/de/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) ein [Optional Chaining](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) ist, oder wenn zwischen dem Tag und dem Template ein Optional Chaining vorhanden ist.
 
 ## Meldung
 
@@ -23,7 +23,7 @@ SyntaxError: Cannot use tagged templates in an optional chain. (Safari)
 
 ## Was ist schiefgelaufen?
 
-Es gibt zwei Möglichkeiten, diesen Fehler zu erhalten. Die erste ist, wenn der Tag-Ausdruck eine optionale Verkettung ist, wie in diesem Beispiel:
+Es gibt zwei Möglichkeiten, diesen Fehler zu erhalten. Die erste ist, wenn der Tag-Ausdruck ein Optional Chaining-Ausdruck ist, wie hier:
 
 ```js-nolint example-bad
 String?.raw`Hello, world!`;
@@ -31,13 +31,13 @@ console.log?.()`Hello, world!`;
 Number?.[parseMethod]`Hello, world!`;
 ```
 
-Die zweite Möglichkeit ist, wenn `?.` zwischen dem Tag und dem Template auftritt, wie in diesem Beispiel:
+Die zweite ist, wenn `?.` zwischen dem Tag und dem Template auftritt, wie hier:
 
 ```js-nolint example-bad
 String.raw?.`Hello, world!`;
 ```
 
-Optionale Verkettungen im Tag sind ausdrücklich verboten, da es dafür keinen großen Anwendungsfall gibt und unklar ist, was das erwartete Ergebnis sein sollte (sollte es `undefined` sein oder der Wert des Templates, als ob es nicht getaggt wäre?). Sie müssen die optionale Verkettung in ihre zugrunde liegende Bedingung übersetzen (siehe [optionale Verkettung](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) für weitere Informationen).
+Optionales Chaining im Tag ist speziell verboten, da es keinen sinnvollen Anwendungsfall dafür gibt und unklar ist, was das erwartete Ergebnis sein sollte (sollte es `undefined` sein oder der Wert des Templates, als ob es nicht getaggt wäre?). Sie müssen das optionale Chaining in seine zugrunde liegende Bedingung übersetzen (siehe [Optionales Chaining](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining) für weitere Informationen).
 
 ```js example-good
 const result =
@@ -46,15 +46,15 @@ const result =
     : String.raw`Hello, world!`;
 ```
 
-Denken Sie daran, dass die optionale Verkettung nur innerhalb einer klammergeschlossenen Einheit unterbricht. Wenn Sie Ihren Tag-Ausdruck einklammern, wird die optionale Verkettung keinen Fehler verursachen, da der Tag jetzt nicht unterbricht und das Ergebnis klar ist (der Tag wird `undefined` erzeugen und dann dazu führen, dass das getaggte Template auslöst).
+Denken Sie daran, dass optionales Chaining nur innerhalb einer geklammerten Einheit abbricht. Wenn Sie Ihren Tag-Ausdruck in Klammern setzen, wird das optionale Chaining keinen Fehler verursachen, da nun der Tag nicht abbricht und das Ergebnis klar ist (der Tag wird `undefined` erzeugen und dann dazu führen, dass das getaggte Template eine Ausnahme wirft).
 
 ```js-nolint
-(console?.log)`Hello, world!`; // Löst aus, wenn console?.log undefined ist
+(console?.log)`Hello, world!`; // Throws if console?.log is undefined
 ```
 
-Dies ist jedoch sowieso etwas unsinnig, weil die optionale Verkettung Fehler innerhalb der Eigenschaftszugriffskette verhindert, dann aber garantiert einen Fehler generiert, wenn das Template-Tag aufgerufen wird. Sie möchten wahrscheinlich immer noch eine bedingte Überprüfung verwenden.
+Dies ist jedoch ohnehin etwas unsinnig, da optionales Chaining Fehler innerhalb der Zugriffs-Kette verhindert, aber dann garantiert einen Fehler beim Aufruf des Template-Tags erzeugt. Vermutlich möchten Sie immer noch eine bedingte Überprüfung verwenden.
 
-Beachten Sie, dass optionale Verkettung nur im Tag-Ausdruck verboten ist. Sie können optionale Verkettung innerhalb der eingebetteten Ausdrücke verwenden oder die optionale Verkettung auf den gesamten getaggten Template-Ausdruck anwenden.
+Beachten Sie, dass optionales Chaining nur als Tag-Ausdruck verboten ist. Sie können optionales Chaining innerhalb der eingebetteten Ausdrücke verwenden oder optionales Chaining auf den getaggten Template-Ausdruck als Ganzes anwenden.
 
 ```js example-good
 console.log`Hello, ${true.constructor?.name}!`; // ['Hello, ', '!', raw: Array(2)] 'Boolean'
@@ -63,6 +63,6 @@ console.log`Hello`?.toString(); // undefined
 
 ## Siehe auch
 
-- [Template-Literals](/de/docs/Web/JavaScript/Reference/Template_literals)
-- [Optionale Verkettung (`?.`)](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
-- [Ursprüngliche Diskussion darüber, ob optionale Verkettung in getaggten Template-Literals erlaubt sein sollte](https://github.com/tc39/proposal-optional-chaining/issues/54)
+- [Template Literale](/de/docs/Web/JavaScript/Reference/Template_literals)
+- [Optionales Chaining (`?.`)](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+- [Ursprüngliche Diskussion darüber, ob optionales Chaining in getaggten Template-Literalen erlaubt sein sollte](https://github.com/tc39/proposal-optional-chaining/issues/54)

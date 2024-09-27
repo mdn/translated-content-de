@@ -7,18 +7,18 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein Favicon (Favorite Icon) ist ein kleines Symbol, das zusammen mit einer Website bereitgestellt wird und an Orten wie der Adressleiste des Browsers, Seitentabs und dem Lesezeichen-Menü angezeigt wird.
+Ein Favicon (Lieblings-Icon) ist ein winziges Icon, das zusammen mit einer Website bereitgestellt wird und an Stellen wie der Adressleiste des Browsers, den Seitentabs und im Lesezeichenmenü angezeigt wird.
 
-Beachten Sie jedoch, dass die meisten modernen Browser das Favicon in der Adressleiste durch ein Bild ersetzt haben, das anzeigt, ob die Website {{Glossary("HTTPS")}} verwendet oder nicht.
+Beachten Sie jedoch, dass die meisten modernen Browser das Favicon in der Adressleiste durch ein Bild ersetzt haben, das anzeigt, ob die Website [HTTPS](/de/docs/Glossary/HTTPS) verwendet oder nicht.
 
-In der Regel hat ein Favicon eine Größe von 16 x 16 Pixel und wird im {{Glossary("GIF")}}, {{Glossary("PNG")}} oder ICO-Dateiformat gespeichert.
+In der Regel ist ein Favicon 16 x 16 Pixel groß und wird im [GIF](/de/docs/Glossary/GIF)-, [PNG](/de/docs/Glossary/PNG)- oder ICO-Dateiformat gespeichert.
 
-Favicons werden verwendet, um die Benutzererfahrung zu verbessern und die Marken-Konsistenz zu stärken. Wenn zum Beispiel ein vertrautes Symbol in der Adressleiste des Browsers zu sehen ist, hilft es den Benutzern zu wissen, dass sie sich am richtigen Ort befinden.
+Sie werden verwendet, um die Benutzererfahrung zu verbessern und die Markenbeständigkeit zu verstärken. Wenn beispielsweise ein vertrautes Icon in der Adressleiste des Browsers gesehen wird, hilft es den Benutzern zu erkennen, dass sie an der richtigen Stelle sind.
 
 ## Siehe auch
 
 - [Favicon](https://en.wikipedia.org/wiki/Favicon) auf Wikipedia
-- Die [link rel="icon"](/de/docs/Web/HTML/Attributes/rel#icon) Elementdokumentation, die verwendet wird, um einer Seite ein Favicon hinzuzufügen.
+- Die Dokumentation zum [link rel="icon"](/de/docs/Web/HTML/Attributes/rel#icon)-Element, das verwendet wird, um ein Favicon zu einer Seite hinzuzufügen.
 - Tools
 
   - [Kostenloser Favicon-Generator](https://favicon.io/)

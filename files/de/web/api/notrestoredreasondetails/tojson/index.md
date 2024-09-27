@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`** Methode der {{domxref("NotRestoredReasonDetails")}} Schnittstelle ist ein {{Glossary("Serialization","serializer")}}; sie gibt eine JSON-Darstellung des {{domxref("NotRestoredReasonDetails")}} Objekts zurück.
+Die **`toJSON()`**-Methode der [`NotRestoredReasonDetails`](/de/docs/Web/API/NotRestoredReasonDetails)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`NotRestoredReasonDetails`](/de/docs/Web/API/NotRestoredReasonDetails)-Objekts zurück.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}} Objekt, das die Serialisierung des {{domxref("NotRestoredReasonDetails")}} Objekts darstellt.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`NotRestoredReasonDetails`](/de/docs/Web/API/NotRestoredReasonDetails)-Objekts darstellt.
 
 ## Beispiele
 
-Die folgende Funktion gibt eine JSON-Darstellung des ersten `NotRestoredReasonDetails` Objekts des `NotRestoredReasons` Objekts des ersten `PerformanceNavigationTiming` Objekts zurück, das derzeit in der Performance-Zeitleiste vorhanden ist:
+Die folgende Funktion gibt eine JSON-Darstellung des ersten `NotRestoredReasonDetails`-Objekts des `NotRestoredReasons`-Objekts aus dem ersten `PerformanceNavigationTiming`-Objekt zurück, das derzeit in der Performance-Zeitleiste vorhanden ist:
 
 ```js
 function returnNRR() {
@@ -47,5 +47,5 @@ function returnNRR() {
 ## Siehe auch
 
 - {{jsxref("JSON")}}
-- [Überwachen von Gründen für das Blockieren des bfcache](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
-- {{domxref("PerformanceNavigationTiming.notRestoredReasons")}}
+- [Überwachung der Blockierungsgründe für bfcache](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
+- [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons)

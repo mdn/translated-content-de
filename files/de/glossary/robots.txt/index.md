@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Robots.txt ist eine Datei, die normalerweise im Stammverzeichnis einer Website platziert wird. Sie entscheidet, ob {{Glossary("crawler", "Crawler")}} Zugang zur Website gewährt oder verweigert wird.
+`Robots.txt` ist eine Datei, die üblicherweise im Stammverzeichnis einer Website abgelegt wird. Sie entscheidet, ob [Crawlers](/de/docs/Glossary/crawler) Zugriff auf die Website haben oder nicht.
 
-Zum Beispiel kann der Site-Administrator Crawlern verbieten, einen bestimmten Ordner (und alle darin enthaltenen Dateien) zu besuchen oder eine spezifische Datei zu durchsuchen, um in der Regel zu verhindern, dass diese Dateien von anderen Suchmaschinen indexiert werden.
+Zum Beispiel kann der Administrator der Seite verbieten, dass Crawlers einen bestimmten Ordner (und alle darin enthaltenen Dateien) besuchen oder eine bestimmte Datei durchsuchen, um zu verhindern, dass diese Dateien von anderen Suchmaschinen indiziert werden.
 
 ## Siehe auch
 

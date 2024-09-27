@@ -1,5 +1,5 @@
 ---
-title: 408 Zeitüberschreitung bei der Anforderung
+title: 408 Request Timeout
 slug: Web/HTTP/Status/408
 l10n:
   sourceCommit: ef46a4ac6bfec3e33c9209244e7cb1a9206165d6
@@ -7,12 +7,12 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`408 Request Timeout`** für [Clientfehlerantworten](/de/docs/Web/HTTP/Status#client_error_responses) weist darauf hin, dass der Server die unbenutzte Verbindung beenden möchte.
-Ein `408` wird auf einer Leerverbindung von einigen Servern gesendet, _sogar ohne vorherige Anforderung durch den Client_.
+Der HTTP-Statuscode **`408 Request Timeout`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Server diese ungenutzte Verbindung schließen möchte.
+Ein `408` wird von einigen Servern auf einer inaktiven Verbindung gesendet, _selbst ohne vorherige Anfrage durch den Client_.
 
-Ein Server sollte das {{HTTPHeader("Connection", "Connection: close")}} Headerfeld in der Antwort senden, da `408` impliziert, dass der Server beschlossen hat, die Verbindung zu schließen, anstatt weiter zu warten.
+Ein Server sollte das {{HTTPHeader("Connection", "Connection: close")}} Header-Feld in der Antwort senden, da `408` impliziert, dass der Server entschieden hat, die Verbindung zu schließen, anstatt weiter zu warten.
 
-Diese Antwort wird viel häufiger verwendet, seit einige Browser wie Chrome und Firefox HTTP-Vorverbindungsmechanismen einsetzen, um das Surfen zu beschleunigen.
+Diese Antwort wird viel häufiger genutzt, seit einige Browser, wie Chrome und Firefox, HTTP-Vorverbindungsmechanismen verwenden, um das Surfen zu beschleunigen.
 
 > [!NOTE]
 > Einige Server werden eine Verbindung schließen, ohne diese Nachricht zu senden.
@@ -25,9 +25,9 @@ Diese Antwort wird viel häufiger verwendet, seit einige Browser wie Chrome und 
 
 ## Beispiele
 
-### Zeitüberschreitung bei der Formularübermittlung
+### Timeout bei der Formularübermittlung
 
-Das folgende Beispiel zeigt, was ein Client senden könnte, wenn ein [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)-Element ein Bild bei der Formularübermittlung mit `method="post"` verwendet:
+Das folgende Beispiel zeigt, was ein Client senden könnte, wenn ein [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)-Element beim Übermitteln eines Formulars mit `method="post"` ein Bild verwendet:
 
 ```http
 POST /upload HTTP/1.1
@@ -43,8 +43,8 @@ Content-Type: image/jpeg
 ------Boundary1234--
 ```
 
-Wenn die Daten aufgrund von Netzwerkproblemen oder Latenz nicht vollständig empfangen werden, kann der Server die Verbindung aufgrund einer Zeitüberschreitung beenden.
-Clients können die Anforderung erneut senden, und eine neue Verbindung wird verwendet:
+Wenn die Daten aufgrund von Netzwerkproblemen oder Latenz nicht vollständig empfangen werden, kann der Server die Verbindung wegen Zeitüberschreitung beenden.
+Clients können die Anfrage erneut senden, und es wird eine neue Verbindung verwendet:
 
 ```http
 HTTP/1.1 408 Request Timeout
@@ -56,7 +56,7 @@ Content-Type: text/html
 </head>
 <body>
     <h1>408 Request Timeout</h1>
-    <p>Die Anforderung konnte nicht rechtzeitig verarbeitet werden. Bitte versuchen Sie es erneut.</p>
+    <p>Failed to process request in time. Please try again.</p>
 </body>
 </html>
 ```

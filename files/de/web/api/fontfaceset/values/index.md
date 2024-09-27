@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`values()`**-Methode der {{domxref("FontFaceSet")}}-Schnittstelle gibt ein neues Iterator-Objekt zurück, das die Werte für jedes Element im `FontFaceSet`-Objekt in Einfügereihenfolge liefert.
+Die **`values()`**-Methode der [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle gibt ein neues Iterator-Objekt zurück, das die Werte für jedes Element im `FontFaceSet`-Objekt in Einfügereihenfolge liefert.
 
 ## Syntax
 
@@ -28,6 +28,6 @@ Ein neues Iterator-Objekt, das die Werte für jedes Element im angegebenen `Font
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

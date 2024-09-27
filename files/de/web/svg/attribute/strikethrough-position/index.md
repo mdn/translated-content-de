@@ -1,5 +1,5 @@
 ---
-title: Durchstreich-Position
+title: strikethrough-position
 slug: Web/SVG/Attribute/strikethrough-position
 l10n:
   sourceCommit: 052d4c77d0346c43351c50de9ea5e834af365779
@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut `strikethrough-position` repräsentiert die ideale vertikale Position der Durchstreichung. Die Durchstreichposition wird im Koordinatensystem der Schriftart ausgedrückt.
+Das Attribut `strikethrough-position` stellt die ideale vertikale Position des Durchstreichens dar. Die Durchstreichposition wird im Koordinatensystem der Schrift ausgedrückt.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{ SVGElement("font-face") }}
 
-## Kontext der Verwendung
+## Verwendungskontext
 
 <table class="properties">
   <tbody>

@@ -8,28 +8,28 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte **`results`**-Eigenschaft der {{domxref("SpeechRecognitionEvent")}}-Schnittstelle gibt ein {{domxref("SpeechRecognitionResultList")}}-Objekt zurück, das alle Spracherkennungsergebnisse für die aktuelle Sitzung darstellt.
+Die schreibgeschützte **`results`**-Eigenschaft des [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent)-Interfaces gibt ein [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Objekt zurück, das alle Spracherkennungsergebnisse für die aktuelle Sitzung repräsentiert.
 
-Konkret enthält dieses Objekt alle endgültigen Ergebnisse, gefolgt von der derzeit besten Hypothese für alle Zwischenergebnisse. Wenn nachfolgende {{domxref("SpeechRecognition.result_event", "result")}}-Ereignisse ausgelöst werden, können Zwischenergebnisse durch ein neueres Zwischenergebnis oder durch ein endgültiges Ergebnis überschrieben werden – sie können sogar entfernt werden, wenn sie sich am Ende des "results"-Arrays befinden und die Länge des Arrays abnimmt. Endgültige Ergebnisse werden hingegen nicht überschrieben oder entfernt.
+Dieses Objekt enthält alle endgültigen Ergebnisse, die zurückgegeben wurden, gefolgt von der aktuellen besten Hypothese für alle Zwischenresultate. Wenn nachfolgende [`result`](/de/docs/Web/API/SpeechRecognition/result_event)-Ereignisse ausgelöst werden, können Zwischenresultate durch ein neueres Zwischenresultat oder ein endgültiges Ergebnis überschrieben werden – sie können sogar entfernt werden, wenn sie am Ende des "results"-Arrays stehen und die Array-Länge abnimmt. Endgültige Ergebnisse hingegen werden nicht überschrieben oder entfernt.
 
 ## Wert
 
-Ein {{domxref("SpeechRecognitionResultList")}}-Objekt.
+Ein [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Objekt.
 
 ## Beispiele
 
-Dieser Code ist aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel entnommen.
+Dieser Code ist aus unserem [Sprach-Farbänderer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
 recognition.onresult = (event) => {
-  // Die SpeechRecognitionEvent results Eigenschaft gibt ein SpeechRecognitionResultList Objekt zurück
-  // Das SpeechRecognitionResultList Objekt enthält SpeechRecognitionResult Objekte.
-  // Es hat einen Getter, sodass es wie ein Array abgerufen werden kann
-  // Das erste [0] gibt das SpeechRecognitionResult an Position 0 zurück.
-  // Jedes SpeechRecognitionResult Objekt enthält SpeechRecognitionAlternative Objekte, die einzelne Ergebnisse enthalten.
-  // Diese haben ebenfalls Getter, sodass sie wie Arrays abgerufen werden können.
-  // Das zweite [0] gibt das SpeechRecognitionAlternative an Position 0 zurück.
-  // Wir geben dann die transcript Eigenschaft des SpeechRecognitionAlternative Objekts zurück
+  // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
+  // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
+  // It has a getter so it can be accessed like an array
+  // The first [0] returns the SpeechRecognitionResult at position 0.
+  // Each SpeechRecognitionResult object contains SpeechRecognitionAlternative objects that contain individual results.
+  // These also have getters so they can be accessed like arrays.
+  // The second [0] returns the SpeechRecognitionAlternative at position 0.
+  // We then return the transcript property of the SpeechRecognitionAlternative object
   const color = event.results[0][0].transcript;
   diagnostic.textContent = `Result received: ${color}.`;
   bg.style.backgroundColor = color;

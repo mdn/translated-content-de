@@ -1,5 +1,5 @@
 ---
-title: "Dokument: afterscriptexecute Ereignis"
+title: "Document: afterscriptexecute Ereignis"
 short-title: afterscriptexecute
 slug: Web/API/Document/afterscriptexecute_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}{{non-standard_header}}
 
-Das `afterscriptexecute` Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}}-Element seine Ausführung beendet hat. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, wie zum Beispiel mit {{domxref("Node.appendChild()", "appendChild()")}}.
+Das `afterscriptexecute` Ereignis wird ausgelöst, wenn ein statisches {{HTMLElement("script")}} Element mit der Ausführung seines Skripts fertig ist. Es wird nicht ausgelöst, wenn das Element dynamisch hinzugefügt wird, beispielsweise mit [`appendChild()`](/de/docs/Web/API/Node/appendChild).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("afterscriptexecute", (event) => {});
@@ -22,7 +22,7 @@ onafterscriptexecute = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -32,11 +32,11 @@ function finished(e) {
 }
 
 document.addEventListener("afterscriptexecute", finished, true);
-// oder
+// or
 document.onafterscriptexecute = finished;
 ```
 
-[Beispiel live ansehen](https://mdn.dev/archives/media/samples/html/currentScript.html)
+[Live-Beispiel anzeigen](https://mdn.dev/archives/media/samples/html/currentScript.html)
 
 ## Spezifikationen
 
@@ -48,5 +48,5 @@ Nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- {{domxref("Document.beforescriptexecute_event", "beforescriptexecute")}} Ereignis von `Document`
-- {{domxref("Document.currentScript")}}
+- [`beforescriptexecute`](/de/docs/Web/API/Document/beforescriptexecute_event) Ereignis des `Document`
+- [`Document.currentScript`](/de/docs/Web/API/Document/currentScript)

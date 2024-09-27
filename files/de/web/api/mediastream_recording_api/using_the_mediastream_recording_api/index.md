@@ -7,27 +7,27 @@ l10n:
 
 {{DefaultAPISidebar("MediaStream Recording")}}
 
-Die [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API) macht es einfach, Audio- und/oder Videostreams aufzuzeichnen. In Verbindung mit {{domxref("MediaDevices.getUserMedia()","navigator.mediaDevices.getUserMedia()")}} bietet sie eine einfache Möglichkeit, von den Eingabegeräten des Benutzers aufzunehmen und das Ergebnis sofort in Web-Apps zu verwenden.
+Die [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API) erleichtert die Aufnahme von Audio- und/oder Videostreams. In Verbindung mit [`navigator.mediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) bietet sie eine einfache Möglichkeit, Aufnahmequellen des Benutzers zu nutzen und die Ergebnisse sofort in Webanwendungen zu verwenden.
 
-Sowohl Audio- als auch Videoinhalte können getrennt oder gemeinsam aufgezeichnet werden. Dieser Artikel soll als grundlegende Anleitung zur Verwendung der MediaRecorder-Schnittstelle dienen, die diese API bereitstellt.
+Sowohl Audio als auch Video können separat oder zusammen aufgenommen werden. Dieser Artikel zielt darauf ab, einen grundlegenden Leitfaden zur Verwendung der MediaRecorder-Schnittstelle bereitzustellen, die diese API bietet.
 
-## Eine Beispielanwendung: Web-Diktiergerät
+## Ein Beispielanwendung: Web-Diktiergerät
 
-![Ein Bild der Web-Diktiergerät-Beispiel-App - eine Sinuswellen-Klangvisualisierung, dann Aufnahmetaste und Stopp-Taste, dann ein Audio-Jukebox der aufgenommenen Spuren, die abgespielt werden können.](web-dictaphone.png)
+![Ein Bild der Web-Diktiergerät-Beispiel-App - eine Sinuswellen-Soundvisualisierung, dann Aufnahmetaste und Stopptaste, dann ein Audio-Jukebox mit aufgenommenen Tracks, die abgespielt werden können.](web-dictaphone.png)
 
-Um die grundlegende Nutzung der MediaStream Recording API zu demonstrieren, haben wir ein web-basiertes Diktiergerät entwickelt. Es ermöglicht Ihnen, Audioausschnitte aufzuzeichnen und sie dann abzuspielen. Es bietet sogar eine Visualisierung des Toneingangs Ihres Geräts, unter Nutzung der Web Audio API. In diesem Artikel konzentrieren wir uns auf die Aufnahme- und Wiedergabefunktionalität.
+Um die grundlegende Verwendung der MediaStream Recording API zu demonstrieren, haben wir ein webbasiertes Diktiergerät erstellt. Es ermöglicht Ihnen, Audioclips aufzunehmen und sie dann abzuspielen. Es bietet sogar eine Visualisierung des Soundeingangs Ihres Geräts mithilfe der Web Audio API. Wir konzentrieren uns in diesem Artikel auf die Aufnahme- und Wiedergabefunktionalität.
 
-Sie können sich dieses [Demo live ansehen](https://mdn.github.io/dom-examples/media/web-dictaphone/), oder den [Quellcode auf GitHub abrufen](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).
+Sie können dieses [Demo live sehen](https://mdn.github.io/dom-examples/media/web-dictaphone/) oder [den Quellcode abrufen](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone) auf GitHub.
 
-## CSS-Goodies
+## CSS-Leckereien
 
-Das HTML in dieser App ist ziemlich einfach, daher werden wir hier nicht darauf eingehen; es gibt jedoch ein paar etwas interessantere Teile von CSS, die erwähnenswert sind, daher werden wir diese unten diskutieren. Wenn Sie sich nicht für CSS interessieren und direkt zum JavaScript springen möchten, überspringen Sie den Abschnitt [Grundlegende App-Einrichtung](#grundlegende_app-einrichtung).
+Das HTML ist in dieser App ziemlich einfach, daher werden wir es hier nicht durchgehen; es gibt jedoch ein paar etwas interessantere Teile von CSS, die es wert sind, erwähnt zu werden, daher besprechen wir sie unten. Wenn Sie nicht an CSS interessiert sind und direkt zu JavaScript gelangen möchten, springen Sie zum Abschnitt [Grundlegende App-Einrichtung](#grundlegende_app-einrichtung).
 
-### Die Benutzeroberfläche an die Viewportgröße anpassen, unabhängig von der Gerätehöhe, mit calc()
+### Begrenzung der Benutzeroberfläche auf das Ansichtsfenster unabhängig von der Gerätehöhe mit calc()
 
-Die {{cssxref("calc", "calc()")}}-Funktion ist eine dieser nützlichen kleinen Dienstprogramme, die in CSS aufgetaucht sind und zunächst nicht viel aussehen, aber bald anfangen, Sie denken zu lassen: "Wow, warum hatten wir das nicht vorher? Warum war das Layout von CSS2 so unhandlich?" Sie ermöglicht es Ihnen, eine Berechnung zur Bestimmung des berechneten Werts einer CSS-Einheit durchzuführen, wobei verschiedene Einheiten gemischt werden.
+Die {{cssxref("calc", "calc()")}}-Funktion ist eines dieser nützlichen kleinen Dienstprogramme, die in CSS aufgetaucht sind und zunächst nicht viel herzumachen schienen, aber bald dazu führen, dass man denkt: "Wow, warum hatten wir das nicht schon vorher? Warum war das Layout in CSS2 so umständlich?" Sie ermöglicht es Ihnen, eine Berechnung vorzunehmen, um den berechneten Wert einer CSS-Einheit zu bestimmen und dabei verschiedene Einheiten zu mischen.
 
-Zum Beispiel haben wir im Web-Diktiergerät drei Hauptbereiche der Benutzeroberfläche, die vertikal gestapelt sind. Wir wollten den ersten beiden (dem Header und den Steuerelementen) feste Höhen geben:
+Zum Beispiel haben wir im Web-Diktiergerät drei Hauptbereiche der Benutzeroberfläche, die vertikal gestapelt sind. Wir wollten den ersten beiden (der Kopfzeile und den Steuerelementen) feste Höhen geben:
 
 ```css
 header {
@@ -40,7 +40,7 @@ header {
 }
 ```
 
-Wir wollten jedoch, dass der dritte Bereich (der die aufgezeichneten Samples enthält, die Sie abspielen können) den verbleibenden Platz einnimmt, unabhängig von der Gerätehöhe. Flexbox könnte hier die Antwort sein, aber es wäre ein bisschen übertrieben für ein so einfaches Layout. Stattdessen wurde das Problem gelöst, indem die Höhe des dritten Containers gleich 100 % der Elternhöhe minus den Höhen und dem Padding der anderen beiden gesetzt wurde:
+Wir wollten jedoch, dass der dritte Bereich (der die aufgenommenen Samples enthält, die Sie abspielen können) den verbleibenden Platz einnimmt, unabhängig von der Gerätehöhe. Flexbox könnte hier die Lösung sein, aber es ist ein bisschen übertrieben für ein so einfaches Layout. Stattdessen wurde das Problem gelöst, indem die Höhe des dritten Containers auf 100% der Höhe des übergeordneten Elements abzüglich der Höhen und des Abstands der anderen zwei eingestellt wurde:
 
 ```css
 .sound-clips {
@@ -51,9 +51,9 @@ Wir wollten jedoch, dass der dritte Bereich (der die aufgezeichneten Samples ent
 }
 ```
 
-### Checkbox-Hack zum Ein- und Ausblenden
+### Checkbox-Hack zum Anzeigen/Verbergen
 
-Dies ist bereits gut dokumentiert, aber wir dachten, wir geben dem Checkbox-Hack eine Erwähnung, der die Tatsache ausnutzt, dass man auf das {{htmlelement("label")}} einer Checkbox klicken kann, um sie zu aktivieren/deaktivieren. Im Web-Diktiergerät steuert dies den Informationsbildschirm, der durch Klicken auf das Fragezeichen-Symbol in der oberen rechten Ecke ein-/ausgeblendet wird. Zuerst gestalten wir das `<label>` wie gewünscht und stellen sicher, dass es genügend z-Index hat, um immer über den anderen Elementen zu liegen und daher fokussierbar/klickbar ist:
+Dies ist bereits ziemlich gut dokumentiert, aber wir dachten, wir geben dem Checkbox-Hack eine Erwähnung, der den Umstand ausnutzt, dass Sie auf das {{htmlelement("label")}} einer Checkbox klicken können, um sie ein- oder auszuschalten. Im Web-Diktiergerät betreibt dies den Informationsbildschirm, der durch Klicken auf das Fragezeichen-Symbol in der oberen rechten Ecke angezeigt/versteckt wird. Zuerst gestalten wir das `<label>` so, wie wir es möchten, und stellen sicher, dass es genug z-index hat, um immer über den anderen Elementen zu sitzen und daher fokussierbar/klickbar zu sein:
 
 ```css
 label {
@@ -67,7 +67,7 @@ label {
 }
 ```
 
-Dann verstecken wir die eigentliche Checkbox, weil wir nicht wollen, dass sie unsere Benutzeroberfläche überfrachtet:
+Dann verstecken wir die eigentliche Checkbox, weil wir nicht wollen, dass sie unsere Benutzeroberfläche übersättigt:
 
 ```css
 input[type="checkbox"] {
@@ -76,7 +76,7 @@ input[type="checkbox"] {
 }
 ```
 
-Als nächstes gestalten wir den Informationsbildschirm (eingebettet in ein {{htmlelement("aside")}}-Element) so, wie wir ihn möchten, geben ihm eine feste Position, damit er nicht im Layoutfluss erscheint und die Hauptbenutzeroberfläche beeinflusst, transformieren ihn in die Position, in der er standardmäßig sitzen soll, und geben ihm einen Übergang für das sanfte Ein-/Ausblenden:
+Als Nächstes gestalten wir den Informationsbildschirm (eingebettet in ein {{htmlelement("aside")}}-Element) so, wie wir es möchten, geben ihm eine feste Position, damit er nicht im Layoutfluss erscheint und die Hauptbenutzeroberfläche beeinflusst, versetzen ihn in die Position, in der er standardmäßig sitzen soll, und geben ihm einen Übergang für ein sanftes Anzeigen/Verbergen:
 
 ```css
 aside {
@@ -97,7 +97,7 @@ aside {
 }
 ```
 
-Zuletzt schreiben wir eine Regel, die besagt, dass, wenn die Checkbox aktiviert ist (wenn wir das Label anklicken/fokussieren), das angrenzende `<aside>`-Element seinen horizontalen Übersetzungswert ändert und sanft in die Ansicht kommt:
+Zuletzt schreiben wir eine Regel, die besagt, dass wenn die Checkbox aktiviert ist (wenn wir auf das Label klicken/fokussieren), das angrenzende `<aside>`-Element seinen Horizontal-Übersetzungswert ändert und sanft in den Blick kommt:
 
 ```css
 input[type="checkbox"]:checked ~ aside {
@@ -107,9 +107,9 @@ input[type="checkbox"]:checked ~ aside {
 
 ## Grundlegende App-Einrichtung
 
-Um den Medienstream zu erfassen, den wir aufnehmen möchten, verwenden wir `getUserMedia()`. Dann verwenden wir die MediaStream Recording API, um den Stream aufzuzeichnen und jedes aufgezeichnete Stück in die Quelle eines generierten {{htmlelement("audio")}}-Elements auszugeben, sodass es abgespielt werden kann.
+Um den Medienstream zu erfassen, den wir aufnehmen möchten, verwenden wir `getUserMedia()`. Wir benutzen dann die MediaStream Recording API, um den Stream aufzuzeichnen und jedes aufgezeichnete Fragment in die Quelle eines generierten {{htmlelement("audio")}}-Elements auszugeben, damit es wiedergegeben werden kann.
 
-Wir erklären einige Variablen für die Aufnahme- und Stopp-Tasten und den {{htmlelement("article")}}, der die generierten Audioplayer enthalten wird:
+Wir deklarieren einige Variablen für die Aufnahme- und Stopptasten und den {{htmlelement("article")}}, der die generierten Audioplayer enthalten wird:
 
 ```js
 const record = document.querySelector(".record");
@@ -117,63 +117,63 @@ const stop = document.querySelector(".stop");
 const soundClips = document.querySelector(".sound-clips");
 ```
 
-Abschließend für diesen Abschnitt richten wir die grundlegende `getUserMedia`-Struktur ein:
+Zuletzt in diesem Abschnitt richten wir die grundlegende `getUserMedia`-Struktur ein:
 
 ```js
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-  console.log("getUserMedia unterstützt.");
+  console.log("getUserMedia supported.");
   navigator.mediaDevices
     .getUserMedia(
-      // Einschränkungen - nur Audio erforderlich für diese App
+      // constraints - only audio needed for this app
       {
         audio: true,
       },
     )
 
-    // Erfolgs-Callback
+    // Success callback
     .then((stream) => {})
 
-    // Fehler-Callback
+    // Error callback
     .catch((err) => {
-      console.error(`Der folgende getUserMedia-Fehler ist aufgetreten: ${err}`);
+      console.error(`The following getUserMedia error occurred: ${err}`);
     });
 } else {
-  console.log("getUserMedia wird in Ihrem Browser nicht unterstützt!");
+  console.log("getUserMedia not supported on your browser!");
 }
 ```
 
-Das Ganze ist in einen Test eingeschlossen, der prüft, ob `getUserMedia` unterstützt wird, bevor irgendetwas anderes ausgeführt wird. Als nächstes rufen wir `getUserMedia()` auf und definieren darin:
+Das Ganze ist in einen Test gewickelt, der überprüft, ob `getUserMedia` unterstützt wird, bevor irgendetwas anderes ausgeführt wird. Als Nächstes rufen wir `getUserMedia()` auf und definieren darin:
 
-- **Die Einschränkungen**: Es soll nur Audio für unser Diktiergerät erfasst werden.
-- **Der Erfolgs-Callback**: Dieser Code wird ausgeführt, sobald der `getUserMedia`-Aufruf erfolgreich abgeschlossen wurde.
-- **Der Fehler/Fehler-Callback**: Der Code wird ausgeführt, wenn der `getUserMedia`-Aufruf aus irgendeinem Grund fehlschlägt.
+- **Die Einschränkungen**: Nur Audio soll für unser Diktiergerät erfasst werden.
+- **Den Erfolgs-Callback**: Dieser Code wird ausgeführt, sobald der `getUserMedia`-Aufruf erfolgreich abgeschlossen wurde.
+- **Den Error/Failure-Callback**: Der Code wird ausgeführt, wenn der `getUserMedia`-Aufruf aus irgendeinem Grund fehlschlägt.
 
 > [!NOTE]
-> Der gesamte untenstehende Code wird im Erfolgs-Callback von `getUserMedia` platziert.
+> Sämtlicher Code unten wird in den `getUserMedia` Erfolgs-Callback platziert.
 
 ## Erfassen des Medienstreams
 
-Sobald `getUserMedia` erfolgreich einen Medienstream erstellt hat, erstellen Sie eine neue Media Recorder-Instanz mit dem `MediaRecorder()`-Konstruktor und übergeben den Stream direkt. Dies ist Ihr Einstiegspunkt in die Verwendung der MediaStream Recording API - der Stream ist nun bereit, in einem {{domxref("Blob")}}, im Standardcodierungsformat Ihres Browsers erfasst zu werden.
+Sobald `getUserMedia` erfolgreich einen Medienstream erstellt hat, erstellen Sie eine neue Media Recorder-Instanz mit dem `MediaRecorder()`-Konstruktor und übergeben ihm direkt den Stream. Dies ist Ihr Einstiegspunkt in die Nutzung der MediaStream Recording API — der Stream kann jetzt in einen [`Blob`](/de/docs/Web/API/Blob) im Standardkodierungsformat Ihres Browsers aufgenommen werden.
 
 ```js
 const mediaRecorder = new MediaRecorder(stream);
 ```
 
-Es gibt eine Reihe von Methoden in der {{domxref("MediaRecorder")}}-Schnittstelle, die es Ihnen ermöglichen, die Aufzeichnung des Medienstreams zu steuern; im Web-Diktiergerät verwenden wir nur zwei und hören einige Ereignisse. Zuerst wird {{domxref("MediaRecorder.start()")}} verwendet, um die Aufzeichnung des Streams zu starten, sobald die Aufnahmetaste gedrückt wird:
+In der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Schnittstelle steht eine Reihe von Methoden zur Verfügung, die es Ihnen ermöglichen, die Aufnahme des Medienstreams zu steuern; im Web-Diktiergerät verwenden wir nur zwei davon und lauschen einigen Ereignissen. Zuerst wird [`MediaRecorder.start()`](/de/docs/Web/API/MediaRecorder/start) verwendet, um die Aufnahme des Streams zu starten, sobald die Aufnahmetaste gedrückt wird:
 
 ```js
 record.onclick = () => {
   mediaRecorder.start();
   console.log(mediaRecorder.state);
-  console.log("Rekorder gestartet");
+  console.log("recorder started");
   record.style.background = "red";
   record.style.color = "black";
 };
 ```
 
-Wenn der `MediaRecorder` aufzeichnet, gibt die Eigenschaft {{domxref("MediaRecorder.state")}} den Wert "recording" zurück.
+Wenn der `MediaRecorder` aufzeichnet, gibt die [`MediaRecorder.state`](/de/docs/Web/API/MediaRecorder/state)-Eigenschaft den Wert "recording" zurück.
 
-Während die Aufzeichnung fortschreitet, müssen wir die Audiodaten sammeln. Wir registrieren einen Ereignishandler, um dies mit {{domxref("mediaRecorder.dataavailable_event", "ondataavailable")}} zu tun:
+Während die Aufnahme fortschreitet, müssen wir die Audiodaten sammeln. Wir registrieren einen Ereignishandler dafür mit [`ondataavailable`](/de/docs/Web/API/MediaRecorder/dataavailable_event):
 
 ```js
 let chunks = [];
@@ -184,31 +184,31 @@ mediaRecorder.ondataavailable = (e) => {
 ```
 
 > [!NOTE]
-> Der Browser wird `dataavailable`-Ereignisse nach Bedarf auslösen, aber wenn Sie eingreifen möchten, können Sie beim Aufrufen der `start()`-Methode auch eine Zeitspanne angeben – zum Beispiel `start(10000)` – um dieses Intervall zu steuern, oder {{domxref("MediaRecorder.requestData()")}} aufrufen, um ein Ereignis auszulösen, wenn Sie es benötigen.
+> Der Browser wird `dataavailable`-Ereignisse nach Bedarf auslösen, aber wenn Sie eingreifen möchten, können Sie auch einen Zeitabschnitt beim Aufrufen der `start()`-Methode angeben — zum Beispiel `start(10000)` — um dieses Intervall zu steuern, oder [`MediaRecorder.requestData()`](/de/docs/Web/API/MediaRecorder/requestData) aufrufen, um ein Ereignis auszulösen, wenn Sie es benötigen.
 
-Schließlich verwenden wir die {{domxref("MediaRecorder.stop()")}}-Methode, um die Aufzeichnung zu stoppen, wenn die Stopp-Taste gedrückt wird, und bereiten den {{domxref("Blob")}} zur Verwendung an anderer Stelle in unserer Anwendung vor.
+Schließlich verwenden wir die [`MediaRecorder.stop()`](/de/docs/Web/API/MediaRecorder/stop)-Methode, um die Aufnahme zu beenden, wenn die Stopptaste gedrückt wird, und den [`Blob`](/de/docs/Web/API/Blob) für die Verwendung an anderer Stelle in unserer Anwendung bereitzustellen.
 
 ```js
 stop.onclick = () => {
   mediaRecorder.stop();
   console.log(mediaRecorder.state);
-  console.log("Rekorder gestoppt");
+  console.log("recorder stopped");
   record.style.background = "";
   record.style.color = "";
 };
 ```
 
-Beachten Sie, dass die Aufnahme auch von selbst stoppen kann, wenn der Medienstream endet (z. B. wenn Sie einen Musiktitel erfasst haben und der Titel endet, oder der Benutzer die Freigabe seines Mikrofons beendet hat).
+Beachten Sie, dass die Aufnahme auch von selbst stoppen kann, wenn der Medienstream endet (z. B. wenn Sie einen Song-Track erfassten und der Track endete, oder der Benutzer seine Mikrofonfreigabe stoppte).
 
-## Erfassen und Verwenden des Blobs
+## Erfassen und Verwenden des Blob
 
-Wenn die Aufzeichnung gestoppt wurde, gibt die `state`-Eigenschaft den Wert "inactive" zurück, und ein Stop-Ereignis wird ausgelöst. Wir registrieren einen Ereignishandler dafür mit {{domxref("mediaRecorder.stop_event", "onstop")}}, und finalisieren unseren Blob dort aus allen erhaltenen Teilen:
+Wenn die Aufnahme gestoppt wurde, gibt die `state`-Eigenschaft den Wert "inactive" zurück und ein Stop-Ereignis wird ausgelöst. Wir registrieren einen Ereignishandler dafür mit [`onstop`](/de/docs/Web/API/MediaRecorder/stop_event) und stellen dort unseren Blob aus allen empfangenen Teilen fertig:
 
 ```js
 mediaRecorder.onstop = (e) => {
-  console.log("Rekorder gestoppt");
+  console.log("recorder stopped");
 
-  const clipName = prompt("Geben Sie einen Namen für Ihren Soundclip ein");
+  const clipName = prompt("Enter a name for your sound clip");
 
   const clipContainer = document.createElement("article");
   const clipLabel = document.createElement("p");
@@ -217,7 +217,7 @@ mediaRecorder.onstop = (e) => {
 
   clipContainer.classList.add("clip");
   audio.setAttribute("controls", "");
-  deleteButton.textContent = "Löschen";
+  deleteButton.textContent = "Delete";
   clipLabel.textContent = clipName;
 
   clipContainer.appendChild(audio);
@@ -239,21 +239,21 @@ mediaRecorder.onstop = (e) => {
 
 Lassen Sie uns den obigen Code durchgehen und sehen, was passiert.
 
-Zuerst zeigen wir ein Eingabeaufforderungsfenster an, in dem der Benutzer gebeten wird, seinen Clip zu benennen.
+Zuerst zeigen wir dem Benutzer eine Aufforderung an, ihren Clip zu benennen.
 
-Als nächstes erstellen wir eine HTML-Struktur wie die folgende und fügen sie in unseren Clip-Container ein, der ein {{htmlelement("article")}}-Element ist.
+Danach erstellen wir eine HTML-Struktur wie die folgende, die wir in unseren Clip-Container, welcher ein {{htmlelement("article")}}-Element ist, einfügen.
 
 ```html
 <article class="clip">
   <audio controls></audio>
-  <p>Ihr Clipname</p>
-  <button>Löschen</button>
+  <p>your clip name</p>
+  <button>Delete</button>
 </article>
 ```
 
-Danach erstellen wir ein kombiniertes {{domxref("Blob")}} aus den aufgezeichneten Audio-Chunks und erstellen eine Objekt-URL, die darauf verweist, indem wir `window.URL.createObjectURL(blob)` verwenden. Wir setzen dann den Wert des [`src`](/de/docs/Web/HTML/Element/audio#src)-Attributs des {{HTMLElement("audio")}}-Elements auf die Objekt-URL, sodass beim Drücken der Wiedergabetaste auf dem Audioplayer das `Blob` abgespielt wird.
+Anschließend erstellen wir einen kombinierten [`Blob`](/de/docs/Web/API/Blob) aus den aufgezeichneten Audiostücken und erstellen eine Objekt-URL, die darauf verweist, mit `window.URL.createObjectURL(blob)`. Dann setzen wir den Wert des [`src`](/de/docs/Web/HTML/Element/audio#src)-Attributes des {{HTMLElement("audio")}}-Elements auf die Objekt-URL, sodass beim Klicken auf die Wiedergabetaste im Audioplayer der `Blob` abgespielt wird.
 
-Schließlich setzen wir einen `onclick`-Handler auf die Löschtaste, um eine Funktion zu sein, die die gesamte Clip-HTML-Struktur löscht.
+Abschließend setzen wir einen `onclick`-Handler auf den Löschen-Button, der eine Funktion ist, die die gesamte Clip-HTML-Struktur löscht.
 
 ## Spezifikationen
 
@@ -265,5 +265,5 @@ Schließlich setzen wir einen `onclick`-Handler auf die Löschtaste, um eine Fun
 
 ## Siehe auch
 
-- [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) Hauptseite
-- {{domxref("MediaDevices.getUserMedia()")}}
+- [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) Einführungsseite
+- [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)

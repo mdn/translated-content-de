@@ -1,5 +1,5 @@
 ---
-title: "IDBObjectStore: indexNames Eigenschaft"
+title: "IDBObjectStore: indexNames-Eigenschaft"
 short-title: indexNames
 slug: Web/API/IDBObjectStore/indexNames
 l10n:
@@ -8,34 +8,34 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`indexNames`**-Eigenschaft der {{domxref("IDBObjectStore")}}-Schnittstelle gibt eine Liste der Namen von [Indizes](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#index) von Objekten in diesem Objekt-Store zurück.
+Die schreibgeschützte **`indexNames`**-Eigenschaft des [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Interfaces gibt eine Liste der Namen der [Indizes](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#index) auf Objekten in diesem Objekt-Speicher zurück.
 
 ## Wert
 
-Eine {{domxref("DOMStringList")}}.
+Eine [`DOMStringList`](/de/docs/Web/API/DOMStringList).
 
 ## Beispiele
 
-Im folgenden Code-Snippet öffnen wir eine Lese-/Schreib-Transaktion auf unserer Datenbank und fügen mit `add()` einige Daten zu einem Objekt-Store hinzu. Nachdem der Objekt-Store erstellt wurde, loggen wir `objectStore.indexNames` in die Konsole. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen mit `add()` einige Daten zu einem Objekt-Speicher hinzu. Nachdem der Objekt-Speicher erstellt wurde, protokollieren wir `objectStore.indexNames` in die Konsole. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
-// Lassen Sie uns unsere Datenbank öffnen
+// Let us open our database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
 DBOpenRequest.onsuccess = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Datenbank initialisiert.";
+    "Database initialized.";
 
-  // Speichern Sie das Ergebnis des Öffnens der Datenbank in der db-Variable.
-  // Dies wird unten oft verwendet
+  // store the result of opening the database in the db variable.
+  // This is used a lot below
   db = this.result;
 
-  // Führen Sie die addData()-Funktion aus, um die Daten zur Datenbank hinzuzufügen
+  // Run the addData() function to add the data to the database
   addData();
 };
 
 function addData() {
-  // Erstellen Sie ein neues Objekt, das in die IDB eingefügt werden soll
+  // Create a new object ready to insert into the IDB
   const newItem = [
     {
       taskTitle: "Walk dog",
@@ -48,31 +48,31 @@ function addData() {
     },
   ];
 
-  // Öffnen Sie eine Lese-/Schreib-Datenbank-Transaktion, bereit zum Hinzufügen der Daten
+  // open a read/write db transaction, ready for adding the data
   const transaction = db.transaction(["toDoList"], "readwrite");
 
-  // Melden Sie den Erfolg des Abschlusses der Transaktion, wenn alles erledigt ist
+  // report on the success of the transaction completing, when everything is done
   transaction.oncomplete = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion abgeschlossen.";
+      "Transaction completed.";
   };
 
   transaction.onerror = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion aufgrund eines Fehlers nicht geöffnet. Doppelte Elemente sind nicht erlaubt.";
+      "Transaction not opened due to error. Duplicate items not allowed.";
   };
 
-  // Erstellen Sie einen Objekt-Store in der Transaktion
+  // create an object store on the transaction
   const objectStore = transaction.objectStore("toDoList");
   console.log(objectStore.indexNames);
 
-  // Machen Sie eine Anfrage, um unser newItem-Objekt zum Objekt-Store hinzuzufügen
+  // Make a request to add our newItem object to the object store
   const objectStoreRequest = objectStore.add(newItem[0]);
 
   objectStoreRequest.onsuccess = (event) => {
-    // Melden Sie den Erfolg unserer Anfrage
+    // report the success of our request
     note.appendChild(document.createElement("li")).textContent =
-      "Anfrage erfolgreich.";
+      "Request successful.";
   };
 }
 ```
@@ -81,16 +81,16 @@ function addData() {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Einstellen eines Schlüsselbereichs: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursors: {{domxref("IDBCursor")}}
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegung eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Kursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

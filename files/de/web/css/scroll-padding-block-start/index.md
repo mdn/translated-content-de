@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-padding-block-start` definiert Versätze für die Startkante in der Blockdimension der _optimalen Anzeigezone_ des Scrollports: den Bereich, der als Zielregion für das Platzieren von Elementen in der Sicht des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderem Inhalt verdeckt werden (wie fest positionierte Werkzeugleisten oder Seitenleisten) oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die `scroll-padding-block-start`-Eigenschaft definiert Versätze für die Antriebskante in der Blockdimension des _optimalen Anzeigebereichs_ des Scrollports: den Bereich, der als Zielbereich zum Platzieren von Elementen im Sichtfeld des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt werden, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{EmbedInteractiveExample("pages/css/scroll-padding-block-start.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 scroll-padding-block-start: auto;
 
-/* <length>-Werte */
+/* <length> values */
 scroll-padding-block-start: 10px;
 scroll-padding-block-start: 1em;
 scroll-padding-block-start: 10%;
 
-/* Globale Werte */
+/* Global values */
 scroll-padding-block-start: inherit;
 scroll-padding-block-start: initial;
 scroll-padding-block-start: revert;
@@ -33,9 +33,9 @@ scroll-padding-block-start: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein innerer Versatz von der Block-Startkante des Scrollports, als gültige Länge oder als Prozentwert.
+  - : Ein innerer Versatz von der Blockanfangskante des Scrollports, entweder als gültige Länge oder als Prozentsatz.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies wird im Allgemeinen 0px sein, aber ein Benutzeragent kann etwas anderes tun, falls ein Wert ungleich Null angemessener ist.
+  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies ist im Allgemeinen 0px, allerdings kann der Benutzeragent auch andere Werte festlegen, wenn ein Wert ungleich Null angemessener ist.
 
 ## Formale Definition
 

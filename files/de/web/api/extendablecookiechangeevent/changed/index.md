@@ -1,6 +1,6 @@
 ---
 title: "ExtendableCookieChangeEvent: changed-Eigenschaft"
-short-title: geändert
+short-title: changed
 slug: Web/API/ExtendableCookieChangeEvent/changed
 l10n:
   sourceCommit: 08f7d7ef89c04b824fa246e6fd35d47aebef7b51
@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("service")}}
 
-Die **`changed`** schreibgeschützte Eigenschaft der {{domxref("ExtendableCookieChangeEvent")}}-Schnittstelle gibt alle Cookies zurück, die durch die gegebene Instanz von `ExtendableCookieChangeEvent` geändert wurden.
+Die schreibgeschützte Eigenschaft **`changed`** der [`ExtendableCookieChangeEvent`](/de/docs/Web/API/ExtendableCookieChangeEvent)-Schnittstelle gibt alle Cookies zurück, die durch die gegebene `ExtendableCookieChangeEvent`-Instanz geändert wurden.
 
 ## Wert
 
-Ein Array von Objekten, das die geänderten Cookies enthält. Jedes Objekt enthält die folgenden Eigenschaften:
+Ein Array von Objekten, die die geänderten Cookie(s) enthalten. Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `name`
   - : Ein String, der den Namen des Cookies enthält.
@@ -23,26 +23,26 @@ Ein Array von Objekten, das die geänderten Cookies enthält. Jedes Objekt enth�
 - `path`
   - : Ein String, der den Pfad des Cookies enthält.
 - `expires`
-  - : Ein Zeitstempel, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, der das Ablaufdatum des Cookies enthält.
+  - : Ein Zeitstempel, angegeben in [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, der das Ablaufdatum des Cookies enthält.
 - `secure`
-  - : Ein {{jsxref("boolean")}} der angibt, ob das Cookie nur in einem sicheren Kontext verwendet wird (HTTPS anstelle von HTTP).
+  - : Ein {{jsxref("boolean")}}, der anzeigt, ob das Cookie nur in einem sicheren Kontext (HTTPS anstelle von HTTP) verwendet wird.
 - `sameSite`
 
   - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value)-Werte:
 
     - `"strict"`
-      - : Cookies werden nur in einem First-Party-Kontext gesendet und nicht mit Anfragen von Drittanbieter-Websites gesendet.
+      - : Cookies werden nur in einem First-Party-Kontext gesendet und nicht mit Anfragen von Drittanbieter-Websites.
     - `"lax"`
-      - : Cookies werden bei normalen abteilungsübergreifenden Unteranfragen nicht gesendet (z.B. um Bilder oder Frames in eine Drittanbieter-Site zu laden), aber gesendet, wenn ein Benutzer innerhalb der Ursprungs-Site navigiert (d.h. wenn er einem Link folgt).
+      - : Cookies werden bei normalen Cross-Site-Unteranfragen (zum Beispiel zum Laden von Bildern oder Frames in eine Drittanbieter-Site) nicht gesendet, jedoch, wenn ein Nutzer innerhalb der Ursprungsseite navigiert (d.h. beim Folgen eines Links).
     - `"none"`
       - : Cookies werden in allen Kontexten gesendet.
 
 - `partitioned`
-  - : Ein Boolean, der angibt, ob das Cookie ein partitioniertes Cookie ist (`true`) oder nicht (`false`). Weitere Informationen finden Sie unter [Cookies mit unabhängigem partitionierten Zustand (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies).
+  - : Ein Boolean, der anzeigt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Weitere Informationen finden Sie unter [Cookies mit unabhängigem partitionierten Status (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies).
 
 ## Beispiele
 
-In diesem Beispiel wird beim Setzen des Cookies die `changed`-Eigenschaft von dem Event Listener in der Konsole protokolliert. Das erste Element in diesem Array enthält ein Objekt, das das gerade gesetzte Cookie darstellt.
+In diesem Beispiel wird beim Setzen des Cookies der `changed`-Eigenschaft-Listener im Konsolen-Log angezeigt. Das erste Element in diesem Array enthält ein Objekt, das das gerade gesetzte Cookie darstellt.
 
 ```js
 self.addEventListener("cookiechange", (event) => {

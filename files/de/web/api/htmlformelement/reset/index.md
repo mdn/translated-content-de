@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormElement.reset()`** Methode stellt die Standardwerte eines Formularelements wieder her. Diese Methode bewirkt dasselbe wie das Klicken auf das [`<input type="reset">`](/de/docs/Web/HTML/Element/input/reset) Steuerelement des Formulars.
+Die **`HTMLFormElement.reset()`** Methode stellt die Standardwerte eines Formularelements wieder her. Diese Methode führt denselben Vorgang aus wie das Klicken auf das [`<input type="reset">`](/de/docs/Web/HTML/Element/input/reset)-Steuerelement des Formulars.
 
-Wenn ein Formularsteuerelement (wie z.B. eine Reset-Schaltfläche) den Namen oder die ID _reset_ hat, wird es die Reset-Methode des Formulars überdecken. Es setzt nicht andere Attribute im Input zurück, wie z.B. `disabled`.
+Wenn ein Formularsteuerelement (wie eine Reset-Schaltfläche) einen Namen oder eine ID `reset` hat, wird die `reset` Methode des Formulars verdeckt. Sie setzt keine anderen Attribute, wie `disabled`, zurück.
 
-Beachten Sie, dass wenn {{domxref("Element.setAttribute", "setAttribute()")}} aufgerufen wird, um den Wert eines bestimmten Attributs festzulegen, ein nachfolgender Aufruf von `reset()` das Attribut nicht auf seinen Standardwert zurücksetzen wird, sondern stattdessen das Attribut auf dem Wert belässt, den der Aufruf von {{domxref("Element.setAttribute", "setAttribute()")}} festgelegt hat.
+Beachten Sie, dass wenn [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) aufgerufen wird, um den Wert eines bestimmten Attributs festzulegen, ein nachfolgender Aufruf von `reset()` das Attribut nicht auf seinen Standardwert zurücksetzt, sondern den Wert beibehält, den der Aufruf von [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) ihm gegeben hat.
 
 ## Syntax
 

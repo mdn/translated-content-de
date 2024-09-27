@@ -1,6 +1,6 @@
 ---
-title: "BluetoothRemoteGATTDescriptor: Merkmal-Eigenschaft"
-short-title: Merkmal
+title: "BluetoothRemoteGATTDescriptor: characteristic-Eigenschaft"
+short-title: characteristic
 slug: Web/API/BluetoothRemoteGATTDescriptor/characteristic
 l10n:
   sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
@@ -8,13 +8,11 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`BluetoothRemoteGATTDescriptor.characteristic`**
-gibt das {{domxref("BluetoothRemoteGATTCharacteristic")}} zurück, zu dem dieser
-Descriptor gehört.
+Die **`BluetoothRemoteGATTDescriptor.characteristic`** schreibgeschützte Eigenschaft gibt die [`BluetoothRemoteGATTCharacteristic`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic) zurück, zu der dieser Descriptor gehört.
 
 ## Wert
 
-Eine Instanz von {{domxref("BluetoothRemoteGATTCharacteristic")}}.
+Eine Instanz von [`BluetoothRemoteGATTCharacteristic`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic).
 
 ## Spezifikationen
 

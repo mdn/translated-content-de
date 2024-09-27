@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die schreibgeschützte **`timestamp`**-Eigenschaft der {{domxref("GeolocationPosition")}}-Schnittstelle repräsentiert das Datum und die Uhrzeit, zu der die Position vom Gerät ermittelt wurde.
+Die schreibgeschützte Eigenschaft **`timestamp`** des [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Interfaces stellt das Datum und die Uhrzeit dar, zu der die Position vom Gerät ermittelt wurde.
 
 ## Wert
 
-Eine Zahl, die einen Zeitstempel enthält, angegeben als {{Glossary("Unix time")}} in Millisekunden.
+Eine Zahl, die einen Zeitstempel enthält, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden.
 
 ## Spezifikationen
 
@@ -25,4 +25,4 @@ Eine Zahl, die einen Zeitstempel enthält, angegeben als {{Glossary("Unix time")
 ## Siehe auch
 
 - [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- {{domxref("GeolocationPosition")}}
+- [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)

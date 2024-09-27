@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Der **`SVGFEFuncRElement`** Interface entspricht dem {{SVGElement("feFuncR")}} Element.
+Die **`SVGFEFuncRElement`**-Schnittstelle entspricht dem {{SVGElement("feFuncR")}}-Element.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface bietet keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von seinem übergeordneten Interface, {{domxref("SVGComponentTransferFunctionElement")}}._
+_Diese Schnittstelle bietet keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von ihrer übergeordneten Schnittstelle, [`SVGComponentTransferFunctionElement`](/de/docs/Web/API/SVGComponentTransferFunctionElement)._
 
 ## Instanz-Methoden
 
-_Dieses Interface bietet keine spezifischen Methoden, implementiert jedoch die Methoden seines übergeordneten Interfaces, {{domxref("SVGComponentTransferFunctionElement")}}._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die ihrer übergeordneten Schnittstelle, [`SVGComponentTransferFunctionElement`](/de/docs/Web/API/SVGComponentTransferFunctionElement)._
 
 ## Spezifikationen
 

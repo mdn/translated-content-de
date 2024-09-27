@@ -1,5 +1,5 @@
 ---
-title: "Blob: arrayBuffer() Methode"
+title: "Blob: arrayBuffer()-Methode"
 short-title: arrayBuffer()
 slug: Web/API/Blob/arrayBuffer
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`arrayBuffer()`** Methode des {{domxref("Blob")}}
-Interfaces gibt ein {{jsxref("Promise")}} zurück, das sich mit dem Inhalt des Blobs als
-Binärdaten, die in einem {{jsxref("ArrayBuffer")}} enthalten sind, auflöst.
+Die **`arrayBuffer()`**-Methode des [`Blob`](/de/docs/Web/API/Blob)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit dem Inhalt des Blobs als binäre Daten in einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
 
 ## Syntax
 
@@ -24,16 +22,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein Promise, das sich mit einem {{jsxref("ArrayBuffer")}} auflöst, der die Daten des Blobs
-in binärer Form enthält.
+Ein Promise, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird, das die Daten des Blobs in binärer Form enthält.
 
 ### Ausnahmen
 
-Obwohl diese Methode keine Ausnahmen auslöst, kann sie das Promise ablehnen. Dies kann beispielsweise passieren, wenn der Reader, der zum Abrufen der Blob-Daten verwendet wird, eine Ausnahme auslöst. Alle Ausnahmen, die beim Abrufen der Daten ausgelöst werden, werden in Ablehnungen umgewandelt.
+Obwohl diese Methode keine Ausnahmen auslöst, kann sie das Promise ablehnen. Dies kann zum Beispiel passieren, wenn der Reader, der verwendet wird, um die Blob-Daten abzurufen, eine Ausnahme auslöst. Alle Ausnahmen, die beim Abrufen der Daten auftreten, werden in Ablehnungen umgewandelt.
 
 ## Nutzungshinweise
 
-Während sie der Methode {{domxref("FileReader.readAsArrayBuffer()")}} ähnelt, gibt `arrayBuffer()` ein Promise zurück, anstatt eine auf Ereignissen basierende API zu sein, wie es bei der Methode des `FileReader` Interfaces der Fall ist.
+Während die Methode [`FileReader.readAsArrayBuffer()`](/de/docs/Web/API/FileReader/readAsArrayBuffer) ähnlich ist, gibt `arrayBuffer()` ein Promise zurück und ist nicht ereignisbasiert, wie es bei der Methode des `FileReader`-Interfaces der Fall ist.
 
 ## Spezifikationen
 
@@ -45,6 +42,6 @@ Während sie der Methode {{domxref("FileReader.readAsArrayBuffer()")}} ähnelt, 
 
 ## Siehe auch
 
-- {{domxref("Response.arrayBuffer()")}}
+- [`Response.arrayBuffer()`](/de/docs/Web/API/Response/arrayBuffer)
 - [Streams API](/de/docs/Web/API/Streams_API)
-- {{domxref("FileReader.readAsArrayBuffer()")}}
+- [`FileReader.readAsArrayBuffer()`](/de/docs/Web/API/FileReader/readAsArrayBuffer)

@@ -1,5 +1,5 @@
 ---
-title: Verwendung der Geolocation-API
+title: Die Geolocation API verwenden
 slug: Web/API/Geolocation_API/Using_the_Geolocation_API
 l10n:
   sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
@@ -7,28 +7,28 @@ l10n:
 
 {{securecontext_header}}{{DefaultAPISidebar("Geolocation API")}}
 
-Die Geolocation-API wird verwendet, um den Standort des Benutzers zu ermitteln, sodass er beispielsweise mit einer Mapping-API auf einer Karte angezeigt werden kann. Dieser Artikel erklärt die Grundlagen ihrer Verwendung.
+Die Geolocation API wird verwendet, um den Standort des Benutzers abzurufen, damit dieser zum Beispiel mit einer Karten-API angezeigt werden kann. Dieser Artikel erklärt die Grundlagen ihrer Verwendung.
 
-## Das Geolokalisierungsobjekt
+## Das Geolocation-Objekt
 
-Die [Geolocation-API](/de/docs/Web/API/Geolocation) ist über das {{domxref("navigator.geolocation")}}-Objekt verfügbar.
+Die [Geolocation API](/de/docs/Web/API/Geolocation) ist über das [`navigator.geolocation`](/de/docs/Web/API/Navigator/geolocation)-Objekt verfügbar.
 
-Wenn das Objekt existiert, sind Geolokalisierungsdienste verfügbar. Sie können die Verfügbarkeit der Geolocation folgendermaßen prüfen:
+Wenn das Objekt existiert, sind Geolocation-Dienste verfügbar. Sie können das Vorhandensein der Geolocation folgendermaßen testen:
 
 ```js
 if ("geolocation" in navigator) {
-  /* Geolocation ist verfügbar */
+  /* geolocation is available */
 } else {
-  /* Geolocation ist NICHT verfügbar */
+  /* geolocation IS NOT available */
 }
 ```
 
-### Erhalten der aktuellen Position
+### Abrufen der aktuellen Position
 
-Um die aktuelle Position des Benutzers zu erhalten, können Sie die Methode {{domxref("Geolocation.getCurrentPosition","getCurrentPosition()")}} aufrufen. Dies initiiert eine asynchrone Anfrage, um die Position des Benutzers zu erfassen, und fragt die Positionierungshardware ab, um aktuelle Informationen zu erhalten. Sobald die Position bestimmt ist, wird die definierte Callback-Funktion ausgeführt. Sie können optional eine zweite Callback-Funktion bereitstellen, die ausgeführt wird, wenn ein Fehler auftritt. Ein dritter, optionaler Parameter ist ein Optionsobjekt, in dem Sie das maximale Alter der zurückgegebenen Position, die Wartezeit für eine Anfrage und die gewünschte Genauigkeit der Position festlegen können.
+Um die aktuelle Position des Benutzers zu erhalten, können Sie die Methode [`getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition) aufrufen. Dies initiiert eine asynchrone Anfrage zur Ermittlung der Benutzerposition und ruft die Ortungshardware ab, um aktuelle Informationen zu erhalten. Wenn die Position bestimmt wird, wird die definierte Callback-Funktion ausgeführt. Sie können optional eine zweite Callback-Funktion bereitstellen, die ausgeführt wird, wenn ein Fehler auftritt. Ein dritter optionaler Parameter ist ein Optionsobjekt, in dem Sie das maximale Alter der zurückgegebenen Position, die Zeit, um auf eine Anfrage zu warten, und ob Sie eine hohe Genauigkeit für die Position wünschen, festlegen können.
 
 > [!NOTE]
-> Standardmäßig versucht {{domxref("Geolocation.getCurrentPosition","getCurrentPosition()")}}, so schnell wie möglich mit einem Ergebnis von geringer Genauigkeit zu antworten. Dies ist nützlich, wenn Sie eine schnelle Antwort unabhängig von der Genauigkeit benötigen. Geräte mit GPS können beispielsweise eine Minute oder länger benötigen, um einen GPS-Fix zu erhalten, daher können weniger genaue Daten (über IP-Standort oder WLAN) an `getCurrentPosition()` zurückgegeben werden.
+> Standardmäßig versucht [`getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition), so schnell wie möglich mit einem Ergebnis niedriger Genauigkeit zu antworten. Es ist nützlich, wenn Sie eine schnelle Antwort unabhängig von der Genauigkeit benötigen. Geräte mit GPS können beispielsweise eine Minute oder länger brauchen, um eine GPS-Fixierung zu erhalten, daher können weniger genaue Daten (IP-Standort oder Wi-Fi) an `getCurrentPosition()` zurückgegeben werden.
 
 ```js
 navigator.geolocation.getCurrentPosition((position) => {
@@ -36,14 +36,14 @@ navigator.geolocation.getCurrentPosition((position) => {
 });
 ```
 
-Das obige Beispiel führt dazu, dass die Funktion `doSomething()` ausgeführt wird, wenn der Standort ermittelt wurde.
+Das obige Beispiel wird die Funktion `doSomething()` ausführen, wenn der Standort ermittelt wird.
 
-### Beobachten der aktuellen Position
+### Beobachtung der aktuellen Position
 
-Wenn sich die Positionsdaten ändern (entweder durch Bewegung des Geräts oder wenn genauere Geo-Informationen eintreffen), können Sie eine Callback-Funktion einrichten, die mit den aktualisierten Positionsinformationen aufgerufen wird. Dies geschieht mit der Funktion {{domxref("Geolocation.watchPosition","watchPosition()")}}, die die gleichen Eingabeparameter wie {{domxref("Geolocation.getCurrentPosition","getCurrentPosition()")}} hat. Die Callback-Funktion wird mehrmals aufgerufen, sodass der Browser entweder Ihren Standort aktualisieren kann, während Sie sich bewegen, oder einen genaueren Standort bereitstellt, wenn verschiedene Techniken zur Geolokalisierung verwendet werden. Die Fehler-Callback-Funktion, die optional ist, genau wie bei `getCurrentPosition()`, kann wiederholt aufgerufen werden.
+Wenn sich die Positionsdaten ändern (entweder durch Bewegung des Geräts oder wenn genauere Geoinformationen eintreffen), können Sie eine Callback-Funktion einrichten, die mit diesen aktualisierten Positionsinformationen aufgerufen wird. Dies geschieht mit der Funktion [`watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition), die dieselben Eingabeparameter hat wie [`getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition). Die Callback-Funktion wird mehrfach aufgerufen, sodass der Browser entweder Ihren Standort beim Bewegen aktualisieren oder einen genaueren Standort bereitstellen kann, wenn unterschiedliche Techniken zur Geolokalisierung verwendet werden. Die Fehler-Callback-Funktion, die ebenso optional ist wie bei `getCurrentPosition()`, kann wiederholt aufgerufen werden.
 
 > [!NOTE]
-> Sie können {{domxref("Geolocation.watchPosition","watchPosition()")}} ohne einen initialen Aufruf von {{domxref("Geolocation.getCurrentPosition","getCurrentPosition()")}} verwenden.
+> Sie können [`watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition) ohne einen vorherigen Anruf von [`getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition) verwenden.
 
 ```js
 const watchID = navigator.geolocation.watchPosition((position) => {
@@ -51,19 +51,19 @@ const watchID = navigator.geolocation.watchPosition((position) => {
 });
 ```
 
-Die Methode {{domxref("Geolocation.watchPosition","watchPosition()")}} gibt eine ID-Nummer zurück, die verwendet werden kann, um den angeforderten Positionsüberwacher eindeutig zu identifizieren; Sie verwenden diesen Wert zusammen mit der Methode {{domxref("Geolocation.clearWatch","clearWatch()")}}, um das Überwachen des Benutzerstandorts zu beenden.
+Die Methode [`watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition) gibt eine ID-Nummer zurück, die verwendet werden kann, um den angeforderten Positionsbeobachter eindeutig zu identifizieren; diesen Wert verwenden Sie zusammen mit der Methode [`clearWatch()`](/de/docs/Web/API/Geolocation/clearWatch), um die Beobachtung des Benutzerstandorts zu beenden.
 
 ```js
 navigator.geolocation.clearWatch(watchID);
 ```
 
-### Feinabstimmung der Antwort
+### Feineinstellung der Antwort
 
-Sowohl {{domxref("Geolocation.getCurrentPosition","getCurrentPosition()")}} als auch {{domxref("Geolocation.watchPosition","watchPosition()")}} akzeptieren einen Erfolgs-Callback, einen optionalen Fehler-Callback und ein optionales Optionsobjekt.
+Sowohl [`getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition) als auch [`watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition) akzeptieren einen Erfolgs-Callback, einen optionalen Fehler-Callback und ein optionales Optionsobjekt.
 
-Dieses Objekt erlaubt Ihnen festzulegen, ob hohe Genauigkeit aktiviert werden soll, ein maximales Alter für den zurückgegebenen Positionswert (bis zu diesem Alter wird er zwischengespeichert und wiederverwendet, wenn dieselbe Position erneut angefordert wird; danach fordert der Browser frische Positionsdaten an), und einen Timeout-Wert, der bestimmt, wie lange der Browser versuchen sollte, die Positionsdaten zu erfassen, bevor er abbricht.
+Dieses Objekt ermöglicht es Ihnen zu spezifizieren, ob hohe Genauigkeit aktiviert werden soll, ein maximales Alter für den zurückgegebenen Positionswert (bis zu diesem Alter wird er zwischengespeichert und wiederverwendet, wenn dieselbe Position erneut angefordert wird; danach wird der Browser frische Positionsdaten anfordern) und einen Zeitlimitwert, der festlegt, wie lange der Browser versuchen sollte, die Positionsdaten zu erhalten, bevor das Zeitlimit erreicht wird.
 
-Ein Aufruf von {{domxref("Geolocation.watchPosition","watchPosition")}} könnte folgendermaßen aussehen:
+Ein Anruf bei [`watchPosition`](/de/docs/Web/API/Geolocation/watchPosition) könnte wie folgt aussehen:
 
 ```js
 function success(position) {
@@ -71,7 +71,7 @@ function success(position) {
 }
 
 function error() {
-  alert("Entschuldigung, keine Position verfügbar.");
+  alert("Sorry, no position available.");
 }
 
 const options = {
@@ -85,28 +85,28 @@ const watchID = navigator.geolocation.watchPosition(success, error, options);
 
 ## Beschreibung einer Position
 
-Der Standort des Benutzers wird unter Verwendung einer Instanz des Objekts {{domxref("GeolocationPosition")}}, das selbst eine Instanz des Objekts {{domxref("GeolocationCoordinates")}} enthält, beschrieben.
+Der Standort des Benutzers wird durch eine Instanz des [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Objekts beschrieben, das seinerseits eine Instanz des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Objekts enthält.
 
-Die `GeolocationPosition`-Instanz enthält nur zwei Dinge: eine `coords`-Eigenschaft, die die `GeolocationCoordinates`-Instanz enthält, und eine `timestamp`-Eigenschaft, die einen Zeitstempel enthält, angegeben in {{Glossary("Unix time")}} in Millisekunden, zu dem die Positionsdaten abgerufen wurden.
+Die `GeolocationPosition`-Instanz enthält nur zwei Dinge: eine `coords`-Eigenschaft, die die Instanz von `GeolocationCoordinates` enthält, und eine `timestamp`-Eigenschaft, die einen Zeitstempel enthält, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, zu dem die Positionsdaten abgerufen wurden.
 
-Die `GeolocationCoordinates`-Instanz umfasst eine Reihe von Eigenschaften, aber die beiden, die Sie am häufigsten verwenden, sind `latitude` und `longitude`, die Sie benötigen, um Ihre Position auf einer Karte darzustellen. Daher sehen viele erfolgreiche Geolokalisierungs-Callbacks ziemlich einfach aus:
+Die `GeolocationCoordinates`-Instanz enthält eine Reihe von Eigenschaften, aber die beiden, die Sie am häufigsten verwenden werden, sind `latitude` und `longitude`, die das sind, was Sie benötigen, um Ihren Standort auf einer Karte zu zeichnen. Daher sehen viele Geolocation-Erfolgs-Callbacks recht einfach aus:
 
 ```js
 function success(position) {
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
 
-  // Machen Sie etwas mit Ihrer Breite und Länge
+  // Do something with your latitude and longitude
 }
 ```
 
-Sie können jedoch auch noch eine Reihe weiterer Informationen aus einem `GeolocationCoordinates`-Objekt erhalten, einschließlich Höhe, Geschwindigkeit, in welche Richtung das Gerät weist und ein Genauigkeitsmaß für die Höhe, Länge und Breitendaten.
+Sie können jedoch eine Vielzahl anderer Informationen aus einem `GeolocationCoordinates`-Objekt erhalten, einschließlich Höhe, Geschwindigkeit, in welche Richtung das Gerät zeigt, und ein Maß für die Genauigkeit der Höhen-, Längen- und Breitenkoordinaten.
 
 ## Fehlerbehandlung
 
-Die Fehler-Callback-Funktion, sofern sie beim Aufruf von `getCurrentPosition()` oder `watchPosition()` bereitgestellt wird, erwartet eine Instanz des Objekttyps [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError) als ersten Parameter. Dieser Objekttyp enthält zwei Eigenschaften: einen `code`, der anzeigt, welche Art von Fehler zurückgegeben wurde, und eine lesbare `message`, die beschreibt, was der Fehlercode bedeutet.
+Die Fehler-Callback-Funktion, falls bereitgestellt, wenn `getCurrentPosition()` oder `watchPosition()` aufgerufen werden, erwartet eine Instanz des [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Objekts als ersten Parameter. Dieser Objekttyp enthält zwei Eigenschaften: einen `code`, der angibt, welche Art von Fehler zurückgegeben wurde, und eine für Menschen lesbare `message`, die beschreibt, was der Fehlercode bedeutet.
 
-Sie könnten es folgendermaßen verwenden:
+Sie könnten es wie folgt verwenden:
 
 ```js
 function errorCallback(error) {
@@ -116,7 +116,7 @@ function errorCallback(error) {
 
 ## Beispiele
 
-Im folgenden Beispiel wird die Geolocation-API verwendet, um die Breite und Länge des Benutzers abzurufen. Bei Erfolg wird der verfügbare Hyperlink mit einer `openstreetmap.org`-URL gefüllt, die den Standort des Benutzers anzeigt.
+Im folgenden Beispiel wird die Geolocation API verwendet, um die Breiten- und Längengrade des Benutzers abzurufen. Wenn erfolgreich, wird der verfügbare Hyperlink mit einer `openstreetmap.org` URL gefüllt, die deren Standort zeigt.
 
 ```css hidden
 body {

@@ -8,11 +8,15 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.lang`**-Eigenschaft ruft die Basissprache der Attributwerte und des Textinhalts eines Elements ab oder setzt diese.
+Die **`HTMLElement.lang`**-Eigenschaft ruft die Basissprache der Attributwerte und des Textinhalts eines Elements ab oder legt sie fest.
 
-Der von dieser Eigenschaft zurückgegebene Sprachcode ist in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definiert. Häufige Beispiele umfassen "en" für Englisch, "ja" für Japanisch, "es" für Spanisch usw. Der Standardwert dieses Attributs ist `unknown`. Beachten Sie, dass dieses Attribut, obwohl es auf der individuellen Elementebene wie hier beschrieben gültig ist, am häufigsten für das Wurzelelement des Dokuments angegeben wird.
+Der von dieser Eigenschaft zurückgegebene Sprachcode ist definiert in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}}.
+Gängige Beispiele sind "en" für Englisch, "ja" für
+Japanisch, "es" für Spanisch und so weiter. Der Standardwert dieses Attributs ist
+`unknown`. Beachten Sie, dass dieses Attribut, obwohl es auf der Ebene einzelner Elemente wie hier beschrieben gültig ist, am häufigsten für das Wurzelelement des Dokuments angegeben wird.
 
-Dies funktioniert auch nur mit dem `lang`-Attribut und nicht mit `xml:lang`.
+Dies funktioniert auch nur mit dem `lang`-Attribut und nicht mit
+`xml:lang`.
 
 ## Wert
 
@@ -21,8 +25,8 @@ Ein String.
 ## Beispiele
 
 ```js
-// dieses Snippet vergleicht die Basissprache und leitet
-// basierend auf der Sprache zu einer anderen URL um
+// this snippet compares the base language and
+// redirects to another URL based on language
 if (document.documentElement.lang === "en") {
   window.location.href = "Some_document.html.en";
 } else if (document.documentElement.lang === "ru") {

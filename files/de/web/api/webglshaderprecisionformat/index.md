@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **WebGLShaderPrecisionFormat**-Schnittstelle ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und repräsentiert die Informationen, die durch den Aufruf der Methode {{domxref("WebGLRenderingContext.getShaderPrecisionFormat()")}} zurückgegeben werden.
+Die **WebGLShaderPrecisionFormat**-Schnittstelle ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und stellt die Informationen dar, die durch den Aufruf der Methode [`WebGLRenderingContext.getShaderPrecisionFormat()`](/de/docs/Web/API/WebGLRenderingContext/getShaderPrecisionFormat) zurückgegeben werden.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("WebGLShaderPrecisionFormat.rangeMin")}} {{ReadOnlyInline}}
-  - : Der Zweierlogarithmus des absoluten Wertes des kleinsten darstellbaren Wertes.
-- {{domxref("WebGLShaderPrecisionFormat.rangeMax")}} {{ReadOnlyInline}}
-  - : Der Zweierlogarithmus des absoluten Wertes des größten darstellbaren Wertes.
-- {{domxref("WebGLShaderPrecisionFormat.precision")}} {{ReadOnlyInline}}
-  - : Die Anzahl der darstellbaren Genauigkeitsbits. Für Ganzzahlformate ist dieser Wert immer 0.
+- [`WebGLShaderPrecisionFormat.rangeMin`](/de/docs/Web/API/WebGLShaderPrecisionFormat/rangeMin) {{ReadOnlyInline}}
+  - : Der Basis-2-Logarithmus des absoluten Wertes des minimal darstellbaren Wertes.
+- [`WebGLShaderPrecisionFormat.rangeMax`](/de/docs/Web/API/WebGLShaderPrecisionFormat/rangeMax) {{ReadOnlyInline}}
+  - : Der Basis-2-Logarithmus des absoluten Wertes des maximal darstellbaren Wertes.
+- [`WebGLShaderPrecisionFormat.precision`](/de/docs/Web/API/WebGLShaderPrecisionFormat/precision) {{ReadOnlyInline}}
+  - : Die Anzahl der Bits der Genauigkeit, die dargestellt werden können. Für Ganzzahlformate ist dieser Wert immer 0.
 
 ## Beispiele
 
-Ein `WebGLShaderPrecisionFormat`-Objekt wird von der Methode {{domxref("WebGLRenderingContext.getShaderPrecisionFormat()")}} zurückgegeben.
+Ein `WebGLShaderPrecisionFormat`-Objekt wird von der Methode [`WebGLRenderingContext.getShaderPrecisionFormat()`](/de/docs/Web/API/WebGLRenderingContext/getShaderPrecisionFormat) zurückgegeben.
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -39,4 +39,4 @@ gl.getShaderPrecisionFormat(gl.VERTEX_SHADER, gl.MEDIUM_FLOAT);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getShaderPrecisionFormat()")}}
+- [`WebGLRenderingContext.getShaderPrecisionFormat()`](/de/docs/Web/API/WebGLRenderingContext/getShaderPrecisionFormat)

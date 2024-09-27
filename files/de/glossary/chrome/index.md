@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-In einem Browser bezeichnet der **Chrome** alle sichtbaren Aspekte eines Browsers abgesehen von den Webseiten selbst (z. B. Werkzeugleisten, Menüleiste, Tabs). Dies ist nicht mit dem {{glossary("Google Chrome")}} Browser zu verwechseln.
+In einem Browser bezeichnet man als **chrome** jeden sichtbaren Aspekt eines Browsers abgesehen von den Webseiten selbst (z. B. Symbolleisten, Menüleiste, Tabs). Dies ist nicht zu verwechseln mit dem [Google Chrome](/de/docs/Glossary/Google_Chrome) Browser.
 
 ## Siehe auch
 
-- [Browser- und GUI-Chrome](https://www.nngroup.com/articles/browser-and-gui-chrome/)
+- [Browser und GUI Chrome](https://www.nngroup.com/articles/browser-and-gui-chrome/)

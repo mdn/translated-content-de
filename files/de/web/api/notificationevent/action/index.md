@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{AvailableInWorkers("service")}}
 
-Die **`action`**-Eigenschaft der {{domxref("NotificationEvent")}}-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die Zeichenfolgen-ID der Benachrichtigungsschaltfläche zurückgibt, die der Benutzer geklickt hat. Dieser Wert gibt eine leere Zeichenfolge zurück, wenn der Benutzer die Benachrichtigung an einer Stelle klickte, die keine Schaltfläche ist, oder wenn die Benachrichtigung keine Schaltfläche hat. Die ID der Benachrichtigung wird während der Erstellung der Benachrichtigung über das actions-Array-Attribut festgelegt und kann nicht geändert werden, es sei denn, die Benachrichtigung wird ersetzt.
+Die **`action`**-Eigenschaft des nur-lesbaren [`NotificationEvent`](/de/docs/Web/API/NotificationEvent)-Interfaces gibt die Zeichenfolgen-ID des Benachrichtigungsknopfs zurück, den der Benutzer geklickt hat. Dieser Wert gibt eine leere Zeichenfolge zurück, wenn der Benutzer die Benachrichtigung an einer anderen Stelle als einem Aktionsknopf angeklickt hat oder die Benachrichtigung keinen Knopf hat. Die Benachrichtigungs-ID wird während der Erstellung der Benachrichtigung über das `actions`-Array-Attribut festgelegt und kann nicht geändert werden, es sei denn, die Benachrichtigung wird ersetzt.
 
 ## Wert
 

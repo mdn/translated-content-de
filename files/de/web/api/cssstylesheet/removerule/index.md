@@ -1,5 +1,5 @@
 ---
-title: "CSSStyleSheet: die Methode removeRule()"
+title: "CSSStyleSheet: removeRule() Methode"
 short-title: removeRule()
 slug: Web/API/CSSStyleSheet/removeRule
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("CSSOM")}}{{deprecated_header}}
 
-Die veraltete Methode **`removeRule()`** des {{domxref("CSSStyleSheet")}} entfernt eine Regel aus dem Stylesheet-Objekt. Sie ist funktional identisch mit der standardmäßigen, bevorzugten Methode {{domxref("CSSStyleSheet.deleteRule", "deleteRule()")}}.
+Die veraltete Methode **`removeRule()`** des [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) Objekts entfernt eine Regel aus dem Stylesheet-Objekt. Sie ist funktional identisch mit der standardisierten, bevorzugten Methode [`deleteRule()`](/de/docs/Web/API/CSSStyleSheet/deleteRule).
 
 > [!NOTE]
-> Dies ist eine _veraltete Methode_, die durch die Standardmethode {{domxref("CSSStyleSheet.deleteRule", "deleteRule()")}} ersetzt wurde. Sie sollten stattdessen diese verwenden.
+> Dies ist eine _veraltete Methode_, die durch die standardisierte Methode [`deleteRule()`](/de/docs/Web/API/CSSStyleSheet/deleteRule) ersetzt wurde. Es wird empfohlen, stattdessen diese zu verwenden.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ removeRule(index)
 ### Parameter
 
 - `index`
-  - : Der Index in der {{domxref("CSSRuleList")}} des Stylesheets, der die zu entfernende Regel angibt.
+  - : Der Index in die [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) des Stylesheets, der die zu entfernende Regel angibt.
 
 ### Rückgabewert
 
@@ -36,7 +36,7 @@ Dieses Beispiel entfernt die erste Regel aus dem Stylesheet `myStyles`.
 myStyles.removeRule(0);
 ```
 
-Sie können dies sehr einfach umschreiben, um die Standardmethode `deleteRule()` zu verwenden:
+Sie können dies sehr einfach umschreiben, um die standardisierte Methode `deleteRule()` zu verwenden:
 
 ```js
 myStyles.deleteRule(0);
@@ -52,6 +52,6 @@ myStyles.deleteRule(0);
 
 ## Siehe auch
 
-- [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model)
+- [CSS Object Model](/de/docs/Web/API/CSS_Object_Model)
 - [Verwendung dynamischer Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
-- {{domxref("CSSStyleSheet.insertRule", "insertRule()")}}
+- [`insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule)

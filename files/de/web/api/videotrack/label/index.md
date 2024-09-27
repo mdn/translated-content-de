@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **{{domxref("VideoTrack")}}**-Eigenschaft **`label`** gibt einen String zurück, der das lesbare Label des Videotracks angibt, falls verfügbar; andernfalls wird ein leerer String zurückgegeben.
+Die unveränderliche **[`VideoTrack`](/de/docs/Web/API/VideoTrack)**-Eigenschaft **`label`** gibt einen String zurück, der das menschenlesbare Label des Video-Tracks angibt, falls verfügbar; andernfalls wird ein leerer String zurückgegeben.
 
 ## Wert
 
-Ein String, der das lesbare Label des Tracks angibt, falls eines in den Track-Metadaten verfügbar ist. Andernfalls wird ein leerer String (`""`) zurückgegeben.
+Ein String, der das menschenlesbare Label des Tracks angibt, falls es in den Track-Metadaten verfügbar ist. Andernfalls wird ein leerer String (`""`) zurückgegeben.
 
-Zum Beispiel könnte ein Track, dessen {{domxref("VideoTrack.kind", "kind")}} `"sign"` ist, ein `label` wie `"A sign-language interpretation."` haben.
+Zum Beispiel könnte ein Track, dessen [`kind`](/de/docs/Web/API/VideoTrack/kind) `"sign"` ist, ein `label` wie `"A sign-language interpretation."` haben.
 
 ## Beispiele
 
-Dieses Beispiel gibt ein Array von Track-Typen und Labels für die potenzielle Verwendung in einer Benutzeroberfläche zurück, um Videotracks für ein angegebenes Medienelement auszuwählen. Die Liste wird gefiltert, um nur bestimmte Track-Typen zuzulassen.
+Dieses Beispiel gibt ein Array mit Track-Arten und Labels zurück, das potenziell in einer Benutzeroberfläche zur Auswahl von Video-Tracks für ein angegebenes Medienelement verwendet werden kann. Die Liste wird gefiltert, um nur bestimmte Track-Arten zuzulassen.
 
 ```js
 function getTrackList(el) {
@@ -38,7 +38,7 @@ function getTrackList(el) {
 }
 ```
 
-Das resultierende `trackList` enthält ein Array von Videotracks, deren `kind` eines derjenigen im Array `wantedKinds` ist, wobei jeder Eintrag die {{domxref("VideoTrack.id", "id")}}, {{domxref("VideoTrack.kind", "kind")}} und `label` des Tracks bereitstellt.
+Das resultierende `trackList` enthält ein Array von Video-Tracks, deren `kind` in dem Array `wantedKinds` enthalten ist. Jeder Eintrag liefert die [`id`](/de/docs/Web/API/VideoTrack/id), [`kind`](/de/docs/Web/API/VideoTrack/kind) und das `label` des Tracks.
 
 ## Spezifikationen
 

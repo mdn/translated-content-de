@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`close()`**-Methode des {{domxref("HIDDevice")}}-Interfaces schließt die Verbindung zum HID-Gerät.
+Die **`close()`**-Methode der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle schließt die Verbindung zum HID-Gerät.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald die Verbi
 
 ## Beispiele
 
-Im folgenden Beispiel schließen wir das HID-Gerät, nachdem alle Daten gesendet und empfangen wurden.
+Im folgenden Beispiel schließen wir das HID-Gerät, sobald alle Daten gesendet und empfangen wurden.
 
 ```js
 await device.close();

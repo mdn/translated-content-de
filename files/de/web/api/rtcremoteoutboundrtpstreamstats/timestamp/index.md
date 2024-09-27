@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`timestamp`**-Eigenschaft des {{domxref("RTCRemoteOutboundRtpStreamStats")}} Dictionaries ist ein {{domxref("DOMHighResTimeStamp")}} Objekt, das angibt, zu welchem Zeitpunkt die Daten in dem Objekt erfasst wurden.
+Die **`timestamp`**-Eigenschaft des [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Wörterbuchs ist ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das den Zeitpunkt angibt, zu dem die Daten im Objekt entnommen wurden.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}} Wert, der die Zeit angibt, zu der die durch die Statistiken in diesem Objekt beschriebene Aktivität aufgezeichnet wurde, in Millisekunden, die seit dem 1. Januar 1970, UTC, vergangen sind.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert, der den Zeitpunkt angibt, zu dem die Aktivität, die durch die Statistiken in diesem Objekt beschrieben wird, aufgezeichnet wurde, in Millisekunden seit dem Beginn des 1. Januar 1970, UTC.
 
-Der Wert sollte bis auf wenige Millisekunden genau sein, kann jedoch aufgrund von Hardware- oder Betriebssystemeinschränkungen oder aufgrund von Schutzmaßnahmen gegen [Fingerprinting](/de/docs/Glossary/Fingerprinting) in Form von verringerter Uhrenpräzision oder -genauigkeit nicht vollständig präzise sein.
+Der Wert sollte mit einer Genauigkeit von wenigen Millisekunden angegeben werden, kann jedoch aufgrund von Hardware- oder Betriebssystemeinschränkungen oder durch Schutzmaßnahmen gegen [Fingerprinting](/de/docs/Glossary/Fingerprinting) in Form von reduzierter Taktgenauigkeit oder -präzision nicht vollständig präzise sein.
 
 ## Spezifikationen
 

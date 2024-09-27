@@ -11,19 +11,19 @@ Die **`animation-play-state`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob
 
 {{EmbedInteractiveExample("pages/css/animation-play-state.html")}}
 
-Das Fortsetzen einer pausierten Animation setzt die Animation dort fort, wo sie zum Zeitpunkt der Unterbrechung gestoppt wurde, anstatt von Anfang der Animationssequenz neu zu starten.
+Das Fortsetzen einer pausierten Animation f체hrt dazu, dass die Animation an der Stelle fortgesetzt wird, an der sie pausiert wurde, anstatt von Anfang an die Animationssequenz neu zu starten.
 
 ## Syntax
 
 ```css
-/* Einzelne Animation */
+/* Single animation */
 animation-play-state: running;
 animation-play-state: paused;
 
-/* Mehrere Animationen */
+/* Multiple animations */
 animation-play-state: paused, running, running;
 
-/* Globale Werte */
+/* Global values */
 animation-play-state: inherit;
 animation-play-state: initial;
 animation-play-state: revert;
@@ -34,12 +34,12 @@ animation-play-state: unset;
 ### Werte
 
 - `running`
-  - : Die **Animation** l채uft derzeit.
+  - : Die **Animation** spielt derzeit **ab**.
 - `paused`
   - : Die **Animation** ist derzeit **pausiert**.
 
 > [!NOTE]
-> Wenn Sie mehrere Komma-getrennte Werte in einer `animation-*` Eigenschaft angeben, werden sie in der Reihenfolge auf die Animationen angewendet, in der die {{cssxref("animation-name")}}s erscheinen. F체r F채lle, in denen die Anzahl der Animationen und der `animation-*` Eigenschaftswerte nicht 체bereinstimmen, siehe [Festlegen mehrerer Animationswerteigenschaften](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
+> Wenn Sie mehrere durch Kommas getrennte Werte bei einer `animation-*` Eigenschaft angeben, werden sie in der Reihenfolge angewendet, in der die {{cssxref("animation-name")}}s erscheinen. F체r Situationen, in denen die Anzahl der Animationen und die Werte der `animation-*` Eigenschaften nicht 체bereinstimmen, siehe [Festlegen mehrerer Animationswerte](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations#setting_multiple_animation_property_values).
 
 ## Formale Definition
 
@@ -101,12 +101,12 @@ Siehe [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) f�
 
 {{Specifications}}
 
-## Browserkompatibilit채t
+## Browser-Kompatibilit채t
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
-- JavaScript {{domxref("AnimationEvent")}} API
+- JavaScript [`AnimationEvent`](/de/docs/Web/API/AnimationEvent) API
 - Andere verwandte Animationseigenschaften: {{cssxref("animation")}}, {{cssxref("animation-composition")}}, {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}}, {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}}, {{cssxref("animation-iteration-count")}}, {{cssxref("animation-name")}}, {{cssxref("animation-timeline")}}, {{cssxref("animation-timing-function")}}

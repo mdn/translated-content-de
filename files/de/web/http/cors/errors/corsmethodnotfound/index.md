@@ -1,5 +1,5 @@
 ---
-title: "Grund: Methode im CORS-Header 'Access-Control-Allow-Methods' nicht gefunden"
+title: "Grund: Methode nicht in CORS-Header 'Access-Control-Allow-Methods' gefunden"
 slug: Web/HTTP/CORS/Errors/CORSMethodNotFound
 l10n:
   sourceCommit: ef46a4ac6bfec3e33c9209244e7cb1a9206165d6
@@ -15,24 +15,24 @@ Reason: Did not find method in CORS header 'Access-Control-Allow-Methods'
 
 ## Was ist schiefgelaufen?
 
-Die im {{Glossary("CORS")}}-Anfrage verwendete HTTP-Methode ist nicht in der Liste der Methoden enthalten, die im {{HTTPHeader("Access-Control-Allow-Methods")}}-Header der Antwort angegeben sind. Dieser Header gibt eine durch Kommas getrennte Liste der HTTP-Methoden an, die bei der Verwendung von CORS für den Zugang zur in der Anfrage angegebenen URL verwendet werden dürfen. Wird eine andere Methode verwendet, tritt dieser Fehler auf.
+Die im [CORS](/de/docs/Glossary/CORS)-Antrag verwendete HTTP-Methode ist nicht in der Liste der Methoden enthalten, die durch den `Access-Control-Allow-Methods`-Header der Antwort angegeben werden. Dieser Header gibt eine kommagetrennte Liste der HTTP-Methoden an, die bei der Verwendung von CORS für den Zugriff auf die im Antrag angegebene URL verwendet werden dürfen; wenn der Antrag eine andere Methode verwendet, tritt dieser Fehler auf.
 
-Wenn die Antwort zum Beispiel Folgendes enthält:
+Beispielsweise, wenn die Antwort enthält:
 
 ```http
 Access-Control-Allow-Methods: GET,HEAD,POST
 ```
 
-Wird der Versuch, eine {{HTTPMethod("PUT")}}-Anfrage zu verwenden, mit diesem Fehler fehlschlagen.
+Ein Versuch, eine {{HTTPMethod("PUT")}}-Anfrage zu verwenden, wird mit diesem Fehler fehlschlagen.
 
-Stellen Sie sicher, dass Ihr Code nur die zugelassenen HTTP-Methoden verwendet, um auf den Dienst zuzugreifen.
+Stellen Sie sicher, dass Ihr Code nur die erlaubten HTTP-Methoden beim Zugriff auf den Dienst verwendet.
 
 > [!NOTE]
-> Falls der Server nicht erkannte oder undefinierte Methodennamen in seinem `Access-Control-Allow-Methods`-Header enthält, tritt ein anderer Fehler auf: [Grund: ungültiges Token 'xyz' im CORS-Header 'Access-Control-Allow-Methods'](/de/docs/Web/HTTP/CORS/Errors/CORSInvalidAllowMethod).
+> Wenn der Server im Header `Access-Control-Allow-methods` irgendwelche nicht erkannten oder undefinierten Methodennamen einfügt, tritt ein anderer Fehler auf: [Grund: ungültiges Token 'xyz' im CORS-Header 'Access-Control-Allow-Methods'](/de/docs/Web/HTTP/CORS/Errors/CORSInvalidAllowMethod).
 
 ## Siehe auch
 
 - [CORS-Fehler](/de/docs/Web/HTTP/CORS/Errors)
-- Glossar: {{Glossary("CORS")}}
-- [Einführung in CORS](/de/docs/Web/HTTP/CORS)
+- Glossar: [CORS](/de/docs/Glossary/CORS)
+- [CORS-Einführung](/de/docs/Web/HTTP/CORS)
 - [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods)

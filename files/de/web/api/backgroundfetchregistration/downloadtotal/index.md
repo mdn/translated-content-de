@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`downloadTotal`**-Eigenschaft des {{domxref("BackgroundFetchRegistration")}}-Interfaces gibt die Gesamtgröße in Bytes dieses Downloads zurück. Diese wird festgelegt, wenn der Hintergrundabruf registriert wurde, oder `0`, wenn sie nicht festgelegt ist.
+Die schreibgeschützte **`downloadTotal`**-Eigenschaft der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Schnittstelle gibt die Gesamtgröße dieses Downloads in Bytes zurück. Diese wird festgelegt, wenn der Hintergrundabruf registriert wird, oder ist `0` wenn nicht festgelegt.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine {{jsxref("number")}}.
 
 ## Beispiele
 
-Das Protokollieren dieser Eigenschaft in der Konsole gibt die Gesamtgröße in Bytes dieses Downloads zurück.
+Das Protokollieren dieser Eigenschaft in die Konsole gibt die Gesamtgröße dieses Downloads in Bytes zurück.
 
 ```js
 console.log(bgFetch.downloadTotal);

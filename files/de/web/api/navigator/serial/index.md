@@ -1,5 +1,5 @@
 ---
-title: "Navigator: serielle Eigenschaft"
+title: "Navigator: serial-Eigenschaft"
 short-title: serial
 slug: Web/API/Navigator/serial
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("Web Serial API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`serial`** schreibgeschützte Eigenschaft des {{domxref("Navigator")}}-Interfaces gibt ein {{domxref("Serial")}}-Objekt zurück, das den Einstiegspunkt in die [Web Serial API](/de/docs/Web/API/Web_Serial_API) darstellt.
+Die **`serial`** schreibgeschützte Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt ein [`Serial`](/de/docs/Web/API/Serial)-Objekt zurück, das den Einstiegspunkt in die [Web Serial API](/de/docs/Web/API/Web_Serial_API) darstellt.
 
-Beim Abrufen wird immer dieselbe Instanz des {{domxref("Serial")}}-Objekts zurückgegeben.
+Beim Abrufen wird immer dieselbe Instanz des [`Serial`](/de/docs/Web/API/Serial)-Objekts zurückgegeben.
 
 ## Wert
 
-Ein {{domxref("Serial")}}-Objekt.
+Ein [`Serial`](/de/docs/Web/API/Serial)-Objekt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird die Methode `getPorts()` verwendet, um eine Liste der verfügbaren Ports zu initialisieren.
+Das folgende Beispiel verwendet die `getPorts()`-Methode, um eine Liste verfügbarer Ports zu initialisieren.
 
 ```js
 navigator.serial.getPorts().then((ports) => {
-  // Initialisieren der Liste der verfügbaren Ports mit `ports` beim Laden der Seite.
+  // Initialize the list of available ports with `ports` on page load.
 });
 ```
 
@@ -36,5 +36,5 @@ navigator.serial.getPorts().then((ports) => {
 
 ## Siehe auch
 
-- [Von einem seriellen Port lesen und zu einem seriellen Port schreiben](https://developer.chrome.com/docs/capabilities/serial)
-- [Einstieg in die Web Serial API](https://codelabs.developers.google.com/codelabs/web-serial#0)
+- [Von und zu einem seriellen Port lesen und schreiben](https://developer.chrome.com/docs/capabilities/serial)
+- [Einführung in die Web Serial API](https://codelabs.developers.google.com/codelabs/web-serial#0)

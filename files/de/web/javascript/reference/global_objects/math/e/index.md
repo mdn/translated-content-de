@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Math.E`**-statische Dateneigenschaft repräsentiert die Eulersche Zahl, die Basis der natürlichen Logarithmen, e, die ungefähr 2,718 beträgt.
+Die statische Daten-Eigenschaft **`Math.E`** repräsentiert die Eulersche Zahl, die Basis der natürlichen Logarithmen, e, die ungefähr 2.718 ist.
 
 {{EmbedInteractiveExample("pages/js/math-e.html")}}
 
@@ -23,7 +23,7 @@ Die **`Math.E`**-statische Dateneigenschaft repräsentiert die Eulersche Zahl, d
 
 ## Beschreibung
 
-Da `E` eine statische Eigenschaft von `Math` ist, verwenden Sie es immer als `Math.E` und nicht als Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `E` eine statische Eigenschaft von `Math` ist, verwenden Sie sie immer als `Math.E` und nicht als Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

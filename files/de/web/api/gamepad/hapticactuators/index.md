@@ -1,5 +1,5 @@
 ---
-title: "Gamepad: Eigenschaft hapticActuators"
+title: "Gamepad: hapticActuators-Eigenschaft"
 short-title: hapticActuators
 slug: Web/API/Gamepad/hapticActuators
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Gamepad")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`hapticActuators`**-Eigenschaft der {{domxref("Gamepad")}}-Schnittstelle gibt ein Array zurück, das {{domxref("GamepadHapticActuator")}}-Objekte enthält, von denen jedes die auf dem Controller verfügbare haptische Hardware repräsentiert.
+Die schreibgeschützte **`hapticActuators`**-Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt ein Array zurück, das [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Objekte enthält. Jedes dieser Objekte repräsentiert eine Hardware für haptisches Feedback, die auf dem Controller verfügbar ist.
 
 ## Wert
 
-Ein Array, das {{domxref("GamepadHapticActuator")}}-Objekte enthält.
+Ein Array, das [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Objekte enthält.
 
 ## Beispiele
 

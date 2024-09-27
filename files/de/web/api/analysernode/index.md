@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die **`AnalyserNode`**-Schnittstelle repräsentiert einen Knoten, der in der Lage ist, Echtzeit-Informationen zur Frequenz- und Zeitbereichsanalyse bereitzustellen. Es handelt sich um einen {{domxref("AudioNode")}}, der den Audiostream unverändert vom Eingang zum Ausgang weiterleitet, Ihnen jedoch ermöglicht, die erzeugten Daten zu verarbeiten und Audiovisualisierungen zu erstellen.
+Die **`AnalyserNode`**-Schnittstelle repräsentiert einen Knoten, der in der Lage ist, Echtzeit-Frequenz- und Zeitbereichsanalyse-Informationen bereitzustellen. Es handelt sich um einen [`AudioNode`](/de/docs/Web/API/AudioNode), der den Audiostream unverändert vom Eingang zum Ausgang weiterleitet, Ihnen aber ermöglicht, die generierten Daten zu verarbeiten und Audio-Visualisierungen zu erstellen.
 
 Ein `AnalyserNode` hat genau einen Eingang und einen Ausgang. Der Knoten funktioniert auch, wenn der Ausgang nicht verbunden ist.
 
-![Ohne den Audiostream zu verändern, ermöglicht der Knoten, die damit verbundenen Frequenz- und Zeitbereichsdaten mithilfe einer FFT zu erhalten.](fttaudiodata_en.svg)
+![Ohne den Audiostream zu ändern, ermöglicht der Knoten das Abrufen der Frequenz- und Zeitbereichsdaten, die mit ihm verbunden sind, unter Verwendung einer FFT.](fttaudiodata_en.svg)
 
 {{InheritanceDiagram}}
 
@@ -23,18 +23,18 @@ Ein `AnalyserNode` hat genau einen Eingang und einen Ausgang. Der Knoten funktio
     </tr>
     <tr>
       <th scope="row">Anzahl der Ausgänge</th>
-      <td><code>1</code> (kann jedoch unverbunden bleiben)</td>
+      <td><code>1</code> (kann aber unverbunden bleiben)</td>
     </tr>
     <tr>
-      <th scope="row">Kanalanpassungsmodus</th>
+      <th scope="row">Kanalanzahlmodus</th>
       <td><code>"max"</code></td>
     </tr>
     <tr>
-      <th scope="row">Anzahl der Kanäle</th>
+      <th scope="row">Kanalanzahl</th>
       <td><code>2</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalspezifikation</th>
+      <th scope="row">Kanalinterpretation</th>
       <td><code>"speakers"</code></td>
     </tr>
   </tbody>
@@ -42,45 +42,45 @@ Ein `AnalyserNode` hat genau einen Eingang und einen Ausgang. Der Knoten funktio
 
 ## Konstruktor
 
-- {{domxref("AnalyserNode.AnalyserNode", "AnalyserNode()")}}
+- [`AnalyserNode()`](/de/docs/Web/API/AnalyserNode/AnalyserNode)
   - : Erstellt eine neue Instanz eines `AnalyserNode`-Objekts.
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("AudioNode")}}_.
+_Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
-- {{domxref("AnalyserNode.fftSize")}}
-  - : Ein unsigned long-Wert, der die Größe der FFT ([Fast Fourier Transform](https://en.wikipedia.org/wiki/Fast_Fourier_transform)) darstellt, die zur Bestimmung des Frequenzbereichs verwendet wird.
-- {{domxref("AnalyserNode.frequencyBinCount")}} {{ReadOnlyInline}}
-  - : Ein unsigned long-Wert, der die Hälfte der FFT-Größe beträgt. Dies entspricht im Allgemeinen der Anzahl der Datenwerte, mit denen Sie für die Visualisierung arbeiten müssen.
-- {{domxref("AnalyserNode.minDecibels")}}
-  - : Ein double-Wert, der den minimalen Leistungswert im Skalierungsbereich für die FFT-Analysedaten zur Umwandlung in unsigned byte-Werte darstellt — im Grunde spezifiziert dies den Mindestwert für den Bereich der Ergebnisse, wenn `getByteFrequencyData()` verwendet wird.
-- {{domxref("AnalyserNode.maxDecibels")}}
-  - : Ein double-Wert, der den maximalen Leistungswert im Skalierungsbereich für die FFT-Analysedaten zur Umwandlung in unsigned byte-Werte darstellt — im Grunde spezifiziert dies den Höchstwert für den Bereich der Ergebnisse, wenn `getByteFrequencyData()` verwendet wird.
-- {{domxref("AnalyserNode.smoothingTimeConstant")}}
-  - : Ein double-Wert, der die Glättungskonstante mit dem letzten Analysebild darstellt — im Grunde sorgt dies dafür, dass der Übergang zwischen Werten im Laufe der Zeit flüssiger wird.
+- [`AnalyserNode.fftSize`](/de/docs/Web/API/AnalyserNode/fftSize)
+  - : Ein Wert vom Typ unsigned long, der die Größe der FFT ([Fast Fourier Transform](https://en.wikipedia.org/wiki/Fast_Fourier_transform)) darstellt, die zur Bestimmung des Frequenzbereichs verwendet wird.
+- [`AnalyserNode.frequencyBinCount`](/de/docs/Web/API/AnalyserNode/frequencyBinCount) {{ReadOnlyInline}}
+  - : Ein Wert vom Typ unsigned long, der halb so groß ist wie die FFT-Größe. Dies entspricht im Allgemeinen der Anzahl der Datenwerte, mit denen Sie für die Visualisierung arbeiten können.
+- [`AnalyserNode.minDecibels`](/de/docs/Web/API/AnalyserNode/minDecibels)
+  - : Ein double-Wert, der den minimalen Leistungswert im Skalierungsbereich für die FFT-Analysedaten darstellt, zur Umwandlung in unsigned Byte-Werte — im Wesentlichen gibt dies den Mindestwert für den Bereich der Ergebnisse bei Verwendung von `getByteFrequencyData()` an.
+- [`AnalyserNode.maxDecibels`](/de/docs/Web/API/AnalyserNode/maxDecibels)
+  - : Ein double-Wert, der den maximalen Leistungswert im Skalierungsbereich für die FFT-Analysedaten darstellt, zur Umwandlung in unsigned Byte-Werte — im Wesentlichen gibt dies den Höchstwert für den Bereich der Ergebnisse bei Verwendung von `getByteFrequencyData()` an.
+- [`AnalyserNode.smoothingTimeConstant`](/de/docs/Web/API/AnalyserNode/smoothingTimeConstant)
+  - : Ein double-Wert, der die Durchschnittskonstante mit dem letzten Analyse-Frame darstellt — im Wesentlichen macht es die Übergänge zwischen den Werten über die Zeit glatter.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seinem Elternteil, {{domxref("AudioNode")}}_.
+_Erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
-- {{domxref("AnalyserNode.getFloatFrequencyData()")}}
-  - : Kopiert die aktuellen Frequenzdaten in ein in ihn übergebenes {{jsxref("Float32Array")}}-Array.
-- {{domxref("AnalyserNode.getByteFrequencyData()")}}
-  - : Kopiert die aktuellen Frequenzdaten in ein in ihn übergebenes {{jsxref("Uint8Array")}} (unsigned byte array).
-- {{domxref("AnalyserNode.getFloatTimeDomainData()")}}
-  - : Kopiert die aktuelle Wellenform- oder Zeitbereichsdaten in ein in ihn übergebenes {{jsxref("Float32Array")}}-Array.
-- {{domxref("AnalyserNode.getByteTimeDomainData()")}}
-  - : Kopiert die aktuelle Wellenform- oder Zeitbereichsdaten in ein in ihn übergebenes {{jsxref("Uint8Array")}} (unsigned byte array).
+- [`AnalyserNode.getFloatFrequencyData()`](/de/docs/Web/API/AnalyserNode/getFloatFrequencyData)
+  - : Kopiert die aktuellen Frequenzdaten in ein übergebenes {{jsxref("Float32Array")}}-Array.
+- [`AnalyserNode.getByteFrequencyData()`](/de/docs/Web/API/AnalyserNode/getByteFrequencyData)
+  - : Kopiert die aktuellen Frequenzdaten in ein übergebenes {{jsxref("Uint8Array")}} (unsigned Byte-Array).
+- [`AnalyserNode.getFloatTimeDomainData()`](/de/docs/Web/API/AnalyserNode/getFloatTimeDomainData)
+  - : Kopiert die aktuelle Wellenform- oder Zeitbereichsdaten in ein übergebenes {{jsxref("Float32Array")}}-Array.
+- [`AnalyserNode.getByteTimeDomainData()`](/de/docs/Web/API/AnalyserNode/getByteTimeDomainData)
+  - : Kopiert die aktuelle Wellenform- oder Zeitbereichsdaten in ein übergebenes {{jsxref("Uint8Array")}} (unsigned Byte-Array).
 
 ## Beispiele
 
 > [!NOTE]
-> Weitere Informationen zur Erstellung von Audiovisualisierungen finden Sie im Leitfaden [Visualizations with Web Audio API](/de/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API).
+> Siehe den Leitfaden [Visualisations with Web Audio API](/de/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API) für weitere Informationen zur Erstellung von Audio-Visualisierungen.
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Das folgende Beispiel zeigt die grundlegende Nutzung eines {{domxref("AudioContext")}}, um einen `AnalyserNode` zu erstellen, dann {{domxref("window.requestAnimationFrame()","requestAnimationFrame")}} und {{htmlelement("canvas")}}, um wiederholt Zeitbereichsdaten zu sammeln und eine "Oszilloskop-Stil" Ausgabe des aktuellen Audioeingangs zu zeichnen. Für vollständigere angewandte Beispiele/Informationen sehen Sie sich unser [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) Demo an (siehe [app.js Zeilen 108-193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen `AnalyserNode` zu erstellen, dann [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) und {{htmlelement("canvas")}}, um wiederholt Zeitbereichsdaten zu sammeln und eine "Oszilloskop-ähnliche" Ausgabe des aktuellen Audio-Eingangs zu zeichnen. Für vollständigere Anwendungsbeispiele/informationen schauen Sie sich unser [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) Demo an (siehe [app.js Zeilen 108-193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
 
 ```js
 const audioCtx = new AudioContext();
@@ -143,7 +143,7 @@ draw();
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

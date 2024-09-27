@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "is not iterable" tritt auf, wenn der Wert, der in ein Array oder Funktionsaufruf [gespreadet](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) wird, als rechte Seite von [`for...of`](/de/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement), als Argument einer Funktion wie {{jsxref("Promise.all")}} oder {{jsxref("Set/Set", "Set()")}}, oder als rechte Seite einer Array-[Destrukturierungszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) angegeben wird und kein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols) ist. Dieser Fehler tritt auch auf, wenn {{jsxref("Array.fromAsync()")}} oder {{jsxref("Statements/for-await...of", "for await...of")}} mit einem [nicht-asynchronen iterierbaren](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) verwendet wird.
+Die JavaScript-Ausnahme "ist nicht iterierbar" tritt auf, wenn der Wert, der in ein Array oder einen Funktionsaufruf [gespreadet](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) wird, als rechte Seite von [`for...of`](/de/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement), als Argument einer Funktion wie {{jsxref("Promise.all")}} oder {{jsxref("Set/Set", "Set()")}} oder als rechte Seite einer Array-[Destrukturierungszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment), kein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols) ist. Dieser Fehler tritt auch auf, wenn {{jsxref("Array.fromAsync()")}} oder {{jsxref("Statements/for-await...of", "for await...of")}} mit einem [nicht-async iterierbaren](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols) verwendet wird.
 
 ## Nachricht
 
@@ -29,7 +29,7 @@ TypeError: Type error (Safari)
 
 ## Was ist schiefgelaufen?
 
-Der Wert, der in ein Array oder Funktionsaufruf [gespreadet](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) wird, als rechte Seite von [`for...of`](/de/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement), oder als Argument einer Funktion wie {{jsxref("Promise.all")}} oder {{jsxref("Set/Set", "Set()")}}, oder als rechte Seite einer Array-[Destrukturierungszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) angegeben wird, ist kein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols). Ein iterierbares Objekt kann ein eingebauter iterierbarer Typ sein wie {{jsxref("Array")}}, {{jsxref("String")}} oder {{jsxref("Map")}}, ein Ergebnis eines Generators oder ein Objekt, das das [iterierbare Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) implementiert.
+Der Wert, der in ein Array oder einen Funktionsaufruf [gespreadet](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) wird, als rechte Seite von [`for...of`](/de/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement), als Argument einer Funktion wie {{jsxref("Promise.all")}} oder {{jsxref("Set/Set", "Set()")}} oder als rechte Seite einer Array-[Destrukturierungszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment), ist kein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Iteration_protocols). Ein iterable kann ein eingebauter Iterable-Typ wie {{jsxref("Array")}}, {{jsxref("String")}} oder {{jsxref("Map")}}, ein Generator-Ergebnis oder ein Objekt sein, das das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) implementiert.
 
 ```js
 const nonIterable1 = {};
@@ -46,7 +46,7 @@ const [] = nonIterable1;
 
 ## Beispiele
 
-### Array-Destrukturierung eines nicht-iterierbaren Objekts
+### Array-Dekonstruktion eines nicht-iterierbaren
 
 ```js example-bad
 const myobj = { arrayOrObjProp1: {}, arrayOrObjProp2: [42] };
@@ -59,11 +59,11 @@ const {
 console.log(value1, value2);
 ```
 
-Das nicht-iterierbare Objekt könnte in einigen Laufzeitumgebungen `undefined` werden.
+Das nicht-iterierbare könnte sich in einigen Laufzeitumgebungen als `undefined` herausstellen.
 
-### Iterieren über Objekt-Eigenschaften
+### Iterieren über Objekteigenschaften
 
-In JavaScript sind {{jsxref("Object")}}e nicht iterierbar, es sei denn, sie implementieren das [iterierbare Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol). Daher können Sie nicht [`for...of`](/de/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement) verwenden, um über die Eigenschaften eines Objekts zu iterieren.
+In JavaScript sind {{jsxref("Object")}}s nicht iterierbar, es sei denn, sie implementieren das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol). Daher können Sie [`for...of`](/de/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement) nicht verwenden, um über die Eigenschaften eines Objekts zu iterieren.
 
 ```js example-bad
 const obj = { France: "Paris", England: "London" };
@@ -76,7 +76,7 @@ Stattdessen müssen Sie {{jsxref("Object.keys")}} oder {{jsxref("Object.entries"
 
 ```js example-good
 const obj = { France: "Paris", England: "London" };
-// Über die Eigenschaftsnamen iterieren:
+// Iterate over the property names:
 for (const country of Object.keys(obj)) {
   const capital = obj[country];
   console.log(country, capital);
@@ -87,13 +87,13 @@ for (const [country, capital] of Object.entries(obj)) {
 }
 ```
 
-Eine weitere Option für diesen Anwendungsfall könnte die Verwendung einer {{jsxref("Map")}} sein:
+Eine weitere Option für diesen Anwendungsfall könnte die Verwendung eines {{jsxref("Map")}} sein:
 
 ```js example-good
 const map = new Map();
 map.set("France", "Paris");
 map.set("England", "London");
-// Über die Eigenschaftsnamen iterieren:
+// Iterate over the property names:
 for (const country of map.keys()) {
   const capital = map.get(country);
   console.log(country, capital);
@@ -123,7 +123,7 @@ for (const x of generate) {
 } // TypeError: generate is not iterable
 ```
 
-Wenn sie nicht aufgerufen werden, ist das {{jsxref("Function")}}-Objekt, das dem Generator entspricht, aufrufbar, aber nicht iterierbar. Das Aufrufen eines Generators erzeugt ein iterierbares Objekt, das über die während der Ausführung des Generators erzeugten Werte iteriert.
+Wenn sie nicht aufgerufen werden, ist das entsprechende {{jsxref("Function")}}-Objekt des Generators aufrufbar, aber nicht iterierbar. Das Aufrufen eines Generators erzeugt ein iterierbares Objekt, das über die während der Ausführung des Generators ausgegebenen Werte iterieren wird.
 
 ```js example-good
 function* generate(a, b) {
@@ -136,14 +136,14 @@ for (const x of generate(1, 2)) {
 }
 ```
 
-### Iterieren über ein benutzerdefiniertes iterierbares Objekt
+### Iterieren über ein benutzerdefiniertes Iterable
 
-Benutzerdefinierte iterierbare Objekte können erstellt werden, indem die Methode {{jsxref("Symbol.iterator")}} implementiert wird. Sie müssen sicherstellen, dass Ihre Iterator-Methode ein Objekt zurückgibt, das ein Iterator ist, das heißt, es muss eine next-Methode haben.
+Benutzerdefinierte Iterables können erstellt werden, indem die {{jsxref("Symbol.iterator")}}-Methode implementiert wird. Sie müssen sicherstellen, dass Ihre Iterator-Methode ein Objekt zurückgibt, das ein Iterator ist, was bedeutet, dass es eine next-Methode haben muss.
 
 ```js example-bad
 const myEmptyIterable = {
   [Symbol.iterator]() {
-    return []; // [] ist iterierbar, aber es ist kein Iterator — es hat keine next-Methode.
+    return []; // [] is iterable, but it is not an iterator — it has no next method.
   },
 };
 
@@ -164,7 +164,7 @@ Array.from(myEmptyIterable); // []
 
 ## Siehe auch
 
-- [Iterierbares Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol)
+- [Iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol)
 - {{jsxref("Object.keys")}}
 - {{jsxref("Object.entries")}}
 - {{jsxref("Map")}}

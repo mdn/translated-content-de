@@ -8,31 +8,31 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`elements`**-Eigenschaft der {{domxref("HTMLFieldSetElement")}}-Schnittstelle gibt ein {{domxref("HTMLCollection")}}-Objekt zurück, das alle Formularsteuerelemente ({{htmlelement("button")}}, {{htmlelement("fieldset")}}, {{htmlelement("input")}}, {{htmlelement("object")}}, {{htmlelement("output")}}, {{htmlelement("select")}} und {{htmlelement("textarea")}}) enthält, die Nachfahren dieses Fieldsets sind.
+Die **`elements`** schreibgeschützte Eigenschaft des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces gibt ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Objekt zurück, das alle Formularsteuerelemente ({{htmlelement("button")}}, {{htmlelement("fieldset")}}, {{htmlelement("input")}}, {{htmlelement("object")}}, {{htmlelement("output")}}, {{htmlelement("select")}} und {{htmlelement("textarea")}}) enthält, die Nachkommen dieses `fieldset` sind.
 
-Sie können auf ein bestimmtes Formularsteuerelement in der zurückgegebenen Sammlung entweder über einen Index oder die `name` oder `id` Attribute des Elements zugreifen. Wenn mehrere Formularsteuerelemente denselben Namen haben, wie es bei einer Gruppe von Radiobuttons üblich ist, wird bei Verwendung des gemeinsamen Namens das erste Element mit diesem Wert zurückgegeben.
+Sie können auf ein bestimmtes Formularsteuerelement in der zurückgegebenen Sammlung zugreifen, indem Sie entweder einen Index oder die `name`- oder `id`-Attribute des Elements verwenden. Wenn mehrere Formularsteuerelemente denselben Namen teilen, wie es bei einer Gruppe von Optionsfeldern üblich ist, wird bei Verwendung des geteilten Namens das erste Element mit diesem Wert zurückgegeben.
 
 ## Wert
 
-Eine {{domxref("HTMLCollection")}}.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
 
 ## Beispiele
 
 ```html
 <form id="my-form">
   <fieldset id="my-fieldset">
-    <legend>Mein Fieldset</legend>
+    <legend>My fieldset</legend>
     <p>
-      <label for="username">Benutzername:</label>
+      <label for="username">Username:</label>
       <input type="text" id="username" name="username" />
     </p>
     <p>
-      <label for="password">Passwort:</label>
+      <label for="password">Password:</label>
       <input type="password" id="password" name="password" />
     </p>
     <p>
       <input type="checkbox" id="remember-me" name="remember-me" />
-      <label for="remember-me">Angemeldet bleiben</label>
+      <label for="remember-me">Remember me</label>
     </p>
   </fieldset>
 </form>
@@ -54,6 +54,6 @@ console.log(fieldset.elements["remember-me"].value); // "on"
 
 ## Siehe auch
 
-- {{domxref("HTMLFieldSetElement")}}
-- {{domxref("HTMLFormElement.elements")}}
+- [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)
+- [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements)
 - {{HTMLElement("fieldset")}}

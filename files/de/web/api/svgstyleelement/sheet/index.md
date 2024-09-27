@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte Eigenschaft **`SVGStyleElement.sheet`** gibt das der gegebenen SVG-Style-Element entsprechenden {{domxref("CSSStyleSheet")}} zurück oder `null`, wenn es keines gibt.
+Die schreibgeschützte Eigenschaft **`SVGStyleElement.sheet`** gibt das [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) zurück, das dem gegebenen SVG-Style-Element entspricht, oder `null`, wenn keines vorhanden ist.
 
 ## Wert
 
-Ein {{domxref("CSSStyleSheet")}}, oder `null`, wenn das Element kein zugehöriges Stylesheet hat.
+Ein [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet), oder `null`, wenn das Element kein zugeordnetes Stylesheet hat.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie das mit einem Element verbundene CSS-Stylesheet abgerufen wird.
+Dieses Beispiel demonstriert, wie man das mit einem Element verknüpfte CSS-Stylesheet erhält.
 
 ### HTML
 
@@ -45,6 +45,7 @@ style.appendChild(node);
 ```
 
 Der untenstehende Code protokolliert dann das Stylesheet und die CSS-Regel, die mit diesem neuen Element verbunden sind, unter Verwendung von `style.sheet`.
+Um
 
 ```js
 // Log the sheet associated with this new element.
@@ -54,7 +55,8 @@ log.value = `${style.sheet} with rules[0].cssText:\n ${style.sheet.rules[0].cssT
 
 ### Ergebnis
 
-Das Ergebnis wird unten angezeigt. Bei Erfolg zeigt das Log das `CSSStyleSheet`-Objekt, das auf den SVG-Kreis angewendet wird.
+Das Ergebnis wird unten gezeigt.
+Im Erfolgsfall zeigt das Protokoll das `CSSStyleSheet`-Objekt, das auf den SVG-Kreis angewendet wird.
 
 {{EmbedLiveSample("Examples")}}
 
@@ -68,4 +70,4 @@ Das Ergebnis wird unten angezeigt. Bei Erfolg zeigt das Log das `CSSStyleSheet`-
 
 ## Siehe auch
 
-- {{domxref("HTMLStyleElement.sheet")}}
+- [`HTMLStyleElement.sheet`](/de/docs/Web/API/HTMLStyleElement/sheet)

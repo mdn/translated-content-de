@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Die **`close()`**-Methode des {{domxref("MessagePort")}}-Interfaces trennt den Port, sodass er nicht mehr aktiv ist. Dies stoppt den Nachrichtenfluss zu diesem Port.
+Die **`close()`**-Methode der [`MessagePort`](/de/docs/Web/API/MessagePort)-Schnittstelle trennt den Port, sodass er nicht mehr aktiv ist. Dies stoppt den Nachrichtenfluss zu diesem Port.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Codeblock sehen Sie eine `handleMessage`-Handlerfunktion, die ausgeführt wird, wenn eine Nachricht mit {{domxref("EventTarget.addEventListener")}} an dieses Dokument zurückgesendet wird.
+Im folgenden Codeblock sehen Sie eine `handleMessage`-Handler-Funktion, die ausgeführt wird, wenn eine Nachricht mit [`EventTarget.addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) an dieses Dokument zurückgesendet wird.
 
 ```js
 channel.port1.addEventListener("message", handleMessage, false);
@@ -38,13 +38,11 @@ function handleMessage(e) {
 channel.port1.start();
 ```
 
-Sie könnten den Versand von Nachrichten jederzeit mit
+Sie könnten das Senden von Nachrichten jederzeit stoppen, indem Sie
 
 ```js
 channel.port1.close();
 ```
-
-stoppen.
 
 ## Spezifikationen
 

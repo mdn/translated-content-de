@@ -7,7 +7,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Das **`Text`**-Interface repräsentiert einen Text-{{domxref("Node", "Knoten")}} in einem DOM-Baum.
+Die **`Text`**-Schnittstelle repräsentiert einen Textknoten ([`node`](/de/docs/Web/API/Node)) in einem DOM-Baum.
 
 {{InheritanceDiagram}}
 
@@ -26,34 +26,34 @@ Um zu verstehen, was ein Textknoten ist, betrachten Sie das folgende Dokument:
 
 In diesem Dokument gibt es fünf Textknoten mit folgendem Inhalt:
 
-- `"\n    "` (nach dem `<head>` Start-Tag, ein Zeilenumbruch gefolgt von vier Leerzeichen)
+- `"\n    "` (nach dem `<head>`-Start-Tag, ein Zeilenumbruch gefolgt von vier Leerzeichen)
 - `"Aliens?"` (der Inhalt des `title`-Elements)
-- `"\n  "` (nach dem `</head>` End-Tag, ein Zeilenumbruch gefolgt von zwei Leerzeichen)
-- `"\n  "` (nach dem `<body>` Start-Tag, ein Zeilenumbruch gefolgt von zwei Leerzeichen)
+- `"\n  "` (nach dem `</head>`-End-Tag, ein Zeilenumbruch gefolgt von zwei Leerzeichen)
+- `"\n  "` (nach dem `<body>`-Start-Tag, ein Zeilenumbruch gefolgt von zwei Leerzeichen)
 - `"\n Why yes.\n \n\n"` (der Inhalt des `body`-Elements)
 
-Jeder dieser Textknoten ist ein Objekt, das die in diesem Artikel dokumentierten Eigenschaften und Methoden besitzt.
+Jeder dieser Textknoten ist ein Objekt mit den in diesem Artikel dokumentierten Eigenschaften und Methoden.
 
 ## Konstruktor
 
-- {{domxref("Text.Text", "Text()")}}
-  - : Gibt einen neuen `Text`-Knoten mit dem Parameter als seinem Textinhalt zurück.
+- [`Text()`](/de/docs/Web/API/Text/Text)
+  - : Gibt einen neuen `Text`-Knoten mit dem Parameter als Textinhalt zurück.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinen Eltern, {{domxref("CharacterData")}}, {{domxref("Node")}} und {{domxref("EventTarget")}}._
+_Erbt Eigenschaften von seinen Eltern, [`CharacterData`](/de/docs/Web/API/CharacterData), [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("Text.assignedSlot")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("HTMLSlotElement")}} zurück, das den {{htmlelement("slot")}} repräsentiert, in den der Knoten eingefügt ist.
-- {{domxref("Text.wholeText")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die den Text aller `Text`-Knoten enthält, die logisch neben diesem {{domxref("Node")}} sind und in Dokumentreihenfolge verkettet sind.
+- [`Text.assignedSlot`](/de/docs/Web/API/Text/assignedSlot) {{ReadOnlyInline}}
+  - : Gibt ein [`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement) zurück, das das {{htmlelement("slot")}} repräsentiert, in das der Knoten eingefügt ist.
+- [`Text.wholeText`](/de/docs/Web/API/Text/wholeText) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der den Text aller `Text`-Knoten enthält, die logisch an diesen [`Node`](/de/docs/Web/API/Node) angrenzen, in Dokumentenreihenfolge verkettet.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinen Eltern, {{domxref("CharacterData")}}, {{domxref("Node")}} und {{domxref("EventTarget")}}._
+_Erbt Methoden von seinem Elternteil, [`CharacterData`](/de/docs/Web/API/CharacterData), [`Node`](/de/docs/Web/API/Node) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("Text.splitText")}}
-  - : Teilt den Knoten an einem angegebenen Offset in zwei Knoten auf.
+- [`Text.splitText`](/de/docs/Web/API/Text/splitText)
+  - : Teilt den Knoten an einem spezifizierten Versatz in zwei Knoten.
 
 ## Spezifikationen
 

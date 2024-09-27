@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**SQL** (Structured Query Language) ist eine deskriptive Computersprache, die für das Aktualisieren, Abrufen und Berechnen von Daten in tabellenbasierten Datenbanken entwickelt wurde.
+**SQL** (Structured Query Language) ist eine deskriptive Computersprache, die zum Aktualisieren, Abrufen und Berechnen von Daten in tabellenbasierten Datenbanken entwickelt wurde.
 
 ## Siehe auch
 

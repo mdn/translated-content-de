@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: SpeechRecognition() Konstruktor"
+title: "SpeechRecognition: SpeechRecognition()-Konstruktor"
 short-title: SpeechRecognition()
 slug: Web/API/SpeechRecognition/SpeechRecognition
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Der **`SpeechRecognition()`** Konstruktor erstellt eine neue Instanz des {{domxref("SpeechRecognition")}} Objekts.
+Der **`SpeechRecognition()`**-Konstruktor erstellt eine neue Instanz eines [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Objekts.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ## Beispiele
 
-Dieser Code ist ein Auszug aus unserem [Sprachfarbe-Wechsler](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js) Beispiel.
+Dieser Code stammt aus unserem [Sprachgesteuerte Farbänderung](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
 const grammar =

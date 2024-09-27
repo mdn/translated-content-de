@@ -1,5 +1,5 @@
 ---
-title: 206 Teilinhalt
+title: 206 Partial Content
 slug: Web/HTTP/Status/206
 l10n:
   sourceCommit: 3f68a9604259dfa862dd741dc88ebc8fb5fa10fe
@@ -7,9 +7,12 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`206 Teilinhalt`** ist ein [erfolgreicher Antwortstatus](/de/docs/Web/HTTP/Status#successful_responses), der als Antwort auf eine [Bereichsanfrage](/de/docs/Web/HTTP/Range_requests) gesendet wird. Der Antwortkörper enthält die angeforderten Datenbereiche, wie im {{HTTPHeader("Range")}} Header der Anfrage spezifiziert.
+Der HTTP-Statuscode **`206 Partial Content`** wird als Antwort auf eine [Range-Anfrage](/de/docs/Web/HTTP/Range_requests) gesendet.
+Der Antwortinhalt enthält die angeforderten Datenbereiche, wie im {{HTTPHeader("Range")}}-Header der Anfrage angegeben.
 
-Das Format der Antwort hängt von der Anzahl der angeforderten Bereiche ab. Wenn ein einzelner Bereich angefordert wird, wird der {{HTTPHeader("Content-Type")}} der gesamten Antwort auf den Typ des Dokuments gesetzt, und ein {{HTTPHeader("Content-Range")}} wird bereitgestellt. Wenn mehrere Bereiche angefordert werden, wird der {{HTTPHeader("Content-Type")}} auf `multipart/byteranges` gesetzt, und jedes Fragment deckt einen Bereich ab, mit eigenen {{HTTPHeader("Content-Range")}} und {{HTTPHeader("Content-Type")}} Headern, die ihn beschreiben.
+Das Format der Antwort hängt von der Anzahl der angeforderten Bereiche ab.
+Wird ein einzelner Bereich angefordert, so wird der {{HTTPHeader("Content-Type")}} der gesamten Antwort auf den Dokumenttyp gesetzt und ein {{HTTPHeader("Content-Range")}} bereitgestellt.
+Werden mehrere Bereiche angefordert, so wird der {{HTTPHeader("Content-Type")}} auf `multipart/byteranges` gesetzt, und jedes Fragment umfasst einen Bereich mit eigenen {{HTTPHeader("Content-Range")}} und {{HTTPHeader("Content-Type")}} Headern, die diesen beschreiben.
 
 ## Status
 
@@ -19,9 +22,10 @@ Das Format der Antwort hängt von der Anzahl der angeforderten Bereiche ab. Wenn
 
 ## Beispiele
 
-### Empfang einer `206` Antwort für einen einzeln angeforderten Bereich
+### Empfang einer `206`-Antwort für einen einzelnen angeforderten Bereich
 
-Das folgende ist eine Beispielantwort `206`, wenn ein einzelner Bereich von `21010-` (Bytes 21010 bis zum Ende der Datei) einer Bilddatei angefordert wird. Die Antwort enthält den {{HTTPHeader("Content-Type")}} von `image/gif` und der {{HTTPHeader("Content-Range")}} wird bereitgestellt:
+Im Folgenden ist eine Beispielantwort `206` angegeben, wenn ein einzelner Bereich von `21010-` (Bytes 21010 bis zum Ende der Datei) einer Bilddatei angefordert wird.
+Die Antwort enthält {{HTTPHeader("Content-Type")}} von `image/gif` und der {{HTTPHeader("Content-Range")}} wird bereitgestellt:
 
 ```http
 GET /z4d4kWk.gif HTTP/1.1
@@ -42,9 +46,10 @@ Accept-Ranges: bytes
 # 26012 bytes of partial image data…
 ```
 
-### Empfang einer `206` Antwort für mehrere angeforderte Bereiche
+### Empfang einer `206`-Antwort für mehrere angeforderte Bereiche
 
-Folgendes ist eine Beispielantwort `206`, wenn zwei Bereiche einer PDF-Datei angefordert werden. Die Antwort enthält den `multipart/byteranges` {{HTTPHeader("Content-Type")}} mit einem separaten {{HTTPHeader("Content-Type")}} (`application/pdf`) und {{HTTPHeader("Content-Range")}} für jeden Bereich.
+Im Folgenden ist eine Beispielantwort `206` angegeben, wenn zwei Bereiche einer PDF-Datei angefordert werden.
+Die Antwort enthält den `multipart/byteranges` {{HTTPHeader("Content-Type")}} mit einem separaten {{HTTPHeader("Content-Type")}} (`application/pdf`) und {{HTTPHeader("Content-Range")}} für jeden Bereich.
 
 ```http
 GET /pricelist.pdf HTTP/1.1
@@ -84,5 +89,5 @@ Content-Range: bytes 4590-7999/8000
 - {{HTTPHeader("Range")}}
 - {{HTTPHeader("Content-Range")}}
 - {{HTTPHeader("Content-Type")}}
-- [HTTP-Anforderungsmethoden](/de/docs/Web/HTTP/Methods)
+- [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)

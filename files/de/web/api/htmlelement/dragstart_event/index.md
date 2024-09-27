@@ -10,11 +10,11 @@ l10n:
 
 Das `dragstart`-Ereignis wird ausgelöst, wenn der Benutzer beginnt, ein Element oder eine Textauswahl zu ziehen.
 
-Dieses Ereignis kann abgebrochen werden und kann bis zu den {{domxref("Document")}}- und {{domxref("Window")}}-Objekten hochblasen.
+Dieses Ereignis kann abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) sprudeln.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("dragstart", (event) => {});
@@ -24,26 +24,26 @@ ondragstart = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("DragEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("DragEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle {{domxref("Event")}} verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
-- {{domxref('DragEvent.dataTransfer')}} {{ReadOnlyInline}}
+- [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
   - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
 
 ## Beispiele
 
-### Deckkraft beim Start des Ziehens festlegen
+### Deckkraft beim Start des Ziehens einstellen
 
-In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es zu ziehen und dann loszulassen.
+In diesem Beispiel haben wir ein ziehbares Element in einem Container. Versuchen Sie, das Element zu greifen, zu ziehen und dann loszulassen.
 
-Wir hören auf das `dragstart`-Ereignis, um das Element während des Ziehens halbtransparent zu machen.
+Wir lauschen auf das `dragstart`-Ereignis, um das Element während des Ziehens halbtransparent zu machen.
 
-Für ein vollständiges Beispiel von Drag und Drop siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
+Für ein vollständiges Beispiel von Drag and Drop, siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
 #### HTML
 
@@ -58,7 +58,7 @@ Für ein vollständiges Beispiel von Drag und Drop siehe die Seite für das [`dr
 
 ```css
 body {
-  /* Verhindert, dass der Benutzer Text im Beispiel auswählt */
+  /* Prevent the user from selecting text in the example */
   user-select: none;
 }
 
@@ -110,9 +110,9 @@ source.addEventListener("dragend", (event) => {
 
 - Andere Drag-and-Drop-Ereignisse:
 
-  - {{domxref("HTMLElement/drag_event", "drag")}}
-  - {{domxref("HTMLElement/dragend_event", "dragend")}}
-  - {{domxref("HTMLElement/dragover_event", "dragover")}}
-  - {{domxref("HTMLElement/dragenter_event", "dragenter")}}
-  - {{domxref("HTMLElement/dragleave_event", "dragleave")}}
-  - {{domxref("HTMLElement/drop_event", "drop")}}
+  - [`drag`](/de/docs/Web/API/HTMLElement/drag_event)
+  - [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)
+  - [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)
+  - [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)
+  - [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)
+  - [`drop`](/de/docs/Web/API/HTMLElement/drop_event)

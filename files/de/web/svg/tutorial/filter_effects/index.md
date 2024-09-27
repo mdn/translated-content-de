@@ -1,5 +1,5 @@
 ---
-title: Filtereffekte
+title: Filter-Effekte
 slug: Web/SVG/Tutorial/Filter_effects
 l10n:
   sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
@@ -9,13 +9,13 @@ l10n:
 
 {{ PreviousNext("Web/SVG/Tutorial/Other_content_in_SVG", "Web/SVG/Tutorial/SVG_Fonts") }}
 
-Es gibt Situationen, in denen grundlegende Formen nicht die Flexibilität bieten, die Sie benötigen, um einen bestimmten Effekt zu erzielen. Schlagschatten, um ein beliebtes Beispiel zu nennen, können nicht vernünftig mit einer Kombination aus Verläufen erstellt werden. Filter sind SVG's Mechanismus, um anspruchsvolle Effekte zu erzeugen.
+Es gibt Situationen, in denen grundlegende Formen nicht die Flexibilität bieten, die Sie benötigen, um einen bestimmten Effekt zu erzielen. Schlagschatten, um ein beliebtes Beispiel zu nennen, können nicht sinnvoll mit einer Kombination von Verläufen erstellt werden. Filter sind das SVG-Mechanismus, um anspruchsvolle Effekte zu erzeugen.
 
-Ein grundlegendes Beispiel ist das Hinzufügen eines Weichzeichnungseffekts zu SVG-Inhalten. Während grundlegende Unschärfen mit Hilfe von Verläufen erreicht werden können, ist der Unschärfefilter erforderlich, um darüber hinauszugehen.
+Ein einfaches Beispiel ist das Hinzufügen eines Unschärfe-Effekts zu SVG-Inhalten. Während grundlegende Unschärfen mit Hilfe von Verläufen erreicht werden können, wird der Unschärfe-Filter benötigt, um darüber hinauszugehen.
 
 ## Beispiel
 
-Filter werden durch das {{SVGElement('filter')}} Element definiert, das in den `<defs>`-Abschnitt Ihrer SVG-Datei eingefügt werden sollte. Zwischen den Filter-Tags steht eine Liste von _Primitives_: grundlegende Operationen, die auf den vorherigen Operationen aufbauen (wie Weichzeichnen, Hinzufügen eines Lichteffekts, etc.). Um Ihren erstellten Filter auf ein grafisches Element anzuwenden, setzen Sie das {{SVGAttr('filter')}} Attribut.
+Filter werden durch das {{SVGElement('filter')}}-Element definiert, das in den `<defs>`-Bereich Ihrer SVG-Datei eingefügt werden sollte. Zwischen den Filter-Tags kommt eine Liste von _Primitiven_: grundlegende Operationen, die auf den vorherigen Operationen aufbauen (wie Unschärfe, Hinzufügen eines Lichteffekts usw.). Um Ihren erstellten Filter auf ein grafisches Element anzuwenden, setzen Sie das {{SVGAttr('filter')}}-Attribut.
 
 ```html
 <svg
@@ -24,7 +24,7 @@ Filter werden durch das {{SVGElement('filter')}} Element definiert, das in den `
   xmlns="http://www.w3.org/2000/svg"
   version="1.1">
   <defs>
-    <!-- Filterdeklaration -->
+    <!-- Filter declaration -->
     <filter
       id="MyFilter"
       filterUnits="userSpaceOnUse"
@@ -61,7 +61,7 @@ Filter werden durch das {{SVGElement('filter')}} Element definiert, das in den `
         k4="0"
         result="litPaint" />
 
-      <!-- offsetBlur + litPaint zusammenführen -->
+      <!-- merge offsetBlur + litPaint -->
       <feMerge>
         <feMergeNode in="offsetBlur" />
         <feMergeNode in="litPaint" />
@@ -69,7 +69,7 @@ Filter werden durch das {{SVGElement('filter')}} Element definiert, das in den `
     </filter>
   </defs>
 
-  <!-- Grafische Elemente -->
+  <!-- Graphic elements -->
   <g filter="url(#MyFilter)">
     <path
       fill="none"
@@ -94,7 +94,7 @@ Filter werden durch das {{SVGElement('filter')}} Element definiert, das in den `
 <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur" />
 ```
 
-{{SVGElement('feGaussianBlur')}} nimmt `in` "SourceAlpha", das der Alpha-Kanal der Ausgangsgrafik ist; wendet eine Unschärfe von 4 an; und speichert das `result` in einem temporären Puffer namens "blur".
+{{SVGElement('feGaussianBlur')}} nimmt `in` "SourceAlpha", das den Alpha-Kanal der Quellgrafik darstellt; wendet eine Unschärfe von 4 an; und speichert das `result` in einem temporären Puffer mit dem Namen "blur".
 
 ### Schritt 2
 
@@ -102,7 +102,7 @@ Filter werden durch das {{SVGElement('filter')}} Element definiert, das in den `
 <feOffset in="blur" dx="4" dy="4" result="offsetBlur" />
 ```
 
-{{SVGElement('feOffset')}} nimmt `in` "blur", was wir zuvor erstellt haben; verschiebt das Ergebnis um "4" nach rechts und "4" nach unten; und speichert das `result` im Puffer "offsetBlur". Die beiden ersten Primitives haben gerade einen Schlagschatten erzeugt.
+{{SVGElement('feOffset')}} nimmt `in` "blur", das wir zuvor erstellt haben; verschiebt das Ergebnis um "4" nach rechts und um "4" nach unten; und speichert das `result` im Puffer "offsetBlur". Die ersten beiden Primitiven haben gerade einen Schlagschatten erzeugt.
 
 ### Schritt 3
 
@@ -118,7 +118,7 @@ Filter werden durch das {{SVGElement('filter')}} Element definiert, das in den `
 </feSpecularLighting>
 ```
 
-{{SVGelement('feSpecularLighting')}} nimmt `in` "offsetBlur", erzeugt einen Lichteffekt und speichert das `result` im Puffer "specOut".
+{{SVGelement('feSpecularLighting')}} nimmt `in` "offsetBlur", erzeugt einen Lichteffekt, und speichert das `result` im Puffer "specOut".
 
 ### Schritt 4
 
@@ -126,7 +126,7 @@ Filter werden durch das {{SVGElement('filter')}} Element definiert, das in den `
 <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut" />
 ```
 
-Der erste {{SVGElement('feComposite')}} nimmt `in` "specOut" und "SourceAlpha", maskiert das Ergebnis von "specOut", sodass das Ergebnis nicht größer als "SourceAlpha" (die ursprüngliche Ausgangsgrafik) ist, und überschreibt das `result` "specOut".
+Das erste {{SVGElement('feComposite')}} nimmt `in` "specOut" und "SourceAlpha", maskiert das Ergebnis von "specOut", sodass das Ergebnis nicht größer ist als "SourceAlpha" (die ursprüngliche Quellgrafik), und überschreibt das `result` "specOut".
 
 ### Schritt 5
 
@@ -142,7 +142,7 @@ Der erste {{SVGElement('feComposite')}} nimmt `in` "specOut" und "SourceAlpha", 
   result="litPaint" />
 ```
 
-Der zweite {{SVGElement('feComposite')}} nimmt `in` "SourceGraphic" und "specOut", fügt das Ergebnis von "specOut" über "SourceGraphic" hinzu und speichert das `result` in "litPaint".
+Das zweite {{SVGElement('feComposite')}} nimmt `in` "SourceGraphic" und "specOut", fügt das Ergebnis von "specOut" auf "SourceGraphic" hinzu und speichert das `result` in "litPaint".
 
 ### Schritt 6
 
@@ -153,11 +153,11 @@ Der zweite {{SVGElement('feComposite')}} nimmt `in` "SourceGraphic" und "specOut
 </feMerge>
 ```
 
-Schließlich kombiniert {{SVGElement('feMerge')}} "offsetBlur", welches der Schlagschatten ist, und "litPaint", welches die Originalgrafik mit einem Lichteffekt ist.
+Schließlich verbindet {{SVGElement('feMerge')}} "offsetBlur", den Schlagschatten, und "litPaint", die ursprüngliche Quellgrafik mit einem Lichteffekt.
 
-![Ausgangsgrafik](filters01-0.png)
+![Quellgrafik](filters01-0.png)
 
-Ausgangsgrafik
+Quellgrafik
 
 ![Primitive 1](filters01-1.png)
 

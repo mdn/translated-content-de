@@ -1,5 +1,5 @@
 ---
-title: "HTMLLinkElement: type Eigenschaft"
+title: "HTMLLinkElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/HTMLLinkElement/type
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`type`**-Eigenschaft der {{domxref("HTMLLinkElement")}}-Schnittstelle ist ein String, der den {{glossary("MIME-Typ")}} der verknüpften Ressource widerspiegelt.
+Die **`type`** Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein Zeichenfolgewert, der den [MIME-Typ](/de/docs/Glossary/MIME_type) der verknüpften Ressource wiedergibt.
 
-Sie spiegelt das `type`-Attribut des {{HTMLElement("link")}}-Elements wider.
+Sie gibt das `type`-Attribut des {{HTMLElement("link")}}-Elements wieder.
 
 ## Wert
 
-Ein String, der ein gültiger MIME-Typ-String sein muss.
+Eine Zeichenfolge, die ein gültiger MIME-Typ-String sein muss.
 
 ## Beispiele
 
@@ -29,7 +29,7 @@ Ein String, der ein gültiger MIME-Typ-String sein muss.
 
 ```js
 const el = document.getElementById("el");
-console.log(el.type); // Ausgabe: "image/png"
+console.log(el.type); // Output: "image/png"
 ```
 
 ## Spezifikationen

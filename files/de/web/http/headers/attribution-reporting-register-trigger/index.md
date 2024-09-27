@@ -7,26 +7,26 @@ l10n:
 
 {{HTTPSidebar}}{{seecompattable}}
 
-Der **`Attribution-Reporting-Register-Trigger`** Header registriert ein Seitenmerkmal als einen [Zurechnungsauslöser](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers). Dieser wird als Teil einer Antwort auf eine Anfrage eingeschlossen, die einen {{httpheader("Attribution-Reporting-Eligible")}} Header enthält.
+Der **`Attribution-Reporting-Register-Trigger`** Header registriert ein Seitenmerkmal als einen [Attribution-Trigger](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers). Dies wird als Teil einer Antwort auf eine Anfrage aufgenommen, die einen {{httpheader("Attribution-Reporting-Eligible")}} Header enthalten hat.
 
-Weitere Details finden Sie in der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API).
+Weitere Einzelheiten finden Sie in der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API).
 
 > [!NOTE]
-> Wenn die aufrufende Seite die Attribution Reporting API nicht erfolgreich in einem [Privacy Sandbox-Anmeldeprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) eingeschlossen hat, wird der `Attribution-Reporting-Register-Trigger` Header ignoriert und Zurechnungsauslöser werden nicht registriert.
+> Wenn die aufrufende Site nicht die Attribution Reporting API in einem erfolgreichen [Datenschutz-Sandbox-Registrierungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) eingeschlossen hat, wird der `Attribution-Reporting-Register-Trigger` Header ignoriert und Attribution-Trigger werden nicht registriert.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>{{Glossary("Response header")}}</td>
+      <th scope="row">Header-Typ</th>
+      <td>[Response header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted response header")}}
+        [CORS-safelisted response header](/de/docs/Glossary/CORS-safelisted_response_header)
       </th>
       <td>nein</td>
     </tr>
@@ -43,45 +43,45 @@ Attribution-Reporting-Register-Trigger: <json-string>
 
 - `<json-string>`
 
-  - : Ein JSON-String, der Daten bereitstellt, die in generierten Berichten enthalten sein können, wie z. B. die ID des Auslösers sowie Prioritäts- und Duplikationswerte. Verfügbare Felder sind wie folgt:
+  - : Ein JSON-String, der Daten bereitstellt, die in erzeugte Berichte aufgenommen werden können, wie z.B. die ID des Triggers sowie Prioritäts- und Deduplikationswerte. Die verfügbaren Felder sind wie folgt:
 
     - `"aggregatable_trigger_data"`
-      - : Ein Array von Objekten, wobei jedes einen Aggregationsschlüssel definiert, der auf verschiedene Quellschlüssel anzuwenden ist. Jedes Objekt enthält die folgenden Eigenschaften:
+      - : Ein Array von Objekten, von denen jedes einen Aggregationsschlüssel definiert, der auf verschiedene Quellschlüssel angewendet wird. Jedes Objekt enthält die folgenden Eigenschaften:
         - `"key_piece"`
           - : Ein hexadezimaler Wert, der einen Schlüssel darstellt.
         - `"source_keys"`
           - : Ein Array, das einen oder mehrere Schlüsselwerte für die Daten enthält.
     - `"aggregatable_values"`
-      - : Ein Objekt mit Eigenschaften, die einen Wert für jeden in `"aggregatable_trigger_data"` definierten Datenpunkt darstellen. In jedem Fall entspricht der Name der Eigenschaft dem in `"source_keys"` definierten Namen, und der Eigenschaftswert ist ein beliebiger Wert, den Sie wünschen.
+      - : Ein Objekt, das Eigenschaften enthält, die einen Wert für jeden in `"aggregatable_trigger_data"` definierten Datenpunkt darstellen. In jedem Fall entspricht der Eigenschaftsname dem in `"source_keys"` definierten Namen, und der Eigenschaftswert ist der beliebige Wert, den Sie benötigen.
     - `"debug_key"` {{optional_inline}}
-      - : Eine Zahl, die einen Debug-Schlüssel darstellt. Setzen Sie dies, wenn Sie neben dem zugehörigen Zurechnungsbericht einen [Debug-Bericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#debug_reports) generieren möchten.
+      - : Eine Zahl, die einen Debug-Schlüssel darstellt. Setzen Sie dies, wenn Sie neben dem zugehörigen Attributionsbericht einen [Debug-Bericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#debug_reports) generieren möchten.
     - `"debug_reporting"` {{optional_inline}}
-      - : Ein boolescher Wert. Wenn ein `debug_key` gesetzt ist, setzen Sie dies auf `true`, um anzugeben, dass der generierte Debug-Bericht ein ausführlicher Bericht sein soll.
+      - : Ein boolescher Wert. Wenn ein `debug_key` gesetzt ist, setzen Sie dies auf `true`, um anzugeben, dass der erzeugte Debug-Bericht ein umfangreicher Debug-Bericht sein soll.
     - `"filters"` {{optional_inline}}
-      - : Ein Objekt, das benutzerdefinierte Daten enthält, die verwendet werden können, um zu filtern, welche Auslöser Berichte erzeugen. Weitere Details finden Sie unter [Filters](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#filters).
+      - : Ein Objekt, das benutzerdefinierte Daten enthält, um zu filtern, welche Trigger Berichte generieren. Weitere Einzelheiten finden Sie unter [Filter](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#filters).
     - `"event_trigger_data"`
 
-      - : Ein Objekt, das Daten über den Auslöser darstellt. Verfügbare Unterfelder sind wie folgt:
+      - : Ein Objekt, das Daten über den Trigger darstellt. Die verfügbaren Unterfelder sind wie folgt:
 
         - `"trigger_data"`
 
-          - : Ein String, der Daten beschreibt, die den Auslöser kennzeichnen, der typischerweise verwendet wird, um Ereignisse wie "Benutzer fügt Artikel in den Warenkorb hinzu" oder "Benutzer meldet sich für Mailingliste an" anzugeben. Dieser Wert wird im generierten Ereignis-Bericht enthalten sein, falls vorhanden, obwohl er basierend auf dem entsprechenden Quelldatensatz der [`"trigger_data_matching"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#trigger_data_matching) Feld modifiziert wird.
+          - : Ein String, der Daten beschreibt, die den Trigger beschreiben, der typischerweise verwendet wird, um Ereignisse wie „Benutzer hat Artikel in den Warenkorb gelegt“ oder „Benutzer hat sich für die Mailingliste angemeldet“ anzuzeigen. Dieser Wert wird im erzeugten Ereignis-Level-Bericht, sofern vorhanden, enthalten sein, obwohl er auf Grundlage des Attributionssources [`"trigger_data_matching"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#trigger_data_matching) Feldes modifiziert wird.
 
             > [!NOTE]
-            > Die Werte, die jedes Ereignis darstellen, sowie die Anzahl der Elemente im Array sind völlig willkürlich und werden von Ihnen als Entwickler definiert. Das Array kann Werte enthalten, die nicht verwendet werden, aber Werte müssen im Array vorhanden sein, um vom Browser einem Auslöser zugeordnet zu werden, wenn dieser registriert wird.
+            > Die Werte zur Darstellung jedes Ereignisses und die Anzahl der Elemente im Array sind vollständig willkürlich und von Ihnen als Entwickler definiert. Das Array kann Werte enthalten, die nicht verwendet werden, aber Werte müssen im Array vorhanden sein, um von dem Browser dem Source zugeordnet zu werden, wenn ein Trigger registriert wird.
 
         - `"priority"` {{optional_inline}}
-          - : Ein String, der einen Prioritätswert für den Zurechnungsauslöser darstellt. Standardmäßig werden Auslöser der zuletzt passenden Quelle zugeordnet. Für sowohl ereignisbezogene als auch zusammenfassende Berichte setzen Sie eine höhere Prioritätsnummer, um den Auslöser älteren Quellen zuzuordnen. Beispielsweise hat ein Wert von `2` Vorrang vor dem Standardwert von `1`. Weitere Informationen finden Sie unter [Berichtprioritäten und -beschränkungen](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#report_priorities_and_limits).
+          - : Ein String, der einen Prioritätswert für den Attribution-Trigger darstellt. Standardmäßig werden Trigger der zuletzt übereinstimmenden Quelle zugeordnet. Für sowohl Ereignis- als auch Zusammenfassungsberichte setzen Sie eine höhere Prioritätsnummer, um den Trigger älteren Quellen anzugleichen. Beispielsweise hat ein Wert von `2` Vorrang vor dem Standardwert von `1`. Weitere Informationen finden Sie unter [Berichtsprioritäten und -grenzen](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#report_priorities_and_limits).
         - `"deduplication_key"` {{optional_inline}}
-          - : Ein String, der einen eindeutigen Schlüssel darstellt, der verwendet werden kann, um zu verhindern, dass Zuordnungen dupliziert werden — z. B. wenn ein Benutzer denselben Artikel mehrmals in einen Warenkorb legt. Weitere Informationen finden Sie unter [Verhinderung von Duplikationen in Berichten](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/prevent-duplication).
+          - : Ein String, der einen eindeutigen Schlüssel darstellt, um zu verhindern, dass Attributionen dupliziert werden, beispielsweise wenn ein Benutzer denselben Artikel mehrfach in einen Warenkorb legt. Weitere Informationen finden Sie unter [Duplikateverhinderung in Berichten](https://developers.google.com/privacy-sandbox/private-advertising/attribution-reporting/prevent-duplication).
         - `"filters"` {{optional_inline}}
-          - : Ein Objekt, das Filter enthält, die selektive Filterung durchführen, um `"trigger_data"`, `"priority"` und `"deduplication_key"` basierend auf dem in einem entsprechenden {{httpheader("Attribution-Reporting-Register-Source")}} Header gesetzten `filter_data` festzulegen. Weitere Informationen finden Sie unter [Filters](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#filters).
+          - : Ein Objekt, das Filter enthält, die selektives Filtern vornehmen, um `"trigger_data"`, `"priority"` und `"deduplication_key"` basierend auf den in einem entsprechenden {{httpheader("Attribution-Reporting-Register-Source")}} Header gesetzten `filter_data` zu setzen. Weitere Informationen finden Sie unter [Filter](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#filters).
 
 ## Beispiele
 
-### Registrierung eines Auslösers für einen ereignisbezogenen Bericht
+### Registrierung eines Triggers für einen Ereignis-Level-Bericht
 
-Ein Node.js-Server könnte den `Attribution-Reporting-Register-Trigger` Antwortheader wie folgt setzen, um einen Auslöser zu registrieren, der zur Attribution einer Quelle für ereignisbezogene Berichte passt:
+Ein Node.js Server könnte den `Attribution-Reporting-Register-Trigger` Antwort-Header wie folgt setzen, um einen Trigger zu registrieren, der einer Ereignis-Level-Berichtsattributionsquelle entsprechen soll:
 
 ```js
 res.set(
@@ -99,9 +99,9 @@ res.set(
 );
 ```
 
-### Registrierung eines Auslösers für einen zusammenfassenden Bericht
+### Registrierung eines Triggers für einen Zusammenfassungsbericht
 
-Wenn Sie einen Auslöser registrieren, der mit einer Quelle für einen zusammenfassenden Bericht übereinstimmen soll, müssen Sie die folgenden Felder einschließen:
+Beim Registrieren eines Triggers, der mit einer Zusammenfassungsberichtsattributionsquelle übereinstimmen soll, müssen Sie die folgenden Felder einschließen:
 
 ```js
 res.set(

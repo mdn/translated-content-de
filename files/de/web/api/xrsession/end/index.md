@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`end()`**-Methode beendet die
-{{domxref("XRSession")}}, auf der sie aufgerufen wird, und gibt ein Versprechen zurück, das sich auflöst, sobald die Sitzung vollständig beendet ist.
+Die **`end()`**-Methode schließt die
+[`XRSession`](/de/docs/Web/API/XRSession), auf der sie aufgerufen wird, und gibt ein `promise` zurück, das aufgelöst wird, sobald die Sitzung vollständig beendet wurde.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("promise")}}, das sich ohne Wert auflöst, nachdem alle plattform-spezifischen Schritte im Zusammenhang mit dem Beenden der Sitzung abgeschlossen sind. Sie können das Versprechen verwenden, um Dinge wie das Aktualisieren von UI-Elementen zu erledigen, um die beendete Verbindung widerzuspiegeln, das Auslösen des Anwendungs-Shutdowns oder was auch immer Sie sonst tun müssen.
+Ein {{jsxref("promise")}}, das ohne Wert aufgelöst wird, nachdem alle plattform-spezifischen Schritte im Zusammenhang mit dem Herunterfahren der Sitzung abgeschlossen sind. Sie können das `promise` verwenden, um zum Beispiel UI-Elemente zu aktualisieren, die die beendete Verbindung widerspiegeln, die Anwendung herunterzufahren oder alles zu tun, was sonst erforderlich sein könnte.
 
 ## Beispiele
 

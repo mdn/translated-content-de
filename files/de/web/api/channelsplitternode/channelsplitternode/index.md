@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Der **`ChannelSplitterNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt eine neue Instanz des {{domxref("ChannelSplitterNode")}}-Objekts, das einen Knoten darstellt, der den Eingang in ein separates Ausgangssignal für jeden der Audiokanäle des Quellknotens aufteilt.
+Der **`ChannelSplitterNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt eine neue [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode) Instanz. Dieser Knoten teilt den Eingang in einen separaten Ausgang für jeden Audiokanal des Quellknotens auf.
 
 ## Syntax
 
@@ -20,28 +20,28 @@ new ChannelSplitterNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein {{domxref("BaseAudioContext")}}, das den Audio-Kontext repräsentiert, mit dem der Knoten verknüpft sein soll.
+  - : Ein [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext), das den Audiokontext darstellt, mit dem der Knoten verbunden werden soll.
 - `options` {{optional_inline}}
 
   - : Ein Objekt, das die Eigenschaften definiert, die der `ChannelSplitterNode` haben soll:
     - `numberOfOutputs` {{optional_inline}}
-      - : Eine Zahl, die die Anzahl der Ausgänge definiert, die der {{domxref("ChannelSplitterNode")}} haben soll. Wenn nicht angegeben, wird der Standardwert 6 verwendet.
+      - : Eine Zahl, die die Anzahl der Ausgänge definiert, die der [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode) haben sollte. Wenn nicht angegeben, wird der Standardwert 6 verwendet.
     - `channelCount` {{optional_inline}}
-      - : Eine Ganzzahl, die verwendet wird, um zu bestimmen, wie viele Kanäle beim [Hochmischen und Heruntermischen](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu jeglichen Eingaben zum Knoten genutzt werden.
-        (Siehe {{domxref("AudioNode.channelCount")}} für weitere Informationen.)
-        Die Nutzung und präzise Definition hängt vom Wert von `channelCountMode` ab.
+      - : Ein Integer, der bestimmt, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu beliebigen Eingängen des Knotens verwendet werden.
+        (Siehe [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für mehr Informationen.)
+        Seine Verwendung und genaue Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode` {{optional_inline}}
-      - : Ein String, der beschreibt, wie die Kanäle zwischen den Eingängen und Ausgängen des Knotens angepasst werden müssen.
-        (Siehe {{domxref("AudioNode.channelCountMode")}} für weitere Informationen einschließlich Standardwerte.)
+      - : Ein String, der beschreibt, wie die Kanäle zwischen den Eingängen und Ausgängen des Knotens übereinstimmen müssen.
+        (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich Standardwerte.)
     - `channelInterpretation` {{optional_inline}}
       - : Ein String, der die Bedeutung der Kanäle beschreibt.
-        Diese Interpretation definiert, wie Audio [hochgemischt und heruntergemischt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) wird.
+        Diese Interpretation wird definieren, wie Audio [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) stattfindet.
         Die möglichen Werte sind `"speakers"` oder `"discrete"`.
-        (Siehe {{domxref("AudioNode.channelInterpretation")}} für weitere Informationen einschließlich Standardwerte.)
+        (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich Standardwerte.)
 
 ### Rückgabewert
 
-Eine neue Instanz des {{domxref("ChannelSplitterNode")}}-Objekts.
+Eine neue [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode) Objektinstanz.
 
 ## Beispiele
 

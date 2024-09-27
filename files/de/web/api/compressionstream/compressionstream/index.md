@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Der **`CompressionStream()`** Konstruktor erstellt ein neues {{domxref("CompressionStream")}} Objekt, das einen Datenstrom komprimiert.
+Der **`CompressionStream()`**-Konstruktor erstellt ein neues [`CompressionStream`](/de/docs/Web/API/CompressionStream)-Objekt, das einen Datenstrom komprimiert.
 
 ## Syntax
 
@@ -20,14 +20,15 @@ new CompressionStream(format)
 
 - `format`
 
-  - : Einer der folgenden erlaubten Komprimierungsformate:
+  - : Einer der folgenden zulässigen Komprimierungsformate:
 
     - `"gzip"`
-      - : Komprimiert den Stream unter Verwendung des [GZIP](https://www.rfc-editor.org/rfc/rfc1952) Formats.
+      - : Komprimiert den Strom mithilfe des [GZIP](https://www.rfc-editor.org/rfc/rfc1952)-Formats.
     - `"deflate"`
-      - : Komprimiert den Stream unter Verwendung des [DEFLATE](https://www.rfc-editor.org/rfc/rfc1950) Algorithmus im ZLIB-komprimierten Datenformat. Das ZLIB-Format enthält einen Header mit Informationen über die Komprimierungsmethode und die unkomprimierte Größe der Daten sowie eine abschließende Prüfsumme zur Überprüfung der Integrität der Daten.
+      - : Komprimiert den Strom mithilfe des [DEFLATE](https://www.rfc-editor.org/rfc/rfc1950)-Algorithmus im ZLIB-Komprimierungsdatenformat.
+        Das ZLIB-Format enthält einen Header mit Informationen über die Komprimierungsmethode und die unkomprimierte Größe der Daten sowie eine nachfolgende Prüfsumme zur Überprüfung der Datenintegrität.
     - `"deflate-raw"`
-      - : Komprimiert den Stream unter Verwendung des [DEFLATE](https://www.rfc-editor.org/rfc/rfc1951) Algorithmus ohne Header und abschließende Prüfsumme.
+      - : Komprimiert den Strom mithilfe des [DEFLATE](https://www.rfc-editor.org/rfc/rfc1951)-Algorithmus ohne Header und nachfolgende Prüfsumme.
 
 ### Ausnahmen
 
@@ -36,7 +37,7 @@ new CompressionStream(format)
 
 ## Beispiele
 
-In diesem Beispiel wird ein Stream mit gzip-Komprimierung komprimiert.
+In diesem Beispiel wird ein Datenstrom mit GZIP-Komprimierung komprimiert.
 
 ```js
 const compressedReadableStream = inputReadableStream.pipeThrough(

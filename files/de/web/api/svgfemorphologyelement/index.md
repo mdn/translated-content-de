@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGFEMorphologyElement`** Schnittstelle entspricht dem {{SVGElement("feMorphology")}}-Element.
+Die **`SVGFEMorphologyElement`**-Schnittstelle entspricht dem {{SVGElement("feMorphology")}}-Element.
 
 {{InheritanceDiagram}}
 
@@ -25,8 +25,8 @@ Die **`SVGFEMorphologyElement`** Schnittstelle entspricht dem {{SVGElement("feMo
       <td>0</td>
       <td>
         Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig, zu
-        versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden
-        Wert auf diesen Typ zu ändern.
+        versuchen, einen neuen Wert dieses Typs zu definieren oder einen
+        bestehenden Wert auf diesen Typ zu ändern.
       </td>
     </tr>
     <tr>
@@ -42,32 +42,32 @@ Die **`SVGFEMorphologyElement`** Schnittstelle entspricht dem {{SVGElement("feMo
   </tbody>
 </table>
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGFEMorphologyElement.height")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("height")}}-Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEMorphologyElement.in1")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, der dem {{SVGAttr("in")}}-Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEMorphologyElement.operator")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedEnumeration")}}, der dem {{SVGAttr("operator")}}-Attribut des angegebenen Elements entspricht. Es nimmt einen der auf dieser Schnittstelle definierten `SVG_MORPHOLOGY_OPERATOR_*` Konstanten an.
-- {{domxref("SVGFEMorphologyElement.radiusX")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumber")}}, der der X-Komponente des {{SVGAttr("radius")}}-Attributs des angegebenen Elements entspricht.
-- {{domxref("SVGFEMorphologyElement.radiusY")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumber")}}, der der Y-Komponente des {{SVGAttr("radius")}}-Attributs des angegebenen Elements entspricht.
-- {{domxref("SVGFEMorphologyElement.result")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, der dem {{SVGAttr("result")}}-Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEMorphologyElement.width")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("width")}}-Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEMorphologyElement.x")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("x")}}-Attribut des angegebenen Elements entspricht.
-- {{domxref("SVGFEMorphologyElement.y")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("y")}}-Attribut des angegebenen Elements entspricht.
+- [`SVGFEMorphologyElement.height`](/de/docs/Web/API/SVGFEMorphologyElement/height) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("height")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEMorphologyElement.in1`](/de/docs/Web/API/SVGFEMorphologyElement/in1) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), der dem {{SVGAttr("in")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEMorphologyElement.operator`](/de/docs/Web/API/SVGFEMorphologyElement/operator) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), der dem {{SVGAttr("operator")}}-Attribut des gegebenen Elements entspricht. Er nimmt einen der `SVG_MORPHOLOGY_OPERATOR_*` Konstanten an, die in dieser Schnittstelle definiert sind.
+- [`SVGFEMorphologyElement.radiusX`](/de/docs/Web/API/SVGFEMorphologyElement/radiusX) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), der der X-Komponente des {{SVGAttr("radius")}}-Attributs des gegebenen Elements entspricht.
+- [`SVGFEMorphologyElement.radiusY`](/de/docs/Web/API/SVGFEMorphologyElement/radiusY) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), der der Y-Komponente des {{SVGAttr("radius")}}-Attributs des gegebenen Elements entspricht.
+- [`SVGFEMorphologyElement.result`](/de/docs/Web/API/SVGFEMorphologyElement/result) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), der dem {{SVGAttr("result")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEMorphologyElement.width`](/de/docs/Web/API/SVGFEMorphologyElement/width) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("width")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEMorphologyElement.x`](/de/docs/Web/API/SVGFEMorphologyElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEMorphologyElement.y`](/de/docs/Web/API/SVGFEMorphologyElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle stellt keine spezifischen Methoden bereit, implementiert jedoch die Methoden ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "MediaKeyStatusMap: forEach()-Methode"
+title: "MediaKeyStatusMap: forEach() Methode"
 short-title: forEach()
 slug: Web/API/MediaKeyStatusMap/forEach
 l10n:
@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}
 
-Die **`forEach()`**-Methode der
-{{domxref("MediaKeyStatusMap")}}-Schnittstelle ruft callback einmal für jedes Schlüssel-Wert-Paar
-in der Statuskarte in Einfügereihenfolge auf. Wenn ein Argument vorhanden ist, wird es an den
-Callback übergeben.
+Die **`forEach()`** Methode der
+[`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap) Schnittstelle ruft einmal für jedes Schlüssel-Wert-Paar
+in der Statuskarte die Callback-Funktion in der Reihenfolge der Einfügung auf. Wenn ein Argument vorhanden ist, wird es der Callback-Funktion übergeben.
 
 ## Syntax
 
@@ -24,14 +23,14 @@ forEach(callbackFn, thisArg)
 
 - `callbackFn`
 
-  - : Funktion, die für jedes Element ausgeführt wird und drei Argumente annimmt:
+  - : Funktion, die für jedes Element ausgeführt wird und drei Argumente entgegennimmt:
 
     - `currentValue`
       - : Das aktuelle Element, das im Array verarbeitet wird.
     - `index` {{optional_inline}}
       - : Der Index des aktuellen Elements, das im Array verarbeitet wird.
     - `array` {{optional_inline}}
-      - : Auf welches Array `forEach()` angewendet wird.
+      - : Das Array, auf das `forEach()` angewendet wird.
 
 - `thisArg` {{optional_inline}}
   - : Wert, der als `this` verwendet wird, wenn `callback` ausgeführt wird.
@@ -44,6 +43,6 @@ Keiner ({{jsxref("undefined")}}).
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

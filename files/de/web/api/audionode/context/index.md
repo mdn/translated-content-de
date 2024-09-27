@@ -8,11 +8,15 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die schreibgeschützte `context`-Eigenschaft des {{domxref("AudioNode")}}-Interfaces gibt den zugehörigen {{domxref("BaseAudioContext")}} zurück, das ist das Objekt, das den Verarbeitungsgraphen darstellt, an dem der Node beteiligt ist.
+Die schreibgeschützte `context`-Eigenschaft des
+[`AudioNode`](/de/docs/Web/API/AudioNode)-Interfaces gibt den zugehörigen
+[`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) zurück, das heißt das Objekt, das den Verarbeitungsgraphen
+repräsentiert, an dem der Knoten beteiligt ist.
 
 ## Wert
 
-Das {{domxref("AudioContext")}}- oder {{domxref("OfflineAudioContext")}}-Objekt, das verwendet wurde, um dieses `AudioNode` zu konstruieren.
+Das [`AudioContext`](/de/docs/Web/API/AudioContext) oder [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) Objekt, das
+zur Konstruktion dieses `AudioNode` verwendet wurde.
 
 ## Beispiele
 

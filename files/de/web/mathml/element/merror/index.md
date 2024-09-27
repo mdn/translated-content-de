@@ -7,7 +7,7 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<merror>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Inhalte als Fehlermeldungen anzuzeigen. Das Ziel dieses Elements ist es, eine standardisierte Methode für Programme bereitzustellen, die MathML aus anderen Eingaben generieren, um Syntaxfehler zu melden.
+Das **`<merror>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um Inhalte als Fehlermeldungen anzuzeigen. Der Zweck dieses Elements ist es, ein standardmäßiges Verfahren bereitzustellen, mit dem Programme, die MathML aus anderen Eingaben generieren, Syntaxfehler melden können.
 
 ## Attribute
 
@@ -15,7 +15,7 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Gl
 
 ## Beispiele
 
-Im folgenden Beispiel wird `<merror>` verwendet, um einen Syntaxfehler für eine LaTeX-ähnliche Eingabe anzuzeigen:
+Im folgenden Beispiel wird `<merror>` verwendet, um einen Parsing-Fehler für eine LaTeX-ähnliche Eingabe anzuzeigen:
 
 ```html
 <math display="block">
@@ -34,6 +34,6 @@ Im folgenden Beispiel wird `<merror>` verwendet, um einen Syntaxfehler für eine
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

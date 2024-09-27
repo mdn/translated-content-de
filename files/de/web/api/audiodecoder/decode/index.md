@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`decode()`**-Methode der {{domxref("AudioDecoder")}}-Schnittstelle stellt eine Steuerungsnachricht in die Warteschlange, um ein gegebenes Audio-Stück zu decodieren.
+Die **`decode()`**-Methode der [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Schnittstelle stellt eine Kontrollnachricht in die Warteschlange, um ein gegebenes Audiosegment zu decodieren.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ decode(chunk)
 ### Parameter
 
 - `chunk`
-  - : Ein {{domxref("EncodedAudioChunk")}}-Objekt, das ein kodiertes Audio-Stück darstellt.
+  - : Ein [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Objekt, das ein codiertes Audiosegment repräsentiert.
 
 ### Rückgabewert
 
@@ -27,10 +27,10 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{domxref("AudioDecoder.state","state")}} nicht `"configured"` ist.
-- `DataError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das `chunk` aufgrund der Abhängigkeit von anderen Frames zur Decodierung nicht decodiert werden kann.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der [`state`](/de/docs/Web/API/AudioDecoder/state) nicht `"configured"` ist.
+- `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der `chunk` nicht decodiert werden kann, da er zum Decodieren auf andere Frames angewiesen ist.
 
 ## Beispiele
 

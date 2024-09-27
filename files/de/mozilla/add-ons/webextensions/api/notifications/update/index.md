@@ -23,13 +23,13 @@ let updating = browser.notifications.update(
 ### Parameter
 
 - `id`
-  - : `string`. Die ID der zu aktualisierenden Benachrichtigung. Dies ist dieselbe ID, die im Rückruf von {{WebExtAPIRef('notifications.create()')}} übergeben wurde.
+  - : `string`. Die ID der zu aktualisierenden Benachrichtigung. Dies ist dieselbe ID, die an den Rückruf von {{WebExtAPIRef('notifications.create()')}} übergeben wurde.
 - `options`
   - : {{WebExtAPIRef('notifications.NotificationOptions')}}. Definiert den neuen Inhalt und das Verhalten der Benachrichtigung.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Boolean erfüllt wird: `true`, wenn die Benachrichtigung aktualisiert wurde, oder `false`, wenn nicht (zum Beispiel, weil die durch `id` referenzierte Benachrichtigung nicht existierte).
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem boolean erfüllt wird: `true`, wenn die Benachrichtigung aktualisiert wurde, oder `false`, wenn dies nicht der Fall war (zum Beispiel, weil die durch `id` referenzierte Benachrichtigung nicht existierte).
 
 ## Browser-Kompatibilität
 
@@ -37,7 +37,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Dieses Beispiel verwendet `update()`, um eine Fortschrittsbenachrichtigung zu aktualisieren. Ein Klick auf die Browseraktion zeigt die Benachrichtigung und startet einen {{WebExtAPIRef("alarms", "alarm")}}, den wir verwenden, um den Fortschrittsindikator der Benachrichtigung zu aktualisieren.
+Dieses Beispiel verwendet `update()`, um eine Fortschrittsbenachrichtigung zu aktualisieren. Durch Klicken auf die Browseraktion wird die Benachrichtigung angezeigt und ein {{WebExtAPIRef("alarms", "alarm")}} gestartet, den wir verwenden, um den Fortschrittsanzeiger der Benachrichtigung zu aktualisieren.
 
 Beachten Sie, dass Sie die "alarms" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) benötigen, um Alarme zu erstellen (sowie die "notifications" Berechtigung, um Benachrichtigungen zu erstellen). Beachten Sie auch, dass Firefox das `progress` Attribut nicht unterstützt.
 
@@ -46,11 +46,11 @@ let cakeNotification = "cake-notification";
 
 /*
 
-CAKE_INTERVAL ist in diesem Beispiel auf 0,3 Sekunden eingestellt.
-Eine so kurze Zeitspanne wird gewählt, um das Verhalten der Erweiterung
-deutlicher zu machen, aber dies wird im wirklichen Leben nicht empfohlen.
-Beachten Sie, dass in Chrome Alarme nicht für weniger als
-eine Minute eingestellt werden können.
+CAKE_INTERVAL is set to 0.3 seconds in this example.
+Such a short period is chosen to make the extension's behavior
+more obvious, but this is not recommended in real life.
+Note that in Chrome, alarms cannot be set for less than
+a minute.
 
 */
 let CAKE_PREP_INTERVAL = 0.005;
@@ -77,8 +77,8 @@ browser.browserAction.onClicked.addListener(() => {
     browser.notifications.create(cakeNotification, {
       type: "progress",
       iconUrl: browser.extension.getURL("icons/cake-48.png"),
-      title: "Ihr Kuchen wird vorbereitet…",
-      message: "Etwas etwas Kuchen",
+      title: "Your cake is being prepared…",
+      message: "Something something cake",
       progress,
     });
     browser.alarms.create("cake-progress", {

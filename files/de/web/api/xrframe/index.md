@@ -7,39 +7,39 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Ein Objekt des [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) **`XRFrame`** wird an die Rückruffunktion von {{domxref("XRSession.requestAnimationFrame", "requestAnimationFrame()")}} übergeben und bietet Zugriff auf die Informationen, die benötigt werden, um einen einzelnen Animationsframe für eine {{domxref("XRSession")}} zu rendern, die eine VR- oder AR-Szene beschreibt. Ereignisse, die den Tracking-Status von Objekten kommunizieren, liefern ebenfalls einen `XRFrame`-Verweis als Bestandteil ihrer Struktur.
+Ein [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) **`XRFrame`** Objekt wird in die [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) Callback-Funktion übergeben und bietet Zugriff auf die Informationen, die benötigt werden, um einen einzelnen Animationsframe für eine [`XRSession`](/de/docs/Web/API/XRSession) zu rendern, die eine VR- oder AR-Szene beschreibt. Ereignisse, die den Tracking-Zustand von Objekten kommunizieren, liefern ebenfalls eine `XRFrame` Referenz als Teil ihrer Struktur.
 
-Zusätzlich zu einem Verweis auf die {{domxref("XRSession")}}, für die dieser Frame gerendert werden soll, stellt die Methode {{domxref("XRFrame.getViewerPose", "getViewerPose()")}} die {{domxref("XRViewerPose")}} zur Verfügung, die die Position und Orientierung des Betrachters im Raum beschreibt. Mit {{domxref("XRFrame.getPose", "getPose()")}} kann eine {{domxref("XRPose")}} erstellt werden, die die relative Position eines {{domxref("XRSpace")}} zu einem anderen beschreibt.
+Zusätzlich zur Bereitstellung einer Referenz zur [`XRSession`](/de/docs/Web/API/XRSession), für die dieser Frame gerendert werden soll, wird die Methode [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) bereitgestellt, um die [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) zu erhalten, die die Position und Orientierung des Betrachters im Raum beschreibt. Mit [`getPose()`](/de/docs/Web/API/XRFrame/getPose) kann eine [`XRPose`](/de/docs/Web/API/XRPose) erstellt werden, die die relative Position eines [`XRSpace`](/de/docs/Web/API/XRSpace) relativ zu einem anderen beschreibt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{DOMxRef("XRFrame.session", "session")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die {{DOMxRef("XRSession")}}, für die dieses `XRFrame` die Tracking-Details aller Objekte beschreibt. Die Informationen über ein bestimmtes Objekt können durch Aufrufen einer der Methoden auf dem Objekt erhalten werden.
-- {{DOMxRef("XRFrame.trackedAnchors", "trackedAnchors")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein {{domxref("XRAnchorSet")}}, das alle Anker enthält, die im Frame noch verfolgt werden.
+- [`session`](/de/docs/Web/API/XRFrame/session) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Die [`XRSession`](/de/docs/Web/API/XRSession), für die dieses `XRFrame` die Tracking-Details für alle Objekte beschreibt. Informationen über ein spezifisches Objekt können durch Aufrufen einer der Methoden auf dem Objekt erhalten werden.
+- [`trackedAnchors`](/de/docs/Web/API/XRFrame/trackedAnchors) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein [`XRAnchorSet`](/de/docs/Web/API/XRAnchorSet), das alle im Frame noch verfolgten Anker enthält.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{domxref("XRFrame.createAnchor()", "createAnchor()")}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das zu einem freischwebenden {{domxref("XRAnchor")}}-Objekt aufgelöst wird.
-- {{domxref("XRFrame.fillJointRadii()", "fillJointRadii()")}} {{Experimental_Inline}}
-  - : Füllt ein {{jsxref("Float32Array")}} mit Radien für eine Liste von Handgelenkraumen. Gibt `true` zurück, wenn erfolgreich für alle Räume.
-- {{domxref("XRFrame.fillPoses()", "fillPoses()")}} {{Experimental_Inline}}
-  - : Füllt ein {{jsxref("Float32Array")}} mit den Matrizen der Posen, relativ zu einem gegebenen Basisraum. Gibt `true` zurück, wenn alle Räume eine gültige Pose haben.
-- {{domxref("XRFrame.getDepthInformation()", "getDepthInformation()")}} {{Experimental_Inline}}
-  - : Gibt ein {{domxref("XRCPUDepthInformation")}}-Objekt zurück, das CPU-Tiefeninformationen für den Frame enthält.
-- {{domxref("XRFrame.getHitTestResults()", "getHitTestResults()")}} {{Experimental_Inline}}
-  - : Gibt ein Array von {{domxref("XRHitTestResult")}}-Objekten zurück, die Hit-Test-Ergebnisse für eine bestimmte {{domxref("XRHitTestSource")}} enthalten.
-- {{domxref("XRFrame.getHitTestResultsForTransientInput()", "getHitTestResultsForTransientInput()")}} {{Experimental_Inline}}
-  - : Gibt ein Array von {{domxref("XRTransientInputHitTestResult")}}-Objekten zurück, die Hit-Test-Ergebnisse für eine bestimmte {{domxref("XRTransientInputHitTestSource")}} enthalten.
-- {{domxref("XRFrame.getJointPose()", "getJointPose()")}} {{Experimental_Inline}}
-  - : Gibt ein {{domxref("XRJointPose")}}-Objekt zurück, das die Pose eines Handgelenks (siehe {{domxref("XRHand")}}) relativ zu einem gegebenen Basisraum bereitstellt.
-- {{domxref("XRFrame.getLightEstimate()", "getLightEstimate()")}} {{Experimental_Inline}}
-  - : Gibt ein {{domxref("XRLightEstimate")}}-Objekt zurück, das geschätzte Lichtwerte für eine {{domxref("XRLightProbe")}} enthält.
-- {{DOMxRef("XRFrame.getPose", "getPose()")}} {{Experimental_Inline}}
-  - : Gibt ein {{domxref("XRPose")}}-Objekt zurück, das die räumliche Beziehung zwischen den beiden angegebenen {{domxref("XRSpace")}}-Objekten darstellt.
-- {{DOMxRef("XRFrame.getViewerPose", "getViewerPose()")}} {{Experimental_Inline}}
-  - : Gibt eine {{domxref("XRViewerPose")}} zurück, die die Position und Orientierung des Betrachters in einem gegebenen {{domxref("XRReferenceSpace")}} beschreibt.
+- [`createAnchor()`](/de/docs/Web/API/XRFrame/createAnchor) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das zu einem frei schwebenden [`XRAnchor`](/de/docs/Web/API/XRAnchor) Objekt aufgelöst wird.
+- [`fillJointRadii()`](/de/docs/Web/API/XRFrame/fillJointRadii) {{Experimental_Inline}}
+  - : Füllt ein {{jsxref("Float32Array")}} mit Radien für eine Liste von Handgelenkräumen. Gibt `true` zurück, wenn es für alle Räume erfolgreich ist.
+- [`fillPoses()`](/de/docs/Web/API/XRFrame/fillPoses) {{Experimental_Inline}}
+  - : Füllt ein {{jsxref("Float32Array")}} mit den Matrizen der Posen relativ zu einem gegebenen Basisraum. Gibt `true` zurück, wenn alle Räume eine gültige Pose haben.
+- [`getDepthInformation()`](/de/docs/Web/API/XRFrame/getDepthInformation) {{Experimental_Inline}}
+  - : Gibt ein [`XRCPUDepthInformation`](/de/docs/Web/API/XRCPUDepthInformation) Objekt zurück, das CPU-Tiefeninformationen für den Frame enthält.
+- [`getHitTestResults()`](/de/docs/Web/API/XRFrame/getHitTestResults) {{Experimental_Inline}}
+  - : Gibt ein Array von [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult) Objekten zurück, die Hit-Test-Ergebnisse für eine gegebene [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource) enthalten.
+- [`getHitTestResultsForTransientInput()`](/de/docs/Web/API/XRFrame/getHitTestResultsForTransientInput) {{Experimental_Inline}}
+  - : Gibt ein Array von [`XRTransientInputHitTestResult`](/de/docs/Web/API/XRTransientInputHitTestResult) Objekten zurück, die Hit-Test-Ergebnisse für eine gegebene [`XRTransientInputHitTestSource`](/de/docs/Web/API/XRTransientInputHitTestSource) enthalten.
+- [`getJointPose()`](/de/docs/Web/API/XRFrame/getJointPose) {{Experimental_Inline}}
+  - : Gibt ein [`XRJointPose`](/de/docs/Web/API/XRJointPose) Objekt zurück, das die Pose eines Handgelenks (siehe [`XRHand`](/de/docs/Web/API/XRHand)) relativ zu einem gegebenen Basisraum bereitstellt.
+- [`getLightEstimate()`](/de/docs/Web/API/XRFrame/getLightEstimate) {{Experimental_Inline}}
+  - : Gibt ein [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate) Objekt zurück, das geschätzte Beleuchtungswerte für eine [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) enthält.
+- [`getPose()`](/de/docs/Web/API/XRFrame/getPose) {{Experimental_Inline}}
+  - : Gibt ein [`XRPose`](/de/docs/Web/API/XRPose) Objekt zurück, das die räumliche Beziehung zwischen den beiden angegebenen [`XRSpace`](/de/docs/Web/API/XRSpace) Objekten darstellt.
+- [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) {{Experimental_Inline}}
+  - : Gibt eine [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) zurück, die die Position und Orientierung des Betrachters in einem gegebenen [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) beschreibt.
 
 ## Spezifikationen
 

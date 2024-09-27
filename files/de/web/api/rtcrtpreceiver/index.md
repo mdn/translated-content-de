@@ -7,39 +7,39 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCRtpReceiver`** Schnittstelle der [WebRTC API](/de/docs/Web/API/WebRTC_API) verwaltet den Empfang und die Dekodierung von Daten für einen {{domxref("MediaStreamTrack")}} auf einer {{domxref("RTCPeerConnection")}}.
+Das **`RTCRtpReceiver`**-Interface der [WebRTC API](/de/docs/Web/API/WebRTC_API) verwaltet den Empfang und die Dekodierung von Daten für ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) auf einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("RTCRtpReceiver.jitterBufferTarget")}}
-  - : Ein {{domxref("DOMHighResTimeStamp")}}, der die bevorzugte Haltezeit einer Anwendung für Medien im Jitter-Puffer angibt. Dies erlaubt es, den Kompromiss zwischen Wiedergabeverzögerung und dem Risiko, aufgrund von Netzwerkjitter keine Audio- oder Videoframes mehr zu haben, zu beeinflussen.
-- {{domxref("RTCRtpReceiver.track")}} {{ReadOnlyInline}}
-  - : Gibt den {{domxref("MediaStreamTrack")}} zurück, der mit der aktuellen `RTCRtpReceiver` Instanz verbunden ist.
-- {{domxref("RTCRtpReceiver.transport")}} {{ReadOnlyInline}}
-  - : Gibt die {{domxref("RTCDtlsTransport")}} Instanz zurück, über die die Medien für den Track des Empfängers empfangen werden.
-- {{domxref("RTCRtpReceiver.transform")}}
-  - : Ein {{domxref("RTCRtpScriptTransform")}} wird verwendet, um einen Transform-Stream ({{domxref("TransformStream")}}), der in einem Worker-Thread läuft, in die Empfänger-Pipeline einzufügen. So können Stream-Transformationen auf eingehende kodierte Video- und Audiorahmen angewendet werden.
+- [`RTCRtpReceiver.jitterBufferTarget`](/de/docs/Web/API/RTCRtpReceiver/jitterBufferTarget)
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die bevorzugte Haltezeit für Medien im Jitter-Puffer einer Anwendung angibt, wodurch sie den Kompromiss zwischen Abspielverzögerung und dem Risiko des Auslaufens von Audio- oder Videoframes aufgrund von Netzwerkjitter beeinflussen kann.
+- [`RTCRtpReceiver.track`](/de/docs/Web/API/RTCRtpReceiver/track) {{ReadOnlyInline}}
+  - : Gibt das [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zurück, das mit der aktuellen `RTCRtpReceiver`-Instanz verbunden ist.
+- [`RTCRtpReceiver.transport`](/de/docs/Web/API/RTCRtpReceiver/transport) {{ReadOnlyInline}}
+  - : Gibt die [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Instanz zurück, über die die Medien für den Track des Empfängers empfangen werden.
+- [`RTCRtpReceiver.transform`](/de/docs/Web/API/RTCRtpReceiver/transform)
+  - : Ein [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform) wird verwendet, um einen Transformierungs-Stream ([`TransformStream`](/de/docs/Web/API/TransformStream)), der in einem Worker-Thread läuft, in die Empfangspipeline einzufügen, wodurch Transformierungen auf eingehende kodierte Video- und Audio-Frames angewendet werden können.
 
 ### Veraltete Eigenschaften
 
 - `rtcpTransport` {{deprecated_inline}}
-  - : Diese Eigenschaft wurde entfernt; die RTP- und RTCP-Transporte wurden zu einem einzigen Transport zusammengeführt. Verwenden Sie stattdessen die {{domxref("RTCRtpReceiver.transport", "transport")}} Eigenschaft.
+  - : Diese Eigenschaft wurde entfernt; die RTP- und RTCP-Transporte wurden in einen einzigen Transport zusammengefasst. Verwenden Sie stattdessen die [`transport`](/de/docs/Web/API/RTCRtpReceiver/transport)-Eigenschaft.
 
 ## Statische Methoden
 
-- {{domxref("RTCRtpReceiver.getCapabilities_static", "RTCRtpReceiver.getCapabilities()")}}
-  - : Gibt die optimistischste Ansicht der Fähigkeiten des Systems für den Empfang von Medien des angegebenen Typs zurück.
+- [`RTCRtpReceiver.getCapabilities()`](/de/docs/Web/API/RTCRtpReceiver/getCapabilities_static)
+  - : Gibt die optimistischste Ansicht der Fähigkeiten des Systems zum Empfangen von Medien des angegebenen Typs zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{domxref("RTCRtpReceiver.getContributingSources()")}}
-  - : Gibt ein Array zurück, das ein Objekt für jeden einzigartigen CSRC (Contributing Source) Bezeichner enthält, der in den letzten zehn Sekunden vom aktuellen `RTCRtpReceiver` empfangen wurde.
-- {{domxref("RTCRtpReceiver.getParameters()")}}
+- [`RTCRtpReceiver.getContributingSources()`](/de/docs/Web/API/RTCRtpReceiver/getContributingSources)
+  - : Gibt ein Array zurück, das ein Objekt für jeden eindeutigen CSRC (Contributing Source) Identifier enthält, der von der aktuellen `RTCRtpReceiver` in den letzten zehn Sekunden empfangen wurde.
+- [`RTCRtpReceiver.getParameters()`](/de/docs/Web/API/RTCRtpReceiver/getParameters)
   - : Gibt ein Objekt zurück, das Informationen darüber enthält, wie die RTC-Daten dekodiert werden sollen.
-- {{domxref("RTCRtpReceiver.getStats()")}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, dessen Erfüllungshandler einen {{domxref("RTCStatsReport")}} erhält, der Statistiken über die eingehenden Streams und ihre Abhängigkeiten enthält.
-- {{domxref("RTCRtpReceiver.getSynchronizationSources()")}}
-  - : Gibt ein Array zurück, das ein Objekt für jeden einzigartigen SSRC (Synchronization Source) Bezeichner enthält, der in den letzten zehn Sekunden vom aktuellen `RTCRtpReceiver` empfangen wurde.
+- [`RTCRtpReceiver.getStats()`](/de/docs/Web/API/RTCRtpReceiver/getStats)
+  - : Gibt ein {{jsxref("Promise")}} zurück, dessen Erfüllungs-Handler einen [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) erhält, der Statistiken über die eingehenden Streams und deren Abhängigkeiten enthält.
+- [`RTCRtpReceiver.getSynchronizationSources()`](/de/docs/Web/API/RTCRtpReceiver/getSynchronizationSources)
+  - : Gibt ein Array zurück, das ein Objekt für jeden eindeutigen SSRC (Synchronization Source) Identifier enthält, der von der aktuellen `RTCRtpReceiver` in den letzten zehn Sekunden empfangen wurde.
 
 ## Spezifikationen
 
@@ -52,6 +52,6 @@ Die **`RTCRtpReceiver`** Schnittstelle der [WebRTC API](/de/docs/Web/API/WebRTC_
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCStatsReport")}}
-- {{domxref("RTCRtpSender")}}
-- {{domxref("RTCPeerConnection.getStats()")}}
+- [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)
+- [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)
+- [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats)

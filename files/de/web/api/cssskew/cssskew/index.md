@@ -9,9 +9,8 @@ l10n:
 {{APIRef("CSS Typed OM")}}
 
 Der **`CSSSkew()`** Konstruktor erstellt ein neues
-{{domxref("CSSSkew")}}-Objekt, das den
-[`skew()`](/de/docs/Web/CSS/transform-function/skew)-Wert
-der einzelnen {{CSSXRef('transform')}}-Eigenschaft in CSS darstellt.
+[`CSSSkew`](/de/docs/Web/API/CSSSkew) Objekt, das den
+[`skew()`](/de/docs/Web/CSS/transform-function/skew) Wert der individuellen {{CSSXRef('transform')}} Eigenschaft in CSS repräsentiert.
 
 ## Syntax
 
@@ -21,19 +20,19 @@ new CSSSkew(ax, ay)
 
 ### Parameter
 
-- {{domxref('CSSSkew.ax','ax')}}
-  - : Ein Wert für den `ax` (x-Achse) Winkel des zu konstruierenden {{domxref('CSSSkew')}}-Objekts. Dies muss ein {{domxref('CSSNumericValue')}} sein.
-- {{domxref('CSSSkew.ay','ay')}}
-  - : Ein Wert für den `ay` (y-Achse) Winkel des zu konstruierenden {{domxref('CSSSkew')}}-Objekts. Dies muss ein {{domxref('CSSNumericValue')}} sein.
+- [`ax`](/de/docs/Web/API/CSSSkew/ax)
+  - : Ein Wert für den `ax`-Winkel (x-Achse) des zu konstruierenden [`CSSSkew`](/de/docs/Web/API/CSSSkew) Objekts. Dies muss ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein.
+- [`ay`](/de/docs/Web/API/CSSSkew/ay)
+  - : Ein Wert für den `ay`-Winkel (y-Achse) des zu konstruierenden [`CSSSkew`](/de/docs/Web/API/CSSSkew) Objekts. Dies muss ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein.
 
 ## Beispiele
 
-To do
+Noch zu tun
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

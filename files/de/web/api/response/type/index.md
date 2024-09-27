@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte Eigenschaft **`type`** der {{domxref("Response")}}-Schnittstelle enthält den Typ der Antwort.
-Sie kann einen der folgenden Werte annehmen:
+Die **`type`** schreibgeschützte Eigenschaft des [`Response`](/de/docs/Web/API/Response)-Interfaces enthält den Typ der Antwort.
+Es kann einer der folgenden sein:
 
-- `basic`: Normale Antwort gleicher Herkunft, bei der alle Header außer "Set-Cookie" offengelegt werden.
-- `cors`: Die Antwort wurde von einer gültigen, ursprungsübergreifenden Anforderung empfangen. [Bestimmte Header und der Body](https://fetch.spec.whatwg.org/#concept-filtered-response-cors) können zugänglich sein.
+- `basic`: Normale, gleiche Herkunftsantwort, mit allen Headern außer "Set-Cookie" freigelegt.
+- `cors`: Die Antwort wurde von einer gültigen Cross-Origin-Anfrage empfangen. [Bestimmte Header und der Hauptteil](https://fetch.spec.whatwg.org/#concept-filtered-response-cors) können abgerufen werden.
 - `error`: Netzwerkfehler.
-  Es stehen keine nützlichen Informationen zur Beschreibung des Fehlers zur Verfügung.
+  Keine nützlichen Informationen zur Beschreibung des Fehlers sind verfügbar.
   Der Status der Antwort ist 0, Header sind leer und unveränderlich.
-  Dies ist der Typ für eine Antwort, die von `Response.error()` erhalten wurde.
-- `opaque`: Antwort für eine "no-cors"-Anforderung an eine ursprungsübergreifende Ressource.
+  Dies ist der Typ für eine Antwort, die aus `Response.error()` erhalten wurde.
+- `opaque`: Antwort für eine "no-cors"-Anfrage an eine Cross-Origin-Ressource.
   [Stark eingeschränkt](https://fetch.spec.whatwg.org/#concept-filtered-response-opaque).
-- `opaqueredirect`: Die Fetch-Anforderung wurde mit `redirect: "manual"` ausgeführt.
-  Der Status der Antwort ist 0, Header sind leer, der Body ist null und der Trailer ist leer.
+- `opaqueredirect`: Die Fetch-Anfrage wurde mit `redirect: "manual"` durchgeführt.
+  Der Status der Antwort ist 0, Header sind leer, der Körper ist null, und der Trailer ist leer.
 
 > [!NOTE]
-> Eine "error"-Antwort wird nie wirklich für ein Skript offengelegt: Eine solche Antwort auf eine {{domxref("Window/fetch", "fetch()")}} würde das Versprechen ablehnen.
+> Eine "error"-Antwort wird nie wirklich einem Skript ausgesetzt: Eine solche Antwort auf eine [`fetch()`](/de/docs/Web/API/Window/fetch) würde das Versprechen ablehnen.
 
 ## Wert
 
@@ -31,10 +31,10 @@ Ein `ResponseType`-String, der den Typ der Antwort angibt.
 
 ## Beispiele
 
-In unserem [Fetch Response Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/)) erstellen wir ein neues {{domxref("Request")}}-Objekt mit dem {{domxref("Request.Request","Request()")}}-Konstruktor, indem wir einen JPG-Pfad übergeben.
-Wir holen diese Anfrage dann mit {{domxref("Window/fetch", "fetch()")}}, extrahieren ein Blob aus der Antwort mit {{domxref("Response.blob")}}, erstellen daraus eine Objekt-URL mit {{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}} und zeigen dies in einem {{htmlelement("img")}} an.
+In unserem [Fetch Response-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/)) erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor und übergeben einen JPG-Pfad.
+Wir rufen dann diese Anfrage mit [`fetch()`](/de/docs/Web/API/Window/fetch) ab, extrahieren ein Blob aus der Antwort mit [`Response.blob`](/de/docs/Web/API/Response/blob), erstellen eine Objekt-URL daraus mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static), und zeigen dies in einem {{htmlelement("img")}} an.
 
-Beachten Sie, dass wir am Anfang des `fetch()`-Blocks den Antwort-`type` in die Konsole protokollieren.
+Beachten Sie, dass wir oben im `fetch()`-Block den Antwort-`type` in die Konsole protokollieren.
 
 ```js
 const myImage = document.querySelector("img");

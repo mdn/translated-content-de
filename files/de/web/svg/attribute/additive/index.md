@@ -1,5 +1,5 @@
 ---
-title: additives
+title: additive
 slug: Web/SVG/Attribute/additive
 l10n:
   sourceCommit: 54eb3a678b4d4cbc94588d2234103e74dfa063a0
@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`additive`** Attribut steuert, ob eine Animation additiv ist oder nicht.
+Das Attribut **`additive`** steuert, ob eine Animation additiv ist oder nicht.
 
-Es ist häufig nützlich, Animationen als ein Offset oder eine Differenz zum Wert eines Attributs zu definieren, anstatt als absolute Werte.
+Es ist oft nützlich, Animationen als Versatz oder Delta zum Wert eines Attributs zu definieren, anstatt als absolute Werte.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -17,7 +17,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("animateMotion")}}
 - {{SVGElement("animateTransform")}}
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -37,9 +37,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - sum
-  - : Spezifiziert, dass die Animation zum zugrunde liegenden Wert des Attributs und anderen niedrigpriorisierten Animationen addiert wird.
+  - : Gibt an, dass die Animation zum zugrunde liegenden Wert des Attributs und anderen Animationen mit niedrigerer Priorität addiert wird.
 - replace
-  - : Spezifiziert, dass die Animation den zugrunde liegenden Wert des Attributs und andere niedrigpriorisierte Animationen überschreibt. Dies ist der Standard, jedoch wird das Verhalten auch durch die Animationswertattribute {{SVGAttr("by")}} und {{SVGAttr("to")}} beeinflusst, wie in [SMIL-Animation: Wie die Attribute from, to und by das additive Verhalten beeinflussen](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#FromToByAndAdditive) beschrieben.
+  - : Gibt an, dass die Animation den zugrunde liegenden Wert des Attributs und andere Animationen mit niedrigerer Priorität überschreibt. Dies ist der Standardwert, jedoch wird das Verhalten auch durch die Animationswertattribute {{SVGAttr("by")}} und {{SVGAttr("to")}} beeinflusst, wie im [SMIL Animation: How from, to and by attributes affect additive behavior](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#FromToByAndAdditive) beschrieben.
 
 ## Spezifikationen
 
@@ -47,4 +47,4 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## Siehe auch
 
-- [SMIL Annotationsspezifikation](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#AdditiveAttribute)
+- [SMIL Animation specification](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#AdditiveAttribute)

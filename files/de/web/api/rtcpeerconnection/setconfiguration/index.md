@@ -3,24 +3,20 @@ title: "RTCPeerConnection: setConfiguration()-Methode"
 short-title: setConfiguration()
 slug: Web/API/RTCPeerConnection/setConfiguration
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 63297dea804061944e7430acd2c057d773770a4f
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`setConfiguration()`**-Methode der {{domxref("RTCPeerConnection")}}-Schnittstelle legt die aktuelle Konfiguration der Verbindung anhand der in dem angegebenen Objekt enthaltenen Werte fest.
-Dies ermöglicht es Ihnen, die von der Verbindung verwendeten ICE-Server und die verwendeten Transportrichtlinien zu ändern.
+Die **`setConfiguration()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle legt die aktuelle Konfiguration der Verbindung basierend auf den Werten des angegebenen Objekts fest. Dadurch können Sie die von der Verbindung verwendeten ICE-Server und die zu verwendenden Transportprotokolle ändern.
 
-Der häufigste Anwendungsfall für diese Methode (und selbst dann wahrscheinlich kein sehr häufiger Anwendungsfall) ist das Ersetzen der zu verwendenden ICE-Server. Zwei potenzielle Szenarien, in denen dies getan werden könnte:
+Der häufigste Anwendungsfall für diese Methode (und selbst dann möglicherweise kein sehr häufiger Anwendungsfall) ist das Ersetzen der zu verwendenden ICE-Server. Zwei mögliche Szenarien, in denen dies geschehen könnte:
 
-- Die {{domxref("RTCPeerConnection")}} wurde instanziiert, ohne ICE-Server anzugeben.
-  Wenn zum Beispiel der {{domxref("RTCPeerConnection.RTCPeerConnection()", "RTCPeerConnection()")}}-Konstruktor ohne Parameter aufgerufen wurde, müssten Sie `setConfiguration()` aufrufen, um ICE-Server hinzuzufügen, bevor die ICE-Verhandlung beginnen kann.
-- Eine Neue Verhandlung der Verbindung ist erforderlich, und es muss aus irgendeinem Grund eine andere Menge von ICE-Servern verwendet werden.
-  Vielleicht ist der Benutzer in eine neue Region gezogen, sodass die Verwendung neuer regionaler ICE-Server notwendig ist, beispielsweise.
-  In diesem Fall könnte man `setConfiguration()` aufrufen, um zu neuen regionalen ICE-Servern zu wechseln, und dann einen [ICE-Neustart](/de/docs/Web/API/WebRTC_API/Session_lifetime#ice_restart) zu initiieren.
+- Die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) wurde instanziiert, ohne ICE-Server anzugeben. Wenn z.B. der [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection)-Konstruktor ohne Parameter aufgerufen wurde, müssen Sie `setConfiguration()` aufrufen, um ICE-Server hinzuzufügen, bevor die ICE-Aushandlung beginnen kann.
+- Eine Neuverhandlung der Verbindung ist erforderlich, und es muss aus irgendeinem Grund ein anderer Satz von ICE-Servern verwendet werden. Vielleicht ist der Benutzer in eine neue Region umgezogen, sodass die Verwendung neuer regionaler ICE-Server erforderlich ist. In dieser Situation könnte man `setConfiguration()` aufrufen, um zu neuen regionalen ICE-Servern zu wechseln, und dann einen [ICE-Neustart](/de/docs/Web/API/WebRTC_API/Session_lifetime#ice_restart) initiieren.
 
 > [!NOTE]
-> Sie können die Identitätsinformationen einer Verbindung nicht ändern, nachdem sie bereits festgelegt wurden.
+> Sie können die Identitätsinformationen für eine Verbindung nicht ändern, nachdem sie bereits festgelegt wurden.
 
 ## Syntax
 
@@ -31,29 +27,24 @@ setConfiguration(configuration)
 ### Parameter
 
 - `configuration`
-  - : Ein Objekt, das die festzulegenden Optionen bereitstellt.
-    Die Änderungen sind nicht additiv; die neuen Werte ersetzen die vorhandenen vollständig.
-    Weitere Informationen zu den zulässigen Optionen finden Sie unter [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection#parameters).
+  - : Ein Objekt, das die festzulegenden Optionen bereitstellt. Die Änderungen sind nicht additiv; stattdessen ersetzen die neuen Werte vollständig die vorhandenen Werte. Weitere Informationen zu den zulässigen Optionen finden Sie in [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection#parameters).
 
 ### Ausnahmen
 
-- `InvalidAccessError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn eine oder mehrere der in `configuration.iceServers` angegebenen URLs ein {{Glossary("TURN")}}-Server sind, aber vollständige Anmeldeinformationen nicht bereitgestellt werden (das heißt, entweder der `username` oder `credential` fehlen, oder wenn `credentialType` `"password"` ist und `credential` kein String ist).
-    Dies verhindert eine erfolgreiche Anmeldung am Server.
-- `InvalidModificationError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `configuration` geänderte Identitätsinformationen enthält, die Verbindung jedoch bereits Identitätsinformationen angegeben hat.
-    Dies geschieht, wenn `configuration.peerIdentity` oder `configuration.certificates` festgelegt sind und ihre Werte von der aktuellen Konfiguration abweichen.
-    Dies kann auch ausgelöst werden, wenn Änderungen an `configuration.bundlePolicy` oder `configuration.rtcpMuxPolicy` oder an `configuration.iceCandidatePoolSize` vorgenommen werden, wenn {{domxref("RTCPeerConnection.setLocalDescription()")}} bereits aufgerufen wurde.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die {{domxref("RTCPeerConnection")}} geschlossen ist.
-- `SyntaxError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `configuration.iceServers` keine URLs enthält oder einer der Werte in der Liste ungültig ist.
-- `NotSupportedError` {{domxref("DOMException")}}
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn eine oder mehrere URLs, die in `configuration.iceServers` angegeben sind, ein [TURN](/de/docs/Glossary/TURN)-Server ist, aber keine vollständigen Anmeldeinformationen bereitgestellt werden (d.h., entweder der `username` oder das `credential` fehlt oder wenn `credentialType` `"password"` ist und `credential` kein String ist). Dies verhindert eine erfolgreiche Anmeldung beim Server.
+- `InvalidModificationError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die `configuration` geänderte Identitätsinformationen enthält, die Verbindung jedoch bereits Identitätsinformationen spezifiziert hat. Dies geschieht, wenn `configuration.peerIdentity` oder `configuration.certificates` gesetzt sind und ihre Werte von der aktuellen Konfiguration abweichen. Dies kann auch ausgelöst werden, wenn es Änderungen an `configuration.bundlePolicy` oder `configuration.rtcpMuxPolicy` oder an `configuration.iceCandidatePoolSize` gibt, wenn [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) bereits aufgerufen wurde.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) geschlossen ist.
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `configuration.iceServers` keine URLs enthält oder wenn einer der Werte in der Liste ungültig ist.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `configuration.iceServers` eine URL mit einem nicht unterstützten Schema enthält.
 
 ## Beispiel
 
-In diesem Beispiel wurde bereits festgestellt, dass ein ICE-Neustart erforderlich ist und die Verhandlung mit einem anderen ICE-Server durchgeführt werden muss.
+In diesem Beispiel wurde bereits festgestellt, dass ein ICE-Neustart erforderlich ist und die Aushandlung mit einem anderen ICE-Server durchgeführt werden muss.
 
 ```js
 const restartConfig = {
@@ -74,13 +65,10 @@ myPeerConnection
   .then(() => {
     // send the offer to the other peer using the signaling server
   })
-  .catch(reportError);
+  .catch(window.reportError);
 ```
 
-Zuerst wird ein neues Objekt, `restartConfig`, erstellt, das den neuen ICE-Server und seine Anmeldeinformationen angibt.
-Dies wird dann an `setConfiguration()` übergeben.
-Die ICE-Verhandlung wird durch den Aufruf von {{domxref("RTCPeerConnection.createOffer()", "createOffer()")}} neu gestartet, wobei `true` als Wert der `iceRestart`-Option angegeben wird.
-Von dort aus wird der Prozess wie gewohnt fortgesetzt, indem die lokale Beschreibung auf das zurückgegebene Angebot gesetzt und dieses Angebot dann an den anderen Teilnehmer gesendet wird.
+Zuerst wird ein neues Objekt, `restartConfig`, erstellt, das den neuen ICE-Server und seine Anmeldeinformationen spezifiziert. Dieses wird dann `setConfiguration()` übergeben. Die ICE-Aushandlung wird durch Aufrufen von [`createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) neu gestartet, wobei `true` als Wert der `iceRestart`-Option angegeben wird. Von dort aus führen wir den Prozess wie gewohnt fort, indem wir die lokale Beschreibung auf das zurückgegebene Angebot setzen und dieses Angebot dann an den anderen Teilnehmer senden.
 
 ## Spezifikationen
 
@@ -92,6 +80,6 @@ Von dort aus wird der Prozess wie gewohnt fortgesetzt, indem die lokale Beschrei
 
 ## Siehe auch
 
-- {{domxref("RTCPeerConnection.getConfiguration()")}}
-- {{domxref("RTCPeerConnection.RTCPeerConnection", "RTCPeerConnection()")}}
-- {{domxref("RTCPeerConnection")}}
+- [`RTCPeerConnection.getConfiguration()`](/de/docs/Web/API/RTCPeerConnection/getConfiguration)
+- [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection)
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)

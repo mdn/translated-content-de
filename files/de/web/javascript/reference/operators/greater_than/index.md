@@ -1,5 +1,5 @@
 ---
-title: Größer als (>)
+title: Greater than (>)
 slug: Web/JavaScript/Reference/Operators/Greater_than
 l10n:
   sourceCommit: f616cb604af851f77f8cd59368e94ee3e43a8838
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Größer als (`>`)** Operator gibt `true` zurück, wenn der linke Operand größer als der rechte Operand ist, und `false` andernfalls.
+Der **größer als (`>`)** Operator gibt `true` zurück, wenn der linke Operand größer als der rechte Operand ist, und `false` andernfalls.
 
 {{EmbedInteractiveExample("pages/js/expressions-greater-than.html")}}
 
@@ -19,11 +19,11 @@ x > y
 
 ## Beschreibung
 
-Die Operanden werden mit demselben Algorithmus verglichen wie der [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) Operator, mit der Ausnahme, dass die beiden Operanden vertauscht sind. `x > y` ist im Allgemeinen äquivalent zu `y < x`, mit dem Unterschied, dass `x > y` `x` zu einem primitiven Wert umwandelt, bevor `y` umgewandelt wird, während `y < x` `y` zu einem primitiven Wert umwandelt, bevor `x` umgewandelt wird. Da die Umwandlung Nebenwirkungen haben kann, könnte die Reihenfolge der Operanden von Bedeutung sein.
+Die Operanden werden mit dem gleichen Algorithmus wie der [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) Operator verglichen, mit dem Unterschied, dass die beiden Operanden vertauscht sind. `x > y` ist im Allgemeinen äquivalent zu `y < x`, außer dass `x > y` `x` in einen primitiven Wert umwandelt, bevor `y` umgewandelt wird, während `y < x` `y` in einen primitiven Wert umwandelt, bevor `x` umgewandelt wird. Da Umwandlung Nebeneffekte haben kann, könnte die Reihenfolge der Operanden eine Rolle spielen.
 
 ## Beispiele
 
-### Vergleich von String zu String
+### String zu String Vergleich
 
 ```js
 "a" > "b"; // false
@@ -31,7 +31,7 @@ Die Operanden werden mit demselben Algorithmus verglichen wie der [Kleiner als](
 "a" > "3"; // true
 ```
 
-### Vergleich von String zu Zahl
+### String zu Number Vergleich
 
 ```js
 "5" > 3; // true
@@ -45,7 +45,7 @@ Die Operanden werden mit demselben Algorithmus verglichen wie der [Kleiner als](
 "3" > 5n; // false
 ```
 
-### Vergleich von Zahl zu Zahl
+### Number zu Number Vergleich
 
 ```js
 5 > 3; // true
@@ -53,7 +53,7 @@ Die Operanden werden mit demselben Algorithmus verglichen wie der [Kleiner als](
 3 > 5; // false
 ```
 
-### Vergleich von Zahl zu BigInt
+### Number zu BigInt Vergleich
 
 ```js
 5n > 3; // true
@@ -89,6 +89,6 @@ NaN > 3; // false
 
 ## Siehe auch
 
-- [Größer als oder gleich (`>=`)](/de/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal)
-- [Kleiner als (`<`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than)
-- [Kleiner als oder gleich (`<=`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal)
+- [Greater than or equal (`>=`)](/de/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal)
+- [Less than (`<`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than)
+- [Less than or equal (`<=`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal)

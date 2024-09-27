@@ -19,9 +19,9 @@ x / y
 
 ## Beschreibung
 
-Der `/`-Operator ist für zwei Arten von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er erzwingt zunächst die Konvertierung beider Operanden in numerische Werte und überprüft deren Typen. Er führt eine BigInt-Division durch, wenn beide Operanden BigInts werden; andernfalls führt er eine Zahlendivision durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch eine Zahl bleibt.
+Der `/` Operator ist für zwei Typen von Operanden überladen: `number` und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt zunächst beide Operanden zu numerischen Werten](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und testet deren Typen. Er führt eine BigInt-Division aus, wenn beide Operanden zu BigInts werden; ansonsten wird eine numerische Division durchgeführt. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch zu einer Zahl.
 
-Für die BigInt-Division ist das Ergebnis der Quotient der beiden Operanden, der in Richtung Null gekürzt wird, und der Rest wird verworfen. Ein {{jsxref("RangeError")}} wird ausgelöst, wenn der Divisor `y` `0n` ist. Dies liegt daran, dass die Division von Zahlen durch null `Infinity` oder `-Infinity` zurückgibt, aber BigInt kein Konzept von Unendlichkeit hat.
+Bei der BigInt-Division ist das Ergebnis der Quotient der beiden Operanden, der gegen Null abgeschnitten wird, und der Rest wird verworfen. Ein {{jsxref("RangeError")}} wird ausgelöst, wenn der Divisor `y` `0n` ist. Das liegt daran, dass die Division durch Null bei `number` `Infinity` oder `-Infinity` zurückgibt, bei BigInt jedoch kein Konzept der Unendlichkeit existiert.
 
 ## Beispiele
 
@@ -33,11 +33,11 @@ Math.floor(3 / 2); // 1
 1.0 / 2.0; // 0.5
 
 2 / 0; // Infinity
-2.0 / 0.0; // Infinity, weil 0.0 === 0
+2.0 / 0.0; // Infinity, because 0.0 === 0
 2.0 / -0.0; // -Infinity
 ```
 
-Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
+Andere Nicht-BigInt-Werte werden zu Zahlen umgewandelt:
 
 ```js
 5 / "2"; // 2.5
@@ -55,14 +55,14 @@ Andere Nicht-BigInt-Werte werden in Zahlen umgewandelt:
 2n / 0n; // RangeError: BigInt division by zero
 ```
 
-Sie können BigInt- und Zahl-Operanden nicht in der Division mischen.
+Sie können BigInt- und `number`-Operanden in der Division nicht mischen.
 
 ```js example-bad
 2n / 2; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 2 / 2n; // TypeError: Cannot mix BigInt and other types, use explicit conversions
 ```
 
-Um eine Division mit einem BigInt und einem Nicht-BigInt durchzuführen, konvertieren Sie einen der Operanden:
+Um eine Division mit einem BigInt und einem Nicht-BigInt durchzuführen, wandeln Sie einen der Operanden um:
 
 ```js
 2n / BigInt(2); // 1n
@@ -84,7 +84,7 @@ Number(2n) / 2; // 1
 - [Multiplikation (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
 - [Rest (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
 - [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
-- [Increment (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
-- [Decrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
-- [Unäre Negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
+- [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
+- [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
+- [Unäres Minus (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
 - [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

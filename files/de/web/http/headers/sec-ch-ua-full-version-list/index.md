@@ -7,65 +7,60 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`Sec-CH-UA-Full-Version-List`** [User-Agent-Client-Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) Request-Header liefert die Marken- und vollständige Versionsinformation des User-Agents.
+Der **`Sec-CH-UA-Full-Version-List`** [User-Agent-Client-Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) Anforderungsheader liefert die Branding- und vollständige Versionsinformationen des User-Agents.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request header")}},
+        [Anforderungsheader](/de/docs/Glossary/Request_header),
         <a href="/de/docs/Web/HTTP/Client_hints">Client-Hint</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja</td>
     </tr>
   </tbody>
 </table>
 
-Der **`Sec-CH-UA-Full-Version-List`** Header liefert die Marken- und vollständige Versionsinformation für jede mit dem Browser verbundene Marke, in einer kommagetrennten Liste.
+Der **`Sec-CH-UA-Full-Version-List`** Header liefert die Marken- und vollständigen Versionsinformationen für jede Marke, die mit dem Browser verknüpft ist, in einer durch Komma getrennten Liste.
 
-Eine Marke ist ein Handelsname für den User-Agent wie: Chromium, Opera, Google Chrome, Microsoft Edge, Firefox und Safari.
-Ein User-Agent könnte mit mehreren Marken verbunden sein.
-Zum Beispiel basieren Opera, Chrome und Edge alle auf Chromium und werden beide Marken im **`Sec-CH-UA-Full-Version-List`** Header angeben.
+Eine Marke ist ein Handelsname für den User-Agent wie: Chromium, Opera, Google Chrome, Microsoft Edge, Firefox und Safari. Ein User-Agent kann mehrere verknüpfte Marken haben. Zum Beispiel basieren Opera, Chrome und Edge alle auf Chromium und werden beide Marken im **`Sec-CH-UA-Full-Version-List`** Header bereitstellen.
 
-Der Header ermöglicht es dem Server, seine Antwort sowohl basierend auf geteilten Marken als auch auf spezifischen Anpassungen in ihren jeweiligen spezifischen Builds zu gestalten.
+Der Header ermöglicht es dem Server somit, seine Antwort basierend sowohl auf gemeinsamen Marken als auch auf besonderen Anpassungen in ihren spezifischen jeweiligen Builds anzupassen.
 
-Der Header kann "falsche" Marken in jeder Position und mit jedem Namen einschließen.
-Dies ist eine Funktion, die entwickelt wurde, um zu verhindern, dass Server unbekannte User-Agents sofort ablehnen, wodurch User-Agents gezwungen werden, über ihre Markenidentität zu lügen.
+Der Header kann "falsche" Marken in beliebiger Position und mit beliebigem Namen enthalten. Dies ist ein Merkmal, das darauf abzielt, zu verhindern, dass Server unbekannte User-Agents sofort ablehnen, indem sie User-Agents dazu zwingen, über ihre Markenidentität zu lügen.
 
 > [!NOTE]
-> Dies ist ähnlich wie {{HTTPHeader("Sec-CH-UA")}}, beinhaltet jedoch die vollständige Versionsnummer anstelle der signifikanten Versionsnummer für jede Marke.
+> Dies ähnelt {{HTTPHeader("Sec-CH-UA")}}, enthält jedoch für jede Marke die vollständige Versionsnummer anstelle der signifikanten Versionsnummer.
 
 ## Syntax
 
-Eine kommagetrennte Liste von Marken in der User-Agent-Markenliste und deren zugehörigen vollständigen Versionsnummer.
-Die Syntax für einen einzelnen Eintrag hat folgendes Format:
+Eine durch Kommas getrennte Liste von Marken in der User-Agent-Markenliste und ihrer zugehörigen vollständigen Versionsnummer. Die Syntax für einen einzelnen Eintrag hat folgendes Format:
 
 ```http
 Sec-CH-UA-Full-Version-List: "<brand>";v="<full version>", ...
 ```
 
-### Richtlinien
+### Direktiven
 
 - `<brand>`
-  - : Eine mit dem User-Agent verbundene Marke, wie "Chromium", "Google Chrome".
-    Dies kann eine absichtlich falsche Marke sein, wie `" Not A;Brand"` oder `"(Not(A:Brand"` (der tatsächliche Wert wird erwartet, dass er sich im Laufe der Zeit ändert und unvorhersehbar ist).
+  - : Eine Marke, die mit dem User-Agent verknüpft ist, wie "Chromium", "Google Chrome". Dies kann eine absichtlich falsche Marke sein, wie `" Not A;Brand"` oder `"(Not(A:Brand"` (der tatsächliche Wert sollte sich im Laufe der Zeit ändern und unvorhersehbar sein).
 - `<full version>`
   - : Eine vollständige Versionsnummer, wie 98.0.4750.0.
 
 ## Beispiele
 
-Ein Server fordert den `Sec-CH-UA-Full-Version-List` Header an, indem er den {{HTTPHeader("Accept-CH")}} in einer _Antwort_ auf eine beliebige Anfrage des Clients einfügt und den Namen des gewünschten Headers als Token verwendet:
+Ein Server fordert den `Sec-CH-UA-Full-Version-List` Header an, indem er {{HTTPHeader("Accept-CH")}} in einer _Antwort_ auf eine beliebige Anfrage vom Client einfügt und den Namen des gewünschten Headers als Token verwendet:
 
 ```http
 HTTP/1.1 200 OK
 Accept-CH: Sec-CH-UA-Full-Version-List
 ```
 
-Der Client kann sich entscheiden, den Hint bereitzustellen und den `Sec-CH-UA-Full-Version-List` Header zu nachfolgenden Anfragen hinzuzufügen, wie unten gezeigt:
+Der Client kann sich entscheiden, den Hinweis bereitzustellen und den `Sec-CH-UA-Full-Version-List` Header zu nachfolgenden Anfragen hinzuzufügen, wie unten gezeigt:
 
 ```http
 GET /my/page HTTP/1.1

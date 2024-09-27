@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.sub()`** zieht einen gegebenen Wert an einer bestimmten Position im Array ab und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass keine anderen Schreibvorgänge erfolgen, bis der modifizierte Wert zurückgeschrieben ist.
+Die **`Atomics.sub()`** statische Methode subtrahiert einen angegebenen Wert an einer angegebenen Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation gewährleistet, dass keine anderen Schreibvorgänge stattfinden, bis der modifizierte Wert zurückgeschrieben wird.
 
 {{EmbedInteractiveExample("pages/js/atomics-sub.html")}}
 
@@ -20,13 +20,9 @@ Atomics.sub(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein ganzzahliges typisiertes Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
-    {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
-    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}}, oder
-    {{jsxref("BigUint64Array")}}.
+  - : Ein Integer-typisiertes Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, von der ein
-    `value` abgezogen wird.
+  - : Die Position im `typedArray`, von der ein `value` subtrahiert werden soll.
 - `value`
   - : Die Zahl, die subtrahiert werden soll.
 
@@ -38,7 +34,7 @@ Der alte Wert an der angegebenen Position
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten ganzzahligen Typen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einen der erlaubten Integer-Typen hat.
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
 
@@ -51,7 +47,7 @@ const sab = new SharedArrayBuffer(1024);
 const ta = new Uint8Array(sab);
 ta[0] = 48;
 
-Atomics.sub(ta, 0, 12); // gibt 48 zurück, den alten Wert
+Atomics.sub(ta, 0, 12); // returns 48, the old value
 Atomics.load(ta, 0); // 36
 ```
 

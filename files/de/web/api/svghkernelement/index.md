@@ -7,25 +7,25 @@ l10n:
 
 {{APIRef("SVG")}}{{deprecated_header}}
 
-Die **`SVGHKernElement`** Schnittstelle entspricht den {{SVGElement("hkern")}} Elementen.
+Die **`SVGHKernElement`**-Schnittstelle entspricht den {{SVGElement("hkern")}}-Elementen.
 
-Ein objektorientierter Zugriff auf die Attribute des {{SVGElement("hkern")}} Elements über das SVG-DOM ist nicht möglich.
+Ein objektorientierter Zugriff auf die Attribute des {{SVGElement("hkern")}}-Elements über das SVG-DOM ist nicht möglich.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von ihrem Elternteil, {{domxref("SVGElement")}}._
+_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von ihrem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Instanzmethoden
 
-_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch Methoden von ihrem Elternteil, {{domxref("SVGElement")}}._
+_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch Methoden von ihrem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

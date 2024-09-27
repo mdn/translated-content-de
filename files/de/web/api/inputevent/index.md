@@ -7,34 +7,34 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`InputEvent`**-Schnittstelle repräsentiert ein Ereignis, das den Benutzer über Änderungen im bearbeitbaren Inhalt informiert.
+Die **`InputEvent`**-Schnittstelle repräsentiert ein Ereignis, das den Benutzer über Änderungen an bearbeitbaren Inhalten informiert.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{DOMxRef("InputEvent.InputEvent", "InputEvent()")}}
-  - : Erstellt ein `InputEvent` Objekt.
+- [`InputEvent()`](/de/docs/Web/API/InputEvent/InputEvent)
+  - : Erstellt ein `InputEvent`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihren Eltern, {{DOMxRef("UIEvent")}} und {{DOMxRef("Event")}}._
+_Diese Schnittstelle erbt Eigenschaften von ihren Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
-- {{DOMxRef("InputEvent.data")}} {{ReadOnlyInline}}
-  - : Gibt einen String mit den eingefügten Zeichen zurück. Dies kann ein leerer String sein, wenn die Änderung keinen Text einfügt (zum Beispiel beim Löschen von Zeichen).
-- {{DOMxRef("InputEvent.dataTransfer")}} {{ReadOnlyInline}}
-  - : Gibt ein {{DOMxRef("DataTransfer")}} Objekt zurück, das Informationen über Richtext- oder Nur-Text-Daten enthält, die zu bearbeitbarem Inhalt hinzugefügt oder daraus entfernt werden.
-- {{DOMxRef("InputEvent.inputType")}} {{ReadOnlyInline}}
-  - : Gibt die Art der Änderung für bearbeitbaren Inhalt zurück, wie z. B. Einfügen, Löschen oder Formatieren von Text.
-- {{DOMxRef("InputEvent.isComposing")}} {{ReadOnlyInline}}
-  - : Gibt einen {{JSxRef("Boolean")}} Wert zurück, der anzeigt, ob das Ereignis nach {{domxref("Element/compositionstart_event", "compositionstart")}} und vor {{domxref("Element/compositionend_event", "compositionend")}} ausgelöst wird.
+- [`InputEvent.data`](/de/docs/Web/API/InputEvent/data) {{ReadOnlyInline}}
+  - : Gibt eine Zeichenfolge mit den eingefügten Zeichen zurück. Dies kann eine leere Zeichenfolge sein, wenn die Änderung keinen Text einfügt (zum Beispiel beim Löschen von Zeichen).
+- [`InputEvent.dataTransfer`](/de/docs/Web/API/InputEvent/dataTransfer) {{ReadOnlyInline}}
+  - : Gibt ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt zurück, das Informationen über Richtext- oder Klartextdaten enthält, die zu bearbeitbaren Inhalten hinzugefügt oder daraus entfernt werden.
+- [`InputEvent.inputType`](/de/docs/Web/API/InputEvent/inputType) {{ReadOnlyInline}}
+  - : Gibt den Typ der Änderung für bearbeitbare Inhalte zurück, wie zum Beispiel Einfügen, Löschen oder Formatieren von Text.
+- [`InputEvent.isComposing`](/de/docs/Web/API/InputEvent/isComposing) {{ReadOnlyInline}}
+  - : Gibt einen {{JSxRef("Boolean")}}-Wert zurück, der anzeigt, ob das Ereignis nach [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event) und vor [`compositionend`](/de/docs/Web/API/Element/compositionend_event) ausgelöst wird.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle erbt Methoden von ihren Eltern, {{DOMxRef("UIEvent")}} und {{DOMxRef("Event")}}._
+_Diese Schnittstelle erbt Methoden von ihren Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
-- {{DOMxRef('InputEvent.getTargetRanges()')}}
-  - : Gibt ein Array von {{domxref("StaticRange")}} Objekten zurück, die von einer Änderung am DOM betroffen sein werden, wenn das Eingabeereignis nicht abgebrochen wird.
+- [`InputEvent.getTargetRanges()`](/de/docs/Web/API/InputEvent/getTargetRanges)
+  - : Gibt ein Array von [`StaticRange`](/de/docs/Web/API/StaticRange)-Objekten zurück, die von einer Änderung am DOM betroffen sein werden, wenn das Eingabeereignis nicht abgebrochen wird.
 
 ## Spezifikationen
 

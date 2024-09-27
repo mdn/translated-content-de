@@ -8,15 +8,15 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die Eigenschaft `distanceModel` der {{ domxref("PannerNode") }} Schnittstelle ist ein enumerierter Wert, der bestimmt, welcher Algorithmus verwendet werden soll, um die Lautstärke der Audioquelle zu verringern, wenn sie sich vom Zuhörer entfernt.
+Die Eigenschaft `distanceModel` des [`PannerNode`](/de/docs/Web/API/PannerNode)-Interfaces ist ein enumerierter Wert, der festlegt, welcher Algorithmus verwendet werden soll, um die Lautstärke der Audioquelle zu verringern, wenn sie sich vom Hörer entfernt.
 
 Die möglichen Werte sind:
 
-- `linear`: Ein _lineares Distanzmodell_, das den durch die Distanz induzierten Gewinn berechnet gemäß:
+- `linear`: Ein _lineares Distanzmodell_, das den Gewinn durch die Entfernung berechnet nach:
   `1 - rolloffFactor * (distance - refDistance) / (maxDistance - refDistance)`
-- `inverse`: Ein _inverses Distanzmodell_, das den durch die Distanz induzierten Gewinn berechnet gemäß:
+- `inverse`: Ein _inverses Distanzmodell_, das den Gewinn durch die Entfernung berechnet nach:
   `refDistance / (refDistance + rolloffFactor * (Math.max(distance, refDistance) - refDistance))`
-- `exponential`: Ein _exponentielles Distanzmodell_, das den durch die Distanz induzierten Gewinn berechnet gemäß:
+- `exponential`: Ein _exponentielles Distanzmodell_, das den Gewinn durch die Entfernung berechnet nach:
   `pow((Math.max(distance, refDistance) / refDistance, -rolloffFactor)`.
 
 `inverse` ist der Standardwert von `distanceModel`.
@@ -40,4 +40,4 @@ Siehe [`BaseAudioContext.createPanner()`](/de/docs/Web/API/BaseAudioContext/crea
 ## Siehe auch
 
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- [Grundlagen der Web Audio-Raumklanggestaltung](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics)
+- [Grundlagen der Web Audio-Spezialisierung](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics)

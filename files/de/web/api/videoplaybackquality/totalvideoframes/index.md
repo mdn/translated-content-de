@@ -1,5 +1,5 @@
 ---
-title: "VideoPlaybackQuality: totalVideoFrames-Eigenschaft"
+title: "VideoPlaybackQuality: totalVideoFrames Eigenschaft"
 short-title: totalVideoFrames
 slug: Web/API/VideoPlaybackQuality/totalVideoFrames
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`totalVideoFrames`**-Eigenschaft des {{domxref("VideoPlaybackQuality")}}-Interfaces gibt die Gesamtzahl der Videoframes zurück, die seit dem Laden der Medien angezeigt oder verworfen wurden.
+Die schreibgeschützte Eigenschaft **`totalVideoFrames`** des [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Interfaces gibt die Gesamtanzahl der Videoframes zurück, die angezeigt oder seit dem Laden der Medien verworfen wurden.
 
 ## Wert
 
-Die Gesamtanzahl der Frames, die das {{HTMLElement("video")}}-Element seit dem Laden der Medien angezeigt oder verworfen hat. Im Wesentlichen ist dies die Anzahl der Frames, die das Element _präsentiert hätte_, hätte es keine Probleme gegeben.
+Die Gesamtanzahl der Frames, die das {{HTMLElement("video")}}-Element seit dem Laden der Medien angezeigt oder verworfen hat. Im Wesentlichen ist dies die Anzahl der Frames, die das Element _präsentiert hätte_, wenn keine Probleme aufgetreten wären.
 
 Dieser Wert wird zurückgesetzt, wenn die Medien neu geladen oder ersetzt werden.
 
 ## Beispiele
 
-Dieses Beispiel ruft {{domxref("HTMLVideoElement.getVideoPlaybackQuality", "getVideoPlaybackQuality()")}} auf, um ein {{domxref("VideoPlaybackQuality")}}-Objekt zu erhalten, und bestimmt dann, welcher Prozentsatz der Frames verloren gegangen ist, sei es durch Beschädigung oder Verwurf. Wenn dieser Wert 10% (0,1) überschreitet, wird eine Funktion namens `lostFramesThresholdExceeded()` aufgerufen, um möglicherweise einen Qualitätsindikator zu aktualisieren, um einen Anstieg des Frameverlusts anzuzeigen.
+Dieses Beispiel ruft [`getVideoPlaybackQuality()`](/de/docs/Web/API/HTMLVideoElement/getVideoPlaybackQuality) auf, um ein [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Objekt zu erhalten, und ermittelt dann, welcher Prozentsatz der Frames durch Korruption oder Ablegen verloren gegangen ist. Wenn dieser Wert 10 % (0,1) überschreitet, wird eine Funktion namens `lostFramesThresholdExceeded()` aufgerufen, um möglicherweise einen Qualitätsindikator zu aktualisieren, der einen Anstieg des Frame-Verlusts anzeigt.
 
 ```js
 const videoElem = document.getElementById("my_vid");
@@ -33,7 +33,7 @@ if (
 }
 ```
 
-Ein ähnlicher Algorithmus könnte verwendet werden, um zu versuchen, auf ein Video mit niedrigerer Auflösung umzuschalten, das weniger Bandbreite benötigt, um das Verlieren von Frames zu vermeiden.
+Ein ähnlicher Algorithmus könnte verwendet werden, um zu versuchen, zu einem Video mit niedrigerer Auflösung zu wechseln, das weniger Bandbreite benötigt, um zu vermeiden, dass Frames ausgelassen werden.
 
 ## Spezifikationen
 
@@ -45,4 +45,4 @@ Ein ähnlicher Algorithmus könnte verwendet werden, um zu versuchen, auf ein Vi
 
 ## Siehe auch
 
-- Die {{domxref("HTMLVideoElement.getVideoPlaybackQuality()")}}-Methode zum Erstellen und Zurückgeben dieses Interfaces.
+- Die [`HTMLVideoElement.getVideoPlaybackQuality()`](/de/docs/Web/API/HTMLVideoElement/getVideoPlaybackQuality)-Methode, um dieses Interface zu konstruieren und zurückzugeben.

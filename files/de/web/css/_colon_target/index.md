@@ -7,25 +7,25 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:target`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein einzigartiges Element (das _Zielelement_) mit einer [`id`](/de/docs/Web/HTML/Global_attributes#id), die dem Fragment der URL entspricht.
+Die **`:target`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein einzigartiges Element (das _Zielelement_) mit einer [`id`](/de/docs/Web/HTML/Global_attributes#id), die mit dem Fragment der URL übereinstimmt.
 
 ```css
-/* Wählt ein Element mit einer ID aus, die dem Fragment der aktuellen URL entspricht */
+/* Selects an element with an ID matching the current URL's fragment */
 :target {
   border: 2px solid black;
 }
 ```
 
-Zum Beispiel hat die folgende URL ein Fragment (gekennzeichnet durch das _#_-Zeichen), das auf ein Element namens `section2` verweist:
+Zum Beispiel hat die folgende URL ein Fragment (markiert durch das _#_ Zeichen), das auf ein Element namens `section2` verweist:
 
 ```url
 http://www.example.com/index.html#section2
 ```
 
-Das folgende Element würde von einem `:target`-Selektor ausgewählt werden, wenn die aktuelle URL der obigen entspricht:
+Das folgende Element würde von einem `:target`-Selektor ausgewählt, wenn die aktuelle URL der obigen entspricht:
 
 ```html
-<section id="section2">Beispiel</section>
+<section id="section2">Example</section>
 ```
 
 ## Syntax
@@ -37,34 +37,36 @@ Das folgende Element würde von einem `:target`-Selektor ausgewählt werden, wen
 ```
 
 > [!NOTE]
-> Aufgrund [eines möglichen Fehlers in der CSS-Spezifikation](https://discourse.wicg.io/t/target-css-does-not-work-because-shadowroot-does-not-set-a-target-element/2070/) funktioniert `:target` nicht innerhalb eines [Web-Komponenten](/de/docs/Web/API/Web_components), da die [Shadow-Root](/de/docs/Web/API/ShadowRoot) das Zielelement nicht in den Shadow-Baum überträgt.
+> Aufgrund [eines möglichen Fehlers in der CSS-Spezifikation](https://discourse.wicg.io/t/target-css-does-not-work-because-shadowroot-does-not-set-a-target-element/2070/) funktioniert `:target` nicht innerhalb eines [Web-Komponents](/de/docs/Web/API/Web_components), da der [Shadow Root](/de/docs/Web/API/ShadowRoot) das Zielelement nicht an den Shadow-Baum weitergibt.
 
 ## Beispiele
 
 ### Ein Inhaltsverzeichnis
 
-Die `:target`-Pseudoklasse kann verwendet werden, um den Teil einer Seite hervorzuheben, auf den aus einem Inhaltsverzeichnis verlinkt wurde.
+Die `:target` Pseudoklasse kann verwendet werden, um den Teil einer Seite hervorzuheben, der von einem Inhaltsverzeichnis aus verlinkt wurde.
 
 #### HTML
 
 ```html
-<h3>Inhaltsverzeichnis</h3>
+<h3>Table of Contents</h3>
 <ol>
-  <li><a href="#p1">Zum ersten Absatz springen!</a></li>
-  <li><a href="#p2">Zum zweiten Absatz springen!</a></li>
+  <li><a href="#p1">Jump to the first paragraph!</a></li>
+  <li><a href="#p2">Jump to the second paragraph!</a></li>
   <li>
     <a href="#nowhere">
-      Dieser Link führt nirgendwohin, da das Ziel nicht existiert.
+      This link goes nowhere, because the target doesn't exist.
     </a>
   </li>
 </ol>
 
-<h3>Mein lustiger Artikel</h3>
+<h3>My Fun Article</h3>
 <p id="p1">
-  Sie können auf diesen <i>Absatz</i> mit einem URL-Fragment zielen. Klicken Sie oben auf den Link, um es auszuprobieren!
+  You can target <i>this paragraph</i> using a URL fragment. Click on the link
+  above to try out!
 </p>
 <p id="p2">
-  Dies ist <i>ein weiterer Absatz</i>, ebenfalls über die obigen Links zugänglich. Ist das nicht erfreulich?
+  This is <i>another paragraph</i>, also accessible from the links above. Isn't
+  that delightful?
 </p>
 ```
 
@@ -75,7 +77,7 @@ p:target {
   background-color: gold;
 }
 
-/* Fügen Sie ein Pseudoelement innerhalb des Zielelements hinzu */
+/* Add a pseudo-element inside the target element */
 p:target::before {
   font: 70% sans-serif;
   content: "►";
@@ -83,7 +85,7 @@ p:target::before {
   margin-right: 0.25em;
 }
 
-/* Stil für kursiv gedruckte Elemente innerhalb des Zielelements */
+/* Style italic elements within the target element */
 p:target i {
   color: red;
 }
@@ -103,4 +105,4 @@ p:target i {
 
 ## Siehe auch
 
-- [Verwendung der :target-Pseudoklasse in Selektoren](/de/docs/Web/CSS/CSS_selectors/Using_the_:target_pseudo-class_in_selectors)
+- [Verwendung der :target Pseudoklasse in Selektoren](/de/docs/Web/CSS/CSS_selectors/Using_the_:target_pseudo-class_in_selectors)

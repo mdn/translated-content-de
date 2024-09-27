@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<polygon>`** Element definiert eine geschlossene Form, die aus einer Reihe von verbundenen geraden Liniensegmenten besteht. Der letzte Punkt wird mit dem ersten Punkt verbunden.
+Das **`<polygon>`**-Element definiert eine geschlossene Form, die aus einer Reihe von verbundenen geraden Liniensegmenten besteht. Der letzte Punkt ist mit dem ersten Punkt verbunden.
 
 Für offene Formen siehe das {{SVGElement("polyline")}}-Element.
 
@@ -23,15 +23,15 @@ svg {
 
 ```html
 <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Beispiel eines Polygons mit der Standardfüllung -->
+  <!-- Example of a polygon with the default fill -->
   <polygon points="0,100 50,25 50,75 100,0" />
 
-  <!-- Beispiel der gleichen Polygonform mit Umrandung und ohne Füllung -->
+  <!-- Example of the same polygon shape with stroke and no fill -->
   <polygon points="100,100 150,25 150,75 200,0" fill="none" stroke="black" />
 </svg>
 ```
 
-{{EmbedLiveSample('Beispiel', 100, 100)}}
+{{EmbedLiveSample('Example', 100, 100)}}
 
 ## Attribute
 
@@ -39,10 +39,10 @@ svg {
   - : Dieses Attribut definiert die Liste der Punkte (Paare von `x,y` absoluten Koordinaten), die erforderlich sind, um das Polygon zu zeichnen.
     _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number)+ ; _Standardwert_: `""`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Dieses Attribut ermöglicht es, die Gesamtlänge des Pfades in Benutzereinheiten festzulegen.
+  - : Dieses Attribut erlaubt es, die Gesamtlänge des Pfades in Benutzereinheiten anzugeben.
     _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -50,15 +50,15 @@ svg {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [SVG-Präsentationsattribute](/de/docs/Web/SVG/Attribute#presentation_attributes) einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
+- [SVG Präsentations-Attribute](/de/docs/Web/SVG/Attribute#presentation_attributes) einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
 
-- **Andere grundlegende SVG-Formen:**
+- **Weitere grundlegende SVG-Formen:**
 
   - {{ SVGElement('circle') }}
   - {{ SVGElement('ellipse') }}

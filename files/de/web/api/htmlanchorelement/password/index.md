@@ -1,5 +1,5 @@
 ---
-title: "HTMLAnchorElement: Password-Eigenschaft"
+title: "HTMLAnchorElement: password-Eigenschaft"
 short-title: password
 slug: Web/API/HTMLAnchorElement/password
 l10n:
@@ -8,30 +8,32 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAnchorElement.password`**-Eigenschaft ist eine Zeichenfolge, die das Passwort enthält, das vor dem Domainnamen angegeben ist.
+Die **`HTMLAnchorElement.password`**-Eigenschaft ist ein
+String, der das Passwort enthält, das vor dem Domainnamen angegeben ist.
 
-Wenn es gesetzt wird, ohne zuvor die [`username`](/de/docs/Web/API/HTMLAnchorElement/username) Eigenschaft zu setzen, schlägt es lautlos fehl.
+Wenn es gesetzt wird, ohne vorher die
+[`username`](/de/docs/Web/API/HTMLAnchorElement/username)-Eigenschaft zu setzen, schlägt es stillschweigend fehl.
 
 ## Wert
 
-Eine Zeichenfolge.
+Ein String.
 
 ## Beispiele
 
 ```js
-// Ein <a id="myAnchor" href="https://anonymous:flabada@developer.mozilla.org/de/docs/HTMLAnchorElement"> befindet sich im Dokument
+// An <a id="myAnchor" href="https://anonymous:flabada@developer.mozilla.org/en-US/docs/HTMLAnchorElement"> is in the document
 const anchor = document.getElementByID("myAnchor");
-anchor.password; // gibt 'flabada' zurück
+anchor.password; // returns 'flabada'
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Das {{domxref("HTMLAnchorElement")}}-Interface, zu dem es gehört.
+- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interface, zu dem es gehört.

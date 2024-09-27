@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`iceTransport`** des **{{DOMxRef("RTCDtlsTransport")}}**-Interfaces enthält eine Referenz auf den zugrunde liegenden {{DOMxRef("RTCIceTransport")}}.
+Die **`iceTransport`** schreibgeschützte Eigenschaft des **[`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)**-Interfaces enthält eine Referenz zum zugrunde liegenden [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport).
 
 ## Wert
 
-Die zugrunde liegende Instanz von {{DOMxRef("RTCIceTransport")}}.
+Die zugrunde liegende [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Instanz.
 
 ## Spezifikationen
 

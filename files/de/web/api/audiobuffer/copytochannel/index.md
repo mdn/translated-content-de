@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `copyToChannel()`-Methode der {{ domxref("AudioBuffer") }}-Schnittstelle kopiert die Samples in den angegebenen Kanal des `AudioBuffer` aus dem Quellarray.
+Die Methode `copyToChannel()` der [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Schnittstelle kopiert die Samples aus dem Quellarray in den angegebenen Kanal des `AudioBuffer`.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ copyToChannel(source, channelNumber, startInChannel)
 - `source`
   - : Ein {{jsxref("Float32Array")}}, aus dem die Kanaldaten kopiert werden.
 - `channelNumber`
-  - : Die Kanalnummer des aktuellen {{domxref("AudioBuffer")}}, zu dem die Kanaldaten kopiert werden sollen. Wenn _channelNumber_ größer oder gleich der {{domxref("AudioBuffer.numberOfChannels")}} ist, wird ein `INDEX_SIZE_ERR` ausgelöst.
+  - : Die Kanalnummer des aktuellen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), in den die Kanaldaten kopiert werden sollen. Wenn _channelNumber_ größer oder gleich [`AudioBuffer.numberOfChannels`](/de/docs/Web/API/AudioBuffer/numberOfChannels) ist, wird ein `INDEX_SIZE_ERR` ausgelöst.
 - `startInChannel` {{optional_inline}}
-  - : Ein optionaler Versatz, um die Daten zu kopieren. Wenn _startInChannel_ größer als {{domxref("AudioBuffer.length")}} ist, wird ein `INDEX_SIZE_ERR` ausgelöst.
+  - : Ein optionaler Offset, an den die Daten kopiert werden sollen. Wenn _startInChannel_ größer als [`AudioBuffer.length`](/de/docs/Web/API/AudioBuffer/length) ist, wird ein `INDEX_SIZE_ERR` ausgelöst.
 
 ### Rückgabewert
 
@@ -35,9 +35,9 @@ Keiner ({{jsxref("undefined")}}).
 ```js
 const myArrayBuffer = audioCtx.createBuffer(2, frameCount, audioCtx.sampleRate);
 const anotherArray = new Float32Array();
-// Kopiert Kanaldaten vom zweiten Kanal von myArrayBuffer.
+// Copy channel data from second channel of myArrayBuffer.
 myArrayBuffer.copyFromChannel(anotherArray, 1, 0);
-// Kopiert Daten von anotherArray in den ersten Kanal von myArrayBuffer. Beide Kanäle haben jetzt die gleichen Daten.
+// Copy data from anotherArray to first channel of myArrayBuffer. Both channels have the same data now.
 myArrayBuffer.copyToChannel(anotherArray, 0, 0);
 ```
 

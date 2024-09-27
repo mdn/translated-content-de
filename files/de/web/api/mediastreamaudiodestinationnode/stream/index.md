@@ -8,17 +8,17 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `stream`-Eigenschaft der {{ domxref("AudioContext") }}-Schnittstelle repräsentiert einen {{domxref("MediaStream")}}, der einen einzelnen Audio-{{domxref("MediaStreamTrack")}} enthält und die gleiche Anzahl von Kanälen wie der Knoten selbst hat.
+Die `stream`-Eigenschaft der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle repräsentiert einen [`MediaStream`](/de/docs/Web/API/MediaStream), der einen einzelnen Audio-`MediaStreamTrack` mit derselben Anzahl von Kanälen wie der Knoten selbst enthält.
 
-Sie können diese Eigenschaft verwenden, um einen Stream aus dem Audio-Graph zu erhalten und ihn in eine andere Struktur einzuspeisen, wie zum Beispiel einen [Media Recorder](/de/docs/Web/API/MediaStream_Recording_API).
+Sie können diese Eigenschaft verwenden, um einen Stream aus dem Audiographen zu extrahieren und in eine andere Struktur einzuspeisen, wie z.B. einen [Media Recorder](/de/docs/Web/API/MediaStream_Recording_API).
 
 ## Wert
 
-Ein {{domxref("MediaStream")}}, der eine einzelne Audiospur enthält. Die Audiospur ist ein {{domxref("MediaStreamTrack")}}, dessen {{domxref("MediaStreamTrack.kind", "kind")}} `audio` ist.
+Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der einen einzelnen Audiotrack enthält. Der Audiotrack ist ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), dessen [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) `audio` ist.
 
 ## Beispiele
 
-Siehe [`AudioContext.createMediaStreamDestination()`](/de/docs/Web/API/AudioContext/createMediaStreamDestination#examples) für Beispielcode, der einen `MediaStreamAudioDestinationNode` erstellt und dessen `stream`-Eigenschaft als Quelle für aufzuzeichnenden Ton verwendet.
+Siehe [`AudioContext.createMediaStreamDestination()`](/de/docs/Web/API/AudioContext/createMediaStreamDestination#examples) für Beispielcode, der einen `MediaStreamAudioDestinationNode` erstellt und dessen `stream`-Eigenschaft als Quelle für aufzuzeichnenden Audio-Inhalt verwendet.
 
 ## Spezifikationen
 

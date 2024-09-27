@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Math.exp()`** statische Methode gibt [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) potenziert mit einer Zahl zurück. Das heißt
+Die statische Methode **`Math.exp()`** gibt [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) potenziert mit einer Zahl zurück. Das bedeutet
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -30,13 +30,13 @@ Math.exp(x)
 
 ### Rückgabewert
 
-Eine nichtnegative Zahl, die e<sup>x</sup> repräsentiert, wobei e [die Basis des natürlichen Logarithmus](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) ist.
+Eine nicht negative Zahl, die e<sup>x</sup> darstellt, wobei e [die Basis des natürlichen Logarithmus](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E) ist.
 
 ## Beschreibung
 
-Da `exp()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.exp()`, anstatt sie als Methode eines von Ihnen erstellten `Math`-Objekts zu verwenden (`Math` ist kein Konstruktor).
+Da `exp()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.exp()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
-Beachten Sie, dass `e` potenziert mit einer Zahl, die sehr nahe bei 0 liegt, sehr nahe bei 1 sein wird und an Präzision verlieren kann. In diesem Fall sollten Sie möglicherweise {{jsxref("Math.expm1")}} verwenden, um einen viel präziseren Bruchteil des Ergebnisses zu erhalten.
+Beachten Sie, dass `e` potenziert mit einer Zahl, die sehr nahe bei 0 liegt, sehr nahe bei 1 liegen wird und an Präzision verlieren kann. In diesem Fall möchten Sie möglicherweise {{jsxref("Math.expm1")}} verwenden, um einen viel präziseren Bruchanteil der Antwort zu erhalten.
 
 ## Beispiele
 

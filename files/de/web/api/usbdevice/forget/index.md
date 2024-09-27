@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: forget()-Methode"
+title: "USBDevice: forget() Methode"
 short-title: forget()
 slug: Web/API/USBDevice/forget
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`forget()`** Methode der Schnittstelle {{domxref("USBDevice")}} gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn alle ausstehenden Vorgänge abgebrochen sind, alle offenen Schnittstellen freigegeben sind, die Sitzung des Geräts beendet ist und die Berechtigung zurückgesetzt wurde.
+Die **`forget()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn alle ausstehenden Operationen abgebrochen, alle offenen Schnittstellen freigegeben, die Gerätesitzung beendet und die Berechtigung zurückgesetzt wurde.
 
 ## Syntax
 

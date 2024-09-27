@@ -8,15 +8,16 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die schreibgeschützte Eigenschaft **`labels`** des {{domxref("ElementInternals")}}-Interfaces liefert die mit dem Element verbundenen Labels.
+Die **`labels`** schreibgeschützte Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle gibt die mit dem Element verbundenen Labels zurück.
 
 ## Wert
 
-Eine {{domxref("NodeList")}}, die alle mit diesem Element verbundenen Label-Elemente enthält.
+Ein [`NodeList`](/de/docs/Web/API/NodeList), die alle der mit diesem Element verbundenen Label-Elemente enthält.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine benutzerdefinierte Checkbox-Komponente mit einem {{HTMLElement("label")}}-Element, das damit verbunden ist. Das Ausdrucken des Wertes von `labels` in der Konsole gibt eine {{domxref("NodeList")}} mit einem Eintrag zurück, die dieses Label darstellt.
+Das folgende Beispiel zeigt eine benutzerdefinierte Checkbox-Komponente mit einem {{HTMLElement("label")}}-Element, das damit verknüpft ist.
+Das Ausgeben des Werts von `labels` in der Konsole gibt eine [`NodeList`](/de/docs/Web/API/NodeList) mit einem Eintrag zurück, der dieses Label darstellt.
 
 ```html
 <form id="myForm">

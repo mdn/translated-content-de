@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<relative-size>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) beschreibt relative Größen-Stichwörter. Die Stichwörter `<relative-size>` definieren eine Größe relativ zur berechneten Größe des Elternelements. Dieser Datentyp wird in den Eigenschaften {{cssxref("font")}} und {{cssxref("font-size")}} verwendet.
+Der **`<relative-size>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) beschreibt relative Größen-Schlüsselwörter. Die `<relative-size>` Schlüsselwörter definieren eine Größe relativ zur berechneten Größe des übergeordneten Elements. Dieser Datentyp wird in den {{cssxref("font")}}-Zusammenfassungs- und {{cssxref("font-size")}}-Eigenschaften verwendet.
 
 ## Syntax
 
@@ -17,23 +17,23 @@ Der **`<relative-size>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CS
 
 ### Werte
 
-Der `<relative-size>` Datentyp wird unter Verwendung eines Stichwortwertes definiert, der aus der unten stehenden Liste ausgewählt wird.
+Der `<relative-size>` Datentyp wird durch ein Schlüsselwort aus der folgenden Liste definiert.
 
 - `smaller`
 
-  - : Eine relative Größe, die eine Größe kleiner als die geerbte Größe ist.
+  - : Eine relative Größe, die eine Nummer kleiner als die geerbte Größe ist.
 
 - `larger`
 
-  - : Eine relative Größe, die eine Größe größer als die geerbte Größe ist.
+  - : Eine relative Größe, die eine Nummer größer als die geerbte Größe ist.
 
 ## Beschreibung
 
-Die `<relative-size>` Stichwörter sind relativ zur aktuellen Größe des Elements. Wenn die geerbte Größe mit einem {{cssxref("absolute-size")}} Stichwort definiert ist, entspricht der `<relative-size>` Wert der angrenzenden Größe in der [`<absolute-size>` Tabelle](/de/docs/Web/CSS/absolute-size#description). Andernfalls liegt die relative Zunahme oder Abnahme der Größe zwischen 120% und 150%.
+Die `<relative-size>` Schlüsselwörter beziehen sich auf die aktuelle Größe des Elements. Wenn die geerbte Größe mit einem {{cssxref("absolute-size")}} Schlüsselwort definiert ist, entspricht der `<relative-size>` Wert der angrenzenden Größe in der [`<absolute-size>` Tabelle](/de/docs/Web/CSS/absolute-size#description). Andernfalls liegt die relative Vergrößerung oder Verkleinerung der Größe zwischen 120% und 150%.
 
 ## Beispiele
 
-### Vergleich der Stichwortwerte
+### Vergleich der Schlüsselwortwerte
 
 ```html
 <ul>
@@ -67,4 +67,4 @@ li {
 
 - CSS {{cssxref("absolute-size")}} Datentyp
 - CSS {{cssxref("font")}} und {{cssxref("font-size")}} Eigenschaften
-- [CSS Fonts](/de/docs/Web/CSS/CSS_fonts) Modul
+- [CSS Schriften](/de/docs/Web/CSS/CSS_fonts) Modul

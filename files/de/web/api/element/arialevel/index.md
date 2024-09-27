@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaLevel`**-Eigenschaft der {{domxref("Element")}}-Schnittstelle spiegelt den Wert des `aria-level`-Attributs wider, welches das hierarchische Niveau eines Elements innerhalb einer Struktur definiert.
+Die **`ariaLevel`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des `aria-level` Attributs wider, welches die hierarchische Ebene eines Elements innerhalb einer Struktur definiert.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit ein HTML {{htmlelement("Heading_Elements", "h1")}} oder eine andere korrekte Überschriftenebene, da diese eingebaute Semantiken haben und keine ARIA-Attribute erfordern.
+> Verwenden Sie, wo möglich, ein HTML-{{htmlelement("Heading_Elements", "h1")}} oder eine andere korrekte Überschriftebene, da diese eingebaute Semantik haben und keine ARIA-Attribute erfordern.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein String, der eine Ganzzahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-level`-Attribut des Elements mit der ID `main-heading` auf "1" gesetzt. Mit der Verwendung von `ariaLevel` aktualisieren wir den Wert auf "2".
+In diesem Beispiel wird das `aria-level` Attribut des Elements mit der ID `main-heading` auf "1" gesetzt. Mit `ariaLevel` aktualisieren wir den Wert auf "2".
 
 ```html
 <div role="heading" id="main-heading" aria-level="1">

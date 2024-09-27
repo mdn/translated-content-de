@@ -7,9 +7,9 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`block`**-Anweisung erstellt ein Label, aus dem später mit einem `br` verzweigt werden kann.
+Die **`block`**-Anweisung erstellt ein Label, das später mit einem `br` angesprungen werden kann.
 
-Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, in dem Sinne, dass während die Verzweigung zu einer `loop` zum Anfang der Schleife springt, die Verzweigung zu einem `block` zum Ende des Blocks springt; das heißt, aus dem Block heraus.
+Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, in dem Sinne, dass beim Springen zu einer `loop` der Beginn der Schleife angesprungen wird, während ein Sprung zu einem `block` das Ende des Blocks erreicht, das heißt, aus dem Block heraus.
 
 {{EmbedInteractiveExample("pages/wat/block.html", "tabbed-taller")}}
 
@@ -30,6 +30,6 @@ Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, in dem Sinne, 
 )
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `block`     | `0x02`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `block`   | `0x02`         |

@@ -7,36 +7,36 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<search>`** [HTML](/de/docs/Web/HTML)-Element ist ein Container, der die Teile des Dokuments oder der Anwendung mit Formularelementen oder anderem Inhalt zur Durchführung einer Such- oder Filteroperation darstellt. Das `<search>`-Element identifiziert semantisch den Zweck seines Inhalts als solche mit Such- oder Filterfähigkeiten. Die Such- oder Filterfunktionalität kann für die Website oder Anwendung, die aktuelle Webseite oder das Dokument oder das gesamte Internet oder einen Abschnitt davon sein.
+Das **`<search>`** [HTML](/de/docs/Web/HTML)-Element ist ein Container, der die Teile des Dokuments oder der Anwendung mit Formularelementen oder anderem Inhalt darstellt, die mit der Durchführung einer Such- oder Filteroperation zu tun haben. Das `<search>`-Element identifiziert semantisch den Zweck des Inhalts dieses Elements als Such- oder Filterfähigkeiten. Die Such- oder Filterfunktionalität kann für die Website oder Anwendung, die aktuelle Webseite oder das Dokument oder das gesamte Internet oder einen Teil davon sein.
 
 ## Attribute
 
 Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Das `<search>`-Element dient nicht zur Darstellung von Suchergebnissen. Vielmehr sollten Such- oder gefilterte Ergebnisse als Teil des Hauptinhalts der Webseite präsentiert werden. Dennoch sind Vorschläge und Links, die Teil einer "Schnellsuche"-Funktionalität innerhalb der Such- oder Filterfunktion sind, angemessen im Inhalt des `<search>`-Elements eingebettet, da sie Suchmerkmale sind.
+Das `<search>`-Element dient nicht zur Darstellung von Suchergebnissen. Such- oder gefilterte Ergebnisse sollten vielmehr als Teil des Hauptinhalts der Webseite präsentiert werden. Allerdings sind Vorschläge und Links, die Teil der "Schnellsuch"-Funktionalität innerhalb der Such- oder Filterfunktion sind, angemessen innerhalb der Inhalte des `<search>`-Elements verschachtelt, da sie Suchfunktionen darstellen.
 
 ## Barrierefreiheit
 
-Das `<search>`-Element definiert ein [`search`](/de/docs/Web/Accessibility/ARIA/Roles/search_role) Landmark. Dies macht die Hinzufügung von `role=search` zu einem {{HTMLElement('form')}}-Element überflüssig.
+Das `<search>`-Element definiert ein [`search`](/de/docs/Web/Accessibility/ARIA/Roles/search_role)-Orientierungsmerkmal. Dies macht das Hinzufügen von `role=search` zu einem {{HTMLElement('form')}}-Element überflüssig.
 
 ## Beispiele
 
 ### Suchformular im Header
 
-Dieses Beispiel demonstriert die Verwendung von `<search>` als Container für eine Suche innerhalb eines Website-Headers, um eine einfache siteweite Suche durchzuführen. Das `<search>` ist ein semantischer Container für das {{HTMLElement("form")}}, das die vom Benutzer eingegebene Suchanfrage an einen Server sendet.
+Dieses Beispiel zeigt die Verwendung von `<search>` als Container für eine Suche innerhalb eines Website-Headers, um eine einfache standortweite Suche durchzuführen. Das `<search>` ist ein semantischer Container für das {{HTMLElement("form")}}, das die vom Benutzer eingegebene Suchanfrage an einen Server sendet.
 
 #### HTML
 
 ```html
 <header>
-  <h1>Film-Website</h1>
+  <h1>Movie website</h1>
   <search>
     <form action="./search/">
-      <label for="movie">Finde einen Film</label>
+      <label for="movie">Find a Movie</label>
       <input type="search" id="movie" name="q" />
-      <button type="submit">Suchen</button>
+      <button type="submit">Search</button>
     </form>
   </search>
 </header>
@@ -48,28 +48,28 @@ Dieses Beispiel demonstriert die Verwendung von `<search>` als Container für ei
 
 ### Web-App-Suche
 
-Dieses Beispiel veranschaulicht potenziellen DOM-Inhalt beim dynamischen Einbinden von JavaScript-Suchfunktionalität in einer Webanwendung. Wenn die Suchfunktionalität vollständig mit JavaScript implementiert wird und kein Formular übergeben wird, sind weder ein {{HTMLElement("form")}}-Element noch ein Absende-{{HTMLElement("button")}} erforderlich. Für Semantik wird das `<search>`-Element einbezogen, um die Such- und Filterfähigkeiten zu umfassen.
+Dieses Beispiel zeigt potenzielle DOM-Inhalte bei der dynamischen Einbindung von JavaScript-Suchfunktionen in eine Webanwendung. Wenn Suchfunktionen vollständig mit JavaScript implementiert werden und kein Formular eingereicht wird, sind weder ein {{HTMLElement("form")}}-Element noch ein {{HTMLElement("button")}} zum Absenden erforderlich. Der `<search>`-Element wird aus semantischen Gründen hinzugefügt, um die Such- und Filterfähigkeiten zu enthalten.
 
 #### HTML
 
 ```html
 <search>
   <label>
-    Finden und filtern Sie Ihre Anfrage
+    Find and filter your query
     <input type="search" id="query" />
   </label>
   <label>
     <input type="checkbox" id="exact-only" />
-    Nur exakte Treffer
+    Exact matches only
   </label>
 
   <section>
-    <h3>Ergebnisse:</h3>
+    <h3>Results:</h3>
     <ul id="results">
-      <!-- Suchergebnisinhalt -->
+      <!-- search result content -->
     </ul>
     <output id="no-results">
-      <!-- Kein Ergebnisinhalt -->
+      <!-- no results content -->
     </output>
   </section>
 </search>
@@ -80,28 +80,28 @@ Dieses Beispiel veranschaulicht potenziellen DOM-Inhalt beim dynamischen Einbind
 {{EmbedLiveSample('Web app search')}}
 
 > [!NOTE]
-> Denken Sie daran, dass einige Benutzer kein JavaScript haben und keiner Ihrer Benutzer JavaScript ausführt, bis das JavaScript erfolgreich heruntergeladen, geparst und ausgeführt wurde. Stellen Sie sicher, dass Ihre Benutzer auf den Inhalt Ihrer Website zugreifen können, wenn JavaScript deaktiviert ist.
+> Denken Sie daran, dass einige Benutzer kein JavaScript haben, und keiner Ihrer Benutzer hat JavaScript ausgeführt, bis das JavaScript erfolgreich heruntergeladen, geparst und ausgeführt wurde. Stellen Sie sicher, dass Ihre Benutzer auf den Inhalt Ihrer Website zugreifen können, wenn JavaScript deaktiviert ist.
 
-### Mehrere Suchen
+### Mehrfache Suchen
 
-Dieses Beispiel zeigt eine Seite mit zwei Suchfunktionen. Die erste ist eine globale Site-Suche im Header. Die zweite ist eine Suche und Filterung basierend auf dem Seitennkontext, in unserem Beispiel eine Autosuche.
+Dieses Beispiel zeigt eine Seite mit zwei Suchfunktionen. Die erste ist eine globale Seitensuche im Header. Die zweite ist eine Suche und Filterung basierend auf dem Seitenkontext, in unserem Beispiel eine Autosuche.
 
 #### HTML
 
 ```html
 <body>
   <header>
-    <h1>Autovermietung</h1>
+    <h1>Car rental agency</h1>
     <search title="Website">...</search>
   </header>
   <main>
-    <h2>Verfügbare Mietwagen</h2>
+    <h2>Cars available for rent</h2>
     <search title="Cars">
-      <h3>Ergebnisse filtern</h3>
+      <h3>Filter results</h3>
       ...
     </search>
     <article>
-      <!-- Suchergebnisinhalt -->
+      <!-- search result content -->
     </article>
   </main>
 </body>
@@ -120,18 +120,18 @@ Dieses Beispiel zeigt eine Seite mit zwei Suchfunktionen. Die erste ist eine glo
         <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a>, <a href="/de/docs/Web/HTML/Content_categories#palpable_content">greifbarer Inhalt</a>.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließender Inhalt</a>, <a href="/de/docs/Web/HTML/Content_categories#palpable_content">greifbarer Inhalt</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a>.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließender Inhalt</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl Anfangs- als auch End-Tags sind zwingend erforderlich.</td>
+      <td>Keine, sowohl das startende als auch das endende Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Implizierte ARIA-Rolle</th>
@@ -147,7 +147,7 @@ Dieses Beispiel zeigt eine Seite mit zwei Suchfunktionen. Die erste ist eine glo
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLElement")}}</td>
+      <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
 </table>

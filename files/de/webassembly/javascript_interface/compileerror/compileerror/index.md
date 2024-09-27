@@ -7,9 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Der **`WebAssembly.CompileError()`** Konstruktor erzeugt ein neues
-WebAssembly `CompileError` Objekt, das einen Fehler während des
-WebAssembly-Dekodierens oder der Validierung anzeigt.
+Der **`WebAssembly.CompileError()`** Konstruktor erstellt ein neues WebAssembly `CompileError` Objekt, das einen Fehler während der WebAssembly-Dekodierung oder -Validierung anzeigt.
 
 ## Syntax
 
@@ -28,8 +26,7 @@ new WebAssembly.CompileError(message, fileName, lineNumber)
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut ausgelöst wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Beim Abfangen und erneuten Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -37,10 +34,9 @@ new WebAssembly.CompileError(message, fileName, lineNumber)
 
 ## Beispiele
 
-### Erstellung einer neuen CompileError-Instanz
+### Erstellen einer neuen CompileError-Instanz
 
-Der folgende Ausschnitt erstellt eine neue `CompileError`-Instanz und protokolliert deren
-Details in der Konsole:
+Das folgende Beispiel erstellt eine neue `CompileError`-Instanz und protokolliert seine Details in der Konsole:
 
 ```js
 try {
@@ -52,7 +48,7 @@ try {
   console.log(e.fileName); // "someFile"
   console.log(e.lineNumber); // 10
   console.log(e.columnNumber); // 0
-  console.log(e.stack); // gibt den Ort zurück, an dem der Code ausgeführt wurde
+  console.log(e.stack); // returns the location where the code was run
 }
 ```
 

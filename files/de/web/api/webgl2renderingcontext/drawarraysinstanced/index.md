@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: drawArraysInstanced()-Methode"
+title: "WebGL2RenderingContext: drawArraysInstanced() Methode"
 short-title: drawArraysInstanced()
 slug: Web/API/WebGL2RenderingContext/drawArraysInstanced
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.drawArraysInstanced()`**-Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) rendert Primitiven aus Array-Daten, ähnlich wie die Methode {{domxref("WebGLRenderingContext.drawArrays()", "gl.drawArrays()")}}. Zusätzlich kann sie mehrere Instanzen des Bereichs der Elemente ausführen.
+Die **`WebGL2RenderingContext.drawArraysInstanced()`**-Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) rendert Primitive aus Array-Daten ähnlich der [`gl.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays)-Methode. Zusätzlich kann sie mehrere Instanzen des Bereichs von Elementen ausführen.
 
 > [!NOTE]
-> Bei der Verwendung von {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}} kann die {{domxref("ANGLE_instanced_arrays")}}-Erweiterung ebenfalls diese Methode bereitstellen.
+> Wenn Sie {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}} verwenden, kann die [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays)-Erweiterung diese Methode ebenfalls bereitstellen.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ drawArraysInstanced(mode, first, count, instanceCount)
 
 - `mode`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Typ des zu rendernden Primitivs angibt. Mögliche Werte sind:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den zu rendernden Primitivtyp angibt. Mögliche Werte sind:
 
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
     - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Vertex.
@@ -34,11 +34,11 @@ drawArraysInstanced(mode, first, count, instanceCount)
     - `gl.TRIANGLES`: Zeichnet ein Dreieck für eine Gruppe von drei Vertices.
 
 - `first`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der den Startindex im Array der Vektorpunkte angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Startindex im Array der Vektorpunkte angibt.
 - `count`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, der die Anzahl der zu rendernden Indizes angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der zu rendernden Indizes angibt.
 - `instanceCount`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, der die Anzahl der Instanzen des Bereichs der auszuführenden Elemente angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Instanzen des Bereichs von Elementen angibt, die ausgeführt werden sollen.
 
 ### Rückgabewert
 
@@ -60,5 +60,5 @@ gl.drawArraysInstanced(gl.POINTS, 0, 8, 4);
 
 ## Siehe auch
 
-- {{domxref("ANGLE_instanced_arrays.drawArraysInstancedANGLE()")}}
-- {{domxref("WEBGL_multi_draw.multiDrawArraysInstancedWEBGL()")}}
+- [`ANGLE_instanced_arrays.drawArraysInstancedANGLE()`](/de/docs/Web/API/ANGLE_instanced_arrays/drawArraysInstancedANGLE)
+- [`WEBGL_multi_draw.multiDrawArraysInstancedWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawArraysInstancedWEBGL)

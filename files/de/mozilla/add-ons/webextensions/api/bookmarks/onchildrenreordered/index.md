@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn sich die Reihenfolge der Unterelemente eines Ordners aufgrund der Sortierung im UI geändert hat. Dies wird nicht als Ergebnis eines Aufrufs von {{WebExtAPIRef("bookmarks.move()")}} oder einer Drag-Operation im UI aufgerufen.
+Wird ausgelöst, wenn die Reihenfolge der Kinder eines Ordners geändert wurde, weil die Reihenfolge in der Benutzeroberfläche sortiert wurde. Dies wird nicht als Ergebnis eines Aufrufs an {{WebExtAPIRef("bookmarks.move()")}} oder einer Drag-Operation in der Benutzeroberfläche aufgerufen.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hören Sie auf, dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, `false` andernfalls.
 
 ## addListener-Syntax
 
@@ -35,7 +35,7 @@ Ereignisse haben drei Funktionen:
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
 
     - `id`
-      - : `string`. ID des Ordners, dessen Unterelemente neu geordnet wurden.
+      - : `string`. ID des Ordners, dessen Kinder neu geordnet wurden.
     - `reorderInfo`
       - : `object`. Objekt, das zusätzliche Objekte enthält. Siehe den Abschnitt [reorderInfo](#reorderinfo_2) für weitere Details.
 
@@ -44,7 +44,7 @@ Ereignisse haben drei Funktionen:
 ### reorderInfo
 
 - `childIds`
-  - : `array` von `string`. Array, das die IDs aller Lesezeichen-Elemente in diesem Ordner enthält, in der Reihenfolge, in der sie jetzt im UI erscheinen.
+  - : `array` von `string`. Array, das die IDs aller Lesezeichen in diesem Ordner in der Reihenfolge enthält, in der sie jetzt in der Benutzeroberfläche angezeigt werden.
 
 ## Browser-Kompatibilität
 
@@ -68,38 +68,34 @@ browser.browserAction.onClicked.addListener(handleClick);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onChildrenReordered) API. Diese Dokumentation ist von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der Chromium-API [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#event-onChildrenReordered). Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
-// Urheberrecht 2015 Die Chromium-Autoren. Alle Rechte vorbehalten.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 //
-// Weiterverbreitung und Verwendung in Quell- und Binärformen, mit oder ohne
-// Modifikationen, sind unter folgenden Bedingungen gestattet:
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
 //
-//    * Weiterverbreitungen von Quellcode müssen das obige Copyright-Vermerk,
-//      diese Bedingungsliste und den folgenden Haftungsausschluss enthalten.
-//    * Weiterverbreitungen in Binärform müssen das obige Copyright-Vermerk,
-//      diese Bedingungsliste und den folgenden Haftungsausschluss in der
-//      Dokumentation und/oder in anderen Materialien, die mit der
-//      Verbreitung geliefert werden, enthalten.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-//      Mitwirkenden dürfen verwendet werden, um Produkte zu unterstützen 
-//      oder zu bewerben, die von dieser Software abgeleitet wurden, ohne
-//      vorherige schriftliche Genehmigung.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND DEN BEITRAGENDEN
-// "WIE BESEHEN" BEREITGESTELLT UND ALLE AUSDRÜCKLICHEN ODER IMPLIZIERTEN 
-// GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE
-// IMPLIZIERTEN GEWÄHRLEISTUNGEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR
-// EINEN BESTIMMTEN ZWECK, SIND AUSGESCHLOSSEN. IN KEINEM FALL SIND DIE
-// URHEBERRECHTSINHABER ODER BEITRAGENDEN HAFTBAR FÜR JEGLICHE DIREKTEN,
-// INDIREKTEN, ZUFÄLLIGEN, SPEZIELLEN, EXEMPLARISCHEN ODER FOLGESCHÄDEN
-// (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE BESCHAFFUNG VON 
-// ERSATZWAREN ODER -DIENSTLEISTUNGEN; NUTZUNGSVERLUSTEN, DATENVERLUST 
-// ODER GEWINNVERLUSTE; ODER GESCHÄFTSUNTERBRECHUNG), WAS AUCH IMMER
-// URSACHEN SIE, UND AUF JEGLICHE THEORIE DER HAFTUNG, OB IN VERTRAG,
-// STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH
-// FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE IN JEDEM FALL AUS DER NUTZUNG 
-// DERSELBEN HERVORGEHEN, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER
-// SCHÄDEN HINGEWIESEN WURDE.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

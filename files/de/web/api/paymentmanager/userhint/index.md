@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`userHint`**-Eigenschaft der {{domxref("PaymentManager")}}-Schnittstelle liefert einen Hinweis für den Browser, der zusammen mit dem Namen und dem Icon der Zahlungs-App in der Payment Handler-Benutzeroberfläche angezeigt werden soll.
+Die **`userHint`**-Eigenschaft der [`PaymentManager`](/de/docs/Web/API/PaymentManager)-Schnittstelle bietet einen Hinweis für den Browser, der zusammen mit dem Namen und Icon der Zahlungs-App in der Payment Handler-Benutzeroberfläche angezeigt wird.
 
 ## Wert
 
@@ -40,9 +40,9 @@ navigator.serviceWorker.register("serviceworker.js").then((registration) => {
 
 ## Siehe auch
 
-- {{domxref("Payment Handler API", "Payment Handler API", "", "nocode")}}
+- [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
 - [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Der Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
-- [Verwenden der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
+- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Der Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - [Zahlungsverarbeitungskonzepte](/de/docs/Web/API/Payment_Request_API/Concepts)

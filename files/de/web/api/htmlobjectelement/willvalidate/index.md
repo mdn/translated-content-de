@@ -1,5 +1,5 @@
 ---
-title: "HTMLObjectElement: willValidate Eigenschaft"
+title: "HTMLObjectElement: willValidate-Eigenschaft"
 short-title: willValidate
 slug: Web/API/HTMLObjectElement/willValidate
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`willValidate`** schreibgeschützte Eigenschaft der {{domxref("HTMLObjectElement")}}-Schnittstelle gibt `false` zurück, da {{HTMLElement("object")}}-Elemente keine Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
+Die **`willValidate`** schreibgeschützte Eigenschaft der [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Schnittstelle gibt `false` zurück, da {{HTMLElement("object")}}-Elemente keine Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
 
 ## Wert
 
@@ -24,8 +24,8 @@ Der boolesche Wert `false`.
 
 ## Siehe auch
 
-- {{domxref("HTMLObjectElement.checkValidity()")}}
+- [`HTMLObjectElement.checkValidity()`](/de/docs/Web/API/HTMLObjectElement/checkValidity)
 - {{HTMLElement("object")}}
 - {{HTMLElement("form")}}
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Anleitung: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

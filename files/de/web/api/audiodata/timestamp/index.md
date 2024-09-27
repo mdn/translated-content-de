@@ -1,6 +1,6 @@
 ---
-title: "AudioData: Timestamp-Eigenschaft"
-short-title: Timestamp
+title: "AudioData: timestamp-Eigenschaft"
+short-title: timestamp
 slug: Web/API/AudioData/timestamp
 l10n:
   sourceCommit: 06b418a190b8e4a46682ab706d14984e7db34862
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`timestamp`** des {{domxref("AudioData")}} Interfaces gibt den Zeitstempel dieses `AudioData`-Objekts zurück.
+Die **`timestamp`** schreibgeschützte Eigenschaft des [`AudioData`](/de/docs/Web/API/AudioData)-Interfaces gibt den Zeitstempel dieses `AudioData`-Objekts zurück.
 
 ## Wert
 
-Ein Integer.
+Ein Ganzzahlwert.
 
 ## Beispiele
 

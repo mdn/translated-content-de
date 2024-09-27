@@ -7,17 +7,17 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`DOMStringMap`**-Schnittstelle wird für das {{domxref("HTMLElement.dataset")}}-Attribut verwendet, um Daten für benutzerdefinierte Attribute darzustellen, die zu Elementen hinzugefügt werden.
+Die **`DOMStringMap`** Schnittstelle wird für das [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) Attribut verwendet, um Daten für benutzerdefinierte Attribute darzustellen, die Elementen hinzugefügt wurden.
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 
-## Browser compatibility
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLElement.dataset")}}
+- [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset)
 - [Globale Attribute - `data-*`](/de/docs/Web/HTML/Global_attributes/data-*)

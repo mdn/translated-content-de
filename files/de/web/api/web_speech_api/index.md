@@ -7,70 +7,63 @@ l10n:
 
 {{DefaultAPISidebar("Web Speech API")}}
 
-Die **Web Speech API** ermöglicht es Ihnen, Sprachdaten in Web-Apps zu integrieren.
-Die Web Speech API besteht aus zwei Teilen: `SpeechSynthesis` (Text-zu-Sprache) und `SpeechRecognition` (Asynchrone Spracherkennung).
+Die **Web Speech API** ermöglicht es Ihnen, Sprachdaten in Webanwendungen zu integrieren. Die Web Speech API besteht aus zwei Teilen: `SpeechSynthesis` (Text-zu-Sprache) und `SpeechRecognition` (asynchrone Spracherkennung).
 
 ## Web Speech Konzepte und Nutzung
 
-Die Web Speech API befähigt Web-Apps, mit Sprachdaten umzugehen.
-Es gibt zwei Komponenten in dieser API:
+Die Web Speech API befähigt Webanwendungen, Sprachdaten zu verarbeiten. Diese API besteht aus zwei Komponenten:
 
-- Spracherkennung wird über die {{domxref("SpeechRecognition")}}-Schnittstelle zugegriffen, die die Fähigkeit bietet, Sprachkontext aus einer Audioeingabe (normalerweise über den standardmäßigen Spracherkennungsdienst des Geräts) zu erkennen und entsprechend zu reagieren.
-  Im Allgemeinen verwenden Sie den Konstruktor der Schnittstelle, um ein neues {{domxref("SpeechRecognition")}}-Objekt zu erstellen, das über eine Reihe von Ereignishandlern verfügt, um zu erkennen, wann Sprache über das Mikrofon des Geräts eingegeben wird. Die {{domxref("SpeechGrammar")}}-Schnittstelle repräsentiert einen Container für einen bestimmten Satz von Grammatik, die Ihre App erkennen soll.
-  Grammatik wird mit dem [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert.
-- Sprachsynthese wird über die {{domxref("SpeechSynthesis")}}-Schnittstelle zugegriffen, eine Text-zu-Sprache-Komponente, die es Programmen ermöglicht, ihre Textinhalte vorlesen zu lassen (normalerweise über den standardmäßigen Sprachsynthesizer des Geräts). Verschiedene Stimmtypen werden durch {{domxref("SpeechSynthesisVoice")}}-Objekte repräsentiert, und verschiedene Teile des Textes, den Sie gesprochen haben möchten, werden durch {{domxref("SpeechSynthesisUtterance")}}-Objekte repräsentiert.
-  Sie können diese sprechen lassen, indem Sie sie der {{domxref("SpeechSynthesis.speak()")}}-Methode übergeben.
+- Die Spracherkennung wird über das [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition) Interface aufgerufen, das die Fähigkeit bietet, Sprachkontext aus einem Audioeingang (normalerweise über den Standard-Spracherkennungsdienst des Geräts) zu erkennen und entsprechend zu reagieren. In der Regel verwenden Sie den Konstruktor des Interfaces, um ein neues [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition) Objekt zu erstellen, das eine Reihe von Ereignishandlern zur Verfügung hat, um zu erkennen, wann Sprache über das Mikrofon des Geräts eingegeben wird. Das [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar) Interface repräsentiert einen Container für eine bestimmte Grammatik, die Ihre App erkennen soll. Die Grammatik wird im [JSpeech Grammar Format](https://www.w3.org/TR/jsgf/) (**JSGF**) definiert.
+- Die Sprachsynthese wird über das [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis) Interface aufgerufen, eine Text-zu-Sprache Komponente, die es Programmen ermöglicht, ihren Textinhalt vorzulesen (normalerweise über den Standard-Sprachsynthesizer des Geräts). Verschiedene Stimmtypen werden durch [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice) Objekte repräsentiert, und verschiedene Textteile, die gesprochen werden sollen, durch [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) Objekte. Diese können durch die Methode [`SpeechSynthesis.speak()`](/de/docs/Web/API/SpeechSynthesis/speak) gesprochen werden.
 
-Für weitere Details zur Nutzung dieser Funktionen siehe [Using the Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API).
+Für weitere Details zur Nutzung dieser Funktionen siehe [Verwendung der Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API).
 
 ## Web Speech API Schnittstellen
 
 ### Spracherkennung
 
-- {{domxref("SpeechRecognition")}}
-  - : Die Steuerungsschnittstelle für den Erkennungsdienst; diese verarbeitet auch das vom Erkennungsdienst gesendete {{domxref("SpeechRecognitionEvent")}}.
-- {{domxref("SpeechRecognitionAlternative")}}
+- [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)
+  - : Die Steuerungsschnittstelle für den Erkennungsdienst; behandelt auch die [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent) Ereignisse, die vom Erkennungsdienst gesendet werden.
+- [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative)
   - : Repräsentiert ein einzelnes Wort, das vom Spracherkennungsdienst erkannt wurde.
-- {{domxref("SpeechRecognitionErrorEvent")}}
-  - : Repräsentiert Fehlermeldungen vom Erkennungsdienst.
-- {{domxref("SpeechRecognitionEvent")}}
-  - : Das Ereignisobjekt für die {{domxref("SpeechRecognition.result_event", "result")}}- und {{domxref("SpeechRecognition.nomatch_event", "nomatch")}}-Ereignisse und enthält alle mit einem vorläufigen oder endgültigen Spracherkennungsergebnis verbundenen Daten.
-- {{domxref("SpeechGrammar")}}
-  - : Die Wörter oder Wortmuster, die wir möchten, dass der Erkennungsdienst erkennt.
-- {{domxref("SpeechGrammarList")}}
-  - : Repräsentiert eine Liste von {{domxref("SpeechGrammar")}}-Objekten.
-- {{domxref("SpeechRecognitionResult")}}
-  - : Repräsentiert eine einzelne Erkennungsübereinstimmung, die mehrere {{domxref("SpeechRecognitionAlternative")}}-Objekte enthalten kann.
-- {{domxref("SpeechRecognitionResultList")}}
-  - : Repräsentiert eine Liste von {{domxref("SpeechRecognitionResult")}}-Objekten oder ein einzelnes, wenn Ergebnisse im {{domxref("SpeechRecognition.continuous","continuous")}}-Modus erfasst werden.
+- [`SpeechRecognitionErrorEvent`](/de/docs/Web/API/SpeechRecognitionErrorEvent)
+  - : Repräsentiert Fehlermeldungen des Erkennungsdienstes.
+- [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent)
+  - : Das Ereignisobjekt für die [`result`](/de/docs/Web/API/SpeechRecognition/result_event) und [`nomatch`](/de/docs/Web/API/SpeechRecognition/nomatch_event) Ereignisse und enthält alle mit einem vorläufigen oder endgültigen Spracherkennungsergebnis verbundenen Daten.
+- [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)
+  - : Die Worte oder Wortmuster, die der Erkennungsdienst erkennen soll.
+- [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList)
+  - : Repräsentiert eine Liste von [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar) Objekten.
+- [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)
+  - : Repräsentiert ein einzelnes Erkennungsergebnis, das mehrere [`SpeechRecognitionAlternative`](/de/docs/Web/API/SpeechRecognitionAlternative) Objekte enthalten kann.
+- [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)
+  - : Repräsentiert eine Liste von [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) Objekten oder ein einzelnes, wenn Ergebnisse im [`continuous`](/de/docs/Web/API/SpeechRecognition/continuous) Modus erfasst werden.
 
 ### Sprachsynthese
 
-- {{domxref("SpeechSynthesis")}}
-  - : Die Steuerungsschnittstelle für den Sprachdienst; diese kann verwendet werden, um Informationen zu den auf dem Gerät verfügbaren Synthesestimmen abzurufen, Sprache zu starten und zu pausieren und andere Befehle auszuführen.
-- {{domxref("SpeechSynthesisErrorEvent")}}
-  - : Enthält Informationen über Fehler, die beim Verarbeiten von {{domxref("SpeechSynthesisUtterance")}}-Objekten im Sprachdienst auftreten.
-- {{domxref("SpeechSynthesisEvent")}}
-  - : Enthält Informationen über den aktuellen Zustand von {{domxref("SpeechSynthesisUtterance")}}-Objekten, die im Sprachdienst verarbeitet wurden.
-- {{domxref("SpeechSynthesisUtterance")}}
-  - : Repräsentiert eine Sprachanforderung.
-    Es enthält den Inhalt, den der Sprachdienst lesen soll, und Informationen darüber, wie er gelesen werden soll (z.B. Sprache, Tonhöhe und Lautstärke).
-- {{domxref("SpeechSynthesisVoice")}}
-  - : Repräsentiert eine Stimme, die das System unterstützt.
-    Jede `SpeechSynthesisVoice` hat ihren eigenen relativen Sprachdienst, einschließlich Informationen über Sprache, Name und URI.
-- {{domxref("Window.speechSynthesis")}}
-  - : Spezifiziert als Teil einer `[NoInterfaceObject]`-Schnittstelle namens `SpeechSynthesisGetter` und implementiert durch das `Window`-Objekt, bietet die `speechSynthesis`-Eigenschaft Zugriff auf den {{domxref("SpeechSynthesis")}}-Controller und damit den Einstiegspunkt zur Sprachsynthese-Funktionalität.
+- [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)
+  - : Die Steuerungsschnittstelle für den Sprachdienst; kann verwendet werden, um Informationen über die auf dem Gerät verfügbaren Synthesestimmen abzurufen, Sprache zu starten und zu pausieren und andere Befehle auszuführen.
+- [`SpeechSynthesisErrorEvent`](/de/docs/Web/API/SpeechSynthesisErrorEvent)
+  - : Enthält Informationen über Fehler, die bei der Verarbeitung von [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) Objekten im Sprachdienst auftreten.
+- [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent)
+  - : Enthält Informationen über den aktuellen Zustand von [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) Objekten, die im Sprachdienst verarbeitet wurden.
+- [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)
+  - : Repräsentiert eine Sprachaufforderung. Es enthält den Inhalt, den der Sprachdienst vorlesen soll, und Informationen darüber, wie es gelesen werden soll (z.B. Sprache, Tonhöhe und Lautstärke).
+- [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)
+  - : Repräsentiert eine Stimme, die das System unterstützt. Jede `SpeechSynthesisVoice` hat ihren eigenen relativen Sprachdienst mit Informationen zur Sprache, Name und URI.
+- [`Window.speechSynthesis`](/de/docs/Web/API/Window/speechSynthesis)
+  - : Wird als Teil der `[NoInterfaceObject]` Schnittstelle `SpeechSynthesisGetter` spezifiziert und vom `Window` Objekt implementiert, die `speechSynthesis` Eigenschaft bietet Zugriff auf den [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis) Controller und somit den Einstiegspunkt zu Sprachsynthesefunktionen.
 
 ## Fehler
 
-Für Informationen zu Fehlern, die von der Speech API gemeldet werden (z.B. `"language-not-supported"` und `"language-unavailable"`), siehe die folgende Dokumentation:
+Informationen zu Fehlern, die von der Speech API gemeldet werden (z.B. `"language-not-supported"` und `"language-unavailable"`), finden Sie in der folgenden Dokumentation:
 
-- [`error`-Eigenschaft des `SpeechRecognitionErrorEvent`-Objekts](/de/docs/Web/API/SpeechRecognitionErrorEvent/error)
-- [`error`-Eigenschaft des `SpeechSynthesisErrorEvent`-Objekts](/de/docs/Web/API/SpeechSynthesisErrorEvent/error)
+- [`error` Eigenschaft des `SpeechRecognitionErrorEvent` Objekts](/de/docs/Web/API/SpeechRecognitionErrorEvent/error)
+- [`error` Eigenschaft des `SpeechSynthesisErrorEvent` Objekts](/de/docs/Web/API/SpeechSynthesisErrorEvent/error)
 
 ## Beispiele
 
-Die [Web Speech API Beispiele](https://github.com/mdn/dom-examples/tree/main/web-speech-api) auf GitHub enthalten Demos zur Veranschaulichung der Spracherkennung und -synthese.
+Die [Beispiele zur Web Speech API](https://github.com/mdn/dom-examples/tree/main/web-speech-api) auf GitHub enthalten Demos zur Veranschaulichung der Spracherkennung und -synthese.
 
 ## Spezifikationen
 
@@ -82,6 +75,6 @@ Die [Web Speech API Beispiele](https://github.com/mdn/dom-examples/tree/main/web
 
 ## Siehe auch
 
-- [Using the Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API)
-- [SitePoint-Artikel](https://www.sitepoint.com/talking-web-pages-and-the-speech-synthesis-api/)
-- [HTML5Rocks-Artikel](https://developer.chrome.com/blog/web-apps-that-talk-introduction-to-the-speech-synthesis-api/)
+- [Verwendung der Web Speech API](/de/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API)
+- [SitePoint Artikel](https://www.sitepoint.com/talking-web-pages-and-the-speech-synthesis-api/)
+- [HTML5Rocks Artikel](https://developer.chrome.com/blog/web-apps-that-talk-introduction-to-the-speech-synthesis-api/)

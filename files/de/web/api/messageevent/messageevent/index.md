@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Der **`MessageEvent()`** Konstruktor erstellt ein neues {{domxref("MessageEvent")}} Objekt.
+Der **`MessageEvent()`**-Konstruktor erstellt ein neues [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Objekt.
 
 ## Syntax
 
@@ -21,31 +21,30 @@ new MessageEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist groß- und kleinschreibungssensitiv und Browser setzen es immer auf `message`.
+    Es ist groß-/kleinschreibungssensitiv, und Browser setzen es immer auf `message`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ folgende Eigenschaften enthalten kann:
     - `data` {{optional_inline}}
       - : Die Daten, die im MessageEvent enthalten sein sollen.
-        Dies kann ein beliebiger Datentyp sein und wird standardmäßig auf `null` gesetzt, wenn nicht angegeben.
+        Diese können jeden Datentyp haben und sind standardmäßig `null`, wenn nicht angegeben.
     - `origin` {{optional_inline}}
-      - : Ein String, der den Ursprung des Nachrichtensenders darstellt.
-        Standardmäßig ist dies ein leerer String (`''`), wenn nicht angegeben.
+      - : Ein String, der die Herkunft des Nachrichtensenders repräsentiert.
+        Dies ist standardmäßig ein leerer String (`''`), wenn nicht angegeben.
     - `lastEventId` {{optional_inline}}
       - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
-        Standardmäßig ist dies ein leerer String ("") wenn nicht angegeben.
+        Dies ist standardmäßig ein leerer String ("") wenn nicht angegeben.
     - `source` {{optional_inline}}
-      - : Eine `MessageEventSource` (die ein {{domxref("Window")}}, ein {{domxref("MessagePort")}},
-        oder ein {{domxref("ServiceWorker")}} Objekt sein kann) die den Nachrichtensender darstellt.
-        Standardmäßig ist dies `null`, wenn nicht gesetzt.
+      - : Eine `MessageEventSource` (die ein [`Window`](/de/docs/Web/API/Window), ein [`MessagePort`](/de/docs/Web/API/MessagePort)
+        oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), welches den Nachrichtensender darstellt.
+        Dies ist standardmäßig `null`, wenn es nicht gesetzt ist.
     - `ports` {{optional_inline}}
-      - : Ein Array von {{domxref("MessagePort")}} Objekten, die
-        die mit dem Kanal assoziierten Ports repräsentieren, durch den die Nachricht gegebenenfalls gesendet wird
-        (z.B. in der Kanalnachrichtübermittlung oder beim Senden einer Nachricht an einen Shared Worker).
-        Standardmäßig ist dies ein leeres Array (`[]`), wenn nicht angegeben.
+      - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports darstellen, die mit dem Kanal verbunden sind, durch den die Nachricht gesendet wird, wenn dies zutreffend ist
+        (z.B. beim Kanalmessaging oder beim Senden einer Nachricht an einen Shared Worker).
+        Dies ist standardmäßig ein leeres Array (`[]`), wenn nicht angegeben.
 
 ### Rückgabewert
 
-Ein neues {{domxref("MessageEvent")}} Objekt.
+Ein neues [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Objekt.
 
 ## Beispiele
 
@@ -65,4 +64,4 @@ const myMessage = new MessageEvent("message", {
 
 ## Siehe auch
 
-- {{domxref("ExtendableMessageEvent")}} — ähnlich zu dieser Schnittstelle, aber in Schnittstellen verwendet, die mehr Flexibilität für Autoren bieten müssen.
+- [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent) — ähnlich dieser Schnittstelle, jedoch in Schnittstellen verwendet, die Autoren mehr Flexibilität bieten soll.

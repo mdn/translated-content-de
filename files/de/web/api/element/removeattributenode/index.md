@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`removeAttributeNode()`**-Methode des {{domxref("Element")}}-Interfaces entfernt den angegebenen {{domxref("Attr")}}-Knoten aus dem Element.
+Die **`removeAttributeNode()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle entfernt den angegebenen [`Attr`](/de/docs/Web/API/Attr)-Knoten aus dem Element.
 
-Wenn Sie den Attributknoten nicht vor dem Entfernen untersuchen müssen, können Sie stattdessen die {{domxref("Element.removeAttribute()")}}-Methode verwenden.
+Wenn Sie den Attributknoten nicht inspizieren müssen, bevor Sie ihn entfernen, können Sie stattdessen die [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)-Methode verwenden.
 
 ## Syntax
 
@@ -29,26 +29,27 @@ Der Attributknoten, der entfernt wurde.
 
 ### Ausnahmen
 
-- `NotFoundError` {{DOMxRef("DOMException")}}
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Attributliste des Elements den Attributknoten nicht enthält.
 
 ## Beispiele
 
 ```js
-// Gegeben: <div id="top" align="center" />
+// Given: <div id="top" align="center" />
 const d = document.getElementById("top");
 const d_align = d.getAttributeNode("align");
 d.removeAttributeNode(d_align);
-// align ist nun entfernt: <div id="top" />
+// align is now removed: <div id="top" />
 ```
 
 ## Hinweise
 
 Wenn das entfernte Attribut einen Standardwert hat, wird es sofort ersetzt. Das ersetzende
-Attribut hat denselben Namespace-URI und lokalen Namen sowie gegebenenfalls das ursprüngliche Präfix.
+Attribut hat denselben Namespace-URI und lokalen Namen sowie das ursprüngliche Präfix, wenn zutreffend.
 
 Es gibt keine `removeAttributeNodeNS`-Methode; die
-`removeAttributeNode`-Methode kann sowohl Attributen mit Namensraum als auch ohne Namensraum entfernen.
+`removeAttributeNode`-Methode kann sowohl Namespace-Attribute als auch
+nicht-Namespace-Attribute entfernen.
 
 ## Spezifikationen
 
@@ -60,6 +61,6 @@ Es gibt keine `removeAttributeNodeNS`-Methode; die
 
 ## Siehe auch
 
-- {{domxref("Document.createAttribute()")}}
-- {{domxref("Element.getAttributeNode()")}}
-- {{domxref("Element.setAttributeNode()")}}
+- [`Document.createAttribute()`](/de/docs/Web/API/Document/createAttribute)
+- [`Element.getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode)
+- [`Element.setAttributeNode()`](/de/docs/Web/API/Element/setAttributeNode)

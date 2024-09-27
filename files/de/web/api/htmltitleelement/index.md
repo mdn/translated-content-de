@@ -7,28 +7,28 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Das **`HTMLTitleElement`** Interface wird von einem Dokumentelement {{ HTMLElement("title") }} implementiert. Dieses Element erbt alle Eigenschaften und Methoden des {{domxref("HTMLElement")}} Interfaces.
+Die **`HTMLTitleElement`**-Schnittstelle wird von einem Dokument-{{ HTMLElement("title") }} implementiert. Dieses Element erbt alle Eigenschaften und Methoden der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Eltern-{{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLTitleElement.text")}}
-  - : Ein String, der den Text des Dokumenttitels repräsentiert.
+- [`HTMLTitleElement.text`](/de/docs/Web/API/HTMLTitleElement/text)
+  - : Ein String, der den Text des Dokumenttitels darstellt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Eltern-{{domxref("HTMLElement")}}._
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Beispiel
 
-Nicht zu verwechseln: `document.title` mit `document.querySelector('title')`
+Nicht verwechseln: `document.title` mit `document.querySelector('title')`
 
-Ersteres ist nur eine Methode zum Setzen/Abrufen des inneren Textwerts des Dokumenttitels, während letzteres das `HTMLTitleElement` Objekt ist. Sie können also nicht schreiben: `document.title.text = "Hello world!";`
+Ersteres ist nur eine Setzer-/Getter-Methode, um den inneren Textwert des Dokumenttitels zu setzen oder zu erhalten, während letzteres das `HTMLTitleElement`-Objekt ist. Daher kann man nicht schreiben: `document.title.text = "Hello world!";`
 
-Stattdessen können Sie einfach schreiben: `document.title = "Hello world!";` was gleichbedeutend ist mit `document.querySelector('title').text = "Hello world!";`
+Stattdessen kann man einfach schreiben: `document.title = "Hello world!";`, was gleichbedeutend ist mit `document.querySelector('title').text = "Hello world!";`
 
 ## Spezifikationen
 
@@ -40,4 +40,4 @@ Stattdessen können Sie einfach schreiben: `document.title = "Hello world!";` wa
 
 ## Siehe auch
 
-- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("title") }}.
+- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("title") }}.

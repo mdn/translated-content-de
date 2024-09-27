@@ -7,16 +7,16 @@ l10n:
 
 {{CSSRef}}
 
-Die [CSS](/de/docs/Web/CSS) **`justify-content`** Eigenschaft bestimmt, wie der Browser den Platz zwischen und um Inhaltselemente entlang der {{Glossary("main axis")}} eines Flex-Containers und der [inline-Achse](/de/docs/Glossary/Logical_properties#inline_direction) von Grid- und Multicol-Containern verteilt.
+Die [CSS](/de/docs/Web/CSS) **`justify-content`**-Eigenschaft legt fest, wie der Browser den Abstand zwischen und um Inhaltselemente entlang der [Hauptachse](/de/docs/Glossary/main_axis) eines Flex-Containers und der [Inline-Achse](/de/docs/Glossary/Logical_properties#inline_direction) von Grid- und Multicol-Containern verteilt.
 
-Das interaktive Beispiel unten zeigt einige `justify-content` Werte unter Verwendung des Grid-Layouts.
+Das interaktive Beispiel unten demonstriert einige `justify-content`-Werte unter Verwendung eines Grid-Layouts.
 
 {{EmbedInteractiveExample("pages/css/justify-content.html")}}
 
 ## Syntax
 
 ```css
-/* Positionsausrichtung */
+/* Positional alignment */
 justify-content: center;
 justify-content: start;
 justify-content: end;
@@ -25,20 +25,20 @@ justify-content: flex-end;
 justify-content: left;
 justify-content: right;
 
-/* Normale Ausrichtung */
+/* Normal alignment */
 justify-content: normal;
 
-/* Verteilte Ausrichtung */
+/* Distributed alignment */
 justify-content: space-between;
 justify-content: space-around;
 justify-content: space-evenly;
 justify-content: stretch;
 
-/* Überlauf-Ausrichtung */
+/* Overflow alignment */
 justify-content: safe center;
 justify-content: unsafe center;
 
-/* Globale Werte */
+/* Global values */
 justify-content: inherit;
 justify-content: initial;
 justify-content: revert;
@@ -50,39 +50,41 @@ justify-content: unset;
 
 - `start`
 
-  - : Die Elemente sind bündig zueinander und am Startpunkt des Ausrichtungscontainers entlang der Hauptachse angeordnet.
+  - : Die Elemente sind bündig zueinander an der Startkante des Ausrichtungscontainers entlang der Hauptachse gepackt.
 
 - `end`
 
-  - : Die Elemente sind bündig zueinander und am Endpunkt des Ausrichtungscontainers entlang der Hauptachse angeordnet.
+  - : Die Elemente sind bündig zueinander an der Endkante des Ausrichtungscontainers entlang der Hauptachse gepackt.
 
 - `flex-start`
 
-  - : Die Elemente sind bündig zueinander und abhängig von der Hauptanfangsseite des Flex-Containers am Rand des Ausrichtungscontainers angeordnet. Dies gilt nur für Flex-Layout-Elemente. Für Elemente, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `start` behandelt.
+  - : Die Elemente sind bündig zueinander an der Kante des Ausrichtungscontainers entsprechend der Haupt-Start-Seite des Flex-Containers gepackt.
+    Dies gilt nur für Flex-Layout-Elemente. Für Elemente, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `start` behandelt.
 
 - `flex-end`
 
-  - : Die Elemente sind bündig zueinander und abhängig von der Hauptendseite des Flex-Containers am Rand des Ausrichtungscontainers angeordnet. Dies gilt nur für Flex-Layout-Elemente. Für Elemente, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `end` behandelt.
+  - : Die Elemente sind bündig zueinander an der Kante des Ausrichtungscontainers entsprechend der Haupt-End-Seite des Flex-Containers gepackt.
+    Dies gilt nur für Flex-Layout-Elemente. Für Elemente, die keine Kinder eines Flex-Containers sind, wird dieser Wert wie `end` behandelt.
 
 - `center`
 
-  - : Die Elemente sind bündig zueinander in der Mitte des Ausrichtungscontainers entlang der Hauptachse angeordnet.
+  - : Die Elemente sind bündig zueinander in der Mitte des Ausrichtungscontainers entlang der Hauptachse gepackt.
 
 - `left`
 
-  - : Die Elemente sind bündig zueinander am linken Rand des Ausrichtungscontainers angeordnet. Wenn die horizontale Achse der Eigenschaft nicht parallel zur Inline-Achse ist, wie wenn [`flex-direction: column;`](/de/docs/Web/CSS/flex-direction) gesetzt ist, verhält sich dieser Wert wie `start`.
+  - : Die Elemente sind bündig zueinander an der linken Kante des Ausrichtungscontainers gepackt. Wenn die horizontale Achse der Eigenschaft nicht parallel zur Inline-Achse ist, wie z.B. bei [`flex-direction: column;`](/de/docs/Web/CSS/flex-direction), verhält sich dieser Wert wie `start`.
 
 - `right`
 
-  - : Die Elemente sind bündig zueinander am rechten Rand des Ausrichtungscontainers in der entsprechenden Achse angeordnet. Wenn die Achse der Eigenschaft nicht parallel zur Inline-Achse (in einem Grid-Container) oder zur Hauptachse (in einem Flexbox-Container) ist, verhält sich dieser Wert wie `start`.
+  - : Die Elemente sind bündig zueinander an der rechten Kante des Ausrichtungscontainers auf der geeigneten Achse gepackt. Wenn die Achse der Eigenschaft nicht parallel zur Inline-Achse (in einem Grid-Container) oder der Hauptachse (in einem Flexbox-Container) ist, verhält sich dieser Wert wie `start`.
 
 - `normal`
 
-  - : Verhält sich wie `stretch`, außer bei mehrspaltigen Containern mit einer nicht `auto` [`column-width`](/de/docs/Web/CSS/column-width), in welchem Fall die Spalten ihre spezifizierte `column-width` annehmen, anstatt sich zu strecken, um den Container zu füllen. Da `stretch` sich wie `start` in Flex-Containern verhält, verhält sich `normal` auch wie `start`.
+  - : Verhält sich wie `stretch`, außer bei Mehrspalten-Containern mit nicht-`auto` [`column-width`](/de/docs/Web/CSS/column-width), in welchem Fall die Spalten ihre angegebene `column-width` übernehmen, anstatt sich auszudehnen, um den Container zu füllen. Da `stretch` sich in Flex-Containern wie `start` verhält, verhält sich `normal` auch wie `start`.
 
 - `space-between`
 
-  - : Die Elemente sind gleichmäßig innerhalb des Ausrichtungscontainers entlang der Hauptachse verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente ist gleich. Das erste Element ist bündig mit dem Main-Startpunkt, und das letzte Element ist bündig mit dem Main-Endpunkt.
+  - : Die Elemente sind gleichmäßig innerhalb des Ausrichtungscontainers entlang der Hauptachse verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente ist gleich. Das erste Element ist bündig mit der Haupt-Startkante und das letzte Element ist bündig mit der Haupt-Endkante.
 
 - `space-around`
 
@@ -90,34 +92,34 @@ justify-content: unset;
 
 - `space-evenly`
 
-  - : Die Elemente sind gleichmäßig innerhalb des Ausrichtungscontainers entlang der Hauptachse verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente, dem Main-Startpunkt und dem ersten Element, und dem Main-Endpunkt und dem letzten Element, ist überall genau gleich.
+  - : Die Elemente sind gleichmäßig innerhalb des Ausrichtungscontainers entlang der Hauptachse verteilt. Der Abstand zwischen jedem Paar benachbarter Elemente, der Haupt-Startkante und dem ersten Element sowie der Haupt-Endkante und dem letzten Element ist genau gleich.
 
 - `stretch`
 
-  - : Wenn die kombinierte Größe der Elemente entlang der Hauptachse kleiner als die des Ausrichtungscontainers ist, werden alle `auto`-skalierten Elemente gleichmäßig vergrößert (nicht proportional), während gleichzeitig die durch {{cssxref("max-height")}}/{{cssxref("max-width")}} (oder entsprechende Funktionalitäten) auferlegten Einschränkungen respektiert werden, sodass die kombinierte Größe den Ausrichtungscontainer entlang der Hauptachse genau ausfüllt.
+  - : Wenn die kombinierte Größe der Elemente entlang der Hauptachse kleiner als die Größe des Ausrichtungscontainers ist, wird bei allen `auto`-Größen die Größe gleichmäßig (nicht proportional) vergrößert, wobei die durch {{cssxref("max-height")}}/{{cssxref("max-width")}} (oder entsprechende Funktionalitäten) auferlegten Einschränkungen respektiert werden, sodass die kombinierte Größe den Ausrichtungscontainer entlang der Hauptachse genau füllt.
 
     > [!NOTE]
-    > Für [Flexboxen](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) verhält sich der `stretch`-Wert wie `flex-start` oder `start`. Das liegt daran, dass das Strecken in Flexboxen mit der {{CSSXref("flex-grow")}} Eigenschaft gesteuert wird.
+    > Für [Flexboxen](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) verhält sich der `stretch`-Wert wie `flex-start` oder `start`. Dies liegt daran, dass das Strecken in Flexboxen über die {{CSSXref("flex-grow")}}-Eigenschaft gesteuert wird.
 
 - `safe`
 
-  - : Wenn das Element den Ausrichtungscontainer überfließt, wird das Element so ausgerichtet, als wäre der Ausrichtungsmodus `start`. Die gewünschte Ausrichtung wird nicht umgesetzt.
+  - : Wenn das Element den Ausrichtungscontainer überläuft, wird das Element so ausgerichtet, als ob der Ausrichtungsmodus `start` wäre. Die gewünschte Ausrichtung wird nicht umgesetzt.
 
 - `unsafe`
 
-  - : Auch wenn das Element den Ausrichtungscontainer überfließt, wird die gewünschte Ausrichtung umgesetzt. Im Gegensatz zu `safe`, das die gewünschte Ausrichtung ignoriert, um Überlauf zu vermeiden.
+  - : Selbst wenn das Element den Ausrichtungscontainer überläuft, wird die gewünschte Ausrichtung umgesetzt. Im Gegensatz zu `safe`, welches die gewünschte Ausrichtung zugunsten der Vermeidung von Überlauf ignoriert.
 
 ## Beschreibung
 
-Definiert im [CSS-Box-Ausrichtungsmodul](/de/docs/Web/CSS/CSS_box_alignment), gilt `justify-content` für Mehrspaltencontainer, Flex-Container und Grid-Container. Die Eigenschaft gilt nicht für Block-Container und hat keine Auswirkung darauf.
+Im [CSS-Box-Ausrichtungsmodul](/de/docs/Web/CSS/CSS_box_alignment) definiert, gilt `justify-content` für Multicol-Container, Flex-Container und Grid-Container. Die Eigenschaft hat keine Auswirkungen auf Block-Container.
 
-Diese Eigenschaft teilt viele Schlüsselwortwerte mit der {{cssxref("align-content")}} Eigenschaft, aber nicht alle! `justify-content` ist nicht in die Basislinienausrichtung involviert und nimmt daher keine Basislinienwerte an.
+Diese Eigenschaft teilt viele Schlüsselwortwerte mit der {{cssxref("align-content")}}-Eigenschaft, aber nicht alle! `justify-content` ist nicht an der Basislinienausrichtung beteiligt und nimmt daher keine Basislinienwerte an.
 
-In [Flex-Layouts](/de/docs/Web/CSS/CSS_flexible_box_layout) definiert die Eigenschaft, wie positiver Freiraum zwischen oder um Flex-Elemente entlang der Hauptachse verteilt wird. Diese Eigenschaft beeinflusst den Raum zwischen Elementen in einer Zeile, nicht den Raum zwischen Zeilen. Die Ausrichtung erfolgt, nachdem die Längen und Auto-Ränder angewendet wurden, was bedeutet, dass wenn ein oder mehrere Flex-Elemente in einer Zeile einen {{cssxref("flex-grow")}} Faktor größer als `0` haben, die Eigenschaft keine Wirkung hat, da es keinen Platz gibt, der in dieser Zeile verteilt werden könnte. Da das Strecken entlang der Hauptachse durch {{cssxref("flex")}} gesteuert wird, verhält sich der `stretch`-Wert wie `flex-start`.
+In [Flex-Layouts](/de/docs/Web/CSS/CSS_flexible_box_layout) definiert die Eigenschaft, wie positiver Freiraum zwischen oder um Flex-Elemente entlang der Hauptachse verteilt wird. Diese Eigenschaft beeinflusst den Abstand zwischen Elementen in einer Zeile, nicht den Abstand zwischen Zeilen. Die Ausrichtung erfolgt, nachdem die Längen und automatischen Margen angewendet wurden, was bedeutet, dass, wenn ein oder mehrere Flex-Elemente in einer Zeile einen {{cssxref("flex-grow")}}-Faktor größer als `0` haben, die Eigenschaft keine Wirkung hat, da kein Raum vorhanden ist, um entlang dieser Zeile verteilt zu werden. Auch da das Strecken entlang der Hauptachse durch {{cssxref("flex")}} gesteuert wird, verhält sich der `stretch`-Wert wie `flex-start`.
 
-Mit [Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) verteilt diese Eigenschaft den verfügbaren Platz zwischen oder um die Gitterspalten, nicht die Gitter-Elemente. Wenn der Grid-Container größer als das Grid selbst ist, kann die `justify-content`-Eigenschaft verwendet werden, um das Grid entlang der Inline-Achse zu rechtfertigen, wobei die Gitterspalten ausgerichtet werden.
+Mit [Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) verteilt diese Eigenschaft den verfügbaren Raum zwischen oder um die Grid-Spalten herum, nicht um die Grid-Elemente. Wenn der Grid-Container größer als das Grid selbst ist, kann die `justify-content`-Eigenschaft verwendet werden, um das Grid entlang der Inline-Achse zu rechtfertigen und die Grid-Spalten auszurichten.
 
-Grid-`auto` Spurgrößen (und nur `auto` Spurgrößen) können durch die `align-content` und `justify-content`-Eigenschaften gestreckt werden. Daher nimmt eine `auto`-skalierte Spur standardmäßig jeglichen verbleibenden Platz im Grid-Container ein. Da die Inline-Größe des Grids kleiner als die des Grid-Containers sein muss, um Platz zu verteilen, hat die Eigenschaft in diesem Fall keine Auswirkung.
+Grid-`auto`-Spurgrößen (und nur `auto`-Spurgrößen) können durch die `align-content` und `justify-content`-Eigenschaften gestreckt werden. Daher nimmt eine `auto`-große Spur standardmäßig jeden verbleibenden Raum im Grid-Container ein. Da die Inline-Größe des Grids kleiner als die Inline-Größe des Grid-Containers sein muss, damit es Raum zu verteilen gibt, hat die Eigenschaft in diesem Fall keine Wirkung.
 
 ## Formale Definition
 
@@ -131,11 +133,11 @@ Grid-`auto` Spurgrößen (und nur `auto` Spurgrößen) können durch die `align-
 
 ### Grundlegendes Grid-Beispiel
 
-In diesem Beispiel haben wir ein Grid, das schmaler als sein Grid-Container ist, und wir verwenden `justify-content`, um den verfügbaren Platz gleichmäßig um und zwischen die Grid-Spalten zu verteilen.
+In diesem Beispiel haben wir ein Grid, das schmaler als sein Grid-Container ist, und wir verwenden `justify-content`, um den verfügbaren Raum gleichmäßig um und zwischen den Grid-Spalten zu verteilen.
 
 #### HTML
 
-Der {{htmlelement("section")}} Container, unser zukünftiger Grid-Container, hat 16 verschachtelte {{htmlelement("div")}}s, die zu Grid-Elementen werden.
+Der {{htmlelement("section")}}-Container, unser zukünftiger Grid-Container, enthält 16 eingebettete {{htmlelement("div")}}s, die zu Grid-Elementen werden.
 
 ```html
 <section class="container">
@@ -175,9 +177,9 @@ div {
 }
 ```
 
-Wir setzen die Containerbreite auf `500px` und spezifizieren drei Spalten, die jeweils `80px` breit sind, was bedeutet, dass `260px` verfügbarer Platz zum Verteilen zwischen oder um sie herum vorhanden ist. Wir setzen dann `justify-content: space-evenly`, was bedeutet, dass es `65px` Platz vor, zwischen und nach jeder Spalte gibt.
+Wir setzen die Containerbreite auf `500px` und geben drei Spalten an, die jeweils `80px` breit sind, was bedeutet, dass `260px` verfügbarer Raum zur Verteilung zwischen oder um sie herum vorhanden ist. Wir setzen dann `justify-content: space-evenly`, was bedeutet, dass es `65px` Raum vor, zwischen und nach jeder Spalte gibt.
 
-Wir setzen unterschiedliche Breiten (und Hintergrundfarben), um zu demonstrieren, wie die Justierung auf die Spalten angewendet wird.
+Wir setzen verschiedene Breiten (und Hintergrundfarben), um zu demonstrieren, wie die Rechtfertigung auf die Spalten angewendet wird.
 
 ```css
 .container {
@@ -207,11 +209,11 @@ div:nth-last-of-type(3) {
 
 {{EmbedLiveSample("Basic grid example", "100%", 220)}}
 
-Beachten Sie, dass `justify-contents` die Spalten ausrichtet und keinen Einfluss auf die Elemente oder die Ausrichtung in Grid-Bereichen hat. Grid-Elemente, sogar solche, die ihre Rasterzelle überschreiten, haben keinen Einfluss auf die Spaltenjustierung.
+Beachten Sie, dass `justify-contents` die Spalten ausrichtet und keine Auswirkungen auf die Elemente oder die Ausrichtung in den Grid-Bereichen hat. Grid-Elemente, selbst solche, die ihre Grid-Zelle überlaufen, beeinflussen nicht die Spaltenrechtfertigung.
 
-### Der sichere Schlüsselbegriff
+### Der „safe“-Schlüsselbegriff
 
-Dieses Beispiel demonstriert den `safe` Schlüsselbegriff. Wir spezifizieren vier zentrierte Flex-Elemente, die sich nicht umschlagen lassen und dadurch ihren einzigen Flex-Line-Container überlaufen. Indem wir `safe` zu `center` in der `justify-content`-Eigenschaft hinzugefügt haben, verhält sich überlaufener Inhalt so, als wäre der Ausrichtungsmodus `start`.
+Dieses Beispiel zeigt den `safe`-Schlüsselbegriff. Wir geben vier zentrierte Flex-Elemente an, die nicht umbrochen werden dürfen und infolgedessen ihren Einzelzeilen-Flex-Container überfluten. Durch Hinzufügen von `safe` zu `center` in der `justify-content`-Eigenschaft verhält sich überlaufender Inhalt so, als ob der Ausrichtungsmodus `start` wäre.
 
 ```html hidden
 <p><code>justify-content: center;</code></p>
@@ -228,7 +230,7 @@ Dieses Beispiel demonstriert den `safe` Schlüsselbegriff. Wir spezifizieren vie
   <div>C</div>
   <div>D</div>
 </section>
-<p><code>justify-content: safe center;</code> mit 3 Elementen</p>
+<p><code>justify-content: safe center;</code> with 3 items</p>
 <section class="container safe-center">
   <div>A</div>
   <div>B</div>
@@ -253,7 +255,7 @@ div {
 }
 ```
 
-Der Container ist auf `center` gesetzt, wobei zu jedem Container außer dem ersten das `safe` Schlüsselwort hinzugefügt wurde:
+Der Container ist auf `center` gesetzt, wobei jeder Container außer dem ersten das `safe`-Schlüsselwort hinzugefügt hat:
 
 ```css
 .container {
@@ -280,11 +282,11 @@ div {
 
 {{EmbedLiveSample("the safe keyword", "100%", 260)}}
 
-Wenn ein Element den Ausrichtungscontainer überläuft, verhält sich der Ausrichtungsmodus mit eingeschlossenem `safe` wie `start` und die `center` Ausrichtung wird nicht umgesetzt. Der `safe` Schlüsselbegriff hat keinen Effekt, wenn die Elemente die Containergröße nicht überschreiten.
+Da ein Element den Ausrichtungscontainer überläuft, verhält sich mit `safe` der Ausrichtungsmodus wie `start` und die `center`-Ausrichtung wird nicht umgesetzt. Der `safe`-Schlüsselbegriff hat keine Wirkung, wenn die Elemente nicht den Container überlaufen.
 
 ### Visualisierung der Verteilung von Flex-Elementen
 
-Dieses Beispiel umfasst ein Flex-Layout mit automatischem Zeilenumbruch. Das zweite Flex-Element hat einen positiven Flex-Wachstumsfaktor und nimmt dadurch den gesamten verfügbaren freien Platz der ersten Flex-Zeile ein.
+Dieses Beispiel beinhaltet ein mehrzeiliges, umbruchfähiges Flex-Layout. Das zweite Flex-Element hat einen positiven Flex-Wachstumsfaktor und verbraucht den gesamten verfügbaren Freiraum in der ersten Flex-Zeile.
 
 #### CSS
 
@@ -307,7 +309,7 @@ div {
 #container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between; /* Kann im Live-Beispiel geändert werden */
+  justify-content: space-between; /* Can be changed in the live sample */
   width: 510px;
 }
 
@@ -377,7 +379,7 @@ justifyContent.addEventListener("change", (evt) => {
 
 {{EmbedLiveSample("Visualizing_flex_item_distribution", "100%", 180)}}
 
-Wählen Sie verschiedene Schlüsselwörter aus dem Dropdown-Menü aus, um die verschiedenen `justify-content` Schlüsselwort-Werte zu visualisieren. Da ein Element in der ersten Zeile wachsen kann, gibt es keinen verfügbaren Platz in dieser Zeile, den die `justify-content` Eigenschaft verteilen könnte. Mit dem `space-between` Wert ist das erste Element jeder Zeile bündig mit dem Main-Start-Rand, und das letzte Element bündig mit dem Main-End-Rand. Infolgedessen, wenn eine Zeile nur ein Element hat, wird es mit dem Main-Start-Rand ausgerichtet (wie in der letzten Zeile zu sehen). Dies ist nicht der Fall für andere `space-*` Werte, wie `space-evenly` und `space-around`, die einzeilige Flex-Linien zentrieren.
+Wählen Sie verschiedene Schlüsselwörter aus dem Dropdown-Menü, um die verschiedenen `justify-content`-Schlüsselwortwerte zu visualisieren. Da ein Element in der ersten Zeile wachsen kann, gibt es keinen verfügbaren Raum in dieser Zeile, um die `justify-content`-Eigenschaft zu verteilen. Mit dem `space-between`-Wert ist das erste Element jeder Zeile bündig mit der Haupt-Startkante und das letzte Element bündig mit der Haupt-Endkante. Infolgedessen wird, wenn eine Zeile nur ein Element enthält, dieses mit der Haupt-Startkante ausgerichtet (wie in der letzten Zeile zu sehen). Dies ist nicht der Fall bei anderen `space-*`-Werten wie `space-evenly` und `space-around`, die einzeilige Flex-Zeilen zentrieren.
 
 ## Spezifikationen
 
@@ -389,7 +391,7 @@ Wählen Sie verschiedene Schlüsselwörter aus dem Dropdown-Menü aus, um die ve
 
 ## Siehe auch
 
-- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+- [Grundlegende Konzepte der Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
 - [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
 - [Box-Ausrichtung in CSS-Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout)
-- [CSS Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Modul
+- [CSS-Box-Ausrichtungsmodul](/de/docs/Web/CSS/CSS_box_alignment)

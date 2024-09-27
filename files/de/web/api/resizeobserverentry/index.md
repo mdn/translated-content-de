@@ -7,50 +7,50 @@ l10n:
 
 {{APIRef("Resize Observer API")}}
 
-Die **`ResizeObserverEntry`**-Schnittstelle repräsentiert das Objekt, das an die Rückruffunktion des Konstruktors {{domxref('ResizeObserver.ResizeObserver','ResizeObserver()')}} übergeben wird, und ermöglicht Ihnen den Zugriff auf die neuen Abmessungen des beobachteten {{domxref("Element")}} oder {{domxref("SVGElement")}}.
+Das **`ResizeObserverEntry`**-Interface repräsentiert das Objekt, das an die Rückruffunktion des [`ResizeObserver()`](/de/docs/Web/API/ResizeObserver/ResizeObserver)-Konstruktors übergeben wird. Es ermöglicht Ihnen den Zugriff auf die neuen Dimensionen des beobachteten [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement).
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref('ResizeObserverEntry.borderBoxSize')}} {{ReadOnlyInline}}
-  - : Ein Array von Objekten, das die neue Größe der Umrandungsbox des beobachteten Elements enthält, wenn der Rückruf ausgeführt wird.
-- {{domxref('ResizeObserverEntry.contentBoxSize')}} {{ReadOnlyInline}}
-  - : Ein Array von Objekten, das die neue Größe der Inhaltsbox des beobachteten Elements enthält, wenn der Rückruf ausgeführt wird.
-- {{domxref('ResizeObserverEntry.devicePixelContentBoxSize')}} {{ReadOnlyInline}}
-  - : Ein Array von Objekten, das die neue Größe der Inhaltsbox in Gerätepixeln des beobachteten Elements enthält, wenn der Rückruf ausgeführt wird.
-- {{domxref('ResizeObserverEntry.contentRect')}} {{ReadOnlyInline}}
-  - : Ein {{domxref('DOMRectReadOnly')}}-Objekt, das die neue Größe des beobachteten Elements enthält, wenn der Rückruf ausgeführt wird. Beachten Sie, dass diese Eigenschaft jetzt ein veraltetes Merkmal ist, das aus Gründen der Abwärtskompatibilität in der Spezifikation beibehalten wird.
-- {{domxref('ResizeObserverEntry.target')}} {{ReadOnlyInline}}
-  - : Eine Referenz auf das beobachtete {{domxref('Element')}} oder {{domxref("SVGElement")}}.
+- [`ResizeObserverEntry.borderBoxSize`](/de/docs/Web/API/ResizeObserverEntry/borderBoxSize) {{ReadOnlyInline}}
+  - : Ein Array von Objekten, das die neue Border-Box-Größe des beobachteten Elements enthält, wenn der Rückruf ausgeführt wird.
+- [`ResizeObserverEntry.contentBoxSize`](/de/docs/Web/API/ResizeObserverEntry/contentBoxSize) {{ReadOnlyInline}}
+  - : Ein Array von Objekten, das die neue Content-Box-Größe des beobachteten Elements enthält, wenn der Rückruf ausgeführt wird.
+- [`ResizeObserverEntry.devicePixelContentBoxSize`](/de/docs/Web/API/ResizeObserverEntry/devicePixelContentBoxSize) {{ReadOnlyInline}}
+  - : Ein Array von Objekten, das die neue Content-Box-Größe in Gerätepixeln des beobachteten Elements enthält, wenn der Rückruf ausgeführt wird.
+- [`ResizeObserverEntry.contentRect`](/de/docs/Web/API/ResizeObserverEntry/contentRect) {{ReadOnlyInline}}
+  - : Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekt, das die neue Größe des beobachteten Elements enthält, wenn der Rückruf ausgeführt wird. Beachten Sie, dass dies jetzt eine Legacy-Eigenschaft ist, die aus Gründen der Abwärtskompatibilität in der Spezifikation beibehalten wird.
+- [`ResizeObserverEntry.target`](/de/docs/Web/API/ResizeObserverEntry/target) {{ReadOnlyInline}}
+  - : Ein Verweis auf das beobachtete [`Element`](/de/docs/Web/API/Element) oder [`SVGElement`](/de/docs/Web/API/SVGElement).
 
 > [!NOTE]
-> Die Inhaltsbox ist die Box, in der der Inhalt platziert werden kann, d.h. die Umrandungsbox minus der Auffüllung und Randbreite. Die Umrandungsbox umfasst den Inhalt, die Auffüllung und den Rand. Siehe [Das Box-Modell](/de/docs/Learn/CSS/Building_blocks/The_box_model) für weitere Erläuterung.
+> Die Content-Box ist der Bereich, in dem Inhalt platziert werden kann, was bedeutet, dass es die Border-Box minus der Padding- und Rahmenbreite ist. Die Border-Box umfasst den Inhalt, das Padding und den Rahmen. Siehe [Das Boxmodell](/de/docs/Learn/CSS/Building_blocks/The_box_model) für eine weitere Erklärung.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 Keine.
 
 ## Beispiele
 
-Der folgende Ausschnitt stammt aus dem Beispiel [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([Quellcode ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)).
+Der folgende Ausschnitt stammt aus dem Beispiel [resize-observer-text.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-text.html) ([Quelltext ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-text.html)).
 
-Beachten Sie, dass der Code drei verschiedene Kompatibilitätsfälle abdeckt:
+Beachten Sie, dass der Code drei verschiedene Kompatibilitätsfälle behandelt:
 
-- Einige alte Browser können `contentRect` unterstützen, aber nicht `contentBoxSize`.
-- Alte Versionen von Firefox unterstützen `contentBoxSize`, haben es aber fälschlicherweise als einzelnes Objekt statt als Array implementiert.
-- Moderne Browser unterstützen `contentBoxSize` als Array von Objekten, um die Berichterstattung von Boxgrößen für fragmentierte Elemente zu ermöglichen (zum Beispiel in einem Szenario mit mehreren Spalten).
+- Einige alte Browser unterstützen möglicherweise `contentRect`, aber nicht `contentBoxSize`.
+- Alte Versionen von Firefox unterstützen `contentBoxSize`, haben es jedoch fälschlicherweise als ein einzelnes Objekt anstelle eines Arrays implementiert.
+- Moderne Browser unterstützen `contentBoxSize` als ein Array von Objekten, um ihnen zu ermöglichen, Boxgrößen für fragmentierte Elemente zu melden (zum Beispiel in einem Mehrspaltenszenario).
 
 ```js
 const resizeObserver = new ResizeObserver((entries) => {
   for (let entry of entries) {
     if (entry.contentBoxSize) {
-      // Der Standard macht contentBoxSize zu einem Array...
+      // The standard makes contentBoxSize an array...
       if (entry.contentBoxSize[0]) {
         h1Elem.style.fontSize =
           Math.max(1.5, entry.contentBoxSize[0].inlineSize / 200) + "rem";
         pElem.style.fontSize =
           Math.max(1, entry.contentBoxSize[0].inlineSize / 600) + "rem";
       } else {
-        // ...aber alte Versionen von Firefox behandeln es als einzelnes Element
+        // ...but old versions of Firefox treat it as a single item
         h1Elem.style.fontSize =
           Math.max(1.5, entry.contentBoxSize.inlineSize / 200) + "rem";
         pElem.style.fontSize =

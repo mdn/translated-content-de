@@ -1,5 +1,5 @@
 ---
-title: "DataTransfer: Methode setData()"
+title: "DataTransfer: setData() Methode"
 short-title: setData()
 slug: Web/API/DataTransfer/setData
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransfer.setData()`**-Methode setzt die [drag data](/de/docs/Web/API/DataTransfer) der Drag-Operation auf die angegebene Daten und den Typ. Falls Daten für den angegebenen Typ nicht existieren, werden sie am Ende des Drag-Datenspeichers hinzugefügt, sodass der letzte Eintrag in der {{domxref("DataTransfer.types","types")}}-Liste der neue Typ ist. Wenn bereits Daten für den angegebenen Typ existieren, werden die vorhandenen Daten an derselben Position ersetzt. Das heißt, die Reihenfolge der {{domxref("DataTransfer.types","types")}}-Liste ändert sich nicht, wenn Daten des gleichen Typs ersetzt werden.
+Die **`DataTransfer.setData()`** Methode legt die [Drag-Daten](/de/docs/Web/API/DataTransfer) der Ziehoperation auf die angegebenen Daten und den Typ fest. Wenn keine Daten für den angegebenen Typ existieren, wird der Typ am Ende des Drag-Daten-Speichers hinzugefügt, sodass der letzte Eintrag in der [`types`](/de/docs/Web/API/DataTransfer/types) Liste der neue Typ ist. Existieren bereits Daten für den angegebenen Typ, werden die vorhandenen Daten an derselben Position ersetzt. Das heißt, die Reihenfolge der [`types`](/de/docs/Web/API/DataTransfer/types) Liste wird nicht verändert, wenn Daten desselben Typs ersetzt werden.
 
 Beispieldatentypen sind `text/plain` und `text/uri-list`.
 
@@ -21,9 +21,9 @@ setData(format, data)
 ### Parameter
 
 - `format`
-  - : Ein String, der den Typ der Drag-Daten repräsentiert, die dem {{domxref("DataTransfer")}} hinzugefügt werden sollen.
+  - : Ein String, der den Typ der hinzuzufügenden Drag-Daten zum [`DataTransfer`](/de/docs/Web/API/DataTransfer) darstellt.
 - `data`
-  - : Ein String, der die Daten repräsentiert, die dem {{domxref("DataTransfer")}} hinzugefügt werden sollen.
+  - : Ein String, der die hinzuzufügenden Daten zum [`DataTransfer`](/de/docs/Web/API/DataTransfer) darstellt.
 
 ### Rückgabewert
 
@@ -35,7 +35,7 @@ Keiner ({{jsxref("undefined")}}).
 
 In diesem Beispiel können wir ein {{HTMLElement("p")}}-Element in ein Ziel-{{HTMLElement("div")}}-Element ziehen.
 
-- Im `dragstart`-Handler verwenden wir `setData()`, um die `id` des `<p>`-Elements zum {{domxref("DataTransfer")}}-Objekt hinzuzufügen.
+- Im `dragstart`-Handler verwenden wir `setData()`, um die `id` des `<p>`-Elements dem [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt hinzuzufügen.
 
 - Im `drop`-Handler rufen wir die `id` ab und verwenden sie, um das `<p>`-Element in das Ziel zu verschieben.
 
@@ -44,12 +44,13 @@ In diesem Beispiel können wir ein {{HTMLElement("p")}}-Element in ein Ziel-{{HT
 ```html
 <div>
   <p id="source" draggable="true">
-    Wählen Sie dieses Element aus, ziehen Sie es in die Ablagezone und lassen Sie die Auswahl los, um das Element zu verschieben.
+    Select this element, drag it to the drop zone and then release the selection
+    to move the element.
   </p>
 </div>
-<div id="target">Ablagezone</div>
+<div id="target">Drop Zone</div>
 
-<button id="reset">Beispiel zurücksetzen</button>
+<button id="reset">Reset example</button>
 ```
 
 #### CSS
@@ -110,13 +111,13 @@ reset.addEventListener("click", () => document.location.reload());
 
 #### Ergebnis
 
-{{EmbedLiveSample("Dragging an element", "", 250)}}
+{{EmbedLiveSample("Ein Element ziehen", "", 250)}}
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -124,5 +125,5 @@ reset.addEventListener("click", () => document.location.reload());
 
 - [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
 - [Drag Operations](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Recommended Drag Types](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
-- [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)
+- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
+- [DataTransfer test - Paste or Drag](https://codepen.io/tech_query/pen/MqGgap)

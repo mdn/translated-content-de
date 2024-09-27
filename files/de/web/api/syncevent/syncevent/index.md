@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Sync")}}{{AvailableInWorkers("service")}}
 
-Der **`SyncEvent()`** Konstruktor erstellt ein neues {{domxref("SyncEvent")}} Objekt.
+Der **`SyncEvent()`** Konstruktor erstellt ein neues [`SyncEvent`](/de/docs/Web/API/SyncEvent)-Objekt.
 
 ## Syntax
 
@@ -20,18 +20,18 @@ new SyncEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist groß-/kleinschreibungssensitiv und Browser setzen es immer auf `sync`.
+    Es ist groß-/kleinschreibungssensitiv und wird von Browsern immer auf `sync` gesetzt.
 - `options`
-  - : Ein Objekt, das zusätzlich zu den in {{domxref("ExtendableEvent/ExtendableEvent", "ExtendableEvent()")}} definierten Eigenschaften die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften die folgenden Eigenschaften haben kann:
     - `tag`
       - : Eine vom Entwickler definierte eindeutige Kennung für dieses `SyncEvent`.
     - `lastChance` {{optional_inline}}
       - : Ein boolescher Wert, der angibt, dass der User-Agent nach dem aktuellen Versuch keine weiteren Synchronisierungsversuche unternimmt.
-        Standardmäßig ist es `false`.
+        Der Standardwert ist `false`.
 
 ### Rückgabewert
 
-Ein neues {{domxref("SyncEvent")}} Objekt.
+Ein neues [`SyncEvent`](/de/docs/Web/API/SyncEvent)-Objekt.
 
 ## Spezifikationen
 

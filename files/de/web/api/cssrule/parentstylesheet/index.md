@@ -1,5 +1,5 @@
 ---
-title: "CSSRule: Eigenschaft parentStyleSheet"
+title: "CSSRule: parentStyleSheet-Eigenschaft"
 short-title: parentStyleSheet
 slug: Web/API/CSSRule/parentStyleSheet
 l10n:
@@ -8,13 +8,11 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **`parentStyleSheet`**-Eigenschaft der
-{{domxref("CSSRule")}}-Schnittstelle gibt das {{domxref("StyleSheet")}}-Objekt zurück, in dem
-die aktuelle Regel definiert ist.
+Die **`parentStyleSheet`**-Eigenschaft des [`CSSRule`](/de/docs/Web/API/CSSRule)-Interfaces gibt das [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt zurück, in dem die aktuelle Regel definiert ist.
 
 ## Wert
 
-Ein {{domxref("StyleSheet")}}-Objekt.
+Ein [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt.
 
 ## Beispiele
 
@@ -27,6 +25,6 @@ console.log(docRules[0].parentStyleSheet == document.styleSheets[0]); // returns
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

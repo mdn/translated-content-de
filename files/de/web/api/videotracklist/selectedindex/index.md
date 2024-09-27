@@ -1,5 +1,5 @@
 ---
-title: "VideoTrackList: Eigenschaft selectedIndex"
+title: "VideoTrackList: selectedIndex-Eigenschaft"
 short-title: selectedIndex
 slug: Web/API/VideoTrackList/selectedIndex
 l10n:
@@ -8,12 +8,14 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **{{domxref("VideoTrackList")}}**
-**`selectedIndex`** gibt den Index des aktuell ausgewählten Tracks zurück, falls vorhanden, oder `-1` andernfalls.
+Die schreibgeschützte **[`VideoTrackList`](/de/docs/Web/API/VideoTrackList)**
+Eigenschaft **`selectedIndex`** gibt den Index des
+aktuell ausgewählten Tracks zurück, falls vorhanden, oder `-1`, wenn kein Track ausgewählt ist.
 
 ## Wert
 
-Eine Zahl, die den Index des aktuell ausgewählten Tracks angibt, falls vorhanden, oder `-1` andernfalls.
+Eine Zahl, die den Index des aktuell ausgewählten Tracks angibt, falls vorhanden, oder
+`-1`, wenn kein Track ausgewählt ist.
 
 ## Spezifikationen
 

@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}{{SeeCompatTable}}
 
-Der **`CSSMathProduct()`** Konstruktor erzeugt ein neues {{domxref("CSSMathProduct")}} Objekt, das ein neues {{domxref('CSSMathProduct')}} Objekt erstellt, welches die übergebenen Argumente multipliziert.
+Der **`CSSMathProduct()`** Konstruktor erstellt
+ein neues [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct) Objekt, das die übergebenen Argumente multipliziert.
 
 ## Syntax
 
@@ -19,7 +20,8 @@ new CSSMathProduct(args)
 ### Parameter
 
 - `args`
-  - : Eine Liste von Werten für das {{domxref('CSSMathProduct')}} Objekt, die entweder eine Gleitkommazahl oder ein {{domxref('CSSNumericValue')}} sein können.
+  - : Eine Liste von Werten für das [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct) Objekt, die entweder ein doppelter
+    Ganzzahlwert oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein kann.
 
 ## Spezifikationen
 

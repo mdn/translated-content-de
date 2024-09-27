@@ -1,6 +1,6 @@
 ---
-title: "XRQuadLayer: width-Eigenschaft"
-short-title: Breite
+title: "XRQuadLayer: width Eigenschaft"
+short-title: width
 slug: Web/API/XRQuadLayer/width
 l10n:
   sourceCommit: 76637f9517e4b0a57a3096a36f66b5e33a3f1051
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`width`**-Eigenschaft der {{domxref("XRQuadLayer")}}-Schnittstelle repräsentiert die Breite der Schicht in Metern.
+Die **`width`**-Eigenschaft des [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer)-Interfaces gibt die Breite der Ebene in Metern an.
 
 ## Wert
 
-Eine Zahl, die die Breite der Schicht in Metern darstellt.
+Eine Zahl, die die Breite der Ebene in Metern darstellt.
 
 ## Beispiele
 
-### Festlegen der Dimension und Position einer Schicht
+### Festlegen der Dimension und Position einer Ebene
 
-Dieser Beispielcode positioniert die Schicht zwei Meter vom Ursprung des `xrReferenceSpace` mit einer `height` und `width` von 1,5 Metern entfernt.
+Dieser Beispielcode positioniert die Ebene zwei Meter vom Ursprung des `xrReferenceSpace` mit einer `height` und `width` von 1,5 Metern entfernt.
 
 ```js
 const quadLayer = xrGlBinding.createQuadLayer({
@@ -42,4 +42,4 @@ quadLayer.height = 1.5;
 
 ## Siehe auch
 
-- {{domxref("XRQuadLayer.height")}}
+- [`XRQuadLayer.height`](/de/docs/Web/API/XRQuadLayer/height)

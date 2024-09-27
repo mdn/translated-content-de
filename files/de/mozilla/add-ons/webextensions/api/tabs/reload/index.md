@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Laden Sie einen Tab neu, optional ohne den lokalen Web-Cache zu verwenden.
+Lädt einen Tab neu, optional unter Umgehung des lokalen Webcaches.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,17 +23,17 @@ let reloading = browser.tabs.reload(
 ### Parameter
 
 - `tabId` {{optional_inline}}
-  - : `integer`. Die ID des Tabs, der neu geladen werden soll. Standardmäßig der ausgewählte Tab des aktuellen Fensters.
+  - : `integer`. Die ID des Tabs, der neu geladen werden soll. Standardmäßig ist dies der ausgewählte Tab des aktuellen Fensters.
 - `reloadProperties` {{optional_inline}}
 
   - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `bypassCache` {{optional_inline}}
-      - : `boolean`. Den lokalen Web-Cache umgehen. Standard ist `false`.
+      - : `boolean`. Umgehen Sie den lokalen Webcache. Der Standardwert ist `false`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn der Tab neu geladen wurde. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das erfüllt wird, ohne Argumente, wenn der Tab neu geladen wurde. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -71,7 +71,7 @@ reloading.then(onReloaded, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-reload) API von Chromium. Diese Dokumentation wird aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-reload) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

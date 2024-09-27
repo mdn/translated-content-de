@@ -1,5 +1,5 @@
 ---
-title: "HTMLFieldSetElement: checkValidity()-Methode"
+title: "HTMLFieldSetElement: checkValidity() Methode"
 short-title: checkValidity()
 slug: Web/API/HTMLFieldSetElement/checkValidity
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`checkValidity()`**-Methode des {{domxref("HTMLFieldSetElement")}}-Interfaces prüft, ob das Element gültig ist, gibt jedoch immer `true` zurück, da {{HTMLElement("fieldset")}}-Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
+Die **`checkValidity()`** Methode der Schnittstelle [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement) überprüft, ob das Element gültig ist, gibt jedoch immer `true` zurück, da {{HTMLElement("fieldset")}}-Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
 
 > [!NOTE]
-> Die CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}} werden auf `<fieldset>`-Elemente basierend auf der Gültigkeit ihrer untergeordneten Formularelemente angewendet, nicht auf das Fieldset selbst.
+> Die CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}} werden auf `<fieldset>`-Elemente basierend auf der Gültigkeit der enthaltenen Formularsteuerungen angewendet, nicht auf das Fieldset selbst.
 
 ## Syntax
 
@@ -46,8 +46,8 @@ console.log(element.checkValidity());
 
 ## Siehe auch
 
-- {{domxref("HTMLFieldSetElement.reportValidity()")}}
+- [`HTMLFieldSetElement.reportValidity()`](/de/docs/Web/API/HTMLFieldSetElement/reportValidity)
 - {{HTMLElement("fieldset")}}
 - {{HTMLElement("form")}}
-- [Lernen: Validierung von Formularen auf der Clientseite](/de/docs/Learn/Forms/Form_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

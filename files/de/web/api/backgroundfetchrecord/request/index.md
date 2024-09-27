@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`request`**-Eigenschaft der {{domxref("BackgroundFetchRecord")}}-Schnittstelle gibt die Details der zu holenden Ressource zurück.
+Die **`request`**-Eigenschaft der [`BackgroundFetchRecord`](/de/docs/Web/API/BackgroundFetchRecord)-Schnittstelle (nur lesbar) gibt die Details der abzurufenden Ressource zurück.
 
 ## Wert
 
-Ein {{domxref("Request")}}.
+Ein [`Request`](/de/docs/Web/API/Request).
 
 ## Beispiele
 
-In diesem Beispiel wird ein einzelnes `BackgroundFetchRecord` mit {{domxref("BackgroundFetchManager.fetch()","BackgroundFetchManager.fetch()")}} zurückgegeben. Der `request` wird zurückgegeben und in der Konsole protokolliert.
+In diesem Beispiel wird ein einzelnes `BackgroundFetchRecord` mit [`BackgroundFetchManager.fetch()`](/de/docs/Web/API/BackgroundFetchManager/fetch) zurückgegeben. Der `request` wird abgerufen und in der Konsole protokolliert.
 
 ```js
 bgFetch.match("/ep-5.mp3").then(async (record) => {
@@ -33,6 +33,6 @@ bgFetch.match("/ep-5.mp3").then(async (record) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

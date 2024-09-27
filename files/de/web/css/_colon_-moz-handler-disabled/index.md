@@ -22,7 +22,7 @@ Die **`:-moz-handler-disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs
 
 ## Spezifikationen
 
-Teil keiner Standardisierung.
+Nicht Teil eines Standards.
 
 ## Siehe auch
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Die **`x`** schreibgeschützte Eigenschaft des **`DOMRectReadOnly`**-Interfaces repräsentiert die x-Koordinate des Ursprungs des `DOMRect`.
+Die **`x`**-Eigenschaft der **`DOMRectReadOnly`**-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die x-Koordinate des Ursprungs des `DOMRect` darstellt.
 
 ## Wert
 
@@ -24,4 +24,4 @@ Ein Double.
 
 ## Siehe auch
 
-- {{domxref("DOMRect")}}
+- [`DOMRect`](/de/docs/Web/API/DOMRect)

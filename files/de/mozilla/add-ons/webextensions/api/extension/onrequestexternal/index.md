@@ -8,9 +8,9 @@ l10n:
 {{AddonSidebar}}
 
 > [!WARNING]
-> Dies ist in Firefox nicht implementiert, da es seit Chrome 33 veraltet ist. Bitte verwenden Sie stattdessen [runtime.onMessageExternal](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessageExternal).
+> Dies wird in Firefox nicht implementiert, da es seit Chrome 33 veraltet ist. Bitte verwenden Sie stattdessen [runtime.onMessageExternal](/de/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessageExternal).
 
-Wird ausgelöst, wenn eine Anforderung von einer anderen Erweiterung gesendet wird.
+Wird ausgelöst, wenn eine Anfrage von einer anderen Erweiterung gesendet wird.
 
 ## Syntax
 
@@ -27,11 +27,11 @@ chrome.extension.onRequestExternal.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, ansonsten `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -42,11 +42,11 @@ Ereignisse haben drei Funktionen:
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
 
     - `request`
-      - : `any`. Die Anforderung, die vom aufrufenden Skript gesendet wurde.
+      - : `any`. Die von dem aufrufenden Skript gesendete Anfrage.
     - `sender`
       - : {{WebExtAPIRef('runtime.MessageSender')}}.
     - `sendResponse`
-      - : `function`. Funktion, die aufgerufen wird, wenn eine Antwort vorliegt. Das Argument sollte ein beliebiges JSON-konvertierbares Objekt sein oder undefiniert, wenn keine Antwort vorliegt.
+      - : `function`. Funktion, die aufgerufen wird, wenn Sie eine Antwort haben. Das Argument sollte ein JSON-fähiges Objekt sein oder undefined, wenn keine Antwort vorliegt.
 
 ## Browser-Kompatibilität
 
@@ -55,7 +55,7 @@ Ereignisse haben drei Funktionen:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#event-onRequestExternal) API von Chromium. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#event-onRequestExternal) API von Chromium. Diese Dokumentation ist aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

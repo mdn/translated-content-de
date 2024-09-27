@@ -9,7 +9,7 @@ l10n:
 
 Hypertext ist Text, der Links zu anderen Texten enthält, im Gegensatz zu einem einzelnen linearen Fluss wie in einem Roman.
 
-Der Begriff wurde von Ted Nelson um 1965 geprägt.
+Der Begriff wurde etwa 1965 von Ted Nelson geprägt.
 
 ## Siehe auch
 

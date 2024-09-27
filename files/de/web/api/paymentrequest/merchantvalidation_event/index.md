@@ -1,5 +1,5 @@
 ---
-title: "PaymentRequest: merchantvalidation Ereignis"
+title: "PaymentRequest: merchantvalidation-Ereignis"
 short-title: merchantvalidation
 slug: Web/API/PaymentRequest/merchantvalidation_event
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}
 
-**`merchantvalidation`** Ereignisse werden von der [Payment Request API](/de/docs/Web/API/Payment_Request_API) an ein {{domxref("PaymentRequest")}} Objekt geliefert, wenn ein Zahlungshandler verlangt, dass der Händler, der den Kauf anfragt, sich als berechtigt validieren muss, den Zahlungshandler zu verwenden.
+**`merchantvalidation`**-Ereignisse werden vom [Payment Request API](/de/docs/Web/API/Payment_Request_API) an ein [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekt gesendet, wenn ein Zahlungsabwickler verlangt, dass der Händler, der den Kauf anfordert, sich als berechtigt zur Nutzung des Zahlungsabwicklers validiert.
 
-Erfahren Sie, wie der [Händlervalidierungsprozess](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation) funktioniert.
+Erfahren Sie, wie der [Händler-validierungsprozess](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation) funktioniert.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling-Effekte aus.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("merchantvalidation", (event) => {});
@@ -26,20 +26,20 @@ onmerchantvalidation = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("MerchantValidationEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MerchantValidationEvent")}}
 
 ## Ereigniseigenschaften
 
-- {{domxref("MerchantValidationEvent.methodName")}}
-  - : Ein String, der eine eindeutige Zahlungsmethodenkennung für den Zahlungshandler angibt, der eine Validierung erfordert. Dies kann entweder einer der standardmäßigen Zahlungsmethoden-Identifier-Strings oder eine URL sein, die sowohl identifiziert als auch Anfragen für den Zahlungshandler bearbeitet, wie `https://apple.com/apple-pay`.
-- {{domxref("MerchantValidationEvent.validationURL")}}
-  - : Ein String, der eine URL angibt, von der die Website oder App zahlungshandler-spezifische Validierungsinformationen abrufen kann. Sobald diese Daten abgerufen sind, sollten die Daten (oder ein Versprechen, das zu den Validierungsdaten aufgelöst wird) in {{domxref("MerchantValidationEvent.complete", "complete()")}} übergeben werden, um zu validieren, dass die Zahlungsanforderung von einem autorisierten Händler kommt.
+- [`MerchantValidationEvent.methodName`](/de/docs/Web/API/MerchantValidationEvent/methodName)
+  - : Ein String, der eine eindeutige Zahlungsabwicklungsmethode für den Zahlungsabwickler bereitstellt, der eine Validierung erfordert. Dies kann entweder einer der standardmäßigen Zahlungsabwicklungs-Identifikationsstrings sein oder eine URL, die sowohl den Zahlungsabwickler identifiziert als auch Anfragen für den Zahlungsabwickler behandelt, wie `https://apple.com/apple-pay`.
+- [`MerchantValidationEvent.validationURL`](/de/docs/Web/API/MerchantValidationEvent/validationURL)
+  - : Ein String, der eine URL angibt, von der die Seite oder App zahlungsspezifische Validierungsinformationen abrufen kann. Sobald diese Daten abgerufen wurden, sollten die Daten (oder ein Promise, das sich zu den Validierungsdaten auflöst) an [`complete()`](/de/docs/Web/API/MerchantValidationEvent/complete) übergeben werden, um zu bestätigen, dass die Zahlungsanforderung von einem autorisierten Händler stammt.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Event-Handler für das `merchantvalidation` Ereignis eingerichtet. Er verwendet {{domxref("Window/fetch", "fetch()")}}, um eine Anfrage an den eigenen Server mit einem Argument der Validierungs-URL der Zahlungsmethode zu senden, die aus der {{domxref("MerchantValidationEvent.validationURL", "validationURL")}} Eigenschaft des Ereignisses abgerufen wird. Der Händler-Server sollte auf die Validierungs-URL gemäß der Dokumentation der Zahlungsmethode zugreifen. Normalerweise sollte ein Client die Validierungs-URL nicht direkt aufrufen.
+In diesem Beispiel wird ein Ereignis-Handler für das `merchantvalidation`-Ereignis eingerichtet. Er verwendet die [`fetch()`](/de/docs/Web/API/Window/fetch)-Methode, um eine Anfrage an den eigenen Server mit einem Argument der Validierungs-URL der Zahlungsmethode zu senden, das aus der [`validationURL`](/de/docs/Web/API/MerchantValidationEvent/validationURL)-Eigenschaft des Ereignisses erhalten wird. Der Händler-Server sollte die Validierungs-URL gemäß der Dokumentation der Zahlungsmethode aufrufen. Normalerweise sollte ein Client die Validierungs-URL nicht aufrufen.
 
 ```js
 request.addEventListener("merchantvalidation", (event) => {
@@ -55,9 +55,9 @@ request.addEventListener("merchantvalidation", (event) => {
 const response = await request.show();
 ```
 
-Wie der Händler-Server die Validierung behandelt, hängt von der Server-Implementierung und der Zahlungsmethoden-Dokumentation ab. Der Inhalt, der vom Validierungsserver geliefert wird, wird an den Händler-Server weitergeleitet und dann vom Erfüllungshandler des `fetch()`-Aufrufs an die {{domxref("MerchantValidationEvent.complete", "complete()")}} Methode im Ereignis zurückgegeben. Diese Antwort teilt dem Zahlungshandler mit, ob der Händler validiert ist.
+Wie der Händler-Server die Validierung behandelt, hängt von der Serverimplementierung und der Dokumentation der Zahlungsmethode ab. Der Inhalt, der vom Validierungsserver geliefert wird, wird zum Händler-Server weitergeleitet und dann vom Fulfillment-Handler des `fetch()`-Aufrufs an die [`complete()`](/de/docs/Web/API/MerchantValidationEvent/complete)-Methode im Ereignis zurückgegeben. Diese Antwort zeigt dem Zahlungsabwickler an, ob der Händler validiert ist.
 
-Sie können auch die `onmerchantvalidation` Event-Handler-Eigenschaft verwenden, um den Handler für dieses Ereignis einzurichten:
+Sie können auch die `onmerchantvalidation`-Ereignis-Handler-Eigenschaft verwenden, um den Handler für dieses Ereignis einzurichten:
 
 ```js
 request.onmerchantvalidation = (event) => {
@@ -73,7 +73,7 @@ request.onmerchantvalidation = (event) => {
 const response = await request.show();
 ```
 
-Für weitere Informationen siehe [Händlervalifizierung](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation).
+Weitere Informationen finden Sie unter [Händlervalidierung](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation).
 
 ## Browser-Kompatibilität
 
@@ -82,9 +82,9 @@ Für weitere Informationen siehe [Händlervalifizierung](/de/docs/Web/API/Paymen
 ## Siehe auch
 
 - [Payment Request API](/de/docs/Web/API/Payment_Request_API)
-- [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- `onmerchantvalidation` Event-Handler-Eigenschaft
+- [Verwendung des Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
+- `onmerchantvalidation`-Ereignis-Handler-Eigenschaft
 - [Händlervalidierung](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation)
-- {{domxref("PaymentRequest.paymentmethodchange_event", "paymentmethodchange")}} Ereignis
-- {{domxref("PaymentRequest.shippingaddresschange_event", "shippingaddresschange")}} Ereignis
-- {{domxref("PaymentRequest.shippingoptionchange_event", "shippingoptionchange")}} Ereignis
+- [`paymentmethodchange`](/de/docs/Web/API/PaymentRequest/paymentmethodchange_event)-Ereignis
+- [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event)-Ereignis
+- [`shippingoptionchange`](/de/docs/Web/API/PaymentRequest/shippingoptionchange_event)-Ereignis

@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef('WebSockets API')}}
 
-Die schreibgeschützte **`url`**-Eigenschaft des {{domxref("EventSource")}}-Interfaces gibt einen String zurück, der die URL der Quelle darstellt.
+Die **`url`**-Eigenschaft der
+[`EventSource`](/de/docs/Web/API/EventSource)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die einen String zurückgibt, der die URL der Quelle darstellt.
 
 ## Wert
 
@@ -22,7 +23,7 @@ console.log(evtSource.url);
 ```
 
 > [!NOTE]
-> Sie finden ein vollständiges Beispiel auf GitHub — siehe [Einfaches SSE-Demo mit PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events).
+> Sie können ein vollständiges Beispiel auf GitHub finden — siehe [Simple SSE demo using PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events).
 
 ## Spezifikationen
 
@@ -34,4 +35,4 @@ console.log(evtSource.url);
 
 ## Siehe auch
 
-- {{domxref("EventSource")}}
+- [`EventSource`](/de/docs/Web/API/EventSource)

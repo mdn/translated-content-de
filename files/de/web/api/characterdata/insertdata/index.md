@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`insertData()`**-Methode der {{domxref("CharacterData")}}-Schnittstelle
-fügt die bereitgestellten Daten in die aktuellen Daten dieses `CharacterData`-Knotens ein,
-an der angegebenen Position vom Beginn der vorhandenen Daten.
-Die bereitgestellten Daten werden in die vorhandenen Daten eingefügt.
+Die **`insertData()`** Methode der [`CharacterData`](/de/docs/Web/API/CharacterData) Schnittstelle fügt die bereitgestellten Daten in die aktuellen Daten dieses `CharacterData`-Knotens an der angegebenen Verschiebung vom Anfang der vorhandenen Daten ein. Die bereitgestellten Daten werden in die vorhandenen Daten eingefügt.
 
 ## Syntax
 
@@ -22,8 +19,7 @@ characterData.insertData(offset, data)
 ### Parameter
 
 - `offset`
-  - : Der Offset, an dem die bereitgestellten Daten eingefügt werden sollen.
-    `0` ist das erste Zeichen des Strings.
+  - : Die Versatzanzahl von Zeichen, an der die bereitgestellten Daten eingefügt werden sollen. `0` ist das erste Zeichen der Zeichenkette.
 - `data`
   - : Die einzufügenden Daten.
 
@@ -33,8 +29,8 @@ Keiner.
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Offset negativ oder größer als die Länge der enthaltenen Daten ist.
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Versatz negativ oder größer als die Länge der enthaltenen Daten ist.
 
 ## Beispiel
 
@@ -61,5 +57,5 @@ textnode.insertData(2, "long ");
 
 ## Siehe auch
 
-- {{domxref("CharacterData.appendData()")}}, {{domxref("CharacterData.deleteData()")}}, {{domxref("CharacterData.replaceData()")}}
-- {{domxref("CharacterData.data")}}
+- [`CharacterData.appendData()`](/de/docs/Web/API/CharacterData/appendData), [`CharacterData.deleteData()`](/de/docs/Web/API/CharacterData/deleteData), [`CharacterData.replaceData()`](/de/docs/Web/API/CharacterData/replaceData)
+- [`CharacterData.data`](/de/docs/Web/API/CharacterData/data)

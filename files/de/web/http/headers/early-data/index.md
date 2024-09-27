@@ -9,16 +9,16 @@ l10n:
 
 Der **`Early-Data`** Header wird von einem Vermittler gesetzt, um anzuzeigen, dass die Anfrage in [TLS early data](/de/docs/Web/Security/Transport_Layer_Security#tls_1.3) übertragen wurde, und zeigt auch an, dass der Vermittler den {{HTTPStatus("425", "425 Too Early")}} Statuscode versteht.
 
-Der `Early-Data` Header wird **nicht** vom Absender der Anfrage gesetzt (d. h. einem Browser).
+Der `Early-Data` Header wird **nicht** vom ursprünglichen Anfrager (z. B. einem Browser) gesetzt.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request header")}}</td>
+      <td>[Request-Header](/de/docs/Glossary/Request_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>

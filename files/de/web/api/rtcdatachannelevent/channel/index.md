@@ -8,16 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`RTCDataChannelEvent.channel`**
-gibt den mit dem Ereignis verknüpften {{domxref("RTCDataChannel")}} zurück.
+Die schreibgeschützte Eigenschaft **`RTCDataChannelEvent.channel`** gibt den [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zurück, der mit dem Ereignis verknüpft ist.
 
 ## Wert
 
-Ein {{domxref("RTCDataChannel")}}-Objekt, das den Datenkanal darstellt, der die empfangende {{domxref("RTCPeerConnection")}} mit ihrem entfernten Peer verbindet.
+Ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekt, das den Datenkanal darstellt, der die empfangende [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) mit ihrem entfernten Gegenüber verbindet.
 
 ## Beispiel
 
-Die erste Codezeile im unten gezeigten {{DOMxRef("RTCPeerConnection.datachannel_event", "datachannel")}}-Ereignishandler entnimmt den Kanal aus dem Ereignisobjekt und speichert ihn lokal für die Verwendung durch den Code, der den Datenverkehr verarbeitet.
+Die erste Codezeile im [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignishandler, der unten gezeigt wird, nimmt den Kanal aus dem Ereignisobjekt und speichert ihn lokal für die Verwendung durch den Code, der den Datenverkehr verarbeitet.
 
 ```js
 pc.ondatachannel = (event) => {
@@ -38,7 +37,7 @@ pc.ondatachannel = (event) => {
 
 ## Siehe auch
 
-- {{DOMxRef("RTCPeerConnection.datachannel_event", "datachannel")}}
-- {{domxref("RTCDataChannel")}}
+- [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
 - [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample)
-- {{domxref("RTCPeerConnection")}}
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)

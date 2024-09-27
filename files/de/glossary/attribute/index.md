@@ -7,17 +7,17 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Attribut** erweitert ein {{Glossary("HTML")}}- oder {{Glossary("XML")}}-{{Glossary("element")}}, indem es dessen Verhalten ändert oder Metadaten bereitstellt.
+Ein **Attribut** erweitert ein [HTML](/de/docs/Glossary/HTML)- oder [XML](/de/docs/Glossary/XML)-[Element](/de/docs/Glossary/element), indem es dessen Verhalten ändert oder Metadaten bereitstellt.
 
-Ein Attribut hat immer die Form `name="value"` (die Kennung des Attributs gefolgt von seinem zugehörigen Wert). Sie können Attribute ohne ein Gleichheitszeichen oder einen Wert sehen. Dies ist eine Kurzform, um in HTML den leeren String bereitzustellen. In XML ist dies jedoch nicht gültig: XML erfordert, dass alle Attribute einen expliziten Wert haben.
+Ein Attribut hat immer die Form `name="value"` (der Bezeichner des Attributs gefolgt von seinem zugeordneten Wert). Sie könnten Attribute ohne Gleichheitszeichen oder Wert sehen. Das ist eine Kurzform, um den leeren String in HTML bereitzustellen. Dies ist jedoch in XML nicht erlaubt: XML erfordert, dass alle Attribute einen expliziten Wert haben.
 
-Eine Reihe von HTML-Attributen sind {{Glossary("Boolean/HTML", "boolesche Attribute")}}. Die Werte dieser Attribute werden nur durch die Anwesenheit oder das Fehlen des Attributs kontrolliert. Weitere Informationen finden Sie unter {{Glossary("Boolean/HTML", "boolesche Attribute")}}.
+Eine Reihe von HTML-Attributen sind [boolesche Attribute](/de/docs/Glossary/Boolean/HTML). Die Werte dieser Attribute werden nur durch das Vorhandensein oder Fehlen des Attributs gesteuert. Siehe [boolesche Attribute](/de/docs/Glossary/Boolean/HTML) für weitere Informationen.
 
 ## Reflexion eines Attributs
 
-Attribute können in eine bestimmte Eigenschaft der speziellen Schnittstelle _reflektiert_ werden. Das bedeutet, dass der Wert des Attributs durch Zugriff auf die Eigenschaft gelesen werden kann und durch Setzen der Eigenschaft auf einen anderen Wert modifiziert werden kann.
+Attribute können in eine bestimmte Eigenschaft der spezifischen Schnittstelle _reflektiert_ werden. Das bedeutet, dass der Wert des Attributs durch den Zugriff auf die Eigenschaft gelesen und durch Setzen der Eigenschaft auf einen anderen Wert geändert werden kann.
 
-Zum Beispiel wird das `placeholder` unten in {{domxref("HTMLInputElement.placeholder")}} reflektiert.
+Zum Beispiel wird das `placeholder` unten in [`HTMLInputElement.placeholder`](/de/docs/Web/API/HTMLInputElement/placeholder) reflektiert.
 
 Betrachten Sie das folgende HTML:
 
@@ -25,28 +25,28 @@ Betrachten Sie das folgende HTML:
 <input placeholder="Original placeholder" />
 ```
 
-Wir können die Reflexion zwischen {{domxref("HTMLInputElement.placeholder")}} und dem Attribut überprüfen mit:
+Wir können die Reflexion zwischen [`HTMLInputElement.placeholder`](/de/docs/Web/API/HTMLInputElement/placeholder) und dem Attribut überprüfen, indem wir folgendes verwenden:
 
 ```js
 const input = document.querySelector("input");
 const attr = input.getAttributeNode("placeholder");
 console.log(attr.value);
-console.log(input.placeholder); // Gibt denselben Wert wie `attr.value` aus
+console.log(input.placeholder); // Prints the same value as `attr.value`
 
-// Das Ändern des Placeholder-Wertes wird auch den Wert des reflektierten Attributs ändern.
+// Changing placeholder value will also change the value of the reflected attribute.
 input.placeholder = "Modified placeholder";
-console.log(attr.value); // Gibt `Modified placeholder` aus
+console.log(attr.value); // Prints `Modified placeholder`
 ```
 
 ## Siehe auch
 
 - [HTML-Attributreferenz](/de/docs/Web/HTML/Attributes)
-- Informationen über die [globalen Attribute](/de/docs/Web/HTML/Global_attributes) von HTML
-- XML StartTag Attributempfehlung in der [W3C XML Recommendation](https://www.w3.org/TR/xml#sec-starttags)
+- Informationen über HTMLs [globale Attribute](/de/docs/Web/HTML/Global_attributes)
+- XML StartTag Attribut Empfehlung in der [W3C XML Recommendation](https://www.w3.org/TR/xml#sec-starttags)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Element")}}
-  - {{Glossary("Tag")}}
-  - {{Glossary("HTML")}}
-  - {{Glossary("XML")}}
-  - {{Glossary("Boolean/HTML", "Boolesche Attribute")}}
-  - {{Glossary("Enumerated", "Enumerierte Attribute")}}
+  - [Element](/de/docs/Glossary/Element)
+  - [Tag](/de/docs/Glossary/Tag)
+  - [HTML](/de/docs/Glossary/HTML)
+  - [XML](/de/docs/Glossary/XML)
+  - [Boolesche Attribute](/de/docs/Glossary/Boolean/HTML)
+  - [Enumerierte Attribute](/de/docs/Glossary/Enumerated)

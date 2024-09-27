@@ -8,9 +8,9 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
 
-Die **`allow`**-Eigenschaft des {{domxref("HTMLFencedFrameElement")}} ruft den Wert des entsprechenden {{htmlelement("fencedframe")}}-Elements ab und setzt diesen. Sie repräsentiert eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy), die auf den Inhalt angewendet wird, wenn dieser erstmals eingebettet wird.
+Die **`allow`**-Eigenschaft des [`HTMLFencedFrameElement`](/de/docs/Web/API/HTMLFencedFrameElement) erhält und setzt den Wert des entsprechenden {{htmlelement("fencedframe")}} `allow`-Attributs, das eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) darstellt, die auf den Inhalt angewendet wird, wenn er erstmals eingebettet wird.
 
-Nicht alle Berechtigungsrichtlinien sind in abgezäunten Frames erlaubt. Die erlaubten Berechtigungen sind unter [Verfügbare Berechtigungspolitiken für abgezäunte Frames](/de/docs/Web/HTML/Element/fencedframe#permissions_policies_available_to_fenced_frames) aufgelistet — diese sind erforderlich, damit Inhalte, die aus den angegebenen APIs stammen, geladen werden können. Wenn Sie das `allow`-Attribut nicht setzen, werden diese Berechtigungen standardmäßig erlaubt. Wenn Sie den Berechtigungsbereich einschränken möchten, müssen Sie sicherstellen, dass alle erforderlichen Berechtigungen für die APIs, die Sie verwenden, im `allow`-Attribut festgelegt sind.
+Nicht alle Berechtigungsrichtlinien sind in Fenced Frames erlaubt. Die erlaubten Berechtigungen sind unter [Berechtigungsrichtlinien, die für Fenced Frames verfügbar sind](/de/docs/Web/HTML/Element/fencedframe#permissions_policies_available_to_fenced_frames) aufgelistet – diese sind erforderlich, damit Inhalte von Fenced Frames, die von den angegebenen APIs stammen, geladen werden können. Wenn Sie das `allow`-Attribut nicht setzen, werden diese Berechtigungen standardmäßig erlaubt. Wenn Sie den Berechtigungsumfang einschränken möchten, müssen Sie sicherstellen, dass alle erforderlichen Berechtigungen für die verwendeten APIs im `allow`-Attribut festgelegt sind.
 
 ## Wert
 
@@ -33,5 +33,5 @@ console.log(frame.allow);
 
 ## Siehe auch
 
-- [Abgezäunte Frames](https://developers.google.com/privacy-sandbox/private-advertising/fenced-frame) auf developers.google.com
+- [Fenced Frames](https://developers.google.com/privacy-sandbox/private-advertising/fenced-frame) auf developers.google.com
 - [The Privacy Sandbox](https://developers.google.com/privacy-sandbox) auf developers.google.com

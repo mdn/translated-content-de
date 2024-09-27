@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Das **`keystatuseschange`**-Ereignis der {{domxref("MediaKeySession")}} API wird ausgelöst, wenn es innerhalb einer Sitzung eine Änderung in den Schlüsseln oder deren Status gibt.
+Das **`keystatuseschange`** Ereignis der [`MediaKeySession`](/de/docs/Web/API/MediaKeySession) API wird ausgelöst, wenn sich die Schlüssel oder deren Status innerhalb einer Sitzung geändert haben.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("keystatuseschange", (event) => {});
@@ -22,13 +22,13 @@ onkeystatuseschange = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ExtendableEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ExtendableEvent")}}
 
 ## Ereigniseigenschaften
 
-_Implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von seinem Elternobjekt, {{domxref("Event")}}._
+_Implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von seinem Elternobjekt, [`Event`](/de/docs/Web/API/Event)._
 
 ## Spezifikationen
 

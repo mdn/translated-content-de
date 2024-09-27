@@ -1,5 +1,5 @@
 ---
-title: "Fenster: focus-Ereignis"
+title: "Window: focus Ereignis"
 short-title: focus
 slug: Web/API/Window/focus_event
 l10n:
@@ -10,13 +10,13 @@ l10n:
 
 Das **`focus`**-Ereignis wird ausgelöst, wenn ein Element den Fokus erhält.
 
-Das Gegenteil von `focus` ist {{domxref("Window/blur_event", "blur")}}.
+Das Gegenteil von `focus` ist [`blur`](/de/docs/Web/API/Window/blur_event).
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Ereignisblase aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("focus", (event) => {});
@@ -26,27 +26,27 @@ onfocus = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("FocusEvent")}}. Erbt von {{domxref("UIEvent")}} und {{domxref("Event")}}.
+Ein [`FocusEvent`](/de/docs/Web/API/FocusEvent). Erbt von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("FocusEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil {{domxref("UIEvent")}} und indirekt von {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil [`UIEvent`](/de/docs/Web/API/UIEvent) und indirekt von [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("FocusEvent.relatedTarget")}}
-  - : Ein {{domxref("EventTarget")}}, das ein sekundäres Ziel für dieses Ereignis darstellt. In einigen Fällen (wie beim Tab-Wechsel in oder aus einer Seite) kann diese Eigenschaft aus Sicherheitsgründen auf `null` gesetzt sein.
+- [`FocusEvent.relatedTarget`](/de/docs/Web/API/FocusEvent/relatedTarget)
+  - : Ein [`EventTarget`](/de/docs/Web/API/EventTarget), das ein sekundäres Ziel für dieses Ereignis darstellt. In einigen Fällen (wie beim Wechseln zwischen Seiten durch Tab-Taste) kann diese Eigenschaft aus Sicherheitsgründen auf `null` gesetzt sein.
 
 ## Beispiele
 
 ### Live-Beispiel
 
-Dieses Beispiel ändert das Erscheinungsbild eines Dokuments, wenn es den Fokus verliert. Es verwendet {{domxref("EventTarget.addEventListener()", "addEventListener()")}}, um die `focus`- und {{domxref("Window/blur_event", "blur")}}-Ereignisse zu überwachen.
+Dieses Beispiel ändert das Aussehen eines Dokuments, wenn es den Fokus verliert. Es verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um `focus`- und [`blur`](/de/docs/Web/API/Window/blur_event)-Ereignisse zu überwachen.
 
 #### HTML
 
 ```html
-<p id="log">Klicken Sie auf dieses Dokument, um ihm den Fokus zu geben.</p>
+<p id="log">Click on this document to give it focus.</p>
 ```
 
 #### CSS
@@ -63,13 +63,13 @@ Dieses Beispiel ändert das Erscheinungsbild eines Dokuments, wenn es den Fokus 
 ```js
 function pause() {
   document.body.classList.add("paused");
-  log.textContent = "FOKUS VERLOREN!";
+  log.textContent = "FOCUS LOST!";
 }
 
 function play() {
   document.body.classList.remove("paused");
   log.textContent =
-    "Dieses Dokument hat den Fokus. Klicken Sie außerhalb des Dokuments, um den Fokus zu verlieren.";
+    "This document has focus. Click outside the document to lose focus.";
 }
 
 const log = document.getElementById("log");
@@ -92,5 +92,5 @@ window.addEventListener("focus", play);
 
 ## Siehe auch
 
-- Verwandtes Ereignis: {{domxref("Window/blur_event", "blur")}}
-- Dieses Ereignis auf `Element`-Zielen: {{domxref("Element/focus_event", "focus")}}-Ereignis
+- Verwandtes Ereignis: [`blur`](/de/docs/Web/API/Window/blur_event)
+- Dieses Ereignis auf `Element`-Ziele: [`focus`](/de/docs/Web/API/Element/focus_event) Ereignis

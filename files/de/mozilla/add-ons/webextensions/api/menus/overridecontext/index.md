@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Verbergen Sie alle Standardmenüeinträge von Firefox zugunsten einer benutzerdefinierten Kontextmenü-Benutzeroberfläche.
+Blendet alle standardmäßigen Firefox-Menüeinträge aus, um eine benutzerdefinierte Kontextmenü-Benutzeroberfläche bereitzustellen.
 
-Die Methode `overrideContext` bewirkt, dass die übereinstimmenden Menüpunkte dieser Erweiterung anstelle des Standardmenüs angezeigt werden. Diese Methode sollte aus einem {{domxref("Element/contextmenu_event", "contextmenu")}} DOM-Event-Handler aufgerufen werden und gilt nur für das Menü, das nach diesem Ereignis geöffnet wird.
+Die Methode `overrideContext` führt dazu, dass die passenden Menüeinträge dieser Erweiterung anstelle des Standardmenüs angezeigt werden. Diese Methode sollte von einem [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event) DOM-Event-Handler aufgerufen werden und gilt nur für das Menü, das nach diesem Ereignis geöffnet wird.
 
 Diese Schnittstelle erfordert die Berechtigung `menus.overrideContext` [permission](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions).
 
@@ -30,7 +30,7 @@ browser.menus.overrideContext(
     - `showDefaults` {{optional_inline}}
       - : `boolean`. Ob die Standardmenüpunkte ebenfalls im Menü enthalten sein sollen.
     - `context` {{optional_inline}}
-      - : `string`. ContextType zum Überschreiben, um Menüpunkte von anderen Erweiterungen im Menü zuzulassen. Derzeit werden nur `'bookmark'` und `'tab'` unterstützt. `showDefaults` kann nicht mit dieser Option verwendet werden.
+      - : `string`. `ContextType`, das überschrieben werden soll, um Menüeinträge von anderen Erweiterungen im Menü zu ermöglichen. Derzeit werden nur `'bookmark'` und `'tab'` unterstützt. `showDefaults` kann nicht mit dieser Option verwendet werden.
     - `bookmarkId` {{optional_inline}}
       - : `string`. Erforderlich, wenn der Kontext `'bookmark'` ist. Erfordert die Berechtigung 'bookmark'.
     - `tabId` {{optional_inline}}
@@ -46,8 +46,8 @@ document.addEventListener(
   (event) => {
     const foo = event.target.closest(".foo");
     if (foo) {
-      // Wenn das Kontextmenü auf einem Element mit der Klasse foo geöffnet wird,
-      // setzen Sie den Kontext auf "Öffnen eines Tab-Kontextmenüs".
+      // When the context menu is opened on an element with the foo class
+      // set the context to "opening a tab context menu".
       browser.menus.overrideContext({
         context: "tab",
         tabId: parseInt(foo.dataset.tabId),
@@ -58,8 +58,8 @@ document.addEventListener(
 );
 ```
 
-Lesen Sie [diesen Blogbeitrag](https://blog.mozilla.org/addons/2018/11/08/extensions-in-firefox-64/#cm) für weitere Details.
+Weitere Details finden Sie in [diesem Blogeintrag](https://blog.mozilla.org/addons/2018/11/08/extensions-in-firefox-64/#cm).
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{ Compat }}

@@ -23,7 +23,7 @@ Die statische Dateneigenschaft **`Math.LOG2E`** repräsentiert den Logarithmus v
 
 ## Beschreibung
 
-Da `LOG2E` eine statische Eigenschaft von `Math` ist, verwenden Sie sie immer als `Math.LOG2E` und nicht als eine Eigenschaft eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `LOG2E` eine statische Eigenschaft von `Math` ist, verwenden Sie es immer als `Math.LOG2E` und nicht als Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

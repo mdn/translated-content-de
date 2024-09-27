@@ -8,21 +8,21 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`list`** schreibgeschützte Eigenschaft des {{domxref("HTMLInputElement")}}-Interfaces gibt das {{domxref("HTMLDataListElement")}} zurück, auf das durch das [`list`](/de/docs/Web/HTML/Element/input#list)-Attribut des Elements verwiesen wird, oder `null`, wenn das `list`-Attribut nicht definiert ist oder der Wert des `list`-Attributs mit keinem `<datalist>` im gleichen Dokumentbaum verknüpft ist.
+Die schreibgeschützte **`list`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt das [`HTMLDataListElement`](/de/docs/Web/API/HTMLDataListElement) zurück, auf das durch das [`list`](/de/docs/Web/HTML/Element/input#list)-Attribut des Elements verwiesen wird, oder `null`, wenn das `list`-Attribut nicht definiert ist oder der Wert des `list`-Attributs keinem `<datalist>` im selben Baum zugeordnet ist.
 
 > [!NOTE]
-> Dies ist eine schreibgeschützte Eigenschaft. Um ein `<datalist>` mit einem Element zu verknüpfen, setzen Sie den Wert des `list`-Attributs mit {{domxref("Element.setAttribute", "setAttribute()")}}.
+> Dies ist eine schreibgeschützte Eigenschaft. Um ein `<datalist>` mit einem Element zu verknüpfen, setzen Sie den Wert des `list`-Attributs mit [`setAttribute()`](/de/docs/Web/API/Element/setAttribute).
 
 ## Wert
 
-Ein {{domxref("HTMLDataListElement")}} oder `null`.
+Ein [`HTMLDataListElement`](/de/docs/Web/API/HTMLDataListElement) oder `null`.
 
 ## Beispiel
 
-Angenommen, wir haben folgendes HTML:
+Angenommen, Sie haben folgendes HTML:
 
 ```html
-<label for="planet">Aus welchem Planeten kommen Sie?</label>
+<label for="planet">Which planet are you from?</label>
 <input id="planet" type="text" list="superhero" />
 <datalist id="superhero">
   <option value="Azarath" />
@@ -31,11 +31,11 @@ Angenommen, wir haben folgendes HTML:
 </datalist>
 ```
 
-Sie können das `<datalist>`-Element abrufen, das mit dem `<input>` assoziiert ist:
+Sie können das `<datalist>`-Element abrufen, das mit dem `<input>` verknüpft ist:
 
 ```js
 const inputElement = document.querySelector("#planet");
-console.log(inputElement.list); // gibt das superhero HTMLDatalistElement zurück
+console.log(inputElement.list); // returns the superhero HTMLDatalistElement
 ```
 
 ## Spezifikationen
@@ -48,11 +48,11 @@ console.log(inputElement.list); // gibt das superhero HTMLDatalistElement zurüc
 
 ## Siehe auch
 
-- {{domxref("HTMLInputElement.value")}}
-- {{domxref("HTMLInputElement.type")}}
-- {{domxref("HTMLDataListElement")}}
-- {{domxref("HTMLOptionElement")}}
-- {{domxref("HTMLCollection")}}
+- [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value)
+- [`HTMLInputElement.type`](/de/docs/Web/API/HTMLInputElement/type)
+- [`HTMLDataListElement`](/de/docs/Web/API/HTMLDataListElement)
+- [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)
+- [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)
 - {{htmlelement("input")}}
 - {{htmlelement("datalist")}}
 - {{htmlelement("option")}}

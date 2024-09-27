@@ -9,14 +9,15 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist in der [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet.
-> Bitte verwenden Sie stattdessen die {{domxref("PerformanceNavigationTiming")}} Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 Specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet.
+> Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Schnittstelle.
 
 Die veraltete
 **`PerformanceTiming.navigationStart`**
-schreibgeschützte Eigenschaft gibt ein `unsigned long long` zurück, das den Moment
-in Millisekunden seit der UNIX-Epoche darstellt, unmittelbar nachdem das Entladen des vorherigen Dokuments im gleichen Browsing-Kontext abgeschlossen ist. Wenn es kein vorheriges Dokument gibt,
-entspricht dieser Wert dem von {{domxref("PerformanceTiming.fetchStart")}}.
+schreibgeschützte Eigenschaft gibt eine `unsigned long long`-Zahl zurück, die den Moment darstellt,
+in Millisekunden seit der UNIX-Epoche, unmittelbar nachdem die Unload-Eingabeaufforderung beim
+vorherigen Dokument im selben Browsing-Kontext beendet wurde. Wenn es kein vorheriges Dokument gibt,
+ist dieser Wert derselbe wie [`PerformanceTiming.fetchStart`](/de/docs/Web/API/PerformanceTiming/fetchStart).
 
 ## Wert
 
@@ -32,4 +33,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Die {{domxref("PerformanceTiming")}} Schnittstelle, zu der sie gehört.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Schnittstelle, zu der es gehört.

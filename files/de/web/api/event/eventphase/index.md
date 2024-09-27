@@ -1,5 +1,5 @@
 ---
-title: "Ereignis: Eigenschaft eventPhase"
+title: "Event: EventPhase-Eigenschaft"
 short-title: eventPhase
 slug: Web/API/Event/eventPhase
 l10n:
@@ -8,52 +8,50 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`eventPhase`** schreibgeschützte Eigenschaft der
-{{domxref("Event")}} Schnittstelle zeigt an, welche Phase des Ereignisablaufs derzeit
+Die schreibgeschützte Eigenschaft **`eventPhase`** des
+[`Event`](/de/docs/Web/API/Event)-Interfaces zeigt an, welche Phase des Ereignisablaufs momentan
 ausgewertet wird.
 
 ## Wert
 
-Gibt einen ganzzahligen Wert zurück, der die aktuelle Auswertungsphase des Ereignisablaufs
-spezifiziert. Mögliche Werte sind:
+Gibt einen ganzzahligen Wert zurück, der die aktuelle Auswertungsphase des Ereignisablaufs angibt. Mögliche Werte sind:
 
 - `Event.NONE` (0)
-  - : Das Ereignis wird derzeit nicht verarbeitet.
+  - : Das Ereignis wird derzeit nicht bearbeitet.
 - `Event.CAPTURING_PHASE` (1)
-  - : Das Ereignis wird durch die Vorfahrenobjekte des Ziels weitergeleitet.
-    Dieser Prozess beginnt beim {{domxref("Window")}}, dann {{domxref("Document")}},
-    dann dem {{domxref("HTMLHtmlElement")}}, und so weiter durch die Elemente,
-    bis das Elternteil des Ziels erreicht wird.
-    {{domxref("EventTarget/addEventListener", "Ereignis-Listener", "", 1)}},
-    die für den Erfassungsmodus registriert sind, wenn {{domxref("EventTarget.addEventListener()")}}
-    aufgerufen wurde, werden in dieser Phase ausgelöst.
+  - : Das Ereignis wird durch die Vorfahrenobjekte des Ziels propagiert.
+    Dieser Prozess beginnt mit dem [`Window`](/de/docs/Web/API/Window), dann [`Document`](/de/docs/Web/API/Document),
+    dann das [`HTMLHtmlElement`](/de/docs/Web/API/HTMLHtmlElement) und so weiter durch die Elemente,
+    bis der Elternteil des Ziels erreicht ist.
+    {{domxref("EventTarget/addEventListener", "Event-Listener", "", 1)}}
+    die im Capture-Modus registriert wurden, als [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufgerufen wurde, werden während dieser Phase ausgelöst.
 - `Event.AT_TARGET` (2)
-  - : Das Ereignis ist bei
-    {{domxref("EventTarget", "dem Ziel des Ereignisses", "", 1)}} angekommen.
-    In dieser Phase registrierte Ereignis-Listener werden zu diesem Zeitpunkt aufgerufen. Wenn
-    {{domxref("Event.bubbles")}} `false` ist, ist die Verarbeitung
-    des Ereignisses nach Abschluss dieser Phase abgeschlossen.
+  - : Das Ereignis hat
+    {{domxref("EventTarget", "das Ziel des Ereignisses", "", 1)}} erreicht.
+    In dieser Phase registrierte Event-Listener werden zu diesem Zeitpunkt aufgerufen. Wenn
+    [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) `false` ist, ist die Bearbeitung
+    des Ereignisses nach Abschluss dieser Phase beendet.
 - `Event.BUBBLING_PHASE` (3)
-  - : Das Ereignis wird in umgekehrter Reihenfolge durch die Vorfahren des Ziels zurück nach oben propagiert,
-    beginnend mit dem Elternteil und schließlich bis zum umgebenden {{domxref("Window")}}.
-    Dies wird als _Bubbling_ bezeichnet und tritt nur auf, wenn {{domxref("Event.bubbles")}}
-    `true` ist. {{domxref("EventTarget/addEventListener", "Ereignis-Listener", "", 1)}} die für diese Phase registriert sind, werden während dieses Prozesses ausgelöst.
+  - : Das Ereignis wird in umgekehrter Reihenfolge zurück durch die Vorfahren des Ziels propagiert,
+    beginnend mit dem Elternteil, und erreicht schließlich das enthaltene [`Window`](/de/docs/Web/API/Window).
+    Dies ist als _Bubbling_ bekannt und tritt nur auf, wenn [`Event.bubbles`](/de/docs/Web/API/Event/bubbles)
+    `true` ist. {{domxref("EventTarget/addEventListener", "Event-Listener", "", 1)}} registrierte für diese Phase werden während dieses Prozesses ausgelöst.
 
 ## Beispiel
 
 ### HTML
 
 ```html
-<h4>Ereignis-Weitergabe-Kette</h4>
+<h4>Event Propagation Chain</h4>
 <ul>
-  <li>Klicken Sie auf 'd1'</li>
-  <li>Analysieren Sie die Ereignis-Weitergabe-Kette</li>
-  <li>Klicken Sie auf das nächste div und wiederholen Sie die Erfahrung</li>
-  <li>Ändern Sie den Erfassungsmodus</li>
-  <li>Wiederholen Sie die Erfahrung</li>
+  <li>Click 'd1'</li>
+  <li>Analyze event propagation chain</li>
+  <li>Click next div and repeat the experience</li>
+  <li>Change Capturing mode</li>
+  <li>Repeat the experience</li>
 </ul>
 <input type="checkbox" id="chCapture" />
-<label for="chCapture">Erfassung verwenden</label>
+<label for="chCapture">Use Capturing</label>
 <div id="d1">
   d1
   <div id="d2">

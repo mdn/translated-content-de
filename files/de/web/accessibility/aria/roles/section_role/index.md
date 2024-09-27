@@ -1,5 +1,5 @@
 ---
-title: "ARIA: Rolle section"
+title: "ARIA: section Rolle"
 slug: Web/Accessibility/ARIA/Roles/section_role
 l10n:
   sourceCommit: 194bd13942ad0c532c92d364e0d5d0c36732d98c
@@ -7,19 +7,19 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die **`section`-Rolle**, eine abstrakte Rolle, ist eine übergeordnete Klasse für darstellbare strukturelle Entwurfskomponenten.
+Die **`section` Rolle**, eine abstrakte Rolle, ist eine Superklassenrolle für darstellbare strukturelle Containment-Komponenten.
 
 > [!NOTE]
-> Die `section`-Rolle ist eine [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Roles#6._abstract_roles). Sie wird hier der Vollständigkeit halber in der Dokumentation aufgenommen. Sie **sollte nicht** von Webautoren verwendet werden.
+> Die `section` Rolle ist eine [abstrakte Rolle](/de/docs/Web/Accessibility/ARIA/Roles#6._abstract_roles). Sie wird hier zur Vollständigkeit der Dokumentation aufgenommen. Sie **sollte nicht von Webautoren verwendet werden**.
 
 ## Beschreibung
 
-Die strukturelle `section`-Rolle ist eine abstrakte Rolle zur Kategorisierung aller Unterklassen-Rollen der Sektion. Die Rolle darf nicht verwendet werden. Einige Unterklassen, wie [`alert`](/de/docs/Web/Accessibility/ARIA/Roles/alert_role),
-[`note`](/de/docs/Web/Accessibility/ARIA/Roles/note_role) und [`tooltip`](/de/docs/Web/Accessibility/ARIA/Roles/tooltip_role), sind nützlich und können verwendet werden, um Semantik hinzuzufügen, wenn keine semantischen HTML-Elemente genau zur Komponente passen. Andere, wie [`code`](/de/docs/Web/Accessibility/ARIA/Roles/structural_roles), [`figure`](/de/docs/Web/Accessibility/ARIA/Roles/figure_role) und [`subscript`](/de/docs/Web/Accessibility/ARIA/Roles/structural_roles), sind nicht notwendig, da es HTML-Element-Äquivalente gibt. In diesem Fall {{HTMLElement('code')}} {{HTMLElement('figure')}} und {{HTMLElement('sub')}}.
+Die strukturelle `section` Rolle ist eine abstrakte Rolle zur Kategorisierung aller Unterklassenrollen von Abschnitten. Die Rolle darf nicht verwendet werden. Einige Unterklassen, wie zum Beispiel [`alert`](/de/docs/Web/Accessibility/ARIA/Roles/alert_role),
+[`note`](/de/docs/Web/Accessibility/ARIA/Roles/note_role) und [`tooltip`](/de/docs/Web/Accessibility/ARIA/Roles/tooltip_role), sind nützlich und können verwendet werden, um Semantik hinzuzufügen, wenn keine semantischen HTML-Elemente genau zu dem Zweck einer Komponente passen. Andere, wie [`code`](/de/docs/Web/Accessibility/ARIA/Roles/structural_roles), [`figure`](/de/docs/Web/Accessibility/ARIA/Roles/figure_role) und [`subscript`](/de/docs/Web/Accessibility/ARIA/Roles/structural_roles), sind nicht notwendig, da es HTML-Element-Äquivalente gibt. In diesem Fall, {{HTMLElement('code')}}, {{HTMLElement('figure')}} und {{HTMLElement('sub')}}.
 
 ## Beste Praktiken
 
-Nicht verwenden.
+Verwenden Sie diese Rolle nicht.
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`formatRangeToParts()`** von Instanzen des {{jsxref("Intl.NumberFormat")}} gibt ein Array von Objekten zurück, das die lokalespezifischen Tokens enthält, aus denen es möglich ist, benutzerdefinierte Zeichenfolgen zu erstellen und dabei die lokalespezifischen Teile zu erhalten. Dies ermöglicht es, lokal angepasste benutzerdefinierte Formatierungsbereiche von Zahlzeichenfolgen bereitzustellen.
+Die Methode **`formatRangeToParts()`** von {{jsxref("Intl.NumberFormat")}} Instanzen gibt ein {{jsxref("Array")}} von Objekten zurück, das die sprachspezifischen Token enthält, aus denen sich benutzerdefinierte Zeichenfolgen unter Beibehaltung der sprachspezifischen Teile erstellen lassen. Dies ermöglicht es, bereichsbezogene benutzerdefinierte Formatierungen von Zahlenzeichenfolgen bereitzustellen, die sprachspezifisch sind.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ formatRangeToParts(startRange, endRange)
 
 Ein {{jsxref("Array")}} von Objekten, das den formatierten Bereich von Zahlen in Teilen enthält.
 
-Die Struktur des zurückgegebenen Werts sieht folgendermaßen aus:
+Die Struktur des zurückgegebenen Arrays sieht so aus:
 
 ```js
 [
@@ -40,41 +40,41 @@ Die Struktur des zurückgegebenen Werts sieht folgendermaßen aus:
 ];
 ```
 
-Mögliche Werte für die `type`-Eigenschaft sind:
+Mögliche Werte für die Eigenschaft `type` beinhalten:
 
 - `currency`
-  - : Die Währungszeichenfolge, wie die Symbole "$" und "€" oder die Namen "Dollar", "Euro", abhängig davon, wie `currencyDisplay` angegeben ist.
+  - : Die Währungszeichenkette, wie die Symbole "$" und "€" oder der Name "Dollar", "Euro", je nachdem, wie `currencyDisplay` festgelegt ist.
 - `decimal`
-  - : Die Dezimaltrennzeichenzeichenfolge (".").
+  - : Die Dezimaltrennzeichen-Zeichenkette (".").
 - `fraction`
-  - : Die Bruchzahl.
+  - : Die Bruchnummer.
 - `group`
-  - : Die Gruppentrennzeichenzeichenfolge (",").
+  - : Die Gruppentrennzeichen-Zeichenkette (",").
 - `infinity`
-  - : Die {{jsxref("Infinity")}}-Zeichenkette ("∞").
+  - : Die {{jsxref("Infinity")}} Zeichenkette ("∞").
 - `integer`
   - : Die Ganzzahl.
 - `literal`
-  - : Jegliche literalen Zeichenfolgen oder Leerzeichen in der formatierten Zahl.
+  - : Beliebige literale Zeichenfolgen oder Leerzeichen in der formatierten Zahl.
 - `minusSign`
-  - : Die Minuszeichen-Zeichenfolge ("-").
+  - : Die Minuszeichen-Zeichenkette ("-").
 - `nan`
-  - : Die {{jsxref("NaN")}}-Zeichenkette ("NaN").
+  - : Die {{jsxref("NaN")}} Zeichenkette ("NaN").
 - `plusSign`
-  - : Die Pluszeichen-Zeichenfolge ("+").
+  - : Die Pluszeichen-Zeichenkette ("+").
 - `percentSign`
-  - : Das Prozentzeichen ("%").
+  - : Die Prozentzeichen-Zeichenkette ("%").
 - `unit`
-  - : Die Einheitzeichenfolge, wie "l" oder "Litres", abhängig davon, wie `unitDisplay` angegeben ist.
+  - : Die Einheit-Zeichenkette, wie z.B. "l" oder "Liter", je nachdem, wie `unitDisplay` festgelegt ist.
 
-Mögliche Werte für die `source`-Eigenschaft sind:
+Mögliche Werte für die Eigenschaft `source` beinhalten:
 
 - `startRange`
-  - : Das Objekt ist der Startteil des Bereichs.
+  - : Das Objekt ist der Anfangsteil des Bereichs.
 - `endRange`
   - : Das Objekt ist der Endteil des Bereichs.
 - `shared`
-  - : Das Objekt ist ein "gemeinsamer" Teil des Bereichs, wie ein Trennzeichen oder eine Währung.
+  - : Das Objekt ist ein "geteilter" Teil des Bereichs, wie ein Trennzeichen oder eine Währung.
 
 ### Ausnahmen
 
@@ -102,13 +102,12 @@ console.log(formatter.formatRange(startRange, endRange));
 // "3.500,00–9.500,00 €"
 ```
 
-Für viele Benutzeroberflächen besteht jedoch die Notwendigkeit, das Format dieser Zeichenfolge anzupassen.
-Die `formatRangeToParts`-Methode ermöglicht eine lokalspezifische Formatierung von Zeichenfolgen, die von `NumberFormat`-Formatierern erzeugt werden, indem sie Ihnen die Zeichenfolge in Teilen liefert:
+Für viele Benutzeroberflächen besteht jedoch die Notwendigkeit, die Formatierung dieser Zeichenfolge anzupassen. Die `formatRangeToParts` Methode ermöglicht die ortsbezogene Formatierung von Zeichenfolgen, die von `NumberFormat` Formatierern erstellt wurden, indem sie Ihnen die Zeichenfolge in Teilen bereitstellt:
 
 ```js
 console.log(formatter.formatRangeToParts(startRange, endRange));
 
-// Rückgabewert:
+// return value:
 [
   { type: "integer", value: "3", source: "startRange" },
   { type: "group", value: ".", source: "startRange" },
@@ -130,7 +129,7 @@ console.log(formatter.formatRangeToParts(startRange, endRange));
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

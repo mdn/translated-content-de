@@ -1,5 +1,5 @@
 ---
-title: "SVGPointList: Methode getItem()"
+title: "SVGPointList: getItem()-Methode"
 short-title: getItem()
 slug: Web/API/SVGPointList/getItem
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`getItem()`** Methode der {{domxref("SVGPointList")}}-Schnittstelle holt ein Element aus der Liste am angegebenen Index.
+Die **`getItem()`**-Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle holt ein Element aus der Liste am angegebenen Index.
 
 ## Syntax
 
@@ -23,16 +23,16 @@ getItem(index)
 
 ### Rückgabewert
 
-Ein {{domxref("SVGPoint")}}-Objekt.
+Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der übergebene Index größer ist als die Anzahl der Elemente in der Liste.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Der {{domxref("SVGPoint")}} am Index `0`.
+Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Das [`SVGPoint`](/de/docs/Web/API/SVGPoint) an Index `0`.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">

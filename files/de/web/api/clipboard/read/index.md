@@ -1,5 +1,5 @@
 ---
-title: "Zwischenablage: Methode read()"
+title: "Zwischenablage: read() Methode"
 short-title: read()
 slug: Web/API/Clipboard/read
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Die **`read()`**-Methode der {{domxref("Clipboard")}}-Schnittstelle fordert eine Kopie des Inhalts der Zwischenablage an und erfüllt das zurückgegebene {{jsxref("Promise")}} mit den Daten.
+Die **`read()`** Methode der [`Clipboard`](/de/docs/Web/API/Clipboard) Schnittstelle fordert eine Kopie der Inhalte der Zwischenablage an und erfüllt das zurückgegebene {{jsxref("Promise")}} mit den Daten.
 
-Die Methode kann theoretisch beliebige Daten zurückgeben (im Gegensatz zu {{domxref("Clipboard.readText", "readText()")}}, die nur Text zurückgeben kann). Browser unterstützen üblicherweise das Lesen von Text-, HTML- und PNG-Bilddaten — siehe [Browser-Kompatibilität](#browser-kompatibilität) für weitere Informationen.
+Die Methode kann theoretisch beliebige Daten zurückgeben (im Gegensatz zu [`readText()`](/de/docs/Web/API/Clipboard/readText), die nur Text zurückgeben kann). Browser unterstützen häufig das Lesen von Text-, HTML- und PNG-Bilddaten — siehe [Browser-Kompatibilität](#browser-kompatibilität) für weitere Informationen.
 
 ## Syntax
 
@@ -27,18 +27,18 @@ read(formats)
 
     - `unsanitized` {{optional_inline}}
 
-      - : Ein {{jsxref("Array")}} von Zeichenfolgen, die MIME-Typen von Datenformaten enthalten, die beim Lesen aus der Zwischenablage nicht bereinigt werden sollen.
+      - : Ein {{jsxref("Array")}} von Zeichenfolgen, die MIME-Typen von Datenformaten enthalten, die beim Lesen aus der Zwischenablage nicht bereinigt werden sollten.
 
-        Einige Browser können die Zwischenablagedaten bereinigen, um zu verhindern, dass schädliche Inhalte in das Dokument eingefügt werden. Zum Beispiel bereinigt Chrome (und andere auf Chromium basierende Browser) HTML-Daten, indem `<script>`-Tags und andere potenziell gefährliche Inhalte entfernt werden. Verwenden Sie das `unsanitized`-Array, um eine Liste von MIME-Typen anzugeben, die nicht bereinigt werden sollen.
+        Bestimmte Browser können die Daten der Zwischenablage beim Lesen bereinigen, um zu verhindern, dass schädliche Inhalte in das Dokument eingefügt werden. Zum Beispiel bereinigt Chrome (und andere Browser auf Chromium-Basis) HTML-Daten, indem `<script>`-Tags und andere potenziell gefährliche Inhalte entfernt werden. Verwenden Sie das `unsanitized`-Array, um eine Liste von MIME-Typen anzugeben, die nicht bereinigt werden sollen.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Array von {{domxref("ClipboardItem")}}-Objekten aufgelöst wird, die den Inhalt der Zwischenablage enthalten.
+Ein {{jsxref("Promise")}}, das mit einem Array von [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) Objekten aufgelöst wird, die den Inhalt der Zwischenablage enthalten.
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das Lesen aus der Zwischenablage nicht erlaubt ist.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das Lesen von der Zwischenablage nicht erlaubt ist.
 
 ## Sicherheitsüberlegungen
 
@@ -50,14 +50,14 @@ Zusätzliche Sicherheitsanforderungen werden im Abschnitt [Sicherheitsüberlegun
 
 ### Bilddaten aus der Zwischenablage lesen
 
-Dieses Beispiel verwendet die `read()`-Methode, um Bilddaten aus der Zwischenablage zu lesen und in ein {{HTMLElement("img")}}-Element einzufügen.
+Dieses Beispiel verwendet die `read()` Methode, um Bilddaten aus der Zwischenablage zu lesen und sie in ein {{HTMLElement("img")}} Element einzufügen.
 
 #### HTML
 
 ```html
-<img id="source" src="butterfly.jpg" alt="Ein Schmetterling" />
+<img id="source" src="butterfly.jpg" alt="A butterfly" />
 <img id="destination" />
-<button id="reload" type="button">Neu laden</button>
+<button id="reload" type="button">Reload</button>
 <p id="log"></p>
 ```
 
@@ -78,7 +78,7 @@ img {
 
 #### JavaScript
 
-Dieses Skript bietet einen Mechanismus, um Fehler im Element mit der ID `log` zu protokollieren.
+Dieser Code bietet einen Mechanismus, um Fehler an das Element mit der ID `log` zu protokollieren.
 
 ```js
 const logElement = document.querySelector("#log");
@@ -87,7 +87,7 @@ function log(text) {
 }
 ```
 
-Wir fügen auch Code hinzu, um das Beispiel neu zu laden und zu löschen, wenn die Schaltfläche "Neu laden" gedrückt wird.
+Wir fügen auch Code hinzu, um das Beispiel neu zu laden und zu löschen, wenn die Taste "Reload" gedrückt wird.
 
 ```js
 const reload = document.querySelector("#reload");
@@ -97,8 +97,7 @@ reload.addEventListener("click", () => {
 });
 ```
 
-Der restliche Code liest die Zwischenablage, wenn das Zielelement angeklickt wird, und kopiert die Bilddaten in das `destinationImage`-Element.
-Es protokolliert einen Fehler, wenn die `read()`-Methode nicht verwendet werden kann oder wenn die Zwischenablage keine Daten im PNG-Format enthält.
+Der restliche Code liest die Zwischenablage, wenn das Ziel-Element angeklickt wird, und kopiert die Bilddaten in das `destinationImage` Element. Es protokolliert einen Fehler, wenn es nicht in der Lage ist, die `read()` Methode zu verwenden oder wenn die Zwischenablage keine Daten im PNG-Format enthält.
 
 ```js
 const destinationImage = document.querySelector("#destination");
@@ -122,27 +121,25 @@ async function pasteImage() {
 
 #### Ergebnis
 
-Kopieren Sie das Schmetterlingsbild links, indem Sie mit der rechten Maustaste auf das Bild klicken und "Bild kopieren" aus dem Kontextmenü auswählen.
-Klicken Sie dann auf den leeren Rahmen rechts.
-Das Beispiel holt die Bilddaten aus der Zwischenablage und zeigt das Bild im leeren Rahmen an.
+Kopieren Sie das Bild des Schmetterlings auf der linken Seite, indem Sie mit der rechten Maustaste auf das Bild klicken und "Bild kopieren" aus dem Kontextmenü auswählen. Klicken Sie dann auf den leeren Rahmen auf der rechten Seite. Das Beispiel holt die Bilddaten aus der Zwischenablage und zeigt das Bild im leeren Rahmen an.
 
 {{EmbedLiveSample("Bilddaten aus der Zwischenablage lesen", "100%", "250", "", "", "", "clipboard-read")}}
 
 > [!NOTE]
-> Wenn Sie dazu aufgefordert werden, erteilen Sie die Erlaubnis, um das Bild einzufügen.
+> Falls Sie dazu aufgefordert werden, erteilen Sie die Erlaubnis, um das Bild einzufügen.
 
 ### Daten aus der Zwischenablage lesen
 
-Dieses Beispiel verwendet die `read()`-Methode, um Daten aus der Zwischenablage zu lesen und die im Speicher abgelegten Daten zu protokollieren.
+Dieses Beispiel verwendet die `read()` Methode, um Daten aus der Zwischenablage zu lesen und alle Daten, die in der Zwischenablage gespeichert sind, zu protokollieren.
 
-Dies unterscheidet sich von der vorherigen Version dadurch, dass es Text-, HTML- und Bild-{{domxref("ClipboardItem")}}-Objekte anzeigt (anstatt nur Bilder).
+Dies unterscheidet sich von der vorherigen Version, da es Text, HTML und Bild [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) Objekte anzeigt (anstatt nur Bilder).
 
 #### HTML
 
 ```html
-<img id="source_jpg" src="butterfly.jpg" alt="JPG Schmetterlingsbild" />
-<div id="destination">Klicken Sie hier, um Zwischenablagedaten zu kopieren.</div>
-<button id="reload" type="button">Neu laden</button>
+<img id="source_jpg" src="butterfly.jpg" alt="JPG butterfly image" />
+<div id="destination">Click here to copy clipboard data.</div>
+<button id="reload" type="button">Reload</button>
 <p id="log"></p>
 ```
 
@@ -171,7 +168,7 @@ img {
 
 #### JavaScript
 
-Dieses Skript bietet einen Mechanismus, um Fehler im Element mit der ID `log` zu protokollieren.
+Dieser Code bietet einen Mechanismus, um Fehler an das Element mit der ID `log` zu protokollieren.
 
 ```js
 const logElement = document.querySelector("#log");
@@ -180,7 +177,7 @@ function log(text) {
 }
 ```
 
-Wir fügen auch Code hinzu, um das Beispiel neu zu laden und zu löschen, wenn die Schaltfläche "Neu laden" gedrückt wird.
+Wir fügen auch Code hinzu, um das Beispiel neu zu laden und zu löschen, wenn die Taste "Reload" gedrückt wird.
 
 ```js
 const reload = document.querySelector("#reload");
@@ -190,8 +187,7 @@ reload.addEventListener("click", () => {
 });
 ```
 
-Der restliche Code liest die Zwischenablage, wenn das Zielelement angeklickt wird, und zeigt jedes {{domxref("ClipboardItem")}}-Element zusammen mit seinem MIME-Typ an.
-Es protokolliert einen Fehler, wenn die `read()`-Methode nicht verwendet werden kann oder wenn die Zwischenablage einen anderen MIME-Typ enthält.
+Der restliche Code liest die Zwischenablage, wenn das Ziel-Element angeklickt wird, und zeigt jedes [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) Element zusammen mit seinem MIME-Typ an. Es protokolliert einen Fehler, wenn es nicht in der Lage ist, die `read()` Methode zu verwenden oder wenn die Zwischenablage einen anderen MIME-Typ enthält.
 
 ```js
 const destinationDiv = document.querySelector("#destination");
@@ -238,20 +234,19 @@ async function pasteData() {
 
 #### Ergebnis
 
-Kopieren Sie etwas Text oder das Schmetterlingsbild (JPG) unten (um Bilder zu kopieren, klicken Sie mit der rechten Maustaste darauf und wählen Sie dann "Bild kopieren" aus dem Kontextmenü).
-Wählen Sie den angegebenen Rahmen unten aus, um diese Informationen aus der Zwischenablage in den Rahmen einzufügen.
+Kopieren Sie etwas Text oder das Bild des Schmetterlings (JPG) unten (zum Kopieren von Bildern klicken Sie mit der rechten Maustaste darauf und wählen dann "Bild kopieren" aus dem Kontextmenü). Wählen Sie den unten angegebenen Rahmen aus, um diese Informationen aus der Zwischenablage in den Rahmen einzufügen.
 
 {{EmbedLiveSample("Daten aus der Zwischenablage lesen", "100%", "500", "", "", "", "clipboard-read")}}
 
-Hinweise:
+Anmerkungen:
 
-- Obwohl das Schmetterlingsbild eine JPG-Datei ist, handelt es sich im Zwischenspeicher um ein PNG.
-- Wenn Sie dazu aufgefordert werden, müssen Sie die Erlaubnis erteilen, um das Bild einzufügen.
-- Dies funktioniert möglicherweise nicht in Chromium-Browsern, da dem Beispielrahmen nicht die [Permissions-Policy](/de/docs/Web/HTTP/Headers/Permissions-Policy) `clipboard-read` und `clipboard-write`-Berechtigungen erteilt werden ([erforderlich von Chromium-Browsern](/de/docs/Web/API/Clipboard_API#security_considerations)).
+- Auch wenn das Bild des Schmetterlings eine JPG-Datei ist, wird es dennoch als PNG gelesen, wenn es aus der Zwischenablage stammt.
+- Falls Sie dazu aufgefordert werden, müssen Sie die Erlaubnis erteilen, um das Bild einzufügen.
+- Dies könnte in Chromium-Browsern nicht funktionieren, da der Beispielrahmen nicht mit den [Permissions-Policy](/de/docs/Web/HTTP/Headers/Permissions-Policy) Berechtigungen `clipboard-read` und `clipboard-write` versehen ist ([erforderlich von Chromium-Browsern](/de/docs/Web/API/Clipboard_API#security_considerations)).
 
-### Unbereinigtes HTML von der Zwischenablage lesen
+### Unbereinigtes HTML aus der Zwischenablage lesen
 
-Dieses Beispiel verwendet den `formats`-Parameter, um HTML-Daten von der Zwischenablage zu lesen und den Code in seiner ursprünglichen Form zu erhalten, ohne dass der Browser ihn zuerst bereinigt.
+Dieses Beispiel verwendet den `formats` Parameter, um HTML-Daten aus der Zwischenablage zu lesen und den Code in seiner ursprünglichen Form zu erhalten, ohne dass der Browser ihn zuerst bereinigt.
 
 #### HTML
 
@@ -262,9 +257,9 @@ Dieses Beispiel verwendet den `formats`-Parameter, um HTML-Daten von der Zwische
   <p>This is a test.</p>
   <script>alert('Hello world!');</script>
 </textarea>
-<button id="copy">HTML kopieren</button>
-<button id="paste_normal">HTML einfügen</button>
-<button id="paste_unsanitized">Unbereinigtes HTML einfügen</button>
+<button id="copy">Copy HTML</button>
+<button id="paste_normal">Paste HTML</button>
+<button id="paste_unsanitized">Paste unsanitized HTML</button>
 <textarea id="destination" rows="5"></textarea>
 ```
 
@@ -343,9 +338,9 @@ pasteUnsanitizedButton.addEventListener("click", async () => {
 
 #### Ergebnis
 
-Klicken Sie zuerst auf die Schaltfläche "HTML kopieren", um den HTML-Code aus dem ersten Textfeld in die Zwischenablage zu schreiben. Klicken Sie dann entweder auf die Schaltfläche "HTML einfügen" oder auf die Schaltfläche "Unbereinigtes HTML einfügen", um den bereinigten oder unbereinigten HTML-Code in das zweite Textfeld einzufügen.
+Klicken Sie zuerst auf die "Copy HTML" Schaltfläche, um den HTML-Code aus dem ersten Textbereich in die Zwischenablage zu schreiben. Klicken Sie dann entweder auf die "Paste HTML" Schaltfläche oder die "Paste unsanitized HTML" Schaltfläche, um den bereinigten oder unbereinigten HTML-Code in den zweiten Textbereich einzufügen.
 
-{{EmbedLiveSample("Unbereinigtes HTML von der Zwischenablage lesen", "100%", "250", "", "", "", "clipboard-read; clipboard-write")}}
+{{EmbedLiveSample("Unbereinigtes HTML aus der Zwischenablage lesen", "100%", "250", "", "", "", "clipboard-read; clipboard-write")}}
 
 ## Spezifikationen
 
@@ -357,9 +352,9 @@ Klicken Sie zuerst auf die Schaltfläche "HTML kopieren", um den HTML-Code aus d
 
 ## Siehe auch
 
-- [Clipboard API](/de/docs/Web/API/Clipboard_API)
-- [Entsperren des Zugriffs auf die Zwischenablage](https://web.dev/articles/async-clipboard) auf web.dev
-- [Unbereinigtes HTML in der Async Clipboard API](https://developer.chrome.com/docs/web-platform/unsanitized-html-async-clipboard) auf developer.chrome.com
-- {{domxref("Clipboard.readText()")}}
-- {{domxref("Clipboard.writeText()")}}
-- {{domxref("Clipboard.write()")}}
+- [Zwischenablage API](/de/docs/Web/API/Clipboard_API)
+- [Entsperren des Zwischenablagenzugriffs](https://web.dev/articles/async-clipboard) auf web.dev
+- [Unbereinigtes HTML in der asynchronen Zwischenablage-API](https://developer.chrome.com/docs/web-platform/unsanitized-html-async-clipboard) auf developer.chrome.com
+- [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText)
+- [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText)
+- [`Clipboard.write()`](/de/docs/Web/API/Clipboard/write)

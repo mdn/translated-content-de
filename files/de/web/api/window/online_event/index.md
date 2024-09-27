@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef}}
 
-Das **`online`**-Ereignis des {{domxref("Window")}}-Interfaces wird ausgelöst, wenn der Browser Zugang zum Netzwerk erhält und der Wert von {{domxref("Navigator.onLine")}} auf `true` wechselt.
+Das **`online`**-Ereignis des [`Window`](/de/docs/Web/API/Window)-Interfaces wird ausgelöst, wenn der Browser Zugang zum Netzwerk erhält und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `true` wechselt.
 
 > [!NOTE]
-> Dieses Ereignis sollte nicht verwendet werden, um die Verfügbarkeit einer bestimmten Website zu bestimmen. Netzwerkprobleme oder Firewalls können weiterhin den Zugriff auf die Website verhindern.
+> Dieses Ereignis sollte nicht verwendet werden, um die Verfügbarkeit einer bestimmten Website zu bestimmen. Netzwerkprobleme oder Firewalls könnten immer noch verhindern, dass die Website erreicht wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("online", (event) => {});
@@ -24,25 +24,25 @@ ononline = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Ereignis-Handler-Alternativen
+## Ereignis-Handler-Aliase
 
-Zusätzlich zur `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `ononline` auch bei den folgenden Zielen verfügbar:
+Zusätzlich zur `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `ononline` auch auf den folgenden Zielen verfügbar:
 
-- {{domxref("HTMLBodyElement")}}
-- {{domxref("HTMLFrameSetElement")}}
-- {{domxref("SVGSVGElement")}}
+- [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
+- [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
+- [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)
 
 ## Beispiele
 
 ```js
-// addEventListener Version
+// addEventListener version
 window.addEventListener("online", (event) => {
   console.log("You are now connected to the network.");
 });
 
-// ononline Version
+// ononline version
 window.ononline = (event) => {
   console.log("You are now connected to the network.");
 };

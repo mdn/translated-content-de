@@ -1,25 +1,25 @@
 ---
-title: "GPUDevice: verlorene Eigenschaft"
-short-title: verloren
+title: "GPUDevice: lost-Eigenschaft"
+short-title: lost
 slug: Web/API/GPUDevice/lost
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`lost`** Eigenschaft des {{domxref("GPUDevice")}}-Interfaces ist eine schreibgeschützte Eigenschaft, die ein {{jsxref("Promise")}} enthält, welches während der gesamten Lebensdauer des Geräts ausstehend bleibt und mit einem {{domxref("GPUDeviceLostInfo")}}-Objekt aufgelöst wird, wenn das Gerät verloren geht.
+Die schreibgeschützte **`lost`**-Eigenschaft des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces enthält ein {{jsxref("Promise")}}, das während der gesamten Lebensdauer des Geräts ausstehend bleibt und mit einem [`GPUDeviceLostInfo`](/de/docs/Web/API/GPUDeviceLostInfo)-Objekt aufgelöst wird, wenn das Gerät verloren geht.
 
-{{domxref("GPUAdapter.requestDevice()")}} wird niemals `null` zurückgeben und es wird nur abgelehnt, wenn die Anfrage ungültig ist, d.h. sie die Fähigkeiten des {{domxref("GPUAdapter")}} übersteigt. Wenn jedoch aus irgendeinem Grund eine gültige Geräteanforderung nicht erfüllt werden kann, könnte sie sich möglicherweise auf ein bereits verlorenes Gerät auflösen. Außerdem können Geräte jederzeit nach ihrer Erstellung aus verschiedenen Gründen verloren gehen (wie zum Beispiel durch Ressourcenverwaltung des Browsers oder Treiberaktualisierungen), daher ist es eine gute Idee, verlorene Geräte immer angemessen zu handhaben.
+[`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) wird niemals `null` zurückgeben und wird nur dann abgelehnt, wenn die Anfrage ungültig ist, d.h. wenn sie die Fähigkeiten des [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) überschreitet. Wenn eine gültige Geräteanforderung jedoch aus irgendeinem Grund nicht erfüllt werden kann, kann es sein, dass sie in ein bereits verlorenes Gerät aufgelöst wird. Zusätzlich können Geräte aus verschiedenen Gründen (wie z.B. Ressourcenverwaltung des Browsers oder Treiberaktualisierungen) jederzeit nach der Erstellung verloren gehen, daher ist es ratsam, verlorene Geräte immer ordnungsgemäß zu behandeln.
 
-Viele Ursachen für verlorene Geräte sind vorübergehend, daher sollten Sie versuchen, ein neues Gerät zu erhalten, sobald ein vorheriges verloren gegangen ist, es sei denn, der Verlust wurde durch die absichtliche Zerstörung des Geräts durch die Anwendung verursacht (z.B. mit {{domxref("GPUDevice.destroy()")}}). Beachten Sie, dass alle mit einem vorherigen Gerät erstellten WebGPU-Ressourcen (Puffer, Texturen, etc.) mit dem neuen Gerät neu erstellt werden müssen.
+Viele Ursachen für verlorene Geräte sind vorübergehend, daher sollten Sie versuchen, ein neues Gerät zu erhalten, sobald ein vorheriges verloren gegangen ist, es sei denn, der Verlust wurde dadurch verursacht, dass die Anwendung das Gerät absichtlich zerstört hat (z.B. mit [`GPUDevice.destroy()`](/de/docs/Web/API/GPUDevice/destroy)). Beachten Sie, dass alle mit einem vorherigen Gerät erstellten WebGPU-Ressourcen (Puffer, Texturen, etc.) mit dem neuen Gerät erneut erstellt werden müssen.
 
 > [!NOTE]
-> Beachten Sie auch, dass ein `GPUAdapter` nicht mehr verfügbar sein kann, z.B. wenn die physische GPU vom System getrennt oder zur Energieeinsparung deaktiviert wird. Ab diesem Zeitpunkt kann der Adapter keine gültigen Geräte mehr zurückgeben und wird immer bereits verlorene Geräte zurückgeben.
+> Beachten Sie auch, dass ein `GPUAdapter` möglicherweise nicht mehr verfügbar ist, z.B. wenn die physische GPU vom System getrennt oder deaktiviert wird, um Energie zu sparen. Danach kann der Adapter keine gültigen Geräte mehr zurückgeben und wird immer bereits verlorene Geräte zurückgeben.
 
 ## Wert
 
-Ein Promise, das mit einem {{domxref("GPUDeviceLostInfo")}}-Objekt aufgelöst wird, wenn das Gerät verloren geht.
+Ein Promise, das mit einem [`GPUDeviceLostInfo`](/de/docs/Web/API/GPUDeviceLostInfo)-Objekt aufgelöst wird, wenn das Gerät verloren geht.
 
 ## Beispiele
 
@@ -55,7 +55,7 @@ async function init() {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

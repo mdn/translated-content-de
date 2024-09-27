@@ -1,5 +1,5 @@
 ---
-title: "MediaRecorderErrorEvent: MediaRecorderErrorEvent() Konstruktor"
+title: "MediaRecorderErrorEvent: MediaRecorderErrorEvent()-Konstruktor"
 short-title: MediaRecorderErrorEvent()
 slug: Web/API/MediaRecorderErrorEvent/MediaRecorderErrorEvent
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Der **`MediaRecorderErrorEvent()`** Konstruktor erstellt ein neues {{domxref("MediaRecorderErrorEvent")}} Objekt, das einen Fehler darstellt, der während der Aufzeichnung von Medien mit der [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API) aufgetreten ist.
+Der **`MediaRecorderErrorEvent()`**-Konstruktor erzeugt ein neues [`MediaRecorderErrorEvent`](/de/docs/Web/API/MediaRecorderErrorEvent)-Objekt, das einen Fehler repräsentiert, der während der Aufnahme von Medien durch die [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API) aufgetreten ist.
 
 > [!NOTE]
-> Im Allgemeinen werden Sie diese nicht selbst erstellen; sie werden an Ihre Implementierung von {{domxref("MediaRecorder.error_event", "onerror")}} übermittelt, wenn während der Medienaufzeichnung Fehler auftreten.
+> Im Allgemeinen werden Sie diese nicht selbst erzeugen; sie werden Ihrer Implementierung von [`onerror`](/de/docs/Web/API/MediaRecorder/error_event) zugestellt, wenn während der Medienaufnahme Fehler auftreten.
 
 ## Syntax
 
@@ -22,22 +22,22 @@ new MediaRecorderErrorEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Er ist groß- und kleinschreibungssensitiv und Browser setzen ihn immer auf `error`.
+  - : Ein String mit dem Namen des Ereignisses. Er ist auf Groß- und Kleinschreibung empfindlich und Browser setzen ihn immer auf `error`.
 - `options`
-  - : Ein Objekt, das zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das, _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_, die folgenden Eigenschaften haben kann:
     - `error`
-      - : Ein {{domxref("DOMException")}}, der den aufgetretenen Fehler beschreibt. Die {{domxref("DOMException.name", "name")}} Eigenschaft dieses Objekts sollte den Namen des aufgetretenen Fehlers angeben. Die anderen Felder können vorhanden sein oder nicht.
+      - : Ein [`DOMException`](/de/docs/Web/API/DOMException), der den aufgetretenen Fehler beschreibt. Die [`name`](/de/docs/Web/API/DOMException/name)-Eigenschaft dieses Objekts sollte den Namen des aufgetretenen Fehlers angeben. Die anderen Felder können vorhanden sein oder nicht.
 
 > [!NOTE]
-> Einige {{Glossary("user agent", "Benutzeragenten")}} fügen dem `error` Objekt weitere Eigenschaften hinzu, die Informationen wie Stack-Dumps, den Namen der JavaScript-Datei und die Zeilennummer, an der der Fehler aufgetreten ist, sowie andere Debugging-Hilfen bereitstellen. Sie sollten sich in einer Produktionsumgebung jedoch nicht auf diese Informationen verlassen.
+> Einige [User Agents](/de/docs/Glossary/user_agent) fügen dem `error`-Objekt weitere Eigenschaften hinzu, die Informationen wie Stapelspuren, den Namen der JavaScript-Datei und die Zeilennummer, in der der Fehler aufgetreten ist, sowie andere Debugging-Hilfen bereitstellen. Sie sollten sich jedoch in einer Produktionsumgebung nicht auf diese Informationen verlassen.
 
 ### Rückgabewert
 
-Ein neues {{domxref("MediaRecorderErrorEvent")}} Objekt.
+Ein neues [`MediaRecorderErrorEvent`](/de/docs/Web/API/MediaRecorderErrorEvent)-Objekt.
 
 ## Spezifikationen
 
-Diese Funktion ist nicht mehr Teil einer Spezifikation und nicht mehr auf dem Weg, zum Standard zu werden.
+Diese Funktion ist nicht länger Teil einer Spezifikation und wird nicht mehr zum Standard.
 
 ## Browser-Kompatibilität
 

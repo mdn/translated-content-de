@@ -1,5 +1,5 @@
 ---
-title: "<html>: Das HTML Dokument / Wurzelelement"
+title: "<html>: Das HTML Dokument / Root-Element"
 slug: Web/HTML/Element/html
 l10n:
   sourceCommit: 38cdfeff63f67ebea8effa2866d5a18efdf7e62a
@@ -7,25 +7,25 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<html>`** [HTML](/de/docs/Web/HTML) Element repräsentiert die Wurzel (oberstes Element) eines HTML-Dokuments, daher wird es auch als das _Wurzelelement_ bezeichnet. Alle anderen Elemente müssen Nachkommen dieses Elements sein. Es kann nur ein `<html>` Element in einem Dokument geben.
+Das **`<html>`** [HTML](/de/docs/Web/HTML) Element repräsentiert das Wurzel- (oberste) Element eines HTML-Dokuments, daher wird es auch als _Root-Element_ bezeichnet. Alle anderen Elemente müssen Nachkommen dieses Elements sein. In einem Dokument kann es nur ein `<html>` Element geben.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `version` {{deprecated_inline}}
-  - : Gibt die Version der HTML {{glossary("Doctype", "Document Type Definition")}} an, die das aktuelle Dokument regelt. Dieses Attribut ist nicht erforderlich, da es redundant zur Versionsinformation in der Dokumenttypdeklaration ist.
+  - : Gibt die Version der HTML [Document Type Definition](/de/docs/Glossary/Doctype) an, die das aktuelle Dokument bestimmt. Dieses Attribut ist nicht erforderlich, da es redundant zur Versionsinformation in der Dokumenttyp-Deklaration ist.
 - `xmlns`
-  - : Gibt den {{glossary("XML")}} {{glossary("Namespace")}} des Dokuments an. Der Standardwert ist `"http://www.w3.org/1999/xhtml"`. Dies ist erforderlich in mit XML {{glossary("parser", "Parsern")}} geparsten Dokumenten und optional in text/html Dokumenten.
+  - : Gibt den [XML](/de/docs/Glossary/XML) [Namespace](/de/docs/Glossary/Namespace) des Dokuments an. Der Standardwert ist `"http://www.w3.org/1999/xhtml"`. Dies ist in Dokumenten erforderlich, die mit XML [Parsers](/de/docs/Glossary/parser) analysiert werden, und optional in text/html-Dokumenten.
 
 ## Barrierefreiheit
 
-Obwohl HTML von den Autoren nicht verlangt, Start- und End-Tags des `<html>` Elements anzugeben, ist es wichtig, dass Autoren dies tun, da es ihnen ermöglicht, das [`lang`](/de/docs/Web/HTML/Global_attributes#lang) für die Webseite anzugeben. Das Bereitstellen eines `lang` Attributs mit einem gültigen Sprach-Tag gemäß {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} auf dem `<html>` Element wird Technologien zur Bildschirmlesung helfen, die richtige Sprache anzukündigen. Der identifizierende Sprach-Tag sollte die Sprache beschreiben, die von der Mehrheit des Inhalts der Seite verwendet wird. Ohne dieses Tag verwenden Bildschirmleseprogramme typischerweise die im Betriebssystem eingestellte Sprache, was zu Fehlinterpretationen führen kann.
+Während HTML es nicht verlangt, dass Autoren Anfangs- und End-Tags des `<html>` Elements spezifizieren, ist es wichtig, dass dies geschieht, da dadurch das [`lang`](/de/docs/Web/HTML/Global_attributes#lang) für die Webseite angegeben werden kann. Ein `lang` Attribut mit einem gültigen Sprachcode gemäß {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} zu einem `<html>` Element zu geben, hilft der Technologie zur Sprachausgabe, die richtige Sprache zur Ankündigung zu bestimmen. Der identifizierende Sprachcode sollte die Sprache beschreiben, die von der Mehrheit des Inhalts der Seite verwendet wird. Ohne diesen wird die Sprachausgabe in der Regel auf die im Betriebssystem eingestellte Sprache zurückgreifen, was zu Fehlinterpretationen führen kann.
 
-Das Einfügen einer gültigen `lang` Deklaration auf dem `<html>` Element stellt auch sicher, dass wichtige Metadaten, die im {{HTMLElement("head")}} der Seite enthalten sind, wie der {{HTMLElement("title")}} der Seite, ebenfalls korrekt angekündigt werden.
+Die Einbeziehung einer gültigen `lang`-Deklaration im `<html>` Element stellt auch sicher, dass wichtige Metadaten, die im {{HTMLElement("head")}} der Seite enthalten sind, wie z.B. der {{HTMLElement("title")}} der Seite, ordnungsgemäß angekündigt werden.
 
-- [MDN Understanding WCAG, Guideline 3.1 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.1_%e2%80%94_readable_make_text_content_readable_and_understandable)
-- [Understanding Success Criterion 3.1.1 | W3C Understanding WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/language-of-page.html)
+- [MDN Verständnis von WCAG, Leitfaden 3.1 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.1_%e2%80%94_readable_make_text_content_readable_and_understandable)
+- [Verständnis des Erfolgskriteriums 3.1.1 | W3C Understanding WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/language-of-page.html)
 
 ## Beispiel
 
@@ -41,7 +41,7 @@ Das Einfügen einer gültigen `lang` Deklaration auf dem `<html>` Element stellt
 </html>
 ```
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
@@ -61,23 +61,23 @@ Das Einfügen einer gültigen `lang` Deklaration auf dem `<html>` Element stellt
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Weglassen</th>
+      <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag kann weggelassen werden, wenn das erste Element innerhalb
-        des <code>&#x3C;html></code> Elements kein Kommentar ist. <br>Das End-Tag
-        kann weggelassen werden, wenn das <code>&#x3C;html></code> Element
+        Das Start-Tag kann ausgelassen werden, wenn das erste Element im
+        <code>&lt;html&gt;</code> Element kein Kommentar ist.<br>Das End-Tag
+        kann ausgelassen werden, wenn das <code>&lt;html&gt;</code> Element
         nicht direkt von einem Kommentar gefolgt wird.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
-      <td>Keine. Dies ist das Wurzelelement eines Dokuments.</td>
+      <td>Keine. Dies ist das Root-Element eines Dokuments.</td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Roles/document_role"
-          >document</a
+          >Dokument</a
         >
       </td>
     </tr>
@@ -87,7 +87,7 @@ Das Einfügen einer gültigen `lang` Deklaration auf dem `<html>` Element stellt
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLHtmlElement")}}</td>
+      <td>[`HTMLHtmlElement`](/de/docs/Web/API/HTMLHtmlElement)</td>
     </tr>
   </tbody>
 </table>
@@ -102,5 +102,5 @@ Das Einfügen einer gültigen `lang` Deklaration auf dem `<html>` Element stellt
 
 ## Siehe auch
 
-- MathML oberstes Element: {{MathMLElement("math")}}
-- SVG oberstes Element: {{SVGElement("svg")}}
+- MathML Top-Level-Element: {{MathMLElement("math")}}
+- SVG Top-Level-Element: {{SVGElement("svg")}}

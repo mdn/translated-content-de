@@ -7,24 +7,24 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
-Das `USBInTransferResult`-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) liefert das Ergebnis eines Aufrufs der `transferIn()`- und `controlTransferIn()`-Methoden des `USBDevice`-Interfaces. Es repräsentiert das Ergebnis einer Anfrage für die Datenübertragung vom USB-Gerät zum USB-Host.
+Das `USBInTransferResult`-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) bietet das Ergebnis eines Aufrufs der Methoden `transferIn()` und `controlTransferIn()` des `USBDevice`-Interfaces. Es repräsentiert das Ergebnis der Anforderung eines Datentransfers vom USB-Gerät zum USB-Host.
 
 ## Konstruktor
 
-- {{domxref("USBInTransferResult.USBInTransferResult", "USBInTransferResult()")}} {{Experimental_Inline}}
+- [`USBInTransferResult()`](/de/docs/Web/API/USBInTransferResult/USBInTransferResult) {{Experimental_Inline}}
   - : Erstellt ein neues `USBInTransferResult`-Objekt mit den bereitgestellten Feldern `status` und `data`.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("USBInTransferResult.data")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`USBInTransferResult.data`](/de/docs/Web/API/USBInTransferResult/data) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt ein `DataView`-Objekt zurück, das die vom USB-Gerät empfangenen Daten enthält, falls vorhanden.
-- {{domxref("USBInTransferResult.status")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`USBInTransferResult.status`](/de/docs/Web/API/USBInTransferResult/status) {{ReadOnlyInline}} {{Experimental_Inline}}
 
-  - : Gibt den Status der Übertragungsanforderung zurück, einer von:
+  - : Gibt den Status der Transferanforderung zurück, einer von:
 
-    - `"ok"` - Die Übertragung war erfolgreich.
-    - `"stall"` - Das Gerät zeigte einen Fehler an, indem es eine Stall-Bedingung am Endpunkt erzeugte. Ein Stall am Steuerendpunkt muss nicht aufgehoben werden. Ein Stall an einem Bulk- oder Interrupt-Endpunkt muss durch Aufrufen von `clearHalt()` aufgehoben werden, bevor `transferIn()` erneut aufgerufen werden kann.
-    - `"babble"` - Das Gerät hat mit mehr Daten geantwortet, als erwartet wurde.
+    - `"ok"` - Der Transfer war erfolgreich.
+    - `"stall"` - Das Gerät hat einen Fehler angezeigt, indem es eine Stall-Bedingung am Endpunkt erzeugt hat. Ein Stall am Steuerendpunkt muss nicht beseitigt werden. Ein Stall an einem Bulk- oder Interrupt-Endpunkt muss durch Aufruf von `clearHalt()` beseitigt werden, bevor `transferIn()` erneut aufgerufen werden kann.
+    - `"babble"` - Das Gerät hat mit mehr Daten als erwartet geantwortet.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "ReadableStreamDefaultReader: read()-Methode"
+title: "ReadableStreamDefaultReader: read() Methode"
 short-title: read()
 slug: Web/API/ReadableStreamDefaultReader/read
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`read()`**-Methode der {{domxref("ReadableStreamDefaultReader")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das Zugriff auf den nächsten Block in der internen Warteschlange des Streams bietet.
+Die **`read()`** Methode des [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) Interfaces gibt ein {{jsxref("Promise")}} zurück, das Zugriff auf das nächste Stück im internen Warteschlangen des Streams gewährt.
 
 ## Syntax
 
@@ -22,47 +22,47 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das je nach Zustand des Streams erfüllt bzw. abgelehnt wird.
+Ein {{jsxref("Promise")}}, das sich je nach Zustand des Streams erfüllt oder ablehnt.
 Die verschiedenen Möglichkeiten sind wie folgt:
 
-- Wenn ein Block verfügbar ist, wird das Promise mit einem Objekt der Form `{ value: theChunk, done: false }` erfüllt.
+- Wenn ein Stück verfügbar ist, wird das Promise mit einem Objekt der Form `{ value: theChunk, done: false }` erfüllt.
 - Wenn der Stream geschlossen wird, wird das Promise mit einem Objekt der Form `{ value: undefined, done: true }` erfüllt.
 - Wenn der Stream fehlerhaft wird, wird das Promise mit dem entsprechenden Fehler abgelehnt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Das Quellobjekt ist kein `ReadableStreamDefaultReader`, der Stream hat keinen Besitzer oder {{domxref("ReadableStreamDefaultReader.releaseLock()")}} wird aufgerufen (wenn eine ausstehende Leseanforderung besteht).
+  - : Das Quellobjekt ist kein `ReadableStreamDefaultReader`, der Stream hat keinen Besitzer oder [`ReadableStreamDefaultReader.releaseLock()`](/de/docs/Web/API/ReadableStreamDefaultReader/releaseLock) wird aufgerufen (wenn eine ausstehende Leseanforderung besteht).
 
 ## Beispiele
 
-### Beispiel 1 - einfaches Beispiel
+### Beispiel 1 - Einfaches Beispiel
 
-Dieses Beispiel zeigt die grundlegende Verwendung der API, behandelt jedoch keine Komplikationen wie z. B. Stream-Blöcke, die nicht an Zeilenenden enden.
+Dieses Beispiel zeigt die grundlegende Nutzung der API, versucht jedoch nicht, Komplikationen wie Stream-Stücke, die nicht an Zeilenenden enden, zu behandeln.
 
 In diesem Beispiel ist `stream` ein zuvor erstellter benutzerdefinierter `ReadableStream`.
-Er wird mithilfe eines {{domxref("ReadableStreamDefaultReader")}} gelesen, der mit `getReader()` erstellt wurde.
-(Siehe unser [einfaches Beispiel für einen zufälligen Stream](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code).
-Jeder Block wird nacheinander eingelesen und als Array von UTF-8-Bytes in die Benutzeroberfläche ausgegeben, bis der Strom vollständig gelesen wurde. Dann verlassen wir die rekursive Funktion und drucken den gesamten Stream an einer anderen Stelle der Benutzeroberfläche aus.
+Es wird mit einem [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) gelesen, der mit `getReader()` erstellt wurde.
+(Siehe unser [Einfaches Zufallsstrom-Beispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code).
+Jedes Stück wird nacheinander gelesen und als Array von UTF-8-Bytes in der Benutzeroberfläche ausgegeben, bis der Stream vollständig gelesen ist. Dann verlassen wir die rekursive Funktion und geben den gesamten Strom in einem anderen Teil der Benutzeroberfläche aus.
 
 ```js
 function fetchStream() {
   const reader = stream.getReader();
   let charsReceived = 0;
 
-  // read() gibt ein Promise zurück, das erfüllt wird,
-  // wenn ein Wert empfangen wurde
+  // read() returns a promise that fulfills
+  // when a value has been received
   reader.read().then(function processText({ done, value }) {
-    // Result-Objekte enthalten zwei Eigenschaften:
-    // done  - true, wenn der Stream Ihnen bereits alle seine Daten gegeben hat.
-    // value - einige Daten. Immer undefined, wenn done true ist.
+    // Result objects contain two properties:
+    // done  - true if the stream has already given you all its data.
+    // value - some data. Always undefined when done is true.
     if (done) {
       console.log("Stream complete");
       para.textContent = result;
       return;
     }
 
-    // value für fetch-Streams ist ein Uint8Array
+    // value for fetch streams is a Uint8Array
     charsReceived += value.length;
     const chunk = value;
     let listItem = document.createElement("li");
@@ -71,16 +71,16 @@ function fetchStream() {
 
     result += chunk;
 
-    // Lesen Sie noch etwas mehr und rufen Sie diese Funktion erneut auf
+    // Read some more, and call this function again
     return reader.read().then(processText);
   });
 }
 ```
 
-### Beispiel 2 - Text zeilenweise verarbeiten
+### Beispiel 2 - Verarbeitung von Textzeilen
 
-Dieses Beispiel zeigt, wie Sie eine Textdatei abrufen und als Stream von Textzeilen verarbeiten könnten.
-Es behandelt Stream-Blöcke, die nicht an Zeilenenden enden, und die Umwandlung von `Uint8Array` in Strings.
+Dieses Beispiel zeigt, wie Sie möglicherweise eine Textdatei abrufen und sie als einen Strom von Textzeilen behandeln.
+Es behandelt Stream-Stücke, die nicht an Zeilenenden enden, und die Umwandlung von `Uint8Array` in Strings.
 
 ```js
 async function* makeTextFileLineIterator(fileURL) {
@@ -110,7 +110,7 @@ async function* makeTextFileLineIterator(fileURL) {
     startIndex = re.lastIndex;
   }
   if (startIndex < chunk.length) {
-    // die letzte Zeile endete nicht mit einem Zeilenumbruchzeichen
+    // last line didn't end in a newline char
     yield chunk.substr(startIndex);
   }
 }
@@ -124,11 +124,11 @@ for await (let line of makeTextFileLineIterator(urlOfFile)) {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("ReadableStreamDefaultReader.ReadableStreamDefaultReader", "ReadableStreamDefaultReader()")}} Konstruktor
+- [`ReadableStreamDefaultReader()`](/de/docs/Web/API/ReadableStreamDefaultReader/ReadableStreamDefaultReader) Konstruktor
 - [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)

@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`ax`**-Eigenschaft des
-{{domxref("CSSSkew")}}-Interfaces erhält und setzt den Winkel, der verwendet wird, um das Element entlang der x-Achse (oder Abszisse) zu verzerren.
+Die **`ax`**-Eigenschaft der
+[`CSSSkew`](/de/docs/Web/API/CSSSkew)-Schnittstelle erhält und setzt den Winkel, der verwendet wird, um das Element entlang der x-Achse (oder Abszisse) zu verzerren.
 
 ## Wert
 
-Ein {{domxref("CSSNumericValue")}}.
+Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-Zu machen
+To do
 
 ## Spezifikationen
 

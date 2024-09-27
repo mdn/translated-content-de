@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **`containerQuery`**-Eigenschaft der {{domxref("CSSContainerRule")}}-Schnittstelle gibt einen String zurück, der die Containerbedingungen repräsentiert, welche ausgewertet werden, wenn sich die Größe des Containers ändert, um festzustellen, ob die Stile im zugehörigen {{cssxref("@container")}} angewendet werden.
+Die schreibgeschützte **`containerQuery`**-Eigenschaft der [`CSSContainerRule`](/de/docs/Web/API/CSSContainerRule)-Schnittstelle gibt einen String zurück, der die Containerbedingungen darstellt, die bewertet werden, wenn sich die Größe des Containers ändert, um zu bestimmen, ob die Stile im zugeordneten {{cssxref("@container")}} angewendet werden.
 
-Zum Beispiel ist der Wert von `containerQuery` für den unten stehenden {{cssxref("@container")}} `(min-width: 700px)`:
+Zum Beispiel ist der Wert von `containerQuery` für das untenstehende {{cssxref("@container")}} `(min-width: 700px)`:
 
 ```css
 @container sidebar (min-width: 700px) {
@@ -24,12 +24,11 @@ Zum Beispiel ist der Wert von `containerQuery` für den unten stehenden {{cssxre
 
 Ein String, der die Container-Abfrage enthält.
 
-Beachten Sie, dass der Wert möglicherweise nicht mit dem ursprünglichen String identisch ist, da Normalisierungen wie das Entfernen von Leerzeichen stattfinden können.
+Beachten Sie, dass der Wert möglicherweise nicht identisch mit dem ursprünglichen String ist, da Normalisierungen wie das Entfernen von Leerzeichen stattfinden können.
 
 ## Beispiele
 
-Das untenstehende Beispiel definiert eine unbenannte {{cssxref("@container")}}-Regel und zeigt die Eigenschaften der zugehörigen {{domxref("CSSContainerRule")}}.
-Das CSS ist dasselbe wie im `@container`-Beispiel [Festlegen von Stilen basierend auf der Größe eines Containers](/de/docs/Web/CSS/@container#setting_styles_based_on_a_containers_size).
+Das folgende Beispiel definiert eine unbenannte {{cssxref("@container")}}-Regel und zeigt die Eigenschaften der zugehörigen [`CSSContainerRule`](/de/docs/Web/API/CSSContainerRule) an. Das CSS ist dasselbe wie im `@container`-Beispiel [Festlegen von Stilen basierend auf der Größe eines Containers](/de/docs/Web/CSS/@container#setting_styles_based_on_a_containers_size).
 
 ```html hidden
 <div id="log">
@@ -40,9 +39,9 @@ Das CSS ist dasselbe wie im `@container`-Beispiel [Festlegen von Stilen basieren
 ```
 
 ```js hidden
-// Reference zur Log-Liste speichern
+// Store reference to log list
 const logList = document.querySelector("#log ul");
-// Funktion zum Protokollieren von Daten aus der zugrunde liegenden Quelle
+// Function to log data from underlying source
 function log(result) {
   const listItem = document.createElement("li");
   listItem.textContent = result;
@@ -55,23 +54,22 @@ Zuerst definieren wir das HTML für eine `card` (`<div>`) innerhalb eines `post`
 ```html
 <div class="post">
   <div class="card">
-    <h2>Kartentitel</h2>
-    <p>Karteninhalt</p>
+    <h2>Card title</h2>
+    <p>Card content</p>
   </div>
 </div>
 ```
 
-Das CSS für das Containerelement gibt den Typ des Containers an.
-Der {{cssxref("@container")}} wendet dann eine neue Breite, Schriftgröße und Hintergrundfarbe auf das enthaltende Element "card" an, wenn die Breite kleiner als 650px ist.
+Das CSS für das Containerelement gibt den Typ des Containers an. Das {{cssxref("@container")}} wendet dann eine neue Breite, Schriftgröße und Hintergrundfarbe auf das enthaltene Element "card" an, wenn die Breite weniger als 650px beträgt.
 
 ```html
 <style id="examplestyles">
-  /* Ein Container-Kontext basierend auf der Inline-Größe */
+  /* A container context based on inline size */
   .post {
     container-type: inline-size;
   }
 
-  /* Stile anwenden, wenn der Container schmaler als 650px ist */
+  /* Apply styles if the container is narrower than 650px */
   @container (width < 650px) {
     .card {
       width: 50%;
@@ -82,21 +80,16 @@ Der {{cssxref("@container")}} wendet dann eine neue Breite, Schriftgröße und H
 </style>
 ```
 
-Der folgende Code erhält das {{domxref("HTMLStyleElement")}}, das mit dem Beispiel über seine ID verknüpft ist, und verwendet dann dessen `sheet`-Eigenschaft, um das {{domxref("StyleSheet")}} zu erhalten.
-Aus dem `StyleSheet` erhalten wir die Menge der `cssRules`, die dem Stylesheet hinzugefügt wurden.
-Da wir das `@container` als zweite Regel oben hinzugefügt haben, können wir die zugehörige `CSSContainerRule` über den zweiten Eintrag (mit Index "1") in den `cssRules` abrufen.
-Zuletzt protokollieren wir die Containername- und Abfrage-Eigenschaften.
+Der untenstehende Code ruft das zugehörige [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement) des Beispiels mit seiner id ab und verwendet dann dessen `sheet`-Eigenschaft, um das [`StyleSheet`](/de/docs/Web/API/StyleSheet) zu erhalten. Aus dem `StyleSheet` erhalten wir die Menge der `cssRules`, die zum Sheet hinzugefügt wurden. Da wir das `@container` als zweite Regel oben hinzugefügt haben, können wir die zugehörige `CSSContainerRule` mithilfe des zweiten Eintrags (mit dem Index "1") in den `cssRules` abrufen. Zuletzt protokollieren wir den Containernamen und die Abfrageeigenschaften.
 
 ```js
 const exampleStylesheet = document.getElementById("examplestyles").sheet;
 const exampleRules = exampleStylesheet.cssRules;
-const containerRule = exampleRules[1]; // eine CSSContainerRule, die die Containerregel darstellt.
+const containerRule = exampleRules[1]; // a CSSContainerRule representing the container rule.
 log(`CSSContainerRule.containerQuery: "${containerRule.containerQuery}"`);
 ```
 
-Das Beispiel zeigt die folgende Ausgabe.
-Der Protokollabschnitt listet den Abfrage-String auf.
-Die Karte sollte ihren Hintergrund ändern, wenn die Breite der Seite die 650px-Grenze überschreitet.
+Das Beispielausgabe wird unten gezeigt. Der Protokollabschnitt listet den Abfragestring auf. Die Karte sollte den Hintergrund ändern, während die Seitenbreite die 650px-Marke überschreitet.
 
 {{EmbedLiveSample("Examples","100%","250px")}}
 
@@ -110,6 +103,6 @@ Die Karte sollte ihren Hintergrund ändern, wenn die Breite der Seite die 650px-
 
 ## Siehe auch
 
-- [CSS-Eindämmungsmodul](/de/docs/Web/CSS/CSS_containment)
+- [CSS Containment Modul](/de/docs/Web/CSS/CSS_containment)
 - [Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
 - [Verwendung von Containergrößen- und Stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)

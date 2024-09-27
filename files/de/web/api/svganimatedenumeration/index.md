@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGAnimatedEnumeration`**-Schnittstelle beschreibt Attributwerte, die Konstanten aus einer bestimmten Aufzählung sind und animiert werden können.
+Die **`SVGAnimatedEnumeration`**-Schnittstelle beschreibt Attributwerte, die Konstanten aus einer bestimmten Enumeration sind und animiert werden können.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("SVGAnimatedEnumeration.baseVal", "baseVal")}}
-  - : Ein ganzzahliger Wert, der den Basiswert des angegebenen Attributs vor der Anwendung von Animationen darstellt.
-- {{domxref("SVGAnimatedEnumeration.animVal", "animVal")}}
-  - : Wenn das angegebene Attribut oder die Eigenschaft animiert wird, beinhaltet es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wird das Attribut oder die Eigenschaft nicht animiert, enthält es denselben Wert wie `baseVal`.
+- [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal)
+  - : Ein ganzzahliger Wert, der den Basiswert des angegebenen Attributs darstellt, bevor Animationen angewendet werden.
+- [`animVal`](/de/docs/Web/API/SVGAnimatedEnumeration/animVal)
+  - : Wenn das angegebene Attribut oder die angegebene Eigenschaft animiert wird, enthält es den aktuell animierten Wert des Attributs oder der Eigenschaft. Wenn das angegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es denselben Wert wie `baseVal`.
 
 ## Instanz-Methoden
 
-Die `SVGAnimatedEnumeration`-Schnittstelle bietet keine spezifischen Methoden.
+Die `SVGAnimatedEnumeration`-Schnittstelle stellt keine spezifischen Methoden bereit.
 
 ## Beispiele
 
-In diesem Beispiel wird ein {{SVGElement("clipPath")}}-Element betrachtet: Sein {{SVGAttr("clipPathUnits")}} ist mit einem `SVGAnimatedEnumeration`-Objekt verbunden.
+Betrachten Sie diesen Ausschnitt mit einem {{SVGElement("clipPath")}}-Element: Sein {{SVGAttr("clipPathUnits")}} ist mit einem `SVGAnimatedEnumeration`-Objekt verknüpft.
 
 ```html
 <svg viewBox="0 0 100 100" width="200" height="200">
@@ -35,12 +35,12 @@ In diesem Beispiel wird ein {{SVGElement("clipPath")}}-Element betrachtet: Sein 
 </svg>
 ```
 
-Dieses Beispiel holt das Element und loggt den `baseVal` und `animVal` der {{domxref("SVGClipPathElement.clipPathUnits")}}-Eigenschaft. Da keine Animation stattfindet, haben sie denselben Wert.
+Dieser Ausschnitt ruft das Element ab und protokolliert die `baseVal` und `animVal` der [`SVGClipPathElement.clipPathUnits`](/de/docs/Web/API/SVGClipPathElement/clipPathUnits) Eigenschaft. Da keine Animation stattfindet, haben sie denselben Wert.
 
 ```js
 const clipPathElt = document.getElementById("clip1");
-console.log(clipPathElt.clipPathUnits.baseVal); // Protokolliert 1 entsprechend userSpaceOnUse
-console.log(clipPathElt.clipPathUnits.animVal); // Protokolliert 1 entsprechend userSpaceOnUse
+console.log(clipPathElt.clipPathUnits.baseVal); // Logs 1 that correspond to userSpaceOnUse
+console.log(clipPathElt.clipPathUnits.animVal); // Logs 1 that correspond to userSpaceOnUse
 ```
 
 ## Spezifikationen

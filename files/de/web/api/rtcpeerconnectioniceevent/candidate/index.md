@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnectionIceEvent: candidate Eigenschaft"
+title: "RTCPeerConnectionIceEvent: candidate-Eigenschaft"
 short-title: candidate
 slug: Web/API/RTCPeerConnectionIceEvent/candidate
 l10n:
@@ -9,12 +9,12 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die schreibgeschützte **`candidate`**-Eigenschaft
-der Schnittstelle {{domxref("RTCPeerConnectionIceEvent")}} gibt den
-{{domxref("RTCIceCandidate")}} zurück, der mit dem Ereignis verknüpft ist.
+der [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent)-Schnittstelle gibt den
+[`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) zurück, der mit dem Ereignis verknüpft ist.
 
 ## Wert
 
-Ein {{domxref("RTCIceCandidate")}}-Objekt, das den ICE-Kandidaten darstellt, der empfangen wurde, oder `null`, um anzuzeigen, dass es keine weiteren Kandidaten für diese Verhandlungssitzung gibt.
+Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekt, das den ICE-Kandidaten repräsentiert, der empfangen wurde, oder `null`, um anzuzeigen, dass es keine weiteren Kandidaten für diese Verhandlungssitzung gibt.
 
 ## Beispiel
 
@@ -36,5 +36,5 @@ pc.onicecandidate = (ev) => {
 
 ## Siehe auch
 
-- {{domxref("RTCPeerConnection.icecandidate_event", "icecandidate")}}
-- {{domxref("RTCPeerConnection")}}
+- [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)

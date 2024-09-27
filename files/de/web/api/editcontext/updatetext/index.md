@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`updateText()`**-Methode der {{domxref("EditContext")}}-Schnittstelle aktualisiert den internen Textinhalt eines `EditContext`-Objekts.
+Die **`updateText()`**-Methode der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle aktualisiert den internen Textinhalt eines `EditContext`-Objekts.
 
-Diese Methode muss nicht verwendet werden, wenn der Benutzer Text im zugehörigen Element eingibt. Das `EditContext`-Objekt wird seinen internen Textinhalt automatisch aktualisieren und bei Bedarf {{domxref("EditContext.textupdate_event", "textupdate")}}-Ereignisse auslösen.
+Diese Methode muss nicht verwendet werden, wenn der Benutzer Text im zugehörigen Element eingibt. Das `EditContext`-Objekt aktualisiert automatisch seinen internen Textinhalt und löst bei Bedarf [`textupdate`](/de/docs/Web/API/EditContext/textupdate_event) Ereignisse aus.
 
-Diese Methode kann jedoch verwendet werden, wenn der Benutzer auf andere Weise mit dem Textinhalt interagiert, z. B. beim Einfügen von Text aus der Zwischenablage.
+Diese Methode kann jedoch verwendet werden, wenn der Benutzer auf andere Weise mit dem Textinhalt interagiert, beispielsweise wenn Text aus der Zwischenablage eingefügt wird.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ updateText(rangeStart, rangeEnd, text)
 ### Parameter
 
 - `rangeStart`
-  - : Eine Zahl, die den Anfang des zu ersetzenden Textbereichs darstellt.
+  - : Eine Zahl, die den Start des zu ersetzenden Textbereichs darstellt.
 - `rangeEnd`
   - : Eine Zahl, die das Ende des zu ersetzenden Textbereichs darstellt.
 - `text`
@@ -31,16 +31,16 @@ updateText(rangeStart, rangeEnd, text)
 
 ### Ausnahmen
 
-- Wenn weniger als drei Argumente bereitgestellt werden, wird ein `TypeError` {{domxref("DOMException")}} ausgelöst.
-- Wenn `rangeStart` größer als `rangeEnd` ist, wird eine {{domxref("DOMException")}} ausgelöst.
+- Wenn weniger als drei Argumente bereitgestellt werden, wird ein `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+- Wenn `rangeStart` größer als `rangeEnd` ist, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
 ## Beispiele
 
-### Aktualisieren des Editors, wenn der Benutzer Text einfügt
+### Aktualisierung des Editors, wenn der Benutzer Text einfügt
 
 Dieses Beispiel zeigt, wie die `updateText`-Methode verwendet wird, um den Textinhalt im `EditContext` eines `<canvas>`-Elements zu aktualisieren, wenn der Benutzer die Tastenkombination <kbd>Strg</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd> drückt, um Text einzufügen.
 
-Das Beispiel verwendet auch die {{domxref("Clipboard.readText()")}}-Methode, um den Text aus der Zwischenablage zu lesen.
+Das Beispiel verwendet auch die [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText)-Methode, um den Text aus der Zwischenablage zu lesen.
 
 ```html
 <canvas id="editor-canvas"></canvas>
@@ -66,7 +66,7 @@ canvas.addEventListener("keydown", async (e) => {
   if (e.key == "v" && (e.ctrlKey || e.metaKey)) {
     const pastedText = await navigator.clipboard.readText();
     console.log(
-      `Der Benutzer hat den Text eingefügt: ${pastedText}. Aktualisierung des EditContext-Textes.`,
+      `The user pasted the text: ${pastedText}. Updating the EditContext text.`,
     );
 
     editContext.updateText(
@@ -95,4 +95,4 @@ canvas.addEventListener("keydown", async (e) => {
 
 ## Siehe auch
 
-- Die {{DOMxRef("EditContext")}}-Schnittstelle, zu der es gehört.
+- Die [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle, zu der es gehört.

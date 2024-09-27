@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`trackIdentifier`**-Eigenschaft des {{domxref("RTCVideoSourceStats")}} Wörterbuchs enthält das `id`-Attribut des zugehörigen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack).
+Die **`trackIdentifier`**-Eigenschaft des [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats)-Wörterbuchs enthält das `id`-Attribut des zugehörigen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack).
 
 ## Wert
 

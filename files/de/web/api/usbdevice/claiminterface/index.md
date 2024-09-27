@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`claimInterface()`**-Methode der {{domxref("USBDevice")}}-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das erfüllt wird, wenn die angeforderte Schnittstelle für den exklusiven Zugriff beansprucht wird.
+Die **`claimInterface()`**-Methode des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn das angeforderte Interface für exklusiven Zugriff beansprucht wird.
 
 ## Syntax
 

@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`wrap`**-Eigenschaft der {{DOMxRef("HTMLTextAreaElement")}}-Schnittstelle gibt an, wie die Steuerung den Wert zur Formularübermittlung umbrechen soll. Sie spiegelt das `wrap`-Attribut des `<textarea>`-Elements wider. Beachten Sie, dass der Wert `"hard"` nur eine Wirkung hat, wenn das {{domxref("HTMLTextAreaElement.cols", "cols")}}-Attribut ebenfalls gesetzt ist.
+Die **`wrap`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt an, wie die Kontrolle den Wert für die Formularübermittlung umbrechen soll. Sie spiegelt das [`wrap`](/de/docs/Web/HTML/Element/textarea#wrap)-Attribut des `<textarea>`-Elements wider. Beachten Sie, dass der Wert `"hard"` nur dann eine Wirkung hat, wenn auch das [`cols`](/de/docs/Web/API/HTMLTextAreaElement/cols)-Attribut gesetzt ist.
 
 ## Wert
 
@@ -19,18 +19,18 @@ Siehe [`wrap`](/de/docs/Web/HTML/Element/textarea#wrap) für die möglichen Wert
 ```js
 const textareaElement = document.getElementById("comment");
 const oldWrap = textArea.wrap;
-textArea.wrap = "hard"; // Zeilenumbrüche (CR+LF) während der Formularübermittlung hinzufügen
+textArea.wrap = "hard"; // Add line breaks (CR+LF) during form submission
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - {{HTMLElement("textarea")}}
-- {{DOMXref("HTMLTextAreaElement.cols")}}
+- [`HTMLTextAreaElement.cols`](/de/docs/Web/API/HTMLTextAreaElement/cols)

@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`baseLayer`**-Eigenschaft der {{domxref("XRRenderState")}}-Schnittstelle gibt die Instanz von {{domxref("XRWebGLLayer")}} zurück, die die Quelle der Bitmap-Bilder ist und eine Beschreibung, wie das Bild auf dem Gerät gerendert werden soll.
+Die schreibgeschützte **`baseLayer`**-Eigenschaft der [`XRRenderState`](/de/docs/Web/API/XRRenderState)-Schnittstelle gibt die [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Instanz zurück, die die Quelle der Bitmap-Bilder und eine Beschreibung davon ist, wie das Bild auf dem Gerät gerendert werden soll.
 
-Diese Eigenschaft ist schreibgeschützt; allerdings können Sie ihren Wert indirekt ändern, indem Sie {{domxref("XRSession.updateRenderState")}} verwenden.
+Diese Eigenschaft ist schreibgeschützt; Sie können ihren Wert jedoch indirekt mit [`XRSession.updateRenderState`](/de/docs/Web/API/XRSession/updateRenderState) ändern.
 
 ## Wert
 
-Ein {{domxref("XRWebGLLayer")}}-Objekt, das als Quelle des Weltinhalts beim Rendern jedes Frames der Szene verwendet wird.
+Ein [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Objekt, das als Quelle des Inhalts der Welt beim Rendern jedes Bildes der Szene verwendet wird.
 
-Siehe die Beispiele unten, um zu sehen, wie Sie {{domxref("XRSession.updateRenderState", "updateRenderState()")}} nutzen können, um die aktuelle `XRWebGLLayer` festzulegen, die für das Rendering der Szene verwendet wird.
+Sehen Sie sich die folgenden Beispiele an, um zu sehen, wie Sie [`updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) verwenden, um den aktuellen `XRWebGLLayer` festzulegen, der zum Rendern der Szene verwendet wird.
 
 ## Beispiele
 
-Sie können die `XRWebGLLayer`, die für das Rendering verwendet wird, festlegen, indem Sie {{domxref("XRSession.updateRenderState", "updateRenderState()")}} aufrufen, wie folgt:
+Sie können den `XRWebGLLayer`, der zum Rendern verwendet wird, folgendermaßen festlegen, indem Sie [`updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) aufrufen:
 
 ```js
 let canvas = document.querySelector("canvas");
@@ -29,7 +29,7 @@ setNewWebGLLayer();
 
 function setNewWebGLLayer(gl) {
   if (!gl) {
-    /* WebGL nicht verfügbar */
+    /* WebGL not available */
     return;
   }
 
@@ -39,7 +39,7 @@ function setNewWebGLLayer(gl) {
 }
 ```
 
-Hierbei ist das in der ersten Zeile erhaltene Canvas das Canvas, in das WebGL zeichnen wird. Dieser Kontext wird in {{domxref("XRWebGLLayer.XRWebGLLayer", "XRWebGLLayer()")}} übergeben, um eine `XRWebGLLayer` zu erstellen, die den Inhalt des WebGL-Kontextes `gl` als Quelle des Weltbildes während der Präsentation verwendet.
+Hier ist die in der ersten Zeile abgerufene Zeichenfläche die Zeichenfläche, in die WebGL zeichnen wird. Dieser Kontext wird an [`XRWebGLLayer()`](/de/docs/Web/API/XRWebGLLayer/XRWebGLLayer) übergeben, um einen `XRWebGLLayer` zu erstellen, der den Inhalt des WebGL-Kontextes `gl` als Quelle des Bildes während der Präsentation verwendet.
 
 ## Spezifikationen
 

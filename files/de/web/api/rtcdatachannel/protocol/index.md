@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannel: Eigenschaft protocol"
+title: "RTCDataChannel: protocol-Eigenschaft"
 short-title: protocol
 slug: Web/API/RTCDataChannel/protocol
 l10n:
@@ -8,16 +8,18 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`protocol`** gibt einen String zurück, der den Namen des verwendeten Subprotokolls enthält. Wenn beim Erstellen des Datenkanals kein Protokoll angegeben wurde, ist der Wert dieser Eigenschaft der leere String (`""`).
+Die schreibgeschützte `RTCDataChannel`-Eigenschaft
+**`protocol`** gibt einen String zurück, der den
+Namen des verwendeten Subprotokolls enthält. Wenn bei der Erstellung des Datenkanals kein Protokoll angegeben wurde, ist der Wert dieser Eigenschaft der leere String (`""`).
 
 > [!NOTE]
-> Die erlaubten Werte dieser Eigenschaft werden von der Website oder App definiert, die den Datenkanal verwendet.
+> Die zulässigen Werte dieser Eigenschaft werden von der Website oder App definiert, die den Datenkanal verwendet.
 
-Die Möglichkeit, dass jeder Kanal ein definiertes Subprotokoll haben kann, ermöglicht es Ihrer App beispielsweise, JSON-Objekte als Nachrichten auf einem Kanal zu verwenden, während ein anderer Kanal reiner Text und ein anderer rohes Binärformat oder sogar ein anderes Format ist.
+Die Möglichkeit, für jeden Kanal ein definiertes Subprotokoll zu haben, ermöglicht es Ihrer App, zum Beispiel JSON-Objekte als Nachrichten auf einem Kanal zu verwenden, während ein anderer Kanal Klartext ist und ein weiterer rohen Binärcode oder sogar ein anderes Format verwendet.
 
 ## Wert
 
-Ein String, der das anwendungsspezifisch definierte Subprotokoll identifiziert, das für den Datenaustausch auf dem Kanal verwendet wird. Wenn keines festgelegt wurde, ist dies ein leerer String ("").
+Ein String, der das von der App definierte Subprotokoll identifiziert, das für den Datenaustausch auf dem Kanal verwendet wird. Wenn keines festgelegt wurde, ist dies ein leerer String ("").
 
 ## Beispiel
 
@@ -50,5 +52,5 @@ function handleChannelMessage(dataChannel, msg) {
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCDataChannel")}}
-- {{domxref("RTCPeerConnection.createDataChannel()")}}
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
+- [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.bindRenderbuffer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) bindet ein angegebenes {{domxref("WebGLRenderbuffer")}} an ein Ziel, das `gl.RENDERBUFFER` sein muss.
+Die **`WebGLRenderingContext.bindRenderbuffer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) bindet ein gegebenes [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer) an ein Ziel, das `gl.RENDERBUFFER` sein muss.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ bindRenderbuffer(target, renderbuffer)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
 
     - `gl.RENDERBUFFER`
-      - : Pufferdatenspeicher für einzelne Bilder in einem renderbaren internen Format.
+      - : Puffer-Datenspeicher für einzelne Bilder in einem renderbaren internen Format.
 
 - `renderbuffer`
-  - : Ein {{domxref("WebGLRenderbuffer")}}-Objekt, das gebunden werden soll.
+  - : Ein [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)-Objekt, das gebunden werden soll.
 
 ### Rückgabewert
 
@@ -66,7 +66,7 @@ gl.getParameter(gl.RENDERBUFFER_BINDING);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.createRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.isRenderbuffer()")}}
-- Andere Puffer: {{domxref("WebGLBuffer")}}, {{domxref("WebGLFramebuffer")}}
+- [`WebGLRenderingContext.createRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/createRenderbuffer)
+- [`WebGLRenderingContext.deleteRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteRenderbuffer)
+- [`WebGLRenderingContext.isRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/isRenderbuffer)
+- Andere Puffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)

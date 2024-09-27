@@ -1,5 +1,5 @@
 ---
-title: CIA (Vertraulichkeit, Integrität, Verfügbarkeit)
+title: CIA
 slug: Glossary/CIA
 l10n:
   sourceCommit: 7a551aaa034fbada3eb99e6fc924a0313b78307f
@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**CIA (Confidentiality, Integrity, Availability)** (auch bezeichnet als das CIA-Dreieck oder AIC-Dreieck) ist ein Modell, das die Richtlinien einer Organisation für Informationssicherheit leitet.
+**CIA (Confidentiality, Integrity, Availability)** (auch genannt das CIA-Triad oder AIC-Triad) ist ein Modell, das die Richtlinien einer Organisation für Informationssicherheit leitet.
 
 ## Siehe auch
 

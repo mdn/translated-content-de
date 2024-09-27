@@ -8,7 +8,8 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`index()`** Methode der Schnittstelle {{domxref("IDBObjectStore")}} öffnet einen benannten Index im aktuellen Objektstore. Danach kann sie beispielsweise verwendet werden, um eine Reihe von Datensätzen zurückzugeben, die mit einem Cursor nach diesem Index sortiert sind.
+Die **`index()`** Methode des [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+Interfaces öffnet einen benannten Index im aktuellen Objekt-Store, nach dem er beispielsweise genutzt werden kann, um eine Serie von Datensätzen sortiert nach diesem Index mithilfe eines Cursors zurückzugeben.
 
 ## Syntax
 
@@ -19,24 +20,24 @@ index(name)
 ### Parameter
 
 - `name`
-  - : Der Name des Indexes, der geöffnet werden soll.
+  - : Der Name des zu öffnenden Indexes.
 
 ### Rückgabewert
 
-Ein {{domxref("IDBIndex")}}-Objekt für den Zugriff auf den Index.
+Ein [`IDBIndex`](/de/docs/Web/API/IDBIndex) Objekt zum Zugriff auf den Index.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Quellobjektstore gelöscht wurde oder die Transaktion für den Objektstore abgeschlossen ist.
-- `NotFoundError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn es in der Datenbank keinen Index mit dem angegebenen Namen (Groß- und Kleinschreibung beachten) gibt.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Quellobjekt-Store gelöscht wurde oder die Transaktion für den Objekt-Store abgeschlossen ist.
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn es keinen Index mit dem angegebenen Namen (Groß-/Kleinschreibung beachten) in der Datenbank gibt.
 
 ## Beispiele
 
-Im folgenden Beispiel öffnen wir eine Transaktion und einen Objektstore und erhalten dann den Index `lName` aus einer einfachen Kontaktdatenbank. Dann öffnen wir einen einfachen Cursor auf dem Index mit {{domxref("IDBIndex.openCursor")}} — dies funktioniert genauso wie das Öffnen eines Cursors direkt auf einem `ObjectStore` mit {{domxref("IDBObjectStore.openCursor")}}, außer dass die zurückgegebenen Datensätze basierend auf dem Index und nicht dem Primärschlüssel sortiert sind.
+Im folgenden Beispiel öffnen wir eine Transaktion und einen Objekt-Store und erhalten dann den Index `lName` aus einer einfachen Kontaktdatenbank. Anschließend öffnen wir einen grundlegenden Cursor auf dem Index mit [`IDBIndex.openCursor`](/de/docs/Web/API/IDBIndex/openCursor) — dies funktioniert genauso wie das Öffnen eines Cursors direkt auf einem `ObjectStore` mit [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), mit dem Unterschied, dass die zurückgegebenen Datensätze basierend auf dem Index und nicht auf dem Primärschlüssel sortiert sind.
 
-Schließlich iterieren wir durch jeden Datensatz und fügen die Daten in eine HTML-Tabelle ein. Ein vollständiges Arbeitsbeispiel finden Sie in unserem [IDBIndex-Beispiel im IndexedDB-examples Demo-Repo](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbindex) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbindex/).)
+Schließlich iterieren wir durch jeden Datensatz und fügen die Daten in eine HTML-Tabelle ein. Für ein vollständiges funktionierendes Beispiel siehe unser [IDBIndex Beispiel im IndexedDB-examples Demo-Repo](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbindex) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbindex/).)
 
 ```js
 function displayDataByIndex() {
@@ -84,9 +85,9 @@ function displayDataByIndex() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Bereichs von Schlüsseln: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursors: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einstellen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Serial API")}}{{SecureContext_Header}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`connect`**-Ereignis der {{domxref("SerialPort")}}-Schnittstelle wird ausgelöst, wenn ein Port mit dem Gerät verbunden wurde. Dieses Ereignis wird nur für Ports ausgelöst, die mit entfernten Geräten wie denen, die über USB verbunden sind, assoziiert sind.
+Das **`connect`**-Ereignis der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle wird ausgelöst, wenn ein Port mit dem Gerät verbunden wurde. Dieses Ereignis wird nur für Ports ausgelöst, die mit entfernbaren Geräten wie solchen, die über USB verbunden sind, assoziiert sind.
 
-Dieses Ereignis wird an die Instanz von {{domxref("Serial")}} weitergeleitet, die diese Schnittstelle zurückgegeben hat.
+Dieses Ereignis wird zur Instanz von [`Serial`](/de/docs/Web/API/Serial) weitergeleitet, die diese Schnittstelle zurückgegeben hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("connect", (event) => {});
@@ -24,37 +24,37 @@ onconnect = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Bubbling
 
-Dieses Ereignis wird an {{domxref("Serial")}} weitergeleitet. Die `event.target`-Eigenschaft bezieht sich auf das {{domxref('SerialPort')}}-Objekt, das weitergeleitet wird.
+Dieses Ereignis wird an [`Serial`](/de/docs/Web/API/Serial) weitergeleitet. Die Eigenschaft `event.target` bezieht sich auf das [`SerialPort`](/de/docs/Web/API/SerialPort)-Objekt, das weitergeleitet wird.
 
-Für weitere Informationen siehe [Ereignisweiterleitung](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling).
+Für weitere Informationen siehe [Ereignis-Bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling).
 
 ## Beispiele
 
-### Benachrichtigen, wenn ein spezifischer Port verbunden wird
+### Benachrichtigung, wenn ein bestimmter Port verbunden wird
 
-Die {{domxref("Serial.requestPort()")}}-Methode gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("SerialPort")}} aufgelöst wird, das vom Benutzer gewählt wurde.
+Die Methode [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort) gibt ein {{jsxref("Promise")}} zurück, das mit einem vom Benutzer gewählten [`SerialPort`](/de/docs/Web/API/SerialPort) aufgelöst wird.
 
 ```js
-// Benutzer auffordern, einen seriellen Port auszuwählen
+// Prompt user to choose a serial port
 const port = await navigator.serial.requestPort();
 
 port.addEventListener("connect", (event) => {
-  // Benachrichtigung, dass der ausgewählte Port verbunden ist
+  // notify that the chosen port is connected
 });
 ```
 
-### Auf neu verbundene Ports hören
+### Lauschen auf neu verbundene Ports
 
-Das `connect`-Ereignis wird an das {{domxref("Serial")}}-Objekt weitergeleitet, wo Sie auf neu verbundene Ports hören können.
+Das `connect`-Ereignis wird an das [`Serial`](/de/docs/Web/API/Serial)-Objekt weitergeleitet, wo Sie auf neu verbundene Ports lauschen können.
 
 ```js
 navigator.serial.addEventListener("connect", (event) => {
-  // Benachrichtigung, dass ein neuer Port verfügbar ist
-  // Verwenden Sie `event.target`, um auf den neu hinzugefügten Port zu verweisen
+  // notify that a new port is available
+  // use `event.target` to refer to the newly-added port
 });
 ```
 
@@ -68,4 +68,4 @@ navigator.serial.addEventListener("connect", (event) => {
 
 ## Siehe auch
 
-- {{domxref("SerialPort.disconnect_event", "disconnect")}}-Ereignis
+- [`disconnect`](/de/docs/Web/API/SerialPort/disconnect_event) Ereignis

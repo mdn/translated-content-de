@@ -1,5 +1,5 @@
 ---
-title: Funktion()-Konstruktor
+title: Function() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Function/Function
 l10n:
   sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`Function()`**-Konstruktor erstellt {{jsxref("Function")}}-Objekte. Der direkte Aufruf des Konstruktors kann Funktionen dynamisch erstellen, leidet jedoch unter Sicherheits- und ähnlichen (aber weit weniger signifikanten) Leistungsproblemen wie {{jsxref("Global_Objects/eval", "eval()")}}. Im Gegensatz zu `eval`, das Zugang zum lokalen Gültigkeitsbereich haben kann, erzeugt der `Function`-Konstruktor jedoch Funktionen, die nur im globalen Gültigkeitsbereich ausgeführt werden.
+Der **`Function()`** Konstruktor erstellt {{jsxref("Function")}} Objekte. Das direkte Aufrufen des Konstruktors kann Funktionen dynamisch erstellen, leidet jedoch unter Sicherheits- und ähnlichen (aber weit weniger signifikanten) Leistungsproblemen wie {{jsxref("Global_Objects/eval", "eval()")}}. Im Gegensatz zu `eval` (das möglicherweise Zugriff auf den lokalen Geltungsbereich hat), erstellt der `Function`-Konstruktor Funktionen, die ausschließlich im globalen Geltungsbereich ausgeführt werden.
 
 {{EmbedInteractiveExample("pages/js/function-constructor.html", "shorter")}}
 
@@ -25,24 +25,24 @@ Function(arg1, arg2, functionBody)
 Function(arg1, arg2, /* …, */ argN, functionBody)
 ```
 
-> **Note:** `Function()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erzeugen eine neue `Function`-Instanz.
+> **Note:** `Function()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erstellen eine neue `Function` Instanz.
 
 ### Parameter
 
 - `arg1`, …, `argN` {{optional_inline}}
 
-  - : Namen, die von der Funktion als formale Argumentnamen verwendet werden sollen. Jeder Name muss ein String sein, der einem gültigen JavaScript-Parameter entspricht (entweder ein einfacher [Bezeichner](/de/docs/Glossary/Identifier), ein [rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) oder ein [destrukturierter](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) Parameter, optional mit einem [Standardwert](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters)), oder eine Liste solcher Strings, die durch Kommata getrennt sind.
+  - : Namen, die von der Funktion als formale Argumentnamen verwendet werden. Jeder muss ein String sein, der einem gültigen JavaScript-Parameter entspricht (entweder ein einfacher [Bezeichner](/de/docs/Glossary/Identifier), [Restparameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) oder [zerlegter](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) Parameter, optional mit einem [Standardwert](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters)), oder eine Liste solcher Strings, die durch Kommas getrennt sind.
 
-    Da die Parameter auf die gleiche Weise wie Funktionsausdrücke analysiert werden, sind Leerzeichen und Kommentare zulässig. Zum Beispiel: `"x", "theValue = 42", "[a, b] /* numbers */"` — oder `"x, theValue = 42, [a, b] /* numbers */"`. (`"x, theValue = 42", "[a, b]"` ist auch korrekt, obwohl es sehr verwirrend zu lesen ist.)
+    Da die Parameter auf die gleiche Weise wie Funktionsausdrücke geparst werden, sind Leerzeichen und Kommentare erlaubt. Zum Beispiel: `"x", "theValue = 42", "[a, b] /* numbers */"` — oder `"x, theValue = 42, [a, b] /* numbers */"`. (`"x, theValue = 42", "[a, b]"` ist ebenfalls korrekt, obwohl es sehr verwirrend zu lesen ist.)
 
 - `functionBody`
-  - : Ein String, der die JavaScript-Anweisungen enthält, die die Funktionsdefinition ausmachen.
+  - : Ein String, der die JavaScript-Anweisungen enthält, die die Funktionsdefinition bilden.
 
 ## Beschreibung
 
-`Function`-Objekte, die mit dem `Function`-Konstruktor erstellt wurden, werden analysiert, wenn die Funktion erstellt wird. Dies ist weniger effizient als das Erstellen einer Funktion mit einem [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) oder einer [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function) und deren Aufruf innerhalb Ihres Codes, da solche Funktionen mit dem Rest des Codes analysiert werden.
+`Function` Objekte, die mit dem `Function` Konstruktor erstellt werden, werden bei der Erstellung der Funktion geparst. Dies ist weniger effizient als das Erstellen einer Funktion mit einem [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) oder einer [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function) und deren Aufruf in Ihrem Code, da solche Funktionen zusammen mit dem Rest des Codes geparst werden.
 
-Alle an die Funktion übergebenen Argumente, außer dem letzten, werden als die Namen der Bezeichner der Parameter in der zu erstellenden Funktion in der Reihenfolge ihrer Übergabe behandelt. Die Funktion wird dynamisch als Funktionsausdruck kompiliert, wobei der Quellcode wie folgt zusammengesetzt wird:
+Alle Argumente, die an die Funktion übergeben werden, mit Ausnahme des letzten, werden als die Namen der Bezeichner der Parameter in der zu erstellenden Funktion in der Reihenfolge behandelt, in der sie übergeben werden. Die Funktion wird dynamisch als Funktionsausdruck kompiliert, wobei die Quelle auf folgende Weise zusammengefügt wird:
 
 ```js
 `function anonymous(${args.join(",")}
@@ -51,9 +51,9 @@ ${functionBody}
 }`;
 ```
 
-Dies ist durch den Aufruf der Methode [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/toString) der Funktion beobachtbar.
+Dies ist durch den Aufruf der [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/toString) Methode der Funktion beobachtbar.
 
-Im Gegensatz zu normalen [Funktionsausdrücken](/de/docs/Web/JavaScript/Reference/Operators/function) wird jedoch der Name `anonymous` nicht zum Gültigkeitsbereich des `functionBody` hinzugefügt, da `functionBody` nur Zugriff auf den globalen Gültigkeitsbereich hat. Wenn sich `functionBody` nicht im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) befindet (der Körper selbst muss die Direktive `"use strict"` haben, da er die Striktheit nicht vom Kontext erbt), können Sie [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee) verwenden, um auf die Funktion selbst zu verweisen. Alternativ können Sie den rekursiven Teil als innere Funktion definieren:
+Im Gegensatz zu normalen [Funktionsausdrücken](/de/docs/Web/JavaScript/Reference/Operators/function), wird der Name `anonymous` jedoch nicht zum Geltungsbereich des `functionBody` hinzugefügt, da `functionBody` nur Zugriff auf den globalen Geltungsbereich hat. Wenn sich `functionBody` nicht im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) befindet (der Body selbst muss die `"use strict"` Direktive haben, da er die Striktheit nicht vom Kontext erbt), können Sie [`arguments.callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee) verwenden, um auf die Funktion selbst zu verweisen. Alternativ können Sie den rekursiven Teil als innere Funktion definieren:
 
 ```js
 const recursiveFn = new Function(
@@ -70,62 +70,62 @@ const recursiveFn = new Function(
 );
 ```
 
-Beachten Sie, dass die beiden dynamischen Teile des zusammengestellten Quellcodes — die Parameterliste `args.join(",")` und `functionBody` — zuerst separat analysiert werden, um sicherzustellen, dass sie jeweils syntaktisch gültig sind. Dies verhindert versuchsinjektionsähnliche Manipulationen.
+Beachten Sie, dass die beiden dynamischen Teile der zusammengefügten Quelle — die Parameterliste `args.join(",")` und `functionBody` — zuerst separat geparst werden, um sicherzustellen, dass sie jeweils syntaktisch gültig sind. Dies verhindert versuchsweise Injektionsversuche.
 
 ```js
 new Function("/*", "*/) {");
-// SyntaxError: Unerwartetes Ende des Argument-Strings
-// Wird nicht zu "function anonymous(/*) {*/) {}"
+// SyntaxError: Unexpected end of arg string
+// Doesn't become "function anonymous(/*) {*/) {}"
 ```
 
 ## Beispiele
 
-### Argumente mit dem Funktionskonstruktor angeben
+### Argumente mit dem Function-Konstruktor angeben
 
-Der folgende Code erstellt ein `Function`-Objekt, das zwei Argumente entgegennimmt.
+Der folgende Code erstellt ein `Function` Objekt, das zwei Argumente annimmt.
 
 ```js
-// Beispiel kann direkt in Ihrer JavaScript-Konsole ausgeführt werden
+// Example can be run directly in your JavaScript console
 
-// Erstellen einer Funktion, die zwei Argumente annimmt und die Summe dieser Argumente zurückgibt
+// Create a function that takes two arguments, and returns the sum of those arguments
 const adder = new Function("a", "b", "return a + b");
 
-// Funktion aufrufen
+// Call the function
 adder(2, 6);
 // 8
 ```
 
-Die Argumente `a` und `b` sind formale Argumentnamen, die im Funktionskörper verwendet werden, `return a + b`.
+Die Argumente `a` und `b` sind formale Argumentnamen, die im Funktionskörper `return a + b` verwendet werden.
 
 ### Erstellen eines Funktionsobjekts aus einer Funktionsdeklaration oder einem Funktionsausdruck
 
 ```js
-// Der Funktionskonstruktor kann mehrere Anweisungen aufnehmen, die durch ein Semikolon getrennt sind. Funktionsausdrücke erfordern eine Rückkehranweisung mit dem Namen der Funktion
+// The function constructor can take in multiple statements separated by a semicolon. Function expressions require a return statement with the function's name
 
-// Beachten Sie, dass new Function aufgerufen wird. Dies ist so, dass wir die Funktion, die wir erstellt haben, direkt danach aufrufen können
+// Observe that new Function is called. This is so we can call the function we created directly afterwards
 const sumOfArray = new Function(
   "const sumArray = (arr) => arr.reduce((previousValue, currentValue) => previousValue + currentValue); return sumArray",
 )();
 
-// Funktion aufrufen
+// call the function
 sumOfArray([1, 2, 3, 4]);
 // 10
 
-// Wenn Sie new Function zum Erstellungszeitpunkt nicht aufrufen, können Sie die Methode Function.call() verwenden, um sie aufzurufen
+// If you don't call new Function at the point of creation, you can use the Function.call() method to call it
 const findLargestNumber = new Function(
   "function findLargestNumber (arr) { return Math.max(...arr) }; return findLargestNumber",
 );
 
-// Funktion aufrufen
+// call the function
 findLargestNumber.call({}).call({}, [2, 4, 1, 8, 5]);
 // 8
 
-// Funktionsdeklarationen erfordern keine Rückkehranweisung
+// Function declarations do not require a return statement
 const sayHello = new Function(
   "return function (name) { return `Hello, ${name}` }",
 )();
 
-// Funktion aufrufen
+// call the function
 sayHello("world");
 // Hello, world
 ```
@@ -141,5 +141,5 @@ sayHello("world");
 ## Siehe auch
 
 - [`function`](/de/docs/Web/JavaScript/Reference/Statements/function)
-- [`function` expression](/de/docs/Web/JavaScript/Reference/Operators/function)
-- {{jsxref("Functions", "Funktionen", "", 1)}}
+- [`function` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function)
+- {{jsxref("Functions", "Functions", "", 1)}}

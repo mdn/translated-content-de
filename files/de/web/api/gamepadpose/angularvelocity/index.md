@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebVR API")}}{{SeeCompatTable}}
 
-Die **`angularVelocity`** schreibgeschützte Eigenschaft des {{domxref("GamepadPose")}}-Interfaces gibt ein Array zurück, das den Drehgeschwindigkeitsvektor des {{domxref("Gamepad")}} in Bogenmaß pro Sekunde darstellt.
+Die schreibgeschützte Eigenschaft **`angularVelocity`** des [`GamepadPose`](/de/docs/Web/API/GamepadPose)-Interfaces gibt ein Array zurück, das den Winkelgeschwindigkeitsvektor des [`Gamepad`](/de/docs/Web/API/Gamepad) in Radiant pro Sekunde darstellt.
 
-Mit anderen Worten, die aktuelle Geschwindigkeit, mit der sich der Sensor um die `x`-, `y`- und `z`-Achsen dreht.
+Mit anderen Worten, die aktuelle Geschwindigkeit, mit der der Sensor um die `x`-, `y`- und `z`-Achsen rotiert.
 
 ## Wert
 
-Ein {{jsxref("Float32Array")}} oder `null`, wenn das Gamepad nicht in der Lage ist, Informationen zur Drehgeschwindigkeit bereitzustellen.
+Ein {{jsxref("Float32Array")}}, oder `null`, wenn das Gamepad keine Informationen zur Winkelgeschwindigkeit bereitstellen kann.
 
 ## Beispiele
 

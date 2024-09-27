@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`get()`**-Methode des {{domxref("CustomElementRegistry")}}-Interfaces gibt den Konstruktor für ein zuvor definiertes benutzerdefiniertes Element zurück.
+Die **`get()`**-Methode der
+[`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Schnittstelle gibt den Konstruktor für ein
+zuvor definiertes benutzerdefiniertes Element zurück.
 
 ## Syntax
 
@@ -40,7 +42,7 @@ customElements.define(
   },
 );
 
-// Ein Verweis auf den my-paragraph-Konstruktor wird zurückgegeben
+// Return a reference to the my-paragraph constructor
 let ctor = customElements.get("my-paragraph");
 ```
 

@@ -7,28 +7,28 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`div`** Anweisungen, abgekürzt für _division_, werden verwendet, um eine Zahl durch eine andere zu teilen, ähnlich dem **`/`** Operator in anderen Sprachen.
+Die **`div`**-Anweisungen, kurz für _division_, werden verwendet, um eine Zahl durch eine andere zu teilen, ähnlich dem **`/`**-Operator in anderen Sprachen.
 
 {{EmbedInteractiveExample("pages/wat/div.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; zwei Zahlen auf den Stapel laden
+;; load two numbers onto the stack
 i32.const 12
 i32.const 3
 
-;; eine Zahl durch die andere teilen
+;; divide one number by the other
 i32.div_u
 
-;; das oberste Element auf dem Stapel wird nun 4 sein (12 / 3 = 4)
+;; the top item on the stack will now be 4 (12 / 3 = 4)
 ```
 
-| Anweisung     | Binärer Opcode |
-| ------------- | -------------- |
-| `i32.div_s`   | `0x6d`         |
-| `i32.div_u`   | `0x6e`         |
-| `i64.div_s`   | `0x7f`         |
-| `i64.div_u`   | `0x80`         |
-| `f32.div`     | `0x95`         |
-| `f64.div`     | `0xa3`         |
+| Anweisung   | Binäroperand |
+| ----------- | ------------ |
+| `i32.div_s` | `0x6d`       |
+| `i32.div_u` | `0x6e`       |
+| `i64.div_s` | `0x7f`       |
+| `i64.div_u` | `0x80`       |
+| `f32.div`   | `0x95`       |
+| `f64.div`   | `0xa3`       |

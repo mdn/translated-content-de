@@ -1,5 +1,5 @@
 ---
-title: "Document: queryCommandState()-Methode"
+title: "Document: queryCommandState() Methode"
 short-title: queryCommandState()
 slug: Web/API/Document/queryCommandState
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}{{deprecated_header}}{{Non-standard_header}}
 
-Die **`queryCommandState()`**-Methode informiert Sie darüber, ob die aktuelle Auswahl einen bestimmten {{domxref("Document.execCommand()")}}-Befehl angewendet hat.
+Die **`queryCommandState()`** Methode gibt an, ob die aktuelle Auswahl einen bestimmten [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand) Befehl angewendet hat.
 
 ## Syntax
 
@@ -19,19 +19,19 @@ queryCommandState(command)
 ### Parameter
 
 - `command`
-  - : Ein Befehl von {{domxref("Document.execCommand()")}}
+  - : Ein Befehl aus [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand)
 
 ### Rückgabewert
 
-`queryCommandState()` kann einen booleschen Wert oder `null` zurückgeben, wenn der Zustand unbekannt ist.
+`queryCommandState()` kann einen booleschen Wert oder `null` zurückgeben, wenn der Status unbekannt ist.
 
 ## Beispiel
 
 ### HTML
 
 ```html
-<div contenteditable="true">Wählen Sie einen Teil dieses Textes aus!</div>
-<button onclick="makeBold();">Testen Sie den Status des 'bold'-Befehls</button>
+<div contenteditable="true">Select a part of this text!</div>
+<button onclick="makeBold();">Test the state of the 'bold' command</button>
 
 <hr />
 
@@ -53,16 +53,16 @@ function makeBold() {
   let message;
   switch (state) {
     case true:
-      message = "Die Fettschrift wird vom ausgewählten Text entfernt.";
+      message = "The bold formatting will be removed from the selected text.";
       break;
     case false:
-      message = "Der ausgewählte Text wird fett angezeigt.";
+      message = "The selected text will be displayed in bold.";
       break;
     default:
-      message = "Der Zustand des 'bold'-Befehls ist unbestimmbar.";
+      message = "The state of the 'bold' command is indeterminable.";
       break;
   }
-  document.querySelector("#output").textContent = `Ausgabe: ${message}`;
+  document.querySelector("#output").textContent = `Output: ${message}`;
   document.execCommand("bold");
 }
 ```
@@ -73,7 +73,7 @@ function makeBold() {
 
 ## Spezifikationen
 
-Dieses Feature ist Teil keiner aktuellen Spezifikation. Es ist nicht mehr darauf ausgelegt, ein Standard zu werden.
+Diese Funktion ist Teil keiner aktuellen Spezifikation. Sie wird nicht mehr als Standard verfolgt.
 
 ## Browser-Kompatibilität
 
@@ -81,6 +81,6 @@ Dieses Feature ist Teil keiner aktuellen Spezifikation. Es ist nicht mehr darauf
 
 ## Siehe auch
 
-- {{domxref("HTMLElement.contentEditable")}}
-- {{domxref("document.designMode")}}
-- Browser-Bugs in Bezug auf `queryCommandState()`: [Scribes "Browser Inconsistencies"-Dokumentation](https://github.com/guardian/scribe/blob/master/BROWSERINCONSISTENCIES.md#documentquerycommandstate)
+- [`HTMLElement.contentEditable`](/de/docs/Web/API/HTMLElement/contentEditable)
+- [`document.designMode`](/de/docs/Web/API/Document/designMode)
+- Browserfehler im Zusammenhang mit `queryCommandState()`: [Scribe's "Browser Inconsistencies" Dokumentation](https://github.com/guardian/scribe/blob/master/BROWSERINCONSISTENCIES.md#documentquerycommandstate)

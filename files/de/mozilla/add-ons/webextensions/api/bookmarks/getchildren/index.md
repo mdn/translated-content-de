@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-**`bookmarks.getChildren()`** ruft alle unmittelbaren Kinder eines Lesezeichenordners ab, der als {{WebExtAPIRef("bookmarks.BookmarkTreeNode", "BookmarkTreeNode")}}-ID identifiziert wird.
+**`bookmarks.getChildren()`** ruft alle unmittelbaren Kinder eines Lesezeichenordners ab, der durch eine {{WebExtAPIRef("bookmarks.BookmarkTreeNode", "BookmarkTreeNode")}} ID identifiziert wird.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,11 +26,11 @@ let gettingChildren = browser.bookmarks.getChildren(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von [`BookmarkTreeNode`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks/BookmarkTreeNode)-Objekten erfüllt wird. Jeder Eintrag repräsentiert einen Knoten als Kind. Die Liste ist in der gleichen Reihenfolge wie die Lesezeichen in der Benutzeroberfläche angeordnet. Trennzeichen sind in den Ergebnissen enthalten. Die Liste beinhaltet Unterordner, jedoch keine Kinder in den Unterordnern.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von [`BookmarkTreeNode`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks/BookmarkTreeNode) Objekten erfüllt wird. Jedes Element repräsentiert einen Kindknoten. Die Liste befindet sich in derselben Reihenfolge, wie die Lesezeichen in der Benutzeroberfläche angezeigt werden. Trennzeichen sind in den Ergebnissen enthalten. Die Liste umfasst Unterordner, enthält jedoch keine Kinder, die in Unterordnern enthalten sind.
 
-Wenn der angegebene Knoten keine Kinder hat, ist das Array leer.
+Falls der angegebene Knoten keine Kinder hat, ist das Array leer.
 
-Wenn der durch `id` identifizierte Knoten nicht gefunden wird, wird das Promise mit einer Fehlermeldung abgelehnt.
+Falls der durch `id` identifizierte Knoten nicht gefunden wird, wird das Promise mit einer Fehlermeldung zurückgewiesen.
 
 ## Beispiele
 
@@ -56,7 +56,7 @@ gettingChildren.then(onFulfilled, onRejected);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-getChildren) API von Chromium. Diese Dokumentation stammt von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-getChildren) API. Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

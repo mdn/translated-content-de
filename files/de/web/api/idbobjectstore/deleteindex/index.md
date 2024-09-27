@@ -1,5 +1,5 @@
 ---
-title: "IDBObjectStore: deleteIndex() Methode"
+title: "IDBObjectStore: deleteIndex()-Methode"
 short-title: deleteIndex()
 slug: Web/API/IDBObjectStore/deleteIndex
 l10n:
@@ -8,12 +8,9 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`deleteIndex()`** Methode des
-{{domxref("IDBObjectStore")}} Interfaces zerstört den Index mit dem angegebenen Namen in
-der verbundenen Datenbank, die während eines Versionsupgrades verwendet wird.
+Die **`deleteIndex()`**-Methode der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Schnittstelle zerstört den Index mit dem angegebenen Namen in der verbundenen Datenbank, der während eines Versions-Upgrades verwendet wird.
 
-Beachten Sie, dass diese Methode nur aus einem `VersionChange` Transaktionsmodus-Callback aufgerufen werden darf. Beachten Sie, dass diese Methode die
-{{domxref("IDBObjectStore.indexNames")}} Eigenschaft synchron ändert.
+Beachten Sie, dass diese Methode nur aus einem `VersionChange`-Transaktionsmodus-Callback aufgerufen werden darf. Beachten Sie, dass diese Methode die [`IDBObjectStore.indexNames`](/de/docs/Web/API/IDBObjectStore/indexNames)-Eigenschaft synchron ändert.
 
 ## Syntax
 
@@ -24,7 +21,7 @@ deleteIndex(indexName)
 ### Parameter
 
 - `indexName`
-  - : Der Name des vorhandenen Indexes, der entfernt werden soll.
+  - : Der Name des vorhandenen Index, der entfernt werden soll.
 
 ### Rückgabewert
 
@@ -32,63 +29,58 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Methode nicht aus einem `versionchange` Transaktionsmodus-Callback aufgerufen wurde.
-- `TransactionInactiveError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Transaktion, zu der dieses {{domxref("IDBObjectStore")}} gehört, nicht aktiv ist (z.B. gelöscht oder entfernt wurde).
-- `NotFoundError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn es keinen Index mit dem angegebenen Namen (Groß-/Kleinschreibung beachten) in der Datenbank gibt.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Methode nicht aus einem `versionchange`-Transaktionsmodus-Callback aufgerufen wurde.
+- `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Transaktion, zu der dieses [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gehört, nicht aktiv ist (z.B. wurde gelöscht oder entfernt).
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn es keinen Index mit dem angegebenen (groß-/kleinschreibungssensitiven) Namen in der Datenbank gibt.
 
 ## Beispiele
 
-Im folgenden Beispiel sehen Sie
-den {{domxref("IDBOpenDBRequest.upgradeneeded_event", "onupgradeneeded")}} Handler, der verwendet wird, um die
-Datenbankstruktur zu aktualisieren, wenn eine Datenbank mit einer höheren Versionsnummer geladen wird.
-{{domxref("IDBObjectStore.createIndex")}} wird verwendet, um neue Indizes im Objektspeicher zu erstellen, danach löschen wir die nicht benötigten alten Indizes mit `deleteIndex()`.
-Für ein vollständiges, funktionierendes Beispiel siehe unsere
-[To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live anschauen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Beispiel sehen Sie, wie der [`onupgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event)-Handler verwendet wird, um die Datenbankstruktur zu aktualisieren, wenn eine Datenbank mit einer höheren Versionsnummer geladen wird. [`IDBObjectStore.createIndex`](/de/docs/Web/API/IDBObjectStore/createIndex) wird verwendet, um neue Indizes im Objekt-Store zu erstellen, danach löschen wir die nicht benötigten alten Indizes mit `deleteIndex()`. Für ein vollständiges Arbeitsbeispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Live-Beispiel ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 let db;
 
-// Lassen Sie uns unsere Datenbank öffnen
+// Let us open our database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
-// Diese beiden Event-Handler reagieren darauf, ob die Datenbank erfolgreich geöffnet wurde oder nicht
+// these two event handlers act on the database being opened successfully, or not
 DBOpenRequest.onerror = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Fehler beim Laden der Datenbank.";
+    "Error loading database.";
 };
 
 DBOpenRequest.onsuccess = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Datenbank initialisiert.";
+    "Database initialized.";
 
-  // Speichern Sie das Ergebnis des Öffnens der Datenbank in der db-Variable. Dies wird unten häufig verwendet
+  // store the result of opening the database in the db variable. This is used a lot below
   db = event.target.result;
 
-  // Führen Sie die displayData()-Funktion aus, um die Aufgabenliste mit allen bereits in der IDB vorhandenen To-do-List-Daten zu füllen
+  // Run the displayData() function to populate the task list with all the to-do list data already in the IDB
   displayData();
 };
 
-// Dieses Ereignis behandelt das Ereignis, bei dem eine neue Version der Datenbank erstellt werden muss
-// Entweder wurde zuvor keine erstellt oder eine neue Versionsnummer wurde über die
-// window.indexedDB.open Zeile oben eingereicht
-// es ist nur in aktuellen Browsern implementiert
+// This event handles the event whereby a new version of the database needs to be created
+// Either one has not been created before, or a new version number has been submitted via the
+// window.indexedDB.open line above
+//it is only implemented in recent browsers
 DBOpenRequest.onupgradeneeded = (event) => {
   const db = event.target.result;
 
   db.onerror = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Fehler beim Laden der Datenbank.";
+      "Error loading database.";
   };
 
-  // Erstellen Sie einen objectStore für diese Datenbank
+  // Create an objectStore for this database
   const objectStore = db.createObjectStore("toDoList", {
     keyPath: "taskTitle",
   });
 
-  // Definieren Sie, welche Daten der objectStore enthalten wird
+  // define what data items the objectStore will contain
 
   objectStore.createIndex("hours", "hours", { unique: false });
   objectStore.createIndex("minutes", "minutes", { unique: false });
@@ -113,9 +105,9 @@ DBOpenRequest.onupgradeneeded = (event) => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Schlüsselspektrums: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursors: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live anschauen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursorn: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

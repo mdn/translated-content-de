@@ -1,5 +1,5 @@
 ---
-title: "Element: hasAttributeNS() Methode"
+title: "Element: hasAttributeNS()-Methode"
 short-title: hasAttributeNS()
 slug: Web/API/Element/hasAttributeNS
 l10n:
@@ -8,31 +8,31 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`hasAttributeNS()`** Methode des {{domxref("Element")}} Interfaces gibt einen booleschen Wert zurück, der angibt, ob das aktuelle Element das angegebene Attribut mit dem angegebenen Namensraum besitzt.
+Die **`hasAttributeNS()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob das aktuelle Element das angegebene Attribut mit dem angegebenen Namespace hat.
 
-Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines spezifischen Namensraums angeben müssen, verwenden Sie stattdessen die {{domxref("Element.hasAttribute()", "hasAttribute()")}} Methode.
+Wenn Sie mit HTML-Dokumenten arbeiten und das angeforderte Attribut nicht als Teil eines bestimmten Namespace angeben müssen, verwenden Sie stattdessen die [`hasAttribute()`](/de/docs/Web/API/Element/hasAttribute)-Methode.
 
 ## Syntax
 
 ```js-nolint
-hasAttributeNS(namespace, localName)
+hasAttributeNS(namespace,localName)
 ```
 
 ### Parameter
 
 - `namespace`
-  - : Ein String, der den Namensraum des Attributs angibt.
+  - : Ein String, der den Namespace des Attributs angibt.
 - `localName`
   - : Der Name des Attributs.
 
 ### Rückgabewert
 
-Ein Boolescher Wert.
+Ein boolescher Wert.
 
 ## Beispiele
 
 ```js
-// Überprüfen Sie, ob das Attribut existiert, bevor Sie einen Wert setzen
+// Check that the attribute exists before you set a value
 const d = document.getElementById("div1");
 if (
   d.hasAttributeNS("http://www.mozilla.org/ns/specialspace/", "special-align")
@@ -51,6 +51,6 @@ if (
 
 ## Siehe auch
 
-- {{domxref("Element.getAttributeNS()")}}
-- {{domxref("Element.setAttributeNS()")}}
-- {{domxref("Element.removeAttributeNS()")}}
+- [`Element.getAttributeNS()`](/de/docs/Web/API/Element/getAttributeNS)
+- [`Element.setAttributeNS()`](/de/docs/Web/API/Element/setAttributeNS)
+- [`Element.removeAttributeNS()`](/de/docs/Web/API/Element/removeAttributeNS)

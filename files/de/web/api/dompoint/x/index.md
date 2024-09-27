@@ -1,5 +1,5 @@
 ---
-title: "DOMPoint: x-Eigenschaft"
+title: "DOMPoint: x Eigenschaft"
 short-title: x
 slug: Web/API/DOMPoint/x
 l10n:
@@ -8,16 +8,18 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DOMPoint`**-Schnittstelle besitzt die
-Eigenschaft **`x`**, die die horizontale Koordinate, x, für einen Punkt im Raum darstellt.
+Die **`DOMPoint`** Schnittstelle hat die
+Eigenschaft **`x`**, die die horizontale Koordinate, x, für einen
+Punkt im Raum hält.
 
-Im Allgemeinen bedeuten positive Werte von `x` nach rechts,
-und negative Werte von `x` bedeuten nach links, soweit keine Transformationen die Orientierung der Achsen verändert haben.
+Im Allgemeinen bedeuten positive `x`-Werte nach rechts,
+und negative `x`-Werte bedeuten nach links, sofern keine Transformationen vorgenommen wurden, die die Ausrichtung der Achsen verändert haben.
 
 ## Wert
 
-Ein doppelt-genauer Gleitkommawert, der den Wert der x-Koordinate für den
-Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich oder ungültig sein kann (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
+Ein Gleitkommawert mit doppelter Genauigkeit, der den Wert der x-Koordinate für den
+Punkt angibt. Dieser Wert ist **unrestricted**, was bedeutet, dass er
+unendlich oder ungültig sein darf (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
 
 ## Spezifikationen
 
@@ -29,5 +31,5 @@ Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich
 
 ## Siehe auch
 
-- Die anderen Koordinateneigenschaften: {{domxref("DOMPoint.y", "y")}},
-  {{domxref("DOMPoint.z", "z")}}, und der Perspektivwert, {{domxref("DOMPoint.w", "w")}}.
+- Die anderen Koordinateneigenschaften: [`y`](/de/docs/Web/API/DOMPoint/y),
+  [`z`](/de/docs/Web/API/DOMPoint/z) und der Perspektivwert, [`w`](/de/docs/Web/API/DOMPoint/w).

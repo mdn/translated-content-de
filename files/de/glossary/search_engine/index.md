@@ -7,18 +7,18 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine Suchmaschine ist ein Softwaresystem, das Informationen aus dem {{Glossary("World Wide Web")}} sammelt und sie Benutzern präsentiert, die nach spezifischen Informationen suchen.
+Eine Suchmaschine ist ein Softwaresystem, das Informationen aus dem [World Wide Web](/de/docs/Glossary/World_Wide_Web) sammelt und sie Nutzern präsentiert, die nach spezifischen Informationen suchen.
 
 Eine Suchmaschine führt die folgenden Prozesse durch:
 
-- **Web-Crawling:** Durchsuchen von Websites durch Navigieren von {{Glossary("Hyperlink", "Hyperlinks")}} auf Webseiten, sowohl innerhalb einer Website als auch von einer Website zu einer anderen. Ein Website-Inhaber kann Bereiche der Website vom Zugriff durch den _Web-Crawler_ (oder _Spider_) einer Suchmaschine ausschließen, indem er "Roboter-Ausschluss"-Informationen in einer Datei namens `robots.txt` definiert.
-- **Indexierung:** Verknüpfen von Schlüsselwörtern und anderen Informationen mit bestimmten, gecrawlten Webseiten. Dies ermöglicht es den Benutzern, relevante Seiten so schnell wie möglich zu finden.
-- **Suchen:** Suchen nach relevanten Webseiten basierend auf Abfragen, die aus Schlüsselwörtern und anderen Befehlen an die Suchmaschine bestehen. Die Suchmaschine findet die URLs von Seiten, die der Abfrage entsprechen, und stuft sie basierend auf ihrer Relevanz ein. Anschließend werden die Ergebnisse dem Benutzer in der Reihenfolge der Einstufung präsentiert.
+- **Web-Crawling:** Durchsuchen von Websites durch Navigieren von [Hyperlinks](/de/docs/Glossary/Hyperlink) auf Webseiten, sowohl innerhalb einer Seite als auch von einer Seite zur anderen. Ein Website-Betreiber kann Bereiche der Seite von der Zugangnahme durch den _web crawler_ (oder _spider_) einer Suchmaschine ausschließen, indem er "Roboter-Ausschluss"-Informationen in einer Datei namens `robots.txt` definiert.
+- **Indexierung:** Vernetzung von Schlüsselwörtern und anderen Informationen mit spezifischen Webseiten, die gecrawlt wurden. Dadurch können Nutzer relevante Seiten so schnell wie möglich finden.
+- **Suche:** Suchen nach relevanten Webseiten basierend auf Anfragen, die aus Schlüsselwörtern und anderen Befehlen an die Suchmaschine bestehen. Die Suchmaschine findet die URLs der Seiten, die zur Anfrage passen, und ordnet sie nach ihrer Relevanz. Anschließend präsentiert sie die Ergebnisse dem Nutzer in der Reihenfolge des Rankings.
 
-Die beliebteste Suchmaschine ist Google. Weitere führende Suchmaschinen sind Yahoo!, Bing, Baidu und AOL.
+Die beliebteste Suchmaschine ist Google. Weitere bekannte Suchmaschinen sind Yahoo!, Bing, Baidu und AOL.
 
 ## Siehe auch
 
-- [Web-Suchmaschine](https://en.wikipedia.org/wiki/Web_search_engine) auf Wikipedia
-- [Suchmaschine](https://www.webopedia.com/definitions/search-engine/) auf Webopedia
-- [How Internet search engines work](https://computer.howstuffworks.com/internet/basics/search-engine.htm) auf How Stuff Works
+- [Web search engine](https://en.wikipedia.org/wiki/Web_search_engine) auf Wikipedia
+- [Search engine](https://www.webopedia.com/definitions/search-engine/) auf Webopedia
+- [Wie Internet-Suchmaschinen funktionieren](https://computer.howstuffworks.com/internet/basics/search-engine.htm) auf How Stuff Works

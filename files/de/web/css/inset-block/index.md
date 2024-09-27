@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die **`inset-block`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die logischen Blockanfänge und -enden eines Elements, die je nach Schreibweise, Richtung und Textorientierung des Elements auf physische Offsets abgebildet werden. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}} oder {{cssxref("right")}} und {{cssxref("left")}}, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
+Die **`inset-block`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die logischen Abstände vom Start und Ende des Blocks eines Elements, die je nach Schreibmodus, Richtung und Textorientierung des Elements auf physische Abstände abgebildet werden. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}}, oder {{cssxref("right")}} und {{cssxref("left")}}, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
 
-Diese {{glossary("inset properties", "inset property")}} hat keine Wirkung auf nicht positionierte Elemente.
+Diese [Einfügeeigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkungen auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-block.html")}}
 
-## Teil-Eigenschaften
+## Bestandteileigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -23,20 +23,20 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 ## Syntax
 
 ```css
-/* <length> Werte */
+/* <length> values */
 inset-block: 3px 10px;
 inset-block: 2.4em 3em;
-inset-block: 10px; /* Wert wird auf Anfang und Ende angewendet */
+inset-block: 10px; /* value applied to start and end */
 inset-block: auto anchor(start);
 inset-block: calc(anchor(--myAnchor 50%) + 10px) auto;
 
-/* <percentage> der Breite oder Höhe des umgebenden Blocks */
+/* <percentage>s of the width or height of the containing block */
 inset-block: 10% 5%;
 
-/* Schlüsselwortwert */
+/* Keyword value */
 inset-block: auto;
 
-/* Globale Werte */
+/* Global values */
 inset-block: inherit;
 inset-block: initial;
 inset-block: revert;
@@ -46,7 +46,7 @@ inset-block: unset;
 
 ### Werte
 
-Die Eigenschaft `inset-block` nimmt dieselben Werte wie die {{cssxref("left")}} Eigenschaft an.
+Die `inset-block` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}} Eigenschaft an.
 
 ## Formale Definition
 
@@ -58,13 +58,13 @@ Die Eigenschaft `inset-block` nimmt dieselben Werte wie die {{cssxref("left")}} 
 
 ## Beispiele
 
-### Festlegen von Blockanfangs- und -end-Offsets
+### Festlegen von Start- und Endabständen des Blocks
 
 #### HTML
 
 ```html
 <div>
-  <p class="exampleText">Beispieltext</p>
+  <p class="exampleText">Example text</p>
 </div>
 ```
 
@@ -99,7 +99,7 @@ div {
 
 ## Siehe auch
 
-- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und {{cssxref("left")}}
+- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - Die zugeordnete physische Kurzform: {{cssxref("inset")}}
 - Die zugeordnete Inline-Kurzform: {{cssxref("inset-inline")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

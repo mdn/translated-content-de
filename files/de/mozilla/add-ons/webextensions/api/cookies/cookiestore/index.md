@@ -7,23 +7,23 @@ l10n:
 
 {{AddonSidebar}}
 
-Der `CookieStore`-Typ der {{WebExtAPIRef("cookies")}}-API repräsentiert einen Cookie-Speicher im Browser.
+Der Typ `CookieStore` der {{WebExtAPIRef("cookies")}} API repräsentiert einen Cookie-Speicher im Browser.
 
-Fenster in unterschiedlichen Browsermodi können unterschiedliche Cookie-Speicher verwenden. Beispielsweise verwendet ein Fenster im privaten Browsing-/Inkognitomodus einen separaten Cookie-Speicher von einem nicht-inkognito/privaten Fenster. Ein Fenster kann auch mehrere Cookie-Speicher haben, wenn Sie [Container-Tabs](https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers) in Firefox verwenden.
+Fenster in verschiedenen Browsing-Modi können unterschiedliche Cookie-Speicher verwenden. Beispielsweise verwendet ein Fenster im privaten Modus/Inkognito-Modus einen separaten Cookie-Speicher von einem nicht-privaten/Inkognito-Fenster. Außerdem kann ein Fenster mehrere Cookie-Speicher haben, wenn in Firefox [Container-Tabs](https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers) verwendet werden.
 
-Weitere Informationen über Cookie-Speicher finden Sie unter [Arbeiten mit der Cookies-API](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_the_Cookies_API#cookie_stores).
+Weitere Informationen zu Cookie-Speichern finden Sie unter [Arbeiten mit der Cookies API](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_the_Cookies_API#cookie_stores).
 
 ## Typ
 
 Werte dieses Typs sind Objekte, die die folgenden Eigenschaften enthalten können:
 
 - `id`
-  - : Ein `string`, der die eindeutige Kennung für den Cookie-Speicher darstellt.
+  - : Ein `string`, der den eindeutigen Bezeichner für den Cookie-Speicher darstellt.
 - `incognito` {{optional_inline}}
   - : Ein boolescher Wert, der angibt, ob es sich um einen Inkognito-Cookie-Speicher handelt.
-    Diese Eigenschaft wird in Chrome oder Safari nicht unterstützt. Sie können jedoch Inkognito-Cookie-Speicher in Chrome erkennen, da deren `id` immer "1" ist.
+    Diese Eigenschaft wird in Chrome oder Safari nicht unterstützt. Sie können jedoch Inkognito-Cookie-Speicher in Chrome daran erkennen, dass ihre `id` immer "1" ist.
 - `tabIds`
-  - : Ein `array` von `integers`, der alle Browser-Tabs identifiziert, die diesen Cookie-Speicher gemeinsam nutzen.
+  - : Ein `array` von `integers`, das alle Browser-Tabs identifiziert, die diesen Cookie-Speicher gemeinsam nutzen.
 
 ## Browser-Kompatibilität
 
@@ -31,7 +31,7 @@ Werte dieses Typs sind Objekte, die die folgenden Eigenschaften enthalten könne
 
 ## Beispiele
 
-Im folgenden Code-Schnipsel wird die Methode {{WebExtAPIRef("cookies.getAllCookieStores()")}} verwendet, um alle derzeit im Browser verfügbaren Cookie-Speicher abzurufen und jede Cookie-Speicher-ID sowie die Tabs, die derzeit jeden Cookie-Speicher teilen, auszugeben.
+Im folgenden Ausschnitt wird die Methode {{WebExtAPIRef("cookies.getAllCookieStores()")}} verwendet, um alle derzeit im Browser verfügbaren Cookie-Speicher abzurufen und die ID jedes Cookie-Speichers sowie die Tabs, die derzeit jeden Cookie-Speicher gemeinsam nutzen, auszugeben.
 
 ```js
 function logStores(cookieStores) {
@@ -43,7 +43,7 @@ function logStores(cookieStores) {
 browser.cookies.getAllCookieStores().then(logStores);
 ```
 
-Der folgende Code-Schnipsel ruft alle Cookie-Speicher ab und protokolliert dann die Gesamtzahl der Speicher und wie viele dieser Speicher Inkognito sind.
+Der folgende Code-Schnipsel holt alle Cookie-Speicher und protokolliert dann die Gesamtanzahl der Speicher und wie viele dieser Speicher Inkognito sind.
 
 ```js
 browser.cookies.getAllCookieStores().then((stores) => {
@@ -57,7 +57,7 @@ browser.cookies.getAllCookieStores().then((stores) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#type-CookieStore)-API von Chromium. Diese Dokumentation stammt von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#type-CookieStore) API. Diese Dokumentation stammt aus [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -1,50 +1,50 @@
 ---
-title: Sichtbarkeitszustandseintrag
+title: VisibilityStateEntry
 slug: Web/API/VisibilityStateEntry
 l10n:
-  sourceCommit: 216794e76611c18e53222bb8efa570e898e990de
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("Performance API")}}{{seecompattable}}
 
-Die **`VisibilityStateEntry`**-Schnittstelle bietet Zeitpunkte von Änderungen des Sichtbarkeitszustands der Seite, d. h., wenn ein Tab von Vordergrund zu Hintergrund wechselt oder umgekehrt.
+Das **`VisibilityStateEntry`** Interface liefert Zeitmessungen für Änderungen des Sichtbarkeitszustands einer Seite, d.h. wenn ein Tab von Vordergrund zu Hintergrund wechselt oder umgekehrt.
 
-Dies kann verwendet werden, um Sichtbarkeitsänderungen auf der Leistungszeitachse genau zu bestimmen und sie mit anderen Leistungseinträgen wie "first-contentful-paint" in Beziehung zu setzen (siehe {{domxref("PerformancePaintTiming")}}).
+Dies kann verwendet werden, um Sichtbarkeitsänderungen in der Leistungstimeline zu bestimmen und sie gegen andere Leistungseinträge wie "first-contentful-paint" abzugleichen (siehe [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)).
 
-Es gibt zwei Hauptzeiten für Änderungen des Sichtbarkeitszustands, über die diese API berichtet:
+Es gibt zwei wesentliche Zeitpunkte, die dieser API für Sichtbarkeitsänderungen berichtet:
 
-- `visible`: Die Zeit, zu der die Seite sichtbar wird (d. h. wenn ihr Tab in den Vordergrund wechselt).
-- `hidden`: Die Zeit, zu der die Seite ausgeblendet wird (d. h. wenn ihr Tab in den Hintergrund wechselt).
+- `visible`: Der Zeitpunkt, an dem die Seite sichtbar wird (d.h. wenn ihr Tab in den Vordergrund wechselt).
+- `hidden`: Der Zeitpunkt, an dem die Seite versteckt wird (d.h. wenn ihr Tab in den Hintergrund wechselt).
 
-Die Leistungszeitachse wird immer einen "`visibility-state`"-Eintrag mit einem `startTime` von `0` und einem `name` enthalten, der dem initialen Sichtbarkeitszustand der Seite entspricht.
+Die Leistungstimeline wird immer einen `"visibility-state"` Eintrag mit einem `startTime` von `0` haben, und einen `name`, der den anfänglichen Sichtbarkeitszustand der Seite darstellt.
 
 > [!NOTE]
-> Wie andere Performance-APIs erweitert auch diese API {{domxref("PerformanceEntry")}}.
+> Wie andere Performance APIs erweitert auch diese API [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry).
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-Diese Schnittstelle hat keine eigenen Eigenschaften, sondern erweitert die Eigenschaften von {{domxref("PerformanceEntry")}}, indem sie diese wie folgt qualifiziert und einschränkt:
+Dieses Interface hat keine Eigenschaften, aber es erweitert die Eigenschaften von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry), indem es diese wie folgt qualifiziert und einschränkt:
 
-- {{domxref("PerformanceEntry.entryType")}} {{experimental_inline}}
-  - : Gibt "`visibility-state`" zurück.
-- {{domxref("PerformanceEntry.name")}} {{experimental_inline}}
-  - : Gibt entweder "`visible`" oder "`hidden`" zurück.
-- {{domxref("PerformanceEntry.startTime")}} {{experimental_inline}}
-  - : Gibt den {{domxref("DOMHighResTimeStamp","Zeitstempel")}} zurück, zu dem die Änderung des Sichtbarkeitszustands erfolgte.
-- {{domxref("PerformanceEntry.duration")}} {{experimental_inline}}
+- [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{experimental_inline}}
+  - : Gibt `"visibility-state"` zurück.
+- [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{experimental_inline}}
+  - : Gibt entweder `"visible"` oder `"hidden"` zurück.
+- [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{experimental_inline}}
+  - : Gibt den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, zu dem die Sichtbarkeitsänderung aufgetreten ist.
+- [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{experimental_inline}}
   - : Gibt 0 zurück.
 
 ## Instanzmethoden
 
-Diese Schnittstelle hat keine Methoden.
+Dieses Interface hat keine Methoden.
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Die folgende Funktion könnte verwendet werden, um eine Tabelle aller "`visibility-state`"-Leistungseinträge in der Konsole zu protokollieren:
+Die folgende Funktion könnte verwendet werden, um eine Tabelle aller `"visibility-state"` Leistungseinträge in die Konsole zu protokollieren:
 
 ```js
 function getVisibilityStateEntries() {
@@ -54,9 +54,9 @@ function getVisibilityStateEntries() {
 }
 ```
 
-### Korrelation von Sichtbarkeitsänderungen mit der Anzeigedauer
+### Korrelation von Sichtbarkeitsänderungen mit Paint Timing
 
-Die folgende Funktion erhält eine Referenz zu allen "`visibility-state`"-Einträgen und dem "`first-contentful-paint`"-Eintrag und verwendet {{jsxref("Array.some()")}}, um zu testen, ob einer der "`hidden`"-Sichtbarkeitseinträge vor der ersten inhaltsvollen Malerei auftrat:
+Die folgende Funktion erhält eine Referenz zu allen `"visibility-state"` Einträgen und zum `"first-contentful-paint"` Eintrag und verwendet {{jsxref("Array.some()")}}, um zu testen, ob einer der `"hidden"` Sichtbarkeitseinträge vor dem ersten inhaltlichen Paint aufgetreten ist:
 
 ```js
 function wasHiddenBeforeFirstContentfulPaint() {

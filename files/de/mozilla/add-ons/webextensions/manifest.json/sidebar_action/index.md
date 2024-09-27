@@ -10,15 +10,15 @@ l10n:
 <table class="fullwidth-table standard-table">
   <tbody>
     <tr>
-      <th scope="row">Type</th>
+      <th scope="row">Typ</th>
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Mandatory</th>
+      <th scope="row">Verpflichtend</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Manifest-Version</th>
+      <th scope="row">Manifestversion</th>
       <td>2 oder höher</td>
     </tr>
     <tr>
@@ -44,19 +44,19 @@ l10n:
   </tbody>
 </table>
 
-Ein [Sidebar](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Sidebars) ist ein Bereich, der auf der linken Seite des Browserfensters neben der Webseite angezeigt wird. Der Browser stellt eine Benutzeroberfläche zur Verfügung, die dem Benutzer ermöglicht, die derzeit verfügbaren Sidebars zu sehen und eine Sidebar zur Anzeige auszuwählen.
+Ein [Seitenbereich](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Sidebars) ist ein Bereich, der links im Browserfenster, neben der Webseite, angezeigt wird. Der Browser stellt eine Benutzeroberfläche bereit, die dem Benutzer ermöglicht, die derzeit verfügbaren Seitenbereiche zu sehen und einen davon zur Anzeige auszuwählen.
 
-Der sidebar_action-Schlüssel ermöglicht es Ihnen, die Standard-Eigenschaften für die Sidebar zu definieren. Sie können diese Eigenschaften zur Laufzeit mithilfe der {{WebExtAPIRef("sidebarAction")}}-API ändern.
+Der `sidebar_action`-Schlüssel ermöglicht es Ihnen, die Standard-Eigenschaften für den Seitenbereich zu definieren. Sie können diese Eigenschaften zur Laufzeit mit der {{WebExtAPIRef("sidebarAction")}}-API ändern.
 
 ## Syntax
 
-Der `sidebar_action`-Schlüssel ist ein Objekt, das eine der unten aufgeführten Eigenschaften haben kann. Die einzige verpflichtende Eigenschaft ist `default_panel`.
+Der `sidebar_action`-Schlüssel ist ein Objekt, das die unten aufgelisteten Eigenschaften haben kann. Die einzige verpflichtende Eigenschaft ist `default_panel`.
 
 <table class="fullwidth-table standard-table">
   <thead>
     <tr>
       <th scope="col">Name</th>
-      <th scope="col">Type</th>
+      <th scope="col">Typ</th>
       <th scope="col">Beschreibung</th>
     </tr>
   </thead>
@@ -73,21 +73,22 @@ Der `sidebar_action`-Schlüssel ist ein Objekt, das eine der unten aufgeführten
       </td>
       <td><code>Boolean</code></td>
       <td>
-        <p>Optional, standardmäßig:</p>
+        <p>Optional, Standardwert ist:</p>
           <ul>
             <li><code>true</code> in Manifest V2 und vor Firefox 115 in Manifest V3.</li>
             <li><code>false</code> in Manifest V3 ab Firefox 115.</li>
           </ul>
         <div class="notecard warning">
           <p>
-            Setzen Sie <code>browser_style</code> nicht auf true: Es wird ab Firefox 118 in Manifest V3 nicht unterstützt. Siehe <a href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration">Manifest V3 Migration für <code>browser_style</code></a>.
+            Setzen Sie <code>browser_style</code> nicht auf true: es wird in Manifest V3 ab Firefox 118 nicht unterstützt. Siehe <a href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration">Manifest V3 Migration für <code>browser_style</code></a>.
           </p>
         </div>
         <p>
           In Firefox kann das Stylesheet unter
           chrome://browser/content/extension.css oder
-          chrome://browser/content/extension-mac.css auf macOS gesehen werden. Beim Festlegen der Dimensionen beachten Sie bitte, dass dieses Stylesheet
-          <code>box-sizing: border-box</code> setzt (siehe
+          chrome://browser/content/extension-mac.css auf macOS eingesehen werden. Beim Setzen
+          von Dimensionen beachten Sie bitte, dass dieses Stylesheet
+          <code>box-sizing: border-box</code> festlegt (siehe
           <a href="/de/docs/Web/CSS/box-sizing">box-sizing</a>).
         </p>
       </td>
@@ -98,15 +99,16 @@ Der `sidebar_action`-Schlüssel ist ein Objekt, das eine der unten aufgeführten
       <td><code>Object</code> oder <code>String</code></td>
       <td>
         <p>
-          Verwenden Sie dies, um ein oder mehrere Symbole für die Sidebar anzugeben. Das Symbol wird in der Benutzeroberfläche des Browsers zum Öffnen und Schließen von Sidebars angezeigt.
+          Verwenden Sie dies, um ein oder mehrere Symbole für den Seitenbereich anzugeben. Das Symbol wird in der Benutzeroberfläche des Browsers zum Öffnen und Schließen von Seitenbereichen angezeigt.
         </p>
         <p>
           Symbole werden als URLs relativ zur manifest.json-Datei selbst angegeben.
         </p>
-        <p>Sie können eine einzelne Symbol-Datei angeben, indem Sie hier einen String angeben:</p>
+        <p>Sie können eine einzelne Symboldatei angeben, indem Sie eine Zeichenkette hier angeben:</p>
         <pre class="brush: json">"default_icon": "path/to/geo.svg"</pre>
         <p>
-          Um mehrere Symbole in verschiedenen Größen anzugeben, geben Sie hier ein Objekt an. Der Name jeder Eigenschaft ist die Höhe des Symbols in Pixeln und muss in einen Integer konvertierbar sein. Der Wert ist die URL. Zum Beispiel:
+          Um mehrere Symbole in verschiedenen Größen anzugeben, geben Sie hier ein Objekt an.
+          Der Name jeder Eigenschaft ist die Höhe des Symbols in Pixeln und muss in eine ganze Zahl konvertierbar sein. Der Wert ist die URL. Zum Beispiel:
         </p>
         <pre class="brush: json">
     "default_icon": {
@@ -118,12 +120,12 @@ Der `sidebar_action`-Schlüssel ist ein Objekt, das eine der unten aufgeführten
           Siehe
           <a
             href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes"
-            >Auswählen von Symbolgrößen</a
+            >Auswahl von Symbolgrößen</a
           >
           für weitere Anleitungen dazu.
         </p>
         <p>
-          Diese Eigenschaft ist optional: Wenn sie weggelassen wird, erhält die Sidebar kein Symbol.
+          Diese Eigenschaft ist optional: Wenn sie ausgelassen wird, erhält der Seitenbereich kein Symbol.
         </p>
       </td>
     </tr>
@@ -131,7 +133,7 @@ Der `sidebar_action`-Schlüssel ist ein Objekt, das eine der unten aufgeführten
       <td><code>default_panel</code></td>
       <td><code>String</code></td>
       <td>
-        <p>Der Pfad zu einer HTML-Datei, die den Inhalt der Sidebar angibt.</p>
+        <p>Der Pfad zu einer HTML-Datei, die den Inhalt des Seitenbereichs spezifiziert.</p>
         <p>
           Die HTML-Datei kann CSS- und JavaScript-Dateien mit
           <code
@@ -143,21 +145,20 @@ Der `sidebar_action`-Schlüssel ist ein Objekt, das eine der unten aufgeführten
               >&#x3C;script></a
             ></code
           >
-          Elementen beinhalten, genau wie eine normale Webseite.
+          -Elementen einbinden, genau wie eine normale Webseite.
         </p>
         <p>
-          Anders als bei einer normalen Webseite kann JavaScript, das im Panel ausgeführt wird, auf alle
+          Anders als bei einer normalen Webseite kann JavaScript, das im Panel läuft, auf alle
           <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API"
             >WebExtension-APIs</a
           >
-          zugreifen (vorbehaltlich, dass die Erweiterung die entsprechenden
+          zugreifen (vorausgesetzt, die Erweiterung verfügt über die entsprechenden
           <a
             href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions"
             >Berechtigungen</a
-          >
-          hat).
+          >).
         </p>
-        <p>Diese Eigenschaft ist zwingend erforderlich.</p>
+        <p>Diese Eigenschaft ist verpflichtend.</p>
         <p>
           Dies ist eine
           <a
@@ -173,16 +174,16 @@ Der `sidebar_action`-Schlüssel ist ein Objekt, das eine der unten aufgeführten
       <td><code>String</code></td>
       <td>
         <p>
-          Titel für die Sidebar. Dieser wird in der Benutzeroberfläche des Browsers zum Auflisten und Öffnen von Sidebars verwendet und wird oben in der Sidebar angezeigt, wenn sie geöffnet ist.
+          Titel für den Seitenbereich. Dieser wird in der Browser-Benutzeroberfläche für die Auflistung und das Öffnen von Seitenbereichen verwendet und wird oben angezeigt, wenn der Seitenbereich geöffnet ist.
         </p>
         <p>
-          Diese Eigenschaft ist optional: Wenn sie weggelassen wird, ist der Titel der Sidebar der Name der Erweiterung
+          Diese Eigenschaft ist optional: Wenn sie ausgelassen wird, ist der Titel des Seitenbereichs der
           <code
             ><a
               href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name"
-              >name</a
+              >Name</a
             ></code
-          >.
+          > der Erweiterung.
         </p>
         <p>
           Dies ist eine
@@ -198,7 +199,7 @@ Der `sidebar_action`-Schlüssel ist ein Objekt, das eine der unten aufgeführten
       <br />{{optional_inline}}</td>
       <td>Boolean</td>
       <td>
-        Optional, standardmäßig <code>true</code>. Bestimmt, ob die Sidebar bei der Installation geöffnet werden soll. Das Standardverhalten ist, die Sidebar zu öffnen, sobald die Installation abgeschlossen ist.
+        Optional, Standardwert ist <code>true</code>. Bestimmt, ob der Seitenbereich bei der Installation geöffnet werden soll. Das Standardverhalten ist, den Seitenbereich zu öffnen, wenn die Installation abgeschlossen ist.
       </td>
     </tr>
   </tbody>
@@ -214,7 +215,7 @@ Der `sidebar_action`-Schlüssel ist ein Objekt, das eine der unten aufgeführten
 }
 ```
 
-Für ein einfaches Beispiel einer Erweiterung, die eine Sidebar verwendet, siehe [annotate-page](https://github.com/mdn/webextensions-examples/tree/main/annotate-page).
+Für ein einfaches Beispiel einer Erweiterung, die einen Seitenbereich verwendet, siehe [annotate-page](https://github.com/mdn/webextensions-examples/tree/main/annotate-page).
 
 ## Browser-Kompatibilität
 
@@ -224,4 +225,4 @@ Für ein einfaches Beispiel einer Erweiterung, die eine Sidebar verwendet, siehe
 
 - [`browser_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action)
 - [`page_action`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action)
-- [Browserstile](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles)
+- [Browserstyles](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles)

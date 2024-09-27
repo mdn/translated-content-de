@@ -8,35 +8,35 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`selectionStart`**-Eigenschaft der {{domxref("HTMLInputElement")}}-Schnittstelle ist eine Zahl, die den Anfangsindex des ausgewählten Textes darstellt. Wenn nichts ausgewählt ist, gibt sie die Position des Texteingabecursors (Caret) innerhalb des `<input>`-Elements zurück.
+Die **`selectionStart`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces ist eine Zahl, die den Anfangsindex des ausgewählten Textes darstellt. Wenn nichts ausgewählt ist, gibt diese Eigenschaft die Position des Texteingabe-Cursors (Caret) innerhalb des `<input>`-Elements zurück.
 
 > [!NOTE]
-> Gemäß der [WHATWG-Formularspezifikation](https://html.spec.whatwg.org/multipage/forms.html#concept-input-apply) gilt die `selectionStart`-Eigenschaft nur für Eingabefelder der Typen text, search, URL, tel und password. In modernen Browsern wird eine Ausnahme ausgelöst, wenn die `selectionStart`-Eigenschaft bei den restlichen Eingabetypen gesetzt wird. Zusätzlich gibt diese Eigenschaft `null` zurück, wenn auf die `selectionStart`-Eigenschaft bei Nicht-Text-Eingabeelementen zugegriffen wird.
+> Laut der [WHATWG Forms Spezifikation](https://html.spec.whatwg.org/multipage/forms.html#concept-input-apply) gilt die `selectionStart`-Eigenschaft nur für Eingabetypen wie Text, Suche, URL, Telefon und Passwort. In modernen Browsern wird eine Ausnahme ausgelöst, wenn die `selectionStart`-Eigenschaft bei anderen Eingabetypen gesetzt wird. Zusätzlich gibt diese Eigenschaft `null` zurück, wenn sie auf nicht-textuelle Eingabeelemente angewendet wird.
 
-Wenn `selectionStart` größer ist als `selectionEnd`, werden beide als Wert von `selectionEnd` behandelt.
+Wenn `selectionStart` größer ist als `selectionEnd`, werden beide als der Wert von `selectionEnd` behandelt.
 
 ## Wert
 
-Eine nicht negative Zahl.
+Eine nicht-negative Zahl.
 
 ## Beispiele
 
 ### HTML
 
 ```html
-<!-- Verwenden von selectionStart bei einem Nicht-Text-Eingabeelement -->
-<label for="color">selectionStart-Eigenschaft bei type=color</label>
+<!-- use selectionStart on non text input element -->
+<label for="color">selectionStart property on type=color</label>
 <input id="color" type="color" />
 
-<!-- Verwenden von selectionStart bei einem Text-Eingabeelement -->
+<!-- use selectionStart on text input element -->
 <fieldset>
-  <legend>selectionStart-Eigenschaft bei type=text</legend>
-  <label for="statement">Wählen Sie das Wort 'mdn' aus dem Text aus: </label>
+  <legend>selectionStart property on type=text</legend>
+  <label for="statement">Select 'mdn' word from the text : </label>
   <input
     type="text"
     id="statement"
     value="The mdn is a documentation repository." />
-  <button id="statement-btn">mdn-Text auswählen</button>
+  <button id="statement-btn">Select mdn text</button>
 </fieldset>
 ```
 
@@ -53,8 +53,8 @@ statementBtn.addEventListener("click", () => {
   inputElement.focus();
 });
 
-// Öffnen Sie die Konsolenausgabe im Browser, um das Ergebnis zu überprüfen
-console.log(colorStart.selectionStart); // Ausgabe: null
+// open browser console to verify output
+console.log(colorStart.selectionStart); // Output : null
 ```
 
 ### Ergebnis
@@ -71,6 +71,6 @@ console.log(colorStart.selectionStart); // Ausgabe: null
 
 ## Siehe auch
 
-- {{domxref("HTMLTextAreaElement.selectionStart")}}-Eigenschaft
-- {{domxref("HTMLInputElement.selectionEnd")}}-Eigenschaft
-- {{domxref("HTMLInputElement.setSelectionRange")}}-Methode
+- [`HTMLTextAreaElement.selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart) Eigenschaft
+- [`HTMLInputElement.selectionEnd`](/de/docs/Web/API/HTMLInputElement/selectionEnd) Eigenschaft
+- [`HTMLInputElement.setSelectionRange`](/de/docs/Web/API/HTMLInputElement/setSelectionRange) Methode

@@ -1,5 +1,5 @@
 ---
-title: "Dokument: scrollend-Ereignis"
+title: "Document: scrollend-Ereignis"
 short-title: scrollend
 slug: Web/API/Document/scrollend_event
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef}}
 
-Das **`scrollend`**-Ereignis wird ausgelöst, wenn das Dokumentenansicht den Bildlauf abgeschlossen hat.
-Ein Scrollen wird als abgeschlossen betrachtet, wenn die Scroll-Position keine ausstehenden Aktualisierungen mehr hat und der Benutzer seine Geste beendet hat.
+Das **`scrollend`**-Ereignis wird ausgelöst, wenn das Dokumentfenster das Scrollen abgeschlossen hat.
+Das Scrollen gilt als abgeschlossen, wenn die Scroll-Position keine ausstehenden Aktualisierungen mehr hat und der Benutzer seine Geste beendet hat.
 
-Scrollpositionsänderungen umfassen sanftes oder sofortiges Scrollen mit dem Mausrad, Scrollen mit der Tastatur, scroll-snap-Ereignisse oder andere APIs und Gesten, die eine Aktualisierung der Scrollposition verursachen.
-Benutzergesten wie Touch-Panning oder Trackpad-Scrolling sind erst abgeschlossen, wenn Zeiger oder Tasten losgelassen werden.
-Wenn sich die Scrollposition nicht geändert hat, wird kein scrollend-Ereignis ausgelöst.
+Zu den Aktualisierungen der Scroll-Position gehören sowohl gleichmäßiges als auch sofortiges Scrollen mit dem Mausrad, Scrollen mit der Tastatur, Scroll-Snap-Ereignisse oder andere APIs und Gesten, die die Scroll-Position aktualisieren.
+Benutzergesten wie Panoramabildschirmgesten oder das Scrollen mit dem Trackpad sind erst abgeschlossen, wenn Zeiger oder Tasten losgelassen wurden.
+Wenn sich die Scroll-Position nicht geändert hat, wird kein scrollend-Ereignis ausgelöst.
 
-Um zu erkennen, wann ein Scrollen innerhalb eines Elements abgeschlossen ist, siehe das {{domxref("Element/scrollend_event", "scrollend")}}-Ereignis von `Element`.
+Um festzustellen, wann das Scrollen innerhalb eines Elements abgeschlossen ist, siehe das [`scrollend`](/de/docs/Web/API/Element/scrollend_event)-Ereignis von `Element`.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("scrollend", (event) => {});
@@ -29,15 +29,15 @@ onscrollend = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Verwendung von Document `scrollend` mit einem Ereignis-Listener
+### Verwenden von Document `scrollend` mit einem Event-Listener
 
-Das folgende Beispiel zeigt, wie Sie das `scrollend`-Ereignis mit einem Ereignis-Listener verwenden, um zu erkennen, wann der Benutzer das Scrollen des Dokuments gestoppt hat.
-Im Beispiel gibt es Inhalte im eingebetteten iframe, die höher und breiter als das iframe selbst sind, sodass ein Scrollen innerhalb des iframes in beide Richtungen möglich ist.
-Wenn der Benutzer das Scrollen stoppt, wird das `scrollend`-Ereignis ausgelöst:
+Das folgende Beispiel zeigt, wie das `scrollend`-Ereignis mit einem Event-Listener verwendet wird, um zu erkennen, wann der Benutzer das Scrollen des Dokuments beendet hat.
+Im Beispiel gibt es Inhalt im eingebetteten iframe, der höher und breiter als das iframe selbst ist, sodass das Scrollen innerhalb des iframes in beide Richtungen möglich ist.
+Wenn der Benutzer das Scrollen beendet, wird das `scrollend`-Ereignis ausgelöst:
 
 ```css hidden
 * {
@@ -72,7 +72,7 @@ Wenn der Benutzer das Scrollen stoppt, wird das `scrollend`-Ereignis ausgelöst:
   <div class="box"></div>
   <div class="box"></div>
 </div>
-<p id="output">Warten auf Scroll-Ereignisse...</p>
+<p id="output">Waiting on scroll events...</p>
 ```
 
 ```js
@@ -89,11 +89,11 @@ document.addEventListener("scrollend", (event) => {
 
 {{EmbedLiveSample("Using_document_scrollend_with_an_event_listener", "100%", 200)}}
 
-### Verwendung der `onscrollend`-Ereignishandlereigenschaft
+### Verwenden der `onscrollend`-Ereignis-Handler-Eigenschaft
 
-Das folgende Beispiel zeigt, wie Sie die `scrollend`-Ereignishandlereigenschaft verwenden, um zu erkennen, wann der Benutzer das Scrollen des Dokuments gestoppt hat.
-Im Beispiel gibt es Inhalte im eingebetteten iframe, die höher und breiter als das iframe selbst sind, sodass ein Scrollen innerhalb des iframes in beide Richtungen möglich ist.
-Dies basiert auf dem ersten Beispiel, verwendet jedoch `document.onscrollend` anstelle eines Ereignis-Listeners:
+Das folgende Beispiel zeigt, wie die `scrollend`-Ereignis-Handler-Eigenschaft verwendet wird, um zu erkennen, wann der Benutzer das Scrollen des Dokuments beendet hat.
+Im Beispiel gibt es Inhalt im eingebetteten iframe, der höher und breiter als das iframe selbst ist, sodass das Scrollen innerhalb des iframes in beide Richtungen möglich ist.
+Dies baut auf dem ersten Beispiel auf, verwendet jedoch `document.onscrollend` anstelle eines Event-Listeners:
 
 ```css hidden
 * {
@@ -128,7 +128,7 @@ Dies basiert auf dem ersten Beispiel, verwendet jedoch `document.onscrollend` an
   <div class="box"></div>
   <div class="box"></div>
 </div>
-<p id="output">Warten auf Scroll-Ereignisse...</p>
+<p id="output">Waiting on scroll events...</p>
 ```
 
 ```js

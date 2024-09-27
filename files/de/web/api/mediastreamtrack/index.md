@@ -7,70 +7,70 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`MediaStreamTrack`** Interface der {{domxref("Media Capture and Streams API", "", "", "nocode")}} repräsentiert einen einzelnen Medientrack innerhalb eines Streams; typischerweise sind das Audio- oder Videotracks, aber auch andere Track-Typen können existieren.
+Die **`MediaStreamTrack`**-Schnittstelle der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) repräsentiert einen einzelnen Medientrack innerhalb eines Streams; typischerweise handelt es sich dabei um Audio- oder Videotracks, aber auch andere Track-Typen können existieren.
 
-Einige User Agents erweitern dieses Interface, um präzisere Informationen oder Funktionalitäten bereitzustellen, wie z.B. {{domxref("CanvasCaptureMediaStreamTrack")}}.
+Einige User Agents erweitern diese Schnittstelle, um genauere Informationen oder Funktionen bereitzustellen, wie beispielsweise [`CanvasCaptureMediaStreamTrack`](/de/docs/Web/API/CanvasCaptureMediaStreamTrack).
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-Zusätzlich zu den unten aufgeführten Eigenschaften hat `MediaStreamTrack` einschränkbare Eigenschaften, die mit {{domxref("MediaStreamTrack.applyConstraints", "applyConstraints()")}} gesetzt werden können und mit {{domxref("MediaStreamTrack.getConstraints", "getConstraints()")}} und {{domxref("MediaStreamTrack.getSettings", "getSettings()")}} zugänglich sind. Sehen Sie sich [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints) an, um zu lernen, wie man korrekt mit einschränkbaren Eigenschaften arbeitet. Wird dies nicht korrekt gemacht, wird Ihr Code unzuverlässig.
+Zusätzlich zu den unten aufgelisteten Eigenschaften verfügt `MediaStreamTrack` über einschränkbare Eigenschaften, die mit [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) gesetzt und mit [`getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints) und [`getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) abgerufen werden können. Siehe [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints), um zu erfahren, wie man korrekt mit einschränkbaren Eigenschaften arbeitet. Ein falscher Umgang wird dazu führen, dass Ihr Code unzuverlässig ist.
 
-- {{domxref("MediaStreamTrack.contentHint")}}
-  - : Ein String, der von der Webanwendung genutzt werden kann, um einen Hinweis auf den Inhaltstyp des Tracks zu geben, um zu leiten, wie er von API-Verbrauchern behandelt werden soll. Erlaubte Werte hängen vom Wert der {{domxref("MediaStreamTrack.kind")}} Eigenschaft ab.
-- {{domxref("MediaStreamTrack.enabled")}}
+- [`MediaStreamTrack.contentHint`](/de/docs/Web/API/MediaStreamTrack/contentHint)
+  - : Ein String, der von der Webanwendung verwendet werden kann, um einen Hinweis darauf zu geben, welche Art von Inhalt der Track enthält, um zu steuern, wie er von API-Nutzern behandelt werden soll. Erlaubte Werte hängen von dem Wert der [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Eigenschaft ab.
+- [`MediaStreamTrack.enabled`](/de/docs/Web/API/MediaStreamTrack/enabled)
 
-  - : Ein Boolean, dessen Wert `true` ist, wenn der Track aktiviert ist, also das Medienquelle-Stream rendern darf; oder `false`, wenn er deaktiviert ist, also nicht das Medienquelle-Stream rendern darf, sondern Stille und Dunkelheit. Wenn der Track getrennt wurde, kann dieser Wert geändert werden, hat jedoch keine Wirkung mehr.
-
-    > [!NOTE]
-    > Sie können eine Standard-"Stummschalt"-Funktionalität implementieren, indem Sie `enabled` auf `false` setzen. Die `muted` Eigenschaft bezieht sich auf einen Zustand, in dem aufgrund eines technischen Problems keine Medien vorhanden sind.
-
-- {{domxref("MediaStreamTrack.id")}} {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der eine eindeutige Kennung (GUID) für den Track enthält; sie wird vom Browser generiert.
-- {{domxref("MediaStreamTrack.kind")}} {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der auf `"audio"` gesetzt ist, wenn der Track ein Audiotrack ist, und auf `"video"`, wenn es ein Videotrack ist. Er ändert sich nicht, wenn der Track von seiner Quelle getrennt wird.
-- {{domxref("MediaStreamTrack.label")}} {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der ein vom User Agent zugewiesenes Label enthält, das die Trackquelle identifiziert, wie zum Beispiel `"internal microphone"`. Der String kann leer bleiben und ist leer, solange keine Quelle verbunden wurde. Wenn der Track von seiner Quelle getrennt wird, ändert sich das Label nicht.
-- {{domxref("MediaStreamTrack.muted")}} {{ReadOnlyInline}}
-
-  - : Gibt einen Boolean-Wert zurück, der anzeigt, ob der Track aufgrund eines technischen Problems keine Mediendaten bereitstellen kann.
+  - : Ein Boolean, dessen Wert `true` ist, wenn der Track aktiviert ist, also erlaubt, den Medienstrom wiederzugeben; oder `false`, wenn er deaktiviert ist, also nicht den Medienstrom, sondern Stille und Schwarzbild wiedergibt. Wenn der Track getrennt wurde, kann dieser Wert geändert werden, hat aber keine weitere Wirkung.
 
     > [!NOTE]
-    > Sie können eine Standard-"Stummschalt"-Funktionalität implementieren, indem Sie `enabled` auf `false` setzen und die Medien wieder entstummen, indem Sie es wieder auf `true` setzen.
+    > Sie können die standardmäßige "Stummschaltung"-Funktionalität implementieren, indem Sie `enabled` auf `false` setzen. Die `muted`-Eigenschaft bezieht sich auf eine Bedingung, bei der Medien aufgrund eines technischen Problems nicht verfügbar sind.
 
-- {{domxref("MediaStreamTrack.readyState")}} {{ReadOnlyInline}}
+- [`MediaStreamTrack.id`](/de/docs/Web/API/MediaStreamTrack/id) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der eine eindeutige Kennung (GUID) für den Track enthält; er wird vom Browser generiert.
+- [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der auf `"audio"` gesetzt ist, wenn der Track ein Audiotrack ist, und auf `"video"`, wenn es sich um einen Videotrack handelt. Er ändert sich nicht, wenn der Track von seiner Quelle getrennt ist.
+- [`MediaStreamTrack.label`](/de/docs/Web/API/MediaStreamTrack/label) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der ein vom User Agent zugewiesenes Label enthält, das die Trackquelle identifiziert, wie etwa `"internal microphone"`. Der String kann leer bleiben und bleibt leer, solange keine Quelle verbunden ist. Wenn der Track von seiner Quelle getrennt wird, ändert sich das Label nicht.
+- [`MediaStreamTrack.muted`](/de/docs/Web/API/MediaStreamTrack/muted) {{ReadOnlyInline}}
 
-  - : Gibt einen aufgezählten String zurück, der den Status des Tracks angibt. Dies ist einer der folgenden Werte:
+  - : Gibt einen Boolean-Wert zurück, der angibt, ob der Track aufgrund eines technischen Problems keine Mediendaten bereitstellen kann.
 
-    - `"live"`, was anzeigt, dass ein Eingang verbunden ist und sein Bestes gibt, um Echtzeitdaten bereitzustellen. In diesem Fall kann die Datenwiedergabe mit dem {{domxref("MediaStreamTrack.enabled", "enabled")}} Attribut ein- oder ausgeschaltet werden.
-    - `"ended"`, was anzeigt, dass der Eingang keine Daten mehr liefert und nie neue Daten bereitstellen wird.
+    > [!NOTE]
+    > Sie können die standardmäßige "Stummschaltung"-Funktionalität implementieren, indem Sie `enabled` auf `false` setzen, und die Medien wieder aktivieren, indem Sie es wieder auf `true` setzen.
+
+- [`MediaStreamTrack.readyState`](/de/docs/Web/API/MediaStreamTrack/readyState) {{ReadOnlyInline}}
+
+  - : Gibt einen enumerierten String zurück, der den Status des Tracks angibt. Dieser wird einer der folgenden Werte sein:
+
+    - `"live"`, was darauf hindeutet, dass eine Eingabe verbunden ist und ihr Bestes tut, um Echtzeitdaten bereitzustellen. In diesem Fall kann die Datenwiedergabe mit dem [`enabled`](/de/docs/Web/API/MediaStreamTrack/enabled)-Attribut ein- oder ausgeschaltet werden.
+    - `"ended"`, was darauf hindeutet, dass die Eingabe keine Daten mehr bereitstellt und keine neuen Daten mehr liefern wird.
 
 ## Instanz-Methoden
 
-- {{domxref("MediaStreamTrack.applyConstraints()")}}
-  - : Ermöglicht der Anwendung, die idealen und/oder akzeptablen Wertebereiche für eine beliebige Anzahl der verfügbaren einschränkbaren Eigenschaften des `MediaStreamTrack` anzugeben.
-- {{domxref("MediaStreamTrack.clone()")}}
-  - : Gibt eine Kopie des `MediaStreamTrack` zurück.
-- {{domxref("MediaStreamTrack.getCapabilities()")}}
-  - : Gibt die Liste der für den `MediaStreamTrack` verfügbaren einschränkbaren Eigenschaften zurück.
-- {{domxref("MediaStreamTrack.getConstraints()")}}
-  - : Gibt ein {{domxref('MediaTrackConstraints')}} Objekt zurück, das die aktuell gesetzten Einschränkungen für den Track enthält; der zurückgegebene Wert entspricht den Einschränkungen, die zuletzt mit {{domxref("MediaStreamTrack.applyConstraints", "applyConstraints()")}} festgelegt wurden.
-- {{domxref("MediaStreamTrack.getSettings()")}}
-  - : Gibt ein {{domxref("MediaTrackSettings")}} Objekt zurück, das die aktuellen Werte jeder der einschränkbaren Eigenschaften des `MediaStreamTrack` enthält.
-- {{domxref("MediaStreamTrack.stop()")}}
-  - : Beendet das Abspielen der Quelle, die mit dem Track verbunden ist, sowohl die Quelle als auch der Track werden getrennt. Der Track-Status wird auf `ended` gesetzt.
+- [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints)
+  - : Ermöglicht der Anwendung, die idealen und/oder akzeptablen Wertebereiche für eine beliebige Anzahl der verfügbaren einschränkbaren Eigenschaften des `MediaStreamTrack` zu spezifizieren.
+- [`MediaStreamTrack.clone()`](/de/docs/Web/API/MediaStreamTrack/clone)
+  - : Gibt eine Duplikation des `MediaStreamTrack` zurück.
+- [`MediaStreamTrack.getCapabilities()`](/de/docs/Web/API/MediaStreamTrack/getCapabilities)
+  - : Gibt eine Liste der einschränkbaren Eigenschaften zurück, die für das `MediaStreamTrack` verfügbar sind.
+- [`MediaStreamTrack.getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints)
+  - : Gibt ein [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Objekt zurück, das die derzeit gesetzten Einschränkungen für den Track enthält; der zurückgegebene Wert entspricht den zuletzt mit [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) festgelegten Einschränkungen.
+- [`MediaStreamTrack.getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings)
+  - : Gibt ein [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Objekt zurück, das die aktuellen Werte jeder einschränkbaren Eigenschaft des `MediaStreamTrack` enthält.
+- [`MediaStreamTrack.stop()`](/de/docs/Web/API/MediaStreamTrack/stop)
+  - : Stoppt das Abspielen der mit dem Track assoziierten Quelle, sowohl die Quelle als auch der Track werden disassoziiert. Der Track-Status wird auf `ended` gesetzt.
 
 ## Ereignisse
 
-Hören Sie diese Ereignisse mit {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder indem Sie einen Event-Listener der `oneventname` Eigenschaft dieses Interfaces zuweisen:
+Hören Sie diese Ereignisse mithilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisung eines Ereignislisteners zur `oneventname`-Eigenschaft dieser Schnittstelle ab:
 
-- {{domxref("MediaStreamTrack/ended_event", "ended")}}
-  - : Wird gesendet, wenn die Wiedergabe des Tracks endet (wenn sich der Wert von {{domxref("MediaStreamTrack.readyState", "readyState")}} zu `ended` ändert), außer wenn der Track durch Aufruf von {{domxref("MediaStreamTrack.stop")}} beendet wird.
-- {{domxref("MediaStreamTrack/mute_event", "mute")}}
-  - : Wird an den `MediaStreamTrack` gesendet, wenn sich der Wert der {{domxref("MediaStreamTrack.muted", "muted")}} Eigenschaft zu `true` ändert, was darauf hinweist, dass der Track vorübergehend keine Daten bereitstellen kann (zum Beispiel, wenn das Netzwerk einen Dienstfehler erlebt).
-- {{domxref("MediaStreamTrack/unmute_event", "unmute")}}
-  - : Wird gesendet, wenn Daten wieder verfügbar werden und den `muted` Zustand beenden.
+- [`ended`](/de/docs/Web/API/MediaStreamTrack/ended_event)
+  - : Wird gesendet, wenn die Wiedergabe des Tracks endet (wenn sich der Wert [`readyState`](/de/docs/Web/API/MediaStreamTrack/readyState) auf `ended` ändert), außer wenn der Track durch Aufrufen von [`MediaStreamTrack.stop`](/de/docs/Web/API/MediaStreamTrack/stop) beendet wird.
+- [`mute`](/de/docs/Web/API/MediaStreamTrack/mute_event)
+  - : Wird an den `MediaStreamTrack` gesendet, wenn der Wert der [`muted`](/de/docs/Web/API/MediaStreamTrack/muted)-Eigenschaft auf `true` geändert wird, was anzeigt, dass der Track vorübergehend keine Daten bereitstellen kann (z. B. wenn das Netzwerk eine Dienststörung erfährt).
+- [`unmute`](/de/docs/Web/API/MediaStreamTrack/unmute_event)
+  - : Wird an den Track gesendet, wenn wieder Daten verfügbar werden, wodurch der `muted`-Status endet.
 
 ## Spezifikationen
 
@@ -83,4 +83,4 @@ Hören Sie diese Ereignisse mit {{domxref("EventTarget.addEventListener", "addEv
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- {{domxref("MediaStream")}}
+- [`MediaStream`](/de/docs/Web/API/MediaStream)

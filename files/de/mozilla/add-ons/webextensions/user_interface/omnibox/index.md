@@ -1,27 +1,27 @@
 ---
-title: Adressleiste Vorschläge
+title: Adressleisten-Vorschläge
 slug: Mozilla/Add-ons/WebExtensions/user_interface/Omnibox
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: a966a8b4eade72a13de8a688c13f2d5056321f02
 ---
 
 {{AddonSidebar}}
 
-Mit der {{WebExtAPIRef("omnibox")}} API können Erweiterungen die Vorschläge in der Dropdown-Liste der Browser-Adressleiste anpassen, wenn der Nutzer ein Schlüsselwort eingibt.
+Mit der {{WebExtAPIRef("omnibox")}} API können Erweiterungen die Vorschläge anpassen, die im Dropdown der Browser-Adressleiste angezeigt werden, wenn der Benutzer ein Schlüsselwort eingibt.
 
-![Beispiel, das das Ergebnis der Anpassung der Adressleistenvorschläge durch die firefox_code_search WebExtension zeigt.](omnibox_example_small.png)
+![Beispiel, das das Ergebnis der Anpassung der Adressleisten-Vorschläge durch die firefox_code_search WebExtension zeigt.](omnibox_example_small.png)
 
-Dadurch kann Ihre Erweiterung beispielsweise in einer Bibliothek kostenloser E-Books suchen oder, wie im obigen Beispiel, in einem Repository von Codebeispielen.
+Das ermöglicht Ihrer Erweiterung beispielsweise, in einer Bibliothek von kostenlosen E-Books oder, wie im obigen Beispiel, in einem Repository von Codebeispielen zu suchen.
 
-## Festlegung der Omnibox-Anpassung
+## Festlegung der omnibox-Anpassung
 
-Sie teilen Ihrer Erweiterung mit, dass sie die Vorschläge in der Adressleiste anpassen soll, indem Sie den [omnibox](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/omnibox) Schlüssel und die Definition des Auslöse-Schlüsselworts in der [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei einfügen:
+Sie informieren Ihre Erweiterung, dass sie die Adressleisten-Vorschläge anpassen wird, indem Sie den [omnibox](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/omnibox) Schlüssel und die Definition des Auslöse-Schlüsselworts in ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei einfügen:
 
 ```json
   "omnibox": { "keyword" : "cs" }
 ```
 
-In der Hintergrund-JavaScript-Datei der Erweiterung können Sie mit {{WebExtAPIRef("omnibox.setDefaultSuggestion()")}} optional den ersten Vorschlag definieren, der in der Dropdown-Liste der Adressleiste angezeigt wird. Nutzen Sie dies, um einen Hinweis zur Verwendung der Funktion zu geben:
+In der Hintergrund-JavaScript-Datei der Erweiterung können Sie optional die erste Anzeige im Dropdown der Adressleiste mit {{WebExtAPIRef("omnibox.setDefaultSuggestion()")}} festlegen. Verwenden Sie dies, um einen Hinweis zu geben, wie die Funktion genutzt werden kann:
 
 ```js
 browser.omnibox.setDefaultSuggestion({
@@ -30,7 +30,7 @@ browser.omnibox.setDefaultSuggestion({
 });
 ```
 
-Sie können dann den Code hinzufügen, um den benutzerdefinierten Inhalt bereitzustellen, indem Sie auf {{WebExtAPIRef("omnibox.onInputStarted")}} hören, das ausgelöst wird, wenn der Nutzer das Schlüsselwort und ein Leerzeichen eingegeben hat, und {{WebExtAPIRef("omnibox.onInputChanged")}}, das ausgelöst wird, wenn der Nutzer den Eintrag in der Adressleiste aktualisiert. Sie können dann die Vorschläge mit einem [Suchlauf von mozilla-central](https://searchfox.org/mozilla-central) mit dem vom Nutzer eingegebenen Begriff auffüllen:
+Anschließend können Sie den Code hinzufügen, um den angepassten Inhalt bereitzustellen, indem Sie {{WebExtAPIRef("omnibox.onInputStarted")}} abhören, das ausgelöst wird, wenn der Benutzer das Schlüsselwort und ein Leerzeichen eingegeben hat, und {{WebExtAPIRef("omnibox.onInputChanged")}}, das immer ausgelöst wird, wenn der Benutzer den Eintrag in der Adressleiste aktualisiert. Sie können dann die Vorschläge ausfüllen, in diesem Fall eine [Suche in mozilla-central](https://searchfox.org/mozilla-central/search) unter Verwendung des vom Benutzer eingegebenen Begriffs erstellen:
 
 ```js
 browser.omnibox.onInputChanged.addListener((text, addSuggestions) => {
@@ -43,15 +43,15 @@ browser.omnibox.onInputChanged.addListener((text, addSuggestions) => {
 });
 ```
 
-Wenn die Erweiterung einen Standardvorschlag mit {{WebExtAPIRef("omnibox.setDefaultSuggestion()")}} festgelegt hat, wird dieser zuerst im Dropdown angezeigt.
+Wenn die Erweiterung einen Standardvorschlag mit {{WebExtAPIRef("omnibox.setDefaultSuggestion()")}} gesetzt hat, wird dieser an erster Stelle im Dropdown angezeigt.
 
-Die Erweiterung kann dann darauf warten, dass der Nutzer auf einen der Vorschläge klickt, indem sie {{WebExtAPIRef("omnibox.onInputEntered")}} verwendet. Wenn auf den Standardvorschlag geklickt wird, wird der benutzerdefinierte Begriff des Nutzers zurückgegeben, andernfalls wird die Zeichenkette des Vorschlags zurückgegeben. Dies übergibt auch Informationen zu den Benutzereinstellungen des Browsers für den Umgang mit neuen Links. Im folgenden Code wird der benutzerdefinierte Begriff des Nutzers verwendet, um eine Suche zu erstellen, andernfalls wird die vorgeschlagene URL geöffnet:
+Die Erweiterung kann dann darauf warten, dass der Benutzer auf einen der Vorschläge klickt, mithilfe von {{WebExtAPIRef("omnibox.onInputEntered")}}. Wenn der Standardvorschlag angeklickt wird, wird der benutzerdefinierte Begriff des Benutzers zurückgegeben, andernfalls wird der Zeichenfolgenvorschlag zurückgegeben. Dies übermittelt auch Informationen zu den Browser-Einstellungen des Benutzers für die Behandlung neuer Links. Im unten stehenden Code wird der benutzerdefinierte Begriff des Benutzers für eine Suche verwendet, andernfalls wird die vorgeschlagene URL geöffnet:
 
 ```js
 browser.omnibox.onInputEntered.addListener((text, disposition) => {
   let url = text;
   if (!text.startsWith(SOURCE_URL)) {
-    // Aktualisieren Sie die URL, wenn der Nutzer auf den Standardvorschlag klickt.
+    // Update the URL if the user clicks on the default suggestion.
     url = `${SEARCH_URL}?q=${text}`;
   }
   switch (disposition) {
@@ -70,4 +70,4 @@ browser.omnibox.onInputEntered.addListener((text, disposition) => {
 
 ## Beispiele
 
-Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das [firefox-code-search](https://github.com/mdn/webextensions-examples/tree/main/firefox-code-search) Beispiel, das die Suchleiste anpasst.
+Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub beinhaltet das [firefox-code-search](https://github.com/mdn/webextensions-examples/tree/main/firefox-code-search) Beispiel, das die Suchleiste anpasst.

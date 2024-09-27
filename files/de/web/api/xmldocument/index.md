@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Das **XMLDocument**-Interface repräsentiert ein XML-Dokument. Es erbt von dem generischen {{DOMxRef("Document")}} und fügt ihm keine spezifischen Methoden oder Eigenschaften hinzu: Dennoch verhalten sich mehrere Algorithmen unterschiedlich mit den beiden Dokumenttypen.
+Das **XMLDocument**-Interface repräsentiert ein XML-Dokument. Es erbt von dem generischen [`Document`](/de/docs/Web/API/Document) und fügt keine spezifischen Methoden oder Eigenschaften hinzu: dennoch verhalten sich mehrere Algorithmen unterschiedlich mit den beiden Dokumenttypen.
 
 {{InheritanceDiagram}}
 
 ## Eigenschaft
 
-_Erbt auch Eigenschaften von: {{DOMxRef("Document")}}_.
+_Erbt auch Eigenschaften von: [`Document`](/de/docs/Web/API/Document)_.
 
 ## Instanzmethoden
 
-_Erbt auch Methoden von: {{DOMxRef("Document")}}_.
+_Erbt auch Methoden von: [`Document`](/de/docs/Web/API/Document)_.
 
 ## Spezifikationen
 

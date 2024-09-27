@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`lastEventID`**-Eigenschaft der
-{{domxref("ExtendableMessageEvent")}}-Schnittstelle stellt bei [Server-Sent Events](/de/docs/Web/API/Server-sent_events/Using_server-sent_events) die letzte Ereignis-ID der Ereignisquelle dar. Dies ist ein leerer String.
+Die **`lastEventID`** schreibgeschützte Eigenschaft des [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent)-Interfaces stellt bei [Server-sent events](/de/docs/Web/API/Server-sent_events/Using_server-sent_events) die ID des letzten Ereignisses der Ereignisquelle dar. Dies ist ein leerer String.
 
 ## Wert
 
@@ -17,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Wenn der folgende Code innerhalb eines Service Workers verwendet wird, um auf Push-Nachrichten zu reagieren, indem die über die {{domxref("PushMessageData")}} empfangenen Daten über eine [Channel Message](/de/docs/Web/API/Channel_Messaging_API) an den Hauptkontext gesendet werden, wird das Ereignisobjekt von `onmessage` ein `ExtendableMessageEvent` sein.
+Wenn der folgende Code in einem Service Worker verwendet wird, um auf Push-Nachrichten zu antworten, indem die über [`PushMessageData`](/de/docs/Web/API/PushMessageData) empfangenen Daten über eine [Channel Message](/de/docs/Web/API/Channel_Messaging_API) an den Hauptkontext gesendet werden, wird das Ereignisobjekt von `onmessage` ein `ExtendableMessageEvent` sein.
 
 ```js
 let port;
@@ -48,6 +47,6 @@ self.onmessage = (e) => {
 
 ## Siehe auch
 
-- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Codebeispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Code-Beispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
 - [Channel Messaging](/de/docs/Web/API/Channel_Messaging_API)

@@ -7,31 +7,31 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Das **`AmbientLightSensor`** Interface der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) gibt den aktuellen Lichtpegel oder die Beleuchtungsstärke des Umgebungslichts um das Hostgerät zurück.
+Das **`AmbientLightSensor`** Interface der [Sensor APIs](/de/docs/Web/API/Sensor_APIs) gibt das aktuelle Lichtniveau oder die Beleuchtungsstärke des Umgebungslichts um das hostende Gerät zurück.
 
-Um diesen Sensor zu verwenden, muss der Benutzer die Berechtigung für den `'ambient-light-sensor'` Gerätesensor über die [Permissions API](/de/docs/Web/API/Permissions_API) erteilen.
+Um diesen Sensor zu verwenden, muss der Benutzer über die [Permissions API](/de/docs/Web/API/Permissions_API) die Erlaubnis zum Zugriff auf den `'ambient-light-sensor'` Gerätesensor erteilen.
 
-Diese Funktion kann durch eine [Permission Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden, die auf Ihrem Server festgelegt ist.
+Diese Funktion kann durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) auf Ihrem Server blockiert werden.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("AmbientLightSensor.AmbientLightSensor()", "AmbientLightSensor()")}} {{Experimental_Inline}}
-  - : Erstellt ein neues `AmbientLightSensor` Objekt.
+- [`AmbientLightSensor()`](/de/docs/Web/API/AmbientLightSensor/AmbientLightSensor) {{Experimental_Inline}}
+  - : Erstellt ein neues `AmbientLightSensor`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref('AmbientLightSensor.illuminance')}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den aktuellen Lichtpegel in [Lux](https://en.wikipedia.org/wiki/Lux) des Umgebungslichts um das Hostgerät zurück.
+- [`AmbientLightSensor.illuminance`](/de/docs/Web/API/AmbientLightSensor/illuminance) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt das aktuelle Lichtniveau in [Lux](https://en.wikipedia.org/wiki/Lux) des Umgebungslichtlevels um das hostende Gerät zurück.
 
 ## Instanzmethoden
 
-_`AmbientLightSensor` hat keine eigenen Methoden. Es erbt jedoch Methoden von seinen übergeordneten Schnittstellen, {{domxref("Sensor")}} und {{domxref("EventTarget")}}._
+_`AmbientLightSensor` hat keine eigenen Methoden. Es erbt jedoch Methoden von seinen Eltern-Interfaces, [`Sensor`](/de/docs/Web/API/Sensor) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Ereignisse
 
-_`AmbientLightSensor` hat keine eigenen Ereignisse. Es erbt jedoch Ereignisse von seiner übergeordneten Schnittstelle, {{domxref('Sensor')}}._
+_`AmbientLightSensor` hat keine eigenen Ereignisse. Es erbt jedoch Ereignisse von seinem Eltern-Interface, [`Sensor`](/de/docs/Web/API/Sensor)._
 
 ## Beispiel
 

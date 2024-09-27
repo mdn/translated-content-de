@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannelStats: Eigenschaft messagesSent"
+title: "RTCDataChannelStats: messagesSent-Eigenschaft"
 short-title: messagesSent
 slug: Web/API/RTCDataChannelStats/messagesSent
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`messagesSent`** Eigenschaft des {{domxref("RTCDataChannelStats")}} Wörterbuchs gibt die Gesamtzahl der [`message` Ereignisse](/de/docs/Web/API/RTCDataChannel/message_event) zurück, die für gesendete Nachrichten auf dem zugehörigen {{domxref("RTCDataChannel")}} ausgelöst wurden.
+Die **`messagesSent`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats)-Wörterbuchs liefert die Gesamtzahl der [`message`-Ereignisse](/de/docs/Web/API/RTCDataChannel/message_event), die für gesendete Nachrichten auf dem zugehörigen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) ausgelöst wurden.
 
 ## Wert
 
-Ein positiver Ganzzahlwert, der die Gesamtzahl der `message` Ereignisse für ausgehende Daten auf dem zugehörigen Datenkanal angibt.
+Ein positiver Ganzzahlenwert, der die Gesamtanzahl der `message`-Ereignisse für ausgehende Daten auf dem zugehörigen Datenkanal angibt.
 
 ## Spezifikationen
 

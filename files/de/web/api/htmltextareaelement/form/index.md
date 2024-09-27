@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`form`**-Eigenschaft der {{domxref("HTMLTextAreaElement")}}-Schnittstelle ist eine schreibgeschützte Eigenschaft, die ein {{domxref("HTMLFormElement")}}-Objekt zurückgibt, das dieses {{htmlelement("textarea")}} besitzt, oder `null`, wenn dieses Textarea-Element zu keinem Formular gehört.
+Die **`form`** schreibgeschützte Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("textarea")}} enthält, oder `null`, wenn dieses Textarea-Element zu keinem Formular gehört.
 
 ## Wert
 
-Ein {{domxref("HTMLFormElement")}} oder `null`.
+Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLTextAreaElement")}}
-- {{domxref("HTMLFormElement")}}
+- [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)
+- [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("textarea")}}
-- HTML-Attribut [`form`](/de/docs/Web/HTML/Element/textarea#form)
-- [HTML-Formulare-Leitfaden](/de/docs/Learn/Forms)
+- HTML [`form`](/de/docs/Web/HTML/Element/textarea#form)-Attribut
+- [HTML Formulare Leitfaden](/de/docs/Learn/Forms)

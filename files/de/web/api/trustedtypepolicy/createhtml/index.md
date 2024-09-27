@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`createHTML()`**-Methode der {{domxref("TrustedTypePolicy")}}-Schnittstelle erstellt ein {{domxref("TrustedHTML")}}-Objekt unter Verwendung einer Richtlinie, die von {{domxref("TrustedTypePolicyFactory.createPolicy()")}} erstellt wurde.
+Die **`createHTML()`**-Methode der [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy)-Schnittstelle erstellt ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt mithilfe einer Richtlinie, die durch [`TrustedTypePolicyFactory.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) erstellt wurde.
 
 ## Syntax
 
@@ -20,22 +20,22 @@ createHTML(input, args)
 ### Parameter
 
 - `input`
-  - : Ein String, der den durch die Richtlinie zu bereinigenden Text enthält.
+  - : Ein String, der die zu sanitisierende Zeichenkette durch die Richtlinie enthält.
 - `args` {{optional_inline}}
-  - : Zusätzliche Argumente, die an die durch {{domxref("TrustedTypePolicy")}} dargestellte Funktion übergeben werden.
+  - : Zusätzliche Argumente, die an die durch [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) dargestellte Funktion übergeben werden.
 
 ### Rückgabewert
 
-Ein {{domxref("TrustedHTML")}}-Objekt.
+Ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn {{domxref("TrustedTypePolicy")}} keine Funktion zum Ausführen der Eingabe enthält.
+  - : Wird ausgelöst, wenn [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) keine Funktion enthält, die auf dem Eingabewert ausgeführt werden soll.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein String, der ein potenziell gefährliches Skript enthält, als Eingabe für `createHTML()` verwendet. Gefährlicher Code, der von einem Benutzer eingefügt wird, könnte dann vor der Einfügung in jede Injektionsstelle bereinigt werden.
+Im untenstehenden Beispiel wird ein String, der ein potenziell gefährliches Skript enthält, als Eingabe für `createHTML()` verwendet. Gefährlicher Code, der von einem Benutzer eingefügt wird, könnte dann vor der Einfügung in ein Injektionsziel gesäubert werden.
 
 ```js
 const escaped = escapeHTMLPolicy.createHTML("<img src=x onerror=alert(1)>");

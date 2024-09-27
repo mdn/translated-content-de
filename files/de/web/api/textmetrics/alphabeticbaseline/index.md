@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte `alphabeticBaseline`-Eigenschaft des {{domxref("TextMetrics")}}-Interfaces ist ein `double`, der den Abstand von der durch die {{domxref("CanvasRenderingContext2D.textBaseline")}}-Eigenschaft angegebenen horizontalen Linie zur alphabetischen Grundlinie des Zeilenkästchens in CSS-Pixeln angibt.
+Die schreibgeschützte `alphabeticBaseline`-Eigenschaft des [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Interfaces ist ein `double`, das die Entfernung von der durch die [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline)-Eigenschaft angegebenen horizontalen Linie zur alphabetischen Basislinie der Zeilenbox in CSS-Pixeln angibt.
 
 ## Beispiele
 
 ```js
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
-const text = ctx.measureText("foo"); // gibt ein TextMetrics-Objekt zurück
+const text = ctx.measureText("foo"); // returns TextMetrics object
 
 text.alphabeticBaseline; // -0;
 ```
@@ -30,4 +30,4 @@ text.alphabeticBaseline; // -0;
 
 ## Siehe auch
 
-- {{domxref("TextMetrics")}}
+- [`TextMetrics`](/de/docs/Web/API/TextMetrics)

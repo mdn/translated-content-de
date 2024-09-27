@@ -8,19 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DOMPointReadOnly`**-Schnittstelle
-**`w`**-Eigenschaft enthält den Perspektivwert des Punktes,
-`w`, für einen schreibgeschützten Punkt im Raum.
+Die **`DOMPointReadOnly`**-Schnittstelle hat die Eigenschaft
+**`w`**, die den Perspektivenwert `w` eines schreibgeschützten Punktes im Raum hält.
 
-Wenn Ihr Skript in der Lage sein muss,
-den Wert dieser Eigenschaft zu ändern, sollten Sie stattdessen das {{domxref("DOMPoint")}}
+Wenn Ihr Skript in der Lage sein muss, den Wert dieser Eigenschaft zu ändern, sollten Sie stattdessen das [`DOMPoint`](/de/docs/Web/API/DOMPoint)
 Objekt verwenden.
 
 ## Wert
 
-Ein Gleitkommawert mit doppelter Genauigkeit, der den `w`-Perspektivwert
-für den Punkt angibt. Dieser Wert ist **uneingeschränkt**, was bedeutet, dass er unendlich oder ungültig sein kann (das heißt, sein Wert kann {{jsxref("NaN")}} oder
-{{jsxref("Infinity", "±Unendlich")}} sein). Der Standardwert ist `1.0`.
+Ein Fließkommawert mit doppelter Genauigkeit, der den Perspektivenwert `w` für den Punkt angibt. Dieser Wert ist **nicht eingeschränkt**, was bedeutet, dass er unendlich oder ungültig sein darf (d.h. sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein). Der Standardwert ist `1.0`.
 
 ## Spezifikationen
 
@@ -32,5 +28,5 @@ für den Punkt angibt. Dieser Wert ist **uneingeschränkt**, was bedeutet, dass 
 
 ## Siehe auch
 
-- Die anderen Koordinateneigenschaften: {{domxref("DOMPointReadOnly.x", "x")}},
-  {{domxref("DOMPointReadOnly.y", "y")}}, und {{domxref("DOMPointReadOnly.z", "z")}}.
+- Die anderen Koordinateneigenschaften: [`x`](/de/docs/Web/API/DOMPointReadOnly/x),
+  [`y`](/de/docs/Web/API/DOMPointReadOnly/y), und [`z`](/de/docs/Web/API/DOMPointReadOnly/z).

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`validationMessage`**-Eigenschaft der {{domxref("HTMLOutputElement")}}-Schnittstelle gibt einen String zurück, der eine lokalisierte Nachricht beschreibt, welche die Validierungseinschränkungen, die das {{htmlelement("output")}}-Steuerelement nicht erfüllt (falls vorhanden), darstellt. Dies ist der leere String, da `<output>`-Elemente keine Kandidaten für die Einschränkungsvalidierung sind ({{domxref("HTMLOutputElement.willValidate")}} ist `false`).
+Die **`validationMessage`** schreibgeschützte Eigenschaft der [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Schnittstelle gibt einen String zurück, der eine lokalisierte Nachricht darstellt, welche die Validierungsbeschränkungen beschreibt, die das {{htmlelement("output")}}-Steuerelement nicht erfüllt (falls vorhanden). Dies ist der leere String, da `<output>`-Elemente keine Kandidaten für die Einschränkungsvalidierung sind ([`HTMLOutputElement.willValidate`](/de/docs/Web/API/HTMLOutputElement/willValidate) ist `false`).
 
 ## Wert
 
@@ -25,12 +25,12 @@ Der leere String, `""`;
 ## Siehe auch
 
 - {{HTMLelement("output")}}
-- {{domxref("HTMLOutputElement")}}
-- {{domxref("HTMLOutputElement.willValidate")}}
-- {{domxref("HTMLOutputElement.validity")}}
-- {{domxref("HTMLOutputElement.checkValidity()")}}
-- {{domxref("HTMLOutputElement.reportValidity()")}}
-- {{domxref("HTMLOutputElement.setCustomValidity()")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)
+- [`HTMLOutputElement.willValidate`](/de/docs/Web/API/HTMLOutputElement/willValidate)
+- [`HTMLOutputElement.validity`](/de/docs/Web/API/HTMLOutputElement/validity)
+- [`HTMLOutputElement.checkValidity()`](/de/docs/Web/API/HTMLOutputElement/checkValidity)
+- [`HTMLOutputElement.reportValidity()`](/de/docs/Web/API/HTMLOutputElement/reportValidity)
+- [`HTMLOutputElement.setCustomValidity()`](/de/docs/Web/API/HTMLOutputElement/setCustomValidity)
+- [Lernen: Clientseitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudo-Klassen
+- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

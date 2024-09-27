@@ -7,27 +7,32 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Expect`** HTTP-Anfrage-Header zeigt Erwartungen an, die vom Server erfüllt werden müssen, um die Anfrage erfolgreich zu bearbeiten.
+Der **`Expect`** HTTP-Anfrage-Header zeigt Anforderungen an, die erfüllt werden müssen,
+damit der Server die Anfrage erfolgreich verarbeiten kann.
 
 Bei `Expect: 100-continue` antwortet der Server mit:
 
-- {{HTTPStatus("100")}} (Continue), wenn die Informationen aus dem Anfrage-Header nicht ausreichend sind, um die Antwort zu klären, und der Client fortfahren soll, den Body zu senden.
-- {{HTTPStatus("417")}} (Expectation Failed), wenn der Server die Erwartung nicht erfüllen kann
+- {{HTTPStatus("100")}} (Continue), wenn die Informationen aus dem Anfrage-Header nicht ausreichen, um
+  die Antwort zu lösen und der Client mit dem Senden des Körpers fortfahren soll.
+- {{HTTPStatus("417")}} (Expectation Failed), wenn der Server die Anforderung nicht erfüllen kann,
 
-oder jedem anderen Status (z.B. ein 4xx-Status für einen Client-Fehler oder ein 2xx-Status, wenn die Anfrage erfolgreich ohne weitere Verarbeitung gelöst werden kann).
+oder einem anderen Status (z. B. ein 4xx-Status bei einem Clientfehler oder ein 2xx-Status, wenn die
+Anfrage erfolgreich ohne weitere Verarbeitung gelöst werden kann).
 
-Beispielsweise könnte der Server eine Anfrage ablehnen, wenn deren {{HTTPHeader("Content-Length")}} zu groß ist.
+Zum Beispiel kann der Server eine Anfrage ablehnen, wenn die {{HTTPHeader("Content-Length")}}
+zu groß ist.
 
-Keine gängigen Browser senden den `Expect`-Header, aber einige andere Clients wie cURL tun dies standardmäßig.
+Keine gängigen Browser senden den `Expect`-Header, aber einige andere Clients wie
+cURL tun dies standardmäßig.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request header")}}</td>
+      <td>[Anfrage-Header](/de/docs/Glossary/Request_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -41,16 +46,17 @@ Expect: 100-continue
 
 ## Direktiven
 
-Es gibt nur eine definierte Erwartung:
+Es gibt nur eine definierte Anforderung:
 
 - `100-continue`
-  - : Informiert Empfänger darüber, dass der Client im Begriff ist, einen (vermutlich großen) Nachrichtenkörper in dieser Anfrage zu senden, und wünscht sich eine vorläufige Antwort {{HTTPStatus("100")}} (Continue).
+  - : Informiert die Empfänger, dass der Client in dieser Anfrage im Begriff ist, einen (vermutlich großen) Nachrichtentext zu senden und wünscht sich, eine {{HTTPStatus("100")}} (Continue) Zwischenantwort zu erhalten.
 
 ## Beispiele
 
-### Großer Nachrichtenkörper
+### Großer Nachrichtentext
 
-Ein Client sendet eine Anfrage mit `Expect`-Header und wartet auf die Antwort des Servers, bevor er den Nachrichtenkörper sendet.
+Ein Client sendet eine Anfrage mit `Expect`-Header und wartet darauf, dass der Server antwortet,
+bevor er den Nachrichtentext sendet.
 
 ```http
 PUT /somewhere/fun HTTP/1.1
@@ -60,7 +66,8 @@ Content-Length: 1234567890987
 Expect: 100-continue
 ```
 
-Der Server prüft die Header und erzeugt die Antwort. Der Server sendet {{HTTPStatus("100")}} (Continue), was den Client anweist, den Nachrichtenkörper zu senden.
+Der Server überprüft die Header und generiert die Antwort.
+Der Server sendet {{HTTPStatus("100")}} (Continue), was den Client anweist, den Nachrichtentext zu senden.
 
 ## Spezifikationen
 

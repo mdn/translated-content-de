@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SecureContext_Header}}
 
-Die **`setMediaKeys()`**-Methode des {{domxref("HTMLMediaElement")}}-Interfaces legt die {{domxref("MediaKeys")}} fest, die zur Entschlüsselung von Medien während der Wiedergabe verwendet werden.
+Die **`setMediaKeys()`**-Methode der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Schnittstelle legt die [`MediaKeys`](/de/docs/Web/API/MediaKeys) fest, die zur Entschlüsselung von Medien während der Wiedergabe verwendet werden.
 
 Sie gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn die neuen Schlüssel erfolgreich gesetzt werden, oder abgelehnt wird, wenn die Schlüssel nicht gesetzt werden können.
 
@@ -21,7 +21,7 @@ setMediaKeys(mediaKeys)
 ### Parameter
 
 - `mediaKeys`
-  - : Ein {{domxref("MediaKeys")}}-Objekt, das das {{domxref("HTMLMediaElement")}} zur Entschlüsselung von Mediendaten während der Wiedergabe verwenden kann.
+  - : Ein [`MediaKeys`](/de/docs/Web/API/MediaKeys)-Objekt, das das [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) zur Entschlüsselung von Mediendaten während der Wiedergabe verwenden kann.
 
 ### Rückgabewert
 
@@ -29,14 +29,14 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref('undefined')}} erfüllt wird.
 
 ### Ausnahmen
 
-Das zurückgegebene Versprechen kann einen Fehler ablehnen:
+Das zurückgegebene Promise kann einen Fehler ablehnen:
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Medien-Schlüssel befinden sich bereits im Prozess der Verbindung, oder die vorherigen Schlüssel können zum aktuellen Zeitpunkt nicht entfernt werden (zum Beispiel, weil die spezielle Implementierung die Entfernung während der Wiedergabe nicht zulässt).
-- `QuotaExceededError` {{domxref("DOMException")}}
-  - : Die übergebenen Schlüssel werden bereits von einem anderen Element verwendet, oder der Browser kann sie aus anderen Gründen nicht mit diesem Element verwenden.
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Die Medien-Schlüssel, die derzeit mit dem Medium verbunden sind, können nicht getrennt werden, da dies entweder vom CDM oder vom Browser nicht unterstützt wird.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Medien-Schlüssel sind bereits im Prozess der Anfügung, oder die vorherigen Schlüssel können zurzeit nicht entfernt werden (zum Beispiel, weil die spezielle Implementierung keine Entfernung während der Wiedergabe erlaubt).
+- `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die übergebenen Schlüssel werden bereits von einem anderen Element verwendet, oder der Browser kann sie aus anderen Gründen mit diesem Element nicht verwenden.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die Medien-Schlüssel, die derzeit mit dem Medium verknüpft sind, können nicht getrennt werden, da dies entweder vom CDM oder vom Browser nicht unterstützt wird.
 
 ## Spezifikationen
 

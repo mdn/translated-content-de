@@ -8,38 +8,38 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`contentType`** schreibgeschützte Eigenschaft des {{domxref("PerformanceResourceTiming")}}-Interfaces ist ein String, der den Inhaltstyp der abgerufenen Ressource angibt, formatiert als ein {{glossary("MIME type")}} und Subtyp, getrennt durch einen Schrägstrich.
+Die **`contentType`**-Eigenschaft des [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Interfaces ist eine schreibgeschützte Zeichenkette, die den Inhaltstyp der abgerufenen Ressource angibt und als [MIME-Typ](/de/docs/Glossary/MIME_type) und Subtyp formatiert ist, die durch einen Schrägstrich getrennt sind.
 
-Der Inhaltstyp ist eine minimierte und "standardisierte" Version des MIME-Typs, die aus dem {{httpheader("Content-Type")}} HTTP-Header extrahiert wird, der in der Antwort des Ressourcenabrufs gesendet wird.
+Der Inhaltstyp ist eine minimierte und "standardisierte" Version des MIME-Typs, der aus dem {{httpheader("Content-Type")}} HTTP-Header extrahiert wird, der in der Fetch-Antwort der Ressource gesendet wird.
 Für JavaScript, JSON, SVG und XML wird der MIME-Typ durch eine repräsentative MIME-Typ/Subtyp-Zeichenkette ersetzt.
 Andere vom Browser unterstützte Typen werden durch die MIME-Typ/Subtyp-Zeichenkette im Header dargestellt (andere Informationen im Header werden verworfen).
 
 ## Wert
 
-Ein String, der die "Essenz" des MIME-Typs des Inhalts angibt.
-Dieser kann einer der folgenden Werte sein:
+Eine Zeichenkette, die das MIME-Typ-"Essenz" des Inhalts angibt.
+Dies kann einer der folgenden Werte sein:
 
 - `text/javascript`
-  - : JavaScript-Inhalte.
+  - : JavaScript-Inhalt.
 - `application/json`
-  - : JSON-Inhalte.
+  - : JSON-Inhalt.
 - `image/svg+xml`
-  - : SVG-Inhalte.
+  - : SVG-Inhalt.
 - `application/xml`
-  - : XML-Inhalte (außer SVG).
+  - : XML-Inhalt (außerhalb von SVG).
 - MIME-Typ/Subtyp
-  - : Jeder andere vom Benutzeragenten unterstützte MIME-Typ/Subtyp.
-- `""` (leerer String)
-  - : Wird für MIME-Typen zurückgegeben, die vom Browser nicht unterstützt werden, oder wenn der Ressourcenabruf aufgrund von [CORS](/de/docs/Web/HTTP/CORS)-Prüfungen fehlgeschlagen ist.
+  - : Jeder andere MIME-Typ/Subtyp, der vom Benutzeragent unterstützt wird.
+- `""` (leere Zeichenkette)
+  - : Wird für MIME-Typen zurückgegeben, die vom Browser nicht unterstützt werden, oder wenn der Ressourcenzugriff aufgrund von [CORS](/de/docs/Web/HTTP/CORS)-Prüfungen fehlgeschlagen ist.
 
 ## Beispiele
 
 ### Ressourcen filtern
 
-Die `contentType`-Eigenschaft kann verwendet werden, um nur bestimmte Ressourcenzuordnungseinträge zu erhalten; zum Beispiel nur diejenigen, die sich auf Skripte beziehen.
+Die `contentType`-Eigenschaft kann verwendet werden, um nur bestimmte Ressourcentiming-Einträge zu erhalten; beispielsweise nur solche, die mit Skripten verbunden sind.
 
-Das folgende Beispiel verwendet einen {{domxref("PerformanceObserver")}}, um über neue `resource`-Leistungseinträge benachrichtigt zu werden, die in der Leistungstimeline des Browsers aufgezeichnet werden.
-Die `buffered`-Option wird verwendet, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
+Das folgende Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um über neue `resource`-Performance-Einträge zu benachrichtigen, sobald diese in der Leistungstimeline des Browsers aufgezeichnet werden.
+Die `buffered`-Option wird verwendet, um auf Einträge vor der Erstellung des Beobachters zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -52,7 +52,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Das folgende Beispiel verwendet {{domxref("Performance.getEntriesByType()")}}, was nur `resource`-Leistungseinträge zeigt, die zu dem Zeitpunkt, an dem Sie die Methode aufrufen, in der Leistungstimeline des Browsers vorhanden sind.
+Das folgende Beispiel verwendet [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs der Methode in der Leistungstimeline des Browsers vorhanden sind.
 
 ```js
 const scripts = performance.getEntriesByType("resource").filter((entry) => {
@@ -65,6 +65,6 @@ console.log(scripts);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -7,21 +7,21 @@ l10n:
 
 {{HTTPSidebar}}{{securecontext_header}}{{SeeCompatTable}}
 
-Der **`Supports-Loading-Mode`** Header ermöglicht es einer Antwort, das Laden in einem neuen, risikoreicheren Kontext zu erlauben, in dem sie sonst nicht geladen werden könnte.
+Der **`Supports-Loading-Mode`** Header ermöglicht es einer Antwort, sich für das Laden in einem neuartigen, risikoreicheren Kontext zu entscheiden, in dem sie sonst nicht geladen würde.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response header")}}</td>
+      <td>[Response header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted response header")}}
+        [CORS-ausgelisteter Response-Header](/de/docs/Glossary/CORS-safelisted_response_header)
       </th>
       <td>nein</td>
     </tr>
@@ -34,14 +34,14 @@ Der **`Supports-Loading-Mode`** Header ermöglicht es einer Antwort, das Laden i
 Supports-Loading-Mode: <comma-separated list of client hint headers>
 ```
 
-## Anweisungen
+## Direktiven
 
-Der Wert des `Supports-Loading-Mode` Headers ist eine Liste von einem oder mehreren Tokens, die folgende Werte beinhalten können:
+Der Wert des `Supports-Loading-Mode` Headers ist eine Liste von einem oder mehreren Tokens, die die folgenden Werte enthalten können:
 
 - `credentialed-prerender` {{experimental_inline}}
-  - : Gibt an, dass der Zielursprung das Laden von Dokumenten über Cross-Origin, Same-Site [prerendering](/de/docs/Web/API/Speculation_Rules_API#using_prerendering) erlaubt.
+  - : Gibt an, dass ein Ziel-Ursprung sich dafür entscheidet, Dokumente über sitespezifisches, cross-origin [prerendering](/de/docs/Web/API/Speculation_Rules_API#using_prerendering) zu laden.
 - `fenced-frame`
-  - : Die Antwort kann innerhalb eines [fenced frame](/de/docs/Web/API/Fenced_frame_API) geladen werden. Ohne diese explizite Zustimmung schlagen alle Navigationen innerhalb eines fenced frames fehl.
+  - : Die Antwort kann innerhalb eines [fenced frame](/de/docs/Web/API/Fenced_frame_API) geladen werden. Ohne diese explizite Zustimmung werden alle Navigationen innerhalb eines fenced frames fehlschlagen.
 
 ## Beispiele
 
@@ -53,7 +53,7 @@ Supports-Loading-Mode: fenced-frame
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -62,4 +62,4 @@ Supports-Loading-Mode: fenced-frame
 - [Fenced Frame API](/de/docs/Web/API/Fenced_frame_API)
 - [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API)
 - [Speculative loading](/de/docs/Web/Performance/Speculative_loading)
-- [Seiten in Chrome vorab rendern für sofortige Seitennavigationen](https://developer.chrome.com/docs/web-platform/prerender-pages) auf developer.chrome.com
+- [Prerender-Seiten in Chrome für sofortige Seitennavigationen](https://developer.chrome.com/docs/web-platform/prerender-pages) auf developer.chrome.com

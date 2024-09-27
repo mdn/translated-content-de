@@ -1,5 +1,5 @@
 ---
-title: "WorkerNavigator: Eigenschaft serviceWorker"
+title: "WorkerNavigator: serviceWorker-Eigenschaft"
 short-title: serviceWorker
 slug: Web/API/WorkerNavigator/serviceWorker
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Service Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die **`serviceWorker`**-Eigenschaft der {{domxref("WorkerNavigator")}}-Schnittstelle gibt das {{domxref("ServiceWorkerContainer")}}-Objekt für das [zugehörige Dokument](https://html.spec.whatwg.org/multipage/browsers.html#concept-document-window) zurück, das Zugriff auf die Registrierung, Entfernung, Aktualisierung und Kommunikation mit dem {{domxref("ServiceWorker")}} bietet.
+Die **`serviceWorker`** Lese-Eigenschaft der [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Schnittstelle gibt das [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Objekt für das [zugehörige Dokument](https://html.spec.whatwg.org/multipage/browsers.html#concept-document-window) zurück. Dies bietet Zugang zur Registrierung, Entfernung, Aktualisierung und Kommunikation mit dem [`ServiceWorker`](/de/docs/Web/API/ServiceWorker).
 
-Diese Funktion ist möglicherweise nicht im privaten Modus verfügbar.
+Diese Funktionalität kann im privaten Modus möglicherweise nicht verfügbar sein.
 
 ## Wert
 
-{{domxref("ServiceWorkerContainer")}}.
+[`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer).
 
 ## Beispiele
 
-Dieser Code überprüft, ob der Browser die Nutzung von Service Worker in Workern unterstützt.
+Dieser Code überprüft, ob der Browser die Nutzung von Service Workern in Workern unterstützt.
 
 ```js
 if ("serviceWorker" in navigator) {
@@ -36,5 +36,5 @@ if ("serviceWorker" in navigator) {
 
 ## Siehe auch
 
-- {{domxref("Service Worker API", "", "", "nocode")}}
+- [Service Worker API](/de/docs/Web/API/Service_Worker_API)
 - [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)

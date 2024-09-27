@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: Eigenschaft controls"
+title: "HTMLMediaElement: controls-Eigenschaft"
 short-title: controls
 slug: Web/API/HTMLMediaElement/controls
 l10n:
@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.controls`**-Eigenschaft spiegelt das
-[`controls`](/de/docs/Web/HTML/Element/video#controls) HTML-Attribut wider, das steuert, ob Benutzeroberflächensteuerungen zur Wiedergabe des Medienelements angezeigt werden.
+Die **`HTMLMediaElement.controls`**-Eigenschaft spiegelt das HTML-Attribut [`controls`](/de/docs/Web/HTML/Element/video#controls) wider, das steuert, ob Benutzeroberflächen-Steuerelemente zur Wiedergabe des Medienobjekts angezeigt werden.
 
 ## Wert
 
-Ein boolescher Wert. Ein Wert von `true` bedeutet, dass Steuerungen angezeigt werden.
+Ein boolescher Wert. Ein Wert von `true` bedeutet, dass Steuerelemente angezeigt werden.
 
 ## Beispiele
 
@@ -32,4 +31,4 @@ obj.controls = true;
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement")}}: Schnittstelle, die verwendet wird, um die `HTMLMediaElement.controls`-Eigenschaft zu definieren
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle zur Definition der `HTMLMediaElement.controls`-Eigenschaft

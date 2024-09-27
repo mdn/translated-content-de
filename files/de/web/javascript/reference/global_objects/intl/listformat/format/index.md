@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`format()`** Methode von Instanzen des {{jsxref("Intl.ListFormat")}} gibt einen String mit einer
+Die **`format()`** Methode von {{jsxref("Intl.ListFormat")}} Instanzen gibt einen string mit einer
 sprachspezifischen Darstellung der Liste zurück.
 
 {{EmbedInteractiveExample("pages/js/intl-listformat.html", "taller")}}
@@ -22,25 +22,27 @@ format(list)
 ### Parameter
 
 - `list`
-  - : Ein iterierbares Objekt, wie ein Array.
+  - : Ein iterierbares Objekt, wie zum Beispiel ein Array.
 
 ### Rückgabewert
 
-Ein sprachspezifisch formatierter String, der die Elemente der Liste darstellt.
+Ein sprachspezifisch formatierter string, der die Elemente der Liste darstellt.
 
 > [!NOTE]
-> Meistens ist das vom `format()` zurückgegebene Format konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, sogar innerhalb derselben Sprache — Ausgabevariationen sind beabsichtigt und von der Spezifikation erlaubt. Es kann auch nicht das sein, was Sie erwarten. Beispielsweise kann der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest kodierten Konstanten vergleichen.
+> Meistens ist die Formatierung, die von `format()` zurückgegeben wird, konsistent. Jedoch kann die Ausgabe zwischen Implementierungen variieren, sogar innerhalb des gleichen Gebietsschemas — Ausgabevariationen sind absichtlich und durch die Spezifikation erlaubt. Sie entspricht möglicherweise auch nicht Ihren Erwartungen. Zum Beispiel kann der string geschützte Leerzeichen verwenden oder von bidirektionalen Steuerungszeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest kodierten Konstanten vergleichen.
 
 ## Beschreibung
 
-Die **`format()`** Methode gibt einen String zurück, der basierend auf Parametern im `Intl.ListFormat` Objekt formatiert wurde. Die Parameter `locales` und `options` passen das Verhalten von
-`format()` an und ermöglichen es Anwendungen, die zu verwendenden Sprachkonventionen für die Formatierung der Liste anzugeben.
+Die **`format()`** Methode gibt einen string zurück, der basierend auf den im `Intl.ListFormat` Objekt bereitgestellten Parametern formatiert wurde. Die
+`locales`- und `options`-Parameter passen das Verhalten von
+`format()` an und lassen Anwendungen die Sprachkonventionen spezifizieren, die
+zur Formatierung der Liste verwendet werden sollen.
 
 ## Beispiele
 
-### Verwenden von format
+### Verwendung von format
 
-Das folgende Beispiel zeigt, wie ein Listen-Formatter mit der englischen Sprache erstellt wird.
+Das folgende Beispiel zeigt, wie man einen List Formatter unter Verwendung der englischen Sprache erstellt.
 
 ```js
 const list = ["Motorcycle", "Bus", "Car"];

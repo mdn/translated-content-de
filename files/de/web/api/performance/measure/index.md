@@ -3,14 +3,14 @@ title: "Performance: measure() Methode"
 short-title: measure()
 slug: Web/API/Performance/measure
 l10n:
-  sourceCommit: 6539cd8d3ea65b2755ef5d5c7da202f53636f51f
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("Performance API")}}
 
-Die **`measure()`**-Methode erstellt ein benanntes {{domxref("PerformanceMeasure")}}-Objekt, das eine Zeitmessung zwischen zwei Markierungen in der Performance-Zeitleiste des Browsers darstellt.
+Die **`measure()`**-Methode erstellt ein benanntes [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekt, das eine Zeitmessung zwischen zwei Marken in der Leistungszeitleiste des Browsers darstellt.
 
-Beim Messen zwischen zwei Markierungen gibt es eine _Startmarke_ und eine _Endmarke_. Der benannte Zeitstempel wird als _Messung_ bezeichnet.
+Beim Messen zwischen zwei Marken gibt es jeweils eine _Startmarkierung_ und eine _Endmarkierung_. Der benannte Zeitstempel wird als _Messung_ bezeichnet.
 
 ## Syntax
 
@@ -22,12 +22,11 @@ measure(measureName, measureOptions)
 measure(measureName, measureOptions, endMark)
 ```
 
-Wenn nur `measureName` angegeben wird, wird der Startzeitstempel auf null gesetzt und der Endzeitstempel (der zur Berechnung der Dauer verwendet wird) ist der Wert, der von {{domxref("Performance.now()")}} zurückgegeben würde.
+Wenn nur `measureName` angegeben ist, wird der Startzeitstempel auf null gesetzt, und der Endzeitstempel (der zur Berechnung der Dauer verwendet wird) ist der Wert, der von [`Performance.now()`](/de/docs/Web/API/Performance/now) zurückgegeben würde.
 
-Sie können Zeichenfolgen verwenden, um {{domxref("PerformanceMark")}}-Objekte als Start- und Endmarkierungen zu identifizieren.
+Sie können Zeichenfolgen verwenden, um [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekte als Start- und Endmarken zu identifizieren.
 
-Um nur eine `endMark` bereitzustellen, müssen Sie ein leeres `measureOptions`-Objekt angeben:
-`performance.measure("myMeasure", {}, "myEndMarker")`.
+Um nur eine `endMark` anzugeben, müssen Sie ein leeres `measureOptions`-Objekt bereitstellen: `performance.measure("myMeasure", {}, "myEndMarker")`.
 
 ### Parameter
 
@@ -40,84 +39,84 @@ Um nur eine `endMark` bereitzustellen, müssen Sie ein leeres `measureOptions`-O
   - : Ein Objekt, das Messoptionen enthalten kann.
 
     - `detail` {{optional_inline}}
-      - : Beliebige Metadaten, die in die Messung aufgenommen werden sollen. Standardmäßig `null`. Muss [structured-cloneable](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
+      - : Beliebige Metadaten, die in die Messung aufgenommen werden sollen. Standardmäßig `null`. Muss [struktur-klonfähig](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
     - `start` {{optional_inline}}
 
-      - : Zeitstempel ({{domxref("DOMHighResTimeStamp")}}), der als Startzeit verwendet werden soll, oder eine Zeichenfolge, die eine {{domxref("PerformanceMark")}} benennt, die als Startzeit verwendet werden soll.
+      - : Zeitstempel ([`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)), der als Startzeit verwendet werden soll, oder ein String, der eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) benennt, die als Startzeit verwendet werden soll.
 
-        Wenn dies eine Zeichenfolge ist, die eine {{domxref("PerformanceMark")}} benennt, wird sie auf die gleiche Weise wie `startMark` definiert.
+        Wenn dies ein String ist, der eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) benennt, dann ist es in der gleichen Weise wie `startMark` definiert.
 
     - `duration` {{optional_inline}}
-      - : Dauer (in Millisekunden) zwischen den Start- und Endmarkierungszeiten. Wird diese ausgelassen, wird standardmäßig {{domxref("performance.now()")}} verwendet; die Zeit, die seit der Erstellung des Kontexts vergangen ist. Wird sie angegeben, müssen Sie entweder `start` oder `end` angeben, aber nicht beide.
+      - : Dauer (in Millisekunden) zwischen den Start- und Endmarkenzeiten. Wenn weggelassen, ist dies standardmäßig [`performance.now()`](/de/docs/Web/API/Performance/now); die Zeit, die seit der Erstellung des Kontexts vergangen ist. Wenn angegeben, müssen Sie entweder `start` oder `end` angeben, aber nicht beide.
     - `end` {{optional_inline}}
 
-      - : Zeitstempel ({{domxref("DOMHighResTimeStamp")}}) der als Endzeit verwendet werden soll, oder eine Zeichenfolge, die eine {{domxref("PerformanceMark")}} benennt, die als Endzeit verwendet werden soll.
+      - : Zeitstempel ([`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)), der als Endzeit verwendet werden soll, oder ein String, der eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) benennt, die als Endzeit verwendet werden soll.
 
-        Wenn dies eine Zeichenfolge ist, die eine {{domxref("PerformanceMark")}} benennt, wird sie auf die gleiche Weise wie `endMark` definiert.
+        Wenn dies ein String ist, der eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) benennt, dann ist es in der gleichen Weise wie `endMark` definiert.
 
 - `startMark` {{optional_inline}}
-  - : Eine Zeichenfolge, die eine {{domxref("PerformanceMark")}} in der Performance-Zeitleiste benennt. Die {{domxref("PerformanceEntry.startTime")}}-Eigenschaft dieser Markierung wird zur Berechnung der Messung verwendet.
+  - : Ein String, der eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) in der Leistungszeitleiste benennt. Die [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime)-Eigenschaft dieser Marke wird zur Berechnung der Messung verwendet.
 - `endMark` {{optional_inline}}
-  - : Eine Zeichenfolge, die eine {{domxref("PerformanceMark")}} in der Performance-Zeitleiste benennt. Die {{domxref("PerformanceEntry.startTime")}}-Eigenschaft dieser Markierung wird zur Berechnung der Messung verwendet.
-    Wenn Sie dieses Argument übergeben möchten, müssen Sie auch entweder `startMark` oder ein leeres `measureOptions`-Objekt übergeben.
+  - : Ein String, der eine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) in der Leistungszeitleiste benennt. Die [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime)-Eigenschaft dieser Marke wird zur Berechnung der Messung verwendet.
+    Wenn Sie dieses Argument übergeben möchten, müssen Sie entweder `startMark` oder ein leeres `measureOptions`-Objekt übergeben.
 
 ### Rückgabewert
 
-Der erstellte {{domxref("PerformanceMeasure")}}-Eintrag.
+Der erstellte [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Eintrag.
 
-Die zurückgegebene _Messung_ wird folgende Eigenschaftswerte haben:
+Die zurückgegebene _Messung_ wird die folgenden Eigenschaftswerte haben:
 
-- {{domxref("PerformanceEntry.entryType","entryType")}} - auf "`measure`" gesetzt.
-- {{domxref("PerformanceEntry.name","name")}} - auf das "`name`"-Argument gesetzt.
-- {{domxref("PerformanceEntry.startTime","startTime")}} - gesetzt auf:
+- [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) - gesetzt auf `"measure"`.
+- [`name`](/de/docs/Web/API/PerformanceEntry/name) - gesetzt auf das `name`-Argument.
+- [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) - gesetzt auf:
 
-  - ein {{domxref("DOMHighResTimeStamp","Zeitstempel")}}, falls er in `measureOptions.start` angegeben ist.
-  - den {{domxref("DOMHighResTimeStamp","Zeitstempel")}} einer Startmarke, falls er in `measureOptions.start` oder `startMark` angegeben ist
-  - einen Zeitstempel, der aus dem `measureOptions.end` und `measureOptions.duration` berechnet wurde (falls `measureOptions.start` nicht angegeben wurde)
-  - 0, falls er nicht angegeben ist und nicht aus anderen Werten bestimmt werden kann.
+  - einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp), wenn in `measureOptions.start` angegeben.
+  - den [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) einer Startmarke, wenn in `measureOptions.start` oder `startMark` angegeben
+  - einen Zeitstempel, berechnet aus `measureOptions.end` und `measureOptions.duration` (wenn `measureOptions.start` nicht angegeben wurde)
+  - 0, wenn es nicht angegeben ist und nicht aus anderen Werten bestimmt werden kann.
 
-- {{domxref("PerformanceEntry.duration","duration")}} - auf einen {{domxref("DOMHighResTimeStamp")}} gesetzt, der die Dauer der Messung ist, berechnet durch Subtraktion von `startTime` vom Endzeitstempel.
+- [`duration`](/de/docs/Web/API/PerformanceEntry/duration) - gesetzt auf einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Dauer der Messung ist, berechnet durch Subtraktion des `startTime` vom Endzeitstempel.
 
-  Der Endzeitstempel ist einer der folgenden:
+  Der Endzeitstempel ist einer von:
 
-  - ein {{domxref("DOMHighResTimeStamp","Zeitstempel")}}, falls er in `measureOptions.end` angegeben ist.
-  - der {{domxref("DOMHighResTimeStamp","Zeitstempel")}} einer Endmarke, falls eine in `measureOptions.end` oder `endMark` angegeben ist
-  - ein Zeitstempel, der aus dem `measureOptions.start` und `measureOptions.duration` berechnet wurde (falls `measureOptions.end` nicht angegeben wurde)
-  - der Wert, der von {{domxref("Performance.now()")}} zurückgegeben wird, falls keine Endmarke angegeben oder aus anderen Werten bestimmt werden kann.
+  - einem [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp), wenn in `measureOptions.end` angegeben.
+  - der [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) einer Endmarke, wenn eine in `measureOptions.end` oder `endMark` angegeben ist
+  - einem Zeitstempel, berechnet aus `measureOptions.start` und `measureOptions.duration` (wenn `measureOptions.end` nicht angegeben wurde)
+  - dem Wert, der von [`Performance.now()`](/de/docs/Web/API/Performance/now) zurückgegeben wird, wenn keine Endmarke angegeben ist oder aus anderen Werten bestimmt werden kann.
 
-- {{domxref("PerformanceMeasure","detail")}} - auf den in `measureOptions` übergebenen Wert gesetzt.
+- [`detail`](/de/docs/Web/API/PerformanceMeasure) - gesetzt auf den in `measureOptions` übergebenen Wert.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
 
-  - : Dies kann in jedem Fall ausgelöst werden, in dem der Start, das Ende oder die Dauer unklar sein können:
+  - : Dies kann in jedem Fall ausgelöst werden, in dem der Beginn, das Ende oder die Dauer zweideutig sein könnten:
 
     - Sowohl `endMark` als auch `measureOptions` sind angegeben.
-    - `measureOptions` ist angegeben mit `duration`, aber ohne Angabe von entweder `start` oder `end`.
+    - `measureOptions` ist angegeben mit `duration`, aber ohne Angabe von `start` oder `end`.
     - `measureOptions` ist angegeben mit allen `start`, `end` und `duration`.
 
-- `SyntaxError` {{domxref("DOMException")}}
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Die benannte Markierung existiert nicht.
+  - : Die benannte Marke existiert nicht.
 
-    - Eine Endmarke ist entweder mit `endMark` oder `measureOptions.end` angegeben, aber es gibt keine {{domxref('PerformanceMark')}} im Performance-Puffer mit dem passenden Namen.
-    - Eine Endmarke ist entweder mit `endMark` oder `measureOptions.end` angegeben, aber sie kann nicht in eine übereinstimmende schreibgeschützte Attribut einer im {{domxref("PerformanceTiming")}}-Interface konvertiert werden.
-    - Eine Startmarke ist entweder mit `startMark` oder `measureOptions.start` angegeben, aber es gibt keine {{domxref('PerformanceMark')}} im Performance-Puffer mit dem passenden Namen.
-    - Eine Startmarke ist entweder mit `startMark` oder `measureOptions.start` angegeben, aber sie kann nicht in eine übereinstimmende schreibgeschützte Attribut einer im {{domxref("PerformanceTiming")}}-Interface konvertiert werden.
+    - Eine Endmarke ist entweder über `endMark` oder `measureOptions.end` angegeben, aber es gibt keine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) im Leistungsbuffer mit dem passenden Namen.
+    - Eine Endmarke ist entweder über `endMark` oder `measureOptions.end` angegeben, kann aber nicht konvertiert werden, um mit einem schreibgeschützten Attribut in der [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle übereinzustimmen.
+    - Eine Startmarke ist entweder über `startMark` oder `measureOptions.start` angegeben, aber es gibt keine [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) im Leistungsbuffer mit dem passenden Namen.
+    - Eine Startmarke ist entweder über `startMark` oder `measureOptions.start` angegeben, kann aber nicht konvertiert werden, um mit einem schreibgeschützten Attribut in der [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle übereinzustimmen.
 
-- `DataCloneError` {{domxref("DOMException")}}
+- `DataCloneError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Der `measureOptions.detail`-Wert ist nicht-`null` und kann nicht unter Verwendung des HTML-"StructuredSerialize"-Algorithmus serialisiert werden.
+  - : Der `measureOptions.detail`-Wert ist ungleich `null` und kann nicht mit dem HTML-"StructuredSerialize"-Algorithmus serialisiert werden.
 
 - {{jsxref("RangeError")}}
-  - : Der `measureOptions.detail`-Wert ist nicht-`null` und während der Serialisierung kann kein Speicher zugewiesen werden, indem der HTML-"StructuredSerialize"-Algorithmus verwendet wird.
+  - : Der `measureOptions.detail`-Wert ist ungleich `null` und der Speicher kann während der Serialisierung mit dem HTML-"StructuredSerialize"-Algorithmus nicht zugewiesen werden.
 
 ## Beispiele
 
-### Dauer zwischen benannten Markierungen messen
+### Dauer zwischen benannten Markern messen
 
-Angenommen, es gibt zwei Ihrer eigenen Markierungen `"login-started"` und `"login-finished"`, können Sie eine Messung namens `"login-duration"` erstellen, wie im folgenden Beispiel gezeigt. Das zurückgegebene {{domxref("PerformanceMeasure")}}-Objekt wird dann eine `duration`-Eigenschaft bereitstellen, die Ihnen die verstrichene Zeit zwischen den beiden Markierungen angibt.
+Angenommen, Sie haben zwei eigene Marker `"login-started"` und `"login-finished"`, können Sie eine Messung namens `"login-duration"` erstellen, wie im folgenden Beispiel gezeigt. Das zurückgegebene [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekt wird dann eine `duration`-Eigenschaft bereitstellen, die Ihnen die verstrichene Zeit zwischen den beiden Markern angibt.
 
 ```js
 const loginMeasure = performance.measure(
@@ -130,7 +129,7 @@ console.log(loginMeasure.duration);
 
 ### Dauer mit benutzerdefinierten Start- und Endzeiten messen
 
-Um fortschrittlichere Messungen durchzuführen, können Sie einen `measureOptions`-Parameter übergeben. Zum Beispiel können Sie die [`event.timeStamp`](/de/docs/Web/API/Event/timeStamp)-Eigenschaft aus einem [`click`-Ereignis](/de/docs/Web/API/Element/click_event) als Startzeit verwenden.
+Um fortgeschrittenere Messungen durchzuführen, können Sie einen `measureOptions`-Parameter übergeben. Zum Beispiel können Sie die [`event.timeStamp`](/de/docs/Web/API/Event/timeStamp)-Eigenschaft aus einem [`click`-Ereignis](/de/docs/Web/API/Element/click_event) als Startzeit verwenden.
 
 ```js
 performance.measure("login-click", {
@@ -141,7 +140,7 @@ performance.measure("login-click", {
 
 ### Zusätzliche Messdetails bereitstellen
 
-Sie können die `details`-Eigenschaft verwenden, um zusätzliche Informationen jeglicher Art bereitzustellen. Vielleicht möchten Sie zum Beispiel festhalten, welches HTML-Element angeklickt wurde.
+Sie können die `details`-Eigenschaft verwenden, um zusätzliche Informationen jeglicher Art bereitzustellen. Vielleicht möchten Sie zum Beispiel aufzeichnen, welches HTML-Element angeklickt wurde.
 
 ```js
 performance.measure("login-click", {

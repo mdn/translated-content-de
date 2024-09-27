@@ -1,5 +1,5 @@
 ---
-title: SVG `<text>`-Element
+title: <text>
 slug: Web/SVG/Element/text
 l10n:
   sourceCommit: 4dec42ed700040565e8af0e14ff104054ebc20f5
@@ -7,12 +7,12 @@ l10n:
 
 {{SVGRef}}
 
-Das SVG **`<text>`**-Element zeichnet ein Grafikelement, das aus Text besteht. Es ist möglich, einen Farbverlauf, ein Muster, einen Clipping-Pfad, eine Maske oder einen Filter auf `<text>` anzuwenden, wie bei jedem anderen SVG-Grafikelement.
+Das SVG **`<text>`**-Element zeichnet ein Grafikelement bestehend aus Text. Es ist möglich, einem `<text>`-Element wie jedem anderen SVG-Grafikelement einen Farbverlauf, ein Muster, einen Schnittpfad, eine Maske oder einen Filter zuzuweisen.
 
-Wenn Text in SVG enthalten ist, aber nicht in einem `<text>`-Element, wird er nicht gerendert. Dies unterscheidet sich davon, standardmäßig verborgen zu sein, da das Festlegen der {{SVGAttr('display')}} Eigenschaft den Text nicht anzeigt.
+Wenn Text in SVG außerhalb eines `<text>`-Elements enthalten ist, wird er nicht gerendert. Dies ist nicht dasselbe wie ausgeblendet zu sein, da das Festlegen der {{SVGAttr('display')}}-Eigenschaft den Text nicht anzeigt.
 
 > [!NOTE]
-> Das `<text>`-Element bricht standardmäßig nicht um. Um dies zu erreichen, muss es mit der CSS-Eigenschaft {{CSSXRef("white-space")}} gestaltet werden.
+> Das `<text>`-Element bricht den Text standardmäßig nicht um. Um dies zu erreichen, muss es mit der {{CSSXRef("white-space")}} CSS-Eigenschaft gestylt werden.
 
 ## Beispiel
 
@@ -34,9 +34,8 @@ svg {
       font: bold 30px sans-serif;
     }
 
-    /* Beachten Sie, dass die Farbe des Textes mit der     *
-     * fill-Eigenschaft gesetzt wird, die color-Eigenschaft *
-     * ist nur für HTML.                                     */
+    /* Note that the color of the text is set with the    *
+     * fill property, the color property is for HTML only */
     .Rrrrr {
       font: italic 40px serif;
       fill: red;
@@ -55,26 +54,26 @@ svg {
 ## Attribute
 
 - {{SVGAttr("x")}}
-  - : Die x-Koordinate des Ausgangspunkts der Textbasislinie oder die x-Koordinate jedes individuellen Glyphs, wenn eine Liste von Werten angegeben ist.
-    _Wertetyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)) ; _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Die x-Koordinate des Startpunkts der Textgrundlinie oder die x-Koordinate jedes einzelnen Glyphs, wenn eine Liste von Werten angegeben ist.
+    _Werttyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)) ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("y")}}
-  - : Die y-Koordinate des Ausgangspunkts der Textbasislinie oder die y-Koordinate jedes individuellen Glyphs, wenn eine Liste von Werten angegeben ist.
-    _Wertetyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)) ; _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Die y-Koordinate des Startpunkts der Textgrundlinie oder die y-Koordinate jedes einzelnen Glyphs, wenn eine Liste von Werten angegeben ist.
+    _Werttyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)) ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("dx")}}
-  - : Verschiebt die Textposition horizontal von einem vorherigen Textelement oder verschiebt die Position jedes individuellen Glyphs, wenn eine Liste von Werten angegeben ist.
-    _Wertetyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)) ; _Standardwert_: _none_; _Animierbar_: **ja**
+  - : Verschiebt die Textposition horizontal von einem vorherigen Textelement oder verschiebt die Position jedes einzelnen Glyphs, wenn eine Liste von Werten angegeben ist.
+    _Werttyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)) ; _Standardwert_: _none_; _Animierbar_: **ja**
 - {{SVGAttr("dy")}}
-  - : Verschiebt die Textposition vertikal von einem vorherigen Textelement oder verschiebt die Position jedes individuellen Glyphs, wenn eine Liste von Werten angegeben ist.
-    _Wertetyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)) ; _Standardwert_: _none_; _Animierbar_: **ja**
+  - : Verschiebt die Textposition vertikal von einem vorherigen Textelement oder verschiebt die Position jedes einzelnen Glyphs, wenn eine Liste von Werten angegeben ist.
+    _Werttyp_: Liste von ([**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)) ; _Standardwert_: _none_; _Animierbar_: **ja**
 - {{SVGAttr("rotate")}}
-  - : Dreht die Ausrichtung jedes individuellen Glyphs. Kann Glyphen einzeln drehen.
-    _Wertetyp_: [**\<list-of-number>**](/de/docs/Web/SVG/Content_type#list-of-ts) ; _Standardwert_: none; _Animierbar_: **ja**
+  - : Dreht die Ausrichtung jedes einzelnen Glyphs. Kann Glyphen individuell drehen.
+    _Werttyp_: [**\<list-of-number>**](/de/docs/Web/SVG/Content_type#list-of-ts) ; _Standardwert_: none; _Animierbar_: **ja**
 - {{SVGAttr("lengthAdjust")}}
-  - : Wie der Text gestreckt oder gestaucht wird, um die durch das `textLength`-Attribut definierte Breite anzupassen.
-    _Wertetyp_: `spacing`|`spacingAndGlyphs`; _Standardwert_: `spacing`; _Animierbar_: **ja**
+  - : Wie der Text gedehnt oder komprimiert wird, um die durch das `textLength`-Attribut definierte Breite anzupassen.
+    _Werttyp_: `spacing`|`spacingAndGlyphs`; _Standardwert_: `spacing`; _Animierbar_: **ja**
 - {{SVGAttr("textLength")}}
   - : Eine Breite, auf die der Text skaliert werden soll.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: _none_; _Animierbar_: **ja**
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: _none_; _Animierbar_: **ja**
 
 ## Verwendungskontext
 
@@ -88,9 +87,9 @@ svg {
 
 {{Compat}}
 
-## Verwandte Themen
+## Verwandt
 
-- Andere SVG-textelemente: **{{SVGElement("tspan")}}**, {{SVGElement("tref")}}
+- Andere textbezogene SVG-Elemente: **{{SVGElement("tspan")}}**, {{SVGElement("tref")}}
 
 ## Siehe auch
 

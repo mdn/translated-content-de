@@ -8,21 +8,16 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`validationMessage`** schreibgeschützte Eigenschaft
-des {{domxref("HTMLObjectElement")}}-Interfaces gibt eine Zeichenfolge zurück,
-die eine lokalisierte Nachricht darstellt, welche die Validierungsbeschränkungen beschreibt,
-die das Steuerelement nicht erfüllt (falls vorhanden). Dies ist die leere Zeichenfolge, wenn das Steuerelement
-kein Kandidat für die Eingabebeschränkungsvalidierung ist (willValidate ist false) oder wenn es seine
-Beschränkungen erfüllt.
+Die schreibgeschützte Eigenschaft **`validationMessage`** des [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces gibt einen String zurück, der eine lokalisierte Nachricht darstellt und die Validierungsbeschränkungen beschreibt, die die Kontrolle nicht erfüllt (falls vorhanden). Dies ist der leere String, wenn das Steuerelement nicht für die Beschränkungsvalidierung in Frage kommt (`willValidate` ist falsch) oder die Beschränkungen erfüllt sind.
 
 ## Wert
 
-Eine Zeichenfolge.
+Ein String.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

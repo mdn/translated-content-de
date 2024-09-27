@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: fill() Methode"
+title: "CanvasRenderingContext2D: fill()-Methode"
 short-title: fill()
 slug: Web/API/CanvasRenderingContext2D/fill
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die
-**`CanvasRenderingContext2D.fill()`**
-Methode der Canvas 2D API füllt den aktuellen oder angegebenen Pfad mit dem aktuellen
-{{domxref("CanvasRenderingContext2D.fillStyle", "fillStyle")}}.
+Die **`CanvasRenderingContext2D.fill()`**-Methode der Canvas 2D API füllt den aktuellen oder angegebenen Pfad mit dem aktuellen [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle).
 
 ## Syntax
 
@@ -26,17 +23,17 @@ fill(path, fillRule)
 
 - `fillRule`
 
-  - : Der Algorithmus, mit dem bestimmt wird, ob ein Punkt innerhalb oder außerhalb des Füllbereichs liegt.
+  - : Der Algorithmus, mit dem bestimmt wird, ob ein Punkt innerhalb oder außerhalb der Füllregion liegt.
     Mögliche Werte:
 
     - `nonzero`
-      - : Die [non-zero Windregel](https://de.wikipedia.org/wiki/Nicht-Null-Regel).
+      - : Die [non-zero winding rule](https://en.wikipedia.org/wiki/Nonzero-rule).
         Standardregel.
     - `evenodd`
-      - : Die [Even-Odd Windregel](https://de.wikipedia.org/wiki/Even-Odd-Regel).
+      - : Die [even-odd winding rule](https://en.wikipedia.org/wiki/Even%E2%80%93odd_rule).
 
 - `path`
-  - : Ein {{domxref("Path2D")}} Pfad zum Füllen.
+  - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad, der gefüllt werden soll.
 
 ### Rückgabewert
 
@@ -46,7 +43,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ein Rechteck füllen
 
-Dieses Beispiel füllt ein Rechteck mit der `fill()` Methode.
+Dieses Beispiel füllt ein Rechteck mit der `fill()`-Methode.
 
 #### HTML
 
@@ -67,12 +64,9 @@ ctx.fill();
 
 {{ EmbedLiveSample('Filling_a_rectangle', 700, 180) }}
 
-### Einen Pfad und eine fillRule angeben
+### Spezifizieren eines Pfades und einer fillRule
 
-Dieses Beispiel speichert einige sich schneidende Linien in einem Path2D Objekt. Die `fill()`
-Methode wird dann verwendet, um das Objekt auf die Leinwand zu rendern. Ein Loch in der Mitte des
-Objekts bleibt durch die Verwendung der `"evenodd"` Regel ungefüllt; standardmäßig (mit der
-`"nonzero"` Regel) würde das Loch ebenfalls gefüllt werden.
+Dieses Beispiel speichert einige sich schneidende Linien in einem Path2D-Objekt. Die `fill()`-Methode wird dann verwendet, um das Objekt auf die Leinwand zu rendern. Ein Loch bleibt im Zentrum des Objekts ungefüllt, indem die `"evenodd"`-Regel verwendet wird; standardmäßig (mit der `"nonzero"`-Regel) würde das Loch ebenfalls gefüllt werden.
 
 #### HTML
 
@@ -86,7 +80,7 @@ Objekts bleibt durch die Verwendung der `"evenodd"` Regel ungefüllt; standardm�
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// Pfad erstellen
+// Create path
 let region = new Path2D();
 region.moveTo(30, 90);
 region.lineTo(110, 20);
@@ -96,7 +90,7 @@ region.lineTo(190, 20);
 region.lineTo(270, 90);
 region.closePath();
 
-// Pfad füllen
+// Fill path
 ctx.fillStyle = "green";
 ctx.fill(region, "evenodd");
 ```
@@ -115,5 +109,5 @@ ctx.fill(region, "evenodd");
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasRenderingContext2D.fillStyle")}}
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasRenderingContext2D.fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle)

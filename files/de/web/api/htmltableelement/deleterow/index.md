@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableElement: Methode deleteRow()"
+title: "HTMLTableElement: deleteRow()-Methode"
 short-title: deleteRow()
 slug: Web/API/HTMLTableElement/deleteRow
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLTableElement.deleteRow()`**-Methode entfernt eine bestimmte Zeile ({{HtmlElement("tr")}}) aus einem gegebenen {{HtmlElement("table")}}.
+Die **`HTMLTableElement.deleteRow()`**-Methode entfernt eine
+spezifische Zeile ({{HtmlElement("tr")}}) aus einem gegebenen {{HtmlElement("table")}}.
 
 ## Syntax
 
@@ -19,7 +20,9 @@ deleteRow(index)
 ### Parameter
 
 - `index`
-  - : `index` ist eine ganze Zahl, die die zu löschende Zeile repräsentiert. Der spezielle Index `-1` kann jedoch verwendet werden, um die letzte Zeile einer Tabelle zu entfernen.
+  - : `index` ist ein ganzzahliger Wert, der die zu löschende Zeile repräsentiert.
+    Der spezielle Index `-1` kann jedoch verwendet werden, um die allerletzte Zeile
+    einer Tabelle zu entfernen.
 
 ### Rückgabewert
 
@@ -27,8 +30,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `index` größer oder gleich der Anzahl der verfügbaren Zeilen ist oder wenn es ein negativer Wert außer `-1` ist.
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `index` größer oder gleich der Anzahl verfügbarer Zeilen ist oder einen negativen Wert ungleich `-1` darstellt.
 
 ## Beispiele
 
@@ -79,4 +82,4 @@ table.deleteRow(1);
 
 ## Siehe auch
 
-- {{domxref("HTMLTableSectionElement.deleteRow()")}}
+- [`HTMLTableSectionElement.deleteRow()`](/de/docs/Web/API/HTMLTableSectionElement/deleteRow)

@@ -7,23 +7,23 @@ l10n:
 
 {{jsSidebar}}
 
-Ein **regulärer Ausdruck** (kurz _regex_) ermöglicht Entwicklern, Zeichenfolgen anhand eines Musters zu überprüfen, Informationen über Teilübereinstimmungen zu extrahieren oder einfach nur zu testen, ob die Zeichenfolge diesem Muster entspricht. Reguläre Ausdrücke werden in vielen Programmiersprachen verwendet, und die Syntax in JavaScript ist von [Perl](https://www.perl.org/) inspiriert.
+Ein **regulärer Ausdruck** (kurz _regex_) ermöglicht es Entwicklern, Zeichenketten mit einem Muster abzugleichen, Informationen zu extrahieren oder einfach zu testen, ob die Zeichenkette diesem Muster entspricht. Reguläre Ausdrücke werden in vielen Programmiersprachen verwendet, und die Syntax von JavaScript ist von [Perl](https://www.perl.org/) inspiriert.
 
-Es wird empfohlen, den [Leitfaden für reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) zu lesen, um einen Überblick über die verfügbaren Regex-Syntaxen und deren Funktionsweise zu erhalten.
+Es wird empfohlen, den [Leitfaden für reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) zu lesen, um einen Überblick über die verfügbaren Regex-Syntaxen und ihre Funktionsweise zu erhalten.
 
 ## Beschreibung
 
-[_Reguläre Ausdrücke_](https://en.wikipedia.org/wiki/Regular_expression) sind ein wichtiges Konzept in der Theorie formaler Sprachen. Sie sind eine Methode, um eine möglicherweise unendliche Menge von Zeichenfolgen (ein _Sprache_ genannt) zu beschreiben. Ein regulärer Ausdruck benötigt im Wesentlichen die folgenden Merkmale:
+[_Reguläre Ausdrücke_](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck) sind ein wichtiges Konzept in der formalen Sprachtheorie. Sie bieten eine Möglichkeit, eine potenziell unendliche Menge von Zeichenfolgen (eine _Sprache_ genannt) zu beschreiben. Ein regulärer Ausdruck benötigt im Kern die folgenden Merkmale:
 
-- Eine Menge von _Zeichen_, die in der Sprache verwendet werden können, das _Alphabet_ genannt.
-- _Konkatenation_: `ab` bedeutet „das Zeichen `a` gefolgt von dem Zeichen `b`“.
-- _Vereinigung_: `a|b` bedeutet „entweder `a` oder `b`“.
-- _Kleene-Stern_: `a*` bedeutet „null oder mehr Zeichen `a`“.
+- Ein Satz von _Zeichen_, die in der Sprache verwendet werden können, das sogenannte _Alphabet_.
+- _Konkatenation_: `ab` bedeutet "das Zeichen `a` gefolgt von dem Zeichen `b`".
+- _Vereinigung_: `a|b` bedeutet "entweder `a` oder `b`".
+- _Kleene-Stern_: `a*` bedeutet "null oder mehr `a`-Zeichen".
 
-Angenommen, es gibt ein endliches Alphabet (wie die 26 Buchstaben des englischen Alphabets oder das gesamte Unicode-Zeichensatz), können alle regulären Sprachen durch die oben genannten Merkmale generiert werden. Natürlich sind viele Muster auf diese Weise sehr mühsam auszudrücken (wie „10 Ziffern“ oder „ein Zeichen, das kein Leerzeichen ist“), daher enthalten reguläre Ausdrücke in JavaScript viele Abkürzungen, die unten vorgestellt werden.
+Angenommen, es gibt ein endliches Alphabet (wie die 26 Buchstaben des englischen Alphabets oder das gesamte Unicode-Zeichenset), können alle regulären Sprachen durch die oben genannten Merkmale generiert werden. Natürlich sind viele Muster auf diese Weise sehr mühsam auszudrücken (wie "10 Ziffern" oder "ein Zeichen, das kein Leerzeichen ist"), daher beinhalten JavaScript-Reguläre-Ausdrücke viele Abkürzungen, die unten eingeführt werden.
 
 > [!NOTE]
-> JavaScript-Reguläre Ausdrücke sind tatsächlich nicht regulär, wegen der Existenz von [Rückverweisen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference) (reguläre Ausdrücke müssen endliche Zustände haben). Dennoch sind sie ein sehr nützliches Feature.
+> JavaScript-Reguläre-Ausdrücke sind in Wirklichkeit nicht regulär, aufgrund der Existenz von [Rückbezügen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference) (reguläre Ausdrücke müssen endliche Zustände haben). Dennoch sind sie eine sehr nützliche Funktion.
 
 ### Reguläre Ausdrücke erstellen
 
@@ -33,111 +33,111 @@ Ein regulärer Ausdruck wird typischerweise als Literal erstellt, indem ein Must
 const regex1 = /ab+c/g;
 ```
 
-Reguläre Ausdrücke können auch mit dem {{jsxref("RegExp/RegExp", "RegExp()")}} Konstruktor erstellt werden:
+Reguläre Ausdrücke können auch mit dem {{jsxref("RegExp/RegExp", "RegExp()")}}-Konstruktor erstellt werden:
 
 ```js
 const regex2 = new RegExp("ab+c", "g");
 ```
 
-Sie haben keine Laufzeitunterschiede, obwohl sie möglicherweise Auswirkungen auf die Leistung, die statische Analysebarkeit und ergonomische Probleme beim Autor haben. Für weitere Informationen siehe die [`RegExp`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#literal_notation_and_constructor) Referenz.
+Zwischen beiden gibt es zur Laufzeit keine Unterschiede, obwohl sie Auswirkungen auf Leistung, statische Analysierbarkeit und ergonomische Probleme beim Escaping von Zeichen haben können. Weitere Informationen finden Sie im [`RegExp`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#literal_notation_and_constructor)-Referenz.
 
 ### Regex-Flags
 
-Flags sind spezielle Parameter, die ändern können, wie ein regulärer Ausdruck interpretiert wird oder wie er mit dem Eingabetext interagiert. Jedes Flag entspricht einer Zugriffseigenschaft des `RegExp` Objekts.
+Flags sind spezielle Parameter, die ändern können, wie ein regulärer Ausdruck interpretiert wird oder wie er mit dem Eingabetext interagiert. Jedes Flag entspricht einer Zugriffs-Eigenschaft des `RegExp`-Objekts.
 
-| Flag | Beschreibung                                                                                   | Entsprechende Eigenschaft                               |
-| ---- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| `d`  | Erzeugt Indizes für Teilstring-Übereinstimmungen.                                             | {{jsxref("RegExp/hasIndices", "hasIndices")}}           |
-| `g`  | Globale Suche.                                                                                | {{jsxref("RegExp/global", "global")}}                   |
-| `i`  | Groß-/Kleinschreibung ignorieren.                                                             | {{jsxref("RegExp/ignoreCase", "ignoreCase")}}           |
-| `m`  | Ermöglicht, dass `^` und `$` neben Zeilenumbrüchen übereinstimmen.                            | {{jsxref("RegExp/multiline", "multiline")}}             |
-| `s`  | Ermöglicht, dass `.` mit Zeilenumbrüchen übereinstimmt.                                       | {{jsxref("RegExp/dotAll", "dotAll")}}                   |
-| `u`  | „Unicode“; behandelt ein Muster als eine Folge von Unicode-Codepunkten.                       | {{jsxref("RegExp/unicode", "unicode")}}                 |
-| `v`  | Ein Upgrade auf den `u`-Modus mit mehr Unicode-Funktionen.                                    | {{jsxref("RegExp/unicodeSets", "unicodeSets")}}         |
-| `y`  | Führt eine „klebrige“ Suche durch, die ab der aktuellen Position im Zielstring übereinstimmt. | {{jsxref("RegExp/sticky", "sticky")}}                   |
+| Flag | Beschreibung                                                                                 | Entsprechende Eigenschaft                       |
+| ---- | -------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| `d`  | Erzeugt Indizes für Teilzeichenfolgenübereinstimmungen.                                      | {{jsxref("RegExp/hasIndices", "hasIndices")}}   |
+| `g`  | Globale Suche.                                                                               | {{jsxref("RegExp/global", "global")}}           |
+| `i`  | Groß-/Kleinschreibung ignorieren.                                                            | {{jsxref("RegExp/ignoreCase", "ignoreCase")}}   |
+| `m`  | Ermöglicht es `^` und `$`, neben Zeilenumbruchszeichen zu stehen.                            | {{jsxref("RegExp/multiline", "multiline")}}     |
+| `s`  | Ermöglicht es `.` Zeilenumbruchszeichen zu entsprechen.                                      | {{jsxref("RegExp/dotAll", "dotAll")}}           |
+| `u`  | "Unicode"; behandelt ein Muster als eine Folge von Unicode-Codierungen.                      | {{jsxref("RegExp/unicode", "unicode")}}         |
+| `v`  | Ein Upgrade des `u`-Modus mit mehr Unicode-Funktionen.                                       | {{jsxref("RegExp/unicodeSets", "unicodeSets")}} |
+| `y`  | Führen Sie eine "haftende" Suche durch, die an der aktuellen Position im Zielstring beginnt. | {{jsxref("RegExp/sticky", "sticky")}}           |
 
-Die Flags `i`, `m` und `s` können für bestimmte Teile eines Regex mit der [Modifikator]-Syntax (/de/docs/Web/JavaScript/Reference/Regular_expressions/Modifier) aktiviert oder deaktiviert werden.
+Die Flags `i`, `m` und `s` können für bestimmte Teile eines Regex mithilfe der [Modifikator](/de/docs/Web/JavaScript/Reference/Regular_expressions/Modifier)-Syntax aktiviert oder deaktiviert werden.
 
 Die folgenden Abschnitte listen alle verfügbaren Regex-Syntaxen auf, gruppiert nach ihrer syntaktischen Natur.
 
 ### Assertions
 
-Assertions sind Konstrukte, die testen, ob die Zeichenfolge an der angegebenen Position eine bestimmte Bedingung erfüllt, aber keine Zeichen verbrauchen. Assertions können nicht [quantifiziert](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) werden.
+Assertions sind Konstrukte, die testen, ob die Zeichenkette eine bestimmte Bedingung an der angegebenen Position erfüllt, aber keine Zeichen verbrauchen. Assertions können nicht [quantifiziert](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) werden.
 
-- [Eingabebegrenzungs-Assertion: `^`, `$`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
-  - : Behauptet, dass die aktuelle Position der Anfang oder das Ende der Eingabe oder der Anfang oder das Ende einer Zeile ist, wenn das `m`-Flag gesetzt ist.
+- [Eingabe-Grenz-Assertion: `^`, `$`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
+  - : Bestätigt, dass die aktuelle Position der Anfang oder das Ende der Eingabe ist oder, wenn das `m`-Flag gesetzt ist, der Anfang oder das Ende einer Zeile.
 - [Lookahead-Assertion: `(?=...)`, `(?!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)
-  - : Behauptet, dass die aktuelle Position von einem bestimmten Muster gefolgt oder nicht gefolgt wird.
+  - : Bestätigt, dass die aktuelle Position von einem bestimmten Muster gefolgt oder nicht gefolgt wird.
 - [Lookbehind-Assertion: `(?<=...)`, `(?<!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)
-  - : Behauptet, dass die aktuelle Position von einem bestimmten Muster vorangestellt oder nicht vorangestellt wird.
-- [Wortbegrenzungs-Assertion: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
-  - : Behauptet, dass die aktuelle Position eine Wortgrenze ist.
+  - : Bestätigt, dass die aktuelle Position von einem bestimmten Muster vorhergegangen oder nicht vorhergegangen wird.
+- [Wort-Grenz-Assertion: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
+  - : Bestätigt, dass die aktuelle Position eine Wortgrenze ist.
 
 ### Atome
 
-Atome sind die grundlegendsten Einheiten eines regulären Ausdrucks. Jedes Atom _verbraucht_ ein oder mehr Zeichen in der Zeichenfolge und scheitert entweder an der Übereinstimmung oder lässt das Muster mit dem nächsten Atom weiter übereinstimmen.
+Atome sind die grundlegendsten Einheiten eines regulären Ausdrucks. Jedes Atom _verbraucht_ ein oder mehrere Zeichen in der Zeichenkette und scheitert entweder an der Übereinstimmung oder ermöglicht es dem Muster, mit dem nächsten Atom weiter zu übereinstimmen.
 
 - [Rückverweis: `\1`, `\2`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference)
-  - : Entspricht einem zuvor übereinstimmenden Untermuster, das mit einer Erfassungsgruppe erfasst wurde.
+  - : Entspricht einem zuvor mit einer erfassenden Gruppe erfassten Teilmuster.
 - [Erfassungsgruppe: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)
-  - : Entspricht einem Untermuster und merkt sich Informationen über die Übereinstimmung.
+  - : Entspricht einem Teilmuster und merkt sich Informationen über die Übereinstimmung.
 - [Zeichenklasse: `[...]`, `[^...]`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)
-  - : Entspricht jedem Zeichen in oder nicht in einer Menge von Zeichen. Wenn das [`v`]-Flag (/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets) aktiviert ist, kann es auch verwendet werden, um Zeichenfolgen fester Länge zu entsprechen.
-- [Escape der Zeichenklasse: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
-  - : Entspricht jedem Zeichen in oder nicht in einer vordefinierten Menge von Zeichen.
-- [Zeichen-Escape: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
-  - : Entspricht einem Zeichen, das möglicherweise nicht in seiner literalen Form dargestellt werden kann.
-- [Literales Zeichen: `a`, `b`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character)
+  - : Entspricht jedem Zeichen innerhalb oder außerhalb eines Zeichensatzes. Wenn das [`v`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets)-Flag aktiviert ist, kann es auch verwendet werden, um Zeichenketten endlicher Länge zu entsprechen.
+- [Zeichenklasse-Fluchtsequenz: `\d`, `\D`, `\w`, `\W`, `\s`, `\S`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape)
+  - : Entspricht jedem Zeichen innerhalb oder außerhalb eines vordefinierten Zeichensatzes.
+- [Zeichenflucht: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
+  - : Entspricht einem Zeichen, das möglicherweise nicht bequem in seiner literalen Form dargestellt werden kann.
+- [Literalzeichen: `a`, `b`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character)
   - : Entspricht einem bestimmten Zeichen.
 - [Modifikator: `(?ims-ims:...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Modifier)
-  - : Überschreibt die Flandereinstellungen in einem bestimmten Teil eines regulären Ausdrucks.
+  - : Überschreibt die Flageinstellungen in einem bestimmten Teil eines regulären Ausdrucks.
 - [Benannter Rückverweis: `\k<name>`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference)
-  - : Entspricht einem zuvor übereinstimmenden Untermuster, das mit einer benannten Erfassungsgruppe erfasst wurde.
+  - : Entspricht einem zuvor mit einer benannten erfassenden Gruppe erfassten Teilmuster.
 - [Benannte Erfassungsgruppe: `(?<name>...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group)
-  - : Entspricht einem Untermuster und merkt sich Informationen über die Übereinstimmung. Die Gruppe kann später durch einen benutzerdefinierten Namen anstelle ihres Indexes im Muster identifiziert werden.
-- [Nich erfassende Gruppe: `(?:...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group)
-  - : Entspricht einem Untermuster, ohne Informationen über die Übereinstimmung zu merken.
-- [Unicode-Zeichenklassen-Escape: `\p{...}`, `\P{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)
-  - : Entspricht einer Menge von Zeichen, die durch eine Unicode-Eigenschaft angegeben werden. Wenn das [`v`]-Flag (/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets) aktiviert ist, kann es auch verwendet werden, um Zeichenfolgen fester Länge zu entsprechen.
+  - : Entspricht einem Teilmuster und merkt sich Informationen über die Übereinstimmung. Die Gruppe kann später anhand eines benutzerdefinierten Namens anstelle ihres Indexes im Muster identifiziert werden.
+- [Nicht-erfassende Gruppe: `(?:...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group)
+  - : Entspricht einem Teilmuster, ohne Informationen über die Übereinstimmung zu speichern.
+- [Unicode-Zeichenklasse-Fluchtsequenz: `\p{...}`, `\P{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape)
+  - : Entspricht einem Satz von Zeichen, die durch eine Unicode-Eigenschaft angegeben sind. Wenn das [`v`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets)-Flag aktiviert ist, kann es auch verwendet werden, um Zeichenketten endlicher Länge zu entsprechen.
 - [Wildcard: `.`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard)
-  - : Entspricht jedem Zeichen außer Zeilenbegrenzern, es sei denn, das `s`-Flag ist gesetzt.
+  - : Entspricht jedem Zeichen außer Zeilenbeenden, es sei denn, das `s`-Flag ist gesetzt.
 
 ### Andere Merkmale
 
-Diese Merkmale legen kein Muster für sich fest, sondern werden verwendet, um Muster zu komponieren.
+Diese Merkmale spezifizieren selbst kein Muster, sondern werden verwendet, um Muster zu komponieren.
 
 - [Disjunktion: `|`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction)
-  - : Entspricht jedem der durch das Zeichen `|` getrennten Alternativen.
+  - : Entspricht einem beliebigen Satz von Alternativen, die durch das `|`-Zeichen getrennt sind.
 - [Quantifizierer: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)
   - : Entspricht einem Atom eine bestimmte Anzahl von Malen.
 
 ### Escape-Sequenzen
 
-_Escape-Sequenzen_ in Regexen beziehen sich auf jede Art von Syntax, die aus einem `\` gefolgt von einem oder mehreren Zeichen besteht. Sie können sehr unterschiedliche Zwecke erfüllen, abhängig davon, was dem `\` folgt. Im Folgenden finden Sie eine Liste aller gültigen „Escape-Sequenzen“:
+_Escape-Sequenzen_ in Regex beziehen sich auf jede Art von Syntax, gebildet durch `\` gefolgt von einem oder mehreren Zeichen. Sie können sehr unterschiedliche Zwecke erfüllen, je nachdem, was `\` folgt. Unten finden Sie eine Liste aller gültigen "Escape-Sequenzen":
 
-| Escape-Sequenz | Gefolgt von                                                       | Bedeutung                                                                                                               |
-| -------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `\B`           | Keine                                                             | [Nicht-Wortbegrenzungs-Assertion][WBA]                                                                                 |
-| `\D`           | Keine                                                             | [Escape der Zeichenklasse][CCE] stellt nicht-Ziffernzeichen dar                                                        |
-| `\P`           | `{`, eine Unicode-Eigenschaft und/oder Wert, dann `}`             | [Escape der Unicode-Zeichenklasse][UCCE] stellt Zeichen ohne die angegebene Unicode-Eigenschaft dar                     |
-| `\S`           | Keine                                                             | [Escape der Zeichenklasse][CCE] stellt nicht-Leerzeichen dar                                                           |
-| `\W`           | Keine                                                             | [Escape der Zeichenklasse][CCE] stellt nicht-Wortzeichen dar                                                           |
-| `\b`           | Keine                                                             | [Wortbegrenzungs-Assertion][WBA]; innerhalb von [Zeichenklassen][CC] stellt U+0008 (RÜCKSCHRITT) dar                    |
-| `\c`           | Ein Buchstabe von `A` bis `Z` oder `a` bis `z`                    | Ein [Zeichen-Escape][CE] stellt das Steuerzeichen mit einem Wert dar, der dem Buchstaben-Zeichenwert modulo 32 entspricht|
-| `\d`           | Keine                                                             | [Escape der Zeichenklasse][CCE] stellt Ziffernzeichen (`0` bis `9`) dar                                                |
-| `\f`           | Keine                                                             | [Zeichen-Escape][CE] stellt U+000C (FORMULARVORSCHUB) dar                                                              |
-| `\k`           | `<`, einen Bezeichner, dann `>`                                   | Ein [benannter Rückverweis][NBR]                                                                                       |
-| `\n`           | Keine                                                             | [Zeichen-Escape][CE] stellt U+000A (ZEILENVORSCHUB) dar                                                                |
-| `\p`           | `{`, eine Unicode-Eigenschaft und/oder Wert, dann `}`             | [Escape der Unicode-Zeichenklasse][UCCE] stellt Zeichen mit der angegebenen Unicode-Eigenschaft dar                    |
-| `\q`           | `{`, eine Zeichenkette, dann ein `}`                              | Nur innerhalb von [`v`-Modus-Zeichenklassen][VCC] gültig; stellt die Zeichenkette dar, die buchstäblich übereinstimmen soll |
-| `\r`           | Keine                                                             | [Zeichen-Escape][CE] stellt U+000D (WAGENRÜCKLAUF) dar                                                                 |
-| `\s`           | Keine                                                             | [Escape der Zeichenklasse][CCE] stellt Leerzeichen dar                                                                 |
-| `\t`           | Keine                                                             | [Zeichen-Escape][CE] stellt U+0009 (ZEICHENTABULATOR) dar                                                              |
-| `\u`           | 4 hexadezimale Ziffern; oder `{`, 1 bis 6 hexadezimale Ziffern,       dann `}` | [Zeichen-Escape][CE] stellt das Zeichen mit dem angegebenen Codepunkt dar                                             |
-| `\v`           | Keine                                                             | [Zeichen-Escape][CE] stellt U+000B (LINIENTABULATOR) dar                                                               |
-| `\w`           | Keine                                                             | [Escape der Zeichenklasse][CCE] stellt Wortzeichen dar (`A` bis `Z`, `a` bis `z`, `0` bis `9`, `_`)                   |
-| `\x`           | 2 hexadezimale Ziffern                                            | [Zeichen-Escape][CE] stellt das Zeichen mit dem angegebenen Wert dar                                                   |
-| `\0`           | Keine                                                             | [Zeichen-Escape][CE] stellt U+0000 (NULL) dar                                                                          |
+| Escape-Sequenz | Gefolgt von                                                              | Bedeutung                                                                                                                       |
+| -------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| `\B`           | Keinem                                                                   | [Nicht-Wort-Grenz-Assertion][WBA]                                                                                               |
+| `\D`           | Keinem                                                                   | [Zeichenklasse-Fluchtsequenz][CCE] repräsentiert Nicht-Ziffernzeichen                                                           |
+| `\P`           | `{`, eine Unicode-Eigenschaft und / oder -wert, dann `}`                 | [Unicode-Zeichenklasse-Fluchtsequenz][UCCE] repräsentiert Zeichen ohne die angegebene Unicode-Eigenschaft                       |
+| `\S`           | Keinem                                                                   | [Zeichenklasse-Fluchtsequenz][CCE] repräsentiert Nicht-Leerraumzeichen                                                          |
+| `\W`           | Keinem                                                                   | [Zeichenklasse-Fluchtsequenz][CCE] repräsentiert Nicht-Wort-Zeichen                                                             |
+| `\b`           | Keinem                                                                   | [Wort-Grenz-Assertion][WBA]; innerhalb von [Zeichenklassen][CC] repräsentiert es U+0008 (RÜCKSCHRITT)                           |
+| `\c`           | Einem Buchstaben von `A` bis `Z` oder `a` bis `z`                        | Eine [Zeichenflucht][CE] repräsentiert das Steuerzeichen mit dem Wert, der dem Zeichenwert des Buchstabens modulo 32 entspricht |
+| `\d`           | Keinem                                                                   | [Zeichenklasse-Fluchtsequenz][CCE] repräsentiert Ziffernzeichen (`0` bis `9`)                                                   |
+| `\f`           | Keinem                                                                   | [Zeichenflucht][CE] repräsentiert U+000C (FORM FEED)                                                                            |
+| `\k`           | `<`, ein Bezeichner, dann `>`                                            | Ein [benannter Rückverweis][NBR]                                                                                                |
+| `\n`           | Keinem                                                                   | [Zeichenflucht][CE] repräsentiert U+000A (Zeilenumbruch)                                                                        |
+| `\p`           | `{`, eine Unicode-Eigenschaft und / oder -wert, dann `}`                 | [Unicode-Zeichenklasse-Fluchtsequenz][UCCE] repräsentiert Zeichen mit der angegebenen Unicode-Eigenschaft                       |
+| `\q`           | `{`, eine Zeichenkette, dann ein `}`                                     | Nur gültig innerhalb von [`v`-Modus-Zeichenklassen][VCC]; repräsentiert die Zeichenkette, die wörtlich abgeglichen werden soll  |
+| `\r`           | Keinem                                                                   | [Zeichenflucht][CE] repräsentiert U+000D (CARRIAGE RETURN)                                                                      |
+| `\s`           | Keinem                                                                   | [Zeichenklasse-Fluchtsequenz][CCE] repräsentiert Leerzeichen                                                                    |
+| `\t`           | Keinem                                                                   | [Zeichenflucht][CE] repräsentiert U+0009 (HORIZONTALER TAB)                                                                     |
+| `\u`           | 4 hexadezimale Ziffern; oder `{`, 1 bis 6 hexadezimale Ziffern, dann `}` | [Zeichenflucht][CE] repräsentiert das Zeichen mit dem angegebenen Codepunkt                                                     |
+| `\v`           | Keinem                                                                   | [Zeichenflucht][CE] repräsentiert U+000B (VERTIKALER TAB)                                                                       |
+| `\w`           | Keinem                                                                   | [Zeichenklasse-Fluchtsequenz][CCE] repräsentiert Wortzeichen (`A` bis `Z`, `a` bis `z`, `0` bis `9`, `_`)                       |
+| `\x`           | 2 hexadezimale Ziffern                                                   | [Zeichenflucht][CE] repräsentiert das Zeichen mit dem gegebenen Wert                                                            |
+| `\0`           | Keinem                                                                   | [Zeichenflucht][CE] repräsentiert U+0000 (NULL)                                                                                 |
 
 [CC]: /de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class
 [CCE]: /de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape
@@ -147,17 +147,17 @@ _Escape-Sequenzen_ in Regexen beziehen sich auf jede Art von Syntax, die aus ein
 [VCC]: /de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class
 [WBA]: /de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion
 
-`\` gefolgt von einem anderen Ziffernzeichen wird zu einer [veralteten Oktal-Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#escape_sequences), welche im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) verboten ist.
+`\` gefolgt von einem anderen Ziffernzeichen wird zu einer [veralteten oktalen Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#escape_sequences), die im [Unicode-bewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) verboten ist.
 
-Darüber hinaus kann `\` mit einigen nicht-buchstaben-oder-ziffern Zeichen gefolgt werden, in welchem Fall die Escape-Sequenz immer eine [Zeichen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) darstellt, die das entkommene Zeichen selbst darstellt:
+Darüber hinaus kann `\` von einigen Nicht-Buchstaben-oder-Ziffer-Zeichen gefolgt werden, in welchem Fall die Escape-Sequenz immer eine [Zeichenflucht](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape) ist, die das entkommene Zeichen selbst darstellt:
 
-<!-- Hinweis: die {} müssen doppelt entflohen werden, einmal für Yari -->
+<!-- Hinweis: die {} müssen doppelt entkommen werden, um Yari zu umgehen -->
 
 - `\$`, `\(`, `\)`, `\*`, `\+`, `\.`, `\/`, `\?`, `\[`, `\\`, `\]`, `\^`, `\\{`, `\|`, `\\}`: überall gültig
 - `\-`: nur innerhalb von [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) gültig
 - `\!`, `\#`, `\%`, `\&`, `\,`, `\:`, `\;`, `\<`, `\=`, `\>`, `\@`, `` \` ``, `\~`: nur innerhalb von [`v`-Modus-Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) gültig
 
-Die anderen {{Glossary("ASCII")}}-Zeichen, nämlich Leerzeichen, `"`, `'`, `_`, und alle hier nicht erwähnten Buchstabenzeichen sind keine gültigen Escape-Sequenzen. Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden nicht eine der oben genannten Escape-Sequenzen zu _Identitäts-Escapes_: Sie stellen das Zeichen dar, das dem Backslash folgt. Beispielsweise stellt `\a` das Zeichen `a` dar. Dieses Verhalten schränkt die Möglichkeit ein, neue Escape-Sequenzen ohne Rückwärtskompatibilitätsprobleme einzuführen, und ist daher im Unicode-bewussten Modus verboten.
+Die anderen [ASCII](/de/docs/Glossary/ASCII)-Zeichen, nämlich Leerzeichen, `"`, `'`, `_`, und jeder Buchstabe, der oben nicht erwähnt wurde, sind keine gültigen Escape-Sequenzen. Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden Escape-Sequenzen, die nicht zu den oben genannten gehören, zu _Identitätseskapen_: sie repräsentieren das Zeichen, das auf den Rückstrich folgt. Zum Beispiel repräsentiert `\a` das Zeichen `a`. Dieses Verhalten schränkt die Möglichkeit ein, neue Escape-Sequenzen einzuführen, ohne Rückwärtskompatibilitätsprobleme zu verursachen, und ist daher im Unicode-bewussten Modus verboten.
 
 ## Spezifikationen
 
@@ -169,5 +169,5 @@ Die anderen {{Glossary("ASCII")}}-Zeichen, nämlich Leerzeichen, `"`, `'`, `_`, 
 
 ## Siehe auch
 
-- [Leitfaden für Reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions)
+- [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions)
 - {{jsxref("RegExp")}}

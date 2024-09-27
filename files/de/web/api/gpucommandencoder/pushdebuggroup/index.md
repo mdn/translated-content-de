@@ -1,16 +1,16 @@
 ---
-title: "GPUCommandEncoder: Methode pushDebugGroup()"
+title: "GPUCommandEncoder: pushDebugGroup()-Methode"
 short-title: pushDebugGroup()
 slug: Web/API/GPUCommandEncoder/pushDebugGroup
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`pushDebugGroup()`** Methode der {{domxref("GPUCommandEncoder")}} Schnittstelle beginnt eine Debug-Gruppe, die mit einem spezifizierten Label markiert ist, und alle folgenden codierten Befehle bis zur Ausführung der {{domxref("GPUCommandEncoder.popDebugGroup", "popDebugGroup()")}} Methode enthalten wird.
+Die **`pushDebugGroup()`**-Methode der Schnittstelle [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) beginnt eine Debug-Gruppe, die mit einem bestimmten Label gekennzeichnet ist. Sie wird alle nachfolgenden kodierten Befehle umfassen, bis eine [`popDebugGroup()`](/de/docs/Web/API/GPUCommandEncoder/popDebugGroup)-Methode aufgerufen wird.
 
-Dies könnte für Telemetrie genutzt werden, oder möglicherweise in Zukunft in {{domxref("GPUError")}} Nachrichten, Entwicklertools des Browsers oder anderen Diensten verwendet werden, um beim Debugging zu helfen.
+Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Entwicklerwerkzeugen des Browsers oder anderen Diensten zur Unterstützung bei der Fehlersuche genutzt werden.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ Keiner ({{jsxref("Undefined")}}).
 ```js
 // ...
 
-commandEncoder.pushDebugGroup("mygroupmarker"); // Startet die benannte Debug-Gruppe
+commandEncoder.pushDebugGroup("mygroupmarker"); // Start labeled debug group
 
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 
@@ -42,7 +42,7 @@ passEncoder.draw(3);
 
 passEncoder.end();
 
-commandEncoder.popDebugGroup(); // Beendet die benannte Debug-Gruppe
+commandEncoder.popDebugGroup(); // End labeled debug group
 
 // ...
 ```
@@ -57,4 +57,4 @@ commandEncoder.popDebugGroup(); // Beendet die benannte Debug-Gruppe
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

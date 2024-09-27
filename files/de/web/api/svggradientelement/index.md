@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das **`SVGGradient`** Interface ist ein Basis-Interface, das von {{domxref("SVGLinearGradientElement")}} und {{domxref("SVGRadialGradientElement")}} verwendet wird.
+Das **`SVGGradient`**-Interface ist ein Basis-Interface, das von [`SVGLinearGradientElement`](/de/docs/Web/API/SVGLinearGradientElement) und [`SVGRadialGradientElement`](/de/docs/Web/API/SVGRadialGradientElement) verwendet wird.
 
 {{InheritanceDiagram}}
 
@@ -24,7 +24,9 @@ Das **`SVGGradient`** Interface ist ein Basis-Interface, das von {{domxref("SVGL
       <td><code>SVG_SPREADMETHOD_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert auf diesen Typ zu ändern.
+        Der Typ ist keiner der vordefinierten Typen. Es ist ungültig zu versuchen,
+        einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf
+        diesen Typ zu ändern.
       </td>
     </tr>
     <tr>
@@ -47,20 +49,20 @@ Das **`SVGGradient`** Interface ist ein Basis-Interface, das von {{domxref("SVGL
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface erbt auch Eigenschaften von seinem Elternteil, {{domxref("SVGElement")}}._
+_Dieses Interface erbt auch Eigenschaften von seinem Elterninterface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGGradientElement.href")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, das dem {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}}-Attribut {{deprecated_inline}} des gegebenen Elements entspricht.
-- {{domxref("SVGGradientElement.gradientUnits")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedEnumeration")}}, das dem {{SVGAttr("gradientUnits")}}-Attribut des gegebenen Elements entspricht. Diese Eigenschaft nimmt eine der in {{domxref("SVGUnitTypes")}} definierten Konstanten an.
-- {{domxref("SVGGradientElement.gradientTransform")}} {{ReadOnlyInline}}
-  - : Eine {{domxref("SVGAnimatedTransformList")}}, die dem {{SVGAttr("gradientTransform")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGGradientElement.spreadMethod")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedEnumeration")}}, das dem {{SVGAttr("spreadMethod")}}-Attribut des gegebenen Elements entspricht. Einer der auf diesem Interface definierten Spread-Methoden-Typen.
+- [`SVGGradientElement.href`](/de/docs/Web/API/SVGGradientElement/href) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}} Attribut des angegebenen Elements entspricht.
+- [`SVGGradientElement.gradientUnits`](/de/docs/Web/API/SVGGradientElement/gradientUnits) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("gradientUnits")}} Attribut des angegebenen Elements entspricht. Diese Eigenschaft nimmt einen der in [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes) definierten Konstanten an.
+- [`SVGGradientElement.gradientTransform`](/de/docs/Web/API/SVGGradientElement/gradientTransform) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedTransformList`](/de/docs/Web/API/SVGAnimatedTransformList), das dem {{SVGAttr("gradientTransform")}} Attribut des angegebenen Elements entspricht.
+- [`SVGGradientElement.spreadMethod`](/de/docs/Web/API/SVGGradientElement/spreadMethod) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("spreadMethod")}} Attribut auf dem angegebenen Element entspricht. Einer der Spread-Methoden-Typen, die in diesem Interface definiert sind.
 
 ## Instanz-Methoden
 
-_Dieses Interface bietet keine spezifischen Methoden, aber es implementiert die seines Elternteils, {{domxref("SVGElement")}}._
+_Dieses Interface bietet keine spezifischen Methoden, implementiert jedoch die seines Elterninterfaces, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:local-link`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert einen Link zu demselben Dokument. Daher ist ein Element, das der Quellanker eines Hyperlinks ist, dessen Ziel-URL mit der absoluten URL des Dokuments des Elements übereinstimmt.
+Die **`:local-link`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert einen Link zum gleichen Dokument. Daher ist ein Element die Quelle eines Hyperlinks, dessen absolutes URL-Ziel mit der URL des eigenen Dokuments übereinstimmt.
 
 ```css
-/* Wählt jedes <a> aus, das auf das aktuelle Dokument verweist */
+/* Selects any <a> that links to the current document */
 a:local-link {
   color: green;
 }
@@ -29,8 +29,8 @@ a:local-link {
 ### HTML
 
 ```html
-<a href="#target">Dies ist ein Link auf der aktuellen Seite.</a><br />
-<a href="https://example.com">Dies ist ein externer Link</a><br />
+<a href="#target">This is a link on the current page.</a><br />
+<a href="https://example.com">This is an external link</a><br />
 ```
 
 ### CSS
@@ -51,7 +51,7 @@ a:local-link {
 
 ## Browser-Kompatibilität
 
-Dieses Feature ist ein Vorschlag, der in die Spezifikation integriert ist. Derzeit wird es von keinem Browser unterstützt.
+Diese Funktion ist ein Vorschlag, der in die Spezifikation integriert wurde. Derzeit unterstützt kein Browser sie.
 
 ## Siehe auch
 

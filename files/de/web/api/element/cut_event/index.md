@@ -1,5 +1,5 @@
 ---
-title: "Element: cut-Ereignis"
+title: "Element: cut Ereignis"
 short-title: cut
 slug: Web/API/Element/cut_event
 l10n:
@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef}}
 
-Das **`cut`**-Ereignis der [Zwischenablage-API](/de/docs/Web/API/Clipboard_API) wird ausgelöst, wenn der Benutzer eine "Ausschneiden"-Aktion über die Benutzeroberfläche des Browsers initiiert.
+Das **`cut`** Ereignis der [Clipboard API](/de/docs/Web/API/Clipboard_API) wird ausgelöst, wenn der Benutzer eine "Ausschneiden"-Aktion über die Benutzeroberfläche des Browsers initiiert hat.
 
-Wenn der Benutzer versucht, eine Ausschneideaktion auf nicht editierbaren Inhalten durchzuführen, wird das `cut`-Ereignis trotzdem ausgelöst, aber das Ereignisobjekt enthält keine Daten.
+Wenn der Benutzer versucht, eine Ausschneiden-Aktion auf nicht editierbaren Inhalten durchzuführen, wird das `cut` Ereignis dennoch ausgelöst, das Ereignisobjekt enthält jedoch keine Daten.
 
-Die Standardaktion des Ereignisses ist es, die aktuelle Auswahl (falls vorhanden) in die Systemzwischenablage zu kopieren und sie aus dem Dokument zu entfernen.
+Die Standardaktion des Ereignisses besteht darin, die aktuelle Auswahl (falls vorhanden) in die Zwischenablage des Systems zu kopieren und sie aus dem Dokument zu entfernen.
 
-Ein Handler für dieses Ereignis kann den Inhalt der Zwischenablage _ändern_, indem er {{domxref("DataTransfer.setData", "setData(format, data)")}} auf der {{domxref("ClipboardEvent.clipboardData")}}-Eigenschaft des Ereignisses aufruft und die Standardaktion mit {{domxref("Event/preventDefault", "event.preventDefault()")}} abbricht.
+Ein Handler für dieses Ereignis kann den Inhalt der Zwischenablage _modifizieren_, indem er [`setData(format, data)`](/de/docs/Web/API/DataTransfer/setData) auf der [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) Eigenschaft des Ereignisses aufruft und die Standardaktion mit [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbricht.
 
-Beachten Sie jedoch, dass das Abbrechen der Standardaktion auch verhindert, dass das Dokument aktualisiert wird. Ein Ereignishandler, der die Standardaktion für "Ausschneiden" nachbilden möchte, während er die Zwischenablage modifiziert, muss auch manuell die Auswahl aus dem Dokument entfernen.
+Beachten Sie jedoch, dass das Abbrechen der Standardaktion auch verhindert, dass das Dokument aktualisiert wird. Ein Ereignishandler, der die Standardaktion für "Ausschneiden" emulieren und dabei die Zwischenablage modifizieren möchte, muss daher auch manuell die Auswahl aus dem Dokument entfernen.
 
 Der Handler kann die Daten der Zwischenablage nicht _lesen_.
 
-Es ist möglich, ein [synthetisches](/de/docs/Web/Events/Creating_and_triggering_events) `cut`-Ereignis zu erstellen und auszulösen, aber dies wird weder die Systemzwischenablage noch den Inhalt des Dokuments beeinflussen.
+Es ist möglich, ein [synthetisches](/de/docs/Web/Events/Creating_and_triggering_events) `cut` Ereignis zu konstruieren und abzusetzen, aber dies wird weder die Systemzwischenablage noch den Inhalt des Dokuments beeinflussen.
 
-Dieses Ereignis [bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling), ist [cancelable](/de/docs/Web/API/Event/cancelable) und ist [composed](/de/docs/Web/API/Event/composed).
+Dieses Ereignis [bubbelt](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling), ist [abbrechbar](/de/docs/Web/API/Event/cancelable) und ist [zusammengesetzt](/de/docs/Web/API/Event/composed).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js
 addEventListener("cut", (event) => {});
@@ -36,7 +36,7 @@ oncut = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ClipboardEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ClipboardEvent")}}
 
@@ -89,6 +89,6 @@ source.addEventListener("cut", (event) => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("Element/copy_event", "copy")}}, {{domxref("Element/paste_event", "paste")}}
-- Dieses Ereignis bei {{domxref("Document")}}-Zielen: {{domxref("Document/cut_event", "cut")}}
-- Dieses Ereignis bei {{domxref("Window")}}-Zielen: {{domxref("Window/cut_event", "cut")}}
+- Verwandte Ereignisse: [`copy`](/de/docs/Web/API/Element/copy_event), [`paste`](/de/docs/Web/API/Element/paste_event)
+- Dieses Ereignis auf [`Document`](/de/docs/Web/API/Document) Zielen: [`cut`](/de/docs/Web/API/Document/cut_event)
+- Dieses Ereignis auf [`Window`](/de/docs/Web/API/Window) Zielen: [`cut`](/de/docs/Web/API/Window/cut_event)

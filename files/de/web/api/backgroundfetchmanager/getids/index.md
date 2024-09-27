@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`getIds()`**-Methode des {{domxref("BackgroundFetchManager")}}-Interfaces gibt die IDs aller registrierten Hintergrundabrufe zurück.
+Die **`getIds()`**-Methode der [`BackgroundFetchManager`](/de/docs/Web/API/BackgroundFetchManager)-Schnittstelle gibt die IDs aller registrierten Hintergrundabrufe zurück.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{jsxref('Array')}} von {{jsxref('String', 'Strings')}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einem {{jsxref('Array')}} von {{jsxref('String', 'Zeichenfolgen')}} aufgelöst wird.
 
 ### Ausnahmen
 
@@ -30,7 +30,7 @@ Keine.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie die IDs aller registrierten Hintergrundabrufe abgerufen werden können. Mit einem aktiven [Service Worker](/de/docs/Web/API/ServiceWorker) verwenden Sie die {{domxref('ServiceWorkerRegistration.backgroundFetch')}}-Eigenschaft, um auf das `BackgroundFetchManager`-Objekt zuzugreifen und dessen `getIds()`-Methode aufzurufen.
+Das folgende Beispiel zeigt, wie die IDs aller registrierten Hintergrundabrufe abgerufen werden können. Mit einem aktiven [Service Worker](/de/docs/Web/API/ServiceWorker) verwenden Sie die [`ServiceWorkerRegistration.backgroundFetch`](/de/docs/Web/API/ServiceWorkerRegistration/backgroundFetch)-Eigenschaft, um auf das `BackgroundFetchManager`-Objekt zuzugreifen und dessen `getIds()`-Methode aufzurufen.
 
 ```js
 navigator.serviceWorker.ready.then(async (swReg) => {
@@ -42,6 +42,6 @@ navigator.serviceWorker.ready.then(async (swReg) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

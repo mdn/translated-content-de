@@ -1,5 +1,5 @@
 ---
-title: "AnimationPlaybackEvent: AnimationPlaybackEvent() Konstruktor"
+title: "AnimationPlaybackEvent: Konstruktor AnimationPlaybackEvent()"
 short-title: AnimationPlaybackEvent()
 slug: Web/API/AnimationPlaybackEvent/AnimationPlaybackEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Der **`AnimationPlaybackEvent()`** Konstruktor der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt eine neue {{domxref("AnimationPlaybackEvent")}} Objektinstanz zurück.
+Der **`AnimationPlaybackEvent()`**-Konstruktor der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt eine neue [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent) Objektinstanz zurück.
 
 ## Syntax
 
@@ -20,16 +20,16 @@ new AnimationPlaybackEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein Zeichenfolgenwert mit dem Namen des Ereignisses.
-    Er ist groß-/kleinschreibungssensitiv, und Browser setzen ihn auf `cancel`, `finish` oder `remove`.
+  - : Ein String mit dem Namen des Ereignisses.
+    Es unterscheidet Groß- und Kleinschreibung und wird von Browsern auf `cancel`, `finish` oder `remove` gesetzt.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften die folgenden Eigenschaften besitzt:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften hat:
     - `detail` {{optional_inline}}
-      - : Ein ereignisabhängiger Wert, der mit dem Ereignis verknüpft ist. Standardmäßig `null`.
+      - : Ein vom Ereignis abhängiger Wert, der mit dem Ereignis verbunden ist. Standardmäßig `null`.
 
 ### Rückgabewert
 
-Ein neues {{domxref("AnimationPlaybackEvent")}} Objekt.
+Ein neues [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent) Objekt.
 
 ## Spezifikationen
 
@@ -42,7 +42,7 @@ Ein neues {{domxref("AnimationPlaybackEvent")}} Objekt.
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("AnimationPlayBackEvent")}}
-- {{domxref("Animation.playState")}}
-- {{domxref("CustomEvent.CustomEvent", "CustomEvent()")}}
-- {{domxref("Event.Event", "Event()")}}
+- [`AnimationPlayBackEvent`](/de/docs/Web/API/AnimationPlayBackEvent)
+- [`Animation.playState`](/de/docs/Web/API/Animation/playState)
+- [`CustomEvent()`](/de/docs/Web/API/CustomEvent/CustomEvent)
+- [`Event()`](/de/docs/Web/API/Event/Event)

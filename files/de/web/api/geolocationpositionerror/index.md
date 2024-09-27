@@ -7,28 +7,28 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die **`GeolocationPositionError`** Schnittstelle repräsentiert den Grund eines Fehlers, der bei der Verwendung des Geolokalisierungsgeräts auftritt.
+Die **`GeolocationPositionError`**-Schnittstelle repräsentiert den Grund für einen Fehler, der bei der Verwendung des Geolokalisierungsgeräts auftritt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Die Schnittstelle `GeolocationPositionError` erbt keine Eigenschaften._
+_Die `GeolocationPositionError`-Schnittstelle erbt keine Eigenschaften._
 
-- {{domxref("GeolocationPositionError.code")}} {{ReadOnlyInline}}
+- [`GeolocationPositionError.code`](/de/docs/Web/API/GeolocationPositionError/code) {{ReadOnlyInline}}
 
-  - : Gibt einen `unsigned short` zurück, der den Fehlercode darstellt. Die folgenden Werte sind möglich:
+  - : Gibt einen `unsigned short` zurück, der den Fehlercode darstellt. Folgende Werte sind möglich:
 
-    | Wert  | Zugehörige Konstante  | Beschreibung                                                                                                                                                                                                      |
-    | ----- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-    | `1`   | `PERMISSION_DENIED`    | Der Erwerb der Geolokalisierungsinformationen ist fehlgeschlagen, weil die Seite nicht die erforderlichen Berechtigungen hatte, zum Beispiel weil es durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert ist. |
-    | `2`   | `POSITION_UNAVAILABLE` | Der Erwerb der Geolokalisierung ist fehlgeschlagen, weil mindestens eine interne Positionsquelle einen internen Fehler zurückgegeben hat.                                                                          |
-    | `3`   | `TIMEOUT`              | Die für den Erwerb der Geolokalisierung erlaubte Zeit wurde erreicht, bevor die Informationen erhalten wurden.                                                                                                     |
+    | Wert | Zugehörige Konstante   | Beschreibung                                                                                                                                                                                                                                       |
+    | ---- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `1`  | `PERMISSION_DENIED`    | Der Erwerb der Geolokalisierungsinformationen schlug fehl, weil die Seite nicht über die erforderlichen Berechtigungen verfügte, beispielsweise weil sie durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert ist. |
+    | `2`  | `POSITION_UNAVAILABLE` | Der Erwerb der Geolokalisierung schlug fehl, weil mindestens eine interne Quelle der Position einen internen Fehler zurückgab.                                                                                                                     |
+    | `3`  | `TIMEOUT`              | Die für den Erwerb der Geolokalisierung erlaubte Zeit wurde erreicht, bevor die Informationen erlangt wurden.                                                                                                                                      |
 
-- {{domxref("GeolocationPositionError.message")}} {{ReadOnlyInline}}
-  - : Gibt eine für Menschen lesbare Zeichenkette zurück, die die Details des Fehlers beschreibt. Die Spezifikationen stellen fest, dass dies in erster Linie für Debugging-Zwecke gedacht ist und nicht direkt in einer Benutzeroberfläche angezeigt werden sollte.
+- [`GeolocationPositionError.message`](/de/docs/Web/API/GeolocationPositionError/message) {{ReadOnlyInline}}
+  - : Gibt einen menschenlesbaren String zurück, der die Details des Fehlers beschreibt. Spezifikationen weisen darauf hin, dass dies hauptsächlich für Debugging-Zwecke gedacht ist und nicht direkt in einer Benutzeroberfläche angezeigt werden soll.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Die Schnittstelle `GeolocationPositionError` implementiert oder erbt keine Methoden._
+_Die `GeolocationPositionError`-Schnittstelle implementiert oder erbt keine Methoden._
 
 ## Spezifikationen
 
@@ -41,4 +41,4 @@ _Die Schnittstelle `GeolocationPositionError` implementiert oder erbt keine Meth
 ## Siehe auch
 
 - [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- {{domxref("Geolocation")}}
+- [`Geolocation`](/de/docs/Web/API/Geolocation)

@@ -1,5 +1,5 @@
 ---
-title: "Dokument: Methode createTreeWalker()"
+title: "Document: createTreeWalker() Methode"
 short-title: createTreeWalker()
 slug: Web/API/Document/createTreeWalker
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("Document")}}
 
-Die Erstellermethode **`Document.createTreeWalker()`** gibt ein neu erstelltes {{domxref("TreeWalker")}}-Objekt zurück.
+Die **`Document.createTreeWalker()`** Erstellermethode gibt ein neu erstelltes [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Objekt zurück.
 
 ## Syntax
 
@@ -22,48 +22,48 @@ createTreeWalker(root, whatToShow, filter)
 
 - `root`
 
-  - : Ein {{domxref("Node")}}, der die Wurzel des `TreeWalker`-Objekts darstellt, welches der Anfangswert von {{domxref("TreeWalker.currentNode")}} ist.
+  - : Ein [`Node`](/de/docs/Web/API/Node), der die Wurzel des `TreeWalker`-Objekts darstellt, welches der Anfangswert von [`TreeWalker.currentNode`](/de/docs/Web/API/TreeWalker/currentNode) ist.
 
 - `whatToShow` {{optional_inline}}
 
-  - : Ein `unsigned long`, der eine Bitmaske darstellt, die durch Kombination der konstanten Eigenschaften von [`NodeFilter`](https://dom.spec.whatwg.org/#interface-nodefilter) erstellt wurde. Es ist eine bequeme Möglichkeit, bestimmte Knotentypen zu filtern. Standardmäßig ist `0xFFFFFFFF` eingestellt, was der Konstante `NodeFilter.SHOW_ALL` entspricht.
+  - : Ein `unsigned long`, das eine Bitmaske darstellt, die durch Kombinieren der konstanten Eigenschaften von [`NodeFilter`](https://dom.spec.whatwg.org/#interface-nodefilter) erstellt wurde. Es ist eine bequeme Möglichkeit, bestimmte Knotentypen zu filtern. Standardmäßig ist es `0xFFFFFFFF`, was die Konstante `NodeFilter.SHOW_ALL` darstellt.
 
-    | Konstante                                                | Numerischer Wert | Beschreibung                                      |
-    | -------------------------------------------------------- | ---------------- | ------------------------------------------------- |
-    | `NodeFilter.SHOW_ALL`                                    | `0xFFFFFFFF`     | Zeigt alle Knoten an.                             |
-    | `NodeFilter.SHOW_ATTRIBUTE`                              | `0x2`            | Zeigt {{domxref("Attr")}}-Knoten an.              |
-    | `NodeFilter.SHOW_CDATA_SECTION`                          | `0x8`            | Zeigt {{domxref("CDATASection")}}-Knoten an.      |
-    | `NodeFilter.SHOW_COMMENT`                                | `0x80`           | Zeigt {{domxref("Comment")}}-Knoten an.           |
-    | `NodeFilter.SHOW_DOCUMENT`                               | `0x100`          | Zeigt {{domxref("Document")}}-Knoten an.          |
-    | `NodeFilter.SHOW_DOCUMENT_FRAGMENT`                      | `0x400`          | Zeigt {{domxref("DocumentFragment")}}-Knoten an.  |
-    | `NodeFilter.SHOW_DOCUMENT_TYPE`                          | `0x200`          | Zeigt {{domxref("DocumentType")}}-Knoten an.      |
-    | `NodeFilter.SHOW_ELEMENT`                                | `0x1`            | Zeigt {{domxref("Element")}}-Knoten an.           |
-    | `NodeFilter.SHOW_ENTITY` {{deprecated_inline}}           | `0x20`           | Veraltet, nicht mehr wirksam.                     |
-    | `NodeFilter.SHOW_ENTITY_REFERENCE` {{deprecated_inline}} | `0x10`           | Veraltet, nicht mehr wirksam.                     |
-    | `NodeFilter.SHOW_NOTATION` {{deprecated_inline}}         | `0x800`          | Veraltet, nicht mehr wirksam.                     |
-    | `NodeFilter.SHOW_PROCESSING_INSTRUCTION`                 | `0x40`           | Zeigt {{domxref("ProcessingInstruction")}}-Knoten an. |
-    | `NodeFilter.SHOW_TEXT`                                   | `0x4`            | Zeigt {{domxref("Text")}}-Knoten an.              |
+    | Konstante                                                | Numerischer Wert | Beschreibung                                                                       |
+    | -------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------- |
+    | `NodeFilter.SHOW_ALL`                                    | `0xFFFFFFFF`     | Zeigt alle Knoten an.                                                              |
+    | `NodeFilter.SHOW_ATTRIBUTE`                              | `0x2`            | Zeigt [`Attr`](/de/docs/Web/API/Attr)-Knoten an.                                   |
+    | `NodeFilter.SHOW_CDATA_SECTION`                          | `0x8`            | Zeigt [`CDATASection`](/de/docs/Web/API/CDATASection)-Knoten an.                   |
+    | `NodeFilter.SHOW_COMMENT`                                | `0x80`           | Zeigt [`Comment`](/de/docs/Web/API/Comment)-Knoten an.                             |
+    | `NodeFilter.SHOW_DOCUMENT`                               | `0x100`          | Zeigt [`Document`](/de/docs/Web/API/Document)-Knoten an.                           |
+    | `NodeFilter.SHOW_DOCUMENT_FRAGMENT`                      | `0x400`          | Zeigt [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Knoten an.           |
+    | `NodeFilter.SHOW_DOCUMENT_TYPE`                          | `0x200`          | Zeigt [`DocumentType`](/de/docs/Web/API/DocumentType)-Knoten an.                   |
+    | `NodeFilter.SHOW_ELEMENT`                                | `0x1`            | Zeigt [`Element`](/de/docs/Web/API/Element)-Knoten an.                             |
+    | `NodeFilter.SHOW_ENTITY` {{deprecated_inline}}           | `0x20`           | Veraltet, nicht mehr wirksam.                                                      |
+    | `NodeFilter.SHOW_ENTITY_REFERENCE` {{deprecated_inline}} | `0x10`           | Veraltet, nicht mehr wirksam.                                                      |
+    | `NodeFilter.SHOW_NOTATION` {{deprecated_inline}}         | `0x800`          | Veraltet, nicht mehr wirksam.                                                      |
+    | `NodeFilter.SHOW_PROCESSING_INSTRUCTION`                 | `0x40`           | Zeigt [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Knoten an. |
+    | `NodeFilter.SHOW_TEXT`                                   | `0x4`            | Zeigt [`Text`](/de/docs/Web/API/Text)-Knoten an.                                   |
 
     > [!NOTE]
-    > Da das übergeordnete Element eines `Attr`-Knotens immer `null` ist, geben {{DOMXref("TreeWalker.nextNode()")}} und {{DOMXref("TreeWalker.previousNode()")}} niemals einen `Attr`-Knoten zurück. Um `Attr`-Knoten zu durchlaufen, verwenden Sie stattdessen {{DOMXref("Element.attributes")}}.
+    > Da der Elternteil eines `Attr`-Knotens immer `null` ist, werden [`TreeWalker.nextNode()`](/de/docs/Web/API/TreeWalker/nextNode) und [`TreeWalker.previousNode()`](/de/docs/Web/API/TreeWalker/previousNode) niemals einen `Attr`-Knoten zurückgeben. Um `Attr`-Knoten zu durchlaufen, verwenden Sie stattdessen [`Element.attributes`](/de/docs/Web/API/Element/attributes).
 
 - `filter` {{optional_inline}}
 
-  - : Eine Callback-Funktion oder ein Objekt mit einer `acceptNode()`-Methode, die `NodeFilter.FILTER_ACCEPT`, `NodeFilter.FILTER_REJECT` oder `NodeFilter.FILTER_SKIP` zurückgibt. Die Funktion oder Methode wird für jeden Knoten im Teilbaum ab `root` aufgerufen, der gemäß dem `whatToShow`-Flag als einbezogen akzeptiert wird, um festzustellen, ob er in die Liste der iterierbaren Knoten aufgenommen werden soll:
+  - : Eine Callback-Funktion oder ein Objekt mit einer `acceptNode()`-Methode, die `NodeFilter.FILTER_ACCEPT`, `NodeFilter.FILTER_REJECT` oder `NodeFilter.FILTER_SKIP` zurückgibt. Die Funktion oder Methode wird für jeden Knoten im Unterbaum mit der Basis `root` aufgerufen, welcher durch das `whatToShow`-Flag als eingeschlossen akzeptiert wurde, um zu bestimmen, ob er in der Liste der iterierbaren Knoten aufgenommen werden soll:
 
-    - Wenn der Rückgabewert `NodeFilter.FILTER_ACCEPT` ist, wird dieser Knoten einbezogen.
-    - Wenn der Rückgabewert `NodeFilter.FILTER_REJECT` ist, wird kein Knoten im Teilbaum ab diesem Knoten einbezogen.
-    - Wenn der Rückgabewert `NodeFilter.FILTER_SKIP` ist, wird dieser Knoten nicht einbezogen.
+    - Wenn der Rückgabewert `NodeFilter.FILTER_ACCEPT` ist, wird dieser Knoten aufgenommen.
+    - Wenn der Rückgabewert `NodeFilter.FILTER_REJECT` ist, wird kein Knoten im Unterbaum mit der Basis bei diesem Knoten aufgenommen.
+    - Wenn der Rückgabewert `NodeFilter.FILTER_SKIP` ist, wird dieser Knoten nicht aufgenommen.
 
 ### Rückgabewert
 
-Ein neues {{domxref("TreeWalker")}}-Objekt.
+Ein neues [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Objekt.
 
 ## Beispiele
 
 ### Verwendung von whatToShow
 
-Dieses Beispiel verwendet `whatToShow`, um Textinhalte in Großbuchstaben umzuwandeln. Beachten Sie, dass die Textknoten der Nachkommen des `#root`-Elements ebenfalls durchlaufen werden, obwohl sie keine Kindknoten des `#root`-Elements sind.
+Dieses Beispiel verwendet `whatToShow`, um Textinhalte in Großbuchstaben zu transformieren. Beachten Sie, dass die Textknoten der Nachkommen des `#root`-Elements ebenfalls durchlaufen werden, obwohl sie keine Kindknoten des `#root`-Elements sind.
 
 #### HTML
 
@@ -100,9 +100,9 @@ while (treeWalker.nextNode()) {
 
 {{EmbedLiveSample("using_whattoshow", "100%", 100)}}
 
-### Verwendung des Filters
+### Verwendung von Filter
 
-Dieses Beispiel verwendet `filter`, um Textinhalte zu escapen. Für jeden Textknoten wird sein Inhalt mit {{JSXref("encodeURI()")}} escaped, wenn er ein Nachkomme eines `.escape`-Elements, aber nicht eines `.no-escape`-Elements ist.
+Dieses Beispiel verwendet `filter`, um Textinhalte zu maskieren. Für jeden Textknoten wird sein Inhalt mit {{JSXref("encodeURI()")}} maskiert, wenn er ein Nachkomme eines `.escape`-Elements, aber nicht eines `.no-escape`-Elements ist.
 
 #### HTML
 
@@ -187,4 +187,4 @@ while (treeWalker.nextNode()) {
 
 ## Siehe auch
 
-- {{domxref("TreeWalker")}}: Verwandte Schnittstelle
+- [`TreeWalker`](/de/docs/Web/API/TreeWalker): Verwandte Schnittstelle

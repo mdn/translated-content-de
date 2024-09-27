@@ -7,7 +7,7 @@ l10n:
 
 {{learnsidebar}}
 
-Das Ziel dieses Fähigkeitstests ist es zu überprüfen, ob Sie unseren Artikel über die [CSS- und JavaScript-Barrierefreiheit Best Practices](/de/docs/Learn/Accessibility/CSS_and_JavaScript) verstanden haben.
+Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie unseren Artikel zu [Best Practices für Barrierefreiheit in CSS und JavaScript](/de/docs/Learn/Accessibility/CSS_and_JavaScript) verstanden haben.
 
 > [!NOTE]
 > Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
@@ -16,9 +16,9 @@ Das Ziel dieses Fähigkeitstests ist es zu überprüfen, ob Sie unseren Artikel 
 
 ## CSS-Barrierefreiheit 1
 
-In der ersten Aufgabe wird Ihnen eine Liste von Links präsentiert. Allerdings ist deren Barrierefreiheit ziemlich schlecht — es ist nicht ersichtlich, dass es sich um Links handelt oder welcher Link gerade fokussiert ist.
+In der ersten Aufgabe wird Ihnen eine Liste von Links präsentiert. Die Barrierefreiheit dieser Links ist jedoch ziemlich schlecht – es gibt keine Möglichkeit, wirklich zu erkennen, dass es Links sind oder auf welchem Link sich der Benutzer gerade konzentriert.
 
-Wir möchten, dass Sie davon ausgehen, dass das vorhandene Regelset mit dem `a`-Selektor von einem CMS bereitgestellt wird und Sie es nicht ändern können. Stattdessen müssen Sie neue Regeln erstellen, damit die Links wie Links aussehen und sich verhalten, und damit der Nutzer erkennen kann, wo er sich in der Liste befindet.
+Wir möchten, dass Sie davon ausgehen, dass das bestehende Regelset mit dem `a`-Selektor von einem CMS bereitgestellt wird und dass Sie es nicht ändern können – stattdessen müssen Sie neue Regeln erstellen, um die Links aussehen zu lassen und sich wie Links zu verhalten, damit der Benutzer erkennen kann, wo er sich in der Liste befindet.
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -30,12 +30,12 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## CSS-Barrierefreiheit 2
 
-In der nächsten Aufgabe wird Ihnen ein einfaches Stück Inhalt präsentiert — nur Überschriften und Absätze. Es gibt Barrierefreiheitsprobleme mit den Farben und der Größe des Textes; wir möchten, dass Sie:
+In dieser nächsten Aufgabe wird Ihnen ein einfacher Inhalt präsentiert – nur Überschriften und Absätze. Es gibt Barrierefreiheitsprobleme mit den Farben und der Größe des Textes; wir möchten, dass Sie:
 
-1. Erläutern, was die Probleme sind und welche Richtlinien die akzeptablen Werte für Farbe und Größe angeben.
-2. Neue Werte für die Farbe und Schriftgröße auswählen, um das Problem zu beheben.
-3. Das CSS mit diesen neuen Werten aktualisieren, um das Problem zu beheben.
-4. Den Code testen, um sicherzustellen, dass das Problem jetzt behoben ist. Erklären Sie, welche Werkzeuge oder Methoden Sie verwendet haben, um die neuen Werte auszuwählen und den Code zu testen.
+1. Erklären, was die Probleme sind und welche Richtlinien die akzeptablen Werte für Farben und Größen festlegen.
+2. Neue Werte für Farben und Schriftgröße auswählen, die das Problem beheben.
+3. Das CSS mit diesen neuen Werten aktualisieren, um das Problem zu lösen.
+4. Den Code testen, um sicherzustellen, dass das Problem nun behoben ist. Erklären Sie, welche Werkzeuge oder Methoden Sie verwendet haben, um die neuen Werte auszuwählen und den Code zu testen.
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -47,9 +47,9 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## JavaScript-Barrierefreiheit 1
 
-In unserer letzten Aufgabe hier haben Sie etwas JavaScripting zu erledigen. Wir haben eine einfache App, die eine Liste von Tiernamen präsentiert. Wenn Sie auf einen der Tiernamen klicken, erscheint eine weitere Beschreibung dieses Tieres in einem Kasten unterhalb der Liste.
+In unserer letzten Aufgabe hier haben Sie einige JavaScript-Arbeiten zu erledigen. Wir haben eine einfache App, die eine Liste von Tiernamen präsentiert. Wenn Sie auf einen der Tiernamen klicken, erscheint eine weitere Beschreibung dieses Tieres in einem Kasten unter der Liste.
 
-Aber sie ist nicht sehr barrierefrei — in ihrem aktuellen Zustand kann sie nur mit der Maus bedient werden. Wir möchten, dass Sie HTML und JavaScript hinzufügen, um sie auch über die Tastatur zugänglich zu machen.
+Aber es ist nicht sehr barrierefrei – im aktuellen Zustand kann man es nur mit der Maus bedienen. Wir möchten, dass Sie das HTML und JavaScript hinzufügen, um es auch mit der Tastatur bedienbar zu machen.
 
 > [!CALLOUT]
 >

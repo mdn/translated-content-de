@@ -1,5 +1,5 @@
 ---
-title: "Element: toggleAttribute()-Methode"
+title: "Element: toggleAttribute() Methode"
 short-title: toggleAttribute()
 slug: Web/API/Element/toggleAttribute
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`toggleAttribute()`**-Methode des {{domxref("Element")}}-Interfaces schaltet ein Boolesches Attribut um (entfernt es, wenn es vorhanden ist, und fügt es hinzu, wenn es nicht vorhanden ist) auf dem angegebenen Element.
+Die **`toggleAttribute()`** Methode des [`Element`](/de/docs/Web/API/Element) Interfaces wechselt ein Boolesches Attribut (entfernt es, wenn es vorhanden ist, und fügt es hinzu, wenn es nicht vorhanden ist) auf dem gegebenen Element.
 
 ## Syntax
 
@@ -20,25 +20,25 @@ toggleAttribute(name, force)
 ### Parameter
 
 - `name`
-  - : Ein String, der den Namen des Attributs angibt, das umgeschaltet werden soll. Der Attributname wird automatisch in Kleinbuchstaben umgewandelt, wenn `toggleAttribute()` auf einem HTML-Element in einem HTML-Dokument aufgerufen wird.
+  - : Ein String, der den Namen des Attributs spezifiziert, das umgeschaltet werden soll. Der Attributname wird automatisch in Kleinbuchstaben konvertiert, wenn `toggleAttribute()` auf einem HTML-Element in einem HTML-Dokument aufgerufen wird.
 - `force` {{optional_inline}}
-  - : Ein Boolean-Wert mit den folgenden Auswirkungen:
-    - Wenn überhaupt nicht angegeben, "schaltet" die `toggleAttribute`-Methode das Attribut mit dem Namen `name` um — entfernt es, wenn es vorhanden ist, oder fügt es andernfalls hinzu, wenn es nicht vorhanden ist
-    - Wenn true, fügt die `toggleAttribute`-Methode ein Attribut mit dem Namen `name` hinzu
-    - Wenn false, entfernt die `toggleAttribute`-Methode das Attribut mit dem Namen `name`
+  - : Ein boolescher Wert, der die folgenden Effekte hat:
+    - wenn nicht angegeben, "umschaltet" die `toggleAttribute` Methode das Attribut mit dem Namen `name` — entfernt es, wenn es vorhanden ist, oder fügt es hinzu, wenn es nicht vorhanden ist
+    - wenn wahr, fügt die `toggleAttribute` Methode ein Attribut mit dem Namen `name` hinzu
+    - wenn falsch, entfernt die `toggleAttribute` Methode das Attribut mit dem Namen `name`
 
 ### Rückgabewert
 
-`true`, wenn das Attribut **`name`** letztendlich vorhanden ist, und `false` ansonsten.
+`true`, wenn das Attribut **`name`** schließlich vorhanden ist, andernfalls `false`.
 
 ### Ausnahmen
 
-- `InvalidCharacterError` {{domxref("DOMException")}}
-  - : Das angegebene Attribut `name` enthält ein oder mehrere Zeichen, die in Attributnamen nicht gültig sind.
+- `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Der angegebene Attributname `name` enthält ein oder mehrere Zeichen, die in Attributnamen nicht gültig sind.
 
 ## Beispiele
 
-Im folgenden Beispiel wird `toggleAttribute()` verwendet, um das `disabled`-Attribut eines {{HTMLElement("input")}} umzuschalten.
+Im folgenden Beispiel wird `toggleAttribute()` verwendet, um das `disabled` Attribut eines {{HTMLElement("input")}} umzuschalten.
 
 ### HTML
 
@@ -71,7 +71,7 @@ button.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("Element.hasAttribute()")}}
-- {{domxref("Element.getAttribute()")}}
-- {{domxref("Element.removeAttribute()")}}
-- {{domxref("Element.setAttribute()")}}
+- [`Element.hasAttribute()`](/de/docs/Web/API/Element/hasAttribute)
+- [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute)
+- [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)
+- [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute)

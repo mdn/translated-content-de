@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header mit der Direktive `identity-credentials-get` bestimmt, ob das aktuelle Dokument die [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) verwenden darf, insbesondere die Methode {{domxref("CredentialsContainer.get", "navigator.credentials.get()")}} mit der Option `identity`.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} Direktive `identity-credentials-get` steuert, ob das aktuelle Dokument die [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API) und genauer die Methode [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einer `identity`-Option verwenden darf.
 
-Wenn diese Richtlinie die Nutzung der API verbietet, wird das von dem `get()`-Aufruf zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError`-{{domxref("DOMException")}} abgelehnt.
+Wenn diese Richtlinie die Nutzung der API verbietet, wird das von dem `get()`-Aufruf zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) zurückgewiesen.
 
 ## Syntax
 
@@ -18,22 +18,22 @@ Permissions-Policy: identity-credentials-get=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [„Permissions-Policy“ > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für mehr Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-„Allowlist“ für `identity-credentials-get` ist `self`.
+Die standardmäßige Erlaubnisliste für `identity-credentials-get` ist `self`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Federated Credential Management API (FedCM)](/de/docs/Web/API/FedCM_API)
-- {{HTTPHeader("Permissions-Policy")}}-Header
+- {{HTTPHeader("Permissions-Policy")}} Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

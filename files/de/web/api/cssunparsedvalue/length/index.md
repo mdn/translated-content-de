@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`length`** schreibgeschützte Eigenschaft der
-{{domxref("CSSUnparsedValue")}}-Schnittstelle gibt die Anzahl der Elemente im Objekt zurück.
+Die **`length`**-Schreibgeschützte Eigenschaft des
+[`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue)-Interfaces gibt die Anzahl der Elemente im Objekt zurück.
 
 ## Wert
 
-Ein Integer.
+Eine ganze Zahl.
 
 ## Beispiele
 
-In diesem Beispiel verwenden wir den {{domxref("CSSUnparsedValue.CSSUnparsedValue", "CSSUnparsedValue()")}}
+In diesem Beispiel verwenden wir den [`CSSUnparsedValue()`](/de/docs/Web/API/CSSUnparsedValue/CSSUnparsedValue)
 Konstruktor und fragen dann die Länge ab:
 
 ```js
@@ -36,10 +36,10 @@ console.log(values.length); // 3
 
 ## Siehe auch
 
-- {{domxref("CSSUnparsedValue.CSSUnparsedValue", "CSSUnparsedValue()")}}
-- {{domxref("CSSUnparsedValue.entries")}}
-- {{domxref("CSSUnparsedValue.forEach")}}
-- {{domxref("CSSUnparsedValue.keys")}}
-- {{domxref("CSSUnparsedValue.values")}}
+- [`CSSUnparsedValue()`](/de/docs/Web/API/CSSUnparsedValue/CSSUnparsedValue)
+- [`CSSUnparsedValue.entries`](/de/docs/Web/API/CSSUnparsedValue/entries)
+- [`CSSUnparsedValue.forEach`](/de/docs/Web/API/CSSUnparsedValue/forEach)
+- [`CSSUnparsedValue.keys`](/de/docs/Web/API/CSSUnparsedValue/keys)
+- [`CSSUnparsedValue.values`](/de/docs/Web/API/CSSUnparsedValue/values)
 - [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)

@@ -1,5 +1,5 @@
 ---
-title: "CSSStyleSheet: deleteRule()-Methode"
+title: "CSSStyleSheet: deleteRule() Methode"
 short-title: deleteRule()
 slug: Web/API/CSSStyleSheet/deleteRule
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die Methode **`deleteRule()`** des {{domxref("CSSStyleSheet")}}-Objekts entfernt eine Regel aus dem Stylesheet-Objekt.
+Die Methode **`deleteRule()`** des [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) entfernt eine Regel aus dem Stylesheet-Objekt.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteRule(index)
 ### Parameter
 
 - `index`
-  - : Der Index im {{domxref("CSSRuleList")}} des Stylesheets, der die zu entfernende Regel angibt.
+  - : Der Index in der [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) des Stylesheets, der die zu entfernende Regel angibt.
 
 ### Rückgabewert
 
@@ -37,13 +37,13 @@ myStyles.deleteRule(0);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [CSS Object Model](/de/docs/Web/API/CSS_Object_Model)
-- [Constructable Stylesheets](https://web.dev/articles/constructable-stylesheets) (web.dev)
-- [Verwendung dynamischer Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
-- {{domxref("CSSStyleSheet.insertRule", "insertRule()")}}
+- [Konstruktiv erstellbare Stylesheets](https://web.dev/articles/constructable-stylesheets) (web.dev)
+- [Verwendung von dynamischen Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [`insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule)

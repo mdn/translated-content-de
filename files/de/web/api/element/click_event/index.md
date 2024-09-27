@@ -1,5 +1,5 @@
 ---
-title: "Element: click-Ereignis"
+title: "Element: click Ereignis"
 short-title: click
 slug: Web/API/Element/click_event
 l10n:
@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef}}
 
-Ein Element erhält ein **`click`**-Ereignis, wenn eines der folgenden Ereignisse eintritt:
+Ein Element erhält ein **`click`**-Ereignis, wenn einer der folgenden Fälle eintritt:
 
-- Eine Zeigegerätetaste (wie die primäre Taste einer Maus) wird sowohl gedrückt als auch losgelassen, während sich der Zeiger innerhalb des Elements befindet.
+- Eine Zeigegerätetaste (wie die primäre Taste einer Maus) wird gedrückt und freigegeben, während sich der Zeiger innerhalb des Elements befindet.
 - Eine Touch-Geste wird auf dem Element ausgeführt.
-- Jede Benutzerinteraktion, die einem Klick entspricht, tritt auf, wie das Drücken der <kbd>Leertaste</kbd> oder der <kbd>Eingabetaste</kbd>, während das Element fokussiert ist.
+- Jegliche Benutzerinteraktion, die einem Klick entspricht, wie das Drücken der <kbd>Space</kbd>-Taste oder <kbd>Enter</kbd>-Taste, während das Element fokussiert ist.
 
 > [!NOTE]
-> In der Praxis lösen Browser das `click`-Ereignis für benutzerdefinierte Steuerelemente wie ein `<div>` mit `tabindex="0"` nicht aus. Um den Grund für dieses Verhalten zu überprüfen, siehe dieses [Chromium-Issue](https://crbug.com/40776466).
+> In der Praxis lösen Browser das `click`-Ereignis nicht für benutzerdefinierte Steuerelemente aus, wie ein `<div>` mit `tabindex="0"`. Um den Grund für dieses Verhalten zu prüfen, siehe dieses [Chromium-Problem](https://crbug.com/40776466).
 
-Wird die Taste auf einem Element gedrückt und der Zeiger bewegt sich außerhalb des Elements, bevor die Taste losgelassen wird, wird das Ereignis auf dem spezifischsten übergeordneten Element ausgelöst, das beide Elemente enthielt.
+Wenn die Taste auf einem Element gedrückt wird und der Zeiger außerhalb des Elements bewegt wird, bevor die Taste losgelassen wird, wird das Ereignis auf dem spezifischsten übergeordneten Element ausgelöst, das beide Elemente enthielt.
 
-`click` wird ausgelöst, nachdem sowohl das {{domxref("Element/mousedown_event", "mousedown")}}- als auch das {{domxref("Element/mouseup_event", "mouseup")}}-Ereignis in dieser Reihenfolge ausgelöst wurden.
+`click` wird nach den Ereignissen [`mousedown`](/de/docs/Web/API/Element/mousedown_event) und [`mouseup`](/de/docs/Web/API/Element/mouseup_event) ausgelöst, in dieser Reihenfolge.
 
-Das Ereignis ist ein geräteunabhängiges Ereignis — das bedeutet, dass es durch Berührung, Tastatur, Maus und alle anderen Mechanismen, die von unterstützenden Technologien bereitgestellt werden, aktiviert werden kann.
+Das Ereignis ist ein geräteunabhängiges Ereignis - das bedeutet, es kann durch Berührung, Tastatur, Maus und jede andere von unterstützender Technologie bereitgestellte Mechanik aktiviert werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("click", (event) => {});
@@ -35,49 +35,49 @@ onclick = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("PointerEvent")}}. Erbt von {{domxref("MouseEvent")}}.
+Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`MouseEvent`](/de/docs/Web/API/MouseEvent).
 
 {{InheritanceDiagram("PointerEvent")}}
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation war der Ereignistyp für dieses Ereignis ein {{domxref("MouseEvent")}}, und dieser Typ wird immer noch in Firefox und Safari übergeben.
+> In früheren Versionen der Spezifikation war der Ereignistyp für dieses Ereignis ein [`MouseEvent`](/de/docs/Web/API/MouseEvent), und dies ist immer noch der Typ, der in Firefox und Safari übergeben wird.
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von {{domxref("MouseEvent")}} und {{domxref("Event")}}._
+_Diese Schnittstelle erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref('PointerEvent.altitudeAngle')}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Repräsentiert den Winkel zwischen einer Transduktionsachse (einem Zeiger oder Stift) und der X-Y-Ebene eines Geräteschirms.
-- {{domxref('PointerEvent.azimuthAngle')}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Repräsentiert den Winkel zwischen der Y-Z-Ebene und der Ebene, die sowohl die Transduktionsachse (einem Zeiger oder Stift) als auch die Y-Achse enthält.
-- {{domxref('PointerEvent.pointerId')}} {{ReadOnlyInline}}
+- [`PointerEvent.altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Repräsentiert den Winkel zwischen einer Achse des Umformers (einem Zeiger oder Stift) und der X-Y-Ebene eines Gerätebildschirms.
+- [`PointerEvent.azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Repräsentiert den Winkel zwischen der Y-Z-Ebene und der Ebene, die sowohl die Achse des Umformers (einem Zeiger oder Stift) als auch die Y-Achse enthält.
+- [`PointerEvent.pointerId`](/de/docs/Web/API/PointerEvent/pointerId) {{ReadOnlyInline}}
   - : Eine eindeutige Kennung für den Zeiger, der das Ereignis verursacht.
-- {{domxref('PointerEvent.width')}} {{ReadOnlyInline}}
-  - : Die Breite (Größe auf der X-Achse) der Kontaktgeometrie des Zeigers in CSS-Pixeln.
-- {{domxref('PointerEvent.height')}} {{ReadOnlyInline}}
-  - : Die Höhe (Größe auf der Y-Achse) der Kontaktgeometrie des Zeigers in CSS-Pixeln.
-- {{domxref('PointerEvent.pressure')}} {{ReadOnlyInline}}
-  - : Der normalisierte Druck des Zeigereingangs im Bereich von `0` bis `1`, wobei `0` und `1` jeweils den minimalen und maximalen Druck darstellen, den die Hardware erkennen kann.
-- {{domxref('PointerEvent.tangentialPressure')}} {{ReadOnlyInline}}
-  - : Der normalisierte tangentiale Druck des Zeigereingangs (auch bekannt als Barrel-Druck oder [Zylinderbelastung](https://de.wikipedia.org/wiki/Zylinderbelastung)) im Bereich von `-1` bis `1`, wobei `0` die neutrale Position der Steuerung ist.
-- {{domxref('PointerEvent.tiltX')}} {{ReadOnlyInline}}
-  - : Der Flächenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der Y–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. Stift) als auch die Y-Achse enthält.
-- {{domxref('PointerEvent.tiltY')}} {{ReadOnlyInline}}
-  - : Der Flächenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der X–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. Stift) als auch die X-Achse enthält.
-- {{domxref('PointerEvent.twist')}} {{ReadOnlyInline}}
-  - : Die Drehung des Zeigers (z.B. Stift) um seine Hauptachse im Uhrzeigersinn, in Grad, mit einem Wert im Bereich von `0` bis `359`.
-- {{domxref('PointerEvent.pointerType')}} {{ReadOnlyInline}}
-  - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Berührung usw.).
-- {{domxref('PointerEvent.isPrimary')}} {{ReadOnlyInline}}
-  - : Gibt an, ob der Zeiger den primären Zeiger dieses Zeigertyps darstellt.
+- [`PointerEvent.width`](/de/docs/Web/API/PointerEvent/width) {{ReadOnlyInline}}
+  - : Die Breite (Ausdehnung auf der X-Achse), in CSS-Pixeln, der Kontaktgeometrie des Zeigers.
+- [`PointerEvent.height`](/de/docs/Web/API/PointerEvent/height) {{ReadOnlyInline}}
+  - : Die Höhe (Ausdehnung auf der Y-Achse), in CSS-Pixeln, der Kontaktgeometrie des Zeigers.
+- [`PointerEvent.pressure`](/de/docs/Web/API/PointerEvent/pressure) {{ReadOnlyInline}}
+  - : Der normalisierte Druck des Zeigereingangs im Bereich `0` bis `1`, wobei `0` und `1` den Mindest- beziehungsweise Maximaldruck darstellen, den die Hardware erkennen kann.
+- [`PointerEvent.tangentialPressure`](/de/docs/Web/API/PointerEvent/tangentialPressure) {{ReadOnlyInline}}
+  - : Der normalisierte tangentiale Druck des Zeigereingangs (auch bekannt als Zylinderdruck oder [Rohrspannung](https://en.wikipedia.org/wiki/Cylinder_stress)) im Bereich von `-1` bis `1`, wobei `0` die neutrale Position der Steuerung ist.
+- [`PointerEvent.tiltX`](/de/docs/Web/API/PointerEvent/tiltX) {{ReadOnlyInline}}
+  - : Der Achsenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der Y–Z-Ebene und der Ebene, die sowohl die Achse des Zeigers (z.B. Stiftstift) als auch die Y-Achse enthält.
+- [`PointerEvent.tiltY`](/de/docs/Web/API/PointerEvent/tiltY) {{ReadOnlyInline}}
+  - : Der Achsenwinkel (in Grad, im Bereich von `-90` bis `90`) zwischen der X–Z-Ebene und der Ebene, die sowohl die Achse des Zeigers (z.B. Stiftstift) als auch die X-Achse enthält.
+- [`PointerEvent.twist`](/de/docs/Web/API/PointerEvent/twist) {{ReadOnlyInline}}
+  - : Die Drehung im Uhrzeigersinn des Zeigers (z.B. Stiftstift) um seine Hauptachse, in Grad, mit einem Wert im Bereich von `0` bis `359`.
+- [`PointerEvent.pointerType`](/de/docs/Web/API/PointerEvent/pointerType) {{ReadOnlyInline}}
+  - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Berührung, etc.).
+- [`PointerEvent.isPrimary`](/de/docs/Web/API/PointerEvent/isPrimary) {{ReadOnlyInline}}
+  - : Zeigt an, ob der Zeiger den primären Zeiger dieses Zeigertyps darstellt.
 
 ## Verwendungshinweise
 
-Das {{domxref("PointerEvent")}}-Objekt, das in den Ereignis-Handler für `click` übergeben wird, hat seine {{domxref("UIEvent/detail", "detail")}}-Eigenschaft auf die Anzahl der Male gesetzt, die das {{domxref("Event.target", "Ziel")}} angeklickt wurde. Mit anderen Worten, `detail` wird bei einem Doppelklick 2, bei einem Dreifachklick 3 und so weiter sein. Dieser Zähler wird nach einem kurzen Zeitraum ohne Klicks zurückgesetzt; die genaue Dauer dieses Zeitraums kann je nach Browser und Plattform variieren. Der Zeitraum kann auch durch Benutzereinstellungen beeinflusst werden; zum Beispiel können die Barrierefreiheitsoptionen diesen Zeitraum verlängern, um es mit adaptiven Schnittstellen einfacher zu machen, Mehrfachklicks durchzuführen.
+Das [`PointerEvent`](/de/docs/Web/API/PointerEvent), das dem Ereignishandler für `click` übergeben wird, hat seine Eigenschaft [`detail`](/de/docs/Web/API/UIEvent/detail) auf die Anzahl der Klicks auf das [`target`](/de/docs/Web/API/Event/target) gesetzt. Mit anderen Worten, `detail` wird für einen Doppelklick auf `2`, für einen Dreifach-Klick auf `3` usw. gesetzt. Dieser Zähler wird nach einem kurzen Intervall ohne Klicks zurückgesetzt; die genaue Dauer dieses Intervalls kann je nach Browser und Plattform variieren. Das Intervall wird auch wahrscheinlich von Benutzerpräferenzen beeinflusst; zum Beispiel können Barrierefreiheitsoptionen dieses Intervall verlängern, um es einfacher zu machen, mehrere Klicks mit adaptiven Schnittstellen durchzuführen.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Anzahl der aufeinanderfolgenden Klicks auf einen {{HtmlElement("button")}} an.
+Dieses Beispiel zeigt die Anzahl aufeinanderfolgender Klicks auf einen {{HtmlElement("button")}} an.
 
 ### HTML
 
@@ -97,7 +97,7 @@ button.addEventListener("click", (event) => {
 
 ### Ergebnis
 
-Versuchen Sie, schnelle, wiederholte Klicks auf den Button zu machen, um die Klickanzahl zu erhöhen. Wenn Sie eine Pause zwischen den Klicks einlegen, wird die Anzahl zurückgesetzt.
+Versuchen Sie, schnelle, wiederholte Klicks auf den Button zu machen, um die Klickzahl zu erhöhen. Wenn Sie eine Pause zwischen den Klicks einlegen, wird der Zähler zurückgesetzt.
 
 {{EmbedLiveSample("Examples")}}
 
@@ -112,10 +112,10 @@ Versuchen Sie, schnelle, wiederholte Klicks auf den Button zu machen, um die Kli
 ## Siehe auch
 
 - [Einführung in Ereignisse](/de/docs/Learn/JavaScript/Building_blocks/Events)
-- {{domxref("Element/auxclick_event", "auxclick")}}
-- {{domxref("Element/contextmenu_event", "contextmenu")}}
-- {{domxref("Element/dblclick_event", "dblclick")}}
-- {{domxref("Element/mousedown_event", "mousedown")}}
-- {{domxref("Element/mouseup_event", "mouseup")}}
-- {{domxref("Element/pointerdown_event", "pointerdown")}}
-- {{domxref("Element/pointerup_event", "pointerup")}}
+- [`auxclick`](/de/docs/Web/API/Element/auxclick_event)
+- [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event)
+- [`dblclick`](/de/docs/Web/API/Element/dblclick_event)
+- [`mousedown`](/de/docs/Web/API/Element/mousedown_event)
+- [`mouseup`](/de/docs/Web/API/Element/mouseup_event)
+- [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)
+- [`pointerup`](/de/docs/Web/API/Element/pointerup_event)

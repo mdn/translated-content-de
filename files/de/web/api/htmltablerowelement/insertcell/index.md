@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`insertCell()`**-Methode des {{domxref("HTMLTableRowElement")}}-Interfaces fügt eine neue Zelle ({{HtmlElement("td")}}) in eine Tabellenzeile ({{HtmlElement("tr")}}) ein und gibt eine Referenz auf die Zelle zurück.
+Die **`insertCell()`**-Methode der [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Schnittstelle fügt eine neue Zelle ({{HtmlElement("td")}}) in eine Tabellenzeile ({{HtmlElement("tr")}}) ein und gibt eine Referenz auf die Zelle zurück.
 
-> **Note:** `insertCell()` fügt die Zelle direkt in die Zeile ein. Die Zelle muss nicht separat mit {{domxref("Node.appendChild()")}} angehängt werden, wie es der Fall wäre, wenn {{domxref("Document.createElement()")}} verwendet worden wäre, um das neue `<td>`-Element zu erstellen.
+> **Note:** `insertCell()` fügt die Zelle direkt in die Zeile ein. Die Zelle muss nicht separat mit [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) hinzugefügt werden, wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<td>`-Element zu erstellen.
 >
 > Sie können `insertCell()` jedoch nicht verwenden, um ein neues `<th>`-Element zu erstellen.
 
@@ -24,16 +24,16 @@ insertCell(index)
 ### Parameter
 
 - `index` {{optional_inline}}
-  - : Der Zellindex der neuen Zelle. Wenn `index` `-1` ist oder der Anzahl der Zellen entspricht, wird die Zelle als letzte Zelle in der Zeile angehängt. Wenn `index` weggelassen wird, ist der Standardwert `-1`.
+  - : Der Zellindex der neuen Zelle. Wenn `index` `-1` oder gleich der Anzahl der Zellen ist, wird die Zelle als letzte Zelle in der Zeile angefügt. Wenn `index` weggelassen wird, wird er standardmäßig auf `-1` gesetzt.
 
 ### Rückgabewert
 
-Ein {{domxref("HTMLTableCellElement")}}, das die neue Zelle referenziert.
+Ein [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement), das die neue Zelle referenziert.
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `index` größer ist als die Anzahl der Zellen.
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `index` größer als die Anzahl der Zellen ist.
 
 ## Beispiele
 
@@ -129,5 +129,5 @@ removeButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("HTMLTableElement.insertRow()")}}
-- Das HTML-Element, das Zellen repräsentiert: {{domxref("HTMLTableCellElement")}}
+- [`HTMLTableElement.insertRow()`](/de/docs/Web/API/HTMLTableElement/insertRow)
+- Das HTML-Element, das Zellen darstellt: [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)

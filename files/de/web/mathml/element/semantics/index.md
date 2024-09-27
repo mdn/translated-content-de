@@ -2,48 +2,48 @@
 title: <semantics>
 slug: Web/MathML/Element/semantics
 l10n:
-  sourceCommit: 34c43aca36f776c824e698dfd07e3ece34cc6f00
+  sourceCommit: 9df96dcad40bf97f66b317ef6b6bbe64444569eb
 ---
 
 {{MathMLRef}}
 
-Das **`<semantics>`** [MathML](/de/docs/Web/MathML)-Element verknüpft Anmerkungen mit einem MathML-Ausdruck, zum Beispiel dessen Textquelle als [Lightweight Markup Language](https://en.wikipedia.org/wiki/Lightweight_markup_language) oder mathematische Bedeutung ausgedrückt in einem speziellen {{glossary("XML")}}-Dialekt. Typischerweise ist seine Struktur:
+Das **`<semantics>`** [MathML](/de/docs/Web/MathML)-Element verknüpft Anmerkungen mit einem MathML-Ausdruck, zum Beispiel dessen Textquelle als [lightweight markup language](https://en.wikipedia.org/wiki/Lightweight_markup_language) oder mathematische Bedeutung, die in einem speziellen [XML](/de/docs/Glossary/XML)-Dialekt ausgedrückt wird. Typischerweise ist seine Struktur:
 
-- ein erstes Kind, das ein zu annotierender MathML-Ausdruck ist.
-- nachfolgende `<annotation>` oder `<annotation-xml>`-Elemente, wobei letzteres für XML-Formate wie [OpenMath](https://en.wikipedia.org/wiki/OpenMath) reserviert ist.
+- ein erstes Kind, das ein MathML-Ausdruck ist, welcher annotiert werden soll.
+- nachfolgende `<annotation>` oder `<annotation-xml>` Elemente, wobei letzteres XML-Formaten wie [OpenMath](https://en.wikipedia.org/wiki/OpenMath) vorbehalten ist.
 
-Standardmäßig wird nur das erste Kind des `<semantics>`-Elements gerendert, während die anderen ihren [Display](/de/docs/Web/CSS/display) auf `none` gesetzt haben.
+Standardmäßig wird nur das erste Kind des `<semantics>`-Elements gerendert, während die anderen ihre [display](/de/docs/Web/CSS/display)-Eigenschaft auf `none` gesetzt haben.
 
 > [!NOTE]
-> Frühere MathML-Spezifikationen erlaubten Renderern, das Standardrendering entsprechend den verfügbaren Anmerkungen zu entscheiden. Die folgenden Regeln zur Bestimmung des sichtbaren Kindes wurden in einigen Browsern implementiert. Siehe [MathML 4](https://w3c.github.io/mathml/) für die Unterscheidung zwischen Präsentations- und Inhalts-MathML.
+> Ältere MathML-Spezifikationen erlaubten es Renderern, das Standardrendering gemäß den verfügbaren Anmerkungen zu bestimmen. Die folgenden Regeln für das Bestimmen des sichtbaren Kindes wurden in einigen Browsern implementiert. Siehe [MathML 4](https://w3c.github.io/mathml/) für die Unterscheidung zwischen Präsentations- und Inhalts-MathML.
 >
-> - Wenn keine anderen Regeln zutreffen: Standardmäßig wird nur das erste Kind gerendert, das Präsentations-MathML sein soll.
-> - Wenn das erste Kind ein anderes Präsentations-MathML-Element als `<annotation>` oder `<annotation-xml>` ist, rendern Sie das erste Kind.
-> - Wenn kein Präsentations-MathML gefunden wird, rendern Sie das erste `<annotation>` oder `<annotation-xml>`-Kindelement von `<semantics>` ohne `src`-Attribut. Bei `<annotation-xml>`-Elementen muss das `encoding`-Attribut einem der folgenden Werte entsprechen:
+> - Wenn keine anderen Regeln zutreffen: Standardmäßig wird nur das erste Kind gerendert, das als Präsentations-MathML vorgesehen ist.
+> - Wenn das erste Kind ein Präsentations-MathML-Element außer `<annotation>` oder `<annotation-xml>` ist, rendere das erste Kind.
+> - Wenn kein Präsentations-MathML gefunden wird, rendere das erste `<annotation>` oder `<annotation-xml>` Kind-Element von `<semantics>` ohne ein `src`-Attribut. Für `<annotation-xml>` Elemente muss das `encoding`-Attribut einen der folgenden Werte haben:
 >   - `"application/mathml-presentation+xml"`
 >   - `"MathML-Presentation"`
 >   - `"SVG1.1"`
 >   - `"text/html"`
 >   - `"image/svg+xml"`
->   - `"application/xml`".
+>   - `"application/xml"`
 >
-> Beachten Sie, dass `"application/mathml+xml"` hier _nicht_ erwähnt wird, da es nicht zwischen Inhalts- oder Präsentations-MathML unterscheidet.
+> Beachten Sie, dass `"application/mathml+xml"` hier _nicht_ erwähnt wird, da es nicht zwischen Content oder Presentation MathML unterscheidet.
 
 ## Attribute
 
-`<semantics>`, `<annotation>` und `<annotation-xml>`-Elemente akzeptieren die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes). Zusätzlich können die folgenden Attribute auf den `<annotation>` und `<annotation-xml>`-Elementen gesetzt werden:
+`<semantics>`, `<annotation>` und `<annotation-xml>` Elemente akzeptieren die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes). Zusätzlich können die folgenden Attribute auf den `<annotation>` und `<annotation-xml>` Elementen gesetzt werden:
 
 - `encoding`
-  - : Die Kodierung der semantischen Information in der Anmerkung (z.B. `"MathML-Content"`, `"MathML-Presentation"`, `"application/openmath+xml"`, `"image/png"`)
+  - : Die Kodierung der semantischen Informationen in der Annotation (z.B. `"MathML-Content"`, `"MathML-Presentation"`, `"application/openmath+xml"`, `"image/png"`)
 - `src` {{deprecated_inline}}
-  - : Der Ort einer externen Quelle für semantische Informationen.
+  - : Der Speicherort einer externen Quelle für semantische Informationen.
 
 ## Beispiel
 
 ```html
 <math display="block">
   <semantics>
-    <!-- Das erste Kind ist der MathML-Ausdruck, der standardmäßig gerendert wird. -->
+    <!-- The first child is the MathML expression rendered by default. -->
     <mrow>
       <msup>
         <mi>x</mi>
@@ -53,8 +53,8 @@ Standardmäßig wird nur das erste Kind des `<semantics>`-Elements gerendert, w�
       <mi>y</mi>
     </mrow>
 
-    <!-- Kommentieren Sie mit "Content MathML", einem dedizierten XML-Dialekt,
-         um die Bedeutung mathematischer Formeln auszudrücken. -->
+    <!-- Annotate with "Content MathML", a dedicated XML dialect to
+         express the meaning of mathematical formulas. -->
     <annotation-xml encoding="MathML-Content">
       <apply>
         <plus />
@@ -67,11 +67,11 @@ Standardmäßig wird nur das erste Kind des `<semantics>`-Elements gerendert, w�
       </apply>
     </annotation-xml>
 
-    <!-- Kommentieren Sie mit einem PNG-Bild der Formel. -->
+    <!-- Annotate with a PNG image of the formula. -->
     <annotation encoding="image/png" src="some/path/formula.png" />
 
-    <!-- Kommentieren Sie mit LaTeX, einer Lightweight-Markup-Sprache zum Schreiben
-         mathematischer Formeln. -->
+    <!-- Annotate with LaTeX, a lightweight markup language to write
+         mathematical formulas. -->
     <annotation encoding="application/x-tex"> x^{2} + y </annotation>
   </semantics>
 </math>

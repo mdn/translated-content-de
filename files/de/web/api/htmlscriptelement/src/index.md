@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`src`**-Eigenschaft der {{domxref("HTMLScriptElement")}}-Schnittstelle ist eine Zeichenkette, die die URL eines externen Skripts darstellt; dies kann als Alternative zur direkten Einbettung eines Skripts innerhalb eines Dokuments verwendet werden.
+Die **`src`**-Eigenschaft der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle ist ein String, der die URL eines externen Skripts darstellt; dies kann als Alternative zur direkten Einbettung eines Skripts innerhalb eines Dokuments verwendet werden.
 
 Sie spiegelt das `src`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
-Angenommen, der Code läuft auf einer Website mit der URL `https://example.com`.
+Nehmen Sie an, der Code wird auf einer Website ausgeführt, deren URL `https://example.com` ist.
 
 ```html
 <script id="script-with-src" type="module" src="/main.js"></script>

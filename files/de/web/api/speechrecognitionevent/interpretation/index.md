@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{deprecated_header}}{{Non-standard_header}}
 
-Die **`interpretation`**-Eigenschaft des {{domxref("SpeechRecognitionEvent")}}-Interfaces gibt die semantische Bedeutung dessen zurück, was der Benutzer gesagt hat.
+Die schreibgeschützte Eigenschaft **`interpretation`** des [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent)-Interfaces gibt die semantische Bedeutung dessen zurück, was der Benutzer gesagt hat.
 
-Dies könnte beispielsweise durch die SISR-Spezifikation von Semantiken in einer Grammatik bestimmt werden (siehe [Semantic Interpretation for Speech Recognition (SISR) Version 1.0](https://www.w3.org/TR/semantic-interpretation/) für Spezifikationen und Beispiele).
+Dies kann beispielsweise durch die SISR-Spezifikation der Semantik in einer Grammatik bestimmt werden (siehe [Semantic Interpretation for Speech Recognition (SISR) Version 1.0](https://www.w3.org/TR/semantic-interpretation/) für Spezifikation und Beispiele).
 
 ## Wert
 
-Der zurückgegebene Wert kann beliebiger Typ sein. Falls keine semantische Interpretation durch das Spracherkennungssystem zurückgegeben wurde, wird `null` zurückgegeben.
+Der zurückgegebene Wert kann von jedem Typ sein. Wenn keine semantische Interpretation vom Spracherkennungssystem zurückgegeben wurde, wird `null` zurückgegeben.
 
 ## Beispiele
 

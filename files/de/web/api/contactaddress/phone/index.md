@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Contact Picker API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`phone`**-Eigenschaft des {{domxref("ContactAddress")}}-Interfaces gibt einen String zurück, der die Telefonnummer des Empfängers oder der Kontaktperson an der Adresse enthält.
+Die schreibgeschützte **`phone`**-Eigenschaft des [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Interfaces gibt eine Zeichenkette zurück, die die Telefonnummer des Empfängers oder der Kontaktperson an der Adresse enthält.
 
 ## Wert
 
-Ein String, der die Telefonnummer für den Empfänger der Sendung enthält. Wenn keine Telefonnummer verfügbar ist, ist dieser Wert ein leerer String.
+Eine Zeichenkette, die die Telefonnummer des Empfängers der Sendung enthält. Wenn keine Telefonnummer verfügbar ist, ist dieser Wert eine leere Zeichenkette.
 
 ## Spezifikationen
 

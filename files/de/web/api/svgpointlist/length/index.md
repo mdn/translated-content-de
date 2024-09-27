@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`length`** Schreibgeschützte Eigenschaft der {{domxref("SVGPointList")}} Schnittstelle gibt die Anzahl der Elemente in der Liste zurück.
+Die schreibgeschützte **`length`**-Eigenschaft der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle gibt die Anzahl der Elemente in der Liste zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Die Anzahl der Elemente in der Liste.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein SVG, das eine {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Die `length`-Eigenschaft gibt `5` zurück.
+Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Die `length`-Eigenschaft gibt `5` zurück.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">

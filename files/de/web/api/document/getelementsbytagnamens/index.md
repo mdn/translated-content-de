@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Gibt eine Liste von Elementen mit dem angegebenen Tag-Namen zurück, die zu dem angegebenen Namensraum gehören.
-Das gesamte Dokument wird durchsucht, einschließlich des Wurzelknotens.
+Gibt eine Liste von Elementen mit dem angegebenen Tag-Namen zurück, die zu dem angegebenen Namespace gehören. Das gesamte Dokument wird durchsucht, einschließlich des Root-Knotens.
 
 ## Syntax
 
@@ -20,31 +19,35 @@ getElementsByTagNameNS(namespace, name)
 ### Parameter
 
 - `namespace`
-  - : Die Namensraum-URI der zu suchenden Elemente (siehe {{domxref("Element.namespaceURI", "element.namespaceURI")}}).
+  - : Der Namespace-URI der zu suchenden Elemente (siehe [`element.namespaceURI`](/de/docs/Web/API/Element/namespaceURI)).
 - `name`
 
-  - : Entweder der lokale Name der zu suchenden Elemente oder der spezielle Wert `*`, der alle Elemente abgleicht (siehe {{domxref("Element.localName", "element.localName")}}).
+  - : Entweder der lokale Name der zu suchenden Elemente oder der besondere Wert `*`, der alle Elemente umfasst (siehe [`element.localName`](/de/docs/Web/API/Element/localName)).
 
     > [!NOTE]
-    > Im Gegensatz zu {{domxref("document.getElementsByTagName()")}} sind die Parameter für `getElementsByTagNameNS()` groß- und kleinschreibungssensitiv.
+    > Im Gegensatz zu [`document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName) sind die Parameter für `getElementsByTagNameNS()` groß- und kleinschreibungssensitiv.
 
 ### Rückgabewert
 
-Eine Live-{{DOMxRef("HTMLCollection")}} der gefundenen Elemente in der Reihenfolge, in der sie im Baum erscheinen.
+Eine aktuelle [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der gefundenen Elemente in der Reihenfolge, in der sie im Baum erscheinen.
 
 ## Beispiele
 
-Im folgenden Beispiel beginnt `getElementsByTagNameNS` ab einem bestimmten Elternelement und durchsucht von diesem Elternelement aus rekursiv den DOM-Baum von oben nach unten nach Kindelementen, die dem Tag-`name`-Parameter entsprechen.
+Im folgenden Beispiel beginnt `getElementsByTagNameNS` bei einem bestimmten
+Elternelement und durchsucht rekursiv von oben nach unten den DOM von diesem Elternelement,
+um nach Kindelementen zu suchen, die mit dem `name`-Parameter des Tags übereinstimmen.
 
-Beachten Sie, dass, wenn der Knoten, auf dem `getElementsByTagName` aufgerufen wird, nicht der `document`-Knoten ist, tatsächlich die
-{{domxref("element.getElementsByTagNameNS")}}-Methode verwendet wird.
+Es ist zu beachten, dass, wenn der Knoten, auf dem `getElementsByTagName` aufgerufen wird, nicht
+der `document`-Knoten ist, tatsächlich die
+[`element.getElementsByTagNameNS`](/de/docs/Web/API/Element/getElementsByTagNameNS) Methode verwendet wird.
 
-Um das folgende Beispiel zu verwenden, kopieren Sie es einfach und fügen Sie es in eine neue Datei mit der .xhtml-Erweiterung ein.
+Um das folgende Beispiel zu verwenden, kopieren Sie es einfach und fügen Sie es in eine neue Datei ein, die mit der .xhtml
+Erweiterung gespeichert wird.
 
 ```html
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>getElementsByTagNameNS Beispiel</title>
+    <title>getElementsByTagNameNS example</title>
 
     <script>
       function getAllParaElems() {
@@ -123,4 +126,4 @@ Um das folgende Beispiel zu verwenden, kopieren Sie es einfach und fügen Sie es
 
 ## Siehe auch
 
-- {{DOMxRef("Element.getElementsByTagNameNS()")}}
+- [`Element.getElementsByTagNameNS()`](/de/docs/Web/API/Element/getElementsByTagNameNS)

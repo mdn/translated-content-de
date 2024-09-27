@@ -1,5 +1,5 @@
 ---
-title: "Screen: Farbeigenschaft colorDepth"
+title: "Screen: Eigenschaft colorDepth"
 short-title: colorDepth
 slug: Web/API/Screen/colorDepth
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`Screen.colorDepth`** schreibgeschützte Eigenschaft gibt die Farbtiefe des Bildschirms zurück. Laut CSSOM geben einige Implementierungen `24` zurück, um die Kompatibilität zu gewährleisten. Siehe den Abschnitt zur Browserkompatibilität für diejenigen, die dies nicht tun.
+Die schreibgeschützte Eigenschaft **`Screen.colorDepth`** gibt die Farbtiefe des Bildschirms zurück. Gemäß dem CSSOM geben einige Implementierungen `24` aus Kompatibilitätsgründen zurück. Siehe den Abschnitt zur Browser-Kompatibilität für diejenigen, die dies nicht tun.
 
 ## Wert
 
@@ -17,11 +17,11 @@ Eine Zahl.
 ## Beispiele
 
 ```js
-// Überprüfen der Farbtiefe des Bildschirms
+// Check the color depth of the screen
 if (window.screen.colorDepth < 8) {
-  // Verwende die Version der Seite mit reduzierter Farbtiefe
+  // Use low-color version of page
 } else {
-  // Verwende die reguläre, farbenfrohe Seite
+  // Use regular, colorful page
 }
 ```
 
@@ -35,4 +35,4 @@ if (window.screen.colorDepth < 8) {
 
 ## Siehe auch
 
-- {{DOMxRef("Screen.pixelDepth")}}
+- [`Screen.pixelDepth`](/de/docs/Web/API/Screen/pixelDepth)

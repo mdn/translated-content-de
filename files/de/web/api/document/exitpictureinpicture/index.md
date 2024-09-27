@@ -1,5 +1,5 @@
 ---
-title: "Dokument: exitPictureInPicture()-Methode"
+title: "Document: exitPictureInPicture()-Methode"
 short-title: exitPictureInPicture()
 slug: Web/API/Document/exitPictureInPicture
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die **`exitPictureInPicture()`**-Methode des {{domxref("Document")}}-Interfaces fordert an, dass ein Video in diesem Dokument, welches derzeit schwebt, aus dem Bild-im-Bild-Modus genommen wird und der vorherige Zustand des Bildschirms wiederhergestellt wird. Dies kehrt normalerweise die Effekte eines vorherigen Aufrufs von {{domxref("HTMLVideoElement.requestPictureInPicture()")}} um.
+Die **`exitPictureInPicture()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces fordert an, dass ein Video, das in diesem Dokument enthalten ist und derzeit schwebt, aus dem Bild-im-Bild-Modus entfernt wird, um den vorherigen Zustand des Bildschirms wiederherzustellen. Dies kehrt normalerweise die Effekte eines vorherigen Aufrufs von [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) um.
 
 ## Syntax
 
@@ -22,23 +22,23 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald der {{Glossary("user agent")}} das Verlassen des Bild-im-Bild-Modus abgeschlossen hat. Wenn ein Fehler beim Versuch, den Vollbildmodus zu verlassen, auftritt, wird der `catch()`-Handler des Promise aufgerufen.
+Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald der [Benutzeragent](/de/docs/Glossary/user_agent) den Bild-im-Bild-Modus verlassen hat. Wenn ein Fehler beim Versuch auftritt, den Vollbildmodus zu verlassen, wird der `catch()`-Handler für das Promise aufgerufen.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `document.pictureInPictureElement` `null` ist.
 
 ## Beispiele
 
-Dieses Beispiel bewirkt, dass das aktuelle Dokument den Bild-im-Bild-Modus verlässt, wann immer die Maustaste darin geklickt wird.
+Dieses Beispiel bewirkt, dass das aktuelle Dokument den Bild-im-Bild-Modus verlässt, wann immer die Maustaste innerhalb des Dokuments geklickt wird.
 
 ```js
 document.onclick = (event) => {
   if (document.pictureInPictureElement) {
     document
       .exitPictureInPicture()
-      .then(() => console.log("Dokument hat den Bild-im-Bild-Modus verlassen"))
+      .then(() => console.log("Document Exited from Picture-in-Picture mode"))
       .catch((err) => console.error(err));
   } else {
     video.requestPictureInPicture();
@@ -46,7 +46,7 @@ document.onclick = (event) => {
 };
 ```
 
-Beachten Sie, dass Sie, wenn Sie verfolgen möchten, welches Video auf Ihrer Seite derzeit im Bild-im-Bild-Modus abgespielt wird, die `enterpictureinpicture`- und `exitpictureinpicture`-Ereignisse auf dem/den betreffenden {{DOMxRef("HTMLVideoElement")}}-Element(en) überwachen sollten. Alternativ können Sie überprüfen, ob {{DOMxRef("Document.pictureInPictureElement")}} sich auf das aktuelle {{DOMxRef("HTMLVideoElement")}}-Element bezieht.
+Beachten Sie, dass Sie, wenn Sie nachverfolgen möchten, welches Video auf Ihrer Seite derzeit im Bild-im-Bild-Modus abgespielt wird, die `enterpictureinpicture`- und `exitpictureinpicture`-Ereignisse am entsprechenden [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) überwachen sollten. Alternativ können Sie überprüfen, ob [`Document.pictureInPictureElement`](/de/docs/Web/API/Document/pictureInPictureElement) auf das aktuelle [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) verweist.
 
 ## Spezifikationen
 
@@ -58,9 +58,9 @@ Beachten Sie, dass Sie, wenn Sie verfolgen möchten, welches Video auf Ihrer Sei
 
 ## Siehe auch
 
-- {{DOMxRef("HTMLVideoElement.requestPictureInPicture()")}}
-- {{DOMxRef("HTMLVideoElement.disablePictureInPicture")}}
-- {{DOMxRef("Document.pictureInPictureEnabled")}}
-- {{DOMxRef("Document.pictureInPictureElement")}}
+- [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture)
+- [`HTMLVideoElement.disablePictureInPicture`](/de/docs/Web/API/HTMLVideoElement/disablePictureInPicture)
+- [`Document.pictureInPictureEnabled`](/de/docs/Web/API/Document/pictureInPictureEnabled)
+- [`Document.pictureInPictureElement`](/de/docs/Web/API/Document/pictureInPictureElement)
 - {{CSSxRef(":picture-in-picture")}}
-- [Bild-im-Bild-Ereignisse](/de/docs/Web/API/Picture-in-Picture_API#events)
+- [Picture-in-Picture Ereignisse](/de/docs/Web/API/Picture-in-Picture_API#events)

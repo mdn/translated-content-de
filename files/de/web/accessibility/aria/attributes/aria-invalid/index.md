@@ -11,47 +11,47 @@ Der `aria-invalid` Zustand zeigt an, dass der eingegebene Wert nicht dem vom Pro
 
 ## Beschreibung
 
-Das `aria-invalid` Attribut wird verwendet, um anzuzeigen, dass der Wert in ein Eingabefeld nicht in einem Format oder als Wert eingegeben wurde, den die Anwendung akzeptiert. Dies kann Formate wie E-Mail-Adressen oder Telefonnummern umfassen. `aria-invalid` kann auch verwendet werden, um anzuzeigen, dass ein erforderliches Feld leer ist.
+Das `aria-invalid` Attribut wird verwendet, um anzuzeigen, dass der in ein Eingabefeld eingegebene Wert nicht in einem Format oder einem Wert vorliegt, den die Anwendung akzeptiert. Dies kann Formate wie E-Mail-Adressen oder Telefonnummern umfassen. `aria-invalid` kann auch verwendet werden, um anzuzeigen, dass ein erforderliches Feld leer ist.
 
-Das `aria-invalid` Attribut kann mit jedem typischen HTML-Formularelement verwendet werden und ist nicht auf Elemente beschränkt, denen eine ARIA-Rolle zugewiesen ist.
+Das `aria-invalid` Attribut kann mit jedem typischen HTML-Formular-Element verwendet werden und ist nicht auf Elemente beschränkt, denen eine ARIA-Rolle zugewiesen wurde.
 
-Das Attribut sollte mit JavaScript als Ergebnis eines Validierungsprozesses gesetzt werden. Wenn ein Wert als ungültig oder außerhalb des Bereichs befunden wird, setzen Sie `aria-invalid="true"` **und** informieren Sie den Benutzer, dass ein Fehler vorliegt. Für eine bessere Benutzererfahrung sollten Sie Vorschläge geben, wie der Fehler behoben werden kann. Setzen Sie `aria-invalid="true"` nicht auf leeren erforderlichen Elementen, bis der Benutzer versucht, das Formular abzusenden. Er kann immer noch dabei sein, es auszufüllen.
+Das Attribut sollte mit JavaScript infolge eines Validierungsprozesses gesetzt werden. Wenn ein Wert als ungültig oder außerhalb des Bereichs ermittelt wird, setzen Sie `aria-invalid="true"` **und** informieren Sie den Benutzer über den Fehler. Für eine bessere Benutzererfahrung bieten Sie Vorschläge an, wie der Fehler behoben werden kann. Setzen Sie `aria-invalid="true"` nicht auf leere erforderliche Elemente, bis der Benutzer versucht, das Formular abzusenden. Er könnte noch dabei sein, es auszufüllen.
 
 > [!NOTE]
-> Wenn `aria-invalid` zusammen mit dem `aria-required` Attribut verwendet wird, sollte `aria-invalid` nicht auf true gesetzt werden, bevor das Formular abgesendet wird - nur als Reaktion auf die Validierung.
+> Wenn `aria-invalid` in Verbindung mit dem `aria-required` Attribut verwendet wird, sollte `aria-invalid` nicht auf true gesetzt werden, bevor das Formular abgeschickt wird - nur als Antwort auf die Validierung.
 
-Derzeit gibt es vier Werte: Zusätzlich zu `true` und `false` gibt es `grammar`, das verwendet werden kann, wenn ein grammatikalischer Fehler festgestellt wird, und `spelling` für Rechtschreibfehler. Wenn das Attribut nicht vorhanden ist oder sein Wert false oder ein leerer String ist, gilt der Standardwert false. Jeder andere Wert wird so behandelt, als ob `true` gesetzt wäre.
+Aktuell gibt es vier Werte: zusätzlich zu `true` und `false` haben wir `grammar`, das verwendet werden kann, wenn ein grammatikalischer Fehler erkannt wird, und `spelling` für Rechtschreibfehler. Wenn das Attribut nicht vorhanden ist, oder sein Wert false ist, oder sein Wert eine leere Zeichenfolge ist, gilt der Standardwert false. Jeder andere Wert wird so behandelt, als wäre `true` gesetzt.
 
 ### Native HTML-Validierung
 
-HTML hat eine native Formularvalidierung. Wenn ein Benutzer ein Formular mit einer Steuerung mit Fehlern übermittelt, zeigt die erste Formularsteuerung mit einem ungültigen Wert eine Fehlermeldung, nativ.
+HTML verfügt über eine native Formularvalidierung. Wenn ein Benutzer ein Formular mit einem Feld mit fehlerhaften Werten absendet, zeigt die erste Formularsteuerung mit einem ungültigen Wert eine Fehlermeldung an, nativ.
 
-Wenn ein [`required`](/de/docs/Web/HTML/Attributes/required) Attribut auf einem Formularsteuerungselement vorhanden ist, das nicht ausgefüllt ist, wird das Formular nicht übermittelt, und es erscheint eine Fehlermeldung mit dem Text "Bitte füllen Sie dieses Feld aus" oder etwas Ähnliches. Die Nachrichten für die native Validierung variieren je nach Browser und können nicht angepasst werden.
+Wenn auf einer Formularsteuerung ein [`required`](/de/docs/Web/HTML/Attributes/required) Attribut vorhanden ist, das nicht ausgefüllt ist, wird das Formular nicht gesendet, und eine Fehlermeldung erscheint, die etwa "Bitte füllen Sie dieses Feld aus" lautet oder Ähnliches. Die Nachrichten für native Validierung variieren je nach Browser und können nicht gestaltet werden.
 
 ```html
 <input type="number" step="2" min="0" max="100" required />
 ```
 
-Wenn der Benutzer im obigen Eingabebeispiel einen Wert eingegeben hat, der über dem Maximum, unter dem Minimum liegt oder nicht mit dem Schrittwert übereinstimmt, erscheint eine Fehlermeldung. Hätte der Benutzer "3" eingegeben, wäre die native Fehlermeldung ähnlich wie "Bitte geben Sie einen gültigen Wert ein."
+Wenn der Benutzer einen Wert eingegeben hätte, der über dem Maximum, unter dem Minimum liegt oder nicht dem Schrittwert entspricht, würde eine Fehlermeldung erscheinen. Wenn der Benutzer "3" eingegeben hätte, wäre die native Fehlermeldung ähnlich wie "Bitte geben Sie einen gültigen Wert ein."
 
-Wenn Sie eigene Formularvalidierungsskripte erstellen, sollten Sie sicherstellen, dass `aria-invalid` bei ungültigen Formularsteuerungen enthalten ist, zusammen mit einer Gestaltung (verwenden Sie den `[aria-invalid="true"]` Attributselektor) und Nachrichten (mit [`aria-errormessage`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-errormessage)) um Benutzern zu helfen, zu verstehen, wo der Fehler liegt und wie sie ihn beheben können.
+Wenn Sie Ihre eigenen Formularvalidierungsskripte erstellen, stellen Sie sicher, dass `aria-invalid` bei ungültigen Formularsteuerelementen enthalten ist, zusammen mit Styling (verwenden Sie den `[aria-invalid="true"]` Attribut-Selektor) und Messaging (mit [`aria-errormessage`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-errormessage)), um Benutzern zu helfen, zu verstehen, wo der Fehler liegt und wie er behoben werden kann.
 
 ## Werte
 
 - `grammar`
-  - : Ein grammatikalischer Fehler wurde entdeckt.
+  - : Ein grammatikalischer Fehler wurde erkannt.
 - `false` (Standard)
-  - : Es wurden keine Fehler im Wert festgestellt.
+  - : Es wurden keine Fehler im Wert erkannt.
 - `spelling`
-  - : Ein Rechtschreibfehler wurde entdeckt.
+  - : Ein Rechtschreibfehler wurde erkannt.
 - `true`
   - : Der vom Benutzer eingegebene Wert hat die Validierung nicht bestanden.
 
-Jeder Wert, der nicht in dieser Liste steht, wird als `true` behandelt.
+Jeder in dieser Liste nicht enthaltene Wert wird als `true` behandelt.
 
 ## Beispiel
 
-Der folgende Ausschnitt zeigt eine vereinfachte Version von zwei Formularfeldern mit einer Validierungsfunktion, die an das Blur-Ereignis angehängt ist. Beachten Sie, dass es nicht zwingend notwendig ist, das Attribut für Eingaben hinzuzufügen, da der Standardwert für `aria-invalid` false ist.
+Der folgende Ausschnitt zeigt eine vereinfachte Version von zwei Formularfeldern mit einer an das Blur-Ereignis angehängten Validierungsfunktion. Beachten Sie, dass es nicht unbedingt notwendig ist, das Attribut zu dem Eingabefeld hinzuzufügen, da der Standardwert von `aria-invalid` false ist.
 
 ```html
 <ul>
@@ -78,9 +78,9 @@ Der folgende Ausschnitt zeigt eine vereinfachte Version von zwei Formularfeldern
 </ul>
 ```
 
-Beachten Sie, dass es nicht notwendig ist, die Felder sofort bei Blur zu validieren; die Anwendung könnte warten, bis das Formular gesendet wird (obwohl dies nicht unbedingt empfohlen wird).
+Beachten Sie, dass es nicht notwendig ist, die Felder sofort bei Blur zu validieren; die Anwendung könnte warten, bis das Formular abgeschickt wird (obwohl dies nicht unbedingt empfohlen wird).
 
-Der untenstehende Ausschnitt zeigt eine sehr einfache Validierungsfunktion, die nur das Vorhandensein eines bestimmten Zeichens überprüft (in der realen Welt wird die Validierung wahrscheinlich komplexer sein):
+Der unten stehende Ausschnitt zeigt eine sehr einfache Validierungsfunktion, die nur auf das Vorhandensein eines bestimmten Zeichens überprüft (in der realen Welt wird die Validierung wahrscheinlich komplexer sein):
 
 ```js
 function checkValidity(id, searchTerm, msg) {
@@ -95,7 +95,7 @@ function checkValidity(id, searchTerm, msg) {
 }
 ```
 
-Der untenstehende Ausschnitt zeigt die Alarmfunktionen, die die Fehlermeldung hinzufügen (oder entfernen):
+Der unten stehende Ausschnitt zeigt die Alarmfunktionen, die die Fehlermeldung hinzufügen (oder entfernen):
 
 ```js
 function updateAlert(msg) {
@@ -115,9 +115,9 @@ function updateAlert(msg) {
 }
 ```
 
-Beachten Sie, dass der Alert das ARIA-Rollenattribut [`alert`](/de/docs/Web/Accessibility/ARIA/Roles/alert_role) gesetzt hat.
+Beachten Sie, dass der Alarm über das ARIA-Rollenattribut [`alert`](/de/docs/Web/Accessibility/ARIA/Roles/alert_role) verfügt.
 
-## Verwandte Rollen
+## Zugehörige Rollen
 
 Verwendet in Rollen:
 
@@ -149,4 +149,4 @@ Geerbt in Rolle:
 - [`aria-errormessage`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-errormessage)
 - CSS {{CSSXRef(':valid')}} Pseudoklasse
 - CSS {{CSSXRef(':invalid')}} Pseudoklasse
-- [Formularvalidierung](/de/docs/Learn/Forms/Form_validation) Tutorial
+- [Formularvalidierung](/de/docs/Learn/Forms/Form_validation) Anleitung

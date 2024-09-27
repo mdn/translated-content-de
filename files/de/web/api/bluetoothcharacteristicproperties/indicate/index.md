@@ -1,6 +1,6 @@
 ---
-title: "BluetoothCharacteristicProperties: indizieren Eigenschaft"
-short-title: indizieren
+title: "BluetoothCharacteristicProperties: indicate-Eigenschaft"
+short-title: indicate
 slug: Web/API/BluetoothCharacteristicProperties/indicate
 l10n:
   sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
@@ -8,14 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Bluetooth API")}}{{SeeCompatTable}}
 
-Die **`indicate`** schreibgeschützte Eigenschaft der
-{{domxref("BluetoothCharacteristicProperties")}}-Schnittstelle gibt einen
-`boolean`-Wert zurück, der `true` ist, wenn die Indikationen des
-Charakteristikwertes mit Bestätigung erlaubt sind.
+Die **`indicate`**-Eigenschaft der [`BluetoothCharacteristicProperties`](/de/docs/Web/API/BluetoothCharacteristicProperties)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die einen `boolean` zurückgibt, der `true` ist, wenn Hinweise auf den Charakteristikwert mit Bestätigung erlaubt sind.
 
 ## Wert
 
-Ein boolean-Wert.
+Ein boolescher Wert.
 
 ## Spezifikationen
 

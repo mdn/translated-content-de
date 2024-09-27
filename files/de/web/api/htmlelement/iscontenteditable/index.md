@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: Eigenschaft isContentEditable"
+title: "HTMLElement: isContentEditable-Eigenschaft"
 short-title: isContentEditable
 slug: Web/API/HTMLElement/isContentEditable
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die schreibgeschützte Eigenschaft **`HTMLElement.isContentEditable`** gibt einen booleschen Wert zurück, der `true` ist, wenn der Inhalt des Elements bearbeitbar ist; andernfalls wird `false` zurückgegeben.
+Die schreibgeschützte Eigenschaft **`HTMLElement.isContentEditable`** gibt zurück einen booleschen Wert, der `true` ist, wenn die Inhalte des Elements bearbeitbar sind; ansonsten gibt sie `false` zurück.
 
 ## Wert
 
@@ -19,11 +19,11 @@ Ein boolescher Wert.
 ### HTML
 
 ```html
-<p id="firstParagraph">Nicht bearbeitbarer Absatz</p>
-<p id="secondParagraph" contenteditable="true">Bearbeitbarer Absatz</p>
+<p id="firstParagraph">Uneditable Paragraph</p>
+<p id="secondParagraph" contenteditable="true">Editable Paragraph</p>
 
-<p id="infoText1">Ist der erste Absatz bearbeitbar?</p>
-<p id="infoText2">Ist der zweite Absatz bearbeitbar?</p>
+<p id="infoText1">Is the first paragraph editable?</p>
+<p id="infoText2">Is the second paragraph editable?</p>
 ```
 
 ### JavaScript
@@ -53,5 +53,5 @@ infoText2.textContent += " " + secondParagraph.isContentEditable;
 
 ## Siehe auch
 
-- {{domxref("HTMLElement/contentEditable")}}
+- [`HTMLElement/contentEditable`](/de/docs/Web/API/HTMLElement/contentEditable)
 - Das globale Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable).

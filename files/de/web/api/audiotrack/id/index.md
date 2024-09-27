@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`id`**-Eigenschaft enthält einen String, der den durch den **{{domxref("AudioTrack")}}** dargestellten Track eindeutig identifiziert.
+Die **`id`**-Eigenschaft enthält eine Zeichenfolge, die die Spur, die durch den **[`AudioTrack`](/de/docs/Web/API/AudioTrack)** repräsentiert wird, eindeutig identifiziert.
 
-Diese ID kann mit der Methode {{domxref("AudioTrackList.getTrackById()")}} verwendet werden, um einen bestimmten Track innerhalb der Medien zu lokalisieren, die mit einem Medienelement verbunden sind. Die Track-ID kann auch als Fragment einer URL verwendet werden, die den spezifischen Track lädt (falls die Medien Medienschnipsel unterstützen).
+Diese ID kann mit der Methode [`AudioTrackList.getTrackById()`](/de/docs/Web/API/AudioTrackList/getTrackById) verwendet werden, um eine bestimmte Spur innerhalb der mit einem Medienelement verbundenen Medien zu finden. Die Spur-ID kann auch als Fragment einer URL verwendet werden, das die spezifische Spur lädt (falls die Medien Medienfragmente unterstützen).
 
 ## Wert
 
-Ein String, der den Track identifiziert und geeignet ist, um beim Aufrufen von {{domxref("AudioTrackList.getTrackById", "getTrackById()")}} auf einem {{domxref("AudioTrackList")}} wie demjenigen, das durch die {{domxref("HTMLMediaElement.audioTracks", "audioTracks")}}-Eigenschaft eines Medienelements angegeben ist, verwendet zu werden.
+Eine Zeichenfolge, die die Spur identifiziert, geeignet zur Verwendung beim Aufrufen von [`getTrackById()`](/de/docs/Web/API/AudioTrackList/getTrackById) auf einer [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) wie derjenigen, die durch die [`audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks)-Eigenschaft eines Medienelements angegeben wird.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: hängend
+title: hanging
 slug: Web/SVG/Attribute/hanging
 l10n:
   sourceCommit: 829db137a01feb14af7beaec178a3ea0118b4777
@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`hanging`** Attribut gibt das Ausrichtungskoordinate für {{Glossary("glyph", "Glyphen")}} an, um eine hängende Basislinienausrichtung für horizontal angeordnete Glyphenlayouts zu erreichen. Der Wert ist ein Offset im Schriftkoordinatensystem.
+Das **`hanging`**-Attribut gibt die Ausrichtungskoordinate für [Glyphen](/de/docs/Glossary/glyph) an, um eine hängende Basislinienausrichtung für horizontal orientierte Glyphenlayouts zu erreichen. Der Wert ist ein Offset im Schriftkoordinatensystem.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font-face")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

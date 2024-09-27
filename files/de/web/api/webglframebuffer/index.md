@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **WebGLFramebuffer**-Schnittstelle ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und repräsentiert eine Sammlung von Puffern, die als Rendierziel dienen.
+Das **WebGLFramebuffer**-Interface ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und repräsentiert eine Sammlung von Puffern, die als Ziel für das Rendering dienen.
 
 {{InheritanceDiagram}}
 
 ## Beschreibung
 
-Das `WebGLFramebuffer`-Objekt definiert keine eigenen Methoden oder Eigenschaften, und sein Inhalt ist nicht direkt zugänglich. Beim Arbeiten mit `WebGLFramebuffer`-Objekten sind die folgenden Methoden des {{domxref("WebGLRenderingContext")}} nützlich:
+Das `WebGLFramebuffer`-Objekt definiert keine eigenen Methoden oder Eigenschaften und sein Inhalt ist nicht direkt zugänglich. Beim Arbeiten mit `WebGLFramebuffer`-Objekten sind die folgenden Methoden des [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) nützlich:
 
-- {{domxref("WebGLRenderingContext.bindFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.createFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.isFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.framebufferRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.framebufferTexture2D()")}}
+- [`WebGLRenderingContext.bindFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFramebuffer)
+- [`WebGLRenderingContext.createFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/createFramebuffer)
+- [`WebGLRenderingContext.deleteFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteFramebuffer)
+- [`WebGLRenderingContext.isFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/isFramebuffer)
+- [`WebGLRenderingContext.framebufferRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/framebufferRenderbuffer)
+- [`WebGLRenderingContext.framebufferTexture2D()`](/de/docs/Web/API/WebGLRenderingContext/framebufferTexture2D)
 
 ## Beispiele
 
@@ -42,10 +42,10 @@ const buffer = gl.createFramebuffer();
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.createFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.isFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.framebufferRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.framebufferTexture2D()")}}
-- Andere Puffer: {{domxref("WebGLBuffer")}}, {{domxref("WebGLRenderbuffer")}}
+- [`WebGLRenderingContext.bindFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFramebuffer)
+- [`WebGLRenderingContext.createFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/createFramebuffer)
+- [`WebGLRenderingContext.deleteFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteFramebuffer)
+- [`WebGLRenderingContext.isFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/isFramebuffer)
+- [`WebGLRenderingContext.framebufferRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/framebufferRenderbuffer)
+- [`WebGLRenderingContext.framebufferTexture2D()`](/de/docs/Web/API/WebGLRenderingContext/framebufferTexture2D)
+- Andere Puffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)

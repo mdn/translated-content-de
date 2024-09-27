@@ -1,5 +1,5 @@
 ---
-title: "Bluetooth: Methode getDevices()"
+title: "Bluetooth: getDevices()-Methode"
 short-title: getDevices()
 slug: Web/API/Bluetooth/getDevices
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`getDevices()`**-Methode der Schnittstelle {{DOMxRef("Bluetooth")}} gibt ein Array zurück, das die Bluetooth-Geräte enthält, auf die dieser Ursprung zugreifen darf – einschließlich solcher, die außer Reichweite und ausgeschaltet sind.
+Die **`getDevices()`**-Methode der [`Bluetooth`](/de/docs/Web/API/Bluetooth)-Schnittstelle gibt ein Array zurück, das die Bluetooth-Geräte enthält, auf die dieser Ursprung zugreifen darf — einschließlich derjenigen, die außerhalb der Reichweite sind und ausgeschaltet sind.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das mit einem Array von {{DOMxRef("BluetoothDevice")}}-Objekten aufgelöst wird.
+Ein {{JSxRef("Promise")}}, das mit einem Array von [`BluetoothDevice`](/de/docs/Web/API/BluetoothDevice)-Objekten aufgelöst wird.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Wird geworfen, wenn dieser Vorgang in diesem Kontext aufgrund von [Sicherheitsbedenken](/de/docs/Web/API/Web_Bluetooth_API#security_considerations) nicht erlaubt ist, z. B. wenn der Zugriff auf das aktuelle Dokument durch die [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) Direktive {{HTTPHeader("Permissions-Policy/bluetooth","bluetooth")}} blockiert ist.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn dieser Vorgang in diesem Kontext aufgrund von [Sicherheitsbedenken](/de/docs/Web/API/Web_Bluetooth_API#security_considerations) nicht erlaubt ist, zum Beispiel, wenn der Zugriff auf das aktuelle Dokument durch die [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)-Direktive blockiert ist {{HTTPHeader("Permissions-Policy/bluetooth","bluetooth")}}.
 
 ## Spezifikationen
 

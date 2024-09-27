@@ -1,5 +1,5 @@
 ---
-title: "<menu>: Das Menüelement"
+title: "<menu>: Das Menu-Element"
 slug: Web/HTML/Element/menu
 l10n:
   sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<menu>`** [HTML](/de/docs/Web/HTML)-Element wird in der HTML-Spezifikation als semantische Alternative zu {{HTMLElement("ul")}} beschrieben, aber von Browsern (und im Zugänglichkeitsbaum bereitgestellt) genauso behandelt wie {{HTMLElement("ul")}}. Es stellt eine ungeordnete Liste von Elementen dar (die durch {{HTMLElement("li")}}-Elemente repräsentiert werden).
+Das **`<menu>`** [HTML](/de/docs/Web/HTML) Element wird in der HTML-Spezifikation als semantische Alternative zu {{HTMLElement("ul")}} beschrieben, aber von Browsern (und über den Zugänglichkeitsbaum verfügbar gemacht) nicht anders behandelt als {{HTMLElement("ul")}}. Es repräsentiert eine ungeordnete Liste von Elementen (die durch {{HTMLElement("li")}} Elemente dargestellt werden).
 
 {{EmbedInteractiveExample("pages/tabbed/menu.html", "tabbed-shorter")}}
 
@@ -17,10 +17,10 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 ## Verwendungshinweise
 
-Die `<menu>`- und {{HTMLElement("ul")}}-Elemente repräsentieren beide eine ungeordnete Liste von Elementen. Der Hauptunterschied besteht darin, dass {{HTMLElement("ul")}} hauptsächlich Elemente zur Darstellung enthält, während `<menu>` für interaktive Elemente gedacht war.
+Die `<menu>` und {{HTMLElement("ul")}} Elemente repräsentieren beide eine ungeordnete Liste von Elementen. Der Hauptunterschied besteht darin, dass {{HTMLElement("ul")}} hauptsächlich Elemente zur Anzeige enthält, während `<menu>` für interaktive Elemente gedacht war.
 
 > [!NOTE]
-> In frühen Versionen der HTML-Spezifikation hatte das `<menu>`-Element einen zusätzlichen Anwendungsfall als Kontextmenü. Diese Funktionalität wird als veraltet angesehen und ist nicht mehr in der Spezifikation enthalten.
+> In frühen Versionen der HTML-Spezifikation hatte das `<menu>` Element einen zusätzlichen Anwendungsfall als Kontextmenü. Diese Funktionalität gilt als veraltet und ist nicht mehr in der Spezifikation enthalten.
 
 ## Beispiele
 
@@ -85,18 +85,18 @@ button {
       <td>
         <p>
           <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-            >Fließender Inhalt</a
+            >Fluss-Inhalt</a
           >. Wenn die Kinder des Elements mindestens ein
-          {{HTMLElement("li")}}-Element enthalten:
+          {{HTMLElement("li")}} Element enthalten:
           <a
             href="/de/docs/Web/HTML/Content_categories#palpable_content"
-            >Fühlbarer Inhalt</a
+            >Greifbarer Inhalt</a
           >.
         </p>
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <p>
           Null oder mehr Vorkommen von {{HTMLElement("li")}},
@@ -107,14 +107,14 @@ button {
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >fließenden Inhalt</a
+          >Fluss-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -129,7 +129,7 @@ button {
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Roles/directory_role"><code>directory</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/group_role"><code>group</code></a>,
         <code
@@ -144,7 +144,7 @@ button {
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{DOMxRef("HTMLMenuElement")}}</td>
+      <td>[`HTMLMenuElement`](/de/docs/Web/API/HTMLMenuElement)</td>
     </tr>
   </tbody>
 </table>
@@ -159,4 +159,4 @@ button {
 
 ## Siehe auch
 
-- Andere auf Listen bezogene HTML-Elemente: {{HTMLElement("ol")}}, {{HTMLElement("ul")}}, und {{HTMLElement("li")}}.
+- Andere listenbezogene HTML-Elemente: {{HTMLElement("ol")}}, {{HTMLElement("ul")}}, und {{HTMLElement("li")}}.

@@ -7,23 +7,23 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-image-repeat`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt, wie die [Randbereiche](/de/docs/Web/CSS/border-image-slice#edge-regions) und der [mittelbereich](/de/docs/Web/CSS/border-image-slice#middle-region) eines Ausgangsbildes angepasst werden, um die Dimensionen eines [Randbilds](/de/docs/Web/CSS/border-image) eines Elements zu passen. Der Mittelbereich kann angezeigt werden, indem das Schlüsselwort "fill" in der border-image-slice Eigenschaft verwendet wird.
+Die **`border-image-repeat`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert, wie die [Randbereiche](/de/docs/Web/CSS/border-image-slice#edge-regions) und der [mittlere Bereich](/de/docs/Web/CSS/border-image-slice#middle-region) eines Quellbildes angepasst werden, um die Abmessungen eines Elements-Bordebilds zu erfüllen. Der mittlere Bereich kann angezeigt werden, indem das Schlüsselwort "fill" in der border-image-slice-Eigenschaft verwendet wird.
 
 {{EmbedInteractiveExample("pages/css/border-image-repeat.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwort Wert */
+/* Keyword value */
 border-image-repeat: stretch;
 border-image-repeat: repeat;
 border-image-repeat: round;
 border-image-repeat: space;
 
-/* oben und unten | links und rechts */
+/* top and bottom | left and right */
 border-image-repeat: round stretch;
 
-/* Globale Werte */
+/* Global values */
 border-image-repeat: inherit;
 border-image-repeat: initial;
 border-image-repeat: revert;
@@ -31,7 +31,7 @@ border-image-repeat: revert-layer;
 border-image-repeat: unset;
 ```
 
-Die `border-image-repeat` Eigenschaft kann unter Verwendung von einem oder zwei Werten aus der untenstehenden Liste angegeben werden.
+Die Eigenschaft `border-image-repeat` kann mit einem oder zwei Werten aus der unten stehenden Liste angegeben werden.
 
 - Wenn **ein** Wert angegeben wird, gilt das gleiche Verhalten für **alle vier Seiten**.
 - Wenn **zwei** Werte angegeben werden, gilt der erste für **oben, Mitte und unten**, der zweite für **links und rechts**.
@@ -39,13 +39,13 @@ Die `border-image-repeat` Eigenschaft kann unter Verwendung von einem oder zwei 
 ### Werte
 
 - `stretch`
-  - : Die Randbereiche des Ausgangsbildes werden gestreckt, um die Lücke zwischen jedem Rand zu füllen.
+  - : Die Randbereiche des Quellbildes werden gedehnt, um die Lücke zwischen den einzelnen Rändern zu füllen.
 - `repeat`
-  - : Die Randbereiche des Ausgangsbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rand zu füllen. Kacheln können beschnitten werden, um die richtige Passform zu erreichen.
+  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen den einzelnen Rändern zu füllen. Kacheln können zugeschnitten werden, um die richtige Passform zu erreichen.
 - `round`
-  - : Die Randbereiche des Ausgangsbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rand zu füllen. Kacheln können gestreckt werden, um die richtige Passform zu erreichen.
+  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen den einzelnen Rändern zu füllen. Kacheln können gedehnt werden, um die richtige Passform zu erreichen.
 - `space`
-  - : Die Randbereiche des Ausgangsbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rand zu füllen. Zusätzlicher Raum wird zwischen den Kacheln verteilt, um die richtige Passform zu erreichen.
+  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen den einzelnen Rändern zu füllen. Zusätzlicher Platz wird zwischen den Kacheln verteilt, um die richtige Passform zu erreichen.
 
 ## Formale Definition
 
@@ -57,7 +57,7 @@ Die `border-image-repeat` Eigenschaft kann unter Verwendung von einem oder zwei 
 
 ## Beispiele
 
-### Wiederholte Randbilder
+### Wiederholende Randbilder
 
 #### CSS
 
@@ -68,12 +68,12 @@ Die `border-image-repeat` Eigenschaft kann unter Verwendung von einem oder zwei 
   padding: 1rem;
   border: 40px solid;
   border-image: url("border.png") 27;
-  border-image-repeat: stretch; /* Kann im Live-Beispiel geändert werden */
+  border-image-repeat: stretch; /* Can be changed in the live sample */
 }
 ```
 
 ```html hidden
-<div id="bordered">Sie können verschiedene Regeln zur Randwiederholung an mir ausprobieren!</div>
+<div id="bordered">You can try out various border repetition rules on me!</div>
 
 <select id="repetition">
   <option value="stretch">stretch</option>
@@ -101,12 +101,12 @@ repetition.addEventListener("change", (evt) => {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
-- [CSS Lernen: Hintergründe und Ränder](/de/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders)
-- [Randbilder in CSS: Ein Schlüsselbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)
+- [Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
+- [CSS lernen: Hintergründe und Rahmen](/de/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders)
+- [Randbilder in CSS: Ein wichtiger Fokusbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) auf dem MDN-Blog (2023)

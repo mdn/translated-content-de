@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`BluetoothRemoteGATTDescriptor.writeValue()`**
-Methode setzt die Wert-Eigenschaft auf die Bytes, die in einem {{jsxref("ArrayBuffer")}} enthalten sind, und gibt ein {{jsxref("Promise")}} zurück.
+Die **`BluetoothRemoteGATTDescriptor.writeValue()`**-Methode setzt die Wert-Eigenschaft auf die Bytes, die in einem {{jsxref("ArrayBuffer")}} enthalten sind, und gibt ein {{jsxref("Promise")}} zurück.
 
 ## Syntax
 
@@ -20,7 +19,7 @@ writeValue(array)
 ### Parameter
 
 - `array`
-  - : Setzt den Wert mit den Bytes, die im Array enthalten sind.
+  - : Setzt den Wert mit den im Array enthaltenen Bytes.
 
 ### Rückgabewert
 

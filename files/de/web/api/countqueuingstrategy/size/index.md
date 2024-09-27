@@ -1,5 +1,5 @@
 ---
-title: "CountQueuingStrategy: size()-Methode"
+title: "CountQueuingStrategy: size() Methode"
 short-title: size()
 slug: Web/API/CountQueuingStrategy/size
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`size()`**-Methode des {{domxref("CountQueuingStrategy")}}-Interfaces gibt immer `1` zurück, sodass die gesamte Warteschlangenlänge die Anzahl der Chunks in der Warteschlange darstellt.
+Die **`size()`** Methode der
+[`CountQueuingStrategy`](/de/docs/Web/API/CountQueuingStrategy)-Schnittstelle gibt immer `1` zurück, sodass die Gesamtspeichergröße eine Zählung der Anzahl von Chunks in der Warteschlange ist.
 
 ## Syntax
 
@@ -31,7 +32,7 @@ const queuingStrategy = new CountQueuingStrategy({ highWaterMark: 1 });
 
 const writableStream = new WritableStream(
   {
-    // Implementieren Sie den Sink
+    // Implement the sink
     write(chunk) {
       // …
     },
@@ -39,7 +40,7 @@ const writableStream = new WritableStream(
       // …
     },
     abort(err) {
-      console.log("Sink-Fehler:", err);
+      console.log("Sink error:", err);
     },
   },
   queuingStrategy,
@@ -58,4 +59,4 @@ const size = queuingStrategy.size();
 
 ## Siehe auch
 
-- {{domxref("CountQueuingStrategy.CountQueuingStrategy", "CountQueuingStrategy()")}}-Konstruktor
+- [`CountQueuingStrategy()`](/de/docs/Web/API/CountQueuingStrategy/CountQueuingStrategy) Konstruktor

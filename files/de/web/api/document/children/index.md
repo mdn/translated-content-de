@@ -1,5 +1,5 @@
 ---
-title: "Dokument: children-Eigenschaft"
+title: "Document: children-Eigenschaft"
 short-title: children
 slug: Web/API/Document/children
 l10n:
@@ -8,27 +8,27 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte **`children`**-Eigenschaft gibt eine Live-{{domxref("HTMLCollection")}} zurück, die alle Kind-{{domxref("Element", "Elemente")}} des Dokuments, auf dem sie aufgerufen wurde, enthält.
+Die schreibgeschützte **`children`**-Eigenschaft gibt eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle Kind-[`Elemente`](/de/docs/Web/API/Element) des aufgerufenen Dokuments enthält.
 
-Für HTML-Dokumente ist dies in der Regel nur das Wurzel-`<html>`-Element.
+Für HTML-Dokumente ist dies normalerweise nur das Wurzel-`<html>`-Element.
 
-Siehe {{domxref("Element.children")}} für Kindelemente spezifischer HTML-Elemente innerhalb des Dokuments.
+Siehe [`Element.children`](/de/docs/Web/API/Element/children) für Kinder-Elemente von spezifischen HTML-Elementen innerhalb des Dokuments.
 
 ## Wert
 
-Eine {{ domxref("HTMLCollection") }}, die eine Live- und geordnete Sammlung der DOM-Elemente ist, die Kinder des aktuellen Dokuments sind. Sie können auf die einzelnen Knoten in der Sammlung entweder mit der Methode {{domxref("HTMLCollection.item()", "item()")}} auf die Sammlung oder durch die Verwendung der JavaScript-Array-Notation zugreifen.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die eine Live- und geordnete Sammlung von DOM-Elementen ist, welche die Kinder des aktuellen Dokuments sind. Sie können auf die einzelnen Kindknoten in der Sammlung zugreifen, indem Sie entweder die [`item()`](/de/docs/Web/API/HTMLCollection/item)-Methode auf der Sammlung verwenden oder die JavaScript-Array-Notation nutzen.
 
-Wenn das Dokument keine Kindelemente hat, ist `children` eine leere Liste mit einer `length` von `0`.
+Wenn das Dokument keine Elementkinder hat, ist `children` eine leere Liste mit einer `length` von `0`.
 
 ## Beispiele
 
 ```js
 document.children;
 // HTMLCollection [<html>]
-// Enthält in der Regel nur das Wurzel-<html>-Element, das einzige direkte Kind des Dokuments
+// Usually only contains the root <html> element, the document's only direct child
 ```
 
-Siehe {{domxref("Element.children")}} für Kindelemente spezifischer HTML-Elemente innerhalb des Dokuments.
+Siehe [`Element.children`](/de/docs/Web/API/Element/children) für Kinder-Elemente von spezifischen HTML-Elementen innerhalb des Dokuments.
 
 ## Spezifikationen
 
@@ -40,5 +40,5 @@ Siehe {{domxref("Element.children")}} für Kindelemente spezifischer HTML-Elemen
 
 ## Siehe auch
 
-- {{domxref("Element.children")}}
-- {{domxref("Node.childNodes")}}
+- [`Element.children`](/de/docs/Web/API/Element/children)
+- [`Node.childNodes`](/de/docs/Web/API/Node/childNodes)

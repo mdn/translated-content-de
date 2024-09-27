@@ -3,18 +3,16 @@ title: "SourceBufferList: length-Eigenschaft"
 short-title: length
 slug: Web/API/SourceBufferList/length
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
 ---
 
-{{APIRef("Media Source Extensions")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`length`**-Eigenschaft des schreibgeschützten
-{{domxref("SourceBufferList")}}-Interfaces gibt die Anzahl der
-{{domxref("SourceBuffer")}}-Objekte in der Liste zurück.
+Die **`length`** schreibgeschützte Eigenschaft des [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)-Interfaces gibt die Anzahl der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte in der Liste zurück.
 
 ## Wert
 
-Eine nicht-negative Ganzzahl.
+Eine nicht signierte lange Zahl.
 
 ## Beispiele
 
@@ -24,11 +22,11 @@ TBD
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("MediaSource")}}
-- {{domxref("SourceBuffer")}}
+- [`MediaSource`](/de/docs/Web/API/MediaSource)
+- [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)

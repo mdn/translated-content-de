@@ -1,5 +1,5 @@
 ---
-title: "RTCIceCandidatePairStats: Eigenschaft availableOutgoingBitrate"
+title: "RTCIceCandidatePairStats: availableOutgoingBitrate-Eigenschaft"
 short-title: availableOutgoingBitrate
 slug: Web/API/RTCIceCandidatePairStats/availableOutgoingBitrate
 l10n:
@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`availableOutgoingBitrate`** des {{domxref("RTCIceCandidatePairStats")}} gibt einen Wert zurück, der auf die verfügbare ausgehende Kapazität der Netzwerkverbindung hinweist, die durch das Kandidatenpaar repräsentiert wird. Je höher der Wert ist, desto mehr Bandbreite können Sie für ausgehende Daten annehmen.
+Die [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Eigenschaft **`availableOutgoingBitrate`** liefert einen Wert, der die verfügbare ausgehende Kapazität der durch das Kandidatenpaar dargestellten Netzwerkverbindung angibt. Je höher der Wert, desto mehr Bandbreite können Sie für ausgehende Daten annehmen.
 
-Sie können die verfügbare eingehende Bitrate von {{domxref("RTCIceCandidatePairStats.availableIncomingBitrate", "availableIncomingBitrate")}} abrufen.
+Sie können die eingehende verfügbare Bitrate von [`availableIncomingBitrate`](/de/docs/Web/API/RTCIceCandidatePairStats/availableIncomingBitrate) abrufen.
 
 ## Wert
 
-Ein Gleitkommawert, der die Menge der verfügbaren Bandbreite für ausgehende Daten auf der durch das `RTCIceCandidatePair` beschriebenen Netzwerkverbindung annähernd beschreibt. Der Wert wird in Bit pro Sekunde angegeben und über ein Intervall von 1 Sekunde berechnet.
+Ein Gleitkommawert, der die verfügbare Bandbreite für ausgehende Daten auf der durch das `RTCIceCandidatePair` beschriebenen Netzwerkverbindung annähert. Der Wert wird in Bits pro Sekunde angegeben und über ein 1-Sekunden-Intervall berechnet.
 
-Der zurückgegebene Wert ist `undefined` in jeder der folgenden Situationen:
+Der zurückgegebene Wert ist `undefined` in den folgenden Situationen:
 
-- Die zugrunde liegende Implementierung unterstützt keine Berechnung einer senderseitigen Schätzung der ausgehenden Bitrate.
-- Das durch dieses Objekt beschriebene {{domxref("RTCIceCandidatePair")}} wurde nie verwendet.
+- Die zugrunde liegende Implementierung unterstützt die Berechnung einer Sender-Seite-Schätzung der ausgehenden Bitrate nicht.
+- Das durch dieses Objekt beschriebene [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair) wurde nie verwendet.
 - Das Kandidatenpaar war einmal in Gebrauch, ist es aber nicht mehr.
 
-Der zurückgegebene Wert wird berechnet, indem die verfügbare Bitrate für jeden {{Glossary("RTP")}}-Stream aufaddiert wird, der die durch dieses Kandidatenpaar beschriebene Verbindung nutzt. Der zurückgegebene Wert berücksichtigt nicht den Overhead, der durch zugrunde liegende Protokolle wie IP, UDP oder TCP eingeführt wird.
+Der zurückgegebene Wert wird berechnet, indem die verfügbare Bitrate für jeden [RTP](/de/docs/Glossary/RTP)-Stream addiert wird, der die durch dieses Kandidatenpaar beschriebene Verbindung nutzt. Der zurückgegebene Wert berücksichtigt nicht den durch zugrunde liegende Protokolle, einschließlich IP, UDP oder TCP, eingeführten Overhead.
 
 > [!NOTE]
-> Der zurückgegebene Wert wird mit einer Methode berechnet, die der Transport Independent Application Specific Maximum (TIAS), beschrieben in {{RFC(3890, "", "6.2")}}, ähnlich ist, aber nicht identisch damit.
+> Der zurückgegebene Wert wird mit einer Methode berechnet, die der Transport Independent Application Specific Maximum (TIAS), wie in {{RFC(3890, "", "6.2")}} beschrieben, ähnlich ist, aber nicht identisch ist.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "Animation: persist()-Methode"
+title: "Animation: persist() Methode"
 short-title: persist()
 slug: Web/API/Animation/persist
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Animations")}}
 
-Die `persist()`-Methode der {{domxref("Animation")}}-Schnittstelle des [Web Animations API](/de/docs/Web/API/Web_Animations_API) erhält eine Animation explizit, um zu verhindern, dass sie [automatisch entfernt wird](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations), wenn sie durch eine andere Animation ersetzt wird.
+Die `persist()` Methode der [`Animation`](/de/docs/Web/API/Animation)-Schnittstelle der [Web Animations API](/de/docs/Web/API/Web_Animations_API) speichert eine Animation explizit, um zu verhindern, dass sie [automatisch entfernt](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations) wird, wenn sie durch eine andere Animation ersetzt wird.
 
 ## Syntax
 
@@ -22,27 +22,27 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ### Verwendung von `persist()`
 
-In diesem Beispiel haben wir drei Schaltflächen:
+In diesem Beispiel gibt es drei Schaltflächen:
 
-- "Permanente Animation hinzufügen" und "Vorübergehende Animation hinzufügen" fügen dem roten Quadrat jeweils eine neue Transformationsanimation hinzu. Die Animationen wechseln die Richtung: Die erste geht von links nach rechts, die zweite von rechts nach links und so weiter. "Permanente Animation hinzufügen" ruft `persist()` auf die erstellte Animation auf.
+- "Dauerhafte Animation hinzufügen" und "Kurzfristige Animation hinzufügen" fügen jeweils eine neue Transformationsanimation zum roten Quadrat hinzu. Die Animationen wechseln die Richtung: Die erste ist von links nach rechts, die zweite von rechts nach links usw. "Dauerhafte Animation hinzufügen" ruft `persist()` bei der erstellten Animation auf.
 
-- Die dritte Schaltfläche, "Eine Animation abbrechen", bricht die zuletzt hinzugefügte Animation ab.
+- Die dritte Schaltfläche "Eine Animation abbrechen" bricht die zuletzt hinzugefügte Animation ab.
 
-Das Beispiel zeigt eine Liste aller Animationen an, die nicht abgebrochen wurden, in der Reihenfolge, in der sie hinzugefügt wurden, zusammen mit dem `replaceState` jeder Animation.
+Das Beispiel zeigt eine Liste aller nicht abgebrochenen Animationen in der Reihenfolge, in der sie hinzugefügt wurden, zusammen mit dem `replaceState` jeder Animation.
 
 #### HTML
 
 ```html
 <div id="animation-target"></div>
-<button id="start-persistent">Permanente Animation hinzufügen</button>
-<button id="start-transient">Vorübergehende Animation hinzufügen</button>
-<button id="cancel">Eine Animation abbrechen</button>
+<button id="start-persistent">Add persistent animation</button>
+<button id="start-transient">Add transient animation</button>
+<button id="cancel">Cancel an animation</button>
 <ol id="stack"></ol>
 ```
 
@@ -90,7 +90,7 @@ function startAnimation(persist) {
   if (persist) {
     animation.persist();
   }
-  // Fügt die Animation dem angezeigten Stapel hinzu (Implementierung nicht gezeigt)
+  // Add the animation to the displayed stack (implementation not shown)
   show(animation, offset);
 }
 
@@ -106,7 +106,7 @@ const template =
 const nodes = new Map();
 
 function show(animation, offset) {
-  const direction = offset < 0 ? "links" : "rechts";
+  const direction = offset < 0 ? "left" : "right";
   const li = template.cloneNode(true);
   const description = li.querySelector(".description");
   const replaceState = li.querySelector(".replaceState");
@@ -126,9 +126,9 @@ function show(animation, offset) {
 
 #### Ergebnis
 
-Beachten Sie, dass das Hinzufügen einer neuen vorübergehenden Animation jede zuvor hinzugefügte vorübergehende Animation ersetzt. Diese Animationen werden automatisch entfernt, und ihr `replaceState` wird `"removed"` sein. Permanente Animationen werden jedoch nicht entfernt.
+Beachten Sie, dass das Hinzufügen einer neuen kurzfristigen Animation eine zuvor hinzugefügte kurzfristige Animation ersetzt. Diese Animationen werden automatisch entfernt, und ihr `replaceState` wird `"removed"` sein. Dauerhafte Animationen werden jedoch nicht entfernt.
 
-Beachten Sie auch, dass entfernte Animationen die Anzeige nicht beeinflussen; die Position des {{htmlelement("div")}} wird durch die zuletzt aktive oder persistente Animation bestimmt.
+Beachten Sie auch, dass entfernte Animationen die Anzeige nicht beeinflussen; die Position des {{htmlelement("div")}} wird durch die zuletzt aktive oder gespeicherte Animation bestimmt.
 
 {{EmbedLiveSample("using_persist","",300)}}
 
@@ -143,6 +143,6 @@ Beachten Sie auch, dass entfernte Animationen die Anzeige nicht beeinflussen; di
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("Animation")}} für andere Methoden und Eigenschaften, die Sie zur Steuerung der Webseiten-Animation verwenden können.
-- {{domxref("Animation.replaceState")}}
-- {{domxref("Animation.remove_event","remove")}} Ereignis
+- [`Animation`](/de/docs/Web/API/Animation) für weitere Methoden und Eigenschaften, die Sie zur Steuerung der Seitenanimation verwenden können.
+- [`Animation.replaceState`](/de/docs/Web/API/Animation/replaceState)
+- [`remove`](/de/docs/Web/API/Animation/remove_event) Ereignis

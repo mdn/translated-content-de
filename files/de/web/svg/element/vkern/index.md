@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Das **`<vkern>`** SVG-Element ermöglicht es, den vertikalen Abstand zwischen zwei Glyphen in vertikal geschriebenen Schriften fein abzustimmen. Dieser Prozess ist als [Kerning](https://en.wikipedia.org/wiki/Kerning) bekannt.
+Das **`<vkern>`** SVG-Element ermöglicht es, den vertikalen Abstand zwischen zwei Glyphen in Schriftarten von oben nach unten fein abzustimmen. Dieser Vorgang ist als [Kerning](https://en.wikipedia.org/wiki/Kerning) bekannt.
 
-## Gebrauchskontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -23,7 +23,7 @@ Das **`<vkern>`** SVG-Element ermöglicht es, den vertikalen Abstand zwischen zw
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGVKernElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGVKernElement`](/de/docs/Web/API/SVGVKernElement)-Schnittstelle.
 
 ## Spezifikationen
 
@@ -38,4 +38,4 @@ Dieses Element implementiert die {{domxref("SVGVKernElement")}} Schnittstelle.
 - {{SVGElement("font")}}
 - {{SVGElement("glyph")}}
 - {{SVGElement("hkern")}}
-- [SVG-Tutorial: SVG-Schriften](/de/docs/Web/SVG/Tutorial/SVG_fonts)
+- [SVG-Leitfaden: SVG-Schriften](/de/docs/Web/SVG/Tutorial/SVG_fonts)

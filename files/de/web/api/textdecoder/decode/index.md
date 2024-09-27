@@ -1,16 +1,16 @@
 ---
-title: "TextDecoder: decode()-Methode"
+title: "TextDecoder: decode() Methode"
 short-title: decode()
 slug: Web/API/TextDecoder/decode
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
 ---
 
-{{APIRef("Encoding API")}}
+{{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die **`TextDecoder.decode()`**-Methode gibt einen String zurück, der Text enthält, der aus dem übergebenen Puffer dekodiert wurde.
+Die **`TextDecoder.decode()`**-Methode gibt einen String zurück, der den aus dem übergebenen Puffer dekodierten Text enthält.
 
-Die Dekodierungsmethode ist im aktuellen {{domxref("TextDecoder")}}-Objekt definiert. Dies umfasst die erwartete Codierung der Daten und wie Dekodierungsfehler behandelt werden.
+Die Dekodierungsmethode ist im aktuellen [`TextDecoder`](/de/docs/Web/API/TextDecoder)-Objekt definiert. Dies umfasst die erwartete Kodierung der Daten und die Handhabung von Dekodierungsfehlern.
 
 ## Syntax
 
@@ -23,20 +23,20 @@ decode(buffer, options)
 ### Parameter
 
 - `buffer` {{Optional_Inline}}
-  - : Ein [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt, das den zu dekodierenden kodierten Text enthält.
+  - : Ein [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}-Objekt, das den zu dekodierenden kodierten Text enthält.
 - `options` {{Optional_Inline}}
 
   - : Ein Objekt mit der Eigenschaft:
 
     - `stream`
-      - : Ein boolesches Flag, das anzeigt, ob zusätzliche Daten in nachfolgenden Aufrufen von `decode()` folgen werden.
-        Setzen Sie es auf `true`, wenn die Daten in Teilen verarbeitet werden, und auf `false` für den letzten Teil oder wenn die Daten nicht in Teilen vorliegen.
-        Voreinstellung ist `false`.
+      - : Ein boolesches Flag, das angibt, ob zusätzliche Daten in nachfolgenden Aufrufen von `decode()` folgen werden.
+        Setzen Sie es auf `true`, wenn die Daten in Teilen verarbeitet werden, und auf `false` für das letzte Teilstück oder wenn die Daten nicht in Abschnitten vorliegen.
+        Es ist standardmäßig auf `false` gesetzt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn ein Dekodierungsfehler auftritt und die Eigenschaft {{DOMxRef("TextDecoder.fatal")}} `true` ist.
+  - : Ausgelöst, wenn ein Dekodierungsfehler auftritt und die Eigenschaft [`TextDecoder.fatal`](/de/docs/Web/API/TextDecoder/fatal) auf `true` gesetzt ist.
 
 ### Rückgabewert
 
@@ -49,8 +49,8 @@ Dieses Beispiel kodiert und dekodiert das Euro-Symbol, €.
 ### HTML
 
 ```html
-<p>Verschlüsselter Wert: <span id="encoded-value"></span></p>
-<p>Entschlüsselter Wert: <span id="decoded-value"></span></p>
+<p>Encoded value: <span id="encoded-value"></span></p>
+<p>Decoded value: <span id="decoded-value"></span></p>
 ```
 
 ### JavaScript
@@ -79,4 +79,4 @@ document.getElementById("decoded-value").textContent = str;
 
 ## Siehe auch
 
-- Die {{DOMxRef("TextDecoder")}}-Schnittstelle, zu der es gehört.
+- Die [`TextDecoder`](/de/docs/Web/API/TextDecoder)-Schnittstelle, zu der sie gehört.

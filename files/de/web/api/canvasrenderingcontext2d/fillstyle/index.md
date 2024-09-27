@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.fillStyle`**-Eigenschaft der [Canvas 2D API](/de/docs/Web/API/Canvas_API) gibt die Farbe, das Gradienten oder das Muster an, das innerhalb von Formen verwendet werden soll. Der Standardstil ist `#000` (schwarz).
+Die **`CanvasRenderingContext2D.fillStyle`**-Eigenschaft der [Canvas 2D API](/de/docs/Web/API/Canvas_API) legt die Farbe, den Verlauf oder das Muster fest, das innerhalb von Formen verwendet werden soll. Der Standardstil ist `#000` (schwarz).
 
 > [!NOTE]
-> Weitere Beispiele für Füll- und Strichstile finden Sie unter [Anwenden von Stilen und Farben](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors) im [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial).
+> Weitere Beispiele für Füll- und Strichstile finden Sie unter [Styles und Farben anwenden](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors) im [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial).
 
 ## Wert
 
 Einer der folgenden:
 
-- Ein String, der als CSS {{cssxref("&lt;color&gt;")}}-Wert geparst wird.
-- Ein {{domxref("CanvasGradient")}}-Objekt (ein lineares oder radiales Gradienten).
-- Ein {{domxref("CanvasPattern")}}-Objekt (ein sich wiederholendes Bild).
+- Ein als CSS-{{cssxref("&lt;color&gt;")}}-Wert geparster String.
+- Ein [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)-Objekt (ein linearer oder radialer Verlauf).
+- Ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern)-Objekt (ein sich wiederholendes Bild).
 
 ## Beispiele
 
@@ -49,7 +49,7 @@ ctx.fillRect(10, 10, 100, 100);
 
 ### Erstellen mehrerer Füllfarben mit Schleifen
 
-In diesem Beispiel verwenden wir zwei `for`-Schleifen, um ein Raster von Rechtecken zu zeichnen, von denen jedes eine andere Füllfarbe hat. Dazu verwenden wir die beiden Variablen `i` und `j`, um eine eindeutige RGB-Farbe für jedes Quadrat zu erzeugen, und ändern nur die Rot- und Grünwerte. (Der Blaukanal hat einen festen Wert.) Durch Ändern der Kanäle können Sie alle Arten von Paletten erzeugen.
+In diesem Beispiel verwenden wir zwei `for`-Schleifen, um ein Raster von Rechtecken zu zeichnen, wobei jedes eine andere Füllfarbe hat. Um dies zu erreichen, verwenden wir die beiden Variablen `i` und `j`, um für jedes Quadrat eine eindeutige RGB-Farbe zu erzeugen, und ändern nur die Rot- und Grünwerte. (Der Blaukanal hat einen festen Wert.) Durch Ändern der Kanäle können Sie alle Arten von Paletten erstellen.
 
 ```html hidden
 <canvas id="canvas" width="150" height="150"></canvas>
@@ -70,7 +70,7 @@ for (let i = 0; i < 6; i++) {
 }
 ```
 
-Das Ergebnis sieht so aus:
+Das Ergebnis sieht folgendermaßen aus:
 
 {{EmbedLiveSample("Creating_multiple_fill_colors_using_loops", "", "160")}}
 
@@ -84,7 +84,7 @@ Das Ergebnis sieht so aus:
 
 ### WebKit/Blink-spezifische Anmerkung
 
-In WebKit- und Blink-basierten Browsern ist die nicht standardisierte und veraltete Methode `ctx.setFillColor()` zusätzlich zu dieser Eigenschaft implementiert.
+In auf WebKit- und Blink-basierten Browsern ist die nicht standardisierte und veraltete Methode `ctx.setFillColor()` zusätzlich zu dieser Eigenschaft implementiert.
 
 ```js
 setFillColor(color, /* (optional) */ alpha);
@@ -96,9 +96,9 @@ setFillColor(c, m, y, k, a);
 ## Siehe auch
 
 - [Canvas API](/de/docs/Web/API/Canvas_API)
-- Die Schnittstelle, die diese Eigenschaft definiert: {{domxref("CanvasRenderingContext2D")}}
+- Das Interface, das diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - Werte, die von dieser Eigenschaft verwendet werden:
 
   - {{cssxref("&lt;color&gt;")}} CSS-Datentyp
-  - {{domxref("CanvasGradient")}}-Objekt
-  - {{domxref("CanvasPattern")}}-Objekt
+  - [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)-Objekt
+  - [`CanvasPattern`](/de/docs/Web/API/CanvasPattern)-Objekt

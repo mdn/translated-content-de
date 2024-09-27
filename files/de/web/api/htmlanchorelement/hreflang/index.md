@@ -8,17 +8,17 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`hreflang`**-Eigenschaft des {{domxref("HTMLAnchorElement")}}-Interfaces ist ein String, der die Sprache der verlinkten Ressource angibt.
+Die **`hreflang`**-Eigenschaft des [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interfaces ist ein Zeichenstring, der die Sprache der verlinkten Ressource angibt.
 
-Sie spiegelt das `hreflang`-Attribut des {{HTMLElement("a")}}-Elements wider und ist ein leerer String (`""`), wenn kein `hreflang`-Attribut vorhanden ist.
+Sie spiegelt das `hreflang`-Attribut des {{HTMLElement("a")}}-Elements wider und ist der leere String (`""`), wenn kein `hreflang`-Element vorhanden ist.
 
-Webbrowser und Suchmaschinen können diese Information verwenden, um die Sprache des verlinkten Inhalts besser zu verstehen, sind jedoch nicht verpflichtet, ihr zu folgen. Der im `hreflang`-Attribut angegebene Wert entspricht dem in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definierten Format. Falls nicht, wird er ignoriert.
+Webbrowser und Suchmaschinen können diese Information nutzen, um die Sprache des verlinkten Inhalts besser zu verstehen, sind jedoch nicht verpflichtet, ihr zu folgen. Der für das `hreflang`-Attribut angegebene Wert entspricht dem in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definierten Format. Andernfalls wird er ignoriert.
 
-Webbrowser verlassen sich nicht ausschließlich auf das `hreflang`-Attribut, nachdem sie die verlinkte Ressource abgerufen haben. Stattdessen verwenden sie Sprachinformationen, die direkt mit der Ressource verknüpft sind (z.B. durch HTTP-Header), um deren Sprache zu bestimmen.
+Webbrowser verlassen sich nach dem Abrufen der verlinkten Ressource nicht ausschließlich auf das `hreflang`-Attribut. Stattdessen verwenden sie Sprachinformationen, die direkt mit der Ressource verknüpft sind (z. B. über HTTP-Header), um deren Sprache zu bestimmen.
 
 ## Wert
 
-Ein String, der ein Sprach-Tag enthält, oder ein leerer String (`""`), wenn kein `hreflang`-Attribut vorhanden ist.
+Ein Zeichenstring, der ein Sprach-Tag enthält, oder der leere String (`""`), wenn kein `hreflang`-Element vorhanden ist.
 
 ## Beispiel
 
@@ -36,7 +36,7 @@ Ein String, der ein Sprach-Tag enthält, oder ein leerer String (`""`), wenn kei
 ```js
 const anchorElement = document.getElementById("exampleLink");
 const pTag = document.querySelector(".hreflang");
-console.log(anchorElement.hreflang); // Gibt aus: "en-IN"
+console.log(anchorElement.hreflang); // Outputs: "en-IN"
 pTag.textContent = anchorElement.hreflang;
 ```
 
@@ -54,4 +54,4 @@ pTag.textContent = anchorElement.hreflang;
 
 ## Siehe auch
 
-- {{domxref("HTMLLinkElement.hreflang")}}-Eigenschaft
+- [`HTMLLinkElement.hreflang`](/de/docs/Web/API/HTMLLinkElement/hreflang)-Eigenschaft

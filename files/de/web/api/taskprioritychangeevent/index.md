@@ -2,37 +2,37 @@
 title: TaskPriorityChangeEvent
 slug: Web/API/TaskPriorityChangeEvent
 l10n:
-  sourceCommit: fe0ae190fa37469b28ebe39cb33013d89c3a69e6
+  sourceCommit: 33313b7c9e37253c0141e22558e298d08c060be5
 ---
 
-{{APIRef("Prioritized Task Scheduling API")}}
+{{APIRef("Prioritized Task Scheduling API")}}{{AvailableInWorkers}}
 
-Die **`TaskPriorityChangeEvent`**-Schnittstelle ist für das [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event)-Ereignis zuständig.
+Das **`TaskPriorityChangeEvent`** ist die Schnittstelle für das [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event)-Ereignis.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("TaskPriorityChangeEvent.TaskPriorityChangeEvent", "TaskPriorityChangeEvent()")}}
-  - : Erstellt ein neues `TaskPriorityChangeEvent`-Objekt, wobei ein Ereignisname und die vorherige Priorität festgelegt werden.
+- [`TaskPriorityChangeEvent()`](/de/docs/Web/API/TaskPriorityChangeEvent/TaskPriorityChangeEvent)
+  - : Erstellt ein neues `TaskPriorityChangeEvent`-Objekt und setzt einen Ereignisnamen sowie die vorherige Priorität.
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch die Eigenschaften ihres Elternteils, {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch die Eigenschaften ihres Elternteils, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("TaskPriorityChangeEvent.previousPriority")}} {{ReadOnlyInline}}
-  - : Gibt die [Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) des entsprechenden {{domxref("TaskSignal")}} _vor_ diesem [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event)-Ereignis zurück.
+- [`TaskPriorityChangeEvent.previousPriority`](/de/docs/Web/API/TaskPriorityChangeEvent/previousPriority) {{ReadOnlyInline}}
+  - : Gibt die [Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) des entsprechenden [`TaskSignal`](/de/docs/Web/API/TaskSignal) _vor_ diesem [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event)-Ereignis zurück.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine eigenen Methoden, erbt aber die Methoden ihres Elternteils, {{domxref("Event")}}._
+_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch die Methoden ihres Elternteils, [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
-Ein Objekt dieses Typs wird im Handler für ein `prioritychange`-Ereignis zurückgegeben. Der untenstehende Code zeigt einen Handler, in dem `newPriority` und `previousPriority` protokolliert werden.
+Ein Objekt dieses Typs wird im Handler für ein `prioritychange`-Ereignis zurückgegeben. Der folgende Code zeigt einen Handler, in dem `newPriority` und `previousPriority` protokolliert werden.
 
 ```js
-// Lauschen auf 'prioritychange'-Ereignisse beim Signal des Controllers.
+// Listen for 'prioritychange' events on the controller's signal.
 controller.signal.addEventListener("prioritychange", (event) => {
   const previousPriority = event.previousPriority;
   const newPriority = event.target.priority;
@@ -40,7 +40,7 @@ controller.signal.addEventListener("prioritychange", (event) => {
 });
 ```
 
-Ein umfassenderes Live-Beispiel finden Sie unter [`prioritychange`-Ereignis > Beispiele](/de/docs/Web/API/TaskSignal/prioritychange_event).
+Ein umfassenderes Live-Beispiel finden Sie unter [`prioritychange` event > Examples](/de/docs/Web/API/TaskSignal/prioritychange_event).
 
 ## Spezifikationen
 

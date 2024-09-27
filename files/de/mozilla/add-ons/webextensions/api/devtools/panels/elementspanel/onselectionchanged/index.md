@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Benutzer ein anderes Seitenelement zur Inspektion mit den Entwicklerwerkzeugen des Browsers auswählt, zum Beispiel durch Auswahl des Kontextmenüeintrags „Element untersuchen“ in Firefox.
+Wird ausgelöst, wenn der Benutzer ein anderes Seitenelement zur Inspektion mit den Entwicklerwerkzeugen des Browsers auswählt, zum Beispiel durch Auswahl des Kontextmenüeintrags "Element untersuchen" in Firefox.
 
 ## Syntax
 
@@ -22,16 +22,16 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet die Überwachung dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es überwacht wird, andernfalls `false`.
 
-## Syntax von addListener
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden keine Argumente übergeben.
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Die Funktion erhält keine Argumente.
 
 ## Browser-Kompatibilität
 
@@ -39,7 +39,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Hören Sie auf Ereignisse, die die Auswahl ändern, und protokollieren Sie den Textinhalt des neu ausgewählten Elements:
+Hören Sie auf Ereignisse, wenn sich die Auswahl ändert und loggen Sie den Textinhalt des neu ausgewählten Elements:
 
 ```js
 function handleSelectedElement() {

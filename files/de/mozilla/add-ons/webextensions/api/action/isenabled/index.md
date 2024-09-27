@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt `true` zurück, wenn die Browser-Aktion aktiviert ist.
+Gibt `true` zurück, wenn die Browseraktion aktiviert ist.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
@@ -35,16 +35,16 @@ let gettingIsEnabled = browser.action.isEnabled(
 
 <!---->
 
-- Wenn sowohl windowId als auch tabId angegeben sind, schlägt die Funktion fehl.
-- Wenn windowId und tabId beide weggelassen werden, wird der globale aktivierte/deaktivierte Status zurückgegeben.
+- Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl.
+- Wenn `windowId` und `tabId` beide weggelassen werden, wird der globale Aktiviert-/Deaktiviert-Status zurückgegeben.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Browser-Aktion der Erweiterung aktiviert ist, und mit `false` anderenfalls.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit `true` erfüllt wird, wenn die Browseraktion der Erweiterung aktiviert ist, und mit `false`, wenn nicht.
 
 ## Beispiele
 
-Überprüfen des globalen Status:
+Überprüfen Sie den globalen Status:
 
 ```js
 browser.action.isEnabled({}).then((result) => {
@@ -52,7 +52,7 @@ browser.action.isEnabled({}).then((result) => {
 });
 ```
 
-Überprüfen des Status des derzeit aktiven Tabs:
+Überprüfen Sie den Status des aktuell aktiven Tabs:
 
 ```js
 async function enabledInActiveTab() {

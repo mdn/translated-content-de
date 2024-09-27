@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**NNTP** (Network News Transfer Protocol) ist ein {{Glossary("protocol")}}, das verwendet wird, um {{Glossary("Usenet")}}-Nachrichten vom Client zum Server oder zwischen Servern zu übertragen.
+**NNTP** (Network News Transfer Protocol) ist ein [Protokoll](/de/docs/Glossary/protocol), das verwendet wird, um [Usenet](/de/docs/Glossary/Usenet)-Nachrichten vom Client zum Server oder zwischen Servern zu übertragen.
 
 ## Siehe auch
 

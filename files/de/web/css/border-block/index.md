@@ -7,17 +7,17 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-block`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Shorthand-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) zum Festlegen der individuellen logischen Blockrand-Eigenschaftswerte an einer Stelle im Stylesheet.
+Die **`border-block`**-Eigenschaft in [CSS](/de/docs/Web/CSS) ist eine [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) zur Festlegung der einzelnen logischen Blockrand-Eigenschaftswerte an einer einzigen Stelle im Stylesheet.
 
 {{EmbedInteractiveExample("pages/css/border-block.html")}}
 
-`border-block` kann verwendet werden, um die Werte für eine oder mehrere der Eigenschaften {{cssxref("border-block-width")}}, {{cssxref("border-block-style")}} und {{cssxref("border-block-color")}} festzulegen, wobei sowohl der Anfang als auch das Ende in der Blockdimension gleichzeitig eingestellt werden. Die physischen Ränder, auf die es abgebildet wird, hängen vom Schreibmodus, der Leserichtung und der Textorientierung des Elements ab. Es entspricht den Eigenschaften {{cssxref("border-top")}} und {{cssxref("border-bottom")}} oder {{cssxref("border-right")}} und {{cssxref("border-left")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+`border-block` kann verwendet werden, um die Werte für eine oder mehrere der Eigenschaften {{cssxref("border-block-width")}}, {{cssxref("border-block-style")}} und {{cssxref("border-block-color")}} festzulegen und zugleich sowohl den Anfang als auch das Ende in der Blockdimension festzulegen. Die physischen Ränder, auf die es abgebildet wird, hängen vom Schreibmodus, der Richtung und der Textausrichtung des Elements ab. Es entspricht den Eigenschaften {{cssxref("border-top")}} und {{cssxref("border-bottom")}} oder {{cssxref("border-right")}} und {{cssxref("border-left")}}, abhängig von den festgelegten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Die Ränder in der anderen Dimension können mit {{cssxref("border-inline")}} eingestellt werden, das {{cssxref("border-inline-start")}} und {{cssxref("border-inline-end")}} setzt.
+Die Ränder in der anderen Dimension können mit {{cssxref("border-inline")}} festgelegt werden, die {{cssxref("border-inline-start")}} und {{cssxref("border-inline-end")}} festlegt.
 
-## Zu den Einzel-Eigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - [`border-block-color`](/de/docs/Web/CSS/border-block-color)
 - [`border-block-style`](/de/docs/Web/CSS/border-block-style)
@@ -30,7 +30,7 @@ border-block: 1px;
 border-block: 2px dotted;
 border-block: medium dashed blue;
 
-/* Globale Werte */
+/* Global values */
 border-block: inherit;
 border-block: initial;
 border-block: revert;
@@ -40,14 +40,14 @@ border-block: unset;
 
 ### Werte
 
-Die `border-block`-Eigenschaft wird mit einem oder mehreren der folgenden Werte in beliebiger Reihenfolge spezifiziert:
+Das `border-block` wird mit einem oder mehreren der folgenden Werte angegeben, in beliebiger Reihenfolge:
 
 - `<'border-width'>`
-  - : Die Breite des Randes. Siehe {{cssxref("border-width")}}.
+  - : Die Breite des Rands. Siehe {{cssxref("border-width")}}.
 - `<'border-style'>`
-  - : Der Linienstil des Randes. Siehe {{cssxref("border-style")}}.
+  - : Der Linienstil des Rands. Siehe {{cssxref("border-style")}}.
 - {{CSSXref("&lt;color&gt;")}}
-  - : Die Farbe des Randes.
+  - : Die Farbe des Rands.
 
 ## Formale Definition
 
@@ -84,7 +84,7 @@ div {
 }
 ```
 
-#### Ergebnisse
+#### Resultate
 
 {{EmbedLiveSample("Border_with_vertical_text", 140, 140)}}
 
@@ -99,5 +99,5 @@ div {
 ## Siehe auch
 
 - [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft wird auf eine der physischen Rand-Eigenschaften abgebildet: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}}, oder {{cssxref("border-left")}}.
+- Diese Eigenschaft wird einer der physischen Randeigenschaften zugeordnet: {{cssxref("border-top")}}, {{cssxref("border-right")}}, {{cssxref("border-bottom")}}, oder {{cssxref("border-left")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

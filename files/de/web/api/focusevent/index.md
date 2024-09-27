@@ -7,34 +7,34 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`FocusEvent`**-Schnittstelle repräsentiert fokusbezogene Ereignisse, einschließlich {{domxref("Element/focus_event", "focus")}}, {{domxref("Element/blur_event", "blur")}}, {{domxref("Element/focusin_event", "focusin")}} und {{domxref("Element/focusout_event", "focusout")}}.
+Die **`FocusEvent`** Schnittstelle repräsentiert fokussierungsbezogene Events, einschließlich [`focus`](/de/docs/Web/API/Element/focus_event), [`blur`](/de/docs/Web/API/Element/blur_event), [`focusin`](/de/docs/Web/API/Element/focusin_event) und [`focusout`](/de/docs/Web/API/Element/focusout_event).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("FocusEvent.FocusEvent", "FocusEvent()")}}
-  - : Erstellt ein `FocusEvent`-Ereignis mit den angegebenen Parametern.
+- [`FocusEvent()`](/de/docs/Web/API/FocusEvent/FocusEvent)
+  - : Erzeugt ein `FocusEvent` Ereignis mit den angegebenen Parametern.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten {{domxref("UIEvent")}}, und indirekt von {{domxref("Event")}}_.
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil [`UIEvent`](/de/docs/Web/API/UIEvent), und indirekt von [`Event`](/de/docs/Web/API/Event)_.
 
-- {{domxref("FocusEvent.relatedTarget")}}
-  - : Ein {{domxref("EventTarget")}}, das ein sekundäres Ziel für dieses Ereignis darstellt. In manchen Fällen (wie beim Wechsel zwischen Registerkarten in einer Seite) kann diese Eigenschaft aus Sicherheitsgründen auf `null` gesetzt werden.
+- [`FocusEvent.relatedTarget`](/de/docs/Web/API/FocusEvent/relatedTarget)
+  - : Ein [`EventTarget`](/de/docs/Web/API/EventTarget), das ein sekundäres Ziel für dieses Ereignis darstellt. In einigen Fällen (wie beim Wechsel zwischen Seiten) kann diese Eigenschaft aus Sicherheitsgründen auf `null` gesetzt werden.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle hat keine spezifischen Methoden. Sie erbt Methoden von ihrem übergeordneten {{domxref("UIEvent")}}, und indirekt von {{domxref("Event")}}._
+_Diese Schnittstelle hat keine spezifischen Methoden. Sie erbt Methoden von ihrem Elternteil [`UIEvent`](/de/docs/Web/API/UIEvent), und indirekt von [`Event`](/de/docs/Web/API/Event)._
 
 ## Reihenfolge der Ereignisse
 
-Wenn der Fokus von Element A zu Element B verschoben wird, werden die Fokuserereignisse in folgender Reihenfolge ausgegeben:
+Wenn der Fokus von Element A zu Element B verschoben wird, werden die Fokus-Ereignisse in folgender Reihenfolge ausgelöst:
 
 1. `blur`: wird gesendet, nachdem Element A den Fokus verliert.
-2. `focusout`: wird nach dem `blur`-Ereignis gesendet.
+2. `focusout`: wird nach dem `blur` Ereignis gesendet.
 3. `focus`: wird gesendet, nachdem Element B den Fokus erhält.
-4. `focusin`: wird nach dem `focus`-Ereignis gesendet.
+4. `focusin`: wird nach dem `focus` Ereignis gesendet.
 
 ## Spezifikationen
 
@@ -46,4 +46,4 @@ Wenn der Fokus von Element A zu Element B verschoben wird, werden die Fokuserere
 
 ## Siehe auch
 
-- Die {{domxref("Event")}}-Basisschnittstelle
+- Die [`Event`](/de/docs/Web/API/Event) Basisschnittstelle

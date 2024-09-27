@@ -1,5 +1,5 @@
 ---
-title: "DocumentType: after()-Methode"
+title: "DocumentType: after() Methode"
 short-title: after()
 slug: Web/API/DocumentType/after
 l10n:
@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DocumentType.after()`**-Methode fügt eine Menge von {{domxref("Node")}}-Objekten oder Zeichenketten in die Kinderliste des Elternteils des `DocumentType` ein, direkt nach dem `DocumentType`. Zeichenketten werden als äquivalente {{domxref("Text")}}-Knoten eingefügt.
+Die **`DocumentType.after()`** Methode fügt eine Reihe von
+[`Node`](/de/docs/Web/API/Node)-Objekten oder Strings in die Kinderliste des
+Elternteils von `DocumentType` ein, direkt nach dem `DocumentType`.
+Strings werden als äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
 ## Syntax
 
@@ -21,7 +24,7 @@ after(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Menge von {{domxref("Node")}}-Objekten oder Zeichenketten, die eingefügt werden sollen.
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Strings, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -29,7 +32,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
 
 ## Beispiele
@@ -54,6 +57,6 @@ myDoc.childNodes;
 
 ## Siehe auch
 
-- {{domxref("DocumentType.before()")}}
-- {{domxref("CharacterData.after()")}}
-- {{domxref("Element.after()")}}
+- [`DocumentType.before()`](/de/docs/Web/API/DocumentType/before)
+- [`CharacterData.after()`](/de/docs/Web/API/CharacterData/after)
+- [`Element.after()`](/de/docs/Web/API/Element/after)

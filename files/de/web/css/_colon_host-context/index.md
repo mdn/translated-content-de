@@ -7,26 +7,26 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:host-context()`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-](/de/docs/Web/CSS/Pseudo-classes) Funktion wählt den Shadow-Host des [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) aus, das das CSS enthält, innerhalb dessen sie verwendet wird (damit Sie von innerhalb seines Shadow DOM ein benutzerdefiniertes Element auswählen können) - jedoch nur, wenn der als Parameter der Funktion angegebene Selektor mit dem Vorfahren des Shadow-Hosts übereinstimmt, in dem es sich innerhalb der DOM-Hierarchie befindet.
+Die **`:host-context()`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-](/de/docs/Web/CSS/Pseudo-classes) Funktion wählt den Shadow-Host des [shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) aus, der das CSS enthält, in dem sie verwendet wird (sodass Sie ein benutzerdefiniertes Element aus seinem Shadow DOM heraus auswählen können) – aber nur, wenn der im Parameter der Funktion angegebene Selektor mit dem Vorfahren des Shadow-Hosts übereinstimmt, an dem er sich innerhalb der DOM-Hierarchie befindet.
 
-Mit anderen Worten, dies ermöglicht es einem benutzerdefinierten Element oder allem innerhalb des Shadow DOM dieses benutzerdefinierten Elements, unterschiedliche Stile anzuwenden, basierend auf seiner Position innerhalb des äußeren DOM oder Klassen/Attributen, die auf Vorfahrelemente angewendet werden.
+Mit anderen Worten, dies ermöglicht es einem benutzerdefinierten Element oder allem innerhalb des Shadow DOM dieses benutzerdefinierten Elements, basierend auf seiner Position innerhalb des äußeren DOM oder aufgrund von Klassen/Attributen, die auf Vorfahrelemente angewendet werden, unterschiedliche Stile anzuwenden.
 
-Eine typische Anwendung besteht darin, einen Nachkommen-Selektor-Ausdruck zu verwenden — zum Beispiel `h1` — um nur Instanzen des benutzerdefinierten Elements auszuwählen, die sich innerhalb eines `<h1>` befinden. Eine weitere typische Anwendung wäre, inneren Elementen zu erlauben, auf Klassen oder Attribute auf beliebigen Vorfahrelementen zu reagieren - beispielsweise durch das Anwenden einer anderen Textfarbe, wenn eine `.dark-theme` Klasse auf `<body>` angewendet wird.
+Eine typische Verwendung davon ist mit einem Nachkommen-Selektor-Ausdruck – zum Beispiel `h1` – um nur Instanzen des benutzerdefinierten Elements auszuwählen, die sich innerhalb eines `<h1>` befinden. Eine weitere typische Verwendung wäre es, inneren Elementen zu erlauben, auf Klassen oder Attribute auf Vorfahrelementen zu reagieren - beispielsweise indem eine andere Textfarbe angewendet wird, wenn eine `.dark-theme` Klasse auf `<body>` angewendet wird.
 
 > [!NOTE]
-> Dies hat keine Wirkung, wenn es außerhalb eines Shadow DOM verwendet wird.
+> Dies hat keine Wirkung, wenn es außerhalb eines Shadow DOMs verwendet wird.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-host-context.html", "tabbed-shorter")}}
 
 ```css
-/* Wählt einen Shadow-Root-Host aus, nur wenn er
-   ein Nachkomme des angegebenen Selektorarguments ist */
+/* Selects a shadow root host, only if it is
+   a descendant of the selector argument given */
 :host-context(h1) {
   font-weight: bold;
 }
 
-/* Ändert die Textfarbe des Absatzes von schwarz zu weiß, wenn
-   eine .dark-theme Klasse auf den Dokumentkörper angewendet wird */
+/* Changes paragraph text color from black to white when
+   a .dark-theme class is applied to the document body */
 p {
   color: #000;
 }
@@ -46,19 +46,19 @@ p {
 
 ## Beispiele
 
-### Selektives Styling von Shadow-Hosts
+### Selektives Stylen von Shadow-Hosts
 
-Die folgenden Snippets stammen aus unserem [host-selectors Beispiel](https://github.com/mdn/web-components-examples/tree/main/host-selectors) ([siehe es auch live](https://mdn.github.io/web-components-examples/host-selectors/)).
+Die folgenden Ausschnitte stammen aus unserem [host-selectors Beispiel](https://github.com/mdn/web-components-examples/tree/main/host-selectors) ([sehen Sie es sich auch live an](https://mdn.github.io/web-components-examples/host-selectors/)).
 
-In diesem Beispiel haben wir ein einfaches benutzerdefiniertes Element — `<context-span>` — das Sie um Text herum platzieren können:
+In diesem Beispiel haben wir ein einfaches benutzerdefiniertes Element — `<context-span>` — mit dem Sie Text umschließen können:
 
 ```html
 <h1>
-  Host-Selektoren <a href="#"><context-span>Beispiel</context-span></a>
+  Host selectors <a href="#"><context-span>example</context-span></a>
 </h1>
 ```
 
-Innerhalb des Konstruktors des Elements erstellen wir `style` und `span` Elemente, füllen das `span` mit dem Inhalt des benutzerdefinierten Elements und füllen das `style` Element mit einigen CSS-Regeln:
+Innerhalb des Konstruktors des Elements erstellen wir `style`- und `span`-Elemente, füllen das `span` mit dem Inhalt des benutzerdefinierten Elements und füllen das `style`-Element mit einigen CSS-Regeln:
 
 ```js
 const style = document.createElement("style");
@@ -72,12 +72,12 @@ shadowRoot.appendChild(span);
 style.textContent =
   "span:hover { text-decoration: underline; }" +
   ":host-context(h1) { font-style: italic; }" +
-  ':host-context(h1):after { content: " - keine Links in Überschriften!" }' +
+  ':host-context(h1):after { content: " - no links in headers!" }' +
   ":host(.footer) { color : red; }" +
   ":host { background: rgb(0 0 0 / 10%); padding: 2px 5px; }";
 ```
 
-Die Regeln `:host-context(h1) { font-style: italic; }` und `:host-context(h1):after { content: " - keine Links in Überschriften!" }` stylen die Instanz des `<context-span>` Elements (den Shadow-Host in diesem Fall) innerhalb des `<h1>`. Wir haben es verwendet, um deutlich zu machen, dass das benutzerdefinierte Element in unserem Design nicht innerhalb des `<h1>` erscheinen sollte.
+Die Regeln `:host-context(h1) { font-style: italic; }` und `:host-context(h1):after { content: " - no links in headers!" }` stylen die Instanz des `<context-span>` Elements (in diesem Fall der Shadow-Host) innerhalb des `<h1>`. Wir haben es verwendet, um klarzustellen, dass das benutzerdefinierte Element in unserem Design nicht innerhalb des `<h1>` erscheinen sollte.
 
 ## Spezifikationen
 

@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`stemh`** Attribut gibt die horizontale Stärkenbreite der Schriftart an.
+Das **`stemh`**-Attribut gibt die horizontale Stängelbreite der Schriftart an.
 
-Die Stärkenbreite bezieht sich auf die dominierende Stange der Schriftart. Es kann zwei oder mehr gestaltete Breiten geben. Zum Beispiel unterscheiden sich die Hauptvertikalen Stangen von römischen Zeichen von den dünnen Stangen bei serifierten "M" und "N", außerdem kann es unterschiedliche Breiten für Groß- und Kleinbuchstaben in derselben Schriftart geben. Sowohl durch Design als auch durch Fehler können alle Stangen leicht unterschiedliche Breiten aufweisen.
+Die Stängelbreite bezieht sich auf den dominanten Stängel der Schriftart. Es können zwei oder mehr entworfene Breiten vorhanden sein. Zum Beispiel unterscheiden sich die Hauptvertikalstängel von römischen Zeichen von den dünnen Stängeln auf dem serifierten "M" und "N". Zusätzlich kann es unterschiedliche Breiten für Groß- und Kleinbuchstaben in derselben Schriftart geben. Auch können durch Design oder Fehler alle Stängel geringfügig unterschiedliche Breiten haben.
 
 Wenn dieses Attribut verwendet wird, muss auch das {{SVGAttr("units-per-em")}} verwendet werden.
 
@@ -17,7 +17,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font-face")}}
 
-## Nutzungsnotizen
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -43,7 +43,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die horizontale Stärkenbreite der Schriftart an.
+  - : Dieser Wert gibt die horizontale Stängelbreite der Schriftart an.
 
 ## Spezifikationen
 

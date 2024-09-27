@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.clearBuffer[fiuv]()`** Methoden der
+Die **`WebGL2RenderingContext.clearBuffer[fiuv]()`** Methoden des
 [WebGL 2 API](/de/docs/Web/API/WebGL_API) löschen Puffer des
-aktuell gebundenen Framebuffers.
+derzeit gebundenen Framebuffers.
 
 ## Syntax
 
@@ -31,25 +31,25 @@ clearBufferfi(buffer, drawbuffer, depth, stencil)
 
 - `buffer`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den zu löschenden Puffer angibt. Mögliche Werte sind:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den zu löschenden Puffer angibt. Mögliche Werte sind:
 
-    - `gl.COLOR`: Farb-Puffer.
-    - `gl.DEPTH`: Tiefen-Puffer.
+    - `gl.COLOR`: Farbpuffer.
+    - `gl.DEPTH`: Tiefenpuffer.
     - `gl.STENCIL`: Schablonenpuffer.
-    - `gl.DEPTH_STENCIL`: löscht Tiefen- und Schablonenpuffer (wird mit
-      `clearBufferfi` verwendet).
+    - `gl.DEPTH_STENCIL`: löscht Tiefen- und Schablonenpuffer (verwendet mit
+      `clearBufferfi`).
 
 - `drawBuffer`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der den zu löschenden Zeichenpuffer angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den zu löschenden Zeichenpuffer angibt.
 - `values`
-  - : Ein {{jsxref("Array")}} von {{domxref("WebGL_API/Types", "GLint")}}, {{domxref("WebGL_API/Types", "GLuint")}}
-    oder {{domxref("WebGL_API/Types", "GLfloat")}} Werten oder
-    ein {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}} oder {{jsxref("Float32Array")}},
-    welche die zu löschenden Werte spezifizieren.
+  - : Ein {{jsxref("Array")}} von [`GLint`](/de/docs/Web/API/WebGL_API/Types), [`GLuint`](/de/docs/Web/API/WebGL_API/Types)
+    oder [`GLfloat`](/de/docs/Web/API/WebGL_API/Types) Werten oder
+    ein {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}} oder {{jsxref("Float32Array")}}
+    das die Werte angibt, auf die gelöscht werden soll.
 - `depth`
-  - : Ein {{domxref("WebGL_API/Types", "GLfloat")}}, der den Wert angibt, auf den ein Tiefen-Renderpuffer gelöscht werden soll.
+  - : Ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types), der den Wert angibt, auf den ein Tiefenrenderpuffer gelöscht werden soll.
 - `stencil`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der den Wert angibt, auf den der Schablonen-Renderpuffer gelöscht werden soll.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Wert angibt, auf den der Schablonenrenderpuffer gelöscht werden soll.
 
 ### Rückgabewert
 
@@ -75,4 +75,4 @@ gl.clearBufferfi(gl.DEPTH_STENCIL, 0, 1.0, 0);
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.drawBuffers()")}}
+- [`WebGL2RenderingContext.drawBuffers()`](/de/docs/Web/API/WebGL2RenderingContext/drawBuffers)

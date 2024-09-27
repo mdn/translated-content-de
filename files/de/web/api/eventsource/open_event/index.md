@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das `open` Ereignis der {{domxref("EventSource")}} API wird ausgelöst, wenn eine Verbindung mit einer Ereignisquelle geöffnet wird.
+Das `open` Ereignis der [`EventSource`](/de/docs/Web/API/EventSource) API wird ausgelöst, wenn eine Verbindung mit einer Ereignisquelle geöffnet wird.
 
-Dieses Ereignis kann nicht abgebrochen werden und es ist nicht weiterleitbar.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht propagiert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("open", (event) => {});
@@ -24,19 +24,19 @@ onopen = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
 ```js
 const evtSource = new EventSource("sse.php");
 
-// addEventListener-Version
+// addEventListener version
 evtSource.addEventListener("open", (e) => {
   console.log("The connection has been established.");
 });
 
-// onopen-Version
+// onopen version
 evtSource.onopen = (e) => {
   console.log("The connection has been established.");
 };
@@ -52,6 +52,6 @@ evtSource.onopen = (e) => {
 
 ## Siehe auch
 
-- [Verwendung von servergesendeten Ereignissen](/de/docs/Web/API/Server-sent_events/Using_server-sent_events)
-- {{domxref("EventSource/error_event", "error")}}
-- {{domxref("EventSource/message_event", "message")}}
+- [Server-gesendete Ereignisse verwenden](/de/docs/Web/API/Server-sent_events/Using_server-sent_events)
+- [`error`](/de/docs/Web/API/EventSource/error_event)
+- [`message`](/de/docs/Web/API/EventSource/message_event)

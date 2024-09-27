@@ -1,5 +1,5 @@
 ---
-title: "RTCRtpSender: Methode getStats()"
+title: "RTCRtpSender: getStats()-Methode"
 short-title: getStats()
 slug: Web/API/RTCRtpSender/getStats
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Methode **`getStats()`** des {{domxref("RTCRtpSender")}} fordert asynchron ein {{domxref("RTCStatsReport")}}-Objekt an, das Statistiken über den ausgehenden Verkehr auf dem {{domxref("RTCPeerConnection")}}, der den Sender besitzt, bereitstellt. Sie gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald die Ergebnisse verfügbar sind.
+Die [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Methode **`getStats()`** fordert asynchron ein [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt an, das Statistiken über ausgehenden Datenverkehr auf der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) bereitstellt, die den Sender besitzt. Sie gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn die Ergebnisse verfügbar sind.
 
 ## Syntax
 
@@ -22,16 +22,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein JavaScript {{jsxref("Promise")}}, das erfüllt wird, sobald die Statistiken verfügbar sind.
-Der Erfüllungshandler des Promises erhält als Parameter ein {{domxref("RTCStatsReport")}}-Objekt, das die gesammelten Statistiken enthält.
+Ein JavaScript-{{jsxref("Promise")}}, das erfüllt wird, sobald die Statistiken verfügbar sind.
+Der Erfüllungs-Handler des Promises erhält als Parameter ein [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt, das die gesammelten Statistiken enthält.
 
-Das zurückgegebene `RTCStatsReport` sammelt die Statistiken für alle Streams, die mit dem `RTCRtpSender` gesendet werden, sowie die Statistiken für alle Abhängigkeiten, die diese Streams haben.
+Das zurückgegebene `RTCStatsReport` kumuliert die Statistiken für alle Streams, die mit dem `RTCRtpSender` gesendet werden, sowie die Statistiken für alle Abhängigkeiten, die diese Streams haben.
 
-Diese können zum Beispiel Statistiken mit [Typen](/de/docs/Web/API/RTCStatsReport#the_statistic_types) beinhalten: [`outbound-rtp`](/de/docs/Web/API/RTCOutboundRtpStreamStats), [`candidate-pair`](/de/docs/Web/API/RTCIceCandidatePairStats), [`local-candidate`](/de/docs/Web/API/RTCIceCandidateStats), [`remote-candidate`](/de/docs/Web/API/RTCIceCandidateStats).
+Diese können zum Beispiel Statistiken mit [Typen](/de/docs/Web/API/RTCStatsReport#the_statistic_types) umfassen: [`outbound-rtp`](/de/docs/Web/API/RTCOutboundRtpStreamStats), [`candidate-pair`](/de/docs/Web/API/RTCIceCandidatePairStats), [`local-candidate`](/de/docs/Web/API/RTCIceCandidateStats), [`remote-candidate`](/de/docs/Web/API/RTCIceCandidateStats).
 
 ## Beispiele
 
-Dieses einfache Beispiel ruft die Statistiken für einen `RTCRtpSender` ab und aktualisiert die {{domxref("HTMLElement/innerText", "innerText")}}-Eigenschaft eines Elements, um die aktuelle Round-Trip-Zeit für Anfragen auf dem Sender anzuzeigen.
+Dieses einfache Beispiel ruft die Statistiken für einen `RTCRtpSender` ab und aktualisiert das [`innerText`](/de/docs/Web/API/HTMLElement/innerText) eines Elements, um die aktuelle Rundlaufzeit für Anfragen an den Sender anzuzeigen.
 
 ```js
 sender.getStats().then((stats) => {
@@ -49,7 +49,7 @@ sender.getStats().then((stats) => {
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCStatsReport")}}
-- {{domxref("RTCRtpReceiver.getStats()")}}
-- {{domxref("RTCPeerConnection.getStats()")}}
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
+- [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)
+- [`RTCRtpReceiver.getStats()`](/de/docs/Web/API/RTCRtpReceiver/getStats)
+- [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats)

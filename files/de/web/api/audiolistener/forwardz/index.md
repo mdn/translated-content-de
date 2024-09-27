@@ -8,14 +8,14 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die schreibgeschützte Eigenschaft `forwardZ` der {{ domxref("AudioListener") }}-Schnittstelle ist ein {{domxref("AudioParam")}}, das den z-Wert des Richtungsvektors darstellt, welcher die Richtung definiert, in die der Zuhörer zeigt.
+Die schreibgeschützte Eigenschaft `forwardZ` der [`AudioListener`](/de/docs/Web/API/AudioListener)-Schnittstelle ist ein [`AudioParam`](/de/docs/Web/API/AudioParam), das den z-Wert des Richtungsvektors darstellt, der die Vorwärtsrichtung definiert, in die der Zuhörer zeigt.
 
 > [!NOTE]
-> Der Parameter ist _a-rate_, wenn er mit einem {{domxref("PannerNode")}} verwendet wird, dessen {{domxref("PannerNode.panningModel", "panningModel")}} auf equalpower gesetzt ist, oder _k-rate_ andernfalls.
+> Der Parameter ist _a-rate_, wenn er mit einem [`PannerNode`](/de/docs/Web/API/PannerNode) verwendet wird, dessen [`panningModel`](/de/docs/Web/API/PannerNode/panningModel) auf "equalpower" gesetzt ist, oder _k-rate_ anderweitig.
 
 ## Wert
 
-Ein {{domxref("AudioParam")}}. Sein Standardwert ist -1, und er kann zwischen positiv bis negativ unendlich reichen.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam). Der Standardwert ist -1 und er kann zwischen positiver und negativer Unendlichkeit schwanken.
 
 ## Beispiele
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Object.isSealed()`** bestimmt, ob ein Objekt [versiegelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/seal) ist.
+Die **`Object.isSealed()`** statische Methode bestimmt, ob ein Objekt [sealed](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/seal) ist.
 
 {{EmbedInteractiveExample("pages/js/object-issealed.html")}}
 
@@ -24,56 +24,58 @@ Object.isSealed(obj)
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, der anzeigt, ob das gegebene Objekt versiegelt ist oder nicht.
+Ein {{jsxref("Boolean")}}, der anzeigt, ob das gegebene Objekt sealed ist oder nicht.
 
 ## Beschreibung
 
-Gibt `true` zurück, wenn das Objekt versiegelt ist, andernfalls `false`. Ein Objekt ist versiegelt, wenn es nicht {{jsxref("Object/isExtensible", "extensible", "", 1)}} ist und alle seine Eigenschaften nicht konfigurierbar und somit nicht entfernbar sind (aber nicht notwendigerweise nicht schreibbar).
+Gibt `true` zurück, wenn das Objekt sealed ist, andernfalls `false`. Ein
+Objekt ist sealed, wenn es nicht {{jsxref("Object/isExtensible", "extensible", "", 1)}} ist und
+wenn alle seine Eigenschaften nicht konfigurierbar und daher nicht entfernbar sind (aber nicht unbedingt nicht beschreibbar).
 
 ## Beispiele
 
-### Verwenden von Object.isSealed
+### Verwendung von Object.isSealed
 
 ```js
-// Objekte sind standardmäßig nicht versiegelt.
+// Objects aren't sealed by default.
 const empty = {};
 Object.isSealed(empty); // false
 
-// Wenn Sie ein leeres Objekt nicht erweiterbar machen,
-// ist es zwangsläufig versiegelt.
+// If you make an empty object non-extensible,
+// it is vacuously sealed.
 Object.preventExtensions(empty);
 Object.isSealed(empty); // true
 
-// Dasselbe gilt nicht für ein nicht-leeres Objekt,
-// es sei denn, seine Eigenschaften sind alle nicht konfigurierbar.
+// The same is not true of a non-empty object,
+// unless its properties are all non-configurable.
 const hasProp = { fee: "fie foe fum" };
 Object.preventExtensions(hasProp);
 Object.isSealed(hasProp); // false
 
-// Aber machen Sie sie alle nicht konfigurierbar
-// und das Objekt wird versiegelt.
+// But make them all non-configurable
+// and the object becomes sealed.
 Object.defineProperty(hasProp, "fee", {
   configurable: false,
 });
 Object.isSealed(hasProp); // true
 
-// Der einfachste Weg, ein Objekt zu versiegeln, ist natürlich
-// Object.seal.
+// The easiest way to seal an object, of course,
+// is Object.seal.
 const sealed = {};
 Object.seal(sealed);
 Object.isSealed(sealed); // true
 
-// Ein versiegeltes Objekt ist definitionsgemäß nicht erweiterbar.
+// A sealed object is, by definition, non-extensible.
 Object.isExtensible(sealed); // false
 
-// Ein versiegeltes Objekt könnte eingefroren sein,
-// muss es aber nicht.
+// A sealed object might be frozen,
+// but it doesn't have to be.
 Object.isFrozen(sealed); // true
-// (alle Eigenschaften ebenfalls nicht überschreibbar)
+// (all properties also non-writable)
 
 const s2 = Object.seal({ p: 3 });
 Object.isFrozen(s2); // false
-// ('p' ist immer noch überschreibbar)
+// ('p' is still writable)
 
 const s3 = Object.seal({
   get p() {
@@ -81,19 +83,19 @@ const s3 = Object.seal({
   },
 });
 Object.isFrozen(s3); // true
-// (nur die Konfigurierbarkeit zählt für Zugriffseigenschaften)
+// (only configurability matters for accessor properties)
 ```
 
-### Argument ohne Objekt
+### Nicht-Objekt-Argument
 
-In ES5 führt ein nicht-Objekt-Argument (ein primitiver Wert) bei Aufruf dieser Methode zu einem {{jsxref("TypeError")}}. In ES2015 wird `true` ohne Fehler zurückgegeben, wenn ein nicht-Objekt-Argument übergeben wird, da primitive Werte definitionsgemäß unveränderlich sind.
+In ES5 führt ein Argument, das kein Objekt ist (ein Primitive), zu einem {{jsxref("TypeError")}}. In ES2015 gibt es `true` zurück, ohne Fehler, wenn ein Nicht-Objekt-Argument übergeben wird, da Primitive per Definition unveränderlich sind.
 
 ```js
 Object.isSealed(1);
-// TypeError: 1 ist kein Objekt (ES5-Code)
+// TypeError: 1 is not an object (ES5 code)
 
 Object.isSealed(1);
-// true                          (ES2015-Code)
+// true                          (ES2015 code)
 ```
 
 ## Spezifikationen

@@ -8,42 +8,37 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`kind`**-Eigenschaft enthält einen
-String, der die Kategorie des Videos angibt, das in der
-**{{domxref("VideoTrack")}}** enthalten ist.
+Die **`kind`**-Eigenschaft enthält eine Zeichenkette, die die Kategorie des Videos in der **[`VideoTrack`](/de/docs/Web/API/VideoTrack)** angibt.
 
-Der `kind`-Wert kann verwendet werden, um die Szenarien zu bestimmen, in denen bestimmte Tracks aktiviert oder deaktiviert werden sollten. Siehe [Video-Track-Kategorie-Strings](#video-track-kategorie-strings) für eine Liste der verfügbaren Kategorien für Video-Tracks.
+Das `kind` kann verwendet werden, um zu bestimmen, in welchen Szenarien bestimmte Tracks aktiviert oder deaktiviert werden sollten. Siehe [Video-Track-Kind-Strings](#video-track-kind-strings) für eine Liste der für Video-Tracks verfügbaren Arten.
 
 ## Wert
 
-Ein String, der den Typ des Inhalts angibt, den das Medium repräsentiert. Der
-String ist einer derjenigen, die in [Video-Track-Kategorie-Strings](#video-track-kategorie-strings) unten zu finden sind.
+Eine Zeichenkette, die den Typ des Inhalts angibt, den das Medium darstellt. Die Zeichenkette ist eine der unten in [Video-Track-Kind-Strings](#video-track-kind-strings) aufgeführten.
 
-## Video-Track-Kategorie-Strings
+## Video-Track-Kind-Strings
 
-Die für Video-Tracks verfügbaren Kategorien sind:
+Die für Video-Tracks verfügbaren Arten sind:
 
 - `"alternative"`
-  - : Eine potenzielle Alternative zum Haupt-Track, wie eine andere Videoaufnahme oder eine
-    Version des Soundtracks nur mit Musik ohne Dialog.
+  - : Eine potenzielle Alternative zum Haupt-Track, wie ein anderer Video-Take oder eine Version des Soundtracks nur mit Musik und ohne Dialog.
 - `"captions"`
-  - : Eine Version des Haupt-Videotracks mit eingebrannten Untertiteln.
+  - : Eine Version des Haupt-Video-Tracks mit eingebrannten Untertiteln.
 - `"main"`
-  - : Der primäre Videotrack.
+  - : Der primäre Video-Track.
 - `"sign"`
-  - : Eine Gebärdensprachinterpretation eines Audiotracks.
+  - : Eine Gebärdensprachinterpretation eines Audio-Tracks.
 - `"subtitles"`
-  - : Eine Version des Haupt-Videotracks mit eingebrannten Untertiteln.
+  - : Eine Version des Haupt-Video-Tracks mit eingebrannten Untertiteln.
 - `"commentary"`
-  - : Ein Videotrack mit einem Kommentar. Dieser könnte beispielsweise den Kommentar des Regisseurs
-    bei einem Film enthalten.
-- `""` (Leerstring)
-  - : Der Track hat keine explizite Art, oder die vom Track bereitgestellte Art wird vom {{Glossary("user agent")}} nicht erkannt.
+  - : Ein Video-Track mit einem Kommentar. Dies könnte z. B. der Regiekommentar eines Films sein.
+- `""` (leere Zeichenkette)
+  - : Der Track hat kein explizites Kind, oder das vom Track-Metadaten bereitgestellte Kind wird vom [User-Agent](/de/docs/Glossary/user_agent) nicht erkannt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

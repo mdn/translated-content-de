@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`nativeProjectionScaleFactor`**-Eigenschaft des {{domxref("XRWebGLBinding")}}-Interface stellt den Skalierungsfaktor dar, mit dem die Auflösung der Projektionsschicht multipliziert wird, um die native Auflösung des Framebuffers des WebXR-Geräts zu erhalten.
+Die schreibgeschützte **`nativeProjectionScaleFactor`**-Eigenschaft des [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)-Interfaces repräsentiert den Skalierungsfaktor, mit dem die Auflösung der Projektionsschicht multipliziert wird, um die native Auflösung des Framebuffers des WebXR-Geräts zu erhalten.
 
-Für weitere Details siehe {{domxref("XRWebGLLayer.getNativeFramebufferScaleFactor_static", "XRWebGLLayer.getNativeFramebufferScaleFactor()")}}.
+Für weitere Details siehe [`XRWebGLLayer.getNativeFramebufferScaleFactor()`](/de/docs/Web/API/XRWebGLLayer/getNativeFramebufferScaleFactor_static).
 
 ## Wert
 
@@ -20,10 +20,10 @@ Eine Gleitkommazahl, die angibt, um wie viel die native Framebuffer-Größe des 
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("XRWebGLLayer.getNativeFramebufferScaleFactor_static", "XRWebGLLayer.getNativeFramebufferScaleFactor()")}}
+- [`XRWebGLLayer.getNativeFramebufferScaleFactor()`](/de/docs/Web/API/XRWebGLLayer/getNativeFramebufferScaleFactor_static)

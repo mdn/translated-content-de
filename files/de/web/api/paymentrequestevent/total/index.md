@@ -8,16 +8,16 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Payment Handler API")}}{{AvailableInWorkers("service")}}
 
-Die **`total`** schreibgeschützte Eigenschaft des {{domxref("PaymentRequestEvent")}}-Interfaces gibt ein `PaymentCurrencyAmount`-Objekt zurück, das den insgesamt angeforderten Betrag für die Zahlung enthält.
+Die schreibgeschützte **`total`**-Eigenschaft des [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Interfaces gibt ein `PaymentCurrencyAmount`-Objekt zurück, das den Gesamtbetrag enthält, der zur Zahlung angefordert wird.
 
 ## Wert
 
 Ein `PaymentCurrencyAmount`-Objekt. Dieses Objekt enthält die folgenden Eigenschaften:
 
 - `currency`
-  - : Ein String, der einen drei Buchstaben umfassenden [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) Standard-Währungscode enthält, der die Währung der Zahlung repräsentiert. Beispiele sind `USD`, `CAN` und `GBP`.
+  - : Ein String, der einen dreibuchstabigen [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html)-Standardwährungscode enthält, der die Währung der Zahlung darstellt. Beispiele sind `USD`, `CAN` und `GBP`.
 - `value`
-  - : Ein String, der einen dezimalen Geldwert enthält, z. B. `2.55`.
+  - : Ein String, der einen dezimalen Geldwert enthält, z.B. `2.55`.
 
 ## Beispiele
 
@@ -37,8 +37,8 @@ self.addEventListener("paymentrequest", (e) => {
 
 ## Siehe auch
 
-- [Übersicht über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Der Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
+- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- [Zahlungsverarbeitungskonzepte](/de/docs/Web/API/Payment_Request_API/Concepts)
+- [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

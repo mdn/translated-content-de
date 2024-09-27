@@ -8,13 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`get()`**-Methode der {{domxref("RTCStatsReport")}}-Schnittstelle gibt ein bestimmtes Element aus einem `RTCStatsReport` zurück.
+Die **`get()`**-Methode der [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Schnittstelle gibt ein angegebenes Element aus einem `RTCStatsReport` zurück.
 
-Elemente im `RTCStatsReport` werden durch eindeutige `id`-Werte identifiziert, die die überwachten Statistikobjekte darstellen, aus denen die Statistiken abgeleitet werden.
-Das zurückgegebene Element wird eine Instanz eines der [Statistik-Wörterbuchobjekte](/de/docs/Web/API/RTCStatsReport#the_statistic_types) sein und enthält Statistiken für das Objekt mit der angegebenen `id`.
-Der abgerufene Wert ist ein Verweis auf das Statistik-Wörterbuch, und jede Änderung an diesem Objekt wird es effektiv innerhalb des `RTCStatsReport`-Objekts ändern.
+Elemente im `RTCStatsReport` werden durch eindeutige `id`-Werte identifiziert, die die überwachten Statistikobjekte darstellen, von denen die Statistiken abgeleitet sind. Das zurückgegebene Element ist eine Instanz eines der [Statistik-Wörterbuchobjekte](/de/docs/Web/API/RTCStatsReport#the_statistic_types) und enthält Statistiken für das Objekt mit der angegebenen `id`. Der abgerufene Wert ist eine Referenz auf das Statistik-Wörterbuch, und jede Änderung an diesem Objekt wird es effektiv innerhalb des `RTCStatsReport`-Objekts modifizieren.
 
-Die Methode entspricht ansonsten der {{jsxref("Map.prototype.get()")}}.
+Die Methode ist ansonsten identisch mit {{jsxref("Map.prototype.get()")}}.
 
 ## Syntax
 
@@ -25,8 +23,7 @@ get(id)
 ### Parameter
 
 - `id`
-  - : Ein String, der die ID des Elements angibt, das aus dem `RTCStatsReport`-Objekt zurückgegeben werden soll.
-    IDs sind eindeutige Strings, die das überwachte Objekt identifizieren, aus dem die entsprechenden Statistiken abgeleitet werden.
+  - : Ein String, der die ID des Elements angibt, das aus dem `RTCStatsReport`-Objekt zurückgegeben werden soll. IDs sind eindeutige Strings, die das überwachte Objekt identifizieren, von dem die entsprechenden Statistiken abgeleitet sind.
 
 ### Rückgabewert
 

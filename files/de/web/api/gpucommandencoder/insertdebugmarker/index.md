@@ -1,16 +1,16 @@
 ---
-title: "GPUCommandEncoder: insertDebugMarker()-Methode"
+title: "GPUCommandEncoder: Methode insertDebugMarker()"
 short-title: insertDebugMarker()
 slug: Web/API/GPUCommandEncoder/insertDebugMarker
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`insertDebugMarker()`**-Methode der {{domxref("GPUCommandEncoder")}}-Schnittstelle markiert einen bestimmten Punkt in einer Serie von codierten Befehlen mit einem Label.
+Die **`insertDebugMarker()`**-Methode der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle markiert einen bestimmten Punkt in einer Serie von kodierten Befehlen mit einem Label.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in {{domxref("GPUError")}}-Meldungen, Browser-Entwicklungstools oder anderen Diensten genutzt werden, um das Debugging zu unterstützen.
+Dies könnte für Telemetrie verwendet werden oder möglicherweise in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Browser-Entwicklungstools, oder anderen Diensten in der Zukunft zur Unterstützung bei der Fehlersuche genutzt werden.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ insertDebugMarker(markerLabel)
 
 ### Rückgabewert
 
-Keiner ({{jsxref("Undefined")}}).
+Keine ({{jsxref("Undefined")}}).
 
 ## Beispiele
 
@@ -41,10 +41,10 @@ commandEncoder.insertDebugMarker("mymarker");
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

@@ -1,5 +1,5 @@
 ---
-title: "Location: Eigenschaft search"
+title: "Location: search-Eigenschaft"
 short-title: search
 slug: Web/API/Location/search
 l10n:
@@ -8,29 +8,24 @@ l10n:
 
 {{ApiRef("Location")}}
 
-Die **`search`**-Eigenschaft des {{domxref("Location")}}
-Interfaces ist eine Suchzeichenkette, auch als _Query-String_ bekannt; das heißt, eine Zeichenkette, die ein `'?'` enthält, gefolgt von den Parametern der URL.
+Die **`search`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein Suchstring, auch _query string_ genannt; das heißt, ein String, der ein `'?'` gefolgt von den Parametern der URL enthält.
 
-Moderne Browser bieten
-[`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples)
-und
-[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples)
-an, um das einfache Parsen der Parameter aus dem Query-String zu ermöglichen.
+Moderne Browser bieten [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples) und [`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples), um das Herausparsen der Parameter aus dem Querystring zu erleichtern.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
 ```js
-// Angenommen, ein <a id="myAnchor" href="/de/docs/Location.search?q=123"> Element befindet sich im Dokument
+// Let an <a id="myAnchor" href="/en-US/docs/Location.search?q=123"> element be in the document
 const anchor = document.getElementById("myAnchor");
-const queryString = anchor.search; // Rückgabe: '?q=123'
+const queryString = anchor.search; // Returns:'?q=123'
 
-// Weiteres Parsen:
+// Further parsing:
 const params = new URLSearchParams(queryString);
-const q = parseInt(params.get("q")); // ist die Zahl 123
+const q = parseInt(params.get("q")); // is the number 123
 ```
 
 ## Spezifikationen

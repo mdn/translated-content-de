@@ -1,6 +1,6 @@
 ---
-title: "DeviceMotionEvent: Beschleunigungseigenschaft"
-short-title: Beschleunigung
+title: "DeviceMotionEvent: acceleration-Eigenschaft"
+short-title: acceleration
 slug: Web/API/DeviceMotionEvent/acceleration
 l10n:
   sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
@@ -8,25 +8,21 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`acceleration`** der {{domxref("DeviceMotionEvent")}}-Schnittstelle gibt die vom Gerät gemessene Beschleunigung in [Metern pro Sekunde zum Quadrat (m/s²)](https://en.wikipedia.org/wiki/Meter_per_second_squared) zurück. Der Beschleunigungswert schließt den Einfluss der Schwerkraft nicht ein, im Gegensatz zu {{DOMxRef("DeviceMotionEvent.accelerationIncludingGravity")}}.
+Die schreibgeschützte **`acceleration`**-Eigenschaft des [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent)-Interfaces gibt die vom Gerät aufgezeichnete Beschleunigung in [Meter pro Sekunde-Quadrat (m/s²)](https://en.wikipedia.org/wiki/Meter_per_second_squared) zurück. Der Beschleunigungswert enthält nicht die Wirkung der Schwerkraft, im Gegensatz zu [`DeviceMotionEvent.accelerationIncludingGravity`](/de/docs/Web/API/DeviceMotionEvent/accelerationIncludingGravity).
 
 > [!NOTE]
-> Wenn die Hardware nicht weiß, wie man die Schwerkraft aus den
-> Beschleunigungsdaten entfernt, ist dieser Wert möglicherweise nicht in der
-> {{DOMxRef("DeviceMotionEvent")}} vorhanden. In diesem Fall müssen Sie
-> {{DOMxRef("DeviceMotionEvent.accelerationIncludingGravity")}} verwenden.
+> Wenn die Hardware nicht weiß, wie man die Schwerkraft aus den Beschleunigungsdaten entfernen kann, könnte dieser Wert in dem [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent) nicht vorhanden sein. In diesem Fall sollten Sie stattdessen [`DeviceMotionEvent.accelerationIncludingGravity`](/de/docs/Web/API/DeviceMotionEvent/accelerationIncludingGravity) verwenden.
 
 ## Wert
 
-Die `acceleration`-Eigenschaft ist ein Objekt, das Informationen über
-die Beschleunigung auf drei Achsen bereitstellt. Jede Achse wird durch ihre eigene Eigenschaft repräsentiert:
+Die `acceleration`-Eigenschaft ist ein Objekt, das Informationen über die Beschleunigung auf drei Achsen liefert. Jede Achse wird durch ihre eigene Eigenschaft dargestellt:
 
 - `x`
-  - : Repräsentiert die Beschleunigung auf der x-Achse, die von West nach Ost verläuft
+  - : Repräsentiert die Beschleunigung auf der x-Achse, welche die West-Ost-Achse ist
 - `y`
-  - : Repräsentiert die Beschleunigung auf der y-Achse, die von Süd nach Nord verläuft
+  - : Repräsentiert die Beschleunigung auf der y-Achse, welche die Süd-Nord-Achse ist
 - `z`
-  - : Repräsentiert die Beschleunigung auf der z-Achse, die von unten nach oben verläuft
+  - : Repräsentiert die Beschleunigung auf der z-Achse, welche die Abwärts-Aufwärts-Achse ist
 
 ## Spezifikationen
 
@@ -38,6 +34,6 @@ die Beschleunigung auf drei Achsen bereitstellt. Jede Achse wird durch ihre eige
 
 ## Siehe auch
 
-- {{domxref("Device orientation events/Detecting device orientation", "Erkennung der Geräteausrichtung", "", "nocode")}}
-- {{domxref("Device orientation events/Orientation and motion data explained", "Erklärung der Ausrichtungs- und Bewegungsdaten", "", "nocode")}}
-- {{DOMxRef("Window/devicemotion_event", "devicemotion")}}-Ereignis
+- [Erkennen der Geräteausrichtung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [Ausrichtungs- und Bewegungsdaten erklärt](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)
+- [`devicemotion`](/de/docs/Web/API/Window/devicemotion_event) Ereignis

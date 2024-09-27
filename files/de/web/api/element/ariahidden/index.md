@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaHidden`**-Eigenschaft der {{domxref("Element")}}-Schnittstelle spiegelt den Wert des [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-hidden)-Attributs wider, welches angibt, ob das Element einer Zugriffs-API zugänglich gemacht wird.
+Die **`ariaHidden`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-hidden)-Attributs wider, welches angibt, ob das Element einer Zugänglichkeits-API zugänglich ist.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"true"`
-  - : Das Element ist für die Zugriffs-API versteckt.
+  - : Das Element ist vor der Zugänglichkeits-API verborgen.
 - `"false"`
-  - : Das Element wird der Zugriffs-API zugänglich gemacht, als ob es gerendert wäre.
+  - : Das Element ist der Zugänglichkeits-API zugänglich, als wäre es gerendert.
 - `"undefined"`
-  - : Der versteckte Zustand des Elements wird vom User-Agent bestimmt, basierend darauf, ob es gerendert wird.
+  - : Der versteckte Zustand des Elements wird vom Benutzeragenten bestimmt, basierend darauf, ob es gerendert ist.
 
 ## Beispiele
 
-In diesem Beispiel wird das [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-hidden)-Attribut auf dem Element mit der ID `hidden` auf "true" gesetzt. Mit `ariaHidden` aktualisieren wir den Wert auf "false".
+In diesem Beispiel wird das [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-hidden)-Attribut des Elements mit der ID `hidden` auf "true" gesetzt. Mithilfe von `ariaHidden` aktualisieren wir den Wert auf "false".
 
 ```html
 <div id="hidden" aria-hidden="true">Some things are better left unsaid.</div>

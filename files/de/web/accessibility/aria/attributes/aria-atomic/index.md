@@ -7,26 +7,26 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-In ARIA-Live-Regionen gibt das globale `aria-atomic`-Attribut an, ob unterstützende Technologien wie ein Screenreader alle oder nur Teile der geänderten Region basierend auf den durch das [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-relevant)-Attribut definierten Änderungsbenachrichtigungen präsentieren werden.
+In ARIA-Live-Bereichen gibt das globale `aria-atomic`-Attribut an, ob Unterstützte Technologien wie ein Screenreader den gesamten geänderten Bereich oder nur Teile davon präsentieren werden, basierend auf den Änderungsbenachrichtigungen, die durch das [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-relevant)-Attribut definiert sind.
 
 ## Beschreibung
 
-Live-Regionen sind Abschnitte einer Webseite, die aktualisiert werden, sei es durch Benutzerinteraktionen oder nicht, während der Benutzerfokus woanders liegt. Da sie außerhalb des Benutzerfokus aktualisiert werden, können unterstützende Technologien wie Screenreader die Aktualisierung möglicherweise nicht "sehen", um sie dem Benutzer zu melden. WAI-ARIA hat vier Eigenschaften, die es dem Entwickler ermöglichen, diese Live-Regionen zu identifizieren und der unterstützenden Technologie anzuzeigen, wie sie zu verarbeiten sind, einschließlich [`aria-live`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-live), [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-relevant), [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy) und `aria-atomic`.
+Live-Bereiche sind Abschnitte einer Webseite, die aktualisiert werden, sei es durch Benutzerinteraktion oder nicht, wenn der Benutzerfokus woanders liegt. Da sie außerhalb des Fokus des Benutzers aktualisiert werden, können Unterstützte Technologien wie Screenreader die Aktualisierung möglicherweise nicht "sehen", um sie dem Benutzer zu melden. WAI-ARIA hat 4 Eigenschaften, die es dem Entwickler ermöglichen, diese Live-Bereiche zu identifizieren und der unterstützenden Technologie zu sagen, wie sie diese verarbeiten soll, einschließlich [`aria-live`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-live), [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-relevant), [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy) und `aria-atomic`.
 
-Wenn sich der Inhalt einer Live-Region ändert, wird das DOM vom geänderten Element durch seine Vorfahren durchsucht, um das erste Element mit gesetztem `aria-atomic` zu finden. Dies bestimmt den Inhalt, der dem Benutzer präsentiert werden sollte.
+Wenn sich der Inhalt eines Live-Bereichs ändert, wird der DOM vom geänderten Element über seine Vorfahren hinweg durchsucht, um das erste Element mit gesetztem `aria-atomic` zu finden. Dies bestimmt den Inhalt, der dem Benutzer präsentiert werden sollte.
 
-Wenn kein Vorfahre explizit `aria-atomic` gesetzt hat, werden nur die Knoten oder Knoten der aktualisierten Live-Region-Inhalte gelesen. Der Unterschied zwischen dem vollständigen Weglassen von `aria-atomic` und dem expliziten Setzen eines ARIA-Live-Region-Vorfahrenknotens mit `aria-atomic="false"` besteht darin, dass das explizite Setzen von `aria-atomic="false"` den Screenreader davon abhält, die Vorfahrenkette nach oben zu durchlaufen. Beide führen jedoch dazu, dass nur der aktualisierte Knoten gelesen wird. Wenn `aria-atomic="true"` gesetzt ist, wird die gesamte geänderte Region als Ganzes präsentiert, einschließlich des Etiketts des aktualisierten Knotens, sofern eines vorhanden ist.
+Wenn kein Vorfahr `aria-atomic` explizit gesetzt hat, wird nur der oder die aktualisierten Knoten des Live-Bereichs gelesen. Der Unterschied zwischen dem vollständigen Auslassen von `aria-atomic` und dem expliziten Setzen eines Vorfahrknotens eines ARIA-Live-Bereichs mit `aria-atomic="false"` besteht darin, dass das explizite Setzen von `aria-atomic="false"` den Screenreader daran hindert, die Vorfahrenkette nach oben zu gehen. Beide führen dazu, dass nur der aktualisierte Knoten gelesen wird. Wenn `aria-atomic="true"` gesetzt ist, wird der gesamte geänderte Bereich als Ganzes präsentiert, einschließlich des `label` des aktualisierten Knotens, falls vorhanden.
 
 ## Werte
 
 - `false` (Standard)
-  - : Nur die geänderten Knoten präsentieren.
+  - : präsentiert nur den oder die geänderten Knoten.
 - `true`
-  - : Die gesamte geänderte Region als Ganzes präsentieren, einschließlich des durch den Autor definierten Etiketts, falls vorhanden.
+  - : präsentiert den gesamten geänderten Bereich als Ganzes, einschließlich des vom Autor definierten Labels, falls vorhanden.
 
-## Zugeordnete Rollen
+## Zugehörige Rollen
 
-Verwendet in **ALLEN** [Rollen](/de/docs/Web/Accessibility/ARIA/Roles).
+Wird in **ALLEN** [Rollen](/de/docs/Web/Accessibility/ARIA/Roles) verwendet.
 
 ## Spezifikationen
 

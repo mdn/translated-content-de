@@ -9,7 +9,7 @@ l10n:
 
 Ruft einen Wert ab, der zuvor durch einen Aufruf von {{WebExtAPIRef("sessions.setWindowValue")}} gespeichert wurde.
 
-Sie können einen Wert von einem Fenster selbst über einen Schließ-/Wiederherstellungszyklus hinweg abrufen: Das bedeutet, wenn Sie einen Wert festlegen und dann der Benutzer das Fenster schließt und es mithilfe der "Fenster wiederherstellen"-Funktion des Browsers wiederherstellt (zum Beispiel durch Drücken von Strg+Umschalt+N), können Sie den Wert aus dem wiederhergestellten Fenster abrufen. Beachten Sie jedoch, dass ein wiederhergestelltes Fenster nicht die gleiche ID wie das Original erhält, sodass die ID, die Sie an `getWindowValue()` übergeben, von der ID abweichen wird, die Sie an `setWindowValue()` übergeben haben, obwohl beide auf dasselbe Fenster verweisen.
+Sie können einen Wert aus einem Fenster abrufen, selbst über einen Schließ-/Wiederherstellungszyklus hinweg: Das bedeutet, wenn Sie einen Wert setzen, dann das Fenster schließen und anschließend das Fenster mittels der "Window wiederherstellen"-Funktion des Browsers (z. B. durch Drücken von Strg+Umschalt+N) wiederherstellen, können Sie den Wert aus dem wiederhergestellten Fenster abrufen. Beachten Sie jedoch, dass ein wiederhergestelltes Fenster nicht dieselbe ID wie das Original erhält. Daher unterscheidet sich die ID, die Sie an `getWindowValue()` übergeben, von der ID, die Sie an `setWindowValue()` übergeben haben, obwohl sie sich auf dasselbe Fenster beziehen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -27,11 +27,11 @@ let retrieving = browser.sessions.getWindowValue(
 - `windowId`
   - : `integer`. ID des Fensters, dessen Daten Sie abzurufen versuchen. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
 - `key`
-  - : `string`. Schlüssel, der den bestimmten abzurufenden Wert identifiziert. Dieser muss mit dem zuvor in {{WebExtAPIRef("sessions.setWindowValue")}} angegebenen Schlüssel übereinstimmen.
+  - : `string`. Schlüssel, der den bestimmten abzurufenden Wert identifiziert. Dieser muss mit dem zuvor bei {{WebExtAPIRef("sessions.setWindowValue")}} angegebenen Schlüssel übereinstimmen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit dem Wert aufgelöst wird, wenn der Wert existiert, oder `undefined`, wenn er nicht existiert. Wenn der Aufruf fehlgeschlagen ist (zum Beispiel, weil die Fenster-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit dem Wert aufgelöst wird, wenn er existiert, oder `undefined`, wenn er nicht existiert. Wenn der Aufruf fehlschlägt (z. B. weil die Fenster-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -39,7 +39,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Protokollieren Sie den Wert von "my-key" für alle neu erstellten Fenster (das schließt auch alle wiederhergestellten Fenster ein):
+Protokollieren Sie den Wert von "my-key" für alle neu erstellten Fenster (dies schließt alle wiederhergestellten Fenster ein):
 
 ```js
 function onGetResolved(r) {

@@ -1,5 +1,5 @@
 ---
-title: "HTMLTextAreaElement: Eigenschaft value"
+title: "HTMLTextAreaElement: value-Eigenschaft"
 short-title: value
 slug: Web/API/HTMLTextAreaElement/value
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`value`**-Eigenschaft der {{DOMxRef("HTMLTextAreaElement")}}-Schnittstelle stellt den Wert des {{htmlelement("textarea")}}-Elements als Zeichenfolge dar, die einen leeren String enthält, wenn das Widget keinen Inhalt enthält. Sie gibt den rohen Wert zurück, der im Steuerelement enthalten ist, oder setzt ihn.
+Die **`value`**-Eigenschaft der [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Schnittstelle repräsentiert den Wert des {{htmlelement("textarea")}}-Elements als Zeichenkette. Wenn das Widget keinen Inhalt hat, ist dieser Wert eine leere Zeichenkette. Sie gibt den rohen Wert zurück, den das Steuerelement enthält, oder legt ihn fest.
 
 ## Wert
 
-Eine Zeichenfolge, die den Inhalt des {{htmlelement("textarea")}}-Elements enthält.
+Eine Zeichenkette, die den Inhalt des {{htmlelement("textarea")}}-Elements enthält.
 
 ## Beispiele
 
@@ -33,7 +33,7 @@ textArea.value = oldText.toUpperCase();
 ## Siehe auch
 
 - {{HTMLElement("textarea")}}
-- {{DOMXref("HTMLTextAreaElement.textLength")}}
-- {{DOMXref("HTMLTextAreaElement.labels")}}
-- {{DOMXref("HTMLTextAreaElement.selectionStart")}}
-- {{DOMXref("HTMLTextAreaElement.selectionEnd")}}
+- [`HTMLTextAreaElement.textLength`](/de/docs/Web/API/HTMLTextAreaElement/textLength)
+- [`HTMLTextAreaElement.labels`](/de/docs/Web/API/HTMLTextAreaElement/labels)
+- [`HTMLTextAreaElement.selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart)
+- [`HTMLTextAreaElement.selectionEnd`](/de/docs/Web/API/HTMLTextAreaElement/selectionEnd)

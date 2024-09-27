@@ -3,14 +3,14 @@ title: "GPUComputePassEncoder: popDebugGroup()-Methode"
 short-title: popDebugGroup()
 slug: Web/API/GPUComputePassEncoder/popDebugGroup
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`popDebugGroup()`**-Methode der {{domxref("GPUComputePassEncoder")}}-Schnittstelle beendet eine Debug-Gruppe für Compute-Pass, die mit einem {{domxref("GPUComputePassEncoder.pushDebugGroup", "pushDebugGroup()")}}-Aufruf begonnen wurde.
+Die **`popDebugGroup()`**-Methode der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder)-Schnittstelle beendet eine Compute-Pass-Debug-Gruppe, die mit einem Aufruf von [`pushDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/pushDebugGroup) begonnen wurde.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in {{domxref("GPUError")}}-Nachrichten, Entwicklerwerkzeugen des Browsers oder anderen Diensten genutzt werden, um beim Debugging zu helfen.
+Dies könnte für Telemetrie verwendet werden oder in der Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Browser-Entwicklungstools oder anderen Diensten genutzt werden, um beim Debuggen zu helfen.
 
 ## Syntax
 
@@ -24,13 +24,13 @@ Keine.
 
 ### Rückgabewert
 
-Kein ({{jsxref("Undefined")}}).
+Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`popDebugGroup()`** aufgerufen wird, andernfalls wird ein {{domxref("GPUValidationError")}} erzeugt und der {{domxref("GPUComputePassEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`popDebugGroup()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPUComputePassEncoder`](/de/docs/Web/API/GPUComputePassEncoder) wird ungültig:
 
-- Der Debug-Stack des Compute-Pass-Encoders ist nicht leer (d.h. mindestens eine Compute-Pass-Debug-Gruppe wurde zuvor mit {{domxref("GPUComputePassEncoder.pushDebugGroup", "pushDebugGroup()")}} gestartet).
+- Der Debug-Stack des Compute-Pass-Encoders ist nicht leer (d.h. mindestens eine Compute-Pass-Debug-Gruppe wurde zuvor mit [`pushDebugGroup()`](/de/docs/Web/API/GPUComputePassEncoder/pushDebugGroup) gestartet).
 
 ## Beispiele
 
@@ -39,7 +39,7 @@ Die folgenden Kriterien müssen erfüllt sein, wenn **`popDebugGroup()`** aufger
 
 const passEncoder = commandEncoder.beginComputePass();
 
-passEncoder.pushDebugGroup("mygroupmarker"); // Starten der markierten Debug-Gruppe
+passEncoder.pushDebugGroup("mygroupmarker"); // Start labeled debug group
 
 passEncoder.setPipeline(computePipeline);
 passEncoder.setBindGroup(0, bindGroup);

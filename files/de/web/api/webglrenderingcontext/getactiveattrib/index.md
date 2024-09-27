@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.getActiveAttrib()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt ein {{domxref("WebGLActiveInfo")}}-Objekt zurück, das die Größe, den Typ und den Namen eines Vertex-Attributs enthält. Sie wird generell verwendet, um unbekannte Attribute entweder zur Fehlersuche oder zur Erstellung generischer Bibliotheken abzufragen.
+Die **`WebGLRenderingContext.getActiveAttrib()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt ein [`WebGLActiveInfo`](/de/docs/Web/API/WebGLActiveInfo)-Objekt zurück, das Größe, Typ und Namen eines Vertex-Attributs enthält. Sie wird in der Regel verwendet, um unbekannte Attribute entweder zur Fehlersuche oder zur Erstellung generischer Bibliotheken abzufragen.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ getActiveAttrib(program, index)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}, das das Vertex-Attribut enthält.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das das Vertex-Attribut enthält.
 - `index`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der den Index des abzurufenden Vertex-Attributs angibt. Dieser Wert ist ein Index von 0 bis N - 1, wie er von {{domxref("WebGLRenderingContext.getProgramParameter", "gl.getProgramParameter(program, gl.ACTIVE_ATTRIBUTES)")}} zurückgegeben wird.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des zu holenden Vertex-Attributs angibt. Dieser Wert ist ein Index von 0 bis N - 1, wie er von [`gl.getProgramParameter(program, gl.ACTIVE_ATTRIBUTES)`](/de/docs/Web/API/WebGLRenderingContext/getProgramParameter) zurückgegeben wird.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLActiveInfo")}}-Objekt.
+Ein [`WebGLActiveInfo`](/de/docs/Web/API/WebGLActiveInfo)-Objekt.
 
 ## Beispiele
 
@@ -47,4 +47,4 @@ for (let i = 0; i < numAttribs; ++i) {
 
 ## Siehe auch
 
-- {{domxref("WebGLActiveInfo")}}
+- [`WebGLActiveInfo`](/de/docs/Web/API/WebGLActiveInfo)

@@ -1,5 +1,5 @@
 ---
-title: "CustomEvent: initCustomEvent() Methode"
+title: "CustomEvent: Methode initCustomEvent()"
 short-title: initCustomEvent()
 slug: Web/API/CustomEvent/initCustomEvent
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("DOM")}}{{Deprecated_header}}{{AvailableInWorkers}}
 
-Die **`CustomEvent.initCustomEvent()`** Methode initialisiert ein {{domxref("CustomEvent")}}-Objekt.
-Wenn das Ereignis bereits ausgelöst wurde, tut diese Methode nichts.
+Die Methode **`CustomEvent.initCustomEvent()`** initialisiert ein [`CustomEvent`](/de/docs/Web/API/CustomEvent)-Objekt.
+Wenn das Ereignis bereits ausgelöst wurde, unternimmt diese Methode nichts mehr.
 
-Ereignisse, die auf diese Weise initialisiert werden, müssen mit der Methode {{domxref("Document.createEvent()")}} erstellt worden sein.
-Diese Methode muss aufgerufen werden, um das Ereignis zu setzen, bevor es mit {{ domxref("EventTarget.dispatchEvent()") }} ausgelöst wird.
-Einmal ausgelöst, hat sie keine Wirkung mehr.
+Ereignisse, die auf diese Weise initialisiert werden, müssen mit der Methode [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) erstellt worden sein.
+Diese Methode muss aufgerufen werden, um das Ereignis festzulegen, bevor es mit [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgelöst wird.
+Sobald es ausgelöst wurde, hat sie keine Wirkung mehr.
 
 > **Note:** **Verwenden Sie diese Methode nicht mehr, da sie veraltet ist.**
 >
-> Anstatt diese Funktion zu verwenden, nutzen Sie spezifische Ereigniskonstruktoren wie {{domxref("CustomEvent.CustomEvent", "CustomEvent()")}}.
-> Die Seite zu [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events) bietet weitere Informationen über die Verwendung dieser.
+> Anstelle der Verwendung dieser Funktion sollten Sie spezifische Ereigniskonstruktoren verwenden, wie [`CustomEvent()`](/de/docs/Web/API/CustomEvent/CustomEvent).
+> Die Seite über das [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events) bietet weitere Informationen zur Nutzung dieser.
 
 ## Syntax
 
@@ -31,11 +31,11 @@ event.initCustomEvent(type, canBubble, cancelable, detail)
 - `type`
   - : Ein String, der den Namen des Ereignisses enthält.
 - `canBubble`
-  - : Ein boolescher Wert, der angibt, ob das Ereignis durch das DOM aufsteigt oder nicht.
+  - : Ein boolescher Wert, der angibt, ob das Ereignis durch das DOM wandert oder nicht.
 - `cancelable`
-  - : Ein boolescher Wert, der angibt, ob das Ereignis abbrechbar ist.
+  - : Ein boolescher Wert, der angibt, ob das Ereignis abgebrochen werden kann.
 - `detail`
-  - : Beliebige Daten, die dem Handler über die {{domxref("CustomEvent.detail")}}-Eigenschaft zur Verfügung stehen.
+  - : Alle Daten, die dem Handler über die Eigenschaft [`CustomEvent.detail`](/de/docs/Web/API/CustomEvent/detail) zur Verfügung stehen werden.
 
 ## Spezifikationen
 
@@ -47,5 +47,5 @@ event.initCustomEvent(type, canBubble, cancelable, detail)
 
 ## Siehe auch
 
-- {{domxref("CustomEvent")}}
-- Der Konstruktor, der anstelle dieser veralteten Methode verwendet werden sollte: {{domxref("CustomEvent.CustomEvent", "CustomEvent()")}}.
+- [`CustomEvent`](/de/docs/Web/API/CustomEvent)
+- Der Konstruktor, der anstelle dieser veralteten Methode verwendet werden sollte: [`CustomEvent()`](/de/docs/Web/API/CustomEvent/CustomEvent).

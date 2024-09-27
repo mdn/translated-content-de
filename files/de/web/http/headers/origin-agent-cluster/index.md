@@ -7,46 +7,46 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der **`Origin-Agent-Cluster`** HTTP-Response-Header wird verwendet, um zu verlangen, dass das zugehörige {{domxref("Document")}} in einem ursprungsbezogenen [Agent Cluster](https://tc39.es/ecma262/#sec-agent-clusters) platziert wird. Das bedeutet, dass Betriebssystemressourcen (zum Beispiel der Betriebssystemprozess), die zur Auswertung des Dokuments verwendet werden, nur mit anderen Dokumenten desselben {{glossary("origin")}} geteilt werden sollten.
+Der **`Origin-Agent-Cluster`** HTTP-Antwort-Header wird verwendet, um zu verlangen, dass das zugehörige [`Document`](/de/docs/Web/API/Document) in einem _ursprungsbezogenen [Agenten-Cluster](https://tc39.es/ecma262/#sec-agent-clusters)_ platziert wird. Dies bedeutet, dass Betriebssystemressourcen (zum Beispiel der Betriebssystemprozess), die zur Auswertung des Dokuments verwendet werden, nur mit anderen Dokumenten desselben [Ursprungs](/de/docs/Glossary/origin) geteilt werden sollten.
 
-Der Effekt davon ist, dass ein ressourcenintensives Dokument weniger wahrscheinlich die Leistung von Dokumenten anderer Ursprünge beeinträchtigen wird.
+Der Effekt ist, dass ein ressourcenintensives Dokument weniger wahrscheinlich die Leistung von Dokumenten aus anderen Ursprüngen beeinträchtigt.
 
-Moderne Webbrowser haben eine Architektur mit mehreren Prozessen, in der Seiten aus unterschiedlichen Ursprüngen in verschiedenen Betriebssystemprozessen ausgeführt werden können. Dies ist wichtig für die Leistung, da es bedeutet, dass eine ressourcenintensive Seite nicht so stark auf andere Seiten wirkt, die der Benutzer geöffnet hat.
+Moderne Webbrowser haben eine Mehrprozessarchitektur, in der Seiten von unterschiedlichen Ursprüngen in verschiedenen Betriebssystemprozessen ausgeführt werden können. Dies ist wichtig für die Leistung, da es bedeutet, dass eine ressourcenintensive Seite nicht so stark auf andere Seiten wirkt, die der Benutzer geöffnet hat.
 
-Browser können jedoch im Allgemeinen keine {{glossary("site", "same-site")}}, {{glossary("origin", "cross-origin")}}-Seiten in verschiedenen Prozessen ausführen, aufgrund bestimmter DOM-APIs, die auf die Kommunikation zwischen gleichseitigen, Cross-Origin-Seiten angewiesen sind. Zum Beispiel teilen sich standardmäßig Seiten der folgenden zwei Ursprünge dieselben Betriebssystemressourcen:
+Browser können jedoch in der Regel keine [same-site](/de/docs/Glossary/site), [cross-origin](/de/docs/Glossary/origin) Seiten in verschiedenen Prozessen ausführen, aufgrund bestimmter DOM-APIs, die auf same-site, cross-origin Kommunikation angewiesen sind. Zum Beispiel werden standardmäßig Seiten von den folgenden zwei Ursprüngen dieselben Betriebssystemressourcen teilen:
 
 ```plain
 https://apples.example.org
 https://oranges.example.org
 ```
 
-Durch Setzen des `Origin-Agent-Cluster` Headers kann eine Seite verlangen, dass der Browser diesem Ursprung dedizierte Ressourcen zuweist, die nicht mit anderen Ursprüngen geteilt werden.
+Indem Sie den `Origin-Agent-Cluster`-Header setzen, kann eine Seite anfordern, dass der Browser dedizierte Ressourcen für diesen Ursprung bereitstellt, die nicht mit anderen Ursprüngen geteilt werden.
 
-Der Browser ist nicht verpflichtet, die Anfrage zu honorieren. Wenn er es tut, gibt die Eigenschaft {{domxref("Window.originAgentCluster")}} `true` zurück, und das Fenster kann die folgenden Dinge nicht tun, die alle auf gleichseitige, Cross-Origin-Kommunikation angewiesen sind:
+Der Browser ist nicht verpflichtet, die Anforderung zu erfüllen. Wenn er dies tut, gibt die Eigenschaft [`Window.originAgentCluster`](/de/docs/Web/API/Window/originAgentCluster) `true` zurück, und das Fenster kann die folgenden Aktionen nicht durchführen, die alle von same-site, cross-origin Kommunikation abhängen:
 
-- Verwenden von {{domxref("Document.domain")}}.
-- Senden von [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module)-Objekte an andere gleichseitige Cross-Origin-Seiten unter Verwendung von {{domxref("Window.postMessage()", "postMessage()")}}.
-- Senden von {{jsxref("SharedArrayBuffer")}} oder [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory)-Objekten an andere gleichseitige Cross-Origin-Seiten.
+- Verwenden von [`Document.domain`](/de/docs/Web/API/Document/domain).
+- Senden von [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module) Objekten an andere same-site, cross-origin Seiten mittels [`postMessage()`](/de/docs/Web/API/Window/postMessage).
+- Senden von {{jsxref("SharedArrayBuffer")}} oder [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory) Objekten an andere same-site, cross-origin Seiten.
 
-Origin-bezogene Agenten-Cluster sollten nicht als Sicherheitsmerkmal betrachtet werden: Browser können die Anfrage aus verschiedenen Gründen ignorieren oder sie auf eine Weise implementieren, die keinen Speicherschutz bietet (zum Beispiel durch Verwendung separater Threads statt getrennter Prozesse). Stattdessen ist diese Funktion ein Hinweis darauf, dass das Benutzererlebnis verbessert würde, wenn diesem Ursprung dedizierte Ressourcen zugewiesen würden.
+Ursprungsbezogene Agenten-Cluster sollten nicht als Sicherheitsfunktion betrachtet werden: Browser können die Anforderung aus verschiedenen Gründen ignorieren oder wählen, sie auf eine Weise zu implementieren, die keinen Speicherschutz bietet (zum Beispiel die Verwendung von separaten Threads anstelle von separaten Prozessen). Stattdessen ist diese Funktion ein Hinweis darauf, dass sich das Benutzererlebnis verbessern würde, wenn diesem Ursprung dedizierte Ressourcen zugewiesen würden.
 
-Angenommen, Ihre Website beinhaltet eine Seite von einem Ursprung, die ein gleichseitig, Cross-Origin iFrame einbettet, das ein ressourcenintensives Spiel ausführt. Durch Setzen von `Origin-Agent-Cluster` auf dem Dokument im iFrame können Sie verhindern, dass das Spiel die Leistung der Hauptseite beeinträchtigt.
+Zum Beispiel, nehmen wir an, Ihre Website umfasst eine Seite von einem Ursprung, die ein same-site, cross-origin `iframe` einbettet, in dem ein ressourcenintensives Spiel läuft. Durch das Setzen von `Origin-Agent-Cluster` auf das Dokument im `iframe` können Sie verhindern, dass das Spiel die Leistung der Hauptseite beeinflusst.
 
-Der Browser wird sicherstellen, dass alle Seiten eines gegebenen Ursprungs entweder ursprungsbezogen sind oder nicht. Das bedeutet:
+Der Browser stellt sicher, dass alle Seiten von einem bestimmten Ursprung entweder ursprungsbezogen sind oder nicht. Dies bedeutet:
 
-- Wenn die erste Seite eines Ursprungs den Header nicht setzt, dann werden keine anderen Seiten dieses Ursprungs ursprungsbezogen sein, auch wenn diese anderen Seiten den Header setzen.
-- Wenn die erste Seite eines Ursprungs den Header setzt und ursprungsbezogen gemacht wird, dann werden alle anderen Seiten dieses Ursprungs ursprungsbezogen sein, unabhängig davon, ob sie es verlangen oder nicht.
+- Wenn die erste Seite von einem Ursprung den Header nicht setzt, dann sind keine anderen Seiten von diesem Ursprung ursprungsbezogen, selbst wenn diese anderen Seiten den Header setzen.
+- Wenn die erste Seite von einem Ursprung den Header setzt und ursprungsbezogen ist, dann werden alle anderen Seiten von diesem Ursprung ursprungsbezogen, unabhängig davon, ob sie es anfordern oder nicht.
 
-Um eine Art von unvorhersehbarer Situation zu vermeiden, sollten Sie diesen Header für alle Seiten eines gegebenen Ursprungs setzen, oder für keine.
+Um diese Art von unvorhersehbaren Situationen zu vermeiden, sollten Sie diesen Header für alle Seiten von einem bestimmten Ursprung setzen oder für keine.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header type</th>
-      <td>{{Glossary("Response header")}}</td>
+      <td>[Response header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Forbidden header name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>no</td>
     </tr>
   </tbody>
@@ -62,8 +62,8 @@ Origin-Agent-Cluster: <boolean>
 
 - `<boolean>`
 
-  - : `?1` gibt an, dass das zugehörige {{domxref("Document")}} in einem ursprungsbezogenen Agenten-Cluster platziert werden soll.
-    Andere Werte als `?1` werden ignoriert (z.B. das `?0` strukturierte Feld für false).
+  - : `?1` zeigt an, dass das zugehörige [`Document`](/de/docs/Web/API/Document) in einem ursprungsbezogenen Agenten-Cluster platziert werden soll.
+    Andere Werte als `?1` werden ignoriert (z.B. das `?0` strukturierte Feld für falsch).
 
 ## Beispiele
 
@@ -81,5 +81,5 @@ Origin-Agent-Cluster: ?1
 
 ## Siehe auch
 
-- {{domxref("Window.originAgentCluster")}}
-- [Requesting performance isolation with the Origin-Agent-Cluster header](https://web.dev/articles/origin-agent-cluster) auf web.dev
+- [`Window.originAgentCluster`](/de/docs/Web/API/Window/originAgentCluster)
+- [Anfordern von Leistungsisolation mit dem Origin-Agent-Cluster-Header](https://web.dev/articles/origin-agent-cluster) auf web.dev

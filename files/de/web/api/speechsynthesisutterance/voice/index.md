@@ -8,14 +8,13 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`voice`**-Eigenschaft der {{domxref("SpeechSynthesisUtterance")}}-Schnittstelle ruft die Stimme ab und setzt sie, die verwendet wird, um die Äußerung zu sprechen.
+Die **`voice`**-Eigenschaft des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces legt die Stimme fest, die zum Aussprechen der Äußerung verwendet wird, und ermöglicht deren Abfrage und Einstellung.
 
-Diese sollte auf eines der {{domxref("SpeechSynthesisVoice")}}-Objekte gesetzt werden, die von {{domxref("SpeechSynthesis.getVoices()")}} zurückgegeben werden.
-Falls bis zum Zeitpunkt, zu dem die Äußerung gesprochen wird, keine Stimme gesetzt ist, wird die am besten geeignete Standardstimme für die {{domxref("SpeechSynthesisUtterance.lang","lang")}}-Einstellung der Äußerung verwendet.
+Diese sollte auf eines der [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekte gesetzt werden, die von [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) zurückgegeben werden. Wenn sie nicht gesetzt ist, wenn die Äußerung gesprochen wird, wird die Stimme verwendet, die am besten zur Standardeinstellung passt und für die [`lang`](/de/docs/Web/API/SpeechSynthesisUtterance/lang)-Einstellung der Äußerung verfügbar ist.
 
 ## Wert
 
-Ein {{domxref("SpeechSynthesisVoice")}}-Objekt.
+Ein [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekt.
 
 ## Beispiele
 

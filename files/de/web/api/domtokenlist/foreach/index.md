@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`forEach()`**-Methode des {{domxref("DOMTokenList")}}-Interfaces
-ruft die im Parameter angegebene Rückruffunktion einmal für jedes Wert-Paar in der Liste in der Einfügereihenfolge auf.
+Die **`forEach()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle ruft den im Parameter angegebenen Callback für jedes Wertepaar in der Liste in Eingabe-Reihenfolge auf.
 
 ## Syntax
 
@@ -22,17 +21,17 @@ forEach(callback, thisArg)
 
 - `callback`
 
-  - : Die Funktion, die für jedes Element ausgeführt wird, gegebenenfalls mit drei Argumenten:
+  - : Die Funktion, die für jedes Element ausgeführt wird und letztendlich drei Argumente akzeptiert:
 
     - `currentValue`
-      - : Das aktuelle Element, das im Array verarbeitet wird.
+      - : Das aktuelle Element, das im Array bearbeitet wird.
     - `currentIndex`
-      - : Der Index des aktuellen Elements, das im Array verarbeitet wird.
+      - : Der Index des aktuellen Elements, das im Array bearbeitet wird.
     - `listObj`
       - : Das Array, auf das `forEach()` angewendet wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Der Wert, der als {{jsxref("Operators/this", "this")}} beim Ausführen von `callback` verwendet wird.
+  - : Der Wert, der als {{jsxref("Operators/this", "this")}} beim Ausführen des `callback` verwendet wird.
 
 ### Rückgabewert
 
@@ -40,11 +39,7 @@ Keiner.
 
 ## Beispiel
 
-Im folgenden Beispiel rufen wir die Liste der Klassen, die auf einem
-{{htmlelement("pre")}}-Element festgelegt sind, als `DOMTokenList` mit
-{{domxref("Element.classList")}} ab. Wir rufen dann einen Iterator auf, der die
-Werte mit `forEach()` enthält, und schreiben jeden in den `<pre>`-Tag
-{{domxref("Node.textContent")}} innerhalb der inneren `forEach()`-Funktion.
+Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem {{htmlelement("pre")}}-Element als `DOMTokenList` festgelegt sind, unter Verwendung von [`Element.classList`](/de/docs/Web/API/Element/classList). Wir holen dann einen Iterator, der die Werte enthält, mit `forEach()` und schreiben jeden einzelnen in das [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<pre>`-Elements innerhalb der inneren `forEach()`-Funktion.
 
 ### HTML
 
@@ -72,10 +67,10 @@ classes.forEach(function (value, key, listObj) {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("DOMTokenList.entries()")}}, {{domxref("DOMTokenList.keys")}} und {{domxref("DOMTokenList.values")}}.
+- [`DOMTokenList.entries()`](/de/docs/Web/API/DOMTokenList/entries), [`DOMTokenList.keys`](/de/docs/Web/API/DOMTokenList/keys) und [`DOMTokenList.values`](/de/docs/Web/API/DOMTokenList/values).

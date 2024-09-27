@@ -9,41 +9,41 @@ l10n:
 
 {{ PreviousNext("Web/SVG/Tutorial/SVG_Image_Tag", "Web/SVG/Tutorial/SVG_and_CSS") }}
 
-Nachdem wir die Grundlagen der internen Struktur von SVG behandelt haben, werfen wir einen Blick auf einige Werkzeuge zum Arbeiten mit SVG-Dateien.
+Nachdem wir die Grundlagen der SVG-Interna behandelt haben, werfen wir einen Blick auf einige Werkzeuge, um mit SVG-Dateien zu arbeiten.
 
 ## Inkscape
 
 URL: [www.inkscape.org](https://inkscape.org/)
 
-Eines der wichtigsten Werkzeuge für ein Grafikformat ist ein anständiges Zeichenprogramm. Inkscape bietet modernstes Vektorgrafik-Zeichnen und ist Open Source.
+Eines der wichtigsten Werkzeuge für ein Grafikformat ist ein ordentliches Zeichenprogramm. Inkscape bietet modernste Vektorgrafik-Funktionalitäten und ist Open Source.
 
-Außerdem verwendet es SVG als sein natives Dateiformat. Um Inkscape-spezifische Daten zu speichern, erweitert es die SVG-Datei mit Elementen und Attributen in einem benutzerdefinierten Namensraum, aber es besteht auch die Möglichkeit, als einfaches SVG zu exportieren.
+Außerdem verwendet es SVG als sein natives Dateiformat. Um Inkscape-spezifische Daten zu speichern, erweitert es die SVG-Datei mit Elementen und Attributen in einem benutzerdefinierten Namensraum, aber Sie können auch als reines SVG exportieren.
 
 ## Adobe Illustrator
 
 URL: [www.adobe.com/products/illustrator/](https://www.adobe.com/products/illustrator.html)
 
-Bevor Adobe Macromedia übernahm, war es der bedeutendste Förderer von SVG. Aus dieser Zeit stammt die gute SVG-Unterstützung in Illustrator. Allerdings zeigt das resultierende SVG oft einige Eigenheiten, die es notwendig machen, es für die allgemeine Anwendbarkeit nachzubearbeiten.
+Bereits bevor Adobe Macromedia erwarb, war es der bedeutendste Förderer von SVG. Aus dieser Zeit stammt die gute Unterstützung von SVG in Illustrator. Allerdings zeigt das resultierende SVG oft einige Besonderheiten, die es notwendig machen, es für die allgemeine Anwendbarkeit nachzuverarbeiten.
 
 ## Apache Batik
 
 URL: [xmlgraphics.apache.org/batik/](https://xmlgraphics.apache.org/batik/)
 
-Batik ist eine Sammlung von Open-Source-Tools unter dem Dach der Apache Software Foundation. Das Toolkit ist in Java geschrieben und bietet nahezu vollständige Unterstützung für SVG 1.1 sowie einige Funktionen, die ursprünglich für SVG 1.2 geplant waren.
+Batik ist eine Sammlung von Open-Source-Tools unter dem Dach der Apache Software Foundation. Das Toolkit ist in Java geschrieben und bietet fast vollständige Unterstützung für SVG 1.1 sowie einige Funktionen, die ursprünglich für SVG 1.2 geplant waren.
 
-Batik bietet einen Viewer (Squiggle), einen Rasterizer für PNG-Ausgabe, einen SVG-Schönheitsdrucker zum Formatieren von SVG-Dateien und einen TrueType-zu-SVG-Font-Konverter.
+Batik bietet einen Viewer (Squiggle), einen Rasterizer für PNG-Ausgabe, einen SVG-Printer zur Formatierung von SVG-Dateien und einen TrueType-zu-SVG-Font-Konverter.
 
 Zusammen mit [Apache FOP](https://xmlgraphics.apache.org/fop/) kann Batik SVG in PDF umwandeln.
 
 ### Weitere Renderer
 
-Es existieren mehrere Projekte, die aus einer SVG-Quelle ein Rasterbild erstellen können. [ImageMagick](https://imagemagick.org/) ist eines der bekanntesten Befehlszeilen-Tools zur Bildverarbeitung. Die Gnome-Bibliothek [rsvg](https://wiki.gnome.org/Projects/LibRsvg) wird von der Wikipedia verwendet, um ihre SVG-Grafiken zu rastern. Auch die Verwendung von Headless-Browsern wie SlimerJS und PhantomJS ist aus diesem Grund beliebt, da das erzeugte Bild näher an dem ist, was die SVG im Browser aussehen wird.
+Es existieren mehrere Projekte, die ein Rasterbild aus einer SVG-Quelle erstellen können. [ImageMagick](https://imagemagick.org/) ist eines der bekanntesten Kommandozeilen-Tools für Bildbearbeitung. Die Gnome-Bibliothek [rsvg](https://wiki.gnome.org/Projects/LibRsvg) wird von Wikipedia verwendet, um ihre SVG-Grafiken zu rasterisieren. Der Einsatz von headless Browsern wie SlimerJS und PhantomJS ist ebenfalls beliebt für diesen Zweck, da das erstellte Bild näher an dem ist, wie SVG im Browser aussehen wird.
 
 ## Snap.svg
 
 URL: [snapsvg.io](http://snapsvg.io/)
 
-Eine neuere JavaScript-Abstraktionsschicht vom gleichen Autor von Raphael JS. Snap.svg ist für moderne Browser konzipiert und unterstützt daher die neuesten SVG-Funktionen wie Maskierung, Clipping, Muster, vollständige Farbverläufe, Gruppen. Ältere Browser, die von Raphael unterstützt werden, werden nicht unterstützt.
+Eine neuere JavaScript-Abstraktionsschicht vom gleichen Autor von Raphael JS. Snap.svg ist für moderne Browser entwickelt und unterstützt daher die neuesten SVG-Funktionen wie Maskierung, Clipping, Muster, vollständige Verläufe und Gruppen. Es unterstützt nicht die älteren Browser, die Raphael unterstützt.
 
 ## Google Docs
 
@@ -53,9 +53,9 @@ Zeichnungen aus Google Docs können als SVG exportiert werden.
 
 ## Wissenschaft
 
-Die bekannten Plot-Werkzeuge xfig und gnuplot unterstützen beide den Export als SVG. Um Diagramme im Web darzustellen, unterstützt [JSXGraph](https://jsxgraph.uni-bayreuth.de/wp/) VML, SVG und Canvas und entscheidet automatisch, welche Technologie basierend auf den Browserfähigkeiten verwendet werden soll.
+Die bekannten Plotting-Tools xfig und gnuplot unterstützen beide den Export als SVG. Um Graphen im Web zu rendern, unterstützt [JSXGraph](https://jsxgraph.uni-bayreuth.de/wp/) VML, SVG und Canvas und entscheidet automatisch, welche Technologie basierend auf den Browserfähigkeiten verwendet wird.
 
-In GIS-Anwendungen (Geographic Information System) wird SVG häufig sowohl als Speicher- als auch als Rendering-Format verwendet. Siehe [carto.net](https://carto.net/) für Details.
+In GIS (Geographischen Informationssystemen) Anwendungen wird SVG häufig sowohl als Speicher- als auch als Renderformat verwendet. Weitere Details finden Sie auf [carto.net](https://carto.net/).
 
 ## Weitere Werkzeuge!
 

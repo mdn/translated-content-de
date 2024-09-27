@@ -8,31 +8,31 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`userActivation`**-Eigenschaft der {{domxref("Navigator")}}-Schnittstelle gibt ein {{domxref("UserActivation")}}-Objekt zurück, das Informationen über den Benutzeraktivierungszustand des aktuellen Fensters enthält.
+Die schreibgeschützte **`userActivation`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt ein [`UserActivation`](/de/docs/Web/API/UserActivation)-Objekt zurück, das Informationen über den Benutzeraktivierungszustand des aktuellen Fensters enthält.
 
 ## Wert
 
-Ein {{domxref("UserActivation")}}-Objekt.
+Ein [`UserActivation`](/de/docs/Web/API/UserActivation)-Objekt.
 
 ## Beispiele
 
-### Überprüfen, ob kürzlich eine Benutzeraktion ausgeführt wurde
+### Überprüfen, ob kürzlich eine Benutzeraktion durchgeführt wurde
 
-Verwenden Sie {{domxref("UserActivation.isActive")}}, um zu überprüfen, ob der Benutzer derzeit mit der Seite interagiert ({{Glossary("Transient activation")}}).
+Verwenden Sie [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive), um zu überprüfen, ob der Benutzer derzeit mit der Seite interagiert ([Flüchtige Aktivierung](/de/docs/Glossary/Transient_activation)).
 
 ```js
 if (navigator.userActivation.isActive) {
-  // z.B. mit dem Abspielen von Medien fortfahren
+  // proceed to request playing media, for example
 }
 ```
 
-### Überprüfen, ob jemals eine Benutzeraktion ausgeführt wurde
+### Überprüfen, ob jemals eine Benutzeraktion durchgeführt wurde
 
-Verwenden Sie {{domxref("UserActivation.hasBeenActive")}}, um zu überprüfen, ob der Benutzer jemals mit der Seite interagiert hat ({{Glossary("Sticky activation")}}).
+Verwenden Sie [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBeenActive), um zu überprüfen, ob der Benutzer jemals mit der Seite interagiert hat ([Dauerhafte Aktivierung](/de/docs/Glossary/Sticky_activation)).
 
 ```js
 if (navigator.userActivation.hasBeenActive) {
-  // z.B. ein Animation automatisch abspielen
+  // proceed with auto-playing an animation, for example
 }
 ```
 
@@ -46,7 +46,7 @@ if (navigator.userActivation.hasBeenActive) {
 
 ## Siehe auch
 
-- {{domxref("UserActivation")}}
-- {{domxref("UserActivation.hasBeenActive")}}
-- {{domxref("UserActivation.isActive")}}
-- [Funktionen, die von Benutzeraktivierung abhängen](/de/docs/Web/Security/User_activation)
+- [`UserActivation`](/de/docs/Web/API/UserActivation)
+- [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBeenActive)
+- [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive)
+- [Funktionen, die durch Benutzeraktivierung gesteuert werden](/de/docs/Web/Security/User_activation)

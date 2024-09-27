@@ -3,12 +3,12 @@ title: "XRWebGLLayer: getViewport()-Methode"
 short-title: getViewport()
 slug: Web/API/XRWebGLLayer/getViewport
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 6474155473cf570bbcb063e2c0a4df6d23697de6
 ---
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getViewport()`**-Methode des [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Interfaces gibt die [`XRViewport`](/de/docs/Web/API/XRViewport) zurück, die verwendet werden sollte, um die angegebene [`XRView`](/de/docs/Web/API/XRView) in die WebGL-Schicht zu rendern. Für WebXR-Geräte, die einen einzelnen Framebuffer für beide Augen verwenden, stellt das zurückgegebene Viewport den Bereich des Framebuffers dar, in den die Szene für das Auge gerendert werden sollte, das durch die Ansicht repräsentiert wird.
+Die Methode **`getViewport()`** des [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Interfaces gibt den [`XRViewport`](/de/docs/Web/API/XRViewport) zurück, der verwendet werden sollte, um die angegebene [`XRView`](/de/docs/Web/API/XRView) in die WebGL-Schicht zu rendern. Für WebXR-Geräte, die einen einzelnen Framebuffer für das linke und rechte Auge verwenden, stellt der zurückgegebene Viewport den Bereich des Framebuffers dar, in den die Szene für das vom View dargestellte Auge gerendert werden soll.
 
 ## Syntax
 
@@ -23,18 +23,18 @@ getViewport(view)
 
 ### Rückgabewert
 
-Ein [`XRViewport`](/de/docs/Web/API/XRViewport)-Objekt, das den Viewport darstellt, der das Zeichnen auf den Teil der Schicht beschränken wird, der der angegebenen `view` entspricht.
+Ein [`XRViewport`](/de/docs/Web/API/XRViewport)-Objekt, das den Viewport darstellt, welcher das Zeichnen auf den Teil der Schicht beschränkt, der der angegebenen `view` entspricht.
 
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn entweder die angegebene `view` nicht in einem aktiven [`XRFrame`](/de/docs/Web/API/XRFrame) ist oder wenn sich `XRFrame` und der [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) nicht in derselben [WebXR-Sitzung](/de/docs/Web/API/XRSession) befinden.
+  - : Wird ausgelöst, wenn entweder die angegebene `view` nicht in einem aktiven [`XRFrame`](/de/docs/Web/API/XRFrame) ist oder wenn das `XRFrame` und der [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) nicht Teil derselben [WebXR-Sitzung](/de/docs/Web/API/XRSession) sind.
 
 ## Beispiele
 
-Dieses Beispiel zeigt teilweise, wie der Callback für die [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame)-Funktion aussehen könnte, wobei `getViewport()` verwendet wird, um den Viewport zu erhalten, sodass das Zeichnen auf den für das Auge vorgesehenen Bereich beschränkt werden kann, dessen Blickpunkt gerade gerendert wird.
+Dieses Beispiel zeigt teilweise, wie der Callback für die Funktion [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) aussehen könnte. Dabei wird `getViewport()` verwendet, um den Viewport zu erhalten, sodass das Zeichnen auf den Bereich beschränkt wird, der für das aktuell gerenderte Auge vorgesehen ist.
 
-Dies funktioniert, weil die Menge der von einem [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) zurückgegebenen Ansichten jeweils die Perspektive eines Auges auf die Szene darstellen. Da der Framebuffer in zwei Hälften geteilt ist, eine Hälfte für jedes Auge, stellt das Setzen des WebGL-Viewports so ein, dass es zum WebXR-Layer-Viewport passt, sicher, dass beim Rendern der Szene für die Pose des aktuellen Auges diese in die richtige Hälfte des Framebuffers gerendert wird.
+Dies funktioniert, weil die Menge der von einem [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) zurückgegebenen Ansichten jeweils die Perspektive eines Auges auf die Szene darstellen. Da der Framebuffer in der Mitte geteilt ist, eine Hälfte für jedes Auge, wird durch das Setzen des WebGL-Viewports entsprechend dem Viewport der WebXR-Schicht sichergestellt, dass beim Rendern der Szene für die Pose des aktuellen Auges in die richtige Hälfte des Framebuffers gerendert wird.
 
 ```js
 function drawFrame(time, frame) {

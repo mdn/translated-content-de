@@ -7,26 +7,26 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der Informatik stellt ein **`null`**-Wert einen Verweis dar, der im Allgemeinen absichtlich auf ein nicht vorhandenes oder ungültiges {{glossary("object", "Objekt")}} oder eine Adresse zeigt. Die Bedeutung eines Null-Verweises variiert je nach Sprachimplementierung.
+In der Informatik stellt ein **`null`** Wert eine Referenz dar, die im Allgemeinen absichtlich auf ein nicht existierendes oder ungültiges [Objekt](/de/docs/Glossary/object) oder eine Adresse verweist. Die Bedeutung einer Null-Referenz variiert je nach Sprachimplementierung.
 
-In {{Glossary("JavaScript")}} wird `null` als einer der {{Glossary("Primitive", "primitiven Werte")}} markiert, da sein Verhalten scheinbar primitiv ist. Wenn jedoch der [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof)-Operator verwendet wird, gibt er `"object"` zurück.
+In [JavaScript](/de/docs/Glossary/JavaScript) wird `null` als einer der [primitiven Werte](/de/docs/Glossary/Primitive) gekennzeichnet, da sein Verhalten scheinbar primitiv ist. Wenn jedoch der [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof)-Operator verwendet wird, gibt er `"object"` zurück.
 
 ```js
 console.log(typeof null); // "object"
 ```
 
-Dies wird als [ein Fehler](/de/docs/Web/JavaScript/Reference/Operators/typeof#typeof_null) angesehen, der jedoch nicht behoben werden kann, da er zu viele Skripte zerstören würde.
+Dies wird als [ein Fehler](/de/docs/Web/JavaScript/Reference/Operators/typeof#typeof_null) betrachtet, der jedoch nicht behoben werden kann, da er zu viele Skripte beschädigen würde.
 
 ## Siehe auch
 
 - [JavaScript-Datentypen](/de/docs/Web/JavaScript/Data_structures)
-- Das globale JavaScript-Objekt: [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)
-- [Null-Pointer](https://en.wikipedia.org/wiki/Null_pointer) auf Wikipedia
+- Das JavaScript-Globale Objekt: [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)
+- [Nullzeiger](https://en.wikipedia.org/wiki/Null_pointer) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - {{Glossary("JavaScript")}}
-  - {{Glossary("string")}}
-  - {{Glossary("number")}}
-  - {{Glossary("bigint")}}
-  - {{Glossary("boolean")}}
-  - {{Glossary("undefined")}}
-  - {{Glossary("symbol")}}
+  - [JavaScript](/de/docs/Glossary/JavaScript)
+  - [string](/de/docs/Glossary/string)
+  - [number](/de/docs/Glossary/number)
+  - [bigint](/de/docs/Glossary/bigint)
+  - [boolean](/de/docs/Glossary/boolean)
+  - [undefined](/de/docs/Glossary/undefined)
+  - [symbol](/de/docs/Glossary/symbol)

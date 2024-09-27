@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn ein Tab innerhalb eines Fensters verschoben wird.
+Ausgelöst, wenn ein Tab in einem Fenster verschoben wird.
 
-Es wird nur ein einziges Verschiebeereignis ausgelöst, das den Tab darstellt, den der Benutzer direkt verschoben hat. Verschiebeereignisse werden nicht für die anderen Tabs ausgelöst, die infolge dessen verschoben werden müssen. Dieses Ereignis wird nicht ausgelöst, wenn ein Tab zwischen Fenstern verschoben wird. Siehe dafür {{WebExtAPIRef('tabs.onDetached')}}.
+Es wird nur ein Verschiebeereignis ausgelöst, das den Tab darstellt, den der Benutzer direkt verschoben hat. Verschiebeereignisse werden nicht für die anderen Tabs ausgelöst, die sich entsprechend bewegen müssen. Dieses Ereignis wird nicht ausgelöst, wenn ein Tab zwischen Fenstern verschoben wird. Siehe dafür {{WebExtAPIRef('tabs.onDetached')}}.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ browser.tabs.onMoved.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt diesem Ereignis einen Listener hinzu.
+  - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
@@ -34,7 +34,7 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
 
     - `tabId`
       - : `integer`. ID des Tabs, den der Benutzer verschoben hat.
@@ -50,11 +50,11 @@ Ereignisse haben drei Funktionen:
 - `fromIndex`
   - : `integer`. Ursprünglicher Index dieses Tabs im Fenster.
 - `toIndex`
-  - : `integer`. Endgültiger Index dieses Tabs im Fenster.
+  - : `integer`. Endindex dieses Tabs im Fenster.
 
 ## Beispiele
 
-Überwachen und protokollieren von Verschiebeereignissen:
+Hören Sie auf und protokollieren Sie Verschiebeereignisse:
 
 ```js
 function handleMoved(tabId, moveInfo) {
@@ -73,7 +73,7 @@ browser.tabs.onMoved.addListener(handleMoved);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onMoved) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onMoved) API. Diese Dokumentation ist von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -8,33 +8,33 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`decoding`**-Eigenschaft der {{domxref("SVGImageElement")}}-Schnittstelle gibt dem Browser einen Hinweis darauf, ob die Bilddekodierung synchron oder asynchron durchgeführt werden soll.
+Die **`decoding`**-Eigenschaft der [`SVGImageElement`](/de/docs/Web/API/SVGImageElement)-Schnittstelle gibt dem Browser einen Hinweis darauf, ob die Bild-Dekodierung synchron oder asynchron durchgeführt werden soll.
 
 ## Wert
 
 Ein String, der den Dekodierungshinweis darstellt. Mögliche Werte sind:
 
 - `"sync"`
-  - : Das Bild synchron dekodieren für eine atomare Darstellung mit anderem Inhalt.
+  - : Dekodieren Sie das Bild synchron für eine atomare Darstellung mit anderem Inhalt.
 - `"async"`
-  - : Das Bild asynchron dekodieren und anderen Inhalt rendern lassen, bevor dies abgeschlossen ist.
+  - : Dekodieren Sie das Bild asynchron und erlauben Sie, dass anderer Inhalt gerendert wird, bevor dieser Vorgang abgeschlossen ist.
 - `"auto"`
-  - : Keine Präferenz für den Dekodierungsmodus; der Browser entscheidet, was für den Benutzer am besten ist. Dies ist der Standardwert, aber verschiedene Browser haben unterschiedliche Standardeinstellungen:
+  - : Keine Präferenz für den Dekodierungsmodus; der Browser entscheidet, was für den Benutzer am besten ist. Dies ist der Standardwert, aber verschiedene Browser haben unterschiedliche Standardwerte:
     - Chromium verwendet standardmäßig `"sync"`.
     - Firefox verwendet standardmäßig `"async"`.
-    - Safari verwendet standardmäßig `"sync"`, außer in einigen wenigen Umständen.
+    - Safari verwendet standardmäßig `"sync"`, außer in einer kleinen Anzahl von Fällen.
 
 ## Nutzungshinweise
 
-Die `decoding`-Eigenschaft gibt dem Browser einen Hinweis darauf, ob die Bilddekodierung zusammen mit anderen Aufgaben in einem einzigen Schritt (`"sync"`) durchgeführt werden soll oder ob anderer Inhalt vor Abschluss dieses Vorgangs gerendert werden darf (`"async"`). In der Praxis sind die Unterschiede zwischen den beiden Werten oft schwer wahrzunehmen, und wo es Unterschiede gibt, gibt es oft eine bessere Lösung.
+Die `decoding`-Eigenschaft gibt dem Browser einen Hinweis darauf, ob die Bild-Dekodierung zusammen mit anderen Aufgaben in einem Schritt (`"sync"`) durchgeführt werden soll, oder ob anderer Inhalt gerendert werden darf, bevor dieser Vorgang abgeschlossen ist (`"async"`). Tatsächlich sind die Unterschiede zwischen den beiden Werten oft schwer zu erkennen, und wo es Unterschiede gibt, gibt es oft einen besseren Weg.
 
-Bei Bildern, die in das DOM innerhalb des Viewports eingefügt werden, kann `"async"` zu ungestylten Inhaltssprüngen führen, während `"sync"` zu geringen [Rucklern](/de/docs/Glossary/Jank) führen kann. Die Verwendung der Methode {{domxref("SVGImageElement.decode()")}} ist in der Regel eine bessere Möglichkeit, eine atomare Darstellung zu erreichen, ohne anderen Inhalt zu blockieren.
+Für Bilder, die im DOM innerhalb des Viewports eingefügt werden, kann `"async"` zu Blinken von ungestaltetem Inhalt führen, während `"sync"` zu kleinen [Jank](/de/docs/Glossary/Jank)-Effekten führen kann. Die Verwendung der [`SVGImageElement.decode()`](/de/docs/Web/API/SVGImageElement/decode)-Methode ist normalerweise ein besserer Weg, eine atomare Darstellung zu erreichen, ohne anderen Inhalt zu blockieren.
 
-Für Bilder, die außerhalb des Viewports in das DOM eingefügt werden, dekodieren moderne Browser sie normalerweise, bevor sie in den sichtbaren Bereich gescrollt werden, und es gibt keinen bemerkbaren Unterschied, welches der beiden Werte verwendet wird.
+Für Bilder, die im DOM außerhalb des Viewports eingefügt werden, dekodieren moderne Browser sie normalerweise, bevor sie ins Sichtfeld gescrollt werden, und es gibt keinen merklichen Unterschied bei der Verwendung eines der beiden Werte.
 
 ## Beispiele
 
-Im folgenden Beispiel wird wahrscheinlich ein leeres Bild auf der Seite angezeigt, während das Bild heruntergeladen wird. Das Setzen von `decoding` wird das nicht verhindern.
+Im folgenden Beispiel wird wahrscheinlich ein leeres Bild auf der Seite angezeigt, während das Bild heruntergeladen wird. Das Setzen von `decoding` wird dies nicht verhindern.
 
 ```js
 const SVG_NS = "http://www.w3.org/2000/svg";
@@ -62,17 +62,17 @@ const svg = document.querySelector("svg");
 
 const img = document.createElementNS(SVG_NS, "image");
 await loadImage("img/logo.svg", img);
-// Die Verwendung von `sync` kann sicherstellen, dass anderer Inhalt nur zusammen mit dem Bild aktualisiert wird
+// Using `sync` can ensure other content is only updated with the image
 img.decoding = "sync";
 svg.appendChild(img);
 const text = document.createElementNS(SVG_NS, "text");
-text.textContent = "Bild ist vollständig geladen!";
+text.textContent = "Image is fully loaded!";
 svg.appendChild(text);
 ```
 
-Eine bessere Lösung ist jedoch die Verwendung der Methode {{domxref("SVGImageElement.decode()")}}, um dieses Problem zu lösen. Sie bietet eine Möglichkeit, ein Bild asynchron zu dekodieren und es erst in das DOM einzufügen, wenn es vollständig heruntergeladen und dekodiert ist, wodurch das oben erwähnte Problem des leeren Bildes vermieden wird. Dies ist besonders nützlich, wenn Sie ein bestehendes Bild dynamisch gegen ein neues austauschen und verhindert auch, dass nicht zusammenhängende Darstellungen außerhalb dieses Codes blockiert werden, während das Bild dekodiert wird.
+Eine bessere Lösung besteht jedoch darin, die [`SVGImageElement.decode()`](/de/docs/Web/API/SVGImageElement/decode)-Methode zu verwenden, um dieses Problem zu lösen. Sie bietet eine Möglichkeit, ein Bild asynchron zu dekodieren und es erst dann in das DOM einzufügen, wenn es vollständig heruntergeladen und dekodiert ist, wodurch das oben erwähnte leere Bildproblem vermieden wird. Dies ist besonders nützlich, wenn Sie ein bestehendes Bild dynamisch gegen ein neues austauschen, und verhindert auch, dass nicht verwandte Darstellungen außerhalb dieses Codes blockiert werden, während das Bild dekodiert wird.
 
-Die Verwendung von `img.decoding = "async"` kann verhindern, dass anderer Inhalt zurückgehalten wird, falls die Dekodierungszeit lang ist:
+Die Verwendung von `img.decoding = "async"` kann verhindern, dass anderer Inhalt mit der Anzeige verzögert wird, wenn die Dekodierungszeit lang ist:
 
 ```js
 const SVG_NS = "http://www.w3.org/2000/svg";
@@ -94,5 +94,5 @@ svg.appendChild(img);
 
 ## Siehe auch
 
-- Die {{domxref("SVGImageElement.decode()")}}-Methode
-- Das SVG-{{SVGElement("image")}}-Element {{SVGAttr("decoding")}}-Attribut.
+- Die [`SVGImageElement.decode()`](/de/docs/Web/API/SVGImageElement/decode)-Methode
+- Das SVG {{SVGElement("image")}}-Element {{SVGAttr("decoding")}}-Attribut.

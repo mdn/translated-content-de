@@ -8,8 +8,11 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`TreeWalker.parentNode()`**-Methode bewegt den aktuellen
-{{domxref("Node")}} zum ersten _sichtbaren_ Vorfahrenknoten in der Dokumentreihenfolge und gibt den gefundenen Knoten zurück. Wenn ein solcher Knoten nicht existiert oder wenn er über dem _Wurzelknoten_ des `TreeWalker` liegt, wird `null` zurückgegeben und der aktuelle Knoten wird nicht geändert.
+Die **`TreeWalker.parentNode()`** Methode bewegt den aktuellen
+[`Node`](/de/docs/Web/API/Node) zum ersten _sichtbaren_ Vorfahrknoten in der Dokumentenreihenfolge
+und gibt den gefundenen Knoten zurück. Wenn ein solcher Knoten nicht existiert oder über dem
+_Root-Node_ des `TreeWalker` liegt, gibt sie `null` zurück und der aktuelle
+Knoten wird nicht verändert.
 
 ## Syntax
 
@@ -23,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("Node")}}-Objekt oder `null`.
+Ein [`Node`](/de/docs/Web/API/Node) Objekt oder `null`.
 
 ## Beispiele
 
@@ -38,7 +41,7 @@ const treeWalker = document.createTreeWalker(
   },
   false,
 );
-const node = treeWalker.parentNode(); // gibt null zurück, da kein Vorefahren vorhanden ist
+const node = treeWalker.parentNode(); // returns null as there is no parent
 ```
 
 ## Spezifikationen
@@ -51,4 +54,4 @@ const node = treeWalker.parentNode(); // gibt null zurück, da kein Vorefahren v
 
 ## Siehe auch
 
-- Das {{domxref("TreeWalker")}} Interface, zu dem es gehört.
+- Das [`TreeWalker`](/de/docs/Web/API/TreeWalker) Interface, zu dem es gehört.

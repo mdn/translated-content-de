@@ -1,5 +1,5 @@
 ---
-title: "Benachrichtigung: Eigenschaft „silent“"
+title: "Notification: silent-Eigenschaft"
 short-title: silent
 slug: Web/API/Notification/silent
 l10n:
@@ -8,15 +8,19 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`silent`** schreibgeschützte Eigenschaft der {{domxref("Notification")}}-Schnittstelle gibt an, ob die Benachrichtigung stumm sein soll, d.h., dass keine Geräusche oder Vibrationen ausgegeben werden sollen, unabhängig von den Geräteeinstellungen. Dies wird in der `silent`-Option des {{domxref("Notification.Notification","Notification()")}}-Konstruktors festgelegt.
+Die schreibgeschützte Eigenschaft **`silent`** des
+[`Notification`](/de/docs/Web/API/Notification)-Interfaces gibt an, ob die Benachrichtigung lautlos sein soll, d.h. keine Töne oder Vibrationen ausgegeben werden, unabhängig von den Geräteeinstellungen. Dies wird in der `silent`-Option des
+[`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
 
 ## Wert
 
-Ein boolescher Wert oder `null`. Wenn `true`, ist die Benachrichtigung stumm; wenn `null`, werden die Standardeinstellungen des Geräts beachtet.
+Ein boolescher Wert oder `null`. Wenn `true`, ist die Benachrichtigung lautlos; wenn `null`, werden die Standardgeräte-Einstellungen respektiert.
 
 ## Beispiele
 
-Das folgende Code-Snippet soll eine stille Benachrichtigung auslösen; ein einfaches `options`-Objekt wird erstellt und dann die Benachrichtigung mit dem {{DOMxRef("Notification.Notification","Notification()")}}-Konstruktor ausgelöst.
+Das folgende Code-Snippet soll eine lautlose Benachrichtigung auslösen; es wird ein einfaches
+`options`-Objekt erstellt und dann die Benachrichtigung mit dem
+[`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktor ausgelöst.
 
 ```js
 const options = {
@@ -33,7 +37,7 @@ console.log(n.silent); // true
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

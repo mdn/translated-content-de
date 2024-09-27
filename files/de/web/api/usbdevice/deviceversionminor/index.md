@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: deviceVersionMinor Eigenschaft"
+title: "USBDevice: deviceVersionMinor-Eigenschaft"
 short-title: deviceVersionMinor
 slug: Web/API/USBDevice/deviceVersionMinor
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die **`deviceVersionMinor`** schreibgeschützte Eigenschaft des {{domxref("USBDevice")}} Interfaces gibt die Nebenversionsnummer des Geräts in einem semantischen Versionierungsschema an.
+Die schreibgeschützte Eigenschaft **`deviceVersionMinor`** des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt die Nebenversionsnummer des Geräts in einem semantischen Versionsschema an.
 
 ## Wert
 

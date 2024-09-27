@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Badging API")}}{{securecontext_header}}
 
-Die **`clearAppBadge()`** Methode der {{domxref("Navigator")}} Schnittstelle entfernt ein Badge vom aktuellen App-Symbol, indem es auf `nichts` gesetzt wird. Der Wert `nichts` zeigt an, dass derzeit kein Badge gesetzt ist und der Status des Badges _gelöscht_ ist.
+Die **`clearAppBadge()`**-Methode der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle entfernt ein Abzeichen vom Icon der aktuellen App, indem sie es auf `nothing` setzt. Der Wert `nothing` bedeutet, dass derzeit kein Abzeichen gesetzt ist und der Status des Abzeichens _gelöscht_ ist.
 
 ## Syntax
 
@@ -26,16 +26,16 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Dokument nicht vollständig aktiv ist.
-- `SecurityError` {{domxref("DOMException")}}
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) blockiert wurde.
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn {{domxref('PermissionStatus.state')}} nicht `granted` ist.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) nicht `granted` ist.
 
 ## Beispiele
 
-Sobald alle Nachrichten in einer Anwendung gelesen wurden, rufen Sie `clearAppBadge()` auf, um das Badge zu entfernen und die Benachrichtigung zu löschen.
+Sobald alle Nachrichten in einer Anwendung gelesen wurden, rufen Sie `clearAppBadge()` auf, um das Abzeichen zu entfernen und die Benachrichtigung zu löschen.
 
 ```js
 navigator.clearAppBadge();
@@ -51,4 +51,4 @@ navigator.clearAppBadge();
 
 ## Siehe auch
 
-- [Badging für App-Symbole](https://developer.chrome.com/docs/capabilities/web-apis/badging-api/)
+- [Badging für App-Icons](https://developer.chrome.com/docs/capabilities/web-apis/badging-api/)

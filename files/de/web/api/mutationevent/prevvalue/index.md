@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("UI Events")}}{{Deprecated_Header}}
 
-Die **`prevValue`** schreibgeschützte Eigenschaft des {{domxref("MutationEvent")}}-Interfaces gibt eine Zeichenkette zurück. Bei `DOMAttrModified`-Ereignissen repräsentiert sie den vorherigen Wert des {{domxref("Attr")}}-Knotens. Bei `DOMCharacterDataModified`-Ereignissen enthält sie den vorherigen Wert des {{domxref("CharacterData")}}-Knotens. In allen anderen Fällen gibt sie die leere Zeichenkette (`""`) zurück.
+Die schreibgeschützte **`prevValue`**-Eigenschaft der [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Schnittstelle gibt einen String zurück. Bei `DOMAttrModified`-Ereignissen stellt sie den vorherigen Wert des [`Attr`](/de/docs/Web/API/Attr)-Knotens dar. Bei `DOMCharacterDataModified`-Ereignissen enthält sie den vorherigen Wert des [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens. In allen anderen Fällen gibt sie den leeren String (`""`) zurück.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
@@ -30,6 +30,6 @@ element.addEventListener(
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

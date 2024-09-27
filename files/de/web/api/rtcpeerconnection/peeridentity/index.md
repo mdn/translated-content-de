@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: Eigenschaft peerIdentity"
+title: "RTCPeerConnection: peerIdentity-Eigenschaft"
 short-title: peerIdentity
 slug: Web/API/RTCPeerConnection/peerIdentity
 l10n:
@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`peerIdentity`** schreibgeschützte Eigenschaft des {{domxref("RTCPeerConnection")}}-Interfaces gibt ein JavaScript-{{jsxref("Promise")}} zurück, das zu einer {{domxref("RTCIdentityAssertion")}} aufgelöst wird, welche eine Zeichenkette enthält, die den entfernten Peer identifiziert. Sobald dieses Versprechen erfolgreich aufgelöst ist, bleibt die resultierende Identität die **Zielpeer-Identität** und kann für die Dauer der Verbindung nicht mehr geändert werden.
+Die schreibgeschützte Eigenschaft **`peerIdentity`** der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt ein JavaScript-{{jsxref("Promise")}} zurück, das zu einer [`RTCIdentityAssertion`](/de/docs/Web/API/RTCIdentityAssertion) aufgelöst wird, die einen String enthält, der den entfernten Peer identifiziert. Sobald dieses Versprechen erfolgreich aufgelöst wurde, ist die resultierende Identität die **Ziel-Peer-Identität** und kann während der gesamten Verbindung nicht geändert werden.
 
 ## Wert
 
-Ein JavaScript-{{jsxref("Promise")}}, das zu einer {{domxref("RTCIdentityAssertion")}} aufgelöst wird und die Identität des entfernten Peers beschreibt.
+Ein JavaScript-{{jsxref("Promise")}}, das zu einer [`RTCIdentityAssertion`](/de/docs/Web/API/RTCIdentityAssertion) aufgelöst wird, die die Identität des entfernten Peers beschreibt.
 
-Tritt ein Fehler auf, während versucht wird, eine eingehende Identitätsbehauptung zu validieren (d.h. die Informationen, die die Identität eines Peers beschreiben), wird das Promise abgelehnt. Wenn es noch keine Zielpeer-Identität gibt, wird `peerIdentity` auf ein neu erstelltes Promise gesetzt und der Prozess beginnt von neuem, bis der Prozess erfolgreich ist oder keine weiteren Authentifizierungsversuche unternommen werden.
+Tritt ein Fehler auf, während versucht wird, eine eingehende Identitätsbehauptung zu validieren (d. h. die Informationen, die die Identität eines Peers beschreiben), wird das Versprechen abgelehnt. Wenn es noch keine Ziel-Peer-Identität gibt, wird `peerIdentity` auf ein neu erstelltes Versprechen gesetzt und der Vorgang beginnt erneut, bis der Prozess erfolgreich ist oder keine weiteren Versuche zur Authentifizierung unternommen werden.
 
 > [!NOTE]
-> Das von {{domxref("RTCPeerConnection.setRemoteDescription", "setRemoteDescription()")}} zurückgegebene Promise kann erst aufgelöst werden, nachdem eine festgelegte Zielpeer-Identität validiert wurde. Wenn die Identität noch nicht validiert wurde, wird das Promise von `setRemoteDescription()` abgelehnt. Wenn keine Zielpeer-Identität vorhanden ist, muss `setRemoteDescription()` nicht auf die Validierung warten, bevor es aufgelöst wird.
+> Das von [`setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) zurückgegebene Versprechen kann nicht aufgelöst werden, bis eine festgelegte Ziel-Peer-Identität validiert ist. Wenn die Identität noch nicht validiert wurde, wird das von `setRemoteDescription()` zurückgegebene Versprechen abgelehnt. Gibt es keine Ziel-Peer-Identität, muss `setRemoteDescription()` nicht auf die Validierung warten, bevor es aufgelöst wird.
 
 ## Beispiele
 
-In diesem Beispiel wird eine Funktion `getIdentityAssertion()` erstellt, die asynchron wartet, bis die Identität des Peers verifiziert ist, und dann die Identität an den Aufrufer zurückgibt. Tritt ein Fehler auf und das Promise wird abgelehnt, wird dieser Fehler in der Konsole protokolliert und `null` an den Aufrufer zurückgegeben.
+In diesem Beispiel wird eine Funktion, `getIdentityAssertion()`, erstellt, die asynchron darauf wartet, dass die Identität des Peers verifiziert wird, und dann die Identität an den Aufrufer zurückgibt. Tritt ein Fehler auf und das Versprechen wird abgelehnt, wird dieser Fehler in der Konsole protokolliert und es wird `null` an den Aufrufer zurückgegeben.
 
 ```js
 let pc = new RTCPeerConnection();

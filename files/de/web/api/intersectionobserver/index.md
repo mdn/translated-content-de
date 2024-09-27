@@ -7,34 +7,34 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die **`IntersectionObserver`**-Schnittstelle der [Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API) bietet eine Möglichkeit, Änderungen in der Überschneidung eines Ziel-Elements mit einem Vorfahren-Element oder dem {{Glossary('viewport')}} eines Top-Level-Dokuments asynchron zu beobachten. Das Vorfahren-Element oder das Viewport wird als Wurzel bezeichnet.
+Das **`IntersectionObserver`**-Interface der [Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API) bietet eine Möglichkeit, Änderungen im Schnittbereich eines Zielelements mit einem Vorfahrenelement oder mit dem [Viewport](/de/docs/Glossary/viewport) eines obersten Dokuments asynchron zu beobachten. Das Vorfahrenelement oder der Viewport wird als Wurzel bezeichnet.
 
-Wenn ein `IntersectionObserver` erstellt wird, ist er so konfiguriert, dass er bestimmte Sichtbarkeitsgrade innerhalb der Wurzel überwacht. Die Konfiguration kann nicht geändert werden, nachdem der `IntersectionObserver` erstellt wurde, sodass ein Beobachterobjekt nur nützlich ist, um spezifische Änderungen im Grad der Sichtbarkeit zu beobachten; Allerdings können Sie mehrere Ziel-Elemente mit demselben Beobachter überwachen.
+Wenn ein `IntersectionObserver` erstellt wird, ist er so konfiguriert, dass er bestimmte Sichtbarkeitsverhältnisse innerhalb der Wurzel beobachtet. Die Konfiguration kann nicht geändert werden, sobald der `IntersectionObserver` erstellt wurde, sodass ein bestimmtes Beobachterobjekt nur nützlich ist, um bestimmte Sichtbarkeitsänderungen zu überwachen. Sie können jedoch mit demselben Beobachter mehrere Zielelemente beobachten.
 
 ## Konstruktor
 
-- {{domxref("IntersectionObserver.IntersectionObserver", "IntersectionObserver()")}}
-  - : Erstellt ein neues `IntersectionObserver`-Objekt, das eine angegebene Callback-Funktion ausführt, wenn es feststellt, dass die Sichtbarkeit eines Ziel-Elements eine oder mehrere Schwellenwerte überschritten hat.
+- [`IntersectionObserver()`](/de/docs/Web/API/IntersectionObserver/IntersectionObserver)
+  - : Erstellt ein neues `IntersectionObserver`-Objekt, das eine angegebene Rückruffunktion ausführt, wenn es erkennt, dass die Sichtbarkeit eines Zielelements einen oder mehrere Schwellenwerte überschritten hat.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("IntersectionObserver.root")}} {{ReadOnlyInline}}
-  - : Das {{domxref("Element")}} oder {{domxref("Document")}}, dessen Grenzen als Begrenzungsrahmen beim Testen auf Überschneidung verwendet werden. Wenn kein `root`-Wert an den Konstruktor übergeben wurde oder sein Wert `null` ist, wird das Viewport des Top-Level-Dokuments verwendet.
-- {{domxref("IntersectionObserver.rootMargin")}} {{ReadOnlyInline}}
-  - : Ein Versatz-Rechteck, das auf den Begrenzungsrahmen der Wurzel angewendet wird, wenn Überschneidungen berechnet werden, und welches die Wurzel effektiv für Berechnungszwecke verkleinert oder vergrößert. Der von dieser Eigenschaft zurückgegebene Wert stimmt möglicherweise nicht mit dem überein, der beim Aufruf des Konstruktors angegeben wurde, da er zur Erfüllung interner Anforderungen geändert werden kann. Jeder Versatz kann in Pixeln (`px`) oder als Prozentsatz (`%`) ausgedrückt werden. Der Standardwert ist "0px 0px 0px 0px".
-- {{domxref("IntersectionObserver.thresholds")}} {{ReadOnlyInline}}
-  - : Eine Liste von Schwellenwerten, in aufsteigender Reihenfolge sortiert, wobei jeder Schwellenwert ein Verhältnis der Überschneidungsfläche zur Begrenzungsrahmenfläche eines beobachteten Ziels ist. Benachrichtigungen für ein Ziel werden generiert, wenn einer der Schwellenwerte für dieses Ziel überschritten wird. Wenn dem Konstruktor kein Wert übergeben wurde, wird 0 verwendet.
+- [`IntersectionObserver.root`](/de/docs/Web/API/IntersectionObserver/root) {{ReadOnlyInline}}
+  - : Das [`Element`](/de/docs/Web/API/Element) oder Dokument ([`Document`](/de/docs/Web/API/Document)), dessen Grenzen als Begrenzungsrahmen verwendet werden, wenn auf Schnittpunkte getestet wird. Wenn kein `root`-Wert an den Konstruktor übergeben wurde oder sein Wert `null` ist, wird der Viewport des obersten Dokuments verwendet.
+- [`IntersectionObserver.rootMargin`](/de/docs/Web/API/IntersectionObserver/rootMargin) {{ReadOnlyInline}}
+  - : Ein Offset-Rechteck, das auf den Begrenzungsrahmen der Wurzel angewendet wird, wenn Schnittpunkte berechnet werden, wodurch die Wurzel für Berechnungszwecke effektiv verkleinert oder vergrößert wird. Der von dieser Eigenschaft zurückgegebene Wert ist möglicherweise nicht derselbe wie der, der beim Aufruf des Konstruktors angegeben wurde, da er möglicherweise an interne Anforderungen angepasst wird. Jedes Offset kann in Pixeln (`px`) oder als Prozentsatz (`%`) ausgedrückt werden. Der Standardwert ist "0px 0px 0px 0px".
+- [`IntersectionObserver.thresholds`](/de/docs/Web/API/IntersectionObserver/thresholds) {{ReadOnlyInline}}
+  - : Eine Liste von Schwellenwerten, sortiert in aufsteigender numerischer Reihenfolge, wobei jeder Schwellenwert ein Verhältnis von Schnittfläche zur Begrenzungsrahmenfläche eines beobachteten Ziels darstellt. Benachrichtigungen für ein Ziel werden generiert, wenn einer der Schwellenwerte für dieses Ziel überschritten wird. Wenn dem Konstruktor kein Wert übergeben wurde, wird 0 verwendet.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("IntersectionObserver.disconnect()")}}
-  - : Stoppt das `IntersectionObserver`-Objekt, ein beliebiges Ziel zu beobachten.
-- {{domxref("IntersectionObserver.observe()")}}
-  - : Gibt dem `IntersectionObserver` an, ein Ziel-Element zu beobachten.
-- {{domxref("IntersectionObserver.takeRecords()")}}
-  - : Gibt ein Array von {{domxref("IntersectionObserverEntry")}}-Objekten für alle beobachteten Ziele zurück.
-- {{domxref("IntersectionObserver.unobserve()")}}
-  - : Gibt dem `IntersectionObserver` an, die Beobachtung eines bestimmten Ziel-Elements zu stoppen.
+- [`IntersectionObserver.disconnect()`](/de/docs/Web/API/IntersectionObserver/disconnect)
+  - : Hält das `IntersectionObserver`-Objekt davon ab, ein Ziel zu beobachten.
+- [`IntersectionObserver.observe()`](/de/docs/Web/API/IntersectionObserver/observe)
+  - : Instruiert den `IntersectionObserver`, ein Zielelement zu beobachten.
+- [`IntersectionObserver.takeRecords()`](/de/docs/Web/API/IntersectionObserver/takeRecords)
+  - : Gibt ein Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Objekten für alle beobachteten Ziele zurück.
+- [`IntersectionObserver.unobserve()`](/de/docs/Web/API/IntersectionObserver/unobserve)
+  - : Instruiert den `IntersectionObserver`, die Beobachtung eines bestimmten Zielelements zu stoppen.
 
 ## Beispiele
 
@@ -61,6 +61,6 @@ intersectionObserver.observe(document.querySelector(".scrollerFooter"));
 
 ## Siehe auch
 
-- {{domxref('MutationObserver')}}
-- {{domxref('PerformanceObserver')}}
-- {{domxref('ResizeObserver')}}
+- [`MutationObserver`](/de/docs/Web/API/MutationObserver)
+- [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)
+- [`ResizeObserver`](/de/docs/Web/API/ResizeObserver)

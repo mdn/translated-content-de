@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableElement: summary Eigenschaft"
+title: "HTMLTableElement: summary-Eigenschaft"
 short-title: summary
 slug: Web/API/HTMLTableElement/summary
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
-Die **`HTMLTableElement.summary`** Eigenschaft repräsentiert die
-Tabellenbeschreibung.
+Die **`HTMLTableElement.summary`**-Eigenschaft stellt die
+Beschreibung der Tabelle dar.
 
 ## Wert
 

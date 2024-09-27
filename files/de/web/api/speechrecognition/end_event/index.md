@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`end`**-Ereignis des [Web Speech API](/de/docs/Web/API/Web_Speech_API)-Objekts {{domxref("SpeechRecognition")}} wird ausgelöst, wenn der Sprach­erkennungs­dienst die Verbindung getrennt hat.
+Das **`end`** Ereignis des [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition) Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Spracherkennungsdienst die Verbindung getrennt hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignis­handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("end", (event) => {});
@@ -22,11 +22,11 @@ onend = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{DOMxRef("Event")}} ohne zusätzliche Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beispiele
 
-Sie können das `end`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
+Sie können das `end` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
 
 ```js
 const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
@@ -36,7 +36,7 @@ recognition.addEventListener("end", () => {
 });
 ```
 
-Oder verwenden Sie die `onend`-Ereignis­handler-Eigenschaft:
+Oder die `onend` Ereignishandler-Eigenschaft verwenden:
 
 ```js
 recognition.onend = () => {

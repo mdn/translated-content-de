@@ -1,5 +1,5 @@
 ---
-title: Ein einfaches 2D-WebGL-Animationsbeispiel
+title: Ein grundlegendes 2D WebGL-Animationsbeispiel
 slug: Web/API/WebGL_API/Basic_2D_animation_example
 l10n:
   sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
@@ -7,15 +7,15 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}
 
-In diesem WebGL-Beispiel erstellen wir eine Leinwand (canvas) und rendern darin ein sich drehendes Quadrat mithilfe von WebGL. Das Koordinatensystem, das wir zur Darstellung unserer Szene verwenden, entspricht dem Koordinatensystem der Leinwand. Das heißt, (0, 0) befindet sich in der oberen linken Ecke und die untere rechte Ecke ist bei (600, 460).
+In diesem WebGL-Beispiel erstellen wir eine Leinwand und rendern darin ein sich drehendes Quadrat mit WebGL. Das Koordinatensystem, das wir zur Darstellung unserer Szene verwenden, ist dasselbe wie das Koordinatensystem der Leinwand. Das heißt, (0, 0) befindet sich in der oberen linken Ecke und die untere rechte Ecke ist bei (600, 460).
 
-## Ein Beispiel für ein rotierendes Quadrat
+## Ein Beispiel für ein sich drehendes Quadrat
 
-Lassen Sie uns die verschiedenen Schritte durchgehen, um unser rotierendes Quadrat zu erhalten.
+Lassen Sie uns die verschiedenen Schritte durchgehen, um unser sich drehendes Quadrat zu erhalten.
 
 ### Vertex-Shader
 
-Zuerst werfen wir einen Blick auf den Vertex-Shader. Seine Aufgabe ist es, die Koordinaten, die wir für unsere Szene verwenden, in Clipping-Koordinaten zu konvertieren (also das System, bei dem (0, 0) im Zentrum des Kontexts liegt und jede Achse von -1,0 bis 1,0 verläuft, unabhängig von der tatsächlichen Größe des Kontexts).
+Zuerst werfen wir einen Blick auf den Vertex-Shader. Seine Aufgabe besteht, wie üblich, darin, die Koordinaten, die wir für unsere Szene verwenden, in Clipping-Koordinaten umzuwandeln (das heißt, das System, bei dem (0, 0) im Zentrum des Kontextes liegt und jede Achse sich von -1,0 bis 1,0 erstreckt, unabhängig von der tatsächlichen Größe des Kontextes).
 
 ```html
 <script id="vertex-shader" type="x-shader/x-vertex">
@@ -37,17 +37,17 @@ Zuerst werfen wir einen Blick auf den Vertex-Shader. Seine Aufgabe ist es, die K
 </script>
 ```
 
-Das Hauptprogramm teilt uns das Attribut `aVertexPosition` mit, welches die Position des Vertex in welchem Koordinatensystem auch immer darstellt. Wir müssen diese Werte so konvertieren, dass beide Komponenten der Position im Bereich von -1,0 bis 1,0 liegen. Dies kann leicht erreicht werden, indem man mit einem Skalierungsfaktor multipliziert, der auf dem {{glossary("aspect ratio", "Seitenverhältnis")}} des Kontexts basiert. Diese Berechnung werden wir gleich sehen.
+Das Hauptprogramm teilt uns das Attribut `aVertexPosition` mit, das die Position des Vertex in welchem Koordinatensystem auch immer ist. Wir müssen diese Werte so umwandeln, dass beide Komponenten der Position im Bereich von -1,0 bis 1,0 liegen. Dies kann einfach durch Multiplikation mit einem Skalierungsfaktor erfolgen, der auf dem [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Kontextes basiert. Diese Berechnung werden wir in Kürze sehen.
 
-Wir drehen auch die Form, und das können wir hier tun, indem wir eine Transformation anwenden. Das machen wir zuerst. Die gedrehte Position des Vertex wird berechnet, indem der Rotationsvektor angewendet wird, der im einheitlichen `uRotationVector` enthalten ist und vom JavaScript-Code berechnet wurde.
+Wir drehen auch die Form, und das können wir hier tun, indem wir eine Transformation anwenden. Das machen wir zuerst. Die gedrehte Position des Vertex wird berechnet, indem wir den Rotationsvektor anwenden, der sich im Uniform `uRotationVector` befindet und vom JavaScript-Code berechnet wurde.
 
-Dann wird die endgültige Position berechnet, indem die gedrehte Position mit dem Skalierungsvektor multipliziert wird, der vom JavaScript-Code in `uScalingFactor` bereitgestellt wird. Die Werte von `z` und `w` sind jeweils auf 0,0 und 1,0 festgelegt, da wir in 2D zeichnen.
+Dann wird die endgültige Position berechnet, indem wir die gedrehte Position mit dem Skalierungsvektor multiplizieren, der vom JavaScript-Code in `uScalingFactor` bereitgestellt wird. Die Werte von `z` und `w` sind auf 0,0 bzw. 1,0 festgelegt, da wir in 2D zeichnen.
 
-Die Standard-WebGL-Variable `gl_Position` wird dann auf die transformierte und gedrehte Position des Vertex festgelegt.
+Der Standard-WebGL-Gloabal `gl_Position` wird dann auf die transformierte und gedrehte Position des Vertexes gesetzt.
 
 ### Fragment-Shader
 
-Als Nächstes kommt der Fragment-Shader. Seine Aufgabe ist es, die Farbe jedes Pixels der gezeichneten Form zurückzugeben. Da wir ein solides, untexturiertes Objekt ohne Lichtzeichnung rendern, ist dies außergewöhnlich einfach:
+Als nächstes kommt der Fragment-Shader. Seine Rolle besteht darin, die Farbe jedes Pixels in der zu rendernden Form zurückzugeben. Da wir ein solides, untexturiertes Objekt ohne Beleuchtung zeichnen, ist dies außergewöhnlich einfach:
 
 ```html
 <script id="fragment-shader" type="x-shader/x-fragment">
@@ -63,48 +63,49 @@ Als Nächstes kommt der Fragment-Shader. Seine Aufgabe ist es, die Farbe jedes P
 </script>
 ```
 
-Dies beginnt mit der Angabe der Genauigkeit des Typs `float`, wie erforderlich. Dann setzen wir die globale Variable `gl_FragColor` auf den Wert des uniformen `uGlobalColor`, welches vom JavaScript-Code auf die Farbe gesetzt wird, die zum Zeichnen des Quadrats verwendet wird.
+Dies beginnt damit, die Präzision des `float`-Typs anzugeben, wie erforderlich. Dann setzen wir die globale `gl_FragColor` auf den Wert des Uniforms `uGlobalColor`, das vom JavaScript-Code auf die Farbe gesetzt wird, mit der das Quadrat gezeichnet wird.
 
 ### HTML
 
-Das HTML besteht ausschließlich aus dem {{HTMLElement("canvas")}}, auf dem wir einen WebGL-Kontext erhalten.
+Das HTML besteht ausschließlich aus dem {{HTMLElement("canvas")}}, auf dem wir einen WebGL-Kontext erhalten werden.
 
 ```html
 <canvas id="glcanvas" width="600" height="460">
-  Oh nein! Ihr Browser unterstützt keine Leinwand!
+  Oh no! Your browser doesn't support canvas!
 </canvas>
 ```
 
 ### Globale Variablen und Initialisierung
 
-Zuerst die globalen Variablen. Wir werden diese hier nicht diskutieren; stattdessen werden wir über sie sprechen, wenn sie in den kommenden Codeabschnitten verwendet werden.
+Zuerst die globalen Variablen. Wir werden diese hier nicht besprechen; stattdessen werden wir über sie sprechen, wenn sie im kommenden Code verwendet werden.
 
 ```js
 let gl = null;
 let glCanvas = null;
 
-// Seitenverhältnis und Koordinatensystemdetails
+// Aspect ratio and coordinate system
+// details
 
 let aspectRatio;
 let currentRotation = [0, 1];
 let currentScale = [1.0, 1.0];
 
-// Vertex-Informationen
+// Vertex information
 
 let vertexArray;
 let vertexBuffer;
 let vertexNumComponents;
 let vertexCount;
 
-// Renderdaten, die mit den
-// Skalierungen geteilt werden
+// Rendering data shared with the
+// scalers.
 
 let uScalingFactor;
 let uGlobalColor;
 let uRotationVector;
 let aVertexPosition;
 
-// Animationstiming
+// Animation timing
 
 let shaderProgram;
 let currentAngle;
@@ -112,7 +113,7 @@ let previousTime = 0.0;
 let degreesPerSecond = 90.0;
 ```
 
-Die Initialisierung des Programms erfolgt durch einen {{domxref("Window/load_event", "load")}}-Ereignishandler namens `startup()`:
+Die Initialisierung des Programms wird durch einen [`load`](/de/docs/Web/API/Window/load_event)-Ereignishandler namens `startup()` durchgeführt:
 
 ```js
 window.addEventListener("load", startup, false);
@@ -155,27 +156,27 @@ function startup() {
 }
 ```
 
-Nachdem wir den WebGL-Kontext `gl` erhalten haben, müssen wir mit dem Aufbau des Shader-Programms beginnen. Hier verwenden wir Code, der es uns ermöglicht, unserem Programm ganz einfach mehrere Shader hinzuzufügen. Das Array `shaderSet` enthält eine Liste von Objekten, die jeweils eine Shader-Funktion beschreiben, die in das Programm kompiliert werden soll. Jede Funktion hat einen Typ (einer von `gl.VERTEX_SHADER` oder `gl.FRAGMENT_SHADER`) und eine ID (die ID des {{HTMLElement("script")}}-Elements, das den Code des Shaders enthält).
+Nachdem wir den WebGL-Kontext `gl` erhalten haben, müssen wir damit beginnen, das Shader-Programm zu erstellen. Hier verwenden wir Code, mit dem wir unserem Programm recht einfach mehrere Shader hinzufügen können. Das Array `shaderSet` enthält eine Liste von Objekten, von denen jedes eine Shader-Funktion beschreibt, die in das Programm kompiliert werden soll. Jede Funktion hat einen Typ (einer von `gl.VERTEX_SHADER` oder `gl.FRAGMENT_SHADER`) und eine ID (die ID des {{HTMLElement("script")}}-Elements, das den Code des Shaders enthält).
 
-Das Shader-Set wird in die Funktion `buildShaderProgram()` übergeben, die das kompilierte und verknüpfte Shader-Programm zurückgibt. Wir werden uns als Nächstes ansehen, wie dies funktioniert.
+Das Shader-Set wird in die Funktion `buildShaderProgram()` übergeben, die das kompilierte und verknüpfte Shader-Programm zurückgibt. Als nächstes sehen wir, wie das funktioniert.
 
-Sobald das Shader-Programm erstellt ist, berechnen wir das Seitenverhältnis unseres Kontexts, indem wir seine Breite durch seine Höhe teilen. Dann setzen wir den aktuellen Rotationsvektor für die Animation auf `[0, 1]`, und den Skalierungsvektor auf `[1.0, aspectRatio]`. Der Skalierungsvektor, wie wir im Vertex-Shader gesehen haben, wird verwendet, um die Koordinaten auf den Bereich von -1,0 bis 1,0 anzupassen.
+Sobald das Shader-Programm erstellt ist, berechnen wir das Seitenverhältnis unseres Kontextes, indem wir seine Breite durch seine Höhe teilen. Dann setzen wir den aktuellen Rotationsvektor für die Animation auf `[0, 1]` und den Skalierungsvektor auf `[1.0, aspectRatio]`. Der Skalierungsvektor, wie wir im Vertex-Shader gesehen haben, wird verwendet, um die Koordinaten anzupassen, damit sie in den Bereich von -1,0 bis 1,0 passen.
 
-Das Array von Vertices wird als nächstes erstellt, als {{jsxref("Float32Array")}} mit sechs Koordinaten (drei 2D-Vertices) pro zu zeichnendem Dreieck, insgesamt 12 Werten.
+Das Array der Vertexe wird als nächstes erstellt, als eine {{jsxref("Float32Array")}} mit sechs Koordinaten (drei 2D-Vertexe) pro zu zeichnendem Dreieck, insgesamt also 12 Werte.
 
-Wie Sie sehen, verwenden wir ein Koordinatensystem von -1,0 bis 1,0 für jede Achse. Warum, fragen Sie vielleicht, müssen wir überhaupt Anpassungen vornehmen? Das liegt daran, dass unser Kontext nicht quadratisch ist. Wir verwenden einen Kontext, der 600 Pixel breit und 460 Pixel hoch ist. Jede dieser Dimensionen wird auf den Bereich von -1,0 bis 1,0 abgebildet. Da die beiden Achsen nicht dieselbe Länge haben, würde das Quadrat in eine Richtung oder die andere verzerrt werden, wenn wir die Werte einer der beiden Achsen nicht anpassen. Wir müssen diese Werte also normalisieren.
+Wie Sie sehen, verwenden wir ein Koordinatensystem von -1,0 bis 1,0 für jede Achse. Warum müssen wir überhaupt Anpassungen vornehmen, fragen Sie vielleicht? Das liegt daran, dass unser Kontext nicht quadratisch ist. Wir verwenden einen Kontext, der 600 Pixel breit und 460 Pixel hoch ist. Jede dieser Dimensionen wird auf den Bereich von -1,0 bis 1,0 abgebildet. Da die beiden Achsen nicht gleich lang sind, wird das Quadrat ohne Anpassung der Werte einer der beiden Achsen in eine Richtung oder die andere gestreckt. Daher müssen wir diese Werte normalisieren.
 
-Sobald das Vertex-Array erstellt wurde, erstellen wir einen neuen GL-Puffer, um es zu enthalten, indem wir {{domxref("WebGLRenderingContext.createBuffer", "gl.createBuffer()")}} aufrufen. Wir binden den Standard-WebGL-Array-Puffer-Verweis daran, indem wir {{domxref("WebGLRenderingContext.bindBuffer", "gl.bindBuffer()")}} aufrufen und dann die Vertex-Daten mit {{domxref("WebGLRenderingContext.bufferData", "gl.bufferData()")}} in den Puffer kopieren. Der Nutzungshinweis `gl.STATIC_DRAW` wird angegeben, was WebGL mitteilt, dass die Daten nur einmal festgelegt und nie geändert, aber wiederholt verwendet werden. Dies ermöglicht es WebGL, alle Optimierungen in Betracht zu ziehen, die möglicherweise aufgrund dieser Informationen die Leistung verbessern können.
+Sobald das Vertex-Array erstellt wurde, erstellen wir einen neuen GL-Puffer, um sie zu enthalten, indem wir [`gl.createBuffer()`](/de/docs/Web/API/WebGLRenderingContext/createBuffer) aufrufen. Wir binden die Standard-WebGL-Array-Puffer-Referenz durch Aufruf von [`gl.bindBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindBuffer) und kopieren dann die Vertex-Daten mit [`gl.bufferData()`](/de/docs/Web/API/WebGLRenderingContext/bufferData) in den Puffer. Der Verwendungshinweis `gl.STATIC_DRAW` wird angegeben, was WebGL mitteilt, dass die Daten nur einmal gesetzt und nie geändert werden, aber wiederholt verwendet werden. Dies lässt WebGL eventuelle Optimierungen in Betracht ziehen, die es basierend auf diesen Informationen anwenden kann, um die Leistung zu verbessern.
 
-Nachdem die Vertex-Daten nun WebGL bereitgestellt wurden, setzen wir `vertexNumComponents` auf die Anzahl der Komponenten in jedem Vertex (2, da es sich um 2D-Vertices handelt) und `vertexCount` auf die Anzahl der Vertices in der Vertex-Liste.
+Sobald die Vertex-Daten nun WebGL bereitgestellt wurden, setzen wir `vertexNumComponents` auf die Anzahl der Komponenten in jedem Vertex (2, da es sich um 2D-Vertexe handelt) und `vertexCount` auf die Anzahl der Vertexe in der Vertexliste.
 
-Dann wird der aktuelle Rotationswinkel (in Grad) auf 0,0 gesetzt, da wir bisher keine Drehung durchgeführt haben, und die Rotationsgeschwindigkeit (in Grad pro Bildschirmaktualisierungsperiode, typischerweise 60 FPS) wird auf 6 gesetzt.
+Dann wird der aktuelle Rotationswinkel (in Grad) auf 0,0 gesetzt, da wir noch keine Rotation durchgeführt haben, und die Rotationsgeschwindigkeit (in Grad pro Bildschirmaktualisierungsperiode, typischerweise 60 FPS) wird auf 6 gesetzt.
 
-Schließlich wird `animateScene()` aufgerufen, um den ersten Frame zu rendern und das Rendern des nächsten Frames der Animation zu planen.
+Schließlich wird `animateScene()` aufgerufen, um den ersten Frame zu rendern und die Darstellung des nächsten Animationsframes zu planen.
 
 ### Kompilieren und Verknüpfen des Shader-Programms
 
-Die Funktion `buildShaderProgram()` akzeptiert als Eingabe ein Array von Objekten, die eine Gruppe von Shader-Funktionen beschreiben, die kompiliert und in das Shader-Programm verknüpft werden sollen, und gibt das fertige Shader-Programm zurück, nachdem es erstellt und verknüpft wurde.
+Die `buildShaderProgram()`-Funktion akzeptiert als Eingabe ein Array von Objekten, die eine Reihe von Shader-Funktionen beschreiben, die in das Shader-Programm kompiliert und verknüpft werden sollen, und gibt das Shader-Programm zurück, nachdem es erstellt und verknüpft wurde.
 
 ```js
 function buildShaderProgram(shaderInfo) {
@@ -200,22 +201,22 @@ function buildShaderProgram(shaderInfo) {
 }
 ```
 
-Zuerst wird {{domxref("WebGLRenderingContext.createProgram", "gl.createProgram()")}} aufgerufen, um ein neues, leeres GLSL-Programm zu erstellen.
+Zuerst wird [`gl.createProgram()`](/de/docs/Web/API/WebGLRenderingContext/createProgram) aufgerufen, um ein neues, leeres GLSL-Programm zu erstellen.
 
-Dann rufen wir für jeden Shader in der angegebenen Liste die Funktion `compileShader()` auf, um ihn zu kompilieren, und übergeben ihr die ID und den Typ der zu erstellenden Shader-Funktion. Jedes dieser Objekte enthält, wie bereits erwähnt, die ID des `<script>`-Elements, in dem sich der Shader-Code befindet, und den Typ des Shaders. Das kompilierte Shader wird dem Shader-Programm zur Verfügung gestellt, indem es {{domxref("WebGLRenderingContext.attachShader", "gl.attachShader()")}} aufgerufen wird.
+Dann rufen wir für jeden Shader in der angegebenen Liste von Shadern eine `compileShader()`-Funktion auf, um sie zu kompilieren, und übergeben ihr die ID und den Typ der zu erstellenden Shader-Funktion. Jedes dieser Objekte enthält, wie bereits erwähnt, die ID des `<script>`-Elements, in dem der Shader-Code zu finden ist, und die Art des Shaders. Der kompilierte Shader wird mit [`gl.attachShader()`](/de/docs/Web/API/WebGLRenderingContext/attachShader) an das Shader-Programm angehängt.
 
 > [!NOTE]
-> Wir könnten hier tatsächlich noch weiter gehen und den Wert des `type`-Attributs des `<script>`-Elements betrachten, um den Shader-Typ zu bestimmen.
+> Wir könnten hier tatsächlich noch einen Schritt weiter gehen und den Wert des `type`-Attributs des `<script>`-Elements betrachten, um den Shader-Typ zu bestimmen.
 
-Sobald alle Shader kompiliert sind, wird das Programm mit {{domxref("WebGLRenderingContext.linkProgram", "gl.linkProgram()")}} verknüpft.
+Sobald alle Shader kompiliert sind, wird das Programm mit [`gl.linkProgram()`](/de/docs/Web/API/WebGLRenderingContext/linkProgram) verknüpft.
 
-Tritt beim Verknüpfen des Programms ein Fehler auf, wird die Fehlermeldung in der Konsole protokolliert.
+Wenn beim Verknüpfen des Programms ein Fehler auftritt, wird die Fehlermeldung in die Konsole geloggt.
 
-Schließlich wird das kompilierte Programm an den Aufrufer zurückgegeben.
+Abschließend wird das kompilierte Programm an den Aufrufer zurückgegeben.
 
 ### Kompilieren eines einzelnen Shaders
 
-Die Funktion `compileShader()`, unten aufgeführt, wird von `buildShaderProgram()` aufgerufen, um einen einzelnen Shader zu kompilieren.
+Die untenstehende `compileShader()`-Funktion wird von `buildShaderProgram()` aufgerufen, um einen einzelnen Shader zu kompilieren.
 
 ```js
 function compileShader(id, type) {
@@ -237,17 +238,17 @@ function compileShader(id, type) {
 }
 ```
 
-Der Code wird aus dem HTML-Dokument abgerufen, indem der Wert der Textknoten im {{HTMLElement("script")}}-Element mit der angegebenen ID abgerufen wird. Dann wird mit {{domxref("WebGLRenderingContext.createShader", "gl.createShader()")}} ein neuer Shader des angegebenen Typs erstellt.
+Der Code wird aus dem HTML-Dokument abgerufen, indem der Wert des Textknotens des {{HTMLElement("script")}}-Elements mit der angegebenen ID ermittelt wird. Dann wird ein neuer Shader des angegebenen Typs durch den Aufruf von [`gl.createShader()`](/de/docs/Web/API/WebGLRenderingContext/createShader) erstellt.
 
-Der Quellcode wird in den neuen Shader gesendet, indem er mit {{domxref("WebGLRenderingContext.shaderSource", "gl.shaderSource()")}} übergeben wird. Dann wird der Shader mit {{domxref("WebGLRenderingContext.compileShader", "gl.compileShader()")}} kompiliert.
+Der Quellcode wird in den neuen Shader gesendet, indem er in [`gl.shaderSource()`](/de/docs/Web/API/WebGLRenderingContext/shaderSource) übergeben wird, und dann wird der Shader durch Aufruf von [`gl.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader) kompiliert
 
-Kompilierungsfehler werden in der Konsole protokolliert. Beachten Sie die Verwendung eines [Template-Literals](/de/docs/Web/JavaScript/Reference/Template_literals), um den korrekten Shader-Typ-String in die zu generierende Nachricht einzufügen. Die tatsächlichen Fehlerdetails werden durch Aufrufen von {{domxref("WebGLRenderingContext.getShaderInfoLog", "gl.getShaderInfoLog()")}} abgerufen.
+Kompilierungsfehler werden in die Konsole geloggt. Beachten Sie die Verwendung eines [Template-Literal](https://de.wikipedia.org/wiki/Template-String)-String zur Einfügung des richtigen Shader-Typs als Zeichenkette in die generierte Meldung. Die tatsächlichen Fehlerdetails werden durch den Aufruf von [`gl.getShaderInfoLog()`](/de/docs/Web/API/WebGLRenderingContext/getShaderInfoLog) ermittelt.
 
-Schließlich wird der kompilierte Shader an den Aufrufer (die Funktion `buildShaderProgram()`) zurückgegeben.
+Schließlich wird der kompilierte Shader an den Aufrufer zurückgegeben (welcher die `buildShaderProgram()`-Funktion ist).
 
 ### Zeichnen und Animieren der Szene
 
-Die Funktion `animateScene()` wird aufgerufen, um jeden Animationsrahmen zu rendern.
+Die `animateScene()`-Funktion wird aufgerufen, um jeden Animationsframe zu rendern.
 
 ```js
 function animateScene() {
@@ -297,37 +298,37 @@ function animateScene() {
 }
 ```
 
-Das Erste, was erledigt werden muss, um einen Frame der Animation zu zeichnen, ist den Hintergrund auf die gewünschte Farbe zu leeren. In diesem Fall setzen wir den viewport basierend auf der Größe des {{HTMLElement("canvas")}}, rufen {{domxref("WebGLRenderingContext.clearColor", "clearColor()")}} auf, um die Farbe festzulegen, die beim Leeren des Inhalts verwendet werden soll, und leeren dann den Puffer mit {{domxref("WebGLRenderingContext.clear", "clear()")}}.
+Das Erste, was getan werden muss, um einen Frame der Animation zu zeichnen, ist, den Hintergrund auf die gewünschte Farbe zu löschen. In diesem Fall setzen wir den Viewport basierend auf der Größe des {{HTMLElement("canvas")}}, rufen [`clearColor()`](/de/docs/Web/API/WebGLRenderingContext/clearColor) auf, um die Farbe festzulegen, die beim Löschen des Inhalts verwendet werden soll, und löschen dann den Puffer mit [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear).
 
-Als Nächstes wird der aktuelle Rotationsvektor berechnet, indem die aktuelle Drehung in Grad (`currentAngle`) in [Bogenmaß](https://de.wikipedia.org/wiki/Radiant) umgerechnet wird. Dann wird die erste Komponente des Rotationsvektors auf den [Sinus](https://de.wikipedia.org/wiki/Sinus) dieses Wertes und die zweite Komponente auf den [Kosinus](https://de.wikipedia.org/wiki/Kosinus) gesetzt. Der `currentRotation`-Vektor ist jetzt die Position des Punkts auf dem [Einheitskreis](https://de.wikipedia.org/wiki/Einheitskreis), der sich im Winkel `currentAngle` befindet.
+Als Nächstes wird der aktuelle Rotationsvektor berechnet, indem die aktuelle Drehung in Grad (`currentAngle`) in [Radiant](https://de.wikipedia.org/wiki/Bogenmaß) umgerechnet wird, dann die erste Komponente des Rotationsvektors auf den [Sinus](https://de.wikipedia.org/wiki/Sinus) dieses Werts gesetzt wird und die zweite Komponente auf den [Kosinus](https://de.wikipedia.org/wiki/Kosinus). Der `currentRotation`-Vektor ist nun der Ort des Punktes auf dem [Einheitskreis](https://de.wikipedia.org/wiki/Einheitskreis), der sich im Winkel `currentAngle` befindet.
 
-{{domxref("WebGLRenderingContext.useProgram", "useProgram()")}} wird aufgerufen, um das zuvor erstellte GLSL-Shader-Programm zu aktivieren. Dann erhalten wir die Positionen der einzelnen Uniforms, die verwendet werden, um Informationen zwischen dem JavaScript-Code und den Shadern zu teilen (mit {{domxref("WebGLRenderingContext.getUniformLocation", "getUniformLocation()")}}).
+[`useProgram()`](/de/docs/Web/API/WebGLRenderingContext/useProgram) wird aufgerufen, um das zuvor festgelegte GLSL-Shading-Programm zu aktivieren. Dann holen wir die Positionen jedes der Uniforms ab, die zum Teilen von Informationen zwischen dem JavaScript-Code und den Shadern verwendet werden (mit [`getUniformLocation()`](/de/docs/Web/API/WebGLRenderingContext/getUniformLocation)).
 
-Das Uniform mit dem Namen `uScalingFactor` wird auf den zuvor berechneten `currentScale`-Wert gesetzt; dies ist, wie Sie sich erinnern, der Wert, der verwendet wird, um das Koordinatensystem basierend auf dem Seitenverhältnis des Kontexts anzupassen. Dies geschieht mit {{domxref("WebGLRenderingContext/uniform", "uniform2fv()")}} (weil es sich um einen 2-Wertig Gleitkomma-Vektor handelt).
+Das Uniform `uScalingFactor` wird auf den zuvor berechneten Wert `currentScale` gesetzt; wie Sie sich erinnern, ist dies der Wert, der verwendet wird, um das Koordinatensystem basierend auf dem Seitenverhältnis des Kontextes anzupassen. Dies geschieht mit [`uniform2fv()`](/de/docs/Web/API/WebGLRenderingContext/uniform) (da es sich um einen 2-Wert-Gleitkomma-Vektor handelt).
 
-`uRotationVector` wird auf den aktuellen Rotationsvektor (`currentRotation`) gesetzt, ebenfalls mit `uniform2fv()`.
+`uRotationVector` wird auf den aktuellen Rotationsvektor (`currentRotation) gesetzt, ebenfalls mit `uniform2fv()`.
 
-`uGlobalColor` wird mit {{domxref("WebGLRenderingContext/uniform", "uniform4fv()")}} auf die Farbe gesetzt, die wir zum Zeichnen des Quadrats verwenden möchten. Dies ist ein 4-Komponenten-Gleitkomma-Vektor (eine Komponente für Rot, Grün, Blau und Alpha).
+`uGlobalColor` wird mit [`uniform4fv()`](/de/docs/Web/API/WebGLRenderingContext/uniform) auf die Farbe gesetzt, die wir verwenden möchten, um das Quadrat zu zeichnen. Dies ist ein Gleitkomma-Vektor mit 4 Komponenten (eine Komponente jeweils für Rot, Grün, Blau und Alpha).
 
-Da das alles erledigt ist, können wir den Vertex-Puffer einrichten und unsere Form zeichnen. Zuerst wird der Puffer von Vertices, der zum Zeichnen der Dreiecke der Form verwendet wird, durch Aufrufen von {{domxref("WebGLRenderingContext.bindBuffer", "bindBuffer()")}} gesetzt. Dann wird der Index des Vertex-Positionsattributs aus dem Shader-Programm abgerufen, indem {{domxref("WebGLRenderingContext.getAttribLocation", "getAttribLocation()")}} aufgerufen wird.
+Jetzt, da das erledigt ist, können wir den Vertex-Puffer einrichten und unsere Form zeichnen, zuerst wird der Puffer von Vertexen, der verwendet wird, um die Dreiecke der Form zu zeichnen, durch Aufruf von [`bindBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindBuffer) festgelegt. Dann wird der Index des Vertexposition-Attributes aus dem Shader-Programm ermittelt, indem [`getAttribLocation()`](/de/docs/Web/API/WebGLRenderingContext/getAttribLocation) aufgerufen wird.
 
-Mit dem jetzt in `aVertexPosition` verfügbaren Index des Vertex-Positionsattributs rufen wir `enableVertexAttribArray()` auf, um das Positionsattribut zu aktivieren, sodass es vom Shader-Programm verwendet werden kann (insbesondere vom Vertex-Shader).
+Mit dem nun verfügbaren Index des Vertexposition-Attributes in `aVertexPosition`, rufen wir `enableVertexAttribArray()` auf, um das Positionsattribut so zu aktivieren, dass es vom Shader-Programm verwendet werden kann (insbesondere vom Vertex-Shader).
 
-Dann wird der Vertex-Puffer dem `aVertexPosition`-Attribut zugeordnet, indem {{domxref("WebGLRenderingContext.vertexAttribPointer", "vertexAttribPointer()")}} aufgerufen wird. Dieser Schritt ist nicht offensichtlich, da diese Bindung fast ein Nebeneffekt ist. Aber dadurch, dass `aVertexPosition` jetzt auf die Daten aus dem Vertex-Puffer zugreift.
+Dann wird der Vertex-Puffer an das `aVertexPosition`-Attribut gebunden, indem [`vertexAttribPointer()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer) aufgerufen wird. Dieser Schritt ist nicht offensichtlich, da diese Bindung fast wie ein Nebeneffekt ist. Aber als Ergebnis greift der Zugriff auf `aVertexPosition` nun auf die Daten aus dem Vertex-Puffer zu.
 
-Mit der nun vorhandenen Zuordnung zwischen dem Vertex-Puffer für unsere Form und dem `aVertexPosition`-Attribut, das verwendet wird, um die Vertexes nacheinander in den Vertex-Shader zu liefern, sind wir bereit, die Form mit {{domxref("WebGLRenderingContext.drawArrays", "drawArrays()")}} zu zeichnen.
+Mit der jetzt bestehenden Zuordnung zwischen dem Vertex-Puffer unserer Form und dem `aVertexPosition`-Attribut, das verwendet wird, um Vertexe einzeln in den Vertex-Shader zu liefern, sind wir bereit, die Form zu zeichnen, indem wir [`drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays) aufrufen.
 
-Zu diesem Zeitpunkt wurde der Frame gezeichnet. Alles, was noch zu tun ist, ist, den nächsten zu zeichnenden Frame zu terminieren. Das wird hier erledigt, indem {{domxref("Window.requestAnimationFrame", "requestAnimationFrame()")}} aufgerufen wird, das eine Callback-Funktion anfordert, die das nächste Mal ausgeführt wird, wenn der Browser bereit ist, den Bildschirm zu aktualisieren.
+An diesem Punkt wurde der Frame gezeichnet. Alles, was noch zu tun ist, ist, den nächsten zu zeichnenden Frame zu planen. Dies wird hier durch den Aufruf von [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) erledigt, der darum bittet, dass eine Rückruf-Funktion das nächste Mal ausgeführt wird, wenn der Browser bereit ist, den Bildschirm zu aktualisieren.
 
-Unser `requestAnimationFrame()`-Callback erhält als Eingabe einen einzelnen Parameter, `currentTime`, der die Zeit angibt, zu der das Zeichnen des Frames begann. Wir verwenden diesen und die gespeicherte Zeit, zu der der letzte Frame gezeichnet wurde, `previousTime`, zusammen mit der Anzahl der Grad pro Sekunde, die das Quadrat drehen soll (`degreesPerSecond`), um den neuen Wert von `currentAngle` zu berechnen. Dann wird der Wert von `previousTime` aktualisiert und wir rufen `animateScene()` auf, um den nächsten Frame zu zeichnen (und wiederum den nächsten Frame zu terminieren, der gezeichnet werden soll, und so weiter).
+Unser `requestAnimationFrame()` Callback erhält als Eingabe einen einzelnen Parameter, `currentTime`, der die Zeit angibt, zu der das Zeichnen des Frames begonnen hat. Wir verwenden diesen und die gespeicherte Zeit, zu der der letzte Frame gezeichnet wurde, `previousTime`, zusammen mit der Anzahl der Grad pro Sekunde, um die sich das Quadrat drehen soll (`degreesPerSecond`), um den neuen Wert von `currentAngle` zu berechnen. Dann wird der Wert von `previousTime` aktualisiert und wir rufen `animateScene()` auf, um den nächsten Frame zu zeichnen (und wiederum den nächsten zu zeichnenden Frame, ins Unendliche).
 
 ### Ergebnis
 
-Dies ist ein ziemlich einfaches Beispiel, da es nur ein einfaches Objekt zeichnet, aber die hier verwendeten Konzepte erstrecken sich auf viel komplexere Animationen.
+Dies ist ein ziemlich einfaches Beispiel, da es nur ein einfaches Objekt zeichnet, aber die hier verwendeten Konzepte erstrecken sich auf wesentlich komplexere Animationen.
 
 {{EmbedLiveSample("A_rotating_square_example", 660, 500)}}
 
 ## Siehe auch
 
-- [WebGL-API](/de/docs/Web/API/WebGL_API)
+- [WebGL API](/de/docs/Web/API/WebGL_API)
 - [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial)

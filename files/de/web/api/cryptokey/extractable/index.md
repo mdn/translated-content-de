@@ -1,16 +1,16 @@
 ---
-title: "CryptoKey: extractable Eigenschaft"
+title: "CryptoKey: extractable-Eigenschaft"
 short-title: extractable
 slug: Web/API/CryptoKey/extractable
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: cc27a64bb555b250cf0984a3a744e5fd251e3565
 ---
 
-{{APIRef("Web Crypto API")}}{{SecureContext_Header}}
+{{APIRef("Web Crypto API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`extractable`** Eigenschaft des {{DOMxRef("CryptoKey")}}-Interfaces gibt an, ob der Schlüssel mithilfe von [`SubtleCrypto.exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) oder [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) extrahiert werden kann.
+Die schreibgeschützte **`extractable`**-Eigenschaft der [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Schnittstelle gibt an, ob der Schlüssel mit [`SubtleCrypto.exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) oder [`SubtleCrypto.wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) extrahiert werden kann.
 
-Wenn der Schlüssel nicht exportiert werden kann, werfen [`exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) oder [`wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) eine Ausnahme, wenn sie zur Extraktion verwendet werden.
+Wenn der Schlüssel nicht exportiert werden kann, wird [`exportKey()`](/de/docs/Web/API/SubtleCrypto/exportKey) oder [`wrapKey()`](/de/docs/Web/API/SubtleCrypto/wrapKey) eine Ausnahme auslösen, wenn sie zur Extraktion verwendet werden.
 
 ## Wert
 
@@ -18,10 +18,10 @@ Ein boolescher Wert, der `true` ist, wenn der Schlüssel exportiert werden kann,
 
 ## Beispiele
 
-In diesem Beispiel ist die _Export_-Schaltfläche deaktiviert und es wird kein Listener hinzugefügt, wenn der Schlüssel nicht exportiert werden kann.
+In diesem Beispiel ist der _Export_-Button deaktiviert, und es wird kein Listener hinzugefügt, wenn der Schlüssel nicht exportiert werden kann.
 
 ```js
-// Exportieren Sie den gegebenen Schlüssel und schreiben Sie ihn in den "exported-key"-Bereich.
+// Export the given key and write it into the "exported-key" space.
 async function exportCryptoKey(key) {
   const exported = await window.crypto.subtle.exportKey("raw", key);
   const exportedKeyBuffer = new Uint8Array(exported);
@@ -30,22 +30,22 @@ async function exportCryptoKey(key) {
   exportKeyOutput.textContent = `[${exportedKeyBuffer}]`;
 }
 
-// Aktivieren oder deaktivieren Sie die exportButton, je nachdem, ob der Schlüssel extrahierbar ist oder nicht
+// Enable or disable the exportButton if the key is extractable or not
 function setExportButton(key) {
   const exportButton = document.querySelector(".raw");
 
-  // Deaktivieren Sie die Schaltfläche, wenn der Schlüssel nicht extrahierbar ist
+  // Disable the button if the key is not extractable
   exportButton.disabled = !key.extractable;
   if (key.extractable) {
-    // Fügen Sie einen Event-Listener hinzu, um den Schlüssel zu extrahieren
+    // Add an event listener to extract the key
     exportButton.addEventListener("click", () => {
       exportCryptoKey(key);
     });
   }
 }
 
-// Generieren Sie einen Verschlüsselungs-/Entschlüsselungsgeheimschlüssel,
-// dann aktivieren Sie die "Export"-Schaltfläche und richten einen Event-Listener ein.
+// Generate an encrypt/decrypt secret key,
+// then enable and set up an event listener on the "Export" button.
 window.crypto.subtle
   .generateKey(
     {

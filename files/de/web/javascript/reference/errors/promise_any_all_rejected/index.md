@@ -7,13 +7,13 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "Kein Promise in Promise.any wurde aufgelöst" tritt auf, wenn alle Promises, die an {{jsxref("Promise.any()")}} übergeben werden, abgelehnt werden. Es ist die einzige eingebaute Verwendung von {{jsxref("AggregateError")}}.
+Die JavaScript-Ausnahme "Kein Promise in Promise.any wurde aufgelöst" tritt auf, wenn alle an {{jsxref("Promise.any()")}} übergebenen Promises abgelehnt werden. Es ist der einzige eingebaute Gebrauch von {{jsxref("AggregateError")}}.
 
-## Meldung
+## Nachricht
 
 ```plain
 AggregateError: All promises were rejected (V8-based)
-AggregateError: Kein Promise in Promise.any wurde aufgelöst (Firefox)
+AggregateError: No Promise in Promise.any was resolved (Firefox)
 AggregateError (Safari)
 ```
 
@@ -23,7 +23,7 @@ AggregateError (Safari)
 
 ## Was ist schiefgelaufen?
 
-`Promise.any()` lehnt nur ab, wenn alle übergebenen Promises abgelehnt werden. Sie sollten auf {{jsxref("AggregateError/errors", "errors")}} zugreifen, um das Array der Ablehnungsgründe zu erhalten. Weitere Informationen zum Umgang mit asynchron abgelehnten Promises finden Sie unter [Umgang mit Promises](/de/docs/Web/JavaScript/Guide/Using_promises#error_handling). Dieser Fehler tritt auch auf, wenn `Promise.any()` ein leeres Iterable erhält.
+`Promise.any()` wird nur dann abgelehnt, wenn alle ihm übergebenen Promises abgelehnt werden. Sie sollten auf {{jsxref("AggregateError/errors", "errors")}} zugreifen, um das Array der Ablehnungsgründe zu erhalten. Siehe [Verwendung von Promises](/de/docs/Web/JavaScript/Guide/Using_promises#error_handling) für weitere Informationen darüber, wie Sie asynchron abgelehnte Promises behandeln können. Dieser Fehler tritt auch auf, wenn `Promise.any()` ein leeres Iterable erhält.
 
 ## Beispiele
 
@@ -31,11 +31,11 @@ AggregateError (Safari)
 
 ```js
 Promise.any([]).catch((error) => {
-  console.error(error); // AggregateError: Kein Promise in Promise.any wurde aufgelöst
+  console.error(error); // AggregateError: No Promise in Promise.any was resolved
 });
 ```
 
-### Umgang mit allen Ablehnungen
+### Behandlung aller Ablehnungen
 
 ```js
 const promises = [
@@ -47,13 +47,13 @@ const promises = [
 Promise.any(promises)
   .then((value) => console.log(value))
   .catch((error) => {
-    // Keiner der fetches war erfolgreich
+    // None of the fetches were successful
     for (const e of error.errors) {
       console.error(e);
     }
   });
 
-// Verwendung von await
+// Using await
 async function fetchFirstSuccessful() {
   try {
     const value = await Promise.any(promises);

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn die Eigenschaften einer kontextuellen Identität, wie ihr Name, Symbol oder Farbe, geändert werden. Kontextuelle Identitäten können von Erweiterungen unter Verwendung der `contextualIdentities` API aktualisiert werden oder direkt vom Benutzer über die Benutzeroberfläche des Browsers.
+Wird ausgelöst, wenn die Eigenschaften einer kontextuellen Identität, wie deren Name, Icon oder Farbe, geändert werden. Kontextuelle Identitäten können von Erweiterungen mittels der `contextualIdentities` API oder direkt durch den Benutzer über die Benutzeroberfläche des Browsers aktualisiert werden.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, diesem Ereignis zu lauschen. Das Argument `listener` ist der zu entfernende Listener.
+  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es überwacht wird, andernfalls `false`.
 
 ## addListener Syntax
 
@@ -32,10 +32,10 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
 
     - `changeInfo`
-      - : `object`. Ein Objekt, das eine einzelne Eigenschaft, `contextualIdentity`, enthält, welches ein {{WebExtAPIRef("contextualIdentities.ContextualIdentity")}} Objekt ist, das die Identität darstellt, deren Eigenschaften aktualisiert wurden.
+      - : `object`. Ein Objekt, das eine einzelne Eigenschaft, `contextualIdentity`, enthält, welches ein {{WebExtAPIRef("contextualIdentities.ContextualIdentity")}} Objekt darstellt, das die aktualisierte Identität beschreibt.
 
 ## Browser-Kompatibilität
 

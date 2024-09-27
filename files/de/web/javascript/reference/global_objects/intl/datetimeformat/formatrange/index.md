@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`formatRange()`** Methode von {{jsxref("Intl.DateTimeFormat")}} Instanzen formatiert einen Datumsbereich auf die prägnanteste Weise basierend auf den beim Instanziieren dieses `Intl.DateTimeFormat` Objekts angegebenen Locales und Optionen.
+Die Methode **`formatRange()`** von Instanzen von {{jsxref("Intl.DateTimeFormat")}} formatiert einen Datumsbereich auf die knappste Weise, basierend auf den beim Instanziieren dieses `Intl.DateTimeFormat`-Objekts angegebenen lokalen Gegebenheiten und Optionen.
 
 {{EmbedInteractiveExample("pages/js/intl-datetimeformat-prototype-formatrange.html", "taller")}}
 
@@ -20,19 +20,19 @@ formatRange(startDate, endDate)
 ### Parameter
 
 - `startDate`
-  - : Ein {{jsxref("Date")}} Objekt, das den Beginn des Datumsbereichs darstellt.
+  - : Ein {{jsxref("Date")}}-Objekt, das den Beginn des Datumsbereichs darstellt.
 - `endDate`
-  - : Ein {{jsxref("Date")}} Objekt, das das Ende des Datumsbereichs darstellt.
+  - : Ein {{jsxref("Date")}}-Objekt, das das Ende des Datumsbereichs darstellt.
 
 ### Rückgabewert
 
-Ein String, der den angegebenen Datumsbereich, formatiert gemäß der Locale und Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}} Objekts, darstellt.
+Ein String, der den angegebenen Datumsbereich gemäß den lokalen Gegebenheiten und Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}}-Objekts formatiert darstellt.
 
 ## Beispiele
 
-### Grundlegende Verwendung von formatRange
+### Grundlegende Nutzung von formatRange
 
-Diese Methode erhält zwei {{jsxref("Date")}}s und formatiert den Datumsbereich auf die prägnanteste Weise basierend auf den beim Instanziieren von {{jsxref("Intl.DateTimeFormat")}} angegebenen `locale` und `options`.
+Diese Methode erhält zwei {{jsxref("Date")}}s und formatiert den Datumsbereich auf die knappste Weise basierend auf dem bei der Instanziierung von {{jsxref("Intl.DateTimeFormat")}} bereitgestellten `locale` und `options`.
 
 ```js
 const date1 = new Date(Date.UTC(1906, 0, 10, 10, 0, 0)); // Wed, 10 Jan 1906 10:00:00 GMT

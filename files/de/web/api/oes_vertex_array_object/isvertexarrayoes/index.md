@@ -1,5 +1,5 @@
 ---
-title: "OES_vertex_array_object: Methode isVertexArrayOES()"
+title: "OES_vertex_array_object: isVertexArrayOES() Methode"
 short-title: isVertexArrayOES()
 slug: Web/API/OES_vertex_array_object/isVertexArrayOES
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`OES_vertex_array_object.isVertexArrayOES()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein {{domxref("WebGLVertexArrayObject")}} Objekt ist.
+Die Methode **`OES_vertex_array_object.isVertexArrayOES()`** der
+[WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn
+das übergebene Objekt ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt ist.
 
 ## Syntax
 
@@ -19,12 +21,12 @@ isVertexArrayOES(arrayObject)
 ### Parameter
 
 - `arrayObject`
-  - : Ein {{domxref("WebGLVertexArrayObject")}} (VAO) Objekt, das geprüft werden soll.
+  - : Ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) (VAO)-Objekt, das getestet werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API.Types", "GLboolean")}}, der angibt, ob das gegebene Objekt ein
-{{domxref("WebGLVertexArrayObject")}} Objekt (`true`) ist oder nicht
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das gegebene Objekt ein
+[`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)-Objekt (`true`) ist oder nicht
 (`false`).
 
 ## Beispiele
@@ -49,6 +51,6 @@ ext.isVertexArrayOES(vao);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLRenderingContext.vertexAttribPointer()")}}
-- WebGL2-Äquivalent: {{domxref("WebGL2RenderingContext.isVertexArray()")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLRenderingContext.vertexAttribPointer()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer)
+- Äquivalent in WebGL2: [`WebGL2RenderingContext.isVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/isVertexArray)

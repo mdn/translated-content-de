@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Headerdirektive `serial` steuert, ob das aktuelle Dokument die {{domxref("Web Serial API", "Web Serial API", "", "nocode")}} verwenden darf, um mit seriellen Geräten zu kommunizieren, die entweder direkt über einen seriellen Port oder über USB- oder Bluetooth-Geräte, die einen seriellen Port emulieren, verbunden sind.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `serial` Direktive steuert, ob das aktuelle Dokument die [Web Serial API](/de/docs/Web/API/Web_Serial_API) verwenden darf, um mit seriellen Geräten zu kommunizieren, die entweder direkt über einen seriellen Anschluss oder über USB- oder Bluetooth-Geräte, die einen seriellen Anschluss emulieren, verbunden sind.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, werden Aufrufe von {{domxref("Serial.requestPort()")}} und {{domxref("Serial.getPorts()")}} ein {{jsxref("Promise")}} zurückgeben, das mit einem {{domxref("DOMException")}} vom Typ `SecurityError` abgelehnt wird.
+Insbesondere wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort) und [`Serial.getPorts()`](/de/docs/Web/API/Serial/getPorts) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` abgelehnt wird.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: serial=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für mehr Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für mehr Details.
 
 ## Standardrichtlinie
 
-Die Standard-Erlaubnisliste für `serial` ist `self`.
+Die Standard-Whitelist für `serial` ist `self`.
 
 ## Spezifikationen
 

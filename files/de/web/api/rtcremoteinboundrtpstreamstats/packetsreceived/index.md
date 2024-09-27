@@ -1,5 +1,5 @@
 ---
-title: "RTCRemoteInboundRtpStreamStats: packetsReceived Eigenschaft"
+title: "RTCRemoteInboundRtpStreamStats: packetsReceived-Eigenschaft"
 short-title: packetsReceived
 slug: Web/API/RTCRemoteInboundRtpStreamStats/packetsReceived
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`packetsReceived`**-Eigenschaft des {{domxref("RTCRemoteInboundRtpStreamStats")}} Wörterbuchs gibt die Gesamtanzahl der {{Glossary("RTP")}}-Pakete zurück, die von der [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) dieses Streams durch den entfernten Endpunkt empfangen wurden, einschließlich der erneuten Übertragungen.
+Die **`packetsReceived`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt die Gesamtzahl der vom entfernten Endpunkt empfangenen [RTP](/de/docs/Glossary/RTP)-Pakete von der [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) dieses Streams zurück, einschließlich der erneuten Übertragungen.
 
 ## Wert
 
-Ein positiver ganzzahliger Wert, der die Gesamtanzahl der am entfernten Endpunkt empfangenen RTP-Pakete angibt.
+Ein positiver Ganzzahlwert, der die Gesamtzahl der empfangenen RTP-Pakete am entfernten Endpunkt angibt.
 
 ## Spezifikationen
 
@@ -24,5 +24,5 @@ Ein positiver ganzzahliger Wert, der die Gesamtanzahl der am entfernten Endpunkt
 
 ## Siehe auch
 
-- {{domxref("RTCRemoteInboundRtpStreamStats.ssrc")}}
-- {{domxref("RTCInboundRtpStreamStats.packetsReceived")}}
+- [`RTCRemoteInboundRtpStreamStats.ssrc`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc)
+- [`RTCInboundRtpStreamStats.packetsReceived`](/de/docs/Web/API/RTCInboundRtpStreamStats/packetsReceived)

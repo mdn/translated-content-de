@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<filter>`** [SVG](/de/docs/Web/SVG)-Element definiert einen benutzerdefinierten Filtereffekt, indem es atomare Filter-Primitiven gruppiert. Es wird selbst nie gerendert, muss jedoch durch das {{SVGAttr("filter")}}-Attribut an SVG-Elementen oder die {{cssxref("filter")}} {{Glossary("CSS")}}-Eigenschaft für SVG/HTML-Elemente verwendet werden.
+Das **`<filter>`** [SVG](/de/docs/Web/SVG) Element definiert einen benutzerdefinierten Filtereffekt, indem es atomare Filterprimitiven gruppiert. Es wird selbst nie dargestellt, muss jedoch mit dem {{SVGAttr("filter")}} Attribut auf SVG-Elementen oder der {{cssxref("filter")}} [CSS](/de/docs/Glossary/CSS) Eigenschaft für SVG/HTML-Elemente verwendet werden.
 
-## Verwendungszusammenhang
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -25,7 +25,7 @@ Das **`<filter>`** [SVG](/de/docs/Web/SVG)-Element definiert einen benutzerdefin
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFilterElement")}}-Schnittstelle.
+Dieses Element implementiert die [`SVGFilterElement`](/de/docs/Web/API/SVGFilterElement) Schnittstelle.
 
 ## Beispiel
 
@@ -74,4 +74,4 @@ Dieses Element implementiert die {{domxref("SVGFilterElement")}}-Schnittstelle.
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

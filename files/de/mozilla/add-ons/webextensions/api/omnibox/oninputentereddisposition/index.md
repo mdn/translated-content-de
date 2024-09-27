@@ -7,20 +7,20 @@ l10n:
 
 {{AddonSidebar}}
 
-Der **`omnibox.OnInputEnteredDisposition`**-Typ beschreibt, wie die Erweiterung eine Benutzerauswahl aus den Vorschlägen in der Dropdown-Liste der Adressleiste behandeln soll.
+Der Typ **`omnibox.OnInputEnteredDisposition`** beschreibt, wie die Erweiterung eine Benutzerauswahl aus den Vorschlägen in der Dropdown-Liste der Adressleiste behandeln sollte.
 
-Er wird zusammen mit der Auswahl selbst an den {{WebExtAPIRef("omnibox.onInputEntered")}}-Ereignislistener übergeben.
+Dieser wird zusammen mit der Auswahl selbst an den {{WebExtAPIRef("omnibox.onInputEntered")}} Ereignis-Listener übergeben.
 
 ## Typ
 
 Werte dieses Typs sind Zeichenketten. Sie können einen der folgenden Werte annehmen:
 
 - "currentTab"
-  - : Öffnen Sie die Auswahl im aktuellen Tab.
+  - : Öffnet die Auswahl im aktuellen Tab.
 - "newForegroundTab"
-  - : Öffnen Sie die Auswahl in einem neuen Tab und bringen Sie diesen neuen Tab in den Vordergrund.
+  - : Öffnet die Auswahl in einem neuen Tab und bringt diesen neuen Tab in den Vordergrund.
 - "newBackgroundTab"
-  - : Öffnen Sie die Auswahl in einem neuen Hintergrund-Tab und halten Sie den aktuellen Tab im Vordergrund.
+  - : Öffnet die Auswahl in einem neuen Hintergrund-Tab, wobei der aktuelle Tab im Vordergrund bleibt.
 
 ## Browser-Kompatibilität
 

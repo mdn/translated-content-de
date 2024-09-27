@@ -7,14 +7,14 @@ l10n:
 
 {{AddonSidebar}}
 
-Die **`erase()`**-Funktion der {{WebExtAPIRef("downloads")}} API löscht passende {{WebExtAPIRef("downloads.DownloadItem", "DownloadItems")}} aus dem Download-Verlauf des Browsers, ohne die heruntergeladenen Dateien von der Festplatte zu entfernen.
+Die **`erase()`** Funktion der {{WebExtAPIRef("downloads")}} API löscht übereinstimmende {{WebExtAPIRef("downloads.DownloadItem", "DownloadItems")}} aus der Download-Historie des Browsers, ohne die heruntergeladenen Dateien von der Festplatte zu entfernen.
 
-Um die Dateien von der Festplatte zu entfernen, müssen Sie {{WebExtAPIRef("downloads.removeFile()")}} verwenden.
+Um die Dateien von der Festplatte zu löschen, müssen Sie {{WebExtAPIRef("downloads.removeFile()")}} verwenden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 > [!NOTE]
-> Wenn Sie eine heruntergeladene Datei von der Festplatte entfernen _und_ aus dem Verlauf löschen möchten, müssen Sie {{WebExtAPIRef("downloads.removeFile()")}} aufrufen, bevor Sie `erase()` aufrufen. Wenn Sie es umgekehrt versuchen, erhalten Sie einen Fehler beim Aufruf von {{WebExtAPIRef("downloads.removeFile()")}}, da es laut Browser nicht mehr existiert.
+> Wenn Sie eine heruntergeladene Datei von der Festplatte entfernen _und_ aus der Historie löschen möchten, müssen Sie {{WebExtAPIRef("downloads.removeFile()")}} aufrufen, bevor Sie `erase()` aufrufen. Wenn Sie dies umgekehrt versuchen, erhalten Sie einen Fehler beim Aufrufen von {{WebExtAPIRef("downloads.removeFile()")}}, da es laut dem Browser nicht mehr existiert.
 
 ## Syntax
 
@@ -27,11 +27,11 @@ let erasing = browser.downloads.erase(
 ### Parameter
 
 - `query`
-  - : Ein {{WebExtAPIRef('downloads.DownloadQuery')}}-Objekt.
+  - : Ein {{WebExtAPIRef('downloads.DownloadQuery')}} Objekt.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn der Aufruf erfolgreich war, wird das Promise mit einem Array von Ganzzahlen erfüllt, die die IDs der gelöschten {{WebExtAPIRef("downloads.DownloadItem", "DownloadItems")}} darstellen. Wenn keine Objekte gefunden werden konnten, die den Abfrageparametern entsprechen, wird das Array leer sein. Wenn der Aufruf fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn der Aufruf erfolgreich war, wird das Promise mit einem Array von Ganzzahlen erfüllt, die die IDs der gelöschten {{WebExtAPIRef("downloads.DownloadItem", "DownloadItems")}} darstellen. Wenn keine Elemente gefunden werden konnten, die mit dem Query-Parameter übereinstimmen, wird das Array leer sein. Wenn der Aufruf fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -39,7 +39,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn 
 
 ## Beispiele
 
-Löschen Sie den letzten Download:
+Löschen Sie den neuesten Download:
 
 ```js
 function onErased(ids) {
@@ -76,7 +76,7 @@ erasing.then(onErased, onError);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-erase) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-erase) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -1,5 +1,5 @@
 ---
-title: "AudioScheduledSourceNode: start()-Methode"
+title: "AudioScheduledSourceNode: start() Methode"
 short-title: start()
 slug: Web/API/AudioScheduledSourceNode/start
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die `start()`-Methode bei {{domxref("AudioScheduledSourceNode")}} plant einen Ton so ein, dass er zu der angegebenen Zeit zu spielen beginnt. Wenn keine Zeit angegeben wird, beginnt der Ton sofort zu spielen.
+Die `start()`-Methode des [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode) plant einen Klang so ein, dass er zu einem bestimmten Zeitpunkt mit der Wiedergabe beginnt.
+Wenn kein Zeitpunkt angegeben wird, beginnt der Klang sofort zu spielen.
 
 ## Syntax
 
@@ -20,11 +21,7 @@ start(when)
 ### Parameter
 
 - `when` {{optional_inline}}
-  - : Die Zeit in Sekunden, zu der der Ton beginnen soll zu spielen. Dieser Wert wird
-    in demselben Zeitkoordinatensystem angegeben, das auch von {{domxref("AudioContext")}}
-    für das Attribut {{domxref("BaseAudioContext/currentTime", "currentTime")}} verwendet wird. Ein
-    Wert von 0 (oder das vollständige Weglassen des `when` Parameters) bewirkt, dass der Ton
-    die Wiedergabe sofort startet.
+  - : Die Zeit in Sekunden, zu der der Klang beginnen soll zu spielen. Dieser Wert wird in demselben Zeitkoordinatensystem angegeben, das auch der [`AudioContext`](/de/docs/Web/API/AudioContext) für sein Attribut [`currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) verwendet. Ein Wert von 0 (oder das vollständige Weglassen des `when`-Parameters) lässt den Klang sofort mit der Wiedergabe beginnen.
 
 ### Rückgabewert
 
@@ -32,21 +29,21 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateNode` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Node bereits gestartet wurde. Dieser Fehler tritt auch dann auf, wenn der Node aufgrund eines vorherigen Aufrufs von {{domxref("AudioScheduledSourceNode.stop", "stop()")}} nicht mehr läuft.
+- `InvalidStateNode` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Node bereits gestartet wurde. Dieser Fehler tritt auch auf, wenn der Node aufgrund eines vorherigen Aufrufs von [`stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop) nicht mehr läuft.
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn der für `when` angegebene Wert negativ ist.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie man einen {{domxref("OscillatorNode")}} erstellt, der so geplant ist, dass er in 2 Sekunden zu spielen beginnt und eine Sekunde danach wieder aufhört zu spielen. Die Zeiten werden berechnet, indem die gewünschte Anzahl von Sekunden zur aktuellen Zeitmarke des Kontextes hinzugefügt wird, die von {{domxref("BaseAudioContext/currentTime", "AudioContext.currentTime")}} zurückgegeben wird.
+Dieses Beispiel demonstriert, wie ein [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) erstellt wird, der so geplant ist, dass er in 2 Sekunden mit der Wiedergabe beginnt und 1 Sekunde danach aufhört zu spielen. Die Zeiten werden berechnet, indem die gewünschte Anzahl von Sekunden zur aktuellen Zeitmarke des Kontexts hinzugefügt wird, die von [`AudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) zurückgegeben wird.
 
 ```js
 context = new AudioContext();
 osc = context.createOscillator();
 osc.connect(context.destination);
 
-/* Planen Sie die Start- und Stopzeiten für den Oszillator */
+/* Schedule the start and stop times for the oscillator */
 
 osc.start(context.currentTime + 2);
 osc.stop(context.currentTime + 3);
@@ -63,8 +60,8 @@ osc.stop(context.currentTime + 3);
 ## Siehe auch
 
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- {{domxref("AudioScheduledSourceNode.stop", "stop()")}}
-- {{domxref("AudioScheduledSourceNode")}}
-- {{domxref("AudioBufferSourceNode")}}
-- {{domxref("ConstantSourceNode")}}
-- {{domxref("OscillatorNode")}}
+- [`stop()`](/de/docs/Web/API/AudioScheduledSourceNode/stop)
+- [`AudioScheduledSourceNode`](/de/docs/Web/API/AudioScheduledSourceNode)
+- [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)
+- [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode)
+- [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)

@@ -7,18 +7,18 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **WebGLUniformLocation**-Schnittstelle ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und repräsentiert die Position einer Uniform-Variable in einem Shader-Programm.
+Die **WebGLUniformLocation**-Schnittstelle ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und repräsentiert die Position einer Uniform-Variablen in einem Shader-Programm.
 
 ## Beschreibung
 
-Das `WebGLUniformLocation`-Objekt definiert keine eigenen Methoden oder Eigenschaften und sein Inhalt ist nicht direkt zugänglich. Beim Arbeiten mit `WebGLUniformLocation`-Objekten sind die folgenden Methoden des {{domxref("WebGLRenderingContext")}} nützlich:
+Das `WebGLUniformLocation`-Objekt definiert keine eigenen Methoden oder Eigenschaften, und sein Inhalt ist nicht direkt zugänglich. Bei der Arbeit mit `WebGLUniformLocation`-Objekten sind die folgenden Methoden des [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) nützlich:
 
-- {{domxref("WebGLRenderingContext.getUniformLocation()")}}
-- {{domxref("WebGLRenderingContext.uniform()")}}
+- [`WebGLRenderingContext.getUniformLocation()`](/de/docs/Web/API/WebGLRenderingContext/getUniformLocation)
+- [`WebGLRenderingContext.uniform()`](/de/docs/Web/API/WebGLRenderingContext/uniform)
 
 ## Beispiele
 
-### Erhalten eines Uniform-Standorts
+### Erhalten einer Uniform-Position
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -37,4 +37,4 @@ const location = gl.getUniformLocation(WebGLProgram, "uniformName");
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getUniformLocation()")}}
+- [`WebGLRenderingContext.getUniformLocation()`](/de/docs/Web/API/WebGLRenderingContext/getUniformLocation)

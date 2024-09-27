@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`unicode-range`** Attribut definiert den Bereich von [ISO 10646](https://www.iso.org/standard/56921.html) Zeichen, die möglicherweise von den Glyphen in einer Schriftart abgedeckt werden.
+Das **`unicode-range`** Attribut definiert den Bereich von [ISO 10646](https://www.iso.org/standard/56921.html) Zeichen, der möglicherweise durch die Glyphen in einer Schriftart abgedeckt wird.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("font-face")}}
 
-## Verwendungsnotizen
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -23,7 +23,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
         <code
           >&#x3C;urange><a
             href="/de/docs/Web/CSS/Value_definition_syntax#hash_mark"
-            title="The hash mark multiplier indicates that the entity may be repeated one or more times (for example, the plus multiplier), but each occurrence is separated by a comma (&#x27;,&#x27;)."
+            title="Das Rautezeichen-Multiplikator bedeutet, dass die Entität ein- oder mehrmals wiederholt werden kann (zum Beispiel der Plus-Multiplikator), aber jede Vorkommen wird durch ein Komma (&#x27;,&#x27;) getrennt."
             >#</a
           ></code
         >
@@ -31,7 +31,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>None</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -41,7 +41,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<urange>#`
-  - : Dieser Wert ist eine durch Kommas getrennte Liste von ISO 10646 Zeichen, die möglicherweise von den Glyphen in der Schriftart abgedeckt werden.
+  - : Dieser Wert ist eine durch Komma getrennte Liste von ISO 10646 Zeichen, die möglicherweise durch die Glyphen in der Schriftart abgedeckt werden.
 
 ## Spezifikationen
 

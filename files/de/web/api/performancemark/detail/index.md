@@ -1,5 +1,5 @@
 ---
-title: "PerformanceMark: Eigenschaft detail"
+title: "PerformanceMark: detail-Eigenschaft"
 short-title: detail
 slug: Web/API/PerformanceMark/detail
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`detail`**-Eigenschaft gibt beliebige Metadaten zurück, die beim Erstellen der Markierung enthalten waren (entweder beim Verwenden von {{domxref("Performance.mark", "performance.mark()")}} oder des {{domxref("PerformanceMark.PerformanceMark", "PerformanceMark()")}}-Konstruktors).
+Die schreibgeschützte **`detail`**-Eigenschaft gibt beliebige Metadaten zurück, die beim Erstellen der Markierung eingefügt wurden (entweder bei der Verwendung von [`performance.mark()`](/de/docs/Web/API/Performance/mark) oder des [`PerformanceMark()`](/de/docs/Web/API/PerformanceMark/PerformanceMark)-Konstruktors).
 
 ## Wert
 
-Gibt den Wert zurück, auf den sie gesetzt ist (aus `markOptions` von {{domxref("Performance.mark", "performance.mark()")}} oder des {{domxref("PerformanceMark.PerformanceMark", "PerformanceMark()")}}-Konstruktors).
+Gibt den Wert zurück, auf den sie gesetzt ist (aus `markOptions` von [`performance.mark()`](/de/docs/Web/API/Performance/mark) oder dem [`PerformanceMark()`](/de/docs/Web/API/PerformanceMark/PerformanceMark)-Konstruktor).
 
 ## Beispiele
 
-Das folgende Beispiel demonstriert die `detail`-Eigenschaft.
+Das folgende Beispiel zeigt die `detail`-Eigenschaft.
 
 ```js
 performance.mark("dog", { detail: "labrador" });

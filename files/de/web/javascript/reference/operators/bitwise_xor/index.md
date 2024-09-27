@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **bitweise XOR-Operator (`^`)** gibt eine Zahl oder BigInt zurück, deren binäre Darstellung an jeder Bitposition ein `1` hat, für die die entsprechenden Bits entweder, aber nicht beide Operanden, `1` sind.
+Der **bitweise XOR (`^`)** Operator gibt eine Zahl oder ein BigInt zurück, dessen binäre Darstellung in jeder Bitposition eine `1` hat, in der die entsprechenden Bits entweder, aber nicht beide, Operanden `1` sind.
 
 {{EmbedInteractiveExample("pages/js/expressions-bitwise-xor.html", "shorter")}}
 
@@ -19,9 +19,9 @@ x ^ y
 
 ## Beschreibung
 
-Der `^`-Operator ist für zwei Arten von Operanden überladen: Zahlen und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Für Zahlen gibt der Operator eine 32-Bit-Ganzzahl zurück. Für BigInts gibt der Operator ein BigInt zurück. Er [zwingt beide Operanden zu numerischen Werten](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und prüft deren Typen. Er führt ein BigInt-XOR durch, wenn beide Operanden BigInts werden; andernfalls wandelt er beide Operanden in [32-Bit-Ganzzahlen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) um und führt ein bitweises XOR bei Zahlen durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch zu einer Zahl.
+Der `^` Operator ist für zwei Arten von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Für Zahlen gibt der Operator einen 32-Bit-Integer zurück. Für BigInts gibt der Operator ein BigInt zurück. Er [erzwingt zunächst beide Operanden als numerische Werte](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und prüft deren Typen. Er führt BigInt XOR aus, wenn beide Operanden BigInts werden; andernfalls konvertiert er beide Operanden in [32-Bit-Integer](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) und führt ein bitweises XOR für Zahlen aus. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch zu einer Zahl.
 
-Der Operator arbeitet an den Bitdarstellungen der Operanden im [Zweierkomplement](https://en.wikipedia.org/wiki/Two's_complement). Jedes Bit im ersten Operanden wird mit dem entsprechenden Bit im zweiten Operanden gepaart: _erstes Bit_ zu _erstem Bit_, _zweites Bit_ zu _zweitem Bit_ und so weiter. Der Operator wird auf jedes Bitpaar angewendet und das Ergebnis wird bitweise konstruiert.
+Der Operator arbeitet mit den Bitdarstellungen der Operanden im [Zweierkomplement](https://en.wikipedia.org/wiki/Two's_complement). Jedes Bit im ersten Operanden wird mit dem entsprechenden Bit im zweiten Operanden gepaart: _erstes Bit_ zum _ersten Bit_, _zweites Bit_ zum _zweiten Bit_ und so weiter. Der Operator wird auf jedes Bitpaar angewendet und das Ergebnis bitweise konstruiert.
 
 Die Wahrheitstabelle für die XOR-Operation ist:
 
@@ -33,26 +33,26 @@ Die Wahrheitstabelle für die XOR-Operation ist:
 | 1   | 1   | 0       |
 
 ```plain
-     9 (Basis 10) = 00000000000000000000000000001001 (Basis 2)
-    14 (Basis 10) = 00000000000000000000000000001110 (Basis 2)
+     9 (base 10) = 00000000000000000000000000001001 (base 2)
+    14 (base 10) = 00000000000000000000000000001110 (base 2)
                    --------------------------------
-14 ^ 9 (Basis 10) = 00000000000000000000000000000111 (Basis 2) = 7 (Basis 10)
+14 ^ 9 (base 10) = 00000000000000000000000000000111 (base 2) = 7 (base 10)
 ```
 
-Zahlen mit mehr als 32 Bits haben ihre höchstwertigen Bits verworfen. Zum Beispiel wird die folgende Ganzzahl mit mehr als 32 Bits in eine 32-Bit-Ganzzahl umgewandelt:
+Zahlen mit mehr als 32 Bits lassen ihre am stärksten signifikanten Bits wegfallen. Zum Beispiel wird der folgende Integer mit mehr als 32 Bits in einen 32-Bit-Integer umgewandelt:
 
 ```plain
-Vorher: 11100110111110100000000000000110000000000001
-Nachher:              10100000000000000110000000000001
+Before: 11100110111110100000000000000110000000000001
+After:              10100000000000000110000000000001
 ```
 
-Für BigInts gibt es keine Trunkierung. Konzeptuell verstehen Sie positive BigInts als mit einer unendlichen Anzahl führender `0`-Bits und negative BigInts als mit einer unendlichen Anzahl führender `1`-Bits.
+Für BigInts gibt es keine Trunkierung. Konzeptionell können Sie sich positive BigInts mit einer unendlichen Anzahl führender `0`-Bits und negative BigInts mit einer unendlichen Anzahl führender `1`-Bits vorstellen.
 
-Ein bitweises XOR mit einer Zahl `x` mit `0` gibt `x` konvertiert in eine 32-Bit-Ganzzahl zurück. Verwenden Sie nicht `^ 0` um Zahlen auf Ganzzahlen zu verkürzen; verwenden Sie stattdessen [`Math.trunc()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc#using_bitwise_no-ops_to_truncate_numbers).
+Ein bitweises XOR jeder Zahl `x` mit `0` gibt `x` als 32-Bit-Integer zurück. Verwenden Sie nicht `^ 0`, um Zahlen auf Integer zu kürzen; verwenden Sie stattdessen [`Math.trunc()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc#using_bitwise_no-ops_to_truncate_numbers).
 
 ## Beispiele
 
-### Verwendung von bitweisem XOR
+### Verwendung des bitweisen XOR
 
 ```js
 // 9  (00000000000000000000000000001001)
@@ -75,4 +75,4 @@ Ein bitweises XOR mit einer Zahl `x` mit `0` gibt `x` konvertiert in eine 32-Bit
 ## Siehe auch
 
 - [Bitweise Operatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#bitwise_operators)
-- [Bitweise XOR-Zuweisung (`^=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR_assignment)
+- [Bitweises XOR-Zuweisung (`^=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR_assignment)

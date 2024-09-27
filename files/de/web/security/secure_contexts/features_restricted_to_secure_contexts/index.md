@@ -7,65 +7,65 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Diese Referenz listet die Web-Plattform-Funktionen auf, die nur in sicheren Kontexten verfügbar sind — siehe [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts) für eine Definition und weitere Details.
+Diese Referenz listet die Webplattform-Funktionen auf, die nur in sicheren Kontexten verfügbar sind — siehe [Sichere Kontexte](/de/docs/Web/Security/Secure_Contexts) für eine Definition und weitere Details.
 
 ## Aktuelle Funktionen, die nur in sicheren Kontexten verfügbar sind
 
-In diesem Abschnitt werden APIs aufgelistet, die laut Spezifikationen nur in sicheren Kontexten verfügbar sind.
+Dieser Abschnitt listet APIs auf, die gemäß Spezifikationen nur in sicheren Kontexten verfügbar sind.
 
 - [Async Clipboard API](/de/docs/Web/API/Clipboard)
-- {{domxref("Audio Output Devices API", "", "", "nocode")}}
-- {{domxref("Background Fetch API", "", "", "nocode")}}
-- {{domxref("Background Synchronization API", "", "", "nocode")}}
-- {{domxref("Badging API", "", "", "nocode")}}
-- {{domxref("Barcode Detection API", "", "", "nocode")}}
-- {{domxref("Battery Status API", "", "", "nocode")}}
+- [Audio Output Devices API](/de/docs/Web/API/Audio_Output_Devices_API)
+- [Background Fetch API](/de/docs/Web/API/Background_Fetch_API)
+- [Background Synchronization API](/de/docs/Web/API/Background_Synchronization_API)
+- [Badging API](/de/docs/Web/API/Badging_API)
+- [Barcode Detection API](/de/docs/Web/API/Barcode_Detection_API)
+- [Battery Status API](/de/docs/Web/API/Battery_Status_API)
 - [`Cache-Control: immutable`](/de/docs/Web/HTTP/Headers/Cache-Control)
-- {{domxref("Contact Picker API", "", "", "nocode")}}
-- {{domxref("Content Index API", "", "", "nocode")}}
-- {{domxref("Cookie Store API", "", "", "nocode")}}
+- [Contact Picker API](/de/docs/Web/API/Contact_Picker_API)
+- [Content Index API](/de/docs/Web/API/Content_Index_API)
+- [Cookie Store API](/de/docs/Web/API/Cookie_Store_API)
 - [Credential Management API](/de/docs/Web/API/Credential_Management_API)
-- {{domxref("Device Memory API", "", "", "nocode")}}
-- [Device Orientation / Device Motion](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
-- {{domxref("Document Picture-in-Picture API", "", "", "nocode")}}
+- [Device Memory API](/de/docs/Web/API/Device_Memory_API)
+- [Geräteorientierung / Bewegungserkennung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API)
 - [EyeDropper API](/de/docs/Web/API/EyeDropper)
 - [Encrypted Media Extensions](/de/docs/Web/API/Encrypted_Media_Extensions_API)
-- {{domxref("File System API", "", "", "nocode")}}
+- [File System API](/de/docs/Web/API/File_System_API)
 - [Generic Sensor API](https://w3c.github.io/sensors/)
-- {{domxref("Gamepad API", "", "", "nocode")}}
-- {{domxref("Geolocation API", "", "", "nocode")}}
-- {{domxref("Idle Detection API", "", "", "nocode")}}
-- {{domxref("Keyboard API", "", "", "nocode")}}
-- {{domxref("Local Font Access API", "", "", "nocode")}}
+- [Gamepad API](/de/docs/Web/API/Gamepad_API)
+- [Geolocation API](/de/docs/Web/API/Geolocation_API)
+- [Idle Detection API](/de/docs/Web/API/Idle_Detection_API)
+- [Keyboard API](/de/docs/Web/API/Keyboard_API)
+- [Local Font Access API](/de/docs/Web/API/Local_Font_Access_API)
 - [Notifications API](/de/docs/Web/API/Notifications_API)
-- {{domxref("Payment Handler API", "", "", "nocode")}}
+- [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
 - [Payment Request API](/de/docs/Web/API/Payment_Request_API)
 - [Presentation API](/de/docs/Web/API/Presentation_API)
 - [Push API](/de/docs/Web/API/Push_API)
 - [Reporting API](/de/docs/Web/API/Reporting_API)
-- {{domxref("Screen Capture API", "", "", "nocode")}}
-- {{domxref("Screen Wake Lock API", "", "", "nocode")}}
+- [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
+- [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API)
 - [Service Workers](/de/docs/Web/API/Service_Worker_API)
-- {{domxref("Shared Storage API", "", "", "nocode")}}
+- [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)
 - [Storage API](/de/docs/Web/API/Storage_API)
-- {{domxref("VirtualKeyboard API", "", "", "nocode")}}
+- [VirtualKeyboard API](/de/docs/Web/API/VirtualKeyboard_API)
 - [Web Authentication API](/de/docs/Web/API/Web_Authentication_API)
 - [Web Bluetooth](/de/docs/Web/API/Web_Bluetooth_API)
-- {{domxref("Web Locks API", "", "", "nocode")}}
+- [Web Locks API](/de/docs/Web/API/Web_Locks_API)
 - [Web MIDI](/de/docs/Web/API/Web_MIDI_API)
-- {{domxref("Web NFC API", "", "", "nocode")}}
+- [Web NFC API](/de/docs/Web/API/Web_NFC_API)
 - [Web Crypto API](/de/docs/Web/API/Web_Crypto_API)
-- {{domxref("WebCodecs API", "", "", "nocode")}}
+- [WebCodecs API](/de/docs/Web/API/WebCodecs_API)
 - [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- {{domxref("WebHID API", "", "", "nocode")}}
-- {{domxref("WebOTP API", "", "", "nocode")}}
-- {{domxref("WebTransport API", "", "", "nocode")}}
-- {{domxref("WebUSB API", "", "", "nocode")}}
-- {{domxref("WebXR Device API", "", "", "nocode")}}
+- [WebHID API](/de/docs/Web/API/WebHID_API)
+- [WebOTP API](/de/docs/Web/API/WebOTP_API)
+- [WebTransport API](/de/docs/Web/API/WebTransport_API)
+- [WebUSB API](/de/docs/Web/API/WebUSB_API)
+- [WebXR Device API](/de/docs/Web/API/WebXR_Device_API)
 - [Web Share API](/de/docs/Web/API/Web_Share_API)
-- {{domxref("Window Management API", "", "", "nocode")}}
+- [Window Management API](/de/docs/Web/API/Window_Management_API)
 
-Zusätzlich erfordern die folgenden Methoden einen sicheren Kontext (auch wenn die zugehörige API dies nicht tut):
+Darüber hinaus erfordern die folgenden Methoden einen sicheren Kontext (selbst wenn die zugehörige API dies nicht tut):
 
 - [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)
 - [`Navigator.registerProtocolHandler()`](/de/docs/Web/API/Navigator/registerProtocolHandler)

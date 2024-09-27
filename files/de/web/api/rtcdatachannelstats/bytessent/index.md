@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannelStats: Eigenschaft bytesSent"
+title: "RTCDataChannelStats: bytesSent-Eigenschaft"
 short-title: bytesSent
 slug: Web/API/RTCDataChannelStats/bytesSent
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`bytesSent`**-Eigenschaft des {{domxref("RTCDataChannelStats")}}-Wörterbuchs gibt die Gesamtzahl der Payload-Bytes zurück, die über den zugehörigen {{domxref("RTCDataChannel")}} gesendet wurden.
+Die **`bytesSent`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats)-Wörterbuchs gibt die Gesamtzahl der Nutzdatenbytes zurück, die über den zugehörigen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) gesendet wurden.
 
-Beachten Sie, dass Nicht-Payload-Bytes, wie diejenigen für Rahmenbildung und in Headern, nicht eingeschlossen sind.
+Beachten Sie, dass Nicht-Nutzdatenbytes, wie z.B. für die Rahmung und in Kopfzeilen, nicht enthalten sind.
 
 ## Wert
 
-Ein positiver ganzzahliger Wert, der die Gesamtzahl der über den zugehörigen Datenkanal gesendeten Payload-Bytes angibt.
+Ein positiver Ganzzahlenwert, der die Gesamtzahl der auf dem zugehörigen Datenkanal gesendeten Nutzdatenbytes angibt.
 
 ## Spezifikationen
 
@@ -26,4 +26,4 @@ Ein positiver ganzzahliger Wert, der die Gesamtzahl der über den zugehörigen D
 
 ## Siehe auch
 
-- {{domxref("RTCDataChannel")}}
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)

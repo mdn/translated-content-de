@@ -1,5 +1,5 @@
 ---
-title: "Range: getClientRects()-Methode"
+title: "Range: getClientRects() Methode"
 short-title: getClientRects()
 slug: Web/API/Range/getClientRects
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.getClientRects()`**-Methode gibt eine Liste von {{domxref("DOMRect")}}-Objekten zurück, die den von dem [Range](/de/docs/Web/API/Range) belegten Bildschirmbereich darstellen. Dies wird durch Aggregieren der Ergebnisse von Aufrufen von {{ domxref("Element.getClientRects()") }} für alle Elemente im Range erstellt.
+Die **`Range.getClientRects()`** Methode gibt eine Liste von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten zurück, die den Bereich des Bildschirms darstellen, der durch den [Bereich](/de/docs/Web/API/Range) belegt wird. Dies wird durch das Aggregieren der Ergebnisse von Aufrufen von [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects) für alle Elemente im Bereich erstellt.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) Sequenz von {{domxref("DOMRect")}}-Objekten.
+Eine [iterierbare](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) Sequenz von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten.
 
 ## Beispiele
 
-### Protokollieren der Größen ausgewählter Client-Rechtecke
+### Protokollierung ausgewählter Client-Rechteckgrößen
 
 #### HTML
 
@@ -72,4 +72,4 @@ for (const rect of rectList) {
 
 ## Siehe auch
 
-- {{domxref("Range")}}
+- [`Range`](/de/docs/Web/API/Range)

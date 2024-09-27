@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.isPointInStroke()`**-Methode der Canvas 2D API gibt an, ob der angegebene Punkt innerhalb des Bereichs liegt, der durch die Umrandung eines Pfades definiert ist.
+Die
+**`CanvasRenderingContext2D.isPointInStroke()`**
+Methode des Canvas 2D API ermittelt, ob der angegebene Punkt innerhalb des Bereichs liegt, der durch das Nachziehen eines Pfads umschlossen wird.
 
 ## Syntax
 
@@ -20,28 +22,28 @@ isPointInStroke(path, x, y)
 ### Parameter
 
 - `x`
-  - : Die x-Achsenkoordinate des zu überprüfenden Punktes.
+  - : Die x-Achsen-Koordinate des zu überprüfenden Punkts.
 - `y`
-  - : Die y-Achsenkoordinate des zu überprüfenden Punktes.
+  - : Die y-Achsen-Koordinate des zu überprüfenden Punkts.
 - `path`
-  - : Ein {{domxref("Path2D")}}-Pfad, gegen den überprüft werden soll. Wenn nicht angegeben, wird der aktuelle Pfad verwendet.
+  - : Ein [`Path2D`](/de/docs/Web/API/Path2D)-Pfad, der überprüft werden soll. Wenn nicht angegeben, wird der aktuelle Pfad verwendet.
 
 ### Rückgabewert
 
 - Ein boolescher Wert
-  - : Ein Boolean, der `true` ist, wenn der Punkt innerhalb des Bereichs liegt, der durch die Umrandung eines Pfades definiert ist, andernfalls `false`.
+  - : Ein Boolescher Wert, der `true` ist, wenn der Punkt innerhalb des Bereichs liegt, der durch das Nachziehen eines Pfads umschlossen wird, andernfalls `false`.
 
 ## Beispiele
 
-### Überprüfung eines Punkts im aktuellen Pfad
+### Überprüfen eines Punkts im aktuellen Pfad
 
-Dieses Beispiel verwendet die `isPointInStroke()`-Methode, um zu überprüfen, ob ein Punkt innerhalb des Bereichs der Umrandung des aktuellen Pfades liegt.
+Dieses Beispiel verwendet die `isPointInStroke()`-Methode, um zu prüfen, ob ein Punkt innerhalb des Bereichs des Strichs des aktuellen Pfads liegt.
 
 #### HTML
 
 ```html
 <canvas id="canvas"></canvas>
-<p>Im Umriss: <code id="result">false</code></p>
+<p>In stroke: <code id="result">false</code></p>
 ```
 
 #### JavaScript
@@ -60,9 +62,9 @@ result.innerText = ctx.isPointInStroke(50, 10);
 
 {{ EmbedLiveSample('Checking_a_point_in_the_current_path', 700, 220) }}
 
-### Überprüfung eines Punkts im angegebenen Pfad
+### Überprüfen eines Punkts im angegebenen Pfad
 
-Wenn Sie die Maus bewegen, überprüft dieses Beispiel, ob sich der Cursor im Umriss eines elliptischen `Path2D`-Pfades befindet. Wenn ja, wird der Umriss der Ellipse grün, andernfalls rot.
+Wann immer Sie die Maus bewegen, prüft dieses Beispiel, ob sich der Cursor im Strich eines elliptischen `Path2D`-Pfads befindet. Wenn ja, wird der Strich der Ellipse grün, andernfalls rot.
 
 #### HTML
 
@@ -76,7 +78,7 @@ Wenn Sie die Maus bewegen, überprüft dieses Beispiel, ob sich der Cursor im Um
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// Ellipse erstellen
+// Create ellipse
 const ellipse = new Path2D();
 ellipse.ellipse(150, 75, 40, 60, Math.PI * 0.25, 0, 2 * Math.PI);
 ctx.lineWidth = 25;
@@ -84,9 +86,9 @@ ctx.strokeStyle = "red";
 ctx.fill(ellipse);
 ctx.stroke(ellipse);
 
-// Mausbewegungen überwachen
+// Listen for mouse moves
 canvas.addEventListener("mousemove", (event) => {
-  // Überprüfen, ob der Punkt innerhalb des Umrisses der Ellipse liegt
+  // Check whether point is inside ellipse's stroke
   const isPointInStroke = ctx.isPointInStroke(
     ellipse,
     event.offsetX,
@@ -94,7 +96,7 @@ canvas.addEventListener("mousemove", (event) => {
   );
   ctx.strokeStyle = isPointInStroke ? "green" : "red";
 
-  // Ellipse zeichnen
+  // Draw ellipse
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fill(ellipse);
   ctx.stroke(ellipse);
@@ -115,4 +117,4 @@ canvas.addEventListener("mousemove", (event) => {
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

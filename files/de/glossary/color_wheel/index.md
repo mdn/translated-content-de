@@ -7,23 +7,23 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Farbkreis**, oder _Farbenkreis_, repräsentiert eine Palette von Farben in Form eines Diagramms, das in einem Kreis angeordnet ist. Ein Farbkreis kann Farben anzeigen, die durch zwei Polarkoordinaten identifiziert werden, den _Winkel_ und den _Abstand_ vom Ursprung, dem Zentrum des Kreises.
+Ein **Farbkreis**, oder ein _Farbzirkel_, stellt eine Farbpalette in Diagrammform dar, die in einem Kreis angeordnet ist. Ein Farbkreis kann Farben anzeigen, die durch zwei Polarkoordinaten, den _Winkel_ und die _Entfernung_ vom Ursprung, dem Zentrum des Kreises, identifiziert werden.
 
-Farbkreise sind praktisch zum Vergleichen von Farben, die in Polar- oder Zylinderkoordinaten ausgedrückt werden, wie [`hsl()`](/de/docs/Web/CSS/color_value/hsl), [`hwb()`](/de/docs/Web/CSS/color_value/hwb) oder [`lch()`](/de/docs/Web/CSS/color_value/lch).
+Farbkreise sind nützlich, um Farben zu vergleichen, die in Polarkoordinaten oder zylindrischen Koordinaten ausgedrückt werden, wie [`hsl()`](/de/docs/Web/CSS/color_value/hsl), [`hwb()`](/de/docs/Web/CSS/color_value/hwb) oder [`lch()`](/de/docs/Web/CSS/color_value/lch).
 
-In solchen Fällen werden oft _komplementäre Farben_ gegenüber auf demselben Durchmesser gefunden. Ebenso befinden sich _monochromatische Farben_ – Farben desselben _Tons_, aber unterschiedlicher _Schattierungen_ – auf demselben Radius, und _triadische Farben_ – drei gleichmäßig um den Farbkreis verteilte Farben, die zu harmonierenden Farbkombinationen führen – sind ebenfalls leicht zu finden.
+In solchen Fällen findet man _komplementäre Farben_ oft gegenüberliegend auf demselben Durchmesser. Ähnlich dazu befinden sich _monochromatische Farben_ – Farben desselben _Tonwertes_, aber unterschiedlicher _Schattierungen_ – auf demselben Radius. _Triadische Farben_ – drei Farben, die gleichmäßig um den Farbkreis verteilt sind und gut zusammenpassen – sind ebenfalls leicht zu finden.
 
-Farbkreise werden im echten Leben verwendet, wenn wir zwischen verschiedenen Farbtönen wählen möchten. Zum Beispiel bei der Auswahl von Wandfarbe oder der Farbe eines Möbelstücks.
+Farbkreise werden im täglichen Leben verwendet, wenn wir zwischen verschiedenen Farbtönen wählen wollen. Zum Beispiel bei der Auswahl von Wandfarben oder der Farbe eines Möbelstücks.
 
-In der digitalen Welt werden Farbkreise in _Farbwählern_ verwendet, wie dem Standard-Farbwähler auf macOS:
+In der digitalen Welt werden Farbkreise in _Farbauswahlwerkzeugen_ verwendet, wie dem Standard-Farbauswahlwerkzeug auf macOS:
 
-![Der Standard-Farbwähler auf macOS](color_wheel_macos.png)
+![Der Standard-Farbauswähler auf macOS](color_wheel_macos.png)
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{glossary("Color space")}}
+  - [Farbraum](/de/docs/Glossary/Color_space)
 - [`<color>`](/de/docs/Web/CSS/color_value) der CSS-Datentyp
 - [Farbtheorie und der Farbkreis](https://www.canva.com/colors/color-wheel/)
-- [Wie man den Farbkreis verwendet, um seine perfekte Farbpalette auszuwählen](https://www.bhg.com/decorating/color/basics/color-wheel-color-chart/) bei Better Homes & Gardens
+- [Anleitung zur Verwendung des Farbkreises zur Auswahl Ihrer perfekten Farbpalette](https://www.bhg.com/decorating/color/basics/color-wheel-color-chart/) auf Better Homes & Gardens
 - [Farbkreis](https://en.wikipedia.org/wiki/Color_wheel) auf Wikipedia

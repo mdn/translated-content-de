@@ -8,29 +8,20 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`opened`**-Eigenschaft der {{domxref("HIDDevice")}}-Schnittstelle gibt `true` zurück, wenn die Verbindung zum {{domxref("HIDDevice")}} geöffnet und bereit ist, Daten zu übertragen.
+Die schreibgeschützte Eigenschaft **`opened`** der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle gibt `true` zurück, wenn die Verbindung zum [`HIDDevice`](/de/docs/Web/API/HIDDevice) geöffnet und bereit zum Datentransfer ist.
 
 ## Wert
 
-Ein boolescher Wert, `true`, wenn die Verbindung geöffnet ist.
+Ein boolescher Wert, `true` wenn die Verbindung geöffnet ist.
 
 ## Beispiele
 
-Das folgende Beispiel ruft Geräte mit {{domxref("HID.getDevices()")}} ab und protokolliert den Wert von `opened` in der Konsole.
-
-```js
-document.addEventListener("DOMContentLoaded", async () => {
-  let devices = await navigator.hid.getDevices();
-  devices.forEach((device) => {
-    console.log(`HID: ${device.opened}`);
-  });
-});
-```
+Das folgende Beispiel ruft Geräte mit [`HID.getDevices()`](/de/docs/Web/API/HID/getDevices) ab und protokolliert den Wert von `opened` in der Konsole.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

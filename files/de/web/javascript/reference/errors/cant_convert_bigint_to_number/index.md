@@ -1,5 +1,5 @@
 ---
-title: "TypeError: BigInt kann nicht in eine number konvertiert werden"
+title: "TypeError: kann BigInt nicht in number konvertieren"
 slug: Web/JavaScript/Reference/Errors/Cant_convert_BigInt_to_number
 l10n:
   sourceCommit: 4e0349ec31c38bebd56e56782170666e11ae5ad3
@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme „BigInt kann nicht in eine number konvertiert werden“ tritt auf, wenn eine arithmetische Operation eine Mischung aus {{jsxref("BigInt")}} und {{jsxref("Number")}} Werten beinhaltet.
+Der JavaScript-Ausnahmefehler "can't convert BigInt to number" tritt auf, wenn eine arithmetische Operation eine Mischung aus {{jsxref("BigInt")}} und {{jsxref("Number")}} Werten umfasst.
 
-## Meldung
+## Nachricht
 
 ```plain
 TypeError: Cannot convert a BigInt value to a number (V8-based)
@@ -21,28 +21,28 @@ TypeError: Invalid mix of BigInt and other type in addition/multiplication/…. 
 TypeError: BigInt does not support >>> operator (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("TypeError")}}.
 
-## Was ist schiefgelaufen?
+## Was ging schief?
 
-Die beiden Seiten eines arithmetischen Operators müssen entweder beide BigInts oder beide nicht-BigInts sein. Wenn eine Operation eine Mischung aus BigInts und numbers beinhaltet, ist es unklar, ob das Ergebnis ein BigInt oder eine number sein sollte, da in beiden Fällen Präzisionsverlust auftreten kann.
+Die beiden Seiten eines arithmetischen Operators müssen entweder beide BigInts oder beide nicht sein. Wenn eine Operation eine Mischung aus BigInts und Zahlen umfasst, ist es nicht eindeutig, ob das Ergebnis ein BigInt oder eine Zahl sein sollte, da in beiden Fällen ein Präzisionsverlust auftreten kann.
 
-Der Fehler tritt auch auf, wenn ein BigInt implizit durch den [number-Zwangsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) in eine number konvertiert wird. Zum Beispiel, wenn ein BigInt an eine eingebaute Methode übergeben wird, die eine number erwartet.
+Der Fehler tritt auch auf, wenn ein BigInt implizit über den [number coercion](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) Prozess in eine Zahl umgewandelt wird. Dies kann zum Beispiel passieren, wenn ein BigInt an eine eingebaute Methode übergeben wird, die eine Zahl erwartet.
 
-Der Fehler kann auch auftreten, wenn der [unsigned right shift Operator (`>>>`)](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift) zwischen zwei BigInts verwendet wird. In Firefox bleibt die Meldung dieselbe: „BigInt kann nicht in eine number konvertiert werden“.
+Der Fehler kann auch auftreten, wenn der [unsigned right shift operator (`>>>`)](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift) zwischen zwei BigInts verwendet wird. In Firefox ist die Fehlermeldung dieselbe: "can't convert BigInt to number".
 
 ## Beispiele
 
-### Mischen von numbers und BigInts in Operationen
+### Mischen von Zahlen und BigInts in Operationen
 
 ```js example-bad
 const sum = 1n + 1;
 // TypeError: can't convert BigInt to number
 ```
 
-Stattdessen explizit eine Seite zu einem BigInt oder einer number umwandeln.
+Stattdessen sollte eine Seite explizit in einen BigInt oder eine Zahl umgewandelt werden.
 
 ```js example-good
 const sum = 1n + BigInt(1);
@@ -56,7 +56,7 @@ const a = 4n >>> 2n;
 // TypeError: can't convert BigInt to number
 ```
 
-Stattdessen den normalen Rechts-Shift verwenden.
+Verwenden Sie stattdessen normalen Rechtsschieben.
 
 ```js example-good
 const a = 4n >> 2n;

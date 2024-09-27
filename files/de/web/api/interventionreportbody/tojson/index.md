@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der {{domxref("InterventionReportBody")}}-Schnittstelle ist ein _Serializer_ und gibt eine JSON-Darstellung des `InterventionReportBody`-Objekts zurück.
+Die **`toJSON()`**-Methode der [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Schnittstelle ist ein _Serializer_ und gibt eine JSON-Darstellung des `InterventionReportBody`-Objekts zurück.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein JSON-Objekt, das die Serialisierung des {{domxref("InterventionReportBody")}}-Objekts ist.
+Ein JSON-Objekt, das die Serialisierung des [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Objekts ist.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen {{domxref("ReportingObserver")}}, um Intervention-Berichte zu beobachten, und geben dann eine JSON-Darstellung des ersten Eintrags zurück.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Interventionsberichte zu beobachten, und geben dann eine JSON-Darstellung des ersten Eintrags zurück.
 
 ```js
 const options = {
@@ -44,6 +44,6 @@ const observer = new ReportingObserver((reports, observer) => {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

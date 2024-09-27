@@ -7,50 +7,50 @@ l10n:
 
 {{APIRef("Remote Playback API")}}
 
-Die **`RemotePlayback`**-Schnittstelle der {{domxref('Remote Playback API','','',' ')}} ermöglicht es der Seite, die Verfügbarkeit von Fernwiedergabegeräten zu erkennen, dann eine Verbindung herzustellen und die Wiedergabe auf diesen Geräten zu steuern.
+Die **`RemotePlayback`**-Schnittstelle der [Remote Playback API](/de/docs/Web/API/Remote_Playback_API) ermöglicht es der Seite, die Verfügbarkeit von Remote-Wiedergabegeräten zu erkennen, sich mit ihnen zu verbinden und die Wiedergabe auf diesen Geräten zu steuern.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, {{DOMxRef("EventTarget")}}._
+_Erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("RemotePlayback.state")}} {{ReadOnlyInline}}
+- [`RemotePlayback.state`](/de/docs/Web/API/RemotePlayback/state) {{ReadOnlyInline}}
 
-  - : Repräsentiert den Verbindungszustand von `RemotePlayback`. Einer von:
+  - : Repräsentiert den Status der `RemotePlayback`-Verbindung. Einer von:
 
     - `"connecting"`
-      - : Der User-Agent versucht, die Fernwiedergabe mit dem ausgewählten Gerät zu initiieren.
+      - : Der Benutzeragent versucht, die Remote-Wiedergabe mit dem ausgewählten Gerät zu initiieren.
     - `"connected"`
-      - : Der Wechsel von lokaler zu Fernwiedergabe hat stattgefunden, alle Befehle werden nun auf das Ferngerät übertragen.
+      - : Der Übergang von lokaler zu Remote-Wiedergabe hat stattgefunden, alle Befehle werden nun auf dem entfernten Gerät ausgeführt.
     - `"disconnected"`
-      - : Die Fernwiedergabe wurde nicht initiiert, konnte nicht initiiert werden oder wurde gestoppt.
+      - : Die Remote-Wiedergabe wurde nicht initiiert, die Initiierung ist fehlgeschlagen oder wurde gestoppt.
 
 ## Instanz-Methoden
 
-_Erbt auch Methoden von seiner übergeordneten Schnittstelle, {{DOMxRef("EventTarget")}}._
+_Erbt auch Methoden von ihrer übergeordneten Schnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("RemotePlayback.watchAvailability()")}}
-  - : Überwacht die Liste der verfügbaren Fernwiedergabegeräte und gibt ein {{jsxref("Promise")}} zurück, das mit einer `callbackId` eines verfügbaren Fernwiedergabegeräts aufgelöst wird.
-- {{domxref("RemotePlayback.cancelWatchAvailability()")}}
-  - : Bricht die Anforderung zur Überwachung der Verfügbarkeit von Fernwiedergabegeräten ab.
-- {{domxref("RemotePlayback.prompt()")}}
-  - : Fordert den Benutzer auf, ein Fernwiedergabegerät auszuwählen und die Berechtigung zur Verbindung zu erteilen.
+- [`RemotePlayback.watchAvailability()`](/de/docs/Web/API/RemotePlayback/watchAvailability)
+  - : Überwacht die Liste der verfügbaren Remote-Wiedergabegeräte und gibt ein {{jsxref("Promise")}} zurück, das mit einer `callbackId` eines verfügbaren Remote-Wiedergabegeräts aufgelöst wird.
+- [`RemotePlayback.cancelWatchAvailability()`](/de/docs/Web/API/RemotePlayback/cancelWatchAvailability)
+  - : Hebt die Anforderung zur Überwachung der Verfügbarkeit von Remote-Wiedergabegeräten auf.
+- [`RemotePlayback.prompt()`](/de/docs/Web/API/RemotePlayback/prompt)
+  - : Fordert den Benutzer auf, ein Remote-Wiedergabegerät auszuwählen und die Erlaubnis zum Verbinden zu erteilen.
 
 ## Ereignisse
 
-_Erbt auch Ereignisse von seiner übergeordneten Schnittstelle, {{DOMxRef("EventTarget")}}._
+_Erbt auch Ereignisse von ihrer übergeordneten Schnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("RemotePlayback.connecting_event", "connecting")}}
-  - : Wird ausgelöst, wenn der User-Agent die Fernwiedergabe initiiert.
-- {{domxref("RemotePlayback.connect_event", "connect")}}
-  - : Wird ausgelöst, wenn der User-Agent erfolgreich eine Verbindung zum Ferngerät herstellt.
-- {{domxref("RemotePlayback.disconnect_event", "disconnect")}}
-  - : Wird ausgelöst, wenn der User-Agent die Verbindung zum Ferngerät trennt.
+- [`connecting`](/de/docs/Web/API/RemotePlayback/connecting_event)
+  - : Wird ausgelöst, wenn der Benutzeragent die Remote-Wiedergabe initiiert.
+- [`connect`](/de/docs/Web/API/RemotePlayback/connect_event)
+  - : Wird ausgelöst, wenn der Benutzeragent erfolgreich mit dem entfernten Gerät verbunden ist.
+- [`disconnect`](/de/docs/Web/API/RemotePlayback/disconnect_event)
+  - : Wird ausgelöst, wenn der Benutzeragent die Verbindung zum entfernten Gerät trennt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen Player mit benutzerdefinierten Steuerelementen, die die Fernwiedergabe unterstützen. Zunächst ist die Taste zur Auswahl eines Geräts versteckt:
+Das folgende Beispiel demonstriert einen Player mit benutzerdefinierten Steuerungen, die Remote-Wiedergabe unterstützen. Anfangs ist der Button, der zum Auswählen eines Geräts verwendet wird, ausgeblendet:
 
 ```html
 <video id="videoElement" src="https://example.org/media.ext">
@@ -58,20 +58,20 @@ Das folgende Beispiel zeigt einen Player mit benutzerdefinierten Steuerelementen
 </video>
 ```
 
-Die Methode {{domxref("RemotePlayback.watchAvailability()")}} wird verwendet, um nach verfügbaren Fernwiedergabegeräten zu suchen. Wenn ein Gerät verfügbar ist, wird die Schaltfläche über den Callback angezeigt.
+Die Methode [`RemotePlayback.watchAvailability()`](/de/docs/Web/API/RemotePlayback/watchAvailability) wird verwendet, um nach verfügbaren Remote-Wiedergabegeräten zu suchen. Wenn ein Gerät verfügbar ist, wird der Callback verwendet, um den Button anzuzeigen.
 
 ```js
 const deviceBtn = document.getElementById("deviceBtn");
 const videoElem = document.getElementById("videoElement");
 
 function availabilityCallback(available) {
-  // Zeigen oder verbergen Sie die Gerät-Auswahlschaltfläche je nach Geräteverfügbarkeit.
+  // Show or hide the device picker button depending on device availability.
   deviceBtn.style.display = available ? "inline" : "none";
 }
 
 videoElem.remote.watchAvailability(availabilityCallback).catch(() => {
-  /* Wenn das Gerät nicht kontinuierlich überwacht werden kann,
-  zeigen Sie die Taste an, damit der Benutzer versuchen kann, eine Verbindung herzustellen.*/
+  /* If the device cannot continuously watch available,
+  show the button to allow the user to try to prompt for a connection.*/
   deviceBtn.style.display = "inline";
 });
 ```

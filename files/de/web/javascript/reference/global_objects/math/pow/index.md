@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Math.pow()`** statische Methode gibt den Wert einer Basis zurück, die auf eine Potenz erhoben wird. Das heißt
+Die statische Methode **`Math.pow()`** gibt den Wert einer Basis zurück, die auf eine Potenz erhoben wird. Das heißt,
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -26,9 +26,9 @@ Math.pow(base, exponent)
 ### Parameter
 
 - `base`
-  - : Die Basisnummer.
+  - : Die Basiszahl.
 - `exponent`
-  - : Der Exponentnummer.
+  - : Die Exponentzahl.
 
 ### Rückgabewert
 
@@ -41,56 +41,56 @@ Eine Zahl, die `base` zur Potenz von `exponent` repräsentiert. Gibt {{jsxref("N
 
 ## Beschreibung
 
-`Math.pow()` ist äquivalent zum [`**`](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) Operator, außer dass `Math.pow()` nur Zahlen akzeptiert.
+`Math.pow()` ist äquivalent zum [`**`](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)-Operator, außer dass `Math.pow()` nur Zahlen akzeptiert.
 
-`Math.pow(NaN, 0)` (und das äquivalente `NaN ** 0`) ist der einzige Fall, in dem {{jsxref("NaN")}} sich nicht durch mathematische Operationen fortpflanzt — es gibt `1` zurück, obwohl der Operant `NaN` ist. Zusätzlich ist das Verhalten, wenn `base` 1 ist und `exponent` nicht endliche Werte (±Infinity oder `NaN`) hat, anders als bei IEEE 754, welches spezifiziert, dass das Ergebnis 1 sein sollte, während JavaScript `NaN` zurückgibt, um die Rückwärtskompatibilität mit seinem ursprünglichen Verhalten zu bewahren.
+`Math.pow(NaN, 0)` (und das äquivalente `NaN ** 0`) ist der einzige Fall, bei dem {{jsxref("NaN")}} nicht durch mathematische Operationen fortgepflanzt wird — es gibt `1` zurück, obwohl der Operand `NaN` ist. Darüber hinaus unterscheidet sich das Verhalten, wenn `base` 1 und `exponent` nicht endlich ist (±Infinity oder `NaN`), von IEEE 754, das festlegt, dass das Ergebnis `1` sein sollte, wobei JavaScript `NaN` zurückgibt, um die Rückwärtskompatibilität mit dem ursprünglichen Verhalten zu erhalten.
 
-Da `pow()` eine statische Methode von `Math` ist, verwenden Sie sie als `Math.pow()` und nicht als eine Methode eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktor).
+Da `pow()` eine statische Methode von `Math` ist, verwenden Sie es als `Math.pow()`, anstatt es als Methode eines von Ihnen erstellten `Math`-Objekts zu verwenden (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
 ### Verwendung von Math.pow()
 
 ```js
-// Einfache Fälle
+// Simple cases
 Math.pow(7, 2); // 49
 Math.pow(7, 3); // 343
 Math.pow(2, 10); // 1024
 
-// Brüchexponenten
-Math.pow(4, 0.5); // 2 (Quadratwurzel von 4)
-Math.pow(8, 1 / 3); // 2 (Kubikwurzel von 8)
-Math.pow(2, 0.5); // 1.4142135623730951 (Quadratwurzel von 2)
-Math.pow(2, 1 / 3); // 1.2599210498948732 (Kubikwurzel von 2)
+// Fractional exponents
+Math.pow(4, 0.5); // 2 (square root of 4)
+Math.pow(8, 1 / 3); // 2 (cube root of 8)
+Math.pow(2, 0.5); // 1.4142135623730951 (square root of 2)
+Math.pow(2, 1 / 3); // 1.2599210498948732 (cube root of 2)
 
-// Signierte Exponenten
+// Signed exponents
 Math.pow(7, -2); // 0.02040816326530612 (1/49)
 Math.pow(8, -1 / 3); // 0.5
 
-// Signierte Basen
-Math.pow(-7, 2); // 49 (Quadrate sind positiv)
-Math.pow(-7, 3); // -343 (Kuben können negativ sein)
-Math.pow(-7, 0.5); // NaN (negative Zahlen haben keine reale Quadratwurzel)
-// Aufgrund der Nähe von "geraden" und "ungeraden" Wurzeln
-// und Beschränkungen der Gleitkommapräzision,
-// liefern negative Basen mit gebrochenen Exponenten immer NaN,
-// auch wenn das mathematische Ergebnis tatsächlich ist
+// Signed bases
+Math.pow(-7, 2); // 49 (squares are positive)
+Math.pow(-7, 3); // -343 (cubes can be negative)
+Math.pow(-7, 0.5); // NaN (negative numbers don't have a real square root)
+// Due to "even" and "odd" roots laying close to each other,
+// and limits in the floating number precision,
+// negative bases with fractional exponents always return NaN,
+// even when the mathematical result is real
 Math.pow(-7, 1 / 3); // NaN
 
-// Null und Unendlichkeit
-Math.pow(0, 0); // 1 (irgendetwas ** ±0 ist 1)
-Math.pow(Infinity, 0.1); // Infinity (positive Exponent)
-Math.pow(Infinity, -1); // 0 (negative Exponent)
-Math.pow(-Infinity, 1); // -Infinity (positive ungerade ganzzahlige Exponent)
-Math.pow(-Infinity, 1.5); // Infinity (positive Exponent)
-Math.pow(-Infinity, -1); // -0 (negative ungerade ganzzahlige Exponent)
-Math.pow(-Infinity, -1.5); // 0 (negative Exponent)
-Math.pow(0, 1); // 0 (positive Exponent)
-Math.pow(0, -1); // Infinity (negative Exponent)
-Math.pow(-0, 1); // -0 (positive ungerade ganzzahlige Exponent)
-Math.pow(-0, 1.5); // 0 (positive Exponent)
-Math.pow(-0, -1); // -Infinity (negative ungerade ganzzahlige Exponent)
-Math.pow(-0, -1.5); // Infinity (negative Exponent)
+// Zero and infinity
+Math.pow(0, 0); // 1 (anything ** ±0 is 1)
+Math.pow(Infinity, 0.1); // Infinity (positive exponent)
+Math.pow(Infinity, -1); // 0 (negative exponent)
+Math.pow(-Infinity, 1); // -Infinity (positive odd integer exponent)
+Math.pow(-Infinity, 1.5); // Infinity (positive exponent)
+Math.pow(-Infinity, -1); // -0 (negative odd integer exponent)
+Math.pow(-Infinity, -1.5); // 0 (negative exponent)
+Math.pow(0, 1); // 0 (positive exponent)
+Math.pow(0, -1); // Infinity (negative exponent)
+Math.pow(-0, 1); // -0 (positive odd integer exponent)
+Math.pow(-0, 1.5); // 0 (positive exponent)
+Math.pow(-0, -1); // -Infinity (negative odd integer exponent)
+Math.pow(-0, -1.5); // Infinity (negative exponent)
 Math.pow(0.9, Infinity); // 0
 Math.pow(1, Infinity); // NaN
 Math.pow(1.1, Infinity); // Infinity
@@ -98,7 +98,7 @@ Math.pow(0.9, -Infinity); // Infinity
 Math.pow(1, -Infinity); // NaN
 Math.pow(1.1, -Infinity); // 0
 
-// NaN: nur Math.pow(NaN, 0) ergibt nicht NaN
+// NaN: only Math.pow(NaN, 0) does not result in NaN
 Math.pow(NaN, 0); // 1
 Math.pow(NaN, 1); // NaN
 Math.pow(1, NaN); // NaN

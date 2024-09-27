@@ -1,5 +1,5 @@
 ---
-title: CSS-Eigenschaften- und Werte-API
+title: CSS Properties and Values API
 slug: Web/API/CSS_Properties_and_Values_API
 l10n:
   sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
@@ -7,18 +7,18 @@ l10n:
 
 {{DefaultAPISidebar("CSS Properties and Values API")}}
 
-Die **CSS-Eigenschaften- und Werte-API** — Teil der [CSS Houdini](/de/docs/Web/API/Houdini_APIs) Familie von APIs — ermöglicht es Entwicklern, ihre [CSS-Benutzereigenschaften](/de/docs/Web/CSS/--*) explizit zu definieren, was eine Überprüfung des Eigenschaftstyps, Standardwerte und Eigenschaften erlaubt, die ihre Werte erben oder nicht.
+Die **CSS Properties and Values API** — Teil des [CSS Houdini](/de/docs/Web/API/Houdini_APIs) API-Überbaus — ermöglicht es Entwicklern, ihre [CSS- benutzerdefinierten Eigenschaften](/de/docs/Web/CSS/--*) explizit zu definieren, was die Prüfung von Eigenschaftstypen, Standardwerte und Eigenschaften erleichtert, die ihre Werte erben oder nicht erben.
 
 ## Schnittstellen
 
-- {{domxref('CSS/registerProperty_static', 'CSS.registerProperty')}}
-  - : Definiert, wie ein Browser [CSS-Benutzereigenschaften](/de/docs/Web/CSS/--*) analysieren sollte. Greifen Sie auf diese Schnittstelle über {{domxref('CSS/registerProperty_static', 'CSS.registerProperty')}} in [JavaScript](/de/docs/Web/JavaScript) zu.
+- [`CSS.registerProperty`](/de/docs/Web/API/CSS/registerProperty_static)
+  - : Definiert, wie ein Browser [CSS- benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) interpretieren soll. Greifen Sie über [`CSS.registerProperty`](/de/docs/Web/API/CSS/registerProperty_static) in [JavaScript](/de/docs/Web/JavaScript) auf diese Schnittstelle zu.
 - {{cssxref('@property')}}
-  - : Definiert, wie ein Browser [CSS-Benutzereigenschaften](/de/docs/Web/CSS/--*) analysieren sollte. Greifen Sie auf diese Schnittstelle über die {{cssxref('@property')}} [At-Regel](/de/docs/Web/CSS/At-rule) in [CSS](/de/docs/Web/CSS) zu.
+  - : Definiert, wie ein Browser [CSS- benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) interpretieren soll. Greifen Sie über {{cssxref('@property')}} [At-Regel](/de/docs/Web/CSS/At-rule) in [CSS](/de/docs/Web/CSS) auf diese Schnittstelle zu.
 
 ## Beispiele
 
-Das Folgende wird eine [Benutzereigenschaft](/de/docs/Web/CSS/--*) namens `--my-color` registrieren, indem {{domxref('CSS/registerProperty_static', 'CSS.registerProperty')}} in [JavaScript](/de/docs/Web/JavaScript) verwendet wird. `--my-color` wird die CSS-Farbsyntax verwenden, einen Standardwert von `#c0ffee` haben und seinen Wert nicht erben:
+Das folgende Beispiel registriert eine [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) namens `--my-color` mithilfe von [`CSS.registerProperty`](/de/docs/Web/API/CSS/registerProperty_static) in [JavaScript](/de/docs/Web/JavaScript). `--my-color` wird die CSS-Farbsyntax verwenden, es wird einen Standardwert von `#c0ffee` haben, und es wird seinen Wert nicht erben:
 
 ```js
 window.CSS.registerProperty({
@@ -49,7 +49,7 @@ Die gleiche Registrierung kann in [CSS](/de/docs/Web/CSS) mit der {{cssxref('@pr
 
 ## Siehe auch
 
-- [Verwendung der CSS-Eigenschaften- und Werte-API](/de/docs/Web/API/CSS_Properties_and_Values_API/guide)
+- [Verwendung der CSS Properties and Values API](/de/docs/Web/API/CSS_Properties_and_Values_API/guide)
 - [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)
 - [CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API)
-- [Houdini APIs](/de/docs/Web/API/Houdini_APIs)
+- [Houdini-APIs](/de/docs/Web/API/Houdini_APIs)

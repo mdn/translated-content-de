@@ -7,36 +7,36 @@ l10n:
 
 {{JSRef}}
 
-Die **`Symbol.match`** statische Dateneigenschaft repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.match`. Die Methode {{jsxref("String.prototype.match()")}} sucht dieses Symbol im ersten Argument für die Methode, die verwendet wird, um einen Eingabestring mit dem aktuellen Objekt abzugleichen. Dieses Symbol wird auch verwendet, um zu bestimmen, ob ein Objekt [als regulärer Ausdruck behandelt werden soll](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes).
+Die statische Dateneigenschaft **`Symbol.match`** repräsentiert das [wohlbekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.match`. Die Methode {{jsxref("String.prototype.match()")}} sucht nach diesem Symbol im ersten Argument, um die Methode zu finden, die einen Eingabestring mit dem aktuellen Objekt abgleicht. Dieses Symbol wird ebenfalls verwendet, um festzustellen, ob ein Objekt [als Regex behandelt werden soll](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes).
 
-Für weitere Informationen siehe [`RegExp.prototype[Symbol.match]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.match) und {{jsxref("String.prototype.match()")}}.
+Weitere Informationen finden Sie unter [`RegExp.prototype[Symbol.match]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.match) und {{jsxref("String.prototype.match()")}}.
 
 {{EmbedInteractiveExample("pages/js/symbol-match.html", "taller")}}
 
 ## Wert
 
-Das bekannte Symbol `Symbol.match`.
+Das wohlbekannte Symbol `Symbol.match`.
 
 {{js_property_attributes(0, 0, 0)}}
 
 ## Beschreibung
 
-Diese Funktion wird auch verwendet, um [zu identifizieren, ob Objekte das Verhalten von regulären Ausdrücken haben](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Beispielsweise überprüfen die Methoden {{jsxref("String.prototype.startsWith()")}}, {{jsxref("String.prototype.endsWith()")}} und {{jsxref("String.prototype.includes()")}}, ob ihr erstes Argument ein regulärer Ausdruck ist und werfen einen {{jsxref("TypeError")}}, wenn es so ist. Wenn das `match`-Symbol jedoch auf `false` (oder einen [Falsy](/de/docs/Glossary/Falsy) Wert, außer `undefined`) gesetzt ist, zeigt es an, dass das Objekt nicht als reguläres Ausdrucksobjekt verwendet werden soll.
+Diese Funktion wird auch verwendet, um zu erkennen, [ob Objekte das Verhalten von regulären Ausdrücken haben](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Beispielsweise prüfen die Methoden {{jsxref("String.prototype.startsWith()")}}, {{jsxref("String.prototype.endsWith()")}} und {{jsxref("String.prototype.includes()")}}, ob ihr erstes Argument ein reguläres Ausdruck ist und werfen einen {{jsxref("TypeError")}}, wenn es so ist. Wenn das `match`-Symbol jedoch auf `false` (oder einen [Falsy](/de/docs/Glossary/Falsy) Wert außer `undefined`) gesetzt ist, zeigt es an, dass das Objekt nicht als reguläres Ausdrucksobjekt verwendet werden soll.
 
 ## Beispiele
 
-### Markieren eines RegExp als keinen regulären Ausdruck
+### Ein RegExp als kein Regex markieren
 
 Der folgende Code wird einen {{jsxref("TypeError")}} werfen:
 
 ```js
 "/bar/".startsWith(/bar/);
 
-// TypeError wird ausgelöst, da /bar/ ein regulärer Ausdruck ist
-// und Symbol.match nicht verändert wurde.
+// Throws TypeError, as /bar/ is a regular expression
+// and Symbol.match is not modified.
 ```
 
-Wenn Sie jedoch `Symbol.match` auf `false` setzen, wird das Objekt als [kein reguläres Ausdrucksobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes) betrachtet. Die Methoden `startsWith` und `endsWith` werden folglich keinen `TypeError` werfen.
+Wenn Sie jedoch `Symbol.match` auf `false` setzen, wird das Objekt als [nicht reguläres Ausdrucksobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes) betrachtet. Die Methoden `startsWith` und `endsWith` werden infolgedessen keinen `TypeError` werfen.
 
 ```js
 const re = /foo/;

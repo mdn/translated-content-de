@@ -1,5 +1,5 @@
 ---
-title: "size: Wasm-Text-Anweisung"
+title: "size: Wasm Text-Anweisung"
 short-title: size
 slug: WebAssembly/Reference/Memory/Size
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`size`** [Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) wird verwendet, um die aktuelle Anzahl der Seiten in einem Speicher abzurufen.
+Die **`size`** [Memory-Anweisung](/de/docs/WebAssembly/Reference/Memory) wird verwendet, um die aktuelle Anzahl von Seiten in einem Speicher zu erhalten.
 
-Die Anweisung fügt die Größe (in Seiten) an die Spitze des Stapels hinzu.
+Die Anweisung fügt die Größe (in Seiten) oben auf den Stapel hinzu.
 Derzeit ist jede Seite 64KiB groß.
 
 {{EmbedInteractiveExample("pages/wat/size.html", "tabbed-standard")}}
@@ -20,26 +20,26 @@ Derzeit ist jede Seite 64KiB groß.
 Größe des Standardspeichers abrufen
 
 ```wasm
-;; Erhalten Sie die Anzahl der Seiten im Standardspeicher
+;; Get the number of pages in the default memory
 memory.size
-;; Die Anzahl der Seiten wird nun oben auf den Stapel hinzugefügt
+;; The number of pages is now added at top of stack
 ```
 
-Größe eines bestimmten Speichers abrufen (wenn Multi-Memory unterstützt wird)
+Größe eines angegebenen Speichers abrufen (falls Multi-Memory unterstützt wird)
 
 ```wasm
-;; Größe des Speichers mit Index 1
+;; Size of memory with index 1
 memory.size (memory 1)
 
-;; Größe des Speichers namens $memory2
+;; Size of memory named $memory2
 memory.size (memory $memory2)
 ```
 
 ### Anweisungen und Opcodes
 
-| Anweisung     | Binärcode     |
-| ------------- | ------------- |
-| `memory.size` | `0x3f`        |
+| Anweisung     | Binärer Opcode |
+| ------------- | -------------- |
+| `memory.size` | `0x3f`         |
 
 ## Beispiele
 
@@ -53,32 +53,32 @@ Der untenstehende Code zeigt eine WAT-Datei, die dies demonstriert:
 ```wasm
 (module
   (import "console" "log" (func $log (param i32)))
-  (memory 1 2) ;; Standardspeicher mit einer Seite und maximal 2 Seiten
+  (memory 1 2) ;; default memory with one page and max of 2 pages
 
   (func $main
-    ;; Größe erhalten
+    ;; get size
     memory.size
-    call $log ;; das Ergebnis protokollieren (1)
+    call $log ;; log the result (1)
 
-    ;; Standardspeicher um 1 Seite erweitern
+    ;; grow default memory by 1 page
     i32.const 1
     memory.grow
 
-    ;; Größe erneut abrufen
+    ;;get size again
     memory.size
-    call $log ;; das Ergebnis protokollieren (2)
+    call $log ;; log the result (2)
   )
-  (start $main) ;; sofort beim Laden aufrufen
+  (start $main) ;; call immediately on loading
 )
 ```
 
-Oben mussten wir den Speicherindex in der `memory.size`-Anweisung nicht angeben, aber wir hätten dies mit dem Speicherindex (0) des Standardspeichers tun können:
+Oben mussten wir den Speicherindex in der `memory.size`-Anweisung nicht angeben, aber wir hätten dies tun können, indem wir den Speicherindex (0) des Standardspeichers verwenden:
 
 ```wasm
 memory.size (memory 0)
 ```
 
-Der Vollständigkeit halber können wir die kompilierte Version der obigen Datei `size.wasm` mit folgendem Code verwenden (die Protokollfunktion wird in das Modul importiert und vom Modul aufgerufen):
+Der Vollständigkeit halber können wir die kompilierte Version der obigen Datei `size.wasm` mit einem ähnlichen Code wie unten gezeigt verwenden (die Log-Funktion wird in das Modul importiert und vom Modul aufgerufen):
 
 ```js
 start();
@@ -100,31 +100,31 @@ start();
 
 ### Größe eines bestimmten Speichers abrufen
 
-Da Speicher in einem Wasm-Modul definiert werden, erhalten sie nacheinander eine Indexnummer ab null.
+Da Speicher in einem Wasm-Modul definiert werden, erhalten sie sequentiell eine Indexnummer ab Null.
 Sie können die Größe eines bestimmten Speichers abrufen, indem Sie die `memory`-Anweisung und den gewünschten Index oder Namen (falls vorhanden) nach der `memory.size`-Anweisung angeben.
 Wenn Sie keinen bestimmten Speicher angeben, wird der Standardspeicher mit Index 0 verwendet.
 
-Das folgende Modul zeigt, wie Sie direkt auf einen Speicher durch Index und durch Namen verweisen könnten.
+Das Modul unten zeigt, wie Sie direkt auf einen Speicher nach Index und nach Namen verweisen könnten.
 
 ```wasm
 (module
   (import "console" "log" (func $log (param i32)))
-  (memory 1 2)  ;; Standardspeicher mit einer Seite und maximal 2 Seiten
-  (memory $memory1 2 4)  ;; Speicher mit Index 1, initial 2 Seiten, maximal 4 Seiten
+  (memory 1 2)  ;; Default memory with one page and max of 2 pages
+  (memory $memory1 2 4)  ;; Memory with index 1, initial 2 page, max 4 pages
   (func $main
-    ;; Größe für Speicher durch Index abrufen
+    ;; Get size for memory by index
     memory.size (memory 1)
-    call $log ;; das Ergebnis protokollieren (2)
+    call $log ;; log the result (2)
 
-    ;; Größe für Speicher durch Namen abrufen
+    ;; Get size for memory by memory name
     memory.size (memory $memory1)
-    call $log ;; das Ergebnis protokollieren (2)
+    call $log ;; log the result (2)
   )
   (start $main)
 )
 ```
 
-Die WAT-Dateien könnten mit dem gleichen JavaScript-Code wie im ersten Beispiel geladen werden.
+Die WAT-Dateien könnten mit demselben JavaScript-Code wie im ersten Beispiel geladen werden.
 
 ## Spezifikationen
 
@@ -133,7 +133,7 @@ Die WAT-Dateien könnten mit dem gleichen JavaScript-Code wie im ersten Beispiel
 ## Browser-Kompatibilität
 
 > [!NOTE]
-> Die Unterstützung von Speicher in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory) JavaScript-API.
-> Der [multiMemory](#webassembly.multimemory) Schlüssel gibt Versionen an, in denen `size` mit einem angegebenen Speicher verwendet werden kann.
+> Die Speicherunterstützung in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory)-JavaScript-API.
+> Der Schlüssel [multiMemory](#webassembly.multimemory) zeigt die Versionen an, in denen `size` mit einem angegebenen Speicher verwendet werden kann.
 
 {{Compat}}

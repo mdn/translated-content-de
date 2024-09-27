@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:enabled`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes aktivierte Element. Ein Element ist aktiviert, wenn es aktiviert werden kann (ausgewählt, angeklickt, hineingetippt usw.) oder den Fokus akzeptieren kann. Das Element hat auch einen deaktivierten Zustand, in dem es nicht aktiviert werden kann oder den Fokus nicht akzeptieren kann.
+Die **`:enabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes aktivierte Element. Ein Element ist aktiviert, wenn es aktiviert werden kann (ausgewählt, angeklickt, hineingeschrieben, usw.) oder den Fokus annehmen kann. Das Element hat auch einen deaktivierten Zustand, in dem es nicht aktiviert werden kann oder den Fokus nicht annehmen kann.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-enabled.html", "tabbed-standard")}}
 
@@ -19,19 +19,19 @@ Die **`:enabled`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseu
 
 ## Beispiele
 
-Das folgende Beispiel färbt den Text und die Schaltflächen-{{htmlElement("input")}}s grün, wenn sie aktiviert sind, und grau, wenn sie deaktiviert sind. Dies hilft dem Benutzer zu verstehen, welche Elemente interaktiv sind.
+Im folgenden Beispiel werden die Farbe des Textes und der {{htmlElement("input")}}-Buttons grün, wenn sie aktiviert sind, und grau, wenn sie deaktiviert sind. Dies hilft dem Benutzer zu verstehen, mit welchen Elementen interagiert werden kann.
 
 ### HTML
 
 ```html
 <form action="url_of_form">
-  <label for="FirstField">Erstes Feld (aktiviert):</label>
+  <label for="FirstField">First field (enabled):</label>
   <input type="text" id="FirstField" value="Lorem" /><br />
 
-  <label for="SecondField">Zweites Feld (deaktiviert):</label>
+  <label for="SecondField">Second field (disabled):</label>
   <input type="text" id="SecondField" value="Ipsum" disabled /><br />
 
-  <input type="button" value="Absenden" />
+  <input type="button" value="Submit" />
 </form>
 ```
 

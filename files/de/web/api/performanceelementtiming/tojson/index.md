@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der {{domxref("PerformanceElementTiming")}}-Schnittstelle ist ein {{Glossary("Serialization","Serializer")}}; sie gibt eine JSON-Darstellung des {{domxref("PerformanceElementTiming")}}-Objekts zurück.
+Die **`toJSON()`**-Methode der [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Objekts zurück.
 
 ## Syntax
 
@@ -22,15 +22,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des {{domxref("PerformanceElementTiming")}}-Objekts ist.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Objekts darstellt.
 
-Das JSON enthält die {{domxref("PerformanceElementTiming.element", "element")}}-Eigenschaft nicht, da diese vom Typ {{domxref("Element")}} ist, welcher keine `toJSON()`-Operation bereitstellt. Die {{domxref("PerformanceElementTiming.id", "id")}} des Elements wird jedoch bereitgestellt.
+Das JSON enthält nicht die [`element`](/de/docs/Web/API/PerformanceElementTiming/element)-Eigenschaft, weil diese vom Typ [`Element`](/de/docs/Web/API/Element) ist, der keine `toJSON()`-Operation bietet. Die [`id`](/de/docs/Web/API/PerformanceElementTiming/id) des Elements wird jedoch bereitgestellt.
 
 ## Beispiele
 
 ### Verwendung der toJSON-Methode
 
-In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `PerformanceElementTiming`-Objekts mit den Informationen über das Bildelement zurück.
+In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des `PerformanceElementTiming`-Objekts zurück, mit Informationen über das Bildelement.
 
 ```html
 <img
@@ -79,7 +79,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird `toJSON()` automatisch aufrufen.
+Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; dies ruft automatisch `toJSON()` auf.
 
 ## Spezifikationen
 

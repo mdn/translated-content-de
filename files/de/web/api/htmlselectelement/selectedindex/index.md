@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLSelectElement.selectedIndex`**-Eigenschaft ist ein
-`long`, das den Index des ersten oder letzten ausgewählten
-{{HTMLElement("option")}}-Elements widerspiegelt, abhängig vom Wert von `multiple`.
-Der Wert `-1` zeigt an, dass kein Element ausgewählt ist.
+Die **`HTMLSelectElement.selectedIndex`**-Eigenschaft ist ein `long`, das den Index des ersten oder letzten ausgewählten {{HTMLElement("option")}}-Elements widerspiegelt, abhängig vom Wert von `multiple`. Der Wert `-1` zeigt an, dass kein Element ausgewählt ist.
 
 ## Wert
 
@@ -39,10 +36,10 @@ Eine Zahl.
 const selectElem = document.getElementById("select");
 const pElem = document.getElementById("p");
 
-// Wenn eine neue <option> ausgewählt wird
+// When a new <option> is selected
 selectElem.addEventListener("change", () => {
   const index = selectElem.selectedIndex;
-  // Diese Daten zum <p> hinzufügen
+  // Add that data to the <p>
   pElem.textContent = `selectedIndex: ${index}`;
 });
 ```
@@ -59,6 +56,6 @@ selectElem.addEventListener("change", () => {
 
 ## Siehe auch
 
-- {{DOMxRef("HTMLSelectElement")}}
-- {{DOMxRef("HTMLOptionElement")}}
-- {{DOMxRef("HTMLOptionsCollection")}}
+- [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)
+- [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)
+- [`HTMLOptionsCollection`](/de/docs/Web/API/HTMLOptionsCollection)

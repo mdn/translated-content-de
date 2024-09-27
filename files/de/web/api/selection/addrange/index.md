@@ -8,8 +8,8 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.addRange()`** Methode fügt ein
-{{domxref("Range")}} zu einer {{domxref("Selection")}} hinzu.
+Die **`Selection.addRange()`** Methode fügt eine
+[`Range`](/de/docs/Web/API/Range) zu einer [`Selection`](/de/docs/Web/API/Selection) hinzu.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ addRange(range)
 ### Parameter
 
 - `range`
-  - : Ein {{ domxref("Range") }}-Objekt, das der {{domxref("Selection")}} hinzugefügt wird.
+  - : Ein [`Range`](/de/docs/Web/API/Range)-Objekt, das zu der [`Selection`](/de/docs/Web/API/Selection) hinzugefügt wird.
 
 ### Rückgabewert
 
@@ -29,7 +29,8 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 > [!NOTE]
-> Derzeit unterstützt nur Firefox mehrere Auswahlbereiche. Andere Browser fügen keine zusätzlichen Bereiche zur Auswahl hinzu, wenn bereits einer vorhanden ist.
+> Derzeit unterstützt nur Firefox mehrere Auswahlbereiche. Andere Browser werden keine
+> neuen Bereiche zur Auswahl hinzufügen, wenn diese bereits einen enthält.
 
 ### HTML
 
@@ -76,4 +77,4 @@ button.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("Selection")}}, die Schnittstelle, zu der diese Methode gehört
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der diese Methode gehört

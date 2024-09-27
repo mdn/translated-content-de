@@ -1,5 +1,5 @@
 ---
-title: 208 Bereits Berichtet
+title: 208 Already Reported
 slug: Web/HTTP/Status/208
 l10n:
   sourceCommit: 3f68a9604259dfa862dd741dc88ebc8fb5fa10fe
@@ -7,12 +7,13 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-**`208 Bereits Berichtet`** [erfolgreicher Antwortstatus](/de/docs/Web/HTTP/Status#successful_responses) Code wird in einer {{HTTPStatus("207", "207 Multi-Status")}}-Antwort verwendet, um Speicherplatz zu sparen und Konflikte zu vermeiden. Diese Antwort wird ausschließlich im Zusammenhang mit Web Distributed Authoring and Versioning ({{Glossary("WebDAV")}}) verwendet.
+Der HTTP-Statuscode **`208 Already Reported`** aus der Kategorie der [erfolgreichen Antworten](/de/docs/Web/HTTP/Status#successful_responses) wird in einer {{HTTPStatus("207", "207 Multi-Status")}}-Antwort verwendet, um Platz zu sparen und Konflikte zu vermeiden. Diese Antwort wird ausschließlich im Kontext von Web Distributed Authoring and Versioning ([WebDAV](/de/docs/Glossary/WebDAV)) verwendet.
 
-Wenn dieselbe Ressource mehrmals mit unterschiedlichen Pfaden angefordert wird (zum Beispiel als Teil einer Sammlung), wird nur die erste mit {{HTTPStatus("200")}} gemeldet. Antworten für alle anderen Bindungen melden diesen `208`-Statuscode, sodass keine Konflikte entstehen und die Antwort kürzer bleibt.
+Wenn dieselbe Ressource mehrfach angefordert wird (zum Beispiel als Teil einer Sammlung) mit unterschiedlichen Pfaden, wird nur die erste mit {{HTTPStatus("200")}} gemeldet. Antworten für alle anderen Bindungen werden mit diesem `208`-Statuscode gemeldet, um keine Konflikte zu erzeugen und die Antwort kürzer zu halten.
 
 > [!NOTE]
-> Die Fähigkeit, eine Ressource an mehrere Pfade zu _binden_, ist eine Erweiterung des {{Glossary("WebDAV")}}-Protokolls (sie kann von Webanwendungen empfangen werden, die auf einen WebDAV-Server zugreifen). Browser, die auf Webseiten zugreifen, werden diesen Statuscode nie antreffen.
+> Die Fähigkeit, eine Ressource an mehrere Pfade zu _binden_, ist eine Erweiterung des [WebDAV](/de/docs/Glossary/WebDAV)-Protokolls (dies kann von Webanwendungen empfangen werden, die auf einen WebDAV-Server zugreifen).
+> Browser, die auf Webseiten zugreifen, werden diesen Statuscode niemals antreffen.
 
 ## Status
 
@@ -22,9 +23,9 @@ Wenn dieselbe Ressource mehrmals mit unterschiedlichen Pfaden angefordert wird (
 
 ## Beispiele
 
-### Erhalten eines `208` in einer `207 Multi-Status`-Antwort
+### Empfang einer `208` in einer `207 Multi-Status`-Antwort
 
-Das folgende ist ein Beispiel für eine `207 Multi-Status`-Antwort von einem WebDAV-Server, welche eine `208`-Antwort beinhaltet. Beachten Sie das `208` im letzten `<D:status>`-Element, welches anzeigt, dass die Ressource namens `Loop Demo` bereits früher in der `207`-Antwort gemeldet wurde.
+Das folgende ist eine Beispielantwort `207 Multi-Status` von einem WebDAV-Server, die eine `208`-Antwort enthält. Beachten Sie das `208` im letzten `<D:status>`-Element, das anzeigt, dass die Ressource mit dem Namen `Loop Demo` bereits früher in der `207`-Antwort gemeldet wurde.
 
 ```http
 HTTP/1.1 207 Multi-Status
@@ -80,5 +81,5 @@ Content-Length: 1241
 
 - {{HTTPStatus("200")}}
 - {{HTTPStatus("508", "508 Loop Detected")}}
-- [HTTP-Anforderungsmethoden](/de/docs/Web/HTTP/Methods)
+- [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)

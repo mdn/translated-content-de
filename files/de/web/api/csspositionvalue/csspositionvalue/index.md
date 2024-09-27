@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}{{deprecated_header}}{{Non-standard_header}}
 
-Der **`CSSPositionValue()`** Konstruktor erstellt ein neues {{domxref("CSSPositionValue")}} Objekt, das Werte für Eigenschaften repräsentiert, die eine Position erfordern, zum Beispiel {{cssxref('object-position')}}.
+Der **`CSSPositionValue()`** Konstruktor
+erstellt ein neues [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) Objekt, das Werte für
+Eigenschaften repräsentiert, die eine Position benötigen, zum Beispiel {{cssxref('object-position')}}.
 
 ## Syntax
 
@@ -25,7 +27,8 @@ new CSSPositionValue(x, y)
 
 ## Beispiele
 
-Das folgende Beispiel positioniert ein Container-`<div>` 5 Pixel vom oberen Rand und 10 Pixel vom linken Rand der Seite entfernt.
+Das folgende Beispiel positioniert ein Container `<div>` 5 Pixel vom
+oberen und 10 Pixel vom linken Rand der Seite entfernt.
 
 ```js
 let someDiv = document.getElementById("container");
@@ -41,7 +44,7 @@ console.log(position.x.value, position.y.value); // 5 10
 
 ## Siehe auch
 
-- {{domxref("CSSPositionValue.x")}}
-- {{domxref("CSSPositionValue.y")}}
+- [`CSSPositionValue.x`](/de/docs/Web/API/CSSPositionValue/x)
+- [`CSSPositionValue.y`](/de/docs/Web/API/CSSPositionValue/y)
 - [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)

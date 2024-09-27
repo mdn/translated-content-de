@@ -8,27 +8,27 @@ l10n:
 
 {{APIRef("VirtualKeyboard API")}}{{SeeCompatTable}}
 
-Die **`virtualKeyboardPolicy`**-Eigenschaft des {{domxref("HTMLElement")}}-Interfaces ruft eine Zeichenkette ab oder setzt diese, um das Verhalten der virtuellen Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten anzugeben, bei denen möglicherweise keine Hardware-Tastatur verfügbar ist, wenn der Inhalt des Elements bearbeitbar ist (zum Beispiel handelt es sich um ein {{htmlelement("input")}}- oder {{htmlelement("textarea")}}-Element oder ein Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Attribut).
+Die **`virtualKeyboardPolicy`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces erhält und setzt einen String, der das Verhalten der virtuellen Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten angibt, bei denen eine Hardwaretastatur möglicherweise nicht verfügbar ist, wenn der Inhalt des Elements bearbeitbar ist (zum Beispiel ist es ein {{htmlelement("input")}}- oder {{htmlelement("textarea")}}-Element oder ein Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Attribut gesetzt).
 
-Sie spiegelt den Wert des globalen HTML-Attributs [`virtualkeyboardpolicy`](/de/docs/Web/HTML/Global_attributes/virtualkeyboardpolicy) wider.
+Es spiegelt den Wert des globalen HTML-Attributs [`virtualkeyboardpolicy`](/de/docs/Web/HTML/Global_attributes/virtualkeyboardpolicy) wider.
 
 ## Wert
 
-Ein enumerierter Wert; mögliche Werte sind:
+Ein aufgezählter Wert; mögliche Werte sind:
 
 - `"auto"` oder ein leerer String (`""`)
-  - : Der Browser zeigt die virtuelle Tastatur automatisch an, wenn der Benutzer das Element antippt oder den Fokus darauf setzt.
+  - : Der Browser zeigt die virtuelle Tastatur automatisch an, wenn der Benutzer das Element antippt oder fokussiert.
 - `"manual"`
-  - : Der Browser zeigt die virtuelle Tastatur nicht automatisch an: Das Ein- und Ausblenden der virtuellen Tastatur wird manuell über das Skript gesteuert.
+  - : Der Browser zeigt die virtuelle Tastatur nicht automatisch an: Das Anzeigen/Verbergen der virtuellen Tastatur wird manuell durch das Skript gesteuert.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man das Verhalten der virtuellen Bildschirmtastatur per Skript steuert:
+Das folgende Beispiel zeigt, wie das Verhalten der virtuellen Bildschirmtastatur über ein Skript gesteuert werden kann:
 
 ```js
 const element = document.querySelector("input");
 
-// das Verhalten der virtuellen Bildschirmtastatur wird manuell durch das Skript gesteuert
+// the on-screen virtual keyboard behavior will be controlled by script manually
 element.virtualKeyboardPolicy = "manual";
 ```
 
@@ -42,4 +42,4 @@ element.virtualKeyboardPolicy = "manual";
 
 ## Siehe auch
 
-- [`virtualkeyboardpolicy`](/de/docs/Web/HTML/Global_attributes#virtualkeyboardpolicy) HTML-Globalattribut
+- [`virtualkeyboardpolicy`](/de/docs/Web/HTML/Global_attributes#virtualkeyboardpolicy) globales HTML-Attribut

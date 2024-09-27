@@ -1,5 +1,5 @@
 ---
-title: Auflösung
+title: resolution
 slug: Web/CSS/@media/resolution
 l10n:
   sourceCommit: a18eaa8478fb9da1de8052cb2a18b00be00cdca0
@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`resolution`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Pixeldichte des Ausgabegeräts zu testen.
+Die **`resolution`** [CSS](/de/docs/Web/CSS) [Medienabfrage-Funktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Pixeldichte des Ausgabegeräts zu testen.
 
 ## Syntax
 
-Die `resolution`-Funktion wird als ein {{cssxref("&lt;resolution&gt;")}} Wert angegeben, der die Pixeldichte des Ausgabegeräts repräsentiert. Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die mit Präfix versehenen Varianten **`min-resolution`** und **`max-resolution`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
+Die `resolution`-Funktion wird als ein {{cssxref("&lt;resolution&gt;")}}-Wert angegeben, der die Pixeldichte des Ausgabegeräts repräsentiert. Es handelt sich um eine Bereichsfunktion, was bedeutet, dass Sie auch die Varianten **`min-resolution`** und **`max-resolution`** verwenden können, um minimale und maximale Werte abzufragen.
 
 ## Beispiele
 
@@ -24,14 +24,14 @@ Die `resolution`-Funktion wird als ein {{cssxref("&lt;resolution&gt;")}} Wert an
 ### CSS
 
 ```css
-/* Exakte Auflösung mit der Einheit `dpi` */
+/* Exact resolution with unit `dpi` */
 @media (resolution: 150dpi) {
   p {
     color: red;
   }
 }
 
-/* Mindestauflösung synonyme Einheiten: `dppx` und `x` */
+/* Minimum resolution synonym units: `dppx` and `x` */
 @media (min-resolution: 2dppx) {
   p {
     text-decoration: underline;
@@ -44,7 +44,7 @@ Die `resolution`-Funktion wird als ein {{cssxref("&lt;resolution&gt;")}} Wert an
   }
 }
 
-/* Maximale Auflösung mit der Einheit `dpcm` */
+/* Maximum resolution with unit `dpcm` */
 @media (max-resolution: 2dpcm) {
   p {
     background: yellow;
@@ -66,5 +66,5 @@ Die `resolution`-Funktion wird als ein {{cssxref("&lt;resolution&gt;")}} Wert an
 
 ## Siehe auch
 
-- {{domxref("window.devicePixelRatio")}}
-- Die {{cssxref("image-resolution")}} Eigenschaft
+- [`window.devicePixelRatio`](/de/docs/Web/API/Window/devicePixelRatio)
+- Die {{cssxref("image-resolution")}}-Eigenschaft

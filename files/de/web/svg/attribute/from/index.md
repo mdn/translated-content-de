@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das **`from`**-Attribut gibt den Anfangswert des Attributs an, der während der Animation verändert wird.
+Das **`from`** Attribut gibt den Anfangswert des Attributs an, das während der Animation modifiziert wird.
 
-Wenn es mit dem {{SVGAttr("to")}}-Attribut verwendet wird, ändert die Animation das modifizierte Attribut vom `from`-Wert zum `to`-Wert. Bei der Verwendung mit dem {{SVGAttr("by")}}-Attribut ändert die Animation das Attribut relativ vom `from`-Wert um den im `by`-Attribut angegebenen Wert.
+In Verbindung mit dem {{SVGAttr("to")}} Attribut wird die Animation das modifizierte Attribut vom `from` Wert zum `to` Wert ändern. In Verbindung mit dem {{SVGAttr("by")}} Attribut wird das Attribut relativ vom `from` Wert um den im `by` angegebenen Wert geändert.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
@@ -37,7 +37,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -47,7 +47,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Keine</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -56,9 +56,9 @@ svg {
   </tbody>
 </table>
 
-Der genaue Wertetyp für dieses Attribut hängt vom Wert des zu animierenden Attributs ab.
+Der exakte Werttyp für dieses Attribut hängt vom Wert des Attributs ab, das animiert werden soll.
 
-Wenn eine Liste von Werten über das {{SVGAttr("values")}}-Attribut definiert ist, wird das `from`-Attribut ignoriert.
+Wenn eine Liste von Werten über das {{SVGAttr("values")}} Attribut definiert wird, wird das `from` Attribut ignoriert.
 
 ## Spezifikationen
 

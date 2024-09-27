@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: reset()-Methode"
+title: "USBDevice: reset() Methode"
 short-title: reset()
 slug: Web/API/USBDevice/reset
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`reset()`**-Methode der {{domxref("USBDevice")}}-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn das Gerät zurückgesetzt wird und alle Anwendungsoperationen abgebrochen und ihre Promises abgelehnt wurden.
+Die **`reset()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn das Gerät zurückgesetzt wurde und alle App-Operationen abgebrochen und ihre Versprechen abgelehnt wurden.
 
 ## Syntax
 

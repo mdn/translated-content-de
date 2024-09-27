@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toString()`**-Methode von {{jsxref("Intl.Locale")}}-Instanzen gibt die vollständige [Locale-Bezeichner-Zeichenkette](https://www.unicode.org/reports/tr35/#Unicode_locale_identifier) dieser Locale zurück.
+Die **`toString()`**-Methode von {{jsxref("Intl.Locale")}}-Instanzen gibt den vollständigen [Lokalisierungsbezeichner-String](https://www.unicode.org/reports/tr35/#Unicode_locale_identifier) dieser Locale zurück.
 
 {{EmbedInteractiveExample("pages/js/intl-locale-prototype-tostring.html", "taller")}}
 
@@ -23,12 +23,11 @@ Keine.
 
 ### Rückgabewert
 
-Die Unicode-Locale-Bezeichner-Zeichenkette des _locale_.
+Der Unicode-Lokalisierungsbezeichner-String der _locale_.
 
 ## Beschreibung
 
-Das `Locale`-Objekt ist eine JavaScript-Darstellung eines Konzepts
-Unicode-Locale-Bezeichner. Informationen über eine bestimmte Locale (Sprache, Schrift, Kalendertyp, etc.) können in einer Locale-Bezeichner-Zeichenkette kodiert werden. Um die Arbeit mit diesen Locale-Bezeichnern zu erleichtern, wurde das `Locale`-Objekt in JavaScript eingeführt. Der Aufruf der `toString`-Methode auf einem Locale-Objekt gibt die Bezeichner-Zeichenkette für diese besondere Locale zurück. Die `toString`-Methode ermöglicht es, `Locale`-Instanzen als Argument für bestehende `Intl`-Konstruktoren zu verwenden, in JSON zu serialisieren oder in jedem anderen Kontext, in dem eine genaue Zeichenkettenrepräsentation nützlich ist.
+Das `Locale`-Objekt ist eine JavaScript-Repräsentation eines Konzepts des Unicode-Lokalisierungsbezeichners. Informationen über eine bestimmte Locale (Sprache, Skript, Kalendertyp usw.) können in einem Lokalisierungsbezeichner-String kodiert werden. Um die Arbeit mit diesen Lokalisierungsbezeichnern zu erleichtern, wurde das `Locale`-Objekt in JavaScript eingeführt. Ein Aufruf der `toString`-Methode an einem Locale-Objekt wird den Bezeichner-String für diese bestimmte Locale zurückgeben. Die `toString`-Methode ermöglicht es, `Locale`-Instanzen als Argument für vorhandene `Intl`-Konstruktoren bereitzustellen, in JSON zu serialisieren oder in jedem anderen Kontext zu verwenden, in dem eine genaue String-Darstellung nützlich ist.
 
 ## Beispiele
 
@@ -39,8 +38,8 @@ const myLocale = new Intl.Locale("fr-Latn-FR", {
   hourCycle: "h12",
   calendar: "gregory",
 });
-console.log(myLocale.baseName); // Ausgabe "fr-Latn-FR"
-console.log(myLocale.toString()); // Ausgabe "fr-Latn-FR-u-ca-gregory-hc-h12"
+console.log(myLocale.baseName); // Prints "fr-Latn-FR"
+console.log(myLocale.toString()); // Prints "fr-Latn-FR-u-ca-gregory-hc-h12"
 ```
 
 ## Spezifikationen

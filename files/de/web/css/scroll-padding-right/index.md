@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-padding-right` definiert Versätze für die rechte Seite des _optimalen Betrachtungsbereichs_ des Scrollports: den Bereich, der als Zielregion verwendet wird, um Elemente in das Sichtfeld des Benutzers zu bringen. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte verdeckt werden (wie fest positionierte Werkzeugleisten oder Seitenleisten), oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-right` definiert Offsets für die rechte Seite des _optimalen Ansichtsbereichs_ des Scrollport: der Bereich, der als Zielregion verwendet wird, um Elemente in den Blick des Benutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderen Inhalten verdeckt sind (wie fest positionierte Werkzeugleisten oder Seitenleisten) oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{EmbedInteractiveExample("pages/css/scroll-padding-right.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 scroll-padding-right: auto;
 
-/* <length> Werte */
+/* <length> values */
 scroll-padding-right: 10px;
 scroll-padding-right: 1em;
 scroll-padding-right: 10%;
 
-/* Globale Werte */
+/* Global values */
 scroll-padding-right: inherit;
 scroll-padding-right: initial;
 scroll-padding-right: revert;
@@ -33,9 +33,9 @@ scroll-padding-right: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Versatz von der oberen Kante des Scrollports in einer gültigen Länge oder in Prozent.
+  - : Ein Offset nach innen von der oberen Kante des Scrollports, als gültige Länge oder Prozentangabe.
 - `auto`
-  - : Der Versatz wird vom Benutzeragenten bestimmt. Dies wird im Allgemeinen 0px sein, aber ein Benutzeragent kann etwas anderes erkennen und tun, wenn ein von null verschiedener Wert angemessener ist.
+  - : Das Offset wird vom Benutzeragenten bestimmt. Dies wird im Allgemeinen 0px sein, allerdings kann ein Benutzeragent etwas anderes erkennen und anwenden, wenn ein Wert ungleich null angemessener ist.
 
 ## Formale Definition
 

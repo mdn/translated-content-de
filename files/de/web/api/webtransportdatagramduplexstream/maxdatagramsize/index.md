@@ -1,5 +1,5 @@
 ---
-title: "WebTransportDatagramDuplexStream: maxDatagramSize-Eigenschaft"
+title: "WebTransportDatagramDuplexStream: Eigenschaft maxDatagramSize"
 short-title: maxDatagramSize
 slug: Web/API/WebTransportDatagramDuplexStream/maxDatagramSize
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`maxDatagramSize`**-Eigenschaft der {{domxref("WebTransportDatagramDuplexStream")}}-Schnittstelle gibt die maximal zulässige Größe von ausgehenden Datagrammen in Bytes zurück, die an {{domxref("WebTransportDatagramDuplexStream.writable", "writable")}} geschrieben werden können.
+Die schreibgeschützte Eigenschaft **`maxDatagramSize`** des [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream) Interfaces gibt die maximale zulässige Größe von ausgehenden Datagrammen in Bytes an, die in [`writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable) geschrieben werden können.
 
 ## Wert
 
@@ -20,15 +20,15 @@ Eine Zahl.
 const url = "https://example.com:4999/wt";
 
 async function initTransport(url) {
-  // Transportverbindung initialisieren
+  // Initialize transport connection
   const transport = new WebTransport(url);
 
-  // Die Verbindung kann verwendet werden, sobald ready erfüllt ist
+  // The connection can be used once ready fulfills
   await transport.ready;
 
   const datagrams = transport.datagrams;
 
-  // maxDatagramSize abrufen
+  // get maxDatagramSize
   console.log(datagrams.maxDatagramSize);
 }
 ```
@@ -37,13 +37,13 @@ async function initTransport(url) {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

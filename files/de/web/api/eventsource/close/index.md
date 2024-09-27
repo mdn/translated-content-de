@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef('WebSockets API')}}
 
-Die **`close()`**-Methode des {{domxref("EventSource")}}-Interfaces schließt die Verbindung, falls eine besteht, und setzt das Attribut {{domxref("EventSource.readyState")}} auf `2` (geschlossen).
+Die **`close()`**-Methode des [`EventSource`](/de/docs/Web/API/EventSource)-Interfaces schließt die Verbindung, wenn eine besteht, und setzt das [`EventSource.readyState`](/de/docs/Web/API/EventSource/readyState)-Attribut auf `2` (geschlossen).
 
 > [!NOTE]
-> Wenn die Verbindung bereits geschlossen ist, macht die Methode nichts.
+> Wenn die Verbindung bereits geschlossen ist, unternimmt die Methode nichts.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -40,7 +40,7 @@ button.onclick = () => {
 ```
 
 > [!NOTE]
-> Sie können ein vollständiges Beispiel auf GitHub finden — siehe [Einfaches SSE-Demo mit PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events).
+> Ein vollständiges Beispiel finden Sie auf GitHub — siehe [Einfaches SSE-Demo mit PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events).
 
 ## Spezifikationen
 
@@ -52,4 +52,4 @@ button.onclick = () => {
 
 ## Siehe auch
 
-- {{domxref("EventSource")}}
+- [`EventSource`](/de/docs/Web/API/EventSource)

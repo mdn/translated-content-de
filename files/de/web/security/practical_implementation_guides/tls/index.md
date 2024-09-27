@@ -1,5 +1,5 @@
 ---
-title: Transport Layer Security (TLS)-Konfiguration
+title: Transport Layer Security (TLS) Konfiguration
 slug: Web/Security/Practical_implementation_guides/TLS
 l10n:
   sourceCommit: 879e0a9c9d60831afcc7f66ea1b5f43ea0cd4361
@@ -7,39 +7,39 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-[Transport Layer Security (TLS)](/de/docs/Glossary/TLS) gewährleistet die Vertraulichkeit, Authentizität und Integrität aller Kommunikationen und sollte daher für alle eingehenden und ausgehenden Website-Kommunikationen verwendet werden.
+[Transport Layer Security (TLS)](/de/docs/Glossary/TLS) bietet Garantien für die Vertraulichkeit, Authentizität und Integrität aller Kommunikationsvorgänge und sollte daher für alle eingehenden und ausgehenden Website-Kommunikationen verwendet werden.
 
 ## TLS-Konfiguration
 
 ### Problem
 
-Wenn Daten unverschlüsselt über das Internet gesendet werden, können sie von Dritten abgefangen werden, die Zugriff auf die Daten erhalten und sie ändern können — dies wird oft als [Manipulator-in-the-Middle](/de/docs/Glossary/MitM) (MiTM)-Angriff bezeichnet. MiTM-Angriffe haben schwerwiegende Folgen für die Sicherheit Ihres Systems.
+Wenn Daten unverschlüsselt über das Web gesendet werden, können sie von Dritten abgefangen und verändert werden — dies ist oft als [Manipulator-in-the-Middle](/de/docs/Glossary/MitM) (MiTM) Angriff bekannt. MiTM-Angriffe haben schwerwiegende Folgen für die Sicherheit Ihres Systems.
 
-Alle Anfragen und Antworten sollten daher über HTTPS gesendet werden, das TLS zur Verschlüsselung der Daten verwendet. Das moderne Web erzwingt dies praktisch — alle Browser bewegen sich in Richtung von [HTTPS](/de/docs/Glossary/HTTPS) als Standard, und viele Webfunktionen können nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) genutzt werden.
+Alle Anfragen und Antworten sollten daher über HTTPS gesendet werden, das TLS zur Verschlüsselung der Daten nutzt. Das moderne Web erzwingt dies praktisch — alle Browser bewegen sich in die Richtung, standardmäßig [HTTPS](/de/docs/Glossary/HTTPS) zu verlangen, und viele Webfunktionen können nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verwendet werden.
 
 ### Lösung
 
-Sie sollten Ihre Serversoftware so einrichten, dass sie eine sichere Konfiguration verwendet, die die Nutzung von HTTPS mit sicheren TLS-Einstellungen erzwingt. Es gibt mehrere TLS-Konfigurationsgeneratoren, die dabei helfen können, zum Beispiel der Mozilla [SSL Configuration Generator](https://ssl-config.mozilla.org/). Dieses Tool bietet mehrere Optionen basierend auf Mozillas [TLS-Leitlinien](https://wiki.mozilla.org/Security/Server_Side_TLS).
+Sie sollten Ihre Serversoftware so einrichten, dass sie eine sichere Konfiguration verwendet, die die Nutzung von HTTPS mit sicheren TLS-Einstellungen erzwingt. Es gibt mehrere TLS-Konfigurationsgeneratoren, die dabei helfen können, zum Beispiel der Mozilla [SSL Configuration Generator](https://ssl-config.mozilla.org/). Dieses Tool bietet mehrere Optionen basierend auf Mozillas [TLS-Richtlinien](https://wiki.mozilla.org/Security/Server_Side_TLS).
 
-## Ressourcen laden
+## Laden von Ressourcen
 
 ### Problem
 
-Alle Ressourcen, unabhängig von ihrem Ursprung, sollten über sichere Kanäle geladen werden.
+Alle Ressourcen, unabhängig von ihrer Herkunft, sollten über sichere Kanäle geladen werden.
 
-Sichere (HTTPS) Websites, die versuchen, aktive Ressourcen wie JavaScript über unsichere Verbindungen (HTTP) zu laden, werden von Browsern blockiert. Infolgedessen erleben Benutzer verschlechterte Benutzeroberflächen und [Mixed Content](/de/docs/Web/Security/Mixed_content)-Warnungen. Im folgenden Codebeispiel wird zum Beispiel HTTP fälschlicherweise verwendet, um eine JavaScript-Bibliothek zu laden:
+Sichere (HTTPS) Websites, die versuchen, aktive Ressourcen wie JavaScript über unsichere Verbindungen (HTTP) zu laden, werden von Browsern blockiert. Infolgedessen erleben Benutzer verschlechterte Benutzeroberflächen und [Mixed Content](/de/docs/Web/Security/Mixed_content) Warnungen. Im folgenden Codebeispiel wird HTTP fälschlicherweise verwendet, um eine JavaScript-Bibliothek zu laden:
 
 ```html example-bad
 <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 ```
 
-Ebenso führen Versuche, passive Inhalte wie Bilder unsicher zu laden, obwohl weniger riskant, dennoch zu verschlechterten Benutzeroberflächen und Mixed Content-Warnungen und können es aktiven Angreifern ermöglichen, Websites zu verunstalten oder Benutzer zu täuschen. Zum Beispiel:
+Ähnlich führen Versuche, passive Inhalte wie Bilder unsicher zu laden, obwohl weniger riskant, dennoch zu verschlechterten Benutzeroberflächen und Mixed Content Warnungen und können es aktiven Angreifern ermöglichen, Websites zu entstellen oder Benutzer zu phishen. Zum Beispiel:
 
 ```html example-bad
 <img src="http://very.badssl.com/image.jpg" />
 ```
 
-Obwohl moderne Browser auffällig anzeigen, wenn Websites Ressourcen unsicher laden, treten diese Fehler im Web immer noch mit erheblicher Häufigkeit auf.
+Obwohl moderne Browser deutlich machen, wenn Websites Ressourcen unsicher laden, treten diese Fehler immer noch mit erheblicher Häufigkeit im gesamten Web auf.
 
 ### Lösung
 
@@ -53,28 +53,28 @@ In diesem Beispiel wird HTTPS korrekt verwendet, um eine JavaScript-Bibliothek z
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 ```
 
-## HTTP-Weiterleitung
+## HTTP-Umleitung
 
 ### Problem
 
-Websites können weiterhin auf Port 80 (HTTP) lauschen, um Verbindungsfehler zu verhindern, wenn Benutzer eine URL in ihre Adressleiste eingeben, da anfängliche Browserverbindungen oft über HTTP hergestellt werden. Dies stellt ein anfängliches Sicherheitsrisiko bei der ersten Verbindung zu Websites dar, da diese Verbindung nicht durch TLS geschützt ist.
+Websites können weiterhin auf Port 80 (HTTP) lauschen, um Verbindungsfehler zu vermeiden, wenn Benutzer eine URL in ihre Adressleiste eingeben, da erste Browserverbindungen oft über HTTP erfolgen. Dies stellt ein anfängliches Sicherheitsrisiko bei der ersten Verbindung zu Websites dar, da diese Verbindung nicht durch TLS geschützt ist.
 
-Darüber hinaus sollten Websites Weiterleitungen von HTTP auf einem Host zu HTTPS auf einem anderen Host vermeiden, da dies verhindert, dass `Strict-Transport-Security` für den ersten Host gesetzt wird (siehe [HTTP Strict Transport Security](#implementierung_von_http_strict_transport_security)).
+Darüber hinaus sollten Websites Umleitungen von HTTP auf einem Host zu HTTPS auf einem anderen Host vermeiden, da dies verhindert, dass `Strict-Transport-Security` für den ersten Host gesetzt wird (siehe [HTTP Strict Transport Security](#umsetzung_von_http_strict_transport_security)).
 
 ### Lösung
 
-Websites, die auf Port 80 lauschen, sollten nur auf dieselbe Ressource über HTTPS umleiten. Sobald die Weiterleitung erfolgt ist, sollte `Strict-Transport-Security` sicherstellen, dass alle zukünftigen Versuche, die Website über HTTP zu erreichen, automatisch auf die sichere Website umgeleitet werden.
+Websites, die auf Port 80 lauschen, sollten nur zur gleichen Ressource auf HTTPS umleiten. Sobald die Umleitung erfolgt ist, sollte `Strict-Transport-Security` sicherstellen, dass alle zukünftigen Versuche, auf die Website über HTTP zuzugreifen, automatisch auf die sichere Website umgeleitet werden.
 
-APIs oder Websites, die nicht für öffentlichen Zugriff gedacht sind, sollten die Nutzung von HTTP vollständig deaktivieren.
+APIs oder Websites, die nicht für den öffentlichen Zugriff bestimmt sind, sollten die Nutzung von HTTP vollständig deaktivieren.
 
-Um das "verschiedene Hosts"-Problem zu beheben:
+Um das Problem der "verschiedenen Hosts" zu beheben:
 
-1. Leiten Sie zunächst von http://example.com/ auf https://example.com/ um.
-2. Leiten Sie anschließend von https://example.com/ auf https://example.org/ um.
+1. Leiten Sie zuerst von http://example.com/ zu https://example.com/ um.
+2. Leiten Sie dann von https://example.com/ zu https://example.org/ um.
 
 ### Beispiele
 
-Leiten Sie alle eingehenden HTTP-Anfragen zur selben Site und URI auf HTTPS um, mit NGINX:
+Alle eingehenden HTTP-Anfragen zur gleichen Website und URI auf HTTPS umleiten, mit NGINX:
 
 ```nginx
 server {
@@ -84,7 +84,7 @@ server {
 }
 ```
 
-Leiten Sie `site.example.org` von HTTP auf HTTPS um, mit Apache:
+`site.example.org` von HTTP zu HTTPS umleiten, mit Apache:
 
 ```apacheconf
 <VirtualHost *:80>
@@ -93,48 +93,48 @@ Leiten Sie `site.example.org` von HTTP auf HTTPS um, mit Apache:
 </VirtualHost>
 ```
 
-## Implementierung von HTTP Strict Transport Security
+## Umsetzung von HTTP Strict Transport Security
 
 ### Problem
 
-Um [Manipulator-in-the-Middle](/de/docs/Glossary/MitM) (MiTM)-Angriffe zu verhindern, sollten Browser nur über HTTPS mit Websites verbinden.
+Um [Manipulator-in-the-Middle](/de/docs/Glossary/MitM) (MiTM) Angriffe zu verhindern, sollten Browser nur über HTTPS auf Websites zugreifen.
 
 ### Lösung
 
-HTTP [`Strict-Transport-Security`](/de/docs/Web/HTTP/Headers/Strict-Transport-Security) (HSTS) ist ein HTTP-Header, der Browser informiert, dass sie nur über HTTPS mit einer bestimmten Site verbinden sollen, selbst wenn das ursprünglich angegebene Schema HTTP war. Browser, bei denen HSTS für eine bestimmte Site gesetzt ist, werden automatisch alle Anfragen für diese Site auf HTTPS aufwerten. HSTS weist Browser auch an, TLS- und zertifikatsbezogene Fehler durch Deaktivierung der Möglichkeit, die Zertifikatfehlerseite zu umgehen, strenger zu behandeln.
+HTTP [`Strict-Transport-Security`](/de/docs/Web/HTTP/Headers/Strict-Transport-Security) (HSTS) ist ein HTTP-Header, der Browser anweist, nur über HTTPS auf eine bestimmte Website zuzugreifen, selbst wenn das ursprünglich angegebene Schema HTTP war. Browser, die HSTS für eine bestimmte Website gesetzt haben, werden automatisch alle Anfragen für diese Website auf HTTPS umstellen. HSTS weist Browser auch an, TLS- und zertifikatsbezogene Fehler strikter zu behandeln, indem die Möglichkeit deaktiviert wird, die Zertifikatfehlermeldung zu umgehen.
 
-`Strict-Transport-Security` unterstützt die folgenden Direktiven:
+`Strict-Transport-Security` unterstützt folgende Direktiven:
 
 - `max-age`
-  - : Legt die Dauer in Sekunden fest, für die Browser auf HTTPS umleiten werden.
+  - : Legt die Dauer in Sekunden fest, für die Browser auf HTTPS umleiten.
 - `includeSubDomains` {{optional_inline}}
-  - : Gibt an, ob Browser Anfragen auf allen Subdomains auf HTTPS upgraden sollen. Zum Beispiel stellt das Setzen von `includeSubDomains` bei `domain.example.com` sicher, dass Anfragen an `host1.domain.example.com` und `host2.domain.example.com` zusätzlich zu `domain.example.com` aufgerüstet werden.
+  - : Gibt an, ob Browser Anfragen auf allen Subdomains auf HTTPS umstellen sollen. Zum Beispiel wird durch Setzen von `includeSubDomains` auf `domain.example.com` sichergestellt, dass Anfragen an `host1.domain.example.com` und `host2.domain.example.com` zusätzlich zu `domain.example.com` umgestellt werden.
 - `preload` {{optional_inline}}
-  - : Gibt an, ob die Site vorab geladen werden soll. Das Einschließen dieser Direktive bedeutet, dass Ihre Site in die [HSTS-Vorladeliste](https://hstspreload.org/) aufgenommen werden kann.
+  - : Gibt an, ob die Website vorab geladen werden soll. Das Einschließen dieser Direktive bedeutet, dass Ihre Website in der [HSTS Preload Liste](https://hstspreload.org/) enthalten sein kann.
 
-Befolgen Sie diese Schritte, um HSTS korrekt auf Ihrer Website zu implementieren:
+Befolgen Sie diese Schritte, um HSTS auf Ihrer Website korrekt zu implementieren:
 
-1. Setzen Sie einen `max-age`-Wert von mindestens sechs Monaten (`15768000`). Längere Zeiträume, wie zum Beispiel zwei Jahre (`63072000`), werden empfohlen. Sobald dieser Wert gesetzt ist, muss die Site weiterhin HTTPS unterstützen, bis die Ablaufzeit erreicht ist.
-2. Setzen Sie, wenn möglich, `includeSubDomains`, um die Sicherheit auf allen Subdomains zu verbessern. Eine sorgfältige Prüfung ist erforderlich, wenn diese Direktive gesetzt wird, da dadurch Sites auf Subdomains, die noch nicht über HTTPS verfügen, deaktiviert werden könnten.
-3. Setzen Sie, wenn möglich, `preload`, um zu ermöglichen, dass Ihre Website in die HSTS-Vorladeliste aufgenommen wird. Um sie in die Liste aufzunehmen, besuchen Sie https://hstspreload.org/ und geben Sie Ihre Site-URL in das Formular oben auf der Seite ein, und beheben Sie alle erwähnten Probleme. Webbrowser führen HTTPS-Upgrades von vorab geladenen Sites durch, bevor der anfängliche `Strict-Transport-Security`-Header empfangen wird. Dies verhindert [Downgrade-Angriffe](https://en.wikipedia.org/wiki/Downgrade_attack) beim ersten Gebrauch und wird für alle hochriskanten Websites empfohlen. Beachten Sie, dass die Aufnahme in die HSTS-Vorladeliste auch erfordert, dass `includeSubDomains` gesetzt und `max-age` auf mindestens 1 Jahr (`31536000`) gesetzt ist.
+1. Setzen Sie einen `max-age` Wert von mindestens sechs Monaten (`15768000`). Längere Zeiträume, wie zwei Jahre (`63072000`), werden empfohlen. Sobald dieser Wert gesetzt ist, muss die Website bis zum Ablauf der Zeit weiterhin HTTPS unterstützen.
+2. Setzen Sie, wenn möglich, `includeSubDomains`, um die Sicherheit auf allen Subdomains zu verbessern. Für diese Direktive ist sorgfältiges Testen erforderlich, da sie Websites auf Subdomains deaktivieren könnte, die noch kein HTTPS aktiviert haben.
+3. Setzen Sie, wenn möglich, `preload`, um es zu ermöglichen, Ihre Website in die HSTS Preload Liste aufzunehmen. Besuchen Sie dazu https://hstspreload.org/ und geben Sie Ihre Website-URL in das Formular oben auf der Seite ein und beheben Sie eventuelle Probleme, die es anzeigt. Webbrowser werden HTTPS-Upgrades für vorab geladene Websites ausführen, bevor sie den initialen `Strict-Transport-Security` Header erhalten. Dies verhindert [Downgrade-Angriffe](https://en.wikipedia.org/wiki/Downgrade_attack) beim ersten Zugriff und wird für alle Hochrisiko-Websites empfohlen. Beachten Sie, dass das Einschließen in die HSTS Preload Liste auch `includeSubDomains` und ein `max-age` von mindestens 1 Jahr (`31536000`) erfordert.
 
-Zusammen mit `Strict-Transport-Security` sollten Sie auch die Direktive [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests) in Ihrer {{httpheader("Content-Security-Policy")}} setzen. Diese weist Browser an, alle unsicheren URLs einer Site (die über HTTP bedient werden) so zu behandeln, als ob sie über HTTPS bedient worden wären. `upgrade-insecure-requests` ist für Websites gedacht, die eine große Anzahl unsicherer alter URLs haben, die umgeschrieben werden müssen.
+Zusammen mit `Strict-Transport-Security` sollten Sie auch die [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests) Direktive in Ihrer {{httpheader("Content-Security-Policy")}} setzen. Diese weist Browser an, alle unsicheren URLs einer Website (die über HTTP bereitgestellt werden) so zu behandeln, als wären sie über HTTPS bereitgestellt worden. `upgrade-insecure-requests` ist für Websites mit einer großen Anzahl unsicherer veralteter URLs gedacht, die umgeschrieben werden müssen.
 
 ### Beispiele
 
-Es wird empfohlen, sich zwei Jahre lang über HTTPS mit einer Site zu verbinden:
+Es wird empfohlen, für zwei Jahre über HTTPS auf eine Website zuzugreifen:
 
 ```http
 Strict-Transport-Security: max-age=63072000
 ```
 
-Falls möglich, zusätzlich Subdomain-Anfragen auf HTTPS upgraden und die Site in die Vorladeliste aufnehmen:
+Wenn möglich, zusätzlich Anfragen von Subdomains auf HTTPS umstellen und die Website in die Preload-Liste aufnehmen:
 
 ```http
 Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 ```
 
-Setzen Sie auch die `upgrade-insecure-requests` CSP:
+Auch die `upgrade-insecure-requests` CSP setzen:
 
 ```http
 Content-Security-Policy: upgrade-insecure-requests;
@@ -144,5 +144,5 @@ Content-Security-Policy: upgrade-insecure-requests;
 
 - [Transport Layer Security (TLS)](/de/docs/Web/Security/Transport_Layer_Security)
 - [Certificate Transparency](/de/docs/Web/Security/Certificate_Transparency)
-- [Mixed Content](/de/docs/Web/Security/Mixed_content)
+- [Mixed content](/de/docs/Web/Security/Mixed_content)
 - [Schwache Signaturalgorithmen](/de/docs/Web/Security/Weak_Signature_Algorithm)

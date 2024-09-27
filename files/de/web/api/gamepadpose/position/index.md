@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("WebVR API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`position`**-Eigenschaft der {{domxref("GamepadPose")}}-Schnittstelle gibt die Position des {{domxref("Gamepad")}} als 3D-Vektor zurück.
+Die **`position`** Schreibgeschützte Eigenschaft des [`GamepadPose`](/de/docs/Web/API/GamepadPose)-Interfaces gibt die Position des [`Gamepad`](/de/docs/Web/API/Gamepad) als 3D-Vektor zurück.
 
-Das Koordinatensystem ist wie folgt definiert:
+Das Koordinatensystem ist wie folgt:
 
-- Positives X ist zur rechten Seite des Nutzers.
-- Positives Y ist nach oben.
-- Positives Z ist hinter dem Nutzer.
+- Positive X-Richtung ist zur rechten Seite des Benutzers.
+- Positive Y-Richtung ist nach oben.
+- Positive Z-Richtung ist hinter dem Benutzer.
 
-Positionen werden in Metern von einem Ursprungsort gemessen – dieser Punkt ist die Position, an der der Sensor zuerst ausgelesen wurde.
+Positionen werden in Metern von einem Ursprungspunkt gemessen — dieser Punkt ist die Position, an der der Sensor zuerst gelesen wurde.
 
 ## Wert
 
-Ein {{jsxref("Float32Array")}} oder `null`, wenn das Gamepad keine Positionsdaten liefern kann.
+Ein {{jsxref("Float32Array")}}, oder `null`, wenn das Gamepad keine Positionsdaten bereitstellen kann.
 
 > [!NOTE]
-> Benutzeragenten können emulierte Positionswerte durch bestimmte Techniken bereitstellen; in diesem Fall sollten sie dennoch {{domxref("GamepadPose.hasPosition")}} als false melden.
+> Benutzeragenten können emulierte Positionswerte durch bestimmte Techniken bereitstellen; wenn sie dies tun, sollten sie dennoch [`GamepadPose.hasPosition`](/de/docs/Web/API/GamepadPose/hasPosition) als falsch melden.
 
 ## Beispiele
 

@@ -7,18 +7,18 @@ l10n:
 
 {{AddonSidebar}}
 
-Definiert, wie Zoomänderungen gehandhabt werden. Erweiterungen können diesen Wert an {{WebExtAPIRef("tabs.setZoomSettings()")}} übergeben, um zu steuern, wie der Browser Versuche, die Zoom-Einstellungen für einen Tab zu ändern, behandelt. Standardwert ist "automatic".
+Definiert, wie Änderungen des Zooms gehandhabt werden. Erweiterungen können diesen Wert in {{WebExtAPIRef("tabs.setZoomSettings()")}} übergeben, um zu steuern, wie der Browser Versuche zur Änderung der Zoom-Einstellungen für einen Tab behandelt. Standardmäßig auf "automatic".
 
-## Typ
+## Type
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 
 - "automatic"
-  - : Zoomänderungen werden vom Browser normal gehandhabt.
+  - : Änderungen des Zooms werden vom Browser normal gehandhabt.
 - "disabled"
-  - : Deaktiviert alle Zoomvorgänge im Tab. Der Tab kehrt zum Standard-Zoomlevel zurück, und alle Versuche, Zoomänderungen vorzunehmen, werden ignoriert.
+  - : Deaktiviert jegliches Zoomen in dem Tab. Der Tab kehrt zur Standard-Zoomstufe zurück, und alle Versuche, den Zoom zu ändern, werden ignoriert.
 - "manual"
-  - : Die Erweiterung wird Zoomänderungen selbst handhaben, indem sie das {{WebExtAPIRef("tabs.onZoomChange")}}-Ereignis überwacht und die Seite entsprechend skaliert. Dieser Modus unterstützt kein `per-origin`-Zoomen: er wird die `scope`-Einstellung [Zoom-Einstellung](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/ZoomSettings) ignorieren und immer `per-tab` verwenden.
+  - : Die Erweiterung wird Zoom-Änderungen selbst handhaben, indem sie das {{WebExtAPIRef("tabs.onZoomChange")}}-Ereignis abhört und die Seite entsprechend skaliert. Dieser Modus unterstützt kein `per-origin`-Zoomen: er ignoriert die `scope` [Zoom-Einstellung](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/ZoomSettings) und verwendet immer `per-tab`.
 
 ## Browser-Kompatibilität
 
@@ -27,7 +27,7 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-ZoomSettingsMode) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#type-ZoomSettingsMode) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

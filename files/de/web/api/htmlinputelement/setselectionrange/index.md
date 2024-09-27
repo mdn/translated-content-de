@@ -12,11 +12,11 @@ Die **`HTMLInputElement.setSelectionRange()`**-Methode legt die Start- und Endpo
 
 Das Element muss fokussiert sein, damit der Aufruf eine Wirkung hat.
 
-Optional können Sie die Richtung angeben, in der die Auswahl erfolgt ist. Dies ermöglicht es, beispielsweise anzugeben, dass die Auswahl durch den Benutzer vorgenommen wurde, indem er vom Ende des ausgewählten Texts zum Anfang gezogen hat.
+Optional können Sie die Richtung angeben, in der die Auswahl vorgenommen werden soll. Damit können Sie beispielsweise angeben, dass die Auswahl durch Klicken und Ziehen des Benutzers vom Ende des ausgewählten Textes zum Anfang vorgenommen wurde.
 
-Diese Methode aktualisiert die Eigenschaften {{domxref("HTMLInputElement.selectionStart")}}, {{domxref("HTMLInputElement.selectionEnd")}} und {{domxref("HTMLInputElement.selectionDirection")}} in einem Aufruf.
+Diese Methode aktualisiert die Eigenschaften [`HTMLInputElement.selectionStart`](/de/docs/Web/API/HTMLInputElement/selectionStart), [`HTMLInputElement.selectionEnd`](/de/docs/Web/API/HTMLInputElement/selectionEnd) und [`HTMLInputElement.selectionDirection`](/de/docs/Web/API/HTMLInputElement/selectionDirection) in einem Aufruf.
 
-Das Element muss einer der folgenden Eingabetypen haben: [`password`](/de/docs/Web/HTML/Element/input/password), [`search`](/de/docs/Web/HTML/Element/input/search), [`tel`](/de/docs/Web/HTML/Element/input/tel), [`text`](/de/docs/Web/HTML/Element/input/text) oder [`url`](/de/docs/Web/HTML/Element/input/url). Andernfalls wirft der Browser eine `InvalidStateError`-Ausnahme.
+Das Element muss von einem der folgenden Eingabetypen sein: [`password`](/de/docs/Web/HTML/Element/input/password), [`search`](/de/docs/Web/HTML/Element/input/search), [`tel`](/de/docs/Web/HTML/Element/input/tel), [`text`](/de/docs/Web/HTML/Element/input/text) oder [`url`](/de/docs/Web/HTML/Element/input/url). Andernfalls wirft der Browser eine `InvalidStateError`-Ausnahme.
 
 Wenn Sie **alle** Texte eines Eingabeelements auswählen möchten, können Sie stattdessen die [HTMLInputElement.select()](/de/docs/Web/API/HTMLInputElement/select)-Methode verwenden.
 
@@ -30,16 +30,16 @@ setSelectionRange(selectionStart, selectionEnd, selectionDirection)
 ### Parameter
 
 - `selectionStart`
-  - : Der 0-basierte Index des ersten ausgewählten Zeichens. Ein Index, der größer als die Länge des Elementwerts ist, wird als Verweis auf das Ende des Werts behandelt.
+  - : Der nullbasierte Index des ersten ausgewählten Zeichens. Ein Index, der größer ist als die Länge des Werts des Elements, wird als das Ende des Werts behandelt.
 - `selectionEnd`
 
-  - : Der 0-basierte Index des Zeichens _nach_ dem letzten ausgewählten Zeichen. Ein
-    Index, der größer als die Länge des Elementwerts ist, wird als Verweis auf das Ende
-    des Werts behandelt. Ist `selectionEnd` kleiner als `selectionStart`, werden beide als der Wert von `selectionEnd` betrachtet.
+  - : Der nullbasierte Index des Zeichens _nach_ dem letzten ausgewählten Zeichen. Ein
+    Index, der größer ist als die Länge des Werts des Elements, wird als das Ende des
+    Werts behandelt. Wenn `selectionEnd` kleiner als `selectionStart` ist, werden beide als der Wert von `selectionEnd` behandelt.
 
 - `selectionDirection` {{optional_inline}}
 
-  - : Ein String, der die Richtung angibt, in der die Auswahl vorgenommen wurde. Mögliche Werte:
+  - : Ein String, der die Richtung angibt, in der die Auswahl als vorgenommen angesehen wird. Mögliche Werte:
 
     - `"forward"`
     - `"backward"`
@@ -47,17 +47,16 @@ setSelectionRange(selectionStart, selectionEnd, selectionDirection)
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das Element nicht einer der folgenden Eingabetypen entspricht: [`password`](/de/docs/Web/HTML/Element/input/password), [`search`](/de/docs/Web/HTML/Element/input/search), [`tel`](/de/docs/Web/HTML/Element/input/tel), [`text`](/de/docs/Web/HTML/Element/input/text), oder [`url`](/de/docs/Web/HTML/Element/input/url).
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das Element nicht einer der folgenden Eingabetypen ist: [`password`](/de/docs/Web/HTML/Element/input/password), [`search`](/de/docs/Web/HTML/Element/input/search), [`tel`](/de/docs/Web/HTML/Element/input/tel), [`text`](/de/docs/Web/HTML/Element/input/text) oder [`url`](/de/docs/Web/HTML/Element/input/url).
 
 ## Beispiele
 
-Klicken Sie auf die Schaltfläche in diesem Beispiel, um das dritte, vierte und fünfte Zeichen im
-Textfeld ("zil" im Wort "Mozilla") auszuwählen.
+Klicken Sie auf die Schaltfläche in diesem Beispiel, um das dritte, vierte und fünfte Zeichen im Textfeld auszuwählen ("zil" im Wort "Mozilla").
 
 ### HTML
 
@@ -92,5 +91,5 @@ function selectText() {
 
 - {{HTMLElement("input")}}
 - {{HTMLElement("textarea")}}
-- {{domxref("HTMLInputElement")}}
-- {{domxref("Selection")}}
+- [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
+- [`Selection`](/de/docs/Web/API/Selection)

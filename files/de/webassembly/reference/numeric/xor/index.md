@@ -7,24 +7,24 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`xor`** Instruktionen werden verwendet, um ein bitweises XOR durchzuführen, ähnlich dem **`^`** Operator in anderen Sprachen.
+Die **`xor`** Anweisungen werden verwendet, um ein bitweises XOR durchzuführen, ähnlich dem **`^`** Operator in anderen Sprachen.
 
 {{EmbedInteractiveExample("pages/wat/xor.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; zwei Zahlen auf den Stapel laden
+;; load two numbers onto the stack
 i32.const 5   ;; 00000101
 i32.const 3   ;; 00000011
 
-;; ein bitweises XOR ausführen
+;; perform a bitwise XOR
 i32.xor
 
-;; das oberste Element auf dem Stapel ist nun 6 (00000110)
+;; the top item on the stack will now be 6 (00000110)
 ```
 
-| Anweisung   | Binäroperation |
-| ----------- | -------------- |
-| `i32.xor`   | `0x73`         |
-| `i64.xor`   | `0x85`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `i32.xor` | `0x73`         |
+| `i64.xor` | `0x85`         |

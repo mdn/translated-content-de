@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feTile>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ermöglicht es, ein Zielrechteck mit einem wiederholten, gekachelten Muster eines Eingabebildes zu füllen. Der Effekt ist ähnlich dem eines {{SVGElement("pattern")}}.
+Das **`<feTile>`** [SVG](/de/docs/Web/SVG)-Filter-Primitive ermöglicht es, ein Zielrechteck mit einem wiederholten, gekachelten Muster eines Eingabebildes zu füllen. Der Effekt ist ähnlich dem eines {{SVGElement("pattern")}}.
 
 ## Verwendungskontext
 
@@ -19,7 +19,7 @@ Das **`<feTile>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ermöglicht es, ein 
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFETileElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGFETileElement`](/de/docs/Web/API/SVGFETileElement)-Schnittstelle.
 
 ## Beispiel
 
@@ -32,28 +32,27 @@ Dieses Element implementiert die {{domxref("SVGFETileElement")}} Schnittstelle.
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink">
   <title>
-    Kacheln eines MDN-Logos mit dem Kopf des Mozilla-Maskottchens, das auf dem Logo ist
+    Tiling an MDN logo with the Mozilla mascot's head that is on the logo
   </title>
   <defs>
-    <!-- Definieren Sie den Bereich des Filters als die Begrenzungsbox
-         des MDN-Logos, das gefiltert wird. Diese Parameter erzeugen
-         ein Ergebnis, das denselben Bereich wie das Bild abdeckt. -->
+    <!-- Define the region of the filter to be the bounding box of the
+         MDN logo being filtered. These parameters will create an output
+         that covers the same region as the image. -->
     <filter id="tile" x="0" y="0" width="100%" height="100%">
-      <!-- Erstellen Sie eine Kachel aus dem mittleren Abschnitt des
-           Bildes von (50,50) bis (150,150). Dieser Bereich ist im
-           Wesentlichen der Kopf des Mozilla-Maskottchens. -->
+      <!-- Create a tile from the central portion of the image from
+           (50,50) to (150,150). This area is essentially the Mozilla
+           mascot's head. -->
       <feTile in="SourceGraphic" x="50" y="50" width="100" height="100" />
 
-      <!-- Ohne Festlegung eines Bereichs nimmt feTile standardmäßig
-           den Bereich des Filters an. Ohne Festlegung eines "in"-Parameters
-           ist der Standard das Ergebnis des vorherigen Primitivs.
-           Also wird dieses zweite feTile den gesamten Filterbereich
-           mit dem Kopf des Maskottchens kacheln. -->
+      <!-- Without specifying a region, feTile defaults to the region
+           of the filter. Without specifying an "in" parameter, the default
+           is the result of the previous primitive. So this second feTile
+           will tile the entire filter region with the mascot's head. -->
       <feTile />
     </filter>
   </defs>
 
-  <!-- Verwenden Sie das MDN-Logo als Eingabe für den Filter -->
+  <!-- Use the MDN logo as input to the filter -->
   <image
     href="mdn_logo_only_color.png"
     x="10%"
@@ -72,7 +71,7 @@ Dieses Element implementiert die {{domxref("SVGFETileElement")}} Schnittstelle.
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -96,4 +95,4 @@ Dieses Element implementiert die {{domxref("SVGFETileElement")}} Schnittstelle.
 - {{SVGElement("feOffset")}}
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

@@ -8,11 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`target`**-Eigenschaft der {{domxref("HTMLFormElement")}}-Schnittstelle gibt das Ziel der Aktion des Formulars an (d.h. das Frame, in dem die Ausgabe gerendert werden soll).
+Die **`target`**-Eigenschaft des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
+Interfaces repräsentiert das Ziel der Aktion des Formulars (d.h., den Frame, in dem
+die Ausgabe gerendert werden soll).
 
 ## Wert
 
-Ein Zeichenkette.
+Ein String.
 
 ## Beispiele
 

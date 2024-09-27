@@ -10,7 +10,7 @@ l10n:
 
 Die **`HTMLSelectElement.disabled`**-Eigenschaft ist ein boolescher Wert, der das
 [`disabled`](/de/docs/Web/HTML/Element/select#disabled)
-HTML-Attribut widerspiegelt, welches angibt, ob das Steuerelement deaktiviert ist. Wenn es deaktiviert ist, nimmt es keine Klicks an. Ein deaktiviertes Element ist unbrauchbar und nicht klickbar.
+HTML-Attribut widerspiegelt, welches angibt, ob die Steuerung deaktiviert ist. Wenn sie deaktiviert ist, akzeptiert sie keine Klicks. Ein deaktiviertes Element ist unbenutzbar und nicht anklickbar.
 
 ## Wert
 
@@ -22,14 +22,14 @@ Ein boolescher Wert.
 
 ```html
 <label>
-  Getränke erlauben?
+  Allow drinks?
   <input id="allow-drinks" type="checkbox" />
 </label>
 
-<label for="drink-select">Getränkeauswahl:</label>
+<label for="drink-select">Drink selection:</label>
 <select id="drink-select" disabled>
-  <option value="1">Wasser</option>
-  <option value="2">Bier</option>
+  <option value="1">Water</option>
+  <option value="2">Beer</option>
   <option value="3">Pepsi</option>
   <option value="4">Whisky</option>
 </select>
@@ -58,6 +58,6 @@ allowDrinksCheckbox.addEventListener(
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

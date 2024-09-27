@@ -1,19 +1,19 @@
 ---
-title: "GPURenderBundleEncoder: popDebugGroup()-Methode"
+title: "GPURenderBundleEncoder: popDebugGroup() Methode"
 short-title: popDebugGroup()
 slug: Web/API/GPURenderBundleEncoder/popDebugGroup
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`popDebugGroup()`**-Methode der {{domxref("GPURenderBundleEncoder")}}-Schnittstelle beendet eine Render-Bundle-Debuggruppe, die mit einem {{domxref("GPURenderBundleEncoder.pushDebugGroup", "pushDebugGroup()")}}-Aufruf begonnen wurde.
+Die **`popDebugGroup()`**-Methode der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle beendet eine Render-Bundle-Debug-Gruppe, die mit einem Aufruf von [`pushDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/pushDebugGroup) begonnen wurde.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in {{domxref("GPUError")}}-Nachrichten, Browser-Entwicklungstools oder anderen Diensten genutzt werden, um bei der Fehlersuche zu helfen.
+Diese Methode könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Browser-Entwicklertools oder anderen Diensten zur Unterstützung bei der Fehlersuche genutzt werden.
 
 > [!NOTE]
-> Diese Methode ist funktional identisch mit ihrem Äquivalent auf {{domxref("GPURenderPassEncoder")}} — {{domxref("GPURenderPassEncoder.popDebugGroup", "popDebugGroup()")}}.
+> Diese Methode ist funktionell identisch mit ihrem Äquivalent auf [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`popDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/popDebugGroup).
 
 ## Syntax
 
@@ -31,9 +31,9 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen beim Aufruf von **`popDebugGroup()`** erfüllt sein, andernfalls wird ein {{domxref("GPUValidationError")}} generiert und der {{domxref("GPURenderBundleEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`popDebugGroup()`** aufgerufen wird, anderenfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) wird ungültig:
 
-- Der Debug-Stack des Render-Bundle-Encoders ist nicht leer (d. h. es wurde zuvor mindestens eine Render-Bundle-Debuggruppe mit {{domxref("GPURenderBundleEncoder.pushDebugGroup", "pushDebugGroup()")}} gestartet).
+- Der Debug-Stack des Render-Bundle-Encoders ist nicht leer (d.h. mindestens eine Render-Bundle-Debug-Gruppe wurde zuvor mit [`pushDebugGroup()`](/de/docs/Web/API/GPURenderBundleEncoder/pushDebugGroup) gestartet).
 
 ## Beispiele
 
@@ -42,7 +42,7 @@ Die folgenden Kriterien müssen beim Aufruf von **`popDebugGroup()`** erfüllt s
 
 const bundleEncoder = device.createRenderBundleEncoder(renderBundleDescriptor);
 
-bundleEncoder.pushDebugGroup("mygroupmarker"); // Startet eine benannte Debug-Gruppe
+bundleEncoder.pushDebugGroup("mygroupmarker"); // Start labeled debug group
 
 bundleEncoder.setPipeline(renderPipeline);
 bundleEncoder.setVertexBuffer(0, vertexBuffer);

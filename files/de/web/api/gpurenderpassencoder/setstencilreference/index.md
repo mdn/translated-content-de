@@ -1,15 +1,14 @@
 ---
-title: "GPURenderPassEncoder: Methode setStencilReference()"
+title: "GPURenderPassEncoder: setStencilReference() Methode"
 short-title: setStencilReference()
 slug: Web/API/GPURenderPassEncoder/setStencilReference
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setStencilReference()`**-Methode der
-{{domxref("GPURenderPassEncoder")}}-Schnittstelle legt den Stencil-Referenzwert fest, der während der Stencil-Tests mit der `"replace"` Stencil-Operation verwendet wird (wie im Deskriptor der {{domxref("GPUDevice.createRenderPipeline()")}}-Methode in den Eigenschaften, die die verschiedenen Stencil-Operationen definieren, festgelegt).
+Die **`setStencilReference()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle setzt den Stencil-Referenzwert, der bei Stencil-Tests mit der `"replace"`-Stencil-Operation verwendet wird (wie im Deskriptor der [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline)-Methode in den Eigenschaften definiert, die die verschiedenen Stencil-Operationen beschreiben).
 
 ## Syntax
 
@@ -20,10 +19,10 @@ setStencilReference(reference)
 ### Parameter
 
 - `reference`
-  - : Eine Zahl, die den neuen Stencil-Referenzwert darstellt, der für den Render-Durchlauf festgelegt werden soll.
+  - : Eine Zahl, die den neuen Stencil-Referenzwert darstellt, der für den Renderpass gesetzt werden soll.
 
 > [!NOTE]
-> Wenn kein `setStencilReference()`-Aufruf gemacht wird, ist der Stencil-Referenzwert für jeden Render-Durchlauf standardmäßig 0.
+> Wenn kein Aufruf von `setStencilReference()` erfolgt, wird der Stencil-Referenzwert standardmäßig auf 0 für jeden Renderpass gesetzt.
 
 ### Rückgabewert
 

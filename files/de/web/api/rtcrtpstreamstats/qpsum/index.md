@@ -9,46 +9,35 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die **`qpSum`**-Eigenschaft des
-{{domxref("RTCRtpStreamStats")}}-Wörterbuchs ist ein Wert, der durch Addition der
-**Quantization Parameter** (**QP**)-Werte für jedes bisher gesendete oder empfangene Bild auf der Videospur erstellt wird, die diesem `RTCRtpStreamStats`-Objekt entspricht.
+[`RTCRtpStreamStats`](/de/docs/Web/API/RTCRtpStreamStats)-Dictionaries ist ein Wert, der durch die Addition der
+**Quantisierungsparameter** (**QP**)-Werte für jedes bisher gesendete oder empfangene Frame auf der Videospur erzeugt wird, die diesem
+`RTCRtpStreamStats`-Objekt entspricht.
 
-Im Allgemeinen gilt: Je höher dieser Wert ist,
-desto stärker ist die Videodaten komprimiert.
+Im Allgemeinen ist das Video umso stärker komprimiert, je höher diese Zahl ist.
 
 ## Wert
 
-Ein vorzeichenloser 64-Bit-Ganzzahlwert, der die Summe der Quantization Parameter
-(QP)-Werte für jedes bisher gesendete oder empfangene Bild auf der vom
-{{domxref("RTCRtpStreamStats")}}-Objekt beschriebenen Spur angibt. Da der QP-Wert typischerweise größer ist, um höhere Kompressionsfaktoren anzuzeigen, gilt: Je größer diese Summe ist, desto stärker wurde der Stream im Allgemeinen komprimiert.
+Ein unsignierter 64-Bit-Integer-Wert, der die Summe der Quantisierungsparameter-(QP)-Werte für jedes bisher gesendete oder empfangene Frame auf der von diesem
+[`RTCRtpStreamStats`](/de/docs/Web/API/RTCRtpStreamStats)-Objekt beschriebenen Spur angibt. Da der Wert des QP typischerweise höher ist, um stärkere Kompressionsgrade anzuzeigen, ist diese Summe umso größer, je stärker der Stream im Allgemeinen komprimiert wurde.
 
 > [!NOTE]
-> Dieser Wert ist nur für Videomedien verfügbar.
+> Dieser Wert ist nur für Video-Medien verfügbar.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-[Quantisierung](https://en.wikipedia.org/wiki/Quantization) ist der Prozess der Anwendung von verlustbehafteter Kompression
-auf einen Bereich von Werten, was zu einem einzelnen **Quantenwert** führt. Dieser Wert
-ersetzt die Wertebereich und verringert so die Anzahl der unterschiedlichen Werte
-im gesamten Datensatz, wodurch die Daten besser komprimiert werden können. Der Quantisierungsprozess und der Grad der Kompression können durch ein oder mehrere Parameter gesteuert werden.
+[Quantisierung](https://de.wikipedia.org/wiki/Quantisierung) ist der Prozess, bei dem verlustbehaftete Kompression auf einen Wertebereich angewendet wird, wodurch ein einzelner **Quantwert** entsteht. Dieser Wert ersetzt den Wertebereich, wodurch die Anzahl der verschiedenen Werte im gesamten Datensatz reduziert wird, was die Daten komprimierbarer macht. Der Quantisierungsprozess und das Maß der Kompression können mit einem oder mehreren Parametern gesteuert werden.
 
-Es ist wichtig zu beachten, dass sich der Wert des QP periodisch ändern kann – sogar bei jedem
-Bild –, sodass es schwierig ist, sicher zu wissen, wie erheblich die Kompression ist. Das Beste, was Sie tun können, ist, eine Schätzung vorzunehmen. Sie können beispielsweise den Wert von
-{{domxref("RTCReceivedRtpStreamStats.framesDecoded")}} verwenden, wenn Sie die Medien empfangen, oder
-{{domxref("RTCSentRtpStreamStats.framesEncoded")}} verwenden, wenn Sie sie senden, um die Anzahl der
-bisher verarbeiteten Bilder zu erhalten, und daraus einen Durchschnitt berechnen. Siehe [Berechnung der durchschnittlichen Quantisierung](#berechnung_der_durchschnittlichen_quantisierung) unten für eine Funktion, die dies tut.
+Es ist wichtig zu beachten, dass sich der Wert des QP periodisch ändern kann – möglicherweise sogar jedes Frame – sodass es schwierig ist, sicher zu wissen, wie erheblich die Kompression ist. Im besten Fall kann eine Schätzung gemacht werden. Sie können zum Beispiel den Wert von
+[`RTCReceivedRtpStreamStats.framesDecoded`](/de/docs/Web/API/RTCReceivedRtpStreamStats/framesDecoded) verwenden, wenn die Medien empfangen werden, oder
+[`RTCSentRtpStreamStats.framesEncoded`](/de/docs/Web/API/RTCSentRtpStreamStats/framesEncoded) verwenden, wenn sie gesendet werden, um die Anzahl der bisher bearbeiteten Frames zu erhalten und daraus einen Durchschnitt zu berechnen. Siehe [Berechnung der durchschnittlichen Quantisierung](#berechnung_der_durchschnittlichen_quantisierung) unten für eine Funktion, die dies tut.
 
-Auch die genaue Bedeutung des QP-Werts hängt vom verwendeten {{Glossary("codec")}} ab. Beispielsweise kann beim VP8-Codec der QP-Wert zwischen 1 und 127 liegen und befindet sich im Bildkopf-Element `"y_ac_qi"`, dessen Wert in
-{{RFC(6386, "", "19.2")}} definiert ist. H.264 verwendet einen QP, der von 0 bis 51 reicht; in diesem Fall ist es ein
-Index, der verwendet wird, um eine Skalierungsmatrix während des Quantisierungsprozesses abzuleiten.
-Zusätzlich ist es unwahrscheinlich, dass QP der einzige Parameter ist, den der Codec zur Anpassung
-der Kompression verwendet. Siehe die jeweiligen Codec-Spezifikationen für Details.
+Auch die genaue Bedeutung des QP-Werts hängt vom verwendeten [Codec](/de/docs/Glossary/codec) ab. Beim VP8-Codec kann der QP-Wert zum Beispiel zwischen 1 und 127 liegen und befindet sich im Frame-Header-Element `"y_ac_qi"`, dessen Wert in {{RFC(6386, "", "19.2")}} definiert ist. H.264 verwendet einen QP-Wert, der zwischen 0 und 51 reicht; in diesem Fall ist er ein Index, der verwendet wird, um eine Skalierungsmatrix während des Quantisierungsprozesses abzuleiten. Zusätzlich ist es unwahrscheinlich, dass QP der einzige Parameter ist, den der Codec zur Anpassung der Kompression verwendet. Siehe die einzelnen Codec-Spezifikationen für Details.
 
 ## Beispiele
 
 ### Berechnung der durchschnittlichen Quantisierung
 
-Die unten gezeigte Funktion `calculateAverageQP()` berechnet den durchschnittlichen QP für
-das gegebene {{domxref("RTCRtpStreamStats")}}-Objekt und gibt 0 zurück, wenn das Objekt keinen RTP-Stream beschreibt.
+Die unten gezeigte `calculateAverageQP()`-Funktion berechnet den durchschnittlichen QP für das gegebene [`RTCRtpStreamStats`](/de/docs/Web/API/RTCRtpStreamStats)-Objekt und gibt 0 zurück, wenn das Objekt keinen RTP-Stream beschreibt.
 
 ```js
 function calculateAverageQP(stats) {

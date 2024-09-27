@@ -1,5 +1,5 @@
 ---
-title: "HTMLMapElement: areas-Eigenschaft"
+title: "HTMLMapElement: areas Eigenschaft"
 short-title: areas
 slug: Web/API/HTMLMapElement/areas
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`areas`**-Eigenschaft des {{domxref("HTMLMapElement")}}-Interfaces ist eine schreibgeschützte Eigenschaft, die eine Sammlung von {{HTMLElement("area")}}-Elementen zurückgibt, die mit dem {{HTMLElement("map")}}-Element verbunden sind.
+Die schreibgeschützte Eigenschaft **`areas`** des [`HTMLMapElement`](/de/docs/Web/API/HTMLMapElement)-Interfaces gibt eine Sammlung von {{HTMLElement("area")}}-Elementen zurück, die mit dem {{HTMLElement("map")}}-Element verknüpft sind.
 
 ## Wert
 
-Ein {{domxref("HTMLCollection")}}-Objekt von {{domxref("HTMLAreaElement")}}-Elementen.
+Ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Objekt von [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Elementen.
 
 ## Beispiel
 
@@ -59,5 +59,5 @@ for (const area of mapElement.areas) {
 
 ## Siehe auch
 
-- {{domxref("HTMLAreaElement")}}
-- {{domxref("HTMLImageElement.useMap")}}
+- [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)
+- [`HTMLImageElement.useMap`](/de/docs/Web/API/HTMLImageElement/useMap)

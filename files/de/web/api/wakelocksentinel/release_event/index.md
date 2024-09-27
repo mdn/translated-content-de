@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Screen Wake Lock API")}}{{SecureContext_Header}}
 
-Das **`release`**-Ereignis der {{domxref("WakeLockSentinel")}}-Schnittstelle wird ausgelöst, wenn der Handle des Sentinel-Objekts freigegeben wurde.
+Das **`release`**-Ereignis der [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Schnittstelle wird ausgelöst, wenn das Handle des Sentinel-Objekts freigegeben wurde.
 
-Ein {{domxref("WakeLockSentinel")}} kann manuell über die `release()`-Methode oder automatisch über das Plattform-Wake-Lock freigegeben werden. Dies kann passieren, wenn das Dokument inaktiv oder unsichtbar wird, das Gerät wenig Energie hat oder der Benutzer den Energiesparmodus aktiviert.
+Ein [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel) kann manuell über die `release()`-Methode oder automatisch über das Plattform-Wake-Lock freigegeben werden. Dies kann passieren, wenn das Dokument inaktiv wird oder die Sichtbarkeit verliert, wenn das Gerät wenig Strom hat oder der Benutzer einen Energiesparmodus aktiviert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("release", (event) => {});
@@ -24,11 +24,11 @@ onrelease = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel aktualisiert die Benutzeroberfläche, wenn das Wake Lock freigegeben wird.
+Dieses Beispiel aktualisiert die Benutzeroberfläche, falls der Wake Lock freigegeben wird.
 
 ```js
 wakeLock.addEventListener("release", () => {

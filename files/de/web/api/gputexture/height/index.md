@@ -3,15 +3,14 @@ title: "GPUTexture: height-Eigenschaft"
 short-title: height
 slug: Web/API/GPUTexture/height
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`height`**-Eigenschaft der schreibgeschützten
-{{domxref("GPUTexture")}} Schnittstelle repräsentiert die Höhe der `GPUTexture`.
+Die schreibgeschützte **`height`**-Eigenschaft der [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Schnittstelle repräsentiert die Höhe der `GPUTexture`.
 
-Diese wird basierend auf dem Wert der `size`-Eigenschaft im Descriptor-Objekt festgelegt, das beim ursprünglichen {{domxref("GPUDevice.createTexture()")}}-Aufruf übergeben wird.
+Diese wird basierend auf dem Wert der `size`-Eigenschaft im Deskriptor-Objekt gesetzt, das in den ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird.
 
 ## Wert
 

@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Im Folgenden finden Sie eine alphabetische und kommentierte Liste der Elemente, Achsen und Funktionen aus der 1.0 Empfehlung der W3C für XSLT sowie aus den entsprechenden Abschnitten der XPath-Empfehlung. Die Entwicklung des XSLT-Prozessors ist im Gange, und dieses Dokument wird aktualisiert, wenn die Funktionalität erweitert wird.
+Im Folgenden finden Sie eine alphabetisch geordnete und kommentierte Liste der Elemente, Achsen und Funktionen aus der 1.0-Empfehlung der W3C für XSLT sowie aus den entsprechenden Abschnitten der XPath-Empfehlung. Die Entwicklung des XSLT-Prozessors ist im Gange, und dieses Dokument wird aktualisiert, sobald die Funktionalität erweitert wird.
 
 ### Elemente
 
@@ -25,7 +25,7 @@ Im Folgenden finden Sie eine alphabetische und kommentierte Liste der Elemente, 
 - [xsl:fallback](/de/docs/Web/XSLT/Element/fallback) _(nicht unterstützt)_
 - [xsl:for-each](/de/docs/Web/XSLT/Element/for-each) _(unterstützt)_
 - [xsl:if](/de/docs/Web/XSLT/Element/if) _(unterstützt)_
-- [xsl:import](/de/docs/Web/XSLT/Element/import) _(überwiegend unterstützt)_
+- [xsl:import](/de/docs/Web/XSLT/Element/import) _(größtenteils unterstützt)_
 - [xsl:include](/de/docs/Web/XSLT/Element/include) _(unterstützt)_
 - [xsl:key](/de/docs/Web/XSLT/Element/key) _(unterstützt)_
 - [xsl:message](/de/docs/Web/XSLT/Element/message) _(unterstützt)_

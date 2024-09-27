@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}{{Non-standard_Header}}
 
-Die **`:-moz-submit-invalid`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die alle Absende-{{HTMLElement("button")}} auf Formularen darstellt, deren Inhalte basierend auf ihren [Validierungsanforderungen](/de/docs/Web/HTML/Constraint_validation) nicht gültig sind.
+Die **`:-moz-submit-invalid`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die jeden Sende-{{HTMLElement("button")}} in Formularen darstellt, deren Inhalt basierend auf ihren [Validierungsbeschränkungen](/de/docs/Web/HTML/Constraint_validation) ungültig ist.
 
-Standardmäßig wird kein Stil angewendet. Sie können diese Pseudoklasse verwenden, um das Erscheinungsbild des Absende-Buttons anzupassen, wenn ungültige Formularfelder vorhanden sind.
+Standardmäßig wird kein Stil angewendet. Sie können diese Pseudoklasse verwenden, um das Erscheinungsbild des Sende-Buttons anzupassen, wenn ungültige Formularfelder vorhanden sind.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ Standardmäßig wird kein Stil angewendet. Sie können diese Pseudoklasse verwen
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Teil eines Standards.
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

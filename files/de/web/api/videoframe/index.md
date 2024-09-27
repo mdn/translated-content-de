@@ -13,63 +13,63 @@ Die **`VideoFrame`**-Schnittstelle der [Web Codecs API](/de/docs/Web/API/WebCode
 
 ## Beschreibung
 
-Ein `VideoFrame`-Objekt kann auf verschiedene Arten erstellt oder aufgerufen werden. Der {{domxref("MediaStreamTrackProcessor")}} unterteilt einen Medientrack in einzelne `VideoFrame`-Objekte.
+Ein `VideoFrame`-Objekt kann auf verschiedene Weisen erstellt oder zugegriffen werden. Der [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor) unterteilt einen Medien-Track in einzelne `VideoFrame`-Objekte.
 
-Ein `VideoFrame` ist eine Bildquelle und hat einen Konstruktor, der jede andere Canvas-Quelle akzeptiert (
-ein {{domxref("SVGImageElement")}},
-ein {{domxref("HTMLVideoElement")}},
-ein {{domxref("HTMLCanvasElement")}},
-ein {{domxref("ImageBitmap")}},
-ein {{domxref("OffscreenCanvas")}},
+Ein `VideoFrame` ist eine Bildquelle und verfügt über einen Konstruktor, der jede andere Canvas-Quelle akzeptiert (
+ein [`SVGImageElement`](/de/docs/Web/API/SVGImageElement),
+ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement),
+ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement),
+ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap),
+eine [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas),
 oder ein anderes `VideoFrame`).
-Dies bedeutet, dass ein Frame aus einem Bild- oder Videoelement erstellt werden kann.
+Das bedeutet, dass ein Frame aus einem Bild- oder Videoelement erstellt werden kann.
 
-Ein zweiter Konstruktor ermöglicht die Erstellung eines `VideoFrame` aus seiner binären Pixelrepräsentation in einem {{jsxref("ArrayBuffer")}}, einem {{jsxref("TypedArray")}} oder einem {{jsxref("DataView")}}.
+Ein zweiter Konstruktor ermöglicht die Erstellung eines `VideoFrame` aus seiner binären Pixel-Darstellung in einem {{jsxref("ArrayBuffer")}}, einem {{jsxref("TypedArray")}} oder einer {{jsxref("DataView")}}.
 
-Erstellte Frames können dann in einen Medientrack umgewandelt werden, zum Beispiel mit der {{domxref("MediaStreamTrackGenerator")}}-Schnittstelle, die einen Medientrack aus einem Strom von Frames erstellt.
+Erstellte Frames können dann in einen Medientrack umgewandelt werden, zum Beispiel mit der Schnittstelle [`MediaStreamTrackGenerator`](/de/docs/Web/API/MediaStreamTrackGenerator), die einen Medientrack aus einem Stream von Frames erstellt.
 
 ## Konstruktor
 
-- {{domxref("VideoFrame.VideoFrame", "VideoFrame()")}}
-  - : Erstellt ein neues `VideoFrame`-Objekt.
+- [`VideoFrame()`](/de/docs/Web/API/VideoFrame/VideoFrame)
+  - : Erzeugt ein neues `VideoFrame`-Objekt.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("VideoFrame.format")}} {{ReadOnlyInline}}
+- [`VideoFrame.format`](/de/docs/Web/API/VideoFrame/format) {{ReadOnlyInline}}
   - : Gibt das Pixelformat des `VideoFrame` zurück.
-- {{domxref("VideoFrame.codedWidth")}} {{ReadOnlyInline}}
-  - : Gibt die Breite des `VideoFrame` in Pixeln zurück, möglicherweise einschließlich unsichtbaren Abstands, und bevor mögliche Verhältnis-Anpassungen berücksichtigt werden.
-- {{domxref("VideoFrame.codedHeight")}} {{ReadOnlyInline}}
-  - : Gibt die Höhe des `VideoFrame` in Pixeln zurück, möglicherweise einschließlich unsichtbaren Abstands, und bevor mögliche Verhältnis-Anpassungen berücksichtigt werden.
-- {{domxref("VideoFrame.codedRect")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("DOMRectReadOnly")}} mit der Breite und Höhe zurück, die `codedWidth` und `codedHeight` entsprechen.
-- {{domxref("VideoFrame.visibleRect")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("DOMRectReadOnly")}} zurück, das das sichtbare Rechteck der Pixel für dieses `VideoFrame` beschreibt.
-- {{domxref("VideoFrame.displayWidth")}} {{ReadOnlyInline}}
-  - : Gibt die Breite des `VideoFrame` zurück, wenn es nach der Anwendung von {{glossary("Aspektverhältnis")}}-Anpassungen angezeigt wird.
-- {{domxref("VideoFrame.displayHeight")}} {{ReadOnlyInline}}
-  - : Gibt die Höhe des `VideoFrame` zurück, wenn es nach der Anwendung von Aspektverhältnis-Anpassungen angezeigt wird.
-- {{domxref("VideoFrame.duration")}} {{ReadOnlyInline}}
-  - : Gibt eine ganze Zahl zurück, die die Dauer des Videos in Mikrosekunden angibt.
-- {{domxref("VideoFrame.timestamp")}} {{ReadOnlyInline}}
-  - : Gibt eine ganze Zahl zurück, die den Zeitstempel des Videos in Mikrosekunden angibt.
-- {{domxref("VideoFrame.colorSpace")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("VideoColorSpace")}}-Objekt zurück.
+- [`VideoFrame.codedWidth`](/de/docs/Web/API/VideoFrame/codedWidth) {{ReadOnlyInline}}
+  - : Gibt die Breite des `VideoFrame` in Pixeln zurück, die möglicherweise nicht sichtbare Polsterung einschließt und bevor potenzielle Seitenverhältnis-Anpassungen berücksichtigt werden.
+- [`VideoFrame.codedHeight`](/de/docs/Web/API/VideoFrame/codedHeight) {{ReadOnlyInline}}
+  - : Gibt die Höhe des `VideoFrame` in Pixeln zurück, die möglicherweise nicht sichtbare Polsterung einschließt und bevor potenzielle Seitenverhältnis-Anpassungen berücksichtigt werden.
+- [`VideoFrame.codedRect`](/de/docs/Web/API/VideoFrame/codedRect) {{ReadOnlyInline}}
+  - : Gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) zurück, dessen Breite und Höhe `codedWidth` und `codedHeight` entsprechen.
+- [`VideoFrame.visibleRect`](/de/docs/Web/API/VideoFrame/visibleRect) {{ReadOnlyInline}}
+  - : Gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) zurück, das das sichtbare Rechteck von Pixeln für dieses `VideoFrame` beschreibt.
+- [`VideoFrame.displayWidth`](/de/docs/Web/API/VideoFrame/displayWidth) {{ReadOnlyInline}}
+  - : Gibt die Breite des `VideoFrame` zurück, wenn es nach Anwendung von [Seitenverhältnis](/de/docs/Glossary/aspect_ratio)-Anpassungen angezeigt wird.
+- [`VideoFrame.displayHeight`](/de/docs/Web/API/VideoFrame/displayHeight) {{ReadOnlyInline}}
+  - : Gibt die Höhe des `VideoFrame` zurück, wenn es nach Anwendung von Seitenverhältnis-Anpassungen angezeigt wird.
+- [`VideoFrame.duration`](/de/docs/Web/API/VideoFrame/duration) {{ReadOnlyInline}}
+  - : Gibt eine Ganzzahl zurück, die die Dauer des Videos in Mikrosekunden angibt.
+- [`VideoFrame.timestamp`](/de/docs/Web/API/VideoFrame/timestamp) {{ReadOnlyInline}}
+  - : Gibt eine Ganzzahl zurück, die den Zeitstempel des Videos in Mikrosekunden angibt.
+- [`VideoFrame.colorSpace`](/de/docs/Web/API/VideoFrame/colorSpace) {{ReadOnlyInline}}
+  - : Gibt ein [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Objekt zurück.
 
 ## Instanz-Methoden
 
-- {{domxref("VideoFrame.allocationSize()")}}
-  - : Gibt die Anzahl der Bytes zurück, die erforderlich sind, um das `VideoFrame` zu speichern, gefiltert durch die in die Methode übergebenen Optionen.
-- {{domxref("VideoFrame.copyTo()")}}
+- [`VideoFrame.allocationSize()`](/de/docs/Web/API/VideoFrame/allocationSize)
+  - : Gibt die Anzahl der Bytes zurück, die erforderlich sind, um das `VideoFrame` gemäß den in die Methode übergebenen Optionen zu halten.
+- [`VideoFrame.copyTo()`](/de/docs/Web/API/VideoFrame/copyTo)
   - : Kopiert den Inhalt des `VideoFrame` in einen `ArrayBuffer`.
-- {{domxref("VideoFrame.clone()")}}
+- [`VideoFrame.clone()`](/de/docs/Web/API/VideoFrame/clone)
   - : Erstellt ein neues `VideoFrame`-Objekt mit Verweis auf dieselbe Medienressource wie das Original.
-- {{domxref("VideoFrame.close()")}}
+- [`VideoFrame.close()`](/de/docs/Web/API/VideoFrame/close)
   - : Löscht alle Zustände und gibt den Verweis auf die Medienressource frei.
 
 ## Beispiele
 
-Im folgenden Beispiel werden Frames von einem {{domxref("MediaStreamTrackProcessor")}} zurückgegeben und dann codiert. Sehen Sie sich das vollständige Beispiel an und lesen Sie mehr darüber im Artikel [Videoverarbeitung mit WebCodecs](https://developer.chrome.com/docs/web-platform/best-practices/webcodecs).
+Im folgenden Beispiel werden Frames von einem [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor) zurückgegeben und dann kodiert. Sehen Sie sich das vollständige Beispiel an und lesen Sie mehr darüber im Artikel [Videobearbeitung mit WebCodecs](https://developer.chrome.com/docs/web-platform/best-practices/webcodecs).
 
 ```js
 let frame_counter = 0;
@@ -84,8 +84,8 @@ while (true) {
 
   let frame = result.value;
   if (encoder.encodeQueueSize > 2) {
-    // Zu viele Frames in Bearbeitung, der Encoder ist überlastet
-    // lassen Sie uns diesen Frame verwerfen.
+    // Too many frames in flight, encoder is overwhelmed
+    // let's drop this frame.
     frame.close();
   } else {
     frame_counter++;
@@ -106,5 +106,5 @@ while (true) {
 
 ## Siehe auch
 
-- [Videoverarbeitung mit WebCodecs](https://developer.chrome.com/docs/web-platform/best-practices/webcodecs)
-- [WebCodecs Beispiele](https://w3c.github.io/webcodecs/samples/)
+- [Videobearbeitung mit WebCodecs](https://developer.chrome.com/docs/web-platform/best-practices/webcodecs)
+- [WebCodecs-Beispiele](https://w3c.github.io/webcodecs/samples/)

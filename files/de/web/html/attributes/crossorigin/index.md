@@ -8,56 +8,56 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`crossorigin`**-Attribut, gültig für die Elemente {{HTMLElement("audio")}}, {{HTMLElement("img")}}, {{HTMLElement("link")}}, {{HTMLElement("script")}} und {{HTMLElement("video")}}, bietet Unterstützung für [CORS](/de/docs/Web/HTTP/CORS). Es definiert, wie das Element mit Cross-Origin-Anfragen umgeht, und ermöglicht die Konfiguration der CORS-Anfragen für die vom Element abgerufenen Daten. Je nach Element kann das Attribut ein CORS-Einstellungen-Attribut sein.
+Das **`crossorigin`**-Attribut, gültig für die Elemente {{HTMLElement("audio")}}, {{HTMLElement("img")}}, {{HTMLElement("link")}}, {{HTMLElement("script")}} und {{HTMLElement("video")}}, unterstützt [CORS](/de/docs/Web/HTTP/CORS). Es definiert, wie das Element Cross-Origin-Anfragen behandelt und ermöglicht die Konfiguration der CORS-Anfragen für die vom Element abgerufenen Daten. Abhängig vom Element kann das Attribut ein CORS-Einstellungsattribut sein.
 
-Das `crossorigin`-Inhaltsattribut auf Medienelementen ist ein CORS-Einstellungen-Attribut.
+Das Inhaltsattribut `crossorigin` für Medienelemente ist ein CORS-Einstellungsattribut.
 
-Diese Attribute sind [enumerated](/de/docs/Glossary/Enumerated) und haben die folgenden möglichen Werte:
+Diese Attribute sind [aufgezählt](/de/docs/Glossary/Enumerated) und haben die folgenden möglichen Werte:
 
 - `anonymous`
-  - : Die Anfrage verwendet CORS-Header und das Credential-Flag ist auf `'same-origin'` gesetzt. Es erfolgt kein Austausch von **Benutzer-Anmeldedaten** über Cookies, clientseitige TLS-Zertifikate oder HTTP-Authentifizierung, es sei denn, das Ziel ist derselbe Ursprung.
+  - : Die Anfrage verwendet CORS-Header und das Credentials-Flag ist auf `'same-origin'` gesetzt. Es findet kein Austausch von **Benutzerdaten** über Cookies, clientseitige TLS-Zertifikate oder HTTP-Authentifizierung statt, es sei denn, das Ziel ist die gleiche Herkunft.
 - `use-credentials`
-  - : Die Anfrage verwendet CORS-Header, das Credential-Flag ist auf `'include'` gesetzt und **Benutzer-Anmeldedaten** werden immer einbezogen.
+  - : Die Anfrage verwendet CORS-Header, das Credentials-Flag ist auf `'include'` gesetzt und **Benutzerdaten** werden immer eingeschlossen.
 - `""`
-  - : Das Setzen des Attributnamens auf einen leeren Wert, wie `crossorigin` oder `crossorigin=""`, entspricht `anonymous`.
+  - : Wenn der Attributname auf einen leeren Wert gesetzt wird, wie `crossorigin` oder `crossorigin=""`, entspricht dies `anonymous`.
 
-Ein ungültiges Schlüsselwort und eine leere Zeichenkette werden als `anonymous`-Schlüsselwort behandelt.
+Ein ungültiges Schlüsselwort und ein leerer String werden als das Schlüsselwort `anonymous` behandelt.
 
-Standardmäßig (d. h. wenn das Attribut nicht angegeben ist) wird CORS überhaupt nicht verwendet. Der Benutzeragent wird nicht um Erlaubnis für den vollen Zugriff auf die Ressource bitten, und im Falle einer Cross-Origin-Anfrage werden bestimmte Einschränkungen basierend auf dem betreffenden Elementtyp angewendet:
+Standardmäßig (wenn das Attribut nicht angegeben ist) wird CORS überhaupt nicht verwendet. Der Benutzeragent wird keine Erlaubnis für den vollen Zugriff auf die Ressource anfordern, und im Falle einer Cross-Origin-Anfrage werden bestimmte Einschränkungen angewendet, basierend auf dem betreffenden Elementtyp:
 
 <table class="no-markdown">
   <tbody>
     <tr>
       <td class="header">Element</td>
-      <td class="header">Beschränkungen</td>
+      <td class="header">Einschränkungen</td>
     </tr>
     <tr>
       <td><code>img</code>, <code>audio</code>, <code>video</code></td>
       <td>
-        Wenn die Ressource in {{HTMLElement("canvas")}} platziert wird, wird das Element als <a href="/de/docs/Web/HTML/CORS_enabled_image#security_and_tainted_canvases"><em>tainted</em></a> markiert.
+        Wenn die Ressource in {{HTMLElement("canvas")}} platziert wird, wird das Element als <a href="/de/docs/Web/HTML/CORS_enabled_image#security_and_tainted_canvases"><em>verunreinigt</em></a> markiert.
       </td>
     </tr>
     <tr>
       <td><code>script</code></td>
       <td>
-        Der Zugriff auf Fehlerprotokolle über {{domxref('Window.error_event', 'window.onerror')}} wird eingeschränkt.
+        Der Zugriff auf Fehlerprotokollierung über [`window.onerror`](/de/docs/Web/API/Window/error_event) wird eingeschränkt.
       </td>
     </tr>
     <tr>
       <td><code>link</code></td>
       <td>
-        Eine Anfrage ohne passenden <code>crossorigin</code>-Header könnte verworfen werden.
+        Anfragen ohne entsprechendes <code>crossorigin</code>-Header können verworfen werden.
       </td>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> Das `crossorigin`-Attribut wird in Chromium-basierten Browsern nicht für [`rel="icon"`](/de/docs/Web/HTML/Attributes/rel#icon) unterstützt. Siehe das [offene Chromium-Problem](https://crbug.com/1121645).
+> Das `crossorigin`-Attribut wird für [`rel="icon"`](/de/docs/Web/HTML/Attributes/rel#icon) in Chromium-basierten Browsern nicht unterstützt. Siehe das [offene Chromium-Problem](https://crbug.com/1121645).
 
 ### Beispiel: `crossorigin` mit dem `<script>`-Element
 
-Sie können das folgende {{HTMLElement("script")}}-Element verwenden, um einem Browser mitzuteilen, das Skript `https://example.com/example-framework.js` ohne Benutzer-Anmeldedaten auszuführen.
+Sie können das folgende {{HTMLElement("script")}}-Element verwenden, um einem Browser mitzuteilen, dass er das Skript `https://example.com/example-framework.js` ohne das Senden von Benutzerdaten ausführen soll.
 
 ```html
 <script
@@ -65,9 +65,9 @@ Sie können das folgende {{HTMLElement("script")}}-Element verwenden, um einem B
   crossorigin="anonymous"></script>
 ```
 
-### Beispiel: Webmanifest mit Anmeldedaten
+### Beispiel: Web-Manifest mit Anmeldedaten
 
-Der Wert `use-credentials` muss verwendet werden, wenn ein [Manifest](/de/docs/Web/Manifest) abgerufen wird, das Anmeldedaten erfordert, selbst wenn die Datei vom selben Ursprung stammt.
+Der Wert `use-credentials` muss verwendet werden, wenn ein [Manifest](/de/docs/Web/Manifest) abgerufen wird, das Anmeldedaten erfordert, selbst wenn die Datei von derselben Herkunft stammt.
 
 ```html
 <link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials" />

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGFEConvolveMatrixElement`** Schnittstelle entspricht dem {{SVGElement("feConvolveMatrix")}} Element.
+Die **`SVGFEConvolveMatrixElement`**-Schnittstelle entspricht dem {{SVGElement("feConvolveMatrix")}}-Element.
 
 {{InheritanceDiagram}}
 
@@ -24,69 +24,69 @@ Die **`SVGFEConvolveMatrixElement`** Schnittstelle entspricht dem {{SVGElement("
       <td><code>SVG_EDGEMODE_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert auf diesen Typ umzustellen.
+        Der Typ gehört nicht zu den vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert in diesen Typ zu ändern.
       </td>
     </tr>
     <tr>
       <td><code>SVG_EDGEMODE_DUPLICATE</code></td>
       <td>1</td>
-      <td>Entspricht dem Wert <code>duplicate</code>.</td>
+      <td>Entspricht dem <code>duplicate</code>-Wert.</td>
     </tr>
     <tr>
       <td><code>SVG_EDGEMODE_WRAP</code></td>
       <td>2</td>
-      <td>Entspricht dem Wert <code>wrap</code>.</td>
+      <td>Entspricht dem <code>wrap</code>-Wert.</td>
     </tr>
     <tr>
       <td><code>SVG_EDGEMODE_NONE</code></td>
       <td>3</td>
-      <td>Entspricht dem Wert <code>none</code>.</td>
+      <td>Entspricht dem <code>none</code>-Wert.</td>
     </tr>
   </tbody>
 </table>
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGFEConvolveMatrixElement.bias")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumber")}}, der dem {{SVGAttr("bias")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.divisor")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumber")}}, der dem {{SVGAttr("divisor")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.edgeMode")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedEnumeration")}}, der dem {{SVGAttr("edgeMode")}} Attribut des gegebenen Elements entspricht. Nimmt einen der auf dieser Schnittstelle definierten `SVG_EDGEMODE_*` Konstanten an.
-- {{domxref("SVGFEConvolveMatrixElement.height")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("height")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.in1")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, der dem {{SVGAttr("in")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.kernelMatrix")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumberList")}}, der dem {{SVGAttr("kernelMatrix")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.kernelUnitLengthX")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumber")}}, der dem {{SVGAttr("kernelUnitLength")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.kernelUnitLengthY")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumber")}}, der dem {{SVGAttr("kernelUnitLength")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.orderX")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedInteger")}}, der dem {{SVGAttr("order")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.orderY")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedInteger")}}, der dem {{SVGAttr("order")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.preserveAlpha")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedBoolean")}}, der dem {{SVGAttr("preserveAlpha")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.result")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, der dem {{SVGAttr("result")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.targetX")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedInteger")}}, der dem {{SVGAttr("targetX")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.targetY")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedInteger")}}, der dem {{SVGAttr("targetY")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.width")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("width")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.x")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("x")}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEConvolveMatrixElement.y")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("y")}} Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.bias`](/de/docs/Web/API/SVGFEConvolveMatrixElement/bias) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("bias")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.divisor`](/de/docs/Web/API/SVGFEConvolveMatrixElement/divisor) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("divisor")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.edgeMode`](/de/docs/Web/API/SVGFEConvolveMatrixElement/edgeMode) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("edgeMode")}}-Attribut des gegebenen Elements entspricht. Nimmt einen der `SVG_EDGEMODE_*` Konstanten an, die in dieser Schnittstelle definiert sind.
+- [`SVGFEConvolveMatrixElement.height`](/de/docs/Web/API/SVGFEConvolveMatrixElement/height) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.in1`](/de/docs/Web/API/SVGFEConvolveMatrixElement/in1) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("in")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.kernelMatrix`](/de/docs/Web/API/SVGFEConvolveMatrixElement/kernelMatrix) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumberList`](/de/docs/Web/API/SVGAnimatedNumberList), das dem {{SVGAttr("kernelMatrix")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.kernelUnitLengthX`](/de/docs/Web/API/SVGFEConvolveMatrixElement/kernelUnitLengthX) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("kernelUnitLength")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.kernelUnitLengthY`](/de/docs/Web/API/SVGFEConvolveMatrixElement/kernelUnitLengthY) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("kernelUnitLength")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.orderX`](/de/docs/Web/API/SVGFEConvolveMatrixElement/orderX) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger), das dem {{SVGAttr("order")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.orderY`](/de/docs/Web/API/SVGFEConvolveMatrixElement/orderY) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger), das dem {{SVGAttr("order")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.preserveAlpha`](/de/docs/Web/API/SVGFEConvolveMatrixElement/preserveAlpha) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedBoolean`](/de/docs/Web/API/SVGAnimatedBoolean), das dem {{SVGAttr("preserveAlpha")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.result`](/de/docs/Web/API/SVGFEConvolveMatrixElement/result) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("result")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.targetX`](/de/docs/Web/API/SVGFEConvolveMatrixElement/targetX) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger), das dem {{SVGAttr("targetX")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.targetY`](/de/docs/Web/API/SVGFEConvolveMatrixElement/targetY) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger), das dem {{SVGAttr("targetY")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.width`](/de/docs/Web/API/SVGFEConvolveMatrixElement/width) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("width")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.x`](/de/docs/Web/API/SVGFEConvolveMatrixElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEConvolveMatrixElement.y`](/de/docs/Web/API/SVGFEConvolveMatrixElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert aber die ihres Elternteils, {{domxref("SVGElement")}}._
+_Diese Schnittstelle bietet keine speziellen Methoden, implementiert jedoch diejenigen ihrer Eltern, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

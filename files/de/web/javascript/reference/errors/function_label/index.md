@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "functions cannot be labelled" tritt auf, wenn eine {{jsxref("Statements/function", "function")}}-Deklaration ein [Label](/de/docs/Web/JavaScript/Reference/Statements/label) davor hat.
+Der JavaScript-Fehler "functions cannot be labelled" tritt auf, wenn eine {{jsxref("Statements/function", "function")}}-Deklaration ein [Label](/de/docs/Web/JavaScript/Reference/Statements/label) davor hat.
 
-## Meldung
+## Nachricht
 
 ```plain
 SyntaxError: In non-strict mode code, functions can only be declared at top level, inside a block, or as the body of an if statement. (V8-based)
@@ -28,25 +28,25 @@ SyntaxError: Unexpected token '*'. Cannot use generator function declaration in 
 SyntaxError: Unexpected keyword 'function'. Cannot use async function declaration in single-statement context. (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("SyntaxError")}}
 
-## Was schiefgelaufen ist
+## Was ist schiefgelaufen?
 
-Funktionsdeklarationen sollten niemals beschriftet werden, da Labels nur auf Anweisungen, nicht auf Deklarationen angewendet werden sollten. Es gibt keinen Weg, tatsächlich zu diesem Label zu springen. Aufgrund einiger veralteter JavaScript-Syntaxregeln ist die Fehlersituation jedoch etwas komplizierter als nötig:
+Funktionsdeklarationen sollten niemals beschriftet werden, da Labels nur auf Anweisungen angewendet werden sollten, nicht auf Deklarationen. Es gibt keine Möglichkeit, tatsächlich zu diesem Label zu springen. Aufgrund einiger älterer JavaScript-Syntaxregeln ist die Fehlerbedingung etwas komplizierter als nötig:
 
-- Im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) sind Funktionsdeklarationen niemals erlaubt, beschriftet zu werden.
-- Im Nicht-Strict-Modus dürfen Funktionsdeklarationen beschriftet werden, aber nicht, wenn die Funktion die einzige Anweisung einer `if`-Anweisung ist (was selbst eine veraltete Funktion ist).
+- Im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) dürfen Funktionsdeklarationen niemals beschriftet werden.
+- Im nicht-strikten Modus dürfen Funktionsdeklarationen beschriftet werden, aber nicht, wenn die Funktion die einzige Anweisung einer `if`-Anweisung ist (was selbst eine veraltete Funktion ist).
 - Asynchrone Funktionen, Generatorfunktionen und asynchrone Generatorfunktionen dürfen niemals beschriftet werden.
 
-Die Fehlermeldung kann so etwas wie "ungültiger Ort für das Erscheinen einer Funktionsdeklaration" aussagen, weil der Parser, wenn er ein Label sieht, erwartet, dass eine Anweisung folgt, und eine Funktionsdeklaration ist keine Anweisung. Es hängt davon ab, ob die Perspektive des Fehlers ist, dass ein Label nicht von einer Funktion gefolgt werden kann oder dass eine Funktion nicht von einem Label vorausgegangen werden kann.
+Die Fehlermeldung könnte etwa "ungültiger Ort für eine Funktionsdeklaration" lauten, da der Parser, wenn er ein Label sieht, erwartet, dass eine Anweisung folgt, und eine Funktionsdeklaration ist keine Anweisung. Es hängt davon ab, ob die Perspektive des Fehlers ist, dass ein Label nicht von einer Funktion gefolgt werden kann oder dass eine Funktion nicht von einem Label vorangestellt werden kann.
 
 ## Beispiele
 
-### Falsch interpretierter Objektliteral
+### Fehlinterpretierte Objektliteral
 
-Während es möglich ist, dass Sie tatsächlich erwarten, dass das Label _etwas_ wie ein Sprungziel tut, beabsichtigen Sie normalerweise nicht, dass es ein Label ist. Der häufigste Fall ist, dass Sie tatsächlich wollen, dass es ein Eigenschaftsschlüssel in einem Objektliteral ist:
+Während es möglich ist, dass Sie tatsächlich erwarten, dass das Label _etwas_ in der Art eines Sprungziels tut, beabsichtigen Sie normalerweise nicht, dass es ein Label ist. Der häufigste Fall ist, dass Sie möchten, dass es ein Eigenschaftsschlüssel in einem Objektliteral ist:
 
 ```js-nolint example-bad
 const createObj = () => {
@@ -56,7 +56,7 @@ const createObj = () => {
 };
 ```
 
-Hier ist `{...}` tatsächlich kein Objektliteral, sondern der Blockkörper der [Pfeilfunktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions), also wird `greet:` ein Label. Um dies zu beheben, müssen Sie das Objektliteral in Klammern setzen:
+Hier ist `{...}` tatsächlich kein Objektliteral, sondern der Blockkörper der [arrow function](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions), sodass `greet:` zu einem Label wird. Um dies zu beheben, müssen Sie das Objektliteral in Klammern setzen:
 
 ```js-nolint example-good
 const createObj = () => ({
@@ -66,7 +66,7 @@ const createObj = () => ({
 });
 ```
 
-Sie möchten möglicherweise auch die [Methodensyntax](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) für Objektliterale verwenden, um dieses Problem zu vermeiden:
+Sie möchten möglicherweise auch die [Methodensyntax](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) für Objektliterale verwenden, um diese Falle zu vermeiden:
 
 ```js example-good
 const createObj = () => ({
@@ -80,5 +80,5 @@ const createObj = () => ({
 
 - [Beschriftete Anweisung](/de/docs/Web/JavaScript/Reference/Statements/label)
 - {{jsxref("Statements/function", "function")}}
-- [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode)
-- [Veraltete und überholte Funktionen](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features)
+- [Strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode)
+- [Veraltete und obsolet Funktionen](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features)

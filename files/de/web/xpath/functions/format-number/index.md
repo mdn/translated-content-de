@@ -21,9 +21,9 @@ format-number(number, pattern, decimalFormat)
 - `number`
   - : Die zu formatierende Zahl
 - `pattern`
-  - : Eine Zeichenkette im Format der Java-Klasse [DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html).
+  - : Eine Zeichenkette im Format der Java-[DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html)-Klasse.
 - `decimalFormat` (optional)
-  - : Der Name eines [`xsl:decimal-format`](/de/docs/Web/XSLT/Element/decimal-format)-Elements, das das zu verwendende Zahlenformat definiert. Wenn weggelassen, wird das Standard-Decimal-Format verwendet.
+  - : Der Name eines [`xsl:decimal-format`](/de/docs/Web/XSLT/Element/decimal-format)-Elements, das das zu verwendende Zahlenformat definiert. Falls ausgelassen, wird das Standard-Decimal-Format verwendet.
 
 ### Rückgabewert
 
@@ -31,12 +31,12 @@ Eine Zeichenkette, die die Zahl im neuen Format darstellt.
 
 ## Beschreibung
 
-Diese Funktion ist eine XSLT-spezifische Ergänzung zu XPath. Sie gehört nicht zur Kernbibliothek der XPath-Funktionen.
+Diese Funktion ist eine XSLT-spezifische Ergänzung zu XPath. Sie ist nicht Teil der Kernbibliothek von XPath.
 
 ## Spezifikationen
 
 [XSLT 1.0 12.3](https://www.w3.org/TR/1999/REC-xslt-19991116/#function-format-number)
 
-## Gecko-Unterstützung
+## Browser-Kompatibilität
 
 Unterstützt.

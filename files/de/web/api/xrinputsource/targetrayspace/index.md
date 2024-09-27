@@ -1,5 +1,5 @@
 ---
-title: "XRInputSource: Eigenschaft targetRaySpace"
+title: "XRInputSource: targetRaySpace-Eigenschaft"
 short-title: targetRaySpace
 slug: Web/API/XRInputSource/targetRaySpace
 l10n:
@@ -8,32 +8,55 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`targetRaySpace`** des {{domxref("XRInputSource")}} gibt ein {{domxref("XRSpace")}} zurück (typischerweise ein {{domxref("XRReferenceSpace")}}), das die Position und Orientierung des Zielstrahls im virtuellen Raum darstellt. Der native Ursprung verfolgt die Position des Ursprungs des Zielstrahls, und seine Orientierung zeigt die Orientierung des Steuergeräts selbst an. Diese Werte, im Kontext des {{domxref("XRInputSource.targetRayMode", "targetRayMode")}} der Eingabequelle interpretiert, können verwendet werden, um das Gerät vollständig als Eingabequelle zu interpretieren.
+Die schreibgeschützte [`XRInputSource`](/de/docs/Web/API/XRInputSource) Eigenschaft
+**`targetRaySpace`** gibt ein [`XRSpace`](/de/docs/Web/API/XRSpace) zurück
+(typischerweise ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)), welches die Position und
+Orientierung des Zielstrahls im virtuellen Raum darstellt. Sein nativer Ursprung verfolgt
+die Position des Ursprungs des Zielstrahls, und seine Orientierung zeigt die
+Ausrichtung des Controllers an. Diese Werte, im Kontext des
+[`targetRayMode`](/de/docs/Web/API/XRInputSource/targetRayMode) der Eingabequelle interpretiert, können
+verwendet werden, um das Gerät vollständig als Eingabequelle zu interpretieren.
 
-Um ein `XRSpace` zu erhalten, das die Position und Orientierung des Eingabesteuergeräts im virtuellen Raum darstellt, verwenden Sie die Eigenschaft {{domxref("XRInputSource.gripSpace", "gripSpace")}}.
+Um ein `XRSpace` zu erhalten, das die Position und
+Orientierung des Eingabegeräts im virtuellen Raum darstellt, verwenden Sie die [`gripSpace`](/de/docs/Web/API/XRInputSource/gripSpace) Eigenschaft.
 
 ## Wert
 
-Ein {{domxref("XRSpace")}} Objekt—typischerweise ein {{domxref("XRReferenceSpace")}} oder {{domxref("XRBoundedReferenceSpace")}}—das die Position und Orientierung des Zielstrahls des Eingabesteuergeräts im virtuellen Raum darstellt.
+Ein [`XRSpace`](/de/docs/Web/API/XRSpace) Objekt - typischerweise ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) oder
+[`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace) - welches die Position und Orientierung des
+Zielstrahls des Eingabegeräts im virtuellen Raum darstellt.
 
-Der native Ursprung des zurückgegebenen `XRSpace` befindet sich an dem Punkt, von dem der Zielstrahl ausgeht, und die Orientierung des Raums zeigt die Richtung an, in die der Zielstrahl zeigt.
+Der native Ursprung des zurückgegebenen `XRSpace` befindet sich an dem Punkt, von
+dem aus der Zielstrahl emittiert wird, und die Orientierung des Raums zeigt die
+Richtung, in die der Zielstrahl zeigt.
 
 ## Verwendungshinweise
 
-Alle Eingabequellen - unabhängig von ihrem {{domxref("XRInputSource.targetRayMode", "targetRayMode")}} - haben einen gültigen `targetRaySpace`. Die genaue Bedeutung dieses Raums variiert jedoch je nach Modus:
+Alle Eingabequellen - unabhängig von ihrem [`targetRayMode`](/de/docs/Web/API/XRInputSource/targetRayMode) - haben einen gültigen `targetRaySpace`.
+Die genaue Bedeutung dieses Raums variiert jedoch abhängig vom Modus:
 
-- Jeder Blick-Eingang (`targetRayMode` Wert von `gaze`) teilt dasselbe {{domxref("XRSpace")}} Objekt als ihren Zielstrahlraum, da der Blick-Eingang vom Kopf des Betrachters ausgeht. Dieser gemeinsam genutzte Raum repräsentiert denselben Ort wie der Raum, der von der {{domxref("XRSession")}} Methode {{domxref("XRSession.requestReferenceSpace", "requestReferenceSpace()")}} zurückgegeben wird, wird jedoch als ein anderes Objekt aufrechterhalten, um zukünftige Erweiterungen der API zu ermöglichen.
-- Der von erfassten Zeigereingaben gemeldete Zielstrahlraum (`targetRayMode` von `tracked-pointer`) basiert tatsächlich auf der tatsächlichen räumlichen Position und Orientierung des Eingabegeräts.
+- Jeder Blick-Eingabe (`targetRayMode` Wert von `gaze`), teilt das
+  gleiche [`XRSpace`](/de/docs/Web/API/XRSpace) Objekt als ihren Zielstrahlraum, da die Blickrichtung des
+  Nutzers vom Kopf kommt. Dieser gemeinsame Raum repräsentiert denselben Ort wie der
+  Raum, der von der [`XRSession`](/de/docs/Web/API/XRSession) Methode
+  [`requestReferenceSpace()`](/de/docs/Web/API/XRSession/requestReferenceSpace) zurückgegeben wird, wird
+  jedoch als separates Objekt gehalten, um zukünftige Erweiterungen der API zu ermöglichen.
+- Der von verfolgten Zeigereingaben gemeldete Zielstrahlraum (`targetRayMode`
+  von `tracked-pointer`) basiert tatsächlich auf der wahren räumlichen Position und
+  Orientierung des Eingabegeräts.
 
-Um die Position und Orientierung des Zielstrahls während der Darstellung eines Rahmens zu bestimmen, geben Sie diesen in die {{domxref("XRFrame")}} Methode {{domxref("XRFrame.getPose", "getPose()")}} ein und verwenden Sie dann den zurückgegebenen {{domxref("XRPose")}} Objekt's {{domxref("XRPose.transform", "transform")}}, um die räumlichen Informationen zu sammeln, die Sie benötigen.
+Um die Position und Orientierung des Zielstrahls während der Rahmendarstellung zu bestimmen,
+geben Sie ihn in die [`XRFrame`](/de/docs/Web/API/XRFrame) Methode [`getPose()`](/de/docs/Web/API/XRFrame/getPose) ein,
+und verwenden Sie das zurückgegebene [`XRPose`](/de/docs/Web/API/XRPose) Objekt's
+[`transform`](/de/docs/Web/API/XRPose/transform), um die benötigten räumlichen Informationen zu sammeln.
 
 ## Beispiele
 
-Dieses Codefragment zeigt einen Teil einer Funktion, die in jedem Frame aufgerufen werden sollte. Es sucht nach Eingaben, die einen nicht-`null` `targetRaySpace` haben. Eingaben, die einen Wert für diese Eigenschaft haben, stellen Eingaben dar, die einen Zielstrahl vom Benutzer aus projizieren.
+Dieses Codefragment zeigt einen Teil einer Funktion, die einmal pro Frame aufgerufen werden soll. Es sucht nach Eingaben, die ein nicht-`null` `targetRaySpace` haben. Eingaben, die einen Wert für diese Eigenschaft haben, repräsentieren Eingaben, die einen Zielstrahl vom Benutzer aus projizieren.
 
-Für jede solche Eingabe sucht dieses Beispiel nach Eingaben, deren {{domxref("XRInputSource.targetRayMode", "targetRayMode")}} `tracked-pointer` ist, was darauf hinweist, dass die Eingabe tatsächlich ein Zielgerät darstellt und nicht ein Blickgerät, Bildschirmtippen oder Mausklick. Für erfasste Zeiger wird eine Funktion `myRenderTargetRayAsBeam()` aufgerufen, um einen Strahl vom virtuellen Standort des Eingabesteuergeräts in die Richtung zu rendern, in die es zeigt.
+Für jede solche Eingabe sucht dieses Beispiel nach Eingaben, deren [`targetRayMode`](/de/docs/Web/API/XRInputSource/targetRayMode) `tracked-pointer` ist, was darauf hinweist, dass die Eingabe tatsächlich dazu bestimmt ist, ein Zielgerät darzustellen, anstatt ein Blickgerät, einen Bildschirmtipp oder einen Mausklick. Für verfolgte Zeiger wird eine Funktion `myRenderTargetRayAsBeam()` aufgerufen, um einen Strahl von der virtuellen Position des Eingabegeräts aus in die Richtung zu rendern, in die es zeigt.
 
-Der Code sollte weiterhin Aufgaben wie das Zeichnen von Steuergeräten oder von Objekten, die die Positionen der Hände des Benutzers im virtuellen Raum repräsentieren, sowie andere eingabebezogene Aufgaben ausführen.
+Der Code sollte weiterhin Aufgaben wie das Zeichnen von Controllern oder Objekten, die die Positionen der Hände des Benutzers im virtuellen Raum darstellen, sowie alle anderen eingabebezogenen Aufgaben ausführen.
 
 ```js
 function updateInputSources(session, frame, refSpace) {

@@ -1,5 +1,5 @@
 ---
-title: "ReferenceError: „x“ ist nicht definiert"
+title: 'ReferenceError: "x" is not defined'
 slug: Web/JavaScript/Reference/Errors/Not_defined
 l10n:
   sourceCommit: 1b2c87c20466d2a3eec9b3551c269f9aff8f5762
@@ -7,25 +7,25 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Ausnahmefehler „_variable_ ist nicht definiert“ tritt auf, wenn irgendwo auf eine nicht existierende Variable verwiesen wird.
+Der JavaScript-Fehler "_variable_ is not defined" tritt auf, wenn auf eine nicht existierende Variable an einer Stelle verwiesen wird.
 
-## Meldung
+## Nachricht
 
 ```plain
 ReferenceError: "x" is not defined (V8-based & Firefox)
 ReferenceError: Can't find variable: x (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("ReferenceError")}}.
 
 ## Was ist schiefgelaufen?
 
-Es wird auf eine nicht existierende Variable verwiesen. Diese Variable muss deklariert werden, oder Sie müssen sicherstellen, dass sie in Ihrem aktuellen Skript oder [Gültigkeitsbereich](/de/docs/Glossary/Scope) verfügbar ist.
+Es wird auf eine nicht existierende Variable verwiesen. Diese Variable muss deklariert werden oder Sie müssen sicherstellen, dass sie in Ihrem aktuellen Skript oder [Scope](/de/docs/Glossary/Scope) verfügbar ist.
 
 > [!NOTE]
-> Beim Laden einer Bibliothek (z. B. jQuery) stellen Sie sicher, dass sie geladen ist, bevor Sie auf Bibliotheksvariablen wie "$" zugreifen. Platzieren Sie das {{HTMLElement("script")}}-Element, das die Bibliothek lädt, vor Ihrem Code, der es verwendet.
+> Wenn Sie eine Bibliothek laden (wie jQuery), stellen Sie sicher, dass sie geladen wird, bevor Sie auf Bibliotheksvariablen wie "$" zugreifen. Platzieren Sie das {{HTMLElement("script")}}-Element, welches die Bibliothek lädt, vor Ihrem Code, der sie verwendet.
 
 ## Beispiele
 
@@ -35,16 +35,16 @@ Es wird auf eine nicht existierende Variable verwiesen. Diese Variable muss dekl
 foo.substring(1); // ReferenceError: foo is not defined
 ```
 
-Die "foo"-Variable ist nirgends definiert. Sie muss ein String sein, damit die {{jsxref("String.prototype.substring()")}}-Methode funktioniert.
+Die Variable "foo" ist nirgendwo definiert. Sie muss ein String sein, damit die Methode {{jsxref("String.prototype.substring()")}} funktioniert.
 
 ```js example-good
 const foo = "bar";
 foo.substring(1); // "ar"
 ```
 
-### Falscher Gültigkeitsbereich
+### Falscher Scope
 
-Eine Variable muss im aktuellen Ausführungskontext verfügbar sein. Variablen, die innerhalb einer [Funktion](/de/docs/Web/JavaScript/Reference/Functions) definiert sind, können nicht von außerhalb der Funktion zugegriffen werden, da die Variable nur im Gültigkeitsbereich der Funktion definiert ist.
+Eine Variable muss im aktuellen Ausführungskontext verfügbar sein. Variablen, die innerhalb einer [Function](/de/docs/Web/JavaScript/Reference/Functions) definiert sind, können von außerhalb der Funktion nicht zugegriffen werden, da die Variable nur im Scope der Funktion definiert ist.
 
 ```js example-bad
 function numbers() {
@@ -56,7 +56,7 @@ function numbers() {
 console.log(num1); // ReferenceError num1 is not defined.
 ```
 
-Eine Funktion kann jedoch auf alle Variablen und Funktionen zugreifen, die im Gültigkeitsbereich definiert sind, in dem sie definiert ist. Mit anderen Worten, eine im globalen Bereich definierte Funktion kann auf alle im globalen Bereich definierten Variablen zugreifen.
+Eine Funktion kann jedoch auf alle Variablen und Funktionen zugreifen, die im Scope definiert sind, in dem sie definiert ist. Mit anderen Worten, eine Funktion, die im globalen Scope definiert ist, kann auf alle im globalen Scope definierten Variablen zugreifen.
 
 ```js example-good
 const num1 = 2;
@@ -71,6 +71,6 @@ console.log(numbers()); // 5
 
 ## Siehe auch
 
-- [Gültigkeitsbereich](/de/docs/Glossary/Scope)
-- [Variablen deklarieren im JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide/Grammar_and_types#declaring_variables)
-- [Funktionsgültigkeitsbereich im JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide/Functions#function_scope)
+- [Scope](/de/docs/Glossary/Scope)
+- [Deklarieren von Variablen im JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide/Grammar_and_types#declaring_variables)
+- [Funktions-Scope im JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide/Functions#function_scope)

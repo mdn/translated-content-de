@@ -1,5 +1,5 @@
 ---
-title: "<ins>: Das Element für eingefügten Text"
+title: "<ins>: Das Inserted Text Element"
 slug: Web/HTML/Element/ins
 l10n:
   sourceCommit: bde0cb215d1d307c08678abe6623fc0d39f4cf7f
@@ -7,22 +7,22 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<ins>`** [HTML](/de/docs/Web/HTML) Element repräsentiert einen Bereich von Text, der einem Dokument hinzugefügt wurde. Sie können das {{HTMLElement("del")}} Element verwenden, um ähnlich einen Bereich von Text zu kennzeichnen, der aus dem Dokument gelöscht wurde.
+Das **`<ins>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Textbereich, der zu einem Dokument hinzugefügt wurde. Sie können das {{HTMLElement("del")}}-Element verwenden, um auf ähnliche Weise einen Textbereich zu kennzeichnen, der aus dem Dokument entfernt wurde.
 
 {{EmbedInteractiveExample("pages/tabbed/ins.html", "tabbed-standard")}}
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `cite`
-  - : Dieses Attribut definiert die URI einer Ressource, die die Änderung erklärt, wie z.B. einen Link zu Besprechungsprotokollen oder einem Ticket in einem Fehlerbehebungssystem.
+  - : Dieses Attribut definiert die URI einer Ressource, die die Änderung erklärt, wie z.B. einen Link zum Protokoll einer Besprechung oder ein Ticket in einem Fehlerbehebungssystem.
 - `datetime`
-  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiges Datum mit optionaler Zeitangabe sein. Wenn der Wert nicht als Datum mit optionaler Zeitangabe geparst werden kann, hat das Element keinen zugehörigen Zeitstempel. Für das Format der Zeichenkette ohne Zeitangabe siehe [Format eines gültigen Datumsstrings](/de/docs/Web/HTML/Date_and_time_formats#date_strings). Das Format der Zeichenkette, wenn sie sowohl Datum als auch Zeit enthält, wird in [Format eines gültigen lokalen Datums- und Zeitstrings](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings) behandelt.
+  - : Dieses Attribut gibt die Zeit und das Datum der Änderung an und muss ein gültiges Datum mit optionalem Zeitstring sein. Wenn der Wert nicht als Datum mit optionalem Zeitstring geparst werden kann, hat das Element keinen zugeordneten Zeitstempel. Für das Format des Strings ohne Zeit siehe [Format eines gültigen Datumsstrings](/de/docs/Web/HTML/Date_and_time_formats#date_strings). Das Format des Strings, wenn es sowohl Datum als auch Zeit beinhaltet, finden Sie unter [Format eines gültigen lokalen Datums- und Zeitstrings](/de/docs/Web/HTML/Date_and_time_formats#local_date_and_time_strings).
 
 ## Barrierefreiheit
 
-Das Vorhandensein des `<ins>` Elements wird in der Standardkonfiguration von den meisten Screenreader-Technologien nicht angekündigt. Es kann durch Verwendung der CSS-Eigenschaft {{cssxref("content")}}, zusammen mit den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}}, angekündigt werden.
+Das Vorhandensein des `<ins>`-Elements wird von den meisten Screenreader-Technologien in ihrer Standardkonfiguration nicht angekündigt. Es kann mittels der CSS-Eigenschaft {{cssxref("content")}}, zusammen mit den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}}, zur Ankündigung gebracht werden.
 
 ```css
 ins::before,
@@ -45,7 +45,7 @@ ins::after {
 }
 ```
 
-Einige Personen, die Screenreader verwenden, deaktivieren bewusst das Ankündigen von Inhalten, die zusätzliche Wortfülle erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen über hinzugefügte Inhalte das Verständnis nachteilig beeinflussen würde.
+Einige Personen, die Screenreader verwenden, deaktivieren bewusst die Ankündigung von Inhalten, die zusätzliche Wortfülle erzeugen. Aus diesem Grund ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Unwissen über eingefügten Inhalt das Verständnis beeinträchtigen würde.
 
 - [Short note on making your mark (more accessible) | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
 - [Tweaking Text Level Styles | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
@@ -53,7 +53,7 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst das Ankündige
 ## Beispiele
 
 ```html
-<ins>Dieser Text wurde eingefügt</ins>
+<ins>This text has been inserted</ins>
 ```
 
 ### Ergebnis
@@ -72,10 +72,10 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst das Ankündige
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >Phrasing content</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flow-Inhalt</a
+          >flow content</a
         >.
       </td>
     </tr>
@@ -90,20 +90,20 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst das Ankündige
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das startende als auch das endende Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >Phrasing content</a
         >
         akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/structural_roles#structural_roles_with_html_equivalents">insertion</a
@@ -117,7 +117,7 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst das Ankündige
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLModElement")}}</td>
+      <td>[`HTMLModElement`](/de/docs/Web/API/HTMLModElement)</td>
     </tr>
   </tbody>
 </table>
@@ -132,4 +132,4 @@ Einige Personen, die Screenreader verwenden, deaktivieren bewusst das Ankündige
 
 ## Siehe auch
 
-- {{HTMLElement("del")}} Element zum Markieren einer Löschung in einem Dokument
+- {{HTMLElement("del")}}-Element zur Markierung der Löschung in ein Dokument

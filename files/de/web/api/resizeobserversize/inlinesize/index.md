@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Resize Observer API")}}
 
-Die **`inlineSize`**-Schreibgeschützte Eigenschaft der {{domxref("ResizeObserverSize")}} Schnittstelle gibt die Länge der Rahmenbox des beobachteten Elements in der Inline-Dimension zurück. Bei Boxen mit einem horizontalen {{cssxref("writing-mode")}} ist dies die horizontale Dimension, also die Breite; wenn der Schreibmodus vertikal ist, handelt es sich um die vertikale Dimension, also die Höhe.
+Die **`inlineSize`** schreibgeschützte Eigenschaft des [`ResizeObserverSize`](/de/docs/Web/API/ResizeObserverSize)-Interfaces gibt die Länge des Rahmenkastens des beobachteten Elements in der Inline-Dimension zurück. Für Kästen mit einem horizontalen {{cssxref("writing-mode")}} ist dies die horizontale Dimension oder Breite; wenn der Schreibmodus vertikal ist, ist dies die vertikale Dimension oder Höhe.
 
 > [!NOTE]
-> Für weitere Erklärungen zu Schreibmodi und Block- und Inline-Dimensionen lesen Sie [Umgang mit verschiedenen Textrichtungen](/de/docs/Learn/CSS/Building_blocks/Handling_different_text_directions).
+> Für weitere Erklärungen zu Schreibmodi sowie Block- und Inline-Dimensionen lesen Sie [Umgang mit verschiedenen Textausrichtungen](/de/docs/Learn/CSS/Building_blocks/Handling_different_text_directions).
 
 ## Wert
 
-Ein Dezimalwert, der die Inline-Größe in Pixeln darstellt.
+Ein Dezimalwert, der die Inline-Größe in Pixel angibt.
 
 ## Beispiele
 
-In diesem Beispiel geben wir ein Array mit Größeninformationen mit {{domxref("ResizeObserverEntry.contentBoxSize")}} zurück. Die `inlineSize`-Eigenschaft gibt die Inline-Dimension des beobachteten Elements zurück.
+In diesem Beispiel geben wir ein Array mit Größeninformationen unter Verwendung von [`ResizeObserverEntry.contentBoxSize`](/de/docs/Web/API/ResizeObserverEntry/contentBoxSize) zurück. Die `inlineSize`-Eigenschaft gibt die Inline-Dimension des beobachteten Elements zurück.
 
 ```js
 const resizeObserver = new ResizeObserver((entries) => {
@@ -36,6 +36,6 @@ resizeObserver.observe(divElem);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

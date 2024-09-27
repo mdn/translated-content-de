@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-Wenn die globale JavaScript-Umgebung ein Fenster oder ein iframe ist, wird sie als **Dokumentumgebung** bezeichnet. Eine globale Umgebung ist eine Umgebung, die keine äußere Umgebung hat.
+Wenn die JavaScript-Globale Umgebung ein Fenster oder ein `iframe` ist, wird sie als **Dokumentumgebung** bezeichnet. Eine globale Umgebung ist eine Umgebung, die keine äußere Umgebung hat.
 
 ## Siehe auch
 
-- [Dokumentumgebung](https://html.spec.whatwg.org/multipage/webappapis.html#document-environment) in der HTML-Spezifikation
+- [document environment](https://html.spec.whatwg.org/multipage/webappapis.html#document-environment) in der HTML-Spezifikation

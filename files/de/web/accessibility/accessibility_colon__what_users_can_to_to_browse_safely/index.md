@@ -1,5 +1,5 @@
 ---
-title: "Barrierefreiheit: Was Nutzer tun können, um sicherer zu surfen"
+title: "Accessibility: Was Benutzer tun können, um sicherer zu surfen"
 slug: Web/Accessibility/Accessibility:_What_users_can_to_to_browse_safely
 l10n:
   sourceCommit: cb132bc83b660e51be8959de5336c00b08030104
@@ -7,25 +7,25 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Dieser Artikel diskutiert, wie man Webinhalte für Personen mit vestibulären Störungen und diejenigen, die sie unterstützen, durch Nutzung von Personalisierungs- und Barrierefreiheitseinstellungen in Betriebssystemen zugänglich machen kann. Die Nutzung dieser Einstellungen kann helfen, eine Exposition gegenüber Inhalten zu vermeiden, die Anfälle und/oder andere physische Reaktionen auslösen könnten.
+Dieser Artikel diskutiert, wie Webinhalte für Personen mit vestibulären Störungen und deren Unterstützer zugänglich gemacht werden können, indem Personalisierungs- und Barrierefreiheits-Einstellungen genutzt werden, die in den Betriebssystemen integriert sind. Die Nutzung von Personalisierungseinstellungen kann dazu beitragen, eine Exposition gegenüber Inhalten zu verhindern, die zu Anfällen und/oder anderen körperlichen Reaktionen führen.
 
-## Personalisierungs- und Barrierefreiheitseinstellungen
+## Personalisierungs- und Barrierefreiheits-Einstellungen
 
 Aus dem Artikel, "**[Understanding Success Criterion 2.3.1: Three Flashes or Below Threshold](https://www.w3.org/WAI/WCAG21/Understanding/three-flashes-or-below-threshold.html)**"
 
-> Flackern kann durch das Display, den Computer, der das Bild rendert, oder durch die gerenderten Inhalte verursacht werden. Der Autor hat keine Kontrolle über die ersten beiden. Sie können durch das Design und die Geschwindigkeit des Displays und des Computers beeinflusst werden.
+> Blinken kann durch das Display, den Computer, der das Bild rendert, oder durch den gerenderten Inhalt verursacht werden. Der Autor hat keine Kontrolle über die ersten beiden. Diese können durch das Design und die Geschwindigkeit des Displays und des Computers adressiert werden.
 
-### Hardware und Betriebssysteme auf vielen Computern bieten Kontrolle, die Entwicklern nicht ermöglicht wird
+### Viele Computer bieten Hardware- und Betriebssystemsteuerung, die Entwicklern nicht zur Verfügung steht
 
-Der Nutzer kann viel tun, um sich selbst zu schützen, indem er sein Betriebssystem, dessen Personalisierungs- und Barrierefreiheitseinstellungen kennenlernt. Diejenigen im öffentlichen Sektor, die Menschen mit speziellen Empfindlichkeiten unterstützen müssen, sollten in Betracht ziehen, mindestens einen Arbeitsplatz zur Seite zu stellen und sich mit dessen Personalisierungs- und Barrierefreiheitseinstellungen vertraut zu machen. Das Verständnis von Personalisierungs- und Barrierefreiheitseinstellungen kann tatsächlich eine kostensparende Maßnahme sein. Ein Arbeitsplatz kann so eingerichtet werden, dass sowohl eine Person mit eingeschränktem Sehvermögen (benötigt hohen Kontrast) als auch eine Person mit lichtempfindlichen Anfälligkeiten unterstützt wird, indem Personalisierungs- und Barrierefreiheitseinstellungen angepasst werden.
+Der Benutzer kann viel tun, um sich zu schützen, indem er sein Betriebssystem, dessen Personalisierungs- und Barrierefreiheits-Einstellungen erlernt. Personen im öffentlichen Sektor, die auf besondere Empfindlichkeiten Rücksicht nehmen müssen, sollten in Betracht ziehen, mindestens einen Arbeitsplatz einzurichten und sich mit dessen Personalisierungs- und Barrierefreiheits-Einstellungen vertraut zu machen. Das Verständnis von Personalisierungs- und Barrierefreiheits-Einstellungen kann sich tatsächlich als kostensparend erweisen. Ein Arbeitsplatz kann sowohl für eine Person mit Sehschwäche (benötigt hohen Kontrast) als auch für eine Person mit lichtempfindlichen Anfälligkeiten eingerichtet werden, indem die Personalisierungs- und Barrierefreiheits-Einstellungen angepasst werden.
 
-### Nutzen Sie moderne Browser. Lernen Sie Personalisierungs- und Barrierefreiheitseinstellungen
+### Verwenden Sie moderne Browser. Lernen Sie Personalisierungs- und Barrierefreiheits-Einstellungen
 
-Moderne Browser unterstützen die CSS-Media-Feature [`prefers-reduced-motion`](/de/docs/Web/CSS/@media/prefers-reduced-motion). Browser können erkennen, ob ein Nutzer eine reduzierte Bewegungserfahrung wünscht. Der Nutzer würde dies über eine Barrierefreiheitsschnittstelle aufrufen, wie unten gezeigt.
+Moderne Browser unterstützen das CSS Medien-Feature [`prefers-reduced-motion`](/de/docs/Web/CSS/@media/prefers-reduced-motion). Browser können erkennen, ob ein Benutzer ein Erlebnis mit reduzierter Bewegung angefordert hat. Der Benutzer würde darauf über eine Barrierefreiheits-Oberfläche zugreifen, wie unten gezeigt.
 
 ![Screenshot, der zeigt, wie man Animationen in Windows 10 ausschaltet.](android-remove-animations.png)
 
-CSS-Übergangsevents werden unterstützt. Beispiele sind:
+CSS-Übergangsevents werden unterstützt. Beispiele beinhalten:
 
 - `transitionrun`
 - `transitionstart`
@@ -38,55 +38,55 @@ Automatische Wiedergabe nicht aktivieren (funktioniert nicht für GIFs)
 
 #### iOS Safari 10.3 und höher (Mobil und Tablet)
 
-Wählen Sie die Option "Bewegung reduzieren" in den OS-Barrierefreiheitseinstellungen für Apple (Bildquelle: developers.google.com aus Thomas Steiners Artikel "Move Ya! Or maybe, don't, if the user prefers-reduced-motion!"). Dies wird bei animierten GIFs nicht funktionieren; die Quelle der Animation ist in das GIF integriert und wird von diesen Einstellungen nicht beeinflusst.![Screenshot, der zeigt, wie man die Bewegung auf einem MAC OS reduziert](macos-reduce-motion.png)
+Wählen Sie die Option "Bewegung reduzieren" in den Barrierefreiheits-Einstellungen des OS für Apple (Bildquelle: developers.google.com aus dem Artikel "Move Ya! Or maybe, don't, if the user prefers-reduced-motion!" von Thomas Steiner). Dies funktioniert nicht bei animierten GIFs; die Quelle der Animation ist in einem GIF selbst enthalten und wird von diesen Einstellungen nicht beeinflusst.![Screenshot, der zeigt, wie man auf einem MAC OS die Bewegung reduziert](macos-reduce-motion.png)
 
-#### Verwenden Sie den Lesemodus in Browsern
+#### Verwenden Sie den Reader-Modus in Browsern
 
-- Aktivieren Sie Inhaltsblocker; Entfernt Werbung, reduziert und/oder entfernt Ablenkungen
-- Aktiviert Text-zu-Sprache
-- In bestimmten Browsern können Schriftarten nach Wahl aktiviert werden
-- Seitenzoom aktivieren
+- Aktivieren Sie Inhaltsblocker; entfernt Werbung und reduziert und/oder beseitigt Ablenkungen
+- Ermöglicht Text-to-Speech
+- In bestimmten Browsern können Schriften nach Wahl aktiviert werden
+- Aktivieren Sie Page Zoom
 
-#### Animierte GIFs im Browser ausschalten
+#### Schalten Sie animierte GIFs im Browser ab
 
-Browser bieten ihren Nutzern viel Macht; es ist nur eine Frage, zu wissen, wohin man gehen muss. Mit Firefox als Beispiel erklärt es, dass durch das Ändern des Wertes der **image.animation_mode** von "normal" zu "none" alle animierten Bilder blockiert werden. Um es rückgängig zu machen, müssen Sie den Wert wieder auf "normal" ändern.
+Browser bieten ihren Benutzern viel Macht; es ist nur eine Frage, zu wissen, wohin man gehen muss. In Firefox wird erklärt, dass durch Ändern des Wertes von **image.animation_mode** von "normal" auf "none" alle animierten Bilder blockiert werden. Um dies rückgängig zu machen, müssen Sie den Wert wieder auf "normal" ändern.
 
-![Screenshot, der image.animation.mode in Firefox anzeigt](image_animation_mode.png)
+![Screenshot von image.animation.mode in Firefox ausgewählt](image_animation_mode.png)
 
 #### Verwenden Sie Browser-Erweiterungen
 
-- [Gif Blocker](https://chromewebstore.google.com/detail/gif-blocker/ahkidgegbmbnggcnmejhobepkaphkfhl?hl=en) Für Chrome ist GIF Blocker im Web Store als Erweiterung verfügbar.
-- [Gif Scrubber](https://chromewebstore.google.com/detail/gif-scrubber/gbdacbnhlfdlllckelpdkgeklfjfgcmp?hl=en) Gif Scrubber ist eine Chrome-Erweiterung, die es ermöglicht, GIFs wie mit einem Videoplayer zu steuern. Es gibt ein GitHub-Repository dafür unter **<https://github.com/0ui/gif-scrubber>**
-- [Beeline Reader](https://www.beelinereader.com/) Beeline Reader hat eine Browser-Erweiterung, die es ermöglicht, in Graustufen und Dyslexie-Schrift zu lesen, unter anderem.
+- [Gif Blocker](https://chromewebstore.google.com/detail/gif-blocker/ahkidgegbmbnggcnmejhobepkaphkfhl?hl=en) Für Chrome ist GIF Blocker eine im Web Store verfügbare Erweiterung.
+- [Gif Scrubber](https://chromewebstore.google.com/detail/gif-scrubber/gbdacbnhlfdlllckelpdkgeklfjfgcmp?hl=en) Gif Scrubber ist eine Chrome-Erweiterung, die es Ihnen ermöglicht, GIFs wie einen Videoplayer zu steuern. Es gibt ein GitHub-Repository dafür unter **<https://github.com/0ui/gif-scrubber>**
+- [Beeline Reader](https://www.beelinereader.com/) Beeline Reader hat eine Browser-Erweiterung, die es Ihnen ermöglicht, unter anderem auf Graustufen und Dyslexi-Schriftart umzustellen.
 
-![Screenshot, der die Modi von Beeline Reader zeigt, die ein Benutzer im Browser anpassen kann](beelinereader.png)
+![Screenshot, der zeigt, welche Modi ein Benutzer im Beeline Reader im Browser anpassen kann](beelinereader.png)
 
-### Nutzen Sie die Barrierefreiheitsfunktionen des Betriebssystems
+### Nutzen Sie die Barrierefreiheits-Funktionen des Betriebssystems
 
-Die meisten Betriebssysteme, wie Windows 10, haben Zugänglichkeitsoptionen, die überraschend leistungsfähig sind. Normalerweise sind sie recht leicht zu finden, indem man das Wort "Barrierefreiheit" in die Suchfunktion des Betriebssystems eingibt (oder sagt).
+Die meisten Betriebssysteme wie Windows 10 verfügen über überraschend leistungsstarke Barrierefreiheits-Optionen. Sie sind in der Regel recht einfach zu finden, indem man das Wort „Barrierefreiheit“ in die Suchleiste des Betriebssystems eingibt (oder sagt).
 
-#### Animierte GIFs im Betriebssystem ausschalten
+#### Schalten Sie Animationen im Betriebssystem aus
 
-Im Betriebssystem Windows 10 hat der Nutzer die Möglichkeit, Animationen auszuschalten. Dies wird bei animierten GIFs nicht funktionieren; die Quelle der Animation ist in das GIF integriert und wird von diesen Einstellungen nicht beeinflusst.
+Im Windows 10 Betriebssystem hat der Benutzer die Möglichkeit, Animationen auszuschalten. Dies wird nicht auf animierte GIFs wirken; die Quelle der Animation ist in einem GIF selbst enthalten und wird von diesen Einstellungen nicht beeinflusst.
 
 ![Screenshot, der zeigt, wie man Animationen in Windows 10 ausschaltet](turnoffanimationsinwindows.png)
 
 #### Graustufen
 
-Personen, die eine traumatische Hirnverletzung (TBI) erlitten haben, können extrem empfindlich auf Farben reagieren; dies kann eine so große "Investition an kognitiver Energie" erfordern, dass keine Energie für andere tägliche Aufgaben mehr übrig bleibt. Die Graustufenpräsentation der Inhalte reduziert die kognitive Belastung. Sie kann auch Nutzern mit anderen Behinderungen helfen. Eine interessante Diskussion von Nutzern über die Vorteile der Verwendung von Graustufen findet sich im Diskussionsfaden, "[What is the "grayscale" setting for in accessibility options?](https://ask.metafilter.com/312049/What-is-the-grayscale-setting-for-in-accessibility-options)". Besonders interessant ist ein Nutzer, der an Photosensitiver Epilepsie leidet und es nutzt, wenn er sich "seizure-y" fühlt.
+Personen, die ein Schädel-Hirn-Trauma (TBI) erlitten haben, können sehr empfindlich auf Farben reagieren; es kann von ihnen einen so großen „Einsatz an kognitiver Energie“ erfordern, dass keine Energie für andere tägliche Aufgaben übrig bleibt. Die Aktivierung einer Graustufendarstellung der Inhalte reduziert die kognitive Belastung. Es kann auch Benutzern mit anderen Behinderungen zugutekommen. Eine interessante Diskussion von Benutzern über die Vorteile der Verwendung von Graustufen finden Sie im Diskussionsfaden "[What is the "grayscale" setting for in accessibility options?](https://ask.metafilter.com/312049/What-is-the-grayscale-setting-for-in-accessibility-options)". Besonders interessant ist ein Benutzer, der an Photosensitiver Epilepsie leidet und sie benutzt, wenn er sich „anfällig für Anfälle“ fühlt.
 
-Die meisten Betriebssysteme bieten eine Möglichkeit, dass der Nutzer eine Anpassung am Arbeitsplatz vornehmen kann. Im Screenshot unten sehen Sie ein Beispiel für die Barrierefreiheitseinstellungen von Windows 10, die die Auswahl von Farbfiltern ermöglichen. Graustufen werden aktiviert, wenn der Farbfilter-Button auf "on" gestellt wird
+Die meisten Betriebssysteme bieten eine Möglichkeit, dem Benutzer Anpassungen am Arbeitsplatz zu ermöglichen. Im folgenden Screenshot sehen Sie ein Beispiel für Windows 10 Barrierefreiheits-Einstellungen, in denen Farbfilter ausgewählt werden können. Graustufen werden aktiviert, wenn der Farbfilter-Button auf „ein“ gestellt wird.
 
-![Zeigt Windows 10 Barrierefreiheitseinstellungen für Graustufen](colorfiltersgrayscaleinwindows.png)
+![Zeigt Windows 10 Barrierefreiheits-Einstellungen für Graustufen](colorfiltersgrayscaleinwindows.png)
 
 ## Siehe auch
 
 - [Barrierefreiheit](/de/docs/Web/Accessibility)
-- [Lernpfad Barrierefreiheit](/de/docs/Learn/Accessibility)
-- [Web-Barrierefreiheit für Anfälle und physische Reaktionen](/de/docs/Web/Accessibility/Seizure_disorders)
-- [Simulation der Farbsehstörung](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/simulation/index.html)
+- [Barrierefreiheits-Lernpfad](/de/docs/Learn/Accessibility)
+- [Webbarrierefreiheit für Anfälle und körperliche Reaktionen](/de/docs/Web/Accessibility/Seizure_disorders)
+- [Farbsehsimulation](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/simulation/index.html)
 - Diskussion: "[What is the "grayscale" setting for in accessibility options?](https://ask.metafilter.com/312049/What-is-the-grayscale-setting-for-in-accessibility-options)"
 
 ### Mitwirkende
 
-Vielen Dank an Eric Eggert von [Knowbility;](https://knowbility.org/) für seine Diskussionen und große Hilfe zu diesem Thema.
+Vielen, vielen Dank an Eric Eggert von [Knowbility;](https://knowbility.org/) für seine Diskussionen und große Hilfe zu diesem Thema.

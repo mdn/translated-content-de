@@ -3,34 +3,34 @@ title: "HTMLScriptElement: fetchPriority-Eigenschaft"
 short-title: fetchPriority
 slug: Web/API/HTMLScriptElement/fetchPriority
 l10n:
-  sourceCommit: f8b524a5fbdedf04ed5d3bac2200c33c5eda8148
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`fetchPriority`**-Eigenschaft des {{domxref("HTMLScriptElement")}}-Interfaces stellt einen Hinweis für den Browser dar, wie er das Laden eines externen Skripts im Vergleich zu anderen externen Skripten priorisieren sollte.
+Die **`fetchPriority`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces ist ein Hinweis, der dem Browser angibt, wie er das Abrufen eines externen Skripts im Verhältnis zu anderen externen Skripten priorisieren soll.
 
 Sie spiegelt das `fetchpriority`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
 ## Wert
 
-Eine Zeichenfolge, die den Prioritätshinweis darstellt. Mögliche Werte sind:
+Ein String, der den Prioritätshinweis darstellt. Mögliche Werte sind:
 
 - `high`
-  - : Das externe Skript mit hoher Priorität im Vergleich zu anderen externen Skripten laden.
+  - : Das externe Skript wird mit hoher Priorität im Verhältnis zu anderen externen Skripten abgerufen.
 - `low`
-  - : Das externe Skript mit niedriger Priorität im Vergleich zu anderen externen Skripten laden.
+  - : Das externe Skript wird mit niedriger Priorität im Verhältnis zu anderen externen Skripten abgerufen.
 - `auto`
-  - : Standardmodus, der keine Präferenz für die Ladepriorität angibt.
-    Der Browser entscheidet, was für den Benutzer am besten ist.
+  - : Standardmodus, der keine Präferenz für die Abrufpriorität angibt.
+    Der Browser entscheidet, was am besten für den Benutzer ist.
 
-Wenn das `fetchpriority`-Attribut nicht angegeben wird oder mit einem anderen Wert angegeben ist, entspricht es der Angabe als `auto`.
+Wenn das `fetchpriority`-Attribut nicht angegeben ist oder mit einem anderen Wert angegeben wird, entspricht es der Angabe `auto`.
 
-Die `fetchPriority`-Eigenschaft erlaubt es Ihnen, das Laden von externen Skripten als hoch- oder niedrigprioritär zu kennzeichnen. Dies kann nützlich sein, wenn es auf {{HTMLElement("script")}}-Elemente angewendet wird, um externe Skripte zu signalisieren, die für die Benutzererfahrung früh im Ladevorgang "wichtig" sind.
+Die `fetchPriority`-Eigenschaft ermöglicht es Ihnen, externe Skriptabrufe mit hoher oder niedriger Priorität zu signalisieren. Dies kann nützlich sein, wenn es auf {{HTMLElement("script")}}-Elemente angewendet wird, um externe Skripte zu signalisieren, die früh im Ladeprozess "wichtig" für die Benutzererfahrung sind.
 
-Die Auswirkungen des Hinweises auf das Laden von Ressourcen sind browserspezifisch. Stellen Sie daher sicher, dass Sie auf mehreren Browser-Engines testen.
+Die Auswirkungen des Hinweises auf das Ressourcen-Loading sind browserspezifisch, daher sollten Sie auf mehreren Browser-Engines testen.
 
-Verwenden Sie es sparsam für außergewöhnliche Fälle, in denen der Browser möglicherweise nicht in der Lage ist, automatisch die beste Art und Weise zu ermitteln, das externe Skript zu laden. Eine übermäßige Verwendung kann zu Leistungseinbußen führen.
+Verwenden Sie es sparsam für Ausnahmefälle, in denen der Browser möglicherweise nicht in der Lage ist, automatisch zu bestimmen, wie das externe Skript am besten geladen werden soll. Übermäßige Verwendung kann zu Leistungseinbußen führen.
 
 ## Beispiele
 
@@ -40,7 +40,7 @@ Verwenden Sie es sparsam für außergewöhnliche Fälle, in denen der Browser m�
 
 ```js
 const el = document.getElementById("el");
-console.log(el.fetchPriority); // Ausgabe: "high"
+console.log(el.fetchPriority); // Output: "high"
 ```
 
 ## Spezifikationen
@@ -53,5 +53,5 @@ console.log(el.fetchPriority); // Ausgabe: "high"
 
 ## Siehe auch
 
-- {{domxref("HTMLImageElement.fetchPriority")}}
-- {{domxref("HTMLLinkElement.fetchPriority")}}
+- [`HTMLImageElement.fetchPriority`](/de/docs/Web/API/HTMLImageElement/fetchPriority)
+- [`HTMLLinkElement.fetchPriority`](/de/docs/Web/API/HTMLLinkElement/fetchPriority)

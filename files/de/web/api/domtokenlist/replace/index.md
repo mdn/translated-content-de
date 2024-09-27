@@ -1,5 +1,5 @@
 ---
-title: "DOMTokenList: replace()-Methode"
+title: "DOMTokenList: replace() Methode"
 short-title: replace()
 slug: Web/API/DOMTokenList/replace
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`replace()`**-Methode der {{domxref("DOMTokenList")}}-Schnittstelle
-ersetzt ein vorhandenes Token durch ein neues Token.
-Wenn das erste Token nicht existiert, gibt `replace()` sofort `false` zurück,
-ohne das neue Token zur Tokenliste hinzuzufügen.
+Die **`replace()`** Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle
+ersetzt ein bestehendes Token durch ein neues Token.
+Falls das erste Token nicht existiert, gibt `replace()` sofort `false` zurück,
+ohne das neue Token zur Token-Liste hinzuzufügen.
 
 ## Syntax
 
@@ -22,21 +22,21 @@ replace(oldToken, newToken)
 ### Parameter
 
 - `oldToken`
-  - : Ein String, der das Token repräsentiert, das Sie ersetzen möchten.
+  - : Ein String, der das Token darstellt, das Sie ersetzen möchten.
 - `newToken`
-  - : Ein String, der das Token repräsentiert, durch das Sie `oldToken` ersetzen möchten.
+  - : Ein String, der das Token darstellt, mit dem Sie `oldToken` ersetzen möchten.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der `true` ist, wenn `oldToken` erfolgreich
-ersetzt wurde, oder `false`, wenn nicht.
+Ein boolean Wert, der `true` ist, wenn `oldToken`
+erfolgreich ersetzt wurde, oder `false`, wenn nicht.
 
 ## Beispiele
 
 Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem
 {{htmlelement("span")}}-Element als `DOMTokenList` mit
-{{domxref("Element.classList")}} gesetzt sind. Dann ersetzen wir ein Token in der Liste und schreiben die
-Liste in das {{domxref("Node.textContent")}} des `<span>`.
+[`Element.classList`](/de/docs/Web/API/Element/classList) eingestellt sind. Wir ersetzen dann ein Token in der Liste und schreiben die
+Liste in den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>`.
 
 Zuerst das HTML:
 
@@ -63,6 +63,6 @@ Die Ausgabe sieht so aus:
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

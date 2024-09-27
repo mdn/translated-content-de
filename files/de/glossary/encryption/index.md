@@ -7,10 +7,10 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der {{glossary("Kryptographie")}} bezeichnet **Verschlüsselung** die Umwandlung von {{glossary("Klartext")}} in einen kodierten Text oder {{glossary("Chiffretext")}}. Ein Chiffretext soll für unbefugte Leser unlesbar sein.
+In der [Kryptographie](/de/docs/Glossary/cryptography) bezeichnet **Verschlüsselung** die Umwandlung von [Klartext](/de/docs/Glossary/plaintext) in einen kodierten Text oder [Geheimtext](/de/docs/Glossary/ciphertext). Ein Geheimtext soll für unbefugte Leser unlesbar sein.
 
-Die Verschlüsselung ist ein kryptographisches Grundelement: Sie transformiert eine Klartextnachricht in einen Chiffretext mittels eines kryptographischen Algorithmus, der als {{glossary("Chiffre")}} bezeichnet wird. Bei modernen Chiffren wird die Verschlüsselung mit einem spezifischen Algorithmus und einem Geheimnis, dem sogenannten {{glossary("Schlüssel")}}, durchgeführt. Da der Algorithmus oft öffentlich ist, muss der Schlüssel geheim bleiben, damit die Verschlüsselung sicher bleibt.
+Verschlüsselung ist eine kryptographische Grundlage: Sie wandelt eine Klartextnachricht mithilfe eines kryptographischen Algorithmus, der als [Chiffre](/de/docs/Glossary/cipher) bezeichnet wird, in Geheimtext um. Die Verschlüsselung in modernen Chiffren erfolgt mit einem spezifischen Algorithmus und einem Geheimnis, das als [Schlüssel](/de/docs/Glossary/key) bezeichnet wird. Da der Algorithmus häufig öffentlich ist, muss der Schlüssel geheim bleiben, damit die Verschlüsselung sicher bleibt.
 
 ![Wie Verschlüsselung funktioniert.](encryption.png)
 
-Ohne Kenntnis des Geheimnisses ist der umgekehrte Vorgang, die {{glossary("Entschlüsselung")}}, mathematisch schwer durchzuführen. Wie schwer dies ist, hängt von der Sicherheit des gewählten kryptographischen Algorithmus ab und entwickelt sich mit dem Fortschritt der {{glossary("Kryptanalyse")}}.
+Ohne das Geheimnis zu kennen, ist der umgekehrte Vorgang, die [Entschlüsselung](/de/docs/Glossary/decryption), mathematisch schwer durchzuführen. Wie schwer dies ist, hängt von der Sicherheit des gewählten kryptographischen Algorithmus ab und entwickelt sich mit dem Fortschritt der [Kryptanalyse](/de/docs/Glossary/cryptanalysis) weiter.

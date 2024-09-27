@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`get()`**-Methode der {{domxref("HighlightRegistry")}}-Schnittstelle gibt das benannte {{domxref("Highlight")}}-Objekt aus dem Register zurück.
+Die **`get()`**-Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle gibt das benannte [`Highlight`](/de/docs/Web/API/Highlight)-Objekt aus dem Register zurück.
 
 `HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich der Verwendung von {{jsxref("Map.get()")}}.
 
@@ -29,13 +29,13 @@ Das `Highlight`-Objekt, das mit dem angegebenen Namen verknüpft ist, oder {{jsx
 
 ## Beispiele
 
-Das folgende Codebeispiel zeigt, wie ein neues `Highlight` erstellt, dem Register hinzugefügt und mit seinem Namen über die `get()`-Methode abgerufen wird:
+Das folgende Codebeispiel demonstriert, wie ein neues `Highlight` erstellt, dem Register hinzugefügt und mittels der `get()`-Methode anhand seines Namens abgerufen wird:
 
 ```js
 const fooHighlight = new Highlight();
 CSS.highlights.set("foo", fooHighlight);
 
-console.log(CSS.highlights.get("foo")); // Gibt das fooHighlight-Objekt zurück.
+console.log(CSS.highlights.get("foo")); // Returns the fooHighlight object.
 ```
 
 ## Spezifikationen
@@ -48,5 +48,5 @@ console.log(CSS.highlights.get("foo")); // Gibt das fooHighlight-Objekt zurück.
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "Die CSS Custom Highlight API", "", "nocode")}}
-- [CSS Custom Highlight API: Die Zukunft des Markierens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

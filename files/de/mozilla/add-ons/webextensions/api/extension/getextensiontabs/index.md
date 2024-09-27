@@ -8,9 +8,9 @@ l10n:
 {{AddonSidebar}}
 
 > [!WARNING]
-> Diese Methode wurde veraltet. Verwenden Sie stattdessen {{WebExtAPIRef("extension.getViews()")}}.
+> Diese Methode ist veraltet. Verwenden Sie stattdessen {{WebExtAPIRef("extension.getViews()")}}.
 
-Gibt ein Array der JavaScript [Window](/de/docs/Web/API/Window)-Objekte für jeden der Tabs zurück, die innerhalb der aktuellen Erweiterung ausgeführt werden. Wenn `windowId` angegeben ist, werden nur die Window-Objekte der Tabs zurückgegeben, die dem angegebenen Fenster zugeordnet sind.
+Gibt ein Array der JavaScript [Window](/de/docs/Web/API/Window)-Objekte für jedes der Tabs zurück, die innerhalb der aktuellen Erweiterung ausgeführt werden. Wenn `windowId` angegeben ist, werden nur die Window-Objekte der Tabs zurückgegeben, die an das angegebene Fenster angehängt sind.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Diese API ist auch als `browser.extension.getExtensionTabs()` verfügbar.
 
 ### Rückgabewert
 
-`array` of `object`. Array von globalen Window-Objekten
+`array` von `object`. Array globaler Window-Objekte
 
 ## Browser-Kompatibilität
 
@@ -38,7 +38,7 @@ Diese API ist auch als `browser.extension.getExtensionTabs()` verfügbar.
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getExtensionTabs) API. Diese Dokumentation stammt aus [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf Chromes [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#method-getExtensionTabs) API. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

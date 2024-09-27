@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`defaultPolicy`**-Eigenschaft der {{domxref("TrustedTypePolicyFactory")}}-Schnittstelle gibt die Standard-{{domxref("TrustedTypePolicy")}} oder null zurück, wenn diese nicht vorhanden ist.
+Die schreibgeschützte **`defaultPolicy`**-Eigenschaft des [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Interfaces gibt die Standard-[`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) oder `null` zurück, wenn diese leer ist.
 
 > [!NOTE]
-> Informationen über die Erstellung und Verwendung von Standardrichtlinien finden Sie in der Dokumentation zu [`createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy#the_default_policy).
+> Informationen zur Erstellung und Verwendung von Standardrichtlinien finden Sie in der Dokumentation zu [`createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy#the_default_policy).
 
 ## Wert
 
-Eine {{domxref("TrustedTypePolicy")}} oder `null`.
+Eine [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy) oder `null`.
 
 ## Beispiele
 
-Die erste Zeile unten gibt `null` zurück, da keine Standardrichtlinie erstellt wurde. Sobald eine Standardrichtlinie erstellt wurde, gibt der Aufruf von `defaultPolicy` dieses Richtlinienobjekt zurück.
+Die erste Zeile unten gibt `null` zurück, da keine Standardrichtlinie erstellt wurde. Sobald eine Standardrichtlinie erstellt wird, gibt der Aufruf von `defaultPolicy` dieses Richtlinienobjekt zurück.
 
 ```js
 console.log(trustedTypes.defaultPolicy); // null

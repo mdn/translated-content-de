@@ -1,6 +1,6 @@
 ---
-title: "CSSMathMax: Eigenschaft values"
-short-title: Werte
+title: "CSSMathMax: values-Eigenschaft"
+short-title: values
 slug: Web/API/CSSMathMax/values
 l10n:
   sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
@@ -8,17 +8,15 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte Eigenschaft CSSMathMax.values der
-{{domxref("CSSMathMax")}}-Schnittstelle gibt ein {{domxref('CSSNumericArray')}}-Objekt
-zurück, das ein oder mehrere {{domxref('CSSNumericValue')}}-Objekte enthält.
+Die schreibgeschützte `CSSMathMax.values`-Eigenschaft der [`CSSMathMax`](/de/docs/Web/API/CSSMathMax)-Schnittstelle gibt ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Objekt zurück, das ein oder mehrere [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte enthält.
 
 ## Wert
 
-Ein {{domxref('CSSNumericArray')}}.
+Ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray).
 
 ## Beispiele
 
-To do
+Zu erledigen
 
 ## Spezifikationen
 

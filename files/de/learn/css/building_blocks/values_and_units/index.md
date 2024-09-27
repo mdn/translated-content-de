@@ -1,5 +1,5 @@
 ---
-title: CSS-Werte und -Einheiten
+title: CSS-Werte und Einheiten
 slug: Learn/CSS/Building_blocks/Values_and_units
 l10n:
   sourceCommit: 729754108952e0bac9fb6268fcdf24a63b3cbbf3
@@ -7,10 +7,10 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/CSS/Building_blocks/Overflowing_content", "Learn/CSS/Building_blocks/Sizing_items_in_CSS", "Learn/CSS/Building_blocks")}}
 
-CSS-Regeln enthalten [Deklarationen](/de/docs/Web/CSS/Syntax#css_declarations), die wiederum aus Eigenschaften und Werten bestehen. Jede in CSS verwendete Eigenschaft hat einen **Wertetyp**, der beschreibt, welche Art von Werten sie haben darf. In dieser Lektion werden wir einige der am häufigsten verwendeten Wertetypen betrachten, was sie sind und wie sie funktionieren.
+CSS-Regeln enthalten [Deklarationen](/de/docs/Web/CSS/Syntax#css_declarations), die sich wiederum aus Eigenschaften und Werten zusammensetzen. Jede in CSS verwendete Eigenschaft hat einen **Wertetyp**, der beschreibt, welche Art von Werten zulässig ist. In dieser Lektion werfen wir einen Blick auf einige der am häufigsten verwendeten Wertetypen, was sie sind und wie sie funktionieren.
 
 > [!NOTE]
-> Jede [CSS-Eigenschaftsseite](/de/docs/Web/CSS/Reference#index) enthält einen Syntaxabschnitt, in dem die Wertetypen aufgelistet sind, die Sie mit dieser Eigenschaft verwenden können.
+> Jede [CSS-Eigenschaftsseite](/de/docs/Web/CSS/Reference#index) hat einen Syntaxabschnitt, der die Wertetypen auflistet, die Sie mit dieser Eigenschaft verwenden können.
 
 <table>
   <tbody>
@@ -20,22 +20,21 @@ CSS-Regeln enthalten [Deklarationen](/de/docs/Web/CSS/Syntax#css_declarations), 
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software"
           >Grundlegende Software installiert</a
-        >, grundlegende Kenntnisse im
+        >, Grundkenntnisse im
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files"
           >Umgang mit Dateien</a
-        >, HTML-Grundlagen (lernen Sie
+        >, HTML-Grundlagen (studieren Sie
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
           >Einführung in HTML</a
-        >), und eine Vorstellung davon, wie CSS funktioniert (lernen Sie
+        >) und eine Vorstellung davon, wie CSS funktioniert (studieren Sie
         <a href="/de/docs/Learn/CSS/First_steps">CSS erste Schritte</a>).
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Um etwas über die verschiedenen Arten von Werten und Einheiten zu lernen,
-        die in CSS-Eigenschaften verwendet werden.
+        Die verschiedenen Arten von Werten und Einheiten in CSS-Eigenschaften zu erlernen.
       </td>
     </tr>
   </tbody>
@@ -43,17 +42,17 @@ CSS-Regeln enthalten [Deklarationen](/de/docs/Web/CSS/Syntax#css_declarations), 
 
 ## Was ist ein CSS-Wert?
 
-In CSS-Spezifikationen und auf den Eigenschaftsseiten hier auf MDN können Sie Wertetypen erkennen, da sie von spitzen Klammern umgeben sind, wie zum Beispiel [`<color>`](/de/docs/Web/CSS/color_value) oder {{cssxref("length")}}. Wenn Sie den Wertetyp `<color>` als gültig für eine bestimmte Eigenschaft sehen, bedeutet dies, dass Sie einen beliebigen gültigen Farbwert als Wert für diese Eigenschaft verwenden können, wie auf der Referenzseite [`<color>`](/de/docs/Web/CSS/color_value) aufgeführt.
+In CSS-Spezifikationen und auf den Eigenschaftsseiten hier bei MDN können Sie Wertetypen erkennen, da sie in spitzen Klammern umschlossen sind, wie z.B. [`<color>`](/de/docs/Web/CSS/color_value) oder {{cssxref("length")}}. Wenn Sie den Wertetyp `<color>` als gültig für eine bestimmte Eigenschaft sehen, bedeutet das, dass Sie jeden gültigen Farbwert als Wert für diese Eigenschaft verwenden können, wie auf der Referenzseite für [`<color>`](/de/docs/Web/CSS/color_value) aufgeführt.
 
 > [!NOTE]
-> Sie werden die CSS-Wertetypen als _Datentypen_ bezeichnet sehen. Die Begriffe sind im Grunde austauschbar – wenn Sie etwas in CSS als Datentyp bezeichnet sehen, ist es nur eine elegante Art, Wertetyp zu sagen. Der Begriff _Wert_ bezieht sich auf jeden bestimmten Ausdruck, der von einem Wertetyp unterstützt wird, den Sie verwenden möchten.
+> Sie werden sehen, dass CSS-Wertetypen als _Datentypen_ bezeichnet werden. Die Begriffe sind im Grunde austauschbar — wenn Sie in CSS von einem Datentyp sprechen, ist das einfach eine schicke Art zu sagen, dass es sich um einen Wertetyp handelt. Der Begriff _Wert_ bezieht sich auf jeden bestimmten Ausdruck, der von einem Wertetyp unterstützt wird, den Sie verwenden möchten.
 
 > [!NOTE]
-> CSS-Wertetypen sind tendenziell in spitzen Klammern (`<`, `>`) eingeschlossen, um sie von CSS-Eigenschaften zu unterscheiden.
-> Zum Beispiel gibt es eine {{cssxref("color")}}-Eigenschaft und einen [`<color>`](/de/docs/Web/CSS/color_value)-Datentyp.
-> Dies darf nicht mit HTML-Elementen verwechselt werden, da sie auch spitze Klammern verwenden, aber dies ist etwas, das im Kontext klar wird.
+> CSS-Wertetypen neigen dazu, in spitzen Klammern (`<`, `>`) eingeschlossen zu werden, um sie von CSS-Eigenschaften zu unterscheiden.
+> Zum Beispiel gibt es eine {{cssxref("color")}}-Eigenschaft und einen [`<color>`](/de/docs/Web/CSS/color_value) Datentyp.
+> Dies ist nicht mit HTML-Elementen zu verwechseln, da diese ebenfalls spitze Klammern verwenden, aber dies sollte der Kontext klären.
 
-Im folgenden Beispiel haben wir die Farbe unserer Überschrift mit einem Schlüsselwort und den Hintergrund mit der `rgb()`-Funktion festgelegt:
+Im folgenden Beispiel haben wir die Farbe unserer Überschrift mit einem Schlüsselwort festgelegt und den Hintergrund mit der `rgb()`-Funktion:
 
 ```css
 h1 {
@@ -62,11 +61,11 @@ h1 {
 }
 ```
 
-Ein Wertetyp in CSS ist eine Möglichkeit, eine Sammlung von zulässigen Werten zu definieren. Das bedeutet, dass Sie bei `<color>` als gültigem Wert nicht darüber nachdenken müssen, welche der verschiedenen Farbwerttypen verwendet werden können – Schlüsselwörter, Hex-Werte, `rgb()`-Funktionen usw. Sie können _alle_ verfügbaren `<color>`-Werte verwenden, vorausgesetzt, sie werden von Ihrem Browser unterstützt. Die Seite auf MDN zu jedem Wert gibt Ihnen Informationen über die Browserunterstützung. Wenn Sie sich beispielsweise die Seite für [`<color>`](/de/docs/Web/CSS/color_value) ansehen, werden Sie feststellen, dass der Abschnitt zur Browserkompatibilität unterschiedliche Farbwerttypen und deren Unterstützung auflistet.
+Ein Wertetyp in CSS ist eine Möglichkeit, eine Sammlung zulässiger Werte zu definieren. Das bedeutet, wenn Sie `<color>` als gültig sehen, müssen Sie sich nicht wundern, welche der verschiedenen Arten von Farbwerten verwendet werden können — Schlüsselwörter, hexadezimale Werte, `rgb()`-Funktionen usw. Sie können _alle_ verfügbaren `<color>`-Werte verwenden, vorausgesetzt, sie werden von Ihrem Browser unterstützt. Die Seite auf MDN für jeden Wert gibt Ihnen Informationen über die Browser-Unterstützung. Wenn Sie sich die Seite für [`<color>`](/de/docs/Web/CSS/color_value) anschauen, werden Sie sehen, dass der Abschnitt Browser-Kompatibilität verschiedene Arten von Farbwerten und deren Unterstützung auflistet.
 
-Werfen wir einen Blick auf einige der Wertetypen und Einheiten, die Ihnen häufig begegnen können, mit Beispielen, damit Sie verschiedene mögliche Werte ausprobieren können.
+Lassen Sie uns einige der Werttypen und Einheiten betrachten, denen Sie häufig begegnen können, mit Beispielen, damit Sie verschiedene mögliche Werte ausprobieren können.
 
-## Zahlen, Längen und Prozentwerte
+## Zahlen, Längen und Prozentsätze
 
 Es gibt verschiedene numerische Wertetypen, die Sie möglicherweise in CSS verwenden. Die folgenden werden alle als numerisch klassifiziert:
 
@@ -92,9 +91,9 @@ Es gibt verschiedene numerische Wertetypen, die Sie möglicherweise in CSS verwe
         <code><a href="/de/docs/Web/CSS/number">&#x3C;number></a></code>
       </td>
       <td>
-        Eine <code>&#x3C;number></code> stellt eine Dezimalzahl dar – sie kann
-        einen Dezimalpunkt mit einem Bruchanteil enthalten oder nicht. Zum Beispiel
-        <code>0.255</code>, <code>128</code> oder <code>-1.2</code>.
+        Ein <code>&#x3C;number></code> repräsentiert eine Dezimalzahl — sie kann
+        einen Dezimalpunkt mit einer Bruchkomponente haben oder nicht. Zum
+        Beispiel <code>0.255</code>, <code>128</code> oder <code>-1.2</code>.
       </td>
     </tr>
     <tr>
@@ -104,25 +103,26 @@ Es gibt verschiedene numerische Wertetypen, die Sie möglicherweise in CSS verwe
         >
       </td>
       <td>
-        Eine <code>&#x3C;dimension></code> ist eine <code>&#x3C;number></code>
-        mit einer angehängten Einheit. Zum Beispiel <code>45deg</code>,
-        <code>5s</code> oder <code>10px</code>.
-        <code>&#x3C;dimension></code> ist eine übergeordnete Kategorie, die
-        die {{cssxref("length")}},
-        <code><a href="/de/docs/Web/CSS/angle">&#x3C;angle></a></code>,
-        <code><a href="/de/docs/Web/CSS/time">&#x3C;time></a></code>-
-        und
-        <code><a href="/de/docs/Web/CSS/resolution">&#x3C;resolution></a></code>
-        -Typen umfasst.
+        Eine <code>&#x3C;dimension></code> ist ein
+        <code>&#x3C;number></code> mit einer Einheit angehängt. Zum Beispiel
+        <code>45deg</code>, <code>5s</code> oder <code>10px</code>.
+        <code>&#x3C;dimension></code> ist eine Oberkategorie, die das
+        {{cssxref("length")}}, <code><a href="/de/docs/Web/CSS/angle">&#x3C;angle></a></code
+        >, <code><a href="/de/docs/Web/CSS/time">&#x3C;time></a></code
+        >, und
+        <code
+          ><a href="/de/docs/Web/CSS/resolution">&#x3C;resolution></a></code
+        >
+        Typen einschließt.
       </td>
     </tr>
     <tr>
       <td>{{cssxref("percentage")}}</td>
       <td>
-        Ein <code>&#x3C;percentage></code> stellt einen Bruchteil eines anderen
-        Wertes dar. Zum Beispiel <code>50%</code>. Prozentwerte sind immer
-        relativ zu einer anderen Größe. Beispielsweise ist die Länge eines
-        Elements relativ zur Länge des übergeordneten Elements.
+        Ein <code>&#x3C;percentage></code> repräsentiert einen Bruchteil eines
+        anderen Wertes. Zum Beispiel <code>50%</code>. Prozentwerte sind immer
+        relativ zu einer anderen Größe. Zum Beispiel ist die Länge eines
+        Elements relativ zur Länge seines übergeordneten Elements.
       </td>
     </tr>
   </tbody>
@@ -130,69 +130,68 @@ Es gibt verschiedene numerische Wertetypen, die Sie möglicherweise in CSS verwe
 
 ### Längen
 
-Der numerische Typ, mit dem Sie am häufigsten konfrontiert werden, ist {{cssxref("length")}}. Zum Beispiel `10px` (Pixel) oder `30em`. In CSS gibt es zwei Arten von Längen – relative und absolute.
-Es ist wichtig, den Unterschied zu kennen, um zu verstehen, wie groß ein Element wird.
+Der numerische Typ, dem Sie am häufigsten begegnen werden, ist {{cssxref("length")}}. Zum Beispiel `10px` (Pixel) oder `30em`. Es gibt zwei Arten von Längen, die in CSS verwendet werden — relativ und absolut. Es ist wichtig, den Unterschied zu kennen, um zu verstehen, wie groß Dinge werden.
 
-#### Absolute Längeneinheiten
+#### Absolute Längeeinheiten
 
-Die folgenden sind alle **absoluten** Längeneinheiten – sie sind nicht relativ zu anderem und werden im Allgemeinen als immer gleich groß angesehen.
+Die folgenden sind alle **absolute** Längeeinheiten — sie sind nicht relativ zu etwas anderem und werden im Allgemeinen immer als gleich groß angesehen.
 
-| Einheit | Name                | Entspricht               |
-| ---- | ------------------- | ------------------------ |
-| `cm` | Zentimeter         | 1cm = 37,8px = 25,2/64in |
-| `mm` | Millimeter         | 1mm = 1/10 eines 1cm      |
-| `Q`  | Viertelmillimeter  | 1Q = 1/40 eines 1cm       |
-| `in` | Zoll               | 1in = 2,54cm = 96px      |
-| `pc` | Pica               | 1pc = 1/6 eines 1in       |
-| `pt` | Punkt              | 1pt = 1/72 eines 1in      |
-| `px` | Pixel              | 1px = 1/96 eines 1in      |
+| Einheit | Name              | Entspricht               |
+| ------- | ----------------- | ------------------------ |
+| `cm`    | Zentimeter        | 1cm = 37,8px = 25,2/64in |
+| `mm`    | Millimeter        | 1mm = 1/10 von 1cm       |
+| `Q`     | Viertelmillimeter | 1Q = 1/40 von 1cm        |
+| `in`    | Zoll              | 1in = 2,54cm = 96px      |
+| `pc`    | Picas             | 1pc = 1/6 von 1in        |
+| `pt`    | Punkte            | 1pt = 1/72 von 1in       |
+| `px`    | Pixel             | 1px = 1/96 von 1in       |
 
-Die meisten dieser Einheiten sind nützlicher, wenn sie für den Druck als für die Bildschirmausgabe verwendet werden. Wir verwenden beispielsweise normalerweise keine `cm` (Zentimeter) auf Bildschirmen. Der einzige Wert, den Sie häufig verwenden werden, ist `px` (Pixel).
+Die meisten dieser Einheiten sind nützlicher, wenn sie für den Druck verwendet werden, als für die Bildschirmausgabe. Zum Beispiel verwenden wir `cm` (Zentimeter) auf dem Bildschirm normalerweise nicht. Der einzige Wert, den Sie häufig verwenden werden, ist `px` (Pixel).
 
-#### Relative Längeneinheiten
+#### Relative Längeeinheiten
 
 Relative Längeneinheiten sind relativ zu etwas anderem. Zum Beispiel:
 
 - `em` ist relativ zur Schriftgröße dieses Elements oder zur Schriftgröße des übergeordneten Elements, wenn es für {{cssxref("font-size")}} verwendet wird. `rem` ist relativ zur Schriftgröße des Wurzelelements.
-- `vh` und `vw` sind relativ zur Höhe und Breite des Ansichtsfensters.
+- `vh` und `vw` sind relativ zur Höhe und Breite des Viewports, jeweils.
 
-Der Vorteil der Verwendung relativer Einheiten besteht darin, dass Sie mit ein wenig Planung die Größe des Textes oder anderer Elemente relativ zu allem anderen auf der Seite skalieren lassen können. Eine vollständige Liste der verfügbaren relativen Einheiten finden Sie auf der Referenzseite für den {{cssxref("length")}}-Typ.
+Der Vorteil der Verwendung relativer Einheiten besteht darin, dass Sie mit etwas sorgfältiger Planung dafür sorgen können, dass die Größe von Text oder anderen Elementen relativ zu allem anderen auf der Seite skaliert wird. Eine vollständige Liste der verfügbaren relativen Einheiten finden Sie auf der Referenzseite für den {{cssxref("length")}} Typ.
 
-In diesem Abschnitt werden wir einige der gebräuchlichsten relativen Einheiten untersuchen.
+In diesem Abschnitt werden wir einige der gebräuchlichsten relativen Einheiten erkunden.
 
-#### Ein Beispiel untersuchen
+#### Beispiel erkunden
 
-Im folgenden Beispiel können Sie sehen, wie sich einige relative und absolute Längeneinheiten verhalten. Das erste Kästchen hat eine {{cssxref("width")}}, die in Pixeln angegeben ist. Als absolute Einheit bleibt diese Breite gleich, egal was sich sonst ändert.
+Im folgenden Beispiel sehen Sie, wie sich einige relative und absolute Längeeinheiten verhalten. Das erste Feld hat eine {{cssxref("width")}} in Pixeln gesetzt. Als absolute Einheit bleibt diese Breite gleich, egal was sich ändert.
 
-Das zweite Kästchen hat eine Breite, die in `vw` (Ansichtsfensterbreite) Einheiten angegeben ist. Dieser Wert ist relativ zur Ansichtsfensterbreite, und somit sind 10vw 10 Prozent der Breite des Ansichtsfensters. Ändern Sie die Breite Ihres Browserfensters, sollte sich die Größe des Kästchens ändern. Da dieses Beispiel jedoch auf der Seite mithilfe eines [`<iframe>`](/de/docs/Web/HTML/Element/iframe) eingebettet ist, wird dies hier nicht funktionieren. Um dies in Aktion zu sehen, müssen Sie [das Beispiel in einem neuen Browser-Tab öffnen](https://mdn.github.io/css-examples/learn/values-units/length.html).
+Das zweite Feld hat eine Breite in `vw` (Viewport-Breite) Einheiten. Dieser Wert ist relativ zur Breite des Viewports, und so sind 10vw 10 Prozent der Breite des Viewports. Wenn Sie die Breite Ihres Browserfensters ändern, sollte sich die Größe des Feldes ändern. Dieses Beispiel ist jedoch in die Seite eingebettet unter Verwendung eines [`<iframe>`](/de/docs/Web/HTML/Element/iframe), sodass dies nicht funktioniert. Um dies in Aktion zu sehen, müssen Sie [das Beispiel ausprobieren, nachdem Sie es in einem eigenen Browser-Tab geöffnet haben](https://mdn.github.io/css-examples/learn/values-units/length.html).
 
-Das dritte Kästchen verwendet `em`-Einheiten. Diese sind relativ zur Schriftgröße des Elements. Ich habe eine Schriftgröße von `1em` auf dem umschließenden {{htmlelement("div")}} eingestellt, das eine Klasse von `.wrapper` hat. Ändern Sie diesen Wert auf `1.5em` und Sie werden sehen, dass die Schriftgröße aller Elemente zunimmt, aber nur das letzte Element breiter wird, da seine Breite relativ zu dieser Schriftgröße ist.
+Das dritte Feld verwendet `em` Einheiten. Diese sind relativ zur Schriftgröße des Elements. Ich habe eine Schriftgröße von `1em` auf dem umschließenden {{htmlelement("div")}} gesetzt, das eine Klasse von `.wrapper` hat. Ändern Sie diesen Wert auf `1.5em`, und Sie werden sehen, dass die Schriftgröße aller Elemente zunimmt, aber nur das letzte Element wird breiter, da seine Breite relativ zu dieser Schriftgröße ist.
 
-Nachdem Sie die oben genannten Anweisungen befolgt haben, versuchen Sie, die Werte auf andere Weise zu ändern, um zu sehen, was Sie erhalten.
+Nachdem Sie den obigen Anweisungen gefolgt sind, versuchen Sie, mit den Werten auf andere Weise zu spielen, um zu sehen, was Sie erhalten.
 
 {{EmbedGHLiveSample("css-examples/learn/values-units/length.html", '100%', 900)}}
 
 #### ems und rems
 
-`em` und `rem` sind die beiden relativen Längen, denen Sie am häufigsten begegnen werden, wenn es darum geht, alles von Boxen bis zu Texten zu dimensionieren. Es ist es wert, zu verstehen, wie sie funktionieren, und die Unterschiede zwischen ihnen zu kennen, insbesondere wenn Sie dazu übergehen, komplexere Themen wie [Textstyling](/de/docs/Learn/CSS/Styling_text) oder [CSS-Layout](/de/docs/Learn/CSS/CSS_layout) zu behandeln. Das unten stehende Beispiel bietet eine Demonstration.
+`em` und `rem` sind die beiden relativen Längen, denen Sie wahrscheinlich am häufigsten begegnen werden, wenn es darum geht, alles von Boxen bis zu Text zu skalieren. Es lohnt sich, zu verstehen, wie sie funktionieren und die Unterschiede zwischen ihnen zu verstehen, besonders wenn Sie beginnen, komplexere Themen wie [Text gestalten](/de/docs/Learn/CSS/Styling_text) oder [CSS-Layout](/de/docs/Learn/CSS/CSS_layout) zu erkunden. Das untenstehende Beispiel bietet eine Demonstration.
 
-Der im HTML gezeigte Code ist eine Reihe verschachtelter Listen – wir haben insgesamt zwei Listen und beide Beispiele haben dasselbe HTML. Der einzige Unterschied besteht darin, dass die erste eine Klasse von _ems_ und die zweite eine Klasse von _rems_ hat.
+Der unten dargestellte HTML-Code ist eine Reihe von verschachtelten Listen — wir haben insgesamt zwei Listen und beide Beispiele haben denselben HTML-Code. Der einzige Unterschied besteht darin, dass die erste die Klasse _ems_ und die zweite die Klasse _rems_ hat.
 
-Zunächst setzen wir 16px als Schriftgröße auf das `<html>`-Element.
+Zu Beginn setzen wir 16px als Schriftgröße auf dem `<html>` Element.
 
-**Zusammenfassend bedeutet die `em`-Einheit „die Schriftgröße meines übergeordneten Elements”,** wenn sie für `font-size` verwendet wird (und „meine eigene Schriftgröße”, wenn sie für alles andere verwendet wird). Die {{htmlelement("li")}}-Elemente innerhalb der {{htmlelement("ul")}} mit einer `class` von `ems` leiten ihre Größe von ihrem Elternteil ab. Daher wird jede aufeinanderfolgende Ebenenverschachtelung zunehmend größer, da jede ihre Schriftgröße auf `1.3em` gesetzt hat – 1,3 mal die Schriftgröße des übergeordneten Elements.
+**Zusammenfassend bedeutet die `em` Einheit "die Schriftgröße meines übergeordneten Elements"**, wenn sie für `font-size` verwendet wird (und "meine eigene Schriftgröße", wenn sie für etwas anderes verwendet wird). Die {{htmlelement("li")}} Elemente innerhalb der {{htmlelement("ul")}} mit einer `class` von `ems` nehmen ihre Größe von ihrem übergeordneten Element. Daher wird jedes nachfolgende Verschachtelungsniveau sukzessive größer, da jedes seine Schriftgröße auf `1.3em` gesetzt hat — 1,3 mal die Schriftgröße seines übergeordneten Elements.
 
-**Das `rem`-Element bedeutet „die Schriftgröße des Wurzelelements”,** (rem steht für „root em”). Die {{htmlelement("li")}}-Elemente innerhalb der {{htmlelement("ul")}} mit einer `class` von `rems` nehmen ihre Größe vom Wurzelelement (`<html>`) an. Dies bedeutet, dass die aufeinanderfolgende Verschachtelungsebenen nicht kontinuierlich vergrößert werden.
+**Zusammenfassend bedeutet die `rem` Einheit "die Schriftgröße des Wurzelelements"** (rem steht für "root em"). Die {{htmlelement("li")}} Elemente innerhalb der {{htmlelement("ul")}} mit einer `class` von `rems` nehmen ihre Größe vom Wurzelelement (`<html>`) an. Dies bedeutet, dass sich jedes nachfolgende Verschachtelungsniveau nicht ständig vergrößert.
 
-Wenn Sie jedoch die `font-size` des `<html>`-Elements im CSS ändern, werden Sie feststellen, dass sich alles andere relativ dazu ändert – sowohl der in `rem`- als auch `em`-bemessene Text.
+Wenn Sie jedoch die `font-size` des `<html>` Elements im CSS ändern, werden Sie sehen, dass sich alles andere relativ dazu ändert — sowohl `rem`- als auch `em`-skalierter Text.
 
 {{EmbedGHLiveSample("css-examples/learn/values-units/em-rem.html", '100%', 1100)}}
 
-#### Zeilenhöhe-Einheiten
+#### Liniendickeneinheiten
 
-`lh` und `rlh` sind relative Längeneinheiten, ähnlich wie `em` und `rem`. Der Unterschied zwischen `lh` und `rlh` besteht darin, dass der erste relativ zur Zeilenhöhe des Elements selbst ist, während der zweite relativ zur Zeilenhöhe des Wurzelelements ist, normalerweise `<html>`.
+`lh` und `rlh` sind relative Längeeinheiten ähnlich wie `em` und `rem`. Der Unterschied zwischen `lh` und `rlh` besteht darin, dass die erste relativ zur Zeilenhöhe des Elements selbst ist, während die zweite relativ zur Zeilenhöhe des Wurzelelements ist, normalerweise `<html>`.
 
-Mit diesen Einheiten können wir Boxdekorationen präzise zum Text ausrichten. In diesem Beispiel haben wir die `lh`-Einheit verwendet, um notizblockähnliche Linien zu erstellen, indem wir [`repeating-linear-gradient()`](/de/docs/Web/CSS/gradient/repeating-linear-gradient) verwenden. Es spielt keine Rolle, welche Zeilenhöhe der Text hat, die Linien werden immer an der richtigen Stelle beginnen.
+Mit diesen Einheiten können Sie die Box-Dekoration genau auf den Text ausrichten. In diesem Beispiel verwenden wir die `lh` Einheit, um notizblockartige Linien mit [`repeating-linear-gradient()`](/de/docs/Web/CSS/gradient/repeating-linear-gradient) zu erstellen. Es spielt keine Rolle, wie hoch die Zeilenhöhe des Textes ist, die Linien beginnen immer am richtigen Ort.
 
 ```css hidden
 body {
@@ -212,7 +211,7 @@ body {
     border-radius: 4px;
     background-color: tomato;
     color: white;
-    content: "Ihr Browser unterstützt die lh-Einheit derzeit noch nicht";
+    content: "You browser doesn't support lh unit just yet";
   }
 }
 ```
@@ -230,193 +229,210 @@ p {
 
 ```html
 <p style="line-height: 2em">
-  Der Sommer ist eine Zeit für Abenteuer, und dieses Jahr war keine Ausnahme. Ich hatte viele aufregende Erlebnisse, aber zwei meiner Favoriten waren mein Ausflug an den Strand und meine Woche im Sommerlager.
+  Summer is a time for adventure, and this year was no exception. I had many
+  exciting experiences, but two of my favorites were my trip to the beach and my
+  week at summer camp.
 </p>
 
 <p style="line-height: 4em">
-  Am Strand verbrachte ich meine Tage beim Schwimmen, Muscheln sammeln und Sandburgen bauen. Ich machte auch eine Bootsfahrt und sah Delfine neben uns schwimmen.
+  At the beach, I spent my days swimming, collecting shells, and building
+  sandcastles. I also went on a boat ride and saw dolphins swimming alongside
+  us.
 </p>
 ```
 
 {{EmbedLiveSample("line_height_units", "100%", "370")}}
 
-### Prozentwerte
+### Prozentsätze
 
-In vielen Fällen wird ein Prozentwert auf die gleiche Weise wie eine Länge behandelt. Das Besondere an Prozentwerten ist, dass sie immer relativ zu einem anderen Wert festgelegt sind. Wenn Sie beispielsweise die `font-size` eines Elements als Prozentsatz festlegen, ist sie ein Prozentsatz der `font-size` des übergeordneten Elements. Wenn Sie einen Prozentwert für eine `width`-Eigenschaft verwenden, ist er ein Prozentsatz der `width` des übergeordneten Elements.
+In vielen Fällen wird ein Prozentsatz ebenso wie eine Länge behandelt. Das Besondere an Prozentsätzen ist, dass sie immer relativ zu einem anderen Wert festgelegt werden. Wenn Sie beispielsweise die `font-size` eines Elements als Prozentsatz festlegen, wird es ein Prozentsatz der `font-size` des übergeordneten Elements sein. Wenn Sie einen Prozentsatz für einen `width`-Wert verwenden, ist dieser ein Prozentsatz der `width` des übergeordneten Elements.
 
-Im untenstehenden Beispiel haben die beiden prozentual bemessenen Boxen und die beiden pixelgroßen Boxen dieselben Klassennamen. Die Sets sind jeweils 40% und 200px breit.
+Im folgenden Beispiel haben die zwei prozentual skalierten Boxen und die zwei pixelbasierten Boxen dieselben Klassennamen. Die Sets sind jeweils 40% und 200px breit.
 
-Der Unterschied besteht darin, dass das zweite Set von zwei Boxen in einem Wrapper ist, der 400 Pixel breit ist. Die zweite 200px breite Box ist genauso breit wie die erste, aber die zweite 40%-Box ist jetzt 40% von 400px – deutlich schmaler als die erste!
+Der Unterschied besteht darin, dass das zweite Set von zwei Boxen in einem Wrapper ist, der 400 Pixel breit ist. Die zweite 200px breite Box hat dieselbe Breite wie die erste, aber die zweite 40% Box ist jetzt 40% von 400px — viel schmaler als die erste!
 
-**Versuchen Sie die Breite des Wrappers oder den Prozentsatz zu ändern, um zu sehen, wie dies funktioniert.**
+**Versuchen Sie, die Breite des Wrappers oder den Prozentwert zu ändern, um zu sehen, wie dies funktioniert.**
 
 {{EmbedGHLiveSample("css-examples/learn/values-units/percentage.html", '100%', 1000)}}
 
-Das nächste Beispiel hat Schriftgrößen, die in Prozentwerten eingestellt sind. Jedes `<li>` Element hat eine `font-size` von 80%; daher werden die verschachtelten Listenelemente zunehmend kleiner, da sie ihre Größe von ihrem Elternteil erben.
+Das nächste Beispiel hat Schriftgrößen, die in Prozent angegeben sind. Jedes `<li>` hat eine `font-size` von 80%; daher werden die verschachtelten Listenelemente nach und nach kleiner, da sie ihre Größen von ihrem übergeordneten Element erben.
 
 {{EmbedGHLiveSample("css-examples/learn/values-units/percentage-fonts.html", '100%', 800)}}
 
-Beachten Sie, dass, obwohl viele Wertetypen eine Länge oder einen Prozentwert akzeptieren, es einige gibt, die nur eine Länge akzeptieren. Auf den MDN-Eigenschaftsreferenzseiten können Sie sehen, welche Werte akzeptiert werden. Wenn der erlaubte Wert {{cssxref("length-percentage")}} beinhaltet, können Sie eine Länge oder einen Prozentwert verwenden. Wenn der erlaubte Wert nur `<length>` enthält, ist es nicht möglich, einen Prozentwert zu verwenden.
+Beachten Sie, dass viele Wertetypen eine Länge oder einen Prozentsatz akzeptieren, es gibt jedoch einige, die nur Länge akzeptieren. Sie können sehen, welche Werte auf den MDN Eigenschaftsreferenzseiten akzeptiert werden. Wenn der zulässige Wert {{cssxref("length-percentage")}} enthält, können Sie eine Länge oder einen Prozentsatz verwenden. Wenn der zulässige Wert nur `<length>` enthält, ist es nicht möglich, einen Prozentsatz zu verwenden.
 
 ### Zahlen
 
-Einige Wertetypen akzeptieren Zahlen ohne zusätzliche Einheit. Ein Beispiel für eine Eigenschaft, die eine einheitslose Zahl akzeptiert, ist die `opacity`-Eigenschaft, die die Opazität eines Elements steuert (wie transparent es ist). Diese Eigenschaft akzeptiert eine Zahl zwischen `0` (vollständig transparent) und `1` (vollständig undurchsichtig).
+Einige Wertetypen akzeptieren Zahlen, ohne dass ihnen eine Einheit hinzugefügt wird. Ein Beispiel für eine Eigenschaft, die eine einheitslose Zahl akzeptiert, ist die `opacity`-Eigenschaft, die die Undurchsichtigkeit eines Elements steuert (wie transparent es ist). Diese Eigenschaft akzeptiert eine Zahl zwischen `0` (vollständig transparent) und `1` (vollständig undurchsichtig).
 
-**Ändern Sie im folgenden Beispiel den Wert von `opacity` auf verschiedene Dezimalwerte zwischen `0` und `1`, um zu sehen, wie die Box und ihr Inhalt mehr oder weniger opak werden.**
+**Im folgenden Beispiel versuchen Sie, den Wert der `opacity` auf verschiedene Dezimalwerte zwischen `0` und `1` zu ändern und beobachten, wie die Box und ihr Inhalt mehr oder weniger durchsichtig werden.**
 
 {{EmbedGHLiveSample("css-examples/learn/values-units/opacity.html", '100%', 600)}}
 
 > [!NOTE]
-> Wenn Sie eine Zahl als Wert in CSS verwenden, sollte sie nicht in Anführungszeichen gesetzt werden.
+> Wenn Sie eine Zahl in CSS als Wert verwenden, sollte sie nicht in Anführungszeichen eingeschlossen werden.
 
 ## Farbe
 
-Farbwerte können in vielen Bereichen in CSS verwendet werden, egal ob Sie die Farbe von Text, Hintergründen, Rändern und mehr angeben. Es gibt viele Möglichkeiten, Farben in CSS festzulegen, wodurch Sie zahlreiche spannende Eigenschaften kontrollieren können.
+Farbwerte können an vielen Stellen in CSS verwendet werden, sei es, um die Farbe von Text, Hintergründen, Rahmen und vieles mehr zu bestimmen. Es gibt viele Möglichkeiten, Farbe in CSS festzulegen, die es Ihnen ermöglichen, viele aufregende Eigenschaften zu steuern.
 
-Das Standardsystem für Farben, das auf modernen Computern verfügbar ist, unterstützt 24-Bit-Farben, was es ermöglicht, etwa 16,7 Millionen verschiedene Farben darzustellen, indem verschiedene rote, grüne und blaue Kanäle mit jeweils 256 verschiedenen Werten kombiniert werden (256 x 256 x 256 = 16.777.216).
+Das standardmäßig in modernen Computern verfügbare Farbsystem unterstützt 24-Bit-Farben, was es ermöglicht, etwa 16,7 Millionen verschiedene Farben durch eine Kombination verschiedener roter, grüner und blauer Kanäle mit 256 verschiedenen Werten pro Kanal darzustellen (256 x 256 x 256 = 16.777.216).
 
-In diesem Abschnitt schauen wir uns zunächst die am häufigsten gesehenen Möglichkeiten an, Farben anzugeben: mit Schlüsselwörtern, Hexadezimalwerten und `rgb()`-Werten. Wir werden auch einen kurzen Blick auf zusätzliche Farbfunktionen werfen, damit Sie sie erkennen können, wenn Sie sie sehen, oder mit verschiedenen Verfahren zur Farbverwendung experimentieren können.
+In diesem Abschnitt werden wir zuerst die am häufigsten gesehenen Methoden zur Spezifizierung von Farben betrachten: die Verwendung von Schlüsselwörtern, Hexadezimal- und `rgb()`-Werten. Wir werden auch einen kurzen Blick auf zusätzliche Farb-Funktionen werfen, die es Ihnen ermöglichen, sie zu erkennen, wenn Sie sie sehen, oder verschiedene Möglichkeiten der Farbgebung zu erforschen.
 
-Sie werden wahrscheinlich eine Farbpalette festlegen und diese Farben – und Ihre bevorzugte Methode zur Angabe von Farben – in Ihrem gesamten Projekt verwenden. Sie können Farbbereiche mischen und kombinieren, aber es ist normalerweise am besten, wenn Ihr gesamtes Projekt dieselbe Methode zur Deklaration von Farben aufgrund von Konsistenz verwendet!
+Sie werden wahrscheinlich eine Farbpalette auswählen und dann diese Farben — und Ihre bevorzugte Methode zur Farbspezifizierung — in Ihrem gesamten Projekt verwenden. Sie können Farbmodelle mischen und anpassen, aber es ist normalerweise am besten, wenn Ihr gesamtes Projekt die gleiche Methode zur Deklaration von Farben für Konsistenz verwendet!
 
 ### Farb-Schlüsselwörter
 
-Sie werden die Farb-Schlüsselwörter (oder „benannte Farben”) in vielen MDN-Codebeispielen sehen. Da der Datentyp [`<named-color>`](/de/docs/Web/CSS/named-color) eine sehr begrenzte Anzahl von Farbwerten enthält, werden diese normalerweise nicht bei Produktionswebsites eingesetzt. Da das Schlüsselwort die Farbe als menschenlesbaren Text darstellt, werden die benannten Farben in Codebeispielen verwendet, um dem Benutzer klar zu machen, welche Farbe erwartet wird, damit der Lernende sich auf den vermittelten Inhalt konzentrieren kann.
+Sie werden die Farb-Schlüsselwörter (oder 'benannte Farben') in vielen MDN-Codebeispielen sehen. Da der [`<named-color>`s](/de/docs/Web/CSS/named-color) Datentyp eine sehr endliche Anzahl von Farbwerten enthält, werden diese nicht häufig auf Produktionswebsites verwendet. Da das Schlüsselwort die Farbe als menschenlesbaren Textwert darstellt, werden benannte Farben in Code-Beispielen verwendet, um dem Benutzer eindeutig mitzuteilen, welche Farbe erwartet wird, sodass der Lernende sich auf den zu vermittelnden Inhalt konzentrieren kann.
 
-**Versuchen Sie, mit verschiedenen Farbwerten in den Live-Beispielen unten zu spielen, um eine bessere Vorstellung davon zu bekommen, wie sie funktionieren.**
+**Spielen Sie mit verschiedenen Farbwerten in den Live-Beispielen unten, um eine bessere Vorstellung davon zu bekommen, wie sie funktionieren.**
 
 {{EmbedGHLiveSample("css-examples/learn/values-units/color-keywords.html", '100%', 800)}}
 
 ### Hexadezimale RGB-Werte
 
-Der nächste Farbwerttyp, dem Sie wahrscheinlich begegnen werden, sind hexadezimale Codes. Hexadezimal verwendet 16 Zeichen von `0-9` und `a-f`, sodass der gesamte Bereich `0123456789abcdef` umfasst. Jeder Hex-Farbwert besteht aus einem Hash- bzw. Pfund-Symbol (`#`), gefolgt von drei oder sechs hexadezimalen Zeichen (`#fcc` oder `#ffc0cb` zum Beispiel), mit einem optionalen ein oder zwei hexadezimalen Zeichen, die die Alphakanal-Transparenz der vorherigen drei oder sechs Zeichen-Farbwerte darstellen.
+Die nächste Art von Farbwert, der Ihnen wahrscheinlich begegnen wird, sind hexadezimale Codes. Das Hexadezimalsystem verwendet 16 Zeichen von `0-9` und `a-f`, sodass der gesamte Bereich `0123456789abcdef` besteht. Jeder hexadezimale Farbwert besteht aus einem Hash-/Raute-Symbol (`#`), gefolgt von drei oder sechs hexadezimalen Zeichen (`#fcc` oder `#ffc0cb`, zum Beispiel), mit einem optionalen ein oder zwei hexadezimalen Zeichen, die die Alpha-Transparenz der vorhergehenden drei oder sechs Zeichenfarbwerte darstellen.
 
-Wenn wir Hexadezimalzahlen zur Beschreibung von RGB-Werten verwenden, ist jedes **Paar** hexadezimaler Zeichen eine Dezimalzahl, die einen der Kanäle - rot, grün und blau - darstellt und es uns ermöglicht, einen der 256 verfügbaren Werte für jeden anzugeben (16 x 16 = 256). Diese Werte sind weniger intuitiv als Schlüsselwörter zur Definition von Farben, aber sie sind viel vielseitiger, da Sie jede RGB-Farbe damit darstellen können.
+Bei Verwendung von Hexadezimal zur Beschreibung von RGB-Werten repräsentiert jedes **Paar** hexadezimaler Zeichen eine Dezimalzahl, die einen der Kanäle — rot, grün und blau — darstellt und es uns ermöglicht, einen der 256 verfügbaren Werte für jeden zu spezifizieren (16 x 16 = 256). Diese Werte sind weniger intuitiv als Schlüsselwörter zur Definition von Farben, aber sie sind viel vielseitiger, da Sie jede RGB-Farbe mit ihnen darstellen können.
 
-{{EmbedGHLiveSample("css-examples/learn/values-units/color-hex.html", "100%", "800")}}
+{{EmbedGHLiveSample("css-examples/learn/values-units/color-hex.html", '100%', 800)}}
 
-**Auch hier: Versuchen Sie, die Werte zu ändern, um zu sehen, wie sich die Farben unterscheiden.**
+**Ändern Sie erneut die Werte, um zu sehen, wie sich die Farben unterscheiden.**
 
 ### RGB-Werte
 
-Um RGB-Werte direkt zu erstellen, nimmt die Funktion [`rgb()`](/de/docs/Web/CSS/color_value/rgb) drei Parameter, die **rot**, **grün** und **blau** Kanalwerte der Farben darstellen, mit einem optionalen vierten Wert, der durch einen Schrägstrich ('/') getrennt ist und Opazität darstellt, auf dieselbe Weise wie Hexadezimalwerte. Der Unterschied bei RGB besteht darin, dass jeder Kanal nicht durch zwei Hexadezimalstellen, sondern durch eine Dezimalzahl zwischen 0 und 255 oder einen Prozentsatz zwischen 0% und 100%, jedoch nicht gemischt, dargestellt wird.
+Um RGB-Werte direkt zu erstellen, nimmt die [`rgb()`](/de/docs/Web/CSS/color_value/rgb) Funktion drei Parameter entgegen, die **rote**, **grüne** und **blaue** Kanalwerte der Farben darstellen, mit einem optionalen vierten Wert, der durch einen Schrägstrich ('/') getrennt ist, der die Undurchsichtigkeit auf ähnliche Weise wie Hex-Werte darstellt. Der Unterschied bei RGB besteht darin, dass jeder Kanal nicht durch zwei Hex-Ziffern, sondern durch eine Dezimalzahl zwischen 0 und 255 oder einen Prozentsatz zwischen 0% und 100% inklusive (jedoch keine Mischung aus beiden) dargestellt wird.
 
-Lassen Sie uns unser letztes Beispiel umschreiben, um RGB-Farben zu verwenden:
+Schreiben wir unser letztes Beispiel um, um RGB-Farben zu verwenden:
 
-{{EmbedGHLiveSample("css-examples/learn/values-units/color-rgb.html", "100%", "800")}}
+{{EmbedGHLiveSample("css-examples/learn/values-units/color-rgb.html", '100%', 800)}}
 
-Sie können einen vierten Parameter an `rgb()` übergeben, der den Alphakanal der Farbe darstellt, der die Opazität steuert. Wenn Sie diesen Wert auf `0` setzen, wird die Farbe vollständig transparent, während `1` sie vollständig opak macht. Werte dazwischen geben Ihnen unterschiedliche Transparenzgrade.
+Sie können einen vierten Parameter an `rgb()` übergeben, der den Alphakanal der Farbe darstellt, der die Opazität steuert. Wenn Sie diesen Wert auf `0` setzen, wird die Farbe vollständig transparent, während `1` sie vollständig undurchsichtig macht. Werte dazwischen ergeben unterschiedliche Transparenzstufen.
 
 > [!NOTE]
-> Wenn Sie auf einer Farbe einen Alphakanal festlegen, gibt es einen wichtigen Unterschied zur Verwendung der {{cssxref("opacity")}}-Eigenschaft, die wir zuvor gesehen haben. Wenn Sie die Opazität verwenden, machen Sie das Element und alles darin opak, während die Verwendung von RGB mit einem Alpha-Parameter nur die Farbe, die Sie angeben, opak macht.
+> Das Setzen eines Alpha-Kanals auf eine Farbe unterscheidet sich in einem wichtigen Punkt von der Verwendung der {{cssxref("opacity")}} Eigenschaft, die wir weiter oben angesehen haben. Wenn Sie Opazität verwenden, machen Sie das Element und alles darin durchsichtig, während bei der Verwendung von RGB mit einem Alpha-Parameter nur die von Ihnen spezifizierte Farbe durchsichtig wird.
 
-Im Beispiel unten haben wir dem umschließenden Block unserer farbigen Boxen ein Hintergrundbild hinzugefügt. Wir haben dann die Boxen auf verschiedene Opazitätswerte gesetzt – beachten Sie, wie der Hintergrund bei kleinerem Alphakanalwert mehr durchscheint.
+Im Beispiel unten haben wir ein Hintergrundbild zum umgebenden Block unserer farbigen Boxen hinzugefügt. Wir haben dann die Boxen so eingestellt, dass sie unterschiedliche Opazitätswerte haben — beachten Sie, wie der Hintergrund mehr durchscheint, wenn der Alpha-Kanalwert kleiner ist.
 
-{{EmbedGHLiveSample("css-examples/learn/values-units/color-rgba.html", "100%", "900")}}
+{{EmbedGHLiveSample("css-examples/learn/values-units/color-rgba.html", '100%', 900)}}
 
-**In diesem Beispiel: Versuchen Sie, die Alpha-Kanal-Werte zu ändern, um zu sehen, wie er die Farbausgabe beeinflusst.**
+**Versuchen Sie in diesem Beispiel, die Werte des Alpha-Kanals zu ändern, um zu sehen, wie dies die Farbausgabe beeinflusst.**
 
 ### SRGB-Werte
 
-Der `sRGB`-Farbraum definiert Farben im **Rot** (r), **Grün** (g) und **Blau** (b) Farbraum.
+Der `sRGB` Farbraum definiert Farben im **roten** (r), **grünen** (g) und **blauen** (b) Farbraum.
 
-### Verwenden von Farbtönen, um eine Farbe zu spezifizieren
+### Verwenden von Farbton zur Spezifizierung einer Farbe
 
-Wenn Sie über Schlüsselwörter, Hexadezimal- und `rgb()`-Werte für Farben hinausgehen möchten, könnten Sie erwägen, [`<hue>`](/de/docs/Web/CSS/hue) zu verwenden. Farbton ist die Eigenschaft, die uns erlaubt, die Unterschiede oder Ähnlichkeiten zwischen Farben wie Rot, Orange, Gelb, Grün, Blau usw. zu unterscheiden. Das Schlüsselkonzept besteht darin, dass Sie in einem [`<angle>`](/de/docs/Web/CSS/angle) einen Farbton spezifizieren können, da die meisten Farbmodelle Farbtöne mit einem {{glossary("Farbkreis")}} beschreiben.
+Wenn Sie über Schlüsselwörter, Hexadezimal und `rgb()` hinaus Farben verwenden möchten, könnten Sie versuchen, [`<hue>`](/de/docs/Web/CSS/hue) zu verwenden. Farbton ist die Eigenschaft, die es uns ermöglicht, zwischen Farben wie rot, orange, gelb, grün, blau usw. zu unterscheiden oder Ähnlichkeiten zu erkennen. Der Schlüsselkonzept besteht darin, dass Sie einen Farbton in einem [`<angle>`](/de/docs/Web/CSS/angle) spezifizieren können, da die meisten Farbmodelle Farbtöne mithilfe eines [Farbkreises](/de/docs/Glossary/color_wheel) beschreiben.
 
-Es gibt mehrere Farb-Funktionsmöglichkeiten, die einen [`<hue>`](/de/docs/Web/CSS/hue)-Komponent enthalten, darunter `hsl()`, `hwb()`, und [`lch()`](/de/docs/Web/CSS/color_value/lch). Andere Farb-Funktionsmöglichkeiten, wie [`lab()`](/de/docs/Web/CSS/color_value/lab), definieren Farben basierend auf dem, was Menschen sehen können.
+Es gibt mehrere Farb-Funktionen, die eine [`<hue>`](/de/docs/Web/CSS/hue) Komponente enthalten, einschließlich `hsl()`, `hwb()` und [`lch()`](/de/docs/Web/CSS/color_value/lch). Andere Farb-Funktionen, wie [`lab()`](/de/docs/Web/CSS/color_value/lab), definieren Farben basierend darauf, was Menschen sehen können.
 
-Wenn Sie mehr über diese Funktionen und Farbräume erfahren möchten, sehen Sie sich den Leitfaden zu [Farbanwendung auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color) an, das [`<color>`](/de/docs/Web/CSS/color_value) Referenzdokument, das alle verschiedenen Möglichkeiten auflistet, die Sie verwenden können, um Farben in CSS zu verwenden, und das [CSS-Farbmodul](/de/docs/Web/CSS/CSS_colors), das einen Überblick über alle Farbetypen in CSS bietet und die Eigenschaften, die Farbwerte verwenden.
+Wenn Sie mehr über diese Funktionen und Farbräume erfahren möchten, lesen Sie den [Farbauftrag auf HTML-Elemente mit CSS](/de/docs/Web/CSS/CSS_colors/Applying_color) Leitfaden, die [`<color>`](/de/docs/Web/CSS/color_value) Referenz, die alle verschiedenen Möglichkeiten auflistet, wie Sie Farben in CSS verwenden können, und das [CSS Farbmodul](/de/docs/Web/CSS/CSS_colors), das einen Überblick über alle Farbtypen in CSS und die Eigenschaften gibt, die Farbwerte verwenden.
 
 ### HWB
 
-Ein großartiger Ausgangspunkt für die Verwendung von Farbtönen in CSS ist die [`hwb()`](/de/docs/Web/CSS/color_value/hwb)-Funktion, die eine `srgb()`-Farbe spezifiziert. Die drei Bereiche sind:
+Ein großartiger Einstiegspunkt für die Verwendung von Farbtönen in CSS ist die [`hwb()`](/de/docs/Web/CSS/color_value/hwb) Funktion, die eine `srgb()` Farbe spezifiziert. Die drei Teile sind:
 
-- **Farbton**: Der Grundton der Farbe. Dies nimmt einen [`<hue>`](/de/docs/Web/CSS/hue)-Wert zwischen 0 und 360 an, der die Winkel um einen Farbkreis darstellt.
-- **Weißheit**: Wie weiß ist die Farbe? Dies nimmt einen Wert von `0%` (keine Weißheit) bis `100%` (vollständige Weißheit) an.
-- **Schwärze**: Wie schwarz ist die Farbe? Dies nimmt einen Wert von 0% (keine Schwärze) bis 100% (vollständige Schwärze) an.
+- **Farbton**: Der Basiston der Farbe. Dies nimmt einen [`<hue>`](/de/docs/Web/CSS/hue) Wert zwischen 0 und 360 an, der die Winkel auf einem Farbkreis darstellt.
+- **Weißheit**: Wie weiß ist die Farbe? Dies nimmt einen Wert von `0%` (keine Weißheit) bis `100%` (volle Weißheit) an.
+- **Schwärze**: Wie schwarz ist die Farbe? Dies nimmt einen Wert von `0%` (keine Schwärze) bis `100%` (volle Schwärze) an.
 
 ### HSL
 
-Ähnlich wie die `hwb()`-Funktion ist die [`hsl()`](/de/docs/Web/CSS/color_value/hsl)-Funktion, die ebenfalls eine `srgb()`-Farbe spezifiziert. HSL verwendet den `Farbton` in Kombination mit `Sättigung` und `Helligkeit`:
+Ähnlich zur `hwb()` Funktion ist die [`hsl()`](/de/docs/Web/CSS/color_value/hsl) Funktion, die eine `srgb()` Farbe ebenfalls spezifiziert. HSL verwendet `Farbton`, zusätzlich `Sättigung` und `Helligkeit`:
 
 - **Farbton**
-- **Sättigung**: Wie gesättigt ist die Farbe? Dies nimmt einen Wert von 0–100% an, wobei 0 keine Farbe (es wird als Graustufen erscheinen) und 100% vollständige Farbsättigung ist.
-- **Helligkeit**: Wie hell ist die Farbe? Dies nimmt einen Wert von 0–100% an, wobei 0 keine Helligkeit (es wird vollständig schwarz erscheinen) und 100% vollständige Helligkeit (es wird vollständig weiß erscheinen) ist.
+- **Sättigung**: Wie gesättigt ist die Farbe? Dies nimmt einen Wert von 0–100%, wobei 0 keine Farbe ist (es erscheint in einem Grauton) und 100% volle Farbsättigung ist.
+- **Helligkeit**: Wie hell oder leuchtend ist die Farbe? Dies nimmt einen Wert von 0–100%, wobei 0 kein Licht ist (es erscheint vollständig schwarz) und 100% volles Licht ist (es scheint vollständig weiß).
 
-Der `hsl()`-Farbwert hat auch einen optionalen vierten Wert, der durch einen Schrägstrich (`/`) von der Farbe getrennt ist und die Alpha-Transparenz darstellt.
+Der `hsl()` Farbwert hat auch einen optionalen vierten Wert, der durch einen Schrägstrich (`/`) von der Farbe getrennt ist und die Alpha-Transparenz darstellt.
 
 Lassen Sie uns das RGB-Beispiel aktualisieren, um stattdessen HSL-Farben zu verwenden:
 
-{{EmbedGHLiveSample("css-examples/learn/values-units/color-hsl.html", "100%", "800")}}
+{{EmbedGHLiveSample("css-examples/learn/values-units/color-hsl.html", '100%', 800)}}
 
-Genau wie bei `rgb()` können Sie einen Alpha-Parameter an `hsl()` übergeben, um Opazität zu spezifizieren:
+Genau wie mit `rgb()` können Sie einen Alpha-Parameter an `hsl()` übergeben, um die Opazität zu spezifizieren:
 
-{{EmbedGHLiveSample("css-examples/learn/values-units/color-hsla.html", "100%", "900")}}
+{{EmbedGHLiveSample("css-examples/learn/values-units/color-hsla.html", '100%', 900)}}
 
 ## Bilder
 
-Der Werttyp [`<image>`](/de/docs/Web/CSS/image) wird überall dort verwendet, wo ein Bild ein gültiger Wert ist. Dies kann eine tatsächliche Bilddatei sein, die über eine `url()`-Funktion angegeben wird, oder ein Verlauf.
+Der [`<image>`](/de/docs/Web/CSS/image) Wertetyp wird überall dort verwendet, wo ein Bild ein gültiger Wert ist. Dies kann eine tatsächliche Bilddatei sein, die über eine `url()` Funktion angegeben wird, oder ein Verlauf.
 
-Im folgenden Beispiel haben wir ein Bild und einen Verlauf als Wert für die CSS-`background-image`-Eigenschaft demonstriert.
+Im folgenden Beispiel haben wir ein Bild und einen Verlauf als Wert für die CSS-Eigenschaft `background-image` demonstriert.
 
-{{EmbedGHLiveSample("css-examples/learn/values-units/image.html", "100%", "900")}}
+{{EmbedGHLiveSample("css-examples/learn/values-units/image.html", '100%', 900)}}
 
 > [!NOTE]
-> Es gibt einige andere mögliche Werte für `<image>`, diese sind jedoch neuer und derzeit schlecht unter Browsern entwickelt. Sehen Sie sich die Seite auf MDN für den [`<image>`](/de/docs/Web/CSS/image)-Datentyp an, wenn Sie mehr darüber lesen möchten.
+> Es gibt einige andere mögliche Werte für `<image>`, jedoch sind diese neuer und haben derzeit eine schlechte Browser-Unterstützung. Schauen Sie sich die Seite auf MDN für den [`<image>`](/de/docs/Web/CSS/image) Datentyp an, wenn Sie mehr darüber lesen möchten.
 
 ## Position
 
-Der Werttyp [`<position>`](/de/docs/Web/CSS/position_value) stellt ein Satz von 2D-Koordinaten dar, die verwendet werden, um ein Element wie ein Hintergrundbild zu positionieren (über [`background-position`](/de/docs/Web/CSS/background-position)). Es kann Schlüsselwörter wie `top`, `left`, `bottom`, `right` und `center` enthalten, um Elemente mit speziellen Begrenzungen eines 2D-Felds auszurichten, zusammen mit Längen, die Offsets von den oberen und linken Kanten des Feldes darstellen.
+Der [`<position>`](/de/docs/Web/CSS/position_value) Wertetyp repräsentiert ein Set von 2D-Koordinaten, die verwendet werden, um ein Element wie ein Hintergrundbild (über [`background-position`](/de/docs/Web/CSS/background-position)) zu positionieren. Es kann Schlüsselwörter wie `top`, `left`, `bottom`, `right` und `center` annehmen, um Elemente mit bestimmten Begrenzungen eines 2D-Feldes auszurichten, zusammen mit Längen, die Offsets vom oberen und linken Rand des Feldes darstellen.
 
-Ein typischer Positionswert besteht aus zwei Werten – den ersten, um die Position horizontal festzusetzen, und den zweiten, um die Position vertikal festzusetzen. Wenn Sie nur Werte für eine Achse angeben, wird die andere auf `center` gesetzt.
+Ein typischer Positionswert besteht aus zwei Werten — der erste legt die horizontale Position fest, der zweite die vertikale. Wenn Sie nur Werte für eine Achse angeben, wird die andere standardmäßig auf `center` gesetzt.
 
-Im folgenden Beispiel haben wir ein Hintergrundbild 40px vom oberen Rand und der rechten Seite des Containers mit einem Schlüsselwort positioniert.
+Im folgenden Beispiel haben wir ein Hintergrundbild 40px von oben und rechts des Containers positioniert, indem wir ein Schlüsselwort verwenden.
 
-{{EmbedGHLiveSample("css-examples/learn/values-units/position.html", "100%", "800")}}
+{{EmbedGHLiveSample("css-examples/learn/values-units/position.html", '100%', 800)}}
 
 **Experimentieren Sie mit diesen Werten, um zu sehen, wie Sie das Bild verschieben können.**
 
 ## Zeichenfolgen und Bezeichner
 
-In den oben genannten Beispielen haben wir Stellen gesehen, an denen Schlüsselwörter als Wert verwendet werden (zum Beispiel `<color>`-Schlüsselwörter wie `red`, `black`, `rebeccapurple` und `goldenrod`). Diese Schlüsselwörter werden genauer als _Bezeichner_ beschrieben, einem speziellen Wert, den CSS versteht. Als solcher werden sie nicht zitiert – sie werden nicht als Zeichenfolgen behandelt.
+In den obigen Beispielen haben wir Stellen gesehen, an denen Schlüsselwörter als Wert verwendet wurden (zum Beispiel `<color>` Schlüsselwörter wie `rot`, `schwarz`, `rebeccapurple` und `goldenrod`). Diese Schlüsselwörter werden genauer als _Bezeichner_ beschrieben, ein spezieller Wert, den CSS versteht. Als solcher werden sie nicht zitiert — sie werden nicht als Zeichenfolgen behandelt.
 
-Es gibt Stellen, an denen Sie Zeichenfolgen in CSS verwenden. Zum Beispiel [wenn Sie generierten Inhalt angeben](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements#generating_content_with_before_and_after). In diesem Fall ist der Wert zitiert, um darzustellen, dass er eine Zeichenfolge ist. Im folgenden Beispiel verwenden wir nicht zitierte Farb-Schlüsselwörter zusammen mit einer zitierten generierten Inhaltszeichenfolge.
+Es gibt Stellen, an denen Sie Zeichenfolgen in CSS verwenden. Zum Beispiel [bei der Spezifizierung generierter Inhalte](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements#generating_content_with_before_and_after). In diesem Fall wird der Wert zitiert, um zu zeigen, dass es sich um eine Zeichenfolge handelt. Im folgenden Beispiel verwenden wir unzitierte Farb-Schlüsselwörter zusammen mit einer zitierten generierten Zeichenfolgeninhaltzeichenfolge.
 
-{{EmbedGHLiveSample("css-examples/learn/values-units/strings-idents.html", "100%", "600")}}
+{{EmbedGHLiveSample("css-examples/learn/values-units/strings-idents.html", '100%', 600)}}
 
 ## Funktionen
 
-In der Programmierung ist eine Funktion ein Stück Code, das eine bestimmte Aufgabe ausführt. Funktionen sind nützlich, da Sie Code einmal schreiben und dann mehrfach wiederverwenden können, anstatt dieselbe Logik immer wieder zu schreiben. Die meisten Programmiersprachen unterstützen nicht nur Funktionen, sondern bieten auch bequeme eingebaute Funktionen für allgemeine Aufgaben, damit Sie sie nicht von Grund auf neu schreiben müssen.
+In der Programmierung ist eine Funktion ein Stück Code, das eine bestimmte Aufgabe erledigt.
+Funktionen sind nützlich, weil Sie Code einmal schreiben und dann mehrfach wiederverwenden können, anstatt die gleiche Logik immer und immer wieder zu schreiben.
+Die meisten Programmiersprachen unterstützen nicht nur Funktionen, sondern bieten auch praktische eingebaute Funktionen für häufige Aufgaben, damit Sie sie nicht von Grund auf neu schreiben müssen.
 
-CSS hat auch [Funktionen](/de/docs/Web/CSS/CSS_Functions), die ähnlich wie Funktionen in anderen Sprachen arbeiten. In der Tat haben wir bereits CSS-Funktionen im [Farb](#farbe) Abschnitt oben mit den Funktionen [`rgb()`](/de/docs/Web/CSS/color_value/rgb) und [`hsl()`](/de/docs/Web/CSS/color_value/hsl) gesehen.
+CSS hat auch [Funktionen](/de/docs/Web/CSS/CSS_Functions), die ähnlich funktionieren wie Funktionen in anderen Sprachen.
+Tatsächlich haben wir bereits CSS-Funktionen im [Farbe](#farbe) Abschnitt oben mit [`rgb()`](/de/docs/Web/CSS/color_value/rgb) und [`hsl()`](/de/docs/Web/CSS/color_value/hsl) Funktionen gesehen.
 
-Abgesehen vom Anwenden von Farben können Sie Funktionen in CSS verwenden, um viele andere Dinge zu tun. Beispielsweise sind [Transformationsfunktionen](/de/docs/Web/CSS/CSS_Functions#transform_functions) eine übliche Methode, um Elemente auf einer Seite zu bewegen, zu drehen und zu skalieren. Sie könnten [`translate()`](/de/docs/Web/CSS/transform-function/translate) für horizontales oder vertikales Verschieben sehen, [`rotate()`](/de/docs/Web/CSS/transform-function/rotate) um etwas zu drehen, oder [`scale()`](/de/docs/Web/CSS/transform-function/scale) um etwas größer oder kleiner zu machen.
+Abgesehen von der Anwendung von Farben können Sie Funktionen in CSS für viele andere Dinge verwenden.
+Zum Beispiel sind [Transformfunktionen](/de/docs/Web/CSS/CSS_Functions#transform_functions) eine gängige Möglichkeit, Elemente auf einer Seite zu verschieben, zu drehen und zu skalieren.
+Sie könnten [`translate()`](/de/docs/Web/CSS/transform-function/translate) sehen, um etwas horizontal oder vertikal zu verschieben, [`rotate()`](/de/docs/Web/CSS/transform-function/rotate), um etwas zu drehen, oder [`scale()`](/de/docs/Web/CSS/transform-function/scale), um etwas größer oder kleiner zu machen.
 
-### mathematische Funktionen
+### Math-Funktionen
 
-Wenn Sie Stile für ein Projekt erstellen, starten Sie wahrscheinlich mit Zahlen wie `300px` für Längen oder `200ms` für Zeitdauern. Wenn Sie möchten, dass diese Werte basierend auf anderen Werten variieren, müssen Sie einige Berechnungen durchführen. Sie könnten den Prozentsatz eines Wertes oder eine Addition zu einer anderen Zahl berechnen und dann Ihr CSS mit dem Ergebnis aktualisieren.
+Wenn Sie Stile für ein Projekt erstellen, beginnen Sie wahrscheinlich mit Zahlen wie `300px` für Längen oder `200ms` für Zeitdauern.
+Wenn Sie möchten, dass diese Werte auf Basis anderer Werte variieren, müssen Sie etwas Mathematik anwenden.
+Sie könnten den Prozentsatz eines Wertes berechnen oder eine Zahl zu einer anderen Zahl hinzufügen und dann Ihr CSS mit dem Ergebnis aktualisieren.
 
-CSS hat Unterstützung für [mathematische Funktionen](/de/docs/Web/CSS/CSS_Functions#math_functions), die uns Berechnungen durchführen lassen, anstatt von statischen Werten abzuhängen oder die Berechnung in JavaScript durchzuführen. Eine der gebräuchlichsten mathematischen Funktionen ist [`calc()`](/de/docs/Web/CSS/calc), die Ihnen ermöglicht, Addition, Subtraktion, Multiplikation und Division durchzuführen.
+CSS unterstützt [Math-Funktionen](/de/docs/Web/CSS/CSS_Functions#math_functions), die es uns ermöglichen, Berechnungen durchzuführen, anstatt auf statische Werte angewiesen zu sein oder die Mathematik in JavaScript durchzuführen.
+Eine der häufigsten Math-Funktionen ist [`calc()`](/de/docs/Web/CSS/calc), die es Ihnen ermöglicht, Operationen wie Addition, Substraktion, Multiplikation und Division durchzuführen.
 
-Zum Beispiel: Angenommen, wir möchten die Breite eines Elements auf 20% seines übergeordneten Containers plus 100px einstellen. Wir können diesen Breitenwert nicht mit einem statischen Wert spezifizieren – wenn das Elternteil eine prozentuale Breite verwendet (oder eine relative Einheit wie `em` oder `rem`), variiert es abhängig vom Kontext, in dem es verwendet wird, und anderen Faktoren wie dem Gerät oder der Browserfensterbreite des Benutzers. Mit `calc()` können wir jedoch die Breite des Elements auf 20% seines übergeordneten Containers plus 100px setzen. Die 20% basieren auf der Breite des übergeordneten Containers (`.wrapper`) und wenn sich diese Breite ändert, ändert sich auch die Berechnung:
+Zum Beispiel, nehmen wir an, wir möchten die Breite eines Elements als 20% seines übergeordneten Containers plus 100px festlegen.
+Wir können diesen Wert nicht mit einem statischen Wert angeben — wenn das übergeordnete Element eine prozentuale Breite (oder eine relative Einheit wie `em` oder `rem`) verwendet, variiert es je nach Kontext, in dem es verwendet wird, und anderen Faktoren wie dem Gerät des Benutzers oder der Fensterbreite des Browsers.
+Wir können jedoch `calc()` verwenden, um die Breite des Elements als 20% seines übergeordneten Containers plus 100px zu setzen.
+Die 20% beziehen sich auf die Breite des übergeordneten Containers (`.wrapper`) und wenn diese Breite sich ändert, ändert sich die Berechnung ebenfalls:
 
-{{EmbedGHLiveSample("css-examples/learn/values-units/calc.html", "100%", "500")}}
+{{EmbedGHLiveSample("css-examples/learn/values-units/calc.html", '100%', 500)}}
 
-Es gibt viele andere mathematische Funktionen, die Sie in CSS verwenden können, wie [`min()`](/de/docs/Web/CSS/min), [`max()`](/de/docs/Web/CSS/max) und [`clamp()`](/de/docs/Web/CSS/clamp); diese erlauben Ihnen jeweils, den kleinsten, größten oder mittleren Wert aus einer Reihe von Werten auszuwählen. Sie können auch [Trigonometrische Funktionen](/de/docs/Web/CSS/CSS_Functions#trigonometric_functions) wie [`sin()`](/de/docs/Web/CSS/sin), [`cos()`](/de/docs/Web/CSS/cos) und [`tan()`](/de/docs/Web/CSS/tan) verwenden, um Winkel für Rotationen von Elementen um einen Punkt zu berechnen oder Farben auszuwählen, die einen [Farbtonwinkel](/de/docs/Web/CSS/hue) als Parameter nehmen. [Exponentialfunktionen](/de/docs/Web/CSS/CSS_Functions#exponential_functions) könnten ebenfalls für Animationen und Übergänge verwendet werden, wenn Sie sehr spezifische Kontrolle darüber möchten, wie sich etwas bewegt und aussieht.
+Es gibt viele andere Math-Funktionen, die Sie in CSS verwenden können, wie [`min()`](/de/docs/Web/CSS/min), [`max()`](/de/docs/Web/CSS/max), und [`clamp()`](/de/docs/Web/CSS/clamp); diese erlauben Ihnen jeweils, den kleinsten, größten oder mittleren Wert aus einem Set aus Werten auszuwählen.
+Sie können auch [Trigonometrische Funktionen](/de/docs/Web/CSS/CSS_Functions#trigonometric_functions) wie [`sin()`](/de/docs/Web/CSS/sin), [`cos()`](/de/docs/Web/CSS/cos) und [`tan()`](/de/docs/Web/CSS/tan) verwenden, um Winkel für die Drehung von Elementen um einen Punkt zu berechnen oder Farben auszuwählen, die einen [Farbwinkel](/de/docs/Web/CSS/hue) als Parameter annehmen.
+[Exponentialfunktionen](/de/docs/Web/CSS/CSS_Functions#exponential_functions) könnten auch für Animationen und Übergänge verwendet werden, wenn Sie sehr spezifische Kontrolle über die Bewegung und das Aussehen von etwas benötigen.
 
-Das Wissen über CSS-Funktionen ist nützlich, damit Sie sie erkennen, wenn Sie sie sehen. Sie sollten beginnen, in Ihren Projekten mit ihnen zu experimentieren – sie helfen Ihnen, benutzerdefinierten oder sich wiederholenden Code zu vermeiden, um Ergebnisse zu erzielen, die Sie mit regulärem CSS erreichen könnten.
+Das Wissen über CSS-Funktionen ist nützlich, damit Sie sie erkennen, wenn Sie ihnen begegnen. Sie sollten beginnen, mit ihnen in Ihren Projekten zu experimentieren — sie werden Ihnen helfen, benutzerdefinierten oder wiederholten Code zu vermeiden, um Ergebnisse zu erzielen, die Sie mit regulärem CSS erreichen können.
 
-## Testen Sie Ihre Kenntnisse!
+## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber erinnern Sie sich an die wichtigsten Informationen?“ Sie können einige weitere Tests finden, um zu prüfen, ob Sie diese Informationen in Erinnerung behalten haben, bevor Sie weitermachen – siehe [Testen Sie Ihre Kenntnisse: Werte und Einheiten](/de/docs/Learn/CSS/Building_blocks/Values_tasks).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie finden einige weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: Werte und Einheiten](/de/docs/Learn/CSS/Building_blocks/Values_tasks).
 
 ## Zusammenfassung
 
-Dies war ein schneller Überblick über die häufigsten Wertetypen und Einheiten, die Ihnen begegnen können. Sie können sich alle unterschiedlichen Typen auf der [CSS-Werte und -Einheiten Referenzseite](/de/docs/Web/CSS/CSS_Values_and_Units) ansehen – Sie werden viele davon in Verwendung antreffen, während Sie durch diese Lektionen arbeiten.
+Dies war ein kurzer Durchgang durch die häufigsten Arten von Werten und Einheiten, denen Sie begegnen könnten. Sie können alle verschiedenen Typen auf der [CSS Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units) Referenzseite nachschlagen — Sie werden viele davon verwenden, während Sie diese Lektionen durcharbeiten.
 
-Das Hauptmerkmal, das Sie sich merken sollten, ist, dass jede Eigenschaft eine definierte Liste von zulässigen Wertetypen hat und jeder Wertetyp hat eine Definition über das, was die Werte sind. Sie können sich dann die Details hier auf MDN ansehen. Zum Beispiel das Verstehen, dass [`<image>`](/de/docs/Web/CSS/image) Ihnen auch ermöglicht, einen Farbverlauf zu erstellen, ist nützlich, aber vielleicht nicht offensichtliches Wissen!
+Das Wichtigste, was zu beachten ist, ist, dass jede Eigenschaft eine definierte Liste zulässiger Wertetypen hat und jeder Wertetyp eine Definition enthält, die erklärt, was die Werte sind. Dadurch können Sie die Details hier auf MDN nachschlagen. Zum Beispiel ist es nützlich, zu wissen, dass [`<image>`](/de/docs/Web/CSS/image) Ihnen auch ermöglicht, einen Farbverlauf zu erstellen, aber diese Information ist vielleicht nicht sofort offensichtlich!
 
-Im nächsten Artikel werden wir uns ansehen, wie [Artikel in CSS dimensioniert werden](/de/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS).
+Im nächsten Artikel werfen wir einen Blick darauf, wie [Elemente in CSS skaliert werden](/de/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS).
 
 {{PreviousMenuNext("Learn/CSS/Building_blocks/Overflowing_content", "Learn/CSS/Building_blocks/Sizing_items_in_CSS", "Learn/CSS/Building_blocks")}}

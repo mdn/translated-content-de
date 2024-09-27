@@ -1,5 +1,5 @@
 ---
-title: "WorkerNavigator: Eigenschaft globalPrivacyControl"
+title: "WorkerNavigator: globalPrivacyControl-Eigenschaft"
 short-title: globalPrivacyControl
 slug: Web/API/WorkerNavigator/globalPrivacyControl
 l10n:
@@ -8,33 +8,33 @@ l10n:
 
 {{APIRef("DOM")}}{{SeeCompatTable}}{{non-standard_header}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte Eigenschaft **`WorkerNavigator.globalPrivacyControl`** gibt die [Global Privacy Control](https://globalprivacycontrol.org/)-Einstellung des Nutzers für die aktuelle Website zurück. Diese Einstellung zeigt an, ob der Nutzer zustimmt, dass die Website oder der Dienst seine persönlichen Informationen an Dritte verkauft oder weitergibt.
+Die schreibgeschützte Eigenschaft **`WorkerNavigator.globalPrivacyControl`** gibt die [Global Privacy Control](https://globalprivacycontrol.org/)-Einstellung des Benutzers für die aktuelle Website zurück. Diese Einstellung zeigt an, ob der Benutzer einer Website oder einem Dienst gestattet, seine persönlichen Informationen an Dritte zu verkaufen oder zu teilen.
 
-Der Wert der Eigenschaft spiegelt den des HTTP-Headers {{httpheader("Sec-GPC")}} wider.
+Der Wert der Eigenschaft entspricht dem des {{httpheader("Sec-GPC")}} HTTP-Headers.
 
 ## Wert
 
-`true`, wenn der Nutzer ausdrücklich _nicht_ die Zustimmung erteilt hat, seine Daten zu verkaufen oder zu teilen.
-`false`, wenn der Nutzer entweder Zustimmung erteilt hat oder keine Präferenz angegeben hat.
+`true`, wenn der Benutzer ausdrücklich keine Zustimmung zum Verkauf oder Teilen seiner Daten erteilt.
+`false`, wenn der Benutzer entweder Zustimmung erteilt oder keine Präferenz angegeben hat.
 
 ## Beispiel
 
 ```js
 console.log(navigator.globalPrivacyControl);
-// "true", wenn der Nutzer ausdrücklich angegeben hat, dass seine Daten nicht geteilt oder verkauft werden sollen, ansonsten "false".
+// "true" if the user has specifically indicated they do not want their data shared or sold, otherwise "false".
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{HTTPHeader("Sec-GPC")}}-Header
+- {{HTTPHeader("Sec-GPC")}} Header
 - [globalprivacycontrol.org](https://globalprivacycontrol.org/)
 - [Global Privacy Control Spec](https://privacycg.github.io/gpc-spec/)
 - [Do Not Track auf Wikipedia](https://en.wikipedia.org/wiki/Do_Not_Track)

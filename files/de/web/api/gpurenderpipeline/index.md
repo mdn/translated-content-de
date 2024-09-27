@@ -2,35 +2,35 @@
 title: GPURenderPipeline
 slug: Web/API/GPURenderPipeline
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPURenderPipeline`**-Schnittstelle der {{domxref("WebGPU API", "WebGPU API", "", "nocode")}} repräsentiert eine Pipeline, die die Vertex- und Fragment-Shader-Stufen steuert und in einem {{domxref("GPURenderPassEncoder")}} oder {{domxref("GPURenderBundleEncoder")}} verwendet werden kann.
+Das **`GPURenderPipeline`** Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert eine Pipeline, die die Vertex- und Fragment-Shader-Stufen steuert und in einem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) oder [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) verwendet werden kann.
 
-Eine Instanz eines `GPURenderPipeline`-Objekts kann mit den Methoden {{domxref("GPUDevice.createRenderPipeline()")}} oder {{domxref("GPUDevice.createRenderPipelineAsync()")}} erstellt werden.
+Ein `GPURenderPipeline` Objektinstanz kann mittels der Methoden [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync) erstellt werden.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("GPURenderPipeline.label", "label")}} {{Experimental_Inline}}
-  - : Ein String, der eine Bezeichnung bereitstellt, die verwendet werden kann, um das Objekt beispielsweise in {{domxref("GPUError")}}-Meldungen oder Konsolenwarnungen zu identifizieren.
+- [`label`](/de/docs/Web/API/GPURenderPipeline/label) {{Experimental_Inline}}
+  - : Ein String, der ein Label bereitstellt, das dazu verwendet werden kann, das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError) Meldungen oder Konsolenwarnungen.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{domxref("GPURenderPipeline.getBindGroupLayout", "getBindGroupLayout()")}} {{Experimental_Inline}}
-  - : Gibt das {{domxref("GPUBindGroupLayout")}}-Objekt der Pipeline mit dem angegebenen Index zurück (d.h. in das ursprüngliche {{domxref("GPUDevice.createRenderPipeline()")}}- oder {{domxref("GPUDevice.createRenderPipelineAsync()")}}-Aufruf Layout aufgenommen).
+- [`getBindGroupLayout()`](/de/docs/Web/API/GPURenderPipeline/getBindGroupLayout) {{Experimental_Inline}}
+  - : Gibt das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) Objekt der Pipeline mit dem gegebenen Index zurück (d.h. enthalten im ursprünglichen [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync) Aufruf des Pipeline-Layouts).
 
 ## Beispiele
 
 > [!NOTE]
-> Die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/) bieten viele weitere Beispiele.
+> Die [WebGPU Samples](https://webgpu.github.io/webgpu-samples/) bieten viele weitere Beispiele.
 
 ### Einfaches Beispiel
 
-Unser [einfaches Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) bietet ein einfaches Beispiel für die Konstruktion eines gültigen Render-Pipeline-Descriptor-Objekts, das dann verwendet wird, um eine `GPURenderPipeline` über einen `createRenderPipeline()`-Aufruf zu erstellen.
+Unser [grundlegendes Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) bietet ein einfaches Beispiel für die Konstruktion eines gültigen Render-Pipeline-Deskriptors, der dann verwendet wird, um eine `GPURenderPipeline` über einen `createRenderPipeline()` Aufruf zu erstellen.
 
 ```js
 // ...

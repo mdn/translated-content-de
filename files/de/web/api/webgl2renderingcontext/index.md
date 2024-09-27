@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Das **WebGL2RenderingContext**-Interface bietet den OpenGL ES 3.0-Rendering-Kontext für die Zeichenfläche eines HTML-{{HTMLElement("canvas")}}-Elements.
+Das **WebGL2RenderingContext**-Interface bietet den OpenGL ES 3.0-Rendering-Kontext für die Zeichenfläche eines HTML-{{HTMLElement("canvas")}} Elements.
 
-Um ein Objekt dieses Interfaces zu erhalten, rufen Sie {{domxref("HTMLCanvasElement.getContext()", "getContext()")}} auf einem `<canvas>`-Element auf und übergeben "webgl2" als Argument:
+Um ein Objekt dieses Interfaces zu erhalten, rufen Sie [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) auf einem `<canvas>`-Element auf und übergeben Sie "webgl2" als Argument:
 
 ```js
 const canvas = document.getElementById("myCanvas");
@@ -17,201 +17,201 @@ const gl = canvas.getContext("webgl2");
 ```
 
 > [!NOTE]
-> WebGL 2 ist eine Erweiterung zu WebGL 1. Das `WebGL2RenderingContext`-Interface implementiert alle Mitglieder des {{domxref("WebGLRenderingContext")}}-Interfaces. Einige Methoden des WebGL 1-Kontexts können zusätzliche Werte akzeptieren, wenn sie in einem WebGL 2-Kontext verwendet werden. Diese Informationen finden Sie auf den Referenzseiten zu WebGL 1 vermerkt.
+> WebGL 2 ist eine Erweiterung von WebGL 1. Das `WebGL2RenderingContext`-Interface implementiert alle Mitglieder des [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Interfaces. Einige Methoden des WebGL 1-Kontexts können zusätzliche Werte akzeptieren, wenn sie in einem WebGL 2-Kontext verwendet werden. Diese Informationen finden Sie auf den Referenzseiten von WebGL 1.
 
-Das [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial) enthält weitere Informationen, Beispiele und Ressourcen, um mit WebGL zu beginnen.
+Das [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial) enthält mehr Informationen, Beispiele und Ressourcen, um mit WebGL anzufangen.
 
 ## Konstanten
 
-Siehe die Seite zu den [WebGL-Konstanten](/de/docs/Web/API/WebGL_API/Constants).
+Siehe die Seite [WebGL-Konstanten](/de/docs/Web/API/WebGL_API/Constants).
 
-## Statusinformationen
+## Zustandsinformationen
 
-- {{domxref("WebGL2RenderingContext.getIndexedParameter()")}}
+- [`WebGL2RenderingContext.getIndexedParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getIndexedParameter)
   - : Gibt den indizierten Wert für das angegebene `target` zurück.
 
 ## Puffer
 
-- {{domxref("WebGL2RenderingContext.bufferData()")}}
+- [`WebGL2RenderingContext.bufferData()`](/de/docs/Web/API/WebGL2RenderingContext/bufferData)
   - : Initialisiert und erstellt den Datenspeicher des Pufferobjekts.
-- {{domxref("WebGL2RenderingContext.bufferSubData()")}}
+- [`WebGL2RenderingContext.bufferSubData()`](/de/docs/Web/API/WebGL2RenderingContext/bufferSubData)
   - : Aktualisiert einen Teilbereich des Datenspeichers eines Pufferobjekts.
-- {{domxref("WebGL2RenderingContext.copyBufferSubData()")}}
+- [`WebGL2RenderingContext.copyBufferSubData()`](/de/docs/Web/API/WebGL2RenderingContext/copyBufferSubData)
   - : Kopiert einen Teil der Daten eines Puffers in einen anderen Puffer.
-- {{domxref("WebGL2RenderingContext.getBufferSubData()")}}
-  - : Liest Daten aus einem Puffer und schreibt sie in ein {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}.
+- [`WebGL2RenderingContext.getBufferSubData()`](/de/docs/Web/API/WebGL2RenderingContext/getBufferSubData)
+  - : Liest Daten aus einem Puffer und schreibt sie in einen {{jsxref("ArrayBuffer")}} oder {{jsxref("SharedArrayBuffer")}}.
 
 ## Framebuffer
 
-- {{domxref("WebGL2RenderingContext.blitFramebuffer()")}}
-  - : Überträgt einen Block von Pixeln vom Lese-Framebuffer zum Zeichen-Framebuffer.
-- {{domxref("WebGL2RenderingContext.framebufferTextureLayer()")}}
-  - : Fügt eine einzelne Ebene einer Textur einem Framebuffer hinzu.
-- {{domxref("WebGL2RenderingContext.invalidateFramebuffer()")}}
-  - : Macht den Inhalt der Anhänge in einem Framebuffer ungültig.
-- {{domxref("WebGL2RenderingContext.invalidateSubFramebuffer()")}}
-  - : Macht Teile des Inhalts der Anhänge in einem Framebuffer ungültig.
-- {{domxref("WebGL2RenderingContext.readBuffer()")}}
+- [`WebGL2RenderingContext.blitFramebuffer()`](/de/docs/Web/API/WebGL2RenderingContext/blitFramebuffer)
+  - : Überträgt einen Block von Pixeln vom Read-Framebuffer zum Draw-Framebuffer.
+- [`WebGL2RenderingContext.framebufferTextureLayer()`](/de/docs/Web/API/WebGL2RenderingContext/framebufferTextureLayer)
+  - : Hängt eine einzelne Ebene einer Textur an einen Framebuffer an.
+- [`WebGL2RenderingContext.invalidateFramebuffer()`](/de/docs/Web/API/WebGL2RenderingContext/invalidateFramebuffer)
+  - : Invalidiert den Inhalt von Anhängen in einem Framebuffer.
+- [`WebGL2RenderingContext.invalidateSubFramebuffer()`](/de/docs/Web/API/WebGL2RenderingContext/invalidateSubFramebuffer)
+  - : Invalidiert Teile der Inhalte von Anhängen in einem Framebuffer.
+- [`WebGL2RenderingContext.readBuffer()`](/de/docs/Web/API/WebGL2RenderingContext/readBuffer)
   - : Wählt einen Farbpuffer als Quelle für Pixel aus.
 
 ## Renderbuffer
 
-- {{domxref("WebGL2RenderingContext.getInternalformatParameter()")}}
-  - : Gibt Informationen über implementierungsabhängige Unterstützung für interne Formate zurück.
-- {{domxref("WebGL2RenderingContext.renderbufferStorageMultisample()")}}
-  - : Erstellt und initialisiert den Datenspeicher eines Renderbuffer-Objekts und erlaubt die Angabe der Anzahl der zu verwendenden Samples.
+- [`WebGL2RenderingContext.getInternalformatParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getInternalformatParameter)
+  - : Gibt Informationen über die implementierungsabhängige Unterstützung für interne Formate zurück.
+- [`WebGL2RenderingContext.renderbufferStorageMultisample()`](/de/docs/Web/API/WebGL2RenderingContext/renderbufferStorageMultisample)
+  - : Erstellt und initialisiert den Datenspeicher eines Renderbuffer-Objekts und ermöglicht die Angabe der Anzahl der zu verwendenden Samples.
 
 ## Texturen
 
-- {{domxref("WebGL2RenderingContext.texStorage2D()")}}
-  - : Gibt alle Ebenen des zweidimensionalen Texturspeichers an.
-- {{domxref("WebGL2RenderingContext.texStorage3D()")}}
-  - : Gibt alle Ebenen eines dreidimensionalen Textur- oder zweidimensionalen Array-Texturspeichers an.
-- {{domxref("WebGL2RenderingContext.texImage3D()")}}
-  - : Spezifiziert ein dreidimensionales Texturbild.
-- {{domxref("WebGL2RenderingContext.texSubImage3D()")}}
-  - : Spezifiziert ein Unterrechteck der aktuellen 3D-Textur.
-- {{domxref("WebGL2RenderingContext.copyTexSubImage3D()")}}
-  - : Kopiert Pixel des aktuellen [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) in ein vorhandenes 3D-Textur-Teilbild.
-- {{domxref("WebGL2RenderingContext.compressedTexImage3D")}}
-  - : Spezifiziert ein dreidimensionales Texturbild in einem komprimierten Format.
-- {{domxref("WebGL2RenderingContext.compressedTexSubImage3D()")}}
-  - : Spezifiziert ein dreidimensionales Unterrechteck für ein Texturbild in einem komprimierten Format.
+- [`WebGL2RenderingContext.texStorage2D()`](/de/docs/Web/API/WebGL2RenderingContext/texStorage2D)
+  - : Legt alle Ebenen des zweidimensionalen Texturspeichers fest.
+- [`WebGL2RenderingContext.texStorage3D()`](/de/docs/Web/API/WebGL2RenderingContext/texStorage3D)
+  - : Legt alle Ebenen einer dreidimensionalen Textur oder einer zweidimensionalen Array-Textur fest.
+- [`WebGL2RenderingContext.texImage3D()`](/de/docs/Web/API/WebGL2RenderingContext/texImage3D)
+  - : Legt ein dreidimensionales Texturbild fest.
+- [`WebGL2RenderingContext.texSubImage3D()`](/de/docs/Web/API/WebGL2RenderingContext/texSubImage3D)
+  - : Legt ein Unterrechteck der aktuellen 3D-Textur fest.
+- [`WebGL2RenderingContext.copyTexSubImage3D()`](/de/docs/Web/API/WebGL2RenderingContext/copyTexSubImage3D)
+  - : Kopiert Pixel aus dem aktuellen [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) in ein vorhandenes Teilbild einer 3D-Textur.
+- [`WebGL2RenderingContext.compressedTexImage3D`](/de/docs/Web/API/WebGL2RenderingContext/compressedTexImage3D)
+  - : Legt ein dreidimensionales Texturbild im komprimierten Format fest.
+- [`WebGL2RenderingContext.compressedTexSubImage3D()`](/de/docs/Web/API/WebGL2RenderingContext/compressedTexSubImage3D)
+  - : Legt ein dreidimensionales Unterrechteck für ein Texturbild im komprimierten Format fest.
 
 ## Programme und Shader
 
-- {{domxref("WebGL2RenderingContext.getFragDataLocation()")}}
-  - : Gibt die Bindung von Farbnummern zu benutzerdefinierten ausgehenden variierenden Variablen zurück.
+- [`WebGL2RenderingContext.getFragDataLocation()`](/de/docs/Web/API/WebGL2RenderingContext/getFragDataLocation)
+  - : Gibt die Bindung von Farbnummern an benutzerdefinierte ausgehende Variablen zurück.
 
-## Uniforms und Attribute
+## Uniformen und Attribute
 
 - [`WebGL2RenderingContext.uniform[1234][uif][v]()`](/de/docs/Web/API/WebGL2RenderingContext/uniform)
-  - : Methoden zur Angabe von Werten von Uniform-Variablen.
-- {{domxref("WebGL2RenderingContext.uniformMatrix()", "WebGL2RenderingContext.uniformMatrix[234]x[234]fv()")}}
-  - : Methoden zur Angabe von Matrixwerten für Uniform-Variablen.
-- {{domxref("WebGL2RenderingContext.vertexAttribI()", "WebGL2RenderingContext.vertexAttribI4[u]i[v]()")}}
-  - : Methoden zur Angabe von ganzzahligen Werten für generische Vertex-Attribute.
-- {{domxref("WebGL2RenderingContext.vertexAttribIPointer()")}}
-  - : Spezifiziert ganzzahlige Datentypen und Standorte von Vertex-Attributen in einem Vertex-Attribut-Array.
+  - : Methoden zur Festlegung von Werten für Uniformvariablen.
+- [`WebGL2RenderingContext.uniformMatrix[234]x[234]fv()`](/de/docs/Web/API/WebGL2RenderingContext/uniformMatrix)
+  - : Methoden zur Festlegung von Matrixwerten für Uniformvariablen.
+- [`WebGL2RenderingContext.vertexAttribI4[u]i[v]()`](/de/docs/Web/API/WebGL2RenderingContext/vertexAttribI)
+  - : Methoden zur Festlegung von Ganzzahlwerten für generische Vertex-Attribute.
+- [`WebGL2RenderingContext.vertexAttribIPointer()`](/de/docs/Web/API/WebGL2RenderingContext/vertexAttribIPointer)
+  - : Gibt ganzzahlige Datenformate und Positionen von Vertex-Attributen in einem Vertex-Attribut-Array an.
 
-## Zeichnungsbuffer
+## Zeichenpuffer
 
-- {{domxref("WebGL2RenderingContext.vertexAttribDivisor()")}}
-  - : Ändert die Rate, mit der generische Vertex-Attribute beim Rendern mehrerer Instanzen von Primitiven mit {{domxref("WebGL2RenderingContext.drawArraysInstanced()", "gl.drawArraysInstanced()")}} und {{domxref("WebGL2RenderingContext.drawElementsInstanced()", "gl.drawElementsInstanced()")}} fortschreiten.
-- {{domxref("WebGL2RenderingContext.drawArraysInstanced()")}}
-  - : Rendert Primitive aus Array-Daten. Zusätzlich kann es mehrere Instanzen des Elementbereichs ausführen.
-- {{domxref("WebGL2RenderingContext.drawElementsInstanced()")}}
-  - : Rendert Primitive aus Array-Daten. Zusätzlich kann es mehrere Instanzen eines Elementsatzes ausführen.
-- {{domxref("WebGL2RenderingContext.drawRangeElements()")}}
+- [`WebGL2RenderingContext.vertexAttribDivisor()`](/de/docs/Web/API/WebGL2RenderingContext/vertexAttribDivisor)
+  - : Ändert die Rate, mit der generische Vertex-Attribute fortschreiten, wenn mehrere Instanzen von Primitiven mit [`gl.drawArraysInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced) und [`gl.drawElementsInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced) gerendert werden.
+- [`WebGL2RenderingContext.drawArraysInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced)
+  - : Rendert Primitive aus Array-Daten. Zusätzlich können mehrere Instanzen des Bereichs von Elementen ausgeführt werden.
+- [`WebGL2RenderingContext.drawElementsInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced)
+  - : Rendert Primitive aus Array-Daten. Zusätzlich können mehrere Instanzen eines Satzes von Elementen ausgeführt werden.
+- [`WebGL2RenderingContext.drawRangeElements()`](/de/docs/Web/API/WebGL2RenderingContext/drawRangeElements)
   - : Rendert Primitive aus Array-Daten in einem gegebenen Bereich.
-- {{domxref("WebGL2RenderingContext.drawBuffers()")}}
-  - : Gibt eine Liste von Farb-Puffern an, in die gezeichnet werden soll.
-- {{domxref("WebGL2RenderingContext.clearBuffer()", "WebGL2RenderingContext.clearBuffer[fiuv]()")}}
+- [`WebGL2RenderingContext.drawBuffers()`](/de/docs/Web/API/WebGL2RenderingContext/drawBuffers)
+  - : Gibt eine Liste von Farbpuffern an, in die gezeichnet werden soll.
+- [`WebGL2RenderingContext.clearBuffer[fiuv]()`](/de/docs/Web/API/WebGL2RenderingContext/clearBuffer)
   - : Löscht Puffer aus dem aktuell gebundenen Framebuffer.
 
 ## Abfrageobjekte
 
-Methoden zum Arbeiten mit {{domxref("WebGLQuery")}}-Objekten.
+Methoden zur Arbeit mit [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekten.
 
-- {{domxref("WebGL2RenderingContext.createQuery()")}}
-  - : Erstellt ein neues {{domxref("WebGLQuery")}}-Objekt.
-- {{domxref("WebGL2RenderingContext.deleteQuery()")}}
-  - : Löscht ein gegebenes {{domxref("WebGLQuery")}}-Objekt.
-- {{domxref("WebGL2RenderingContext.isQuery()")}}
-  - : Gibt `true` zurück, wenn ein gegebenes Objekt ein gültiges {{domxref("WebGLQuery")}}-Objekt ist.
-- {{domxref("WebGL2RenderingContext.beginQuery()")}}
+- [`WebGL2RenderingContext.createQuery()`](/de/docs/Web/API/WebGL2RenderingContext/createQuery)
+  - : Erstellt ein neues [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt.
+- [`WebGL2RenderingContext.deleteQuery()`](/de/docs/Web/API/WebGL2RenderingContext/deleteQuery)
+  - : Löscht ein gegebenes [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt.
+- [`WebGL2RenderingContext.isQuery()`](/de/docs/Web/API/WebGL2RenderingContext/isQuery)
+  - : Gibt `true` zurück, wenn ein gegebenes Objekt ein gültiges [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt ist.
+- [`WebGL2RenderingContext.beginQuery()`](/de/docs/Web/API/WebGL2RenderingContext/beginQuery)
   - : Beginnt eine asynchrone Abfrage.
-- {{domxref("WebGL2RenderingContext.endQuery()")}}
+- [`WebGL2RenderingContext.endQuery()`](/de/docs/Web/API/WebGL2RenderingContext/endQuery)
   - : Markiert das Ende einer asynchronen Abfrage.
-- {{domxref("WebGL2RenderingContext.getQuery()")}}
-  - : Gibt ein {{domxref("WebGLQuery")}}-Objekt für ein gegebenes Ziel zurück.
-- {{domxref("WebGL2RenderingContext.getQueryParameter()")}}
+- [`WebGL2RenderingContext.getQuery()`](/de/docs/Web/API/WebGL2RenderingContext/getQuery)
+  - : Gibt ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt für ein gegebenes Ziel zurück.
+- [`WebGL2RenderingContext.getQueryParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getQueryParameter)
   - : Gibt Informationen über eine Abfrage zurück.
 
 ## Sampler-Objekte
 
-- {{domxref("WebGL2RenderingContext.createSampler()")}}
-  - : Erstellt ein neues {{domxref("WebGLSampler")}}-Objekt.
-- {{domxref("WebGL2RenderingContext.deleteSampler()")}}
-  - : Löscht ein gegebenes {{domxref("WebGLSampler")}}-Objekt.
-- {{domxref("WebGL2RenderingContext.bindSampler()")}}
-  - : Bindet ein gegebenes {{domxref("WebGLSampler")}} an eine Textureinheit.
-- {{domxref("WebGL2RenderingContext.isSampler()")}}
-  - : Gibt `true` zurück, wenn ein gegebenes Objekt ein gültiges {{domxref("WebGLSampler")}}-Objekt ist.
-- {{domxref("WebGL2RenderingContext.samplerParameter()", "WebGL2RenderingContext.samplerParameter[if]()")}}
+- [`WebGL2RenderingContext.createSampler()`](/de/docs/Web/API/WebGL2RenderingContext/createSampler)
+  - : Erstellt ein neues [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt.
+- [`WebGL2RenderingContext.deleteSampler()`](/de/docs/Web/API/WebGL2RenderingContext/deleteSampler)
+  - : Löscht ein gegebenes [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt.
+- [`WebGL2RenderingContext.bindSampler()`](/de/docs/Web/API/WebGL2RenderingContext/bindSampler)
+  - : Bindet ein gegebenes [`WebGLSampler`](/de/docs/Web/API/WebGLSampler) an eine Textureinheit.
+- [`WebGL2RenderingContext.isSampler()`](/de/docs/Web/API/WebGL2RenderingContext/isSampler)
+  - : Gibt `true` zurück, wenn ein gegebenes Objekt ein gültiges [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt ist.
+- [`WebGL2RenderingContext.samplerParameter[if]()`](/de/docs/Web/API/WebGL2RenderingContext/samplerParameter)
   - : Legt Sampler-Parameter fest.
-- {{domxref("WebGL2RenderingContext.getSamplerParameter()")}}
-  - : Gibt Informationen zu Sampler-Parametern zurück.
+- [`WebGL2RenderingContext.getSamplerParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getSamplerParameter)
+  - : Gibt Informationen über Sampler-Parameter zurück.
 
 ## Sync-Objekte
 
-- {{domxref("WebGL2RenderingContext.fenceSync()")}}
-  - : Erstellt ein neues {{domxref("WebGLSync")}}-Objekt und fügt es in den GL-Befehlsstrom ein.
-- {{domxref("WebGL2RenderingContext.isSync()")}}
-  - : Gibt `true` zurück, wenn das übergebene Objekt ein gültiges {{domxref("WebGLSync")}}-Objekt ist.
-- {{domxref("WebGL2RenderingContext.deleteSync()")}}
-  - : Löscht ein gegebenes {{domxref("WebGLSync")}}-Objekt.
-- {{domxref("WebGL2RenderingContext.clientWaitSync()")}}
-  - : Blockiert und wartet, bis ein {{domxref("WebGLSync")}}-Objekt signalisiert wird oder eine gegebene Zeitüberschreitung erreicht ist.
-- {{domxref("WebGL2RenderingContext.waitSync()")}}
-  - : Gibt sofort zurück, wartet jedoch auf dem GL-Server, bis das gegebene {{domxref("WebGLSync")}}-Objekt signalisiert wird.
-- {{domxref("WebGL2RenderingContext.getSyncParameter()")}}
-  - : Gibt Parameterinformationen eines {{domxref("WebGLSync")}}-Objekts zurück.
+- [`WebGL2RenderingContext.fenceSync()`](/de/docs/Web/API/WebGL2RenderingContext/fenceSync)
+  - : Erstellt ein neues [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt und fügt es in den GL-Befehls-Stream ein.
+- [`WebGL2RenderingContext.isSync()`](/de/docs/Web/API/WebGL2RenderingContext/isSync)
+  - : Gibt `true` zurück, wenn das übergebene Objekt ein gültiges [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt ist.
+- [`WebGL2RenderingContext.deleteSync()`](/de/docs/Web/API/WebGL2RenderingContext/deleteSync)
+  - : Löscht ein gegebenes [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt.
+- [`WebGL2RenderingContext.clientWaitSync()`](/de/docs/Web/API/WebGL2RenderingContext/clientWaitSync)
+  - : Blockiert und wartet, bis ein [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt signalisiert wird oder bis ein gegebener Timeout überschritten wird.
+- [`WebGL2RenderingContext.waitSync()`](/de/docs/Web/API/WebGL2RenderingContext/waitSync)
+  - : Gibt sofort zurück, wartet aber auf dem GL-Server, bis das gegebene [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt signalisiert wird.
+- [`WebGL2RenderingContext.getSyncParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getSyncParameter)
+  - : Gibt Parameterinformationen eines [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekts zurück.
 
 ## Transform Feedback
 
-- {{domxref("WebGL2RenderingContext.createTransformFeedback()")}}
-  - : Erstellt und initialisiert {{domxref("WebGLTransformFeedback")}}-Objekte.
-- {{domxref("WebGL2RenderingContext.deleteTransformFeedback()")}}
-  - : Löscht ein gegebenes {{domxref("WebGLTransformFeedback")}}-Objekt.
-- {{domxref("WebGL2RenderingContext.isTransformFeedback()")}}
-  - : Gibt `true` zurück, wenn das übergebene Objekt ein gültiges {{domxref("WebGLTransformFeedback")}}-Objekt ist.
-- {{domxref("WebGL2RenderingContext.bindTransformFeedback()")}}
-  - : Bindet ein übergebenes {{domxref("WebGLTransformFeedback")}}-Objekt an den aktuellen GL-Zustand.
-- {{domxref("WebGL2RenderingContext.beginTransformFeedback()")}}
+- [`WebGL2RenderingContext.createTransformFeedback()`](/de/docs/Web/API/WebGL2RenderingContext/createTransformFeedback)
+  - : Erstellt und initialisiert [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekte.
+- [`WebGL2RenderingContext.deleteTransformFeedback()`](/de/docs/Web/API/WebGL2RenderingContext/deleteTransformFeedback)
+  - : Löscht ein gegebenes [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt.
+- [`WebGL2RenderingContext.isTransformFeedback()`](/de/docs/Web/API/WebGL2RenderingContext/isTransformFeedback)
+  - : Gibt `true` zurück, wenn das übergebene Objekt ein gültiges [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt ist.
+- [`WebGL2RenderingContext.bindTransformFeedback()`](/de/docs/Web/API/WebGL2RenderingContext/bindTransformFeedback)
+  - : Bindet ein übergebenes [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt an den aktuellen GL-Status.
+- [`WebGL2RenderingContext.beginTransformFeedback()`](/de/docs/Web/API/WebGL2RenderingContext/beginTransformFeedback)
   - : Startet eine Transform-Feedback-Operation.
-- {{domxref("WebGL2RenderingContext.endTransformFeedback()")}}
+- [`WebGL2RenderingContext.endTransformFeedback()`](/de/docs/Web/API/WebGL2RenderingContext/endTransformFeedback)
   - : Beendet eine Transform-Feedback-Operation.
-- {{domxref("WebGL2RenderingContext.transformFeedbackVaryings()")}}
-  - : Gibt Werte an, die in {{domxref("WebGLTransformFeedback")}}-Puffer aufgezeichnet werden sollen.
-- {{domxref("WebGL2RenderingContext.getTransformFeedbackVarying()")}}
-  - : Gibt Informationen über variierende Variablen aus {{domxref("WebGLTransformFeedback")}}-Puffern zurück.
-- {{domxref("WebGL2RenderingContext.pauseTransformFeedback()")}}
+- [`WebGL2RenderingContext.transformFeedbackVaryings()`](/de/docs/Web/API/WebGL2RenderingContext/transformFeedbackVaryings)
+  - : Gibt Werte an, die in [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Puffern aufgezeichnet werden sollen.
+- [`WebGL2RenderingContext.getTransformFeedbackVarying()`](/de/docs/Web/API/WebGL2RenderingContext/getTransformFeedbackVarying)
+  - : Gibt Informationen über varyierende Variablen aus [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Puffern zurück.
+- [`WebGL2RenderingContext.pauseTransformFeedback()`](/de/docs/Web/API/WebGL2RenderingContext/pauseTransformFeedback)
   - : Pausiert eine Transform-Feedback-Operation.
-- {{domxref("WebGL2RenderingContext.resumeTransformFeedback()")}}
+- [`WebGL2RenderingContext.resumeTransformFeedback()`](/de/docs/Web/API/WebGL2RenderingContext/resumeTransformFeedback)
   - : Setzt eine Transform-Feedback-Operation fort.
 
-## Uniform-Pufferobjekte
+## Uniform-Buffer-Objekte
 
-- {{domxref("WebGL2RenderingContext.bindBufferBase()")}}
-  - : Bindet einen gegebenen {{domxref("WebGLBuffer")}} an einen gegebenen Bindepunkt (`target`) an einem gegebenen `index`.
-- {{domxref("WebGL2RenderingContext.bindBufferRange()")}}
-  - : Bindet einen Bereich eines gegebenen {{domxref("WebGLBuffer")}} an einen gegebenen Bindepunkt (`target`) an einem gegebenen `index`.
-- {{domxref("WebGL2RenderingContext.getUniformIndices()")}}
-  - : Ruft die Indizes einer Anzahl von Uniforms innerhalb eines {{domxref("WebGLProgram")}} ab.
-- {{domxref("WebGL2RenderingContext.getActiveUniforms()")}}
-  - : Ruft Informationen über aktive Uniforms innerhalb eines {{domxref("WebGLProgram")}} ab.
-- {{domxref("WebGL2RenderingContext.getUniformBlockIndex()")}}
-  - : Ruft den Index eines Uniform-Blocks innerhalb eines {{domxref("WebGLProgram")}} ab.
-- {{domxref("WebGL2RenderingContext.getActiveUniformBlockParameter()")}}
-  - : Ruft Informationen über einen aktiven Uniform-Block innerhalb eines {{domxref("WebGLProgram")}} ab.
-- {{domxref("WebGL2RenderingContext.getActiveUniformBlockName()")}}
-  - : Ruft den Namen des aktiven Uniform-Blocks an einem gegebenen Index innerhalb eines {{domxref("WebGLProgram")}} ab.
-- {{domxref("WebGL2RenderingContext.uniformBlockBinding()")}}
-  - : Weist Bindepunkte für aktive Uniform-Blöcke zu.
+- [`WebGL2RenderingContext.bindBufferBase()`](/de/docs/Web/API/WebGL2RenderingContext/bindBufferBase)
+  - : Bindet einen gegebenen [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) an einen gegebenen Bindungspunkt (`target`) an einem gegebenen `index`.
+- [`WebGL2RenderingContext.bindBufferRange()`](/de/docs/Web/API/WebGL2RenderingContext/bindBufferRange)
+  - : Bindet einen Bereich eines gegebenen [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) an einen gegebenen Bindungspunkt (`target`) an einem gegebenen `index`.
+- [`WebGL2RenderingContext.getUniformIndices()`](/de/docs/Web/API/WebGL2RenderingContext/getUniformIndices)
+  - : Ruft die Indizes einer Anzahl von Uniformen innerhalb eines [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) ab.
+- [`WebGL2RenderingContext.getActiveUniforms()`](/de/docs/Web/API/WebGL2RenderingContext/getActiveUniforms)
+  - : Ruft Informationen über aktive Uniformen innerhalb eines [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) ab.
+- [`WebGL2RenderingContext.getUniformBlockIndex()`](/de/docs/Web/API/WebGL2RenderingContext/getUniformBlockIndex)
+  - : Ruft den Index eines Uniformblocks innerhalb eines [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) ab.
+- [`WebGL2RenderingContext.getActiveUniformBlockParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getActiveUniformBlockParameter)
+  - : Ruft Informationen über einen aktiven Uniformblock innerhalb eines [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) ab.
+- [`WebGL2RenderingContext.getActiveUniformBlockName()`](/de/docs/Web/API/WebGL2RenderingContext/getActiveUniformBlockName)
+  - : Ruft den Namen des aktiven Uniformblocks an einem gegebenen Index innerhalb eines [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) ab.
+- [`WebGL2RenderingContext.uniformBlockBinding()`](/de/docs/Web/API/WebGL2RenderingContext/uniformBlockBinding)
+  - : Weist Bindungspunkte für aktive Uniformblocks zu.
 
 ## Vertex-Array-Objekte
 
-Methoden zum Arbeiten mit {{domxref("WebGLVertexArrayObject")}} (VAO)-Objekten.
+Methoden zur Arbeit mit [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) (VAO)-Objekten.
 
-- {{domxref("WebGL2RenderingContext.createVertexArray()")}}
-  - : Erstellt ein neues {{domxref("WebGLVertexArrayObject")}}.
-- {{domxref("WebGL2RenderingContext.deleteVertexArray()")}}
-  - : Löscht ein gegebenes {{domxref("WebGLVertexArrayObject")}}.
-- {{domxref("WebGL2RenderingContext.isVertexArray()")}}
-  - : Gibt `true` zurück, wenn ein gegebenes Objekt ein gültiges {{domxref("WebGLVertexArrayObject")}} ist.
-- {{domxref("WebGL2RenderingContext.bindVertexArray()")}}
-  - : Bindet ein gegebenes {{domxref("WebGLVertexArrayObject")}} an den Puffer.
+- [`WebGL2RenderingContext.createVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/createVertexArray)
+  - : Erstellt ein neues [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject).
+- [`WebGL2RenderingContext.deleteVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/deleteVertexArray)
+  - : Löscht ein gegebenes [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject).
+- [`WebGL2RenderingContext.isVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/isVertexArray)
+  - : Gibt `true` zurück, wenn ein gegebenes Objekt ein gültiges [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) ist.
+- [`WebGL2RenderingContext.bindVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/bindVertexArray)
+  - : Bindet ein gegebenes [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) an den Puffer.
 
 ## Spezifikationen
 
@@ -223,5 +223,5 @@ Methoden zum Arbeiten mit {{domxref("WebGLVertexArrayObject")}} (VAO)-Objekten.
 
 ## Siehe auch
 
-- {{domxref("HTMLCanvasElement")}}
-- {{domxref("WebGLRenderingContext")}}
+- [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)
+- [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)

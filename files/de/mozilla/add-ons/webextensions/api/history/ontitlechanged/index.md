@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Titel einer vom Benutzer besuchten Seite aufgezeichnet wird. Um Besuche auf einer Seite zu überwachen, verwenden Sie {{WebExtAPIRef("history.onVisited")}}. Jedoch enthält das {{WebExtAPIRef("history.HistoryItem")}}, das dieses Ereignis an seinen Listener übergibt, nicht den Seitentitel, da der Seitentitel typischerweise zu dem Zeitpunkt, an dem `history.onVisited` gesendet wird, nicht bekannt ist. Stattdessen wird das gespeicherte {{WebExtAPIRef("history.HistoryItem")}} mit dem Seitentitel aktualisiert, nachdem die Seite geladen wurde und der Titel bekannt ist. Das `history.onTitleChanged`-Ereignis wird zu diesem Zeitpunkt ausgelöst. Wenn Sie also die Titel der besuchten Seiten wissen müssen, hören Sie auf `history.onTitleChanged`.
+Wird ausgelöst, wenn der Titel einer vom Benutzer besuchten Seite aufgezeichnet wird. Um Besuche einer Seite zu verfolgen, verwenden Sie {{WebExtAPIRef("history.onVisited")}}. Da der {{WebExtAPIRef("history.HistoryItem")}}, den dieses Ereignis an seinen Listener übergibt, den Seitentitel nicht enthält, weil der Seitentitel normalerweise nicht bekannt ist, wenn `history.onVisited` gesendet wird, wird der gespeicherte {{WebExtAPIRef("history.HistoryItem")}} stattdessen mit dem Seitentitel aktualisiert, nachdem die Seite geladen wurde und der Titel bekannt ist. Zu diesem Zeitpunkt wird das Ereignis `history.onTitleChanged` ausgelöst. Wenn Sie also die Titel von Seiten wissen müssen, sobald sie besucht werden, hören Sie auf `history.onTitleChanged`.
 
 ## Syntax
 
@@ -20,22 +20,22 @@ browser.history.onTitleChanged.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Hören auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüfen, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zugehört wird, andernfalls `false`.
 
-## Syntax von addListener
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird ein Objekt mit folgenden Eigenschaften übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird ein Objekt mit diesen Eigenschaften übergeben:
 
     - `id`
-      - : `String`. Die eindeutige Kennung für das {{WebExtAPIRef("history.HistoryItem")}}, das mit diesem Besuch verknüpft ist.
+      - : `String`. Die eindeutige Kennung für den {{WebExtAPIRef("history.HistoryItem")}} im Zusammenhang mit diesem Besuch.
     - `url`
       - : `String`. URL der besuchten Seite.
     - `title`
@@ -47,7 +47,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Hören Sie auf Titeländerungs-Ereignisse und protokollieren Sie die ID, URL und den Titel der besuchten Seiten.
+Hören Sie auf Ereignisse zur Titeländerung und protokollieren Sie die ID, URL und den Titel der besuchten Seiten.
 
 ```js
 function handleTitleChanged(item) {
@@ -62,7 +62,7 @@ browser.history.onTitleChanged.addListener(handleTitleChanged);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#event-onVisited) API. Diese Dokumentation ist abgeleitet von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#event-onVisited) API von Chromium. Diese Dokumentation ist abgeleitet von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

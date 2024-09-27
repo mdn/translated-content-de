@@ -1,5 +1,5 @@
 ---
-title: "URLSearchParams: size Eigenschaft"
+title: "URLSearchParams: size-Eigenschaft"
 short-title: size
 slug: Web/API/URLSearchParams/size
 l10n:
@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`size`** des {{domxref("URLSearchParams")}}-Interfaces gibt die Gesamtzahl der Suchparameter-Einträge an.
+Die **`size`**-Eigenschaft, die schreibgeschützt ist, des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Interfaces gibt die Gesamtanzahl der Suchparameter-Einträge an.
 
 ## Wert
 
-Eine Zahl, die die Gesamtzahl der Suchparameter-Einträge im {{domxref("URLSearchParams")}}-Objekt angibt.
+Eine Zahl, die die Gesamtanzahl der Suchparameter-Einträge im [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Objekt angibt.
 
 ## Beispiele
 
-### Abrufen der Anzahl der Suchparameter-Einträge
+### Ermitteln der Anzahl der Suchparameter-Einträge
 
-Sie können die Gesamtzahl der Suchparameter-Einträge wie folgt abrufen:
+Sie können die Gesamtanzahl der Suchparameter-Einträge wie folgt ermitteln:
 
 ```js
 const searchParams = new URLSearchParams("c=4&a=2&b=3&a=1");
 searchParams.size; // 4
 ```
 
-Beachten Sie, dass der `a`-Parameter zweimal angegeben wird, aber `size` die Anzahl aller angegebenen Einträge (4) und nicht 3 zurückgibt. Um die Anzahl der eindeutigen Schlüssel zu erhalten, können Sie beispielsweise ein {{jsxref("Set")}} verwenden:
+Beachten Sie, dass der Parameter `a` zweimal angegeben wird, aber `size` die Anzahl aller gegebenen Einträge (4) und nicht 3 zurückgibt. Um die Anzahl der eindeutigen Schlüssel zu ermitteln, können Sie beispielsweise ein {{jsxref("Set")}} verwenden:
 
 ```js
 [...new Set(searchParams.keys())].length; // 3
@@ -39,7 +39,7 @@ Die `size`-Eigenschaft ist nützlich, um zu überprüfen, ob überhaupt Suchpara
 const url = new URL("https://example.com?foo=1&bar=2");
 
 if (url.searchParams.size) {
-  console.log("URL hat Suchparameter!");
+  console.log("URL has search parameters!");
 }
 ```
 
@@ -53,5 +53,5 @@ if (url.searchParams.size) {
 
 ## Siehe auch
 
-- {{domxref("URL.searchParams")}}
+- [`URL.searchParams`](/de/docs/Web/API/URL/searchParams)
 - [Polyfill von `URLSearchParams` in `core-js`](https://github.com/zloirock/core-js#url-and-urlsearchparams)

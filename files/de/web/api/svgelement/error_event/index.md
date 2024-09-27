@@ -1,6 +1,6 @@
 ---
-title: "SVGElement: Fehlerereignis"
-short-title: Fehler
+title: "SVGElement: error Event"
+short-title: error
 slug: Web/API/SVGElement/error_event
 l10n:
   sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Das `error`-Ereignis wird ausgelöst, wenn ein SVG-Element nicht richtig geladen wird oder ein Fehler während der Skriptausführung auftritt.
+Das `error`-Ereignis wird ausgelöst, wenn ein SVG-Element nicht korrekt geladen wird oder ein Fehler während der Skriptausführung auftritt.
 
-Dies implementiert im Grunde das standardmäßige `error`-DOM-Ereignis.
+Dies implementiert im Wesentlichen das standardmäßige `error`-DOM-Ereignis.
 
-Dieses Ereignis ist nicht abbruchfähig.
+Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -26,7 +26,7 @@ onerror = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 

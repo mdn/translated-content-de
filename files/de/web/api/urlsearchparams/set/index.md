@@ -1,5 +1,5 @@
 ---
-title: "URLSearchParams: set()-Methode"
+title: "URLSearchParams: set() Methode"
 short-title: set()
 slug: Web/API/URLSearchParams/set
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`set()`**-Methode des {{domxref("URLSearchParams")}}-Interfaces setzt den Wert, der mit einem gegebenen Suchparameter verknüpft ist, auf den angegebenen Wert. Wenn mehrere übereinstimmende Werte vorhanden sind, löscht diese Methode die anderen. Wenn der Suchparameter nicht existiert, erstellt diese Methode ihn.
+Die **`set()`** Methode des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)
+Interfaces legt den Wert fest, der mit einem bestimmten Suchparameter verknüpft ist. Wenn mehrere übereinstimmende Werte vorhanden sind, löscht diese Methode die anderen. Existiert der Suchparameter nicht, erstellt diese Methode ihn.
 
 ## Syntax
 
@@ -33,7 +34,7 @@ Keiner ({{jsxref("undefined")}}).
 let url = new URL("https://example.com?foo=1&bar=2");
 let params = new URLSearchParams(url.search);
 
-// Fügen Sie einen dritten Parameter hinzu.
+// Add a third parameter.
 params.set("baz", 3);
 params.toString(); // "foo=1&bar=2&baz=3"
 ```

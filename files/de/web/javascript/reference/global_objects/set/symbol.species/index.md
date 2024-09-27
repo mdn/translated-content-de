@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Set[Symbol.species]`** statische Accessor-Eigenschaft ist eine ungenutzte Accessor-Eigenschaft, die festlegt, wie `Set`-Objekte kopiert werden.
+Die statische Accessor-Eigenschaft **`Set[Symbol.species]`** ist eine ungenutzte Accessor-Eigenschaft, die angibt, wie `Set`-Objekte kopiert werden.
 
 ## Syntax
 
@@ -21,16 +21,16 @@ Der Wert des Konstruktors (`this`), auf dem `get [Symbol.species]` aufgerufen wu
 
 ## Beschreibung
 
-Die `[Symbol.species]` Accessor-Eigenschaft gibt den Standardkonstruktor für `Set`-Objekte zurück. Konstruktoren von Unterklassen können ihn überschreiben, um die Zuweisung des Konstruktors zu ändern.
+Die `[Symbol.species]` Accessor-Eigenschaft gibt den Standardkonstruktor für `Set`-Objekte zurück. Unterklassenkonstruktoren können ihn überschreiben, um die Konstruktorzurodnung zu ändern.
 
 > [!NOTE]
-> Diese Eigenschaft wird derzeit von keiner `Set`-Methode verwendet.
+> Diese Eigenschaft wird derzeit von allen `Set`-Methoden nicht verwendet.
 
 ## Beispiele
 
 ### Species in gewöhnlichen Objekten
 
-Die `[Symbol.species]`-Eigenschaft gibt die Standardkonstruktionsfunktion zurück, die für `Set` der `Set`-Konstruktor ist.
+Die `[Symbol.species]` Eigenschaft gibt die Standardkonstruktorfunktion zurück, die der `Set`-Konstruktor für `Set` ist.
 
 ```js
 Set[Symbol.species]; // function Set()
@@ -38,11 +38,11 @@ Set[Symbol.species]; // function Set()
 
 ### Species in abgeleiteten Objekten
 
-In einer Instanz einer benutzerdefinierten `Set`-Unterklasse, wie `MySet`, ist der `MySet` species der `MySet`-Konstruktor. Allerdings möchten Sie dies möglicherweise überschreiben, um in Ihren abgeleiteten Klassenmethoden übergeordnete `Set`-Objekte zurückzugeben:
+In einer Instanz einer benutzerdefinierten `Set`-Unterklasse, wie etwa `MySet`, ist die `MySet`-Species der `MySet` Konstruktor. Es kann jedoch sinnvoll sein, diesen zu überschreiben, um übergeordnete `Set`-Objekte in den Methoden Ihrer abgeleiteten Klasse zurückzugeben:
 
 ```js
 class MySet extends Set {
-  // Überschreibt MySet species auf den übergeordneten Set-Konstruktor
+  // Overwrite MySet species to the parent Set constructor
   static get [Symbol.species]() {
     return Set;
   }

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Der **`InputEvent()`** Konstruktor erstellt ein neues {{domxref("InputEvent")}} Objekt.
+Der **`InputEvent()`** Konstruktor erstellt ein neues [`InputEvent`](/de/docs/Web/API/InputEvent)-Objekt.
 
 ## Syntax
 
@@ -20,31 +20,28 @@ new InputEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses.
-    Es ist case-sensitive und Browser setzen es auf `beforeinput` oder `input`.
+  - : Ein String mit dem Namen des Ereignisses. Es ist case-sensitiv und Browser setzen es auf `beforeinput` oder `input`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("UIEvent/UIEvent", "UIEvent()")}} definierten Eigenschaften_ folgende Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`UIEvent()`](/de/docs/Web/API/UIEvent/UIEvent) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `inputType` {{optional_inline}}
-      - : Ein String, der die Art der Änderung für bearbeitbare Inhalte angibt, wie zum Beispiel das Einfügen, Löschen oder Formatieren von Text.
+      - : Ein String, der den Typ der Änderung für bearbeitbare Inhalte angibt, z.B. Einfügen, Löschen oder Formatieren von Text.
     - `data` {{optional_inline}}
-      - : Ein String, der Zeichen enthält, die eingefügt werden sollen.
-        Dies kann ein leerer String sein, wenn durch die Änderung kein Text eingefügt wird
-        (zum Beispiel beim Löschen von Zeichen).
+      - : Ein String, der die einzufügenden Zeichen enthält. Dies kann ein leerer String sein, wenn die Änderung keinen Text einfügt (wie z.B. beim Löschen von Zeichen).
     - `isComposing` {{optional_inline}}
-      - : Ein Boolean, der angibt, dass das Ereignis Teil einer Kompositionssitzung ist, das heißt nach einem {{domxref("Element/compositionstart_event", "compositionstart")}} Ereignis, aber vor einem {{domxref("Element/compositionend_event", "compositionend")}} Ereignis. Der Standardwert ist `false`.
+      - : Ein Boolean, der angibt, dass das Ereignis Teil einer Kompositionssitzung ist, also nach einem [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event)-Ereignis, aber vor einem [`compositionend`](/de/docs/Web/API/Element/compositionend_event)-Ereignis. Der Standardwert ist `false`.
 
 ### Rückgabewert
 
-Ein neues {{domxref("InputEvent")}} Objekt.
+Ein neues [`InputEvent`](/de/docs/Web/API/InputEvent)-Objekt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("InputEvent")}}, die Schnittstelle der Objekte, die es konstruiert.
+- [`InputEvent`](/de/docs/Web/API/InputEvent), die Schnittstelle der Objekte, die es konstruiert.

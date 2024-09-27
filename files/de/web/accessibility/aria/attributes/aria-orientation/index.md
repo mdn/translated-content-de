@@ -11,9 +11,9 @@ Das Attribut `aria-orientation` gibt an, ob die Ausrichtung des Elements horizon
 
 ## Beschreibung
 
-Es kann wichtig für den Benutzer sein, die Ausrichtung zu kennen, um zu wissen, wie man bestimmte Widgets navigiert, da die Ausrichtung das erwartete Verhalten der linken, rechten, oberen und unteren Pfeiltasten beeinflusst. Das Attribut `aria-orientation` wird verwendet, um Nutzern von unterstützender Technologie mitzuteilen, ob die Ausrichtung eines Elements `horizontal`, `vertical` oder `undefined` ist.
+Es kann wichtig sein, dass der Benutzer die Ausrichtung kennt, um zu wissen, wie er bestimmte Widgets navigieren kann, da die Ausrichtung die erwarteten Verhaltensweisen der linken, rechten, oberen und unteren Pfeile beeinflusst. Das Attribut `aria-orientation` wird verwendet, um Benutzern von unterstützenden Technologien anzuzeigen, ob die Ausrichtung eines Elements `horizontal`, `vertical` oder `undefined` ist.
 
-Einige Widgets haben Standardausrichtungen:
+Verschiedene Widgets haben Standardausrichtungen:
 
 Standardmäßig horizontal:
 
@@ -29,13 +29,13 @@ Standardmäßig vertikal:
 - [`listbox`](/de/docs/Web/Accessibility/ARIA/Roles/listbox_role)
 - [`menu`](/de/docs/Web/Accessibility/ARIA/Roles/menu_role)
 
-Jeder [`separator`](/de/docs/Web/Accessibility/ARIA/Roles/separator_role) sollte eine `aria-orientation` haben, die mit der Ausrichtung des Separators übereinstimmt.
+Jeder [`separator`](/de/docs/Web/Accessibility/ARIA/Roles/separator_role) sollte `aria-orientation` aufweisen, das mit der Ausrichtung des Separators übereinstimmt.
 
-Wenn Knoten in einem Baum horizontal anstatt in der standardmäßigen vertikalen Ausrichtung angeordnet sind, oder wenn eine Tab-Liste vertikal statt horizontal ist, funktioniert der Abwärts-Pfeil wie ein normaler rechter Pfeil und der Aufwärts-Pfeil wie ein linker Pfeil. In diesen Fällen müssen Benutzer von unterstützender Technologie die Ausrichtung des Widgets kennen, um korrekt navigieren zu können.
+Wenn Knoten in einem Baum horizontal statt in der standardmäßigen vertikalen Ausrichtung angeordnet sind oder wenn eine Registerkartenliste vertikal statt horizontal ist, fungiert der Abwärtspfeil wie ein rechter Pfeil und der Aufwärtspfeil wie ein linker Pfeil. In diesen Fällen müssen Benutzer von unterstützenden Technologien die Ausrichtung des Widgets kennen, um korrekt navigieren zu können.
 
-Auf- und Abwärtspfeile sind allgemein für das normale Scrollen im Browser verfügbar, selbst wenn sich der Fokus in einem Baum oder einer Tab-Liste befindet. Schließen Sie `aria-orientation` ein, um Benutzer zu benachrichtigen, wenn ein Widget nicht die standardmäßige, erwartete Ausrichtung und die zugehörige Navigation hat.
+Auf- und Abwärtspfeile sind in der Regel für normales Scrollen im Browser verfügbar, selbst wenn sich der Fokus in einem Baum oder einer Registerkartenliste befindet. Integrieren Sie `aria-orientation`, um Benutzer zu informieren, wenn ein Widget nicht die standardmäßige, erwartete Ausrichtung und die zugehörige Navigation aufweist.
 
-Denken Sie immer daran, dass ARIA nur beeinflusst, wie unterstützende Technologien Inhalte für Ihre Benutzer präsentieren; das Verhalten der Pfeiltasten zu ändern, erfordert JavaScript.
+Denken Sie daran, dass ARIA nur beeinflusst, wie unterstützende Technologien Inhalte Ihren Benutzern präsentieren; um das Verhalten der Pfeiltasten zu ändern, ist JavaScript erforderlich.
 
 ## Werte
 
@@ -48,10 +48,10 @@ Denken Sie immer daran, dass ARIA nur beeinflusst, wie unterstützende Technolog
 
 ## Zugehörige Schnittstellen
 
-- {{domxref("Element.ariaOrientation")}}
-  - : Die Eigenschaft [`ariaOrientation`](/de/docs/Web/API/Element/ariaOrientation), Teil der {{domxref("Element")}}-Schnittstelle, spiegelt den Wert des `aria-orientation`-Attributes wider.
-- {{domxref("ElementInternals.ariaOrientation")}}
-  - : Die Eigenschaft [`ariaOrientation`](/de/docs/Web/API/ElementInternals/ariaOrientation), Teil der {{domxref("ElementInternals")}}-Schnittstelle, spiegelt den Wert des `aria-orientation`-Attributes wider.
+- [`Element.ariaOrientation`](/de/docs/Web/API/Element/ariaOrientation)
+  - : Die [`ariaOrientation`](/de/docs/Web/API/Element/ariaOrientation)-Eigenschaft, ein Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des Attributs `aria-orientation` wider.
+- [`ElementInternals.ariaOrientation`](/de/docs/Web/API/ElementInternals/ariaOrientation)
+  - : Die [`ariaOrientation`](/de/docs/Web/API/ElementInternals/ariaOrientation)-Eigenschaft, ein Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des Attributs `aria-orientation` wider.
 
 ## Zugehörige Rollen
 
@@ -64,7 +64,7 @@ Verwendet in Rollen:
 - [`tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role)
 - [`toolbar`](/de/docs/Web/Accessibility/ARIA/Roles/toolbar_role)
 
-Geerbt in Rollen:
+Vererbt in Rollen:
 
 - [`listbox`](/de/docs/Web/Accessibility/ARIA/Roles/listbox_role)
 - [`menu`](/de/docs/Web/Accessibility/ARIA/Roles/menu_role)
@@ -79,4 +79,4 @@ Geerbt in Rollen:
 
 ## Siehe auch
 
-- [Verstehen von WCAG: Tastatur](/de/docs/Web/Accessibility/Understanding_WCAG/Keyboard)
+- [Verständnis von WCAG: Tastatur](/de/docs/Web/Accessibility/Understanding_WCAG/Keyboard)

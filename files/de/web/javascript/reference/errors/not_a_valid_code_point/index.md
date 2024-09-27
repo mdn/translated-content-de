@@ -1,5 +1,5 @@
 ---
-title: "RangeError: Argument ist kein gültiger Codepunkt"
+title: "RangeError: argument is not a valid code point"
 slug: Web/JavaScript/Reference/Errors/Not_a_valid_code_point
 l10n:
   sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
@@ -7,29 +7,25 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Ausnahmefehler "Invalid code point" tritt auf, wenn {{jsxref("NaN")}}-Werte,
-negative Ganzzahlen (-1), nicht-ganzzahlige Werte (5.4) oder Werte größer als 0x10FFFF (1114111) mit {{jsxref("String.fromCodePoint()")}} verwendet werden.
+Die JavaScript-Ausnahme „Invalid code point“ tritt auf, wenn {{jsxref("NaN")}}-Werte, negative Ganzzahlen (-1), Nicht-Ganzzahlen (5.4) oder Werte, die größer als 0x10FFFF (1114111) sind, mit {{jsxref("String.fromCodePoint()")}} verwendet werden.
 
 ## Meldung
 
 ```plain
-RangeError: Invalid code point -1 (V8-basiert)
+RangeError: Invalid code point -1 (V8-based)
 RangeError: -1 is not a valid code point (Firefox)
 RangeError: Arguments contain a value that is out of range of code points (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("RangeError")}}
 
 ## Was ist schiefgelaufen?
 
-{{jsxref("String.fromCodePoint()")}} löst diesen Fehler aus, wenn {{jsxref("NaN")}}-Werte,
-negative Ganzzahlen (-1), nicht-ganzzahlige Werte (5.4) oder Werte größer als 0x10FFFF (1114111) übergeben werden.
+{{jsxref("String.fromCodePoint()")}} wirft diesen Fehler, wenn es mit {{jsxref("NaN")}}-Werten, negativen Ganzzahlen (-1), Nicht-Ganzzahlen (5.4) oder Werten, die größer als 0x10FFFF (1114111) sind, aufgerufen wird.
 
-Ein [Codepoint](https://en.wikipedia.org/wiki/Code_point) ist ein Wert im
-Unicode-Codespace; das heißt, der Bereich von ganzen Zahlen von `0` bis
-`0x10FFFF`.
+Ein [Codepunkt](https://en.wikipedia.org/wiki/Code_point) ist ein Wert im Unicode-Codespace, also im Bereich der Ganzzahlen von `0` bis `0x10FFFF`.
 
 ## Beispiele
 

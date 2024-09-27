@@ -1,5 +1,5 @@
 ---
-title: "ValidityState: Eigenschaft rangeOverflow"
+title: "ValidityState: rangeOverflow-Eigenschaft"
 short-title: rangeOverflow
 slug: Web/API/ValidityState/rangeOverflow
 l10n:
@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`rangeOverflow`**-Eigenschaft der [`ValidityState`](/de/docs/Web/API/ValidityState) Schnittstelle gibt an, ob der Wert eines {{HTMLElement("input")}}, nachdem er vom Benutzer bearbeitet wurde, nicht den durch das [`max`](/de/docs/Web/HTML/Attributes/max)-Attribut des Elements festgelegten Einschränkungen entspricht.
+Die schreibgeschützte **`rangeOverflow`**-Eigenschaft der Schnittstelle [`ValidityState`](/de/docs/Web/API/ValidityState) zeigt an, ob der Wert eines vom Benutzer bearbeiteten {{HTMLElement("input")}}-Elements nicht den durch das Attribut [`max`](/de/docs/Web/HTML/Attributes/max) gesetzten Einschränkungen entspricht.
 
-Wenn das Feld numerischer Natur ist, einschließlich der Typen {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}}, und ein `max`-Wert festgelegt ist, wird die `rangeOverflow`-Eigenschaft auf true gesetzt, wenn der Wert nicht den durch den [`max`](/de/docs/Web/HTML/Attributes/step)-Wert festgelegten Einschränkungen entspricht.
+Falls das Feld numerischer Art ist, einschließlich der Typen {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, {{HTMLElement("input/time", "time")}}, {{HTMLElement("input/datetime-local", "datetime-local")}}, {{HTMLElement("input/number", "number")}} und {{HTMLElement("input/range", "range")}} und ein `max`-Wert festgelegt ist, wird die `rangeOverflow`-Eigenschaft auf true gesetzt, wenn der Wert nicht den durch den [`max`](/de/docs/Web/HTML/Attributes/step) festgelegten Einschränkungen entspricht.
 
 ## Wert
 
-Ein Boolean, der `true` ist, wenn der `ValidityState` nicht den Einschränkungen entspricht.
+Ein boolescher Wert, der `true` ist, wenn der `ValidityState` nicht den Einschränkungen entspricht.
 
 ## Beispiele
 
-### Eingabe mit numerischem Überlauf
+### Eingabefeld mit numerischem Überlauf
 
-Das folgende Beispiel überprüft die Gültigkeit eines [numerischen Eingabeelements](/de/docs/Web/HTML/Element/input/number).
-Eine Einschränkung wurde mit dem [`max`-Attribut](/de/docs/Web/HTML/Element/input/number#max) hinzugefügt, das einen maximalen Wert von `18` für die Eingabe festlegt.
-Wenn der Benutzer eine Zahl größer als 18 eingibt, schlägt die Einschränkungsüberprüfung des Elements fehl und die Stile, die den CSS-Pseudoklassen {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} entsprechen,
+Im folgenden Beispiel wird die Gültigkeit eines [numerischen Eingabeelements](/de/docs/Web/HTML/Element/input/number) überprüft.
+Es wurde eine Einschränkung mit dem [`max`-Attribut](/de/docs/Web/HTML/Element/input/number#max) hinzugefügt, die einen maximalen Wert von `18` für die Eingabe festlegt.
+Wenn der Benutzer eine Zahl größer als 18 eingibt, scheitert das Element an der Einschränkungsvalidierung, und die Stile, die zur CSS-Pseudo-Klasse {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} passen,
 
 ```css
-/* oder :invalid */
+/* or :invalid */
 input:out-of-range {
   outline: red solid 3px;
 }
@@ -78,8 +78,8 @@ userInput.addEventListener("input", () => {
 
 ## Siehe auch
 
-- {{domxref("ValidityState.rangeUnderflow")}}
+- [`ValidityState.rangeUnderflow`](/de/docs/Web/API/ValidityState/rangeUnderflow)
 - [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- [Formulare: Datenformularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Formulare: Datenformular-Validierung](/de/docs/Learn/Forms/Form_validation)
 - [`step`-Attribut](/de/docs/Web/HTML/Attributes/step)
 - [`min`-Attribut](/de/docs/Web/HTML/Attributes/min)

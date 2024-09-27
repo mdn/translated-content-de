@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Credential Management API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`name`**-Eigenschaft der {{domxref("PasswordCredential")}}-Schnittstelle gibt einen String zurück, der einen lesbaren öffentlichen Namen zur Anzeige in einem Anmeldeinformationsauswahldialog enthält.
+Die **`name`**-Eigenschaft, die nur lesbar ist, der Schnittstelle [`PasswordCredential`](/de/docs/Web/API/PasswordCredential) gibt einen String zurück, der einen menschenlesbaren öffentlichen Namen zur Anzeige in einem Anmeldedialog enthält.
 
 ## Wert
 

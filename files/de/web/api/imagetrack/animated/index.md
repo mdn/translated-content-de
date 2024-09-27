@@ -8,20 +8,15 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`animated`**-Eigenschaft der {{domxref("ImageTrack")}}-Schnittstelle gibt `true` zurück, wenn die Spur animiert ist und daher mehrere Frames hat.
+Die **`animated`**-Eigenschaft des [`ImageTrack`](/de/docs/Web/API/ImageTrack)-Interfaces gibt `true` zurück, wenn der Track animiert ist und daher mehrere Frames besitzt.
 
 ## Wert
 
-Ein {{jsxref("boolean")}}, wenn `true`, handelt es sich um eine animierte Spur.
+Ein {{jsxref("boolean")}}, wenn `true`, handelt es sich um einen animierten Track.
 
 ## Beispiele
 
 Das folgende Beispiel gibt den Wert von `animated` in der Konsole aus.
-
-```js
-let track = imageDecoder.tracks.selectedTrack;
-console.log(track.animated);
-```
 
 ## Spezifikationen
 

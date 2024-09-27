@@ -7,12 +7,12 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mask-clip`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt den Bereich, der von einer Maske beeinflusst wird. Der bemalte Inhalt eines Elements muss auf diesen Bereich beschränkt sein.
+Die **`mask-clip`** [CSS](/de/docs/Web/CSS)-Eigenschaft bestimmt den Bereich, der von einer Maske betroffen ist. Der gemalte Inhalt eines Elements muss auf diesen Bereich beschränkt werden.
 
 ## Syntax
 
 ```css
-/* <coord-box> Werte */
+/* <coord-box> values */
 mask-clip: content-box;
 mask-clip: padding-box;
 mask-clip: border-box;
@@ -20,20 +20,20 @@ mask-clip: fill-box;
 mask-clip: stroke-box;
 mask-clip: view-box;
 
-/* Schlüsselwortwerte */
+/* Keyword values */
 mask-clip: no-clip;
 
-/* Nicht-standardisierte Schlüsselwortwerte */
+/* Non-standard keyword values */
 -webkit-mask-clip: border;
 -webkit-mask-clip: padding;
 -webkit-mask-clip: content;
 -webkit-mask-clip: text;
 
-/* Mehrere Werte */
+/* Multiple values */
 mask-clip: padding-box, no-clip;
 mask-clip: view-box, fill-box, border-box;
 
-/* Globale Werte */
+/* Global values */
 mask-clip: inherit;
 mask-clip: initial;
 mask-clip: revert;
@@ -41,24 +41,24 @@ mask-clip: revert-layer;
 mask-clip: unset;
 ```
 
-Eins oder mehrere der unten aufgeführten Schlüsselwortwerte, getrennt durch Kommata.
+Eines oder mehrere der unten aufgelisteten Schlüsselwörter, getrennt durch Kommas.
 
 ### Werte
 
 - `content-box`
-  - : Der bemalte Inhalt wird auf die Inhaltbox begrenzt.
+  - : Der gemalte Inhalt wird auf die Content-Box beschnitten.
 - `padding-box`
-  - : Der bemalte Inhalt wird auf die Polsterungsbox begrenzt.
+  - : Der gemalte Inhalt wird auf die Padding-Box beschnitten.
 - `border-box`
-  - : Der bemalte Inhalt wird auf die Rahmenbox begrenzt.
+  - : Der gemalte Inhalt wird auf die Border-Box beschnitten.
 - `fill-box`
-  - : Der bemalte Inhalt wird auf die Objektbegrenzungsbox begrenzt.
+  - : Der gemalte Inhalt wird auf die Umgrenzungsbox des Objekts beschnitten.
 - `stroke-box`
-  - : Der bemalte Inhalt wird auf die Strichbegrenzungsbox begrenzt.
+  - : Der gemalte Inhalt wird auf die Begrenzungsbox des Strichs beschnitten.
 - `view-box`
-  - : Verwendet den nächsten SVG-Viewport als Referenzbox. Wenn ein [`viewBox`](/de/docs/Web/SVG/Attribute/viewBox) Attribut für das Element, das den SVG-Viewport erstellt, angegeben ist, wird die Referenzbox am Ursprung des durch das `viewBox`-Attribut festgelegten Koordinatensystems positioniert, und die Dimension der Referenzbox wird auf die Breiten- und Höhenwerte des `viewBox`-Attributs festgelegt.
+  - : Verwendet das nächste SVG-Viewport als Referenzbox. Wenn ein [`viewBox`](/de/docs/Web/SVG/Attribute/viewBox)-Attribut für das Element festgelegt ist, das das SVG-Viewport erstellt, wird die Referenzbox am Ursprung des durch das `viewBox`-Attribut etablierten Koordinatensystems positioniert und die Dimension der Referenzbox wird auf die Breiten- und Höhenwerte des `viewBox`-Attributs gesetzt.
 - `no-clip`
-  - : Der bemalte Inhalt wird nicht begrenzt.
+  - : Der gemalte Inhalt wird nicht beschnitten.
 - `border`
   - : Dieses Schlüsselwort verhält sich wie `border-box`.
 - `padding`
@@ -66,7 +66,7 @@ Eins oder mehrere der unten aufgeführten Schlüsselwortwerte, getrennt durch Ko
 - `content`
   - : Dieses Schlüsselwort verhält sich wie `content-box`.
 - `text`
-  - : Dieses Schlüsselwort begrenzt das Maskenbild auf den Text des Elements.
+  - : Dieses Schlüsselwort schneidet das Maskenbild auf den Text des Elements.
 
 ## Formale Definition
 
@@ -78,9 +78,9 @@ Eins oder mehrere der unten aufgeführten Schlüsselwortwerte, getrennt durch Ko
 
 ## Beispiele
 
-### Zuschneiden einer Maske auf die Rahmenbox
+### Eine Maske auf die Border-Box zuschneiden
 
-Ändern Sie den Wert von `mask-clip` in einen der oben angegebenen zulässigen Werte. Wenn Sie das Beispiel in einem auf Chromium basierenden Browser ansehen, ändern Sie den Wert von `-webkit-mask-clip`.
+Ändern Sie den `mask-clip`-Wert auf einen der oben detailliert erlaubten Werte. Wenn Sie das Beispiel in einem Browser auf Chromium-Basis anzeigen, ändern Sie den Wert von `-webkit-mask-clip`.
 
 {{EmbedGHLiveSample("css-examples/masking/mask-clip.html", '100%', 800)}}
 

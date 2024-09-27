@@ -7,18 +7,18 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSLayerStatementRule`** repräsentiert eine {{cssxref("@layer")}}-Anweisung. Im Gegensatz zu {{domxref("CSSLayerBlockRule")}} enthält sie keine anderen Regeln und definiert lediglich eine oder mehrere Ebenen, indem ihre Namen angegeben werden.
+Die **`CSSLayerStatementRule`** stellt eine {{cssxref("@layer")}}-Anweisungsregel dar. Anders als bei [`CSSLayerBlockRule`](/de/docs/Web/API/CSSLayerBlockRule) enthält sie keine weiteren Regeln und definiert lediglich eine oder mehrere Ebenen durch Angabe ihrer Namen.
 
-Diese Regel ermöglicht es, die Reihenfolge der Ebenen auf eine klare Weise am Anfang einer CSS-Datei ausdrücklich zu deklarieren: Die Ebenenreihenfolge wird durch die Reihenfolge des ersten Auftretens jedes Ebenennamens definiert. Die Deklaration mit einer Anweisung ermöglicht es dem Leser, die Ebenenreihenfolge zu verstehen. Es erlaubt auch, Inline- und importierte Ebenen zu mischen, was mit der `CSSLayerBlockRule`-Syntax nicht möglich ist.
+Diese Regel ermöglicht es, eine Ordnungschaftsebene explizit zu deklarieren, die am Anfang einer CSS-Datei in offensichtlicher Weise steht: Die Reihenfolge der Ebenen wird durch das erste Vorkommen jedes Ebenennamens definiert. Ihre Deklaration mit einer Anweisung ermöglicht es dem Leser, die Reihenfolge der Ebenen zu verstehen. Außerdem erlaubt es das Mischen von Inline- und importierten Ebenen, was mit der `CSSLayerBlockRule`-Syntax nicht möglich ist.
 
 {{InheritanceDiagram}}
 
-## Instanz Eigenschaften
+## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, {{DOMxRef("CSSRule")}}._
+_Erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- {{DOMxRef("CSSLayerStatementRule.nameList")}} {{ReadOnlyInline}}
-  - Ein Array von Zeichenketten, das den Namen jeder Kaskadenebene durch die Regel repräsentiert.
+- [`CSSLayerStatementRule.nameList`](/de/docs/Web/API/CSSLayerStatementRule/nameList) {{ReadOnlyInline}}
+  - Ein Array von Zeichenketten, das den Namen jeder Kaskadenschicht durch die Regel darstellt.
 
 ## Beispiele
 
@@ -39,10 +39,10 @@ _Erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, {{DOMxRef("CS
 ```js
 const item = document.getElementsByTagName("p")[0];
 const rules = document.styleSheets[1].cssRules;
-// Beachten Sie, dass Stylesheet #1 das Stylesheet ist, das mit diesem eingebetteten Beispiel verknüpft ist,
-// während Stylesheet #0 das Stylesheet ist, das mit der gesamten MDN-Seite verknüpft ist
+// Note that stylesheet #1 is the stylesheet associated with this embedded example,
+// while stylesheet #0 is the stylesheet associated with the whole MDN page
 
-const layer = rules[0]; // Eine CSSLayerStatementRule
+const layer = rules[0]; // A CSSLayerStatementRule
 
 item.textContent = `The CSS @layer statement declares the following layers: ${layer.nameList.join(
   ", ",
@@ -64,5 +64,5 @@ item.textContent = `The CSS @layer statement declares the following layers: ${la
 ## Siehe auch
 
 - {{cssxref("@layer")}}
-- [Die `@layer`-Anweisung für benannte Ebenen](/de/docs/Learn/CSS/Building_blocks/Cascade_layers#the_layer_statement_at-rule_for_named_layers)
-- {{DOMxRef("CSSLayerBlockRule")}}
+- [Die `@layer` At-Regel für benannte Ebenen](/de/docs/Learn/CSS/Building_blocks/Cascade_layers#the_layer_statement_at-rule_for_named_layers)
+- [`CSSLayerBlockRule`](/de/docs/Web/API/CSSLayerBlockRule)

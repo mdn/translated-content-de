@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**SOAP** (Simple Object Access Protocol) ist ein {{glossary('protocol')}} zum Übertragen von Daten im {{glossary('XML')}}-Format.
+**SOAP** (Simple Object Access Protocol) ist ein [Protokoll](/de/docs/Glossary/protocol) für die Übertragung von Daten im [XML](/de/docs/Glossary/XML)-Format.
 
 ## Siehe auch
 

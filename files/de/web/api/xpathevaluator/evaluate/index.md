@@ -8,9 +8,8 @@ l10n:
 
 {{APIRef("DOM XPath")}}
 
-Die `evaluate()`-Methode der {{domxref("XPathEvaluator")}}-Schnittstelle
-führt einen XPath-Ausdruck auf dem angegebenen Knoten oder Dokument aus und gibt ein
-{{domxref("XPathResult")}} zurück.
+Die Methode `evaluate()` der Schnittstelle [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator)
+führt einen XPath-Ausdruck auf dem angegebenen Knoten oder Dokument aus und gibt ein [`XPathResult`](/de/docs/Web/API/XPathResult) zurück.
 
 ## Syntax
 
@@ -24,51 +23,51 @@ evaluate(expression, contextNode, resolver, type, result)
 ### Parameter
 
 - `expression`
-  - : Ein String, der den zu analysierenden und auszuwertenden XPath-Ausdruck darstellt.
+  - : Ein String, der den zu parsenden und zu evaluierenden XPath-Ausdruck darstellt.
 - `contextNode`
-  - : Ein {{domxref("Node")}}, der den Kontext darstellt, der zur Auswertung des Ausdrucks verwendet wird.
+  - : Ein [`Node`](/de/docs/Web/API/Node), der den Kontext darstellt, der für die Auswertung des Ausdrucks verwendet wird.
 - `resolver` {{optional_inline}}
-  - : Ein {{domxref("Node")}}, `null` oder ein beliebiges Objekt, das die Methode {{domxref("Node/lookupNamespaceURI", "lookupNamespaceURI")}} implementiert. Ermöglicht die Übersetzung aller Präfixe, einschließlich des `xml`-Namespace-Präfixes, innerhalb des XPath-Ausdrucks in entsprechende Namespace-URIs.
+  - : Ein [`Node`](/de/docs/Web/API/Node), `null`, oder ein beliebiges Objekt, das die Methode [`lookupNamespaceURI`](/de/docs/Web/API/Node/lookupNamespaceURI) implementiert. Erlaubt die Übersetzung aller Präfixe, einschließlich des `xml` Namensraum-Präfixes, innerhalb des XPath-Ausdrucks in geeignete Namensraum-URIs.
 - `type` {{optional_inline}}
-  - : Gibt den Typ des Ergebnisses an, das durch die Auswertung des Ausdrucks zurückgegeben werden soll. Dies muss eine der {{domxref("XPathResult", "XPathResult", "Konstanten")}} sein.
+  - : Gibt den Typ des Ergebnisses an, das durch die Auswertung des Ausdrucks zurückgegeben wird. Dies muss einer der [`XPathResult.Constants`](/de/docs/Web/API/XPathResult) sein.
 - `result` {{optional_inline}}
-  - : Ermöglicht die Angabe eines Ergebnisobjekts, das möglicherweise wiederverwendet und von dieser Methode zurückgegeben wird. Wenn dies als `null` angegeben wird oder die Implementierung nicht das angegebene Ergebnis wiederverwendet, wird ein neues Ergebnisobjekt zurückgegeben.
+  - : Ermöglicht es, ein Ergebnisobjekt anzugeben, das von dieser Methode wiederverwendet und zurückgegeben werden kann. Wenn dieses als `null` angegeben ist oder die Implementierung das angegebene Ergebnis nicht wiederverwendet, wird ein neues Ergebnisobjekt zurückgegeben.
 
 ### Rückgabewert
 
-Ein {{domxref("XPathResult")}}-Objekt, das das Ergebnis der Auswertung des XPath-Ausdrucks darstellt.
+Ein [`XPathResult`](/de/docs/Web/API/XPathResult) Objekt, das das Ergebnis der Auswertung des XPath-Ausdrucks darstellt.
 
 ### Ausnahmen
 
 #### INVALID_EXPRESSION_ERR
 
-Wenn der Ausdruck nicht legal gemäß den Regeln des {{domxref("XPathEvaluator")}} ist, wird eine {{domxref("XPathException")}} vom Typ `INVALID_EXPRESSION_ERR` ausgelöst.
+Wenn der Ausdruck nicht legal gemäß den Regeln des [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator) ist, wird eine [`XPathException`](/de/docs/Web/API/XPathException) vom Typ `INVALID_EXPRESSION_ERR` ausgelöst.
 
 #### TYPE_ERR
 
-Falls das Ergebnis nicht in den angegebenen Typ konvertiert werden kann, wird eine {{domxref("XPathException")}} vom Typ `TYPE_ERR` ausgelöst.
+Falls das Ergebnis nicht in den angegebenen Typ konvertiert werden kann, wird eine [`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
 
 #### NAMESPACE_ERR
 
-Wenn der Ausdruck Namespace-Präfixe enthält, die nicht vom angegebenen `XPathNSResolver` aufgelöst werden können, wird eine {{domxref("DOMException")}} vom Typ `NAMESPACE_ERROR` ausgelöst.
+Wenn der Ausdruck Namensraum-Präfixe enthält, die vom angegebenen `XPathNSResolver` nicht aufgelöst werden können, wird eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `NAMESPACE_ERROR` ausgelöst.
 
 #### WRONG_DOCUMENT_ERR
 
-Wenn der bereitgestellte Kontextknoten aus einem Dokument stammt, das vom {{domxref("XPathEvaluator")}} nicht unterstützt wird, wird eine {{domxref("DOMException")}} vom Typ `WRONG_DOCUMENT_ERR` ausgelöst.
+Wenn der bereitgestellte Kontextknoten von einem Dokument stammt, das nicht vom [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator) unterstützt wird, wird eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `WRONG_DOCUMENT_ERR` ausgelöst.
 
 #### NOT_SUPPORTED_ERR
 
-Wenn der bereitgestellte Kontextknoten nicht als XPath-Kontextknoten zugelassen ist oder der angeforderte Typ nicht vom {{domxref("XPathEvaluator")}} zugelassen ist, wird eine {{domxref("DOMException")}} vom Typ `NOT_SUPPORTED_ERR` ausgelöst.
+Wenn der bereitgestellte Kontextknoten kein als XPath-Kontextknoten erlaubter Typ ist oder der angeforderte Typ nicht vom [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator) unterstützt wird, wird eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `NOT_SUPPORTED_ERR` ausgelöst.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Verwendung der `evaluate()`-Methode.
+Das folgende Beispiel zeigt die Verwendung der Methode `evaluate()`.
 
 ### HTML
 
 ```html
-<div>XPath-Beispiel</div>
-<div>Anzahl der &lt;div&gt;s: <output></output></div>
+<div>XPath example</div>
+<div>Number of &lt;div&gt;s: <output></output></div>
 ```
 
 ### JavaScript

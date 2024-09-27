@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`colorTextureHeight`**-Eigenschaft der {{domxref("XRWebGLSubImage")}}-Schnittstelle ist eine Zahl, die die Höhe in Pixeln des GL-Anhangs darstellt.
+Die schreibgeschützte **`colorTextureHeight`**-Eigenschaft des [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Interfaces ist eine Zahl, die die Höhe des GL-Anhangs in Pixeln darstellt.
 
 ## Wert
 
@@ -24,4 +24,4 @@ Eine Zahl, die die Höhe in Pixeln angibt.
 
 ## Siehe auch
 
-- {{domxref("WebGLTexture")}}
+- [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)

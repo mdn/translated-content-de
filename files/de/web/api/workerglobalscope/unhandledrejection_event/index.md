@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}{{AvailableInWorkers("worker")}}
 
-Das **`unhandledrejection`** Ereignis wird an den globalen Bereich (typischerweise {{domxref("WorkerGlobalScope")}}) eines Skripts gesendet, wenn ein {{jsxref("Promise")}}, der keinen Ablehnungs-Handler hat, abgelehnt wird.
+Das **`unhandledrejection`** Ereignis wird an den globalen Geltungsbereich (typischerweise [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)) eines Skripts gesendet, wenn ein {{jsxref("Promise")}} ohne Ablehnungs-Handler abgelehnt wird.
 
-Dies ist nützlich zum Debuggen und um eine Ausweich-Fehlerbehandlung für unerwartete Situationen bereitzustellen.
+Dies ist nützlich zum Debuggen und für die Bereitstellung einer alternativen Fehlerbehandlung für unerwartete Situationen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 self.addEventListener("unhandledrejection", (event) => {});
@@ -23,22 +23,22 @@ self.onunhandledrejection = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("PromiseRejectionEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("PromiseRejectionEvent")}}
 
 ## Ereigniseigenschaften
 
-- {{domxref("PromiseRejectionEvent.promise")}} {{ReadOnlyInline}}
-  - : Das JavaScript {{jsxref("Promise")}}, welches abgelehnt wurde.
-- {{domxref("PromiseRejectionEvent.reason")}} {{ReadOnlyInline}}
-  - : Ein Wert oder {{jsxref("Object")}}, der angibt, warum das Promise abgelehnt wurde, wie es an {{jsxref("Promise.reject()")}} übergeben wurde.
+- [`PromiseRejectionEvent.promise`](/de/docs/Web/API/PromiseRejectionEvent/promise) {{ReadOnlyInline}}
+  - : Das JavaScript {{jsxref("Promise")}}, das abgelehnt wurde.
+- [`PromiseRejectionEvent.reason`](/de/docs/Web/API/PromiseRejectionEvent/reason) {{ReadOnlyInline}}
+  - : Ein Wert oder ein {{jsxref("Object")}}, der den Grund für die Ablehnung des Promise angibt, wie er an {{jsxref("Promise.reject()")}} übergeben wurde.
 
 ## Beispiele
 
-### Grundlegende Fehlerprotokollierung
+### Grundlegendes Fehlerprotokoll
 
-Dieses Beispiel protokolliert Informationen über die nicht behandelte Promise-Ablehnung in der Konsole.
+Dieses Beispiel protokolliert Informationen über die unbehandelte Promise-Ablehnung in der Konsole.
 
 ```js
 self.addEventListener("unhandledrejection", (event) => {
@@ -56,15 +56,15 @@ self.onunhandledrejection = (event) => {
 
 ### Verhindern der Standardbehandlung
 
-Viele Umgebungen (wie {{Glossary("Node.js")}}) berichten standardmäßig nicht behandelte Promise-Ablehnungen an die Konsole. Sie können dies verhindern, indem Sie einen Handler für `unhandledrejection` Ereignisse hinzufügen, der—in Ergänzung zu anderen Aufgaben, die Sie durchführen möchten—{{domxref("Event.preventDefault()", "preventDefault()")}} aufruft, um das Ereignis abzubrechen und damit zu verhindern, dass es an den Laufzeit-Logging-Code weitergegeben wird. Dies funktioniert, weil `unhandledrejection` abbrechbar ist.
+Viele Umgebungen (wie [Node.js](/de/docs/Glossary/Node.js)) berichten standardmäßig über unbehandelte Promise-Ablehnungen in der Konsole. Sie können dies verhindern, indem Sie einen Handler für `unhandledrejection` Ereignisse hinzufügen, der – zusätzlich zu allen anderen Aufgaben, die Sie ausführen möchten – [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft, um das Ereignis abzubrechen und zu verhindern, dass es durch die Protokollierungslogik der Laufzeit behandelt wird. Dies funktioniert, weil `unhandledrejection` abgebrochen werden kann.
 
 ```js
 self.addEventListener("unhandledrejection", (event) => {
-  // Code zur Behandlung der nicht behandelten Ablehnung
+  // code for handling the unhandled rejection
   // …
 
-  // Verhindern der Standardbehandlung (z. B. die Ausgabe des
-  // Fehlers in die Konsole)
+  // Prevent the default handling (such as outputting the
+  // error to the console)
 
   event.preventDefault();
 });
@@ -81,6 +81,6 @@ self.addEventListener("unhandledrejection", (event) => {
 ## Siehe auch
 
 - [Promise-Ablehnungsereignisse](/de/docs/Web/JavaScript/Guide/Using_promises#promise_rejection_events)
-- {{domxref("PromiseRejectionEvent")}}
+- [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent)
 - {{jsxref("Promise")}}
-- {{domxref("WorkerGlobalScope/rejectionhandled_event", "rejectionhandled")}} Ereignis
+- [`rejectionhandled`](/de/docs/Web/API/WorkerGlobalScope/rejectionhandled_event) Ereignis

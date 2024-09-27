@@ -7,25 +7,25 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`OverconstrainedError`**-Schnittstelle der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) zeigt an, dass der Satz der gewünschten Fähigkeiten für den aktuellen {{domxref('MediaStreamTrack')}} derzeit nicht erfüllt werden kann. Wenn dieses Ereignis auf einem MediaStreamTrack ausgelöst wird, ist dieser stummgeschaltet, bis entweder die aktuellen Einschränkungen hergestellt werden können oder bis erfüllbare Einschränkungen angewendet werden.
+Die **`OverconstrainedError`**-Schnittstelle der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) zeigt an, dass die gewünschten Fähigkeiten für den aktuellen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) derzeit nicht erfüllt werden können. Wenn dieses Ereignis auf einem MediaStreamTrack ausgelöst wird, wird es stummgeschaltet, bis entweder die aktuellen Einschränkungen erfüllt werden können oder bis erfüllbare Einschränkungen angewendet werden.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("OverconstrainedError.OverconstrainedError", "OverconstrainedError()")}}
+- [`OverconstrainedError()`](/de/docs/Web/API/OverconstrainedError/OverconstrainedError)
   - : Erstellt ein neues `OverconstrainedError`-Objekt.
 
 ## Instanzeigenschaften
 
-_Erbt auch Eigenschaften von seiner Elternschnittstelle, {{domxref('DOMException')}}._
+_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`DOMException`](/de/docs/Web/API/DOMException)._
 
-- {{domxref("OverconstrainedError.constraint")}} {{ReadOnlyInline}}
-  - : Gibt die Einschränkung zurück, die im Konstruktor angegeben wurde, also die Einschränkung, die nicht erfüllt wurde.
+- [`OverconstrainedError.constraint`](/de/docs/Web/API/OverconstrainedError/constraint) {{ReadOnlyInline}}
+  - : Gibt die Einschränkung zurück, die im Konstruktor angegeben wurde, d. h. die Einschränkung, die nicht erfüllt wurde.
 
 ## Instanzmethoden
 
-_Erbt auch Methoden von seiner Elternschnittstelle, {{domxref('DOMException')}}._
+_Erbt auch Methoden von seiner Elternschnittstelle, [`DOMException`](/de/docs/Web/API/DOMException)._
 
 ## Spezifikationen
 

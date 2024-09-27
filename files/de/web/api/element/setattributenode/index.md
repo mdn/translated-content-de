@@ -1,5 +1,5 @@
 ---
-title: "Element: Methode setAttributeNode()"
+title: "Element: setAttributeNode() Methode"
 short-title: setAttributeNode()
 slug: Web/API/Element/setAttributeNode
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`setAttributeNode()`**-Methode der {{domxref("Element")}}-Schnittstelle fügt einen neuen {{domxref("Attr")}}-Knoten zu dem angegebenen Element hinzu.
+Die **`setAttributeNode()`** Methode des [`Element`](/de/docs/Web/API/Element) Interface fügt einen neuen [`Attr`](/de/docs/Web/API/Attr) Knoten zu dem angegebenen Element hinzu.
 
-Wenn Sie nicht mit dem Attributknoten arbeiten müssen (z. B. beim Klonen von einem anderen Element), bevor Sie ihn hinzufügen, können Sie stattdessen die {{domxref("Element.setAttribute()", "setAttribute()")}}-Methode verwenden.
+Wenn Sie nicht mit dem Attributknoten arbeiten müssen (wie z. B. beim Klonen von einem anderen Element), bevor Sie ihn hinzufügen, können Sie stattdessen die [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) Methode verwenden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ setAttributeNode(attribute)
 ### Parameter
 
 - `attribute`
-  - : Der {{domxref("Attr")}}-Knoten, der dem Element hinzugefügt werden soll.
+  - : Der [`Attr`](/de/docs/Web/API/Attr) Knoten, der dem Element hinzugefügt werden soll.
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Der ersetzte Attributknoten, falls vorhanden, der von dieser Funktion zurückgeg
 
 ## Beispiele
 
-Dieses Beispiel kopiert das `align`-Attribut von einem Element auf ein anderes.
+Dieses Beispiel kopiert das `align` Attribut von einem Element zu einem anderen.
 
 ### HTML
 
@@ -47,7 +47,7 @@ let a = d1.getAttributeNode("align");
 
 d2.setAttributeNode(a.cloneNode(true));
 
-// Gibt zurück: 'left'
+// Returns: 'left'
 alert(d2.attributes[1].value);
 ```
 
@@ -65,6 +65,6 @@ Wenn das benannte Attribut bereits auf dem Element existiert, wird dieses Attrib
 
 ## Siehe auch
 
-- {{domxref("Document.createAttribute()")}}
-- {{domxref("Element.getAttributeNode()")}}
-- {{domxref("Element.removeAttributeNode()")}}
+- [`Document.createAttribute()`](/de/docs/Web/API/Document/createAttribute)
+- [`Element.getAttributeNode()`](/de/docs/Web/API/Element/getAttributeNode)
+- [`Element.removeAttributeNode()`](/de/docs/Web/API/Element/removeAttributeNode)

@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`type`** des {{domxref("MutationRecord")}} ist der Typ des durch einen {{domxref("MutationObserver")}} beobachteten {{domxref("MutationRecord")}}.
+Die schreibgeschützte Eigenschaft **`type`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) gibt den Typ des [`MutationRecord`](/de/docs/Web/API/MutationRecord) an, der von einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
 
 ## Wert
 
 Die Eigenschaft ist auf den Typ der Mutation als Zeichenkette gesetzt. Der Wert kann einer der folgenden sein:
 
-- `attributes`, wenn die Mutation eine Attribut-Mutation war.
+- `attributes`, wenn die Mutation eine Attributmutation war.
 
-- `characterData`, wenn es sich um eine Mutation an einem {{domxref("CharacterData")}}-Knoten handelte.
+- `characterData`, wenn es sich um eine Mutation an einem [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten handelte.
 
-- `childList`, wenn die Mutation eine Mutation am Baum der Knoten war.
+- `childList`, wenn die Mutation eine Mutation des Knotensbaums war.
 
 ## Beispiele
 
-### Protokollieren des Typs einer Mutation
+### Protokollieren des Mutationstyps
 
-Im folgenden Beispiel erhalten Sie zwei Schaltflächen, um das DOM zu manipulieren. Die erste Schaltfläche fügt dem Beispiel einen neuen Knoten hinzu, und die zweite Schaltfläche ändert das `color`-Attribut aller hinzugefügten Knoten. Ein {{domxref("MutationObserver")}} wird erstellt, um alles zu beobachten, und der Beobachter ist so eingestellt, dass der `type` des Mutationsprotokolls an `#log` ausgegeben wird.
+Das folgende Beispiel gibt Ihnen zwei Schaltflächen, um das DOM zu manipulieren. Die erste Schaltfläche fügt dem Beispiel einen neuen Knoten hinzu, und die zweite Schaltfläche ändert das `color`-Attribut aller hinzugefügten Knoten. Ein [`MutationObserver`](/de/docs/Web/API/MutationObserver) wird erstellt, um alles zu beobachten, und der Observer ist so eingestellt, dass er den `type` des Mutation-Records im `#log` protokolliert.
 
-Wenn Sie einen Knoten hinzufügen, werden Sie feststellen, dass der `type` `childList` ist, und wenn Sie das `color`-Attribut ändern, ist der `type` `attributes`.
+Sie werden feststellen, dass, wenn Sie einen Knoten hinzufügen, der `type` `childList` ist, und wenn Sie das `color`-Attribut ändern, der `type` `attributes` ist.
 
 #### HTML
 

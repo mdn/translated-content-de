@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Gibt die Y-Koordinate des Berührungspunktes relativ zum Bildschirm zurück, ohne Scroll-Offset.
+Gibt die Y-Koordinate des Berührungspunkts relativ zum Bildschirm zurück, ohne jeglichen Scroll-Offset.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Das [Beispiel von Touch.screenX](/de/docs/Web/API/Touch/screenX#examples) enthält ein Beispiel für die Verwendung dieser Eigenschaft.
+Das [Touch.screenX-Beispiel](/de/docs/Web/API/Touch/screenX#examples) enthält ein Beispiel für die Verwendung dieser Eigenschaft.
 
 ## Spezifikationen
 

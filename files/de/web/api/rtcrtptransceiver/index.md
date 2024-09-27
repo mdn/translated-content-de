@@ -7,49 +7,49 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die WebRTC-Schnittstelle **`RTCRtpTransceiver`** beschreibt eine permanente Paarung eines {{domxref("RTCRtpSender")}} und eines {{domxref("RTCRtpReceiver")}}, zusammen mit einem gemeinsamen Status.
+Die WebRTC-Schnittstelle **`RTCRtpTransceiver`** beschreibt eine permanente Paarung eines [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) und eines [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), zusammen mit einem gemeinsamen Status.
 
-Jeder {{Glossary("SDP")}}-Medienabschnitt beschreibt einen bidirektionalen SRTP- ("Secure Real Time Protocol")-Stream (mit Ausnahme des Medienabschnitts für {{domxref("RTCDataChannel")}}, falls vorhanden).
-Diese Paarung von Sende- und Empfangs-SRTP-Streams ist für einige Anwendungen von Bedeutung, daher wird `RTCRtpTransceiver` verwendet, um diese Paarung zusammen mit anderen wichtigen Zuständen des Medienabschnitts darzustellen.
-Jeder nicht deaktivierte SRTP-Medienabschnitt wird immer durch genau einen Transceiver dargestellt.
+Jeder [SDP](/de/docs/Glossary/SDP)-Medienabschnitt beschreibt einen bidirektionalen SRTP- ("Secure Real Time Protocol")-Stream (ausgenommen den Medienabschnitt für [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), falls vorhanden).
+Diese Paarung von Sende- und Empfangs-SRTP-Streams ist für einige Anwendungen erheblich, sodass `RTCRtpTransceiver` verwendet wird, um diese Paarung zusammen mit anderen wichtigen Statusinformationen aus dem Medienabschnitt darzustellen.
+Jeder nicht deaktivierte SRTP-Medienabschnitt wird immer durch genau einen Transceiver repräsentiert.
 
-Ein Transceiver wird eindeutig über seine {{domxref("RTCRtpTransceiver.mid", "mid")}}-Eigenschaft identifiziert, die dieselbe ist wie die Medien-ID (`mid`) seiner entsprechenden m-line. Ein `RTCRtpTransceiver` ist mit einer m-line **assoziiert**, wenn seine `mid` nicht null ist; andernfalls wird er als disassoziiert betrachtet.
+Ein Transceiver wird eindeutig über seine [`mid`](/de/docs/Web/API/RTCRtpTransceiver/mid)-Eigenschaft identifiziert, die dem Medien-ID (`mid`) seiner entsprechenden m-Line entspricht. Ein `RTCRtpTransceiver` ist **zugeordnet** zu einer m-Line, wenn sein `mid` nicht null ist; andernfalls wird es als nicht zugeordnet betrachtet.
 
 ## Instanzeigenschaften
 
-- {{domxref("RTCRtpTransceiver.currentDirection", "currentDirection")}} {{ReadOnlyInline}}
-  - : Ein schreibgeschützter String, der die aktuell ausgehandelte Richtung des Transceivers angibt, oder `null`, wenn der Transceiver nie an einem Austausch von Angeboten und Antworten teilgenommen hat.
-    Um die Richtung des Transceivers zu ändern, setzen Sie den Wert der {{domxref("RTCRtpTransceiver.direction", "direction")}}-Eigenschaft.
-- {{domxref("RTCRtpTransceiver.direction", "direction")}}
+- [`currentDirection`](/de/docs/Web/API/RTCRtpTransceiver/currentDirection) {{ReadOnlyInline}}
+  - : Ein schreibgeschützter String, der die aktuell ausgehandelte Richtung des Transceivers anzeigt, oder `null`, wenn der Transceiver noch nie an einem Austausch von Angeboten und Antworten teilgenommen hat.
+    Um die Richtung des Transceivers zu ändern, setzen Sie den Wert der [`direction`](/de/docs/Web/API/RTCRtpTransceiver/direction)-Eigenschaft.
+- [`direction`](/de/docs/Web/API/RTCRtpTransceiver/direction)
   - : Ein String, der verwendet wird, um die gewünschte Richtung des Transceivers festzulegen.
-- {{domxref("RTCRtpTransceiver.mid", "mid")}} {{ReadOnlyInline}}
-  - : Die Medien-ID der m-line, die mit diesem Transceiver assoziiert ist. Diese Assoziation wird, wenn möglich, immer dann hergestellt, wenn entweder eine lokale oder remote Beschreibung angewendet wird. Dieses Feld ist `null`, wenn weder eine lokale noch eine remote Beschreibung angewendet wurde oder wenn die zugehörige m-line entweder durch ein remote Angebot oder eine beliebige Antwort abgelehnt wird.
-- {{domxref("RTCRtpTransceiver.receiver", "receiver")}} {{ReadOnlyInline}}
-  - : Das {{domxref("RTCRtpReceiver")}}-Objekt, das den Empfang und die Dekodierung eingehender Medien übernimmt.
-- {{domxref("RTCRtpTransceiver.sender", "sender")}} {{ReadOnlyInline}}
-  - : Das {{domxref("RTCRtpSender")}}-Objekt, das für die Kodierung und das Senden von Daten an den entfernten Kontakt verantwortlich ist.
-- {{domxref("RTCRtpTransceiver.stopped", "stopped")}} {{Deprecated_Inline}}
-  - : Gibt an, ob das Senden und Empfangen mit dem gepaarten `RTCRtpSender` und `RTCRtpReceiver` dauerhaft deaktiviert wurde, entweder aufgrund eines SDP-Angebots/Antworts oder durch einen Aufruf von {{domxref("RTCRtpTransceiver.stop", "stop()")}}.
+- [`mid`](/de/docs/Web/API/RTCRtpTransceiver/mid) {{ReadOnlyInline}}
+  - : Die Medien-ID der m-Line, die diesem Transceiver zugeordnet ist. Diese Zuordnung wird, wenn möglich, hergestellt, sobald entweder eine lokale oder entfernte Beschreibung angewendet wird. Dieses Feld ist `null`, wenn weder eine lokale noch eine entfernte Beschreibung angewendet wurde oder wenn seine zugehörige m-Line durch ein entferntes Angebot oder eine beliebige Antwort abgelehnt wird.
+- [`receiver`](/de/docs/Web/API/RTCRtpTransceiver/receiver) {{ReadOnlyInline}}
+  - : Das [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekt, das den Empfang und die Dekodierung eingehender Medien übernimmt.
+- [`sender`](/de/docs/Web/API/RTCRtpTransceiver/sender) {{ReadOnlyInline}}
+  - : Das [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekt, das für die Kodierung und das Senden von Daten an den entfernten Teilnehmer verantwortlich ist.
+- [`stopped`](/de/docs/Web/API/RTCRtpTransceiver/stopped) {{Deprecated_Inline}}
+  - : Gibt an, ob das Senden und Empfangen mit dem gepaarten `RTCRtpSender` und `RTCRtpReceiver` dauerhaft deaktiviert wurde, entweder aufgrund des SDP-Angebots/-Antworts oder durch einen Aufruf von [`stop()`](/de/docs/Web/API/RTCRtpTransceiver/stop).
 
 ## Instanzmethoden
 
-- {{domxref("RTCRtpTransceiver.setCodecPreferences", "setCodecPreferences()")}}
-  - : Konfiguriert die bevorzugte Liste von Codecs des Transceivers und überschreibt dabei {{Glossary("user agent")}}-Einstellungen.
-- {{domxref("RTCRtpTransceiver.stop", "stop()")}}
+- [`setCodecPreferences()`](/de/docs/Web/API/RTCRtpTransceiver/setCodecPreferences)
+  - : Konfiguriert die bevorzugte Codec-Liste des Transceivers und überschreibt damit die Einstellungen des [User-Agent](/de/docs/Glossary/user_agent).
+- [`stop()`](/de/docs/Web/API/RTCRtpTransceiver/stop)
   - : Stoppt den `RTCRtpTransceiver` dauerhaft.
-    Der zugehörige Sender hört auf, Daten zu senden, und der zugehörige Empfänger hört ebenso auf, eingehende Daten zu empfangen und zu dekodieren.
+    Der zugehörige Sender stoppt das Senden von Daten, und der zugehörige Empfänger stoppt ebenso das Empfangen und Dekodieren eingehender Daten.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [Einführung in das Real-time Transport Protocol (RTP)](/de/docs/Web/API/WebRTC_API/Intro_to_RTP)
-- {{domxref("RTCPeerConnection.addTrack()")}} und {{domxref("RTCPeerConnection.addTransceiver()")}} erstellen beide Transceiver
-- {{domxref("RTCRtpReceiver")}} und {{domxref("RTCRtpSender")}}
+- [Einführung in das Echtzeit-Transportprotokoll (RTP)](/de/docs/Web/API/WebRTC_API/Intro_to_RTP)
+- [`RTCPeerConnection.addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) und [`RTCPeerConnection.addTransceiver()`](/de/docs/Web/API/RTCPeerConnection/addTransceiver) erstellen beide Transceiver
+- [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) und [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)

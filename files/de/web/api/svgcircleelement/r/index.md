@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`r`** schreibgeschützte Eigenschaft der {{domxref("SVGCircleElement")}}-Schnittstelle spiegelt das {{SVGAttr("r")}} Attribut eines {{SVGElement("circle")}} Elements wider und definiert dadurch den Radius des Kreises.
+Die schreibgeschützte Eigenschaft **`r`** des [`SVGCircleElement`](/de/docs/Web/API/SVGCircleElement)-Interfaces spiegelt das {{SVGAttr("r")}}-Attribut eines {{SVGElement("circle")}}-Elements wider und definiert damit den Radius des Kreises.
 
-Falls nicht angegeben, ist die Wirkung so, als ob der Wert auf `0` gesetzt wäre.
+Falls nicht angegeben, wirkt es sich so aus, als ob der Wert auf `0` gesetzt ist.
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedLength")}}, der den Radius des Kreises darstellt.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), der den Radius des Kreises darstellt.
 
 ## Beispiele
 
@@ -49,5 +49,5 @@ console.log(circle.r);
 
 ## Siehe auch
 
-- {{domxref("SVGCircleElement.cx")}}
-- {{domxref("SVGCircleElement.cy")}}
+- [`SVGCircleElement.cx`](/de/docs/Web/API/SVGCircleElement/cx)
+- [`SVGCircleElement.cy`](/de/docs/Web/API/SVGCircleElement/cy)

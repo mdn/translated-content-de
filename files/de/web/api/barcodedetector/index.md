@@ -7,63 +7,63 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Barcode Detector API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`BarcodeDetector`**-Schnittstelle der {{domxref('Barcode Detection API', '', '', 'nocode')}} ermöglicht die Erkennung von linearen und zweidimensionalen Barcodes in Bildern.
+Das **`BarcodeDetector`**-Interface der [Barcode Detection API](/de/docs/Web/API/Barcode_Detection_API) ermöglicht die Erkennung von linearen und zweidimensionalen Barcodes in Bildern.
 
 ## Konstruktoren
 
-- {{domxref('BarcodeDetector.BarcodeDetector', 'BarcodeDetector.BarcodeDetector()')}} {{Experimental_Inline}}
-  - : Erstellt und gibt ein `BarcodeDetector`-Objekt mit optionalen `BarcodeDetectorOptions` zurück.
+- [`BarcodeDetector.BarcodeDetector()`](/de/docs/Web/API/BarcodeDetector/BarcodeDetector) {{Experimental_Inline}}
+  - : Erstellt und gibt ein `BarcodeDetector`-Objekt zurück, mit optionalen `BarcodeDetectorOptions`.
 
 ## Statische Methoden
 
-- {{domxref('BarcodeDetector/getSupportedFormats_static', 'getSupportedFormats()')}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} der unterstützten [Barcode-Formattypen](/de/docs/Web/API/Barcode_Detection_API#supported_barcode_formats) erfüllt wird.
+- [`getSupportedFormats()`](/de/docs/Web/API/BarcodeDetector/getSupportedFormats_static) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von unterstützten [Barcode-Formattypen](/de/docs/Web/API/Barcode_Detection_API#supported_barcode_formats) erfüllt wird.
 
 ## Instanzmethoden
 
-- {{domxref('BarcodeDetector.detect', 'detect()')}} {{Experimental_Inline}}
+- [`detect()`](/de/docs/Web/API/BarcodeDetector/detect) {{Experimental_Inline}}
 
-  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem Array von `DetectedBarcode`-Objekten mit den folgenden Eigenschaften erfüllt wird:
+  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem Array von `DetectedBarcode`-Objekten erfüllt wird, die die folgenden Eigenschaften aufweisen:
 
-    - `boundingBox`: Ein {{domxref('DOMRectReadOnly')}}, der die Abmessungen eines Rechtecks zurückgibt, das den Umfang eines erkannten Barcodes darstellt und mit dem Bild ausgerichtet ist.
-    - `cornerPoints`: Die x- und y-Koordinaten der vier Eckpunkte des erkannten Barcodes relativ zum Bild, beginnend oben links und im Uhrzeigersinn. Aufgrund perspektivischer Verzerrungen im Bild kann dies kein Quadrat sein.
-    - `format`: Das erkannte Barcode-Format. (Für eine vollständige Liste der Formate konsultieren Sie die [unterstützten Barcode-Formate](/de/docs/Web/API/Barcode_Detection_API#supported_barcode_formats)).
-    - `rawValue`: Ein aus den Barcode-Daten dekodierter String.
+    - `boundingBox`: Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly), das die Abmessungen eines Rechtecks zurückgibt, das das Ausmaß eines erkannten Barcodes darstellt und mit dem Bild ausgerichtet ist.
+    - `cornerPoints`: Die x- und y-Koordinaten der vier Eckpunkte des erkannten Barcodes relativ zum Bild, beginnend mit der oberen linken Ecke und im Uhrzeigersinn. Aufgrund von perspektivischen Verzerrungen im Bild könnte dies nicht quadratisch sein.
+    - `format`: Das erkannte Barcode-Format. (Für eine vollständige Liste der Formate konsultieren Sie die [unterstützten Barcode-Formate](/de/docs/Web/API/Barcode_Detection_API#supported_barcode_formats)) Liste.
+    - `rawValue`: Ein String, der aus den Barcodedaten dekodiert wurde.
 
 ## Beispiele
 
 ### Erstellen eines Detektors
 
-Dieses Beispiel erstellt ein neues Barcode-Detektor-Objekt mit festgelegten unterstützten Formaten und testet die Kompatibilität des Browsers.
+Dieses Beispiel erstellt ein neues Barcode-Detektor-Objekt mit den angegebenen unterstützten Formaten und testet die Browser-Kompatibilität.
 
 ```js
-// Kompatibilität prüfen
+// check compatibility
 if (!("BarcodeDetector" in globalThis)) {
-  console.log("Barcode Detector wird von diesem Browser nicht unterstützt.");
+  console.log("Barcode Detector is not supported by this browser.");
 } else {
-  console.log("Barcode Detector wird unterstützt!");
+  console.log("Barcode Detector supported!");
 
-  // neuen Detektor erstellen
+  // create new detector
   const barcodeDetector = new BarcodeDetector({
     formats: ["code_39", "codabar", "ean_13"],
   });
 }
 ```
 
-### Unterstützte Formate abrufen
+### Abrufen unterstützter Formate
 
-Das folgende Beispiel ruft die statische Methode `getSupportFormat()` auf und protokolliert die Ergebnisse in der Konsole.
+Das folgende Beispiel ruft die statische Methode `getSupportedFormat()` auf und protokolliert die Ergebnisse in der Konsole.
 
 ```js
-// unterstützte Typen prüfen
+// check supported types
 BarcodeDetector.getSupportedFormats().then((supportedFormats) => {
   supportedFormats.forEach((format) => console.log(format));
 });
 ```
 
-### Barcodes erkennen
+### Erkennen von Barcodes
 
-Dieses Beispiel verwendet die Methode `detect()`, um die Barcodes im angegebenen Bild zu erkennen. Diese werden iteriert und die Barcode-Daten werden in der Konsole protokolliert.
+Dieses Beispiel verwendet die Methode `detect()`, um die Barcodes im angegebenen Bild zu erkennen. Diese werden iteriert, und die Barcode-Daten werden in der Konsole protokolliert.
 
 ```js
 barcodeDetector
@@ -86,5 +86,5 @@ barcodeDetector
 
 ## Siehe auch
 
-- [barcodefaq.com: Eine Website mit Informationen zu verschiedenen Barcodes und Beispielen der verschiedenen Typen.](https://www.barcodefaq.com/)
+- [barcodefaq.com: Eine Website mit Informationen über verschiedene Barcodes und Beispiele für die unterschiedlichen Typen.](https://www.barcodefaq.com/)
 - [Beschleunigte Formenerkennung in Bildern](https://developer.chrome.com/docs/capabilities/shape-detection#barcodedetector)

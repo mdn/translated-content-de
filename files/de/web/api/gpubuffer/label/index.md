@@ -1,25 +1,24 @@
 ---
-title: "GPUBuffer: label Eigenschaft"
+title: "GPUBuffer: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUBuffer/label
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`** Eigenschaft des
-{{domxref("GPUBuffer")}} Interfaces bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in {{domxref("GPUError")}}-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft des [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Interfaces bietet eine Bezeichnung, die verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann gesetzt werden, indem eine `label` Eigenschaft im Descriptor-Objekt bereitgestellt wird, das beim ursprünglichen {{domxref("GPUDevice.createBuffer()")}}-Aufruf übergeben wird, oder Sie können es direkt auf dem `GPUBuffer`-Objekt setzen und abrufen.
+Diese kann gesetzt werden, indem eine `label`-Eigenschaft im Deskriptor-Objekt angegeben wird, das im ursprünglichen Aufruf von [`GPUDevice.createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer) übergeben wird, oder Sie können sie direkt am `GPUBuffer`-Objekt abrufen und festlegen.
 
 ## Wert
 
-Ein String. Wenn dies nicht wie oben beschrieben zuvor gesetzt wurde, wird es ein leerer String sein.
+Ein String. Wenn dies nicht zuvor wie oben beschrieben gesetzt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
-Setzen und Abrufen eines Labels über `GPUBuffer.label`:
+Setzen und Abrufen einer Bezeichnung über `GPUBuffer.label`:
 
 ```js
 const output = device.createBuffer({
@@ -32,7 +31,7 @@ output.label = "mybuffer";
 console.log(output.label); // "mybuffer"
 ```
 
-Setzen eines Labels über den ursprünglichen {{domxref("GPUDevice.createBuffer()")}}-Aufruf und anschließendem Abrufen über `GPUBuffer.label`:
+Setzen einer Bezeichnung über den ursprünglichen Aufruf von [`GPUDevice.createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer) und dann Abrufen über `GPUBuffer.label`:
 
 ```js
 const output = device.createBuffer({

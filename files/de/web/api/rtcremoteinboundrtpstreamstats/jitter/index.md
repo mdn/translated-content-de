@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`jitter`**-Eigenschaft des {{domxref("RTCRemoteInboundRtpStreamStats")}}-Wörterbuchs gibt das {{glossary("Jitter", "Paketjitter")}} für die [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) zurück, wie sie vom entfernten Endpunkt gemessen wurde.
+Die **`jitter`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt das [Paket-Jitter](/de/docs/Glossary/Jitter) für die [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) zurück, wie vom entfernten Endpunkt gemessen.
 
-Hohe Paketjitter-Werte deuten darauf hin, dass die Paketankunftsraten erheblich variieren, was die Qualität von Video-, Audio- und anderen Echtzeitkommunikationen über WebRTC beeinträchtigen kann.
+Hohe Werte für Paket-Jitter zeigen an, dass die Paketankunftsrate erheblich variiert, was die Video-, Audio- und andere Echtzeitkommunikation über WebRTC beeinträchtigen kann.
 
 ## Wert
 
-Paketjitter, in Sekunden.
+Paket-Jitter, in Sekunden.
 
-Der Wert wird mit dem "interarrival jitter"-Algorithmus berechnet, der in {{RFC("3550", "", "6.4.1")}} beschrieben ist.
+Der Wert wird mit dem "Interarrival Jitter"-Algorithmus berechnet, wie in {{RFC("3550", "", "6.4.1")}} beschrieben.
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ Der Wert wird mit dem "interarrival jitter"-Algorithmus berechnet, der in {{RFC(
 
 ## Siehe auch
 
-- {{domxref("RTCRemoteInboundRtpStreamStats.ssrc")}}
-- {{domxref("RTCInboundRtpStreamStats.jitter")}}
+- [`RTCRemoteInboundRtpStreamStats.ssrc`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc)
+- [`RTCInboundRtpStreamStats.jitter`](/de/docs/Web/API/RTCInboundRtpStreamStats/jitter)

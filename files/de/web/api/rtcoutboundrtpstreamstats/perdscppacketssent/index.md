@@ -1,5 +1,5 @@
 ---
-title: "RTCOutboundRtpStreamStats: Eigenschaft perDscpPacketsSent"
+title: "RTCOutboundRtpStreamStats: perDscpPacketsSent-Eigenschaft"
 short-title: perDscpPacketsSent
 slug: Web/API/RTCOutboundRtpStreamStats/perDscpPacketsSent
 l10n:
@@ -9,22 +9,20 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die **`perDscpPacketsSent`**-Eigenschaft
-des {{domxref("RTCOutboundRtpStreamStats")}}-Wörterbuchs ist ein Datensatz bestehend aus
+des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist eine Aufzeichnung von
 Schlüssel/Wert-Paaren, bei denen jeder Schlüssel eine String-Darstellung eines Differentiated
-Services Code Points ist und der Wert die Anzahl der für diesen DCSP gesendeten Pakete darstellt.
+Services Code Points ist und der Wert die Anzahl der gesendeten Pakete für diesen DSCP.
 
 > [!NOTE]
-> Nicht alle Betriebssysteme stellen Daten auf einer per-DSCP
-> Basis zur Verfügung, daher sollte auf diese Eigenschaft auf solchen Systemen nicht vertraut werden.
+> Nicht alle Betriebssysteme stellen Daten auf einer pro-DSCP-Basis zur Verfügung, daher sollte diese Eigenschaft auf diesen Systemen nicht als zuverlässig betrachtet werden.
 
 ## Wert
 
-Ein Datensatz bestehend aus String/Wert-Paaren. Jeder Schlüssel ist die String-Darstellung
-der ID-Nummer eines einzelnen Differentiated Services Code Points (DSCP).
+Eine Aufzeichnung von String/Wert-Paaren. Jeder Schlüssel ist die String-Darstellung der
+ID-Nummer eines einzelnen Differentiated Services Code Points (DSCP).
 
 > [!NOTE]
-> Aufgrund von Netzwerkbleiche und -remapping werden die in
-> diesem Datensatz gesehenen Zahlen nicht unbedingt mit den Werten übereinstimmen, wie sie beim Senden der Daten waren.
+> Aufgrund von Netzwerk-Bleaching und -Remapping werden die in dieser Aufzeichnung erfassten Zahlen nicht unbedingt mit den Werten übereinstimmen, wie sie beim Senden der Daten waren.
 
 ## Spezifikationen
 

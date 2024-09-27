@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
-Die **`bgcolor`**-Eigenschaft des {{domxref("HTMLTableElement")}} stellt die Hintergrundfarbe der Tabelle dar.
+Die **`bgcolor`**-Eigenschaft des [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) repräsentiert die Hintergrundfarbe der Tabelle.
 
 > [!NOTE]
-> Verwenden Sie dieses Attribut nicht mehr. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("background-color")}}, indem Sie das [`style`](/de/docs/Web/API/HTMLElement/style)-Attribut des Elements ändern oder eine Stilregel verwenden.
+> Verwenden Sie dieses Attribut nicht mehr. Stattdessen sollten Sie die CSS-Eigenschaft {{cssxref("background-color")}} verwenden, indem Sie das [`style`](/de/docs/Web/API/HTMLElement/style)-Attribut des Elements modifizieren oder eine Stilregel anwenden.
 
 ## Wert
 
 Ein String, der einen Farbwert darstellt.
 
-Wenn auf den Wert `null` gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `elt.bgColor = null` gleichbedeutend ist mit `elt.bgColor = ""`.
+Wenn er auf den Wert `null` gesetzt wird, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `elt.bgColor = null` gleichbedeutend ist mit `elt.bgColor = ""`.
 
 ## Beispiele
 
 ```js
-// Setzen der Hintergrundfarbe der Tabelle auf hellblau
+// Set table background color to lightblue
 const t = document.getElementById("TableA");
 t.bgColor = "lightblue";
 ```

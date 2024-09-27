@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`groupId`**-Eigenschaft des {{domxref("MediaTrackConstraints")}}-Wörterbuchs ist ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), der die angeforderten oder obligatorischen Einschränkungen beschreibt, die auf den Wert der {{domxref("MediaTrackSettings.groupId", "groupId")}}-eigenen Einschränkungseigenschaft gelegt werden.
+Die **`groupId`**-Eigenschaft des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), der die gewünschten oder zwingenden Einschränkungen beschreibt, die auf den Wert der [`groupId`](/de/docs/Web/API/MediaTrackSettings/groupId)-einschränkbaren Eigenschaft angewendet werden.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von {{domxref("MediaTrackSupportedConstraints.groupId")}} überprüfen, wie er durch einen Aufruf von {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle Einschränkungen ignorieren, die ihnen nicht bekannt sind.
+Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.groupId`](/de/docs/Web/API/MediaTrackSupportedConstraints/groupId) überprüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Typischerweise ist das jedoch nicht notwendig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
 
 ## Wert
 
-Ein Objekt basierend auf [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), das einen oder mehrere akzeptable, ideale und/oder genaue (obligatorische) Gruppen-IDs angibt, die als Quelle von Medieninhalt akzeptabel sind.
+Ein Objekt basierend auf [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring), das eine oder mehrere akzeptable, ideale und/oder genaue (obligatorisch) Gruppen-IDs spezifiziert, die als Quelle von Medieninhalten akzeptabel sind.
 
-Gruppen-IDs sind für eine gegebene Herkunft während einer einzelnen Browsersitzung eindeutig und werden von allen Medienquellen geteilt, die von demselben physischen Gerät stammen. Zum Beispiel würden das Mikrofon und der Lautsprecher desselben Headsets eine Gruppen-ID teilen. Dies ermöglicht es, die Gruppen-ID zu verwenden, um sicherzustellen, dass die Audio- und Eingabegeräte auf demselben Headset sind, indem man die Gruppen-ID des Eingabegeräts abruft und angibt, wenn man nach einem Ausgabegerät fragt.
+Gruppen-IDs sind für einen bestimmten Ursprung während einer einzelnen Browsersitzung einzigartig und werden von allen Medienquellen geteilt, die vom gleichen physischen Gerät stammen. Zum Beispiel würden das Mikrofon und die Lautsprecher auf demselben Headset eine Gruppen-ID teilen. Dadurch ist es möglich, die Gruppen-ID zu verwenden, um sicherzustellen, dass die Audio-Eingabegeräte am gleichen Headset sind, indem man die Gruppen-ID des Eingabegeräts abruft und diese beim Anfordern eines Ausgabegeräts angibt, möglicherweise.
 
-Der Wert der `groupId` wird jedoch durch die Quelle des Inhalts der Spur bestimmt, und es gibt kein bestimmtes Format, das von der Spezifikation vorgeschrieben ist (obwohl eine Art GUID empfohlen wird). Das bedeutet, dass ein gegebener Track nur einen Wert für die `groupId` zurückgibt, wenn Sie {{domxref("MediaStreamTrack.getCapabilities", "getCapabilities()")}} aufrufen, und bedenken Sie, dass sich dieser Wert für jede Browsersitzung ändert.
+Jedoch wird der Wert der `groupId` durch die Quelle des Inhalts des Track bestimmt, und es gibt kein spezifisches Format, das durch die Spezifikation vorgeschrieben ist (obwohl eine Art GUID empfohlen wird). Das bedeutet, dass ein gegebener Track nur einen Wert für die `groupId` zurückgeben wird, wenn Sie [`getCapabilities()`](/de/docs/Web/API/MediaStreamTrack/getCapabilities) aufrufen, und beachten Sie, dass sich dieser Wert bei jeder Browsersitzung ändert.
 
-Aufgrund dessen gibt es keinen Nutzen für die Gruppen-ID bei einem Aufruf von {{domxref("MediaStreamTrack.applyConstraints()")}}, da es nur einen möglichen Wert gibt, und Sie sie nicht verwenden können, um sicherzustellen, dass dieselbe Gruppe in mehreren Browsersitzungen bei einem Aufruf von `getUserMedia()` verwendet wird.
+Aufgrund dessen gibt es keinen Nutzen für die Gruppen-ID beim Aufrufen von [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints), da es nur einen möglichen Wert gibt, und Sie können ihn nicht verwenden, um sicherzustellen, dass dieselbe Gruppe über mehrere Browsersitzungen hinweg verwendet wird, wenn Sie `getUserMedia()` aufrufen.
 
 ## Beispiele
 
-Siehe das [Constraint-Übungstool](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser)-Beispiel.
+Siehe das Beispiel [Constraint Exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -38,7 +38,7 @@ Siehe das [Constraint-Übungstool](/de/docs/Web/API/Media_Capture_and_Streams_AP
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
-- {{domxref("MediaTrackConstraints")}}
-- {{domxref("MediaDevices.getSupportedConstraints()")}}
-- {{domxref("MediaTrackSupportedConstraints")}}
-- {{domxref("MediaStreamTrack")}}
+- [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
+- [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
+- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
+- [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

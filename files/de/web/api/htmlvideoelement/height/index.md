@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`height`**-Eigenschaft des {{domxref("HTMLVideoElement")}}-Interfaces gibt eine Ganzzahl zurück, die das `height`-Attribut des {{HTMLElement("video")}}-Elements widerspiegelt und die dargestellte Höhe der Ressource in CSS-Pixeln angibt.
+Die **`height`**-Eigenschaft der [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Schnittstelle gibt eine Ganzzahl zurück, die das `height`-Attribut des {{HTMLElement("video")}}-Elements widerspiegelt und die dargestellte Höhe der Ressource in CSS-Pixeln angibt.
 
 ## Wert
 
@@ -22,7 +22,7 @@ Eine positive Ganzzahl oder 0.
 
 ```js
 const el = document.getElementById("media");
-console.log(el.height); // Ausgabe: 600
+console.log(el.height); // Output: 600
 ```
 
 ## Spezifikationen
@@ -35,9 +35,9 @@ console.log(el.height); // Ausgabe: 600
 
 ## Siehe auch
 
-- {{domxref("HTMLCanvasElement.height")}}
-- {{domxref("HTMLEmbedElement.height")}}
-- {{domxref("HTMLIFrameElement.height")}}
-- {{domxref("HTMLImageElement.height")}}
-- {{domxref("HTMLObjectElement.height")}}
-- {{domxref("HTMLSourceElement.height")}}
+- [`HTMLCanvasElement.height`](/de/docs/Web/API/HTMLCanvasElement/height)
+- [`HTMLEmbedElement.height`](/de/docs/Web/API/HTMLEmbedElement/height)
+- [`HTMLIFrameElement.height`](/de/docs/Web/API/HTMLIFrameElement/height)
+- [`HTMLImageElement.height`](/de/docs/Web/API/HTMLImageElement/height)
+- [`HTMLObjectElement.height`](/de/docs/Web/API/HTMLObjectElement/height)
+- [`HTMLSourceElement.height`](/de/docs/Web/API/HTMLSourceElement/height)

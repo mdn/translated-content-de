@@ -7,32 +7,32 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{AvailableInWorkers("service")}}
 
-Die **`NotificationEvent`**-Schnittstelle der {{domxref("Notifications API", "", "", "nocode")}} repräsentiert ein Benachrichtigungsereignis, das im {{domxref("ServiceWorkerGlobalScope")}} eines {{domxref("ServiceWorker")}} ausgelöst wird.
+Das **`NotificationEvent`**-Interface der [Notifications API](/de/docs/Web/API/Notifications_API) repräsentiert ein Benachrichtigungsereignis, das auf dem [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) ausgelöst wird.
 
-Diese Schnittstelle erbt von der {{domxref("ExtendableEvent")}}-Schnittstelle.
+Dieses Interface erbt vom [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) Interface.
 
 > [!NOTE]
-> Nur persistente Benachrichtigungsereignisse, die am {{domxref("ServiceWorkerGlobalScope")}}-Objekt ausgelöst werden, implementieren die `NotificationEvent`-Schnittstelle. Nicht-persistente Benachrichtigungsereignisse, die am {{domxref("Notification")}}-Objekt ausgelöst werden, implementieren die `Event`-Schnittstelle.
+> Nur persistente Benachrichtigungsereignisse, die auf dem [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Objekt ausgelöst werden, implementieren das `NotificationEvent`-Interface. Nicht persistente Benachrichtigungsereignisse, die auf dem [`Notification`](/de/docs/Web/API/Notification)-Objekt ausgelöst werden, implementieren das `Event`-Interface.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("NotificationEvent.NotificationEvent","NotificationEvent()")}}
+- [`NotificationEvent()`](/de/docs/Web/API/NotificationEvent/NotificationEvent)
   - : Erstellt ein neues `NotificationEvent`-Objekt.
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von der übergeordneten Schnittstelle {{domxref("ExtendableEvent")}}_.
+_Erbt auch Eigenschaften von seinem Eltern-Interface, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
 
-- {{domxref("NotificationEvent.notification")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("Notification")}}-Objekt zurück, das die Benachrichtigung darstellt, die durch Klicken ausgelöst wurde.
-- {{domxref("NotificationEvent.action")}} {{ReadOnlyInline}}
-  - : Gibt die Zeichenketten-ID der Benachrichtigungsschaltfläche zurück, die der Benutzer angeklickt hat. Dieser Wert gibt eine leere Zeichenkette zurück, wenn der Benutzer irgendwo anders auf die Benachrichtigung geklickt hat als auf eine Aktionstaste oder die Benachrichtigung keine Schaltfläche hat.
+- [`NotificationEvent.notification`](/de/docs/Web/API/NotificationEvent/notification) {{ReadOnlyInline}}
+  - : Gibt ein [`Notification`](/de/docs/Web/API/Notification)-Objekt zurück, das die Benachrichtigung repräsentiert, die angeklickt wurde, um das Ereignis auszulösen.
+- [`NotificationEvent.action`](/de/docs/Web/API/NotificationEvent/action) {{ReadOnlyInline}}
+  - : Gibt die String-ID des Benachrichtigungsbuttons zurück, den der Benutzer angeklickt hat. Dieser Wert gibt einen leeren String zurück, wenn der Benutzer die Benachrichtigung an einer anderen Stelle als einem Aktionsbutton angeklickt hat oder wenn die Benachrichtigung keinen Button hat.
 
 ## Instanz-Methoden
 
-_Erbt auch Methoden von der übergeordneten Schnittstelle {{domxref("ExtendableEvent")}}_.
+_Erbt auch Methoden von seinem Eltern-Interface, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
 
 ## Beispiel
 
@@ -63,7 +63,7 @@ self.addEventListener("notificationclick", (event) => {
 {{Specifications}}
 
 > [!NOTE]
-> Diese Schnittstelle wird in der [Notifications API](/de/docs/Web/API/Notifications_API) spezifiziert, aber über {{domxref("ServiceWorkerGlobalScope")}} aufgerufen.
+> Dieses Interface ist in der [Notifications API](/de/docs/Web/API/Notifications_API) spezifiziert, wird jedoch über [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) aufgerufen.
 
 ## Browser-Kompatibilität
 

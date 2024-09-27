@@ -1,5 +1,5 @@
 ---
-title: "XRCylinderLayer: Eigenschaft radius"
+title: "XRCylinderLayer: radius Eigenschaft"
 short-title: radius
 slug: Web/API/XRCylinderLayer/radius
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`radius`**-Eigenschaft der {{domxref("XRCylinderLayer")}}-Schnittstelle repräsentiert den Radius des Zylinders.
+Die **`radius`**-Eigenschaft des [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer)-Interfaces repräsentiert den Radius des Zylinders.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Eine Zahl, die den Radius des Zylinders darstellt.
 
 ## Beispiele
 
-### Ermitteln des Radius eines Layers
+### Erhalten des Radius eines Layers
 
-Die Methode {{domxref("XRWebGLBinding.createCylinderLayer()")}} erstellt einen Zylinder-Layer und erlaubt die Angabe eines `radius`. Die Eigenschaft `XRCylinder.radius` kann nach der Erstellung des Layers verwendet werden, um den verwendeten Radius abzurufen oder ihn auf einen neuen Wert zu setzen.
+Die Methode [`XRWebGLBinding.createCylinderLayer()`](/de/docs/Web/API/XRWebGLBinding/createCylinderLayer) erstellt eine Zylinder-Schicht und ermöglicht es, einen `radius` zu spezifizieren. Die Eigenschaft `XRCylinder.radius` kann nach der Erstellung der Schicht verwendet werden, um den verwendeten Radius abzurufen oder auf einen neuen Wert zu setzen.
 
 ```js
 const cylinderLayer = xrGlBinding.createCylinderLayer({
@@ -44,6 +44,6 @@ cylinderLayer.radius; // 2
 
 ## Siehe auch
 
-- {{domxref("XRCylinderLayer.aspectRatio")}}
-- {{domxref("XRCylinderLayer.centralAngle")}}
+- [`XRCylinderLayer.aspectRatio`](/de/docs/Web/API/XRCylinderLayer/aspectRatio)
+- [`XRCylinderLayer.centralAngle`](/de/docs/Web/API/XRCylinderLayer/centralAngle)
 - {{jsxref("Math.PI")}}

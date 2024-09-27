@@ -1,5 +1,5 @@
 ---
-title: Durchstreichstärke
+title: strikethrough-thickness
 slug: Web/SVG/Attribute/strikethrough-thickness
 l10n:
   sourceCommit: 052d4c77d0346c43351c50de9ea5e834af365779
@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut `strikethrough-thickness` repräsentiert die ideale Stärke des Durchstreichens. Die Durchstreichstärke wird im Koordinatensystem der Schrift ausgedrückt.
+Das Attribut `strikethrough-thickness` stellt die ideale Dicke des Durchstreichens dar. Die Dicke des Durchstreichens wird im Koordinatensystem der Schriftart ausgedrückt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 

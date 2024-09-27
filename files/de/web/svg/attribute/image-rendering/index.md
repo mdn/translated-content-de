@@ -7,18 +7,18 @@ l10n:
 
 {{SVGRef}}
 
-Das **`image-rendering`**-Attribut gibt dem Browser einen Hinweis darauf, wie Geschwindigkeit und Qualität bei der Bildverarbeitung abgewogen werden sollen.
+Das **`image-rendering`** Attribut gibt dem Browser einen Hinweis darauf, wie bei der Bildverarbeitung zwischen Geschwindigkeit und Qualität abgewogen werden soll.
 
-Die Neuberechnung erfolgt immer in einem Truecolor-Farbraum (z.B. 24-Bit), selbst wenn die Originaldaten und/oder das Zielgerät indizierte Farben verwenden.
+Das Resampling erfolgt immer in einem Truecolor-Farbraum (z. B. 24-Bit), auch wenn die Originaldaten und/oder das Zielgerät indizierte Farben verwenden.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `image-rendering` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-{{cssxref("image-rendering")}}-Eigenschaft.
+> Als Präsentationsattribut kann `image-rendering` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("image-rendering")}}.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("image")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -41,11 +41,11 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `auto`
-  - : Gibt an, dass der Benutzeragent geeignete Kompromisse machen soll, um Geschwindigkeit und Qualität auszugleichen, wobei der Qualität mehr Bedeutung beigemessen wird als der Geschwindigkeit.
+  - : Gibt an, dass der Benutzeragent geeignete Abwägungen treffen soll, um Geschwindigkeit und Qualität auszubalancieren, wobei jedoch der Qualität mehr Bedeutung als der Geschwindigkeit beigemessen werden soll.
 - `optimizeSpeed`
-  - : Gibt an, dass der Benutzeragent die Rendergeschwindigkeit gegenüber der Qualität betonen soll.
+  - : Gibt an, dass der Benutzeragent die Wiedergabegeschwindigkeit über die Qualität betonen soll.
 - `optimizeQuality`
-  - : Gibt an, dass der Benutzeragent die Qualität gegenüber der Rendergeschwindigkeit betonen soll.
+  - : Gibt an, dass der Benutzeragent die Qualität über die Wiedergabegeschwindigkeit betonen soll.
 
 ## Spezifikationen
 

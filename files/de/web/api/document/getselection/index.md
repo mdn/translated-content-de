@@ -1,5 +1,5 @@
 ---
-title: "Document: Methode getSelection()"
+title: "Document: getSelection()-Methode"
 short-title: getSelection()
 slug: Web/API/Document/getSelection
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getSelection()`**-Methode der {{DOMxRef("Document")}}-Schnittstelle gibt das {{DOMxRef("Selection")}}-Objekt zurück, das mit diesem Dokument verbunden ist und den vom Benutzer ausgewählten Textbereich oder die aktuelle Position des Cursors repräsentiert.
+Die **`getSelection()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt das [`Selection`](/de/docs/Web/API/Selection)-Objekt zurück, das mit diesem Dokument verknüpft ist und den vom Benutzer ausgewählten Textbereich oder die aktuelle Position der Einfügemarke darstellt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{DOMxRef("Selection")}}-Objekt oder `null`, wenn das Dokument keinen [Browsing-Kontext](/de/docs/Glossary/Browsing_context) hat (zum Beispiel, wenn es sich um das Dokument eines {{htmlelement("iframe")}} handelt, das nicht an ein Dokument angehängt ist).
+Ein [`Selection`](/de/docs/Web/API/Selection)-Objekt oder `null`, wenn das Dokument keinen [Browsing-Kontext](/de/docs/Glossary/Browsing_context) hat (zum Beispiel, wenn es sich um das Dokument eines {{htmlelement("iframe")}} handelt, das nicht an ein Dokument angehängt ist).
 
 ## Beispiele
 
@@ -31,21 +31,20 @@ Ein {{DOMxRef("Selection")}}-Objekt oder `null`, wenn das Dokument keinen [Brows
 ```js
 const selection = document.getSelection();
 const selRange = selection.getRangeAt(0);
-// Führen Sie Aktionen mit dem Bereich aus
+// do stuff with the range
 
-console.log(selection); // Selection-Objekt
+console.log(selection); // Selection object
 ```
 
-### Zeichenketten-Darstellung des Selection-Objekts
+### Zeichenfolgendarstellung des Selection-Objekts
 
-Einige Funktionen (wie {{DOMxRef("Window.alert()")}}) rufen automatisch {{JSxRef("Object.toString", "toString()")}} auf und der zurückgegebene Wert wird an die Funktion übergeben. Folglich wird der ausgewählte Text und nicht das `Selection`-Objekt zurückgegeben:
+Einige Funktionen (wie [`Window.alert()`](/de/docs/Web/API/Window/alert)) rufen {{JSxRef("Object.toString", "toString()")}} automatisch auf, und der zurückgegebene Wert wird an die Funktion übergeben. Folglich wird dies den ausgewählten Text und nicht das `Selection`-Objekt zurückgeben:
 
 ```js
 alert(selection);
 ```
 
-Jedoch rufen nicht alle Funktionen `toString()` automatisch auf.
-Um ein `Selection`-Objekt als Zeichenkette zu verwenden, rufen Sie direkt die Methode `toString()` auf:
+Allerdings rufen nicht alle Funktionen `toString()` automatisch auf. Um ein `Selection`-Objekt als String zu verwenden, rufen Sie direkt die `toString()`-Methode auf:
 
 ```js
 let selectedText = selection.toString();
@@ -53,13 +52,11 @@ let selectedText = selection.toString();
 
 ## Verwandte Objekte
 
-Sie können {{domxref("Window.getSelection()")}} aufrufen, was identisch zu `window.document.getSelection()` ist.
+Sie können [`Window.getSelection()`](/de/docs/Web/API/Window/getSelection) aufrufen, was identisch mit `window.document.getSelection()` ist.
 
-Es ist zu beachten, dass `getSelection()` derzeit nicht mit dem Inhalt von {{htmlelement("input")}}-Elementen in Firefox funktioniert.
-{{domxref("HTMLInputElement.setSelectionRange()")}}) könnte als Umgehung verwendet werden.
+Es ist erwähnenswert, dass `getSelection()` derzeit nicht auf den Inhalten von {{htmlelement("input")}}-Elementen in Firefox funktioniert. [`HTMLInputElement.setSelectionRange()`](/de/docs/Web/API/HTMLInputElement/setSelectionRange)) könnte hier als Workaround genutzt werden.
 
-Beachten Sie auch den Unterschied zwischen _Auswahl_ und _Fokus_.
-{{domxref("Document.activeElement")}} gibt das fokussierte Element zurück.
+Beachten Sie auch den Unterschied zwischen _selection_ und _focus_. [`Document.activeElement`](/de/docs/Web/API/Document/activeElement) gibt das fokussierte Element zurück.
 
 ## Spezifikationen
 

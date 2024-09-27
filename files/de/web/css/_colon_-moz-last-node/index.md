@@ -7,7 +7,7 @@ l10n:
 
 {{Non-standard_header}}{{CSSRef}}{{SeeCompatTable}}
 
-Die **`:-moz-last-node`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die jedes Element repräsentiert, das das letzte Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{cssxref(":last-child")}}, da sie kein zuletzt vorhandenes Kind-Element erfasst, wenn (nicht-weißer) Text danach folgt.
+Die **`:-moz-last-node`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die jedes Element repräsentiert, das das letzte Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{cssxref(":last-child")}}, weil sie kein letztes Kind-Element mit (nicht-leerem) Text danach erfasst.
 
 > [!NOTE]
 > Jeder Leerraum am Ende eines Elements wird bei der Bestimmung von `:-moz-last-node` ignoriert.
@@ -34,12 +34,12 @@ span:-moz-last-node {
 
 ```html
 <p>
-  <span>Dieses Element passt nicht.</span>
-  <span>Dieses Element passt!</span>
+  <span>This does not match.</span>
+  <span>This matches!</span>
 </p>
 
 <p>
-  <span>Dieses Element passt nicht, weil es von Text gefolgt wird.</span>
+  <span>This doesn't match because it's followed by text.</span>
   Blahblah.
 </p>
 ```

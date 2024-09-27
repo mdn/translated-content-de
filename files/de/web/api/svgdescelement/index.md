@@ -13,11 +13,11 @@ Die **`SVGDescElement`**-Schnittstelle entspricht dem {{SVGElement("desc")}}-Ele
 
 ## Instanz-Eigenschaften
 
-_Erbt Methoden von seiner Elternschnittstelle, {{domxref("SVGElement")}}._
+_Erbt Methoden von seiner Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seiner Elternschnittstelle, {{domxref("SVGElement")}}._
+_Erbt Methoden von seiner Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

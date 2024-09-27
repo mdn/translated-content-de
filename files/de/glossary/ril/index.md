@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-RIL (Radio Interface Layer) ist eine Komponente des mobilen Betriebssystems, die zwischen der Software des Geräts und der Telefon-, Funk- oder Modem-Hardware des Geräts kommuniziert.
+RIL (Radio Interface Layer) ist eine Komponente des mobilen Betriebssystems, die zwischen der Software des Geräts und der Telefon-, Radio- oder Modem-Hardware des Geräts kommuniziert.
 
 ## Siehe auch
 

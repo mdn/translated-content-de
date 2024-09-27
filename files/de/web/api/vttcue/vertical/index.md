@@ -1,5 +1,5 @@
 ---
-title: "VTTCue: Eigenschaft vertical"
+title: "VTTCue: vertikale Eigenschaft"
 short-title: vertical
 slug: Web/API/VTTCue/vertical
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`vertical`** Eigenschaft der {{domxref("VTTCue")}} Schnittstelle ist ein String, der die Schreibrichtung des Hinweises repräsentiert.
+Die **`vertical`**-Eigenschaft der [`VTTCue`](/de/docs/Web/API/VTTCue)-Schnittstelle ist ein String, der die Schreibrichtung des Cues darstellt.
 
 ## Wert
 
@@ -23,7 +23,7 @@ Ein String, der einen der folgenden Werte enthält:
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neuer {{domxref("VTTCue")}} erstellt, dann wird der Wert von `vertical` auf `"rl"` gesetzt. Der Wert wird anschließend in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `vertical` auf `"rl"` gesetzt. Der Wert wird dann in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

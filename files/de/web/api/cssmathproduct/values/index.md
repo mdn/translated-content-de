@@ -1,6 +1,6 @@
 ---
-title: "CSSMathProduct: Werte-Eigenschaft"
-short-title: Werte
+title: "CSSMathProduct: values-Eigenschaft"
+short-title: values
 slug: Web/API/CSSMathProduct/values
 l10n:
   sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte **`CSSMathProduct.values`**-Eigenschaft der {{domxref("CSSMathProduct")}}-Schnittstelle gibt ein {{domxref('CSSNumericArray')}}-Objekt zurück, das ein oder mehrere {{domxref('CSSNumericValue')}}-Objekte enthält.
+Die schreibgeschützte **`CSSMathProduct.values`**-Eigenschaft der [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct)-Schnittstelle gibt ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Objekt zurück, das ein oder mehrere [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte enthält.
 
 ## Wert
 
-Ein {{domxref('CSSNumericArray')}}.
+Ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

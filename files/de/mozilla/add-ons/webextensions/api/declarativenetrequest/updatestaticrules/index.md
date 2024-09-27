@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Ändert den aktivierten Zustand von Regeln in einem statischen Regelset. Die Anzahl der Regeln, die in einem Regelset deaktiviert werden können, ist auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DISABLED_STATIC_RULES","MAX_NUMBER_OF_DISABLED_STATIC_RULES")}} begrenzt.
+Ändert den aktivierten Zustand von Regeln in einem statischen Regelwerk. Die Anzahl der Regeln, die in einem Regelwerk deaktiviert werden können, ist auf den Wert von {{WebExtAPIRef("declarativeNetRequest.MAX_NUMBER_OF_DISABLED_STATIC_RULES","MAX_NUMBER_OF_DISABLED_STATIC_RULES")}} beschränkt.
 
-Regeln können aktiviert und deaktiviert werden, während das Regelset, das sie enthält, deaktiviert ist. Alle Änderungen werden wirksam, wenn das Regelset aktiviert wird.
+Regeln können aktiviert und deaktiviert werden, während das Regelwerk, das sie enthält, deaktiviert ist. Alle Änderungen werden wirksam, wenn das Regelwerk aktiviert wird.
 
 ## Syntax
 
@@ -23,17 +23,17 @@ let updatedStaticRules = browser.declarativeNetRequest.updateStaticRules(
 
 - `options`
 
-  - : Ein Objekt, das ein statisches Regelset und die Regeln angibt, die in diesem Regelset aktiviert oder deaktiviert werden sollen.
+  - : Ein Objekt, das ein statisches Regelwerk und die Regeln angibt, die in diesem Regelwerk aktiviert oder deaktiviert werden sollen.
     - `rulesetId` rulesetId
-      - : `string` Die ID des statischen Regelsets, das geändert werden soll.
+      - : `string` Die ID des statischen Regelwerks, das geändert werden soll.
     - `disableRuleIds` {{optional_inline}}
-      - : Ein Array von `number`. IDs der zu deaktivierenden Regeln. Ungültige IDs werden ignoriert.
+      - : Ein Array von `number`. IDs der zu deaktivierenden Regeln. Alle ungültigen IDs werden ignoriert.
     - `enableRuleIds` {{optional_inline}}
-      - : Ein Array von `number`. IDs der zu aktivierenden Regeln. Ungültige IDs werden ignoriert.
+      - : Ein Array von `number`. IDs der zu aktivierenden Regeln. Alle ungültigen IDs werden ignoriert.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Bei Erfolg wird das Versprechen ohne Argumente erfüllt. Bei einem Fehler wird das Versprechen mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) Wenn die Anfrage erfolgreich ist, wird das Promise ohne Argumente erfüllt. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 {{WebExtExamples("h2")}}
 

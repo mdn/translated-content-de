@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`endTime`**-Eigenschaft der {{domxref("TextTrackCue")}}-Schnittstelle gibt die Endzeit des Cues zurück und setzt sie.
+Die **`endTime`**-Eigenschaft der [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Schnittstelle gibt die Endzeit des Cues zurück und setzt sie.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Zahl, die die Endzeit in Sekunden darstellt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues {{domxref("VTTCue")}} (das von `TextTrackCue` erbt) erstellt, das bei 0,1 Sekunden beginnt und bei 0,9 Sekunden endet. Die `endTime`-Eigenschaft wird dann in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) (das von `TextTrackCue` erbt) erstellt, das bei 0.1 Sekunden beginnt und bei 0.9 Sekunden endet. Die `endTime`-Eigenschaft wird dann in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

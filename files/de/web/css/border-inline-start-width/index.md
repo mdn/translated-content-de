@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-inline-start-width`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Breite des logischen inline-start Rahmens eines Elements, was je nach Schreibmodus, Richtung und Textausrichtung des Elements einer physischen Rahmenbreite zugeordnet wird. Sie entspricht der {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, oder {{cssxref("border-left-width")}} Eigenschaft je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
+Die **`border-inline-start-width`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Breite des logischen Inline-Start-Randes eines Elements, welcher sich je nach Schreibmodus, Richtung und Textausrichtung des Elements auf eine physische Randbreite abbildet. Sie entspricht der {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}} oder {{cssxref("border-left-width")}} Eigenschaft, abhängig von den festgelegten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
 {{EmbedInteractiveExample("pages/css/border-inline-start-width.html")}}
 
 ## Syntax
 
 ```css
-/* <'border-width'> Werte */
+/* <'border-width'> values */
 border-inline-start-width: 5px;
 border-inline-start-width: thick;
 
-/* Globale Werte */
+/* Global values */
 border-inline-start-width: inherit;
 border-inline-start-width: initial;
 border-inline-start-width: revert;
@@ -26,12 +26,12 @@ border-inline-start-width: revert-layer;
 border-inline-start-width: unset;
 ```
 
-Verwandte Eigenschaften sind {{cssxref("border-block-start-width")}}, {{cssxref("border-block-end-width")}}, und {{cssxref("border-inline-end-width")}}, die die anderen Rahmenbreiten des Elements definieren.
+Verwandte Eigenschaften sind {{cssxref("border-block-start-width")}}, {{cssxref("border-block-end-width")}} und {{cssxref("border-inline-end-width")}}, welche die anderen Randbreiten des Elements definieren.
 
 ### Werte
 
 - `<'border-width'>`
-  - : Die Breite des Rahmens. Siehe {{ cssxref("border-width") }}.
+  - : Die Breite des Randes. Siehe {{ cssxref("border-width") }}.
 
 ## Formale Definition
 
@@ -47,7 +47,7 @@ Verwandte Eigenschaften sind {{cssxref("border-block-start-width")}}, {{cssxref(
 
 ```html
 <div>
-  <p class="exampleText">Beispieltext</p>
+  <p class="exampleText">Example text</p>
 </div>
 ```
 
@@ -79,6 +79,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft wird einer der physischen Rahmen-Eigenschaften zugeordnet: {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}}, und {{cssxref("border-left-width")}}
+- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- Diese Eigenschaft wird einer der physischen Randeigenschaften zugeordnet: {{cssxref("border-top-width")}}, {{cssxref("border-right-width")}}, {{cssxref("border-bottom-width")}} und {{cssxref("border-left-width")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

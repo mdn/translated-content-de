@@ -1,5 +1,5 @@
 ---
-title: "StorageAccessHandle: caches-Eigenschaft"
+title: "StorageAccessHandle: `caches`-Eigenschaft"
 short-title: caches
 slug: Web/API/StorageAccessHandle/caches
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Storage Access API")}}
 
-Die **`caches`**-Eigenschaft der {{domxref("StorageAccessHandle")}}-Schnittstelle gibt ein unpartitioniertes {{domxref("CacheStorage")}}-Objekt zurück, wenn der Zugriff gewährt wurde, und wirft andernfalls einen `SecurityError`-{{DOMxRef("DOMException")}}.
+Die **`caches`**-Eigenschaft des [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle)-Interfaces gibt ein unpartitioniertes [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt zurück, wenn der Zugriff gewährt wurde, und löst andernfalls einen `SecurityError`-[`DOMException`](/de/docs/Web/API/DOMException) aus.
 
 ## Wert
 
-Ein {{domxref("CacheStorage")}}-Objekt.
+Ein [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ document.requestStorageAccess({ caches: true }).then(
 ```
 
 > [!NOTE]
-> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
+> Sehen Sie sich [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel an.
 
 ## Spezifikationen
 
@@ -42,5 +42,5 @@ document.requestStorageAccess({ caches: true }).then(
 
 ## Siehe auch
 
-- {{domxref("Document.requestStorageAccess()")}}
+- [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
 - [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)

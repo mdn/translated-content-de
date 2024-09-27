@@ -7,27 +7,27 @@ l10n:
 
 {{securecontext_header}}{{SeeCompatTable}}{{APIRef}}
 
-Die **`NDEFReadingEvent`**-Schnittstelle des [Web NFC API](/de/docs/Web/API/Web_NFC_API) repräsentiert Ereignisse, die bei neuen NFC-Lesungen ausgelöst werden und von {{DOMxRef("NDEFReader")}} abgerufen werden.
+Die **`NDEFReadingEvent`**-Schnittstelle der [Web NFC API](/de/docs/Web/API/Web_NFC_API) repräsentiert Ereignisse, die bei neuen NFC-Lesevorgängen ausgelöst werden, die von einem [`NDEFReader`](/de/docs/Web/API/NDEFReader) erhalten wurden.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{DOMxRef("NDEFReadingEvent.NDEFReadingEvent", "NDEFReadingEvent.NDEFReadingEvent()")}} {{Experimental_Inline}}
+- [`NDEFReadingEvent.NDEFReadingEvent()`](/de/docs/Web/API/NDEFReadingEvent/NDEFReadingEvent) {{Experimental_Inline}}
   - : Erstellt ein neues `NDEFReadingEvent`.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{DOMxRef("Event")}}_.
+_Erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)_.
 
-- {{DOMxRef("NDEFReadingEvent.message")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein {{DOMxRef("NDEFMessage")}}-Objekt zurück, das die empfangene Nachricht enthält.
-- {{DOMxRef("NDEFReadingEvent.serialNumber")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die Seriennummer des Geräts zurück, die für Anti-Kollision und Identifikation verwendet wird, oder einen leeren String, wenn keine Seriennummer verfügbar ist.
+- [`NDEFReadingEvent.message`](/de/docs/Web/API/NDEFReadingEvent/message) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt ein [`NDEFMessage`](/de/docs/Web/API/NDEFMessage)-Objekt zurück, das die empfangene Nachricht enthält.
+- [`NDEFReadingEvent.serialNumber`](/de/docs/Web/API/NDEFReadingEvent/serialNumber) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt die Seriennummer des Geräts zurück, die für Anti-Kollision und Identifikation verwendet wird, oder einen leeren String, falls keine Seriennummer verfügbar ist.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt Methoden von seinem Elternteil, {{DOMxRef("Event")}}_.
+_Erbt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)_.
 
 ## Spezifikationen
 

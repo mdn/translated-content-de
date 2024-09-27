@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`closed`** des {{domxref("ReadableStreamBYOBReader")}}-Interfaces gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream schließt, oder ablehnt, wenn der Stream einen Fehler auslöst oder die Sperre des Lesers freigegeben wird.
+Die **`closed`** schreibgeschützte Eigenschaft der [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream geschlossen wird, oder abgelehnt wird, wenn der Stream einen Fehler auslöst oder die Sperre des Readers freigegeben wird.
 
-Diese Eigenschaft ermöglicht es Ihnen, Code zu schreiben, der auf ein Ende des Streaming-Prozesses reagiert.
+Diese Eigenschaft ermöglicht es Ihnen, Code zu schreiben, der auf das Ende des Streaming-Prozesses reagiert.
 
 ## Wert
 
@@ -18,16 +18,16 @@ Ein {{jsxref("Promise")}}.
 
 ## Beispiele
 
-Der folgende Code zeigt das Muster zum Umgang mit dem geschlossenen/Fehlerzustand eines BYOBReader.
+Der untenstehende Code zeigt das Muster zur Behandlung des geschlossenen/Fehlerzustands eines BYOBReaders.
 
 ```js
 const reader = stream.getReader({ mode: "byob" });
 reader.closed
   .then(() => {
-    // Resolved - Code zum Umgang mit dem Schließen des Streams
+    // Resolved - code to handle stream closing
   })
   .catch(() => {
-    // Rejected - Code zum Umgang mit Fehlern
+    // Rejected - code to handle error
   });
 ```
 
@@ -35,11 +35,11 @@ reader.closed
 
 {{Specifications}}
 
-## Kompatibilität mit Webbrowsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("ReadableStreamBYOBReader.ReadableStreamBYOBReader", "ReadableStreamBYOBReader()")}} Konstruktor
-- [Verwenden von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [`ReadableStreamBYOBReader()`](/de/docs/Web/API/ReadableStreamBYOBReader/ReadableStreamBYOBReader) Konstruktor
+- [Verwendung von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)

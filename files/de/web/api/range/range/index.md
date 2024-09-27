@@ -1,5 +1,5 @@
 ---
-title: "Range: Range()-Konstruktor"
+title: "Range: Range() Konstruktor"
 short-title: Range()
 slug: Web/API/Range/Range
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Der **`Range()`**-Konstruktor gibt ein neu erstelltes {{domxref("Range")}}-Objekt zurück, dessen Anfang und Ende das globale {{domxref("Document")}}-Objekt ist.
+Der **`Range()`** Konstruktor gibt ein neu erstelltes [`Range`](/de/docs/Web/API/Range)-Objekt zurück, dessen Anfang und Ende das globale [`Document`](/de/docs/Web/API/Document)-Objekt sind.
 
 ## Syntax
 
@@ -22,15 +22,15 @@ Keine.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen Bereich mit dem `Range()`-Konstruktor und legen deren Anfangs- und Endpositionen mit den Methoden {{domxref("Range.setStartBefore()")}} und {{domxref("Range.setEndAfter()")}} fest. Anschließend wählen wir den Bereich mit {{domxref("window.getSelection()")}} und {{domxref("Selection.addRange()")}} aus.
+In diesem Beispiel erstellen wir einen neuen Bereich mit dem `Range()` Konstruktor und legen seine Anfangs- und Endpositionen mit den Methoden [`Range.setStartBefore()`](/de/docs/Web/API/Range/setStartBefore) und [`Range.setEndAfter()`](/de/docs/Web/API/Range/setEndAfter) fest. Anschließend wählen wir den Bereich mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) und [`Selection.addRange()`](/de/docs/Web/API/Selection/addRange) aus.
 
 ### HTML
 
 ```html
-<p>Erster Absatz.</p>
-<p>Zweiter Absatz.</p>
-<p>Dritter Absatz.</p>
-<p>Vierter Absatz.</p>
+<p>First paragraph.</p>
+<p>Second paragraph.</p>
+<p>Third paragraph.</p>
+<p>Fourth paragraph.</p>
 ```
 
 ### JavaScript
@@ -38,19 +38,19 @@ In diesem Beispiel erstellen wir einen neuen Bereich mit dem `Range()`-Konstrukt
 ```js
 const paragraphs = document.querySelectorAll("p");
 
-// Neuen Bereich erstellen
+// Create new range
 const range = new Range();
 
-// Bereich am zweiten Absatz beginnen
+// Start range at second paragraph
 range.setStartBefore(paragraphs[1]);
 
-// Bereich am dritten Absatz enden
+// End range at third paragraph
 range.setEndAfter(paragraphs[2]);
 
-// Fenster-Auswahl erhalten
+// Get window selection
 const selection = window.getSelection();
 
-// Bereich zur Fenster-Auswahl hinzufügen
+// Add range to window selection
 selection.addRange(range);
 ```
 
@@ -68,5 +68,5 @@ selection.addRange(range);
 
 ## Siehe auch
 
-- [Übersicht der DOM-Schnittstellen](/de/docs/Web/API/Document_Object_Model)
-- {{domxref("Document.createRange()")}}
+- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)
+- [`Document.createRange()`](/de/docs/Web/API/Document/createRange)

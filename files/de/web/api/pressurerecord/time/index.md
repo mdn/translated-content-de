@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die schreibgeschützte **`time`**-Eigenschaft gibt den {{domxref("DOMHighResTimeStamp","Zeitstempel", "", "no-code")}} zurück, der für ein {{domxref("PressureRecord")}} aufgezeichnet wurde. Er entspricht dem Zeitpunkt, zu dem die Daten vom System relativ zum [Ursprung der Zeit des globalen Objekts](/de/docs/Web/API/Performance/timeOrigin) erhalten wurden, in dem der {{domxref("PressureObserver")}} die Benachrichtigung erzeugt hat.
+Die schreibgeschützte **`time`**-Eigenschaft gibt den [Zeitstempel](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der für ein [`PressureRecord`](/de/docs/Web/API/PressureRecord) aufgezeichnet wurde. Sie entspricht der Zeit, zu der die Daten vom System in Bezug auf den [Ursprung der Zeit des globalen Objekts](/de/docs/Web/API/Performance/timeOrigin) erfasst wurden, in dem der [`PressureObserver`](/de/docs/Web/API/PressureObserver) die Benachrichtigung erzeugte.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}, der den Zeitstempel repräsentiert, als das {{domxref("PressureRecord")}} erstellt wurde.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitstempel darstellt, zu dem das [`PressureRecord`](/de/docs/Web/API/PressureRecord) erstellt wurde.
 
 ## Beispiele
 

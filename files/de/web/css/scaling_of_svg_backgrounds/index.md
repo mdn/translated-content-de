@@ -7,39 +7,39 @@ l10n:
 
 {{CSSRef}}
 
-Angesichts der Flexibilität von SVG-Bildern gibt es viele Dinge zu beachten, wenn Sie sie als Hintergrundbilder mit der {{ cssxref("background-image") }}-Eigenschaft verwenden, und noch mehr, wenn Sie sie zusätzlich mit der {{ cssxref("background-size") }}-Eigenschaft skalieren. Dieser Artikel beschreibt, wie die Skalierung von SVG-Bildern gehandhabt wird, wenn diese Eigenschaften verwendet werden.
+Angesichts der Flexibilität von SVG-Bildern gibt es viel zu beachten, wenn man sie als Hintergrundbilder mit der {{ cssxref("background-image") }} Eigenschaft verwendet, und noch mehr, wenn man sie auch mit der {{ cssxref("background-size") }} Eigenschaft skaliert. Dieser Artikel beschreibt, wie die Skalierung von SVG-Bildern bei Verwendung dieser Eigenschaften gehandhabt wird.
 
-## Der Algorithmus, zusammengefasst
+## Der Algorithmus, in Kürze
 
-Der Algorithmus lässt sich größtenteils durch diese vier Regeln zusammenfassen. Es gibt einige Sonderfälle, die nicht durch diese Regeln abgedeckt sind, aber sie decken die Mehrheit der Fälle ab.
+Der Algorithmus lässt sich größtenteils mit diesen vier Regeln zusammenfassen. Es gibt einige Sonderfälle, die nicht von diesen Regeln abgedeckt werden, aber dies deckt die Mehrheit der Fälle ab.
 
-1. Wenn {{ cssxref("background-size") }} eine feste Dimension angibt (das heißt, Prozentsätze und relative Einheiten sind durch ihren Kontext festgelegt), gewinnt diese Dimension.
-2. Wenn das Bild ein intrinsisches Verhältnis (d.h. ein konstantes Breite:Höhe-Verhältnis wie 16:9, 4:3, 2.39:1, 1:1 usw.) hat, wird die gerenderte Größe dieses Verhältnis beibehalten.
-3. Wenn das Bild eine Größe angibt und die Größe nicht durch fits oder cover geändert wird, gewinnt die angegebene Größe.
+1. Wenn {{ cssxref("background-size") }} eine feste Dimension angibt (d.h. Prozentsätze und relative Einheiten sind durch ihren Kontext festgelegt), gewinnt diese Dimension.
+2. Wenn das Bild ein intrinsisches Verhältnis hat (d.h. sein Breite-Höhe-Verhältnis konstant ist, wie 16:9, 4:3, 2.39:1, 1:1, usw.), bleibt das gerenderte Größenverhältnis erhalten.
+3. Wenn das Bild eine Größe angibt und diese Größe nicht durch "constrain" oder "cover" modifiziert wird, gewinnt die angegebene Größe.
 4. Wenn keiner der oben genannten Fälle zutrifft, wird das Bild in der gleichen Größe wie der Hintergrundbereich gerendert.
 
-Es ist bemerkenswert, dass der Größenalgorithmus nur an den Dimensionen und Proportionen des Bildes interessiert ist, oder an deren Fehlen. Ein SVG-Bild mit festen Dimensionen wird wie ein Rasterbild derselben Größe behandelt.
+Es ist zu beachten, dass der Größenalgorithmus nur auf die Dimensionen und Proportionen des Bildes achtet oder deren Fehlen. Ein SVG-Bild mit festen Dimensionen wird genauso behandelt wie ein Rasterbild gleicher Größe.
 
 > [!NOTE]
-> Wenn Sie versuchen, Ihr SVG mit CSS auf ein anderes {{glossary("aspect ratio")}} zu strecken – zum Beispiel, um es über den Seitenhintergrund zu strecken – stellen Sie sicher, dass Ihr SVG `preserveAspectRatio="none"` enthält. Erfahren Sie mehr über {{svgattr("preserveAspectRatio")}}.
+> Wenn Sie versuchen, Ihr SVG mit CSS auf ein anderes [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) zu strecken – zum Beispiel, um es über den Seitenhintergrund zu strecken – stellen Sie sicher, dass Ihr SVG `preserveAspectRatio="none"` enthält. Erfahren Sie mehr über {{svgattr("preserveAspectRatio")}}.
 
-## Beispielquellenbilder
+## Beispiele für Quellbilder
 
-Bevor wir uns die Ergebnisse der Verwendung verschiedener Arten von Quellenbildern ansehen und sehen, wie sie aussehen, wenn sie mit {{ cssxref("background-size") }} verwendet werden, wäre es hilfreich, sich einige Beispielquellenbilder anzusehen, die unterschiedliche Dimensionen und Größeneinstellungen haben.
+Bevor wir uns die Ergebnisse der Verwendung verschiedener Arten von Quellbildern ansehen und wie sie aussehen, wenn sie mit {{ cssxref("background-size") }} verwendet werden, wäre es hilfreich, sich einige Beispielquellbilder mit unterschiedlichen Dimensionen und Größeneinstellungen anzusehen.
 
-In jedem Fall zeigen wir, wie das Quellenbild in einem 150x150-Feld gerendert aussieht, und bieten einen Link zur SVG-Quelle.
+In jedem Fall zeigen wir, wie das Quellbild in einem 150x150-Rahmen gerendert aussieht, und geben einen Link zur SVG-Quelle an.
 
 ### Ohne Dimensionen und Proportionen
 
-Dieses Bild ist sowohl dimensionslos als auch proportionlos. Es ist ihm egal, welche Größe es hat, noch darauf, ein bestimmtes Seitenverhältnis beizubehalten. Dies wäre ein guter Verlaufshintergrund für den Desktop, der unabhängig von Ihrer Bildschirmgröße und ihrem Seitenverhältnis funktioniert.
+Dieses Bild ist sowohl dimensions- als auch proportionslos. Es ist ihm egal, welche Größe es hat, noch ist es darauf bedacht, ein bestimmtes Seitenverhältnis beizubehalten. Das wäre ein guter Verlaufshintergrund, der unabhängig von der Größe Ihres Bildschirms und seines Seitenverhältnisses funktioniert.
 
 ![no-dimensions-or-ratio.png](no-dimensions-or-ratio.png)
 
 [SVG-Quelle](https://mdn.dev/archives/media/attachments/2012/07/09/3469/6587a382ffb2c944462a6b110b079496/no-dimensions-or-ratio.svg)
 
-### Eine angegebene Dimension und ohne Proportion
+### Eine angegebene Dimension und proportionslos
 
-Dieses Bild gibt eine Breite von 100 Pixel an, aber keine Höhe oder intrinsisches Verhältnis. Grundsätzlich handelt es sich um einen schmalen Tapetenstreifen, der über die gesamte Höhe eines Blocks gestreckt werden könnte.
+Dieses Bild gibt eine Breite von 100 Pixeln an, aber keine Höhe oder ein intrinsisches Verhältnis. Dies ist im Grunde ein dünner Tapetenstreifen, der über die gesamte Höhe eines Blocks gedehnt werden könnte.
 
 ![100px-wide-no-height-or-ratio.png](100px-wide-no-height-or-ratio.png)
 
@@ -47,9 +47,9 @@ Dieses Bild gibt eine Breite von 100 Pixel an, aber keine Höhe oder intrinsisch
 
 ### Eine angegebene Dimension mit intrinsischem Verhältnis
 
-Dieses Bild gibt eine Höhe von 100 Pixel an, aber keine Breite. Es gibt auch ein intrinsisches Seitenverhältnis von 3:4 an. Dies stellt sicher, dass das Verhältnis von Breite zu Höhe immer 3:4 ist, es sei denn, es wird absichtlich auf eine unverhältnismäßige Größe skaliert (das heißt, durch explizites Angeben von Breite und Höhe, die nicht diesem Verhältnis entsprechen).
+Dieses Bild gibt eine Höhe von 100 Pixeln an, aber keine Breite. Es gibt auch ein intrinsisches Seitenverhältnis von 3:4 an. Dies stellt sicher, dass sein Breite-Höhe-Verhältnis immer 3:4 ist, es sei denn, es wird absichtlich auf eine unverhältnismäßige Größe skaliert (d.h. durch explizite Angabe sowohl der Breite als auch der Höhe, die nicht diesem Verhältnis entsprechen).
 
-Dies ist sehr ähnlich wie das Angeben einer bestimmten Breite und Höhe, da man, sobald man eine Dimension und ein Verhältnis kennt, die andere Dimension impliziert ist, aber es ist dennoch ein nützliches Beispiel.
+Dies ist sehr ähnlich wie die Angabe einer bestimmten Breite und Höhe, da, wenn man eine Dimension und ein Verhältnis hat, die andere Dimension impliziert ist, aber es ist immer noch ein nützliches Beispiel.
 
 ![100px-height-3x4-ratio.png](100px-height-3x4-ratio.png)
 
@@ -57,7 +57,7 @@ Dies ist sehr ähnlich wie das Angeben einer bestimmten Breite und Höhe, da man
 
 ### Keine Breite oder Höhe mit intrinsischem Verhältnis
 
-Dieses Bild gibt weder eine Breite noch eine Höhe an; stattdessen gibt es ein intrinsisches Verhältnis von 1:1 an. Denken Sie dabei an ein Programmsymbol. Es ist immer quadratisch und kann in jeder Größe verwendet werden, wie zum Beispiel 32x32, 128x128 oder 512x512.
+Dieses Bild gibt weder eine Breite noch eine Höhe an; stattdessen gibt es ein intrinsisches Verhältnis von 1:1 an. Denken Sie dabei an ein Programmsymbol. Es ist immer quadratisch und kann in jeder Größe verwendet werden, z.B. 32x32, 128x128 oder 512x512.
 
 ![no-dimensions-1x1-ratio.png](no-dimensions-1x1-ratio.png)
 
@@ -65,283 +65,188 @@ Dieses Bild gibt weder eine Breite noch eine Höhe an; stattdessen gibt es ein i
 
 ## Skalierungsbeispiele
 
-Jetzt sehen wir einige Beispiele dafür, was passiert, wenn wir diese Bilder unterschiedlich skalieren. In jedem der folgenden Beispiele sind die umgebenden Rechtecke 300 Pixel breit und 200 Pixel hoch. Darüber hinaus haben die Hintergründe aus Gründen der Klarheit {{ cssxref("background-repeat") }} auf no-repeat gesetzt.
+Nun lassen Sie uns einige Beispiele dafür sehen, was passiert, wenn wir verschiedene Skalierungen auf diese Bilder anwenden. In jedem der unten stehenden Beispiele sind die umgebenden Rechtecke 300 Pixel breit und 200 Pixel hoch. Darüber hinaus sind die Hintergründe für Klarheit mit {{ cssxref("background-repeat") }} auf no-repeat gesetzt.
 
 > [!NOTE]
-> Die unten gezeigten Screenshots zeigen das **erwartete** Rendering. Nicht alle Browser rendern diese derzeit korrekt.
+> Die unten gezeigten Screenshots zeigen die **erwartete** Darstellung. Nicht alle Browser rendern diese derzeit korrekt.
 
-### Festlegen fester Längen für beide Dimensionen
+### Festlegung fester Längen für beide Dimensionen
 
-Wenn Sie {{ cssxref("background-size") }} verwenden, um feste Längen für beide Dimensionen anzugeben, werden diese Längen immer verwendet, gemäß Regel 1 oben. Mit anderen Worten wird das Bild immer auf die von Ihnen angegebenen Dimensionen gestreckt, unabhängig davon, ob das Quellbild seine Dimensionen und/oder sein Seitenverhältnis angegeben hat.
+Wenn Sie {{ cssxref("background-size") }} verwenden, um feste Längen für beide Dimensionen festzulegen, werden diese Längen immer verwendet, gemäß Regel 1 oben. Mit anderen Worten, das Bild wird immer auf die von Ihnen angegebenen Dimensionen gestreckt, unabhängig davon, ob das Quellbild seine Dimensionen und/oder ein Seitenverhältnis festgelegt hat.
 
 #### Quelle: Keine Dimensionen oder intrinsisches Verhältnis
 
-Bei dieser CSS-Angabe:
-
-```css
-background: url(no-dimensions-or-ratio.svg);
-background-size: 125px 175px;
-```
-
-wird das gerenderte Ergebnis folgendermaßen aussehen:
+Angenommen, dieses CSS:
 
 ![fixed-no-dimensions-or-ratio.png](fixed-no-dimensions-or-ratio.png)
 
+Das gerenderte Ergebnis würde folgendermaßen aussehen:
+
 #### Quelle: Eine angegebene Dimension, kein intrinsisches Verhältnis
 
-Bei dieser CSS-Angabe:
-
-```css
-background: url(100px-wide-no-height-or-ratio.svg);
-background-size: 250px 150px;
-```
-
-wird das gerenderte Ergebnis folgendermaßen aussehen:
+Angenommen, dieses CSS:
 
 ![fixed-100px-wide-no-height-or-ratio.png](fixed-100px-wide-no-height-or-ratio.png)
 
+Das gerenderte Ergebnis würde folgendermaßen aussehen:
+
 #### Quelle: Eine angegebene Dimension mit intrinsischem Verhältnis
 
-Bei dieser CSS-Angabe:
-
-```css
-background: url(100px-height-3x4-ratio.svg);
-background-size: 275px 125px;
-```
-
-wird das gerenderte Ergebnis folgendermaßen aussehen:
+Angenommen, dieses CSS:
 
 ![fixed-100px-height-3x4-ratio.png](fixed-100px-height-3x4-ratio.png)
 
+Das gerenderte Ergebnis würde folgendermaßen aussehen:
+
 #### Quelle: Keine angegebene Breite oder Höhe mit intrinsischem Verhältnis
 
-Bei dieser CSS-Angabe:
-
-```css
-background: url(no-dimensions-1x1-ratio.svg);
-background-size: 250px 100px;
-```
-
-wird das gerenderte Ergebnis folgendermaßen aussehen:
+Angenommen, dieses CSS:
 
 ![fixed-no-dimensions-1x1-ratio.png](fixed-no-dimensions-1x1-ratio.png)
 
-### Verwenden von contain oder cover
+Das gerenderte Ergebnis würde folgendermaßen aussehen:
 
-Die Angabe von `cover` für {{ cssxref("background-size") }} sorgt dafür, dass das Bild so klein wie möglich gemacht wird, während es immer noch den gesamten Hintergrundbereich abdeckt. `contain` hingegen macht das Bild so groß wie möglich, ohne dass es vom Hintergrundbereich abgeschnitten wird.
+### Verwendung von "contain" oder "cover"
 
-Bei einem Bild mit einem intrinsischen Verhältnis passt genau eine Größe zu den `cover`/fit-Kriterien allein. Aber wenn kein intrinsisches Verhältnis angegeben ist, reicht `cover`/fit nicht aus, und die großen/kleinen Einschränkungen bestimmen die resultierende Größe.
+Die Angabe von `cover` für {{ cssxref("background-size") }} macht das Bild so klein wie möglich, während es dennoch den gesamten Hintergrundbereich abdeckt. `contain` hingegen macht das Bild so groß wie möglich, ohne dass es durch den Hintergrundbereich abgeschnitten wird.
+
+Für ein Bild mit einem intrinsischen Verhältnis passt genau eine Größe allein zu den `cover`-/Fit-Kriterien. Wenn jedoch kein intrinsisches Verhältnis angegeben ist, reichen `cover`/fit nicht aus, sodass die großen/kleinen Einschränkungen die resultierende Größe wählen.
 
 #### Quelle: Keine Dimensionen oder intrinsisches Verhältnis
 
-Wenn ein Bild weder Dimensionen noch ein intrinsisches Verhältnis angibt, gelten weder Regel 2 noch Regel 3, daher übernimmt Regel 4: Das Hintergrundbild wird so gerendert, dass es den gesamten Hintergrundbereich abdeckt. Dies erfüllt die größte-oder-kleinste Einschränkung.
-
-```css
-background: url(no-dimensions-or-ratio.svg);
-background-size: contain;
-```
-
-Das gerenderte Ergebnis sieht folgendermaßen aus:
+Wenn ein Bild weder Dimensionen noch ein intrinsisches Verhältnis angibt, gelten weder Regel 2 noch Regel 3, sodass Regel 4 greift: Das Hintergrundbild wird über den gesamten Hintergrundbereich gerendert. Dies erfüllt die größte-oder-kleinste-Einschränkung.
 
 ![no-dimensions-or-ratio-contain.png](no-dimensions-or-ratio-contain.png)
 
+Das gerenderte Ergebnis sieht folgendermaßen aus:
+
 #### Quelle: Eine angegebene Dimension, kein intrinsisches Verhältnis
 
-Ähnlicherweise, wenn das Bild eine Dimension angegeben hat, aber kein intrinsisches Verhältnis, gilt Regel 4 und das Bild wird skaliert, um den gesamten Hintergrundbereich abzudecken.
-
-```css
-background: url(100px-wide-no-height-or-ratio.svg);
-background-size: contain;
-```
-
-Das gerenderte Ergebnis sieht folgendermaßen aus:
+Ähnlich verhält es sich, wenn das Bild eine Dimension angibt, jedoch kein intrinsisches Verhältnis hat, gilt Regel 4, und das Bild wird skaliert, um den gesamten Hintergrundbereich abzudecken.
 
 ![100px-wide-no-height-or-ratio-contain.png](100px-wide-no-height-or-ratio-contain.png)
 
+Das gerenderte Ergebnis sieht folgendermaßen aus:
+
 #### Quelle: Eine angegebene Dimension mit intrinsischem Verhältnis
 
-Die Dinge ändern sich, wenn Sie ein intrinsisches Verhältnis angeben. In diesem Fall ist Regel 1 nicht relevant, sodass Regel 2 angewendet wird: Wir versuchen, jedes intrinsische Verhältnis (unter Beachtung von `contain` oder `cover`) beizubehalten. Beispielsweise bedeutet das Beibehalten eines 3:4-Intrinsik-Verhältnisses für ein 300x200-Feld mit `contain`, dass ein 150x200-Hintergrund gezeichnet wird.
+Die Dinge ändern sich, wenn Sie ein intrinsisches Verhältnis angeben. In diesem Fall ist Regel 1 nicht relevant, sodass Regel 2 angewendet wird: Wir versuchen, ein etwaiges intrinsisches Verhältnis zu erhalten (während wir `contain` oder `cover` respektieren). Zum Beispiel bedeutet das Beibehalten eines 3:4 intrinsischen Seitenverhältnisses für eine 300x200 Box mit `contain`, dass ein 150x200 Hintergrund gezeichnet wird.
 
 ##### contain-Fall
-
-```css
-background: url(100px-height-3x4-ratio.svg);
-background-size: contain;
-```
-
-Das gerenderte Ergebnis sieht folgendermaßen aus:
 
 ![100px-height-3x4-ratio-contain.png](100px-height-3x4-ratio-contain.png)
 
-Beachten Sie, dass das gesamte Bild gerendert wird, wobei es so gut wie möglich in das Feld passt, ohne dass Teile davon abgeschnitten werden.
+Das gerenderte Ergebnis sieht folgendermaßen aus:
+
+Beachten Sie, wie das gesamte Bild gerendert wird und möglichst gut in die Box passt, ohne dass etwas davon abgeschnitten wird.
 
 ##### cover-Fall
-
-```css
-background: url(100px-height-3x4-ratio.svg);
-background-size: cover;
-```
-
-Das gerenderte Ergebnis sieht folgendermaßen aus:
 
 ![100px-height-3x4-ratio-cover.png](100px-height-3x4-ratio-cover.png)
 
-Hier wird das 3:4-Verhältnis beibehalten, während das Bild weiterhin gestreckt wird, um das gesamte Feld zu füllen. Das führt dazu, dass der untere Teil des Bildes abgeschnitten wird.
+Das gerenderte Ergebnis sieht folgendermaßen aus:
+
+Hier wird das 3:4 Verhältnis beibehalten, während das Bild so gestreckt wird, dass es die gesamte Box ausfüllt. Dies führt dazu, dass der untere Teil des Bildes abgeschnitten wird.
 
 #### Quelle: Keine Dimensionen mit intrinsischem Verhältnis
 
-Beim Verwenden eines Bildes ohne intrinsische Dimensionen, aber mit intrinsischem Verhältnis, funktioniert dies ähnlich.
+Bei der Verwendung eines Bildes ohne intrinsische Dimensionen, aber mit einem intrinsischen Verhältnis, funktioniert es ähnlich.
 
 ##### contain-Fall
 
-```css
-background: url(no-dimensions-1x1-ratio.svg);
-background-size: contain;
-```
+![no-dimensions-1x1-ratio-contain.png](no-dimensions-1x1-ratio-contain.png)
 
 Das gerenderte Ergebnis sieht folgendermaßen aus:
 
-![no-dimensions-1x1-ratio-contain.png](no-dimensions-1x1-ratio-contain.png)
-
-Beachten Sie, dass das Bild auf die kleinste Dimension angepasst wird, während das 1:1-Seitenverhältnis beibehalten wird.
+Beachten Sie, dass das Bild so dimensioniert ist, dass es die kleinste Dimension ausfüllt und gleichzeitig das 1:1 Seitenverhältnis beibehält.
 
 ##### cover-Fall
 
-```css
-background: url(no-dimensions-1x1-ratio.svg);
-background-size: cover;
-```
+![no-dimensions-1x1-ratio-cover.png](no-dimensions-1x1-ratio-cover.png)
 
 Das gerenderte Ergebnis sieht folgendermaßen aus:
 
-![no-dimensions-1x1-ratio-cover.png](no-dimensions-1x1-ratio-cover.png)
-
-Hier wird das Bild so skaliert, dass es die größte Dimension ausfüllt. Das 1:1-Verhältnis wurde beibehalten, obwohl es bei diesem Quellenbild schwierig zu sehen sein kann.
+Hier wird das Bild so dimensioniert, dass es die größte Dimension ausfüllt. Das 1:1 Seitenverhältnis wurde beibehalten, obwohl dies bei diesem Quellbild schwer zu erkennen sein kann.
 
 ### Automatische Größenanpassung mit "auto" für beide Dimensionen
 
-Wenn {{ cssxref("background-size") }} auf `auto` oder `auto auto` gesetzt ist, sagt Regel 2, dass das Rendering jedes angegebene intrinsische Verhältnis beibehalten muss.
+Wenn {{ cssxref("background-size") }} auf `auto` oder `auto auto` gesetzt ist, besagt Regel 2, dass die Darstellung jedes bereitgestellte intrinsische Verhältnis beibehalten muss.
 
 #### Quelle: Keine Dimensionen oder intrinsisches Verhältnis
 
-Wenn kein intrinsisches Verhältnis oder Dimensionen vom Quellenbild angegeben sind, tritt Regel 4 in Kraft, und das Bild wird skaliert, um den Hintergrundbereich zu füllen.
-
-```css
-background: url(no-dimensions-or-ratio.svg);
-background-size: auto auto;
-```
-
-Das gerenderte Ergebnis sieht folgendermaßen aus:
+Wenn weder ein intrinsisches Verhältnis noch Dimensionen vom Quellbild angegeben werden, tritt Regel 4 in Kraft, und das Bild wird gerendert, um den Hintergrundbereich auszufüllen.
 
 ![auto-no-dimensions-or-ratio.png](auto-no-dimensions-or-ratio.png)
 
+Das gerenderte Ergebnis sieht folgendermaßen aus:
+
 #### Quelle: Eine Dimension und kein intrinsisches Verhältnis
 
-Wenn kein intrinsisches Verhältnis angegeben wird, aber mindestens eine Dimension, tritt Regel 3 in Kraft, und das Bild wird entsprechend dieser Dimensionen gerendert.
-
-```css
-background: url(100px-wide-no-height-or-ratio.svg);
-background-size: auto auto;
-```
-
-Das gerenderte Ergebnis sieht folgendermaßen aus:
+Wenn kein intrinsisches Verhältnis angegeben wird, aber mindestens eine Dimension angegeben wird, tritt Regel 3 in Kraft, und wir rendern das Bild unter Beachtung dieser Dimensionen.
 
 ![auto-100px-wide-no-height-or-ratio.png](auto-100px-wide-no-height-or-ratio.png)
 
-Beachten Sie hier, dass die Breite, die in der SVG-Quelle mit 100 Pixeln angegeben ist, eingehalten wird, während die Höhe den Hintergrundbereich füllt, da sie nicht angegeben ist (weder explizit noch durch ein intrinsisches Verhältnis).
+Das gerenderte Ergebnis sieht folgendermaßen aus:
+
+Beachten Sie hier, dass die im Quell-SVG angegebene Breite von 100 Pixeln beachtet wird, während die Höhe den Hintergrundbereich ausfüllt, da sie nicht angegeben ist (weder explizit noch durch ein intrinsisches Verhältnis).
 
 #### Quelle: Eine Dimension und ein intrinsisches Verhältnis
 
-Wenn ein intrinsisches Verhältnis mit einer festen Dimension vorhanden ist, fixiert das beide Dimensionen. Die Kenntnis einer Dimension und eines Verhältnisses ist, wie bereits erwähnt, dasselbe wie das explizite Angeben beider Dimensionen.
-
-```css
-background: url(100px-height-3x4-ratio.svg);
-background-size: auto auto;
-```
-
-Das gerenderte Ergebnis sieht folgendermaßen aus:
+Wenn wir ein intrinsisches Verhältnis mit einer festen Dimension haben, fixiert dies beide Dimensionen. Eine Dimension und ein Verhältnis zu kennen, entspricht, wie bereits erwähnt, dem expliziten Festlegen beider Dimensionen.
 
 ![auto-100px-height-3x4-ratio.png](auto-100px-height-3x4-ratio.png)
 
-Da dieses Bild explizit eine Höhe von 100 Pixeln hat, wird das 3:4-Verhältnis explizit auf 75 Pixel eingestellt, sodass es im `auto`-Fall so gerendert wird.
+Das gerenderte Ergebnis sieht folgendermaßen aus:
+
+Da dieses Bild eine explizite Höhe von 100 Pixeln hat, setzt das 3:4 Verhältnis seine Breite explizit auf 75 Pixel, sodass es im `auto` Fall so gerendert wird.
 
 #### Quelle: Keine festen Dimensionen mit intrinsischem Verhältnis
 
-Wenn ein intrinsisches Verhältnis angegeben wird, aber keine Dimensionen, wird Regel 4 angewendet - außer dass Regel 2 ebenfalls Anwendung findet. Das Bild wird daher genauso gerendert wie im `contain`-Fall.
-
-```css
-background: url(no-dimensions-1x1-ratio.svg);
-background-size: auto auto;
-```
-
-Das gerenderte Ergebnis sieht folgendermaßen aus:
+Wenn ein intrinsisches Verhältnis angegeben wird, aber keine Dimensionen, wird Regel 4 angewendet – außer dass auch Regel 2 gilt. Das Bild wird also wie im `contain` Fall gerendert.
 
 ![auto-no-dimensions-1x1-ratio.png](auto-no-dimensions-1x1-ratio.png)
 
-### Verwenden von "auto" und einer spezifischen Länge
+Das gerenderte Ergebnis sieht folgendermaßen aus:
 
-Laut Regel 1 werden angegebene Dimensionen immer verwendet, daher müssen wir unsere Regeln nur anwenden, um die zweite Dimension zu bestimmen.
+### Verwendung von "auto" und einer spezifischen Länge
+
+Gemäß Regel 1 werden angegebene Dimensionen immer verwendet, sodass wir unsere Regeln nur anwenden müssen, um die zweite Dimension zu bestimmen.
 
 #### Quelle: Keine Dimensionen oder intrinsisches Verhältnis
 
-Wenn das Bild keine Dimensionen oder ein intrinsisches Verhältnis hat, gilt Regel 4, und wir verwenden die Dimension des Hintergrundbereichs, um den Wert für die `auto`-Dimension zu bestimmen.
-
-```css
-background: url(no-dimensions-or-ratio.svg);
-background-size: auto 150px;
-```
+Wenn das Bild keine Dimensionen oder kein intrinsisches Verhältnis hat, gilt Regel 4, und wir verwenden die Dimension des Hintergrundbereichs, um den Wert für die `auto` Dimension zu bestimmen.
 
 ![1auto-no-dimensions-or-ratio.png](1auto-no-dimensions-or-ratio.png)
 
-Hier wird die Breite mithilfe der Breite des Hintergrundbereichs gemäß Regel 4 bestimmt, während die Höhe die im CSS angegebene 140px beträgt.
+Hier wird die Breite unter Verwendung der Breite des Hintergrundbereichs gemäß Regel 4 ermittelt, während die Höhe die im CSS angegebene 140px ist.
 
 #### Quelle: Eine angegebene Dimension ohne intrinsisches Verhältnis
 
-Wenn das Bild eine Dimension angegeben hat, aber kein intrinsisches Verhältnis gibt diese angegebene Dimension an, wird sie nach Regel 3 verwendet, wenn diese Dimension im CSS auf `auto` gesetzt ist.
-
-```css
-background: url(100px-wide-no-height-or-ratio.svg);
-background-size: 200px auto;
-```
+Wenn das Bild eine angegebene Dimension hat, aber kein intrinsisches Verhältnis, wird diese angegebene Dimension gemäß Regel 3 verwendet, wenn diese Dimension im CSS auf `auto` gesetzt ist.
 
 ![100px-wide-no-height-or-ratio-length-auto.png](100px-wide-no-height-or-ratio-length-auto.png)
 
-Hier überschreiben die im CSS angegebenen 200px die in der SVG angegebenen 100px Breite, gemäß Regel 1. Da kein intrinsisches Verhältnis oder eine Höhe angegeben ist, wählt `auto` die Höhe des Hintergrundbereichs als Höhe des gerenderten Bildes.
-
-```css
-background: url(100px-wide-no-height-or-ratio.svg);
-background-size: auto 125px;
-```
+Hier überschreiben die im CSS angegebenen 200 Pixel die im SVG angegebenen 100 Pixel Breite gemäß Regel 1. Da kein intrinsisches Verhältnis oder keine Höhe angegeben ist, wählt `auto` die Höhe des Hintergrundbereichs als Höhe des gerenderten Bildes.
 
 ![100px-wide-no-height-or-ratio-auto-length.png](100px-wide-no-height-or-ratio-auto-length.png)
 
-In diesem Fall wird die Breite im CSS als auto angegeben, sodass die in der SVG angegebenen 100px Breite nach Regel 3 ausgewählt werden. Die Höhe ist im CSS auf 125px festgelegt, daher wird diese nach Regel 1 ausgewählt.
+In diesem Fall wird die Breite im CSS als auto angegeben, somit werden die im SVG angegebenen 100 Pixel Breite gemäß Regel 3 gewählt. Die Höhe wird im CSS auf 125px festgelegt, somit wird diese gemäß Regel 1 gewählt.
 
 #### Quelle: Eine angegebene Dimension mit intrinsischem Verhältnis
 
-Wenn eine Dimension angegeben ist, wendet Regel 1 diese Dimension aus der SVG auf den gerenderten Hintergrund an, es sei denn, sie wird speziell durch das CSS überschrieben. Wenn auch ein intrinsisches Verhältnis angegeben wird, wird dieses verwendet, um die andere Dimension zu bestimmen.
-
-```css
-background: url(100px-height-3x4-ratio.svg);
-background-size: 150px auto;
-```
+Wenn eine Dimension angegeben ist, wird diese Dimension aus dem SVG auf den gerenderten Hintergrund angewendet, es sei denn, sie wird durch das CSS spezifisch überschrieben. Wenn ein intrinsisches Verhältnis ebenfalls angegeben ist, wird dies verwendet, um die andere Dimension zu bestimmen.
 
 ![1auto-100px-height-3x4-ratio.png](1auto-100px-height-3x4-ratio.png)
 
-In diesem Fall verwenden wir die im CSS angegebene Breite des Bildes, die auf 150px festgelegt ist, sodass Regel 1 angewendet wird. Das intrinsische 3:4-Seitenverhältnis bestimmt dann die Höhe für den `auto`-Fall.
+In diesem Fall verwenden wir die Breite des Bildes, die im CSS auf 150px gesetzt ist. Daher wird Regel 1 angewendet. Das intrinsische 3:4 Seitenverhältnis legt dann die Höhe für den `auto` Fall fest.
 
 #### Quelle: Keine angegebenen Dimensionen mit intrinsischem Verhältnis
 
-Wenn in der SVG keine Dimensionen angegeben sind, wird die im CSS angegebene Dimension angewendet, dann wird das intrinsische Verhältnis verwendet, um die andere Dimension auszuwählen, gemäß Regel 2.
-
-```css
-background: url(no-dimensions-1x1-ratio.svg);
-background-size: 150px auto;
-```
+Wenn keine Dimensionen im SVG angegeben sind, wird die im CSS angegebene Dimension angewendet, dann wird das intrinsische Verhältnis verwendet, um die andere Dimension zu wählen, gemäß Regel 2.
 
 ![1auto-no-dimensions-1x1-ratio.png](1auto-no-dimensions-1x1-ratio.png)
 
-Die Breite wird durch das CSS auf 150px gesetzt. Der `auto`-Wert für die Höhe wird unter Verwendung dieser Breite und des 1:1-Seitenverhältnisses auf 150px berechnet, was zu dem obigen Bild führt.
+Die Breite wird durch das CSS auf 150px festgelegt. Der `auto` Wert für die Höhe wird unter Verwendung dieser Breite und des 1:1 Seitenverhältnisses auf ebenfalls 150px berechnet, was das obige Bild ergibt.
 
 ## Siehe auch
 

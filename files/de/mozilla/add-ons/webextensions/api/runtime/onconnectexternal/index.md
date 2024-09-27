@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn eine Erweiterung eine Verbindungsanfrage von einer anderen Erweiterung erhält.
+Ausgelöst, wenn eine Erweiterung eine Verbindungsanfrage von einer anderen Erweiterung erhält.
 
-Um eine Nachricht zu senden, die vom `onConnectExternal` Listener empfangen wird, verwenden Sie {{WebExtAPIRef("runtime.connect()")}} und übergeben Sie die ID des Empfängers im `extensionId` Parameter.
+Um eine Nachricht zu senden, die vom `onConnectExternal`-Listener empfangen wird, verwenden Sie {{WebExtAPIRef("runtime.connect()")}}, indem Sie die ID des Empfängers im `extensionId`-Parameter übergeben.
 
-Dem Listener wird ein {{WebExtAPIRef('runtime.Port')}} Objekt übergeben, das er verwenden kann, um Nachrichten zu senden und zu empfangen. Das `Port` Objekt enthält auch eine `sender` Eigenschaft, die ein {{WebExtAPIRef("runtime.MessageSender")}} Objekt ist und das der Empfänger zur Überprüfung der Absender-ID verwenden kann.
+Dem Listener wird ein {{WebExtAPIRef('runtime.Port')}}-Objekt übergeben, das er dann verwenden kann, um Nachrichten zu senden und zu empfangen. Das `Port`-Objekt enthält auch eine `sender`-Eigenschaft, welche ein {{WebExtAPIRef("runtime.MessageSender")}}-Objekt ist, und welches der Empfänger verwenden kann, um die ID des Absenders zu überprüfen.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, auf dieses Ereignis zu hören. Das `listener` Argument ist der zu entfernende Listener.
+  - : Beendet das Zuhören für dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
@@ -39,7 +39,7 @@ Ereignisse haben drei Funktionen:
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `port`
-      - : Ein {{WebExtAPIRef('runtime.Port')}} Objekt, das das aktuelle Skript mit der anderen Erweiterung verbindet, mit der es sich verbindet.
+      - : Ein {{WebExtAPIRef('runtime.Port')}}-Objekt, das das aktuelle Skript mit der anderen Erweiterung verbindet, mit der es verbunden ist.
 
 ## Browser-Kompatibilität
 
@@ -62,7 +62,7 @@ browser.browserAction.onClicked.addListener(() => {
 });
 ```
 
-Gretel hört auf die Verbindung und überprüft, ob der Absender tatsächlich Hansel ist:
+Gretel hört auf die Verbindung und überprüft, ob der Absender wirklich Hansel ist:
 
 ```js
 let portFromHansel;
@@ -86,7 +86,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onConnectExternal) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onConnectExternal) API von Chromium. Diese Dokumentation ist aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code abgeleitet.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

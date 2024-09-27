@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`formatToParts()`**-Methode von {{jsxref("Intl.DurationFormat")}} Instanzen ermöglicht die lokalisierungsbewusste Formatierung von Zeichenketten, die von {{jsxref("Intl.DurationFormat")}} Formatierern erzeugt werden.
+Die Methode **`formatToParts()`** von {{jsxref("Intl.DurationFormat")}} Instanzen ermöglicht eine lokalisierungsbewusste Formatierung von Zeichenfolgen, die von {{jsxref("Intl.DurationFormat")}} Formatierern erzeugt werden.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ formatToParts(duration)
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, die die formatierte Dauer in Teilen enthalten.
+Ein {{jsxref("Array")}} von Objekten, das die formatierten Dauerangaben in Teilen enthält.
 
 ## Beschreibung
 
-Die `formatToParts()`-Methode ist nützlich für die benutzerdefinierte Formatierung von Dauerobjekten. Sie gibt ein {{jsxref("Array")}} von Objekten zurück, die die lokalisierungsspezifischen Token enthalten, aus denen es möglich ist, benutzerdefinierte Zeichenfolgen zu erstellen, wobei die lokalisierungsspezifischen Teile erhalten bleiben. Die Struktur, die die `formatToParts()`-Methode zurückgibt, sieht folgendermaßen aus:
+Die Methode `formatToParts()` ist nützlich für die benutzerdefinierte Formatierung von Dauerobjekten. Sie gibt ein {{jsxref("Array")}} von Objekten zurück, das die lokalisierungsspezifischen Token enthält, aus denen benutzerdefinierte Zeichenfolgen erstellt werden können, während die lokalisierungsspezifischen Teile erhalten bleiben. Die Struktur, die die Methode `formatToParts()` zurückgibt, sieht folgendermaßen aus:
 
 ```js
 [
@@ -42,7 +42,7 @@ Die `formatToParts()`-Methode ist nützlich für die benutzerdefinierte Formatie
 
 ## Beispiele
 
-Die `formatToParts`-Methode ermöglicht die lokalisierungsbewusste Formatierung von Zeichenfolgen, die von `DurationFormat`-Formatierern erzeugt werden, indem sie die Zeichenkette in Teile aufgliedert:
+Die Methode `formatToParts` ermöglicht die lokalisierungsbewusste Formatierung von Zeichenfolgen, die von `DurationFormat` Formatierern erzeugt werden, indem sie Ihnen die Zeichenfolge in Teilen bereitstellt:
 
 ```js
 const duration = {
@@ -56,7 +56,7 @@ const duration = {
 
 new Intl.DurationFormat("en", { style: "long" }).formatToParts(duration);
 
-// Zurückgegebener Wert:
+// Returned value:
 [
   { type: "integer", value: "7", unit: "hour" },
   { type: "literal", value: " ", unit: "hour" },

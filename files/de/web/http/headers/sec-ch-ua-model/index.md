@@ -14,12 +14,12 @@ Der **`Sec-CH-UA-Model`** [User-Agent-Client-Hinweis](/de/docs/Web/HTTP/Client_h
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request header")}},
+        [Request-Header](/de/docs/Glossary/Request_header),
         <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -34,11 +34,11 @@ Sec-CH-UA-Model: <device-version>
 ### Direktiven
 
 - `<device-version>`
-  - : Eine Zeichenkette, die die Geräteversion enthält. Zum Beispiel "Pixel 3".
+  - : Ein String, der die Geräteversion enthält. Zum Beispiel "Pixel 3".
 
 ## Beispiele
 
-Ein Server fordert den `Sec-CH-UA-Model` Header an, indem er den {{HTTPHeader("Accept-CH")}} in einer _Antwort_ auf eine Anfrage des Clients einschließt und den Namen des gewünschten Headers als Token verwendet:
+Ein Server fordert den `Sec-CH-UA-Model` Header an, indem er den {{HTTPHeader("Accept-CH")}} in einer _Antwort_ auf jede Anfrage des Clients einfügt und dabei den Namen des gewünschten Headers als Token verwendet:
 
 ```http
 HTTP/1.1 200 OK
@@ -71,6 +71,6 @@ Sec-CH-UA-Model: "Pixel 3 XL"
 
 - [Client-Hinweise](/de/docs/Web/HTTP/Client_hints)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
-- [Verbesserung der Privatsphäre von Benutzern und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - {{HTTPHeader("Accept-CH")}}
 - [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}

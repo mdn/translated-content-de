@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`ay`**-Eigenschaft der
-{{domxref("CSSSkewY")}}-Schnittstelle ermittelt und setzt den Winkel, der verwendet wird, um das Element entlang der y-Achse (oder Ordinate) zu verzerren.
+Die **`ay`**-Eigenschaft des
+[`CSSSkewY`](/de/docs/Web/API/CSSSkewY)-Interfaces holt und setzt den Winkel, der verwendet wird, um das Element entlang der y-Achse (oder Ordinate) zu verzerren.
 
 ## Wert
 
-Ein {{domxref("CSSNumericValue")}}.
+Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-Todo
+To do
 
 ## Spezifikationen
 

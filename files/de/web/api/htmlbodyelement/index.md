@@ -7,76 +7,76 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLBodyElement`** Schnittstelle bietet spezielle Eigenschaften (über die von der regulären {{ domxref("HTMLElement") }} Schnittstelle geerbten hinaus) zur Manipulation von {{HtmlElement("body")}} Elementen.
+Das **`HTMLBodyElement`**-Interface bietet spezielle Eigenschaften (über die von der regulären [`HTMLElement`](/de/docs/Web/API/HTMLElement) Schnittstelle geerbten hinaus) zur Manipulation von {{HtmlElement("body")}}-Elementen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLBodyElement.aLink")}} {{deprecated_inline}}
-  - : Ein String, der die Farbe von aktiven Hyperlinks darstellt.
-- {{domxref("HTMLBodyElement.background")}} {{deprecated_inline}}
-  - : Ein String, der die Beschreibung des Standorts der Hintergrundbild-Ressource darstellt. Beachten Sie, dass dies keine URI ist, obwohl einige ältere Versionen bestimmter Browser dies erwarten.
-- {{domxref("HTMLBodyElement.bgColor")}} {{deprecated_inline}}
-  - : Ein String, der die Hintergrundfarbe des Dokuments darstellt.
-- {{domxref("HTMLBodyElement.link")}} {{deprecated_inline}}
-  - : Ein String, der die Farbe von nicht besuchten Links darstellt.
-- {{domxref("HTMLBodyElement.text")}} {{deprecated_inline}}
-  - : Ein String, der die Vordergrundfarbe des Textes darstellt.
-- {{domxref("HTMLBodyElement.vLink")}} {{deprecated_inline}}
-  - : Ein String, der die Farbe von besuchten Links darstellt.
+- [`HTMLBodyElement.aLink`](/de/docs/Web/API/HTMLBodyElement/aLink) {{deprecated_inline}}
+  - : Ein String, der die Farbe von aktiven Hyperlinks repräsentiert.
+- [`HTMLBodyElement.background`](/de/docs/Web/API/HTMLBodyElement/background) {{deprecated_inline}}
+  - : Ein String, der die Beschreibung des Standorts der Hintergrundbildressource repräsentiert. Beachten Sie, dass dies kein URI ist, obwohl einige ältere Versionen von einigen Browsern dies erwarten.
+- [`HTMLBodyElement.bgColor`](/de/docs/Web/API/HTMLBodyElement/bgColor) {{deprecated_inline}}
+  - : Ein String, der die Hintergrundfarbe für das Dokument repräsentiert.
+- [`HTMLBodyElement.link`](/de/docs/Web/API/HTMLBodyElement/link) {{deprecated_inline}}
+  - : Ein String, der die Farbe von unbesuchten Links repräsentiert.
+- [`HTMLBodyElement.text`](/de/docs/Web/API/HTMLBodyElement/text) {{deprecated_inline}}
+  - : Ein String, der die Vordergrundfarbe des Textes repräsentiert.
+- [`HTMLBodyElement.vLink`](/de/docs/Web/API/HTMLBodyElement/vLink) {{deprecated_inline}}
+  - : Ein String, der die Farbe von besuchten Links repräsentiert.
 
 ## Instanz-Methoden
 
-_Keine spezifischen Methoden; die Methoden von seinem Elternteil, {{domxref("HTMLElement")}}, werden geerbt._
+_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Ereignis-Handler
 
-Die {{domxref("HTMLElement")}} Ereignisse werden geerbt.
+Die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Ereignisse werden geerbt.
 
-Die folgenden {{domxref("Window")}} `onXYZ` Ereignis-Handler-Eigenschaften sind auch als Aliase auf das `window` Objekt verfügbar. Es wird jedoch empfohlen, diese direkt auf dem `window` Objekt zu überwachen, anstatt auf `HTMLBodyElement`.
+Die folgenden [`Window`](/de/docs/Web/API/Window) `onXYZ`-Ereignis-Handler-Eigenschaften sind ebenfalls als Aliase zum Anvisieren des `window`-Objekts verfügbar. Es wird jedoch empfohlen, sie direkt am `window`-Objekt zu beobachten, anstatt am `HTMLBodyElement`.
 
 > [!NOTE]
-> Die Verwendung von `addEventListener()` auf `HTMLBodyElement` funktioniert nicht für die unten aufgelisteten `onXYZ` Ereignis-Handler. Hören Sie auf die Ereignisse auf dem {{domxref("window")}} Objekt.
+> Die Verwendung von `addEventListener()` auf `HTMLBodyElement` funktioniert nicht für die unten aufgelisteten `onXYZ`-Ereignis-Handler. Hören Sie diese Ereignisse stattdessen am [`window`](/de/docs/Web/API/Window)-Objekt ab.
 
-- {{domxref("window.afterprint_event", "HTMLBodyElement.onafterprint")}}
-  - : Ausgelöst, nachdem das zugehörige Dokument zu drucken begonnen hat oder die Druckvorschau geschlossen wurde.
-- {{domxref("window.beforeprint_event", "HTMLBodyElement.onbeforeprint")}}
-  - : Ausgelöst, wenn das zugehörige Dokument gedruckt oder zur Druckvorschau bereitgestellt wird.
-- {{domxref("window.beforeunload_event", "HTMLBodyElement.onbeforeunload")}}
-  - : Ausgelöst, wenn das Fenster, das Dokument und seine Ressourcen entladen werden sollen.
-- {{domxref("window.gamepadconnected_event", "HTMLBodyElement.ongamepadconnected")}}
-  - : Ausgelöst, wenn der Browser erkennt, dass ein Gamepad angeschlossen wurde oder zum ersten Mal eine Taste/Achse des Gamepads verwendet wird.
-- {{domxref("window.gamepaddisconnected_event", "HTMLBodyElement.ongamepaddisconnected")}}
-  - : Ausgelöst, wenn der Browser erkennt, dass ein Gamepad getrennt wurde.
-- {{domxref("window.hashchange_event", "HTMLBodyElement.onhashchange")}}
-  - : Ausgelöst, wenn sich der Fragmentbezeichner der URL geändert hat (der Teil der URL, der mit dem `#` Symbol beginnt).
-- {{domxref("window.languagechange_event", "HTMLBodyElement.onlanguagechange")}}
-  - : Ausgelöst, wenn sich die bevorzugte Sprache des Benutzers ändert.
-- {{domxref("window.message_event", "HTMLBodyElement.onmessage")}}
-  - : Ausgelöst, wenn das Fenster eine Nachricht erhält, zum Beispiel durch einen Aufruf von [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) aus einem anderen Browsing-Kontext.
-- {{domxref("window.messageerror_event", "HTMLBodyElement.onmessageerror")}}
-  - : Ausgelöst, wenn das Fenster eine Nachricht erhält, die nicht deserialisiert werden kann.
-- {{domxref("window.offline_event", "HTMLBodyElement.onoffline")}}
-  - : Ausgelöst, wenn der Browser den Netzwerkzugang verloren hat und der Wert von {{domxref("Navigator.onLine")}} auf `false` wechselt.
-- {{domxref("window.online_event", "HTMLBodyElement.ononline")}}
-  - : Ausgelöst, wenn der Browser den Netzwerkzugang wiedererlangt hat und der Wert von {{domxref("Navigator.onLine")}} auf `true` wechselt.
-- {{domxref("window.pagehide_event", "HTMLBodyElement.onpagehide")}}
-  - : Ausgelöst, wenn der Browser die aktuelle Seite versteckt, um eine andere Seite aus dem Verlauf der Sitzung anzuzeigen.
-- {{domxref("window.pageshow_event", "HTMLBodyElement.onpageshow")}}
-  - : Ausgelöst, wenn der Browser das Dokument des Fensters aufgrund einer Navigation anzeigt.
-- {{domxref("window.popstate_event", "HTMLBodyElement.onpopstate")}}
-  - : Ausgelöst, wenn sich der aktive Verlaufseintrag ändert, während der Benutzer im Verlauf der Sitzung navigiert.
-- {{domxref("window.rejectionhandled_event", "HTMLBodyElement.onrejectionhandled")}}
-  - : Ausgelöst, wenn ein JavaScript {{jsxref("Promise")}} abgelehnt wird und die Ablehnung behandelt wurde.
-- {{domxref("window.storage_event", "HTMLBodyElement.onstorage")}}
-  - : Ausgelöst, wenn ein Speicherbereich (`localStorage`) im Kontext eines anderen Dokuments geändert wurde.
-- {{domxref("window.unhandledrejection_event", "HTMLBodyElement.onunhandledrejection")}}
-  - : Ausgelöst, wenn ein {{jsxref("Promise")}} abgelehnt wurde, aber die Ablehnung nicht behandelt wurde.
-- {{domxref("window.unload_event", "HTMLBodyElement.onunload")}}
-  - : Ausgelöst, wenn das Dokument entladen wird.
+- [`HTMLBodyElement.onafterprint`](/de/docs/Web/API/Window/afterprint_event)
+  - : Wird ausgelöst, nachdem das zugehörige Dokument mit dem Drucken begonnen hat oder die Druckvorschau geschlossen wurde.
+- [`HTMLBodyElement.onbeforeprint`](/de/docs/Web/API/Window/beforeprint_event)
+  - : Wird ausgelöst, wenn das zugehörige Dokument gedruckt oder zur Druckvorschau bereitgestellt wird.
+- [`HTMLBodyElement.onbeforeunload`](/de/docs/Web/API/Window/beforeunload_event)
+  - : Wird ausgelöst, wenn das Fenster, das Dokument und seine Ressourcen entladen werden sollen.
+- [`HTMLBodyElement.ongamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)
+  - : Wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad verbunden wurde oder zum ersten Mal eine Taste/ein Achse des Gamepads verwendet wird.
+- [`HTMLBodyElement.ongamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event)
+  - : Wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad getrennt wurde.
+- [`HTMLBodyElement.onhashchange`](/de/docs/Web/API/Window/hashchange_event)
+  - : Wird ausgelöst, wenn sich der Fragmentbezeichner der URL ändert (der Teil der URL, der mit dem `#`-Symbol beginnt und ihm folgt).
+- [`HTMLBodyElement.onlanguagechange`](/de/docs/Web/API/Window/languagechange_event)
+  - : Wird ausgelöst, wenn die bevorzugte Sprache des Benutzers sich ändert.
+- [`HTMLBodyElement.onmessage`](/de/docs/Web/API/Window/message_event)
+  - : Wird ausgelöst, wenn das Fenster eine Nachricht erhält, z. B. durch einen Aufruf von [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) aus einem anderen Browserkontext.
+- [`HTMLBodyElement.onmessageerror`](/de/docs/Web/API/Window/messageerror_event)
+  - : Wird ausgelöst, wenn das Fenster eine Nachricht erhält, die nicht deserialisiert werden kann.
+- [`HTMLBodyElement.onoffline`](/de/docs/Web/API/Window/offline_event)
+  - : Wird ausgelöst, wenn der Browser den Zugriff auf das Netzwerk verloren hat und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `false` umschaltet.
+- [`HTMLBodyElement.ononline`](/de/docs/Web/API/Window/online_event)
+  - : Wird ausgelöst, wenn der Browser wieder Zugang zum Netzwerk hat und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `true` umschaltet.
+- [`HTMLBodyElement.onpagehide`](/de/docs/Web/API/Window/pagehide_event)
+  - : Wird ausgelöst, wenn der Browser die aktuelle Seite verbirgt, um eine andere Seite aus dem Sitzungsverlauf anzuzeigen.
+- [`HTMLBodyElement.onpageshow`](/de/docs/Web/API/Window/pageshow_event)
+  - : Wird ausgelöst, wenn der Browser das Dokument des Fensters aufgrund einer Navigation anzeigt.
+- [`HTMLBodyElement.onpopstate`](/de/docs/Web/API/Window/popstate_event)
+  - : Wird ausgelöst, wenn sich der aktive Eintrag im Verlauf ändert, während der Benutzer im Sitzungsverlauf navigiert.
+- [`HTMLBodyElement.onrejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)
+  - : Wird ausgelöst, wenn ein JavaScript {{jsxref("Promise")}} abgelehnt wird und die Ablehnung behandelt wurde.
+- [`HTMLBodyElement.onstorage`](/de/docs/Web/API/Window/storage_event)
+  - : Wird ausgelöst, wenn ein Speicherbereich (`localStorage`) im Kontext eines anderen Dokuments modifiziert wurde.
+- [`HTMLBodyElement.onunhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)
+  - : Wird ausgelöst, wenn ein {{jsxref("Promise")}} abgelehnt wird, die Ablehnung jedoch nicht behandelt wurde.
+- [`HTMLBodyElement.onunload`](/de/docs/Web/API/Window/unload_event)
+  - : Wird ausgelöst, wenn das Dokument entladen wird.
 
 ## Spezifikationen
 
@@ -88,4 +88,4 @@ Die folgenden {{domxref("Window")}} `onXYZ` Ereignis-Handler-Eigenschaften sind 
 
 ## Siehe auch
 
-- HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("body") }}
+- HTML-Element, das dieses Interface implementiert: {{ HTMLElement("body") }}

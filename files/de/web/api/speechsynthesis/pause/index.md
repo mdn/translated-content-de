@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`pause()`**-Methode der {{domxref("SpeechSynthesis")}}
-Schnittstelle versetzt das `SpeechSynthesis`-Objekt in einen pausierten Zustand.
+Die **`pause()`**-Methode des [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Interfaces versetzt das `SpeechSynthesis`-Objekt in einen pausierten Zustand.
 
 ## Syntax
 
@@ -23,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 

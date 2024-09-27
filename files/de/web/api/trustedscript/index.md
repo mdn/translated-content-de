@@ -7,24 +7,24 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Das **`TrustedScript`**-Interface der {{domxref("Trusted Types API", "", "", "nocode")}} repräsentiert einen String mit einem nicht kompilierten Skriptkörper, den ein Entwickler in eine [Injection-Senke](/de/docs/Web/API/Trusted_Types_API#injection_sinks) einfügen kann, die das Skript möglicherweise ausführt. Diese Objekte werden über {{domxref("TrustedTypePolicy.createScript","TrustedTypePolicy.createScript()")}} erstellt und haben daher keinen Konstruktor.
+Das **`TrustedScript`**-Interface der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) repräsentiert einen String mit einem nicht kompilierten Skriptkörper, den ein Entwickler in ein [Injection Sink](/de/docs/Web/API/Trusted_Types_API#injection_sinks) einfügen kann, das das Skript ausführen könnte. Diese Objekte werden über [`TrustedTypePolicy.createScript()`](/de/docs/Web/API/TrustedTypePolicy/createScript) erstellt und haben daher keinen Konstruktor.
 
-Der Wert eines **TrustedScript**-Objekts wird beim Erstellen des Objekts festgelegt und kann nicht durch JavaScript geändert werden, da kein Setter verfügbar ist.
+Der Wert eines **TrustedScript**-Objekts wird bei der Erstellung des Objekts festgelegt und kann von JavaScript nicht geändert werden, da kein Setter verfügbar ist.
 
 ## Instanzmethoden
 
-- {{domxref("TrustedScript.toJSON()")}}
+- [`TrustedScript.toJSON()`](/de/docs/Web/API/TrustedScript/toJSON)
   - : Gibt eine JSON-Darstellung der gespeicherten Daten zurück.
-- {{domxref("TrustedScript.toString()")}}
+- [`TrustedScript.toString()`](/de/docs/Web/API/TrustedScript/toString)
   - : Ein String, der das bereinigte Skript enthält.
 
 ## Beispiele
 
-Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types-Policy erstellt wurde.
+Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types-Richtlinie erstellt wurde.
 
 ```js
 const sanitized = scriptPolicy.createScript("eval('2 + 2')");
-console.log(sanitized); /* ein TrustedScript-Objekt */
+console.log(sanitized); /* a TrustedScript object */
 ```
 
 ## Spezifikationen
@@ -37,4 +37,4 @@ console.log(sanitized); /* ein TrustedScript-Objekt */
 
 ## Siehe auch
 
-- [Vermeiden Sie DOM-basierte Cross-Site-Scripting-Schwachstellen mit Trusted Types](https://web.dev/articles/trusted-types)
+- [Verhindern Sie DOM-basierte Cross-Site-Scripting-Schwachstellen mit Trusted Types](https://web.dev/articles/trusted-types)

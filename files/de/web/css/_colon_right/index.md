@@ -7,19 +7,19 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:right`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes), verwendet mit der {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/At-rule), repräsentiert alle rechten Seiten eines gedruckten Dokuments.
+Die **`:right`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes), die mit der {{cssxref("@page")}} [At-Regel](/de/docs/Web/CSS/At-rule) verwendet wird, repräsentiert alle rechten Seiten eines gedruckten Dokuments.
 
 ```css
-/* Wählt alle rechten Seiten beim Drucken aus */
+/* Selects any right-hand pages when printing */
 @page :right {
   margin: 2in 3in;
 }
 ```
 
-Ob eine gegebene Seite „left“ oder „right“ ist, wird durch die Hauptschreibrichtung des Dokuments bestimmt. Zum Beispiel, wenn die erste Seite eine Hauptschreibrichtung von links nach rechts hat, wird sie eine `:right`-Seite sein; wenn sie eine Hauptschreibrichtung von rechts nach links hat, wird sie eine {{Cssxref(":left")}}-Seite sein.
+Ob eine Seite "links" oder "rechts" ist, wird durch die Hauptschreibrichtung des Dokuments bestimmt. Zum Beispiel, wenn die erste Seite eine Hauptschreibrichtung von links nach rechts hat, wird es eine `:right`-Seite sein; wenn sie eine Hauptschreibrichtung von rechts nach links hat, dann wird es eine {{Cssxref(":left")}}-Seite sein.
 
 > [!NOTE]
-> Diese Pseudoklasse kann verwendet werden, um nur die Eigenschaften {{ Cssxref("margin") }}, {{ Cssxref("padding") }}, {{ Cssxref("border") }} und {{ Cssxref("background") }} der _Seitenbox_ zu ändern. Alle anderen Eigenschaften werden ignoriert und nur die Seitenbox, nicht der Dokumentinhalt auf der Seite, wird betroffen sein.
+> Diese Pseudoklasse kann verwendet werden, um nur die {{ Cssxref("margin") }}, {{ Cssxref("padding") }}, {{ Cssxref("border") }} und {{ Cssxref("background") }} Eigenschaften des _Seitenfeldes_ zu ändern. Alle anderen Eigenschaften werden ignoriert, und nur das Seitenfeld, nicht der Dokumentinhalt auf der Seite, wird betroffen sein.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ Ob eine gegebene Seite „left“ oder „right“ ist, wird durch die Hauptschr
 
 ## Beispiele
 
-### Festlegen von Rändern für rechte Seiten
+### Setzen von Rändern für rechte Seiten
 
 ```css
 @page :right {

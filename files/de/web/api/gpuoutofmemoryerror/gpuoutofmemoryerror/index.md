@@ -1,14 +1,14 @@
 ---
-title: "GPUOutOfMemoryError: GPUOutOfMemoryError() Konstruktor"
+title: "GPUOutOfMemoryError: GPUOutOfMemoryError()-Konstruktor"
 short-title: GPUOutOfMemoryError()
 slug: Web/API/GPUOutOfMemoryError/GPUOutOfMemoryError
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Der **`GPUOutOfMemoryError()`** Konstruktor erstellt eine neue Instanz des {{domxref("GPUOutOfMemoryError")}} Objekts.
+Der **`GPUOutOfMemoryError()`**-Konstruktor erstellt eine neue Instanz eines [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError)-Objekts.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ new GPUOutOfMemoryError(message)
 ### Parameter
 
 - `message`
-  - : Ein String, der eine lesbare Nachricht bereitstellt, die erklärt, warum der Fehler aufgetreten ist.
+  - : Ein String, der eine menschenlesbare Nachricht bereitstellt, die erklärt, warum der Fehler aufgetreten ist.
 
 ## Beispiele
 
-Ein Entwickler würde normalerweise nicht manuell den Konstruktor verwenden, um ein `GPUOutOfMemoryError` Objekt zu erstellen. Der Benutzeragent verwendet diesen Konstruktor, um ein entsprechendes Objekt zu erstellen, wenn ein Speicherfehler durch {{domxref("GPUDevice.popErrorScope")}} oder das {{domxref("GPUDevice.uncapturederror_event", "uncapturederror")}} Ereignis auftritt.
+Ein Entwickler würde den Konstruktor nicht manuell verwenden, um ein `GPUOutOfMemoryError`-Objekt zu erstellen. Der Benutzeragent verwendet diesen Konstruktor, um ein geeignetes Objekt zu erstellen, wenn ein Speichermangel durch [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) oder das [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event)-Ereignis ausgelöst wird.
 
-Sehen Sie auf der Hauptseite [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError#examples) ein konkretes Beispiel, das eine Instanz eines `GPUOutOfMemoryError` Objekts betrifft.
+Siehe die Hauptseite [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError#examples) für ein spezifisches Beispiel, das eine Instanz eines `GPUOutOfMemoryError`-Objekts umfasst.
 
 ## Spezifikationen
 
@@ -38,4 +38,4 @@ Sehen Sie auf der Hauptseite [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMe
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebGPU Fehlerbehandlung Best Practices](https://toji.dev/webgpu-best-practices/error-handling)
+- [WebGPU Fehlerbehandlungsbest Practices](https://toji.dev/webgpu-best-practices/error-handling)

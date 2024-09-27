@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Content Index API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`id`**-Eigenschaft der {{domxref("ContentIndexEvent")}}-Schnittstelle ist eine {{jsxref('String')}}, die den gelöschten Inhaltsindex über seine `id` identifiziert.
+Die **`id`**-Eigenschaft des [`ContentIndexEvent`](/de/docs/Web/API/ContentIndexEvent)-Interfaces ist eine {{jsxref('String')}}, die den gelöschten Inhaltsindex über seine `id` identifiziert.
 
 ## Wert
 
@@ -16,15 +16,15 @@ Eine {{jsxref("String")}}-Darstellung der ID des gelöschten Inhaltsindex.
 
 ## Beispiele
 
-Dieses Beispiel hört auf das {{domxref('ContentIndexEvent', 'contentdelete')}}-Ereignis und protokolliert die ID des entfernten Inhaltsindex.
+Dieses Beispiel hört das [`contentdelete`](/de/docs/Web/API/ContentIndexEvent)-Ereignis ab und protokolliert die ID des entfernten Inhaltsindex.
 
-Das {{domxref('ContentIndexEvent')}} ist nur im [globalen Bereich](/de/docs/Web/API/ServiceWorkerGlobalScope) eines {{domxref('ServiceWorker')}} verfügbar.
+Das [`ContentIndexEvent`](/de/docs/Web/API/ContentIndexEvent) ist nur im [globalen Bereich](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) verfügbar.
 
 ```js
 self.addEventListener("contentdelete", (event) => {
   console.log(event.id);
 
-  // protokolliert die Inhaltsindex-ID, die dann verwendet werden kann, um zu bestimmen, welcher Inhalt aus dem Cache gelöscht werden soll
+  // logs content index id, which can then be used to determine what content to delete from your cache
 });
 ```
 
@@ -38,5 +38,5 @@ self.addEventListener("contentdelete", (event) => {
 
 ## Siehe auch
 
-- [Ein einführender Artikel zur Content Index API](https://developer.chrome.com/docs/capabilities/web-apis/content-indexing-api)
-- [Service Worker API, zusammen mit Informationen zu Cache und CacheStorage](/de/docs/Web/API/Service_Worker_API)
+- [Ein einführender Artikel zu der Content Index API](https://developer.chrome.com/docs/capabilities/web-apis/content-indexing-api)
+- [Service Worker API, zusammen mit Informationen über Cache und CacheStorage](/de/docs/Web/API/Service_Worker_API)

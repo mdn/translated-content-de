@@ -7,14 +7,14 @@ l10n:
 
 {{SVGRef}}
 
-Das **`marker-start`** Attribut definiert die Pfeilspitze oder den Polymarker, der am ersten Scheitelpunkt der angegebenen [Form](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
+Das Attribut **`marker-start`** definiert die Pfeilspitze oder den Polymarker, der am ersten Scheitelpunkt der angegebenen [Form](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
 
-Für alle Formelemente, außer {{SVGElement("polyline")}} und {{SVGElement("path")}}, ist der letzte Scheitelpunkt derselbe wie der erste Scheitelpunkt. In diesem Fall, wenn der Wert von `marker-start` und {{SVGAttr("marker-end")}} beide nicht `none` sind, werden zwei Markierungen auf diesem letzten Scheitelpunkt gerendert. Für `<path>`-Elemente ist für jeden geschlossenen Unterpfad der letzte Scheitelpunkt derselbe wie der erste Scheitelpunkt. `marker-start` wird nur auf dem ersten Scheitelpunkt der [Pfaddaten](/de/docs/Web/SVG/Attribute/d#path_commands) gerendert.
+Für alle Formelemente, außer {{SVGElement("polyline")}} und {{SVGElement("path")}}, ist der letzte Scheitelpunkt derselbe wie der erste Scheitelpunkt. In diesem Fall, wenn der Wert von `marker-start` und {{SVGAttr("marker-end")}} beide nicht `none` sind, dann werden zwei Marker auf diesem letzten Scheitelpunkt gerendert. Für `<path>`-Elemente ist der letzte Scheitelpunkt desselben geschlossenen Unterpfades derselbe wie der erste Scheitelpunkt. `marker-start` wird nur auf dem ersten Scheitelpunkt der [Pfaddaten](/de/docs/Web/SVG/Attribute/d#path_commands) gerendert.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `marker-start` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('marker-start')}} für mehr.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("circle")}}
 - {{SVGElement("ellipse")}}
@@ -59,7 +59,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>

@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.shaderSource()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) setzt den Quellcode eines {{domxref("WebGLShader")}}.
+Die **`WebGLRenderingContext.shaderSource()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) setzt den Quellcode eines
+[`WebGLShader`](/de/docs/Web/API/WebGLShader).
 
 ## Syntax
 
@@ -19,9 +20,9 @@ shaderSource(shader, source)
 ### Parameter
 
 - `shader`
-  - : Ein {{domxref("WebGLShader")}}-Objekt, in dem der Quellcode gesetzt wird.
+  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader)-Objekt, in welches der Quellcode gesetzt wird.
 - `source`
-  - : Ein String, der den GLSL-Quellcode enthält, der gesetzt werden soll.
+  - : Ein String, der den zu setzenden GLSL-Quellcode enthält.
 
 ### Rückgabewert
 
@@ -40,13 +41,13 @@ const source = gl.getShaderSource(shader);
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.createShader()")}}
-- {{domxref("WebGLRenderingContext.isShader()")}}
-- {{domxref("WebGLRenderingContext.deleteShader()")}}
-- {{domxref("WebGLRenderingContext.getShaderSource()")}}
+- [`WebGLRenderingContext.createShader()`](/de/docs/Web/API/WebGLRenderingContext/createShader)
+- [`WebGLRenderingContext.isShader()`](/de/docs/Web/API/WebGLRenderingContext/isShader)
+- [`WebGLRenderingContext.deleteShader()`](/de/docs/Web/API/WebGLRenderingContext/deleteShader)
+- [`WebGLRenderingContext.getShaderSource()`](/de/docs/Web/API/WebGLRenderingContext/getShaderSource)

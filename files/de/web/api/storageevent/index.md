@@ -7,36 +7,40 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`StorageEvent`**-Schnittstelle wird durch das {{domxref("Window/storage_event", "storage")}}-Ereignis implementiert, das an ein Fenster gesendet wird, wenn ein Speicherbereich, auf den das Fenster Zugriff hat, innerhalb des Kontextes eines anderen Dokuments geändert wird.
+Die **`StorageEvent`**-Schnittstelle wird durch das [`storage`](/de/docs/Web/API/Window/storage_event)-Ereignis implementiert, welches an ein Fenster gesendet wird, wenn ein Speicherbereich, auf den das Fenster Zugriff hat, im Kontext eines anderen Dokuments geändert wird.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("StorageEvent.StorageEvent()", "StorageEvent()")}}
+- [`StorageEvent()`](/de/docs/Web/API/StorageEvent/StorageEvent)
   - : Gibt ein neu konstruiertes `StorageEvent`-Objekt zurück.
 
-## Instanz-Eigenschaften
+## Instanz-Attribute
 
-_Neben den unten aufgelisteten Eigenschaften erbt diese Schnittstelle die Eigenschaften ihrer übergeordneten Schnittstelle, {{domxref("Event")}}._
+_Zusätzlich zu den unten aufgeführten Attributen erbt diese Schnittstelle die Attribute ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("StorageEvent.key", "key")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette mit dem Schlüssel des geänderten Speicherobjekts zurück. Das `key`-Attribut ist `null`, wenn die Änderung durch die Speicher-`clear()`-Methode verursacht wurde.
-- {{domxref("StorageEvent.newValue", "newValue")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette mit dem neuen Wert des geänderten Speicherobjekts zurück. Dieser Wert ist `null`, wenn die Änderung durch die Speicher-`clear()`-Methode ausgelöst wurde oder das Speicherobjekt aus dem Speicher entfernt wurde.
-- {{domxref("StorageEvent.oldValue", "oldValue")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette mit dem ursprünglichen Wert des geänderten Speicherobjekts zurück. Dieser Wert ist `null`, wenn das Speicherobjekt neu hinzugefügt wurde und daher keinen vorherigen Wert hat.
-- {{domxref("StorageEvent.storageArea", "storageArea")}} {{ReadOnlyInline}}
-  - : Gibt ein {{DOMxRef("Storage")}}-Objekt zurück, das das betroffene Speicherobjekt darstellt.
-- {{domxref("StorageEvent.url", "url")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette mit der URL des Dokuments zurück, dessen Speicher geändert wurde.
+- [`key`](/de/docs/Web/API/StorageEvent/key) {{ReadOnlyInline}}
+  - : Gibt einen String mit dem Schlüssel für das geänderte Speicherobjekt zurück.
+    Das `key`-Attribut ist `null`, wenn die Änderung durch die `clear()`-Methode des Speichers verursacht wird.
+- [`newValue`](/de/docs/Web/API/StorageEvent/newValue) {{ReadOnlyInline}}
+  - : Gibt einen String mit dem neuen Wert des geänderten Speicherobjekts zurück.
+    Dieser Wert ist `null`, wenn die Änderung durch die `clear()`-Methode des Speichers ausgelöst wurde
+    oder das Speicherobjekt aus dem Speicher entfernt wurde.
+- [`oldValue`](/de/docs/Web/API/StorageEvent/oldValue) {{ReadOnlyInline}}
+  - : Gibt einen String mit dem ursprünglichen Wert des geänderten Speicherobjekts zurück.
+    Dieser Wert ist `null`, wenn das Speicherobjekt neu hinzugefügt wurde und daher keinen vorherigen Wert hat.
+- [`storageArea`](/de/docs/Web/API/StorageEvent/storageArea) {{ReadOnlyInline}}
+  - : Gibt ein [`Storage`](/de/docs/Web/API/Storage)-Objekt zurück, das das betroffene Speicherobjekt repräsentiert.
+- [`url`](/de/docs/Web/API/StorageEvent/url) {{ReadOnlyInline}}
+  - : Gibt einen String mit der URL des Dokuments zurück, dessen Speicher geändert wurde.
 
 ## Instanz-Methoden
 
-_Neben den unten aufgelisteten Methoden erbt diese Schnittstelle die Methoden ihrer übergeordneten Schnittstelle, {{domxref("Event")}}._
+_Zusätzlich zu den unten aufgeführten Methoden erbt diese Schnittstelle die Methoden ihrer übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("StorageEvent.initStorageEvent", "initStorageEvent()")}} {{deprecated_inline}}
-  - : Initialisiert das Ereignis auf eine Weise, die der gleichnamigen {{domxref("Event.initEvent", "initEvent()")}}-Methode in den DOM-Ereignisschnittstellen analog ist. Verwenden Sie stattdessen den Konstruktor.
+- [`initStorageEvent()`](/de/docs/Web/API/StorageEvent/initStorageEvent) {{deprecated_inline}}
+  - : Initialisiert das Ereignis in einer Weise, die analog zur ähnlich benannten [`initEvent()`](/de/docs/Web/API/Event/initEvent)-Methode in den DOM-Ereignisschnittstellen ist. Verwenden Sie stattdessen den Konstruktor.
 
 ## Spezifikationen
 
@@ -48,4 +52,4 @@ _Neben den unten aufgelisteten Methoden erbt diese Schnittstelle die Methoden ih
 
 ## Siehe auch
 
-- {{domxref("Web Storage API", "", "", "nocode")}}
+- [Web Storage API](/de/docs/Web/API/Web_Storage_API)

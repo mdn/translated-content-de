@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`throwIfAborted()`** Methode wirft die {{domxref("AbortSignal.reason", "Begründung")}} des Signals, wenn das Signal abgebrochen wurde; andernfalls tut sie nichts.
+Die **`throwIfAborted()`** Methode wirft den Abbruch-`reason` des Signals, wenn das Signal abgebrochen wurde; andernfalls tut sie nichts.
 
-Eine API, die das Abbrechen unterstützen muss, kann ein {{domxref("AbortSignal")}} Objekt akzeptieren und `throwIfAborted()` verwenden, um zu testen und zu werfen, wenn das [`abort`](/de/docs/Web/API/AbortSignal/abort_event) Ereignis signalisiert wird.
+Eine API, die das Abbrechen unterstützen muss, kann ein [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekt akzeptieren und `throwIfAborted()` verwenden, um zu testen und auszulösen, wenn das [`abort`](/de/docs/Web/API/AbortSignal/abort_event)-Ereignis signalisiert wird.
 
-Diese Methode kann auch verwendet werden, um Operationen an bestimmten Stellen im Code abzubrechen, anstatt an Funktionen zu übergeben, die ein Signal verwenden.
+Diese Methode kann auch verwendet werden, um Operationen an bestimmten Stellen im Code abzubrechen, anstatt sie an Funktionen zu übergeben, die ein Signal entgegennehmen.
 
 ## Syntax
 
@@ -30,13 +30,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Die untenstehenden Beispiele stammen aus der Spezifikation.
+Die folgenden Beispiele stammen aus der Spezifikation.
 
-### Abbrechen einer Polling-Operation
+### Abbrechen einer Abfrageoperation
 
-Dieses Beispiel zeigt, wie Sie `throwIfAborted()` verwenden können, um eine Polling-Operation abzubrechen.
+Dieses Beispiel zeigt, wie Sie `throwIfAborted()` verwenden können, um eine Abfrageoperation abzubrechen.
 
-Betrachten Sie eine asynchrone Funktion `waitForCondition()`, die mit einer weiteren asynchronen Funktion `func`, einem Zielwert `targetValue` und einem `AbortSignal` aufgerufen wird. Die Methode vergleicht das Ergebnis von `func` mit `targetValue` in einer Schleife und gibt zurück, wenn sie übereinstimmen.
+Betrachten Sie eine asynchrone `waitForCondition()`-Funktion, die mit einer anderen asynchronen Funktion `func`, einem Zielwert `targetValue` und einem `AbortSignal` aufgerufen wird.
+Die Methode vergleicht das Ergebnis von `func` mit `targetValue` in einer Schleife und gibt zurück, wenn sie übereinstimmen.
 
 ```js
 async function waitForCondition(func, targetValue, { signal } = {}) {
@@ -51,7 +52,8 @@ async function waitForCondition(func, targetValue, { signal } = {}) {
 }
 ```
 
-Bei jeder Iteration der Schleife verwenden wir `throwIfAborted()`, um die `Begründung` des Signals zu werfen, falls die Operation abgebrochen wurde (und andernfalls nichts zu tun). Wenn das Signal abgebrochen wird, führt dies dazu, dass das `waitForCondition()`-Versprechen abgelehnt wird.
+Bei jeder Iteration der Schleife verwenden wir `throwIfAborted()`, um den `reason` des Signals zu werfen, wenn die Operation abgebrochen wurde (und ansonsten nichts zu tun).
+Wenn das Signal abgebrochen wird, führt dies dazu, dass das `waitForCondition()`-Versprechen abgelehnt wird.
 
 ## Spezifikationen
 

@@ -7,27 +7,27 @@ l10n:
 
 {{deprecated_header}}{{APIRef("CSS Typed Object Model API")}}{{Non-standard_header}}
 
-Die **`CSSPositionValue`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte für Eigenschaften, die eine Position erfordern, zum Beispiel {{cssxref('object-position')}}.
+Das **`CSSPositionValue`** Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte für Eigenschaften, die eine Position einnehmen, zum Beispiel {{cssxref('object-position')}}.
 
 ## Konstruktor
 
-- {{domxref("CSSPositionValue.CSSPositionValue", "CSSPositionValue()")}} {{Non-standard_Inline}} {{Deprecated_Inline}}
+- [`CSSPositionValue()`](/de/docs/Web/API/CSSPositionValue/CSSPositionValue) {{Non-standard_Inline}} {{Deprecated_Inline}}
   - : Erstellt ein neues `CSSPositionValue` Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref('CSSPositionValue.x')}} {{Non-standard_Inline}} {{Deprecated_Inline}}
+- [`CSSPositionValue.x`](/de/docs/Web/API/CSSPositionValue/x) {{Non-standard_Inline}} {{Deprecated_Inline}}
   - : Gibt die Position des Elements entlang der horizontalen Achse der Webseite zurück.
-- {{domxref('CSSPositionValue.y')}} {{Non-standard_Inline}} {{Deprecated_Inline}}
+- [`CSSPositionValue.y`](/de/docs/Web/API/CSSPositionValue/y) {{Non-standard_Inline}} {{Deprecated_Inline}}
   - : Gibt die Position des Elements entlang der vertikalen Achse zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 Keine.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein Container-`<div>` 5 Pixel von oben und 10 Pixel von links der Seite positioniert.
+Im folgenden Beispiel wird ein `<div>` Container 5 Pixel von oben und 10 Pixel von links der Seite positioniert.
 
 ```js
 const replacedEl = document.getElementById("image");
@@ -38,7 +38,7 @@ console.log(position.x.value, position.y.value);
 console.log(replacedEl.computedStyleMap().get("object-position"));
 ```
 
-Wir setzen die {{cssxref('object-position')}}-Eigenschaft und überprüfen die zurückgegebenen Werte.
+Wir setzen die {{cssxref('object-position')}} Eigenschaft und überprüfen die zurückgegebenen Werte.
 
 ```css hidden
 #image {
@@ -52,8 +52,8 @@ Wir setzen die {{cssxref('object-position')}}-Eigenschaft und überprüfen die z
 
 ```html hidden
 <p>
-  Überprüfen Sie die Entwicklertools, um das Protokoll in der Konsole zu sehen und das
-  Stilattribut auf dem Bild zu inspizieren.
+  Check the developer tools to see the log in the console and to inspect the
+  style attribute on the image.
 </p>
 <img id="image" src="mdn.svg" alt="MDN Logo" />
 ```
@@ -66,10 +66,10 @@ Wir setzen die {{cssxref('object-position')}}-Eigenschaft und überprüfen die z
 
 ## Siehe auch
 
-- {{domxref('CSSImageValue')}}
-- {{domxref('CSSKeywordValue')}}
-- {{domxref('CSSNumericValue')}}
-- {{domxref('CSSTransformValue')}}
-- {{domxref('CSSUnparsedValue')}}
+- [`CSSImageValue`](/de/docs/Web/API/CSSImageValue)
+- [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)
+- [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
+- [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue)
+- [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue)
 - [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)

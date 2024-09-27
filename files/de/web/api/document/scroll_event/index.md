@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das **`scroll`**-Ereignis wird ausgelöst, wenn die Dokumentansicht gescrollt wurde. Um zu erkennen, wann das Scrollen abgeschlossen ist, siehe das {{domxref("Document/scrollend_event", "scrollend")}}-Ereignis von `Document`. Für das Scrollen von Elementen siehe das {{domxref("Element/scroll_event", "scroll")}}-Ereignis von `Element`.
+Das **`scroll`**-Ereignis tritt auf, wenn die Dokumentansicht gescrollt wurde. Um zu erkennen, wann das Scrollen abgeschlossen ist, siehe das [`scrollend`](/de/docs/Web/API/Document/scrollend_event)-Ereignis von `Document`. Für das Scrollen von Elementen, siehe das [`scroll`](/de/docs/Web/API/Element/scroll_event)-Ereignis von `Element`.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("scroll", (event) => {});
@@ -22,15 +22,15 @@ onscroll = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Scroll-Ereignis-Drosselung
+### Throttling des Scroll-Ereignisses
 
-Da `scroll`-Ereignisse mit hoher Rate ausgelöst werden können, sollte der Ereignis-Handler keine rechenintensiven Operationen wie DOM-Änderungen ausführen. Stattdessen wird empfohlen, das Ereignis mit {{glossary("throttle")}} unter Verwendung von {{DOMxRef("Window.requestAnimationFrame()", "requestAnimationFrame()")}}, {{DOMxRef("setTimeout()")}}, oder einem {{DOMxRef("CustomEvent")}} zu drosseln, wie folgt.
+Da `scroll`-Ereignisse mit hoher Frequenz auftreten können, sollte der Ereignis-Handler keine rechenintensiven Operationen wie DOM-Modifikationen ausführen. Stattdessen wird empfohlen, das Ereignis mit [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), [`setTimeout()`](/de/docs/Web/API/SetTimeout) oder einem [`CustomEvent`](/de/docs/Web/API/CustomEvent) zu [throttlen](/de/docs/Glossary/throttle), wie folgt.
 
-Es ist jedoch zu beachten, dass Eingabe-Ereignisse und Animations-Frames ungefähr in gleicher Rate ausgelöst werden und daher die untenstehende Optimierung oft nicht notwendig ist. Dieses Beispiel optimiert das `scroll`-Ereignis für `requestAnimationFrame`.
+Beachten Sie jedoch, dass Eingabeereignisse und Animationsframes etwa mit der gleichen Rate ausgelöst werden, sodass die nachfolgende Optimierung oft nicht erforderlich ist. Dieses Beispiel optimiert das `scroll`-Ereignis für `requestAnimationFrame`.
 
 ```js
 let lastKnownScrollPosition = 0;

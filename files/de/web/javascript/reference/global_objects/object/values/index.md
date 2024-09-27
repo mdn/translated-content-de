@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Object.values()`** gibt ein Array der eigenständigen, aufzählbaren, string-indizierten Eigenschaftswerte eines angegebenen Objekts zurück.
+Die statische Methode **`Object.values()`** gibt ein Array der eigenen aufzählbaren, stringbezogenen Eigenschaftswerte eines gegebenen Objekts zurück.
 
 {{EmbedInteractiveExample("pages/js/object-values.html")}}
 
@@ -24,13 +24,13 @@ Object.values(obj)
 
 ### Rückgabewert
 
-Ein Array, das die eigenständigen, aufzählbaren, string-indizierten Eigenschaftswerte des angegebenen Objekts enthält.
+Ein Array, das die eigenen aufzählbaren, stringbezogenen Eigenschaftswerte des gegebenen Objekts enthält.
 
 ## Beschreibung
 
-`Object.values()` gibt ein Array zurück, dessen Elemente die Werte der aufzählbaren, string-indizierten Eigenschaften sind, die direkt auf dem `object` gefunden werden. Dies entspricht dem Durchlaufen mit einer {{jsxref("Statements/for...in", "for...in")}} Schleife, außer dass eine `for...in` Schleife auch die Eigenschaften in der Prototyp-Kette aufzählt. Die Reihenfolge des durch `Object.values()` zurückgegebenen Arrays ist die gleiche wie die, die durch eine {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird.
+`Object.values()` gibt ein Array zurück, dessen Elemente Werte von direkt auf dem `object` gefundenen aufzählbaren, stringbezogenen Eigenschaften sind. Dies ist dasselbe wie das Iterieren mit einer {{jsxref("Statements/for...in", "for...in")}} Schleife, mit dem Unterschied, dass eine `for...in` Schleife auch Eigenschaften in der Prototypenkette aufzählt. Die Reihenfolge des von `Object.values()` zurückgegebenen Arrays entspricht der, die von einer {{jsxref("Statements/for...in", "for...in")}} Schleife bereitgestellt wird.
 
-Wenn Sie die Eigenschaftsschlüssel benötigen, verwenden Sie stattdessen {{jsxref("Object.keys()")}}. Wenn Sie sowohl die Eigenschaftsschlüssel als auch die Werte benötigen, verwenden Sie {{jsxref("Object.entries()")}}.
+Wenn Sie die Eigenschaftsschlüssel benötigen, verwenden Sie stattdessen {{jsxref("Object.keys()")}}. Wenn Sie sowohl die Eigenschaftsschlüssel als auch die Werte benötigen, verwenden Sie stattdessen {{jsxref("Object.entries()")}}.
 
 ## Beispiele
 
@@ -40,16 +40,16 @@ Wenn Sie die Eigenschaftsschlüssel benötigen, verwenden Sie stattdessen {{jsxr
 const obj = { foo: "bar", baz: 42 };
 console.log(Object.values(obj)); // ['bar', 42]
 
-// Array-ähnliches Objekt
+// Array-like object
 const arrayLikeObj1 = { 0: "a", 1: "b", 2: "c" };
 console.log(Object.values(arrayLikeObj1)); // ['a', 'b', 'c']
 
-// Array-ähnliches Objekt mit zufälliger Schlüsselreihenfolge
-// Bei Verwendung von numerischen Schlüsseln werden die Werte in der numerischen Reihenfolge der Schlüssel zurückgegeben
+// Array-like object with random key ordering
+// When using numeric keys, the values are returned in the keys' numerical order
 const arrayLikeObj2 = { 100: "a", 2: "b", 7: "c" };
 console.log(Object.values(arrayLikeObj2)); // ['b', 'c', 'a']
 
-// getFoo ist eine nicht aufzählbare Eigenschaft
+// getFoo is a non-enumerable property
 const myObj = Object.create(
   {},
   {
@@ -64,15 +64,15 @@ myObj.foo = "bar";
 console.log(Object.values(myObj)); // ['bar']
 ```
 
-### Verwendung von Object.values() auf Primitiven
+### Verwendung von Object.values() bei Primitiven
 
-Nicht-Objekt-Argumente werden [zu Objekten gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion). [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) können nicht zu Objekten gezwungen werden und werfen einen {{jsxref("TypeError")}} im Voraus. Nur Strings können eigene aufzählbare Eigenschaften haben, während alle anderen Primitiven ein leeres Array zurückgeben.
+Nicht-Objekt-Argumente werden [zu Objekten umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#object_coercion). [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) und [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) können nicht zu Objekten umgewandelt werden und werfen sofort einen {{jsxref("TypeError")}}. Nur Zeichenfolgen können eigene aufzählbare Eigenschaften haben, während alle anderen Primitiven ein leeres Array zurückgeben.
 
 ```js
-// Strings haben Indizes als eigene aufzählbare Eigenschaften
+// Strings have indices as enumerable own properties
 console.log(Object.values("foo")); // ['f', 'o', 'o']
 
-// Andere Primitive außer undefined und null haben keine eigenen Eigenschaften
+// Other primitives except undefined and null have no own properties
 console.log(Object.values(100)); // []
 ```
 

@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-top-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des oberen [Rahmens](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den Kurzschreibweise-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-top")}} festgelegt werden.
+Die **`border-top-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des oberen [Rahmens](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den Kurzschreibweise-CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-top")}} festgelegt werden.
 
 {{EmbedInteractiveExample("pages/css/border-top-color.html")}}
 
 ## Syntax
 
 ```css
-/* <color> Werte */
+/* <color> values */
 border-top-color: red;
 border-top-color: #ffbb00;
 border-top-color: rgb(255 0 0);
@@ -22,7 +22,7 @@ border-top-color: hsl(100deg 50% 25% / 75%);
 border-top-color: currentcolor;
 border-top-color: transparent;
 
-/* Globale Werte */
+/* Global values */
 border-top-color: inherit;
 border-top-color: initial;
 border-top-color: revert;
@@ -30,32 +30,32 @@ border-top-color: revert-layer;
 border-top-color: unset;
 ```
 
-Die `border-top-color` Eigenschaft wird als einzelner Wert angegeben.
+Die Eigenschaft `border-top-color` wird als einzelner Wert angegeben.
 
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
   - : Die Farbe des oberen Rahmens.
 
-## Offizielle Definition
+## Formale Definition
 
 {{CSSInfo}}
 
-## Offizieller Syntax
+## Formale Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Ein einfaches div mit einem Rahmen
+### Ein einfaches Div mit Rahmen
 
 #### HTML
 
 ```html
 <div class="mybox">
   <p>
-    Dies ist ein Kasten mit einem Rahmen darum. Beachten Sie, welche Seite des Kastens
-    <span class="redtext">rot</span> ist.
+    This is a box with a border around it. Note which side of the box is
+    <span class="redtext">red</span>.
   </p>
 </div>
 ```

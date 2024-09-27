@@ -1,5 +1,5 @@
 ---
-title: "AudioDecoder: close() Methode"
+title: "AudioDecoder: close()-Methode"
 short-title: close()
 slug: Web/API/AudioDecoder/close
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`close()`**-Methode der {{domxref("AudioDecoder")}} Schnittstelle beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
+Die **`close()`**-Methode der [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Schnittstelle beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

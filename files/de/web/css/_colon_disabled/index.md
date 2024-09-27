@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein beliebiges deaktiviertes Element. Ein Element ist deaktiviert, wenn es nicht aktiviert (ausgewählt, angeklickt, getippt usw.) werden kann oder keinen Fokus akzeptieren kann. Das Element hat auch einen aktivierten Zustand, in dem es aktiviert werden kann oder Fokus akzeptiert.
+Die **`:disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes deaktivierte Element. Ein Element ist deaktiviert, wenn es nicht aktiviert (ausgewählt, angeklickt, hineingetippt usw.) oder fokussiert werden kann. Das Element hat auch einen aktivierten Zustand, in dem es aktiviert oder fokussiert werden kann.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-disabled.html", "tabbed-standard")}}
 
@@ -21,27 +21,27 @@ Die **`:disabled`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseu
 
 ## Beispiele
 
-Dieses Beispiel zeigt ein einfaches Versandformular. Es verwendet das [JavaScript](/de/docs/Web/JavaScript) {{domxref("HTMLElement/change_event", "change")}}-Ereignis, um dem Benutzer das Aktivieren/Deaktivieren der Rechnungsfelder zu ermöglichen.
+Dieses Beispiel zeigt ein einfaches Versandformular. Es verwendet das [JavaScript](/de/docs/Web/JavaScript) [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis, um dem Benutzer das Aktivieren/Deaktivieren der Rechnungsfelder zu ermöglichen.
 
 ### HTML
 
 ```html
 <form action="#">
   <fieldset id="shipping">
-    <legend>Versandadresse</legend>
+    <legend>Shipping address</legend>
     <input type="text" placeholder="Name" />
-    <input type="text" placeholder="Adresse" />
-    <input type="text" placeholder="Postleitzahl" />
+    <input type="text" placeholder="Address" />
+    <input type="text" placeholder="Zip Code" />
   </fieldset>
   <br />
   <fieldset id="billing">
-    <legend>Rechnungsadresse</legend>
-    <label for="billing-checkbox">Gleich wie Versandadresse:</label>
+    <legend>Billing address</legend>
+    <label for="billing-checkbox">Same as shipping address:</label>
     <input type="checkbox" id="billing-checkbox" checked />
     <br />
     <input type="text" placeholder="Name" disabled />
-    <input type="text" placeholder="Adresse" disabled />
-    <input type="text" placeholder="Postleitzahl" disabled />
+    <input type="text" placeholder="Address" disabled />
+    <input type="text" placeholder="Zip Code" disabled />
   </fieldset>
 </form>
 ```
@@ -56,7 +56,7 @@ input[type="text"]:disabled {
 
 ### JavaScript
 
-Die deaktivierten Eingabefelder umschalten, wenn das Kontrollkästchen angeklickt wird
+Schalten Sie die deaktivierten Eingabefelder um, wenn das Kontrollkästchen angeklickt wird.
 
 ```js
 const checkbox = document.querySelector("#billing-checkbox");
@@ -71,7 +71,7 @@ checkbox.addEventListener("change", () => {
 
 ### Ergebnis
 
-Aktivieren/Deaktivieren Sie das Kontrollkästchen, um die Gestaltung der Rechnungsfelder zu ändern.
+Markieren/Entmarkieren Sie das Kontrollkästchen, um das Styling der Rechnungsfelder zu ändern.
 
 {{EmbedLiveSample('Examples', 300, 250)}}
 

@@ -8,20 +8,22 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`target`**-Eigenschaft der
-{{domxref("Event")}}-Schnittstelle ist eine Referenz auf das Objekt, auf das das Ereignis
-ausgelöst wurde. Sie unterscheidet sich von {{domxref("Event.currentTarget")}}, wenn der Ereignishandler während der Bubbling- oder Capturing-Phase des Ereignisses aufgerufen wird.
+Die schreibgeschützte **`target`**-Eigenschaft des
+[`Event`](/de/docs/Web/API/Event)-Interfaces ist ein Verweis auf das Objekt, auf das das Ereignis
+ausgelöst wurde. Sie unterscheidet sich von [`Event.currentTarget`](/de/docs/Web/API/Event/currentTarget), wenn der
+Ereignis-Handler während der Bubbling- oder Capturing-Phase des Ereignisses aufgerufen wird.
 
 ## Wert
 
-Das zugeordnete {{domxref("EventTarget")}}.
+Das zugehörige [`EventTarget`](/de/docs/Web/API/EventTarget).
 
 ## Beispiel
 
-Die `event.target`-Eigenschaft kann verwendet werden, um **Ereignisdelegation** zu implementieren.
+Die `event.target`-Eigenschaft kann verwendet werden, um eine **Ereignisdelegation**
+zu implementieren.
 
 ```js
-// Eine Liste erstellen
+// Make a list
 const ul = document.createElement("ul");
 document.body.appendChild(ul);
 
@@ -31,13 +33,13 @@ ul.appendChild(li1);
 ul.appendChild(li2);
 
 function hide(evt) {
-  // evt.target bezieht sich auf das geklickte <li>-Element
-  // Dies unterscheidet sich von evt.currentTarget, welches sich in diesem Kontext auf das übergeordnete <ul> beziehen würde
+  // evt.target refers to the clicked <li> element
+  // This is different from evt.currentTarget, which would refer to the parent <ul> in this context
   evt.target.style.visibility = "hidden";
 }
 
-// Den Listener an die Liste anhängen
-// Er wird aktiviert, wenn jedes <li> geklickt wird
+// Attach the listener to the list
+// It will fire when each <li> is clicked
 ul.addEventListener("click", hide, false);
 ```
 
@@ -51,4 +53,4 @@ ul.addEventListener("click", hide, false);
 
 ## Siehe auch
 
-- [Event-Bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling)
+- [Ereignis-Bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling)

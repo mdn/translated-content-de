@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die `target`-Eigenschaft des {{domxref("HTMLBaseElement")}}-Interfaces ist ein String, der das Standard-Ziel-Tab angibt, um die resultierende Ausgabe für Hyperlinks und Formularelemente anzuzeigen.
+Die `target`-Eigenschaft des [`HTMLBaseElement`](/de/docs/Web/API/HTMLBaseElement)-Interfaces ist ein String, der das Standard-Zieltabs darstellt, in dem das Ergebnis für Hyperlinks und Formularelemente angezeigt wird.
 
-Es spiegelt das [`target`](/de/docs/Web/HTML/Element/base#target)-Attribut des {{HTMLElement("base")}}-Elements wider.
+Sie spiegelt das [`target`](/de/docs/Web/HTML/Element/base#target)-Attribut des {{HTMLElement("base")}}-Elements wider.
 
 ## Wert
 
@@ -42,6 +42,6 @@ console.log(baseElement.target); // Output: '_top'
 
 ## Siehe auch
 
-- {{domxref("HTMLAnchorElement.target")}}-Eigenschaft
-- {{domxref("HTMLAreaElement.target")}}-Eigenschaft
-- {{domxref("HTMLFormElement.target")}}-Eigenschaft
+- [`HTMLAnchorElement.target`](/de/docs/Web/API/HTMLAnchorElement/target)-Eigenschaft
+- [`HTMLAreaElement.target`](/de/docs/Web/API/HTMLAreaElement/target)-Eigenschaft
+- [`HTMLFormElement.target`](/de/docs/Web/API/HTMLFormElement/target)-Eigenschaft

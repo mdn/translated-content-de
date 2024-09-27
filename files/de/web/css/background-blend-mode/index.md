@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Die **`background-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie die Hintergrundbilder eines Elements miteinander und mit der Hintergrundfarbe des Elements überblendet werden sollen.
+Die **`background-blend-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie die Hintergrundbilder eines Elements miteinander und mit der Hintergrundfarbe des Elements vermischt werden sollen.
 
 {{EmbedInteractiveExample("pages/css/background-blend-mode.html")}}
 
-Überblendungsmodi sollten in derselben Reihenfolge wie die {{cssxref("background-image")}} Eigenschaft definiert werden. Wenn die Listenlängen der Überblendungsmodi und Hintergrundbilder nicht gleich sind, werden sie wiederholt und/oder abgeschnitten, bis die Längen übereinstimmen.
+Die Mischmodi sollten in derselben Reihenfolge wie die {{cssxref("background-image")}} Eigenschaft definiert werden. Wenn die Längen der Listen für Mischmodi und Hintergrundbilder nicht übereinstimmen, wird sie wiederholt und/oder gekürzt, bis die Längen übereinstimmen.
 
 ## Syntax
 
 ```css
-/* Ein Wert */
+/* One value */
 background-blend-mode: normal;
 
-/* Zwei Werte, je einer pro Hintergrund */
+/* Two values, one per background */
 background-blend-mode: darken, luminosity;
 
-/* Globale Werte */
+/* Global values */
 background-blend-mode: inherit;
 background-blend-mode: initial;
 background-blend-mode: revert;
@@ -33,7 +33,7 @@ background-blend-mode: unset;
 ### Werte
 
 - {{cssxref("&lt;blend-mode&gt;")}}
-  - : Der anzuwendende Überblendungsmodus. Es können mehrere Werte vorhanden sein, durch Kommata getrennt.
+  - : Der anzuwendende Mischmodus. Es können mehrere Werte vorhanden sein, die durch Kommas getrennt sind.
 
 ## Formale Definition
 
@@ -56,7 +56,7 @@ background-blend-mode: unset;
 }
 ```
 
-### Probieren Sie verschiedene Überblendungsmodi aus
+### Probieren Sie verschiedene Mischmodi aus
 
 ```html hidden
 <div id="div"></div>
@@ -97,7 +97,7 @@ document.getElementById("select").onchange = (event) => {
 console.log(document.getElementById("div"));
 ```
 
-{{ EmbedLiveSample('Beispiele', "330", "350") }}
+{{ EmbedLiveSample('Examples', "330", "350") }}
 
 ## Spezifikationen
 

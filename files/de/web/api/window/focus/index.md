@@ -1,5 +1,5 @@
 ---
-title: "Window: focus() Methode"
+title: "Window: focus()-Methode"
 short-title: focus()
 slug: Web/API/Window/focus
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Fordert an, das Fenster in den Vordergrund zu bringen. Es kann aufgrund von Benutzereinstellungen fehlschlagen, und das Fenster ist nicht garantiert im Vordergrund, bevor diese Methode zurückkehrt.
+Führt eine Anfrage aus, um das Fenster in den Vordergrund zu bringen. Die Anfrage kann aufgrund von Benutzereinstellungen fehlschlagen, und das Fenster wird nicht garantiert vor diesem Methodenaufruf im Vordergrund sein.
 
 ## Syntax
 
@@ -36,6 +36,6 @@ if (clicked) {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

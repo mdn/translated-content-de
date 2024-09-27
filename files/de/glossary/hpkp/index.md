@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**HTTP Public Key Pinning** (**HPKP**) ist ein veraltetes Sicherheitsmerkmal, das einem Web-Client mitteilt, einen bestimmten kryptographischen öffentlichen Schlüssel mit einem bestimmten Webserver zu verknüpfen, um das Risiko von {{Glossary("MITM")}}-Angriffen mit gefälschten Zertifikaten zu verringern.
+**HTTP Public Key Pinning** (**HPKP**) ist ein veraltetes Sicherheitsmerkmal, das einem Webclient mitteilt, einen bestimmten kryptografischen öffentlichen Schlüssel mit einem bestimmten Webserver zu verknüpfen, um das Risiko von [MITM](/de/docs/Glossary/MITM)-Angriffen mit gefälschten Zertifikaten zu verringern.
 
 ## Siehe auch
 

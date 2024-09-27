@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die Methode **`insertAdjacentElement()`** des {{domxref("Element")}}-Interfaces fügt einen angegebenen Elementknoten an einer gegebenen Position relativ zu dem Element, auf dem sie aufgerufen wird, ein.
+Die **`insertAdjacentElement()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces fügt einen gegebenen Elementknoten an einer angegebenen Position relativ zu dem Element ein, auf das sie aufgerufen wird.
 
 ## Syntax
 
@@ -20,29 +20,23 @@ insertAdjacentElement(position, element)
 
 - `position`
 
-  - : Ein String, der die Position relativ zum
-    `targetElement` darstellt; muss (case-insensitiv) mit einem der folgenden
-    Strings übereinstimmen:
+  - : Ein String, der die Position relativ zum `targetElement` angibt; muss (unabhängig von der Groß-/Kleinschreibung) mit einem der folgenden Strings übereinstimmen:
 
-    - `'beforebegin'`: Vor dem
-      `targetElement` selbst.
-    - `'afterbegin'`: Direkt innerhalb des
-      `targetElement`, vor seinem ersten Kind.
-    - `'beforeend'`: Direkt innerhalb des
-      `targetElement`, nach seinem letzten Kind.
-    - `'afterend'`: Nach dem
-      `targetElement` selbst.
+    - `'beforebegin'`: Vor dem `targetElement` selbst.
+    - `'afterbegin'`: Direkt innerhalb des `targetElement`, vor seinem ersten Kind.
+    - `'beforeend'`: Direkt innerhalb des `targetElement`, nach seinem letzten Kind.
+    - `'afterend'`: Nach dem `targetElement` selbst.
 
 - `element`
-  - : Das einzufügende Element in den Baum.
+  - : Das Element, das in den Baum eingefügt werden soll.
 
 ### Rückgabewert
 
-Das eingefügte Element oder `null`, wenn das Einfügen fehlgeschlagen ist.
+Das eingefügte Element oder `null`, falls das Einfügen fehlgeschlagen ist.
 
 ### Ausnahmen
 
-- `SyntaxError` {{domxref("DOMException")}}
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die angegebene `position` kein erkannter Wert ist.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn das angegebene `element` kein gültiges Element ist.
@@ -84,7 +78,7 @@ afterBtn.addEventListener("click", () => {
 });
 ```
 
-Schauen Sie sich unser [insertAdjacentElement.html](https://mdn.github.io/dom-examples/insert-adjacent/insertAdjacentElement.html) Demo auf GitHub an (sehen Sie sich auch den [Quellcode](https://github.com/mdn/dom-examples/blob/main/insert-adjacent/insertAdjacentElement.html) an.) Hier haben wir eine Reihe von {{htmlelement("div")}}-Elementen innerhalb eines Containers. Wenn eines angeklickt wird, wird es ausgewählt und Sie können dann die _Vorher einfügen_- und _Nachher einfügen_-Buttons drücken, um neue Divs vor oder nach dem ausgewählten Element unter Verwendung von `insertAdjacentElement()` einzufügen.
+Sehen Sie sich unsere [insertAdjacentElement.html](https://mdn.github.io/dom-examples/insert-adjacent/insertAdjacentElement.html)-Demo auf GitHub an (siehe auch den [Quellcode](https://github.com/mdn/dom-examples/blob/main/insert-adjacent/insertAdjacentElement.html)). Hier haben wir eine Sequenz von {{htmlelement("div")}}-Elementen in einem Container. Wenn eines angeklickt wird, wird es ausgewählt und Sie können dann die _Einfügen vor_ und _Einfügen nach_ Schaltflächen drücken, um neue Divs vor oder nach dem ausgewählten Element mit `insertAdjacentElement()` einzufügen.
 
 ## Spezifikationen
 
@@ -96,8 +90,7 @@ Schauen Sie sich unser [insertAdjacentElement.html](https://mdn.github.io/dom-ex
 
 ## Siehe auch
 
-- {{domxref("Element.insertAdjacentHTML()")}}
-- {{domxref("Element.insertAdjacentText()")}}
-- {{domxref("Node.insertBefore()")}} (ähnlich wie `beforebegin`, mit
-  unterschiedlichen Argumenten)
-- {{domxref("Node.appendChild()")}} (gleiche Wirkung wie `beforeend`)
+- [`Element.insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML)
+- [`Element.insertAdjacentText()`](/de/docs/Web/API/Element/insertAdjacentText)
+- [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore) (ähnlich wie `beforebegin`, mit unterschiedlichen Argumenten)
+- [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) (gleiche Wirkung wie `beforeend`)

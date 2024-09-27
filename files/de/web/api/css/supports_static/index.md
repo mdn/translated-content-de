@@ -1,5 +1,5 @@
 ---
-title: "CSS: supports()-Methode"
+title: "CSS: supports() statische Methode"
 short-title: supports()
 slug: Web/API/CSS/supports_static
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die statische Methode **`CSS.supports()`** gibt einen booleschen Wert zurück, der angibt, ob der Browser eine bestimmte CSS-Funktion unterstützt oder nicht.
+Die **`CSS.supports()`** statische Methode gibt einen booleschen Wert zurück, der anzeigt, ob der Browser ein bestimmtes CSS-Feature unterstützt oder nicht.
 
 ## Syntax
 
@@ -19,25 +19,25 @@ CSS.supports(supportCondition)
 
 ### Parameter
 
-Es gibt zwei unterschiedliche Parametergruppen. Die erste ermöglicht das Testen der Unterstützung eines _Eigenschaft-Wert_-Paares:
+Es gibt zwei unterschiedliche Sätze von Parametern. Der erste ermöglicht das Testen der Unterstützung eines _property-value_-Paares:
 
 - `propertyName`
   - : Ein String, der den Namen der zu überprüfenden CSS-Eigenschaft enthält.
 - `value`
   - : Ein String, der den Wert der zu überprüfenden CSS-Eigenschaft enthält.
 
-Die zweite Syntax nimmt einen Parameter an, der der Bedingung von {{cssxref("@supports")}} entspricht:
+Die zweite Syntax benötigt einen Parameter, der der Bedingung von {{cssxref("@supports")}} entspricht:
 
 - `supportCondition`
   - : Ein String, der die zu überprüfende Bedingung enthält.
 
 ### Rückgabewert
 
-`true`, wenn der Browser die Regel unterstützt, andernfalls `false`.
+`true`, wenn der Browser die Regel unterstützt, ansonsten `false`.
 
 ## Beispiele
 
-In den folgenden Beispielen ist `result` ein boolescher Wert, der angibt, ob der Browser die gegebene CSS-Funktion unterstützt.
+In den folgenden Beispielen ist `result` ein boolescher Wert, der anzeigt, ob der Browser das gegebene CSS-Feature unterstützt.
 
 ```js
 result = CSS.supports("text-decoration-style", "blink");
@@ -49,7 +49,7 @@ result = CSS.supports(
 );
 ```
 
-Für mehr Beispiele und Syntax-Funktionen siehe die {{cssxref("@supports")}}-Regel.
+Für weitere Beispiele und Syntaxmerkmale siehe die {{cssxref("@supports")}} Regel.
 
 ## Spezifikationen
 
@@ -61,5 +61,5 @@ Für mehr Beispiele und Syntax-Funktionen siehe die {{cssxref("@supports")}}-Reg
 
 ## Siehe auch
 
-- Die {{cssxref("@supports")}}-Regel, die dieselbe Funktionalität auf deklarative Weise ermöglicht.
-- Die {{domxref("CSSSupportsRule")}}-CSSOM-Klasse, die das Manipulieren von {{cssxref("@supports")}}-Regeln erlaubt.
+- Die {{cssxref("@supports")}} Regel, die dieselbe Funktionalität, jedoch auf deklarative Weise, ermöglicht.
+- Die [`CSSSupportsRule`](/de/docs/Web/API/CSSSupportsRule) CSSOM-Klasse, die das Manipulieren von {{cssxref("@supports")}} Regeln erlaubt.

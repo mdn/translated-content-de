@@ -8,10 +8,10 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`open()`**-Methode der {{domxref("HIDDevice")}}-Schnittstelle fordert das Betriebssystem auf, das HID-Gerät zu öffnen.
+Die **`open()`**-Methode des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces fordert das Betriebssystem auf, das HID-Gerät zu öffnen.
 
 > [!NOTE]
-> HID-Geräte werden nicht automatisch geöffnet. Daher muss ein von {{domxref("HID.requestDevice()")}} zurückgegebenes {{domxref("HIDDevice")}} mit dieser Methode geöffnet werden, bevor es zum Datentransfer verfügbar ist.
+> HID-Geräte werden nicht automatisch geöffnet. Daher muss ein von [`HID.requestDevice()`](/de/docs/Web/API/HID/requestDevice) zurückgegebenes [`HIDDevice`](/de/docs/Web/API/HIDDevice) mit dieser Methode geöffnet werden, bevor es zum Datentransfer verfügbar ist.
 
 ## Syntax
 
@@ -29,9 +29,9 @@ Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald die Verbi
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Verbindung bereits geöffnet ist.
-- `NotAllowedError` {{domxref("DOMException")}}
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Versuch, die Verbindung zu öffnen, aus irgendeinem Grund fehlschlägt.
 
 ## Beispiele
@@ -46,6 +46,6 @@ await device.open();
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

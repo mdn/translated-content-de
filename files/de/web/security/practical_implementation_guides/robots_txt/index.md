@@ -1,5 +1,5 @@
 ---
-title: robots.txt-Konfiguration
+title: robots.txt Konfiguration
 slug: Web/Security/Practical_implementation_guides/Robots_txt
 l10n:
   sourceCommit: 879e0a9c9d60831afcc7f66ea1b5f43ea0cd4361
@@ -7,30 +7,30 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-[`robots.txt`](/de/docs/Glossary/Robots.txt) ist eine Textdatei, die Robotern (wie Suchmaschinen-Indizierer) Anweisungen gibt, indem sie ihnen vorgibt, bestimmte Pfade auf der Website nicht zu durchsuchen. Sie wird im Stammverzeichnis einer Website platziert.
+[`robots.txt`](/de/docs/Glossary/Robots.txt) ist eine Textdatei, die Robotern (wie z.B. Suchmaschinenindexern) Anweisungen gibt, wie sie sich verhalten sollen, indem sie ihnen untersagt, bestimmte Pfade auf der Website zu durchsuchen. Sie wird im Stammverzeichnis einer Webseite platziert.
 
 ## Problem
 
-Viele Faktoren können die Belastung Ihrer Website erhöhen; dazu gehören Webcrawler. Zusätzlich, wenn sie die gesamte Website durchsuchen, können Webcrawler die Suchergebnisse mit Ressourcen verschmutzen, die keinen Nutzen davon haben, durchsuchbar zu sein.
+Viele Faktoren können die Belastung Ihrer Website erhöhen; dazu gehören auch Webcrawler. Zusätzlich können Webcrawler, wenn sie die gesamte Seite durchsuchen dürfen, Suchergebnisse mit Ressourcen verschmutzen, die nicht von der Durchsuchbarkeit profitieren.
 
 ## Lösung
 
-Verwenden Sie `robots.txt`, um die Belastung der Website zu reduzieren und ungeeignete Inhalte aus den Suchergebnissen fernzuhalten. Die Verwendung dieser Datei ist optional und sollte nur für diese Zwecke eingesetzt werden. Sie sollte nicht als Mittel zur Verhinderung der Offenlegung privater Informationen oder zum Verbergen von Teilen einer Website verwendet werden.
+Verwenden Sie `robots.txt`, um die Belastung der Website zu reduzieren und ungeeignete Inhalte davon abzuhalten, in den Suchergebnissen zu erscheinen. Die Verwendung dieser Datei ist optional und sollte nur für diese Zwecke genutzt werden. Sie sollte nicht als Mittel eingesetzt werden, um die Offenlegung privater Informationen zu verhindern oder um Teile einer Website zu verbergen.
 
-Obwohl die Verwendung dieser Datei verhindern kann, dass Seiten in den Suchmaschinenergebnissen erscheinen, sichert sie Websites nicht gegen Angreifer. Im Gegenteil, sie kann ihnen unabsichtlich helfen: `robots.txt` ist öffentlich zugänglich, und indem Sie die Pfade zu Ihren sensiblen Seiten hinzufügen, zeigen Sie potenziellen Angreifern deren Standorte.
+Während die Nutzung dieser Datei verhindern kann, dass Seiten in den Suchergebnissen von Suchmaschinen auftauchen, sichert sie Websites nicht gegen Angreifer. Im Gegenteil: Sie kann ihnen unbeabsichtigt helfen, denn `robots.txt` ist öffentlich zugänglich, und indem Sie sensible Seitenpfade hinzufügen, zeigen Sie potenziellen Angreifern deren Standorte.
 
-Beachten Sie auch, dass einige Roboter, wie Malware-Roboter und E-Mail-Adressen-Sammler, Ihre `robots.txt`-Datei ignorieren werden.
+Seien Sie sich auch bewusst, dass einige Roboter, wie Malware-Roboter und E-Mail-Adressen-Erntemaschinen, Ihre `robots.txt`-Datei ignorieren werden.
 
 ## Beispiele
 
-Verhindern Sie, dass alle Suchmaschinen eine Website durchsuchen:
+Alle Suchmaschinen davon abhalten, eine Seite zu durchsuchen:
 
 ```http
 User-agent: *
 Disallow: /
 ```
 
-Bestimmte Verzeichnisse verbergen (dies wird nicht empfohlen):
+Bestimmte Verzeichnisse ausblenden (dies wird nicht empfohlen):
 
 ```http example-bad
 User-agent: *

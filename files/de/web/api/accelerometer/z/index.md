@@ -1,5 +1,5 @@
 ---
-title: "Acelerometer: z-Eigenschaft"
+title: "Accelerometer: z-Eigenschaft"
 short-title: z
 slug: Web/API/Accelerometer/z
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`z`** der Schnittstelle {{domxref("Accelerometer")}} gibt eine Zahl zurück, die die Beschleunigung des Geräts entlang seiner z-Achse angibt.
+Die **`z`** schreibgeschützte Eigenschaft der [`Accelerometer`](/de/docs/Web/API/Accelerometer)-Schnittstelle gibt eine Zahl zurück, die die Beschleunigung des Geräts entlang seiner z-Achse angibt.
 
 ## Wert
 
-Eine {{jsxref('Number')}}.
+Ein {{jsxref('Number')}}.
 
 ## Beispiele
 
-Die Beschleunigung wird typischerweise im {{domxref('Sensor.reading_event', 'reading')}}-Ereignis-Callback ausgelesen. Im folgenden Beispiel geschieht dies sechzig Mal pro Sekunde.
+Die Beschleunigung wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback ausgelesen. Im folgenden Beispiel geschieht dies sechzig Mal pro Sekunde.
 
 ```js
 const accelerometer = new Accelerometer({ frequency: 60 });

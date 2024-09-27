@@ -1,5 +1,5 @@
 ---
-title: CSS-Schreibmodi
+title: CSS writing modes
 slug: Web/CSS/CSS_writing_modes
 l10n:
   sourceCommit: 0f4b28bdc51e89cd25d132b9db12e3e903a9c5aa
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Schreibmodi**-Modul definiert verschiedene internationale Schreibmodi, wie zum Beispiel von links nach rechts (z.B. verwendet bei lateinischen und indischen Schriften), von rechts nach links (z.B. verwendet bei hebräischen oder arabischen Schriften), bidirektional (verwendet beim Mischen von links-nach-rechts und rechts-nach-links Schriften), und vertikal (z.B. verwendet bei einigen asiatischen Schriften).
+Das **CSS writing modes** Modul definiert verschiedene internationale Schreibmodi, wie z.B. von links nach rechts (z.B. für lateinische und indische Schriftzeichen), von rechts nach links (z.B. für hebräische oder arabische Schriftzeichen), bidirektional (wenn links-nach-rechts und rechts-nach-links Schriftzeichen gemischt werden) und vertikal (z.B. für einige asiatische Schriftzeichen).
 
 ## Referenz
 
@@ -20,10 +20,10 @@ Das **CSS-Schreibmodi**-Modul definiert verschiedene internationale Schreibmodi,
 - {{cssxref("unicode-bidi")}}
 - {{cssxref("writing-mode")}}
 
-## Leitfäden
+## Leitfaden
 
 - [Erstellen von vertikalen Formularelementen](/de/docs/Web/CSS/CSS_writing_modes/Vertical_controls)
-  - : Der Artikel erklärt, wie die CSS-Eigenschaften {{cssxref("writing-mode")}} und {{cssxref("direction")}} verwendet werden, um vertikale Formularelemente zu erstellen und zu konfigurieren.
+  - : Der Artikel erklärt, wie Sie die CSS-Eigenschaften {{cssxref("writing-mode")}} und {{cssxref("direction")}} verwenden, um vertikale Formularelemente zu erstellen und zu konfigurieren.
 
 ## Spezifikationen
 

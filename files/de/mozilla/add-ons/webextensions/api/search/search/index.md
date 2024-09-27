@@ -2,18 +2,18 @@
 title: search.search()
 slug: Mozilla/Add-ons/WebExtensions/API/search/search
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 1d6016ba801ec08203e3eecbb5f4c1d163eb87d7
 ---
 
 {{AddonSidebar}}
 
-Führen Sie eine Suche mit der angegebenen Suchmaschine oder der Standardsuchmaschine durch, wenn keine Suchmaschine angegeben ist.
+Führen Sie eine Suche mit der angegebenen Suchmaschine durch oder verwenden Sie die Standardsuchmaschine, wenn keine Suchmaschine angegeben ist.
 
-Die Ergebnisse werden im aktuellen Tab, einem neuen Tab oder einem neuen Fenster entsprechend der `disposition`-Eigenschaft angezeigt oder in dem Tab, der in der `tabId`-Eigenschaft angegeben ist. Wenn keines angegeben ist, werden die Ergebnisse in einem neuen Tab angezeigt.
+Die Ergebnisse werden je nach `disposition`-Eigenschaft im aktuellen Tab, einem neuen Tab oder einem neuen Fenster angezeigt, oder im Tab, der in der `tabId` Eigenschaft spezifiziert ist. Wenn keine der beiden Eigenschaften angegeben ist, werden die Ergebnisse in einem neuen Tab angezeigt.
 
-Um diese Funktion zu nutzen, muss Ihre Erweiterung die `"search"` [Manifest-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) haben.
+Um diese Funktion zu nutzen, muss Ihre Erweiterung die `"search"` [Manifest-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) besitzen.
 
-Um die installierten Suchmaschinen abzurufen, verwenden Sie {{WebExtAPIRef("search.get()")}}.
+Um die installierten Suchmaschinen zu erhalten, verwenden Sie {{WebExtAPIRef("search.get()")}}.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ browser.search.search(
     - `disposition` {{optional_inline}}
       - : `string`. Der Ort, an dem die Suchergebnisse angezeigt werden. Gültige Werte sind `CURRENT_TAB`, `NEW_TAB` und `NEW_WINDOW`. Standardmäßig `NEW_TAB`. Kann nicht zusammen mit `tabId` angegeben werden.
     - `engine` {{optional_inline}}
-      - : `string`. Der Name der Suchmaschine. Wenn der Suchmaschinenname nicht existiert, wird der Aufruf mit einem Fehler abgelehnt. Wenn diese Eigenschaft weggelassen wird, wird die Standardsuchmaschine verwendet.
+      - : `string`. Der Name der Suchmaschine. Wenn der Suchmaschinenname nicht existiert, wird der Aufruf mit einem Fehler abgelehnt. Wenn diese Eigenschaft weggelassen wird, wird die Standard-Suchmaschine verwendet.
     - `query`
       - : `string`. Die Suchanfrage.
     - `tabId` {{optional_inline}}
@@ -44,7 +44,7 @@ Keiner.
 
 ## Beispiele
 
-Eine Suche mit der Standardsuchmaschine, wobei die Ergebnisse im aktuellen Tab angezeigt werden (Standard):
+Eine Suche mit der Standardsuchmaschine, bei der die Ergebnisse im aktuellen Tab angezeigt werden (Standard):
 
 ```js
 function search() {
@@ -56,29 +56,45 @@ function search() {
 browser.browserAction.onClicked.addListener(search);
 ```
 
-Eine Suche mit Wikipedia, wobei die Ergebnisse in einem neuen Fenster angezeigt werden:
+Eine Suche mit Wikipedia, bei der die Ergebnisse in einem neuen Fenster angezeigt werden:
 
 ```js
-function search() {
-  browser.search.search({
-    query: "styracosaurus",
-    engine: "Wikipedia (en)",
-    disposition: "NEW_WINDOW",
-  });
+async function search() {
+  try {
+    // try to search using the `Wikipedia (en)` search engine
+    await browser.search.search({
+      query: "styracosaurus",
+      engine: "Wikipedia (en)",
+      disposition: "NEW_WINDOW",
+    });
+  } catch (ex) {
+    // if the search fails, e.g., because the search engine isn't defined to the browser, initiate the search using a url
+    await browser.windows.create({
+      url: "https://en.wikipedia.org/w/index.php?title=Special:Search&search=styracosaurus",
+    });
+  }
 }
 
 browser.browserAction.onClicked.addListener(search);
 ```
 
-Eine Suche mit Wikipedia, wobei die Ergebnisse im aktuellen Tab angezeigt werden:
+Eine Suche mit Wikipedia, bei der die Ergebnisse im aktuellen Tab angezeigt werden:
 
 ```js
-function search(tab) {
-  browser.search.search({
-    query: "styracosaurus",
-    engine: "Wikipedia (en)",
-    tabId: tab.id,
-  });
+async function search(tab) {
+  try {
+    // try to search using the `Wikipedia (en)` search engine
+    await browser.search.search({
+      query: "styracosaurus",
+      engine: "Wikipedia (en)",
+      tabId: tab.id,
+    });
+  } catch (ex) {
+    // if the search fails, e.g., because the search engine isn't defined to the browser, initiate the search using a url
+    await browser.tabs.update(tab.id, {
+      url: "https://en.wikipedia.org/w/index.php?title=Special:Search&search=styracosaurus",
+    });
+  }
 }
 
 browser.browserAction.onClicked.addListener(search);

@@ -8,32 +8,32 @@ l10n:
 
 {{APIRef("UI Events")}}{{Deprecated_Header}}
 
-Die **`UIEvent.which`** Eigenschaft der {{domxref("UIEvent")}}-Schnittstelle ist schreibgeschützt und gibt eine Zahl zurück, die anzeigt, welche Taste auf der Maus gedrückt wurde, oder den numerischen `keyCode` oder den Zeichen-Code (`charCode`) der auf der Tastatur gedrückten Taste.
+Die schreibgeschützte Eigenschaft **`UIEvent.which`** des [`UIEvent`](/de/docs/Web/API/UIEvent)-Interfaces gibt eine Zahl zurück, die angibt, welche Taste auf der Maus gedrückt wurde, oder den numerischen `keyCode` oder den Zeichencode (`charCode`) der auf der Tastatur gedrückten Taste.
 
 ## Wert
 
 ### Wert für KeyboardEvent {{Non-standard_Inline}}
 
-Für {{domxref("KeyboardEvent")}} enthält `event.which` den numerischen Code für eine bestimmte gedrückte Taste, abhängig davon, ob eine alphanumerische oder nicht-alphanumerische Taste gedrückt wurde.
-Bitte beachten Sie die veralteten {{domxref("KeyboardEvent.charCode")}} und {{domxref("KeyboardEvent.keyCode")}} für weitere Details.
+Für [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent) enthält `event.which` den numerischen Code für eine bestimmte gedrückte Taste, abhängig davon, ob es sich um eine alphanumerische oder nicht-alphanumerische Taste handelt.
+Bitte beachten Sie die veralteten [`KeyboardEvent.charCode`](/de/docs/Web/API/KeyboardEvent/charCode) und [`KeyboardEvent.keyCode`](/de/docs/Web/API/KeyboardEvent/keyCode) für weitere Details.
 
 > [!NOTE]
-> Ziehen Sie für neuen Code {{domxref("KeyboardEvent.key")}} oder {{domxref("KeyboardEvent.code")}} in Betracht.
+> Überlegen Sie, [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) oder [`KeyboardEvent.code`](/de/docs/Web/API/KeyboardEvent/code) für neuen Code zu verwenden.
 
 ### Wert für MouseEvent {{Non-standard_Inline}}
 
-Für {{domxref("MouseEvent")}} ist `event.which` eine Zahl, die eine bestimmte Taste repräsentiert:
+Für [`MouseEvent`](/de/docs/Web/API/MouseEvent) ist `event.which` eine Zahl, die eine bestimmte Taste darstellt:
 
 - `0`: Keine Taste
 - `1`: Linke Taste
 - `2`: Mittlere Taste (falls vorhanden)
 - `3`: Rechte Taste
 
-Bei einer für linkshändige Benutzung konfigurierten Maus sind die Tastenaktionen vertauscht.
+Für eine Maus, die für die linkshändige Verwendung konfiguriert ist, sind die Tastenaktionen umgekehrt.
 In diesem Fall werden die Werte von rechts nach links gelesen.
 
 > [!NOTE]
-> Ziehen Sie für neuen Code {{domxref("MouseEvent.button")}} in Betracht.
+> Erwägen Sie, [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button) für neuen Code zu verwenden.
 
 ## Beispiele
 
@@ -64,7 +64,7 @@ In diesem Fall werden die Werte von rechts nach links gelesen.
   </head>
 
   <body onkeypress="showKeyPress(event);" onkeydown="keyDown(event);">
-    <p>Bitte drücken Sie eine beliebige Taste.</p>
+    <p>Please press any key.</p>
   </body>
 </html>
 ```
@@ -79,5 +79,5 @@ In diesem Fall werden die Werte von rechts nach links gelesen.
 
 ## Siehe auch
 
-- {{domxref("KeyboardEvent")}}
-- {{domxref("MouseEvent")}}
+- [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)
+- [`MouseEvent`](/de/docs/Web/API/MouseEvent)

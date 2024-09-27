@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Das **`USB`**-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) bietet Attribute und Methoden zum Auffinden und Verbinden von USB-Geräten über eine Webseite.
+Das **`USB`**-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) bietet Attribute und Methoden zum Finden und Verbinden von USB-Geräten über eine Webseite.
 
-Verwenden Sie {{domxref("navigator.usb")}}, um auf das `USB`-Objekt zuzugreifen.
+Verwenden Sie [`navigator.usb`](/de/docs/Web/API/Navigator/usb), um Zugriff auf das `USB`-Objekt zu erhalten.
 
-Das USB-Interface erbt von {{domxref("EventTarget")}}.
+Das USB-Interface erbt von [`EventTarget`](/de/docs/Web/API/EventTarget).
 
 {{InheritanceDiagram}}
 
@@ -21,17 +21,17 @@ Keine.
 
 ## Instanz-Methoden
 
-- {{domxref("USB.getDevices()")}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von {{domxref("USBDevice")}}-Objekten für gepaarte angeschlossene Geräte aufgelöst wird.
-- {{domxref("USB.requestDevice()")}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz von {{domxref("USBDevice")}} aufgelöst wird, wenn das angegebene Gerät gefunden wird. Der Aufruf dieser Funktion löst den Koppelvorgang des Benutzeragents aus.
+- [`USB.getDevices()`](/de/docs/Web/API/USB/getDevices) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von [`USBDevice`](/de/docs/Web/API/USBDevice)-Objekten für gepaarte angeschlossene Geräte aufgelöst wird.
+- [`USB.requestDevice()`](/de/docs/Web/API/USB/requestDevice) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz von [`USBDevice`](/de/docs/Web/API/USBDevice) aufgelöst wird, wenn das angegebene Gerät gefunden wird. Der Aufruf dieser Funktion löst den Kopplungsprozess des Benutzeragenten aus.
 
 ## Ereignisse
 
-- {{domxref("USB.connect_event", "connect")}} {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn ein zuvor gepaartes Gerät angeschlossen wird.
-- {{domxref("USB.disconnect_event", "disconnect")}} {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn ein gepaartes Gerät getrennt wird.
+- [`connect`](/de/docs/Web/API/USB/connect_event) {{Experimental_Inline}}
+  - : Wird ausgelöst, wenn ein zuvor gekoppeltes Gerät verbunden wird.
+- [`disconnect`](/de/docs/Web/API/USB/disconnect_event) {{Experimental_Inline}}
+  - : Wird ausgelöst, wenn ein gekoppeltes Gerät getrennt wird.
 
 ## Spezifikationen
 

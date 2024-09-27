@@ -7,18 +7,18 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`SpeechRecognitionErrorEvent`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) stellt Fehlermeldungen des Erkennungsdienstes dar.
+Die **`SpeechRecognitionErrorEvent`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert Fehlermeldungen des Erkennungsdienstes.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_`SpeechRecognitionErrorEvent` erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, {{domxref("Event")}}._
+_`SpeechRecognitionErrorEvent` erbt auch Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("SpeechRecognitionErrorEvent.error")}} {{ReadOnlyInline}}
-  - : Gibt den Typ des aufgetretenen Fehlers zurück.
-- {{domxref("SpeechRecognitionErrorEvent.message")}} {{ReadOnlyInline}}
-  - : Gibt eine Nachricht zurück, die den Fehler im Detail beschreibt.
+- [`SpeechRecognitionErrorEvent.error`](/de/docs/Web/API/SpeechRecognitionErrorEvent/error) {{ReadOnlyInline}}
+  - : Gibt den Typ des ausgelösten Fehlers zurück.
+- [`SpeechRecognitionErrorEvent.message`](/de/docs/Web/API/SpeechRecognitionErrorEvent/message) {{ReadOnlyInline}}
+  - : Gibt eine detailliertere Beschreibung des Fehlers zurück.
 
 ## Beispiele
 

@@ -7,13 +7,13 @@ l10n:
 
 {{JSRef}}
 
-Die **`byteLength`** -Zugriffseigenschaft von {{jsxref("ArrayBuffer")}}-Instanzen gibt die Länge (in Bytes) dieses ArrayBuffers zurück.
+Die **`byteLength`** Zugriffseigenschaft von {{jsxref("ArrayBuffer")}} Instanzen gibt die Länge (in Bytes) dieses Array-Buffers zurück.
 
 {{EmbedInteractiveExample("pages/js/arraybuffer-bytelength.html")}}
 
 ## Beschreibung
 
-Die `byteLength`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen des Arrays festgelegt und kann nicht geändert werden. Diese Eigenschaft gibt 0 zurück, wenn dieser `ArrayBuffer` getrennt wurde.
+Die `byteLength` Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen des Arrays festgelegt und kann nicht geändert werden. Diese Eigenschaft gibt 0 zurück, wenn dieser `ArrayBuffer` getrennt wurde.
 
 ## Beispiele
 

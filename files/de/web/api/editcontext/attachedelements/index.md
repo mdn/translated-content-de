@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`attachedElements()`**-Methode des {{domxref("EditContext")}}-Interfaces gibt ein {{jsxref("Array")}} zurück, das nur ein Element enthält. Dieses Element ist das mit dem `EditContext`-Objekt verknüpfte Element.
+Die **`attachedElements()`**-Methode des [`EditContext`](/de/docs/Web/API/EditContext)-Interfaces gibt ein {{jsxref("Array")}} zurück, das nur ein Element enthält. Dieses Element ist dasjenige, das mit dem `EditContext`-Objekt verknüpft ist.
 
 ## Syntax
 
@@ -18,15 +18,15 @@ attachedElements()
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}}, das ein {{domxref("HTMLElement")}}-Objekt enthält.
+Ein {{jsxref("Array")}}, das ein [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objekt enthält.
 
-Es kann nur ein Element mit einer `EditContext`-Instanz verknüpft sein, daher wird das zurückgegebene Array immer ein Element enthalten. Falls die API in Zukunft erweitert wird, um mehrere verknüpfte Elemente zu unterstützen, wird der Rückgabewert ein Array mit mehreren Elementen sein.
+Es kann nur ein Element mit einer `EditContext`-Instanz verknüpft sein, daher wird das zurückgegebene Array immer ein Element enthalten. Sollte die API in Zukunft erweitert werden, um mehrere verknüpfte Elemente zu unterstützen, wird der Rückgabewert ein Array mit mehreren Elementen sein.
 
 ## Beispiele
 
-### Das mit einer `EditContext`-Instanz verknüpfte Element abrufen
+### Ermitteln des mit einer `EditContext`-Instanz verknüpften Elements
 
-Dieses Beispiel zeigt, wie die `attachedElements`-Methode verwendet wird, um das mit einer `EditContext`-Instanz verknüpfte Element zu erhalten.
+Dieses Beispiel zeigt, wie die Methode `attachedElements` verwendet wird, um das Element zu erhalten, das mit einer `EditContext`-Instanz verknüpft ist.
 
 ```html
 <canvas id="editor-canvas"></canvas>
@@ -51,4 +51,4 @@ console.log(attachedElements[0] === canvas); // true
 
 ## Siehe auch
 
-- Das {{DOMxRef("EditContext")}}-Interface, zu dem es gehört.
+- Das [`EditContext`](/de/docs/Web/API/EditContext)-Interface, zu dem es gehört.

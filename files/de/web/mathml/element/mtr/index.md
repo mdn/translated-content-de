@@ -7,16 +7,16 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mtr>`** [MathML](/de/docs/Web/MathML) Element stellt eine Zeile in einer Tabelle oder einer Matrix dar. Es darf nur in einem {{ MathMLElement("mtable") }} Element vorkommen und seine Kinder sind {{ MathMLElement("mtd") }} Elemente, die Zellen darstellen. Dieses Element ist dem {{ HTMLElement("tr") }} Element von [HTML](/de/docs/Web/HTML) ähnlich.
+Das **`<mtr>`** [MathML](/de/docs/Web/MathML)-Element repräsentiert eine Zeile in einer Tabelle oder Matrix. Es darf nur in einem {{ MathMLElement("mtable") }}-Element erscheinen und seine Kinder sind {{ MathMLElement("mtd") }}-Elemente, die Zellen darstellen. Dieses Element ist dem {{ HTMLElement("tr") }}-Element von [HTML](/de/docs/Web/HTML) ähnlich.
 
 ## Attribute
 
-Die Attribute dieses Elements schließen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) ein. Einige Browser unterstützen möglicherweise auch die folgenden Attribute:
+Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes). Einige Browser unterstützen möglicherweise auch die folgenden Attribute:
 
 - `columnalign` {{Non-standard_Inline}}
-  - : Überschreibt die horizontale Ausrichtung der Zellen, die durch {{ MathMLElement("mtable") }} für diese Zeile festgelegt wurde. Mehrere durch Leerzeichen getrennte Werte sind erlaubt und gelten für die entsprechenden Spalten (z. B. `columnalign="left center right"`). Mögliche Werte sind: `left`, `center` und `right`.
+  - : Überschreibt die horizontale Ausrichtung der Zellen, die vom {{ MathMLElement("mtable") }} für diese Zeile angegeben wurde. Mehrere durch Leerzeichen getrennte Werte sind zulässig und gelten für die entsprechenden Spalten (z.B. `columnalign="left center right"`). Mögliche Werte sind: `left`, `center` und `right`.
 - `rowalign` {{Non-standard_Inline}}
-  - : Überschreibt die vertikale Ausrichtung der Zellen, die durch {{ MathMLElement("mtable") }} für diese Zeile festgelegt wurde. Mögliche Werte sind: `axis`, `baseline`, `bottom`, `center` und `top`.
+  - : Überschreibt die vertikale Ausrichtung der Zellen, die vom {{ MathMLElement("mtable") }} für diese Zeile angegeben wurde. Mögliche Werte sind: `axis`, `baseline`, `bottom`, `center` und `top`.
 
 ## Spezifikationen
 

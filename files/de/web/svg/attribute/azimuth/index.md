@@ -1,5 +1,5 @@
 ---
-title: Azimut
+title: azimuth
 slug: Web/SVG/Attribute/azimuth
 l10n:
   sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`azimuth`**-Attribut gibt den Richtungswinkel für die Lichtquelle auf der XY-Ebene (im Uhrzeigersinn) in Grad von der x-Achse an.
+Das **`azimuth`**-Attribut gibt den Richtungwinkel für die Lichtquelle auf der XY-Ebene (im Uhrzeigersinn) in Grad von der x-Achse an.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feDistantLight")}}
 
@@ -47,7 +47,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>

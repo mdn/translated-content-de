@@ -7,32 +7,32 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die HTML-{{HTMLElement("meter")}}-Elemente implementieren die **`HTMLMeterElement`**-Schnittstelle, die spezielle Eigenschaften und Methoden bereitstellt (zusätzlich zur {{domxref("HTMLElement")}}-Objektschnittstelle, die ihnen durch Vererbung ebenfalls zur Verfügung steht) zur Manipulation des Layouts und der Präsentation von {{HTMLElement("meter")}}-Elementen.
+Die HTML {{HTMLElement("meter")}}-Elemente stellen die **`HTMLMeterElement`**-Schnittstelle bereit, die spezielle Eigenschaften und Methoden (über das hinaus, was die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objektschnittstelle, die sie auch durch Vererbung zur Verfügung haben, bietet) für die Manipulation des Layouts und der Präsentation von {{HTMLElement("meter")}}-Elementen bereitstellt.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt auch Eigenschaften von seinem übergeordneten, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLMeterElement.high")}}
-  - : Ein `double`, der den Wert der oberen Grenze darstellt und das [`high`](/de/docs/Web/HTML/Element/meter#high)-Attribut widerspiegelt.
-- {{domxref("HTMLMeterElement.low")}}
-  - : Ein `double`, der den Wert der unteren Grenze darstellt und das [`low`](/de/docs/Web/HTML/Element/meter#low)-Attribut widerspiegelt.
-- {{domxref("HTMLMeterElement.max")}}
-  - : Ein `double`, das den Maximalwert darstellt und das [`max`](/de/docs/Web/HTML/Element/meter#max)-Attribut widerspiegelt.
-- {{domxref("HTMLMeterElement.min")}}
-  - : Ein `double`, das den Minimalwert darstellt und das [`min`](/de/docs/Web/HTML/Element/meter#min)-Attribut widerspiegelt.
-- {{domxref("HTMLMeterElement.optimum")}}
+- [`HTMLMeterElement.high`](/de/docs/Web/API/HTMLMeterElement/high)
+  - : Ein `double`, das den Wert der oberen Grenze darstellt und das [`high`](/de/docs/Web/HTML/Element/meter#high)-Attribut widerspiegelt.
+- [`HTMLMeterElement.low`](/de/docs/Web/API/HTMLMeterElement/low)
+  - : Ein `double`, das den Wert der unteren Grenze darstellt und das [`low`](/de/docs/Web/HTML/Element/meter#low)-Attribut widerspiegelt.
+- [`HTMLMeterElement.max`](/de/docs/Web/API/HTMLMeterElement/max)
+  - : Ein `double`, das den maximalen Wert darstellt und das [`max`](/de/docs/Web/HTML/Element/meter#max)-Attribut widerspiegelt.
+- [`HTMLMeterElement.min`](/de/docs/Web/API/HTMLMeterElement/min)
+  - : Ein `double`, das den minimalen Wert darstellt und das [`min`](/de/docs/Web/HTML/Element/meter#min)-Attribut widerspiegelt.
+- [`HTMLMeterElement.optimum`](/de/docs/Web/API/HTMLMeterElement/optimum)
   - : Ein `double`, das das Optimum darstellt und das [`optimum`](/de/docs/Web/HTML/Element/meter#optimum)-Attribut widerspiegelt.
-- {{domxref("HTMLMeterElement.value")}}
+- [`HTMLMeterElement.value`](/de/docs/Web/API/HTMLMeterElement/value)
   - : Ein `double`, das den aktuellen Wert darstellt und das [`value`](/de/docs/Web/HTML/Element/meter#value)-Attribut widerspiegelt.
-- {{domxref("HTMLMeterElement.labels")}} {{ReadOnlyInline}}
-  - : Eine {{domxref("NodeList")}} von {{HTMLElement("label")}}-Elementen, die dem Element zugeordnet sind.
+- [`HTMLMeterElement.labels`](/de/docs/Web/API/HTMLMeterElement/labels) {{ReadOnlyInline}}
+  - : Eine [`NodeList`](/de/docs/Web/API/NodeList) von {{HTMLElement("label")}}-Elementen, die mit dem Element verknüpft sind.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrem Elternteil, {{domxref("HTMLElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrem übergeordneten, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 

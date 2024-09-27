@@ -1,5 +1,5 @@
 ---
-title: Knoten
+title: Node
 slug: Glossary/Node
 l10n:
   sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der Begriff **Knoten** kann je nach Kontext verschiedene Bedeutungen haben. Er kann sich beziehen auf:
+Der Begriff **Node** kann je nach Kontext mehrere Bedeutungen haben. Er kann sich beziehen auf:
 
 {{GlossaryDisambiguation}}
 
-Eine weitere Verwendung des Wortes ist, wenn über {{Glossary("Node.js")}} gesprochen wird.
+Eine weitere Verwendung des Begriffs ist im Zusammenhang mit [Node.js](/de/docs/Glossary/Node.js)

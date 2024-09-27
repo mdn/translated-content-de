@@ -1,5 +1,5 @@
 ---
-title: wählen
+title: choose
 slug: Web/XPath/Functions/choose
 l10n:
   sourceCommit: 857c6f9e7f1a847e7d3466b0d047159f7b345991
@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die `choose` Funktion gibt eines der angegebenen Objekte basierend auf einem booleschen Parameter zurück.
+Die `choose`-Funktion gibt eines der angegebenen Objekte basierend auf einem booleschen Parameter zurück.
 
 > [!NOTE]
 > Diese Methode sollte anstelle von `if ()` verwendet werden, das veraltet ist.
@@ -21,11 +21,11 @@ choose( boolean, object1, object2 )
 ### Parameter
 
 - `boolean`
-  - : Die boolesche Operation, die verwendet wird, um zu bestimmen, welches Objekt zurückgegeben werden soll.
+  - : Die boolesche Operation, um zu bestimmen, welches Objekt zurückgegeben werden soll.
 - `object1`
-  - : Das erste zu berücksichtigende Objekt zur Rückgabe.
+  - : Das erste Objekt, das in Betracht gezogen wird, zurückgegeben zu werden.
 - `object2`
-  - : Das zweite zu berücksichtigende Objekt zur Rückgabe.
+  - : Das zweite Objekt, das in Betracht gezogen wird, zurückgegeben zu werden.
 
 ### Rückgabewert
 

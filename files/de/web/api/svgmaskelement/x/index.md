@@ -1,5 +1,5 @@
 ---
-title: "SVGMaskElement: x-Eigenschaft"
+title: "SVGMaskElement: x Eigenschaft"
 short-title: x
 slug: Web/API/SVGMaskElement/x
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`x`**-Eigenschaft der {{domxref("SVGMaskElement")}}-Schnittstelle gibt ein {{domxref("SVGAnimatedLength")}}-Objekt zurück, das den Wert des {{SVGattr("x")}}-Attributes des {{SVGElement("mask")}} enthält. Sie repräsentiert die x-Achsen-Koordinate der _oberen linken_ Ecke des Maskierungsbereichs.
+Die schreibgeschützte **`x`**-Eigenschaft des [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement)-Interfaces gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das den Wert des {{SVGattr("x")}}-Attributs des {{SVGElement("mask")}} enthält. Sie repräsentiert die x-Achsenkoordinate der _oberen linken_ Ecke des Maskierungsbereichs.
 
 > [!NOTE]
-> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können: {{domxref("SVGAnimatedLength.baseVal", "baseVal")}} und {{domxref("SVGAnimatedLength.animVal", "animVal")}}.
+> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLength/animVal).
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedLength")}}-Objekt im Koordinatensystem, das durch {{domxref("SVGMaskElement.maskUnits")}} definiert ist. Die `baseVal`-Eigenschaft dieses Objekts gibt ein {{domxref("SVGLength")}} zurück, dessen Wert den initialen `x`-Wert liefert.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt im Koordinatensystem, das durch [`SVGMaskElement.maskUnits`](/de/docs/Web/API/SVGMaskElement/maskUnits) definiert ist. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGLength`](/de/docs/Web/API/SVGLength) zurück, dessen Wert den anfänglichen `x`-Wert zurückgibt.
 
 ## Beispiele
 

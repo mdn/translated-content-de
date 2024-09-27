@@ -1,5 +1,5 @@
 ---
-title: "Node: isDefaultNamespace() Methode"
+title: "Node: isDefaultNamespace()-Methode"
 short-title: isDefaultNamespace()
 slug: Web/API/Node/isDefaultNamespace
 l10n:
@@ -8,11 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`isDefaultNamespace()`** Methode der {{domxref("Node")}} Schnittstelle akzeptiert eine Namespace-URI als Argument.
-Sie gibt einen booleschen Wert zurück, der `true` ist, wenn der Namespace der Standard-Namespace für das gegebene Node ist, und `false`, wenn nicht.
+Die **`isDefaultNamespace()`**-Methode des [`Node`](/de/docs/Web/API/Node)-Interfaces akzeptiert eine Namensraum-URI als Argument. Sie gibt einen booleschen Wert zurück, der `true` ist, wenn der Namensraum der Standardnamensraum auf dem gegebenen Knoten ist, und `false`, wenn nicht.
 
 > [!NOTE]
-> Der Standard-Namespace eines HTML-Elements ist immer `""`. Bei einem SVG-Element wird er durch das `xmlns` Attribut festgelegt.
+> Der Standardnamensraum eines HTML-Elements ist immer `""`. Bei einem SVG-Element wird er durch das `xmlns`-Attribut festgelegt.
 
 ## Syntax
 
@@ -23,25 +22,25 @@ isDefaultNamespace(namespaceURI)
 ### Parameter
 
 - `namespaceURI`
-  - : Ein String, der den Namespace darstellt, gegen den das Element geprüft wird.
+  - : Ein String, der den Namensraum repräsentiert, gegen den das Element überprüft wird.
     > **Hinweis:** `namespaceURI` ist kein optionaler Parameter, kann jedoch `null` sein.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der den Rückgabewert `true` oder `false` enthält und anzeigt, ob der Parameter der Standard-Namespace ist oder nicht.
+Ein boolescher Wert, der den Rückgabewert `true` oder `false` hält, je nachdem, ob der Parameter der Standardnamensraum ist oder nicht.
 
 ## Beispiel
 
 ```html
-Ist "" der Standard-Namespace für &lt;output&gt;:
-<output>Nicht getestet</output>.<br />
-Ist "http://www.w3.org/2000/svg" der Standard-Namespace für &lt;output&gt;:
-<output>Nicht getestet</output>.<br />
-Ist "" der Standard-Namespace für &lt;svg&gt;: <output>Nicht getestet</output>.<br />
-Ist "http://www.w3.org/2000/svg" der Standard-Namespace für &lt;svg&gt;:
-<output>Nicht getestet</output>.<br />
+Is "" the default namespace for &lt;output&gt;:
+<output>Not tested</output>.<br />
+Is "http://www.w3.org/2000/svg" the default namespace for &lt;output&gt;:
+<output>Not tested</output>.<br />
+Is "" the default namespace for &lt;svg&gt;: <output>Not tested</output>.<br />
+Is "http://www.w3.org/2000/svg" the default namespace for &lt;svg&gt;:
+<output>Not tested</output>.<br />
 <svg xmlns="http://www.w3.org/2000/svg" height="1"></svg>
-<button>Tests ausführen</button>
+<button>Click to run tests</button>
 ```
 
 ```js
@@ -70,5 +69,5 @@ button.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("Node.lookupNamespaceURI")}}
-- {{domxref("Node.lookupPrefix")}}
+- [`Node.lookupNamespaceURI`](/de/docs/Web/API/Node/lookupNamespaceURI)
+- [`Node.lookupPrefix`](/de/docs/Web/API/Node/lookupPrefix)

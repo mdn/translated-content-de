@@ -1,5 +1,5 @@
 ---
-title: "Selection: Methode getRangeAt()"
+title: "Selection: getRangeAt()-Methode"
 short-title: getRangeAt()
 slug: Web/API/Selection/getRangeAt
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`getRangeAt()`**-Methode der {{domxref("Selection")}}-Schnittstelle gibt ein Range-Objekt zurück, das einen aktuell ausgewählten Bereich darstellt.
+Die **`getRangeAt()`**-Methode der [`Selection`](/de/docs/Web/API/Selection)-Schnittstelle gibt ein Range-Objekt zurück, das einen derzeit ausgewählten Bereich darstellt.
 
-Befinden sich die Endpunkte des ausgewählten Bereichs innerhalb eines {{glossary("shadow tree")}}, hat JavaScript keine Sichtbarkeit auf die Shadow-Knoten, und die Methode sollte den Bereich neu ausrichten, um das Host-Element einzuschließen, das den Endpunkt enthält. In der Praxis implementieren die meisten Browser dieses Verhalten noch nicht, und der zurückgegebene Bereich ist unvorhersehbar.
+Wenn die Endpunkte des ausgewählten Bereichs innerhalb eines [Shadow-Trees](/de/docs/Glossary/shadow_tree) liegen, hat JavaScript keine Sichtbarkeit der Shadow-Knoten, und die Methode sollte den Bereich neu fokussieren, um das Host-Element einzuschließen, das den Endpunkt enthält. In der Praxis implementieren die meisten Browser dieses Verhalten noch nicht, und der zurückgegebene Bereich ist unvorhersehbar.
 
 > [!NOTE]
-> Wenn Sie innerhalb von Knoten auswählen, die möglicherweise eine Shadow-Root enthalten, können Sie {{domxref("Selection.getComposedRanges()")}} (sofern unterstützt) verwenden, um einen Auswahlbereich innerhalb eines Shadow-Trees zu erhalten oder die Auswahl zuverlässig auf den Host-Knoten umzustellen.
+> Wenn innerhalb von Knoten ausgewählt wird, die möglicherweise eine Shadow-Root enthalten, können Sie [`Selection.getComposedRanges()`](/de/docs/Web/API/Selection/getComposedRanges) (falls unterstützt) verwenden, um einen Auswahlsbereich innerhalb eines Shadow-Trees zu erhalten oder die Auswahl zuverlässig auf den Host-Knoten zu fokussieren.
 
 ## Syntax
 
@@ -25,11 +25,11 @@ getRangeAt(index)
 
 - `index`
   - : Der nullbasierte Index des zurückzugebenden Bereichs.
-    Eine negative Zahl oder eine Zahl, die größer oder gleich {{domxref("Selection.rangeCount")}} ist, führt zu einem Fehler.
+    Eine negative Zahl oder eine Zahl, die größer oder gleich [`Selection.rangeCount`](/de/docs/Web/API/Selection/rangeCount) ist, führt zu einem Fehler.
 
 ### Rückgabewert
 
-Das angegebene {{domxref("Range")}}-Objekt.
+Das spezifizierte [`Range`](/de/docs/Web/API/Range)-Objekt.
 
 ## Beispiele
 
@@ -41,9 +41,9 @@ sel = window.getSelection();
 for (let i = 0; i < sel.rangeCount; i++) {
   ranges[i] = sel.getRangeAt(i);
 }
-/* Jedes Element im ranges-Array ist jetzt
- * ein Bereichsobjekt, das einen der
- * Bereiche in der aktuellen Auswahl darstellt */
+/* Each item in the ranges array is now
+ * a range object representing one of the
+ * ranges in the current selection */
 ```
 
 ## Spezifikationen
@@ -56,4 +56,4 @@ for (let i = 0; i < sel.rangeCount; i++) {
 
 ## Siehe auch
 
-- {{domxref("Selection")}}, die Schnittstelle, zu der sie gehört.
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der sie gehört.

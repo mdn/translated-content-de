@@ -8,17 +8,27 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`cloneNode()`** Methode des {{domxref("Node")}}-Interfaces gibt ein Duplikat des Knotens zurück, auf dem diese Methode aufgerufen wurde. Ihr Parameter steuert, ob das in einem Knoten enthaltene Teilbaum ebenfalls geklont wird oder nicht.
+Die **`cloneNode()`** Methode der [`Node`](/de/docs/Web/API/Node) Schnittstelle
+gibt ein Duplikat des Knotens zurück, auf dem diese Methode aufgerufen wurde.
+Ihr Parameter steuert, ob der im Knoten enthaltene Unterbaum ebenfalls geklont wird oder nicht.
 
-Das Klonen eines Knotens kopiert alle seine Attribute und deren Werte, einschließlich intrinsischer (inline) Listener. Es kopiert _nicht_ Event-Listener, die mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzugefügt wurden oder solche, die den Element-Eigenschaften zugewiesen wurden (z. B. `node.onclick = someFunction`). Zusätzlich wird bei einem {{HTMLElement("canvas")}}-Element das gemalte Bild nicht kopiert.
+Das Klonen eines Knotens kopiert alle seine Attribute und deren Werte,
+einschließlich intrinsischer (inline) Listener. Es kopiert _nicht_ die Event-Listener, die
+mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzugefügt wurden oder
+diejenigen, die den Element-Eigenschaften zugewiesen sind (z. B., `node.onclick = someFunction`).
+Zusätzlich wird bei einem {{HTMLElement("canvas")}} Element das gezeichnete Bild nicht kopiert.
 
 > **Warning:** `cloneNode()` kann zu doppelten Element-IDs in einem Dokument führen!
 >
-> Hat der ursprüngliche Knoten ein `id`-Attribut und wird der Klon im selben Dokument platziert, sollten Sie die ID des Klons ändern, um eindeutig zu sein.
+> Wenn der ursprüngliche Knoten ein `id` Attribut hat und der Klon
+> im selben Dokument platziert wird, sollten Sie die ID des Klons ändern, um
+> einzigartig zu sein.
 >
-> Auch `name`-Attribute müssen möglicherweise geändert werden, abhängig davon, ob doppelte Namen erwartet werden.
+> Zusätzlich könnte es notwendig sein, `name` Attribute zu ändern,
+> je nachdem, ob doppelte Namen erwartet werden.
 
-Um einen Knoten zu klonen und in ein _anderes_ Dokument einzufügen, verwenden Sie stattdessen {{domxref("Document.importNode()")}}.
+Um einen Knoten zu klonen, um ihn in ein _anderes_ Dokument einzufügen, verwenden Sie
+stattdessen [`Document.importNode()`](/de/docs/Web/API/Document/importNode).
 
 ## Syntax
 
@@ -31,19 +41,21 @@ cloneNode(deep)
 
 - `deep` {{optional_inline}}
 
-  - : Wenn `true`, dann wird der Knoten und sein gesamter Teilbaum,
-    einschließlich Text, der in Kind-{{domxref("Text")}}-Knoten enthalten sein könnte, ebenfalls kopiert.
+  - : Wenn `true`, werden der Knoten und sein gesamter Unterbaum,
+    einschließlich Text, der sich möglicherweise in untergeordneten [`Text`](/de/docs/Web/API/Text) Knoten befindet,
+    ebenfalls kopiert.
 
     Wenn `false`, wird nur der Knoten geklont.
-    Der Teilbaum, einschließlich jeglichen Textes, den der Knoten enthält, wird nicht geklont.
+    Der Unterbaum, einschließlich jeglichen Textes, den der Knoten enthält, wird nicht geklont.
 
-    Beachten Sie, dass `deep` keine Auswirkung auf {{glossary("void element", "void elements")}},
-    wie die {{HTMLElement("img")}} und {{HTMLElement("input")}}-Elemente, hat.
+    Beachten Sie, dass `deep` keine Auswirkungen auf [leere Elemente](/de/docs/Glossary/void_element),
+    wie die {{HTMLElement("img")}} und {{HTMLElement("input")}} Elemente, hat.
 
 ### Rückgabewert
 
-Der neue geklonte {{domxref("Node")}}. Der geklonte Knoten hat keinen Elternteil und ist nicht Teil des Dokuments,
-_bis_ er zu einem anderen Knoten hinzugefügt wird, der Teil des Dokuments ist, indem {{domxref("Node.appendChild()")}} oder eine ähnliche Methode verwendet wird.
+Der neue, geklonte [`Node`](/de/docs/Web/API/Node).
+Der geklonte Knoten hat keinen Elternknoten und ist nicht Teil des Dokuments,
+_bis_ er mittels [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) oder einer ähnlichen Methode zu einem anderen Knoten, der Teil des Dokuments ist, hinzugefügt wird.
 
 ## Beispiel
 
@@ -56,6 +68,6 @@ let p_prime = p.cloneNode(true);
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

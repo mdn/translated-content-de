@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Math.atanh()`** statische Methode gibt den inversen hyperbolischen Tangens einer Zahl zurück. Das heißt,
+Die statische Methode **`Math.atanh()`** gibt den inversen hyperbolischen Tangens einer Zahl zurück. Das heißt,
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -26,7 +26,7 @@ Math.atanh(x)
 ### Parameter
 
 - `x`
-  - : Eine Zahl zwischen -1 und 1, inklusive.
+  - : Eine Zahl zwischen -1 und 1, einschließlich.
 
 ### Rückgabewert
 
@@ -34,7 +34,7 @@ Der inverse hyperbolische Tangens von `x`. Wenn `x` 1 ist, wird {{jsxref("Infini
 
 ## Beschreibung
 
-Da `atanh()` eine statische Methode von `Math` ist, wird sie immer als `Math.atanh()` verwendet, nicht als Methode eines von Ihnen erstellten `Math`-Objekts (Math ist kein Konstruktor).
+Da `atanh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.atanh()` und nicht als eine Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

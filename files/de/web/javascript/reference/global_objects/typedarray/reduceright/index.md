@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`reduceRight()`**-Methode von {{jsxref("TypedArray")}}-Instanzen wendet eine Funktion von rechts nach links auf einen Akkumulator und jeden Wert des typisierten Arrays an, um es auf einen einzelnen Wert zu reduzieren. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.reduceRight()")}}.
+Die **`reduceRight()`**-Methode von {{jsxref("TypedArray")}}-Instanzen wendet eine Funktion auf einen Akkumulator und jeden Wert des typisierten Arrays (von rechts nach links) an, um es auf einen einzigen Wert zu reduzieren. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.reduceRight()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-reduceright.html")}}
 
@@ -21,17 +21,17 @@ reduceRight(callbackFn, initialValue)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Der Rückgabewert wird beim nächsten Aufruf von `callbackFn` zum Wert des Parameters `accumulator`. Bei dem letzten Aufruf wird der Rückgabewert zum Rückgabewert von `reduceRight()`. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Ihr Rückgabewert wird zum Wert des `accumulator`-Parameters beim nächsten Aufruf von `callbackFn`. Beim letzten Aufruf wird der Rückgabewert zum Rückgabewert von `reduceRight()`. Die Funktion wird mit folgenden Argumenten aufgerufen:
     - `accumulator`
-      - : Der Wert, der sich aus dem vorherigen Aufruf von `callbackFn` ergibt. Beim ersten Aufruf ist sein Wert `initialValue`, falls letzteres angegeben ist; ansonsten ist sein Wert das letzte Element des typisierten Arrays.
+      - : Der Wert, der sich aus dem vorherigen Aufruf von `callbackFn` ergibt. Beim ersten Aufruf ist sein Wert `initialValue`, wenn dieses angegeben ist; andernfalls ist es das letzte Element des typisierten Arrays.
     - `currentValue`
-      - : Der Wert des aktuellen Elements. Beim ersten Aufruf ist sein Wert das letzte Element, wenn `initialValue` angegeben ist; ansonsten ist sein Wert das vorletzte Element.
+      - : Der Wert des aktuellen Elements. Beim ersten Aufruf ist dieser Wert das letzte Element, wenn `initialValue` angegeben ist; andernfalls ist es das vorletzte Element.
     - `currentIndex`
-      - : Die Indexposition von `currentValue` im typisierten Array. Beim ersten Aufruf ist sein Wert `array.length - 1`, wenn `initialValue` angegeben ist, ansonsten `array.length - 2`.
+      - : Die Indexposition von `currentValue` im typisierten Array. Beim ersten Aufruf ist sein Wert `array.length - 1`, wenn `initialValue` angegeben ist, andernfalls `array.length - 2`.
     - `array`
       - : Das typisierte Array, auf dem `reduceRight()` aufgerufen wurde.
 - `initialValue` {{optional_inline}}
-  - : Wert, der als Akkumulator beim ersten Aufruf von `callbackFn` verwendet wird. Wenn kein Anfangswert angegeben ist, wird das letzte Element im typisierten Array verwendet und übersprungen. Ein Aufruf von `reduceRight()` auf ein leeres typisiertes Array ohne Anfangswert führt zu einem `TypeError`.
+  - : Wert, der als Akkumulator beim ersten Aufruf von `callbackFn` verwendet wird. Wenn kein Initialwert angegeben ist, wird das letzte Element im typisierten Array verwendet und übersprungen. Ein Aufruf von `reduceRight()` auf einem leeren typisierten Array ohne Initialwert erzeugt einen `TypeError`.
 
 ### Rückgabewert
 
@@ -43,7 +43,7 @@ Weitere Details finden Sie unter {{jsxref("Array.prototype.reduceRight()")}}. Di
 
 ## Beispiele
 
-### Alle Werte innerhalb eines Arrays summieren
+### Alle Werte in einem Array aufsummieren
 
 ```js
 const total = new Uint8Array([0, 1, 2, 3]).reduceRight((a, b) => a + b);

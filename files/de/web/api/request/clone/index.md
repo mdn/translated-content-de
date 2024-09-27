@@ -1,5 +1,5 @@
 ---
-title: "Request: clone()-Methode"
+title: "Request: clone() Methode"
 short-title: clone()
 slug: Web/API/Request/clone
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`clone()`**-Methode der {{domxref("Request")}}-Schnittstelle erstellt eine Kopie des aktuellen `Request`-Objekts.
+Die **`clone()`** Methode der [`Request`](/de/docs/Web/API/Request) Schnittstelle erstellt eine Kopie des aktuellen `Request` Objekts.
 
-Ähnlich wie die zugrunde liegende {{domxref("ReadableStream.tee")}}-API,
-signalisiert der {{domxref("Request.body", "body")}} eines geklonten `Response`
-Rückstau mit der Geschwindigkeit des _schnelleren_ Verbrauchers der beiden Bodies,
-und ungelesene Daten werden intern in dem langsamer konsumierten `body`
-ohne jegliche Begrenzung oder Rückstau in die Warteschlange gestellt.
-Seien Sie vorsichtig, wenn Sie einen `Request` aus einem Stream erstellen und ihn dann `klonen`.
+Wie die zugrundeliegende [`ReadableStream.tee`](/de/docs/Web/API/ReadableStream/tee) API,
+signalisiert der [`body`](/de/docs/Web/API/Request/body) eines geklonten `Response`
+Rückstaudruck mit der Geschwindigkeit des _schnelleren_ Verbrauchers der beiden bodies,
+und nicht gelesene Daten werden intern im langsamer verbrauchten `body`
+ohne jegliche Begrenzung oder Rückstaudruck in eine Warteschlange gestellt.
+Seien Sie vorsichtig, wenn Sie einen `Request` aus einem Stream konstruieren und ihn dann `clone`.
 
-`clone()` löst einen {{jsxref("TypeError")}} aus, wenn der Anforderungskörper bereits verwendet wurde. Tatsächlich ist der Hauptgrund, warum `clone()` existiert, die mehrfache Verwendung von Body-Objekten zu ermöglichen (wenn diese nur einmal verwendet werden dürfen).
+`clone()` löst einen {{jsxref("TypeError")}} aus, wenn der Anforderungskörper bereits verwendet wurde. Tatsächlich besteht der Hauptgrund für die Existenz von `clone()` darin, die mehrfache Verwendung von body-Objekten zu ermöglichen (wenn sie nur einmal verwendet werden können).
 
-Wenn Sie beabsichtigen, die Anforderung zu ändern, ziehen Sie den {{domxref("Request")}}-Konstruktor in Betracht.
+Wenn Sie beabsichtigen, die Anforderung zu ändern, sollten Sie den [`Request`](/de/docs/Web/API/Request) Konstruktor bevorzugen.
 
 ## Syntax
 
@@ -33,15 +33,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("Request")}}-Objekt, das eine exakte Kopie des `Request` ist, auf dem `clone()` aufgerufen wurde.
+Ein [`Request`](/de/docs/Web/API/Request) Objekt, das eine exakte Kopie des `Request` ist, auf dem `clone()` aufgerufen wurde.
 
 ## Beispiele
 
-Im folgenden Code-Snippet erstellen wir eine neue Anforderung mit dem {{domxref("Request.Request", "Request()")}}-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und klonen dann die Anforderung.
+Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request) Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript), und klonen dann die Anfrage.
 
 ```js
 const myRequest = new Request("flowers.jpg");
-const newRequest = myRequest.clone(); // eine Kopie der Anforderung wird jetzt in newRequest gespeichert
+const newRequest = myRequest.clone(); // a copy of the request is now stored in newRequest
 ```
 
 ## Spezifikationen

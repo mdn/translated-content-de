@@ -34,7 +34,7 @@ Der hyperbolische Tangens von `x`.
 
 ## Beschreibung
 
-Da `tanh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.tanh()` und nicht als Methode eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktor).
+Da `tanh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.tanh()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -58,7 +58,7 @@ Math.tanh(Infinity); // 1
 
 ## Siehe auch
 
-- [Polyfill für `Math.tanh` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
+- [Polyfill von `Math.tanh` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
 - {{jsxref("Math.acosh()")}}
 - {{jsxref("Math.asinh()")}}
 - {{jsxref("Math.atanh()")}}

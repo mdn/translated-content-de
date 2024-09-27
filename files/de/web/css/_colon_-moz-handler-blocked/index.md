@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}} {{Non-standard_header}}
 
-Die **`:-moz-handler-blocked`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die Elemente abgleicht, die nicht angezeigt werden können, weil ihre Handler blockiert wurden.
+Die **`:-moz-handler-blocked`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die mit Elementen übereinstimmt, die nicht angezeigt werden können, weil ihre Handler blockiert wurden.
 
 > [!NOTE]
-> Dieser Selektor ist hauptsächlich für die Verwendung durch Theme-Entwickler vorgesehen.
+> Dieser Selektor ist hauptsächlich für die Verwendung durch Theme-Entwickler gedacht.
 
 ## Syntax
 

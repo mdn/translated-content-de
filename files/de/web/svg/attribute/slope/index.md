@@ -1,5 +1,5 @@
 ---
-title: Neigung
+title: slope
 slug: Web/SVG/Attribute/slope
 l10n:
   sourceCommit: bb74fa83b95eaf65af67854d047feacd6023f454
@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`slope`** definiert die Werte für lineare Filter, wie zum Beispiel Helligkeit.
+Das Attribut **`slope`** definiert die Werte für lineare Filter, wie Helligkeit.
 
-Das `slope`-Attribut wird von den Kindern des Filterprimitives {{SVGElement("feComponentTransfer")}} unterstützt, einschließlich der `feFunc-RGBA` Übertragungsfunktionen. Wenn der `type` einer Übertragungsfunktion `linear` ist, definiert `slope` die Steigung der linearen Funktion.
+Das Attribut `slope` wird von den Kindern des {{SVGElement("feComponentTransfer")}} Filterprimitivs unterstützt, einschließlich der `feFunc-RGBA` Transferfunktionen. Wenn der `type` einer Transferfunktion `linear` ist, definiert `slope` die Steigung der linearen Funktion.
 
-Sie können dieses Attribut mit den folgenden SVG-Komponenten-Übertragungsfunktionselementen verwenden, wenn `type="linear"` gesetzt ist:
+Sie können dieses Attribut mit den folgenden SVG-Komponenten-Transferfunktions-Elementen verwenden, wenn `type="linear"` festgelegt ist:
 
 - {{SVGElement("feFuncR")}}
 - {{SVGElement("feFuncG")}}
@@ -19,9 +19,9 @@ Sie können dieses Attribut mit den folgenden SVG-Komponenten-Übertragungsfunkt
 - {{SVGElement("feFuncA")}}
 
 > [!NOTE]
-> Ursprünglich wurde das Attribut `slope` innerhalb von {{SVGElement("font-face")}} verwendet, um den vertikalen Strichwinkel einer Schriftart anzugeben. Diese Verwendung wurde jedoch abgelehnt.
+> Ursprünglich wurde das Attribut `slope` innerhalb von {{SVGElement("font-face")}} verwendet, um den vertikalen Strichwinkel einer Schriftart anzuzeigen. Dieser Anwendungsfall wurde verworfen.
 
-## Verwendungsnotizen
+## Anmerkungen zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -47,11 +47,11 @@ Sie können dieses Attribut mit den folgenden SVG-Komponenten-Übertragungsfunkt
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die Steigung der linearen Komponenten-Übertragungsfunktionen an.
+  - : Dieser Wert gibt die Steigung der linearen Komponententransferfunktionen an.
 
 ## Beispiele
 
-In diesem Beispiel hat ein Farbverlaufsfeld zwei Textelemente mit angewendeten linearen Filtern. Die Steigungen der Filterübertragungsfunktionen jedes Filters unterscheiden sich.
+In diesem Beispiel hat ein Verlaufsfeld zwei Textelemente mit angewendeten linearen Filtern. Die Steigungen der Filtertransferfunktionen jedes Filters unterscheiden sich.
 
 ```html
 <svg

@@ -7,32 +7,32 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Das **`WritableStream`**-Interface der [Streams-API](/de/docs/Web/API/Streams_API) bietet eine standardisierte Abstraktion zum Schreiben von Streaming-Daten an ein Ziel, bekannt als Sink. Dieses Objekt verfügt über integrierten Gegendruck und Warteschlangen.
+Das **`WritableStream`**-Interface der [Streams API](/de/docs/Web/API/Streams_API) bietet eine standardisierte Abstraktion zum Schreiben von Streaming-Daten zu einem Ziel, das als Sink bekannt ist. Dieses Objekt verfügt über integrierten Rückdruck und Warteschlangen.
 
 `WritableStream` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
 ## Konstruktor
 
-- {{domxref("WritableStream.WritableStream", "WritableStream()")}}
+- [`WritableStream()`](/de/docs/Web/API/WritableStream/WritableStream)
   - : Erstellt ein neues `WritableStream`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("WritableStream.locked")}} {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der angibt, ob das `WritableStream` an einen Writer gesperrt ist.
+- [`WritableStream.locked`](/de/docs/Web/API/WritableStream/locked) {{ReadOnlyInline}}
+  - : Ein boolescher Wert, der angibt, ob das `WritableStream` einem Writer zugewiesen ist.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("WritableStream.abort()")}}
-  - : Bricht den Stream ab, signalisiert, dass der Produzent nicht länger erfolgreich in den Stream schreiben kann und dieser sofort in einen Fehlerzustand versetzt wird, wobei alle anstehenden Schreibvorgänge verworfen werden.
-- {{domxref("WritableStream.close()")}}
+- [`WritableStream.abort()`](/de/docs/Web/API/WritableStream/abort)
+  - : Bricht den Stream ab und signalisiert, dass der Erzeuger nicht mehr erfolgreich in den Stream schreiben kann und dieser sofort in einen Fehlerzustand versetzt wird, wobei alle in die Warteschlange gestellten Schreibvorgänge verworfen werden.
+- [`WritableStream.close()`](/de/docs/Web/API/WritableStream/close)
   - : Schließt den Stream.
-- {{domxref("WritableStream.getWriter()")}}
-  - : Gibt eine neue Instanz von {{domxref("WritableStreamDefaultWriter")}} zurück und sperrt den Stream für diese Instanz. Solange der Stream gesperrt ist, kann kein anderer Writer erworben werden, bis dieser freigegeben wird.
+- [`WritableStream.getWriter()`](/de/docs/Web/API/WritableStream/getWriter)
+  - : Gibt eine neue Instanz von [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) zurück und sperrt den Stream für diese Instanz. Solange der Stream gesperrt ist, kann kein anderer Writer erworben werden, bis dieser freigegeben wird.
 
 ## Beispiele
 
-Das folgende Beispiel illustriert mehrere Funktionen dieses Interfaces. Es zeigt die Erstellung des `WritableStream` mit einem benutzerdefinierten Sink und einer API-bereitgestellten Warteschlangenstrategie. Anschließend wird eine Funktion namens `sendMessage()` aufgerufen, die den neu erstellten Stream und einen String übergibt. Innerhalb dieser Funktion wird die `getWriter()`-Methode des Streams aufgerufen, die eine Instanz von {{domxref("WritableStreamDefaultWriter")}} zurückgibt. Ein `forEach()`-Aufruf wird verwendet, um jedes Stück des Strings in den Stream zu schreiben. Schließlich geben `write()` und `close()` Versprechen zurück, die verarbeitet werden, um mit dem Erfolg oder Misserfolg von Stücken und Streams umzugehen.
+Das folgende Beispiel veranschaulicht mehrere Funktionen dieses Interfaces. Es zeigt die Erstellung des `WritableStream` mit einem benutzerdefinierten Sink und einer von der API bereitgestellten Warteschlangenstrategie. Dann wird eine Funktion namens `sendMessage()` aufgerufen, die den neu erstellten Stream und einen String übergibt. Innerhalb dieser Funktion wird die `getWriter()`-Methode des Streams aufgerufen, die eine Instanz von [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) zurückgibt. Ein `forEach()`-Aufruf wird verwendet, um jedes Stück des Strings in den Stream zu schreiben. Schließlich geben `write()` und `close()` Promises zurück, die verarbeitet werden, um mit Erfolg oder Misserfolg von Chunks und Streams umzugehen.
 
 ```js
 const list = document.querySelector("ul");
@@ -100,15 +100,15 @@ const writableStream = new WritableStream(
 sendMessage("Hello, world.", writableStream);
 ```
 
-Sie können den vollständigen Code in unserem [Einfaches Schreibbeispiel](https://mdn.github.io/dom-examples/streams/simple-writer/) finden.
+Sie finden den vollständigen Code in unserem [Einfachen Writer-Beispiel](https://mdn.github.io/dom-examples/streams/simple-writer/).
 
-### Gegendruck
+### Rückdruck
 
-Aufgrund der Art und Weise, wie [Gegendruck](/de/docs/Web/API/Streams_API/Concepts#backpressure) in der API unterstützt wird, kann seine Implementierung im Code weniger offensichtlich sein. Um zu sehen, wie Gegendruck implementiert ist, suchen Sie nach drei Dingen:
+Aufgrund der Unterstützung von [Rückdruck](/de/docs/Web/API/Streams_API/Concepts#backpressure) in der API ist die Implementierung im Code möglicherweise weniger offensichtlich. Um zu sehen, wie Rückdruck implementiert ist, achten Sie auf drei Dinge:
 
-- Die `highWaterMark`-Eigenschaft, die beim Erstellen der Zählstrategie mit `new CountQueuingStrategy` gesetzt wird, legt die maximale Datenmenge fest, die die `WritableStream`-Instanz in einem einzelnen `write()`-Vorgang verarbeiten kann. In diesem Beispiel ist dies die maximale Datenmenge, die an `defaultWriter.write()` in der Funktion `sendMessage` gesendet werden kann.
-- Die Eigenschaft `defaultWriter.ready` gibt ein Versprechen zurück, das sich auflöst, wenn das Sink (die erste Eigenschaft des `WritableStream`-Konstruktors) das Schreiben von Daten abgeschlossen hat. Die Datenquelle kann entweder mehr Daten mit `defaultWriter.write()` schreiben oder `defaultWriter.close()` aufrufen, wie im obigen Beispiel gezeigt. Ein zu frühes Aufrufen von `close()` kann verhindern, dass Daten geschrieben werden. Aus diesem Grund ruft das Beispiel `defaultWriter.ready` zweimal auf.
-- Das {{jsxref("Promise")}}, das durch die `write()`-Methode des Sink zurückgegeben wird, teilt dem `WritableStream` und seinem Writer mit, wann `defaultWriter.ready` aufgelöst werden soll.
+- Die `highWaterMark`-Eigenschaft, die beim Erstellen der Zählstrategie mit `new CountQueuingStrategy` gesetzt wird, bestimmt die maximale Datenmenge, die die `WritableStream`-Instanz in einer einzigen `write()`-Operation handhaben wird. In diesem Beispiel ist es die maximale Datenmenge, die an `defaultWriter.write()` in der `sendMessage`-Funktion gesendet werden kann.
+- Die `defaultWriter.ready`-Eigenschaft gibt ein Promise zurück, das aufgelöst wird, wenn das Sink (die erste Eigenschaft des `WritableStream`-Konstruktors) mit dem Schreiben von Daten fertig ist. Die Datenquelle kann entweder mehr Daten mit `defaultWriter.write()` schreiben oder `defaultWriter.close()` aufrufen, wie im obigen Beispiel demonstriert. Ein zu frühes Aufrufen von `close()` kann verhindern, dass Daten geschrieben werden. Aus diesem Grund wird im Beispiel `defaultWriter.ready` zweimal aufgerufen.
+- Das {{jsxref("Promise")}}, das von der `write()`-Methode des Sink zurückgegeben wird, teilt dem `WritableStream` und seinem Writer mit, wann `defaultWriter.ready` aufgelöst werden soll.
 
 ## Spezifikationen
 
@@ -120,4 +120,4 @@ Aufgrund der Art und Weise, wie [Gegendruck](/de/docs/Web/API/Streams_API/Concep
 
 ## Siehe auch
 
-- [WHATWG Stream Visualizer](https://whatwg-stream-visualizer.glitch.me/), für eine grundlegende Visualisierung von lesbaren, schreibbaren und Transform-Streams.
+- [WHATWG Stream Visualizer](https://whatwg-stream-visualizer.glitch.me/), für eine grundlegende Visualisierung von lesbaren, schreibbaren und transformierbaren Streams.

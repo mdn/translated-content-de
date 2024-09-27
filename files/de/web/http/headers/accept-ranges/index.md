@@ -7,18 +7,18 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Accept-Ranges`** HTTP-Antwortheader ist ein Indikator, den der Server verwendet, um seine Unterstützung für teilweise Anfragen von der Clientseite bei Dateidownloads anzuzeigen. Der Wert dieses Feldes zeigt die Einheit an, die verwendet werden kann, um einen Bereich zu definieren.
+Der **`Accept-Ranges`** HTTP-Antwort-Header ist ein Marker, der vom Server verwendet wird, um seine Unterstützung für teilweise Anfragen vom Client für Dateidownloads zu bewerben. Der Wert dieses Feldes gibt die Einheit an, die zur Definition eines Bereichs verwendet werden kann.
 
-In Anwesenheit eines `Accept-Ranges`-Headers kann der Browser versuchen, einen unterbrochenen Download _fortzusetzen_, anstatt den Download von vorne zu starten.
+Bei Vorhandensein eines `Accept-Ranges`-Headers kann der Browser versuchen, einen unterbrochenen Download fortzusetzen, anstatt ihn neu zu starten.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>{{Glossary("Response header")}}</td>
+      <th scope="row">Header-Typ</th>
+      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -34,9 +34,9 @@ Accept-Ranges: none
 ## Direktiven
 
 - `<range-unit>`
-  - : Definiert die Range-Einheit, die der Server unterstützt. Obwohl `bytes` die einzige Range-Einheit ist, die formal durch {{RFC("7233")}} definiert wurde, können zusätzliche Range-Einheiten im [HTTP Range Unit Registry](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#range-units) registriert werden.
+  - : Definiert die Bereichseinheit, die der Server unterstützt. Obwohl `bytes` die einzige Bereichseinheit ist, die formal durch {{RFC("7233")}} definiert ist, können zusätzliche Bereichseinheiten im [HTTP Range Unit Registry](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#range-units) registriert werden.
 - `none`
-  - : Gibt an, dass keine Range-Einheit unterstützt wird. Dies macht den Header äquivalent zu seiner eigenen Abwesenheit und wird daher selten verwendet. In einigen Browsern, wie IE9, wird diese Einstellung jedoch verwendet, um die Pause-Tasten im Download-Manager zu deaktivieren oder zu entfernen.
+  - : Gibt an, dass keine Bereichseinheit unterstützt wird. Dies macht den Header äquivalent zu seiner eigenen Abwesenheit und wird daher selten verwendet. In einigen Browsern, wie IE9, wird diese Einstellung jedoch verwendet, um die Pausentasten im Download-Manager zu deaktivieren oder zu entfernen.
 
 ## Beispiele
 

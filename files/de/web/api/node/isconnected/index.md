@@ -1,5 +1,5 @@
 ---
-title: "Node: isConnected Eigenschaft"
+title: "Node: isConnected-Eigenschaft"
 short-title: isConnected
 slug: Web/API/Node/isConnected
 l10n:
@@ -8,39 +8,37 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`isConnected`** Eigenschaft der {{domxref("Node")}}-Schnittstelle
-gibt einen Boolean zurück, der angibt, ob der Knoten
-(direkt oder indirekt) mit einem {{domxref("Document")}}-Objekt verbunden ist.
+Die schreibgeschützte **`isConnected`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces
+gibt einen booleschen Wert zurück, der anzeigt, ob der Knoten direkt oder indirekt mit einem [`Document`](/de/docs/Web/API/Document)-Objekt verbunden ist.
 
 ## Wert
 
-Ein Boolean-Wert, der `true` ist, wenn der Knoten mit seinem relevanten Kontextobjekt verbunden ist,
-und `false`, wenn nicht.
+Ein boolescher Wert, der `true` ist, wenn der Knoten mit seinem relevanten Kontextobjekt verbunden ist, und `false`, wenn nicht.
 
 ## Beispiele
 
-### Standard-DOM
+### Standard DOM
 
-Ein Standard-DOM-Beispiel:
+Ein Beispiel für ein Standard-DOM:
 
 ```js
 let test = document.createElement("p");
-console.log(test.isConnected); // Gibt false zurück
+console.log(test.isConnected); // Returns false
 document.body.appendChild(test);
-console.log(test.isConnected); // Gibt true zurück
+console.log(test.isConnected); // Returns true
 ```
 
-### Shadow-DOM
+### Shadow DOM
 
-Ein Shadow-DOM-Beispiel:
+Ein Beispiel für ein Shadow-DOM:
 
 ```js
-// Erstellen Sie einen Shadow-Root
+// Create a shadow root
 const shadow = this.attachShadow({ mode: "open" });
 
-// Erstellen Sie einige CSS-Stile, die auf das Shadow DOM angewendet werden sollen
+// Create some CSS to apply to the shadow DOM
 const style = document.createElement("style");
-console.log(style.isConnected); // gibt false zurück
+console.log(style.isConnected); // returns false
 
 style.textContent = `
 .wrapper {
@@ -64,10 +62,10 @@ style.textContent = `
 }
 `;
 
-// Hängen Sie das erstellte Style-Element an das Shadow DOM an
+// Attach the created style element to the shadow DOM
 
 shadow.appendChild(style);
-console.log(style.isConnected); // Gibt true zurück
+console.log(style.isConnected); // Returns true
 ```
 
 ## Spezifikationen
@@ -80,4 +78,4 @@ console.log(style.isConnected); // Gibt true zurück
 
 ## Siehe auch
 
-- [Node.prototype.isConnected Polyfill](https://gist.github.com/eligrey/f109a6d0bf4efe3461201c3d7b745e8f)
+- [Node.prototype.isConnected polyfill](https://gist.github.com/eligrey/f109a6d0bf4efe3461201c3d7b745e8f)

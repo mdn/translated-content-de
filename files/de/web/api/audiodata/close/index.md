@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`close()`**-Methode der {{domxref("AudioData")}}-Schnittstelle löscht alle Zustände und gibt die Referenz zur Medienressource frei.
+Die **`close()`**-Methode des [`AudioData`](/de/docs/Web/API/AudioData)-Interfaces löscht alle Zustände und gibt die Referenz zur Medienressource frei.
 
 ## Syntax
 

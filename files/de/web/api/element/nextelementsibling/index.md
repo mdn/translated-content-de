@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`Element.nextElementSibling`**
-gibt das Element zurück, das direkt auf das angegebene Element in der Kinderliste des übergeordneten Elements folgt, oder `null`, wenn das angegebene Element das letzte in der Liste ist.
+Die schreibgeschützte **`Element.nextElementSibling`**-Eigenschaft gibt das Element im Elternelement unmittelbar nach dem angegebenen Element in der Liste der Kinder zurück oder `null`, wenn das angegebene Element das letzte in der Liste ist.
 
 ## Wert
 
-Ein {{domxref("Element")}}-Objekt oder `null`.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt oder `null`.
 
 ## Beispiele
 
@@ -31,7 +30,7 @@ Ein {{domxref("Element")}}-Objekt oder `null`.
 </script>
 ```
 
-Dieses Beispiel gibt bei der Ausführung Folgendes in der Konsole aus:
+Dieses Beispiel gibt beim Laden Folgendes in die Konsole aus:
 
 ```plain
 Siblings of div-01:
@@ -49,4 +48,4 @@ SCRIPT
 
 ## Siehe auch
 
-- {{domxref("Element.previousElementSibling")}}
+- [`Element.previousElementSibling`](/de/docs/Web/API/Element/previousElementSibling)

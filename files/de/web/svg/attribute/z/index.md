@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das **`z`**-Attribut definiert die Position entlang der z-Achse für eine Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut auf dem {{SVGElement("filter")}}-Element festgelegt wird, wobei angenommen wird, dass in dem ursprünglichen Koordinatensystem die positive z-Achse zur Person hin verläuft, die den Inhalt betrachtet, und dass eine Einheit entlang der z-Achse einer Einheit in x und y entspricht.
+Das **`z`**-Attribut definiert die Position entlang der z-Achse für eine Lichtquelle im Koordinatensystem, das durch das {{SVGAttr("primitiveUnits")}}-Attribut auf dem {{SVGElement("filter")}}-Element festgelegt wird, wobei angenommen wird, dass in dem anfänglichen Koordinatensystem die positive z-Achse in Richtung der Person, die den Inhalt betrachtet, herauskommt und dass eine Einheit entlang der z-Achse einer Einheit in x und y entspricht.
 
 ## Elemente
 
-Dieses Attribut kann mit den unten beschriebenen SVG-Elementen verwendet werden.
+Sie können dieses Attribut mit den unten beschriebenen SVG-Elementen verwenden.
 
 ### `<fePointLight>`
 

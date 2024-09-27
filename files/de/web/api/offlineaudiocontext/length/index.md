@@ -1,6 +1,6 @@
 ---
-title: "OfflineAudioContext: length-Eigenschaft"
-short-title: Länge
+title: "OfflineAudioContext: length Eigenschaft"
+short-title: length
 slug: Web/API/OfflineAudioContext/length
 l10n:
   sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
@@ -9,16 +9,16 @@ l10n:
 {{ APIRef("Web Audio API") }}
 
 Die **`length`**-Eigenschaft des
-{{domxref("OfflineAudioContext")}}-Interfaces gibt eine Ganzzahl zurück, die die Größe des Puffers in Sample-Frames darstellt.
+[`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)-Interfaces gibt eine Ganzzahl zurück, die die Größe des Puffers in Abtastrahmen darstellt.
 
 ## Wert
 
-Eine Ganzzahl, die die Größe des Puffers in Sample-Frames darstellt.
+Eine Ganzzahl, die die Größe des Puffers in Abtastrahmen darstellt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

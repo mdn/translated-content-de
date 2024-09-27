@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.isLockFree()`** wird verwendet, um zu bestimmen, ob die `Atomics`-Methoden Sperren oder atomare Hardwareoperationen verwenden, wenn sie auf typisierte Arrays mit der angegebenen Elementgröße in Bytes angewendet werden. Sie ist als Optimierungsprimitive gedacht, damit Hochleistungsalgorithmen bestimmen können, ob sie Sperren oder atomare Operationen in kritischen Abschnitten verwenden sollen. Wenn eine atomare Primitive nicht sperrfrei ist, ist es oft effizienter für einen Algorithmus, eigene Sperren bereitzustellen.
+Die statische Methode **`Atomics.isLockFree()`** wird verwendet, um festzustellen, ob die `Atomics`-Methoden Sperren oder atomare Hardware-Operationen anwenden, wenn sie auf typisierte Arrays mit der gegebenen Elementbytegröße angewendet werden. Sie ist als Optimierungsprimitive gedacht, sodass Hochleistungsalgorithmen feststellen können, ob in kritischen Abschnitten Sperren oder atomare Operationen verwendet werden sollten. Wenn eine atomare Primitive nicht sperrfrei ist, ist es oft effizienter, wenn ein Algorithmus seine eigene Sperrung bereitstellt.
 
 {{EmbedInteractiveExample("pages/js/atomics-islockfree.html")}}
 
@@ -20,28 +20,28 @@ Atomics.isLockFree(size)
 ### Parameter
 
 - `size`
-  - : Die Größe in Bytes, die überprüft werden soll.
+  - : Die zu prüfende Größe in Bytes.
 
 ### Rückgabewert
 
-Ein Wert `true` oder `false`, der angibt, ob die Operation sperrfrei ist.
+Ein `true`- oder `false`-Wert, der angibt, ob der Vorgang sperrfrei ist.
 
-- Immer `true`, wenn `size` 4 ist, da alle bekannten Plattformen 4-Byte-Atomoperationen unterstützen.
-- Immer `false`, wenn die angegebene Größe nicht eine der [`BYTES_PER_ELEMENT`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/BYTES_PER_ELEMENT) Eigenschaften der ganzzahligen Typ-Array-Typen ist.
+- Immer `true`, wenn `size` 4 ist, da alle bekannten Plattformen 4-Byte-atomare Operationen unterstützen.
+- Immer `false`, wenn die angegebene Größe nicht zu den [`BYTES_PER_ELEMENT`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/BYTES_PER_ELEMENT) Eigenschaften von ganzzahligen TypedArray-Typen gehört.
 
 ## Beispiele
 
 ### Verwendung von isLockFree
 
 ```js
-Atomics.isLockFree(1); // true (plattformabhängig)
-Atomics.isLockFree(2); // true (plattformabhängig)
+Atomics.isLockFree(1); // true (platform-dependent)
+Atomics.isLockFree(2); // true (platform-dependent)
 Atomics.isLockFree(3); // false
 Atomics.isLockFree(4); // true
 Atomics.isLockFree(5); // false
 Atomics.isLockFree(6); // false
 Atomics.isLockFree(7); // false
-Atomics.isLockFree(8); // true (plattformabhängig)
+Atomics.isLockFree(8); // true (platform-dependent)
 ```
 
 ## Spezifikationen

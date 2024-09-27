@@ -1,5 +1,5 @@
 ---
-title: "PerformanceNavigationTiming: Eigenschaft domContentLoadedEventStart"
+title: "PerformanceNavigationTiming: domContentLoadedEventStart Eigenschaft"
 short-title: domContentLoadedEventStart
 slug: Web/API/PerformanceNavigationTiming/domContentLoadedEventStart
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`domContentLoadedEventStart`** schreibgeschützte Eigenschaft gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die Zeit unmittelbar vor dem Beginn des [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignishandlers des aktuellen Dokuments darstellt.
+Die schreibgeschützte Eigenschaft **`domContentLoadedEventStart`** gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit unmittelbar vor dem Beginn des Event-Handlers [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) des aktuellen Dokuments darstellt.
 
-Typischerweise warten Frameworks und Bibliotheken auf das `DOMContentLoaded`-Ereignis, bevor sie ihren Code ausführen. Wir können die Eigenschaften `domContentLoadedEventStart` und [`domContentLoadedEventEnd`](/de/docs/Web/API/PerformanceNavigationTiming/domContentLoadedEventEnd) verwenden, um zu berechnen, wie lange es dauert, diesen Code auszuführen.
+Typischerweise warten Frameworks und Bibliotheken auf das `DOMContentLoaded`-Event, bevor sie ihren Code ausführen. Wir können die Eigenschaften `domContentLoadedEventStart` und [`domContentLoadedEventEnd`](/de/docs/Web/API/PerformanceNavigationTiming/domContentLoadedEventEnd) verwenden, um zu berechnen, wie lange dies dauert.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}, der die Zeit unmittelbar vor dem Beginn des [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignishandlers des aktuellen Dokuments darstellt.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit unmittelbar vor dem Beginn des Event-Handlers [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) des aktuellen Dokuments darstellt.
 
 ## Beispiele
 
-### Messung der Zeit des `DOMContentLoaded`-Ereignishandlers
+### Messung der Zeit des `DOMContentLoaded`-Event-Handlers
 
-Die `domContentLoadedEventStart`-Eigenschaft kann verwendet werden, um zu messen, wie lange es dauert, den [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignishandler zu verarbeiten.
+Die Eigenschaft `domContentLoadedEventStart` kann verwendet werden, um zu messen, wie lange die Verarbeitung des [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Event-Handlers dauert.
 
-Beispiel mit einem {{domxref("PerformanceObserver")}}, der über neue `navigation`-Performance-Einträge benachrichtigt, wie sie in der Performance-Zeitachse des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation` Performance-Einträge benachrichtigt, wenn diese in der Performance-Timeline des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden sind.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -38,7 +38,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "navigation", buffered: true });
 ```
 
-Beispiel mit {{domxref("Performance.getEntriesByType()")}}, das nur `navigation`-Performance-Einträge anzeigt, die in der Performance-Zeitachse des Browsers vorhanden sind, wenn Sie diese Methode aufrufen:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `navigation` Performance-Einträge zeigt, die zum Zeitpunkt des Methodenaufrufs in der Performance-Timeline des Browsers vorhanden sind:
 
 ```js
 const entries = performance.getEntriesByType("navigation");

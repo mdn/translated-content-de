@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Window Controls Overlay API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`titlebarAreaRect`** der {{domxref("WindowControlsOverlayGeometryChangeEvent")}}-Schnittstelle ist ein {{domxref("DOMRect")}}, das die Position und Größe des Bereichs darstellt, der von der Titelleiste in einer als Desktop installierten Progressive Web App eingenommen wird.
+Die schreibgeschützte Eigenschaft **`titlebarAreaRect`** des [`WindowControlsOverlayGeometryChangeEvent`](/de/docs/Web/API/WindowControlsOverlayGeometryChangeEvent)-Interfaces ist ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Position und Größe des Bereichs darstellt, der von der Titelleiste in einer desktopinstallierten Progressiven Web-App eingenommen wird.
 
 ## Spezifikationen
 

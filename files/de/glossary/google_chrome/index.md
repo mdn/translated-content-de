@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Google Chrome ist ein kostenloser Web-{{glossary("browser")}}, der von Google entwickelt wurde. Er basiert auf dem [Chromium](https://www.chromium.org/)-Open-Source-Projekt. Einige wichtige Unterschiede sind auf [BrowserStack](https://www.browserstack.com/guide/difference-between-chrome-and-chromium#toc5) beschrieben. Chrome unterstützt sein eigenes Layout namens {{glossary("Blink")}}. Beachten Sie, dass die iOS-Version von Chrome die WebView-Plattform und nicht Blink verwendet.
+Google Chrome ist ein kostenloser Web-[Browser](/de/docs/Glossary/browser), der von Google entwickelt wurde. Er basiert auf dem [Chromium](https://www.chromium.org/) Open-Source-Projekt. Einige wichtige Unterschiede werden auf [BrowserStack](https://www.browserstack.com/guide/difference-between-chrome-and-chromium#toc5) beschrieben. Chrome unterstützt sein eigenes Layout namens [Blink](/de/docs/Glossary/Blink). Beachten Sie, dass die iOS-Version von Chrome die WebView dieser Plattform verwendet, nicht Blink.
 
 ## Siehe auch
 
@@ -15,7 +15,7 @@ Google Chrome ist ein kostenloser Web-{{glossary("browser")}}, der von Google en
 
 ### Für Chrome-Nutzer
 
-Nutzen Sie einen dieser Links, wenn Sie ein täglicher Benutzer sind.
+Verwenden Sie einen dieser Links, wenn Sie ein täglicher Benutzer sind.
 
 - [Android](https://play.google.com/store/apps/details?id=com.android.chrome)
 - [iOS](https://apps.apple.com/us/app/google-chrome/id535886823)
@@ -23,7 +23,7 @@ Nutzen Sie einen dieser Links, wenn Sie ein täglicher Benutzer sind.
 
 ### Für Webentwickler
 
-Wenn Sie die neuesten Chrome-Funktionen ausprobieren möchten, installieren Sie eine der vorläufigen Builds. Google veröffentlicht häufig Updates und hat die Distributionen so gestaltet, dass sie parallel zur stabilen Version laufen. Besuchen Sie den [Chrome Releases Blog](https://chromereleases.googleblog.com/), um zu erfahren, was neu ist.
+Wenn Sie die neuesten Chrome-Funktionen ausprobieren möchten, installieren Sie eine der Vorabversionen. Google aktualisiert häufig und hat die Distributionen so konzipiert, dass sie parallel zur stabilen Version laufen können. Besuchen Sie den [Chrome Releases Blog](https://chromereleases.googleblog.com/), um zu erfahren, was es Neues gibt.
 
 - [Chrome Dev für Android](https://play.google.com/store/apps/details?id=com.chrome.dev)
-- [Chrome Canary für Desktop](https://www.google.com/chrome/canary/).
+- [Chrome Canary für den Desktop](https://www.google.com/chrome/canary/).

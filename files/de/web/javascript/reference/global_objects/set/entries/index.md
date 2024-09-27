@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`entries()`** Methode von {{jsxref("Set")}} Instanzen gibt ein neues _[Set-Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ Objekt zurück, das **ein Array von `[value, value]`** für jedes Element in diesem Set in Einfügereihenfolge enthält. Für `Set` Objekte gibt es keinen `key` wie bei `Map` Objekten. Um die API jedoch ähnlich zu dem `Map` Objekt zu halten, hat jeder _Eintrag_ hier denselben Wert für seinen _key_ und _value_, sodass ein Array `[value, value]` zurückgegeben wird.
+Die **`entries()`** Methode von {{jsxref("Set")}} Instanzen gibt ein neues _[Set-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das **ein Array aus `[value, value]`** für jedes Element in diesem Set in Einfügereihenfolge enthält. Für `Set`-Objekte gibt es keinen `key` wie bei `Map`-Objekten. Um die API jedoch ähnlich wie das `Map`-Objekt zu halten, hat in diesem Fall jeder _Eintrag_ denselben Wert für seinen _key_ und _value_, so dass ein Array `[value, value]` zurückgegeben wird.
 
 {{EmbedInteractiveExample("pages/js/set-prototype-entries.html")}}
 

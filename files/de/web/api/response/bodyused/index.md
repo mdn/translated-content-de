@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte **`bodyUsed`**-Eigenschaft der {{domxref("Response")}}-Schnittstelle ist ein boolescher Wert, der angibt, ob der Body bereits gelesen wurde.
+Die schreibgeschützte **`bodyUsed`**-Eigenschaft der [`Response`](/de/docs/Web/API/Response)-Schnittstelle ist ein boolescher Wert, der angibt, ob der Body bereits gelesen wurde.
 
 ## Wert
 
@@ -18,13 +18,13 @@ Ein boolescher Wert.
 
 ### Überprüfung von `bodyUsed`
 
-Dieses Beispiel zeigt, dass das Lesen des Körperinhalts einer Antwort den Wert von `bodyUsed` von `false` auf `true` ändert.
+Dieses Beispiel zeigt, dass das Lesen des Bodys einer Antwort den Wert von `bodyUsed` von `false` auf `true` ändert.
 
 Das Beispiel enthält ein leeres Bild.
 
-Wenn das JavaScript des Beispiels ausgeführt wird, laden wir ein Bild und weisen das zurückgegebene Versprechen einer Variablen `responsePromise` zu.
+Wenn das JavaScript des Beispiels ausgeführt wird, holen wir ein Bild und weisen das zurückgegebene Versprechen einer Variablen `responsePromise` zu.
 
-Wenn der Benutzer auf „Antwort verwenden“ klickt, prüfen wir, ob die Antwort bereits verwendet wurde. Wenn dies der Fall ist, geben wir eine Nachricht aus. Wenn nicht, lesen wir den Antwortkörper und verwenden ihn, um einen Wert für das `src`-Attribut des Bildes bereitzustellen.
+Wenn der Benutzer "Use response" klickt, überprüfen wir, ob die Antwort bereits verwendet wurde. Wenn ja, drucken wir eine Nachricht. Wenn nicht, lesen wir den Body der Antwort und verwenden ihn, um dem `src`-Attribut des Bildes einen Wert zuzuweisen.
 
 #### HTML
 
@@ -66,9 +66,9 @@ reset.addEventListener("click", () => {
 
 #### Ergebnis
 
-Anfangs gibt es keinen Wert für das Bild. Wenn Sie einmal auf „Antwort verwenden“ klicken, ist `bodyUsed` `false`, also lesen wir die Antwort und setzen das Bild. Wenn Sie dann erneut auf „Antwort verwenden“ klicken, ist `bodyUsed` `true`, und wir geben die Nachricht aus.
+Anfangs gibt es keinen Wert für das Bild. Wenn Sie einmal auf "Use response" klicken, ist `bodyUsed` `false`, also lesen wir die Antwort und setzen das Bild. Wenn Sie dann erneut auf "Use response" klicken, ist `bodyUsed` `true` und wir drucken die Nachricht.
 
-Klicken Sie auf „Zurücksetzen“, um das Beispiel neu zu laden, damit Sie es erneut versuchen können.
+Klicken Sie auf "Reset", um das Beispiel neu zu laden, damit Sie es erneut versuchen können.
 
 {{ EmbedLiveSample('Examples', '100%', '300px') }}
 
@@ -82,6 +82,6 @@ Klicken Sie auf „Zurücksetzen“, um das Beispiel neu zu laden, damit Sie es 
 
 ## Siehe auch
 
-- [Service Worker API](/de/docs/Web/API/Service_Worker_API)
+- [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
 - [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/CORS)
 - [HTTP](/de/docs/Web/HTTP)

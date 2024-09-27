@@ -1,6 +1,6 @@
 ---
-title: "CSSCounterStyleRule: Fallback-Eigenschaft"
-short-title: Fallback
+title: "CSSCounterStyleRule: fallback-Eigenschaft"
+short-title: fallback
 slug: Web/API/CSSCounterStyleRule/fallback
 l10n:
   sourceCommit: 59b1cd1f520971b89ccf521d53a1d9d3bf4c0756
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Counter Styles")}}
 
-Die **`fallback`**-Eigenschaft der {{domxref("CSSCounterStyleRule")}}-Schnittstelle ruft den Wert des {{cssxref("@counter-style/fallback","Fallback")}}-Deskriptors ab und setzt ihn. Wenn der Deskriptor keinen Wert hat, gibt dieses Attribut einen leeren String zurück.
+Die **`fallback`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle erhält und setzt den Wert des {{cssxref("@counter-style/fallback","fallback")}}-Deskriptors. Wenn das Deskriptor keinen Wert gesetzt hat, gibt dieses Attribut einen leeren String zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel, und das Zurückgeben von `fallback` liefert uns den Wert "disc".
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel, und das Abrufen von `fallback` gibt uns den Wert "disc" zurück.
 
 ```css
 @counter-style box-corner {

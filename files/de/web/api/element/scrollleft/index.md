@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.scrollLeft`**-Eigenschaft liest oder setzt die Anzahl der Pixel, um die der Inhalt eines Elements von seiner linken Kante verschoben ist. Dieser Wert ist in modernen Browsern subpixeltreu, was bedeutet, dass er nicht unbedingt eine ganze Zahl ist.
+Die **`Element.scrollLeft`**-Eigenschaft ermittelt oder setzt die Anzahl der Pixel, um die der Inhalt eines Elements von seinem linken Rand aus gescrollt wurde. Dieser Wert ist in modernen Browsern subpixelgenau, was bedeutet, dass es sich nicht unbedingt um eine Ganzzahl handelt.
 
 ## Wert
 
-Ein doppeltpräziser Gleitkommawert, der die Anzahl der Pixel angibt, um die das Element derzeit horizontal vom Ursprung verschoben ist, wobei ein positiver Wert bedeutet, dass das Element nach rechts verschoben ist (um mehr Inhalt auf der rechten Seite anzuzeigen). Wenn das Element überhaupt nicht nach links oder rechts verschoben ist, dann ist `scrollLeft` 0. Wenn das Dokument nicht das aktive Dokument ist, wird der Wert 0 zurückgegeben. Wenn das Dokument auf einem subpixeltreuen Gerät gerendert wird, ist der zurückgegebene Wert ebenfalls subpixeltreu und kann eine Dezimalkomponente enthalten.
+Ein Gleitkommawert mit doppelter Genauigkeit, der die Anzahl der Pixel angibt, um die das Element derzeit horizontal vom Ursprung aus gescrollt ist, wobei ein positiver Wert bedeutet, dass das Element nach rechts gescrollt wurde (um mehr Inhalt rechts zu zeigen). Wenn das Element überhaupt nicht nach links oder rechts gescrollt ist, beträgt `scrollLeft` 0. Wenn das Dokument nicht das aktive Dokument ist, beträgt der zurückgegebene Wert 0. Wenn das Dokument auf einem subpixelgenauen Gerät gerendert wird, ist der zurückgegebene Wert ebenfalls subpixelgenau und kann eine Dezimalkomponente enthalten.
 
-Es ist möglich, dass `scrollLeft` negativ ist, wenn das Element nach links vom ursprünglichen umgebenden Block verschoben werden kann. Zum Beispiel, wenn die {{cssxref("direction")}} des Elements `rtl` (rechts-nach-links) ist und der Inhalt nach links wächst, dann ist `scrollLeft` `0`, wenn die Scrollleiste an ihrer rechtesten Position ist (am Anfang des gescrollten Inhalts), und wird zunehmend negativ, wenn Sie zum Ende des Inhalts scrollen.
+Es ist möglich, dass `scrollLeft` negativ ist, wenn das Element von dem ursprünglich enthaltenden Block nach links gescrollt werden kann. Wenn beispielsweise die {{cssxref("direction")}} des Elements `rtl` (von rechts nach links) ist und der Inhalt nach links wächst, ist `scrollLeft` `0`, wenn die Bildlaufleiste an ihrer äußersten rechten Position ist (am Anfang des gescrollten Inhalts) und wird dann zunehmend negativ, während man sich dem Ende des Inhalts nähert.
 
-Safari reagiert auf Überscrollen, indem `scrollLeft` über die maximale Scrollposition hinaus aktualisiert wird (es sei denn, der Standard-"Bounce"-Effekt ist deaktiviert, z.B. durch Setzen von {{cssxref("overscroll-behavior")}} auf `none`), während Chrome und Firefox dies nicht tun.
+Safari reagiert auf das Überscrollen, indem `scrollLeft` über die maximale Scrollposition hinaus aktualisiert wird (es sei denn, der Standard-"Bounce"-Effekt ist deaktiviert, zum Beispiel durch Setzen von {{cssxref("overscroll-behavior")}} auf `none`), während Chrome und Firefox dies nicht tun.
 
-Die `scrollLeft`-Eigenschaft kann gesetzt werden, was dazu führt, dass das Element zur angegebenen horizontalen Position scrollt, auf die gleiche Weise wie bei Verwendung von {{domxref("Element.scroll()")}} mit `behavior: "auto"`.
+Die `scrollLeft`-Eigenschaft kann gesetzt werden, was dazu führt, dass das Element an die angegebene horizontale Position scrollt, in der gleichen Weise, wie wenn [`Element.scroll()`](/de/docs/Web/API/Element/scroll) mit `behavior: "auto"` verwendet wird.
 
 ## Beispiele
 
@@ -72,5 +72,5 @@ button.onclick = () => {
 
 ## Siehe auch
 
-- {{domxref("Element.scrollTop")}}
-- {{domxref("Element.scrollTo()")}}
+- [`Element.scrollTop`](/de/docs/Web/API/Element/scrollTop)
+- [`Element.scrollTo()`](/de/docs/Web/API/Element/scrollTo)

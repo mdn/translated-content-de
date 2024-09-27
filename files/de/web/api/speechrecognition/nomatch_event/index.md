@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`nomatch`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Spracherkennungsdienst ein endgültiges Ergebnis liefert, das keine signifikante Erkennung enthält.
+Das **`nomatch`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Spracherkennungsdienst ein endgültiges Ergebnis ohne signifikante Erkennung zurückgibt.
 
-Dies kann ein gewisses Maß an Erkennung umfassen, das den {{domxref("SpeechRecognitionAlternative.confidence","confidence")}}-Schwellenwert nicht erreicht oder überschreitet.
+Dies kann ein gewisses Maß an Erkennung umfassen, das jedoch nicht den [`confidence`](/de/docs/Web/API/SpeechRecognitionAlternative/confidence)-Schwellenwert erreicht oder überschreitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("nomatch", (event) => {});
@@ -24,22 +24,22 @@ onnomatch = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("SpeechRecognitionEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("SpeechRecognitionEvent")}}
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle, {{domxref("Event")}}, verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref("SpeechRecognitionEvent.emma")}} {{ReadOnlyInline}}
-  - : Gibt eine XML-Darstellung im Extensible MultiModal Annotation Markup Language (EMMA) Format des Ergebnisses zurück.
-- {{domxref("SpeechRecognitionEvent.interpretation")}} {{ReadOnlyInline}}
+- [`SpeechRecognitionEvent.emma`](/de/docs/Web/API/SpeechRecognitionEvent/emma) {{ReadOnlyInline}}
+  - : Gibt eine Extensible MultiModal Annotation Markup Language (EMMA) — XML — Darstellung des Ergebnisses zurück.
+- [`SpeechRecognitionEvent.interpretation`](/de/docs/Web/API/SpeechRecognitionEvent/interpretation) {{ReadOnlyInline}}
   - : Gibt die semantische Bedeutung dessen zurück, was der Benutzer gesagt hat.
-- {{domxref("SpeechRecognitionEvent.resultIndex")}} {{ReadOnlyInline}}
-  - : Gibt den niedrigsten Indexwert des Ergebnisses in der {{domxref("SpeechRecognitionResultList")}}-"Array" zurück, das tatsächlich geändert wurde.
-- {{domxref("SpeechRecognitionEvent.results")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("SpeechRecognitionResultList")}}-Objekt zurück, das alle Spracherkennungsergebnisse für die aktuelle Sitzung darstellt.
+- [`SpeechRecognitionEvent.resultIndex`](/de/docs/Web/API/SpeechRecognitionEvent/resultIndex) {{ReadOnlyInline}}
+  - : Gibt den niedrigsten Indexwert des Ergebnisses in dem "Array" von [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList) zurück, das tatsächlich geändert wurde.
+- [`SpeechRecognitionEvent.results`](/de/docs/Web/API/SpeechRecognitionEvent/results) {{ReadOnlyInline}}
+  - : Gibt ein [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Objekt zurück, das alle Spracherkennungsergebnisse für die aktuelle Sitzung darstellt.
 
 ## Beispiele
 
@@ -53,7 +53,7 @@ recognition.addEventListener("nomatch", () => {
 });
 ```
 
-Oder verwenden Sie die `onnomatch`-Ereignishandler-Eigenschaft:
+Oder verwenden Sie die `onnomatch`-Ereignishandlereigenschaft:
 
 ```js
 recognition.onnomatch = () => {

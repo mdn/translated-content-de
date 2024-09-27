@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Das **`PublicKeyCredential`**-Interface bietet Informationen über ein öffentliches/privates Schlüsselpaar, das als Anmeldedaten für einen Dienst dient, indem ein nicht-phishbares und Datenpannen-resistentes asymmetrisches Schlüsselpaar anstelle eines Passworts verwendet wird. Es erbt von {{domxref("Credential")}} und ist Teil der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API)-Erweiterung für die [Credential Management API](/de/docs/Web/API/Credential_Management_API).
+Das **`PublicKeyCredential`**-Interface bietet Informationen über ein öffentliches/privates Schlüsselpaar, das als Anmeldedaten für den Login bei einem Dienst dient, indem es ein un-phishingbares und datenschutzverletzungsresistentes asymmetrisches Schlüsselpaar anstelle eines Passworts verwendet. Es erbt von [`Credential`](/de/docs/Web/API/Credential) und ist Teil der Erweiterung der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) zur [Credential Management API](/de/docs/Web/API/Credential_Management_API).
 
 {{InheritanceDiagram}}
 
@@ -16,50 +16,50 @@ Das **`PublicKeyCredential`**-Interface bietet Informationen über ein öffentli
 
 ## Instanz-Eigenschaften
 
-- {{domxref("PublicKeyCredential.authenticatorAttachment")}} {{ReadOnlyInline}}
+- [`PublicKeyCredential.authenticatorAttachment`](/de/docs/Web/API/PublicKeyCredential/authenticatorAttachment) {{ReadOnlyInline}}
 
-  - : Ein String, der den Mechanismus angibt, über den die WebAuthn-Implementierung zum Zeitpunkt des Abschlusses des zugehörigen Aufrufs von {{domxref("CredentialsContainer.create()","navigator.credentials.create()")}} oder {{domxref("CredentialsContainer.get()","navigator.credentials.get()")}} an den Authenticator gebunden ist.
+  - : Ein String, der den Mechanismus angibt, über den die WebAuthn-Implementierung zum Zeitpunkt des Abschlusses der zugehörigen [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) oder [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) Aufrufs mit dem Authentifikator verbunden ist.
 
-- {{domxref("PublicKeyCredential.id")}} {{ReadOnlyInline}}
+- [`PublicKeyCredential.id`](/de/docs/Web/API/PublicKeyCredential/id) {{ReadOnlyInline}}
 
-  - : Geerbt von {{domxref("Credential")}} und überschrieben, um die [base64url Codierung](/de/docs/Glossary/Base64) von {{domxref("PublicKeyCredential.rawId")}} zu sein.
+  - : Geerbt von [`Credential`](/de/docs/Web/API/Credential) und überschrieben, um das [base64url-Encoding](/de/docs/Glossary/Base64) von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId) zu sein.
 
-- {{domxref("PublicKeyCredential.rawId")}} {{ReadOnlyInline}}
-  - : Ein {{jsxref("ArrayBuffer")}}, der die global eindeutige Kennung für dieses `PublicKeyCredential` enthält. Diese Kennung kann verwendet werden, um Anmeldedaten für zukünftige Aufrufe von {{domxref("CredentialsContainer.get()","navigator.credentials.get()")}} nachzuschlagen.
-- {{domxref("PublicKeyCredential.response")}} {{ReadOnlyInline}}
-  - : Eine Instanz eines {{domxref("AuthenticatorResponse")}}-Objekts. Es ist entweder vom Typ {{domxref("AuthenticatorAttestationResponse")}}, wenn das `PublicKeyCredential` das Ergebnis eines Aufrufs von {{domxref("CredentialsContainer.create()","navigator.credentials.create()")}} war, oder vom Typ {{domxref("AuthenticatorAssertionResponse")}}, wenn das `PublicKeyCredential` das Ergebnis eines Aufrufs von {{domxref("CredentialsContainer.get()","navigator.credentials.get()")}} war.
+- [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId) {{ReadOnlyInline}}
+  - : Ein {{jsxref("ArrayBuffer")}}, das die global eindeutige Kennung für dieses `PublicKeyCredential` enthält. Diese Kennung kann verwendet werden, um Anmeldeinformationen für zukünftige Aufrufe von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) abzurufen.
+- [`PublicKeyCredential.response`](/de/docs/Web/API/PublicKeyCredential/response) {{ReadOnlyInline}}
+  - : Eine Instanz eines [`AuthenticatorResponse`](/de/docs/Web/API/AuthenticatorResponse)-Objekts. Es ist entweder vom Typ [`AuthenticatorAttestationResponse`](/de/docs/Web/API/AuthenticatorAttestationResponse), wenn das `PublicKeyCredential` das Ergebnis eines [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create)-Aufrufs war, oder vom Typ [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse), wenn das `PublicKeyCredential` das Ergebnis eines [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)-Aufrufs war.
 - `PublicKeyCredential.type` {{ReadOnlyInline}}
-  - : Geerbt von {{domxref("Credential")}}. Immer auf `public-key` für `PublicKeyCredential`-Instanzen gesetzt.
+  - : Geerbt von [`Credential`](/de/docs/Web/API/Credential). Immer auf `public-key` für `PublicKeyCredential`-Instanzen gesetzt.
 
 ## Statische Methoden
 
-- {{domxref("PublicKeyCredential.isConditionalMediationAvailable_static", "PublicKeyCredential.isConditionalMediationAvailable()")}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das sich zu `true` auflöst, wenn bedingte Vermittlung verfügbar ist.
-- {{domxref("PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable_static", "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()")}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das sich zu `true` auflöst, wenn ein an die Plattform gebundener Authenticator in der Lage ist, den Benutzer zu _verifizieren_.
-- {{domxref("PublicKeyCredential.parseCreationOptionsFromJSON_static", "PublicKeyCredential.parseCreationOptionsFromJSON()")}}
-  - : Komfortmethode zur Deserialisierung von serverseitig gesendeten Registrierungsdaten beim [Registrieren eines Benutzers mit Anmeldedaten](/de/docs/Web/API/Web_Authentication_API#creating_a_key_pair_and_registering_a_user).
-- {{domxref("PublicKeyCredential.parseRequestOptionsFromJSON_static", "PublicKeyCredential.parseRequestOptionsFromJSON()")}}
-  - : Komfortmethode zur Deserialisierung von serverseitig gesendeten Anforderungsdaten bei der [Authentifizierung eines (registrierten) Benutzers](/de/docs/Web/API/Web_Authentication_API#authenticating_a_user).
+- [`PublicKeyCredential.isConditionalMediationAvailable()`](/de/docs/Web/API/PublicKeyCredential/isConditionalMediationAvailable_static)
+  - : Gibt ein {{jsxref("Promise")}} zurück, das sich auf `true` auflöst, wenn eine bedingte Mediation verfügbar ist.
+- [`PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()`](/de/docs/Web/API/PublicKeyCredential/isUserVerifyingPlatformAuthenticatorAvailable_static)
+  - : Gibt ein {{jsxref("Promise")}} zurück, das sich auf `true` auflöst, wenn ein an die Plattform gebundener Authentifikator in der Lage ist, den Benutzer zu _verifizieren_.
+- [`PublicKeyCredential.parseCreationOptionsFromJSON()`](/de/docs/Web/API/PublicKeyCredential/parseCreationOptionsFromJSON_static)
+  - : Komfortmethode zum Deserialisieren von serverseitig gesendeten Anmeldedatenregistrierungsdaten bei der [Registrierung eines Benutzers mit Anmeldedaten](/de/docs/Web/API/Web_Authentication_API#creating_a_key_pair_and_registering_a_user).
+- [`PublicKeyCredential.parseRequestOptionsFromJSON()`](/de/docs/Web/API/PublicKeyCredential/parseRequestOptionsFromJSON_static)
+  - : Komfortmethode zum Deserialisieren von serverseitig gesendeten Anmeldeanforderungsdaten beim [Authentifizieren eines (registrierten) Benutzers](/de/docs/Web/API/Web_Authentication_API#authenticating_a_user).
 
 ## Instanz-Methoden
 
-- {{domxref("PublicKeyCredential.getClientExtensionResults()")}}
+- [`PublicKeyCredential.getClientExtensionResults()`](/de/docs/Web/API/PublicKeyCredential/getClientExtensionResults)
   - : Wenn Erweiterungen angefordert wurden, gibt diese Methode die Ergebnisse der Verarbeitung dieser Erweiterungen zurück.
-- {{domxref("PublicKeyCredential.toJSON()")}}
-  - : Komfortmethode zur Erstellung einer JSON-String-Darstellung eines `PublicKeyCredential` zum Senden an den Server, wenn [ein Benutzer mit Anmeldedaten registriert](/de/docs/Web/API/Web_Authentication_API#creating_a_key_pair_and_registering_a_user) und [ein registrierter Benutzer authentifiziert wird](/de/docs/Web/API/Web_Authentication_API#authenticating_a_user).
+- [`PublicKeyCredential.toJSON()`](/de/docs/Web/API/PublicKeyCredential/toJSON)
+  - : Komfortmethode zum Erstellen einer JSON-String-Repräsentation eines `PublicKeyCredential` zum Senden an den Server bei der [Registrierung eines Benutzers mit Anmeldedaten](/de/docs/Web/API/Web_Authentication_API#creating_a_key_pair_and_registering_a_user) und [Authentifizierung eines registrierten Benutzers](/de/docs/Web/API/Web_Authentication_API#authenticating_a_user).
 
 ## Beispiele
 
 ### Erstellen einer neuen Instanz von PublicKeyCredential
 
-Hier verwenden wir {{domxref("CredentialsContainer.create()","navigator.credentials.create()")}}, um ein neues Anmeldedaten zu generieren.
+Hier verwenden wir [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create), um eine neue Anmeldedaten zu generieren.
 
 ```js
 const createCredentialOptions = {
   publicKey: {
     challenge: new Uint8Array([
-      21, 31, 105 /* 29 weitere zufällige Bytes, die vom Server generiert werden */,
+      21, 31, 105 /* 29 more random bytes generated by the server */,
     ]),
     rp: {
       name: "Example CORP",
@@ -93,13 +93,13 @@ navigator.credentials
 
 ### Abrufen einer vorhandenen Instanz von PublicKeyCredential
 
-Hier holen wir mit {{domxref("CredentialsContainer.get()","navigator.credentials.get()")}} ein vorhandenes Anmeldedatum von einem Authenticator ab.
+Hier holen wir eine vorhandene Anmeldedaten von einem Authentifikator ab, indem wir [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) verwenden.
 
 ```js
 const requestCredentialOptions = {
   publicKey: {
     challenge: new Uint8Array([
-      /* vom Server gesendete Bytes */
+      /* bytes sent from the server */
     ]),
   },
 };
@@ -107,8 +107,8 @@ const requestCredentialOptions = {
 navigator.credentials
   .get(requestCredentialOptions)
   .then((credentialInfoAssertion) => {
-    // sendet die Bestätigungsantwort zurück an den Server
-    // um die Kontrolle des Anmeldedatums fortzusetzen
+    // send assertion response back to the server
+    // to proceed with the control of the credential
   })
   .catch((err) => {
     console.error(err);
@@ -125,4 +125,4 @@ navigator.credentials
 
 ## Siehe auch
 
-- Das übergeordnete Interface {{domxref("Credential")}}
+- Das übergeordnete Interface [`Credential`](/de/docs/Web/API/Credential)

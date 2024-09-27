@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Die **`import.meta`** Meta-Eigenschaft stellt modulspezifische Metadaten in einem JavaScript-Modul bereit. Sie enthält Informationen über das Modul, wie zum Beispiel die URL des Moduls.
+Der **`import.meta`** Meta-Eigenschaftsoperator stellt modulspezifische Metadaten für ein JavaScript-Modul bereit. Er enthält Informationen über das Modul, wie zum Beispiel die URL des Moduls.
 
 ## Syntax
 
@@ -17,24 +17,24 @@ import.meta
 
 ### Wert
 
-Das `import.meta`-Objekt wird von der Hostumgebung erstellt, als ein erweiterbares [`Null-Prototyp`-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects), bei dem alle Eigenschaften beschreibbar, konfigurierbar und aufzählbar sind. Die Spezifikation definiert keine spezifischen Eigenschaften, aber Hosts implementieren normalerweise die folgenden Eigenschaften:
+Das `import.meta`-Objekt wird von der Host-Umgebung als ein erweiterbares [`null`-Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) Objekt erstellt, bei dem alle Eigenschaften beschreibbar, konfigurierbar und aufzählbar sind. Die Spezifikation gibt keine Eigenschaften vor, die darauf definiert werden sollen, aber Hosts implementieren normalerweise die folgenden Eigenschaften:
 
 - `url`
-  - : Die vollständige URL zum Modul, einschließlich Abfrageparametern und/oder Fragmenten (nach dem `?` oder `#`). In Browsern ist dies entweder die URL, von der das Skript abgerufen wurde (für externe Skripte), oder die URL des enthaltenden Dokuments (für eingebettete Skripte). In Node.js ist dies der Dateipfad (einschließlich des `file://` Protokolls).
+  - : Die vollständige URL zum Modul, einschließlich Abfrageparametern und/oder Hash (nach dem `?` oder `#`). In Browsern ist dies entweder die URL, von der das Skript bezogen wurde (für externe Skripte), oder die URL des enthaltenen Dokuments (für Inline-Skripte). In Node.js ist dies der Dateipfad (einschließlich des `file://` Protokolls).
 - [`resolve`](/de/docs/Web/JavaScript/Reference/Operators/import.meta/resolve)
-  - : Löst einen Modulspezifizierer zu einer URL unter Verwendung der aktuellen Modul-URL als Basis auf.
+  - : Löst einen Modulbezeichner zu einer URL auf, wobei die URL des aktuellen Moduls als Basis verwendet wird.
 
 ## Beschreibung
 
-Die `import.meta`-Syntax besteht aus dem Schlüsselwort `import`, einem Punkt und dem Bezeichner `meta`. Da `import` ein [reserviertes Wort](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) ist und kein Bezeichner, ist dies kein [Eigenschafts-Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors), sondern eine spezielle Ausdruckssyntax.
+Die `import.meta`-Syntax besteht aus dem Schlüsselwort `import`, einem Punkt und dem Bezeichner `meta`. Da `import` ein [reserviertes Wort](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) ist, kein Bezeichner, ist dies kein [Eigenschafts-Accessor](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors), sondern eine spezielle Ausdruckssyntax.
 
-Die `import.meta` Meta-Eigenschaft ist in JavaScript-Modulen verfügbar; die Verwendung von `import.meta` außerhalb eines Moduls (einschließlich [direktes `eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#direct_and_indirect_eval) innerhalb eines Moduls) führt zu einem Syntaxfehler.
+Die `import.meta` Meta-Eigenschaft ist in JavaScript-Modulen verfügbar; die Verwendung von `import.meta` außerhalb eines Moduls (einschließlich der [direkten `eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#direct_and_indirect_eval) innerhalb eines Moduls) ist ein Syntaxfehler.
 
 ## Beispiele
 
-### Abfrageparameter übergeben
+### Übergeben von Abfrageparametern
 
-Die Verwendung von Abfrageparametern im `import` Spezifizierer ermöglicht die modulspezifische Argumentübergabe, die eine Ergänzung zum Lesen von Parametern aus der anwendungsweiten [`window.location`](/de/docs/Web/API/Window/location) (oder in Node.js über `process.argv`) sein kann. Zum Beispiel mit dem folgenden HTML:
+Die Verwendung von Abfrageparametern im `import`-Bezeichner ermöglicht das spezifische Übergeben von Argumenten für das Modul, was ergänzend dazu sein kann, Parameter aus dem anwendungsweiten [`window.location`](/de/docs/Web/API/Window/location) (oder in Node.js durch `process.argv`) zu lesen. Zum Beispiel mit dem folgenden HTML:
 
 ```html
 <script type="module">
@@ -42,14 +42,14 @@ Die Verwendung von Abfrageparametern im `import` Spezifizierer ermöglicht die m
 </script>
 ```
 
-Das Modul `index.mjs` kann den Parameter `someURLInfo` über `import.meta` abrufen:
+Das `index.mjs` Modul kann den `someURLInfo` Parameter durch `import.meta` abrufen:
 
 ```js
 // index.mjs
 new URL(import.meta.url).searchParams.get("someURLInfo"); // 5
 ```
 
-Das Gleiche gilt, wenn ein Modul ein anderes importiert:
+Dasselbe gilt, wenn ein Modul ein anderes importiert:
 
 ```js
 // index.mjs
@@ -59,11 +59,11 @@ import "./index2.mjs?someURLInfo=5";
 new URL(import.meta.url).searchParams.get("someURLInfo"); // 5
 ```
 
-Die ES-Modul-Implementierung in Node.js unterstützt die Auflösung von Modulspezifizierern, die Abfrageparameter (oder das Fragment) enthalten, wie im letztgenannten Beispiel. Sie können jedoch keine Abfragen oder Fragmente verwenden, wenn das Modul über den CLI-Befehl angegeben wird (wie `node index.mjs?someURLInfo=5`), da der CLI-Einstiegspunkt einen eher CommonJS-ähnlichen Auflösungsmodus verwendet und den Pfad als Dateipfad statt als URL behandelt. Um Parameter an das Einstiegspunktmodul zu übergeben, verwenden Sie CLI-Argumente und lesen Sie sie über `process.argv` aus (wie `node index.mjs --someURLInfo=5`).
+Die ES-Modulimplementierung in Node.js unterstützt das Auflösen von Modulbezeichnern, die Abfrageparameter (oder den Hash) enthalten, wie im letztgenannten Beispiel. Sie können jedoch keine Abfragen oder Hashs verwenden, wenn das Modul durch den CLI-Befehl spezifiziert wird (wie `node index.mjs?someURLInfo=5`), da der CLI-Einstiegspunkt einen eher CommonJS-ähnlichen Auflösungsmodus verwendet und den Pfad als Dateipfad anstatt als URL behandelt. Um Parameter an das Einstiegspunkt-Modul zu übergeben, verwenden Sie stattdessen CLI-Argumente und lesen diese durch `process.argv` (wie `node index.mjs --someURLInfo=5`).
 
-### Eine Datei relativ zur aktuellen auflösen
+### Auflösung einer Datei relativ zur aktuellen Datei
 
-In Node.js CommonJS-Modulen gibt es eine `__dirname`-Variable, die den absoluten Pfad zum Ordner des aktuellen Moduls enthält, was nützlich ist, um relative Pfade aufzulösen. ES-Module können jedoch keine kontextbezogenen Variablen außer `import.meta` haben. Daher können Sie `import.meta.url` verwenden, um eine relative Datei aufzulösen. Beachten Sie, dass hierbei URLs anstelle von Dateisystempfaden verwendet werden.
+In Node.js CommonJS-Modulen gibt es eine `__dirname` Variable, die den absoluten Pfad zum Ordner enthält, der das aktuelle Modul enthält, was nützlich ist, um relative Pfade aufzulösen. Allerdings können ES-Module außer `import.meta` keine kontextuellen Variablen haben. Daher können Sie zur Auflösung einer relativen Datei `import.meta.url` verwenden. Beachten Sie, dass hierbei URLs anstelle von Dateisystempfaden verwendet werden.
 
 Vorher (CommonJS):
 

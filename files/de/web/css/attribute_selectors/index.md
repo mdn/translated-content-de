@@ -7,31 +7,31 @@ l10n:
 
 {{CSSRef}}
 
-Der CSS-**Attributselektor** wählt Elemente aus, basierend darauf, dass das Element ein bestimmtes Attribut explizit gesetzt hat, mit Optionen zur Definition eines Attributwerts oder eines Teilstringwertabgleichs.
+Der CSS-**Attributselektor** stimmt mit Elementen überein, basierend darauf, dass das Element ein bestimmtes Attribut explizit gesetzt hat, mit Optionen zur Definition eines Attributwertes oder einer Teilzeichenfolgen-Übereinstimmung.
 
 ```css
-/* <a>-Elemente mit einem title-Attribut */
+/* <a> elements with a title attribute */
 a[title] {
   color: purple;
 }
 
-/* <a>-Elemente mit einem href, das "https://example.org" entspricht */
+/* <a> elements with an href matching "https://example.org" */
 a[href="https://example.org"]
 {
   color: green;
 }
 
-/* <a>-Elemente mit einem href, das "example" enthält */
+/* <a> elements with an href containing "example" */
 a[href*="example"] {
   font-size: 2em;
 }
 
-/* <a>-Elemente mit einem href, das auf ".org" endet, Groß-/Kleinschreibung ignorierend */
+/* <a> elements with an href ending ".org", case-insensitive */
 a[href$=".org" i] {
   font-style: italic;
 }
 
-/* <a>-Elemente, deren class-Attribut das Wort "logo" enthält */
+/* <a> elements whose class attribute contains the word "logo" */
 a[class~="logo"] {
   padding: 2px;
 }
@@ -42,36 +42,36 @@ a[class~="logo"] {
 - `[attr]`
   - : Repräsentiert Elemente mit einem Attributnamen von _attr_.
 - `[attr=value]`
-  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert exakt _value_ ist.
+  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert genau _value_ ist.
 - `[attr~=value]`
-  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert eine leerzeichengetrennte Liste von Wörtern ist, von denen eines genau _value_ ist.
+  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert eine durch Leerzeichen getrennte Liste von Wörtern ist, von denen eines genau _value_ ist.
 - `[attr|=value]`
-  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert genau _value_ sein kann oder mit _value_ beginnt, gefolgt von einem Bindestrich, `-` (U+002D). Es wird oft für Sprachuntercode-Abgleiche verwendet.
+  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert genau _value_ sein kann oder mit _value_ beginnt, unmittelbar gefolgt von einem Bindestrich `-` (U+002D). Es wird oft für Sprachuntercode-Übereinstimmungen verwendet.
 - `[attr^=value]`
-  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert mit _value_ beginnt.
+  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert mit _value_ beginnt (Präfix).
 - `[attr$=value]`
-  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert mit _value_ endet.
+  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert mit _value_ endet (Suffix).
 - `[attr*=value]`
-  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert mindestens ein Vorkommen von _value_ innerhalb der Zeichenkette enthält.
+  - : Repräsentiert Elemente mit einem Attributnamen von _attr_, dessen Wert mindestens einmal _value_ innerhalb der Zeichenfolge enthält.
 - `[attr operator value i]`
-  - : Das Hinzufügen eines `i` (oder `I`) vor der schließenden Klammer führt dazu, dass der Wert ohne Berücksichtigung der Groß- und Kleinschreibung verglichen wird (für Zeichen im {{Glossary("ASCII")}}-Bereich).
+  - : Das Hinzufügen eines `i` (oder `I`) vor der schließenden Klammer bewirkt, dass der Wert ohne Berücksichtigung der Groß-/Kleinschreibung verglichen wird (für Zeichen innerhalb des [ASCII](/de/docs/Glossary/ASCII)-Bereichs).
 - `[attr operator value s]`
-  - : Das Hinzufügen eines `s` (oder `S`) vor der schließenden Klammer führt dazu, dass der Wert mit Groß-/Kleinschreibung verglichen wird (für Zeichen im {{Glossary("ASCII")}}-Bereich).
+  - : Das Hinzufügen eines `s` (oder `S`) vor der schließenden Klammer bewirkt, dass der Wert unter Berücksichtigung der Groß-/Kleinschreibung verglichen wird (für Zeichen innerhalb des [ASCII](/de/docs/Glossary/ASCII)-Bereichs).
 
 ### Werte
 
 - `<attr>`
-  - : Ein {{cssxref("ident")}}, also der unzitierte Name des Attributs. Dies kann jedes gültige, sprachspezifische Attribut sein (SVG, HTML, XML, usw.), ein [`data-*`-Attribut](/de/docs/Web/HTML/Global_attributes/data-*), oder ein vom Autor erstelltes Attribut.
+  - : Ein {{cssxref("ident")}}, das ist der nicht zitierte Name des Attributs. Dies kann ein gültiges sprachspezifisches Attribut sein (SVG, HTML, XML, etc.), ein [`data-*`-Attribut](/de/docs/Web/HTML/Global_attributes/data-*), oder ein vom Autor erstelltes Attribut.
 - `<value>`
-  - : Ein {{cssxref("ident")}} oder {{cssxref("string")}}, das den Attributwert darstellt. Der Wert muss in Anführungszeichen gesetzt werden, wenn er Leerzeichen oder Sonderzeichen enthält.
+  - : Ein {{cssxref("ident")}} oder {{cssxref("string")}}, der den Attributwert darstellt. Der Wert muss zitiert werden, wenn er Leerzeichen oder Sonderzeichen enthält.
 - `s` oder `i`
-  - : Flag zur Groß-/Kleinschreibungsempfindlichkeit oder -unanfälligkeit. Wenn es vor der schließenden Klammer (`]`) enthalten ist, macht es den Wert groß-/kleinschreibungsempfindlich oder -unanfällig, unabhängig von der Markupsprache.
+  - : Groß-/Kleinschreibungssensitivitäts- oder Insensitivitätsflag. Wenn vor der schließenden Klammer (`]`) enthalten, macht es den Wert groß-/kleinschreibungssensitiv oder -insensitiv, unabhängig von der Auszeichnungssprache.
 
 ## Beschreibung
 
-Die Groß-/Kleinschreibungsempfindlichkeit von Attributnamen und -werten hängt von der Dokumentensprache ab. In HTML sind Attributnamen groß-/kleinschreibungsempfindlich, ebenso wie in der Spezifikation definierte {{glossary("enumerated")}} Werte. Die [HTML-Attributwerte ohne Berücksichtigung der Groß-/Kleinschreibung](https://html.spec.whatwg.org/multipage/semantics-other.html#case-sensitivity-of-selectors) sind in der HTML-Spezifikation aufgeführt. Für diese Attribute ist der Attributwert im Selektor groß-/kleinschreibungsempfindlich, unabhängig davon, ob der Wert ungültig ist oder das Attribut für das Element, zu dem es gehört, ungültig ist.
+Die Groß-/Kleinschreibungsempfindlichkeit von Attributnamen und -werten hängt von der Dokumentsprache ab. In HTML sind Attributnamen nicht groß-/kleinschreibungssensitiv, ebenso wie spezifizierte [enumerierte](/de/docs/Glossary/enumerated) Werte. Die [groß-/kleinschreibungssensitiven HTML-Attributwerte](https://html.spec.whatwg.org/multipage/semantics-other.html#case-sensitivity-of-selectors) sind in der HTML-Spezifikation aufgelistet. Für diese Attribute ist der Attributwert im Selektor nicht groß-/kleinschreibungssensitiv, unabhängig davon, ob der Wert ungültig ist oder das Attribut für das Element, auf dem es gesetzt ist, ungültig ist.
 
-Wenn der Attributwert groß-/kleinschreibungsempfindlich ist, wie die Attribute [`class`](/de/docs/Web/HTML/Global_attributes/class), [`id`](/de/docs/Web/HTML/Global_attributes/id) und [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*), ist der Attributselektor-Wertvergleich groß-/kleinschreibungsempfindlich. Attribute, die außerhalb der HTML-Spezifikation definiert sind, wie [`role`](/de/docs/Web/Accessibility/ARIA/Roles) und [`aria-*`](/de/docs/Web/Accessibility/ARIA/Attributes) Attribute, sind ebenfalls groß-/kleinschreibungsempfindlich. Groß-/kleinschreibungsempfindliche Attributselektoren können mit der Hinzufügung des groß-/kleinschreibungunanfälligen Modifikators (`i`) groß-/kleinschreibungunanfällig gemacht werden.
+Wenn der Attributwert groß-/kleinschreibungssensitiv ist, wie bei den Attributen [`class`](/de/docs/Web/HTML/Global_attributes/class), [`id`](/de/docs/Web/HTML/Global_attributes/id) und [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*), ist die Attributselektor-Wertübereinstimmung groß-/kleinschreibungssensitiv. Attribute, die außerhalb der HTML-Spezifikation definiert sind, wie [`role`](/de/docs/Web/Accessibility/ARIA/Roles) und [`aria-*`](/de/docs/Web/Accessibility/ARIA/Attributes) Attribute, sind ebenfalls groß-/kleinschreibungssensitiv. Groß-/kleinschreibungssensitive Attributselektoren können durch Einfügen des groß-/kleinschreibungsinsensitiven Modifikators (`i`) groß-/kleinschreibungsinsensitiv gemacht werden.
 
 ## Beispiele
 
@@ -84,34 +84,34 @@ a {
   color: blue;
 }
 
-/* Interne Links, beginnend mit "#" */
+/* Internal links, beginning with "#" */
 a[href^="#"] {
   background-color: gold;
 }
 
-/* Links mit "example" irgendwo in der URL */
+/* Links with "example" anywhere in the URL */
 a[href*="example"] {
   background-color: silver;
 }
 
-/* Links mit "insensitive" irgendwo in der URL,
-   unabhängig von der Groß-/Kleinschreibung */
+/* Links with "insensitive" anywhere in the URL,
+   regardless of capitalization */
 a[href*="insensitive" i] {
   color: cyan;
 }
 
-/* Links mit "cAsE" irgendwo in der URL,
-mit entsprechender Groß-/Kleinschreibung */
+/* Links with "cAsE" anywhere in the URL,
+with matching capitalization */
 a[href*="cAsE" s] {
   color: pink;
 }
 
-/* Links, die mit ".org" enden */
+/* Links that end in ".org" */
 a[href$=".org"] {
   color: red;
 }
 
-/* Links, die mit "https://" beginnen und mit ".org" enden */
+/* Links that start with "https://" and end in ".org" */
 a[href^="https://"][href$=".org"]
 {
   color: green;
@@ -122,11 +122,11 @@ a[href^="https://"][href$=".org"]
 
 ```html
 <ul>
-  <li><a href="#internal">Interner Link</a></li>
-  <li><a href="http://example.com">Beispiel-Link</a></li>
-  <li><a href="#InSensitive">Unempfindlicher interner Link</a></li>
-  <li><a href="http://example.org">Beispiel-org-Link</a></li>
-  <li><a href="https://example.org">Beispiel-https-org-Link</a></li>
+  <li><a href="#internal">Internal link</a></li>
+  <li><a href="http://example.com">Example link</a></li>
+  <li><a href="#InSensitive">Insensitive internal link</a></li>
+  <li><a href="http://example.org">Example org link</a></li>
+  <li><a href="https://example.org">Example https org link</a></li>
 </ul>
 ```
 
@@ -139,36 +139,36 @@ a[href^="https://"][href$=".org"]
 #### CSS
 
 ```css
-/* Alle <div>s mit einem `lang`-Attribut sind fett. */
+/* All divs with a `lang` attribute are bold. */
 div[lang] {
   font-weight: bold;
 }
 
-/* Alle <div>s ohne ein `lang`-Attribut sind kursiv. */
+/* All divs without a `lang` attribute are italicized. */
 div:not([lang]) {
   font-style: italic;
 }
 
-/* Alle <div>s in US-Englisch sind blau. */
+/* All divs in US English are blue. */
 div[lang~="en-us"] {
   color: blue;
 }
 
-/* Alle <div>s in Portugiesisch sind grün. */
+/* All divs in Portuguese are green. */
 div[lang="pt"] {
   color: green;
 }
 
-/* Alle <div>s in Chinesisch sind rot, egal ob
-   vereinfacht (zh-Hans-CN) oder traditionell (zh-Hant-TW). */
+/* All divs in Chinese are red, whether
+   simplified (zh-Hans-CN) or traditional (zh-Hant-TW). */
 div[lang|="zh"] {
   color: red;
 }
 
-/* Alle <div>s mit einem traditionellen chinesischen
-   `data-lang` sind violett. */
-/* Hinweis: Es können auch Bindestrich-Attribute
-   ohne doppelte Anführungszeichen verwendet werden */
+/* All divs with a Traditional Chinese
+   `data-lang` are purple. */
+/* Note: You could also use hyphenated attributes
+   without double quotes */
 div[data-lang="zh-Hant-TW"] {
   color: purple;
 }
@@ -190,12 +190,13 @@ div[data-lang="zh-Hant-TW"] {
 
 ### HTML geordnete Listen
 
-Die HTML-Spezifikation verlangt, dass das [`type`](/de/docs/Web/HTML/Element/input#type)-Attribut ohne Berücksichtigung der Groß-/Kleinschreibung abgeglichen wird, da es hauptsächlich im {{HTMLElement("input")}}-Element verwendet wird. Beachten Sie, dass, wenn ein Modifikator vom Benutzeragenten nicht unterstützt wird, der Selektor nicht übereinstimmt.
+Die HTML-Spezifikation erfordert, dass das [`type`](/de/docs/Web/HTML/Element/input#type)-Attribut ohne Berücksichtigung der Groß-/Kleinschreibung abgeglichen wird, da es hauptsächlich im {{HTMLElement("input")}}-Element verwendet wird.
+Beachten Sie, dass, wenn ein Modifikator vom Benutzeragenten nicht unterstützt wird, der Selektor nicht übereinstimmt.
 
 #### CSS
 
 ```css
-/* Die Groß-/Kleinschreibung hängt von der Dokumentensprache ab */
+/* Case-sensitivity depends on document language */
 ol[type="a"]:first-child {
   list-style-type: lower-alpha;
   background: red;
@@ -222,18 +223,18 @@ ol[type="a" i] {
 ```html
 <ol type="A">
   <li>
-    Roter Hintergrund für groß-/kleinschreibungunempfindlichen Abgleich (Standard für den Typselektor)
+    Red background for case-insensitive matching (default for the type selector)
   </li>
 </ol>
 <ol type="i">
-  <li>Limettenfarbener Hintergrund, wenn `s`-Modifikator unterstützt wird (groß-/kleinschreibungsempfindlicher Abgleich)</li>
+  <li>Lime background if `s` modifier is supported (case-sensitive match)</li>
 </ol>
 <ol type="I">
-  <li>Grauer Hintergrund, wenn `s`-Modifikator unterstützt wird (groß-/kleinschreibungsempfindlicher Abgleich)</li>
+  <li>Grey background if `s` modifier is supported (case-sensitive match)</li>
 </ol>
 <ol type="A">
   <li>
-    Grüner Hintergrund, wenn `i`-Modifikator unterstützt wird (groß-/kleinschreibungunempfindlicher Abgleich)
+    Green background if `i` modifier is supported (case-insensitive match)
   </li>
 </ol>
 ```
@@ -246,13 +247,13 @@ ol[type="a" i] {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - {{CSSxRef("attr")}}
-- Auswahl eines einzelnen Elements: {{DOMxRef("Document.querySelector()")}}, {{DOMxRef("DocumentFragment.querySelector()")}}, oder {{DOMxRef("Element.querySelector()")}}
-- Auswahl aller übereinstimmenden Elemente: {{DOMxRef("Document.querySelectorAll()")}}, {{DOMxRef("DocumentFragment.querySelectorAll()")}}, oder {{DOMxRef("Element.querySelectorAll()")}}
-- [Groß-/Kleinschreibungsunempfindliche Attributselektor-Werte](https://html.spec.whatwg.org/multipage/semantics-other.html#case-sensitivity-of-selectors) auf WHATWG
+- Auswahl eines einzelnen Elements: [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector), [`DocumentFragment.querySelector()`](/de/docs/Web/API/DocumentFragment/querySelector), oder [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector)
+- Auswahl aller passenden Elemente: [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll), [`DocumentFragment.querySelectorAll()`](/de/docs/Web/API/DocumentFragment/querySelectorAll), oder [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll)
+- [Groß-/kleinschreibungssensitive Attributselektor-Werte](https://html.spec.whatwg.org/multipage/semantics-other.html#case-sensitivity-of-selectors) auf WHATWG

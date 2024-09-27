@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn ein Seitenelement-Symbol geklickt wird. Dieses Ereignis tritt nicht ein, wenn das Seitenelement ein Popup hat.
+Wird ausgelöst, wenn auf ein Page-Action-Icon geklickt wird. Dieses Ereignis wird nicht ausgelöst, wenn die Page-Action ein Popup hat.
 
-Um eine Rechtsklick-Aktion zu definieren, verwenden Sie die {{WebExtAPIRef('contextMenus')}} API mit dem "page_action" {{WebExtAPIRef('contextMenus/ContextType', 'context type', '', 'nocode')}}.
+Um eine Aktion bei einem Rechtsklick zu definieren, verwenden Sie die {{WebExtAPIRef('contextMenus')}} API mit dem "page_action" {{WebExtAPIRef('contextMenus/ContextType', 'context type', '', 'nocode')}}.
 
 ## Syntax
 
@@ -24,28 +24,28 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt die Überwachung dieses Ereignisses. Das Argument `listener` ist der Listener, der entfernt werden soll.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es überwacht wird, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn ein Listener vorhanden ist, andernfalls `false`.
 
-## Syntax von addListener
+## addListener-Syntax
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden diese Argumente übergeben:
 
     - `tab`
-      - : Ein {{WebExtAPIRef('tabs.Tab')}} Objekt, das den Tab repräsentiert, dessen Seitenelement geklickt wurde.
+      - : Ein {{WebExtAPIRef('tabs.Tab')}}-Objekt, das den Tab repräsentiert, auf dessen Page-Action geklickt wurde.
     - `OnClickData`
 
-      - : Ein Objekt, das Informationen über den Klick enthält.
+      - : Ein Objekt, das Informationen zum Klick enthält.
 
         - `modifiers`
-          - : Ein `array`. Die zum Zeitpunkt des Klicks aktiven Tastaturmodifikatoren, eine oder mehrere von `Shift`, `Alt`, `Command`, `Ctrl` oder `MacCtrl`.
+          - : Ein `array`. Die zum Zeitpunkt des Klicks aktiven Tastaturmodifikatoren, die eine oder mehrere der folgenden sein können: `Shift`, `Alt`, `Command`, `Ctrl` oder `MacCtrl`.
         - `button`
-          - : Ein `integer`. Gibt die Schaltfläche an, die zum Klicken auf das Seitenelement-Symbol verwendet wurde: `0` für einen Linksklick oder einen Klick, der nicht mit einer Maus assoziiert ist, wie z. B. ein Klick von der Tastatur, und `1` für einen Mittelklick oder ein Mausrad-Klick. Beachten Sie, dass der Rechtsklick nicht unterstützt wird, da Firefox diesen Klick verwendet, um das Kontextmenü anzuzeigen, bevor dieses Ereignis ausgelöst wird.
+          - : Ein `integer`. Gibt die Schaltfläche an, die zum Klicken auf das Page-Action-Icon verwendet wurde: `0` für einen Linksklick oder einen Klick, der nicht mit einer Maus verbunden ist, wie zum Beispiel von der Tastatur, und `1` für einen Klick auf die mittlere Taste oder ein Scrollrad. Beachten Sie, dass ein Rechtsklick nicht unterstützt wird, da Firefox diesen Klick verwendet, um das Kontextmenü anzuzeigen, bevor dieses Ereignis ausgelöst wird.
 
 ## Browser-Kompatibilität
 
@@ -53,7 +53,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Wenn der Benutzer auf das Seitenelement klickt, verstecken Sie es und navigieren Sie den aktiven Tab zu "<https://giphy.com/explore/cat>":
+Wenn der Benutzer auf die Page-Action klickt, wird sie ausgeblendet und der aktive Tab zu "<https://giphy.com/explore/cat>" navigiert:
 
 ```js
 let CATGIFS = "https://giphy.com/explore/cat";
@@ -69,7 +69,7 @@ browser.pageAction.onClicked.addListener(() => {});
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#event-onClicked) API. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#event-onClicked). Diese Dokumentation stammt aus [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

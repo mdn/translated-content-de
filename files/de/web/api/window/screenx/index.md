@@ -1,5 +1,5 @@
 ---
-title: "Fenster: screenX-Eigenschaft"
+title: "Window: screenX-Eigenschaft"
 short-title: screenX
 slug: Web/API/Window/screenX
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef}}
 
-Die schreibgeschützte Eigenschaft **`Window.screenX`** gibt den horizontalen Abstand in CSS-Pixeln von der linken Grenze des Benutzer-Browser-Viewports bis zur linken Seite des Bildschirms zurück.
+Die **`Window.screenX`** schreibgeschützte Eigenschaft gibt den horizontalen Abstand, in CSS-Pixeln, der linken Grenze des Browser-Viewports zur linken Seite des Bildschirms zurück.
 
 > [!NOTE]
-> Ein Alias von `screenX` wurde in der jüngeren Vergangenheit in modernen Browsern implementiert — {{domxref("Window.screenLeft")}}. Dieser wurde ursprünglich nur in IE unterstützt, wurde aber aufgrund seiner Popularität überall eingeführt.
+> Ein Alias von `screenX` wurde in jüngerer Zeit in modernen Browsern implementiert — [`Window.screenLeft`](/de/docs/Web/API/Window/screenLeft). Ursprünglich wurde dies nur in IE unterstützt, aber aufgrund der Beliebtheit überall eingeführt.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Eine Zahl, die der Anzahl der CSS-Pixel vom linken Rand des Browser-Viewports zu
 
 ## Beispiele
 
-In unserem [screenleft-screentop](https://mdn.github.io/dom-examples/screenleft-screentop/) ([Quellcode](https://github.com/mdn/dom-examples/blob/main/screenleft-screentop/index.html)) Beispiel sehen Sie eine Leinwand, auf die ein Kreis gezeichnet wurde. In diesem Beispiel verwenden wir {{domxref("Window.screenLeft")}}/{{domxref("Window.screenTop")}} zusammen mit {{domxref("Window.requestAnimationFrame()")}}, um den Kreis ständig an derselben physischen Position auf dem Bildschirm neu zu zeichnen, selbst wenn die Fensterposition verschoben wird.
+In unserem Beispiel [screenleft-screentop](https://mdn.github.io/dom-examples/screenleft-screentop/) ([Quellcode](https://github.com/mdn/dom-examples/blob/main/screenleft-screentop/index.html)) sehen Sie eine Leinwand, auf die ein Kreis gezeichnet wurde. In diesem Beispiel verwenden wir [`Window.screenLeft`](/de/docs/Web/API/Window/screenLeft)/[`Window.screenTop`](/de/docs/Web/API/Window/screenTop) zusammen mit [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), um den Kreis ständig an derselben physischen Position auf dem Bildschirm neu zu zeichnen, selbst wenn die Fensterposition verschoben wird.
 
 ```js
 initialLeft = window.screenLeft + canvasElem.offsetLeft;
@@ -56,7 +56,7 @@ window.requestAnimationFrame(positionElem);
 
 Diese funktionieren genau wie `screenX`/`screenY`.
 
-Auch im Code enthalten wir ein Snippet, das erkennt, ob `screenLeft` unterstützt wird, und falls nicht, `screenLeft`/`screenTop` mit `screenX`/`screenY` auffüllt.
+Auch im Code enthalten wir einen Schnipsel, der erkennt, ob `screenLeft` unterstützt wird, und falls nicht, `screenLeft`/`screenTop` mithilfe von `screenX`/`screenY` als Polyfill einfügt.
 
 ```js
 if (!window.screenLeft) {
@@ -75,5 +75,5 @@ if (!window.screenLeft) {
 
 ## Siehe auch
 
-- {{domxref("window.screenLeft")}}
-- {{domxref("Window.screenY")}}
+- [`window.screenLeft`](/de/docs/Web/API/Window/screenLeft)
+- [`Window.screenY`](/de/docs/Web/API/Window/screenY)

@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Eigenschaft drawingBufferColorSpace"
+title: "WebGLRenderingContext: drawingBufferColorSpace-Eigenschaft"
 short-title: drawingBufferColorSpace
 slug: Web/API/WebGLRenderingContext/drawingBufferColorSpace
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.drawingBufferColorSpace`**-Eigenschaft gibt den Farbraum des WebGL-Zeichenpuffers an. Neben dem Standardwert (`srgb`) kann der `display-p3` Farbraum verwendet werden.
+Die **`WebGLRenderingContext.drawingBufferColorSpace`**-Eigenschaft gibt den Farbraum des WebGL-Zeichenpuffers an. Neben dem Standardwert (`srgb`) kann auch der `display-p3`-Farbraum verwendet werden.
 
 Siehe [`WebGLRenderingContext.unpackColorSpace`](/de/docs/Web/API/WebGLRenderingContext/unpackColorSpace) für die Angabe des Farbraums für Texturen.
 
@@ -16,14 +16,14 @@ Siehe [`WebGLRenderingContext.unpackColorSpace`](/de/docs/Web/API/WebGLRendering
 
 Diese Eigenschaft kann die folgenden Werte haben:
 
-- `"srgb"` wählt den [sRGB Farbraum](https://en.wikipedia.org/wiki/SRGB) aus. Dies ist der Standardwert.
-- `"display-p3"` wählt den [display-p3 Farbraum](https://en.wikipedia.org/wiki/DCI-P3) aus.
+- `"srgb"` wählt den [sRGB-Farbraum](https://en.wikipedia.org/wiki/SRGB). Dies ist der Standardwert.
+- `"display-p3"` wählt den [display-p3-Farbraum](https://en.wikipedia.org/wiki/DCI-P3).
 
 Wenn ein ungültiger Wert angegeben wird, bleibt der Wert von `drawingBufferColorSpace` unverändert.
 
 ## Beispiele
 
-### Den Zeichenpuffer-Farbraum setzen, um ein Display P3 Rot zu zeichnen
+### Einstellen des Zeichenpufferfarbraums, um ein Display P3 Rot zu zeichnen
 
 ```js
 const canvas = document.getElementById("canvas");

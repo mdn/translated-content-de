@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: restore()-Methode"
+title: "CanvasRenderingContext2D: restore() Methode"
 short-title: restore()
 slug: Web/API/CanvasRenderingContext2D/restore
 l10n:
@@ -10,9 +10,9 @@ l10n:
 
 Die
 **`CanvasRenderingContext2D.restore()`**
-Methode der Canvas 2D API stellt den zuletzt gespeicherten Canvas-Zustand wieder her, indem sie den obersten Eintrag im Zeichenstatus-Stack entfernt. Wenn kein gespeicherter Zustand vorhanden ist, tut diese Methode nichts.
+Methode der Canvas 2D API stellt den zuletzt gespeicherten Canvas-Zustand wieder her, indem sie den obersten Eintrag im Zeichenstatus-Stack entfernt. Wenn kein Zustand gespeichert wurde, tut diese Methode nichts.
 
-Für weitere Informationen über den [Zeichenstatus](/de/docs/Web/API/CanvasRenderingContext2D/save#the_drawing_state), siehe {{domxref("CanvasRenderingContext2D.save()")}}.
+Für weitere Informationen über den [Zeichenstatus](/de/docs/Web/API/CanvasRenderingContext2D/save#the_drawing_state), siehe [`CanvasRenderingContext2D.save()`](/de/docs/Web/API/CanvasRenderingContext2D/save).
 
 ## Syntax
 
@@ -26,13 +26,14 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Wiederherstellen eines gespeicherten Zustands
+### Wiederherstellung eines gespeicherten Zustands
 
-Dieses Beispiel verwendet die `save()`-Methode, um den aktuellen Zustand zu speichern und `restore()` um ihn später wiederherzustellen, sodass Sie später ein Rechteck mit dem aktuellen Zustand zeichnen können.
+Dieses Beispiel verwendet die `save()` Methode, um den aktuellen Zustand zu speichern, und
+`restore()` um ihn später wiederherzustellen, sodass Sie in der Lage sind, später ein Rechteck mit dem aktuellen Zustand zu zeichnen.
 
 #### HTML
 
@@ -72,5 +73,5 @@ ctx.fillRect(150, 40, 100, 100);
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasRenderingContext2D.save()")}}
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasRenderingContext2D.save()`](/de/docs/Web/API/CanvasRenderingContext2D/save)

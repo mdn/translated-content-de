@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Reflect.getPrototypeOf()`** statische Methode ist wie {{jsxref("Object.getPrototypeOf()")}}. Sie gibt das Prototyp-Objekt des angegebenen Objekts zurück.
+Die **`Reflect.getPrototypeOf()`** statische Methode ist ähnlich wie {{jsxref("Object.getPrototypeOf()")}}. Sie gibt das Prototyp-Objekt des angegebenen Objekts zurück.
 
 {{EmbedInteractiveExample("pages/js/reflect-getprototypeof.html")}}
 
@@ -20,11 +20,11 @@ Reflect.getPrototypeOf(target)
 ### Parameter
 
 - `target`
-  - : Das Zielobjekt, dessen Prototyp erhalten werden soll.
+  - : Das Zielobjekt, von dem das Prototyp-Objekt abgerufen werden soll.
 
 ### Rückgabewert
 
-Der Prototyp des gegebenen Objekts, der ein Objekt oder `null` sein kann.
+Das Prototyp-Objekt des angegebenen Objekts, das entweder ein Objekt oder `null` sein kann.
 
 ### Ausnahmen
 
@@ -33,7 +33,7 @@ Der Prototyp des gegebenen Objekts, der ein Objekt oder `null` sein kann.
 
 ## Beschreibung
 
-`Reflect.getPrototypeOf()` bietet die reflektive Semantik zum Abrufen des Prototyps eines Objekts. Der einzige Unterschied zu {{jsxref("Object.getPrototypeOf()")}} besteht darin, wie Nicht-Objekt-Ziele behandelt werden. `Reflect.getPrototypeOf()` löst einen {{jsxref("TypeError")}} aus, wenn das Ziel kein Objekt ist, während `Object.getPrototypeOf()` es in ein Objekt umwandelt.
+`Reflect.getPrototypeOf()` bietet die reflektierende Semantik zum Abrufen des Prototyps eines Objekts. Der einzige Unterschied zu {{jsxref("Object.getPrototypeOf()")}} liegt darin, wie Nicht-Objekt-Ziele behandelt werden. `Reflect.getPrototypeOf()` wirft einen {{jsxref("TypeError")}}, wenn das Ziel kein Objekt ist, während `Object.getPrototypeOf()` es zu einem Objekt zwingt.
 
 `Reflect.getPrototypeOf()` ruft die `[[GetPrototypeOf]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods) von `target` auf.
 
@@ -50,19 +50,19 @@ Reflect.getPrototypeOf(Object.create(null)); // null
 ### Unterschied zu Object.getPrototypeOf()
 
 ```js
-// Gleiches Ergebnis für Objekte
+// Same result for Objects
 Object.getPrototypeOf({}); // Object.prototype
 Reflect.getPrototypeOf({}); // Object.prototype
 
-// Beide werfen in ES5 für Nicht-Objekte
-Object.getPrototypeOf("foo"); // Löst TypeError aus
-Reflect.getPrototypeOf("foo"); // Löst TypeError aus
+// Both throw in ES5 for non-Objects
+Object.getPrototypeOf("foo"); // Throws TypeError
+Reflect.getPrototypeOf("foo"); // Throws TypeError
 
-// In ES2015 wirft nur Reflect, Object wandelt Nicht-Objekte um
+// In ES2015 only Reflect throws, Object coerces non-Objects
 Object.getPrototypeOf("foo"); // String.prototype
-Reflect.getPrototypeOf("foo"); // Löst TypeError aus
+Reflect.getPrototypeOf("foo"); // Throws TypeError
 
-// Um das ES2015-Verhalten von Object nachzuahmen, müssen Sie umwandeln
+// To mimic the Object ES2015 behavior you need to coerce
 Reflect.getPrototypeOf(Object("foo")); // String.prototype
 ```
 

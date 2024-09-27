@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.deleteContents()`**-Methode entfernt den Inhalt des {{ domxref("Range") }} aus dem {{ domxref("Document") }}.
+Die **`Range.deleteContents()`** Methode entfernt den Inhalt des [`Range`](/de/docs/Web/API/Range) aus dem [`Document`](/de/docs/Web/API/Document).
 
-Im Kontext eines {{ domxref("Range") }}, wenn ein Knoten teilweise ausgewählt ist – was bedeutet, dass er mit dem Anfang oder Ende der Auswahl überlappt – wird nur der ausgewählte Teil des Textes gelöscht, während der Knoten selbst intakt bleibt. Ist ein Knoten jedoch vollständig ausgewählt, werden der gesamte Knoten und sein Inhalt entfernt.
+Im Kontext eines [`Range`](/de/docs/Web/API/Range), wenn ein Knoten teilweise ausgewählt ist – das bedeutet, er überschneidet sich mit dem Anfang oder Ende der Auswahl – wird nur der ausgewählte Teil des Textes gelöscht, während der Knoten selbst intakt bleibt. Ist jedoch ein Knoten vollständig ausgewählt, werden der gesamte Knoten und sein Inhalt entfernt.
 
-Im Gegensatz zu {{ domxref("Range.extractContents()") }} gibt diese Methode kein {{domxref("DocumentFragment")}} zurück, das den gelöschten Inhalt enthält.
+Im Gegensatz zu [`Range.extractContents()`](/de/docs/Web/API/Range/extractContents) gibt diese Methode kein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurück, das den gelöschten Inhalt enthält.
 
 ## Syntax
 
@@ -46,4 +46,4 @@ range.deleteContents();
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellen-Index](/de/docs/Web/API/Document_Object_Model)

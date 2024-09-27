@@ -1,5 +1,5 @@
 ---
-title: Rasterbereiche
+title: Grid Areas
 slug: Glossary/Grid_Areas
 l10n:
   sourceCommit: 3c5185e55298c2ca14e4e63913a50bb81e3c5609
@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Rasterbereich** besteht aus einer oder mehreren {{glossary("grid cell", "Rasterzellen")}}, die zusammen ein rechteckiges Gebiet im Raster bilden. Rasterbereiche werden erstellt, wenn Sie ein Element mit [linienbasierter Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) platzieren oder wenn Sie Bereiche mit [benannten Rasterbereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) definieren.
+Ein **Grid-Bereich** ist eine oder mehrere [Gitternetz-Zellen](/de/docs/Glossary/grid_cell), die einen rechteckigen Bereich im Gitternetz bilden. Grid-Bereiche werden erstellt, wenn Sie ein Element mit [linienbasierter Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) platzieren oder wenn Sie Bereiche mit [benannten Grid-Bereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) definieren.
 
-![Bild, das einen hervorgehobenen Rasterbereich zeigt](1_grid_area.png)
+![Bild, das einen hervorgehobenen Grid-Bereich zeigt](1_grid_area.png)
 
-Rasterbereiche _müssen_ rechteckig sein; es ist nicht möglich, beispielsweise einen T- oder L-förmigen Rasterbereich zu erstellen.
+Grid-Bereiche _müssen_ rechteckig sein; es ist nicht möglich, zum Beispiel einen T- oder L-förmigen Grid-Bereich zu erstellen.
 
 ## Beispiel
 
-Im folgenden Beispiel habe ich einen Rastercontainer mit zwei Rasterelementen. Ich habe diese mit der {{cssxref("grid-area")}}-Eigenschaft benannt und sie dann mit {{cssxref("grid-template-areas")}} auf dem Raster verteilt. Dies erstellt zwei Rasterbereiche, einer, der vier Rasterzellen abdeckt, der andere zwei.
+Im folgenden Beispiel habe ich einen Grid-Container mit zwei Grid-Elementen. Ich habe diese mit der {{cssxref("grid-area")}}-Eigenschaft benannt und sie dann mit {{cssxref("grid-template-areas")}} im Grid angeordnet. Dies erstellt zwei Grid-Bereiche, einer umfasst vier Gitternetz-Zellen, der andere zwei.
 
 ```css hidden
 * {
@@ -65,7 +65,7 @@ Im folgenden Beispiel habe ich einen Rastercontainer mit zwei Rasterelementen. I
 
 ## Siehe auch
 
-### Eigenschaftenreferenz
+### Referenz für Eigenschaften
 
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-rows")}}
@@ -74,9 +74,9 @@ Im folgenden Beispiel habe ich einen Rastercontainer mit zwei Rasterelementen. I
 - {{cssxref("grid-template-areas")}}
 - {{cssxref("grid-area")}}
 
-### Weiterführende Lektüre
+### Weiterführende Literatur
 
-- CSS Grid-Layout-Leitfaden:
-  - [Grundlegende Konzepte der Rastergestaltung](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-  - [Rastervorlagenbereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
-- [Definition von Rasterbereichen in der CSS Grid Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-area-concept)
+- CSS-Grid-Layout-Leitfaden:
+  - [Grundkonzepte des Gitternetz-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+  - [Grid-Template-Bereiche](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas)
+- [Definition von Grid-Bereichen in der CSS-Grid-Layout-Spezifikation](https://drafts.csswg.org/css-grid/#grid-area-concept)

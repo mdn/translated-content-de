@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
-Die **`FormData.values()`**-Methode gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der alle in den {{domxref("FormData")}} enthaltenen Werte durchläuft. Die Werte sind Zeichenfolgen oder {{domxref("Blob")}}-Objekte.
+Die **`FormData.values()`**-Methode gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der alle in den [`FormData`](/de/docs/Web/API/FormData) enthaltenen Werte durchläuft. Die Werte sind entweder Zeichenfolgen oder [`Blob`](/de/docs/Web/API/Blob)-Objekte.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) der Werte von {{domxref("FormData")}}.
+Ein [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) der Werte von [`FormData`](/de/docs/Web/API/FormData).
 
 ## Beispiele
 
@@ -31,7 +31,7 @@ const formData = new FormData();
 formData.append("key1", "value1");
 formData.append("key2", "value2");
 
-// Anzeigen der Werte
+// Display the values
 for (const value of formData.values()) {
   console.log(value);
 }

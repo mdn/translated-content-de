@@ -1,5 +1,5 @@
 ---
-title: "HID: Methode getDevices()"
+title: "HID: getDevices()-Methode"
 short-title: getDevices()
 slug: Web/API/HID/getDevices
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`getDevices()`** Methode der {{domxref("HID")}}-Schnittstelle ruft eine Liste der verbundenen HID-Geräte ab, auf die der Benutzer zuvor im Rahmen eines {{domxref("HID.requestDevice","requestDevice()")}}-Aufrufs Zugriff gewährt bekommen hat.
+Die **`getDevices()`**-Methode der [`HID`](/de/docs/Web/API/HID)-Schnittstelle erhält eine Liste der verbundenen HID-Geräte, auf die der Benutzer zuvor im Rahmen eines Aufrufs von [`requestDevice()`](/de/docs/Web/API/HID/requestDevice) Zugriff gewährt hat.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer Liste von {{domxref("HIDDevice")}}-Objekten aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einer Liste von [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Objekten aufgelöst wird.
 
 ## Beispiele
 
-Das folgende Beispiel erhält eine Liste von Geräten und protokolliert die Gerätenamen in die Konsole.
+Das folgende Beispiel erhält eine Liste von Geräten und protokolliert die Gerätenamen in der Konsole.
 
 ```js
 document.addEventListener("DOMContentLoaded", async () => {
@@ -41,6 +41,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

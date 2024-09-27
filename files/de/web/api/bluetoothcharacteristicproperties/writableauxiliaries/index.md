@@ -8,7 +8,8 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Bluetooth API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`writableAuxiliaries`**-Eigenschaft des {{domxref("BluetoothCharacteristicProperties")}}-Interfaces gibt ein `boolean` zurück, das `true` ist, wenn zuverlässiges Schreiben am Charakteristiken-Deskriptor erlaubt ist.
+Die **`writableAuxiliaries`** schreibgeschützte Eigenschaft der Schnittstelle [`BluetoothCharacteristicProperties`](/de/docs/Web/API/BluetoothCharacteristicProperties) gibt ein
+`boolean` zurück, das `true` ist, wenn zuverlässiges Schreiben auf den Charakteristik-Deskriptor erlaubt ist.
 
 ## Wert
 
@@ -18,6 +19,6 @@ Ein boolean-Wert.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

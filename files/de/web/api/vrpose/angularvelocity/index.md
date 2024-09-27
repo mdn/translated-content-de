@@ -1,5 +1,5 @@
 ---
-title: "VRPose: angularVelocity-Eigenschaft"
+title: "VRPose: angularVelocity Eigenschaft"
 short-title: angularVelocity
 slug: Web/API/VRPose/angularVelocity
 l10n:
@@ -8,51 +8,51 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte **`angularVelocity`**-Eigenschaft des {{domxref("VRPose")}} Interfaces gibt ein Array zurück, das den Drehgeschwindigkeitsvektor des {{domxref("VRDisplay")}} zum aktuellen Zeitpunkt in Bogenmaß pro Sekunde darstellt.
+Die **`angularVelocity`** schreibgeschützte Eigenschaft des [`VRPose`](/de/docs/Web/API/VRPose) Schnittstelle gibt ein Array zurück, das den Winkelgeschwindigkeitsvektor des [`VRDisplay`](/de/docs/Web/API/VRDisplay) zum aktuellen Zeitpunkt in Radiant pro Sekunde darstellt.
 
 > [!NOTE]
 > Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
-Mit anderen Worten, die aktuelle Geschwindigkeit, mit der sich der Sensor um die `x`-, `y`- und `z`-Achsen dreht.
+Mit anderen Worten, die aktuelle Geschwindigkeit, mit der sich der Sensor um die `x`-, `y`- und `z`-Achse dreht.
 
 ## Wert
 
-Ein {{jsxref("Float32Array")}}, oder `null`, wenn der VR-Sensor keine Informationen über die Drehgeschwindigkeit bereitstellen kann.
+Ein {{jsxref("Float32Array")}}, oder `null`, wenn der VR-Sensor keine Informationen zur Winkelgeschwindigkeit bereitstellen kann.
 
 ## Beispiele
 
 ```js
-// Rendering-Schleife für eine VR-Szene
+// rendering loop for a VR scene
 function drawVRScene() {
-  // WebVR: Fordern Sie den nächsten Frame der Animation an
+  // WebVR: Request the next frame of the animation
   vrSceneFrame = vrDisplay.requestAnimationFrame(drawVRScene);
 
-  // Befüllen Sie frameData mit den Daten des nächsten darzustellenden Frames
+  // Populate frameData with the data of the next frame to display
   vrDisplay.getFrameData(frameData);
 
-  // Abrufen der Drehgeschwindigkeitswerte zur Verwendung beim Rendern
-  // curFramePose ist ein VRPose-Objekt
+  // Retrieve the angular velocity values for use in rendering
+  // curFramePose is a VRPose object
   const curFramePose = frameData.pose;
   const angVel = curFramePose.angularVelocity;
   const avx = angVel[0];
   const avy = angVel[1];
   const avz = angVel[2];
 
-  // Szene rendern
+  // render the scene
   // …
 
-  // WebVR: den gerenderten Frame an das VR-Display übermitteln
+  // WebVR: submit the rendered frame to the VR display
   vrDisplay.submitFrame();
 }
 ```
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht länger auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/), oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verlassen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Anleitung zum Portieren von WebVR auf WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu setzen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden von Meta zum Portieren von WebVR auf WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 

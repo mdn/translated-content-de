@@ -1,6 +1,6 @@
 ---
-title: "Screen: Änderungsevent"
-short-title: Änderung
+title: "Screen: change-Ereignis"
+short-title: change
 slug: Web/API/Screen/change_event
 l10n:
   sourceCommit: e089abbca14964a8ce945135d954cbfd098fd6f7
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Das **`change`**-Ereignis der {{domxref("Screen")}}-Schnittstelle wird auf einem bestimmten Bildschirm ausgelöst, wenn eine oder mehrere der folgenden Eigenschaften geändert werden:
+Das **`change`**-Ereignis der [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle wird auf einem bestimmten Bildschirm ausgelöst, wenn sich eine oder mehrere der folgenden Eigenschaften ändern:
 
-- {{domxref("Screen.width", "width")}}
-- {{domxref("Screen.height", "height")}}
-- {{domxref("Screen.availWidth", "availWidth")}}
-- {{domxref("Screen.availHeight", "availHeight")}}
-- {{domxref("Screen.colorDepth", "colorDepth")}}
-- {{domxref("Screen.orientation", "orientation")}}
+- [`width`](/de/docs/Web/API/Screen/width)
+- [`height`](/de/docs/Web/API/Screen/height)
+- [`availWidth`](/de/docs/Web/API/Screen/availWidth)
+- [`availHeight`](/de/docs/Web/API/Screen/availHeight)
+- [`colorDepth`](/de/docs/Web/API/Screen/colorDepth)
+- [`orientation`](/de/docs/Web/API/Screen/orientation)
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("change", (event) => {});
@@ -29,7 +29,7 @@ onchange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 

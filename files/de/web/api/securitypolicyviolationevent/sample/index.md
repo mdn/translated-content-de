@@ -3,21 +3,21 @@ title: "SecurityPolicyViolationEvent: sample-Eigenschaft"
 short-title: sample
 slug: Web/API/SecurityPolicyViolationEvent/sample
 l10n:
-  sourceCommit: 6b4c6ac616502ec3378cfa5f42a9724d4e5a3f18
+  sourceCommit: 701ac4440432ac215713b6b7f274291ca643c49a
 ---
 
-{{APIRef("Reporting API")}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`sample`** der Schnittstelle {{domxref("SecurityPolicyViolationEvent")}} ist ein String, der ein Beispiel der Ressource darstellt, die die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Verletzung verursacht hat.
+Die **`sample`** schreibgeschützte Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein String, der ein Sample der Ressource darstellt, die die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Verletzung verursacht hat.
 
-Dies tritt nur bei [`script-src*`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#script-src) und [`style-src*`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#style-src)-Verletzungen auf, wenn die entsprechende `Content-Security-Policy`-Direktive das Stichwort [`'report-sample'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#report-sample) enthält. Außerdem wird dies nur gefüllt, wenn die Ressource ein Inline-Skript, ein Ereignishandler oder ein Stil ist — externe Ressourcen, die eine Verletzung verursachen, werden kein Beispiel generieren.
+Dies ist nur für [`script-src*`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#script-src) und [`style-src*`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#style-src) Verletzungen relevant, wenn die entsprechende `Content-Security-Policy`-Direktive das [`'report-sample'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#report-sample)-Schlüsselwort enthält. Außerdem wird dies nur gefüllt, wenn die Ressource ein Inline-Skript, ein Ereignishandler oder ein Stil ist — externe Ressourcen, die eine Verletzung verursachen, erzeugen kein Sample.
 
-> [!NOTE] Verletzungsberichte sollten als angreiferkontrollierte Daten betrachtet werden.
-> Der Inhalt dieses Feldes sollte vor der Speicherung oder Darstellung bereinigt werden.
+> [!NOTE] Verletzungsberichte sollten als vom Angreifer kontrollierte Daten betrachtet werden.
+> Der Inhalt dieses Feldes sollte vor dem Speichern oder Rendern bereinigt werden.
 
 ## Wert
 
-Ein String, der ein Beispiel der Ressource enthält, die die Verletzung verursacht hat, normalerweise die ersten 40 Zeichen oder der leere String.
+Ein String, der ein Sample der Ressource enthält, die die Verletzung verursacht hat, in der Regel die ersten 40 Zeichen oder der leere String.
 
 ## Beispiele
 
@@ -37,4 +37,4 @@ document.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- [`CSPViolationReportBody.sample`](/de/docs/Web/API/CSPViolationReportBody#cspviolationreportbody.sample)
+- [`CSPViolationReportBody.sample`](/de/docs/Web/API/CSPViolationReportBody/sample)

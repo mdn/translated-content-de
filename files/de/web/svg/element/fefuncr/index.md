@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Der **`<feFuncR>`** [SVG](/de/docs/Web/SVG) Filter-Primitive definiert die Transferfunktion für die rote Komponente der Eingabegrafik des übergeordneten {{SVGElement("feComponentTransfer")}}-Elements.
+Das **`<feFuncR>`** [SVG](/de/docs/Web/SVG)-Filterprimitive definiert die Transferfunktion für die rote Komponente der Eingabegrafik seines übergeordneten {{SVGElement("feComponentTransfer")}}-Elements.
 
 ## Verwendungskontext
 
@@ -15,7 +15,7 @@ Der **`<feFuncR>`** [SVG](/de/docs/Web/SVG) Filter-Primitive definiert die Trans
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFEFuncRElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGFEFuncRElement`](/de/docs/Web/API/SVGFEFuncRElement)-Schnittstelle.
 
 ## Spezifikationen
 

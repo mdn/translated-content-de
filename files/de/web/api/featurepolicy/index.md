@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("Feature Policy")}}{{SeeCompatTable}}
 
-Das `FeaturePolicy`-Interface repräsentiert die Menge der [Berechtigungsrichtlinien](/de/docs/Web/HTTP/Permissions_Policy), die auf den aktuellen Ausführungskontext angewendet werden.
+Das `FeaturePolicy`-Interface repräsentiert die Menge an [Permissions Policies](/de/docs/Web/HTTP/Permissions_Policy), die auf den aktuellen Ausführungskontext angewendet werden.
 
 ## Instanzmethoden
 
-- {{DOMxRef("FeaturePolicy.allowsFeature")}} {{Experimental_Inline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob eine bestimmte Funktion im angegebenen Kontext aktiviert ist.
-- {{DOMxRef("FeaturePolicy.features")}} {{Experimental_Inline}}
-  - : Gibt eine Liste der Namen aller vom User Agent unterstützten Funktionen zurück. Funktionen, deren Namen auf der Liste erscheinen, könnten durch die Berechtigungsrichtlinien des aktuellen Ausführungskontexts und/oder durch benutzerberechtigte Einschränkungen nicht erlaubt sein.
-- {{DOMxRef("FeaturePolicy.allowedFeatures")}} {{Experimental_Inline}}
-  - : Gibt eine Liste der Namen aller vom User Agent unterstützten und durch die Berechtigungsrichtlinien erlaubten Funktionen zurück. Beachten Sie, dass Funktionen, die auf dieser Liste erscheinen, möglicherweise dennoch hinter einer Benutzerberechtigung stehen.
-- {{DOMxRef("FeaturePolicy.getAllowlistForFeature")}} {{Experimental_Inline}}
+- [`FeaturePolicy.allowsFeature`](/de/docs/Web/API/FeaturePolicy/allowsFeature) {{Experimental_Inline}}
+  - : Gibt einen booleschen Wert zurück, der angibt, ob eine bestimmte Funktion im angegebenen Kontext aktiviert ist oder nicht.
+- [`FeaturePolicy.features`](/de/docs/Web/API/FeaturePolicy/features) {{Experimental_Inline}}
+  - : Gibt eine Liste von Namen aller Funktionen zurück, die vom User-Agent unterstützt werden. Funktionen, deren Namen in der Liste erscheinen, dürfen möglicherweise nicht durch die Permissions Policy des aktuellen Ausführungskontexts erlaubt oder könnten durch benutzergegebene Berechtigungen eingeschränkt sein.
+- [`FeaturePolicy.allowedFeatures`](/de/docs/Web/API/FeaturePolicy/allowedFeatures) {{Experimental_Inline}}
+  - : Gibt eine Liste von Namen aller Funktionen zurück, die vom User-Agent unterstützt werden und durch die Permissions Policy erlaubt sind. Beachten Sie, dass Funktionen, die in dieser Liste erscheinen, dennoch hinter einer Benutzerberechtigung stehen könnten.
+- [`FeaturePolicy.getAllowlistForFeature`](/de/docs/Web/API/FeaturePolicy/getAllowlistForFeature) {{Experimental_Inline}}
   - : Gibt die Erlaubnisliste für die angegebene Funktion zurück.
 
 ## Spezifikationen

@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: Import-Erklärungen dürfen nur auf der obersten Ebene eines Moduls erscheinen"
+title: "SyntaxError: import-Deklarationen dürfen nur auf oberster Ebene eines Moduls erscheinen"
 slug: Web/JavaScript/Reference/Errors/import_decl_module_top_level
 l10n:
   sourceCommit: 303fd44fe4e277c3cac3fac489433a286f326fd8
@@ -7,38 +7,38 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "Import-Erklärungen dürfen nur auf der obersten Ebene eines Moduls erscheinen" tritt auf, wenn eine Import-Erklärung nicht auf der obersten Ebene eines Moduls steht. Dies kann der Fall sein, weil die Import-Erklärung in andere Konstrukte (Funktionen, Blöcke, usw.) verschachtelt ist, oder häufiger, weil die aktuelle Datei nicht als Modul behandelt wird.
+Der JavaScript-Fehler "import-Deklarationen dürfen nur auf oberster Ebene eines Moduls erscheinen" tritt auf, wenn eine `import`-Deklaration nicht auf der obersten Ebene eines Moduls steht. Dies kann daran liegen, dass die `import`-Deklaration in andere Konstrukte (Funktionen, Blöcke usw.) eingebettet ist oder häufiger, weil die aktuelle Datei nicht als Modul behandelt wird.
 
 ## Nachricht
 
 ```plain
-SyntaxError: Cannot use import statement outside a module (V8-basiert)
-SyntaxError: Import-Erklärungen dürfen nur auf der obersten Ebene eines Moduls erscheinen (Firefox)
-SyntaxError: Unerwarteter Bezeichner 'x'. Import-Aufruf erwartet ein oder zwei Argumente. (Safari)
+SyntaxError: Cannot use import statement outside a module (V8-based)
+SyntaxError: import declarations may only appear at top level of a module (Firefox)
+SyntaxError: Unexpected identifier 'x'. import call expects one or two arguments. (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Möglicherweise haben Sie eine `import`-Erklärung, die in ein anderes Konstrukt, wie eine Funktion oder einen Block, verschachtelt ist. Die `import`-Erklärung muss auf der obersten Ebene des Moduls stehen. Wenn Sie ein Modul bedingt importieren oder es bei Bedarf lazy laden möchten, verwenden Sie stattdessen [dynamic import](/de/docs/Web/JavaScript/Reference/Operators/import).
+Möglicherweise haben Sie eine `import`-Deklaration, die in ein anderes Konstrukt eingebettet ist, wie zum Beispiel eine Funktion oder einen Block. Die `import`-Deklaration muss auf der obersten Ebene des Moduls stehen. Wenn Sie ein Modul bedingt importieren oder auf Abruf importieren möchten, verwenden Sie stattdessen den [dynamischen Import](/de/docs/Web/JavaScript/Reference/Operators/import).
 
-Wenn sich die `import`-Erklärung bereits auf der obersten Ebene des Codes befindet, kann es daran liegen, dass die Datei nicht als Modul interpretiert wird. Laufzeitumgebungen benötigen externe Hinweise, um festzustellen, ob eine Datei ein Modul ist oder nicht, und hier sind mehrere Möglichkeiten, solche Hinweise zu geben:
+Wenn die `import`-Deklaration bereits auf oberster Ebene des Codes steht, kann es daran liegen, dass die Datei nicht als Modul interpretiert wird. Laufzeiten benötigen externe Hinweise, um festzustellen, ob eine Datei ein Modul ist oder nicht. Hier sind einige Möglichkeiten, solche Hinweise zu geben:
 
 - Wenn die Datei direkt aus HTML geladen wird, stellen Sie sicher, dass das [`<script>`](/de/docs/Web/HTML/Element/script)-Tag das Attribut `type="module"` hat.
-- Wenn die Datei in Node ausgeführt wird, stellen Sie sicher, dass entweder die Datei die Erweiterung `.mjs` hat oder die nächste `package.json`-Datei das Feld `"type": "module"` enthält.
-- Wenn die Datei als [worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers) ausgeführt wird, stellen Sie sicher, dass Sie den Konstruktor `Worker()` mit der Option `type: "module"` aufrufen.
+- Wenn die Datei in Node ausgeführt wird, stellen Sie sicher, dass entweder die Datei die Erweiterung `.mjs` hat oder die nächstgelegene `package.json`-Datei das Feld `"type": "module"` besitzt.
+- Wenn die Datei als [Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers) ausgeführt wird, verwenden Sie den `Worker()`-Konstruktor mit der `type: "module"`-Option.
 - Importieren Sie diese Datei aus einem anderen Modul.
 
-Ein weiterer Grund könnte sein, wenn Sie `import` mit einem Compiler (wie TypeScript) schreiben und versehentlich die Quelldatei ausgeführt haben. Da `import`-Erklärungen normalerweise am Anfang des Programms erscheinen, sind sie das Erste, was der Parser sieht und dann den Fehler meldet. Stellen Sie sicher, dass Sie die Quelldatei kompilieren und die kompilierte Datei ausführen.
+Ein weiterer Grund könnte sein, wenn Sie `import` mit einem Compiler (wie TypeScript) schreiben und sie versehentlich die Quelldatei ausgeführt haben. Da `import`-Deklarationen normalerweise am Anfang des Programms stehen, sind sie das Erste, was der Parser sieht, und er beschwert sich darüber. Stellen Sie sicher, dass Sie die Quelldatei kompilieren und die kompilierte Datei ausführen.
 
 ## Beispiele
 
 ### Bedingte Imports
 
-Sie können `import` nicht innerhalb anderer Konstrukte verwenden, wie Sie es möglicherweise in Python tun.
+Sie können `import` nicht innerhalb anderer Konstrukte verwenden, wie Sie es vielleicht in Python tun.
 
 ```js example-bad
 if (writeOutput) {
@@ -46,7 +46,7 @@ if (writeOutput) {
 }
 ```
 
-Verschieben Sie entweder den `import` auf die oberste Ebene oder verwenden Sie dynamischen Import.
+Entweder verschieben Sie das `import` auf die oberste Ebene oder verwenden Sie den dynamischen Import.
 
 ```js example-good
 if (writeOutput) {
@@ -56,15 +56,15 @@ if (writeOutput) {
 }
 ```
 
-### Import in einem Nicht-Modul-Skript
+### Importieren in einem Nicht-Modul-Skript
 
-Wenn Sie das Skript aus HTML laden, stellen Sie sicher, dass Sie dem `<script>`-Tag das Attribut `type="module"` hinzufügen.
+Wenn Sie das Skript aus HTML laden, fügen Sie das Attribut `type="module"` zum `<script>`-Tag hinzu.
 
 ```html
 <script type="module" src="main.js"></script>
 ```
 
-Wenn Sie das Skript aus irgendeinem Grund nicht zu einem Modul migrieren können, können Sie dynamischen Import verwenden.
+Wenn Sie das Skript aus irgendeinem Grund nicht in ein Modul migrieren können, können Sie den dynamischen Import verwenden.
 
 ```js example-good
 async function main() {

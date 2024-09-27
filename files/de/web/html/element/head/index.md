@@ -1,5 +1,5 @@
 ---
-title: "<head>: Das Dokument-Metadaten (Kopfbereich) Element"
+title: "<head>: Das Dokument-Metadaten (Header) Element"
 slug: Web/HTML/Element/head
 l10n:
   sourceCommit: 2dc9e66061f63a06320f5c1c554a238e1b25c369
@@ -7,16 +7,16 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<head>`** [HTML](/de/docs/Web/HTML) Element enthält maschinenlesbare Informationen ({{glossary("metadata")}}) über das Dokument, wie seinen [title](/de/docs/Web/HTML/Element/title), [scripts](/de/docs/Web/HTML/Element/script) und [style sheets](/de/docs/Web/HTML/Element/style). Es kann nur ein `<head>` Element in einem HTML-Dokument geben.
+Das **`<head>`** [HTML](/de/docs/Web/HTML) Element enthält maschinenlesbare Informationen ([Metadaten](/de/docs/Glossary/metadata)) über das Dokument, wie seinen [Titel](/de/docs/Web/HTML/Element/title), [Skripte](/de/docs/Web/HTML/Element/script) und [Stylesheets](/de/docs/Web/HTML/Element/style). In einem HTML-Dokument kann es nur ein `<head>` Element geben.
 
-> **Note:** `<head>` enthält hauptsächlich Informationen für die maschinelle Verarbeitung, nicht für die menschliche Lesbarkeit. Für menschlich sichtbare Informationen, wie oberste Überschriften und aufgelistete Autoren, siehe das {{HTMLElement("header")}} Element.
+> **Note:** `<head>` enthält hauptsächlich Informationen für die maschinelle Verarbeitung, nicht für die Lesbarkeit durch Menschen. Für sichtbarere Informationen, wie etwa oberste Überschriften und aufgelistete Autoren, siehe das {{HTMLElement("header")}} Element.
 
 ## Attribute
 
-Dieses Element enthält die [global attributes](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `profile` {{deprecated_inline}}
-  - : Die {{glossary("URI")}}s von einem oder mehreren Metadatenprofilen, getrennt durch {{Glossary("whitespace", "Leerzeichen")}}.
+  - : Die [URIs](/de/docs/Glossary/URI) eines oder mehrerer Metadatenprofile, getrennt durch [Leerraum](/de/docs/Glossary/whitespace).
 
 ## Beispiele
 
@@ -48,10 +48,10 @@ Dieses Element enthält die [global attributes](/de/docs/Web/HTML/Global_attribu
       <td>
         <p>
           Wenn das Dokument ein {{HTMLElement("iframe")}}
-          <a href="/de/docs/Web/HTML/Element/iframe#srcdoc"><code>srcdoc</code></a> Dokument ist, oder wenn Titelinformationen aus einem höherstufigen Protokoll verfügbar sind (wie die Betreffzeile in HTML-E-Mails), null oder mehr Elemente von Metadateninhalt.
+          <a href="/de/docs/Web/HTML/Element/iframe#srcdoc"><code>srcdoc</code></a> Dokument ist oder wenn Titelinformationen aus einem höheren Protokoll verfügbar sind (wie die Betreffzeile in HTML-E-Mails), null oder mehr Elemente von Metadaten-Inhalten.
         </p>
         <p>
-          Andernfalls ein oder mehrere Elemente von Metadateninhalt, wobei genau ein {{HTMLElement("title")}} Element vorhanden sein muss.
+          Andernfalls eines oder mehrere Elemente von Metadaten-Inhalten, wobei genau eines ein {{HTMLElement("title")}} Element ist.
         </p>
       </td>
     </tr>
@@ -60,13 +60,13 @@ Dieses Element enthält die [global attributes](/de/docs/Web/HTML/Global_attribu
       <td>
         Das Start-Tag kann weggelassen werden, wenn das erste Element innerhalb des
         <code>&#x3C;head></code> Elements ein Element ist.<br />Das End-Tag kann
-        weggelassen werden, wenn das erste Zeichen nach dem
-        <code>&#x3C;head></code> Element kein Leerzeichen oder Kommentar ist.
+        weggelassen werden, wenn das erste nachfolgende Element des
+        <code>&#x3C;head></code> Elements kein Leerzeichen oder Kommentar ist.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
-      <td>Ein {{HTMLElement("html")}} Element, als dessen erstes Kind.</td>
+      <td>Ein {{HTMLElement("html")}} Element, als sein erstes Kind.</td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
@@ -82,7 +82,7 @@ Dieses Element enthält die [global attributes](/de/docs/Web/HTML/Global_attribu
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLHeadElement")}}</td>
+      <td>[`HTMLHeadElement`](/de/docs/Web/API/HTMLHeadElement)</td>
     </tr>
   </tbody>
 </table>

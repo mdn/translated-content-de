@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`targetURL`** der {{domxref("LaunchParams")}}-Schnittstelle gibt die Ziel-URL des zugehörigen Web-App-Starts zurück.
+Die schreibgeschützte Eigenschaft **`targetURL`** der [`LaunchParams`](/de/docs/Web/API/LaunchParams) Schnittstelle gibt die Ziel-URL des zugehörigen Web-App-Starts zurück.
 
 ## Wert
 
@@ -22,7 +22,7 @@ if ("launchQueue" in window) {
     if (launchParams.targetURL) {
       const params = new URL(launchParams.targetURL).searchParams;
 
-      // Angenommen, eine Musikplayer-App erhält einen Track, der abgespielt werden soll
+      // Assuming a music player app that gets a track passed to it to be played
       const track = params.get("track");
       if (track) {
         audio.src = track;
@@ -44,6 +44,6 @@ if ("launchQueue" in window) {
 
 ## Siehe auch
 
-- [Launch Handler API: Kontrollieren Sie, wie Ihre App gestartet wird](https://developer.chrome.com/docs/web-platform/launch-handler/)
-- {{domxref("Window.launchQueue")}}
+- [Launch Handler API: Steuerung, wie Ihre App gestartet wird](https://developer.chrome.com/docs/web-platform/launch-handler/)
+- [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue)
 - [Musicr 2.0](https://launch-handler.glitch.me/) Demo-App

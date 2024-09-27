@@ -1,18 +1,18 @@
 ---
-title: "WebSocket: message Ereignis"
+title: "WebSocket: message-Ereignis"
 short-title: message
 slug: Web/API/WebSocket/message_event
 l10n:
-  sourceCommit: eba47bb55d10e6dc73f61dbefc9d3da2abf1fd78
+  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
 ---
 
-{{APIRef("WebSockets API")}}
+{{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Das `message` Ereignis wird ausgelöst, wenn Daten über einen `WebSocket` empfangen werden.
+Das `message`-Ereignis wird ausgelöst, wenn Daten über einen `WebSocket` empfangen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("message", (event) => {});
@@ -22,36 +22,36 @@ onmessage = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("MessageEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MessageEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der Elternebenfläche, {{domxref("Event")}}, verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
-- {{domxref("MessageEvent.data", "data")}} {{ReadOnlyInline}}
-  - : Die von dem Nachrichtenauslöser gesendeten Daten. Der Typ dieser Eigenschaft hängt vom Typ der WebSocket-Nachricht und dem Wert von {{domxref("WebSocket.binaryType")}} ab.
+- [`data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
+  - : Die von dem Nachrichten-Emitter gesendeten Daten. Der Typ dieser Eigenschaft hängt vom Typ der WebSocket-Nachricht und vom Wert von [`WebSocket.binaryType`](/de/docs/Web/API/WebSocket/binaryType) ab.
     - Wenn der Nachrichtentyp "text" ist, dann ist dieses Feld ein String.
-    - Wenn der Nachrichtentyp "binary" ist, kann der Typ dieser Eigenschaft aus dem `binaryType` dieser Verbindung abgeleitet werden:
+    - Wenn der Nachrichtentyp "binary" ist, kann der Typ dieser Eigenschaft aus dem `binaryType` dieses Sockets abgeleitet werden:
       - {{jsxref("ArrayBuffer")}} wenn `binaryType` `"arraybuffer"` ist,
-      - {{domxref("Blob")}} wenn `binaryType` `"blob"` ist. Dies hat keinen zugehörigen Medientyp ({{domxref("Blob.type")}} ist `""`).
-- {{domxref("MessageEvent.origin", "origin")}} {{ReadOnlyInline}}
-  - : Ein String, der die Herkunft des Nachrichtenauslösers darstellt.
+      - [`Blob`](/de/docs/Web/API/Blob) wenn `binaryType` `"blob"` ist. Dies hat keinen zugehörigen Medientyp ([`Blob.type`](/de/docs/Web/API/Blob/type) ist `""`).
+- [`origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
+  - : Ein String, der den Ursprung des Nachrichten-Emitters darstellt.
 
-Weitere Eigenschaften der {{domxref("MessageEvent")}} Schnittstelle sind vorhanden, beziehen sich jedoch nicht auf die WebSocket API und verbleiben bei ihren Standardwerten:
+Andere Eigenschaften der [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Schnittstelle sind vorhanden, stehen jedoch nicht im Zusammenhang mit der WebSocket-API und bleiben auf ihren Standardwerten:
 
-- {{domxref("MessageEvent.lastEventId", "lastEventId")}} {{ReadOnlyInline}}
-- {{domxref("MessageEvent.source", "source")}} {{ReadOnlyInline}}
-- {{domxref("MessageEvent.ports", "ports")}} {{ReadOnlyInline}}
+- [`lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
+- [`source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
+- [`ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
 
 ## Beispiele
 
 ```js
-// Erstellen Sie eine WebSocket-Verbindung.
+// Create WebSocket connection.
 const socket = new WebSocket("ws://localhost:8080");
 
-// Hören auf Nachrichten
+// Listen for messages
 socket.addEventListener("message", (event) => {
   console.log("Message from server ", event.data);
 });
@@ -67,7 +67,7 @@ socket.addEventListener("message", (event) => {
 
 ## Siehe auch
 
-- [WebSocket: close event](/de/docs/Web/API/WebSocket/close_event)
-- [WebSocket: error event](/de/docs/Web/API/WebSocket/error_event)
-- [WebSocket: open event](/de/docs/Web/API/WebSocket/open_event)
-- [Writing WebSocket client applications](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)
+- [WebSocket: close-Ereignis](/de/docs/Web/API/WebSocket/close_event)
+- [WebSocket: error-Ereignis](/de/docs/Web/API/WebSocket/error_event)
+- [WebSocket: open-Ereignis](/de/docs/Web/API/WebSocket/open_event)
+- [WebSocket-Clientanwendungen schreiben](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)

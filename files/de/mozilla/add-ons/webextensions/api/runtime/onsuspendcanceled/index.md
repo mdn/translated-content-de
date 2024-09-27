@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Nach dem Aufruf von {{WebExtAPIRef("runtime.onSuspend")}} gesendet, um anzuzeigen, dass die App letztendlich nicht entladen wird.
+Gesendet nach {{WebExtAPIRef("runtime.onSuspend")}}, um anzuzeigen, dass die App doch nicht entladen wird.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt einen Listener zu diesem Ereignis hinzu.
 - `removeListener(listener)`
-  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Prüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
@@ -52,7 +52,7 @@ browser.runtime.onSuspendCanceled.addListener(handleSuspendCanceled);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onSuspendCanceled)-API von Chromium. Diese Dokumentation leitet sich von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onSuspendCanceled) API von Chromium. Diese Dokumentation leitet sich von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

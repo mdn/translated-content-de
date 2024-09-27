@@ -9,12 +9,15 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist in der [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die {{domxref("PerformanceNavigationTiming")}}
+> Diese Schnittstelle dieser Eigenschaft ist in der [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)
 > Schnittstelle.
 
-Die veraltete, schreibgeschützte Eigenschaft
+Die veraltete
 **`PerformanceTiming.domainLookupStart`**
-liefert ein `unsigned long long`, das den Zeitpunkt angibt, in Millisekunden seit dem UNIX-Epoch, zu dem die Domainabfrage beginnt. Wenn eine persistente Verbindung verwendet wird oder die Informationen in einem Cache oder einer lokalen Ressource gespeichert sind, wird der Wert derselbe sein wie {{domxref("PerformanceTiming.fetchStart")}}.
+schreibgeschützte Eigenschaft gibt einen `unsigned long long` zurück, der den Moment
+in Millisekunden seit dem UNIX-Epoch repräsentiert, an dem die Domain-Suche beginnt. Wenn eine persistente
+Verbindung verwendet wird oder die Informationen im Cache oder in einer lokalen Ressource gespeichert sind, wird der
+Wert derselbe sein wie [`PerformanceTiming.fetchStart`](/de/docs/Web/API/PerformanceTiming/fetchStart).
 
 ## Wert
 
@@ -30,4 +33,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Die Schnittstelle {{domxref("PerformanceTiming")}}, zu der sie gehört.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Schnittstelle, zu der sie gehört.

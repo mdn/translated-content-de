@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## SVG-animierte Zahlenlisten-Schnittstelle
+## Schnittstelle für animierte Nummernlisten in SVG
 
-Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute verwendet, die eine Liste von Zahlen akzeptieren und animiert werden können.
+Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute verwendet, die eine Liste von Zahlen annehmen und animiert werden können.
 
-### Überblick über die Schnittstelle
+### Übersicht über die Schnittstelle
 
 <table class="standard-table">
   <tbody>
@@ -28,11 +28,11 @@ Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute verwendet, die eine Li
       <td>
         <ul>
           <li>
-            readonly {{ domxref("SVGNumberList") }}
+            readonly [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)
             <code>baseVal</code>
           </li>
           <li>
-            readonly {{ domxref("SVGNumberList") }}
+            readonly [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)
             <code>animVal</code>
           </li>
         </ul>
@@ -50,16 +50,16 @@ Die `SVGAnimatedNumber`-Schnittstelle wird für Attribute verwendet, die eine Li
   </tbody>
 </table>
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("SVGAnimatedNumberList.baseVal")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGNumberList")}}, das den Basiswert des angegebenen Attributs darstellt, bevor irgendwelche Animationen angewendet werden.
-- {{domxref("SVGAnimatedNumberList.animVal")}} {{ReadOnlyInline}}
-  - : Ein schreibgeschützter {{ domxref("SVGNumberList") }}, der den aktuellen animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut derzeit nicht animiert wird, hat der {{ domxref("SVGNumberList") }} denselben Inhalt wie `baseVal`. Das Objekt, auf das `animVal` verweist, unterscheidet sich immer von dem, auf das `baseVal` verweist, selbst wenn das Attribut nicht animiert wird.
+- [`SVGAnimatedNumberList.baseVal`](/de/docs/Web/API/SVGAnimatedNumberList/baseVal) {{ReadOnlyInline}}
+  - : Eine [`SVGNumberList`](/de/docs/Web/API/SVGNumberList), die den Basiswert des angegebenen Attributs vor Anwendung von Animationen darstellt.
+- [`SVGAnimatedNumberList.animVal`](/de/docs/Web/API/SVGAnimatedNumberList/animVal) {{ReadOnlyInline}}
+  - : Eine schreibgeschützte [`SVGNumberList`](/de/docs/Web/API/SVGNumberList), die den aktuellen animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut derzeit nicht animiert wird, hat die [`SVGNumberList`](/de/docs/Web/API/SVGNumberList) die gleichen Inhalte wie `baseVal`. Das von `animVal` referenzierte Objekt wird immer von demjenigen, das von `baseVal` referenziert wird, verschieden sein, auch wenn das Attribut nicht animiert ist.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-Die `SVGAnimatedNumberList`-Schnittstelle bietet keine spezifischen Methoden.
+Die `SVGAnimatedNumberList`-Schnittstelle bietet keine speziellen Methoden.
 
 ## Spezifikationen
 

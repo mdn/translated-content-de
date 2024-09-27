@@ -8,11 +8,13 @@ l10n:
 {{JSRef}}
 
 > [!NOTE]
-> In einigen Versionen von einigen Browsern wurde diese Methode als Methode `Array.prototype.group()` implementiert. Aufgrund von Webkompatibilitätsproblemen wird sie jetzt als statische Methode implementiert. Siehe die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für Details.
+> In einigen Versionen einiger Browser wurde diese Methode als Methode `Array.prototype.group()` implementiert. Aufgrund von Webkompatibilitätsproblemen wird sie jetzt als statische Methode implementiert. Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für Details.
 
-Die statische Methode **`Object.groupBy()`** gruppiert die Elemente eines gegebenen Iterables entsprechend der Zeichenkettenwerte, die von einer bereitgestellten Callback-Funktion zurückgegeben werden. Das zurückgegebene Objekt besitzt separate Eigenschaften für jede Gruppe, die Arrays mit den Elementen der Gruppe enthalten.
+Die **`Object.groupBy()`**-statische Methode gruppiert die Elemente eines gegebenen Iterables entsprechend den von einer bereitgestellten Callback-Funktion zurückgegebenen Zeichenkettenwerten. Das zurückgegebene Objekt hat separate Eigenschaften für jede Gruppe, die Arrays mit den Elementen der Gruppe enthalten.
 
-Diese Methode sollte verwendet werden, wenn Gruppennamen durch Zeichenketten dargestellt werden können. Wenn Sie Elemente mithilfe eines Schlüssels gruppieren müssen, der einen beliebigen Wert darstellt, verwenden Sie stattdessen {{jsxref("Map.groupBy()")}}.
+Diese Methode sollte verwendet werden, wenn Gruppennamen durch Zeichenketten dargestellt werden können. Wenn Sie Elemente nach einem Schlüssel gruppieren müssen, der einen beliebigen Wert hat, verwenden Sie stattdessen {{jsxref("Map.groupBy()")}}.
+
+<!-- {{EmbedInteractiveExample("pages/js/object-groupby.html")}} -->
 
 ## Syntax
 
@@ -25,27 +27,27 @@ Object.groupBy(items, callbackFn)
 - `items`
   - : Ein [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) (wie ein {{jsxref("Array")}}), dessen Elemente gruppiert werden sollen.
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Iterable ausgeführt wird. Sie sollte einen Wert zurückgeben, der in einen Eigenschaftsschlüssel (String oder [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)) umgewandelt werden kann und die Gruppe des aktuellen Elements angibt. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Iterable ausgeführt wird. Sie sollte einen Wert zurückgeben, der in einen Eigenschaftsschlüssel (Zeichenkette oder [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)) umgewandelt werden kann und die Gruppe des aktuellen Elements anzeigt. Die Funktion wird mit folgenden Argumenten aufgerufen:
     - `element`
-      - : Das aktuelle Element, das verarbeitet wird.
+      - : Das aktuell verarbeitete Element.
     - `index`
-      - : Der Index des aktuellen Elements, das verarbeitet wird.
+      - : Der Index des aktuell verarbeiteten Elements.
 
 ### Rückgabewert
 
-Ein [`null`-prototypisiertes Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) mit Eigenschaften für alle Gruppen, die jeweils einem Array zugeordnet sind, das die Elemente der zugehörigen Gruppe enthält.
+Ein [Objekt mit null-Prototyp](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) mit Eigenschaften für alle Gruppen, wobei jede einem Array mit den Elementen der zugehörigen Gruppe zugewiesen ist.
 
 ## Beschreibung
 
-`Object.groupBy()` ruft eine bereitgestellte `callbackFn`-Funktion einmal für jedes Element in einem Iterable auf. Die Callback-Funktion sollte eine Zeichenkette oder ein Symbol zurückgeben (Werte, die nicht diesen Typen entsprechen, werden [in Zeichenketten umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion)), die die Gruppe des zugehörigen Elements angibt. Die von `callbackFn` zurückgegebenen Werte werden als Schlüssel für das von `Map.groupBy()` zurückgegebene Objekt verwendet. Jeder Schlüssel hat ein zugeordnetes Array, das alle Elemente enthält, für die der Callback den gleichen Wert zurückgegeben hat.
+`Object.groupBy()` ruft eine bereitgestellte `callbackFn`-Funktion für jedes Element eines Iterables einmal auf. Die Callback-Funktion sollte eine Zeichenkette oder ein Symbol zurückgeben (Werte, die kein solcher Typ sind, werden [in Zeichenketten umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion)), die die Gruppe des zugehörigen Elements anzeigen. Die von `callbackFn` zurückgegebenen Werte werden als Schlüssel für das von `Map.groupBy()` zurückgegebene Objekt verwendet. Jeder Schlüssel hat ein zugeordnetes Array, das alle Elemente enthält, für die die Callback-Funktion denselben Wert zurückgegeben hat.
 
-Die Elemente im zurückgegebenen Objekt und im originalen Iterable sind die gleichen (keine {{Glossary("tiefe Kopie", "tiefen Kopien")}}). Änderungen an der internen Struktur der Elemente werden sowohl im originalen Iterable als auch im zurückgegebenen Objekt reflektiert.
+Die Elemente im zurückgegebenen Objekt und im ursprünglichen Iterable sind die gleichen (keine [Tiefenkopien](/de/docs/Glossary/deep_copy)). Änderungen an der internen Struktur der Elemente werden sowohl im ursprünglichen Iterable als auch im zurückgegebenen Objekt widergespiegelt.
 
 ## Beispiele
 
 ### Verwendung von Object.groupBy()
 
-Zuerst definieren wir ein Array, das Objekte enthält, die einen Bestand verschiedener Lebensmittel repräsentieren. Jedes Lebensmittel hat einen `type` und eine `quantity`.
+Zuerst definieren wir ein Array, das Objekte repräsentiert, die ein Inventar verschiedener Lebensmittel darstellen. Jedes Lebensmittel hat einen `type` und eine `quantity`.
 
 ```js
 const inventory = [
@@ -57,12 +59,12 @@ const inventory = [
 ];
 ```
 
-Der folgende Code gruppiert die Elemente nach dem Wert ihrer `type` Eigenschaft.
+Der folgende Code gruppiert die Elemente nach dem Wert ihrer `type`-Eigenschaft.
 
 ```js
 const result = Object.groupBy(inventory, ({ type }) => type);
 
-/* Ergebnis ist:
+/* Result is:
 {
   vegetables: [
     { name: 'asparagus', type: 'vegetables', quantity: 5 },
@@ -79,10 +81,9 @@ const result = Object.groupBy(inventory, ({ type }) => type);
 */
 ```
 
-Die Pfeilfunktion gibt einfach den `type` jedes Array-Elements zurück, jedes Mal, wenn sie aufgerufen wird. Beachten Sie, dass das Funktionsargument `{ type }` ein grundlegendes Beispiel für die [Objektdestructuring-Syntax für Funktionsargumente](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#unpacking_properties_from_objects_passed_as_a_function_parameter) ist. Dies entpackt die `type` Eigenschaft eines als Parameter übergebenen Objekts und weist sie einer Variablen namens `type` im Körper der Funktion zu.
-Dies ist eine sehr prägnante Möglichkeit, auf die relevanten Werte von Elementen innerhalb einer Funktion zuzugreifen.
+Die Pfeilfunktion gibt einfach den `type` jedes Array-Elements zurück, jedes Mal, wenn sie aufgerufen wird. Beachten Sie, dass das Funktionsargument `{ type }` ein einfaches Beispiel für die [Destrukturierungssyntax von Objekten für Funktionsargumente](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#unpacking_properties_from_objects_passed_as_a_function_parameter) ist. Dies entpackt die `type`-Eigenschaft eines als Parameter übergebenen Objekts und weist sie einer im Funktionskörper benannten Variablen `type` zu. Dies ist eine sehr knappe Möglichkeit, auf die relevanten Werte von Elementen innerhalb einer Funktion zuzugreifen.
 
-Wir können auch Gruppen aus Werten in einer oder mehreren Eigenschaften der Elemente ableiten. Unten ist ein sehr ähnliches Beispiel, das die Artikel in `ok` oder `restock` Gruppen auf Basis des Wertes des `quantity` Feldes einteilt.
+Wir können auch Gruppen erstellen, die aus Werten in einer oder mehreren Eigenschaften der Elemente abgeleitet sind. Unten ist ein sehr ähnliches Beispiel, das die Artikel in `ok`- oder `restock`-Gruppen aufteilt, basierend auf dem Wert des `quantity`-Feldes.
 
 ```js
 function myCallback({ quantity }) {
@@ -91,7 +92,7 @@ function myCallback({ quantity }) {
 
 const result2 = Object.groupBy(inventory, myCallback);
 
-/* Ergebnis ist:
+/* Result is:
 {
   restock: [
     { name: "asparagus", type: "vegetables", quantity: 5 },
@@ -117,7 +118,7 @@ const result2 = Object.groupBy(inventory, myCallback);
 ## Siehe auch
 
 - [Polyfill von `Object.groupBy` in `core-js`](https://github.com/zloirock/core-js#array-grouping)
-- [Anleitung für indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections)
+- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("Array.prototype.reduce()")}}
 - {{jsxref("Object.fromEntries()")}}
 - {{jsxref("Map.groupBy()")}}

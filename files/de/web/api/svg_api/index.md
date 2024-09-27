@@ -1,5 +1,5 @@
 ---
-title: SVG-API
+title: SVG API
 slug: Web/API/SVG_API
 l10n:
   sourceCommit: 70afaa0e2d4ea200f229304b5e6d9368ff59e8bc
@@ -7,134 +7,134 @@ l10n:
 
 {{DefaultAPISidebar("SVG")}}
 
-SVG bietet Elemente für Kreise, Rechtecke sowie einfache und komplexe Kurven. Die Attributwerte der Elemente geben an, wie diese gezeichnet werden müssen. Die **SVG-API** ist der Teil des **DOM**, der diese SVG-Elemente und ihre Attributwerte mit Skripten oder Programmiersprachen verbindet, indem er sie im Speicher darstellt. Die SVG-API stellt somit Methoden bereit, die einen programmierten Zugriff auf die SVG-Elemente und deren Attributwerte ermöglichen.
+SVG stellt Elemente für Kreise, Rechtecke sowie einfache und komplexe Kurven bereit. Die Attributwerte der Elemente bestimmen, wie diese gezeichnet werden müssen. Die **SVG API** ist der Teil des **DOM**, der diese SVG-Elemente und ihre Attributwerte mit Skripten oder Programmiersprachen verbindet, indem sie im Speicher dargestellt werden. Die SVG API bietet somit Methoden, die programmgesteuerten Zugriff auf die SVG-Elemente und ihre Attributwerte ermöglichen.
 
-Die SVG-API ist eine Sammlung von Schnittstellen, die in folgende Hauptkategorien unterteilt sind:
+Die SVG API ist ein Satz von Schnittstellen, die in die folgenden Hauptkategorien unterteilt sind:
 
-1. [Die Element-Schnittstellen](#svg-element-schnittstellen) ermöglichen den Zugriff auf die Eigenschaften von SVG-Elementen und bieten Methoden, um diese zu bearbeiten.
-2. [Die statischen Datentypen-Schnittstellen](#svg-datentypen-schnittstellen) bieten Zugriff auf Elementattributwerte und Methoden, um diese zu bearbeiten.
-3. Für Attribute, die animiert werden können, bieten die [animierten Datentypen-Schnittstellen](#svg-datentypen-schnittstellen) einen nur lesbaren Zugriff auf den aktuell animierten Wert eines Attributs.
-4. [Die SMIL-Schnittstellen](#smil-bezogene_schnittstellen)
-5. [Weitere SVG-Schnittstellen](#weitere_svg-schnittstellen)
+1. [Die Element-Schnittstellen](#svg-element-schnittstellen) bieten Zugriff auf die Eigenschaften von SVG-Elementen und Methoden, um sie zu manipulieren.
+2. [Die statischen Datentypen](#svg-datentyp-schnittstellen) Schnittstellen bieten Zugriff auf die Werte der Elementattribute und Methoden, um sie zu manipulieren.
+3. Für Attribute, die animiert werden können, bieten die [animierten Datentypen-Schnittstellen](#svg-datentyp-schnittstellen) schreibgeschützten Zugriff auf den aktuell animierten Wert eines Attributs.
+4. [Die Synchronized Multimedia Integration Language (SMIL) Schnittstellen](#smil-bezogene_schnittstellen)
+5. [Andere SVG-Schnittstellen](#andere_svg-schnittstellen)
 
 ## Schnittstellen
 
 ### SVG-Element-Schnittstellen
 
-- {{DOMxRef("SVGAElement")}}
-- {{DOMxRef("SVGAnimationElement")}}
-- {{DOMxRef("SVGAnimateElement")}}
-- {{DOMxRef("SVGAnimateMotionElement")}}
-- {{DOMxRef("SVGAnimateTransformElement")}}
-- {{DOMxRef("SVGCircleElement")}}
-- {{DOMxRef("SVGClipPathElement")}}
-- {{DOMxRef("SVGComponentTransferFunctionElement")}}
-- {{DOMxRef("SVGCursorElement")}}
-- {{DOMxRef("SVGDefsElement")}}
-- {{DOMxRef("SVGDescElement")}}
-- {{DOMxRef("SVGElement")}}
-- {{DOMxRef("SVGEllipseElement")}}
-- {{DOMxRef("SVGFEBlendElement")}}
-- {{DOMxRef("SVGFEColorMatrixElement")}}
-- {{DOMxRef("SVGFEComponentTransferElement")}}
-- {{DOMxRef("SVGFECompositeElement")}}
-- {{DOMxRef("SVGFEConvolveMatrixElement")}}
-- {{DOMxRef("SVGFEDiffuseLightingElement")}}
-- {{DOMxRef("SVGFEDisplacementMapElement")}}
-- {{DOMxRef("SVGFEDistantLightElement")}}
-- {{DOMxRef("SVGFEDropShadowElement")}}
-- {{DOMxRef("SVGFEFloodElement")}}
-- {{DOMxRef("SVGFEFuncAElement")}}
-- {{DOMxRef("SVGFEFuncBElement")}}
-- {{DOMxRef("SVGFEFuncGElement")}}
-- {{DOMxRef("SVGFEFuncRElement")}}
-- {{DOMxRef("SVGFEGaussianBlurElement")}}
-- {{DOMxRef("SVGFEImageElement")}}
-- {{DOMxRef("SVGFEMergeElement")}}
-- {{DOMxRef("SVGFEMergeNodeElement")}}
-- {{DOMxRef("SVGFEMorphologyElement")}}
-- {{DOMxRef("SVGFEOffsetElement")}}
-- {{DOMxRef("SVGFEPointLightElement")}}
-- {{DOMxRef("SVGFESpecularLightingElement")}}
-- {{DOMxRef("SVGFESpotLightElement")}}
-- {{DOMxRef("SVGFETileElement")}}
-- {{DOMxRef("SVGFETurbulenceElement")}}
-- {{DOMxRef("SVGFilterElement")}}
-- {{DOMxRef("SVGForeignObjectElement")}}
-- {{DOMxRef("SVGGElement")}}
-- {{DOMxRef("SVGGeometryElement")}}
-- {{DOMxRef("SVGGradientElement")}}
-- {{DOMxRef("SVGGraphicsElement")}}
-- {{DOMxRef("SVGImageElement")}}
-- {{DOMxRef("SVGLinearGradientElement")}}
-- {{DOMxRef("SVGLineElement")}}
-- {{DOMxRef("SVGMarkerElement")}} {{Experimental_Inline}}
-- {{DOMxRef("SVGMaskElement")}}
-- {{DOMxRef("SVGMetadataElement")}}
-- {{DOMxRef("SVGMPathElement")}}
-- {{DOMxRef("SVGPathElement")}}
-- {{DOMxRef("SVGPatternElement")}}
-- {{DOMxRef("SVGPolylineElement")}}
-- {{DOMxRef("SVGPolygonElement")}}
-- {{DOMxRef("SVGRadialGradientElement")}}
-- {{DOMxRef("SVGRectElement")}}
-- {{DOMxRef("SVGScriptElement")}}
-- {{DOMxRef("SVGSetElement")}}
-- {{DOMxRef("SVGStopElement")}}
-- {{DOMxRef("SVGStyleElement")}}
-- {{DOMxRef("SVGSVGElement")}}
-- {{DOMxRef("SVGSwitchElement")}}
-- {{DOMxRef("SVGSymbolElement")}}
-- {{DOMxRef("SVGTextContentElement")}}
-- {{DOMxRef("SVGTextElement")}}
-- {{DOMxRef("SVGTextPathElement")}}
-- {{DOMxRef("SVGTextPositioningElement")}}
-- {{DOMxRef("SVGTitleElement")}}
-- {{DOMxRef("SVGTSpanElement")}}
-- {{DOMxRef("SVGUseElement")}}
-- {{DOMxRef("SVGViewElement")}}
+- [`SVGAElement`](/de/docs/Web/API/SVGAElement)
+- [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)
+- [`SVGAnimateElement`](/de/docs/Web/API/SVGAnimateElement)
+- [`SVGAnimateMotionElement`](/de/docs/Web/API/SVGAnimateMotionElement)
+- [`SVGAnimateTransformElement`](/de/docs/Web/API/SVGAnimateTransformElement)
+- [`SVGCircleElement`](/de/docs/Web/API/SVGCircleElement)
+- [`SVGClipPathElement`](/de/docs/Web/API/SVGClipPathElement)
+- [`SVGComponentTransferFunctionElement`](/de/docs/Web/API/SVGComponentTransferFunctionElement)
+- [`SVGCursorElement`](/de/docs/Web/API/SVGCursorElement)
+- [`SVGDefsElement`](/de/docs/Web/API/SVGDefsElement)
+- [`SVGDescElement`](/de/docs/Web/API/SVGDescElement)
+- [`SVGElement`](/de/docs/Web/API/SVGElement)
+- [`SVGEllipseElement`](/de/docs/Web/API/SVGEllipseElement)
+- [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement)
+- [`SVGFEColorMatrixElement`](/de/docs/Web/API/SVGFEColorMatrixElement)
+- [`SVGFEComponentTransferElement`](/de/docs/Web/API/SVGFEComponentTransferElement)
+- [`SVGFECompositeElement`](/de/docs/Web/API/SVGFECompositeElement)
+- [`SVGFEConvolveMatrixElement`](/de/docs/Web/API/SVGFEConvolveMatrixElement)
+- [`SVGFEDiffuseLightingElement`](/de/docs/Web/API/SVGFEDiffuseLightingElement)
+- [`SVGFEDisplacementMapElement`](/de/docs/Web/API/SVGFEDisplacementMapElement)
+- [`SVGFEDistantLightElement`](/de/docs/Web/API/SVGFEDistantLightElement)
+- [`SVGFEDropShadowElement`](/de/docs/Web/API/SVGFEDropShadowElement)
+- [`SVGFEFloodElement`](/de/docs/Web/API/SVGFEFloodElement)
+- [`SVGFEFuncAElement`](/de/docs/Web/API/SVGFEFuncAElement)
+- [`SVGFEFuncBElement`](/de/docs/Web/API/SVGFEFuncBElement)
+- [`SVGFEFuncGElement`](/de/docs/Web/API/SVGFEFuncGElement)
+- [`SVGFEFuncRElement`](/de/docs/Web/API/SVGFEFuncRElement)
+- [`SVGFEGaussianBlurElement`](/de/docs/Web/API/SVGFEGaussianBlurElement)
+- [`SVGFEImageElement`](/de/docs/Web/API/SVGFEImageElement)
+- [`SVGFEMergeElement`](/de/docs/Web/API/SVGFEMergeElement)
+- [`SVGFEMergeNodeElement`](/de/docs/Web/API/SVGFEMergeNodeElement)
+- [`SVGFEMorphologyElement`](/de/docs/Web/API/SVGFEMorphologyElement)
+- [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOffsetElement)
+- [`SVGFEPointLightElement`](/de/docs/Web/API/SVGFEPointLightElement)
+- [`SVGFESpecularLightingElement`](/de/docs/Web/API/SVGFESpecularLightingElement)
+- [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement)
+- [`SVGFETileElement`](/de/docs/Web/API/SVGFETileElement)
+- [`SVGFETurbulenceElement`](/de/docs/Web/API/SVGFETurbulenceElement)
+- [`SVGFilterElement`](/de/docs/Web/API/SVGFilterElement)
+- [`SVGForeignObjectElement`](/de/docs/Web/API/SVGForeignObjectElement)
+- [`SVGGElement`](/de/docs/Web/API/SVGGElement)
+- [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)
+- [`SVGGradientElement`](/de/docs/Web/API/SVGGradientElement)
+- [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)
+- [`SVGImageElement`](/de/docs/Web/API/SVGImageElement)
+- [`SVGLinearGradientElement`](/de/docs/Web/API/SVGLinearGradientElement)
+- [`SVGLineElement`](/de/docs/Web/API/SVGLineElement)
+- [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement) {{Experimental_Inline}}
+- [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement)
+- [`SVGMetadataElement`](/de/docs/Web/API/SVGMetadataElement)
+- [`SVGMPathElement`](/de/docs/Web/API/SVGMPathElement)
+- [`SVGPathElement`](/de/docs/Web/API/SVGPathElement)
+- [`SVGPatternElement`](/de/docs/Web/API/SVGPatternElement)
+- [`SVGPolylineElement`](/de/docs/Web/API/SVGPolylineElement)
+- [`SVGPolygonElement`](/de/docs/Web/API/SVGPolygonElement)
+- [`SVGRadialGradientElement`](/de/docs/Web/API/SVGRadialGradientElement)
+- [`SVGRectElement`](/de/docs/Web/API/SVGRectElement)
+- [`SVGScriptElement`](/de/docs/Web/API/SVGScriptElement)
+- [`SVGSetElement`](/de/docs/Web/API/SVGSetElement)
+- [`SVGStopElement`](/de/docs/Web/API/SVGStopElement)
+- [`SVGStyleElement`](/de/docs/Web/API/SVGStyleElement)
+- [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)
+- [`SVGSwitchElement`](/de/docs/Web/API/SVGSwitchElement)
+- [`SVGSymbolElement`](/de/docs/Web/API/SVGSymbolElement)
+- [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)
+- [`SVGTextElement`](/de/docs/Web/API/SVGTextElement)
+- [`SVGTextPathElement`](/de/docs/Web/API/SVGTextPathElement)
+- [`SVGTextPositioningElement`](/de/docs/Web/API/SVGTextPositioningElement)
+- [`SVGTitleElement`](/de/docs/Web/API/SVGTitleElement)
+- [`SVGTSpanElement`](/de/docs/Web/API/SVGTSpanElement)
+- [`SVGUseElement`](/de/docs/Web/API/SVGUseElement)
+- [`SVGViewElement`](/de/docs/Web/API/SVGViewElement)
 
-### SVG-Datentypen-Schnittstellen
+### SVG-Datentyp-Schnittstellen
 
-Hier sind die DOM-APIs für Datentypen, die in den Definitionen von SVG-Eigenschaften und -Attributen verwendet werden.
+Hier sind die DOM APIs für Datentypen, die in den Definitionen von SVG-Eigenschaften und -Attributen verwendet werden.
 
 #### Statischer Typ
 
-- {{DOMxRef("SVGAngle")}}
-- {{DOMxRef("SVGLength")}}
-- {{DOMxRef("SVGLengthList")}}
-- {{DOMxRef("SVGNumber")}}
-- {{DOMxRef("SVGNumberList")}}
-- {{DOMxRef("SVGPreserveAspectRatio")}}
-- {{DOMxRef("SVGStringList")}}
-- {{DOMxRef("SVGTransform")}}
-- {{DOMxRef("SVGTransformList")}}
+- [`SVGAngle`](/de/docs/Web/API/SVGAngle)
+- [`SVGLength`](/de/docs/Web/API/SVGLength)
+- [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)
+- [`SVGNumber`](/de/docs/Web/API/SVGNumber)
+- [`SVGNumberList`](/de/docs/Web/API/SVGNumberList)
+- [`SVGPreserveAspectRatio`](/de/docs/Web/API/SVGPreserveAspectRatio)
+- [`SVGStringList`](/de/docs/Web/API/SVGStringList)
+- [`SVGTransform`](/de/docs/Web/API/SVGTransform)
+- [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)
 
 #### Animierter Typ
 
-- {{DOMxRef("SVGAnimatedAngle")}}
-- {{DOMxRef("SVGAnimatedBoolean")}}
-- {{DOMxRef("SVGAnimatedEnumeration")}}
-- {{DOMxRef("SVGAnimatedInteger")}}
-- {{DOMxRef("SVGAnimatedLength")}}
-- {{DOMxRef("SVGAnimatedLengthList")}}
-- {{DOMxRef("SVGAnimatedNumber")}}
-- {{DOMxRef("SVGAnimatedNumberList")}}
-- {{DOMxRef("SVGAnimatedPreserveAspectRatio")}}
-- {{DOMxRef("SVGAnimatedRect")}}
-- {{DOMxRef("SVGAnimatedString")}}
-- {{DOMxRef("SVGAnimatedTransformList")}}
+- [`SVGAnimatedAngle`](/de/docs/Web/API/SVGAnimatedAngle)
+- [`SVGAnimatedBoolean`](/de/docs/Web/API/SVGAnimatedBoolean)
+- [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)
+- [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger)
+- [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)
+- [`SVGAnimatedLengthList`](/de/docs/Web/API/SVGAnimatedLengthList)
+- [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber)
+- [`SVGAnimatedNumberList`](/de/docs/Web/API/SVGAnimatedNumberList)
+- [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspectRatio)
+- [`SVGAnimatedRect`](/de/docs/Web/API/SVGAnimatedRect)
+- [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString)
+- [`SVGAnimatedTransformList`](/de/docs/Web/API/SVGAnimatedTransformList)
 
 ### SMIL-bezogene Schnittstellen
 
-- {{DOMxRef("ElementTimeControl")}}
-- {{DOMxRef("TimeEvent")}}
+- [`ElementTimeControl`](/de/docs/Web/API/ElementTimeControl)
+- [`TimeEvent`](/de/docs/Web/API/TimeEvent)
 
-### Weitere SVG-Schnittstellen
+### Andere SVG-Schnittstellen
 
-- {{DOMxRef("ShadowAnimation")}}
-- {{DOMxRef("SVGUnitTypes")}}
-- {{DOMxRef("SVGUseElementShadowRoot")}}
+- [`ShadowAnimation`](/de/docs/Web/API/ShadowAnimation)
+- [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes)
+- [`SVGUseElementShadowRoot`](/de/docs/Web/API/SVGUseElementShadowRoot)
 
 ## Spezifikationen
 
@@ -142,4 +142,4 @@ Hier sind die DOM-APIs für Datentypen, die in den Definitionen von SVG-Eigensch
 
 ## Siehe auch
 
-- [Erste Schritte mit SVG](/de/docs/Web/SVG)
+- [Einstieg in SVG](/de/docs/Web/SVG)

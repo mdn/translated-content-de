@@ -9,48 +9,48 @@ l10n:
 
 Das **`ScreenDetails`**-Interface der [Window Management API](/de/docs/Web/API/Window_Management_API) repräsentiert die Details aller Bildschirme, die dem Gerät des Benutzers zur Verfügung stehen.
 
-Diese Informationen werden über die Methode {{domxref("Window.getScreenDetails()")}} abgerufen.
+Diese Informationen werden über die Methode [`Window.getScreenDetails()`](/de/docs/Web/API/Window/getScreenDetails) abgerufen.
 
-> **Note:** `ScreenDetails` ist ein Live-Objekt, was bedeutet, dass es aktualisiert wird, sobald sich die verfügbaren Bildschirme ändern. Sie können daher dasselbe Objekt weiter abfragen, um aktualisierte Werte zu erhalten, anstatt wiederholt `getScreenDetails()` aufzurufen.
+> **Note:** `ScreenDetails` ist ein Live-Objekt, was bedeutet, dass es sich aktualisiert, wenn sich die verfügbaren Bildschirme ändern. Sie können daher dasselbe Objekt abfragen, um aktualisierte Werte zu erhalten, anstatt `getScreenDetails()` wiederholt aufzurufen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{DOMxRef("EventTarget")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("ScreenDetails.currentScreen", "currentScreen")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`currentScreen`](/de/docs/Web/API/ScreenDetails/currentScreen) {{ReadOnlyInline}} {{Experimental_Inline}}
 
-  - : Ein einzelnes {{domxref("ScreenDetailed")}}-Objekt, das detaillierte Informationen über den Bildschirm darstellt, auf dem das aktuelle Browserfenster angezeigt wird.
+  - : Ein einzelnes [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekt, das detaillierte Informationen über den Bildschirm repräsentiert, auf dem das aktuelle Browserfenster angezeigt wird.
 
-- {{domxref("ScreenDetails.screens", "screens")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`screens`](/de/docs/Web/API/ScreenDetails/screens) {{ReadOnlyInline}} {{Experimental_Inline}}
 
-  - : Ein Array von {{domxref("ScreenDetailed")}}-Objekten, von denen jedes detaillierte Informationen über einen bestimmten Bildschirm darstellt, der dem Gerät des Benutzers zur Verfügung steht.
+  - : Ein Array von [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekten, von denen jedes detaillierte Informationen über einen bestimmten Bildschirm darstellt, der dem Gerät des Benutzers zur Verfügung steht.
 
-    > **Note:** `screens` umfasst nur "erweiterte" Anzeigegeräte, nicht solche, die eine andere Anzeige spiegeln.
+    > **Note:** `screens` umfasst nur "erweiterte" Anzeigen, nicht solche, die ein anderes Display spiegeln.
 
 ## Ereignisse
 
-- {{domxref("ScreenDetails.currentscreenchange_event", "currentscreenchange")}} {{experimental_inline}}
-  - : Wird ausgelöst, wenn sich der aktuelle Bildschirm des Fensters in irgendeiner Weise ändert – beispielsweise die verfügbare Breite oder Höhe oder die Ausrichtung.
-- {{domxref("ScreenDetails.screenschange_event", "screenschange")}} {{experimental_inline}}
-  - : Wird ausgelöst, wenn Bildschirme mit dem System verbunden oder davon getrennt werden.
+- [`currentscreenchange`](/de/docs/Web/API/ScreenDetails/currentscreenchange_event) {{experimental_inline}}
+  - : Wird ausgelöst, wenn sich der aktuelle Bildschirm des Fensters in irgendeiner Weise ändert — zum Beispiel verfügbare Breite oder Höhe oder Ausrichtung.
+- [`screenschange`](/de/docs/Web/API/ScreenDetails/screenschange_event) {{experimental_inline}}
+  - : Wird ausgelöst, wenn Bildschirme mit dem System verbunden oder vom System getrennt werden.
 
 ## Beispiele
 
 > [!NOTE]
-> Für ein vollständiges Beispiel siehe [Multi-window learning environment](https://mdn.github.io/dom-examples/window-management-api/) (siehe auch den [Quellcode](https://github.com/mdn/dom-examples/tree/main/window-management-api)).
+> Sehen Sie sich das [Lernumgebung mit mehreren Fenstern](https://mdn.github.io/dom-examples/window-management-api/) für ein vollständiges Beispiel an (siehe auch den [Quellcode](https://github.com/mdn/dom-examples/tree/main/window-management-api)).
 
-### Zugriff auf grundlegende Bildschirminformationen
+### Grundlegender Zugriff auf Bildschirminformationen
 
-Wenn {{domxref("Window.getScreenDetails()")}} aufgerufen wird, wird der Benutzer um Erlaubnis gebeten, Fenster auf allen seinen Displays zu verwalten (der Status dieser Berechtigung kann mit {{domxref("Permissions.query()")}} abgefragt werden, um `window-management` zu überprüfen). Wenn der Benutzer die Erlaubnis erteilt, wird ein `ScreenDetails`-Objekt zurückgegeben. Dieses Objekt enthält Details zu allen Bildschirmen, die dem System des Benutzers zur Verfügung stehen.
+Wenn [`Window.getScreenDetails()`](/de/docs/Web/API/Window/getScreenDetails) aufgerufen wird, wird der Benutzer um Erlaubnis gefragt, Fenster auf allen seinen Anzeigen zu verwalten (der Status dieser Erlaubnis kann mit [`Permissions.query()`](/de/docs/Web/API/Permissions/query) überprüft werden, um `window-management` abzufragen). Wenn der Benutzer die Erlaubnis erteilt, wird ein `ScreenDetails`-Objekt zurückgegeben. Dieses Objekt enthält Details zu allen Bildschirmen, die dem System des Benutzers zur Verfügung stehen.
 
-Das folgende Beispiel öffnet ein vollformatiges Fenster auf jedem verfügbaren Display.
+Das folgende Beispiel öffnet auf jedem verfügbaren Display ein Fenster in voller Größe.
 
 ```js
 const screenDetails = await window.getScreenDetails();
 
-// Öffnen Sie ein Fenster auf jedem Bildschirm des Geräts
+// Open a window on each screen of the device
 for (const screen of screenDetails.screens) {
   openWindow(
     screen.availLeft,
@@ -62,30 +62,30 @@ for (const screen of screenDetails.screens) {
 }
 ```
 
-### Reagieren auf Änderungen an verfügbaren Bildschirmen
+### Reagieren auf Änderungen bei verfügbaren Bildschirmen
 
-Sie könnten das `screenschange`-Ereignis verwenden, um zu erkennen, wann sich die verfügbaren Bildschirme geändert haben (vielleicht wenn ein Bildschirm eingesteckt oder ausgesteckt wird), die Änderung melden und die Anordnung der Fenster an die neue Konfiguration anpassen:
+Sie könnten das `screenschange`-Ereignis verwenden, um zu erkennen, wenn sich die verfügbaren Bildschirme geändert haben (vielleicht, wenn ein Bildschirm eingesteckt oder abgestöpselt wird), die Änderung melden und die Anordnung der Fenster an die neue Konfiguration anpassen:
 
 ```js
 const screenDetails = await window.getScreenDetails();
 
-// Rückgabe der Anzahl der Bildschirme
+// Return the number of screens
 let noOfScreens = screenDetails.screens.length;
 
 screenDetails.addEventListener("screenschange", () => {
-  // Wenn die neue Anzahl an Bildschirmen von der alten Anzahl abweicht,
-  // melden Sie den Unterschied
+  // If the new number of screens is different to the old number of screens,
+  // report the difference
   if (screenDetails.screens.length !== noOfScreens) {
     console.log(
-      `Die Anzahl der Bildschirme hat sich von ${noOfScreens} auf ${screenDetails.screens.length} geändert`,
+      `The screen count changed from ${noOfScreens} to ${screenDetails.screens.length}`,
     );
 
-    // Aktualisieren Sie den Wert von noOfScreens
+    // Update noOfScreens value
     noOfScreens = screenDetails.screens.length;
   }
 
-  // Öffnen, schließen oder arrangieren Sie Fenster nach Bedarf neu,
-  // um die neue Bildschirmkonfiguration anzupassen
+  // Open, close, or rearrange windows as needed,
+  // to fit the new screen configuration
   updateWindows();
 });
 ```

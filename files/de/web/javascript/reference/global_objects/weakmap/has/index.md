@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`has()`** Methode von {{jsxref("WeakMap")}} Instanzen gibt einen Boolean-Wert zurück, der angibt, ob ein Element mit dem angegebenen Schlüssel in diesem `WeakMap` existiert oder nicht.
+Die **`has()`** Methode von {{jsxref("WeakMap")}} Instanzen gibt einen booleschen Wert zurück, der angibt, ob ein Element mit dem angegebenen Schlüssel in diesem `WeakMap` existiert oder nicht.
 
 {{EmbedInteractiveExample("pages/js/weakmap-prototype-has.html")}}
 
@@ -20,7 +20,7 @@ has(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel des Elements, das auf seine Existenz im `WeakMap` Objekt überprüft werden soll.
+  - : Der Schlüssel des Elements, dessen Vorhandensein im `WeakMap` Objekt getestet werden soll.
 
 ### Rückgabewert
 
@@ -28,14 +28,14 @@ Gibt `true` zurück, wenn ein Element mit dem angegebenen Schlüssel im `WeakMap
 
 ## Beispiele
 
-### Verwendung der has Methode
+### Die has Methode verwenden
 
 ```js
 const wm = new WeakMap();
 wm.set(window, "foo");
 
-wm.has(window); // gibt true zurück
-wm.has("baz"); // gibt false zurück
+wm.has(window); // returns true
+wm.has("baz"); // returns false
 ```
 
 ## Spezifikationen

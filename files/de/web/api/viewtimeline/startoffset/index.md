@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Animations")}}{{SeeCompatTable}}
 
-Die **`startOffset`** schreibgeschützte Eigenschaft des {{domxref("ViewTimeline")}}-Interfaces gibt einen {{domxref("CSSNumericValue")}} zurück, der die Startposition (0% Fortschritt) der Scroll-Position der Zeitleiste als einen Versatz vom Anfang des überlaufenden Seiteninhalts im Scrollfeld darstellt.
+Die **`startOffset`**-Eigenschaft der [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die einen [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) zurückgibt. Dieser Wert repräsentiert die Start- (0 % Fortschritt) Scrollposition der Zeitleiste als Offset vom Anfang des überfüllten Bereichs des Inhalts im Scroller.
 
 ## Wert
 
-Ein {{domxref("CSSNumericValue")}}.
+Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-Sehen Sie die Hauptseite {{domxref("ScrollTimeline")}} für ein Beispiel.
+Siehe die Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline) für ein Beispiel.
 
 ## Spezifikationen
 
@@ -30,5 +30,5 @@ Sehen Sie die Hauptseite {{domxref("ScrollTimeline")}} für ein Beispiel.
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
 - [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
-- {{domxref("ViewTimeline")}}
-- {{domxref("AnimationTimeline")}}, {{domxref("ScrollTimeline")}}
+- [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)
+- [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)

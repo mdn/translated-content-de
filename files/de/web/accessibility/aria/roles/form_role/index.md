@@ -1,5 +1,5 @@
 ---
-title: "ARIA: Form-Rolle"
+title: "ARIA: form Rolle"
 slug: Web/Accessibility/ARIA/Roles/form_role
 l10n:
   sourceCommit: 194bd13942ad0c532c92d364e0d5d0c36732d98c
@@ -7,7 +7,7 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `form`-Rolle kann verwendet werden, um eine Gruppe von Elementen auf einer Seite zu identifizieren, die eine äquivalente Funktionalität zu einem HTML-Formular bieten. Das Formular wird nicht als Landmarke angezeigt, es sei denn, es verfügt über einen [zugänglichen Namen](/de/docs/Glossary/Accessible_name).
+Die `form` Rolle kann verwendet werden, um eine Gruppe von Elementen auf einer Seite zu identifizieren, die eine gleichwertige Funktionalität wie ein HTML-Formular bieten. Das Formular wird nicht als Landmarkenregion angezeigt, es sei denn, es hat einen [barrierefreien Namen](/de/docs/Glossary/Accessible_name).
 
 ```html
 <div role="form" id="contact-info" aria-label="Contact information">
@@ -15,35 +15,35 @@ Die `form`-Rolle kann verwendet werden, um eine Gruppe von Elementen auf einer S
 </div>
 ```
 
-Dies ist ein Formular, das die Kontaktinformationen eines Benutzers sammelt und speichert.
+Dies ist ein Formular, das die Kontaktinformationen eines Benutzers erfasst und speichert.
 
 > [!WARNING]
-> Verwenden Sie ein HTML-{{htmlelement("form")}}-Element, um Ihre Formularelemente zu umfassen, anstatt der ARIA `form`-Rolle, es sei denn, Sie haben einen sehr guten Grund.
-> Das HTML-`<form>`-Element ist ausreichend, um unterstützenden Technologien mitzuteilen, dass es ein Formular gibt.
+> Verwenden Sie ein HTML {{htmlelement("form")}}-Element, um Ihre Formularelemente zu enthalten, anstatt die ARIA `form` Rolle, es sei denn, Sie haben einen sehr guten Grund.
+> Das HTML `<form>`-Element reicht aus, um unterstützenden Technologien mitzuteilen, dass ein Formular vorhanden ist.
 
 ## Beschreibung
 
-Eine `form`-[Landmarke](/de/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles) identifiziert einen Inhaltsbereich, der eine Sammlung von Elementen und Objekten enthält, die zusammen ein Formular ergeben, wenn keine andere benannte Landmarke geeignet ist (z.B. [`main`](/de/docs/Web/Accessibility/ARIA/Roles/main_role) oder [`search`](/de/docs/Web/Accessibility/ARIA/Roles/search_role)).
+Ein `form` [Landmark](/de/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles) identifiziert einen Inhaltsbereich, der eine Sammlung von Elementen und Objekten enthält, die insgesamt ein Formular bilden, wenn keine andere benannte Landmark geeignet ist (z.B. [`main`](/de/docs/Web/Accessibility/ARIA/Roles/main_role) oder [`search`](/de/docs/Web/Accessibility/ARIA/Roles/search_role)).
 
 > [!NOTE]
-> Das Verwenden des {{HTMLElement('form')}}-Elements wird automatisch einen Abschnitt des Inhalts als `form`-Landmarke kommunizieren, wenn es einen zugänglichen Namen hat. Entwickler sollten immer das richtige semantische HTML-Element gegenüber ARIA bevorzugen.
+> Die Verwendung des {{HTMLElement('form')}}-Elements kommuniziert automatisch einen Inhaltsbereich als `form`-Landmarke, wenn ihm ein barrierefreier Name bereitgestellt wird. Entwickler sollten immer bevorzugt das korrekte semantische HTML-Element über ARIA verwenden.
 
-Verwenden Sie das HTML-{{HTMLElement('form')}}-Element, wenn möglich. Das `<form>`-Element definiert eine `form`-Landmarke, wenn es einen zugänglichen Namen hat (z.B. [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby), [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) oder [`title`](/de/docs/Web/HTML/Global_attributes#title)). Stellen Sie sicher, dass jedes Formular in einem Dokument ein eindeutiges Etikett hat, um den Benutzern das Verständnis des Zwecks des Formulars zu erleichtern. Dieses Etikett sollte für alle Benutzer sichtbar sein, nicht nur für Benutzer von unterstützenden Technologien. Verwenden Sie die `search`-Landmarke anstelle der `form`-Landmarke, wenn das Formular für Suchfunktionen verwendet wird.
+Verwenden Sie das HTML {{HTMLElement('form')}}-Element, wenn möglich. Das `<form>`-Element definiert eine `form`-Landmarke, wenn es einen barrierefreien Namen hat (z.B. [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby), [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) oder [`title`](/de/docs/Web/HTML/Global_attributes#title)). Stellen Sie sicher, dass jedes Formular in einem Dokument ein eindeutiges Label hat, um Benutzern zu helfen, das Ziel des Formulars zu verstehen. Dieses Label sollte für alle Benutzer sichtbar sein, nicht nur für Benutzer unterstützender Technologien. Verwenden Sie die `search` Landmarke anstelle der `form` Landmarke, wenn das Formular für Suchfunktionen genutzt wird.
 
-Verwenden Sie `role="form"`, um einen Bereich der Seite zu identifizieren; verwenden Sie es nicht, um jedes Formularelement zu identifizieren. Selbst wenn Sie die Form-Landmarke anstelle von `<form>` verwenden, werden Sie ermutigt, native HTML-Formularelemente wie {{HTMLElement('button')}}, {{HTMLElement('input')}}, {{HTMLElement('select')}} und {{HTMLElement('textarea')}} zu verwenden.
+Verwenden Sie `role="form"`, um einen Bereich der Seite zu identifizieren; verwenden Sie es nicht für jedes Formularelement. Selbst wenn Sie die Form-Landmarke anstelle von `<form>` verwenden, sollten Sie dennoch native HTML-Formularsteuerelemente wie {{HTMLElement('button')}}, {{HTMLElement('input')}}, {{HTMLElement('select')}}, und {{HTMLElement('textarea')}} verwenden.
 
-### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
+### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
 
-Keine rollen-spezifischen Zustände oder Eigenschaften.
+Keine rollenspezifischen Zustände oder Eigenschaften.
 
 ### Tastaturinteraktionen
 
-Keine rollen-spezifischen Tastaturinteraktionen
+Keine rollenspezifischen Tastaturinteraktionen.
 
 ### Erforderliche JavaScript-Funktionen
 
 - `onsubmit`
-  - : Der onSubmit-Event-Handler behandelt das Ereignis, das ausgelöst wird, wenn das Formular abgeschickt wird. Alles, was kein `<form>` ist, kann nicht eingereicht werden, daher müssten Sie JavaScript verwenden, um einen alternativen Datenübermittlungsmechanismus zu erstellen, zum Beispiel mit {{domxref("Window/fetch", "fetch()")}}.
+  - : Der onSubmit-Ereignishandler verarbeitet das Ereignis, das beim Absenden des Formulars ausgelöst wird. Alles, was kein `<form>` ist, kann nicht übermittelt werden, daher müssten Sie JavaScript verwenden, um einen alternativen Datenübermittlungsmechanismus zu erstellen, zum Beispiel mit [`fetch()`](/de/docs/Web/API/Window/fetch).
 
 ## Beispiele
 
@@ -80,25 +80,25 @@ Es wird empfohlen, `<form>` zu verwenden.
 <form id="send-comment" aria-label="Add a comment">…</form>
 ```
 
-## Barrierefreiheit
+## Barrierefreiheitshinweise
 
 ### Sparsam verwenden
 
-[Landmarken-Rollen](/de/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles) sollen größere allgemeine Abschnitte des Dokuments identifizieren. Die Verwendung zu vieler Landmarken-Rollen kann "Rauschen" bei Bildschirmlesern erzeugen, was es schwierig macht, das gesamte Layout der Seite zu verstehen.
+[Landmark Rollen](/de/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles) sind dazu gedacht, größere Gesamtabschnitte des Dokuments zu identifizieren. Die Verwendung von zu vielen Landmark-Rollen kann in Screenreadern "Geräusche" erzeugen, die es schwer machen, das Gesamtlayout der Seite zu verstehen.
 
 ### Eingaben sind keine Formulare
 
-Sie müssen nicht `role="form"` bei jedem [Formularelement](/de/docs/Web/HTML/Element#forms) (Eingaben, Textbereiche, Selects usw.) deklarieren. Es sollte auf dem HTML-Element deklariert werden, das die Formularelemente umschließt. Idealerweise verwenden Sie das {{HTMLElement('form')}}-Element als umschließendes Element und deklarieren `role="form"` nicht.
+Sie müssen `role="form"` nicht für jedes [Formularelement](/de/docs/Web/HTML/Element#forms) (Eingaben, Textbereiche, Auswahlen usw.) angeben. Es sollte auf dem HTML-Element angegeben werden, das die Formularelemente umschließt. Idealerweise verwenden Sie das {{HTMLElement('form')}}-Element als umschließendes Element und verzichten Sie darauf, `role="form"` anzugeben.
 
 ### Suche
 
-Wenn ein Formular zur Suche verwendet wird, sollten Sie den spezialisierteren Wert [`role="search"`](/de/docs/Web/Accessibility/ARIA/Roles/search_role) verwenden.
+Wenn ein Formular für die Suche verwendet wird, sollten Sie den spezialisierteren Wert [`role="search"`](/de/docs/Web/Accessibility/ARIA/Roles/search_role) verwenden.
 
 ### Landmarken kennzeichnen
 
-Jedes {{HTMLElement('form')}}-Element und jede Form-`role`, die als Landmarke angezeigt werden muss, muss einen zugänglichen Namen haben. Dieser Name ermöglicht es einem Benutzer von unterstützender Technologie, schnell den Zweck der Form-Landmarke zu verstehen.
+Jedes {{HTMLElement('form')}}-Element und jede Form `role`, die als Landmarke exponiert werden muss, muss einen barrierefreien Namen erhalten. Dieser Name ermöglicht es einem Benutzer unterstützender Technologien, schnell den Zweck der formalen Landmarke zu verstehen.
 
-Verwenden Sie `aria-labelledby`, `aria-label` oder `title` auf demselben Element, dem `role="form"` zugewiesen wurde, um ihm einen zugänglichen Namen zu geben.
+Verwenden Sie `aria-labelledby`, `aria-label` oder `title` auf demselben Element, dem `role="form"` zugewiesen wurde, um ihm einen barrierefreien Namen zu geben.
 
 #### Verwendung von `role="form"`
 
@@ -110,13 +110,13 @@ Verwenden Sie `aria-labelledby`, `aria-label` oder `title` auf demselben Element
 
 #### Redundante Beschreibungen
 
-Bildschirmleser werden die Art der Rolle der Landmarke ankündigen. Aus diesem Grund müssen Sie in der Bezeichnung nicht beschreiben, was die Landmarke ist. Ein Beispiel, `role="form"` mit einem `aria-label="Contact form"`, könnte redundant als "Kontaktformular Formular" angekündigt werden.
+Screenreader werden die Art der Rolle der Landmarke ankündigen. Daher brauchen Sie in ihrem Label nicht zu beschreiben, was die Landmarke ist. Zum Beispiel kann eine Erklärung von `role="form"` mit einem `aria-label="Kontaktformular"` redundant als "Kontaktformular-Formular" angekündigt werden.
 
-## Beste Praktiken
+## Best Practices
 
-### Bevorzugen Sie HTML
+### HTML bevorzugen
 
-Durch die Verwendung des {{HTMLElement('form')}}-Elements wird automatisch kommuniziert, dass ein Abschnitt die Rolle `form` hat. Wenn möglich, ziehen Sie es vor, dieses Element zu verwenden.
+Die Verwendung des {{HTMLElement('form')}}-Elements teilt automatisch mit, dass ein Abschnitt die Rolle `form` hat. Wenn möglich, bevorzugen Sie es, dies zu nutzen.
 
 ## Spezifikationen
 

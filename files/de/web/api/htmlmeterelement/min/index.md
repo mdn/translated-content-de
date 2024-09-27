@@ -3,14 +3,14 @@ title: "HTMLMeterElement: min-Eigenschaft"
 short-title: min
 slug: Web/API/HTMLMeterElement/min
 l10n:
-  sourceCommit: f36d86d713e8757d5786bbc86eccf123bc1fec67
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`min`**-Eigenschaft der {{DOMxRef("HTMLMeterElement")}}-Schnittstelle repräsentiert den minimalen Wert des {{htmlelement("meter")}}-Elements als Gleitkommazahl. Sie spiegelt das [`min`](/de/docs/Web/HTML/Element/meter#min)-Attribut des Elements wider, oder `0`, wenn kein `min` definiert ist.
+Die **`min`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement) Schnittstelle repräsentiert den Minimalwert des {{htmlelement("meter")}}-Elements als eine Gleitkommazahl. Sie spiegelt das [`min`](/de/docs/Web/HTML/Element/meter#min) Attribut des Elements wider oder `0`, wenn kein `min` definiert ist.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, beispielsweise um einen Standardwert basierend auf einer Bedingung festzulegen.
+Diese Eigenschaft kann auch direkt gesetzt werden, um beispielsweise einen Standardwert basierend auf einer Bedingung zu bestimmen.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Eine Zahl.
 ## Beispiele
 
 ```html
-<label for="fuel">Aktueller Kraftstoffstand:</label>
+<label for="fuel">Current fuel level:</label>
 <meter
   id="fuel"
   min="0"
@@ -48,6 +48,6 @@ console.log(meterElement.min); // 1
 ## Siehe auch
 
 - {{HTMLElement("meter")}}
-- {{DOMXref("HTMLMeterElement.value")}}
-- {{DOMXref("HTMLMeterElement.max")}}
-- {{DOMXref("HTMLProgressElement")}}
+- [`HTMLMeterElement.value`](/de/docs/Web/API/HTMLMeterElement/value)
+- [`HTMLMeterElement.max`](/de/docs/Web/API/HTMLMeterElement/max)
+- [`HTMLProgressElement`](/de/docs/Web/API/HTMLProgressElement)

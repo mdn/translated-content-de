@@ -8,15 +8,14 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`DataTransfer.clearData()`** Methode entfernt die [Drag-Daten](/de/docs/Web/API/DataTransfer) für den angegebenen Typ aus der Drag-Operation. Wenn keine Daten für den angegebenen Typ existieren, tut diese Methode nichts.
+Die **`DataTransfer.clearData()`**-Methode entfernt die [Drag-Daten](/de/docs/Web/API/DataTransfer) des Zieh-Vorgangs für den angegebenen Typ. Wenn keine Daten für den angegebenen Typ vorhanden sind, bewirkt diese Methode nichts.
 
-Wenn diese Methode ohne Argumente oder mit leerem Format aufgerufen wird, werden die Daten aller Typen entfernt.
+Wird diese Methode ohne Argumente oder mit einem leeren Zeichenfolgenformat aufgerufen, werden die Daten aller Typen entfernt.
 
-Diese Methode entfernt _nicht_ die Dateien aus der Drag-Operation. Daher kann es sein, dass immer noch ein Eintrag mit dem Typ `"Files"` in der {{domxref("DataTransfer.types")}} Liste des Objekts verbleibt, wenn Dateien in das Drag eingebunden sind.
+Diese Methode entfernt _keine_ Dateien aus dem Zieh-Vorgang, daher kann es dennoch einen Eintrag mit dem Typ `"Files"` in der [`DataTransfer.types`](/de/docs/Web/API/DataTransfer/types) Liste des Objekts geben, wenn Dateien in das Ziehen einbezogen wurden.
 
 > [!NOTE]
-> Diese Methode kann nur im Handler für das {{domxref("HTMLElement/dragstart_event", "dragstart")}} Event verwendet werden,
-> da dies der einzige Zeitpunkt ist, zu dem der Datenspeicher der Drag-Operation beschreibbar ist.
+> Diese Methode kann nur im Handler für das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis verwendet werden, da dies die einzige Zeit ist, in der der Datenspeicher des Zieh-Vorgangs schreibbar ist.
 
 ## Syntax
 
@@ -28,7 +27,8 @@ clearData(format)
 ### Parameter
 
 - `format` {{optional_inline}}
-  - : Ein String, der den Typ der zu entfernenden Daten angibt. Wenn dieser Parameter ein leerer String ist oder nicht bereitgestellt wird, werden die Daten für alle Typen entfernt.
+  - : Eine Zeichenkette, die den zu entfernenden Datentyp angibt. Wenn
+    dieser Parameter eine leere Zeichenkette ist oder nicht bereitgestellt wird, werden die Daten aller Typen entfernt.
 
 ### Rückgabewert
 
@@ -36,19 +36,21 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der Methoden {{domxref("DataTransfer")}}
-{{domxref("DataTransfer.getData()","getData()")}},
-{{domxref("DataTransfer.setData()","setData()")}} und `clearData()`.
+Dieses Beispiel zeigt die Verwendung des [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekts
+der Methoden [`getData()`](/de/docs/Web/API/DataTransfer/getData),
+[`setData()`](/de/docs/Web/API/DataTransfer/setData) und
+`clearData()`.
 
 ### HTML
 
 ```html
 <span class="tweaked" id="source" draggable="true">
-  Wählen Sie dieses Element aus, ziehen Sie es zur Drop-Zone und lassen Sie die Auswahl dann los, um das Element zu verschieben.
+  Select this element, drag it to the Drop Zone and then release the selection
+  to move the element.
 </span>
-<span class="tweaked" id="target">Drop-Zone</span>
-<div>Status: <span id="status">Ziehen zum Starten</span></div>
-<div>Daten sind: <span id="data">uninitialisiert</span></div>
+<span class="tweaked" id="target">Drop Zone</span>
+<div>Status: <span id="status">Drag to start</span></div>
+<div>Data is: <span id="data">uninitialized</span></div>
 ```
 
 ### CSS
@@ -74,14 +76,14 @@ span.tweaked {
 
 ```js
 window.addEventListener("DOMContentLoaded", () => {
-  // HTML-Elemente auswählen
+  // Select HTML elements
   const draggable = document.getElementById("source");
   const droppable = document.getElementById("target");
   const status = document.getElementById("status");
   const data = document.getElementById("data");
   let dropped = false;
 
-  // Event-Handler registrieren
+  // Register event handlers
   draggable.addEventListener("dragstart", dragStartHandler);
   draggable.addEventListener("dragend", dragEndHandler);
   droppable.addEventListener("dragover", dragOverHandler);
@@ -89,16 +91,17 @@ window.addEventListener("DOMContentLoaded", () => {
   droppable.addEventListener("drop", dropHandler);
 
   function dragStartHandler(event) {
-    status.textContent = "Ziehen im Gange";
+    status.textContent = "Drag in process";
 
-    // Ändern Sie die Bordüre des Ziel-Elements, um anzuzeigen, dass das Ziehen begonnen hat
+    // Change target element's border to signify drag has started
     event.currentTarget.style.border = "1px dashed blue";
 
-    // Beginnen Sie damit, vorhandene Zwischenablagen zu löschen; dies wird alle Typen betreffen, da wir keinen spezifischen Typ angeben.
+    // Start by clearing existing clipboards; this will affect all types since we
+    // don't give a specific type.
 
     event.dataTransfer.clearData();
 
-    // Setzen Sie das Format und die Daten des Zugs (verwenden Sie die ID des Ereignisziels für die Daten)
+    // Set the drag's format and data (use event target's id for data)
     event.dataTransfer.setData("text/plain", event.target.id);
 
     data.textContent = event.dataTransfer.getData("text/plain");
@@ -106,16 +109,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function dragEndHandler(event) {
     if (!dropped) {
-      status.textContent = "Ziehen abgebrochen";
+      status.textContent = "Drag canceled";
     }
 
-    data.textContent = event.dataTransfer.getData("text/plain") || "leer";
+    data.textContent = event.dataTransfer.getData("text/plain") || "empty";
 
-    // Ändern Sie die Bordüre, um anzuzeigen, dass das Ziehen nicht mehr im Gange ist
+    // Change border to signify drag is no longer in process
     event.currentTarget.style.border = "1px solid black";
 
     if (dropped) {
-      // Entfernen Sie alle Event-Listener
+      // Remove all event listeners
       draggable.removeEventListener("dragstart", dragStartHandler);
       draggable.removeEventListener("dragend", dragEndHandler);
       droppable.removeEventListener("dragover", dragOverHandler);
@@ -125,13 +128,13 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function dragOverHandler(event) {
-    status.textContent = "Absetzen möglich";
+    status.textContent = "Drop available";
 
     event.preventDefault();
   }
 
   function dragLeaveHandler(event) {
-    status.textContent = "Ziehen im Gange (Absetzen war möglich)";
+    status.textContent = "Drag in process (drop was available)";
 
     event.preventDefault();
   }
@@ -139,21 +142,21 @@ window.addEventListener("DOMContentLoaded", () => {
   function dropHandler(event) {
     dropped = true;
 
-    status.textContent = "Absetzen abgeschlossen";
+    status.textContent = "Drop done";
 
     event.preventDefault();
 
-    // Holen Sie sich die Daten, die mit dem Ereignisformat „text“ verknüpft sind
+    // Get data linked to event format « text »
     const _data = event.dataTransfer.getData("text/plain");
     const element = document.getElementById(_data);
 
-    // Hängen Sie das Ziehquelle-Element an das Ziel-Element des Ereignisses an
+    // Append drag source element to event's target element
     event.target.appendChild(element);
 
-    // Ändern Sie die CSS-Stile und den angezeigten Text
+    // Change CSS styles and displayed text
     element.style.cssText =
       "border: 1px solid black;display: block; color: red";
-    element.textContent = "Ich bin in der Drop-Zone!";
+    element.textContent = "I'm in the Drop Zone!";
   }
 });
 ```
@@ -170,7 +173,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 ## Siehe auch
 
-- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Zieh-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
 - [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
-- [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)
+- [DataTransfer Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)

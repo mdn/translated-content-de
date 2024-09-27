@@ -7,13 +7,13 @@ l10n:
 
 {{JSRef}}
 
-Die **`byteLength`**-Zugriffseigenschaft von {{jsxref("DataView")}}-Instanzen gibt die Länge (in Bytes) dieser Ansicht zurück.
+Die **`byteLength`** Zugriffsprojektion von {{jsxref("DataView")}} Instanzen gibt die Länge (in Bytes) dieser Ansicht zurück.
 
 {{EmbedInteractiveExample("pages/js/dataview-bytelength.html")}}
 
 ## Beschreibung
 
-Die `byteLength`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Funktion `undefined` ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird beim Erstellen einer `DataView` festgelegt und kann nicht geändert werden. Wenn die `DataView` keinen Offset oder keine `byteLength` angibt, wird die `byteLength` des referenzierten `ArrayBuffer` oder `SharedArrayBuffer` zurückgegeben.
+Die `byteLength` Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessorfunktion auf `undefined` gesetzt ist, was bedeutet, dass Sie diese Eigenschaft nur lesen können. Der Wert wird festgelegt, wenn ein `DataView` konstruiert wird und kann nicht geändert werden. Wenn das `DataView` weder einen Offset noch eine `byteLength` spezifiziert, wird die `byteLength` des referenzierten `ArrayBuffer` oder `SharedArrayBuffer` zurückgegeben.
 
 ## Beispiele
 
@@ -22,13 +22,13 @@ Die `byteLength`-Eigenschaft ist eine Zugriffseigenschaft, deren Set-Accessor-Fu
 ```js
 const buffer = new ArrayBuffer(8);
 const dataview = new DataView(buffer);
-dataview.byteLength; // 8 (entspricht der byteLength des Puffer)
+dataview.byteLength; // 8 (matches the byteLength of the buffer)
 
 const dataview2 = new DataView(buffer, 1, 5);
-dataview2.byteLength; // 5 (wie beim Erstellen der DataView angegeben)
+dataview2.byteLength; // 5 (as specified when constructing the DataView)
 
 const dataview3 = new DataView(buffer, 2);
-dataview3.byteLength; // 6 (aufgrund des Offsets der erstellten DataView)
+dataview3.byteLength; // 6 (due to the offset of the constructed DataView)
 ```
 
 ## Spezifikationen

@@ -1,5 +1,5 @@
 ---
-title: "Client: Eigenschaft type"
+title: "Client: type-Eigenschaft"
 short-title: type
 slug: Web/API/Client/type
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`type`** schreibgeschützte Eigenschaft des {{domxref("Client")}}-Interfaces gibt den Typ des Clients an, den der Service Worker steuert.
+Die **`type`** schreibgeschützte Eigenschaft der [`Client`](/de/docs/Web/API/Client)
+Schnittstelle gibt den Typ des Clients an, den der Service Worker kontrolliert.
 
 ## Wert
 
@@ -21,10 +22,10 @@ Ein String, der den Client-Typ darstellt. Der Wert kann einer der folgenden sein
 ## Beispiele
 
 ```js
-// Dienstarbeiter-Client (z. B. ein Dokument)
+// service worker client (e.g. a document)
 function sendMessage(message) {
   return new Promise((resolve, reject) => {
-    // beachten Sie, dass dies die ServiceWorker.postMessage-Version ist
+    // note that this is the ServiceWorker.postMessage version
     navigator.serviceWorker.controller.postMessage(message);
     window.serviceWorker.onMessage = (e) => {
       resolve(e.data);
@@ -32,11 +33,11 @@ function sendMessage(message) {
   });
 }
 
-// steuernder Dienstarbeiter
+// controlling service worker
 self.addEventListener("message", (e) => {
-  // e.source ist ein Client-Objekt
+  // e.source is a client object
   e.source.postMessage(`Hello! Your message was: ${e.data}`);
-  // Senden wir auch den Typ-Wert an den Client zurück
+  // Let's also post the type value back to the client
   e.source.postMessage(e.source.type);
 });
 ```

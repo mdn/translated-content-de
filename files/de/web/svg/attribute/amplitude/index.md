@@ -1,5 +1,5 @@
 ---
-title: Amplitude
+title: amplitude
 slug: Web/SVG/Attribute/amplitude
 l10n:
   sourceCommit: c2274293475b0a5b4febf85a49c1f91bf43ebac7
@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`amplitude`**-Attribut steuert die Amplitude der Gammafunktion eines Component-Transfer-Elements, wenn dessen {{SVGAttr("type")}}-Attribut auf `gamma` gesetzt ist.
+Das **`amplitude`** Attribut steuert die Amplitude der Gammafunktion eines Komponententransfer-Elements, wenn dessen {{SVGAttr("type")}} Attribut auf `gamma` gesetzt ist.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -16,7 +16,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("feFuncG")}}
 - {{SVGElement("feFuncR")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>

@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Erzeugt eine URL, die Sie als Redirect-URL verwenden können.
+Generiert eine URL, die Sie als Redirect-URL verwenden können.
 
-Die URL wird aus der ID Ihrer Erweiterung abgeleitet. Wenn Sie diese Funktion verwenden, sollten Sie wahrscheinlich die ID Ihrer Erweiterung explizit mit dem Schlüssel [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) festlegen (ansonsten erhalten Sie jedes Mal, wenn Sie [die Erweiterung vorübergehend installieren](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/), eine andere Redirect-URL).
+Die URL wird von der ID Ihrer Erweiterung abgeleitet. Wenn Sie diese Funktion verwenden, sollten Sie wahrscheinlich die ID Ihrer Erweiterung explizit mit dem Schlüssel [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) festlegen (andernfalls erhalten Sie jedes Mal, wenn Sie die [Erweiterung temporär installieren](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/), eine andere Redirect-URL).
 
 Weitere Informationen zu Redirect-URLs finden Sie unter [Abrufen einer Redirect-URL](/de/docs/Mozilla/Add-ons/WebExtensions/API/identity#getting_the_redirect_url).
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der einen Redirect-URL-Wert enthält.
+Ein String, der den Wert einer Redirect-URL enthält.
 
 ## Browser-Kompatibilität
 
@@ -42,4 +42,4 @@ let redirectURL = browser.identity.getRedirectURL();
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`identity`](https://developer.chrome.com/docs/extensions/reference/api/identity) API von Chromium.
+> Diese API basiert auf Chromiums [`identity`](https://developer.chrome.com/docs/extensions/reference/api/identity) API.

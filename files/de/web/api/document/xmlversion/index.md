@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}{{deprecated_header}}
 
-Gibt die Versionsnummer entsprechend der XML-Deklaration zurück (z. B. `<?xml version="1.0"?>`) oder "1.0", wenn die Deklaration fehlt.
+Gibt die Versionsnummer zurück, wie sie in der XML-Deklaration angegeben ist (z.B. `<?xml version="1.0"?>`) oder "1.0", falls die Deklaration fehlt.
 
-Dieses Attribut war nie wirklich nützlich, da es immer 1.0 zurückgab und wurde in DOM Level 4 entfernt. Daher wird es seit Firefox 10 nicht mehr implementiert. Sein früherer Hauptzweck bestand darin, festzustellen, ob das Dokument als XML statt als HTML gerendert wurde. Um dies zu erkennen, können Sie ein Element mit kleingeschriebenem Namen erstellen und überprüfen, ob es in Großbuchstaben umgewandelt wird (in diesem Fall befindet sich das Dokument im non-XML HTML-Modus):
+Dieses Attribut war nie wirklich nützlich, da es immer 1.0 zurückgab und in DOM Level 4 entfernt wurde. Daher wird es ab Firefox 10 nicht mehr implementiert. Seine Hauptverwendung in der Vergangenheit bestand darin, zu erkennen, ob das Dokument als XML anstelle von HTML gerendert wurde. Um dies zu erkennen, können Sie ein Element mit seinem Namen in Kleinbuchstaben erstellen und dann prüfen, ob es in Großbuchstaben umgewandelt wird (in diesem Fall befindet sich das Dokument im Nicht-XML-HTML-Modus):
 
 ```js
 if (document.createElement("foo").tagName === "FOO") {
-  /* Dokument ist nicht XML */
+  /* Document is not XML */
 }
 ```
 

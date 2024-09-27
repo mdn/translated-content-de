@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.isSampler()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein gültiges {{domxref("WebGLSampler")}}-Objekt ist.
+Die **`WebGL2RenderingContext.isSampler()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein gültiges [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt ist.
 
 ## Syntax
 
@@ -19,17 +19,15 @@ isSampler(sampler)
 ### Parameter
 
 - `sampler`
-  - : Ein zu testendes {{domxref("WebGLSampler")}}-Objekt.
+  - : Ein [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt, das getestet werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob das gegebene Objekt ein gültiges
-{{domxref("WebGLSampler")}}-Objekt (`true`) ist oder nicht (`false`).
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das angegebene Objekt ein gültiges [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt ist (`true`) oder nicht (`false`).
 
 ## Beispiele
 
-`gl` muss ein {{domxref("WebGL2RenderingContext")}} sein.
-`WebGLSampler`-Objekte sind in WebGL 1 nicht verfügbar.
+`gl` muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein. `WebGLSampler`-Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
 const sampler = gl.createSampler();
@@ -43,10 +41,10 @@ gl.isSampler(sampler);
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLSampler")}}
+- [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)

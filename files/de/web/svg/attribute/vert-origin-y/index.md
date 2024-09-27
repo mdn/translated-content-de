@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`vert-origin-y`** Attribut gibt die y-Koordinate im Schriftkoordinatensystem des Ursprungs eines {{Glossary("glyph")}} an, der beim Zeichnen von vertikal ausgerichtetem Text verwendet werden soll.
+Das Attribut **`vert-origin-y`** gibt die y-Koordinate im Schriftkoordinatensystem des Ursprungs eines [glyph](/de/docs/Glossary/glyph) an, das beim Zeichnen von vertikal ausgerichtetem Text verwendet wird.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("font")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -39,7 +39,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die y-Koordinate des Ursprungs eines Glyphs für vertikal ausgerichteten Text an.
+  - : Dieser Wert gibt die y-Koordinate des Ursprungs eines Glyphen für vertikal ausgerichteten Text an.
 
 ## Spezifikationen
 

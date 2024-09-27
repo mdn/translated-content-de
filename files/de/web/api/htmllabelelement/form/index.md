@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`form`**-Eigenschaft der {{domxref("HTMLLabelElement")}}-Schnittstelle ist schreibgeschützt und gibt ein {{domxref("HTMLFormElement")}}-Objekt zurück, das das mit diesem {{HTMLElement("label")}} verbundene {{domxref("HTMLLabelElement.control", "control")}} besitzt, oder `null`, wenn dieses Label nicht mit einem Control verbunden ist, das von einem Formular besessen wird.
+Die **`form`** schreibgeschützte Eigenschaft des [`HTMLLabelElement`](/de/docs/Web/API/HTMLLabelElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das das [`control`](/de/docs/Web/API/HTMLLabelElement/control) besitzt, das mit diesem {{HTMLElement("label")}} verknüpft ist, oder `null`, wenn dieses Label nicht mit einem von einem Formular verwalteten Steuerelement verknüpft ist.
 
 Diese Eigenschaft ist nur eine Abkürzung für `label.control.form`.
 
 ## Wert
 
-Ein {{domxref("HTMLFormElement")}} oder `null`.
+Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 
 ## Spezifikationen
 
@@ -26,8 +26,8 @@ Ein {{domxref("HTMLFormElement")}} oder `null`.
 
 ## Siehe auch
 
-- {{domxref("HTMLLabelElement")}}
-- {{domxref("HTMLInputElement.form")}}
-- {{domxref("HTMLFormElement")}}
+- [`HTMLLabelElement`](/de/docs/Web/API/HTMLLabelElement)
+- [`HTMLInputElement.form`](/de/docs/Web/API/HTMLInputElement/form)
+- [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("label")}}
-- [HTML-Formulare-Leitfaden](/de/docs/Learn/Forms)
+- [Leitfaden zu HTML-Formularen](/de/docs/Learn/Forms)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`abort()`**-Methode des {{domxref("WritableStream")}}-Interfaces bricht den Strom ab, was signalisiert, dass der Erzeuger nicht mehr erfolgreich in den Strom schreiben kann und dieser sofort in einen Fehlerzustand versetzt wird, wobei alle anstehenden Schreibvorgänge verworfen werden.
+Die **`abort()`**-Methode der [`WritableStream`](/de/docs/Web/API/WritableStream)-Schnittstelle bricht den Stream ab. Dabei wird signalisiert, dass der Produzent nicht mehr erfolgreich in den Stream schreiben kann, und der Stream wird sofort in einen Fehlerzustand versetzt, wobei alle in der Warteschlange befindlichen Schreibvorgänge verworfen werden.
 
 ## Syntax
 
@@ -19,16 +19,16 @@ abort(reason)
 ### Parameter
 
 - `reason`
-  - : Ein String, der einen für Menschen lesbaren Grund für den Abbruch angibt.
+  - : Ein String, der einen menschenlesbaren Grund für den Abbruch angibt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit dem im `reason` Parameter angegebenen Wert erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit dem im `reason`-Parameter angegebenen Wert erfüllt wird.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der Strom, den Sie abzubrechen versuchen, ist kein {{domxref("WritableStream")}}, oder er ist gesperrt.
+  - : Der Stream, den Sie abzubrechen versuchen, ist kein [`WritableStream`](/de/docs/Web/API/WritableStream) oder er ist gesperrt.
 
 ## Beispiele
 
@@ -50,7 +50,7 @@ const writableStream = new WritableStream(
 
 // ...
 
-// den Strom später bei Bedarf abbrechen
+// abort the stream later on, when required
 writableStream.abort();
 ```
 

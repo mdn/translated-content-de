@@ -3,12 +3,12 @@ title: "CloseEvent: CloseEvent() Konstruktor"
 short-title: CloseEvent()
 slug: Web/API/CloseEvent/CloseEvent
 l10n:
-  sourceCommit: e4cc8b707a1056c14a6316079798b95cb39b725f
+  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
 ---
 
-{{APIRef("Websockets API")}}
+{{APIRef("Websockets API")}}{{AvailableInWorkers}}
 
-Der **`CloseEvent()`** Konstruktor erstellt ein neues {{domxref("CloseEvent")}} Objekt.
+Der **`CloseEvent()`**-Konstruktor erstellt ein neues [`CloseEvent`](/de/docs/Web/API/CloseEvent)-Objekt.
 
 ## Syntax
 
@@ -23,17 +23,17 @@ new CloseEvent(type, options)
   - : Ein String mit dem Namen des Ereignisses.
     Er ist groß- und kleinschreibungssensitiv und Browser setzen ihn immer auf `close`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften besitzt:
+  - : Ein Objekt, das zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften folgende Eigenschaften hat:
     - `wasClean` {{optional_inline}}
-      - : Ein boolescher Wert, der anzeigt, ob die Verbindung sauber geschlossen wurde oder nicht. Standardmäßig ist er `false`.
+      - : Ein boolescher Wert, der angibt, ob die Verbindung sauber geschlossen wurde oder nicht. Der Standardwert ist `false`.
     - `code` {{optional_inline}}
-      - : Eine Ganzzahl, die den _Verbindungsschlusscode_ repräsentiert, der vom Server gesendet wurde. Standardmäßig ist er `0`.
+      - : Ein ganzzahliges Element, das den vom Server gesendeten _Verbindungsschlusscode_ darstellt. Der Standardwert ist `0`.
     - `reason` {{optional_inline}}
-      - : Ein String, der einen menschenlesbaren Grund enthält, warum der Server die Verbindung geschlossen hat. Standardmäßig ist er `''`.
+      - : Ein String, der einen menschenlesbaren Grund enthält, warum der Server die Verbindung geschlossen hat. Der Standardwert ist `''`.
 
 ### Rückgabewert
 
-Ein neues {{domxref("CloseEvent")}} Objekt.
+Ein neues [`CloseEvent`](/de/docs/Web/API/CloseEvent)-Objekt.
 
 ## Spezifikationen
 
@@ -45,4 +45,4 @@ Ein neues {{domxref("CloseEvent")}} Objekt.
 
 ## Siehe auch
 
-- {{domxref("CloseEvent")}}, die Schnittstelle der Objekte, die es konstruiert.
+- [`CloseEvent`](/de/docs/Web/API/CloseEvent), die Schnittstelle der Objekte, die es konstruiert.

@@ -8,11 +8,10 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `createBiquadFilter()`-Methode des {{ domxref("BaseAudioContext") }}-Interfaces erstellt einen {{ domxref("BiquadFilterNode") }}, der einen zweiten Ordnungsfilter darstellt, der als verschiedene gebräuchliche Filtertypen konfiguriert werden kann.
+Die `createBiquadFilter()`-Methode des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Interfaces erzeugt einen [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode), der einen zweiten Ordnung-Filter darstellt, der als mehrere verschiedene häufig verwendete Filtertypen konfigurierbar ist.
 
 > [!NOTE]
-> Der {{domxref("BiquadFilterNode.BiquadFilterNode", "BiquadFilterNode()")}}-Konstruktor wird empfohlen, um einen {{domxref("BiquadFilterNode")}} zu erstellen; siehe
-> [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`BiquadFilterNode()`](/de/docs/Web/API/BiquadFilterNode/BiquadFilterNode)-Konstruktor wird empfohlen, um einen [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) zu erstellen; siehe [Creating an AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -26,23 +25,23 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("BiquadFilterNode")}}.
+Ein [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext, um einen Biquad-Filterknoten zu erstellen. Für vollständigere angewandte Beispiele/Informationen sehen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic)-Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines Biquad-Filter-Knotens. Für vollständigere angewendete Beispiele/Informationen schauen Sie sich unsere [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic)-Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
 
 ```js
 const audioCtx = new AudioContext();
 
-// Richten Sie die verschiedenen Audioknoten ein, die wir für die App verwenden werden
+//set up the different audio nodes we will use for the app
 const analyser = audioCtx.createAnalyser();
 const distortion = audioCtx.createWaveShaper();
 const gainNode = audioCtx.createGain();
 const biquadFilter = audioCtx.createBiquadFilter();
 const convolver = audioCtx.createConvolver();
 
-// Verbinden Sie die Knoten miteinander
+// connect the nodes together
 
 source = audioCtx.createMediaStreamSource(stream);
 source.connect(analyser);
@@ -52,7 +51,7 @@ biquadFilter.connect(convolver);
 convolver.connect(gainNode);
 gainNode.connect(audioCtx.destination);
 
-// Manipulation des Biquad-Filters
+// Manipulate the Biquad filter
 
 biquadFilter.type = "lowshelf";
 biquadFilter.frequency.setValueAtTime(1000, audioCtx.currentTime);

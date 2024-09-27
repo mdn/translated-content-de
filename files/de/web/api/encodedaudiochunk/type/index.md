@@ -1,5 +1,5 @@
 ---
-title: "EncodedAudioChunk: Eigenschaft type"
+title: "EncodedAudioChunk: type-Eigenschaft"
 short-title: type
 slug: Web/API/EncodedAudioChunk/type
 l10n:
@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`type`** des {{domxref("EncodedAudioChunk")}}-Interfaces gibt an, ob das Audio-Chunk ein Schlüssel-Chunk ist, welches beim Dekodieren nicht auf andere Frames angewiesen ist.
+Die **`type`**-Eigenschaft des schreibgeschützten [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Interfaces gibt einen Wert zurück, der anzeigt, ob der Audio-Chunck ein Schlüssel-Chunck ist, der nicht auf andere Frames für das Decoding angewiesen ist.
 
 ## Wert
 
-Ein String, einer der folgenden:
+Ein String, einer von:
 
 - `"key"`
-  - : Die Daten sind ein Schlüssel-Chunk.
+  - : Die Daten sind ein Schlüssel-Chunck.
 - `"delta"`
-  - : Die Daten sind kein Schlüssel-Chunk.
+  - : Die Daten sind kein Schlüssel-Chunck.
 
 ## Beispiele
 
-Im folgenden Beispiel wird `type` in der Konsole ausgegeben.
+Im folgenden Beispiel wird der `type` in der Konsole ausgegeben.
 
 ```js
 const init = {
@@ -39,6 +39,6 @@ console.log(chunk.type); //"key"
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

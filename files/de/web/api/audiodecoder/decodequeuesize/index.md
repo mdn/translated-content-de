@@ -1,5 +1,5 @@
 ---
-title: "AudioDecoder: Eigenschaft decodeQueueSize"
+title: "AudioDecoder: decodeQueueSize Eigenschaft"
 short-title: decodeQueueSize
 slug: Web/API/AudioDecoder/decodeQueueSize
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`decodeQueueSize`** des {{domxref("AudioDecoder")}}-Interfaces gibt die Anzahl der ausstehenden Decodierungsanfragen in der Warteschlange zurück.
+Die schreibgeschützte Eigenschaft **`decodeQueueSize`** des [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Interfaces gibt die Anzahl der ausstehenden Decodierungsanforderungen in der Warteschlange zurück.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der Anfragen enthält.
+Ein Ganzzahlwert, der die Anzahl der Anfragen enthält.
 
 ## Beispiele
 

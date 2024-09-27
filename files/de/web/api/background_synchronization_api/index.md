@@ -1,5 +1,5 @@
 ---
-title: API für Hintergrundsynchronisation
+title: Background Synchronization API
 slug: Web/API/Background_Synchronization_API
 l10n:
   sourceCommit: dd84b3b089d199be3771d6afe01e068b19889e71
@@ -7,41 +7,41 @@ l10n:
 
 {{DefaultAPISidebar("Background Sync")}}{{Securecontext_Header}}{{AvailableInWorkers}}
 
-Die **Background Synchronization API** ermöglicht es einer Web-App, Aufgaben aufzuschieben, damit diese in einem [Service Worker](/de/docs/Web/API/Service_Worker_API) ausgeführt werden können, sobald der Benutzer eine stabile Netzwerkverbindung hat.
+Die **Background Synchronization API** ermöglicht es einer Web-App, Aufgaben zu verschieben, sodass sie in einem [Service Worker](/de/docs/Web/API/Service_Worker_API) ausgeführt werden können, sobald der Benutzer eine stabile Netzwerkverbindung hat.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Die Background Synchronization API erlaubt es Webanwendungen, die Serversynchronisation auf einen Service Worker zu verschieben, um sie zu einem späteren Zeitpunkt durchzuführen, wenn das Gerät offline ist. Mögliche Anwendungsfälle sind das Senden von Anfragen im Hintergrund, wenn sie nicht gesendet werden konnten, während die Anwendung genutzt wurde.
+Die Background Synchronization API erlaubt es Webanwendungen, Server-Synchronisationsarbeiten an ihren Service Worker zu verschieben, um sie zu einem späteren Zeitpunkt auszuführen, wenn das Gerät offline ist. Einsatzmöglichkeiten könnten das Senden von Anfragen im Hintergrund umfassen, wenn sie nicht gesendet werden konnten, während die Anwendung verwendet wurde.
 
-Ein Beispiel ist eine E-Mail-Client-Anwendung, die es den Nutzern ermöglichen könnte, Nachrichten jederzeit zu komponieren und zu senden, auch wenn das Gerät keine Netzwerkverbindung hat. Das Frontend der Anwendung registriert einfach eine Synchronisationsanfrage, und der Service Worker wird benachrichtigt, wenn das Netzwerk wieder verfügbar ist und übernimmt die Synchronisation.
+Beispielsweise könnte eine E-Mail-Client-Anwendung ihren Benutzern ermöglichen, Nachrichten jederzeit zu verfassen und zu senden, auch wenn das Gerät keine Netzwerkverbindung hat. Die Frontend-Anwendung registriert einfach eine Synchronisationsanfrage und der Service Worker wird benachrichtigt, wenn das Netzwerk wieder vorhanden ist, und führt die Synchronisation durch.
 
-Das {{domxref('SyncManager')}}-Interface ist über {{domxref('ServiceWorkerRegistration.sync')}} verfügbar. Eine eindeutige Tag-Kennung wird festgelegt, um das Synchronisationsereignis zu "benennen", das dann innerhalb des {{domxref('ServiceWorker')}}-Skripts abgehört werden kann. Sobald das Ereignis empfangen wird, kann jegliche verfügbare Funktionalität ausgeführt werden, wie das Senden von Anfragen an den Server.
+Das [`SyncManager`](/de/docs/Web/API/SyncManager)-Interface ist über [`ServiceWorkerRegistration.sync`](/de/docs/Web/API/ServiceWorkerRegistration/sync) verfügbar. Ein eindeutiger Tag-Identifikator wird gesetzt, um das Synchronisationsereignis zu 'benennen', das dann im [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Skript abgehört werden kann. Sobald das Ereignis empfangen wird, können Sie jede verfügbare Funktionalität ausführen, wie z.B. Anfragen an den Server zu senden.
 
-Da diese API auf Service Workern basiert, ist die durch diese API bereitgestellte Funktionalität nur in einem sicheren Kontext verfügbar.
+Da diese API auf Service Workers beruht, ist die durch diese API bereitgestellte Funktionalität nur in einem sicheren Kontext verfügbar.
 
 ## Schnittstellen
 
-- {{domxref('SyncManager')}} {{Experimental_Inline}}
-  - : Registriert Aufgaben, die zu einem späteren Zeitpunkt im Service Worker mit Netzwerkverbindung ausgeführt werden. Diese Aufgaben werden als _Background Sync Requests_ bezeichnet.
-- {{domxref('SyncEvent')}} {{Experimental_Inline}}
-  - : Stellt ein Synchronisationsereignis dar, das an den [globalen Bereich](/de/docs/Web/API/ServiceWorkerGlobalScope) eines {{domxref('ServiceWorker')}} gesendet wird. Es bietet eine Möglichkeit, Aufgaben im Service Worker auszuführen, sobald das Gerät Netzwerkverbindung hat.
+- [`SyncManager`](/de/docs/Web/API/SyncManager) {{Experimental_Inline}}
+  - : Registriert Aufgaben, die zu einem späteren Zeitpunkt mit Netzwerkverbindung in einem Service Worker ausgeführt werden sollen. Diese Aufgaben werden als _Background Sync Requests_ bezeichnet.
+- [`SyncEvent`](/de/docs/Web/API/SyncEvent) {{Experimental_Inline}}
+  - : Stellt ein Synchronisationsereignis dar, das an den [globalen Bereich](/de/docs/Web/API/ServiceWorkerGlobalScope) eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) gesendet wird. Es bietet eine Möglichkeit, Aufgaben im Service Worker auszuführen, sobald das Gerät Netzwerkverbindung hat.
 
 ### Erweiterungen zu anderen Schnittstellen
 
-Die folgenden Ergänzungen zur [Service Worker API](/de/docs/Web/API/Service_Worker_API) bieten einen Einstiegspunkt für das Einrichten der Hintergrundsynchronisation.
+Die folgenden Ergänzungen zur [Service Worker API](/de/docs/Web/API/Service_Worker_API) bieten einen Einstiegspunkt für die Einrichtung der Hintergrundsynchronisation.
 
-- {{domxref("ServiceWorkerRegistration.sync")}} {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das {{domxref("SyncManager")}}-Interface zurück, um Aufgaben zu registrieren, die ausgeführt werden sollen, sobald das Gerät Netzwerkverbindung hat.
-- {{domxref("ServiceWorkerGlobalScope/sync_event", "sync")}}-Ereignis
-  - : Ein Ereignishandler, der immer dann ausgelöst wird, wenn ein {{domxref("ServiceWorkerGlobalScope/sync_event", "sync")}}-Ereignis auftritt. Dies geschieht, sobald das Netzwerk verfügbar ist.
+- [`ServiceWorkerRegistration.sync`](/de/docs/Web/API/ServiceWorkerRegistration/sync) {{ReadOnlyInline}}
+  - : Gibt eine Referenz zur [`SyncManager`](/de/docs/Web/API/SyncManager)-Schnittstelle zurück, um Aufgaben zu registrieren, die ausgeführt werden sollen, sobald das Gerät Netzwerkverbindung hat.
+- [`sync`](/de/docs/Web/API/ServiceWorkerGlobalScope/sync_event) Event
+  - : Ein Event-Handler, der immer dann ausgelöst wird, wenn ein [`sync`](/de/docs/Web/API/ServiceWorkerGlobalScope/sync_event)-Ereignis auftritt. Dies geschieht, sobald das Netzwerk verfügbar wird.
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen, wie die Schnittstelle verwendet wird.
+Die folgenden Beispiele zeigen, wie die Schnittstelle zu verwenden ist.
 
-### Anfordern einer Hintergrundsynchronisation
+### Anforderung einer Hintergrundsynchronisation
 
-Die folgende asynchrone Funktion registriert eine Hintergrundsynchronisation aus einem Browsing-Kontext heraus:
+Die folgende asynchrone Funktion registriert eine Hintergrundsynchronisation aus einem Browsing-Kontext:
 
 ```js
 async function syncMessagesLater() {
@@ -54,7 +54,7 @@ async function syncMessagesLater() {
 }
 ```
 
-### Überprüfung einer Hintergrundsynchronisation anhand des Tags
+### Überprüfung einer Hintergrundsynchronisation durch Tag
 
 Dieser Code überprüft, ob eine Hintergrundsynchronisationsaufgabe mit einem bestimmten Tag registriert ist.
 
@@ -70,7 +70,7 @@ navigator.serviceWorker.ready.then((registration) => {
 
 ### Abhören einer Hintergrundsynchronisation innerhalb eines Service Workers
 
-Das folgende Beispiel zeigt, wie auf ein Hintergrundsynchronisationsereignis im Service Worker reagiert wird.
+Das folgende Beispiel zeigt, wie auf ein Hintergrundsynchronisationsereignis im Service Worker reagiert werden kann.
 
 ```js
 self.addEventListener("sync", (event) => {
@@ -90,4 +90,4 @@ self.addEventListener("sync", (event) => {
 
 ## Siehe auch
 
-- [Introducing Background Sync](https://developer.chrome.com/blog/background-sync/)
+- [Einführung in Background Sync](https://developer.chrome.com/blog/background-sync/)

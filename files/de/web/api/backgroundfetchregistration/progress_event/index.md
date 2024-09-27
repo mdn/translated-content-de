@@ -1,6 +1,6 @@
 ---
-title: "BackgroundFetchRegistration: Fortschrittsereignis"
-short-title: Fortschritt
+title: "BackgroundFetchRegistration: progress Ereignis"
+short-title: progress
 slug: Web/API/BackgroundFetchRegistration/progress_event
 l10n:
   sourceCommit: c77a11ee1509542c16b0348afc4fcb3ffe588e1c
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Das **`progress`**-Ereignis der {{domxref("BackgroundFetchRegistration")}}-Schnittstelle wird ausgelöst, wenn der zugehörige Hintergrundabruf Fortschritte macht.
+Das **`progress`** Ereignis der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Schnittstelle wird ausgelöst, wenn der zugehörige Hintergrundabruf Fortschritte macht.
 
-Praktisch wird dieses Ereignis ausgelöst, wenn einer der folgenden Eigenschaften einen neuen Wert zurückgeben wird:
+Praktisch wird dieses Ereignis ausgelöst, wenn eine der folgenden Eigenschaften einen neuen Wert zurückgeben wird:
 
-- {{domxref("BackgroundFetchRegistration.uploaded", "uploaded")}},
-- {{domxref("BackgroundFetchRegistration.downloaded", "downloaded")}},
-- {{domxref("BackgroundFetchRegistration.result", "result")}}, oder
-- {{domxref("BackgroundFetchRegistration.failureReason", "failureReason")}}.
+- [`uploaded`](/de/docs/Web/API/BackgroundFetchRegistration/uploaded),
+- [`downloaded`](/de/docs/Web/API/BackgroundFetchRegistration/downloaded),
+- [`result`](/de/docs/Web/API/BackgroundFetchRegistration/result) oder
+- [`failureReason`](/de/docs/Web/API/BackgroundFetchRegistration/failureReason).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie die `onprogress`-Ereigniseigenschaft auf das relevante {{domxref("BackgroundFetchRegistration")}}-Objekt.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie die `onprogress`-Ereigniseigenschaft auf dem entsprechenden [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Objekt.
 
 ```js-nolint
 addEventListener("progress", (event) => { })
@@ -28,11 +28,11 @@ onprogress = (event) => { }
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}} ohne zusätzliche Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt, wie der Fortschritt eines Downloads protokolliert wird. Der Code überprüft zunächst, ob ein `downloadTotal` angegeben wurde, als der Hintergrundabruf registriert wurde. Dies wird dann verwendet, um den Prozentsatz basierend auf der `downloaded`-Eigenschaft zu berechnen.
+Das folgende Beispiel zeigt, wie der Fortschritt eines Downloads protokolliert wird. Der Code überprüft zunächst, ob ein `downloadTotal` bereitgestellt wurde, als der Hintergrundabruf registriert wurde. Dies wird dann verwendet, um den Prozentsatz basierend auf der `downloaded`-Eigenschaft zu berechnen.
 
 ```js
 bgFetch.addEventListener("progress", () => {

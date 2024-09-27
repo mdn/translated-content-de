@@ -25,20 +25,21 @@ RangeError(message, fileName)
 RangeError(message, fileName, lineNumber)
 ```
 
-> **Note:** `RangeError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erstellen eine neue `RangeError` Instanz.
+> **Note:** `RangeError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue `RangeError` Instanz.
 
 ### Parameter
 
 - `message` {{optional_inline}}
   - : Menschlich lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften hat:
+  - : Ein Objekt mit folgenden Eigenschaften:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut ausgelöst wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
+        Beim Abfangen und erneuten Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
-  - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
+  - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
-  - : Die Zeilennummer des Codes, der die Ausnahme verursacht hat.
+  - : Die Zeilennummer des Codes, der die Ausnahme verursacht hat
 
 ## Beispiele
 

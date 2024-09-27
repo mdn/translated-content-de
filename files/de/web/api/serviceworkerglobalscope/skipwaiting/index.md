@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die **`skipWaiting()`**-Methode der {{domxref("ServiceWorkerGlobalScope")}}-Schnittstelle zwingt den wartenden Service Worker, der aktive Service Worker zu werden.
+Die **`skipWaiting()`**-Methode der Schnittstelle [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) zwingt den wartenden Service Worker dazu, der aktive Service Worker zu werden.
 
-Verwenden Sie diese Methode zusammen mit {{domxref("Clients.claim()")}}, um sicherzustellen, dass Updates des zugrunde liegenden Service Workers sowohl für den aktuellen Client als auch für alle anderen aktiven Clients sofort wirksam werden.
+Verwenden Sie diese Methode zusammen mit [`Clients.claim()`](/de/docs/Web/API/Clients/claim), um sicherzustellen, dass Aktualisierungen des zugrunde liegenden Service Workers sofort sowohl für den aktuellen Client als auch für alle anderen aktiven Clients wirksam werden.
 
 ## Syntax
 
@@ -24,22 +24,22 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit `undefined` aufgelöst wird, nachdem versucht wurde, den neu installierten Service Worker zu aktivieren.
+Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, nachdem versucht wurde, den neu installierten Service Worker zu aktivieren.
 
 ## Beispiele
 
-Während `self.skipWaiting()` jederzeit während der Ausführung des Service Workers aufgerufen werden kann, hat es nur dann eine Wirkung, wenn ein neu installierter Service Worker vorhanden ist, der ansonsten im Zustand `waiting` verbleiben könnte. Daher ist es üblich, `self.skipWaiting()` innerhalb eines {{domxref("InstallEvent")}}-Handlers aufzurufen.
+Obwohl `self.skipWaiting()` jederzeit während der Ausführung des Service Workers aufgerufen werden kann, hat es nur dann eine Wirkung, wenn es einen neu installierten Service Worker gibt, der sich ansonsten im Zustand `waiting` befinden könnte. Daher ist es üblich, `self.skipWaiting()` innerhalb eines [`InstallEvent`](/de/docs/Web/API/InstallEvent)-Handlers aufzurufen.
 
 Das folgende Beispiel bewirkt, dass ein neu installierter Service Worker in den Zustand `activating` übergeht, unabhängig davon, ob bereits ein aktiver Service Worker vorhanden ist.
 
 ```js
 self.addEventListener("install", (event) => {
-  // Das Promise, das skipWaiting() zurückgibt, kann sicher ignoriert werden.
+  // The promise that skipWaiting() returns can be safely ignored.
   self.skipWaiting();
 
-  // Führen Sie alle anderen Aktionen aus, die für Ihre
-  // Service Worker-Installation erforderlich sind, möglicherweise innerhalb
-  // von event.waitUntil();
+  // Perform any other actions required for your
+  // service worker to install, potentially inside
+  // of event.waitUntil();
 });
 ```
 
@@ -53,7 +53,7 @@ self.addEventListener("install", (event) => {
 
 ## Siehe auch
 
-- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 - [Grundlegendes Codebeispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- {{domxref("Clients.claim()")}}
-- [Verwendung von Webarbeitern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [`Clients.claim()`](/de/docs/Web/API/Clients/claim)
+- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

@@ -1,5 +1,5 @@
 ---
-title: "HTMLOutputElement: type-Eigenschaft"
+title: "HTMLOutputElement: type Eigenschaft"
 short-title: type
 slug: Web/API/HTMLOutputElement/type
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die schreibgeschützte **`type`**-Eigenschaft der {{domxref("HTMLOutputElement")}}-Schnittstelle gibt den String `"output"` zurück.
+Die **`type`** schreibgeschützte Eigenschaft des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement) Interfaces gibt den String `"output"` zurück.
 
 ## Wert
 
@@ -31,5 +31,5 @@ console.log(output.type); // "output"
 
 ## Siehe auch
 
-- {{domxref("HTMLOutputElement")}}
+- [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)
 - {{HTMLElement("output")}}

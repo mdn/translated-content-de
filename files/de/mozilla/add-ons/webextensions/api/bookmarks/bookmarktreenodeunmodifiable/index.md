@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Der Typ **`bookmarks.BookmarkTreeNodeUnmodifiable`** wird verwendet, um den Grund anzugeben, warum ein Knoten im Lesezeichenbaum (bei dem jeder Knoten entweder ein Lesezeichen oder ein Lesezeichenordner ist) nicht geändert werden kann. Dies wird als Wert des Feldes {{WebExtAPIRef("bookmarks.BookmarkTreeNode", "bookmarks.BookmarkTreeNode.unmodifiable", "unmodifiable")}} auf Lesezeichenelementen verwendet.
+Der **`bookmarks.BookmarkTreeNodeUnmodifiable`**-Typ wird verwendet, um den Grund anzugeben, warum ein Knoten im Lesezeichenbaum (bei dem jeder Knoten entweder ein Lesezeichen oder ein Lesezeichenordner ist) nicht geändert werden kann. Dies wird als Wert des Feldes {{WebExtAPIRef("bookmarks.BookmarkTreeNode", "bookmarks.BookmarkTreeNode.unmodifiable", "unmodifiable")}} bei Lesezeichenknoten verwendet.
 
 ## Typ
 
-`bookmarks.BookmarkTreeNodeUnmodifiable` ist ein {{jsxref("string")}}, das derzeit nur einen Wert haben kann: `"managed"`. Dies zeigt an, dass das Lesezeichenelement von einem Administrator oder dem Vormund eines überwachten Nutzers (wie einem Elternteil im Fall von Kindersicherungen) konfiguriert wurde.
+`bookmarks.BookmarkTreeNodeUnmodifiable` ist ein {{jsxref("string")}}, der derzeit nur einen Wert haben kann: `"managed"`. Dies zeigt an, dass der Lesezeichenknoten von einem Administrator oder vom Betreuer eines überwachten Nutzers (wie ein Elternteil im Fall von Kindersicherungen) konfiguriert wurde.
 
 ## Browser-Kompatibilität
 
@@ -20,7 +20,7 @@ Der Typ **`bookmarks.BookmarkTreeNodeUnmodifiable`** wird verwendet, um den Grun
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#type-BookmarkTreeNodeUnmodifiable) API. Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#type-BookmarkTreeNodeUnmodifiable)-API von Chromium. Diese Dokumentation stammt aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

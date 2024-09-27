@@ -1,5 +1,5 @@
 ---
-title: "StyleSheet: Eigenschaft href"
+title: "StyleSheet: href-Eigenschaft"
 short-title: href
 slug: Web/API/StyleSheet/href
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`href`**-Eigenschaft des {{domxref("StyleSheet")}} Interfaces gibt den Speicherort des Stylesheets zurück.
+Die **`href`**-Eigenschaft des [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt den Standort des Stylesheets zurück.
 
 Diese Eigenschaft ist schreibgeschützt.
 
 ## Wert
 
-Ein String, der den URI des Stylesheets enthält.
+Ein String, der die URI des Stylesheets enthält.
 
 ## Beispiele
 
@@ -45,8 +45,7 @@ Gibt "file:////C:/Windows/Desktop/example.css" zurück.
 
 ## Hinweise
 
-Wenn das Stylesheet ein verlinktes Stylesheet ist, ist der Wert seines Attributs dessen Speicherort.
-Für eingebettete Stylesheets ist der Wert dieses Attributs `null`.
+Wenn das Stylesheet ein verlinktes Stylesheet ist, ist der Wert seines Attributs sein Standort. Bei eingebetteten Stylesheets ist der Wert dieses Attributs `null`.
 
 ## Spezifikationen
 

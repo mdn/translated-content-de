@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`receiver`**-Eigenschaft der WebRTC-{{domxref("RTCRtpTransceiver")}}-Schnittstelle gibt den {{domxref("RTCRtpReceiver")}} an, der für den Empfang und die Dekodierung eingehender Mediendaten für den Stream des Transceivers verantwortlich ist.
+Die schreibgeschützte **`receiver`**-Eigenschaft der WebRTC-[`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Schnittstelle zeigt den [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) an, der für den Empfang und die Dekodierung eintreffender Mediendaten für den Stream des Transceivers verantwortlich ist.
 
 ## Wert
 
-Ein {{domxref("RTCRtpReceiver")}}-Objekt, das für den Empfang und die Dekodierung eingehender Mediendaten verantwortlich ist, deren Medien-ID mit dem aktuellen Wert von {{domxref("RTCRtpTransceiver.mid", "mid")}} identisch ist.
+Ein [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekt, das für den Empfang und die Dekodierung eintreffender Mediendaten verantwortlich ist, deren Medien-ID mit dem aktuellen Wert von [`mid`](/de/docs/Web/API/RTCRtpTransceiver/mid) übereinstimmt.
 
 ## Spezifikationen
 
@@ -25,4 +25,4 @@ Ein {{domxref("RTCRtpReceiver")}}-Objekt, das für den Empfang und die Dekodieru
 ## Siehe auch
 
 - [Einführung in das Real-time Transport Protocol (RTP)](/de/docs/Web/API/WebRTC_API/Intro_to_RTP)
-- {{domxref("RTCRtpReceiver")}}
+- [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)

@@ -1,17 +1,17 @@
 ---
-title: "GPURenderBundleEncoder: setBindGroup() Methode"
+title: "GPURenderBundleEncoder: setBindGroup()-Methode"
 short-title: setBindGroup()
 slug: Web/API/GPURenderBundleEncoder/setBindGroup
 l10n:
-  sourceCommit: 0c3f18aca2c8a93d3982183f64bf7762c2c310b0
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setBindGroup()`** Methode der {{domxref("GPURenderBundleEncoder")}} Schnittstelle legt die zu verwendende {{domxref("GPUBindGroup")}} für nachfolgende Render-Bundle-Befehle für einen bestimmten Index fest.
+Die **`setBindGroup()`**-Methode der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle legt die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup) fest, die für nachfolgende Render-Bundle-Befehle bei einem gegebenen Index verwendet werden soll.
 
 > [!NOTE]
-> Diese Methode ist funktional identisch mit ihrem Pendant auf {{domxref("GPURenderPassEncoder")}} — {{domxref("GPURenderPassEncoder.setBindGroup", "setBindGroup()")}}.
+> Diese Methode ist funktional identisch mit ihrem Äquivalent auf [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`setBindGroup()`](/de/docs/Web/API/GPURenderPassEncoder/setBindGroup).
 
 ## Syntax
 
@@ -25,20 +25,20 @@ setBindGroup(index, bindGroup, dynamicOffsets, dynamicOffsetsStart,
 ### Parameter
 
 - `index`
-  - : Der Index, an dem die Bind-Gruppe eingestellt wird. Dieser entspricht dem `n`-Indexwert des entsprechenden [`@group(n)`](https://gpuweb.github.io/gpuweb/wgsl/#attribute-group) Attributs im Shader-Code ({{domxref("GPUShaderModule")}}), der in der zugehörigen Pipeline verwendet wird.
+  - : Der Index, bei dem die Bind-Gruppe festgelegt werden soll. Dieser entspricht dem `n`-Indexwert des entsprechenden [`@group(n)`](https://gpuweb.github.io/gpuweb/wgsl/#attribute-group) Attributs im Shader-Code ([`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)), der in der zugehörigen Pipeline verwendet wird.
 - `bindGroup`
-  - : Die {{domxref("GPUBindGroup")}}, die für nachfolgende Render-Bundle-Befehle verwendet wird.
+  - : Die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup), die für nachfolgende Render-Bundle-Befehle verwendet werden soll.
 - `dynamicOffsets` {{optional_inline}}
-  - : Ein Wert, der die Verschiebung in Bytes für jeden Eintrag in `bindGroup` angibt, bei dem `hasDynamicOffset: true` gesetzt ist (d. h. im Deskriptor des {{domxref("GPUDevice.createBindGroupLayout()")}} Aufrufs, der das {{domxref("GPUBindGroupLayout")}} Objekt erstellt hat, auf dem `bindGroup` basiert). Dieser Wert kann sein:
-    - Ein Array von Zahlen, das die verschiedenen Verschiebungen angibt.
-    - Ein {{jsxref("Uint32Array")}}, das Zahlen enthält, die die Verschiebungen angeben.
+  - : Ein Wert, der den Versatz in Bytes für jeden Eintrag in `bindGroup` angibt, bei dem `hasDynamicOffset: true` gesetzt ist (d.h. im Deskriptor des Aufrufs [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout), der das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekt erstellt hat, auf dem die `bindGroup` basiert). Dieser Wert kann sein:
+    - Ein Array von Zahlen, die die unterschiedlichen Versätze angeben.
+    - Ein {{jsxref("Uint32Array")}}, das Zahlen enthält, die die Versätze angeben.
 
-Wenn ein {{jsxref("Uint32Array")}} Wert für `dynamicOffsets` angegeben ist, sind auch die folgenden Parameter erforderlich:
+Falls ein {{jsxref("Uint32Array")}}-Wert für `dynamicOffsets` spezifiziert wurde, sind beide der folgenden Parameter ebenfalls erforderlich:
 
 - `dynamicOffsetsStart`
-  - : Eine Zahl, die den Offset, in Array-Elementen, in `dynamicOffsetsData` angibt, an dem die dynamischen Offset-Daten beginnen.
+  - : Eine Zahl, die den Versatz in Array-Elementen in `dynamicOffsetsData` spezifiziert, wo die dynamischen Versatzdaten beginnen.
 - `dynamicOffsetsLength`
-  - : Eine Zahl, die die Anzahl der dynamischen Offset-Werte angibt, die in `dynamicOffsetsData` gelesen werden sollen.
+  - : Eine Zahl, die die Anzahl der dynamischen Versatzwerte angibt, die in `dynamicOffsetsData` gelesen werden sollen.
 
 ### Rückgabewert
 
@@ -46,20 +46,20 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Ausnahmen
 
-Für Aufrufe von `setBindGroup()`, die einen {{jsxref("Uint32Array")}} Wert für `dynamicOffsets` verwenden, wird ein `RangeError` {{domxref("DOMException")}} ausgelöst, wenn:
+Bei `setBindGroup()`-Aufrufen, die einen {{jsxref("Uint32Array")}}-Wert für `dynamicOffsets` verwenden, wird der Aufruf eine `RangeError` [`DOMException`](/de/docs/Web/API/DOMException) auslösen, wenn:
 
 - `dynamicOffsetsStart` kleiner als 0 ist.
 - `dynamicOffsetsStart` + `dynamicOffsetsLength` größer als `dynamicOffsets.length` ist.
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`setBindGroup()`** aufgerufen wird, andernfalls wird ein {{domxref("GPUValidationError")}} generiert und der {{domxref("GPURenderBundleEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen bei Aufruf von **`setBindGroup()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) wird ungültig:
 
-- `index` ist kleiner oder gleich dem `maxBindGroups` {{domxref("GPULimits", "Limit", "", "nocode")}} des {{domxref("GPUDevice")}}.
-- `dynamicOffsets.length` ist gleich der Anzahl der Einträge in `bindGroup`, bei denen `hasDynamicOffset: true` gesetzt ist.
-- Für `bindGroup` Einträge, bei denen der gebundene `buffer` Typ `"uniform"` ist (siehe {{domxref("GPUDevice.createBindGroupLayout()")}}), ist jede Zahl in `dynamicOffsets` ein Vielfaches der `minUniformBufferOffsetAlignment` {{domxref("GPULimits", "Limit", "", "nocode")}} des {{domxref("GPUDevice")}}.
-- Für `bindGroup` Einträge, bei denen der gebundene `buffer` Typ `"storage"` oder `"read-only-storage"` ist (siehe {{domxref("GPUDevice.createBindGroupLayout()")}}), ist jede Zahl in `dynamicOffsets` ein Vielfaches der `minStorageBufferOffsetAlignment` {{domxref("GPULimits", "Limit", "", "nocode")}} des {{domxref("GPUDevice")}}.
-- Für jeden `bindGroup` Eintrag ist der `offset` des gebundenen `buffer`, plus die entsprechende `minBindingSize` des Layout-Eintrags, plus der entsprechende dynamische Offset, der in `dynamicOffsets` angegeben ist, kleiner oder gleich der `size` des gebundenen `buffer`.
+- `index` ist kleiner oder gleich dem `maxBindGroups` [Limit](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+- `dynamicOffsets.length` entspricht der Anzahl der Einträge in `bindGroup`, bei denen `hasDynamicOffset: true` gesetzt ist.
+- Für `bindGroup`-Einträge, bei denen der gebundene `buffer`-`type` `"uniform"` ist (siehe [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout)), ist jede Zahl in `dynamicOffsets` ein Vielfaches des `minUniformBufferOffsetAlignment` [Limits](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+- Für `bindGroup`-Einträge, bei denen der gebundene `buffer`-`type` `"storage"` oder `"read-only-storage"` ist (siehe [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout)), ist jede Zahl in `dynamicOffsets` ein Vielfaches des `minStorageBufferOffsetAlignment` [Limits](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+- Für jeden `bindGroup`-Eintrag ist die `offset` des gebundenen `buffer`, plus die `minBindingSize` des entsprechenden Layout-Eintrags, plus der entsprechende in `dynamicOffsets` angegebene dynamische Versatz, kleiner oder gleich der `size` des gebundenen `buffer`.
 
 ## Beispiele
 
@@ -85,7 +85,7 @@ function recordRenderPass(passEncoder) {
 }
 ```
 
-Das obige Beispiel stammt aus den WebGPU-Beispielen im [Animometer-Beispiel](https://webgpu.github.io/webgpu-samples/samples/animometer/).
+Der obige Ausschnitt stammt aus dem WebGPU Samples [Animometer-Beispiel](https://webgpu.github.io/webgpu-samples/samples/animometer/).
 
 ## Spezifikationen
 

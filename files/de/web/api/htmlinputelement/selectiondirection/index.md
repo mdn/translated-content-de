@@ -8,24 +8,24 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`selectionDirection`**-Eigenschaft der {{domxref("HTMLInputElement")}}-Schnittstelle ist ein String, der die Richtung angibt, in die der Benutzer den Text auswählt.
+Die **`selectionDirection`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces ist ein String, der die Richtung angibt, in die der Benutzer den Text auswählt.
 
 ## Wert
 
-Ein String. Er kann einen der folgenden Werte haben:
+Ein String, der einen der folgenden Werte haben kann:
 
 - `forward`
-  - : Der Benutzer erweitert die Auswahl in Richtung des Endes des Texteingabefeldes.
+  - : Der Benutzer erweitert die Auswahl in Richtung des Endes des Eingabetexts.
 - `backward`
-  - : Der Benutzer erweitert die Auswahl in Richtung des Anfangs des Texteingabefeldes.
+  - : Der Benutzer erweitert die Auswahl in Richtung des Anfangs des Eingabetexts.
 - `none`
   - : Der Benutzer erweitert die Auswahl nicht.
 
 > [!NOTE]
-> Unter Windows zeigt die Richtung die Position der Einfügemarke relativ zur Auswahl an: Eine "forward"-Auswahl hat die Einfügemarke am Ende der Auswahl und eine "backward"-Auswahl hat die Einfügemarke am Anfang der Auswahl. Windows kennt keine "none"-Richtung.
+> Unter Windows gibt die Richtung die Position des Cursors relativ zur Auswahl an: Eine "forward"-Auswahl hat den Cursor am Ende der Auswahl und eine "backward"-Auswahl hat den Cursor am Anfang der Auswahl. Windows hat keine "none"-Richtung.
 
 > [!NOTE]
-> Auf dem Mac gibt die Richtung an, welches Ende der Auswahl betroffen ist, wenn der Benutzer die Größe der Auswahl mithilfe der Pfeiltasten mit der Umschalttaste als Modifizierer anpasst: Die "forward"-Richtung bedeutet, dass das Ende der Auswahl geändert wird, und die "backward"-Richtung bedeutet, dass der Anfang der Auswahl geändert wird. Die "none"-Richtung ist die Standardeinstellung auf dem Mac, sie zeigt an, dass noch keine bestimmte Richtung gewählt wurde. Der Benutzer legt die Richtung implizit fest, wenn er die Auswahl zum ersten Mal anpasst, basierend auf der verwendeten Richtungstaste.
+> Auf dem Mac gibt die Richtung an, welches Ende der Auswahl betroffen ist, wenn der Benutzer die Größe der Auswahl mit den Pfeiltasten und der Shift-Taste anpasst: Die "forward"-Richtung bedeutet, dass das Ende der Auswahl verändert wird, und die "backward"-Richtung bedeutet, dass der Anfang der Auswahl verändert wird. Die "none"-Richtung ist die Standardeinstellung auf dem Mac; sie zeigt an, dass noch keine bestimmte Richtung ausgewählt wurde. Der Benutzer legt die Richtung implizit fest, wenn er die Auswahl zum ersten Mal anpasst, basierend darauf, welche Richtungstaste verwendet wurde.
 
 ## Beispiele
 
@@ -60,7 +60,7 @@ pConsole.textContent =
 
 ## Siehe auch
 
-- {{domxref("HTMLTextAreaElement.selectionDirection")}} Eigenschaft
-- {{domxref("HTMLInputElement.selectionStart")}} Eigenschaft
-- {{domxref("HTMLInputElement.selectionEnd")}} Eigenschaft
-- {{domxref("HTMLInputElement.setSelectionRange")}} Methode
+- [`HTMLTextAreaElement.selectionDirection`](/de/docs/Web/API/HTMLTextAreaElement/selectionDirection)-Eigenschaft
+- [`HTMLInputElement.selectionStart`](/de/docs/Web/API/HTMLInputElement/selectionStart)-Eigenschaft
+- [`HTMLInputElement.selectionEnd`](/de/docs/Web/API/HTMLInputElement/selectionEnd)-Eigenschaft
+- [`HTMLInputElement.setSelectionRange`](/de/docs/Web/API/HTMLInputElement/setSelectionRange)-Methode

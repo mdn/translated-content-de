@@ -19,19 +19,19 @@ x % y
 
 ## Beschreibung
 
-Der `%`-Operator ist überladen für zwei Arten von Operanden: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt beide Operanden zunächst in numerische Werte](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) zu und überprüft deren Typen. Es wird der BigInt-Restwert berechnet, wenn beide Operanden BigInts werden; andernfalls wird der Zahlen-Restwert berechnet. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand ein BigInt wird, während der andere eine Zahl wird.
+Der `%`-Operator ist für zwei Arten von Operanden überladen: Number und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Zuerst [werden beide Operanden in numerische Werte umgewandelt](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und deren Typen überprüft. Er führt die BigInt-Restwertoperation durch, wenn beide Operanden zu BigInts werden; andernfalls führt er eine Restwertoperation auf Zahlen durch. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch zu einer Zahl.
 
-Für die Operation `n % d` wird `n` als Dividende und `d` als Divisor bezeichnet. Die Operation gibt `NaN` zurück, wenn einer der Operanden `NaN` ist, `n` ±Infinity ist oder wenn `d` ±0 ist. Andernfalls, wenn `d` ±Infinity oder `n` ±0 ist, wird die Dividende `n` zurückgegeben.
+Bei der Operation `n % d` wird `n` als Dividend und `d` als Divisor bezeichnet. Die Operation gibt `NaN` zurück, wenn einer der Operanden `NaN` ist, `n` ±Infinity ist oder wenn `d` ±0 ist. Andernfalls, wenn `d` ±Infinity ist oder wenn `n` ±0 ist, wird der Dividend `n` zurückgegeben.
 
-Wenn beide Operanden ungleich null und endlich sind, wird der Rest `r` berechnet als `r := n - d * q`, wobei `q` die ganze Zahl ist, sodass `r` dasselbe Vorzeichen wie die Dividende `n` hat, während es so nah wie möglich bei 0 liegt.
+Wenn beide Operanden ungleich null und endlich sind, wird der Rest `r` berechnet als `r := n - d * q` wobei `q` die Ganzzahl ist, sodass `r` dasselbe Vorzeichen wie der Dividend `n` hat, während er so nahe wie möglich bei 0 liegt.
 
-Beachten Sie, dass `%` in den meisten Sprachen ein Restwert-Operator ist, in einigen (z.B. [Python, Perl](https://en.wikipedia.org/wiki/Modulo_operation#In_programming_languages)) jedoch ein Modulo-Operator ist. Modulo ist definiert als `k := n - d * q`, wobei `q` die ganze Zahl ist, sodass `k` dasselbe Vorzeichen wie der Divisor `d` hat, während es so nah wie möglich bei 0 liegt. Für zwei Werte mit demselben Vorzeichen sind die beiden äquivalent, aber wenn die Operanden unterschiedliche Vorzeichen haben, hat das Modulo-Ergebnis immer dasselbe Vorzeichen wie der _Divisor_, während der Restwert dasselbe Vorzeichen wie die _Dividende_ hat, was dazu führen kann, dass sie sich um eine Einheit von `d` unterscheiden. Um in JavaScript ein Modulo zu erhalten, verwenden Sie anstelle von `n % d` den Ausdruck `((n % d) + d) % d`. In JavaScript wird die Modulo-Operation (die keinen eigenen Operator hat) verwendet, um den zweiten Operand von Bitverschiebungsoperatoren zu normalisieren ([`<<`](/de/docs/Web/JavaScript/Reference/Operators/Left_shift), [`>>`](/de/docs/Web/JavaScript/Reference/Operators/Right_shift), usw.), wodurch der Offset immer ein positiver Wert ist.
+Beachten Sie, dass in den meisten Programmiersprachen '%' ein Restwert-Operator ist, in einigen (z.B. [Python, Perl](https://en.wikipedia.org/wiki/Modulo_operation#In_programming_languages)) jedoch ein Modulo-Operator. Modulo ist definiert als `k := n - d * q` wobei `q` die Ganzzahl ist, sodass `k` dasselbe Vorzeichen wie der Divisor `d` hat, während er so nahe wie möglich bei 0 liegt. Bei zwei Werten mit demselben Vorzeichen sind die beiden gleich, aber wenn die Operanden unterschiedliche Vorzeichen haben, hat das Modulo-Ergebnis immer dasselbe Vorzeichen wie der _Divisor_, während der Rest dasselbe Vorzeichen wie der _Dividend_ hat, was dazu führen kann, dass sie sich um eine Einheit `d` unterscheiden. Um ein Modulo in JavaScript zu erhalten, verwenden Sie anstelle von `n % d` `((n % d) + d) % d`. In JavaScript wird die Modulo-Operation (die keinen eigenen Operator hat) verwendet, um den zweiten Operanden der Bitverschiebungsoperatoren ([`<<`](/de/docs/Web/JavaScript/Reference/Operators/Left_shift), [`>>`](/de/docs/Web/JavaScript/Reference/Operators/Right_shift), etc.) zu normalisieren, sodass der Versatz immer ein positiver Wert ist.
 
-Bei der Division von BigInt wird ein {{jsxref("RangeError")}} ausgelöst, wenn der Divisor `y` `0n` ist. Dies liegt daran, dass der Zahlen-Restwert durch null `NaN` zurückgibt, aber BigInt kein Konzept von `NaN` hat.
+Bei der BigInt-Division wird ein {{jsxref("RangeError")}} ausgelöst, wenn der Divisor `y` `0n` ist. Dies liegt daran, dass der Restwert bei Division durch null `NaN` zurückgibt, aber BigInt kein `NaN`-Konzept hat.
 
 ## Beispiele
 
-### Restwert mit positiver Dividende
+### Restwert mit positivem Dividend
 
 ```js
 13 % 5; // 3
@@ -43,7 +43,7 @@ Bei der Division von BigInt wird ein {{jsxref("RangeError")}} ausgelöst, wenn d
 3n % 2n; // 1n
 ```
 
-### Restwert mit negativer Dividende
+### Restwert mit negativem Dividend
 
 ```js
 -13 % 5; // -3
@@ -59,7 +59,7 @@ Bei der Division von BigInt wird ein {{jsxref("RangeError")}} ausgelöst, wenn d
 NaN % 2; // NaN
 ```
 
-### Restwert mit Infinity
+### Restwert mit Unendlichkeit
 
 ```js
 Infinity % 2; // NaN

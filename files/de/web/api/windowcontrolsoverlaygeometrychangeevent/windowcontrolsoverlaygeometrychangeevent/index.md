@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Window Controls Overlay API")}}{{SeeCompatTable}}
 
-Der **`WindowControlsOverlayGeometryChangeEvent()`** Konstruktor gibt ein neues {{domxref("WindowControlsOverlayGeometryChangeEvent")}}-Objekt zurück, das die aktuelle Geometrie des Titelbereichs einer Desktop-Progressive-Web-App darstellt.
+Der **`WindowControlsOverlayGeometryChangeEvent()`** Konstruktor gibt ein neues [`WindowControlsOverlayGeometryChangeEvent`](/de/docs/Web/API/WindowControlsOverlayGeometryChangeEvent) Objekt zurück, das die aktuelle Geometrie des Titelbereichs einer Desktop Progressive Web App darstellt.
 
 ## Syntax
 
@@ -18,26 +18,25 @@ new WindowControlsOverlayGeometryChangeEvent(type, options)
 
 ### Parameter
 
-_Der `WindowControlsOverlayGeometryChangeEvent()` Konstruktor übernimmt auch Argumente von
-{{domxref("Event.Event", "Event()")}}._
+_Der `WindowControlsOverlayGeometryChangeEvent()` Konstruktor erbt auch Argumente von [`Event()`](/de/docs/Web/API/Event/Event)._
 
 - `type`
-  - : Ein String, der den Ereignistyp angibt. Es ist Groß- und Kleinschreibung beachten und Browser setzen ihn auf `geometrychange`.
+  - : Ein String, der den Ereignistyp angibt. Er ist groß- und kleinschreibungssensitiv, und Browser setzen ihn auf `geometrychange`.
 - `options`
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `visible` {{optional_inline}}
-      - : Ein boolesches Flag, das wahr ist, wenn die Werte des `titlebarAreaRect`-Objekts nicht 0 sind. Der Standardwert ist `false`.
+      - : Ein boolesches Flag, das wahr ist, wenn die Werte des `titlebarAreaRect` Objekts nicht 0 sind. Der Standardwert ist `false`.
     - `titlebarAreaRect`
-      - : Ein {{domxref("DOMRect")}}, das die Position und Größe des Titelbereichs darstellt.
+      - : Ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Position und Größe des Titelbereichs darstellt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Das {{domxref("WindowControlsOverlayGeometryChangeEvent")}}-Interface, zu dem es gehört.
+- Die [`WindowControlsOverlayGeometryChangeEvent`](/de/docs/Web/API/WindowControlsOverlayGeometryChangeEvent) Schnittstelle, zu der es gehört.

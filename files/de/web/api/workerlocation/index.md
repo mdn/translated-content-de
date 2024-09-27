@@ -7,35 +7,35 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die **`WorkerLocation`**-Schnittstelle definiert den absoluten Standort des Skripts, das vom {{domxref("Worker")}} ausgeführt wird. Ein solches Objekt wird für jeden Worker initialisiert und ist über die {{domxref("WorkerGlobalScope.location")}}-Eigenschaft verfügbar, die durch den Aufruf von `self.location` erlangt wird.
+Die **`WorkerLocation`**-Schnittstelle definiert den absoluten Ort des Skripts, das vom [`Worker`](/de/docs/Web/API/Worker) ausgeführt wird. Ein solches Objekt wird für jeden Worker initialisiert und ist über die [`WorkerGlobalScope.location`](/de/docs/Web/API/WorkerGlobalScope/location)-Eigenschaft verfügbar, die durch Aufruf von `self.location` erhalten wird.
 
-Diese Schnittstelle ist nur von innerhalb eines JavaScript-Skripts sichtbar, das im Kontext eines Web-Workers ausgeführt wird.
+Diese Schnittstelle ist nur innerhalb eines JavaScript-Skripts sichtbar, das im Kontext eines Web Workers ausgeführt wird.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("WorkerLocation.href")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die die serialisierte {{domxref("URL")}} für den Worker-Standort enthält.
-- {{domxref("WorkerLocation.protocol")}} {{ReadOnlyInline}}
-  - : Gibt den {{domxref("URL.protocol", "protocol")}}-Teil des Worker-Standorts zurück.
-- {{domxref("WorkerLocation.host")}} {{ReadOnlyInline}}
-  - : Gibt den {{domxref("URL.host", "host")}}-Teil des Worker-Standorts zurück.
-- {{domxref("WorkerLocation.hostname")}} {{ReadOnlyInline}}
-  - : Gibt den {{domxref("URL.hostname", "hostname")}}-Teil des Worker-Standorts zurück.
-- {{domxref("WorkerLocation.origin")}} {{ReadOnlyInline}}
-  - : Gibt den {{domxref("URL.origin", "origin")}} des Workers zurück.
-- {{domxref("WorkerLocation.port")}} {{ReadOnlyInline}}
-  - : Gibt den {{domxref("URL.port", "port")}}-Teil des Worker-Standorts zurück.
-- {{domxref("WorkerLocation.pathname")}} {{ReadOnlyInline}}
-  - : Gibt den {{domxref("URL.pathname", "pathname")}}-Teil des Worker-Standorts zurück.
-- {{domxref("WorkerLocation.search")}} {{ReadOnlyInline}}
-  - : Gibt den {{domxref("URL.search", "search")}}-Teil des Worker-Standorts zurück.
-- {{domxref("WorkerLocation.hash")}} {{ReadOnlyInline}}
-  - : Gibt den {{domxref("URL.hash", "hash")}}-Teil des Worker-Standorts zurück.
+- [`WorkerLocation.href`](/de/docs/Web/API/WorkerLocation/href) {{ReadOnlyInline}}
+  - : Gibt eine Zeichenfolge zurück, die die serialisierte [`URL`](/de/docs/Web/API/URL) für den Standort des Workers enthält.
+- [`WorkerLocation.protocol`](/de/docs/Web/API/WorkerLocation/protocol) {{ReadOnlyInline}}
+  - : Gibt den [`protocol`](/de/docs/Web/API/URL/protocol)-Teil des Standorts des Workers zurück.
+- [`WorkerLocation.host`](/de/docs/Web/API/WorkerLocation/host) {{ReadOnlyInline}}
+  - : Gibt den [`host`](/de/docs/Web/API/URL/host)-Teil des Standorts des Workers zurück.
+- [`WorkerLocation.hostname`](/de/docs/Web/API/WorkerLocation/hostname) {{ReadOnlyInline}}
+  - : Gibt den [`hostname`](/de/docs/Web/API/URL/hostname)-Teil des Standorts des Workers zurück.
+- [`WorkerLocation.origin`](/de/docs/Web/API/WorkerLocation/origin) {{ReadOnlyInline}}
+  - : Gibt den [`origin`](/de/docs/Web/API/URL/origin) des Workers zurück.
+- [`WorkerLocation.port`](/de/docs/Web/API/WorkerLocation/port) {{ReadOnlyInline}}
+  - : Gibt den [`port`](/de/docs/Web/API/URL/port)-Teil des Standorts des Workers zurück.
+- [`WorkerLocation.pathname`](/de/docs/Web/API/WorkerLocation/pathname) {{ReadOnlyInline}}
+  - : Gibt den [`pathname`](/de/docs/Web/API/URL/pathname)-Teil des Standorts des Workers zurück.
+- [`WorkerLocation.search`](/de/docs/Web/API/WorkerLocation/search) {{ReadOnlyInline}}
+  - : Gibt den [`search`](/de/docs/Web/API/URL/search)-Teil des Standorts des Workers zurück.
+- [`WorkerLocation.hash`](/de/docs/Web/API/WorkerLocation/hash) {{ReadOnlyInline}}
+  - : Gibt den [`hash`](/de/docs/Web/API/URL/hash)-Teil des Standorts des Workers zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("WorkerLocation.toString()")}}
-  - : Gibt eine Zeichenkette zurück, die die serialisierte {{domxref("URL")}} für den Worker-Standort enthält. Es ist ein Synonym für {{domxref("WorkerLocation.href")}}.
+- [`WorkerLocation.toString()`](/de/docs/Web/API/WorkerLocation/toString)
+  - : Gibt eine Zeichenfolge zurück, die die serialisierte [`URL`](/de/docs/Web/API/URL) für den Standort des Workers enthält. Es ist ein Synonym für [`WorkerLocation.href`](/de/docs/Web/API/WorkerLocation/href).
 
 ## Spezifikationen
 
@@ -47,5 +47,5 @@ Diese Schnittstelle ist nur von innerhalb eines JavaScript-Skripts sichtbar, das
 
 ## Siehe auch
 
-- Andere Worker-bezogene Schnittstellen: {{domxref("Worker")}}, {{domxref("WorkerNavigator")}} und {{domxref("WorkerGlobalScope")}}
-- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- Andere Worker-bezogene Schnittstellen: [`Worker`](/de/docs/Web/API/Worker), [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator) und [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
+- [Using web workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

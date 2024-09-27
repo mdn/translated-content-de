@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Media Session API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`startTime`**-Eigenschaft der
-{{domxref("ChapterInformation")}}-Schnittstelle gibt eine Zahl zurück, die die Startzeit des Kapitels in Sekunden repräsentiert.
+Die **`startTime`**-Eigenschaft des [`ChapterInformation`](/de/docs/Web/API/ChapterInformation)-Interfaces gibt eine Zahl zurück, die die Startzeit des Kapitels in Sekunden darstellt. Diese Eigenschaft ist schreibgeschützt.
 
 ## Wert
 
@@ -17,7 +16,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Sehen Sie sich die Hauptseite von {{domxref("ChapterInformation")}} für ein Beispiel an.
+Ein Beispiel finden Sie auf der Hauptseite von [`ChapterInformation`](/de/docs/Web/API/ChapterInformation).
 
 ## Spezifikationen
 
@@ -29,4 +28,4 @@ Sehen Sie sich die Hauptseite von {{domxref("ChapterInformation")}} für ein Bei
 
 ## Siehe auch
 
-- {{domxref("ChapterInformation")}}
+- [`ChapterInformation`](/de/docs/Web/API/ChapterInformation)

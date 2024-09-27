@@ -1,5 +1,5 @@
 ---
-title: "Range: surroundContents()-Methode"
+title: "Range: surroundContents() Methode"
 short-title: surroundContents()
 slug: Web/API/Range/surroundContents
 l10n:
@@ -8,16 +8,19 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.surroundContents()`**-Methode verschiebt den Inhalt des
-{{ domxref("Range") }} in einen neuen Knoten und platziert den neuen Knoten am Anfang des
+Die **`Range.surroundContents()`** Methode verschiebt den Inhalt des
+[`Range`](/de/docs/Web/API/Range) in einen neuen Knoten und platziert den neuen Knoten am Anfang des
 angegebenen Bereichs.
 
-Diese Methode ist nahezu äquivalent zu
+Diese Methode ist nahezu gleichwertig zu
 `newNode.appendChild(range.extractContents()); range.insertNode(newNode)`.
-Nach dem Umbinden umfassen die Grenzpunkte des `range`
-`newNode`.
+Nach dem Umhüllen schließen die Begrenzungspunkte des `range`
+`newNode` ein.
 
-Es wird jedoch eine Ausnahme geworfen, wenn der {{ domxref("Range") }} einen nicht-{{domxref("Text") }}-Knoten mit nur einem seiner Grenzpunkte teilt. Das heißt, anders als im obigen Beispiel, werden teilweise ausgewählte Knoten nicht geklont und stattdessen schlägt der Vorgang fehl.
+Es wird jedoch eine Ausnahme ausgelöst, wenn der [`Range`](/de/docs/Web/API/Range) einen nicht-[`Text`](/de/docs/Web/API/Text)
+Knoten mit nur einem seiner Begrenzungspunkte teilt. Das heißt, im Gegensatz zur
+alternativen Methode oben, werden teilweise ausgewählte Knoten nicht geklont und
+stattdessen schlägt die Operation fehl.
 
 ## Syntax
 
@@ -28,7 +31,7 @@ surroundContents(newParent)
 ### Parameter
 
 - `newParent`
-  - : Ein {{ domxref("Node") }}, mit dem der Inhalt umgeben wird.
+  - : Ein [`Node`](/de/docs/Web/API/Node), mit dem die Inhalte umgeben werden sollen.
 
 ### Rückgabewert
 
@@ -66,4 +69,4 @@ range.surroundContents(newParent);
 
 ## Siehe auch
 
-- [Die DOM-Schnittstellen-Übersicht](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)

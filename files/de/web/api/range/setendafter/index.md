@@ -9,8 +9,7 @@ l10n:
 {{ApiRef("DOM")}}
 
 Die **`Range.setEndAfter()`**-Methode setzt die Endposition eines
-{{domxref("Range")}} relativ zu einem anderen {{domxref("Node")}}. Der übergeordnete
-`Node` des Endes des `Range` wird derselbe sein wie der für den
+[`Range`](/de/docs/Web/API/Range) relativ zu einem anderen [`Node`](/de/docs/Web/API/Node). Der Eltern-`Node` des Endes des `Range` wird derselbe sein wie der für den
 `referenceNode`.
 
 ## Syntax
@@ -22,7 +21,7 @@ setEndAfter(referenceNode)
 ### Parameter
 
 - `referenceNode`
-  - : Der {{domxref("Node")}}, nach dem der {{domxref("Range")}} enden soll.
+  - : Der [`Node`](/de/docs/Web/API/Node), nach dem der [`Range`](/de/docs/Web/API/Range) enden soll.
 
 ### Rückgabewert
 
@@ -47,4 +46,4 @@ range.setEndAfter(referenceNode);
 
 ## Siehe auch
 
-- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)

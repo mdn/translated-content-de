@@ -1,5 +1,5 @@
 ---
-title: "HTMLDialogElement: show()-Methode"
+title: "HTMLDialogElement: Methode show()"
 short-title: show()
 slug: Web/API/HTMLDialogElement/show
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`show()`**-Methode des {{domxref("HTMLDialogElement")}}-Interfaces zeigt das Dialogfeld modellfrei an, d.h. es erlaubt weiterhin die Interaktion mit dem Inhalt außerhalb des Dialogs.
+Die **`show()`** Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle zeigt den Dialog modelllos an, d.h. sie erlaubt weiterhin die Interaktion mit Inhalten außerhalb des Dialogs.
 
 ## Syntax
 
@@ -22,19 +22,19 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmlelement("dialog")}} mit einem Formular über die `show()`-Methode öffnet. Von dort aus können Sie den _Cancel_-Button anklicken, um das Dialogfeld zu schließen (über die {{domxref("HTMLDialogElement.close()")}}-Methode), oder das Formular über den Senden-Button absenden.
+Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmlelement("dialog")}} öffnet, das ein Formular über die `show()`-Methode enthält. Von dort aus können Sie den _Abbrechen_-Button anklicken, um den Dialog zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Methode), oder das Formular über den Absenden-Button übermitteln.
 
 ```html
-<!-- Einfache Pop-up-Dialogbox, die ein Formular enthält -->
+<!-- Simple pop-up dialog box, containing a form -->
 <dialog id="favDialog">
   <form method="dialog">
     <section>
       <p>
-        <label for="favAnimal">Lieblingstier:</label>
+        <label for="favAnimal">Favorite animal:</label>
         <select id="favAnimal" name="favAnimal">
           <option></option>
           <option>Brine shrimp</option>
@@ -51,7 +51,7 @@ Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmle
 </dialog>
 
 <menu>
-  <button id="updateDetails">Details aktualisieren</button>
+  <button id="updateDetails">Update details</button>
 </menu>
 
 <script>
@@ -69,13 +69,13 @@ Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmle
       }
     }
 
-    // Update-Button öffnet ein modellfreies Dialogfeld
+    // Update button opens a modeless dialog
     updateButton.addEventListener("click", () => {
       dialog.show();
       openCheck(dialog);
     });
 
-    // Formular-Abbrechen-Button schließt das Dialogfeld
+    // Form cancel button closes the dialog box
     cancelButton.addEventListener("click", () => {
       dialog.close("animalNotChosen");
       openCheck(dialog);
@@ -88,10 +88,10 @@ Das folgende Beispiel zeigt einen einfachen Button, der beim Klicken ein {{htmle
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("dialog") }}.
+- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("dialog") }}.

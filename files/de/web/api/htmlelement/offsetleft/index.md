@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die schreibgeschützte Eigenschaft **`HTMLElement.offsetLeft`** gibt die Anzahl der Pixel zurück, um die die _obere linke Ecke_ des aktuellen Elements nach links innerhalb des {{domxref("HTMLElement.offsetParent")}}-Knotens versetzt ist.
+Die **`HTMLElement.offsetLeft`** schreibgeschützte Eigenschaft gibt die Anzahl der Pixel zurück, um die die _obere linke Ecke_ des aktuellen Elements innerhalb des [`HTMLElement.offsetParent`](/de/docs/Web/API/HTMLElement/offsetParent)-Knotens nach links verschoben ist.
 
-Für Block-Elemente beschreiben `offsetTop`, `offsetLeft`, `offsetWidth` und `offsetHeight` die Rahmenbox eines Elements relativ zum `offsetParent`.
+Für Block-Elemente beschreiben `offsetTop`, `offsetLeft`, `offsetWidth` und `offsetHeight` die Border-Box eines Elements relativ zum `offsetParent`.
 
-Für Inline-Elemente (wie **span**), die von einer Zeile zur nächsten umbrechen können, beschreiben `offsetTop` und `offsetLeft` die Positionen der _ersten_ Rahmenbox (verwenden Sie {{domxref("Element.getClientRects()")}}, um ihre Breite und Höhe zu erhalten), während `offsetWidth` und `offsetHeight` die Abmessungen der _umfassenden_ Rahmenbox beschreiben (verwenden Sie {{domxref("Element.getBoundingClientRect()")}}, um ihre Position zu erhalten). Daher wird eine Box mit den Werten `offsetLeft`, `offsetTop`, `offsetWidth` und `offsetHeight` keine Begrenzungsbox für einen span mit umgebrochenem Text sein.
+Für Inline-Elemente (wie **span**), die von einer Linie zur nächsten umbrechen können, beschreiben `offsetTop` und `offsetLeft` die Positionen der _ersten_ Border-Box (verwenden Sie [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects), um deren Breite und Höhe zu erhalten), während `offsetWidth` und `offsetHeight` die Abmessungen der _umgebenden_ Border-Box beschreiben (verwenden Sie [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), um deren Position zu erhalten). Daher wird eine Box mit dem linken, oberen, breiten und hohen Wert von `offsetLeft`, `offsetTop`, `offsetWidth` und `offsetHeight` keine Begrenzungsbox für ein span mit umbrochenem Text darstellen.
 
 ## Wert
 
@@ -25,19 +25,19 @@ const colorTable = document.getElementById("t1");
 const tOLeft = colorTable.offsetLeft;
 
 if (tOLeft > 5) {
-  // großer linker Versatz: etwas tun
+  // large left offset: do something here
 }
 ```
 
-Dieses Beispiel zeigt einen 'langen' Satz, der innerhalb eines Divs mit blauem Rand umbricht, und eine rote Box, von der man denken könnte, sie beschreibt die Grenzen des span.
+Dieses Beispiel zeigt einen 'langen' Satz, der innerhalb eines div mit einem blauen Rand umbrochen wird, und ein rotes Kästchen, das die Grenzen des span beschreiben sollte.
 
-![Ein Satz, der lautet: Kurzer Span. Dieser Text befindet sich vollständig innerhalb eines Divs mit blauem Rand. Ein Satz, der lautet: Langer Span, der innerhalb dieses Divs umbricht. Die Wörter "langer Span, der umbricht" befinden sich innerhalb einer Box mit rotem Rand. Die Wörter "innerhalb dieses Divs" befinden sich innerhalb des Divs mit blauem Rand.](offsetleft.jpg)
+![Ein Satz, der lautet: Kurzes span. Dieser Text befindet sich vollständig innerhalb eines div mit einem blauen Rand. Ein Satz, der lautet: Langer span, der innerhalb dieses div umbrochen wird. Die Wörter "langer span, der umbrochen wird" befinden sich innerhalb eines Kästchens mit einem roten Rand. Die Wörter "innerhalb dieses div" befinden sich innerhalb des div mit dem blauen Rand. ](offsetleft.jpg)
 
 ```html
 <div
   style="width: 300px; border-color:blue; border-style:solid; border-width:1;">
-  <span>Kurzer Span. </span>
-  <span id="longspan">Langer Span, der innerhalb dieses Divs umbricht.</span>
+  <span>Short span. </span>
+  <span id="longspan">Long span that wraps within this div.</span>
 </div>
 
 <div
@@ -64,4 +64,4 @@ Dieses Beispiel zeigt einen 'langen' Satz, der innerhalb eines Divs mit blauem R
 
 ## Siehe auch
 
-- {{domxref("HTMLElement.offsetParent")}}, {{domxref("HTMLElement.offsetTop")}}, {{domxref("HTMLElement.offsetWidth")}}, {{domxref("HTMLElement.offsetHeight")}}
+- [`HTMLElement.offsetParent`](/de/docs/Web/API/HTMLElement/offsetParent), [`HTMLElement.offsetTop`](/de/docs/Web/API/HTMLElement/offsetTop), [`HTMLElement.offsetWidth`](/de/docs/Web/API/HTMLElement/offsetWidth), [`HTMLElement.offsetHeight`](/de/docs/Web/API/HTMLElement/offsetHeight)

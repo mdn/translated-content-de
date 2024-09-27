@@ -7,6 +7,6 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der Begriff **Block** kann je nach Kontext verschiedene Bedeutungen haben. Er kann sich beziehen auf:
+Der Begriff **Block** kann je nach Kontext mehrere Bedeutungen haben. Er kann sich beziehen auf:
 
 {{GlossaryDisambiguation}}

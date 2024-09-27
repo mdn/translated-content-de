@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("EyeDropper API")}}{{SeeCompatTable}}
 
-Die **`EyeDropper.open()`** Methode startet den Pipettenmodus und gibt ein Promise zurück, das erfüllt wird, sobald der Benutzer eine Farbe ausgewählt und den Pipettenmodus verlassen hat.
+Die **`EyeDropper.open()`** Methode startet den Pipettenmodus und gibt ein Promise zurück, welches erfüllt wird, sobald der Benutzer eine Farbe ausgewählt und den Pipettenmodus verlassen hat.
 
 ## Syntax
 
@@ -21,31 +21,31 @@ open(options)
 
 - `options` {{optional_inline}}
 
-  - : Ein Optionsobjekt, um ein {{domxref("AbortSignal")}} Signal zu übergeben:
+  - : Ein Optionsobjekt, um ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) Signal zu übergeben:
 
     - `signal` {{optional_inline}}
-      - : Ein {{domxref("AbortSignal")}}. Der Pipettenmodus wird abgebrochen, wenn die `AbortSignal`-Methode {{domxref("AbortController/abort()", "abort()")}} aufgerufen wird.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal). Der Pipettenmodus wird abgebrochen, wenn die `AbortSignal`-Methode [`abort()`](/de/docs/Web/API/AbortController/abort) aufgerufen wird.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das schließlich aufgelöst wird, wenn der Benutzer eine Pixelfarbe vom Bildschirm auswählt.
+Ein {{jsxref("Promise")}}, das schließlich aufgelöst wird, wenn der Benutzer eine Pixel-Farbe vom Bildschirm auswählt.
 
-Das Promise löst sich in ein Objekt mit der folgenden Eigenschaft auf:
+Das Promise wird zu einem Objekt mit der folgenden Eigenschaft aufgelöst:
 
 - `sRGBHex`
-  - : Ein String, der die ausgewählte Farbe im hexadezimalen sRGB-Format darstellt (`#aabbcc`).
+  - : Ein String, der die ausgewählte Farbe im hexadezimalen sRGB-Format (`#aabbcc`) darstellt.
 
 ### Ausnahmen
 
-Ausnahmen werden nicht ausgelöst, sondern zurückgegeben, wenn das {{jsxref("Promise")}} abgelehnt wird.
+Ausnahmen werden nicht geworfen, sondern zurückgegeben, wenn das {{jsxref("Promise")}} abgelehnt wird.
 
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `open()` nicht über eine [flüchtige Benutzeraktivierung](/de/docs/Glossary/Transient_activation) aufgerufen wird.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn bereits eine andere Pipette geöffnet ist.
-- `AbortError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Benutzer die Auswahl mit der <kbd>Esc</kbd>-Taste abbricht oder wenn die Auswahl durch einen {{domxref("AbortController")}}, der als Argument an `open()` übergeben wird, abgebrochen wird.
-- `OperationError` {{domxref("DOMException")}}
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `open()` nicht über eine [transiente Benutzeraktivierung](/de/docs/Glossary/Transient_activation) aufgerufen wird.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn eine andere Pipette bereits geöffnet ist.
+- `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Benutzer die Auswahl durch Drücken der <kbd>Esc</kbd>-Taste abbricht oder wenn die Auswahl durch einen als Argument an `open()` übergebenen [`AbortController`](/de/docs/Web/API/AbortController) abgebrochen wird.
+- `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Auswahl aus anderen Gründen fehlschlägt.
 
 ## Spezifikationen
@@ -58,4 +58,4 @@ Ausnahmen werden nicht ausgelöst, sondern zurückgegeben, wenn das {{jsxref("Pr
 
 ## Siehe auch
 
-- Das {{DOMxRef("EyeDropper")}} Interface, zu dem es gehört.
+- Das [`EyeDropper`](/de/docs/Web/API/EyeDropper) Interface, zu dem es gehört.

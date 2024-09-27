@@ -7,13 +7,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCIceCandidatePair`**-Wörterbuch beschreibt ein Paar von ICE-Kandidaten, die zusammen eine Beschreibung einer brauchbaren Verbindung zwischen zwei WebRTC-Endpunkten bilden. Es wird als Rückgabewert von {{domxref("RTCIceTransport.getSelectedCandidatePair()")}} verwendet, um das derzeit vom ICE-Agenten ausgewählte Kandidatenpaar zu identifizieren.
+Das **`RTCIceCandidatePair`**-Wörterbuch beschreibt ein Paar von ICE-Kandidaten, die zusammen eine Beschreibung einer brauchbaren Verbindung zwischen zwei WebRTC-Endpunkten darstellen. Es wird als Rückgabewert von [`RTCIceTransport.getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) verwendet, um das vom ICE-Agenten aktuell ausgewählte Kandidatenpaar zu identifizieren.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("RTCIceCandidatePair.local", "local")}}
-  - : Ein {{domxref("RTCIceCandidate")}}, der die Konfiguration des lokalen Endes der Verbindung beschreibt.
-- {{domxref("RTCIceCandidatePair.remote", "remote")}}
+- [`local`](/de/docs/Web/API/RTCIceCandidatePair/local)
+  - : Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), der die Konfiguration des lokalen Endes der Verbindung beschreibt.
+- [`remote`](/de/docs/Web/API/RTCIceCandidatePair/remote)
   - : Der **`RTCIceCandidate`**, der die Konfiguration des entfernten Endes der Verbindung beschreibt.
 
 ## Beispiele

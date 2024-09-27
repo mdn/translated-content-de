@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Window Management API")}}{{seecompattable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`availTop`**-Eigenschaft der {{domxref("ScreenDetailed")}}-Schnittstelle ist eine Zahl, die die y-Koordinate (obere Kante) des verfügbaren Bildschirmbereichs innerhalb des virtuellen Bildschirmarrangements des Betriebssystems darstellt, relativ zum [Multi-Screen-Ursprung](/de/docs/Web/API/Window_Management_API/Multi-screen_origin).
+Die **`availTop`** schreibgeschützte Eigenschaft der [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Schnittstelle ist eine Zahl, die die y-Koordinate (obere Kante) des verfügbaren Bildschirmbereichs innerhalb der virtuellen Bildschirmkonfiguration des Betriebssystems darstellt, relativ zum [Multi-Screen-Ursprung](/de/docs/Web/API/Window_Management_API/Multi-screen_origin).
 
-Diese ist gleich der {{domxref("ScreenDetailed.top")}}-Eigenschaft, zuzüglich der Höhe jeglicher OS-Oberflächenelemente, die oben auf dem Bildschirm angezeigt werden. In diesen Bereichen können keine Fenster platziert werden, daher ist `availTop` nützlich, um die obere Grenze des tatsächlich verfügbaren Bereichs zum Öffnen oder Platzieren von Fenstern zu bestimmen.
+Dies entspricht der [`ScreenDetailed.top`](/de/docs/Web/API/ScreenDetailed/top)-Eigenschaft zuzüglich der Höhe eines beliebigen am oberen Bildschirmrand gezeichneten Betriebssystem-UI-Elementes. Fenster können in diesen Bereichen nicht platziert werden, daher ist `availTop` nützlich, um Ihnen die obere Grenze des tatsächlich verfügbaren Bereichs zum Öffnen oder Platzieren von Fenstern zu geben.
 
 > [!NOTE]
-> Eine nicht standardmäßige Implementierung der `availTop`-Eigenschaft ist auf der `Screen`-Schnittstelle in allen Browsern verfügbar. Siehe das [nicht standardmäßige Beispiel](#nicht_standardmäßiges_beispiel) unten für Anwendungsdetails und die [`Screen`](/de/docs/Web/API/Screen#browser_compatibility)-Referenzseite für Informationen zur Browserunterstützung in Bezug auf die nicht standardmäßige Implementierung.
+> Eine nicht standardisierte Implementierung der `availTop`-Eigenschaft ist in allen Browsern auf der `Screen`-Schnittstelle verfügbar. Siehe das [Beispiel für Nicht-Standard](#nicht-standard_beispiel) unten für Nutzungshinweise und die [`Screen`](/de/docs/Web/API/Screen#browser_compatibility) Referenzseite für Informationen zur Browser-Unterstützung der nicht standardisierten Implementierung.
 
 ## Wert
 
@@ -21,21 +21,21 @@ Eine Zahl.
 
 ## Beispiele
 
-### Beispiel für die Window Management API
+### Window Management API Beispiel
 
 ```js
-// Verfügbar in Browsern, die die Window Management API unterstützen
+// Available in browsers that support the Window Management API
 const screenDetails = await window.getScreenDetails();
 
-// Gibt den availTop-Wert des ersten Bildschirms zurück
+// Return the availTop value of the first screen
 const screen1AvailTop = screenDetails.screens[0].availTop;
 ```
 
-### Nicht standardmäßiges Beispiel
+### Nicht-standard Beispiel
 
 ```js
-// In allen Browsern verfügbar
-// Gibt den availTop-Wert des aktuellen Bildschirms zurück
+// Available in all browsers
+// Return the availTop value of the current screen
 const screenAvailTop = window.screen.availTop;
 ```
 

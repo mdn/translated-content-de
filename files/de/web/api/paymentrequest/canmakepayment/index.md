@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die Methode **`canMakePayment()`** des {{domxref("PaymentRequest")}} bestimmt, ob die Anfrage so konfiguriert ist, dass sie mit mindestens einer der vom {{Glossary("user agent")}} unterstützten Zahlungsmethoden kompatibel ist.
+Die Methode **`canMakePayment()`** des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) bestimmt, ob die Anfrage so konfiguriert ist, dass sie mit mindestens einer vom [User-Agent](/de/docs/Glossary/user_agent) unterstützten Zahlungsmethode kompatibel ist.
 
-Sie können dies aufrufen, bevor Sie {{domxref("PaymentRequest.show", "show()")}} aufrufen, um eine optimierte Benutzererfahrung zu bieten, wenn der Browser des Benutzers keine der von Ihnen akzeptierten Zahlungsmethoden verarbeiten kann.
+Sie können dies aufrufen, bevor Sie [`show()`](/de/docs/Web/API/PaymentRequest/show) aufrufen, um ein optimiertes Benutzererlebnis zu bieten, wenn der Browser des Benutzers keine der von Ihnen akzeptierten Zahlungsmethoden verarbeiten kann.
 
-Zum Beispiel könnten Sie `canMakePayment()` aufrufen, um zu bestimmen, ob der Browser dem Benutzer erlaubt, über die Payment Request API zu zahlen. Wenn dies nicht der Fall ist, könnten Sie auf eine andere Zahlungsmethode zurückgreifen oder eine Liste von Methoden anbieten, die nicht von der Payment Request API behandelt werden (oder sogar Anweisungen zum Bezahlen per Post oder Telefon bereitstellen).
+Beispielsweise könnten Sie `canMakePayment()` aufrufen, um zu bestimmen, ob der Browser den Benutzer die Zahlung mittels der Payment Request API durchführen lässt. Falls dies nicht der Fall ist, könnten Sie auf eine andere Zahlungsmethode zurückgreifen oder eine Liste von Methoden anbieten, die nicht von der Payment Request API verarbeitet werden (oder sogar Anweisungen zur Zahlung per Post oder Telefon bereitstellen).
 
 ## Syntax
 
@@ -26,14 +26,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}} auf einen booleschen Wert, der zu `true` aufgelöst wird, wenn der User Agent eine der beim Erstellen der Anfrage mit dem {{domxref('PaymentRequest.PaymentRequest()','PaymentRequest')}} Konstruktor angegebenen Zahlungsmethoden unterstützt. Wenn die Zahlung nicht verarbeitet werden kann, erhält das Versprechen den Wert `false`.
+Ein {{jsxref("Promise")}} für einen booleschen Wert, der auf `true` aufgelöst wird, wenn der User-Agent eine der bei der Instanziierung der Anfrage mit dem [`PaymentRequest`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor bereitgestellten Zahlungsmethoden unterstützt. Wenn die Zahlung nicht verarbeitet werden kann, erhält das Versprechen den Wert `false`.
 
 > [!NOTE]
-> Wenn Sie dies zu häufig aufrufen, kann der Browser das zurückgegebene Versprechen mit einem `DOMException` ablehnen.
+> Wenn Sie diese Methode zu oft aufrufen, kann es sein, dass der Browser das zurückgegebene Versprechen mit einem `DOMException` ablehnt.
 
 ## Beispiele
 
-Im folgenden Beispiel, das [aus einer Demo entnommen wurde](https://rsolomakhin.github.io/samples/paymentrequest/can-make-payment/), wird ein `PaymentRequest`-Objekt asynchron sowohl für Apple Pay als auch für Example Pay erstellt. Es umschließt den Aufruf von `canMakePayment()` in einer Funktion zur Feature-Erkennung und ruft je nach Auflösung des `Promise` einen entsprechenden Rückruf auf.
+Im folgenden Beispiel, das [einem Demo-Auszug](https://rsolomakhin.github.io/samples/paymentrequest/can-make-payment/) entnommen ist, wird ein `PaymentRequest`-Objekt sowohl für Apple Pay als auch für Example Pay asynchron erstellt. Es wird der Aufruf von `canMakePayment()` in eine Feature-Erkennung eingebunden, und ein entsprechender Callback wird entsprechend der Auflösung des `Promise` aufgerufen.
 
 ```js
 async function initPaymentRequest() {
@@ -52,24 +52,24 @@ async function initPaymentRequest() {
     details,
   ).canMakePayment();
 
-  // Unterstützt Apple Pay?
+  // Supports Apple Pay?
   if (await supportsApplePay) {
-    // beispielsweise Apple Pay-Logo anzeigen
+    // show Apple Pay logo, for instance
     return;
   }
 
-  // Andernfalls prüfen wir, ob wir Example Pay verwenden können
+  // Otherwise, let's see if we can use Example Pay
   const supportsExamplePay = await new PaymentRequest(
     [{ supportedMethods: "https://example.com/pay" }],
     details,
   ).canMakePayment();
 
   if (supportsExamplePay) {
-    // Unterstützung für Example Pay anzeigen
+    // show Example Pay support
     return;
   }
 
-  // Andernfalls Zahlungen mit HTML-Formular-Element vornehmen
+  // Otherwise, make payments using HTML form element
 }
 ```
 
@@ -77,10 +77,10 @@ async function initPaymentRequest() {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref('PaymentRequest.show','PaymentRequest.show()')}}
+- [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show)

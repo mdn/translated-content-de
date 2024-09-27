@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`offset-position`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Anfangsposition eines Elements entlang eines Pfades. Diese Eigenschaft wird typischerweise in Kombination mit der {{cssxref("offset-path")}} Eigenschaft verwendet, um einen Bewegungseffekt zu erzeugen. Der Wert von `offset-position` bestimmt, wo das Element initial platziert wird, um sich entlang eines Offset-Pfades zu bewegen, wenn eine `offset-path` Funktion wie {{cssxref("basic-shape/path", "path()")}} keine eigene Startposition spezifiziert.
+Die **`offset-position`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Anfangsposition eines Elements entlang eines Pfades. Diese Eigenschaft wird typischerweise in Kombination mit der {{cssxref("offset-path")}} Eigenschaft verwendet, um einen Bewegungseffekt zu erzeugen. Der Wert von `offset-position` bestimmt, wo das Element zunächst platziert wird, um sich entlang eines Offset-Pfades zu bewegen, wenn eine `offset-path` Funktion wie {{cssxref("basic-shape/path", "path()")}} keine eigene Startposition angibt.
 
-Die `offset-position`-Eigenschaft ist Teil eines Bewegungssystems, das auf {{cssxref("offset")}}-Bestandteileigenschaften basiert, einschließlich {{cssxref("offset-anchor")}}, {{cssxref("offset-distance")}} und `offset-path`. Diese Eigenschaften arbeiten zusammen, um verschiedene Bewegungseffekte entlang eines Pfades zu erzeugen.
+Die `offset-position` Eigenschaft ist Teil eines Bewegungssystems, das auf den {{cssxref("offset")}} Grundeigenschaften, einschließlich {{cssxref("offset-anchor")}}, {{cssxref("offset-distance")}} und `offset-path`, basiert. Diese Eigenschaften arbeiten zusammen, um verschiedene Bewegungseffekte entlang eines Pfades zu erzeugen.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 offset-position: normal;
 offset-position: auto;
 offset-position: top;
@@ -23,21 +23,21 @@ offset-position: left;
 offset-position: right;
 offset-position: center;
 
-/* <percentage>-Werte */
+/* <percentage> values */
 offset-position: 25% 75%;
 
-/* <length>-Werte */
+/* <length> values */
 offset-position: 0 0;
 offset-position: 1cm 2cm;
 offset-position: 10ch 8em;
 
-/* Randabstandswerte */
+/* Edge offsets values */
 offset-position: bottom 10px right 20px;
 offset-position: right 3em bottom 10px;
 offset-position: bottom 10px right;
 offset-position: top right 10px;
 
-/* Globale Werte */
+/* Global values */
 offset-position: inherit;
 offset-position: initial;
 offset-position: revert;
@@ -50,9 +50,9 @@ offset-position: unset;
 - `normal`
   - : Gibt an, dass das Element keine Offset-Startposition hat und das Element bei `50% 50%` des umschließenden Blocks platziert. Dies ist der Standardwert.
 - `auto`
-  - : Gibt an, dass die Offset-Startposition die obere linke Ecke des Element-Box ist.
+  - : Gibt an, dass die Offset-Startposition die obere linke Ecke des Box des Elements ist.
 - {{cssxref("&lt;position&gt;")}}
-  - : Gibt die Position als x/y-Koordinate an, um ein Element relativ zu seinen Boxrändern zu platzieren. Die Position kann unter Verwendung von einem bis vier Werten definiert werden. Wenn zwei Nicht-Schlüsselwort-Werte verwendet werden, stellt der erste Wert die horizontale Position und der zweite die vertikale dar. Wenn nur ein Wert angegeben ist, wird der zweite Wert als `center` angenommen. Wenn drei oder vier Werte verwendet werden, sind die {{cssxref("length-percentage")}}-Werte Offsets für die vorangehenden Schlüsselwortwerte. Für eine genauere Erklärung dieser Wertetypen siehe {{cssxref("background-position")}}.
+  - : Gibt die Position als x/y-Koordinate an, um ein Element relativ zu seinen Boxkanten zu platzieren. Die Position kann mit einem bis vier Werten definiert werden. Wenn zwei Nicht-Schlüsselwort-Werte verwendet werden, stellt der erste Wert die horizontale Position dar und der zweite die vertikale Position. Wenn nur ein Wert angegeben wird, wird der zweite Wert als `center` angenommen. Wenn drei oder vier Werte verwendet werden, sind die {{cssxref("length-percentage")}} Werte Offsets für die vorhergehenden Schlüsselwortwerte. Für eine genauere Erklärung dieser Werttypen siehe {{cssxref("background-position")}}.
 
 ## Formale Definition
 
@@ -66,7 +66,7 @@ offset-position: unset;
 
 ### Festlegen der anfänglichen offset-position für einen offset-path
 
-In diesem Beispiel wird die {{cssxref("offset-path")}} Eigenschaft verwendet, um den Pfad zu definieren, entlang dem sich das `cyane` Element bewegen soll. Der Wert der {{cssxref("basic-shape/path", "path()")}} CSS-Funktion ist ein [SVG-Datenpfad](/de/docs/Web/SVG/Attribute/d), der einen gekrümmten Pfad beschreibt. Das Element bewegt sich entlang dieses gekrümmten Pfads während der `move` Animation.
+In diesem Beispiel wird die {{cssxref("offset-path")}} Eigenschaft verwendet, um den Pfad zu definieren, entlang dem sich das `cyan` Element bewegen soll. Der Wert der {{cssxref("basic-shape/path", "path()")}} CSS-Funktion ist ein [SVG-Datenpfad](/de/docs/Web/SVG/Attribute/d), der einen gebogenen Pfad beschreibt. Das Element bewegt sich während der `move` Animation entlang dieses gebogenen Pfades.
 
 #### HTML
 
@@ -112,9 +112,9 @@ In diesem Beispiel wird die {{cssxref("offset-path")}} Eigenschaft verwendet, um
 
 {{EmbedLiveSample('Setting_initial_offset_position_for_an_offset-path', '100%', 200)}}
 
-### Vergleich verschiedener Anfangspositionen
+### Vergleich verschiedener Offset-Startpositionen
 
-Dieses Beispiel vergleicht visuell verschiedene anfängliche Offset-Startpositionen eines Elements, wenn {{cssxref("ray", "ray()")}} verwendet wird, um einen Wert für die {{cssxref("offset-path")}} Eigenschaft anzugeben. Die Zahl innerhalb der Element-Box gibt das Element an, auf das CSS angewendet wird, sowie den Ankerpunkt des Elements.
+Dieses Beispiel vergleicht visuell verschiedene anfängliche Offset-Startpositionen eines Elements, wenn {{cssxref("ray", "ray()")}} verwendet wird, um einen Wert für die {{cssxref("offset-path")}} Eigenschaft anzugeben. Die Zahl im Elementfeld gibt das Element an, auf das CSS angewendet wird, sowie den Ankerpunkt des Elements.
 
 ```html hidden
 <div class="wrap">
@@ -122,7 +122,7 @@ Dieses Beispiel vergleicht visuell verschiedene anfängliche Offset-Startpositio
   <div class="box box0">0</div>
   <pre>
     offset-position: normal;
-    /* Kein offset-path angegeben */
+    /* No offset-path specified */
   </pre>
 </div>
 
@@ -234,7 +234,7 @@ pre {
 
 {{EmbedLiveSample('Comparing various offset starting positions', '100%', 930)}}
 
-In `box0`, bedeutet das Fehlen der `offset-path` Eigenschaft, dass eine `offset-position` von entweder `normal` oder `auto` keinen Effekt hat. Wenn `offset-position` `normal` ist, beginnt der Strahl in der Mitte des umschließenden Blocks (also `50% 50%`). Dies ist die Standard-Startposition eines Offset-Pfades und wird verwendet, wenn keine `offset-position` spezifiziert ist. Beachten Sie den Unterschied zwischen den Offset-Startpositionen `auto` und `left top`. Der Wert `auto` richtet den Ankerpunkt des Elements auf seine eigene obere linke Ecke aus, während der Wert `left top` den Ankerpunkt des Elements auf die obere linke Ecke des umschließenden Blocks ausrichtet.
+In `box0` bedeutet das Fehlen der `offset-path` Eigenschaft, dass ein `offset-position` von entweder `normal` oder `auto` keine Wirkung hat. Wenn `offset-position` `normal` ist, beginnt der Strahl im Zentrum des umschließenden Blocks (d.h. `50% 50%`). Dies ist die Standardstartposition eines Offset-Pfades und wird verwendet, wenn kein `offset-position` angegeben ist. Beachten Sie den Unterschied zwischen den Offset-Startpositionen `auto` und `left top`. Der Wert `auto` richtet den Ankerpunkt des Elements an seiner eigenen oberen linken Ecke aus, während der Wert `left top` den Ankerpunkt des Elements an der oberen linken Ecke des umschließenden Blocks ausrichtet.
 
 ## Spezifikationen
 

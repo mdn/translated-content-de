@@ -7,18 +7,18 @@ l10n:
 
 {{APIRef("WebXR Device API")}} {{secureContext_header}}{{SeeCompatTable}}
 
-Die **`XRSubImage`**-Schnittstelle der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) gibt an, welchen Viewport der GPU-Textur für das Rendering verwendet werden soll.
+Die **`XRSubImage`**-Schnittstelle der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) gibt an, welcher Viewport der GPU-Textur für das Rendering verwendet wird.
 
 ## Schnittstellen basierend auf `XRSubImage`
 
-Unten ist eine Liste von Schnittstellen, die auf der <code>XRSubImage</code>-Schnittstelle basieren.
+Im Folgenden finden Sie eine Liste von Schnittstellen, die auf der <code>XRSubImage</code>-Schnittstelle basieren.
 
-- {{domxref("XRWebGLSubImage")}}: Wird beim Rendern von WebGL-Schichten verwendet.
+- [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage): Wird während des Renderns von WebGL-Layern verwendet.
 
-## Eigenschaften von Instanzen
+## Instanzeigenschaften
 
-- {{domxref("XRSubImage.viewport")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Der {{domxref("XRViewport")}}, der beim Rendern des Teilbildes verwendet wird.
+- [`XRSubImage.viewport`](/de/docs/Web/API/XRSubImage/viewport) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Der [`XRViewport`](/de/docs/Web/API/XRViewport), der beim Rendern des Sub-Images verwendet wird.
 
 ## Spezifikationen
 
@@ -30,4 +30,4 @@ Unten ist eine Liste von Schnittstellen, die auf der <code>XRSubImage</code>-Sch
 
 ## Siehe auch
 
-- {{domxref("XRWebGLSubImage")}}
+- [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)

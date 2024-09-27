@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **{{domxref("TextTrackList")}}**-Methode **`getTrackById()`** liefert das erste {{domxref("TextTrack")}}-Objekt aus der Track-Liste zurück, dessen [`id`](/de/docs/Web/HTML/Global_attributes/id) mit dem angegebenen String übereinstimmt. Damit können Sie einen bestimmten Track finden, wenn Sie dessen ID-String kennen.
+Die **[`TextTrackList`](/de/docs/Web/API/TextTrackList)**-Methode
+**`getTrackById()`** gibt das erste
+[`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt aus der Trackliste zurück, dessen
+[`id`](/de/docs/Web/HTML/Global_attributes/id) mit dem angegebenen String übereinstimmt. Dies ermöglicht es Ihnen, einen bestimmten Track zu finden, wenn Sie dessen ID-String kennen.
 
 ## Syntax
 
@@ -19,18 +22,19 @@ getTrackById(id)
 ### Parameter
 
 - `id`
-  - : Ein String, der die ID des Tracks angibt, die in der Track-Liste gefunden werden soll.
+  - : Ein String, der die ID des Tracks angibt, der innerhalb der Trackliste gefunden werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("TextTrack")}}-Objekt, das den ersten Track in der `TextTrackList` angibt, dessen `id` mit dem angegebenen String übereinstimmt. Falls kein Treffer gefunden wird, gibt diese Methode `null` zurück.
+Ein [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt, das den ersten Track angibt, der innerhalb der
+`TextTrackList` gefunden wurde und dessen `id` mit dem angegebenen String übereinstimmt. Wenn keine Übereinstimmung gefunden wird, gibt diese Methode `null` zurück.
 
-Die Tracks werden in ihrer natürlichen Reihenfolge durchsucht, d. h. in der vom Medienressource selbst definierten Reihenfolge oder, falls die Ressource keine Reihenfolge definiert, in der relativen Reihenfolge, in der die Tracks von der Medienressource deklariert werden.
+Die Tracks werden in ihrer natürlichen Reihenfolge durchsucht; das heißt, in der Reihenfolge, die durch die Mediendatei selbst definiert ist, oder, wenn die Ressource keine Reihenfolge definiert, in der relativen Reihenfolge, in der die Tracks von der Mediendatei deklariert werden.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

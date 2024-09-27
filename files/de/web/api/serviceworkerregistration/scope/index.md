@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`scope`**-Eigenschaft des {{domxref("ServiceWorkerRegistration")}}-Interfaces gibt eine Zeichenkette zurück, die eine URL darstellt und den Registrierungsbereich eines Service Workers definiert; das heißt, den Bereich der URLs, den ein Service Worker kontrollieren kann. Dies wird mit dem `scope`-Parameter festgelegt, der beim Aufruf von {{domxref('ServiceWorkerContainer.register()')}} angegeben wird, der den Service Worker registriert hat.
+Die **`scope`** schreibgeschützte Eigenschaft der Schnittstelle [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) gibt einen String zurück, der eine URL darstellt, die den Registrierungsbereich eines Service Workers definiert; das heißt, den Bereich von URLs, den ein Service Worker kontrollieren kann. Dies wird mit dem `scope`-Parameter festgelegt, der in dem Aufruf von [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) angegeben wird, welcher den Service Worker registriert.
 
 ## Wert
 
-Gibt eine Zeichenkette zurück, die eine URL darstellt und den Registrierungsbereich eines Service Workers definiert.
+Gibt einen String zurück, der eine URL darstellt, die den Registrierungsbereich eines Service Workers definiert.
 
 ## Spezifikationen
 
@@ -24,6 +24,6 @@ Gibt eine Zeichenkette zurück, die eine URL darstellt und den Registrierungsber
 
 ## Siehe auch
 
-- [Service Worker verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Einfaches Codebeispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Verwendung von Web Workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Codebeispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Verwendung von Webarbeitern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

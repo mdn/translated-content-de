@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-synthesis-small-caps`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen anzugeben, ob der Browser einen kleinen Kapselschriftartstil synthetisieren darf, wenn dieser in einer Schriftfamilie fehlt. Kleine Kapitälchen verwenden typischerweise die Form von Großbuchstaben, werden jedoch auf die Größe von Kleinbuchstaben reduziert.
+Die **`font-synthesis-small-caps`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen festzulegen, ob der Browser eine Small-Caps-Schriftart synthetisieren darf, wenn diese in einer Schriftfamilie fehlt. Small-Caps-Glyphen verwenden in der Regel die Form von Großbuchstaben, sind jedoch auf die Größe von Kleinbuchstaben reduziert.
 
-Es ist oft zweckmäßig, die Kurzschreibweiseigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Schriftartsynthetisierungswerte zu steuern.
+Es ist oft praktisch, die Kurzform-Eigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Schriftartensynthesewerte zu steuern.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 font-synthesis-small-caps: auto;
 font-synthesis-small-caps: none;
 
-/* Globale Werte */
+/* Global values */
 font-synthesis-small-caps: inherit;
 font-synthesis-small-caps: initial;
 font-synthesis-small-caps: revert;
@@ -29,9 +29,9 @@ font-synthesis-small-caps: unset;
 ### Werte
 
 - `auto`
-  - : Gibt an, dass der fehlende Kapselschriftstil bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass die fehlende Small-Caps-Schriftart bei Bedarf vom Browser synthetisiert werden darf.
 - `none`
-  - : Gibt an, dass die Synthese des fehlenden Kapselschriftstils durch den Browser nicht erlaubt ist.
+  - : Gibt an, dass die Synthese der fehlenden Small-Caps-Schriftart durch den Browser nicht erlaubt ist.
 
 ## Formale Definition
 
@@ -43,9 +43,9 @@ font-synthesis-small-caps: unset;
 
 ## Beispiele
 
-### Deaktivieren der Synthese des Kapselschriftstils
+### Deaktivieren der Synthese von Small-Caps-Schriftarten
 
-Dieses Beispiel zeigt das Abschalten der Synthese des Kapselschriftstils durch den Browser in der Schriftart `Montserrat`.
+Dieses Beispiel zeigt, wie die Synthese der Small-Caps-Schriftart durch den Browser in der `Montserrat`-Schriftart deaktiviert wird.
 
 #### HTML
 
@@ -91,6 +91,6 @@ Dieses Beispiel zeigt das Abschalten der Synthese des Kapselschriftstils durch d
 
 ## Siehe auch
 
-- [font-synthesis](/de/docs/Web/CSS/font-synthesis) Kurzschreibweise, [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style), [font-synthesis-weight](/de/docs/Web/CSS/font-synthesis-weight)
+- [font-synthesis](/de/docs/Web/CSS/font-synthesis) Shorthand, [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style), [font-synthesis-weight](/de/docs/Web/CSS/font-synthesis-weight)
 - {{cssxref("font-style")}}, {{cssxref("font-variant")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-weight")}}
-- [CanvasRenderingContext2D: fontVariantCaps property](/de/docs/Web/API/CanvasRenderingContext2D/fontVariantCaps)
+- [CanvasRenderingContext2D: fontVariantCaps-Eigenschaft](/de/docs/Web/API/CanvasRenderingContext2D/fontVariantCaps)

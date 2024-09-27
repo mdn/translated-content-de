@@ -7,47 +7,47 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **`XMLHttpRequestUpload`**-Schnittstelle repräsentiert den Hochladeprozess für eine spezifische {{domxref("XMLHttpRequest")}}. Es ist ein _opakes_ Objekt, das den zugrunde liegenden, browserabhängigen Hochladeprozess darstellt. Es ist ein {{domxref("XMLHttpRequestEventTarget")}} und kann durch Aufrufen von {{domxref("XMLHttpRequest.upload")}} erhalten werden.
+Die **`XMLHttpRequestUpload`**-Schnittstelle repräsentiert den Upload-Prozess für einen bestimmten [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest). Es handelt sich um ein _opaques_ Objekt, das den zugrunde liegenden, browserabhängigen Upload-Prozess darstellt. Es ist ein [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und kann durch Aufruf von [`XMLHttpRequest.upload`](/de/docs/Web/API/XMLHttpRequest/upload) abgerufen werden.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle hat keine spezifischen Eigenschaften, erbt jedoch die Eigenschaften von {{domxref("XMLHttpRequestEventTarget")}} und {{domxref("EventTarget")}}._
+_Diese Schnittstelle hat keine spezifischen Eigenschaften, erbt jedoch die Eigenschaften von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine spezifischen Methoden, erbt jedoch die Methoden von {{domxref("XMLHttpRequestEventTarget")}} und {{domxref("EventTarget")}}._
+_Diese Schnittstelle hat keine spezifischen Methoden, erbt jedoch die Methoden von [`XMLHttpRequestEventTarget`](/de/docs/Web/API/XMLHttpRequestEventTarget) und von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Ereignisse
 
-- {{domxref("XMLHttpRequestUpload/abort_event", "abort")}}
-  - : Wird ausgelöst, wenn eine Anfrage abgebrochen wurde, z.B. weil das Programm {{domxref("XMLHttpRequest.abort()")}} aufgerufen hat.
-    Auch über die `onabort` Ereignishandler-Eigenschaft verfügbar.
-- {{domxref("XMLHttpRequestUpload/error_event", "error")}}
-  - : Wird ausgelöst, wenn bei der Anfrage ein Fehler aufgetreten ist.
-    Auch über die `onerror` Ereignishandler-Eigenschaft verfügbar.
-- {{domxref("XMLHttpRequestUpload/load_event", "load")}}
+- [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event)
+  - : Wird ausgelöst, wenn eine Anfrage abgebrochen wurde, zum Beispiel weil das Programm [`XMLHttpRequest.abort()`](/de/docs/Web/API/XMLHttpRequest/abort) aufgerufen hat.
+    Ebenfalls verfügbar über die `onabort` Ereignis-Handler-Eigenschaft.
+- [`error`](/de/docs/Web/API/XMLHttpRequestUpload/error_event)
+  - : Wird ausgelöst, wenn die Anfrage auf einen Fehler gestoßen ist.
+    Ebenfalls verfügbar über die `onerror` Ereignis-Handler-Eigenschaft.
+- [`load`](/de/docs/Web/API/XMLHttpRequestUpload/load_event)
   - : Wird ausgelöst, wenn eine Anfrage erfolgreich abgeschlossen wurde.
-    Auch über die `onload` Ereignishandler-Eigenschaft verfügbar.
-- {{domxref("XMLHttpRequestUpload/loadend_event", "loadend")}}
-  - : Wird ausgelöst, wenn eine Anfrage abgeschlossen wurde, ob erfolgreich (nach {{domxref("XMLHttpRequest/load_event", "load")}}) oder erfolglos (nach {{domxref("XMLHttpRequestUpload/abort_event", "abort")}} oder {{domxref("XMLHttpRequest/error_event", "error")}}).
-    Auch über die `onloadend` Ereignishandler-Eigenschaft verfügbar.
-- {{domxref("XMLHttpRequestUpload/loadstart_event", "loadstart")}}
+    Ebenfalls verfügbar über die `onload` Ereignis-Handler-Eigenschaft.
+- [`loadend`](/de/docs/Web/API/XMLHttpRequestUpload/loadend_event)
+  - : Wird ausgelöst, wenn eine Anfrage beendet wurde, unabhängig davon, ob erfolgreich (nach [`load`](/de/docs/Web/API/XMLHttpRequest/load_event)) oder erfolglos (nach [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event) oder [`error`](/de/docs/Web/API/XMLHttpRequest/error_event)).
+    Ebenfalls verfügbar über die `onloadend` Ereignis-Handler-Eigenschaft.
+- [`loadstart`](/de/docs/Web/API/XMLHttpRequestUpload/loadstart_event)
   - : Wird ausgelöst, wenn eine Anfrage begonnen hat, Daten zu laden.
-    Auch über die `onloadstart` Ereignishandler-Eigenschaft verfügbar.
-- {{domxref("XMLHttpRequestUpload/progress_event", "progress")}}
-  - : Wird periodisch ausgelöst, wenn eine Anfrage mehr Daten erhält.
-    Auch über die `onprogress` Ereignishandler-Eigenschaft verfügbar.
-- {{domxref("XMLHttpRequestUpload/timeout_event", "timeout")}}
-  - : Wird ausgelöst, wenn der Fortschritt wegen abgelaufener Zeitvorgabe beendet wird.
-    Auch über die `ontimeout` Ereignishandler-Eigenschaft verfügbar.
+    Ebenfalls verfügbar über die `onloadstart` Ereignis-Handler-Eigenschaft.
+- [`progress`](/de/docs/Web/API/XMLHttpRequestUpload/progress_event)
+  - : Wird periodisch ausgelöst, wenn eine Anfrage mehr Daten empfängt.
+    Ebenfalls verfügbar über die `onprogress` Ereignis-Handler-Eigenschaft.
+- [`timeout`](/de/docs/Web/API/XMLHttpRequestUpload/timeout_event)
+  - : Wird ausgelöst, wenn der Fortschritt aufgrund einer zuvor festgelegten Zeitbegrenzung gestoppt wird.
+    Ebenfalls verfügbar über die `ontimeout` Ereignis-Handler-Eigenschaft.
 
 ## Beispiele
 
 ### Hochladen einer Datei mit einem Timeout
 
-Dies ermöglicht es, eine Datei auf einen Server hochzuladen; es zeigt während des Hochladens eine Fortschrittsanzeige sowie eine Nachricht mit dem Fortschritt und den Ergebnissen an, ob erfolgreich oder fehlgeschlagen. Eine Abbruch-Schaltfläche ermöglicht das Stoppen eines Uploads.
+Dies ermöglicht das Hochladen einer Datei auf einen Server; es wird eine Fortschrittsanzeige angezeigt, während der Upload stattfindet, sowie eine Nachricht mit dem Fortschritt und den Ergebnissen, Erfolg oder Misserfolg. Eine Abbrechen-Schaltfläche erlaubt es, den Upload zu stoppen.
 
 #### HTML
 
@@ -63,9 +63,9 @@ Dies ermöglicht es, eine Datei auf einen Server hochzuladen; es zeigt während 
   </head>
   <body>
     <main>
-      <h1>Laden Sie eine Datei hoch</h1>
+      <h1>Upload a file</h1>
       <p>
-        <label for="file">Hochzuladende Datei</label><input type="file" id="file" />
+        <label for="file">File to upload</label><input type="file" id="file" />
       </p>
       <p>
         <progress />
@@ -74,7 +74,7 @@ Dies ermöglicht es, eine Datei auf einen Server hochzuladen; es zeigt während 
         <output></output>
       </p>
       <p>
-        <button disabled id="abort">Abbrechen</button>
+        <button disabled id="abort">Abort</button>
       </p>
     </main>
   </body>
@@ -194,4 +194,4 @@ addEventListener("DOMContentLoaded", () => {
 
 ## Siehe auch
 
-- {{domxref("XMLHttpRequest")}}
+- [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)

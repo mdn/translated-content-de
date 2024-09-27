@@ -8,9 +8,9 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.focusOffset`** Eigenschaft gibt die Anzahl der Zeichen zurück, um die der Fokus der Auswahl innerhalb des {{domxref("Selection.focusNode")}} versetzt ist.
+Die schreibgeschützte Eigenschaft **`Selection.focusOffset`** gibt die Anzahl der Zeichen zurück, um die der Fokus der Auswahl innerhalb des [`Selection.focusNode`](/de/docs/Web/API/Selection/focusNode) verschoben ist.
 
-Diese Zahl ist nullbasiert. Wenn die Auswahl mit dem ersten Zeichen im {{domxref("Selection.focusNode")}} endet, wird `0` zurückgegeben.
+Diese Zahl ist nullbasiert. Wenn die Auswahl mit dem ersten Zeichen im [`Selection.focusNode`](/de/docs/Web/API/Selection/focusNode) endet, wird `0` zurückgegeben.
 
 ## Wert
 
@@ -26,4 +26,4 @@ Eine Zahl.
 
 ## Siehe auch
 
-- {{domxref("Selection")}}, die Schnittstelle, zu der sie gehört.
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der es gehört.

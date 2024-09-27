@@ -1,5 +1,5 @@
 ---
-title: "Element: children-Eigenschaft"
+title: "Element: children Eigenschaft"
 short-title: children
 slug: Web/API/Element/children
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte **`children`**-Eigenschaft gibt eine live {{domxref("HTMLCollection")}} zurück, die alle Kind{{domxref("Element", "elemente")}} des Elements enthält, auf dem sie aufgerufen wurde.
+Die schreibgeschützte **`children`**-Eigenschaft gibt eine dynamische [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle Kind-[`Elemente`](/de/docs/Web/API/Element) des Elements enthält, auf dem sie aufgerufen wurde.
 
-`Element.children` umfasst nur Elementknoten. Um alle Kindknoten, einschließlich Nicht-Element-Knoten wie Text- und Kommentarknoten, zu erhalten, verwenden Sie {{domxref("Node.childNodes")}}.
+`Element.children` umfasst nur Elementknoten. Um alle Kindknoten zu erhalten, einschließlich Nicht-Element-Knoten wie Text und Kommentar-Knoten, verwenden Sie [`Node.childNodes`](/de/docs/Web/API/Node/childNodes).
 
 ## Wert
 
-Eine {{ domxref("HTMLCollection") }}, die eine live, geordnete Sammlung der DOM-Elemente ist, die Kinder des `node` sind. Sie können auf die einzelnen Kindknoten in der Sammlung zugreifen, indem Sie entweder die {{domxref("HTMLCollection.item()", "item()")}}-Methode auf der Sammlung verwenden oder die JavaScript-Array-Notation.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die eine dynamische, geordnete Sammlung der DOM-Elemente ist, die Kinder von `node` sind. Sie können auf die einzelnen Kindknoten in der Sammlung entweder mittels der [`item()`](/de/docs/Web/API/HTMLCollection/item)-Methode der Sammlung oder durch JavaScript-Array-Notation zugreifen.
 
-Wenn das Element keine Kind-Elemente hat, dann ist `children` eine leere Liste mit einer `length` von `0`.
+Wenn das Element keine Kind-Elemente hat, ist `children` eine leere Liste mit einer `length` von `0`.
 
 ## Beispiele
 
@@ -31,10 +31,10 @@ for (const child of myElement.children) {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Node.childNodes")}}
+- [`Node.childNodes`](/de/docs/Web/API/Node/childNodes)

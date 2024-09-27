@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`receivedAlert`** von {{domxref("RTCError")}} gibt den fatalen {{Glossary("DTLS")}} Fehler an, der dazu führte, dass eine Warnung vom entfernten Gegenpart empfangen wurde.
+Die schreibgeschützte Eigenschaft **`receivedAlert`** des [`RTCError`](/de/docs/Web/API/RTCError) gibt den fatalen [DTLS](/de/docs/Glossary/DTLS)-Fehler an, der dazu führte, dass eine Warnung vom Remote-Peer empfangen wurde.
 
 ## Wert
 
-Ein ganzzahliger Wert ohne Vorzeichen, der den fatalen {{Glossary("DTLS")}} Fehler angibt, welcher dazu führte, dass eine Warnung vom entfernten Gegenpart empfangen wurde.
+Ein unsigned long Integer, der den fatalen [DTLS](/de/docs/Glossary/DTLS)-Fehler angibt, der dazu führte, dass eine Warnung vom Remote-Peer empfangen wurde.
 
 > [!NOTE]
-> Diese Eigenschaft ist `null`, wenn der `RTCError` keinen DTLS-Fehler darstellt (mit {{domxref("RTCError.errorDetail", "errorDetail")}} auf `dtls-failure` gesetzt).
+> Diese Eigenschaft ist `null`, wenn der `RTCError` keinen DTLS-Fehler darstellt (mit [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) auf `dtls-failure` gesetzt).
 
 ## Spezifikationen
 

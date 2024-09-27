@@ -1,5 +1,5 @@
 ---
-title: "PushSubscription: expirationTime-Eigenschaft"
+title: "PushSubscription: expirationTime Eigenschaft"
 short-title: expirationTime
 slug: Web/API/PushSubscription/expirationTime
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`expirationTime`** schreibgeschützte Eigenschaft der
-{{domxref("PushSubscription")}} Schnittstelle gibt einen {{domxref("DOMHighResTimeStamp")}}
-des Ablaufdatums der mit der Push-Subscription verbundenen Anmeldung zurück, falls vorhanden, oder andernfalls `null`.
+Die schreibgeschützte Eigenschaft **`expirationTime`** des
+[`PushSubscription`](/de/docs/Web/API/PushSubscription)-Interfaces gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)
+der Ablaufzeit der Abonnementzuordnung zurück, die mit dem Push-Abonnement verbunden ist, falls vorhanden, oder `null`, wenn nicht.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}} oder `null`.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) oder `null`.
 
 ## Spezifikationen
 

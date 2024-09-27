@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`repeatCount`** gibt an, wie oft eine Animation stattfinden wird.
+Das **`repeatCount`**-Attribut gibt an, wie oft eine Animation ablaufen wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -51,12 +51,12 @@ svg {
 
 {{EmbedLiveSample("Example", "220", "150")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Werte</th>
+      <th scope="row">Wert</th>
       <td>{{cssxref("number")}} | <code>indefinite</code></td>
     </tr>
     <tr>
@@ -71,9 +71,9 @@ svg {
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die Anzahl der Wiederholungen an. Es können auch teilweise Iterationen als Bruchwerte ausgedrückt werden. Ein Bruchwert beschreibt einen Teil der einfachen Dauer. Werte müssen größer als `0` sein.
+  - : Dieser Wert gibt die Anzahl der Iterationen an. Er kann teilweise Iterationen umfassen, die als Bruchwerte ausgedrückt werden. Ein Bruchwert beschreibt einen Teil der einfachen Dauer. Die Werte müssen größer als `0` sein.
 - `indefinite`
-  - : Dieser Wert gibt an, dass die Animation unendlich oft wiederholt wird (d. h. bis das Dokument endet).
+  - : Dieser Wert gibt an, dass die Animation unendlich oft wiederholt wird (d.h. bis das Dokument endet).
 
 ## Spezifikationen
 

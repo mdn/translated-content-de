@@ -20,11 +20,11 @@ setInstance.delete(value)
 ### Parameter
 
 - `value`
-  - : Der zu entfernende Wert aus `Set`.
+  - : Der Wert, der aus dem `Set` entfernt werden soll.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn `value` bereits in
+Gibt `true` zurück, wenn `value` bereits im
 `Set` war; andernfalls `false`.
 
 ## Beispiele
@@ -35,24 +35,24 @@ Gibt `true` zurück, wenn `value` bereits in
 const mySet = new Set();
 mySet.add("foo");
 
-console.log(mySet.delete("bar")); // false; kein "bar"-Element gefunden, das gelöscht werden könnte.
-console.log(mySet.delete("foo")); // true; erfolgreich entfernt.
+console.log(mySet.delete("bar")); // false; no "bar" element found to be deleted.
+console.log(mySet.delete("foo")); // true; successfully removed.
 
-console.log(mySet.has("foo")); // false; das "foo"-Element ist nicht mehr vorhanden.
+console.log(mySet.has("foo")); // false; the "foo" element is no longer present.
 ```
 
 ### Löschen eines Objekts aus einem Set
 
-Da Objekte durch Referenz verglichen werden, müssen Sie sie löschen, indem Sie einzelne Eigenschaften überprüfen, wenn Sie keine Referenz auf das originale Objekt haben.
+Da Objekte durch Referenz verglichen werden, müssen Sie sie durch Überprüfung einzelner Eigenschaften löschen, wenn Sie keine Referenz zum ursprünglichen Objekt haben.
 
 ```js
-const setObj = new Set(); // Erstellen Sie ein neues Set.
+const setObj = new Set(); // Create a new set.
 
-setObj.add({ x: 10, y: 20 }); // Objekt im Set hinzufügen.
+setObj.add({ x: 10, y: 20 }); // Add object in the set.
 
-setObj.add({ x: 20, y: 30 }); // Objekt im Set hinzufügen.
+setObj.add({ x: 20, y: 30 }); // Add object in the set.
 
-// Löschen Sie jeden Punkt mit `x > 10`.
+// Delete any point with `x > 10`.
 setObj.forEach((point) => {
   if (point.x > 10) {
     setObj.delete(point);

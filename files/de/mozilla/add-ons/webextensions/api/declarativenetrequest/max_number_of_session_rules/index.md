@@ -1,5 +1,5 @@
 ---
-title: deklarativeNetRequest.MAX_NUMBER_OF_SESSION_RULES
+title: declarativeNetRequest.MAX_NUMBER_OF_SESSION_RULES
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/MAX_NUMBER_OF_SESSION_RULES
 l10n:
   sourceCommit: 787fd072f8bc00cbdf62cef85921f0a6d9f0b4a7
@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Die maximale Anzahl von sitzungsbezogenen Regeln, die eine Erweiterung hinzufügen kann.
+Die maximale Anzahl von sitzungsgebundenen Regeln, die eine Erweiterung hinzufügen kann.
 
 Dieses Limit beträgt:
 

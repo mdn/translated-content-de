@@ -1,5 +1,5 @@
 ---
-title: neustart
+title: restart
 slug: Web/SVG/Attribute/restart
 l10n:
   sourceCommit: 0376a43b69c2107f0d7d3db2a7c3d0827439bc18
@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`restart`** Attribut gibt an, ob eine Animation neu gestartet werden kann oder nicht.
+Das **`restart`**-Attribut gibt an, ob eine Animation neu gestartet werden kann oder nicht.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
@@ -68,7 +68,7 @@ document.getElementById("restart").addEventListener("click", (evt) => {
 
 {{EmbedLiveSample("Example", "220", "150")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -90,11 +90,11 @@ document.getElementById("restart").addEventListener("click", (evt) => {
 </table>
 
 - `always`
-  - : Dieser Wert zeigt an, dass die Animation jederzeit neu gestartet werden kann.
+  - : Dieser Wert gibt an, dass die Animation jederzeit neu gestartet werden kann.
 - `whenNotActive`
-  - : Dieser Wert zeigt an, dass die Animation nur neu gestartet werden kann, wenn sie nicht aktiv ist (d. h. nach dem aktiven Ende). Versuche, die Animation während ihrer aktiven Dauer neu zu starten, werden ignoriert.
+  - : Dieser Wert gibt an, dass die Animation nur neu gestartet werden kann, wenn sie nicht aktiv ist (d.h. nach Ende der aktiven Phase). Versuche, die Animation während ihrer aktiven Dauer neu zu starten, werden ignoriert.
 - `never`
-  - : Dieser Wert zeigt an, dass die Animation nicht neu gestartet werden kann.
+  - : Dieser Wert gibt an, dass die Animation nicht neu gestartet werden kann.
 
 ## Spezifikationen
 

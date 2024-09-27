@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: isTransformFeedback() Methode"
+title: "WebGL2RenderingContext: Methode isTransformFeedback()"
 short-title: isTransformFeedback()
 slug: Web/API/WebGL2RenderingContext/isTransformFeedback
 l10n:
@@ -10,7 +10,7 @@ l10n:
 
 Die **`WebGL2RenderingContext.isTransformFeedback()`**-Methode
 der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt `true` zurück,
-wenn das übergebene Objekt ein gültiges {{domxref("WebGLTransformFeedback")}}-Objekt ist.
+wenn das übergebene Objekt ein gültiges [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt ist.
 
 ## Syntax
 
@@ -21,17 +21,17 @@ isTransformFeedback(transformFeedback)
 ### Parameter
 
 - `transformFeedback`
-  - : Ein zu testendes {{domxref("WebGLTransformFeedback")}}-Objekt.
+  - : Ein [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt, das getestet werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob das gegebene Objekt ein gültiges
-{{domxref("WebGLTransformFeedback")}}-Objekt (`true`) ist oder nicht
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob das gegebene Objekt ein gültiges
+[`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)-Objekt (`true`) ist oder nicht
 (`false`).
 
 ## Beispiele
 
-`gl` muss ein {{domxref("WebGL2RenderingContext")}} sein.
+`gl` muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein.
 `WebGLTransformFeedback`-Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
@@ -52,4 +52,4 @@ gl.isTransformFeedback(transformFeedback);
 
 ## Siehe auch
 
-- {{domxref("WebGLTransformFeedback")}}
+- [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)

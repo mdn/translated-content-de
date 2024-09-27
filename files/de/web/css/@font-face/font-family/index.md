@@ -9,16 +9,16 @@ l10n:
 
 Der **`font-family`** CSS-Deskriptor legt die Schriftfamilie für eine Schrift fest, die in einer {{cssxref("@font-face")}} At-Regel angegeben ist.
 
-Der Wert wird für die Namenszuordnung gegen ein bestimmtes `@font-face` verwendet, wenn Elemente mit der [`font-family`](/de/docs/Web/CSS/font-family) Eigenschaft gestaltet werden. Jeder Name kann verwendet werden und dieser überschreibt jeden Namen, der in den zugrunde liegenden Schriftdaten angegeben ist.
+Der Wert wird verwendet, um einen bestimmten `@font-face` bei der Gestaltung von Elementen mithilfe der [`font-family`](/de/docs/Web/CSS/font-family) Eigenschaft zu benennen. Jeder beliebige Name kann verwendet werden, und dieser überschreibt jeden Namen, der in den zugrunde liegenden Schriftmetriken angegeben ist.
 
 ## Syntax
 
 ```css
-/* <string> Werte */
+/* <string> values */
 font-family: "font family";
 font-family: "another font family";
 
-/* <custom-ident> Wert */
+/* <custom-ident> value */
 font-family: examplefont;
 ```
 
@@ -37,7 +37,7 @@ font-family: examplefont;
 
 ## Beispiele
 
-### Die Schriftfamilie festlegen
+### Festlegen des Schriftfamiliennamens
 
 ```css
 @font-face {
@@ -50,7 +50,7 @@ font-family: examplefont;
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

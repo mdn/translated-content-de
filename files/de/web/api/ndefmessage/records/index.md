@@ -8,15 +8,15 @@ l10n:
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die `records`-Eigenschaft der {{DOMxRef("NDEFMessage")}}-Schnittstelle repräsentiert eine Liste von {{DOMxRef("NDEFRecord")}}, die in der NDEF-Nachricht vorhanden sind.
+Die `records`-Eigenschaft des [`NDEFMessage`](/de/docs/Web/API/NDEFMessage)-Interfaces repräsentiert eine Liste von [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)s, die in der NDEF-Nachricht vorhanden sind.
 
 ## Wert
 
-Eine Liste von {{DOMxRef("NDEFRecord")}}-Objekten, die die in der Nachricht aufgezeichneten Daten darstellen.
+Eine Liste von [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Objekten, die die in der Nachricht aufgezeichneten Daten darstellen.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man den Inhalt einer NDEF-Nachricht liest. Zuerst wird ein Ereignishandler für {{domxref("NDEFReader.reading_event", "onreading")}} eingerichtet, dem eine Instanz von {{domxref("NDEFReadingEvent")}} übergeben wird. Ein `NDEFMessage`-Objekt wird von {{domxref("NDEFReadingEvent.message")}} zurückgegeben. Es wird durch `message.records` iteriert und jeder Datensatz basierend auf seinem Nachrichtentyp verarbeitet. Das Datenmitglied ist ein {{jsxref("DataView")}}, das die Handhabung von Daten ermöglicht, die in UTF-16 codiert sind.
+Das folgende Beispiel zeigt, wie man den Inhalt einer NDEF-Nachricht liest. Zunächst wird ein Ereignishandler für [`onreading`](/de/docs/Web/API/NDEFReader/reading_event) eingerichtet, der eine Instanz von [`NDEFReadingEvent`](/de/docs/Web/API/NDEFReadingEvent) übergeben bekommt. Ein `NDEFMessage`-Objekt wird von [`NDEFReadingEvent.message`](/de/docs/Web/API/NDEFReadingEvent/message) zurückgegeben. Es durchläuft `message.records` und verarbeitet jedes Record basierend auf seinem Nachrichtentyp. Das Datenmitglied ist ein {{jsxref("DataView")}}, das es ermöglicht, in UTF-16 kodierte Daten zu verarbeiten.
 
 ```js
 ndefReaderInst.onreading = (event) => {

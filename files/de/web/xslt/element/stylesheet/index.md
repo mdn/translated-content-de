@@ -34,29 +34,29 @@ Ein Pseudo-Attribut, das erforderlich ist, um das Dokument als XSLT-Stylesheet z
 ### Optionale Attribute
 
 - `exclude-result-prefixes`
-  - : Gibt jeden Namespace an, der in diesem Dokument verwendet wird, jedoch nicht an das Ausgabedokument gesendet werden soll. Die Liste ist durch Leerzeichen getrennt.
+  - : Gibt an, welche Namespaces, die in diesem Dokument verwendet werden, nicht an das Ausgabedokument gesendet werden sollen. Die Liste ist durch Leerzeichen getrennt.
 - `extension-element-prefixes`
-  - : Gibt eine durch Leerzeichen getrennte Liste von Namespace-Präfixen für Erweiterungselemente in diesem Dokument an.
+  - : Gibt eine durch Leerzeichen getrennte Liste von Namensraumpräfixen für Erweiterungselemente in diesem Dokument an.
 - `default-collation`
-  - : Gibt die Standard-Kollation an, die von allen {{Glossary("XPath")}}-Ausdrücken verwendet wird, die in Attributen oder Textwertvorlagen erscheinen und bei denen das Element ein Vorfahre ist, es sei denn, eine andere `default-collation`-Attribut auf einem inneren Element überschreibt dies. Es bestimmt auch die Kollation, die von bestimmten XSLT-Konstrukten (wie [`<xsl:key>`](/de/docs/Web/XSLT/Element/key) und [`<xsl:for-each-group>`](/de/docs/Web/XSLT/Element/for-each-group)) in seinem Geltungsbereich verwendet wird.
+  - : Bestimmt die Standard-Kollation, die von allen [XPath](/de/docs/Glossary/XPath)-Ausdrücken verwendet wird, die in Attributen oder Textwertvorlagen erscheinen, die das Element als Vorfahre haben, es sei denn, es wird durch ein anderes `default-collation`-Attribut auf einem inneren Element überschrieben. Es bestimmt auch die Kollation, die von bestimmten XSLT-Konstruktionen (wie [`<xsl:key>`](/de/docs/Web/XSLT/Element/key) und [`<xsl:for-each-group>`](/de/docs/Web/XSLT/Element/for-each-group)) innerhalb seines Geltungsbereichs verwendet wird.
 - `default-mode`
-  - : Definiert den Standardwert für das `mode`-Attribut aller [`<xsl:template>`](/de/docs/Web/XSLT/Element/template) und [`<xsl:apply-templates>`](/de/docs/Web/XSLT/Element/apply-templates) Elemente in seinem Geltungsbereich.
+  - : Definiert den Standardwert für das `mode`-Attribut aller [`<xsl:template>`](/de/docs/Web/XSLT/Element/template)- und [`<xsl:apply-templates>`](/de/docs/Web/XSLT/Element/apply-templates)-Elemente innerhalb seines Geltungsbereichs.
 - `default-validation`
-  - : Definiert den Standardwert des `validation`-Attributs aller relevanten Anweisungen in seinem Geltungsbereich.
+  - : Definiert den Standardwert des `validation`-Attributs aller relevanten Anweisungen, die innerhalb seines Geltungsbereichs erscheinen.
 - `expand-text`
-  - : Bestimmt, ob nachfolgende Textknoten des Elements als Textwertvorlagen behandelt werden.
+  - : Bestimmt, ob die Nachkommen-Textknoten des Elements als Textwertvorlagen behandelt werden.
 - `id`
   - : Gibt eine `id` für dieses Stylesheet an. Dies wird am häufigsten verwendet, wenn das Stylesheet in ein anderes XML-Dokument eingebettet ist.
 - `input-type-annotations`
-  - : Gibt an, ob Typannotationen vom Element entfernt werden, sodass unabhängig davon, ob die Quelldokumente gegen ein Schema validiert wurden oder nicht, die gleichen Ergebnisse erzielt werden.
+  - : Gibt an, ob Typanmerkungen vom Element entfernt werden, sodass die gleichen Ergebnisse erzielt werden, unabhängig davon, ob die Quelldokumente gegen ein Schema validiert wurden oder nicht.
 - `use-when`
-  - : Bestimmt, ob das Element und alle Knoten, die es als Vorfahre haben, vom Stylesheet ausgeschlossen werden.
+  - : Bestimmt, ob das Element und alle Knoten, die es als Vorfahre haben, vom Stylesheet ausgeschlossen sind.
 - `xpath-default-namespace`
-  - : Gibt den Namespace an, der verwendet wird, wenn der Elementname nicht mit einem Präfix versehen ist oder ein unverpräfixter Typname innerhalb eines XPath-Ausdrucks vorliegt.
+  - : Gibt den Namespace an, der verwendet wird, wenn der Elementname in einem XPath-Ausdruck kein Präfix hat oder ein unpräfigierter Typname ist.
 
 ### Typ
 
-Erforderliches äußeres Element des Stylesheets.
+Erforderliches äußerstes Element des Stylesheets.
 
 ## Spezifikationen
 

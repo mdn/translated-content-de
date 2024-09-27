@@ -1,5 +1,5 @@
 ---
-title: "FileSystemHandle: Eigenschaft kind"
+title: "FileSystemHandle: kind-Eigenschaft"
 short-title: kind
 slug: Web/API/FileSystemHandle/kind
 l10n:
@@ -8,34 +8,31 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`kind`** Eigenschaft des
-{{domxref("FileSystemHandle")}} Schnittstelle ist schreibgeschützt und gibt den Typ des Eintrags zurück. Es ist
-`'file'`, wenn der zugehörige Eintrag eine Datei ist oder `'directory'`. Sie wird verwendet, um Dateien von Verzeichnissen zu unterscheiden, wenn Sie über den Inhalt eines
-Verzeichnisses iterieren.
+Die **`kind`**-schreibgeschützte Eigenschaft des [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Interfaces gibt den Typ des Eintrags zurück. Dies ist `'file'`, wenn der zugehörige Eintrag eine Datei ist, oder `'directory'`. Sie wird verwendet, um Dateien von Verzeichnissen zu unterscheiden, wenn über den Inhalt eines Verzeichnisses iteriert wird.
 
 ## Wert
 
-Ein String, der einer der folgenden sein kann:
+Ein String, der sein kann:
 
-- `'file'`: Wenn der Handle ein {{domxref('FileSystemFileHandle')}} ist.
-- `'directory'`: Wenn der Handle ein {{domxref('FileSystemDirectoryHandle')}} ist.
+- `'file'`: Wenn der Handle ein [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) ist.
+- `'directory'`: Wenn der Handle ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) ist.
 
 ## Beispiele
 
-Die folgende Funktion ermöglicht es dem Nutzer, eine Datei aus dem Dateiauswahldialog zu wählen und dann zu prüfen, ob der zurückgegebene Handle eine Datei oder ein Verzeichnis ist
+Die folgende Funktion ermöglicht es dem Benutzer, eine Datei über den Dateiauswahldialog zu wählen und prüft dann, ob der zurückgegebene Handle eine Datei oder ein Verzeichnis ist.
 
 ```js
-// speichern Sie eine Referenz auf unseren Datei-Handle
+// store a reference to our file handle
 let fileHandle;
 
 async function getFile() {
-  // Dateiauswahldialog öffnen
+  // open file picker
   [fileHandle] = await window.showOpenFilePicker();
 
   if (fileHandle.kind === "file") {
-    // Code für Datei ausführen
+    // run file code
   } else if (fileHandle.kind === "directory") {
-    // Code für Verzeichnis ausführen
+    // run directory code
   }
 }
 ```

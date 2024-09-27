@@ -24,9 +24,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören bei diesem Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüfen Sie, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob der `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn dieser zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -38,12 +38,12 @@ Ereignisse haben drei Funktionen:
 
     - `details`
 
-      - : Ein `object`, das Details zu der aufgetretenen Änderung enthält. Seine Eigenschaften sind wie folgt:
+      - : Ein `object`, das Details der eingetretenen Änderung enthält. Seine Eigenschaften sind wie folgt:
 
         - `value`
           - : Der neue Wert der Einstellung. Der Typ dieser Eigenschaft wird durch die jeweilige Einstellung bestimmt.
         - `levelOfControl`
-          - : `string`. Dies gibt an, wie die Einstellung derzeit gesteuert wird. Sie können es verwenden, um zu überprüfen, ob Sie die Einstellung ändern können. Siehe [`BrowserSetting.set()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/set) für Details. Sein Wert kann einer der folgenden sein:<table class="fullwidth-table standard-table">
+          - : `string`. Dies repräsentiert die Art und Weise, wie die Einstellung derzeit kontrolliert wird. Sie können es verwenden, um zu überprüfen, ob Sie die Einstellung ändern können. Siehe [`BrowserSetting.set()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/types/BrowserSetting/set) für Details. Sein Wert kann einer der folgenden sein:<table class="fullwidth-table standard-table">
               <tbody>
                 <tr>
                   <td><code>"not_controllable"</code></td>
@@ -76,4 +76,4 @@ Ereignisse haben drei Funktionen:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API von Chromium.
+> Diese API basiert auf Chromium's [`chrome.types`](https://developer.chrome.com/docs/extensions/reference/api/types) API.

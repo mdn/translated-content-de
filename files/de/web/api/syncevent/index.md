@@ -7,29 +7,29 @@ l10n:
 
 {{APIRef("Background Sync")}}{{AvailableInWorkers("service")}}
 
-Die **`SyncEvent`**-Schnittstelle der {{domxref("Background Synchronization API", "", "", "nocode")}} repräsentiert eine Synchronisationsaktion, die auf dem {{domxref("ServiceWorkerGlobalScope")}} eines ServiceWorkers ausgelöst wird.
+Die **`SyncEvent`**-Schnittstelle der [Hintergrund-Synchronisations-API](/de/docs/Web/API/Background_Synchronization_API) repräsentiert eine Synchronisationsaktion, die im [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) eines ServiceWorkers ausgelöst wird.
 
-Diese Schnittstelle erbt von der {{domxref("ExtendableEvent")}}-Schnittstelle.
+Diese Schnittstelle erbt von der [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)-Schnittstelle.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("SyncEvent.SyncEvent", "SyncEvent()")}}
+- [`SyncEvent()`](/de/docs/Web/API/SyncEvent/SyncEvent)
   - : Erstellt ein neues `SyncEvent`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, {{domxref("ExtendableEvent")}} und {{domxref("Event")}}_.
+_Erbt Eigenschaften von den Eltern, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) und [`Event`](/de/docs/Web/API/Event)_.
 
-- {{domxref("SyncEvent.tag")}} {{ReadOnlyInline}}
+- [`SyncEvent.tag`](/de/docs/Web/API/SyncEvent/tag) {{ReadOnlyInline}}
   - : Gibt den vom Entwickler definierten Bezeichner für dieses `SyncEvent` zurück.
-- {{domxref("SyncEvent.lastChance")}} {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn der Benutzeragent nach dem aktuellen Versuch keine weiteren Synchronisationsversuche unternimmt.
+- [`SyncEvent.lastChance`](/de/docs/Web/API/SyncEvent/lastChance) {{ReadOnlyInline}}
+  - : Gibt `true` zurück, wenn der User-Agent nach dem aktuellen Versuch keine weiteren Synchronisationsversuche unternimmt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Methoden von ihrem Elternteil, {{domxref("ExtendableEvent")}} und {{domxref("Event")}}_.
+_Erbt Methoden von den Eltern, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) und [`Event`](/de/docs/Web/API/Event)_.
 
 Keine.
 

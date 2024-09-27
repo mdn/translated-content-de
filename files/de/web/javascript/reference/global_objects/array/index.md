@@ -2,49 +2,49 @@
 title: Array
 slug: Web/JavaScript/Reference/Global_Objects/Array
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: 8b6cec0ceff01e7a9d6865cf5306788e15cce4b8
 ---
 
 {{JSRef}}
 
-Das **`Array`**-Objekt ermöglicht, wie in anderen Programmiersprachen, das [Speichern einer Sammlung mehrerer Elemente unter einem einzigen Variablennamen](/de/docs/Learn/JavaScript/First_steps/Arrays) und verfügt über Mitglieder zum [Durchführen von gängigen Array-Operationen](#beispiele).
+Das **`Array`** Objekt, ähnlich wie Arrays in anderen Programmiersprachen, ermöglicht [das Speichern einer Sammlung mehrerer Elemente unter einem einzigen Variablennamen](/de/docs/Learn/JavaScript/First_steps/Arrays) und verfügt über Methoden zur [Durchführung gängiger Array-Operationen](#beispiele).
 
 ## Beschreibung
 
-In JavaScript sind Arrays keine [Primitiven](/de/docs/Glossary/Primitive), sondern stattdessen `Array`-Objekte mit den folgenden Kerneigenschaften:
+In JavaScript sind Arrays keine [Primitiven](/de/docs/Glossary/Primitive), sondern `Array`-Objekte mit den folgenden Kernmerkmalen:
 
-- **JavaScript-Arrays sind vergrößerbar** und **können eine Mischung unterschiedlicher [Datentypen](/de/docs/Web/JavaScript/Data_structures) enthalten**. (Wenn diese Eigenschaften unerwünscht sind, verwenden Sie stattdessen [typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays).)
-- **JavaScript-Arrays sind keine assoziativen Arrays**, daher können Array-Elemente nicht mit beliebigen Zeichenfolgen als Indizes abgerufen werden, sondern müssen mit nicht-negativen Ganzzahlen (oder ihrer entsprechenden Zeichenform) als Indizes abgerufen werden.
-- **JavaScript-Arrays sind [nullbasiert](https://en.wikipedia.org/wiki/Zero-based_numbering)**: Das erste Element eines Arrays befindet sich bei index `0`, das zweite bei index `1` und so weiter — und das letzte Element bei dem Wert der {{jsxref("Array/length", "length")}}-Eigenschaft des Arrays minus `1`.
-- **JavaScript [Array-Kopiervorgänge](#ein_array_kopieren) erstellen [flache Kopien](/de/docs/Glossary/Shallow_copy)**. (Alle standardmäßigen eingebauten Kopiervorgänge mit _beliebigen_ JavaScript-Objekten erstellen flache Kopien, anstatt [tiefe Kopien](/de/docs/Glossary/Deep_copy)).
+- **JavaScript-Arrays sind dynamisch** und **können eine Mischung aus verschiedenen [Datentypen](/de/docs/Web/JavaScript/Data_structures) enthalten**. (Wenn diese Merkmale unerwünscht sind, verwenden Sie stattdessen [Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays).)
+- **JavaScript-Arrays sind keine assoziativen Arrays** und daher können Array-Elemente nicht mit beliebigen Zeichenketten als Indizes zugegriffen werden, sondern nur mit nicht-negativen ganzen Zahlen (oder deren jeweiligen String-Form).
+- **JavaScript-Arrays sind [nullbasiert](https://de.wikipedia.org/wiki/Nullbasierte_Numierung)**: Das erste Element eines Arrays befindet sich bei Index `0`, das zweite bei Index `1` und so weiter — und das letzte Element befindet sich beim Wert der {{jsxref("Array/length", "length")}}-Eigenschaft des Arrays minus `1`.
+- **JavaScript [Array-Kopiervorgänge](#ein_array_kopieren) erzeugen [flache Kopien](/de/docs/Glossary/Shallow_copy)**. (Alle standardmäßigen eingebauten Kopiervorgänge mit _beliebigen_ JavaScript-Objekten erzeugen flache Kopien, anstatt [tiefe Kopien](/de/docs/Glossary/Deep_copy)).
 
 ### Array-Indizes
 
-`Array`-Objekte können keine beliebigen Zeichenfolgen als Element-Indexes verwenden (wie in einem [assoziativen Array](https://en.wikipedia.org/wiki/Associative_array)), sondern müssen nicht-negative Ganzzahlen (oder deren entsprechende Zeichenform) verwenden. Das Setzen oder Abrufen über Nicht-Ganzzahlen wird kein Element aus der Array-Liste selbst setzen oder abrufen, sondern eine Variable setzen oder abrufen, die mit der [Objekteigenschaften-Sammlung](/de/docs/Web/JavaScript/Data_structures#properties) dieses Arrays verbunden ist. Die Objekteigenschaften des Arrays und die Liste der Array-Elemente sind getrennt, und die [Durchlauf- und Mutationsoperationen](/de/docs/Web/JavaScript/Guide/Indexed_collections#array_methods) des Arrays können nicht auf diese benannten Eigenschaften angewendet werden.
+`Array`-Objekte können keine beliebigen Zeichenketten als Elementindizes verwenden (wie in einem [assoziativen Array](https://de.wikipedia.org/wiki/Assoziatives_Array)), sondern müssen nicht-negative ganze Zahlen (oder deren jeweiligen String-Form) verwenden. Das Setzen oder Zugreifen mit Nicht-Integern wird kein Element aus der Array-Liste selbst setzen oder abrufen, sondern eine mit dieser Array-Objekteigenschaft verknüpfte Variable setzen oder abrufen. Die Objekteigenschaften des Arrays und die Liste der Array-Elemente sind getrennt, und die [Durchlauf- und Veränderungsoperationen](/de/docs/Web/JavaScript/Guide/Indexed_collections#array_methods) des Arrays können auf diese benannten Eigenschaften nicht angewendet werden.
 
-Array-Elemente sind Objekteigenschaften auf die gleiche Weise, wie `toString` eine Eigenschaft ist (um genau zu sein, `toString()` ist jedoch eine Methode). Trotzdem ergibt der Versuch, auf ein Array-Element wie folgt zuzugreifen, einen Syntaxfehler, weil der Eigenschaftsname ungültig ist:
+Array-Elemente sind Objekteigenschaften, genauso wie `toString` eine Eigenschaft ist (um jedoch spezifisch zu sein, ist `toString()` eine Methode). Nichtsdestotrotz würde ein Versuch, auf ein Element eines Arrays wie folgt zuzugreifen, einen Syntaxfehler auslösen, da der Eigenschaftsname nicht gültig ist:
 
 ```js-nolint example-bad
-arr.0; // ein Syntaxfehler
+arr.0; // a syntax error
 ```
 
-Die JavaScript-Syntax erfordert, dass Eigenschaften, die mit einer Ziffer beginnen, durch [Klammer-Notation](/de/docs/Web/JavaScript/Guide/Working_with_objects#objects_and_properties) statt durch [Punktnotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors) aufgerufen werden. Es ist auch möglich, die Array-Indizes zu zitieren (z.B. `years['2']` anstelle von `years[2]`), obwohl dies normalerweise nicht notwendig ist.
+JavaScript-Syntax erfordert, dass Eigenschaften, die mit einer Ziffer beginnen, unter Verwendung der [Klammernnotation](/de/docs/Web/JavaScript/Guide/Working_with_objects#objects_and_properties) aufgerufen werden, anstatt der [Punktenotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors). Es ist auch möglich, die Array-Indizes zu zitieren (z.B. `years['2']` anstelle von `years[2]`), obwohl das normalerweise nicht notwendig ist.
 
-Die `2` in `years[2]` wird durch eine implizite `toString`-Konvertierung von der JavaScript-Engine in eine Zeichenfolge umgewandelt. Daher würden `'2'` und `'02'` auf zwei verschiedene Positionen im `years`-Objekt verweisen, und das folgende Beispiel könnte `true` sein:
+Die `2` in `years[2]` wird vom JavaScript-Engine durch eine implizite `toString`-Konvertierung in eine Zeichenkette umgewandelt. Infolgedessen würden `'2'` und `'02'` auf zwei verschiedene Positionen im `years`-Objekt verweisen, und das folgende Beispiel könnte `true` sein:
 
 ```js
 console.log(years["2"] !== years["02"]);
 ```
 
-Nur `years['2']` ist ein tatsächlicher Array-Index. `years['02']` ist eine beliebige Zeichenfolgen-Eigenschaft, die bei der Array-Iteration nicht besucht wird.
+Nur `years['2']` ist ein tatsächlicher Array-Index. `years['02']` ist eine beliebige String-Eigenschaft, die in der Array-Iteration nicht besucht wird.
 
-### Beziehung zwischen `length` und numerischen Eigenschaften
+### Beziehung zwischen Länge und numerischen Eigenschaften
 
-Die {{jsxref("Array/length", "length")}}-Eigenschaft eines JavaScript-Arrays und numerische Eigenschaften sind verbunden.
+Die {{jsxref("Array/length", "length")}}-Eigenschaft eines JavaScript-Arrays und die numerischen Eigenschaften sind miteinander verbunden.
 
-Mehrere der eingebauten Array-Methoden (z.B. {{jsxref("Array/join", "join()")}}, {{jsxref("Array/slice", "slice()")}}, {{jsxref("Array/indexOf", "indexOf()")}} usw.) berücksichtigen den Wert der {{jsxref("Array/length", "length")}}-Eigenschaft eines Arrays, wenn sie aufgerufen werden.
+Mehrere der eingebauten Array-Methoden (z.B. {{jsxref("Array/join", "join()")}}, {{jsxref("Array/slice", "slice()")}}, {{jsxref("Array/indexOf", "indexOf()")}}, etc.) berücksichtigen den Wert der {{jsxref("Array/length", "length")}}-Eigenschaft eines Arrays, wenn sie aufgerufen werden.
 
-Andere Methoden (z.B. {{jsxref("Array/push", "push()")}}, {{jsxref("Array/splice", "splice()")}} usw.) führen ebenfalls zu Aktualisierungen der {{jsxref("Array/length", "length")}}-Eigenschaft eines Arrays.
+Andere Methoden (z.B. {{jsxref("Array/push", "push()")}}, {{jsxref("Array/splice", "splice()")}}, etc.) führen ebenfalls zu Updates der {{jsxref("Array/length", "length")}}-Eigenschaft eines Arrays.
 
 ```js
 const fruits = [];
@@ -52,7 +52,7 @@ fruits.push("banana", "apple", "peach");
 console.log(fruits.length); // 3
 ```
 
-Wenn beim Setzen einer Eigenschaft auf ein JavaScript-Array die Eigenschaft ein gültiger Array-Index ist und dieser Index außerhalb der aktuellen Grenzen des Arrays liegt, aktualisiert die Engine die {{jsxref("Array/length", "length")}}-Eigenschaft des Arrays entsprechend:
+Wenn eine Eigenschaft in einem JavaScript-Array gesetzt wird, wenn die Eigenschaft ein gültiger Array-Index ist und dieser Index außerhalb der aktuellen Grenzen des Arrays liegt, wird die Engine die {{jsxref("Array/length", "length")}}-Eigenschaft des Arrays entsprechend aktualisieren:
 
 ```js
 fruits[5] = "mango";
@@ -79,13 +79,13 @@ console.log(Object.keys(fruits)); // ['0', '1']
 console.log(fruits.length); // 2
 ```
 
-Dies wird weiter auf der {{jsxref("Array/length", "length")}}-Seite erklärt.
+Dies wird auf der Seite {{jsxref("Array/length", "length")}} weiter erläutert.
 
 ### Array-Methoden und leere Slots
 
-Array-Methoden haben unterschiedliche Verhaltensweisen, wenn sie auf leere Slots in [spärlichen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) stoßen. Im Allgemeinen behandeln ältere Methoden (z.B. `forEach`) leere Slots anders als Indizes, die `undefined` enthalten.
+Array-Methoden verhalten sich unterschiedlich, wenn sie auf leere Plätze in [spärlichen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) stoßen. Im Allgemeinen behandeln ältere Methoden (z.B. `forEach`) leere Plätze anders als Indizes, die `undefined` enthalten.
 
-Methoden, die eine spezielle Behandlung für leere Slots haben, beinhalten: {{jsxref("Array/concat", "concat()")}}, {{jsxref("Array/copyWithin", "copyWithin()")}}, {{jsxref("Array/every", "every()")}}, {{jsxref("Array/filter", "filter()")}}, {{jsxref("Array/flat", "flat()")}}, {{jsxref("Array/flatMap", "flatMap()")}}, {{jsxref("Array/forEach", "forEach()")}}, {{jsxref("Array/indexOf", "indexOf()")}}, {{jsxref("Array/lastIndexOf", "lastIndexOf()")}}, {{jsxref("Array/map", "map()")}}, {{jsxref("Array/reduce", "reduce()")}}, {{jsxref("Array/reduceRight", "reduceRight()")}}, {{jsxref("Array/reverse", "reverse()")}}, {{jsxref("Array/slice", "slice()")}}, {{jsxref("Array/some", "some()")}}, {{jsxref("Array/sort", "sort()")}}, und {{jsxref("Array/splice", "splice()")}}. Iterationsmethoden wie `forEach` besuchen leere Slots überhaupt nicht. Andere Methoden, wie `concat`, `copyWithin` usw., bewahren leere Plätze beim Kopieren, so dass das Array am Ende immer noch spärlich ist.
+Methoden, die leere Plätze speziell behandeln, sind: {{jsxref("Array/concat", "concat()")}}, {{jsxref("Array/copyWithin", "copyWithin()")}}, {{jsxref("Array/every", "every()")}}, {{jsxref("Array/filter", "filter()")}}, {{jsxref("Array/flat", "flat()")}}, {{jsxref("Array/flatMap", "flatMap()")}}, {{jsxref("Array/forEach", "forEach()")}}, {{jsxref("Array/indexOf", "indexOf()")}}, {{jsxref("Array/lastIndexOf", "lastIndexOf()")}}, {{jsxref("Array/map", "map()")}}, {{jsxref("Array/reduce", "reduce()")}}, {{jsxref("Array/reduceRight", "reduceRight()")}}, {{jsxref("Array/reverse", "reverse()")}}, {{jsxref("Array/slice", "slice()")}}, {{jsxref("Array/some", "some()")}}, {{jsxref("Array/sort", "sort()")}}, und {{jsxref("Array/splice", "splice()")}}. Iterationsmethoden wie `forEach` besuchen leere Plätze überhaupt nicht. Andere Methoden wie `concat`, `copyWithin`, usw. erhalten leere Plätze beim Kopieren, so dass das Array letztlich immer noch spärlich ist.
 
 ```js
 const colors = ["red", "yellow", "blue"];
@@ -93,7 +93,7 @@ colors[5] = "purple";
 colors.forEach((item, index) => {
   console.log(`${index}: ${item}`);
 });
-// Ausgabe:
+// Output:
 // 0: red
 // 1: yellow
 // 2: blue
@@ -102,7 +102,7 @@ colors.forEach((item, index) => {
 colors.reverse(); // ['purple', empty × 2, 'blue', 'yellow', 'red']
 ```
 
-Neuere Methoden (z.B. `keys`) behandeln leere Slots nicht speziell und behandeln sie so, als würden sie `undefined` enthalten. Methoden, die leere Slots mit `undefined`-Elementen gleichsetzen, umfassen: {{jsxref("Array/entries", "entries()")}}, {{jsxref("Array/fill", "fill()")}}, {{jsxref("Array/find", "find()")}}, {{jsxref("Array/findIndex", "findIndex()")}}, {{jsxref("Array/findLast", "findLast()")}}, {{jsxref("Array/findLastIndex", "findLastIndex()")}}, {{jsxref("Array/includes", "includes()")}}, {{jsxref("Array/join", "join()")}}, {{jsxref("Array/keys", "keys()")}}, {{jsxref("Array/toLocaleString", "toLocaleString()")}}, {{jsxref("Array/toReversed", "toReversed()")}}, {{jsxref("Array/toSorted", "toSorted()")}}, {{jsxref("Array/toSpliced", "toSpliced()")}}, {{jsxref("Array/values", "values()")}}, und {{jsxref("Array/with", "with()")}}.
+Neuere Methoden (z.B. `keys`) behandeln leere Plätze nicht speziell und behandeln sie, als ob sie `undefined` enthalten. Methoden, die leere Plätze mit `undefined`-Elementen zusammenführen, sind: {{jsxref("Array/entries", "entries()")}}, {{jsxref("Array/fill", "fill()")}}, {{jsxref("Array/find", "find()")}}, {{jsxref("Array/findIndex", "findIndex()")}}, {{jsxref("Array/findLast", "findLast()")}}, {{jsxref("Array/findLastIndex", "findLastIndex()")}}, {{jsxref("Array/includes", "includes()")}}, {{jsxref("Array/join", "join()")}}, {{jsxref("Array/keys", "keys()")}}, {{jsxref("Array/toLocaleString", "toLocaleString()")}}, {{jsxref("Array/toReversed", "toReversed()")}}, {{jsxref("Array/toSorted", "toSorted()")}}, {{jsxref("Array/toSpliced", "toSpliced()")}}, {{jsxref("Array/values", "values()")}}, und {{jsxref("Array/with", "with()")}}.
 
 ```js
 const colors = ["red", "yellow", "blue"];
@@ -111,7 +111,7 @@ const iterator = colors.keys();
 for (const key of iterator) {
   console.log(`${key}: ${colors[key]}`);
 }
-// Ausgabe
+// Output
 // 0: red
 // 1: yellow
 // 2: blue
@@ -122,75 +122,75 @@ for (const key of iterator) {
 const newColors = colors.toReversed(); // ['purple', undefined, undefined, 'blue', 'yellow', 'red']
 ```
 
-### Kopiermethoden und Mutationsmethoden
+### Kopiermethoden und verändernde Methoden
 
-Einige Methoden verändern das bestehende Array, auf dem die Methode aufgerufen wurde, nicht, sondern geben stattdessen ein neues Array zurück. Sie tun dies, indem sie zuerst ein neues Array konstruieren und es dann mit Elementen befüllen. Das Kopieren erfolgt immer [_flach_](/de/docs/Glossary/Shallow_copy) — die Methode kopiert nie etwas über das anfangs erstellte Array hinaus. Elemente des ursprünglichen Arrays werden wie folgt in das neue Array kopiert:
+Einige Methoden mutieren nicht das bestehende Array, auf das die Methode aufgerufen wurde, sondern geben ein neues Array zurück. Sie tun dies, indem sie zuerst ein neues Array konstruieren und es dann mit Elementen füllen. Die Kopie erfolgt immer [_flach_](/de/docs/Glossary/Shallow_copy) — die Methode kopiert nie etwas über das anfangs erstellte Array hinaus. Elemente der ursprünglichen Arrays werden folgendermaßen in das neue Array kopiert:
 
-- Objekte: Die Objekt-Referenz wird in das neue Array kopiert. Sowohl das Original- als auch das neue Array verweisen auf dasselbe Objekt. Das heißt, wenn ein referenziertes Objekt modifiziert wird, sind die Änderungen in beiden, dem neuen und dem ursprünglichen Array sichtbar.
-- Primitive Typen wie Strings, Zahlen und Booleans (nicht {{jsxref("String")}}, {{jsxref("Number")}}, und {{jsxref("Boolean")}} Objekte): deren Werte werden in das neue Array kopiert.
+- Objekte: Die Objektreferenz wird in das neue Array kopiert. Sowohl das ursprüngliche als auch das neue Array verweisen auf dasselbe Objekt. Das bedeutet, wenn ein referenziertes Objekt geändert wird, sind die Änderungen sowohl im neuen als auch im ursprünglichen Array sichtbar.
+- Primitive Typen wie Zeichenketten, Zahlen und Booleans (nicht {{jsxref("String")}}, {{jsxref("Number")}}, und {{jsxref("Boolean")}} Objekte): Ihre Werte werden in das neue Array kopiert.
 
-Andere Methoden verändern das Array, auf dem die Methode aufgerufen wurde, in welchem Fall ihr Rückgabewert je nach Methode unterschiedlich ist: manchmal eine Referenz auf dasselbe Array, manchmal die Länge des neuen Arrays.
+Andere Methoden ändern das Array, auf das die Methode aufgerufen wurde, wobei sich der Rückgabewert je nach Methode unterscheidet: manchmal eine Referenz auf dasselbe Array, manchmal die Länge des neuen Arrays.
 
-Die folgenden Methoden erstellen neue Arrays, indem sie [`this.constructor[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.species) aufrufen, um den zu verwendenden Konstruktor zu bestimmen: {{jsxref("Array/concat", "concat()")}}, {{jsxref("Array/filter", "filter()")}}, {{jsxref("Array/flat", "flat()")}}, {{jsxref("Array/flatMap", "flatMap()")}}, {{jsxref("Array/map", "map()")}}, {{jsxref("Array/slice", "slice()")}}, und {{jsxref("Array/splice", "splice()")}} (um das zurückgegebene Array der entfernten Elemente zu konstruieren).
+Die folgenden Methoden erstellen neue Arrays, indem sie [`this.constructor[Symbol.species]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.species) aufrufen, um den Konstruktor zu bestimmen, der verwendet werden soll: {{jsxref("Array/concat", "concat()")}}, {{jsxref("Array/filter", "filter()")}}, {{jsxref("Array/flat", "flat()")}}, {{jsxref("Array/flatMap", "flatMap()")}}, {{jsxref("Array/map", "map()")}}, {{jsxref("Array/slice", "slice()")}}, und {{jsxref("Array/splice", "splice()")}} (um das zurückgegebene Array der entfernten Elemente zu erstellen).
 
 Die folgenden Methoden erstellen immer neue Arrays mit dem `Array`-Basiskonstruktor: {{jsxref("Array/toReversed", "toReversed()")}}, {{jsxref("Array/toSorted", "toSorted()")}}, {{jsxref("Array/toSpliced", "toSpliced()")}}, und {{jsxref("Array/with", "with()")}}.
 
-Die folgende Tabelle listet die Methoden, die das ursprüngliche Array verändern, und die entsprechenden nicht-verändernden Alternativen auf:
+Die folgende Tabelle listet die Methoden auf, die das ursprüngliche Array verändern und die entsprechenden nicht-verändernden Alternativen:
 
-| Mutierende Methode                              | Nicht-mutierende Alternative                             |
-| ----------------------------------------------- | -------------------------------------------------------- |
-| {{jsxref("Array/copyWithin", "copyWithin()")}}  | Keine Einzelfunktions-Alternative                        |
-| {{jsxref("Array/fill", "fill()")}}              | Keine Einzelfunktions-Alternative                        |
-| {{jsxref("Array/pop", "pop()")}}                | {{jsxref("Array/slice", "slice(0, -1)")}}                |
-| {{jsxref("Array/push", "push(v1, v2)")}}        | {{jsxref("Array/concat", "concat([v1, v2])")}}           |
-| {{jsxref("Array/reverse", "reverse()")}}        | {{jsxref("Array/toReversed", "toReversed()")}}           |
-| {{jsxref("Array/shift", "shift()")}}            | {{jsxref("Array/slice", "slice(1)")}}                    |
-| {{jsxref("Array/sort", "sort()")}}              | {{jsxref("Array/toSorted", "toSorted()")}}               |
-| {{jsxref("Array/splice", "splice()")}}          | {{jsxref("Array/toSpliced", "toSpliced()")}}             |
-| {{jsxref("Array/unshift", "unshift(v1, v2)")}}  | {{jsxref("Array/toSpliced", "toSpliced(0, 0, v1, v2)")}} |
+| Verändernde Methode                            | Nicht-verändernde Alternative                            |
+| ---------------------------------------------- | -------------------------------------------------------- |
+| {{jsxref("Array/copyWithin", "copyWithin()")}} | Keine Ein-Methode-Alternative                            |
+| {{jsxref("Array/fill", "fill()")}}             | Keine Ein-Methode-Alternative                            |
+| {{jsxref("Array/pop", "pop()")}}               | {{jsxref("Array/slice", "slice(0, -1)")}}                |
+| {{jsxref("Array/push", "push(v1, v2)")}}       | {{jsxref("Array/concat", "concat([v1, v2])")}}           |
+| {{jsxref("Array/reverse", "reverse()")}}       | {{jsxref("Array/toReversed", "toReversed()")}}           |
+| {{jsxref("Array/shift", "shift()")}}           | {{jsxref("Array/slice", "slice(1)")}}                    |
+| {{jsxref("Array/sort", "sort()")}}             | {{jsxref("Array/toSorted", "toSorted()")}}               |
+| {{jsxref("Array/splice", "splice()")}}         | {{jsxref("Array/toSpliced", "toSpliced()")}}             |
+| {{jsxref("Array/unshift", "unshift(v1, v2)")}} | {{jsxref("Array/toSpliced", "toSpliced(0, 0, v1, v2)")}} |
 
-Ein einfacher Weg, eine mutierende Methode in eine nicht-mutierende Alternative zu verwandeln, ist die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) oder {{jsxref("Array/slice", "slice()")}} zu verwenden, um zuerst eine Kopie zu erstellen:
+Ein einfacher Weg, eine verändernde Methode in eine nicht-verändernde Alternative zu ändern, besteht darin, die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) oder {{jsxref("Array/slice", "slice()")}} zu verwenden, um zuerst eine Kopie zu erstellen:
 
 ```js-nolint
-arr.copyWithin(0, 1, 2); // mutiert arr
-const arr2 = arr.slice().copyWithin(0, 1, 2); // mutiert arr nicht
-const arr3 = [...arr].copyWithin(0, 1, 2); // mutiert arr nicht
+arr.copyWithin(0, 1, 2); // mutates arr
+const arr2 = arr.slice().copyWithin(0, 1, 2); // does not mutate arr
+const arr3 = [...arr].copyWithin(0, 1, 2); // does not mutate arr
 ```
 
 ### Iterative Methoden
 
-Viele Array-Methoden nehmen eine Callback-Funktion als Argument. Die Callback-Funktion wird sequenziell und maximal einmal für jedes Element im Array aufgerufen, und der Rückgabewert der Callback-Funktion wird verwendet, um den Rückgabewert der Methode zu bestimmen. Sie alle besitzen das gleiche Signaturmuster:
+Viele Array-Methoden nehmen eine Callback-Funktion als Argument. Die Callback-Funktion wird der Reihe nach und höchstens einmal für jedes Element im Array aufgerufen, und der Rückgabewert der Callback-Funktion wird verwendet, um den Rückgabewert der Methode zu bestimmen. Sie alle haben die gleiche Signatur:
 
 ```js-nolint
 method(callbackFn, thisArg)
 ```
 
-Dabei nimmt `callbackFn` drei Argumente entgegen:
+Dabei nimmt `callbackFn` drei Argumente an:
 
 - `element`
-  - : Das aktuelle, im Array verarbeitete Element.
+  - : Das aktuelle Element, das im Array verarbeitet wird.
 - `index`
-  - : Der Index des aktuellen, im Array verarbeiteten Elements.
+  - : Der Index des aktuellen Elements, das im Array verarbeitet wird.
 - `array`
-  - : Das Array, auf dem die Methode aufgerufen wurde.
+  - : Das Array, auf das die Methode aufgerufen wurde.
 
-Was `callbackFn` zurückgeben soll, hängt von der aufgerufenen Array-Methode ab.
+Was `callbackFn` zurückzugeben erwartet wird, hängt von der aufgerufenen Array-Methode ab.
 
-Das `thisArg`-Argument (standardmäßig `undefined`) wird als `this`-Wert verwendet, wenn `callbackFn` aufgerufen wird. Der letztendlich sichtbare `this`-Wert im `callbackFn` wird gemäß [den üblichen Regeln](/de/docs/Web/JavaScript/Reference/Operators/this) bestimmt: Falls `callbackFn` [nicht im strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode#no_this_substitution) ist, werden primitive `this`-Werte in Objekte umgewandelt, und `undefined`/`null` wird mit [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) ersetzt. Das `thisArg`-Argument ist irrelevant für jedes `callbackFn`, das mit einer [Arrow-Funktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) definiert ist, da Arrow-Funktionen kein eigenes `this` {{Glossary("binding")}} haben.
+Das `thisArg`-Argument (Standardwert `undefined`) wird als `this`-Wert verwendet, wenn `callbackFn` aufgerufen wird. Der letztlich durch `callbackFn` beobachtbare `this`-Wert wird gemäß den [üblichen Regeln](/de/docs/Web/JavaScript/Reference/Operators/this) bestimmt: Wenn `callbackFn` [nicht-strikt](/de/docs/Web/JavaScript/Reference/Strict_mode#no_this_substitution) ist, werden primitive `this`-Werte in Objekte umgewandelt, und `undefined`/`null` wird mit [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) ersetzt. Das `thisArg`-Argument ist für jeden `callbackFn`, der mit einer [Arrow-Funktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) definiert ist, irrelevant, da Arrow-Funktionen kein eigenes `this`-[Binding](/de/docs/Glossary/binding) haben.
 
-Das `array`-Argument, das an `callbackFn` übergeben wird, ist besonders nützlich, wenn Sie während der Iteration einen anderen Index lesen möchten, da Sie nicht immer eine bestehende Variable haben, die auf das aktuelle Array verweist. Allgemein sollten Sie das Array nicht während der Iteration verändern (siehe [Veränderung des ursprünglichen Arrays in iterativen Methoden](#veränderung_des_ursprünglichen_arrays_in_iterativen_methoden)), aber Sie können dieses Argument auch dafür nutzen. Das `array`-Argument ist _nicht_ das Array, das aktuell aufgebaut wird, im Falle von Methoden wie `map()`, `filter()`, und `flatMap()` — es gibt keine Möglichkeit, über die Callback-Funktion auf das gerade aufzubauende Array zuzugreifen.
+Das `array`-Argument, das an `callbackFn` übergeben wird, ist am nützlichsten, wenn Sie während der Iteration einen anderen Index lesen möchten, da Sie möglicherweise nicht immer eine vorhandene Variable haben, die auf das aktuelle Array verweist. Sie sollten das Array während der Iteration im Allgemeinen nicht verändern (siehe [Ändern des anfänglichen Arrays in iterativen Methoden](#ändern_des_anfänglichen_arrays_in_iterativen_methoden)), aber Sie können dieses Argument auch dafür verwenden. Das `array`-Argument ist _nicht_ das Array, das erstellt wird, im Fall von Methoden wie `map()`, `filter()`, und `flatMap()` — es gibt keine Möglichkeit, von der Callback-Funktion aus auf das erstellte Array zuzugreifen.
 
-Alle iterativen Methoden sind [kopierend](#kopiermethoden_und_mutationsmethoden) und [generisch](#generische_array-methoden), obwohl sie sich unterschiedlich bei [leeren Slots](#array-methoden_und_leere_slots) verhalten.
+Alle iterativen Methoden sind [kopierend](#kopiermethoden_und_verändernde_methoden) und [generisch](#generische_array-methoden), obwohl sie sich unterschiedlich bei [leeren Plätzen](#array-methoden_und_leere_slots) verhalten.
 
 Die folgenden Methoden sind iterativ: {{jsxref("Array/every", "every()")}}, {{jsxref("Array/filter", "filter()")}}, {{jsxref("Array/find", "find()")}}, {{jsxref("Array/findIndex", "findIndex()")}}, {{jsxref("Array/findLast", "findLast()")}}, {{jsxref("Array/findLastIndex", "findLastIndex()")}}, {{jsxref("Array/flatMap", "flatMap()")}}, {{jsxref("Array/forEach", "forEach()")}}, {{jsxref("Array/map", "map()")}}, und {{jsxref("Array/some", "some()")}}.
 
 Insbesondere {{jsxref("Array/every", "every()")}}, {{jsxref("Array/find", "find()")}}, {{jsxref("Array/findIndex", "findIndex()")}}, {{jsxref("Array/findLast", "findLast()")}}, {{jsxref("Array/findLastIndex", "findLastIndex()")}}, und {{jsxref("Array/some", "some()")}} rufen `callbackFn` nicht immer für jedes Element auf — sie beenden die Iteration, sobald der Rückgabewert bestimmt ist.
 
-Die Methoden {{jsxref("Array/reduce", "reduce()")}} und {{jsxref("Array/reduceRight", "reduceRight()")}} nehmen ebenfalls eine Callback-Funktion entgegen und führen sie maximal einmal für jedes Element im Array aus, jedoch sind ihre Signaturen leicht unterschiedlich zu typischen iterativen Methoden (zum Beispiel akzeptieren sie `thisArg` nicht).
+Die Methoden {{jsxref("Array/reduce", "reduce()")}} und {{jsxref("Array/reduceRight", "reduceRight()")}} nehmen ebenfalls eine Callback-Funktion an und führen sie höchstens einmal für jedes Element im Array aus, aber sie haben leicht unterschiedliche Signaturen als typische iterative Methoden (zum Beispiel akzeptieren sie kein `thisArg`).
 
-Die Methode {{jsxref("Array/sort", "sort()")}} akzeptiert ebenfalls eine Callback-Funktion, ist aber keine iterative Methode. Sie verändert das Array an Ort und Stelle, akzeptiert `thisArg` nicht, und kann die Callback-Funktion mehrfach für einen Index aufrufen.
+Die Methode {{jsxref("Array/sort", "sort()")}} nimmt ebenfalls eine Callback-Funktion an, aber es ist keine iterative Methode. Sie verändert das Array an Ort und Stelle, akzeptiert kein `thisArg` und kann den Callback mehrfach auf einem Index aufrufen.
 
-Iterative Methoden iterieren das Array wie folgt (mit vielen technischen Details ausgelassen):
+Iterative Methoden durchlaufen das Array wie folgt (mit vielen technischen Details ausgelassen):
 
 ```js
 function method(callbackFn, thisArg) {
@@ -198,7 +198,7 @@ function method(callbackFn, thisArg) {
   for (let i = 0; i < length; i++) {
     if (i in this) {
       const result = callbackFn.call(thisArg, this[i], i, this);
-      // Machen Sie etwas mit dem Ergebnis; möglicherweise frühzeitig zurückkehren
+      // Do something with result; maybe return early
     }
   }
 }
@@ -206,15 +206,15 @@ function method(callbackFn, thisArg) {
 
 Beachten Sie Folgendes:
 
-1. Nicht alle Methoden führen den Test `i in this` durch. Die Methoden `find`, `findIndex`, `findLast` und `findLastIndex` tun dies nicht, andere Methoden jedoch schon.
-2. Die `length` wird vor Beginn der Schleife gespeichert. Dies betrifft, wie Einfügungen und Löschungen während der Iteration gehandhabt werden (siehe [Veränderung des ursprünglichen Arrays in iterativen Methoden](#veränderung_des_ursprünglichen_arrays_in_iterativen_methoden)).
-3. Die Methode speichert den Inhalt des Arrays nicht, daher könnte ein neuer Wert beobachtet werden, wenn ein Index während der Iteration verändert wird.
-4. Der obige Code iteriert das Array in aufsteigender Reihenfolge der Indizes. Einige Methoden iterieren in absteigender Reihenfolge (`for (let i = length - 1; i >= 0; i--)`): `reduceRight()`, `findLast()`, und `findLastIndex()`.
+1. Nicht alle Methoden führen den `i in this`-Test durch. Die Methoden `find`, `findIndex`, `findLast`, und `findLastIndex` tun es nicht, aber andere Methoden tun es.
+2. Die `length` wird vor Beginn der Schleife gespeichert. Dies beeinflusst, wie Einfügungen und Löschungen während der Iteration behandelt werden (siehe [Ändern des anfänglichen Arrays in iterativen Methoden](#ändern_des_anfänglichen_arrays_in_iterativen_methoden)).
+3. Die Methode merkt sich nicht die Inhalte des Arrays, daher kann ein nachträglich geänderter Index den neuen Wert beobachten.
+4. Der obige Code iteriert das Array in aufsteigender Reihenfolge des Indexes. Einige Methoden iterieren in absteigender Reihenfolge des Indexes (`for (let i = length - 1; i >= 0; i--)`): `reduceRight()`, `findLast()`, und `findLastIndex()`.
 5. `reduce` und `reduceRight` haben leicht unterschiedliche Signaturen und beginnen nicht immer beim ersten/letzten Element.
 
 ### Generische Array-Methoden
 
-Array-Methoden sind immer generisch – sie greifen nicht auf interne Daten des Array-Objekts zu. Sie greifen nur auf die Array-Elemente über die `length`-Eigenschaft und die indizierten Elemente zu. Dies bedeutet, dass sie auch auf array-ähnliche Objekte aufgerufen werden können.
+Array-Methoden sind immer generisch — sie greifen nicht auf interne Daten des Array-Objekts zu. Sie greifen nur über die `length`-Eigenschaft und die indizierten Elemente auf die Array-Elemente zu. Das bedeutet, dass sie auch auf array-ähnlichen Objekten aufgerufen werden können.
 
 ```js
 const arrayLike = {
@@ -225,11 +225,11 @@ const arrayLike = {
 console.log(Array.prototype.join.call(arrayLike, "+")); // 'a+b'
 ```
 
-#### Normalisierung der `length`-Eigenschaft
+#### Normalisierung der Längeneigenschaft
 
-Die `length`-Eigenschaft wird [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) und dann in den Bereich zwischen 0 und 2<sup>53</sup> - 1 gegrenzt. `NaN` wird zu `0`, daher verhält es sich so, als hätte die `length`-Eigenschaft den Wert `0`, selbst wenn sie nicht vorhanden ist oder `undefined` ist.
+Die `length`-Eigenschaft wird [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) und dann in den Bereich zwischen 0 und 2<sup>53</sup> - 1 gezwängt. `NaN` wird zu `0`, sodass selbst wenn `length` nicht vorhanden oder `undefined` ist, es sich so verhält, als ob es den Wert `0` hätte.
 
-Die Sprache vermeidet es, `length` auf eine [unsichere Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) zu setzen. Alle eingebauten Methoden werfen einen {{jsxref("TypeError")}}, wenn `length` auf eine Zahl größer als 2<sup>53</sup> - 1 gesetzt wird. Da die {{jsxref("Array/length", "length")}}-Eigenschaft von Arrays jedoch einen Fehler wirft, wenn sie auf größer als 2<sup>32</sup> - 1 gesetzt wird, wird die Schwelle für sichere Ganzzahlen normalerweise nicht erreicht, es sei denn, die Methode wird auf einem Nicht-Array-Objekt aufgerufen.
+Die Sprache vermeidet es, `length` auf eine [unsichere Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) zu setzen. Alle eingebauten Methoden lösen einen {{jsxref("TypeError")}} aus, wenn `length` auf eine Zahl größer als 2<sup>53</sup> - 1 gesetzt wird. Da jedoch die {{jsxref("Array/length", "length")}}-Eigenschaft von Arrays einen Fehler auslöst, wenn sie auf größer als 2<sup>32</sup> - 1 gesetzt wird, wird die sichere Integer-Schwelle normalerweise nicht erreicht, es sei denn, die Methode wird auf einem Nicht-Array-Objekt aufgerufen.
 
 ```js
 Array.prototype.flat.call({}); // []
@@ -245,9 +245,9 @@ console.log(a.length); // 0
 
 #### Array-ähnliche Objekte
 
-Der Begriff [_array-ähnliches Objekt_](/de/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects) bezieht sich auf jedes Objekt, das während des `length`-Konvertierungsprozesses, der oben beschrieben wurde, keinen Fehler wirft. In der Praxis wird erwartet, dass ein solches Objekt tatsächlich eine `length`-Eigenschaft hat und indexierte Elemente im Bereich von `0` bis `length - 1` hat. (Wenn es nicht alle Indizes hat, ist es funktional äquivalent zu einem [spärlichen Array](#array-methoden_und_leere_slots).) Jede Ganzzahl, die kleiner als null oder größer als `length - 1` ist, wird ignoriert, wenn eine Array-Methode auf ein array-ähnliches Objekt angewendet wird.
+Der Begriff [_array-ähnliches Objekt_](/de/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects) bezieht sich auf jedes Objekt, das während der `length`-Konvertierung, die oben beschrieben wurde, keinen Fehler auslöst. In der Praxis wird von einem solchen Objekt erwartet, tatsächlich eine `length`-Eigenschaft zu haben und indizierte Elemente im Bereich `0` bis `length - 1` zu haben. (Wenn es nicht alle Indizes hat, wird es funktional äquivalent zu einem [spärlichen Array](#array-methoden_und_leere_slots) sein.) Jeder ganzzahlige Index kleiner als null oder größer als `length - 1` wird ignoriert, wenn eine Array-Methode auf ein array-ähnliches Objekt angewendet wird.
 
-Viele DOM-Objekte sind array-ähnlich – zum Beispiel [`NodeList`](/de/docs/Web/API/NodeList) und [`HTMLCollection`](/de/docs/Web/API/HTMLCollection). Das [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)-Objekt ist ebenfalls array-ähnlich. Sie können Array-Methoden auf sie anwenden, selbst wenn sie diese Methoden nicht selbst haben.
+Viele DOM-Objekte sind array-ähnlich — zum Beispiel, [`NodeList`](/de/docs/Web/API/NodeList) und [`HTMLCollection`](/de/docs/Web/API/HTMLCollection). Das [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)-Objekt ist ebenfalls array-ähnlich. Sie können Array-Methoden auf sie aufrufen, auch wenn sie diese Methoden selbst nicht haben.
 
 ```js
 function f() {
@@ -276,32 +276,32 @@ f("a", "b"); // 'a+b'
 - {{jsxref("Array.isArray()")}}
   - : Gibt `true` zurück, wenn das Argument ein Array ist, oder `false` andernfalls.
 - {{jsxref("Array.of()")}}
-  - : Erstellt eine neue `Array`-Instanz mit einer variablen Anzahl an Argumenten, unabhängig von der Anzahl oder dem Typ der Argumente.
+  - : Erstellt eine neue `Array`-Instanz mit einer variablen Anzahl von Argumenten, unabhängig von der Anzahl oder dem Typ der Argumente.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 Diese Eigenschaften sind auf `Array.prototype` definiert und werden von allen `Array`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "Array.prototype.constructor")}}
-  - : Die Konstruktionsfunktion, die das Instanzobjekt erstellt hat. Für `Array`-Instanzen ist der initiale Wert der {{jsxref("Array/Array", "Array")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Array`-Instanzen ist der Anfangswert der {{jsxref("Array/Array", "Array")}}-Konstruktor.
 - [`Array.prototype[Symbol.unscopables]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.unscopables)
-  - : Enthält Eigenschaftsnamen, die in der ECMAScript-Standardversion vor ES2015 nicht enthalten sind und die für [`with`](/de/docs/Web/JavaScript/Reference/Statements/with)-Aussagenbindungszwecke ignoriert werden.
+  - : Enthält Eigenschaftsnamen, die im ECMAScript-Standard vor der ES2015-Version nicht enthalten waren und die für [`with`](/de/docs/Web/JavaScript/Reference/Statements/with)-Anweisungsbindungen ignoriert werden.
 
 Diese Eigenschaften sind eigene Eigenschaften jeder `Array`-Instanz.
 
 - {{jsxref("Array/length", "length")}}
-  - : Gibt die Anzahl der Elemente in einem Array wieder.
+  - : Reflektiert die Anzahl der Elemente in einem Array.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - {{jsxref("Array.prototype.at()")}}
-  - : Gibt das Array-Element beim angegebenen Index zurück. Akzeptiert negative Ganzzahlen, die rückwärts vom letzten Element zählen.
+  - : Gibt das Array-Element an dem angegebenen Index zurück. Akzeptiert negative Ganzzahlen, die vom letzten Element aus zählen.
 - {{jsxref("Array.prototype.concat()")}}
-  - : Gibt ein neues Array zurück, das das aufrufende Array mit anderen Array(s) und/oder Wert(en) verbunden ist.
+  - : Gibt ein neues Array zurück, das das aufrufende Array, verbunden mit anderen Arrays und/oder Werten, darstellt.
 - {{jsxref("Array.prototype.copyWithin()")}}
   - : Kopiert eine Sequenz von Array-Elementen innerhalb eines Arrays.
 - {{jsxref("Array.prototype.entries()")}}
-  - : Gibt ein neues [_Array-Iterator-Objekt_](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) zurück, das die Schlüssel/Wert-Paare für jeden Index in einem Array enthält.
+  - : Gibt ein neues [_Array-Iterator_](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)-Objekt zurück, das die Schlüssel/Werte-Paare für jeden Index in einem Array enthält.
 - {{jsxref("Array.prototype.every()")}}
   - : Gibt `true` zurück, wenn jedes Element im aufrufenden Array die Testfunktion erfüllt.
 - {{jsxref("Array.prototype.fill()")}}
@@ -317,33 +317,33 @@ Diese Eigenschaften sind eigene Eigenschaften jeder `Array`-Instanz.
 - {{jsxref("Array.prototype.findLastIndex()")}}
   - : Gibt den Index des letzten Elements im Array zurück, das die bereitgestellte Testfunktion erfüllt, oder `-1`, wenn kein geeignetes Element gefunden wurde.
 - {{jsxref("Array.prototype.flat()")}}
-  - : Gibt ein neues Array zurück, in dem alle Unter-Array-Elemente rekursiv bis zur angegebenen Tiefe zusammengeführt wurden.
+  - : Gibt ein neues Array zurück, in welches alle Unter-Array-Elemente rekursiv bis zur angegebenen Tiefe eingekettet sind.
 - {{jsxref("Array.prototype.flatMap()")}}
-  - : Gibt ein neues Array zurück, das durch Anwenden einer angegebenen Callback-Funktion auf jedes Element des aufrufenden Arrays gebildet wird, und dann das Ergebnis um eine Ebene flach macht.
+  - : Gibt ein neues Array zurück, das durch Anwenden einer gegebenen Callback-Funktion auf jedes Element des aufrufenden Arrays gebildet wird, und dann wird das Ergebnis um eine Ebene abgeflacht.
 - {{jsxref("Array.prototype.forEach()")}}
-  - : Ruft eine Funktion für jedes Element im aufrufenden Array auf.
+  - : Ruft für jedes Element im aufrufenden Array eine Funktion auf.
 - {{jsxref("Array.prototype.includes()")}}
-  - : Bestimmt, ob das aufrufende Array einen Wert enthält und gibt `true` oder `false` je nach Fall zurück.
+  - : Bestimmt, ob das aufrufende Array einen Wert enthält, und gibt `true` oder `false` zurück.
 - {{jsxref("Array.prototype.indexOf()")}}
-  - : Gibt den ersten (geringsten) Index zurück, an dem ein bestimmtes Element im aufrufenden Array gefunden werden kann.
+  - : Gibt den ersten (niedrigsten) Index zurück, an dem ein bestimmtes Element im aufrufenden Array gefunden werden kann.
 - {{jsxref("Array.prototype.join()")}}
-  - : Verbindet alle Elemente eines Arrays zu einem String.
+  - : Verknüpft alle Elemente eines Arrays zu einem String.
 - {{jsxref("Array.prototype.keys()")}}
-  - : Gibt ein neues [_Array-Iterator-Objekt_](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) zurück, das die Schlüssel für jeden Index im aufrufenden Array enthält.
+  - : Gibt einen neuen [_Array-Iterator_](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)-Objekt zurück, der die Schlüssel für jeden Index im aufrufenden Array enthält.
 - {{jsxref("Array.prototype.lastIndexOf()")}}
-  - : Gibt den letzten (größten) Index zurück, an dem ein bestimmtes Element im aufrufenden Array gefunden werden kann, oder `-1`, wenn keines gefunden wurde.
+  - : Gibt den letzten (größten) Index zurück, an dem ein bestimmtes Element im aufrufenden Array gefunden werden kann, oder `-1`, wenn keines gefunden wird.
 - {{jsxref("Array.prototype.map()")}}
-  - : Gibt ein neues Array zurück, das die Ergebnisse des Aufrufs einer Funktion auf jedem Element im aufrufenden Array enthält.
+  - : Gibt ein neues Array zurück, das die Ergebnisse des Aufrufens einer Funktion auf jedem Element des aufrufenden Arrays enthält.
 - {{jsxref("Array.prototype.pop()")}}
   - : Entfernt das letzte Element aus einem Array und gibt dieses Element zurück.
 - {{jsxref("Array.prototype.push()")}}
   - : Fügt ein oder mehrere Elemente an das Ende eines Arrays hinzu und gibt die neue `length` des Arrays zurück.
 - {{jsxref("Array.prototype.reduce()")}}
-  - : Führt eine benutzerdefinierte "reducer" Callback-Funktion auf jedem Element des Arrays (von links nach rechts) aus, um es auf einen Einzelwert zu reduzieren.
+  - : Führt eine benutzerdefinierte "Reduce"-Callback-Funktion auf jedem Element des Arrays aus (von links nach rechts), um es auf einen einzelnen Wert zu reduzieren.
 - {{jsxref("Array.prototype.reduceRight()")}}
-  - : Führt eine benutzerdefinierte "reducer" Callback-Funktion auf jedem Element des Arrays (von rechts nach links) aus, um es auf einen Einzelwert zu reduzieren.
+  - : Führt eine benutzerdefinierte "Reduce"-Callback-Funktion auf jedem Element des Arrays aus (von rechts nach links), um es auf einen einzelnen Wert zu reduzieren.
 - {{jsxref("Array.prototype.reverse()")}}
-  - : Kehrt die Reihenfolge der Elemente eines Arrays _an Ort und Stelle_ um. (Das erste wird das letzte, das letzte wird das erste.)
+  - : Kehrt die Reihenfolge der Elemente eines Arrays _an Ort und Stelle_ um. (Das Erste wird das Letzte, das Letzte wird das Erste.)
 - {{jsxref("Array.prototype.shift()")}}
   - : Entfernt das erste Element aus einem Array und gibt dieses Element zurück.
 - {{jsxref("Array.prototype.slice()")}}
@@ -353,49 +353,49 @@ Diese Eigenschaften sind eigene Eigenschaften jeder `Array`-Instanz.
 - {{jsxref("Array.prototype.sort()")}}
   - : Sortiert die Elemente eines Arrays an Ort und Stelle und gibt das Array zurück.
 - {{jsxref("Array.prototype.splice()")}}
-  - : Fügt Elemente ein und/oder entfernt Elemente aus einem Array.
+  - : Fügt Elemente hinzu und/oder entfernt Elemente aus einem Array.
 - {{jsxref("Array.prototype.toLocaleString()")}}
   - : Gibt einen lokalisierten String zurück, der das aufrufende Array und seine Elemente darstellt. Überschreibt die {{jsxref("Object.prototype.toLocaleString()")}}-Methode.
 - {{jsxref("Array.prototype.toReversed()")}}
-  - : Gibt ein neues Array mit den Elementen in umgekehrter Reihenfolge zurück, ohne das ursprüngliche Array zu verändern.
+  - : Gibt ein neues Array mit den Elementen in umgekehrter Reihenfolge zurück, ohne das ursprüngliche Array zu ändern.
 - {{jsxref("Array.prototype.toSorted()")}}
-  - : Gibt ein neues Array mit den Elementen in aufsteigender Reihenfolge zurück, ohne das ursprüngliche Array zu verändern.
+  - : Gibt ein neues Array mit den Elementen in aufsteigender Reihenfolge sortiert zurück, ohne das ursprüngliche Array zu ändern.
 - {{jsxref("Array.prototype.toSpliced()")}}
-  - : Gibt ein neues Array mit einigen entfernten und/oder ersetzten Elementen an einem bestimmten Index zurück, ohne das ursprüngliche Array zu verändern.
+  - : Gibt ein neues Array mit einigen alten Elementen, die ersetzt wurden, und/oder Elementen, die an einem bestimmten Index entfernt wurden, zurück, ohne das ursprüngliche Array zu ändern.
 - {{jsxref("Array.prototype.toString()")}}
   - : Gibt einen String zurück, der das aufrufende Array und seine Elemente darstellt. Überschreibt die {{jsxref("Object.prototype.toString()")}}-Methode.
 - {{jsxref("Array.prototype.unshift()")}}
-  - : Fügt ein oder mehrere Elemente an den Anfang eines Arrays hinzu und gibt die neue `length` des Arrays zurück.
+  - : Fügt ein oder mehrere Elemente am Anfang eines Arrays hinzu und gibt die neue `length` des Arrays zurück.
 - {{jsxref("Array.prototype.values()")}}
-  - : Gibt ein neues [_Array-Iterator-Objekt_](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) zurück, das die Werte für jeden Index im Array enthält.
+  - : Gibt ein neues [_Array-Iterator_](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)-Objekt zurück, das die Werte für jeden Index im Array enthält.
 - {{jsxref("Array.prototype.with()")}}
-  - : Gibt ein neues Array zurück, bei dem das Element am angegebenen Index mit dem angegebenen Wert ersetzt wird, ohne das ursprüngliche Array zu verändern.
+  - : Gibt ein neues Array zurück, bei dem das Element am angegebenen Index durch den angegebenen Wert ersetzt wurde, ohne das ursprüngliche Array zu ändern.
 - [`Array.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator)
   - : Ein Alias für die [`values()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/values)-Methode standardmäßig.
 
 ## Beispiele
 
-Dieser Abschnitt bietet einige Beispiele zu gängigen Array-Operationen in JavaScript.
+Dieser Abschnitt bietet einige Beispiele für gängige Array-Operationen in JavaScript.
 
 > [!NOTE]
-> Wenn Sie noch nicht mit den Grundlagen von Arrays vertraut sind, sollten Sie zuerst [JavaScript Erste Schritte: Arrays](/de/docs/Learn/JavaScript/First_steps/Arrays) lesen, der [erklärt, was Arrays sind](/de/docs/Learn/JavaScript/First_steps/Arrays#what_is_an_array) und weitere Beispiele zu gängigen Array-Operationen enthält.
+> Wenn Sie noch nicht mit Array-Grundlagen vertraut sind, sollten Sie zuerst [Erste Schritte mit JavaScript: Arrays](/de/docs/Learn/JavaScript/First_steps/Arrays) lesen, das [erklärt, was Arrays sind](/de/docs/Learn/JavaScript/First_steps/Arrays#what_is_an_array), und weitere Beispiele für gängige Array-Operationen enthält.
 
-### Ein Array erstellen
+### Erstellen eines Arrays
 
-Dieses Beispiel zeigt drei Möglichkeiten, ein neues Array zu erstellen: zuerst mit dem [Array-Literal-Notation](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Array#array_literal_notation), dann mit dem [`Array()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Array)-Konstruktor und schließlich mit [`String.prototype.split()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split), um das Array aus einem String zu erstellen.
+Dieses Beispiel zeigt drei Möglichkeiten, ein neues Array zu erstellen: zuerst mit der [Array-Literalnotation](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Array#array_literal_notation), dann mit dem [`Array()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Array)-Konstruktor und schließlich mit [`String.prototype.split()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/split), um das Array aus einem String zu erstellen.
 
 ```js
-// 'fruits'-Array erstellt mit der Array-Literal-Notation.
+// 'fruits' array created using array literal notation.
 const fruits = ["Apple", "Banana"];
 console.log(fruits.length);
 // 2
 
-// 'fruits2'-Array erstellt mit dem Array()-Konstruktor.
+// 'fruits2' array created using the Array() constructor.
 const fruits2 = new Array("Apple", "Banana");
 console.log(fruits2.length);
 // 2
 
-// 'fruits3'-Array erstellt mit String.prototype.split().
+// 'fruits3' array created using String.prototype.split().
 const fruits3 = "Apple, Banana".split(", ");
 console.log(fruits3.length);
 // 2
@@ -412,31 +412,31 @@ console.log(fruitsString);
 // "Apple, Banana"
 ```
 
-### Auf ein Array-Element über seinen Index zugreifen
+### Zugriff auf ein Array-Element über seinen Index
 
-Dieses Beispiel zeigt, wie Sie auf Elemente im `fruits`-Array zugreifen, indem Sie die Indexnummer ihrer Position im Array angeben.
+Dieses Beispiel zeigt, wie man auf Elemente im `fruits`-Array zugreift, indem man die Indexnummer ihrer Position im Array angibt.
 
 ```js
 const fruits = ["Apple", "Banana"];
 
-// Der Index des ersten Elements eines Arrays ist immer 0.
+// The index of an array's first element is always 0.
 fruits[0]; // Apple
 
-// Der Index des zweiten Elements eines Arrays ist immer 1.
+// The index of an array's second element is always 1.
 fruits[1]; // Banana
 
-// Der Index des letzten Elements eines Arrays ist immer
-// um eins kleiner als die Länge des Arrays.
+// The index of an array's last element is always one
+// less than the length of the array.
 fruits[fruits.length - 1]; // Banana
 
-// Die Verwendung einer Indexnummer, die größer als die Länge des Arrays ist,
-// gibt 'undefined' zurück.
+// Using an index number larger than the array's length
+// returns 'undefined'.
 fruits[99]; // undefined
 ```
 
 ### Den Index eines Elements in einem Array finden
 
-Dieses Beispiel verwendet die [`indexOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)-Methode, um die Position (den Index) des Strings `"Banana"` im `fruits`-Array zu finden.
+Dieses Beispiel verwendet die [`indexOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)-Methode, um die Position (Index) des Strings `"Banana"` im `fruits`-Array zu finden.
 
 ```js
 const fruits = ["Apple", "Banana"];
@@ -444,9 +444,9 @@ console.log(fruits.indexOf("Banana"));
 // 1
 ```
 
-### Prüfen, ob ein Array ein bestimmtes Element enthält
+### Überprüfen, ob ein Array ein bestimmtes Element enthält
 
-Dieses Beispiel zeigt zwei Möglichkeiten, um zu prüfen, ob das `fruits`-Array `"Banana"` und `"Cherry"` enthält: zuerst mit der [`includes()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)-Methode und dann mit der [`indexOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)-Methode, um auf einen Indexwert zu testen, der nicht `-1` ist.
+Dieses Beispiel zeigt zwei Möglichkeiten, zu überprüfen, ob das `fruits`-Array `"Banana"` und `"Cherry"` enthält: zuerst mit der [`includes()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)-Methode und dann mit der [`indexOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)-Methode, um einen Indexwert zu testen, der nicht `-1` ist.
 
 ```js
 const fruits = ["Apple", "Banana"];
@@ -454,14 +454,14 @@ const fruits = ["Apple", "Banana"];
 fruits.includes("Banana"); // true
 fruits.includes("Cherry"); // false
 
-// Wenn indexOf() nicht -1 zurückgibt, enthält das Array das angegebene Element.
+// If indexOf() doesn't return -1, the array contains the given item.
 fruits.indexOf("Banana") !== -1; // true
 fruits.indexOf("Cherry") !== -1; // false
 ```
 
-### Ein Element an ein Array anhängen
+### Ein Element zu einem Array hinzufügen
 
-Dieses Beispiel verwendet die [`push()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/push)-Methode, um einen neuen String an das `fruits`-Array anzuhängen.
+Dieses Beispiel verwendet die [`push()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/push)-Methode, um einen neuen String zum `fruits`-Array hinzuzufügen.
 
 ```js
 const fruits = ["Apple", "Banana"];
@@ -489,7 +489,7 @@ console.log(removedItem);
 
 ### Mehrere Elemente vom Ende eines Arrays entfernen
 
-Dieses Beispiel verwendet die [`splice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)-Methode, um die letzten 3 Elemente vom `fruits`-Array zu entfernen.
+Dieses Beispiel verwendet die [`splice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)-Methode, um die letzten 3 Elemente aus dem `fruits`-Array zu entfernen.
 
 ```js
 const fruits = ["Apple", "Banana", "Strawberry", "Mango", "Cherry"];
@@ -501,9 +501,9 @@ console.log(removedItems);
 // ["Strawberry", "Mango", "Cherry"]
 ```
 
-### Ein Array auf seine ersten N Elemente reduzieren
+### Ein Array auf nur seine ersten N Elemente verkürzen
 
-Dieses Beispiel verwendet die [`splice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)-Methode, um das `fruits`-Array nur auf seine ersten 2 Elemente zu reduzieren.
+Dieses Beispiel verwendet die [`splice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)-Methode, um das `fruits`-Array auf nur seine ersten 2 Elemente zu verkürzen.
 
 ```js
 const fruits = ["Apple", "Banana", "Strawberry", "Mango", "Cherry"];
@@ -532,7 +532,7 @@ console.log(removedItem);
 
 ### Mehrere Elemente vom Anfang eines Arrays entfernen
 
-Dieses Beispiel verwendet die [`splice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)-Methode, um die ersten 3 Elemente vom `fruits`-Array zu entfernen.
+Dieses Beispiel verwendet die [`splice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)-Methode, um die ersten 3 Elemente aus dem `fruits`-Array zu entfernen.
 
 ```js
 const fruits = ["Apple", "Strawberry", "Cherry", "Banana", "Mango"];
@@ -547,7 +547,7 @@ console.log(removedItems);
 
 ### Ein neues erstes Element zu einem Array hinzufügen
 
-Dieses Beispiel verwendet die [`unshift()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)-Methode, um am Index `0` ein neues Element zum `fruits`-Array hinzuzufügen und es zum neuen ersten Element im Array zu machen.
+Dieses Beispiel verwendet die [`unshift()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)-Methode, um an Index `0` ein neues Element zum `fruits`-Array hinzuzufügen — wodurch es das neue erste Element im Array wird.
 
 ```js
 const fruits = ["Banana", "Mango"];
@@ -560,7 +560,7 @@ console.log(newLength);
 
 ### Ein einzelnes Element nach Index entfernen
 
-Dieses Beispiel verwendet die [`splice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)-Methode, um den String `"Banana"` aus dem `fruits`-Array zu entfernen, indem der Index des Elements `"Banana"` angegeben wird.
+Dieses Beispiel verwendet die [`splice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)-Methode, um den String `"Banana"` aus dem `fruits`-Array zu entfernen — indem die Indexposition von `"Banana"` angegeben wird.
 
 ```js
 const fruits = ["Strawberry", "Banana", "Mango"];
@@ -575,7 +575,7 @@ console.log(removedItems);
 
 ### Mehrere Elemente nach Index entfernen
 
-Dieses Beispiel verwendet die [`splice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)-Methode, um die Strings `"Banana"` und `"Strawberry"` aus dem `fruits`-Array zu entfernen, indem der Index von `"Banana"` sowie eine Anzahl von zu entfernenden Elementen angegeben wird.
+Dieses Beispiel verwendet die [`splice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)-Methode, um die Strings `"Banana"` und `"Strawberry"` aus dem `fruits`-Array zu entfernen — indem die Indexposition von `"Banana"` zusammen mit der Anzahl der insgesamt zu entfernenden Elemente angegeben wird.
 
 ```js
 const fruits = ["Apple", "Banana", "Strawberry", "Mango"];
@@ -617,11 +617,11 @@ for (const fruit of fruits) {
 // Cherry
 ```
 
-Aber `for...of` ist nur eine von vielen Möglichkeiten, über jedes Array zu iterieren; für weitere Möglichkeiten siehe [Schleifen und Iteration](/de/docs/Web/JavaScript/Guide/Loops_and_iteration) und die Dokumentation zu den Methoden [`every()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/every), [`filter()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), [`flatMap()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap), [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map), [`reduce()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) und [`reduceRight()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight) — und sehen Sie sich das nächste Beispiel an, welches die [`forEach()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)-Methode verwendet.
+Aber `for...of` ist nur eine von vielen Möglichkeiten, über ein beliebiges Array zu iterieren; für weitere Möglichkeiten siehe [Schleifen und Iteration](/de/docs/Web/JavaScript/Guide/Loops_and_iteration) und die Dokumentation zu den Methoden [`every()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/every), [`filter()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), [`flatMap()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap), [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map), [`reduce()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce), und [`reduceRight()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight) — und siehe das nächste Beispiel, das die [`forEach()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)-Methode verwendet.
 
-### Eine Funktion auf jedes Element in einem Array aufrufen
+### Eine Funktion auf jedes Element in einem Array anwenden
 
-Dieses Beispiel verwendet die [`forEach()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)-Methode, um eine Funktion auf jedes Element im `fruits`-Array aufzurufen; die Funktion bewirkt, dass jedes Element in die Konsole geloggt wird, zusammen mit der Indexnummer des Elements.
+Dieses Beispiel verwendet die [`forEach()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)-Methode, um eine Funktion auf jedes Element im `fruits`-Array anzuwenden; die Funktion bewirkt, dass jedes Element in die Konsole protokolliert wird, zusammen mit der Indexnummer des Elements.
 
 ```js
 const fruits = ["Apple", "Mango", "Cherry"];
@@ -635,7 +635,7 @@ fruits.forEach((item, index, array) => {
 
 ### Mehrere Arrays zusammenführen
 
-Dieses Beispiel verwendet die [`concat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)-Methode, um das `fruits`-Array mit einem `moreFruits`-Array zu kombinieren und ein neues `combinedFruits`-Array zu erzeugen. Beachten Sie, dass `fruits` und `moreFruits` unverändert bleiben.
+Dieses Beispiel verwendet die [`concat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)-Methode, um das `fruits`-Array mit einem `moreFruits`-Array zu verschmelzen und ein neues `combinedFruits`-Array zu erstellen. Beachten Sie, dass `fruits` und `moreFruits` unverändert bleiben.
 
 ```js
 const fruits = ["Apple", "Banana", "Strawberry"];
@@ -644,51 +644,51 @@ const combinedFruits = fruits.concat(moreFruits);
 console.log(combinedFruits);
 // ["Apple", "Banana", "Strawberry", "Mango", "Cherry"]
 
-// Das 'fruits'-Array bleibt unverändert.
+// The 'fruits' array remains unchanged.
 console.log(fruits);
 // ["Apple", "Banana", "Strawberry"]
 
-// Das 'moreFruits'-Array bleibt ebenfalls unverändert.
+// The 'moreFruits' array also remains unchanged.
 console.log(moreFruits);
 // ["Mango", "Cherry"]
 ```
 
 ### Ein Array kopieren
 
-Dieses Beispiel zeigt drei Möglichkeiten, ein neues Array aus dem bestehenden `fruits`-Array zu erstellen: zuerst durch [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), dann durch die Verwendung der [`from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from)-Methode und schließlich durch die Verwendung der [`slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)-Methode.
+Dieses Beispiel zeigt drei Möglichkeiten, ein neues Array aus dem bestehenden `fruits`-Array zu erstellen: zuerst durch Verwendung der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), dann durch Verwendung der [`from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from)-Methode und schließlich durch Nutzung der [`slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)-Methode.
 
 ```js
 const fruits = ["Strawberry", "Mango"];
 
-// Erstellen einer Kopie mit Spread-Syntax.
+// Create a copy using spread syntax.
 const fruitsCopy = [...fruits];
 // ["Strawberry", "Mango"]
 
-// Erstellen einer Kopie mit der from()-Methode.
+// Create a copy using the from() method.
 const fruitsCopy2 = Array.from(fruits);
 // ["Strawberry", "Mango"]
 
-// Erstellen einer Kopie mit der slice()-Methode.
+// Create a copy using the slice() method.
 const fruitsCopy3 = fruits.slice();
 // ["Strawberry", "Mango"]
 ```
 
-Alle eingebauten Array-Kopiervorgänge ([Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from), [`Array.prototype.slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) und [`Array.prototype.concat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)) erstellen [flache Kopien](/de/docs/Glossary/Shallow_copy). Wenn Sie stattdessen eine [tiefe Kopie](/de/docs/Glossary/Deep_copy) eines Arrays wünschen, können Sie {{jsxref("JSON.stringify()")}} verwenden, um das Array in einen JSON-String zu konvertieren, und dann {{jsxref("JSON.parse()")}}, um den String zurück in ein neues Array zu konvertieren, das vollkommen unabhängig vom ursprünglichen Array ist.
+Alle eingebauten Array-Kopiervorgänge ([Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from), [`Array.prototype.slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice), und [`Array.prototype.concat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)) erzeugen [flache Kopien](/de/docs/Glossary/Shallow_copy). Wenn Sie stattdessen eine [tiefe Kopie](/de/docs/Glossary/Deep_copy) eines Arrays erstellen möchten, können Sie {{jsxref("JSON.stringify()")}} verwenden, um das Array in einen JSON-String umzuwandeln, und dann {{jsxref("JSON.parse()")}}, um den String in ein neues Array umzuwandeln, das vollständig unabhängig vom ursprünglichen Array ist.
 
 ```js
 const fruitsDeepCopy = JSON.parse(JSON.stringify(fruits));
 ```
 
-Sie können auch tiefe Kopien mit der [`structuredClone()`](/de/docs/Web/API/structuredClone)-Methode erstellen, die den Vorteil bietet, dass [transferierbare Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects) in der Quelle an die neue Kopie _übertragen_ werden können, anstatt nur geklont zu werden.
+Sie können auch tiefe Kopien mit der [`structuredClone()`](/de/docs/Web/API/Window/structuredClone)-Methode erstellen, die den Vorteil hat, [übertragbare Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects) in der Quelle an die neue Kopie _zu übertragen_, anstatt sie nur zu klonen.
 
-Schließlich ist es wichtig zu verstehen, dass das Zuweisen eines existierenden Arrays zu einer neuen Variable keine Kopie des Arrays oder seiner Elemente erstellt. Stattdessen ist die neue Variable nur eine Referenz, oder ein Alias, für das ursprüngliche Array; das heißt, der Name des ursprünglichen Arrays und der neue Variablenname sind nur zwei Namen für dasselbe Objekt (und werden daher immer als [streng gleichwertig](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#strict_equality_using) bewertet). Daher, wenn Sie irgendeine Änderung entweder am Wert des ursprünglichen Arrays oder am Wert der neuen Variablen vornehmen, ändert sich auch das andere:
+Schließlich ist es wichtig zu verstehen, dass das Zuweisen eines bestehenden Arrays zu einer neuen Variablen keine Kopie des Arrays oder seiner Elemente erstellt. Stattdessen ist die neue Variable nur eine Referenz oder Alias für das ursprüngliche Array; das heißt, der ursprüngliche Array-Name und der neue Variablenname sind nur zwei Namen für dasselbe Objekt (und werden daher immer als [streng gleichwertig](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#strict_equality_using) bewertet). Daher, wenn Sie überhaupt Änderungen entweder am Wert des ursprünglichen Arrays oder dem Wert der neuen Variablen vornehmen, wird sich auch der andere ändern:
 
 ```js
 const fruits = ["Strawberry", "Mango"];
 const fruitsAlias = fruits;
-// 'fruits' und 'fruitsAlias' sind dasselbe Objekt, streng gleichwertig.
+// 'fruits' and 'fruitsAlias' are the same object, strictly equivalent.
 fruits === fruitsAlias; // true
-// Jede Änderung am 'fruits'-Array ändert auch 'fruitsAlias'.
+// Any changes to the 'fruits' array change 'fruitsAlias' too.
 fruits.unshift("Apple", "Banana");
 console.log(fruits);
 // ['Apple', 'Banana', 'Strawberry', 'Mango']
@@ -696,9 +696,9 @@ console.log(fruitsAlias);
 // ['Apple', 'Banana', 'Strawberry', 'Mango']
 ```
 
-### Ein zweidimensionales Array erstellen
+### Erstellen eines zweidimensionalen Arrays
 
-Das Folgende erstellt ein Schachbrett als ein zweidimensionales Array von Strings. Der erste Zug wird gemacht, indem der `'p'` in `board[6][4]` nach `board[4][4]` kopiert wird. Die alte Position bei `[6][4]` wird leer gemacht.
+Das folgende erstellt ein Schachbrett als zweidimensionales Array von Strings. Der erste Zug wird gemacht, indem die `'p'` in `board[6][4]` nach `board[4][4]` kopiert wird. Die alte Position bei `[6][4]` wird leer gemacht.
 
 ```js
 const board = [
@@ -714,7 +714,7 @@ const board = [
 
 console.log(`${board.join("\n")}\n\n`);
 
-// Bewege Bauern vor 2
+// Move King's Pawn forward 2
 board[4][4] = board[6][4];
 board[6][4] = " ";
 console.log(board.join("\n"));
@@ -742,7 +742,7 @@ p,p,p,p, ,p,p,p
 r,n,b,q,k,b,n,r
 ```
 
-### Ein Array verwenden, um eine Reihe von Werten zu tabellieren
+### Verwenden eines Arrays zur Tabellierung eines Satzes von Werten
 
 ```js
 const values = [];
@@ -752,10 +752,10 @@ for (let x = 0; x < 10; x++) {
 console.table(values);
 ```
 
-Erzeugt
+Ergibt
 
 ```plain
-// Die erste Spalte ist der Index
+// The first column is the index
 0  1    0
 1  2    2
 2  4    8
@@ -768,16 +768,16 @@ Erzeugt
 9  512  162
 ```
 
-### Ein Array mit dem Ergebnis eines Matches erstellen
+### Erstellen eines Arrays unter Verwendung des Ergebnisses eines Matches
 
-Das Ergebnis eines Matches zwischen einem {{jsxref("RegExp")}} und einem String kann ein JavaScript-Array erzeugen, das Eigenschaften und Elemente hat, die Informationen über das Match liefern. Ein solches Array wird von {{jsxref("RegExp.prototype.exec()")}} und {{jsxref("String.prototype.match()")}} zurückgegeben.
+Das Ergebnis eines Matches zwischen einem {{jsxref("RegExp")}} und einem String kann ein JavaScript-Array erstellen, das Eigenschaften und Elemente enthält, die Informationen über das Match bereitstellen. Ein solches Array wird von {{jsxref("RegExp.prototype.exec()")}} und {{jsxref("String.prototype.match()")}} zurückgegeben.
 
-Zum Beispiel:
+Beispiel:
 
 ```js
-// Matche ein 'd', gefolgt von einem oder mehreren 'b's, gefolgt von einem 'd'
-// Erinnern an gematchte b's und das folgende d
-// Groß-/Kleinschreibung ignorieren
+// Match one d followed by one or more b's followed by one d
+// Remember matched b's and the following d
+// Ignore case
 
 const myRe = /d(b+)(d)/i;
 const execResult = myRe.exec("cdbBdbsbz");
@@ -789,18 +789,18 @@ console.log(execResult); // [ "dbBd", "bB", "d" ]
 
 Für weitere Informationen über das Ergebnis eines Matches, siehe die Seiten {{jsxref("RegExp.prototype.exec()")}} und {{jsxref("String.prototype.match()")}}.
 
-### Veränderung des ursprünglichen Arrays in iterativen Methoden
+### Ändern des anfänglichen Arrays in iterativen Methoden
 
-[Iterative Methoden](#iterative_methoden) verändern das Array, auf dem sie aufgerufen werden, nicht, aber die Funktion, die als `callbackFn` bereitgestellt wird, kann dies tun. Der entscheidende Grundsatz, den Sie sich merken sollten, ist, dass nur Indizes zwischen 0 und `arrayLength - 1` besucht werden, wobei `arrayLength` die Länge des Arrays zum Zeitpunkt des Beginns des Aufrufs der Array-Methode ist, aber das Element, das dem Callback übergeben wird, der Wert ist, der zu dem Zeitpunkt des Besuchs des jeweiligen Index ist. Daher:
+[Iterative Methoden](#iterative_methoden) verändern nicht das Array, auf dem sie aufgerufen werden, aber die Funktion, die als `callbackFn` bereitgestellt wird, kann es. Der grundlegende Grundsatz, den man sich merken sollte, ist, dass nur Indizes zwischen 0 und `arrayLength - 1` besucht werden, wobei `arrayLength` die Länge des Arrays zum Zeitpunkt ist, ab dem die Array-Methode zuerst aufgerufen wurde, aber das an den Callback übergebene Element ist der Wert zu dem Zeitpunkt, zu dem der Index besucht wird. Daher:
 
-- `callbackFn` wird keine Elemente besuchen, die über die anfängliche Länge des Arrays hinaus hinzugefügt werden, wenn der Aufruf der iterativen Methode begann.
-- Änderungen an bereits besuchten Indizes führen nicht dazu, dass `callbackFn` erneut für diese aufgerufen wird.
-- Wenn ein bestehendes, noch ungeöffnetes Element des Arrays durch `callbackFn` geändert wird, wird der Wert, der an den `callbackFn` übergeben wird, der Wert zum Zeitpunkt des Besuchs dieses Elements sein. Entfernte Elemente werden nicht besucht.
+- `callbackFn` wird keine Elemente besuchen, die über die anfängliche Länge des Arrays hinaus hinzugefügt wurden, als der Aufruf der iterativen Methode begann.
+- Änderungen an bereits besuchten Indizes führen nicht dazu, dass `callbackFn` erneut auf sie aufgerufen wird.
+- Wenn ein existierendes, noch nicht besuchtes Element des Arrays durch `callbackFn` geändert wird, wird sein an `callbackFn` übergebener Wert der Wert zu dem Zeitpunkt sein, an dem das Element besucht wird. Entfernte Elemente werden nicht besucht.
 
 > [!WARNING]
-> Gleichzeitig auftretende Modifikationen der oben beschriebenen Art führen häufig zu schwer verständlichem Code und sollten im Allgemeinen vermieden werden (außer in speziellen Fällen).
+> Zeitgleiche Modifikationen der oben beschriebenen Art führen häufig zu schwer verständlichem Code und sind generell zu vermeiden (außer in Sonderfällen).
 
-Die folgenden Beispiele verwenden die `forEach`-Methode als Beispiel, aber andere Methoden, die Indizes in aufsteigender Reihenfolge besuchen, funktionieren auf die gleiche Weise. Wir definieren zuerst eine Hilfsfunktion:
+Die folgenden Beispiele verwenden die `forEach`-Methode als Beispiel, aber andere Methoden, die Indizes in aufsteigender Reihenfolge besuchen, funktionieren auf die gleiche Weise. Wir werden zuerst eine Hilfsfunktion definieren:
 
 ```js
 function testSideEffect(effect) {
@@ -813,7 +813,7 @@ function testSideEffect(effect) {
 }
 ```
 
-Änderungen an nicht besuchten Indizes werden sichtbar, sobald der Index erreicht ist:
+Modifikationen an Indizes, die noch nicht besucht wurden, werden sichtbar, sobald der Index erreicht ist:
 
 ```js
 testSideEffect((arr, index) => {
@@ -826,7 +826,7 @@ testSideEffect((arr, index) => {
 // Final array: [e1, e2*, e3*, e4*]
 ```
 
-Änderungen an bereits besuchten Indizes ändern nicht das Iterationsverhalten, obwohl das Array danach anders sein wird:
+Modifikationen an bereits besuchten Indizes ändern das Iterationsverhalten nicht, obwohl das Array danach anders sein wird:
 
 ```js
 testSideEffect((arr, index) => {
@@ -839,7 +839,7 @@ testSideEffect((arr, index) => {
 // Final array: [e1*, e2*, e3*, e4]
 ```
 
-Das Einfügen von _n_ Elementen an nicht besuchten Indizes, die kleiner als die anfängliche Array-Länge sind, wird sie besuchen. Die letzten _n_ Elemente im ursprünglichen Array, die jetzt einen Index größer als die anfängliche Array-Länge haben, werden nicht besucht:
+Einfügen von _n_ Elementen an nicht besuchten Indizes, die kleiner als die anfängliche Array-Länge sind, macht sie besucht. Die letzten _n_ Elemente im ursprünglichen Array, die jetzt einen Index größer als die anfängliche Array-Länge haben, werden nicht besucht:
 
 ```js
 testSideEffect((arr, index) => {
@@ -850,10 +850,10 @@ testSideEffect((arr, index) => {
 // array: [e1, e2, new, e3, e4], index: 2, elem: new
 // array: [e1, e2, new, e3, e4], index: 3, elem: e3
 // Final array: [e1, e2, new, e3, e4]
-// e4 wird nicht besucht, weil es jetzt den Index 4 hat
+// e4 is not visited because it now has index 4
 ```
 
-Das Einfügen von _n_ Elementen mit einem Index größer als die anfängliche Array-Länge wird sie nicht besuchen lassen:
+Einfügen von _n_ Elementen mit einem Index, der größer als die anfängliche Array-Länge ist, macht sie nicht besucht:
 
 ```js
 testSideEffect((arr) => arr.push("new"));
@@ -864,7 +864,7 @@ testSideEffect((arr) => arr.push("new"));
 // Final array: [e1, e2, e3, e4, new, new, new, new]
 ```
 
-Das Einfügen von _n_ Elementen bei bereits besuchten Indizes wird sie nicht besuchen lassen, aber es verschiebt die verbleibenden Elemente um _n_ zurück, sodass der aktuelle Index und die _n - 1_ Elemente vorher erneut besucht werden:
+Einfügen von _n_ Elementen an bereits besuchten Indizes macht sie nicht besucht, aber es verschiebt die verbleibenden Elemente um _n_ zurück, sodass der aktuelle Index und die _n - 1_ Elemente davor erneut besucht werden:
 
 ```js
 testSideEffect((arr, index) => arr.splice(index, 0, "new"));
@@ -873,10 +873,10 @@ testSideEffect((arr, index) => arr.splice(index, 0, "new"));
 // array: [new, new, e1, e2, e3, e4], index: 2, elem: e1
 // array: [new, new, new, e1, e2, e3, e4], index: 3, elem: e1
 // Final array: [new, new, new, new, e1, e2, e3, e4]
-// e1 wird immer wieder besucht, da es immer wieder nach hinten verschoben wird
+// e1 keeps getting visited because it keeps getting shifted back
 ```
 
-Das Löschen von _n_ Elementen bei nicht besuchten Indizes wird sie nicht mehr besuchen lassen. Da das Array geschrumpft ist, werden die letzten _n_ Iterationen nicht besetzte Indizes besuchen. Wenn die Methode nicht existierende Indizes ignoriert (siehe [Array-Methoden und leere Slots](#array-methoden_und_leere_slots)), werden die letzten _n_ Iterationen übersprungen; andernfalls erhalten sie `undefined`:
+Löschen von _n_ Elementen an nicht besuchten Indizes macht sie nicht mehr besucht. Da das Array geschrumpft ist, werden die letzten _n_ Iterationen nicht existierende Indizes besuchen. Wenn die Methode nicht existierende Indizes ignoriert (siehe [Array-Methoden und leere Slots](#array-methoden_und_leere_slots)), werden die letzten _n_ Iterationen übersprungen; andernfalls erhalten sie `undefined`:
 
 ```js
 testSideEffect((arr, index) => {
@@ -886,9 +886,9 @@ testSideEffect((arr, index) => {
 // array: [e1, e2, e3, e4], index: 1, elem: e2
 // array: [e1, e2, e4], index: 2, elem: e4
 // Final array: [e1, e2, e4]
-// Besucht nicht den Index 3, da er außerhalb der Grenzen liegt
+// Does not visit index 3 because it's out-of-bounds
 
-// Vergleichen Sie dies mit find(), das nicht existierende Indizes als undefined behandelt:
+// Compare this with find(), which treats nonexistent indexes as undefined:
 const arr2 = ["e1", "e2", "e3", "e4"];
 arr2.find((elem, index, arr) => {
   console.log(`array: [${arr.join(", ")}], index: ${index}, elem: ${elem}`);
@@ -901,18 +901,18 @@ arr2.find((elem, index, arr) => {
 // array: [e1, e2, e4], index: 3, elem: undefined
 ```
 
-Das Löschen von _n_ Elementen bei bereits besuchten Indizes ändert nicht die Tatsache, dass sie besucht wurden, bevor sie gelöscht werden. Da das Array geschrumpft ist, werden die nächsten _n_ Elemente nach dem aktuellen Index übersprungen. Wenn die Methode nicht existierende Indizes ignoriert, werden die letzten _n_ Iterationen übersprungen; andernfalls erhalten sie `undefined`:
+Löschen von _n_ Elementen an bereits besuchten Indizes ändert nichts daran, dass sie besucht wurden, bevor sie gelöscht werden. Da das Array geschrumpft ist, werden die nächsten _n_ Elemente nach dem aktuellen Index übersprungen. Wenn die Methode nicht existierende Indizes ignoriert, werden die letzten _n_ Iterationen übersprungen; andernfalls erhalten sie `undefined`:
 
 ```js
 testSideEffect((arr, index) => arr.splice(index, 1));
 // array: [e1, e2, e3, e4], index: 0, elem: e1
-// Besucht e2 nicht, weil e2 jetzt den Index 0 hat, der bereits besucht wurde
+// Does not visit e2 because e2 now has index 0, which has already been visited
 // array: [e2, e3, e4], index: 1, elem: e3
-// Besucht e4 nicht, weil e4 jetzt den Index 1 hat, der bereits besucht wurde
+// Does not visit e4 because e4 now has index 1, which has already been visited
 // Final array: [e2, e4]
-// Index 2 ist außerhalb der Grenzen, daher wird er nicht besucht
+// Index 2 is out-of-bounds, so it's not visited
 
-// Vergleichen Sie dies mit find(), das nicht existierende Indizes als undefined behandelt:
+// Compare this with find(), which treats nonexistent indexes as undefined:
 const arr2 = ["e1", "e2", "e3", "e4"];
 arr2.find((elem, index, arr) => {
   console.log(`array: [${arr.join(", ")}], index: ${index}, elem: ${elem}`);
@@ -925,18 +925,18 @@ arr2.find((elem, index, arr) => {
 // array: [e2, e4], index: 3, elem: undefined
 ```
 
-Für Methoden, die in absteigender Indexreihenfolge iterieren, führt das Einfügen dazu, dass Elemente übersprungen werden, und das Löschen dazu, dass Elemente mehrfach besucht werden. Passen Sie den obigen Code selbst an, um die Effekte zu sehen.
+Für Methoden, die den Index in absteigender Reihenfolge durchlaufen, führt das Einfügen dazu, dass Elemente übersprungen werden, und das Löschen dazu, dass Elemente mehrmals besucht werden. Passen Sie den obigen Code selbst an, um die Auswirkungen zu sehen.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Indexierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
+- [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}

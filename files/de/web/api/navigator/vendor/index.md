@@ -3,21 +3,21 @@ title: "Navigator: vendor-Eigenschaft"
 short-title: vendor
 slug: Web/API/Navigator/vendor
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}
 
-Der Wert der {{DomXref("Navigator")}} **`vendor`**-Eigenschaft ist immer entweder "`Google Inc.`", "`Apple Computer, Inc.`" oder (in Firefox) der leere String.
+Der Wert der **`vendor`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator) ist immer entweder `"Google Inc."`, `"Apple Computer, Inc."`, oder (in Firefox) die leere Zeichenfolge.
 
 ## Wert
 
-- Entweder "`Google Inc.`", "`Apple Computer, Inc.`" oder (in Firefox) der leere String.
+Entweder `"Google Inc."`, `"Apple Computer, Inc."`, oder (in Firefox) die leere Zeichenfolge.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

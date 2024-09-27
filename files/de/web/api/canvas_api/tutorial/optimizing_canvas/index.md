@@ -1,5 +1,5 @@
 ---
-title: Optimierung der Zeichenfläche
+title: Optimierung des Canvas
 slug: Web/API/Canvas_API/Tutorial/Optimizing_canvas
 l10n:
   sourceCommit: bc7e82aa6db60568d7146ee285918550bbe4b8ce
@@ -7,15 +7,15 @@ l10n:
 
 {{DefaultAPISidebar("Canvas API")}} {{PreviousNext("Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas", "Web/API/Canvas_API/Tutorial/Finale")}}
 
-Das {{HTMLElement("canvas")}}-Element ist eines der am häufigsten genutzten Werkzeuge zur Darstellung von 2D-Grafiken im Web. Wenn Websites und Apps die Canvas-API jedoch bis an ihre Grenzen ausreizen, leidet die Leistung. Dieser Artikel gibt Vorschläge zur Optimierung Ihrer Nutzung des Zeichenflächenelements, um sicherzustellen, dass Ihre Grafiken gut funktionieren.
+Das `<canvas>`-Element ist eines der am häufigsten verwendeten Werkzeuge zur Darstellung von 2D-Grafiken im Web. Wenn jedoch Websites und Apps die Canvas-API bis an ihre Grenzen ausreizen, leidet die Leistung. Dieser Artikel bietet Vorschläge zur Optimierung der Nutzung des Canvas-Elements, um sicherzustellen, dass Ihre Grafiken gut performen.
 
 ## Leistungstipps
 
-Im Folgenden finden Sie eine Sammlung von Tipps zur Verbesserung der Leistung der Zeichenfläche.
+Nachfolgend finden Sie eine Sammlung von Tipps zur Verbesserung der Canvas-Leistung.
 
-### Vorab-Rendern ähnlicher Primitiven oder sich wiederholender Objekte auf einer Offscreen-Zeichenfläche
+### Vorab-Rendering ähnlicher Primitiven oder wiederholender Objekte auf einem Offscreen-Canvas
 
-Wenn Sie einige der gleichen Zeichenoperationen in jedem Animationsbild wiederholen, sollten Sie diese auf eine Offscreen-Zeichenfläche auslagern. Sie können dann das Offscreen-Bild so oft wie nötig auf Ihre Hauptzeichenfläche rendern, ohne die Schritte zur Erstellung erneut wiederholen zu müssen.
+Wenn Sie feststellen, dass Sie einige der gleichen Zeichenoperationen in jedem Animationsframe wiederholen, sollten Sie erwägen, diese auf einen Offscreen-Canvas auszulagern. Sie können dann das Offscreen-Bild so oft wie nötig auf Ihr Haupt-Canvas rendern, ohne die Schritte unnötig zu wiederholen, die erforderlich sind, um es zunächst zu erzeugen.
 
 ```js
 myCanvas.offscreenCanvas = document.createElement("canvas");
@@ -25,25 +25,25 @@ myCanvas.offscreenCanvas.height = myCanvas.height;
 myCanvas.getContext("2d").drawImage(myCanvas.offScreenCanvas, 0, 0);
 ```
 
-### Vermeiden Sie Fließkomma-Koordinaten und verwenden Sie stattdessen Ganzzahlen
+### Vermeiden Sie Gleitkomma-Koordinaten und verwenden Sie stattdessen Ganzzahlen
 
-Die Subpixel-Rendering erfolgt, wenn Sie Objekte auf einer Zeichenfläche ohne ganze Werte rendern.
+Subpixel-Rendering tritt auf, wenn Objekte auf einem Canvas ohne ganze Werte gerendert werden.
 
 ```js
 ctx.drawImage(myImage, 0.3, 0.5);
 ```
 
-Dadurch wird der Browser gezwungen, zusätzliche Berechnungen durchzuführen, um den Anti-Aliasing-Effekt zu erzeugen. Um dies zu vermeiden, runden Sie alle Koordinaten, die in Aufrufen von {{domxref("CanvasRenderingContext2D.drawImage", "drawImage()")}} verwendet werden, mit {{jsxref("Math.floor()")}}, beispielsweise.
+Dies zwingt den Browser, zusätzliche Berechnungen durchzuführen, um den Anti-Aliasing-Effekt zu erzeugen. Um dies zu vermeiden, stellen Sie sicher, dass Sie alle in Aufrufen von [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) verwendeten Koordinaten mit {{jsxref("Math.floor()")}} runden.
 
 ### Skalieren Sie keine Bilder in `drawImage`
 
-Zwischenspeichern Sie verschiedene Größen Ihrer Bilder auf einer Offscreen-Zeichenfläche beim Laden, anstatt sie ständig in {{domxref("CanvasRenderingContext2D.drawImage", "drawImage()")}} zu skalieren.
+Zwischenspeichern von verschiedenen Größen Ihrer Bilder auf einem Offscreen-Canvas beim Laden, anstatt sie ständig in [`drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) zu skalieren.
 
-### Verwenden Sie mehrere übereinanderliegende Zeichenflächen für komplexe Szenen
+### Verwenden Sie mehrere überlagerte Canvases für komplexe Szenen
 
-In Ihrer Anwendung stellen Sie möglicherweise fest, dass einige Objekte häufig bewegt oder geändert werden müssen, während andere relativ statisch bleiben. Eine mögliche Optimierung in dieser Situation ist das Schichten Ihrer Elemente mithilfe mehrerer `<canvas>`-Elemente.
+In Ihrer Anwendung stellen Sie möglicherweise fest, dass einige Objekte häufig bewegt oder geändert werden müssen, während andere relativ statisch bleiben. Eine mögliche Optimierung in diesem Fall ist es, Ihre Elemente mithilfe mehrerer `<canvas>`-Elemente zu schichten.
 
-Beispielsweise könnten Sie ein Spiel mit einer Benutzeroberfläche oben, der Spielhandlung in der Mitte und einem statischen Hintergrund unten haben. In diesem Fall könnten Sie Ihr Spiel in drei `<canvas>`-Schichten aufteilen. Die Benutzeroberfläche würde sich nur bei Benutzereingaben ändern, die Spielebene würde sich mit jedem neuen Rahmen ändern und der Hintergrund bliebe im Allgemeinen unverändert.
+Zum Beispiel: Angenommen, Sie haben ein Spiel mit einer Benutzeroberfläche oben, der Spielaktion in der Mitte und einem statischen Hintergrund unten. In diesem Fall könnten Sie Ihr Spiel in drei `<canvas>`-Schichten aufteilen. Die Benutzeroberfläche würde sich nur bei Benutzereingaben ändern, die Spielschicht würde sich mit jedem neuen Frame ändern und der Hintergrund bliebe im Allgemeinen unverändert.
 
 ```html
 <div id="stage">
@@ -75,13 +75,13 @@ Beispielsweise könnten Sie ein Spiel mit einer Benutzeroberfläche oben, der Sp
 </style>
 ```
 
-### Verwenden Sie reines CSS für große Hintergrundbilder
+### Verwenden Sie einfaches CSS für große Hintergrundbilder
 
-Wenn Sie ein statisches Hintergrundbild haben, können Sie es mit der CSS-Eigenschaft {{cssxref("background")}} auf einem einfachen {{HTMLElement("div")}}-Element zeichnen und es unter der Zeichenfläche positionieren. Dies negiert die Notwendigkeit, den Hintergrund bei jedem Takt auf die Zeichenfläche zu rendern.
+Wenn Sie ein statisches Hintergrundbild haben, können Sie es auf einem einfachen `<div>`-Element mit der CSS-Eigenschaft {{cssxref("background")}} zeichnen und es unter dem Canvas positionieren. Dies negiert die Notwendigkeit, den Hintergrund in jedem Takt auf das Canvas zu rendern.
 
-### Skalieren der Zeichenfläche mit CSS-Transformationen
+### Skalierung des Canvas mit CSS-Transformationen
 
-[CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms) sind schneller, da sie die GPU verwenden. Der beste Fall ist, die Zeichenfläche nicht zu skalieren oder eine kleinere Zeichenfläche zu haben und diese hochzuskalieren, anstatt eine größere Zeichenfläche herunterzuskalieren.
+[CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms) sind schneller, da sie die GPU verwenden. Der beste Fall ist, das Canvas nicht zu skalieren oder ein kleineres Canvas hochzuskalieren, anstatt ein größeres herunterzuskalieren.
 
 ```js
 const scaleX = window.innerWidth / canvas.width;
@@ -90,13 +90,13 @@ const scaleY = window.innerHeight / canvas.height;
 const scaleToFit = Math.min(scaleX, scaleY);
 const scaleToCover = Math.max(scaleX, scaleY);
 
-stage.style.transformOrigin = "0 0"; // Skalierung von oben links
+stage.style.transformOrigin = "0 0"; //scale from top left
 stage.style.transform = `scale(${scaleToFit})`;
 ```
 
-### Deaktivieren Sie Transparenz
+### Transparenz ausschalten
 
-Wenn Ihre Anwendung eine Zeichenfläche verwendet und keinen transparenten Hintergrund benötigt, setzen Sie die `alpha`-Option auf `false`, wenn Sie einen Zeichenkontext mit {{domxref("HTMLCanvasElement.getContext()")}} erstellen. Diese Information kann vom Browser intern verwendet werden, um das Rendering zu optimieren.
+Wenn Ihre Anwendung Canvas verwendet und keinen transparenten Hintergrund benötigt, setzen Sie die `alpha`-Option auf `false`, wenn Sie einen Zeichenkontext mit [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) erstellen. Diese Information kann vom Browser intern zur Optimierung des Renderings verwendet werden.
 
 ```js
 const ctx = canvas.getContext("2d", { alpha: false });
@@ -104,35 +104,35 @@ const ctx = canvas.getContext("2d", { alpha: false });
 
 ### Skalierung für hochauflösende Displays
 
-Sie stellen möglicherweise fest, dass Zeichenflächenelemente auf hochauflösenden Displays unscharf erscheinen. Obwohl es viele Lösungen geben mag, ist ein einfacher erster Schritt, die Größe der Zeichenfläche gleichzeitig zu erhöhen und zu verringern, indem Sie deren Attribute, Styling und den Maßstab des Kontexts verwenden.
+Möglicherweise stellen Sie fest, dass Canvas-Elemente auf hochauflösenden Bildschirmen unscharf erscheinen. Während viele Lösungen existieren, ist ein einfacher erster Schritt, die Canvas-Größe gleichzeitig mit seinen Attributen, dem Styling und der Skalierung seines Kontexts zu vergrößern und zu verkleinern.
 
 ```js
-// Holen Sie sich den DPR und die Größe der Zeichenfläche
+// Get the DPR and size of the canvas
 const dpr = window.devicePixelRatio;
 const rect = canvas.getBoundingClientRect();
 
-// Legen Sie die "tatsächliche" Größe der Zeichenfläche fest
+// Set the "actual" size of the canvas
 canvas.width = rect.width * dpr;
 canvas.height = rect.height * dpr;
 
-// Skalieren Sie den Kontext, um korrekte Zeichenoperationen sicherzustellen
+// Scale the context to ensure correct drawing operations
 ctx.scale(dpr, dpr);
 
-// Legen Sie die "gezeichnete" Größe der Zeichenfläche fest
+// Set the "drawn" size of the canvas
 canvas.style.width = `${rect.width}px`;
 canvas.style.height = `${rect.height}px`;
 ```
 
 ### Weitere Tipps
 
-- Gruppieren Sie Zeichenflächenaufrufe. Zeichnen Sie zum Beispiel eine Polylinie anstelle mehrerer separater Linien.
-- Vermeiden Sie unnötige Zustandsänderungen der Zeichenfläche.
+- Bündeln Sie Canvas-Aufrufe zusammen. Zeichnen Sie beispielsweise eine Polylinie anstatt mehrere separate Linien.
+- Vermeiden Sie unnötige Canvas-Zustandsänderungen.
 - Rendern Sie nur Bildschirmunterschiede, nicht den gesamten neuen Zustand.
-- Vermeiden Sie die {{domxref("CanvasRenderingContext2D.shadowBlur", "shadowBlur")}}-Eigenschaft wann immer möglich.
+- Vermeiden Sie die Eigenschaft [`shadowBlur`](/de/docs/Web/API/CanvasRenderingContext2D/shadowBlur) wann immer möglich.
 - Vermeiden Sie [Textrendering](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text) wann immer möglich.
-- Probieren Sie verschiedene Methoden zum Löschen der Zeichenfläche aus ({{domxref("CanvasRenderingContext2D.clearRect", "clearRect()")}} vs. {{domxref("CanvasRenderingContext2D.fillRect", "fillRect()")}} vs. Größenänderung der Zeichenfläche).
-- Bei Animationen verwenden Sie {{domxref("window.requestAnimationFrame()")}} statt {{domxref("setInterval()")}}.
-- Seien Sie vorsichtig mit schweren Physikbibliotheken.
+- Probieren Sie verschiedene Möglichkeiten aus, das Canvas zu löschen ([`clearRect()`](/de/docs/Web/API/CanvasRenderingContext2D/clearRect) vs. [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) vs. Neugröße des Canvas).
+- Verwenden Sie bei Animationen [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) anstelle von [`setInterval()`](/de/docs/Web/API/SetInterval).
+- Seien Sie vorsichtig mit schweren Physik-Bibliotheken.
 
 ## Siehe auch
 

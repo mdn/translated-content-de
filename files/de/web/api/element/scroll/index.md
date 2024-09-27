@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Die **`scroll()`** Methode der {{domxref("Element")}}-Schnittstelle scrollt das Element zu einem bestimmten Satz von Koordinaten innerhalb eines gegebenen Elements.
+Die **`scroll()`** Methode des [`Element`](/de/docs/Web/API/Element)
+Interfaces scrollt das Element zu einem bestimmten Satz von Koordinaten innerhalb eines
+gegebenen Elements.
 
 ## Syntax
 
@@ -20,20 +22,20 @@ scroll(options)
 ### Parameter
 
 - `xCoord`
-  - : Das Pixel entlang der horizontalen Achse des Elements, das Sie in der oberen linken Ecke anzeigen möchten.
+  - : Das Pixel entlang der horizontalen Achse des Elements, das in der oberen linken Ecke angezeigt werden soll.
 - `yCoord`
-  - : Das Pixel entlang der vertikalen Achse des Elements, das Sie in der oberen linken Ecke anzeigen möchten.
+  - : Das Pixel entlang der vertikalen Achse des Elements, das in der oberen linken Ecke angezeigt werden soll.
 - `options`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `top`
-      - : Gibt die Anzahl der Pixel entlang der Y-Achse an, um das Fenster oder Element zu scrollen.
+      - : Gibt die Anzahl der Pixel entlang der Y-Achse an, um die das Fenster oder Element scrollen soll.
     - `left`
-      - : Gibt die Anzahl der Pixel entlang der X-Achse an, um das Fenster oder Element zu scrollen.
+      - : Gibt die Anzahl der Pixel entlang der X-Achse an, um die das Fenster oder Element scrollen soll.
     - `behavior`
-      - : Bestimmt, ob das Scrollen sofort oder sanft animiert erfolgen soll. Diese Option ist ein String, der einen der folgenden Werte haben muss:
-        - `smooth`: scrolling sollte sanft animieren
-        - `instant`: scrolling sollte sofort in einem einzigen Sprung erfolgen
-        - `auto`: das Scrollverhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
+      - : Bestimmt, ob das Scrollen sofort oder sanft animiert erfolgt. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
+        - `smooth`: Scrollen sollte sanft animieren
+        - `instant`: Scrollen sollte sofort in einem einzigen Sprung erfolgen
+        - `auto`: Das Scrollverhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
 
 ### Rückgabewert
 
@@ -42,7 +44,7 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```js
-// Setzt das 1000. vertikale Pixel an die Spitze des Elements
+// Put the 1000th vertical pixel at the top of the element
 element.scroll(0, 1000);
 ```
 

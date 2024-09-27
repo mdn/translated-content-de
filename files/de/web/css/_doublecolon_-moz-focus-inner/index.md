@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}{{non-standard_header}}
 
-Das **`::-moz-focus-inner`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die einen inneren Fokusrahmen des {{HTMLElement("button")}}-Elements sowie der Typen {{HTMLElement("input/button","button")}}, {{HTMLElement("input/submit","submit")}}, {{HTMLElement("input/reset","reset")}} und {{HTMLElement("input/color","color")}} des {{HTMLElement("input")}}-Elements darstellt.
+Das **`::-moz-focus-inner`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die einen inneren Fokusrahmen des {{HTMLElement("button")}}-Elements darstellt, sowie der Typen {{HTMLElement("input/button","button")}}, {{HTMLElement("input/submit","submit")}}, {{HTMLElement("input/reset","reset")}} und {{HTMLElement("input/color","color")}} des {{HTMLElement("input")}}-Elements.
 
 > [!NOTE]
-> Die Verwendung von `::-moz-focus-inner` mit anderen als den unterstützten Schaltflächen bewirkt nichts und erzielt kein Ergebnis.
+> Die Verwendung von `::-moz-focus-inner` mit anderen als den unterstützten Tasten führt zu keiner Übereinstimmung und hat keine Wirkung.
 
 ## Syntax
 
@@ -50,7 +50,7 @@ input[type="submit"]::-moz-focus-inner {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Gehört zu keinem Standard.
 
 ## Browser-Kompatibilität
 

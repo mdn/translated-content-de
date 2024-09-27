@@ -1,5 +1,5 @@
 ---
-title: "XMLHttpRequest: Methode send()"
+title: "XMLHttpRequest: send()-Methode"
 short-title: send()
 slug: Web/API/XMLHttpRequest/send
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die {{domxref("XMLHttpRequest")}}-Methode **`send()`** sendet die Anfrage an den Server.
+Die [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Methode **`send()`** sendet die Anforderung an den Server.
 
-Wenn die Anfrage asynchron ist (was der Standard ist), kehrt diese Methode sofort zurück, sobald die Anfrage gesendet wurde, und das Ergebnis wird mithilfe von Ereignissen bereitgestellt. Wenn die Anfrage synchron ist, kehrt diese Methode erst zurück, wenn die Antwort eingetroffen ist.
+Wenn die Anforderung asynchron ist (was standardmäßig der Fall ist), kehrt diese Methode sofort zurück, sobald die Anforderung gesendet wird, und das Ergebnis wird mit Hilfe von Ereignissen geliefert. Wenn die Anforderung synchron ist, kehrt diese Methode erst zurück, wenn die Antwort eingetroffen ist.
 
-`send()` akzeptiert einen optionalen Parameter, mit dem Sie den Rumpf der Anfrage angeben können; dies wird hauptsächlich für Anfragen wie {{HTTPMethod("PUT")}} verwendet. Wenn die Anfragemethode {{HTTPMethod("GET")}} oder {{HTTPMethod("HEAD")}} ist, wird der Parameter `body` ignoriert und der Anfragerumpf wird auf `null` gesetzt.
+`send()` akzeptiert einen optionalen Parameter, mit dem Sie den Anforderungskörper spezifizieren können; dies wird hauptsächlich für Anforderungen wie {{HTTPMethod("PUT")}} verwendet. Wenn die Anforderungsmethode {{HTTPMethod("GET")}} oder {{HTTPMethod("HEAD")}} ist, wird der `body`-Parameter ignoriert und der Anforderungskörper wird auf `null` gesetzt.
 
-Wenn kein {{HTTPHeader("Accept")}}-Header mithilfe der {{domxref("XMLHttpRequest.setRequestHeader", "setRequestHeader()")}} gesetzt wurde, wird ein `Accept`-Header mit dem Typ `"*/*"` (jeder Typ) gesendet.
+Falls kein {{HTTPHeader("Accept")}}-Header durch die Methode [`setRequestHeader()`](/de/docs/Web/API/XMLHttpRequest/setRequestHeader) gesetzt wurde, wird ein `Accept`-Header mit dem Typ `"*/*"` (jeder Typ) gesendet.
 
 ## Syntax
 
@@ -27,15 +27,15 @@ send(body)
 
 - `body` {{optional_inline}}
 
-  - : Ein Datenrumpf, der in der XHR-Anfrage gesendet werden soll. Dies kann sein:
+  - : Ein Datenkörper, der in der XHR-Anforderung gesendet werden soll. Dies kann sein:
 
-    - Ein {{domxref("Document")}}, in welchem Fall es vor dem Senden serialisiert wird.
-    - Ein `XMLHttpRequestBodyInit`, was [laut der Fetch-Spezifikation](https://fetch.spec.whatwg.org/#typedefdef-xmlhttprequestbodyinit) ein {{domxref("Blob")}}, ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, ein {{jsxref("DataView")}}, ein {{domxref("FormData")}}, ein {{domxref("URLSearchParams")}} oder ein String sein kann.
+    - Ein [`Document`](/de/docs/Web/API/Document), in diesem Fall wird es vor dem Senden seriellisiert.
+    - Ein `XMLHttpRequestBodyInit`, das [laut dem Fetch-Spezifikation](https://fetch.spec.whatwg.org/#typedefdef-xmlhttprequestbodyinit) ein [`Blob`](/de/docs/Web/API/Blob), ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, ein {{jsxref("DataView")}}, ein [`FormData`](/de/docs/Web/API/FormData), ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) oder ein String sein kann.
     - `null`
 
-    Wenn kein Wert für den Rumpf angegeben wird, wird ein Standardwert von `null` verwendet.
+    Wenn kein Wert für den body angegeben ist, wird ein Standardwert von `null` verwendet.
 
-Der beste Weg, um binäre Inhalte zu senden (z. B. bei Datei-Uploads), ist die Verwendung eines {{jsxref("TypedArray")}}, eines {{jsxref("DataView")}} oder eines {{domxref("Blob")}}-Objekts in Verbindung mit der `send()`-Methode.
+Der beste Weg zum Senden von Binärinhalten (z.B. bei Dateiuploads) ist die Verwendung eines {{jsxref("TypedArray")}}, eines {{jsxref("DataView")}}- oder eines [`Blob`](/de/docs/Web/API/Blob)-Objekts in Verbindung mit der `send()`-Methode.
 
 ### Rückgabewert
 
@@ -43,9 +43,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `send()` bereits für die Anfrage aufgerufen wurde und/oder die Anfrage abgeschlossen ist.
-- `NetworkError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `send()` bereits für die Anforderung aufgerufen wurde und/oder die Anforderung abgeschlossen ist.
+- `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der abzurufende Ressourcentyp ein Blob ist und die Methode nicht `GET` ist.
 
 ## Beispiel: GET
@@ -71,11 +71,11 @@ xhr.send(null);
 const xhr = new XMLHttpRequest();
 xhr.open("POST", "/server", true);
 
-// Senden Sie die richtigen Header-Informationen mit der Anfrage
+// Send the proper header information along with the request
 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
 xhr.onreadystatechange = () => {
-  // Rufen Sie eine Funktion auf, wenn sich der Status ändert.
+  // Call a function when the state changes.
   if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
     // Request finished. Do processing here.
   }

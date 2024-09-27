@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: blendColor()-Methode"
+title: "WebGLRenderingContext: Methode blendColor()"
 short-title: blendColor()
 slug: Web/API/WebGLRenderingContext/blendColor
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.blendColor()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) wird verwendet, um die Quell- und Zielmischfaktoren festzulegen.
+Die **`WebGLRenderingContext.blendColor()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) wird verwendet, um die Blendfaktoren von Quelle und Ziel festzulegen.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ blendColor(red, green, blue, alpha)
 ### Parameter
 
 - `red`
-  - : Ein {{domxref("WebGL_API/Types", "GLclampf")}} für die rote Komponente im Bereich von 0 bis 1. Standardwert ist 0.
+  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types) für die rote Komponente im Bereich von 0 bis 1. Der Standardwert ist 0.
 - `green`
-  - : Ein {{domxref("WebGL_API/Types", "GLclampf")}} für die grüne Komponente im Bereich von 0 bis 1. Standardwert ist 0.
+  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types) für die grüne Komponente im Bereich von 0 bis 1. Der Standardwert ist 0.
 - `blue`
-  - : Ein {{domxref("WebGL_API/Types", "GLclampf")}} für die blaue Komponente im Bereich von 0 bis 1. Standardwert ist 0.
+  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types) für die blaue Komponente im Bereich von 0 bis 1. Der Standardwert ist 0.
 - `alpha`
-  - : Ein {{domxref("WebGL_API/Types", "GLclampf")}} für die Alphakomponente (Transparenz) im Bereich von 0 bis 1. Standardwert ist 0.
+  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types) für die Alphakomponente (Transparenz) im Bereich von 0 bis 1. Der Standardwert ist 0.
 
 ### Rückgabewert
 
@@ -57,5 +57,5 @@ gl.getParameter(gl.BLEND_COLOR);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.blendEquation()")}}
-- {{domxref("WebGLRenderingContext.blendFunc()")}}
+- [`WebGLRenderingContext.blendEquation()`](/de/docs/Web/API/WebGLRenderingContext/blendEquation)
+- [`WebGLRenderingContext.blendFunc()`](/de/docs/Web/API/WebGLRenderingContext/blendFunc)

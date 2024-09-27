@@ -7,19 +7,19 @@ l10n:
 
 {{GlossarySidebar}}
 
-**{{Glossary("CSP")}} Fetch-Direktiven** werden in einem {{HTTPHeader("Content-Security-Policy")}}-Header verwendet und kontrollieren, von welchen Standorten bestimmte Ressourcentypen geladen werden dürfen. Beispielsweise erlaubt {{CSP("script-src")}} Entwicklern, vertrauenswürdige Quellen von Skripten auf einer Seite auszuführen, während {{CSP("font-src")}} die Quellen von Web-Schriften kontrolliert.
+**[CSP](/de/docs/Glossary/CSP) Fetch-Direktiven** werden in einem {{HTTPHeader("Content-Security-Policy")}} Header verwendet und kontrollieren, von welchen Standorten bestimmte Ressourcentypen geladen werden dürfen. Zum Beispiel erlaubt es {{CSP("script-src")}} Entwicklern, vertrauenswürdige Quellen von Skripten auf einer Seite auszuführen, während {{CSP("font-src")}} die Quellen von Webfonts kontrolliert.
 
-Alle Fetch-Direktiven greifen auf {{CSP("default-src")}} zurück. Das bedeutet, wenn eine Fetch-Direktive im CSP-Header fehlt, sucht der Benutzeragent nach der `default-src`-Direktive.
+Alle Fetch-Direktiven fallen auf {{CSP("default-src")}} zurück. Das bedeutet, dass, wenn eine Fetch-Direktive im CSP-Header fehlt, der Benutzeragent nach der `default-src` Direktive suchen wird.
 
-Sehen Sie sich die [Fetch-Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy#fetch_directives) für eine vollständige Liste an.
+Siehe [Fetch-Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy#fetch_directives) für eine vollständige Liste.
 
 ## Siehe auch
 
-- Verwandte Begriffe im Glossar:
-  - {{Glossary("CSP")}}
-  - {{Glossary("Reporting directive")}}
-  - {{Glossary("Document directive")}}
-  - {{Glossary("Navigation directive")}}
+- Verwandte Glossarbegriffe:
+  - [CSP](/de/docs/Glossary/CSP)
+  - [Reporting-Direktive](/de/docs/Glossary/Reporting_directive)
+  - [Document-Direktive](/de/docs/Glossary/Document_directive)
+  - [Navigation-Direktive](/de/docs/Glossary/Navigation_directive)
 - Referenz
   - <https://www.w3.org/TR/CSP/#directives-fetch>
   - {{HTTPHeader("Content-Security-Policy/upgrade-insecure-requests", "upgrade-insecure-requests")}}

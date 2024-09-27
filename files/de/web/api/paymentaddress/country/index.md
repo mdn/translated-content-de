@@ -8,17 +8,18 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte Eigenschaft **`country`** des {{domxref('PaymentAddress')}}-Interfaces ist ein String, der das Land der Adresse anhand des [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)-Standards identifiziert. Der String ist immer in seiner kanonischen Großschreibweise.
+Die schreibgeschützte **`country`**-Eigenschaft des
+[`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Interfaces ist ein String, der das Land der Adresse unter Verwendung des [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)-Standards identifiziert. Der String ist immer in seiner kanonischen Großbuchstabenform angegeben.
 
 Einige Beispiele für gültige `country`-Werte: `"US"`, `"GB"`, `"CN"` oder `"JP"`.
 
 ## Wert
 
-Ein String, der den ISO3166-1 alpha-2-Code enthält, der das Land identifiziert, in dem sich die Adresse befindet, oder ein leerer String, falls kein Land verfügbar ist, was häufig bedeuten kann "gleiches Land wie der Seitenbetreiber".
+Ein String, der den ISO 3166-1 alpha-2-Code enthält, der das Land identifiziert, in dem sich die Adresse befindet, oder ein leerer String, falls kein Land verfügbar ist, was häufig als "gleiches Land wie der Website-Besitzer" interpretiert werden kann.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Falls der Zahlungsdienstleister die Adresse validiert und feststellt, dass der Wert von `country` ungültig ist, wird ein Aufruf an {{domxref("PaymentRequestUpdateEvent.updateWith()")}} mit einem `details`-Objekt gemacht, das ein `shippingAddressErrors`-Feld enthält. Dieses Feld enthält ein Objekt, dessen `country`-Eigenschaft ein String ist, der den Validierungsfehler angibt, der aufgetreten ist, und, wenn möglich, Vorschläge, wie dieser behoben werden kann.
+Wenn der Payment-Handler die Adresse validiert und feststellt, dass der Wert von `country` ungültig ist, wird ein Aufruf von [`PaymentRequestUpdateEvent.updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith) mit einem `details`-Objekt durchgeführt, das ein `shippingAddressErrors`-Feld enthält. Dieses Feld enthält ein Objekt, dessen `country`-Eigenschaft einen String angibt, der den Validierungsfehler beschreibt und, wenn möglich, Vorschläge, wie dieser behoben werden kann.
 
 ## Browser-Kompatibilität
 
@@ -27,4 +28,4 @@ Falls der Zahlungsdienstleister die Adresse validiert und feststellt, dass der W
 ## Siehe auch
 
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- {{domxref("PaymentRequestUpdateEvent.updateWith")}}
+- [`PaymentRequestUpdateEvent.updateWith`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith)

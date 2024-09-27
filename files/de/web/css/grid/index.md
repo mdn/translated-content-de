@@ -1,5 +1,5 @@
 ---
-title: Raster
+title: grid
 slug: Web/CSS/grid
 l10n:
   sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
@@ -7,16 +7,16 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ist eine [Kurzform-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties), die alle expliziten und impliziten Rastereigenschaften in einer einzigen Deklaration festlegt.
+Die **`grid`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Kurzform für Eigenschaften](/de/docs/Web/CSS/Shorthand_properties), die alle expliziten und impliziten Gittereigenschaften in einer einzigen Deklaration festlegt.
 
-Mit `grid` können Sie eine Achse mit {{cssxref("grid-template-rows")}} oder {{cssxref("grid-template-columns")}} spezifizieren. Dann legen Sie fest, wie der Inhalt in der anderen Achse automatisch wiederholt werden soll, indem Sie die impliziten Rastereigenschaften verwenden: {{cssxref("grid-auto-rows")}}, {{cssxref("grid-auto-columns")}} und {{cssxref("grid-auto-flow")}}.
+Mit `grid` spezifizieren Sie eine Achse mithilfe von {{cssxref("grid-template-rows")}} oder {{cssxref("grid-template-columns")}}, und dann legen Sie fest, wie der Inhalt auf der anderen Achse automatisch wiederholt werden soll, indem Sie die impliziten Gittereigenschaften verwenden: {{cssxref("grid-auto-rows")}}, {{cssxref("grid-auto-columns")}} und {{cssxref("grid-auto-flow")}}.
 
 {{EmbedInteractiveExample("pages/css/grid.html")}}
 
 > [!NOTE]
-> Die Untereigenschaften, die Sie nicht spezifizieren, werden wie üblich bei Kurzformen auf ihren Anfangswert gesetzt. Auch die Rinneneigenschaften werden durch diese Kurzform NICHT zurückgesetzt.
+> Die nicht spezifizierten Untereigenschaften werden auf ihren Standardwert gesetzt, wie üblich bei Kurzformen. Auch die Spaltenabständeigenschaften werden durch diese Kurzform NICHT zurückgesetzt.
 
-## Zusammengesetzte Eigenschaften
+## Bestandteileigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -30,7 +30,7 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 ## Syntax
 
 ```css
-/* <'grid-template'> Werte */
+/* <'grid-template'> values */
 grid: none;
 grid: "a" 100px "b" 1fr;
 grid: [linename1] "a" 100px [linename2];
@@ -40,20 +40,20 @@ grid: 100px / 200px;
 grid: minmax(400px, min-content) / repeat(auto-fill, 50px);
 
 /* <'grid-template-rows'> /
-   [ auto-flow && dense? ] <'grid-auto-columns'>? Werte */
+   [ auto-flow && dense? ] <'grid-auto-columns'>? values */
 grid: 200px / auto-flow;
 grid: 30% / auto-flow dense;
 grid: repeat(3, [line1 line2 line3] 200px) / auto-flow 300px;
 grid: [line1] minmax(20em, max-content) / auto-flow dense 40%;
 
 /* [ auto-flow && dense? ] <'grid-auto-rows'>? /
-   <'grid-template-columns'> Werte */
+   <'grid-template-columns'> values */
 grid: auto-flow / 200px;
 grid: auto-flow dense / 30%;
 grid: auto-flow 300px / repeat(3, [line1 line2 line3] 200px);
 grid: auto-flow dense 40% / [line1] minmax(20em, max-content);
 
-/* Globale Werte */
+/* Global values */
 grid: inherit;
 grid: initial;
 grid: revert;
@@ -64,30 +64,30 @@ grid: unset;
 ### Werte
 
 - `<'grid-template'>`
-  - : Definiert die {{cssxref("grid-template")}} einschließlich {{cssxref("grid-template-columns")}}, {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-areas")}}.
+  - : Definiert das {{cssxref("grid-template")}}, einschließlich {{cssxref("grid-template-columns")}}, {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-areas")}}.
 - `<'grid-template-rows'> / [ auto-flow && dense? ] <'grid-auto-columns'>?`
 
-  - : Richtet einen Auto-Flow ein, indem die Spuren der Zeilen explizit über die {{cssxref("grid-template-rows")}}-Eigenschaft festgelegt werden (und die {{cssxref("grid-template-columns")}}-Eigenschaft auf `none` gesetzt wird) und spezifiziert, wie die Spuren der Spalten automatisch wiederholt werden sollen über {{cssxref("grid-auto-columns")}} (und {{cssxref("grid-auto-rows")}} auf `auto` gesetzt wird). {{cssxref("grid-auto-flow")}} wird entsprechend auf `column` gesetzt, mit `dense`, wenn es angegeben ist.
+  - : Richtet einen Auto-Flow ein, indem die Reihen-Tracks explizit über die {{cssxref("grid-template-rows")}} Eigenschaft festgelegt werden (und die {{cssxref("grid-template-columns")}} Eigenschaft auf `none` gesetzt wird) und spezifizieren, wie die Spalten-Tracks automatisch wiederholt werden sollen über {{cssxref("grid-auto-columns")}} (und setzen {{cssxref("grid-auto-rows")}} auf `auto`). {{cssxref("grid-auto-flow")}} wird entsprechend auf `column` gesetzt, mit `dense`, wenn es spezifiziert ist.
 
-    Alle anderen `grid`-Untereigenschaften werden auf ihre Anfangswerte zurückgesetzt.
+    Alle anderen `grid` Untereigenschaften werden auf ihre Standardwerte zurückgesetzt.
 
 - `[ auto-flow && dense? ] <'grid-auto-rows'>? / <'grid-template-columns'>`
 
-  - : Richtet einen Auto-Flow ein, indem die Spuren der Spalten explizit über die {{cssxref("grid-template-columns")}}-Eigenschaft festgelegt werden (und die {{cssxref("grid-template-rows")}}-Eigenschaft auf `none` gesetzt wird) und spezifiziert, wie die Spuren der Zeilen automatisch wiederholt werden sollen über {{cssxref("grid-auto-rows")}} (und {{cssxref("grid-auto-columns")}} auf `auto` gesetzt wird). {{cssxref("grid-auto-flow")}} wird entsprechend auf `row` gesetzt, mit `dense`, wenn es angegeben ist.
+  - : Richtet einen Auto-Flow ein, indem die Spalten-Tracks explizit über die {{cssxref("grid-template-columns")}} Eigenschaft festgelegt werden (und die {{cssxref("grid-template-rows")}} Eigenschaft auf `none` gesetzt wird) und spezifizieren, wie die Reihen-Tracks automatisch wiederholt werden sollen über {{cssxref("grid-auto-rows")}} (und setzen {{cssxref("grid-auto-columns")}} auf `auto`). {{cssxref("grid-auto-flow")}} wird entsprechend auf `row` gesetzt, mit `dense`, wenn es spezifiziert ist.
 
-    Alle anderen `grid`-Untereigenschaften werden auf ihre Anfangswerte zurückgesetzt.
+    Alle anderen `grid` Untereigenschaften werden auf ihre Standardwerte zurückgesetzt.
 
-## Formale Definition
+## Formelle Definition
 
 {{cssinfo}}
 
-## Formale Syntax
+## Formelle Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Erstellung eines Rasters
+### Erstellen eines Gitterlayouts
 
 #### HTML
 
@@ -140,5 +140,5 @@ grid: unset;
 - {{cssxref("grid-auto-columns")}}
 - {{cssxref("grid-auto-rows")}}
 - {{cssxref("grid-auto-flow")}}
-- [Linienbasiertes Platzieren mit CSS-Raster](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-- [Raster-Template-Bereiche: Rasterdefinition-Kurzformen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)
+- [Line-based placement with CSS grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
+- [Grid template areas: grid definition shorthands](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)

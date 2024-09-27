@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannel: Eigenschaft reliable"
+title: "RTCDataChannel: reliable-Eigenschaft"
 short-title: reliable
 slug: Web/API/RTCDataChannel/reliable
 l10n:
@@ -8,18 +8,19 @@ l10n:
 
 {{APIRef("WebRTC")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`reliable`** gibt an, ob der Datenkanal zuverlässig ist oder nicht.
+Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`reliable`** zeigt an, ob der Datenkanal zuverlässig ist oder nicht.
 
 > [!WARNING]
-> Diese Eigenschaft ist veraltet. Verwenden Sie stattdessen {{domxref("RTCDataChannel.ordered")}} in neuem Code, und aktualisieren Sie bestehenden Code so bald wie möglich.
+> Diese Eigenschaft ist veraltet. Verwenden Sie stattdessen [`RTCDataChannel.ordered`](/de/docs/Web/API/RTCDataChannel/ordered) in jedem neuen Code und aktualisieren Sie bestehenden Code so schnell wie möglich.
 
 ## Wert
 
-`true`, wenn die Verbindung des {{domxref("RTCDataChannel")}} zuverlässig ist; `false`, wenn sie es nicht ist.
+`true`, wenn die Verbindung von [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zuverlässig ist;
+`false`, wenn sie es nicht ist.
 
 ## Spezifikationen
 
-Nicht mehr Teil einer Spezifikation.
+Nicht länger Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -28,5 +29,5 @@ Nicht mehr Teil einer Spezifikation.
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCDataChannel")}}
-- {{domxref("RTCDataChannel.ordered")}}
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
+- [`RTCDataChannel.ordered`](/de/docs/Web/API/RTCDataChannel/ordered)

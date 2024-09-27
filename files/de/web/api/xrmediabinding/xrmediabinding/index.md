@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Der **`XRMediaBinding()`** Konstruktor erstellt und gibt ein neues {{domxref("XRMediaBinding")}} Objekt zurück.
+Der **`XRMediaBinding()`** Konstruktor erstellt und gibt ein neues [`XRMediaBinding`](/de/docs/Web/API/XRMediaBinding)-Objekt zurück.
 
 ## Syntax
 
@@ -19,26 +19,26 @@ new XRMediaBinding(session)
 ### Parameter
 
 - `session`
-  - : Ein {{domxref("XRSession")}} Objekt, das die WebXR-Sitzung angibt, für die die Medienbindung erstellt werden soll.
+  - : Ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt, das die WebXR-Sitzung angibt, für die die Medienbindung erstellt werden soll.
 
 ### Rückgabewert
 
-Ein neu erstelltes {{domxref("XRMediaBinding")}}.
+Ein neu erstelltes [`XRMediaBinding`](/de/docs/Web/API/XRMediaBinding).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird ausgelöst, wenn die neue `XRMediaBinding` aufgrund eines der möglichen Zustandsfehler nicht erstellt werden konnte:
+  - : Wird ausgelöst, wenn das neue `XRMediaBinding` aufgrund eines der möglichen Zustandsfehler nicht erstellt werden konnte:
 
-    - Die {{domxref("XRSession")}}, die durch `session` angegeben ist, wurde bereits gestoppt.
+    - Die durch `session` angegebene [`XRSession`](/de/docs/Web/API/XRSession) wurde bereits gestoppt.
     - Die angegebene `session` ist nicht immersiv.
 
 ## Beispiele
 
-### Erstellen einer neuen `XRMediaBinding`
+### Erstellen eines neuen `XRMediaBinding`
 
-Im folgenden Beispiel wird eine neue Medienbindung für eine Sitzung erstellt, um eine {{domxref("XRQuadLayer")}} zum Anzeigen einer Videolage in der Szene zu erstellen.
+Das folgende Beispiel erstellt eine neue Medienbindung für eine Sitzung, um eine [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer) zu erstellen, die eine Videolayer in der Szene anzeigt.
 
 ```js
 const xrMediaBinding = new XRMediaBinding(xrSession);
@@ -58,4 +58,4 @@ const layer = xrMediaBinding.createQuadLayer(video);
 
 ## Siehe auch
 
-- {{domxref("XRWebGLBinding")}}
+- [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)

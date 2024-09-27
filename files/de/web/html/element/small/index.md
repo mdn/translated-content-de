@@ -1,5 +1,5 @@
 ---
-title: "<small>: das Kommentar-Element"
+title: "<small>: das Seitentext-Element"
 slug: Web/HTML/Element/small
 l10n:
   sourceCommit: 533dc583856cfc95c1b9129335cd24793eac1093
@@ -7,13 +7,13 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<small>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert Nebenbemerkungen und Kleingedrucktes, wie Urheberrechts- und Rechtstexte, unabhängig von seiner gestylten Darstellung. Standardmäßig rendert es den Text innerhalb des Elements eine Schriftgröße kleiner, zum Beispiel von `small` zu `x-small`.
+Das **`<small>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert Seitentexte und Kleingedrucktes, wie Urheberrechts- und Rechtstexte, unabhängig von seiner gestylten Darstellung. Standardmäßig wird der darin enthaltene Text in einer Schriftgröße kleiner dargestellt, z.B. von `small` zu `x-small`.
 
 {{EmbedInteractiveExample("pages/tabbed/small.html", "tabbed-shorter")}}
 
 ## Attribute
 
-Dieses Element schließt nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes) ein.
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Beispiele
 
@@ -21,8 +21,8 @@ Dieses Element schließt nur die [globalen Attribute](/de/docs/Web/HTML/Global_a
 
 ```html
 <p>
-  Dies ist der erste Satz.
-  <small>Dieser gesamte Satz ist in kleinen Buchstaben.</small>
+  This is the first sentence.
+  <small>This whole sentence is in small letters.</small>
 </p>
 ```
 
@@ -34,8 +34,8 @@ Dieses Element schließt nur die [globalen Attribute](/de/docs/Web/HTML/Global_a
 
 ```html
 <p>
-  Dies ist der erste Satz.
-  <span style="font-size:0.8em">Dieser gesamte Satz ist in kleinen Buchstaben.</span>
+  This is the first sentence.
+  <span style="font-size:0.8em">This whole sentence is in small letters.</span>
 </p>
 ```
 
@@ -43,11 +43,11 @@ Dieses Element schließt nur die [globalen Attribute](/de/docs/Web/HTML/Global_a
 
 {{EmbedLiveSample("CSS_alternative")}}
 
-## Anmerkungen
+## Hinweise
 
-Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i")}}-Elemente, als Verletzung des Prinzips der Trennung zwischen Struktur und Präsentation angesehen werden kann, sind alle drei in HTML gültig. Autoren wird empfohlen, ihr bestes Urteilsvermögen zu verwenden, wenn sie entscheiden, ob sie `<small>` oder CSS verwenden.
+Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i")}}-Elemente, als Verstoß gegen das Prinzip der Trennung von Struktur und Präsentation angesehen werden kann, sind alle drei in HTML zulässig. Autoren sind aufgefordert, ihr bestes Urteilsvermögen zu nutzen, wenn sie entscheiden, ob sie `<small>` oder CSS verwenden.
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
@@ -59,10 +59,10 @@ Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >formulierender Inhalt</a
+          >Phrasierungsinhalt</a
         >.
       </td>
     </tr>
@@ -70,23 +70,23 @@ Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Formulierender Inhalt</a
+          >Phrasierungsinhalt</a
         >
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine; muss sowohl ein Start- als auch ein End-Tag haben.</td>
+      <td>Keine; muss sowohl einen Start- als auch einen End-Tag haben.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >formulierenden Inhalt</a
-        > akzeptiert, oder jedes Element, das
+          >Phrasierungsinhalt</a
+        > oder
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >fließenden Inhalt</a
+          >Flussinhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -102,11 +102,11 @@ Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Jede</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLElement")}}</td>
+      <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
 </table>
@@ -125,4 +125,4 @@ Obwohl das `<small>`-Element, wie die {{htmlelement("b")}}- und {{htmlelement("i
 - {{HTMLElement("sub")}} und {{HTMLElement("sup")}}
 - {{HTMLElement("font")}}
 - {{HTMLElement("style")}}
-- HTML 4.01 Spezifikation: [Schriftstile](https://www.w3.org/TR/html4/present/graphics.html#h-15.2)
+- HTML 4.01 Spezifikation: [Font Styles](https://www.w3.org/TR/html4/present/graphics.html#h-15.2)

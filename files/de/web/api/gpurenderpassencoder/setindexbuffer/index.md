@@ -1,14 +1,14 @@
 ---
-title: "GPURenderPassEncoder: Methode setIndexBuffer()"
+title: "GPURenderPassEncoder: setIndexBuffer()-Methode"
 short-title: setIndexBuffer()
 slug: Web/API/GPURenderPassEncoder/setIndexBuffer
 l10n:
-  sourceCommit: 0c3f18aca2c8a93d3982183f64bf7762c2c310b0
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setIndexBuffer()`**-Methode der {{domxref("GPURenderPassEncoder")}}-Schnittstelle setzt den aktuellen {{domxref("GPUBuffer")}}, der Indexdaten für nachfolgende Zeichnungskommandos bereitstellen wird.
+Die **`setIndexBuffer()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle legt den aktuellen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) fest, der die Indexdaten für nachfolgende Zeichenbefehle bereitstellen wird.
 
 ## Syntax
 
@@ -19,19 +19,19 @@ setIndexBuffer(buffer, indexFormat, offset, size)
 ### Parameter
 
 - `buffer`
-  - : Ein {{domxref("GPUBuffer")}}, der den Puffer darstellt, der die zu verwendenden Indexdaten für nachfolgende Zeichnungskommandos enthält.
+  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der den Puffer darstellt, der die Indexdaten enthält, die für nachfolgende Zeichenbefehle verwendet werden sollen.
 - `indexFormat`
-  - : Ein enumerierter Wert, der das Format der in `buffer` enthaltenen Indexdaten definiert. Mögliche Werte sind:
+  - : Ein enumerierter Wert, der das Format der im `buffer` enthaltenen Indexdaten definiert. Mögliche Werte sind:
     - `"uint16"`
     - `"uint32"`
 - `offset` {{optional_inline}}
-  - : Eine Zahl, die den Offset in Bytes in `buffer` darstellt, an dem die Indexdaten beginnen. Wenn nicht angegeben, ist der Standardwert für `offset` 0.
+  - : Eine Zahl, die den Offset in Bytes in `buffer` darstellt, an dem die Indexdaten beginnen. Wenn nicht angegeben, beträgt der Standardwert von `offset` 0.
 - `size` {{optional_inline}}
-  - : Eine Zahl, die die Größe in Bytes der in `buffer` enthaltenen Indexdaten darstellt. Wenn nicht angegeben, ist der Standardwert für `size` die `buffer`'s {{domxref("GPUBuffer.size")}} - `offset`.
+  - : Eine Zahl, die die Größe der im `buffer` enthaltenen Indexdaten in Bytes darstellt. Wenn nicht angegeben, beträgt der Standardwert von `size` die [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) des `buffer` minus `offset`.
 
-#### Hinweis zum indexFormat
+#### Hinweis zu indexFormat
 
-`indexFormat` bestimmt sowohl den Datentyp der Indexwerte in einem Puffer als auch, wenn es mit einer Pipeline verwendet wird, die eine Streifen-Primitiv-Topologie ("line-strip" oder "triangle-strip") spezifiziert, den Primitivneustartwert. Der Primitivneustartwert ist ein Indexwert, der anzeigt, dass ein neues Primitive gestartet werden soll, anstatt den Streifen mit den zuvor indizierten Vertices weiter zu konstruieren. Der Wert ist `0xFFFF` für `"uint16"` oder `0xFFFFFFFF` für `"uint32"`.
+`indexFormat` bestimmt sowohl den Datentyp der Indexwerte in einem Puffer als auch, wenn es mit einer Pipeline verwendet wird, die eine Strip-Primitive-Topologie spezifiziert (`"line-strip"` oder `"triangle-strip"`), den Primitive-Restart-Wert. Der Primitive-Restart-Wert ist ein Indexwert, der angibt, dass ein neues Primitive gestartet werden soll, anstatt den Strip mit den vorher indizierten Vertices fortzusetzen. Der Wert ist `0xFFFF` für `"uint16"` oder `0xFFFFFFFF` für `"uint32"`.
 
 ### Rückgabewert
 
@@ -39,15 +39,15 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`setIndexBuffer()`** aufgerufen wird, sonst wird ein {{domxref("GPUValidationError")}} generiert, und der {{domxref("GPURenderPassEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`setIndexBuffer()`** aufgerufen wird, da sonst ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert wird und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) ungültig wird:
 
-- `buffer`'s {{domxref("GPUBuffer.usage")}} enthält das `GPUBufferUsage.INDEX`-Flag.
-- `offset` + `size` ist kleiner oder gleich der `buffer`'s {{domxref("GPUBuffer.size")}}.
-- `offset` ist ein Vielfaches der Byte-Größe von `indexFormat` (2 für `"uint16"`, 4 für `"uint32"`).
+- [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) von `buffer` enthält das `GPUBufferUsage.INDEX`-Flag.
+- `offset` + `size` ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) des `buffer`.
+- `offset` ist ein Vielfaches der Bytegröße von `indexFormat` (2 für `"uint16"`, 4 für `"uint32"`).
 
 ## Beispiele
 
-Im WebGPU-Beispiel [Shadow Mapping](https://webgpu.github.io/webgpu-samples/samples/shadowMapping/) wird `setIndexBuffer()` in zwei separaten Render-Passes in jedem Animationsrahmen verwendet, eines zum Zeichnen des Hauptmodells und eines zum Zeichnen seines Schattens. Studieren Sie die Beispiel-Codeauflistung für den vollständigen Kontext.
+Im WebGPU-Samples-Beispiel [Schattenabbildung](https://webgpu.github.io/webgpu-samples/samples/shadowMapping/) wird `setIndexBuffer()` in zwei separaten Renderdurchgängen in jedem Animationsframe verwendet, einmal um das Hauptmodell zu zeichnen und einmal um seinen Schatten zu zeichnen. Studieren Sie die Beispiel-Codeliste für den vollständigen Kontext.
 
 ```js
 // ...

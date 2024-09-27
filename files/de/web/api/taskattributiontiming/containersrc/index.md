@@ -1,5 +1,5 @@
 ---
-title: "TaskAttributionTiming: containerSrc Eigenschaft"
+title: "TaskAttributionTiming: containerSrc-Eigenschaft"
 short-title: containerSrc
 slug: Web/API/TaskAttributionTiming/containerSrc
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`containerSrc`**-Eigenschaft des {{domxref("TaskAttributionTiming")}}-Interfaces gibt das `src`-Attribut des Containers zurück. Ein Container ist das iframe, embed oder object etc., das insgesamt für eine lange Aufgabe verantwortlich gemacht wird.
+Die schreibgeschützte Eigenschaft **`containerSrc`** der [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Schnittstelle gibt das `src`-Attribut des Containers zurück. Ein Container ist das `iframe`, `embed` oder `object` usw., das insgesamt für eine lange Aufgabe verantwortlich gemacht wird.
 
 ## Wert
 
-Ein String, der das `src`-Attribut des Containers enthält (z.B. [`<iframe src="url.html">`](/de/docs/Web/HTML/Element/iframe#src)).
+Ein String, der das `src`-Attribut des Containers enthält (z. B. [`<iframe src="url.html">`](/de/docs/Web/HTML/Element/iframe#src)).
 
 ## Spezifikationen
 

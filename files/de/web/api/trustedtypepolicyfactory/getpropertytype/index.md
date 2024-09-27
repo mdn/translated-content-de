@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`getPropertyType()`**-Methode der {{domxref("TrustedTypePolicyFactory")}}-Schnittstelle ermöglicht es Webentwicklern zu überprüfen, ob ein Trusted Type für eine Eigenschaft eines Elements erforderlich ist.
+Die **`getPropertyType()`**-Methode des [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Interfaces ermöglicht es Webentwicklern zu prüfen, ob ein Trusted Type für eine Eigenschaft eines Elements erforderlich ist.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ getPropertyType(tagName, property, elementNS)
 - `property`
   - : Ein String, der eine Eigenschaft enthält, zum Beispiel `"innerHTML"`.
 - `elementNS` {{optional_inline}}
-  - : Ein String, der einen Namespace enthält, bei Leerlassen wird standardmäßig der HTML-Namespace verwendet.
+  - : Ein String, der einen Namespace enthält; wenn leer, wird der HTML-Namespace standardmäßig verwendet.
 
 ### Rückgabewert
 
@@ -38,7 +38,7 @@ Oder, `null`.
 
 ## Beispiele
 
-In diesem Beispiel ergibt das Übergeben des {{htmlelement("div")}}-Elements und des `innerHTML`-Attributs an `getPropertyType()` den Wert "TrustedHTML".
+In diesem Beispiel führt das Übergeben des {{htmlelement("div")}}-Elements und des `innerHTML`-Attributs an `getPropertyType()` zur Rückgabe von "TrustedHTML".
 
 ```js
 console.log(trustedTypes.getPropertyType("div", "innerHTML")); // "TrustedHTML"

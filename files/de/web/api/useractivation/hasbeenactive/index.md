@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`hasBeenActive`**-Eigenschaft der {{domxref("UserActivation")}}-Schnittstelle zeigt an, ob das aktuelle Fenster eine {{Glossary("sticky activation","stetige Benutzeraktivierung")}} hat.
+Die schreibgeschützte **`hasBeenActive`**-Eigenschaft der [`UserActivation`](/de/docs/Web/API/UserActivation)-Schnittstelle zeigt an, ob das aktuelle Fenster eine [sticky user activation](/de/docs/Glossary/sticky_activation) hat.
 
 ## Wert
 
@@ -16,13 +16,13 @@ Ein boolean.
 
 ## Beispiele
 
-### Überprüfen, ob jemals eine Benutzeraktion ausgeführt wurde
+### Überprüfung, ob eine Benutzeraktion jemals ausgeführt wurde
 
-Verwenden Sie die `hasBeenActive`-Eigenschaft, um zu überprüfen, ob der Benutzer seit dem Laden der Seite mit der Seite interagiert hat.
+Verwenden Sie die `hasBeenActive`-Eigenschaft, um zu überprüfen, ob der Benutzer seit dem Laden der Seite mit dieser interagiert hat.
 
 ```js
 if (navigator.userActivation.hasBeenActive) {
-  // fortfahren mit automatischem Abspielen einer Animation, zum Beispiel
+  // proceed with auto-playing an animation, for example
 }
 ```
 
@@ -36,6 +36,6 @@ if (navigator.userActivation.hasBeenActive) {
 
 ## Siehe auch
 
-- {{domxref("UserActivation")}}
-- {{domxref("UserActivation.isActive")}}
+- [`UserActivation`](/de/docs/Web/API/UserActivation)
+- [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive)
 - [Funktionen, die durch Benutzeraktivierung gesteuert werden](/de/docs/Web/Security/User_activation)

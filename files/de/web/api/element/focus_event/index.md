@@ -1,5 +1,5 @@
 ---
-title: "Element: focus-Ereignis"
+title: "Element: focus Event"
 short-title: focus
 slug: Web/API/Element/focus_event
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef}}
 
-Das **`focus`**-Ereignis wird ausgelöst, wenn ein Element den Fokus erhält. Das Ereignis wird nicht weitergeleitet, aber das darauf folgende {{domxref("Element/focusin_event", "focusin")}}-Ereignis wird weitergeleitet.
+Das **`focus`**-Ereignis wird ausgelöst, wenn ein Element den Fokus erhält. Das Ereignis wird nicht weitergeleitet, aber das nachfolgende [`focusin`](/de/docs/Web/API/Element/focusin_event) Ereignis wird weitergeleitet.
 
-Das Gegenteil von `focus` ist das {{domxref("Element/blur_event", "blur")}}-Ereignis, das ausgelöst wird, wenn das Element den Fokus _verliert_.
+Das Gegenteil von `focus` ist das [`blur`](/de/docs/Web/API/Element/blur_event) Ereignis, das ausgelöst wird, wenn das Element den Fokus _verloren_ hat.
 
-Das `focus`-Ereignis kann nicht abgebrochen werden.
+Das `focus`-Ereignis ist nicht abbrechbar.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignisbehandlereigenschaft fest.
 
 ```js
 addEventListener("focus", (event) => {});
@@ -26,15 +26,15 @@ onfocus = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("FocusEvent")}}. Erbt von {{domxref("UIEvent")}} und {{domxref("Event")}}.
+Ein [`FocusEvent`](/de/docs/Web/API/FocusEvent). Erbt von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("FocusEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil {{domxref("UIEvent")}}, und indirekt von {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil [`UIEvent`](/de/docs/Web/API/UIEvent) und indirekt von [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("FocusEvent.relatedTarget")}}
+- [`FocusEvent.relatedTarget`](/de/docs/Web/API/FocusEvent/relatedTarget)
   - : Das Element, das den Fokus verliert, falls vorhanden.
 
 ## Beispiele
@@ -74,9 +74,9 @@ password.addEventListener("blur", (event) => {
 
 {{EmbedLiveSample("Simple_example", '100%', '50px')}}
 
-### Ereignisdelegierung
+### Ereignisdelegation
 
-Es gibt zwei Möglichkeiten, die Ereignisdelegierung für dieses Ereignis zu implementieren: durch die Verwendung des {{domxref("Element/focusin_event", "focusin")}}-Ereignisses oder durch Setzen des `useCapture`-Parameters von {{domxref("EventTarget.addEventListener()", "addEventListener()")}} auf `true`.
+Es gibt zwei Möglichkeiten, die Ereignisdelegation für dieses Ereignis zu implementieren: durch Nutzung des [`focusin`](/de/docs/Web/API/Element/focusin_event) Ereignisses oder durch Setzen des `useCapture`-Parameters von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf `true`.
 
 #### HTML
 
@@ -129,7 +129,7 @@ form.addEventListener(
 
 ## Siehe auch
 
-- Die Methode {{domxref("HTMLElement.focus()")}}
-- Verwandte Ereignisse: {{domxref("Element/blur_event", "blur")}}, {{domxref("Element/focusin_event", "focusin")}}, {{domxref("Element/focusout_event", "focusout")}}
-- Dieses Ereignis bei `Window`-Zielen: {{domxref("Window/focus_event", "focus")}}-Ereignis
+- Die Methode [`HTMLElement.focus()`](/de/docs/Web/API/HTMLElement/focus)
+- Verwandte Ereignisse: [`blur`](/de/docs/Web/API/Element/blur_event), [`focusin`](/de/docs/Web/API/Element/focusin_event), [`focusout`](/de/docs/Web/API/Element/focusout_event)
+- Dieses Ereignis auf `Window`-Zielen: [`focus`](/de/docs/Web/API/Window/focus_event) Ereignis
 - [Focusing: focus/blur](https://javascript.info/focus-blur)

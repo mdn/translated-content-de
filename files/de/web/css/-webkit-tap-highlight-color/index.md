@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-**`-webkit-tap-highlight-color`** ist eine nicht standardisierte CSS-Eigenschaft, die die Farbe des Highlights festlegt, das über einem Link erscheint, während er angetippt wird. Das Highlight zeigt dem Benutzer, dass sein Tipp erfolgreich erkannt wird, und zeigt an, auf welches Element er tippt.
+**`-webkit-tap-highlight-color`** ist eine nicht standardisierte CSS-Eigenschaft, die die Farbe des Highlights festlegt, das über einem Link erscheint, während darauf getippt wird. Das Highlight zeigt dem Benutzer an, dass sein Tipp erfolgreich erkannt wird und welches Element er anvisiert.
 
 ## Syntax
 
 ```css
 -webkit-tap-highlight-color: red;
--webkit-tap-highlight-color: transparent; /* zum Entfernen des Highlights */
+-webkit-tap-highlight-color: transparent; /* for removing the highlight */
 
-/* Globale Werte */
+/* Global values */
 -webkit-tap-highlight-color: inherit;
 -webkit-tap-highlight-color: initial;
 -webkit-tap-highlight-color: revert;
@@ -40,7 +40,7 @@ Ein {{Cssxref("&lt;color&gt;")}}.
 
 ## Spezifikationen
 
-Kein Teil eines Standards. Apple hat [eine Beschreibung im Safari Web Content Guide](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW5).
+Nicht Teil eines Standards. Apple hat [eine Beschreibung im Safari Web Content Leitfaden](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html#//apple_ref/doc/uid/TP40006510-SW5).
 
 ## Browser-Kompatibilität
 

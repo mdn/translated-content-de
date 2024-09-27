@@ -7,32 +7,32 @@ l10n:
 
 {{CSSRef}}
 
-Die **`scroll-snap-type`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie strikt die Snap-Punkte in einem Scroll-Container erzwungen werden, falls vorhanden.
+Die **`scroll-snap-type`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie strikt Snap-Punkte im Scroll-Container durchgesetzt werden, falls ein solcher existiert.
 
 {{EmbedInteractiveExample("pages/css/scroll-snap-type.html")}}
 
-Die genaue Animation oder Physik, die zur Durchsetzung dieser Snap-Punkte verwendet wird, wird nicht durch diese Eigenschaft festgelegt, sondern dem Benutzeragenten überlassen.
+Die Angabe genauer Animationen oder physikalischer Eigenschaften, die zur Durchsetzung dieser Snap-Punkte verwendet werden, ist nicht durch diese Eigenschaft abgedeckt, sondern dem Benutzeragenten überlassen.
 
 ## Syntax
 
 ```css
-/* Kein Snapping */
+/* No snapping */
 scroll-snap-type: none;
 
-/* Schlüsselwortwerte für Snap-Achsen */
+/* Keyword values for snap axes */
 scroll-snap-type: x;
 scroll-snap-type: y;
 scroll-snap-type: block;
 scroll-snap-type: inline;
 scroll-snap-type: both;
 
-/* Optionale Schlüsselwortwerte für Snap-Striktheit */
+/* Optional keyword values for snap strictness */
 /* mandatory | proximity */
 scroll-snap-type: x mandatory;
 scroll-snap-type: y proximity;
 scroll-snap-type: both mandatory;
 
-/* Globale Werte */
+/* Global values */
 scroll-snap-type: inherit;
 scroll-snap-type: initial;
 scroll-snap-type: revert;
@@ -43,24 +43,24 @@ scroll-snap-type: unset;
 ### Werte
 
 - `none`
-  - : Wenn das visuelle {{Glossary("viewport")}} dieses Scroll-Containers gescrollt wird, muss es Snap-Punkte ignorieren.
+  - : Wenn der visuelle [Viewport](/de/docs/Glossary/viewport) dieses Scroll-Containers gescrollt wird, muss er Snap-Punkte ignorieren.
 - `x`
-  - : Der Scroll-Container snappt nur zu Snap-Positionen entlang seiner horizontalen Achse.
+  - : Der Scroll-Container schnappt nur zu Snap-Positionen auf seiner horizontalen Achse.
 - `y`
-  - : Der Scroll-Container snappt nur zu Snap-Positionen entlang seiner vertikalen Achse.
+  - : Der Scroll-Container schnappt nur zu Snap-Positionen auf seiner vertikalen Achse.
 - `block`
-  - : Der Scroll-Container snappt nur zu Snap-Positionen entlang seiner Block-Achse.
+  - : Der Scroll-Container schnappt nur zu Snap-Positionen auf seiner Block-Achse.
 - `inline`
-  - : Der Scroll-Container snappt nur zu Snap-Positionen entlang seiner Inline-Achse.
+  - : Der Scroll-Container schnappt nur zu Snap-Positionen auf seiner Inline-Achse.
 - `both`
-  - : Der Scroll-Container snappt unabhängig entlang beider Achsen zu Snap-Positionen (möglicherweise snappt er zu unterschiedlichen Elementen in jeder Achse).
+  - : Der Scroll-Container schnappt unabhängig in beiden Achsen zu Snap-Positionen (möglicherweise schnappt er zu verschiedenen Elementen in jeder Achse).
 - `mandatory`
-  - : Das visuelle Viewport dieses Scroll-Containers muss zu einer Snap-Position snappen, wenn es nicht gerade gescrollt wird.
+  - : Der visuelle Viewport dieses Scroll-Containers muss zu einer Snap-Position schnappen, wenn er nicht aktuell gescrollt wird.
 - `proximity`
-  - : Das visuelle Viewport dieses Scroll-Containers kann zu einer Snap-Position snappen, wenn es nicht gerade gescrollt wird. Der Benutzeragent entscheidet basierend auf Scroll-Parametern, ob es snappt oder nicht. Dies ist die Standard-Snap-Striktheit, wenn eine Snap-Achse spezifiziert ist.
+  - : Der visuelle Viewport dieses Scroll-Containers kann zu einer Snap-Position schnappen, wenn er nicht aktuell gescrollt wird. Der Benutzeragent entscheidet, ob er schnappt oder nicht, basierend auf den Scroll-Parametern. Dies ist die standardmäßige Snap-Striktheit, wenn eine Snap-Achse angegeben ist.
 
 > [!NOTE]
-> Wenn sich der Inhalt im Snap-Port ändert (z. B. hinzugefügt, verschoben, gelöscht oder in der Größe verändert wird) oder der Wert einer scroll-snap-bezogenen Eigenschaft (z. B. `scroll-snap-type` oder `scroll-margin`) geändert wird, wird der Scroll-Container gemäß dem neuesten Wert von `scroll-snap-type` [wieder zurückgesetzt](https://drafts.csswg.org/css-scroll-snap/#re-snap).
+> Wenn sich der Inhalt im Snap-Port ändert (z.B. hinzugefügt, verschoben, gelöscht oder in der Größe verändert) oder der Wert einer scroll-snap-bezogenen Eigenschaft (z.B. `scroll-snap-type` oder `scroll-margin`) geändert wird, wird der Scroll-Container entsprechend dem neuesten Wert von `scroll-snap-type` [erneut geschnappt](https://drafts.csswg.org/css-scroll-snap/#re-snap).
 
 ## Formale Definition
 
@@ -72,7 +72,7 @@ scroll-snap-type: unset;
 
 ## Beispiele
 
-### Snapping in verschiedenen Achsen
+### Snappen in verschiedene Achsen
 
 #### HTML
 

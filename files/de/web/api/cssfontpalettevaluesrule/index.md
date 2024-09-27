@@ -7,37 +7,37 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSFontPaletteValuesRule`**-Schnittstelle repräsentiert eine {{cssxref("@font-palette-values")}} [at-rule](/de/docs/Web/CSS/At-rule).
+Die **`CSSFontPaletteValuesRule`** Schnittstelle repräsentiert eine {{cssxref("@font-palette-values")}} [At-Regel](/de/docs/Web/CSS/At-rule).
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Vorfahren {{domxref("CSSRule")}}._
+_Erbt Eigenschaften von ihrem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- {{domxref("CSSFontPaletteValuesRule.name")}} {{ReadOnlyInline}}
-  - : Ein String mit dem Namen der Schriftartpalette.
-- {{domxref("CSSFontPaletteValuesRule.fontFamily")}} {{ReadOnlyInline}}
+- [`CSSFontPaletteValuesRule.name`](/de/docs/Web/API/CSSFontPaletteValuesRule/name) {{ReadOnlyInline}}
+  - : Ein String mit dem Namen der Schriftpalette.
+- [`CSSFontPaletteValuesRule.fontFamily`](/de/docs/Web/API/CSSFontPaletteValuesRule/fontFamily) {{ReadOnlyInline}}
   - : Ein String, der die Schriftfamilien angibt, auf die die Regel angewendet werden muss.
-- {{domxref("CSSFontPaletteValuesRule.basePalette")}} {{ReadOnlyInline}}
-  - : Ein String, der die mit der Regel verknüpfte Grundpalette angibt.
-- {{domxref("CSSFontPaletteValuesRule.overrideColors")}} {{ReadOnlyInline}}
-  - : Ein String, der die Farben der überschriebenen Grundpalette und die neuen Farben angibt.
+- [`CSSFontPaletteValuesRule.basePalette`](/de/docs/Web/API/CSSFontPaletteValuesRule/basePalette) {{ReadOnlyInline}}
+  - : Ein String, der die mit der Regel verbundene Basis-Palette angibt.
+- [`CSSFontPaletteValuesRule.overrideColors`](/de/docs/Web/API/CSSFontPaletteValuesRule/overrideColors) {{ReadOnlyInline}}
+  - : Ein String, der die Farben der überschriebenen Basis-Palette und die neuen Farben angibt.
 
 ## Instanzmethoden
 
-_Erbt Methoden von seinem Vorfahren {{domxref("CSSRule")}}._
+_Erbt Methoden von ihrem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-### Zur zugehörigen Schriftfamilie mit CSSOM lesen
+### Zugehörige Schriftfamilie mit CSSOM lesen
 
-In diesem Beispiel wird zuerst eine {{cssxref("@import")}}- und eine {{cssxref("@font-palette-values")}}-At-Regel definiert. Anschließend wird die {{cssxref("@font-palette-values")}}-Regel gelesen und ihr Name angezeigt. Da diese Regeln im zuletzt zum Dokument hinzugefügten Stylesheet existieren, wird die Palette die zweite {{domxref("CSSRule")}} sein, die vom letzten Stylesheet im Dokument (`document.styleSheets[document.styleSheets.length-1].cssRules`) zurückgegeben wird. Daher gibt `rules[1]` ein `CSSFontPaletteValuesRule`-Objekt zurück, aus dem wir `fontFamily` abrufen können.
+Dieses Beispiel definiert zunächst eine {{cssxref("@import")}} und eine {{cssxref("@font-palette-values")}} At-Regel. Dann liest es die {{cssxref("@font-palette-values")}} Regel und zeigt ihren Namen an. Da diese Regeln im letzten zum Dokument hinzugefügten Stylesheet leben, wird die Palette die zweite [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die vom letzten Stylesheet im Dokument zurückgegeben wird (`document.styleSheets[document.styleSheets.length-1].cssRules`). Daher gibt `rules[1]` ein `CSSFontPaletteValuesRule` Objekt zurück, von dem wir `fontFamily` abrufen können.
 
 #### HTML
 
 ```html
-<pre id="log">Die @font-palette-values At-Regel Schriftfamilien:</pre>
+<pre id="log">The @font-palette-values at-rule font families:</pre>
 ```
 
 #### CSS
@@ -63,7 +63,7 @@ In diesem Beispiel wird zuerst eine {{cssxref("@import")}}- und eine {{cssxref("
 const log = document.getElementById("log");
 
 const rules = document.styleSheets[document.styleSheets.length - 1].cssRules;
-const fontPaletteValuesRule = rules[1]; // a CSSFontPaletteValuesRule interface
+const fontPaletteValuesRule = rules[1]; // aA CSSFontPaletteValuesRule interface
 log.textContent += ` ${fontPaletteValuesRule.fontFamily}`;
 ```
 

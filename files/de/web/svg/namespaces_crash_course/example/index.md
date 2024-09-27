@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-In diesem Beispiel verwenden wir [XHTML](/de/docs/Glossary/XHTML), [SVG](/de/docs/Web/SVG), [JavaScript](/de/docs/Web/JavaScript) und das [DOM](/de/docs/Web/API/Document_Object_Model), um einen Schwarm von "Motes" zu animieren. Diese Motes werden von zwei einfachen Prinzipien geleitet. Erstens versucht jedes Mote, sich in Richtung des Mauszeigers zu bewegen, und zweitens versucht jedes Mote, sich von der durchschnittlichen Position der Motes zu entfernen. Zusammen ergibt dies ein sehr natürlich wirkendes Verhalten.
+In diesem Beispiel verwenden wir [XHTML](/de/docs/Glossary/XHTML), [SVG](/de/docs/Web/SVG), [JavaScript](/de/docs/Web/JavaScript) und das [DOM](/de/docs/Web/API/Document_Object_Model), um einen Schwarm von "Partikeln" zu animieren. Diese Partikel werden von zwei einfachen Prinzipien gesteuert. Erstens versucht jedes Partikel, sich in Richtung des Mauszeigers zu bewegen, und zweitens versucht jedes Partikel, sich vom durchschnittlichen Partikelposition zu entfernen. Kombiniert ergibt dies ein sehr natürliches Verhalten.
 
-[Sehen Sie sich das Beispiel an](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). Das verlinkte Beispiel wurde mit den besten Praktiken von 2006 geschrieben. Das untenstehende Beispiel wurde auf moderne JavaScript-Praktiken aktualisiert. Beide funktionieren.
+[Beispiel ansehen](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). Das verlinkte Beispiel wurde mit den besten Praktiken von 2006 geschrieben. Das untenstehende Beispiel wurde auf moderne JavaScript-Best-Practices aktualisiert. Beide funktionieren.
 
 ```xml
 <?xml version='1.0'?>
@@ -45,11 +45,11 @@ In diesem Beispiel verwenden wir [XHTML](/de/docs/Glossary/XHTML), [SVG](/de/doc
 cy='150' r='7' fill='#0000ff' fill-opacity='0.5'/>
     </svg:svg>
 
-    <p>Ein Schwarm von Motes, geleitet von zwei einfachen Prinzipien.
-    Erstens versucht jedes Mote, sich dem Cursor anzunähern, und
-    zweitens versucht jedes Mote, sich von der durchschnittlichen
-    Mote-Position zu entfernen. Zusammen ergibt dies dieses sehr
-    natürlich wirkende Verhalten.
+    <p>A swarm of motes, governed by two simple principles.
+    First, each mote tries to move towards the cursor, and
+    second each mote tries to move away from the average
+    mote position. Combined, we get this very natural
+    looking behavior.
     </p>
 
     <div>
@@ -63,8 +63,8 @@ cy='150' r='7' fill='#0000ff' fill-opacity='0.5'/>
       document.getElementById('emailme').href = 'mailto:'+email;
     ]]>
     </script>
-    Diese Software ist frei für Sie zu nutzen, in jeglicher Weise,
-    und kommt mit keinerlei Gewährleistung.
+    This software is free for you to use in any way whatsoever,
+    and comes with no warranty at all.
     </div>
 
     <form action="" onsubmit="return false;">

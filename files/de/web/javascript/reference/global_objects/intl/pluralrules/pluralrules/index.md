@@ -1,5 +1,5 @@
 ---
-title: Intl.PluralRules()-Konstruktor
+title: Intl.PluralRules() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules
 l10n:
   sourceCommit: 21d44fab158378a975fd89ec37e46ec68a411bf2
@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`Intl.PluralRules()`**-Konstruktor erstellt {{jsxref("Intl.PluralRules")}}-Objekte.
+Der **`Intl.PluralRules()`** Konstruktor erstellt {{jsxref("Intl.PluralRules")}} Objekte.
 
 ## Syntax
 
@@ -17,26 +17,28 @@ new Intl.PluralRules(locales)
 new Intl.PluralRules(locales, options)
 ```
 
-> **Note:** `Intl.PluralRules()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> **Note:** `Intl.PluralRules()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, ihn ohne `new` aufzurufen, wirft einen {{jsxref("TypeError")}}.
 
 ### Parameter
 
 - `locales` {{optional_inline}}
-  - : Ein String mit einem BCP 47-Sprachcode oder eine {{jsxref("Intl.Locale")}}-Instanz, oder ein Array solcher Sprachbezeichner. Die Standard-Sprache der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder wenn keiner der angegebenen Sprachbezeichner unterstützt wird. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+
+  - : Ein String mit einem BCP 47 Sprach-Tag oder eine {{jsxref("Intl.Locale")}} Instanz, oder ein Array solcher Locale-Identifikatoren. Die Standard-Locale der Laufzeit wird verwendet, wenn `undefined` übergeben wird oder wenn keiner der angegebenen Locale-Identifikatoren unterstützt wird. Für die allgemeine Form und Interpretation des `locales` Arguments siehe [die Parameterbeschreibung auf der Hauptseite von `Intl`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+
 - `options` {{optional_inline}}
 
   - : Ein Objekt, das die folgenden Eigenschaften enthält, in der Reihenfolge, in der sie abgerufen werden (alle sind optional):
 
     - `localeMatcher`
-      - : Der zu verwendende Sprachabgleich-Algorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Informationen zu dieser Option finden Sie unter [Sprachidentifikation und -verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+      - : Der Locale-Abgleichsalgorithmus, der verwendet werden soll. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Für Informationen zu dieser Option siehe [Locale-Identifikation und -Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
     - `type`
-      - : Der zu verwendende Typ. Mögliche Werte sind:
+      - : Der Typ, der verwendet werden soll. Mögliche Werte sind:
         - `"cardinal"` (Standard)
-          - : Für Kardinalzahlen (Bezug auf die Anzahl der Dinge).
+          - : Für Kardinalzahlen (bezieht sich auf die Menge der Dinge).
         - `"ordinal"`
-          - : Für Ordinalzahlen (Bezug auf die Ordnung oder Rangfolge von Dingen, z. B. "1st", "2nd", "3rd" im Englischen).
+          - : Für Ordinalzahlen (bezieht sich auf die Reihenfolge oder Rangordnung der Dinge, z.B. "1st", "2nd", "3rd" auf Englisch).
 
-    `Intl.PluralRules` unterstützt auch die [Ziffernoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options) von `Intl.NumberFormat()` (siehe `Intl.NumberFormat()` für Details):
+    `Intl.PluralRules` unterstützt auch die `Intl.NumberFormat()` [Ziffernoptionen](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#digit_options) (siehe `Intl.NumberFormat()` für Details):
 
     - `minimumIntegerDigits`
     - `minimumFractionDigits`
@@ -47,7 +49,7 @@ new Intl.PluralRules(locales, options)
     - `roundingIncrement`
     - `roundingMode`
 
-    Diese Optionen werden so interpretiert, als ob die `notation`-Option von `Intl.NumberFormat` `"standard"` ist und `style` `"decimal"` ist.
+    Diese Optionen werden so interpretiert, als wäre die `notation` Option von `Intl.NumberFormat` `"standard"` und `style` wäre `"decimal"`.
 
 ### Ausnahmen
 
@@ -58,22 +60,21 @@ new Intl.PluralRules(locales, options)
 
 ### Grundlegende Verwendung
 
-Bei der grundlegenden Verwendung ohne Angabe einer Sprache wird ein formatierter String in der Standard-Sprache und mit den Standardoptionen zurückgegeben. Dies ist nützlich, um zwischen Singular- und Pluralformen zu unterscheiden, z. B. "Hund" und "Hunde".
+Bei der grundlegenden Verwendung ohne Angabe einer Locale wird eine formatierte Zeichenkette in der Standard-Locale und mit den Standardoptionen zurückgegeben. Dies ist nützlich, um zwischen Singular- und Pluralformen zu unterscheiden, z.B. "dog" und "dogs".
 
 ```js
 const pr = new Intl.PluralRules();
 
-pr.select(0); // 'other' in der US-amerikanischen Englisch-Sprache
+pr.select(0); // 'other' if in US English locale
 
-pr.select(1); // 'one' in der US-amerikanischen Englisch-Sprache
+pr.select(1); // 'one' if in US English locale
 
-pr.select(2); // 'other' in der US-amerikanischen Englisch-Sprache
+pr.select(2); // 'other' if in US English locale
 ```
 
 ### Verwendung von Optionen
 
-Die Ergebnisse können mit dem `options`-Argument angepasst werden, das eine Eigenschaft namens `type` hat, die Sie auf `ordinal` setzen können. Dies ist nützlich, um den Ordinal-Indikator zu ermitteln, z. B. "1st", "2nd", "3rd", "4th", "42nd"
-und so weiter.
+Die Ergebnisse können mit dem `options` Argument angepasst werden, das eine Eigenschaft namens `type` hat, die auf `ordinal` gesetzt werden kann. Dies ist nützlich, um den Ordinalindikator herauszufinden, z.B. "1st", "2nd", "3rd", "4th", "42nd" und so weiter.
 
 ```js
 const pr = new Intl.PluralRules("en-US", { type: "ordinal" });

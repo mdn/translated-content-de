@@ -8,13 +8,13 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`Selection.isCollapsed`** gibt einen booleschen Wert zurück, der anzeigt, ob derzeit Text ausgewählt ist oder nicht. Kein Text ist ausgewählt, wenn die Start- und Endpunkte der Auswahl an derselben Position im Inhalt liegen.
+Die schreibgeschützte **`Selection.isCollapsed`**-Eigenschaft gibt einen booleschen Wert zurück, der angibt, ob derzeit Text ausgewählt ist oder nicht. Kein Text ist ausgewählt, wenn die Anfangs- und Endpunkte der Auswahl an derselben Position im Inhalt liegen.
 
-Beachten Sie, dass eine zusammengeklappte Auswahl immer noch ein oder mehrere (in Gecko) {{domxref("Range")}}s enthalten kann, sodass {{domxref("Selection.rangeCount")}} möglicherweise nicht null ist. In diesem Fall kann das Aufrufen der {{domxref("Selection")}}-Objektmethode {{domxref("Selection.getRangeAt", "getRangeAt()")}} ein `Range`-Objekt zurückgeben, das zusammengeklappt ist.
+Beachten Sie, dass eine zusammengeklappte Auswahl dennoch ein (oder mehr, in Gecko) [`Range`](/de/docs/Web/API/Range)s haben kann, sodass [`Selection.rangeCount`](/de/docs/Web/API/Selection/rangeCount) möglicherweise nicht null ist. In diesem Szenario kann der Aufruf der [`Selection`](/de/docs/Web/API/Selection)-Objektmethode [`getRangeAt()`](/de/docs/Web/API/Selection/getRangeAt) ein `Range`-Objekt zurückgeben, das zusammengeklappt ist.
 
 ## Wert
 
-Ein Boolescher Wert.
+Ein boolescher Wert.
 
 ## Spezifikationen
 
@@ -26,5 +26,5 @@ Ein Boolescher Wert.
 
 ## Siehe auch
 
-- {{domxref("Selection")}}
-- {{domxref("Range")}}
+- [`Selection`](/de/docs/Web/API/Selection)
+- [`Range`](/de/docs/Web/API/Range)

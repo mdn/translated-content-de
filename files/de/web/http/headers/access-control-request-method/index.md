@@ -7,17 +7,17 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Access-Control-Request-Method`** Anforderungsheader wird von Browsern verwendet, wenn eine {{glossary("preflight request", "Vorab-Anfrage")}} gestellt wird, um dem Server mitzuteilen, welche [HTTP-Methode](/de/docs/Web/HTTP/Methods) bei der tatsächlichen Anfrage verwendet wird. Dieser Header ist notwendig, da die Vorab-Anfrage immer eine {{HTTPMethod("OPTIONS")}} ist und nicht dieselbe Methode wie die tatsächliche Anfrage verwendet.
+Der **`Access-Control-Request-Method`** Anforderungsheader wird von Browsern verwendet, wenn sie eine [Vorabanfrage](/de/docs/Glossary/preflight_request) stellen, um dem Server mitzuteilen, welche [HTTP-Methode](/de/docs/Web/HTTP/Methods) bei der tatsächlichen Anfrage verwendet wird. Dieser Header ist notwendig, da die Vorabanfrage immer eine {{HTTPMethod("OPTIONS")}} ist und nicht die gleiche Methode wie die tatsächliche Anfrage verwendet.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request header", "Anforderungsheader")}}</td>
+      <td>[Anforderungsheader](/de/docs/Glossary/Request_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name", "Verbotener Header-Name")}}</th>
-      <td>yes</td>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <td>ja</td>
     </tr>
   </tbody>
 </table>

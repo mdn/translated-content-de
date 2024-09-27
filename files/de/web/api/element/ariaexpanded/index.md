@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaExpanded`**-Eigenschaft des {{domxref("Element")}}-Interfaces spiegelt den Wert des [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)-Attributs wider, welches angibt, ob ein Gruppierungselement, das von diesem Element besessen oder kontrolliert wird, erweitert oder reduziert ist.
+Die **`ariaExpanded`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)-Attributs wider, welches angibt, ob ein von diesem Element besessenes oder kontrolliertes Gruppierungselement erweitert oder reduziert ist.
 
 ## Wert
 
@@ -23,7 +23,7 @@ Ein String mit einem der folgenden Werte:
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-expanded`-Attribut des Elements mit der ID `animal` auf "false" gesetzt. Mithilfe von `ariaExpanded` aktualisieren wir den Wert auf "true".
+In diesem Beispiel wird das `aria-expanded`-Attribut des Elements mit der ID `animal` auf "false" gesetzt. Mit `ariaExpanded` aktualisieren wir den Wert auf "true".
 
 ```html
 <div class="animals-combobox">

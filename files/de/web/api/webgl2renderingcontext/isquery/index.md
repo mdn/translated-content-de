@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: isQuery()-Methode"
+title: "WebGL2RenderingContext: isQuery() Methode"
 short-title: isQuery()
 slug: Web/API/WebGL2RenderingContext/isQuery
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.isQuery()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein gültiges {{domxref("WebGLQuery")}}-Objekt ist.
+Die **`WebGL2RenderingContext.isQuery()`** Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn das übergebene Objekt ein gültiges [`WebGLQuery`](/de/docs/Web/API/WebGLQuery) Objekt ist.
 
 ## Syntax
 
@@ -19,15 +19,16 @@ isQuery(query)
 ### Parameter
 
 - `query`
-  - : Ein {{domxref("WebGLQuery")}}-Objekt, das geprüft werden soll.
+  - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery) Objekt zum Testen.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob das gegebene Objekt ein gültiges {{domxref("WebGLQuery")}}-Objekt (`true`) ist oder nicht (`false`).
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), das angibt, ob das gegebene Objekt ein gültiges [`WebGLQuery`](/de/docs/Web/API/WebGLQuery) Objekt ist (`true`) oder nicht (`false`).
 
 ## Beispiele
 
-`gl` muss ein {{domxref("WebGL2RenderingContext")}} sein. `WebGLQuery`-Objekte sind in WebGL 1 nicht verfügbar.
+`gl` muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein.
+`WebGLQuery` Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
 const query = gl.createQuery();
@@ -47,4 +48,4 @@ gl.isQuery(query);
 
 ## Siehe auch
 
-- {{domxref("WebGLQuery")}}
+- [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)

@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.validateProgram()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) validiert ein {{domxref("WebGLProgram")}}. Sie prüft, ob es erfolgreich verknüpft wurde und im aktuellen WebGL-Zustand verwendet werden kann.
+Die **`WebGLRenderingContext.validateProgram()`**-Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) validiert ein
+[`WebGLProgram`](/de/docs/Web/API/WebGLProgram). Sie überprüft, ob es erfolgreich verknüpft ist und ob es im aktuellen WebGL-Zustand verwendet werden kann.
 
 ## Syntax
 
@@ -19,7 +21,7 @@ validateProgram(program)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}} zur Validierung.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) zum Validieren.
 
 ### Rückgabewert
 
@@ -30,7 +32,7 @@ Keiner ({{jsxref("undefined")}}).
 ```js
 const program = gl.createProgram();
 
-// Vorhandene Shader anhängen
+// Attach pre-existing shaders
 gl.attachShader(program, vertexShader);
 gl.attachShader(program, fragmentShader);
 
@@ -55,10 +57,10 @@ gl.useProgram(program);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.createProgram()")}}
-- {{domxref("WebGLRenderingContext.deleteProgram()")}}
-- {{domxref("WebGLRenderingContext.isProgram()")}}
-- {{domxref("WebGLRenderingContext.linkProgram()")}}
-- {{domxref("WebGLRenderingContext.useProgram()")}}
-- {{domxref("WebGLRenderingContext.getProgramParameter()")}}
-- {{domxref("WebGLRenderingContext.getProgramInfoLog()")}}
+- [`WebGLRenderingContext.createProgram()`](/de/docs/Web/API/WebGLRenderingContext/createProgram)
+- [`WebGLRenderingContext.deleteProgram()`](/de/docs/Web/API/WebGLRenderingContext/deleteProgram)
+- [`WebGLRenderingContext.isProgram()`](/de/docs/Web/API/WebGLRenderingContext/isProgram)
+- [`WebGLRenderingContext.linkProgram()`](/de/docs/Web/API/WebGLRenderingContext/linkProgram)
+- [`WebGLRenderingContext.useProgram()`](/de/docs/Web/API/WebGLRenderingContext/useProgram)
+- [`WebGLRenderingContext.getProgramParameter()`](/de/docs/Web/API/WebGLRenderingContext/getProgramParameter)
+- [`WebGLRenderingContext.getProgramInfoLog()`](/de/docs/Web/API/WebGLRenderingContext/getProgramInfoLog)

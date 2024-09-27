@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CharacterBoundsUpdateEvent API")}}{{SeeCompatTable}}
 
-Der **`CharacterBoundsUpdateEvent()`** Konstruktor gibt ein neues {{DOMxRef("CharacterBoundsUpdateEvent")}} Objekt zurück.
+Der **`CharacterBoundsUpdateEvent()`** Konstruktor gibt ein neues [`CharacterBoundsUpdateEvent`](/de/docs/Web/API/CharacterBoundsUpdateEvent) Objekt zurück.
 
 ## Syntax
 
@@ -24,18 +24,18 @@ new CharacterBoundsUpdateEvent(type, options)
 - `options` {{optional_inline}}
   - : Ein optionales Objekt mit den folgenden Eigenschaften:
     - `rangeStart`
-      - : Eine Zahl, um den Offset des ersten Zeichens innerhalb des bearbeitbaren Textbereichs festzulegen, auf den sich dieses Ereignis bezieht.
+      - : Eine Zahl, die den Offset des ersten Zeichens innerhalb des bearbeitbaren Textbereichs festlegt, auf den sich dieses Ereignis bezieht.
     - `rangeEnd`
-      - : Eine Zahl, um den Offset des letzten Zeichens innerhalb des bearbeitbaren Textbereichs festzulegen, auf den sich dieses Ereignis bezieht.
+      - : Eine Zahl, die den Offset des letzten Zeichens innerhalb des bearbeitbaren Textbereichs festlegt, auf den sich dieses Ereignis bezieht.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Das zugehörige {{DOMxRef("CharacterBoundsUpdateEvent")}} Interface.
+- Die [`CharacterBoundsUpdateEvent`](/de/docs/Web/API/CharacterBoundsUpdateEvent) Schnittstelle, zu der es gehört.

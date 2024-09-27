@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die Schnittstelle **`SVGSwitchElement`** entspricht dem {{SVGElement("switch")}}-Element.
+Die **`SVGSwitchElement`**-Schnittstelle entspricht dem {{SVGElement("switch")}}-Element.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, sondern erbt Eigenschaften von ihrer Elternschnittstelle, {{domxref("SVGGraphicsElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von ihrer übergeordneten Schnittstelle, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, sondern erbt Methoden von ihrer Elternschnittstelle, {{domxref("SVGGraphicsElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer übergeordneten Schnittstelle, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
 ## Spezifikationen
 

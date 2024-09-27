@@ -1,5 +1,5 @@
 ---
-title: "FormData: has() Methode"
+title: "FormData: has()-Methode"
 short-title: has()
 slug: Web/API/FormData/has
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
-Die **`has()`** Methode des {{domxref("FormData")}} Interfaces gibt zurück, ob ein `FormData` Objekt einen bestimmten Schlüssel enthält.
+Die **`has()`**-Methode des [`FormData`](/de/docs/Web/API/FormData)-Interfaces gibt an, ob ein `FormData`-Objekt einen bestimmten Schlüssel enthält.
 
 ## Syntax
 
@@ -19,20 +19,20 @@ has(name)
 ### Parameter
 
 - `name`
-  - : Ein String, der den Namen des Schlüssels darstellt, den Sie prüfen möchten.
+  - : Ein String, der den Namen des Schlüssels darstellt, den Sie testen möchten.
 
 ### Rückgabewert
 
-`true`, wenn ein Schlüssel von `FormData` den angegebenen `name` entspricht. Andernfalls `false`.
+`true`, wenn ein Schlüssel von `FormData` mit dem angegebenen `name` übereinstimmt. Andernfalls `false`.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt das Ergebnis der Überprüfung auf das Vorhandensein von `username` in einem `FormData` Objekt, vor und nach dem Hinzufügen eines `username` Wertes mit {{domxref("FormData.append", "append()")}}:
+Der folgende Ausschnitt zeigt die Ergebnisse des Tests auf das Vorhandensein von `username` in einem `FormData`-Objekt, bevor und nachdem ein `username`-Wert damit mittels [`append()`](/de/docs/Web/API/FormData/append) hinzugefügt wurde:
 
 ```js
-formData.has("username"); // Gibt false zurück
+formData.has("username"); // Returns false
 formData.append("username", "Chris");
-formData.has("username"); // Gibt true zurück
+formData.has("username"); // Returns true
 ```
 
 ## Spezifikationen
@@ -45,5 +45,5 @@ formData.has("username"); // Gibt true zurück
 
 ## Siehe auch
 
-- [Using FormData objects](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
+- [Verwendung von FormData-Objekten](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
 - {{HTMLElement("Form")}}

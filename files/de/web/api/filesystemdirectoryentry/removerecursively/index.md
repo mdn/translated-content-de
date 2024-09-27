@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die Methode **`removeRecursively()`** der {{domxref("FileSystemDirectoryEntry")}} Schnittstelle entfernt das Verzeichnis sowie dessen gesamten Inhalt, indem sie rekursiv über seinen gesamten Unterbaum von Dateien und Verzeichnissen iteriert.
+Die Methode **`removeRecursively()`** des [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)-Interfaces entfernt das Verzeichnis sowie dessen gesamten Inhalt und durchläuft rekursiv dessen gesamtes Unterverzeichnis von darunter liegenden Dateien und Verzeichnissen.
 
-Um eine einzelne Datei oder ein leeres Verzeichnis zu entfernen, können Sie auch {{domxref("FileSystemEntry.remove()")}} verwenden.
+Um eine einzelne Datei oder ein leeres Verzeichnis zu entfernen, können Sie auch [`FileSystemEntry.remove()`](/de/docs/Web/API/FileSystemEntry/remove) verwenden.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ removeRecursively(successCallback, errorCallback)
 ### Parameter
 
 - `successCallback`
-  - : Eine Funktion, die aufgerufen wird, sobald der Verzeichnisentfernungsprozess abgeschlossen ist. Der Rückruf hat keine Parameter.
+  - : Eine Funktion, die aufgerufen wird, sobald der Verzeichnisentfernungsprozess abgeschlossen ist. Der Callback hat keine Parameter.
 - `errorCallback` {{optional_inline}}
-  - : Eine Funktion, die aufgerufen wird, wenn ein Fehler beim Versuch, den Verzeichnisunterbaum zu entfernen, auftritt. Sie erhält einen {{domxref("FileError")}}, der den aufgetretenen Fehler beschreibt, als Eingabe.
+  - : Eine Funktion, die aufgerufen wird, wenn beim Versuch, das Verzeichnis-Unterverzeichnis zu entfernen, ein Fehler auftritt. Empfängt einen [`FileError`](/de/docs/Web/API/FileError), der den aufgetretenen Fehler beschreibt, als Eingabe.
 
 ### Rückgabewert
 
@@ -32,35 +32,36 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Wenn ein Fehler auftritt und ein `errorCallback` angegeben wurde, wird dieser mit einem einzigen Parameter aufgerufen: einem {{domxref("FileError")}} Objekt, das den Fehler beschreibt. Der {{domxref("FileError.code")}} gibt an, welcher Fehlertyp aufgetreten ist, wie folgt:
+Wenn ein Fehler auftritt und ein `errorCallback` angegeben wurde, wird dieser mit einem einzelnen Parameter aufgerufen: einem [`FileError`](/de/docs/Web/API/FileError)-Objekt, das den Fehler beschreibt. Der [`FileError.code`](/de/docs/Web/API/FileError/code) gibt an, welcher Fehler aufgetreten ist, wie folgt:
 
 - `FileError.INVALID_MODIFICATION_ERR`
-  - : Es wurde versucht, das Stammverzeichnis zu entfernen; dies ist nicht erlaubt.
+  - : Es wurde versucht, das Stammverzeichnis zu entfernen; dies ist nicht gestattet.
 - `FileError.NO_MODIFICATION_ALLOWED_ERR`
-  - : Der Zustand des Dateisystems erlaubt keine Modifikation.
+  - : Der Zustand des Dateisystems erlaubt keine Änderungen.
 - `FileError.NOT_FOUND_ERR`
-  - : Das durch {{domxref("FileSystemDirectoryEntry")}} repräsentierte Verzeichnis existiert nicht mehr.
+  - : Das durch das [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) dargestellte Verzeichnis existiert nicht mehr.
 - `FileError.NOT_READABLE_ERR`
-  - : Das Verzeichnis ist nicht zugänglich; möglicherweise wird es von einer anderen Anwendung verwendet oder ist auf Betriebssystemebene gesperrt.
+  - : Das Verzeichnis ist nicht zugänglich; möglicherweise wird es von einer anderen Anwendung genutzt oder ist auf Betriebssystemebene gesperrt.
 - `FileError.SECURITY_ERR`
+
   - : Das Verzeichnis konnte aus Sicherheitsgründen nicht entfernt werden. Mögliche Gründe sind:
 
-    - Das Verzeichnis und/oder sein Inhalt sind möglicherweise nicht sicher von einer Webanwendung aus zugänglich.
-    - Es werden zu viele Dateisystemaufrufe gemacht.
-    - Weitere Sicherheitsbedenken, die vom Benutzeragent oder dem Betriebssystem aufgeworfen werden.
+    - Das Verzeichnis und/oder dessen Inhalte sind möglicherweise für den Zugriff durch eine Webanwendung nicht sicher.
+    - Es werden zu viele Dateisystemaufrufe durchgeführt.
+    - Andere Sicherheitsbedenken, die vom Benutzeragenten oder dem Betriebssystem aufgeworfen werden.
 
 > [!NOTE]
-> Wenn Sie versuchen, ein Verzeichnis zu löschen, das eine oder mehrere Dateien enthält, die nicht entfernt werden können, oder wenn ein Fehler beim Löschen einer Anzahl von Dateien auftritt, können einige Dateien nicht gelöscht werden. Sie sollten einen `errorCallback` bereitstellen, um dies zu überwachen und zu behandeln, möglicherweise durch einen erneuten Versuch.
+> Wenn Sie versuchen, ein Verzeichnis zu löschen, das eine oder mehrere Dateien enthält, die nicht entfernt werden können, oder wenn während der Löschung einer Anzahl von Dateien ein Fehler auftritt, können einige Dateien unvollständig gelöscht werden. Sie sollten einen `errorCallback` bereitstellen, um dies zu überwachen und zu behandeln, möglicherweise indem Sie es erneut versuchen.
 
 ## Beispiele
 
 ```js
 directory.removeRecursively(
   () => {
-    /* Das Verzeichnis wurde erfolgreich entfernt */
+    /* The directory was removed successfully */
   },
   () => {
-    /* beim Entfernen des Verzeichnisses ist ein Fehler aufgetreten */
+    /* an error occurred while removing the directory */
   },
 );
 ```
@@ -71,7 +72,7 @@ directory.removeRecursively(
 
 ## Siehe auch
 
-- [File und Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
+- [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
 - [Einführung in die File und Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
-- {{domxref("FileSystemDirectoryEntry")}}
-- {{domxref("FileSystemEntry.remove()")}}
+- [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)
+- [`FileSystemEntry.remove()`](/de/docs/Web/API/FileSystemEntry/remove)

@@ -1,5 +1,5 @@
 ---
-title: "Element: prefix Eigenschaft"
+title: "Element: prefix-Eigenschaft"
 short-title: prefix
 slug: Web/API/Element/prefix
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.prefix`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die das Namensraum-Präfix des angegebenen Elements zurückgibt, oder `null`, wenn kein Präfix angegeben ist.
+Die schreibgeschützte **`Element.prefix`**-Eigenschaft gibt das Namensraum-Präfix des angegebenen Elements zurück oder `null`, wenn kein Präfix angegeben ist.
 
 ## Wert
 
-Ein Zeichenstring.
+Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel gibt "x" in der Konsole aus.
+Das folgende Beispiel gibt "x" in die Konsole aus.
 
 ```xml
 <x:div onclick="console.log(this.prefix)"/>
@@ -24,7 +24,7 @@ Das folgende Beispiel gibt "x" in der Konsole aus.
 
 ## Hinweise
 
-Dies funktioniert nur, wenn ein namensraumfähiger Parser verwendet wird, d.h. wenn ein Dokument mit einem XML-MIME-Typ geliefert wird. Dies funktioniert nicht für HTML-Dokumente.
+Dies funktioniert nur, wenn ein namenspraesser-fähiger Parser verwendet wird, d.h. wenn ein Dokument mit einem XML-MIME-Typ bereitgestellt wird. Dies funktioniert nicht für HTML-Dokumente.
 
 ## Spezifikationen
 
@@ -36,6 +36,6 @@ Dies funktioniert nur, wenn ein namensraumfähiger Parser verwendet wird, d.h. w
 
 ## Siehe auch
 
-- {{domxref("Element.namespaceURI")}}
-- {{domxref("Element.localName")}}
-- {{domxref("Attr.prefix")}}
+- [`Element.namespaceURI`](/de/docs/Web/API/Element/namespaceURI)
+- [`Element.localName`](/de/docs/Web/API/Element/localName)
+- [`Attr.prefix`](/de/docs/Web/API/Attr/prefix)

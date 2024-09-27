@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`ReadableStream.from()`** statische Methode gibt einen {{domxref("ReadableStream")}} von einem bereitgestellten iterierbaren oder asynchron iterierbaren Objekt zurück.
+Die **`ReadableStream.from()`** statische Methode gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) aus einem bereitgestellten iterierbaren oder asynchron iterierbaren Objekt zurück.
 
-Die Methode kann verwendet werden, um iterierbare und asynchron iterierbare Objekte als lesbare Streams einzuwickeln, einschließlich Arrays, Sets, Arrays von Versprechen, asynchronen Generatoren, `ReadableStreams`, Node.js `readable` Streams und so weiter.
+Die Methode kann verwendet werden, um iterierbare und asynchron iterierbare Objekte als lesbare Streams zu verpacken, einschließlich Arrays, Sets, Arrays von Versprechen, asynchroner Generatoren, `ReadableStreams`, Node.js `readable` Streams und so weiter.
 
 ## Syntax
 
@@ -25,23 +25,23 @@ ReadableStream.from(anyIterable)
 
 ### Rückgabewert
 
-Ein {{domxref("ReadableStream")}}.
+Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der übergebene Parameter kein iterierbares oder asynchron iterierbares Objekt ist (nicht die Methode `[Symbol.iterator]()` oder `[Symbol.asyncIterator]()` definiert).
-    Wird auch ausgelöst, wenn während der Iteration das Ergebnis des nächsten Schritts kein Objekt ist oder ein Versprechen ist, das sich nicht in ein Objekt auflöst.
+  - : Wird ausgelöst, wenn der übergebene Parameter kein iterierbares oder asynchron iterierbares Objekt ist (definiert nicht die Methoden `[Symbol.iterator]()` oder `[Symbol.asyncIterator]()`).
+    Wird auch ausgelöst, wenn während der Iteration das Ergebnis des nächsten Schritts kein Objekt ist oder ein Versprechen, das sich nicht zu einem Objekt auflöst.
 
 ## Beispiele
 
 ### Konvertieren eines asynchronen Iterators in einen ReadableStream
 
-Dieses Live-Beispiel zeigt, wie Sie einen asynchronen iterierbaren in einen `ReadableStream` umwandeln können und wie dieser Stream anschließend verwendet werden kann.
+Dieses Live-Beispiel zeigt, wie Sie ein asynchron iterierbares zu einem `ReadableStream` konvertieren können und wie dieser Stream dann konsumiert werden könnte.
 
 #### HTML
 
-Das HTML besteht aus einem einzigen `<pre>`-Element, das zum Protokollieren verwendet wird.
+Das HTML besteht aus einem einzelnen `<pre>`-Element, das zum Protokollieren verwendet wird.
 
 ```html
 <pre id="log"></pre>
@@ -49,7 +49,7 @@ Das HTML besteht aus einem einzigen `<pre>`-Element, das zum Protokollieren verw
 
 #### JavaScript
 
-Der Beispielcode erstellt eine `log()`-Funktion, um in das Log-HTML-Element zu schreiben.
+Der Beispielcode erstellt eine `log()`-Funktion, um in das Protokoll-HTML-Element zu schreiben.
 
 ```js
 const logElement = document.getElementById("log");
@@ -58,41 +58,41 @@ function log(text) {
 }
 ```
 
-Es wird dann überprüft, ob die statische Methode unterstützt wird, und falls nicht, wird das Ergebnis protokolliert.
+Dann wird überprüft, ob die statische Methode unterstützt wird, und falls nicht, wird das Ergebnis protokolliert.
 
 ```js
 if (!ReadableStream.from) {
-  log("ReadableStream.from() wird nicht unterstützt");
+  log("ReadableStream.from() is not supported");
 }
 ```
 
-Der asynchron iterierbare ist eine anonyme Generatorfunktion, die die Werte 1, 2 und 3 liefert, wenn sie dreimal aufgerufen wird.
-Dies wird an `ReadableStream.from()` übergeben, um den `ReadableStream` zu erstellen.
+Das asynchron iterierbare ist eine anonyme Generatorfunktion, die die Werte 1, 2 und 3 liefert, wenn sie dreimal aufgerufen wird.
+Diese wird an `ReadableStream.from()` übergeben, um den `ReadableStream` zu erstellen.
 
 ```js
-// Definieren eines asynchronen Iterators
+// Define an asynchronous iterator
 const asyncIterator = (async function* () {
   yield 1;
   yield 2;
   yield 3;
 })();
 
-// Erstellen eines ReadableStream aus dem Iterator
+// Create ReadableStream from iterator
 const myReadableStream = ReadableStream.from(asyncIterator);
 ```
 
-[Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams) zeigt verschiedene Möglichkeiten, einen Stream zu verwenden.
-Der Code unten verwendet eine `for ...await` Schleife, da diese Methode die einfachste ist.
-Jede Iteration der Schleife protokolliert das aktuelle Stück aus dem Stream.
+[Using readable streams](/de/docs/Web/API/Streams_API/Using_readable_streams) zeigt verschiedene Möglichkeiten auf, einen Stream zu konsumieren.
+Der unten stehende Code verwendet eine `for ...await` Schleife, da diese Methode die einfachste ist.
+Jede Iteration der Schleife protokolliert das aktuelle Stück des Streams.
 
 ```js
 consumeStream(myReadableStream);
 
-// Eine ReadableStream asynchron durchlaufen
+// Iterate a ReadableStream asynchronously
 async function consumeStream(readableStream) {
   for await (const chunk of myReadableStream) {
-    // Machen Sie etwas mit jedem Stück
-    // Hier protokollieren wir einfach die Werte
+    // Do something with each chunk
+    // Here we just log the values
     log(`chunk: ${chunk}`);
   }
 }
@@ -100,13 +100,13 @@ async function consumeStream(readableStream) {
 
 #### Ergebnis
 
-Die Ausgabe des Konsumierens des Streams wird unten angezeigt (wenn `ReadableStream.from()` unterstützt wird).
+Das Ergebnis des Konsums des Streams wird unten angezeigt (falls `ReadableStream.from()` unterstützt wird).
 
-{{EmbedLiveSample("Convert an async iterator to a ReadableStream","100%", "80")}}
+{{EmbedLiveSample("Convert an async iterator to a ReadableStream", "100%", "80")}}
 
 ### Konvertieren eines Arrays in einen ReadableStream
 
-Dieses Beispiel zeigt, wie Sie ein `Array` in einen `ReadableStream` umwandeln können.
+Dieses Beispiel zeigt, wie Sie ein `Array` in einen `ReadableStream` konvertieren können.
 
 ```html hidden
 <pre id="log"></pre>
@@ -119,42 +119,42 @@ function log(text) {
 }
 
 if (!ReadableStream.from) {
-  log("ReadableStream.from() wird nicht unterstützt");
+  log("ReadableStream.from() is not supported");
 }
 ```
 
 #### JavaScript
 
-Der iterierbare ist einfach ein Array von Zeichenfolgen, das an `ReadableStream.from()` übergeben wird, um den `ReadableStream` zu erstellen.
+Das iterierbare ist einfach ein Array von Strings, das an `ReadableStream.from()` übergeben wird, um den `ReadableStream` zu erstellen.
 
 ```js
-// Ein Array mit Gemüsenamen
+// An Array of vegetable names
 const vegetables = ["Carrot", "Broccoli", "Tomato", "Spinach"];
 
-// Erstellen eines ReadableStream aus dem Array
+// Create ReadableStream from the Array
 const myReadableStream = ReadableStream.from(vegetables);
 ```
 
 ```js hidden
 consumeStream(myReadableStream);
 
-// Eine ReadableStream asynchron durchlaufen
+// Iterate a ReadableStream asynchronously
 async function consumeStream(readableStream) {
   for await (const chunk of myReadableStream) {
-    // Machen Sie etwas mit jedem Stück
-    // Hier protokollieren wir einfach die Werte
+    // Do something with each chunk
+    // Here we just log the values
     log(`chunk: ${chunk}`);
   }
 }
 ```
 
-Wir verwenden denselben Ansatz wie im vorherigen Beispiel, um in das Log zu schreiben und den Stream zu konsumieren, daher wird das hier nicht gezeigt.
+Wir verwenden denselben Ansatz wie im vorherigen Beispiel, um das Protokoll zu erstellen und den Stream zu konsumieren, daher wird dies hier nicht erneut gezeigt.
 
 #### Ergebnis
 
-Die Ausgabe wird unten angezeigt.
+Das Ergebnis wird unten angezeigt.
 
-{{EmbedLiveSample("Convert an Array to a ReadableStream","100%", "100")}}
+{{EmbedLiveSample("Convert an Array to a ReadableStream", "100%", "100")}}
 
 ## Spezifikationen
 
@@ -166,5 +166,5 @@ Die Ausgabe wird unten angezeigt.
 
 ## Siehe auch
 
-- {{domxref("ReadableStream")}}
-- [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)
+- [`ReadableStream`](/de/docs/Web/API/ReadableStream)
+- [Using readable streams](/de/docs/Web/API/Streams_API/Using_readable_streams)

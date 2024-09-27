@@ -1,5 +1,5 @@
 ---
-title: "HTMLSelectElement: setCustomValidity()-Methode"
+title: "HTMLSelectElement: setCustomValidity() Methode"
 short-title: setCustomValidity()
 slug: Web/API/HTMLSelectElement/setCustomValidity
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLSelectElement.setCustomValidity()`**-Methode setzt die benutzerdefinierte Fehlermeldung für das Auswahl-Element auf die angegebene Nachricht. Verwenden Sie den leeren String, um anzuzeigen, dass das Element _keinen_ benutzerdefinierten Validitätsfehler hat.
+Die **`HTMLSelectElement.setCustomValidity()`** Methode setzt die benutzerdefinierte Fehlermeldung für das Auswahl-Element auf die angegebene Nachricht. Verwenden Sie den leeren String, um anzuzeigen, dass das Element _keinen_ benutzerdefinierten Gültigkeitsfehler hat.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setCustomValidity(string)
 ### Parameter
 
 - `string`
-  - : Der String, der die Fehlermeldung enthält. Der leere String entfernt alle benutzerdefinierten Validitätsfehler.
+  - : Der String, der die Fehlermeldung enthält. Der leere String entfernt alle benutzerdefinierten Gültigkeitsfehler.
 
 ### Rückgabewert
 

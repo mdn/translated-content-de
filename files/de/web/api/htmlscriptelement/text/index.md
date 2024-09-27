@@ -1,5 +1,5 @@
 ---
-title: "HTMLScriptElement: text-Eigenschaft"
+title: "HTMLScriptElement: text Eigenschaft"
 short-title: text
 slug: Web/API/HTMLScriptElement/text
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`text`**-Eigenschaft der {{domxref("HTMLScriptElement")}}-Schnittstelle ist ein String, der den Textinhalt innerhalb des {{HTMLElement("script")}}-Elements widerspiegelt. Sie funktioniert genauso wie die {{domxref("Node.textContent")}}-Eigenschaft.
+Die **`text`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement) Interfaces ist ein String, der den Textinhalt innerhalb des {{HTMLElement("script")}}-Elements widerspiegelt. Sie funktioniert auf die gleiche Weise wie die [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft.
 
 Sie spiegelt das `text`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
@@ -27,18 +27,18 @@ Ein String.
 
 ```js
 const el = document.getElementById("el");
-console.log(el.text); // Ausgabe: "\n  const num = 10;\n  console.log(num);\n"
-console.log(el.textContent); // Ausgabe: "\n  const num = 10;\n  console.log(num);\n"
+console.log(el.text); // Output: "\n  const num = 10;\n  console.log(num);\n"
+console.log(el.textContent); // Output: "\n  const num = 10;\n  console.log(num);\n"
 
 el.text = "console.log(10);";
-console.log(el.text); // Ausgabe: "console.log(10);"
-console.log(el.textContent); // Ausgabe: "console.log(10);"
+console.log(el.text); // Output: "console.log(10);"
+console.log(el.textContent); // Output: "console.log(10);"
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -7,33 +7,33 @@ l10n:
 
 {{CSSRef}}
 
-Die **`counter-set`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt [CSS Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) auf dem Element auf die angegebenen Werte.
+Die **`counter-set`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt [CSS-Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) auf dem Element auf die angegebenen Werte.
 
-Falls die Zähler nicht existieren, erstellt die `counter-set` Eigenschaft einen neuen Zähler für jeden benannten Zähler in der Liste der durch Leerzeichen getrennten Zähler- und Wertpaare. Es wird jedoch empfohlen, eine neue Zählvariable mit der {{cssxref("counter-reset")}} CSS-Eigenschaft zu erstellen.
+Falls die Zähler nicht existieren, erstellt die `counter-set`-Eigenschaft einen neuen Zähler für jeden benannten Zähler in der Liste der durch Leerzeichen getrennten Zähler- und Wertpaare. Es wird jedoch empfohlen, für das Erstellen eines neuen Zählers die {{cssxref("counter-reset")}} CSS-Eigenschaft zu verwenden.
 
-Wenn ein benannter Zähler in der Liste keinen Wert hat, wird der Wert des Zählers auf `0` gesetzt.
+Wenn bei einem benannten Zähler in der Liste ein Wert fehlt, wird der Zählerwert auf `0` gesetzt.
 
 {{EmbedInteractiveExample("pages/css/counter-set.html")}}
 
 > [!NOTE]
-> Der Wert des Zählers kann unter Verwendung der {{cssxref("counter-increment")}} CSS-Eigenschaft erhöht oder verringert werden.
+> Der Zählerwert kann mit der CSS-Eigenschaft {{cssxref("counter-increment")}} erhöht oder verringert werden.
 
 ## Syntax
 
 ```css
-/* Setzt "my-counter" auf 0 */
+/* Set "my-counter" to 0 */
 counter-set: my-counter;
 
-/* Setzt "my-counter" auf -1 */
+/* Set "my-counter" to -1 */
 counter-set: my-counter -1;
 
-/* Setzt "counter1" auf 1 und "counter2" auf 4 */
+/* Set "counter1" to 1, and "counter2" to 4 */
 counter-set: counter1 1 counter2 4;
 
-/* Hebt jeden Zähler auf, der in weniger spezifischen Regeln gesetzt sein könnte */
+/* Cancel any counter that could have been set in less specific rules */
 counter-set: none;
 
-/* Globale Werte */
+/* Global values */
 counter-set: inherit;
 counter-set: initial;
 counter-set: revert;
@@ -41,19 +41,19 @@ counter-set: revert-layer;
 counter-set: unset;
 ```
 
-Die `counter-set` Eigenschaft wird als einer der folgenden Werte angegeben:
+Die `counter-set`-Eigenschaft wird auf eine der folgenden Arten angegeben:
 
-- Ein `<custom-ident>`, das den Zähler benennt und optional von einem `<integer>` gefolgt wird. Sie können so viele Zähler zurücksetzen, wie Sie möchten, wobei jeder Name oder jedes Name-Zahlen-Paar durch ein Leerzeichen getrennt wird.
-- Der Schlüsselwort-Wert `none`.
+- Ein `<custom-ident>` benannt den Zähler, gefolgt optional von einem `<integer>`. Sie können so viele Zähler zum Zurücksetzen angeben, wie Sie möchten, wobei jedes Name- oder Namens-Zahlenpaar durch ein Leerzeichen getrennt ist.
+- Der Schlüsselwortwert `none`.
 
 ### Werte
 
 - {{cssxref("custom-ident", "&lt;custom-ident&gt;")}}
   - : Der Name des zu setzenden Zählers.
 - {{cssxref("&lt;integer&gt;")}}
-  - : Der Wert, auf den der Zähler bei jedem Vorkommen des Elements gesetzt wird. Standardmäßig `0` falls nicht angegeben. Falls es derzeit keinen Zähler mit dem gegebenen Namen auf dem Element gibt, erstellt das Element einen neuen Zähler des gegebenen Namens mit einem Startwert von `0` (obwohl dieser dann sofort auf einen anderen Wert gesetzt oder erhöht werden kann).
+  - : Der Wert, auf den der Zähler bei jedem Vorkommen des Elements gesetzt wird. Standardmäßig `0`, wenn nicht angegeben. Wenn derzeit kein Zähler mit dem angegebenen Namen auf dem Element existiert, erstellt das Element einen neuen Zähler mit dem angegebenen Namen und einem Startwert von `0` (obwohl dieser Wert dann möglicherweise sofort anders gesetzt oder erhöht wird).
 - `none`
-  - : Es soll kein Zähler gesetzt werden. Dies kann verwendet werden, um eine in einer weniger spezifischen Regel definierte `counter-set` zu überschreiben.
+  - : Es wird kein Zähler gesetzt. Dies kann verwendet werden, um ein `counter-set` zu überschreiben, das in einer weniger spezifischen Regel definiert ist.
 
 ## Formale Definition
 
@@ -70,8 +70,8 @@ Die `counter-set` Eigenschaft wird als einer der folgenden Werte angegeben:
 ```css
 h1 {
   counter-set: chapter section 1 page;
-  /* Setzt die Zähler für Kapitel und Seite auf 0,
-     und den Zähler für Abschnitt auf 1 */
+  /* Sets the chapter and page counters to 0,
+     and the section counter to 1 */
 }
 ```
 
@@ -79,17 +79,17 @@ h1 {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Using CSS Counters](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters)
+- [Verwendung von CSS-Zählern](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters)
 - {{cssxref("counter-increment")}}
 - {{cssxref("counter-reset")}}
 - {{cssxref("@counter-style")}}
 - {{cssxref("counter", "counter()")}} und {{cssxref("counters", "counters()")}} Funktionen
 - {{cssxref("content")}} Eigenschaft
-- [CSS Lists and Counters](/de/docs/Web/CSS/CSS_lists) Modul
-- [CSS Counter Styles](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul

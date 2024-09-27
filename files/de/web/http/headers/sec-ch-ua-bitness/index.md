@@ -7,22 +7,21 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`Sec-CH-UA-Bitness`** [User-Agent-Client-Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) Anforderungs-Header liefert die "Bitness" der zugrunde liegenden CPU-Architektur des User-Agents.
-Dies ist die Größe in Bits eines Integer- oder Speicher-Adressenwerts – typischerweise 64 oder 32 Bits.
+Der **`Sec-CH-UA-Bitness`** [User-Agent-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) Anforderungsheader liefert die "Bitness" der zugrunde liegenden CPU-Architektur des User-Agents. Dies ist die Größe in Bits eines Ganzzahl- oder Speicheradresswerts – typischerweise 64 oder 32 Bit.
 
-Dies könnte von einem Server verwendet werden, um beispielsweise das korrekte Binärformat einer ausführbaren Datei auszuwählen und zum Herunterladen anzubieten.
+Dies könnte von einem Server verwendet werden, um beispielsweise das korrekte Binärformat einer ausführbaren Datei auszuwählen und anzubieten, die ein Benutzer herunterladen kann.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request header")}},
-        <a href="/de/docs/Web/HTTP/Client_hints">Client hint</a>
+        [Anforderungsheader](/de/docs/Glossary/Request_header),
+        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -37,19 +36,19 @@ Sec-CH-UA-Bitness: <bitness>
 ## Direktiven
 
 - `<bitness>`
-  - : Ein String, der die Bitness der zugrunde liegenden Plattformarchitektur angibt, z.B.: `"64"`, `"32"`.
+  - : Ein String, der die Bitness der zugrunde liegenden Plattformarchitektur angibt, wie: `"64"`, `"32"`.
 
 ## Beispiele
 
-Ein Server fordert den `Sec-CH-UA-Bitness` Header an, indem er den {{HTTPHeader("Accept-CH")}} in eine _Antwort_ auf jede Anfrage des Clients einfügt, wobei der Name des gewünschten Headers als Token verwendet wird:
+Ein Server fordert den `Sec-CH-UA-Bitness`-Header an, indem er den {{HTTPHeader("Accept-CH")}} in eine _Antwort_ auf eine beliebige Anfrage vom Client einfügt, wobei der Name des gewünschten Headers als Token verwendet wird:
 
 ```http
 HTTP/1.1 200 OK
 Accept-CH: Sec-CH-UA-Bitness
 ```
 
-Der Client kann sich entscheiden, den Hinweis bereitzustellen, und den `Sec-CH-UA-Bitness` Header zu nachfolgenden Anfragen hinzufügen.
-Zum Beispiel könnte auf einem 64-Bit-Windows-Computer der Client den Header wie folgt hinzufügen:
+Der Client kann sich entscheiden, den Hinweis bereitzustellen und den `Sec-CH-UA-Bitness`-Header zu späteren Anfragen hinzuzufügen.
+Beispielsweise könnte der Client auf einem Windows-basierten 64-Bit-Computer den Header wie folgt hinzufügen:
 
 ```http
 GET /GET /my/page HTTP/1.1
@@ -71,8 +70,8 @@ Sec-CH-UA-Bitness: "64"
 
 ## Siehe auch
 
-- [Client hints](/de/docs/Web/HTTP/Client_hints)
+- [Client-Hinweise](/de/docs/Web/HTTP/Client_hints)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
-- [Verbesserung der Nutzer-Privatsphäre und der Entwicklererfahrung mit User-Agent-Client-Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung des Benutzer-Datenschutzes und der Entwickler-Erfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
+- [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`getViewSubImage()`**-Methode der {{domxref("XRWebGLBinding")}}-Schnittstelle gibt ein {{domxref("XRWebGLSubImage")}}-Objekt zurück, das die WebGL-Textur darstellt, die für eine Ansicht gerendert werden soll.
+Die **`getViewSubImage()`**-Methode der [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)-Schnittstelle gibt ein [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Objekt zurück, das die WebGL-Textur darstellt, die für eine Ansicht gerendert werden soll.
 
 ## Syntax
 
@@ -19,25 +19,25 @@ getViewSubImage(layer, view)
 ### Parameter
 
 - `layer`
-  - : Der {{domxref("XRProjectionLayer")}}, der für das Rendering verwendet werden soll (um andere Layer-Typen zu rendern, siehe {{domxref("XRWebGLBinding.getSubImage()")}}).
+  - : Der zu verwendende [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) zum Rendern (um andere Schichttypen zu rendern, siehe [`XRWebGLBinding.getSubImage()`](/de/docs/Web/API/XRWebGLBinding/getSubImage)).
 - `view`
-  - : Der {{domxref("XRView")}}, der für das Rendering verwendet werden soll.
+  - : Die zu verwendende [`XRView`](/de/docs/Web/API/XRView) zum Rendern.
 
 ### Rückgabewert
 
-Ein {{domxref("XRWebGLSubImage")}}-Objekt.
+Ein [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Objekt.
 
 ### Ausnahmen
 
 Ein {{jsxref("TypeError")}} wird ausgelöst,
 
-- wenn `layer` sich nicht im [Schicht-Array der Sitzung](/de/docs/Web/API/XRSession/updateRenderState#setting_the_layers_array) befindet.
+- wenn `layer` sich nicht im [session's `layer` array](/de/docs/Web/API/XRSession/updateRenderState#setting_the_layers_array) befindet.
 
 ## Beispiele
 
-### Rendering eines `XRProjectionLayer`
+### Rendern eines `XRProjectionLayer`
 
-Im folgenden Beispiel wird ein {{domxref("XRProjectionLayer")}} auf eine Ansicht gerendert.
+Das folgende Beispiel rendert einen [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) zu einer Ansicht.
 
 ```js
 const xrGlBinding = new XRWebGLBinding(xrSession, gl);
@@ -71,7 +71,7 @@ function onXRFrame(time, xrFrame) {
     const viewport = subImage.viewport;
     gl.viewport(viewport.x, viewport.y, viewport.width, viewport.height);
 
-    // Render aus der Perspektive von xrView
+    // Render from the viewpoint of xrView
   }
 }
 ```
@@ -86,4 +86,4 @@ function onXRFrame(time, xrFrame) {
 
 ## Siehe auch
 
-- {{domxref("XRWebGLSubImage")}}
+- [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)

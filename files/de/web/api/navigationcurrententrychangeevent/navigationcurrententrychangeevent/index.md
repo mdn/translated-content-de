@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Der **`NavigationCurrentEntryChangeEvent()`**-Konstruktor erstellt ein neues {{domxref("NavigationCurrentEntryChangeEvent")}}-Objekt.
+Der **`NavigationCurrentEntryChangeEvent()`**-Konstruktor erstellt ein neues [`NavigationCurrentEntryChangeEvent`](/de/docs/Web/API/NavigationCurrentEntryChangeEvent)-Objekt.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ new NavigationCurrentEntryChangeEvent(type, init)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Ereignisses repräsentiert. Im Fall von `NavigationCurrentEntryChangeEvent` ist dies immer `event`.
+  - : Ein String, der den Typ des Ereignisses darstellt. Im Fall von `NavigationCurrentEntryChangeEvent` ist dies immer `event`.
 - `init`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `destination`
-      - : Ein {{domxref("NavigationHistoryEntry")}}-Objekt, das den Ort repräsentiert, zu dem navigiert wird.
+      - : Ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt, das den Ort darstellt, zu dem navigiert wird.
     - `navigationType` {{optional_inline}}
-      - : Der Typ der Navigation, die zur Änderung geführt hat. Mögliche Werte sind `push`, `reload`, `replace` und `traverse`. Standardmäßig `null`.
+      - : Der Typ der Navigation, die zur Änderung geführt hat. Mögliche Werte sind `push`, `reload`, `replace` und `traverse`. Standardmäßig ist dies `null`.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `NavigationCurrentEntryChangeEvent`-Objekt wird erstellt, wenn ein Handler als Ergebnis des {{domxref("Navigation.currententrychange_event", "currententrychange")}}-Ereignisses aufgerufen wird.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `NavigationCurrentEntryChangeEvent`-Objekt wird erstellt, wenn ein Handler als Ergebnis des Auslösens des [`currententrychange`](/de/docs/Web/API/Navigation/currententrychange_event)-Ereignisses aufgerufen wird.
 
 ```js
 navigation.addEventListener("currententrychange", (event) => {
@@ -47,6 +47,6 @@ navigation.addEventListener("currententrychange", (event) => {
 
 ## Siehe auch
 
-- [Modernes client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Erklärung der Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

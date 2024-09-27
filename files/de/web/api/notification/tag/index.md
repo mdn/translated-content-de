@@ -8,13 +8,9 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`tag`** schreibgeschützte Eigenschaft des
-{{domxref("Notification")}}-Interfaces kennzeichnet ein identifizierendes Tag für die Benachrichtigung,
-wie im `tag`-Option des
-{{domxref("Notification.Notification","Notification()")}}-Konstruktors angegeben.
+Die schreibgeschützte **`tag`**-Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle stellt ein identifizierendes Tag für die Benachrichtigung dar, wie im `tag`-Parameter des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
 
-Die Idee von Benachrichtigungstags ist, dass mehr als eine Benachrichtigung das gleiche
-Tag teilen kann, wodurch sie miteinander verbunden werden. Eine Benachrichtigung kann dann programmgesteuert durch eine andere ersetzt werden, um zu vermeiden, dass der Bildschirm des Benutzers mit einer großen Anzahl ähnlicher Benachrichtigungen überfüllt wird.
+Die Idee von Benachrichtigungstags ist, dass mehr als eine Benachrichtigung dasselbe Tag teilen kann, wodurch sie miteinander verknüpft werden. Eine Benachrichtigung kann dann programmatisch durch eine andere ersetzt werden, um zu verhindern, dass der Bildschirm der Benutzer mit einer großen Anzahl ähnlicher Benachrichtigungen überflutet wird.
 
 ## Wert
 
@@ -22,7 +18,7 @@ Ein String.
 
 ## Beispiele
 
-Unser Artikel [Verwendung der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API#replacing_existing_notifications) enthält ein gutes Beispiel für die Verwendung von Tags.
+Unser Artikel [Using the Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API#replacing_existing_notifications) enthält ein gutes Beispiel für die Verwendung von Tags.
 
 ## Spezifikationen
 
@@ -34,4 +30,4 @@ Unser Artikel [Verwendung der Notifications API](/de/docs/Web/API/Notifications_
 
 ## Siehe auch
 
-- [Verwendung der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
+- [Using the Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)

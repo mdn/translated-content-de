@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("FedCM API")}}{{SeeCompatTable}}
 
-Die **`setStatus()`**-Methode der {{domxref("NavigatorLogin")}}-Schnittstelle setzt den Anmeldestatus eines föderierten Identitätsanbieters (IdP), wenn sie von der Origin des IdP aufgerufen wird. Damit ist gemeint, "ob im aktuellen Browser Benutzer beim IdP angemeldet sind oder nicht". Diese Methode sollte von der IdP-Seite nach einer Benutzeranmeldung oder -abmeldung aufgerufen werden.
+Die **`setStatus()`**-Methode des [`NavigatorLogin`](/de/docs/Web/API/NavigatorLogin)-Interfaces setzt den Anmeldestatus eines föderierten Identitätsanbieters (IdP), wenn sie aus dem Ursprung des IdP aufgerufen wird. Damit meinen wir "ob Benutzer im aktuellen Browser beim IdP angemeldet sind oder nicht". Dies sollte von der IdP-Seite nach einem Benutzer-Login oder -Logout aufgerufen werden.
 
-Der Browser speichert diesen Zustand für jeden IdP; die [FedCM API](/de/docs/Web/API/FedCM_API) API nutzt ihn dann, um die Anzahl der Anfragen an den IdP zu reduzieren (da keine Zeit mit Anfragen vergeudet wird, wenn keine Benutzer beim IdP angemeldet sind). Es mildert auch [mögliche Timing-Angriffe](https://github.com/w3c-fedid/FedCM/issues/447).
+Der Browser speichert diesen Zustand für jeden IdP; die [FedCM API](/de/docs/Web/API/FedCM_API) nutzt diesen, um die Anzahl der Anfragen an den IdP zu reduzieren (da keine Konten angefordert werden müssen, wenn keine Benutzer beim IdP angemeldet sind). Dies trägt auch zur Minderung von [möglichen Timing-Angriffen](https://github.com/w3c-fedid/FedCM/issues/447) bei.
 
-Siehe [Anmeldestatus mit der Login Status API aktualisieren](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) für weitere Informationen über den FedCM-Anmeldestatus.
+Siehe [Aktualisieren des Anmeldestatus über die Login-Status-API](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) für weitere Informationen über den FedCM-Anmeldestatus.
 
 ## Syntax
 
@@ -23,26 +23,26 @@ setStatus(status)
 ### Parameter
 
 - `status`
-  - : Ein Zeichenkette, die den Anmeldestatus für den IdP festlegt. Mögliche Werte sind:
+  - : Ein String, der den zu setzenden Anmeldestatus für den IdP darstellt. Mögliche Werte sind:
     - `"logged-in"`: Der IdP hat mindestens ein Benutzerkonto angemeldet.
-    - `"logged-out"`: Alle IdP-Benutzerkonten sind derzeit abgemeldet.
+    - `"logged-out"`: Alle IdP-Benutzerkonten sind momentan abgemeldet.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit `undefined` erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die aufrufende Domain nicht in einem Frame ist, bei dem die gesamte Verschachtelungshierarchie gleichorigin ist. Ob vom Hauptframe, einem {{htmlelement("iframe")}}, das im Hauptframe verschachtelt ist, oder einem anderen `<iframe>`, das eine oder mehrere Ebenen tief im ersten `<iframe>` verschachtelt ist, _alle_ Ebenen der Verschachtelungshierarchie müssen gleichorigin sein, damit der Aufruf erfolgreich ist.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird geworfen, wenn die aufrufende Domain sich nicht in einem Frame befindet, in dem die gesamte Nestungshierarchie gleichberechtigt ist. Ob aus dem Hauptframe, einem innerhalb des Hauptframes verschachtelten {{htmlelement("iframe")}} oder einem anderen `<iframe>`, das ein oder mehrere Ebenen tief innerhalb des ersten `<iframe>` verschachtelt ist, _alle_ Ebenen der Verschachtelungshierarchie müssen gleichberechtigt sein, damit der Aufruf erfolgreich ist.
 
 ## Beispiele
 
 ```js
-/* Anmeldestatus festlegen */
+/* Set logged-in status */
 navigator.login.setStatus("logged-in");
 
-/* Abmeldestatus festlegen */
+/* Set logged-out status */
 navigator.login.setStatus("logged-out");
 ```
 
@@ -56,4 +56,4 @@ navigator.login.setStatus("logged-out");
 
 ## Siehe auch
 
-- [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API)
+- [Föderiertes Credential-Management (FedCM) API](/de/docs/Web/API/FedCM_API)

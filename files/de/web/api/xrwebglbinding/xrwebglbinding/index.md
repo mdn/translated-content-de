@@ -9,7 +9,7 @@ l10n:
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
 Der **`XRWebGLBinding()`** Konstruktor erstellt und
-gibt ein neues {{domxref("XRWebGLBinding")}} Objekt zurück.
+gibt ein neues [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)-Objekt zurück.
 
 ## Syntax
 
@@ -20,20 +20,24 @@ new XRWebGLBinding(session, context)
 ### Parameter
 
 - `session`
-  - : Ein {{domxref("XRSession")}} Objekt, das die WebXR-Sitzung angibt, die mit dem WebGL-Kontext gerendert wird.
+  - : Ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt, das die WebXR-Sitzung angibt, die
+    mit dem WebGL-Kontext gerendert wird.
 - `context`
-  - : Ein {{domxref("WebGLRenderingContext")}} oder {{domxref("WebGL2RenderingContext")}}, das den WebGL-Zeichenkontext identifiziert, der zum Rendern der Szene für die angegebene WebXR-Sitzung verwendet werden soll.
+  - : Ein [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) oder [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext),
+    der den WebGL-Zeichnungskontext identifiziert, der für das Rendern der Szene der angegebenen
+    WebXR-Sitzung verwendet werden soll.
 
 ### Rückgabewert
 
-Ein neues {{domxref("XRWebGLBinding")}}.
+Ein neues [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das neue `XRWebGLBinding` aufgrund einer der folgenden Situationen nicht erstellt werden konnte:
-    - Die durch `session` angegebene {{domxref("XRSession")}} wurde bereits beendet.
-    - Der angegebene WebGL-Kontext, `context`, [wurde verloren](/de/docs/Web/API/WebGLRenderingContext/isContextLost#usage_notes) aus irgendeinem Grund, wie z.B. einem GPU-Wechsel oder -Reset.
+    - Die von `session` angegebene [`XRSession`](/de/docs/Web/API/XRSession) wurde bereits
+      beendet.
+    - Der angegebene WebGL-Kontext, `context`, [wurde verloren](/de/docs/Web/API/WebGLRenderingContext/isContextLost#usage_notes) aus irgendeinem Grund, wie z.B. einem GPU-Wechsel oder Reset.
     - Die angegebene `session` ist immersiv, aber der `context` ist
       nicht WebXR-kompatibel.
 
@@ -58,4 +62,4 @@ const glBinding = new XRWebGLBinding(xrSession, gl);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.makeXRCompatible()")}}
+- [`WebGLRenderingContext.makeXRCompatible()`](/de/docs/Web/API/WebGLRenderingContext/makeXRCompatible)

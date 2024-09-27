@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`image-orientation`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt eine von der Gestaltung unabhängige Korrektur der Ausrichtung eines Bildes an.
+Die **`image-orientation`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt eine layoutunabhängige Korrektur der Orientierung eines Bildes an.
 
 {{EmbedInteractiveExample("pages/css/image-orientation.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* keyword values */
 image-orientation: none;
-image-orientation: from-image; /* Verwenden Sie EXIF-Daten aus dem Bild */
+image-orientation: from-image; /* Use EXIF data from the image */
 
-/* Globale Werte */
+/* Global values */
 image-orientation: inherit;
 image-orientation: initial;
 image-orientation: revert;
@@ -29,17 +29,17 @@ image-orientation: unset;
 ### Werte
 
 - `none`
-  - : Wendet keine zusätzliche Bilddrehung an; das Bild ist so ausgerichtet, wie es kodiert ist oder wie es andere CSS-Eigenschaftswerte vorgeben.
+  - : Es erfolgt keine zusätzliche Bildrotation; das Bild wird so orientiert, wie es codiert ist oder wie es andere CSS-Eigenschaftswerte vorgeben.
 - `from-image`
-  - : Standard-Anfangswert. Die im Bild enthaltenen [EXIF](https://en.wikipedia.org/wiki/EXIF)-Informationen werden verwendet, um das Bild korrekt zu drehen.
+  - : Standard-Ausgangswert. Die im Bild enthaltenen [EXIF](https://en.wikipedia.org/wiki/EXIF)-Informationen werden verwendet, um das Bild entsprechend zu drehen.
 
-> **Warning:** `image-orientation: none;` **überschreibt nicht** die Ausrichtung von Bildern aus nicht sicheren Ursprüngen, die durch ihre [EXIF](https://en.wikipedia.org/wiki/EXIF)-Informationen kodiert sind, aufgrund von Sicherheitsbedenken. Weitere Informationen finden Sie im [Entwurf des CSS-Arbeitsgruppenthemas](https://github.com/w3c/csswg-drafts/issues/5165).
+> **Warning:** `image-orientation: none;` **überschreibt nicht** die Orientierung von Bildern aus unsicheren Ursprüngen, wie sie durch ihre [EXIF](https://en.wikipedia.org/wiki/EXIF)-Informationen codiert sind, aus Sicherheitsgründen. Erfahren Sie mehr vom [Entwurfsthema der CSS-Arbeitsgruppe](https://github.com/w3c/csswg-drafts/issues/5165).
 
 ## Beschreibung
 
-Diese Eigenschaft soll _ausschließlich_ verwendet werden, um die Ausrichtung von Bildern zu korrigieren, die mit einer gedrehten Kamera aufgenommen wurden. Sie sollte _nicht_ für beliebige Drehungen verwendet werden. Für alle Zwecke, die nicht mit der Korrektur der Bildausrichtung aufgrund der Aufnahme oder des Scannens zusammenhängen, verwenden Sie eine {{cssxref("transform")}}-Eigenschaft mit dem Schlüsselwort `rotate`, um die Drehung festzulegen. Dies schließt jede benutzergerichtete Änderung der Bildausrichtung ein oder Änderungen, die für den Druck in Hoch- oder Querformat erforderlich sind.
+Diese Eigenschaft soll _nur_ zur Korrektur der Orientierung von Bildern verwendet werden, die mit gedrehter Kamera aufgenommen wurden. Sie sollte _nicht_ für beliebige Rotationen verwendet werden. Für andere Zwecke als die Korrektur der Bildorientierung aufgrund der Aufnahme oder des Scans sollte eine {{cssxref("transform")}}-Eigenschaft mit dem `rotate`-Schlüsselwort verwendet werden, um die Rotation anzugeben. Dies schließt alle benutzergesteuerten Änderungen an der Bildorientierung ein oder bei Erfordernissen für Drucke im Hoch- oder Querformat.
 
-Wenn diese Eigenschaft zusammen mit anderen CSS-Eigenschaften verwendet wird, wie einer {{cssxref("&lt;transform-function&gt;")}}, wird die `image-orientation`-Drehung vor allen anderen Transformationen angewendet.
+Falls diese Eigenschaft zusammen mit anderen CSS-Eigenschaften wie einer {{cssxref("&lt;transform-function&gt;")}} verwendet wird, wird jede `image-orientation`-Rotation vor anderen Transformationen angewendet.
 
 ## Formale Definition
 
@@ -51,15 +51,15 @@ Wenn diese Eigenschaft zusammen mit anderen CSS-Eigenschaften verwendet wird, wi
 
 ## Beispiele
 
-### Ausrichtung des Bildes anhand der Bilddaten
+### Orientierung von Bildern anhand der Bilddaten
 
-Das folgende Bild wurde um 180 Grad gedreht, und die `image-orientation`-Eigenschaft wird verwendet, um seine Ausrichtung basierend auf den EXIF-Daten im Bild zu korrigieren. Indem Sie die `image-orientation` auf `none` ändern, können Sie die Wirkung der Eigenschaft sehen.
+Das folgende Bild wurde um 180 Grad gedreht, und die `image-orientation`-Eigenschaft wird verwendet, um seine Orientierung basierend auf den EXIF-Daten im Bild zu korrigieren. Durch Ändern des `image-orientation`-Wertes auf `none` können Sie den Effekt der Eigenschaft sehen.
 
 #### CSS
 
 ```css
 #image {
-  image-orientation: from-image; /* Kann in der Live-Beispiel geändert werden */
+  image-orientation: from-image; /* Can be changed in the live sample */
 }
 ```
 
@@ -74,7 +74,7 @@ label {
 ```
 
 ```html hidden
-<img id="image" src="oriole.jpg" alt="Ausrichtung aus dem Bild entnommen" />
+<img id="image" src="oriole.jpg" alt="Orientation taken from the image" />
 
 <div>
   <input

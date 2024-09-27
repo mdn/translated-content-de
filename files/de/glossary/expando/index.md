@@ -7,10 +7,10 @@ l10n:
 
 {{GlossarySidebar}}
 
-Expando-Eigenschaften sind Eigenschaften, die mit {{glossary("JavaScript")}} zu {{glossary("DOM")}}-Knoten hinzugefügt werden, wobei diese Eigenschaften nicht Teil der DOM-Spezifikation des {{glossary("object","Objekts")}} sind:
+Expando-Eigenschaften sind Eigenschaften, die zu [DOM](/de/docs/Glossary/DOM)-Knoten mit [JavaScript](/de/docs/Glossary/JavaScript) hinzugefügt werden, wobei diese Eigenschaften nicht Teil der DOM-Spezifikation des [Objekts](/de/docs/Glossary/object) sind:
 
 ```js
-window.document.foo = 5; // foo ist ein Expando
+window.document.foo = 5; // foo is an expando
 ```
 
-Der Begriff kann auch auf Eigenschaften angewendet werden, die Objekten hinzugefügt werden, ohne die ursprüngliche Absicht des Objekts zu berücksichtigen, wie zum Beispiel nicht-numerische benannte Eigenschaften, die zu einem {{glossary("Array")}} hinzugefügt werden.
+Der Begriff kann auch auf Eigenschaften angewendet werden, die Objekten hinzugefügt werden, ohne die ursprüngliche Absicht des Objekts zu berücksichtigen, wie z. B. nicht-numerische benannte Eigenschaften, die einem [Array](/de/docs/Glossary/Array) hinzugefügt werden.

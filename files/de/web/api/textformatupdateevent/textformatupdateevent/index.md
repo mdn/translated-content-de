@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("TextFormatUpdateEvent API")}}{{SeeCompatTable}}
 
-Der **`TextFormatUpdateEvent()`** Konstruktor gibt ein neues {{DOMxRef("TextFormatUpdateEvent")}} Objekt zurück.
+Der **`TextFormatUpdateEvent()`** Konstruktor gibt ein neues [`TextFormatUpdateEvent`](/de/docs/Web/API/TextFormatUpdateEvent) Objekt zurück.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ new TextFormatUpdateEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Events repräsentiert. Mögliche Werte: `"textformatupdate"`.
+  - : Ein String, der den Typ des Ereignisses darstellt. Mögliche Werte: `"textformatupdate"`.
 - `options` {{optional_inline}}
   - : Ein optionales Objekt mit den folgenden Eigenschaften:
     - `textFormats`
-      - : Ein {{jsxref("Array")}} von {{domxref("TextFormat")}} Objekten, die die zu diesem Event anzuwendenden Textformate darstellen.
+      - : Ein {{jsxref("Array")}} von [`TextFormat`](/de/docs/Web/API/TextFormat) Objekten, die die Textformate darstellen, die mit diesem Ereignis angewendet werden müssen.
 
 ## Spezifikationen
 
@@ -36,4 +36,4 @@ new TextFormatUpdateEvent(type, options)
 
 ## Siehe auch
 
-- Das {{DOMxRef("TextFormatUpdateEvent")}} Interface, zu dem es gehört.
+- Das [`TextFormatUpdateEvent`](/de/docs/Web/API/TextFormatUpdateEvent) Interface, zu dem es gehört.

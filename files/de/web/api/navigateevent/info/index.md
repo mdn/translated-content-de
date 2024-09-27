@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`info`** des {{domxref("NavigateEvent")}}-Interfaces gibt den `info`-Datenwert zurück, der durch den auslösenden Navigationsvorgang übergeben wurde (z.B. {{domxref("Navigation.back()")}} oder {{domxref("Navigation.navigate()")}}). Falls keine `info`-Daten übergeben wurden, wird `undefined` zurückgegeben.
+Die **`info`**-Schreibgeschützte Eigenschaft des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt den `info`-Datenwert zurück, der von der einleitenden Navigationsoperation übergeben wurde (z. B. [`Navigation.back()`](/de/docs/Web/API/Navigation/back) oder [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate)), oder `undefined`, wenn keine `info`-Daten übergeben wurden.
 
 ## Wert
 
-Der `info`-Wert, der durch den auslösenden Navigationsvorgang übergeben wurde, oder `undefined`, falls keiner übergeben wurde.
+Der `info`-Wert, der von der einleitenden Navigationsoperation übergeben wurde, oder `undefined`, wenn keiner übergeben wurde.
 
 ## Beispiele
 
-Ein Beispiel dafür, wie `info` verwendet werden könnte, ist, um verschiedene Single-Page-Navigationsdarstellungen auszulösen, je nachdem, wie eine bestimmte Route erreicht wurde. Betrachten Sie beispielsweise eine Foto-Galerie-App, in der Sie dieselbe Foto-URL und denselben Status über verschiedene Routen erreichen können. Für jede Route könnten Sie eine andere Animation verwenden, um das Foto anzuzeigen.
+Ein Beispiel für die Verwendung von `info` könnte darin bestehen, unterschiedliche Darstellungen einer Einzelseiten-Navigation auszulösen, abhängig davon, wie eine bestimmte Route erreicht wurde. Betrachten Sie zum Beispiel eine Fotogalerie-App, bei der Sie dieselbe Foto-URL und denselben Zustand über verschiedene Routen erreichen können. Möglicherweise möchten Sie eine andere Animation verwenden, um das Foto für jede Route anzuzeigen.
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -55,7 +55,7 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
-- Methoden, die erlauben, Informationen zu übergeben — {{domxref("Navigation.back()")}}, {{domxref("Navigation.forward()")}}, {{domxref("Navigation.navigate()")}}, {{domxref("Navigation.reload()")}} und {{domxref("Navigation.traverseTo()")}}
+- Methoden, die es erlauben, info zu übergeben — [`Navigation.back()`](/de/docs/Web/API/Navigation/back), [`Navigation.forward()`](/de/docs/Web/API/Navigation/forward), [`Navigation.navigate()`](/de/docs/Web/API/Navigation/navigate), [`Navigation.reload()`](/de/docs/Web/API/Navigation/reload) und [`Navigation.traverseTo()`](/de/docs/Web/API/Navigation/traverseTo)

@@ -8,7 +8,10 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.protocol`**-Eigenschaft ist ein String, der das Protokollschema der URL repräsentiert, einschließlich des abschließenden `':'`.
+Die
+**`HTMLAreaElement.protocol`**
+Eigenschaft ist ein String, der das Protokollschema der URL darstellt,
+einschließlich des abschließenden `':'`.
 
 ## Wert
 
@@ -16,12 +19,12 @@ Ein String.
 
 ## Beispiele
 
-### Abrufen des Protokolls eines Bereichs-Links
+### Das Protokoll eines Bereichslinks abrufen
 
 ```js
-// Ein <area id="myArea" href="https://developer.mozilla.org/en-US/HTMLAreaElement">-Element ist im Dokument
+// An <area id="myArea" href="https://developer.mozilla.org/en-US/HTMLAreaElement"> element is in the document
 const area = document.getElementById("myArea");
-area.protocol; // gibt 'https:' zurück
+area.protocol; // returns 'https:'
 ```
 
 ## Spezifikationen
@@ -34,4 +37,4 @@ area.protocol; // gibt 'https:' zurück
 
 ## Siehe auch
 
-- Das {{domxref("HTMLAreaElement")}}-Interface, zu dem es gehört.
+- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) Interface, zu dem es gehört.

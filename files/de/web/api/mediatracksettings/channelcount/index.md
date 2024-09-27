@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`channelCount`**-Attribut des {{domxref("MediaTrackSettings")}} Wörterbuchs ist eine Ganzzahl, die angibt, wie viele Audiokanäle der {{domxref("MediaStreamTrack")}} derzeit konfiguriert hat. Dies ermöglicht es Ihnen festzustellen, welcher Wert ausgewählt wurde, um Ihren angegebenen Einschränkungen für den Wert dieser Eigenschaft zu entsprechen, wie sie in der {{domxref("MediaTrackConstraints.channelCount")}} Eigenschaft beschrieben sind, die Sie beim Aufrufen von entweder {{domxref("MediaDevices.getUserMedia", "getUserMedia()")}} oder {{domxref("MediaStreamTrack.applyConstraints()")}} bereitgestellt haben.
+Das **`channelCount`**-Attribut im [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Wörterbuch ist eine ganze Zahl, die angibt, wie viele Audiokanäle die [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) derzeit aufweist. Dies ermöglicht Ihnen zu bestimmen, welcher Wert ausgewählt wurde, um den von Ihnen angegebenen Einschränkungen für den Wert dieser Eigenschaft zu entsprechen, wie im [`MediaTrackConstraints.channelCount`](/de/docs/Web/API/MediaTrackConstraints/channelCount)-Attribut beschrieben, das Sie bei einem Aufruf von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) oder [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) bereitgestellt haben.
 
-Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von {{domxref("MediaTrackSupportedConstraints.channelCount")}} überprüfen, der durch einen Aufruf von {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegeben wird. Normalerweise ist dies jedoch nicht notwendig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
+Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.channelCount`](/de/docs/Web/API/MediaTrackSupportedConstraints/channelCount) überprüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Normalerweise ist dies jedoch nicht notwendig, da Browser jegliche nicht vertrauten Einschränkungen ignorieren.
 
 ## Wert
 
-Ein Ganzzahlwert, der die Anzahl der Audiokanäle auf der Spur angibt. Ein Wert von 1 gibt Mono-Sound an, 2 bedeutet Stereo und so weiter.
+Ein ganzzahliger Wert, der die Anzahl der Audiokanäle auf der Spur angibt. Ein Wert von 1 bedeutet monoauralen Klang, 2 bedeutet Stereo und so weiter.
 
 ## Beispiele
 
-Sehen Sie sich das Beispiel des [Constraint-Übersetzers](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) an.
+Siehe das Beispiel des [Constraint-Übungsprogramms](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser).
 
 ## Spezifikationen
 
@@ -32,5 +32,5 @@ Sehen Sie sich das Beispiel des [Constraint-Übersetzers](/de/docs/Web/API/Media
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
-- {{domxref("MediaTrackConstraints.channelCount")}}
-- {{domxref("MediaTrackSettings")}}
+- [`MediaTrackConstraints.channelCount`](/de/docs/Web/API/MediaTrackConstraints/channelCount)
+- [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)

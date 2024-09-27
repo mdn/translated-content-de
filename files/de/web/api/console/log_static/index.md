@@ -22,13 +22,13 @@ log(msg, subst1, /* …, */ substN)
 ### Parameter
 
 - `val1` … `valN`
-  - : Eine Liste von JavaScript-Werten zur Ausgabe. Eine Darstellung jedes dieser Werte wird in der angegebenen Reihenfolge mit einer Art Trennung zwischen ihnen an die Konsole ausgegeben. Es gibt einen Sonderfall, wenn `obj1` eine Zeichenkette ist, die anschließend beschrieben wird.
+  - : Eine Liste von JavaScript-Werten zur Ausgabe. Eine Darstellung jedes dieser Werte wird in der angegebenen Reihenfolge mit einer Art von Trennung zwischen ihnen an die Konsole ausgegeben. Es gibt einen Sonderfall, wenn `obj1` ein String ist, der anschließend beschrieben wird.
 - `msg`
-  - : Eine JavaScript-Zeichenkette, die null oder mehr Ersetzungszeichenfolgen enthält, die in aufsteigender Reihenfolge von `subst1` bis `substN` ersetzt werden, entsprechend der Anzahl der Ersetzungszeichenfolgen. Siehe [Verwendung von Zeichenkettenersetzungen](/de/docs/Web/API/console#using_string_substitutions) für eine Beschreibung, wie Ersetzungen funktionieren.
+  - : Ein JavaScript-String, der null oder mehr Ersetzungs-Strings enthält, die nacheinander durch `subst1` bis `substN` in der Reihenfolge der Anzahl der Ersetzungs-Strings ersetzt werden. Siehe [Verwendung von String-Ersetzungen](/de/docs/Web/API/console#using_string_substitutions) für eine Beschreibung, wie Ersetzungen funktionieren.
 - `subst1` … `substN`
-  - : JavaScript-Werte, mit denen Ersetzungszeichenfolgen innerhalb von `msg` ersetzt werden. Wenn es mehr Ersatzwerte als Ersetzungszeichenfolgen gibt, werden die zusätzlichen Werte selbst nach der detaillierten Assert-Nachricht auf dieselbe Weise an die Konsole geschrieben wie bei einer Ausgabe ohne Formatzeichenfolge.
+  - : JavaScript-Werte, mit denen Ersetzungs-Strings innerhalb `msg` ersetzt werden. Wenn es mehr Ersetzungswerte als Ersetzungs-Strings gibt, werden die zusätzlichen Werte nach der ausführlichen Bestätigungsnachricht in gleicher Weise wie bei fehlendem Format-String an die Konsole geschrieben.
 
-Siehe [Ausgabe von Text an die Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von {{domxref("console")}} für weitere Details.
+Weitere Details finden Sie im Abschnitt [Textausgabe an die Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation der [`console`](/de/docs/Web/API/Console).
 
 ### Rückgabewert
 
@@ -44,6 +44,6 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [Microsoft Edges Dokumentation für `console.log()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#log)
-- [Node.JS-Dokumentation für `console.log()`](https://nodejs.org/docs/latest/api/console.html#consolelogdata-args)
-- [Google Chromes Dokumentation für `console.log()`](https://developer.chrome.com/docs/devtools/console/api/#log)
+- [Microsoft Edges Dokumentation zu `console.log()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#log)
+- [Node.JS Dokumentation für `console.log()`](https://nodejs.org/docs/latest/api/console.html#consolelogdata-args)
+- [Google Chromes Dokumentation zu `console.log()`](https://developer.chrome.com/docs/devtools/console/api/#log)

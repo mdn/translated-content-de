@@ -1,5 +1,5 @@
 ---
-title: "GeolocationCoordinates: latitude Eigenschaft"
+title: "GeolocationCoordinates: latitude-Eigenschaft"
 short-title: latitude
 slug: Web/API/GeolocationCoordinates/latitude
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die schreibgeschützte **`latitude`**-Eigenschaft des {{domxref("GeolocationCoordinates")}}-Interfaces ist ein `double`, das die Breite der Position in Dezimalgrad darstellt.
+Die schreibgeschützte Eigenschaft **`latitude`** des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Interfaces ist ein `double`, das die geografische Breite der Position in Dezimalgrad darstellt.
 
 ## Wert
 
-Ein `double`, das die Breite der Position in Dezimalgrad darstellt.
+Ein `double`, das die geografische Breite der Position in Dezimalgrad darstellt.
 
 ## Spezifikationen
 
@@ -25,4 +25,4 @@ Ein `double`, das die Breite der Position in Dezimalgrad darstellt.
 ## Siehe auch
 
 - [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- {{domxref("GeolocationCoordinates")}}
+- [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)

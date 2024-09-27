@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: interimResults Eigenschaft"
+title: "SpeechRecognition: interimResults-Eigenschaft"
 short-title: interimResults
 slug: Web/API/SpeechRecognition/interimResults
 l10n:
@@ -9,22 +9,17 @@ l10n:
 {{APIRef("Web Speech API")}}
 
 Die **`interimResults`**-Eigenschaft des
-{{domxref("SpeechRecognition")}}-Interfaces steuert, ob Zwischenergebnisse
-zurückgegeben werden sollen (`true`) oder nicht (`false`). Zwischenergebnisse sind Resultate,
-die noch nicht final sind (z. B. ist die {{domxref("SpeechRecognitionResult.isFinal")}}-Eigenschaft
-`false`).
+[`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition)-Interfaces steuert, ob Zwischenergebnisse zurückgegeben werden sollen (`true`) oder nicht (`false`). Zwischenergebnisse sind Ergebnisse, die noch nicht endgültig sind (z.B. ist die [`SpeechRecognitionResult.isFinal`](/de/docs/Web/API/SpeechRecognitionResult/isFinal)-Eigenschaft `false`).
 
 Der Standardwert für **`interimResults`** ist `false`.
 
 ## Wert
 
-Ein boolescher Wert, der den Zustand der aktuellen
-Zwischenergebnisse von `SpeechRecognition` repräsentiert. `true` bedeutet, dass
-Zwischenergebnisse zurückgegeben werden, und `false` bedeutet, dass sie nicht zurückgegeben werden.
+Ein Boolescher Wert, der den Zustand der aktuellen `SpeechRecognition`-Zwischenergebnisse darstellt. `true` bedeutet, dass Zwischenergebnisse zurückgegeben werden, und `false` bedeutet, dass sie nicht zurückgegeben werden.
 
 ## Beispiele
 
-Dieser Code ist ein Auszug aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js) Beispiel.
+Dieser Code ist ein Auszug aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
 const grammar =

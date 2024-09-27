@@ -8,13 +8,16 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}
 
-Die schreibgeschützte **{{domxref("AudioTrack")}}**
+Die schreibgeschützte **[`AudioTrack`](/de/docs/Web/API/AudioTrack)**
 Eigenschaft **`sourceBuffer`** gibt den
-{{domxref("SourceBuffer")}} zurück, der den Track erstellt hat, oder null, wenn der Track nicht von einem {{domxref("SourceBuffer")}} erstellt wurde oder der {{domxref("SourceBuffer")}} aus dem {{domxref("MediaSource.sourceBuffers")}}-Attribut seiner übergeordneten Medienquelle entfernt wurde.
+[`SourceBuffer`](/de/docs/Web/API/SourceBuffer) zurück, der den Track erstellt hat, oder null, wenn der Track nicht
+von einem [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) erstellt wurde oder der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) aus dem
+[`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers)-Attribut der übergeordneten
+Medienquelle entfernt wurde.
 
 ## Wert
 
-Ein {{domxref("SourceBuffer")}} oder null.
+Ein [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) oder null.
 
 ## Spezifikationen
 

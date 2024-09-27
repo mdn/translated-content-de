@@ -7,37 +7,37 @@ l10n:
 
 {{CSSRef}}
 
-Der **`-webkit-device-pixel-ratio`** ist ein nicht standardmäßiges Boolean-[CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features), das eine Alternative zum standardmäßigen [`resolution`](/de/docs/Web/CSS/@media/resolution) Media-Feature darstellt.
+Der **`-webkit-device-pixel-ratio`** ist ein nicht standardisiertes Boolean [CSS](/de/docs/Web/CSS) [Media Feature](/de/docs/Web/CSS/@media#media_features), das als Alternative zu dem standardisierten [`resolution`](/de/docs/Web/CSS/@media/resolution) Media Feature dient.
 
 > [!NOTE]
-> Wenn möglich, verwenden Sie stattdessen die [`resolution`](/de/docs/Web/CSS/@media/resolution) Media-Feature-Abfrage, die ein standardmäßiges Media-Feature ist. Obwohl dieses vorangestellte Media-Feature ein WebKit-Feature ist, kann es auch von anderen Browser-Engines unterstützt werden. Siehe [Browser-Kompatibilität](#browser-kompatibilität) unten.
+> Wenn möglich, verwenden Sie die [`resolution`](/de/docs/Web/CSS/@media/resolution) Media Feature-Abfrage, da es sich hierbei um ein standardisiertes Media Feature handelt. Obwohl dieses vorangestellte Media Feature eine WebKit-Funktion ist, kann es von anderen Browser-Engines unterstützt werden. Siehe unten unter [Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Syntax
 
-Das `-webkit-device-pixel-ratio` Feature wird als {{cssxref("&lt;number&gt;")}} Wert angegeben. Es handelt sich um ein Bereichs-Feature, was bedeutet, dass Sie auch die vorangestellten Varianten **`-webkit-min-device-pixel-ratio`** und **`-webkit-max-device-pixel-ratio`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
+Das `-webkit-device-pixel-ratio` Feature wird als {{cssxref("&lt;number&gt;")}} Wert spezifiziert. Es ist ein Bereichs-Feature, was bedeutet, dass Sie auch die vorangestellten **`-webkit-min-device-pixel-ratio`** und **`-webkit-max-device-pixel-ratio`** Varianten verwenden können, um minimale bzw. maximale Werte abzufragen.
 
 ### Werte
 
 - {{cssxref("&lt;number&gt;")}}
-  - : Die Anzahl der Gerätepixel, die verwendet werden, um jedes CSS [`px`](/de/docs/Web/CSS/length#absolute_length_units) darzustellen. Obwohl der Wert ein `<number>` ist und daher syntaktisch keine Einheiten zulässt, ist seine implizite Einheit [`dppx`](/de/docs/Web/CSS/resolution#units).
+  - : Die Anzahl der Gerät-Pixel, die verwendet werden, um jedes CSS [`px`](/de/docs/Web/CSS/length#absolute_length_units) darzustellen. Obwohl der Wert ein `<number>` ist und somit syntaktisch keine Einheiten zulässt, ist seine implizite Einheit [`dppx`](/de/docs/Web/CSS/resolution#units).
 
 ## Implementierung
 
 ```css
-/* Eine Einheit von "dppx" wird impliziert: */
+/* A unit of "dppx" is implied: */
 @media (-webkit-min-device-pixel-ratio: 2) {
   /* … */
 }
-/* Es ist gleichwertig mit: */
+/* It is equivalent to: */
 @media (min-resolution: 2dppx) {
   /* … */
 }
 
-/* Ähnlich: */
+/* Similarly: */
 @media (-webkit-max-device-pixel-ratio: 2) {
   /* … */
 }
-/* Es ist gleichwertig mit: */
+/* It is equivalent to: */
 @media (max-resolution: 2dppx) {
   /* … */
 }
@@ -54,21 +54,21 @@ Das `-webkit-device-pixel-ratio` Feature wird als {{cssxref("&lt;number&gt;")}} 
 ### CSS
 
 ```css
-/* Präzise Auflösung */
+/* Exact resolution */
 @media (-webkit-device-pixel-ratio: 1) {
   p {
     color: red;
   }
 }
 
-/* Mindestauflösung */
+/* Minimum resolution */
 @media (-webkit-min-device-pixel-ratio: 1.1) {
   p {
     font-size: 1.5em;
   }
 }
 
-/* Höchstauflösung */
+/* Maximum resolution */
 @media (-webkit-max-device-pixel-ratio: 3) {
   p {
     background: yellow;
@@ -96,4 +96,4 @@ Das `-webkit-device-pixel-ratio` Feature wird als {{cssxref("&lt;number&gt;")}} 
 - [`-webkit-transform-3d`](/de/docs/Web/CSS/@media/-webkit-transform-3d)
 - [`-webkit-transition`](/de/docs/Web/CSS/@media/-webkit-transition)
 - [`-webkit-animation`](/de/docs/Web/CSS/@media/-webkit-animation)
-- [W3C empfohlene Methode zur Entfernung von Präfixen](https://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/)
+- [Von der W3C empfohlene Methode zum Entfernen von Präfixen](https://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/)

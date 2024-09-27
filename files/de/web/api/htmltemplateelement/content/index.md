@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`HTMLTemplateElement.content`**-Eigenschaft gibt den Inhalt eines `<template>`-Elements zurück (ein {{domxref("DocumentFragment")}}).
+Die **`HTMLTemplateElement.content`**-Eigenschaft gibt den Inhalt eines `<template>`-Elements zurück (ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)).
 
 ## Wert
 
-Ein {{domxref("DocumentFragment")}}.
+Ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment).
 
 ## Beispiele
 
@@ -31,4 +31,4 @@ const documentFragment = templateElement.content.cloneNode(true);
 
 ## Siehe auch
 
-- {{domxref("HTMLTemplateElement")}}
+- [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement)

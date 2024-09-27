@@ -1,6 +1,6 @@
 ---
-title: "HTMLMediaElement: Fehlerereignis"
-short-title: Fehler
+title: "HTMLMediaElement: error-Ereignis"
+short-title: error
 slug: Web/API/HTMLMediaElement/error_event
 l10n:
   sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`error`**-Ereignis wird ausgelöst, wenn die Ressource aufgrund eines Fehlers nicht geladen werden konnte (z. B. ein Problem mit der Netzwerkverbindung).
+Das **`error`**-Ereignis wird ausgelöst, wenn die Ressource aufgrund eines Fehlers nicht geladen werden konnte (zum Beispiel bei einem Netzwerkverbindungsproblem).
 
-Dieses Ereignis ist nicht stornierbar und propagiert nicht.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -24,7 +24,7 @@ onerror = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -49,7 +49,7 @@ video.setAttribute("src", videoSrc);
 
 ## Siehe auch
 
-- {{domxref("HTMLAudioElement")}}
-- {{domxref("HTMLVideoElement")}}
+- [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement)
+- [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)
 - {{HTMLElement("audio")}}
 - {{HTMLElement("video")}}

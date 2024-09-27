@@ -1,5 +1,5 @@
 ---
-title: "NodeIterator: pointerBeforeReferenceNode Eigenschaft"
+title: "NodeIterator: pointerBeforeReferenceNode-Eigenschaft"
 short-title: pointerBeforeReferenceNode
 slug: Web/API/NodeIterator/pointerBeforeReferenceNode
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`NodeIterator.pointerBeforeReferenceNode`** gibt ein Boolesches Flag zurück, das angibt, ob der `NodeFilter` vor (wenn dieser Wert `true` ist) oder nach (wenn dieser Wert `false` ist) dem Ankerknoten verankert ist, der durch die {{domxref("NodeIterator.referenceNode")}}-Eigenschaft angegeben wird.
+Die schreibgeschützte Eigenschaft **`NodeIterator.pointerBeforeReferenceNode`** gibt ein boolesches Flag zurück, das angibt, ob der `NodeFilter` vor (wenn dieser Wert `true` ist) oder nach (wenn dieser Wert `false` ist) dem durch die [`NodeIterator.referenceNode`](/de/docs/Web/API/NodeIterator/referenceNode)-Eigenschaft angegebenen Ankerknoten verankert ist.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein boolean.
 
 ## Beispiele
 
@@ -33,10 +33,10 @@ flag = nodeIterator.pointerBeforeReferenceNode;
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Die Schnittstelle, zu der es gehört: {{domxref("NodeIterator")}}
+- Das Interface, zu dem es gehört: [`NodeIterator`](/de/docs/Web/API/NodeIterator)

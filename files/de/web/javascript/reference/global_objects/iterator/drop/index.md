@@ -18,22 +18,22 @@ drop(limit)
 ### Parameter
 
 - `limit`
-  - : Die Anzahl der Elemente, die am Anfang der Iteration übersprungen werden sollen.
+  - : Die Anzahl der Elemente, die zu Beginn der Iteration übersprungen werden sollen.
 
 ### Rückgabewert
 
-Ein neuer [Iterator-Helfer](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helpers). Wenn die `next()`-Methode des zurückgegebenen Iterator-Helfers zum ersten Mal aufgerufen wird, wird der aktuelle Iterator sofort um `limit` Elemente vorwärts bewegt, und dann wird das nächste Element (das `limit+1`-te Element) geliefert. Der Iterator-Helfer liefert dann die verbleibenden Elemente einzeln. Wenn der aktuelle Iterator weniger als `limit` Elemente hat, wird der neue Iterator-Helfer sofort abgeschlossen, wenn `next()` zum ersten Mal aufgerufen wird.
+Ein neuer [Iterator-Helfer](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#iterator_helpers). Beim ersten Aufruf der `next()`-Methode des zurückgegebenen Iterator-Helfers wird der aktuelle Iterator sofort um `limit` Elemente vorgesetzt, und dann wird das nächste Element (also das `limit+1`-te Element) geliefert. Der Iterator-Helfer liefert dann die verbleibenden Elemente einzeln. Wenn der aktuelle Iterator weniger als `limit` Elemente hat, wird der neue Iterator-Helfer beim ersten Aufruf von `next()` sofort abgeschlossen.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `limit` zu {{jsxref("NaN")}} oder negativ wird, wenn es [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) wird.
+  - : Wird ausgelöst, wenn `limit` {{jsxref("NaN")}} oder negativ wird, wenn es [in eine Ganzzahl konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion) wird.
 
 ## Beispiele
 
 ### Verwendung von drop()
 
-Das folgende Beispiel erstellt einen Iterator, der Terme der Fibonacci-Sequenz liefert, beginnend mit dem dritten Term, indem die ersten beiden Terme übersprungen werden:
+Das folgende Beispiel erstellt einen Iterator, der Terme in der Fibonacci-Folge liefert, beginnend mit dem 3. Term durch Überspringen der ersten zwei Terme:
 
 ```js
 function* fibonacci() {
@@ -50,7 +50,7 @@ console.log(seq.next().value); // 2
 console.log(seq.next().value); // 3
 ```
 
-Dies ist gleichbedeutend mit:
+Dies ist äquivalent zu:
 
 ```js
 const seq = fibonacci();
@@ -70,7 +70,7 @@ for (const n of fibonacci().drop(2)) {
   }
 }
 
-// Protokolliert:
+// Logs:
 // 2
 // 3
 // 5
@@ -82,14 +82,14 @@ for (const n of fibonacci().drop(2)) {
 
 ### Kombinieren von drop() mit take()
 
-Sie können `drop()` mit {{jsxref("Iterator.prototype.take()")}} kombinieren, um einen Ausschnitt eines Iterators zu erhalten:
+Sie können `drop()` mit {{jsxref("Iterator.prototype.take()")}} kombinieren, um ein Teilstück eines Iterators zu erhalten:
 
 ```js
 for (const n of fibonacci().drop(2).take(5)) {
-  // Überspringt die ersten zwei Elemente, dann werden die nächsten fünf genommen
+  // Drops the first two elements, then takes the next five
   console.log(n);
 }
-// Protokolliert:
+// Logs:
 // 2
 // 3
 // 5
@@ -97,28 +97,28 @@ for (const n of fibonacci().drop(2).take(5)) {
 // 13
 
 for (const n of fibonacci().take(5).drop(2)) {
-  // Nimmt die ersten fünf Elemente, dann werden die ersten zwei übersprungen
+  // Takes the first five elements, then drops the first two
   console.log(n);
 }
-// Protokolliert:
+// Logs:
 // 2
 // 3
 // 5
 ```
 
-### Untere und obere Grenzen der Drop-Anzahl
+### Untere und obere Grenzen der Übersprungsanzahl
 
 Wenn `limit` negativ oder {{jsxref("NaN")}} ist, wird ein {{jsxref("RangeError")}} ausgelöst:
 
 ```js
-fibonacci().drop(-1); // RangeError: -1 muss positiv sein
-fibonacci().drop(undefined); // RangeError: undefined muss positiv sein
+fibonacci().drop(-1); // RangeError: -1 must be positive
+fibonacci().drop(undefined); // RangeError: undefined must be positive
 ```
 
-Wenn `limit` größer als die Gesamtanzahl der Elemente ist, die der Iterator erzeugen kann (wie z. B. {{jsxref("Infinity")}}), wird der zurückgegebene Iterator-Helfer sofort alle Elemente überspringen und dann abgeschlossen, wenn `next()` zum ersten Mal aufgerufen wird. Wenn der aktuelle Iterator unendlich ist, wird der zurückgegebene Iterator-Helfer niemals abgeschlossen.
+Wenn `limit` größer ist als die Gesamtanzahl der Elemente, die der Iterator produzieren kann (wie {{jsxref("Infinity")}}), wird der zurückgegebene Iterator-Helfer sofort alle Elemente fallenlassen und dann beim ersten Aufruf von `next()` abgeschlossen. Wenn der aktuelle Iterator unendlich ist, wird der zurückgegebene Iterator-Helfer niemals abgeschlossen.
 
 ```js
-fibonacci().drop(Infinity).next(); // Endet nie
+fibonacci().drop(Infinity).next(); // Never ends
 new Set([1, 2, 3]).values().drop(Infinity).next(); // { value: undefined, done: true }
 new Set([1, 2, 3]).values().drop(4).next(); // { value: undefined, done: true }
 ```

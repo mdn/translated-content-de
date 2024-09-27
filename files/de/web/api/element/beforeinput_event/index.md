@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef}}
 
-Das DOM-**`beforeinput`**-Ereignis wird ausgelöst, wenn der Wert eines {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Elements geändert werden soll. Anders als das {{domxref("Element/input_event", "input")}}-Ereignis wird es jedoch nicht auf dem {{HTMLElement("select")}}-Element ausgelöst. Das Ereignis gilt auch für Elemente mit aktiviertem {{domxref("HTMLElement.contentEditable", "contenteditable")}} und für jedes Element, wenn {{domxref("Document.designMode", "designMode")}} aktiviert ist.
+Das DOM-**`beforeinput`**-Ereignis wird ausgelöst, wenn der Wert eines {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Elements geändert werden soll. Im Gegensatz zum [`input`](/de/docs/Web/API/Element/input_event)-Ereignis wird es jedoch nicht bei einem {{HTMLElement("select")}}-Element ausgelöst. Das Ereignis gilt auch für Elemente mit aktiviertem [`contenteditable`](/de/docs/Web/API/HTMLElement/contentEditable) und für jedes Element, wenn [`designMode`](/de/docs/Web/API/Document/designMode) eingeschaltet ist.
 
-Dies ermöglicht es Webanwendungen, das Verhalten von Texteingaben zu überschreiben, bevor der Browser den DOM-Baum modifiziert, und bietet mehr Kontrolle über Eingabeereignisse zur Verbesserung der Leistung.
+Dies ermöglicht es Webanwendungen, das Textbearbeitungsverhalten zu überschreiben, bevor der Browser den DOM-Baum ändert, und bietet mehr Kontrolle über Eingabeereignisse zur Verbesserung der Leistung.
 
-Im Fall von `contenteditable` und `designMode` ist das Ereignisziel der **Bearbeitungshost**. Wenn diese Eigenschaften auf mehrere Elemente angewendet werden, ist der Bearbeitungshost das nächste Vorfahrelement, dessen Elternteil nicht editierbar ist.
+Im Fall von `contenteditable` und `designMode` ist das Ereignisziel der **Bearbeitungshost**. Wenn diese Eigenschaften auf mehrere Elemente zutreffen, ist der Bearbeitungshost das nächste Vorfahrenelement, dessen Eltern nicht bearbeitbar sind.
 
 > [!NOTE]
-> Nicht jede Benutzermodifikation führt zur Auslösung von `beforeinput`. Außerdem kann es sein, dass das Ereignis ausgelöst wird, aber nicht abbruchfähig ist. Dies kann passieren, wenn die Modifikation durch Autovervollständigung, durch die Annahme einer Korrektur von einem Rechtschreibprüfer, durch Passwort-Manager-Autovervollständigung, durch {{Glossary("Input method editor", "IME")}} oder auf andere Weise erfolgt. Die Details variieren je nach Browser und Betriebssystem. Um das Bearbeitungsverhalten in allen Situationen zu überschreiben, muss der Code das `input`-Ereignis behandeln und möglicherweise alle Modifikationen rückgängig machen, die nicht vom `beforeinput`-Handler behandelt wurden. Siehe die Fehler [1673558](https://bugzil.la/1673558) und [1763669](https://bugzil.la/1763669).
+> Nicht jede Benutzeränderung führt zu einem `beforeinput`-Ereignis. Das Ereignis kann auch ausgelöst werden, aber nicht abbrechbar sein. Dies kann passieren, wenn die Änderung durch Autovervollständigung, durch Akzeptieren einer Korrektur von einer Rechtschreibprüfung, durch Autofill des Passwortmanagers, durch [IME](/de/docs/Glossary/Input_method_editor) oder auf andere Weise erfolgt. Die Einzelheiten variieren je nach Browser und Betriebssystem. Um das Bearbeitungsverhalten in allen Situationen zu überschreiben, muss der Code das `input`-Ereignis behandeln und möglicherweise alle Änderungen rückgängig machen, die nicht vom `beforeinput`-Handler behandelt wurden. Siehe Fehler [1673558](https://bugzil.la/1673558) und [1763669](https://bugzil.la/1763669).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("beforeinput", (event) => {});
@@ -29,28 +29,28 @@ onbeforeinput = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("InputEvent")}}. Erbt von {{domxref("UIEvent")}}.
+Ein [`InputEvent`](/de/docs/Web/API/InputEvent). Erbt von [`UIEvent`](/de/docs/Web/API/UIEvent).
 
 {{InheritanceDiagram("InputEvent")}}
 
 ## Ereigniseigenschaften
 
-_Dieses Interface erbt Eigenschaften von seinen Eltern, {{DOMxRef("UIEvent")}} und {{DOMxRef("Event")}}._
+_Diese Schnittstelle erbt Eigenschaften von ihren Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
-- {{DOMxRef("InputEvent.data")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette mit den eingefügten Zeichen zurück. Dies kann eine leere Zeichenkette sein, wenn die Änderung keinen Text einfügt (zum Beispiel beim Löschen von Zeichen).
-- {{DOMxRef("InputEvent.dataTransfer")}} {{ReadOnlyInline}}
-  - : Gibt ein {{DOMxRef("DataTransfer")}}-Objekt zurück, das Informationen über Richtext- oder Klartext-Daten enthält, die zu bearbeitbaren Inhalten hinzugefügt oder von diesen entfernt werden.
-- {{DOMxRef("InputEvent.inputType")}} {{ReadOnlyInline}}
-  - : Gibt den Typ der Änderung für bearbeitbare Inhalte zurück, wie z.B. Einfügen, Löschen oder Formatieren von Text.
-- {{DOMxRef("InputEvent.isComposing")}} {{ReadOnlyInline}}
-  - : Gibt einen {{JSxRef("Boolean")}}-Wert zurück, der angibt, ob das Ereignis nach {{domxref("Element/compositionstart_event", "compositionstart")}} und vor {{domxref("Element/compositionend_event", "compositionend")}} ausgelöst wird.
+- [`InputEvent.data`](/de/docs/Web/API/InputEvent/data) {{ReadOnlyInline}}
+  - : Gibt eine Zeichenfolge mit den eingefügten Zeichen zurück. Dies kann eine leere Zeichenfolge sein, wenn die Änderung keinen Text einfügt (zum Beispiel beim Löschen von Zeichen).
+- [`InputEvent.dataTransfer`](/de/docs/Web/API/InputEvent/dataTransfer) {{ReadOnlyInline}}
+  - : Gibt ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt zurück, das Informationen über Richtext- oder Klartextdaten enthält, die zu bearbeitbaren Inhalten hinzugefügt oder daraus entfernt werden.
+- [`InputEvent.inputType`](/de/docs/Web/API/InputEvent/inputType) {{ReadOnlyInline}}
+  - : Gibt die Art der Änderung für bearbeitbare Inhalte zurück, beispielsweise das Einfügen, Löschen oder Formatieren von Text.
+- [`InputEvent.isComposing`](/de/docs/Web/API/InputEvent/isComposing) {{ReadOnlyInline}}
+  - : Gibt einen {{JSxRef("Boolean")}}-Wert zurück, der angibt, ob das Ereignis nach [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event) und vor [`compositionend`](/de/docs/Web/API/Element/compositionend_event) ausgelöst wird.
 
 ## Beispiele
 
-### Feature Detection
+### Funktionsprüfung
 
-Die folgende Funktion gibt true zurück, wenn `beforeinput` und damit `getTargetRanges` unterstützt wird.
+Die folgende Funktion gibt `true` zurück, wenn `beforeinput` und damit `getTargetRanges` unterstützt werden.
 
 ```js
 function isBeforeInputEventAvailable() {
@@ -61,9 +61,9 @@ function isBeforeInputEventAvailable() {
 }
 ```
 
-### Einfacher Logger
+### Einfache Protokollierung
 
-Dieses Beispiel protokolliert den aktuellen Wert des Elements, unmittelbar bevor dieser Wert mit dem neuen Wert ersetzt wird, der auf das {{HtmlElement("input")}}-Element angewendet wird.
+Dieses Beispiel protokolliert den aktuellen Wert des Elements, unmittelbar bevor dieser Wert durch den neuen ersetzt wird, der auf das {{HtmlElement("input")}}-Element angewendet wird.
 
 #### HTML
 
@@ -99,4 +99,4 @@ function updateValue(e) {
 
 ## Siehe auch
 
-- Verwandtes Ereignis: {{domxref("Element/input_event", "input")}}
+- Verwandtes Ereignis: [`input`](/de/docs/Web/API/Element/input_event)

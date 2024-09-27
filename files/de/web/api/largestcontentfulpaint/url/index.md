@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`url`** schreibgeschützte Eigenschaft des {{domxref("LargestContentfulPaint")}}-Interfaces gibt die Anforderungs-URL des Elements zurück, wenn das Element ein Bild ist.
+Die schreibgeschützte **`url`**-Eigenschaft der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Schnittstelle gibt die Anforderungs-URL des Elements zurück, wenn das Element ein Bild ist.
 
 ## Wert
 
@@ -16,14 +16,14 @@ Ein String, der eine URL enthält.
 
 ## Beispiele
 
-### Protokollierung der URL des größten inhaltsreichen Elements
+### Protokollierung der URL der größten inhaltsreichen Darstellung
 
-Dieses Beispiel verwendet einen {{domxref("PerformanceObserver")}}, der über neue `largest-contentful-paint`-Performance-Einträge informiert, sobald sie in der Leistungstimeline des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge zuzugreifen, die vor der Erstellung des Observers entstanden sind.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der neue `largest-contentful-paint`-Leistungseinträge erfasst, sobald sie in der Leistungszeitachse des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge vor der Erstellung des Beobachters zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
   const entries = list.getEntries();
-  const lastEntry = entries[entries.length - 1]; // Verwenden Sie den neuesten LCP-Kandidaten
+  const lastEntry = entries[entries.length - 1]; // Use the latest LCP candidate
   console.log(lastEntry.url);
 });
 observer.observe({ type: "largest-contentful-paint", buffered: true });

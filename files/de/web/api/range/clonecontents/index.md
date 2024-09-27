@@ -1,5 +1,5 @@
 ---
-title: "Range: cloneContents()-Methode"
+title: "Range: cloneContents() Methode"
 short-title: cloneContents()
 slug: Web/API/Range/cloneContents
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`Range.cloneContents()`** Methode gibt ein {{domxref("DocumentFragment")}} zurück, das die {{ domxref("Node") }}-Objekte kopiert, die im {{ domxref("Range") }} enthalten sind.
+Die **`Range.cloneContents()`** Methode gibt ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurück, das die Objekte vom Typ [`Node`](/de/docs/Web/API/Node) kopiert, die im [`Range`](/de/docs/Web/API/Range) enthalten sind.
 
-Event-Listener, die mit {{domxref("EventTarget.addEventListener()", "addEventListener()")}} hinzugefügt wurden, werden beim Klonen nicht kopiert. HTML-Attribut-Ereignisse werden auf die gleiche Weise dupliziert wie bei der {{ domxref("Node.cloneNode()") }}-Methode. HTML-`id`-Attribute werden ebenfalls geklont, was durch Klonen zu einem ungültigen Dokument führen kann.
+Event-Listener, die mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzugefügt wurden, werden beim Klonen nicht kopiert. HTML-Attribut-Ereignisse werden wie bei der [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) Methode dupliziert. HTML `id` Attribute werden ebenfalls geklont, was zu einem ungültigen Dokument durch Klonen führen kann.
 
-Teilweise ausgewählte Knoten umfassen die übergeordneten Tags, die notwendig sind, um das Dokumentfragment gültig zu machen.
+Teilweise ausgewählte Nodes beinhalten die übergeordneten Tags, die notwendig sind, um das Dokumentfragment gültig zu machen.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("DocumentFragment") }}-Objekt.
+Ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) Objekt.
 
 ## Beispiele
 
@@ -47,4 +47,4 @@ document.body.appendChild(documentFragment);
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellen-Index](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)

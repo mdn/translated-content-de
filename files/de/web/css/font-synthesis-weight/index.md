@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-synthesis-weight`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen zu spezifizieren, ob der Browser die fetten Schriftarten synthetisieren darf, wenn diese in einer Schriftfamilie fehlen.
+Die **`font-synthesis-weight`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, festzulegen, ob der Browser den fetten Schriftschnitt synthetisieren darf, wenn dieser in einer Schriftfamilie fehlt.
 
-Es ist oft praktisch, die Kurzschreibweise {{cssxref("font-synthesis")}} zu verwenden, um alle Schriftart-Synthesewerte zu steuern.
+Es ist oft praktisch, die Kurzform-Eigenschaft {{cssxref("font-synthesis")}} zu verwenden, um alle Schriftabschnitts-Synthese-Werte zu steuern.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 font-synthesis-weight: auto;
 font-synthesis-weight: none;
 
-/* Globale Werte */
+/* Global values */
 font-synthesis-weight: inherit;
 font-synthesis-weight: initial;
 font-synthesis-weight: revert;
@@ -29,9 +29,9 @@ font-synthesis-weight: unset;
 ### Werte
 
 - `auto`
-  - : Gibt an, dass die fehlende fette Schriftart bei Bedarf vom Browser synthetisiert werden darf.
+  - : Gibt an, dass der fehlende fette Schriftschnitt vom Browser bei Bedarf synthetisiert werden darf.
 - `none`
-  - : Gibt an, dass die Synthese der fehlenden fetten Schriftart durch den Browser nicht erlaubt ist.
+  - : Gibt an, dass die Synthese des fehlenden fetten Schriftschnitts durch den Browser nicht erlaubt ist.
 
 ## Formale Definition
 
@@ -43,9 +43,9 @@ font-synthesis-weight: unset;
 
 ## Beispiele
 
-### Deaktivieren der Synthese der fetten Schriftart
+### Deaktivieren der Synthese des fetten Schriftschnitts
 
-Dieses Beispiel zeigt, wie die Synthese der fetten Schriftart durch den Browser in der Schrift `Montserrat` deaktiviert wird.
+Dieses Beispiel zeigt, wie die Synthese des fetten Schriftschnitts durch den Browser in der Schriftart `Montserrat` deaktiviert wird.
 
 #### HTML
 
@@ -88,5 +88,5 @@ Dieses Beispiel zeigt, wie die Synthese der fetten Schriftart durch den Browser 
 
 ## Siehe auch
 
-- [font-synthesis](/de/docs/Web/CSS/font-synthesis) Kurzschreibweise, [font-synthesis-small-caps](/de/docs/Web/CSS/font-synthesis-small-caps), [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style)
+- Die [font-synthesis](/de/docs/Web/CSS/font-synthesis) Kurzform, [font-synthesis-small-caps](/de/docs/Web/CSS/font-synthesis-small-caps), [font-synthesis-style](/de/docs/Web/CSS/font-synthesis-style)
 - {{cssxref("font-style")}}, {{cssxref("font-variant")}}, {{cssxref("font-weight")}}

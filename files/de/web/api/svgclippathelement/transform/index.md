@@ -1,5 +1,5 @@
 ---
-title: "SVGClipPathElement: Transform-Eigenschaft"
+title: "SVGClipPathElement: transform-Eigenschaft"
 short-title: transform
 slug: Web/API/SVGClipPathElement/transform
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`transform`**-Eigenschaft der {{domxref("SVGClipPathElement")}}-Schnittstelle spiegelt das {{SVGAttr("transform")}}-Attribut eines {{SVGElement("clipPath")}}-Elements wider, das eine Liste von Transformationen ist, die auf das Element angewendet werden.
+Die schreibgeschützte **`transform`**-Eigenschaft des [`SVGClipPathElement`](/de/docs/Web/API/SVGClipPathElement)-Interfaces spiegelt das {{SVGAttr("transform")}}-Attribut eines {{SVGElement("clipPath")}}-Elements wider, das eine Liste von Transformationen ist, die auf das Element angewendet werden.
 
 ## Wert
 
-Eine {{domxref("SVGTransformList")}}.
+Eine [`SVGTransformList`](/de/docs/Web/API/SVGTransformList).
 
 ## Beispiele
 
@@ -57,9 +57,9 @@ const clipPath1 = document.getElementById("clip1");
 
 const log = document.getElementById("log");
 
-let result = "Die folgenden Transformationen wurden angewendet:\n";
+let result = "The following transformation have been applied:\n";
 for (const transform of clipPath1.transform.baseVal) {
-  result += `- Eine Transformation des Typs '${translateType[transform.type]}' gefunden.\n`;
+  result += `- A transform of type '${translateType[transform.type]}' found.\n`;
 }
 
 log.textContent = result;

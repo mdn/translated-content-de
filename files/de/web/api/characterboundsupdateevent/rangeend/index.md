@@ -12,11 +12,11 @@ Die schreibgeschützte Eigenschaft **`CharacterBoundsUpdateEvent.rangeEnd`** rep
 
 ## Wert
 
-Eine {{jsxref("Number")}}.
+Ein {{jsxref("Number")}}.
 
 ## Beispiele
 
-### Lesen des `rangeEnd`-Werts
+### Lesen des `rangeEnd`-Wertes
 
 Dieses Beispiel zeigt, wie das `characterboundsupdate`-Ereignis verwendet wird und wie die Werte der Eigenschaften `rangeStart` und `rangeEnd` gelesen werden.
 

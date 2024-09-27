@@ -1,6 +1,6 @@
 ---
-title: "DecompressionStream: Leseeigenschaft"
-short-title: lesbar
+title: "DecompressionStream: readable-Eigenschaft"
+short-title: readable
 slug: Web/API/DecompressionStream/readable
 l10n:
   sourceCommit: d8b4431bfde42f1bc195239ea1f378d763f8163e
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Die **`readable`** schreibgeschützte Eigenschaft des {{domxref("DecompressionStream")}}-Interfaces gibt einen {{domxref("ReadableStream")}} zurück.
+Die **`readable`** schreibgeschützte Eigenschaft der [`DecompressionStream`](/de/docs/Web/API/DecompressionStream)-Schnittstelle gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) zurück.
 
 ## Wert
 
-Ein {{domxref("ReadableStream")}}.
+Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Beispiele
 
-Das folgende Beispiel gibt einen {{domxref("ReadableStream")}} von einem `DecompressionStream` zurück.
+Das folgende Beispiel gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von einem `DecompressionStream` zurück.
 
 ```js
 let stream = new DecompressionStream("gzip");

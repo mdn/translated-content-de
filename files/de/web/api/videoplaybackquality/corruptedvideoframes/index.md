@@ -1,5 +1,5 @@
 ---
-title: "VideoPlaybackQuality: Eigenschaft corruptedVideoFrames"
+title: "VideoPlaybackQuality: corruptedVideoFrames-Eigenschaft"
 short-title: corruptedVideoFrames
 slug: Web/API/VideoPlaybackQuality/corruptedVideoFrames
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die unveränderliche Eigenschaft **`corruptedVideoFrames`** des {{domxref("VideoPlaybackQuality")}}-Interfaces gibt die Anzahl der beschädigten Video-Frames an, die empfangen wurden, seit das {{HTMLElement("video")}}-Element zuletzt geladen oder neu geladen wurde.
+Die schreibgeschützte **`corruptedVideoFrames`**-Eigenschaft des [`VideoPlaybackQuality`](/de/docs/Web/API/VideoPlaybackQuality)-Interfaces gibt die Anzahl der beschädigten Videoframes an, die seit dem letzten Laden oder Neuladen des {{HTMLElement("video")}}-Elements empfangen wurden.
 
 ## Wert
 
-Die Anzahl der beschädigten Video-Frames, die empfangen wurden, seit das {{HTMLElement("video")}}-Element zuletzt geladen oder neu geladen wurde.
+Die Anzahl der beschädigten Videoframes, die seit dem letzten Laden oder Neuladen des {{HTMLElement("video")}}-Elements empfangen wurden.
 
-Es liegt im Ermessen des {{Glossary("user agent")}}, ob ein beschädigter Video-Frame angezeigt wird oder nicht. Wenn ein beschädigter Frame verworfen wird, dann werden sowohl `corruptedVideoFrames` als auch {{domxref("VideoPlaybackQuality.droppedVideoFrames", "droppedVideoFrames")}} inkrementiert.
+Es liegt im Ermessen des [User-Agents](/de/docs/Glossary/user_agent), ob ein beschädigtes Videoframe angezeigt wird oder nicht. Wenn ein beschädigtes Frame verworfen wird, werden sowohl `corruptedVideoFrames` als auch [`droppedVideoFrames`](/de/docs/Web/API/VideoPlaybackQuality/droppedVideoFrames) inkrementiert.
 
 ## Beispiele
 
-Dieses Beispiel bestimmt den Prozentsatz der Frames, die beschädigt wurden, und wenn der Wert größer als 5 % ist, wird eine Funktion namens `downgradeVideo()` aufgerufen, die implementiert werden könnte, um zu einem anderen Video zu wechseln, das das Netzwerk weniger beanspruchen könnte.
+Dieses Beispiel bestimmt den Prozentsatz der Frames, die beschädigt wurden. Wenn der Wert größer als 5% ist, wird eine Funktion namens `downgradeVideo()` aufgerufen, die implementiert werden könnte, um auf ein anderes Video umzuschalten, das das Netzwerk weniger belastet.
 
 ```js
 const videoElem = document.getElementById("my_vid");
@@ -39,4 +39,4 @@ if (quality.corruptedVideoFrames / quality.totalVideoFrames > 0.05) {
 
 ## Siehe auch
 
-- Die {{domxref("HTMLVideoElement.getVideoPlaybackQuality()")}}-Methode zur Konstruktion und Rückgabe dieses Interfaces.
+- Die Methode [`HTMLVideoElement.getVideoPlaybackQuality()`](/de/docs/Web/API/HTMLVideoElement/getVideoPlaybackQuality) zum Erstellen und Zurückgeben dieses Interfaces.

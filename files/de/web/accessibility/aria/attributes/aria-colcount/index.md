@@ -7,17 +7,17 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das Attribut `aria-colcount` definiert die Gesamtanzahl der Spalten in einer [`table`](/de/docs/Web/Accessibility/ARIA/Roles/table_role), [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role), wenn nicht alle Spalten im [DOM](/de/docs/Glossary/DOM) vorhanden sind.
+Das Attribut `aria-colcount` definiert die Gesamtanzahl der Spalten in einer [`table`](/de/docs/Web/Accessibility/ARIA/Roles/table_role), einem [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role) oder einem [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role), wenn nicht alle Spalten im [DOM](/de/docs/Glossary/DOM) vorhanden sind.
 
 ## Beschreibung
 
-Einige Tabellen sind sehr groß und es ist nicht möglich, alle Spalten dem Benutzer zu zeigen. Oder es ist möglich, aber eine so breite Tabelle würde eine schlechte Benutzererfahrung darstellen. Verwenden Sie das Attribut `aria-colcount`, damit unterstützende Technologien wissen, wie viele Spalten die Tabelle hätte, wenn alle Spalten vorhanden wären. Der Wert ist eine ganze Zahl, die die Anzahl der Spalten darstellt, aus denen die vollständige Tabelle besteht. Wenn Sie die Gesamtanzahl der Spalten einer Tabelle nicht kennen, aber wissen, dass sie nicht alle im DOM sein werden, verwenden Sie den Wert -1, also `aria-colcount="-1"`. Dieser Wert signalisiert dem Benutzeragenten, dass die aktuelle Anzahl der im DOM vorhandenen Spalten möglicherweise nicht der tatsächlichen Anzahl der Spalten in der Tabelle entspricht.
+Einige Tabellen sind sehr groß, und es ist nicht möglich, alle Spalten dem Benutzer anzuzeigen. Oder es ist möglich, aber eine so breite Tabelle würde eine schlechte Benutzererfahrung bieten. Verwenden Sie das Attribut `aria-colcount`, um unterstützenden Technologien mitzuteilen, wie viele Spalten die Tabelle hätte, wenn alle Spalten vorhanden wären. Der Wert ist eine ganze Zahl, die die Anzahl der Spalten darstellt, aus denen die vollständige Tabelle besteht. Wenn Sie nicht wissen, wie viele Spalten eine Tabelle insgesamt haben wird, aber wissen, dass sie nicht alle im DOM vorhanden sind, verwenden Sie den Wert -1, also `aria-colcount="-1"`. Dieser Wert teilt dem Benutzeragenten mit, dass die aktuelle Anzahl der im DOM vorhandenen Spalten möglicherweise nicht der tatsächlichen Anzahl von Spalten in der Tabelle entspricht.
 
-Wenn alle Spalten einer Tabelle im DOM vorhanden sind, ist das Attribut `aria-colcount` nicht erforderlich, da Browser die Gesamtanzahl der Spalten automatisch berechnen. Wenn jedoch nur ein Teil der Spalten zu einem bestimmten Zeitpunkt im DOM vorhanden ist, ist dieses Attribut hilfreich und notwendig.
+Wenn alle Spalten einer Tabelle im DOM vorhanden sind, ist das Attribut `aria-colcount` nicht erforderlich, da Browser die Gesamtzahl der Spalten automatisch berechnen. Wenn jedoch nur ein Teil der Spalten zu einem bestimmten Zeitpunkt im DOM vorhanden ist, ist dieses Attribut hilfreich und erforderlich.
 
-Wenn Sie `aria-colcount` verwenden und eine bekannte Anzahl von Spalten haben, stellen Sie sicher, dass Sie auch [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colindex) verwenden, um jede Spalte zu kennzeichnen, oder, falls die Spalten zusammenhängend sind－wenn es sich um eine zusammenhängende Gruppe von Spalten in der ursprünglichen Reihenfolge ohne Unterbrechungen handelt－kennzeichnen Sie jede Zeile.
+Wenn Sie `aria-colcount` verwenden und Sie eine bekannte Anzahl von Spalten haben, stellen Sie sicher, dass Sie auch [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colindex) verwenden, um jede Spalte zu kennzeichnen, oder, wenn die Spalten zusammenhängend sind – also wenn es eine Gruppe von Spalten in der ursprünglichen Reihenfolge ohne Unterbrechungen ist – kennzeichnen Sie jede Zeile.
 
-Das folgende Beispiel zeigt ein Gitter mit 6 Spalten, von denen die Spalten 1, 2, 5 und 6 dem Benutzer angezeigt werden. Die Gesamtzahl der Spalten, aus der die Tabelle besteht, ist mit `aria-colcount="6"` an der Tabelle selbst festgelegt. Da die Spalten nicht zusammenhängend sind, hat jedes [`cell`](/de/docs/Web/Accessibility/ARIA/Roles/cell_role) - in diesem Fall [`columnheader`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role) und [`gridcell`](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role) Elemente - das Attribut `aria-colindex` gesetzt.
+Das folgende Beispiel zeigt ein Gitter mit 6 Spalten, von denen die Spalten 1, 2, 5 und 6 dem Benutzer angezeigt werden. Die Gesamtanzahl der Spalten, aus denen die Tabelle besteht, ist auf `aria-colcount="6"` an der Tabelle selbst gesetzt. Da die Spalten nicht zusammenhängend sind, hat jedes [`cell`](/de/docs/Web/Accessibility/ARIA/Roles/cell_role) - in diesem Fall [`columnheader`](/de/docs/Web/Accessibility/ARIA/Roles/columnheader_role) und [`gridcell`](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role) Elemente - das Attribut `aria-colindex` gesetzt.
 
 ```html
 <div role="grid" aria-colcount="6">
@@ -41,7 +41,7 @@ Das folgende Beispiel zeigt ein Gitter mit 6 Spalten, von denen die Spalten 1, 2
 </div>
 ```
 
-Die erste Regel bei der Verwendung von ARIA lautet: "Wenn Sie eine native Funktion mit der benötigten Semantik und dem benötigten Verhalten verwenden können, anstatt ein Element zweckzuentfremden und **eine** ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen, dann tun Sie dies." Wenn wir native HTML-Semantik mit {{HTMLElement('table')}}, {{HTMLElement('th')}}, {{HTMLElement('td')}}, usw. verwenden, ist das Attribut `aria-colcount` immer noch erforderlich, aber die Markierung ist nicht so ausführlich. Wenn semantische Tabellenkopf-Elemente verwendet werden und nicht alle Spalten im DOM sind, muss `aria-colcount` dennoch verwendet werden, aber das `aria-colindex`-Attribut muss nur einmal pro Spalte im Tabellenkopf {{HTMLElement('th')}} definiert werden.
+Die erste Regel der ARIA-Nutzung lautet: "Wenn Sie eine native Funktion mit den bereits integrierten Semantiken und Verhaltensweisen verwenden können, anstatt ein Element umzupropurieren und eine ARIA-Rolle, einen Zustand oder eine Eigenschaft hinzuzufügen, um es zugänglich zu machen, dann tun Sie dies." Wenn wir native HTML-Semantiken mit {{HTMLElement('table')}}, {{HTMLElement('th')}}, {{HTMLElement('td')}}, etc. verwenden, bleibt das Attribut `aria-colcount` erforderlich, aber die Markierung ist nicht so ausführlich. Bei der Verwendung von semantischen Tabellenkopf-Elementen und wenn nicht alle Spalten im DOM sind, muss `aria-colcount` weiterhin verwendet werden, aber das Attribut `aria-colindex` muss nur einmal pro Spalte im Spaltenkopf {{HTMLElement('th')}} definiert werden.
 
 ```html
 <table aria-colcount="6">
@@ -70,13 +70,13 @@ Die erste Regel bei der Verwendung von ARIA lautet: "Wenn Sie eine native Funkti
 - `<integer>`
   - : Die Anzahl der Spalten in der vollständigen Tabelle
 
-## Zugeordnete Rollen
+## Zugehörige Rollen
 
 Verwendet in Rollen:
 
 - [`table`](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
 
-Vererbung in Rollen:
+Erbt in Rollen:
 
 - [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role)
 - [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role)

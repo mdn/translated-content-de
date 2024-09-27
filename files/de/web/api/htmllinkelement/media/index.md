@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`media`**-Eigenschaft der {{domxref("HTMLLinkElement")}}-Schnittstelle ist ein String, der eine Liste von einem oder mehreren Medienformaten darstellt, auf die sich die Ressource bezieht.
+Die **`media`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein String, der eine Liste von einem oder mehreren Medienformaten darstellt, auf die sich die Ressource bezieht.
 
 Sie spiegelt das `media`-Attribut des {{HTMLElement("link")}}-Elements wider.
 
@@ -29,7 +29,7 @@ Ein String.
 
 ```js
 const el = document.getElementById("el");
-console.log(el.media); // Ausgabe: "screen and (min-width: 600px)"
+console.log(el.media); // Output: "screen and (min-width: 600px)"
 ```
 
 ## Spezifikationen

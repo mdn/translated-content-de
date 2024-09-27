@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`canGoForward`** schreibgeschützte Eigenschaft des {{domxref("Navigation")}}-Interfaces gibt `true` zurück, wenn es möglich ist, im Navigationsverlauf vorwärts zu navigieren (d. h. der {{domxref("Navigation.currentEntry", "currentEntry")}} ist nicht der letzte Eintrag in der Verlaufsliste), und `false`, falls dies nicht der Fall ist.
+Die schreibgeschützte **`canGoForward`**-Eigenschaft des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt `true` zurück, wenn es möglich ist, in der Navigationshistorie vorwärts zu navigieren (d. h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der letzte in der Liste der Historieneinträge), und `false`, wenn dies nicht möglich ist.
 
 ## Wert
 
-Ein boolescher Wert: `true`, wenn es möglich ist, im Navigationsverlauf vorwärts zu navigieren, andernfalls `false`.
+Ein boolean-Wert: `true`, wenn es möglich ist, in der Navigationshistorie vorwärts zu navigieren, sonst `false`.
 
 ## Beispiele
 
@@ -48,6 +48,6 @@ async function forwardHandler() {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderner clientseitiger Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

@@ -8,40 +8,40 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`result`**-Eigenschaft der Schnittstelle {{domxref("IDBRequest")}} gibt das Ergebnis der Anfrage zurück. Wenn die Anfrage nicht abgeschlossen ist, ist das Ergebnis nicht verfügbar und es wird eine `InvalidStateError`-Ausnahme ausgelöst.
+Die **`result`** schreibgeschützte Eigenschaft des [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Interfaces gibt das Ergebnis der Anfrage zurück. Wenn die Anfrage nicht abgeschlossen ist, ist das Ergebnis nicht verfügbar und es wird eine `InvalidStateError`-Ausnahme ausgelöst.
 
 ## Wert
 
-any
+beliebiger Typ
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein bestimmter Datensatz-Titel angefordert, `onsuccess` erhält den zugehörigen Datensatz aus dem {{domxref("IDBObjectStore")}} (verfügbar als `objectStoreTitleRequest.result`), aktualisiert eine Eigenschaft des Datensatzes und legt anschließend den aktualisierten Datensatz wieder in den Objekt-Store. Für ein vollständiges funktionierendes Beispiel, siehe unsere [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Beispiel wird ein bestimmter Titel eines Datensatzes angefordert. Bei `onsuccess` wird der zugehörige Datensatz aus dem [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) abgerufen (verfügbar als `objectStoreTitleRequest.result`), eine Eigenschaft des Datensatzes aktualisiert und der aktualisierte Datensatz dann zurück in den Objekt-Store gelegt. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const title = "Walk dog";
 
-// Öffnen Sie wie gewohnt eine Transaktion
+// Open up a transaction as usual
 const objectStore = db
   .transaction(["toDoList"], "readwrite")
   .objectStore("toDoList");
 
-// Holen Sie sich das To-do-Listen-Objekt, das diesen Titel als seinen Titel hat
+// Get the to-do list object that has this title as its title
 const objectStoreTitleRequest = objectStore.get(title);
 
 objectStoreTitleRequest.onsuccess = () => {
-  // Erfassen Sie das Datenobjekt, das als Ergebnis zurückgegeben wird
+  // Grab the data object returned as the result
   const data = objectStoreTitleRequest.result;
 
-  // Aktualisieren Sie den notified-Wert im Objekt auf "yes"
+  // Update the notified value in the object to "yes"
   data.notified = "yes";
 
-  // Erstellen Sie eine weitere Anfrage, die das Element
-  // wieder in die Datenbank einfügt
+  // Create another request that inserts the item
+  // back into the database
   const updateTitleRequest = objectStore.put(data);
 
-  // Wenn diese neue Anfrage erfolgreich ist, führen Sie die displayData()
-  // Funktion erneut aus, um die Anzeige zu aktualisieren
+  // When this new request succeeds, run the displayData()
+  // function again to update the display
   updateTitleRequest.onsuccess = () => {
     displayData();
   };
@@ -59,9 +59,9 @@ objectStoreTitleRequest.onsuccess = () => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Einstellen eines Schlüsselbereichs: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursorn: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegung eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

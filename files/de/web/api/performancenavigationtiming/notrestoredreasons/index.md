@@ -1,5 +1,5 @@
 ---
-title: "PerformanceNavigationTiming: Eigenschaft notRestoredReasons"
+title: "PerformanceNavigationTiming: notRestoredReasons-Eigenschaft"
 short-title: notRestoredReasons
 slug: Web/API/PerformanceNavigationTiming/notRestoredReasons
 l10n:
@@ -8,34 +8,34 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`notRestoredReasons`** des {{domxref("PerformanceNavigationTiming")}}-Interfaces gibt ein {{domxref("NotRestoredReasons")}}-Objekt zurück, das Berichtsdaten zu den Gründen bereitstellt, warum das aktuelle Dokument daran gehindert wurde, den Cache für Vorwärts-/Rückwärtsnavigation ({{Glossary("bfcache")}}) bei der Navigation zu nutzen.
+Die **`notRestoredReasons`** schreibgeschützte Eigenschaft des [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Interfaces gibt ein [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekt zurück, das Berichtsdaten zu den Gründen bereitstellt, warum das aktuelle Dokument daran gehindert wurde, den Vor-/Zurück-Cache ([bfcache](/de/docs/Glossary/bfcache)) bei der Navigation zu verwenden.
 
 ## Wert
 
-Wenn das zugehörige `PerformanceNavigationTiming`-Objekt eine Verlaufseintragung darstellt, gibt `notRestoredReasons` ein {{domxref("NotRestoredReasons")}}-Objekt zurück.
+Wenn das zugehörige `PerformanceNavigationTiming`-Objekt eine Verlauf-Navigation darstellt, gibt `notRestoredReasons` ein [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekt zurück.
 
-Wenn das `PerformanceNavigationTiming`-Objekt keine Verlaufseintragung darstellt, wird `notRestoredReasons` `null` zurückgeben. Dies ist nützlich, um festzustellen, ob der bfcache für eine bestimmte Navigation irrelevant ist (im Gegensatz dazu, dass `notRestoredReasons` nicht unterstützt wird, in welchem Fall `undefined` zurückgegeben würde).
+Wenn das `PerformanceNavigationTiming`-Objekt keine Verlauf-Navigation darstellt, gibt `notRestoredReasons` `null` zurück. Dies ist nützlich, um zu bestimmen, ob der bfcache für eine bestimmte Navigation nicht relevant ist (im Gegensatz dazu, dass `notRestoredReasons` nicht unterstützt wird und daher `undefined` zurückgeben würde).
 
-> **Note:** `notRestoredReasons` kann `null` zurückgeben, obwohl der Navigationstyp als Rückwärts-/Vorwärtsnavigation gemeldet wird. Solche Umstände schließen das Duplizieren einer Rückwärts-/Vorwärtsnavigation in einem neuen Tab und das Wiederherstellen eines Rückwärts-/Vorwärtstabs nach einem Browser-Neustart ein. In solchen Fällen kopieren einige Browser den Navigationstyp vom Original-Tab, aber da es sich tatsächlich nicht um Rückwärts-/Vorwärtsnavigationen handelt, gibt `notRestoredReasons` `null` zurück.
+> **Note:** `notRestoredReasons` kann `null` zurückgeben, obwohl der Navigationstyp als Vor-/Zurück-Navigation gemeldet wird. Diese Umstände umfassen das Duplizieren einer Vor-/Zurück-Navigation in einem neuen Tab und das Wiederherstellen eines Vor-/Zurück-Navigationstabs nach einem Browser-Neustart. In solchen Fällen kopieren einige Browser den Navigationstyp vom ursprünglichen Tab, aber da es sich nicht tatsächlich um Vor-/Zurück-Navigationen handelt, gibt `notRestoredReasons` `null` zurück.
 
 ## Beispiele
 
-[`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Daten können aus der Leistungslinie mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) oder [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) abgerufen werden.
+[`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Daten können aus der Performance-Timeline mithilfe von [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) oder [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) abgerufen werden.
 
-Zum Beispiel könnten Sie die folgende Funktion aufrufen, um alle `PerformanceNavigationTiming`-Objekte, die derzeit in der Leistungslinie vorhanden sind, zurückzugeben und ihre `notRestoredReasons` zu protokollieren:
+Zum Beispiel könnten Sie die folgende Funktion aufrufen, um alle derzeit in der Performance-Timeline vorhandenen `PerformanceNavigationTiming`-Objekte zurückzugeben und deren `notRestoredReasons` zu protokollieren:
 
 ```js
 function returnNRR() {
   const navEntries = performance.getEntriesByType("navigation");
   for (let i = 0; i < navEntries.length; i++) {
-    console.log(`Navigationseintrag ${i}`);
+    console.log(`Navigation entry ${i}`);
     let navEntry = navEntries[i];
     console.log(navEntry.notRestoredReasons);
   }
 }
 ```
 
-Die Eigenschaft `PerformanceNavigationTiming.notRestoredReasons` gibt ein Objekt mit der folgenden Struktur zurück, das die Gründe enthält, warum das aktuelle Dokument daran gehindert wurde, den bfcache zu nutzen. In diesem Beispiel enthält der Hauptframe keine eingebetteten `<iframe>`-Kinder:
+Die `PerformanceNavigationTiming.notRestoredReasons`-Eigenschaft gibt ein Objekt mit folgender Struktur zurück, das Gründe angibt, warum das aktuelle Dokument daran gehindert wurde, den bfcache zu verwenden. In diesem Beispiel hat der oberste Frame keine eingebetteten Kinder-`<iframe>`s:
 
 ```js
 {
@@ -60,5 +60,5 @@ Die Eigenschaft `PerformanceNavigationTiming.notRestoredReasons` gibt ein Objekt
 
 ## Siehe auch
 
-- [Überwachung der Gründe für bfcache-Blockierungen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
-- {{domxref("PerformanceResourceTiming")}}
+- [Überwachung von Gründen, die bfcache blockieren](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
+- [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)

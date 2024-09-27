@@ -1,5 +1,5 @@
 ---
-title: "Element: attributes Eigenschaft"
+title: "Element: attributes-Eigenschaft"
 short-title: attributes
 slug: Web/API/Element/attributes
 l10n:
@@ -8,57 +8,62 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`Element.attributes`**-Eigenschaft gibt eine dynamische Sammlung aller Attributknoten zurück, die bei dem angegebenen Knoten registriert sind. Sie ist eine {{domxref("NamedNodeMap")}}, kein `Array`, daher hat sie keine {{jsxref("Array")}}-Methoden und die Indizes der {{domxref("Attr")}}-Knoten können sich zwischen Browsern unterscheiden. Genauer gesagt ist `attributes` ein Schlüssel/Wert-Paar von Zeichenfolgen, das Informationen zu diesem Attribut darstellt.
+Die **`Element.attributes`**-Eigenschaft gibt eine Live-Sammlung
+aller Attributknoten zurück, die dem angegebenen Knoten zugeordnet sind. Es handelt sich um ein
+[`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap), kein `Array`, daher hat es keine {{jsxref("Array")}}
+Methoden und die Indizes der [`Attr`](/de/docs/Web/API/Attr) Knoten können je nach Browser unterschiedlich sein. Genauer gesagt, `attributes` ist ein Schlüssel/Wert-Paar von Zeichenfolgen, das Informationen zu diesem Attribut darstellt.
 
 ## Wert
 
-Ein {{domxref("NamedNodeMap")}}-Objekt.
+Ein [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap) Objekt.
 
 ## Beispiele
 
 ### Grundlegende Beispiele
 
 ```js
-// Das erste <p>-Element im Dokument abrufen
+// Get the first <p> element in the document
 const paragraph = document.querySelector("p");
 const attributes = paragraph.attributes;
 ```
 
-### Aufzählung der Attribute eines Elements
+### Aufzählen von Attributen eines Elements
 
-Sie können die Attribute eines Elements mit [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) aufzählen. Das folgende Beispiel durchläuft die Attributknoten für das Element mit der ID "paragraph" im Dokument und gibt den Wert jedes Attributs aus.
+Sie können die Attribute eines Elements mit [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) aufzählen.
+Im folgenden Beispiel werden die Attributknoten für das Element im Dokument
+mit der ID "paragraph" durchlaufen und der Wert jedes Attributs wird ausgegeben.
 
 ```html
 <!doctype html>
 <html lang="en-US">
   <head>
-    <title>Attributes-Beispiel</title>
+    <title>Attributes example</title>
     <script>
       function listAttributes() {
         const paragraph = document.getElementById("paragraph");
         const result = document.getElementById("result");
 
-        // Zunächst überprüfen wir, ob das Absatz-Element einige Attribute hat
+        // First, let's verify that the paragraph has some attributes
         if (paragraph.hasAttributes()) {
-          let output = "Attribute des ersten Absatzes:\n";
+          let output = "Attributes of first paragraph:\n";
           for (const attr of paragraph.attributes) {
             output += `${attr.name} -> ${attr.value}\n`;
           }
           result.textContent = output;
         } else {
-          result.textContent = "Keine Attribute zum Anzeigen";
+          result.textContent = "No attributes to show";
         }
       }
     </script>
   </head>
 
   <body>
-    <p id="paragraph" style="color: green;">Beispiel Absatz</p>
+    <p id="paragraph" style="color: green;">Sample Paragraph</p>
     <form action="">
       <p>
         <input
           type="button"
-          value="Ersten Attributnamen und -wert anzeigen"
+          value="Show first attribute name and value"
           onclick="listAttributes();" />
       </p>
     </form>
@@ -79,5 +84,5 @@ Sie können die Attribute eines Elements mit [`for...of`](/de/docs/Web/JavaScrip
 
 ## Siehe auch
 
-- {{domxref("NamedNodeMap")}}, die Schnittstelle des zurückgegebenen Objekts
-- Überlegungen zur plattformübergreifenden Kompatibilität: auf [quirksmode](https://quirksmode.org/dom/core/#attributes)
+- [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap), die Schnittstelle des zurückgegebenen Objekts
+- Überlegungen zur Browser-Kompatibilität: auf [quirksmode](https://quirksmode.org/dom/core/#attributes)

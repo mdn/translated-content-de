@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`text-emphasis-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Farbe von Hervorhebungszeichen fest. Dieser Wert kann auch mit der {{cssxref("text-emphasis")}} Kurzform festgelegt werden.
+Die **`text-emphasis-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Hervorhebungszeichen fest. Dieser Wert kann auch mit der Abkürzung {{cssxref("text-emphasis")}} festgelegt werden.
 
 {{EmbedInteractiveExample("pages/css/text-emphasis-color.html")}}
 
 ## Syntax
 
 ```css
-/* Ursprungswert */
+/* Initial value */
 text-emphasis-color: currentcolor;
 
 /* <color> */
@@ -23,7 +23,7 @@ text-emphasis-color: blue;
 text-emphasis-color: rgb(90 200 160 / 80%);
 text-emphasis-color: transparent;
 
-/* Globale Werte */
+/* Global values */
 text-emphasis-color: inherit;
 text-emphasis-color: initial;
 text-emphasis-color: revert;
@@ -34,7 +34,7 @@ text-emphasis-color: unset;
 ### Werte
 
 - `<color>`
-  - : Definiert die Farbe der Hervorhebungszeichen. Wenn keine Farbe angegeben ist, wird standardmäßig `currentcolor` verwendet.
+  - : Definiert die Farbe der Hervorhebungszeichen. Falls keine Farbe angegeben ist, wird `currentcolor` als Standard verwendet.
 
 ## Formale Definition
 
@@ -60,9 +60,9 @@ em {
 #### HTML
 
 ```html
-<p>Hier ist ein Beispiel:</p>
+<p>Here's an example:</p>
 
-<em>Dies hat Hervorhebungszeichen!</em>
+<em>This has emphasis marks!</em>
 ```
 
 #### Ergebnis
@@ -80,5 +80,5 @@ em {
 ## Siehe auch
 
 - Der {{cssxref("&lt;color&gt;")}} Datentyp
-- Die anderen mit Hervorhebungszeichen verbundenen Eigenschaften: {{cssxref('text-emphasis-style')}}, {{cssxref('text-emphasis')}} und {{cssxref("text-emphasis-position")}}.
+- Die anderen Hervorhebungsmarken-bezogenen Eigenschaften: {{cssxref('text-emphasis-style')}}, {{cssxref('text-emphasis')}}, und {{cssxref("text-emphasis-position")}}.
 - Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}}, und {{cssxref("column-rule-color")}}.

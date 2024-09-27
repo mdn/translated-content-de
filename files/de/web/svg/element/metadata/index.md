@@ -1,5 +1,5 @@
 ---
-title: <Metadaten>
+title: <metadata>
 slug: Web/SVG/Element/metadata
 l10n:
   sourceCommit: 3a1ef2abc8233835f0b0cc73afaf36e44edaf4a1
@@ -7,15 +7,15 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<metadata>`** [SVG](/de/docs/Web/SVG) Element fügt Metadaten zu SVG-Inhalten hinzu. Metadaten sind strukturierte Informationen über Daten. Der Inhalt von `<metadata>` sollte Elemente aus anderen {{Glossary("XML")}}-{{Glossary("namespace", "Namespaces")}} wie {{Glossary("RDF")}}, [FOAF](<https://en.wikipedia.org/wiki/FOAF_(ontology)>), etc. enthalten.
+Das **`<metadata>`** [SVG](/de/docs/Web/SVG)-Element fügt SVG-Inhalten Metadaten hinzu. Metadaten sind strukturierte Informationen über Daten. Der Inhalt von `<metadata>` sollte Elemente aus anderen [XML](/de/docs/Glossary/XML)-[Namensräumen](/de/docs/Glossary/namespace) wie [RDF](/de/docs/Glossary/RDF), [FOAF](<https://en.wikipedia.org/wiki/FOAF_(ontology)>) usw. enthalten.
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGMetadataElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGMetadataElement`](/de/docs/Web/API/SVGMetadataElement)-Schnittstelle.
 
 ## Beispiel
 
@@ -39,7 +39,7 @@ Dieses Element implementiert die {{domxref("SVGMetadataElement")}} Schnittstelle
       </rdf:Description>
       <rdf:Description about="#CableN">
         <connect:ends rdf:resource="#socket5" />
-        <connect:ends>Alles</connect:ends>
+        <connect:ends>Everything</connect:ends>
       </rdf:Description>
       <rdf:Description about="#Hub">
         <connect:ends rdf:resource="#socket1" />
@@ -50,12 +50,12 @@ Dieses Element implementiert die {{domxref("SVGMetadataElement")}} Schnittstelle
       </rdf:Description>
     </rdf:RDF>
   </metadata>
-  <title>Netzwerk</title>
-  <desc>Ein Beispiel für ein Computernetzwerk basierend auf einem Hub.</desc>
+  <title>Network</title>
+  <desc>An example of a computer network based on a hub.</desc>
 
   <style>
     svg {
-      /* Standardstile zur Vererbung */
+      /* Default styles to be inherited */
       fill: white;
       stroke: black;
     }
@@ -68,23 +68,23 @@ Dieses Element implementiert die {{domxref("SVGMetadataElement")}} Schnittstelle
     }
   </style>
 
-  <!-- Symbole definieren, die im SVG verwendet werden -->
+  <!-- Define symbols used in the SVG -->
   <defs>
-    <!-- hubPlug-Symbol. Wird vom Hub-Symbol verwendet -->
+    <!-- hubPlug symbol. Used by hub symbol -->
     <symbol id="hubPlug">
-      <desc>Ein 10BaseT/100baseTX-Anschluss</desc>
+      <desc>A 10BaseT/100baseTX socket</desc>
       <path d="M0,10 h5 v-9 h12 v9 h5 v16 h-22 z" />
     </symbol>
 
-    <!-- hub-Symbol -->
+    <!-- hub symbol -->
     <symbol id="hub">
-      <desc>Ein typischer 10BaseT/100BaseTX-Netzwerk-Hub</desc>
+      <desc>A typical 10BaseT/100BaseTX network hub</desc>
       <text x="0" y="15">Hub</text>
       <g transform="translate(0 20)">
         <rect width="253" height="84" />
         <rect width="229" height="44" x="12" y="10" />
         <circle fill="red" cx="227" cy="71" r="7" />
-        <!-- fünf Gruppen, die jeweils den definierten Anschluss verwenden -->
+        <!-- five groups each using the defined socket -->
         <g id="sock1et" transform="translate(25 20)">
           <title>Socket 1</title>
           <use href="#hubPlug" />
@@ -108,13 +108,13 @@ Dieses Element implementiert die {{domxref("SVGMetadataElement")}} Schnittstelle
       </g>
     </symbol>
 
-    <!-- computer-Symbol -->
+    <!-- computer symbol -->
     <symbol id="computer">
-      <desc>Ein üblicher Desktop-PC</desc>
+      <desc>A common desktop PC</desc>
       <g id="monitorStand" transform="translate(40 121)">
-        <title>Monitorständer</title>
+        <title>Monitor stand</title>
         <desc>
-          Einer dieser coolen schwenkbaren Monitorständer, die unter dem Monitor stehen
+          One of those cool swivelling monitor stands that sit under the monitor
         </desc>
         <path d="m0,0 S 10 10 40 12" />
         <path d="m80,0 S 70 10 40 12" />
@@ -122,17 +122,17 @@ Dieses Element implementiert die {{domxref("SVGMetadataElement")}} Schnittstelle
       </g>
       <g id="monitor">
         <title>Monitor</title>
-        <desc>Ein sehr schicker Monitor</desc>
+        <desc>A very fancy monitor</desc>
         <rect width="160" height="120" />
         <rect fill="lightgrey" width="138" height="95" x="11" y="12" />
       </g>
       <g id="processor" transform="translate(0 142)">
-        <title>Der Computer</title>
-        <desc>Ein Desktop-Computer - breiter, flacher Box-Stil</desc>
+        <title>The computer</title>
+        <desc>A desktop computer - broad flat box style</desc>
         <rect width="160" height="60" />
         <g id="discDrive" transform="translate(70 8)">
-          <title>Laufwerk</title>
-          <desc>Ein eingebautes Laufwerk</desc>
+          <title>disc drive</title>
+          <desc>A built-in disc drive</desc>
           <rect width="58" height="3" x="12" y="8" />
           <rect width="8" height="2" x="12" y="15" />
         </g>
@@ -141,44 +141,44 @@ Dieses Element implementiert die {{domxref("SVGMetadataElement")}} Schnittstelle
     </symbol>
   </defs>
 
-  <text x="0" y="15">Netzwerk</text>
+  <text x="0" y="15">Network</text>
 
-  <!-- Verwenden Sie das Hub-Symbol. -->
+  <!-- Use the hub symbol. -->
   <g id="Hub" transform="translate(80 45)">
     <title>Hub</title>
     <use href="#hub" transform="scale(0.75)" />
   </g>
 
-  <!-- Verwenden Sie das Computer-Symbol. -->
+  <!-- Use the computer symbol. -->
   <g id="ComputerA" transform="translate(20 170)">
     <title>Computer A</title>
     <use href="#computer" transform="scale(0.5)" />
   </g>
 
-  <!-- Verwenden Sie dasselbe Computer-Symbol. -->
+  <!-- Use the same computer symbol. -->
   <g id="ComputerB" transform="translate(300 170)">
     <title>Computer B</title>
     <use href="#computer" transform="scale(0.5)" />
   </g>
 
-  <!-- Zeichnen Sie Kabel A. -->
+  <!-- Draw Cable A. -->
   <g id="CableA" transform="translate(107 88)">
-    <title>Kabel A</title>
-    <desc>10BaseT-Twisted-Pair-Kabel</desc>
+    <title>Cable A</title>
+    <desc>10BaseT twisted pair cable</desc>
     <path d="M0,0c100,140 50,140 -8,160" />
   </g>
 
-  <!-- Zeichnen Sie Kabel B. -->
+  <!-- Draw Cable B. -->
   <g id="CableB" transform="translate(142 88)">
-    <title>Kabel B</title>
-    <desc>10BaseT-Twisted-Pair-Kabel</desc>
+    <title>Cable B</title>
+    <desc>10BaseT twisted pair cable</desc>
     <path d="M0,0c100,180 110,160 159,160" />
   </g>
 
-  <!-- Zeichnen Sie Kabel N. -->
+  <!-- Draw Cable N. -->
   <g id="CableN" transform="translate(242 88)">
-    <title>Kabel N</title>
-    <desc>10BaseT-Twisted-Pair-Kabel</desc>
+    <title>Cable N</title>
+    <desc>10BaseT twisted pair cable</desc>
     <path d="M0,0c0,-70 20,-50 60,-50" />
   </g>
 </svg>

@@ -1,5 +1,5 @@
 ---
-title: "XMLHttpRequest: getAllResponseHeaders()-Methode"
+title: "XMLHttpRequest: getAllResponseHeaders() Methode"
 short-title: getAllResponseHeaders()
 slug: Web/API/XMLHttpRequest/getAllResponseHeaders
 l10n:
@@ -8,17 +8,12 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die {{domxref("XMLHttpRequest")}}-Methode
-**`getAllResponseHeaders()`** gibt alle Antwort-
-Header, getrennt durch {{Glossary('CRLF')}}, als String zurück oder `null`,
-wenn keine Antwort empfangen wurde.
+Die [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) Methode **`getAllResponseHeaders()`** gibt alle Antwort-Header, getrennt durch [CRLF](/de/docs/Glossary/CRLF), als String zurück oder `null`, wenn keine Antwort empfangen wurde.
 
-Wenn ein Netzwerkfehler auftritt, wird ein leerer String
-zurückgegeben.
+Wenn ein Netzwerkfehler aufgetreten ist, wird ein leerer String zurückgegeben.
 
 > [!NOTE]
-> Bei Mehrteil-Anfragen werden die Header des
-> _aktuellen_ Teils der Anfrage zurückgegeben, nicht vom ursprünglichen Kanal.
+> Bei Multipart-Anfragen gibt dies die Header des _aktuellen_ Teils der Anfrage zurück, nicht vom ursprünglichen Kanal.
 
 ## Syntax
 
@@ -32,12 +27,9 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der alle Header der Antwort darstellt (außer denjenigen,
-deren Feldname `Set-Cookie` ist), getrennt durch {{Glossary('CRLF')}},
-oder `null`, wenn keine Antwort empfangen wurde. Bei einem Netzwerkfehler
-wird ein leerer String zurückgegeben.
+Ein String, der alle Header der Antwort (außer denen, deren Feldname `Set-Cookie` ist) durch [CRLF](/de/docs/Glossary/CRLF) getrennt repräsentiert, oder `null`, wenn keine Antwort empfangen wurde. Wenn ein Netzwerkfehler aufgetreten ist, wird ein leerer String zurückgegeben.
 
-Ein Beispiel, wie eine rohe Header-Zeichenkette aussieht:
+Ein Beispiel dafür, wie ein roher Header-String aussieht:
 
 ```http
 date: Fri, 08 Dec 2017 21:04:30 GMT\r\n
@@ -53,16 +45,14 @@ content-length: 6502\r\n
 x-xss-protection: 1; mode=block\r\n
 ```
 
-Jede Zeile wird durch die Zeichen für Wagenrücklauf und Zeilenumbruch
-(`\r\n`) beendet. Diese sind im Wesentlichen Trennzeichen, die die einzelnen Header trennen.
+Jede Zeile wird durch sowohl Wagenrücklauf- als auch Zeilenumbruch-Zeichen (`\r\n`) beendet. Diese dienen im Wesentlichen als Trennzeichen zwischen den einzelnen Headern.
 
 > [!NOTE]
-> In modernen Browsern werden die Header-Namen gemäß der neuesten Spezifikation
-> in Kleinbuchstaben zurückgegeben.
+> In modernen Browsern werden die Header-Namen gemäß der neuesten Spezifikation in Kleinbuchstaben zurückgegeben.
 
 ## Beispiele
 
-Dieses Beispiel untersucht die Header in dem {{domxref("XMLHttpRequest/readystatechange_event", "readystatechange")}}-Ereignis der Anfrage. Der Code zeigt, wie man die rohe Header-Zeichenkette erhält, sie in ein Array einzelner Header umwandelt und dann aus diesem Array eine Zuordnung von Header-Namen zu ihren Werten erstellt.
+Dieses Beispiel untersucht die Header im `readystatechange`-Ereignis der Anfrage. Der Code zeigt, wie man den rohen Header-String erhält, ihn in ein Array einzelner Header konvertiert und dann erstellt, wie man dieses Array verwendet, um eine Zuordnung der Header-Namen zu ihren Werten zu erstellen.
 
 ```js
 const request = new XMLHttpRequest();
@@ -71,14 +61,14 @@ request.send();
 
 request.onreadystatechange = () => {
   if (request.readyState === this.HEADERS_RECEIVED) {
-    // Erhalte die rohe Header-Zeichenkette
+    // Get the raw header string
     const headers = request.getAllResponseHeaders();
 
-    // Konvertiere die Header-Zeichenkette in ein Array
-    // einzelner Header
+    // Convert the header string into an array
+    // of individual headers
     const arr = headers.trim().split(/[\r\n]+/);
 
-    // Erstelle eine Zuordnung von Header-Namen zu Werten
+    // Create a map of header names to values
     const headerMap = {};
     arr.forEach((line) => {
       const parts = line.split(": ");
@@ -90,14 +80,13 @@ request.onreadystatechange = () => {
 };
 ```
 
-Nachdem dies abgeschlossen ist, können Sie beispielsweise:
+Sobald dies erledigt ist, können Sie zum Beispiel:
 
 ```js
 const contentType = headerMap["content-type"];
 ```
 
-Hierdurch wird der Wert des {{httpheader("Content-Type")}}-Headers in die Variable
-`contentType` übernommen.
+Dies erhält den Wert des {{httpheader("Content-Type")}} Headers in die Variable `contentType`.
 
 ## Spezifikationen
 
@@ -110,4 +99,4 @@ Hierdurch wird der Wert des {{httpheader("Content-Type")}}-Headers in die Variab
 ## Siehe auch
 
 - [Verwendung von XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)
-- Request-Header setzen: {{domxref("XMLHttpRequest.setRequestHeader", "setRequestHeader()")}}
+- Setzen von Anfrage-Headern: [`setRequestHeader()`](/de/docs/Web/API/XMLHttpRequest/setRequestHeader)

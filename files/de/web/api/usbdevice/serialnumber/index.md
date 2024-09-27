@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: Eigenschaft serialNumber"
+title: "USBDevice: serialNumber Eigenschaft"
 short-title: serialNumber
 slug: Web/API/USBDevice/serialNumber
 l10n:
@@ -8,13 +8,11 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die **`serialNumber`**-Eigenschaft, die nur gelesen werden kann, des
-{{domxref("USBDevice")}}-Interfaces ist die vom Hersteller definierte Seriennummer für das
-spezifische USB-Gerät.
+Die **`serialNumber`**-Eigenschaft des `[USBDevice](/de/docs/Web/API/USBDevice)`-Interfaces ist die herstellerdefinierte Seriennummer für das spezifische USB-Gerät.
 
 ## Wert
 
-Die Seriennummer für das spezifizierte USB-Gerät
+Die Seriennummer für das angegebene USB-Gerät
 
 ## Spezifikationen
 

@@ -20,22 +20,22 @@ getContext(contextType, contextAttributes)
 
 - `contextType`
 
-  - : Ein String, der den Kontextbezeichner enthält, der den mit dem Canvas verbundenen Zeichenkontext definiert. Mögliche Werte sind:
+  - : Ein String, der den Kontextbezeichner enthält, welcher den Zeichenkontext definiert, der mit dem Canvas verbunden ist. Mögliche Werte sind:
 
     - `2d`
-      - : Erstellt ein {{domxref("OffscreenCanvasRenderingContext2D")}}-Objekt, das einen zweidimensionalen Zeichenkontext darstellt.
+      - : Erstellt ein [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D)-Objekt, das einen zweidimensionalen Zeichenkontext darstellt.
     - `webgl`
-      - : Erstellt ein {{domxref("WebGLRenderingContext")}}-Objekt, das einen dreidimensionalen Zeichenkontext darstellt.
+      - : Erstellt ein [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext)-Objekt, das einen dreidimensionalen Zeichenkontext darstellt.
         Dieser Kontext ist nur in Browsern verfügbar, die [WebGL](/de/docs/Web/API/WebGL_API) Version 1 (OpenGL ES 2.0) implementieren.
     - `webgl2`
-      - : Erstellt ein {{domxref("WebGL2RenderingContext")}}-Objekt, das einen dreidimensionalen Zeichenkontext darstellt.
+      - : Erstellt ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext)-Objekt, das einen dreidimensionalen Zeichenkontext darstellt.
         Dieser Kontext ist nur in Browsern verfügbar, die [WebGL](/de/docs/Web/API/WebGL_API) Version 2 (OpenGL ES 3.0) implementieren.
     - `bitmaprenderer`
-      - : Erstellt ein {{domxref("ImageBitmapRenderingContext")}}, das nur die Funktionalität bietet, den Inhalt des Canvas mit einem gegebenen {{domxref("ImageBitmap")}} zu ersetzen.
+      - : Erstellt ein [`ImageBitmapRenderingContext`](/de/docs/Web/API/ImageBitmapRenderingContext), der nur Funktionen bietet, um den Inhalt des Canvas mit einem gegebenen [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) zu ersetzen.
 
     > [!NOTE]
-    > Die Bezeichner **`"experimental-webgl"`** oder **`"experimental-webgl2"`** werden auch in Implementierungen von WebGL verwendet.
-    > Diese Implementierungen haben die Konformitätssuite noch nicht erreicht, oder die Situation der Grafiktreiber auf der Plattform ist noch nicht stabil.
+    > Die Bezeichner **`"experimental-webgl"`** oder **`"experimental-webgl2"`** werden ebenfalls in Implementierungen von WebGL verwendet.
+    > Diese Implementierungen haben die Konformität der Testsuite noch nicht erreicht, oder die Situation der Grafiktreiber auf der Plattform ist noch instabil.
     > Die [Khronos Group](https://www.khronos.org/) zertifiziert WebGL-Implementierungen unter bestimmten [Konformitätsregeln](https://registry.khronos.org/webgl/sdk/tests/CONFORMANCE_RULES.txt).
 
 - `contextAttributes`
@@ -46,44 +46,44 @@ getContext(contextType, contextAttributes)
     offscreen.getContext("webgl", { antialias: false, depth: false });
     ```
 
-    2d-Kontext-Attribute:
+    2D-Kontextattribute:
 
     - `alpha`
-      - : Boolean, der angibt, ob das Canvas einen Alpha-Kanal enthält. Wenn `false` gesetzt ist, weiß der Browser jetzt, dass der Hintergrund immer opak ist, was das Zeichnen von transparentem Inhalt und Bildern beschleunigen kann.
-    - `willReadFrequently` {{non-standard_inline}} (Nur Firefox)
-      - : Boolean, der angibt, ob viele Rückleseoperationen geplant sind.
-        Dies erzwingt die Verwendung eines Software- (anstatt eines hardwarebeschleunigten) 2D-Canvas und kann Speicher sparen, wenn häufig {{domxref("CanvasRenderingContext2D.getImageData", "getImageData()")}} aufgerufen wird.
+      - : Ein Boolean, der angibt, ob das Canvas einen Alphakanal enthält. Wenn auf `false` gesetzt, weiß der Browser nun, dass der Hintergrund immer undurchsichtig ist, was das Zeichnen von transparentem Inhalt und Bildern beschleunigen kann.
+    - `willReadFrequently` {{non-standard_inline}} (nur Firefox)
+      - : Ein Boolean, der angibt, ob viele Rückleseoperationen geplant sind.
+        Dies erzwingt die Verwendung eines Software- (anstatt eines hardwarebeschleunigten) 2D-Canvas und kann Speicher sparen, wenn häufig [`getImageData()`](/de/docs/Web/API/CanvasRenderingContext2D/getImageData) aufgerufen wird.
         Diese Option ist nur verfügbar, wenn das Flag `gfx.canvas.willReadFrequently.enable` auf `true` gesetzt ist (was standardmäßig nur für B2G/Firefox OS der Fall ist).
-    - `storage` {{non-standard_inline}} (Nur Blink)
-      - : String, der angibt, welcher Speicher verwendet wird ("persistent" ist standardmäßig).
+    - `storage` {{non-standard_inline}} (nur Blink)
+      - : Ein String, der angibt, welcher Speicher verwendet wird ("persistent" standardmäßig).
 
     WebGL-Kontextattribute:
 
     - `alpha`
-      - : Boolean, der angibt, ob das Canvas einen Alpha-Puffer enthält.
+      - : Ein Boolean, der angibt, ob das Canvas einen Alphapuffer enthält.
     - `depth`
-      - : Boolean, der angibt, dass der Zeichenpuffer einen Tiefenpuffer von mindestens 16 Bits haben soll.
+      - : Ein Boolean, der angibt, dass der Zeichenpuffer einen Tiefenpuffer von mindestens 16 Bit haben soll.
     - `stencil`
-      - : Boolean, der angibt, dass der Zeichenpuffer einen Stencil-Puffer von mindestens 8 Bits haben soll.
+      - : Ein Boolean, der angibt, dass der Zeichenpuffer einen Stencil-Puffer von mindestens 8 Bit haben soll.
     - `antialias`
-      - : Boolean, der angibt, ob Anti-Aliasing, sofern möglich, durchgeführt werden soll.
+      - : Ein Boolean, der angibt, ob eine Kantenglättung durchgeführt werden soll, wenn möglich.
     - `premultipliedAlpha`
-      - : Boolean, der angibt, dass der Seitenkompositor annimmt, dass der Zeichenpuffer Farben mit vorkomprimierter Alpha enthält.
+      - : Ein Boolean, der angibt, dass der Seitenkompositor annimmt, dass der Zeichenpuffer Farben mit vormultipliziertem Alpha enthält.
     - `preserveDrawingBuffer`
-      - : Wenn der Wert auf true gesetzt ist, werden die Puffer nicht gelöscht und behalten ihre Werte bei, bis sie gelöscht oder vom Autor überschrieben werden.
+      - : Wenn der Wert `true` ist, werden die Puffer nicht gelöscht und behalten ihre Werte, bis sie gelöscht oder vom Autor überschrieben werden.
     - `failIfMajorPerformanceCaveat`
-      - : Boolean, der angibt, ob ein Kontext erstellt wird, wenn die Systemleistung niedrig ist.
+      - : Ein Boolean, der angibt, ob ein Kontext erstellt wird, wenn die Systemleistung gering ist.
 
 ### Rückgabewert
 
 Ein Zeichenkontext, der entweder ein
 
-- {{domxref("OffscreenCanvasRenderingContext2D")}} für `"2d"`,
-- {{domxref("WebGLRenderingContext")}} für `"webgl"` und `"experimental-webgl"`,
-- {{domxref("WebGL2RenderingContext")}} für `"webgl2"` und `"experimental-webgl2"` {{experimental_inline}}, oder
-- {{domxref("ImageBitmapRenderingContext")}} für `"bitmaprenderer"` ist.
+- [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D) für `"2d"`,
+- [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) für `"webgl"` und `"experimental-webgl"`,
+- [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) für `"webgl2"` und `"experimental-webgl2"` {{experimental_inline}}, oder
+- [`ImageBitmapRenderingContext`](/de/docs/Web/API/ImageBitmapRenderingContext) für `"bitmaprenderer"` ist.
 
-Wenn der `contextType` keinem möglichen Zeichenkontext entspricht, wird `null` zurückgegeben.
+Wenn der `contextType` keinen möglichen Zeichenkontext darstellt, wird `null` zurückgegeben.
 
 ## Beispiele
 
@@ -105,6 +105,6 @@ gl.canvas; // OffscreenCanvas
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: {{domxref("OffscreenCanvas")}}
-- {{domxref("HTMLCanvasElement.getContext()")}}
-- Verfügbare Zeichenkontexte: {{domxref("CanvasRenderingContext2D")}}, {{domxref("WebGLRenderingContext")}}, {{domxref("WebGL2RenderingContext")}}, {{domxref("ImageBitmapRenderingContext")}}, und {{domxref("OffscreenCanvasRenderingContext2D")}}
+- Die Schnittstelle, die diese Methode definiert: [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
+- [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext)
+- Verfügbare Zeichenkontexte: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D), [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext), [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext), [`ImageBitmapRenderingContext`](/de/docs/Web/API/ImageBitmapRenderingContext), und [`OffscreenCanvasRenderingContext2D`](/de/docs/Web/API/OffscreenCanvasRenderingContext2D)

@@ -9,7 +9,7 @@ l10n:
 {{APIRef("CSS Typed OM")}}
 
 Die **`sub()`**-Methode der
-{{domxref("CSSNumericValue")}}-Schnittstelle zieht eine angegebene Zahl von der
+[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle zieht eine angegebene Zahl von dem
 `CSSNumericValue` ab.
 
 ## Syntax
@@ -21,11 +21,11 @@ sub(number)
 ### Parameter
 
 - `number`
-  - : Entweder eine Zahl oder ein {{domxref('CSSMathSum')}}.
+  - : Entweder eine Zahl oder ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum).
 
 ### Rückgabewert
 
-Ein {{domxref('CSSMathSum')}}
+Ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)
 
 ### Ausnahmen
 
@@ -39,7 +39,7 @@ let mathSum = CSS.px("23")
   .sub(CSS.percent("4"))
   .sub(CSS.cm("3"))
   .sub(CSS.in("9"));
-// Gibt "calc(23px - 4% - 3cm - 9in)" aus
+// Prints "calc(23px - 4% - 3cm - 9in)"
 console.log(mathSum.toString());
 ```
 
@@ -47,6 +47,6 @@ console.log(mathSum.toString());
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`namedItem()`**-Methode der {{domxref("HTMLAllCollection")}}-Schnittstelle gibt das erste {{domxref("Element")}} in der Sammlung zurück, dessen `id`- oder `name`-Attribut mit dem angegebenen Namen übereinstimmt, oder `null`, wenn kein Element übereinstimmt.
+Die **`namedItem()`** Methode der [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection)-Schnittstelle gibt das erste [`Element`](/de/docs/Web/API/Element) in der Sammlung zurück, dessen `id`- oder `name`-Attribut mit dem angegebenen Namen übereinstimmt, oder `null`, wenn kein Element übereinstimmt.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ namedItem(name)
 
 ### Rückgabewert
 
-Das erste {{domxref("Element")}} in der {{domxref("HTMLAllCollection")}}, das mit dem `name` übereinstimmt, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn keines vorhanden ist.
+Das erste [`Element`](/de/docs/Web/API/Element) in der [`HTMLAllCollection`](/de/docs/Web/API/HTMLAllCollection), das mit dem `name` übereinstimmt, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn es kein solches gibt.
 
 ## Spezifikationen
 

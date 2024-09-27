@@ -1,5 +1,5 @@
 ---
-title: "Dokument: contentType-Eigenschaft"
+title: "Document: contentType-Eigenschaft"
 short-title: contentType
 slug: Web/API/Document/contentType
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Die schreibgeschützte Eigenschaft **`Document.contentType`** gibt den MIME-Typ zurück, unter dem das Dokument dargestellt wird. Dieser kann von HTTP-Headern oder anderen Quellen von MIME-Informationen stammen und könnte durch automatische Typkonvertierungen beeinflusst werden, die entweder vom Browser oder Erweiterungen durchgeführt werden.
+Die schreibgeschützte **`Document.contentType`**-Eigenschaft gibt den MIME-Typ zurück, unter dem das Dokument gerendert wird. Dieser kann aus HTTP-Headern oder anderen Quellen von MIME-Informationen stammen und möglicherweise durch automatische Typkonvertierungen beeinflusst werden, die entweder vom Browser oder durch Erweiterungen durchgeführt werden.
 
 > [!NOTE]
-> Diese Eigenschaft wird von {{HTMLElement("meta")}}
-> Elementen nicht beeinflusst.
+> Diese Eigenschaft wird nicht durch {{HTMLElement("meta")}}
+> Elemente beeinflusst.
 
 ## Wert
 
@@ -22,6 +22,6 @@ Die schreibgeschützte Eigenschaft **`Document.contentType`** gibt den MIME-Typ 
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

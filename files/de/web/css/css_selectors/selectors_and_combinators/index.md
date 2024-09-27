@@ -7,23 +7,23 @@ l10n:
 
 {{CSSRef}}
 
-CSS-Selektoren werden verwendet, um ein Muster der Elemente zu definieren, die Sie auswählen möchten, um auf die ausgewählten Elemente eine Reihe von CSS-Regeln anzuwenden. Kombinatoren definieren die Beziehung zwischen den Selektoren. Durch die Verwendung verschiedener Selektoren und Kombinatoren können Sie die gewünschten Elemente basierend auf ihrem Typ, ihren Attributen, ihrem Zustand oder ihrer Beziehung zu anderen Elementen präzise auswählen und stylen.
+CSS-Selektoren werden verwendet, um ein Muster der Elemente zu definieren, die Sie auswählen möchten, um eine Reihe von CSS-Regeln auf die ausgewählten Elemente anzuwenden. Kombinatoren definieren die Beziehung zwischen den Selektoren. Mit verschiedenen Selektoren und Kombinatoren können Sie die gewünschten Elemente präzise auswählen und stylen, basierend auf ihrem Typ, ihren Attributen, ihrem Zustand oder ihrer Beziehung zu anderen Elementen.
 
 ## Arten von Selektoren
 
-Es gibt über 80 Selektoren und Kombinatoren. CSS-Selektoren können in die folgenden Kategorien gruppiert werden, basierend auf dem Typ der Elemente, die sie auswählen können.
+Es gibt über 80 Selektoren und Kombinatoren. CSS-Selektoren können basierend auf dem Typ der Elemente, die sie auswählen können, in folgende Kategorien gruppiert werden.
 
 ### Grundlegende Selektoren
 
-Der [Typselektor](/de/docs/Web/CSS/Type_selectors) wählt alle Elemente aus, die den angegebenen Knotennamen haben. Zum Beispiel wird `div` alle {{HTMLElement("div")}}-Elemente auswählen und `input` jedes {{HTMLElement("input")}}-Element. Der [universelle Selektor](/de/docs/Web/CSS/Universal_selectors), gekennzeichnet durch ein Sternchen (`*`), ist ein spezieller Typselektor, der alle Elemente auswählt.
+Der [Typsselektor](/de/docs/Web/CSS/Type_selectors) wählt alle Elemente aus, die den angegebenen Knotennamen haben. Beispielsweise wird `div` alle {{HTMLElement("div")}}-Elemente auswählen und `input` wird jedes {{HTMLElement("input")}}-Element auswählen. Der [universelle Selektor](/de/docs/Web/CSS/Universal_selectors), dargestellt durch ein Sternchen (`*`), ist ein spezieller Typsselektor, der alle Elemente auswählt.
 
-Der [Klassenselektor](/de/docs/Web/CSS/Class_selectors) wählt alle Elemente aus, die das angegebene `class`-Attribut haben, gekennzeichnet durch den Klassennamen, dem ein Punkt (`.`) vorangestellt ist. Zum Beispiel wird `.index` jedes Element auswählen, das `class="index"` hat. Der [ID-Selektor](/de/docs/Web/CSS/ID_selectors) wählt ein Element basierend auf dem Wert seines `id`-Attributs aus. Der Selektor ist die `id`, der ein "Nummernzeichen" (U+0023, `#`) vorangestellt ist. Zum Beispiel wird `#toc` das Element auswählen, das `id="toc"` hat. Sowohl [`class`](/de/docs/Web/HTML/Global_attributes/class) als auch [`id`](/de/docs/Web/HTML/Global_attributes/id) sind globale Attribute. Es sollte nur ein Element mit einer bestimmten `id` in einem Dokument geben; aber wenn es mehr als eins gibt, wird der ID-Selektor alle Elemente mit dieser `id` auswählen.
+Der [Klassenselektor](/de/docs/Web/CSS/Class_selectors) wählt alle Elemente aus, die das angegebene `class`-Attribut haben, gekennzeichnet durch den Klassennamen, der mit einem Punkt (`.`) vorangestellt ist. Zum Beispiel wird `.index` jedes Element auswählen, das `class="index"` hat. Der [ID-Selektor](/de/docs/Web/CSS/ID_selectors) wählt ein Element basierend auf dem Wert seines `id`-Attributs aus. Der Selektor ist die `id`, die durch ein "Nummernzeichen" (U+0023, `#`) vorangestellt ist. Zum Beispiel wird `#toc` das Element auswählen, das `id="toc"` hat. Sowohl [`class`](/de/docs/Web/HTML/Global_attributes/class) als auch [`id`](/de/docs/Web/HTML/Global_attributes/id) sind globale Attribute. Es sollte nur ein Element mit einer bestimmten `id` in einem Dokument geben; gibt es jedoch mehr als eines, wird der ID-Selektor alle Elemente mit dieser `id` auswählen.
 
-Wenn Sie einen Typ- oder universellen Selektor mit einem Klassen- oder ID-Selektor kombinieren, um einen [zusammengesetzten Selektor](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) zu erstellen, muss der Typ- oder universelle Selektor der Klasse oder ID vorangehen.
+Bei der Kombination eines Typen- oder universellen Selektors mit einem Klassen- oder ID-Selektor zur Erstellung eines [zusammengesetzten Selektors](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) muss der Typen- oder universelle Selektor dem Klassen- oder ID-Selektor vorangestellt sein.
 
 #### CSS
 
-In diesem Beispiel deklarieren wir vier [einfache Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#simple_selector) und einen [zusammengesetzten Selektor](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) unter Verwendung der vier grundlegenden Selektortypen, wie oben beschrieben.
+In diesem Beispiel deklarieren wir vier [einfache Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#simple_selector) und einen [zusammengesetzten Selektor](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) mithilfe der vier grundlegenden Selektortypen, wie oben beschrieben.
 
 ```css
 * {
@@ -56,35 +56,35 @@ p.myClass#myId {
 
 ## Kombinatoren
 
-Mit CSS-Kombinatoren können wir Selektoren kombinieren, um DOM-Knoten basierend auf ihrer Beziehung zu anderen Elementen innerhalb des Dokumentknotenbaums auszuwählen. Diese Kombination von Selektoren mit Kombinatoren erstellt [komplexe Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector).
+Mithilfe von CSS-Kombinatoren können wir Selektoren kombinieren, um DOM-Knoten basierend auf ihrer Beziehung zu anderen Elementen innerhalb des Dokumentknotenbaums auszuwählen. Diese Kombination von Selektoren mit Kombinatoren erzeugt [komplexe Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector).
 
-### Nachfahre-Kombinator
+### Nachfahrkombinator
 
-Der [Nachfahre-Kombinator](/de/docs/Web/CSS/Descendant_combinator), gekennzeichnet durch ein oder mehrere Leerzeichen, wählt Knoten aus, die Nachfahren des ersten Elements sind. Zum Beispiel wird `div span` alle {{HTMLElement("span")}}-Elemente auswählen, die sich innerhalb eines {{HTMLElement("div")}}-Elements befinden.
+Der [Nachfahrkombinator](/de/docs/Web/CSS/Descendant_combinator), dargestellt mit einem oder mehreren Leerzeichen, wählt Knoten aus, die Nachfahren des ersten Elements sind. Zum Beispiel wird `div span` alle {{HTMLElement("span")}}-Elemente auswählen, die sich innerhalb eines {{HTMLElement("div")}}-Elements befinden.
 
-### Kind-Kombinator
+### Kindkombinator
 
-Der [Kind-Kombinator](/de/docs/Web/CSS/Child_combinator) ist spezifischer als der Nachfahre-Kombinator. Gekennzeichnet durch das Größer-als-Zeichen (`>`), wählt der Kind-Kombinator Knoten aus, die direkte Kinder des ersten Elements sind. Im Vergleich zu unserem vorherigen Beispiel wird `div > span` nur die {{HTMLElement("span")}}-Elemente auswählen, die direkte Kinder eines {{HTMLElement("div")}}-Elements sind.
+Der [Kindkombinator](/de/docs/Web/CSS/Child_combinator) ist spezifischer als der Nachfahrkombinator. Dargestellt mit dem Größer-als-Zeichen (`>`), wählt der Kindkombinator Knoten aus, die direkte Kinder des ersten Elements sind. Im Vergleich zu unserem vorherigen Beispiel wird `div > span` nur die {{HTMLElement("span")}}-Elemente auswählen, die direkte Kinder eines {{HTMLElement("div")}}-Elements sind.
 
-### Nachfolgender-Geschwister-Kombinator
+### Nachfolgender-Geschwisterkombinator
 
-Zusätzlich zu Nachfahre-Selektoren ermöglicht CSS auch die Auswahl von Elementen basierend auf ihren Geschwistern. Der [nachfolgende-Geschwister-Kombinator](/de/docs/Web/CSS/Subsequent-sibling_combinator), gekennzeichnet durch eine Tilde (`~`), wählt Geschwister aus. Gegeben `A ~ B`, werden alle Elemente, die `B` entsprechen, ausgewählt, wenn sie von `A` gefolgt werden, wobei beide `A` und `B` dasselbe Elternteil teilen. Zum Beispiel wird `h2 ~ p` alle {{HTMLElement("p")}}-Elemente auswählen, die einem {{HTMLElement("Heading_Elements", "h2")}} folgen, ob unmittelbar oder nicht.
+Zusätzlich zu Nachfahrselektoren ermöglicht CSS auch die Auswahl von Elementen basierend auf ihren Geschwistern. Der [Nachfolgender-Geschwisterkombinator](/de/docs/Web/CSS/Subsequent-sibling_combinator), dargestellt mit einer Tilde (`~`), wählt Geschwister aus. Gegeben `A ~ B`, werden alle Elemente, die `B` entsprechen, ausgewählt, wenn sie von `A` vorausgegangen werden, vorausgesetzt, dass sowohl `A` als auch `B` denselben Elternteil haben. Zum Beispiel wird `h2 ~ p` alle {{HTMLElement("p")}}-Elemente auswählen, die einem {{HTMLElement("Heading_Elements", "h2")}} folgen, unmittelbar oder nicht.
 
-### Direktes-Nachfolgendes-Geschwister-Kombinator
+### Nächster-Geschwisterkombinator
 
-Der [direktes-nachfolgendes-Geschwister-Kombinator](/de/docs/Web/CSS/Next-sibling_combinator), gekennzeichnet durch das Pluszeichen (`+`), ist dem nachfolgenden-Geschwister-Kombinator ähnlich. Allerdings wählt `A + B` nur `B` aus, wenn `B` unmittelbar von `A` gefolgt wird, wobei beide dasselbe Elternteil teilen. Wird unser vorheriges Beispiel abgeändert, wird `h2 + p` nur das eine `<p>`-Element auswählen, das _unmittelbar_ auf ein `<h2>`-Element folgt.
+Der [Nächster-Geschwisterkombinator](/de/docs/Web/CSS/Next-sibling_combinator), dargestellt durch das Plus-Symbol (`+`), ist dem nachfolgenden Geschwister ähnlich. Allerdings stimmt es nur `B` zu, wenn `B` unmittelbar von `A` vorausgegangen wird, wobei beide denselben Elternteil teilen. Unser vorheriges Beispiel ergänzend, wird `h2 + p` nur das eine `<p>`-Element auswählen, das _unmittelbar_ einem `<h2>`-Element folgt.
 
-### Spalten-Kombinator
+### Spaltenkombinator
 
-Es gibt auch einen [Spalten-Kombinator](/de/docs/Web/CSS/Column_combinator), gekennzeichnet durch zwei Pipe-Zeichen (`||`), der, wenn unterstützt, Knoten auswählt, die zu einer Spalte gehören. Zum Beispiel wird `col || td` alle {{HTMLElement("td")}}-Elemente auswählen, die zum Bereich der {{HTMLElement("col")}} gehören.
+Es gibt auch einen [Spaltenkombinator](/de/docs/Web/CSS/Column_combinator), dargestellt durch zwei senkrechte Striche (`||`), der, wenn unterstützt, Knoten auswählt, die zu einer Spalte gehören. Zum Beispiel wird `col || td` alle {{HTMLElement("td")}}-Elemente auswählen, die zum Geltungsbereich von {{HTMLElement("col")}} gehören.
 
-### Namensraum-Trennzeichen
+### Namespace-Trennzeichen
 
-Der [Namensraum-Trennzeichen](/de/docs/Web/CSS/Namespace_separator) ist ein weiterer Kombinator, der im Allgemeinen in Verbindung mit der {{CSSXref("@namespace")}}-At-Regel verwendet wird. Dieser Kombinator wird durch ein einzelnes Pipe-Zeichen (`|`) gekennzeichnet. Er ermöglicht es, [Typselektoren](/de/docs/Web/CSS/Type_selectors) und den [universellen Selektor](/de/docs/Web/CSS/Universal_selectors) auf einen bestimmten Namensraum zu begrenzen. Zum Beispiel können Sie durch die Definition eines Namensraums wie `@namespace SVG url('http://www.w3.org/2000/svg');` Selektoren einfügen, die nur auf Elemente abzielen, die in einem SVG-Namensraum eingebettet sind. Die Deklaration `SVG|a` würde Links innerhalb von SVGs und nicht die im Rest des Dokuments auswählen. Die Namensraumsteuerung kann nützlich sein, um MathML, SVG oder andere XML-basierte Inhalte innerhalb Ihres HTML zu zielen.
+Der [Namespace-Trennzeichen](/de/docs/Web/CSS/Namespace_separator) ist ein weiterer Kombinator, der allgemein in Verbindung mit der {{CSSXref("@namespace")}}-At-Regel verwendet wird. Dieser Kombinator wird durch ein einzelnes Rohrzeichen (`|`) dargestellt. Er ermöglicht es, [Typen-Selektoren](/de/docs/Web/CSS/Type_selectors) und den [universellen Selektor](/de/docs/Web/CSS/Universal_selectors) auf einen bestimmten Namespace zu beschränken. Zum Beispiel, indem ein Namespace wie `@namespace SVG url('http://www.w3.org/2000/svg');` definiert wird, können Sie Selektoren einfügen, die nur auf Elemente zielen, die in einem SVG-Namespace verschachtelt sind. Die Deklaration `SVG|a` würde Links innerhalb von SVGs treffen und nicht diejenigen im Rest des Dokuments. Das Verwenden von Namespaces kann nützlich sein, um MathML, SVG oder andere auf XML basierende Inhalte innerhalb Ihres HTMLs anzusprechen.
 
 #### CSS
 
-In diesem Beispiel deklarieren wir fünf [relative Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#relative_selector), wobei [einfache Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#simple_selector) mit Kombinatoren kombiniert werden.
+In diesem Beispiel deklarieren wir fünf [relative Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#relative_selector), indem wir [einfache Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#simple_selector) mit Kombinatoren kombinieren.
 
 ```css
 h2 + p ~ p {
@@ -126,13 +126,13 @@ h2 + p + p {
 
 {{EmbedLiveSample("Combinators", "100%", 500)}}
 
-### Erstellen komplexer Selektoren mit CSS-Nesting
+### Erstellen komplexer Selektoren mit CSS-Verschachtelung
 
-Die oben genannten komplexen Selektoren können auch mit einfachen Selektoren, Kombinatoren und [CSS-Nesting](/de/docs/Web/CSS/CSS_nesting) definiert werden, mit oder ohne den [`&` Verschachtelungsselektor](/de/docs/Web/CSS/Nesting_selector).
+Die oben genannten komplexen Selektoren können ebenfalls mit einfachen Selektoren, Kombinatoren und [CSS-Verschachtelung](/de/docs/Web/CSS/CSS_nesting) mit oder ohne den [`&`-Verschachtelungsselektor](/de/docs/Web/CSS/Nesting_selector) definiert werden.
 
 #### CSS
 
-In diesem Beispiel replizieren wir dieselben fünf relativen Selektoren, indem wir einfache Selektoren mit Kombinatoren kombinieren, diesmal jedoch mit CSS-Nesting.
+In diesem Beispiel replizieren wir dieselben fünf relativen Selektoren mit einfachen Selektoren kombiniert mit Kombinatoren, diesmal jedoch mit CSS-Verschachtelung.
 
 ```css
 h2 {
@@ -186,35 +186,35 @@ h2 {
 
 ## Attributselektoren
 
-[Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) wählen alle Elemente aus, die je nachdem, wie der Selektor geschrieben ist, entweder das angegebene Attribut haben oder das angegebene Attribut mit einer Teilzeichenfolgenwert-Übereinstimmung haben.
-Zum Beispiel wird `[type]` alle Elemente auswählen, die das `type`-Attribut gesetzt haben (auf jeden beliebigen Wert), und `[type="submit"]` wird `<input type="submit">` und `<button type="submit">` auswählen, oder jedes Element mit `type="submit"` gesetzt, auch wenn dieses Attribut-Wert-Paar nur auf {{HTMLElement("input")}} und {{HTMLElement("button")}}-Elementen unterstützt wird. Die Übereinstimmung ist groß-/kleinschreibungsunabhängig.
+[Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) wählen alle Elemente aus, die je nach Schreibweise des Selektors entweder das angegebene Attribut haben oder dieses Attribut mit einem Teilzeichenfolgenwert haben.
+Zum Beispiel wird `[type]` alle Elemente auswählen, die das `type`-Attribut (auf irgendeinen Wert) gesetzt haben, und `[type="submit"]` wird `<input type="submit">` und `<button type="submit">` sowie jedes Element mit `type="submit"` auswählen, auch wenn dieses Attribut-Wert-Paar nur auf {{HTMLElement("input")}} und {{HTMLElement("button")}}-Elementen unterstützt wird. Der Vergleich ist nicht fallunterscheidend.
 
-Die Groß-/Kleinschreibung des Attributs hängt von der Sprache ab. Generell ist in HTML, wenn ein Attribut {{glossary("enumerated")}} ist, der Wert im Selektor groß-/kleinschreibungsunabhängig, selbst wenn der Wert keiner der aufgezählten Werte ist oder wenn das Attribut kein gültiger Wert für das Element ist, auf dem es gesetzt ist. Für nicht-aufzählbare Attribute, wie `class`, `id` oder jedes `data-*` Attribut, oder für nicht-HTML Attribute, wie `role` oder `aria-*` Attribute, ist die Wertübereinstimmung groß-/kleinschreibungsempfindlich; die Übereinstimmung kann mit einem groß-/kleinschreibungsunabhängigen Modifikator (`i`) groß-/kleinschreibungsunabhängig gemacht werden.
+Die Groß-/Kleinschreibungsempfindlichkeit des Attributs hängt von der Sprache ab. Im Allgemeinen ist in HTML, wenn ein Attribut [aufgezählt](/de/docs/Glossary/enumerated) ist, der Wert im Selektor nicht fallunterscheidend, auch wenn der Wert nicht einer der aufgezählten Werte ist oder wenn das Attribut kein gültiger Wert für das Element ist, auf dem es gesetzt ist. Für nicht aufgezählte Attribute wie `class`, `id` oder beliebige `data-*`-Attribute oder für Nicht-HTML-Attribute wie `role` oder `aria-*`-Attribute ist der Wertvergleich fallunterscheidend; der Vergleich kann durch einen Fallunterscheidungs-Modifikator (`i`) nicht fallunterscheidend erfolgen.
 
-## Pseudo-Klassenselektoren
+## Pseudo-Klassen-Selektoren
 
-Das [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)-Modul definiert über 60 [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes). Pseudoklassen sind [einfache Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#simple_selector), die mit einem Doppelpunkt (`:`) versehen sind und die Auswahl von Elementen basierend auf Zustandsinformationen ermöglichen, die nicht im Dokumentbaum enthalten sind. {{CSSxRef("pseudo-classes")}} können verwendet werden, um ein Element basierend auf seinem _Zustand_ zu stylen.
-Zum Beispiel zielt der einfache Selektor {{cssxref(":target")}} auf ein Element mit einer URL, die einen Fragmentbezeichner enthält, und der [`a:visited`](/de/docs/Web/CSS/:visited) [zusammengesetzte Selektor](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) wählt alle {{HTMLElement("a")}}-Elemente aus, die von einem Benutzer besucht wurden.
+Das [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)-Modul definiert über 60 [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes). Pseudo-Klassen sind [einfache Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#simple_selector), die mit einem Doppelpunkt (`:`) präfixiert sind und die Auswahl von Elementen basierend auf Zustandsinformationen ermöglichen, die nicht im Dokumentenbaum enthalten sind. {{CSSxRef("pseudo-classes")}} können verwendet werden, um ein Element basierend auf seinem _Zustand_ zu stylen.
+Zum Beispiel zielt der einfache {{cssxref(":target")}}-Selektor auf Elemente einer URL mit einem Fragmentbezeichner ab, und der [`a:visited`](/de/docs/Web/CSS/:visited) [zusammengesetzter Selektor](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) trifft auf alle {{HTMLElement("a")}}-Elemente, die von einem Benutzer besucht wurden.
 
-Die Pseudoklassen können in Kategorien wie [Anzeigestatus des Elements](/de/docs/Web/CSS/Pseudo-classes#element_display_state_pseudo-classes), [Eingabe](/de/docs/Web/CSS/Pseudo-classes#input_pseudo-classes), [sprachlich](/de/docs/Web/CSS/Pseudo-classes#linguistic_pseudo-classes), [Ort](/de/docs/Web/CSS/Pseudo-classes#location_pseudo-classes), [Ressourcenzustand](/de/docs/Web/CSS/Pseudo-classes#resource_state_pseudo-classes), [zeitdimensionell](/de/docs/Web/CSS/Pseudo-classes#time-dimensional_pseudo-classes), [Baum-Struktural](/de/docs/Web/CSS/Pseudo-classes#tree-structural_pseudo-classes), [Benutzeraktion](/de/docs/Web/CSS/Pseudo-classes#user_action_pseudo-classes) und [funktional](/de/docs/Web/CSS/Pseudo-classes#functional_pseudo-classes) unterteilt werden.
+Die Pseudo-Klassen können als [Anzeigestatus des Elements](/de/docs/Web/CSS/Pseudo-classes#element_display_state_pseudo-classes), [Eingabe](/de/docs/Web/CSS/Pseudo-classes#input_pseudo-classes), [linguistisch](/de/docs/Web/CSS/Pseudo-classes#linguistic_pseudo-classes), [Ort](/de/docs/Web/CSS/Pseudo-classes#location_pseudo-classes), [Ressourcenzustand](/de/docs/Web/CSS/Pseudo-classes#resource_state_pseudo-classes), [zeitdimensional](/de/docs/Web/CSS/Pseudo-classes#time-dimensional_pseudo-classes), [baumstrukturell](/de/docs/Web/CSS/Pseudo-classes#tree-structural_pseudo-classes), [Benutzeraktion](/de/docs/Web/CSS/Pseudo-classes#user_action_pseudo-classes) und [funktional](/de/docs/Web/CSS/Pseudo-classes#functional_pseudo-classes) kategorisiert werden.
 
-Mehrere Pseudoklassen können kombiniert werden, um [zusammengesetzte Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) zu erstellen. Wenn eine Pseudoklasse zu einem zusammengesetzten Selektor mit einem Typ- oder universellen Selektor kombiniert wird, muss die Pseudoklasse dem Typselektor oder universellen Selektor folgen, falls vorhanden.
+Mehrere Pseudo-Klassen können kombiniert werden, um [zusammengesetzte Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) zu erstellen. Beim Kombinieren einer Pseudo-Klasse in einen zusammengesetzten Selektor mit einem Typen- oder universellen Selektor muss die Pseudo-Klasse dem Typen- oder universellen Selektor folgen, falls vorhanden.
 
 ## Pseudo-Element-Selektoren
 
-Nicht alle CSS-Selektoren sind im [CSS-Selektorenmodul](/de/docs/Web/CSS) definiert. CSS-Pseudoelement-Selektoren sind im [CSS-Pseudo-Elemente](/de/docs/Web/CSS/CSS_pseudo-elements)-Modul definiert.
+Nicht alle CSS-Selektoren sind im [CSS-Selektoren-Modul](/de/docs/Web/CSS) definiert. CSS-Pseudo-Element-Selektoren sind im [CSS-Pseudo-Elemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul definiert.
 
-CSS-[Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements), die mit zwei Doppelpunkten (`::`) versehen sind, repräsentieren Entitäten, die nicht in HTML enthalten sind. Zum Beispiel wählt der einfache {{cssxref("::marker")}}-Selektor Aufzählungszeichen von Listenelementen, und der zusammengesetzte Selektor [`p::first-line`](/de/docs/Web/CSS/::first-line) wählt die erste Zeile aller {{HTMLElement("p")}}-Elemente.
+CSS-[Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements), mit zwei Doppelpunkten (`::`) präfixiert, repräsentieren Entitäten, die nicht in HTML enthalten sind. Zum Beispiel wählt der einfache {{cssxref("::marker")}}-Selektor Aufzählungszeichen von Listenelementen aus, und der zusammengesetzte Selektor [`p::first-line`](/de/docs/Web/CSS/::first-line) trifft auf die erste Zeile aller {{HTMLElement("p")}}-Elemente.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-Siehe die Spezifikationstabellen für [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes#specifications) und [Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements#specifications) für Details dazu.
+Sehen Sie sich die Spezifikationstabellen zu [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes#specifications) und [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements#specifications) für Details an.
 
 ## Siehe auch
 
 - [Selektorenliste](/de/docs/Web/CSS/Selector_list)
-- [CSS-Selektorstruktur](/de/docs/Web/CSS/CSS_selectors/Selector_structure)
+- [CSS-Selektorenstruktur](/de/docs/Web/CSS/CSS_selectors/Selector_structure)
 - [Spezifität](/de/docs/Web/CSS/Specificity)
-- [CSS-Nesting-Modul](/de/docs/Web/CSS/CSS_nesting)
+- [CSS-Verschachtelungsmodul](/de/docs/Web/CSS/CSS_nesting)

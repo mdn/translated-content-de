@@ -7,30 +7,30 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die **`PUT`** HTTP-Methode erstellt eine neue Ressource oder ersetzt eine Repräsentation der Zielressource mit dem Anforderungs-{{Glossary("HTTP Content", "Inhalt")}}.
+Die **`PUT`** HTTP-Methode erstellt eine neue Ressource oder ersetzt eine Repräsentation der Zielressource mit dem Anfrage-[Inhalt](/de/docs/Glossary/HTTP_Content).
 
-Der Unterschied zwischen `PUT` und {{HTTPMethod("POST")}} besteht darin, dass `PUT` {{Glossary("idempotent")}} ist: Ein einmaliger Aufruf ist nicht anders, als es mehrmals hintereinander aufzurufen (es gibt keine _Nebenwirkungen_).
+Der Unterschied zwischen `PUT` und {{HTTPMethod("POST")}} ist, dass `PUT` [idempotent](/de/docs/Glossary/idempotent) ist: Ein einmaliger Aufruf unterscheidet sich nicht von mehreren aufeinanderfolgenden Aufrufen (es gibt keine _Neben_ effekte).
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Anforderung hat einen Körper</th>
+      <th scope="row">Anfrage hat einen Body</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">Erfolgreiche Antwort hat einen Körper</th>
-      <td>Könnte</td>
+      <th scope="row">Erfolgreiche Antwort hat einen Body</th>
+      <td>Kann</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Safe/HTTP", "Sicher")}}</th>
+      <th scope="row">[Sicher](/de/docs/Glossary/Safe/HTTP)</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Idempotent")}}</th>
+      <th scope="row">[Idempotent](/de/docs/Glossary/Idempotent)</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Cacheable")}}</th>
+      <th scope="row">[Cacheable](/de/docs/Glossary/Cacheable)</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -49,17 +49,17 @@ PUT <request-target>["?"<query>] HTTP/1.1
 ```
 
 - `<request-target>`
-  - : Identifiziert die Zielressource der Anfrage, wenn sie mit den im {{HTTPHeader("Host")}} Header bereitgestellten Informationen kombiniert wird.
-    Dies ist ein absoluter Pfad (z.B. `/path/to/file.html`) bei Anforderungen an einen Ursprungsserver und eine absolute URL bei Anforderungen an Proxies (z.B. `http://www.example.com/path/to/file.html`).
+  - : Identifiziert die Zielressource der Anfrage, wenn kombiniert mit den Informationen im {{HTTPHeader("Host")}}-Header.
+    Dies ist ein absoluter Pfad (z. B. `/path/to/file.html`) in Anfragen an einen Ursprungsserver und eine absolute URL in Anfragen an Proxies (z. B. `http://www.example.com/path/to/file.html`).
 - `<query>` {{optional_inline}}
-  - : Eine optionale Abfragekomponente, die mit einem Fragezeichen `?` eingeleitet wird.
-    Wird häufig verwendet, um Identifikationsinformationen in Form von `key=value` Paaren zu übertragen.
+  - : Eine optionale Abfragekomponente, die einem Fragezeichen `?` vorausgeht.
+    Häufig verwendet, um identifizierende Informationen in Form von `key=value` Paaren zu übertragen.
 
 ## Beispiele
 
 ### Erfolgreiches Erstellen einer Ressource
 
-Die folgende `PUT`-Anfrage versucht, eine Ressource unter `example.com/new.html` mit dem Inhalt `<p>New File</p>` zu erstellen:
+Die folgende `PUT`-Anfrage fordert das Erstellen einer Ressource unter `example.com/new.html` mit dem Inhalt `<p>New File</p>`:
 
 ```http
 PUT /new.html HTTP/1.1
@@ -70,14 +70,14 @@ Content-length: 16
 <p>New File</p>
 ```
 
-Wenn die Zielressource **keine** aktuelle Repräsentation hat und die `PUT`-Anforderung erfolgreich eine erstellt, muss der Ursprungsserver eine {{HTTPStatus("201", "201 Created")}}-Antwort senden:
+Wenn die Zielressource **keine** aktuelle Repräsentation hat und die `PUT`-Anfrage erfolgreich eine erstellt, muss der Ursprungsserver eine {{HTTPStatus("201", "201 Created")}}-Antwort senden:
 
 ```http
 HTTP/1.1 201 Created
 Content-Location: /new.html
 ```
 
-Wenn die Zielressource **eine** aktuelle Repräsentation hat und diese Repräsentation mit dem Zustand in der Anforderung erfolgreich modifiziert wird, muss der Ursprungsserver entweder eine {{HTTPStatus("200", "200 OK")}} oder eine {{HTTPStatus("204", "204 No Content")}} senden, um den erfolgreichen Abschluss der Anfrage anzuzeigen:
+Wenn die Zielressource **eine** aktuelle Repräsentation hat und diese erfolgreich durch den Zustand in der Anfrage verändert wird, muss der Ursprungsserver entweder eine {{HTTPStatus("200", "200 OK")}} oder eine {{HTTPStatus("204", "204 No Content")}} senden, um den erfolgreichen Abschluss der Anfrage anzuzeigen:
 
 ```http
 HTTP/1.1 204 No Content
@@ -97,4 +97,4 @@ Content-Location: /existing.html
 - [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
 - [HTTP-Header](/de/docs/Web/HTTP/Headers)
-- {{HTTPStatus("201", "201 Created")}}, {{HTTPStatus("204", "204 No Content")}} Antwortstatuscodes
+- {{HTTPStatus("201", "201 Created")}}, {{HTTPStatus("204", "204 No Content")}} Antwortstatus

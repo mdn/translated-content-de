@@ -7,6 +7,6 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Sitemap** ist eine Liste von Seiten einer Website.
+Eine **Sitemap** oder ein **Site-Map** ist eine Liste von Seiten einer Website.
 
-Strukturierte Auflistungen der Seiten einer Website helfen bei der {{Glossary("seo", "Suchmaschinenoptimierung")}} (SEO) und bieten einen Link, dem Webcrawler wie Suchmaschinen folgen können. Sitemaps unterstützen auch Benutzer bei der Navigation auf der Website, indem sie einen Überblick über den Inhalt einer Website auf einen Blick bieten.
+Strukturierte Übersichten der Seiten einer Website unterstützen die [Suchmaschinenoptimierung](/de/docs/Glossary/seo) (SEO), indem sie einen Link für Webcrawler wie Suchmaschinen bereitstellen, dem sie folgen können. Sitemaps helfen auch Benutzern bei der Navigation auf der Website, indem sie einen Überblick über den gesamten Inhalt der Website auf einen Blick geben.

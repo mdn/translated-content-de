@@ -1,5 +1,5 @@
 ---
-title: "AudioData: format Eigenschaft"
+title: "AudioData: format-Eigenschaft"
 short-title: format
 slug: Web/API/AudioData/format
 l10n:
@@ -8,32 +8,32 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`format`** schreibgeschützte Eigenschaft des {{domxref("AudioData")}}-Interfaces gibt das Abtastformat des `AudioData`-Objekts zurück.
+Die **`format`** nur-lesbare Eigenschaft des [`AudioData`](/de/docs/Web/API/AudioData)-Interfaces gibt das Sample-Format des `AudioData`-Objekts zurück.
 
 ## Wert
 
 Ein String. Einer von:
 
 - `"u8"`
-  - : 8-Bit vorzeichenlose Ganzzahlproben, in einem verzahnten Format.
+  - : 8-Bit vorzeichenlose Ganzzahl-Samples im interleaved-Format.
 - `"s16"`
-  - : 16-Bit vorzeichenbehaftete Ganzzahlproben, in einem verzahnten Format.
+  - : 16-Bit vorzeichenbehaftete Ganzzahl-Samples im interleaved-Format.
 - `"s32"`
-  - : 32-Bit vorzeichenbehaftete Ganzzahlproben, in einem verzahnten Format.
+  - : 32-Bit vorzeichenbehaftete Ganzzahl-Samples im interleaved-Format.
 - `"f32"`
-  - : 32-Bit Fließkomma-Proben, in einem verzahnten Format.
+  - : 32-Bit Fließkomma-Samples im interleaved-Format.
 - `"u8-planar"`
-  - : 8-Bit vorzeichenlose Ganzzahlproben, in einem planaren Format.
+  - : 8-Bit vorzeichenlose Ganzzahl-Samples im Planar-Format.
 - `"s16-planar"`
-  - : 16-Bit vorzeichenbehaftete Ganzzahlproben, in einem planaren Format.
+  - : 16-Bit vorzeichenbehaftete Ganzzahl-Samples im Planar-Format.
 - `"s32-planar"`
-  - : 32-Bit vorzeichenbehaftete Ganzzahlproben, in einem planaren Format.
+  - : 32-Bit vorzeichenbehaftete Ganzzahl-Samples im Planar-Format.
 - `"f32-planar"`
-  - : 32-Bit Fließkomma-Proben, in einem planaren Format.
+  - : 32-Bit Fließkomma-Samples im Planar-Format.
 
 ## Beispiele
 
-Das folgende Beispiel gibt den Wert von `format` in der Konsole aus.
+Das folgende Beispiel gibt den Wert von `format` auf der Konsole aus.
 
 ```js
 console.log(AudioData.format);

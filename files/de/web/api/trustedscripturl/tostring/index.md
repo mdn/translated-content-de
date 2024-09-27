@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`toString()`**-Methode der {{domxref("TrustedScriptURL")}}-Schnittstelle gibt einen String zurück, der sicher in eine [Injection-Senke](/de/docs/Web/API/Trusted_Types_API#injection_sinks) eingefügt werden kann.
+Die **`toString()`**-Methode des [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Interfaces gibt einen String zurück, der sicher in ein [Injection-Sink](/de/docs/Web/API/Trusted_Types_API#injection_sinks) eingefügt werden kann.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der die bereinigte URL enthält
+Ein String, der die bereinigte URL enthält.
 
 ## Beispiele
 
-Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types-Richtlinie erstellt wurde. Die `toString()`-Methode gibt einen String zurück, der sicher zum Laden eines Drittanbieter-Skripts verwendet werden kann.
+Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types-Richtlinie erstellt wurde. Die `toString()`-Methode gibt einen String zurück, der sicher verwendet werden kann, um ein Skript eines Drittanbieters zu laden.
 
 ```js
 const sanitized = scriptPolicy.createScriptURL(

@@ -1,5 +1,5 @@
 ---
-title: Die maximale Anzahl von obersten Erweiterungselementen, die einem Menüelement hinzugefügt werden können
+title: menus.ACTION_MENU_TOP_LEVEL_LIMIT
 slug: Mozilla/Add-ons/WebExtensions/API/menus/ACTION_MENU_TOP_LEVEL_LIMIT
 l10n:
   sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Die maximale Anzahl von obersten Erweiterungselementen, die einem Menüelement hinzugefügt werden können, dessen {{WebExtAPIRef("contextMenus.ContextType", "ContextType")}} "browser_action" oder "page_action" ist. Jegliche Elemente, die über dieses Limit hinausgehen, werden ignoriert.
+Die maximale Anzahl an obersten Erweiterungselementen, die einem Menüelement hinzugefügt werden können, dessen {{WebExtAPIRef("contextMenus.ContextType", "ContextType")}} "browser_action" oder "page_action" ist. Alle darüber hinausgehenden Elemente werden ignoriert.
 
-Der Wert beträgt `6` in Firefox und Chrome.
+Der Wert ist `6` in Firefox und Chrome.
 
-Zur Kompatibilität mit anderen Browsern stellt Firefox diese Eigenschaft sowohl über den `contextMenus`-Namensraum als auch den `menus`-Namensraum zur Verfügung.
+Zur Kompatibilität mit anderen Browsern macht Firefox diese Eigenschaft sowohl über den `contextMenus`-Namensraum als auch über den `menus`-Namensraum verfügbar.
 
 ## Browser-Kompatibilität
 
@@ -20,7 +20,7 @@ Zur Kompatibilität mit anderen Browsern stellt Firefox diese Eigenschaft sowohl
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#property-ACTION_MENU_TOP_LEVEL_LIMIT) API von Chromium. Diese Dokumentation leitet sich von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code ab.
+> Diese API basiert auf Chromiums [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#property-ACTION_MENU_TOP_LEVEL_LIMIT) API. Diese Dokumentation stammt aus [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

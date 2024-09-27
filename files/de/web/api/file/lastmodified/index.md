@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`lastModified`**-Eigenschaft der {{domxref("File")}}-Schnittstelle liefert das Datum der letzten Änderung der Datei in Millisekunden seit der Unix-Epoche (1. Januar 1970 um Mitternacht). Dateien ohne bekanntes Datum der letzten Änderung geben das aktuelle Datum zurück.
+Die **`lastModified`** schreibgeschützte Eigenschaft der [`File`](/de/docs/Web/API/File)-Schnittstelle liefert das Datum der letzten Änderung der Datei als Anzahl von Millisekunden seit der Unix-Epoche (1. Januar 1970 um Mitternacht). Dateien ohne bekanntes Änderungsdatum geben das aktuelle Datum zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Zahl, die die Anzahl der Millisekunden seit der Unix-Epoche darstellt.
 
 ## Beispiele
 
-Das unten stehende Beispiel durchläuft die von Ihnen ausgewählten Dateien und gibt an, ob jede Datei innerhalb des letzten Jahres geändert wurde.
+Das folgende Beispiel durchläuft die von Ihnen ausgewählten Dateien und gibt aus, ob jede Datei innerhalb des letzten Jahres geändert wurde.
 
 ### HTML
 
@@ -60,7 +60,7 @@ filepicker.addEventListener("change", (event) => {
 
 ### Dynamisch erstellte Dateien
 
-Wenn eine Datei dynamisch erstellt wird, kann die Zeit der letzten Änderung in der {{domxref("File.File()", "File()")}}-Konstruktorfunktion angegeben werden. Fehlt dieser, erbt `lastModified` die aktuelle Zeit von {{jsxref("Date.now()")}} in dem Moment, in dem das `File`-Objekt erstellt wird.
+Wenn eine Datei dynamisch erstellt wird, kann die Zeit der letzten Änderung im [`File()`](/de/docs/Web/API/File/File)-Konstruktor übergeben werden. Falls diese fehlt, erbt `lastModified` die aktuelle Zeit von {{jsxref("Date.now()")}} in dem Moment, in dem das `File`-Objekt erstellt wird.
 
 ```js
 const fileWithDate = new File([], "file.bin", {
@@ -72,24 +72,24 @@ const fileWithoutDate = new File([], "file.bin");
 console.log(fileWithoutDate.lastModified); // returns current time
 ```
 
-## Reduzierte Zeitpräzision
+## Reduzierte Zeitgenauigkeit
 
-Um Schutz gegen Timing-Angriffe und [Fingerabdruckerstellung](/de/docs/Glossary/Fingerprinting) zu bieten, kann die Genauigkeit von `someFile.lastModified` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und auf 2ms gesetzt. Sie können auch `privacy.resistFingerprinting` aktivieren, in diesem Fall beträgt die Präzision 100ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
+Um Schutz gegen Timing-Angriffe und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, könnte die Genauigkeit von `someFile.lastModified` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren, in diesem Fall beträgt die Genauigkeit 100 ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
 
-Mit reduzierter Zeitpräzision wird das Ergebnis von `someFile.lastModified` zum Beispiel immer ein Vielfaches von 2 oder ein Vielfaches von 100 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) mit aktiviertem `privacy.resistFingerprinting` sein.
+Zum Beispiel wird mit reduzierter Zeitgenauigkeit das Ergebnis von `someFile.lastModified` immer ein Vielfaches von 2 oder ein Vielfaches von 100 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) mit aktiviertem `privacy.resistFingerprinting` sein.
 
 ```js
-// reduzierte Zeitpräzision (2ms) in Firefox 60
+// reduced time precision (2ms) in Firefox 60
 someFile.lastModified;
-// Könnte sein:
+// Might be:
 // 1519211809934
 // 1519211810362
 // 1519211811670
 // …
 
-// reduzierte Zeitpräzision mit aktiviertem `privacy.resistFingerprinting`
+// reduced time precision with `privacy.resistFingerprinting` enabled
 someFile.lastModified;
-// Könnte sein:
+// Might be:
 // 1519129853500
 // 1519129858900
 // 1519129864400
@@ -106,4 +106,4 @@ someFile.lastModified;
 
 ## Siehe auch
 
-- {{domxref("File")}}
+- [`File`](/de/docs/Web/API/File)

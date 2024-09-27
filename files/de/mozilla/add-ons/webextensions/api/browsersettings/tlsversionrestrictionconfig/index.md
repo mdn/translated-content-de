@@ -7,14 +7,14 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, das verwendet wird, um die höchste und niedrigste TLS-Version auszulesen, die vom Browser unterstützt wird.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet wird, um die höchste und niedrigste von dem Browser unterstützte TLS-Version zu lesen.
 
 Das Objekt hat folgende Eigenschaften:
 
 - `minimum`
-  - : Die niedrigste TLS-Version, die vom Browser unterstützt wird. Gültige Werte sind `TLSv1`, `TLSv1.1`, `TLSv1.2`, `TLSv1.3` und `unknown`.
+  - : Die niedrigste von dem Browser unterstützte TLS-Version. Gültige Werte sind `TLSv1`, `TLSv1.1`, `TLSv1.2`, `TLSv1.3` und `unknown`.
 - `maximum`
-  - : Die höchste TLS-Version, die vom Browser unterstützt wird. Gültige Werte sind `TLSv1`, `TLSv1.1`, `TLSv1.2`, `TLSv1.3` und `unknown`.
+  - : Die höchste von dem Browser unterstützte TLS-Version. Gültige Werte sind `TLSv1`, `TLSv1.1`, `TLSv1.2`, `TLSv1.3` und `unknown`.
 
 Dies ist eine schreibgeschützte Einstellung.
 
@@ -24,7 +24,7 @@ Dies ist eine schreibgeschützte Einstellung.
 
 ## Beispiele
 
-Abrufen der höchsten TLS-Version, die vom Browser unterstützt wird:
+Erhalten Sie die höchste von dem Browser unterstützte TLS-Version:
 
 ```js
 browser.browserSettings.tlsVersionRestrictionConfig.maximum

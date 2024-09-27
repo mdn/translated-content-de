@@ -8,18 +8,20 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`type`**-Eigenschaft des {{domxref("RTCIceCandidatePairStats")}}-Wörterbuchs ist eine Zeichenkette mit dem Wert `"candidate-pair"`.
+Die **`type`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs ist ein String mit dem Wert `"candidate-pair"`.
 
-Verschiedene Statistiken werden durch Iterieren des {{domxref("RTCStatsReport")}}-Objekts erhalten, das von einem Aufruf von {{domxref("RTCPeerConnection.getStats()")}} zurückgegeben wird. Der Typ gibt die Menge der Statistiken an, die in einem bestimmten Iterationsschritt über das Objekt verfügbar sind. Ein Wert von `"candidate-pair"` zeigt an, dass die in diesem Schritt verfügbaren Statistiken diejenigen sind, die in {{domxref("RTCIceCandidatePairStats")}} definiert sind.
+Verschiedene Statistiken werden durch das Durchlaufen des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekts, welches durch einen Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, erhalten.
+Der Typ gibt die Menge der durch das Objekt in einem bestimmten Iterationsschritt verfügbaren Statistiken an.
+Ein Wert von `"candidate-pair"` zeigt an, dass die in dem aktuellen Schritt verfügbaren Statistiken die im [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) definierten sind.
 
 ## Wert
 
-Eine Zeichenkette mit dem Wert `"candidate-pair"`.
+Ein String mit dem Wert `"candidate-pair"`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

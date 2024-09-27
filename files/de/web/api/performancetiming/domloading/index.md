@@ -9,15 +9,9 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die {{domxref("PerformanceNavigationTiming")}}
-> Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist im Rahmen der [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte benutzen Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Schnittstelle.
 
-Die veraltete
-**`PerformanceTiming.domLoading`**
-schreibgeschützte Eigenschaft gibt ein `unsigned long long` zurück, das den Moment repräsentiert,
-in Millisekunden seit der UNIX-Epoche, als der Parser seine Arbeit begann, also wenn sich der
-{{domxref("Document.readyState")}} zu `'loading'` ändert und das
-entsprechende {{domxref("Document/readystatechange_event", "readystatechange")}}-Ereignis ausgelöst wird.
+Die veraltete, schreibgeschützte Eigenschaft **`PerformanceTiming.domLoading`** gibt ein `unsigned long long` zurück, das den Zeitpunkt in Millisekunden seit der UNIX-Epoche darstellt, an dem der Parser seine Arbeit aufgenommen hat. Dies ist der Moment, in dem sich der [`Document.readyState`](/de/docs/Web/API/Document/readyState) auf `'loading'` ändert und das entsprechende [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event) Ereignis ausgelöst wird.
 
 ## Wert
 
@@ -27,10 +21,10 @@ Ein `unsigned long long`.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Die {{domxref("PerformanceTiming")}} Schnittstelle, zu der sie gehört.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Schnittstelle, zu der es gehört.

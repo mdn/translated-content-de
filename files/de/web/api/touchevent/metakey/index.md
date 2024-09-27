@@ -1,5 +1,5 @@
 ---
-title: "TouchEvent: metaKey-Eigenschaft"
+title: "TouchEvent: metaKey Eigenschaft"
 short-title: metaKey
 slug: Web/API/TouchEvent/metaKey
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Die schreibgeschützte **`metaKey`**-Eigenschaft des {{domxref("TouchEvent")}}-Interfaces gibt einen booleschen Wert zurück, der angibt, ob die <kbd>Meta</kbd>-Taste aktiviert ist, wenn das Touch-Ereignis erstellt wird. Wenn diese Taste aktiviert ist, ist der Wert des Attributs `true`. Andernfalls ist er `false`.
+Die schreibgeschützte **`metaKey`** Eigenschaft des [`TouchEvent`](/de/docs/Web/API/TouchEvent) Interfaces gibt einen booleschen Wert zurück, der angibt, ob die <kbd>Meta</kbd>-Taste aktiviert ist, wenn das Touch-Event erstellt wird. Ist diese Taste aktiviert, ist der Wert des Attributs `true`. Andernfalls ist er `false`.
 
 Diese Eigenschaft ist {{ReadOnlyInline}}.
 
@@ -17,7 +17,7 @@ Diese Eigenschaft ist {{ReadOnlyInline}}.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn die <kbd>Meta</kbd>-Taste für dieses Ereignis aktiviert ist; und `false`, wenn die <kbd>Meta</kbd>-Taste nicht aktiviert ist.
+Ein boolescher Wert, der `true` ist, wenn die <kbd>Meta</kbd>-Taste für dieses Ereignis aktiviert ist; und `false`, wenn die <kbd>Meta</kbd> nicht aktiviert ist.
 
 ## Beispiele
 

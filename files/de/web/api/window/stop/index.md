@@ -1,5 +1,5 @@
 ---
-title: "Fenster: stop()-Methode"
+title: "Window: stop()-Methode"
 short-title: stop()
 slug: Web/API/Window/stop
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Die **`window.stop()`**-Methode stoppt das weitere Laden von Ressourcen im aktuellen Browsing-Kontext, was dem Stopp-Button im Browser entspricht.
+Die **`window.stop()`**-Methode stoppt das Laden weiterer Ressourcen im aktuellen Browsing-Kontext, was dem Stopp-Knopf im Browser entspricht.
 
-Aufgrund der Art und Weise, wie Skripte ausgeführt werden, kann diese Methode das Laden des übergeordneten Dokuments nicht unterbrechen, aber sie wird das Laden von Bildern, neuen Fenstern und anderen noch ladenden Objekten stoppen.
+Aufgrund der Art und Weise, wie Skripte ausgeführt werden, kann diese Methode das Laden des übergeordneten Dokuments nicht unterbrechen, aber sie wird die Bilder, neuen Fenster und andere noch ladende Objekte stoppen.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

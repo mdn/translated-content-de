@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("History API") }}
 
-Die schreibgeschützte **`state`**-Eigenschaft der {{domxref("PopStateEvent")}}-Schnittstelle repräsentiert den Zustand, der gespeichert wurde, als das Ereignis erstellt wurde.
+Die schreibgeschützte **`state`**-Eigenschaft des [`PopStateEvent`](/de/docs/Web/API/PopStateEvent)-Interfaces repräsentiert den Zustand, der gespeichert wurde, als das Ereignis erstellt wurde.
 
-Praktisch ist es ein Wert, der durch den Aufruf von {{domxref("history.pushState()")}} oder {{domxref("history.replaceState()")}} bereitgestellt wird.
+Praktisch ist es ein Wert, der durch den Aufruf von [`history.pushState()`](/de/docs/Web/API/History/pushState) oder [`history.replaceState()`](/de/docs/Web/API/History/replaceState) bereitgestellt wird.
 
 ## Wert
 
@@ -18,15 +18,16 @@ Ein Objekt oder `null`.
 
 ## Beispiele
 
-Der unten stehende Code protokolliert den Wert von `state`, wenn die {{domxref("History.pushState","pushState()")}}-Methode verwendet wird, um einen Wert zum Verlauf hinzuzufügen.
+Der unten stehende Code protokolliert den Wert von `state`, wenn die
+[`pushState()`](/de/docs/Web/API/History/pushState)-Methode verwendet wird, um einen Wert in den Verlauf zu schieben.
 
 ```js
-// Protokollieren Sie den Zustand
+// Log the state of
 addEventListener("popstate", (event) => {
   console.log("State received: ", event.state);
 });
 
-// Jetzt etwas auf den Stapel schieben
+// Now push something on the stack
 history.pushState({ name: "Example" }, "pushState example", "page1.html");
 history.pushState(
   { name: "Another example" },
@@ -52,5 +53,5 @@ State received: { name: "Another example" }
 
 ## Siehe auch
 
-- {{domxref("PopStateEvent()")}} Konstruktor
-- {{domxref("History.state")}}
+- [`PopStateEvent()`](/de/docs/Web/API/PopStateEvent) Konstruktor
+- [`History.state`](/de/docs/Web/API/History/state)

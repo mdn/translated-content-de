@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}} {{Non-standard_Header}}
 
-Die **`lineNumber`** Daten-Eigenschaft einer {{jsxref("Error")}}-Instanz enthält die Zeilennummer in der Datei, die diesen Fehler ausgelöst hat.
+Die **`lineNumber`** Daten-Eigenschaft einer {{jsxref("Error")}} Instanz enthält die Zeilennummer in der Datei, die diesen Fehler ausgelöst hat.
 
 ## Wert
 
@@ -27,7 +27,7 @@ try {
 }
 ```
 
-### Alternatives Beispiel unter Verwendung eines Fehlerereignisses
+### Alternatives Beispiel mit Error-Event
 
 ```js
 window.addEventListener("error", (e) => {
@@ -37,7 +37,7 @@ const e = new Error("Could not parse input");
 throw e;
 ```
 
-Dies ist keine standardisierte Funktion und hat keine breite Unterstützung. Siehe die untenstehende Kompatibilitätstabelle für Browser.
+Dies ist keine standardisierte Funktion und fehlt es an weitreichender Unterstützung. Siehe die Browser-Kompatibilitätstabelle unten.
 
 ## Spezifikationen
 

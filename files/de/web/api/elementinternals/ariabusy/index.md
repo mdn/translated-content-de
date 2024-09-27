@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaBusy`**-Eigenschaft des {{domxref("ElementInternals")}}-Interfaces spiegelt den Wert des [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy)-Attributs wider, welches angibt, ob ein Element bearbeitet wird. Assistive Technologien könnten warten möchten, bis die Bearbeitungen abgeschlossen sind, bevor sie diese dem Benutzer zugänglich machen.
+Die **`ariaBusy`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals) Interfaces spiegelt den Wert des [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy) Attributs wider, das angibt, ob ein Element modifiziert wird. Assistive Technologien könnten warten wollen, bis die Modifikationen abgeschlossen sind, bevor sie diese dem Benutzer präsentieren.
 
 > [!NOTE]
-> Das Setzen von ARIA-Attributen auf `ElementInternals` ermöglicht es, Standard-Semantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standard-Semantiken beibehalten werden, falls der Autor diese Attribute löscht oder gar nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standard-Semantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standard-Semantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie gar nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
@@ -20,7 +20,7 @@ Ein String mit einem der folgenden Werte:
 - `"true"`
   - : Das Element wird aktualisiert.
 - `"false"`
-  - : Es werden keine Updates für das Element erwartet.
+  - : Es werden keine Aktualisierungen für das Element erwartet.
 
 ## Beispiele
 

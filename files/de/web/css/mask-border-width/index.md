@@ -12,28 +12,28 @@ Die **`mask-border-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite 
 ## Syntax
 
 ```css
-/* Schlüsselwortwert */
+/* Keyword value */
 mask-border-width: auto;
 
-/* <length> Wert */
+/* <length> value */
 mask-border-width: 1rem;
 
-/* <percentage> Wert */
+/* <percentage> value */
 mask-border-width: 25%;
 
-/* <number> Wert */
+/* <number> value */
 mask-border-width: 3;
 
-/* oben und unten | links und rechts */
+/* top and bottom | left and right */
 mask-border-width: 2em 3em;
 
-/* oben | links und rechts | unten */
+/* top | left and right | bottom */
 mask-border-width: 5% 15% 10%;
 
-/* oben | rechts | unten | links */
+/* top | right | bottom | left */
 mask-border-width: 5% 2em 10% auto;
 
-/* Globale Werte */
+/* Global values */
 mask-border-width: inherit;
 mask-border-width: initial;
 mask-border-width: revert;
@@ -41,21 +41,21 @@ mask-border-width: revert-layer;
 mask-border-width: unset;
 ```
 
-Die Eigenschaft `mask-border-width` kann mit einem, zwei, drei oder vier Werten festgelegt werden, die aus der untenstehenden Werteliste gewählt werden.
+Die `mask-border-width` Eigenschaft kann mit einem, zwei, drei oder vier Werten aus der folgenden Liste angegeben werden.
 
-- Wenn **ein** Wert angegeben wird, gilt dieselbe Breite für **alle vier Seiten**.
-- Wenn **zwei** Werte angegeben werden, gilt die erste Breite für **oben und unten**, die zweite für **links und rechts**.
-- Wenn **drei** Werte angegeben werden, gilt die erste Breite für **oben**, die zweite für **links und rechts**, die dritte für **unten**.
-- Wenn **vier** Werte angegeben werden, gelten die Breiten in der Reihenfolge **oben**, **rechts**, **unten**, und **links** (im Uhrzeigersinn).
+- Wenn **ein** Wert angegeben ist, gilt die gleiche Breite für **alle vier Seiten**.
+- Wenn **zwei** Werte angegeben sind, gilt die erste Breite für **oben und unten**, die zweite für **links und rechts**.
+- Wenn **drei** Werte angegeben sind, gilt die erste Breite für **oben**, die zweite für **links und rechts**, die dritte für **unten**.
+- Wenn **vier** Werte angegeben sind, gelten die Breiten für **oben**, **rechts**, **unten** und **links** in dieser Reihenfolge (im Uhrzeigersinn).
 
 ### Werte
 
 - `<length-percentage>`
-  - : Die Breite des Maskenrandes, angegeben als {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Prozentsätze beziehen sich auf die _Breite_ des Randbereichs für horizontale Verschiebungen und die _Höhe_ des Randbereichs für vertikale Verschiebungen. Darf nicht negativ sein.
+  - : Die Breite des Maskenrandes, angegeben als {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Prozentsätze beziehen sich auf die _Breite_ des Randbereichs für horizontale Versätze und die _Höhe_ des Randbereichs für vertikale Versätze. Darf nicht negativ sein.
 - `<number>`
-  - : Die Breite des Maskenrandes, angegeben als Vielfaches der entsprechenden {{cssxref("border-width")}}. Darf nicht negativ sein.
+  - : Die Breite des Maskenrandes, angegeben als ein Vielfaches der entsprechenden {{cssxref("border-width")}}. Darf nicht negativ sein.
 - `auto`
-  - : Die Breite des Maskenrandes entspricht der intrinsischen Breite oder Höhe (je nachdem, was zutrifft) des entsprechenden {{cssxref("mask-border-slice")}}. Wenn das Bild nicht die erforderliche intrinsische Dimension hat, wird stattdessen die entsprechende `border-width` verwendet.
+  - : Die Breite des Maskenrandes wird auf die intrinsische Breite oder Höhe (je nachdem, was zutrifft) des entsprechenden {{cssxref("mask-border-slice")}} gesetzt. Wenn das Bild die erforderliche intrinsische Dimension nicht hat, wird stattdessen die entsprechende `border-width` verwendet.
 
 ## Formale Definition
 
@@ -67,28 +67,28 @@ Die Eigenschaft `mask-border-width` kann mit einem, zwei, drei oder vier Werten 
 
 ## Beispiele
 
-### Grundlegende Nutzung
+### Grundlegende Verwendung
 
-Diese Eigenschaft scheint bisher noch nirgendwo unterstützt zu werden. Sobald sie unterstützt wird, dient sie dazu, die Breite der Maskeneinfassung zu definieren — eine abweichende Einstellung von [`mask-border-slice`](/de/docs/Web/CSS/mask-border-slice) führt dazu, dass die Abschnitte an die Maskeneinfassung angepasst werden.
+Diese Eigenschaft scheint noch nirgendwo unterstützt zu werden. Wenn sie letztendlich unterstützt wird, dient sie dazu, die Breite der Maskenbegrenzung zu definieren — das Setzen auf einen anderen Wert als [`mask-border-slice`](/de/docs/Web/CSS/mask-border-slice) führt dazu, dass die Schnitte skaliert werden, um in die Maskenbegrenzung zu passen.
 
 ```css
 mask-border-width: 30 fill;
 ```
 
-Browser auf Chromium-Basis unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-width` — mit einem Präfix:
+Chromium-basierte Browser unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-width` — mit einem Präfix:
 
 ```css
 -webkit-mask-box-image-width: 20px;
 ```
 
 > [!NOTE]
-> Die Seite zu [`mask-border`](/de/docs/Web/CSS/mask-border) enthält ein funktionierendes Beispiel (unter Verwendung der veralteten, mit Präfix versehenen Maskeneigenschaften, die in Chromium unterstützt werden), sodass Sie eine Vorstellung vom Effekt bekommen können.
+> Die Seite [`mask-border`](/de/docs/Web/CSS/mask-border) zeigt ein funktionierendes Beispiel (unter Verwendung der veralteten, in Chromium unterstützten Maskenrand-Eigenschaften mit Präfix), damit Sie eine Vorstellung von der Wirkung bekommen.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

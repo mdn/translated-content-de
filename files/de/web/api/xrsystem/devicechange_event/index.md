@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Ein **`devicechange`**-Ereignis wird auf einem {{DOMxRef("XRSystem")}}-Objekt ausgelöst, wenn sich die Verfügbarkeit von immersiven XR-Geräten geändert hat; zum Beispiel, wenn ein VR-Headset oder AR-Brille angeschlossen oder getrennt wurde. Es handelt sich um ein generisches {{DOMxRef("Event")}} ohne zusätzliche Eigenschaften.
+Ein **`devicechange`**-Ereignis wird auf einem [`XRSystem`](/de/docs/Web/API/XRSystem)-Objekt ausgelöst, wenn sich die Verfügbarkeit von immersiven XR-Geräten geändert hat; beispielsweise wenn ein VR-Headset oder AR-Brillen angeschlossen oder getrennt wurden. Es handelt sich um ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 > [!NOTE]
-> Nicht zu verwechseln mit dem {{domxref("MediaDevices")}} {{DOMxRef("MediaDevices.devicechange_event", "devicechange")}}-Ereignis.
+> Nicht zu verwechseln mit dem [`MediaDevices`](/de/docs/Web/API/MediaDevices) [`devicechange`](/de/docs/Web/API/MediaDevices/devicechange_event) Ereignis.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("devicechange", (event) => {});
@@ -23,21 +23,21 @@ addEventListener("devicechange", (event) => {});
 ondevicechange = (event) => {};
 ```
 
-Falls die Nutzung von WebXR durch eine `xr-spatial-tracking` [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert wurde, werden `devicechange`-Ereignisse nicht ausgelöst.
+Wenn die Verwendung von WebXR durch eine `xr-spatial-tracking` [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert wurde, werden keine `devicechange`-Ereignisse ausgelöst.
 
 ## Ereignistyp
 
-Ein generisches {{DOMxRef("Event")}} ohne zusätzliche Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beschreibung
 
 ### Auslöser
 
-Wird ausgelöst, wenn sich die Verfügbarkeit von immersiven XR-Geräten geändert hat. Zum Beispiel, wenn ein VR-Headset oder AR-Brille angeschlossen oder getrennt wurde.
+Ausgelöst, wenn sich die Verfügbarkeit von immersiven XR-Geräten geändert hat. Zum Beispiel, wenn ein VR-Headset oder AR-Brillen angeschlossen oder getrennt wurden.
 
 ### Anwendungsfälle
 
-Sie können dieses Ereignis beispielsweise verwenden, um die Verfügbarkeit eines WebXR-kompatiblen Geräts zu überwachen, sodass Sie ein UI-Element aktivieren können, mit dem der Benutzer den immersiven Modus aktivieren kann. Dies wird im [Beispiel](#beispiele) unten gezeigt.
+Sie können dieses Ereignis verwenden, um beispielsweise die Verfügbarkeit eines WebXR-kompatiblen Geräts zu überwachen, sodass Sie ein UI-Element aktivieren können, mit dem der Benutzer den immersiven Modus aktivieren kann. Dies wird im folgenden [Beispiel](#beispiele) gezeigt.
 
 ## Beispiele
 
@@ -53,7 +53,7 @@ if (navigator.xr) {
 }
 ```
 
-Wenn `devicechange` empfangen wird, ruft der in diesem Code eingerichtete Handler die `XR`-Methode {{domxref("XRSystem.isSessionSupported", "isSessionSupported()")}} auf, um herauszufinden, ob ein Gerät verfügbar ist, das immersive VR-Präsentationen handhaben kann. Wenn ja, wird die Schaltfläche zum Betreten des XR-Modus aktiviert; andernfalls wird sie deaktiviert.
+Wenn ein `devicechange`-Ereignis empfangen wird, ruft der in diesem Code eingerichtete Handler die `XR`-Methode [`isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) auf, um herauszufinden, ob ein Gerät verfügbar ist, das immersive VR-Darstellungen verarbeiten kann. Wenn dies der Fall ist, wird die Schaltfläche für den Einstieg in den XR-Modus aktiviert; andernfalls wird sie deaktiviert.
 
 Sie können auch die `ondevicechange`-Ereignishandlereigenschaft verwenden, um einen einzelnen Handler für `devicechange`-Ereignisse festzulegen:
 

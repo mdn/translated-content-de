@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`copyTo()`**-Methode der {{domxref("VideoFrame")}}-Schnittstelle kopiert den Inhalt des `VideoFrame` in einen `ArrayBuffer`.
+Die **`copyTo()`**-Methode des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces kopiert den Inhalt des `VideoFrame` in einen `ArrayBuffer`.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ copyTo(destination, options)
 ### Parameter
 
 - `destination`
-  - : Ein `ArrayBuffer`, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}, in den kopiert wird.
+  - : Ein `ArrayBuffer`, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}, in den kopiert werden soll.
 - `options` {{Optional_Inline}}
   - : Ein Objekt, das Folgendes enthält:
     - `rect` {{Optional_Inline}}
-      - : Das Rechteck der Pixel, die aus dem `VideoFrame` kopiert werden sollen. Falls nicht angegeben, wird das {{domxref("VideoFrame.visibleRect","visibleRect")}} verwendet. Dies ist im Format eines Wörterbuchobjekts mit:
+      - : Das Rechteck von Pixeln, das vom `VideoFrame` kopiert werden soll. Wenn nicht angegeben, wird das [`visibleRect`](/de/docs/Web/API/VideoFrame/visibleRect) verwendet. Dies erfolgt im Format eines Wörterbuchobjekts, das Folgendes enthält:
         - `x`: Die x-Koordinate.
         - `y`: Die y-Koordinate.
         - `width`: Die Breite des Rahmens.
@@ -32,18 +32,17 @@ copyTo(destination, options)
     - `layout` {{Optional_Inline}}
       - : Eine Liste, die die folgenden Werte für jede Ebene im `VideoFrame` enthält:
         - `offset`
-          - : Ein Ganzzahlwert, der den Versatz in Byte darstellt, an dem die gegebene Ebene beginnt.
+          - : Ein Integer, der den Offset in Bytes angibt, bei dem die gegebene Ebene beginnt.
         - `stride`
-          - : Ein Ganzzahlwert, der die Anzahl der Bytes darstellt, einschließlich Polsterung, die von jeder Zeile der Ebene verwendet wird.
-            Ebenen dürfen sich nicht überlappen. Wenn kein `layout` angegeben ist, werden die Ebenen dicht gepackt.
+          - : Ein Integer, der die Anzahl der Bytes, einschließlich Polsterung, angibt, die von jeder Zeile der Ebene verwendet werden. Ebenen dürfen sich nicht überlappen. Wenn kein `layout` angegeben ist, werden die Ebenen eng gepackt.
     - `format` {{Optional_Inline}}
-      - : Ein Pixelformat für die Pixeldaten im `destination`. Kann auf `"RGBA"`, `"RGBX"`, `"BGRA"`, `"BGRX"` gesetzt werden. Falls nicht angegeben, wird das {{domxref("VideoFrame.format","format")}} verwendet.
+      - : Ein Pixelformat für die Pixel-Daten im `destination`. Kann auf `"RGBA"`, `"RGBX"`, `"BGRA"`, `"BGRX"` gesetzt werden. Wenn nicht angegeben, wird das [`format`](/de/docs/Web/API/VideoFrame/format) verwendet.
     - `colorSpace` {{Optional_Inline}}
-      - : Gibt den Farbraum der Pixeldaten im `destination` an. Kann auf `"srgb"` für den [sRGB-Farbraum](https://en.wikipedia.org/wiki/SRGB) oder `"display-p3"` für den [display-p3-Farbraum](https://en.wikipedia.org/wiki/DCI-P3) gesetzt werden. Nur anwendbar für RGB-Pixelformate. Falls nicht angegeben, wird `"srgb"` verwendet.
+      - : Gibt den Farbraum der Pixel-Daten im `destination` an. Kann auf `"srgb"` für den [sRGB-Farbraum](https://de.wikipedia.org/wiki/SRGB) oder `"display-p3"` für den [display-p3-Farbraum](https://de.wikipedia.org/wiki/DCI-P3) gesetzt werden. Nur anwendbar für RGB-Pixelformate. Wenn nicht angegeben, wird `"srgb` verwendet.
 
 ### Rückgabewert
 
-Ein `Promise`, das auf das Layout der Kopie auflöst, wenn die Kopie abgeschlossen ist.
+Ein `Promise`, das sich auf das Layout der Kopie auflöst, wenn die Kopie abgeschlossen ist.
 
 ## Beispiele
 
@@ -77,6 +76,6 @@ const layout = await videoFrame.copyTo(buffer, options);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

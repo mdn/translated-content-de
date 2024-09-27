@@ -1,6 +1,6 @@
 ---
-title: "HTMLVideoElement: Poster-Eigenschaft"
-short-title: Poster
+title: "HTMLVideoElement: Eigenschaft poster"
+short-title: poster
 slug: Web/API/HTMLVideoElement/poster
 l10n:
   sourceCommit: 85e913af9f01e216149d3381586eb0c784fefff7
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`poster`**-Eigenschaft des {{domxref("HTMLVideoElement")}}-Interfaces ist ein String, der die URL für ein Bild widerspiegelt, das angezeigt wird, wenn keine Videodaten verfügbar sind. Wenn die Eigenschaft keine gültige URL darstellt, wird kein Poster-Frame angezeigt.
+Die **`poster`**-Eigenschaft des [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Interfaces ist ein String, der die URL für ein Bild widerspiegelt, das angezeigt wird, solange keine Videodaten verfügbar sind. Wenn die Eigenschaft keine gültige URL darstellt, wird kein Posterbild angezeigt.
 
 Sie spiegelt das `poster`-Attribut des {{HTMLElement("video")}}-Elements wider.
 

@@ -1,6 +1,6 @@
 ---
 title: "TimeRanges: length-Eigenschaft"
-short-title: Länge
+short-title: length
 slug: Web/API/TimeRanges/length
 l10n:
   sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`TimeRanges.length`**-Eigenschaft gibt die
+Die schreibgeschützte Eigenschaft **`TimeRanges.length`** gibt die
 Anzahl der Bereiche im Objekt zurück.
 
 ## Wert
@@ -17,7 +17,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Angenommen, ein Videoelement mit der ID "myVideo":
+Bei einem Videoelement mit der ID "myVideo":
 
 ```js
 const v = document.getElementById("myVideo");
@@ -27,15 +27,15 @@ const buf = v.buffered;
 const numRanges = buf.length;
 
 if (buf.length === 1) {
-  // Nur ein Bereich
+  // Only one range
   if (buf.start(0) === 0 && buf.end(0) === v.duration) {
-    // Der eine Bereich beginnt am Anfang und endet
-    // am Ende des Videos, also ist das ganze Video geladen
+    // The one range starts at the beginning and ends at
+    // the end of the video, so the whole thing is loaded
   }
 }
 ```
 
-Dieses Beispiel betrachtet die Zeitbereiche und überprüft, ob das gesamte Video geladen wurde.
+Dieses Beispiel untersucht die Zeitbereiche und prüft, ob das gesamte Video geladen wurde.
 
 ## Spezifikationen
 

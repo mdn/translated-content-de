@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Die **`getAll()`** Methode der {{WebExtAPIRef("cookies")}} API ruft alle Cookies aus einem einzelnen Cookie-Store ab, die den angegebenen Informationen entsprechen.
+Die **`getAll()`** Methode der {{WebExtAPIRef("cookies")}} API ruft alle Cookies aus einem einzigen Cookie-Store ab, die den angegebenen Informationen entsprechen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -23,45 +23,45 @@ let getting = browser.cookies.getAll(
 
 - `details`
 
-  - : Ein `object`, das Details enthält, die verwendet werden können, um die abzurufenden Cookies zu filtern. Die enthaltenen Eigenschaften sind wie folgt (siehe [Cookie-Typ](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies/Cookie#type) für weitere Informationen zu diesen):
+  - : Ein `object`, das Details enthält, die verwendet werden können, um die abzurufenden Cookies zu finden. Die enthaltenen Eigenschaften sind wie folgt (siehe [Cookie-Typ](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies/Cookie#type) für weitere Informationen zu diesen):
 
     - `domain` {{optional_inline}}
-      - : Ein `string`, das eine Domain darstellt, der Cookies zugeordnet sein müssen (sie können entweder mit dieser genauen Domain oder einer ihrer Subdomains assoziiert sein).
+      - : Ein `string`, der eine Domain repräsentiert, mit der die Cookies verknüpft sein müssen (sie können entweder mit dieser genauen Domain oder einer ihrer Subdomains verknüpft sein).
     - `firstPartyDomain` {{optional_inline}}
 
-      - : Ein `string`, das die First-Party-Domain darstellt, mit der das abzurufende Cookie assoziiert ist.
+      - : Ein `string`, der die Erstanbieter-Domain repräsentiert, mit der das abzurufende Cookie verknüpft ist.
 
-        Diese Eigenschaft muss angegeben werden, wenn der Browser die first-party isolation aktiviert hat. Sie können in diesem Fall jedoch `null` übergeben. Wenn Sie dies tun, werden Cookies mit einem beliebigen Wert für `firstPartyDomain` sowie Cookies, die das `firstPartyDomain` überhaupt nicht gesetzt haben, in die Ergebnisse eingeschlossen. Siehe [First-party Isolation](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation).
+        Diese Eigenschaft muss angegeben werden, wenn der Browser die Erstanbieter-Isolierung aktiviert hat. Sie können jedoch in diesem Fall `null` übergeben. Wenn Sie dies tun, werden Cookies mit beliebigem Wert für `firstPartyDomain` sowie Cookies, bei denen `firstPartyDomain` überhaupt nicht gesetzt ist, in die Ergebnisse einbezogen. Siehe [Erstanbieter-Isolierung](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation).
 
     - `name` {{optional_inline}}
-      - : Ein `string`, das einen Namen darstellt, den die Cookies haben sollten.
+      - : Ein `string`, der einen Namen repräsentiert, den die Cookies haben sollten.
     - `partitionKey` {{optional_inline}}
 
-      - : Ein `object`, das definiert, aus welchen [Speicherpartitionen](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#storage_partitioning) Cookies zurückgegeben werden sollen:
+      - : Ein `object`, das definiert, aus welchen [Speicherpartitionen](/de/docs/Mozilla/Add-ons/WebExtensions/API/cookies#storage_partitioning) Cookies abgerufen werden sollen:
 
-        - Wenn nicht angegeben, werden nur Cookies aus nicht partitioniertem Speicher zurückgegeben.
-        - Wenn enthalten, aber ohne `topLevelSite`, werden alle Cookies aus partitioniertem und nicht partitioniertem Speicher zurückgegeben.
-        - Wenn vorhanden und `topLevelSite` angegeben ist, werden Cookies aus dem angegebenen Partitionsspeicher zurückgegeben.
+        - Wenn weggelassen, werden nur Cookies aus nicht partitioniertem Speicher zurückgegeben.
+        - Wenn eingeschlossen, aber ohne `topLevelSite`, werden alle Cookies aus partitioniertem und nicht partitioniertem Speicher zurückgegeben.
+        - Wenn eingeschlossen mit angegebenem `topLevelSite`, werden Cookies aus dem angegebenen Partitionsspeicher zurückgegeben.
 
-        Dieses Objekte enthält:
+        Dieses Objekt enthält:
 
         - `topLevelSite` {{optional_inline}}
-          - : Ein `string`, das die First-Party-URL der obersten Speicherebene der Partition darstellt, die die Cookies enthält.
+          - : Ein `string`, der die Erstanbieter-URL der obersten Speicherpartition repräsentiert, die die Cookies enthält.
 
     - `path` {{optional_inline}}
-      - : Ein `string`, das einen Pfad darstellt — der Pfad der Cookies muss mit diesem identisch sein.
+      - : Ein `string`, der einen Pfad repräsentiert — der Pfad der Cookies muss mit diesem identisch sein.
     - `secure` {{optional_inline}}
-      - : Ein `boolean` — filtert Cookies nach ihrer `secure` Eigenschaft, sodass Sie sichere von nicht sicheren Cookies filtern können.
+      - : Ein `boolean` — filtert Cookies nach ihrem `secure`-Attribut, sodass Sie zwischen sicheren und nicht sicheren Cookies filtern können.
     - `session` {{optional_inline}}
-      - : Ein `boolean` — filtert die Cookies nach ihrer `session` Eigenschaft, sodass Sie Sitzungscookies von persistenten Cookies filtern können.
+      - : Ein `boolean` — filtert die Cookies nach ihrem `session`-Attribut, sodass Sie zwischen Sitzungscookies und dauerhaften Cookies filtern können.
     - `storeId` {{optional_inline}}
-      - : Ein `string`, das den Cookie-Store darstellt, aus dem Cookies abgerufen werden sollen. Wenn weggelassen, wird der Cookie-Store des aktuellen Ausführungskontextes verwendet.
+      - : Ein `string`, der den Cookie-Speicher repräsentiert, aus dem Cookies abgerufen werden sollen. Wenn weggelassen, wird der Cookie-Speicher des aktuellen Ausführungskontexts verwendet.
     - `url` {{optional_inline}}
-      - : Ein `string`, das eine URL darstellt, mit der die abgerufenen Cookies assoziiert sein müssen.
+      - : Ein `string`, der eine URL repräsentiert, mit der die abgerufenen Cookies verknüpft sein müssen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von `{{WebExtAPIRef('cookies.Cookie')}}` Objekten erfüllt wird, die mit den im `details` Parameter angegebenen Eigenschaften übereinstimmen. Es werden nur nicht abgelaufene Cookies zurückgegeben. Die zurückgegebenen Cookies werden nach Pfadlänge sortiert, von längster zu kürzester. Haben mehrere Cookies die gleiche Pfadlänge, werden diejenigen mit der frühesten Erstellungszeit zuerst angezeigt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array von `{{WebExtAPIRef('cookies.Cookie')}}` Objekten erfüllt wird, die den im `details`-Parameter angegebenen Eigenschaften entsprechen. Es werden nur nicht abgelaufene Cookies zurückgegeben. Die zurückgegebenen Cookies werden nach Pfadlänge sortiert, von der längsten zur kürzesten. Wenn mehrere Cookies die gleiche Pfadlänge haben, werden diejenigen mit der frühesten Erstellungszeit zuerst erscheinen.
 
 ## Browser-Kompatibilität
 
@@ -69,7 +69,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Im folgenden Ausschnitt rufen wir alle Cookies ab, die der Browser gerade gespeichert hat und deren Name "favorite-color" ist. Wenn das Ergebnis zurückgegeben wird, drucken wir den Wert jedes Ergebnisses in die Konsole.
+Im folgenden Beispiel machen wir einen Aufruf, um alle Cookies abzurufen, die der Browser derzeit gespeichert hat und die den Namen "favorite-color" haben. Wenn das Ergebnis zurückgegeben wird, geben wir den Wert jedes Ergebnisses in der Konsole aus.
 
 ```js
 function logCookies(cookies) {
@@ -88,7 +88,7 @@ browser.cookies
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#method-getAll) API. Diese Dokumentation ist abgeleitet von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#method-getAll) API von Chromium. Diese Dokumentation stammt aus [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

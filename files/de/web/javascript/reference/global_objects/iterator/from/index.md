@@ -22,22 +22,22 @@ from(object)
 
 ### Rückgabewert
 
-Wenn `object` iterierbar ist, wird seine Methode `[Symbol.iterator]()` aufgerufen, um den Iterator zu erhalten. Andernfalls wird angenommen, dass `object` ein Iterator ist. Wenn der Iterator bereits eine Instanz von {{jsxref("Operators/instanceof", "instanceof")}} {{jsxref("Iterator")}} ist (was bedeutet, dass er `Iterator.prototype` in seiner Prototypkette hat), wird er direkt zurückgegeben. Andernfalls wird ein neues {{jsxref("Iterator")}}-Objekt erstellt, das den ursprünglichen Iterator umschließt.
+Wenn `object` ein iterierbares Objekt ist, wird seine `[Symbol.iterator]()`-Methode aufgerufen, um den Iterator zu erhalten. Andernfalls wird angenommen, dass `object` ein Iterator ist. Wenn der Iterator bereits {{jsxref("Operators/instanceof", "instanceof")}} {{jsxref("Iterator")}} ist (was bedeutet, dass es `Iterator.prototype` in seiner Prototypenkette hat), wird er direkt zurückgegeben. Andernfalls wird ein neues {{jsxref("Iterator")}}-Objekt erstellt, das den ursprünglichen Iterator umschließt.
 
 ## Beschreibung
 
-Diese Methode existiert, um benutzerdefinierte Iteratoren, die möglicherweise von Bibliotheken exportiert werden, in [richtige Iteratoren](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#proper_iterators) zu konvertieren. Alle von `Iterator.from()` zurückgegebenen Iterator-Objekte erben von einem gemeinsamen Prototyp-Objekt, das die folgenden Methoden hat:
+Diese Methode existiert, um benutzerdefinierte Iteratoren, die wahrscheinlich von Bibliotheken exportiert werden, in [richtige Iteratoren](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator#proper_iterators) zu konvertieren. Alle von `Iterator.from()` zurückgegebenen Iterator-Objekte erben von einem gemeinsamen Prototyp-Objekt, das die folgenden Methoden hat:
 
 - `next()`
   - : Ruft die `next()`-Methode des zugrunde liegenden Iterators auf und gibt das Ergebnis zurück.
 - `return()`
-  - : Ruft die `return()`-Methode des zugrunde liegenden Iterators auf und gibt das Ergebnis zurück, oder gibt `{ value: undefined, done: true }` zurück, wenn der zugrunde liegende Iterator keine `return()`-Methode hat.
+  - : Ruft die `return()`-Methode des zugrunde liegenden Iterators auf und gibt das Ergebnis zurück oder gibt `{ value: undefined, done: true }` zurück, falls der zugrunde liegende Iterator keine `return()`-Methode hat.
 
 ## Beispiele
 
-### Konvertierung eines iterierbaren Objekts in einen richtigen Iterator
+### Ein iterierbares Objekt in einen richtigen Iterator umwandeln
 
-Da `obj` bereits ein iterierbares Objekt ist, das einen richtigen Iterator zurückgibt, wenn seine Methode `[Symbol.iterator]()` aufgerufen wird, gibt `Iterator.from(obj)` denselben Iterator zurück.
+Da `obj` bereits ein iterierbares Objekt ist, das einen richtigen Iterator zurückgibt, wenn seine `[Symbol.iterator]()`-Methode aufgerufen wird, gibt `Iterator.from(obj)` denselben Iterator zurück.
 
 ```js
 const iterator = (function* () {
@@ -56,7 +56,7 @@ const iterator2 = Iterator.from(obj);
 console.log(iterator2 === iterator); // true
 ```
 
-Da `obj2` ein iterierbares Objekt ist, das einen nicht richtigen Iterator zurückgibt, wenn seine Methode `[Symbol.iterator]()` aufgerufen wird, gibt `Iterator.from(obj2)` einen neuen Iterator zurück, der den ursprünglichen Iterator umschließt.
+Da `obj2` ein iterierbares Objekt ist, das einen nicht richtigen Iterator zurückgibt, wenn seine `[Symbol.iterator]()`-Methode aufgerufen wird, gibt `Iterator.from(obj2)` einen neuen Iterator zurück, der den ursprünglichen Iterator umschließt.
 
 ```js
 const iterator = {
@@ -78,7 +78,7 @@ console.log(iterator2.next()); // { value: 0, done: false }
 console.log(iterator.next()); // { value: 1, done: false }
 ```
 
-### Konvertierung eines Iterators in einen richtigen Iterator
+### Einen Iterator in einen richtigen Iterator umwandeln
 
 Da `obj` bereits ein richtiger Iterator ist, gibt `Iterator.from(obj)` sich selbst zurück.
 

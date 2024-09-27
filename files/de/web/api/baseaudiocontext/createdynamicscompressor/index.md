@@ -1,5 +1,5 @@
 ---
-title: "BaseAudioContext: Methode createDynamicsCompressor()"
+title: "BaseAudioContext: createDynamicsCompressor() Methode"
 short-title: createDynamicsCompressor()
 slug: Web/API/BaseAudioContext/createDynamicsCompressor
 l10n:
@@ -8,14 +8,15 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die Methode `createDynamicsCompressor()` der {{domxref("BaseAudioContext")}}-Schnittstelle wird verwendet, um einen {{domxref("DynamicsCompressorNode")}} zu erstellen, der zur Anwendung von Kompression auf ein Audiosignal genutzt werden kann.
+Die `createDynamicsCompressor()` Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) Schnittstelle wird verwendet, um ein [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode) zu erstellen, das zur Komprimierung eines Audiosignals eingesetzt werden kann.
 
-Kompression verringert die Lautstärke der lautesten Teile des Signals und erhöht die Lautstärke der leisesten Teile. Insgesamt kann ein lauteres, reicheres und voller klingendes Ergebnis erzielt werden. Dies ist besonders in Spielen und musikalischen Anwendungen wichtig, in denen viele einzelne Klänge gleichzeitig abgespielt werden. Hier möchten Sie die gesamte Signalstärke kontrollieren und Verzerrungen des Audioausgangs vermeiden.
+Kompression senkt die Lautstärke der lautesten Teile des Signals und erhöht die Lautstärke
+der leisesten Teile. Insgesamt kann ein lauteres, reichhaltigeres und volleres Klangbild erreicht werden. Dies ist besonders wichtig in Spielen und musikalischen Anwendungen, bei denen gleichzeitig viele individuelle Klänge abgespielt werden, um den Gesamtpegel des Signals zu kontrollieren und ein Clipping (Verzerrung) des Audioausgangs zu vermeiden.
 
 > [!NOTE]
-> Der Konstruktor {{domxref("DynamicsCompressorNode.DynamicsCompressorNode", "DynamicsCompressorNode()")}}
-> ist die empfohlene Methode, um einen {{domxref("DynamicsCompressorNode")}} zu erstellen; siehe
-> [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`DynamicsCompressorNode()`](/de/docs/Web/API/DynamicsCompressorNode/DynamicsCompressorNode)
+> Konstruktor ist die empfohlene Methode zum Erstellen eines [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode); siehe
+> [Creating an AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -29,18 +30,18 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("DynamicsCompressorNode")}}.
+Ein [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode).
 
 ## Beispiele
 
-Der folgende Code zeigt die einfache Verwendung von `createDynamicsCompressor()`, um einem Audiotrack Kompression hinzuzufügen. Für ein vollständigeres Beispiel sehen Sie sich unser [einfaches Kompressor-Beispiel](https://mdn.github.io/webaudio-examples/compressor-example/) ([Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/compressor-example)) an.
+Der folgende Code zeigt eine einfache Verwendung von `createDynamicsCompressor()`, um einer Tonspur Kompression hinzuzufügen. Für ein vollständigeres Beispiel siehe unser [einfaches Kompressor-Beispiel](https://mdn.github.io/webaudio-examples/compressor-example/) ([Quellcode anzeigen](https://github.com/mdn/webaudio-examples/tree/main/compressor-example)).
 
 ```js
-// Erstellen Sie einen MediaElementAudioSourceNode
-// Speisen Sie das HTMLMediaElement in ihn ein
+// Create a MediaElementAudioSourceNode
+// Feed the HTMLMediaElement into it
 const source = audioCtx.createMediaElementSource(myAudio);
 
-// Erstellen Sie einen Kompressor-Knoten
+// Create a compressor node
 const compressor = audioCtx.createDynamicsCompressor();
 compressor.threshold.setValueAtTime(-50, audioCtx.currentTime);
 compressor.knee.setValueAtTime(40, audioCtx.currentTime);
@@ -48,21 +49,21 @@ compressor.ratio.setValueAtTime(12, audioCtx.currentTime);
 compressor.attack.setValueAtTime(0, audioCtx.currentTime);
 compressor.release.setValueAtTime(0.25, audioCtx.currentTime);
 
-// Verbinden Sie den AudioBufferSourceNode mit dem Ziel
+// connect the AudioBufferSourceNode to the destination
 source.connect(audioCtx.destination);
 
 button.onclick = () => {
   const active = button.getAttribute("data-active");
   if (active === "false") {
     button.setAttribute("data-active", "true");
-    button.textContent = "Kompression entfernen";
+    button.textContent = "Remove compression";
 
     source.disconnect(audioCtx.destination);
     source.connect(compressor);
     compressor.connect(audioCtx.destination);
   } else if (active === "true") {
     button.setAttribute("data-active", "false");
-    button.textContent = "Kompression hinzufügen";
+    button.textContent = "Add compression";
 
     source.disconnect(compressor);
     compressor.disconnect(audioCtx.destination);

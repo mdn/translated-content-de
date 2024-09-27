@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die **`-moz-orient`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Ausrichtung des Elements an, auf das sie angewendet wird.
+Die **`-moz-orient`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt die Ausrichtung des Elements, auf das sie angewendet wird.
 
 ## Syntax
 
-Die `-moz-orient` Eigenschaft wird als eines der Schlüsselwortwerte angegeben, die aus der folgenden Liste ausgewählt werden.
+Die `-moz-orient` Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `inline`
-  - : Das Element wird in derselben Richtung wie die Achse des Textes dargestellt: horizontal für horizontale Schreibrichtungen, vertikal für vertikale Schreibrichtungen.
+  - : Das Element wird in derselben Richtung wie die Achse des Textes gerendert: horizontal für horizontale Schreibrichtungen, vertikal für vertikale Schreibrichtungen.
 - `block`
-  - : Das Element wird orthogonal zur Achse des Textes dargestellt: vertikal für horizontale Schreibrichtungen, horizontal für vertikale Schreibrichtungen.
+  - : Das Element wird orthogonal zur Achse des Textes gerendert: vertikal für horizontale Schreibrichtungen, horizontal für vertikale Schreibrichtungen.
 - `horizontal`
-  - : Das Element wird horizontal dargestellt.
+  - : Das Element wird horizontal gerendert.
 - `vertical`
-  - : Das Element wird vertikal dargestellt.
+  - : Das Element wird vertikal gerendert.
 
 ## Formale Definition
 
@@ -40,10 +40,10 @@ Die `-moz-orient` Eigenschaft wird als eines der Schlüsselwortwerte angegeben, 
 ### HTML
 
 ```html
-<p>Das folgende Fortschrittsbarometer ist horizontal (Standard):</p>
+<p>The following progress meter is horizontal (the default):</p>
 <progress max="100" value="75"></progress>
 
-<p>Das folgende Fortschrittsbarometer ist vertikal:</p>
+<p>The following progress meter is vertical:</p>
 <progress class="vert" max="100" value="75"></progress>
 ```
 
@@ -63,7 +63,7 @@ Die `-moz-orient` Eigenschaft wird als eines der Schlüsselwortwerte angegeben, 
 
 ## Spezifikationen
 
-Nicht Bestandteil eines Standards. Obwohl [eingereicht](https://lists.w3.org/Archives/Public/www-style/2014Jun/0396.html) an das W3C, mit positivem anfänglichem Feedback, ist diese Eigenschaft derzeit nicht Teil einer Spezifikation; momentan ist dies eine Mozilla-spezifische Erweiterung (das heißt, `-moz-orient`).
+Teil keiner Norm. Obwohl [eingereicht](https://lists.w3.org/Archives/Public/www-style/2014Jun/0396.html) an das W3C, mit positivem Erstfeedback, ist diese Eigenschaft noch nicht Teil einer Spezifikation; derzeit handelt es sich um eine mozilla-spezifische Erweiterung (also `-moz-orient`).
 
 ## Browser-Kompatibilität
 

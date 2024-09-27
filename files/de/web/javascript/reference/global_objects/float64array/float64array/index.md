@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`Float64Array()`** Konstruktor erstellt {{jsxref("Float64Array")}}-Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`Float64Array()`**-Konstruktor erstellt {{jsxref("Float64Array")}}-Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ new Float64Array(buffer, byteOffset)
 new Float64Array(buffer, byteOffset, length)
 ```
 
-> **Note:** `Float64Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, sie ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `Float64Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) erstellt werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -34,30 +34,30 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten, ein Float64Array zu erstellen
+### Verschiedene Möglichkeiten zur Erstellung eines Float64Array
 
 ```js
-// Aus einer Länge
+// From a length
 const float64 = new Float64Array(2);
 float64[0] = 42;
 console.log(float64[0]); // 42
 console.log(float64.length); // 2
 console.log(float64.BYTES_PER_ELEMENT); // 8
 
-// Aus einem Array
+// From an array
 const x = new Float64Array([21, 31]);
 console.log(x[1]); // 31
 
-// Aus einem anderen TypedArray
+// From another TypedArray
 const y = new Float64Array(x);
 console.log(y[0]); // 21
 
-// Aus einem ArrayBuffer
+// From an ArrayBuffer
 const buffer = new ArrayBuffer(64);
 const z = new Float64Array(buffer, 8, 4);
 console.log(z.byteOffset); // 8
 
-// Aus einem Iterable
+// From an iterable
 const iterable = (function* () {
   yield* [1, 2, 3];
 })();

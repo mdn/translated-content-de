@@ -8,27 +8,28 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die **`details`** schreibgeschützte Eigenschaft des {{domxref("PaymentResponse")}}-Interfaces gibt ein JSON-serialisierbares Objekt zurück, das eine zahlungsmethoden-spezifische Nachricht bereitstellt, die vom Händler zur Verarbeitung der Transaktion und zur Bestimmung eines erfolgreichen Geldtransfers verwendet wird.
+Die **`details`** schreibgeschützte Eigenschaft des
+[`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Interfaces gibt ein JSON-serialisierbares Objekt zurück, das eine zahlungsspezifische Nachricht bereitstellt, die vom Händler verwendet wird, um die Transaktion zu verarbeiten und einen erfolgreichen Geldtransfer zu bestimmen.
 
-Diese Daten werden von der Zahlungs-App zurückgegeben, die die Zahlungsanforderung erfüllt. Entwickler müssen sich an den Verantwortlichen der URL wenden, um die erwartete Struktur des Details-Objekts zu erfahren.
+Diese Daten werden von der Zahlungs-App zurückgegeben, die die Zahlungsanfrage erfüllt. Entwickler müssen sich mit demjenigen abstimmen, der die URL kontrolliert, um das erwartete Format des Details-Objekts zu erfahren.
 
 ## Wert
 
 ## Beispiele
 
-Das folgende Beispiel extrahiert die Details aus dem {{domxref('PaymentResponse')}}-Objekt mittels des von {{domxref('PaymentRequest.show()')}} zurückgegebenen Versprechens. In einer realen Implementierung würden diese Daten dann an einen Zahlungsserver gesendet werden.
+Das folgende Beispiel extrahiert die Details aus dem [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekt zu dem Promise, das von [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) zurückgegeben wird. In einer realen Implementierung würden diese Daten dann an einen Zahlungsserver gesendet werden.
 
 ```js
 payment.show().then((paymentResponse) => {
   const paymentData = {
-    // Zahlungsart-String
+    // payment method string
     method: paymentResponse.methodName,
-    // angeforderte Zahlungsdetails
+    // payment details as you requested
     details: paymentResponse.details,
-    // Informationen zur Versandadresse
+    // shipping address information
     address: toDict(paymentResponse.shippingAddress),
   };
-  // Informationen an den Server senden
+  // Send information to the server
 });
 ```
 

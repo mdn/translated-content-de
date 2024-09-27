@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`space`**-Eigenschaft der {{domxref("XREquirectLayer")}}-Schnittstelle repräsentiert die räumliche Beziehung der Ebene zur physischen Umgebung des Benutzers.
+Die **`space`**-Eigenschaft der [`XREquirectLayer`](/de/docs/Web/API/XREquirectLayer)-Schnittstelle repräsentiert die räumliche Beziehung des Layers zur physikalischen Umgebung des Nutzers.
 
 ## Wert
 
-Ein {{domxref("XRSpace")}}.
+Ein [`XRSpace`](/de/docs/Web/API/XRSpace).
 
 ## Beispiele
 
-### Aktualisierung des space einer equirect-Ebene
+### Aktualisierung des Equirect-Layerspace
 
-Die Methode {{domxref("XRWebGLBinding.createEquirectLayer()")}} erstellt eine equirect-Ebene und erfordert, dass eine `space`-Eigenschaft bereitgestellt wird. Die Eigenschaft `XREquirectLayer.space` kann nach der Erstellung der Ebene verwendet werden, um den verwendeten Raum zu erhalten oder um ihn auf einen neuen zu setzen.
+Die Methode [`XRWebGLBinding.createEquirectLayer()`](/de/docs/Web/API/XRWebGLBinding/createEquirectLayer) erstellt einen Equirect-Layer und erfordert eine `space`-Eigenschaft. Die `XREquirectLayer.space`-Eigenschaft kann nach der Erstellung des Layers verwendet werden, um den verwendeten Space zu erhalten oder ihn auf einen neuen zu setzen.
 
 ```js
 const equirectLayer = xrGlBinding.createEquirectLayer({
@@ -40,5 +40,5 @@ equirectLayer.space = someOtherSpace;
 
 ## Siehe auch
 
-- {{domxref("XRSpace")}}
-- {{domxref("XRWebGLBinding.createEquirectLayer()")}}
+- [`XRSpace`](/de/docs/Web/API/XRSpace)
+- [`XRWebGLBinding.createEquirectLayer()`](/de/docs/Web/API/XRWebGLBinding/createEquirectLayer)

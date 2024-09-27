@@ -7,48 +7,47 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`HighlightRegistry`**-Schnittstelle der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) wird verwendet, um {{domxref("Highlight")}}-Objekte zu registrieren, die mit der API gestylt werden sollen.
-Sie wird über {{domxref("CSS.highlights_static", "CSS.highlights")}} zugegriffen.
+Die **`HighlightRegistry`**-Schnittstelle der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) wird verwendet, um [`Highlight`](/de/docs/Web/API/Highlight)-Objekte zu registrieren, die mit der API gestaltet werden sollen. Sie wird über [`CSS.highlights`](/de/docs/Web/API/CSS/highlights_static) aufgerufen.
 
-Eine `HighlightRegistry`-Instanz ist ein [Map-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis), bei dem jeder Schlüssel der namensgebende String für ein benutzerdefiniertes Highlight ist und der entsprechende Wert das zugehörige {{domxref("Highlight")}}-Objekt ist.
+Eine `HighlightRegistry`-Instanz ist ein [Map-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Map#map-like_browser_apis), bei dem jeder Schlüssel eine Zeichenfolge für ein benutzerdefiniertes Highlight ist und der entsprechende Wert das zugehörige [`Highlight`](/de/docs/Web/API/Highlight)-Objekt ist.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Die `HighlightRegistry`-Schnittstelle erbt keine Eigenschaften._
 
-- {{domxref("HighlightRegistry.size")}} {{ReadOnlyInline}}
-  - : Gibt die Anzahl der derzeit registrierten `Highlight`-Objekte zurück.
+- [`HighlightRegistry.size`](/de/docs/Web/API/HighlightRegistry/size) {{ReadOnlyInline}}
+  - : Gibt die Anzahl der aktuell registrierten `Highlight`-Objekte zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Die `HighlightRegistry`-Schnittstelle erbt keine Methoden_.
+_Die `HighlightRegistry`-Schnittstelle erbt keine Methoden._
 
-- {{domxref("HighlightRegistry.clear()")}}
+- [`HighlightRegistry.clear()`](/de/docs/Web/API/HighlightRegistry/clear)
   - : Entfernt alle `Highlight`-Objekte aus dem Register.
-- {{domxref("HighlightRegistry.delete()")}}
+- [`HighlightRegistry.delete()`](/de/docs/Web/API/HighlightRegistry/delete)
   - : Entfernt das benannte `Highlight`-Objekt aus dem Register.
-- {{domxref("HighlightRegistry.entries()")}}
-  - : Gibt ein neues Iterator-Objekt zurück, das jedes `Highlight`-Objekt im Register in der Einfügereihenfolge enthält.
-- {{domxref("HighlightRegistry.forEach()")}}
-  - : Ruft den angegebenen Callback einmal für jedes `Highlight`-Objekt im Register in der Einfügereihenfolge auf.
-- {{domxref("HighlightRegistry.get()")}}
+- [`HighlightRegistry.entries()`](/de/docs/Web/API/HighlightRegistry/entries)
+  - : Gibt ein neues Iterator-Objekt zurück, das jedes `Highlight`-Objekt im Register in Einfügereihenfolge enthält.
+- [`HighlightRegistry.forEach()`](/de/docs/Web/API/HighlightRegistry/forEach)
+  - : Ruft den angegebenen Callback für jedes `Highlight`-Objekt im Register in Einfügereihenfolge auf.
+- [`HighlightRegistry.get()`](/de/docs/Web/API/HighlightRegistry/get)
   - : Ruft das benannte `Highlight`-Objekt aus dem Register ab.
-- {{domxref("HighlightRegistry.has()")}}
-  - : Gibt einen Booleschen Wert zurück, der angibt, ob ein `Highlight`-Objekt im Register vorhanden ist oder nicht.
-- {{domxref("HighlightRegistry.keys()")}}
-  - : Ein Alias für {{domxref("HighlightRegistry.values()")}}.
-- {{domxref("HighlightRegistry.set()")}}
-  - : Fügt das angegebene `Highlight`-Objekt mit dem angegebenen Namen zum Register hinzu oder aktualisiert das benannte `Highlight`-Objekt, wenn es bereits im Register vorhanden ist.
-- {{domxref("HighlightRegistry.values()")}}
-  - : Gibt ein neues Iterator-Objekt zurück, das die `Highlight`-Objekte im Register in der Einfügereihenfolge liefert.
+- [`HighlightRegistry.has()`](/de/docs/Web/API/HighlightRegistry/has)
+  - : Gibt einen booleschen Wert zurück, der angibt, ob ein `Highlight`-Objekt im Register vorhanden ist oder nicht.
+- [`HighlightRegistry.keys()`](/de/docs/Web/API/HighlightRegistry/keys)
+  - : Ein Alias für [`HighlightRegistry.values()`](/de/docs/Web/API/HighlightRegistry/values).
+- [`HighlightRegistry.set()`](/de/docs/Web/API/HighlightRegistry/set)
+  - : Fügt das angegebene `Highlight`-Objekt mit dem angegebenen Namen dem Register hinzu oder aktualisiert das benannte `Highlight`-Objekt, wenn es bereits im Register vorhanden ist.
+- [`HighlightRegistry.values()`](/de/docs/Web/API/HighlightRegistry/values)
+  - : Gibt ein neues Iterator-Objekt zurück, das die `Highlight`-Objekte im Register in Einfügereihenfolge ausgibt.
 
 ## Beispiele
 
-### Ein Highlight registrieren
+### Registrierung eines Highlights
 
-Das folgende Beispiel zeigt, wie Bereiche erstellt werden, ein neues `Highlight`-Objekt für sie instanziiert wird und das Highlight mithilfe der `HighlightRegistry` registriert wird, um es auf der Seite zu stylen:
+Das folgende Beispiel zeigt, wie Bereiche erstellt, ein neues `Highlight`-Objekt dafür instanziiert und das Highlight mithilfe der `HighlightRegistry` registriert wird, um es auf der Seite zu gestalten:
 
 #### HTML
 
@@ -104,5 +103,5 @@ CSS.highlights.set("my-custom-highlight", highlight);
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "Die CSS Custom Highlight API", "", "nocode")}}
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
 - [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

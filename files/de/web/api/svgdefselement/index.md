@@ -11,13 +11,13 @@ Die **`SVGDefsElement`**-Schnittstelle entspricht dem {{SVGElement("defs")}}-Ele
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, sondern erbt Eigenschaften von ihrem übergeordneten Element, {{domxref("SVGGraphicsElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von ihrem übergeordneten Element, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, sondern erbt Methoden von ihrem übergeordneten Element, {{domxref("SVGGraphicsElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrem übergeordneten Element, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
 ## Spezifikationen
 

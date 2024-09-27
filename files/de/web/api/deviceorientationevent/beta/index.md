@@ -1,5 +1,5 @@
 ---
-title: "DeviceOrientationEvent: beta-Eigenschaft"
+title: "DeviceOrientationEvent: Beta-Eigenschaft"
 short-title: beta
 slug: Web/API/DeviceOrientationEvent/beta
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`beta`** des {{domxref("DeviceOrientationEvent")}}-Interfaces gibt die Rotation des Geräts um die X-Achse zurück; das heißt, die Anzahl der Grad, im Bereich zwischen -180 und 180, um die das Gerät nach vorne oder hinten geneigt ist. Weitere Einzelheiten finden Sie unter [Orientation and motion data explained](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained).
+Die schreibgeschützte **`beta`**-Eigenschaft der [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent)-Schnittstelle gibt die Drehung des Geräts um die X-Achse zurück; das heißt, die Anzahl der Grad, im Bereich von -180 bis 180, um die das Gerät nach vorne oder hinten geneigt ist. Weitere Details finden Sie unter [Orientierungs- und Bewegungsdaten erklärt](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained).
 
 ## Wert
 
@@ -24,7 +24,7 @@ Eine Zahl.
 
 ## Siehe auch
 
-- {{domxref("Device orientation events/Detecting device orientation", "Erkennen der Geräteorientierung", "", "nocode")}}
-- {{domxref("Device orientation events/Orientation and motion data explained", "Orientation and motion data explained", "", "nocode")}}
-- {{domxref("Window.deviceorientation_event", "deviceorientation")}}-Ereignis
-- {{domxref("Window.deviceorientationabsolute_event", "deviceorientationabsolute")}}-Ereignis
+- [Geräteausrichtung erkennen](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [Orientierungs- und Bewegungsdaten erklärt](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)
+- [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event)-Ereignis
+- [`deviceorientationabsolute`](/de/docs/Web/API/Window/deviceorientationabsolute_event)-Ereignis

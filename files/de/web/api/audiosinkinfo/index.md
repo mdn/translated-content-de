@@ -7,18 +7,18 @@ l10n:
 
 {{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Das **`AudioSinkInfo`**-Interface der {{domxref("Web Audio API", "Web Audio API", "", "nocode")}} repräsentiert Informationen, die eine {{domxref("AudioContext")}}'s Sink-ID beschreiben, abgerufen über {{domxref("AudioContext.sinkId")}}.
+Die **`AudioSinkInfo`** Schnittstelle der [Web Audio API](/de/docs/Web/API/Web_Audio_API) repräsentiert Informationen, die eine [`AudioContext`](/de/docs/Web/API/AudioContext)-Sink-ID beschreiben, abgerufen über [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId).
 
 {{InheritanceDiagram}}
 
-## Eigenschaften der Instanz
+## Instanz-Eigenschaften
 
-- {{domxref("AudioSinkInfo.type", "type")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`type`](/de/docs/Web/API/AudioSinkInfo/type) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt den Typ des Audioausgabegeräts zurück.
 
 ## Beispiele
 
-Wenn ein neuer {{domxref("AudioContext")}} mit einem `sinkId`-Wert von `{ type: 'none' }` erstellt wird, gibt ein späterer Aufruf von {{domxref("AudioContext.sinkId")}} im Code ein `AudioSinkInfo`-Objekt mit `type: 'none'` zurück. Dies ist aktuell der einzige verfügbare Wert.
+Wenn ein neues [`AudioContext`](/de/docs/Web/API/AudioContext) mit einem `sinkId`-Wert von `{ type: 'none' }` erstellt wird, wird ein späterer Aufruf von [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId) im Code ein `AudioSinkInfo`-Objekt mit `type: 'none'` zurückgeben. Dies ist derzeit der einzige verfügbare Wert.
 
 ```js
 audioCtx = new window.AudioContext({
@@ -41,6 +41,6 @@ audioCtx.sinkId;
 ## Siehe auch
 
 - [SetSinkId Testbeispiel](https://set-sink-id.glitch.me/)
-- {{domxref("AudioContext.setSinkId()")}}
-- {{domxref("AudioContext.sinkId")}}
-- {{domxref("AudioContext/sinkchange_event", "sinkchange")}}
+- [`AudioContext.setSinkId()`](/de/docs/Web/API/AudioContext/setSinkId)
+- [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId)
+- [`sinkchange`](/de/docs/Web/API/AudioContext/sinkchange_event)

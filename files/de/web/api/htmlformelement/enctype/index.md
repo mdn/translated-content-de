@@ -8,12 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormElement.enctype`**-Eigenschaft ist der {{Glossary("MIME_type", "MIME-Typ")}} des Inhalts, der verwendet wird, um das Formular an den Server zu senden. Mögliche Werte sind:
+Die **`HTMLFormElement.enctype`**-Eigenschaft ist der [MIME-Typ](/de/docs/Glossary/MIME_type) von Inhalten, die verwendet werden
+um das Formular an den Server zu senden. Mögliche Werte sind:
 
 - `application/x-www-form-urlencoded`: Der anfängliche Standardtyp.
-- `multipart/form-data`: Der Typ, der es ermöglicht, dass Datei-{{HTMLElement("input")}}
-  Elemente Dateien hochladen.
-- `text/plain`: Mehrdeutiges Format, menschenlesbare Inhalte, die nicht zuverlässig vom Computer interpretierbar sind.
+- `multipart/form-data`: Der Typ, der das Hochladen von Dateidaten über {{HTMLElement("input")}}-
+  Element(e) ermöglicht.
+- `text/plain`: Mehrdeutiges Format, menschenlesbarer Inhalt, der von Computern nicht zuverlässig interpretierbar ist.
 
 Dieser Wert kann durch ein [`formenctype`](/de/docs/Web/HTML/Element/button#formenctype)-Attribut
 auf einem {{HTMLElement("button")}} oder {{HTMLElement("input")}}-Element überschrieben werden.

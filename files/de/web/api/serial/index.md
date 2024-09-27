@@ -7,49 +7,49 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web Serial API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die `Serial`-Schnittstelle der [Web Serial API](/de/docs/Web/API/Web_Serial_API) bietet Attribute und Methoden zum Finden und Verbinden mit seriellen Ports von einer Webseite aus.
+Das `Serial`-Interface der [Web Serial API](/de/docs/Web/API/Web_Serial_API) bietet Attribute und Methoden zum Finden und Verbinden von seriellen Ports von einer Webseite aus.
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
-- {{domxref("Serial.requestPort()")}} {{Experimental_Inline}}
+- [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort) {{Experimental_Inline}}
 
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz von {{domxref("SerialPort")}} aufgelöst wird, das die vom Benutzer gewählte Gerät repräsentiert, oder abgelehnt wird, wenn kein Gerät ausgewählt wurde.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das sich mit einer Instanz von [`SerialPort`](/de/docs/Web/API/SerialPort) auflöst, die das vom Benutzer gewählte Gerät darstellt, oder abgelehnt wird, wenn kein Gerät ausgewählt wurde.
 
-    Diese Methode muss mit Benutzeraktivierung aufgerufen werden.
+    Diese Methode muss mit einer Benutzeraktivierung aufgerufen werden.
 
-- {{domxref("Serial.getPorts()")}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von {{domxref("SerialPort")}}-Objekten aufgelöst wird, die serielle Ports darstellen, die mit dem Host verbunden sind und auf die der Ursprung Zugriff hat.
+- [`Serial.getPorts()`](/de/docs/Web/API/Serial/getPorts) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das sich mit einem Array von [`SerialPort`](/de/docs/Web/API/SerialPort) Objekten auflöst, die serielle Ports darstellen, die mit dem Host verbunden sind und auf die der Ursprung Zugriff hat.
 
 ## Ereignisse
 
-Die folgenden Ereignisse stehen `Serial` über Ereignis-Bubbling von {{domxref("SerialPort")}} zur Verfügung:
+Die folgenden Ereignisse sind für `Serial` über Ereignis-Bubbling von [`SerialPort`](/de/docs/Web/API/SerialPort) verfügbar:
 
-- `SerialPort` {{domxref("SerialPort.connect_event", "connect")}} Ereignis
+- `SerialPort` [`connect`](/de/docs/Web/API/SerialPort/connect_event) Ereignis
   - : Ein Ereignis, das ausgelöst wird, wenn ein Port mit dem Gerät verbunden wurde.
-- `SerialPort` {{domxref("SerialPort.disconnect_event", "disconnect")}} Ereignis
+- `SerialPort` [`disconnect`](/de/docs/Web/API/SerialPort/disconnect_event) Ereignis
   - : Ein Ereignis, das ausgelöst wird, wenn ein Port vom Gerät getrennt wurde.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie eine Webseite nach verfügbaren Ports suchen und dem Benutzer die Erlaubnis erteilen kann, auf zusätzliche Ports zuzugreifen.
+Das folgende Beispiel zeigt, wie eine Webseite nach verfügbaren Ports suchen und dem Benutzer erlauben kann, ihr Zugriff auf zusätzliche Ports zu gewähren.
 
-Beim Laden der Seite werden Ereignis-Listener für die Ereignisse {{domxref("SerialPort.connect_event", "connect")}} und {{domxref("SerialPort.disconnect_event", "disconnect")}} hinzugefügt, damit die Seite reagieren kann, wenn ein Gerät mit dem System verbunden oder davon getrennt wird. Die Methode {{domxref("Serial.getPorts()","getPorts()")}} wird dann aufgerufen, um zu sehen, welche Ports verbunden sind, auf die die Seite bereits Zugriff hat.
+Beim Laden werden Ereignis-Listener für die [`connect`](/de/docs/Web/API/SerialPort/connect_event) und [`disconnect`](/de/docs/Web/API/SerialPort/disconnect_event) Ereignisse hinzugefügt, damit die Seite reagieren kann, wenn ein Gerät mit dem System verbunden oder davon getrennt wird. Anschließend wird die Methode [`getPorts()`](/de/docs/Web/API/Serial/getPorts) aufgerufen, um zu sehen, welche Ports verbunden sind, auf die die Seite bereits Zugriff hat.
 
-Falls die Seite keinen Zugriff auf verbundene Ports hat, muss sie warten, bis eine Benutzeraktivierung erfolgt. In diesem Beispiel verwenden wir einen {{domxref("Element.click_event", "click")}} Ereignis-Handler auf einem Button für diese Aufgabe. Ein Filter wird an {{domxref("Serial.requestPort()","requestPort()")}} mit einer USB-Hersteller-ID übergeben, um die Menge der dem Benutzer angezeigten Geräte auf USB-Geräte eines bestimmten Herstellers zu beschränken.
+Falls die Seite keinen Zugriff auf verbundene Ports hat, muss sie warten, bis sie eine Benutzeraktivierung erhält, um fortzufahren. In diesem Beispiel verwenden wir einen [`click`](/de/docs/Web/API/Element/click_event) Ereignis-Handler auf einem Button für diese Aufgabe. Ein Filter wird an [`requestPort()`](/de/docs/Web/API/Serial/requestPort) mit einer USB-Vendor-ID übergeben, um die dem Benutzer angezeigte Geräteliste auf USB-Geräte eines bestimmten Herstellers zu beschränken.
 
 ```js
 navigator.serial.addEventListener("connect", (e) => {
-  // Verbinden Sie sich mit `e.target` oder fügen Sie es einer Liste verfügbarer Ports hinzu.
+  // Connect to `e.target` or add it to a list of available ports.
 });
 
 navigator.serial.addEventListener("disconnect", (e) => {
-  // Entfernen Sie `e.target` aus der Liste der verfügbaren Ports.
+  // Remove `e.target` from the list of available ports.
 });
 
 navigator.serial.getPorts().then((ports) => {
-  // Initialisieren Sie die Liste der verfügbaren Ports mit `ports` beim Laden der Seite.
+  // Initialize the list of available ports with `ports` on page load.
 });
 
 button.addEventListener("click", () => {
@@ -57,10 +57,10 @@ button.addEventListener("click", () => {
   navigator.serial
     .requestPort({ filters: [{ usbVendorId }] })
     .then((port) => {
-      // Verbinden Sie sich mit `port` oder fügen Sie es der Liste der verfügbaren Ports hinzu.
+      // Connect to `port` or add it to the list of available ports.
     })
     .catch((e) => {
-      // Der Benutzer hat keinen Port ausgewählt.
+      // The user didn't select a port.
     });
 });
 ```

@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die **`PushMessageData`**-Schnittstelle der [Push API](/de/docs/Web/API/Push_API) stellt Methoden bereit, mit denen Sie die vom Server gesendeten Push-Daten in verschiedenen Formaten abrufen können.
+Die **`PushMessageData`**-Schnittstelle der [Push API](/de/docs/Web/API/Push_API) bietet Methoden, mit denen Sie die Push-Daten, die von einem Server gesendet werden, in verschiedenen Formaten abrufen können.
 
-Im Gegensatz zu den ähnlichen Methoden in der [Fetch API](/de/docs/Web/API/Fetch_API), die nur einmal aufgerufen werden können, können diese Methoden mehrfach aufgerufen werden.
+Im Gegensatz zu den ähnlichen Methoden in der [Fetch API](/de/docs/Web/API/Fetch_API), die nur einmal aufgerufen werden dürfen, können diese Methoden mehrmals aufgerufen werden.
 
-Nachrichten, die über die Push-API empfangen werden, werden von Push-Diensten verschlüsselt gesendet und dann automatisch von Browsern entschlüsselt, bevor sie über die Methoden der `PushMessageData`-Schnittstelle zugänglich gemacht werden.
+Nachrichten, die über die Push-API empfangen werden, werden von den Push-Diensten verschlüsselt gesendet und dann automatisch von den Browsern entschlüsselt, bevor sie über die Methoden der `PushMessageData`-Schnittstelle zugänglich gemacht werden.
 
 ## Instanzeigenschaften
 
@@ -19,16 +19,16 @@ Keine.
 
 ## Instanzmethoden
 
-- {{domxref("PushMessageData.arrayBuffer()")}}
+- [`PushMessageData.arrayBuffer()`](/de/docs/Web/API/PushMessageData/arrayBuffer)
   - : Extrahiert die Daten als ein {{jsxref("ArrayBuffer")}}-Objekt.
-- {{domxref("PushMessageData.blob()")}}
-  - : Extrahiert die Daten als ein {{domxref("Blob")}}-Objekt.
-- {{domxref("PushMessageData.bytes()")}}
+- [`PushMessageData.blob()`](/de/docs/Web/API/PushMessageData/blob)
+  - : Extrahiert die Daten als ein [`Blob`](/de/docs/Web/API/Blob)-Objekt.
+- [`PushMessageData.bytes()`](/de/docs/Web/API/PushMessageData/bytes)
   - : Extrahiert die Daten als ein {{jsxref("Uint8Array")}}-Objekt.
-- {{domxref("PushMessageData.json()")}}
+- [`PushMessageData.json()`](/de/docs/Web/API/PushMessageData/json)
   - : Extrahiert die Daten als ein [JSON](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON)-Objekt.
-- {{domxref("PushMessageData.text()")}}
-  - : Extrahiert die Daten als einfacher Textstring.
+- [`PushMessageData.text()`](/de/docs/Web/API/PushMessageData/text)
+  - : Extrahiert die Daten als eine normale Textzeichenfolge.
 
 ## Beispiele
 
@@ -49,6 +49,6 @@ self.addEventListener("push", (event) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

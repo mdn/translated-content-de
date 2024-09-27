@@ -7,13 +7,13 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Das **`CSSStyleSheet`**-Interface repräsentiert ein einzelnes [CSS](/de/docs/Web/CSS)-Stylesheet und ermöglicht Ihnen, die Liste der im Stylesheet enthaltenen Regeln zu inspizieren und zu modifizieren. Es erbt Eigenschaften und Methoden von seinem Elternteil, {{domxref("StyleSheet")}}.
+Die **`CSSStyleSheet`**-Schnittstelle repräsentiert ein einzelnes [CSS](/de/docs/Web/CSS)-Stylesheet und ermöglicht Ihnen, die Liste der im Stylesheet enthaltenen Regeln zu inspizieren und zu ändern. Sie erbt Eigenschaften und Methoden von ihrem Elternteil, [`StyleSheet`](/de/docs/Web/API/StyleSheet).
 
 {{InheritanceDiagram}}
 
-Ein Stylesheet besteht aus einer Sammlung von {{domxref("CSSRule")}}-Objekten, die jeweils eine Regel im Stylesheet darstellen. Die Regeln sind in einer {{domxref("CSSRuleList")}} enthalten, die über die {{domxref("CSSStyleSheet.cssRules", "cssRules")}}-Eigenschaft des Stylesheets abgerufen werden kann.
+Ein Stylesheet besteht aus einer Sammlung von [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekten, die jede der Regeln im Stylesheet repräsentieren. Die Regeln sind in einer [`CSSRuleList`](/de/docs/Web/API/CSSRuleList) enthalten, die über die [`cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules)-Eigenschaft des Stylesheets abgerufen werden kann.
 
-Zum Beispiel könnte eine Regel ein {{domxref("CSSStyleRule")}}-Objekt sein, das einen Stil wie folgt enthält:
+Zum Beispiel könnte eine Regel ein [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule)-Objekt sein, das einen Stil wie folgt enthält:
 
 ```css
 h1,
@@ -22,127 +22,126 @@ h2 {
 }
 ```
 
-Eine andere Regel könnte eine _at-rule_ sein, wie {{cssxref("@import")}} oder {{cssxref("@media")}}, und so weiter.
+Eine andere Regel könnte eine _At-Regel_ wie {{cssxref("@import")}} oder {{cssxref("@media")}} sein und so weiter.
 
-Siehe den Abschnitt [Ein Stylesheet erhalten](#ein_stylesheet_erhalten) für die verschiedenen Möglichkeiten, wie ein `CSSStyleSheet`-Objekt abgerufen werden kann. Ein `CSSStyleSheet`-Objekt kann auch direkt konstruiert werden. Der Konstruktor sowie die Methoden {{domxref("CSSStyleSheet.replace()")}} und {{domxref("CSSStyleSheet.replaceSync()")}} sind neuere Ergänzungen zur Spezifikation und ermöglichen _Konstruktive Stylesheets_.
+Siehe den Abschnitt [Ein Stylesheet erhalten](#ein_stylesheet_erhalten) für die verschiedenen Möglichkeiten, wie ein `CSSStyleSheet`-Objekt abgerufen werden kann. Ein `CSSStyleSheet`-Objekt kann auch direkt konstruiert werden. Der Konstruktor und die Methoden [`CSSStyleSheet.replace()`](/de/docs/Web/API/CSSStyleSheet/replace) und [`CSSStyleSheet.replaceSync()`](/de/docs/Web/API/CSSStyleSheet/replaceSync) sind neuere Ergänzungen zur Spezifikation, die eine Erstellung von Stylesheets ermöglichen.
 
 ## Konstruktor
 
-- {{domxref("CSSStyleSheet.CSSStyleSheet()", "CSSStyleSheet()")}}
+- [`CSSStyleSheet()`](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet)
   - : Erstellt ein neues `CSSStyleSheet`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("StyleSheet")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`StyleSheet`](/de/docs/Web/API/StyleSheet)._
 
-- {{domxref("CSSStyleSheet.cssRules")}} {{ReadOnlyInline}}
+- [`CSSStyleSheet.cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules) {{ReadOnlyInline}}
 
-  - : Gibt eine live {{domxref("CSSRuleList")}} zurück, die eine aktuelle Liste der {{domxref("CSSRule")}}-Objekte in dem Stylesheet enthält.
+  - : Gibt eine Live-`CSSRuleList` zurück, die eine aktuelle Liste der `CSSRule`-Objekte enthält, die das Stylesheet bilden.
 
     > [!NOTE]
-    > In einigen Browsern führt der Zugriff auf `cssRules` zu einem `SecurityError`, wenn ein Stylesheet von einer anderen Domain geladen wird.
+    > In einigen Browsern führt der Zugriff auf `cssRules`, wenn ein Stylesheet von einer anderen Domäne geladen wird, zu einem `SecurityError`.
 
-- {{domxref("CSSStyleSheet.ownerRule")}} {{ReadOnlyInline}}
-  - : Wenn dieses Stylesheet mit einer {{cssxref("@import")}}-Regel in das Dokument importiert wird, gibt die `ownerRule`-Eigenschaft die entsprechende {{domxref("CSSImportRule")}} zurück; andernfalls ist der Wert dieser Eigenschaft `null`.
+- [`CSSStyleSheet.ownerRule`](/de/docs/Web/API/CSSStyleSheet/ownerRule) {{ReadOnlyInline}}
+  - : Wenn dieses Stylesheet mit einer {{cssxref("@import")}}-Regel in das Dokument importiert wird, gibt die `ownerRule`-Eigenschaft die entsprechende [`CSSImportRule`](/de/docs/Web/API/CSSImportRule) zurück; andernfalls hat diese Eigenschaft den Wert `null`.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Methoden von seinem Elternteil, {{domxref("StyleSheet")}}._
+_Erbt Methoden von seinem Elternteil, [`StyleSheet`](/de/docs/Web/API/StyleSheet)._
 
-- {{domxref("CSSStyleSheet.deleteRule()")}}
+- [`CSSStyleSheet.deleteRule()`](/de/docs/Web/API/CSSStyleSheet/deleteRule)
   - : Löscht die Regel am angegebenen Index in der Regel-Liste des Stylesheets.
-- {{domxref("CSSStyleSheet.insertRule()")}}
+- [`CSSStyleSheet.insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule)
   - : Fügt eine neue Regel an der angegebenen Position im Stylesheet ein, basierend auf der textuellen Darstellung der Regel.
-- {{domxref("CSSStyleSheet.replace()")}}
+- [`CSSStyleSheet.replace()`](/de/docs/Web/API/CSSStyleSheet/replace)
   - : Ersetzt asynchron den Inhalt des Stylesheets und gibt ein {{jsxref("Promise")}} zurück, das mit dem aktualisierten `CSSStyleSheet` aufgelöst wird.
-- {{domxref("CSSStyleSheet.replaceSync()")}}
+- [`CSSStyleSheet.replaceSync()`](/de/docs/Web/API/CSSStyleSheet/replaceSync)
   - : Ersetzt synchron den Inhalt des Stylesheets.
 
 ## Veraltete Eigenschaften
 
-_Diese Eigenschaften sind veraltete Eigenschaften, die von Microsoft eingeführt wurden; sie werden zur Kompatibilität mit bestehenden Sites beibehalten._
+_Diese Eigenschaften sind veraltete Eigenschaften, die von Microsoft eingeführt wurden; sie werden zur Kompatibilität mit bestehenden Seiten beibehalten._
 
-- {{domxref("CSSStyleSheet.rules", "rules")}} {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Die `rules`-Eigenschaft ist funktional identisch mit der standardmäßigen {{domxref("CSSStyleSheet.cssRules", "cssRules")}}-Eigenschaft; sie gibt eine live {{domxref("CSSRuleList")}} zurück, die eine aktuelle Liste aller Regeln im Stylesheet enthält.
+- [`rules`](/de/docs/Web/API/CSSStyleSheet/rules) {{ReadOnlyInline}} {{Deprecated_Inline}}
+  - : Die `rules`-Eigenschaft ist funktional identisch mit der standardmäßigen `cssRules`-Eigenschaft; sie gibt eine Live-`CSSRuleList` zurück, die eine aktuelle Liste aller Regeln im Stylesheet enthält.
 
 ## Veraltete Methoden
 
-_Diese Methoden sind veraltete Methoden, die von Microsoft eingeführt wurden; sie werden zur Kompatibilität mit bestehenden Sites beibehalten._
+_Diese Methoden sind veraltete Methoden, die von Microsoft eingeführt wurden; sie werden zur Kompatibilität mit bestehenden Seiten beibehalten._
 
-- {{domxref("CSSStyleSheet.addRule", "addRule()")}} {{Deprecated_Inline}}
+- [`addRule()`](/de/docs/Web/API/CSSStyleSheet/addRule) {{Deprecated_Inline}}
 
-  - : Fügt dem Stylesheet eine neue Regel hinzu, basierend auf dem Selektor, auf den der Stil angewendet wird, und dem Stilblock, der auf die übereinstimmenden Elemente angewendet werden soll.
+  - : Fügt eine neue Regel zum Stylesheet hinzu, basierend auf dem Selektor, auf den der Stil angewendet wird, und dem Stilblock, der auf die passenden Elemente angewendet wird.
 
-    Dies unterscheidet sich von {{domxref("CSSStyleSheet.insertRule", "insertRule()")}}, das die textuelle Darstellung der gesamten Regel als einzelnen String benötigt.
+    Dies unterscheidet sich von [`insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule), das die textuelle Darstellung der gesamten Regel als einen einzelnen String erfordert.
 
-- {{domxref("CSSStyleSheet.removeRule", "removeRule()")}} {{Deprecated_Inline}}
-  - : Funktional identisch mit {{domxref("CSSStyleSheet.deleteRule", "deleteRule()")}}; entfernt die Regel am angegebenen Index aus der Regel-Liste des Stylesheets.
+- [`removeRule()`](/de/docs/Web/API/CSSStyleSheet/removeRule) {{Deprecated_Inline}}
+  - : Funktional identisch mit [`deleteRule()`](/de/docs/Web/API/CSSStyleSheet/deleteRule); entfernt die Regel bei dem angegebenen Index aus der Regel-Liste des Stylesheets.
 
 ## Ein Stylesheet erhalten
 
-Ein Stylesheet ist mit höchstens einem {{domxref("Document")}} verbunden, auf das es angewendet wird (es sei denn, es ist {{domxref("StyleSheet.disabled", "disabled", "", 1)}}). Eine Liste der `CSSStyleSheet`-Objekte für ein bestimmtes Dokument kann über die {{domxref("Document.styleSheets")}}-Eigenschaft abgerufen werden. Ein bestimmtes Stylesheet kann auch über sein _owner_-Objekt (`Node` oder `CSSImportRule`), falls vorhanden, abgerufen werden.
+Ein Stylesheet ist höchstens mit einem [`Document`](/de/docs/Web/API/Document) assoziiert, auf das es angewendet wird (es sei denn, {{domxref("StyleSheet.disabled", "disabled", "", 1)}}). Eine Liste von `CSSStyleSheet`-Objekten für ein bestimmtes Dokument kann mit der [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets)-Eigenschaft abgerufen werden. Ein spezielles Stylesheet kann auch über sein Eigentümerobjekt (`Node` oder `CSSImportRule`), sofern vorhanden, angesprochen werden.
 
-Ein `CSSStyleSheet`-Objekt wird vom Browser automatisch erstellt und in die {{domxref("Document.styleSheets")}}-Liste des Dokuments eingefügt, wenn ein Stylesheet für ein Dokument geladen wird.
+Ein `CSSStyleSheet`-Objekt wird automatisch vom Browser erstellt und in die [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets)-Liste des Dokuments eingefügt, wenn ein Stylesheet für ein Dokument geladen wird.
 
-Eine (möglicherweise unvollständige) Liste der Möglichkeiten, wie ein Stylesheet mit einem Dokument verknüpft werden kann, folgt:
+Eine (möglicherweise unvollständige) Liste von Möglichkeiten, wie ein Stylesheet mit einem Dokument assoziiert werden kann, folgt:
 
 <table class="no-markdown">
   <thead>
     <tr>
       <th scope="col">
-        Grund für die Verknüpfung des Stylesheets mit dem Dokument
+        Grund, warum das Stylesheet mit dem Dokument verknüpft ist
       </th>
       <th scope="col">
-        Erscheint in <code>document.<br />styleSheets</code> Liste
+        Erscheint in der <code>document.<br />styleSheets</code>-Liste
       </th>
       <th scope="col">
-        Erhalten des Eigentümerelements/Regel für das Stylesheet-Objekt
+        Das Besitzerelement/die Regel ermitteln, gegeben das Stylesheet-Objekt
       </th>
-      <th scope="col">Das Interface für das Eigentümerobjekt</th>
-      <th scope="col">Erhalten des CSSStyleSheet-Objekts vom Eigentümer</th>
+      <th scope="col">Die Schnittstelle für das Besitzer-Objekt</th>
+      <th scope="col">Das CSSStyleSheet-Objekt vom Besitzer erhalten</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        {{HTMLElement("style")}} und {{HTMLElement("link")}}
+        {{HTMLElement("style")}}- und {{HTMLElement("link")}}
         Elemente im Dokument
       </td>
       <td>Ja</td>
-      <td>{{domxref("StyleSheet.ownerNode", ".ownerNode")}}</td>
+      <td>[`.ownerNode`](/de/docs/Web/API/StyleSheet/ownerNode)</td>
       <td>
-        {{domxref("HTMLLinkElement")}},<br />{{domxref("HTMLStyleElement")}},<br />oder
-        {{domxref("SVGStyleElement")}}
+        [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement),<br />[`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement),<br />oder
+        [`SVGStyleElement`](/de/docs/Web/API/SVGStyleElement)
       </td>
       <td>
-        {{domxref("HTMLLinkElement.sheet")}},<br />{{domxref("HTMLStyleElement.sheet")}},<br />oder
-        {{domxref("SVGStyleElement.sheet")}}
+        [`HTMLLinkElement.sheet`](/de/docs/Web/API/HTMLLinkElement/sheet),<br />[`HTMLStyleElement.sheet`](/de/docs/Web/API/HTMLStyleElement/sheet),<br />oder
+        [`SVGStyleElement.sheet`](/de/docs/Web/API/SVGStyleElement/sheet)
       </td>
     </tr>
     <tr>
       <td>
-        CSS {{cssxref("@import")}}-Regel in anderen Stylesheets, die auf
-        das Dokument angewendet werden
+        CSS {{cssxref("@import")}}-Regel in anderen Stylesheets, die auf das Dokument angewendet werden
       </td>
       <td>Ja</td>
       <td>
-        {{domxref("CSSStyleSheet.ownerRule", ".ownerRule")}}
+        [`.ownerRule`](/de/docs/Web/API/CSSStyleSheet/ownerRule)
       </td>
-      <td>{{domxref("CSSImportRule")}}</td>
+      <td>[`CSSImportRule`](/de/docs/Web/API/CSSImportRule)</td>
       <td>
-        {{domxref("CSSImportRule.styleSheet", ".styleSheet")}}
+        [`.styleSheet`](/de/docs/Web/API/CSSImportRule/styleSheet)
       </td>
     </tr>
     <tr>
       <td>
-        <code>&#x3C;?xml-stylesheet ?></code>-Verarbeitungshinweis im
+        <code>&#x3C;?xml-stylesheet ?></code> Verarbeitungsanweisung im
         (nicht-HTML-)Dokument
       </td>
       <td>Ja</td>
-      <td>{{domxref("StyleSheet.ownerNode", ".ownerNode")}}</td>
-      <td>{{domxref("ProcessingInstruction")}}</td>
+      <td>[`.ownerNode`](/de/docs/Web/API/StyleSheet/ownerNode)</td>
+      <td>[`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)</td>
       <td>
-        {{domxref("ProcessingInstruction.sheet", ".sheet")}}
+        [`.sheet`](/de/docs/Web/API/ProcessingInstruction/sheet)
       </td>
     </tr>
     <tr>
@@ -150,23 +149,23 @@ Eine (möglicherweise unvollständige) Liste der Möglichkeiten, wie ein Stylesh
         JavaScript <a href="/de/docs/Web/JavaScript/Reference/Statements/import/with"><code>import ... with { type: "css" }</code></a>
       </td>
       <td>Nein</td>
-      <td>N/A</td>
-      <td>N/A</td>
-      <td>N/A</td>
+      <td>N/V</td>
+      <td>N/V</td>
+      <td>N/V</td>
     </tr>
     <tr>
       <td>HTTP-Link-Header</td>
       <td>Ja</td>
-      <td><em>N/A</em></td>
-      <td>N/A</td>
-      <td>N/A</td>
+      <td><em>N/V</em></td>
+      <td>N/V</td>
+      <td>N/V</td>
     </tr>
     <tr>
-      <td>User-Agent (Standard-)Stylesheets</td>
+      <td>User Agent (Standard-)Stylesheets</td>
       <td>Nein</td>
-      <td>N/A</td>
-      <td>N/A</td>
-      <td>N/A</td>
+      <td>N/V</td>
+      <td>N/V</td>
+      <td>N/V</td>
     </tr>
   </tbody>
 </table>
@@ -175,11 +174,11 @@ Eine (möglicherweise unvollständige) Liste der Möglichkeiten, wie ein Stylesh
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model)
-- [Verwendung dynamischer Stilinformations](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [CSS Object Model](/de/docs/Web/API/CSS_Object_Model)
+- [Verwendung dynamischer Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

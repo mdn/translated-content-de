@@ -1,5 +1,5 @@
 ---
-title: "IDBTransaction: Eigenschaft objectStoreNames"
+title: "IDBTransaction: objectStoreNames-Eigenschaft"
 short-title: objectStoreNames
 slug: Web/API/IDBTransaction/objectStoreNames
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("IndexedDB") }}
 
-Die schreibgeschützte Eigenschaft **`objectStoreNames`** des {{domxref("IDBTransaction")}}-Interfaces gibt eine {{domxref("DOMStringList")}} der Namen der {{domxref("IDBObjectStore")}}-Objekte zurück.
+Die schreibgeschützte Eigenschaft **`objectStoreNames`** des [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Interfaces gibt eine [`DOMStringList`](/de/docs/Web/API/DOMStringList) von Namen der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Objekte zurück.
 
 ## Wert
 
-Eine {{domxref("DOMStringList")}} der Namen der {{domxref("IDBObjectStore")}}-Objekte.
+Eine [`DOMStringList`](/de/docs/Web/API/DOMStringList) von Namen der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Objekte.
 
 ## Spezifikationen
 
@@ -25,9 +25,9 @@ Eine {{domxref("DOMStringList")}} der Namen der {{domxref("IDBObjectStore")}}-Ob
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Nutzung von Transaktionen: {{domxref("IDBTransaction")}}
-- Einstellen eines Schlüsselbereichs: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursor: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Das Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

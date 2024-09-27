@@ -1,5 +1,5 @@
 ---
-title: "RTCRemoteInboundRtpStreamStats: Eigenschaft packetsLost"
+title: "RTCRemoteInboundRtpStreamStats: packetsLost Eigenschaft"
 short-title: packetsLost
 slug: Web/API/RTCRemoteInboundRtpStreamStats/packetsLost
 l10n:
@@ -8,16 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`packetsLost`** Eigenschaft des {{domxref("RTCRemoteInboundRtpStreamStats")}} Wörterbuchs gibt die Gesamtanzahl der {{Glossary("RTP")}}-Pakete zurück, die von der [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc), wie vom entfernten Endpunkt berichtet, seit Beginn des Empfangs verloren gegangen sind.
+Die **`packetsLost`** Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats) Wörterbuchs gibt die Gesamtzahl der verlorenen [RTP](/de/docs/Glossary/RTP)-Pakete von der [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) zurück, wie vom entfernten Endpunkt seit Beginn des Empfangs gemeldet.
 
 ## Wert
 
 Ein ganzzahliger Wert, der die Anzahl der verlorenen RTP-Pakete angibt.
 
-Dieser Wert kann negativ sein.
-Er wird berechnet, indem die Anzahl der empfangenen Pakete von der Anzahl der erwarteten Pakete subtrahiert wird.
-Die Anzahl der erwarteten Pakete wird auf eine Weise errechnet, die voraussetzt, dass alle Pakete nur einmal gesendet werden müssen (basierend auf Sequenznummern), während die Anzahl der empfangenen Pakete auch Pakete beinhaltet, die erneut gesendet werden mussten (und daher größer sein kann).
-Weitere Informationen finden Sie im Abschnitt "cumulative number of packets lost" in {{RFC("3550", "", "6.4.1")}}.
+Dieser Wert kann negativ sein. Er wird ermittelt, indem die Anzahl der empfangenen Pakete von der Anzahl der erwarteten Pakete abgezogen wird. Die Anzahl der erwarteten Pakete wird auf eine Weise berechnet, die davon ausgeht, dass alle Pakete nur einmal gesendet werden müssen (basierend auf Sequenznummern), während die Anzahl der empfangenen Pakete auch alle Pakete umfasst, die erneut gesendet werden mussten (und daher größer sein kann). Weitere Informationen finden Sie in dem Abschnitt "cumulative number of packets lost" in {{RFC("3550", "", "6.4.1")}}.
 
 ## Spezifikationen
 
@@ -29,5 +26,5 @@ Weitere Informationen finden Sie im Abschnitt "cumulative number of packets lost
 
 ## Siehe auch
 
-- {{domxref("RTCRemoteInboundRtpStreamStats.ssrc")}}
-- {{domxref("RTCInboundRtpStreamStats.packetsLost")}}
+- [`RTCRemoteInboundRtpStreamStats.ssrc`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc)
+- [`RTCInboundRtpStreamStats.packetsLost`](/de/docs/Web/API/RTCInboundRtpStreamStats/packetsLost)

@@ -1,5 +1,5 @@
 ---
-title: "FileReader: Methode readAsText()"
+title: "FileReader: readAsText() Methode"
 short-title: readAsText()
 slug: Web/API/FileReader/readAsText
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`readAsText()`** Methode der {{domxref("FileReader")}} Schnittstelle wird verwendet, um den Inhalt des angegebenen {{domxref("Blob")}} oder {{domxref("File")}} zu lesen. Wenn der Lesevorgang abgeschlossen ist, ändert sich die {{domxref("FileReader.readyState","readyState")}} Eigenschaft zu `DONE`, das {{domxref("FileReader/loadend_event", "loadend")}} Ereignis wird ausgelöst, und die {{domxref("FileReader.result","result")}} Eigenschaft enthält den Inhalt der Datei als Textzeichenfolge.
+Die **`readAsText()`**-Methode des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces wird verwendet, um die Inhalte des angegebenen [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File) zu lesen. Sobald der Lesevorgang abgeschlossen ist, wird die [`readyState`](/de/docs/Web/API/FileReader/readyState)-Eigenschaft auf `DONE` geändert, das [`loadend`](/de/docs/Web/API/FileReader/loadend_event)-Ereignis wird ausgelöst, und die [`result`](/de/docs/Web/API/FileReader/result)-Eigenschaft enthält die Inhalte der Datei als Textzeichenfolge.
 
 > [!NOTE]
-> Die {{domxref("Blob.text()")}} Methode ist eine neuere, auf Promises basierende API, um eine Datei als Text zu lesen.
+> Die [`Blob.text()`](/de/docs/Web/API/Blob/text)-Methode ist eine neuere, Promise-basierte API, um eine Datei als Text zu lesen.
 
 > [!NOTE]
-> Diese Methode lädt den gesamten Dateiinhalte in den Speicher und ist nicht für große Dateien geeignet. Verwenden Sie {{domxref("FileReader.readAsArrayBuffer", "readAsArrayBuffer()")}} für große Dateien.
+> Diese Methode lädt den gesamten Dateiinhalt in den Speicher und ist nicht für große Dateien geeignet. Bevorzugen Sie [`readAsArrayBuffer()`](/de/docs/Web/API/FileReader/readAsArrayBuffer) für große Dateien.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ readAsText(blob, encoding)
 ### Parameter
 
 - `blob`
-  - : Der {{domxref("Blob")}} oder {{domxref("File")}}, aus dem gelesen werden soll.
+  - : Das [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File), aus dem gelesen werden soll.
 - `encoding` {{optional_inline}}
-  - : Ein String, der die zu verwendende Codierung für die zurückgegebenen Daten angibt. Standardmäßig wird UTF-8 angenommen, wenn dieser Parameter nicht angegeben ist.
+  - : Ein Zeichenstring, der die zu verwendende Kodierung für die zurückgegebenen Daten angibt. Standardmäßig wird UTF-8 angenommen, wenn dieser Parameter nicht angegeben ist.
 
 ### Rückgabewert
 
@@ -74,10 +74,10 @@ function previewFile() {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("FileReader")}}
+- [`FileReader`](/de/docs/Web/API/FileReader)

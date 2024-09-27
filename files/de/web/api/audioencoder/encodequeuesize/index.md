@@ -1,5 +1,5 @@
 ---
-title: "AudioEncoder: encodeQueueSize Eigenschaft"
+title: "AudioEncoder: encodeQueueSize-Eigenschaft"
 short-title: encodeQueueSize
 slug: Web/API/AudioEncoder/encodeQueueSize
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`encodeQueueSize`** der {{domxref("AudioEncoder")}}-Schnittstelle gibt die Anzahl der ausstehenden Kodierungsanforderungen in der Warteschlange zurück.
+Die **`encodeQueueSize`** schreibgeschützte Eigenschaft des [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Interfaces gibt die Anzahl der ausstehenden Kodoanforderungen in der Warteschlange zurück.
 
 ## Wert
 
-Ein Integer, der die Anzahl der Anfragen enthält.
+Ein ganzzahliger Wert, der die Anzahl der Anforderungen enthält.
 
 ## Beispiele
 

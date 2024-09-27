@@ -7,10 +7,10 @@ l10n:
 
 {{JSRef}}
 
-Die **`getCollations()`**-Methode von {{jsxref("Intl.Locale")}}-Instanzen gibt eine Liste von einem oder mehreren [Kollationstypen](https://www.unicode.org/reports/tr35/tr35-collation.html#CLDR_collation) für diese Lokalisierung zurück.
+Die Methode **`getCollations()`** von {{jsxref("Intl.Locale")}}-Instanzen gibt eine Liste von einem oder mehreren [Sortierungstypen](https://www.unicode.org/reports/tr35/tr35-collation.html#CLDR_collation) für diesen `Locale` zurück.
 
 > [!NOTE]
-> In einigen Versionen einiger Browser wurde diese Methode als Accessor-Eigenschaft mit dem Namen `collations` implementiert. Da sie jedoch bei jedem Zugriff ein neues Array zurückgab, wird sie jetzt als Methode implementiert, um zu verhindern, dass `locale.collations === locale.collations` `false` zurückgibt. Überprüfen Sie die [Tabelle zur Browserkompatibilität](#browser-kompatibilität) für Details.
+> In einigen Versionen von einigen Browsern wurde diese Methode als Zugriffseigenschaft namens `collations` implementiert. Da sie jedoch bei jedem Zugriff ein neues Array zurückgibt, wird sie nun als Methode implementiert, um zu verhindern, dass `locale.collations === locale.collations` `false` zurückgibt. Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität) für Details.
 
 ## Syntax
 
@@ -24,74 +24,74 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von Strings, das alle Kollationstypen darstellt, die üblicherweise für die `Locale` verwendet werden, alphabetisch sortiert, wobei die Werte `standard` und `search` immer ausgeschlossen sind. Wenn die `Locale` bereits eine [`collation`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/collation) hat, enthält das zurückgegebene Array diesen einzelnen Wert.
+Ein Array von Zeichenfolgen, das alle im `Locale` üblichen Sortierungstypen darstellt, alphabetisch sortiert, wobei die Werte `standard` und `search` immer ausgeschlossen sind. Wenn der `Locale` bereits eine [`collation`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/collation) hat, enthält das zurückgegebene Array diesen einzelnen Wert.
 
-Unten ist eine Liste der unterstützten Kollationstypen, angepasst von der [Unicode-Kollationsspezifikation](https://github.com/unicode-org/cldr/blob/2dd06669d833823e26872f249aa304bc9d9d2a90/common/bcp47/collation.xml).
+Im Folgenden finden Sie eine Liste der unterstützten Sortierungstypen, die an die [Unicode-Spezifikation für Sortierungen](https://github.com/unicode-org/cldr/blob/2dd06669d833823e26872f249aa304bc9d9d2a90/common/bcp47/collation.xml) angepasst wurden.
 
-### Unterstützte Kollationstypen
+### Unterstützte Sortierungstypen
 
 - `big5han`
-  - : Pinyin-Sortierung für Latein, big5-Zeichensatzsortierung für CJK-Zeichen (für Chinesisch)
+  - : Pinyin-Sortierung für Latein, big5 Zeichensatzsortierung für CJK-Zeichen (für Chinesisch)
     > [!WARNING]
-    > Der `big5han`-Kollationstyp ist veraltet, nicht verfügbar in Firefox, Chrome oder Edge.
+    > Der `big5han` Sortierungstyp ist veraltet, nicht verfügbar in Firefox, Chrome oder Edge.
 - `compat`
   - : Eine frühere Version der Sortierung, zur Kompatibilität (für Arabisch)
 - `dict`
-  - : Wörterbuchstil-Sortierung (für Singhalesisch)
+  - : Wörterbuchartige Sortierung (für Singhalesisch)
 - `direct`
-  - : Binäre Codepunkt-Reihenfolge
+  - : Binäre Codepunkt-Sortierung
     > [!WARNING]
-    > Der `direct`-Kollationstyp ist veraltet. Nicht verwenden.
+    > Der `direct` Sortierungstyp ist veraltet. Nicht verwenden.
 - `ducet`
-  - : Die Standard-Unicode-Kollationselement-Tabelle
+  - : Die Standard-Sortierung nach der Unicode-Kollationstabelle
     > [!WARNING]
-    > Der `ducet`-Kollationstyp ist nicht für das Web verfügbar. Verwenden Sie stattdessen die `und`-Lokalisierung ohne einen Kollationstyp-Spezifizierer. `und` ist die Kollation, die `ducet` am nächsten kommt.
+    > Der `ducet` Sortierungstyp ist im Web nicht verfügbar. Verwenden Sie stattdessen den `und`-Locale ohne Sortierungstyp-Spezifizierer. `und` ist die Sortierung, die `ducet` am nächsten kommt.
 - `emoji`
-  - : Empfohlene Sortierung für Emoji-Zeichen (für die `und`-Lokalisierung)
+  - : Empfohlene Sortierung für Emoji-Zeichen (für den `und`-Locale)
 - `eor`
-  - : Europäische Sortierregeln (für die `und`-Lokalisierung)
+  - : Europäische Sortierungsregeln (für den `und`-Locale)
 - `gb2312`
-  - : Pinyin-Sortierung für Latein, gb2312han-Zeichensatz-Sortierung für CJK-Zeichen (für Chinesisch)
+  - : Pinyin-Sortierung für Latein, gb2312han Zeichensatzsortierung für CJK-Zeichen (für Chinesisch)
     > [!WARNING]
-    > Der `gb2312`-Kollationstyp ist veraltet, nicht verfügbar in Firefox, Chrome oder Edge.
+    > Der `gb2312` Sortierungstyp ist veraltet, nicht verfügbar in Firefox, Chrome oder Edge.
 - `phonebk`
-  - : Telefonbuch-Stil-Reihenfolge (für Deutsch)
+  - : Telefonbuchartige Sortierung (für Deutsch)
 - `phonetic`
   - : Phonetische Sortierung (Sortierung basierend auf der Aussprache; für Lingala)
 - `pinyin`
-  - : Pinyin-Sortierung für Latein und für CJK-Zeichen (für Chinesisch)
+  - : Pinyin-Sortierung für Latein und CJK-Zeichen (für Chinesisch)
 - `reformed`
-  - : Reformierte Reihenfolge (früher für Schwedisch)
+  - : Reformierte Sortierung (ehemals für Schwedisch)
     > [!WARNING]
-    > Nicht explizit verwenden. Dies ist der alte Name für die Standardreihenfolge für Schwedisch [dessen Kollationsbenennung sich früher von anderen Sprachen unterschied](https://unicode-org.atlassian.net/browse/CLDR-15603). Da dies die Standardeinstellung war, fordern Sie `sv` an, anstatt `sv-u-co-reformed` anzufordern.
+    > Nicht explizit verwenden. Dies ist der alte Name für die Standardsortierung für Schwedisch [deren Kollationsnamen früher von anderen Sprachen abwichen](https://unicode-org.atlassian.net/browse/CLDR-15603). Da dies standardmäßig war, fordern Sie `sv` anstatt `sv-u-co-reformed` anzufordern.
 - `search`
-  - : Spezieller Kollationstyp für die Zeichenfolgensuche
+  - : Spezieller Sortierungstyp für die Zeichenfolgensuche
     > [!WARNING]
-    > Nicht als Kollationstyp verwenden, da in [`Intl.Collator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator) diese Kollation über den Wert `"search"` für die `usage`-Option aktiviert wird. Es gibt derzeit keine API für Substring-Suche, daher ist dies derzeit nur gut, um eine Liste von Zeichenfolgen zu filtern, indem versucht wird, einen vollständigen Schlüsselübereinstimmung gegen jedes Listenelement zu erzielen.
+    > Nicht als Sortierungstyp verwenden, da in [`Intl.Collator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator), diese Sortierung über den `"search"`-Wert für die `usage`-Option aktiviert wird. Es gibt derzeit keine API für die Substringsuche, daher ist dies derzeit nur nützlich, um eine Liste von Zeichenfolgen zu filtern, indem ein vollständiger Zeichenfolgenvergleich des Schlüssels mit jedem Listeneintrag versucht wird.
 - `searchjl`
-  - : Spezieller Kollationstyp für die koreanische Initialkonsonant-Suche
+  - : Spezieller Sortierungstyp für die koreanische Initialkonsonantensuche
     > [!WARNING]
-    > Diese Kollation ist nicht zum Sortieren geeignet, obwohl sie durch [`Intl.Collator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator) verfügbar gemacht wird, die mit `usage` `"sort"` im Gegensatz zu `usage` `"search"` instanziiert wurde.
+    > Diese Sortierung ist nicht zum Sortieren gedacht, obwohl sie über [`Intl.Collator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator) bei Verwendung `"sort"` anstatt `"search"` verfügbar gemacht wird.
 - `standard`
-  - : Standard-Reihenfolge für jede Sprache, außer Chinesisch (und ehemals Schwedisch)
+  - : Standardsortierung für jede Sprache, außer Chinesisch (und ehemals Schwedisch)
     > [!WARNING]
-    > Nicht explizit verwenden. Im Allgemeinen ist es unnötig, dies explizit anzugeben und dies für Schwedisch anzugeben, ist problematisch aufgrund der früher unterschiedlichen Bedeutung für Schwedisch.
+    > Nicht explizit verwenden. Im Allgemeinen ist es unnötig, dies explizit anzugeben, und es ist problematisch, dies für Schwedisch festzulegen, da es in der Vergangenheit eine andere Bedeutung für Schwedisch hatte.
 - `stroke`
-  - : Pinyin-Sortierung für Latein, Strich-Reihenfolge für CJK-Zeichen (für Chinesisch)
+  - : Pinyin-Sortierung für Latein, Strichreihenfolge für CJK-Zeichen (für Chinesisch)
 - `trad`
-  - : Traditionelle Stil-Reihenfolge (wie in Spanisch)
+  - : Traditionelle Sortierung (wie im Spanischen)
 - `unihan`
-  - : Radikal-Strich-Sortierung für Han-Zeichen (für Chinesisch, Japanisch und Koreanisch). Pinyin-Sortierung für Latein im Fall von Chinesisch.
+  - : Radikal-Strich-Reihenfolge für Han-Zeichen (für Chinesisch, Japanisch und Koreanisch). Pinyin-Sortierung für Latein im Falle von Chinesisch.
     > [!NOTE]
-    > Der `unihan`-Kollationstyp ist nicht verfügbar in Chrome oder Edge.
+    > Der `unihan` Sortierungstyp ist nicht verfügbar in Chrome oder Edge.
 - `zhuyin`
   - : Pinyin-Sortierung für Latein, Zhuyin-Reihenfolge für Bopomofo und CJK-Zeichen (für Chinesisch)
 
 ## Beispiele
 
-### Ermitteln unterstützter Kollationstypen
+### Ermittlung der unterstützten Sortierungstypen
 
-Wenn das `Locale`-Objekt noch keine `collation` hat, listet `getCollations()` alle üblicherweise verwendeten Kollationstypen für die gegebene `Locale` auf. Für Beispiele zur expliziten Festlegung einer `collation` siehe [`collation`-Beispiele](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/collation#examples).
+Wenn das `Locale`-Objekt bereits keine `collation` hat, listet `getCollations()` alle gängigen Sortierungstypen für die gegebene `Locale` auf. Für Beispiele zur expliziten Einstellung einer `collation` siehe [`collation`-Beispiele](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/collation#examples).
 
 ```js
 const locale = new Intl.Locale("zh");

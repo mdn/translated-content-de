@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte **`display`**-Eigenschaft der {{domxref("VRDisplayEvent")}}-Schnittstelle gibt das mit diesem Ereignis verknüpfte {{domxref("VRDisplay")}} zurück.
+Die **`display`** schreibgeschützte Eigenschaft des [`VRDisplayEvent`](/de/docs/Web/API/VRDisplayEvent)-Interfaces gibt das [`VRDisplay`](/de/docs/Web/API/VRDisplay) zurück, das mit diesem Ereignis verknüpft ist.
 
 > [!NOTE]
 > Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
 ## Wert
 
-Ein {{domxref("VRDisplay")}}-Objekt.
+Ein [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Objekt.
 
 ## Beispiele
 
@@ -31,7 +31,7 @@ window.addEventListener("vrdisplaypresentchange", (e) => {
 
 Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Solange nicht alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu setzen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den Leitfaden [Porting from WebVR to WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) von Meta für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/), oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie Metas [Leitfaden zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für mehr Informationen.
 
 ## Browser-Kompatibilität
 

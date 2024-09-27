@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: setCustomValidity() Methode"
+title: "HTMLInputElement: Methode setCustomValidity()"
 short-title: setCustomValidity()
 slug: Web/API/HTMLInputElement/setCustomValidity
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLInputElement.setCustomValidity()`** Methode legt eine benutzerdefinierte Fehlermeldung für das Element fest.
+Die **`HTMLInputElement.setCustomValidity()`**-Methode setzt eine benutzerdefinierte Fehlermeldung für das Element.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setCustomValidity(message)
 ### Parameter
 
 - `message`
-  - : Die Nachricht, die für Gültigkeitsfehler verwendet werden soll.
+  - : Die Nachricht, die für Validitätsfehler verwendet werden soll.
 
 ### Rückgabewert
 
@@ -31,7 +31,7 @@ Keine.
 
 ## Beispiele
 
-In diesem Beispiel übergeben wir die ID eines Eingabeelements und setzen verschiedene Fehlermeldungen abhängig davon, ob der Wert fehlt, zu niedrig oder zu hoch ist. Beachten Sie, dass die Nachricht nicht sofort angezeigt wird. Ein Versuch, das Formular abzuschicken, wird die Nachricht anzeigen, oder Sie können die Methode [`reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity) des Elements aufrufen.
+In diesem Beispiel übergeben wir die ID eines Eingabeelements und setzen je nach fehlendem Wert, zu niedrigem oder zu hohem Wert unterschiedliche Fehlermeldungen. Beachten Sie, dass die Nachricht nicht sofort angezeigt wird. Ein Versuch, das Formular einzureichen, wird die Nachricht anzeigen, oder Sie können die Methode [`reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity) auf dem Element aufrufen.
 
 ```js
 function validate(inputID) {
@@ -39,11 +39,11 @@ function validate(inputID) {
   const validityState = input.validity;
 
   if (validityState.valueMissing) {
-    input.setCustomValidity("Sie müssen dieses Feld ausfüllen!");
+    input.setCustomValidity("You gotta fill this out, yo!");
   } else if (validityState.rangeUnderflow) {
-    input.setCustomValidity("Bitte geben Sie eine höhere Zahl ein!");
+    input.setCustomValidity("We need a higher number!");
   } else if (validityState.rangeOverflow) {
-    input.setCustomValidity("Das ist zu hoch!");
+    input.setCustomValidity("That's too high!");
   } else {
     input.setCustomValidity("");
   }
@@ -52,7 +52,7 @@ function validate(inputID) {
 }
 ```
 
-Es ist entscheidend, die Nachricht auf einen leeren String zu setzen, wenn keine Fehler vorliegen. Solange die Fehlermeldung nicht leer ist, wird die Formularvalidierung nicht bestehen und das Formular wird nicht abgeschickt.
+Es ist wichtig, die Nachricht auf einen leeren String zu setzen, falls keine Fehler vorliegen. Solange die Fehlermeldung nicht leer ist, wird das Formular die Validierung nicht bestehen und nicht übermittelt werden.
 
 ## Spezifikationen
 
@@ -65,5 +65,5 @@ Es ist entscheidend, die Nachricht auf einen leeren String zu setzen, wenn keine
 ## Siehe auch
 
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Handbuch: Beschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- {{domxref('ValidityState')}}
+- [Leitfaden: Eingeschränkte Validierung](/de/docs/Web/HTML/Constraint_validation)
+- [`ValidityState`](/de/docs/Web/API/ValidityState)

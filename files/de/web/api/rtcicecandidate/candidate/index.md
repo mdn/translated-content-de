@@ -1,5 +1,5 @@
 ---
-title: "RTCIceCandidate: candidate-Eigenschaft"
+title: "RTCIceCandidate: Eigenschaft candidate"
 short-title: candidate
 slug: Web/API/RTCIceCandidate/candidate
 l10n:
@@ -8,36 +8,39 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`candidate`** der {{domxref("RTCIceCandidate")}}-Schnittstelle gibt einen String zurück, der den Kandidaten im Detail beschreibt. Die meisten anderen Eigenschaften von `RTCIceCandidate` werden tatsächlich aus diesem String extrahiert.
+Die schreibgeschützte Eigenschaft **`candidate`** des [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) Interfaces gibt einen String zurück, der den Kandidaten im Detail beschreibt. Die meisten anderen Eigenschaften von `RTCIceCandidate` werden tatsächlich aus diesem String extrahiert.
 
-Diese Eigenschaft kann mit der `candidate`-Eigenschaft des Objekts konfiguriert werden, das an den Konstruktor {{domxref("RTCIceCandidate.RTCIceCandidate", "RTCIceCandidate()")}} oder {{domxref("RTCPeerConnection.addIceCandidate()")}} übergeben wird.
+Diese Eigenschaft kann mit der `candidate` Eigenschaft des Objekts konfiguriert werden, das dem [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate) Konstruktor oder [`RTCPeerConnection.addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) übergeben wird.
 
 ## Wert
 
-Ein String, der die Eigenschaften des Kandidaten beschreibt, wird direkt aus dem {{Glossary("SDP")}}-Attribut `"candidate"` entnommen. Der Kandidaten-String spezifiziert die Netzwerkverbindungsinformationen für den Kandidaten. Wenn der `candidate` ein leerer String (`""`) ist, wurde das Ende der Kandidatenliste erreicht; dieser Kandidat ist als "end-of-candidates"-Marker bekannt.
+Ein String, der die Eigenschaften des Kandidaten beschreibt, direkt aus dem [SDP](/de/docs/Glossary/SDP) Attribut `"candidate"` entnommen. Der Kandidatenstring gibt die Netzwerkverbindungsinformationen für den Kandidaten an. Wenn der `candidate` ein leerer String (`""`) ist, wurde das Ende der Kandidatenliste erreicht; dieser Kandidat ist als "end-of-candidates" Marker bekannt.
 
-Die Syntax des Kandidaten-Strings wird in {{RFC(5245, "", 15.1)}} beschrieben. Für eine a-line (Attributzeile), die so aussieht:
+Die Syntax des Kandidatenstrings wird in {{RFC(5245, "", 15.1)}} beschrieben. Für eine a-line (Attributzeile), die folgendermaßen aussieht:
 
 ```plain
 a=candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host
 ```
 
-wird der entsprechende `candidate`-String den Wert `"candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host"` haben.
+wird der entsprechende Wert des `candidate` Strings sein: `"candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host"`.
 
-Der {{Glossary("user agent")}} bevorzugt immer Kandidaten mit der höchsten
-{{domxref("RTCIceCandidate.priority", "priority")}}, wenn alle anderen Bedingungen gleich sind. Im obigen Beispiel beträgt die Priorität `2043278322`. Die Attribute sind alle durch ein einzelnes Leerzeichen getrennt und in einer bestimmten Reihenfolge. Die vollständige Liste der Attribute für diesen Beispielkandidaten lautet:
+Der [User-Agent](/de/docs/Glossary/user_agent) bevorzugt stets Kandidaten mit der höchsten
+[`priority`](/de/docs/Web/API/RTCIceCandidate/priority), wenn sonst alle Bedingungen gleich sind. In dem
+obigen Beispiel beträgt die Priorität `2043278322`. Die Attribute sind durch ein einzelnes Leerzeichen getrennt und in einer bestimmten Reihenfolge angeordnet. Die vollständige Liste der
+Attribute für diesen Beispielkandidaten ist:
 
-- {{domxref("RTCIceCandidate.foundation", "foundation")}} = 4234997325
-- {{domxref("RTCIceCandidate.component", "component")}} = `"rtp"` (die Zahl 1 wird zu diesem String kodiert; 2 wird zu `"rtcp"`)
-- {{domxref("RTCIceCandidate.protocol", "protocol")}} = `"udp"`
-- {{domxref("RTCIceCandidate.priority", "priority")}} = 2043278322
-- {{domxref("RTCIceCandidate/address", "ip")}} = `"192.0.2.172"`
-- {{domxref("RTCIceCandidate.port", "port")}} = 44323
-- {{domxref("RTCIceCandidate.type", "type")}} = `"host"`
+- [`foundation`](/de/docs/Web/API/RTCIceCandidate/foundation) = 4234997325
+- [`component`](/de/docs/Web/API/RTCIceCandidate/component) = `"rtp"` (die Zahl 1 wird zu diesem String kodiert; 2 wird zu `"rtcp"`)
+- [`protocol`](/de/docs/Web/API/RTCIceCandidate/protocol) = `"udp"`
+- [`priority`](/de/docs/Web/API/RTCIceCandidate/priority) = 2043278322
+- [`ip`](/de/docs/Web/API/RTCIceCandidate/address) = `"192.0.2.172"`
+- [`port`](/de/docs/Web/API/RTCIceCandidate/port) = 44323
+- [`type`](/de/docs/Web/API/RTCIceCandidate/type) = `"host"`
 
 ## Beispiele
 
-In diesem Beispiel sehen wir eine Funktion, die als Eingabe einen SDP-String erhält, der einen ICE-Kandidaten enthält, der während des Signalisierungsprozesses vom Remote-Peer empfangen wurde.
+In diesem Beispiel sehen wir eine Funktion, die als Eingabe einen SDP-String erhält, der einen
+ICE-Kandidaten enthält, der während des Signalisierungsprozesses vom entfernten Peer empfangen wurde.
 
 ```js
 function handleNewIceCandidate(candidateSDP) {
@@ -49,9 +52,11 @@ function handleNewIceCandidate(candidateSDP) {
 }
 ```
 
-Die hier gezeigte Funktion `handleNewIceCandidate()` übergibt den empfangenen SDP-Text des Kandidaten an {{domxref("RTCIceCandidate.RTCIceCandidate", "RTCIceCandidate()")}}, um ein {{domxref("RTCIceCandidate")}}-Objekt zu erhalten, das den Kandidaten darstellt.
+Die hier gezeigte `handleNewIceCandidate()` Funktion übergibt den empfangenen
+Kandidaten-SDP-Text in [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate), um ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) Objekt zurückzuerhalten, das den Kandidaten darstellt.
 
-Der neue Kandidat wird dann an {{domxref("RTCPeerConnection.addIceCandidate()")}} übergeben, um den Kandidaten zur Liste der Kandidaten hinzuzufügen, die WebRTC in Betracht ziehen soll, um die Verbindung herzustellen.
+Der neue Kandidat wird dann in [`RTCPeerConnection.addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) übergeben, um den Kandidaten zu der Liste der
+Kandidaten hinzuzufügen, die WebRTC für die herzustellende Verbindung in Betracht ziehen soll.
 
 ## Spezifikationen
 

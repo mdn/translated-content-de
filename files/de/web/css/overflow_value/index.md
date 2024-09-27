@@ -1,5 +1,5 @@
 ---
-title: <Überlauf>
+title: <overflow>
 slug: Web/CSS/overflow_value
 l10n:
   sourceCommit: fc1cc5684c98d19816d5cc81702d70f2a0debbad
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<overflow>`** {{glossary("Enumerated")}} Werttyp repräsentiert die Schlüsselwortwerte für die Langform-Eigenschaften {{cssxref("overflow-block")}}, {{cssxref("overflow-inline")}}, {{cssxref("overflow-x")}}, und {{cssxref("overflow-y")}} sowie die Kurzform-Eigenschaft {{cssxref("overflow")}}. Diese Eigenschaften gelten für Block-Container, Flex-Container und Grid-Container.
+Der **`<overflow>`** [aufgezählte](/de/docs/Glossary/enumerated) Werttyp repräsentiert die Schlüsselwortwerte für die {{cssxref("overflow-block")}}, {{cssxref("overflow-inline")}}, {{cssxref("overflow-x")}}, und {{cssxref("overflow-y")}} Langform-Eigenschaften und die {{cssxref("overflow")}} Kurzform-Eigenschaft. Diese Eigenschaften gelten für Block-Container, Flex-Container und Grid-Container.
 
 ## Syntax
 
@@ -17,29 +17,29 @@ Der **`<overflow>`** {{glossary("Enumerated")}} Werttyp repräsentiert die Schl�
 
 ## Werte
 
-Der enumerierte Werttyp `<overflow>` wird durch einen der unten aufgeführten Werte angegeben.
+Der `<overflow>` aufgezählte Werttyp wird mit einem der unten aufgeführten Werte angegeben.
 
 - `visible`
-  - : Überlaufender Inhalt ist nicht abgeschnitten und kann außerhalb des Padding-Bereichs des Elements sichtbar sein. Das Element-Box ist kein {{glossary("scroll container")}}. Dies ist der Standardwert für alle Eigenschaften, die den enumerierten Werttyp `<overflow>` haben.
+  - : Überlaufender Inhalt wird nicht abgeschnitten und kann außerhalb des Padding-Box-Elements sichtbar sein. Die Elementbox ist kein [Scroll-Container](/de/docs/Glossary/scroll_container). Dies ist der Standardwert für alle Eigenschaften, die den `<overflow>` aufgezählten Werttyp haben.
 - `hidden`
-  - : Überlaufender Inhalt wird am Padding-Bereich des Elements abgeschnitten. Es gibt keine Scrollleisten und der abgeschnittene Inhalt ist nicht sichtbar (d.h., der abgeschnittene Inhalt ist versteckt), aber der Inhalt existiert weiterhin. Benutzeragenten fügen keine Scrollleisten hinzu und erlauben Nutzern auch nicht, den Inhalt außerhalb des abgeschnittenen Bereichs durch Aktionen wie das Ziehen auf einem Touchscreen oder die Verwendung des Scroll-Rads einer Maus zu sehen. Der Inhalt _kann_ programmgesteuert gescrollt werden (zum Beispiel durch Setzen des Werts der {{domxref("Element.scrollLeft", "scrollLeft")}}-Eigenschaft oder der {{domxref("Element.scrollTo", "scrollTo()")}}-Methode). Der Inhalt kann auch über Tastaturinteraktion gescrollt werden; Pfeile ermöglichen das Scrollen durch den Inhalt und das Tabben zu einem fokussierbaren Element innerhalb des versteckten Inhalts ermöglicht das Scrollen des fokussierten Elements in den sichtbaren Bereich. Das Element-Box, auf dem dieser Wert eingestellt ist, ist ein Scroll-Container.
+  - : Überlaufender Inhalt wird an der Padding-Box des Elements abgeschnitten. Es gibt keine Scrollleisten, und der abgeschnittene Inhalt ist nicht sichtbar (d.h. abgeschnittener Inhalt ist versteckt), aber der Inhalt existiert weiterhin. Benutzeragenten fügen keine Scrollleisten hinzu und erlauben Benutzern auch nicht, den Inhalt außerhalb des abgeschnittenen Bereichs zu sehen, z.B. durch Ziehen auf einem Touchscreen oder mit dem Scrollrad einer Maus. Der Inhalt _kann_ programmgesteuert gescrollt werden (z.B. durch Setzen des Wertes der [`scrollLeft`](/de/docs/Web/API/Element/scrollLeft) Eigenschaft oder der [`scrollTo()`](/de/docs/Web/API/Element/scrollTo) Methode). Der Inhalt kann auch über Tastaturinteraktionen gescrollt werden; Pfeile ermöglichen das Scrollen durch den Inhalt und das Tabben zu einem fokussierbaren Element innerhalb des versteckten Inhalts ermöglicht es, das fokussierte Element in den sichtbaren Bereich zu scrollen. Die Elementbox, auf der dieser Wert gesetzt ist, ist ein Scroll-Container.
 - `clip`
-  - : Überlaufender Inhalt wird am _overflow clip edge_ des Elements abgeschnitten, der mit der [`overflow-clip-margin`](/de/docs/Web/CSS/overflow-clip-margin)-Eigenschaft definiert ist. Dadurch überläuft der Inhalt den Padding-Bereich des Elements um den {{cssxref("&lt;length&gt;")}}-Wert von `overflow-clip-margin` oder um `0px`, wenn nicht festgelegt. Überlaufender Inhalt außerhalb des abgeschnittenen Bereichs ist nicht sichtbar, Benutzeragenten fügen keine Scrollleisten hinzu und programmgesteuertes Scrollen wird ebenfalls nicht unterstützt. Es wird kein neuer [Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) erstellt.
+  - : Überlaufender Inhalt wird an der _Überlauf-Clip-Kante_ des Elements abgeschnitten, die mit der [`overflow-clip-margin`](/de/docs/Web/CSS/overflow-clip-margin) Eigenschaft definiert wird. Infolgedessen überschreitet der Inhalt die Padding-Box des Elements um den {{cssxref("&lt;length&gt;")}} Wert von `overflow-clip-margin` oder um `0px`, wenn nicht gesetzt. Überlaufender Inhalt außerhalb des abgeschnittenen Bereichs ist nicht sichtbar, Benutzeragenten fügen keinen Scrollbalken hinzu, und auch programmgesteuertes Scrollen wird nicht unterstützt. Kein neuer [Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) wird erstellt.
 - `scroll`
-  - : Überlaufender Inhalt wird am Padding-Bereich des Elements abgeschnitten und der überlaufende Inhalt kann durch Scrollleisten in den sichtbaren Bereich gescrollt werden. Benutzeragenten zeigen Scrollleisten sowohl in horizontaler als auch in vertikaler Richtung an, wenn nur ein Wert festgelegt ist, unabhängig davon, ob ein Inhalt überläuft oder abgeschnitten ist. Die Verwendung dieses Schlüsselwortwerts kann daher verhindern, dass Scrollleisten verschwinden oder erscheinen, wenn sich der Inhalt ändert. Drucker können dennoch überlaufenden Inhalt drucken. Das Element-Box, auf dem dieser Wert eingestellt ist, ist ein Scroll-Container.
+  - : Überlaufender Inhalt wird an der Padding-Box des Elements abgeschnitten, und überlaufender Inhalt kann mit Scrollleisten in den sichtbaren Bereich gescrollt werden. Benutzeragenten zeigen Scrollleisten in horizontaler und vertikaler Richtung an, wenn nur ein Wert festgelegt ist, unabhängig davon, ob Inhalt überläuft oder abgeschnitten wird. Die Verwendung dieses Schlüsselwortwertes kann daher verhindern, dass Scrollleisten erscheinen und verschwinden, wenn sich der Inhalt ändert. Drucker können dennoch überlaufenden Inhalt drucken. Die Elementbox, auf der dieser Wert gesetzt ist, ist ein Scroll-Container.
 - `auto`
-  - : Überlaufender Inhalt wird am Padding-Bereich des Elements abgeschnitten und der überlaufende Inhalt kann in den sichtbaren Bereich gescrollt werden. Im Gegensatz zu `scroll` zeigen Benutzeragenten Scrollleisten _nur dann_, wenn der Inhalt überläuft; standardmäßig werden Scrollleisten ausgeblendet. Wenn der Inhalt in den Padding-Bereich des Elements passt, sieht es wie bei `visible` aus, erstellt jedoch dennoch einen neuen Formatierungskontext. Das Element-Box, auf dem dieser Wert eingestellt ist, ist ein Scroll-Container.
+  - : Überlaufender Inhalt wird an der Padding-Box des Elements abgeschnitten, und überlaufender Inhalt kann in den sichtbaren Bereich gescrollt werden. Im Gegensatz zu `scroll` zeigen Benutzeragenten Scrollleisten _nur dann_ an, wenn der Inhalt überläuft und verstecken Scrollleisten standardmäßig. Wenn der Inhalt in die Padding-Box des Elements passt, sieht es genauso aus wie bei `visible`, etabliert aber dennoch einen neuen Formatierungskontext. Die Elementbox, auf der dieser Wert gesetzt ist, ist ein Scroll-Container.
 
 > [!NOTE]
-> Der Schlüsselwortwert `overlay` ist ein älterer Wertalias für `auto`. Mit `overlay` werden die Scrollleisten über dem Inhalt gezeichnet, anstatt Platz einzunehmen.
+> Der Schlüsselwortwert `overlay` ist ein veraltetes Alias für `auto`. Bei `overlay` werden die Scrollleisten über dem Inhalt gezeichnet, anstatt Platz einzunehmen.
 
 ## Beispiele
 
-Dieses Beispiel zeigt alle `<overflow>`-enumerierten Werte für die {{cssxref("overflow")}}-Eigenschaft.
+Dieses Beispiel demonstriert alle `<overflow>` aufgezählten Werte für die {{cssxref("overflow")}} Eigenschaft.
 
 ### HTML
 
-Das HTML in diesem Beispiel enthält einige Songtexte innerhalb des {{HTMLELement("pre")}}-Elements. Das HTML enthält auch einen Link-Text, um die Auswirkungen des Tastaturfokus auf Überlauf- und Scrollverhalten zu testen. Der gleiche HTML-Code wird mehrfach wiederholt, um die Wirkung jedes `<overflow>`-enumerierten Werts zu zeigen.
+Das HTML in diesem Beispiel enthält einige Texte innerhalb des {{HTMLELement("pre")}} Elements. Das HTML enthält auch einen Linktext, um die Auswirkungen von Tastaturfokus auf Überlauf- und Scrollverhalten zu testen. Der gleiche HTML-Code wird mehrmals wiederholt, um die Wirkung jedes `<overflow>` aufgezählten Werts zu zeigen.
 
 ```html
 <pre>&nbsp;
@@ -155,7 +155,7 @@ Rubber Duckie, I'm awfully fond of you
 
 ### CSS
 
-Zum Zwecke der Demonstration wurde die Größe des `<pre>`-Element-Box so festgelegt, dass der Inhalt sowohl in der Zeilen- als auch in der Blockrichtung überläuft. Ein anderer `<overflow>`-Wert wird für jedes der wiederholten `<pre>`-Elemente gesetzt. Für die Demonstration des `clip`-Werts wurde ein {{CSSXref("overflow-clip-margin")}} hinzugefügt.
+Für Demonstrationszwecke wurde die Größe der `<pre>` Elementbox so definiert, dass der Inhalt in beiden Richtungen des Containers überläuft. Ein anderer `<overflow>` Wert wird für jedes der wiederholenden `<pre>` Elemente gesetzt. Für die Demonstration des `clip` Werts wurde eine {{CSSXref("overflow-clip-margin")}} hinzugefügt.
 
 ```css hidden
 pre {
@@ -215,7 +215,7 @@ pre:nth-of-type(5) {
   overflow-clip-margin: 3em;
 }
 pre:nth-of-type(5)::before {
-  content: "overlay (oder clip, falls nicht unterstützt): ";
+  content: "overlay (or clip if not supported): ";
 }
 
 pre:nth-of-type(6) {
@@ -230,7 +230,7 @@ pre:nth-of-type(6)::before {
 
 {{EmbedLiveSample("Examples", "500", "800")}}
 
-Um den Effekt des Tastaturfokus auf Überlauf- und Scrollverhalten zu sehen, versuchen Sie, alle Links im Beispiel zu tabben. Beachten Sie, dass die `clip`-Box keinen Scroll-Container erstellt und der Link nicht in den sichtbaren Bereich eingeblendet wird, wenn der Link fokussiert ist. Der `visible`-Wert, der den Link immer im sichtbaren Bereich hat, ist ebenfalls kein Scroll-Container.
+Um die Auswirkungen von Tastaturfokus auf Überlauf- und Scrollverhalten zu sehen, versuchen Sie, durch alle Links im Beispiel zu tabben. Beachten Sie, dass die `clip`-Box keinen Scroll-Container erstellt und der Link nicht sichtbar wird, wenn der Fokus auf ihn gesetzt wird. Der Wert `visible`, bei dem der Link immer sichtbar ist, ist ebenfalls kein Scroll-Container.
 
 ## Spezifikationen
 
@@ -243,4 +243,4 @@ Um den Effekt des Tastaturfokus auf Überlauf- und Scrollverhalten zu sehen, ver
 ## Siehe auch
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("overflow-x")}}, {{cssxref("overflow-y")}}, {{cssxref("overflow-inline")}}, {{cssxref("overflow-block")}} und {{cssxref("overflow")}}
-- [CSS Overflow Modul](/de/docs/Web/CSS/CSS_overflow)
+- [CSS Overflow Module](/de/docs/Web/CSS/CSS_overflow)

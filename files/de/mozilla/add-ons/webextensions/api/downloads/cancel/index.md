@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Die Funktion **`cancel()`** der {{WebExtAPIRef("downloads")}} API bricht einen Download ab. Der Aufruf schlägt fehl, wenn der Download nicht aktiv ist: zum Beispiel, weil er bereits abgeschlossen wurde.
+Die **`cancel()`** Funktion der {{WebExtAPIRef("downloads")}} API bricht einen Download ab. Der Aufruf schlägt fehl, wenn der Download nicht aktiv ist: zum Beispiel, weil er bereits abgeschlossen ist.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,7 +26,7 @@ let canceling = browser.downloads.cancel(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich war, wird das Promise ohne Argumente erfüllt. Wenn die Anfrage fehlschlug, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anforderung erfolgreich war, wird das Promise ohne Argumente erfüllt. Wenn die Anforderung fehlgeschlagen ist, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -52,7 +52,7 @@ canceling.then(onCanceled, onError);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-cancel) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-cancel) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

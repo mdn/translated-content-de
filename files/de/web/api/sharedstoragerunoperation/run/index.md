@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`run()`**-Methode der {{domxref("SharedStorageRunOperation")}}-Schnittstelle definiert die Struktur, an die sich die `run()`-Methode innerhalb einer Run-Output-Gate-Operation halten sollte.
+Die **`run()`**-Methode der [`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation)-Schnittstelle definiert die Struktur, an die sich die `run()`-Methode innerhalb einer Run-Ausgabegate-Operation halten sollte.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ run(data)
 ### Parameter
 
 - `data`
-  - : Ein Objekt, das beliebige Daten repräsentiert, die zur Ausführung der Operation erforderlich sind.
+  - : Ein Objekt, das alle für die Ausführung der Operation erforderlichen Daten darstellt.
 
 ### Rückgabewert
 
@@ -27,7 +27,7 @@ Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird.
 
 ## Beispiele
 
-Siehe die Hauptseite von {{domxref("SharedStorageRunOperation")}} für ein Beispiel.
+Ein Beispiel finden Sie auf der Hauptseite der [`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation).
 
 ## Spezifikationen
 

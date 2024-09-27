@@ -2,27 +2,27 @@
 title: GPUAdapterInfo
 slug: Web/API/GPUAdapterInfo
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUAdapterInfo`** Schnittstelle der {{domxref("WebGPU API", "WebGPU API", "", "nocode")}} enthält identifizierende Informationen über einen {{domxref("GPUAdapter")}}.
+Die **`GPUAdapterInfo`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) enthält identifizierende Informationen über einen [`GPUAdapter`](/de/docs/Web/API/GPUAdapter).
 
-Eine Instanz eines `GPUAdapterInfo`-Objekts wird mit der {{domxref("GPUAdapter.requestAdapterInfo()")}} Methode angefordert.
+Eine Instanz eines `GPUAdapterInfo`-Objekts wird mit der Methode [`GPUAdapter.requestAdapterInfo()`](/de/docs/Web/API/GPUAdapter/requestAdapterInfo) angefordert.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- {{domxref("GPUAdapterInfo.architecture", "architecture")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Der Name der Familie oder Klasse von GPUs, zu der der Adapter gehört. Gibt einen leeren String zurück, wenn diese Information nicht verfügbar ist.
-- {{domxref("GPUAdapterInfo.description", "description")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Eine menschenlesbare Zeichenkette, die den Adapter beschreibt. Gibt einen leeren String zurück, wenn diese Information nicht verfügbar ist.
-- {{domxref("GPUAdapterInfo.device", "device")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Eine anbieterabhängige Kennung für den Adapter. Gibt einen leeren String zurück, wenn diese Information nicht verfügbar ist.
-- {{domxref("GPUAdapterInfo.vendor", "vendor")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Der Name des Adapter-Anbieters. Gibt einen leeren String zurück, wenn diese Information nicht verfügbar ist.
+- [`architecture`](/de/docs/Web/API/GPUAdapterInfo/architecture) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Der Name der Familie oder Klasse von GPUs, zu der der Adapter gehört. Gibt einen leeren String zurück, wenn es nicht verfügbar ist.
+- [`description`](/de/docs/Web/API/GPUAdapterInfo/description) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Ein menschenlesbarer String, der den Adapter beschreibt. Gibt einen leeren String zurück, wenn es nicht verfügbar ist.
+- [`device`](/de/docs/Web/API/GPUAdapterInfo/device) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Eine herstellerspezifische Kennung für den Adapter. Gibt einen leeren String zurück, wenn es nicht verfügbar ist.
+- [`vendor`](/de/docs/Web/API/GPUAdapterInfo/vendor) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Der Name des Adapter-Herstellers. Gibt einen leeren String zurück, wenn es nicht verfügbar ist.
 
 ## Beispiele
 

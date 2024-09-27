@@ -1,5 +1,5 @@
 ---
-title: Registerkarte.ZoomEinstellungen
+title: tabs.ZoomSettings
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/ZoomSettings
 l10n:
   sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
@@ -7,18 +7,18 @@ l10n:
 
 {{AddonSidebar}}
 
-Definiert die Zoom-Einstellungen für eine Registerkarte: {{WebExtAPIRef("tabs.ZoomSettingsMode", "mode")}}, {{WebExtAPIRef("tabs.ZoomSettingsScope", "scope")}}, und den Standard-Zoomfaktor.
+Definiert Zoom-Einstellungen für einen Tab: {{WebExtAPIRef("tabs.ZoomSettingsMode", "mode")}}, {{WebExtAPIRef("tabs.ZoomSettingsScope", "scope")}} und den Standard-Zoomfaktor.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `defaultZoomFactor` {{optional_inline}}
-  - : `number`. Das Standard-Zoomniveau für die aktuelle Registerkarte. Beachten Sie, dass dies nur in {{WebExtAPIRef("tabs.getZoomSettings")}} verwendet wird.
+  - : `number`. Das Standard-Zoomlevel für den aktuellen Tab. Beachten Sie, dass dies nur in {{WebExtAPIRef("tabs.getZoomSettings")}} verwendet wird.
 - `mode` {{optional_inline}}
-  - : {{WebExtAPIRef('tabs.ZoomSettingsMode')}}. Bestimmt, ob Zoom-Änderungen vom Browser, durch die Erweiterung oder deaktiviert gehandhabt werden.
+  - : {{WebExtAPIRef('tabs.ZoomSettingsMode')}}. Definiert, ob Zoomänderungen vom Browser, durch die Erweiterung oder deaktiviert gehandhabt werden.
 - `scope` {{optional_inline}}
-  - : {{WebExtAPIRef('tabs.ZoomSettingsScope')}}. Bestimmt, ob Zoom-Änderungen für den Ursprung der Seite bestehen bleiben oder nur in dieser Registerkarte wirksam werden.
+  - : {{WebExtAPIRef('tabs.ZoomSettingsScope')}}. Definiert, ob Zoomänderungen für den Ursprung der Seite bestehen bleiben oder nur in diesem Tab wirksam sind.
 
 ## Browser-Kompatibilität
 

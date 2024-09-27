@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode deleteTexture()"
+title: "WebGLRenderingContext: deleteTexture()-Methode"
 short-title: deleteTexture()
 slug: Web/API/WebGLRenderingContext/deleteTexture
 l10n:
@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode **`WebGLRenderingContext.deleteTexture()`** der
-[WebGL-API](/de/docs/Web/API/WebGL_API) löscht ein angegebenes
-{{domxref("WebGLTexture")}}-Objekt. Diese Methode hat keine Wirkung, wenn die Textur bereits gelöscht wurde.
+Die **`WebGLRenderingContext.deleteTexture()`**-Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) löscht ein bestimmtes
+[`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt. Diese Methode hat keine Wirkung, wenn die Textur bereits
+gelöscht wurde.
 
 ## Syntax
 
@@ -21,11 +22,11 @@ deleteTexture(texture)
 ### Parameter
 
 - `texture`
-  - : Ein zu löschendes {{domxref("WebGLTexture")}}-Objekt.
+  - : Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt, das gelöscht werden soll.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -51,7 +52,7 @@ gl.deleteTexture(texture);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindTexture()")}}
-- {{domxref("WebGLRenderingContext.createTexture()")}}
-- {{domxref("WebGLRenderingContext.isTexture()")}}
-- {{domxref("WebGLRenderingContext.texImage2D()")}}
+- [`WebGLRenderingContext.bindTexture()`](/de/docs/Web/API/WebGLRenderingContext/bindTexture)
+- [`WebGLRenderingContext.createTexture()`](/de/docs/Web/API/WebGLRenderingContext/createTexture)
+- [`WebGLRenderingContext.isTexture()`](/de/docs/Web/API/WebGLRenderingContext/isTexture)
+- [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D)

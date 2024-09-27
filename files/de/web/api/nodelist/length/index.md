@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`NodeList.length`**-Eigenschaft gibt die Anzahl der Elemente in einer {{domxref("NodeList")}} zurück.
+Die **`NodeList.length`**-Eigenschaft gibt die Anzahl der Elemente in einer [`NodeList`](/de/docs/Web/API/NodeList) zurück.
 
 ## Wert
 
@@ -16,20 +16,20 @@ Ein ganzzahliger Wert, der die Anzahl der Elemente in einer `NodeList` darstellt
 
 ## Beispiele
 
-Die `length`-Eigenschaft ist häufig in der DOM-Programmierung nützlich. Sie wird oft verwendet, um die Länge einer Liste zu testen und zu prüfen, ob sie überhaupt existiert. Sie wird auch häufig als Iterator in einer `for`-Schleife verwendet, wie in diesem Beispiel.
+Die `length`-Eigenschaft ist in der DOM-Programmierung oft nützlich. Sie wird häufig verwendet, um die Länge einer Liste zu testen und zu prüfen, ob sie überhaupt existiert. Auch wird sie oft als Iterator in einer `for`-Schleife verwendet, wie in diesem Beispiel.
 
 ```js
-// Alle Absätze im Dokument
+// All the paragraphs in the document
 const items = document.getElementsByTagName("p");
 
-// Für jedes Element in der Liste,
-// den gesamten Elementinhalt als HTML-String hinzufügen
+// For each item in the list,
+// append the entire element as a string of HTML
 let gross = "";
 for (let i = 0; i < items.length; i++) {
   gross += items[i].innerHTML;
 }
 
-// gross enthält jetzt den gesamten HTML-Code für die Absätze
+// gross is now all the HTML for the paragraphs
 ```
 
 ## Spezifikationen

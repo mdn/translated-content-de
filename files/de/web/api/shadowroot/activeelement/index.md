@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Shadow DOM")}}
 
-Die schreibgeschützte **`activeElement`**-Eigenschaft der {{domxref("ShadowRoot")}}-Schnittstelle gibt das Element innerhalb des Shadow Trees zurück, das den Fokus hat.
+Die schreibgeschützte **`activeElement`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces gibt das Element innerhalb des Schattenbaums zurück, das den Fokus hat.
 
 ## Wert
 
-Das {{domxref('Element')}} welches aktuell den Fokus hat, oder `null`, wenn kein fokussiertes Element vorhanden ist.
+Das [`Element`](/de/docs/Web/API/Element), welches derzeit den Fokus hat, oder `null`, wenn kein Element fokussiert ist.
 
 ## Beispiele
 
@@ -32,4 +32,4 @@ let focusedElem = shadow.activeElement;
 
 ## Siehe auch
 
-- {{domxref("Document.activeElement")}}
+- [`Document.activeElement`](/de/docs/Web/API/Document/activeElement)

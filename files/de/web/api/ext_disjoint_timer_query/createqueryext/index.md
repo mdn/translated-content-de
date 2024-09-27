@@ -1,5 +1,5 @@
 ---
-title: "EXT_disjoint_timer_query: createQueryEXT()-Methode"
+title: "EXT_disjoint_timer_query: createQueryEXT() Methode"
 short-title: createQueryEXT()
 slug: Web/API/EXT_disjoint_timer_query/createQueryEXT
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`EXT_disjoint_timer_query.createQueryEXT()`**-Methode der
-[WebGL-API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert
-{{domxref("WebGLQuery")}}-Objekte, die die Zeit verfolgen, die benötigt wird, um einen Satz von GL-Befehlen vollständig auszuführen.
+Die **`EXT_disjoint_timer_query.createQueryEXT()`** Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert
+[`WebGLQuery`](/de/docs/Web/API/WebGLQuery) Objekte, die die Zeit messen, die benötigt wird, um ein Set von GL-Befehlen vollständig auszuführen.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLQuery")}}-Objekt.
+Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery) Objekt.
 
 ## Beispiele
 
@@ -43,6 +43,6 @@ const query = ext.createQueryExt();
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLQuery")}}
-- {{domxref("EXT_disjoint_timer_query")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)
+- [`EXT_disjoint_timer_query`](/de/docs/Web/API/EXT_disjoint_timer_query)

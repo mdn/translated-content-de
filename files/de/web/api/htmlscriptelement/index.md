@@ -7,71 +7,71 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-HTML-{{HTMLElement("script")}}-Elemente bieten die **`HTMLScriptElement`**-Schnittstelle, die spezielle Eigenschaften und Methoden zum Manipulieren des Verhaltens und der Ausführung von `<script>`-Elementen bereitstellt (über die geerbte {{domxref("HTMLElement")}}-Schnittstelle hinaus).
+HTML-{{HTMLElement("script")}}-Elemente stellen die **`HTMLScriptElement`**-Schnittstelle bereit, die spezielle Eigenschaften und Methoden zur Manipulation des Verhaltens und der Ausführung von `<script>`-Elementen bietet (über die geerbte [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle hinaus).
 
-JavaScript-Dateien sollten mit dem MIME-Typ `text/javascript` bereitgestellt werden, aber Browser sind tolerant und blockieren sie nur, wenn das Skript mit einem Bildtyp (`image/*`), Videotyp (`video/*`), Audiotyp (`audio/*`) oder `text/csv` bereitgestellt wird. Wenn das Skript blockiert wird, erhält sein Element ein {{domxref("HTMLElement/error_event", "error")}}-Ereignis; andernfalls erhält es ein {{domxref("Window/load_event", "load")}}-Ereignis.
+JavaScript-Dateien sollten mit dem `text/javascript`-[MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) bereitgestellt werden, aber Browser sind nachsichtig und blockieren sie nur, wenn das Skript mit einem Bildtyp (`image/*`), Videotyp (`video/*`), Audiotyp (`audio/*`) oder `text/csv` bereitgestellt wird. Wenn das Skript blockiert wird, erhält sein Element ein [`error`](/de/docs/Web/API/HTMLElement/error_event)-Ereignis; andernfalls erhält es ein [`load`](/de/docs/Web/API/Window/load_event)-Ereignis.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLScriptElement.attributionSrc")}} {{securecontext_inline}} {{experimental_inline}}
-  - : Ruft das [`attributionsrc`](/de/docs/Web/HTML/Element/script#attributionsrc)-Attribut eines {{htmlelement("script")}}-Elements programmatisch ab und setzt es, wobei der Wert dieses Attributs widergespiegelt wird. `attributionsrc` gibt an, dass der Browser einen {{httpheader("Attribution-Reporting-Eligible")}}-Header zusammen mit der Skriptressourcenanfrage senden soll. Auf der Serverseite wird dies verwendet, um das Senden eines {{httpheader("Attribution-Reporting-Register-Source")}}- oder {{httpheader("Attribution-Reporting-Register-Trigger")}}-Headers in der Antwort auszulösen, um eine JavaScript-basierte [Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#javascript-based_event_sources) oder einen [Attribution-Trigger](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers#javascript-based_attribution_triggers) zu registrieren.
-- {{domxref("HTMLScriptElement.async")}}
-  - : Ein boolescher Wert, der steuert, wie das Skript ausgeführt werden soll. Für klassische Skripte, wenn die `async`-Eigenschaft auf `true` gesetzt ist, wird das externe Skript parallel zum Parsen abgerufen und so schnell wie möglich ausgewertet. Für [Modulscripte](/de/docs/Web/JavaScript/Guide/Modules), wenn die `async`-Eigenschaft auf `true` gesetzt ist, werden das Skript und alle Abhängigkeiten parallel zum Parsen abgerufen und so schnell wie möglich ausgewertet.
-- {{domxref("HTMLScriptElement.blocking")}} {{Experimental_Inline}}
-  - : Ein Zeichenfolgenwert, der angibt, dass bestimmte Operationen beim Abrufen des Skripts blockiert werden sollen. Es spiegelt das `blocking`-Attribut des {{HTMLElement("script")}}-Elements wider.
+- [`HTMLScriptElement.attributionSrc`](/de/docs/Web/API/HTMLScriptElement/attributionSrc) {{securecontext_inline}} {{experimental_inline}}
+  - : Ruft das [`attributionsrc`](/de/docs/Web/HTML/Element/script#attributionsrc)-Attribut eines {{htmlelement("script")}}-Elements programmgesteuert ab und setzt es, wobei der Wert dieses Attributs widergespiegelt wird. `attributionsrc` gibt an, dass Sie möchten, dass der Browser beim Anfordern der Skriptressource einen {{httpheader("Attribution-Reporting-Eligible")}}-Header sendet. Serverseitig wird dies verwendet, um das Senden eines {{httpheader("Attribution-Reporting-Register-Source")}} oder {{httpheader("Attribution-Reporting-Register-Trigger")}}-Headers in der Antwort auszulösen, um eine JavaScript-basierte [Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#javascript-based_event_sources) oder einen [Attributionstrigger](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers#javascript-based_attribution_triggers) zu registrieren.
+- [`HTMLScriptElement.async`](/de/docs/Web/API/HTMLScriptElement/async)
+  - : Ein boolescher Wert, der steuert, wie das Skript ausgeführt werden soll. Bei klassischen Skripten, wenn die `async`-Eigenschaft auf `true` gesetzt ist, wird das externe Skript parallel zum Parsen abgerufen und ausgewertet, sobald es verfügbar ist. Bei [Modulskripten](/de/docs/Web/JavaScript/Guide/Modules), wenn die `async`-Eigenschaft auf `true` gesetzt ist, werden das Skript und all ihre Abhängigkeiten parallel zum Parsen abgerufen und ausgewertet, sobald sie verfügbar sind.
+- [`HTMLScriptElement.blocking`](/de/docs/Web/API/HTMLScriptElement/blocking) {{Experimental_Inline}}
+  - : Ein String, der angibt, dass bestimmte Operationen beim Abrufen des Skripts blockiert werden sollen. Er spiegelt das `blocking`-Attribut des {{HTMLElement("script")}}-Elements wider.
 - `HTMLScriptElement.charset` {{deprecated_inline}}
-  - : Ein Zeichenfolgenwert, der die Zeichenkodierung eines externen Skripts darstellt. Es spiegelt das [`charset`](/de/docs/Web/HTML/Element/script#charset)-Attribut wider.
-- {{domxref("HTMLScriptElement.crossOrigin")}}
-  - : Ein Zeichenfolgenwert, der die [CORS-Einstellungen](/de/docs/Web/HTML/Attributes/crossorigin) für das Skriptelement widerspiegelt. Für klassische Skripte aus anderen [Ursprüngen](/de/docs/Glossary/Origin) steuert dies, ob Fehlermeldungen angezeigt werden.
-- {{domxref("HTMLScriptElement.defer")}}
-  - : Ein boolescher Wert, der steuert, wie das Skript ausgeführt werden soll. Für klassische Skripte, wenn die `defer`-Eigenschaft auf `true` gesetzt ist, wird das externe Skript ausgeführt, nachdem das Dokument geparst wurde, aber bevor das {{domxref("Document/DOMContentLoaded_event", "DOMContentLoaded")}}-Ereignis ausgelöst wird. Für [Modulscripte](/de/docs/Web/JavaScript/Guide/Modules) hat die `defer`-Eigenschaft keine Wirkung.
+  - : Ein String, der die Zeichenkodierung eines externen Skripts darstellt. Er spiegelt das [`charset`](/de/docs/Web/HTML/Element/script#charset)-Attribut wider.
+- [`HTMLScriptElement.crossOrigin`](/de/docs/Web/API/HTMLScriptElement/crossOrigin)
+  - : Ein String, der die [CORS-Einstellung](/de/docs/Web/HTML/Attributes/crossorigin) für das Skriptelement widerspiegelt. Bei klassischen Skripten aus anderen [Ursprüngen](/de/docs/Glossary/Origin) steuert dies, ob Fehlermeldungen angezeigt werden.
+- [`HTMLScriptElement.defer`](/de/docs/Web/API/HTMLScriptElement/defer)
+  - : Ein boolescher Wert, der steuert, wie das Skript ausgeführt werden soll. Bei klassischen Skripten, wenn die `defer`-Eigenschaft auf `true` gesetzt ist, wird das externe Skript ausgeführt, nachdem das Dokument geparst wurde, aber bevor das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis ausgelöst wird. Bei [Modulskripten](/de/docs/Web/JavaScript/Guide/Modules) hat die `defer`-Eigenschaft keine Wirkung.
 - `HTMLScriptElement.event` {{deprecated_inline}}
-  - : Eine Zeichenfolge; eine veraltete Möglichkeit, Ereignishandler auf Elementen in einem HTML-Dokument zu registrieren.
-- {{domxref("HTMLScriptElement.fetchPriority")}}
-  - : Eine optionale Zeichenfolge, die dem Browser einen Hinweis gibt, wie er das Abrufen eines externen Skripts im Verhältnis zu anderen externen Skripten priorisieren sollte. Wenn dieser Wert angegeben wird, muss er einer der möglichen zulässigen Werte sein: `high` für hohe Priorität, `low` für niedrige Priorität oder `auto`, um keine Präferenz anzugeben (was der Standard ist). Es spiegelt das `fetchpriority`-Attribut des {{HTMLElement("script")}}-Elements wider.
-- {{domxref("HTMLScriptElement.integrity")}}
-  - : Eine Zeichenfolge, die inline Metadaten enthält, die ein Browser verwenden kann, um zu überprüfen, ob eine abgerufene Ressource ohne unerwartete Manipulation bereitgestellt wurde. Es spiegelt das `integrity`-Attribut des {{HTMLElement("script")}}-Elements wider.
-- {{domxref("HTMLScriptElement.noModule")}}
-  - : Ein boolescher Wert, der, wenn er wahr ist, die Ausführung des Skripts in Browsern, die [ES-Module](/de/docs/Web/JavaScript/Guide/Modules) unterstützen, stoppt — verwendet, um Fallback-Skripte in älteren Browsern auszuführen, die JavaScript-Module _nicht_ unterstützen.
-- {{domxref("HTMLScriptElement.referrerPolicy")}}
-  - : Eine Zeichenfolge, die das [`referrerPolicy`](/de/docs/Web/HTML/Element/script#referrerpolicy)-HTML-Attribut widerspiegelt, das angibt, welchen Referrer beim Abrufen des Skripts und beim Abrufen durch das Skript verwendet werden soll.
-- {{domxref("HTMLScriptElement.src")}}
-  - : Eine Zeichenfolge, die die URL eines externen Skripts darstellt; dies kann als Alternative zum direkten Einbetten eines Skripts in ein Dokument verwendet werden. Es spiegelt das `src`-Attribut des {{HTMLElement("script")}}-Elements wider.
-- {{domxref("HTMLScriptElement.text")}}
+  - : Ein String; eine veraltete Möglichkeit, Ereignishandler an Elemente in einem HTML-Dokument zu registrieren.
+- [`HTMLScriptElement.fetchPriority`](/de/docs/Web/API/HTMLScriptElement/fetchPriority)
+  - : Ein optionaler String, der dem Browser einen Hinweis darauf gibt, wie das Abrufen eines externen Skripts im Vergleich zu anderen externen Skripten priorisiert werden soll. Wenn dieser Wert angegeben ist, muss er einer der möglichen erlaubten Werte sein: 'high' für hohe Priorität, 'low' für niedrige Priorität oder 'auto', um keine Präferenz anzugeben (was der Standard ist). Er spiegelt das `fetchpriority`-Attribut des {{HTMLElement("script")}}-Elements wider.
+- [`HTMLScriptElement.integrity`](/de/docs/Web/API/HTMLScriptElement/integrity)
+  - : Ein String, der Metadaten enthält, die ein Browser verwenden kann, um zu überprüfen, ob eine abgerufene Ressource ohne unerwartete Manipulation bereitgestellt wurde. Er spiegelt das `integrity`-Attribut des {{HTMLElement("script")}}-Elements wider.
+- [`HTMLScriptElement.noModule`](/de/docs/Web/API/HTMLScriptElement/noModule)
+  - : Ein boolescher Wert, der, wenn er auf true gesetzt ist, die Ausführung des Skripts in Browsern verhindert, die [ES-Module](/de/docs/Web/JavaScript/Guide/Modules) unterstützen — verwendet, um Fallback-Skripte in älteren Browsern auszuführen, die keine JavaScript-Module unterstützen.
+- [`HTMLScriptElement.referrerPolicy`](/de/docs/Web/API/HTMLScriptElement/referrerPolicy)
+  - : Ein String, der das [`referrerPolicy`](/de/docs/Web/HTML/Element/script#referrerpolicy)-HTML-Attribut widerspiegelt, das angibt, welcher Referrer beim Abrufen des Skripts und der vom Skript durchgeführten Abrufe verwendet werden soll.
+- [`HTMLScriptElement.src`](/de/docs/Web/API/HTMLScriptElement/src)
+  - : Ein String, der die URL eines externen Skripts darstellt; dies kann als Alternative zur direkten Einbettung eines Skripts innerhalb eines Dokuments verwendet werden. Es spiegelt das `src`-Attribut des {{HTMLElement("script")}}-Elements wider.
+- [`HTMLScriptElement.text`](/de/docs/Web/API/HTMLScriptElement/text)
 
-  - : Eine Zeichenfolge, die die Inhalte aller {{domxref("Text")}}-Knoten innerhalb des {{HTMLElement("script")}}-Elements vereint und in Baumreihenfolge zurückgibt (andere Knoten wie Kommentare werden ignoriert). Beim Setzen verhält es sich genauso wie die {{domxref("Node.textContent")}}-Eigenschaft.
+  - : Ein String, der den Inhalt aller [`Text`](/de/docs/Web/API/Text)-Knoten innerhalb des {{HTMLElement("script")}}-Elements in Baumreihenfolge verbindet und zurückgibt (andere Knoten wie Kommentare werden ignoriert). Beim Setzen verhält es sich genauso wie die [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft.
 
     > [!NOTE]
-    > Wenn mittels der Methode {{domxref("Document.write()")}} eingefügt, werden {{HTMLElement("script")}}-Elemente ausgeführt (typischerweise synchron), aber wenn sie mittels {{domxref("Element.innerHTML")}} oder {{domxref("Element.outerHTML")}} eingefügt werden, werden sie überhaupt nicht ausgeführt.
+    > Wenn sie mit der [`Document.write()`](/de/docs/Web/API/Document/write)-Methode eingefügt werden, führen {{HTMLElement("script")}}-Elemente aus (typischerweise synchron), aber wenn sie mit [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) oder [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML) eingefügt werden, werden sie überhaupt nicht ausgeführt.
 
-- {{domxref("HTMLScriptElement.type")}}
-  - : Eine Zeichenfolge, die den Typ des Skripts darstellt. Es spiegelt das `type`-Attribut des {{HTMLElement("script")}}-Elements wider.
+- [`HTMLScriptElement.type`](/de/docs/Web/API/HTMLScriptElement/type)
+  - : Ein String, der den Typ des Skripts darstellt. Es spiegelt das `type`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
 ## Statische Methoden
 
-- {{domxref("HTMLScriptElement.supports_static", "HTMLScriptElement.supports()")}}
+- [`HTMLScriptElement.supports()`](/de/docs/Web/API/HTMLScriptElement/supports_static)
   - : Gibt `true` zurück, wenn der Browser Skripte des angegebenen Typs unterstützt, und `false` andernfalls.
-    Diese Methode bietet eine einfache und einheitliche Methode zur skriptbezogenen Feature-Erkennung.
+    Diese Methode bietet einen einfachen und einheitlichen Mechanismus zur Skript-bezogenen Funktionsprüfung.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Ereignisse
 
-_Keine spezifischen Ereignisse; erbt Ereignisse von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Keine spezifischen Ereignisse; erbt Ereignisse von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Beispiele
 
 ### Dynamisches Importieren von Skripten
 
-Erstellen Sie eine Funktion, die neue Skripte innerhalb eines Dokuments importiert, indem sie einen {{HTMLElement("script")}}-Knoten _unmittelbar vor_ dem {{HTMLElement("script")}}, der den folgenden Code beherbergt, erstellt (über {{domxref("document.currentScript")}}).
+Lassen Sie uns eine Funktion erstellen, die neue Skripte innerhalb eines Dokuments importiert, indem ein {{HTMLElement("script")}}-Knoten _unmittelbar vor_ dem {{HTMLElement("script")}}, das den folgenden Code hostet, erstellt wird (durch [`document.currentScript`](/de/docs/Web/API/Document/currentScript)).
 Diese Skripte werden **asynchron** ausgeführt.
-Weitere Informationen finden Sie in den Eigenschaften [`defer`](/de/docs/Web/API/HTMLScriptElement/defer) und [`async`](/de/docs/Web/API/HTMLScriptElement/async).
+Weitere Details finden Sie in den Eigenschaften [`defer`](/de/docs/Web/API/HTMLScriptElement/defer) und [`async`](/de/docs/Web/API/HTMLScriptElement/async).
 
 ```js
 function loadError(oError) {
@@ -92,7 +92,7 @@ function prefixScript(url, onloadFunction) {
 }
 ```
 
-Diese nächste Funktion fügt anstatt die neuen Skripte unmittelbar vor dem {{domxref("document.currentScript")}}-Element bereitzustellen, sie als Kinder des {{HTMLElement("head")}}-Tags ein.
+Diese nächste Funktion fügt die neuen Skripte statt sie unmittelbar vor dem [`document.currentScript`](/de/docs/Web/API/Document/currentScript)-Element hinzuzufügen, als Kinder des {{HTMLElement("head")}}-Tags hinzu.
 
 ```js
 function loadError(oError) {
@@ -110,7 +110,7 @@ function affixScriptToHead(url, onloadFunction) {
 }
 ```
 
-Beispielnutzung:
+Beispielhafte Nutzung:
 
 ```js
 affixScriptToHead("myScript1.js");
@@ -121,9 +121,9 @@ affixScriptToHead("myScript2.js", () => {
 
 ### Überprüfen, ob ein Skripttyp unterstützt wird
 
-{{domxref("HTMLScriptElement.supports_static", "HTMLScriptElement.supports()")}} bietet einen einheitlichen Mechanismus, um zu überprüfen, ob ein Browser bestimmte Skripttypen unterstützt.
+[`HTMLScriptElement.supports()`](/de/docs/Web/API/HTMLScriptElement/supports_static) bietet einen einheitlichen Mechanismus, um zu prüfen, ob ein Browser bestimmte Skripttypen unterstützt.
 
-Das folgende Beispiel zeigt, wie die Unterstützung von Modulen überprüft wird, wobei das Vorhandensein des `noModule`-Attributs als Fallback verwendet wird.
+Das folgende Beispiel zeigt, wie die Modulsunterstützung überprüft wird, wobei das Vorhandensein des `noModule`-Attributs als Fallback verwendet wird.
 
 ```js
 function checkModuleSupport() {
@@ -134,7 +134,7 @@ function checkModuleSupport() {
 }
 ```
 
-Klassische Skripte gelten als von allen Browsern unterstützt.
+Klassische Skripte werden in allen Browsern als unterstützt angesehen.
 
 ## Spezifikationen
 
@@ -148,5 +148,5 @@ Klassische Skripte gelten als von allen Browsern unterstützt.
 
 - HTML {{HTMLElement("script")}}-Element
 - HTML {{HTMLElement("noscript")}}-Element
-- {{domxref("document.currentScript")}}
-- [Web Workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers) (Code-Snippets, die ähnlich wie Skripte sind, aber in einem [anderen globalen Kontext](/de/docs/Web/API/DedicatedWorkerGlobalScope) ausgeführt werden)
+- [`document.currentScript`](/de/docs/Web/API/Document/currentScript)
+- [Web Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers) (Code-Snippets ähnlich Skripten, die jedoch in [einem anderen globalen Kontext](/de/docs/Web/API/DedicatedWorkerGlobalScope) ausgeführt werden)

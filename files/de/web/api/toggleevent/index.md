@@ -7,30 +7,30 @@ l10n:
 
 {{APIRef("Popover API")}}
 
-Die **`ToggleEvent`** Schnittstelle repräsentiert ein Ereignis, das den Benutzer darüber informiert, dass sich der Zustand eines Elements geändert hat.
+Die **`ToggleEvent`**-Schnittstelle stellt ein Ereignis dar, das den Benutzer darüber informiert, dass sich der Zustand eines Elements geändert hat.
 
-Es ist das Ereignisobjekt für die `HTMLElement`-Ereignisse {{domxref("HTMLElement.beforetoggle_event", "beforetoggle")}} und {{domxref("HTMLElement.toggle_event", "toggle")}}, die auf Popovern ausgelöst werden, wenn sie zwischen dem Anzeigen und Verbergen wechseln (davor bzw. danach).
-Es ist auch das Ereignisobjekt für das `HTMLDetailsElement`-Ereignis {{domxref("HTMLDetailsElement.toggle_event", "toggle")}}, das ausgelöst wird, wenn ein `<details>`-Element zwischen geöffnet und geschlossen umgeschaltet wird.
+Es handelt sich um das Ereignisobjekt für die `HTMLElement`-Ereignisse [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event) und [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event), die bei Popovers ausgelöst werden, wenn diese zwischen sichtbar und versteckt wechseln (vor bzw. nach der Änderung).
+Es ist auch das Ereignisobjekt für das `HTMLDetailsElement`-Ereignis [`toggle`](/de/docs/Web/API/HTMLDetailsElement/toggle_event), das ausgelöst wird, wenn ein `<details>`-Element zwischen geöffnet und geschlossen umgeschaltet wird.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{DOMxRef("ToggleEvent.ToggleEvent", "ToggleEvent()")}}
+- [`ToggleEvent()`](/de/docs/Web/API/ToggleEvent/ToggleEvent)
   - : Erstellt ein `ToggleEvent`-Objekt.
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem übergeordneten {{DOMxRef("Event")}}._
+_Diese Schnittstelle erbt Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- {{DOMxRef("ToggleEvent.newState")}} {{ReadOnlyInline}}
-  - : Ein String (entweder `"open"` oder `"closed"`), der den Zustand darstellt, in den das Element übergeht.
-- {{DOMxRef("ToggleEvent.oldState")}} {{ReadOnlyInline}}
-  - : Ein String (entweder `"open"` oder `"closed"`), der den Zustand darstellt, aus dem das Element wechselt.
+- [`ToggleEvent.newState`](/de/docs/Web/API/ToggleEvent/newState) {{ReadOnlyInline}}
+  - : Ein String (entweder `"open"` oder `"closed"`), der den Zustand darstellt, zu dem das Element wechselt.
+- [`ToggleEvent.oldState`](/de/docs/Web/API/ToggleEvent/oldState) {{ReadOnlyInline}}
+  - : Ein String (entweder `"open"` oder `"closed"`), der den Zustand darstellt, von dem das Element wechselt.
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
 ```js
 const popover = document.getElementById("mypopover");
@@ -39,9 +39,9 @@ const popover = document.getElementById("mypopover");
 
 popover.addEventListener("beforetoggle", (event) => {
   if (event.newState === "open") {
-    console.log("Popover wird angezeigt");
+    console.log("Popover is being shown");
   } else {
-    console.log("Popover wird ausgeblendet");
+    console.log("Popover is being hidden");
   }
 });
 ```
@@ -50,7 +50,7 @@ popover.addEventListener("beforetoggle", (event) => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

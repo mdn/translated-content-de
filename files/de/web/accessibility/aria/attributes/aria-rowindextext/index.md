@@ -7,27 +7,27 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das Attribut `aria-rowindextext` definiert einen lesbaren Text als Alternative zu `aria-rowindex`.
+Das Attribut `aria-rowindextext` definiert eine menschenlesbare Textalternative zu `aria-rowindex`.
 
 ## Beschreibung
 
-Wenn Sie eine sehr lange Tabelle haben oder absichtlich nur einen Abschnitt einer Tabelle anzeigen möchten, sind möglicherweise nicht alle Zeilen im DOM vorhanden. In diesem Fall verwenden wir [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowcount) mit einem ganzzahligen Wert, um zu definieren, wie viele Zeilen die Tabelle (oder das Raster) hätte, wenn alle Zeilen vorhanden wären. Wir fügen die Eigenschaft [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindex) für jede Zeile und jede sich erstreckende Zelle hinzu, um Informationen über den Zeilenindex innerhalb dieser größeren Tabelle bereitzustellen. Wenn der Wert von `aria-rowindex` keine Bedeutung hat oder nicht den angezeigten Index widerspiegelt, können wir auch `aria-rowindextext` hinzufügen, um eine lesbare Textalternative zum ganzzahligen Wert von `aria-rowindex` bereitzustellen.
+Wenn Sie eine sehr lange Tabelle haben oder absichtlich nur einen Abschnitt einer Tabelle anzeigen möchten, sind möglicherweise nicht alle Zeilen im DOM vorhanden. In diesem Fall verwenden wir [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowcount) mit einem ganzzahligen Wert, um zu definieren, wie viele Zeilen die Tabelle (oder das Raster) hätte, wenn alle Zeilen vorhanden wären, und fügen die Eigenschaft [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindex) zu jeder Zeile und übergreifenden Zelle hinzu, um Informationen über den Zeilenindex innerhalb dieser größeren Tabelle bereitzustellen. Wenn der Wert von `aria-rowindex` nicht aussagekräftig ist oder den angezeigten Index nicht widerspiegelt, können wir auch `aria-rowindextext` hinzufügen, um eine menschenlesbare Textalternative zum ganzzahligen Wert von `aria-rowindex` bereitzustellen.
 
-Das `aria-rowindextext` sollte **zusätzlich zu**, nicht als Ersatz für das `aria-rowindex` enthalten sein. Einige unterstützende Technologien verwenden den numerischen Zeilenindex, um den Standort des Benutzers zu verfolgen oder alternative Tabellen-Navigationsmöglichkeiten zu bieten. Das `aria-rowindextext` ist nützlich, wenn dieser ganzzahlige Wert nicht aussagekräftig ist oder nicht den angezeigten Index widerspiegelt, wie zum Beispiel bei einem Schach- oder Schiffe-Versenken-Spiel.
+Das `aria-rowindextext` sollte nur als Ergänzung, nicht als Ersatz für `aria-rowindex` aufgenommen werden. Einige unterstützende Technologien verwenden den numerischen Zeilenindex, um die Position des Benutzers zu verfolgen oder eine alternative Tabellennavigation bereitzustellen. Das `aria-rowindextext` ist nützlich, wenn dieser ganzzahlige Wert nicht aussagekräftig ist oder den angezeigten Index nicht widerspiegelt, wie z. B. bei einem Schachspiel oder Schiffe versenken.
 
-Das `aria-rowindextext` wird jedem {{HTMLElement('tr')}} oder Elementen mit der Rolle `row` hinzugefügt. Es kann auch zusätzlich zu Zellen oder untergeordneten Elementen jeder Zeile hinzugefügt werden.
+Das `aria-rowindextext` wird zu jedem {{HTMLElement('tr')}} oder zu Elementen mit der Rolle `row` hinzugefügt. Es kann auch als Ergänzung zu Zellen oder untergeordneten Elementen jeder Zeile hinzugefügt werden.
 
 ## Werte
 
 - `<string>`
-  - Die lesbare Textalternative des numerischen [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindex)
+  - Die menschenlesbare Textalternative zum numerischen [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindex)
 
 ## Zugehörige Schnittstellen
 
-- {{domxref("Element.ariaRowIndexText")}}
-  - : Die Eigenschaft [`ariaRowIndexText`](/de/docs/Web/API/Element/ariaRowIndexText), Teil der {{domxref("Element")}} Schnittstelle, spiegelt den Wert des Attributs `aria-rowindextext` wider.
-- {{domxref("ElementInternals.ariaRowIndexText")}}
-  - : Die Eigenschaft [`ariaRowIndexText`](/de/docs/Web/API/ElementInternals/ariaRowIndexText), Teil der {{domxref("ElementInternals")}} Schnittstelle, spiegelt den Wert des Attributs `aria-rowindextext` wider.
+- [`Element.ariaRowIndexText`](/de/docs/Web/API/Element/ariaRowIndexText)
+  - : Die [`ariaRowIndexText`](/de/docs/Web/API/Element/ariaRowIndexText)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-rowindextext`-Attributs wider.
+- [`ElementInternals.ariaRowIndexText`](/de/docs/Web/API/ElementInternals/ariaRowIndexText)
+  - : Die [`ariaRowIndexText`](/de/docs/Web/API/ElementInternals/ariaRowIndexText)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-rowindextext`-Attributs wider.
 
 ## Zugehörige Rollen
 

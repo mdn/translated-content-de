@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Hash-based message authentication code**(_HMAC_) ist ein Protokoll, das für die {{Glossary("cryptography", "kryptografische")}} Authentifizierung von Nachrichten verwendet wird.
+Ein **Hash-basiertes Nachrichten-Authentifizierungscodesystem** (_HMAC_) ist ein Protokoll zur [kryptografischen](/de/docs/Glossary/cryptography) Authentifizierung von Nachrichten.
 
-Es kann jede Art von {{Glossary("Cryptographic hash function", "kryptografischen Funktionen")}} verwenden, und seine Stärke hängt von der zugrunde liegenden Funktion (zum Beispiel SHA1 oder MD5) und dem gewählten geheimen Schlüssel ab. Mit einer solchen Kombination ist der HMAC-Verifizierungs-{{Glossary("Algorithm", "Algorithmus")}} dann unter einem zusammengesetzten Namen wie HMAC-SHA1 bekannt.
+Es kann jede Art von [kryptografischen Funktionen](/de/docs/Glossary/Cryptographic_hash_function) verwenden, und seine Stärke hängt von der zugrunde liegenden Funktion (zum Beispiel SHA1 oder MD5) und dem gewählten geheimen Schlüssel ab. Mit einer solchen Kombination ist der HMAC-Verifizierungs-[Algorithmus](/de/docs/Glossary/Algorithm) dann unter einem zusammengesetzten Namen wie HMAC-SHA1 bekannt.
 
-HMAC wird verwendet, um sowohl Integrität als auch Authentifizierung zu gewährleisten.
+HMAC wird verwendet, um sowohl die Integrität als auch die Authentifizierung sicherzustellen.
 
 ## Siehe auch
 
 - [HMAC](https://en.wikipedia.org/wiki/Hash-based_message_authentication_code) auf Wikipedia
-- [RFC 2104](https://datatracker.ietf.org/doc/html/rfc2104) bei IETF
+- [RFC 2104](https://datatracker.ietf.org/doc/html/rfc2104) auf IETF

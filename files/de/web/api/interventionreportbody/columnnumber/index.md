@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`columnNumber`** der {{domxref("InterventionReportBody")}}-Schnittstelle gibt die Linie in der Quelldatei zurück, in der die Intervention stattgefunden hat.
+Die schreibgeschützte Eigenschaft **`columnNumber`** der [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Schnittstelle gibt die Spalte in der Quelldatei zurück, in der die Intervention aufgetreten ist.
 
 > [!NOTE]
-> Diese Eigenschaft ist am nützlichsten in Kombination mit {{domxref("InterventionReportBody.sourceFile")}} und {{domxref("InterventionReportBody.lineNumber")}}, da sie die Lokalisierung der Spalte in dieser Datei und Linie ermöglicht, in der die Funktion genutzt wird.
+> Diese Eigenschaft ist zusammen mit [`InterventionReportBody.sourceFile`](/de/docs/Web/API/InterventionReportBody/sourceFile) und [`InterventionReportBody.lineNumber`](/de/docs/Web/API/InterventionReportBody/lineNumber) am nützlichsten, da sie es ermöglicht, den Ort der Spalte in dieser Datei und Zeile zu bestimmen, an der das Feature verwendet wird.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein Integer oder `null`, wenn die Spalte nicht bekannt ist.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen {{domxref("ReportingObserver")}}, um Interventionsberichte zu beobachten, und geben dann den Wert von `columnNumber` in der Konsole aus.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Interventionsberichte zu beobachten, und geben dann den Wert von `columnNumber` in der Konsole aus.
 
 ```js
 const options = {
@@ -30,9 +30,9 @@ const options = {
 const observer = new ReportingObserver((reports, observer) => {
   const firstReport = reports[0];
   console.log(firstReport.type); // intervention
-  console.log(firstReport.body.sourceFile); // die Quelldatei
-  console.log(firstReport.body.lineNumber); // die Linie in dieser Datei
-  console.log(firstReport.body.columnNumber); // die Spalte in dieser Datei.
+  console.log(firstReport.body.sourceFile); // the source file
+  console.log(firstReport.body.lineNumber); // the line in that file
+  console.log(firstReport.body.columnNumber); // the column in that file.
 }, options);
 ```
 

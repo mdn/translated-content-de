@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef}}
 
-Das **`webglcontextcreationerror`** Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der Benutzeragent nicht in der Lage ist, einen {{domxref("WebGLRenderingContext")}} Kontext zu erstellen.
+Das **`webglcontextcreationerror`** Ereignis der [WebGL API](/de/docs/Web/API/WebGL_API) wird ausgelöst, wenn der Benutzeragent nicht in der Lage ist, einen [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Kontext zu erstellen.
 
-Dieses Ereignis verfügt über eine {{domxref("WebGLContextEvent.statusMessage")}} Eigenschaft, die eine plattformabhängige Zeichenkette mit weiteren Informationen über den Fehler enthalten kann.
+Dieses Ereignis verfügt über eine [`WebGLContextEvent.statusMessage`](/de/docs/Web/API/WebGLContextEvent/statusMessage) Eigenschaft, die einen plattformabhängigen String enthalten kann, der weitere Informationen über den Fehler gibt.
 
-Dieses Ereignis wird nicht weitergegeben (bubbelt nicht).
+Dieses Ereignis wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("webglcontextcreationerror", (event) => {});
@@ -26,15 +26,15 @@ onwebglcontextcreationerror = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("WebGLContextEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("WebGLContextEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrer übergeordneten Schnittstelle, {{domxref("Event")}}._
+_Diese Schnittstelle erbt Eigenschaften von ihrer Elternschnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("WebGLContextEvent.statusMessage")}}
+- [`WebGLContextEvent.statusMessage`](/de/docs/Web/API/WebGLContextEvent/statusMessage)
   - : Eine schreibgeschützte Eigenschaft, die zusätzliche Informationen über das Ereignis enthält.
 
 ## Beispiel
@@ -51,7 +51,7 @@ canvas.addEventListener(
 );
 
 const gl = canvas.getContext("webgl");
-// protokolliert statusMessage oder "Unknown error", wenn der WebGL-Kontext nicht erstellt werden kann
+// logs statusMessage or "Unknown error" if unable to create WebGL context
 ```
 
 ## Spezifikationen
@@ -64,6 +64,6 @@ const gl = canvas.getContext("webgl");
 
 ## Siehe auch
 
-- {{domxref("WebGLContextEvent")}}
-- {{domxref("WebGLRenderingContext.isContextLost()")}}
-- {{domxref("WEBGL_lose_context")}}, {{domxref("WEBGL_lose_context.loseContext()")}}, {{domxref("WEBGL_lose_context.restoreContext()")}}
+- [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent)
+- [`WebGLRenderingContext.isContextLost()`](/de/docs/Web/API/WebGLRenderingContext/isContextLost)
+- [`WEBGL_lose_context`](/de/docs/Web/API/WEBGL_lose_context), [`WEBGL_lose_context.loseContext()`](/de/docs/Web/API/WEBGL_lose_context/loseContext), [`WEBGL_lose_context.restoreContext()`](/de/docs/Web/API/WEBGL_lose_context/restoreContext)

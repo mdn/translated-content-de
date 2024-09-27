@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Storage")}}{{AvailableInWorkers("worker")}}
 
-Die **`storage`**-Eigenschaft des {{domxref("WorkerNavigator")}}-Interfaces ist eine schreibgeschützte Eigenschaft, die das Singleton-{{domxref("StorageManager")}}-Objekt zurückgibt, das verwendet wird, um auf die allgemeinen Speichermöglichkeiten des Browsers für die aktuelle Seite oder App zuzugreifen. Das zurückgegebene Objekt ermöglicht es Ihnen, die Persistenz von Datenspeichern zu prüfen und zu konfigurieren und ungefähr zu erfahren, wie viel Speicherplatz Ihr Browser noch für die lokale Speicherung zur Verfügung hat.
+Die schreibgeschützte **`storage`**-Eigenschaft des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces gibt das Singleton-Objekt [`StorageManager`](/de/docs/Web/API/StorageManager) zurück, das verwendet wird, um auf die allgemeinen Speichermöglichkeiten des Browsers für die aktuelle Website oder App zuzugreifen. Das zurückgegebene Objekt erlaubt es, die Persistenz von Datenspeichern zu prüfen und zu konfigurieren sowie ungefähr zu erfahren, wie viel Speicherplatz der Browser für die lokale Speicherung noch verfügbar hat.
 
 ## Wert
 
-Ein {{domxref("StorageManager")}}-Objekt, das Sie verwenden können, um die Persistenz für gespeicherte Daten beizubehalten und um ungefähr zu bestimmen, wie viel Platz für die Speicherung von Daten zur Verfügung steht.
+Ein [`StorageManager`](/de/docs/Web/API/StorageManager)-Objekt, das verwendet werden kann, um die Persistenz für gespeicherte Daten aufrechtzuerhalten und um grob zu bestimmen, wie viel Platz für die Speicherung von Daten vorhanden ist.
 
 ## Spezifikationen
 
@@ -24,5 +24,5 @@ Ein {{domxref("StorageManager")}}-Objekt, das Sie verwenden können, um die Pers
 
 ## Siehe auch
 
-- {{domxref("StorageManager")}}
-- {{domxref("WorkerNavigator")}}
+- [`StorageManager`](/de/docs/Web/API/StorageManager)
+- [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)

@@ -1,5 +1,5 @@
 ---
-title: "SpeechGrammar: Konstruktor SpeechGrammar()"
+title: "SpeechGrammar: SpeechGrammar() Konstruktor"
 short-title: SpeechGrammar()
 slug: Web/API/SpeechGrammar/SpeechGrammar
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{Non-standard_Header}}{{SeeCompatTable}}
 
-Der **`SpeechGrammar()`**-Konstruktor der
-{{domxref("SpeechGrammar")}}-Schnittstelle erstellt eine neue `SpeechGrammar`-Objektinstanz.
+Der **`SpeechGrammar()`** Konstruktor der
+[`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar) Schnittstelle erstellt eine neue Instanz eines `SpeechGrammar` Objekts.
 
 ## Syntax
 
@@ -34,12 +34,12 @@ recognition.grammars = speechRecognitionList;
 const newGrammar = new SpeechGrammar();
 newGrammar.src =
   "#JSGF V1.0; grammar names; public <name> = chris | kirsty | mike;";
-speechRecognitionList[1] = newGrammar; // sollte das neue SpeechGrammar-Objekt zur Liste hinzufügen
+speechRecognitionList[1] = newGrammar; // should add the new SpeechGrammar object to the list
 ```
 
 ## Spezifikationen
 
-Diese API hat keine offizielle W3C- oder WHATWG-Spezifikation.
+Diese API hat keine offizielle W3C oder WHATWG Spezifikation.
 
 ## Browser-Kompatibilität
 

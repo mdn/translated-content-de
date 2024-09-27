@@ -1,5 +1,5 @@
 ---
-title: "XSLTProcessor: Methode setParameter()"
+title: "XSLTProcessor: setParameter()-Methode"
 short-title: setParameter()
 slug: Web/API/XSLTProcessor/setParameter
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XSLT")}}
 
-Die `setParameter()` Methode des {{domxref("XSLTProcessor")}} Interfaces setzt den Wert eines Parameters (`<xsl:param>`) im Stylesheet, das im Prozessor importiert wurde.
+Die `setParameter()`-Methode des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Interfaces setzt den Wert eines Parameters (`<xsl:param>`) im im Prozessor importierten Stylesheet.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setParameter(namespaceURI, localName, value)
 ### Parameter
 
 - `namespaceURI`
-  - : Der Namespace, der mit dem Parameternamen verbunden ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null) Wert wird wie der leere String (`""`) behandelt.
+  - : Der Namespace, der mit dem Parameternamen verknüpft ist. Ein ["null"](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso behandelt wie der leere String (`""`).
 - `localName`
   - : Der Name des Parameters im zugehörigen Namespace.
 - `value`
@@ -35,7 +35,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwendung von setParameter()
 
-Dieses Beispiel demonstriert, wie Parameter von JavaScript an ein XSLT-Stylesheet übergeben werden, um die Transformationsergebnisse basierend auf diesen Parametern dynamisch zu verändern.
+Dieses Beispiel zeigt, wie Parameter von JavaScript an ein XSLT-Stylesheet übergeben werden, indem `setParameter()` verwendet wird. Dies ermöglicht eine dynamische Modifikation der Transformationsausgabe basierend auf diesen Parametern.
 
 #### HTML
 
@@ -82,10 +82,10 @@ xsltProcessor.importStylesheet(xsltDoc);
 xsltProcessor.setParameter(null, "showItems", "yes");
 xsltProcessor.setParameter(null, "highlightColor", "lightblue");
 
-// Führt die Transformation von XML zu HTML durch
+// Perform the transformation from XML to HTML
 const resultFragment = xsltProcessor.transformToFragment(xmlDoc, document);
 
-// Zeigt das transformierte Ergebnis auf der Seite an
+// Display the transformed result in the page
 document.getElementById("result").appendChild(resultFragment);
 ```
 
@@ -103,7 +103,7 @@ document.getElementById("result").appendChild(resultFragment);
 
 ## Siehe auch
 
-- {{domxref("XSLTProcessor.getParameter()")}}
-- {{domxref("XSLTProcessor.removeParameter()")}}
-- {{domxref("XSLTProcessor.clearParameters()")}}
-- {{domxref("XSLTProcessor.reset()")}}
+- [`XSLTProcessor.getParameter()`](/de/docs/Web/API/XSLTProcessor/getParameter)
+- [`XSLTProcessor.removeParameter()`](/de/docs/Web/API/XSLTProcessor/removeParameter)
+- [`XSLTProcessor.clearParameters()`](/de/docs/Web/API/XSLTProcessor/clearParameters)
+- [`XSLTProcessor.reset()`](/de/docs/Web/API/XSLTProcessor/reset)

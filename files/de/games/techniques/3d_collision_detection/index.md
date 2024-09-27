@@ -7,24 +7,24 @@ l10n:
 
 {{GamesSidebar}}
 
-Dieser Artikel bietet eine Einführung in die verschiedenen Begrenzungsvolumen-Techniken, die zur Implementierung der Kollisionserkennung in 3D-Umgebungen verwendet werden. Folgeartikel werden Implementierungen in spezifischen 3D-Bibliotheken behandeln.
+Dieser Artikel bietet eine Einführung in die verschiedenen Techniken für Begrenzungsvolumina, die zur Implementierung der Kollisionserkennung in 3D-Umgebungen verwendet werden. Nachfolgende Artikel werden Implementierungen in spezifischen 3D-Bibliotheken abdecken.
 
-## Achsen-ausgerichtete Begrenzungsboxen
+## Achsen-aligned Begrenzungsboxen
 
-Wie bei der 2D-Kollisionserkennung sind **achsen-ausgerichtete Begrenzungsboxen** (AABB) der schnellste Algorithmus, um festzustellen, ob sich die beiden Spielelemente überlappen oder nicht. Dies besteht darin, die Spielelemente in eine nicht gedrehte (somit achsen-ausgerichtete) Box einzuschließen und die Positionen dieser Boxen im 3D-Koordinatenraum zu überprüfen, um festzustellen, ob sie sich überlappen.
+Wie bei der 2D-Kollisionserkennung sind **achsen-aligned Begrenzungsboxen** (AABB) der schnellste Algorithmus, um festzustellen, ob sich zwei Spielelemente überlappen oder nicht. Dazu werden Spielelemente in einer nicht-rotierenden (daher achsen-aligned) Box eingeschlossen und die Positionen dieser Boxen im 3D-Koordinatenraum überprüft, um zu sehen, ob sie sich überlappen.
 
-![Zwei 3D-Nicht-Quadrat Objekte, die im Raum schweben, umschlossen von virtuellen rechteckigen Boxen.](screen_shot_2015-10-16_at_15.11.21.png)
+![Zwei 3D-nicht-quadratische Objekte schweben im Raum, umgeben von virtuellen rechteckigen Boxen.](screen_shot_2015-10-16_at_15.11.21.png)
 
-Die **achsen-ausgerichtete Einschränkung** besteht aus Leistungsgründen. Der Überlappungsbereich zwischen zwei nicht gedrehten Boxen kann nur mit logischen Vergleichen überprüft werden, während gedrehte Boxen zusätzliche trigonometrische Operationen erfordern, die langsamer zu berechnen sind. Wenn Sie Elemente haben, die sich drehen werden, können Sie entweder die Abmessungen der Begrenzungsbox ändern, damit sie das Objekt weiterhin umschließt, oder sich dafür entscheiden, einen anderen Begrenzungsgeometrietyp zu verwenden, wie Kugeln (die gegenüber Rotation invariant sind). Das animierte GIF unten zeigt ein grafisches Beispiel einer AABB, die ihre Größe anpasst, um das rotierende Objekt zu umschließen. Die Box ändert ständig ihre Abmessungen, um das darin enthaltene Objekt passgenau zu umschließen.
+Die **achsen-aligned Beschränkung** existiert aus Leistungsgründen. Der Überlappungsbereich zwischen zwei nicht-rotierenden Boxen kann allein durch logische Vergleiche überprüft werden, während rotierende Boxen zusätzliche trigonometrische Operationen erfordern, die langsamer zu berechnen sind. Wenn Sie Elemente haben, die rotieren werden, können Sie entweder die Dimensionen der Begrenzungsbox modifizieren, sodass sie das Objekt weiterhin umschließt, oder sich für eine andere Art von Begrenzungsgeometrie entscheiden, wie z. B. Kugeln (die rotationsinvariant sind). Das animierte GIF unten zeigt ein grafisches Beispiel für eine AABB, die ihre Größe anpasst, um das rotierende Element aufzunehmen. Die Box ändert ständig ihre Abmessungen, um das darin enthaltene Element passend zu umschließen.
 
-![Animierte rotierende Knoten, die zeigen, dass sich die virtuelle rechteckige Box verkleinert und vergrößert, während die Knoten darin rotieren. Die Box dreht sich nicht.](rotating_knot.gif)
+![Animierter, rotierender Knoten zeigt die virtuelle rechteckige Box, die sich verkleinert und vergrößert, während der Knoten darin rotiert. Die Box dreht sich nicht.](rotating_knot.gif)
 
 > [!NOTE]
-> Werfen Sie einen Blick auf den Artikel [Begrenzungsvolumen mit Three.js](/de/docs/Games/Techniques/3D_collision_detection/Bounding_volume_collision_detection_with_THREE.js), um eine praktische Implementierung dieser Technik zu sehen.
+> Sehen Sie sich den Artikel [Bounding Volumes mit Three.js](/de/docs/Games/Techniques/3D_collision_detection/Bounding_volume_collision_detection_with_THREE.js) an, um eine praktische Umsetzung dieser Technik zu sehen.
 
 ### Punkt vs. AABB
 
-Es ist ziemlich einfach zu überprüfen, ob ein Punkt innerhalb einer AABB liegt — wir müssen nur überprüfen, ob die Koordinaten des Punktes innerhalb der AABB liegen und dabei jede Achse separat betrachten. Wenn wir annehmen, dass _P<sub>x</sub>_, _P<sub>y</sub>_ und _P<sub>z</sub>_ die Koordinaten des Punktes sind, und _B<sub>minX</sub>_–_B<sub>maxX</sub>_, _B<sub>minY</sub>_–_B<sub>maxY</sub>_, und _B<sub>minZ</sub>_–_B<sub>maxZ</sub>_ die Bereiche jeder Achse der AABB sind, können wir berechnen, ob eine Kollision zwischen den beiden nach der folgenden Formel aufgetreten ist:
+Zu überprüfen, ob ein Punkt in einer AABB liegt, ist ziemlich einfach – wir müssen nur überprüfen, ob die Koordinaten des Punktes innerhalb der AABB liegen; wobei jede Achse separat betrachtet wird. Wenn wir annehmen, dass _P<sub>x</sub>_, _P<sub>y</sub>_ und _P<sub>z</sub>_ die Koordinaten des Punktes sind und _B<sub>minX</sub>_–_B<sub>maxX</sub>_, _B<sub>minY</sub>_–_B<sub>maxY</sub>_ und _B<sub>minZ</sub>_–_B<sub>maxZ</sub>_ die Bereiche jeder Achse der AABB sind, können wir mit der folgenden Formel berechnen, ob eine Kollision zwischen den beiden aufgetreten ist:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -49,11 +49,11 @@ function isPointInsideAABB(point, box) {
 
 ### AABB vs. AABB
 
-Zu überprüfen, ob eine AABB eine andere AABB schneidet, ist dem Punkttest ähnlich. Wir müssen nur einen Test pro Achse durchführen und dabei die Begrenzungen der Boxen verwenden. Das Diagramm unten zeigt den Test, den wir entlang der X-Achse durchführen würden — im Grunde genommen, überlappen sich die Bereiche _A<sub>minX</sub>_–_A<sub>maxX</sub>_ und _B<sub>minX</sub>_–_B<sub>maxX</sub>_?
+Zu überprüfen, ob eine AABB eine andere AABB schneidet, ähnelt dem Punkttest. Wir müssen nur einen Test pro Achse durchführen, indem wir die Grenzen der Boxen verwenden. Das Diagramm unten zeigt den Test, den wir über die X-Achse durchführen würden – im Grunde, ob die Bereiche _A<sub>minX</sub>_–_A<sub>maxX</sub>_ und _B<sub>minX</sub>_–_B<sub>maxX</sub>_ überlappen?
 
-![Handzeichnung von zwei Rechtecken, die zeigen, dass die obere rechte Ecke von A die untere linke Ecke von B überlappt, da die größte X-Koordinate von A größer ist als die kleinste X-Koordinate von B.](aabb_test.png)
+![Handzeichnung von zwei Rechtecken, die zeigen, dass die obere rechte Ecke von A die untere linke Ecke von B überlappt, da A's größte x-Koordinate größer ist als B's kleinste x-Koordinate.](aabb_test.png)
 
-Mathematisch sieht das so aus:
+Mathematisch sieht das folgendermaßen aus:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -61,7 +61,7 @@ Mathematisch sieht das so aus:
 </math>
 <!-- prettier-ignore-end -->
 
-Und in JavaScript würden wir diesen Code verwenden:
+Und in JavaScript würden wir das so machen:
 
 ```js
 function intersect(a, b) {
@@ -78,15 +78,15 @@ function intersect(a, b) {
 
 ## Begrenzungskugeln
 
-Die Verwendung von Begrenzungskugeln zur Kollisionserkennung ist etwas komplexer als AABB, aber dennoch relativ schnell zu testen. Der Hauptvorteil von Kugeln besteht darin, dass sie gegenüber Rotation invariant sind. Wenn sich also das umschlossene Element dreht, bleibt die Begrenzungskugel unverändert. Ihr Hauptnachteil ist, dass, es sei denn, das umschlossene Element ist tatsächlich kugelförmig, die Umhüllung normalerweise nicht gut passt (z. B. führt das Umhüllen einer Person mit einer Begrenzungskugel zu vielen Fehlalarmen, während eine AABB besser geeignet wäre).
+Der Einsatz von Begrenzungskugeln zur Kollisionsdetektion ist etwas komplexer als AABB, aber immer noch relativ schnell zu testen. Der Hauptvorteil von Kugeln ist, dass sie rotationsinvariant sind, sodass, wenn das umschlossene Element rotiert, die Begrenzungskugel dennoch dieselbe bleibt. Ihr Hauptnachteil ist, dass sie, es sei denn, das umhüllte Element ist tatsächlich kugelförmig, normalerweise nicht gut passen (d.h. das Umhüllen einer Person mit einer Begrenzungskugel wird viele falsche Treffer verursachen, während eine AABB besser passen würde).
 
 ### Punkt vs. Kugel
 
-Um zu überprüfen, ob eine Kugel einen Punkt enthält, müssen wir den Abstand zwischen Punkt und Kugelmittelpunkt berechnen. Wenn dieser Abstand kleiner oder gleich dem Radius der Kugel ist, befindet sich der Punkt innerhalb der Kugel.
+Um zu überprüfen, ob eine Kugel einen Punkt enthält, müssen wir den Abstand zwischen dem Punkt und dem Zentrum der Kugel berechnen. Wenn dieser Abstand kleiner oder gleich dem Radius der Kugel ist, befindet sich der Punkt innerhalb der Kugel.
 
-![Handzeichnung einer 2D-Projektion einer Kugel und eines Punktes in einem kartesischen Koordinatensystem. Der Punkt liegt außerhalb des Kreises, rechts unten davon. Der Abstand ist durch eine gestrichelte Linie, markiert mit D, vom Kreismittelpunkt zum Punkt gekennzeichnet. Eine leichtere Linie zeigt den Radius, markiert mit R, vom Zentrum des Kreises bis zum Rand des Kreises.](point_vs_sphere.png)
+![Handzeichnung einer 2D-Projektion einer Kugel und eines Punktes in einem kartesischen Koordinatensystem. Der Punkt liegt außerhalb des Kreises, unten rechts davon. Der Abstand ist durch eine gestrichelte Linie, mit D bezeichnet, vom Zentrum des Kreises zum Punkt gekennzeichnet. Eine hellere Linie zeigt den Radius, mit R bezeichnet, der vom Zentrum des Kreises zum Rand des Kreises geht.](point_vs_sphere.png)
 
-Angesichts der Tatsache, dass der euklidische Abstand zwischen zwei Punkten _A_ und _B_ <math><semantics><msqrt><mrow><mo stretchy="false">(</mo><msub><mi>A</mi><mi>x</mi></msub><mo>−</mo><msub><mi>B</mi><mi>x</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">(</mo><msub><mi>A</mi><mi>y</mi></msub><mo>−</mo><msub><mi>B</mi><mi>y</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">(</mo><msub><mi>A</mi><mi>z</mi></msub><mo>−</mo><msub><mi>B</mi><mi>z</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></msqrt><annotation encoding="TeX">\sqrt{(A_x - B_x)^2 + (A_y - B_y)^2 + (A_z - B_z)^2}</annotation></semantics></math> ist, funktioniert unsere Formel für die Kollisionserkennung Punkt vs. Kugel so:
+Wenn man bedenkt, dass der euklidische Abstand zwischen zwei Punkten _A_ und _B_ <math><semantics><msqrt><mrow><mo stretchy="false">(</mo><msub><mi>A</mi><mi>x</mi></msub><mo>−</mo><msub><mi>B</mi><mi>x</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">(</mo><msub><mi>A</mi><mi>y</mi></msub><mo>−</mo><msub><mi>B</mi><mi>y</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mo stretchy="false">(</mo><msub><mi>A</mi><mi>z</mi></msub><mo>−</mo><msub><mi>B</mi><mi>z</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></msqrt><annotation encoding="TeX">\sqrt{(A_x - B_x)^2 + (A_y - B_y)^2 + (A_z - B_z)^2}</annotation></semantics></math> ist, ergibt sich unsere Formel für die Punkt-gegen-Kugel-Kollisionserkennung wie folgt:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -109,13 +109,13 @@ function isPointInsideSphere(point, sphere) {
 ```
 
 > [!NOTE]
-> Der obige Code enthält eine Quadratwurzel, die teuer zu berechnen sein kann. Eine einfache Optimierung, um sie zu vermeiden, besteht darin, den quadrierten Abstand mit dem quadrierten Radius zu vergleichen, sodass die optimierte Gleichung stattdessen `distanceSqr < sphere.radius * sphere.radius` beinhaltet.
+> Der obige Code enthält eine Quadratwurzel, deren Berechnung teuer sein kann. Eine einfache Optimierung, um dies zu vermeiden, besteht darin, den quadratischen Abstand mit dem quadratischen Radius zu vergleichen, sodass die optimierte Gleichung stattdessen `distanceSqr < sphere.radius * sphere.radius` beinhaltet.
 
 ### Kugel vs. Kugel
 
-Der Test Kugel vs. Kugel ist dem Test Punkt vs. Kugel ähnlich. Was wir hier testen müssen, ist, ob der Abstand zwischen den Mittelpunkten der Kugeln kleiner oder gleich der Summe ihrer Radien ist.
+Der Test Kugel gegen Kugel ähnelt dem Punkt-gegen-Kugel-Test. Was wir hier testen müssen, ist, dass der Abstand zwischen den Zentren der Kugeln kleiner oder gleich der Summe ihrer Radien ist.
 
-![Handzeichnung von zwei teilweise überlappenden Kreisen. Jeder Kreis (von verschiedener Größe) hat eine leichtere Radiuslinie, die von seinem Zentrum zu seinem Rand verläuft, markiert mit R. Der Abstand ist durch eine gepunktete Linie, markiert mit D, verbunden, die die Mittelpunkte beider Kreise verbindet.](sphere_vs_sphere.png)
+![Handzeichnung von zwei sich teilweise überlappenden Kreisen. Jeder Kreis (unterschiedlicher Größe) hat eine helle Linie, die vom Zentrum zu seinem Rand verläuft, gekennzeichnet mit R. Der Abstand ist durch eine punktierte Linie, mit D bezeichnet, die die Mittelpunkte beider Kreise verbindet, gekennzeichnet.](sphere_vs_sphere.png)
 
 Mathematisch sieht das so aus:
 
@@ -141,11 +141,11 @@ function intersect(sphere, other) {
 
 ### Kugel vs. AABB
 
-Zu testen, ob eine Kugel und eine AABB kollidieren, ist etwas komplizierter, aber immer noch einfach und schnell. Ein logischer Ansatz wäre, jeden Eckpunkt der AABB zu überprüfen und für jeden einen Punkt-vs.-Kugel-Test durchzuführen. Dies ist jedoch übertrieben — das Testen aller Eckpunkte ist unnötig, da wir mit der Berechnung des Abstands zwischen dem **nächsten Punkt** der AABB (nicht unbedingt ein Eckpunkt) und dem Mittelpunkt der Kugel, der kleiner oder gleich dem Radius der Kugel sein muss, davonkommen. Wir können diesen Wert erhalten, indem wir den Mittelpunkt der Kugel auf die Begrenzungen der AABB einschränken.
+Das Testen, ob eine Kugel und eine AABB kollidieren, ist etwas komplizierter, aber immer noch einfach und schnell. Ein logischer Ansatz wäre, jeden Scheitelpunkt der AABB zu prüfen und für jeden einen Punkt-gegen-Kugel-Test durchzuführen. Dies ist jedoch übertrieben – das Testen aller Scheitelpunkte ist unnötig, da wir uns damit begnügen können, nur den Abstand zwischen dem _nächstgelegenen Punkt_ der AABB (nicht unbedingt ein Scheitelpunkt) und dem Zentrum der Kugel zu berechnen und zu prüfen, ob dieser kleiner oder gleich dem Radius der Kugel ist. Diesen Wert können wir erhalten, indem wir das Zentrum der Kugel an die Grenzen der AABB klammern.
 
-![Handzeichnung eines Quadrats, das teilweise die Oberseite eines Kreises überlappt. Der Radius wird durch eine leichte Linie markiert mit R angezeigt. Die Distanzlinie verläuft vom Mittelpunkt des Kreises zum nächsten Punkt des Quadrats.](sphere_vs_aabb.png)
+![Handzeichnung eines Quadrats, das teilweise den oberen Bereich eines Kreises überlappt. Der Radius wird durch eine helle Linie, mit R bezeichnet, dargestellt. Die Entfernungslinie geht vom Zentrum des Kreises zum nächstgelegenen Punkt des Quadrats.](sphere_vs_aabb.png)
 
-In JavaScript würden wir diesen Test auf folgende Weise durchführen:
+In JavaScript würden wir diesen Test so durchführen:
 
 ```js
 function intersect(sphere, box) {
@@ -165,20 +165,20 @@ function intersect(sphere, box) {
 }
 ```
 
-## Verwendung einer Physik-Engine
+## Verwendung eines Physik-Engines
 
-**3D-Physik-Engines** bieten Kollisionserkennungsalgorithmen, die ebenfalls meist auf Begrenzungsvolumen basieren. Eine Physik-Engine funktioniert, indem sie einen **physischen Körper** erstellt, der normalerweise mit einer visuellen Darstellung davon verbunden ist. Dieser Körper hat Eigenschaften wie Geschwindigkeit, Position, Rotation, Drehmoment usw. sowie eine **physikalische Form**. Diese Form wird in den Berechnungen zur Kollisionserkennung berücksichtigt.
+**3D Physik-Engines** bieten Algorithmen zur Kollisionserkennung, von denen die meisten ebenfalls auf Begrenzungsvolumina basieren. Die Funktionsweise einer Physik-Engine besteht darin, einen **physischen Körper** zu erstellen, der normalerweise an eine visuelle Darstellung davon angehängt ist. Dieser Körper hat Eigenschaften wie Geschwindigkeit, Position, Rotation, Drehmoment usw. und auch eine **physikalische Form**. Diese Form wird in den Berechnungen zur Kollisionserkennung berücksichtigt.
 
-Wir haben eine [aktive Kollisionserkennungs-Demo](https://mozdevs.github.io/gamedev-js-3d-aabb/physics.html) (mit [Quellcode](https://github.com/mozdevs/gamedev-js-3d-aabb)) vorbereitet, die Sie sich ansehen können, um diese Techniken in Aktion zu sehen — dies verwendet die Open-Source-3D-Physik-Engine [cannon.js](https://github.com/schteppe/cannon.js).
+Wir haben eine [live Kollisionserkennungsdemonstration](https://mozdevs.github.io/gamedev-js-3d-aabb/physics.html) (mit [Quellcode](https://github.com/mozdevs/gamedev-js-3d-aabb)) vorbereitet, die Sie sich ansehen können, um solche Techniken in Aktion zu sehen – hierbei wird die Open-Source-3D-Physik-Engine [cannon.js](https://github.com/schteppe/cannon.js) verwendet.
 
 ## Siehe auch
 
 Verwandte Artikel auf MDN:
 
-- [Begrenzungsvolumen-Kollisionserkennung mit Three.js](/de/docs/Games/Techniques/3D_collision_detection/Bounding_volume_collision_detection_with_THREE.js)
+- [Kollisionserkennung von Begrenzungsvolumina mit Three.js](/de/docs/Games/Techniques/3D_collision_detection/Bounding_volume_collision_detection_with_THREE.js)
 - [2D-Kollisionserkennung](/de/docs/Games/Techniques/2D_collision_detection)
 
 Externe Ressourcen:
 
-- [Einfache Schnittpunkttests für Spiele](https://www.gamedeveloper.com/game-platforms/simple-intersection-tests-for-games) auf Game Developer
+- [Einfache Schnittstellentests für Spiele](https://www.gamedeveloper.com/game-platforms/simple-intersection-tests-for-games) auf Game Developer
 - [Begrenzungsvolumen](https://de.wikipedia.org/wiki/Begrenzungsvolumen) auf Wikipedia

@@ -1,5 +1,5 @@
 ---
-title: "WorkerGlobalScope: languagechange-Ereignis"
+title: "WorkerGlobalScope: languagechange Ereignis"
 short-title: languagechange
 slug: Web/API/WorkerGlobalScope/languagechange_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}{{AvailableInWorkers("worker")}}
 
-Das **`languagechange`**-Ereignis wird am globalen Scope-Objekt ausgelöst, wenn sich die bevorzugte Sprache des Benutzers ändert.
+Das **`languagechange`** Ereignis wird im globalen Scope-Objekt ausgelöst, wenn sich die bevorzugte Sprache des Benutzers ändert.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht nach oben weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling-Prozesse aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("languagechange", (event) => {});
@@ -24,11 +24,11 @@ onlanguagechange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Sie können das `languagechange`-Ereignis in einer {{domxref("EventTarget/addEventListener", "addEventListener")}}-Methode verwenden:
+Sie können das `languagechange` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
 
 ```js
 worker.addEventListener("languagechange", () => {
@@ -36,7 +36,7 @@ worker.addEventListener("languagechange", () => {
 });
 ```
 
-Oder verwenden Sie die `onlanguagechange`-Ereignis-Handler-Eigenschaft:
+Oder verwenden Sie die `onlanguagechange` Event-Handler-Eigenschaft:
 
 ```js
 worker.onlanguagechange = (event) => {
@@ -54,6 +54,6 @@ worker.onlanguagechange = (event) => {
 
 ## Siehe auch
 
-- {{domxref("WorkerNavigator.language", "navigator.language")}}
-- {{domxref("WorkerNavigator.languages", "navigator.languages")}}
-- {{domxref("Navigator")}}
+- [`navigator.language`](/de/docs/Web/API/WorkerNavigator/language)
+- [`navigator.languages`](/de/docs/Web/API/WorkerNavigator/languages)
+- [`Navigator`](/de/docs/Web/API/Navigator)

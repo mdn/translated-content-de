@@ -13,4 +13,4 @@ Ein _verbotener Antwortheader-Name_ ist ein [HTTP-Header](/de/docs/Web/HTTP/Head
 
 - [Fetch-Spezifikation: verbotener Antwortheader-Name](https://fetch.spec.whatwg.org/#forbidden-response-header-name)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Forbidden header name")}}
+  - [Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)

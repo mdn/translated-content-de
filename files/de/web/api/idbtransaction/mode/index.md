@@ -1,6 +1,6 @@
 ---
-title: "IDBTransaction: Modus-Eigenschaft"
-short-title: Modus
+title: "IDBTransaction: mode-Eigenschaft"
+short-title: mode
 slug: Web/API/IDBTransaction/mode
 l10n:
   sourceCommit: ff1e97da7ade9fcb05fb3de064011d4f05debe82
@@ -8,50 +8,49 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`mode`**-Eigenschaft der {{domxref("IDBTransaction")}}-Schnittstelle gibt den aktuellen Modus für den Zugriff auf die Daten in den Objekt-Speichern im Rahmen der Transaktion zurück (d.h. soll der Modus nur lesen oder sollen auch Daten in den Objekt-Speichern geschrieben werden?). Der Standardwert ist `readonly`.
+Die **`mode`**-Eigenschaft des schreibgeschützten [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) Interfaces gibt den aktuellen Modus für den Datenzugriff auf die Objektspeicher im Geltungsbereich der Transaktion zurück (d.h. soll der Modus nur lesend sein oder möchten Sie in die Objektspeicher schreiben?). Der Standardwert ist `readonly`.
 
 ## Wert
 
-Ein Objekt, das den Modus zur Isolierung des Zugriffs auf Daten in den aktuellen Objekt-Speichern definiert:
-Ein String, der den Modus zur Isolierung des Zugriffs auf Daten in den aktuellen Objekt-Speichern definiert. Die folgenden Werte sind verfügbar:
+Ein Objekt, das den Modus für die Isolierung des Datenzugriffs in den aktuellen Objektspeichern definiert: Ein String, der den Modus für die Isolierung des Datenzugriffs in den aktuellen Objektspeichern definiert. Die folgenden Werte sind verfügbar:
 
 - `readonly`
-  - : Erlaubt das Lesen, aber nicht das Ändern von Daten.
+  - : Ermöglicht das Lesen, aber nicht das Ändern von Daten.
 - `readwrite`
-  - : Erlaubt das Lesen und Ändern von Daten in bestehenden Datenspeichern.
+  - : Ermöglicht das Lesen und Schreiben von Daten, die in vorhandenen Datenspeichern geändert werden können.
 - `versionchange`
-  - : Erlaubt jede Operation, einschließlich derjenigen, die Objekt-Speicher und Indizes löschen und erstellen.
-    Dieser Modus dient der Aktualisierung der Versionsnummer von Transaktionen, wenn der Bedarf beim Aufruf von {{domxref("IDBFactory.open()")}} festgestellt wird.
-    Transaktionen in diesem Modus können nicht gleichzeitig mit anderen Transaktionen ausgeführt werden.
+  - : Ermöglicht beliebige Operationen, einschließlich solcher, die Objektspeicher und Indizes löschen und erstellen.
+    Dieser Modus dient zum Aktualisieren der Versionsnummer von Transaktionen, falls der Bedarf beim Aufruf von [`IDBFactory.open()`](/de/docs/Web/API/IDBFactory/open) festgestellt wird.
+    Transaktionen dieses Modus können nicht gleichzeitig mit anderen Transaktionen laufen.
     Transaktionen in diesem Modus sind als _Upgrade-Transaktionen_ bekannt.
 
 ## Beispiele
 
-Im folgenden Codebeispiel öffnen wir eine Lese-/Schreib-Transaktion auf unserer Datenbank und fügen einige Daten zu einem Objekt-Speicher hinzu. Beachten Sie auch die Funktionen, die an die Transaktions-Ereignis-Handler angehängt sind, um über das Ergebnis der Öffnung der Transaktion im Erfolgs- oder Fehlerfall zu berichten. Am Ende protokollieren wir den Modus der aktuellen Transaktion mit `mode`. Für ein vollständiges funktionierendes Beispiel, sehen Sie unsere [To-do-Benachrichtigungs-App](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen einem Objektspeicher Daten hinzu. Beachten Sie auch die Funktionen, die an Transaktions-Ereignis-Handler angehängt sind, um über das Ergebnis des Transaktionsöffnungsvorgangs im Erfolgs- oder Fehlereignis zu berichten. Am Ende protokollieren wir den Modus der aktuellen Transaktion mit `mode`. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications App](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const note = document.getElementById("notifications");
 
-// eine Instanz eines DB-Objekts, um die IDB-Daten zu speichern
+// an instance of a db object for us to store the IDB data in
 let db;
 
-// Lassen Sie uns unsere Datenbank öffnen
+// Let us open our database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
 DBOpenRequest.onsuccess = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Datenbank initialisiert.";
+    "Database initialized.";
 
-  // das Ergebnis des Öffnens der Datenbank in der DB-Variable speichern.
-  // Dies wird oft unten verwendet
+  // store the result of opening the database in the db variable.
+  // This is used a lot below
   db = DBOpenRequest.result;
 
-  // Führen Sie die Funktion addData() aus, um die Daten zur Datenbank hinzuzufügen
+  // Run the addData() function to add the data to the database
   addData();
 };
 
 function addData() {
-  // Ein neues Objekt erstellen, das bereit ist, in die IDB eingefügt zu werden
+  // Create a new object ready for being inserted into the IDB
   const newItem = [
     {
       taskTitle: "Walk dog",
@@ -64,34 +63,34 @@ function addData() {
     },
   ];
 
-  // eine Lese-/Schreib-DB-Transaktion öffnen, bereit für das Hinzufügen der Daten
+  // open a read/write db transaction, ready for adding the data
   const transaction = db.transaction(["toDoList"], "readwrite");
 
-  // über den Erfolg des Öffnens der Transaktion berichten
+  // report on the success of opening the transaction
   transaction.oncomplete = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion abgeschlossen: Datenbankmodifikation beendet.";
+      "Transaction completed: database modification finished.";
   };
 
   transaction.onerror = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion nicht geöffnet aufgrund eines Fehlers. Doppelte Einträge sind nicht erlaubt.";
+      "Transaction not opened due to error. Duplicate items not allowed.";
   };
 
-  // einen Objekt-Speicher auf der Transaktion erstellen
+  // create an object store on the transaction
   const objectStore = transaction.objectStore("toDoList");
 
-  // unser newItem-Objekt zum Objekt-Speicher hinzufügen
+  // add our newItem object to the object store
   const objectStoreRequest = objectStore.add(newItem[0]);
 
   objectStoreRequest.onsuccess = (event) => {
-    // über den Erfolg der Anfrage berichten (das bedeutet nicht, dass das Item
-    // erfolgreich in der DB gespeichert wurde - dafür benötigen Sie transaction.onsuccess)
+    // report the success of the request (this does not mean the item
+    // has been stored successfully in the DB - for that you need transaction.onsuccess)
     note.appendChild(document.createElement("li")).textContent =
-      "Anfrage erfolgreich.";
+      "Request successful.";
   };
 
-  // Den Modus zurückgeben, in dem diese Transaktion geöffnet wurde (sollte in diesem Fall "readwrite" sein)
+  // Return the mode this transaction has been opened in (should be "readwrite" in this case)
   transaction.mode;
 }
 ```
@@ -106,10 +105,10 @@ function addData() {
 
 ## Siehe auch
 
-- [Die Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Einstellen eines Schlüsselspektrums: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursor: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegung eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Kursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

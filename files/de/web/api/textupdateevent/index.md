@@ -7,35 +7,35 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`TextUpdateEvent`**-Schnittstelle ist ein [DOM-Ereignis](/de/docs/Web/API/Event), das eine Text- oder Auswahlsänderung in einem bearbeitbaren Textbereich darstellt, der an eine {{domxref("EditContext")}}-Instanz angefügt ist.
+Das **`TextUpdateEvent`**-Interface ist ein [DOM-Ereignis](/de/docs/Web/API/Event), das ein Text- oder Auswahl-Update in einem bearbeitbaren Textbereich darstellt, der an eine [`EditContext`](/de/docs/Web/API/EditContext)-Instanz angehängt ist.
 
-Diese Schnittstelle erbt Eigenschaften von {{domxref("Event")}}.
+Dieses Interface erbt Eigenschaften von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("TextUpdateEvent.TextUpdateEvent", "TextUpdateEvent()")}} {{experimental_inline}}
+- [`TextUpdateEvent()`](/de/docs/Web/API/TextUpdateEvent/TextUpdateEvent) {{experimental_inline}}
   - : Erstellt ein neues `TextUpdateEvent`-Objekt.
 
 ## Instanz-Eigenschaften
 
-- {{domxref('TextUpdateEvent.updateRangeStart')}} {{readonlyinline}} {{experimental_inline}}
+- [`TextUpdateEvent.updateRangeStart`](/de/docs/Web/API/TextUpdateEvent/updateRangeStart) {{readonlyinline}} {{experimental_inline}}
   - : Gibt den Index des ersten Zeichens im Bereich des aktualisierten Textes zurück.
-- {{domxref('TextUpdateEvent.updateRangeEnd')}} {{readonlyinline}} {{experimental_inline}}
+- [`TextUpdateEvent.updateRangeEnd`](/de/docs/Web/API/TextUpdateEvent/updateRangeEnd) {{readonlyinline}} {{experimental_inline}}
   - : Gibt den Index des letzten Zeichens im Bereich des aktualisierten Textes zurück.
-- {{domxref('TextUpdateEvent.text')}} {{readonlyinline}} {{experimental_inline}}
+- [`TextUpdateEvent.text`](/de/docs/Web/API/TextUpdateEvent/text) {{readonlyinline}} {{experimental_inline}}
   - : Gibt den Text zurück, der im aktualisierten Bereich eingefügt wurde.
-- {{domxref('TextUpdateEvent.selectionStart')}} {{readonlyinline}} {{experimental_inline}}
-  - : Gibt den Index des ersten Zeichens im neuen Auswahlbereich nach der Aktualisierung zurück.
-- {{domxref('TextUpdateEvent.selectionEnd')}} {{readonlyinline}} {{experimental_inline}}
-  - : Gibt den Index des letzten Zeichens im neuen Auswahlbereich nach der Aktualisierung zurück.
+- [`TextUpdateEvent.selectionStart`](/de/docs/Web/API/TextUpdateEvent/selectionStart) {{readonlyinline}} {{experimental_inline}}
+  - : Gibt den Index des ersten Zeichens im neuen Auswahlbereich nach dem Update zurück.
+- [`TextUpdateEvent.selectionEnd`](/de/docs/Web/API/TextUpdateEvent/selectionEnd) {{readonlyinline}} {{experimental_inline}}
+  - : Gibt den Index des letzten Zeichens im neuen Auswahlbereich nach dem Update zurück.
 
 ## Beispiele
 
-### Rendern des aktualisierten Textes in einem bearbeitbaren Canvas
+### Rendering des aktualisierten Textes in einem bearbeitbaren Canvas
 
-Im folgenden Beispiel wird die EditContext-API verwendet, um bearbeitbaren Text in einem `<canvas>`-Element zu rendern, und das `textupdate`-Ereignis wird verwendet, um den Text zu rendern, wenn der Benutzer tippt.
+Im folgenden Beispiel wird die EditContext API verwendet, um bearbeitbaren Text in einem `<canvas>`-Element darzustellen, und das `textupdate`-Ereignis wird verwendet, um den Text darzustellen, wenn der Benutzer tippt.
 
 ```html
 <canvas id="editor-canvas"></canvas>

@@ -7,20 +7,20 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLTableCaptionElement`**-Schnittstelle bietet spezielle Eigenschaften (über die reguläre {{domxref("HTMLElement")}}-Schnittstelle hinaus, die ihr durch Vererbung ebenfalls zur Verfügung steht) zur Manipulation von {{HTMLElement("caption")}}-Elementen in Tabellen.
+Die **`HTMLTableCaptionElement`**-Schnittstelle bietet spezielle Eigenschaften (zusätzlich zu der regulären [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle, die ihr durch Vererbung ebenfalls zur Verfügung steht) zur Manipulation von Tabellen-`<caption>`-Elementen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLTableCaptionElement.align")}} {{deprecated_inline}}
-  - : Ein String, der ein aufgezähltes Attribut darstellt und die Ausrichtung der Überschrift in Bezug auf die Tabelle angibt.
+- [`HTMLTableCaptionElement.align`](/de/docs/Web/API/HTMLTableCaptionElement/align) {{deprecated_inline}}
+  - : Ein String, der ein enumeriertes Attribut darstellt, das die Ausrichtung der Beschriftung in Bezug auf die Tabelle angibt.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, {{domxref("HTMLElement")}}_.
+_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)_.
 
 ## Spezifikationen
 

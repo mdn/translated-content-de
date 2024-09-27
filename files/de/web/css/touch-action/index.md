@@ -7,19 +7,19 @@ l10n:
 
 {{CSSRef}}
 
-Die **`touch-action`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Bereich eines Elements von einem Benutzer mit Touchscreen manipuliert werden kann (zum Beispiel durch Zoom-Funktionen, die im Browser eingebaut sind).
+Die **`touch-action`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie der Bereich eines Elements von einem Benutzer mit Touchscreen manipuliert werden kann (zum Beispiel durch Zoomfunktionen, die im Browser integriert sind).
 
-Standardmäßig werden Schwenk- (Scroll-) und Pinch-Gesten ausschließlich vom Browser verarbeitet. Eine Anwendung, die {{domxref("Pointer_events", "Pointer Events", "", 1)}} verwendet, erhält ein {{domxref("Element/pointercancel_event", "pointercancel")}} Ereignis, wenn der Browser beginnt, eine Touch-Geste zu verarbeiten. Indem explizit angegeben wird, welche Gesten vom Browser gehandhabt werden sollen, kann eine Anwendung ihr eigenes Verhalten in {{domxref("Element/pointermove_event", "pointermove")}} und {{domxref("Element/pointerup_event", "pointerup")}} Listenern für die verbleibenden Gesten bereitstellen. Anwendungen, die {{domxref("Touch_events", "Touch Events", "", 1)}} verwenden, deaktivieren die Browser-Verarbeitung von Gesten, indem sie {{domxref("Event.preventDefault", "preventDefault()")}} aufrufen, sollten jedoch auch `touch-action` verwenden, um sicherzustellen, dass der Browser die Absicht der Anwendung kennt, bevor Event-Listener aufgerufen wurden.
+Standardmäßig werden Scroll- und Pinch-Gesten ausschließlich vom Browser verarbeitet. Eine Anwendung, die {{domxref("Pointer_events", "Pointer Events", "", 1)}} verwendet, erhält ein [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event) Ereignis, wenn der Browser beginnt, eine Touch-Geste zu verarbeiten. Indem explizit angegeben wird, welche Gesten vom Browser gehandhabt werden sollen, kann eine Anwendung ihr eigenes Verhalten in [`pointermove`](/de/docs/Web/API/Element/pointermove_event) und [`pointerup`](/de/docs/Web/API/Element/pointerup_event) Listeners für die verbleibenden Gesten bereitstellen. Anwendungen, die {{domxref("Touch_events", "Touch Events", "", 1)}} verwenden, deaktivieren die Browserverarbeitung von Gesten durch Aufrufen von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault), sollten jedoch auch `touch-action` verwenden, um sicherzustellen, dass der Browser die Absicht der Anwendung kennt, bevor irgendwelche Ereignis-Listener aufgerufen wurden.
 
-Wenn eine Geste gestartet wird, schneidet der Browser die `touch-action` Werte des berührten Elements und seiner Vorfahren, bis zu demjenigen, der die Geste implementiert (mit anderen Worten, das erste scollende Element), ab. Dies bedeutet, dass in der Praxis `touch-action` typischerweise nur auf oberste Elemente angewendet wird, die ein benutzerdefiniertes Verhalten haben, ohne `touch-action` explizit auf die Nachkommen dieses Elements anwenden zu müssen.
+Wenn eine Geste begonnen wird, schneidet der Browser die `touch-action` Werte des berührten Elements und seiner Vorfahren bis zu dem Element, das die Geste ausführt (in anderen Worten, das erste enthaltende Scroll-Element), ab. Dies bedeutet, dass `touch-action` in der Praxis normalerweise nur auf oberste Elemente angewendet wird, die ein benutzerdefiniertes Verhalten haben, ohne dass `touch-action` explizit auf Nachkommen dieses Elements angegeben werden muss.
 
 > [!NOTE]
-> Nachdem eine Geste begonnen hat, haben Änderungen an `touch-action` keinen Einfluss mehr auf das Verhalten der aktuellen Geste.
+> Nachdem eine Geste begonnen hat, haben Änderungen an `touch-action` keinen Einfluss auf das Verhalten der aktuellen Geste.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 touch-action: auto;
 touch-action: none;
 touch-action: pan-x;
@@ -31,7 +31,7 @@ touch-action: pan-down;
 touch-action: pinch-zoom;
 touch-action: manipulation;
 
-/* Globale Werte */
+/* Global values */
 touch-action: inherit;
 touch-action: initial;
 touch-action: revert;
@@ -39,34 +39,34 @@ touch-action: revert-layer;
 touch-action: unset;
 ```
 
-Die `touch-action` Eigenschaft kann entweder wie folgt angegeben werden:
+Die `touch-action` Eigenschaft kann entweder folgendermaßen angegeben werden:
 
 - Eines der Schlüsselwörter `auto`, `none`, [`manipulation`](#manipulation), _oder_
-- Eines der Schlüsselwörter `pan-x`, `pan-left`, `pan-right`, und/oder eines der Schlüsselwörter `pan-y`, `pan-up`, `pan-down`, plus optional das Schlüsselwort `pinch-zoom`.
+- Eines der Schlüsselwörter `pan-x`, `pan-left`, `pan-right` und/oder eines der Schlüsselwörter `pan-y`, `pan-up`, `pan-down`, plus optional das Schlüsselwort `pinch-zoom`.
 
 ### Werte
 
 - `auto`
-  - : Ermöglicht die Verarbeitung aller Schwenk- und Zoom-Gesten durch den Browser.
+  - : Aktiviert die Browserverarbeitung aller Scroll- und Zoomgesten.
 - `none`
-  - : Deaktiviert die Verarbeitung aller Schwenk- und Zoom-Gesten durch den Browser.
+  - : Deaktiviert die Browserverarbeitung aller Scroll- und Zoomgesten.
 - `pan-x`
-  - : Ermöglicht horizontale Ein-Finger-Schwenkgesten. Kann mit **pan-y**, **pan-up**, **pan-down** und/oder **pinch-zoom** kombiniert werden.
+  - : Aktiviert einhändige horizontale Scroll-Gesten. Kann mit **pan-y**, **pan-up**, **pan-down** und/oder **pinch-zoom** kombiniert werden.
 - `pan-y`
-  - : Ermöglicht vertikale Ein-Finger-Schwenkgesten. Kann mit **pan-x**, **pan-left**, **pan-right** und/oder **pinch-zoom** kombiniert werden.
+  - : Aktiviert einhändige vertikale Scroll-Gesten. Kann mit **pan-x**, **pan-left**, **pan-right** und/oder **pinch-zoom** kombiniert werden.
 - `manipulation`
-  - : Ermöglicht Schwenk- und Pinch-Zoom-Gesten, deaktiviert jedoch zusätzliche nicht standardmäßige Gesten wie Doppeltipp-Zoom. Das Deaktivieren von Doppeltipp-Zoom entfernt die Notwendigkeit für Browser, die Generierung von **Klick**-Ereignissen zu verzögern, wenn der Benutzer auf den Bildschirm tippt. Dies ist ein Alias für "**pan-x pan-y pinch-zoom**" (was für die Kompatibilität selbst immer noch gültig ist).
+  - : Aktiviert Scroll- und Pinch-Zoom-Gesten, deaktiviert jedoch zusätzliche nicht standardisierte Gesten wie Doppeltippen zum Zoomen. Die Deaktivierung von Doppeltippen zum Zoomen beseitigt die Notwendigkeit für Browser, bei Antippen des Bildschirms die Erzeugung von **Klick**-Ereignissen zu verzögern. Dies ist ein Alias für "**pan-x pan-y pinch-zoom**" (das aus Kompatibilitätsgründen selbst noch gültig ist).
 - `pan-left`, `pan-right`, `pan-up`, `pan-down`
-  - : Ermöglicht Ein-Finger-Gesten, die mit einem Scrollen in die angegebene(n) Richtung(en) beginnen. Sobald das Scrollen begonnen hat, kann die Richtung trotzdem geändert werden. Beachten Sie, dass Scrollen "nach oben" (**pan-up**) bedeutet, dass der Benutzer seinen Finger auf der Bildschirmoberfläche nach unten zieht, und ebenso bedeutet **pan-left**, dass der Benutzer seinen Finger nach rechts zieht. Mehrere Richtungen können kombiniert werden, außer wenn es eine einfachere Darstellung gibt (zum Beispiel ist **"pan-left pan-right**" ungültig, da "**pan-x**" einfacher ist, aber "**pan-left pan-down**" ist gültig).
+  - : Aktiviert einhändig Gesten, die durch Scrollen in die angegebene(n) Richtung(en) beginnen. Einmal begonnenes Scrollen kann die Richtung noch umkehren. Beachten Sie, dass Scrollen "nach oben" (**pan-up**) bedeutet, dass der Benutzer seinen Finger nach unten auf der Bildschirmoberfläche zieht, und ebenso bedeutet **pan-left**, dass der Benutzer seinen Finger nach rechts zieht. Mehrere Richtungen können kombiniert werden, außer wenn es eine einfachere Darstellung gibt (z.B. ist **"pan-left pan-right**" ungültig, da "**pan-x**" einfacher ist, aber "**pan-left pan-down**" ist gültig).
 - `pinch-zoom`
-  - : Ermöglicht Multi-Finger-Schwenk- und Zoombewegungen der Seite. Dies kann mit allen **pan-** Werten kombiniert werden.
+  - : Aktiviert mehrfingrige Scroll- und Zoom-Gesten auf der Seite. Dies kann mit allen **pan-** Werten kombiniert werden.
 
 ## Barrierefreiheit
 
-Eine Deklaration von `touch-action: none;` kann die Nutzung der Zoomfunktionen eines Browsers verhindern. Dies wird Personen mit Sehbehinderung daran hindern, Seiteninhalte lesen und verstehen zu können.
+Eine Deklaration von `touch-action: none;` kann die Bedienung der Zoomfunktionen eines Browsers verhindern. Dies kann Personen mit Sehschwäche daran hindern, die Inhalte der Seite zu lesen und zu verstehen.
 
-- [MDN Understanding WCAG, Erklärung zur Richtlinie 1.4](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verstehen des Erfolgskriteriums 1.4.4 | Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+- [MDN Verständnis von WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.4 | Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 
 ## Formale Definition
 
@@ -78,9 +78,9 @@ Eine Deklaration von `touch-action: none;` kann die Nutzung der Zoomfunktionen e
 
 ## Beispiele
 
-### Deaktivieren aller Gesten
+### Deaktivierung aller Gesten
 
-Der häufigste Gebrauch ist das Deaktivieren aller Gesten auf einem Element (und seinen nicht scrollbaren Nachfahren), das sein eigenes Dragging- und Zoomverhalten bereitstellt – wie eine Karte oder eine Spielfläche.
+Die häufigste Verwendung besteht darin, alle Gesten auf einem Element (und dessen nicht scrollbaren Nachfahren), das sein eigenes Drag- und Zoom-Verhalten bereitstellt - wie zum Beispiel eine Karte oder eine Spielfläche, zu deaktivieren.
 
 #### HTML
 
@@ -115,6 +115,6 @@ Der häufigste Gebrauch ist das Deaktivieren aller Gesten auf einem Element (und
 
 - {{cssxref("pointer-events","pointer-events")}}
 - [Pointer Events](/de/docs/Web/API/Pointer_events)
-- WebKit-Blog [Mehr reaktionsschnelles Antippen auf iOS](https://webkit.org/blog/5610/more-responsive-tapping-on-ios/)
-- Google Developers Blog [Touch-Scrolling standardmäßig schnell machen](https://developer.chrome.com/blog/scrolling-intervention/)
+- WebKit Blog [Reaktionsschnelleres Tippen auf iOS](https://webkit.org/blog/5610/more-responsive-tapping-on-ios/)
+- Google Developers Blog [Standardmäßig schnelles Touch-Scrolling](https://developer.chrome.com/blog/scrolling-intervention/)
 - [Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap)

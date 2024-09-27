@@ -7,52 +7,52 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`AudioTrackList`**-Schnittstelle wird verwendet, um eine Liste der Audiospuren darzustellen, die in einem bestimmten HTML-Medienelement enthalten sind, wobei jede Spur durch ein separates {{domxref("AudioTrack")}}-Objekt in der Liste repräsentiert wird.
+Die **`AudioTrackList`**-Schnittstelle wird verwendet, um eine Liste der Audiotracks, die in einem bestimmten HTML-Medienelement enthalten sind, darzustellen. Jeder Track wird durch ein separates [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekt in der Liste repräsentiert.
 
-Holen Sie sich eine Instanz dieses Objekts mit {{domxref('HTMLMediaElement.audioTracks')}}. Die einzelnen Spuren können mit Array-Syntax zugegriffen werden.
+Ein Beispielobjekt dieser Schnittstelle erhalten Sie mit [`HTMLMediaElement.audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks). Die einzelnen Tracks können mittels Array-Syntax abgerufen werden.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzen-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle {{domxref("EventTarget")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("AudioTrackList.length", "length")}} {{ReadOnlyInline}}
-  - : Die Anzahl der Spuren in der Liste.
+- [`length`](/de/docs/Web/API/AudioTrackList/length) {{ReadOnlyInline}}
+  - : Die Anzahl der Tracks in der Liste.
 
-## Instanz-Methoden
+## Instanzen-Methoden
 
-_Diese Schnittstelle erbt auch Methoden von ihrer übergeordneten Schnittstelle {{domxref("EventTarget")}}._
+_Diese Schnittstelle erbt auch Methoden von ihrer Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("AudioTrackList.getTrackById", "getTrackById()")}}
-  - : Gibt die {{domxref("AudioTrack")}} zurück, die in der `AudioTrackList` gefunden wurde und deren {{domxref("AudioTrack.id", "id")}} mit dem angegebenen String übereinstimmt. Wenn keine Übereinstimmung gefunden wird, wird `null` zurückgegeben.
+- [`getTrackById()`](/de/docs/Web/API/AudioTrackList/getTrackById)
+  - : Gibt den [`AudioTrack`](/de/docs/Web/API/AudioTrack) zurück, der in der `AudioTrackList` gefunden wird und dessen [`id`](/de/docs/Web/API/AudioTrack/id) mit dem angegebenen String übereinstimmt. Wenn keine Übereinstimmung gefunden wird, wird `null` zurückgegeben.
 
 ## Ereignisse
 
 - [`addtrack`](/de/docs/Web/API/AudioTrackList/addtrack_event)
-  - : Wird ausgelöst, wenn eine neue Audiospur zum Medienelement hinzugefügt wurde.
+  - : Wird ausgelöst, wenn ein neuer Audiotrack zum Medienelement hinzugefügt wurde.
 - [`change`](/de/docs/Web/API/AudioTrackList/change_event)
-  - : Wird ausgelöst, wenn eine Spur aktiviert oder deaktiviert wurde.
+  - : Wird ausgelöst, wenn ein Track aktiviert oder deaktiviert wurde.
 - [`removetrack`](/de/docs/Web/API/AudioTrackList/removetrack_event)
-  - : Wird ausgelöst, wenn eine neue Audiospur aus dem Medienelement entfernt wurde.
+  - : Wird ausgelöst, wenn ein neuer Audiotrack vom Medienelement entfernt wurde.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Zusätzlich zur Möglichkeit, direkten Zugriff auf die im Medienelement vorhandenen Audiospuren zu erhalten, können Sie mit `AudioTrackList` Ereignishandler auf die Ereignisse {{domxref("AudioTrackList/addtrack_event", "addtrack")}} und {{domxref("AudioTrackList/removetrack_event", "removetrack")}} setzen, sodass Sie erkennen können, wann Spuren zum oder vom Stream des Medienelements hinzugefügt beziehungsweise entfernt werden. Siehe die Ereignisse {{domxref("AudioTrackList/addtrack_event", "addtrack")}} und {{domxref("AudioTrackList/removetrack_event", "removetrack")}} für Details und Beispiele.
+Zusätzlich zur Möglichkeit, direkten Zugriff auf die Audiotracks eines Medienelements zu erhalten, ermöglicht `AudioTrackList` Ihnen, Ereignis-Handler für die [`addtrack`](/de/docs/Web/API/AudioTrackList/addtrack_event) und [`removetrack`](/de/docs/Web/API/AudioTrackList/removetrack_event) Ereignisse zu setzen, sodass Sie erkennen können, wann Tracks zum oder vom Stream des Medienelements hinzugefügt oder entfernt werden. Siehe die [`addtrack`](/de/docs/Web/API/AudioTrackList/addtrack_event) und [`removetrack`](/de/docs/Web/API/AudioTrackList/removetrack_event) Ereignisse für Details und Beispiele.
 
 ## Beispiele
 
-### Erhalten der Audiospurliste eines Medienelements
+### Abrufen der Audiotrack-Liste eines Medienelements
 
-Um die `AudioTrackList` eines Medienelements zu erhalten, verwenden Sie die {{domxref("HTMLMediaElement.audioTracks", "audioTracks")}}-Eigenschaft.
+Um die `AudioTrackList` eines Medienelements zu erhalten, verwenden Sie die [`audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks)-Eigenschaft.
 
 ```js
 const audioTracks = document.querySelector("video").audioTracks;
 ```
 
-### Überwachen von Spurzähleränderungen
+### Überwachen von Änderungen der Track-Anzahl
 
-In diesem Beispiel haben wir eine App, die Informationen über die Anzahl der verfügbaren Kanäle anzeigt. Um sie aktuell zu halten, werden Handler für die Ereignisse {{domxref("AudioTrackList/addtrack_event", "addtrack")}} und {{domxref("AudioTrackList/removetrack_event", "removetrack")}} eingerichtet.
+In diesem Beispiel haben wir eine App, die Informationen über die Anzahl der verfügbaren Kanäle anzeigt. Um diese aktuell zu halten, werden Handler für die [`addtrack`](/de/docs/Web/API/AudioTrackList/addtrack_event) und [`removetrack`](/de/docs/Web/API/AudioTrackList/removetrack_event) Ereignisse eingerichtet.
 
 ```js
 audioTracks.onaddtrack = updateTrackCount;

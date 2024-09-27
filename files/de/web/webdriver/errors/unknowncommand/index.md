@@ -11,7 +11,7 @@ Der Fehler **unbekannter Befehl** ist ein [WebDriver-Fehler](/de/docs/Web/WebDri
 
 ## Beispiele
 
-Der Endpunkt `/session/{session id}/foo` existiert nicht und wird einen Fehler für einen unbekannten Befehl mit dem HTTP-Statuscode [`404 Not Found`](/de/docs/Web/HTTP/Status/404) zurückgeben:
+Der `/session/{session id}/foo` Endpunkt existiert nicht und wird einen Fehler für einen unbekannten Befehl mit dem HTTP-Statuscode [`404 Not Found`](/de/docs/Web/HTTP/Status/404) zurückgeben:
 
 ```bash
 curl -i -d '{}' http://localhost:4444/session/foo

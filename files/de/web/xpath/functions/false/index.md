@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `false` gibt den booleschen Wert false zurück.
+Die Funktion `false` gibt boolean false zurück.
 
 ## Syntax
 
@@ -17,11 +17,11 @@ false()
 
 ### Rückgabewert
 
-Boolescher Wert `false`.
+Boolean `false`.
 
 ## Beschreibung
 
-Diese Funktion ist nützlich in einem Vergleich:
+Diese Funktion ist ein nützlicher Bestandteil eines Vergleichs:
 
 ```xml
 <xsl:if test="boolean((1 &gt; 2) = false())">

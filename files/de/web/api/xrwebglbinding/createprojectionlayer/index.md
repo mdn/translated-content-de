@@ -1,5 +1,5 @@
 ---
-title: "XRWebGLBinding: createProjectionLayer()-Methode"
+title: "XRWebGLBinding: createProjectionLayer() Methode"
 short-title: createProjectionLayer()
 slug: Web/API/XRWebGLBinding/createProjectionLayer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`createProjectionLayer()`**-Methode der {{domxref("XRWebGLBinding")}}-Schnittstelle gibt ein {{domxref("XRProjectionLayer")}}-Objekt zurück, welches eine Schicht darstellt, die die gesamte Sicht des Beobachters ausfüllt und nahezu mit der nativen Bildrate des Geräts aktualisiert wird.
+Die **`createProjectionLayer()`** Methode der [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding) Schnittstelle gibt ein [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) Objekt zurück, das eine Ebene darstellt, die den gesamten Sichtbereich des Betrachters ausfüllt und mit einer Bildfrequenz nahe der nativen Bildfrequenz des Geräts aktualisiert wird.
 
 ## Syntax
 
@@ -19,48 +19,48 @@ createProjectionLayer(options)
 ### Parameter
 
 - `options`
-  - : Ein Objekt zur Konfiguration des {{domxref("XRProjectionLayer")}}.
+  - : Ein Objekt zur Konfiguration des [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer).
     - `textureType` {{optional_inline}}
-      - : Ein String, der den Typ der Textur definiert, den die Schicht haben wird. Mögliche Werte:
+      - : Ein String, der den Typ der Textur definiert, den die Ebene haben wird. Mögliche Werte:
         - `texture`
-          - : Die Texturen von {{domxref("XRWebGLSubImage")}} werden vom Typ `gl.TEXTURE_2D` sein.
+          - : Die Texturen von [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage) werden vom Typ `gl.TEXTURE_2D` sein.
         - `texture-array`
-          - : Die Texturen von {{domxref("XRWebGLSubImage")}} werden vom Typ `gl.TEXTURE_2D_ARRAY` sein (nur für WebGL 2-Kontexte).
+          - : Die Texturen von [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage) werden vom Typ `gl.TEXTURE_2D_ARRAY` sein (nur WebGL 2-Kontexte).
             Der Standardwert ist `texture`.
     - `colorFormat` {{optional_inline}}
-      - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Datentyp der Farbtextur-Daten definiert. Mögliche Werte:
+      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Datentyp der Farbetexturdaten definiert. Mögliche Werte:
         - `gl.RGB`
         - `gl.RGBA`
-          Zusätzlich, für Kontexte mit der aktivierten {{domxref("EXT_sRGB")}}-Erweiterung:
+          Zusätzlich, für Kontexte mit der aktivierten [`EXT_sRGB`](/de/docs/Web/API/EXT_sRGB) Erweiterung:
         - `ext.SRGB_EXT`
         - `ext.SRGB_ALPHA_EXT`
-          Zusätzlich, für {{domxref("WebGL2RenderingContext")}}-Kontexte:
+          Zusätzlich, für [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) Kontexte:
         - `gl.RGBA8`
         - `gl.RGB8`
         - `gl.SRGB8`
         - `gl.RGB8_ALPHA8`
           Der Standardwert ist `gl.RGBA`.
     - `depthFormat` {{optional_inline}}
-      - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Datentyp der Tiefentextur-Daten definiert, oder `0`, was angibt, dass die Schicht keine Tiefentextur bereitstellen soll. (In diesem Fall wird {{domxref("XRProjectionLayer.ignoreDepthValues")}} `true` sein.)
-        Mögliche Werte innerhalb von {{domxref("WebGLRenderingContext")}}-Kontexten mit aktivierter {{domxref("WEBGL_depth_texture")}}-Erweiterung, oder innerhalb von {{domxref("WebGL2RenderingContext")}}-Kontexten (keine Erweiterung erforderlich):
+      - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Datentyp der Tiefentexturdaten definiert oder `0`, was darauf hinweist, dass die Ebene keine Tiefentextur bereitstellen soll. (In diesem Fall wird [`XRProjectionLayer.ignoreDepthValues`](/de/docs/Web/API/XRProjectionLayer/ignoreDepthValues) `true` sein.)
+        Mögliche Werte innerhalb von [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) Kontexten mit aktivierter [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture) Erweiterung oder innerhalb von [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) Kontexten (keine Erweiterung erforderlich):
         - `gl.DEPTH_COMPONENT`
         - `gl.DEPTH_STENCIL`
-          Zusätzlich, für {{domxref("WebGL2RenderingContext")}}-Kontexte:
+          Zusätzlich, für [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) Kontexte:
         - `gl.DEPTH_COMPONENT24`
         - `gl.DEPTH24_STENCIL24`
           Der Standardwert ist `gl.DEPTH_COMPONENT`.
     - `scaleFactor` {{optional_inline}}
-      - : Ein Gleitkommawert, der verwendet wird, um die Schicht während der Komposition zu skalieren. Ein Wert von `1.0` repräsentiert die Standard-Pixelgröße des Framebuffers. (Siehe auch {{domxref("XRWebGLLayer.getNativeFramebufferScaleFactor_static", "XRWebGLLayer.getNativeFramebufferScaleFactor()")}}.) Im Gegensatz zu anderen Schichten kann die `XRProjectionLayer` nicht mit einer expliziten Pixelbreite und -höhe erstellt werden, da die Größe durch die Hardware bestimmt wird. (Projektionsschichten füllen die gesamte Sicht des Beobachters aus.)
+      - : Ein Gleitkommawert, der verwendet wird, um die Ebene während der Zusammensetzung zu skalieren. Ein Wert von `1.0` repräsentiert die Standard-Pixelgröße für den Framepuffer. (Siehe auch [`XRWebGLLayer.getNativeFramebufferScaleFactor()`](/de/docs/Web/API/XRWebGLLayer/getNativeFramebufferScaleFactor_static).) Im Gegensatz zu anderen Schichten kann das `XRProjectionLayer` nicht mit einer expliziten Pixelbreite und -höhe erstellt werden, da die Größe von der Hardware abgeleitet wird. (Projektionsschichten füllen die gesamte Sicht des Betrachters aus.)
 
 ### Rückgabewert
 
-Ein {{domxref("XRProjectionLayer")}}-Objekt.
+Ein [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) Objekt.
 
 ## Beispiele
 
-### Erstellen einer `XRProjectionLayer` in einem WebGL 2-Kontext
+### Erstellen eines `XRProjectionLayer` in einem WebGL 2 Kontext
 
-Die `textureType`-Option ermöglicht es, stattdessen ein Textur-Array zuzuweisen, in welches jede {{domxref("XRView")}} in eine separate Ebene des Arrays gerendert wird. Dies ermöglicht einige Rendering-Optimierungen, wie die Verwendung der {{domxref("OVR_multiview2")}}-Erweiterung, die in WebGL 2-Kontexten verfügbar ist.
+Die `textureType` Option ermöglicht die Zuweisung eines Textur-Arrays, in dem jedes [`XRView`](/de/docs/Web/API/XRView) auf ein separates Level des Arrays gerendert wird. Dies ermöglicht einige Render-Optimierungen wie die Verwendung der [`OVR_multiview2`](/de/docs/Web/API/OVR_multiview2) Erweiterung, die in WebGL 2 Kontexten verfügbar ist.
 
 ```js
 function onXRSessionStarted(xrSession) {
@@ -86,5 +86,5 @@ function onXRSessionStarted(xrSession) {
 
 ## Siehe auch
 
-- {{domxref("XRProjectionLayer")}}
-- [WebGL-Konstanten](/de/docs/Web/API/WebGL_API/Constants)
+- [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer)
+- [WebGL Konstanten](/de/docs/Web/API/WebGL_API/Constants)

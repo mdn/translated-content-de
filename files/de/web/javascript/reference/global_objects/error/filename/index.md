@@ -1,5 +1,5 @@
 ---
-title: "Fehler: fileName"
+title: "Error: fileName"
 slug: Web/JavaScript/Reference/Global_Objects/Error/fileName
 l10n:
   sourceCommit: 5c3c25fd4f2fbd7a5f01727a65c2f70d73f1880a
@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}} {{Non-standard_Header}}
 
-Die **`fileName`** Daten-Eigenschaft einer {{jsxref("Error")}} Instanz enthält den Pfad zur Datei, die diesen Fehler ausgelöst hat.
+Die **`fileName`** Dateneigenschaft einer {{jsxref("Error")}} Instanz enthält den Pfad zu der Datei, die diesen Fehler ausgelöst hat.
 
 ## Wert
 
@@ -17,7 +17,7 @@ Ein String.
 
 ## Beschreibung
 
-Diese nicht-standardisierte Eigenschaft enthält den Pfad zur Datei, die diesen Fehler ausgelöst hat. Wenn sie aus einem Debugger-Kontext heraus aufgerufen wird, zum Beispiel in den Firefox Entwickler-Tools, wird "debugger eval code" zurückgegeben.
+Diese nicht-standardmäßige Eigenschaft enthält den Pfad zu der Datei, die diesen Fehler ausgelöst hat. Wenn sie aus einem Debugging-Kontext aufgerufen wird, zum Beispiel aus den Firefox Developer Tools, wird "debugger eval code" zurückgegeben.
 
 ## Beispiele
 
@@ -26,12 +26,12 @@ Diese nicht-standardisierte Eigenschaft enthält den Pfad zur Datei, die diesen 
 ```js
 const e = new Error("Could not parse input");
 throw e;
-// e.fileName könnte aussehen wie "file:///C:/example.html"
+// e.fileName could look like "file:///C:/example.html"
 ```
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keines Standards.
 
 ## Browser-Kompatibilität
 

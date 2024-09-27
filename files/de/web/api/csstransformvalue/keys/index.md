@@ -1,5 +1,5 @@
 ---
-title: "CSSTransformValue: keys()-Methode"
+title: "CSSTransformValue: keys() Methode"
 short-title: keys()
 slug: Web/API/CSSTransformValue/keys
 l10n:
@@ -8,9 +8,8 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`CSSTransformValue.keys()`**-Methode
-gibt ein neues _Array-Iterator_-Objekt zurück, das die Schlüssel
-für jeden Index im Array enthält.
+Die Methode **`CSSTransformValue.keys()`**
+gibt ein neues _Array-Iterator_-Objekt zurück, das die Schlüssel für jeden Index im Array enthält.
 
 ## Syntax
 
@@ -28,7 +27,7 @@ Ein neues {{jsxref("Array")}}.
 
 ## Beispiele
 
-Zu erledigen
+To Do
 
 ## Spezifikationen
 

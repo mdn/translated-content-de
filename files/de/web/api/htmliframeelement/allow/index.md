@@ -1,5 +1,5 @@
 ---
-title: "HTMLIFrameElement: Eigenschaft allow"
+title: "HTMLIFrameElement: allow-Eigenschaft"
 short-title: allow
 slug: Web/API/HTMLIFrameElement/allow
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`allow`**-Eigenschaft des Interfaces {{domxref("HTMLIFrameElement")}} zeigt die [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) an, die für dieses `<iframe>`-Element festgelegt ist. Die Richtlinie definiert, welche Funktionen dem `<iframe>`-Element zur Verfügung stehen (zum Beispiel Zugriff auf `microphone`, `camera`, `battery`, `web-share` usw.) basierend auf der Herkunft der Anfrage.
+Die **`allow`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Interfaces gibt die [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) an, die für dieses `<iframe>`-Element angegeben ist. Die Richtlinie definiert, welche Funktionen dem `<iframe>`-Element zur Verfügung stehen (zum Beispiel Zugriff auf das `microphone`, `camera`, `battery`, `web-share` usw.) basierend auf der Herkunft der Anfrage.
 
-Die durch das Attribut `allow` festgelegte Berechtigungsrichtlinie implementiert eine weitere Einschränkung zusätzlich zu der im {{HTTPHeader("Permissions-Policy")}} Header festgelegten Richtlinie. Sie ersetzt diese nicht.
+Die durch das `allow`-Attribut angegebene Permissions Policy stellt eine zusätzliche Einschränkung über die Richtlinie dar, die im {{HTTPHeader("Permissions-Policy")}}-Header angegeben ist. Sie ersetzt diesen nicht.
 
-Siehe [Berechtigungsrichtlinien-Syntax von `<iframe>`](/de/docs/Web/HTTP/Headers/Permissions-Policy#iframes) für weitere Details.
+Weitere Details finden Sie in der [Syntax der Permissions Policy für `<iframe>`](/de/docs/Web/HTTP/Headers/Permissions-Policy#iframes).
 
-Es spiegelt das `allow`-Attribut des {{HTMLElement("iframe")}}-Elements wider.
+Sie spiegelt das `allow`-Attribut des {{HTMLElement("iframe")}}-Elements wider.
 
 ## Wert
 
-Ein String zeigt die für dieses {{HTMLElement("iframe")}}-Element festgelegte [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) an, jede Richtlinie muss durch ein Leerzeichen getrennt sein.
+Ein String, der die [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) angibt, die für dieses {{HTMLElement("iframe")}}-Element spezifiziert ist, dabei muss jede Richtlinie durch ein Leerzeichen getrennt werden.
 
 ## Beispiele
 
@@ -31,19 +31,19 @@ Ein String zeigt die für dieses {{HTMLElement("iframe")}}-Element festgelegte [
 
 ```js
 const el = document.getElementById("el");
-console.log(el.allow); // Ausgabe: "geolocation 'self' https://a.example.com https://b.example.com; fullscreen 'none'"
+console.log(el.allow); // Output: "geolocation 'self' https://a.example.com https://b.example.com; fullscreen 'none'"
 ```
 
-Siehe [Berechtigungsrichtlinie im `<iframe>`-Element](/de/docs/Web/HTTP/Headers/Permissions-Policy#iframes) für weitere verfügbare Beispiele.
+Siehe [Permissions Policy im `<iframe>`-Element](/de/docs/Web/HTTP/Headers/Permissions-Policy#iframes) für weitere verfügbare Beispiele.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)
+- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

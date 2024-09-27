@@ -1,5 +1,5 @@
 ---
-title: "<slot>: Das Slot-Element der Webkomponenten"
+title: "<slot>: Das Web Component Slot Element"
 slug: Web/HTML/Element/slot
 l10n:
   sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
@@ -7,17 +7,17 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<slot>`** [HTML](/de/docs/Web/HTML) Element—Teil der [Web Komponenten](/de/docs/Web/API/Web_components) Technologie-Suite—ist ein Platzhalter innerhalb einer Webkomponente, den Sie mit Ihrem eigenen Markup füllen können. Dadurch können Sie separate DOM-Bäume erstellen und diese zusammen darstellen.
+Das **`<slot>`** [HTML](/de/docs/Web/HTML) Element – Teil der [Web Components](/de/docs/Web/API/Web_components) Technologie-Suite – ist ein Platzhalter innerhalb einer Webkomponente, den Sie mit Ihrem eigenen Markup füllen können, was es ermöglicht, separate DOM-Bäume zu erstellen und sie zusammen darzustellen.
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `name`
 
   - : Der Name des Slots.
 
-    Ein **_benannter Slot_** ist ein `<slot>`-Element mit einem `name`-Attribut.
+    Ein **_benannter Slot_** ist ein `<slot>` Element mit einem `name` Attribut.
 
 ## Beispiele
 
@@ -57,7 +57,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
       <span class="desc"><slot name="description">NEED DESCRIPTION</slot></span>
     </summary>
     <div class="attributes">
-      <h4>Attribute</h4>
+      <h4>Attributes</h4>
       <slot name="attributes"><p>None</p></slot>
     </div>
   </details>
@@ -66,7 +66,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
 ```
 
 > [!NOTE]
-> Sie können dieses vollständige Beispiel in Aktion unter [element-details](https://github.com/mdn/web-components-examples/tree/main/element-details) sehen (sehen Sie es [live](https://mdn.github.io/web-components-examples/element-details/)). Zusätzlich finden Sie eine Erklärung unter [Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots).
+> Sie können dieses vollständige Beispiel in Aktion unter [element-details](https://github.com/mdn/web-components-examples/tree/main/element-details) sehen (sehen Sie es [live](https://mdn.github.io/web-components-examples/element-details/) ausführen). Darüber hinaus finden Sie eine Erklärung unter [Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots).
 
 ## Technische Zusammenfassung
 
@@ -80,15 +80,15 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließende Inhalte</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierung von Inhalten</a
+          >Phraseninhalt</a
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a
           href="/de/docs/Web/HTML/Content_categories#transparent_content_model"
@@ -98,19 +98,20 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
     </tr>
     <tr>
       <th scope="row">Ereignisse</th>
-      <td>{{domxref("HTMLSlotElement/slotchange_event", "slotchange")}}</td>
+      <td>[`slotchange`](/de/docs/Web/API/HTMLSlotElement/slotchange_event)</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Anfangs- als auch das End-Tag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >phrasierende Inhalte</a
-        > akzeptiert
+          >Phraseninhalt</a
+        >
+        akzeptiert
       </td>
     </tr>
     <tr>
@@ -122,12 +123,12 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLSlotElement")}}</td>
+      <td>[`HTMLSlotElement`](/de/docs/Web/API/HTMLSlotElement)</td>
     </tr>
   </tbody>
 </table>

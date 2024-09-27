@@ -1,5 +1,5 @@
 ---
-title: "Element: Methode insertAdjacentHTML()"
+title: "Element: insertAdjacentHTML()-Methode"
 short-title: insertAdjacentHTML()
 slug: Web/API/Element/insertAdjacentHTML
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`insertAdjacentHTML()`** Methode des
-{{domxref("Element")}} Interfaces analysiert den angegebenen Text als HTML oder XML und fügt die resultierenden Knoten an einer bestimmten Position in den DOM-Baum ein.
+Die **`insertAdjacentHTML()`**-Methode des
+[`Element`](/de/docs/Web/API/Element)-Interfaces parst den angegebenen Text als HTML oder XML und fügt die resultierenden Knoten an einer angegebenen Position in den DOM-Baum ein.
 
 ## Syntax
 
@@ -21,19 +21,19 @@ insertAdjacentHTML(position, text)
 
 - `position`
 
-  - : Ein String, der die Position relativ zum Element darstellt. Muss einer der folgenden Strings sein:
+  - : Ein String, der die Position relativ zu dem Element angibt. Muss einer der folgenden Strings sein:
 
     - `"beforebegin"`
-      - : Vor dem Element. Nur gültig, wenn das Element im DOM-Baum ist und ein übergeordnetes Element hat.
+      - : Vor dem Element. Nur gültig, wenn das Element sich im DOM-Baum befindet und ein Elternelement hat.
     - `"afterbegin"`
-      - : Direkt im Element, vor seinem ersten Kind.
+      - : Direkt innerhalb des Elements, vor seinem ersten Kind.
     - `"beforeend"`
-      - : Direkt im Element, nach seinem letzten Kind.
+      - : Direkt innerhalb des Elements, nach seinem letzten Kind.
     - `"afterend"`
-      - : Nach dem Element. Nur gültig, wenn das Element im DOM-Baum ist und ein übergeordnetes Element hat.
+      - : Nach dem Element. Nur gültig, wenn das Element sich im DOM-Baum befindet und ein Elternelement hat.
 
 - `text`
-  - : Der String, der als HTML oder XML analysiert und in den Baum eingefügt wird.
+  - : Der zu parschende String als HTML oder XML, der in den Baum eingefügt werden soll.
 
 ### Rückgabewert
 
@@ -41,16 +41,16 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Diese Methode kann einen {{domxref("DOMException")}} der folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) von einem der folgenden Typen auslösen:
 
-- `NoModificationAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `position` `"beforebegin"` oder `"afterend"` ist und das Element entweder kein übergeordnetes Element hat oder sein übergeordnetes Element das `Document`-Objekt ist.
-- `SyntaxError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `position` nicht einer der vier aufgelisteten Werte ist.
+- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird geworfen, wenn `position` `"beforebegin"` oder `"afterend"` ist und das Element entweder kein Elternelement hat oder sein Elternelement das `Document`-Objekt ist.
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird geworfen, wenn `position` nicht einer der vier aufgeführten Werte ist.
 
 ## Beschreibung
 
-Die `insertAdjacentHTML()` Methode analysiert das Element, auf das sie angewendet wird, nicht erneut und beschädigt daher nicht die darin enthaltenen bestehenden Elemente. Dies vermeidet den zusätzlichen Schritt der Serialisierung, was es viel schneller macht als die direkte Manipulation von {{domxref("Element.innerHTML", "innerHTML")}}.
+Die `insertAdjacentHTML()`-Methode parst das Element, auf dem sie angewendet wird, nicht erneut und beschädigt somit nicht die vorhandenen Elemente innerhalb dieses Elements. Dies vermeidet den zusätzlichen Schritt der Serialisierung und macht es viel schneller als die direkte Manipulation von [`innerHTML`](/de/docs/Web/API/Element/innerHTML).
 
 Wir können die möglichen Positionen für den eingefügten Inhalt wie folgt visualisieren:
 
@@ -66,15 +66,17 @@ Wir können die möglichen Positionen für den eingefügten Inhalt wie folgt vis
 
 ### Sicherheitsüberlegungen
 
-Beim Einfügen von HTML in eine Seite mittels `insertAdjacentHTML()` sollten Sie darauf achten, dass keine nicht escape-benutzereingaben verwendet werden.
+Beim Einfügen von HTML in eine Seite mit `insertAdjacentHTML()` sollte darauf geachtet werden,
+dass keine nicht escapte Benutzereingabe verwendet wird.
 
-Sie sollten `insertAdjacentHTML()` nicht verwenden, wenn Sie einfachen
-Text einfügen möchten. Verwenden Sie stattdessen die {{domxref("Node.textContent")}} Eigenschaft oder die
-{{domxref("Element.insertAdjacentText()")}} Methode. Diese interpretiert den übergebenen Inhalt nicht als HTML, sondern fügt ihn als Rohtext ein.
+Sie sollten `insertAdjacentHTML()` nicht verwenden, um einfachen
+Text einzufügen. Verwenden Sie stattdessen die [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft oder die
+[`Element.insertAdjacentText()`](/de/docs/Web/API/Element/insertAdjacentText)-Methode. Diese interpretiert den übergebenen Inhalt
+nicht als HTML, sondern fügt ihn als Rohtext ein.
 
 ## Beispiele
 
-### HTML einfügen
+### Einfügen von HTML
 
 #### HTML
 
@@ -135,8 +137,8 @@ reset.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("Element.insertAdjacentElement()")}}
-- {{domxref("Element.insertAdjacentText()")}}
-- {{domxref("XMLSerializer")}}: Serialisiert einen DOM-Baum in einen XML-String
+- [`Element.insertAdjacentElement()`](/de/docs/Web/API/Element/insertAdjacentElement)
+- [`Element.insertAdjacentText()`](/de/docs/Web/API/Element/insertAdjacentText)
+- [`XMLSerializer`](/de/docs/Web/API/XMLSerializer): Serialisieren eines DOM-Baums in einen XML-String
 - [hacks.mozilla.org Gastbeitrag](https://hacks.mozilla.org/2011/11/insertadjacenthtml-enables-faster-html-snippet-injection/) von Henri Sivonen, der einen Benchmark enthält, der zeigt,
-  dass insertAdjacentHTML in einigen Fällen wesentlich schneller sein kann.
+  dass insertAdjacentHTML in einigen Fällen deutlich schneller sein kann.

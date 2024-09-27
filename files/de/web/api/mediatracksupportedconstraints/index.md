@@ -7,59 +7,59 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`MediaTrackSupportedConstraints`** Dictionary definiert die Liste der beschränkbaren Eigenschaften, die vom {{Glossary("user agent")}} oder Browser in seiner Implementierung des {{domxref("MediaStreamTrack")}} Objekts erkannt werden. Ein Objekt, das `MediaTrackSupportedConstraints` entspricht, wird durch {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegeben.
+Das **`MediaTrackSupportedConstraints`**-Wörterbuch legt die Liste der durch den [Benutzeragenten](/de/docs/Glossary/user_agent) oder Browser in seiner Implementierung des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekts erkannten beschränkbaren Eigenschaften fest. Ein Objekt, das mit `MediaTrackSupportedConstraints` konform ist, wird von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben.
 
-Aufgrund der Art und Weise, wie Schnittstellendefinitionen in WebIDL funktionieren, tritt kein Fehler auf, wenn eine Einschränkung angefordert wird, aber nicht unterstützt wird. Stattdessen werden die angegebenen Einschränkungen angewendet und alle nicht erkannten Einschränkungen von der Anfrage gestrichen. Dies kann zu verwirrenden und schwer zu diagnostizierenden Fehlern führen, daher sollten Sie `getSupportedConstraints()` verwenden, um diese Informationen abzurufen, bevor Sie Einschränkungen festlegen, wenn Sie den Unterschied zwischen dem stillschweigenden Ignorieren einer Einschränkung und dem Akzeptieren einer Einschränkung wissen müssen.
+Aufgrund der Funktionsweise von Schnittstellendefinitionen in WebIDL tritt kein Fehler auf, wenn eine nicht unterstützte Einschränkung angefordert wird. Stattdessen werden die angegebenen Einschränkungen angewendet, wobei alle nicht erkannten Einschränkungen aus der Anforderung entfernt werden. Dies kann zu verwirrenden und schwer zu debuggen Fehlern führen. Daher sollten Sie `getSupportedConstraints()` verwenden, um diese Informationen abzurufen, bevor Sie versuchen, Einschränkungen festzulegen, wenn Sie wissen müssen, ob eine Einschränkung stillschweigend ignoriert wird oder akzeptiert wurde.
 
-Ein tatsächliches Einschränkungsset wird unter Verwendung eines Objekts beschrieben, das auf dem {{domxref("MediaTrackConstraints")}} Dictionary basiert.
+Ein tatsächliches Einschränkungsset wird unter Verwendung eines Objekts beschrieben, das auf dem [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuch basiert.
 
-Um mehr darüber zu erfahren, wie Einschränkungen funktionieren, siehe [Capabilities, constraints, and settings](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints).
+Um mehr darüber zu erfahren, wie Einschränkungen funktionieren, siehe [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints).
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-Es wird eine Kombination, aber nicht unbedingt alle, der folgenden Eigenschaften im Objekt existieren.
+Eine Kombination aus – aber nicht unbedingt alle – der folgenden Eigenschaften wird auf dem Objekt existieren.
 
-- {{domxref("MediaTrackSupportedConstraints.autoGainControl", "autoGainControl")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`autoGainControl`](/de/docs/Web/API/MediaTrackConstraints#autogaincontrol) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.width", "width")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`width`](/de/docs/Web/API/MediaTrackConstraints#width) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.height", "height")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`height`](/de/docs/Web/API/MediaTrackConstraints#height) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.aspectRatio", "aspectRatio")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`aspectRatio`](/de/docs/Web/API/MediaTrackConstraints#aspectratio) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.frameRate", "frameRate")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`frameRate`](/de/docs/Web/API/MediaTrackConstraints#framerate) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.facingMode", "facingMode")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`facingMode`](/de/docs/Web/API/MediaTrackConstraints#facingmode) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.resizeMode", "resizeMode")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`resizeMode`](/de/docs/Web/API/MediaTrackConstraints#resizemode) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.volume", "volume")}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`volume`](/de/docs/Web/API/MediaTrackConstraints#volume) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.sampleRate", "sampleRate")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`sampleRate`](/de/docs/Web/API/MediaTrackConstraints#samplerate) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.sampleSize", "sampleSize")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`sampleSize`](/de/docs/Web/API/MediaTrackConstraints#samplesize) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.echoCancellation", "echoCancellation")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`echoCancellation`](/de/docs/Web/API/MediaTrackConstraints#echocancellation) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.latency", "latency")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`latency`](/de/docs/Web/API/MediaTrackConstraints#latency) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.noiseSuppression", "noiseSuppression")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`noiseSuppression`](/de/docs/Web/API/MediaTrackConstraints#noisesuppression) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.channelCount", "channelCount")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`channelCount`](/de/docs/Web/API/MediaTrackConstraints#channelcount) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.deviceId", "deviceId")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`deviceId`](/de/docs/Web/API/MediaTrackConstraints#deviceid) Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.groupId", "groupId")}}
-  - : Ein Boolean, dessen Wert `true` ist, wenn die [`groupId`](/de/docs/Web/API/MediaTrackConstraints#groupid) Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`autoGainControl`](/de/docs/Web/API/MediaTrackSupportedConstraints/autoGainControl)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`autoGainControl`](/de/docs/Web/API/MediaTrackConstraints#autogaincontrol)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`width`](/de/docs/Web/API/MediaTrackSupportedConstraints/width)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`width`](/de/docs/Web/API/MediaTrackConstraints#width)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`height`](/de/docs/Web/API/MediaTrackSupportedConstraints/height)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`height`](/de/docs/Web/API/MediaTrackConstraints#height)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`aspectRatio`](/de/docs/Web/API/MediaTrackSupportedConstraints/aspectRatio)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`aspectRatio`](/de/docs/Web/API/MediaTrackConstraints#aspectratio)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`frameRate`](/de/docs/Web/API/MediaTrackSupportedConstraints/frameRate)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`frameRate`](/de/docs/Web/API/MediaTrackConstraints#framerate)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`facingMode`](/de/docs/Web/API/MediaTrackSupportedConstraints/facingMode)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`facingMode`](/de/docs/Web/API/MediaTrackConstraints#facingmode)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`resizeMode`](/de/docs/Web/API/MediaTrackSupportedConstraints/resizeMode)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`resizeMode`](/de/docs/Web/API/MediaTrackConstraints#resizemode)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`volume`](/de/docs/Web/API/MediaTrackSupportedConstraints/volume) {{Deprecated_Inline}} {{Non-standard_Inline}}
+  - : Ein boolescher Wert, der `true` ist, wenn die [`volume`](/de/docs/Web/API/MediaTrackConstraints#volume)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`sampleRate`](/de/docs/Web/API/MediaTrackSupportedConstraints/sampleRate)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`sampleRate`](/de/docs/Web/API/MediaTrackConstraints#samplerate)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`sampleSize`](/de/docs/Web/API/MediaTrackSupportedConstraints/sampleSize)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`sampleSize`](/de/docs/Web/API/MediaTrackConstraints#samplesize)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`echoCancellation`](/de/docs/Web/API/MediaTrackSupportedConstraints/echoCancellation)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`echoCancellation`](/de/docs/Web/API/MediaTrackConstraints#echocancellation)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`latency`](/de/docs/Web/API/MediaTrackSupportedConstraints/latency)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`latency`](/de/docs/Web/API/MediaTrackConstraints#latency)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`noiseSuppression`](/de/docs/Web/API/MediaTrackSupportedConstraints/noiseSuppression)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`noiseSuppression`](/de/docs/Web/API/MediaTrackConstraints#noisesuppression)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`channelCount`](/de/docs/Web/API/MediaTrackSupportedConstraints/channelCount)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`channelCount`](/de/docs/Web/API/MediaTrackConstraints#channelcount)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`deviceId`](/de/docs/Web/API/MediaTrackSupportedConstraints/deviceId)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`deviceId`](/de/docs/Web/API/MediaTrackConstraints#deviceid)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`groupId`](/de/docs/Web/API/MediaTrackSupportedConstraints/groupId)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`groupId`](/de/docs/Web/API/MediaTrackConstraints#groupid)-Einschränkung in der aktuellen Umgebung unterstützt wird.
 
-### Instanz-Eigenschaften spezifisch für freigegebene Bildschirmspuren
+### Instanzeigenschaften, die spezifisch für freigegebene Bildschirmspuren sind
 
-Für Spuren, die Videoquellen aus den Bildschirm-Inhalten des Benutzers enthalten, können zusätzlich zu den für Videospuren verfügbaren Eigenschaften die folgenden zusätzlichen Eigenschaften enthalten sein.
+Für Spuren, die Videoquellen aus den Bildschirm-Inhalten des Nutzers enthalten, können zusätzlich zu denen, die für Videospuren verfügbar sind, die folgenden zusätzlichen Eigenschaften enthalten sein.
 
-- {{domxref("MediaTrackSupportedConstraints.displaySurface", "displaySurface")}}
-  - : Ein Boolean, der `true` ist, wenn die {{domxref("MediaTrackConstraints.displaySurface", "displaySurface")}} Einschränkung in der aktuellen Umgebung unterstützt wird.
-- {{domxref("MediaTrackSupportedConstraints.logicalSurface", "logicalSurface")}}
-  - : Ein Boolean, der `true` ist, wenn die {{domxref("MediaTrackConstraints.logicalSurface", "logicalSurface")}} Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`displaySurface`](/de/docs/Web/API/MediaTrackSupportedConstraints/displaySurface)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`displaySurface`](/de/docs/Web/API/MediaTrackConstraints/displaySurface)-Einschränkung in der aktuellen Umgebung unterstützt wird.
+- [`logicalSurface`](/de/docs/Web/API/MediaTrackSupportedConstraints/logicalSurface)
+  - : Ein boolescher Wert, der `true` ist, wenn die [`logicalSurface`](/de/docs/Web/API/MediaTrackConstraints/logicalSurface)-Einschränkung in der aktuellen Umgebung unterstützt wird.
 
 ## Spezifikationen
 
@@ -68,11 +68,11 @@ Für Spuren, die Videoquellen aus den Bildschirm-Inhalten des Benutzers enthalte
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- [Capabilities, constraints, and settings](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
+- [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
 - [Screen Capture API](/de/docs/Web/API/Screen_Capture_API)
-- [Using the Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)
-- {{domxref("MediaTrackConstraints")}}
-- {{domxref("MediaDevices.getUserMedia()")}}
-- {{domxref("MediaStreamTrack.getConstraints()")}}
-- {{domxref("MediaStreamTrack.applyConstraints()")}}
-- {{domxref("MediaStreamTrack.getSettings()")}}
+- [Verwendung der Screen Capture API](/de/docs/Web/API/Screen_Capture_API/Using_Screen_Capture)
+- [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
+- [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)
+- [`MediaStreamTrack.getConstraints()`](/de/docs/Web/API/MediaStreamTrack/getConstraints)
+- [`MediaStreamTrack.applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints)
+- [`MediaStreamTrack.getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings)

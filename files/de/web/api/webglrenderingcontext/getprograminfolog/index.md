@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **WebGLRenderingContext.getProgramInfoLog** gibt das Informationsprotokoll für das angegebene {{domxref("WebGLProgram")}}-Objekt zurück. Es enthält Fehler, die während des fehlgeschlagenen Verknüpfens oder der Validierung von `WebGLProgram`-Objekten aufgetreten sind.
+Die **WebGLRenderingContext.getProgramInfoLog** gibt das Informationsprotokoll für das angegebene [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt zurück. Es enthält Fehler, die während des fehlgeschlagenen Verknüpfens oder der Validierung von `WebGLProgram`-Objekten aufgetreten sind.
 
 ## Syntax
 
@@ -19,20 +19,20 @@ getProgramInfoLog(program)
 ### Parameter
 
 - `program`
-  - : Das {{domxref("WebGLProgram")}}, das abgefragt werden soll.
+  - : Das zu abfragende [`WebGLProgram`](/de/docs/Web/API/WebGLProgram).
 
 ### Rückgabewert
 
-Ein String, der Diagnosemeldungen, Warnmeldungen und andere Informationen über den letzten Verknüpfungs- oder Validierungsvorgang enthält. Wenn ein {{domxref("WebGLProgram")}}-Objekt initial erstellt wird, ist dessen Informationsprotokoll ein String der Länge 0.
+Ein String, der Diagnosemeldungen, Warnmeldungen und andere Informationen über den letzten Verknüpfungs- oder Validierungsvorgang enthält. Wenn ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt ursprünglich erstellt wird, ist sein Informationsprotokoll ein String der Länge 0.
 
 ## Beispiele
 
-### Überprüfen von Programmfehlern
+### Überprüfung von Programmfehlern
 
 ```js
 const program = gl.createProgram();
 
-// Vorhandene Shader anhängen
+// Attach pre-existing shaders
 gl.attachShader(program, vertexShader);
 gl.attachShader(program, fragmentShader);
 
@@ -51,5 +51,5 @@ gl.getProgramInfoLog(program);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getShaderInfoLog()")}}
-- {{domxref("WebGLRenderingContext.getError()")}}
+- [`WebGLRenderingContext.getShaderInfoLog()`](/de/docs/Web/API/WebGLRenderingContext/getShaderInfoLog)
+- [`WebGLRenderingContext.getError()`](/de/docs/Web/API/WebGLRenderingContext/getError)

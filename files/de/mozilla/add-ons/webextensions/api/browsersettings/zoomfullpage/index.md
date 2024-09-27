@@ -7,14 +7,14 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein boolescher Wert ist.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein boolescher Ausdruck ist.
 
-Standardmäßig erfolgt das Zoomen auf den gesamten Inhalt einer Webseite. Mithilfe der [Einstellung "Nur Text zoomen"](https://support.mozilla.org/en-US/kb/font-size-and-zoom-increase-size-of-web-pages#w_how-to-only-change-the-size-of-the-text/de/docs/) können Benutzer wählen, nur den Text auf einer Seite zu zoomen. Diese Einstellung ermöglicht es Weberweiterungen, diese Funktion zu steuern und zu bestimmen, ob das Zoom auf die gesamte Seite oder nur auf den Text angewendet wird.
+Standardmäßig gilt der Zoom für den gesamten Inhalt einer Webseite. Mit der [nur Text zoomen Einstellung](https://support.mozilla.org/en-US/kb/font-size-and-zoom-increase-size-of-web-pages#w_how-to-only-change-the-size-of-the-text/de/docs/) können Benutzer wählen, nur den Text auf einer Seite zu vergrößern. Diese Einstellung ermöglicht es Web-Erweiterungen, diese Option zu steuern und zu bestimmen, ob der Zoom auf die gesamte Seite oder nur auf den Text angewendet wird.
 
 Die Einstellungen sind:
 
-- `true`: Zoom gilt für den gesamten Inhalt einer Webseite (Standard).
-- `false`: Zoom gilt nur für den Text einer Webseite.
+- `true`: Der Zoom gilt für den gesamten Inhalt einer Webseite (Standard).
+- `false`: Der Zoom gilt nur für den Text einer Webseite.
 
 ## Browser-Kompatibilität
 

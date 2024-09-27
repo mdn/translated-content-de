@@ -1,5 +1,5 @@
 ---
-title: "PressureObserver: observe()-Methode"
+title: "PressureObserver: observe() Methode"
 short-title: observe()
 slug: Web/API/PressureObserver/observe
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`observe()`**-Methode der {{domxref("PressureObserver")}}-Schnittstelle weist den Druckbeobachter an, Änderungen des Drucks zu überwachen. Nachdem diese Methode aufgerufen wurde, wird der Beobachter seine Callback-Funktion aufrufen, wenn ein Druckdatensatz für die angegebene `source` beobachtet wird.
+Die **`observe()`** Methode der [`PressureObserver`](/de/docs/Web/API/PressureObserver) Schnittstelle weist den Pressure Observer an, mit der Beobachtung von Druckänderungen zu beginnen. Nachdem diese Methode aufgerufen wurde, wird der Observer seine Callback-Funktion aufrufen, wenn ein Druckprotokoll für die angegebene `source` beobachtet wird.
 
-Wenn ein entsprechender {{domxref("PressureRecord")}} erhalten wird, wird die Callback-Funktion des Druckbeobachters aufgerufen.
+Wenn ein passender [`PressureRecord`](/de/docs/Web/API/PressureRecord) erhalten wird, wird die Callback-Funktion des Pressure Observers aufgerufen.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ observe(source, options)
 ### Parameter
 
 - `source`
-  - : Ein String, der angibt, welche {{domxref("PressureRecord.source", "source")}} beobachtet werden soll. Siehe {{domxref("PressureRecord.source")}} für eine Liste von Quellen und {{domxref("PressureObserver.knownSources_static", "PressureObserver.knownSources")}} für eine Liste der Quellen, die von der Benutzerumgebung unterstützt werden.
+  - : Ein String, der angibt, welche [`source`](/de/docs/Web/API/PressureRecord/source) beobachtet werden soll. Siehe [`PressureRecord.source`](/de/docs/Web/API/PressureRecord/source) für eine Liste der Quellen und [`PressureObserver.knownSources`](/de/docs/Web/API/PressureObserver/knownSources_static) für eine Liste der vom Benutzeragenten unterstützten Quellen.
 - `options` {{optional_inline}}
   - : Ein Objekt zur Konfiguration der Beobachtung mit den folgenden Eigenschaften:
     - `sampleInterval` {{optional_inline}}
-      - : Eine Zahl, die das gewünschte Stichprobenintervall in Millisekunden angibt. Standardmäßig 0, was bedeutet, dass Updates so schnell wie möglich erfolgen, wie das System es verkraftet.
+      - : Eine Zahl, die das gewünschte Abtastintervall in Millisekunden angibt. Standardmäßig 0, was bedeutet, dass Updates so schnell wie das System sie verarbeiten kann, erfolgen.
 
 ### Rückgabewert
 
@@ -34,16 +34,16 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} erfüllt wird.
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Ausgelöst, wenn die [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API) durch eine {{httpheader('Permissions-Policy/compute-pressure','compute-pressure')}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) untersagt ist.
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Ausgelöst, wenn der `source`-Parameter nicht zu den unterstützten Quellen für diese Benutzerumgebung gehört.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API) durch eine {{httpheader('Permissions-Policy/compute-pressure','compute-pressure')}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) nicht erlaubt ist.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der `source` Parameter nicht zu den unterstützten Quellen dieses Benutzeragenten gehört.
 
 ## Beispiele
 
 ### Aktuellen Druck protokollieren
 
-Dieses Beispiel erstellt einen {{domxref("PressureObserver")}} und führt Maßnahmen durch, sobald sich der Druck ändert. Das Stichprobenintervall ist auf 1000 ms eingestellt, was bedeutet, dass es höchstens jede Sekunde Updates gibt.
+Dieses Beispiel erstellt einen [`PressureObserver`](/de/docs/Web/API/PressureObserver) und reagiert, wann immer es eine Druckänderung gibt. Das Abtastintervall ist auf 1000ms eingestellt, was bedeutet, dass es Updates höchstens jede Sekunde geben wird.
 
 ```js
 function callback(records) {
@@ -72,6 +72,6 @@ try {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

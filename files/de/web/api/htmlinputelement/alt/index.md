@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`alt`**-Eigenschaft der {{DOMxRef("HTMLInputElement")}}-Schnittstelle definiert das Textetikett für die Schaltfläche für Benutzer und Benutzeragenten, die das Bild nicht verwenden können. Sie spiegelt das [`alt`](/de/docs/Web/HTML/Element/input#alt)-Attribut des {{htmlelement("input")}}-Elements wider.
+Die **`alt`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle definiert das Text-Label für die Schaltfläche für Benutzer und Benutzeragenten, die das Bild nicht verwenden können. Sie spiegelt das [`alt`](/de/docs/Web/HTML/Element/input#alt)-Attribut des {{htmlelement("input")}}-Elements wider.
 
-Die `alt`-Eigenschaft ist nur für den [`image`](/de/docs/Web/HTML/Element/input/image)-Typ gültig. Sie sollte eine nicht leere Zeichenfolge sein, die das Etikett angibt, das für eine gleichwertige Schaltfläche geeignet wäre, wenn das Bild nicht verfügbar wäre.
+Die `alt`-Eigenschaft ist nur für den [`image`](/de/docs/Web/HTML/Element/input/image)-Typ gültig. Sie sollte eine nicht leere Zeichenfolge sein, die das Label angibt, das für eine äquivalente Schaltfläche angemessen wäre, wenn das Bild nicht verfügbar ist.
 
 ## Wert
 
-Eine Zeichenkette.
+Eine Zeichenfolge.
 
 ## Beispiele
 
@@ -28,15 +28,15 @@ inputElement.alt = "A much better description";
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{DOMXref("HTMLImageElement.alt")}}
-- {{DOMXref("HTMLButtonElement")}}
+- [`HTMLImageElement.alt`](/de/docs/Web/API/HTMLImageElement/alt)
+- [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)
 - {{HTMLElement("button")}}
 - {{HTMLElement("input")}}
 - {{HTMLElement("img")}}
-- [Guten Alt-Text schreiben](https://www.wcag.com/blog/good-alt-text-bad-alt-text-making-your-content-perceivable/)
+- [Gutes Alt-Attribut schreiben](https://www.wcag.com/blog/good-alt-text-bad-alt-text-making-your-content-perceivable/)

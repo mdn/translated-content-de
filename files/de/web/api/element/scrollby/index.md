@@ -1,5 +1,5 @@
 ---
-title: "Element: scrollBy()-Methode"
+title: "Element: scrollBy() Methode"
 short-title: scrollBy()
 slug: Web/API/Element/scrollBy
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die **`scrollBy()`**-Methode des {{domxref("Element")}}-Interfaces scrollt ein Element um den angegebenen Betrag.
+Die **`scrollBy()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle scrollt ein Element um den angegebenen Betrag.
 
 ## Syntax
 
@@ -20,17 +20,17 @@ scrollBy(options)
 ### Parameter
 
 - `xCoord`
-  - : Der horizontale Pixelwert, den Sie scrollen möchten.
+  - : Der horizontale Pixelwert, um den Sie scrollen möchten.
 - `yCoord`
-  - : Der vertikale Pixelwert, den Sie scrollen möchten.
+  - : Der vertikale Pixelwert, um den Sie scrollen möchten.
 - `options`
-  - : Ein Objekt, das folgende Eigenschaften enthält:
+  - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `top`
-      - : Gibt die Anzahl der Pixel auf der Y-Achse an, die das Fenster oder Element scrollen soll.
+      - : Gibt die Anzahl der Pixel entlang der Y-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `left`
-      - : Gibt die Anzahl der Pixel auf der X-Achse an, die das Fenster oder Element scrollen soll.
+      - : Gibt die Anzahl der Pixel entlang der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `behavior`
-      - : Gibt an, ob das Scrollen sanft animiert (`smooth`), sofort in einem einzigen Sprung (`instant`) oder vom Browser ausgewählt (`auto`, Standard) erfolgen soll.
+      - : Gibt an, ob das Scrollen weich animiert (`smooth`), sofort in einem Sprung (`instant`) erfolgen soll oder dem Browser überlassen wird (`auto`, Standard).
 
 ### Rückgabewert
 
@@ -39,7 +39,7 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```js
-// Ein Element scrollen
+// scroll an element
 element.scrollBy(300, 300);
 ```
 

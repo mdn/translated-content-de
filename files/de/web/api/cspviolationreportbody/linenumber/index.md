@@ -8,27 +8,27 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die schreibgeschützte **`lineNumber`**-Eigenschaft der {{domxref("CSPViolationReportBody")}} Schnittstelle gibt die Zeilennummer in der Quelldatei an, die die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) Verletzung ausgelöst hat.
+Die **`lineNumber`** schreibgeschützte Eigenschaft der [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Schnittstelle gibt die Zeilennummer in der Quelldatei an, die die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Verletzung ausgelöst hat.
 
-Es ist zu beachten, dass der Browser den Wert aus _dem globalen Objekt_ der Datei extrahiert, die die Verletzung ausgelöst hat.
+Beachten Sie, dass der Browser den Wert aus _dem globalen Objekt_ der Datei extrahiert, die die Verletzung ausgelöst hat.
 Wenn die Ressource, die die CSP-Verletzung auslöst, nicht geladen wird, ist der Wert `null`.
-Siehe {{domxref("CSPViolationReportBody.sourceFile")}} für weitere Informationen.
+Siehe [`CSPViolationReportBody.sourceFile`](/de/docs/Web/API/CSPViolationReportBody/sourceFile) für weitere Informationen.
 
-Diese Eigenschaft ist am nützlichsten in Verbindung mit {{domxref("CSPViolationReportBody.sourceFile")}} und {{domxref("CSPViolationReportBody.columnNumber")}}, da sie den Ort der Zeile in dieser Datei und die Spalte angibt, die zu einer Verletzung führte.
+Diese Eigenschaft ist besonders nützlich in Verbindung mit [`CSPViolationReportBody.sourceFile`](/de/docs/Web/API/CSPViolationReportBody/sourceFile) und [`CSPViolationReportBody.columnNumber`](/de/docs/Web/API/CSPViolationReportBody/columnNumber), da sie den Ort der Zeile in dieser Datei und die Spalte, die zu einer Verletzung geführt hat, angibt.
 
 ## Wert
 
-Ein Ganzzahlwert, der die Zeilennummer enthält, die die Verletzung ausgelöst hat, oder `null`.
+Eine Ganzzahl, die die Zeilennummer enthält, die die Verletzung ausgelöst hat, oder `null`.
 
 ## Beispiele
 
-### CSP-Verletzung durch Inline-Skript
+### CSP-Inline-Skript-Verletzung
 
-Dieses Beispiel löst eine CSP-Verletzung mit einem Inline-Skript aus und meldet die Verletzung mit einem {{domxref("ReportingObserver")}}.
+Dieses Beispiel löst eine CSP-Verletzung mit einem Inline-Skript aus und meldet die Verletzung mit einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver).
 
 #### HTML
 
-Die HTML-Datei unten verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um die {{httpheader('Content-Security-Policy')}} `default-src` auf `self` zu setzen. Dadurch dürfen Skripte und andere Ressourcen von derselben Quelle geladen werden, aber Inline-Skripte dürfen nicht ausgeführt werden.
+Die folgende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um die {{httpheader('Content-Security-Policy')}} `default-src` auf `self` zu setzen, was das Laden von Skripten und anderen Ressourcen aus demselben Ursprung erlaubt, jedoch keine Inline-Skripte ausgeführt werden dürfen.
 Das Dokument enthält auch ein Inline-Skript, das daher eine CSP-Verletzung auslösen sollte.
 
 ```html
@@ -42,10 +42,10 @@ Das Dokument enthält auch ein Inline-Skript, das daher eine CSP-Verletzung ausl
       http-equiv="Reporting-Endpoints"
       content="csp-endpoint='https://example.com/csp-reports'" />
     <script src="main.js"></script>
-    <title>CSP: Verletzung aufgrund von Inline-Skript</title>
+    <title>CSP: Violation due to inline script</title>
   </head>
   <body>
-    <h1>CSP: Verletzung aufgrund von Inline-Skript</h1>
+    <h1>CSP: Violation due to inline script</h1>
     <script>
       const int = 4;
     </script>
@@ -55,11 +55,11 @@ Das Dokument enthält auch ein Inline-Skript, das daher eine CSP-Verletzung ausl
 
 #### JavaScript (main.js)
 
-Das oben stehende Dokument lädt auch das externe Skript `main.js`, das unten gezeigt wird.
-Da es von derselben Domain wie das HTML geladen wird, wird es nicht durch die CSP blockiert.
+Das obige Dokument lädt auch das externe Skript `main.js`, das unten gezeigt wird.
+Da dieses vom selben Domain wie das HTML geladen wird, wird es nicht durch die CSP blockiert.
 
-Das Skript erstellt einen neuen {{domxref("ReportingObserver")}}, um Inhalte zu beobachten, die Berichte über Verstöße vom Typ `"csp-violation"` melden.
-Jedes Mal, wenn die Callback-Funktion aufgerufen wird, erhalten wir den Body des ersten Eintrags des Berichtsarrays und verwenden ihn, um die Datei, Zeile und Spalte der Verletzung in der Konsole zu protokollieren.
+Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs `"csp-violation"` zu beobachten.
+Jedes Mal, wenn die Callback-Funktion aufgerufen wird, erhalten wir den Körper des ersten Eintrags des Berichtsarrays und verwenden ihn, um die Datei, die Zeile und die Spalte der Verletzung in der Konsole zu protokollieren.
 
 ```js
 // main.js
@@ -79,15 +79,15 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Beachten Sie, dass es zwar mehrere Berichte im zurückgegebenen Array geben könnte, wir aus Gründen der Kürze nur die Werte des ersten Elements protokollieren.
+Beachten Sie, dass es zwar mehrere Berichte im zurückgegebenen Array geben könnte, wir jedoch der Kürze halber nur die Werte des ersten Elements protokollieren.
 
 #### Ergebnisse
 
 Sie können dies mit einem [lokalen Server](/de/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server) ausprobieren.
 Kopieren Sie den obigen Code in `test/index.html` und `test/main.js` und führen Sie den Server im Stammverzeichnis aus.
-Angenommen, die Adresse des lokalen Servers lautet `http://127.0.0.1:9999`, können Sie dann die HTML-Datei von `http://127.0.0.1:9999/test/` (oder `http://127.0.0.1:9999/test/index.html`) laden.
+Wenn die Adresse des lokalen Servers `http://127.0.0.1:9999` ist, können Sie dann die HTML-Datei von `http://127.0.0.1:9999/test/` (oder `http://127.0.0.1:9999/test/index.html`) laden.
 
-Mit der obigen Einrichtung ist die Ausgabe des Protokolls in Chrome:
+Mit der obigen Konfiguration ist die Ausgabe des Protokolls auf Chrome:
 
 ```plain
 sourceFile: http://127.0.0.1:9999/test/
@@ -103,7 +103,7 @@ lineNumber: 15
 columnNumber: 13
 ```
 
-Beachten Sie, dass die Spaltennummer in den beiden Browsern unterschiedlich ist.
+Beachten Sie, dass die Spaltennummer für die beiden Browser unterschiedlich ist.
 Chrome scheint immer `0` zu melden.
 Der Wert in Firefox repräsentiert die Position des ersten Zeichens nach dem Ende des öffnenden `<script>`-Elements.
 
@@ -117,4 +117,4 @@ Der Wert in Firefox repräsentiert die Position des ersten Zeichens nach dem End
 
 ## Siehe auch
 
-- {{domxref("SecurityPolicyViolationEvent.lineNumber")}}
+- [`SecurityPolicyViolationEvent.lineNumber`](/de/docs/Web/API/SecurityPolicyViolationEvent/lineNumber)

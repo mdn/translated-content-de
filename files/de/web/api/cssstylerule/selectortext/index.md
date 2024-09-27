@@ -1,5 +1,5 @@
 ---
-title: "CSSStyleRule: Eigenschaft selectorText"
+title: "CSSStyleRule: selectorText-Eigenschaft"
 short-title: selectorText
 slug: Web/API/CSSStyleRule/selectorText
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM") }}
 
-Die **`selectorText`**-Eigenschaft der {{domxref("CSSStyleRule")}}-Schnittstelle ruft die Selektoren ab und setzt sie, die mit der `CSSStyleRule` verknüpft sind.
+Die **`selectorText`**-Eigenschaft der [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule)-Schnittstelle erhält und setzt die Selektoren, die mit der `CSSStyleRule` verbunden sind.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Das CSS enthält eine Stilregel. Dies wird die erste von `document.styleSheets[0].cssRules` zurückgegebene {{domxref("CSSRule")}} sein. `myRules[0].selectorText` gibt daher einen wörtlichen String des Selektors zurück, in diesem Fall `"h1"`.
+Das CSS enthält eine Stilregel. Diese wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird. `myRules[0].selectorText` gibt daher einen Literal-String des Selektors zurück, in diesem Fall `"h1"`.
 
 ```css
 h1 {
@@ -26,7 +26,7 @@ h1 {
 
 ```js
 let myRules = document.styleSheets[0].cssRules;
-console.log(myRules[0].selectorText); // ein String, der "h1" enthält.
+console.log(myRules[0].selectorText); // a string containing "h1".
 ```
 
 ## Spezifikationen

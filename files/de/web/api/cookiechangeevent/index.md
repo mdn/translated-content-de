@@ -7,34 +7,34 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}
 
-Die **`CookieChangeEvent`**-Schnittstelle der {{domxref("Cookie Store API", "", "", "nocode")}} ist der Ereignistyp des {{domxref("CookieStore/change_event", "change")}}-Ereignisses, das bei einem {{domxref("CookieStore")}} ausgelöst wird, wenn Cookies erstellt oder gelöscht werden.
+Die **`CookieChangeEvent`**-Schnittstelle der [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) ist der Ereignistyp des [`change`](/de/docs/Web/API/CookieStore/change_event)-Ereignisses, das bei einem [`CookieStore`](/de/docs/Web/API/CookieStore) ausgelöst wird, wenn Cookies erstellt oder gelöscht werden.
 
 > [!NOTE]
-> Ein Cookie, das durch das Einfügen eines anderen Cookies mit demselben Namen, derselben Domäne und demselben Pfad ersetzt wird, wird ignoriert und löst kein Änderungsereignis aus.
+> Ein Cookie, das durch das Einfügen eines anderen Cookies mit demselben Namen, derselben Domain und demselben Pfad ersetzt wird, wird ignoriert und löst kein Änderungsereignis aus.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("CookieChangeEvent.CookieChangeEvent", "CookieChangeEvent()")}}
+- [`CookieChangeEvent()`](/de/docs/Web/API/CookieChangeEvent/CookieChangeEvent)
   - : Erstellt ein neues `CookieChangeEvent`.
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("CookieChangeEvent.changed")}} {{ReadOnlyInline}}
-  - : Ein Array, das alle neu erstellten Cookies auflistet. Beachten Sie, dass Cookies, die mit einem Ablaufdatum in der Vergangenheit erstellt wurden, ausgeschlossen werden, da diese Cookies sofort gelöscht werden.
-- {{domxref("CookieChangeEvent.deleted")}} {{ReadOnlyInline}}
-  - : Ein Array, das alle Cookies auflistet, die entweder aufgrund ihres Ablaufs oder weil sie ausdrücklich gelöscht wurden, entfernt wurden. Beachten Sie, dass dies Cookies umfasst, die mit einem Ablaufdatum in der Vergangenheit erstellt wurden.
+- [`CookieChangeEvent.changed`](/de/docs/Web/API/CookieChangeEvent/changed) {{ReadOnlyInline}}
+  - : Ein Array, das alle neu erstellten Cookies auflistet. Beachten Sie, dass Cookies mit einem Ablaufdatum in der Vergangenheit ausgeschlossen werden, da diese Cookies sofort gelöscht werden.
+- [`CookieChangeEvent.deleted`](/de/docs/Web/API/CookieChangeEvent/deleted) {{ReadOnlyInline}}
+  - : Ein Array, das alle Cookies auflistet, die entfernt wurden, entweder weil sie abgelaufen sind oder weil sie explizit gelöscht wurden. Beachten Sie, dass dies Cookies einschließt, die mit einem Ablaufdatum in der Vergangenheit erstellt wurden.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch Methoden von {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Methoden von [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiele
 
-In diesem Beispiel, wenn das Cookie gesetzt wird, protokolliert der Ereignislistener das Ereignis in der Konsole. Dies ist ein `CookieChangeEvent`-Objekt mit der Eigenschaft {{domxref("CookieChangeEvent.changed","changed")}}, die ein Objekt enthält, das das soeben gesetzte Cookie darstellt.
+In diesem Beispiel protokolliert der Ereignis-Listener beim Setzen des Cookies das Ereignis in der Konsole. Dies ist ein `CookieChangeEvent`-Objekt mit der [`changed`](/de/docs/Web/API/CookieChangeEvent/changed)-Eigenschaft, die ein Objekt enthält, das das gerade gesetzte Cookie darstellt.
 
 ```js
 cookieStore.addEventListener("change", (event) => {

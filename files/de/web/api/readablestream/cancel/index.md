@@ -1,5 +1,5 @@
 ---
-title: "ReadableStream: cancel() Methode"
+title: "ReadableStream: Methode `cancel()`"
 short-title: cancel()
 slug: Web/API/ReadableStream/cancel
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`cancel()`** Methode der {{domxref("ReadableStream")}} Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird.
+Die **`cancel()`**-Methode der [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das sich auflöst, wenn der Stream abgebrochen wird.
 
-Cancel wird verwendet, wenn Sie komplett mit dem Stream fertig sind und keine weiteren Daten mehr benötigen, auch wenn noch Datenblöcke in der Warteschlange darauf warten, gelesen zu werden. Diese Daten gehen verloren, nachdem `cancel` aufgerufen wurde, und der Stream ist nicht mehr lesbar. Um diese Blöcke trotzdem zu lesen und den Stream nicht komplett zu verwerfen, würden Sie {{domxref("ReadableStreamDefaultController.close()")}} verwenden.
+`Cancel` wird verwendet, wenn Sie den Stream vollständig abgeschlossen haben und keine weiteren Daten daraus benötigen, selbst wenn sich noch einige Datenblöcke in der Warteschlange befinden, die gelesen werden könnten. Diese Daten gehen verloren, nachdem `cancel` aufgerufen wurde, und der Stream ist nicht mehr lesbar. Um diese Datenblöcke noch zu lesen und den Stream nicht vollständig zu entfernen, würden Sie [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) verwenden.
 
 ## Syntax
 
@@ -22,20 +22,20 @@ cancel(reason)
 ### Parameter
 
 - `reason` {{optional_inline}}
-  - : Ein menschenlesbarer Grund für die Abbruchanforderung. Dieser wird an die zugrunde liegende Quelle übergeben, die ihn möglicherweise verwendet oder auch nicht.
+  - : Ein menschenlesbarer Grund für die Stornierung. Dieser wird an die zugrunde liegende Quelle übergeben, die ihn verwenden kann oder nicht.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem `undefined` Wert erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit dem Wert `undefined` erfüllt wird.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der Stream, den Sie abbrechen möchten, ist kein {{domxref("ReadableStream")}} oder er ist gesperrt.
+  - : Der Stream, den Sie zu stornieren versuchen, ist kein [`ReadableStream`](/de/docs/Web/API/ReadableStream) oder ist gesperrt.
 
 ## Beispiele
 
-In Jake Archibalds Beispiel [cancelling a fetch](https://jsbin.com/gameboy/edit?js,console) wird ein Stream verwendet, um das WHATWG HTML-Standard-Dokument stückweise zu laden; jeder Abschnitt wird nach dem String "service workers" durchsucht. Wenn die Suchbegriffe gefunden werden, wird `cancel()` verwendet, um den Stream abzubrechen — der Job ist erledigt, also wird er nicht mehr benötigt.
+In Jake Archibalds [Abbrechen eines Fetchs](https://jsbin.com/gameboy/edit?js,console) Beispiel wird ein Stream verwendet, um die WHATWG HTML-Spezifikation stückweise abzurufen; jeder Block wird nach dem String "service workers" durchsucht. Wenn die Suchbegriffe gefunden werden, wird `cancel()` verwendet, um den Stream zu beenden – der Job ist abgeschlossen, daher wird er nicht mehr benötigt.
 
 ```js
 const searchTerm = "service workers";
@@ -119,5 +119,5 @@ fetch(url)
 
 ## Siehe auch
 
-- {{domxref("ReadableStream.ReadableStream", "ReadableStream()")}} Konstruktor
+- [`ReadableStream()`](/de/docs/Web/API/ReadableStream/ReadableStream) Konstruktor
 - [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)

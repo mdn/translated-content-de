@@ -8,27 +8,29 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte {{domxref("CSSStyleSheet")}}-Eigenschaft **`ownerRule`** gibt die {{domxref("CSSImportRule")}} zurück, die der {{cssxref("@import")}}-Regel entspricht, die das Stylesheet ins Dokument importiert hat. Wenn das Stylesheet nicht mittels `@import` ins Dokument importiert wurde, ist der zurückgegebene Wert `null`.
+Die schreibgeschützte [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Eigenschaft
+**`ownerRule`** gibt die [`CSSImportRule`](/de/docs/Web/API/CSSImportRule) zurück,
+die der {{cssxref("@import")}}-Regel entspricht, mit der das Stylesheet in das Dokument importiert wurde. Falls das Stylesheet nicht mit `@import` in das Dokument importiert wurde, ist der zurückgegebene Wert `null`.
 
 ## Wert
 
-Eine {{domxref("CSSImportRule")}}, die der {{cssxref("@import")}}-Regel entspricht, die das Stylesheet ins Dokument importiert hat. Wenn das Stylesheet nicht mittels `@import` ins Dokument importiert wurde, ist der zurückgegebene Wert `null`.
+Eine [`CSSImportRule`](/de/docs/Web/API/CSSImportRule), die der {{cssxref("@import")}}-Regel entspricht, welche das Stylesheet in das Dokument importiert hat. Falls das Stylesheet nicht mit `@import` in das Dokument importiert wurde, ist der zurückgegebene Wert `null`.
 
 ## Beispiele
 
-Dieses Code-Snippet sucht nach Regeln, die nicht mittels einer `@import`-Regel ins Dokument importiert wurden.
+Dieses Code-Snippet sucht nach Regeln, die nicht mittels einer `@import`-Regel in das Dokument importiert wurden.
 
 ```js
 const ruleList = document.styleSheets[0].cssRules;
 
 for (const rule of ruleList) {
   if (!rule.ownerRule) {
-    /* Regel ist nicht importiert */
+    /* rule is not imported */
   }
 }
 ```
 
-Dieses Snippet erhält einen Verweis auf das Stylesheet, das mit `@import` verknüpft ist, und verarbeitet es auf irgendeine Weise:
+Dieses Snippet erhält eine Referenz auf das mit `@import` verbundene Stylesheet und verarbeitet es auf irgendeine Weise:
 
 ```js
 const ruleList = document.styleSheets[0].cssRules;
@@ -50,5 +52,5 @@ for (const rule of ruleList) {
 
 ## Siehe auch
 
-- [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model)
+- [CSS Object Model](/de/docs/Web/API/CSS_Object_Model)
 - [Verwendung dynamischer Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

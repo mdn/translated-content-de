@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: Eigenschaft editContext"
+title: "HTMLElement: editContext-Eigenschaft"
 short-title: editContext
 slug: Web/API/HTMLElement/editContext
 l10n:
@@ -8,50 +8,50 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`editContext`**-Eigenschaft des {{domxref("HTMLElement")}}-Interfaces erhält und setzt das mit dem Element verknüpfte {{domxref("EditContext")}}-Objekt.
+Die **`editContext`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle holt und setzt das einem Element zugeordnete [`EditContext`](/de/docs/Web/API/EditContext)-Objekt.
 
-Die {{domxref("EditContext API", "", "", "nocode")}} kann genutzt werden, um Rich-Text-Editoren im Web zu erstellen, die fortschrittliche Texteingabeerfahrungen unterstützen, wie zum Beispiel {{glossary("Input Method Editor")}} (IME)-Komposition, Emoji-Auswahl oder andere plattformspezifische, bearbeitungsbezogene Benutzeroberflächen.
+Die [EditContext API](/de/docs/Web/API/EditContext_API) kann verwendet werden, um Rich-Text-Editoren im Web zu erstellen, die erweiterte Texteingabeerfahrungen unterstützen, wie z.B. die Komposition mit dem [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME), Emoji-Auswahl oder andere plattformspezifische Bearbeitungsoberflächen.
 
 ### Mögliche Elemente
 
 Das Setzen der `editContext`-Eigenschaft funktioniert nur bei bestimmten Arten von Elementen:
 
-- Eines dieser HTML-Elemente: [`<article>`](/de/docs/Web/HTML/Element/article), [`<aside>`](/de/docs/Web/HTML/Element/aside), [`<blockquote>`](/de/docs/Web/HTML/Element/blockquote), [`<body>`](/de/docs/Web/HTML/Element/body), [`<div>`](/de/docs/Web/HTML/Element/div), [`<footer>`](/de/docs/Web/HTML/Element/footer), [`<h1>`](/de/docs/Web/HTML/Element/Heading_Elements), [`<h2>`](/de/docs/Web/HTML/Element/Heading_Elements), [`<h3>`](/de/docs/Web/HTML/Element/Heading_Elements), [`<h4>`](/de/docs/Web/HTML/Element/Heading_Elements), [`<h5>`](/de/docs/Web/HTML/Element/Heading_Elements), [`<h6>`](/de/docs/Web/HTML/Element/Heading_Elements), [`<header>`](/de/docs/Web/HTML/Element/header), [`<main>`](/de/docs/Web/HTML/Element/main), [`<nav>`](/de/docs/Web/HTML/Element/nav), [`<p>`](/de/docs/Web/HTML/Element/p), [`<section>`](/de/docs/Web/HTML/Element/section), oder [`<span>`](/de/docs/Web/HTML/Element/span).
+- Eines dieser HTML-Elemente: [`<article>`](/de/docs/Web/HTML/Element/article), [`<aside>`](/de/docs/Web/HTML/Element/aside), [`<blockquote>`](/de/docs/Web/HTML/Element/blockquote), [`<body>`](/de/docs/Web/HTML/Element/body), [`<div>`](/de/docs/Web/HTML/Element/div), [`<footer>`](/de/docs/Web/HTML/Element/footer), [`<h1>`](/de/docs/Web/HTML/Element/Heading_Elements), [`<h2>`](/de/docs/Web/HTML/Element/Heading_Elements), [`<h3>`](/de/docs/Web/HTML/Element/Heading_Elements), [`<h4>`](/de/docs/Web/HTML/Element/Heading_Elements), [`<h5>`](/de/docs/Web/HTML/Element/Heading_Elements), [`<h6>`](/de/docs/Web/HTML/Element/Heading_Elements), [`<header>`](/de/docs/Web/HTML/Element/header), [`<main>`](/de/docs/Web/HTML/Element/main), [`<nav>`](/de/docs/Web/HTML/Element/nav), [`<p>`](/de/docs/Web/HTML/Element/p), [`<section>`](/de/docs/Web/HTML/Element/section) oder [`<span>`](/de/docs/Web/HTML/Element/span).
 - Ein gültiges [benutzerdefiniertes Element](/de/docs/Web/API/Web_components/Using_custom_elements).
 - Ein [`<canvas>`](/de/docs/Web/HTML/Element/canvas)-Element.
 
-Wenn Sie versuchen, die `editContext`-Eigenschaft auf ein Element zu setzen, das nicht zu den oben genannten gehört, wird ein `NotSupportedError` {{domxref("DOMException")}} ausgelöst.
+Wenn Sie versuchen, die `editContext`-Eigenschaft bei einem Element zu setzen, das nicht zu den obigen gehört, wird ein `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
 ### Elementzuordnung
 
-Durch das Setzen der `editContext`-Eigenschaft eines Elements auf eine {{domxref("EditContext")}}-Instanz wird dieses Element mit der `EditContext`-Instanz verknüpft.
+Das Setzen der `editContext`-Eigenschaft eines Elements auf eine [`EditContext`](/de/docs/Web/API/EditContext)-Instanz ordnet dieses Element mit der `EditContext`-Instanz zu.
 
-Die Zuordnung erfolgt im Eins-zu-Eins-Prinzip:
+Die Zuordnung ist eins zu eins:
 
-- Ein Element kann nur mit einer `EditContext`-Instanz verknüpft werden.
-- Eine `EditContext`-Instanz kann nur mit einem Element verknüpft werden.
+- Ein Element kann nur mit einer `EditContext`-Instanz verknüpft sein.
+- Eine `EditContext`-Instanz kann nur mit einem Element verknüpft sein.
 
-Wenn Sie versuchen, eine bereits verknüpfte `EditContext`-Instanz mit einem anderen Element zu verknüpfen, wird eine {{domxref("DOMException")}} ausgelöst.
+Wenn Sie versuchen, eine bereits verknüpfte `EditContext`-Instanz einem anderen Element zuzuordnen, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
-Wenn Sie versuchen, eine andere `EditContext`-Instanz mit einem bereits verknüpften Element zu verknüpfen, wird ebenfalls eine {{domxref("DOMException")}} ausgelöst.
+Wenn Sie versuchen, eine andere `EditContext`-Instanz einem bereits verknüpften Element zuzuordnen, wird ebenfalls eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
-Um zu prüfen, ob ein Element bereits mit einer `EditContext`-Instanz verknüpft ist, verwenden Sie die {{domxref("EditContext.attachedElements()")}}-Methode.
+Um zu überprüfen, ob ein Element bereits mit einer `EditContext`-Instanz verknüpft ist, verwenden Sie die Methode [`EditContext.attachedElements()`](/de/docs/Web/API/EditContext/attachedElements).
 
 ### Speicherbereinigung
 
-Eine `EditContext`-Instanz hält ihr zugeordnetes Element am Leben, wenn es andere aktive Verweise gibt, selbst wenn das zugeordnete Element aus dem DOM entfernt wird.
+Eine `EditContext`-Instanz hält ihr zugeordnetes Element am Leben, wenn sie andere lebende Referenzen hat, selbst wenn das zugeordnete Element aus dem DOM entfernt wird.
 
-Wenn Sie sicherstellen möchten, dass das Element vom Speicherbereinigungsprozess erfasst wird, löschen Sie die `editContext`-Eigenschaft des Elements.
+Wenn Sie sicherstellen möchten, dass das Element vom Garbage Collector gesammelt wird, leeren Sie die `editContext`-Eigenschaft des Elements.
 
 ## Wert
 
-Ein {{domxref("EditContext")}}-Objekt oder `null`.
+Ein [`EditContext`](/de/docs/Web/API/EditContext)-Objekt oder `null`.
 
 ## Beispiele
 
 ### Setzen der `editContext`-Eigenschaft eines Elements
 
-Dieses Beispiel zeigt, wie Sie die `editContext`-Eigenschaft eines `<canvas>`-Elements auf eine neue `EditContext`-Instanz setzen, um das Element bearbeitbar zu machen.
+Dieses Beispiel zeigt, wie die `editContext`-Eigenschaft eines `<canvas>`-Elements auf eine neue `EditContext`-Instanz gesetzt wird, um das Element bearbeitbar zu machen.
 
 ```html
 <canvas id="editor-canvas"></canvas>
@@ -65,19 +65,19 @@ canvas.editContext = editContext;
 
 ### Löschen der `editContext`-Eigenschaft eines Elements
 
-Dieses Beispiel zeigt, wie Sie die `editContext`-Eigenschaft eines bearbeitbaren `<canvas>`-Elements löschen, um das Element sicher aus dem DOM zu entfernen.
+Dieses Beispiel zeigt, wie die `editContext`-Eigenschaft eines bearbeitbaren `<canvas>`-Elements gelöscht wird, um das Element sicher aus dem DOM zu entfernen.
 
 ```html
 <canvas id="editor-canvas"></canvas>
 ```
 
 ```js
-// Erstellen Sie das EditContext und verknüpfen Sie es mit dem Canvas-Element.
+// Create the EditContext and associate it with the canvas element.
 const canvas = document.getElementById("editor-canvas");
 const editContext = new EditContext();
 canvas.editContext = editContext;
 
-// Später die editContext-Eigenschaft löschen und das Element entfernen.
+// Later, clear the editContext property, and remove the element.
 canvas.editContext = null;
 canvas.remove();
 ```
@@ -92,4 +92,4 @@ canvas.remove();
 
 ## Siehe auch
 
-- Das {{DOMxRef("EditContext")}}-Interface.
+- Die [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle.

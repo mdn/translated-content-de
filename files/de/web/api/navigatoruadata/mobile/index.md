@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("User-Agent Client Hints API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`mobile`** schreibgeschützte Eigenschaft des {{domxref("NavigatorUAData")}} Interfaces gibt einen Wert zurück, der angibt, ob das Gerät ein mobiles Gerät ist.
+Die schreibgeschützte **`mobile`**-Eigenschaft des [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData)-Interfaces gibt an, ob es sich bei dem Gerät um ein Mobilgerät handelt.
 
 ## Wert
 
-Ein {{jsxref("Boolean")}}, `true` wenn es sich um ein mobiles Gerät handelt.
+Ein {{jsxref("Boolean")}}, `true`, wenn es sich um ein Mobilgerät handelt.
 
 ## Beispiele
 
@@ -32,4 +32,4 @@ console.log(navigator.userAgentData.mobile);
 
 ## Siehe auch
 
-- Der {{HTTPHeader("Sec-CH-UA-Mobile")}} Header (ein [Low-Entropy Client Hint](/de/docs/Web/HTTP/Client_hints#low_entropy_hints)) enthält die gleiche Information.
+- Der {{HTTPHeader("Sec-CH-UA-Mobile")}}-Header (ein [Low-Entropy-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#low_entropy_hints)) enthält die gleichen Informationen.

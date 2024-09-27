@@ -1,6 +1,6 @@
 ---
-title: "Fenster: vor dem Entladen Ereignis"
-short-title: vor dem Entladen
+title: "Window: beforeunload-Ereignis"
+short-title: beforeunload
 slug: Web/API/Window/beforeunload_event
 l10n:
   sourceCommit: b065c09b79d18abf0f04778c9307e1c312b8c6f9
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef}}
 
-Das **`beforeunload`** Ereignis wird ausgelöst, wenn das aktuelle Fenster, das enthaltene Dokument und die zugehörigen Ressourcen entladen werden sollen. Das Dokument ist zu diesem Zeitpunkt noch sichtbar und das Ereignis kann abgebrochen werden.
+Das **`beforeunload`**-Ereignis wird ausgelöst, wenn das aktuelle Fenster, das enthaltene Dokument und die dazugehörigen Ressourcen entladen werden sollen. Das Dokument ist zu diesem Zeitpunkt noch sichtbar und das Ereignis kann noch abgebrochen werden.
 
-Der Hauptanwendungsfall für dieses Ereignis ist das Auslösen eines vom Browser generierten Bestätigungsdialogs, der Benutzer fragt, ob sie _wirklich_ die Seite verlassen möchten, wenn sie versuchen, sie zu schließen oder neu zu laden oder woanders hin zu navigieren. Dies soll helfen, den Verlust ungespeicherter Daten zu verhindern.
+Der Hauptverwendungszweck dieses Ereignisses besteht darin, einen vom Browser generierten Bestätigungsdialog auszulösen, der Benutzer fragt, ob sie _wirklich_ die Seite verlassen möchten, wenn sie versuchen, diese zu schließen oder neu zu laden oder woandershin zu navigieren. Dies soll helfen, den Verlust von nicht gespeicherten Daten zu verhindern.
 
 Der Dialog kann auf folgende Weise ausgelöst werden:
 
-- Durch Aufrufen der Methode {{domxref("Event.preventDefault()", "preventDefault()")}} des Ereignisobjekts.
-- Durch Setzen der Eigenschaft {{domxref("BeforeUnloadEvent.returnValue", "returnValue")}} des Ereignisobjekts auf einen nicht-leeren Zeichenkettenwert oder einen anderen [truthy](/de/docs/Glossary/Truthy) Wert.
-- Durch Rückgabe eines truthy Wertes aus der Ereignis-Handlerfunktion, z.B. `return "string"`. Beachten Sie, dass dies nur funktioniert, wenn die Funktion über die `onbeforeunload` Eigenschaft angehängt ist, nicht über die Methode {{domxref("EventTarget.addEventListener", "addEventListener()")}}. Dieses Verhalten ist in modernen Versionen von Firefox, Safari und Chrome einheitlich.
+- Aufrufen der Methode [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) des Ereignisobjekts.
+- Setzen der Eigenschaft [`returnValue`](/de/docs/Web/API/BeforeUnloadEvent/returnValue) des Ereignisobjekts auf einen nicht leeren Stringwert oder einen anderen [truthy](/de/docs/Glossary/Truthy)-Wert.
+- Zurückgeben eines beliebigen truthy Werts von der Ereignis-Handler-Funktion, z.B. `return "string"`. Beachten Sie, dass dies nur funktioniert, wenn die Funktion über die `onbeforeunload`-Eigenschaft, nicht über die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) angehängt wird. Dieses Verhalten ist in modernen Versionen von Firefox, Safari und Chrome konsistent.
 
-Die letzten beiden Mechanismen sind veraltete Funktionen; die beste Praxis besteht darin, den Dialog durch Aufruf von `preventDefault()` am Ereignisobjekt auszulösen, während `returnValue` für ältere Fälle festgelegt wird.
+Die letzten beiden Mechanismen sind veraltete Funktionen; es ist am besten, den Dialog durch Aufrufen von `preventDefault()` am Ereignisobjekt auszulösen und gleichzeitig `returnValue` zu setzen, um veraltete Fälle zu unterstützen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("beforeunload", (event) => {});
@@ -31,41 +31,41 @@ onbeforeunload = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("BeforeUnloadEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`BeforeUnloadEvent`](/de/docs/Web/API/BeforeUnloadEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Um den angezeigten Dialog zu aktivieren, wenn der Benutzer den Tab schließt oder navigiert, sollte eine `beforeunload` Ereignis-Handlerfunktion {{domxref("Event.preventDefault()", "preventDefault()")}} am Ereignisobjekt aufrufen. Sie sollten beachten, dass moderne Implementierungen:
+Um den Dialog anzuzeigen, wenn der Benutzer den Tab schließt oder navigiert, sollte eine `beforeunload`-Ereignis-Handler-Funktion [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) am Ereignisobjekt aufrufen. Sie sollten beachten, dass moderne Implementierungen:
 
-- [Sticky Activation](/de/docs/Glossary/Sticky_activation) benötigen, damit der Dialog angezeigt wird. Mit anderen Worten, der Browser zeigt das Dialogfeld nur an, wenn der Rahmen oder ein eingebetteter Rahmen eine Benutzeraktion oder Benutzerinteraktion erhält. Wenn der Benutzer nie mit der Seite interagiert hat, gibt es keine Benutzerdaten zu speichern, sodass kein legitimer Anwendungsfall für den Dialog besteht.
-- Zeigen nur einen generischen, vom Browser angegebenen Text im angezeigten Dialog an. Dies kann nicht vom Webseiten-Code kontrolliert werden.
+- [Sticky Activation](/de/docs/Glossary/Sticky_activation) erfordern, damit der Dialog angezeigt wird. Mit anderen Worten, der Browser zeigt das Dialogfeld nur an, wenn der Rahmen oder ein eingebetteter Rahmen eine Benutzeraktion oder Benutzerinteraktion erhält. Wenn der Benutzer nie mit der Seite interagiert hat, gibt es keine Benutzerdaten zu speichern, daher keinen legitimen Anwendungsfall für den Dialog.
+- Nur einen vom Browser festgelegten generischen String im angezeigten Dialog anzeigen. Dies kann nicht durch den Code der Webseite kontrolliert werden.
 
-Das `beforeunload` Ereignis weist einige Probleme auf:
+Das `beforeunload`-Ereignis hat einige Probleme:
 
-- Es wird nicht zuverlässig ausgelöst, insbesondere auf mobilen Plattformen. Zum Beispiel wird das `beforeunload` Ereignis in folgendem Szenario überhaupt nicht ausgelöst:
+- Es wird nicht zuverlässig ausgelöst, insbesondere auf mobilen Plattformen. Zum Beispiel wird das `beforeunload`-Ereignis in folgendem Szenario überhaupt nicht ausgelöst:
 
   1. Ein mobiler Benutzer besucht Ihre Seite.
   2. Der Benutzer wechselt dann zu einer anderen App.
-  3. Später schließt der Benutzer den Browser aus dem App-Manager.
+  3. Später schließt der Benutzer den Browser im App-Manager.
 
   > [!NOTE]
-  > Es wird empfohlen, das {{domxref("Document.visibilitychange_event", "visibilitychange")}} Ereignis als zuverlässigeres Signal für das automatische Speichern des Anwendungszustands zu verwenden, das Probleme wie das oben genannte umgeht. Weitere Details finden Sie unter [Don't lose user and app state, use Page Visibility](https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/).
+  > Es wird empfohlen, das [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)-Ereignis als ein zuverlässigeres Signal für das automatische Speichern des Anwendungsstatus zu verwenden, das Probleme wie das oben genannte umgeht. Siehe [Don't lose user and app state, use Page Visibility](https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/) für weitere Details.
 
-- In Firefox ist `beforeunload` nicht mit dem [Back/Forward Cache](https://web.dev/articles/bfcache) (bfcache) kompatibel: Das bedeutet, Firefox wird Seiten nicht im bfcache platzieren, wenn sie `beforeunload` Listener haben, was schlecht für die Leistung ist.
+- In Firefox ist `beforeunload` nicht mit dem [Back/Forward Cache](https://web.dev/articles/bfcache) (bfcache) kompatibel: Das heißt, Firefox platziert keine Seiten im bfcache, wenn sie `beforeunload`-Listener haben, was schlecht für die Leistung ist.
 
-Es wird daher empfohlen, dass Entwickler `beforeunload` nur überwachen, wenn Benutzer ungespeicherte Änderungen haben, sodass der oben erwähnte Dialog verwendet werden kann, um sie vor dem drohenden Datenverlust zu warnen, und den Listener wieder entfernen, wenn er nicht benötigt wird. Das sparsame Überwachen von `beforeunload` kann die Auswirkungen auf die Leistung minimieren.
+Es wird daher empfohlen, dass Entwickler nur dann auf `beforeunload` lauschen, wenn Benutzer ungespeicherte Änderungen haben, damit der oben erwähnte Dialog verwendet werden kann, um sie vor drohendem Datenverlust zu warnen, und den Listener wieder zu entfernen, wenn er nicht benötigt wird. Das sparsame Lauschen auf `beforeunload` kann die Auswirkungen auf die Leistung minimieren.
 
 ## Ereignis-Handler-Aliasse
 
-Zusätzlich zur `Window` Schnittstelle ist die Ereignis-Handler-Eigenschaft `onbeforeunload` auch auf den folgenden Zielen verfügbar:
+Zusätzlich zur `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `onbeforeunload` auch auf den folgenden Zielen verfügbar:
 
-- {{domxref("HTMLBodyElement")}}
-- {{domxref("HTMLFrameSetElement")}}
-- {{domxref("SVGSVGElement")}}
+- [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
+- [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
+- [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)
 
 ## Beispiele
 
-Im folgenden Beispiel haben wir ein HTML Text {{htmlelement("input")}}, um einige Daten darzustellen, die geändert werden und gespeichert werden müssen:
+Im folgenden Beispiel haben wir ein HTML-Textfeld {{htmlelement("input")}}, das einige Daten repräsentiert, die geändert und gespeichert werden könnten:
 
 ```html
 <form>
@@ -73,18 +73,18 @@ Im folgenden Beispiel haben wir ein HTML Text {{htmlelement("input")}}, um einig
 </form>
 ```
 
-Unser JavaScript fügt dem `<input>` Element einen {{domxref("Element/input_event", "input")}} Ereignis-Listener hinzu, der auf Änderungen im eingegebenen Wert hört. Wenn der Wert auf einen nicht-leeren Wert aktualisiert wird, wird ein `beforeunload` Ereignis-Listener am {{domxref("Window")}} Objekt hinzugefügt.
+Unser JavaScript fügt dem `<input>`-Element einen [`input`](/de/docs/Web/API/Element/input_event)-Ereignis-Listener hinzu, der auf Änderungen des eingegebenen Werts lauscht. Wenn der Wert auf einen nicht leeren Wert aktualisiert wird, wird ein `beforeunload`-Ereignis-Listener am [`Window`](/de/docs/Web/API/Window)-Objekt angebracht.
 
-Wenn der Wert wieder eine leere Zeichenkette wird (d.h. der Wert wird gelöscht), wird der `beforeunload` Ereignis-Listener wieder entfernt — wie oben in den [Nutzungshinweisen](#nutzungshinweise) erwähnt sollte der Listener entfernt werden, wenn keine ungespeicherten Daten vorhanden sind, um davor zu warnen.
+Wird der Wert wieder zu einem leeren String (d.h. der Wert wird gelöscht), wird der `beforeunload`-Ereignis-Listener wieder entfernt — wie oben in den [Verwendungshinweisen](#verwendungshinweise) erwähnt, sollte der Listener entfernt werden, wenn es keine ungespeicherten Daten gibt, vor denen gewarnt werden muss.
 
-Die `beforeunload` Ereignis-Handlerfunktion ruft `event.preventDefault()` auf, um den Warndialog auszulösen, wenn der Benutzer den Tab schließt oder navigiert. Wir haben auch `event.returnValue = true` in der Handler-Funktion enthalten, sodass alle Browser, die das `event.preventDefault()`-Mechanismus nicht unterstützen, die Demo trotzdem korrekt ausführen.
+Die `beforeunload`-Ereignis-Handler-Funktion ruft `event.preventDefault()` auf, um das Warnungsdialogfeld auszulösen, wenn der Benutzer den Tab schließt oder navigiert. Wir haben auch `event.returnValue = true` in die Handler-Funktion aufgenommen, damit alle Browser, die das `event.preventDefault()`-System nicht unterstützen, die Demo trotzdem korrekt ausführen.
 
 ```js
 const beforeUnloadHandler = (event) => {
-  // Empfohlen
+  // Recommended
   event.preventDefault();
 
-  // Enthalten für Legacy-Unterstützung, z.B. Chrome/Edge < 119
+  // Included for legacy support, e.g. Chrome/Edge < 119
   event.returnValue = true;
 };
 
@@ -99,7 +99,7 @@ nameInput.addEventListener("input", (event) => {
 });
 ```
 
-Wenn der `<input>` Wert nicht leer ist, zeigt der Browser den Warndialog an, wenn Sie versuchen, die Seite zu schließen, zu navigieren oder neu zu laden. Probieren Sie es aus:
+Wenn der `<input>`-Wert nicht leer ist, zeigt der Browser das Warnungsdialogfeld an, wenn Sie versuchen, die Seite zu schließen, zu navigieren oder neu zu laden. Probieren Sie es aus:
 
 {{EmbedLiveSample("Examples", "100%", 50)}}
 
@@ -107,16 +107,16 @@ Wenn der `<input>` Wert nicht leer ist, zeigt der Browser den Warndialog an, wen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("BeforeUnloadEvent")}} Schnittstelle
+- [`BeforeUnloadEvent`](/de/docs/Web/API/BeforeUnloadEvent)-Schnittstelle
 - Verwandte Ereignisse:
-  - {{domxref("Document/DOMContentLoaded_event", "DOMContentLoaded")}}
-  - {{domxref("Document/readystatechange_event", "readystatechange")}}
-  - {{domxref("Window/load_event", "load")}}
-  - {{domxref("Window/unload_event", "unload")}}
-- [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api#developer-recommendations-for-each-state) bietet nützlichere Anleitungen zum Umgang mit dem Seitenlebenszyklus-Verhalten in Ihren Web-Apps.
+  - [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)
+  - [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event)
+  - [`load`](/de/docs/Web/API/Window/load_event)
+  - [`unload`](/de/docs/Web/API/Window/unload_event)
+- Die [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api#developer-recommendations-for-each-state) bietet nützlichere Anleitungen zur Handhabung des Seitenlebenszyklusverhaltens in Ihren Web-Apps.

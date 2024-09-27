@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Visual Viewport")}}
 
-Die **`offsetTop`** schreibgeschützte Eigenschaft der {{domxref("VisualViewport")}}-Schnittstelle gibt den Versatz der oberen Kante des visuellen Viewports von der oberen Kante des Layout-Viewports in CSS-Pixeln zurück, oder `0`, wenn das aktuelle Dokument nicht vollständig aktiv ist.
+Die **`offsetTop`**-Eigenschaft des [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Interfaces ist eine schreibgeschützte Eigenschaft, die den Versatz der oberen Kante des visuellen Viewports von der oberen Kante des Layout-Viewports in CSS-Pixeln zurückgibt, oder `0`, wenn das aktuelle Dokument nicht vollständig aktiv ist.
 
 ## Wert
 
-Ein double.
+Ein Double.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "Fenster: launchQueue-Eigenschaft"
+title: "Window: launchQueue-Eigenschaft"
 short-title: launchQueue
 slug: Web/API/Window/launchQueue
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft `launchQueue` der {{domxref("Window")}}-Schnittstelle bietet Zugriff auf die {{domxref("LaunchQueue")}}-Klasse, die die Implementierung einer benutzerdefinierten Navigationsverarbeitung beim Start in einer [Progressive Web App](/de/docs/Web/Progressive_web_apps) (PWA) ermöglicht. Der Kontext der Verarbeitung wird durch den `client_mode`-Wert im [`launch_handler`](/de/docs/Web/Manifest/launch_handler)-Manifestfeld angegeben.
+Die schreibgeschützte `launchQueue`-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle bietet Zugriff auf die [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Klasse. Diese ermöglicht die Implementierung einer benutzerdefinierten Launch-Navigationsbehandlung in einer [progressiven Web-App](/de/docs/Web/Progressive_web_apps) (PWA), wobei der Behandlungskontext durch den `client_mode`-Wert des [`launch_handler`](/de/docs/Web/Manifest/launch_handler)-Manifestfeldes angegeben wird.
 
-Die Funktionalität der benutzerdefinierten Startnavigationsverarbeitung wird durch die Eigenschaften des {{domxref("LaunchParams")}}-Objekts gesteuert, das in die {{domxref("LaunchQueue.setConsumer()")}}-Rückruffunktion übergeben wird.
+Die Funktionalität der benutzerdefinierten Launch-Navigationsbehandlung wird durch die Eigenschaften des [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Objekts gesteuert, das in die [`LaunchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer)-Rückruffunktion übergeben wird.
 
 ## Wert
 
-Eine Instanz des {{domxref("LaunchQueue")}}-Objekts.
+Eine Instanz des [`LaunchQueue`](/de/docs/Web/API/LaunchQueue)-Objekts.
 
 ## Beispiele
 
@@ -24,7 +24,7 @@ if ("launchQueue" in window) {
     if (launchParams.targetURL) {
       const params = new URL(launchParams.targetURL).searchParams;
 
-      // Angenommen, es handelt sich um eine Musikplayer-App, der ein abzuspielender Track übergeben wird
+      // Assuming a music player app that gets a track passed to it to be played
       const track = params.get("track");
       if (track) {
         audio.src = track;
@@ -46,7 +46,7 @@ if ("launchQueue" in window) {
 
 ## Siehe auch
 
-- {{domxref("Launch Handler API", "Launch Handler API", "", "nocode")}}
+- [Launch Handler API](/de/docs/Web/API/Launch_Handler_API)
 - [Launch Handler API: Control how your app is launched](https://developer.chrome.com/docs/web-platform/launch-handler/)
 - `Window.launchQueue`
 - [Musicr 2.0](https://launch-handler.glitch.me/) Demo-App

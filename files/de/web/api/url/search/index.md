@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`search`**-Eigenschaft des {{domxref("URL")}}-Interfaces ist eine Suchzeichenfolge, auch _Query-String_ genannt, die eine Zeichenfolge enthält, die ein `'?'` gefolgt von den Parametern der URL ist.
+Die **`search`**-Eigenschaft des [`URL`](/de/docs/Web/API/URL)-Interfaces ist ein Suchstring, auch _Query-String_ genannt, der eine Zeichenkette mit einem `'?'` gefolgt von den Parametern der URL ist.
 
-Moderne Browser stellen die {{domxref("URL.searchParams")}}-Eigenschaft bereit, um das Parsen der Parameter aus dem Query-String zu erleichtern.
+Moderne Browser bieten die [`URL.searchParams`](/de/docs/Web/API/URL/searchParams)-Eigenschaft an, um das Parsen der Parameter aus dem Query-String zu erleichtern.
 
 ## Wert
 
@@ -20,9 +20,9 @@ Ein String.
 
 ```js
 const url = new URL(
-  "https://developer.mozilla.org/de/docs/Web/API/URL/search?q=123",
+  "https://developer.mozilla.org/en-US/docs/Web/API/URL/search?q=123",
 );
-console.log(url.search); // Ausgabe: "?q=123"
+console.log(url.search); // Logs "?q=123"
 ```
 
 ## Spezifikationen
@@ -35,4 +35,4 @@ console.log(url.search); // Ausgabe: "?q=123"
 
 ## Siehe auch
 
-- Das zugehörige {{domxref("URL")}}-Interface.
+- Das [`URL`](/de/docs/Web/API/URL)-Interface, zu dem es gehört.

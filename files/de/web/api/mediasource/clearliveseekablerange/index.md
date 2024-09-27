@@ -3,12 +3,12 @@ title: "MediaSource: clearLiveSeekableRange()-Methode"
 short-title: clearLiveSeekableRange()
 slug: Web/API/MediaSource/clearLiveSeekableRange
 l10n:
-  sourceCommit: 84f8672adab0fdb783d02676c42a2b7ae16b3606
+  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
 ---
 
-{{APIRef("Media Source Extensions")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`clearLiveSeekableRange()`**-Methode des {{domxref("MediaSource")}}-Interfaces löscht einen vorher mit einem Aufruf von {{domxref("MediaSource.setLiveSeekableRange()","setLiveSeekableRange()")}} gesetzten suchbaren Bereich.
+Die **`clearLiveSeekableRange()`**-Methode des [`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces löscht einen suchbaren Bereich, der zuvor mit einem Aufruf von [`setLiveSeekableRange()`](/de/docs/Web/API/MediaSource/setLiveSeekableRange) festgelegt wurde.
 
 ## Syntax
 
@@ -28,6 +28,6 @@ Keiner ({{jsxref("undefined")}}).
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

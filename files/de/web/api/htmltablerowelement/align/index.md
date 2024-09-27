@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`align`**-Eigenschaft der {{domxref("HTMLTableRowElement")}}-Schnittstelle ist ein String, der angibt, wie Text in der {{htmlelement("tr")}}-Tabellenzeile horizontal ausgerichtet werden soll. Einzelne Zellen können dies überschreiben.
+Die **`align`**-Eigenschaft des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Interfaces ist ein String zur Angabe der horizontalen Textausrichtung in der {{htmlelement("tr")}}-Tabellenzeile. Einzelne Zellen können dies überschreiben.
 
 > [!NOTE]
-> Diese Eigenschaft ist veraltet, und CSS sollte verwendet werden, um Text in einer Zelle horizontal auszurichten. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("text-align")}}, die Vorrang hat, um Text in einer Zeile horizontal auszurichten.
+> Diese Eigenschaft ist veraltet und CSS sollte verwendet werden, um Text in einer Zelle horizontal auszurichten. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("text-align")}}, die Vorrang hat, um Text in einer Zeile horizontal auszurichten.
 
 ## Wert
 
-Die möglichen Werte sind:
+Mögliche Werte sind:
 
 - `left`
-  - : Richtet den Text links aus. Verwenden Sie stattdessen `text-align: left`.
+  - : Richten Sie den Text linksbündig aus. Verwenden Sie stattdessen `text-align: left`.
 - `right`
-  - : Richtet den Text rechts aus. Verwenden Sie stattdessen `text-align: right`.
+  - : Richten Sie den Text rechtsbündig aus. Verwenden Sie stattdessen `text-align: right`.
 - `center`
-  - : Zentriert den Text in der Zelle. Verwenden Sie stattdessen `text-align: center`.
+  - : Zentrieren Sie den Text in der Zelle. Verwenden Sie stattdessen `text-align: center`.
 - `justify`
-  - : Verteilt den Text über die Zelle. Verwenden Sie stattdessen `text-align: justify`.
+  - : Verteilen Sie den Text über die Zelle. Verwenden Sie stattdessen `text-align: justify`.
 - `char`
-  - : Wurde nie vollständig unterstützt, richtet Text an einem angegebenen Zeichen aus. Verwenden Sie `text-align: <string>`, wobei das String ein einzelnes Zeichen ist, wenn unterstützt.
+  - : Wurde nie vollständig unterstützt, richten Sie den Text an einem bestimmten Zeichen aus. Verwenden Sie `text-align: <string>,` wobei der String ein einzelnes Zeichen ist, wenn unterstützt.
 
 ## Beispiele
 
@@ -43,4 +43,4 @@ Verwenden Sie stattdessen CSS `text-align`. Ein [Beispiel](/de/docs/Web/CSS/text
 ## Siehe auch
 
 - {{cssxref("text-align")}}
-- [Tabellen stylen](/de/docs/Learn/CSS/Building_blocks/Styling_tables)
+- [Stilgebung von Tabellen](/de/docs/Learn/CSS/Building_blocks/Styling_tables)

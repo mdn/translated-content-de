@@ -1,5 +1,5 @@
 ---
-title: "Dokument: body-Eigenschaft"
+title: "Document: body-Eigenschaft"
 short-title: body
 slug: Web/API/Document/body
 l10n:
@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Document.body`**-Eigenschaft repräsentiert das
-{{HTMLElement("body")}}- oder {{HTMLElement("frameset")}}-Element des aktuellen Dokuments oder
-`null`, falls ein solches Element nicht existiert.
+Die **`Document.body`**-Eigenschaft repräsentiert den
+{{HTMLElement("body")}} oder {{HTMLElement("frameset")}} Knoten des aktuellen Dokuments, oder
+`null`, wenn ein solches Element nicht existiert.
 
 ## Wert
 
-Eines der folgenden:
+Eine der folgenden:
 
-- {{domxref("HTMLBodyElement")}}
-- {{domxref("HTMLFrameSetElement")}}
+- [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
+- [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
 - `null`
 
 ## Beispiele
 
 ```js
-// Bei diesem HTML: <body id="oldBodyElement"></body>
+// Given this HTML: <body id="oldBodyElement"></body>
 alert(document.body.id); // "oldBodyElement"
 
 const aNewBodyElement = document.createElement("body");
@@ -36,12 +36,13 @@ alert(document.body.id); // "newBodyElement"
 ## Hinweise
 
 `document.body` ist das Element, das den Inhalt für das Dokument enthält.
-In Dokumenten mit `<body>`-Inhalten wird das
+In Dokumenten mit `<body>`-Inhalt wird das
 `<body>`-Element zurückgegeben, und in Frameset-Dokumenten wird das äußerste
 `<frameset>`-Element zurückgegeben.
 
-Obwohl die `body`-Eigenschaft gesetzt werden kann, führt das Setzen eines neuen Body-Elements in einem Dokument effektiv zur Entfernung aller aktuellen Kinder des bestehenden
-`<body>`-Elements.
+Obwohl die `body`-Eigenschaft setzbar ist, wird das Setzen eines neuen Bodys auf einem Dokument
+effektiv alle aktuellen Kinder des bestehenden
+`<body>`-Elements entfernen.
 
 ## Spezifikationen
 
@@ -53,4 +54,4 @@ Obwohl die `body`-Eigenschaft gesetzt werden kann, führt das Setzen eines neuen
 
 ## Siehe auch
 
-- {{domxref("document.head")}}
+- [`document.head`](/de/docs/Web/API/Document/head)

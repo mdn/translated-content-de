@@ -7,44 +7,44 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Das abstrakte Interface **`AbstractRange`** ist die Basisklasse, auf der alle {{Glossary("DOM")}}-Bereichstypen definiert sind. Ein **Bereich** ist ein Objekt, das die Start- und Endpunkte eines Abschnitts von Inhalt innerhalb des Dokuments angibt.
+Das **`AbstractRange`**-Interface ist die Basisklasse, auf der alle [DOM](/de/docs/Glossary/DOM)-Bereiche definiert sind. Ein **Bereich** ist ein Objekt, das die Start- und Endpunkte eines Abschnitts von Inhalten innerhalb des Dokuments angibt.
 
 > [!NOTE]
-> Als abstraktes Interface werden Sie kein Objekt vom Typ `AbstractRange` direkt instanziieren. Stattdessen verwenden Sie die Interfaces {{domxref("Range")}} oder {{domxref("StaticRange")}}. Um den Unterschied zwischen diesen beiden Interfaces zu verstehen und herauszufinden, welches für Ihre Bedürfnisse geeignet ist, konsultieren Sie die Dokumentation der jeweiligen Interfaces.
+> Als abstraktes Interface werden Sie kein Objekt vom Typ `AbstractRange` direkt instanziieren. Stattdessen verwenden Sie die Interfaces [`Range`](/de/docs/Web/API/Range) oder [`StaticRange`](/de/docs/Web/API/StaticRange). Um den Unterschied zwischen diesen beiden Interfaces zu verstehen und zu erfahren, welches für Ihre Bedürfnisse geeignet ist, konsultieren Sie die Dokumentation für jedes Interface.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("AbstractRange.collapsed", "collapsed")}} {{ReadOnlyInline}}
-  - : Ein Boolean-Wert, der `true` ist, wenn der Bereich _kollabiert_ ist. Ein kollabierter Bereich ist ein Bereich, dessen Start- und Endposition gleich sind, was zu einem Bereich mit null Zeichen führt.
-- {{domxref("AbstractRange.endContainer", "endContainer")}} {{ReadOnlyInline}}
-  - : Das {{domxref("Node")}}-Objekt, in dem sich das Ende des Bereichs befindet, wie durch die `endOffset`-Eigenschaft angegeben.
-- {{domxref("AbstractRange.endOffset", "endOffset")}} {{ReadOnlyInline}}
-  - : Ein Ganzzahlenwert, der den Offset in Zeichen vom Anfang des Inhalts des Knotens bis zum letzten Zeichen des durch das Bereichsobjekt dargestellten Bereichs angibt. Dieser Wert muss kleiner sein als die Länge des `endContainer` Knotens.
-- {{domxref("AbstractRange.startContainer", "startContainer")}} {{ReadOnlyInline}}
-  - : Der DOM-{{domxref("Node")}}, in dem sich der Anfang des Bereichs befindet, wie durch die `startOffset`-Eigenschaft angegeben.
-- {{domxref("AbstractRange.startOffset", "startOffset")}} {{ReadOnlyInline}}
-  - : Ein Ganzzahlenwert, der den Offset in Zeichen vom Anfang des Inhalts des Knotens bis zum ersten Zeichen des durch das Bereichsobjekt referenzierten Inhalts darstellt. Dieser Wert muss kleiner sein als die Länge des in `startContainer` angegebenen Knotens.
+- [`collapsed`](/de/docs/Web/API/AbstractRange/collapsed) {{ReadOnlyInline}}
+  - : Ein Boolean-Wert, der `true` ist, wenn der Bereich _kollabiert_ ist. Ein kollabierter Bereich ist ein Bereich, dessen Start- und Endposition identisch sind, was zu einem nullzeichenlangen Bereich führt.
+- [`endContainer`](/de/docs/Web/API/AbstractRange/endContainer) {{ReadOnlyInline}}
+  - : Das [`Node`](/de/docs/Web/API/Node)-Objekt, in dem sich das Ende des Bereichs befindet, wie es durch die Eigenschaft `endOffset` angegeben wird.
+- [`endOffset`](/de/docs/Web/API/AbstractRange/endOffset) {{ReadOnlyInline}}
+  - : Ein ganzzahliger Wert, der den Versatz in Zeichen vom Beginn der Inhalte des Knotens bis zum letzten Zeichen des durch das Bereichsobjekt dargestellten Bereichs angibt. Dieser Wert muss kleiner sein als die Länge des `endContainer`-Knotens.
+- [`startContainer`](/de/docs/Web/API/AbstractRange/startContainer) {{ReadOnlyInline}}
+  - : Der DOM-[`Node`](/de/docs/Web/API/Node), in dem sich der Anfang des Bereichs befindet, wie durch die `startOffset`-Eigenschaft angegeben.
+- [`startOffset`](/de/docs/Web/API/AbstractRange/startOffset) {{ReadOnlyInline}}
+  - : Ein ganzzahliger Wert, der den Versatz in Zeichen vom Beginn der Inhalte des Knotens bis zum ersten Zeichen der Inhalte angibt, auf die durch das Bereichsobjekt verwiesen wird. Dieser Wert muss kleiner sein als die Länge des Knotens, der in `startContainer` angegeben ist.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Das `AbstractRange`-Interface bietet keine Methoden._
 
-## Anwendungshinweise
+## Hinweise zur Verwendung
 
 ### Bereichstypen
 
-Alle Inhaltsbereiche innerhalb eines {{domxref("Document", "Dokuments")}} werden beschrieben, indem Instanzen von Interfaces basierend auf `AbstractRange` verwendet werden. Es gibt zwei solche Interfaces:
+Alle Inhaltsbereiche innerhalb eines [`Dokuments`](/de/docs/Web/API/Document) werden mithilfe von Instanzen von Interfaces beschrieben, die auf `AbstractRange` basieren. Es gibt zwei solcher Interfaces:
 
-- {{domxref("Range")}}
-  - : Das `Range`-Interface existiert schon seit langem und wurde erst kürzlich neu definiert, um auf `AbstractRange` basierend zu sein, um den Bedarf an der Definition anderer Formen von Bereichsdaten zu decken. `Range` bietet Methoden, die es Ihnen erlauben, die Endpunkte des Bereichs zu ändern sowie Methoden zum Vergleichen von Bereichen, Erkennen von Schnittpunkten zwischen Bereichen usw.
-- {{domxref("StaticRange")}}
-  - : Ein `StaticRange` ist ein einfacher Bereich, der nach seiner Erstellung nicht mehr geändert werden kann. Insbesondere bleibt der Bereich unverändert, wenn sich der Knotenbaum ändert. Dies ist nützlich, wenn Sie einen Bereich spezifizieren müssen, der nur einmal verwendet wird, da so die Leistungs- und Ressourcenauswirkungen des komplexeren {{domxref("Range")}}-Interfaces vermieden werden.
+- [`Range`](/de/docs/Web/API/Range)
+  - : Das `Range`-Interface existiert schon lange und wurde erst kürzlich neu definiert, um auf `AbstractRange` zu basieren, da es notwendig wurde, andere Formen von Bereichsdaten zu definieren. `Range` bietet Methoden, mit denen Sie die Endpunkte des Bereichs ändern sowie Bereiche vergleichen, Schnittmengen zwischen Bereichen erkennen usw. können.
+- [`StaticRange`](/de/docs/Web/API/StaticRange)
+  - : Ein `StaticRange` ist ein einfacher Bereich, der nach seiner Erstellung nicht mehr geändert werden kann. Speziell, wenn sich der Knotenbaum verändert, bleibt der Bereich unverändert. Dies ist nützlich, wenn Sie einen Bereich angeben müssen, der nur einmal verwendet wird, da es die Leistung und den Ressourcenaufwand des komplexeren [`Range`](/de/docs/Web/API/Range)-Interfaces vermeidet.
 
 ### Inhalte von Elementen
 
-Wenn Sie versuchen, auf die Inhalte eines Elements zuzugreifen, bedenken Sie, dass das Element selbst ein Knoten ist, aber auch jeder Text darin. Um einen Bereichs-Endpunkt innerhalb des Textes eines Elements festzulegen, müssen Sie sicherstellen, dass Sie den Textknoten innerhalb des Elements finden:
+Wenn Sie versuchen, auf die Inhalte eines Elements zuzugreifen, bedenken Sie, dass das Element selbst ein Knoten ist, aber auch jeder Text innerhalb des Elements. Um einen Bereichsendpunkt innerhalb des Textes eines Elements festzulegen, stellen Sie sicher, dass Sie den Textknoten innerhalb des Elements finden:
 
 ```js
 const startElem = document.querySelector("p");
@@ -58,17 +58,17 @@ const contents = range.cloneContents();
 document.body.appendChild(contents);
 ```
 
-Dieses Beispiel erstellt einen neuen Bereich, `range`, und legt seinen Startpunkt auf den dritten Kindknoten des ersten Elements fest, dessen Klasse `elementclass` ist. Der Endpunkt wird auf die Mitte des ersten Kindelements des span gesetzt, und dann wird der Bereich verwendet, um den Inhalt des Bereichs zu kopieren.
+Dieses Beispiel erstellt einen neuen Bereich, `range`, und setzt seinen Startpunkt auf den dritten Kindknoten des ersten Elements, dessen Klasse `elementclass` ist. Der Endpunkt wird in der Mitte des ersten Kindes des `<span>`-Elements festgelegt, und dann wird der Bereich verwendet, um die Inhalte des Bereichs zu kopieren.
 
 ### Bereiche und die Hierarchie des DOM
 
-Um einen Bereich von Zeichen innerhalb eines Dokuments zu definieren, der über null oder mehr Knoten-Grenzen hinwegspannen kann und möglichst resilient gegenüber Änderungen am DOM ist, können Sie den Offset zu den ersten und letzten Zeichen im {{Glossary("HTML")}} nicht spezifizieren. Es gibt einige gute Gründe dafür.
+Um einen Bereich von Zeichen innerhalb eines Dokuments zu definieren, der in der Lage ist, sich über null oder mehr Knotengrenzen zu erstrecken, und der so widerstandsfähig wie möglich gegenüber Änderungen des DOM ist, können Sie nicht den Versatz für die ersten und letzten Zeichen im [HTML](/de/docs/Glossary/HTML) angeben. Es gibt einige gute Gründe dafür.
 
-Erstens denkt der Browser, nachdem Ihre Seite geladen wurde, nicht mehr in HTML. Sobald die Seite geladen ist, ist sie ein Baum von DOM-{{domxref("Node")}}-Objekten, sodass Sie die Start- und Endpositionen eines Bereichs in Bezug auf Knoten und Positionen innerhalb von Knoten angeben müssen.
+Erstens, nachdem Ihre Seite geladen ist, denkt der Browser nicht mehr in HTML. Nach dem Laden ist die Seite ein Baum von DOM-[`Node`](/de/docs/Web/API/Node)-Objekten, sodass Sie die Anfangs- und Endpositionen eines Bereichs in Bezug auf Knoten und Positionen innerhalb dieser Knoten angeben müssen.
 
-Zweitens müssen Sie zur Unterstützung der Veränderlichkeit des DOM-Baums so viel wie möglich eine Möglichkeit haben, Positionen relativ zu Knoten im Baum darzustellen, anstatt globale Positionen im gesamten Dokument. Indem Sie Punkte innerhalb des Dokuments als Offsets innerhalb eines bestimmten Knotens definieren, bleiben diese Positionen mit dem Inhalt konsistent, selbst wenn Knoten im DOM-Baum hinzugefügt, entfernt oder verschoben werden – innerhalb vernünftiger Grenzen. Es gibt offensichtliche Einschränkungen (wie z.B. wenn ein Knoten nach dem Endpunkt eines Bereichs verschoben wird oder wenn der Inhalt eines Knotens stark verändert wird), aber es ist viel besser als nichts.
+Zweitens, um die Veränderlichkeit des DOM-Baums so gut wie möglich zu unterstützen, benötigen Sie eine Möglichkeit, Positionen relativ zu Knoten im Baum darzustellen, anstatt globale Positionen im gesamten Dokument. Indem Sie Punkte innerhalb des Dokuments als Versätze innerhalb eines gegebenen Knotens definieren, bleiben diese Positionen konsistent mit den Inhalten, selbst wenn Knoten zum DOM-Baum hinzugefügt, daraus entfernt oder darin verschoben werden—im Rahmen des Möglichen. Es gibt recht offensichtliche Einschränkungen (z. B. wenn ein Knoten nach dem Endpunkt eines Bereichs verschoben wird oder wenn der Inhalt eines Knotens stark verändert wird), aber es ist weit besser als gar nichts.
 
-Drittens wird es im Allgemeinen einfacher sein, node-relative Positionen zu verwenden, um die Start- und Endpositionen effizient zu gestalten. Anstatt sich durch das DOM schlängeln zu müssen, um herauszufinden, worauf sich Ihr globaler Offset bezieht, kann der {{Glossary("Benutzeragent")}} (Browser) stattdessen direkt zum Knoten gehen, der durch die Startposition angegeben ist, und von dort aus weiterarbeiten, bis er den angegebenen Offset in den Endknoten erreicht.
+Drittens, die Verwendung von knotenrelativen Positionen zur Definition der Start- und Endpositionen ist im Allgemeinen einfacher zu optimieren. Anstatt den DOM zu durchforsten, um herauszufinden, auf was sich Ihr globaler Versatz bezieht, kann der [user agent](/de/docs/Glossary/user_agent) (Browser) direkt zum durch die Startposition angegebenen Knoten gehen und von dort aus arbeiten, bis er den angegebenen Versatz im Endknoten erreicht.
 
 Um dies zu veranschaulichen, betrachten Sie das folgende HTML:
 
@@ -92,22 +92,22 @@ Um dies zu veranschaulichen, betrachten Sie das folgende HTML:
 </div>
 ```
 
-Nach dem Laden des HTML und der Konstruktion der DOM-Darstellung des Dokuments sieht der resultierende DOM-Baum folgendermaßen aus:
+Nach dem Laden des HTML und dem Aufbau der DOM-Darstellung des Dokuments sieht der resultierende DOM-Baum so aus:
 
-![Diagram eines einfachen Webseiten-DOMs](simpledom.svg)
+![Diagramm des DOM für eine einfache Webseite](simpledom.svg)
 
-In diesem Diagramm werden die Knoten, die HTML-Elemente darstellen, grün dargestellt. Jede darunterliegende Zeile zeigt die nächste Tiefenschicht in den DOM-Baum. Blaue Knoten sind Textknoten, die den Text enthalten, der auf dem Bildschirm angezeigt wird. Der Inhalt jedes Elements ist darunter im Baum verlinkt und kann möglicherweise eine Reihe von Verzweigungen unterhalb erzeugen, da Elemente andere Elemente und Textknoten einschließen.
+In diesem Diagramm sind die Knoten, die HTML-Elemente darstellen, in Grün dargestellt. Jede Zeile darunter zeigt die nächste Tiefenschicht in den DOM-Baum. Blaue Knoten sind Textknoten, die den Text enthalten, der auf dem Bildschirm angezeigt wird. Die Inhalte jedes Elements sind unter ihm im Baum verlinkt, was möglicherweise eine Reihe von Ästen darunter auslöst, da Elemente andere Elemente und Textknoten umfassen.
 
-Wenn Sie einen Bereich erstellen möchten, der den Inhalt des {{HTMLElement("p")}}-Elements umfasst, dessen Inhalt `"A <em>very</em> interesting thing happened on the way to the forum…"` ist, können Sie dies folgendermaßen tun:
+Wenn Sie einen Bereich erstellen möchten, der die Inhalte des {{HTMLElement("p")}}-Elements umfasst, dessen Inhalte `"A <em>very</em> interesting thing happened on the way to the forum…"` lauten, können Sie dies wie folgt tun:
 
 ```js
 const pRange = document.createRange();
 pRange.selectNodeContents(document.querySelector("#entry1 p"));
 ```
 
-Da wir den gesamten Inhalt des `<p>`-Elements inklusive seiner Nachkommen auswählen möchten, funktioniert das perfekt.
+Da wir den gesamten Inhalt des `<p>`-Elements, einschließlich seiner Nachkommen, auswählen möchten, funktioniert dies perfekt.
 
-Wenn wir stattdessen den Text "An interesting thing…" von der Überschrift des {{HTMLElement("section")}} (ein {{HTMLElement("Heading_Elements", "h2")}}-Element) bis zum Ende der Buchstaben "ve" im {{HTMLElement("em")}} innerhalb des darauffolgenden Absatzes kopieren möchten, würde der folgende Code funktionieren:
+Wenn wir stattdessen den Text "An interesting thing…" aus der Überschrift des {{HTMLElement("section")}} (ein {{HTMLElement("Heading_Elements", "h2")}}-Element) bis zu den Buchstaben "ve" im {{HTMLElement("em")}} innerhalb des Absatzes darunter kopieren möchten, würde der folgende Code funktionieren:
 
 ```js
 const range = document.createRange();
@@ -120,21 +120,21 @@ range.setEnd(endNode, 2);
 const fragment = range.cloneContents();
 ```
 
-Hier ergibt sich ein interessantes Problem — wir erfassen Inhalte aus mehreren auf verschiedenen Ebenen der DOM-Hierarchie befindlichen Knoten und dann nur Teile davon. Wie sollte das Ergebnis aussehen?
+Hier entsteht ein interessantes Problem — wir erfassen Inhalte aus mehreren Knoten auf verschiedenen Ebenen der DOM-Hierarchie und dann nur einen Teil davon. Wie sollte das Ergebnis aussehen?
 
-Wie es sich herausstellt, löst die DOM-Spezifikation genau dieses Problem. In diesem Fall rufen wir {{domxref("Range.cloneContents", "cloneContents()")}} auf den Bereich auf, um ein neues {{domxref("DocumentFragment")}}-Objekt zu erstellen, das einen DOM-Teilbaum bereithält, der die Inhalte des angegebenen Bereichs reproduziert. Um dies zu tun, konstruiert `cloneContents()` alle Knoten, die benötigt werden, um die Struktur des angegebenen Bereichs zu erhalten, aber nicht mehr als nötig.
+Wie sich herausstellt, beschäftigt sich die DOM-Spezifikation glücklicherweise genau mit diesem Problem. In diesem Fall rufen wir zum Beispiel [`cloneContents()`](/de/docs/Web/API/Range/cloneContents) für den Bereich auf, um ein neues [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt zu erstellen, das einen DOM-Unterbaum bereitstellt, der die Inhalte des angegebenen Bereichs reproduziert. Dazu baut `cloneContents()` alle Knoten auf, die benötigt werden, um die Struktur des angegebenen Bereichs zu erhalten, aber nicht mehr als nötig.
 
-In diesem Beispiel liegt der Beginn des angegebenen Bereichs im Textknoten unter der Überschrift des Abschnitts, was bedeutet, dass das neue `DocumentFragment` ein {{HTMLElement("Heading_Elements", "h2")}} und darunter einen Textknoten enthalten muss.
+In diesem Beispiel befindet sich der Start des angegebenen Bereichs im Textknoten unterhalb der Überschrift des Abschnitts, was bedeutet, dass das neue `DocumentFragment` ein {{HTMLElement("Heading_Elements", "h2")}} und darunter einen Textknoten enthalten muss.
 
-Das Ende des Bereichs befindet sich unter dem {{HTMLElement("p")}}-Element, daher wird dies im neuen Fragment benötigt. Auch der Textknoten, der das Wort "A" enthält, da dies im Bereich enthalten ist. Schließlich werden ein `<em>` und ein Textknoten darunter unter dem `<p>` ebenfalls hinzugefügt.
+Das Ende des Bereichs befindet sich unterhalb des {{HTMLElement("p")}}-Elements, daher wird dies ebenfalls im neuen Fragment benötigt. Ebenso der Textknoten, der das Wort "A" enthält, da dies im Bereich enthalten ist. Schließlich werden ein `<em>` und ein darunter liegender Textknoten unter dem `<p>` hinzugefügt.
 
-Die Inhalte der Textknoten werden dann durch die Offsets in diesen Textknoten bestimmt, die bei den Aufrufen von {{domxref("Range.setStart", "setStart()")}} und {{domxref("Range.setEnd", "setEnd()")}} angegeben wurden. Angesichts des Offsets von 11 in den Text der Überschrift wird dieser Knoten "An interesting thing…" enthalten. Ebenso wird der letzte Textknoten "ve" enthalten, da die ersten beiden Zeichen des Endknotens angefordert wurden.
+Die Inhalte der Textknoten werden dann durch die angegebenen Versätze in diese Textknoten bestimmt, wenn [`setStart()`](/de/docs/Web/API/Range/setStart) und [`setEnd()`](/de/docs/Web/API/Range/setEnd) aufgerufen werden. Angesichts des Versatzes von 11 im Text der Überschrift wird dieser Knoten "An interesting thing…" enthalten. Ebenso wird der letzte Textknoten "ve" enthalten, weil die ersten beiden Zeichen des Endknotens angefordert wurden.
 
-Das resultierende Dokumentfragment sieht wie folgt aus:
+Das resultierende Dokumentfragment sieht so aus:
 
-![Ein DocumentFragment, das den geklonten Inhalt darstellt](dom-fragment.svg)
+![Ein Dokumentfragment, das den geklonten Inhalt darstellt](dom-fragment.svg)
 
-Beachten Sie besonders, dass die Inhalte dieses Fragments alle _unter_ dem gemeinsamen Elternteil der obersten Knoten darin liegen. Der übergeordnete `<section>` wird nicht benötigt, um den geklonten Inhalt zu replizieren und ist daher nicht enthalten.
+Beachten Sie besonders, dass die Inhalte dieses Fragments alle _unterhalb_ des gemeinsamen übergeordneten Elements der obersten Knoten innerhalb davon liegen. Das übergeordnete `<section>`-Element ist nicht notwendig, um den geklonten Inhalt zu reproduzieren, daher ist es nicht enthalten.
 
 ## Beispiel
 
@@ -144,7 +144,7 @@ Betrachten Sie dieses einfache HTML-Fragment.
 <p><strong>This</strong> is a paragraph.</p>
 ```
 
-Stellen Sie sich vor, Sie verwenden einen {{domxref("Range")}}, um das Wort "paragraph" daraus zu extrahieren. Der entsprechende Code sieht so aus:
+Stellen Sie sich vor, Sie verwenden ein [`Range`](/de/docs/Web/API/Range), um das Wort "paragraph" daraus zu extrahieren. Der folgende Code sieht so aus:
 
 ```js
 const paraNode = document.querySelector("p");
@@ -158,11 +158,11 @@ const fragment = range.cloneContents();
 document.body.appendChild(fragment);
 ```
 
-Zuerst erhalten wir Referenzen auf den Absatzknoten selbst sowie auf den _zweiten_ Kindknoten innerhalb des Absatzes. Der erste Kindknoten ist das {{HTMLElement("strong")}}-Element. Der zweite Kindknoten ist der Textknoten " is a paragraph.".
+Zuerst erhalten wir Referenzen auf den Absatzknoten selbst sowie auf den _zweiten_ Kindknoten innerhalb des Absatzes. Das erste Kind ist das {{HTMLElement("strong")}}-Element. Das zweite Kind ist der Textknoten " is a paragraph.".
 
-Mit der Textknotenreferenz in der Hand erstellen wir ein neues `Range`-Objekt, indem wir {{domxref("Document.createRange", "createRange()")}} auf dem `Document` selbst aufrufen. Wir setzen die Startposition des Bereichs auf das sechste Zeichen der Zeichenkette des Textknotens und die Endposition auf die Länge der Textknoten-Zeichenkette minus eins. Dies setzt den Bereich auf das Wort "paragraph".
+Mit der Textknoten-Referenz in der Hand erstellen wir ein neues `Range`-Objekt, indem wir [`createRange()`](/de/docs/Web/API/Document/createRange) auf dem `Document` selbst aufrufen. Wir setzen die Startposition des Bereichs auf das sechste Zeichen der Zeichenfolge des Textknotens und die Endposition auf die Länge der Zeichenfolge des Textknotens minus eins. Dies setzt den Bereich, um das Wort "paragraph" zu umfassen.
 
-Dann beenden wir, indem wir {{domxref("Range.cloneContents", "cloneContents()")}} auf dem `Range` aufrufen, um ein neues {{domxref("DocumentFragment")}}-Objekt zu erstellen, das den im Bereich umfassten Abschnitt des Dokuments enthält. Danach verwenden wir {{domxref("Node.appendChild", "appendChild()")}}, um dieses Fragment am Ende des Dokumentskörpers hinzuzufügen, wie vom {{domxref("document.body")}} erhalten.
+Dann rufen wir [`cloneContents()`](/de/docs/Web/API/Range/cloneContents) auf dem `Range` auf, um ein neues [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Objekt zu erstellen, welches den durch den Bereich umfassten Teil des Dokuments enthält. Danach verwenden wir [`appendChild()`](/de/docs/Web/API/Node/appendChild), um dieses Fragment am Ende des Dokumentkörpers hinzuzufügen, wie es mittels [`document.body`](/de/docs/Web/API/Document/body) abgerufen wird.
 
 Das Ergebnis sieht so aus:
 

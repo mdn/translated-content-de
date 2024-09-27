@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`toSum()`**-Methode des {{domxref("CSSNumericValue")}} Interfaces konvertiert den Wert des Objekts in ein {{domxref("CSSMathSum")}} Objekt zu den angegebenen Einheiten.
+Die **`toSum()`**-Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle konvertiert den Wert des Objekts in ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)-Objekt, das zu den angegebenen Einheiten umgerechnet wird.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ toSum(units)
 ### Parameter
 
 - `units`
-  - : Die Einheiten, in die konvertiert werden soll.
+  - : Die Einheiten, in die umgerechnet werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref('CSSMathSum')}}.
+Ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum).
 
 ### Ausnahmen
 

@@ -7,19 +7,19 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:user-valid`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes validierte Formularelement, dessen Wert basierend auf seinen [Validierungsbedingungen](/de/docs/Web/HTML/Constraint_validation) korrekt validiert wird. Im Gegensatz zu {{cssxref(":valid")}} passt sie jedoch nur, nachdem der Benutzer mit dem Element interagiert hat.
+Die **`:user-valid`** CSS-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes validierte Formularelement, dessen Wert basierend auf seinen [Validierungskriterien](/de/docs/Web/HTML/Constraint_validation) korrekt validiert wird. Anders als {{cssxref(":valid")}} wird sie jedoch erst angewendet, nachdem der Benutzer damit interagiert hat.
 
 Diese Pseudoklasse wird angewendet, wenn das Formularelement gültig ist und eines der folgenden Ereignisse eingetreten ist:
 
-- Der Benutzer hat eine Änderung am Formularelement vorgenommen und die Änderung bestätigt, z.B. durch Verschiebung des Fokus auf ein anderes Element.
-- Der Benutzer hat versucht, das Formular zu übermitteln, auch wenn keine Änderung am Element vorgenommen wurde.
-- Der Wert war ungültig, als das Element den Fokus erhielt, und der Benutzer hat eine Änderung vorgenommen, die ihn gültig macht, selbst wenn der Fokus weiterhin im Element ist.
+- Der Benutzer hat am Formularelement eine Änderung vorgenommen und diese durch das Verschieben des Fokus an eine andere Stelle übernommen.
+- Der Benutzer hat versucht, das Formular abzusenden, auch wenn am Element keine Änderung vorgenommen wurde.
+- Der Wert war ungültig, als der Fokus darauf kam, und der Benutzer hat eine Änderung vorgenommen, die ihn gültig machte, selbst wenn der Fokus immer noch auf dem Element ist.
 
-Sobald diese Pseudoklasse angewendet wurde, überprüft der User-Agent bei jedem Tastendruck im Fokus, ob das Element gültig ist.
+Sobald diese Pseudoklasse angewendet wurde, überprüft der User-Agent bei jedem Tastendruck, ob das Element gültig ist, wenn es den Fokus hat.
 
-- Wenn das Element den Fokus hat und der Wert ungültig war, als es den Fokus erhielt, erfolgt bei jedem Tastendruck eine erneute Validierung.
+- Falls das Element den Fokus hat und der Wert beim Fokuserhalt ungültig war, erfolgt eine erneute Validierung bei jedem Tastendruck.
 
-Das Ergebnis ist, dass, wenn das Element gültig war, als der Benutzer anfing, damit zu interagieren, das Gültigkeitsstyling nur geändert wird, wenn der Benutzer den Fokus auf ein anderes Element verschiebt. Wenn jedoch der Benutzer versucht, einen zuvor markierten Wert zu korrigieren, wird das Element sofort angezeigt, sobald der Wert gültig wird. Erforderliche Elemente werden nur als ungültig markiert, wenn der Benutzer sie ändert oder versucht, einen unveränderten ungültigen Wert einzureichen.
+Das Ergebnis ist, dass wenn das Element gültig war, als der Benutzer begann, damit zu interagieren, sich die Validierungsstile nur ändern, wenn der Benutzer den Fokus auf ein anderes Element verschiebt. Wenn der Benutzer jedoch versucht, einen zuvor markierten Wert zu korrigieren, zeigt das Element sofort an, sobald der Wert gültig wird. Erforderliche Elemente werden nur dann als ungültig markiert, wenn der Benutzer sie ändert oder versucht, einen unveränderten ungültigen Wert abzusenden.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ Das Ergebnis ist, dass, wenn das Element gültig war, als der Benutzer anfing, d
 
 ## Beispiele
 
-### Farbe und Symbol für :user-valid einstellen
+### Eine Farbe und ein Symbol auf :user-valid einstellen
 
 Im folgenden Beispiel werden der grüne Rand und das ✅ erst angezeigt, nachdem der Benutzer mit dem Feld interagiert hat.
 Versuchen Sie, die E-Mail-Adresse in eine andere gültige E-Mail zu ändern, um es in Aktion zu sehen.

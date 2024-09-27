@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mask-border-repeat`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie die [Kantenregionen](/de/docs/Web/CSS/border-image-slice#edge-regions) eines Quellbildes angepasst werden, um die Dimensionen des [Maskenrahmens](/de/docs/Web/CSS/mask-border) eines Elements zu füllen.
+Die **`mask-border-repeat`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie die [Randbereiche](/de/docs/Web/CSS/border-image-slice#edge-regions) eines Quellbildes angepasst werden, um die Dimensionen des [Maskenrandes](/de/docs/Web/CSS/mask-border) eines Elements zu füllen.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwert */
+/* Keyword value */
 mask-border-repeat: stretch;
 mask-border-repeat: repeat;
 mask-border-repeat: round;
 mask-border-repeat: space;
 
-/* oben und unten | links und rechts */
+/* top and bottom | left and right */
 mask-border-repeat: round stretch;
 
-/* Globale Werte */
+/* Global values */
 mask-border-repeat: inherit;
 mask-border-repeat: initial;
 mask-border-repeat: revert;
@@ -29,21 +29,21 @@ mask-border-repeat: revert-layer;
 mask-border-repeat: unset;
 ```
 
-Die `mask-border-repeat` Eigenschaft kann mit einem oder zwei Werten aus der unten stehenden Liste angegeben werden.
+Die `mask-border-repeat` Eigenschaft kann mit einem oder zwei Werten aus der untenstehenden Liste angegeben werden.
 
-- Wenn **ein** Wert angegeben wird, gilt er für **alle vier Seiten**.
+- Wenn **ein** Wert angegeben wird, gilt dieses Verhalten für **alle vier Seiten**.
 - Wenn **zwei** Werte angegeben werden, gilt der erste für **oben und unten**, der zweite für **links und rechts**.
 
 ### Werte
 
 - `stretch`
-  - : Die Kantenregionen des Quellbildes werden gestreckt, um die Lücke zwischen jedem Rahmen zu füllen.
+  - : Die Randbereiche des Quellbildes werden gestreckt, um die Lücke zwischen jedem Rand zu füllen.
 - `repeat`
-  - : Die Kantenregionen des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rahmen zu füllen. Kacheln können zugeschnitten werden, um die richtige Passform zu erreichen.
+  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rand zu füllen. Die Kacheln können abgeschnitten werden, um die richtige Passform zu erreichen.
 - `round`
-  - : Die Kantenregionen des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rahmen zu füllen. Kacheln können gestreckt werden, um die richtige Passform zu erreichen.
+  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rand zu füllen. Die Kacheln können gestreckt werden, um die richtige Passform zu erreichen.
 - `space`
-  - : Die Kantenregionen des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rahmen zu füllen. Zusätzlicher Platz wird zwischen den Kacheln verteilt, um die richtige Passform zu erreichen.
+  - : Die Randbereiche des Quellbildes werden gekachelt (wiederholt), um die Lücke zwischen jedem Rand zu füllen. Der zusätzliche Raum wird zwischen den Kacheln verteilt, um die richtige Passform zu erreichen.
 
 ## Formale Definition
 
@@ -57,20 +57,20 @@ Die `mask-border-repeat` Eigenschaft kann mit einem oder zwei Werten aus der unt
 
 ### Grundlegende Verwendung
 
-Diese Eigenschaft scheint derzeit noch nirgendwo unterstützt zu werden. Sobald sie unterstützt wird, dient sie dazu, festzulegen, wie der Maskenrahmenschnitt sich um den Rahmen wiederholt – d.h. ob er einfach wiederholt wird oder leicht skaliert, sodass eine ganze Anzahl von Schnitten passt, oder gestreckt wird, sodass ein Schnitt passt.
+Diese Eigenschaft scheint derzeit noch nicht unterstützt zu werden. Sobald sie schließlich unterstützt wird, wird sie dazu dienen, zu definieren, wie sich der Maskenrand-Slice am Rand wiederholt — d. h. ob er einfach wiederholt wird, leicht skaliert wird, sodass eine ganze Anzahl von Slices passt, oder gestreckt wird, sodass ein Slice passt.
 
 ```css
 mask-border-repeat: round;
 ```
 
-Browser auf Chromium-Basis unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-repeat` — mit einem Präfix:
+Chromium-basierte Browser unterstützen eine veraltete Version dieser Eigenschaft — `mask-box-image-repeat` — mit einem Präfix:
 
 ```css
 -webkit-mask-box-image-repeat: round;
 ```
 
 > [!NOTE]
-> Die Seite [`mask-border`](/de/docs/Web/CSS/mask-border) enthält ein funktionierendes Beispiel (mit den veralteten, in Chromium unterstützten, mit Präfix versehenen Maskenrahmeneigenschaften), sodass Sie eine Vorstellung von dem Effekt bekommen können.
+> Die Seite [`mask-border`](/de/docs/Web/CSS/mask-border) enthält ein funktionierendes Beispiel (unter Verwendung der veralteten, mit Präfix versehenen Border-Masken-Eigenschaften, die in Chromium unterstützt werden), sodass Sie eine Vorstellung von dem Effekt bekommen können.
 
 ## Spezifikationen
 

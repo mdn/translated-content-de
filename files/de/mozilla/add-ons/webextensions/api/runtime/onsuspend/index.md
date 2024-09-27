@@ -7,10 +7,10 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird an die Ereignisseite gesendet, kurz bevor sie entladen wird. Dies gibt der Erweiterung die Möglichkeit, einige Bereinigungsarbeiten durchzuführen. Beachten Sie, dass, da die Seite entladen wird, keine Garantie besteht, dass asynchrone Operationen, die während der Verarbeitung dieses Ereignisses gestartet wurden, abgeschlossen werden.
+Wird an die Ereignisseite gesendet, kurz bevor sie entladen wird. Dies gibt der Erweiterung die Möglichkeit, einige Aufräumarbeiten durchzuführen. Beachten Sie, dass aufgrund des Entladens der Seite asynchrone Operationen, die beim Umgang mit diesem Ereignis gestartet werden, möglicherweise nicht abgeschlossen werden.
 
 > [!NOTE]
-> Wenn etwas das Entladen der Ereignisseite verhindert, wird das {{WebExtAPIRef("runtime.onSuspendCanceled")}} Ereignis gesendet und die Seite wird nicht entladen.
+> Wenn etwas verhindert, dass die Ereignisseite entladen wird, wird das {{WebExtAPIRef("runtime.onSuspendCanceled")}}-Ereignis gesendet und die Seite wird nicht entladen.
 
 ## Syntax
 
@@ -25,11 +25,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## addListener Syntax
+## addListener-Syntax
 
 ### Parameter
 
@@ -42,12 +42,12 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Hören Sie auf Suspend-Ereignisse:
+Auf Suspend-Ereignisse hören:
 
 ```js
 function handleSuspend() {
-  console.log("Ereignisseite wird angehalten");
-  // Bereinigung durchführen
+  console.log("Suspending event page");
+  // handle cleanup
 }
 
 browser.runtime.onSuspend.addListener(handleSuspend);
@@ -56,7 +56,7 @@ browser.runtime.onSuspend.addListener(handleSuspend);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onSuspend) API. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onSuspend)-API von Chromium. Diese Dokumentation leitet sich von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

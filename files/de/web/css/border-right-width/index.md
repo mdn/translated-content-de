@@ -7,24 +7,24 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-right-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des rechten Rands eines Elements fest.
+Die **`border-right-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des rechten Rahmens eines Elements fest.
 
 {{EmbedInteractiveExample("pages/css/border-right-width.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 border-right-width: thin;
 border-right-width: medium;
 border-right-width: thick;
 
-/* <length> Werte */
+/* <length> values */
 border-right-width: 10em;
 border-right-width: 3vmax;
 border-right-width: 6px;
 
-/* Globale Schlüsselwörter */
+/* Global keywords */
 border-right-width: inherit;
 border-right-width: initial;
 border-right-width: revert;
@@ -36,26 +36,26 @@ border-right-width: unset;
 
 - `<line-width>`
 
-  - : Definiert die Breite des Rands, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder ein Schlüsselwort. Wenn es sich um ein Schlüsselwort handelt, muss es einer der folgenden Werte sein:
+  - : Definiert die Breite des Rahmens, entweder als explizite, nicht negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einen der folgenden Werte annehmen:
 
     - `thin`
     - `medium`
     - `thick`
 
 > [!NOTE]
-> Da die Spezifikation die genaue Dicke, die von jedem Schlüsselwort angegeben wird, nicht definiert, ist das genaue Ergebnis bei Verwendung eines dieser Begriffe implementierungsspezifisch. Dennoch folgen sie immer dem Muster `thin ≤ medium ≤ thick`, und die Werte sind innerhalb eines Dokuments konstant.
+> Da die Spezifikation nicht die genaue Dicke für jedes Schlüsselwort definiert, ist das genaue Ergebnis bei der Verwendung eines dieser Werte implementierungsspezifisch. Sie folgen jedoch immer dem Muster `thin ≤ medium ≤ thick`, und die Werte sind innerhalb eines Dokuments konstant.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{csssyntax}}
 
 ## Beispiele
 
-### Vergleich der Randbreiten
+### Vergleich von Rahmenbreiten
 
 #### HTML
 
@@ -94,5 +94,5 @@ div:nth-child(2) {
 
 ## Siehe auch
 
-- Die anderen eigenschaftsbezogenen CSS-Eigenschaften zu Randbreiten: {{Cssxref("border-bottom-width")}}, {{Cssxref("border-left-width")}}, {{Cssxref("border-top-width")}}, und {{Cssxref("border-width")}}.
-- Die anderen eigenschaftsbezogenen CSS-Eigenschaften zum rechten Rand: {{Cssxref("border")}}, {{Cssxref("border-right")}}, {{Cssxref("border-right-style")}}, und {{Cssxref("border-right-color")}}.
+- Die anderen CSS-Eigenschaften, die sich auf die Rahmenbreite beziehen: {{Cssxref("border-bottom-width")}}, {{Cssxref("border-left-width")}}, {{Cssxref("border-top-width")}}, und {{Cssxref("border-width")}}.
+- Die anderen CSS-Eigenschaften, die sich auf den rechten Rahmen beziehen: {{Cssxref("border")}}, {{Cssxref("border-right")}}, {{Cssxref("border-right-style")}}, und {{Cssxref("border-right-color")}}.

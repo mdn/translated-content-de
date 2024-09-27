@@ -7,16 +7,16 @@ l10n:
 
 {{securecontext_header}}{{HTTPSidebar}}
 
-Der **`Clear-Site-Data`**-Header löscht Browsing-Daten (Cookies, Speicher, Cache), die mit der anfordernden Website verbunden sind. Er ermöglicht es Webentwicklern, mehr Kontrolle über die vom Client-Browser für ihre Ursprünge gespeicherten Daten zu haben.
+Der **`Clear-Site-Data`**-Header löscht Browsing-Daten (Cookies, Speicher, Cache), die mit der anfordernden Website verbunden sind. Er ermöglicht Webentwicklern, mehr Kontrolle über die von einem Client-Browser für ihre Ursprünge gespeicherten Daten zu haben.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>{{Glossary("Response header")}}</td>
+      <th scope="row">Header-Typ</th>
+      <td>[Response header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -24,67 +24,67 @@ Der **`Clear-Site-Data`**-Header löscht Browsing-Daten (Cookies, Speicher, Cach
 
 ## Syntax
 
-Der `Clear-Site-Data`-Header akzeptiert eine oder mehrere Direktiven. Wenn alle Arten von Daten gelöscht werden sollen, kann die Joker-Direktive (`"*"`) verwendet werden.
+Der `Clear-Site-Data`-Header akzeptiert eine oder mehrere Direktiven. Wenn alle Datentypen gelöscht werden sollen, kann die Wildcard-Direktive (`"*"`) verwendet werden.
 
 ```http
-// Einzelne Direktive
+// Single directive
 Clear-Site-Data: "cache"
 
-// Mehrere Direktiven (kommagetrennt)
+// Multiple directives (comma separated)
 Clear-Site-Data: "cache", "cookies"
 
-// Wildcard
+// Wild card
 Clear-Site-Data: "*"
 ```
 
 ## Direktiven
 
 > [!NOTE]
-> Alle Direktiven müssen der [quoted-string Grammatik](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6) entsprechen. Eine Direktive, die nicht die Anführungszeichen enthält, ist ungültig.
+> Alle Direktiven müssen der [quoted-string Grammatik](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6) entsprechen. Eine Direktive ohne Anführungszeichen ist ungültig.
 
 - `"cache"` {{Experimental_Inline}}
 
-  - : Gibt an, dass der Server wünscht, lokal zwischengespeicherte Daten (den Browsercache, siehe [HTTP-Caching](/de/docs/Web/HTTP/Caching)) für den Ursprung der Antwort-URL zu entfernen. Abhängig vom Browser kann dies auch Dinge wie vorgerenderte Seiten, Skript-Caches, WebGL-Shader-Caches oder Adressleiste-Vorschläge löschen.
+  - : Gibt an, dass der Server wünscht, lokal zwischengespeicherte Daten (den Browser-Cache, siehe [HTTP-Caching](/de/docs/Web/HTTP/Caching)) für den Ursprung der Antwort-URL zu entfernen. Je nach Browser könnten auch Dinge wie vorgerenderte Seiten, Skript-Caches, WebGL-Shader-Caches oder Adressleisten-Vorschläge gelöscht werden.
 
 - `"clientHints"` {{Experimental_Inline}}
 
-  - : Gibt an, dass der Server wünscht, alle [Client-Hints](/de/docs/Web/HTTP/Client_hints) (angefordert via {{httpheader("Accept-CH")}}) für den Ursprung der Antwort-URL zu entfernen.
+  - : Gibt an, dass der Server wünscht, alle [Client Hints](/de/docs/Web/HTTP/Client_hints) (angefordert über {{httpheader("Accept-CH")}}) zu entfernen, die für den Ursprung der Antwort-URL gespeichert sind.
 
     > [!NOTE]
-    > In Browsern, die den Datentyp `"clientHints"` unterstützen, werden Client-Hints auch gelöscht, wenn die Typen `"cache"`, `"cookies"` oder `"*"` angegeben werden. `"clientHints"` ist daher nur erforderlich, wenn keiner dieser anderen Typen angegeben ist.
+    > In Browsern, die den Datentyp `"clientHints"` unterstützen, werden Client Hints auch gelöscht, wenn die Typen `"cache"`, `"cookies"` oder `"*"` angegeben sind. `"clientHints"` wird daher nur benötigt, wenn keiner dieser anderen Typen angegeben ist.
 
 - `"cookies"`
-  - : Gibt an, dass der Server wünscht, alle Cookies für den Ursprung der Antwort-URL zu entfernen. HTTP-Authentifizierungsanmeldedaten werden ebenfalls gelöscht. Dies betrifft die gesamte registrierte Domain, einschließlich Subdomains. Also sowohl `https://example.com` als auch `https://stage.example.com` werden die Cookies gelöscht.
+  - : Gibt an, dass der Server wünscht, alle Cookies für den Ursprung der Antwort-URL zu entfernen. Auch HTTP-Authentifizierungsdaten werden gelöscht. Dies betrifft die gesamte registrierte Domain, einschließlich Subdomains. So werden sowohl `https://example.com` als auch `https://stage.example.com` Cookies entfernt.
 - `"storage"`
 
-  - : Gibt an, dass der Server wünscht, alle DOM-Speicher für den Ursprung der Antwort-URL zu entfernen. Dies schließt Speichermethoden wie ein:
+  - : Gibt an, dass der Server wünscht, den gesamten DOM-Speicher für den Ursprung der Antwort-URL zu entfernen. Dies umfasst Speichermechanismen wie:
 
     - localStorage (führt `localStorage.clear` aus),
     - sessionStorage (führt `sessionStorage.clear` aus),
-    - IndexedDB (für jede Datenbank {{domxref("IDBFactory.deleteDatabase")}} ausführen),
-    - Service-Worker-Registrierungen (für jede Service-Worker-Registrierung {{domxref("ServiceWorkerRegistration.unregister")}} ausführen),
-    - Web SQL-Datenbanken (veraltet),
-    - [FileSystem-API-Daten](/de/docs/Web/API/File_and_Directory_Entries_API),
-    - Plug-in-Daten (Flash über [`NPP_ClearSiteData`](https://wiki.mozilla.org/NPAPI:ClearSiteData)).
+    - IndexedDB (führt für jede Datenbank [`IDBFactory.deleteDatabase`](/de/docs/Web/API/IDBFactory/deleteDatabase) aus),
+    - Registrierung von Service-Workern (führt für jede Registrierung von Service-Workern [`ServiceWorkerRegistration.unregister`](/de/docs/Web/API/ServiceWorkerRegistration/unregister) aus),
+    - Web-SQL-Datenbanken (veraltet),
+    - [FileSystem API Daten](/de/docs/Web/API/File_and_Directory_Entries_API),
+    - Plugin-Daten (Flash über [`NPP_ClearSiteData`](https://wiki.mozilla.org/NPAPI:ClearSiteData)).
 
 - `"executionContexts"` {{Experimental_Inline}}
-  - : Gibt an, dass der Server wünscht, alle Browsing-Kontexte für den Ursprung der Antwort zu neu zu laden ({{domxref("Location.reload")}}).
+  - : Gibt an, dass der Server wünscht, alle Browsing-Kontexte für den Ursprung der Antwort neu zu laden ([`Location.reload`](/de/docs/Web/API/Location/reload)).
 - `"*"` (Wildcard)
-  - : Gibt an, dass der Server wünscht, alle Arten von Daten für den Ursprung der Antwort zu löschen. Wenn in zukünftigen Versionen dieses Headers weitere Datentypen hinzugefügt werden, werden diese ebenfalls abgedeckt.
+  - : Gibt an, dass der Server wünscht, alle Datentypen für den Ursprung der Antwort zu löschen. Wenn in zukünftigen Versionen dieses Headers weitere Datentypen ergänzt werden, werden sie ebenfalls davon erfasst.
 
 ## Beispiele
 
-### Abmelden von einer Website
+### Abmeldung von einer Website
 
-Wenn sich ein Benutzer von Ihrer Website oder Ihrem Dienst abmeldet, möchten Sie möglicherweise lokal gespeicherte Daten entfernen. Fügen Sie dazu den `Clear-Site-Data`-Header zur Seite hinzu, die bestätigt, dass das Ausloggen von der Website erfolgreich abgeschlossen wurde (`https://example.com/logout`, zum Beispiel):
+Wenn sich ein Benutzer von Ihrer Website oder Ihrem Dienst abmeldet, möchten Sie möglicherweise lokal gespeicherte Daten entfernen. Dazu fügen Sie den `Clear-Site-Data`-Header zu der Seite hinzu, die die erfolgreiche Abmeldung von der Website bestätigt (`https://example.com/logout`, zum Beispiel):
 
 ```http
 Clear-Site-Data: "cache", "cookies", "storage", "executionContexts"
 ```
 
-### Löschen von Cookies
+### Cookies löschen
 
-Wenn dieser Header mit der Antwort unter `https://example.com/clear-cookies` ausgegeben wird, werden alle Cookies auf derselben Domain `https://example.com` und allen Subdomains (wie `https://stage.example.com`, etc.) gelöscht.
+Wird dieser Header mit der Antwort unter `https://example.com/clear-cookies` geliefert, werden alle Cookies auf derselben Domain `https://example.com` und allen Subdomains (wie `https://stage.example.com`, etc.) gelöscht.
 
 ```http
 Clear-Site-Data: "cookies"
@@ -94,7 +94,7 @@ Clear-Site-Data: "cookies"
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

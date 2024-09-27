@@ -9,18 +9,18 @@ l10n:
 
 ## Vorteile
 
-1. Spiele, die mit HTML erstellt wurden, funktionieren auf Smartphones, Tablets, PCs und Smart-TVs.
-2. Werben und bewerben Sie Ihr Spiel im gesamten Web sowie in anderen Medien.
-3. Zahlungen. Verlangen Sie, was Sie möchten, und verwenden Sie jeden beliebigen Zahlungsdienst.
-4. Aktualisieren Sie Ihr Spiel wann immer Sie möchten.
+1. Spiele, die mit HTML entwickelt wurden, funktionieren auf Smartphones, Tablets, PCs und Smart-TVs.
+2. Bewerben und fördern Sie Ihr Spiel im gesamten Web sowie in anderen Medien.
+3. Zahlungen. Verlangen Sie, was Sie möchten, und verwenden Sie jeden Zahlungsabwicklungsdienst, den Sie mögen.
+4. Aktualisieren Sie Ihr Spiel, wann immer Sie möchten.
 5. Sammeln Sie Ihre eigenen Analysen!
-6. Verbinden Sie sich enger mit Ihren Kunden.
+6. Treten Sie in engeren Kontakt mit Ihren Kunden.
 7. Spieler können das Spiel überall und jederzeit spielen.
 
-## Webtechnologien
+## Web-Technologien
 
 <table class="no-markdown standard-table">
-  <caption>Webtechnologien in der Spieleentwicklung und ihre Funktion</caption>
+  <caption>Web-Technologien in der Spielentwicklung und deren Funktion</caption>
   <thead>
     <tr>
       <th scope="col"><strong>Funktion</strong></th>
@@ -56,9 +56,9 @@ l10n:
     <tr>
       <td><strong>Sprache</strong></td>
       <td>
-        <a href="/de/docs/Web/JavaScript">JavaScript</a> (oder C/C++ mit
-        <a href="https://github.com/emscripten-core/emscripten/wiki">Emscripten</a> zu
-        JavaScript kompilieren)
+        <a href="/de/docs/Web/JavaScript">JavaScript</a> (oder C/C++ unter Verwendung von
+        <a href="https://github.com/emscripten-core/emscripten/wiki">Emscripten</a> zur
+        Kompilierung in JavaScript)
       </td>
     </tr>
     <tr>
@@ -86,33 +86,33 @@ l10n:
 </table>
 
 - [Fetch API](/de/docs/Web/API/Fetch_API)
-  - : Senden und Empfangen jeglicher Art von Daten von einem Webserver, wie das Herunterladen neuer Spielebenen und Grafiken oder das Übertragen von nicht-zeitkritischen Spielstatusinformationen hin und her.
+  - : Versenden und Empfangen jeder Art von Daten von einem Webserver, wie z.B. das Herunterladen neuer Spiellevel und Grafiken bis hin zur Übertragung von nicht-echtzeitlichen Spielstatusinformationen.
 - [Full Screen API](/de/docs/Web/API/Fullscreen_API)
-  - : Vollbildspielmodus.
+  - : Vollbild-Spielbarkeit.
 - [Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
-  - : Verwendung von Gamepads oder anderen Spielsteuerungen.
+  - : Nutzen Sie Gamepads oder andere Spielcontroller.
 - [HTML](/de/docs/Web/HTML) und [CSS](/de/docs/Web/CSS)
-  - : Erstellen, gestalten und gestalten Sie die Benutzeroberfläche Ihres Spiels.
+  - : Bauen, stylen und layouten Sie die Benutzeroberfläche Ihres Spiels.
 - [HTML audio](/de/docs/Web/HTML/Element/audio)
-  - : Einfaches Abspielen von Soundeffekten und Musik.
+  - : Spielen Sie einfach Soundeffekte und Musik ab.
 - [IndexedDB](/de/docs/Web/API/IndexedDB_API)
-  - : Speichern von Benutzerdaten auf ihrem eigenen Computer oder Gerät.
+  - : Speichern Sie Benutzerdaten auf dem eigenen Computer oder Gerät.
 - [JavaScript](/de/docs/Web/JavaScript)
-  - : Schnelle Web-Programmiersprache zur Erstellung des Codes für Ihr Spiel.
-    Zum einfachen Portieren Ihrer bestehenden Spiele [Emscripten](https://github.com/emscripten-core/emscripten/wiki) oder [Asm.js](http://asmjs.org/spec/latest/)
+  - : Schnelle Web-Programmiersprache, um den Code für Ihr Spiel zu schreiben.
+    Um Ihre bestehenden Spiele einfach zu portieren, verwenden Sie [Emscripten](https://github.com/emscripten-core/emscripten/wiki) oder [Asm.js](http://asmjs.org/spec/latest/)
 - [Pointer Lock API](/de/docs/Web/API/Pointer_Lock_API)
-  - : Sperren der Maus oder eines anderen Zeigegeräts innerhalb der Benutzeroberfläche Ihres Spiels.
+  - : Sperren Sie die Maus oder ein anderes Zeigegerät innerhalb der Benutzeroberfläche Ihres Spiels.
 - [SVG](/de/docs/Web/SVG) (Scalable Vector Graphics)
-  - : Erstellen Sie Vektorgrafiken, die unabhängig von der Größe oder Auflösung des Benutzerdisplays reibungslos skalieren.
+  - : Erstellen Sie Vektorgrafiken, die sich unabhängig von Größe oder Auflösung des Benutzerdisplays reibungslos skalieren lassen.
 - [Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
-  - : Zugriff auf rohe Binärdaten innerhalb von JavaScript; Manipulieren von GL-Texturen, Spieldaten oder anderen Daten.
+  - : Greifen Sie auf rohe Binärdaten innerhalb von JavaScript zu; Manipulieren Sie GL-Texturen, Spieldaten oder alles andere.
 - [Web Audio API](/de/docs/Web/API/Web_Audio_API)
   - : Steuerung der Wiedergabe, Synthese und Manipulation von Audio in Echtzeit.
 - [WebGL](/de/docs/Web/API/WebGL_API)
-  - : Erstellen Sie leistungsstarke, hardware-beschleunigte 3D- (und 2D-) Grafiken. [OpenGL ES](https://www.khronos.org/opengles/) 2.0.
+  - : Erstellen Sie hochleistungsfähige, hardwarebeschleunigte 3D- (und 2D-)Grafiken. [OpenGL ES](https://www.khronos.org/opengles/) 2.0.
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-  - : Echtzeitkommunikation zur Steuerung von Audio- und Videodaten, einschließlich Telefonkonferenzen und Übertragung anderer Anwendungsdaten zwischen zwei Benutzern wie Chat.
+  - : Echtzeitkommunikation zur Steuerung von Audio- und Videodaten, einschließlich Videokonferenzen und Übertragung anderer Anwendungsdaten zwischen zwei Benutzern, wie z.B. Chat.
 - [WebSockets](/de/docs/Web/API/WebSockets_API)
-  - : Verbinden Sie Ihre App oder Website mit einem Server, um Daten in Echtzeit hin und her zu übertragen. Perfekt für Multiplayer-Spielaktionen, Chat-Dienste und so weiter.
+  - : Verbinden Sie Ihre App oder Website mit einem Server, um Daten in Echtzeit hin und her zu übertragen. Perfekt für Multiplayer-Gaming-Action, Chat-Dienste und dergleichen.
 - [Web Workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
-  - : Starten von Hintergrundthreads, die ihren eigenen JavaScript-Code für Mehrkern-Prozessoren ausführen.
+  - : Starten Sie Hintergrund-Threads, die ihren eigenen JavaScript-Code für Multicore-Prozessoren ausführen.

@@ -1,36 +1,36 @@
 ---
-title: drehen
+title: rotate
 slug: Web/CSS/rotate
 l10n:
-  sourceCommit: 9428e6f9ac2fd4166b5cf245fb674123209787ff
+  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
 ---
 
 {{CSSRef}}
 
-Die **`rotate`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) ermöglicht es Ihnen, Rotations-Transformationen individuell und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft anzugeben. Dies passt besser zur typischen Benutzung in Benutzeroberflächen und erspart es Ihnen, sich die genaue Reihenfolge der Transformationsfunktionen zu merken, die in der `transform`-Eigenschaft angegeben werden müssen.
+Die **`rotate`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ermöglicht es Ihnen, Rotations-Transformationen individuell und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft zu definieren. Diese Herangehensweise passt besser zu typischen Benutzeroberflächen und erspart das Merken der genauen Reihenfolge von Transformationsfunktionen, die in der `transform`-Eigenschaft anzugeben sind.
 
 {{EmbedInteractiveExample("pages/css/rotate.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 rotate: none;
 
-/* Winkelwert */
+/* Angle value */
 rotate: 90deg;
 rotate: 0.25turn;
 rotate: 1.57rad;
 
-/* Name der x-, y- oder z-Achse plus Winkel */
+/* x, y, or z axis name plus angle */
 rotate: x 90deg;
 rotate: y 0.25turn;
 rotate: z 1.57rad;
 
-/* Vektor plus Winkelwert */
+/* Vector plus angle value */
 rotate: 1 1 1 90deg;
 
-/* Globale Werte */
+/* Global values */
 rotate: inherit;
 rotate: initial;
 rotate: revert;
@@ -41,15 +41,15 @@ rotate: unset;
 ### Werte
 
 - Winkelwert
-  - : Ein {{CSSxRef("&lt;angle&gt;")}}, der den Winkel angibt, um den das betroffene Element um die Z-Achse gedreht werden soll. Entspricht der `rotate()`-Funktion (2D-Rotation).
-- Name der x-, y- oder z-Achse plus Winkelwert
-  - : Der Name der Achse, um die Sie das betroffene Element drehen möchten ("`x`", "`y`" oder "`z`"), sowie ein {{CSSxRef("&lt;angle&gt;")}}, der den Winkel angibt, um den das Element gedreht werden soll. Entspricht der `rotateX()`/`rotateY()`/`rotateZ()`-Funktion (3D-Rotation).
+  - : Ein {{CSSxRef("&lt;angle&gt;")}}, der den Winkel angibt, um den das betroffene Element um die Z-Achse gedreht werden soll. Entspricht einer `rotate()` (2D-Rotation) Funktion.
+- x-, y- oder z-Achsenname plus Winkelwert
+  - : Der Name der Achse, um die Sie das betroffene Element drehen möchten (`x`, `y` oder `z`), sowie ein {{CSSxRef("&lt;angle&gt;")}}, der den Winkel angibt, um den das Element gedreht werden soll. Entspricht einer `rotateX()`/`rotateY()`/`rotateZ()` (3D-Rotation) Funktion.
 - Vektor plus Winkelwert
-  - : Drei {{CSSxRef("&lt;number&gt;")}}, die einen ursprungszentrierten Vektor darstellen, der eine Linie definiert, um die Sie das Element drehen möchten, sowie ein {{CSSxRef("&lt;angle&gt;")}}, der den Winkel angibt, um den das Element gedreht werden soll. Entspricht der `rotate3d()`-Funktion (3D-Rotation).
+  - : Drei {{CSSxRef("&lt;number&gt;")}}, die einen ursprungszentrierten Vektor darstellen, der eine Linie definiert, um die Sie das Element drehen möchten, sowie ein {{CSSxRef("&lt;angle&gt;")}}, der den Winkel angibt, um den das Element gedreht werden soll. Entspricht einer `rotate3d()` (3D-Rotation) Funktion.
 - `none`
-  - : Gibt an, dass keine Drehung angewendet werden soll.
+  - : Gibt an, dass keine Rotation angewendet werden soll.
 
-## Formale Definition
+## Formal Definition
 
 {{cssinfo}}
 
@@ -59,9 +59,10 @@ rotate: unset;
 
 ## Beispiele
 
-### Ein Element beim Hover drehen
+### Drehen eines Elements bei Hover
 
-Das folgende Beispiel zeigt, wie Sie die `rotate`-Eigenschaft verwenden können, um ein Element entlang verschiedener Achsen beim Hover-Effekt zu drehen. Die erste Box dreht sich beim Hover-Effekt um 90 Grad um die Z-Achse, die zweite dreht sich um 180 Grad um die Y-Achse, und die dritte dreht sich um 360 Grad um einen durch Koordinaten definierten Vektor.
+Das folgende Beispiel zeigt, wie Sie die `rotate`-Eigenschaft verwenden können, um ein Element beim Hover um verschiedene Achsen zu drehen.
+Der erste Kasten dreht sich beim Hover um 90 Grad auf der Z-Achse, der zweite dreht sich beim Hover um 180 Grad auf der Y-Achse, und der dritte dreht sich beim Hover um 360 Grad um einen durch Koordinaten definierten Vektor.
 
 #### HTML
 

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Aktualisiert die Menge der statischen Regelwerke der Erweiterung. Die Regelwerke mit in `options.disableRulesetIds` aufgeführten IDs werden zuerst deaktiviert, und dann werden die Regelwerke aktiviert, die in `options.enableRulesetIds` aufgeführt sind. Beachten Sie, dass der Satz der aktivierten statischen Regelwerke über Sitzungen hinweg bestehen bleibt, jedoch nicht über Erweiterungsaktualisierungen hinweg, d. h., der [`declarative_net_request.rule_resources` manifest Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) bestimmt bei jeder Erweiterungsaktualisierung den Satz der aktivierten statischen Regelwerke.
+Aktualisiert die Menge der statischen Regelwerke der Erweiterung. Die Regelwerke mit IDs, die in `options.disableRulesetIds` aufgeführt sind, werden zuerst deaktiviert, und dann werden die in `options.enableRulesetIds` aufgeführten Regelwerke aktiviert. Beachten Sie, dass die Menge der aktivierten statischen Regelwerke über Sitzungen hinweg erhalten bleibt, jedoch nicht über Erweiterungsaktualisierungen hinweg, d.h. das [`declarative_net_request.rule_resources` Manifest-Schlüssel](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) bestimmt die Menge der aktivierten statischen Regelwerke bei jeder Erweiterungsaktualisierung.
 
 ## Syntax
 
@@ -29,13 +29,13 @@ let updatedRulesets = browser.declarativeNetRequest.updateEnabledRulesets(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich war, wird das Promise ohne Argumente erfüllt. Bei einem Fehlschlag wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Wenn die Anfrage erfolgreich war, wird das Promise ohne Argumente erfüllt. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
 {{WebExtExamples}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

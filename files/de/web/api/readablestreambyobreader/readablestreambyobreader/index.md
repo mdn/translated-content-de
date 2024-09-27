@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Der **`ReadableStreamBYOBReader()`**-Konstruktor erstellt und gibt eine Instanz des `ReadableStreamBYOBReader`-Objekts zurück.
+Der **`ReadableStreamBYOBReader()`** Konstruktor erzeugt und gibt eine `ReadableStreamBYOBReader` Objektinstanz zurück.
 
 > [!NOTE]
-> Im Allgemeinen würden Sie diesen Konstruktor nicht manuell verwenden;
-> stattdessen würden Sie die Methode {{domxref("ReadableStream.getReader()")}} mit dem Argument `"byob"` verwenden.
+> Sie würden diesen Konstruktor in der Regel nicht manuell verwenden;
+> stattdessen nutzen Sie die Methode [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) mit dem Argument `"byob"`.
 
 ## Syntax
 
@@ -23,21 +23,21 @@ new ReadableStreamBYOBReader(stream)
 ### Parameter
 
 - `stream`
-  - : Der zu lesende {{domxref("ReadableStream")}}.
+  - : Der zu lesende [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ### Rückgabewert
 
-Eine Instanz des {{domxref("ReadableStreamBYOBReader")}}-Objekts.
+Eine Instanz des [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader) Objekts.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der übergebene `stream`-Parameter kein {{domxref("ReadableStream")}} ist, oder wenn er bereits für das Lesen durch einen anderen Leser gesperrt ist, oder wenn sein Stream-Controller kein {{domxref("ReadableByteStreamController")}} ist.
+  - : Wird ausgelöst, wenn der angegebene `stream` Parameter kein [`ReadableStream`](/de/docs/Web/API/ReadableStream) ist, wenn er bereits von einem anderen Leser für das Lesen gesperrt ist oder wenn sein Stream-Controller kein [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController) ist.
 
 ## Beispiele
 
 Der Konstruktor wird selten direkt aufgerufen.
-Stattdessen rufen Sie {{domxref("ReadableStream.getReader()")}} wie folgt auf:
+Stattdessen rufen Sie `ReadableStream.getReader()` wie gezeigt auf:
 
 ```js
 const reader = stream.getReader({ mode: "byob" });
@@ -53,5 +53,5 @@ const reader = stream.getReader({ mode: "byob" });
 
 ## Siehe auch
 
-- {{domxref("ReadableStreamBYOBReader")}}
-- [Verwendung lesbarer Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)
+- [Verwendung des lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)

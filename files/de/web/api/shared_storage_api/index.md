@@ -7,68 +7,68 @@ l10n:
 
 {{SeeCompatTable}}{{DefaultAPISidebar("Shared Storage API")}}
 
-Die **Shared Storage API** ist ein clientseitiger Speichermechanismus, der unpartitionierten, seitenübergreifenden Datenzugriff ermöglicht, während die Privatsphäre gewahrt bleibt (d.h., ohne sich auf Tracking-Cookies zu verlassen).
+Die **Shared Storage API** ist ein clientseitiger Speichermodus, der eine unpartitionierte, domänenübergreifende Datenzugriffsmechanismus ermöglicht, während der Datenschutz gewährleistet wird (d. h. ohne auf Tracking-Cookies angewiesen zu sein).
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-Eine Hauptquelle von [Datenschutz-](/de/docs/Web/Privacy) und [Sicherheitsproblemen](/de/docs/Web/Security) im Web ist die Verwendung von Cookies, die auf Drittanbieterinhalte gesetzt werden, die in Websites eingebettet sind (beispielsweise über {{htmlelement("iframe")}}-Elemente). Diese Cookies können verwendet werden, um Benutzer zu verfolgen und zu profilieren und Informationen zwischen Websites auszutauschen.
+Eine der Hauptursachen für [Datenschutz-](/de/docs/Web/Privacy) und [Sicherheitsprobleme](/de/docs/Web/Security) im Web ist die Verwendung von Cookies, die auf Drittanbieter-Inhalten gesetzt werden, die in Websites eingebettet sind (beispielsweise über {{htmlelement("iframe")}}-Elemente). Diese Cookies können verwendet werden, um Benutzer zu verfolgen, zu profilieren und Informationen über Websites hinweg zu teilen.
 
-Um das seitenübergreifende Tracking zu verhindern, arbeiten Browser daran, alle Speichertypen zu partitionieren, einschließlich [Cookies](/de/docs/Web/HTTP/Cookies), [Web Storage](/de/docs/Web/API/Web_Storage_API), [IndexedDB](/de/docs/Web/API/IndexedDB_API) und der [Cache-API](/de/docs/Web/API/Cache). Ein großes Hindernis dabei ist jedoch die Notwendigkeit für mehrere legitime Anwendungsfälle, die auf der seitenübergreifenden Informationsweitergabe basieren. Beispiele für solche Anwendungsfälle sind Werbetreibende, die die Reichweite ihrer Anzeigen über Websites messen und Berichte erstellen möchten, sowie Websitebetreiber, die Benutzererfahrungen basierend auf der Gruppe, der sie angehören, oder ihren vorherigen Interaktionen mit der Website anpassen möchten.
+Um domänenübergreifendes Tracking zu verhindern, arbeiten Browser daran, alle Speichertypen zu partitionieren, einschließlich [Cookies](/de/docs/Web/HTTP/Cookies), [Web Storage](/de/docs/Web/API/Web_Storage_API), [IndexedDB](/de/docs/Web/API/IndexedDB_API) und der [Cache-API](/de/docs/Web/API/Cache). Ein großes Hindernis hierbei ist jedoch die Notwendigkeit für mehrere legitime Anwendungsfälle, die auf domänenübergreifendem Informationsaustausch beruhen. Beispiele für solche Anwendungsfälle sind Werbetreibende, die die Reichweite ihrer Anzeigen über Websites hinweg messen und Berichte erstellen möchten, sowie Website-Betreiber, die Benutzererfahrungen basierend auf der Benutzergruppe oder früheren Interaktionen anpassen möchten.
 
-Die Shared Storage API bietet eine flexible Lösung für solche Anwendungsfälle. Sie soll die erforderlichen Datenbank-, Verarbeitungs- und Austauschanforderungen erfüllen, ohne dabei Benutzer verfolgen und profilieren zu können.
+Die Shared Storage API bietet eine flexible Lösung für solche Anwendungsfälle. Sie zielt darauf ab, die erforderlichen Datenspeicher-, Verarbeitungs- und Freigabefunktionen bereitzustellen, ohne die Möglichkeit, Benutzer zu verfolgen und zu profilieren.
 
-Wie bei anderen Speicher-APIs können Sie jederzeit in den Shared Storage schreiben. Sie können Shared Storage-Daten jedoch nur aus einem {{domxref("SharedStorageWorklet", "worklet", "", "nocode")}} lesen. Worklets bieten eine sichere Umgebung, in der Sie Shared Storage-Daten verarbeiten und nützliche Ergebnisse zurückgeben können, jedoch können Sie die Daten nicht direkt mit dem zugeordneten Browsing-Kontext teilen.
+Wie andere Speicher-APIs können Sie jederzeit in den geteilten Speicher schreiben. Sie können jedoch Daten aus dem geteilten Speicher nur innerhalb eines [Worklets](/de/docs/Web/API/SharedStorageWorklet) lesen. Worklets bieten eine sichere Umgebung, in der Sie Daten aus dem geteilten Speicher verarbeiten und nützliche Ergebnisse zurückgeben können, jedoch können Sie die Daten nicht direkt mit dem zugehörigen Browsing-Kontext teilen.
 
-Um nützliche Ergebnisse aus einem Shared Storage Worklet zu extrahieren, müssen Sie ein **Output Gate** verwenden. Diese Gates dienen spezifischen Zwecken, wie zum Beispiel der Auswahl einer URL aus einer bereitgestellten Liste, die dem Benutzer basierend auf Shared Storage-Daten angezeigt werden soll. Ergebnisse, die für den Benutzer bestimmt sind, werden sicher innerhalb eines [fenced frame](/de/docs/Web/API/Fenced_frame_API) angezeigt, wo sie nicht von der einbettenden Seite aus zugänglich sind.
+Um nützliche Ergebnisse aus einem geteilten Speicherarbeitsbereich zu extrahieren, müssen Sie ein **Ausgabegate** verwenden. Diese Gates dienen bestimmten Zwecken, wie zum Beispiel der Auswahl einer URL aus einer bereitgestellten Liste, die dem Benutzer basierend auf den Daten im geteilten Speicher angezeigt wird. Ergebnisse, die für den Benutzer bestimmt sind, werden sicher innerhalb eines [eingezäunten Rahmens](/de/docs/Web/API/Fenced_frame_API) angezeigt, wo sie nicht von der einbettenden Seite aus zugänglich sind.
 
-## Output Gates
+## Ausgabegates
 
-Die derzeit verfügbaren Output Gates für die Shared Storage API werden in den folgenden Abschnitten besprochen. In jedem Abschnitt listen wir typische Anwendungsfälle für jedes Gate auf und bieten Links zu Leitfäden mit weiteren Informationen und Codebeispielen.
+Die derzeit verfügbaren Ausgabegates für die Shared Storage API werden in den folgenden Abschnitten erläutert. In jedem Abschnitt listen wir typische Anwendungsfälle für jedes Gate auf und bieten Links zu Leitfäden mit weiteren Informationen und Codebeispielen.
 
 > [!NOTE]
-> Wahrscheinlich werden in Zukunft weitere Output Gates hinzugefügt, um zusätzliche Anwendungsfälle zu unterstützen.
+> Wahrscheinlich werden in Zukunft weitere Ausgabegates hinzugefügt, um zusätzliche Anwendungsfälle zu unterstützen.
 
 ### URL-Auswahl
 
-Das **URL Selection** Output Gate, das über die Methode {{domxref("WindowSharedStorage.selectURL", "selectURL()")}} zugegriffen wird, wird verwendet, um eine URL aus einer bereitgestellten Liste auszuwählen, die dem Benutzer basierend auf Shared Storage-Daten angezeigt wird. Dieses Gate kann für folgende Zwecke verwendet werden:
+Das **URL-Auswahl**-Ausgabegate, aufgerufen über die Methode [`selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL), wird verwendet, um eine URL aus einer bereitgestellten Liste auszuwählen, die dem Benutzer basierend auf den Daten im geteilten Speicher angezeigt werden soll. Dieses Gate kann für folgende Zwecke genutzt werden:
 
-- [**Kreativrotation**](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage/creative-rotation): Verwenden Sie gespeicherte Daten wie kreative IDs, Betrachtungszähler und Benutzerinteraktionen, um zu bestimmen, welche kreativen Inhalte Benutzer auf verschiedenen Websites sehen. Dieser Ansatz hilft, Ansichten auszugleichen und übermäßige Exposition bestimmter Inhalte zu vermeiden, was wiederum helfen kann, eine negative Benutzererfahrung zu verhindern.
-- [**A/B-Testen**](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage/ab-testing): Weisen Sie einem Benutzer eine Experimentgruppe zu und speichern Sie die Gruppendetails im Shared Storage für den seitenübergreifenden Zugriff.
-- [**Individuelle Benutzererfahrungen**](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage/known-customer): Teilen Sie benutzerdefinierte Inhalte und Handlungsaufforderungen basierend auf dem Registrierungsstatus eines Benutzers oder anderen Benutzerzuständen.
+- [**Kreativrotation**](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage/creative-rotation): Verwendung gespeicherter Daten wie Kreativ-IDs, Aufrufanzahlen und Benutzerinteraktionen, um festzulegen, welche kreativen Inhalte Benutzer auf verschiedenen Websites sehen. Dieser Ansatz hilft, Aufrufe auszubalancieren und eine Überbelichtung bestimmter Inhalte zu vermeiden, wodurch eine negative Benutzererfahrung vermieden werden kann.
+- [**A/B-Tests**](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage/ab-testing): Zuweisung eines Benutzers zu einer Experimentgruppe und Abspeicherung der Gruppendetails im geteilten Speicher für domänenübergreifenden Zugriff.
+- [**Benutzerdefinierte Erlebnisse**](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage/known-customer): Teilen von benutzerdefinierten Inhalten und Handlungsaufforderungen basierend auf dem Registrierungsstatus oder anderen Benutzerzuständen.
 
 ### Ausführen
 
-Das **Run** Output Gate, das über die Methode {{domxref("WindowSharedStorage.run", "run()")}} zugegriffen wird, soll auf generische Weise verwendet werden, um einige Shared Storage-Daten zu verarbeiten.
+Das **Ausführen**-Ausgabegate, aufgerufen über die Methode [`run()`](/de/docs/Web/API/WindowSharedStorage/run), soll auf generische Weise verwendet werden, um einige Daten aus dem geteilten Speicher zu verarbeiten.
 
-Die [Private Aggregation API](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation) kann das Run Output Gate verwenden, um Shared Storage-Daten zu verarbeiten und aggregierte Berichte zu erstellen. Diese Berichte können in den folgenden Anwendungsfällen verwendet werden:
+Die [Private Aggregation API](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation) kann das Ausführen-Ausgabegate verwenden, um Daten aus dem geteilten Speicher zu verarbeiten und aggregierte Berichte zu erstellen. Diese Berichte können in den folgenden Anwendungsfällen verwendet werden:
 
-- [**Einzigartige Reichweite-Berichterstellung**](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/unique-reach): Inhaltsproduzenten und Werbetreibende möchten oft die Anzahl der einzigartigen Zuschauer ihres Inhalts kennen. Sie können Shared Storage verwenden, um die erste Anzeige eines Benutzers Ihrer Anzeige oder eingebetteten Veröffentlichung zu melden und doppelte Zählungen für denselben Benutzer auf einer anderen Website zu verhindern, wodurch Sie einen aggregierten rauschbehafteten Bericht über die ungefähre einzigartige Reichweite erhalten.
-- [**Benutzerdemographie-Berichterstellung**](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/user-demographics): Inhaltsproduzenten möchten oft die Demographie ihres Publikums verstehen. Sie können Shared Storage verwenden, um demographische Benutzerdaten auf Ihrer Hauptwebsite zu erfassen und mithilfe aggregierter Berichterstellung über diese in eingebetteten Kontexten auf anderen Websites zu berichten.
-- [**K+ Frequenzmessung**](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/k-freq-reach): Manchmal als "effektive Frequenz" bezeichnet, bezieht sich K+ Frequenz auf die Mindestanzahl von Ansichten, die erforderlich sind, bevor ein Benutzer bestimmte Inhalte erkennt oder sich daran erinnert (häufig im Kontext von Anzeigenansichten verwendet). Sie können Shared Storage verwenden, um Berichte über einzigartige Benutzer zu erstellen, die einen Inhalt mindestens K Mal gesehen haben.
+- [**Berichterstattung zur einzigartigen Reichweite**](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/unique-reach): Inhaltsersteller und Werbetreibende möchten oft wissen, wie viele einzigartige Zuschauer ihre Inhalte haben. Sie können den geteilten Speicher verwenden, um das erste Mal zu melden, dass ein Benutzer Ihre Anzeige oder eingebettete Publikation sieht, und eine doppelte Zählung desselben Benutzers auf einer anderen Website zu verhindern und so einen aggregierten, verrauschten Bericht zur ungefähren einzigartigen Reichweite zu erhalten.
+- [**Berichterstattung zu demografischen Benutzerdaten**](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/user-demographics): Inhaltsersteller möchten oft die Demografie ihres Publikums verstehen. Sie können den geteilten Speicher verwenden, um demografische Benutzerdaten auf Ihrer Hauptwebsite zu erfassen und mit aggregierter Berichterstattung darüber auf anderen Websites in eingebetteten Kontexten zu berichten.
+- [**K+-Häufigkeitsmessung**](https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation/k-freq-reach): Manchmal als "effektive Frequenz" beschrieben, bezieht sich K+ Häufigkeit auf die Mindestanzahl an Ansichten, die erforderlich sind, damit ein Benutzer bestimmte Inhalte erkennt oder sich daran erinnert (häufig im Kontext von Anzeigenausspielungen verwendet). Sie können den geteilten Speicher verwenden, um Berichte über einzigartige Benutzer zu erstellen, die ein bestimmtes Stück Inhalt mindestens K Mal gesehen haben.
 
-## Verständnis, wie Shared Storage funktioniert
+## Wie der geteilte Speicher funktioniert
 
-Es gibt zwei Teile bei der Verwendung der Shared Storage API - das Schreiben von Daten in den Speicher und das Lesen/Verarbeiten dieser Daten. Um Ihnen eine Vorstellung davon zu geben, wie diese Teile gehandhabt werden, führen wir Sie durch das grundlegende [A/B-Testen](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage/ab-testing)-Beispiel von developer.chrome.com. In diesem Beispiel wird ein Benutzer einer Experimentgruppe zugeordnet und die Gruppendetails im Shared Storage gespeichert. Andere Websites können diese Daten verwenden, wenn sie eine URL auswählen, die in einem [fenced frame](/de/docs/Web/API/Fenced_frame_API) angezeigt werden soll.
+Es gibt zwei Teile zur Nutzung der Shared Storage API — das Schreiben von Daten in den Speicher und das Lesen/Verarbeiten davon. Um Ihnen eine Vorstellung davon zu geben, wie diese Teile gehandhabt werden, führen wir Sie durch das grundlegende [A/B-Testing](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage/ab-testing)-Beispiel von developer.chrome.com. In diesem Beispiel wird einem Benutzer eine Experimentgruppe zugewiesen und die Gruppendetails werden im geteilten Speicher gespeichert. Andere Websites können diese Daten nutzen, wenn sie eine URL auswählen, die in einem [eingezäunten Rahmen](/de/docs/Web/API/Fenced_frame_API) angezeigt wird.
 
-### Schreiben in den Shared Storage
+### Schreiben in den geteilten Speicher
 
-Das Schreiben von Daten in den Shared Storage ist einfach - Sie verwenden Methoden, die auf der {{domxref("SharedStorage")}}-Schnittstelle definiert sind, um Daten zu {{domxref("SharedStorage.set", "setzen", "", "nocode")}}, {{domxref("SharedStorage.append", "anhängen", "", "nocode")}}, oder {{domxref("SharedStorage.delete", "löschen", "", "nocode")}}/{{domxref("SharedStorage.clear", "löschen", "", "nocode")}}.
+Das Schreiben von Daten in den geteilten Speicher ist einfach — Sie verwenden Methoden, die auf der [`SharedStorage`](/de/docs/Web/API/SharedStorage)-Schnittstelle definiert sind, um Daten zu [setzen](/de/docs/Web/API/SharedStorage/set), [anzuhängen](/de/docs/Web/API/SharedStorage/append) oder zu [löschen](/de/docs/Web/API/SharedStorage/delete)/[löschen](/de/docs/Web/API/SharedStorage/clear).
 
 Diese Funktionalität ist in zwei verschiedenen Kontexten verfügbar:
 
-- Im Haupt-Browsing-Kontext, in dem Ihre Website oder App ausgeführt wird, auf {{domxref("WindowSharedStorage")}}. Dies ist verfügbar über `window.sharedStorage`.
-- Im Kontext Ihres Shared Storage Worklets, auf {{domxref("WorkletSharedStorage")}}. Dies ist verfügbar über `this.sharedStorage`.
+- Im Hauptbrowsing-Kontext, in dem Ihre Website oder App läuft, auf [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage). Dies ist über `window.sharedStorage` verfügbar.
+- Im Kontext Ihres geteilten Speicherarbeitsbereichs, auf [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage). Dies ist über `this.sharedStorage` verfügbar.
 
-In unserem A/B-Testbeispiel definieren wir eine Funktion im App-Kontext, die eine Zufallszahl generiert - 0 oder 1 -, um eine Experimentgruppe darzustellen. Danach führen wir die {{domxref("SharedStorage.set", "window.sharedStorage.set()")}}-Funktion aus, um den Benutzer einer Gruppe zuzuordnen und das Ergebnis im Shared Storage zu speichern:
+In unserem A/B-Testing-Beispiel definieren wir eine Funktion im App-Kontext, die eine Zufallszahl generiert — 0 oder 1 —, um eine Experimentgruppe darzustellen. Wir führen dann die Funktion [`window.sharedStorage.set()`](/de/docs/Web/API/SharedStorage/set) aus, um den Benutzer einer Gruppe zuzuweisen und das Ergebnis im geteilten Speicher zu speichern:
 
 ```js
-// Weist einem Benutzer zufällig eine Gruppe 0 oder 1 zu
+// Randomly assigns a user to a group 0 or 1
 function getExperimentGroup() {
   return Math.round(Math.random());
 }
 
 async function injectContent() {
-  // Weist den Benutzer einer zufälligen Gruppe (0 oder 1) zu und speichert ihn im Shared Storage
+  // Assign user to a random group (0 or 1) and store it in shared storage
   window.sharedStorage.set("ab-testing-group", getExperimentGroup(), {
     ignoreIfPresent: true,
   });
@@ -76,42 +76,42 @@ async function injectContent() {
 ```
 
 > [!NOTE]
-> Die Option `ignoreIfPresent: true` bewirkt, dass die `set()`-Funktion abbricht, wenn der Shared Storage bereits ein Datenobjekt mit dem angegebenen Schlüssel enthält.
+> Die `ignoreIfPresent: true`-Option bewirkt, dass die `set()`-Funktion abbricht, wenn der geteilte Speicher bereits ein Datenobjekt mit dem angegebenen Schlüssel enthält.
 
-### Lesen und Verarbeiten von Daten aus dem Shared Storage
+### Lesen und Verarbeiten von Daten aus dem geteilten Speicher
 
-Wie oben erwähnt, müssen Sie, um nützliche Ergebnisse aus einem Shared Storage Worklet zu extrahieren, ein **Output Gate** verwenden. In diesem Beispiel verwenden wir das [URL Selection output gate](#url-auswahl), um die Experimentgruppe des Benutzers zu lesen und dann basierend auf deren Gruppe eine URL in einem fenced frame anzuzeigen.
+Wie bereits erwähnt, müssen Sie ein **Ausgabegate** verwenden, um nützliche Ergebnisse aus einem geteilten Speicherarbeitsbereich zu extrahieren. In diesem Beispiel verwenden wir das [URL-Auswahl-Ausgabegate](#url-auswahl), um die Experimentgruppe des Benutzers zu lesen und dann eine URL in einem eingezäunten Rahmen basierend auf ihrer Gruppe anzuzeigen.
 
-Um das Output Gate zu verwenden, müssen Sie:
+Um das Ausgabegate zu nutzen, müssen Sie:
 
-1. Eine Operation in einem Worklet-Modulskript definieren, das die URL-Auswahl behandelt, und sie registrieren.
-2. Das Modul zu Ihrem Shared Storage Worklet hinzufügen.
-3. Die URL mit der Worklet-Operation auswählen und in einem fenced frame laden.
+1. Eine Operation in einem Arbeitsbereichsmodulskript definieren, um das Auswählen der URL zu handhaben, und diese registrieren.
+2. Das Modul Ihrem geteilten Speicherarbeitsbereich hinzufügen.
+3. Die URL mit der Arbeitsbereichsoperation auswählen und in einem eingezäunten Rahmen laden.
 
-Nachfolgend werden diese Schritte einzeln betrachtet.
+Im Folgenden betrachten wir diese Schritte einen nach dem anderen.
 
-#### Definieren einer Operation in einem Worklet-Modul
+#### Definition einer Operation in einem Arbeitsbereichsmodul
 
-Die URL-Auswahl basiert auf der in Shared Storage gespeicherten Experimentgruppe. Um diesen Wert abzurufen und eine URL basierend darauf auszuwählen, müssen wir eine Operation in einem {{domxref("SharedStorageWorklet")}}-Kontext definieren. Dies stellt sicher, dass die Rohdaten vor anderen Kontexten verborgen bleiben, wodurch die Privatsphäre gewahrt wird.
+Die URL-Auswahl basiert auf der Experimentgruppe, die im geteilten Speicher gespeichert ist. Um diesen Wert abzurufen und eine URL basierend darauf auszuwählen, müssen wir eine Operation im [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)-Kontext definieren. Dies stellt sicher, dass die rohen Daten vor anderen Kontexten verborgen bleiben und somit der Datenschutz gewahrt bleibt.
 
-Die URL Selection Operation ist eine JavaScript-Klasse, die die folgenden Regeln befolgen muss (diese Regeln variieren je nach Output Gate und deren beabsichtigtem Anwendungsfall):
+Die URL-Auswahloperation ist eine JavaScript-Klasse, die den folgenden Regeln folgen muss (diese Regeln variieren je nach Verwendung des Ausgabegates):
 
-- Die eigentliche Funktionalität muss in einer asynchronen `run()`-Methode enthalten sein, die ein Array von Objekten mit URLs als ersten Parameter und ein Datenobjekt als zweiten Parameter (wenn aufgerufen, ist das Datenargument optional) entgegennimmt.
+- Die eigentliche Funktionalität muss in einer asynchronen `run()`-Methode enthalten sein, die ein Array von Objekten mit URLs als ersten Parameter und ein Datenobjekt als zweiten Parameter (bei Aufruf ist das Datenargument optional) nimmt.
 - Die `run()`-Methode muss eine Zahl zurückgeben, die der Nummer der gewählten URL entspricht.
 
 > [!NOTE]
-> Jedes Output Gate hat eine entsprechende Schnittstelle, die die erforderliche Struktur ihrer Klasse und `run()`-Methode definiert. Für URL Selection siehe {{domxref("SharedStorageSelectURLOperation")}}.
+> Jedes Ausgabegate hat eine entsprechende Schnittstelle, die die erforderliche Struktur seiner Klasse und `run()`-Methode definiert. Für die URL-Auswahl siehe [`SharedStorageSelectURLOperation`](/de/docs/Web/API/SharedStorageSelectURLOperation).
 
-Sobald die Operation definiert ist, muss sie mit {{domxref("SharedStorageWorkletGlobalScope.register()")}} registriert werden.
+Sobald die Operation definiert ist, muss sie mit [`SharedStorageWorkletGlobalScope.register()`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) registriert werden.
 
 ```js
 // ab-testing-worklet.js
 class SelectURLOperation {
   async run(urls, data) {
-    // Lesen Sie die Experimentgruppe des Benutzers aus dem Shared Storage
+    // Read the user's experiment group from shared storage
     const experimentGroup = await this.sharedStorage.get("ab-testing-group");
 
-    // Rückgabe der Gruppennummer
+    // Return the group number
     return experimentGroup;
   }
 }
@@ -119,35 +119,35 @@ class SelectURLOperation {
 register("ab-testing", SelectURLOperation);
 ```
 
-Beachten Sie, wie der im Hauptanwendungskontext gesetzte Wert mit {{domxref("WorkletSharedStorage.get()")}} abgerufen wird. Um die Privatsphäre zu wahren und Datenlecks zu vermeiden, können Sie Werte aus dem Shared Storage nur innerhalb eines Worklets lesen.
+Beachten Sie, wie der im Haupt-App-Kontext gesetzte Wert mit [`WorkletSharedStorage.get()`](/de/docs/Web/API/WorkletSharedStorage/get) abgerufen wird. Zur Wiederholung, um die Privatsphäre zu wahren und Datenlecks zu vermeiden, können Sie Werte aus dem geteilten Speicher nur innerhalb eines Worklets lesen.
 
 > [!NOTE]
-> Es ist möglich, mehrere Operationen im selben Shared Storage Worklet-Modulskript mit unterschiedlichen Namen zu definieren und zu registrieren; siehe {{domxref("SharedStorageOperation")}} für ein Beispiel.
+> Es ist möglich, mehrere Operationen im gleichen geteilten Speicherarbeitsbereich-Modulskript mit unterschiedlichen Namen zu definieren und zu registrieren; siehe [`SharedStorageOperation`](/de/docs/Web/API/SharedStorageOperation) für ein Beispiel.
 
-#### Modul zum Shared Storage Worklet hinzufügen
+#### Hinzufügen des Moduls zum geteilten Speicherarbeitsbereich
 
-Um die im Worklet-Modul definierte Operation zu verwenden, muss sie dem Shared Storage Worklet mit {{domxref("Worklet.addModule", "window.sharedStorage.worklet.addModule()")}} hinzugefügt werden. In unserem Hauptanwendungskontext geschieht dies, bevor wir den Wert der Experimentgruppe setzen, sodass sie bei Bedarf einsatzbereit ist:
+Um die im Arbeitsbereichsmodul definierte Operation zu nutzen, muss sie mit [`window.sharedStorage.worklet.addModule()`](/de/docs/Web/API/Worklet/addModule) dem geteilten Speicherarbeitsbereich hinzugefügt werden. In unserem Haupt-App-Kontext erfolgt dies, bevor wir den Experimentgruppenwert festlegen, damit er bei Bedarf einsatzbereit ist:
 
 ```js
 async function injectContent() {
-  // Fügen Sie das Modul zum Shared Storage Worklet hinzu
+  // Add the module to the shared storage worklet
   await window.sharedStorage.worklet.addModule("ab-testing-worklet.js");
 
-  // Weisen Sie den Benutzer einer zufälligen Gruppe (0 oder 1) zu und speichern Sie ihn im Shared Storage
+  // Assign user to a random group (0 or 1) and store it in shared storage
   window.sharedStorage.set("ab-testing-group", getExperimentGroup(), {
     ignoreIfPresent: true,
   });
 }
 ```
 
-#### Wählen Sie eine URL aus und laden Sie sie in einem fenced frame
+#### Wählen Sie eine URL aus und laden Sie sie in einem eingezäunten Rahmen
 
-Um die im Worklet definierte Operation auszuführen, rufen wir {{domxref("WindowSharedStorage.selectURL()")}} auf. Diese Methode fungiert als Proxy für unsere Worklet-Operation, greift sicher darauf zu und gibt das Ergebnis zurück, ohne Daten zu leaken. `selectURL()` ist die richtige Methode, um unsere benutzerdefinierte Worklet-Operation aufzurufen, da sie mit der entsprechenden Klassenstruktur für eine URL Selection Operation definiert wurde, wie oben besprochen.
+Um die im Worklet definierte Operation auszuführen, rufen wir [`WindowSharedStorage.selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL) auf. Diese Methode fungiert als Stellvertreter für unsere Worklet-Operation, greift sicher darauf zu und gibt das Ergebnis zurück, ohne dass Daten durchsickern. `selectURL()` ist die richtige Methode, um unsere benutzerdefinierte Worklet-Operation aufzurufen, da sie mit der geeigneten Klassenstruktur für eine URL-Auswahloperation definiert wurde, wie oben diskutiert.
 
-`selectURL()` erwartet ein Array von Objekten mit auszuwählenden URLs, ein optionales Optionsobjekt und für die zugrunde liegende Operation, eine Ganzzahl zurückzugeben, die sie zur Auswahl einer URL verwenden kann.
+`selectURL()` erwartet ein Array von Objekten mit URLs zur Auswahl, ein optionales Optionsobjekt, und dass die zugrunde liegende Operation eine Ganzzahl zurückgibt, die zum Auswählen einer URL verwendet werden kann.
 
 ```js
-// Führen Sie die URL-Auswahloperation aus
+// Run the URL selection operation
 const fencedFrameConfig = await window.sharedStorage.selectURL(
   "ab-testing",
   [
@@ -160,7 +160,7 @@ const fencedFrameConfig = await window.sharedStorage.selectURL(
 );
 ```
 
-Da das Optionsobjekt `resolveToConfig: true` enthält, wird das zurückgegebene {{jsxref("Promise")}} mit einem {{domxref("FencedFrameConfig")}}-Objekt aufgelöst. Dieses Objekt kann als Wert der {{domxref("HTMLFencedFrameElement.config")}}-Eigenschaft gesetzt werden, wodurch der Inhalt der ausgewählten URL im entsprechenden {{htmlelement("fencedframe")}}-Element angezeigt wird:
+Da das Optionsobjekt `resolveToConfig: true` enthält, wird das zurückgegebene {{jsxref("Promise")}} mit einem [`FencedFrameConfig`](/de/docs/Web/API/FencedFrameConfig)-Objekt aufgelöst. Dieses Objekt kann als Wert der [`HTMLFencedFrameElement.config`](/de/docs/Web/API/HTMLFencedFrameElement/config)-Eigenschaft festgelegt werden, wodurch der Inhalt der gewählten URL im entsprechenden {{htmlelement("fencedframe")}}-Element angezeigt wird:
 
 ```js
 document.getElementById("content-slot").config = fencedFrameConfig;
@@ -169,21 +169,21 @@ document.getElementById("content-slot").config = fencedFrameConfig;
 Das vollständige App-Skript sieht folgendermaßen aus:
 
 ```js
-// Weist einem Benutzer zufällig eine Gruppe 0 oder 1 zu
+// Randomly assigns a user to a group 0 or 1
 function getExperimentGroup() {
   return Math.round(Math.random());
 }
 
 async function injectContent() {
-  // Fügen Sie das Modul zum Shared Storage Worklet hinzu
+  // Add the module to the shared storage worklet
   await window.sharedStorage.worklet.addModule("ab-testing-worklet.js");
 
-  // Weisen Sie den Benutzer einer zufälligen Gruppe (0 oder 1) zu und speichern Sie ihn im Shared Storage
+  // Assign user to a random group (0 or 1) and store it in shared storage
   window.sharedStorage.set("ab-testing-group", getExperimentGroup(), {
     ignoreIfPresent: true,
   });
 
-  // Führen Sie die URL-Auswahloperation aus
+  // Run the URL selection operation
   const fencedFrameConfig = await window.sharedStorage.selectURL(
     "ab-testing",
     [
@@ -195,75 +195,75 @@ async function injectContent() {
     },
   );
 
-  // Rendern Sie die gewählte URL in einem fenced frame
+  // Render the chosen URL into a fenced frame
   document.getElementById("content-slot").config = fencedFrameConfig;
 }
 
 injectContent();
 ```
 
-## Unterschiede zwischen Shared Storage und Web Storage
+## Unterschiede zwischen geteiltem Speicher und Webspeicher
 
-Der Hauptunterschied besteht darin, dass Shared Storage für die Verwendung mit seitenübergreifenden Daten nach der Partitionierung des Speichers vorgesehen ist.
+Der Hauptunterschied besteht darin, dass der geteilte Speicher für die Verwendung mit domänenübergreifenden Daten nach der Partitionierung bestimmt ist.
 
-- Wenn Sie ein Publisher sind und Sie möchten, dass nur Sie auf First-Party-Daten zugreifen können, verwenden Sie die Version von [Web Storage](/de/docs/Web/API/Web_Storage_API) [`localStorage`](/de/docs/Web/API/Window/localStorage).
-- Wenn Sie möchten, dass Daten nur während einer Browsersitzung persistent sind, verwenden Sie [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage).
-- Wenn Sie als Drittanbieter auf einer anderen Website agieren und Daten von dieser Website aufzeichnen möchten, um später auf einer anderen Website darauf zuzugreifen, verwenden Sie Shared Storage.
+- Wenn Sie ein Herausgeber sind und erstanbieterbezogene Daten speichern möchten, die nur für Sie zugänglich sind, verwenden Sie die [`localStorage`](/de/docs/Web/API/Window/localStorage)-Version des [Webspeichers](/de/docs/Web/API/Web_Storage_API).
+- Wenn Sie möchten, dass Daten nur während einer Browsersitzung bestehen bleiben, verwenden Sie [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage).
+- Wenn Sie als Drittanbieter auf einer anderen Website arbeiten und Daten von dieser Website aufzeichnen möchten, um später auf einer anderen Website darauf zuzugreifen, verwenden Sie den geteilten Speicher.
 
-Ein weiterer wichtiger Unterschied zwischen Shared Storage und Web Storage ist, dass das Lesen aus dem Shared Storage geschützt ist (Schreiben funktioniert ähnlich). Mit `localStorage` und `sessionStorage` können Sie frei lesen. Mit Shared Storage kann das Lesen nur innerhalb eines Shared Storage Worklets stattfinden, und der Ursprung, der im Worklet zum Lesen verwendet wird, ist derselbe wie der Browsing-Kontext, der ihn erstellt hat.
+Ein weiterer wichtiger Unterschied zwischen geteiltem Speicher und Webspeicher besteht darin, dass das Lesen aus dem geteilten Speicher gesichert ist (das Schreiben in den Speicher verhält sich ähnlich). Mit `localStorage` und `sessionStorage` können Sie frei lesen. Mit geteiltem Speicher kann das Lesen nur innerhalb einer geteilten Speicherarbeitsumgebung erfolgen, und der Ursprung, der zum Lesen in der Arbeitsumgebung verwendet wird, ist derselbe wie der Browserkontext, der ihn erstellt hat.
 
-Darüber hinaus können Sie Shared Storage-Daten nicht außerhalb eines Shared Storage Worklets extrahieren, als Schutzmaßnahme gegen Tracking. Sie müssen eines der Output Gates verwenden, um mit Ihren Daten im Shared Storage zu arbeiten.
+Außerdem können Sie Daten aus dem geteilten Speicher nicht außerhalb einer geteilten Speicherarbeitsumgebung extrahieren, um Tracking-Schutz zu gewährleisten. Sie müssen eines der Ausgabegates verwenden, um mit Ihren Daten im geteilten Speicher zu arbeiten.
 
-Schließlich bleiben Daten in `localStorage`, bis sie manuell gelöscht werden. `sessionStorage` wird am Ende einer Browsersitzung gelöscht, während Shared Storage-Daten 30 Tage nach dem letzten Schreibaufruf gelöscht werden.
+Zuletzt bleiben Daten in `localStorage` bestehen, bis sie manuell gelöscht werden. `sessionStorage` wird am Ende einer Browsersitzung gelöscht, während Daten im geteilten Speicher 30 Tage nach dem letzten Schreibaufruf gelöscht werden.
 
 ## Schnittstellen
 
-- {{domxref("SharedStorage")}}
-  - : Repräsentiert den Shared Storage für einen bestimmten Ursprung. Es definiert Methoden zum Schreiben von Daten in den Shared Storage.
-- {{domxref("WindowSharedStorage")}}
-  - : Repräsentiert den Shared Storage für einen bestimmten Ursprung, wie er einem Standard-Browsing-Kontext freigegeben ist. Unter anderem definiert es Methoden zur Nutzung der verfügbaren Output Gates, die als Proxy für die im Worklet definierten Operationen fungieren.
-- {{domxref("WorkletSharedStorage")}}
-  - : Repräsentiert den Shared Storage für einen bestimmten Ursprung innerhalb eines Worklet-Kontexts. Unter anderem definiert es Methoden zum Lesen der Shared Storage-Daten.
-- {{domxref("SharedStorageWorklet")}}
-  - : Repräsentiert das aktuelle originierte Shared Storage Worklet. Es enthält die Methode {{domxref("Worklet.addModule", "addModule()")}} zum Hinzufügen von Modulen. Anders als ein regulärer {{domxref("Worklet")}}, kann der `SharedStorageWorklet` aus Datenschutzgründen nur über ein einziges Modul verfügen.
-- {{domxref("SharedStorageWorkletGlobalScope")}}
-  - : Repräsentiert den globalen Umfang eines {{domxref("SharedStorageWorklet")}}-Moduls. Es enthält die Funktionalität zur {{domxref("SharedStorageWorkletGlobalScope.register", "Registrierung", "", "nocode")}} einer definierten Operation und {{domxref("SharedStorageWorkletGlobalScope.sharedStorage", "Zugriff auf den Shared Storage", "", "nocode")}}.
+- [`SharedStorage`](/de/docs/Web/API/SharedStorage)
+  - : Repräsentiert den geteilten Speicher für einen bestimmten Ursprung. Definiert Methoden zum Schreiben von Daten in den geteilten Speicher.
+- [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)
+  - : Repräsentiert den geteilten Speicher für einen bestimmten Ursprung, wie er einem standardmäßigen Browsing-Kontext ausgesetzt ist. Unter anderem definiert er Methoden zur Verwendung der verfügbaren Ausgabegates, die als Stellvertreter für die im Worklet definierten Operationen fungieren.
+- [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)
+  - : Repräsentiert den geteilten Speicher für einen bestimmten Ursprung innerhalb eines Worklet-Kontexts. Unter anderem definiert er Methoden zum Lesen der geteilten Speicher-Daten.
+- [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)
+  - : Repräsentiert das geteilte Speicher-Worklet des aktuellen Ursprungs. Es enthält die Methode [`addModule()`](/de/docs/Web/API/Worklet/addModule) zum Hinzufügen von Modulen. Anders als ein reguläres [`Worklet`](/de/docs/Web/API/Worklet) kann das `SharedStorageWorklet` aus Datenschutzgründen nur ein einzelnes Modul enthalten.
+- [`SharedStorageWorkletGlobalScope`](/de/docs/Web/API/SharedStorageWorkletGlobalScope)
+  - : Repräsentiert den globalen Bereich eines [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)-Moduls. Es enthält die Funktionalität zum [Registrieren](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) einer definierten Operation und zum [Zugriff auf den geteilten Speicher](/de/docs/Web/API/SharedStorageWorkletGlobalScope/sharedStorage).
 
-### Definitionen der Signaturen von Output Gate-Operationen
+### Signaturdefinitionen der Ausgabegate
 
-- {{domxref("SharedStorageOperation")}}
-  - : Repräsentiert die Basisklasse für alle verschiedenen Typen von Output Gate Operationen.
-- {{domxref("SharedStorageRunOperation")}}
-  - : Repräsentiert eine Run Output Gate Operation.
-- {{domxref("SharedStorageSelectURLOperation")}}
-  - : Repräsentiert eine URL-Auswahlausgabe-Operation.
+- [`SharedStorageOperation`](/de/docs/Web/API/SharedStorageOperation)
+  - : Repräsentiert die Basisklasse für alle verschiedenen Ausgabegate-Operationstypen.
+- [`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation)
+  - : Repräsentiert eine Ausführen-Ausgabegate-Operation.
+- [`SharedStorageSelectURLOperation`](/de/docs/Web/API/SharedStorageSelectURLOperation)
+  - : Repräsentiert eine URL-Auswahl-Ausgabegate-Operation.
 
 ### Erweiterungen zu anderen Schnittstellen
 
-- {{domxref("Window.sharedStorage")}}
-  - : Gibt das {{domxref("WindowSharedStorage")}}-Objekt für den aktuellen Ursprung zurück.
+- [`Window.sharedStorage`](/de/docs/Web/API/Window/sharedStorage)
+  - : Gibt das [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)-Objekt für den aktuellen Ursprung zurück.
 
-## Enrollment und lokale Tests
+## Anmeldung und lokales Testen
 
-Um die Shared Storage API auf Ihren Websites zu verwenden, müssen Sie sie im [Privacy Sandbox Enrollment-Prozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) angeben. Andernfalls werden die Shared Storage API-Methoden nicht erfolgreich ausgeführt.
+Um die Shared Storage API auf Ihrer Website zu verwenden, müssen Sie sie im [Datenschutz-Sandbox Anmeldeprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) angeben. Andernfalls werden die Methoden der Shared Storage API nicht erfolgreich ausgeführt.
 
-Sie können Ihren Shared Storage API-Code lokal ohne Enrollment testen. Um lokale Tests zu ermöglichen, aktivieren Sie das folgende Chrome-Entwickler-Flag:
+Sie können Ihr Shared Storage API-Code lokal ohne Anmeldung testen. Um lokales Testen zu ermöglichen, aktivieren Sie das folgende Chrome-Entwicklerflag:
 
 `chrome://flags/#privacy-sandbox-enrollment-overrides`
 
 ## Beispiele
 
-Für umfangreiche Demos sehen Sie sich die [Shared Storage API-Demoseite](https://shared-storage-demo.web.app/) an, die auch einige Beispiele für die Private Aggregation API enthält.
+Für umfangreiche Demos siehe die [Shared Storage API-Demoseite](https://shared-storage-demo.web.app/), die auch einige Private Aggregation API-Beispiele enthält.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browser Kompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Shared Storage](https://developers.google.com/privacy-sandbox/private-advertising/shared-storage) auf developers.google.com
-- [The Privacy Sandbox](https://developers.google.com/privacy-sandbox) auf developers.google.com
+- [Die Privacy Sandbox](https://developers.google.com/privacy-sandbox) auf developers.google.com

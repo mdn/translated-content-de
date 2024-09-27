@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`ascentOverride`**-Eigenschaft des {{domxref("FontFace")}}-Interfaces gibt die Aufstiegsmetrik der Schriftart zurück und legt sie fest. Dies ist die Höhe über der Grundlinie, die CSS verwendet, um Linienboxen in einem Inline-Formatierungskontext anzuordnen.
+Die **`ascentOverride`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces gibt die Steigmetrik der Schriftart zurück und setzt diese, also die Höhe über der Grundlinie, die CSS verwendet, um Linienkästen in einem Inline-Formatierungskontext zu layouten.
 
 Diese Eigenschaft entspricht dem {{cssxref("@font-face/ascent-override")}}-Deskriptor von {{cssxref("@font-face")}}.
 
 ## Wert
 
-Ein String. Die möglichen Werte sind `normal`, was anzeigt, dass die verwendete Metrik aus der Schriftdatei bezogen werden sollte, oder ein Prozentsatz.
+Ein String. Die möglichen Werte sind `normal`, was darauf hinweist, dass die Metrik aus der Schriftartendatei bezogen werden sollte, oder ein Prozentsatz.
 
-Diese Eigenschaft akzeptiert die gleichen Werte wie der {{cssxref("@font-face/ascent-override")}}-Deskriptor.
+Diese Eigenschaft akzeptiert dieselben Werte wie der {{cssxref("@font-face/ascent-override")}}-Deskriptor.
 
 ## Beispiele
 
@@ -35,6 +35,6 @@ console.log(fontFace.ascentOverride); // 'normal'
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

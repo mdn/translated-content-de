@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-padding-bottom` definiert Offsets für den unteren Rand des _optimalen Anzeigebereichs_ des Scrollports: den Bereich, der als Zielregion verwendet wird, um Elemente im Sichtbereich des Benutzers zu platzieren. Dies erlaubt es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
+Die Eigenschaft `scroll-padding-bottom` definiert Versätze für den unteren Rand des _optimalen Anzeigebereichs_ des Scrollports: den Bereich, der als Zielbereich für das Platzieren von Elementen im Sichtbereich des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderen Inhalten verdeckt werden (wie zum Beispiel fest positionierte Werkzeuge oder Seitenleisten), oder um mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{EmbedInteractiveExample("pages/css/scroll-padding-bottom.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 scroll-padding-bottom: auto;
 
-/* <length>-Werte */
+/* <length> values */
 scroll-padding-bottom: 10px;
 scroll-padding-bottom: 1em;
 scroll-padding-bottom: 10%;
 
-/* Globale Werte */
+/* Global values */
 scroll-padding-bottom: inherit;
 scroll-padding-bottom: initial;
 scroll-padding-bottom: revert;
@@ -33,9 +33,9 @@ scroll-padding-bottom: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichtetes Offset vom unteren Rand des Scrollports, als gültige Länge oder Prozentsatz.
+  - : Ein innerer Versatz vom unteren Rand des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Das Offset wird vom Benutzeragenten bestimmt. Dies ist im Allgemeinen 0px, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein nicht-null Wert angemessener ist.
+  - : Der Versatz wird durch den User-Agent bestimmt. Dies ist im Allgemeinen 0px, aber ein User-Agent kann erkennen, dass ein anderer Wert passender ist, falls es angemessen ist.
 
 ## Formale Definition
 
@@ -56,4 +56,4 @@ scroll-padding-bottom: unset;
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Well-controlled scrolling with CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

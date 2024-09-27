@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:for-each>`-Element wählt eine Menge von Knoten aus und verarbeitet jeden von ihnen auf die gleiche Weise. Es wird häufig verwendet, um eine Menge von Knoten zu durchlaufen oder den aktuellen Knoten zu ändern. Erscheinen ein oder mehrere `<xsl:sort>`-Elemente als Kinder dieses Elements, erfolgt das Sortieren vor der Verarbeitung. Andernfalls werden Knoten in der Dokumentreihenfolge verarbeitet.
+Das `<xsl:for-each>`-Element wählt eine Menge von Knoten aus und verarbeitet jeden von ihnen auf die gleiche Weise. Es wird häufig verwendet, um durch eine Menge von Knoten zu iterieren oder um den aktuellen Knoten zu ändern. Wenn ein oder mehrere `<xsl:sort>`-Elemente als Kinder dieses Elements erscheinen, erfolgt die Sortierung vor der Verarbeitung. Andernfalls werden die Knoten in Dokumentenreihenfolge verarbeitet.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ Das `<xsl:for-each>`-Element wählt eine Menge von Knoten aus und verarbeitet je
 ### Erforderliche Attribute
 
 - `select`
-  - : Verwendet einen XPath-Ausdruck, um Knoten auszuwählen, die verarbeitet werden sollen.
+  - : Verwendet einen XPath-Ausdruck, um die zu verarbeitenden Knoten auszuwählen.
 
 ### Optionale Attribute
 
@@ -35,6 +35,6 @@ Anweisung, erscheint innerhalb einer Vorlage.
 
 XSLT, Abschnitt 8.
 
-## Gecko-Unterstützung
+## Gecko-Kompatibilität
 
 Unterstützt.

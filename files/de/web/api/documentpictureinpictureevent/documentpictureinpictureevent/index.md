@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`DocumentPictureInPictureEvent()`** Konstruktor erstellt eine neue Instanz des {{domxref("DocumentPictureInPictureEvent")}} Objekts.
+Der **`DocumentPictureInPictureEvent()`** Konstruktor erstellt eine neue Instanz eines [`DocumentPictureInPictureEvent`](/de/docs/Web/API/DocumentPictureInPictureEvent)-Objekts.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ new DocumentPictureInPictureEvent(type, init)
 - `init`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `window`
-      - : Eine {{domxref("Window")}} Instanz, die den Browsing-Kontext im `DocumentPictureInPicture`-Fenster darstellt, auf dem das Ereignis ausgelöst wurde.
+      - : Eine [`Window`](/de/docs/Web/API/Window)-Instanz, die den Browsing-Kontext innerhalb des `DocumentPictureInPicture`-Fensters darstellt, auf dem das Ereignis ausgelöst wurde.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `DocumentPictureInPictureEvent` Objekt wird erstellt, wenn ein Handler als Ergebnis des {{domxref("DocumentPictureInPicture.enter_event", "enter")}} Ereignisses aufgerufen wird.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `DocumentPictureInPictureEvent`-Objekt wird konstruiert, wenn ein Handler als Ergebnis des ausgelösten [`enter`](/de/docs/Web/API/DocumentPictureInPicture/enter_event)-Ereignisses aufgerufen wird.
 
 ```js
 documentPictureInPicture.addEventListener("enter", (event) => {
@@ -55,11 +55,11 @@ documentPictureInPicture.addEventListener("enter", (event) => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Document Picture-in-Picture API", "Document Picture-in-Picture API", "", "nocode")}}
+- [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API)
 - [Verwendung der Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API/Using)

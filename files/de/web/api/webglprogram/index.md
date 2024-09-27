@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Der **`WebGLProgram`** ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und ist eine Kombination aus zwei kompilierten {{domxref("WebGLShader")}}, die aus einem Vertex-Shader und einem Fragment-Shader bestehen (beide in GLSL geschrieben).
+Das **`WebGLProgram`** ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und besteht aus einer Kombination von zwei kompilierten [`WebGLShader`](/de/docs/Web/API/WebGLShader)s, bestehend aus einem Vertex-Shader und einem Fragment-Shader (beide in GLSL geschrieben).
 
 {{InheritanceDiagram}}
 
-Um ein `WebGLProgram` zu erstellen, rufen Sie die Funktion {{domxref("WebGLRenderingContext.createProgram", "createProgram()")}} des GL-Kontexts auf. Nachdem Sie die Shader-Programme mit {{domxref("WebGLRenderingContext.attachShader", "attachShader()")}} angefügt haben, verlinken Sie sie zu einem nutzbaren Programm. Dies wird im unten stehenden Code gezeigt.
+Um ein `WebGLProgram` zu erstellen, rufen Sie die Funktion [`createProgram()`](/de/docs/Web/API/WebGLRenderingContext/createProgram) des GL-Kontextes auf. Nachdem Sie die Shader-Programme mit [`attachShader()`](/de/docs/Web/API/WebGLRenderingContext/attachShader) angehängt haben, verknüpfen Sie sie zu einem nutzbaren Programm. Dies wird im folgenden Code gezeigt.
 
 ```js
 const program = gl.createProgram();
 
-// Vorhandene Shader anhängen
+// Attach pre-existing shaders
 gl.attachShader(program, vertexShader);
 gl.attachShader(program, fragmentShader);
 
@@ -28,30 +28,30 @@ if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
 }
 ```
 
-Sehen Sie {{domxref("WebGLShader")}} für Informationen zur Erstellung des `vertexShader` und `fragmentShader` im obigen Beispiel.
+Weitere Informationen zur Erstellung des `vertexShader` und `fragmentShader` im obigen Beispiel finden Sie unter [`WebGLShader`](/de/docs/Web/API/WebGLShader).
 
 ## Beispiele
 
 ### Verwendung des Programms
 
-Die Schritte, um tatsächlich mit dem Programm zu arbeiten, beinhalten, der GPU mitzuteilen, dass sie das Programm verwenden soll, die entsprechenden Daten und Konfigurationsoptionen zu binden und schließlich etwas auf den Bildschirm zu zeichnen.
+Die Schritte, um tatsächlich mit dem Programm zu arbeiten, beinhalten das Anweisen der GPU, das Programm zu nutzen, die entsprechenden Daten und Konfigurationsoptionen zu binden und schließlich etwas auf den Bildschirm zu zeichnen.
 
 ```js
-// Programm verwenden
+// Use the program
 gl.useProgram(program);
 
-// Vorhandene Attributdaten binden
+// Bind existing attribute data
 gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 gl.enableVertexAttribArray(attributeLocation);
 gl.vertexAttribPointer(attributeLocation, 3, gl.FLOAT, false, 0, 0);
 
-// Ein einzelnes Dreieck zeichnen
+// Draw a single triangle
 gl.drawArrays(gl.TRIANGLES, 0, 3);
 ```
 
 ### Löschen des Programms
 
-Wenn es einen Fehler beim Verlinken des Programms gibt oder Sie ein vorhandenes Programm löschen möchten, ist es ebenso einfach, {{domxref("WebGLRenderingContext.deleteProgram()")}} auszuführen. Dies gibt den Speicher des verlinkten Programms frei.
+Wenn ein Fehler beim Verknüpfen des Programms auftritt oder Sie ein bestehendes Programm löschen möchten, ist es einfach, [`WebGLRenderingContext.deleteProgram()`](/de/docs/Web/API/WebGLRenderingContext/deleteProgram) auszuführen. Dies gibt den Speicher des verknüpften Programms frei.
 
 ```js
 gl.deleteProgram(program);
@@ -67,24 +67,24 @@ gl.deleteProgram(program);
 
 ## Siehe auch
 
-- {{domxref("WebGLShader")}}
-- {{domxref("WebGLRenderingContext.attachShader()")}}
-- {{domxref("WebGLRenderingContext.compileShader()")}}
-- {{domxref("WebGLRenderingContext.createProgram()")}}
-- {{domxref("WebGLRenderingContext.createShader()")}}
-- {{domxref("WebGLRenderingContext.deleteProgram()")}}
-- {{domxref("WebGLRenderingContext.deleteShader()")}}
-- {{domxref("WebGLRenderingContext.detachShader()")}}
-- {{domxref("WebGLRenderingContext.getAttachedShaders()")}}
-- {{domxref("WebGLRenderingContext.getProgramParameter()")}}
-- {{domxref("WebGLRenderingContext.getProgramInfoLog()")}}
-- {{domxref("WebGLRenderingContext.getShaderParameter()")}}
-- {{domxref("WebGLRenderingContext.getShaderPrecisionFormat()")}}
-- {{domxref("WebGLRenderingContext.getShaderInfoLog()")}}
-- {{domxref("WebGLRenderingContext.getShaderSource()")}}
-- {{domxref("WebGLRenderingContext.isProgram()")}}
-- {{domxref("WebGLRenderingContext.isShader()")}}
-- {{domxref("WebGLRenderingContext.linkProgram()")}}
-- {{domxref("WebGLRenderingContext.shaderSource()")}}
-- {{domxref("WebGLRenderingContext.useProgram()")}}
-- {{domxref("WebGLRenderingContext.validateProgram()")}}
+- [`WebGLShader`](/de/docs/Web/API/WebGLShader)
+- [`WebGLRenderingContext.attachShader()`](/de/docs/Web/API/WebGLRenderingContext/attachShader)
+- [`WebGLRenderingContext.compileShader()`](/de/docs/Web/API/WebGLRenderingContext/compileShader)
+- [`WebGLRenderingContext.createProgram()`](/de/docs/Web/API/WebGLRenderingContext/createProgram)
+- [`WebGLRenderingContext.createShader()`](/de/docs/Web/API/WebGLRenderingContext/createShader)
+- [`WebGLRenderingContext.deleteProgram()`](/de/docs/Web/API/WebGLRenderingContext/deleteProgram)
+- [`WebGLRenderingContext.deleteShader()`](/de/docs/Web/API/WebGLRenderingContext/deleteShader)
+- [`WebGLRenderingContext.detachShader()`](/de/docs/Web/API/WebGLRenderingContext/detachShader)
+- [`WebGLRenderingContext.getAttachedShaders()`](/de/docs/Web/API/WebGLRenderingContext/getAttachedShaders)
+- [`WebGLRenderingContext.getProgramParameter()`](/de/docs/Web/API/WebGLRenderingContext/getProgramParameter)
+- [`WebGLRenderingContext.getProgramInfoLog()`](/de/docs/Web/API/WebGLRenderingContext/getProgramInfoLog)
+- [`WebGLRenderingContext.getShaderParameter()`](/de/docs/Web/API/WebGLRenderingContext/getShaderParameter)
+- [`WebGLRenderingContext.getShaderPrecisionFormat()`](/de/docs/Web/API/WebGLRenderingContext/getShaderPrecisionFormat)
+- [`WebGLRenderingContext.getShaderInfoLog()`](/de/docs/Web/API/WebGLRenderingContext/getShaderInfoLog)
+- [`WebGLRenderingContext.getShaderSource()`](/de/docs/Web/API/WebGLRenderingContext/getShaderSource)
+- [`WebGLRenderingContext.isProgram()`](/de/docs/Web/API/WebGLRenderingContext/isProgram)
+- [`WebGLRenderingContext.isShader()`](/de/docs/Web/API/WebGLRenderingContext/isShader)
+- [`WebGLRenderingContext.linkProgram()`](/de/docs/Web/API/WebGLRenderingContext/linkProgram)
+- [`WebGLRenderingContext.shaderSource()`](/de/docs/Web/API/WebGLRenderingContext/shaderSource)
+- [`WebGLRenderingContext.useProgram()`](/de/docs/Web/API/WebGLRenderingContext/useProgram)
+- [`WebGLRenderingContext.validateProgram()`](/de/docs/Web/API/WebGLRenderingContext/validateProgram)

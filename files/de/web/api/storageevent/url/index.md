@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`url`**-Eigenschaft der {{domxref("StorageEvent")}}-Schnittstelle gibt die URL des Dokuments zurück, dessen Speicher sich geändert hat.
+Die **`url`**-Eigenschaft der [`StorageEvent`](/de/docs/Web/API/StorageEvent)-Schnittstelle gibt die URL des Dokuments zurück, dessen Speicher sich geändert hat.
 
 ## Wert
 
@@ -24,4 +24,4 @@ Ein String, der die URL des Dokuments enthält, dessen Speicher sich geändert h
 
 ## Siehe auch
 
-- {{domxref("Web Storage API", "", "", "nocode")}}
+- [Web Storage API](/de/docs/Web/API/Web_Storage_API)

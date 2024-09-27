@@ -1,5 +1,5 @@
 ---
-title: "PeriodicSyncManager: register()-Methode"
+title: "PeriodicSyncManager: register() Methode"
 short-title: register()
 slug: Web/API/PeriodicSyncManager/register
 l10n:
@@ -9,9 +9,7 @@ l10n:
 {{APIRef("Periodic Background Sync")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
 Die **`register()`**-Methode des
-{{domxref("PeriodicSyncManager")}}-Interfaces registriert eine periodische Synchronisationsanfrage beim
-Browser mit dem angegebenen Tag und den Optionen. Sie gibt ein {{jsxref('Promise')}} zurück, das
-aufgelöst wird, wenn die Registrierung abgeschlossen ist.
+[`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager)-Interfaces registriert eine periodische Synchronisierungsanforderung beim Browser mit dem angegebenen Tag und Optionen. Sie gibt ein {{jsxref('Promise')}} zurück, das aufgelöst wird, wenn die Registrierung abgeschlossen ist.
 
 ## Syntax
 
@@ -22,14 +20,13 @@ register(tag, options)
 ### Parameter
 
 - `tag`
-  - : Ein eindeutiger {{jsxref('String')}}-Identifikator.
+  - : Eine eindeutige {{jsxref('String')}}-Kennung.
 - `options` {{optional_inline}}
 
   - : Ein {{jsxref('Object')}} mit den folgenden optionalen Daten:
 
     - `minInterval`
-      - : Die minimale Intervallzeit in Millisekunden, in der
-        die periodische Synchronisation stattfinden soll.
+      - : Das Mindestintervall in Millisekunden, in dem die periodische Synchronisierung erfolgen soll.
 
 ### Rückgabewert
 
@@ -37,16 +34,16 @@ Gibt ein {{jsxref("Promise")}} zurück, das mit {{jsxref('undefined')}} aufgelö
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn kein aktiver {{domxref('ServiceWorker')}} vorhanden ist.
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn keine Berechtigung für die periodische Hintergrundsynchronisation erteilt wurde.
-- `InvalidAccessError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn kein aktiver [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) vorhanden ist.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn keine Berechtigung für die periodische Hintergrundsynchronisierung erteilt wurde.
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn das aktive Fenster nicht das Hauptfenster ist (nicht vom Typ `auxiliary` oder `top-level`).
 
 ## Beispiele
 
-Die folgende asynchrone Funktion registriert eine periodische Hintergrundsynchronisation in einem Mindestintervall von einem Tag aus einem Browsing-Kontext:
+Die folgende asynchrone Funktion registriert eine periodische Hintergrundsynchronisierung mit einem Mindestintervall von einem Tag aus einem Browsing-Kontext:
 
 ```js
 async function registerPeriodicNewsCheck() {
@@ -65,11 +62,11 @@ async function registerPeriodicNewsCheck() {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Bereicherung von Offline-Erlebnissen mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
-- [Eine Demo-App der Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)
+- [Reichhaltigere Offline-Erlebnisse mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
+- [Eine Demo-App zur Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)

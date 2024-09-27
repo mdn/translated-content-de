@@ -1,5 +1,5 @@
 ---
-title: Verwendung des CSS Typed Object Model
+title: Die Verwendung des CSS Typed Object Model
 slug: Web/API/CSS_Typed_OM_API/Guide
 l10n:
   sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
@@ -7,23 +7,23 @@ l10n:
 
 {{DefaultAPISidebar("CSS Typed Object Model API")}}
 
-Die **[CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)** stellt CSS-Werte als typisierte JavaScript-Objekte zur Verfügung, um deren performante Manipulation zu ermöglichen.
+Die **[CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)** stellt CSS-Werte als typisierte JavaScript-Objekte bereit, um deren performante Manipulation zu ermöglichen.
 
-Das Umwandeln von [CSS Object Model](/de/docs/Web/API/CSS_Object_Model)-Wertestrings in sinnvoll typisierte JavaScript-Repräsentationen und zurück (über {{domxref("HTMLElement.style")}}) kann einen erheblichen Performance-Overhead verursachen.
+Das Umwandeln von [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model)-Wertzeichenketten in sinnvoll typisierte JavaScript-Darstellungen und zurück (über [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)) kann zu einem erheblichen Leistungsaufwand führen.
 
-Das CSS Typed OM macht die Manipulation von CSS logischer und performanter, indem es Objektfunktionen (anstatt CSSOM-Stringmanipulation) bereitstellt und den Zugriff auf Typen, Methoden und ein Objektmodell für CSS-Werte ermöglicht.
+Das CSS Typed OM macht die Manipulation von CSS logischer und performanter, indem es Objekteigenschaften (anstatt der Manipulation von CSSOM-Zeichenketten) bereitstellt und Zugriff auf Typen, Methoden und ein Objektmodell für CSS-Werte ermöglicht.
 
-Dieser Artikel bietet eine Einführung in alle Hauptfunktionen.
+Dieser Artikel bietet eine Einführung in alle seine Hauptmerkmale.
 
 ## computedStyleMap()
 
-Mit der CSS Typed OM API können wir auf alle CSS-Eigenschaften und -Werte, einschließlich benutzerdefinierter Eigenschaften, zugreifen, die ein Element beeinflussen. Sehen wir uns an, wie das funktioniert, indem wir unser erstes Beispiel erstellen, das {{domxref('Element.computedStyleMap()', 'computedStyleMap()')}} untersucht.
+Mit der CSS Typed OM API können wir auf alle CSS-Eigenschaften und -Werte — einschließlich benutzerdefinierter Eigenschaften — zugreifen, die ein Element beeinflussen. Sehen wir uns an, wie dies funktioniert, indem wir unser erstes Beispiel erstellen, das [`computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) erkundet.
 
 ### Abrufen aller Eigenschaften und Werte
 
 #### HTML
 
-Wir beginnen mit etwas HTML: ein Absatz mit einem Link sowie eine Definitionsliste, der wir alle CSS-Eigenschafts/Werte-Paare hinzufügen werden.
+Wir beginnen mit etwas HTML: einem Absatz mit einem Link sowie einer Definitionsliste, der wir alle CSS-Eigenschafts-/Wertepaare hinzufügen.
 
 ```html
 <p>
@@ -34,33 +34,33 @@ Wir beginnen mit etwas HTML: ein Absatz mit einem Link sowie eine Definitionslis
 
 #### JavaScript
 
-Wir fügen JavaScript hinzu, um unseren unformatierten Link zu erfassen und eine Definitionsliste aller Standard-CSS-Eigenschaftswerte, die den Link beeinflussen, mit `computedStyleMap()` zurückzugeben.
+Wir fügen JavaScript hinzu, um unseren ungestylten Link zu erfassen und eine Definitionsliste aller Standard-CSS-Eigenschaftswerte zurückzugeben, die den Link mit `computedStyleMap()` beeinflussen.
 
 ```js
-// Element abrufen
+// Get the element
 const myElement = document.querySelector("a");
 
-// <dl> abrufen, das wir füllen werden
+// Get the <dl> we'll be populating
 const stylesList = document.querySelector("#regurgitation");
 
-// Alle berechneten Stile mit computedStyleMap() abrufen
+// Retrieve all computed styles with computedStyleMap()
 const defaultComputedStyles = myElement.computedStyleMap();
 
-// Durch die Map aller Eigenschaften und Werte iterieren und für jede ein <dt> und <dd> hinzufügen
+// Iterate through the map of all the properties and values, adding a <dt> and <dd> for each
 for (const [prop, val] of defaultComputedStyles) {
-  // Eigenschaften
+  // properties
   const cssProperty = document.createElement("dt");
   cssProperty.appendChild(document.createTextNode(prop));
   stylesList.appendChild(cssProperty);
 
-  // Werte
+  // values
   const cssValue = document.createElement("dd");
   cssValue.appendChild(document.createTextNode(val));
   stylesList.appendChild(cssValue);
 }
 ```
 
-Die Methode `computedStyleMap()` gibt ein {{domxref('StylePropertyMapReadOnly')}}-Objekt zurück, das die [`size`](/de/docs/Web/API/StylePropertyMapReadOnly/size)-Eigenschaft enthält, die angibt, wie viele Eigenschaften sich in der Map befinden. Wir iterieren durch die Style Map und erstellen für jede Eigenschaft und jeden Wert ein [`<dt>`](/de/docs/Web/HTML/Element/dt) und ein [`<dd>`](/de/docs/Web/HTML/Element/dd).
+Die Methode `computedStyleMap()` gibt ein [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Objekt zurück, das die Eigenschaft [`size`](/de/docs/Web/API/StylePropertyMapReadOnly/size) enthält, die angibt, wie viele Eigenschaften sich in dem Map befinden. Wir iterieren durch die Stil-Map und erstellen für jede Eigenschaft und jeden Wert jeweils ein [`<dt>`](/de/docs/Web/HTML/Element/dt) und [`<dd>`](/de/docs/Web/HTML/Element/dd).
 
 #### Ergebnis
 
@@ -68,11 +68,11 @@ In [Browsern, die `computedStyleMap()` unterstützen](/de/docs/Web/API/Element/c
 
 {{EmbedLiveSample("Getting_all_the_properties_and_values", 120, 300)}}
 
-Haben Sie realisiert, wie viele Standard-CSS-Eigenschaften ein Link hatte? Aktualisieren Sie die erste `document.querySelector`-Anweisung, um das {{htmlelement("p")}} anstelle des {{htmlelement("a")}} auszuwählen. Sie werden einen Unterschied in den Standardwerten von [`margin-top`](/de/docs/Web/CSS/margin-top) und [`margin-bottom`](/de/docs/Web/CSS/margin-bottom) feststellen.
+Haben Sie erkannt, wie viele Standard-CSS-Eigenschaften ein Link hatte? Aktualisieren Sie den ersten `document.querySelector`-Aufruf, um das {{htmlelement("p")}} anstelle des {{htmlelement("a")}} auszuwählen. Sie werden einen Unterschied in den voreingestellten berechneten Werten für [`margin-top`](/de/docs/Web/CSS/margin-top) und [`margin-bottom`](/de/docs/Web/CSS/margin-bottom) bemerken.
 
 ### .get() Methode / benutzerdefinierte Eigenschaften
 
-Aktualisieren wir unser Beispiel, um nur einige Eigenschaften und Werte abzurufen. Beginnen wir damit, unserem Beispiel etwas CSS hinzuzufügen, einschließlich einer benutzerdefinierten Eigenschaft und einer vererbbaren Eigenschaft:
+Lassen Sie uns unser Beispiel so aktualisieren, dass nur einige wenige Eigenschaften und Werte abgerufen werden. Beginnen wir damit, einige CSS zu unserem Beispiel hinzuzufügen, einschließlich einer benutzerdefinierten Eigenschaft und einer vererbbaren Eigenschaft:
 
 ```css
 p {
@@ -85,7 +85,7 @@ a {
 }
 ```
 
-Anstatt _alle_ Eigenschaften abzurufen, erstellen wir ein Array der interessierenden Eigenschaften und verwenden die {{domxref('StylePropertyMapReadOnly.get()')}}-Methode, um jeden ihrer Werte zu erhalten:
+Anstatt _alle_ Eigenschaften abzurufen, erstellen wir ein Array von interessierenden Eigenschaften und verwenden die Methode [`StylePropertyMapReadOnly.get()`](/de/docs/Web/API/StylePropertyMapReadOnly/get), um jeweils deren Werte zu erhalten:
 
 ```html hidden
 <p>
@@ -95,26 +95,26 @@ Anstatt _alle_ Eigenschaften abzurufen, erstellen wir ein Array der interessiere
 ```
 
 ```js
-// Element abrufen
+// Get the element
 const myElement = document.querySelector("a");
 
-// <dl> abrufen, das wir füllen werden
+// Get the <dl> we'll be populating
 const stylesList = document.querySelector("#regurgitation");
 
-// Alle berechneten Stile mit computedStyleMap() abrufen
+// Retrieve all computed styles with computedStyleMap()
 const allComputedStyles = myElement.computedStyleMap();
 
-// Array der interessierenden Eigenschaften
+// Array of properties we're interested in
 const ofInterest = ["font-weight", "border-left-color", "color", "--color"];
 
-// Durch unsere interessierenden Eigenschaften iterieren
+// iterate through our properties of interest
 for (const value of ofInterest) {
-  // Eigenschaften
+  // Properties
   const cssProperty = document.createElement("dt");
   cssProperty.appendChild(document.createTextNode(value));
   stylesList.appendChild(cssProperty);
 
-  // Werte
+  // Values
   const cssValue = document.createElement("dd");
   cssValue.appendChild(document.createTextNode(allComputedStyles.get(value)));
   stylesList.appendChild(cssValue);
@@ -123,50 +123,49 @@ for (const value of ofInterest) {
 
 {{EmbedLiveSample(".get_method_custom_properties", 120, 300)}}
 
-Wir schlossen {{cssxref('border-left-color')}} ein, um zu demonstrieren, dass, wenn wir alle Eigenschaften eingeschlossen hätten, jeder Wert, der auf [`currentcolor`](/de/docs/Web/CSS/color_value) standardmäßig eingestellt ist (einschließlich {{cssxref('caret-color')}}, {{cssxref('outline-color')}}, {{cssxref('text-decoration-color')}}, {{cssxref('column-rule-color')}}, etc.) `rgb(255 0 0)` zurückgeben würde. Der Link hat `font-weight: bold;` von den Stilen des Absatzes geerbt, was als `font-weight: 700` aufgelistet ist. Benutzerdefinierte Eigenschaften, wie unser `--color: red`, sind Eigenschaften. Daher sind sie über `get()` zugänglich.
+Wir haben {{cssxref('border-left-color')}} hinzugefügt, um zu zeigen, dass, hätten wir alle Eigenschaften einbezogen, jeder Wert, der auf [`currentcolor`](/de/docs/Web/CSS/color_value) zurückfällt (einschließlich {{cssxref('caret-color')}}, {{cssxref('outline-color')}}, {{cssxref('text-decoration-color')}}, {{cssxref('column-rule-color')}}, etc.), `rgb(255 0 0)` zurückgegeben hätte. Der Link hat `font-weight: bold;` von den Stilvorgaben des Absatzes geerbt und listet es als `font-weight: 700`. Benutzerdefinierte Eigenschaften, wie unser `--color: red`, sind Eigenschaften. Daher sind sie über `get()` zugänglich.
 
-Sie werden feststellen, dass benutzerdefinierte Eigenschaften den Wert wie im Stylesheet geschrieben beibehalten, während berechnete Stile als der berechnete Wert aufgelistet werden — {{cssxref('color')}} wurde als [`rgb()`](/de/docs/Web/CSS/color_value)-Wert aufgelistet und das zurückgegebene {{cssxref('font-weight')}} war `700`, obwohl wir eine [benannte Farbe](/de/docs/Web/CSS/named-color) und das `bold`-Schlüsselwort verwenden.
+Sie werden feststellen, dass benutzerdefinierte Eigenschaften den im Stylesheet geschriebenen Wert beibehalten, während berechnete Stile als berechneter Wert aufgelistet werden — {{cssxref('color')}} wurde als [`rgb()`](/de/docs/Web/CSS/color_value)-Wert gelistet und der zurückgegebene {{cssxref('font-weight')}} war `700`, obwohl wir eine [benannte Farbe](/de/docs/Web/CSS/named-color) und das Stichwort `bold` verwenden.
 
 ### CSSUnitValue und CSSKeywordValue
 
-Die Stärke des CSS Typed OM liegt darin, dass Werte von Einheiten getrennt sind; das Parsen und Zusammenfügen von String-Werten könnte der Vergangenheit angehören. Jede CSS-Eigenschaft in einer Style-Map hat einen Wert. Wenn der Wert ein Schlüsselwort ist, ist das zurückgegebene Objekt ein [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue). Wenn der Wert numerisch ist, wird ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) zurückgegeben.
+Die Stärke des CSS Typed OM liegt darin, dass Werte von Einheiten getrennt sind; das Parsen und Verketten von Zeichenketten kann der Vergangenheit angehören. Jede CSS-Eigenschaft in einer Stil-Map hat einen Wert. Wenn der Wert ein Stichwort ist, ist das zurückgegebene Objekt ein [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue). Wenn der Wert numerisch ist, wird ein [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) zurückgegeben.
 
-`CSSKeywordValue` ist eine Klasse, die Schlüsselwörter wie `inherit`, `initial`, `unset` und andere nicht in Anführungszeichen gesetzte Strings wie `auto` und `grid` definiert. Diese Unterklasse gibt Ihnen eine `value`-Eigenschaft über {{domxref("cssKeywordValue.value")}}.
+`CSSKeywordValue` ist eine Klasse, die Stichwörter wie `inherit`, `initial`, `unset` und andere nicht von Ihnen in Anführungszeichen gesetzte Zeichenfolgen wie `auto` und `grid` definiert. Diese Unterklasse gibt Ihnen eine `value`-Eigenschaft über [`cssKeywordValue.value`](/de/docs/Web/API/CssKeywordValue/value).
 
-`CSSUnitValue` wird zurückgegeben, wenn der Wert ein Einheitstyp ist. Es ist eine Klasse, die Zahlen mit Maßeinheiten wie `20px`, `40%`, `200ms` oder `7` definiert. Es wird mit zwei Eigenschaften zurückgegeben: einem `value` und einer `unit`. Mit diesem Typ können wir auf den numerischen Wert — {{domxref('cssUnitValue.value')}} — und seine Einheit — {{domxref('cssUnitValue.unit')}} — zugreifen.
+`CSSUnitValue` wird zurückgegeben, wenn der Wert ein Einheitentyp ist. Es ist eine Klasse, die Zahlen mit Maßeinheiten wie `20px`, `40%`, `200ms` oder `7` definiert. Sie wird mit zwei Eigenschaften zurückgegeben: einem `value` und einer `unit`. Mit diesem Typ können wir auf den numerischen Wert zugreifen — [`cssUnitValue.value`](/de/docs/Web/API/CssUnitValue/value) — und auf seine Einheit — [`cssUnitValue.unit`](/de/docs/Web/API/CssUnitValue/unit).
 
-Lassen Sie uns einen einfachen Absatz ohne Stile schreiben und einige seiner CSS-Eigenschaften untersuchen, indem wir eine Tabelle mit der Einheit und dem Wert zurückgeben:
+Lassen Sie uns einen einfachen Absatz schreiben, keine Stile anwenden und einige seiner CSS-Eigenschaften inspizieren, indem wir eine Tabelle mit der Einheit und dem Wert zurückgeben:
 
 ```html
 <p>
-   Dies ist ein Absatz mit etwas Inhalt. Öffnen Sie dieses Beispiel in Codepen
-   oder JSFiddle und ändern Sie einige Funktionen. Versuchen Sie, etwas CSS
-   hinzuzufügen, wie eine Breite für diesen Absatz oder eine CSS-Eigenschaft
-   zum ofInterest-Array hinzuzufügen.
+   This is a paragraph with some content. Open up this example in Codepen or
+   JSFiddle, and change some features. Try adding some CSS, such as a width
+   for this paragraph, or adding a CSS property to the ofInterest array.
 </p>
 <table id="regurgitation">
   <thead>
     <tr>
-      <th>Eigenschaft</th>
-      <th>Wert</th>
-      <th>Einheit</th>
+      <th>Property</th>
+      <th>Value</th>
+      <th>Unit</th>
     </tr>
 </table>
 ```
 
-Für jede interessierende Eigenschaft listen wir den Namen der Eigenschaft auf, verwenden `.get(propertyName).value`, um den Wert zurückzugeben, und, wenn das von `get()` zurückgegebene Objekt ein `CSSUnitValue` ist, listen wir den Einheitstyp auf, den wir mit `.get(propertyName).unit` abrufen.
+Für jede Eigenschaft von Interesse listen wir den Namen der Eigenschaft, verwenden `.get(propertyName).value`, um den Wert zurückzugeben, und, wenn das von `get()` zurückgegebene Objekt ein `CSSUnitValue` ist, listen wir den Einheitstyp auf, den wir mit `.get(propertyName).unit` abrufen.
 
 ```js
-// Element abrufen, das wir inspizieren
+// Get the element we're inspecting
 const myElement = document.querySelector("p");
 
-// Tabelle abrufen, die wir füllen werden
+// Get the table we'll be populating
 const stylesTable = document.querySelector("#regurgitation");
 
-// Alle berechneten Stile mit computedStyleMap() abrufen
+// Retrieve all computed styles with computedStyleMap()
 const allComputedStyles = myElement.computedStyleMap();
 
-// Array der interessierenden Eigenschaften
+// Array of properties we're interested in
 const ofInterest = [
   "padding-top",
   "margin-bottom",
@@ -178,79 +177,79 @@ const ofInterest = [
   "height",
 ];
 
-// Durch unsere interessierenden Eigenschaften iterieren
+// Iterate through our properties of interest
 for (const value of ofInterest) {
-  // Eine Zeile erstellen
+  // Create a row
   const row = document.createElement("tr");
 
-  // Den Namen der Eigenschaft hinzufügen
+  // Add the name of the property
   const cssProperty = document.createElement("td");
   cssProperty.appendChild(document.createTextNode(value));
   row.appendChild(cssProperty);
 
-  // Den wertelosen Wert hinzufügen
+  // Add the unitless value
   const cssValue = document.createElement("td");
 
-  // Lange Kommazahlen auf 1 Dezimalstelle verkleinern
+  // Shrink long floats to 1 decimal point
   let propVal = allComputedStyles.get(value).value;
   propVal = propVal % 1 ? propVal.toFixed(1) : propVal;
   cssValue.appendChild(document.createTextNode(propVal));
   row.appendChild(cssValue);
 
-  // Den Einheitstyp hinzufügen
+  // Add the type of unit
   const cssUnit = document.createElement("td");
   cssUnit.appendChild(
     document.createTextNode(allComputedStyles.get(value).unit),
   );
   row.appendChild(cssUnit);
 
-  // Die Zeile zur Tabelle hinzufügen
+  // Add the row to the table
   stylesTable.appendChild(row);
 }
 ```
 
 {{EmbedLiveSample("CSSUnitValue_and_CSSKeywordValue", 120, 300)}}
 
-Für diejenigen von Ihnen, die einen nicht unterstützten Browser verwenden, sollte die obige Ausgabe in etwa so aussehen:
+Für diejenigen unter Ihnen, die einen nicht unterstützenden Browser verwenden, sollte die obige Ausgabe etwa so aussehen:
 
-| Eigenschaft                               | Wert  | Einheit      |
-| ----------------------------------------- | ----- | ------------ |
-| {{cssxref("padding-top")}}                | 0     | `px`         |
-| {{cssxref("margin-bottom")}}              | 16    | `px`         |
-| {{cssxref("font-size")}}                  | 16    | `px`         |
-| {{cssxref("font-stretch")}}               | 100   | `%`          |
-| {{cssxref("animation-duration")}}         | 0     | `px`         |
-| {{cssxref("animation-iteration-count")}}  | 1     | _number_     |
-| {{cssxref("width")}}                      | auto  | _undefined_  |
-| {{cssxref("height")}}                     | auto  | _undefined_  |
+| Eigenschaft                              | Wert | Einheit     |
+| ---------------------------------------- | ---- | ----------- |
+| {{cssxref("padding-top")}}               | 0    | `px`        |
+| {{cssxref("margin-bottom")}}             | 16   | `px`        |
+| {{cssxref("font-size")}}                 | 16   | `px`        |
+| {{cssxref("font-stretch")}}              | 100  | `%`         |
+| {{cssxref("animation-duration")}}        | 0    | `px`        |
+| {{cssxref("animation-iteration-count")}} | 1    | _number_    |
+| {{cssxref("width")}}                     | auto | _undefined_ |
+| {{cssxref("height")}}                    | auto | _undefined_ |
 
-Sie werden feststellen, dass die zurückgegebene {{cssxref('&lt;length&gt;')}}-Einheit `px` ist, die zurückgegebene {{cssxref('&lt;percentage&gt;')}}-Einheit ist `percent`, die {{cssxref('&lt;time&gt;')}}-Einheit `s` für 'seconds', und die einheitslose {{cssxref('&lt;number&gt;')}}-Einheit ist `number`.
+Sie werden feststellen, dass die zurückgegebene {{cssxref('&lt;length&gt;')}}-Einheit `px` ist, die zurückgegebene {{cssxref('&lt;percentage&gt;')}}-Einheit `percent` ist, die {{cssxref('&lt;time&gt;')}}-Einheit `s` für 'seconds' ist und die einheitslose {{cssxref('&lt;number&gt;')}}-Einheit `number` ist.
 
-Wir haben keine {{cssxref('width')}} oder {{cssxref('height')}} für den Absatz deklariert, beide standardmäßig auf `auto` gesetzt und geben daher ein [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue) statt eines [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) zurück. `CSSKeywordValue`s haben keine Einheitseigenschaft, daher gibt in diesen Fällen unser `get().unit` `undefined` zurück.
+Wir haben für den Absatz weder eine {{cssxref('width')}} noch eine {{cssxref('height')}} deklariert, beide Standardwerte `auto` und geben daher ein [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue) anstelle eines [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) zurück. `CSSKeywordValue`s haben keine Einheitseigenschaft, daher gibt unser `get().unit` in diesen Fällen `undefined` zurück.
 
-Wenn die `width` oder `height` in einem `<length>` oder `<percent>` definiert worden wären, wäre die Einheit des [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) `px` oder `percent` gewesen.
+Wären die `width` oder `height` in einem `<length>` oder `<percent>` definiert gewesen, wäre die [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue) Einheit `px` bzw. `percent` gewesen.
 
-Es gibt weitere verfügbare Typen:
+Es stehen weitere Typen zur Verfügung:
 
-- Ein [`<image>`](/de/docs/Web/CSS/image) gibt ein {{domxref('CSSImageValue')}} zurück.
-- Ein [`<color>`](/de/docs/Web/CSS/color_value) würde ein {{domxref('CSSStyleValue')}} zurückgeben.
+- Ein [`<image>`](/de/docs/Web/CSS/image) gibt ein [`CSSImageValue`](/de/docs/Web/API/CSSImageValue) zurück.
+- Ein [`<color>`](/de/docs/Web/CSS/color_value) würde ein [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue) zurückgeben.
 - Ein {{cssxref('transform')}} gibt ein `CSSTransformValue` zurück.
-- Eine [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--) gibt ein {{domxref('CSSUnparsedValue')}} zurück.
+- Eine [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) gibt ein [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) zurück.
 
 Sie können ein `CSSUnitValue` oder `CSSKeywordValue` verwenden, um andere Objekte zu erstellen.
 
 ## CSSStyleValue
 
-Das `CSSStyleValue`-Interface des [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) ist die Basisklasse aller CSS-Werte, die über die Typed OM API zugänglich sind, einschließlich {{domxref('CSSImageValue')}}, {{domxref('CSSKeywordValue')}}, {{domxref('CSSNumericValue')}}, {{domxref('CSSPositionValue')}}, {{domxref('CSSTransformValue')}} und {{domxref('CSSUnparsedValue')}}.
+Das `CSSStyleValue`-Interface der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) ist die Basisklasse aller CSS-Werte, die über die Typed OM API zugänglich sind, einschließlich [`CSSImageValue`](/de/docs/Web/API/CSSImageValue), [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue), [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue), [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue), [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue) und [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue).
 
 Es hat zwei Methoden:
 
-- {{domxref("CSSStyleValue/parse_static", "CSSStyleValue.parse()")}}
-- {{domxref("CSSStyleValue/parseAll_static", "CSSStyleValue.parseAll()")}}
+- [`CSSStyleValue.parse()`](/de/docs/Web/API/CSSStyleValue/parse_static)
+- [`CSSStyleValue.parseAll()`](/de/docs/Web/API/CSSStyleValue/parseAll_static)
 
-Wie oben erwähnt gibt `StylePropertyMapReadOnly.get('--customProperty')` ein {{domxref('CSSUnparsedValue')}} zurück. Wir können Instanzen von `CSSUnparsedValue`-Objekten mit den vererbten Methoden {{domxref('CSSStyleValue/parse_static', 'CSSStyleValue.parse()')}} und {{domxref('CSSStyleValue/parseAll_static', 'CSSStyleValue.parseAll()')}} parsen.
+Wie oben erwähnt, gibt `StylePropertyMapReadOnly.get('--customProperty')` ein [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) zurück. Wir können Instanzen von `CSSUnparsedValue`-Objekten mit den geerbten Methoden [`CSSStyleValue.parse()`](/de/docs/Web/API/CSSStyleValue/parse_static) und [`CSSStyleValue.parseAll()`](/de/docs/Web/API/CSSStyleValue/parseAll_static) parsen.
 
-Sehen wir uns ein CSS-Beispiel mit mehreren benutzerdefinierten Eigenschaften, Transformationen, `calc()`s und anderen Funktionen an. Wir untersuchen, welche Typen sie haben, indem wir kurze JavaScript-Skripte verwenden, die bei {{domxref("console/log_static", "console.log()")}} ausgeben:
+Lassen Sie uns ein CSS-Beispiel mit mehreren benutzerdefinierten Eigenschaften, Transformationen, `calc()`s und anderen Merkmalen untersuchen. Wir werden uns ansehen, was ihre Typen sind, indem wir kurze JavaScript-Snippets verwenden, die an [`console.log()`](/de/docs/Web/API/Console/log_static) ausgeben:
 
 ```css
 :root {
@@ -275,20 +274,20 @@ button {
 }
 ```
 
-Fügen wir die Klasse zu einem Button hinzu (ein Button, der nichts tut).
+Fügen wir die Klasse einem Button hinzu (ein Button, der nichts tut).
 
 ```html
-<button>JSFiddle, und Eigenschaften hinzufügen.</button>
+<button>Styled Button</button>
 ```
 
 ```js hidden
-// Element abrufen
+// get the element
 const button = document.querySelector("button");
 
-// Alle berechneten Stile mit computedStyleMap() abrufen
+// Retrieve all computed styles with computedStyleMap()
 const allComputedStyles = button.computedStyleMap();
 
-// CSSMathSum Beispiel
+// CSSMathSum Example
 let btnWidth = allComputedStyles.get("width");
 
 console.log(btnWidth); // CSSMathSum
@@ -323,7 +322,7 @@ console.log(parsedUnit.unit);
 console.log(parsedUnit.value);
 ```
 
-Wir erhalten unsere `StylePropertyMapReadOnly` mit dem folgenden JavaScript:
+Wir holen unser `StylePropertyMapReadOnly` mit dem folgenden JavaScript:
 
 ```js
 const allComputedStyles = document.querySelector("button").computedStyleMap();
@@ -333,17 +332,17 @@ Die folgenden Beispiele beziehen sich auf `allComputedStyles`:
 
 ### CSSUnparsedValue
 
-Das {{domxref('CSSUnparsedValue')}} repräsentiert [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Using_CSS_custom_properties):
+Das [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue) repräsentiert [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Using_CSS_custom_properties):
 
 ```js
 // CSSUnparsedValue
 const unit = allComputedStyles.get("--unit");
 
-console.log(unit); // CSSUnparsedValue {0: "1.2rem", length: 1}
-console.log(unit[0]); // "1.2rem"
+console.log(unit); // CSSUnparsedValue {0: " 1.2rem", length: 1}
+console.log(unit[0]); // " 1.2rem"
 ```
 
-Wenn wir `get()` aufrufen, wird eine benutzerdefinierte Eigenschaft vom Typ `CSSUnparsedValue` zurückgegeben. Beachten Sie den Abstand vor `1.2rem`. Um eine Einheit und einen Wert zu erhalten, benötigen wir ein `CSSUnitValue`, das wir mit der Methode `CSSStyleValue.parse()` auf dem `CSSUnparsedValue` erhalten können.
+Wenn wir `get()` aufrufen, wird eine benutzerdefinierte Eigenschaft vom Typ `CSSUnparsedValue` zurückgegeben. Beachten Sie den Leerraum vor dem `1.2rem`. Um eine Einheit und einen Wert zu erhalten, benötigen wir ein `CSSUnitValue`, das wir mit der Methode `CSSStyleValue.parse()` auf dem `CSSUnparsedValue` abrufen können.
 
 ```js
 const parsedUnit = CSSNumericValue.parse(unit);
@@ -354,11 +353,11 @@ console.log(parsedUnit.value); // 1.2
 
 ### CSSMathSum
 
-Obwohl das [`<button>`](/de/docs/Web/HTML/Element/button)-Element standardmäßig ein Inline-Element ist, haben wir [`display: inline-block;`](/de/docs/Web/CSS/CSS_display) hinzugefügt, um es skalierbar zu machen. In unserem CSS haben wir `width: calc(30% + 20px);`, was eine [`calc()`](/de/docs/Web/CSS/calc)-Funktion zur Definition der Breite ist.
+Obwohl das [`<button>`](/de/docs/Web/HTML/Element/button)-Element standardmäßig ein Inline-Element ist, haben wir [`display: inline-block;`](/de/docs/Web/CSS/CSS_display) hinzugefügt, um eine Größenanpassung zu ermöglichen. In unserem CSS haben wir `width: calc(30% + 20px);`, was eine [`calc()`](/de/docs/Web/CSS/calc)-Funktion zur Definition der Breite ist.
 
-Wenn wir `get()` auf `width` anwenden, wird ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum) zurückgegeben. {{domxref('CSSMathSum.values')}} ist ein {{domxref('CSSNumericArray')}} mit 2 `CSSUnitValues`.
+Wenn wir `get()` auf die `width` anwenden, wird ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum) zurückgegeben. [`CSSMathSum.values`](/de/docs/Web/API/CSSMathSum/values) ist ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray) mit 2 `CSSUnitValues`.
 
-Der Wert von {{domxref('CSSMathValue.operator')}} ist `sum`:
+Der Wert von [`CSSMathValue.operator`](/de/docs/Web/API/CSSMathValue/operator) ist `sum`:
 
 ```js
 const btnWidth = allComputedStyles.get("width");
@@ -370,7 +369,7 @@ console.log(btnWidth.operator); // 'sum'
 
 ### CSSTransformValue mit CSSScale
 
-Das [`display: inline-block;`](/de/docs/Web/CSS/CSS_display) ermöglicht ebenfalls das Transformieren. In unserem CSS haben wir `transform: scale(0.95);`, was eine {{cssxref('transform')}}-Funktion ist.
+Das [`display: inline-block;`](/de/docs/Web/CSS/CSS_display) ermöglicht auch das Transformieren. In unserem CSS haben wir `transform: scale(0.95);`, was eine {{cssxref('transform')}}-Funktion ist.
 
 ```js
 const transform = allComputedStyles.get("transform");
@@ -384,11 +383,11 @@ console.log(transform[0].z); // CSSUnitValue {value: 1, unit: "number"}
 console.log(transform.is2D); // true
 ```
 
-Wenn wir `get()` für die Eigenschaft `transform` anwenden, erhalten wir einen {{domxref('CSSTransformValue')}}. Wir können die Länge (oder Anzahl) der Transformationsfunktionen mit der `length`-Eigenschaft abfragen.
+Wenn wir die `transform`-Eigenschaft `get()`, wird ein [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue) zurückgegeben. Wir können die Länge (oder die Anzahl) der Transformationsfunktionen mit der Länge-Eigenschaft abfragen.
 
-Da wir eine Länge von `1` haben, was eine einzelne Transformationsfunktion darstellt, protokollieren wir das erste Objekt und erhalten ein `CSSScale`-Objekt. Wir erhalten `CSSUnitValues`, wenn wir die `x`, `y` und `z` Skalierungen abfragen. Die schreibgeschützte Eigenschaft `CSSScale.is2D` ist in diesem Szenario `true`.
+Da wir eine Länge von `1` haben, was eine einzelne Transformationsfunktion darstellt, loggen wir das erste Objekt und erhalten ein `CSSScale`-Objekt. Wir bekommen `CSSUnitValues`, wenn wir die `x`-, `y`- und `z`-Skalierung abfragen. Die schreibgeschützte `CSSScale.is2D`-Eigenschaft ist in diesem Szenario `true`.
 
-Wenn wir `translate()`, `skew()` und `rotate()` Transformationsfunktionen hinzugefügt hätten, wäre die Länge `4` gewesen, jede mit ihren eigenen `x`, `y`, `z` Werten und jeder mit einer `.is2D`-Eigenschaft. Wenn wir zum Beispiel `transform: translate3d(1px, 1px, 3px)` hinzugefügt hätten, hätte `.get('transform')` einen `CSSTranslate` mit `CSSUnitValues` für `x`, `y` und `z` zurückgegeben und die schreibgeschützte `.is2D`-Eigenschaft wäre `false` gewesen.
+Hätten wir `translate()`, `skew()` und `rotate()`-Transformationsfunktionen hinzugefügt, wäre die Länge `4` gewesen, jede mit ihren eigenen `x`-, `y`-, `z`-Werten und jede mit einer `.is2D`-Eigenschaft. Zum Beispiel, hätten wir `transform: translate3d(1px, 1px, 3px)` eingeschlossen, hätte `.get('transform')` ein `CSSTranslate` mit `CSSUnitValues` für `x`, `y` und `z` zurückgegeben, und die schreibgeschützte `.is2D`-Eigenschaft wäre `false` gewesen.
 
 ### CSSImageValue
 
@@ -401,13 +400,13 @@ console.log(bgImage); // CSSImageValue
 console.log(bgImage.toString()); // url("magicwand.png")
 ```
 
-Wenn wir `get()` auf `'background-image'` anwenden, wird ein {{domxref('CSSImageValue')}} zurückgegeben. Obwohl wir die CSS {{cssxref('background')}}-Kurznotierung verwendet haben, zeigt die vererbte {{jsxref("Object/toString", "Object.prototype.toString()")}}-Methode, dass wir nur das Bild zurückgegeben haben, `'url("magicwand.png")'`.
+Wenn wir die `'background-image'` `get()`, wird ein [`CSSImageValue`](/de/docs/Web/API/CSSImageValue) zurückgegeben. Während wir die CSS {{cssxref('background')}}-Kurzform-Eigenschaft verwendet haben, zeigt die geerbte {{jsxref("Object/toString", "Object.prototype.toString()")}}-Methode, dass wir nur das Bild zurückgegeben haben, `'url("magicwand.png")'`.
 
-Beachten Sie, dass der zurückgegebene Wert der absolute Pfad zum Bild ist — dies wird auch dann zurückgegeben, wenn der ursprüngliche `url()`-Wert relativ war. Wäre das Hintergrundbild ein Verlauf oder mehrere Hintergrundbilder gewesen, hätten `.get('background-image')` ein `CSSStyleValue` zurückgegeben. Der `CSSImageValue` wird nur zurückgegeben, wenn es ein einziges Bild gibt und nur dann, wenn diese einzelne Bilddeklaration eine URL ist.
+Beachten Sie, dass der zurückgegebene Wert der absolute Pfad zum Bild ist — dieser wird selbst dann zurückgegeben, wenn der ursprüngliche `url()`-Wert relativ war. Wäre das Hintergrundbild ein Gradient oder mehrere Hintergrundbilder gewesen, hätte `.get('background-image')` ein `CSSStyleValue` zurückgegeben. Der `CSSImageValue` wird nur zurückgegeben, wenn es sich um ein einzelnes Bild handelt und nur, wenn diese einzelne Bilddeklaration eine URL ist.
 
 ### Zusammenfassung
 
-Dies sollte Ihnen den Einstieg in das Verständnis des CSS Typed OM erleichtern. Schauen Sie sich alle [CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API) Schnittstellen an, um mehr zu erfahren.
+Das sollte Ihnen den Einstieg in das Verständnis des CSS Typed OM ermöglichen. Schauen Sie sich alle [CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API)-Schnittstellen an, um mehr zu erfahren.
 
 ## Siehe auch
 

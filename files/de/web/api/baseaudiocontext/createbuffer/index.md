@@ -1,5 +1,5 @@
 ---
-title: "BaseAudioContext: Methode createBuffer()"
+title: "BaseAudioContext: createBuffer() Methode"
 short-title: createBuffer()
 slug: Web/API/BaseAudioContext/createBuffer
 l10n:
@@ -8,13 +8,15 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die Methode `createBuffer()` der {{ domxref("BaseAudioContext") }}-Schnittstelle wird verwendet, um ein neues, leeres {{ domxref("AudioBuffer") }}-Objekt zu erstellen, das dann mit Daten gefüllt und über einen {{ domxref("AudioBufferSourceNode") }} abgespielt werden kann.
+Die `createBuffer()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)
+Schnittstelle wird verwendet, um ein neues, leeres [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Objekt zu erstellen, das dann mit Daten gefüllt und über einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) abgespielt werden kann.
 
-Für weitere Details zu Audio-Puffern, besuchen Sie die {{ domxref("AudioBuffer") }}-Referenzseite.
+Für weitere Details über Audiopuffer werfen Sie einen Blick auf die [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) Referenzseite.
 
-> **Note:** `createBuffer()` konnte früher komprimierte Daten entgegennehmen und dekodierte Samples zurückgeben. Diese Fähigkeit wurde aus der Spezifikation entfernt, da die gesamte Dekodierung im Haupt-Thread durchgeführt wurde, was die Ausführung anderer Codes blockierte. Die asynchrone Methode `decodeAudioData()` erfüllt die gleiche Aufgabe — sie nimmt komprimierte Audiodaten, wie z. B. eine MP3-Datei, und gibt direkt ein {{ domxref("AudioBuffer") }} zurück, das dann über einen {{ domxref("AudioBufferSourceNode") }} abgespielt werden kann. Für einfache Anwendungsfälle wie das Abspielen einer MP3-Datei sollten Sie `decodeAudioData()` verwenden.
+> **Note:** `createBuffer()` konnte früher komprimierte
+> Daten entgegennehmen und dekodierte Samples zurückgeben, aber diese Fähigkeit wurde aus der Spezifikation entfernt, weil die gesamte Dekodierung im Hauptthread erfolgte und deshalb das `createBuffer()` die Ausführung anderer Codes blockierte. Die asynchrone Methode `decodeAudioData()` übernimmt die gleiche Aufgabe — sie nimmt komprimierte Audiodaten, wie z.B. eine MP3-Datei, und liefert direkt ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) zurück, das dann über einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) abgespielt werden kann. Für einfache Anwendungsfälle wie das Abspielen einer MP3 sollte `decodeAudioData()` verwendet werden.
 
-Für eine detaillierte Erklärung, wie Audio-Puffer funktionieren und was die Parameter bewirken, lesen Sie [Audio buffers: frames, samples and channels](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#audio_buffers_frames_samples_and_channels) aus unserem Leitfaden zu den grundlegenden Konzepten.
+Für eine ausführliche Erklärung, wie Audiopuffer arbeiten und was die Parameter bewirken, lesen Sie [Audiopuffer: Frames, Samples und Kanäle](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#audio_buffers_frames_samples_and_channels) aus unserem Leitfaden zu Grundkonzepten.
 
 ## Syntax
 
@@ -25,45 +27,45 @@ createBuffer(numOfChannels, length, sampleRate)
 ### Parameter
 
 - `numOfChannels`
-  - : Eine Ganzzahl, die die Anzahl der Kanäle dieses Puffers darstellt. Der Standardwert ist 1 und alle Benutzeragenten müssen mindestens 32 Kanäle unterstützen.
+  - : Eine Ganzzahl, die die Anzahl der Kanäle angibt, die dieser Puffer haben soll. Der Standardwert ist 1, und alle Benutzeragenten müssen mindestens 32 Kanäle unterstützen.
 - `length`
-  - : Eine Ganzzahl, die die Größe des Puffers in Sample-Frames darstellt (wobei jeder Sample-Frame die Größe eines Samples in Bytes multipliziert mit `numOfChannels` ist). Um die `length` für eine bestimmte Anzahl von Sekunden Audio zu bestimmen, verwenden Sie `numSeconds * sampleRate`.
+  - : Eine Ganzzahl, die die Größe des Puffers in Sample-Frames angibt (wobei jedes Sample-Frame die Größe eines Samples in Bytes multipliziert mit `numOfChannels` ist). Um die `length` für eine bestimmte Anzahl von Sekunden Audio zu bestimmen, verwenden Sie `numSeconds * sampleRate`.
 - `sampleRate`
   - : Die Abtastrate der linearen Audiodaten in Sample-Frames pro Sekunde. Alle Browser müssen Abtastraten im Bereich von mindestens 8.000 Hz bis 96.000 Hz unterstützen.
 
 ### Rückgabewert
 
-Ein {{domxref("AudioBuffer")}}, das basierend auf den angegebenen Optionen konfiguriert ist.
+Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der basierend auf den angegebenen Optionen konfiguriert ist.
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn eine oder mehrere der Optionen negativ sind oder anderweitig einen ungültigen Wert haben (z. B. wenn `numberOfChannels` höher als unterstützt ist oder eine `sampleRate` außerhalb des nominalen Bereichs liegt).
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn eine oder mehrere der Optionen negativ oder anderweitig ungültig sind (z. B. wenn `numberOfChannels` höher ist als unterstützt, oder eine `sampleRate` außerhalb des Nennbereichs liegt).
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn nicht genug Speicher verfügbar ist, um den Puffer zuzuweisen.
+  - : Wird ausgelöst, wenn nicht genügend Speicher verfügbar ist, um den Puffer zuzuweisen.
 
 ## Beispiele
 
-Zuerst ein paar einfache triviale Beispiele, um zu erklären, wie die Parameter verwendet werden:
+Zunächst ein paar einfache, triviale Beispiele, um zu erklären, wie die Parameter verwendet werden:
 
 ```js
 const audioCtx = new AudioContext();
 const buffer = audioCtx.createBuffer(2, 22050, 44100);
 ```
 
-Wenn Sie diesen Aufruf verwenden, erhalten Sie einen Stereo-Puffer (zwei Kanäle), der, wenn er auf einem AudioContext abgespielt wird, der mit 44100Hz läuft (sehr verbreitet, die meisten normalen Soundkarten laufen mit dieser Rate), 0,5 Sekunden dauern wird: 22050 Frames / 44100Hz = 0,5 Sekunden.
+Wenn Sie diesen Aufruf verwenden, erhalten Sie einen stereophonen Puffer (zwei Kanäle), der, wenn er auf einem AudioContext bei 44100 Hz abgespielt wird (sehr üblich, die meisten normalen Soundkarten laufen mit dieser Rate), 0,5 Sekunden lang sein wird: 22050 Frames / 44100 Hz = 0,5 Sekunden.
 
 ```js
 const audioCtx = new AudioContext();
 const buffer = audioCtx.createBuffer(1, 22050, 22050);
 ```
 
-Wenn Sie diesen Aufruf verwenden, erhalten Sie einen Mono-Puffer (ein Kanal), der, wenn er auf einem `AudioContext` abgespielt wird, der mit 44100Hz läuft, automatisch auf 44100Hz _resampled_ wird (und daher 44100 Frames liefert) und 1,0 Sekunde dauert: 44100 Frames / 44100Hz = 1 Sekunde.
+Wenn Sie diesen Aufruf verwenden, erhalten Sie einen monosonischen Puffer (ein Kanal), der, wenn er auf einem `AudioContext` bei 44100 Hz abgespielt wird, automatisch auf 44100 Hz _resampled_ wird (und daher 44100 Frames ergibt) und 1,0 Sekunde lang sein wird: 44100 Frames / 44100 Hz = 1 Sekunde.
 
 > [!NOTE]
-> Audio-Resampling ist sehr ähnlich wie das Ändern der Bildgröße: Angenommen, Sie haben ein 16 x 16 Bild, möchten es aber in einem 32x32 Bereich füllen: Sie ändern die Größe (resample) es. Das Ergebnis hat eine geringere Qualität (es kann unscharf oder kantig sein, je nach Resizing-Algorithmus), aber es funktioniert, und das verkleinerte Bild nimmt weniger Platz ein. Resampled Audio ist genau dasselbe — Sie sparen Platz, aber in der Praxis können Sie hochfrequenten Inhalt (Hochton-Sound) nicht richtig wiedergeben.
+> Resampling von Audio ist dem Ändern der Bildgröße sehr ähnlich: Angenommen, Sie haben ein 16 x 16 Bild, aber Sie möchten, dass es ein 32x32 Bereich füllt: Sie ändern die Größe (resampeln) es. Das Ergebnis hat weniger Qualität (es kann verschwommen oder kantig sein, abhängig vom Umrechnungsalgorithmus), aber es funktioniert, und das geänderte Bild nimmt weniger Platz ein. Resampeltes Audio ist genau dasselbe — Sie sparen Speicherplatz, aber praktisch werden Sie unfähig sein, hochfrequente Inhalte (Hochtonklang) korrekt wiederzugeben.
 
-Schauen wir uns nun ein komplexeres `createBuffer()`-Beispiel an, in dem wir einen drei Sekunden langen Puffer erstellen, ihn mit weißem Rauschen füllen und dann über einen {{domxref("AudioBufferSourceNode")}} abspielen. Die Kommentare sollten klar erklären, was vor sich geht. Sie können den Code auch [live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer/) oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/blob/main/audio-buffer/index.html).
+Schauen wir uns jetzt ein komplexeres `createBuffer()`-Beispiel an, bei dem wir einen drei Sekunden dauernden Puffer erstellen, ihn mit weißem Rauschen füllen und dann über einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) abspielen. Der Kommentar sollte klar erklären, was passiert. Sie können auch [den Code live ausführen](https://mdn.github.io/webaudio-examples/audio-buffer/), oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/blob/main/audio-buffer/index.html).
 
 ```js
 const audioCtx = new AudioContext();

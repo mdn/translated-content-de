@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: Methode ellipse()"
+title: "CanvasRenderingContext2D: ellipse() Methode"
 short-title: ellipse()
 slug: Web/API/CanvasRenderingContext2D/ellipse
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.ellipse()`**-Methode der Canvas 2D API fügt einen elliptischen Bogen zum aktuellen Unterpfad hinzu.
+Die **`CanvasRenderingContext2D.ellipse()`** Methode der Canvas 2D API fügt einen elliptischen Bogen zum aktuellen Unterpfad hinzu.
 
 ## Syntax
 
@@ -17,26 +17,26 @@ ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle)
 ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle, counterclockwise)
 ```
 
-Die `ellipse()`-Methode erstellt einen elliptischen Bogen, der bei `(x, y)` zentriert ist und die Radien `radiusX` und `radiusY` besitzt. Der Pfad beginnt bei `startAngle` und endet bei `endAngle` und verläuft in die durch `counterclockwise` angegebene Richtung (standardmäßig im Uhrzeigersinn).
+Die Methode `ellipse()` erzeugt einen elliptischen Bogen, der bei `(x, y)` zentriert ist, mit den Radien `radiusX` und `radiusY`. Der Pfad beginnt bei `startAngle` und endet bei `endAngle` und folgt der durch `counterclockwise` angegebenen Richtung (standardmäßig im Uhrzeigersinn).
 
 ### Parameter
 
 - `x`
-  - : Die x-Achsen-Koordinate (horizontal) des Zentrums der Ellipse.
+  - : Die x-Achse (horizontale) Koordinate des Mittelpunkts der Ellipse.
 - `y`
-  - : Die y-Achsen-Koordinate (vertikal) des Zentrums der Ellipse.
+  - : Die y-Achse (vertikale) Koordinate des Mittelpunkts der Ellipse.
 - `radiusX`
-  - : Der Radius der Hauptachse der Ellipse. Muss nicht negativ sein.
+  - : Der Radius der Hauptachse der Ellipse. Muss nicht-negativ sein.
 - `radiusY`
-  - : Der Radius der Nebenachse der Ellipse. Muss nicht negativ sein.
+  - : Der Radius der Nebenachse der Ellipse. Muss nicht-negativ sein.
 - `rotation`
-  - : Die Rotation der Ellipse, ausgedrückt in Bogenmaß.
+  - : Die Drehung der Ellipse, ausgedrückt in Bogenmaß.
 - `startAngle`
   - : Der [exzentrische Winkel](https://en.wikipedia.org/wiki/Angular_eccentricity), bei dem die Ellipse beginnt, gemessen im Uhrzeigersinn von der positiven x-Achse und ausgedrückt in Bogenmaß.
 - `endAngle`
   - : Der [exzentrische Winkel](https://en.wikipedia.org/wiki/Angular_eccentricity), bei dem die Ellipse endet, gemessen im Uhrzeigersinn von der positiven x-Achse und ausgedrückt in Bogenmaß.
 - `counterclockwise` {{optional_inline}}
-  - : Ein optionaler boolescher Wert, der, wenn `true`, die Ellipse gegen den Uhrzeigersinn (umgekehrt) zeichnet. Der Standardwert ist `false` (im Uhrzeigersinn).
+  - : Ein optionaler boolescher Wert, der, falls `true`, die Ellipse gegen den Uhrzeigersinn (entgegen dem Uhrzeigersinn) zeichnet. Der Standardwert ist `false` (im Uhrzeigersinn).
 
 ### Rückgabewert
 
@@ -44,9 +44,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Zeichnen einer vollständigen Ellipse
+### Vollständige Ellipse zeichnen
 
-Dieses Beispiel zeichnet eine Ellipse in einem Winkel von π/4 Bogenmaß (45°). Um eine vollständige Ellipse zu erstellen, beginnt der Bogen bei einem Winkel von 0 Bogenmaß (0°) und endet bei einem Winkel von 2π Bogenmaß (360°).
+Dieses Beispiel zeichnet eine Ellipse in einem Winkel von π/4 Bogenmaß (45°). Um eine vollständige Ellipse zu erzeugen, beginnt der Bogen bei einem Winkel von 0 Bogenmaß (0°) und endet bei einem Winkel von 2π Bogenmaß (360°).
 
 #### HTML
 
@@ -60,12 +60,12 @@ Dieses Beispiel zeichnet eine Ellipse in einem Winkel von π/4 Bogenmaß (45°).
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// Zeichne die Ellipse
+// Draw the ellipse
 ctx.beginPath();
 ctx.ellipse(100, 100, 50, 75, Math.PI / 4, 0, 2 * Math.PI);
 ctx.stroke();
 
-// Zeichne die Spiegelachse der Ellipse
+// Draw the ellipse's line of reflection
 ctx.beginPath();
 ctx.setLineDash([5, 5]);
 ctx.moveTo(0, 200);
@@ -79,7 +79,7 @@ ctx.stroke();
 
 ### Verschiedene elliptische Bögen
 
-Dieses Beispiel erstellt drei elliptische Pfade mit unterschiedlichen Eigenschaften.
+Dieses Beispiel erzeugt drei elliptische Pfade mit unterschiedlichen Eigenschaften.
 
 #### HTML
 
@@ -123,5 +123,5 @@ ctx.fill();
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
-- Verwenden Sie {{domxref("CanvasRenderingContext2D.arc()")}}, um einen kreisförmigen Bogen zu zeichnen.
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Verwenden Sie [`CanvasRenderingContext2D.arc()`](/de/docs/Web/API/CanvasRenderingContext2D/arc), um einen kreisförmigen Bogen zu zeichnen

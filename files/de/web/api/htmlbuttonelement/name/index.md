@@ -1,5 +1,5 @@
 ---
-title: "HTMLButtonElement: name-Eigenschaft"
+title: "HTMLButtonElement: name Eigenschaft"
 short-title: name
 slug: Web/API/HTMLButtonElement/name
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`name`**-Eigenschaft des {{domxref("HTMLButtonElement")}}-Interfaces gibt den Namen des {{HTMLElement("button")}}-Elements an oder die leere Zeichenfolge, wenn das Element keinen Namen hat. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/button#name)-Attribut des Elements wider.
+Die **`name`** Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces gibt den Namen des {{HTMLElement("button")}}-Elements an oder den leeren String, wenn das Element keinen Namen hat. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/button#name)-Attribut des Elements wider.
 
 ## Wert
 
-Eine Zeichenkette, die den Namen des Elements repräsentiert.
+Ein String, der den Namen des Elements darstellt.
 
 ## Beispiel
 
@@ -32,5 +32,5 @@ buttonElement.name = "newName";
 
 ## Siehe auch
 
-- {{domxref("HTMLButtonElement.value")}}
-- {{domxref("HTMLButtonElement.type")}}
+- [`HTMLButtonElement.value`](/de/docs/Web/API/HTMLButtonElement/value)
+- [`HTMLButtonElement.type`](/de/docs/Web/API/HTMLButtonElement/type)

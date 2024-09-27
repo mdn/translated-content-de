@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`CanvasGradient.addColorStop()`**-Methode fügt einen neuen Farbverlaufspunkt hinzu, der durch einen `offset` und eine `color` definiert ist, zu einem gegebenen Canvas-Gradienten.
+Die **`CanvasGradient.addColorStop()`**-Methode fügt einen neuen Farbpunkt hinzu, der durch einen `offset` und eine `color` definiert wird, zu einem gegebenen Canvas-Gradienten.
 
 ## Syntax
 
@@ -19,26 +19,26 @@ addColorStop(offset, color)
 ### Parameter
 
 - `offset`
-  - : Eine Zahl zwischen `0` und `1`, inklusive, die die Position des Farbverlaufs anzeigt. `0` repräsentiert den Anfang des Farbverlaufs und `1` das Ende.
+  - : Eine Zahl zwischen `0` und `1`, einschließlich, die die Position des Farbpunktes darstellt. `0` steht für den Beginn des Gradienten und `1` für das Ende.
 - `color`
-  - : Ein [CSS](/de/docs/Web/CSS) {{cssxref("&lt;color&gt;")}}-Wert, der die Farbe des Verlaufs definiert.
+  - : Ein [CSS](/de/docs/Web/CSS) {{cssxref("&lt;color&gt;")}}-Wert, der die Farbe des Punktes darstellt.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `offset` nicht zwischen 0 und 1 (beide eingeschlossen) liegt.
-- `SyntaxError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `color` nicht als CSS-{{cssxref("&lt;color&gt;")}}-Wert geparst werden kann.
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `offset` nicht zwischen 0 und 1 liegt (beide eingeschlossen).
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `color` nicht als CSS {{cssxref("&lt;color&gt;")}}-Wert geparst werden kann.
 
 ## Beispiele
 
-### Hinzufügen von Verlaufsstopps
+### Hinzufügen von Stops zu einem Gradient
 
-Dieses Beispiel verwendet die `addColorStop`-Methode, um Verlaufsstopps zu einem linearen {{domxref("CanvasGradient")}}-Objekt hinzuzufügen. Der Verlauf wird dann verwendet, um ein Rechteck zu füllen.
+Dieses Beispiel verwendet die Methode `addColorStop`, um Stops zu einem linearen [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)-Objekt hinzuzufügen. Der Gradient wird dann verwendet, um ein Rechteck zu füllen.
 
 #### HTML
 
@@ -74,6 +74,6 @@ ctx.fillRect(10, 10, 200, 100);
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: {{domxref("CanvasGradient")}}
-- {{domxref("CanvasRenderingContext2D.createLinearGradient()")}}
-- {{domxref("CanvasRenderingContext2D.createRadialGradient()")}}
+- Die Schnittstelle, die diese Methode definiert: [`CanvasGradient`](/de/docs/Web/API/CanvasGradient)
+- [`CanvasRenderingContext2D.createLinearGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createLinearGradient)
+- [`CanvasRenderingContext2D.createRadialGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createRadialGradient)

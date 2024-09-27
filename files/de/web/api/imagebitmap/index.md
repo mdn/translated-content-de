@@ -7,21 +7,21 @@ l10n:
 
 {{APIRef("Canvas API")}}
 
-Die **`ImageBitmap`**-Schnittstelle stellt ein Bitmap-Bild dar, das ohne unnötige Verzögerung auf ein {{HTMLElement("canvas")}} gezeichnet werden kann. Es kann aus einer Vielzahl von Quellobjekten mit der {{domxref("createImageBitmap()")}}-Fabrikmethode erstellt werden. `ImageBitmap` bietet einen asynchronen und ressourcenschonenden Weg, um Texturen für das Rendering in WebGL vorzubereiten.
+Die **`ImageBitmap`**-Schnittstelle repräsentiert ein Bitmap-Bild, das ohne ungebührliche Latenz auf ein {{HTMLElement("canvas")}} gezeichnet werden kann. Es kann aus einer Vielzahl von Quellobjekten mit der [`createImageBitmap()`](/de/docs/Web/API/CreateImageBitmap) Fabrikmethode erstellt werden. `ImageBitmap` bietet einen asynchronen und ressourcenschonenden Weg, um Texturen für das Rendering in WebGL vorzubereiten.
 
 `ImageBitmap` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
 ## Instanz-Eigenschaften
 
-- {{domxref("ImageBitmap.height")}} {{ReadOnlyInline}}
-  - : Ein `unsigned long`, der die Höhe, in CSS-Pixeln, der `ImageData` darstellt.
-- {{domxref("ImageBitmap.width")}} {{ReadOnlyInline}}
-  - : Ein `unsigned long`, der die Breite, in CSS-Pixeln, der `ImageData` darstellt.
+- [`ImageBitmap.height`](/de/docs/Web/API/ImageBitmap/height) {{ReadOnlyInline}}
+  - : Ein `unsigned long`, das die Höhe in CSS-Pixeln des `ImageData` darstellt.
+- [`ImageBitmap.width`](/de/docs/Web/API/ImageBitmap/width) {{ReadOnlyInline}}
+  - : Ein `unsigned long`, das die Breite in CSS-Pixeln des `ImageData` darstellt.
 
 ## Instanz-Methoden
 
-- {{domxref("ImageBitmap.close()")}}
-  - : Gibt alle grafischen Ressourcen frei, die mit einem `ImageBitmap` verbunden sind.
+- [`ImageBitmap.close()`](/de/docs/Web/API/ImageBitmap/close)
+  - : Frigibt alle grafischen Ressourcen, die mit einem `ImageBitmap` verbunden sind.
 
 ## Spezifikationen
 
@@ -33,7 +33,7 @@ Die **`ImageBitmap`**-Schnittstelle stellt ein Bitmap-Bild dar, das ohne unnöti
 
 ## Siehe auch
 
-- {{domxref("createImageBitmap()")}}
-- {{domxref("CanvasRenderingContext2D.drawImage()")}}
-- {{domxref("WebGLRenderingContext.texImage2D()")}}
-- {{domxref("OffscreenCanvas.transferToImageBitmap()")}}
+- [`createImageBitmap()`](/de/docs/Web/API/CreateImageBitmap)
+- [`CanvasRenderingContext2D.drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage)
+- [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D)
+- [`OffscreenCanvas.transferToImageBitmap()`](/de/docs/Web/API/OffscreenCanvas/transferToImageBitmap)

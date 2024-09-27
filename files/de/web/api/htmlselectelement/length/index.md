@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`length`**-Eigenschaft der {{DOMxRef("HTMLSelectElement")}}-Schnittstelle gibt die Anzahl der {{htmlelement("option")}}-Elemente im {{htmlelement("select")}}-Element an. Sie stellt die Anzahl der Knoten in der {{DOMxRef("HTMLSelectElement.options", "options")}}-Sammlung dar. Beim Setzen wirkt sie ähnlich wie ({{DOMxRef("HTMLOptionsCollection.length")}}).
+Die **`length`**-Eigenschaft der [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Schnittstelle gibt die Anzahl der {{htmlelement("option")}}-Elemente im {{htmlelement("select")}}-Element an. Sie repräsentiert die Anzahl der Knoten in der [`options`](/de/docs/Web/API/HTMLSelectElement/options)-Sammlung. Beim Setzen verhält sie sich wie ([`HTMLOptionsCollection.length`](/de/docs/Web/API/HTMLOptionsCollection/length)).
 
 ## Wert
 
@@ -33,7 +33,7 @@ console.log(selectElement.length);
 
 - {{HTMLElement("select")}}
 - {{HTMLElement("option")}}
-- {{DOMXref("HTMLSelectElement.options")}}
-- {{DOMXref("HTMLSelectElement.selectedOptions")}}
-- {{DOMXref("HTMLSelectElement.multiple")}}
-- {{DOMXref("HTMLSelectElement.selectedIndex")}}
+- [`HTMLSelectElement.options`](/de/docs/Web/API/HTMLSelectElement/options)
+- [`HTMLSelectElement.selectedOptions`](/de/docs/Web/API/HTMLSelectElement/selectedOptions)
+- [`HTMLSelectElement.multiple`](/de/docs/Web/API/HTMLSelectElement/multiple)
+- [`HTMLSelectElement.selectedIndex`](/de/docs/Web/API/HTMLSelectElement/selectedIndex)

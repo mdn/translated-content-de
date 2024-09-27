@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_service")}}{{securecontext_header}}
 
-Das **`PressureRecord`**-Interface ist Teil der [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API) und beschreibt den Druckverlauf einer Quelle zu einem bestimmten Übergangszeitpunkt.
+Die **`PressureRecord`**-Schnittstelle ist Teil der [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API) und beschreibt den Drucktrend einer Quelle zu einem bestimmten Übergangszeitpunkt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("PressureRecord.source")}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Ein String, der die Ursprungsquelle angibt, von der der Eintrag stammt.
-- {{domxref("PressureRecord.state")}} {{ReadOnlyInline}} {{experimental_inline}}
+- [`PressureRecord.source`](/de/docs/Web/API/PressureRecord/source) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Ein String, der die Ursprungsquelle angibt, von der der Datensatz stammt.
+- [`PressureRecord.state`](/de/docs/Web/API/PressureRecord/state) {{ReadOnlyInline}} {{experimental_inline}}
   - : Ein String, der den aufgezeichneten Druckzustand angibt.
-- {{domxref("PressureRecord.time")}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Ein {{domxref("DOMHighResTimeStamp")}}, der den Zeitstempel des Eintrags angibt.
+- [`PressureRecord.time`](/de/docs/Web/API/PressureRecord/time) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitstempel des Datensatzes angibt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{domxref("PressureRecord.toJSON()")}} {{experimental_inline}}
+- [`PressureRecord.toJSON()`](/de/docs/Web/API/PressureRecord/toJSON) {{experimental_inline}}
   - : Gibt eine JSON-Darstellung des `PressureRecord`-Objekts zurück.
 
 ## Beispiele
 
 ### Verwendung des `PressureRecord`-Objekts
 
-Im folgenden Beispiel protokollieren wir die Eigenschaften des `PressureRecord`-Objekts im Rückruf des Druckbeobachters.
+Im folgenden Beispiel protokollieren wir die Eigenschaften des `PressureRecord`-Objekts im Rückruf des Druck-Beobachters.
 
 ```js
 function callback(records) {

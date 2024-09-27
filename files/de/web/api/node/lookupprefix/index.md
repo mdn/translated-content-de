@@ -1,5 +1,5 @@
 ---
-title: "Node: lookupPrefix()-Methode"
+title: "Node: lookupPrefix() Methode"
 short-title: lookupPrefix()
 slug: Web/API/Node/lookupPrefix
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`lookupPrefix()`**-Methode des {{domxref("Node")}}-Interfaces
-gibt einen String zurück, der das Präfix für einen gegebenen Namensraum-URI enthält, falls vorhanden,
+Die **`lookupPrefix()`** Methode der [`Node`](/de/docs/Web/API/Node) Schnittstelle
+gibt einen String zurück, der das Präfix für einen angegebenen Namespace-URI enthält, falls vorhanden,
 und `null`, wenn nicht.
 Wenn mehrere Präfixe möglich sind, wird das erste Präfix zurückgegeben.
 
@@ -22,7 +22,7 @@ lookupPrefix(namespace)
 ### Parameter
 
 - `namespace`
-  - : Ein String, der den Namensraum enthält, für den das Präfix gesucht werden soll.
+  - : Ein String, der den Namespace enthält, um das Präfix nachzuschlagen.
     > [!NOTE]
     > Dieser Parameter ist nicht optional, kann aber auf `null` gesetzt werden.
 
@@ -31,28 +31,28 @@ lookupPrefix(namespace)
 Ein String, der das entsprechende Präfix enthält, oder `null`, wenn keines gefunden wurde.
 Wenn `namespace` null oder der leere String ist, gibt `lookupPrefix()` `null` zurück.
 
-Wenn der Knoten ein {{domxref("DocumentType")}} oder ein {{domxref("DocumentFragment")}} ist,
+Wenn der Knoten ein [`DocumentType`](/de/docs/Web/API/DocumentType) oder ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) ist,
 gibt `lookupPrefix()` immer `null` zurück.
 
 ## Beispiel
 
 ```html
-Präfix für <code>http://www.w3.org/2000/svg</code> auf &lt;output&gt;:
+Prefix for <code>http://www.w3.org/2000/svg</code> on &lt;output&gt;:
 <output>Not tested</output>.<br />
-Präfix für <code>http://www.w3.org/XML/1998/namespace</code> auf &lt;output&gt;:
+Prefix for <code>http://www.w3.org/XML/1998/namespace</code> on &lt;output&gt;:
 <output>Not tested</output>.<br />
-Präfix für <code>http://www.w3.org/TR/html4/</code> auf &lt;output&gt;:
+Prefix for <code>http://www.w3.org/TR/html4/</code> on &lt;output&gt;:
 <output>Not tested</output>.<br />
-Präfix für <code>https://www.w3.org/1999/xlink</code> auf &lt;output&gt;:
+Prefix for <code>https://www.w3.org/1999/xlink</code> on &lt;output&gt;:
 <output>Not tested</output>.<br />
-Präfix für <code>http://www.w3.org/2000/svg</code> auf &lt;svg&gt;:
+Prefix for <code>http://www.w3.org/2000/svg</code> on &lt;svg&gt;:
 <output>Not tested</output>.<br />
-Präfix für <code>https://www.w3.org/1999/xlink</code> auf &lt;svg&gt;:
+Prefix for <code>https://www.w3.org/1999/xlink</code> on &lt;svg&gt;:
 <output>Not tested</output>.<br />
-Präfix für <code>http://www.w3.org/XML/1998/namespace</code> auf &lt;svg&gt;:
+Prefix for <code>http://www.w3.org/XML/1998/namespace</code> on &lt;svg&gt;:
 <output>Not tested</output>.<br />
 <svg xmlns:t="http://www.w3.org/2000/svg" height="1"></svg>
-<button>Klicken, um die Ergebnisse zu sehen</button>
+<button>Click to see the results</button>
 ```
 
 ```js

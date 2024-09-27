@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: bindFramebuffer() Methode"
+title: "WebGLRenderingContext: Methode bindFramebuffer()"
 short-title: bindFramebuffer()
 slug: Web/API/WebGLRenderingContext/bindFramebuffer
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.bindFramebuffer()`**-Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) bindet das angegebene Ziel an das bereitgestellte {{domxref("WebGLFramebuffer")}}, oder, wenn das `framebuffer`-Argument null ist, an das standardmäßige {{domxref("WebGLFramebuffer")}}, das mit dem Canvas-Rendering-Kontext verbunden ist.
+Die Methode **`WebGLRenderingContext.bindFramebuffer()`** der [WebGL-API](/de/docs/Web/API/WebGL_API) bindet den angegebenen [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) an das spezifizierte Ziel oder, wenn das `framebuffer`-Argument null ist, den standardmäßigen [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer), der mit dem Canvas-Rendering-Kontext verbunden ist.
 
 ## Syntax
 
@@ -21,13 +20,12 @@ bindFramebuffer(target, framebuffer)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) spezifiziert. Mögliche Werte:
 
     - `gl.FRAMEBUFFER`
-      - : Sammlung von Pufferdatenspeichern für Farb-, Alpha-, Tiefen- und Stencil-Puffer, die sowohl als Ziel für das Zeichnen als auch als Quelle zum Lesen verwendet werden (siehe unten).
+      - : Sammlung von Pufferspeicher für Farb-, Alpha-, Tiefen- und Schablonenpuffer, die sowohl als Ziel für das Zeichnen als auch als Quelle zum Lesen verwendet werden (siehe unten).
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}}
-    sind zusätzlich folgende Werte verfügbar:
+    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontexts", "", 1)}} sind zusätzlich folgende Werte verfügbar:
 
     - `gl.DRAW_FRAMEBUFFER`
       - : Wird als Ziel für Zeichenoperationen wie `gl.draw*`, `gl.clear*` und `gl.blitFramebuffer` verwendet.
@@ -35,7 +33,7 @@ bindFramebuffer(target, framebuffer)
       - : Wird als Quelle für Leseoperationen wie `gl.readPixels` und `gl.blitFramebuffer` verwendet.
 
 - `framebuffer`
-  - : Ein {{domxref("WebGLFramebuffer")}}-Objekt zum Binden oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zum Binden des {{domxref("HTMLCanvasElement")}} oder des {{domxref("OffscreenCanvas")}}-Objekts, das mit dem Rendering-Kontext verbunden ist.
+  - : Ein [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)-Objekt, das gebunden werden soll, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), um das mit dem Rendering-Kontext verbundene [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt zu binden.
 
 ### Rückgabewert
 
@@ -43,9 +41,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Ein `gl.INVALID_ENUM` Fehler wird ausgelöst, wenn `target` nicht
-`gl.FRAMEBUFFER`, `gl.DRAW_FRAMEBUFFER` oder
-`gl.READ_FRAMEBUFFER` ist.
+Ein `gl.INVALID_ENUM` Fehler wird ausgelöst, wenn `target` nicht `gl.FRAMEBUFFER`, `gl.DRAW_FRAMEBUFFER` oder `gl.READ_FRAMEBUFFER` ist.
 
 ## Beispiele
 
@@ -61,7 +57,7 @@ gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
 
 ### Aktuelle Bindungen abrufen
 
-Um die aktuelle Framebuffer-Bindung zu überprüfen, fragen Sie die `FRAMEBUFFER_BINDING` Konstante ab.
+Um die aktuelle Framebuffer-Bindung zu überprüfen, fragen Sie die `FRAMEBUFFER_BINDING`-Konstante ab.
 
 ```js
 gl.getParameter(gl.FRAMEBUFFER_BINDING);
@@ -77,7 +73,7 @@ gl.getParameter(gl.FRAMEBUFFER_BINDING);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.createFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.isFramebuffer()")}}
-- Andere Puffer: {{domxref("WebGLBuffer")}}, {{domxref("WebGLRenderbuffer")}}
+- [`WebGLRenderingContext.createFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/createFramebuffer)
+- [`WebGLRenderingContext.deleteFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteFramebuffer)
+- [`WebGLRenderingContext.isFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/isFramebuffer)
+- Andere Puffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)

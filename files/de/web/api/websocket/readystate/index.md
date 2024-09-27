@@ -1,23 +1,23 @@
 ---
-title: "WebSocket: readyState Eigenschaft"
+title: "WebSocket: readyState-Eigenschaft"
 short-title: readyState
 slug: Web/API/WebSocket/readyState
 l10n:
-  sourceCommit: e932acf254c5dd06e26798b9d8fe01ce8dab1fb7
+  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
 ---
 
-{{APIRef("WebSockets API")}}
+{{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`WebSocket.readyState`** gibt den aktuellen Status der {{domxref("WebSocket")}}-Verbindung zurück.
+Die schreibgeschützte Eigenschaft **`WebSocket.readyState`** gibt den aktuellen Zustand der [`WebSocket`](/de/docs/Web/API/WebSocket)-Verbindung zurück.
 
 ## Wert
 
-Eine Zahl, die einem der vier möglichen Statuskonstanten entspricht, die in der {{domxref("WebSocket")}}-Schnittstelle definiert sind:
+Eine Zahl, die einer der vier möglichen Zustandskonstanten ist, die in der [`WebSocket`](/de/docs/Web/API/WebSocket)-Schnittstelle definiert sind:
 
 - `WebSocket.CONNECTING` (0)
   - : Der Socket wurde erstellt. Die Verbindung ist noch nicht geöffnet.
 - `WebSocket.OPEN` (1)
-  - : Die Verbindung ist geöffnet und bereit zur Kommunikation.
+  - : Die Verbindung ist offen und bereit zur Kommunikation.
 - `WebSocket.CLOSING` (2)
   - : Die Verbindung wird gerade geschlossen.
 - `WebSocket.CLOSED` (3)

@@ -1,6 +1,6 @@
 ---
-title: "XRCubeLayer: Orientierungseigenschaft"
-short-title: Orientierung
+title: "XRCubeLayer: orientation-Eigenschaft"
+short-title: orientation
 slug: Web/API/XRCubeLayer/orientation
 l10n:
   sourceCommit: 76637f9517e4b0a57a3096a36f66b5e33a3f1051
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`orientation`**-Eigenschaft der {{domxref("XRCubeLayer")}}-Schnittstelle repräsentiert die Orientierung relativ zur `space`-Eigenschaft.
+Die **`orientation`**-Eigenschaft der [`XRCubeLayer`](/de/docs/Web/API/XRCubeLayer)-Schnittstelle repräsentiert die Orientierung relativ zur `space`-Eigenschaft.
 
 ## Wert
 
-Ein {{domxref("DOMPointReadOnly")}}.
+Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly).
 
 ## Beispiele
 
-### Aktuell die Orientierung der Würfelschicht aktualisieren
+### Aktualisieren der Orientierung der Cube-Layer
 
-Die {{domxref("XRWebGLBinding.createCubeLayer()")}}-Methode erstellt eine Würfelschicht und ermöglicht das Angeben einer `orientation`. Die `XRCubeLayer.orientation`-Eigenschaft kann nach der Schichterstellung verwendet werden, um die aktuelle Orientierung abzurufen oder sie auf eine neue zu setzen.
+Die Methode [`XRWebGLBinding.createCubeLayer()`](/de/docs/Web/API/XRWebGLBinding/createCubeLayer) erstellt eine Cube-Layer und ermöglicht die Angabe einer `orientation`. Die Eigenschaft `XRCubeLayer.orientation` kann nach der Erstellung der Ebene verwendet werden, um die aktuelle Orientierung zu erhalten oder um sie auf eine neue einzustellen.
 
 ```js
 const cubeLayer = xrGlBinding.createCubeLayer({
@@ -41,6 +41,6 @@ cubeLayer.orientation = someOtherPoint;
 
 ## Siehe auch
 
-- {{domxref("DOMPointReadOnly")}}
-- {{domxref("XRSpace")}}
-- {{domxref("XRWebGLBinding.createCubeLayer()")}}
+- [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)
+- [`XRSpace`](/de/docs/Web/API/XRSpace)
+- [`XRWebGLBinding.createCubeLayer()`](/de/docs/Web/API/XRWebGLBinding/createCubeLayer)

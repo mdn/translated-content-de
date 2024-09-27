@@ -1,5 +1,5 @@
 ---
-title: "Element: Methode hasAttributes()"
+title: "Element: hasAttributes()-Methode"
 short-title: hasAttributes()
 slug: Web/API/Element/hasAttributes
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`hasAttributes()`** Methode des {{domxref("Element")}} Interfaces gibt einen booleschen Wert zurück, der angibt, ob das aktuelle Element Attribute hat oder nicht.
+Die **`hasAttributes()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob das aktuelle Element Attribute hat oder nicht.
 
 ## Syntax
 
@@ -37,15 +37,15 @@ if (foo.hasAttributes()) {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Element.attributes")}}
-- {{domxref("Element.hasAttribute()")}}
-- {{domxref("Element.getAttribute()")}}
-- {{domxref("Element.setAttribute()")}}
-- {{domxref("Element.removeAttribute()")}}
-- {{domxref("Element.toggleAttribute()")}}
+- [`Element.attributes`](/de/docs/Web/API/Element/attributes)
+- [`Element.hasAttribute()`](/de/docs/Web/API/Element/hasAttribute)
+- [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute)
+- [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute)
+- [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)
+- [`Element.toggleAttribute()`](/de/docs/Web/API/Element/toggleAttribute)

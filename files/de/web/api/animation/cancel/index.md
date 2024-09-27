@@ -1,5 +1,5 @@
 ---
-title: "Animation: cancel() Methode"
+title: "Animation: cancel()-Methode"
 short-title: cancel()
 slug: Web/API/Animation/cancel
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`cancel()`** Methode des {{domxref("Animation")}}-Interfaces der Web Animations API entfernt alle durch diese Animation verursachten {{domxref("KeyframeEffect")}}s und bricht die Wiedergabe ab.
+Die **`cancel()`**-Methode der [`Animation`](/de/docs/Web/API/Animation)-Schnittstelle der Web-Animations-API löscht alle von dieser Animation verursachten [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)s und bricht deren Wiedergabe ab.
 
 > [!NOTE]
-> Wenn eine Animation abgebrochen wird, werden deren {{domxref("Animation.startTime", "startTime")}} und {{domxref("Animation.currentTime", "currentTime")}} auf `null` gesetzt.
+> Wenn eine Animation abgebrochen wird, werden deren [`startTime`](/de/docs/Web/API/Animation/startTime) und [`currentTime`](/de/docs/Web/API/Animation/currentTime) auf `null` gesetzt.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Diese Methode wirft nicht direkt Ausnahmen; Wenn jedoch der {{domxref("Animation.playState", "playState")}} der Animation beim Abbrechen nicht `"idle"` ist, wird das {{domxref("Animation.finished", "current finished promise", "", 1)}} mit einem {{domxref("DOMException")}} namens `AbortError` abgelehnt.
+Diese Methode löst direkt keine Ausnahmen aus. Allerdings, wenn der [`playState`](/de/docs/Web/API/Animation/playState) der Animation beim Abbruch etwas anderes als `"idle"` ist, wird das {{domxref("Animation.finished", "momentane Versprechen über das Beenden", "", 1)}} mit einem [`DOMException`](/de/docs/Web/API/DOMException) namens `AbortError` abgelehnt.
 
 ## Spezifikationen
 
@@ -42,7 +42,7 @@ Diese Methode wirft nicht direkt Ausnahmen; Wenn jedoch der {{domxref("Animation
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("KeyframeEffect")}}
-- {{domxref("Animation")}}
-- {{domxref("Animation.playState")}}
-- {{domxref("Animation.finished")}} gibt das Versprechen zurück, das diese Aktion ablehnen wird, wenn der `playState` der Animation nicht `"idle"` ist.
+- [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)
+- [`Animation`](/de/docs/Web/API/Animation)
+- [`Animation.playState`](/de/docs/Web/API/Animation/playState)
+- [`Animation.finished`](/de/docs/Web/API/Animation/finished) gibt das Versprechen zurück, das abgelehnt wird, wenn der `playState` der Animation nicht `"idle"` ist.

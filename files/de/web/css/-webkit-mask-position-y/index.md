@@ -7,31 +7,31 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Position eines Maskenbildes fest.
+Die CSS-Eigenschaft `-webkit-mask-position-y` legt die Anfangsposition des vertikalen Bereichs eines Maskenbildes fest.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 -webkit-mask-position-y: top;
 -webkit-mask-position-y: center;
 -webkit-mask-position-y: bottom;
 
-/* <percentage> Werte */
+/* <percentage> values */
 -webkit-mask-position-y: 100%;
 -webkit-mask-position-y: -50%;
 
-/* <length> Werte */
+/* <length> values */
 -webkit-mask-position-y: 50px;
 -webkit-mask-position-y: -1cm;
 
-/* Mehrere Werte */
+/* Multiple values */
 -webkit-mask-position-y:
   50px,
   25%,
   -3em;
 
-/* Globale Werte */
+/* Global values */
 -webkit-mask-position-y: inherit;
 -webkit-mask-position-y: initial;
 -webkit-mask-position-y: revert;
@@ -42,7 +42,7 @@ Die CSS-Eigenschaft `-webkit-mask-position-y` legt die anfängliche vertikale Po
 ### Werte
 
 - `<length-percentage>`
-  - : Eine Länge, die die Position der oberen Seite des Bildes relativ zur oberen Padding-Kante des Kastens angibt. Prozentsätze werden im Verhältnis zur vertikalen Dimension des Padding-Bereichs des Kastens berechnet. Ein Wert von `0%` bedeutet, dass die obere Kante des Bildes mit der oberen Padding-Kante des Kastens ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die untere Kante des Bildes mit der unteren Padding-Kante des Kastens ausgerichtet ist.
+  - : Eine Länge, die die Position der oberen Seite des Bildes relativ zur oberen Kante der Box-Padding anzeigt. Prozentsätze berechnen sich gegen die vertikale Dimension des Box-Padding-Bereichs. Ein Wert von `0%` bedeutet, dass die obere Kante des Bildes mit der oberen Kante der Box-Padding ausgerichtet ist, und ein Wert von `100%` bedeutet, dass die untere Kante des Bildes mit der unteren Kante der Box-Padding ausgerichtet ist.
 - `top`
   - : Entspricht `0%`.
 - `bottom`

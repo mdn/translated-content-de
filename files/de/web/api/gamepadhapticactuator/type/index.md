@@ -1,5 +1,5 @@
 ---
-title: "GamepadHapticActuator: type-Eigenschaft"
+title: "GamepadHapticActuator: type Eigenschaft"
 short-title: type
 slug: Web/API/GamepadHapticActuator/type
 l10n:
@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("Gamepad API")}}{{deprecated_header}}{{non-standard_header}}
 
-Die schreibgeschützte **`type`**-Eigenschaft der {{domxref("GamepadHapticActuator")}}-Schnittstelle gibt einen enumerierten Wert zurück, der den Typ der haptischen Hardware darstellt.
+Die schreibgeschützte Eigenschaft **`type`** des [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator) Schnittstelle gibt einen enumerierten Wert zurück, der den Typ der haptischen Hardware darstellt.
 
-Diese Eigenschaft ist veraltet: Verwenden Sie {{domxref("GamepadHapticActuator.effects")}}, um die Unterstützung von Effekten zu erkennen.
+Diese Eigenschaft ist veraltet: Verwenden Sie [`GamepadHapticActuator.effects`](/de/docs/Web/API/GamepadHapticActuator/effects), um Effektunterstützung zu erkennen.
 
 ## Wert
 
 Ein enumerierter Wert, der den Typ der haptischen Hardware darstellt. Derzeit verfügbare Typen sind:
 
 - `"vibration"`
-  - : Einfache Vibrationstechnik, die einen Rumpel-Effekt erzeugt.
+  - : Einfache Vibrationshardware, die einen Rumble-Effekt erzeugt.
 - `"dual-rumble"`
-  - : Ein Controller mit einem Vibrationsmotor in jedem Griff. Jeder Motor kann unabhängig vibrieren, um positionsabhängige Rumpel-Effekte zu erzeugen.
+  - : Ein Controller mit einem Vibrationsmotor in jedem Griff. Jeder Motor kann unabhängig voneinander vibrieren, um räumliche Rumble-Effekte zu erzeugen.
 
 ## Beispiele
 
 ```js
 const gamepad = navigator.getGamepads()[0];
 
-// Loggt "vibration" oder "dual-rumble"
+// Logs "vibration" or "dual-rumble"
 console.log(gamepad.hapticActuators[0].type);
 ```
 

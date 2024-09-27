@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das **`targetX`**-Attribut bestimmt die Positionierung in horizontaler Richtung der Faltungs-Matrix relativ zu einem gegebenen Zielpixel im Eingabebild. Die äußerste linke Spalte der Matrix ist die Spalte Nummer null. Der Wert muss so sein, dass: `0` <= `targetX` < {{SVGAttr("order")}} `X`.
+Das **`targetX`**-Attribut bestimmt die Positionierung in horizontaler Richtung der Faltungs-Matrix relativ zu einem gegebenen Zielpixel im Eingabebild. Die linkeste Spalte der Matrix ist die Spalte Nummer null. Der Wert muss derart sein, dass: `0` <= `targetX` < {{SVGAttr("order")}} `X`.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feConvolveMatrix")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>

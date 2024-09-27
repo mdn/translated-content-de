@@ -7,7 +7,7 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`regexp:test()` prüft, ob ein String mit einem angegebenen regulären Ausdruck übereinstimmt.
+`regexp:test()` prüft, ob ein String einem angegebenen regulären Ausdruck entspricht.
 
 ## Syntax
 
@@ -20,20 +20,20 @@ regexp:test(testString, regExpString[, flagsString])
 - `testString`
   - : Der zu prüfende String.
 - `regExpString`
-  - : Der JavaScript-Stil regulärer Ausdruck, der ausgewertet werden soll.
+  - : Der zu bewertende reguläre Ausdruck im JavaScript-Stil.
 - `flagsString` {{optional_inline}}
-  - : Ein optionaler String, der Zeichen-Flags enthält.
+  - : Ein optionaler String, der Zeichenflags enthält.
 
-Die Zeichen-Flags sind:
+Die Zeichenflags sind:
 
 - `g`
-  - : Globaler Abgleich. Hat keine Wirkung für diese Funktion; es ist zur Konsistenz mit anderen regexp-Funktionen erlaubt.
+  - : Globale Übereinstimmung. Hat keine Auswirkung für diese Funktion; es ist erlaubt, um Konsistenz mit anderen `regexp`-Funktionen zu gewährleisten.
 - `i`
-  - : Groß-/Kleinschreibungsunabhängiger Abgleich. Wenn dieses Flag angegeben ist, wird der Abgleich in einer groß-/kleinschreibungsunabhängigen Weise durchgeführt.
+  - : Groß-/Kleinschreibung ignorieren. Wenn dieses Flag angegeben wird, erfolgt die Übereinstimmung ohne Beachtung der Groß-/Kleinschreibung.
 
 ### Rückgabewert
 
-`true`, wenn der angegebene regexp mit dem Test-String übereinstimmt.
+`true`, wenn der angegebene `regexp` mit dem Teststring übereinstimmt.
 
 ## Spezifikationen
 

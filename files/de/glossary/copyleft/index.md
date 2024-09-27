@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Copyleft** ist ein Begriff, der in der Regel eine Lizenz bezeichnet, die erfordert, dass die Weiterverbreitung des betreffenden Werks derselben Lizenz wie das Original unterliegt. Beispiele für Copyleft-Lizenzen sind die GNU {{Glossary("GPL")}} (für Software) und die Creative Commons SA (Share-Alike) Lizenzen (für Kunstwerke).
+**Copyleft** ist ein Begriff, der sich in der Regel auf eine Lizenz bezieht, die erfordert, dass die Weiterverbreitung dieses Werkes denselben Lizenzbedingungen wie das Original unterliegt. Beispiele für Copyleft-Lizenzen sind die GNU [GPL](/de/docs/Glossary/GPL) (für Software) und die Creative Commons SA (Share Alike) Lizenzen (für Kunstwerke).
 
 ## Siehe auch
 

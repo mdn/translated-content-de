@@ -7,23 +7,23 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
-Das **`USBConnectionEvent`**-Interface der {{domxref('WebUSB API','','',' ')}} ist der Ereignistyp, der an `USB`-{{domxref("USB.connect_event", "connect")}}- und {{domxref("USB.disconnect_event", "disconnect")}}-Ereignisse übergeben wird, wenn der User Agent erkennt, dass ein neues USB-Gerät verbunden oder getrennt wurde.
+Das **`USBConnectionEvent`** Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) ist der Ereignistyp, der an `USB`-[`connect`](/de/docs/Web/API/USB/connect_event) und [`disconnect`](/de/docs/Web/API/USB/disconnect_event) Ereignisse übergeben wird, wenn das Benutzerprogramm erkennt, dass ein neues USB-Gerät angeschlossen oder getrennt wurde.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("USBConnectionEvent.USBConnectionEvent", "USBConnectionEvent()")}} {{Experimental_Inline}}
-  - : Gibt ein `USBConnectionEvent`-Objekt zurück.
+- [`USBConnectionEvent()`](/de/docs/Web/API/USBConnectionEvent/USBConnectionEvent) {{Experimental_Inline}}
+  - : Gibt ein `USBConnectionEvent` Objekt zurück.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("USBConnectionEvent.device")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein {{domxref("USBDevice")}}-Objekt zurück, das das aktuelle Gerät repräsentiert.
+- [`USBConnectionEvent.device`](/de/docs/Web/API/USBConnectionEvent/device) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt ein [`USBDevice`](/de/docs/Web/API/USBDevice) Objekt zurück, das das aktuelle Gerät darstellt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird das Lauschen auf Verbindungs- und Trennungsereignisse verwendet, um Geräte zur Benutzeroberfläche einer Anwendung hinzuzufügen oder daraus zu entfernen.
+Im folgenden Beispiel wird das Lauschen auf `connect`- und `disconnect`-Ereignisse verwendet, um Geräte zur Benutzeroberfläche einer Anwendung hinzuzufügen oder von dieser zu entfernen.
 
 ```js
 navigator.usb.addEventListener("connect", (event) => {

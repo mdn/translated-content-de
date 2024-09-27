@@ -1,5 +1,5 @@
 ---
-title: "FontFace: Eigenschaft featureSettings"
+title: "FontFace: featureSettings-Eigenschaft"
 short-title: featureSettings
 slug: Web/API/FontFace/featureSettings
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`featureSettings`**-Eigenschaft des {{domxref("FontFace")}}-Interfaces ruft seltener verwendete Schriftmerkmale ab oder setzt diese, die nicht über die Varianteneigenschaften einer Schriftart verfügbar sind.
+Die **`featureSettings`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces ruft selten verwendete Schriftmerkmale ab oder setzt diese, die nicht über die Varianteneigenschaften einer Schriftart verfügbar sind.
 
-Diese Eigenschaft entspricht dem {{cssxref("font-feature-settings")}}-Deskriptor.
+Diese Eigenschaft entspricht dem {{cssxref("font-feature-settings")}} Deskriptor.
 
 ## Wert
 
-Ein String, der einen Deskriptor enthält.
+Ein String, der ein Deskriptor enthält.
 
 ## Spezifikationen
 

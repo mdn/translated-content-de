@@ -20,7 +20,7 @@ beginTransformFeedback(primitiveMode)
 
 - `primitiveMode`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Ausgabetyp der Primitiven angibt, die in die für Transform-Feedback gebundenen Pufferobjekte aufgenommen werden. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Ausgabetyp der Primitive angibt, die in die Pufferobjekte aufgezeichnet werden, die für das Transform-Feedback gebunden sind. Mögliche Werte:
 
     - `gl.POINTS`
     - `gl.LINES`
@@ -49,4 +49,4 @@ gl.drawArrays(gl.TRIANGLES, 0, 3);
 
 ## Siehe auch
 
-- {{domxref("WebGLTransformFeedback")}}
+- [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)

@@ -1,5 +1,5 @@
 ---
-title: JavaScript — Dynamisches klientseitiges Skripting
+title: JavaScript — Dynamisches clientseitiges Scripting
 slug: Learn/JavaScript
 l10n:
   sourceCommit: 70f49e78d0f6830748fcaa490d98b4ae3e2da161
@@ -7,22 +7,22 @@ l10n:
 
 {{LearnSidebar}}
 
-{{Glossary("JavaScript")}} ist eine Programmiersprache, die es Ihnen ermöglicht, komplexe Funktionen auf Webseiten zu implementieren. Jedes Mal, wenn eine Webseite mehr tut, als nur statische Informationen anzuzeigen—wie z.B. zeitnahe Inhaltsaktualisierungen, interaktive Karten, animierte 2D/3D-Grafiken, scrollende Video-Jukeboxen oder mehr—können Sie sich darauf verlassen, dass JavaScript wahrscheinlich beteiligt ist.
+[JavaScript](/de/docs/Glossary/JavaScript) ist eine Programmiersprache, die es Ihnen ermöglicht, komplexe Funktionalitäten auf Webseiten umzusetzen. Immer wenn eine Webseite mehr tut, als nur statische Informationen anzuzeigen, wie z.B. zeitnahe Inhaltsupdates, interaktive Karten, animierte 2D/3D-Grafiken oder scrollende Video-Jukeboxen, können Sie darauf wetten, dass JavaScript wahrscheinlich eingebunden ist.
 
 ## Voraussetzungen
 
-JavaScript ist wahrscheinlich schwieriger zu erlernen als verwandte Technologien wie [HTML](/de/docs/Learn/HTML) und [CSS](/de/docs/Learn/CSS). Bevor Sie versuchen, JavaScript zu lernen, wird dringend empfohlen, sich zuerst mit mindestens diesen beiden Technologien vertraut zu machen und vielleicht auch mit anderen. Beginnen Sie mit der Bearbeitung der folgenden Module:
+JavaScript zu lernen ist eindeutig schwieriger als verwandte Technologien wie [HTML](/de/docs/Learn/HTML) und [CSS](/de/docs/Learn/CSS). Bevor Sie versuchen, JavaScript zu erlernen, wird dringend empfohlen, sich zuerst mit diesen beiden Technologien und möglicherweise weiteren vertraut zu machen. Beginnen Sie mit den folgenden Modulen:
 
-- [Erste Schritte mit dem Web](/de/docs/Learn/Getting_started_with_the_web)
+- [Erste Schritte im Web](/de/docs/Learn/Getting_started_with_the_web)
 - [Einführung in HTML](/de/docs/Learn/HTML/Introduction_to_HTML)
 - [Einführung in CSS](/de/docs/Learn/CSS/First_steps)
 
-Vorherige Erfahrung mit anderen Programmiersprachen könnte ebenfalls hilfreich sein.
+Vorherige Erfahrungen mit anderen Programmiersprachen könnten ebenfalls hilfreich sein.
 
-Nachdem Sie sich mit den Grundlagen von JavaScript vertraut gemacht haben, sollten Sie in der Lage sein, sich mit fortgeschritteneren Themen zu beschäftigen, zum Beispiel:
+Nachdem Sie sich mit den Grundlagen von JavaScript vertraut gemacht haben, sollten Sie in der Lage sein, fortgeschrittene Themen zu lernen, beispielsweise:
 
-- JavaScript im Detail, wie in unserem [JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide) vermittelt
-- [Web-APIs](/de/docs/Web/API)
+- JavaScript in der Tiefe, wie in unserem [JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide) gelehrt
+- [Web APIs](/de/docs/Web/API)
 
 ## Module
 
@@ -30,34 +30,34 @@ Nachdem Sie sich mit den Grundlagen von JavaScript vertraut gemacht haben, sollt
 >
 > **Unsere Richtlinie zu modernem JavaScript**
 >
-> JavaScript ist eine sich aktiv weiterentwickelnde Sprache, die sich im Laufe der Jahre stark verändert hat. Insbesondere die sechste Ausgabe der Sprache (manchmal bekannt als ECMAScript 2015 oder ES6), die 2015 eingeführt wurde, brachte viele neue Funktionen. Gleichzeitig wurden zur Aufrechterhaltung der Abwärtskompatibilität mit älteren Websites alte Funktionen der Sprache beibehalten, auch wenn sie nicht mehr als gute Praxis gelten.
+> JavaScript ist eine aktiv sich entwickelnde Sprache und hat sich im Laufe der Jahre stark verändert. Insbesondere führte die 6. Ausgabe der Sprache (manchmal bekannt als ECMAScript 2015 oder ES6), die 2015 eingeführt wurde, viele neue Merkmale ein. Gleichzeitig wurden zur Wahrung der Rückwärtskompatibilität mit älteren Websites alte Merkmale der Sprache beibehalten, auch wenn sie nicht mehr als gute Praxis gelten.
 >
-> Wir sind der Meinung, dass die Funktionen, die 2015 und in den nachfolgenden Versionen zu JavaScript hinzugefügt wurden, es Entwicklern ermöglichen, lesbareren, zuverlässigeren und ausdrucksstärkeren Code zu schreiben, und dass es wichtig ist, darüber zu lernen.
+> Wir sind der Meinung, dass die in ECMAScript 2015 und nachfolgenden Versionen zu JavaScript hinzugefügten Funktionen es Entwicklern ermöglichen, lesbareren, zuverlässigeren und ausdrucksstärkeren Code zu schreiben und dass es wichtig ist, sie zu erlernen.
 >
-> Die Funktionen, die wir in diesem Kurs lehren, sind stabil und wurden seit mehreren Jahren von allen großen Browsern unterstützt.
+> Die Funktionen, die wir in diesem Kurs lehren, sind stabil und werden seit mehreren Jahren von allen wichtigen Browsern unterstützt.
 
-Dieses Thema enthält die folgenden Module in einer vorgeschlagenen Reihenfolge, um sie zu bearbeiten.
+Dieses Thema enthält die folgenden Module, in einer vorgeschlagenen Reihenfolge, um sie durchzuarbeiten.
 
-- [JavaScript: Erste Schritte](/de/docs/Learn/JavaScript/First_steps)
-  - : In unserem ersten JavaScript-Modul beantworten wir zunächst einige grundlegende Fragen wie „Was ist JavaScript?“, „Wie sieht es aus?“, und „Was kann es tun?“, bevor wir mit Ihrer ersten praktischen Erfahrung im Schreiben von JavaScript fortfahren. Danach besprechen wir einige wichtige JavaScript-Funktionen im Detail, wie Variablen, Zeichenketten, Zahlen und Arrays.
-- [JavaScript-Bausteine](/de/docs/Learn/JavaScript/Building_blocks)
-  - : In diesem Modul setzen wir unsere Abdeckung aller grundlegenden JavaScript-Funktionen fort, indem wir uns auf häufig vorkommende Codeblocktypen wie bedingte Anweisungen, Schleifen, Funktionen und Ereignisse konzentrieren. Sie haben diese Themen bereits im Kurs gesehen, aber nur kurz — hier werden wir sie alle explizit diskutieren.
+- [JavaScript erste Schritte](/de/docs/Learn/JavaScript/First_steps)
+  - : In unserem ersten JavaScript-Modul beantworten wir zunächst einige grundlegende Fragen wie "Was ist JavaScript?", "Wie sieht es aus?" und "Was kann es?", bevor wir zu Ihren ersten praktischen Erfahrungen mit JavaScript übergehen. Danach besprechen wir einige wichtige JavaScript-Funktionen im Detail, wie Variablen, Strings, Zahlen und Arrays.
+- [JavaScript Bausteine](/de/docs/Learn/JavaScript/Building_blocks)
+  - : In diesem Modul setzen wir unsere Abdeckung aller grundlegenden Funktionen von JavaScript fort und richten unsere Aufmerksamkeit auf häufig vorkommende Arten von Codeblöcken wie bedingte Anweisungen, Schleifen, Funktionen und Ereignisse. Sie haben diese Dinge bereits im Kurs gesehen, aber nur flüchtig - hier werden wir alles ausdrücklich diskutieren.
 - [Einführung in JavaScript-Objekte](/de/docs/Learn/JavaScript/Objects)
-  - : In JavaScript sind die meisten Dinge Objekte, von grundlegenden JavaScript-Funktionen wie Zeichenketten und Arrays bis hin zu den auf JavaScript basierenden Browser-APIs. Sie können sogar Ihre eigenen Objekte erstellen, um verwandte Funktionen und Variablen in effizienten Paketen zu kapseln. Das objektorientierte Wesen von JavaScript ist wichtig zu verstehen, wenn Sie Ihr Wissen über die Sprache vertiefen und effizienteren Code schreiben möchten, daher haben wir dieses Modul bereitgestellt, um Ihnen zu helfen. Hier lehren wir Objekttheorie und -syntax im Detail, sehen uns an, wie Sie Ihre eigenen Objekte erstellen können, und erklären, was JSON-Daten sind und wie man damit arbeitet.
+  - : In JavaScript sind die meisten Dinge Objekte, von grundlegenden JavaScript-Features wie Strings und Arrays bis hin zu den auf JavaScript aufbauenden Browser-APIs. Sie können sogar Ihre eigenen Objekte erstellen, um verwandte Funktionen und Variablen in effiziente Pakete zu kapseln. Das objektorientierte Wesen von JavaScript ist wichtig zu verstehen, wenn Sie Ihr Wissen über die Sprache erweitern und effizienteren Code schreiben möchten. Daher haben wir dieses Modul bereitgestellt, um Ihnen zu helfen. Hier lehren wir Objekttheorie und -syntax im Detail, untersuchen, wie Sie Ihre eigenen Objekte erstellen, und erklären was JSON-Daten sind und wie man damit arbeitet.
 - [Asynchrones JavaScript](/de/docs/Learn/JavaScript/Asynchronous)
-  - : In diesem Modul betrachten wir asynchrones JavaScript, warum es wichtig ist und wie es effektiv genutzt werden kann, um potenzielle Blockierungsoperationen wie das Abrufen von Ressourcen von einem Server zu handhaben.
+  - : In diesem Modul werfen wir einen Blick auf asynchrones JavaScript, warum es wichtig ist und wie es effektiv eingesetzt werden kann, um potenzielle Blockierungsoperationen wie das Abrufen von Ressourcen von einem Server zu behandeln.
 - [Client-seitige Web-APIs](/de/docs/Learn/JavaScript/Client-side_web_APIs)
-  - : Beim Schreiben von clientseitigem JavaScript für Websites oder Anwendungen werden Sie nicht weit kommen, bevor Sie anfangen, APIs zu verwenden — Schnittstellen zur Manipulation verschiedener Aspekte des Browsers und Betriebssystems, auf dem die Seite läuft, oder sogar Daten von anderen Websites oder Diensten. In diesem Modul werden wir erkunden, was APIs sind und wie Sie einige der häufigsten APIs verwenden können, auf die Sie häufig bei Ihrer Entwicklungsarbeit stoßen.
+  - : Beim Schreiben von clientseitigem JavaScript für Websites oder Anwendungen kommen Sie nicht weit, bevor Sie anfangen, APIs zu nutzen - Schnittstellen zur Manipulation verschiedener Aspekte des Browsers und des Betriebssystems, auf dem die Site läuft, oder sogar Daten von anderen Websites oder Diensten. In diesem Modul werden wir erforschen, was APIs sind und wie man einige der häufigsten APIs verwendet, die Ihnen oft bei Ihrer Entwicklungsarbeit begegnen werden.
 
-## Geläufige JavaScript-Probleme lösen
+## Lösung häufiger JavaScript-Probleme
 
-[Lösen Sie geläufige Probleme in Ihrem JavaScript-Code](/de/docs/Learn/JavaScript/Howto) bietet ein wenig Ratschläge, wie Sie häufige Anfängerfehler beim Programmieren in JavaScript vermeiden können, zusammen mit vielen hilfreichen Links zu Themen, die zeigen, wie Sie gängige JavaScript-Programmierprobleme lösen können.
+[Lösen Sie häufige Probleme in Ihrem JavaScript-Code](/de/docs/Learn/JavaScript/Howto) bietet ein wenig Rat, wie man häufige Anfängerfehler beim Programmieren in JavaScript vermeidet, sowie viele hilfreiche Links zu Themen, die zeigen, wie man allgemeine JavaScript-Programmierprobleme löst.
 
 ## Siehe auch
 
 - [JavaScript auf MDN](/de/docs/Web/JavaScript)
-  - : Der Haupteinstiegspunkt für die Kern-JavaScript-Dokumentation auf MDN — hier finden Sie umfangreiche Referenzdokumente zu allen Aspekten der JavaScript-Sprache und einige fortgeschrittene Tutorials, die sich an erfahrene JavaScripter richten.
-- [JavaScript lernen](https://learnjavascript.online/)
-  - : Eine ausgezeichnete Ressource für angehende Webentwickler — Lernen Sie JavaScript in einer interaktiven Umgebung, mit kurzen Lektionen und interaktiven Tests, geleitet von automatisierter Bewertung. Die ersten 40 Lektionen sind kostenlos.
-- [Coding Math](https://www.youtube.com/user/codingmath)
-  - : Eine ausgezeichnete Serie von Videotutorials, um die Mathematik zu lehren, die Sie verstehen müssen, um ein effektiver Programmierer zu sein, von [Keith Peters](https://www.bit-101.com/2017/about-me/).
+  - : Der Haupteinstiegspunkt für die core JavaScript-Dokumentation auf MDN – hier finden Sie umfangreiche Referenzdokumentationen zu allen Aspekten der JavaScript-Sprache und einige fortgeschrittene Tutorials, die auf erfahrene JavaScripters abzielen.
+- [Learn JavaScript](https://learnjavascript.online/)
+  - : Eine hervorragende Ressource für angehende Webentwickler — Lernen Sie JavaScript in einer interaktiven Umgebung, mit kurzen Lektionen und interaktiven Tests, geleitet von automatischer Bewertung. Die ersten 40 Lektionen sind kostenlos.
+- [Coding math](https://www.youtube.com/user/codingmath)
+  - : Eine exzellente Serie von Video-Tutorials, um die Mathematik zu lehren, die Sie benötigen, um ein effektiver Programmierer zu sein, von [Keith Peters](https://www.bit-101.com/2017/about-me/).

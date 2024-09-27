@@ -8,34 +8,34 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`style`**-Eigenschaft des {{domxref("SVGElement")}} gibt den _Inline_-Stil eines Elements in Form eines Live-{{domxref("CSSStyleDeclaration")}}-Objekts zurück, das eine Liste aller Stil-Eigenschaften für dieses Element enthält, mit Werten, die nur für die Attribute zugewiesen sind, die im Inline-Attribut [`style`](/de/docs/Web/HTML/Global_attributes/style) des Elements definiert sind.
+Die schreibgeschützte **`style`**-Eigenschaft des [`SVGElement`](/de/docs/Web/API/SVGElement) gibt den _Inline_-Stil eines Elements in Form eines Live-Objekts vom Typ [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) zurück, das eine Liste aller Stileigenschaften für dieses Element enthält, wobei Werte nur für die Attribute zugewiesen werden, die im Inline-Attribut [`style`](/de/docs/Web/HTML/Global_attributes/style) des Elements definiert sind.
 
-Abkürzende Eigenschaften werden erweitert. Wenn Sie `style="border-top: 1px solid black"` setzen, werden anstelle dessen die Langform-Eigenschaften ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}) gesetzt.
+Kurzform-Eigenschaften werden erweitert. Wenn Sie `style="border-top: 1px solid black"` setzen, werden stattdessen die Langform-Eigenschaften ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}}, und {{cssxref("border-top-width")}}) gesetzt.
 
-Diese Eigenschaft ist schreibgeschützt, was bedeutet, dass es nicht möglich ist, ein {{domxref("CSSStyleDeclaration")}}-Objekt zuzuweisen. Trotzdem ist es möglich, einen Inline-Stil zu setzen, indem ein _String_ direkt der `style`-Eigenschaft zugewiesen wird. In diesem Fall wird der String an {{domxref("CSSStyleDeclaration.cssText")}} weitergeleitet. Die Verwendung von `style` auf diese Weise überschreibt alle Inline-Stile auf dem Element vollständig.
+Diese Eigenschaft ist schreibgeschützt, was bedeutet, dass es nicht möglich ist, ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt ihr zuzuweisen. Dennoch ist es möglich, einen Inline-Stil durch direkte Zuweisung eines _Strings_ zur `style`-Eigenschaft zu setzen. In diesem Fall wird der String an [`CSSStyleDeclaration.cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText) weitergeleitet. Die Verwendung von `style` auf diese Weise überschreibt alle Inline-Stile auf dem Element vollständig.
 
-Daher ist es allgemein vorzuziehen, einzelne Eigenschaften auf dem {{domxref("CSSStyleDeclaration")}}-Objekt zu setzen, um einem Element spezifische Stile hinzuzufügen, ohne andere Stilwerte zu ändern. Zum Beispiel können Sie `element.style.backgroundColor = "red"` schreiben.
+Um spezifische Stile zu einem Element hinzuzufügen, ohne andere Stilwerte zu ändern, ist es daher generell vorzuziehen, einzelne Eigenschaften auf dem [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt zu setzen. Zum Beispiel können Sie `element.style.backgroundColor = "red"` schreiben.
 
-Eine Stildeklaration wird zurückgesetzt, indem sie auf `null` oder einen leeren String gesetzt wird, z.B. `elt.style.color = null`.
+Eine Stil-Deklaration wird zurückgesetzt, indem sie auf `null` oder einen leeren String gesetzt wird, z.B., `elt.style.color = null`.
 
 > [!NOTE]
-> CSS-Eigenschaftsnamen werden mit diesen Regeln in JavaScript-Bezeichner umgewandelt:
+> CSS-Eigenschaftsnamen werden nach diesen Regeln in JavaScript-Bezeichner konvertiert:
 >
-> - Wenn die Eigenschaft aus einem Wort besteht, bleibt sie wie sie ist: `height` bleibt unverändert (in Kleinbuchstaben).
-> - Wenn die Eigenschaft aus mehreren Wörtern besteht, die durch Bindestriche getrennt sind, werden die Bindestriche entfernt und sie wird in {{Glossary("camel_case", "Camel Case")}} umgewandelt: `background-attachment` wird zu `backgroundAttachment`.
-> - Die Eigenschaft `float`, da es ein reserviertes JavaScript-Schlüsselwort ist, wird zu `cssFloat` umgewandelt.
+> - Wenn die Eigenschaft aus einem Wort besteht, bleibt sie unverändert: `height` bleibt unverändert (in Kleinbuchstaben).
+> - Wenn die Eigenschaft aus mehreren Wörtern besteht, die durch Bindestriche getrennt sind, werden die Bindestriche entfernt und sie wird in [CamelCase](/de/docs/Glossary/camel_case) umgewandelt: `background-attachment` wird zu `backgroundAttachment`.
+> - Die Eigenschaft `float`, da sie ein reserviertes JavaScript-Schlüsselwort ist, wird in `cssFloat` umgewandelt.
 >
-> Die `style`-Eigenschaft hat in der CSS-Kaskade dieselbe Priorität wie eine über das `style`-Attribut gesetzte Inline-Stildeklaration.
+> Die `style`-Eigenschaft hat dieselbe Priorität in der CSS-Kaskade wie eine Inline-Stildeklaration, die über das `style`-Attribut gesetzt wird.
 
 ## Wert
 
-Ein Live-{{domxref("CSSStyleDeclaration")}}-Objekt.
+Ein Live-Objekt vom Typ [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration).
 
 ## Beispiele
 
 ### Stilinformationen abrufen
 
-Der folgende Codeausschnitt demonstriert, wie das `style`-Attribut in eine Liste von Einträgen in {{domxref("CSSStyleDeclaration")}} übersetzt wird:
+Der folgende Codeausschnitt demonstriert, wie das `style`-Attribut in eine Liste von Einträgen in [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) übersetzt wird:
 
 ```html
 <svg
@@ -60,10 +60,10 @@ const element = document.querySelector("circle");
 const out = document.getElementById("out");
 const elementStyle = element.style;
 
-// Wir durchlaufen alle Stile des Elements mit `for...in`
+// We loop through all the element's styles using `for...in`
 for (const prop in elementStyle) {
-  // Wir überprüfen, ob die Eigenschaft zur CSSStyleDeclaration-Instanz gehört
-  // Wir stellen auch sicher, dass die Eigenschaft ein numerischer Index ist (was einen Inline-Stil anzeigt)
+  // We check if the property belongs to the CSSStyleDeclaration instance
+  // We also ensure that the property is a numeric index (indicating an inline style)
   if (
     Object.hasOwn(elementStyle, prop) &&
     !Number.isNaN(Number.parseInt(prop))
@@ -81,13 +81,13 @@ for (const prop in elementStyle) {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Verwendung dynamischer Stil-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
-- {{domxref("HTMLElement.style")}}
-- {{domxref("MathMLElement.style")}}
-- {{domxref("SVGElement.attributeStyleMap")}}
+- [Verwendung dynamischer Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style)
+- [`MathMLElement.style`](/de/docs/Web/API/MathMLElement/style)
+- [`SVGElement.attributeStyleMap`](/de/docs/Web/API/SVGElement/attributeStyleMap)

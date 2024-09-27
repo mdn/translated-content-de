@@ -1,5 +1,5 @@
 ---
-title: Globale Funktion clearTimeout()
+title: clearTimeout() globale Funktion
 short-title: clearTimeout()
 slug: Web/API/clearTimeout
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers}}
 
-Die globale Methode **`clearTimeout()`** hebt ein Timeout auf, das zuvor durch den Aufruf von {{domxref("setTimeout()")}} festgelegt wurde.
+Die globale **`clearTimeout()`**-Methode annulliert ein zuvor durch den Aufruf von [`setTimeout()`](/de/docs/Web/API/SetTimeout) gesetztes Timeout.
 
-Falls der übergebene Parameter keine zuvor festgelegte Aktion identifiziert, unternimmt diese Methode nichts.
+Wenn der bereitgestellte Parameter keine zuvor festgelegte Aktion identifiziert, führt diese Methode nichts aus.
 
 ## Syntax
 
@@ -21,13 +21,9 @@ clearTimeout(timeoutID)
 ### Parameter
 
 - `timeoutID`
-  - : Der Bezeichner des Timeouts, das Sie aufheben möchten. Diese ID wurde durch den entsprechenden Aufruf von `setTimeout()` zurückgegeben.
+  - : Der Bezeichner des Timeouts, das Sie abbrechen möchten. Diese ID wurde durch den entsprechenden Aufruf von `setTimeout()` zurückgegeben.
 
-Es ist bemerkenswert, dass der Pool von IDs, die von
-{{domxref("setTimeout()")}} und
-{{domxref("setInterval()")}} verwendet werden, gemeinsam genutzt wird, was bedeutet, dass Sie technisch `clearTimeout()` und
-{{domxref("clearInterval", "clearInterval()")}}
-austauschbar verwenden können. Aus Gründen der Klarheit sollten Sie dies jedoch vermeiden.
+Es ist wichtig zu beachten, dass der Pool von IDs, die von [`setTimeout()`](/de/docs/Web/API/SetTimeout) und [`setInterval()`](/de/docs/Web/API/SetInterval) verwendet werden, gemeinsam genutzt wird. Das bedeutet, dass Sie technisch gesehen `clearTimeout()` und [`clearInterval()`](/de/docs/Web/API/ClearInterval) austauschbar verwenden können. Aus Gründen der Klarheit sollten Sie dies jedoch vermeiden.
 
 ### Rückgabewert
 
@@ -35,7 +31,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Führen Sie das folgende Skript im Kontext einer Webseite aus und klicken Sie einmal auf die Seite. Sie werden eine Nachricht in einer Sekunde sehen. Wenn Sie innerhalb einer Sekunde mehrfach auf die Seite klicken, erscheint der Alarm nur einmal.
+Führen Sie das folgende Skript im Kontext einer Webseite aus und klicken Sie einmal auf die Seite. Sie sehen, dass nach einer Sekunde eine Nachricht erscheint. Wenn Sie innerhalb einer Sekunde mehrfach auf die Seite klicken, erscheint der Alarm nur einmal.
 
 ```js
 const alarm = {
@@ -65,7 +61,7 @@ const alarm = {
 window.addEventListener("click", () => alarm.setup());
 ```
 
-## Anmerkungen
+## Hinweise
 
 Das Übergeben einer ungültigen ID an `clearTimeout()` bewirkt stillschweigend nichts; es wird keine Ausnahme ausgelöst.
 
@@ -79,7 +75,7 @@ Das Übergeben einer ungültigen ID an `clearTimeout()` bewirkt stillschweigend 
 
 ## Siehe auch
 
-- {{domxref("setTimeout()")}}
-- {{domxref("setInterval()")}}
-- {{domxref("clearInterval()")}}
-- {{domxref("Window.requestAnimationFrame()")}}
+- [`setTimeout()`](/de/docs/Web/API/SetTimeout)
+- [`setInterval()`](/de/docs/Web/API/SetInterval)
+- [`clearInterval()`](/de/docs/Web/API/ClearInterval)
+- [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)

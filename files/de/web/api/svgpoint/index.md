@@ -8,7 +8,7 @@ l10n:
 {{APIRef("SVG")}}{{Deprecated_Header}}
 
 > **Warning:** `SVGPoint` ist veraltet.
-> Verwenden Sie stattdessen {{domxref("DOMPoint")}} oder {{domxref("DOMPointReadOnly")}}.
+> Verwenden Sie stattdessen [`DOMPoint`](/de/docs/Web/API/DOMPoint) oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly).
 
 Ein `SVGPoint` repräsentiert einen 2D- oder 3D-Punkt im SVG-Koordinatensystem.
 
@@ -25,11 +25,11 @@ Der zurückgegebene Wert ist ein `SVGPoint`-Objekt.
 ## Beispiel
 
 ```js
-// Erstellen Sie einen SVGPoint im Benutzerkoordinatensystem
+// Create an SVGPoint in the user coordinate system
 let s = document.getElementById("SVG-ElementID").createSVGPoint();
 
-// Setzen Sie dann die x- und y-Werte des zurückgegebenen SVGPoint-Objekts
-// (welches die Variable `s` ist)
+// Then, set the x and y values of the returned SVGPoint object
+// (which is the variable `s`)
 s.y = 10;
 s.x = 10;
 ```
@@ -38,6 +38,6 @@ s.x = 10;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

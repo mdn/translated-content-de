@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: selectAlternateInterface()-Methode"
+title: "USBDevice: selectAlternateInterface() Methode"
 short-title: selectAlternateInterface()
 slug: Web/API/USBDevice/selectAlternateInterface
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`selectAlternateInterface()`**-Methode der
-{{domxref("USBDevice")}}-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn der angegebene alternative Endpunkt ausgewählt wird.
+Die **`selectAlternateInterface()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn das angegebene alternative Endpunkt ausgewählt wurde.
 
 ## Syntax
 
@@ -20,8 +19,7 @@ selectAlternateInterface(interfaceNumber, alternateSetting)
 ### Parameter
 
 - `interfaceNumber`
-  - : Der Index einer der von dem Gerät unterstützten Schnittstellen. Schnittstellen
-    sind gerätespezifisch.
+  - : Der Index einer der Schnittstellen, die vom Gerät unterstützt werden. Schnittstellen sind gerätespezifisch.
 - `alternateSetting`
   - : Die Konfiguration der ausgewählten Schnittstelle.
 

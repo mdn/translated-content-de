@@ -8,11 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **{{domxref("VideoTrack")}}**-Eigenschaft **`selected`** steuert, ob eine bestimmte Videospur aktiv ist oder nicht.
+Die **[`VideoTrack`](/de/docs/Web/API/VideoTrack)**-Eigenschaft
+**`selected`** steuert, ob eine bestimmte Videospur aktiv ist oder nicht.
 
 ## Wert
 
-Die `selected`-Eigenschaft ist ein Boolean, dessen Wert `true` ist, wenn die Spur aktiv ist. Es kann jeweils nur eine einzige Videospur aktiv sein, daher wird, wenn diese Eigenschaft für eine Spur auf `true` gesetzt wird, während eine andere Spur aktiv ist, die andere Spur inaktiv sein.
+Die `selected`-Eigenschaft ist ein Boolean, dessen Wert `true` ist, wenn die
+Spur aktiv ist. Zu jedem Zeitpunkt kann nur eine Videospur aktiv sein, daher wird das
+Setzen dieser Eigenschaft auf `true` für eine Spur, während eine andere Spur aktiv ist,
+diese andere Spur inaktiv machen.
 
 ## Spezifikationen
 

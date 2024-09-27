@@ -1,115 +1,93 @@
 ---
-title: "RTCPeerConnection: setRemoteDescription()-Methode"
+title: "RTCPeerConnection: setRemoteDescription() Methode"
 short-title: setRemoteDescription()
 slug: Web/API/RTCPeerConnection/setRemoteDescription
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: b913cece0d35b5a7d1b5d3f4c628dcbbddfc7435
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`setRemoteDescription()`**-Methode der {{domxref("RTCPeerConnection")}}-Schnittstelle setzt die angegebene Sitzungsbeschreibung als aktuelles Angebot oder Antwort des entfernten Peers. Die Beschreibung gibt die Eigenschaften des entfernten Endes der Verbindung an, einschließlich des Medienformats. Die Methode nimmt einen einzigen Parameter—die Sitzungsbeschreibung—entgegen und gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald die Beschreibung geändert wurde, und zwar asynchron.
+Die **`setRemoteDescription()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle setzt die angegebene Sitzungsbeschreibung als aktuelles Angebot oder Antwort des entfernten Peers. Die Beschreibung spezifiziert die Eigenschaften des entfernten Endes der Verbindung, einschließlich des Medienformats. Die Methode nimmt einen einzigen Parameter - die Sitzungsbeschreibung - und gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald die Beschreibung asynchron geändert wurde.
 
-Dies wird typischerweise aufgerufen, nachdem ein Angebot oder eine Antwort von einem anderen Peer über den Signalisierungsserver empfangen wurde. Beachten Sie, dass wenn `setRemoteDescription()` aufgerufen wird, während bereits eine Verbindung besteht, dass eine Neuverhandlung im Gange ist (möglicherweise um sich an sich ändernde Netzwerkbedingungen anzupassen).
+Dies wird typischerweise aufgerufen, nachdem ein Angebot oder eine Antwort von einem anderen Peer über den Signalisierungsserver empfangen wurde. Beachten Sie, dass wenn `setRemoteDescription()` aufgerufen wird, während bereits eine Verbindung besteht, dies bedeutet, dass eine Neuverhandlung im Gange ist (möglicherweise um sich an veränderte Netzwerkbedingungen anzupassen).
 
-Da Beschreibungen ausgetauscht werden, bis die beiden Peers sich auf eine Konfiguration geeinigt haben, tritt die durch den Aufruf von `setRemoteDescription()` übermittelte Beschreibung nicht sofort in Kraft. Stattdessen bleibt die aktuelle Verbindungskonfiguration bestehen, bis die Verhandlung abgeschlossen ist. Erst dann tritt die vereinbarte Konfiguration in Kraft.
+Da Beschreibungen ausgetauscht werden, bis sich die beiden Peers auf eine Konfiguration einigen, tritt die durch den Aufruf von `setRemoteDescription()` übermittelte Beschreibung nicht sofort in Kraft. Stattdessen bleibt die aktuelle Verbindungskonfiguration bis zum Abschluss der Verhandlung bestehen. Erst dann tritt die vereinbarte Konfiguration in Kraft.
 
 ## Syntax
 
 ```js-nolint
 setRemoteDescription(sessionDescription)
+
+// deprecated
+setRemoteDescription(sessionDescription, successCallback, errorCallback)
 ```
 
 ### Parameter
 
 - `sessionDescription`
-  - : Ein {{domxref("RTCSessionDescriptionInit")}} oder {{domxref("RTCSessionDescription")}}, das das aktuelle Angebot oder die Antwort des entfernten Peers spezifiziert. Dieser Wert ist ein Angebot oder eine Antwort, die vom entfernten Peer über Ihre Implementierung empfangen wurde.
 
-Der `sessionDescription`-Parameter ist technisch vom Typ `RTCSessionDescriptionInit`, aber da {{domxref("RTCSessionDescription")}} so serialisiert wird, dass sie von `RTCSessionDescriptionInit` nicht zu unterscheiden ist, können Sie auch eine `RTCSessionDescription` übergeben. Dies ermöglicht es Ihnen, Code wie den folgenden zu vereinfachen:
+  - : Ein Objekt, das das aktuelle Angebot oder die Antwort des entfernten Peers spezifiziert. Es sollte die folgenden Eigenschaften enthalten:
 
-```js
-myPeerConnection
-  .setRemoteDescription(new RTCSessionDescription(description))
-  .then(() => createMyStream());
-```
+    - `type`
+      - : Ein String, der den Typ der Sitzungsbeschreibung angibt. Siehe [`RTCSessionDescription.type`](/de/docs/Web/API/RTCSessionDescription/type).
+    - `sdp` {{optional_inline}}
+      - : Ein String, der das SDP beschreibt, das die Sitzung beschreibt. Wenn sdp nicht bereitgestellt wird, standardmäßig ein leerer String. Wenn `type` `"rollback"` ist, muss `sdp` null oder ein leerer String sein. Siehe [`RTCSessionDescription.sdp`](/de/docs/Web/API/RTCSessionDescription/sdp).
 
-zu:
+    Sie können auch eine tatsächliche [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Instanz übergeben, aber es gibt keinen Unterschied. Aus diesem Grund ist der `RTCSessionDescription`-Konstruktor veraltet.
 
-```js
-myPeerConnection.setRemoteDescription(description).then(() => createMyStream());
-```
-
-Mit der Syntax [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function)/[`await`](/de/docs/Web/JavaScript/Reference/Operators/await) können Sie dies weiter vereinfachen:
-
-```js
-await myPeerConnection.setRemoteDescription(description);
-createMyStream();
-```
-
-Da es unnötig ist, ist der {{domxref("RTCSessionDescription.RTCSessionDescription", "RTCSessionDescription()")}}-Konstruktor veraltet.
-
-### Rückgabewert
-
-Ein {{jsxref("Promise")}}, das erfüllt wird, sobald der Wert der {{domxref("RTCPeerConnection.remoteDescription", "remoteDescription")}} der Verbindung erfolgreich geändert wurde oder abgelehnt, wenn die Änderung nicht angewendet werden kann (zum Beispiel, wenn die angegebene Beschreibung mit einem oder beiden Peers der Verbindung inkompatibel ist). Der Promise-Erfüllungs-Handler erhält keine Eingabeparameter.
-
-> [!NOTE]
-> Der Prozess des Änderns von Beschreibungen umfasst tatsächlich Zwischenstufen, die von der WebRTC-Ebene gehandhabt werden, um sicherzustellen, dass eine aktive Verbindung geändert werden kann, ohne die Verbindung zu verlieren, wenn die Änderung nicht gelingt. Weitere Details zu diesem Prozess finden Sie unter [Ausstehende und aktuelle Beschreibungen](/de/docs/Web/API/WebRTC_API/Connectivity#pending_and_current_descriptions) auf der WebRTC-Konnektivitätsseite.
-
-### Ausnahmen
-
-Die folgenden Ausnahmen werden an den Ablehnungs-Handler des von `setRemoteDescription()` zurückgegebenen Promises gemeldet:
-
-- `InvalidAccessError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn der Inhalt der Beschreibung ungültig ist.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn die {{domxref("RTCPeerConnection")}} geschlossen ist oder sich in einem Zustand befindet, der mit dem {{domxref("RTCSessionDescription.type", "type")}} der angegebenen Beschreibung nicht kompatibel ist. Zum Beispiel wird diese Ausnahme ausgelöst, wenn der `type` `rollback` ist und der Signalisierungszustand einer der folgenden ist: `stable`, `have-local-pranswer` oder `have-remote-pranswer`, da Sie eine Verbindung, die entweder vollständig aufgebaut ist oder sich im Endstadium des Verbindungsaufbaus befindet, nicht zurücksetzen können.
-- `OperationError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn ein Fehler nicht mit den hier angegebenen übereinstimmt. Dazu gehören Identitätsvalidierungsfehler.
-- `RTCError` {{domxref("DOMException")}}
-  - : Wird mit {{domxref("RTCError.errorDetail", "errorDetail")}} auf `sdp-syntax-error` zurückgegeben, wenn das von {{domxref("RTCSessionDescription.sdp")}} angegebene {{Glossary("SDP")}} nicht gültig ist. Die Eigenschaft {{domxref("RTCError.sdpLineNumber", "sdpLineNumber")}} des Fehlerobjekts gibt die Zeilennummer innerhalb des SDP an, auf der der Syntaxfehler erkannt wurde.
-- {{jsxref("TypeError")}}
-  - : Wird zurückgegeben, wenn das angegebene `RTCSessionDescriptionInit` oder `RTCSessionDescription`-Objekt die {{domxref("RTCSessionDescription.type", "type")}}-Eigenschaft fehlt oder überhaupt kein Beschreibungsparameter angegeben wurde.
-
-## Verwendungshinweise
-
-Wenn Sie `setRemoteDescription()` aufrufen, überprüft der ICE-Agent, ob sich die {{domxref("RTCPeerConnection")}} entweder im `stable`- oder `have-remote-offer`-{{domxref("RTCPeerConnection.signalingState", "signalingState")}} befindet. Diese Zustände zeigen an, dass entweder eine bestehende Verbindung neu verhandelt wird oder dass ein zuvor durch einen früheren Aufruf von `setRemoteDescription()` angegebenes Angebot durch das neue Angebot ersetzt werden soll. In beiden dieser Fälle befinden wir uns am Beginn des Verhandlungsprozesses, und das Angebot wird als die entfernte Beschreibung gesetzt.
-
-Andererseits, wenn wir mitten in einer laufenden Verhandlung sind und ein Angebot in `setRemoteDescription()` eingegeben wird, startet der ICE-Agent automatisch ein ICE-Rollback, um die Verbindung in einen stabilen Signalisierungszustand zurückzusetzen, und setzt dann, sobald das Rollback abgeschlossen ist, die entfernte Beschreibung auf das angegebene Angebot. Dies beginnt eine neue Verhandlungssitzung, mit dem neu etablierten Angebot als Ausgangspunkt.
-
-Mit Beginn der neuen Verhandlung mit dem neu etablierten Angebot ist der lokale Peer jetzt der Angerufene, auch wenn er zuvor der Anrufer war. Dies erfolgt anstelle des Auslösens einer Ausnahme, wodurch die Anzahl potenzieller Fehler reduziert wird und die Verarbeitung, die Sie durchführen müssen, vereinfacht wird, wenn Sie ein Angebot erhalten, indem es die Notwendigkeit eliminiert, den Angebot/Antwort-Prozess unterschiedlich zu behandeln, je nachdem, ob der lokale Peer der Anrufer oder der Angerufene ist.
-
-> [!NOTE]
-> Frühere Implementierungen von WebRTC würden eine Ausnahme auslösen, wenn ein Angebot außerhalb eines `stable`- oder `have-remote-offer`-Zustands gesetzt wurde.
-
-## Veraltete Syntax
-
-In älterem Code und Dokumentationen könnte eine rückrufbasierte Version dieser Funktion verwendet werden. Diese ist veraltet, und ihre Verwendung wird _dringend_ abgeraten. Sie sollten jede bestehende Code-Basis aktualisieren, um die {{jsxref("Promise")}}-basierte Version von `setRemoteDescription()` zu verwenden. Die Parameter des älteren Formulars von `setRemoteDescription()` sind unten beschrieben, um bei der Aktualisierung bestehender Code-Basen zu helfen.
-
-```js
-pc.setRemoteDescription(sessionDescription, successCallback, errorCallback);
-```
-
-### Parameter
+In älterem Code und Dokumentation kann eine Callback-basierte Version dieser Funktion verwendet werden. Diese wurde veraltet und ihre Verwendung wird _stark_ abgeraten. Sie sollten vorhandenen Code aktualisieren, um die auf {{jsxref("Promise")}}-basierte Version von `setRemoteDescription()` zu verwenden. Die Parameter für die ältere Form von `setRemoteDescription()` sind unten beschrieben, um die Aktualisierung vorhandenen Codes zu erleichtern.
 
 - `successCallback` {{deprecated_inline}}
   - : Eine JavaScript-{{jsxref("Function")}}, die keine Eingabeparameter akzeptiert und aufgerufen wird, sobald die Beschreibung erfolgreich gesetzt wurde. Zu diesem Zeitpunkt kann das Angebot über den Signalisierungsserver an einen entfernten Peer gesendet werden.
 - `errorCallback` {{deprecated_inline}}
-  - : Eine Funktion, die die Signatur `RTCPeerConnectionErrorCallback` erfüllt, die aufgerufen wird, wenn die Beschreibung nicht gesetzt werden kann. Sie wird ein einziges {{domxref("DOMException")}}-Objekt übergeben, das erklärt, warum die Anforderung fehlgeschlagen ist.
+  - : Eine Funktion mit der Signatur `RTCPeerConnectionErrorCallback`, die aufgerufen wird, wenn die Beschreibung nicht gesetzt werden kann. Es wird ein einzelnes [`DOMException`](/de/docs/Web/API/DOMException)-Objekt übergeben, das erklärt, warum die Anforderung fehlgeschlagen ist.
 
-Diese veraltete Form der Methode wird sofort zurückgegeben, ohne darauf zu warten, dass die tatsächliche Einstellung durchgeführt wird: im Erfolgsfall wird der `successCallback` aufgerufen; im Falle eines Fehlers wird der `errorCallback` aufgerufen.
+Diese veraltete Form der Methode liefert sofort ein Ergebnis zurück, ohne darauf zu warten, dass das eigentliche Setzen durchgeführt wird: Im Erfolgsfall wird der `successCallback` aufgerufen; im Falle eines Fehlers wird der `errorCallback` aufgerufen.
+
+### Rückgabewert
+
+Ein {{jsxref("Promise")}}, das erfüllt wird, sobald der Wert der [`remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription) der Verbindung erfolgreich geändert oder abgelehnt wird, wenn die Änderung nicht angewendet werden kann (zum Beispiel, wenn die angegebene Beschreibung mit einem oder beiden Peers in der Verbindung nicht kompatibel ist). Der Erfüllungs-Handler des Versprechens erhält keine Eingabeparameter.
+
+> [!NOTE]
+> Der Prozess des Änderns von Beschreibungen umfasst tatsächlich Zwischenstufen, die von der WebRTC-Schicht bearbeitet werden, um sicherzustellen, dass eine aktive Verbindung geändert werden kann, ohne dass die Verbindung verloren geht, falls die Änderung nicht erfolgreich ist. Siehe [Ausstehende und aktuelle Beschreibungen](/de/docs/Web/API/WebRTC_API/Connectivity#pending_and_current_descriptions) auf der WebRTC-Konnektivitätsseite für weitere Details zu diesem Prozess.
 
 ### Ausnahmen
 
-Bei Verwendung der veralteten rückrufbasierten Version von `setRemoteDescription()` können die folgenden Ausnahmen auftreten:
+Die folgenden Ausnahmen werden an den Ablehnungs-Handler für das von `setRemoteDescription()` zurückgegebene Versprechen gemeldet:
+
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn der Inhalt der Beschreibung ungültig ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) geschlossen ist oder sich in einem Zustand befindet, der mit dem angegebenen `type` der Beschreibung nicht kompatibel ist. Diese Ausnahme wird beispielsweise ausgelöst, wenn der `type` `rollback` ist und der Signalisierungszustand einer von `stable`, `have-local-pranswer` oder `have-remote-pranswer` ist, da Sie eine Verbindung, die entweder vollständig hergestellt ist oder sich in der Endphase befindet, nicht zurücksetzen können.
+- `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn ein Fehler nicht zu den hier angegebenen passt. Dazu gehören Identitätsvalidierungsfehler.
+- `RTCError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird mit dem [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) auf `sdp-syntax-error` gesetzt, wenn das [SDP](/de/docs/Glossary/SDP), das von [`RTCSessionDescription.sdp`](/de/docs/Web/API/RTCSessionDescription/sdp) angegeben wird, ungültig ist. Die [`sdpLineNumber`](/de/docs/Web/API/RTCError/sdpLineNumber)-Eigenschaft des Fehlerobjekts gibt die Zeilennummer innerhalb des SDP an, auf der der Syntaxfehler entdeckt wurde.
+- {{jsxref("TypeError")}}
+  - : Wird zurückgegeben, wenn die `sessionDescription` die [`type`](/de/docs/Web/API/RTCSessionDescription/type)-Eigenschaft fehlt oder überhaupt kein Beschreibungsparameter bereitgestellt wurde.
+
+Beim Verwenden der veralteten callback-basierten Version von `setRemoteDescription()` können die folgenden Ausnahmen auftreten:
 
 - `InvalidStateError` {{deprecated_inline}}
-  - : Der {{domxref("RTCPeerConnection.signalingState", "signalingState")}} der Verbindung ist `"closed"`, was darauf hinweist, dass die Verbindung derzeit nicht geöffnet ist, sodass keine Verhandlung stattfinden kann.
+  - : Der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) der Verbindung ist `"closed"`, was darauf hinweist, dass die Verbindung derzeit nicht geöffnet ist, sodass eine Verhandlung nicht stattfinden kann.
 - `InvalidSessionDescriptionError` {{deprecated_inline}}
-  - : Die durch den `sessionDescription`-Parameter angegebene {{domxref("RTCSessionDescription")}} ist ungültig.
+  - : Der `sessionDescription`-Parameter ist ungültig.
+
+## Verwendungshinweise
+
+Wenn Sie `setRemoteDescription()` aufrufen, überprüft der ICE-Agent, ob sich die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) entweder im `stable`- oder `have-remote-offer`-[`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) befindet. Diese Zustände zeigen an, dass entweder eine bestehende Verbindung neu verhandelt wird oder dass ein Angebot, das zuvor durch einen früheren Aufruf von `setRemoteDescription()` spezifiziert wurde, durch das neue Angebot ersetzt wird. In einem dieser beiden Fälle befinden wir uns am Anfang des Verhandlungsprozesses, und das Angebot wird als entfernte Beschreibung festgelegt.
+
+Andererseits, wenn wir uns mitten in einer laufenden Verhandlung befinden und ein Angebot in `setRemoteDescription()` übergeben wird, beginnt der ICE-Agent automatisch ein ICE-Rollback, um die Verbindung in einen stabilen Signalisierungszustand zurückzubringen, und setzt anschließend, sobald das Rollback abgeschlossen ist, die entfernte Beschreibung auf das angegebene Angebot. Dies beginnt eine neue Verhandlungsrunde mit dem neu etablierten Angebot als Ausgangspunkt.
+
+Beim Starten der neuen Verhandlung mit dem neu festgelegten Angebot ist der lokale Peer jetzt der Angerufene, selbst wenn er zuvor der Anrufer war. Dies geschieht anstatt eine Ausnahme auszulösen, wodurch die Anzahl der potenziellen Fehler verringert wird, und vereinfacht die Verarbeitungen, die Sie durchführen müssen, wenn Sie ein Angebot erhalten, indem es die Notwendigkeit eliminiert, den Prozess von Angebot und Antwort unterschiedlich zu behandeln, je nachdem, ob der lokale Peer der Anrufer oder der Angerufene ist.
+
+> [!NOTE]
+> Frühere Implementierungen von WebRTC lösten eine Ausnahme aus, wenn ein Angebot außerhalb eines `stable`- oder `have-remote-offer`-Zustands festgelegt wurde.
 
 ## Beispiele
 
-Hier sehen wir eine Funktion, die ein Angebot behandelt, das vom entfernten Peer empfangen wurde. Dieser Code ist aus dem Beispiel und Tutorial im Artikel [Signalisierung und Videotelefonie](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling) abgeleitet; schauen Sie sich diesen an, um weitere Details und eine ausführlichere Erklärung zu erhalten, was vor sich geht.
+Hier sehen wir eine Funktion, die ein von dem entfernten Peer empfangenes Angebot verarbeitet. Dieser Code ist aus dem Beispiel und Tutorial im Artikel [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling) abgeleitet; sehen Sie sich diesen Artikel für weitere Details und eine tiefere Erklärung dessen an, was vor sich geht.
 
 ```js
 function handleOffer(msg) {
@@ -131,7 +109,7 @@ function handleOffer(msg) {
 }
 ```
 
-Nachdem wir unsere {{domxref("RTCPeerConnection")}} erstellt und als `myPeerConnection` gespeichert haben, übergeben wir die Beschreibung, die im empfangenen Angebotsnachricht, `msg`, enthalten ist, direkt an `setRemoteDescription()`, um der WebRTC-Schicht des Benutzeragenten mitzuteilen, welche Konfiguration der Anrufer vorgeschlagen hat. Wenn unser Promise-Erfüllungs-Handler aufgerufen wird, was anzeigt, dass dies geschehen ist, erstellen wir einen Stream, fügen ihn der Verbindung hinzu, erstellen dann eine SDP-Antwort und rufen {{domxref("RTCPeerConnection.setLocalDescription", "setLocalDescription()")}} auf, um das als Konfiguration am Ende unseres Anrufs festzulegen, bevor wir diese Antwort an den Anrufer weiterleiten.
+Nachdem wir unsere [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellt und sie als `myPeerConnection` gespeichert haben, übergeben wir die Beschreibung, die in der empfangenen Angebotsnachricht `msg` enthalten ist, direkt in `setRemoteDescription()`, um der WebRTC-Schicht des Benutzeragents mitzuteilen, welche Konfiguration der Anrufer vorgeschlagen hat. Wenn unser Promise-Erfüllungs-Handler aufgerufen wird, was darauf hinweist, dass dies getan wurde, erstellen wir einen Stream, fügen ihn der Verbindung hinzu, dann erstellen wir eine SDP-Antwort und rufen [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) auf, um diese als Konfiguration am Endpunkt des Anrufs festzulegen, bevor wir diese Antwort an den Anrufer weiterleiten.
 
 ## Spezifikationen
 
@@ -144,6 +122,7 @@ Nachdem wir unsere {{domxref("RTCPeerConnection")}} erstellt und als `myPeerConn
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCPeerConnection.remoteDescription")}},
-  {{domxref("RTCPeerConnection.pendingRemoteDescription")}},
-  {{domxref("RTCPeerConnection.currentRemoteDescription")}}
+- [`RTCPeerConnection.remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription),
+  [`RTCPeerConnection.pendingRemoteDescription`](/de/docs/Web/API/RTCPeerConnection/pendingRemoteDescription),
+  [`RTCPeerConnection.currentRemoteDescription`](/de/docs/Web/API/RTCPeerConnection/currentRemoteDescription)
+- [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)

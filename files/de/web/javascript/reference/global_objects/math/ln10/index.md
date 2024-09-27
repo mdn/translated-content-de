@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Math.LN10`** repräsentiert den natürlichen Logarithmus von 10, ungefähr 2.302.
+Die statische Dateneigenschaft **`Math.LN10`** repräsentiert den natürlichen Logarithmus von 10, ungefähr 2,302.
 
 {{EmbedInteractiveExample("pages/js/math-ln10.html", "shorter")}}
 
@@ -23,7 +23,7 @@ Die statische Dateneigenschaft **`Math.LN10`** repräsentiert den natürlichen L
 
 ## Beschreibung
 
-Da `LN10` eine statische Eigenschaft von `Math` ist, verwenden Sie sie immer als `Math.LN10` und nicht als eine Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `LN10` eine statische Eigenschaft von `Math` ist, verwenden Sie sie immer als `Math.LN10` und nicht als Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "PageSwapEvent: viewTransition-Eigenschaft"
+title: "PageSwapEvent: viewTransition Eigenschaft"
 short-title: viewTransition
 slug: Web/API/PageSwapEvent/viewTransition
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`viewTransition`** der {{domxref("PageRevealEvent")}}-Schnittstelle enthält ein {{domxref("ViewTransition")}}-Objekt, das die aktive Ansichtstransition für die dokumentübergreifende Navigation darstellt.
+Die **`viewTransition`** schreibgeschützte Eigenschaft der [`PageRevealEvent`](/de/docs/Web/API/PageRevealEvent) Schnittstelle enthält ein [`ViewTransition`](/de/docs/Web/API/ViewTransition) Objekt, das die aktive Ansichtsübergang für die dokumentübergreifende Navigation darstellt.
 
 ## Wert
 
-Ein {{domxref("ViewTransition")}}-Objekt oder `null`, wenn keine Ansichtstransition aktiv ist, wenn das Ereignis ausgelöst wird.
+Ein [`ViewTransition`](/de/docs/Web/API/ViewTransition) Objekt oder `null`, wenn kein Ansichtsübergang aktiv ist, wenn das Ereignis ausgelöst wird.
 
 ## Beispiele
 
-Siehe die Hauptseite von {{domxref("PageSwapEvent")}}.
+Siehe die Hauptseite zu [`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent).
 
 ## Spezifikationen
 

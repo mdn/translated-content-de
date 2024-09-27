@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`get()`**-Methode der {{domxref("CookieStore")}}-Schnittstelle gibt ein einzelnes Cookie mit dem angegebenen `name` oder `options`-Objekt zurück. Die Methode liefert das erste übereinstimmende Cookie für die übergebenen Parameter zurück.
+Die **`get()`**-Methode der [`CookieStore`](/de/docs/Web/API/CookieStore)-Schnittstelle gibt ein einzelnes Cookie mit dem angegebenen `name` oder `options`-Objekt zurück. Die Methode gibt das erste übereinstimmende Cookie für die übergebenen Parameter zurück.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ get(options)
 
 ### Parameter
 
-Diese Methode erfordert einen der folgenden:
+Diese Methode erfordert einen der folgenden Parameter:
 
 - `name` {{optional_inline}}
   - : Ein String mit dem Namen eines Cookies.
@@ -28,7 +28,7 @@ Oder
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das Folgendes enthält:
+  - : Ein Objekt, das folgendes enthält:
 
     - `name`
       - : Ein String mit dem Namen eines Cookies.
@@ -36,11 +36,11 @@ Oder
       - : Ein String mit der URL eines Cookies.
 
 > [!NOTE]
-> Die `url`-Option ermöglicht die Änderung eines Cookies, das unter einer bestimmten URL steht. Service-Arbeiter können Cookies abrufen, die an jede URL unter ihrem Geltungsbereich gesendet würden. Aus einem Dokument können Sie nur die Cookies der aktuellen URL abrufen, sodass die einzige gültige URL in einem Dokumentkontext die URL des Dokuments ist.
+> Die `url`-Option ermöglicht die Änderung eines Cookies, das unter einer bestimmten URL festgelegt ist. Service Worker können Cookies abrufen, die an jede URL unter ihrem Geltungsbereich gesendet werden würden. Von einem Dokument aus können Sie nur die Cookies an der aktuellen URL abrufen, daher ist die einzige gültige URL im Kontext eines Dokuments die URL des Dokuments.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das das erste Cookie darstellt, das dem übermittelten `name` oder `options` entspricht. Dieses Objekt enthält die folgenden Eigenschaften:
+Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das das erste Cookie repräsentiert, das mit dem übermittelten `name` oder `options` übereinstimmt. Dieses Objekt enthält die folgenden Eigenschaften:
 
 - `domain`
 
@@ -48,7 +48,7 @@ Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das das erste C
 
 - `expires`
 
-  - : Ein Zeitstempel, angegeben als {{glossary("Unix time")}} in Millisekunden, der das Ablaufdatum des Cookies enthält.
+  - : Ein Zeitstempel, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, der das Ablaufdatum des Cookies enthält.
 
 - `name`
 
@@ -56,7 +56,7 @@ Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das das erste C
 
 - `partitioned`
 
-  - : Ein Boolean, der angibt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Siehe [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies) für weitere Informationen.
+  - : Ein Wahrheitswert, der angibt, ob das Cookie ein partitioniertes Cookie (`true`) ist oder nicht (`false`). Weitere Informationen finden Sie unter [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies).
 
 - `path`
 
@@ -64,32 +64,32 @@ Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das das erste C
 
 - `sameSite`
 
-  - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value) Werte:
+  - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value)-Werte:
 
     - `"strict"`
-      - : Cookies werden nur in einem First-Party-Kontext gesendet und nicht mit Anfragen gesendet, die von Drittanbieter-Websites initiiert werden.
+      - : Cookies werden nur im Kontext der Erstanbieter gesendet und nicht bei Anfragen, die von Drittanbieter-Websites initiiert werden.
     - `"lax"`
-      - : Cookies werden nicht bei normalen Cross-Site-Subanfragen (zum Beispiel zum Laden von Bildern oder Frames in eine Drittanbieter-Website) gesendet, aber wenn ein Benutzer innerhalb der Ursprungsseite navigiert (z. B. beim Folgen eines Links).
+      - : Cookies werden nicht bei normalen Cross-Site-Subrequests gesendet (zum Beispiel, um Bilder oder Frames auf einer Drittanbieter-Site zu laden), aber wenn ein Benutzer innerhalb der Ursprungsseite navigiert (d.h. wenn einem Link gefolgt wird).
     - `"none"`
       - : Cookies werden in allen Kontexten gesendet.
 
 - `secure`
 
-  - : Ein Boolean-Wert, der angibt, ob das Cookie nur in sicheren Kontexten verwendet werden soll (`true`) oder nicht (`false`).
+  - : Ein Wahrheitswert, der angibt, ob das Cookie nur in sicheren Kontexten verwendet werden soll (`true`) oder nicht (`false`).
 
 - `value`
   - : Ein String, der den Wert des Cookies enthält.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Ursprung nicht in eine URL {{glossary("Serialization", "serialisiert")}}.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn der Ursprung nicht zu einer URL [serialisiert](/de/docs/Glossary/Serialization) werden kann.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn:
+  - : Ausgelöst, wenn:
     - Der `options`-Parameter ein leeres Objekt ist.
-    - Die `url`-Option vorhanden ist und nicht mit der Erstellungs-URL übereinstimmt, wenn im Hauptthread.
-    - Die `url`-Option vorhanden ist und ihr Ursprung nicht derselbe ist wie der Ursprung der Erstellungs-URL.
-    - Die Abfrage der durch den angegebenen `name` oder `options` dargestellten Cookies fehlschlägt.
+    - Die `url`-Option vorhanden ist und nicht mit der Erstellungs-URL übereinstimmt, wenn im Haupthread.
+    - Die `url`-Option vorhanden ist und ihr Ursprung nicht mit dem Ursprung der Erstellungs-URL übereinstimmt.
+    - Das Abfragen von Cookies, die durch den angegebenen `name` oder `options` dargestellt werden, fehlschlägt.
 
 ## Beispiele
 
@@ -101,7 +101,7 @@ const cookie = await cookieStore.get("cookie1");
 if (cookie) {
   console.log(cookie);
 } else {
-  console.log("Cookie nicht gefunden");
+  console.log("Cookie not found");
 }
 ```
 

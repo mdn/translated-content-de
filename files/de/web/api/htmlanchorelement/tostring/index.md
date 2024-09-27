@@ -8,8 +8,7 @@ l10n:
 
 {{ApiRef("URL API")}}
 
-Die **`HTMLAnchorElement.toString()`** {{Glossary("stringifier")}}
-Methode gibt einen String zurück, der die ganze URL enthält. Es ist eine schreibgeschützte Version von {{domxref("HTMLAnchorElement.href")}}.
+Die **`HTMLAnchorElement.toString()`** [Stringifier](/de/docs/Glossary/stringifier)-Methode gibt eine Zeichenkette zurück, die die gesamte URL enthält. Sie ist eine schreibgeschützte Version von [`HTMLAnchorElement.href`](/de/docs/Web/API/HTMLAnchorElement/href).
 
 ## Syntax
 
@@ -23,16 +22,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der die vollständige URL des Elements enthält.
+Eine Zeichenkette, die die vollständige URL des Elements enthält.
 
 ## Beispiele
 
-### Aufruf von toString bei einem Ankerelement
+### Aufrufen von toString an einem Ankerelement
 
 ```js
-// Ein <a id="myAnchor" href="/de/docs/HTMLAnchorElement">-Element befindet sich im Dokument
+// An <a id="myAnchor" href="/en-US/docs/HTMLAnchorElement"> element is in the document
 const anchor = document.getElementById("myAnchor");
-anchor.toString(); // gibt 'https://developer.mozilla.org/de/docs/HTMLAnchorElement' zurück
+anchor.toString(); // returns 'https://developer.mozilla.org/en-US/docs/HTMLAnchorElement'
 ```
 
 ## Spezifikationen
@@ -45,4 +44,4 @@ anchor.toString(); // gibt 'https://developer.mozilla.org/de/docs/HTMLAnchorElem
 
 ## Siehe auch
 
-- Das {{domxref("HTMLAnchorElement")}} Interface, zu dem es gehört.
+- Die [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Schnittstelle, zu der es gehört.

@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: compressedTexSubImage3D()-Methode"
+title: "WebGL2RenderingContext: compressedTexSubImage3D() Methode"
 short-title: compressedTexSubImage3D()
 slug: Web/API/WebGL2RenderingContext/compressedTexSubImage3D
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.compressedTexSubImage3D()`**-Methode des [WebGL-API](/de/docs/Web/API/WebGL_API) gibt ein dreidimensionales Unterrechteck für ein Texturbild im komprimierten Format an.
+Die **`WebGL2RenderingContext.compressedTexSubImage3D()`** Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt ein dreidimensionales Unterrechteck für ein Texturbild in einem komprimierten Format fest.
 
 ## Syntax
 
@@ -24,28 +24,29 @@ compressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height,
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das den Bindungspunkt (Ziel) der aktiven Textur spezifiziert. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Target) der aktiven Textur angibt.
+    Mögliche Werte:
 
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
 
 - `level`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, das die Detailstufe spezifiziert. Stufe 0 ist das Basisbildniveau und Stufe _n_ ist das n-te Mipmap-Reduktionsniveau.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das das Detaillevel angibt. Level 0 ist das Basisbildlevel und Level _n_ ist das n-te Mipmap-Reduktionslevel.
 - `xoffset`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, das den x-Offset innerhalb des komprimierten Texturbildes spezifiziert.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den x-Offset innerhalb des komprimierten Texturbildes angibt.
 - `yoffset`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, das den y-Offset innerhalb des komprimierten Texturbildes spezifiziert.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den y-Offset innerhalb des komprimierten Texturbildes angibt.
 - `zoffset`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, das den z-Offset innerhalb des komprimierten Texturbildes spezifiziert.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den z-Offset innerhalb des komprimierten Texturbildes angibt.
 - `width`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, das die Breite der Textur spezifiziert.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Breite der Textur angibt.
 - `height`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, das die Höhe der Textur spezifiziert.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Höhe der Textur angibt.
 - `depth`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, das die Tiefe der Textur spezifiziert.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Tiefe der Textur angibt.
 - `format`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das das komprimierte Bildformat spezifiziert. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Format des komprimierten Bildes angibt. Mögliche Werte:
 
     - `gl.COMPRESSED_R11_EAC`
     - `gl.COMPRESSED_SIGNED_R11_EAC`
@@ -59,11 +60,11 @@ compressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height,
     - `gl.COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2`
 
 - `imageSize`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, das die Anzahl der Bytes angibt, die aus dem an `gl.PIXEL_UNPACK_BUFFER` gebundenen Puffer gelesen werden sollen.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Anzahl der Bytes angibt, die aus dem an `gl.PIXEL_UNPACK_BUFFER` gebundenen Puffer gelesen werden sollen.
 - `offset`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, das den Offset in Bytes angibt, ab dem aus dem an `gl.PIXEL_UNPACK_BUFFER` gebundenen Puffer gelesen werden soll.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den Offset in Bytes angibt, ab dem im Puffer gelesen werden soll, der an `gl.PIXEL_UNPACK_BUFFER` gebunden ist.
 - `srcData`
-  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt, das als Datenspeicher für die komprimierten Bilddaten im Speicher verwendet wird.
+  - : Ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}} Objekt, das als Datenspeicher für die komprimierten Bilddaten im Speicher verwendet wird.
 
 ### Rückgabewert
 
@@ -95,5 +96,5 @@ gl.compressedTexSubImage3D(
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.compressedTexSubImage2D()")}}
-- {{domxref("WebGLRenderingContext.compressedTexImage2D", "WebGL2RenderingContext.compressedTexImage3D()")}}
+- [`WebGLRenderingContext.compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D)
+- [`WebGL2RenderingContext.compressedTexImage3D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D)

@@ -1,5 +1,5 @@
 ---
-title: "Metadaten: Eigenschaft size"
+title: "Metadata: size-Eigenschaft"
 short-title: size
 slug: Web/API/Metadata/size
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}{{Non-standard_header}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`size`**-Eigenschaft der {{domxref("Metadata")}}-Schnittstelle gibt die Größe in Bytes des referenzierten Datei- oder anderen Dateisystemobjekts auf der Festplatte an.
+Die schreibgeschützte **`size`**-Eigenschaft der [`Metadata`](/de/docs/Web/API/Metadata)-Schnittstelle gibt die Größe in Bytes der referenzierten Datei oder eines anderen Dateisystemobjekts auf der Festplatte an.
 
 ## Wert
 
@@ -26,7 +26,7 @@ workingDirectory.getFile(
     fileEntry.getMetadata((metadata) => {
       if (metadata.size > 1048576) {
         fileEntry.remove(() => {
-          /* Protokolldatei entfernt; hier etwas Cleveres tun */
+          /* log file removed; do something clever here */
         });
       }
     });
@@ -37,7 +37,7 @@ workingDirectory.getFile(
 
 ## Spezifikationen
 
-Diese Funktion wurde aus allen Spezifikationen entfernt und befindet sich nicht im Prozess der Standardisierung.
+Dieses Merkmal wurde aus allen Spezifikationen entfernt und befindet sich nicht im Prozess der Standardisierung.
 
 ## Browser-Kompatibilität
 
@@ -47,6 +47,6 @@ Diese Funktion wurde aus allen Spezifikationen entfernt und befindet sich nicht 
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
 - [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
-- {{domxref("Metadata")}}
-- {{domxref("FileSystemEntry.getMetadata()")}}
-- {{domxref("FileSystemFileEntry")}}
+- [`Metadata`](/de/docs/Web/API/Metadata)
+- [`FileSystemEntry.getMetadata()`](/de/docs/Web/API/FileSystemEntry/getMetadata)
+- [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)

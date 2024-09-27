@@ -3,25 +3,25 @@ title: "HTMLScriptElement: crossOrigin-Eigenschaft"
 short-title: crossOrigin
 slug: Web/API/HTMLScriptElement/crossOrigin
 l10n:
-  sourceCommit: cc756217fbcb8214730fe736973ec15f3592a246
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`crossOrigin`**-Eigenschaft der {{domxref("HTMLScriptElement")}}-Schnittstelle spiegelt die {{Glossary("CORS", "Cross-Origin Resource Sharing")}}-Einstellungen für das Skriptelement wider. Für klassische Skripte von anderen [Ursprüngen](/de/docs/Glossary/Origin) kontrolliert sie, ob vollständige Fehlermeldungen angezeigt werden. Bei Modulscripten steuert sie das Script selbst und jedes Script, das es importiert. Siehe [CORS-Einstellungsattribute](/de/docs/Web/HTML/Attributes/crossorigin) für Details.
+Die **`crossOrigin`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces spiegelt die [Cross-Origin Resource Sharing](/de/docs/Glossary/CORS)-Einstellungen für das Skriptelement wider. Für klassische Skripte von anderen [Ursprüngen](/de/docs/Glossary/Origin) steuert es, ob vollständige Fehlerinformationen offengelegt werden. Für Modulscripte steuert es das Skript selbst und alle Skripte, die es importiert. Details finden Sie unter [CORS-Einstellung-Attribute](/de/docs/Web/HTML/Attributes/crossorigin).
 
 ## Wert
 
-Ein String eines Schlüsselwortes, der den CORS-Modus angibt, der beim Abrufen der Ressource verwendet werden soll. Mögliche Werte sind:
+Ein String eines Schlüsselworts, das den zu verwendenden CORS-Modus beim Abrufen der Ressource angibt. Mögliche Werte sind:
 
 - `anonymous` oder ein leerer String (`""`)
-  - : Anfragen, die vom {{domxref("HTMLScriptElement")}} gesendet werden, verwenden den `cors`-{{domxref("Request.mode", "mode", "", "nocode")}} und den `same-origin`-{{domxref("Request.credentials", "credentials", "", "nocode")}} Modus. Das bedeutet, dass CORS aktiviert ist und Anmeldeinformationen gesendet werden, _wenn_ die Ressource von derselben Quelle abgerufen wird, von der das Dokument geladen wurde.
+  - : Anfragen, die vom [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement) gesendet werden, verwenden den `cors`- [Modus](/de/docs/Web/API/Request/mode) und den `same-origin`- [Anmeldeinformationen](/de/docs/Web/API/Request/credentials) Modus. Dies bedeutet, dass CORS aktiviert ist und Anmeldeinformationen gesendet werden _wenn_ die Ressource von dem gleichen Ursprung abgerufen wurde, von dem das Dokument geladen wurde.
 - `use-credentials`
-  - : Anfragen, die vom {{domxref("HTMLScriptElement")}} gesendet werden, verwenden den `cors`-{{domxref("Request.mode", "mode", "", "nocode")}} und den `include`-{{domxref("Request.credentials", "credentials", "", "nocode")}} Modus. Alle Ressourcenanforderungen durch das Element nutzen CORS, unabhängig davon, von welcher Domain der Abruf erfolgt.
+  - : Anfragen, die vom [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement) gesendet werden, verwenden den `cors`- [Modus](/de/docs/Web/API/Request/mode) und den `include`- [Anmeldeinformationen](/de/docs/Web/API/Request/credentials) Modus. Alle Ressourcenanforderungen des Elements verwenden CORS, unabhängig von der Domain, von der der Abruf erfolgt.
 
-Wenn die `crossOrigin`-Eigenschaft mit einem anderen Wert angegeben wird, ist dies dasselbe wie die Angabe als `anonymous`.
+Wenn die `crossOrigin`-Eigenschaft mit einem anderen Wert spezifiziert wird, ist es dasselbe, als würde sie als `anonymous` spezifiziert.
 
-Wenn die `crossOrigin`-Eigenschaft nicht angegeben ist, wird die Ressource ohne CORS abgerufen (der `no-cors`-{{domxref("Request.mode", "mode", "", "nocode")}} und der `same-origin`-{{domxref("Request.credentials", "credentials", "", "nocode")}} Modus).
+Wenn die `crossOrigin`-Eigenschaft nicht spezifiziert wird, wird die Ressource ohne CORS abgerufen (der `no-cors`- [Modus](/de/docs/Web/API/Request/mode) und der `same-origin`- [Anmeldeinformationen](/de/docs/Web/API/Request/credentials) Modus).
 
 ## Spezifikationen
 
@@ -33,6 +33,6 @@ Wenn die `crossOrigin`-Eigenschaft nicht angegeben ist, wird die Ressource ohne 
 
 ## Siehe auch
 
-- {{domxref("HTMLImageElement.crossOrigin")}}
-- {{domxref("HTMLLinkElement.crossOrigin")}}
-- {{domxref("HTMLMediaElement.crossOrigin")}}
+- [`HTMLImageElement.crossOrigin`](/de/docs/Web/API/HTMLImageElement/crossOrigin)
+- [`HTMLLinkElement.crossOrigin`](/de/docs/Web/API/HTMLLinkElement/crossOrigin)
+- [`HTMLMediaElement.crossOrigin`](/de/docs/Web/API/HTMLMediaElement/crossOrigin)

@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Keyboard API")}}
 
-Die **`keys()`** Methode der {{domxref("KeyboardLayoutMap")}} Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) Objekt zurück, das die Schlüssel (keys) für jeden Index im `KeyboardLayoutMap` Objekt enthält.
+Die **`keys()`** Methode der [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap) Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) Objekt zurück, das die Schlüssel für jeden Index im `KeyboardLayoutMap` Objekt enthält.
 
 Die Methode ist ansonsten identisch mit {{jsxref("Map.prototype.keys()")}}.
 
@@ -18,7 +18,7 @@ Ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) 
 
 ## Beispiele
 
-Das folgende Beispiel iteriert über jeden Tastaturcode auf einer englischen QWERTY-Tastatur.
+Das folgende Beispiel iteriert jeden Tastaturcode auf einer englischen QWERTY-Tastatur.
 
 ```js
 navigator.keyboard.getLayoutMap().then((keyboardLayoutMap) => {

@@ -1,6 +1,6 @@
 ---
-title: "AudioParam: Wert-Eigenschaft"
-short-title: Wert
+title: "AudioParam: value-Eigenschaft"
+short-title: value
 slug: Web/API/AudioParam/value
 l10n:
   sourceCommit: 0a881eea07f0cec6ca4ed85a24af43b367a9f80d
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die Eigenschaft **`value`** der [Web Audio API](/de/docs/Web/API/Web_Audio_API)-Schnittstelle {{domxref("AudioParam")}} dient dazu, den Wert dieses {{domxref("AudioParam")}} zum aktuellen Zeitpunkt zu erhalten oder zu setzen. Der Wert ist anfänglich auf {{domxref("AudioParam.defaultValue")}} festgelegt.
+Die Eigenschaft **`value`** des [`AudioParam`](/de/docs/Web/API/AudioParam)-Interfaces der [Web Audio API](/de/docs/Web/API/Web_Audio_API) gibt den Wert dieses [`AudioParam`](/de/docs/Web/API/AudioParam) zur aktuellen Zeit zurück oder setzt ihn. Anfangs ist der Wert auf [`AudioParam.defaultValue`](/de/docs/Web/API/AudioParam/defaultValue) festgelegt.
 
-Das Setzen von `value` hat die gleiche Wirkung wie der Aufruf von {{domxref("AudioParam.setValueAtTime")}} mit dem Zeitwert, der von der `AudioContext`-Eigenschaft {{domxref("BaseAudioContext/currentTime", "currentTime")}} zurückgegeben wird.
+Das Setzen von `value` hat denselben Effekt wie ein Aufruf von [`AudioParam.setValueAtTime`](/de/docs/Web/API/AudioParam/setValueAtTime) mit der durch die `AudioContext`-Eigenschaft [`currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) zurückgegebenen Zeit.
 
 ## Wert
 
-Eine Gleitkommazahl vom Typ {{jsxref("Number")}}, die den Parameterwert zum aktuellen Zeitpunkt angibt. Dieser Wert liegt zwischen den Werten, die durch die Eigenschaften {{domxref("AudioParam.minValue", "minValue")}} und {{domxref("AudioParam.maxValue", "maxValue")}} festgelegt sind.
+Eine Gleitkommazahl ({{jsxref("Number")}}), die den aktuellen Wert des Parameters angibt. Dieser Wert liegt zwischen den durch die Eigenschaften [`minValue`](/de/docs/Web/API/AudioParam/minValue) und [`maxValue`](/de/docs/Web/API/AudioParam/maxValue) festgelegten Werten.
 
-## Anwendungsnotizen
+## Verwendungshinweise
 
-### Wertpräzision und Variationen
+### Präzision und Variation des Wertes
 
-Der intern verwendete Datentyp zum Speichern von `value` ist eine Einzelpräzisions- (32-Bit) Gleitkommazahl, während JavaScript 64-Bit-Doppelpräzisions-Gleitkommazahlen verwendet. Daher kann der Wert, den Sie von der Eigenschaft `value` lesen, nicht immer genau dem entsprechen, was Sie gesetzt haben.
+Der Datentyp, der intern zur Speicherung von `value` verwendet wird, ist eine Gleitkommazahl mit einfacher Präzision (32-Bit), während JavaScript 64-Bit-Gleitkommazahlen mit doppelter Präzision verwendet. Daher entspricht der Wert, den Sie von der `value`-Eigenschaft ablesen, möglicherweise nicht immer genau dem, den Sie gesetzt haben.
 
 Betrachten Sie dieses Beispiel:
 
@@ -31,7 +31,7 @@ source.playbackRate.value = rate;
 console.log(source.playbackRate.value === rate);
 ```
 
-Die Konsolenausgabe wird `false` sein, weil der Wiedergaberatenparameter `rate` in die der 32-Bit-Gleitkommazahl, die am nächsten an 5.3 liegt, umgewandelt wurde, was 5.300000190734863 ergibt. Eine Lösung ist die Verwendung der Methode {{jsxref("Math.fround()")}}, die den Einzelpräzisionswert zurückgibt, der dem angegebenen 64-Bit-JavaScript-Wert entspricht – beim Setzen von `value` wie folgt:
+Die Protokollausgabe wird `false` sein, weil der Wiedergaberaten-Parameter `rate` in die nächstgelegene 32-Bit-Gleitkommazahl zu 5,3 umgewandelt wurde, was 5.300000190734863 ergibt. Eine Lösung ist die Verwendung der Methode {{jsxref("Math.fround()")}}, die den Wert mit einfacher Präzision zurückgibt, der dem angegebenen 64-Bit-JavaScript-Wert entspricht—beim Setzen von `value`, wie folgt:
 
 ```js
 const source = new AudioBufferSourceNode(/* … */);
@@ -40,31 +40,31 @@ source.playbackRate.value = rate;
 console.log(source.playbackRate.value === rate);
 ```
 
-In diesem Fall wird die Konsolenausgabe `true` sein.
+In diesem Fall wird die Protokollausgabe `true` sein.
 
 ### Wert einer sich über die Zeit ändernden Eigenschaft
 
-Der `value` eines `AudioParam` kann entweder fest sein oder sich im Laufe der Zeit ändern. Dies wird durch den `value`-Getter widergespiegelt, der den Wert des Parameters zum Zeitpunkt des letzten **Render-Quantums** der Audio-Rendering-Engine zurückgibt, also des Moments, in dem Audiopuffer verarbeitet und aktualisiert werden. Zusätzlich zur Verarbeitung der Audiopuffer wird der `value` jedes `AudioParam` während jedes Render-Quantums anhand der aktuellen Zeit und etwaiger festgelegter zeitbasierter Parameterwertänderungen nach Bedarf aktualisiert.
+Der `value` eines `AudioParam` kann entweder fest oder zeitlich variabel sein. Dies wird durch den `value`-Getter widergespiegelt, der den Wert des Parameters zum Zeitpunkt des letzten **Renderquanten** der Audio-Rendering-Engine zurückgibt, oder zum Zeitpunkt, an dem Audiopuffer verarbeitet und aktualisiert werden. Zusätzlich zur Verarbeitung von Audiopuffern aktualisiert jedes Renderquanten den `value` jedes `AudioParam`, soweit dies erforderlich ist, angesichts der aktuellen Zeit und der festgelegten zeitabhängigen Parameterwertänderungen.
 
-Beim erstmaligen Erstellen des Parameters ist sein Wert auf seinen Standardwert festgelegt, der durch {{domxref("AudioParam.defaultValue")}} gegeben ist. Dies ist der Wert des Parameters bei einer Zeit von 0,0 Sekunden und bleibt sein Wert, bis zum ersten Render-Quantum, in dem der Wert geändert wird.
+Beim ersten Erstellen des Parameters wird sein Wert auf seinen Standardwert gesetzt, der durch [`AudioParam.defaultValue`](/de/docs/Web/API/AudioParam/defaultValue) angegeben wird. Dies ist der Wert des Parameters zu einem Zeitpunkt von 0,0 Sekunden und bleibt der Wert des Parameters bis zum ersten Renderquanten, in dem sich der Wert ändert.
 
-Während jedes Render-Quantums führt der Browser die folgenden Schritte in Bezug auf die Verwaltung des Wertes eines Parameters durch:
+Während jedes Renderquanten führt der Browser die folgenden Vorgänge im Zusammenhang mit der Verwaltung des Wertes eines Parameters durch:
 
-- Wenn der `value`-Setter verwendet wurde, wird der Wert des Parameters auf den angegebenen Wert geändert.
-- Wenn die aktuelle Zeit gleich der oder größer ist als die bei einem vorherigen Aufruf von {{domxref("AudioParam.setValueAtTime", "setValueAtTime()")}} angegebene Zeit, wird `value` auf den Wert geändert, der an `setValueAtTime()` übergeben wurde.
-- Wenn graduelle oder stufenweise Wertänderungsmethoden aufgerufen wurden und sich die aktuelle Zeit im Zeitbereich befindet, in dem die abgestufte Änderung erfolgen soll, wird der Wert anhand des entsprechenden Algorithmus aktualisiert. Diese stufenweise oder abgestufte Wertänderungsmethoden umfassen {{domxref("AudioParam.linearRampToValueAtTime", "linearRampToValueAtTime()")}}, {{domxref("AudioParam.setTargetAtTime", "setTargetAtTime()")}}, und {{domxref("AudioParam.setValueCurveAtTime", "setValueCurveAtTime()")}}.
+- Wenn der `value`-Setter verwendet wurde, wird der Parameterwert auf den angegebenen Wert geändert.
+- Wenn die aktuelle Zeit gleich oder größer ist als die durch einen vorherigen Aufruf von [`setValueAtTime()`](/de/docs/Web/API/AudioParam/setValueAtTime) angegebene Zeit, wird der `value` auf den Wert geändert, der an `setValueAtTime()` übergeben wurde.
+- Wenn irgendwelche abgestuften oder übergangsweisen Wertänderungsmethoden aufgerufen wurden und die aktuelle Zeit innerhalb des Zeitbereichs liegt, in dem die abgestufte Änderung stattfinden sollte, wird der Wert basierend auf dem entsprechenden Algorithmus aktualisiert. Diese abgestuften oder übergangsweisen Wertänderungsmethoden umfassen [`linearRampToValueAtTime()`](/de/docs/Web/API/AudioParam/linearRampToValueAtTime), [`setTargetAtTime()`](/de/docs/Web/API/AudioParam/setTargetAtTime), und [`setValueCurveAtTime()`](/de/docs/Web/API/AudioParam/setValueCurveAtTime).
 
-Daher wird der `value` eines Parameters so verwaltet, dass er den Zustand des Parameters über die Zeit hinweg genau widerspiegelt.
+Daher wird der `value` eines Parameters so aufrechterhalten, dass er den Zustand des Parameters im Zeitverlauf genau widerspiegelt.
 
 ## Beispiele
 
-Dieses Beispiel ändert sofort die Lautstärke eines {{domxref("GainNode")}} auf 40 %.
+Dieses Beispiel ändert sofort die Lautstärke eines [`GainNode`](/de/docs/Web/API/GainNode) auf 40 %.
 
 ```js
 const audioCtx = new AudioContext();
 const gainNode = audioCtx.createGain();
 gainNode.gain.value = 0.4;
-// was identisch ist mit:
+// which is identical to:
 gainNode.gain.setValueAtTime(0.4, audioCtx.currentTime);
 ```
 
@@ -76,7 +76,7 @@ gainNode.gain.setValueAtTime(0.4, audioCtx.currentTime);
 
 {{Compat}}
 
-Beim Ändern des Verstärkungswertes eines {{domxref("GainNode")}} führte Google Chrome vor Version 64 (Januar 2018) eine reibungslose Interpolation durch, um De-Zippering zu verhindern. Ab Version 64 wird der Wert sofort geändert, um ihn mit der Web-Audio-Spezifikation in Einklang zu bringen. Details finden Sie im [Chrome Platform Status](https://chromestatus.com/feature/5287995770929152).
+Beim Ändern des Lautstärkewerts eines [`GainNode`](/de/docs/Web/API/GainNode) führte Google Chrome vor Version 64 (Januar 2018) eine glatte Interpolation durch, um Dezippering zu verhindern. Ab Version 64 wird der Wert sofort geändert, um ihn mit der Web Audio-Spezifikation in Einklang zu bringen. Siehe [Chrome Platform Status](https://chromestatus.com/feature/5287995770929152) für Details.
 
 ## Siehe auch
 

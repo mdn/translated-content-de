@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft `actualBoundingBoxLeft` der {{domxref("TextMetrics")}}-Schnittstelle ist ein `double`, das den Abstand parallel zur Basislinie vom durch die {{domxref("CanvasRenderingContext2D.textAlign")}}-Eigenschaft angegebenen Ausrichtungspunkt zur linken Seite des Begrenzungsrechtecks des angegebenen Textes in CSS-Pixeln angibt. Positive Zahlen zeigen einen Abstand nach links vom gegebenen Ausrichtungspunkt an.
+Die schreibgeschützte Eigenschaft `actualBoundingBoxLeft` des [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Interfaces ist ein `double`, das die Entfernung parallel zur Grundlinie vom Ausrichtungspunkt, der durch die [`CanvasRenderingContext2D.textAlign`](/de/docs/Web/API/CanvasRenderingContext2D/textAlign)-Eigenschaft gegeben ist, zur linken Seite des Begrenzungsrechtecks des angegebenen Textes in CSS-Pixeln angibt; positive Zahlen geben eine Entfernung nach links vom gegebenen Ausrichtungspunkt aus an.
 
 ## Beispiele
 
 ```js
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
-const text = ctx.measureText("foo"); // gibt ein TextMetrics-Objekt zurück
+const text = ctx.measureText("foo"); // returns TextMetrics object
 
 text.actualBoundingBoxLeft; // 0;
 ```
@@ -30,4 +30,4 @@ text.actualBoundingBoxLeft; // 0;
 
 ## Siehe auch
 
-- {{domxref("TextMetrics")}}
+- [`TextMetrics`](/de/docs/Web/API/TextMetrics)

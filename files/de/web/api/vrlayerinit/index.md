@@ -7,42 +7,42 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}
 
-Das **`VRLayerInit`** Wörterbuch der [WebVR API](/de/docs/Web/API/WebVR_API) repräsentiert eine Inhaltsschicht (ein {{domxref("HTMLCanvasElement")}} oder {{domxref("OffscreenCanvas")}}), die Sie auf einem VR-Display präsentieren möchten.
+Das **`VRLayerInit`**-Wörterbuch der [WebVR API](/de/docs/Web/API/WebVR_API) repräsentiert eine Inhaltsschicht (ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)), die in einem VR-Display präsentiert werden soll.
 
 > [!NOTE]
-> Dieses Wörterbuch war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
+> Dieses Wörterbuch war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Es wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
-Sie können `VRLayerInit`-Objekte mit {{domxref("VRDisplay.getLayers()")}} abrufen und sie mit der Methode {{domxref("VRDisplay.requestPresent()")}} präsentieren.
+Sie können `VRLayerInit`-Objekte mit [`VRDisplay.getLayers()`](/de/docs/Web/API/VRDisplay/getLayers) abrufen und sie mit der Methode [`VRDisplay.requestPresent()`](/de/docs/Web/API/VRDisplay/requestPresent) präsentieren.
 
 ## Instanzeigenschaften
 
-- {{domxref("VRLayerInit.leftBounds")}} {{deprecated_inline}}
-  - : Definiert die linken Texturgrenzen der Leinwand, deren Inhalte vom {{domxref("VRDisplay")}} präsentiert werden.
-- {{domxref("VRLayerInit.rightBounds")}} {{deprecated_inline}}
-  - : Definiert die rechten Texturgrenzen der Leinwand, deren Inhalte vom {{domxref("VRDisplay")}} präsentiert werden.
-- {{domxref("VRLayerInit.source")}} {{deprecated_inline}}
-  - : Definiert die Leinwand, deren Inhalte vom {{domxref("VRDisplay")}} präsentiert werden, wenn {{domxref("VRDisplay.submitFrame()")}} aufgerufen wird.
+- [`VRLayerInit.leftBounds`](/de/docs/Web/API/VRLayerInit/leftBounds) {{deprecated_inline}}
+  - : Definiert die linken Texturgrenzen der Leinwand, deren Inhalte vom [`VRDisplay`](/de/docs/Web/API/VRDisplay) präsentiert werden.
+- [`VRLayerInit.rightBounds`](/de/docs/Web/API/VRLayerInit/rightBounds) {{deprecated_inline}}
+  - : Definiert die rechten Texturgrenzen der Leinwand, deren Inhalte vom [`VRDisplay`](/de/docs/Web/API/VRDisplay) präsentiert werden.
+- [`VRLayerInit.source`](/de/docs/Web/API/VRLayerInit/source) {{deprecated_inline}}
+  - : Definiert die Leinwand, deren Inhalte vom [`VRDisplay`](/de/docs/Web/API/VRDisplay) präsentiert werden, wenn [`VRDisplay.submitFrame()`](/de/docs/Web/API/VRDisplay/submitFrame) aufgerufen wird.
 
 ## Beispiele
 
 ```js
-// gibt derzeit ein leeres Array zurück
+// currently returns an empty array
 let layers = vrDisplay.getLayers();
 
 if (navigator.getVRDisplays) {
   console.log("WebVR 1.1 supported");
-  // Dann die an den Computer angeschlossenen Displays abrufen
+  // Then get the displays attached to the computer
   navigator.getVRDisplays().then((displays) => {
-    // Wenn ein Display verfügbar ist, dieses zur Präsentation der Szene verwenden
+    // If a display is available, use it to present the scene
     if (displays.length > 0) {
       vrDisplay = displays[0];
-      console.log("Display gefunden");
-      // Beginnt die Präsentation, wenn der Button geklickt wird: Es kann nur als Reaktion auf eine Benutzeraktion aufgerufen werden
+      console.log("Display found");
+      // Starting the presentation when the button is clicked: It can only be called in response to a user gesture
       btn.addEventListener("click", () => {
         vrDisplay.requestPresent([{ source: canvas }]).then(() => {
-          console.log("Präsentation auf WebVR-Display");
+          console.log("Presenting to WebVR display");
 
-          // Hier wird ein Array von VRLayerInit-Objekten zurückgegeben
+          // Here it returns an array of VRLayerInit objects
           layers = vrDisplay.getLayers();
 
           // …
@@ -53,7 +53,7 @@ if (navigator.getVRDisplays) {
 }
 ```
 
-`VRLayerInit`-Objekte sehen folgendermaßen aus:
+`VRLayerInit`-Objekte sehen etwa so aus:
 
 ```js
 {
@@ -64,13 +64,13 @@ if (navigator.getVRDisplays) {
 ```
 
 > [!NOTE]
-> Der `canvasReference` bezieht sich auf das {{htmlelement("canvas")}}-Element selbst, nicht auf den mit dem Canvas verbundenen WebGL-Kontext. Die anderen beiden Mitglieder sind Arrays
+> Der `canvasReference` bezieht sich auf das {{htmlelement("canvas")}}-Element selbst, nicht auf den mit der Leinwand verknüpften WebGL-Kontext. Die anderen beiden Mitglieder sind Arrays
 
 ## Spezifikationen
 
-Dieses Wörterbuch war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Es befindet sich nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Wörterbuch war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu setzen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den Leitfaden [Metas Porting from WebVR to WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden zum Portieren von WebVR auf WebXR von Meta](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Siehe auch
 

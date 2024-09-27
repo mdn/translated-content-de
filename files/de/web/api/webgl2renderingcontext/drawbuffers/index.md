@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode **`WebGL2RenderingContext.drawBuffers()`** der [WebGL 2 API](/de/docs/Web/API/WebGL_API) definiert die Zeichnungspuffer, in die Fragmentfarben geschrieben werden. Die Einstellungen der Zeichnungspuffer sind Teil des Zustands des derzeit gebundenen Framebuffers oder des Zeichnungspuffers, falls kein Framebuffer gebunden ist.
+Die **`WebGL2RenderingContext.drawBuffers()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) definiert Draw-Buffers, in die Fragmentfarben geschrieben werden. Die Einstellungen der Draw-Buffers sind Teil des Zustands des aktuell gebundenen Framebuffers oder des Zeichnungsbuffers, falls kein Framebuffer gebunden ist.
 
 ## Syntax
 
@@ -20,24 +20,22 @@ drawBuffers(buffers)
 
 - `buffers`
 
-  - : Ein {{jsxref("Array")}} von {{domxref("WebGL_API/Types", "GLenum")}}, das die Puffer angibt, in die Fragmentfarben geschrieben werden. Mögliche Werte sind:
+  - : Ein {{jsxref("Array")}} von [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Buffers spezifiziert, in die Fragmentfarben geschrieben werden. Mögliche Werte sind:
 
     - `gl.NONE`
-      - : Der Ausgabewert des Fragment-Shader wird in keinen Farbepuffer geschrieben.
+      - : Die Ausgabe des Fragment-Shader wird in keinen Farb-Buffer geschrieben.
     - `gl.BACK`
-      - : Der Ausgabewert des Fragment-Shader wird in den hinteren Farbepuffer geschrieben.
+      - : Die Ausgabe des Fragment-Shader wird in den back color buffer geschrieben.
     - `gl.COLOR_ATTACHMENT{0-15}`
-      - : Der Ausgabewert des Fragment-Shader wird in den
-        n-ten Farbanhang des aktuellen Framebuffers geschrieben.
+      - : Die Ausgabe des Fragment-Shader wird in das nth-Farb-Attachment des aktuellen Framebuffers geschrieben.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Wenn `buffers` nicht einen der akzeptierten Werte enthält, wird ein
-  `gl.INVALID_ENUM` Fehler ausgelöst.
+- Wenn `buffers` nicht einen der akzeptierten Werte enthält, wird ein `gl.INVALID_ENUM` Fehler ausgelöst.
 
 ## Beispiele
 
@@ -55,4 +53,4 @@ gl.drawBuffers([gl.NONE, gl.COLOR_ATTACHMENT1]);
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.clearBuffer", "WebGL2RenderingContext.clearBuffer[fiuv]()")}}
+- [`WebGL2RenderingContext.clearBuffer[fiuv]()`](/de/docs/Web/API/WebGL2RenderingContext/clearBuffer)

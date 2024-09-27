@@ -7,43 +7,43 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Das **`VideoTrack`**-Interface repräsentiert eine einzelne Videospur von einem {{HTMLElement("video")}}-Element.
+Das **`VideoTrack`**-Interface repräsentiert einen einzelnen Videotrack aus einem {{HTMLElement("video")}}-Element.
 
-Der häufigste Anwendungsfall für den Zugriff auf ein `VideoTrack`-Objekt ist das Umschalten der {{domxref("VideoTrack.selected", "selected")}}-Eigenschaft, um es zur aktiven Videospur für sein {{HTMLElement("video")}}-Element zu machen.
+Die häufigste Verwendung für den Zugriff auf ein `VideoTrack`-Objekt besteht darin, seine [`selected`](/de/docs/Web/API/VideoTrack/selected)-Eigenschaft umzuschalten, um es zum aktiven Videotrack für sein {{HTMLElement("video")}}-Element zu machen.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("VideoTrack.selected", "selected")}}
-  - : Ein boolescher Wert, der steuert, ob die Videospur aktiv ist oder nicht. Nur eine einzelne Videospur kann zu jeder Zeit aktiv sein. Das Setzen dieser Eigenschaft auf `true` für eine Spur, während eine andere Spur aktiv ist, wird diese andere Spur inaktiv machen.
-- {{domxref("VideoTrack.id", "id")}} {{ReadOnlyInline}}
-  - : Ein String, der die Spur innerhalb der Medien eindeutig identifiziert. Diese ID kann verwendet werden, um eine spezifische Spur innerhalb einer Videospurliste zu lokalisieren, indem {{domxref("VideoTrackList.getTrackById()")}} aufgerufen wird. Die ID kann auch als Fragmentteil der URL verwendet werden, wenn die Medien das Suchen nach Medienfragmenten gemäß der [Media Fragments URI-Spezifikation](https://www.w3.org/TR/media-frags/) unterstützen.
-- {{domxref("VideoTrack.kind", "kind")}} {{ReadOnlyInline}}
-  - : Ein String, der die Kategorie angibt, in die die Spur fällt. Zum Beispiel würde die Hauptvideospur einen `kind` von `"main"` haben.
-- {{domxref("VideoTrack.label", "label")}} {{ReadOnlyInline}}
-  - : Ein String, der eine menschenlesbare Bezeichnung für die Spur bereitstellt. Zum Beispiel könnte eine Spur, deren `kind` `"sign"` ist, ein `label` von `"A sign-language interpretation"` haben. Dieser String ist leer, wenn keine Bezeichnung angegeben ist.
-- {{domxref("VideoTrack.language", "language")}} {{ReadOnlyInline}}
-  - : Ein String, der die Hauptsprache der Videospur angibt, oder ein leerer String, wenn unbekannt. Die Sprache wird als BCP 47 ({{RFC(5646)}}) Sprachcode angegeben, wie `"en-US"` oder `"pt-BR"`.
-- {{domxref("VideoTrack.sourceBuffer", "sourceBuffer")}} {{ReadOnlyInline}}
-  - : Der {{domxref("SourceBuffer")}}, der die Spur erstellt hat. Gibt null zurück, wenn die Spur nicht von einem {{domxref("SourceBuffer")}} erstellt wurde oder der {{domxref("SourceBuffer")}} aus dem {{domxref("MediaSource.sourceBuffers")}} Attribut der übergeordneten Medienquelle entfernt wurde.
+- [`selected`](/de/docs/Web/API/VideoTrack/selected)
+  - : Ein Boolean-Wert, der steuert, ob der Videotrack aktiv ist oder nicht. Zu jedem Zeitpunkt kann nur ein Videotrack aktiv sein, daher macht das Setzen dieser Eigenschaft auf `true` für einen Track, während ein anderer Track aktiv ist, diesen anderen Track inaktiv.
+- [`id`](/de/docs/Web/API/VideoTrack/id) {{ReadOnlyInline}}
+  - : Eine Zeichenfolge, die den Track innerhalb der Medien eindeutig identifiziert. Diese ID kann verwendet werden, um einen bestimmten Track innerhalb einer Videotrackliste zu finden, indem [`VideoTrackList.getTrackById()`](/de/docs/Web/API/VideoTrackList/getTrackById) aufgerufen wird. Die ID kann auch als Fragmentteil der URL verwendet werden, wenn die Medien das Suchen durch Medienfragmente gemäß der [Media Fragments URI-Spezifikation](https://www.w3.org/TR/media-frags/) unterstützen.
+- [`kind`](/de/docs/Web/API/VideoTrack/kind) {{ReadOnlyInline}}
+  - : Eine Zeichenfolge, die die Kategorie angibt, in die der Track fällt. Beispielsweise hätte der Hauptvideotrack einen `kind` von `"main"`.
+- [`label`](/de/docs/Web/API/VideoTrack/label) {{ReadOnlyInline}}
+  - : Eine Zeichenfolge, die ein menschenlesbares Label für den Track bereitstellt. Zum Beispiel könnte ein Track, dessen `kind` `"sign"` ist, ein `label` von `"A sign-language interpretation"` haben. Diese Zeichenfolge ist leer, wenn kein Label vorhanden ist.
+- [`language`](/de/docs/Web/API/VideoTrack/language) {{ReadOnlyInline}}
+  - : Eine Zeichenfolge, die die Primärsprache des Videotracks angibt oder eine leere Zeichenfolge, falls unbekannt. Die Sprache wird als BCP 47 ({{RFC(5646)}}) Sprachenkode angegeben, wie zum Beispiel `"en-US"` oder `"pt-BR"`.
+- [`sourceBuffer`](/de/docs/Web/API/VideoTrack/sourceBuffer) {{ReadOnlyInline}}
+  - : Der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer), der den Track erstellt hat. Gibt null zurück, wenn der Track nicht von einem [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) erstellt wurde oder der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) aus dem [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers)-Attribut seiner übergeordneten Medienquelle entfernt wurde.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Um ein `VideoTrack` für ein bestimmtes Medienelement zu erhalten, verwenden Sie die {{domxref("HTMLMediaElement.videoTracks", "videoTracks")}}-Eigenschaft des Elements, die ein {{domxref("VideoTrackList")}}-Objekt zurückgibt, aus dem Sie die einzelnen in den Medien enthaltenen Spuren abrufen können:
+Um einen `VideoTrack` für ein gegebenes Medienelement zu erhalten, verwenden Sie die [`videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks)-Eigenschaft des Elements. Sie gibt ein [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Objekt zurück, aus dem Sie die einzelnen Tracks innerhalb der Medien erhalten können:
 
 ```js
 const el = document.querySelector("video");
 const tracks = el.videoTracks;
 ```
 
-Sie können dann auf die einzelnen Spuren der Medien entweder mit Hilfe der Feldsyntax oder mithilfe von Funktionen wie {{jsxref("Array.forEach", "forEach()")}} zugreifen.
+Sie können dann auf die einzelnen Tracks des Mediums entweder mit Array-Syntax oder Funktionen wie {{jsxref("Array.forEach", "forEach()")}} zugreifen.
 
-Dieses erste Beispiel erhält die erste Videospur auf den Medien:
+Dieses erste Beispiel erhält den ersten Videotrack im Medium:
 
 ```js
 const firstTrack = tracks[0];
 ```
 
-Das nächste Beispiel durchsucht alle Videospuren der Medien und aktiviert die erste Videospur, die in der bevorzugten Sprache des Benutzers ist (die aus einer Variablen `userLanguage` entnommen wird).
+Das nächste Beispiel durchsucht alle Videotracks des Mediums und aktiviert den ersten Videotrack, der in der bevorzugten Sprache des Nutzers vorliegt (von einer Variablen `userLanguage` übernommen).
 
 ```js
 for (const track of tracks) {
@@ -54,7 +54,7 @@ for (const track of tracks) {
 }
 ```
 
-Die {{domxref("VideoTrack.language", "language")}} ist im Standardformat ({{RFC(5646)}}). Für US-Englisch wäre dies zum Beispiel `"en-US"`.
+Die [`language`](/de/docs/Web/API/VideoTrack/language) ist im Standardformat ({{RFC(5646)}}). Für US-Englisch wäre dies beispielsweise `"en-US"`.
 
 ## Spezifikationen
 

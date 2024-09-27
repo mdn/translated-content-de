@@ -1,5 +1,5 @@
 ---
-title: Zwischenablage
+title: Clipboard
 slug: Web/API/Clipboard
 l10n:
   sourceCommit: 7087ffd50a4d81d1b91fe603c26456e9ce398574
@@ -7,31 +7,31 @@ l10n:
 
 {{APIRef("Clipboard API")}}{{SecureContext_Header}}
 
-Das **`Clipboard`** Interface der [Clipboard API](/de/docs/Web/API/Clipboard_API) bietet Lese- und Schreibzugriff auf den Inhalt der Systemzwischenablage.
-Dies ermöglicht es einer Webanwendung, Funktionen wie Ausschneiden, Kopieren und Einfügen zu implementieren.
+Die **`Clipboard`**-Schnittstelle der [Clipboard API](/de/docs/Web/API/Clipboard_API) bietet Lese- und Schreibzugriff auf den Inhalt der System-Zwischenablage.
+Dies ermöglicht es einer Webanwendung, Funktionen zum Ausschneiden, Kopieren und Einfügen zu implementieren.
 
 {{InheritanceDiagram}}
 
-Die Systemzwischenablage ist über die globale Eigenschaft {{domxref("Navigator.clipboard")}} zugänglich.
+Die System-Zwischenablage wird über die globale [`Navigator.clipboard`](/de/docs/Web/API/Navigator/clipboard)-Eigenschaft zugänglich gemacht.
 
 Alle Methoden der Clipboard API arbeiten asynchron; sie geben ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Zugriff auf die Zwischenablage abgeschlossen ist.
 Das Versprechen wird abgelehnt, wenn der Zugriff auf die Zwischenablage verweigert wird.
 
 Alle Methoden erfordern einen [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts).
-Weitere Anforderungen für die Verwendung der API werden im Abschnitt [Sicherheitsüberlegungen](/de/docs/Web/API/Clipboard_API#security_considerations) des API-Übersichtsthemas besprochen.
+Zusätzliche Anforderungen für die Nutzung der API werden im Abschnitt [Sicherheitsüberlegungen](/de/docs/Web/API/Clipboard_API#security_considerations) des API-Übersichtthemas besprochen.
 
 ## Instanzmethoden
 
-_`Clipboard` basiert auf dem {{domxref("EventTarget")}} Interface und schließt dessen Methoden ein._
+_`Clipboard` basiert auf der [`EventTarget`](/de/docs/Web/API/EventTarget)-Schnittstelle und enthält deren Methoden._
 
-- {{domxref("Clipboard.read()","read()")}}
-  - : Fordert beliebige Daten (wie Bilder) von der Zwischenablage an und gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von {{domxref("ClipboardItem")}} Objekten aufgelöst wird, die den Inhalt der Zwischenablage enthalten.
-- {{domxref("Clipboard.readText()","readText()")}}
-  - : Fordert Text von der Systemzwischenablage an und gibt ein {{jsxref("Promise")}} zurück, das mit einem String erfüllt wird, der den Text der Zwischenablage enthält, sobald dieser verfügbar ist.
-- {{domxref("Clipboard.write()","write()")}}
-  - : Schreibt beliebige Daten in die Systemzwischenablage und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Vorgang abgeschlossen ist.
-- {{domxref("Clipboard.writeText()","writeText()")}}
-  - : Schreibt Text in die Systemzwischenablage und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Text vollständig in die Zwischenablage kopiert ist.
+- [`read()`](/de/docs/Web/API/Clipboard/read)
+  - : Fordert beliebige Daten (wie Bilder) aus der Zwischenablage an und gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Objekten aufgelöst wird, die den Inhalt der Zwischenablage enthalten.
+- [`readText()`](/de/docs/Web/API/Clipboard/readText)
+  - : Fordert Text aus der System-Zwischenablage an und gibt ein {{jsxref("Promise")}} zurück, das mit einem String aufgelöst wird, der den Text der Zwischenablage enthält, sobald dieser verfügbar ist.
+- [`write()`](/de/docs/Web/API/Clipboard/write)
+  - : Schreibt beliebige Daten in die System-Zwischenablage und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Vorgang abgeschlossen ist.
+- [`writeText()`](/de/docs/Web/API/Clipboard/writeText)
+  - : Schreibt Text in die System-Zwischenablage und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Text vollständig in die Zwischenablage kopiert ist.
 
 ## Spezifikationen
 
@@ -43,4 +43,4 @@ _`Clipboard` basiert auf dem {{domxref("EventTarget")}} Interface und schließt 
 
 ## Siehe auch
 
-- {{domxref("Document.execCommand()")}}
+- [`Document.execCommand()`](/de/docs/Web/API/Document/execCommand)

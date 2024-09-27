@@ -1,5 +1,5 @@
 ---
-title: "ContentIndex: delete()-Methode"
+title: "ContentIndex: delete() Methode"
 short-title: delete()
 slug: Web/API/ContentIndex/delete
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Content Index API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`delete()`**-Methode der
-{{domxref("ContentIndex")}}-Schnittstelle hebt die Registrierung eines Elements aus den derzeit indexierten Inhalten auf.
+Die **`delete()`** Methode der
+[`ContentIndex`](/de/docs/Web/API/ContentIndex) Schnittstelle entfernt ein Element aus dem aktuell indizierten Inhalt.
 
 > [!NOTE]
-> Der Aufruf von `delete()` betrifft nur den Index. Es wird nichts aus dem {{domxref('Cache')}} gelöscht.
+> Das Aufrufen von `delete()` betrifft nur den Index. Es löscht nichts aus dem [`Cache`](/de/docs/Web/API/Cache).
 
 ## Syntax
 
@@ -23,7 +23,7 @@ delete(id)
 ### Parameter
 
 - `id`
-  - : Der eindeutige Bezeichner des indexierten Inhalts, den das {{domxref("ContentIndex")}}-Objekt entfernen soll.
+  - : Die eindeutige Kennung des indizierten Inhalts, den das [`ContentIndex`](/de/docs/Web/API/ContentIndex)-Objekt entfernen soll.
 
 ### Rückgabewert
 
@@ -35,26 +35,26 @@ Es werden keine Ausnahmen ausgelöst.
 
 ## Beispiele
 
-Unten ist eine asynchrone Funktion, die ein Element aus dem [Content Index](/de/docs/Web/API/Content_Index_API) entfernt. Wir erhalten eine Referenz zur aktuellen
-{{domxref('ServiceWorkerRegistration')}}, die es uns ermöglicht, auf die
-{{domxref('ServiceWorkerRegistration.index','index')}}-Eigenschaft zuzugreifen und somit die
-`delete`-Methode zu nutzen.
+Unten ist eine asynchrone Funktion, die einen Eintrag aus dem [Inhaltsindex](/de/docs/Web/API/Content_Index_API) entfernt. Wir erhalten eine Referenz auf die aktuelle
+[`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration), die es uns ermöglicht, auf die
+[`index`](/de/docs/Web/API/ServiceWorkerRegistration/index) Eigenschaft zuzugreifen und somit die
+`delete` Methode zu verwenden.
 
 ```js
 async function unregisterContent(article) {
-  // Referenzregistrierung
+  // reference registration
   const registration = await navigator.serviceWorker.ready;
 
-  // Feature-Detect für Content Index
+  // feature detect Content Index
   if (!registration.index) return;
 
-  // Inhalt aus dem Index entfernen
+  // unregister content from index
   await registration.index.delete(article.id);
 }
 ```
 
-Die `delete`-Methode kann auch innerhalb des
-[Service Worker](/de/docs/Web/API/ServiceWorker)-Kontextes verwendet werden.
+Die `delete` Methode kann auch innerhalb des
+[Service Workers](/de/docs/Web/API/ServiceWorker) Bereichs verwendet werden.
 
 ```js
 self.registration.index.delete("my-id");

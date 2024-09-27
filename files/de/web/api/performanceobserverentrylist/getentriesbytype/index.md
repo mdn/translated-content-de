@@ -1,5 +1,5 @@
 ---
-title: "PerformanceObserverEntryList: Methode getEntriesByType()"
+title: "PerformanceObserverEntryList: getEntriesByType() Methode"
 short-title: getEntriesByType()
 slug: Web/API/PerformanceObserverEntryList/getEntriesByType
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`getEntriesByType()`**-Methode der {{domxref("PerformanceObserverEntryList")}} gibt eine Liste der explizit _beobachteten_ {{domxref("PerformanceEntry","performance entry", '', 'true')}}-Objekte für einen gegebenen {{domxref("PerformanceEntry.entryType","performance entry type", '', 'true')}} zurück. Die Mitglieder der Liste werden durch die Menge der in dem Aufruf der {{domxref("PerformanceObserver.observe","observe()")}}-Methode angegebenen {{domxref("PerformanceEntry.entryType","entry types", '', 'true')}} bestimmt. Die Liste ist in der Callback-Funktion des Observers verfügbar (als erster Parameter im Callback).
+Die **`getEntriesByType()`** Methode der [`PerformanceObserverEntryList`](/de/docs/Web/API/PerformanceObserverEntryList) gibt eine Liste von explizit _beobachteten_ [Performance-Entry](/de/docs/Web/API/PerformanceEntry)-Objekten für einen gegebenen [Performance-Entry-Typ](/de/docs/Web/API/PerformanceEntry/entryType) zurück. Die Mitglieder der Liste werden durch die Menge von [Entry-Typen](/de/docs/Web/API/PerformanceEntry/entryType) bestimmt, die beim Aufruf der [`observe()`](/de/docs/Web/API/PerformanceObserver/observe) Methode angegeben wurde. Die Liste ist in der Callback-Funktion des Observers verfügbar (als erstes Parameter im Callback).
 
 ## Syntax
 
@@ -19,40 +19,40 @@ getEntriesByType(type)
 ### Parameter
 
 - `type`
-  - : Der Typ des Eintrags, der abgerufen werden soll, wie zum Beispiel `"mark"`. Die gültigen Eintragstypen sind in {{domxref("PerformanceEntry.entryType")}} aufgelistet.
+  - : Der Typ des Eintrags, der abgerufen werden soll, wie beispielsweise `"mark"`. Die gültigen Entry-Typen sind in [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) aufgelistet.
 
 ### Rückgabewert
 
-Eine Liste der explizit _beobachteten_ {{domxref("PerformanceEntry")}}-Objekte, die den angegebenen `type` haben. Die Elemente sind in chronologischer Reihenfolge basierend auf den {{domxref("PerformanceEntry.startTime","startTime")}} der Einträge. Wenn keine Objekte mit dem angegebenen `type` existieren oder kein Argument übergeben wird, wird eine leere Liste zurückgegeben.
+Eine Liste von explizit _beobachteten_ [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten, die den angegebenen `type` haben. Die Elemente werden in chronologischer Reihenfolge basierend auf der [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) der Einträge dargestellt. Wenn keine Objekte den angegebenen `type` haben oder kein Argument bereitgestellt wird, wird eine leere Liste zurückgegeben.
 
 ## Beispiele
 
 ### Arbeiten mit getEntries, getEntriesByName und getEntriesByType
 
-Das folgende Beispiel zeigt den Unterschied zwischen den Methoden {{domxref("PerformanceObserverEntryList.getEntries", "getEntries()")}}, {{domxref("PerformanceObserverEntryList.getEntriesByName", "getEntriesByName()")}} und `getEntriesByType()`.
+Das folgende Beispiel zeigt den Unterschied zwischen den Methoden [`getEntries()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntries), [`getEntriesByName()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByName) und `getEntriesByType()`.
 
 ```js
 const observer = new PerformanceObserver((list, obs) => {
-  // Alle Einträge ausgeben
+  // Log all entries
   let perfEntries = list.getEntries();
   perfEntries.forEach((entry) => {
     console.log(`${entry.name}'s duration: ${entry.duration}`);
   });
 
-  // Einträge mit dem Namen "debugging" und Typ "measure" ausgeben
+  // Log entries named "debugging" with type "measure"
   perfEntries = list.getEntriesByName("debugging", "measure");
   perfEntries.forEach((entry) => {
     console.log(`${entry.name}'s duration: ${entry.duration}`);
   });
 
-  // Einträge mit dem Typ "mark" ausgeben
+  // Log entries with type "mark"
   perfEntries = list.getEntriesByType("mark");
   perfEntries.forEach((entry) => {
     console.log(`${entry.name}'s startTime: ${entry.startTime}`);
   });
 });
 
-// Auf verschiedene Arten von Performance-Events abonnieren
+// Subscribe to various performance event types
 observer.observe({
   entryTypes: ["mark", "measure", "navigation", "resource"],
 });

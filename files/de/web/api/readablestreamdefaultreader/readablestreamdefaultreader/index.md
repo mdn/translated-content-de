@@ -8,10 +8,12 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Der **`ReadableStreamDefaultReader()`**-Konstruktor erstellt und gibt eine Instanz des `ReadableStreamDefaultReader`-Objekts zurück.
+Der **`ReadableStreamDefaultReader()`**
+Konstruktor erstellt und gibt eine Instanz eines `ReadableStreamDefaultReader`-Objekts zurück.
 
 > [!NOTE]
-> Im Allgemeinen würden Sie diesen Konstruktor nicht manuell verwenden; stattdessen würden Sie die Methode {{domxref("ReadableStream.getReader()")}} verwenden.
+> In der Regel würden Sie diesen Konstruktor nicht manuell verwenden; stattdessen
+> würden Sie die Methode [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) verwenden.
 
 ## Syntax
 
@@ -22,20 +24,23 @@ new ReadableStreamDefaultReader(stream)
 ### Parameter
 
 - `stream`
-  - : Der zu lesende {{domxref("ReadableStream")}}.
+  - : Der [`ReadableStream`](/de/docs/Web/API/ReadableStream), der gelesen werden soll.
 
 ### Rückgabewert
 
-Eine Instanz des {{domxref("ReadableStreamDefaultReader")}}-Objekts.
+Eine Instanz des [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)-Objekts.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der angegebene `stream`-Parameter kein {{domxref("ReadableStream")}} ist oder bereits für das Lesen durch einen anderen Leser gesperrt ist.
+  - : Wirft einen Fehler, wenn der übergebene `stream`-Parameter kein [`ReadableStream`](/de/docs/Web/API/ReadableStream) ist,
+    oder er bereits von einem anderen Reader zum Lesen gesperrt ist.
 
 ## Beispiele
 
-Im folgenden einfachen Beispiel wird ein zuvor erstellter benutzerdefinierter `ReadableStream` mithilfe eines mit `getReader()` erstellten {{domxref("ReadableStreamDefaultReader")}} gelesen. (siehe unser [Einfaches Zufallsstrombeispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code). Jeder Block wird der Reihe nach gelesen und an die Benutzeroberfläche ausgegeben, bis der Stream vollständig gelesen wurde. Zu diesem Zeitpunkt kehren wir aus der rekursiven Funktion zurück und geben den gesamten Stream an einem anderen Teil der Benutzeroberfläche aus.
+Im folgenden einfachen Beispiel wird ein zuvor erstellter benutzerdefinierter
+`ReadableStream` mithilfe eines [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)
+gelesen, der mit `getReader()` erstellt wird. (siehe unser [Einfaches Zufallsstrombeispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code). Jeder Chunk wird nacheinander gelesen und in der Benutzeroberfläche ausgegeben, bis der Stream vollständig gelesen wurde. Dann verlassen wir die rekursive Funktion und geben den gesamten Stream in einem anderen Teil der Benutzeroberfläche aus.
 
 ```js
 function fetchStream() {
@@ -79,7 +84,7 @@ function fetchStream() {
 
 ## Siehe auch
 
-- [Konzepte der Streams API](/de/docs/Web/API/Streams_API)
+- [Streams API-Konzepte](/de/docs/Web/API/Streams_API)
 - [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)
-- {{domxref("ReadableStream")}}
-- {{domxref("ReadableStreamDefaultController")}}
+- [`ReadableStream`](/de/docs/Web/API/ReadableStream)
+- [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)

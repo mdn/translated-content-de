@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`kind`**-Eigenschaft des {{domxref("RTCVideoSourceStats")}}-Wörterbuchs ist ein String mit dem Wert `video`.
+Die **`kind`**-Eigenschaft des [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats)-Wörterbuchs ist ein String mit dem Wert `video`.
 
-Das `kind` wird verwendet, um zwischen Audio- und Video-Medienquellen zu unterscheiden, wenn ein {{domxref("RTCStatsReport")}} durchlaufen wird. Beide haben einen {{domxref("RTCVideoSourceStats.type", "Typ")}} von `media-source` (ein `kind` von `audio` zeigt auf ein {{domxref("RTCAudioSourceStats")}}-Objekt).
+Der `kind`-Wert wird verwendet, um zwischen Audio- und Videomedienquellen zu unterscheiden, wenn man durch einen [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) iteriert, der beide einen [`type`](/de/docs/Web/API/RTCVideoSourceStats/type) von `media-source` haben (ein `kind` von `audio` weist auf ein [`RTCAudioSourceStats`](/de/docs/Web/API/RTCAudioSourceStats)-Objekt hin).
 
 ## Wert
 
@@ -20,6 +20,6 @@ Ein String mit dem Wert `video`.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

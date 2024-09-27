@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}
 
-Die **`start()`**-Methode der {{domxref("IdleDetector")}}-Schnittstelle liefert ein {{jsxref("Promise")}}, das aufgelöst wird, wenn der Detektor beginnt, Änderungen im Leerlaufzustand des Benutzers zu überwachen. Diese Methode akzeptiert ein optionales `options`-Objekt mit dem `threshold` in Millisekunden, bei dem Inaktivität gemeldet werden soll, und `signal` für ein `AbortSignal`, um den Leerlaufdetektor abzubrechen.
+Die **`start()`**-Methode der [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Detektor beginnt, Änderungen im Ruhezustand des Benutzers zu verfolgen. Diese Methode nimmt ein optionales `options`-Objekt mit dem `threshold` in Millisekunden, ab dem Inaktivität gemeldet werden soll, und `signal` für ein `AbortSignal`, das den Ruhezustandsdetektor abbrechen kann.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ start(options)
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `threshold`
-      - : Die Mindestanzahl an Leerlauf-Millisekunden, bevor die Berichterstellung beginnen soll.
+      - : Die minimale Anzahl ruhender Millisekunden, bevor die Meldung beginnen soll.
     - `signal`
-      - : Eine Referenz zu einer {{domxref('AbortSignal')}}-Instanz, die es Ihnen ermöglicht, die Leerlauferkennung abzubrechen.
+      - : Ein Verweis auf eine Instanz von [`AbortSignal`](/de/docs/Web/API/AbortSignal), die es Ihnen ermöglicht, die Ruhezustandserkennung abzubrechen.
 
 ### Rückgabewert
 
@@ -32,12 +32,12 @@ Ein {{jsxref("Promise")}}.
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die Nutzung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie die Leerlauferkennung unter Verwendung des `options`-Arguments gestartet wird. Es ruft eine Instanz von `AbortSignal` von einer Instanz von {{domxref("AbortController")}} ab.
+Das folgende Beispiel zeigt, wie die Ruhezustandserkennung mithilfe des `options`-Arguments gestartet wird. Es ruft eine Instanz von `AbortSignal` von einer Instanz von [`AbortController`](/de/docs/Web/API/AbortController) ab.
 
 ```js
 const controller = new AbortController();

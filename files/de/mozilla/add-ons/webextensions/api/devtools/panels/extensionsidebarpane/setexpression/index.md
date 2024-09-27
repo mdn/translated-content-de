@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Wertet einen Ausdruck im Kontext der inspizierten Seite aus und zeigt das Ergebnis im Erweiterungs-Seitenbereich an.
+Führt einen Ausdruck im Kontext der inspizierten Seite aus und zeigt das Ergebnis im Erweiterungs-Seitenleistenbereich an.
 
-Der Ausführungskontext des Ausdrucks ist derselbe wie bei [`inspectedWindow.eval()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/inspectedWindow/eval).
+Der Ausführungskontext des Ausdrucks entspricht dem von [`inspectedWindow.eval()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/inspectedWindow/eval).
 
-JSON-Objekte und DOM-Knoten werden als erweiterbarer Baum angezeigt, wie im [JSON-Viewer](https://firefox-source-docs.mozilla.org/devtools-user/json_viewer/index.html) in Firefox. Sie können optional eine `rootTitle`-Zeichenkette angeben: Diese wird als Titel der Wurzel des Baums angezeigt.
+JSON-Objekte und DOM-Knoten werden als erweiterbarer Baum angezeigt, wie im [JSON-Viewer](https://firefox-source-docs.mozilla.org/devtools-user/json_viewer/index.html) in Firefox. Sie können optional einen `rootTitle`-String angeben: Dieser wird als Titel der Wurzel des Baums angezeigt.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -41,7 +41,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Dieser Code erstellt einen Seitenbereich, der den [`tagName`](/de/docs/Web/API/Element/tagName) des derzeit ausgewählten Elements anzeigt:
+Dieser Code erstellt einen Seitenleistenbereich, der den [`tagName`](/de/docs/Web/API/Element/tagName) des aktuell ausgewählten Elements anzeigt:
 
 ```js
 function onCreated(sidebarPane) {

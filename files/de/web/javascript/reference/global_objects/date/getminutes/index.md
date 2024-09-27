@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getMinutes()`**-Methode von {{jsxref("Date")}}-Instanzen gibt die Minuten dieses Datums basierend auf der lokalen Zeit zurück.
+Die Methode **`getMinutes()`** von {{jsxref("Date")}} Instanzen gibt die Minuten dieses Datums gemäß der Ortszeit zurück.
 
 {{EmbedInteractiveExample("pages/js/date-getminutes.html", "shorter")}}
 
@@ -23,13 +23,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert zwischen 0 und 59, der die Minuten des angegebenen Datums gemäß der lokalen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine ganze Zahl zwischen 0 und 59, die die Minuten des angegebenen Datums gemäß der Ortszeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 
 ### Verwendung von getMinutes()
 
-Die Variable `minutes` hat den Wert `15`, basierend auf dem Wert des {{jsxref("Date")}}-Objekts `xmas95`.
+Die Variable `minutes` hat den Wert `15`, basierend auf dem Wert des {{jsxref("Date")}} Objekts `xmas95`.
 
 ```js
 const xmas95 = new Date("1995-12-25T23:15:30");

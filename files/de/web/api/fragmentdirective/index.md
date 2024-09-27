@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("URL Fragment Text Directives")}}
 
-Die **`FragmentDirective`**-Schnittstelle ist ein Objekt, das bereitgestellt wird, damit der Code überprüfen kann, ob ein Browser Textfragmente unterstützt.
+Das **`FragmentDirective`**-Interface ist ein Objekt, das es ermöglicht, im Code zu überprüfen, ob ein Browser Textfragmente unterstützt.
 
-Es wird über die Eigenschaft {{domxref("Document.fragmentDirective")}} aufgerufen.
+Es wird über die [`Document.fragmentDirective`](/de/docs/Web/API/Document/fragmentDirective)-Eigenschaft aufgerufen.
 
 ## Instanzeigenschaften
 
@@ -23,9 +23,9 @@ Keine.
 
 ### Überprüfen, ob Textfragmente unterstützt werden
 
-Der folgende Code protokolliert, ob Textfragmente in Ihrem Browser unterstützt werden, indem überprüft wird, ob {{domxref("Document.fragmentDirective")}} definiert ist.
-Beachten Sie, dass das Objekt leer ist und derzeit hauptsächlich für die Feature-Erkennung verwendet wird.
-In Zukunft könnten weitere Informationen enthalten sein.
+Der untenstehende Code protokolliert, ob Textfragmente in Ihrem Browser unterstützt werden, indem überprüft wird, ob [`Document.fragmentDirective`](/de/docs/Web/API/Document/fragmentDirective) definiert ist.
+Beachten Sie, dass das Objekt leer ist und derzeit hauptsächlich für die Funktionserkennung verwendet wird.
+In Zukunft könnte es weitere Informationen enthalten.
 
 ```html hidden
 <pre id="log"></pre>

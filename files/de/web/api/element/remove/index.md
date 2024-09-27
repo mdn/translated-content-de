@@ -1,5 +1,5 @@
 ---
-title: "Element: remove()-Methode"
+title: "Element: Methode remove()"
 short-title: remove()
 slug: Web/API/Element/remove
 l10n:
@@ -29,19 +29,19 @@ Keiner ({{jsxref("undefined")}}).
 ### Verwendung von `remove()`
 
 ```html
-<div id="div-01">Hier ist div-01</div>
-<div id="div-02">Hier ist div-02</div>
-<div id="div-03">Hier ist div-03</div>
+<div id="div-01">Here is div-01</div>
+<div id="div-02">Here is div-02</div>
+<div id="div-03">Here is div-03</div>
 ```
 
 ```js
 const element = document.getElementById("div-02");
-element.remove(); // Entfernt das div mit der ID 'div-02'
+element.remove(); // Removes the div with the 'div-02' id
 ```
 
-### `Element.remove()` ist nicht umschließbar
+### `Element.remove()` ist nicht einschränkbar
 
-Die `remove()`-Methode ist nicht in der `with`-Anweisung eingeschlossen.
+Die `remove()`-Methode ist nicht auf die `with`-Anweisung beschränkt.
 Siehe {{jsxref("Symbol.unscopables")}} für weitere Informationen.
 
 ```js
@@ -61,5 +61,5 @@ with (node) {
 
 ## Siehe auch
 
-- {{domxref("CharacterData.remove()")}}
-- {{domxref("DocumentType.remove()")}}
+- [`CharacterData.remove()`](/de/docs/Web/API/CharacterData/remove)
+- [`DocumentType.remove()`](/de/docs/Web/API/DocumentType/remove)

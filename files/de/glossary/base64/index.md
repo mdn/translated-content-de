@@ -7,45 +7,45 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Base64** ist eine Gruppe von ähnlichen [Binary-to-Text-Encoding](https://en.wikipedia.org/wiki/Binary-to-text_encoding)-Schemata, die binäre Daten in einem {{glossary("ASCII")}}-Zeichenfolgenformat darstellen, indem sie in eine Radix-64-Darstellung umgewandelt werden. Der Begriff _Base64_ stammt von einer speziellen [MIME Content Transfer Encoding](https://en.wikipedia.org/wiki/MIME#Content-Transfer-Encoding).
+**Base64** ist eine Gruppe ähnlicher [Binär-zu-Text-Kodierung](https://en.wikipedia.org/wiki/Binary-to-text_encoding)-Schemata, die Binärdaten in einem [ASCII](/de/docs/Glossary/ASCII) String-Format darstellen, indem sie in eine Radix-64-Darstellung umgewandelt werden. Der Begriff _Base64_ stammt von einer speziellen [MIME-Inhaltsübertragungskodierung](https://en.wikipedia.org/wiki/MIME#Content-Transfer-Encoding).
 
-Wenn der Begriff "Base64" eigenständig verwendet wird, um auf einen bestimmten {{glossary("algorithm")}} zu verweisen, bezieht er sich typischerweise auf die Version von Base64, die in [RFC 4648](https://datatracker.ietf.org/doc/html/rfc4648), Abschnitt 4, beschrieben ist, welche das folgende Alphabet verwendet, um die Radix-64-Ziffern darzustellen, zusammen mit `=` als Auffüllzeichen:
+Wenn der Begriff "Base64" alleine verwendet wird, um auf ein spezifisches [Algorithmus](/de/docs/Glossary/algorithm) zu verweisen, bezieht er sich typischerweise auf die Version von Base64, die in [RFC 4648](https://datatracker.ietf.org/doc/html/rfc4648), Abschnitt 4, beschrieben wird. Diese verwendet das folgende Alphabet, um die Radix-64-Ziffern darzustellen, zusammen mit `=` als Auffüllzeichen:
 
 ```plain
 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/
 ```
 
-Eine häufige Variante ist "Base64 URL safe", die das Auffüllzeichen weglässt und `+/` durch `-_` ersetzt, um Zeichen zu vermeiden, die in {{glossary("URL")}}-Pfadsegmenten oder Abfrageparametern Probleme verursachen könnten. Diese Kodierung ist nicht erforderlich, wenn die Daten nicht in einem Pfadsegment oder Abfrageparameter verwendet werden — beispielsweise haben [Daten-URLs](/de/docs/Web/URI/Schemes/data) weder noch und können die Standard-Base64-Kodierung verwenden.
+Eine häufige Variante ist "Base64 URL sicher", bei der das Auffüllzeichen weggelassen wird und `+/` durch `-_` ersetzt wird, um Zeichen zu vermeiden, die in [URL](/de/docs/Glossary/URL)-Pfadsegmenten oder Abfrageparametern Probleme verursachen könnten. Sie benötigen diese Kodierung nicht, wenn Sie die Daten nicht in einem Pfadsegment oder Abfrageparameter verwenden — zum Beispiel, [Data-URLs](/de/docs/Web/URI/Schemes/data) haben keines von beiden und können die standardmäßige Base64-Kodierung verwenden.
 
-Base64-Codierungsschemata werden häufig verwendet, um binäre Daten zur Speicherung oder Übertragung über Medien zu kodieren, die nur mit ASCII-Text (oder einer ASCII-Erweiterung, die keine beliebigen binären Daten akzeptiert) umgehen können. Dies stellt sicher, dass die Daten während des Transports unverändert bleiben. Häufige Anwendungen von Base64 umfassen:
+Base64-Kodierungsschemata werden häufig verwendet, um Binärdaten für die Speicherung oder Übertragung über Medien zu kodieren, die nur ASCII-Text verarbeiten können (oder eine Erweiterung von ASCII, die immer noch nicht beliebige Binärdaten akzeptiert). Dies stellt sicher, dass die Daten während des Transports unverändert bleiben. Häufige Anwendungen von Base64 umfassen:
 
 - E-Mail über [MIME](https://en.wikipedia.org/wiki/MIME)
 - Speicherung komplexer Daten in [XML](/de/docs/Web/XML)
-- Kodierung binärer Daten zur Einbeziehung in eine [`data:` URL](/de/docs/Web/URI/Schemes/data)
+- Kodierung von Binärdaten, damit sie in einer [`data:` URL](/de/docs/Web/URI/Schemes/data) enthalten sein können
 
-## Erhöhte kodierte Größe
+## Kodierte Größenvergrößerung
 
-Jede Base64-Ziffer repräsentiert 6 Bits an Daten. So können drei 8-Bit-Bytes der Eingabestrings/Binärdatei (3×8 Bits = 24 Bits) durch vier 6-Bit-Base64-Ziffern (4×6 = 24 Bits) dargestellt werden.
+Jede Base64-Ziffer repräsentiert 6 Bits Daten. Somit können drei 8-Bit-Bytes der Eingabestring/Binärdatei (3×8 Bits = 24 Bits) durch vier 6-Bit-Base64-Ziffern (4×6 = 24 Bits) dargestellt werden.
 
-Das bedeutet, dass die Base64-Version eines Strings oder einer Datei in der Regel etwa ein Drittel größer ist als ihre Quelle (die genaue Größenzunahme hängt von verschiedenen Faktoren ab, wie etwa der absoluten Länge des Strings, ihrer Länge modulo 3 und ob Auffüllzeichen verwendet werden).
+Das bedeutet, dass die Base64-Version eines Strings oder einer Datei typischerweise etwa ein Drittel größer ist als die Quelle (die genaue Größenvergrößerung hängt von verschiedenen Faktoren ab, wie der absoluten Länge des Strings, seiner Länge modulo 3 und ob Auffüllzeichen verwendet werden).
 
 ## JavaScript-Unterstützung
 
 Browser bieten nativ zwei JavaScript-Funktionen zum Dekodieren und Kodieren von Base64-Strings:
 
-- {{domxref("Window.btoa()")}} (auch {{domxref("WorkerGlobalScope.btoa()", "in Workern verfügbar", "", "nocode")}}): erstellt eine Base64-codierte ASCII-Zeichenfolge aus einer Zeichenfolge von Binärdaten ("btoa" sollte als "binary to ASCII" gelesen werden).
-- {{domxref("Window.atob()")}} (auch {{domxref("WorkerGlobalScope.atob()", "in Workern verfügbar", "", "nocode")}}): dekodiert eine Base64-codierte Zeichenfolge ("atob" sollte als "ASCII to binary" gelesen werden).
+- [`Window.btoa()`](/de/docs/Web/API/Window/btoa) (auch [in Arbeitern verfügbar](/de/docs/Web/API/WorkerGlobalScope/btoa)): erstellt einen Base64-kodierten ASCII-String aus einem String von Binärdaten ("btoa" sollte als "binary to ASCII" gelesen werden).
+- [`Window.atob()`](/de/docs/Web/API/Window/atob) (auch [in Arbeitern verfügbar](/de/docs/Web/API/WorkerGlobalScope/atob)): dekodiert einen Base64-kodierten String ("atob" sollte als "ASCII to binary" gelesen werden).
 
 > [!NOTE]
-> Base64 ist eine binäre Kodierung und keine Textkodierung, aber `btoa` und `atob` wurden in die Webplattform eingeführt, bevor sie Binärdatentypen unterstützte. Infolgedessen verwenden die beiden Funktionen Strings, um binäre Daten darzustellen, wobei der {{glossary("code point")}} jedes Zeichens den Wert jedes Bytes repräsentiert. Dies hat zu einem häufigen Missverständnis geführt, dass `btoa` verwendet werden kann, um beliebige Textdaten zu kodieren — beispielsweise durch Erstellen einer Base64 `data:` URL eines Text- oder HTML-Dokuments.
+> Base64 ist eine Binärkodierung und keine Textkodierung, aber `btoa` und `atob` wurden zur Webplattform hinzugefügt, bevor diese Binärdatentypen unterstützte. Infolgedessen verwenden die beiden Funktionen Strings, um Binärdaten darzustellen, wobei der [Codepunkt](/de/docs/Glossary/code_point) jedes Zeichens den Wert jedes Bytes repräsentiert. Dies hat zu einem weit verbreiteten Missverständnis geführt, dass `btoa` verwendet werden kann, um beliebige Textdaten zu kodieren — zum Beispiel, um eine Base64 `data:` URL eines Text- oder HTML-Dokuments zu erstellen.
 >
-> Die Byte-zu-Codepoint-Korrespondenz gilt jedoch nur zuverlässig für Codepunkte bis zu `0x7f`. Darüber hinaus führen Codepunkte über `0xff` dazu, dass `btoa` einen Fehler wirft, da sie den Maximalwert für 1 Byte überschreiten. Der nächste Abschnitt beschreibt, wie dieses Limit bei der Kodierung beliebigen Unicode-Textes umgangen werden kann.
+> Jedoch hält die Byte-zu-Codepunkt-Übereinstimmung nur für Codepunkte bis `0x7f` zuverlässig an. Darüber hinaus führen Codepunkte über `0xff` dazu, dass `btoa` einen Fehler auslöst, weil sie den Maximalwert für 1 Byte überschreiten. Der nächste Abschnitt erläutert, wie man dieses Limit umgeht, wenn man beliebigen Unicode-Text kodiert.
 
-## Das „Unicode-Problem“
+## Das "Unicode-Problem"
 
-Da `btoa` die Codepunkte seiner Eingabezeichenfolge als Byte-Werte interpretiert, führt ein Aufruf von `btoa` für eine Zeichenfolge zu einer "Character Out Of Range"-Ausnahme, wenn der Codepunkt eines Zeichens `0xff` überschreitet. Für Anwendungsfälle, bei denen Sie willkürlichen Unicode-Text kodieren müssen, ist es notwendig, die Zeichenfolge zuerst in ihre Bestandteile in {{glossary("UTF-8")}} zu konvertieren und dann die Bytes zu kodieren.
+Da `btoa` die Codepunkte seines Eingabestrings als Byte-Werte interpretiert, wird ein Aufruf von `btoa` auf einem String einen "Character Out Of Range"-Ausnahmefehler verursachen, wenn der Codepunkt eines Zeichens `0xff` überschreitet. In Anwendungsfällen, in denen Sie beliebigen Unicode-Text kodieren müssen, ist es notwendig, zunächst den String in seine zugehörigen Bytes im [UTF-8](/de/docs/Glossary/UTF-8) umzuwandeln und dann die Bytes zu kodieren.
 
-Die einfachste Lösung besteht darin, `TextEncoder` und `TextDecoder` zu verwenden, um zwischen UTF-8 und Ein-Byte-Darstellungen der Zeichenfolge zu konvertieren:
+Die einfachste Lösung besteht darin, `TextEncoder` und `TextDecoder` zu verwenden, um zwischen UTF-8 und einbyteigen Darstellungen des Strings zu konvertieren:
 
 ```js
 function base64ToBytes(base64) {
@@ -60,16 +60,16 @@ function bytesToBase64(bytes) {
   return btoa(binString);
 }
 
-// Verwendung
+// Usage
 bytesToBase64(new TextEncoder().encode("a Ā 𐀀 文 🦄")); // "YSDEgCDwkICAIOaWhyDwn6aE"
 new TextDecoder().decode(base64ToBytes("YSDEgCDwkICAIOaWhyDwn6aE")); // "a Ā 𐀀 文 🦄"
 ```
 
-## Konvertierung beliebiger Binärdaten
+## Umwandlung beliebiger Binärdaten
 
-Die `bytesToBase64`- und `base64ToBytes`-Funktionen aus dem vorherigen Abschnitt können direkt zur Umwandlung zwischen Base64-Strings und [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)s verwendet werden.
+Die Funktionen `bytesToBase64` und `base64ToBytes` im vorhergehenden Abschnitt können direkt verwendet werden, um zwischen Base64-Strings und [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)s zu konvertieren.
 
-Für eine bessere Leistung ist eine asynchrone Konvertierung zwischen Base64-Daten-URLs nativ innerhalb der Webplattform über die [`FileReader`](/de/docs/Web/API/FileReader)- und [`fetch`](/de/docs/Web/API/Fetch_API)-APIs möglich:
+Für eine bessere Leistung ist die asynchrone Umwandlung zwischen Base64-Daten-URLs nativ innerhalb der Webplattform über die APIs [`FileReader`](/de/docs/Web/API/FileReader) und [`fetch`](/de/docs/Web/API/Fetch_API) möglich:
 
 ```js
 async function bytesToBase64DataUrl(bytes, type = "application/octet-stream") {
@@ -87,16 +87,16 @@ async function dataUrlToBytes(dataUrl) {
   return new Uint8Array(await res.arrayBuffer());
 }
 
-// Verwendung
+// Usage
 await bytesToBase64DataUrl(new Uint8Array([0, 1, 2])); // "data:application/octet-stream;base64,AAEC"
 await dataUrlToBytes("data:application/octet-stream;base64,AAEC"); // Uint8Array [0, 1, 2]
 ```
 
-## Siehe auch
+## Siehe Auch
 
-- JavaScript-APIs:
-  - {{domxref("Window.atob()")}} (auch {{domxref("WorkerGlobalScope.atob()", "in Workern verfügbar", "", "nocode")}})
-  - {{domxref("Window.btoa()")}} (auch {{domxref("WorkerGlobalScope.btoa()", "in Workern verfügbar", "", "nocode")}})
-- [Daten-URLs](/de/docs/Web/URI/Schemes/data)
+- JavaScript APIs:
+  - [`Window.atob()`](/de/docs/Web/API/Window/atob) (auch [in Arbeitern verfügbar](/de/docs/Web/API/WorkerGlobalScope/atob))
+  - [`Window.btoa()`](/de/docs/Web/API/Window/btoa) (auch [in Arbeitern verfügbar](/de/docs/Web/API/WorkerGlobalScope/btoa))
+- [Data-URLs](/de/docs/Web/URI/Schemes/data)
 - [Base64](https://en.wikipedia.org/wiki/Base64) auf Wikipedia
-- Base64-Algorithmus beschrieben in [RFC 4648](https://datatracker.ietf.org/doc/html/rfc4648)
+- Base64 Algorithmus beschrieben in [RFC 4648](https://datatracker.ietf.org/doc/html/rfc4648)

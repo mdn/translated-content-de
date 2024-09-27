@@ -8,14 +8,14 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`rowSpan`**-Eigenschaft der {{domxref("HTMLTableCellElement")}}-Schnittstelle gibt an, über wie viele Zeilen sich diese Zelle erstrecken muss. Dies ermöglicht es der Zelle, Platz über mehrere Zeilen der Tabelle hinweg einzunehmen. Sie spiegelt das [`rowspan`](/de/docs/Web/HTML/Element/td#colspan)-Attribut wider.
+Die **`rowSpan`** schreibgeschützte Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement) Schnittstelle repräsentiert die Anzahl der Zeilen, die diese Zelle überspannen muss; sie ermöglicht es der Zelle, Platz über mehrere Zeilen der Tabelle einzunehmen. Sie spiegelt das [`rowspan`](/de/docs/Web/HTML/Element/td#colspan)-Attribut wider.
 
 ## Wert
 
-Eine positive Zahl, die die Anzahl der Zeilen darstellt. Wenn sie `0` ist, bedeutet es alle verbleibenden Zeilen in der Spalte.
+Eine positive Zahl, die die Anzahl der Zeilen darstellt. Ist sie `0`, bedeutet dies, dass alle verbleibenden Zeilen in der Spalte gemeint sind.
 
 > [!NOTE]
-> Beim Setzen eines neuen Wertes wird ein Wert ungleich 0 auf die nächstgelegene strikt positive Zahl beschränkt.
+> Beim Festlegen eines neuen Werts wird ein von 0 abweichender Wert auf die nächstgelegene strikt positive Zahl _beschränkt_.
 
 ## Beispiele
 
@@ -52,7 +52,7 @@ Dieses Beispiel bietet zwei Schaltflächen, um die Zeilenspanne der ersten Zelle
 </table>
 <button id="increase">Increase rowspan</button>
 <button id="decrease">Decrease rowspan</button>
-<div>Die zweite Zelle der ersten Spalte erstreckt sich über <output>2</output> Zeile(n).</div>
+<div>The second cell of the first column spans <output>2</output> row(s).</div>
 ```
 
 ```css hidden
@@ -111,5 +111,5 @@ decreaseButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("HTMLTableCellElement.colSpan")}}
-- {{domxref("HTMLTableColElement.span")}}
+- [`HTMLTableCellElement.colSpan`](/de/docs/Web/API/HTMLTableCellElement/colSpan)
+- [`HTMLTableColElement.span`](/de/docs/Web/API/HTMLTableColElement/span)

@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`rows`**-Eigenschaft der {{DOMxRef("HTMLTextAreaElement")}}-Schnittstelle ist eine positive ganze Zahl, die die sichtbaren Textzeilen des Texteingabekontrols darstellt. Sie spiegelt das [`rows`](/de/docs/Web/HTML/Element/textarea#rows)-Attribut des `<textarea>`-Elements wider.
+Die **`rows`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces ist eine positive Ganzzahl, die die sichtbaren Textzeilen des Textelements darstellt. Sie spiegelt das [`rows`](/de/docs/Web/HTML/Element/textarea#rows)-Attribut des `<textarea>`-Elements wider.
 
 ## Wert
 
-Eine positive ganze Zahl. Standardwert ist `2`.
+Eine positive Ganzzahl. Voreinstellung ist `2`.
 
 ## Beispiele
 
@@ -33,6 +33,6 @@ textArea.rows = textLines + 2;
 ## Siehe auch
 
 - {{HTMLElement("textarea")}}
-- {{DOMXref("HTMLTextAreaElement.cols")}}
-- {{DOMXref("HTMLTextAreaElement.wrap")}}
-- Die CSS {{cssxref("resize")}}-Eigenschaft
+- [`HTMLTextAreaElement.cols`](/de/docs/Web/API/HTMLTextAreaElement/cols)
+- [`HTMLTextAreaElement.wrap`](/de/docs/Web/API/HTMLTextAreaElement/wrap)
+- CSS {{cssxref("resize")}}-Eigenschaft

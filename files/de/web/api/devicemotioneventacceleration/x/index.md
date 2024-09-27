@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die **`x`**-Schreibgeschützte Eigenschaft des {{domxref("DeviceMotionEventAcceleration")}}-Interfaces gibt die Menge der Beschleunigung an, die entlang der X-Achse in einem [`DeviceMotionEventAcceleration`](/de/docs/Web/API/DeviceMotionEventAcceleration)-Objekt aufgetreten ist.
+Die **`x`**-Eigenschaft der [`DeviceMotionEventAcceleration`](/de/docs/Web/API/DeviceMotionEventAcceleration)-Schnittstelle ist schreibgeschützt und gibt die Menge der Beschleunigung an, die entlang der X-Achse in einem [`DeviceMotionEventAcceleration`](/de/docs/Web/API/DeviceMotionEventAcceleration)-Objekt aufgetreten ist.
 
 ## Wert
 
-Ein `double`, das die Menge der Beschleunigung entlang der X-Achse angibt. Siehe [Erklärung der Beschleunigungswerte](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation) für Details.
+Ein `double`, das die Menge der Beschleunigung entlang der X-Achse angibt.
+Siehe [Erläuterung der Accelerometer-Werte](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation) für Details.
 
 ## Spezifikationen
 

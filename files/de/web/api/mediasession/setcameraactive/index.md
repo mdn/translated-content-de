@@ -1,5 +1,5 @@
 ---
-title: "MediaSession: setCameraActive()-Methode"
+title: "MediaSession: setCameraActive() Methode"
 short-title: setCameraActive()
 slug: Web/API/MediaSession/setCameraActive
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Media Session API")}}{{SeeCompatTable}}
 
-Die **`setCameraActive()`**-Methode des {{domxref("MediaSession")}}-Interfaces wird verwendet, um dem Benutzeragenten mitzuteilen, ob die Kamera des Benutzers als aktiv betrachtet wird.
+Die **`setCameraActive()`**-Methode des [`MediaSession`](/de/docs/Web/API/MediaSession)-Interfaces wird verwendet, um dem Benutzeragenten mitzuteilen, ob die Kamera des Benutzers als aktiv betrachtet wird.
 
-Rufen Sie diese Methode am `navigator`-Objekt auf, auf dem
-{{domxref("navigator.mediaSession", "mediaSession")}}-Objekt.
+Rufen Sie diese Methode für das `navigator`-Objekt von
+[`mediaSession`](/de/docs/Web/API/Navigator/mediaSession) auf.
 
-Beachten Sie, dass der Status der Kamera nicht in der {{domxref("MediaSession")}} selbst verfolgt wird, sondern separat verfolgt werden muss.
+Beachten Sie, dass der Status der Kamera nicht im [`MediaSession`](/de/docs/Web/API/MediaSession) selbst verfolgt wird, sondern separat nachgehalten werden muss.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ setCameraActive(active)
 ### Parameter
 
 - `active`
-  - : Ein Boolean-Wert, der angibt, ob die Kamera als aktiv betrachtet wird oder nicht.
+  - : Ein boolescher Wert, der angibt, ob die Kamera als aktiv betrachtet wird oder nicht.
 
 ### Rückgabewert
 
@@ -32,7 +32,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie der Status der Kameranutzung der aktuellen {{domxref('MediaSession')}} aktualisiert wird, sowie das Abhören von Anfragen zur Änderung des Kamerastatus mit {{domxref("MediaSession.setActionHandler", "setActionHandler()")}}.
+Nachfolgend finden Sie ein Beispiel zum Aktualisieren des aktiven Kamerastatus der aktuellen
+[`MediaSession`](/de/docs/Web/API/MediaSession), sowie zum Überwachen von Anfragen zur Änderung des Kamerastatus mit [`setActionHandler()`](/de/docs/Web/API/MediaSession/setActionHandler).
 
 ```js
 let cameraActive = false;

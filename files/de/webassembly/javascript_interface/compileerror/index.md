@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Das **`WebAssembly.CompileError`**-Objekt weist auf einen Fehler während der Decodierung oder Validierung von WebAssembly hin.
+Das **`WebAssembly.CompileError`**-Objekt zeigt einen Fehler während der WebAssembly-Decodierung oder -Validierung an.
 
 ## Konstruktor
 
@@ -34,13 +34,13 @@ Das **`WebAssembly.CompileError`**-Objekt weist auf einen Fehler während der De
 ## Instanzmethoden
 
 - {{jsxref("Error.prototype.toString", "WebAssembly.CompileError.prototype.toString()")}}
-  - : Gibt eine Zeichenkette zurück, die das spezifizierte `Error`-Objekt repräsentiert. Geerbt von {{jsxref("Error")}}.
+  - : Gibt eine Zeichenkette zurück, die das angegebene `Error`-Objekt darstellt. Geerbt von {{jsxref("Error")}}.
 
 ## Beispiele
 
 ### Erstellen einer neuen CompileError-Instanz
 
-Das folgende Beispiel erstellt eine neue `CompileError`-Instanz und protokolliert deren Details in der Konsole:
+Das folgende Beispiel erstellt eine neue `CompileError`-Instanz und protokolliert ihre Details in der Konsole:
 
 ```js
 try {
@@ -66,6 +66,6 @@ try {
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
+- Übersichtsseite [WebAssembly](/de/docs/WebAssembly)
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwendung des WebAssembly-JavaScript-APIs](/de/docs/WebAssembly/Using_the_JavaScript_API)

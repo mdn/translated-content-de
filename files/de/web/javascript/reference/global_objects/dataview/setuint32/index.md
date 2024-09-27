@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`setUint32()`** von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl und speichert sie als 32-Bit-Integer ohne Vorzeichen in den 4 Bytes, beginnend bei dem angegebenen Byte-Offset dieses `DataView`. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können an jedem innerhalb der Grenzen liegenden Offset gespeichert werden.
+Die **`setUint32()`**-Methode von {{jsxref("DataView")}}-Instanzen nimmt eine Zahl und speichert sie als 32-Bit unsigned integer in den 4 Bytes, beginnend beim angegebenen Byte-Offset dieses `DataView`. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können an jedem innerhalb der Grenzen liegenden Offset gespeichert werden.
 
 {{EmbedInteractiveExample("pages/js/dataview-setuint32.html")}}
 
@@ -21,9 +21,9 @@ setUint32(byteOffset, value, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Anfang der Ansicht, um die Daten zu speichern.
+  - : Der Offset, in Bytes, vom Anfang der Ansicht, um die Daten zu speichern.
 - `value`
-  - : Der zu setzende Wert. Informationen dazu, wie der Wert in Bytes kodiert wird, finden Sie unter [Value encoding and normalization](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
+  - : Der einzustellende Wert. Wie der Wert in Bytes kodiert wird, siehe [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
 - `littleEndian` {{optional_inline}}
   - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness)-Format gespeichert werden. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
 
@@ -34,7 +34,7 @@ setUint32(byteOffset, value, littleEndian)
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so eingestellt ist, dass er über das Ende der Ansicht hinaus speichern würde.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinaus speichern würde.
 
 ## Beispiele
 
@@ -57,7 +57,7 @@ dataview.getUint32(1); // 768
 
 ## Siehe auch
 
-- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Uint32Array")}}

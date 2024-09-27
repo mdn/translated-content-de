@@ -1,5 +1,5 @@
 ---
-title: "MediaStream: clone()-Methode"
+title: "MediaStream: clone() Methode"
 short-title: clone()
 slug: Web/API/MediaStream/clone
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`clone()`**-Methode des {{domxref("MediaStream")}}-Interfaces erstellt eine Kopie des `MediaStream`. Dieses neue `MediaStream`-Objekt hat eine neue, eindeutige {{domxref("MediaStream.id", "id")}} und enthält Klone von jedem {{domxref("MediaStreamTrack")}}, das vom `MediaStream`, auf dem `clone()` aufgerufen wurde, enthalten ist.
+Die **`clone()`** Methode der [`MediaStream`](/de/docs/Web/API/MediaStream)-Schnittstelle erstellt ein Duplikat des `MediaStream`. Dieses neue `MediaStream`-Objekt hat eine neue eindeutige [`id`](/de/docs/Web/API/MediaStream/id) und enthält Klone jedes [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), das im `MediaStream`, auf dem `clone()` aufgerufen wurde, enthalten ist.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Eine neue {{domxref("MediaStream")}}-Instanz, die eine neue eindeutige ID hat und Klone von jedem {{domxref("MediaStreamTrack")}} enthält, das vom `MediaStream`, auf dem `clone()` aufgerufen wurde, enthalten ist.
+Eine neue [`MediaStream`](/de/docs/Web/API/MediaStream)-Instanz, die eine neue eindeutige ID hat und Klone jedes [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) enthält, das im `MediaStream`, auf dem `clone()` aufgerufen wurde, enthalten ist.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

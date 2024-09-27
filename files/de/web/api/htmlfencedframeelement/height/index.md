@@ -8,15 +8,15 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Fenced Frame API")}}
 
-Die **`height`**-Eigenschaft des {{domxref("HTMLFencedFrameElement")}} ruft den Wert des entsprechenden {{htmlelement("fencedframe")}}-`height`-Attributs ab und setzt ihn, was die Höhe des Elements festlegt.
+Die **`height`**-Eigenschaft des [`HTMLFencedFrameElement`](/de/docs/Web/API/HTMLFencedFrameElement) erhält und setzt den Wert des entsprechenden {{htmlelement("fencedframe")}} `height`-Attributs, das die Höhe des Elements festlegt.
 
-Die Größe des eingebetteten Inhalts kann durch interne `contentWidth`- und `contentHeight`-Eigenschaften des {{domxref("HTMLFencedFrameElement.config", "config")}}-Objekts des `<fencedframe>` festgelegt werden. In solchen Fällen bewirkt das Ändern der {{domxref("HTMLFencedFrameElement.width", "width")}} oder `height` des `<fencedframe>`, dass sich die Größe des eingebetteten Containers auf der Seite ändert, aber das Dokument im Container wird visuell skaliert, um zu passen. Die berichtete Breite und Höhe des eingebetteten Dokuments (d.h. {{domxref("Window.innerWidth")}} und {{domxref("Window.innerHeight")}}) bleiben unverändert.
+Die Größe des eingebetteten Inhalts kann durch die internen Eigenschaften `contentWidth` und `contentHeight` des [`config`](/de/docs/Web/API/HTMLFencedFrameElement/config)-Objekts des `<fencedframe>`-Elements festgelegt werden. In solchen Fällen ändert das Ändern der [`width`](/de/docs/Web/API/HTMLFencedFrameElement/width) oder `height` des `<fencedframe>` die Größe des eingebetteten Containers auf der Seite, aber das Dokument innerhalb des Containers wird visuell skaliert, um hineinzupassen. Die berichtete Breite und Höhe des eingebetteten Dokuments (d.h. [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) und [`Window.innerHeight`](/de/docs/Web/API/Window/innerHeight)) bleiben unverändert.
 
 ## Wert
 
 Ein String, der die Höhe des Elements in CSS-Pixeln darstellt. Der Standardwert ist `150`.
 
-## Beispiele
+## Beispiel
 
 ```js
 const frame = document.createElement("fencedframe");

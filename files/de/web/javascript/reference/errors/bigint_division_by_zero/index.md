@@ -1,5 +1,5 @@
 ---
-title: "RangeError: BigInt-Division durch Null"
+title: "RangeError: BigInt division durch null"
 slug: Web/JavaScript/Reference/Errors/BigInt_division_by_zero
 l10n:
   sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Ausnahmefehler "BigInt division by zero" tritt auf, wenn ein {{jsxref("BigInt")}} durch `0n` geteilt wird.
+Die JavaScript-Ausnahme "BigInt division durch null" tritt auf, wenn ein {{jsxref("BigInt")}} durch `0n` geteilt wird.
 
-## Nachricht
+## Meldung
 
 ```plain
 RangeError: Division by zero (V8-based)
@@ -23,7 +23,7 @@ RangeError: 0 is an invalid divisor value. (Safari)
 
 ## Was ist schiefgelaufen?
 
-Der Divisor eines [Division](/de/docs/Web/JavaScript/Reference/Operators/Division)- oder [Rest](/de/docs/Web/JavaScript/Reference/Operators/Remainder)-Operators ist `0n`. In der {{jsxref("Number")}}-Arithmetik erzeugt dies [`Infinity`](/de/docs/Web/JavaScript/Reference/Global_Objects/Infinity), aber es gibt keinen "Unendlichkeitswert" bei BigInts, wodurch ein Fehler ausgegeben wird. Überprüfen Sie, ob der Divisor `0n` ist, bevor Sie die Division durchführen.
+Der Divisor eines [Divisionsoperators](/de/docs/Web/JavaScript/Reference/Operators/Division) oder [Restoperators](/de/docs/Web/JavaScript/Reference/Operators/Remainder) ist `0n`. In der {{jsxref("Number")}}-Arithmetik führt dies zu [`Infinity`](/de/docs/Web/JavaScript/Reference/Global_Objects/Infinity), aber es gibt keinen "Unendlichkeitswert" in BigInts, daher wird ein Fehler ausgegeben. Überprüfen Sie, ob der Divisor `0n` ist, bevor Sie die Division durchführen.
 
 ## Beispiele
 
@@ -36,7 +36,7 @@ const quotient = a / b;
 // RangeError: BigInt division by zero
 ```
 
-Stattdessen sollten Sie zuerst überprüfen, ob der Divisor `0n` ist, und entweder einen Fehler mit einer besseren Nachricht ausgeben oder auf einen anderen Wert zurückgreifen, wie `Infinity` oder `undefined`.
+Stattdessen sollten Sie zunächst überprüfen, ob der Divisor `0n` ist, und entweder einen Fehler mit einer besseren Nachricht ausgeben oder auf einen anderen Wert zurückfallen, wie `Infinity` oder `undefined`.
 
 ```js example-good
 const a = 1n;

@@ -8,14 +8,16 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die Methode **`observe()`** des {{domxref("IntersectionObserver")}} fügt ein Element zur Menge der Zielobjekte hinzu, die vom `IntersectionObserver` beobachtet werden. Ein Observer hat eine Menge von Schwellwerten und eine Wurzel, kann aber mehrere Zielobjekte beobachten, um Sichtbarkeitsänderungen in Übereinstimmung mit diesen zu überwachen.
+Die Methode [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) **`observe()`** fügt ein Element zu der Menge von Zielelementen hinzu, die von dem `IntersectionObserver` überwacht werden. Ein Beobachter hat einen Satz von Schwellenwerten und eine Wurzel, kann jedoch mehrere Zielelemente im Hinblick auf Sichtbarkeitsänderungen überwachen, die diesen entsprechen.
 
-Um die Beobachtung des Elements zu beenden, rufen Sie {{domxref("IntersectionObserver.unobserve()")}} auf.
+Um die Beobachtung des Elements zu beenden, rufen Sie [`IntersectionObserver.unobserve()`](/de/docs/Web/API/IntersectionObserver/unobserve) auf.
 
-Wenn die Sichtbarkeit des angegebenen Elements einen der Sichtbarkeitsschwellwerte des Observers überschreitet (wie in {{domxref("IntersectionObserver.thresholds")}} aufgeführt), wird der Callback des Observers mit einem Array von {{domxref("IntersectionObserverEntry")}}-Objekten ausgeführt, die die stattgefundenen Schnittpunktsänderungen darstellen. Beachten Sie, dass dieses Design erlaubt, die Schnittpunktsänderungen mehrerer Elemente durch einen einzigen Aufruf des Callbacks zu verarbeiten.
+Wenn die Sichtbarkeit des angegebenen Elements eine der Sichtbarkeitsschwellwerte des Beobachters überschreitet (wie in [`IntersectionObserver.thresholds`](/de/docs/Web/API/IntersectionObserver/thresholds) aufgeführt), wird der Rückruf des Beobachters mit einem Array von [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry) Objekten ausgeführt, die die aufgetretenen Schnittänderungen darstellen. Beachten Sie, dass dieses Design es ermöglicht, die Schnittänderungen mehrerer Elemente durch einen einzigen Aufruf des Rückrufs zu verarbeiten.
 
 > [!NOTE]
-> Der Observer [Callback](/de/docs/Web/API/IntersectionObserver/IntersectionObserver#callback) wird immer im ersten Render-Zyklus nach dem Aufruf von `observe()` ausgeführt, auch wenn sich das beobachtete Element relativ zum Viewport noch nicht bewegt hat. Das bedeutet, dass ein Element, das sich außerhalb des Viewports befindet, wenn `observe()` aufgerufen wird, dazu führt, dass der Callback sofort mit mindestens einem [Entry](/de/docs/Web/API/IntersectionObserverEntry) mit [`intersecting`](/de/docs/Web/API/IntersectionObserverEntry/isIntersecting) auf `false` gesetzt, aufgerufen wird. Ein Element innerhalb des Viewports führt dazu, dass der Callback sofort mit mindestens einem Entry mit `intersecting` auf `true` gesetzt, aufgerufen wird.
+> Der Beobachter [Rückruf](/de/docs/Web/API/IntersectionObserver/IntersectionObserver#callback) wird immer im ersten Renderzyklus nach dem Aufruf von `observe()` ausgelöst, selbst wenn sich das beobachtete Element noch nicht im Verhältnis zum Ansichtsfenster bewegt hat.
+> Dies bedeutet zum Beispiel, dass ein Element, das sich außerhalb des Ansichtsfensters befindet, wenn `observe()` darauf angewendet wird, dazu führt, dass der Rückruf sofort mit mindestens einem [Eintrag](/de/docs/Web/API/IntersectionObserverEntry) aufgerufen wird, bei dem [`intersecting`](/de/docs/Web/API/IntersectionObserverEntry/isIntersecting) auf `false` gesetzt ist.
+> Ein Element innerhalb des Ansichtsfensters führt dazu, dass der Rückruf sofort mit mindestens einem Eintrag aufgerufen wird, bei dem `intersecting` auf `true` gesetzt ist.
 
 ## Syntax
 
@@ -26,7 +28,7 @@ observe(targetElement)
 ### Parameter
 
 - `targetElement`
-  - : Ein {{domxref("element")}}, dessen Sichtbarkeit innerhalb der Wurzel überwacht werden soll. Dieses Element muss ein Nachkomme des Wurzelelements sein (oder innerhalb des aktuellen Dokuments enthalten sein, wenn die Wurzel der Viewport des Dokuments ist).
+  - : Ein [`element`](/de/docs/Web/API/Element), dessen Sichtbarkeit innerhalb der Wurzel überwacht werden soll. Dieses Element muss ein Nachfolger des Wurzelelements (oder im aktuellen Dokument enthalten sein, falls die Wurzel das Ansichtsfenster des Dokuments ist) sein.
 
 ### Rückgabewert
 
@@ -35,20 +37,20 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```js
-// IntersectionObserver registrieren
+// Register IntersectionObserver
 const io = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.intersectionRatio > 0) {
-      // 'active'-Klasse hinzufügen, wenn das Beobachtungsziel im Viewport ist
+      // Add 'active' class if observation target is inside viewport
       entry.target.classList.add("active");
     } else {
-      // Andernfalls 'active'-Klasse entfernen
+      // Remove 'active' class otherwise
       entry.target.classList.remove("active");
     }
   });
 });
 
-// Deklariert, was beobachtet werden soll, und beobachtet dessen Eigenschaften.
+// Declares what to observe, and observes its properties.
 const boxElList = document.querySelectorAll(".box");
 boxElList.forEach((el) => {
   io.observe(el);
@@ -65,4 +67,4 @@ boxElList.forEach((el) => {
 
 ## Siehe auch
 
-- {{domxref("IntersectionObserver.unobserve()")}}
+- [`IntersectionObserver.unobserve()`](/de/docs/Web/API/IntersectionObserver/unobserve)

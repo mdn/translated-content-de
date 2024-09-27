@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`reset()`**-Methode der {{domxref("ImageDecoder")}}-Schnittstelle bricht alle ausstehenden `decode()`-Operationen ab; alle ausstehenden Versprechen werden abgelehnt. Alle anderen Zustände bleiben unverändert. Klassenmethoden können nach `reset()` weiterhin aufgerufen werden. Zum Beispiel ist das Aufrufen von `decode()` nach `reset()` erlaubt.
+Die **`reset()`**-Methode der [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Schnittstelle bricht alle ausstehenden `decode()`-Operationen ab und lehnt alle ausstehenden Versprechungen ab. Alle anderen Zustände bleiben unverändert. Klassenmethoden können nach `reset()` weiterhin aufgerufen werden. Zum Beispiel ist das Aufrufen von `decode()` nach `reset()` zulässig.
 
 ## Syntax
 

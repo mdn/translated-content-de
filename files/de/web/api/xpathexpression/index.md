@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Diese Schnittstelle ist ein kompilierter XPath-Ausdruck, der auf einem Dokument oder einem bestimmten Knoten ausgewertet werden kann, um Informationen aus dessen {{Glossary("DOM")}}-Baum zu erhalten.
+Diese Schnittstelle ist ein kompilierter XPath-Ausdruck, der auf einem Dokument oder einem bestimmten Knoten ausgewertet werden kann, um Informationen von seinem [DOM](/de/docs/Glossary/DOM)-Baum zurückzugeben.
 
-Dies ist nützlich, wenn ein Ausdruck in einer Anwendung wiederverwendet wird, da er nur einmal kompiliert wird und alle Namensraumpräfixe, die im Ausdruck vorkommen, vorab aufgelöst werden.
+Dies ist nützlich, wenn ein Ausdruck in einer Anwendung wiederverwendet wird, da er nur einmal kompiliert wird und alle Namensraum-Präfixe, die im Ausdruck vorkommen, vorab aufgelöst werden.
 
-Objekte dieses Typs werden durch den Aufruf von {{domxref("XPathEvaluator.createExpression", "XPathEvaluator.createExpression()")}} erstellt.
+Objekte dieses Typs werden durch Aufruf von [`XPathEvaluator.createExpression()`](/de/docs/Web/API/XPathEvaluator/createExpression) erstellt.
 
 ## Instanzmethoden
 
-- {{DOMxRef("XPathExpression.evaluate()")}}
-  - : Bewertet den XPath-Ausdruck auf dem angegebenen Knoten oder Dokument.
+- [`XPathExpression.evaluate()`](/de/docs/Web/API/XPathExpression/evaluate)
+  - : Bewertet den XPath-Ausdruck auf dem gegebenen Knoten oder Dokument.
 
 ## Beispiel
 
@@ -25,8 +25,8 @@ Das folgende Beispiel zeigt die Verwendung der `XPathExpression`-Schnittstelle.
 ### HTML
 
 ```html
-<div>XPath-Beispiel</div>
-<div>Anzahl der &lt;div&gt;s: <output></output></div>
+<div>XPath example</div>
+<div>Number of &lt;div&gt;s: <output></output></div>
 ```
 
 ### JavaScript
@@ -56,5 +56,5 @@ document.querySelector("output").textContent = result.snapshotLength;
 
 ## Siehe auch
 
-- {{DOMxRef("document.createExpression()")}}
-- {{DOMxRef("XPathResult")}}
+- [`document.createExpression()`](/de/docs/Web/API/Document/createExpression)
+- [`XPathResult`](/de/docs/Web/API/XPathResult)

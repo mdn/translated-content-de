@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`disabled`**-Eigenschaft der {{DOMxRef("HTMLTextAreaElement")}}-Schnittstelle gibt an, ob dieses mehrzeilige Texteingabe-Steuerelement deaktiviert ist und nicht interagiert werden kann. Sie spiegelt das `disabled`-Attribut des {{htmlelement("textarea")}}-Elements wider. Wenn der Wert `false` ist, kann dieses `textarea` dennoch deaktiviert sein, wenn das enthaltende Element, wie ein {{htmlelement("fieldset")}}, deaktiviert ist.
+Die **`disabled`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) Schnittstelle gibt an, ob dieses Mehrzeilen-Textfeld deaktiviert ist und nicht interagiert werden kann. Sie spiegelt das [`disabled`](/de/docs/Web/HTML/Element/textarea#autocomplete) Attribut des {{htmlelement("textarea")}} Elements wider. Wenn `false`, könnte dieses `textarea` dennoch deaktiviert sein, wenn das umgebende Element, wie z. B. ein {{htmlelement("fieldset")}}, deaktiviert ist.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein Boolean.
 
 ## Beispiele
 
@@ -34,4 +34,4 @@ if (commentsDisabled) {
 ## Siehe auch
 
 - {{HTMLElement("textarea")}}
-- {{DOMXref("HTMLTextAreaElement.readOnly")}}
+- [`HTMLTextAreaElement.readOnly`](/de/docs/Web/API/HTMLTextAreaElement/readOnly)

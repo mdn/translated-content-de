@@ -1,5 +1,5 @@
 ---
-title: "TextMetrics: Eigenschaft actualBoundingBoxRight"
+title: "TextMetrics: actualBoundingBoxRight-Eigenschaft"
 short-title: actualBoundingBoxRight
 slug: Web/API/TextMetrics/actualBoundingBoxRight
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft `actualBoundingBoxRight` des {{domxref("TextMetrics")}}-Interfaces ist ein `double`, der die Entfernung parallel zur Grundlinie vom durch die {{domxref("CanvasRenderingContext2D.textAlign")}}-Eigenschaft angegebenen Ausrichtungspunkt zur rechten Seite des Begrenzungsrechtecks des angegebenen Textes in CSS-Pixeln angibt.
+Die schreibgeschützte `actualBoundingBoxRight`-Eigenschaft des [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Interfaces ist ein `double`, das die Entfernung parallel zur Basislinie vom durch die [`CanvasRenderingContext2D.textAlign`](/de/docs/Web/API/CanvasRenderingContext2D/textAlign)-Eigenschaft angegebenen Ausrichtungspunkt zur rechten Seite des Begrenzungsrechtecks des angegebenen Textes in CSS-Pixeln angibt.
 
 ## Beispiele
 
 ```js
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
-const text = ctx.measureText("foo"); // gibt ein TextMetrics-Objekt zurück
+const text = ctx.measureText("foo"); // returns TextMetrics object
 
 text.actualBoundingBoxRight; // 15.633333333333333;
 ```
@@ -30,4 +30,4 @@ text.actualBoundingBoxRight; // 15.633333333333333;
 
 ## Siehe auch
 
-- {{domxref("TextMetrics")}}
+- [`TextMetrics`](/de/docs/Web/API/TextMetrics)

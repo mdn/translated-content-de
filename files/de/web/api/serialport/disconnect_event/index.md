@@ -8,13 +8,13 @@ l10n:
 
 {{SecureContext_Header}}{{APIRef("Web Serial API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`disconnect`**-Ereignis des {{domxref("SerialPort")}}-Interfaces tritt auf, wenn die Verbindung des Ports zum Gerät unterbrochen wurde. Dieses Ereignis wird nur für Ports ausgelöst, die mit entfernbaren Geräten wie solchen verbunden sind, die über USB angeschlossen sind.
+Das **`disconnect`**-Ereignis der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle wird ausgelöst, wenn die Verbindung des Ports vom Gerät getrennt wurde. Dieses Ereignis wird nur für Ports ausgelöst, die mit entfernbarem Gerät verbunden sind, wie z.B. über USB.
 
-Dieses Ereignis wird an die Instanz von {{domxref("Serial")}} weitergeleitet, die dieses Interface zurückgegeben hat.
+Dieses Ereignis wird an die Instanz von [`Serial`](/de/docs/Web/API/Serial) weitergeleitet, die diese Schnittstelle zurückgegeben hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("disconnect", (event) => {});
@@ -24,34 +24,34 @@ ondisconnect = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Bubble-Verhalten
+## Bubbling
 
-Dieses Ereignis wird an {{domxref("Serial")}} weitergeleitet. Die `event.target`-Eigenschaft bezieht sich auf das {{domxref('SerialPort')}}-Objekt, das hochgebubbelt wird.
+Dieses Ereignis wird an [`Serial`](/de/docs/Web/API/Serial) weitergeleitet. Die `event.target`-Eigenschaft bezieht sich auf das [`SerialPort`](/de/docs/Web/API/SerialPort)-Objekt, das nach oben läuft.
 
-Für weitere Informationen siehe [Bubble-Verhalten von Ereignissen](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling).
+Für weitere Informationen siehe [Ereignis-Bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling).
 
 ## Beispiele
 
-### Benachrichtigung, wenn ein spezifischer Port getrennt wird
+### Benachrichtigung, wenn ein bestimmter Port getrennt wird
 
-Hier wird der Ereignis-Listener auf einem spezifischen {{domxref("SerialPort")}}-Objekt installiert.
+Hier wird der Ereignis-Listener auf einem bestimmten [`SerialPort`](/de/docs/Web/API/SerialPort)-Objekt installiert.
 
 ```js
 port.addEventListener("disconnect", (event) => {
-  // Benachrichtigung, dass der Port nicht mehr verfügbar ist
+  // notify that the port has become unavailable
 });
 ```
 
-### Hören auf alle Ports, die nicht mehr verfügbar sind
+### Überwachung von Ports, die nicht mehr verfügbar sind
 
-Das `disconnect`-Ereignis wird an das {{domxref("Serial")}}-Objekt weitergeleitet, wo Sie auf alle Ports hören können, die nicht mehr verfügbar sind.
+Das `disconnect`-Ereignis wird an das [`Serial`](/de/docs/Web/API/Serial)-Objekt weitergeleitet, wo Sie auf alle Ports hören können, die nicht mehr verfügbar sind.
 
 ```js
 navigator.serial.addEventListener("disconnect", (event) => {
-  // Benachrichtigung, dass ein Port nicht mehr verfügbar ist
-  // Verwenden Sie `event.target`, um auf den nicht verfügbaren Port zu verweisen
+  // notify that a port has become unavailable
+  // use `event.target` to refer to the unavailable port
 });
 ```
 
@@ -65,4 +65,4 @@ navigator.serial.addEventListener("disconnect", (event) => {
 
 ## Siehe auch
 
-- {{domxref("SerialPort.connect_event", "connect")}}-Ereignis
+- [`connect`](/de/docs/Web/API/SerialPort/connect_event)-Ereignis

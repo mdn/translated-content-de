@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Presentation API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Wenn die `terminate()`-Methode auf einer {{domxref("PresentationConnection")}} aufgerufen wird, beginnt der {{Glossary("user agent")}} mit dem Prozess, die Präsentation zu beenden. Der genaue Ablauf unterscheidet sich je nachdem, ob `terminate()` im kontrollierenden oder im präsentierenden Kontext aufgerufen wird.
+Wenn die `terminate()`-Methode auf einer [`PresentationConnection`](/de/docs/Web/API/PresentationConnection) aufgerufen wird, beginnt der [User Agent](/de/docs/Glossary/user_agent) den Prozess der Beendigung der Präsentation. Der genaue Prozess unterscheidet sich je nachdem, ob `terminate()` im kontrollierenden oder im präsentierenden Kontext aufgerufen wird.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 

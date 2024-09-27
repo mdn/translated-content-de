@@ -3,17 +3,16 @@ title: "SourceBuffer: videoTracks-Eigenschaft"
 short-title: videoTracks
 slug: Web/API/SourceBuffer/videoTracks
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
 ---
 
-{{APIRef("Media Source Extensions")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`videoTracks`** schreibgeschützte Eigenschaft des
-{{domxref("SourceBuffer")}}-Interfaces gibt eine Liste der Videospuren zurück, die sich derzeit im `SourceBuffer` befinden.
+Die schreibgeschützte **`videoTracks`**-Eigenschaft der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle gibt eine Liste der Videospuren zurück, die aktuell im `SourceBuffer` enthalten sind.
 
 ## Wert
 
-Ein {{domxref("VideoTrackList")}}-Objekt.
+Ein [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Objekt.
 
 ## Beispiele
 
@@ -29,5 +28,5 @@ TBD
 
 ## Siehe auch
 
-- {{domxref("MediaSource")}}
-- {{domxref("SourceBufferList")}}
+- [`MediaSource`](/de/docs/Web/API/MediaSource)
+- [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)

@@ -1,5 +1,5 @@
 ---
-title: "Lookahead-Assertion: (?=...), (?!...)"
+title: "Lookahead assertion: (?=...), (?!...)"
 slug: Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion
 l10n:
   sourceCommit: 542709c06aeb4983329edd5f186689c5401ac522
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar}}
 
-Eine **Lookahead-Assertion** "blickt voraus": Sie versucht, die nachfolgende Eingabe mit dem gegebenen Muster abzugleichen, aber sie verbraucht keinen Teil der Eingabe — wenn der Abgleich erfolgreich ist, bleibt die aktuelle Position in der Eingabe gleich.
+Eine **Lookahead-Assertion** "blickt voraus": Sie versucht, den nachfolgenden Input mit dem angegebenen Muster abzugleichen, konsumiert jedoch keinen Teil des Inputs – wenn der Abgleich erfolgreich ist, bleibt die aktuelle Position im Input unverändert.
 
 ## Syntax
 
@@ -19,33 +19,33 @@ Eine **Lookahead-Assertion** "blickt voraus": Sie versucht, die nachfolgende Ein
 ### Parameter
 
 - `pattern`
-  - : Ein Muster, das aus allem bestehen kann, was Sie in einem Regex-Literal verwenden können, einschließlich einer [Verzweigung](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction).
+  - : Ein Muster, das alles enthalten kann, was in einem Regex-Literal verwendet werden kann, einschließlich einer [Disjunktion](/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction).
 
 ## Beschreibung
 
-Ein regulärer Ausdruck gleicht im Allgemeinen von links nach rechts ab. Deshalb werden Lookahead- und [Lookbehind-](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion) Assertions so genannt — Lookahead behauptet, was rechts liegt, und Lookbehind behauptet, was links liegt.
+Ein regulärer Ausdruck wird im Allgemeinen von links nach rechts abgeglichen. Deshalb werden Lookahead und [Lookbehind](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion) als solche bezeichnet – Lookahead sichert, was rechts ist, und Lookbehind sichert, was links ist.
 
-Damit eine `(?=pattern)` Assertion erfolgreich ist, muss das `pattern` den Text nach der aktuellen Position abgleichen, aber die aktuelle Position wird nicht geändert. Die Form `(?!pattern)` negiert die Assertion — sie ist erfolgreich, wenn das `pattern` an der aktuellen Position nicht übereinstimmt.
+Damit eine `(?=pattern)`-Assertion erfolgreich ist, muss das `pattern` den Text nach der aktuellen Position abgleichen, aber die aktuelle Position wird nicht verändert. Die Form `(?!pattern)` negiert die Aussage – sie ist erfolgreich, wenn das `pattern` an der aktuellen Position nicht übereinstimmt.
 
-Das `pattern` kann [Gruppen für die Erfassung](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) enthalten. Weitere Informationen zum Verhalten in diesem Fall finden Sie auf der Seite zu den Erfassungsgruppen.
+Das `pattern` kann [Erfassungsgruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) enthalten. Siehe die Seite zu Erfassungsgruppen für weitere Informationen über das Verhalten in diesem Fall.
 
-Im Gegensatz zu anderen Operatoren für reguläre Ausdrücke gibt es kein Backtracking in ein Lookahead — dieses Verhalten wird aus Perl übernommen. Dies ist nur relevant, wenn das `pattern` [Gruppen für die Erfassung](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) enthält und das Muster nach dem Lookahead [Rückverweise](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference) auf diese Erfassungen enthält. Zum Beispiel:
+Im Gegensatz zu anderen Operatoren regulärer Ausdrücke gibt es kein Zurückverfolgen in ein Lookahead – dieses Verhalten wird von Perl geerbt. Dies ist nur von Bedeutung, wenn das `pattern` [Erfassungsgruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) enthält und das `pattern`, das dem Lookahead folgt, [Rückverweise](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference) auf diese Erfassen enthält. Zum Beispiel:
 
 ```js
 /(?=(a+))a*b\1/.exec("baabac"); // ['aba', 'a']
-// Nicht ['aaba', 'a']
+// Not ['aaba', 'a']
 ```
 
-Das Matching des obigen Musters erfolgt wie folgt:
+Das Abgleichen des obigen Musters erfolgt wie folgt:
 
-1. Das Lookahead `(a+)` ist vor dem ersten `"a"` in `"baabac"` erfolgreich, und `"aa"` wird erfasst, weil der Quantifizierer gierig ist.
-2. `a*b` gleicht dem `"aab"` in `"baabac"` ab, da Lookaheads ihre abgeglichenen Zeichenketten nicht verbrauchen.
-3. `\1` stimmt nicht mit der folgenden Zeichenkette überein, da dafür 2 `"a"`s erforderlich wären, aber nur 1 verfügbar ist. Daher geht der Matcher zurück, aber er geht nicht in das Lookahead zurück, sodass die Erfassungsgruppe nicht auf 1 `"a"` reduziert werden kann und das gesamte Matching an diesem Punkt fehlschlägt.
-4. `exec()` versucht das Matching an der nächsten Position erneut — vor dem zweiten `"a"`. Diesmal gleicht das Lookahead `"a"` ab und `a*b` gleicht `"ab"` ab. Der Rückverweis `\1` gleicht dem erfassten `"a"` ab und das Matching ist erfolgreich.
+1. Der Lookahead `(a+)` ist vor dem ersten `"a"` in `"baabac"` erfolgreich, und `"aa"` wird erfasst, weil der Quantor gierig ist.
+2. `a*b` stimmt mit dem `"aab"` in `"baabac"` überein, weil Lookaheads ihre abgeglichenen Zeichenfolgen nicht konsumieren.
+3. `\1` stimmt nicht mit der folgenden Zeichenfolge überein, da dies 2 `"a"`s erfordert, aber nur 1 verfügbar ist. Daher schlägt das gesamte Match an diesem Punkt fehl.
+4. `exec()` versucht erneut, an der nächsten Position abzugleichen – vor dem zweiten `"a"`. Diesmal stimmt das Lookahead mit `"a"` überein, und `a*b` stimmt mit `"ab"` überein. Der Rückverweis `\1` stimmt mit dem erfassten `"a"` überein, und der Abgleich ist erfolgreich.
 
-Wenn das Regex in das Lookahead zurückgehen und die dort getroffene Auswahl revidieren könnte, würde das Matching in Schritt 3 erfolgreich sein, indem `(a+)` das erste `"a"` (statt der ersten zwei `"a"`s) abgleicht und `a*b` `"aab"` abgleicht, ohne die nächste Eingabeposition erneut zu versuchen.
+Wenn das Regex in der Lage wäre, in das Lookahead zurückzuverfolgen und die dort getroffene Wahl zu revidieren, würde das Match in Schritt 3 durch `(a+)`, das das erste `"a"` (anstatt der ersten zwei `"a"`s) abgleicht, und `a*b`, das `"aab"` abgleicht, erfolgreich sein, ohne die nächste Eingabeposition erneut zu versuchen.
 
-Auch negative Lookaheads können Erfassungsgruppen enthalten, aber Rückverweise machen nur innerhalb des `pattern` Sinn, denn wenn das Matching fortgesetzt wird, muss das `pattern` notwendigerweise nicht übereinstimmen (sonst scheitert die Assertion). Das bedeutet, dass außerhalb des `pattern` Rückverweise auf diese Erfassungsgruppen in negativen Lookaheads immer erfolgreich sind. Zum Beispiel:
+Negative Lookaheads können ebenfalls Erfassungsgruppen enthalten, aber Rückverweise machen nur innerhalb des `pattern` Sinn, denn wenn das Matching fortgesetzt wird, wäre das `pattern` notwendigerweise nicht abgeglichen (ansonsten schlägt die Assertion fehl). Das bedeutet, dass Rückverweise auf diese Erfassungsgruppen in negativen Lookaheads außerhalb des `pattern` immer erfolgreich sind. Zum Beispiel:
 
 ```js
 /(.*?)a(?!(a+)b\2c)\2(.*)/.exec("baaabaac"); // ['baaabaac', 'ba', undefined, 'abaac']
@@ -53,24 +53,24 @@ Auch negative Lookaheads können Erfassungsgruppen enthalten, aber Rückverweise
 
 Das Matching des obigen Musters erfolgt wie folgt:
 
-1. Das `(.*?)` Muster ist nicht gierig, beginnt also damit, nichts abzugleichen. Das nächste Zeichen ist jedoch `a`, das nicht mit `"b"` in der Eingabe übereinstimmt.
-2. Das `(.*?)` Muster gleicht `"b"` ab, sodass das `a` im Muster mit dem ersten `"a"` in `"baaabaac"` übereinstimmt.
-3. An dieser Position gelingt das Lookahead-Matching, da wenn `(a+)` mit `"aa"` übereinstimmt, dann `(a+)b\2c` mit `"aabaac"` übereinstimmt. Dies führt zum Scheitern der Assertion und der Matcher geht zurück.
-4. Das `(.*?)` Muster gleicht `"ba"` ab, sodass das `a` im Muster mit dem zweiten `"a"` in `"baaabaac"` übereinstimmt.
-5. An dieser Position scheitert das Lookahead-Matching, da die verbleibende Eingabe nicht dem Muster "beliebige Anzahl von `"a"`s, ein `"b"`, dieselbe Anzahl von `"a"`s, ein `c`" folgt. Die Assertion kann damit erfolgreich sein.
-6. Da jedoch innerhalb der Assertion nichts abgestimmt wurde, hat der `\2` Rückverweis keinen Wert, sodass er mit dem leeren String übereinstimmt. Dies führt dazu, dass der Rest der Eingabe durch das `(.*)` am Ende verbraucht wird.
+1. Das `(.*?)` Muster ist nicht gierig, startet also damit, nichts abzugleichen. Das nächste Zeichen ist jedoch `a`, das nicht mit `"b"` im Input übereinstimmt.
+2. Das `(.*?)` Muster stimmt mit `"b"` überein, sodass das `a` im Muster mit dem ersten `"a"` in `"baaabaac"` übereinstimmt.
+3. An dieser Position ist das Lookahead erfolgreich, weil, wenn `(a+)` mit `"aa"` übereinstimmt, dann `(a+)b\2c` mit `"aabaac"` übereinstimmt. Dies führt dazu, dass die Assertion fehlschlägt, also geht der Matcher zurück.
+4. Das `(.*?)` Muster stimmt mit `"ba"` überein, sodass das `a` im Muster mit dem zweiten `"a"` in `"baaabaac"` übereinstimmt.
+5. An dieser Position schlägt das Lookahead fehl, weil der verbleibende Input nicht dem Muster "beliebig viele `"a"`s, ein `"b"`, die gleiche Anzahl von `"a"`s, ein `c`" folgt. Dies führt dazu, dass die Assertion erfolgreich ist.
+6. Da jedoch innerhalb der Assertion nichts abgeglichen wurde, hat der Rückverweis `\2` keinen Wert, sodass er mit dem leeren String übereinstimmt. Dies führt dazu, dass der Rest des Inputs vom `(.*)` am Ende konsumiert wird.
 
-Normalerweise können keine Assertions [quantifiziert](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) werden. Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) können Lookahead-Assertions jedoch quantifiziert werden. Dies ist eine [veraltete Syntax für Web-Kompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp) und Sie sollten sich nicht darauf verlassen.
+Normalerweise können Assertions nicht [quantifiziert](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) werden. Im [Unicode-ignoranten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) können Lookahead-Assertions jedoch quantifiziert werden. Dies ist eine [veraltete Syntax für die Webkompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp) und sollte nicht verwendet werden.
 
 ```js
-/(?=a)?b/.test("b"); // true; das Lookahead wird 0-mal abgeglichen
+/(?=a)?b/.test("b"); // true; the lookahead is matched 0 time
 ```
 
 ## Beispiele
 
-### Zeichenketten abgleichen, ohne sie zu verbrauchen
+### Zeichenfolgen abgleichen, ohne sie zu konsumieren
 
-Manchmal ist es nützlich zu überprüfen, dass die abgeglichene Zeichenkette von etwas gefolgt wird, ohne dies als Ergebnis zurückzugeben. Das folgende Beispiel gleicht eine Zeichenkette ab, die von einem Komma/Punkt gefolgt wird, aber die Zeichensetzung wird nicht im Ergebnis enthalten:
+Manchmal ist es nützlich zu überprüfen, dass die übereinstimmende Zeichenfolge von etwas gefolgt wird, ohne dass dies als Ergebnis zurückgegeben wird. Im folgenden Beispiel wird eine Zeichenfolge abgeglichen, die von einem Komma/Punkt gefolgt wird, aber die Zeichensetzung ist nicht im Ergebnis enthalten:
 
 ```js
 function getFirstSubsentence(str) {
@@ -81,13 +81,13 @@ getFirstSubsentence("Hello, world!"); // "Hello"
 getFirstSubsentence("Thank you."); // "Thank you"
 ```
 
-Ein ähnlicher Effekt kann erzielt werden, indem Sie den submatch erfassen, an dem Sie interessiert sind.
+Ein ähnlicher Effekt kann erzielt werden, indem die Teilübereinstimmung, an der Sie interessiert sind, [erfasst](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group) wird.
 
-### Muster-Subtraktion und -Schnittmenge
+### Muster Subtraktion und Schnittmenge
 
-Mit Lookahead können Sie eine Zeichenkette mehrfach mit verschiedenen Mustern abgleichen, was es ermöglicht, komplexe Beziehungen wie Subtraktion (ist X, aber nicht Y) und Schnittmenge (ist sowohl X als auch Y) auszudrücken.
+Mit Lookahead können Sie eine Zeichenfolge mit verschiedenen Mustern mehrfach abgleichen, was es Ihnen ermöglicht, komplexe Beziehungen wie Subtraktion (ist X, aber nicht Y) und Schnittmenge (ist sowohl X als auch Y) auszudrücken.
 
-Das folgende Beispiel gleicht jeden [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) ab, der kein [reserviertes Wort](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) ist (hier nur drei reservierte Wörter für die Kürze; mehr reservierte Wörter können dieser Verzweigung hinzugefügt werden). Die `[$_\p{ID_Start}][$\u200c\u200d\p{ID_Continue}]*`-Syntax beschreibt genau die Menge an Bezeichner-Zeichenketten in der Sprachspecifikation; Sie können mehr über Bezeichner im [lexikalischen Grammatiker](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) und das `\p`-Escape in der [Unicode-Zeichenklassenflucht](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape) lesen.
+Im folgenden Beispiel wird ein beliebiger [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) abgeglichen, der kein [reserviertes Wort](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) ist (hier werden nur drei reservierte Wörter zur Vereinfachung gezeigt; es können weitere reservierte Wörter zu dieser Disjunktion hinzugefügt werden). Die Syntax `[$_\p{ID_Start}][$\u200c\u200d\p{ID_Continue}]*` beschreibt genau die Menge an Bezeichnerzeichenfolgen in der Sprachspezifikation; mehr über Bezeichner erfahren Sie in der [lexikalischen Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) und dem `\p`-Escape in [Unicode-Zeichenklassen-Escape](/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape).
 
 ```js
 function isValidIdentifierName(str) {
@@ -101,7 +101,7 @@ isValidIdentifierName("foo"); // true
 isValidIdentifierName("cases"); // true
 ```
 
-Das folgende Beispiel gleicht eine Zeichenkette ab, die sowohl ASCII ist als auch als Teil eines Bezeichners verwendet werden kann:
+Das folgende Beispiel stimmt mit einer Zeichenfolge überein, die sowohl ASCII ist als auch als Teil eines Bezeichners verwendet werden kann:
 
 ```js
 function isASCIIIDPart(char) {
@@ -113,21 +113,21 @@ isASCIIIDPart("α"); // false
 isASCIIIDPart(":"); // false
 ```
 
-Wenn Sie Schnittmengen und Subtraktionen mit endlich vielen Zeichen durchführen, sollten Sie die [Zeichenmengen-Schnittmenge](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class)-Syntax verwenden, die mit dem `v`-Flag aktiviert ist.
+Wenn Sie Schnittmengen und Subtraktionen mit endlich vielen Zeichen machen, könnte es sinnvoll sein, die [Zeichenmengen-Schnittmenge](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) Syntax zu verwenden, die mit dem `v`-Flag aktiviert wird.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) Leitfaden
-- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Eingabebereichs-Assertion: `^`, `$`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
-- [Wortgrenzen-Assertion: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
-- [Lookbehind-Assertion: `(?<=...)`, `(?<!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)
-- [Erfassungsgruppe: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)
+- [Regular expressions](/de/docs/Web/JavaScript/Reference/Regular_expressions)
+- [Input boundary assertion: `^`, `$`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
+- [Word boundary assertion: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
+- [Lookbehind assertion: `(?<=...)`, `(?<!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)
+- [Capturing group: `(...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group)

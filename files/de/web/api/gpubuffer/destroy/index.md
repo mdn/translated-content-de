@@ -3,12 +3,13 @@ title: "GPUBuffer: destroy() Methode"
 short-title: destroy()
 slug: Web/API/GPUBuffer/destroy
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`destroy()`**-Methode des {{domxref("GPUBuffer")}}-Interfaces zerstört den `GPUBuffer`.
+Die **`destroy()`**-Methode der
+[`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Schnittstelle zerstört den `GPUBuffer`.
 
 ## Syntax
 
@@ -22,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("Undefined")}}).
+Keine ({{jsxref("Undefined")}}).
 
 ## Beispiele
 
@@ -32,7 +33,7 @@ const output = device.createBuffer({
   usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_SRC,
 });
 
-// einige Zeit später
+// some time later
 
 output.destroy();
 ```
@@ -47,4 +48,4 @@ output.destroy();
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

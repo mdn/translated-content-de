@@ -7,8 +7,8 @@ l10n:
 
 {{HTTPSidebar}}{{Deprecated_Header}}{{Non-standard_header}}
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`prefetch-src`**-Direktive gibt gültige Ressourcen an, die vorab geladen oder vorgeladen werden dürfen.
+Das HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`prefetch-src`** Direktive legt gültige Ressourcen fest, die vorgeladen oder vorgerendert werden dürfen.
 
 <table class="properties">
   <tbody>
@@ -17,14 +17,14 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
       <td>3</td>
     </tr>
     <tr>
-      <th scope="row">Direktiventyp</th>
-      <td>{{Glossary("Fetch directive")}}</td>
+      <th scope="row">Richtlinientyp</th>
+      <td>[Fetch-Direktive](/de/docs/Glossary/Fetch_directive)</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Rückfall</th>
+      <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, wird der User-Agent nach der
-        <code>default-src</code>-Direktive suchen.
+        Ja. Ist diese Direktive nicht vorhanden, sucht der Benutzeragent nach der
+        <code>default-src</code> Direktive.
       </td>
     </tr>
   </tbody>
@@ -32,7 +32,7 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die `prefetch-src`-Richtlinie zugelassen werden:
+Für die `prefetch-src` Richtlinie können eine oder mehrere Quellen erlaubt werden:
 
 ```http
 Content-Security-Policy: prefetch-src <source>;
@@ -43,19 +43,19 @@ Content-Security-Policy: prefetch-src <source> <source>;
 
 `<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelistet sind.
 
-Beachten Sie, dass dieses gleiche Set von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass diese gleiche Menge an Werten in allen [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und einer [Reihe anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiel
 
-### Übereinstimmung der Prefetch-Ressourcen mit Header
+### Prefetch-Ressourcen stimmen nicht mit Header überein
 
-Gegeben eine Seite mit der folgenden Content-Security-Policy:
+Gegeben eine Seite mit der folgenden Content Security Policy:
 
 ```http
 Content-Security-Policy: prefetch-src https://example.com/
 ```
 
-Fetches für den folgenden Code werden Netzwerkfehler zurückgeben, da die angegebenen URLs nicht mit der Quellliste von `prefetch-src` übereinstimmen:
+Abrufe für den folgenden Code werden Netzwerkfehler zurückgeben, da die bereitgestellten URLs nicht mit der Quellliste von `prefetch-src` übereinstimmen:
 
 ```html
 <link rel="prefetch" href="https://example.org/" />

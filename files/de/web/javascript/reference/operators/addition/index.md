@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Addition (`+`)** Operator liefert die Summe numerischer Operanden oder eine Zeichenfolgenverkettung.
+Der **Addition (`+`)** Operator erzeugt die Summe von numerischen Operanden oder eine Zeichenfolgenverkettung.
 
 {{EmbedInteractiveExample("pages/js/expressions-addition.html")}}
 
@@ -19,22 +19,22 @@ x + y
 
 ## Beschreibung
 
-Der `+` Operator ist für zwei verschiedene Operationen überladen: numerische Addition und Zeichenfolgenverkettung. Wenn er ausgewertet wird, [wandelt er zuerst beide Operanden in Primitive um](/de/docs/Web/JavaScript/Data_structures#primitive_coercion). Anschließend werden die Typen der beiden Operanden geprüft:
+Der `+` Operator wird für zwei verschiedene Operationen überladen: numerische Addition und Zeichenfolgenverkettung. Bei der Auswertung werden zunächst [beide Operanden in primitive Werte umgewandelt](/de/docs/Web/JavaScript/Data_structures#primitive_coercion). Anschließend werden die Typen der beiden Operanden geprüft:
 
-- Wenn eine Seite ein String ist, wird der andere Operand ebenfalls [in einen String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) und sie werden verkettet.
+- Wenn eine Seite eine Zeichenfolge ist, wird der andere Operand ebenfalls [in eine Zeichenfolge umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) und sie werden verkettet.
 - Wenn beide [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) sind, wird eine BigInt-Addition durchgeführt. Wenn eine Seite ein BigInt ist, die andere jedoch nicht, wird ein {{jsxref("TypeError")}} ausgelöst.
-- Andernfalls werden beide Seiten [in Zahlen umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), und eine numerische Addition wird ausgeführt.
+- Andernfalls werden beide Seiten [in Zahlen umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), und eine numerische Addition wird durchgeführt.
 
-Zeichenfolgenverkettung wird oft als gleichwertig mit [Template-Literals](/de/docs/Web/JavaScript/Reference/Template_literals) oder [`String.prototype.concat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/concat) angesehen, jedoch sind sie unterschiedlich. Die Addition wandelt den Ausdruck in ein _Primitiv_ um, was `valueOf()` mit Vorrang aufruft; hingegen wandeln Template-Literals und `concat()` den Ausdruck in einen _String_ um, was `toString()` mit Vorrang aufruft. Wenn der Ausdruck eine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) Methode hat, ruft die Zeichenfolgenverkettung sie mit `"default"` als Hinweis auf, während Template-Literals `"string"` verwenden. Dies ist wichtig für Objekte, die unterschiedliche String- und Primitivrepräsentationen haben — wie [Temporal](https://github.com/tc39/proposal-temporal), dessen `valueOf()`-Methode einen Fehler auslöst.
+Die Zeichenfolgenverkettung wird oft als äquivalent zu [Template-Literals](/de/docs/Web/JavaScript/Reference/Template_literals) oder [`String.prototype.concat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/concat) angesehen, aber sie sind es nicht. Die Addition erzwingt die Umwandlung des Ausdrucks in ein _Primitive_, was priorisiert [`valueOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf) aufruft; andererseits erzwingen Template-Literals und `concat()` die Umwandlung des Ausdrucks in eine _Zeichenfolge_, was priorisiert [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) aufruft. Wenn der Ausdruck eine [`[Symbol.toPrimitive]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) Methode besitzt, ruft die Zeichenfolgenverkettung sie mit dem Hinweis `"default"` auf, während Template-Literals `"string"` verwenden. Dies ist wichtig für Objekte, die unterschiedliche Darstellungen als Zeichenfolge und als Primitive haben — wie [Temporal](https://github.com/tc39/proposal-temporal), dessen `valueOf()`-Methode eine Ausnahme auslöst.
 
 ```js
 const t = Temporal.Now.instant();
-"" + t; // Löst TypeError aus
+"" + t; // Throws TypeError
 `${t}`; // '2022-07-31T04:48:56.113918308Z'
 "".concat(t); // '2022-07-31T04:48:56.113918308Z'
 ```
 
-Es wird empfohlen, `"" + x` nicht zu verwenden, um eine [Zeichenfolgenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) durchzuführen.
+Es wird empfohlen, `"" + x` nicht zur [Zeichenfolgenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) zu verwenden.
 
 ## Beispiele
 
@@ -44,7 +44,7 @@ Es wird empfohlen, `"" + x` nicht zu verwenden, um eine [Zeichenfolgenumwandlung
 1 + 2; // 3
 ```
 
-Andere nicht-String, nicht-BigInt-Werte werden in Zahlen umgewandelt:
+Andere nicht-zeilenförmige, nicht-BigInt-Werte werden in Zahlen umgewandelt:
 
 ```js
 true + 1; // 2
@@ -57,7 +57,7 @@ false + false; // 0
 1n + 2n; // 3n
 ```
 
-Sie können BigInt- und Zahlenoperanden bei der Addition nicht vermischen.
+Es ist nicht möglich, BigInt- und Zahlen-Operanden in einer Addition zu mischen.
 
 ```js example-bad
 1n + 2; // TypeError: Cannot mix BigInt and other types, use explicit conversions
@@ -74,7 +74,7 @@ Number(1n) + 2; // 3
 
 ### Addition mit Zeichenfolgen
 
-Wenn einer der Operanden ein String ist, wird der andere in einen String umgewandelt und sie werden verkettet:
+Wenn einer der Operanden eine Zeichenfolge ist, wird der andere in eine Zeichenfolge umgewandelt und sie werden verkettet:
 
 ```js
 "foo" + "bar"; // "foobar"

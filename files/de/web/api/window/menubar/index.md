@@ -1,6 +1,6 @@
 ---
-title: "Fenster: menüLeiste Eigenschaft"
-short-title: menüLeiste
+title: "Window: menubar-Eigenschaft"
+short-title: menubar
 slug: Web/API/Window/menubar
 l10n:
   sourceCommit: 62cedc63226017e9e7d0718b6fea3529ca8dbf37
@@ -10,16 +10,16 @@ l10n:
 
 Gibt das `menubar`-Objekt zurück.
 
-Dies ist eine von mehreren `Window`-Eigenschaften, die eine boolesche `visible`-Eigenschaft enthalten, die früher darstellte, ob ein bestimmter Teil der Benutzeroberfläche eines Webbrowsers sichtbar war.
+Dies ist eine von mehreren `Window`-Eigenschaften, die eine boolesche `visible`-Eigenschaft enthalten, welche früher dargestellt hat, ob ein bestimmter Teil der Benutzeroberfläche eines Webbrowsers sichtbar war.
 
-Aus Datenschutz- und Interoperabilitätsgründen ist der Wert der `visible`-Eigenschaft jetzt `false`, wenn dieses `Window` ein Popup ist, und `true` andernfalls.
+Aus Datenschutz- und Interoperabilitätsgründen ist der Wert der `visible`-Eigenschaft nun `false`, wenn dieses `Window` ein Popup ist, und `true` andernfalls.
 
 ## Wert
 
-Ein Objekt, das eine einzelne Eigenschaft enthält:
+Ein Objekt, das eine einzige Eigenschaft enthält:
 
 - `visible` {{ReadOnlyInline}}
-  - : Eine boolesche Eigenschaft, `false`, wenn dieses `Window` ein Popup ist, und `true` andernfalls.
+  - : Eine boolesche Eigenschaft, `false` wenn dieses `Window` ein Popup ist, und `true` andernfalls.
 
 ## Spezifikationen
 
@@ -31,8 +31,8 @@ Ein Objekt, das eine einzelne Eigenschaft enthält:
 
 ## Siehe auch
 
-- {{domxref("window.locationbar")}}
-- {{domxref("window.personalbar")}}
-- {{domxref("window.scrollbars")}}
-- {{domxref("window.statusbar")}}
-- {{domxref("window.toolbar")}}
+- [`window.locationbar`](/de/docs/Web/API/Window/locationbar)
+- [`window.personalbar`](/de/docs/Web/API/Window/personalbar)
+- [`window.scrollbars`](/de/docs/Web/API/Window/scrollbars)
+- [`window.statusbar`](/de/docs/Web/API/Window/statusbar)
+- [`window.toolbar`](/de/docs/Web/API/Window/toolbar)

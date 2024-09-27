@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`Navigator.languages`**-Eigenschaft gibt ein Array von Zeichenfolgen zurück, die die bevorzugten Sprachen des Benutzers darstellen. Die Sprache wird mit Sprach-Tags gemäß {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} beschrieben. Im zurückgegebenen Array sind sie nach Präferenz geordnet, wobei die bevorzugteste Sprache zuerst kommt.
+Die **`Navigator.languages`**-Eigenschaft ist schreibgeschützt und gibt ein Array von Zeichenfolgen zurück, die die vom Benutzer bevorzugten Sprachen repräsentieren. Die Sprache wird mit Sprach-Tags gemäß {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} beschrieben. Im zurückgegebenen Array sind sie in der Reihenfolge der Präferenz angeordnet, wobei die am meisten bevorzugte Sprache zuerst steht.
 
-Der Wert von {{domxref("Navigator.language","navigator.language")}} ist das erste Element des zurückgegebenen Arrays.
+Der Wert von [`navigator.language`](/de/docs/Web/API/Navigator/language) ist das erste Element des zurückgegebenen Arrays.
 
-Wenn sich der Wert ändert, weil die bevorzugten Sprachen des Benutzers geändert werden, wird ein {{domxref("Window.languagechange_event", "languagechange")}}-Ereignis auf dem {{domxref("Window")}}-Objekt ausgelöst.
+Wenn sich dessen Wert ändert, da die bevorzugten Sprachen des Benutzers geändert werden, wird ein [`languagechange`](/de/docs/Web/API/Window/languagechange_event)-Ereignis auf dem [`Window`](/de/docs/Web/API/Window)-Objekt ausgelöst.
 
-Der {{HTTPHeader("Accept-Language")}} HTTP-Header in jeder HTTP-Anfrage des Browsers des Benutzers listet im Allgemeinen die gleichen Locales auf wie die `navigator.languages`-Eigenschaft, mit abnehmenden `q`-Werten (Qualitätswerte). Einige Browser (Chrome und Safari) fügen in `Accept-Language` fallback-Sprachtags hinzu - zum Beispiel `en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7`, wenn `navigator.languages` `["en-US", "zh-CN"]` ist. Aus Datenschutzgründen (zur Verringerung des {{Glossary("fingerprinting")}}) dürfen sowohl `Accept-Language` als auch `navigator.languages` möglicherweise nicht die vollständige Liste der Benutzervorlieben enthalten, wie z.B. in Safari (immer) und im Inkognito-Modus von Chrome, wo nur eine Sprache aufgeführt wird.
+Der {{HTTPHeader("Accept-Language")}} HTTP-Header in jeder HTTP-Anfrage des Browsers des Benutzers listet im Allgemeinen dieselben Regionen wie die `navigator.languages`-Eigenschaft auf, mit abnehmenden `q`-Werten (Qualitätswerte). Einige Browser (Chrome und Safari) fügen im `Accept-Language`-Header nur sprachbasierte Fallback-Tags hinzu - zum Beispiel `en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7`, wenn `navigator.languages` `["en-US", "zh-CN"]` ist. Aus Datenschutzgründen (um [Fingerprinting](/de/docs/Glossary/fingerprinting) zu reduzieren) können sowohl `Accept-Language` als auch `navigator.languages` nicht die vollständige Liste der Benutzerpräferenzen enthalten, wie etwa in Safari (immer) und im Inkognito-Modus von Chrome, wo nur eine Sprache aufgeführt wird.
 
 ## Wert
 
@@ -22,16 +22,16 @@ Ein Array von Zeichenfolgen.
 
 ## Beispiele
 
-### Auflisten des Inhalts von navigator.language und navigator.languages
+### Auflisten der Inhalte von navigator.language und navigator.languages
 
 ```js
 navigator.language; // "en-US"
 navigator.languages; // ["en-US", "zh-CN", "ja-JP"]
 ```
 
-### Verwendung von Intl-Konstruktoren zur sprachspezifischen Formatierung mit Fallback
+### Verwenden von Intl-Konstruktoren für sprachenabhängige Formatierung mit Fallback
 
-Das Array von Sprachkennungen in `navigator.languages` kann direkt an die {{jsxref("Intl")}}-Konstruktoren übergeben werden, um ein präferenzbasiertes Fallback-Auswahlsystem für Locales zu implementieren, bei dem der erste Eintrag in der Liste verwendet wird, der mit einem von `Intl` unterstützten Locale übereinstimmt:
+Das Array von Sprachidentifikatoren, das in `navigator.languages` enthalten ist, kann direkt an die {{jsxref("Intl")}}-Konstruktoren übergeben werden, um eine präferenzbasierte Fallback-Auswahl von Regionen durchzuführen, wobei der erste Eintrag in der Liste verwendet wird, der mit einer von `Intl` unterstützen Region übereinstimmt:
 
 ```js
 const date = new Date("2012-05-24");
@@ -49,7 +49,7 @@ const formattedDate = new Intl.DateTimeFormat(navigator.languages).format(date);
 
 ## Siehe auch
 
-- {{domxref("navigator.language")}}
-- {{domxref("navigator")}}
-- {{domxref("Window.languagechange_event", "languagechange")}}-Ereignis
+- [`navigator.language`](/de/docs/Web/API/Navigator/language)
+- [`navigator`](/de/docs/Web/API/Navigator)
+- [`languagechange`](/de/docs/Web/API/Window/languagechange_event)-Ereignis
 - {{jsxref("Intl")}}

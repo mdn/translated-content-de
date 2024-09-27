@@ -7,56 +7,56 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Der ARIA-`tabpanel` ist ein Container für die Ressourcen des geschichteten Inhalts, der einem `tab` zugeordnet ist.
+Das ARIA `tabpanel` ist ein Container für die Ressourcen des geschichteten Inhalts, der mit einem `tab` verknüpft ist.
 
 ## Beschreibung
 
-Die `tabpanel`-Rolle gibt an, dass das Element ein Container für die Ressourcen ist, die mit einer [`tab`](/de/docs/Web/Accessibility/ARIA/Roles/tab_role)-Rolle verbunden sind, wobei jedes `tab` in einer [`tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role) enthalten ist.
+Die Rolle `tabpanel` zeigt an, dass das Element ein Container für die Ressourcen ist, die mit einer [`tab`](/de/docs/Web/Accessibility/ARIA/Roles/tab_role) Rolle verknüpft sind, wobei jedes `tab` in einer [`tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role) enthalten ist.
 
-Ein `tabpanel` ist Teil einer Tab-Oberfläche, einem gängigen Benutzermuster, bei dem eine Gruppe von visuellen Tabs ein schnelles Umschalten zwischen mehreren geschichteten Ansichten ermöglicht. Jedes Tab wird mit der `tab`-Rolle definiert, und diese Tabs sind in einem Element mit der `tablist`-Rolle enthalten. Die `tablist` befindet sich oft visuell oberhalb oder seitlich eines Inhaltsbereichs, der die zugehörigen Tabpanels enthält. Das `tabpanel` ist die Rolle des Containers für jede Inhaltsscheibe, die einem entsprechenden `tab` in der `tablist` der Tab-Oberfläche zugeordnet ist.
+Ein `tabpanel` ist Teil einer Registerkartenoberfläche, einem häufigen Benutzererfahrungsmuster, bei dem eine Gruppe visueller Registerkarten einen schnellen Wechsel zwischen mehreren geschichteten Ansichten ermöglicht. Jede Registerkarte ist mit der Rolle `tab` definiert, und diese Registerkarten sind innerhalb eines Elements mit der Rolle `tablist` enthalten. Das `tablist` ist oft visuell über oder neben einem Inhaltsbereich positioniert, der die zugehörigen Tabpanels enthält. Das `tabpanel` ist die Rolle des Containers für jedes Inhaltsfenster, das mit einem entsprechenden `tab` in der `tablist` der Registerkartenoberfläche verknüpft ist.
 
-In vielen Tab-Oberflächen wird gleichzeitig nur ein einzelnes `tabpanel` sichtbar sein. Einige Oberflächen erfordern jedoch möglicherweise, dass mehrere Tab-Panels gleichzeitig angezeigt werden. In diesen Fällen würde der `tablist` das [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable)-Attribut bereitgestellt, und die `tab`-Elemente würden dann das [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)-Attribut verwenden, um anzugeben, ob das zugehörige `tabpanel` sichtbar ist oder nicht. Der ausgewählte Zustand der Registerkarte würde stattdessen verwendet, um anzuzeigen, welches Tabpanel das aktuell „aktive“ Panel ist. Zum Beispiel könnte dies darauf hinweisen, auf welches Tabpanel die Tastaturfokussierung verschieben würde, wenn jemand die <kbd>Tab</kbd>-Taste drückt, während ein Tab innerhalb der Mehrfachauswahl-`tablist` fokussiert ist.
+In vielen Registerkartenoberflächen wird jeweils nur ein `tabpanel` sichtbar sein. Einige Oberflächen erfordern jedoch möglicherweise, dass mehrere Tabpanels gleichzeitig angezeigt werden. In diesen Fällen würde das `tablist` das Attribut [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable) erhalten, und die `tab`-Elemente würden dann das Attribut [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded) verwenden, um anzuzeigen, ob ihr zugeordnetes `tabpanel` sichtbar war oder nicht. Der ausgewählte Zustand der Registerkarte würde stattdessen verwendet, um anzuzeigen, welches Tabpanel das derzeit 'aktive' Panel ist. Beispielsweise könnte dies anzeigen, zu welchem Tabpanel der Tastaturfokus wechseln würde, wenn jemand die <kbd>Tab</kbd>-Taste drückt, während der Fokus auf einer Registerkarte innerhalb der Multi-Select-`tablist` liegt.
 
-In Tab-Oberflächen mit Einzelauswahl wird nur das `tabpanel` angezeigt, das mit dem aktuell ausgewählten Tab verbunden ist. Alle anderen `tabpanel`-Elemente, die mit den nicht ausgewählten Tabs verknüpft sind, müssen vor den Benutzern verborgen sein. Daher würde sich beim Ändern der Tab-Auswahl auch das angezeigte Tabpanel ändern, während das zuvor angezeigte Tabpanel dann ausgeblendet wird.
+In Einzel-Auswahl-Registerkarten-Oberflächen wird nur das `tabpanel` angezeigt, das mit der derzeit ausgewählten Registerkarte verknüpft ist. Alle anderen `tabpanel`-Elemente, die mit nicht ausgewählten Registerkarten verknüpft sind, müssen vor Benutzern verborgen werden. Wenn sich also die Registerkartenauswahl ändert, würde sich auch das angezeigte Tabpanel ändern, während das vorher angezeigte Tabpanel dann verborgen würde.
 
-In Tab-Oberflächen mit Mehrfachauswahl können mehrere `tabpanel`-Elemente angezeigt werden, die mit dem erweiterten Zustand ihrer zugehörigen `tab`-Elemente übereinstimmen.
+In Mehrfachauswahl-Registerkartenoberflächen können mehrere `tabpanel`-Elemente angezeigt werden, die dem erweiterten Zustand ihrer zugeordneten `tab`-Elemente entsprechen.
 
-Tabs fungieren nicht als Ankerlinks zu den einzelnen Panels – und bei Aktivierung sollte der Tastaturfokus auf dem aktuellen `tab`-Element bleiben und nicht automatisch auf das neu angezeigte `tabpanel` verschoben werden. Während eine Tab-Oberfläche basierend auf einem grundlegenden Markup-Muster von In-Page-Hyperlinks, die auf ihre zugeordneten Inhaltsabschnitte verweisen, schrittweise verbessert werden kann, sollte das Standardverhalten der Hyperlinks verhindert werden, wenn JavaScript verwendet wird, um diese Elemente in eine Tab-Oberfläche zu modifizieren. Idealerweise könnte dies durch Entfernen oder Ändern des `href`-Attributs geschehen, da dies zusätzlichen Vorteil hätte, die hyperlinkspezifischen Menüelemente aus dem Kontextmenü des Browsers des Elements zu entfernen.
+Registerkarten fungieren nicht als Ankerlinks zu einzelnen Panels – und bei Aktivierung sollte der Tastaturfokus auf dem aktuellen `tab`-Element bleiben und nicht automatisch zum neu angezeigten `tabpanel` wechseln. Während eine Registerkartenoberfläche basierend auf einem zugrundeliegenden Markup-Muster aus Hyperlinks auf ihrer Seite, die auf ihre zugeordneten Inhaltsabschnitte zeigen, schrittweise verbessert werden kann, sollte, wenn JavaScript verwendet wird, um diese Elemente in eine Registerkartenoberfläche zu ändern, das Standardverhalten der Hyperlinks verhindert werden. Idealerweise könnte dies durch Entfernen oder Ändern des `href`-Attributs geschehen, da dies den zusätzlichen Vorteil hätte, die hyperlink-spezifischen Menüelemente aus dem Kontextmenü des Browsers des Elements zu entfernen.
 
-Wenn der Tastaturfokus auf einer `tablist` oder einem `tab` innerhalb der `tablist` liegt, sollte die <kbd>Tab</kbd>-Taste so programmiert sein, dass sie vom fokussierten Tab – welches möglicherweise nicht das ausgewählte Tab ist – zum `tabpanel` wechselt, das das aktuell ausgewählte Tab darstellt.
+Wenn sich der Tastaturfokus auf einem `tablist` oder einem `tab` innerhalb des `tablist` befindet, sollte die <kbd>Tab</kbd>-Taste so programmiert werden, dass sie vom fokussierten Tab – das möglicherweise oder möglicherweise nicht das ausgewählte Tab ist – zu dem `tabpanel` wechselt, das die derzeit ausgewählte Registerkarte darstellt.
 
-Jedes `tab` in einer `tablist` kann als das Label für sein entsprechendes `tabpanel` dienen. Fügen Sie die `id` jedes `tab` als Wert für das `aria-labelledby`-Attribut jedes `tabpanel` hinzu.
+Jedes `tab` in einer `tablist` kann als Beschriftung für sein entsprechendes `tabpanel` dienen. Fügen Sie die `id` jeder `tab` als Wert für das Attribut [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) jedes `tabpanel` hinzu.
 
-Sie können auch optional jedes `tabpanel` mit seinem zugehörigen `tab` verbinden, indem Sie die [`id`](/de/docs/Web/HTML/Global_attributes#id) des `tabpanel` als Wert des `aria-controls`-Attributs des `tab` einfügen.
+Sie können auch optional jedes `tabpanel` mit seinem zugeordneten `tab` verknüpfen, indem Sie die [`id`](/de/docs/Web/HTML/Global_attributes#id) des `tabpanel` als Wert des `aria-controls` Attributs des `tab` hinzufügen.
 
-Wenn eine Tab-Oberfläche initialisiert wird, wird ein `tabpanel` angezeigt und sein zugehöriges `tab` so gestaltet, dass angezeigt wird, dass es aktiv ist, und seinen programmatischen Zustand widerspiegelt. Alle inaktiven `tabpanel`-Elemente müssen vor allen Benutzern ausgeblendet werden. Dies wird am häufigsten durch die Verwendung von CSS's `display: none` erreicht.
+Wenn eine Registerkartenoberfläche initialisiert wird, wird ein `tabpanel` angezeigt und seine zugehörige `tab` wird so gestaltet, dass sie anzeigt, dass sie aktiv ist und ihren programmatischen Zustand widerspiegelt. Alle inaktiven `tabpanel`-Elemente müssen vor allen Benutzern verborgen sein. Dies wird üblicherweise durch die Verwendung von CSS `display: none` erreicht.
 
-Weitere Informationen zur Verwendung dieser Rolle finden Sie im Artikel zur [ARIA-`tab`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/tab_role).
+Siehe den Artikel [ARIA `tab` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/tab_role) für weitere spezifische Informationen zur Verwendung dieser Rolle.
 
-Fügen Sie [`tabindex="-1"`](/de/docs/Web/HTML/Global_attributes/tabindex) hinzu, um einem `tabpanel` das Empfangen von Fokus zu ermöglichen, ohne das `tabpanel` in die Tastaturfokusreihenfolge der Seite aufzunehmen.
+Fügen Sie [`tabindex="-1"`](/de/docs/Web/HTML/Global_attributes/tabindex) hinzu, um einem `tabpanel` zu ermöglichen, den Fokus zu erhalten, ohne das `tabpanel` in die Tastaturfokusreihenfolge der Seite aufzunehmen.
 
-Stellen Sie sicher, dass Sie Stile für ein `tabpanel` definieren, wenn es Fokus erhält, optimalerweise unter Verwendung der CSS {{CSSXref(':focus')}} Pseudoklasse, damit Tastaturbenutzer erkennen können, dass sich der Fokus geändert hat und wissen, welcher Inhalt derzeit im Fokus steht.
+Stellen Sie sicher, dass Sie Stile für ein `tabpanel` definieren, wenn es den Fokus erhält, optimal unter Verwendung der CSS {{CSSXref(':focus')}} Pseudoklasse, damit Tastaturbenutzer wissen, dass es eine Fokusänderung gab und ihnen bewusst ist, welcher Inhalt derzeit den Fokus hat.
 
-Karusselle können mit diesem Tab-Muster erstellt werden: Eine Folienschiebersteuerung kann als `tabs` in einer `tablist` mit der Folie dargestellt durch ein `tabpanel`-Element ausgezeichnet werden.
+Karussells können mit diesem Registerkartenmuster erstellt werden: Ein Dias-Auswahlsteuerungen können als `tabs` in einer `tablist` mit der Folie, die durch ein `tabpanel`-Element dargestellt wird, gekennzeichnet werden.
 
 ### Zugehörige Rollen und Attribute
 
 - [`tab` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/tab_role)
-  - : Steuerung der Sichtbarkeit des zugehörigen `tabpanel`
+  - : Steuert die Sichtbarkeit des zugeordneten `tabpanel`
 - [`tablist` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role)
-  - : Gruppe von `tab`-Elementen.
+  - : Gruppe von `tab` Elementen.
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)
-  - : Ermöglicht einen zugänglichen Namen. Verweist auf das `tab`-Element, das das Panel steuert.
+  - : Liefert einen zugänglichen Namen. Verweist auf das `tab`-Element, das das Panel steuert
 - [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)
-  - : Sollte auf den notwendigen `tab`-Elementen verwendet werden, wenn eine mehrfach auswählbare `tablist` verwendet wird.
+  - : Sollte bei den erforderlichen `tab`-Elementen verwendet werden, wenn eine mehrfach-selektierbare `tablist` verwendet wird.
 
-### Tastaturinteraktionen
+### Tastatur-Interaktionen
 
-Siehe die [Tastaturinteraktionen der `tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role#keyboard_interactions) in der Definition der [`tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role)-Rolle.
+Siehe die [`tablist` Tastatur-Interaktionen](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role#keyboard_interactions) in der Definition der [`tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role) Rolle.
 
 ## Beispiel
 
-Siehe das [Beispiel für `tabpanel`, `tab` und `tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tab_role#example) in der Definition der [`tab`](/de/docs/Web/Accessibility/ARIA/Roles/tab_role)-Rolle.
+Siehe das Beispiel [`tabpanel`, `tab`, und `tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tab_role#example) in der Definition der [`tab`](/de/docs/Web/Accessibility/ARIA/Roles/tab_role) Rolle.
 
 ## Spezifikationen
 
@@ -66,5 +66,5 @@ Siehe das [Beispiel für `tabpanel`, `tab` und `tablist`](/de/docs/Web/Accessibi
 
 - [ARIA `tab` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/tab_role)
 - [ARIA `tablist` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role)
-- [Beispiel: Tabs mit automatischer Aktivierung](https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-automatic.html) - W3C
-- [Beispiel: Tabs mit manueller Aktivierung](https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-manual.html) -W3C
+- [Beispiel: Registerkarten mit automatischer Aktivierung](https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-automatic.html) - W3C
+- [Beispiel: Registerkarten mit manueller Aktivierung](https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-manual.html) -W3C

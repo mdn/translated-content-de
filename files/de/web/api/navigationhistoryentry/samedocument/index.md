@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`sameDocument`** schreibgeschützte Eigenschaft des {{domxref("NavigationHistoryEntry")}} Interfaces gibt `true` zurück, wenn dieser Verlaufseintrag für dasselbe `document` wie der aktuelle {{domxref("Document")}}-Wert ist und das aktuelle Dokument vollständig aktiv ist, andernfalls `false`.
+Die **`sameDocument`**-Schreibgeschützte Eigenschaft des [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Interfaces gibt `true` zurück, wenn dieser Verlaufseintrag für das gleiche `document` wie der aktuelle [`Document`](/de/docs/Web/API/Document)-Wert ist und das aktuelle Dokument vollständig aktiv ist, oder `false` andernfalls.
 
 ## Wert
 
-Ein boolean.
+Ein Boolescher Wert.
 
 ## Beispiele
 
 ```js
 const current = navigation.currentEntry;
 console.log(current.sameDocument);
-// Gibt immer true zurück
+// Will always return true
 ```
 
 ## Spezifikationen
@@ -32,6 +32,6 @@ console.log(current.sameDocument);
 
 ## Siehe auch
 
-- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Erklärung der Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)
+- [Modernes Client-seitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

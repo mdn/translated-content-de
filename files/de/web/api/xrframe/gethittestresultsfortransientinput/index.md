@@ -1,5 +1,5 @@
 ---
-title: "XRFrame: getHitTestResultsForTransientInput()-Methode"
+title: "XRFrame: getHitTestResultsForTransientInput() Methode"
 short-title: getHitTestResultsForTransientInput()
 slug: Web/API/XRFrame/getHitTestResultsForTransientInput
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getHitTestResultsForTransientInput()`**-Methode der {{domxref("XRFrame")}}-Schnittstelle gibt ein Array von {{domxref("XRTransientInputHitTestResult")}}-Objekten zurück, die vorübergehende Eingabetreffertestergebnisse für eine gegebene {{domxref("XRTransientInputHitTestSource")}} enthalten.
+Die **`getHitTestResultsForTransientInput()`** Methode des [`XRFrame`](/de/docs/Web/API/XRFrame) Schnittstelle gibt ein Array von [`XRTransientInputHitTestResult`](/de/docs/Web/API/XRTransientInputHitTestResult) Objekten zurück, die kurzfristige Eingabestreffer-Ergebnisse für eine gegebene [`XRTransientInputHitTestSource`](/de/docs/Web/API/XRTransientInputHitTestSource) enthalten.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ getHitTestResultsForTransientInput(hitTestSource)
 ### Parameter
 
 - `hitTestSource`
-  - : Ein {{domxref("XRTransientInputHitTestSource")}}-Objekt, das vorübergehende Eingabetreffertest-Abonnements enthält.
+  - : Ein [`XRTransientInputHitTestSource`](/de/docs/Web/API/XRTransientInputHitTestSource) Objekt, das kurzfristige Eingabestreffer-Abonnements enthält.
 
 ### Rückgabewert
 
-Ein Array von {{domxref("XRTransientInputHitTestResult")}}-Objekten.
+Ein Array von [`XRTransientInputHitTestResult`](/de/docs/Web/API/XRTransientInputHitTestResult) Objekten.
 
 ## Beispiele
 
-### Abrufen von vorübergehenden Eingabetreffertestergebnissen
+### Abrufen von kurzfristigen Eingabestreffer-Ergebnissen
 
-Um eine vorübergehende Eingabetreffertestquelle anzufordern, starten Sie eine {{domxref("XRSession")}} mit der aktivierten `hit-test`-Sitzungsfunktion. Fordern Sie als nächstes die Treffertestquelle mit {{domxref("XRSession.requestHitTestSourceForTransientInput()")}} an und speichern Sie sie für die spätere Verwendung in der Frame-Schleife. Rufen Sie schließlich `getHitTestResultsForTransientInput()` auf, um das Ergebnis zu erhalten.
+Um eine Quelle für kurzfristige Eingabestreffer anzufordern, starten Sie eine [`XRSession`](/de/docs/Web/API/XRSession) mit der `hit-test` Sitzungseigenschaft aktiviert. Fordern Sie anschließend die Trefferquelle mit [`XRSession.requestHitTestSourceForTransientInput()`](/de/docs/Web/API/XRSession/requestHitTestSourceForTransientInput) an und speichern Sie diese für die spätere Verwendung in der Rahmen-Schleife. Schließlich rufen Sie `getHitTestResultsForTransientInput()` auf, um das Ergebnis zu erhalten.
 
 ```js
 const xrSession = navigator.xr.requestSession("immersive-ar", {
@@ -65,6 +65,6 @@ function onXRFrame(time, xrFrame) {
 
 ## Siehe auch
 
-- {{domxref("XRTransientInputHitTestResult")}}
-- {{domxref("XRTransientInputHitTestSource")}}
-- {{domxref("XRRay")}}
+- [`XRTransientInputHitTestResult`](/de/docs/Web/API/XRTransientInputHitTestResult)
+- [`XRTransientInputHitTestSource`](/de/docs/Web/API/XRTransientInputHitTestSource)
+- [`XRRay`](/de/docs/Web/API/XRRay)

@@ -1,5 +1,5 @@
 ---
-title: "Element: getElementsByTagName()-Methode"
+title: "Element: getElementsByTagName() Methode"
 short-title: getElementsByTagName()
 slug: Web/API/Element/getElementsByTagName
 l10n:
@@ -8,13 +8,25 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`Element.getElementsByTagName()`**-Methode gibt eine dynamische {{domxref("HTMLCollection")}} von Elementen mit dem angegebenen [Tag-Namen](/de/docs/Web/API/Element/tagName) zurück.
+Die
+**`Element.getElementsByTagName()`** Methode gibt eine lebendige
+[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von Elementen mit dem angegebenen [Tag-Namen](/de/docs/Web/API/Element/tagName) zurück.
 
-Alle Nachfahren des angegebenen Elements werden durchsucht, aber nicht das Element selbst. Die zurückgegebene Liste ist _dynamisch_, was bedeutet, dass sie sich automatisch mit dem DOM-Baum aktualisiert. Daher ist es nicht notwendig, `Element.getElementsByTagName()` mit demselben Element und denselben Argumenten wiederholt aufzurufen, wenn sich das DOM dazwischen ändert.
+Alle Nachkommen des
+spezifizierten Elements werden durchsucht, jedoch nicht das Element selbst. Die zurückgegebene Liste ist
+_lebendig_, was bedeutet, dass sie sich automatisch mit dem DOM-Baum aktualisiert.
+Daher ist es nicht notwendig, `Element.getElementsByTagName()` mit
+dem gleichen Element und den gleichen Argumenten wiederholt aufzurufen, wenn sich das DOM zwischen den Aufrufen ändert.
 
-Wenn die Methode auf einem HTML-Element in einem HTML-Dokument aufgerufen wird, wandelt `getElementsByTagName` das Argument in Kleinbuchstaben um, bevor es gesucht wird. Dies ist unerwünscht, wenn versucht wird, {{Glossary("camel_case", "camel-case-benannte")}} SVG-Elemente (wie [`<linearGradient>`](/de/docs/Web/SVG/Element/linearGradient)) in einem HTML-Dokument zu finden. Verwenden Sie stattdessen {{ domxref("Element.getElementsByTagNameNS()") }}, das die Groß- und Kleinschreibung des Tag-Namens beibehält.
+Wenn `getElementsByTagName` für ein HTML-Element in einem HTML-Dokument aufgerufen wird, wird das Argument vor der Suche in Kleinschreibung umgewandelt. Dies ist unerwünscht, wenn versucht wird,
+[kamelkasierte](/de/docs/Glossary/camel_case) SVG-Elemente (wie
+[`<linearGradient>`](/de/docs/Web/SVG/Element/linearGradient))
+in einem HTML-Dokument abzugleichen. Verwenden Sie stattdessen [`Element.getElementsByTagNameNS()`](/de/docs/Web/API/Element/getElementsByTagNameNS),
+das die Groß- und Kleinschreibung des Tag-Namens beibehält.
 
-`Element.getElementsByTagName` ist ähnlich wie {{domxref("Document.getElementsByTagName()")}}, außer dass es nur nach Elementen sucht, die Nachfahren des angegebenen Elements sind.
+`Element.getElementsByTagName` ist ähnlich wie
+[`Document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName), mit dem Unterschied, dass es nur nach
+Elementen sucht, die Nachkommen des spezifizierten Elements sind.
 
 ## Syntax
 
@@ -25,23 +37,24 @@ getElementsByTagName(tagName)
 ### Parameter
 
 - `tagName`
-  - : Der qualifizierte Name, nach dem gesucht werden soll. Der spezielle String `"*"` repräsentiert alle Elemente. Für die Kompatibilität mit XHTML sollte Kleinschreibung verwendet werden.
+  - : Der qualifizierte Name, nach dem gesucht werden soll. Der spezielle String
+    `"*"` repräsentiert alle Elemente. Zur Kompatibilität mit XHTML sollte Kleinschreibung verwendet werden.
 
 ### Rückgabewert
 
-Eine _dynamische_ {{domxref("HTMLCollection")}} von Elementen mit einem übereinstimmenden Tag-Namen, in der Reihenfolge, in der sie erscheinen. Wenn keine Elemente gefunden werden, ist die `HTMLCollection` leer.
+Eine _lebendige_ [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von Elementen mit einem passenden Tag-Namen, in der Reihenfolge, in der sie erscheinen. Wenn keine Elemente gefunden werden, ist die `HTMLCollection` leer.
 
 ## Beispiele
 
 ```js
-// Überprüfen Sie den Status jeder Datenzelle in einer Tabelle
+// Check the status of each data cell in a table
 const table = document.getElementById("forecast-table");
 const cells = table.getElementsByTagName("td");
 
 for (const cell of cells) {
   const status = cell.getAttribute("data-status");
   if (status === "open") {
-    // Daten erfassen
+    // Grab the data
   }
 }
 ```

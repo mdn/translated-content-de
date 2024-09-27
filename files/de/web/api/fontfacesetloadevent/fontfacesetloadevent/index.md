@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Der **`FontFaceSetLoadEvent()`**-Konstruktor erstellt ein neues
-{{domxref("FontFaceSetLoadEvent")}}-Objekt, das immer dann ausgelöst wird, wenn ein
-{{domxref("FontFaceSet")}} geladen wird.
+Der **`FontFaceSetLoadEvent()`** Konstruktor erstellt ein neues
+[`FontFaceSetLoadEvent`](/de/docs/Web/API/FontFaceSetLoadEvent)-Objekt, das jedes Mal ausgelöst wird, wenn ein
+[`FontFaceSet`](/de/docs/Web/API/FontFaceSet) geladen wird.
 
 ## Syntax
 
@@ -23,15 +23,15 @@ new FontFaceSetLoadEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist schreibweiseempfindlich, und Browser setzen ihn immer auf `loading`, `loadingdone` oder `loadingerror`.
+    Es ist case-sensitiv und Browser setzen es immer auf `loading`, `loadingdone` oder `loadingerror`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _neben den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `fontfaces` {{optional_inline}}
-      - : Ein Array von {{domxref("FontFace")}}-Instanzen. Es ist standardmäßig das leere Array.
+      - : Ein Array von [`FontFace`](/de/docs/Web/API/FontFace)-Instanzen. Es ist standardmäßig das leere Array.
 
 ### Rückgabewert
 
-Ein neues {{domxref("FontFaceSetLoadEvent")}}-Objekt.
+Ein neues [`FontFaceSetLoadEvent`](/de/docs/Web/API/FontFaceSetLoadEvent)-Objekt.
 
 ## Spezifikationen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Symbol.iterator`** statische Dateneigenschaft repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.iterator`. Das [iterierbare Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) sucht dieses Symbol für die Methode, die den Iterator für ein Objekt zurückgibt. Damit ein Objekt iterierbar ist, muss es einen `[Symbol.iterator]` Schlüssel haben.
+Die statische Daten-Eigenschaft **`Symbol.iterator`** repräsentiert das [bekannte Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) `Symbol.iterator`. Das [iterable Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) sucht dieses Symbol für die Methode, die den Iterator für ein Objekt zurückgibt. Damit ein Objekt iterierbar ist, muss es einen `[Symbol.iterator]` Schlüssel haben.
 
 {{EmbedInteractiveExample("pages/js/symbol-iterator.html")}}
 
@@ -19,9 +19,9 @@ Das bekannte Symbol `Symbol.iterator`.
 
 ## Beschreibung
 
-Immer wenn ein Objekt durchlaufen werden muss (wie zu Beginn einer `for...of` Schleife), wird die Methode `[Symbol.iterator]()` ohne Argumente aufgerufen, und der zurückgegebene **Iterator** wird verwendet, um die zu durchlaufenden Werte zu erhalten.
+Wann immer ein Objekt durchlaufen werden muss (wie zu Beginn einer `for...of` Schleife), wird die Methode `[Symbol.iterator]()` ohne Argumente aufgerufen, und der zurückgegebene **Iterator** wird verwendet, um die zu iterierenden Werte zu erhalten.
 
-Einige eingebaute Typen haben ein Standard-Iterationsverhalten, während andere Typen (wie {{jsxref("Object")}}) dies nicht tun. Einige eingebaute Typen mit einer `[Symbol.iterator]()` Methode sind:
+Einige eingebaute Typen haben ein standardmäßiges Iterationsverhalten, während andere Typen (wie {{jsxref("Object")}}) dies nicht haben. Einige eingebaute Typen mit einer `[Symbol.iterator]()` Methode sind:
 
 - [`Array.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator)
 - [`TypedArray.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/Symbol.iterator)
@@ -29,7 +29,7 @@ Einige eingebaute Typen haben ein Standard-Iterationsverhalten, während andere 
 - [`Map.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/Symbol.iterator)
 - [`Set.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set/Symbol.iterator)
 
-Siehe auch [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols) für weitere Informationen.
+Weitere Informationen finden Sie auch unter [Iterative Protokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols).
 
 ## Beispiele
 
@@ -47,7 +47,7 @@ myIterable[Symbol.iterator] = function* () {
 [...myIterable]; // [1, 2, 3]
 ```
 
-Oder Iterables können direkt in einer Klasse oder einem Objekt unter Verwendung eines [berechneten Attributes](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names) definiert werden:
+Oder Iterables können direkt in einer Klasse oder einem Objekt mithilfe einer [berechneten Eigenschaft](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names) definiert werden:
 
 ```js
 class Foo {
@@ -71,7 +71,7 @@ console.log(...someObj); // 'a', 'b'
 
 ### Nicht wohlgeformte Iterables
 
-Wenn die `[Symbol.iterator]()` Methode eines Iterables kein Iterator-Objekt zurückgibt, handelt es sich um ein nicht wohlgeformtes Iterable. Die Verwendung als solches führt wahrscheinlich zu Laufzeitausnahmen oder fehlerhaftem Verhalten:
+Wenn die Methode `[Symbol.iterator]()` eines Iterables kein Iterator-Objekt zurückgibt, dann ist es ein nicht wohlgeformtes Iterable. Die Verwendung als solches wird wahrscheinlich zu Laufzeitausnahmen oder fehlerhaftem Verhalten führen:
 
 ```js example-bad
 const nonWellFormedIterable = {};
@@ -90,7 +90,7 @@ nonWellFormedIterable[Symbol.iterator] = () => 1;
 ## Siehe auch
 
 - [Polyfill von `Symbol.iterator` in `core-js`](https://github.com/zloirock/core-js#ecmascript-symbol)
-- [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [Iterative Protokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols)
 - [`Array.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator)
 - [`TypedArray.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/Symbol.iterator)
 - [`String.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/Symbol.iterator)

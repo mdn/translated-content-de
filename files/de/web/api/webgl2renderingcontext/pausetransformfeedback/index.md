@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.pauseTransformFeedback()`** Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) pausiert eine transform feedback Operation.
+Die **`WebGL2RenderingContext.pauseTransformFeedback()`**-Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) pausiert einen Transformations-Feedback-Vorgang.
 
 ## Syntax
 
@@ -47,4 +47,4 @@ gl.endTransformFeedback();
 
 ## Siehe auch
 
-- {{domxref("WebGLTransformFeedback")}}
+- [`WebGLTransformFeedback`](/de/docs/Web/API/WebGLTransformFeedback)

@@ -7,28 +7,28 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Das `StyleSheetList`-Interface repräsentiert eine Liste von {{domxref("CSSStyleSheet")}}-Objekten. Eine Instanz dieses Objekts kann durch {{domxref("Document.styleSheets")}} zurückgegeben werden.
+Das `StyleSheetList`-Interface repräsentiert eine Liste von [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekten. Eine Instanz dieses Objekts kann durch [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) zurückgegeben werden.
 
-Es ist ein array-ähnliches Objekt, jedoch kann es nicht mit {{jsxref("Array")}}-Methoden durchlaufen werden. Es kann jedoch in einer Standard-{{jsxref("Statements/for", "for")}}-Schleife über seine Indizes iteriert oder in ein {{jsxref("Array")}} umgewandelt werden.
+Es handelt sich um ein array-ähnliches Objekt, das jedoch nicht mit {{jsxref("Array")}}-Methoden durchlaufen werden kann. Es kann jedoch mit einer standardmäßigen {{jsxref("Statements/for", "for")}}-Schleife über seine Indizes iteriert oder in ein {{jsxref("Array")}} konvertiert werden.
 
 > [!NOTE]
-> Typischerweise umhüllen Listen-Interfaces wie `StyleSheetList` {{jsxref("Array")}}-Typen, sodass Sie `Array`-Methoden darauf verwenden können.
+> Typischerweise umschließen Listenschnittstellen wie `StyleSheetList` {{jsxref("Array")}}-Typen, sodass Sie `Array`-Methoden auf ihnen verwenden können.
 > Dies ist hier aus [historischen Gründen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) nicht der Fall.
-> Sie können `StyleSheetList` jedoch in ein `Array` umwandeln, um diese Methoden zu verwenden (siehe das Beispiel unten).
+> Sie können jedoch `StyleSheetList` in ein `Array` umwandeln, um diese Methoden zu verwenden (siehe das Beispiel unten).
 
 ## Instanz-Eigenschaften
 
-- {{domxref("StyleSheetList.length")}} {{ReadOnlyInline}}
-  - : Gibt die Anzahl der {{domxref("CSSStyleSheet")}}-Objekte in der Sammlung zurück.
+- [`StyleSheetList.length`](/de/docs/Web/API/StyleSheetList/length) {{ReadOnlyInline}}
+  - : Gibt die Anzahl der [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekte in der Sammlung zurück.
 
 ## Instanz-Methoden
 
-- {{domxref("StyleSheetList.item()")}}
-  - : Gibt das {{domxref("CSSStyleSheet")}}-Objekt an dem übergebenen Index zurück oder `null`, wenn kein Element für diesen Index existiert.
+- [`StyleSheetList.item()`](/de/docs/Web/API/StyleSheetList/item)
+  - : Gibt das [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt an dem übergebenen Index zurück oder `null`, wenn kein Element für diesen Index existiert.
 
 ## Beispiele
 
-### CSSStyleSheet-Objekte mit einer for-Schleife erhalten
+### CSSStyleSheet-Objekte mit einer for-Schleife abrufen
 
 ```js
 const styleSheet = [];
@@ -39,7 +39,7 @@ for (let i = 0; i < styleSheets.length; i++) {
 }
 ```
 
-### Alle CSS-Regeln für das Dokument mit Array-Methoden erhalten
+### Alle CSS-Regeln für das Dokument mit Array-Methoden abrufen
 
 ```js
 const allCSS = [...document.styleSheets]

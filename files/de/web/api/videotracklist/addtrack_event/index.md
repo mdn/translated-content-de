@@ -1,5 +1,5 @@
 ---
-title: "VideoTrackList: addtrack Ereignis"
+title: "VideoTrackList: addtrack-Ereignis"
 short-title: addtrack
 slug: Web/API/VideoTrackList/addtrack_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das `addtrack` Ereignis wird ausgelöst, wenn ein Videospur zu einer [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) hinzugefügt wird.
+Das `addtrack`-Ereignis wird ausgelöst, wenn ein Videospur zu einer [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) hinzugefügt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("addtrack", (event) => {});
@@ -22,16 +22,16 @@ onaddtrack = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("TrackEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`TrackEvent`](/de/docs/Web/API/TrackEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("TrackEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind auch Eigenschaften der übergeordneten Schnittstelle, {{domxref("Event")}}, verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
-- {{domxref("TrackEvent.track", "track")}} {{ReadOnlyInline}}
-  - : Die neu hinzugefügte {{domxref("VideoTrack")}}, auf die sich das Ereignis bezieht.
+- [`track`](/de/docs/Web/API/TrackEvent/track) {{ReadOnlyInline}}
+  - : Die neu hinzugefügte [`VideoTrack`](/de/docs/Web/API/VideoTrack), auf die sich das Ereignis bezieht.
 
 ## Beispiele
 
@@ -45,7 +45,7 @@ videoElement.videoTracks.addEventListener("addtrack", (event) => {
 });
 ```
 
-Verwendung der `onaddtrack` Ereignishandler-Eigenschaft:
+Verwendung der `onaddtrack` Ereignis-Handler-Eigenschaft:
 
 ```js
 const videoElement = document.querySelector("video");
@@ -66,7 +66,7 @@ videoElement.videoTracks.onaddtrack = (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event), [`change`](/de/docs/Web/API/VideoTrackList/change_event)
-- Dieses Ereignis auf [`AudioTrackList`](/de/docs/Web/API/AudioTrackList): [`addtrack`](/de/docs/Web/API/AudioTrackList/addtrack_event)
-- Dieses Ereignis auf [`MediaStream`](/de/docs/Web/API/MediaStream): [`addtrack`](/de/docs/Web/API/MediaStream/addtrack_event)
+- Dieses Ereignis in [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) zielt auf: [`addtrack`](/de/docs/Web/API/AudioTrackList/addtrack_event)
+- Dieses Ereignis in [`MediaStream`](/de/docs/Web/API/MediaStream) zielt auf: [`addtrack`](/de/docs/Web/API/MediaStream/addtrack_event)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

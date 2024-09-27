@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`sliCount`**-Eigenschaft des {{domxref("RTCOutboundRtpStreamStats")}}-Wörterbuchs gibt an, wie viele **Slice Loss Indication** (**SLI**)-Pakete der {{domxref("RTCRtpSender")}} vom entfernten {{domxref("RTCRtpReceiver")}} für den durch dieses Objekt beschriebenen RTP-Stream erhalten hat.
+Die **`sliCount`**-Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Verzeichnisses gibt an, wie viele **Slice Loss Indication** (**SLI**)-Pakete der [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) vom entfernten [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) für den durch dieses Objekt beschriebenen RTP-Stream empfangen hat.
 
-Ein SLI-Paket wird von einem Decoder verwendet, um dem Encoder (dem Sender) mitzuteilen, dass er eine Beschädigung eines oder mehrerer aufeinanderfolgender Makroblöcke in Scan-Reihenfolge im empfangenen Medium festgestellt hat. Im Allgemeinen ist von Interesse, dass je höher diese Zahl ist, desto mehr Daten des Streams zwischen Sender und Empfänger beschädigt werden, was dazu führt, dass der Empfänger erneute Übertragungen anfordert oder Frames vollständig verwirft.
+Ein SLI-Paket wird von einem Decoder verwendet, um dem Encoder (dem Sender) mitzuteilen, dass er eine Korruption eines oder mehrerer aufeinanderfolgender Makroblöcke, in Scan-Reihenfolge, in den empfangenen Medien erkannt hat. Im Allgemeinen ist es von Interesse, dass je höher diese Zahl ist, desto mehr werden die Stream-Daten zwischen dem Sender und dem Empfänger beschädigt, was dazu führt, dass der Empfänger erneute Übertragungen anfordert oder Frames vollständig verwirft.
 
 ## Wert
 
-Eine positive ganze Zahl, die die Anzahl der SLI-Pakete angibt, die der Sender vom Empfänger aufgrund verlorener Makroblock-Reihen erhalten hat. Ein hoher `sliCount`-Wert kann ein Anzeichen für ein unzuverlässiges Netzwerk sein.
+Eine vorzeichenlose ganze Zahl, die die Anzahl der SLI-Pakete angibt, die der Sender vom Empfänger aufgrund verlorener Läufe von Makroblöcken erhalten hat. Ein hoher Wert von `sliCount` kann auf ein unzuverlässiges Netzwerk hinweisen.
 
-Dies ist ein sehr technischer Teil, wie Videocodecs funktionieren. Für Details siehe {{RFC(4585, "6.3.2")}}.
+Dies ist ein sehr technischer Teil der Funktionsweise von Videocodecs. Für Details siehe {{RFC(4585, "6.3.2")}}.
 
 > [!NOTE]
 > Dieser Wert ist nur für Videomedien vorhanden.

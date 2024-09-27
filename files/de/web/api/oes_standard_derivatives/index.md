@@ -10,19 +10,19 @@ l10n:
 
 Die **`OES_standard_derivatives`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und fügt die GLSL-Ableitungsfunktionen `dFdx`, `dFdy` und `fwidth` hinzu.
 
-WebGL-Erweiterungen sind über die Methode {{domxref("WebGLRenderingContext.getExtension()")}} verfügbar. Weitere Informationen finden Sie unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für mehr Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} Kontexte verfügbar. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung standardmäßig im WebGL2-Kontext verfügbar. In WebGL 2 ist die Konstante als `gl.FRAGMENT_SHADER_DERIVATIVE_HINT` verfügbar und erfordert GLSL `#version 300 es`.
+> Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}}-Kontexte verfügbar. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung im WebGL2-Kontext standardmäßig verfügbar. In WebGL 2 ist die Konstante als `gl.FRAGMENT_SHADER_DERIVATIVE_HINT` verfügbar und erfordert GLSL `#version 300 es`.
 
 ## Konstanten
 
-Diese Erweiterung stellt eine neue Konstante zur Verfügung, die in den Methoden {{domxref("WebGLRenderingContext.hint()", "hint()")}} und {{domxref("WebGLRenderingContext.getParameter()", "getParameter()")}} verwendet werden kann.
+Diese Erweiterung stellt eine neue Konstante bereit, die in den Methoden [`hint()`](/de/docs/Web/API/WebGLRenderingContext/hint) und [`getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) verwendet werden kann.
 
 - `ext.FRAGMENT_SHADER_DERIVATIVE_HINT_OES`
-  - : Ein {{domxref("WebGL_API.Types", "GLenum")}}, das die Genauigkeit der Ableitungsberechnung für die eingebauten GLSL-Funktionen angibt: `dFdx`, `dFdy` und `fwidth`.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Genauigkeit der Ableitungsberechnung für die GLSL-eigenen Funktionen `dFdx`, `dFdy` und `fwidth` angibt.
 
-## Eingebaute GLSL-Funktionen
+## GLSL-eigene Funktionen
 
 Die folgenden neuen Funktionen können im GLSL-Shader-Code verwendet werden, wenn diese Erweiterung aktiviert ist:
 
@@ -34,7 +34,7 @@ genType fwidth(genType)
 
 ## Beispiele
 
-Aktivieren der Erweiterungen:
+Aktivierung der Erweiterung:
 
 ```js
 gl.getExtension("OES_standard_derivatives");
@@ -68,5 +68,5 @@ Shader-Code, der Artefakte beim Umwickeln von Texturkoordinaten vermeidet:
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("EXT_shader_texture_lod")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`EXT_shader_texture_lod`](/de/docs/Web/API/EXT_shader_texture_lod)

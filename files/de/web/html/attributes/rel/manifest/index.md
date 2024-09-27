@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`manifest`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Element/link#rel) Attribut des {{HTMLElement("link")}} Elements zeigt an, dass die Zielressource ein [Web-App-Manifest](/de/docs/Web/Manifest) ist.
+Das **`manifest`** Schlüsselwort für das [`rel`](/de/docs/Web/HTML/Element/link#rel)-Attribut des {{HTMLElement("link")}}-Elements gibt an, dass die Zielressource ein [Web-App-Manifest](/de/docs/Web/Manifest) ist.
 
 ## Spezifikationen
 

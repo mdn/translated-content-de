@@ -1,5 +1,5 @@
 ---
-title: WeakSet()-Konstruktor
+title: WeakSet() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/WeakSet/WeakSet
 l10n:
   sourceCommit: d6f92678c704b5bf4807e69bb7a234446dd33575
@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`WeakSet()`**-Konstruktor erstellt {{jsxref("WeakSet")}}-Objekte.
+Der **`WeakSet()`** Konstruktor erstellt {{jsxref("WeakSet")}} Objekte.
 
 ## Syntax
 
@@ -16,16 +16,16 @@ new WeakSet()
 new WeakSet(iterable)
 ```
 
-> **Note:** `WeakSet()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
+> **Note:** `WeakSet()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
 
 ### Parameter
 
 - `iterable` {{optional_inline}}
-  - : Wenn ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Statements/for...of) übergeben wird, werden alle seine Elemente dem neuen `WeakSet` hinzugefügt. `null` wird als `undefined` behandelt.
+  - : Wenn ein [iterierbares Objekt](/de/docs/Web/JavaScript/Reference/Statements/for...of) übergeben wird, werden alle seine Elemente zum neuen `WeakSet` hinzugefügt. `null` wird als `undefined` behandelt.
 
 ## Beispiele
 
-### Verwendung des WeakSet-Objekts
+### Verwendung des WeakSet Objekts
 
 ```js
 const ws = new WeakSet();
@@ -38,12 +38,12 @@ ws.add(bar);
 ws.has(foo); // true
 ws.has(bar); // true
 
-ws.delete(foo); // entfernt foo aus der Menge
-ws.has(foo); // false, foo wurde entfernt
-ws.has(bar); // true, bar bleibt erhalten
+ws.delete(foo); // removes foo from the set
+ws.has(foo); // false, foo has been removed
+ws.has(bar); // true, bar is retained
 ```
 
-Beachten Sie, dass `foo !== bar`. Obwohl sie ähnliche Objekte sind, _sind sie nicht **dasselbe Objekt**_. Daher werden beide zur Menge hinzugefügt.
+Beachten Sie, dass `foo !== bar`. Obwohl sie ähnliche Objekte sind, _sind sie nicht **dasselbe Objekt**_. Daher werden beide zum Set hinzugefügt.
 
 ## Spezifikationen
 

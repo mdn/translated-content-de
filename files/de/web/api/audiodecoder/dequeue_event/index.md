@@ -1,5 +1,5 @@
 ---
-title: "AudioDecoder: dequeue-Ereignis"
+title: "AudioDecoder: dequeue Ereignis"
 short-title: dequeue
 slug: Web/API/AudioDecoder/dequeue_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`dequeue`**-Ereignis der {{domxref("AudioDecoder")}}-Schnittstelle wird ausgelöst, um eine Reduzierung der {{domxref("AudioDecoder.decodeQueueSize")}} zu signalisieren.
+Das **`dequeue`**-Ereignis der [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Schnittstelle wird ausgelöst, um ein Absinken der [`AudioDecoder.decodeQueueSize`](/de/docs/Web/API/AudioDecoder/decodeQueueSize) anzuzeigen.
 
-Dies eliminiert die Notwendigkeit für Entwickler, ein {{domxref("setTimeout()")}}-Polling zu verwenden, um festzustellen, wann die Warteschlange reduziert wurde und mehr Arbeit in die Warteschlange gestellt werden sollte.
+Dies eliminiert die Notwendigkeit für Entwickler, einen [`setTimeout()`](/de/docs/Web/API/SetTimeout)-Poll zu verwenden, um festzustellen, wann die Warteschlange gesunken ist und mehr Arbeit eingereiht werden sollte.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("dequeue", (event) => {});
@@ -26,7 +26,7 @@ ondequeue = (event) => {};
 
 ```js
 audioDecoder.addEventListener("dequeue", (event) => {
-  // Mehr Decodierarbeit in die Warteschlange stellen
+  // Queue up more decoding work
 });
 ```
 

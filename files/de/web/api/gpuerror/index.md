@@ -2,18 +2,18 @@
 title: GPUError
 slug: Web/API/GPUError
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das Interface **`GPUError`** der {{domxref("WebGPU API", "WebGPU API", "", "nocode")}} ist die Basis-Schnittstelle für Fehler, die von {{domxref("GPUDevice.popErrorScope")}} und dem {{domxref("GPUDevice.uncapturederror_event", "uncapturederror")}}-Ereignis übermittelt werden.
+Das **`GPUError`** Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) ist das Basisinterface für Fehler, die durch [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope) und das [`uncapturederror`](/de/docs/Web/API/GPUDevice/uncapturederror_event) Ereignis angezeigt werden.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- {{domxref("GPUError.message", "message")}} {{Experimental_Inline}} {{ReadOnlyInline}}
+- [`message`](/de/docs/Web/API/GPUError/message) {{Experimental_Inline}} {{ReadOnlyInline}}
   - : Ein String, der eine menschenlesbare Nachricht bereitstellt, die erklärt, warum der Fehler aufgetreten ist.
 
 ## Beispiele
@@ -21,8 +21,8 @@ Das Interface **`GPUError`** der {{domxref("WebGPU API", "WebGPU API", "", "noco
 Für Anwendungsbeispiele von Fehlerobjekten basierend auf `GPUError`, siehe:
 
 - [`GPUDevice.popErrorScope`](/de/docs/Web/API/GPUDevice/popErrorScope#examples)
-- [Das `GPUDevice uncapturederror`-Ereignis](/de/docs/Web/API/GPUDevice/uncapturederror_event#examples)
-- {{domxref("GPUInternalError")}}, {{domxref("GPUOutOfMemoryError")}}, und {{domxref("GPUValidationError")}}
+- [Das `GPUDevice uncapturederror` Ereignis](/de/docs/Web/API/GPUDevice/uncapturederror_event#examples)
+- [`GPUInternalError`](/de/docs/Web/API/GPUInternalError), [`GPUOutOfMemoryError`](/de/docs/Web/API/GPUOutOfMemoryError) und [`GPUValidationError`](/de/docs/Web/API/GPUValidationError)
 
 ## Spezifikationen
 
@@ -35,4 +35,4 @@ Für Anwendungsbeispiele von Fehlerobjekten basierend auf `GPUError`, siehe:
 ## Siehe auch
 
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
-- [WebGPU-Fehlerbehandlung Best Practices](https://toji.dev/webgpu-best-practices/error-handling)
+- [WebGPU Fehlerbehandlung Best Practices](https://toji.dev/webgpu-best-practices/error-handling)

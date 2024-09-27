@@ -1,5 +1,5 @@
 ---
-title: "NamedNodeMap: item()-Methode"
+title: "NamedNodeMap: item() Methode"
 short-title: item()
 slug: Web/API/NamedNodeMap/item
 l10n:
@@ -8,11 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`item()`**-Methode der {{domxref("NamedNodeMap")}}-Schnittstelle
-gibt das Element in der Map zurück, das dem Index entspricht.
+Die **`item()`** Methode des [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap) Interfaces gibt das Element in der Map zurück, das dem Index entspricht.
 
 > [!NOTE]
-> Diese Methode wird auch aufgerufen, wenn Sie die `[]`-Operator-Syntax verwenden.
+> Diese Methode wird auch aufgerufen, wenn Sie die Operator-`[]`-Syntax verwenden.
 > Also ist `myMap[i]` gleichbedeutend mit `myMap.item(i)`, wobei `i` eine Zahl ist.
 
 ## Syntax
@@ -29,8 +28,7 @@ item(index)
 
 ### Rückgabewert
 
-Ein {{domxref("Attr")}} oder `null`, wenn die Zahl größer oder gleich der `length` der
-Map ist.
+Ein [`Attr`](/de/docs/Web/API/Attr) oder `null`, wenn die Zahl größer oder gleich der `length` der Map ist.
 
 ## Beispiel
 
@@ -54,6 +52,6 @@ pre.textContent = `The attribute map contains:
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

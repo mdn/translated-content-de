@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`lastIndexOf()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt den letzten Index zurück, an dem ein gegebenes Element im typisierten Array gefunden werden kann, oder -1, wenn es nicht vorhanden ist. Das typisierte Array wird rückwärts durchsucht, beginnend bei `fromIndex`. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.lastIndexOf()")}}.
+Die **`lastIndexOf()`** Methode von Instanzen des {{jsxref("TypedArray")}} gibt den letzten Index zurück, an dem ein gegebenes Element im Typ-Array gefunden werden kann, oder -1, wenn es nicht vorhanden ist. Das Typ-Array wird rückwärts durchsucht, beginnend bei `fromIndex`. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.lastIndexOf()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-lastindexof.html")}}
 
@@ -21,17 +21,17 @@ lastIndexOf(searchElement, fromIndex)
 ### Parameter
 
 - `searchElement`
-  - : Das Element, das im typisierten Array gefunden werden soll.
+  - : Element, das im Typ-Array gesucht werden soll.
 - `fromIndex` {{optional_inline}}
-  - : Nullbasierter Index, ab dem rückwärts gesucht werden soll, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
+  - : Nullbasierter Index, bei dem die Rückwärtssuche beginnt, [in eine Ganzzahl umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_conversion).
 
 ### Rückgabewert
 
-Der letzte Index von `searchElement` im typisierten Array; `-1`, wenn nicht gefunden.
+Der letzte Index von `searchElement` im Typ-Array; `-1`, wenn nicht gefunden.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.lastIndexOf()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Siehe {{jsxref("Array.prototype.lastIndexOf()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von Typ-Arrays aufgerufen werden.
 
 ## Beispiele
 
@@ -51,7 +51,7 @@ uint8.lastIndexOf(2, -1); // 3
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`whenDefined()`**-Methode des {{domxref("CustomElementRegistry")}}-Interfaces gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn das benannte Element definiert wird.
+Die **`whenDefined()`**-Methode des Interfaces [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry) gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn das benannte Element definiert ist.
 
 ## Syntax
 
@@ -23,22 +23,22 @@ whenDefined(name)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das erfüllt wird mit dem [benutzerdefinierten Element](/de/docs/Web/API/Web_components/Using_custom_elements)'s Konstruktor, wenn ein benutzerdefiniertes Element mit dem angegebenen Namen definiert wird. Falls ein benutzerdefiniertes Element bereits mit dem Namen definiert wurde, wird das Promise sofort erfüllt.
+Ein {{jsxref("Promise")}}, das mit dem Konstruktor des [benutzerdefinierten Elements](/de/docs/Web/API/Web_components/Using_custom_elements) erfüllt wird, wenn ein benutzerdefiniertes Element mit dem angegebenen Namen definiert wird. Wenn bereits ein benutzerdefiniertes Element mit diesem Namen definiert wurde, wird das Promise sofort erfüllt.
 
-Das Promise wird mit einem `SyntaxError` {{domxref("DOMException")}} abgelehnt, wenn der Name kein [gültiger benutzerdefinierter Elementname](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) ist.
+Das Promise wird mit einem `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt, wenn der Name kein [gültiger Name für benutzerdefinierte Elemente](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) ist.
 
 ## Beispiele
 
-In diesem Beispiel wird `whenDefined()` verwendet, um zu erkennen, wann die benutzerdefinierten Elemente, die ein Menü bilden, definiert sind. Das Menü zeigt Platzhalterinhalt an, bis der tatsächliche Menüinhalt bereit ist, angezeigt zu werden.
+Dieses Beispiel verwendet `whenDefined()`, um zu erkennen, wann die benutzerdefinierten Elemente, die ein Menü bilden, definiert sind. Das Menü zeigt Platzhalterinhalte, bis die eigentlichen Menüinhalte bereit sind.
 
 ```html
 <nav id="menu-container">
-  <div class="menu-placeholder">Laden…</div>
+  <div class="menu-placeholder">Loading…</div>
   <nav-menu>
-    <menu-item>Element 1</menu-item>
-    <menu-item>Element 2</menu-item>
+    <menu-item>Item 1</menu-item>
+    <menu-item>Item 2</menu-item>
     …
-    <menu-item>Element N</menu-item>
+    <menu-item>Item N</menu-item>
   </nav-menu>
 </nav>
 ```
@@ -46,7 +46,7 @@ In diesem Beispiel wird `whenDefined()` verwendet, um zu erkennen, wann die benu
 ```js
 const container = document.getElementById("menu-container");
 const placeholder = container.querySelector(".menu-placeholder");
-// Alle Kinder des Menüs abrufen, die noch nicht definiert sind.
+// Fetch all the children of menu that are not yet defined.
 const undefinedElements = container.querySelectorAll(":not(:defined)");
 
 async function removePlaceholder() {
@@ -54,9 +54,9 @@ async function removePlaceholder() {
     customElements.whenDefined(button.localName),
   );
 
-  // Warten, bis alle Kinder aktualisiert sind
+  // Wait for all the children to be upgraded
   await Promise.all(promises);
-  // dann den Platzhalter entfernen
+  // then remove the placeholder
   container.removeChild(placeholder);
 }
 

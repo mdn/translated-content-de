@@ -8,32 +8,34 @@ l10n:
 
 {{APIRef}}
 
-Die **`Window.location`**-Eigenschaft gibt ein schreibgeschütztes {{domxref("Location")}}-Objekt zurück, das Informationen über den aktuellen Standort des Dokuments enthält.
+Die **`Window.location`** Leseeigenschaft gibt ein [`Location`](/de/docs/Web/API/Location)-Objekt zurück, das Informationen über den aktuellen Standort des Dokuments enthält.
 
-Obwohl `Window.location` ein _schreibgeschütztes_ `Location`-Objekt ist, können Sie ihm auch einen String zuweisen. Das bedeutet, dass Sie in den meisten Fällen mit `location` arbeiten können, als wäre es ein String: `location = 'http://www.example.com'` ist ein Synonym für `location.href = 'http://www.example.com'`.
+Obwohl `Window.location` ein _schreibgeschütztes_ `Location`-Objekt ist, können Sie ihm auch einen String zuweisen.
+Dies bedeutet, dass Sie in den meisten Fällen mit `location` arbeiten können, als ob es ein String wäre:
+`location = 'http://www.example.com'` ist ein Synonym für `location.href = 'http://www.example.com'`.
 
-Siehe {{domxref("Location")}} für alle verfügbaren Eigenschaften.
+Siehe [`Location`](/de/docs/Web/API/Location) für alle verfügbaren Eigenschaften.
 
 ## Wert
 
-Ein {{domxref("Location")}}-Objekt.
+Ein [`Location`](/de/docs/Web/API/Location)-Objekt.
 
 ## Beispiele
 
 ### Einfaches Beispiel
 
 ```js
-alert(location); // zeigt "https://developer.mozilla.org/de/docs/Web/API/Window/location" an
+alert(location); // alerts "https://developer.mozilla.org/en-US/docs/Web/API/Window/location"
 ```
 
-### Beispiel 1: Zu einer neuen Seite navigieren
+### Beispiel 1: Navigieren zu einer neuen Seite
 
-Jedes Mal, wenn ein neuer Wert dem location-Objekt zugewiesen wird, wird ein Dokument mit der URL geladen, als ob `location.assign()` mit der geänderten URL aufgerufen worden wäre.
+Wann immer ein neuer Wert dem Location-Objekt zugewiesen wird, wird ein Dokument mit der URL geladen, als ob `location.assign()` mit der geänderten URL aufgerufen worden wäre.
 
-Beachten Sie, dass [navigationsbezogene Sandbox-Flags](https://html.spec.whatwg.org/multipage/browsers.html#allowed-to-navigate) dazu führen können, dass eine Ausnahme ausgelöst und die Navigation fehlschlägt.
+Beachten Sie, dass [navigationsbezogene Sandbox-Flags](https://html.spec.whatwg.org/multipage/browsers.html#allowed-to-navigate) zu einer Ausnahme führen können und die Navigation fehlschlägt.
 
 ```js
-location.assign("https://www.mozilla.org"); // oder
+location.assign("https://www.mozilla.org"); // or
 location = "https://www.mozilla.org";
 ```
 
@@ -45,7 +47,7 @@ location.reload();
 
 ### Beispiel 3
 
-Betrachten Sie das folgende Beispiel, das die Seite durch Verwendung der [`replace()`](/de/docs/Web/API/Location/replace)-Methode neu lädt, um den Wert von `location.pathname` in das Hash einzufügen:
+Betrachten Sie das folgende Beispiel, das die Seite neu lädt, indem es die Methode [`replace()`](/de/docs/Web/API/Location/replace) verwendet, um den Wert von `location.pathname` in den Hash einzufügen:
 
 ```js
 function reloadPageWithHash() {
@@ -53,12 +55,12 @@ function reloadPageWithHash() {
 }
 ```
 
-### Beispiel 4: Die Eigenschaften der aktuellen URL in einem Alert-Dialog anzeigen
+### Beispiel 4: Die Eigenschaften der aktuellen URL in einem Alarmdialog anzeigen
 
 ```js
 function showLoc() {
   const logLines = [
-    "Eigenschaft (Typ): Wert",
+    "Property (Typeof): Value",
     `location (${typeof location}): ${location}`,
   ];
   for (const prop in location) {
@@ -69,29 +71,29 @@ function showLoc() {
   alert(logLines.join("\n"));
 }
 
-// in html: <button onclick="showLoc();">Zeige Standort-Eigenschaften</button>
+// in html: <button onclick="showLoc();">Show location properties</button>
 ```
 
-### Beispiel 5: Einen String mit Daten durch Modifizierung der `search`-Eigenschaft an den Server senden
+### Beispiel 5: Eine Zeichenkette von Daten durch Ändern der `search`-Eigenschaft an den Server senden
 
 ```js
 function sendData(data) {
   location.search = data;
 }
 
-// in html: <button onclick="sendData('Some data');">Daten senden</button>
+// in html: <button onclick="sendData('Some data');">Send data</button>
 ```
 
-Die aktuelle URL mit angehängtem "?Some%20data" wird an den Server gesendet (wenn der Server keine Aktion unternimmt, wird das aktuelle Dokument mit der modifizierten Suchzeichenfolge neu geladen).
+Die aktuelle URL mit "?Some%20data" angehängt wird an den Server gesendet (wenn keine Aktion vom Server durchgeführt wird, wird das aktuelle Dokument mit dem geänderten Suchstring neu geladen).
 
-### Beispiel 6: Verwendung von Lesezeichen ohne Änderung der `hash`-Eigenschaft
+### Beispiel 6: Lesezeichen verwenden, ohne die `hash`-Eigenschaft zu ändern
 
 ```html
 <!doctype html>
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
-    <title>MDN Beispiel</title>
+    <title>MDN Example</title>
     <script>
       function showNode(node) {
         document.documentElement.scrollTop = node.offsetTop;
@@ -146,7 +148,7 @@ Die aktuelle URL mit angehängtem "?Some%20data" wird an den Server gesendet (we
     </p>
     <p id="myBookmark1">
       [&nbsp;<span class="intLink" onclick="showBookmark('#myBookmark2');"
-        >Gehe zu Lesezeichen #2</span
+        >Go to bookmark #2</span
       >&nbsp;]
     </p>
     <p>
@@ -214,15 +216,15 @@ Die aktuelle URL mit angehängtem "?Some%20data" wird an den Server gesendet (we
     </p>
     <p id="myBookmark2">
       [&nbsp;<span class="intLink" onclick="showBookmark('#myBookmark1');"
-        >Gehe zu Lesezeichen #1</span
+        >Go to bookmark #1</span
       >
       |
       <span class="intLink" onclick="showBookmark('#myBookmark1', false);"
-        >Gehe zu Lesezeichen #1 ohne location.hash zu verwenden</span
+        >Go to bookmark #1 without using location.hash</span
       >
       |
       <span class="intLink" onclick="showBookmark('#myBookmark3');"
-        >Gehe zu Lesezeichen #3</span
+        >Go to bookmark #3</span
       >&nbsp;]
     </p>
     <p>
@@ -245,7 +247,7 @@ Die aktuelle URL mit angehängtem "?Some%20data" wird an den Server gesendet (we
       ipsum, rhoncus posuere mauris lectus in eros. Nullam feugiat ultrices
       augue, ac sodales sem mollis in.
     </p>
-    <p id="myBookmark3"><em>Hier ist das Lesezeichen #3</em></p>
+    <p id="myBookmark3"><em>Here is the bookmark #3</em></p>
     <p>
       Proin vitae sem non lorem pellentesque molestie. Nam tempus massa et
       turpis placerat sit amet sollicitudin orci sodales. Pellentesque enim
@@ -366,7 +368,7 @@ Die aktuelle URL mit angehängtem "?Some%20data" wird an den Server gesendet (we
 </html>
 ```
 
-… dasselbe, aber mit einem animierten Seitenscrollen:
+… dasselbe, aber mit einem animierten Seiten-Scroll:
 
 ```js
 const showBookmark = (() => {
@@ -379,8 +381,8 @@ const showBookmark = (() => {
   let _scrollId = -1;
   let _bookMark;
 
-  // duration: die Dauer in Millisekunden jedes Frames
-  // frames: Anzahl der Frames für jeden Scroll
+  // duration: the duration in milliseconds of each frame
+  // frames: number of frames for each scroll
   let duration = 200;
   let frames = 10;
 
@@ -442,8 +444,8 @@ const showBookmark = (() => {
 
 ## Siehe auch
 
-- Das Interface des zurückgegebenen Werts, {{domxref("Location")}}
-- Ähnliche Informationen, aber dem Dokument zugeordnet,
-  {{domxref("Document.location")}}
-- [Manipulating the browser history](/de/docs/Web/API/History_API)
-- {{domxref("Window/hashchange_event", "hashchange")}}
+- Die Schnittstelle des zurückgegebenen Werts, [`Location`](/de/docs/Web/API/Location)
+- Ähnliche Informationen, jedoch am Dokument angehängt,
+  [`Document.location`](/de/docs/Web/API/Document/location)
+- [Manipulation des Browserverlaufs](/de/docs/Web/API/History_API)
+- [`hashchange`](/de/docs/Web/API/Window/hashchange_event)

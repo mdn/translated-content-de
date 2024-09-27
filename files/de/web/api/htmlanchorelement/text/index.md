@@ -8,8 +8,8 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`text`**-Eigenschaft des {{domxref("HTMLAnchorElement")}} stellt den Text innerhalb des Elements dar.
-Diese Eigenschaft repräsentiert die gleiche Information wie {{domxref("Node.textContent")}}.
+Die **`text`**-Eigenschaft des [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) repräsentiert den Text innerhalb des Elements.
+Diese Eigenschaft stellt dieselben Informationen dar wie [`Node.textContent`](/de/docs/Web/API/Node/textContent).
 
 ## Wert
 
@@ -48,5 +48,5 @@ pTag.textContent = `Text property: ${anchorElement.text}`;
 
 ## Siehe auch
 
-- {{domxref("HTMLScriptElement.text")}}-Eigenschaft
-- {{domxref("HTMLOptionElement.text")}}-Eigenschaft
+- [`HTMLScriptElement.text`](/de/docs/Web/API/HTMLScriptElement/text)-Eigenschaft
+- [`HTMLOptionElement.text`](/de/docs/Web/API/HTMLOptionElement/text)-Eigenschaft

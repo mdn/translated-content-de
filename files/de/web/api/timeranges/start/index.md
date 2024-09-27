@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`start()`**-Methode der {{domxref("TimeRanges")}}-Schnittstelle gibt den Zeitoffset zurück, bei dem ein bestimmter Zeitraum beginnt.
+Die **`start()`**-Methode der [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Schnittstelle gibt den Zeitversatz zurück, bei dem ein angegebener Zeitbereich beginnt.
 
 ## Syntax
 
@@ -23,16 +23,16 @@ start(index)
 
 ### Rückgabewert
 
-Eine Nummer.
+Eine Zahl.
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der angegebene Index nicht mit einem vorhandenen Bereich übereinstimmt.
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn der angegebene Index keinem existierenden Bereich entspricht.
 
 ## Beispiele
 
-Angenommen, es gibt ein Videoelement mit der ID "myVideo":
+Angenommen, es gibt ein Video-Element mit der ID "myVideo":
 
 ```js
 const v = document.getElementById("myVideo");
@@ -42,15 +42,15 @@ const buf = v.buffered;
 const numRanges = buf.length;
 
 if (buf.length === 1) {
-  // nur ein Bereich
+  // only one range
   if (buf.start(0) === 0 && buf.end(0) === v.duration) {
-    // Der eine Bereich beginnt am Anfang und endet
-    // am Ende des Videos, sodass das gesamte Video geladen ist
+    // The one range starts at the beginning and ends at
+    // the end of the video, so the whole thing is loaded
   }
 }
 ```
 
-Dieses Beispiel betrachtet die Zeitbereiche und überprüft, ob das gesamte Video geladen ist.
+Dieses Beispiel untersucht die Zeitbereiche und prüft, ob das gesamte Video geladen wurde.
 
 ## Spezifikationen
 

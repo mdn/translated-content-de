@@ -1,5 +1,5 @@
 ---
-title: ReferenceError()-Konstruktor
+title: ReferenceError() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/ReferenceError/ReferenceError
 l10n:
   sourceCommit: 6558de67a347fee30c303da8a0b262a9270a6885
@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`ReferenceError()`**-Konstruktor erzeugt {{jsxref("ReferenceError")}}-Objekte.
+Der **`ReferenceError()`** Konstruktor erstellt {{jsxref("ReferenceError")}} Objekte.
 
 ## Syntax
 
@@ -25,25 +25,25 @@ ReferenceError(message, fileName)
 ReferenceError(message, fileName, lineNumber)
 ```
 
-> **Note:** `ReferenceError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue `ReferenceError`-Instanz.
+> **Note:** `ReferenceError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Optionen erstellen eine neue `ReferenceError` Instanz.
 
 ### Parameter
 
 - `message` {{optional_inline}}
   - : Menschlich lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften hat:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
+        Beim Abfangen und erneuten Auslösen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
-  - : Der Name der Datei, die den Code enthält, der die Ausnahme ausgelöst hat.
+  - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
-  - : Die Zeilennummer des Codes, der die Ausnahme ausgelöst hat.
+  - : Die Zeilennummer des Codes, der die Ausnahme verursacht hat.
 
 ## Beispiele
 
-### Einen ReferenceError abfangen
+### Abfangen eines ReferenceError
 
 ```js
 try {
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-### Einen ReferenceError erzeugen
+### Erstellen eines ReferenceError
 
 ```js
 try {

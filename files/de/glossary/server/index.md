@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein Server ist eine Software oder Hardware, die einem Benutzer, üblicherweise als Client bezeichnet, einen Dienst anbietet. Ein Hardware-Server ist ein gemeinsam genutzter Computer in einem Netzwerk, der in der Regel leistungsstark ist und in einem Rechenzentrum untergebracht ist. Ein Software-Server (oft auf einem Hardware-Server laufend) ist ein Programm, das Dienste für Client-Programme oder eine {{glossary("UI","Benutzeroberfläche")}} für menschliche Klienten bereitstellt.
+Ein Server ist eine Software oder Hardware, die einem Benutzer, üblicherweise als Client bezeichnet, einen Dienst anbietet. Ein Hardware-Server ist ein gemeinsamer Computer in einem Netzwerk, üblicherweise leistungsstark und in einem Rechenzentrum untergebracht. Ein Software-Server (der oft auf einem Hardware-Server läuft) ist ein Programm, das Dienste für Client-Programme oder eine [Benutzeroberfläche](/de/docs/Glossary/UI) für menschliche Klienten bereitstellt.
 
-Dienste werden im Allgemeinen über lokale Netzwerke oder Weitverkehrsnetze wie das Internet bereitgestellt. Ein Client-Programm und ein Server-Programm verbinden sich traditionell, indem sie Nachrichten über ein {{glossary("protocol")}} über eine {{glossary("API")}} übermitteln.
+Dienstleistungen werden in der Regel über lokale Netzwerke oder Weitverkehrsnetze wie das Internet angeboten. Ein Client-Programm und ein Server-Programm verbinden sich traditionell, indem sie Nachrichten mithilfe eines [Protokolls](/de/docs/Glossary/protocol) über eine [API](/de/docs/Glossary/API) codiert austauschen.
 
-Zum Beispiel:
+Beispiele:
 
-- Ein mit dem Internet verbundener Webserver sendet eine {{glossary("HTML")}}-Datei an Ihre Browsersoftware, damit Sie diese Seite lesen können
-- Lokales Netzwerkserver für Datei-, Namens-, Mail-, Druck- und Faxdienste
-- Minicomputer, Großrechner und Supercomputer in Rechenzentren
+- Ein mit dem Internet verbundener Webserver sendet eine [HTML](/de/docs/Glossary/HTML)-Datei an Ihre Browsersoftware, damit Sie diese Seite lesen können
+- Server in lokalen Netzwerken für Datei-, Namens-, Mail-, Druck- und Faxdienste
+- Minicomputer, Mainframes und Supercomputer in Rechenzentren
 
 ## Siehe auch
 

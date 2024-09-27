@@ -7,46 +7,46 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das globale `aria-dropeffect`-Attribut gibt an, welche Funktionen ausgeführt werden können, wenn ein gezogenes Objekt auf das Ziel fallen gelassen wird. {{deprecated_inline}}
+Das globale `aria-dropeffect`-Attribut zeigt an, welche Funktionen ausgeführt werden können, wenn ein gezogenes Objekt auf das Ziel losgelassen wird. {{deprecated_inline}}
 
 ## Beschreibung
 
-In ARIA 1.1 veraltet, gibt die `aria-dropeffect`-Eigenschaft an, welche Funktionen ausgeführt werden können, wenn ein gezogenes Objekt auf das Ziel fallen gelassen wird. Das globale `aria-dropeffect`-Attribut bietet Nutzern von unterstützenden Technologien dieselben Informationen, die siteden Nutzern über das [`DataTransfer.dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) Symbol bereitgestellt werden.
+In ARIA 1.1 als veraltet eingestuft, zeigt die `aria-dropeffect`-Eigenschaft an, welche Funktionen ausgeführt werden können, wenn ein gezogenes Objekt auf das Zielobjekt losgelassen wird. Das globale `aria-dropeffect`-Attribut bietet Benutzern von unterstützenden Technologien die gleiche Information, die über das [`DataTransfer.dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) den sehenden Benutzern über das Dropeffekt-Symbol bereitgestellt wird.
 
-Textauswahlen, Bilder und Links können standardmäßig gezogen werden. Durch das Setzen des globalen [`draggable="true"`](/de/docs/Web/HTML/Global_attributes/draggable) Attributs, das Teil der HTML5 [Drag-and-Drop-API](/de/docs/Web/API/HTML_Drag_and_Drop_API) ist, zusammen mit einem [`dragstart`-Ereignishandler](/de/docs/Web/API/HTMLElement/dragstart_event), kann jedes DOM-Element ebenfalls ziehbar gemacht werden.
+Textauswahlen, Bilder und Links können standardmäßig gezogen werden. Durch Setzen des globalen [`draggable="true"`](/de/docs/Web/HTML/Global_attributes/draggable)-Attributs, das Teil der HTML5 [Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) ist, zusammen mit einem [`dragstart`-Ereignishandler](/de/docs/Web/API/HTMLElement/dragstart_event), kann jeder DOM-Knoten ebenfalls ziehbar gemacht werden.
 
-Wenn ein Zieh-Ereignis auftritt, wird ein halbtransparentes Bild des gezogenen Elements erzeugt, das dem Zeiger des Nutzers während des Ziehens folgt. Das Standardbild kann mit [`setDragImage`](/de/docs/Web/API/DataTransfer/setDragImage) in jedes Bild geändert werden. Neben dem Standardbild, das das gezogene Element identifiziert, gibt es eine [`dataTransfer.dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) Eigenschaft, die verwendet werden kann, um die visuelle Rückmeldung zu steuern, die der Nutzer während einer Drag-and-Drop-Operation erhält. Die `aria-dropeffect`-Eigenschaft sollte verwendet werden, um Nutzern von unterstützenden Technologien dieselbe Rückmeldung zu geben, die siteden Nutzern über die `dataTransfer.dropEffect`-Eigenschaft bereitgestellt wird.
+Wenn ein Zieh-Ereignis auftritt, wird ein durchscheinendes Bild des gezogenen Elements erzeugt, das dem Zeiger des Benutzers während des Ziehens folgt. Das Standardbild kann mit [`setDragImage`](/de/docs/Web/API/DataTransfer/setDragImage) in jedes Bild geändert werden. Zusammen mit dem Standardbild, das das gezogene Element identifiziert, gibt es eine [`dataTransfer.dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft, die verwendet werden kann, um die visuelle Rückmeldung zu steuern, die dem Benutzer während einer Drag-and-Drop-Operation gegeben wird. Die `aria-dropeffect`-Eigenschaft sollte verwendet werden, um den Benutzern unterstützender Technologie die gleiche Rückmeldung zu geben, die sehenden Benutzern über die `dataTransfer.dropEffect`-Eigenschaft bereitgestellt wird.
 
-`dropeffect` definiert, welchen Cursor der Browser während des Ziehens anzeigt, und wird auf dem Element gesetzt, auf das das Element fallen gelassen werden kann. Während der Zieh-Operation, wenn das ziehbare Element über verschiedene Ablageflächen gezogen wird, sollten sowohl die Zieh-Effekte, das `dataTransfer.dropeffect` als auch das `aria-dropeffect`, geändert werden, um die Art der Operation anzuzeigen, die erfolgen wird, wenn das gezogene Element freigegeben wird.
+`dropeffect` definiert, welchen Cursor der Browser während des Ziehens anzeigt, und wird auf dem Element gesetzt, auf dem das Element abgelegt werden kann. Während der Zieh-Operation, wenn das ziehbare Element über verschiedene Ablagebereiche gezogen wird, sollten die Zieheffekte—sowohl `dataTransfer.dropeffect` als auch `aria-dropeffect`—angepasst werden, um den Vorgangstyp anzuzeigen, der ausgeführt wird, wenn das gezogene Element losgelassen wird.
 
-Mehr als ein Ablageeffekt kann für ein gegebenes Element unterstützt werden. Daher ist der Wert des `aria-dropeffect`-Attributs eine durch Leerzeichen getrennte Liste von Funktionen. Zu den Funktionen gehören `copy`, `execute`, `link` und `move`. Der Standardwert ist `none`, was bedeutet, dass im Anwendungsprogramm keine unterstützte Funktionalität vorhanden ist. Das Setzen von `aria-dropeffect="popup"` informiert Nutzer unterstützender Technologien, dass ein Popup-Menü oder Dialogfeld mit Zieh-Operationen zur Auswahl bereitsteht.
+Mehr als ein Drop-Effekt kann für ein gegebenes Element unterstützt werden. Daher ist der Wert des `aria-dropeffect`-Attributs eine durch Leerzeichen getrennte Liste von Funktionen. Zu den Funktionen gehören `copy`, `execute`, `link` und `move`. Der Standardwert ist `none`, was bedeutet, dass es in der Anwendung keine unterstützte Funktionalität gibt. Durch Setzen von `aria-dropeffect="popup"` wird den Benutzern unterstützender Technologien mitgeteilt, dass es ein Popup-Menü oder Dialogfeld von Ziehoperationen gibt, aus dem der Benutzer wählen kann.
 
-Das Einfügen des Attributs gibt unterstützenden Technologien die Möglichkeit, die möglichen Ziehoptionen an den Nutzer der unterstützenden Technologie zu übermitteln, fügt jedoch keine tatsächliche Funktionalität hinzu.
+Das Einfügen des Attributs ermöglicht es unterstützenden Technologien, die möglichen Ziehoptionen bereitzustellen, die dem Benutzer der unterstützenden Technologie zur Verfügung stehen, fügt aber keine tatsächliche Funktionalität hinzu.
 
-Die `aria-dropeffect`-Eigenschaft soll in einer zukünftigen Version von WAI-ARIA durch eine neue Funktion ersetzt werden und gilt als veraltet.
+Es wird erwartet, dass die `aria-dropeffect`-Eigenschaft in einer zukünftigen Version von WAI-ARIA durch eine neue Funktion ersetzt und als veraltet betrachtet wird.
 
-In der Regel können Ablageeffekt-Funktionen nur bereitgestellt werden, sobald ein Objekt für eine Zieh-Operation ergriffen wurde, da die verfügbaren Ablageeffekt-Funktionen vom gezogenen Objekt abhängen. Daher fügen Sie in der Regel `aria-dropeffect` allen potenziellen Ablagezielen hinzu, wenn das {{domxref("HTMLElement/dragstart_event", "dragstart")}}-Ereignis ausgelöst wird.
+Typischerweise können Drop-Effekt-Funktionen nur bereitgestellt werden, nachdem ein Objekt für eine Ziehoperation erfasst wurde, da die verfügbaren Drop-Effekt-Funktionen vom gezogenen Objekt abhängen. Daher fügen Sie `aria-dropeffect` im Allgemeinen zu allen potenziellen Zielbereichen hinzu, wenn das [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignis ausgelöst wird.
 
 ## Werte
 
 Der Wert ist eine durch Leerzeichen getrennte Liste möglicher Aktionen. Die folgenden sind die gültigen Token:
 
 - `copy`
-  - : Eine Kopie des Quellobjektes wird in das Ziel abgelegt.
+  - : Eine Kopie des Quellobjekts wird in das Ziel eingefügt.
 - `execute`
-  - : Eine vom Ablageziel unterstützte Funktion wird ausgeführt, wobei das Zieh-Objekt als Eingabe dient.
+  - : Eine vom Ziel unterstützte Funktion wird ausgeführt, wobei die Ziehquelle als Eingabe verwendet wird.
 - `link`
-  - : Eine Referenz oder Verknüpfung zum gezogenen Objekt wird im Zielobjekt erstellt.
+  - : Eine Referenz oder Abkürzung zum gezogenen Objekt wird im Zielobjekt erstellt.
 - `move`
-  - : Das Quellobjekt wird von seinem aktuellen Ort entfernt und in das Ziel abgelegt.
+  - : Das Quellobjekt wird von seinem aktuellen Standort entfernt und in das Ziel eingefügt.
 - `none` (Standard)
-  - : Keine Operation kann ausgeführt werden; bricht effektiv die Ziehoperation ab, wenn versucht wird, auf diesem Objekt abzulegen. Wird ignoriert, wenn mit einem anderen Tokenwert kombiniert; zum Beispiel ist 'none copy' gleichbedeutend mit einem 'copy'-Wert.
+  - : Es kann keine Operation ausgeführt werden; hebt effektiv die Ziehoperation auf, wenn ein Versuch unternommen wird, auf diesem Objekt abzulegen. Wird ignoriert, wenn mit einem anderen Tokenwert kombiniert; zum Beispiel ist 'none copy' gleichbedeutend mit einem 'copy'-Wert.
 - `popup`
-  - : Es gibt ein Popup-Menü oder Dialog, das es dem Benutzer ermöglicht, eine der Zieh-Operationen (kopieren, verschieben, verknüpfen, ausführen) und jede andere Zieh-Funktionalität, wie Abbrechen, auszuwählen.
+  - : Es gibt ein Popup-Menü oder Dialogfeld, das dem Benutzer erlaubt, eine der Ziehoperationen (Kopieren, Bewegen, Verknüpfen, Ausführen) und jede andere Ziehfunktionalität, wie Abbrechen, auszuwählen.
 
 ## Zugehörige Rollen
 
-Verwendet in **ALLE** Rollen.
+Wird in **ALLEN** Rollen verwendet.
 
 ## Spezifikationen
 
@@ -55,8 +55,8 @@ Verwendet in **ALLE** Rollen.
 ## Siehe auch
 
 - [`aria-grabbed`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-grabbed)
-- [HTML globales `draggable` Attribut](/de/docs/Web/HTML/Global_attributes/draggable)
-- HTML [Drag-and-Drop-API](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- {{domxref('dataTransfer')}}
-- {{domxref('DataTransfer.dropEffect')}}
-- {{domxref("HTMLElement/dragstart_event", "dragstart")}}
+- [HTML globales `draggable`-Attribut](/de/docs/Web/HTML/Global_attributes/draggable)
+- HTML [Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [`dataTransfer`](/de/docs/Web/API/DataTransfer)
+- [`DataTransfer.dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)
+- [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)

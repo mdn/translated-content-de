@@ -1,5 +1,5 @@
 ---
-title: "ScreenDetailed: isInternal-Eigenschaft"
+title: "ScreenDetailed: isInternal Eigenschaft"
 short-title: isInternal
 slug: Web/API/ScreenDetailed/isInternal
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`isInternal`**-Eigenschaft des schreibgeschützten {{domxref("ScreenDetailed")}}-Interfaces ist ein boolescher Wert, der anzeigt, ob der Bildschirm intern oder extern für das Gerät ist. Externe Geräte werden in der Regel getrennt vom Gerät hergestellt, an das sie angeschlossen sind, und können nach Bedarf angeschlossen und getrennt werden, während interne Bildschirme Teil des Geräts sind und nicht zum Trennen vorgesehen sind.
+Die schreibgeschützte Eigenschaft **`isInternal`** des [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Interfaces ist ein boolescher Wert, der angibt, ob der Bildschirm intern zum Gerät gehört oder extern ist. Externe Geräte werden in der Regel separat von dem Gerät, an das sie angeschlossen sind, hergestellt und können je nach Bedarf verbunden und getrennt werden, während interne Bildschirme Teil des Geräts sind und nicht dazu gedacht sind, getrennt zu werden.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein boolescher Wert — `true`, wenn der Bildschirm intern ist, und `false`, wen
 ```js
 const screenDetails = await window.getScreenDetails();
 
-// Ist der erste Bildschirm intern?
+// Is the first screen internal?
 const screen1Internal = screenDetails.screens[0].isInternal;
 ```
 

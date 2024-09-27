@@ -1,6 +1,6 @@
 ---
-title: "Notification: Bild Eigenschaft"
-short-title: Bild
+title: "Notification: image-Eigenschaft"
+short-title: image
 slug: Web/API/Notification/image
 l10n:
   sourceCommit: e4c0939929e1b3e1fa3fd3da82b827fca3ed4c79
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`image`** schreibgeschützte Eigenschaft des
-{{domxref("Notification")}}-Interfaces enthält die URL eines Bildes, das als Teil der Benachrichtigung angezeigt werden soll, wie in der `image`-Option des {{domxref("Notification.Notification","Notification()")}}-Konstruktors angegeben.
+Die **`image`** schreibgeschützte Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces enthält die URL eines Bildes, das als Teil der Benachrichtigung angezeigt werden soll, wie im `image`-Parameter des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
 
 ## Wert
 

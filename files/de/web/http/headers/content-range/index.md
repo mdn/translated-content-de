@@ -7,24 +7,24 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Content-Range`** Antwort-HTTP-Header zeigt an, wo in einer vollständigen Nachricht eine Teilnachricht gehört.
+Der **`Content-Range`** HTTP-Antwort-Header zeigt an, wo sich eine Teilnachricht in einer gesamten Nachricht befindet.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
+      <th scope="row">Headertyp</th>
       <td>
-        {{Glossary("Response header")}},
-        {{Glossary("Content header")}}
+        [Antwort-Header](/de/docs/Glossary/Response_header),
+        [Inhalts-Header](/de/docs/Glossary/Content_header)
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted request header")}}
+        [CORS-aufgelisteter Anforderungs-Header](/de/docs/Glossary/CORS-safelisted_request_header)
       </th>
       <td>nein</td>
     </tr>
@@ -44,9 +44,9 @@ Content-Range: <unit> */<size>
 - \<unit>
   - : Die Einheit, in der Bereiche angegeben werden. Dies ist normalerweise `bytes`.
 - \<range-start>
-  - : Eine Ganzzahl in der angegebenen Einheit, die die Startposition (nullbasiert & inklusive) des Anforderungsbereichs angibt.
+  - : Eine Ganzzahl in der angegebenen Einheit, die die Startposition (nullbasiert & inklusiv) des Anforderungsbereichs angibt.
 - \<range-end>
-  - : Eine Ganzzahl in der angegebenen Einheit, die die Endposition (nullbasiert & inklusive) des angeforderten Bereichs angibt.
+  - : Eine Ganzzahl in der angegebenen Einheit, die die Endposition (nullbasiert & inklusiv) des angeforderten Bereichs angibt.
 - \<size>
   - : Die Gesamtlänge des Dokuments (oder `'*'`, falls unbekannt).
 

@@ -2,24 +2,24 @@
 title: GPUCommandBuffer
 slug: Web/API/GPUCommandBuffer
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das **`GPUCommandBuffer`**-Interface der {{domxref("WebGPU API", "WebGPU API", "", "nocode")}} repräsentiert eine vorab aufgezeichnete Liste von GPU-Befehlen, die zur Ausführung an eine {{domxref("GPUQueue")}} übergeben werden können.
+Die Schnittstelle **`GPUCommandBuffer`** der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert eine vorab aufgezeichnete Liste von GPU-Befehlen, die zur Ausführung an eine [`GPUQueue`](/de/docs/Web/API/GPUQueue) übermittelt werden können.
 
-Ein `GPUCommandBuffer` wird über die Methode {{domxref("GPUCommandEncoder.finish()")}} erstellt; die darin aufgezeichneten GPU-Befehle werden ausgeführt, indem der `GPUCommandBuffer` als Parameter eines Aufrufs von {{domxref("GPUQueue.submit()")}} übergeben wird.
+Ein `GPUCommandBuffer` wird über die Methode [`GPUCommandEncoder.finish()`](/de/docs/Web/API/GPUCommandEncoder/finish) erstellt; die darin aufgezeichneten GPU-Befehle werden zur Ausführung eingereicht, indem der `GPUCommandBuffer` als Parameter eines Aufrufs von [`GPUQueue.submit()`](/de/docs/Web/API/GPUQueue/submit) übergeben wird.
 
 > [!NOTE]
 > Sobald ein `GPUCommandBuffer`-Objekt übermittelt wurde, kann es nicht erneut verwendet werden.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("GPUCommandBuffer.label", "label")}} {{Experimental_Inline}}
-  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in {{domxref("GPUError")}}-Nachrichten oder Konsolenwarnungen.
+- [`label`](/de/docs/Web/API/GPUCommandBuffer/label) {{Experimental_Inline}}
+  - : Ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
 ## Beispiele
 

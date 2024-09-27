@@ -1,5 +1,5 @@
 ---
-title: "TextTrack: kind Eigenschaft"
+title: "TextTrack: Eigenschaft kind"
 short-title: kind
 slug: Web/API/TextTrack/kind
 l10n:
@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die schreibgeschützte Eigenschaft **`kind`** der {{domxref("TextTrack")}} Schnittstelle gibt die Art des Texttracks zurück, den dieses Objekt darstellt. Dies entscheidet, wie der Track von einem Benutzeragenten behandelt wird.
+Die schreibgeschützte Eigenschaft **`kind`** des [`TextTrack`](/de/docs/Web/API/TextTrack)-Interfaces gibt die Art des Texttracks zurück, die dieses Objekt repräsentiert. Dies entscheidet, wie der Track von einem User-Agent behandelt wird.
 
 ## Wert
 
-Ein String. Einer der folgenden:
+Ein String. Einer von:
 
 - `"subtitles"`
-  - : Die Hinweise werden über das Video gelegt. Die Positionierung der Hinweise wird durch die Eigenschaften eines Objekts gesteuert, das von {{domxref("TextTrackCue")}} erbt, zum Beispiel {{domxref("VTTCue")}}.
+  - : Die Hinweise werden über das Video gelegt. Positionierung der Hinweise wird durch die Eigenschaften eines Objekts gesteuert, das von [`TextTrackCue`](/de/docs/Web/API/TextTrackCue) erbt, zum Beispiel [`VTTCue`](/de/docs/Web/API/VTTCue).
 - `"captions"`
-  - : Die Hinweise werden über das Video gelegt. Die Positionierung der Hinweise wird durch die Eigenschaften eines Objekts gesteuert, das von {{domxref("TextTrackCue")}} erbt, zum Beispiel {{domxref("VTTCue")}}.
+  - : Die Hinweise werden über das Video gelegt. Positionierung der Hinweise wird durch die Eigenschaften eines Objekts gesteuert, das von [`TextTrackCue`](/de/docs/Web/API/TextTrackCue) erbt, zum Beispiel [`VTTCue`](/de/docs/Web/API/VTTCue).
 - `"descriptions"`
-  - : Die Hinweise werden auf nicht-visuelle Weise verfügbar gemacht.
+  - : Die Hinweise werden auf nicht-visuelle Weise zur Verfügung gestellt.
 - `"chapters"`
-  - : Der Benutzeragent stellt einen Mechanismus zur Verfügung, um durch Auswahl eines Hinweises zu navigieren.
+  - : Der User-Agent wird eine Mechanismus bereitstellen, um durch Auswahl eines Hinweises zu navigieren.
 - `"metadata"`
-  - : Zusätzliche Daten, die sich auf die Mediendaten beziehen und für interaktive Ansichten verwendet werden könnten.
+  - : Zusätzliche Daten, die sich auf die Mediendaten beziehen, die für interaktive Ansichten verwendet werden könnten.
 
 ## Beispiele
 

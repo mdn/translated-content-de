@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`perDscpPacketsReceived`**-Eigenschaft des {{domxref("RTCInboundRtpStreamStats")}}-Wörterbuchs ist ein Datensatz, der aus Schlüssel/Wert-Paaren besteht, bei denen jeder Schlüssel eine String-Darstellung eines Differentiated Services Code Point ist und der Wert die Anzahl der empfangenen Pakete für diesen DCSP ist.
+Die **`perDscpPacketsReceived`** Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Wörterbuchs ist ein Datensatz, der aus Schlüssel/Wert-Paaren besteht, bei denen jeder Schlüssel eine String-Darstellung eines Differentiated Services Code Point ist und der Wert die Anzahl der empfangenen Pakete für diesen DCSP darstellt.
 
 > [!NOTE]
-> Nicht alle Betriebssysteme stellen Daten auf einer per-DSCP-Basis zur Verfügung, daher sollte auf diesen Systemen nicht auf diese Eigenschaft vertraut werden.
+> Nicht alle Betriebssysteme stellen Daten auf einer pro-DSCP-Basis zur Verfügung, daher sollte auf diesen Systemen nicht auf diese Eigenschaft vertraut werden.
 
 ## Wert
 
 Ein Datensatz, der aus String/Wert-Paaren besteht. Jeder Schlüssel ist die String-Darstellung der ID-Nummer eines einzelnen Differentiated Services Code Point (DSCP).
 
 > [!NOTE]
-> Aufgrund von Netzwerkausbleichung und Remapping werden die in diesem Datensatz erscheinenden Zahlen nicht unbedingt mit den Werten übereinstimmen, wie sie gesendet wurden.
+> Aufgrund von Netzwerkaufhellung und Umverteilung stimmen die in diesem Datensatz angezeigten Zahlen nicht unbedingt mit den Werten überein, wie sie beim Senden der Daten waren.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

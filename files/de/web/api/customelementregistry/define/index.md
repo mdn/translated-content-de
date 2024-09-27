@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`define()`**-Methode der {{domxref("CustomElementRegistry")}}-Schnittstelle fügt eine Definition für ein benutzerdefiniertes Element zum benutzerdefinierten Element-Register hinzu, wobei dessen Name dem Konstruktor zugeordnet wird, der zur Erstellung verwendet wird.
+Die **`define()`**-Methode des [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Interfaces fügt eine Definition für ein benutzerdefiniertes Element zum benutzerdefinierten Element-Registry hinzu und ordnet seinen Namen dem Konstruktor zu, der zur Erstellung verwendet wird.
 
 ## Syntax
 
@@ -25,10 +25,10 @@ define(name, constructor, options)
   - : Konstruktor für das neue benutzerdefinierte Element.
 - `options` {{optional_inline}}
 
-  - : Objekt, das steuert, wie das Element definiert wird. Eine Option wird derzeit unterstützt:
+  - : Objekt, das steuert, wie das Element definiert wird. Derzeit wird eine Option unterstützt:
 
     - `extends`
-      - : Zeichenkette, die den Namen eines integrierten Elements angibt, das erweitert werden soll. Wird verwendet, um ein angepasstes integriertes Element zu erstellen.
+      - : Zeichenkette, die den Namen eines eingebauten Elements angibt, das erweitert werden soll. Wird verwendet, um ein angepasstes eingebautes Element zu erstellen.
 
 ### Rückgabewert
 
@@ -36,28 +36,28 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Ausgelöst, wenn:
-    - Das {{domxref("CustomElementRegistry")}} bereits einen Eintrag mit demselben Namen oder demselben Konstruktor enthält (oder anderweitig bereits definiert ist).
-    - Die <code>extends</code>-Option angegeben ist und es sich um einen [gültigen benutzerdefinierten Elementnamen](#gültige_benutzerdefinierte_elementnamen) handelt.
-    - Die <code>extends</code>-Option angegeben ist, das zu erweiternde Element jedoch ein unbekanntes Element ist.
-- `SyntaxError` {{domxref("DOMException")}}
-  - : Ausgelöst, wenn der angegebene Name kein [gültiger benutzerdefinierter Elementname](#gültige_benutzerdefinierte_elementnamen) ist.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn:
+    - Die [`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry) bereits einen Eintrag mit demselben Namen oder demselben Konstruktor enthält (oder anderweitig bereits definiert ist).
+    - Die <code>extends</code>-Option angegeben ist und es sich um einen [gültigen benutzerdefinierten Elementnamen](#gültige_benutzerdefinierte_elementnamen) handelt
+    - Die <code>extends</code>-Option angegeben ist, aber das Element, das erweitert werden soll, ein unbekanntes Element ist.
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der angegebene Name kein [gültiger benutzerdefinierter Elementname](#gültige_benutzerdefinierte_elementnamen) ist.
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn der referenzierte Konstruktor kein Konstruktor ist.
+  - : Wird ausgelöst, wenn der referenzierte Konstruktor kein Konstruktor ist.
 
 ## Beschreibung
 
-Die `define()`-Methode fügt eine Definition für ein benutzerdefiniertes Element zum benutzerdefinierten Element-Register hinzu, wobei dessen Name dem Konstruktor zugeordnet wird, der zur Erstellung verwendet wird.
+Die `define()`-Methode fügt eine Definition für ein benutzerdefiniertes Element zum benutzerdefinierten Element-Registry hinzu und ordnet seinen Namen dem Konstruktor zu, der zur Erstellung verwendet wird.
 
 Es gibt zwei Arten von benutzerdefinierten Elementen, die Sie erstellen können:
 
-- _Autonome benutzerdefinierte Elemente_ sind eigenständige Elemente, die nicht von integrierten HTML-Elementen erben.
-- _Angepasste integrierte Elemente_ sind Elemente, die von integrierten HTML-Elementen erben und diese erweitern.
+- _Autonome benutzerdefinierte Elemente_ sind eigenständige Elemente, die nicht von eingebauten HTML-Elementen erben.
+- _Angepasste eingebaute Elemente_ sind Elemente, die von eingebauten HTML-Elementen erben und diese erweitern.
 
 Um ein autonomes benutzerdefiniertes Element zu definieren, sollten Sie den `options`-Parameter weglassen.
 
-Um ein angepasstes integriertes Element zu definieren, müssen Sie den `options`-Parameter mit seiner `extends`-Eigenschaft übergeben, die auf den Namen des integrierten Elements gesetzt ist, das Sie erweitern, und dies muss der Schnittstelle entsprechen, von der Ihre benutzerdefinierte Elementklassendefinition erbt. Um beispielsweise das {{htmlelement("p")}}-Element anzupassen, müssen Sie `{extends: "p"}` an `define()` übergeben, und die Klassendefinition für Ihr Element muss von {{domxref("HTMLParagraphElement")}} erben.
+Um ein angepasstes eingebautes Element zu definieren, müssen Sie den `options`-Parameter mit seiner `extends`-Eigenschaft festlegen, die den Namen des eingebauten Elements enthält, das Sie erweitern, und dies muss der Schnittstelle entsprechen, von der Ihre benutzerdefinierte Elementklasse erbt. Zum Beispiel, um das {{htmlelement("p")}}-Element anzupassen, müssen Sie `{extends: "p"}` an `define()` übergeben, und die Klassendefinition Ihres Elements muss von [`HTMLParagraphElement`](/de/docs/Web/API/HTMLParagraphElement) erben.
 
 ### Gültige benutzerdefinierte Elementnamen
 
@@ -91,23 +91,23 @@ class MyAutonomousElement extends HTMLElement {
 }
 ```
 
-Dieses Element tut nichts: Ein echtes autonomes Element würde seine Funktionalität in seinem Konstruktor und in den vom Standard bereitgestellten Lebenszyklus-Callbacks implementieren. Siehe [Implementing a custom element](/de/docs/Web/API/Web_components/Using_custom_elements) in unserem Leitfaden zur Arbeit mit benutzerdefinierten Elementen.
+Dieses Element tut nichts: Ein echtes autonomes Element würde seine Funktionalität in seinem Konstruktor und in den vom Standard bereitgestellten Lebenszyklus-Callbacks implementieren. Siehe [Implementierung eines benutzerdefinierten Elements](/de/docs/Web/API/Web_components/Using_custom_elements) in unserem Leitfaden zur Arbeit mit benutzerdefinierten Elementen.
 
-Die obige Klassendefinition erfüllt jedoch die Anforderungen der `define()`-Methode, sodass wir sie mit folgendem Code definieren können:
+Die obige Klassendefinition erfüllt jedoch die Anforderungen der `define()`-Methode, sodass wir sie mit dem folgenden Code definieren können:
 
 ```js
 customElements.define("my-autonomous-element", MyAutonomousElement);
 ```
 
-Wir könnten es dann in einer HTML-Seite wie folgt verwenden:
+Wir könnten es dann in einer HTML-Seite so verwenden:
 
 ```html
 <my-autonomous-element>Element contents</my-autonomous-element>
 ```
 
-### Definition eines angepassten integrierten Elements
+### Definition eines angepassten eingebauten Elements
 
-Die folgende Klasse implementiert ein angepasstes integriertes Element:
+Die folgende Klasse implementiert ein angepasstes eingebautes Element:
 
 ```js
 class MyCustomizedBuiltInElement extends HTMLParagraphElement {
@@ -117,9 +117,9 @@ class MyCustomizedBuiltInElement extends HTMLParagraphElement {
 }
 ```
 
-Dieses Element erweitert das integrierte {{htmlelement("p")}}-Element.
+Dieses Element erweitert das eingebaute {{htmlelement("p")}}-Element.
 
-In diesem minimalen Beispiel implementiert das Element keine Anpassungen, sodass es sich wie ein normales `<p>`-Element verhält. Es erfüllt jedoch die Anforderungen von `define()`, sodass wir es folgendermaßen definieren können:
+In diesem minimalen Beispiel implementiert das Element keine Anpassung, sodass es sich wie ein normales `<p>`-Element verhält. Es erfüllt jedoch die Anforderungen von `define()`, sodass wir es so definieren können:
 
 ```js
 customElements.define(
@@ -131,7 +131,7 @@ customElements.define(
 );
 ```
 
-Wir könnten es dann in einer HTML-Seite wie folgt verwenden:
+Wir könnten es dann in einer HTML-Seite so verwenden:
 
 ```html
 <p is="my-customized-built-in-element"></p>
@@ -147,4 +147,4 @@ Wir könnten es dann in einer HTML-Seite wie folgt verwenden:
 
 ## Siehe auch
 
-- [Using custom elements](/de/docs/Web/API/Web_components/Using_custom_elements)
+- [Verwendung von benutzerdefinierten Elementen](/de/docs/Web/API/Web_components/Using_custom_elements)

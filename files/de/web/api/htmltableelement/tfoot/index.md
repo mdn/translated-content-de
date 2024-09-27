@@ -9,8 +9,7 @@ l10n:
 {{APIRef("HTML DOM")}}
 
 Die **`HTMLTableElement.tFoot`**-Eigenschaft repräsentiert das
-{{HTMLElement("tfoot")}}-Element einer {{HTMLElement("table")}}. Ihr Wert ist
-`null`, wenn es kein solches Element gibt.
+{{HTMLElement("tfoot")}}-Element einer {{HTMLElement("table")}}. Ihr Wert ist `null`, wenn es kein solches Element gibt.
 
 ## Wert
 
@@ -34,4 +33,4 @@ if (table.tFoot === my_foot) {
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Eigenschaft implementiert: {{domxref("HTMLTableElement")}}.
+- Die Schnittstelle, die diese Eigenschaft implementiert: [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement).

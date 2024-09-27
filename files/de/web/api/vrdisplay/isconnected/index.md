@@ -8,32 +8,32 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte **`isConnected`** Eigenschaft des {{domxref("VRDisplay")}} Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob das `VRDisplay` mit dem Computer verbunden ist.
+Die schreibgeschützte Eigenschaft **`isConnected`** der [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Schnittstelle gibt einen booleschen Wert zurück, der anzeigt, ob das `VRDisplay` mit dem Computer verbunden ist.
 
 > [!NOTE]
-> Diese Eigenschaft war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
+> Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
 ## Wert
 
-Ein boolescher Wert; `true` bedeutet, das Display ist verbunden; `false` bedeutet, es ist nicht verbunden.
+Ein boolescher Wert; `true` bedeutet, dass das Display verbunden ist; `false` bedeutet, dass es nicht verbunden ist.
 
 ## Beispiele
 
 ```js
 navigator.getVRDisplays().then((displays) => {
-  // Wenn ein Display verfügbar ist, benutzen Sie es, um die Szene zu präsentieren
+  // If a display is available, use it to present the scene
   if (displays.length > 0) {
     vrDisplay = displays[0];
 
-    // Die Präsentation starten, wenn der Button angeklickt wird: Es kann nur als Reaktion auf eine Benutzeraktion aufgerufen werden
+    // Starting the presentation when the button is clicked: It can only be called in response to a user gesture
     btn.addEventListener("click", () => {
-      // Präsentation nur anfordern, wenn das Display noch verbunden ist.
+      // Only request presentation if the display is still connected.
       if (vrDisplay.isConnected) {
         vrDisplay.requestPresent([{ source: canvas }]).then(() => {
-          // Starten Sie das Rendern der Anwendung usw.
+          // start rendering the app, etc.
         });
       } else {
-        console.log("Verbindung zum Display verloren");
+        console.log("Connection to display lost");
       }
     });
   }
@@ -42,14 +42,14 @@ navigator.getVRDisplays().then((displays) => {
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie befindet sich nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [WebVR zu WebXR Portierungsleitfaden von Meta](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verlassen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden von Meta zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [WebVR-API](/de/docs/Web/API/WebVR_API)
+- [WebVR API](/de/docs/Web/API/WebVR_API)

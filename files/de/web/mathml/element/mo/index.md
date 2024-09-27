@@ -7,18 +7,18 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mo>`** [MathML](/de/docs/Web/MathML) Element stellt einen **Operator** in einem breiten Sinn dar. Neben Operatoren im strengen mathematischen Sinne umfasst dieses Element auch „Operatoren“ wie Klammern, Trennzeichen wie Komma und Semikolon oder „Betragszeichen“-Balken.
+Das **`<mo>`** [MathML](/de/docs/Web/MathML) Element repräsentiert einen **Operator** im weitesten Sinne. Neben Operatoren im streng mathematischen Sinn umfasst dieses Element auch "Operatoren" wie Klammern, Trennzeichen wie Kommas und Semikolons oder "Betragsstriche".
 
 ## Attribute
 
 Zusätzlich zu den [globalen MathML-Attributen](/de/docs/Web/MathML/Global_attributes) akzeptiert dieses Element die folgenden Attribute [deren Standardwerte von der Form und dem Inhalt des Operators abhängen](https://w3c.github.io/mathml-core/#algorithm-for-determining-the-properties-of-an-embellished-operator):
 
 - `accent` {{Non-standard_Inline}}
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob der Operator als Akzent behandelt werden soll, wenn er als [Unter-](/de/docs/Web/MathML/Element/munder) oder [Überschrift](/de/docs/Web/MathML/Element/mover) verwendet wird (d.h. größer und näher an der Basisausdruck gezeichnet).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das anzeigt, ob der Operator als Akzent behandelt werden soll, wenn er als [Unter](/de/docs/Web/MathML/Element/munder)- oder [Überschrift](/de/docs/Web/MathML/Element/mover) verwendet wird (d.h. größer und näher an dem Basis-Ausdruck gezeichnet).
 - `fence`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob der Operator eine Begrenzung ist (wie Klammern). Es gibt keinen visuellen Effekt für dieses Attribut.
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das anzeigt, ob der Operator eine Begrenzung ist (wie Klammern). Es gibt keinen visuellen Effekt für dieses Attribut.
 - `largeop`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob der Operator größer gezeichnet werden soll, wenn [`math-style`](/de/docs/Web/CSS/math-style) auf `normal` gesetzt ist.
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das anzeigt, ob der Operator größer gezeichnet werden soll, wenn [`math-style`](/de/docs/Web/CSS/math-style) auf `normal` eingestellt ist.
 - `lspace`
   - : Ein {{cssxref("length-percentage")}}, das die Menge an Platz vor dem Operator angibt.
 - `maxsize`
@@ -26,18 +26,18 @@ Zusätzlich zu den [globalen MathML-Attributen](/de/docs/Web/MathML/Global_attri
 - `minsize`
   - : Ein {{cssxref("length-percentage")}}, das die minimale Größe des Operators angibt, wenn er dehnbar ist.
 - `movablelimits`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob angehängte Unter- und Überschriften in Unter- und Hochskriptpositionen verschoben werden, wenn [`math-style`](/de/docs/Web/CSS/math-style) auf `compact` gesetzt ist.
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob angehängte Unter- und Überschriften in die Positionen von Unter- und Hochschrift verschoben werden, wenn [`math-style`](/de/docs/Web/CSS/math-style) auf `compact` eingestellt ist.
 - `rspace`
   - : Ein {{cssxref("length-percentage")}}, das die Menge an Platz nach dem Operator angibt.
 - `separator`
   - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob der Operator ein Trennzeichen ist (wie Kommas). Es gibt keinen visuellen Effekt für dieses Attribut.
 - `stretchy`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob der Operator sich auf die Größe des benachbarten Elements ausdehnt.
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob der Operator auf die Größe des angrenzenden Elements gedehnt wird.
 - `symmetric`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob ein dehnbarer Operator vertikal symmetrisch um die imaginäre Mathematik-Achse (zentrierte Bruchlinie) sein soll.
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob ein dehnbarer Operator vertikal symmetrisch um die imaginäre Mathematikachse (zentrierte Bruchlinie) sein sollte.
 
 > [!NOTE]
-> Für die Attribute `lspace`, `maxsize`, `minsize` und `rspace` können einige Browser auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
+> Für die Attribute `lspace`, `maxsize`, `minsize` und `rspace` akzeptieren einige Browser möglicherweise auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths).
 
 ## Beispiele
 
@@ -52,13 +52,13 @@ Zusätzlich zu den [globalen MathML-Attributen](/de/docs/Web/MathML/Global_attri
 
 <math display="block">
   <mrow>
-    <mo>[</mo> <!-- Standardwert der Form: Präfix -->
+    <mo>[</mo> <!-- default form value: prefix -->
     <mrow>
       <mn>0</mn>
-      <mo>;</mo> <!-- Standardwert der Form: Infix -->
+      <mo>;</mo> <!-- default form value: infix -->
       <mn>1</mn>
     </mrow>
-    <mo>)</mo> <!-- Standardwert der Form: Postfix -->
+    <mo>)</mo> <!-- default form value: postfix -->
   </mrow>
 </math>
 ```

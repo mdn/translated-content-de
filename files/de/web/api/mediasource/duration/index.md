@@ -3,29 +3,29 @@ title: "MediaSource: duration-Eigenschaft"
 short-title: duration
 slug: Web/API/MediaSource/duration
 l10n:
-  sourceCommit: 84f8672adab0fdb783d02676c42a2b7ae16b3606
+  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
 ---
 
-{{APIRef("Media Source Extensions")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`duration`**-Eigenschaft des {{domxref("MediaSource")}}-Interfaces ruft die Dauer des aktuell präsentierten Mediums ab und setzt sie.
+Die **`duration`**-Eigenschaft des [`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces erhält und setzt die Dauer des aktuell präsentierten Mediums.
 
 ## Wert
 
-Ein Double. Ein Wert in Sekunden wird erwartet.
+Ein `double`. Ein Wert in Sekunden wird erwartet.
 
 ### Ausnahmen
 
-Die folgenden Ausnahmen können auftreten, wenn ein neuer Wert für diese Eigenschaft gesetzt wird.
+Die folgenden Ausnahmen können auftreten, wenn ein neuer Wert für diese Eigenschaft festgelegt wird.
 
-- `InvalidAccessError` {{domxref("DOMException")}}
-  - : Diese Ausnahme wird ausgelöst, wenn versucht wird, einen Dauerwert zu setzen, der negativ oder `NaN` ist.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Diese Ausnahme wird ausgelöst, wenn {{domxref("MediaSource.readyState")}} nicht `open` ist oder wenn eines oder mehrere der {{domxref("SourceBuffer")}}-Objekte in {{domxref("MediaSource.sourceBuffers")}} aktualisiert werden (d. h. ihre {{domxref("SourceBuffer.updating")}}-Eigenschaft auf `true` steht).
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn versucht wird, einen negativen oder `NaN`-Wert für die Dauer festzulegen.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn [`MediaSource.readyState`](/de/docs/Web/API/MediaSource/readyState) nicht gleich `open` ist oder eines oder mehrere der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte in [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) aktualisiert werden (d.h., deren [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating)-Eigenschaft `true` ist).
 
 ## Beispiele
 
-Das folgende Beispiel basiert auf einem einfachen Beispiel von Nick Desaulniers ([sehen Sie die vollständige Demo live](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html) oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt eine `MediaSource` zurück.
+Das folgende Snippet basiert auf einem einfachen Beispiel von Nick Desaulniers ([sehen Sie sich die vollständige Demo live an](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html) oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt eine `MediaSource` zurück.
 
 ```js
 const mediaSource = getMediaSource();
@@ -57,5 +57,5 @@ function sourceOpen() {
 
 ## Siehe auch
 
-- {{domxref("SourceBuffer")}}
-- {{domxref("SourceBufferList")}}
+- [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)
+- [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)

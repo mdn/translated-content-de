@@ -1,5 +1,5 @@
 ---
-title: "CSPViolationReportBody: disposition Eigenschaft"
+title: "CSPViolationReportBody: disposition-Eigenschaft"
 short-title: disposition
 slug: Web/API/CSPViolationReportBody/disposition
 l10n:
@@ -8,30 +8,32 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die **`disposition`** schreibgeschützte Eigenschaft der {{domxref("CSPViolationReportBody")}}-Schnittstelle gibt an, ob der Benutzeragent so konfiguriert ist, dass Verstöße gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) durchgesetzt oder nur gemeldet werden.
+Die schreibgeschützte **`disposition`**-Eigenschaft der [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Schnittstelle zeigt an, ob der Benutzeragent konfiguriert ist, [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Verstöße durchzusetzen oder nur zu melden.
 
 ## Wert
 
 Mögliche Werte sind:
 
 - `"enforce"`
-  - : Die Richtlinie wird durchgesetzt und die Anforderungsanforderung wird blockiert.
+  - : Die Richtlinie wird durchgesetzt und die Ressourcenanfrage wird blockiert.
 - `"report"`
-  - : Der Verstoß wird gemeldet, aber die Anforderungsanforderung wird nicht blockiert.
+  - : Der Verstoß wird gemeldet, aber die Ressourcenanfrage wird nicht blockiert.
 
 ## Beispiele
 
-### CSP Inline-Skriptverstoß zeigt die Disposition
+### CSP-Verstoß bei Inline-Skripten zeigt die Disposition
 
-In diesem Beispiel wird ein CSP-Verstoß mit einem Inline-Skript ausgelöst, und der Verstoß wird mit einem {{domxref("ReportingObserver")}} gemeldet. Die `disposition` wird protokolliert.
+Dieses Beispiel löst einen CSP-Verstoß durch ein Inline-Skript aus und meldet den Verstoß mithilfe eines [`ReportingObserver`](/de/docs/Web/API/ReportingObserver).
+Die `disposition` wird protokolliert.
 
 #### HTML
 
-Die folgende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um die {{httpheader('Content-Security-Policy')}} `default-src` auf `self` zu setzen, was es ermöglicht, Skripte und andere Ressourcen von derselben Domain zu laden, aber keine Inline-Skripte auszuführen. Das Dokument enthält auch ein Inline-Skript, das daher einen CSP-Verstoß auslösen sollte.
+Die untenstehende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um die {{httpheader('Content-Security-Policy')}} `default-src` auf `self` zu setzen, was das Laden von Skripten und anderen Ressourcen von derselben Domain erlaubt, jedoch nicht die Ausführung von Inline-Skripten.
+Das Dokument enthält auch ein Inline-Skript, das daher einen CSP-Verstoß auslösen sollte.
 
 ```html
 <!doctype html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta
       http-equiv="Content-Security-Policy"
@@ -40,10 +42,10 @@ Die folgende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)
       http-equiv="Reporting-Endpoints"
       content="csp-endpoint='https://example.com/csp-reports'" />
     <script src="main.js"></script>
-    <title>CSP: Verstoß aufgrund eines Inline-Skripts</title>
+    <title>CSP: Violation due to inline script</title>
   </head>
   <body>
-    <h1>CSP: Verstoß aufgrund eines Inline-Skripts</h1>
+    <h1>CSP: Violation due to inline script</h1>
     <script>
       const int = 4;
     </script>
@@ -53,9 +55,11 @@ Die folgende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)
 
 #### JavaScript (main.js)
 
-Das oben angegebene Dokument lädt auch das externe Skript `main.js`, das unten gezeigt wird. Da es von derselben Domain wie das HTML geladen wird, wird es nicht durch die CSP blockiert.
+Das oben dargestellte Dokument lädt auch das externe Skript `main.js`, das unten gezeigt wird.
+Da dieses vom gleichen Domain wie das HTML geladen wird, wird es nicht von der CSP blockiert.
 
-Das Skript erstellt einen neuen {{domxref("ReportingObserver")}}, um Inhaltsverletzungsberichte des Typs `"csp-violation"` zu beobachten. Jedes Mal, wenn die Callback-Funktion aufgerufen wird, erhalten wir den Körper des ersten Eintrags des Berichtsarrays und verwenden ihn, um Datei, Zeile und Spalte des Verstoßes in der Konsole zu protokollieren.
+Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs `"csp-violation"` zu beobachten.
+Jedes Mal, wenn die Callback-Funktion aufgerufen wird, erhalten wir den Körper des ersten Eintrags des Berichts-Arrays und verwenden ihn, um die Datei, Zeile und Spalte des Verstoßes in der Konsole zu protokollieren.
 
 ```js
 // main.js
@@ -63,7 +67,7 @@ const observer = new ReportingObserver(
   (reports, observer) => {
     const cspViolationBody = reports[0].body;
     console.log(`disposition: ${cspViolationBody.disposition}`);
-    // Zum Beispiel: "enforce"
+    // For example: "enforce"
   },
   {
     types: ["csp-violation"],
@@ -74,11 +78,11 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Beachten Sie, dass, obwohl mehrere Berichte im zurückgegebenen Array enthalten sein könnten, wir der Einfachheit halber nur die Werte des ersten Elements protokollieren.
+Beachten Sie, dass zwar mehrere Berichte im zurückgegebenen Array vorhanden sein könnten, wir der Kürze halber jedoch nur die Werte des ersten Elements protokollieren.
 
 #### Ergebnisse
 
-Wenn der obige Code ausgeführt wird, wäre die Protokollausgabe:
+Wenn der obige Code bereitgestellt wird, wäre die Log-Ausgabe:
 
 ```plain
 disposition: enforce
@@ -86,16 +90,16 @@ disposition: enforce
 
 > [!NOTE]
 > Wenn `Content-Security-Policy-Reporting-Only` aktiviert wäre, wäre die Disposition `report`.
-> Beachten Sie jedoch, dass `Content-Security-Policy-Reporting-Only` bereitgestellt werden muss: es kann nicht im `<meta>`-Element gesetzt werden, wie wir es oben getan haben.
+> Beachten Sie jedoch, dass `Content-Security-Policy-Reporting-Only` bereitgestellt werden muss: Es kann nicht im `<meta>`-Element gesetzt werden, wie wir es oben gemacht haben.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("SecurityPolicyViolationEvent.disposition")}}
+- [`SecurityPolicyViolationEvent.disposition`](/de/docs/Web/API/SecurityPolicyViolationEvent/disposition)

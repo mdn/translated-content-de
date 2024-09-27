@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-SIMD (ausgesprochen "sim-dee") steht für **Single Instruction/Multiple Data**, was eine [Klassifizierung von Computerarchitekturen](https://en.wikipedia.org/wiki/Flynn%27s_taxonomy) ist. SIMD ermöglicht es, dass eine gleiche Operation auf mehrere Datenpunkte angewendet wird, was zu Datenebenenparallelität und somit zu Leistungsgewinnen führt — zum Beispiel bei 3D-Grafiken und Videobearbeitung, Physiksimulationen oder Kryptographie und anderen Bereichen.
+SIMD (ausgesprochen "sim-dee") steht für **Single Instruction/Multiple Data**, eine [Klassifikation von Computerarchitekturen](https://en.wikipedia.org/wiki/Flynn%27s_taxonomy). SIMD ermöglicht es, dass eine gleiche Operation auf mehrere Datenpunkte ausgeführt wird, was zu Datenebenenparallelismus und somit zu Leistungsverbesserungen führt — beispielsweise bei 3D-Grafiken und Videobearbeitung, Physiksimulationen oder Kryptographie und anderen Bereichen.
 
-Siehe auch {{Glossary("SISD")}} für eine sequentielle Architektur ohne Parallelität in den Anweisungen oder Datensätzen.
+Siehe auch [SISD](/de/docs/Glossary/SISD) für eine sequentielle Architektur ohne Parallelität in den Anweisungen oder den Datensätzen.
 
 ## Siehe auch
 
 - [SIMD](https://en.wikipedia.org/wiki/SIMD) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - {{Glossary("SISD")}}
+  - [SISD](/de/docs/Glossary/SISD)

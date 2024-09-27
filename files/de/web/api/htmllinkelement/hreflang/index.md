@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`hreflang`**-Eigenschaft der {{domxref("HTMLLinkElement")}}-Schnittstelle wird verwendet, um die Sprache und die geografische Ausrichtung einer Seite anzugeben. Dieser Hinweis kann von Browsern verwendet werden, um die passendere Seite auszuwählen oder das {{Glossary("SEO")}} zu verbessern.
+Die **`hreflang`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces wird verwendet, um die Sprache und die geografische Zielausrichtung einer Seite anzugeben. Dieser Hinweis kann von Browsern verwendet werden, um die geeignetere Seite auszuwählen oder um die [SEO](/de/docs/Glossary/SEO) zu verbessern.
 
 Sie spiegelt das `hreflang`-Attribut des {{HTMLElement("link")}}-Elements wider und ist der leere String (`""`), wenn kein `hreflang`-Attribut vorhanden ist.
 
@@ -56,4 +56,4 @@ pTag.textContent = myLink.hreflang;
 
 ## Siehe auch
 
-- {{domxref("HTMLAnchorElement.hreflang")}} Eigenschaft
+- [`HTMLAnchorElement.hreflang`](/de/docs/Web/API/HTMLAnchorElement/hreflang)-Eigenschaft

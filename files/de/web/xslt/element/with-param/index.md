@@ -29,7 +29,7 @@ Das `<xsl:with-param>`-Element legt den Wert eines Parameters fest, der in eine 
 
 ### Typ
 
-Unteranweisung, erscheint immer innerhalb eines `<xsl:apply-templates>`- oder eines `<xsl:call-template>`-Elements.
+Teilbefehl, erscheint immer innerhalb eines `<xsl:apply-templates>` oder eines `<xsl:call-template>` Elements.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "XRWebGLBinding: Methode getDepthInformation()"
+title: "XRWebGLBinding: getDepthInformation()-Methode"
 short-title: getDepthInformation()
 slug: Web/API/XRWebGLBinding/getDepthInformation
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`getDepthInformation()`** Methode des {{domxref("XRWebGLBinding")}} Interface gibt ein {{domxref("XRWebGLDepthInformation")}} Objekt zurück, das WebGL-Tiefeninformationen enthält.
+Die **`getDepthInformation()`**-Methode der [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)-Schnittstelle gibt ein [`XRWebGLDepthInformation`](/de/docs/Web/API/XRWebGLDepthInformation)-Objekt zurück, das WebGL-Tiefeninformationen enthält.
 
 ## Syntax
 
@@ -19,31 +19,31 @@ getDepthInformation(view)
 ### Parameter
 
 - `view`
-  - : Ein {{domxref("XRView")}} Objekt, das aus einer Viewer-Pose erhalten wurde.
+  - : Ein [`XRView`](/de/docs/Web/API/XRView)-Objekt, das aus einer Betrachterpose gewonnen wird.
 
 ### Rückgabewert
 
-Ein {{domxref("XRWebGLDepthInformation")}} Objekt.
+Ein [`XRWebGLDepthInformation`](/de/docs/Web/API/XRWebGLDepthInformation)-Objekt.
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `"depth-sensing"` nicht in der Liste der aktivierten Features für diese {{domxref("XRSession")}} enthalten ist.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der `XRFrame` weder aktiv noch animiert ist. Das Abrufen von Tiefeninformationen ist nur innerhalb des {{domxref("XRSession.requestAnimationFrame()", "requestAnimationFrame()")}} Rückrufs gültig.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die {{domxref("XRSession.depthUsage", "depthUsage")}} der Sitzung nicht `"gpu-optimized"` ist.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `"depth-sensing"` nicht in der Liste der aktivierten Funktionen für diese [`XRSession`](/de/docs/Web/API/XRSession) enthalten ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das `XRFrame` weder aktiv noch animiert ist. Das Gewinnen von Tiefeninformationen ist nur innerhalb des [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame)-Callbacks gültig.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die [`depthUsage`](/de/docs/Web/API/XRSession/depthUsage) der Sitzung nicht `"gpu-optimized"` ist.
 
 ## Beispiele
 
-### Abrufen von WebGL-Tiefeninformationen
+### WebGL-Tiefeninformationen gewinnen
 
 ```js
 const canvasElement = document.querySelector(".output-canvas");
 const gl = canvasElement.getContext("webgl");
 await gl.makeXRCompatible();
 
-// Stellen Sie sicher, dass Sie eine Sitzung mit aktiviertem Tiefensensor anfordern
+// Make sure to request a session with depth-sensing enabled
 const session = navigator.xr.requestSession("immersive-ar", {
   requiredFeatures: ["depth-sensing"],
   depthSensing: {
@@ -56,7 +56,7 @@ const glBinding = new XRWebGLBinding(session, gl);
 
 // …
 
-// Abrufen der Tiefeninformationen in einem aktiven und animierten Frame
+// Obtain depth information in an active and animated frame
 function rafCallback(time, frame) {
   session.requestAnimationFrame(rafCallback);
   const pose = frame.getViewerPose(referenceSpace);
@@ -64,7 +64,7 @@ function rafCallback(time, frame) {
     for (const view of pose.views) {
       const depthInformation = glBinding.getDepthInformation(view);
       if (depthInformation) {
-        // Etwas mit den Tiefeninformationen machen
+        // Do something with the depth information
         // gl.bindTexture(gl.TEXTURE_2D, depthInformation.texture);
         // …
       }
@@ -83,4 +83,4 @@ function rafCallback(time, frame) {
 
 ## Siehe auch
 
-- {{domxref("XRWebGLDepthInformation.texture")}}
+- [`XRWebGLDepthInformation.texture`](/de/docs/Web/API/XRWebGLDepthInformation/texture)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die Methode **`file()`** der {{domxref("FileSystemFileEntry")}}-Schnittstelle gibt ein {{domxref("File")}}-Objekt zurück, das verwendet werden kann, um Daten aus der durch den Verzeichniseintrag dargestellten Datei zu lesen.
+Die Methode **`file()`** des [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)-Interfaces gibt ein [`File`](/de/docs/Web/API/File)-Objekt zurück, das verwendet werden kann, um Daten aus der Datei zu lesen, die durch den Verzeichniseintrag repräsentiert wird.
 
 ## Syntax
 
@@ -20,9 +20,9 @@ file(successCallback, errorCallback)
 ### Parameter
 
 - `successCallback`
-  - : Eine Callback-Funktion, die aufgerufen wird, wenn die {{domxref("File")}} erfolgreich erstellt wurde; die `File` wird als einziger Parameter an das Callback übergeben.
+  - : Eine Callback-Funktion, die aufgerufen wird, wenn die [`File`](/de/docs/Web/API/File) erfolgreich erstellt wurde; die `File` wird als einziger Parameter an den Callback übergeben.
 - `errorCallback` {{optional_inline}}
-  - : Wenn bereitgestellt, muss dies eine Methode sein, die aufgerufen wird, wenn ein Fehler beim Versuch auftritt, die {{domxref("File")}} zu erstellen. Dieses Callback erhält als Eingabe ein {{domxref("DOMException")}}-Objekt, das den Fehler beschreibt.
+  - : Wenn angegeben, muss dies eine Methode sein, die aufgerufen wird, wenn beim Versuch, die [`File`](/de/docs/Web/API/File) zu erstellen, ein Fehler auftritt. Dieser Callback erhält ein [`DOMException`](/de/docs/Web/API/DOMException)-Objekt, das den Fehler beschreibt, als Eingabe.
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel definiert eine Methode `readFile()`, die eine Textdatei liest und eine angegebene Callback-Funktion mit dem empfangenen Text (in einem String) aufruft, sobald das Lesen abgeschlossen ist. Wenn ein Fehler auftritt, wird ein angegebenes (optionales) Fehler-Callback aufgerufen.
+Dieses Beispiel definiert eine Methode `readFile()`, die eine Textdatei liest und eine angegebene Callback-Funktion mit dem empfangenen Text (in einem String) aufruft, sobald das Lesen abgeschlossen ist. Wenn ein Fehler auftritt, wird ein angegebener (optional) Fehler-Callback aufgerufen.
 
 ```js
 function readFile(entry, successCallback, errorCallback) {
@@ -50,7 +50,7 @@ function readFile(entry, successCallback, errorCallback) {
 }
 ```
 
-Diese Funktion ruft `file()` auf und gibt als Erfolgscallback eine Methode an, die einen {{domxref("FileReader")}} verwendet, um die Datei als Text zu lesen. Der {{domxref("FileReader/load_event", "load")}}-Ereignishandler des FileReader ist eingerichtet, um den geladenen String an das `successCallback` zu liefern, das bei Aufruf der `readFile()`-Methode angegeben wurde; ebenso ist sein {{domxref("FileReader/error_event", "error")}}-Handler so eingerichtet, dass er das angegebene `errorCallback` aufruft.
+Diese Funktion ruft `file()` auf und gibt als Erfolgscallback eine Methode an, die dann einen [`FileReader`](/de/docs/Web/API/FileReader) verwendet, um die Datei als Text zu lesen. Der Event-Handler für das [`load`](/de/docs/Web/API/FileReader/load_event)-Ereignis des FileReaders ist so eingerichtet, dass er den geladenen String an den bei Aufruf der Methode `readFile()` angegebenen `successCallback` übergibt; ebenso wird sein [`error`](/de/docs/Web/API/FileReader/error_event)-Handler so eingerichtet, dass er den angegebenen `errorCallback` aufruft.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableRowElement: rowIndex-Eigenschaft"
+title: "HTMLTableRowElement: rowIndex Eigenschaft"
 short-title: rowIndex
 slug: Web/API/HTMLTableRowElement/rowIndex
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`rowIndex`** schreibgeschützte Eigenschaft der {{domxref("HTMLTableRowElement")}}-Schnittstelle repräsentiert die Position einer Zeile innerhalb der gesamten {{HtmlElement("table")}}.
+Die **`rowIndex`** Eigenschaft des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement) Interfaces ist eine schreibgeschützte Eigenschaft, die die Position einer Zeile innerhalb der gesamten {{HtmlElement("table")}} repräsentiert.
 
-Selbst wenn die {{HtmlElement("thead")}}, {{HtmlElement("tbody")}} und {{HtmlElement("tfoot")}}-Elemente in der HTML-Datei nicht in der richtigen Reihenfolge sind, rendern Browser die Tabelle in der richtigen Reihenfolge. Daher werden die Zeilen vom `<thead>` zum `<tbody>` und vom `<tbody>` zum `<tfoot>` gezählt.
+Selbst wenn die {{HtmlElement("thead")}}, {{HtmlElement("tbody")}} und {{HtmlElement("tfoot")}} Elemente in der HTML-Quelle außer der Reihenfolge stehen, rendern Browser die Tabelle in der richtigen Reihenfolge. Daher zählen die Zeilen vom `<thead>` über das `<tbody>` bis zum `<tfoot>`.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Der Index der Zeile oder `-1`, wenn die Zeile nicht Teil einer Tabelle ist.
 
 ## Beispiele
 
-Dieses Beispiel verwendet JavaScript, um alle Zeilen in einer Tabelle zu nummerieren.
+Dieses Beispiel verwendet JavaScript, um alle Zeilennummern in einer Tabelle zu kennzeichnen.
 
 ### HTML
 
@@ -26,17 +26,17 @@ Dieses Beispiel verwendet JavaScript, um alle Zeilen in einer Tabelle zu nummeri
 <table>
   <thead>
     <tr>
-      <th>Artikel</th>
-      <th>Preis</th>
+      <th>Item</th>
+      <th>Price</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Bananen</td>
+      <td>Bananas</td>
       <td>$2</td>
     </tr>
     <tr>
-      <td>Orangen</td>
+      <td>Oranges</td>
       <td>$8</td>
     </tr>
     <tr>
@@ -46,7 +46,7 @@ Dieses Beispiel verwendet JavaScript, um alle Zeilen in einer Tabelle zu nummeri
   </tbody>
   <tfoot>
     <tr>
-      <td>Gesamt</td>
+      <td>Total</td>
       <td>$30</td>
     </tr>
   </tfoot>
@@ -79,4 +79,4 @@ rows.forEach((row) => {
 
 ## Siehe auch
 
-- {{domxref("HTMLTableRowElement.sectionRowIndex")}}
+- [`HTMLTableRowElement.sectionRowIndex`](/de/docs/Web/API/HTMLTableRowElement/sectionRowIndex)

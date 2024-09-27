@@ -1,5 +1,5 @@
 ---
-title: "HTMLButtonElement: Eigenschaft value"
+title: "HTMLButtonElement: value Eigenschaft"
 short-title: value
 slug: Web/API/HTMLButtonElement/value
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`value`**-Eigenschaft der {{DOMxRef("HTMLButtonElement")}}-Schnittstelle repräsentiert den Wert des {{htmlelement("button")}}-Elements als Zeichenfolge oder die leere Zeichenfolge, wenn kein Wert gesetzt ist. Sie spiegelt das [`value`](/de/docs/Web/HTML/Element/button#value)-Attribut des Elements wider.
+Die **`value`**-Eigenschaft der Schnittstelle [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) repräsentiert den Wert des {{htmlelement("button")}}-Elements als Zeichenkette oder die leere Zeichenkette, wenn kein Wert gesetzt ist. Sie spiegelt das [`value`](/de/docs/Web/HTML/Element/button#value)-Attribut des Elements wider.
 
 ## Wert
 
-Eine Zeichenfolge, die den Wert des {{htmlelement("button")}}-Elements enthält.
+Eine Zeichenkette, die den Wert des {{htmlelement("button")}}-Elements enthält.
 
 ## Beispiele
 
@@ -25,12 +25,12 @@ console.log(`value: ${buttonElement.value}`);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - {{HTMLElement("button")}}
-- {{DOMXref("HTMLButtonElement.type")}}
-- {{DOMXref("HTMLButtonElement.labels")}}
+- [`HTMLButtonElement.type`](/de/docs/Web/API/HTMLButtonElement/type)
+- [`HTMLButtonElement.labels`](/de/docs/Web/API/HTMLButtonElement/labels)

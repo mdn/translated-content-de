@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`foundation`**-Eigenschaft der **{{domxref("RTCIceCandidate")}}**-Schnittstelle ist eine Zeichenkette, die den Kandidaten eindeutig über mehrere Transporte hinweg identifiziert.
+Die schreibgeschützte **`foundation`**-Eigenschaft des **[`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)**-Interfaces ist ein String, der den Kandidaten eindeutig über mehrere Transports hinweg identifiziert.
 
-Die `foundation` kann daher verwendet werden, um Kandidaten zu korrelieren, die auf mehreren {{domxref("RTCIceTransport")}}-Objekten vorhanden sind.
+Die `foundation` kann daher verwendet werden, um Kandidaten abzugleichen, die auf mehreren [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Objekten vorhanden sind.
 
 ## Wert
 
-Eine Zeichenkette, die den Kandidaten eindeutig über alle `RTCIceTransport`s identifiziert, auf denen er verfügbar ist.
+Ein String, der den Kandidaten eindeutig über alle `RTCIceTransport`s identifiziert, auf denen er verfügbar ist.
 
 > [!NOTE]
-> Wenn `port` `null` ist — und `port` vom {{Glossary("user agent")}} unterstützt wird — führt die Übergabe des Kandidaten an {{domxref("RTCPeerConnection.addIceCandidate", "addIceCandidate()")}} zu einem Fehler und löst eine `OperationError`-Ausnahme aus.
+> Wenn `port` `null` ist — und `port` vom [Benutzeragenten](/de/docs/Glossary/user_agent) unterstützt wird — wird das Übergeben des Kandidaten an [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) fehlschlagen, und es wird eine `OperationError`-Ausnahme ausgelöst.
 
 ## Nutzungshinweise
 
-Betrachten Sie diese {{Glossary("SDP")}}-Attributzeile (a-line), die einen ICE-Kandidaten beschreibt:
+Betrachten Sie diese [SDP](/de/docs/Glossary/SDP)-Attributzeile (a-line), die einen ICE-Kandidaten beschreibt:
 
 ```plain
 a=candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host
@@ -35,8 +35,8 @@ Dieses Codebeispiel verwendet die `foundation` von zwei Kandidaten, um festzuste
 
 ```js
 if (candidate1.foundation === candidate2.foundation) {
-  /* die beiden Kandidaten sind gleich, auch wenn sie sich auf
-     verschiedenen Transporten befinden */
+  /* the two candidates are the same, even if they're on
+     different transports */
 }
 ```
 
@@ -44,6 +44,6 @@ if (candidate1.foundation === candidate2.foundation) {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

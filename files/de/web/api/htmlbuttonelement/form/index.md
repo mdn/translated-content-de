@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`form`**-Eigenschaft der {{domxref("HTMLButtonElement")}}-Schnittstelle ist eine schreibgeschützte Eigenschaft, die ein {{domxref("HTMLFormElement")}}-Objekt zurückgibt, das dieses {{htmlelement("button")}} besitzt, oder `null`, wenn dieser Button zu keinem Formular gehört.
+Die **`form`**-Schreibgeschützt-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("button")}} besitzt, oder `null`, wenn dieses Button von keinem Formular besessen ist.
 
 ## Wert
 
-Ein {{domxref("HTMLFormElement")}} oder `null`.
+Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 
 ## Spezifikationen
 
@@ -24,8 +24,8 @@ Ein {{domxref("HTMLFormElement")}} oder `null`.
 
 ## Siehe auch
 
-- {{domxref("HTMLButtonElement")}}
-- {{domxref("HTMLFormElement")}}
+- [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)
+- [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("button")}}
 - HTML [`form`](/de/docs/Web/HTML/Element/button#form)-Attribut
 - [HTML-Formulare Leitfaden](/de/docs/Learn/Forms)

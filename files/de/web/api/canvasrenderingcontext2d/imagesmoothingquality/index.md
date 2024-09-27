@@ -8,10 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Die **`imageSmoothingQuality`**-Eigenschaft des {{domxref("CanvasRenderingContext2D")}}-Interfaces, Teil der [Canvas API](/de/docs/Web/API/Canvas_API), ermöglicht es Ihnen, die Qualität der Bildglättung festzulegen.
+Die **`imageSmoothingQuality`**-Eigenschaft der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Schnittstelle, Teil der [Canvas API](/de/docs/Web/API/Canvas_API), ermöglicht es Ihnen, die Qualität der Bildglättung festzulegen.
 
 > [!NOTE]
-> Damit diese Eigenschaft eine Wirkung zeigt, muss {{domxref("CanvasRenderingContext2D.imageSmoothingEnabled", "imageSmoothingEnabled")}} `true` sein.
+> Damit diese Eigenschaft Wirkung zeigt,
+> muss [`imageSmoothingEnabled`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled) > `true` sein.
 
 ## Wert
 
@@ -28,7 +29,7 @@ Der Standardwert ist `"low"`.
 
 ## Beispiele
 
-### Einstellung der Bildglättungsqualität
+### Einstellen der Bildglättungsqualität
 
 Dieses Beispiel verwendet die `imageSmoothingQuality`-Eigenschaft mit einem skalierten Bild.
 
@@ -66,6 +67,6 @@ img.onload = () => {
 
 ## Siehe auch
 
-- Das Interface, das diese Eigenschaft definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasRenderingContext2D.imageSmoothingEnabled")}}
+- Die Schnittstelle, die diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasRenderingContext2D.imageSmoothingEnabled`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled)
 - {{cssxref("image-rendering")}}

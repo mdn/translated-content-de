@@ -1,5 +1,5 @@
 ---
-title: "PageSwapEvent: PageSwapEvent() Konstruktor"
+title: "PageSwapEvent: PageSwapEvent()-Konstruktor"
 short-title: PageSwapEvent()
 slug: Web/API/PageSwapEvent/PageSwapEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Der **`PageSwapEvent()`** Konstruktor erstellt eine neue Instanz eines {{domxref("PageSwapEvent")}}-Objekts.
+Der **`PageSwapEvent()`**-Konstruktor erstellt eine neue Instanz eines [`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent)-Objekts.
 
 ## Syntax
 
@@ -23,13 +23,13 @@ new PageSwapEvent(type, init)
 - `init`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `activation`
-      - : Ein {{domxref("NavigationActivation")}}-Objekt, das den Navigationstyp sowie die aktuellen und Ziel-Dokument-Historieneinträge darstellt. Standardmäßig `null`, wenn die zugehörige Navigation eine Cross-Origin-Navigation ist.
+      - : Ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt, das den Navigationstyp und die aktuellen sowie die Ziel-Dokumenthistorie-Einträge darstellt. Setzt auf `null` zurück, wenn die zugehörige Navigation eine Cross-Origin-Navigation ist.
     - `viewTransition`
-      - : Ein {{domxref("ViewTransition")}}-Objekt, das die aktive View-Transition für die zugehörige Navigation darstellt. Standardmäßig `null`, wenn es keine aktive View-Transition gibt.
+      - : Ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das die aktive Ansichtstransition für die zugehörige Navigation darstellt. Setzt auf `null` zurück, wenn keine aktive Ansichtstransition vorhanden ist.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `PageSwapEvent`-Objekt wird erstellt, wenn ein Handler als Ergebnis des {{domxref("Window.pageswap_event", "pageswap")}}-Ereignisses aufgerufen wird.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `PageSwapEvent`-Objekt wird erstellt, wenn ein Handler als Ergebnis der Auslösung des [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignisses aufgerufen wird.
 
 ## Spezifikationen
 

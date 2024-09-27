@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn eine Navigation bestätigt wird. Mindestens ein Teil des neuen Dokuments wurde vom Server empfangen und der Browser hat sich entschieden, zu dem neuen Dokument zu wechseln.
+Wird ausgelöst, wenn eine Navigation festgeschrieben wird. Mindestens ein Teil des neuen Dokuments wurde vom Server empfangen und der Browser hat sich entschieden, zu dem neuen Dokument zu wechseln.
 
 ## Syntax
 
@@ -25,11 +25,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
 
-## addListener-Syntax
+## Syntax von addListener
 
 ### Parameter
 
@@ -41,28 +41,28 @@ Ereignisse haben drei Funktionen:
       - : `object`. Details über das Navigationsereignis. Siehe den Abschnitt [details](#details_2) für weitere Informationen.
 
 - `filter` {{optional_inline}}
-  - : `object`. Ein Objekt, das eine einzelne Eigenschaft `url` enthält, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter einbeziehen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einen `UrlFilter` im Array erfüllen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
+  - : `object`. Ein Objekt, das eine einzige Eigenschaft `url` enthält, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter einbeziehen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mit mindestens einem `UrlFilter` im Array übereinstimmen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
 
 ## Zusätzliche Objekte
 
-### Details
+### details
 
 - `tabId`
   - : `integer`. Die ID des Tabs, in dem die Navigation stattfinden wird.
 - `url`
-  - : `string`. Die URL, zu der der gegebene Frame navigieren wird.
+  - : `string`. Die URL, zu der der Rahmen navigieren wird.
 - `processId` {{optional_inline}} {{deprecated_inline}}
   - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt war, stellte er die ID des Prozesses dar, der den Renderer für diesen Tab ausführt.
 - `frameId`
-  - : `integer`. Frame, in dem die Navigation stattfinden wird. `0` bedeutet, dass die Navigation im obersten Browsing-Kontext des Tabs stattfindet, nicht in einem verschachtelten {{HTMLElement("iframe")}}. Ein positiver Wert zeigt an, dass die Navigation in einem verschachtelten iframe stattfindet. Frame-IDs sind eindeutig für einen gegebenen Tab und Prozess.
+  - : `integer`. Rahmen, in dem die Navigation stattfinden wird. `0` zeigt an, dass die Navigation im oberen Browserkontext des Tabs stattfindet und nicht in einem verschachtelten {{HTMLElement("iframe")}}. Ein positiver Wert zeigt, dass die Navigation in einem verschachtelten iframe stattfindet. Rahmen-IDs sind für einen bestimmten Tab und Prozess eindeutig.
 - `parentFrameId`
-  - : `integer`. ID des Eltern-Frames dieses Frames. Auf `-1` gesetzt, wenn es sich um einen obersten Frame handelt.
+  - : `integer`. ID des übergeordneten Rahmens dieses Rahmens. Auf `-1` gesetzt, wenn es sich um einen obersten Rahmen handelt.
 - `timeStamp`
-  - : `number`. Die Zeit, zu der die Navigation bestätigt wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+  - : `number`. Die Zeit, zu der die Navigation festgeschrieben wurde, in [Millisekunden seit der Epoche](https://de.wikipedia.org/wiki/Unixzeit).
 - `transitionType`
-  - : {{WebExtAPIRef("webNavigation.transitionType", "transitionType")}}. Der Grund für die Navigation. (Zum Beispiel `"link"`, wenn der Benutzer auf einen Link geklickt hat, oder `"reload"`, wenn die Seite neu geladen wurde.)
+  - : {{WebExtAPIRef("webNavigation.transitionType", "transitionType")}}. Der Grund für die Navigation. (Zum Beispiel `"link"`, wenn der Nutzer auf einen Link geklickt hat, oder `"reload"`, wenn die Seite neu geladen wurde.)
 - `transitionQualifiers`
-  - : `Array` von {{WebExtAPIRef("webNavigation.transitionQualifier", "transitionQualifier")}}. Zusätzliche Informationen zur Navigation: zum Beispiel, ob es eine Server- oder Client-Weiterleitung gab.
+  - : `Array` von {{WebExtAPIRef("webNavigation.transitionQualifier", "transitionQualifier")}}. Zusätzliche Informationen zur Navigation: zum Beispiel, ob es eine Server- oder Clientumleitung gab.
 
 ## Browser-Kompatibilität
 
@@ -89,7 +89,7 @@ browser.webNavigation.onCommitted.addListener(logOnCommitted, filter);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API. Diese Dokumentation stammt von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`HTMLOutputElement.labels`** gibt eine {{domxref("NodeList")}} der {{HTMLElement("label")}}-Elemente zurück, die mit dem {{HTMLElement("output")}}-Element verknüpft sind.
+Die schreibgeschützte Eigenschaft **`HTMLOutputElement.labels`** gibt eine [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem {{HTMLElement("output")}}-Element verknüpft sind.
 
 ## Wert
 
-Eine {{domxref("NodeList")}}, die die `<label>`-Elemente enthält, die mit dem `<output>`-Element verknüpft sind.
+Eine [`NodeList`](/de/docs/Web/API/NodeList), die die `<label>`-Elemente enthält, die mit dem `<output>`-Element verknüpft sind.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ Eine {{domxref("NodeList")}}, die die `<label>`-Elemente enthält, die mit dem `
 window.addEventListener("DOMContentLoaded", () => {
   const output = document.getElementById("test");
   for (const label of output.labels) {
-    console.log(label.textContent); // "Label 1" und "Label 2"
+    console.log(label.textContent); // "Label 1" and "Label 2"
   }
 });
 ```

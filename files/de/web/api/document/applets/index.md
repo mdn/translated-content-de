@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}} {{Deprecated_Header}}
 
-Die **`applets`**-Eigenschaft des {{domxref("Document")}} gibt eine leere {{domxref("HTMLCollection")}} zurück. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten; in älteren Browser-Versionen gab sie eine Liste der Applets innerhalb eines Dokuments zurück.
+Die **`applets`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document) gibt eine leere [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück. Diese Eigenschaft wird nur aus Kompatibilitätsgründen beibehalten; in älteren Versionen von Browsern gab sie eine Liste der Applets in einem Dokument zurück.
 
 > [!NOTE]
 > Die Unterstützung für das `<applet>`-Element wurde von allen Browsern entfernt. Daher gibt `document.applets` immer
@@ -16,7 +16,7 @@ Die **`applets`**-Eigenschaft des {{domxref("Document")}} gibt eine leere {{domx
 
 ## Wert
 
-Eine leere {{domxref("HTMLCollection")}}.
+Eine leere [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
 
 ## Spezifikationen
 

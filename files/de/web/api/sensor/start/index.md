@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`start()`**-Methode der {{domxref("Sensor")}}-Schnittstelle aktiviert einen der Sensoren basierend auf `Sensor`.
+Die **`start()`**-Methode des [`Sensor`](/de/docs/Web/API/Sensor)-Interfaces aktiviert einen der Sensoren basierend auf `Sensor`.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Kein Wert ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "WindowSharedStorage: Worklet-Eigenschaft"
+title: "WindowSharedStorage: worklet-Eigenschaft"
 short-title: worklet
 slug: Web/API/WindowSharedStorage/worklet
 l10n:
@@ -8,32 +8,32 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`worklet`**-Schreibgeschützte Eigenschaft des {{domxref("WindowSharedStorage")}}-Interfaces enthält die {{domxref("SharedStorageWorklet")}}-Instanz, die den gemeinsamen Speicher-Worklet für den aktuellen Ursprung darstellt.
+Die **`worklet`**-Schreibgeschützte Eigenschaft der [`WindowSharedStorage`](/de/docs/Web/API/WindowSharedStorage)-Schnittstelle enthält die [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)-Instanz, die das Shared Storage Worklet für den aktuellen Ursprung repräsentiert.
 
-`SharedStorageWorklet` enthält die {{domxref("Worklet.addModule", "addModule()")}}-Methode, die verwendet wird, um ein Modul zum gemeinsamen Speicher-Worklet hinzuzufügen.
+`SharedStorageWorklet` enthält die [`addModule()`](/de/docs/Web/API/Worklet/addModule)-Methode, mit der ein Modul dem Shared Storage Worklet hinzugefügt wird.
 
 ## Wert
 
-Ein {{domxref("SharedStorageWorklet")}}-Objekt.
+Ein [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)-Objekt.
 
 ## Beispiele
 
 ```js
-// Weist einem Benutzer zufällig die Gruppe 0 oder 1 zu
+// Randomly assigns a user to a group 0 or 1
 function getExperimentGroup() {
   return Math.round(Math.random());
 }
 
 async function injectContent() {
-  // Fügen Sie das Modul dem gemeinsamen Speicher-Worklet hinzu
+  // Add the module to the shared storage worklet
   await window.sharedStorage.worklet.addModule("ab-testing-worklet.js");
 
-  // Weisen Sie dem Benutzer zufällig eine Gruppe (0 oder 1) zu und speichern Sie diese im gemeinsamen Speicher
+  // Assign user to a random group (0 or 1) and store it in shared storage
   window.sharedStorage.set("ab-testing-group", getExperimentGroup(), {
     ignoreIfPresent: true,
   });
 
-  // Führen Sie den URL-Auswahlvorgang aus
+  // Run the URL selection operation
   const fencedFrameConfig = await window.sharedStorage.selectURL(
     "ab-testing",
     [
@@ -45,14 +45,14 @@ async function injectContent() {
     },
   );
 
-  // Rendern Sie die ausgewählte URL in einem abgeschirmten Frame
+  // Render the chosen URL into a fenced frame
   document.getElementById("content-slot").config = fencedFrameConfig;
 }
 
 injectContent();
 ```
 
-Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Einstiegsseite für eine schrittweise Anleitung zu diesem Beispiel und für Links zu weiteren Beispielen.
+Sehen Sie sich die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Übersichtsseite für eine Erläuterung dieses Beispiels und Links zu weiteren Beispielen an.
 
 ## Spezifikationen
 

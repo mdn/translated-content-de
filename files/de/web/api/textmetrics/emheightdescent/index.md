@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte `emHeightDescent`-Eigenschaft des {{domxref("TextMetrics")}}-Interfaces gibt den Abstand von der horizontalen Linie, die durch die {{domxref("CanvasRenderingContext2D.textBaseline")}}-Eigenschaft angegeben wird, bis zum unteren Rand des _em_-Quadrats in der Zeilenbox in CSS-Pixeln zurück.
+Die schreibgeschützte `emHeightDescent`-Eigenschaft der [`TextMetrics`](/de/docs/Web/API/TextMetrics) Schnittstelle gibt die Entfernung von der durch die [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) Eigenschaft angegebenen horizontalen Linie bis zum unteren Rand des _em_-Quadrats im Zeilenkasten, in CSS-Pixeln, zurück.
 
 ## Wert
 
-Eine Zahl, in CSS-Pixeln.
+Eine Zahl in CSS-Pixeln.
 
 ## Beispiele
 
 ```js
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
-const text = ctx.measureText("foo"); // gibt ein TextMetrics-Objekt zurück
+const text = ctx.measureText("foo"); // returns TextMetrics object
 
 text.emHeightDescent; // -2.40234375;
 ```
@@ -34,4 +34,4 @@ text.emHeightDescent; // -2.40234375;
 
 ## Siehe auch
 
-- {{domxref("TextMetrics")}}
+- [`TextMetrics`](/de/docs/Web/API/TextMetrics)

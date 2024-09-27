@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die schreibgeschützte **`port`**-Eigenschaft der {{domxref("MIDIConnectionEvent")}}-Schnittstelle gibt den Port zurück, der getrennt oder verbunden wurde.
+Die **`port`** schreibgeschützte Eigenschaft der [`MIDIConnectionEvent`](/de/docs/Web/API/MIDIConnectionEvent)-Schnittstelle gibt den Port zurück, der getrennt oder verbunden wurde.
 
 ## Wert
 
-Ein {{domxref("MIDIPort")}}-Objekt.
+Ein [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Objekt.
 
 ## Beispiele
 
-Die Methode {{domxref("Navigator.requestMIDIAccess()")}} gibt ein Promise zurück, das mit einem {{domxref("MIDIAccess")}}-Objekt aufgelöst wird. Wenn sich der Status eines Ports ändert, wird ein `MIDIConnectionEvent` an das {{domxref("MIDIAccess.statechange_event","statechange")}}-Ereignis übergeben. Informationen über den Port können dann in die Konsole ausgegeben werden.
+Die Methode [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) gibt ein Promise zurück, das mit einem [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)-Objekt aufgelöst wird. Wenn sich der Zustand eines Ports ändert, wird ein `MIDIConnectionEvent` an das [`statechange`](/de/docs/Web/API/MIDIAccess/statechange_event)-Ereignis übergeben. Informationen über den Port können dann in der Konsole ausgegeben werden.
 
 ```js
 navigator.requestMIDIAccess().then((access) => {

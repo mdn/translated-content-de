@@ -7,27 +7,28 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Das **`FontFaceSetLoadEvent`**-Interface der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API) repräsentiert Ereignisse, die bei einem {{domxref("FontFaceSet")}} ausgelöst werden, nachdem das Laden der Schriftarten beginnt.
+Die **`FontFaceSetLoadEvent`** Schnittstelle der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API) stellt Ereignisse dar, die bei einem [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) ausgelöst werden, nachdem es beginnt, Schriftarten zu laden.
 
-Ereignisse werden ausgelöst, wenn das Laden der Schriftarten beginnt ([`loading`](/de/docs/Web/API/FontFaceSet/loading_event)), abgeschlossen ist ([`loadingdone`](/de/docs/Web/API/FontFaceSet/loadingdone_event)) oder ein Fehler beim Laden einer der Schriftarten auftritt ([`loadingerror`](/de/docs/Web/API/FontFaceSet/loadingerror_event)).
+Ereignisse werden ausgelöst, wenn das Laden der Schriftarten beginnt ([`loading`](/de/docs/Web/API/FontFaceSet/loading_event)), das Laden abgeschlossen ist ([`loadingdone`](/de/docs/Web/API/FontFaceSet/loadingdone_event)) oder ein Fehler beim Laden einer der Schriftarten auftritt ([`loadingerror`](/de/docs/Web/API/FontFaceSet/loadingerror_event)).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("FontFaceSetLoadEvent.FontFaceSetLoadEvent","FontFaceSetLoadEvent()")}}
-  - : Erstellt ein neues `FontFaceSetLoadEvent`-Objekt.
+- [`FontFaceSetLoadEvent()`](/de/docs/Web/API/FontFaceSetLoadEvent/FontFaceSetLoadEvent)
+  - : Erstellt ein neues `FontFaceSetLoadEvent` Objekt.
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seinem Elternteil {{domxref("Event")}}_.
+_Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)_.
 
-- {{domxref("FontFaceSetLoadEvent.fontfaces")}} {{ReadOnlyInline}}
-  - : Gibt ein Array von {{domxref("FontFace")}}-Instanzen zurück. Je nach Ereignis enthält das Array Schriftarten, die gerade laden (`loading`), erfolgreich geladen wurden (`loadingdone`) oder nicht geladen werden konnten (`loadingerror`).
+- [`FontFaceSetLoadEvent.fontfaces`](/de/docs/Web/API/FontFaceSetLoadEvent/fontfaces) {{ReadOnlyInline}}
+  - : Gibt ein Array von [`FontFace`](/de/docs/Web/API/FontFace) Instanzen zurück.
+    Je nach Ereignis enthält das Array Schriftarten, die gerade laden (`loading`), erfolgreich geladen wurden (`loadingdone`) oder deren Laden fehlgeschlagen ist (`loadingerror`).
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seinem Elternteil, {{domxref("Event")}}_.
+_Erbt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)_.
 
 ## Spezifikationen
 
@@ -39,5 +40,5 @@ _Erbt Methoden von seinem Elternteil, {{domxref("Event")}}_.
 
 ## Siehe auch
 
-- {{domxref("Document.fonts")}}
-- {{domxref("WorkerGlobalScope.fonts")}}
+- [`Document.fonts`](/de/docs/Web/API/Document/fonts)
+- [`WorkerGlobalScope.fonts`](/de/docs/Web/API/WorkerGlobalScope/fonts)

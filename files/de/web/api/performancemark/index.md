@@ -2,47 +2,47 @@
 title: PerformanceMark
 slug: Web/API/PerformanceMark
 l10n:
-  sourceCommit: e4c0939929e1b3e1fa3fd3da82b827fca3ed4c79
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("Performance API")}} {{AvailableInWorkers}}
 
-**`PerformanceMark`** ist ein Interface für {{domxref("PerformanceEntry")}} Objekte mit einem {{domxref("PerformanceEntry.entryType","entryType")}} von "`mark`".
+**`PerformanceMark`** ist eine Schnittstelle für [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte mit einem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"mark"`.
 
-Einträge dieses Typs werden typischerweise erstellt, indem {{domxref("Performance.mark","performance.mark()")}} aufgerufen wird, um einen _benannten_ {{domxref("DOMHighResTimeStamp")}} (die _Markierung_) zur Leistungstimeline des Browsers hinzuzufügen. Um eine Leistungsmarke zu erstellen, die nicht zur Leistungstimeline des Browsers hinzugefügt wird, verwenden Sie den Konstruktor.
+Einträge dieses Typs werden typischerweise durch Aufruf von [`performance.mark()`](/de/docs/Web/API/Performance/mark) erstellt, um einen _benannten_ [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) (das _Markierung_) zur Leistungstimeline des Browsers hinzuzufügen. Um eine Leistungsmarkierung zu erstellen, die nicht zur Leistungstimeline des Browsers hinzugefügt wird, verwenden Sie den Konstruktor.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("PerformanceMark.PerformanceMark", "PerformanceMark()")}}
-  - : Erstellt ein neues `PerformanceMark` Objekt, das nicht zur Leistungstimeline des Browsers hinzugefügt wird.
+- [`PerformanceMark()`](/de/docs/Web/API/PerformanceMark/PerformanceMark)
+  - : Erstellt ein neues `PerformanceMark`-Objekt, das nicht zur Leistungstimeline des Browsers hinzugefügt wird.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-Dieses Interface erweitert die folgenden {{domxref("PerformanceEntry")}} Eigenschaften, indem es die Eigenschaften wie folgt qualifiziert/einschränkt:
+Diese Schnittstelle erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Eigenschaften, indem sie die Eigenschaften wie folgt qualifiziert/einschränkt:
 
-- {{domxref("PerformanceEntry.entryType")}} {{ReadOnlyInline}}
-  - : Gibt "`mark`" zurück.
-- {{domxref("PerformanceEntry.name")}} {{ReadOnlyInline}}
-  - : Gibt den Namen zurück, der der Markierung gegeben wurde, als sie mittels eines Aufrufs von {{domxref("Performance.mark()","performance.mark()")}} erstellt wurde.
-- {{domxref("PerformanceEntry.startTime")}} {{ReadOnlyInline}}
-  - : Gibt den {{domxref("DOMHighResTimeStamp")}} zurück, als {{domxref("Performance.mark()","performance.mark()")}} aufgerufen wurde.
-- {{domxref("PerformanceEntry.duration")}} {{ReadOnlyInline}}
-  - : Gibt "`0`" zurück. (Eine Markierung hat keine _Dauer_.)
+- [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}}
+  - : Gibt `"mark"` zurück.
+- [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}}
+  - : Gibt den Namen zurück, der der Markierung beim Erstellen über einen Aufruf von [`performance.mark()`](/de/docs/Web/API/Performance/mark) gegeben wurde.
+- [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}}
+  - : Gibt den [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, als [`performance.mark()`](/de/docs/Web/API/Performance/mark) aufgerufen wurde.
+- [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}}
+  - : Gibt `0` zurück. (Eine Markierung hat keine _Dauer_.)
 
-Dieses Interface unterstützt auch die folgenden Eigenschaften:
+Diese Schnittstelle unterstützt auch die folgenden Eigenschaften:
 
-- {{domxref("PerformanceMark.detail")}} {{ReadOnlyInline}}
-  - : Gibt beliebige Metadaten zurück, die der Markierung bei der Erstellung hinzugefügt wurden.
+- [`PerformanceMark.detail`](/de/docs/Web/API/PerformanceMark/detail) {{ReadOnlyInline}}
+  - : Gibt beliebige Metadaten zurück, die bei der Erstellung in die Markierung aufgenommen wurden.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-Dieses Interface hat keine Methoden.
+Diese Schnittstelle hat keine Methoden.
 
 ## Beispiel
 
-Siehe das Beispiel in [Using the User Timing API](/de/docs/Web/API/Performance_API/User_timing).
+Siehe das Beispiel in [Verwendung der User Timing API](/de/docs/Web/API/Performance_API/User_timing).
 
 ## Spezifikationen
 
@@ -55,4 +55,4 @@ Siehe das Beispiel in [Using the User Timing API](/de/docs/Web/API/Performance_A
 ## Siehe auch
 
 - [User Timing (Übersicht)](/de/docs/Web/API/Performance_API/User_timing)
-- [Using the User Timing API](/de/docs/Web/API/Performance_API/User_timing)
+- [Verwendung der User Timing API](/de/docs/Web/API/Performance_API/User_timing)

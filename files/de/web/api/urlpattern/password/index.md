@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`password`**-Eigenschaft des schreibgeschützten {{domxref("URLPattern")}}-Interfaces ist ein String, der das Muster enthält, das verwendet wird, um den Passwort-Teil einer URL abzugleichen. Dieser Wert kann sich aufgrund von Normalisierung vom Eingabewert des Konstruktors unterscheiden.
+Die **`password`**-Eigenschaft des nur lesbaren [`URLPattern`](/de/docs/Web/API/URLPattern)-Interfaces ist ein
+String, der das Muster enthält, das verwendet wird, um den Passwortteil einer URL zu matchen. Dieser Wert kann aufgrund der Normalisierung von der Eingabe im Konstruktor abweichen.
 
 ## Wert
 
@@ -16,7 +17,8 @@ Ein String.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein {{domxref("URLPattern")}}-Objekt mit `correct-horse-battery{-staple}?` für den `password`-Teil erstellt. Dieses Muster stimmt mit den Passwörtern `correct-horse-battery` und `correct-horse-battery-staple` überein.
+Das folgende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit
+`correct-horse-battery{-staple}?` für den `password`-Teil. Dieses Muster stimmt mit den Passwörtern `correct-horse-battery` und `correct-horse-battery-staple` überein.
 
 ```js
 const pattern = new URLPattern({ password: "correct-horse-battery{-staple}?" });

@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}
 
-Die CSS-Eigenschaft `initial-letter` legt das Styling für eingezogene, erhobene und versenkte Initialbuchstaben fest.
+Die CSS-Eigenschaft `initial-letter` setzt das Styling für versenkte, angehobene und gesenkte Initialbuchstaben fest.
 
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 initial-letter: normal;
 
-/* Numerische Werte */
-initial-letter: 1.5; /* Initialbuchstabe nimmt 1,5 Zeilen ein */
-initial-letter: 3; /* Initialbuchstabe nimmt 3 Zeilen ein */
-initial-letter: 3 2; /* Initialbuchstabe nimmt 3 Zeilen ein und
-                           versinkt 2 Zeilen */
+/* Numeric values */
+initial-letter: 1.5; /* Initial letter occupies 1.5 lines */
+initial-letter: 3; /* Initial letter occupies 3 lines */
+initial-letter: 3 2; /* Initial letter occupies 3 lines and
+                           sinks 2 lines */
 
-/* Globale Werte */
+/* Global values */
 initial-letter: inherit;
 initial-letter: initial;
 initial-letter: revert;
@@ -29,16 +29,16 @@ initial-letter: revert-layer;
 initial-letter: unset;
 ```
 
-Der Schlüsselwortwert `normal`, oder eine `<number>`, optional gefolgt von einem `<integer>`.
+Der Schlüsselwortwert `normal` oder eine `<number>`, optional gefolgt von einem `<integer>`.
 
 ### Werte
 
 - `normal`
-  - : Kein spezieller Initialbuchstabeneffekt. Text verhält sich normal.
+  - : Kein spezieller Initialbuchstaben-Effekt. Text verhält sich normal.
 - `<number>`
-  - : Definiert die Größe des Initialbuchstabens in Bezug darauf, wie viele Zeilen er einnimmt. Negative Werte sind nicht erlaubt.
+  - : Definiert die Größe des Initialbuchstabens, in Bezug auf die Anzahl der Zeilen, die er einnimmt. Negative Werte sind nicht erlaubt.
 - `<integer>`
-  - : Definiert die Anzahl der Zeilen, die der Initialbuchstabe sinken soll, wenn seine Größe angegeben ist. Werte müssen größer als null sein. Wird dieser Wert weggelassen, wird er auf den nächstkleineren positiven ganzzahligen Wert der Größe gerundet.
+  - : Definiert die Anzahl der Zeilen, in die der Initialbuchstabe eintauchen soll, wenn seine Größe angegeben wird. Werte müssen größer als null sein. Wenn weggelassen, wird der Größenwert dupliziert und auf die nächstgelegene positive ganze Zahl gerundet.
 
 ## Formale Definition
 
@@ -50,14 +50,14 @@ Der Schlüsselwortwert `normal`, oder eine `<number>`, optional gefolgt von eine
 
 ## Beispiele
 
-### Größe des Initialbuchstabens festlegen
+### Festlegen der Initialbuchstabengröße
 
 #### HTML
 
 ```html
-<p class="normal">Initialbuchstabe ist normal</p>
-<p class="onefive">Initialbuchstabe nimmt 1,5 Zeilen ein</p>
-<p class="three">Initialbuchstabe nimmt 3 Zeilen ein</p>
+<p class="normal">Initial letter is normal</p>
+<p class="onefive">Initial letter occupies 1.5 lines</p>
+<p class="three">Initial letter occupies 3 lines</p>
 ```
 
 #### CSS

@@ -23,11 +23,11 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Verwendung der clear() Methode
+### Verwendung der clear()-Methode
 
 ```js
 const mySet = new Set();

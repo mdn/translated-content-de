@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`media`** Eigenschaft der Schnittstelle {{DOMxRef("MediaQueryListEvent")}} ist eine schreibgeschützte Zeichenkette, die eine serialisierte Media-Query darstellt.
+Die **`media`** schreibgeschützte Eigenschaft der [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)-Schnittstelle ist eine Zeichenkette, die eine seriellisierte Media Query darstellt.
 
 ## Wert
 
-Eine Zeichenkette, die eine serialisierte Media-Query darstellt.
+Eine Zeichenkette, die eine seriellisierte Media Query darstellt.
 
 ## Beispiele
 
 ```js
-const para = document.querySelector("p"); // Dies ist das UI-Element, in dem der Text angezeigt wird
+const para = document.querySelector("p"); // This is the UI element where to display the text
 const mql = window.matchMedia("(max-width: 600px)");
 
 mql.addEventListener("change", (event) => {
   if (event.matches) {
-    // Der Viewport ist 600 Pixel breit oder weniger
-    para.textContent = "Dies ist ein schmales Display — weniger als 600px breit.";
+    // The viewport is 600 pixels wide or less
+    para.textContent = "This is a narrow screen — less than 600px wide.";
     document.body.style.backgroundColor = "red";
   } else {
-    // Der Viewport ist mehr als 600 Pixel breit
-    para.textContent = "Dies ist ein breites Display — mehr als 600px breit.";
+    // The viewport is more than 600 pixels wide
+    para.textContent = "This is a wide screen — more than 600px wide.";
     document.body.style.backgroundColor = "blue";
   }
 
@@ -46,7 +46,7 @@ mql.addEventListener("change", (event) => {
 ## Siehe auch
 
 - [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Media Queries im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
-- {{DOMxRef("window.matchMedia()")}}
-- {{DOMxRef("MediaQueryList")}}
-- {{DOMxRef("MediaQueryListEvent")}}
+- [Verwendung von Media Queries aus Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
+- [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
+- [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

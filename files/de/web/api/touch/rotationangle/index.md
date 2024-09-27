@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Die schreibgeschützte **`rotationAngle`**-Eigenschaft der {{domxref("Touch")}}-Schnittstelle gibt den Rotationswinkel in Grad der Kontaktbereichsellipse zurück, die durch {{ domxref("Touch.radiusX") }} und {{ domxref("Touch.radiusY") }} definiert wird. Der Wert kann zwischen 0 und 90 liegen. Zusammen beschreiben diese drei Werte eine Ellipse, die die Größe und Form des Kontaktbereichs zwischen dem Benutzer und dem Bildschirm annähernd darstellt. Dies kann eine relativ große Ellipse sein, die den Kontakt zwischen einer Fingerspitze und dem Bildschirm repräsentiert, oder ein kleiner Bereich, der beispielsweise die Spitze eines Stifts darstellt.
+Die **`rotationAngle`**-Eigenschaft der [`Touch`](/de/docs/Web/API/Touch)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die den Drehwinkel des Kontaktbereichs-Ellipse in Grad zurückgibt, wie durch [`Touch.radiusX`](/de/docs/Web/API/Touch/radiusX) und [`Touch.radiusY`](/de/docs/Web/API/Touch/radiusY) definiert. Der Wert kann zwischen 0 und 90 liegen. Zusammen beschreiben diese drei Werte eine Ellipse, die die Größe und Form des Kontaktbereichs zwischen dem Benutzer und dem Bildschirm annähert. Dies könnte eine relativ große Ellipse sein, die den Kontakt zwischen einer Fingerspitze und dem Bildschirm darstellt, oder ein kleiner Bereich, der die Spitze eines Stifts darstellt, zum Beispiel.
 
 ## Wert
 

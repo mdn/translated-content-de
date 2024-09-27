@@ -7,12 +7,12 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`frame-ancestors`** Direktive gibt gültige Eltern an, die eine Seite mittels {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("object")}}, oder {{HTMLElement("embed")}} einbetten dürfen.
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`frame-ancestors`** Direktive spezifiziert gültige Eltern, die eine Seite mithilfe von {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("object")}}, oder {{HTMLElement("embed")}} einbetten dürfen.
 
-Die Einstellung dieser Direktive auf `'none'` ist ähnlich wie {{HTTPHeader("X-Frame-Options")}}`: deny` (was auch in älteren Browsern unterstützt wird).
+Das Setzen dieser Direktive auf `'none'` ist ähnlich wie {{HTTPHeader("X-Frame-Options")}}`: deny` (was auch in älteren Browsern unterstützt wird).
 
-> **Hinweis:** **`frame-ancestors`** ermöglicht es Ihnen anzugeben, welche übergeordnete Quelle eine Seite einbetten darf.
-> Dies unterscheidet sich von **`frame-src`**, das angibt, von wo iframes in einer Seite geladen werden dürfen.
+> **Note:** **`frame-ancestors`** erlaubt es Ihnen, anzugeben, welche übergeordnete Quelle eine Seite einbetten darf.
+> Dies unterscheidet sich von **`frame-src`**, das angibt, woher iframes in einer Seite geladen werden dürfen.
 
 <table class="properties">
   <tbody>
@@ -21,12 +21,12 @@ Die Einstellung dieser Direktive auf `'none'` ist ähnlich wie {{HTTPHeader("X-F
       <td>2</td>
     </tr>
     <tr>
-      <th scope="row">Direktivart</th>
-      <td>{{Glossary("Navigation directive")}}</td>
+      <th scope="row">Direktivtyp</th>
+      <td>[Navigationsdirektive](/de/docs/Glossary/Navigation_directive)</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
-      <td>Nein. Wenn dies nicht festgelegt ist, ist alles erlaubt.</td>
+      <th scope="row">{{CSP("default-src")}} Rückfall</th>
+      <td>Nein. Wenn Sie dies nicht setzen, ist alles erlaubt.</td>
     </tr>
     <tr>
       <th colspan="2" scope="row">
@@ -39,7 +39,7 @@ Die Einstellung dieser Direktive auf `'none'` ist ähnlich wie {{HTTPHeader("X-F
 
 ## Syntax
 
-Für die `frame-ancestors`-Richtlinie können ein oder mehrere Quellen festgelegt werden:
+Eine oder mehrere Quellen können für die `frame-ancestors` Richtlinie gesetzt werden:
 
 ```http
 Content-Security-Policy: frame-ancestors <source>;
@@ -48,34 +48,34 @@ Content-Security-Policy: frame-ancestors <space separated list of sources>;
 
 ### Quellen
 
-\<source> kann eines der folgenden sein:
+\<source> kann eine der folgenden sein:
 
 > [!NOTE]
-> Die Syntax der `frame-ancestors`-Direktive ähnelt einer Quellenliste anderer Direktiven (z.B. {{CSP("default-src")}}), erlaubt jedoch z.B. nicht `'unsafe-eval'` oder `'unsafe-inline'`. Es erfolgt auch kein Fallback auf eine `default-src`-Einstellung. Nur die unten aufgeführten Quellen sind erlaubt:
+> Die Syntax der `frame-ancestors` Direktive ist ähnlich einer Quellliste anderer Direktiven (z. B. {{CSP("default-src")}}), erlaubt jedoch beispielsweise kein `'unsafe-eval'` oder `'unsafe-inline'`. Es wird auch nicht auf eine `default-src` Einstellung zurückfallen. Nur die unten aufgeführten Quellen sind erlaubt:
 
 - \<host-source>
 
-  - : Internet-Hosts nach Namen oder IP-Adresse, sowie optionales {{Glossary("URL")}}-Schema und/oder Portnummer, durch Leerzeichen getrennt. Die Adresse der Site kann ein optionales vorangestelltes Wildcard (das Sternzeichen `'*'`) enthalten, und Sie können ein Wildcard (wieder `'*'`) als Portnummer verwenden, was bedeutet, dass alle legalen Ports für die Quelle gültig sind. Einzelne Anführungszeichen um den Host sind nicht erlaubt.
+  - : Internet-Hosts nach Name oder IP-Adresse sowie ein optionales [URL](/de/docs/Glossary/URL) Schema und/oder Portnummer, getrennt durch Leerzeichen. Die Adresse der Seite kann ein optionales führendes Wildcard (das Sternchen-Zeichen, `'*'`) enthalten, und Sie können ein Wildcard (wiederum, `'*'`) als die Portnummer verwenden, was bedeutet, dass alle gültigen Ports für die Quelle erlaubt sind. Einzelne Anführungszeichen um den Host sind nicht erlaubt.
     Beispiele:
 
-    - `http://*.example.com`: Entspricht allen Versuchen, von einem beliebigen Subdomain von example.com mit dem `http:` URL-Schema zu laden.
-    - `mail.example.com:443`: Entspricht allen Versuchen, auf Port 443 auf mail.example.com zuzugreifen.
-    - `https://store.example.com`: Entspricht allen Versuchen, auf store.example.com mit `https:` zuzugreifen.
+    - `http://*.example.com`: Passt auf alle Versuche, von irgendeinem Subdomain von example.com unter Verwendung des `http:` URL Schemas zu laden.
+    - `mail.example.com:443`: Passt auf alle Versuche, auf Port 443 auf mail.example.com zuzugreifen.
+    - `https://store.example.com`: Passt auf alle Versuche, auf store.example.com unter Verwendung von `https:` zuzugreifen.
 
     > [!WARNING]
-    > Wenn für eine `host-source` kein URL-Schema angegeben ist und das iframe von einer `https`-URL geladen wird, muss auch die URL für die Seite, die das iframe lädt, `https` sein, gemäß dem Abschnitt [Does URL match expression in origin with redirect count?](https://w3c.github.io/webappsec-csp/#match-url-to-source-expression) der CSP-Spezifikation.
+    > Wenn für eine `host-source` kein URL-Schema angegeben ist und das iframe von einer `https` URL geladen wird, muss die URL für die Seite, die das iframe lädt, ebenfalls `https` sein, gemäß dem Abschnitt [Übereinstimmt URL-Ausdruck im Ursprung mit Umleitungszahl?](https://w3c.github.io/webappsec-csp/#match-url-to-source-expression) der CSP-Spezifikation.
 
 - \<scheme-source>
 
-  - : Ein Schema wie `http:` oder `https:`. Der Doppelpunkt ist erforderlich und das Schema sollte nicht in Anführungszeichen stehen. Sie können auch Datenschemata angeben (nicht empfohlen).
+  - : Ein Schema wie `http:` oder `https:`. Der Doppelpunkt ist erforderlich und das Schema sollte nicht in Anführungszeichen gesetzt werden. Sie können auch Datenschemen angeben (nicht empfohlen).
 
-    - `data:` Erlaubt [`data:` URLs](/de/docs/Web/URI/Schemes/data) als Inhaltsquellen zu verwenden. _Dies ist unsicher; ein Angreifer kann auch beliebige `data:` URLs einspeichern. Verwenden Sie dies sparsam und auf keinen Fall für Skripte._
-    - `mediastream:` Erlaubt [`mediastream:` URIs](/de/docs/Web/API/Media_Capture_and_Streams_API) als Inhaltsquellen zu verwenden.
-    - `blob:` Erlaubt [`blob:` URIs](/de/docs/Web/API/Blob) als Inhaltsquellen zu verwenden.
-    - `filesystem:` Erlaubt [`filesystem:` URIs](/de/docs/Web/API/FileSystem) als Inhaltsquellen zu verwenden.
+    - `data:` Erlaubt [`data:` URLs](/de/docs/Web/URI/Schemes/data) als Inhaltsquelle verwendet zu werden. _Dies ist unsicher; ein Angreifer kann auch beliebige `data:` URLs injizieren. Verwenden Sie dies sparsam und definitiv nicht für Skripte._
+    - `mediastream:` Erlaubt [`mediastream:` URIs](/de/docs/Web/API/Media_Capture_and_Streams_API) als Inhaltsquelle verwendet zu werden.
+    - `blob:` Erlaubt [`blob:` URIs](/de/docs/Web/API/Blob) als Inhaltsquelle verwendet zu werden.
+    - `filesystem:` Erlaubt [`filesystem:` URIs](/de/docs/Web/API/FileSystem) als Inhaltsquelle verwendet zu werden.
 
 - `'self'`
-  - : Bezieht sich auf den Ursprung, von dem das geschützte Dokument bereitgestellt wird, einschließlich des gleichen URL-Schemas und der Portnummer. Sie müssen die einfachen Anführungszeichen einschließen. Einige Browser schließen `blob` und `filesystem` spezifisch von Quellendirektiven aus. Webseiten, die diese Inhaltstypen zulassen müssen, können sie mit dem Datenattribut angeben.
+  - : Bezieht sich auf den Ursprung, von dem das geschützte Dokument serviert wird, einschließlich des gleichen URL-Schemas und der Portnummer. Sie müssen die einfachen Anführungszeichen einschließen. Einige Browser schließen `blob` und `filesystem` spezifisch von Quell-Direktiven aus. Seiten, die diese Inhaltstypen erlauben müssen, können sie unter Verwendung des Data-Attributs specifizieren.
 - `'none'`
   - : Bezieht sich auf die leere Menge; das heißt, keine URLs stimmen überein. Die einfachen Anführungszeichen sind erforderlich.
 
@@ -93,7 +93,7 @@ Content-Security-Policy: frame-ancestors 'self' https://example.org https://exam
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

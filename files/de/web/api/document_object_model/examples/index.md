@@ -1,5 +1,5 @@
 ---
-title: Beispiele für Web- und XML-Entwicklung unter Verwendung des DOM
+title: Beispiele für Web- und XML-Entwicklung mit dem DOM
 slug: Web/API/Document_Object_Model/Examples
 l10n:
   sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
@@ -7,11 +7,11 @@ l10n:
 
 {{DefaultAPISidebar("DOM")}}
 
-Dieses Kapitel bietet einige längere Beispiele für die Web- und XML-Entwicklung unter Verwendung des DOM. Wo immer möglich, verwenden die Beispiele gängige APIs, Tricks und Muster in JavaScript zur Manipulation des Dokumentenobjekts.
+Dieses Kapitel bietet einige längere Beispiele für die Web- und XML-Entwicklung mit dem DOM. Wo immer möglich, verwenden die Beispiele gängige APIs, Tricks und Muster in JavaScript zur Manipulation des Dokument-Objekts.
 
 ## Beispiel 1: Höhe und Breite
 
-Das folgende Beispiel zeigt die Verwendung der `height`- und `width`-Eigenschaften zusammen mit Bildern unterschiedlicher Dimensionen:
+Das folgende Beispiel zeigt die Nutzung der `height`- und `width`-Eigenschaften zusammen mit Bildern unterschiedlicher Abmessungen:
 
 ```html
 <!doctype html>
@@ -52,14 +52,14 @@ Das folgende Beispiel zeigt die Verwendung der `height`- und `width`-Eigenschaft
   </head>
   <body onload="init();">
     <p>
-      Bild 1: keine Höhe, Breite oder Stil
+      Image 1: no height, width, or style
       <img
         id="image1"
         src="https://www.mozilla.org/images/mozilla-banner.gif" />
     </p>
 
     <p>
-      Bild 2: height="50", width="500", aber kein Stil
+      Image 2: height="50", width="500", but no style
       <img
         id="image2"
         src="https://www.mozilla.org/images/mozilla-banner.gif"
@@ -68,7 +68,7 @@ Das folgende Beispiel zeigt die Verwendung der `height`- und `width`-Eigenschaft
     </p>
 
     <p>
-      Bild 3: keine Höhe, Breite, aber style="height: 50px; width: 500px;"
+      Image 3: no height, width, but style="height: 50px; width: 500px;"
       <img
         id="image3"
         src="https://www.mozilla.org/images/mozilla-banner.gif"
@@ -109,26 +109,26 @@ Das folgende Beispiel zeigt die Verwendung der `height`- und `width`-Eigenschaft
     <form name="FormName">
       <input
         type="button"
-        value="Rahmen 20px breit machen"
+        value="Make border 20px-wide"
         onclick="setBorderWidth(20);" />
       <input
         type="button"
-        value="Rahmen 5px breit machen"
+        value="Make border 5px-wide"
         onclick="setBorderWidth(5);" />
     </form>
   </body>
 </html>
 ```
 
-## Beispiel 3: Stilmanipulation
+## Beispiel 3: Manipulation von Stilen
 
-In diesem einfachen Beispiel werden einige grundlegende Stil-Eigenschaften eines HTML-Absatzelements mithilfe des Stilobjekts auf dem Element und dessen CSS-Stileigenschaften, die aus dem DOM abgerufen und festgelegt werden können, zugegriffen. In diesem Fall manipulieren Sie die einzelnen Stile direkt. Im nächsten Beispiel (siehe Beispiel 4) können Sie Stile und ihre Regeln verwenden, um Stile für ganze Dokumente zu ändern.
+In diesem einfachen Beispiel werden einige grundlegende Stil-Eigenschaften eines HTML-Absatzelements über das Style-Objekt des Elements und dessen CSS-Stileigenschaften, die aus dem DOM abgerufen und festgelegt werden können, zugänglich gemacht. In diesem Fall manipulieren Sie die individuellen Stile direkt. Im nächsten Beispiel (siehe Beispiel 4) können Sie Stylesheets und ihre Regeln verwenden, um Stile für ganze Dokumente zu ändern.
 
 ```html
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Beispiel zur Änderung von Farbe und Schriftgröße</title>
+    <title>Changing color and font-size example</title>
 
     <script>
       function changeText() {
@@ -153,7 +153,7 @@ In diesem einfachen Beispiel werden einige grundlegende Stil-Eigenschaften eines
 
 ## Beispiel 4: Verwendung von Stylesheets
 
-Die Eigenschaft {{domxref("document.styleSheets", "styleSheets")}} des {{domxref("document")}}-Objekts gibt eine Liste der Stylesheets zurück, die in diesem Dokument geladen wurden. Sie können auf diese Stylesheets und ihre Regeln einzeln mit den Objekten stylesheet, style und {{domxref("CSSRule")}} zugreifen, wie in diesem Beispiel gezeigt, das alle Stilregel-Selektoren an die Konsole ausgibt.
+Die [`styleSheets`](/de/docs/Web/API/Document/styleSheets)-Eigenschaft des [`document`](/de/docs/Web/API/Document)-Objekts gibt eine Liste der Stylesheets zurück, die in diesem Dokument geladen wurden. Sie können auf diese Stylesheets und ihre Regeln einzeln zugreifen, indem Sie das Stylesheet, den Stil und die [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekte verwenden, wie in diesem Beispiel gezeigt wird, das alle Stilregel-Selektoren in die Konsole ausgibt.
 
 ```js
 const ss = document.styleSheets;
@@ -181,7 +181,7 @@ p {
 }
 ```
 
-gibt dieses Skript Folgendes aus:
+Gibt dieses Skript Folgendes aus:
 
 ```plain
 BODY
@@ -189,17 +189,17 @@ P
 #LUMPY
 ```
 
-## Beispiel 5: Ereignisausbreitung
+## Beispiel 5: Ereignisweitergabe
 
-Dieses Beispiel zeigt auf sehr einfache Weise, wie Ereignisse im DOM ausgelöst und behandelt werden. Wenn der BODY dieses HTML-Dokuments geladen wird, wird ein Ereignislistener bei der obersten Zeile der TABLE registriert. Der Ereignislistener verarbeitet das Ereignis durch Ausführen der Funktion stopEvent, die den Wert in der unteren Zelle der Tabelle ändert.
+Dieses Beispiel demonstriert, wie Ereignisse im DOM auf eine sehr einfache Weise ausgelöst und behandelt werden. Wenn der BODY dieses HTML-Dokuments geladen wird, wird ein Ereignislistener bei der obersten Zeile der TABELLE registriert. Der Ereignislistener behandelt das Ereignis, indem er die Funktion stopEvent ausführt, die den Wert in der unteren Zelle der Tabelle ändert.
 
-stopEvent ruft jedoch auch eine Methodes des Ereignisobjekts auf, {{domxref("event.stopPropagation")}}, die verhindert, dass sich das Ereignis weiter im DOM ausbreitet. Beachten Sie, dass die Tabelle selbst einen {{domxref("Element.click_event", "onclick")}}-Ereignishandler hat, der eine Nachricht anzeigen soll, wenn die Tabelle angeklickt wird. Aber die Methode stopEvent hat die Propagierung gestoppt, sodass nach der Aktualisierung der Daten in der Tabelle die Ereignisphase effektiv beendet ist und eine Meldungsbox angezeigt wird, um dies zu bestätigen.
+Jedoch ruft stopEvent auch eine Methode des Ereignisobjekts auf, [`event.stopPropagation`](/de/docs/Web/API/Event/stopPropagation), die verhindert, dass das Ereignis weiter im DOM aufsteigt. Beachten Sie, dass die Tabelle selbst einen [`onclick`](/de/docs/Web/API/Element/click_event)-Ereignishandler hat, der eine Nachricht anzeigen soll, wenn die Tabelle angeklickt wird. Aber die stopEvent-Methode hat die Weitergabe unterbrochen, sodass nach der Aktualisierung der Daten in der Tabelle die Ereignisphase effektiv beendet ist und ein Bestätigungsdialog angezeigt wird.
 
 ```html
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Ereignisausbreitung</title>
+    <title>Event Propagation</title>
 
     <style>
       #t-daddy {
@@ -213,11 +213,11 @@ stopEvent ruft jedoch auch eine Methodes des Ereignisobjekts auf, {{domxref("eve
     <script>
       function stopEvent(event) {
         const c2 = document.getElementById("c2");
-        c2.textContent = "hallo";
+        c2.textContent = "hello";
 
-        // Dies sollte t-daddy daran hindern, den Klick zu erhalten.
+        // this ought to keep t-daddy from getting the click.
         event.stopPropagation();
-        alert("Ereignisausbreitung gestoppt.");
+        alert("event propagation halted.");
       }
 
       function load() {
@@ -230,10 +230,10 @@ stopEvent ruft jedoch auch eine Methodes des Ereignisobjekts auf, {{domxref("eve
   <body onload="load();">
     <table id="t-daddy" onclick="alert('hi');">
       <tr id="tbl1">
-        <td id="c1">eins</td>
+        <td id="c1">one</td>
       </tr>
       <tr>
-        <td id="c2">zwei</td>
+        <td id="c2">two</td>
       </tr>
     </table>
   </body>
@@ -242,15 +242,15 @@ stopEvent ruft jedoch auch eine Methodes des Ereignisobjekts auf, {{domxref("eve
 
 ## Beispiel 6: getComputedStyle
 
-Dieses Beispiel zeigt, wie die Methode {{domxref("window.getComputedStyle")}} verwendet werden kann, um die Stile eines Elements zu ermitteln, die nicht mit dem `style`-Attribut oder mit JavaScript festgelegt sind (z. B. `elt.style.backgroundColor="rgb(173 216 230)"`). Diese letztgenannten Stile können mit der direkteren {{domxref("HTMLElement.style", "elt.style")}}-Eigenschaft abgerufen werden, deren Eigenschaften in der [DOM-CSS-Eigenschaften-Liste](/de/docs/Web/CSS/Reference) aufgeführt sind.
+Dieses Beispiel zeigt, wie die Methode [`window.getComputedStyle`](/de/docs/Web/API/Window/getComputedStyle) verwendet werden kann, um die Stile eines Elements abzurufen, die nicht mit dem `style`-Attribut oder mit JavaScript gesetzt wurden (z.B. `elt.style.backgroundColor="rgb(173 216 230)"`). Diese letztgenannten Arten von Stilen können mit der direkteren [`elt.style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft abgerufen werden, deren Eigenschaften in der [DOM-CSS-Eigenschaftenliste](/de/docs/Web/CSS/Reference) aufgeführt sind.
 
-`getComputedStyle()` gibt ein {{domxref("CSSStyleDeclaration")}}-Objekt zurück, dessen einzelne Stileigenschaften mit der Methode {{domxref("CSSStyleDeclaration.getPropertyValue()", "getPropertyValue()")}} dieses Objekts referenziert werden können, wie das folgende Beispieldokument zeigt.
+`getComputedStyle()` gibt ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt zurück, dessen individuelle Stileigenschaften mit der [`getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue)-Methode dieses Objekts referenziert werden können, wie das folgende Beispieldokument zeigt.
 
 ```html
 <!doctype html>
 <html lang="en">
   <head>
-    <title>getComputedStyle Beispiel</title>
+    <title>getComputedStyle example</title>
 
     <script>
       function cStyles() {
@@ -305,20 +305,20 @@ Dieses Beispiel zeigt, wie die Methode {{domxref("window.getComputedStyle")}} ve
 </html>
 ```
 
-## Beispiel 7: Anzeigen von Ereignisobjekteigenschaften
+## Beispiel 7: Anzeigen der Eigenschaften eines Ereignisobjekts
 
-Dieses Beispiel verwendet DOM-Methoden, um alle Eigenschaften des {{domxref("Window.load_event", "onload")}}-{{domxref("event")}}-Objekts und deren Werte in einer Tabelle anzuzeigen. Es zeigt auch eine nützliche Technik des Einsatzes einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife, um über die Eigenschaften eines Objekts zu iterieren, um deren Werte abzurufen.
+Dieses Beispiel verwendet DOM-Methoden, um alle Eigenschaften des [`onload`](/de/docs/Web/API/Window/load_event)-[`event`](/de/docs/Web/API/Event)-Objekts und ihrer Werte in einer Tabelle anzuzeigen. Es zeigt auch eine nützliche Technik zur Verwendung einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife, um über die Eigenschaften eines Objekts zu iterieren und deren Werte zu erhalten.
 
-Die Eigenschaften von Ereignisobjekten unterscheiden sich stark zwischen den Browsern, der [WHATWG DOM-Standard](https://dom.spec.whatwg.org/) listet die Standard-Eigenschaften auf, jedoch haben viele Browser diese stark erweitert.
+Die Eigenschaften von Ereignisobjekten unterscheiden sich stark zwischen Browsern, der [WHATWG DOM Standard](https://dom.spec.whatwg.org/) listet die Standard-Eigenschaften auf, jedoch haben viele Browser diese stark erweitert.
 
-Speichern Sie den folgenden Code in einer leeren Textdatei und laden Sie ihn in einer Vielzahl von Browsern, Sie werden überrascht sein über die unterschiedliche Anzahl und Namen von Eigenschaften. Vielleicht möchten Sie auch einige Elemente in der Seite hinzufügen und diese Funktion von verschiedenen Ereignis-Handlern aufrufen.
+Legen Sie den folgenden Code in eine leere Textdatei und laden Sie ihn in einer Vielzahl von Browsern, Sie werden überrascht sein über die unterschiedliche Anzahl und Namen von Eigenschaften. Sie könnten auch einige Elemente auf der Seite hinzufügen und diese Funktion von verschiedenen Ereignishandlern aufrufen.
 
 ```html
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Ereigniseigenschaften anzeigen</title>
+    <title>Show Event properties</title>
 
     <style>
       table {
@@ -352,7 +352,7 @@ Speichern Sie den folgenden Code in einer leeren Textdatei und laden Sie ihn in 
         const table = document.createElement("table");
         const thead = table.createTHead();
         let row = thead.insertRow(-1);
-        const labelList = ["#", "Eigenschaft", "Wert"];
+        const labelList = ["#", "Property", "Value"];
         const len = labelList.length;
 
         for (let i = 0; i < len; i++) {
@@ -380,22 +380,22 @@ Speichern Sie den folgenden Code in einer leeren Textdatei und laden Sie ihn in 
   </head>
 
   <body>
-    <h1>Eigenschaften des DOM-<span id="eventType"></span>-Ereignisobjekts</h1>
+    <h1>Properties of the DOM <span id="eventType"></span> Event Object</h1>
   </body>
 </html>
 ```
 
-## Beispiel 8: Verwendung der DOM-Tabellen-Schnittstelle
+## Beispiel 8: Verwendung des DOM-Tabelleninterfaces
 
-Die DOM-{{domxref("HTMLTableElement")}}-Schnittstelle bietet einige bequeme Methoden zum Erstellen und Manipulieren von Tabellen. Zwei häufig verwendete Methoden sind {{domxref("HTMLTableElement.insertRow")}} und {{domxref("HTMLTableRowElement.insertCell")}}.
+Das DOM-Interface [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) bietet einige praktische Methoden zum Erstellen und Manipulieren von Tabellen. Zwei häufig verwendete Methoden sind [`HTMLTableElement.insertRow`](/de/docs/Web/API/HTMLTableElement/insertRow) und [`HTMLTableRowElement.insertCell`](/de/docs/Web/API/HTMLTableRowElement/insertCell).
 
-Um eine Zeile und einige Zellen zu einer vorhandenen Tabelle hinzuzufügen:
+Um eine Zeile und einige Zellen zu einer bestehenden Tabelle hinzuzufügen:
 
 ```html
 <table id="table0">
   <tr>
-    <td>Zeile 0 Zelle 0</td>
-    <td>Zeile 0 Zelle 1</td>
+    <td>Row 0 Cell 0</td>
+    <td>Row 0 Cell 1</td>
   </tr>
 </table>
 
@@ -407,7 +407,7 @@ Um eine Zeile und einige Zellen zu einer vorhandenen Tabelle hinzuzufügen:
 
   for (let i = 0; i < 2; i++) {
     cell = row.insertCell(-1);
-    text = "Zeile " + row.rowIndex + " Zelle " + i;
+    text = "Row " + row.rowIndex + " Cell " + i;
     cell.appendChild(document.createTextNode(text));
   }
 </script>
@@ -415,6 +415,6 @@ Um eine Zeile und einige Zellen zu einer vorhandenen Tabelle hinzuzufügen:
 
 ### Hinweise
 
-- Die {{domxref("element.innerHTML", "innerHTML")}}-Eigenschaft einer Tabelle sollte niemals verwendet werden, um eine Tabelle zu ändern, obwohl Sie damit eine gesamte Tabelle oder den Inhalt einer Zelle schreiben können.
-- Wenn die DOM-Core-Methoden {{domxref("document.createElement")}} und {{domxref("Node.appendChild")}} verwendet werden, um Zeilen und Zellen zu erstellen, erfordert IE, dass sie zu einem {{HTMLElement("tbody")}}-Element hinzugefügt werden, während andere Browser das Hinzufügen zu einem {{HTMLElement("table")}}-Element erlauben (die Zeilen werden zum letzten `<tbody>`-Element hinzugefügt).
-- Es gibt eine Reihe weiterer bequemer Methoden, die zur [`HTMLTableElement`-Schnittstelle](/de/docs/Web/API/HTMLTableElement#instance_methods) gehören und zum Erstellen und Ändern von Tabellen verwendet werden können.
+- Die [`innerHTML`](/de/docs/Web/API/Element/innerHTML)-Eigenschaft einer Tabelle sollte niemals verwendet werden, um eine Tabelle zu ändern, obwohl Sie sie verwenden können, um eine komplette Tabelle oder den Inhalt einer Zelle zu schreiben.
+- Wenn die DOM-Core-Methoden [`document.createElement`](/de/docs/Web/API/Document/createElement) und [`Node.appendChild`](/de/docs/Web/API/Node/appendChild) verwendet werden, um Zeilen und Zellen zu erstellen, erfordert IE, dass sie einem {{HTMLElement("tbody")}}-Element hinzugefügt werden, während andere Browser das Hinzufügen zu einem {{HTMLElement("table")}}-Element zulassen (die Zeilen werden dem letzten `<tbody>`-Element hinzugefügt).
+- Es gibt eine Reihe weiterer praktischer Methoden, die zur [`HTMLTableElement`-Schnittstelle](/de/docs/Web/API/HTMLTableElement#instance_methods) gehören und zum Erstellen und Ändern von Tabellen verwendet werden können.

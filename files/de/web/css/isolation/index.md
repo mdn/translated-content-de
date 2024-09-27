@@ -1,5 +1,5 @@
 ---
-title: Isolation
+title: isolation
 slug: Web/CSS/isolation
 l10n:
   sourceCommit: 729754108952e0bac9fb6268fcdf24a63b3cbbf3
@@ -7,20 +7,20 @@ l10n:
 
 {{CSSRef}}
 
-Die **`isolation`** [CSS](/de/docs/Web/CSS)-Eigenschaft bestimmt, ob ein Element einen neuen {{glossary("stacking context")}} erzeugen muss.
+Die **`isolation`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein Element einen neuen [Stacking-Kontext](/de/docs/Glossary/stacking_context) erstellen muss.
 
 {{EmbedInteractiveExample("pages/css/isolation.html")}}
 
-Diese Eigenschaft ist besonders nützlich, wenn sie in Verbindung mit {{cssxref("mix-blend-mode")}} und {{cssxref("z-index")}} verwendet wird.
+Diese Eigenschaft ist besonders hilfreich, wenn sie in Verbindung mit {{cssxref("mix-blend-mode")}} und {{cssxref("z-index")}} verwendet wird.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 isolation: auto;
 isolation: isolate;
 
-/* Globale Werte */
+/* Global values */
 isolation: inherit;
 isolation: initial;
 isolation: revert;
@@ -28,14 +28,14 @@ isolation: revert-layer;
 isolation: unset;
 ```
 
-Die `isolation`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `isolation` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `auto`
-  - : Ein neuer Stacking Context wird nur erstellt, wenn eine der Eigenschaften, die auf das Element angewendet werden, dies erfordert.
+  - : Ein neuer Stacking-Kontext wird nur erstellt, wenn eine der auf das Element angewendeten Eigenschaften dies erfordert.
 - `isolate`
-  - : Ein neuer Stacking Context muss erstellt werden.
+  - : Es muss ein neuer Stacking-Kontext erstellt werden.
 
 ## Formale Definition
 
@@ -47,7 +47,7 @@ Die `isolation`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwor
 
 ## Beispiele
 
-### Erzwingen eines neuen Stacking Contexts für ein Element
+### Einen neuen Stacking-Kontext für ein Element erzwingen
 
 #### HTML
 

@@ -1,5 +1,5 @@
 ---
-title: "XPathResult: snapshotItem()-Methode"
+title: "XPathResult: snapshotItem() Methode"
 short-title: snapshotItem()
 slug: Web/API/XPathResult/snapshotItem
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM XPath")}}
 
-Die **`snapshotItem()`**-Methode des {{domxref("XPathResult")}}-Interfaces gibt ein Element der Snapshot-Sammlung oder `null` zurück, falls der Index nicht innerhalb des Bereichs der Knoten liegt. Im Gegensatz zum Iterator-Ergebnis wird der Snapshot nicht ungültig, könnte jedoch nicht dem aktuellen Dokument entsprechen, wenn dieses verändert wird.
+Die **`snapshotItem()`**-Methode der [`XPathResult`](/de/docs/Web/API/XPathResult)-Schnittstelle gibt ein Element der Snapshot-Sammlung zurück oder `null`, falls der Index nicht innerhalb der Bereichsbegrenzung der Knoten liegt. Im Gegensatz zum Iterator-Ergebnis wird der Snapshot nicht ungültig, kann jedoch nicht mehr dem aktuellen Dokument entsprechen, wenn dieses verändert wird.
 
 ## Syntax
 
@@ -23,13 +23,16 @@ snapshotItem(i)
 
 ### Rückgabewert
 
-Der {{domxref("Node")}} am angegebenen Index innerhalb der Knotengruppe des `XPathResult`.
+Der [`Node`](/de/docs/Web/API/Node) an dem angegebenen Index innerhalb der Knotenmengen des
+`XPathResult`.
 
 ### Ausnahmen
 
 #### TYPE_ERR
 
-Falls {{domxref("XPathResult.resultType")}} nicht `UNORDERED_NODE_SNAPSHOT_TYPE` oder `ORDERED_NODE_SNAPSHOT_TYPE` ist, wird eine {{domxref("XPathException")}} vom Typ `TYPE_ERR` ausgelöst.
+Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht
+`UNORDERED_NODE_SNAPSHOT_TYPE` oder `ORDERED_NODE_SNAPSHOT_TYPE` ist, wird eine
+[`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 
@@ -38,8 +41,8 @@ Das folgende Beispiel zeigt die Verwendung der `snapshotItem()`-Methode.
 ### HTML
 
 ```html
-<div>XPath-Beispiel</div>
-<div>Tag-Namen der übereinstimmenden Knoten: <output></output></div>
+<div>XPath example</div>
+<div>Tag names of the matched nodes: <output></output></div>
 ```
 
 ### JavaScript

@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: vertexAttribDivisor() Methode"
+title: "WebGL2RenderingContext: vertexAttribDivisor()-Methode"
 short-title: vertexAttribDivisor()
 slug: Web/API/WebGL2RenderingContext/vertexAttribDivisor
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.vertexAttribDivisor()`** Methode
-der [WebGL 2 API](/de/docs/Web/API/WebGL_API) modifiziert die Rate, mit welcher generische Vertex-Attribute voranschreiten, wenn bei der Wiedergabe von mehreren Instanzen von Primitiven die Methoden {{domxref("WebGL2RenderingContext.drawArraysInstanced()", "gl.drawArraysInstanced()")}} und {{domxref("WebGL2RenderingContext.drawElementsInstanced()", "gl.drawElementsInstanced()")}} verwendet werden.
+Die **`WebGL2RenderingContext.vertexAttribDivisor()`**-Methode
+der [WebGL 2 API](/de/docs/Web/API/WebGL_API) verändert die Rate, mit der generische Vertex-Attribute fortschreiten, wenn mehrere Instanzen von Primitives gerendert werden, mit [`gl.drawArraysInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced) und [`gl.drawElementsInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced).
 
 > [!NOTE]
-> Wenn Sie {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}} verwenden, kann die {{domxref("ANGLE_instanced_arrays")}} Erweiterung diese Methode ebenfalls bereitstellen.
+> Bei der Verwendung von {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}} kann die [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays)-Erweiterung diese Methode ebenfalls bereitstellen.
 
 ## Syntax
 
@@ -23,13 +23,14 @@ vertexAttribDivisor(index, divisor)
 ### Parameter
 
 - `index`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der den Index der generischen Vertex-Attribute angibt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index der generischen Vertex-Attribute angibt.
 - `divisor`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der die Anzahl der Instanzen angibt, die zwischen den Aktualisierungen des generischen Attributs vergehen.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Instanzen angibt, die zwischen
+    den Aktualisierungen des generischen Attributs vergehen.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein Wert ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -47,4 +48,4 @@ gl.vertexAttribDivisor(0, 2);
 
 ## Siehe auch
 
-- {{domxref("ANGLE_instanced_arrays.vertexAttribDivisorANGLE()")}}
+- [`ANGLE_instanced_arrays.vertexAttribDivisorANGLE()`](/de/docs/Web/API/ANGLE_instanced_arrays/vertexAttribDivisorANGLE)

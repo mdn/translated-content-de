@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Die **`HTMLIFrameElement.src`** ist eine Zeichenkette, die das [`src`](/de/docs/Web/HTML/Element/iframe#src) HTML-Attribut widerspiegelt und die Adresse des einzubettenden Inhalts enthält.
+Die **`HTMLIFrameElement.src`** ist ein String, der das HTML-Attribut [`src`](/de/docs/Web/HTML/Element/iframe#src) widerspiegelt und die Adresse des einzubettenden Inhalts enthält.
 
-Beachten Sie, dass das programmgesteuerte Entfernen des src-Attributs eines `<iframe>` (z.B. über {{domxref("Element.removeAttribute()")}}) dazu führt, dass `about:blank` im Frame geladen wird.
+Beachten Sie, dass das programmatische Entfernen des `src`-Attributs eines `<iframe>`s (z.B. über [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)) dazu führt, dass `about:blank` im Rahmen geladen wird.
 
 ## Syntax
 
@@ -38,8 +38,8 @@ body.appendChild(iframe); // Fetch the image using the complete URL as the refer
 
 ## Siehe auch
 
-- {{DOMxRef("HTMLEmbedElement.src")}}
-- {{DOMxRef("HTMLImageElement.src")}}
-- {{DOMxRef("HTMLMediaElement.src")}}
-- {{DOMxRef("HTMLScriptElement.src")}}
-- {{DOMxRef("HTMLTrackElement.src")}}
+- [`HTMLEmbedElement.src`](/de/docs/Web/API/HTMLEmbedElement/src)
+- [`HTMLImageElement.src`](/de/docs/Web/API/HTMLImageElement/src)
+- [`HTMLMediaElement.src`](/de/docs/Web/API/HTMLMediaElement/src)
+- [`HTMLScriptElement.src`](/de/docs/Web/API/HTMLScriptElement/src)
+- [`HTMLTrackElement.src`](/de/docs/Web/API/HTMLTrackElement/src)

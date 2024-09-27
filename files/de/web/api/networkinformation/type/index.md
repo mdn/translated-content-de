@@ -1,5 +1,5 @@
 ---
-title: "NetworkInformation: type-Eigenschaft"
+title: "NetworkInformation: type Eigenschaft"
 short-title: type
 slug: Web/API/NetworkInformation/type
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{apiref("Network Information API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`type`**-Schreibgeschützte Eigenschaft der {{domxref("NetworkInformation")}}-Schnittstelle gibt den Verbindungstyp zurück, den ein Gerät zur Kommunikation mit dem Netzwerk verwendet.
+Die schreibgeschützte **`type`**-Eigenschaft der [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Schnittstelle gibt den Verbindungstyp zurück, den ein Gerät zur Kommunikation mit dem Netzwerk verwendet.
 
 ## Wert
 
-Ein aufgezählter Wert, der einer der folgenden Werte ist:
+Ein enumerierter Wert, der einer der folgenden Werte ist:
 
 - `"bluetooth"`
 - `"cellular"`

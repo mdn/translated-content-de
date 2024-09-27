@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`TextFormatUpdateEvent`**-Schnittstelle ist ein [DOM-Ereignis](/de/docs/Web/API/Event), das eine Liste von Textformaten darstellt, die ein {{glossary("Input Method Editor")}} (IME)-Fenster auf den Text anwenden möchte, der in einer bearbeitbaren Region verfasst wird, die an eine {{domxref("EditContext")}}-Instanz angehängt ist.
+Die **`TextFormatUpdateEvent`**-Schnittstelle ist ein [DOM-Ereignis](/de/docs/Web/API/Event), das eine Liste von Textformaten darstellt, die ein [Eingabemethoden-Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster auf den Text anwenden möchte, der in einem bearbeitbaren Bereich geschrieben wird, der an eine [`EditContext`](/de/docs/Web/API/EditContext)-Instanz angefügt ist.
 
-Diese Schnittstelle erbt Eigenschaften von {{domxref("Event")}}.
+Diese Schnittstelle erbt Eigenschaften von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("TextFormatUpdateEvent.TextFormatUpdateEvent", "TextFormatUpdateEvent()")}} {{experimental_inline}}
+- [`TextFormatUpdateEvent()`](/de/docs/Web/API/TextFormatUpdateEvent/TextFormatUpdateEvent) {{experimental_inline}}
   - : Erstellt ein neues `TextFormatUpdateEvent`-Objekt.
 
 ## Instanzmethoden
 
-- {{domxref('TextFormatUpdateEvent.getTextFormats')}} {{experimental_inline}}
-  - : Gibt ein {{jsxref("Array")}} von {{domxref("TextFormat")}}-Objekten zurück, die die Formate darstellen, die das IME-Fenster auf den Text anwenden möchte.
+- [`TextFormatUpdateEvent.getTextFormats`](/de/docs/Web/API/TextFormatUpdateEvent/getTextFormats) {{experimental_inline}}
+  - : Gibt ein {{jsxref("Array")}} von [`TextFormat`](/de/docs/Web/API/TextFormat)-Objekten zurück, die die Formate darstellen, die das IME-Fenster auf den Text anwenden möchte.
 
 ## Beispiele
 
-### Stilierung von IME-erstelltem Text
+### IME-komponierten Text formatieren
 
-Im folgenden Beispiel wird das `textformatupdate`-Ereignis verwendet, um die Formatierung des Textes in der bearbeitbaren Region zu aktualisieren.
+Im folgenden Beispiel wird das `textformatupdate`-Ereignis verwendet, um die Formatierung des Textes im bearbeitbaren Bereich zu aktualisieren.
 
 ```html
 <canvas id="editor-canvas"></canvas>
@@ -85,6 +85,6 @@ editContext.addEventListener("textformatupdate", (e) => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

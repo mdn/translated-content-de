@@ -1,5 +1,5 @@
 ---
-title: "WritableStream: getWriter() Methode"
+title: "WritableStream: getWriter()-Methode"
 short-title: getWriter()
 slug: Web/API/WritableStream/getWriter
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`getWriter()`** Methode des {{domxref("WritableStream")}} Interfaces gibt eine neue Instanz von {{domxref("WritableStreamDefaultWriter")}} zurück und sperrt den Stream für diese Instanz. Solange der Stream gesperrt ist, kann kein anderer Writer erworben werden, bis dieser freigegeben wird.
+Die **`getWriter()`**-Methode der [`WritableStream`](/de/docs/Web/API/WritableStream)-Schnittstelle gibt eine neue Instanz von [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) zurück und sperrt den Stream für diese Instanz. Solange der Stream gesperrt ist, kann kein anderer Writer erworben werden, bis dieser wieder freigegeben wird.
 
 ## Syntax
 
@@ -22,22 +22,22 @@ Keine.
 
 ### Rückgabewert
 
-Eine Instanz des {{domxref("WritableStreamDefaultWriter")}} Objekts.
+Eine [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Objektinstanz.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der Stream, für den Sie versuchen, einen Writer zu erstellen, ist kein {{domxref("WritableStream")}} oder er ist bereits für einen anderen Writer gesperrt.
+  - : Der Stream, für den Sie einen Writer erstellen möchten, ist entweder kein [`WritableStream`](/de/docs/Web/API/WritableStream) oder bereits für einen anderen Writer gesperrt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt mehrere Funktionen dieses Interfaces. Es zeigt die Erstellung des `WritableStream` mit einem benutzerdefinierten Sink und einer API-gelieferten Warteschlangenstrategie. Danach wird eine Funktion namens `sendMessage()` aufgerufen, die den neu erstellten Stream und einen String übergibt. Innerhalb dieser Funktion wird die `getWriter()` Methode des Streams aufgerufen, die eine Instanz von {{domxref("WritableStreamDefaultWriter")}} zurückgibt. Ein `forEach()` Aufruf wird verwendet, um jeden Teil des Strings in den Stream zu schreiben. Schließlich geben `write()` und `close()` Promises zurück, die verarbeitet werden, um mit Erfolg oder Misserfolg von Teilen und Streams umzugehen.
+Das folgende Beispiel zeigt mehrere Funktionen dieser Schnittstelle. Es zeigt die Erstellung des `WritableStream` mit einem benutzerdefinierten Sink und einer von der API bereitgestellten Warteschlangenstrategie. Anschließend wird eine Funktion namens `sendMessage()` aufgerufen, die den neu erstellten Stream und einen String übergibt. Innerhalb dieser Funktion wird die `getWriter()`-Methode des Streams aufgerufen, die eine Instanz von [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) zurückgibt. Ein `forEach()`-Aufruf wird verwendet, um jedes Chunk des Strings in den Stream zu schreiben. Schließlich geben `write()` und `close()` Versprechen zurück, die verarbeitet werden, um den Erfolg oder das Scheitern von Chunks und Streams zu behandeln.
 
 ```js
 const list = document.querySelector("ul");
 
 function sendMessage(message, writableStream) {
-  // defaultWriter ist vom Typ WritableStreamDefaultWriter
+  // defaultWriter is of type WritableStreamDefaultWriter
   const defaultWriter = writableStream.getWriter();
   const encoder = new TextEncoder();
   const encoded = encoder.encode(message, { stream: true });
@@ -99,7 +99,7 @@ const writableStream = new WritableStream(
 sendMessage("Hello, world.", writableStream);
 ```
 
-Den vollständigen Code finden Sie in unserem [Simple writer example](https://mdn.github.io/dom-examples/streams/simple-writer/).
+Den vollständigen Code finden Sie in unserem [einfachen Writer-Beispiel](https://mdn.github.io/dom-examples/streams/simple-writer/).
 
 ## Spezifikationen
 

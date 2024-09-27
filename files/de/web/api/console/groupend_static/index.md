@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die statische Methode **`console.groupEnd()`** beendet die aktuelle Inline-Gruppe in der Konsole. Siehe [Verwendung von Gruppen in der Konsole](/de/docs/Web/API/console#using_groups_in_the_console) in der {{domxref("console")}} Dokumentation für Details und Beispiele.
+Die **`console.groupEnd()`** statische Methode beendet die aktuelle Inline-Gruppe in der Konsole. Siehe [Verwendung von Gruppen in der Konsole](/de/docs/Web/API/console#using_groups_in_the_console) in der [`console`](/de/docs/Web/API/Console) Dokumentation für Details und Beispiele.
 
 ## Syntax
 
@@ -22,20 +22,20 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein Wert ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("console/group_static", "console.group()")}}
-- {{domxref("console/groupCollapsed_static", "console.groupCollapsed()")}}
-- [Microsoft Edge-Dokumentation für `console.groupEnd()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#groupend)
-- [Node.JS-Dokumentation für `console.groupEnd()`](https://nodejs.org/docs/latest/api/console.html#consolegroupend)
-- [Google Chrome-Dokumentation für `console.groupEnd()`](https://developer.chrome.com/docs/devtools/console/api/#groupend)
+- [`console.group()`](/de/docs/Web/API/Console/group_static)
+- [`console.groupCollapsed()`](/de/docs/Web/API/Console/groupCollapsed_static)
+- [Microsoft Edges Dokumentation zu `console.groupEnd()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#groupend)
+- [Node.JS Dokumentation zu `console.groupEnd()`](https://nodejs.org/docs/latest/api/console.html#consolegroupend)
+- [Google Chromes Dokumentation zu `console.groupEnd()`](https://developer.chrome.com/docs/devtools/console/api/#groupend)

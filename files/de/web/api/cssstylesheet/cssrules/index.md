@@ -1,5 +1,5 @@
 ---
-title: "CSSStyleSheet: Eigenschaft cssRules"
+title: "CSSStyleSheet: cssRules-Eigenschaft"
 short-title: cssRules
 slug: Web/API/CSSStyleSheet/cssRules
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte Eigenschaft **`cssRules`** von {{domxref("CSSStyleSheet")}} gibt eine live {{domxref("CSSRuleList")}} zurück, die eine aktuelle, sich ständig ändernde Liste aller CSS-Regeln zur Verfügung stellt, die das Stylesheet ausmachen. Jedes Element in der Liste ist eine {{domxref("CSSRule")}}, die eine einzelne Regel definiert.
+Die schreibgeschützte [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Eigenschaft **`cssRules`** gibt eine Live-[`CSSRuleList`](/de/docs/Web/API/CSSRuleList) zurück, die eine Echtzeit-Liste aller CSS-Regeln bereitstellt, die das Stylesheet bilden. Jedes Element in der Liste ist ein [`CSSRule`](/de/docs/Web/API/CSSRule), das eine einzelne Regel definiert.
 
 ## Wert
 
-Eine live aktualisierte {{domxref("CSSRuleList")}}, die alle CSS-Regeln enthält, aus denen das Stylesheet besteht. Jeder Eintrag in der Regel-Liste ist ein {{domxref("CSSRule")}}-Objekt, das eine Regel beschreibt, die das Stylesheet ausmacht.
+Eine live-aktualisierte [`CSSRuleList`](/de/docs/Web/API/CSSRuleList), die jede der CSS-Regeln enthält, die das Stylesheet bilden. Jeder Eintrag in der Regel-Liste ist ein [`CSSRule`](/de/docs/Web/API/CSSRule)-Objekt, das eine der das Stylesheet bildenden Regeln beschreibt.
 
 ## Beispiele
 
-Einzelne Regeln innerhalb des Stylesheets können dann über den Index abgerufen werden:
+Einzelne Regeln innerhalb des Stylesheets können dann per Index zugegriffen werden:
 
 ```js
 const ruleList = document.styleSheets[0].cssRules;
@@ -26,7 +26,7 @@ for (let i = 0; i < ruleList.length; i++) {
 }
 ```
 
-Regeln können auch mit {{jsxref("Statements/for...of", "for...of")}} abgerufen werden:
+Regeln können auch mit {{jsxref("Statements/for...of", "for...of")}} zugegriffen werden:
 
 ```js
 const ruleList = document.styleSheets[0].cssRules;
@@ -36,7 +36,7 @@ for (const rule of ruleList) {
 }
 ```
 
-Da `CSSRule` jedoch kein richtiges Array ist, können Sie nicht {{jsxref("Array.forEach", "forEach()")}} verwenden.
+Da `CSSRule` jedoch kein richtiges Array ist, können Sie {{jsxref("Array.forEach", "forEach()")}} nicht verwenden.
 
 ## Spezifikationen
 

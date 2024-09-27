@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`flood-opacity`** Attribut gibt den Deckkraftwert an, der über die aktuelle Filter-Primitive-Subregion verwendet werden soll.
+Das **`flood-opacity`** Attribut gibt den Deckkraftwert an, der über die aktuelle Filterprimitiv-Subregion verwendet werden soll.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `flood-opacity` als CSS-Eigenschaft verwendet werden.
@@ -68,7 +68,7 @@ svg {
       <td><code>&#x3C;alpha-value></code></td>
     </tr>
     <tr>
-      <th scope="row">Initialer Wert</th>
+      <th scope="row">Anfangswert</th>
       <td><code>1</code></td>
     </tr>
     <tr>
@@ -79,7 +79,7 @@ svg {
 </table>
 
 - `<alpha-value>`
-  - : Eine Zahl oder ein Prozentsatz, der den zu verwendenden Deckkraftwert über die aktuelle Filter-Primitive-Subregion angibt.
+  - : Eine Zahl oder ein Prozentsatz, der den Deckkraftwert angibt, der über die aktuelle Filterprimitiv-Subregion verwendet werden soll.
     Eine Zahl von `0` oder ein Prozentsatz von `0%` repräsentiert eine vollständig transparente Farbe, `1` oder `100%` repräsentiert eine vollständig undurchsichtige Farbe.
 
 ## Spezifikationen

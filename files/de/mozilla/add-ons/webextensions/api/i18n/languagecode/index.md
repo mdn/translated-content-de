@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein [Sprach-Tag](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.10), wie zum Beispiel `"en-US"` oder "`fr`".
+Ein [Sprach-Tag](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.10) wie z.B. `"en-US"` oder "`fr`".
 
 ## Typ
 

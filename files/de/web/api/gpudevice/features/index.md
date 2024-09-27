@@ -1,27 +1,27 @@
 ---
-title: "GPUDevice: Eigenschaften-Eigenschaft"
-short-title: Eigenschaften
+title: "GPUDevice: features-Eigenschaft"
+short-title: features
 slug: Web/API/GPUDevice/features
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`features`** Schreibgeschützte Eigenschaft des {{domxref("GPUDevice")}}-Interfaces gibt ein {{domxref("GPUSupportedFeatures")}}-Objekt zurück, das zusätzliche Funktionalitäten beschreibt, die vom Gerät unterstützt werden. Nur Funktionen, die während der Erstellung des Geräts angefordert wurden (d.h. wenn {{domxref("GPUAdapter.requestDevice()")}} aufgerufen wird), sind enthalten.
+Die **`features`**-Eigenschaft des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces ist eine schreibgeschützte Eigenschaft, die ein [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures)-Objekt zurückgibt. Dieses Objekt beschreibt zusätzliche Funktionalitäten, die vom Gerät unterstützt werden. Es sind nur die Funktionen enthalten, die während der Erstellung des Geräts (d.h. wenn [`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) aufgerufen wird) angefordert wurden.
 
 > [!NOTE]
-> Nicht alle Funktionen werden in WebGPU in allen unterstützenden Browsern verfügbar sein, selbst wenn die Funktionen von der zugrunde liegenden Hardware unterstützt werden. Weitere Einzelheiten finden Sie unter {{domxref("GPUAdapter.features")}}.
+> Nicht alle Funktionen werden in WebGPU in allen Browsern verfügbar sein, die diese unterstützen, selbst wenn die Funktionen von der zugrunde liegenden Hardware unterstützt werden. Weitere Informationen finden Sie unter [`GPUAdapter.features`](/de/docs/Web/API/GPUAdapter/features).
 
 ## Wert
 
-Eine Instanz eines {{domxref("GPUSupportedFeatures")}}-Objekts. Dies ist ein [setlike](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekt.
+Eine Instanz des [`GPUSupportedFeatures`](/de/docs/Web/API/GPUSupportedFeatures)-Objekts. Dies ist ein [setähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) Objekt.
 
 ## Beispiele
 
-Im folgenden Code überprüfen wir, ob ein {{domxref("GPUAdapter")}} die Funktion `texture-compression-astc` verfügbar hat. Falls ja, fügen wir es dem Array `requiredFeatures` hinzu und fordern ein Gerät mit dieser Funktionsanforderung mittels {{domxref("GPUAdapter.requestDevice()")}} an.
+Im folgenden Code überprüfen wir, ob ein [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) die `texture-compression-astc`-Funktion verfügbar hat. Falls ja, fügen wir es dem Array der `requiredFeatures` hinzu und fordern ein Gerät mit dieser Funktionsanforderung mittels [`GPUAdapter.requestDevice()`](/de/docs/Web/API/GPUAdapter/requestDevice) an.
 
-Wir protokollieren dann alle Elemente in der `GPUDevice.features`-Menge auf die Konsole. Diese Menge sollte nur ein einziges Element enthalten — `texture-compression-astc` — da dies die einzige Funktion war, die bei der Erstellung des Geräts angefordert wurde.
+Wir protokollieren dann alle Elemente im `GPUDevice.features`-Set in der Konsole. Dieses Set sollte nur ein einziges Element enthalten — `texture-compression-astc` — da dies die einzige Funktion war, die bei der Erstellung des Geräts angefordert wurde.
 
 ```js
 async function init() {
@@ -56,7 +56,7 @@ async function init() {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

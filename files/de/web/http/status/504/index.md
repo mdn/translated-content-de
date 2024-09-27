@@ -7,9 +7,12 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`504 Gateway Timeout`** [Serverfehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass der Server, der als Gateway oder {{Glossary("Proxy_server", "Proxy")}} fungiert, innerhalb der vorgesehenen Zeit keine Antwort vom vorgelagerten Server erhalten hat, um die Anfrage abzuschließen. Dies ist ähnlich wie bei einem {{HTTPStatus("502", "502 Bad Gateway")}}, außer dass in einem `504`-Status das Proxy oder Gateway keine HTTP-Antwort vom Ursprungserver innerhalb einer bestimmten Zeit erhalten hat.
+Der HTTP-Statuscode **`504 Gateway Timeout`** [Server-Fehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass der Server, während er als Gateway oder [Proxy](/de/docs/Glossary/Proxy_server) agiert, keine rechtzeitige Antwort vom vorgelagerten Server erhalten hat, um die Anfrage abzuschließen.
+Dies ähnelt einem {{HTTPStatus("502", "502 Bad Gateway")}}, mit dem Unterschied, dass bei einem `504`-Status der Proxy oder das Gateway innerhalb einer bestimmten Zeit keine HTTP-Antwort vom Ursprung erhalten hat.
 
-Es gibt viele Ursachen für `504`-Fehler, und die Behebung solcher Probleme erfordert wahrscheinlich eine Untersuchung und Fehlerbehebung durch die Serveradministratoren, oder die Seite könnte zu einem späteren Zeitpunkt wieder funktionieren. Ausnahmen sind Netzwerkfehler auf der Clientseite, insbesondere wenn der Dienst für andere Besucher funktioniert und wenn Clients VPNs oder andere benutzerdefinierte Netzwerkeinstellungen verwenden. In solchen Fällen sollten Clients die Netzwerkeinstellungen, die Firewall-Konfiguration, die Proxy-Einstellungen, die DNS-Konfiguration usw. überprüfen.
+Es gibt viele Ursachen für `504`-Fehler, und die Behebung solcher Probleme erfordert wahrscheinlich Untersuchung und Debugging durch Server-Administratoren, oder die Seite könnte später wieder funktionieren.
+Ausnahmen sind Netzwerkfehler beim Client, insbesondere wenn der Dienst für andere Besucher funktioniert und wenn Clients VPNs oder andere benutzerdefinierte Netzwerksetups verwenden.
+In solchen Fällen sollten Clients die Netzwerkeinstellungen, Firewall-Konfiguration, Proxy-Einstellungen, DNS-Konfiguration usw. überprüfen.
 
 ## Status
 
@@ -21,7 +24,8 @@ Es gibt viele Ursachen für `504`-Fehler, und die Behebung solcher Probleme erfo
 
 ### 504 Gateway Timeout Antwort
 
-Die folgende Anfrage versucht, eine Webseite abzurufen, erhält jedoch eine `504`-Antwort. Der Antwortkörper enthält eine Seite, die den Serverstatus beschreibt, sowie einen Link zu einer Support-Seite für Besucher.
+Die folgende Anfrage versucht, eine Webseite abzurufen, erhält jedoch als Antwort einen `504`-Fehler.
+Der Antwortinhalt enthält eine Seite, die den Serverstatus beschreibt, mit einem Link zu einer Support-Seite für Besucher.
 
 ```http
 GET /highlights HTTP/1.1

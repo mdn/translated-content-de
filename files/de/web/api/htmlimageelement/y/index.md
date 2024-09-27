@@ -8,29 +8,32 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte {{domxref("HTMLImageElement")}}-Eigenschaft **`y`** zeigt die y-Koordinate der oberen Randkante des {{HTMLElement("img")}}-Elements relativ zum Ursprung des Wurzelelements an.
+Die schreibgeschützte [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Eigenschaft **`y`** gibt die y-Koordinate des oberen Randes des {{HTMLElement("img")}}-Elements relativ zum Ursprung des Wurzelelements an.
 
-Die {{domxref("HTMLImageElement.x", "x")}}- und `y`-Eigenschaften sind nur gültig für ein Bild, wenn dessen {{cssxref("display")}}-Eigenschaft den berechneten Wert `table-column` oder `table-column-group` hat. Mit anderen Worten: Es hat einen dieser Werte explizit darauf gesetzt, es hat ihn von einem übergeordneten Element geerbt oder befindet sich innerhalb einer Spalte, die entweder durch {{HTMLElement("col")}} oder {{HTMLElement("colgroup")}} beschrieben wird.
+Die [`x`](/de/docs/Web/API/HTMLImageElement/x) und `y` Eigenschaften sind nur für ein Bild gültig, wenn dessen {{cssxref("display")}}-Eigenschaft den berechneten Wert `table-column` oder `table-column-group` hat. Mit anderen Worten: Sie haben entweder einen dieser Werte explizit gesetzt, sie von einem umgebenden Element geerbt oder befinden sich innerhalb einer Spalte, die entweder durch {{HTMLElement("col")}} oder {{HTMLElement("colgroup")}} beschrieben wird.
 
 ## Wert
 
-Ein ganzzahliger Wert, der den Abstand in Pixeln von der oberen Kante des nächstgelegenen Wurzelelements zur oberen Kante des Randkastens des {{HTMLElement("img")}}-Elements angibt. Das nächstgelegene Wurzelelement ist das äußerste {{HTMLElement("html")}}-Element, das das Bild enthält. Wenn sich das Bild in einem {{HTMLElement("iframe")}} befindet, ist sein `y` relativ zu diesem Frame.
+Ein Ganzzahlwert, der den Abstand in Pixeln von der oberen Kante des nächstgelegenen Wurzelelements zur oberen Kante des Rahmenrahmens des {{HTMLElement("img")}}-Elements angibt. Das nächstgelegene Wurzelelement ist das äußerste {{HTMLElement("html")}}-Element, das das Bild enthält. Wenn sich das Bild in einem {{HTMLElement("iframe")}} befindet, ist sein `y` relativ zu diesem Rahmen.
 
-Im unten stehenden Diagramm ist die obere Randkante die obere Kante des blauen Innenabstandsbereichs. Der von `y` zurückgegebene Wert wäre also der Abstand von diesem Punkt zur oberen Kante des Inhaltsbereichs.
+Im untenstehenden Diagramm ist der obere Rand die obere Kante des blauen Polsterbereichs. Der von `y` zurückgegebene Wert wäre also der Abstand von diesem Punkt zur oberen Kante des Inhaltsbereichs.
 
-![Diagramm, das die Beziehungen zwischen den verschiedenen Boxen zeigt, die mit einem Element verbunden sind](boxmodel-3.png)
+![Diagramm, das die Beziehungen zwischen den verschiedenen mit einem Element assoziierten Boxen zeigt](boxmodel-3.png)
 
 > [!NOTE]
-> Die `y`-Eigenschaft ist nur gültig, wenn der berechnete Wert der {{cssxref("display")}}-Eigenschaft des Bildes entweder `table-column` oder `table-column-group` ist; mit anderen Worten, einer dieser Werte ist direkt auf das {{HTMLElement("img")}} gesetzt oder wird von einem übergeordneten Element geerbt oder befindet sich innerhalb einer Spalte, die entweder durch {{HTMLElement("col")}} oder {{HTMLElement("colgroup")}} beschrieben wird.
+> Die `y`-Eigenschaft ist nur gültig, wenn der berechnete
+> Wert der {{cssxref("display")}}-Eigenschaft des Bildes entweder
+> `table-column` oder `table-column-group` ist; mit anderen Worten,
+> einer dieser Werte ist direkt auf dem {{HTMLElement("img")}}-Element gesetzt oder wird von einem umgebenden Element geerbt oder befindet sich in einer Spalte, die entweder durch {{HTMLElement("col")}} oder {{HTMLElement("colgroup")}} beschrieben wird.
 
 ## Beispiel
 
-Siehe [`HTMLImageElement.x`](/de/docs/Web/API/HTMLImageElement/x#example) für Beispielcode, der die Verwendung von `HTMLImageElement.y` (und `HTMLImageElement.x`) demonstriert.
+Sehen Sie sich [`HTMLImageElement.x`](/de/docs/Web/API/HTMLImageElement/x#example) an, um Beispielcode zu sehen, der die Verwendung von `HTMLImageElement.y` (und `HTMLImageElement.x`) demonstriert.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

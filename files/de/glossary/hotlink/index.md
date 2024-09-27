@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Hotlink** (auch bekannt als **Inline-Link**) ist ein Objekt (typischerweise ein Bild), das direkt von einer anderen Seite verlinkt wird. Zum Beispiel wird ein Bild, das auf site1.com gehostet wird, direkt auf site2.com angezeigt.
+Ein **Hotlink** (auch bekannt als **Inline-Link**) ist ein Objekt (typischerweise ein Bild), das direkt von einer anderen Seite verlinkt ist. Zum Beispiel wird ein Bild, das auf site1.com gehostet wird, direkt auf site2.com angezeigt.
 
-Diese Praxis wird missbilligt, da sie unerwünschte Bandbreitennutzung auf der Website verursachen kann, die das verlinkte Objekt hostet. Aus ethischer Sicht könnte sie als Diebstahl angesehen werden, wenn sie ohne Erlaubnis geschieht.
+Diese Praxis wird kritisch gesehen, da sie unerwünschte Bandbreitennutzung auf der Website verursachen kann, die das verlinkte Objekt hostet. Aus ethischer Sicht könnte es als Diebstahl betrachtet werden, wenn es ohne Genehmigung geschieht.
 
 ## Siehe auch
 
 - [Hotlink](https://en.wikipedia.org/wiki/Inline_linking) auf Wikipedia
-- Verwandte Glossarbegriffe:
-  - {{glossary("Hyperlink")}}
+- Verwandte Glossareinträge:
+  - [Hyperlink](/de/docs/Glossary/Hyperlink)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`selectedIndex`**-Eigenschaft des {{domxref("ImageTrackList")}}-Interfaces gibt den `index` des ausgewählten Tracks zurück.
+Die **`selectedIndex`**-Eigenschaft der [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Schnittstelle gibt den `Index` des ausgewählten Tracks zurück.
 
 ## Wert
 
@@ -27,6 +27,6 @@ console.log(tracks.selectedIndex);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

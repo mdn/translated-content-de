@@ -8,17 +8,15 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte **`ok`**-Eigenschaft des {{domxref("Response")}}-Interfaces enthält einen Boolean-Wert, der angibt, ob die Antwort erfolgreich war (Status im Bereich 200-299) oder nicht.
+Die **`ok`** schreibgeschützte Eigenschaft der [`Response`](/de/docs/Web/API/Response)-Schnittstelle enthält einen Boolean, der angibt, ob die Antwort erfolgreich war (Status im Bereich 200-299) oder nicht.
 
 ## Wert
 
-Ein Boolean-Wert.
+Ein boolescher Wert.
 
 ## Beispiele
 
-In unserem [Fetch Response Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/))
-erstellen wir ein neues {{domxref("Request")}}-Objekt mit dem {{domxref("Request.Request","Request()")}}-Konstruktor und übergeben ihm einen JPG-Pfad.
-Wir holen dann diese Anfrage mit {{domxref("Window/fetch", "fetch()")}}, extrahieren ein Blob aus der Antwort mit {{domxref("Response.blob")}}, erstellen eine Objekt-URL daraus mit {{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}} und zeigen dieses in einem {{htmlelement("img")}} an.
+In unserem [Fetch Response Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/)) erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mittels des [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktors und übergeben ihm einen Pfad zu einer JPG-Datei. Anschließend rufen wir diese Anfrage mit [`fetch()`](/de/docs/Web/API/Window/fetch) ab, extrahieren ein Blob aus der Antwort mittels [`Response.blob`](/de/docs/Web/API/Response/blob), erstellen daraus eine Objekt-URL mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und zeigen diese in einem {{htmlelement("img")}} an.
 
 > [!NOTE]
 > Am Anfang des `fetch()`-Blocks protokollieren wir den `ok`-Wert der Antwort in der Konsole.
@@ -29,7 +27,7 @@ const myImage = document.querySelector("img");
 const myRequest = new Request("flowers.jpg");
 
 fetch(myRequest).then((response) => {
-  console.log(response.ok); // gibt true zurück, wenn die Antwort erfolgreich war
+  console.log(response.ok); // returns true if the response returned successfully
   response.blob().then((myBlob) => {
     const objectURL = URL.createObjectURL(myBlob);
     myImage.src = objectURL;

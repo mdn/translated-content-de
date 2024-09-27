@@ -1,5 +1,5 @@
 ---
-title: "Fenster: setImmediate() Methode"
+title: "Window: setImmediate()-Methode"
 short-title: setImmediate()
 slug: Web/API/Window/setImmediate
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{deprecated_header}}{{non-standard_header}}
 
-Diese Methode wird verwendet, um lange laufende Operationen aufzuteilen und eine Callback-Funktion sofort auszuführen, nachdem der Browser andere Operationen wie Ereignisse und Anzeigeaktualisierungen abgeschlossen hat.
+Diese Methode wird verwendet, um langlaufende Operationen aufzuteilen und eine Callback-Funktion unmittelbar nach Abschluss anderer Operationen des Browsers, wie Ereignisse und Anzeigeaktualisierungen, auszuführen.
 
 ## Syntax
 
@@ -30,29 +30,28 @@ setImmediate(func, param1, param2, /* …, */ paramN)
 
 ### Rückgabewert
 
-Die ID des sofortigen Aufrufs, die später mit {{DOMxRef("window.clearImmediate")}} verwendet werden kann.
+Die ID des Immediate, die später mit [`window.clearImmediate`](/de/docs/Web/API/Window/clearImmediate) verwendet werden kann.
 
 ## Hinweise
 
-Die {{DOMxRef("Window.clearImmediate", "clearImmediate")}}-Methode kann verwendet werden, um die sofortigen Aktionen zu löschen, ähnlich wie {{DOMxRef("clearTimeout")}} für {{DOMxRef("setTimeout()")}}.
+Die Methode [`clearImmediate`](/de/docs/Web/API/Window/clearImmediate) kann verwendet werden, um die sofortigen Aktionen zu löschen, ähnlich wie [`clearTimeout`](/de/docs/Web/API/ClearTimeout) für [`setTimeout()`](/de/docs/Web/API/SetTimeout).
 
-Diese Methode kann anstelle der `setTimeout(fn, 0)`-Methode genutzt werden, um [schwere Operationen](https://humanwhocodes.com/blog/2009/08/11/timed-array-processing-in-javascript/) auszuführen.
+Diese Methode kann anstelle der `setTimeout(fn, 0)` Methode verwendet werden, um [aufwändige Operationen](https://humanwhocodes.com/blog/2009/08/11/timed-array-processing-in-javascript/) auszuführen.
 
-Das Feature kann auf verschiedene Arten emuliert werden:
+Die Funktion kann auf verschiedene Weise emuliert werden:
 
-- {{DOMxRef("Window.postMessage", "postMessage")}} kann verwendet werden, um einen sofortigen, aber wartenden Callback auszulösen.
-- {{DOMxRef("MessageChannel")}} kann zuverlässig innerhalb von Web Workern verwendet werden, wobei die
-  Semantik von postMessage bedeutet, dass es dort nicht verwendet werden kann.
-- `setTimeout(fn, 0)` _kann_ potenziell verwendet werden, jedoch wird es gemäß der HTML-Spezifikation [wenn mehr als 5 Ebenen von Timern geschachtelt sind, auf 4ms begrenzt](https://html.spec.whatwg.org/multipage/webappapis.html#timers), was es nicht zu einer geeigneten Fallback-Lösung für die natürliche Unmittelbarkeit von `setImmediate` macht.
+- [`postMessage`](/de/docs/Web/API/Window/postMessage) kann verwendet werden, um einen sofortigen, aber ausweichenden Callback zu triggern.
+- [`MessageChannel`](/de/docs/Web/API/MessageChannel) kann zuverlässig innerhalb von Web-Workern verwendet werden, während die Semantik von postMessage bedeutet, dass es dort nicht verwendet werden kann.
+- `setTimeout(fn, 0)` _kann_ potenziell verwendet werden, jedoch wird es laut [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/webappapis.html#timers) bei mehr als 5-facher Verschachtelung der Timer auf 4 ms begrenzt, was es für ein natürliches `setImmediate` als Polyfill ungeeignet macht.
 
-All diese Techniken sind in ein [robustes setImmediate Polyfill](https://github.com/YuzuJS/setImmediate) integriert.
+All diese Techniken sind in ein [robustes setImmediate-Polyfill](https://github.com/YuzuJS/setImmediate) integriert.
 
 ## Spezifikationen
 
-Teil keiner aktuellen Spezifikationen.
-Die [Efficient Script Yielding](https://w3c.github.io/setImmediate/#si-setImmediate) Spezifikation wird nicht mehr bearbeitet.
+Nicht Teil der aktuellen Spezifikationen.
+Die [Efficient Script Yielding](https://w3c.github.io/setImmediate/#si-setImmediate) Spezifikation wird nicht mehr weiterentwickelt.
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -60,5 +59,5 @@ Die [Efficient Script Yielding](https://w3c.github.io/setImmediate/#si-setImmedi
 
 - [Polyfill von `setImmediate` in `core-js`](https://github.com/zloirock/core-js#setimmediate)
 - [Microsoft `setImmediate` API Demo](https://jphpsf.github.io/setImmediate-shim-demo/)
-- {{DOMxRef("Window.clearImmediate()")}}
-- {{DOMxRef("Window.requestIdleCallback()")}}
+- [`Window.clearImmediate()`](/de/docs/Web/API/Window/clearImmediate)
+- [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback)

@@ -1,5 +1,5 @@
 ---
-title: "XRQuadLayer: Eigenschaft transform"
+title: "XRQuadLayer: Transform-Eigenschaft"
 short-title: transform
 slug: Web/API/XRQuadLayer/transform
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`transform`**-Eigenschaft der {{domxref("XRQuadLayer")}}-Schnittstelle repräsentiert den Versatz und die Orientierung relativ zum {{domxref("XRQuadLayer.space", "Raum")}} der Ebene.
+Die **`transform`**-Eigenschaft der Schnittstelle [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer) repräsentiert den Versatz und die Orientierung relativ zum [`space`](/de/docs/Web/API/XRQuadLayer/space) der Ebene.
 
 ## Wert
 
-Ein {{domxref("XRRigidTransform")}}.
+Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform).
 
 ## Beispiele
 
-### Festlegen der Dimension und Position einer Ebene
+### Festlegen von Dimension und Position einer Ebene
 
-Dieses Beispiel positioniert die Ebene zwei Meter vom Ursprung des `xrReferenceSpace` entfernt mit einer `Höhe` und `Breite` von 1,5 Metern.
+Dieses Beispiel positioniert die Ebene zwei Meter vom Ursprung des `xrReferenceSpace` mit einer `height` und `width` von 1,5 Metern entfernt.
 
 ```js
 const quadLayer = xrGlBinding.createQuadLayer({
@@ -42,5 +42,5 @@ quadLayer.height = 1.5;
 
 ## Siehe auch
 
-- {{domxref("XRRigidTransform")}}
-- {{domxref("XRQuadLayer.space")}}
+- [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)
+- [`XRQuadLayer.space`](/de/docs/Web/API/XRQuadLayer/space)

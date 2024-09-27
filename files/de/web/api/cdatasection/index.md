@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`CDATASection`**-Schnittstelle repräsentiert einen CDATA-Abschnitt, der im XML verwendet werden kann, um erweiterte Abschnitte von nicht entwertetem Text einzuschließen. Innerhalb eines CDATA-Abschnitts müssen die Symbole `<` und `&` nicht wie normalerweise entwertet werden.
+Die **`CDATASection`**-Schnittstelle repräsentiert einen CDATA-Abschnitt, der innerhalb von XML verwendet werden kann, um größere Textteile ohne Escape-Zeichen einzuschließen. Innerhalb eines CDATA-Abschnitts müssen die Symbole `<` und `&` nicht wie üblich maskiert werden.
 
 In XML sieht ein CDATA-Abschnitt folgendermaßen aus:
 
@@ -19,24 +19,26 @@ Zum Beispiel:
 
 ```xml
 <foo>
-  Hier ist ein CDATA-Abschnitt: <![CDATA[ < > & ]]> mit allen Arten von nicht entwertetem Text.
+  Here is a CDATA section: <![CDATA[ < > & ]]> with all kinds of unescaped text.
 </foo>
 ```
 
-Die einzige Sequenz, die innerhalb eines CDATA-Abschnitts nicht erlaubt ist, ist die abschließende Sequenz eines CDATA-Abschnitts selbst, `]]>`.
+Die einzige Sequenz, die innerhalb eines CDATA-Abschnitts nicht erlaubt ist, ist die abschließende Sequenz des CDATA-Abschnitts selbst, `]]>`.
 
 > [!NOTE]
-> CDATA-Abschnitte sollten nicht innerhalb von HTML verwendet werden, da sie als Kommentare betrachtet werden und nicht angezeigt werden.
+> CDATA-Abschnitte sollten nicht innerhalb von HTML verwendet werden, da sie als Kommentare angesehen und nicht angezeigt werden.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle hat keine spezifischen Eigenschaften und implementiert die ihres Elternteils {{DOMxRef("Text")}}._
+_Diese Schnittstelle hat keine spezifischen Eigenschaften und implementiert die ihres Elternteils
+[`Text`](/de/docs/Web/API/Text)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine spezifischen Methoden und implementiert die ihres Elternteils {{DOMxRef("Text")}}._
+_Diese Schnittstelle hat keine spezifischen Methoden und implementiert die ihres Elternteils
+[`Text`](/de/docs/Web/API/Text)._
 
 ## Spezifikationen
 
@@ -48,4 +50,4 @@ _Diese Schnittstelle hat keine spezifischen Methoden und implementiert die ihres
 
 ## Siehe auch
 
-- {{domxref("Document.createCDATASection()")}}
+- [`Document.createCDATASection()`](/de/docs/Web/API/Document/createCDATASection)

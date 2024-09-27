@@ -1,5 +1,5 @@
 ---
-title: "TrustedTypePolicy: Eigenschaft name"
+title: "TrustedTypePolicy: name-Eigenschaft"
 short-title: name
 slug: Web/API/TrustedTypePolicy/name
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`name`** schreibgeschützte Eigenschaft der {{domxref("TrustedTypePolicy")}} Schnittstelle gibt den Namen der Richtlinie zurück.
+Die **`name`**-Eigenschaft des [`TrustedTypePolicy`](/de/docs/Web/API/TrustedTypePolicy)-Interfaces gibt den Namen der Richtlinie zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der den Namen der Richtlinie enthält.
 
 ## Beispiele
 
-Im untenstehenden Beispiel wird eine Richtlinie namens `myEscapePolicy` erstellt, indem {{domxref("TrustedTypePolicyFactory.createPolicy()")}} verwendet wird, und wird durch das Objekt `escapeHTMLPolicy` repräsentiert. Das Aufrufen von `name` auf diesem Objekt gibt den String "myEscapePolicy" zurück.
+Im folgenden Beispiel wird eine Richtlinie mit dem Namen `myEscapePolicy` erstellt, die mit [`TrustedTypePolicyFactory.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) erstellt wird und durch das Objekt `escapeHTMLPolicy` dargestellt wird. Der Aufruf von `name` für dieses Objekt gibt den String "myEscapePolicy" zurück.
 
 ```js
 const escapeHTMLPolicy = trustedTypes.createPolicy("myEscapePolicy", {
@@ -30,6 +30,6 @@ console.log(escapeHTMLPolicy.name); /* "myEscapePolicy" */
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

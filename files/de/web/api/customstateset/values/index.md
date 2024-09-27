@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`values()`** Methode des {{domxref("CustomStateSet")}} Interfaces gibt ein neues Iterator-Objekt zurück, das die Werte für jedes Element im `CustomStateSet` Objekt in der Einfügereihenfolge liefert.
+Die **`values()`**-Methode der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet) Schnittstelle gibt ein neues Iterator-Objekt zurück, das die Werte für jedes Element im `CustomStateSet`-Objekt in der Einfügereihenfolge liefert.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Iterator-Objekt, das die Werte für jedes Element im angegebenen `CustomStateSet` in der Einfügereihenfolge enthält.
+Ein neues Iterator-Objekt, das die Werte für jedes Element im gegebenen `CustomStateSet` in der Einfügereihenfolge enthält.
 
 ## Spezifikationen
 

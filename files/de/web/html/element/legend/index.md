@@ -1,5 +1,5 @@
 ---
-title: "<legend>: Das Feldset-Legende-Element"
+title: "<legend>: Das Field Set Legend-Element"
 slug: Web/HTML/Element/legend
 l10n:
   sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<legend>`** [HTML](/de/docs/Web/HTML) Element repräsentiert eine Beschriftung für den Inhalt seines übergeordneten {{HTMLElement("fieldset")}}.
+Das **`<legend>`** [HTML](/de/docs/Web/HTML)-Element stellt eine Beschriftung für den Inhalt seines übergeordneten {{HTMLElement("fieldset")}} dar.
 
 {{EmbedInteractiveExample("pages/tabbed/legend.html", "tabbed-standard")}}
 
@@ -17,7 +17,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 ## Beispiele
 
-Sehen Sie sich {{HTMLElement("form")}} für Beispiele zu `<legend>` an.
+Sehen Sie sich {{HTMLElement("form")}} für Beispiele zum `<legend>` an.
 
 ## Technische Zusammenfassung
 
@@ -35,11 +35,11 @@ Sehen Sie sich {{HTMLElement("form")}} für Beispiele zu `<legend>` an.
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phraseninhalt</a
         >
         und
         <a href="/de/docs/Web/HTML/Element/Heading_Elements">Überschriften</a>
-        (h1–h6 Elemente).
+        (h1–h6-Elemente).
       </td>
     </tr>
     <tr>
@@ -50,11 +50,11 @@ Sehen Sie sich {{HTMLElement("form")}} für Beispiele zu `<legend>` an.
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Ein {{HTMLElement("fieldset")}}, dessen erstes Kind dieses
-        <code>&#x3C;legend></code> Element ist
+        <code>&#x3C;legend></code>-Element ist
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -67,7 +67,7 @@ Sehen Sie sich {{HTMLElement("form")}} für Beispiele zu `<legend>` an.
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLLegendElement")}}</td>
+      <td>[`HTMLLegendElement`](/de/docs/Web/API/HTMLLegendElement)</td>
     </tr>
   </tbody>
 </table>
@@ -82,4 +82,4 @@ Sehen Sie sich {{HTMLElement("form")}} für Beispiele zu `<legend>` an.
 
 ## Siehe auch
 
-- [ARIA: Formularrolle](/de/docs/Web/Accessibility/ARIA/Roles/form_role)
+- [ARIA: Form role](/de/docs/Web/Accessibility/ARIA/Roles/form_role)

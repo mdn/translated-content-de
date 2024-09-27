@@ -7,47 +7,47 @@ l10n:
 
 {{APIRef("UI Events")}}{{Deprecated_Header}}
 
-Die **`MutationEvent`** Schnittstelle bietet Ereigniseigenschaften, die spezifisch für Änderungen an der Document Object Model (DOM) Hierarchie und Knoten sind.
+Die **`MutationEvent`**-Schnittstelle bietet Ereigniseigenschaften, die spezifisch für Änderungen an der Document Object Model (DOM)-Hierarchie und den Knoten sind.
 
 > [!NOTE]
-> Der Einsatz von _Mutationsevents_ ist problematisch:
+> Die Verwendung von _Mutationsereignissen_ ist problematisch:
 >
 > - Ihr Design ist [fehlerhaft](https://lists.w3.org/Archives/Public/public-webapps/2011JulSep/0779.html).
-> - Das Hinzufügen von DOM-Mutations-Listenern zu einem Dokument [verschlechtert die Leistung erheblich](https://groups.google.com/g/mozilla.dev.platform/c/L0Lx11u5Bvs?pli=1) weiterer DOM-Änderungen an diesem Dokument (sie werden 1,5 - 7 Mal langsamer!). Zudem wird der Schaden nicht rückgängig gemacht, wenn die Listener entfernt werden.
-> - Sie haben eine schlechte plattformübergreifende Kompatibilität: Safari unterstützt `DOMAttrModified` nicht (siehe [WebKit-Bug 8191](https://webkit.org/b/8191)) und Firefox unterstützt keine _Mutation-Name-Events_ (wie `DOMElementNameChanged` und `DOMAttributeNameChanged`).
+> - Das Hinzufügen von DOM-Mutations-Listenern zu einem Dokument [beeinträchtigt die Leistung erheblich](https://groups.google.com/g/mozilla.dev.platform/c/L0Lx11u5Bvs?pli=1) bei weiteren DOM-Änderungen an diesem Dokument (sie werden 1,5 bis 7-mal langsamer!). Außerdem wird der Schaden durch das Entfernen der Listener nicht rückgängig gemacht.
+> - Sie haben eine schlechte Browser-Kompatibilität: Safari unterstützt `DOMAttrModified` nicht (siehe [WebKit-Bug 8191](https://webkit.org/b/8191)) und Firefox unterstützt _Mutations-Namen-Ereignisse_ nicht (wie `DOMElementNameChanged` und `DOMAttributeNameChanged`).
 >
-> Sie wurden zugunsten von [Mutation Observern](/de/docs/Web/API/MutationObserver) veraltet. **Bitte ziehen Sie in Betracht, stattdessen diese zu verwenden.**
+> Sie wurden zugunsten von [Mutation Observers](/de/docs/Web/API/MutationObserver) veraltet erklärt. **Erwägen Sie die Verwendung dieser.**
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil {{domxref("UIEvent")}}, und indirekt von {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil [`UIEvent`](/de/docs/Web/API/UIEvent) und indirekt von [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("MutationEvent.attrChange")}} {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Gibt an, welche Art von Änderung das `DOMAttrModified`-Ereignis ausgelöst hat. Es kann `MODIFICATION` (`1`), `ADDITION` (`2`) oder `REMOVAL` (`3`) sein. Es hat keine Bedeutung für andere Ereignisse und wird dann auf `0` gesetzt.
-- {{domxref("MutationEvent.attrName")}} {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Gibt den Namen des Knotens an, der vom `DOMAttrModified`-Ereignis betroffen ist. Es hat keine Bedeutung für andere Ereignisse und wird dann auf den leeren String (`""`) gesetzt.
-- {{domxref("MutationEvent.newValue")}} {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Bei `DOMAttrModified`-Ereignissen enthält es den neuen Wert des modifizierten {{domxref("Attr")}} Knotens. Bei `DOMCharacterDataModified`-Ereignissen enthält es den neuen Wert des modifizierten {{domxref("CharacterData")}} Knotens. In allen anderen Fällen gibt es den leeren String (`""`) zurück.
-- {{domxref("MutationEvent.prevValue")}} {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Bei `DOMAttrModified`-Ereignissen enthält es den vorherigen Wert des modifizierten {{domxref("Attr")}} Knotens. Bei `DOMCharacterDataModified`-Ereignissen enthält es den vorherigen neuen Wert des modifizierten {{domxref("CharacterData")}} Knotens. In allen anderen Fällen gibt es den leeren String (`""`) zurück.
-- {{domxref("MutationEvent.relatedNode")}} {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Gibt den Knoten an, der mit dem Ereignis in Verbindung steht, wie den geänderten Knoten im Unterbaum für `DOMSubtreeModified`.
+- [`MutationEvent.attrChange`](/de/docs/Web/API/MutationEvent/attrChange) {{ReadOnlyInline}} {{Deprecated_Inline}}
+  - : Gibt an, welche Art von Änderung das `DOMAttrModified`-Ereignis ausgelöst hat. Es kann `MODIFICATION` (`1`), `ADDITION` (`2`) oder `REMOVAL` (`3`) sein. Für andere Ereignisse hat es keine Bedeutung und wird dann auf `0` gesetzt.
+- [`MutationEvent.attrName`](/de/docs/Web/API/MutationEvent/attrName) {{ReadOnlyInline}} {{Deprecated_Inline}}
+  - : Gibt den Namen des Knoten an, der durch das `DOMAttrModified`-Ereignis betroffen ist. Für andere Ereignisse hat es keine Bedeutung und wird dann auf die leere Zeichenkette (`""`) gesetzt.
+- [`MutationEvent.newValue`](/de/docs/Web/API/MutationEvent/newValue) {{ReadOnlyInline}} {{Deprecated_Inline}}
+  - : Enthält bei `DOMAttrModified`-Ereignissen den neuen Wert des modifizierten [`Attr`](/de/docs/Web/API/Attr)-Knotens. Bei `DOMCharacterDataModified`-Ereignissen enthält es den neuen Wert des modifizierten [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens. In allen anderen Fällen wird die leere Zeichenkette (`""`) zurückgegeben.
+- [`MutationEvent.prevValue`](/de/docs/Web/API/MutationEvent/prevValue) {{ReadOnlyInline}} {{Deprecated_Inline}}
+  - : Enthält bei `DOMAttrModified`-Ereignissen den vorherigen Wert des modifizierten [`Attr`](/de/docs/Web/API/Attr)-Knotens. Bei `DOMCharacterDataModified`-Ereignissen enthält es den vorherigen Wert des modifizierten [`CharacterData`](/de/docs/Web/API/CharacterData)-Knotens. In allen anderen Fällen wird die leere Zeichenkette (`""`) zurückgegeben.
+- [`MutationEvent.relatedNode`](/de/docs/Web/API/MutationEvent/relatedNode) {{ReadOnlyInline}} {{Deprecated_Inline}}
+  - : Gibt den mit dem Ereignis verbundenen Knoten an, wie etwa den geänderten Knoten innerhalb des Teilbaums für `DOMSubtreeModified`.
 
 ## Instanz-Methoden
 
-- {{domxref("MutationEvent.initMutationEvent()")}} {{Deprecated_Inline}}
-  - : Konstruktor-Methode, die ein neues `MutationEvent` zurückgibt, das mit den angegebenen Parametern konfiguriert ist.
+- [`MutationEvent.initMutationEvent()`](/de/docs/Web/API/MutationEvent/initMutationEvent) {{Deprecated_Inline}}
+  - : Konstruktormethode, die ein neues `MutationEvent` mit den angegebenen Parametern zurückgibt.
 
-## Liste der Mutationsevents
+## Liste der Mutationsereignisse
 
-Die folgende Liste enthält alle Mutationsevents:
+Im Folgenden finden Sie eine Liste aller Mutationsereignisse:
 
-- `DOMAttrModified` (Nicht unterstützt von Safari)
-- `DOMAttributeNameChanged` (Nicht unterstützt von Firefox)
+- `DOMAttrModified` (Nicht von Safari unterstützt)
+- `DOMAttributeNameChanged` (Nicht von Firefox unterstützt)
 - `DOMCharacterDataModified`
-- `DOMElementNameChanged` (Nicht unterstützt von Firefox)
+- `DOMElementNameChanged` (Nicht von Firefox unterstützt)
 - `DOMNodeInserted`
 - `DOMNodeInsertedIntoDocument`
 - `DOMNodeRemoved`
@@ -56,7 +56,7 @@ Die folgende Liste enthält alle Mutationsevents:
 
 ## Beispiele
 
-Sie können einen Listener für Mutationsevents mit {{DOMxRef("EventTarget.addEventListener()")}} wie folgt registrieren:
+Sie können einen Listener für Mutationsereignisse registrieren, indem Sie [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) wie folgt verwenden:
 
 ```js
 element.addEventListener(
@@ -78,4 +78,4 @@ element.addEventListener(
 
 ## Siehe auch
 
-- {{DOMxRef("MutationObserver")}}
+- [`MutationObserver`](/de/docs/Web/API/MutationObserver)

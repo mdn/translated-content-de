@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`maskUnits`**-Eigenschaft der {{domxref("SVGMaskElement")}}-Schnittstelle spiegelt das {{SVGAttr("maskUnits")}}-Attribut eines {{SVGElement("mask")}}-Elements wider, welches das Koordinatensystem definiert, das für die Maske des Elements verwendet werden soll.
+Die schreibgeschützte **`maskUnits`**-Eigenschaft der [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement)-Schnittstelle spiegelt das {{SVGAttr("maskUnits")}}-Attribut eines {{SVGElement("mask")}}-Elements wider, welches das Koordinatensystem definiert, das für die Maske des Elements verwendet wird.
 
 > [!NOTE]
-> Obwohl diese Eigenschaft schreibgeschützt ist, dient sie lediglich als Container für zwei Werte, die Sie ändern können, {{domxref("SVGAnimatedEnumeration.baseVal", "baseVal")}} und {{domxref("SVGAnimatedEnumeration.animVal", "animVal")}}.
+> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedEnumeration/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedEnumeration/animVal).
 
 ## Wert
 
-Eine {{domxref("SVGAnimatedEnumeration")}}, die das Koordinatensystem darstellt. Die möglichen Werte sind in der {{domxref("SVGUnitTypes")}}-Schnittstelle definiert:
+Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die das Koordinatensystem darstellt. Die möglichen Werte sind in der [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes)-Schnittstelle definiert:
 
 - `0` (`SVG_UNIT_TYPE_UNKNOWN`)
   - : Der Typ ist keiner der vordefinierten Typen.
 - `1` (`SVG_UNIT_TYPE_USERSPACEONUSE`)
-  - : Entspricht einem Wert von `userSpaceOnUse` für das {{SVGAttr("maskUnits")}}-Attribut und bedeutet, dass sich alle Koordinaten innerhalb des Elements auf das Benutzerkoordinatensystem beziehen, so wie es bei der Erstellung der Maske definiert wurde. Es ist der Standardwert.
+  - : Entspricht einem Wert von `userSpaceOnUse` für das {{SVGAttr("maskUnits")}}-Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements sich auf das Benutzerkoordinatensystem beziehen, wie es bei der Erstellung der Maske definiert wurde. Es ist der Standardwert.
 - `2` (`SVG_UNIT_TYPE_OBJECTBOUNDINGBOX`)
-  - : Entspricht einem Wert von `objectBoundingBox` für das Attribut und bedeutet, dass sich alle Koordinaten innerhalb des Elements relativ zur Begrenzungsbox des Elements beziehen, auf das die Maske angewendet wird. Es bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke der Begrenzungsbox des Objekts ist und die Breite und Höhe der Begrenzungsbox als eine Länge von 1 Einheit betrachtet werden.
+  - : Entspricht einem Wert von `objectBoundingBox` für das Attribut und bedeutet, dass alle Koordinaten innerhalb des Elements relativ zur Begrenzungsbox des Elements sind, auf das die Maske angewendet wird. Das bedeutet, dass der Ursprung des Koordinatensystems die obere linke Ecke der Objektbegrenzungsbox ist und die Breite und Höhe der Objektbegrenzungsbox als eine Einheit betrachtet werden.
 
 ## Beispiele
 
@@ -68,18 +68,18 @@ svg {
         repeatCount="indefinite" />
     </mask>
 
-    <!-- Einige Referenzrechtecke zur Darstellung der Maske -->
+    <!-- Some reference rect to materialized the mask -->
     <rect id="r1" x="0" y="0" width="45" height="45" />
     <rect id="r2" x="0" y="55" width="45" height="45" />
     <rect id="r3" x="55" y="55" width="45" height="45" />
     <rect id="r4" x="55" y="0" width="45" height="45" />
 
-    <!-- Die ersten 3 Rechtecke werden mit useSpaceOnUse-Einheiten maskiert -->
+    <!-- The first 3 rect are masked with useSpaceOnUse units -->
     <use mask="url(#mask1)" href="#r1" fill="blue" />
     <use mask="url(#mask1)" href="#r2" fill="green" />
     <use mask="url(#mask1)" href="#r3" fill="yellow" />
 
-    <!-- Das letzte Rechteck wird mit objectBoundingBox-Einheiten maskiert -->
+    <!-- The last rect is masked with objectBoundingBox units -->
     <use mask="url(#mask2)" href="#r4" fill="lightblue" />
   </svg>
 </div>

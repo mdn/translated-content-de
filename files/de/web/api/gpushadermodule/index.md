@@ -2,30 +2,30 @@
 title: GPUShaderModule
 slug: Web/API/GPUShaderModule
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUShaderModule`**-Schnittstelle der {{domxref("WebGPU API", "WebGPU API", "", "nocode")}} repräsentiert ein internes Shader-Modul-Objekt, einen Container für [WGSL](https://gpuweb.github.io/gpuweb/wgsl/)-Shader-Code, der zur Ausführung durch eine Pipeline an die GPU übergeben werden kann.
+Die **`GPUShaderModule`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert ein internes Shader-Modulobjekt, einen Container für [WGSL](https://gpuweb.github.io/gpuweb/wgsl/)-Shader-Code, der zur Ausführung an die GPU durch eine Pipeline gesendet werden kann.
 
-Ein `GPUShaderModule`-Objekt wird mit {{domxref("GPUDevice.createShaderModule()")}} erstellt.
+Ein `GPUShaderModule`-Objekt wird mithilfe von [`GPUDevice.createShaderModule()`](/de/docs/Web/API/GPUDevice/createShaderModule) erstellt.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- {{domxref("GPUShaderModule.label", "label")}} {{Experimental_Inline}}
-  - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt beispielsweise in {{domxref("GPUError")}}-Meldungen oder Konsolenwarnungen zu identifizieren.
+- [`label`](/de/docs/Web/API/GPUShaderModule/label) {{Experimental_Inline}}
+  - : Ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
 ## Instanz-Methoden
 
-- {{domxref("GPUShaderModule.getCompilationInfo", "getCompilationInfo()")}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("GPUCompilationInfo")}}-Objekt erfüllt wird, das Meldungen enthält, die während der Kompilierung des `GPUShaderModule` generiert wurden.
+- [`getCompilationInfo()`](/de/docs/Web/API/GPUShaderModule/getCompilationInfo) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo)-Objekt erfüllt wird, das Nachrichten enthält, die während der Kompilierung des `GPUShaderModule` generiert wurden.
 
 ## Beispiele
 
-In unserem [Grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) wird unser Shader-Modul mit folgendem Code erstellt:
+In unserem [Basis-Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) wird unser Shader-Modul mit folgendem Code erstellt:
 
 ```js
 const shaders = `
@@ -65,7 +65,7 @@ async function init() {
   let device = await adapter.requestDevice();
 
   // ...
-  // später
+  // later on
 
   const shaderModule = device.createShaderModule({
     code: shaders,

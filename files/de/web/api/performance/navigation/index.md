@@ -10,19 +10,17 @@ l10n:
 
 Die veraltete, schreibgeschützte Eigenschaft
 **`Performance.navigation`**
-gibt ein {{domxref("PerformanceNavigation")}}-Objekt zurück, das die Art der Navigation
-im gegebenen Browsing-Kontext darstellt, wie beispielsweise die Anzahl der notwendigen
-Weiterleitungen, um die Ressource abzurufen.
+gibt ein [`PerformanceNavigation`](/de/docs/Web/API/PerformanceNavigation)-Objekt zurück, das die Art der Navigation im gegebenen Browserkontext repräsentiert, wie z. B. die Anzahl der Weiterleitungen, die zum Abrufen der Ressource erforderlich sind.
 
 Diese Eigenschaft ist in Workern nicht verfügbar.
 
 > [!WARNING]
-> Diese Eigenschaft ist im [Navigation Timing Level 2 Specifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden
-> Sie stattdessen das {{domxref("PerformanceNavigationTiming")}}-Interface.
+> Diese Eigenschaft ist im [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) als veraltet markiert. Bitte verwenden Sie stattdessen das
+> [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Interface.
 
 ## Wert
 
-Ein {{domxref("PerformanceNavigation")}}-Objekt.
+Ein [`PerformanceNavigation`](/de/docs/Web/API/PerformanceNavigation)-Objekt.
 
 ## Spezifikationen
 
@@ -34,4 +32,4 @@ Ein {{domxref("PerformanceNavigation")}}-Objekt.
 
 ## Siehe auch
 
-- Das {{domxref("Performance")}}-Interface, zu dem es gehört.
+- Das [`Performance`](/de/docs/Web/API/Performance)-Interface, zu dem es gehört.

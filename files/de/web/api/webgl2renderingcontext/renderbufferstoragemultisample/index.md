@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: renderbufferStorageMultisample() Methode"
+title: "WebGL2RenderingContext: Methode renderbufferStorageMultisample()"
 short-title: renderbufferStorageMultisample()
 slug: Web/API/WebGL2RenderingContext/renderbufferStorageMultisample
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.renderbufferStorageMultisample()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert den Datenspeicher eines Renderpufferobjekts und ermöglicht die Angabe einer Anzahl von zu verwendenden Samples.
+Die Methode
+**`WebGL2RenderingContext.renderbufferStorageMultisample()`**
+der [WebGL 2 API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert den Datenspeicher eines Renderbuffer-Objekts und ermöglicht es, eine Anzahl von zu verwendenden Samples anzugeben.
 
 ## Syntax
 
@@ -20,16 +22,16 @@ renderbufferStorageMultisample(target, samples, internalFormat, width, height)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das das Ziel-Renderpufferobjekt angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel-Renderbuffer-Objekt angibt. Mögliche Werte:
 
     - `gl.RENDERBUFFER`
-      - : Puffer-Datenablage für einzelne Bilder in einem renderbaren internen Format.
+      - : Puffer-Datenspeicher für einzelne Bilder in einem renderbaren internen Format.
 
 - `samples`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, das die Anzahl der zu verwendenden Samples für die Renderpuffer-Speicherung angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der für den Renderbuffer-Speicher zu verwendenden Samples angibt.
 - `internalFormat`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das das interne Format des Renderpuffers angibt. Mögliche Werte (unterstützt `gl.DEPTH_STENCIL` nicht):
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das interne Format des Renderbuffers angibt. Mögliche Werte (`gl.DEPTH_STENCIL` wird nicht unterstützt):
 
     - `gl.R8`
     - `gl.R8UI`
@@ -68,9 +70,9 @@ renderbufferStorageMultisample(target, samples, internalFormat, width, height)
     - `gl.STENCIL_INDEX8`
 
 - `width`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, das die Breite des Renderpuffers in Pixeln angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Renderbuffers in Pixeln angibt.
 - `height`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, das die Höhe des Renderpuffers in Pixeln angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe des Renderbuffers in Pixeln angibt.
 
 ### Rückgabewert
 
@@ -92,8 +94,8 @@ gl.renderbufferStorageMultisample(gl.RENDERBUFFER, 4, gl.RGBA4, 256, 256);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.renderbufferStorage()")}}
-- {{domxref("WebGLRenderingContext.bindRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.createRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.getRenderbufferParameter()")}}
+- [`WebGLRenderingContext.renderbufferStorage()`](/de/docs/Web/API/WebGLRenderingContext/renderbufferStorage)
+- [`WebGLRenderingContext.bindRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindRenderbuffer)
+- [`WebGLRenderingContext.createRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/createRenderbuffer)
+- [`WebGLRenderingContext.deleteRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteRenderbuffer)
+- [`WebGLRenderingContext.getRenderbufferParameter()`](/de/docs/Web/API/WebGLRenderingContext/getRenderbufferParameter)

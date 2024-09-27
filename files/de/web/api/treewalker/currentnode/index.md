@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`TreeWalker.currentNode`**-Eigenschaft repräsentiert den {{domxref("Node")}}, auf den der {{domxref("TreeWalker")}} derzeit zeigt.
+Die **`TreeWalker.currentNode`**-Eigenschaft repräsentiert den [`Node`](/de/docs/Web/API/Node), auf den der [`TreeWalker`](/de/docs/Web/API/TreeWalker) aktuell zeigt.
 
 ## Wert
 
-Ein {{domxref("Node")}}.
+Ein [`Node`](/de/docs/Web/API/Node).
 
 ## Beispiele
 
@@ -26,17 +26,17 @@ const treeWalker = document.createTreeWalker(
     },
   },
 );
-root = treeWalker.currentNode; // das Wurzelelement, da es das erste Element ist!
+root = treeWalker.currentNode; // the root element as it is the first element!
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Die {{domxref("TreeWalker")}}-Schnittstelle.
+- Die [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Schnittstelle.

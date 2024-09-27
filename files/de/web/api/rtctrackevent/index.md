@@ -7,50 +7,50 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die [WebRTC API](/de/docs/Web/API/WebRTC_API) Schnittstelle **`RTCTrackEvent`** repräsentiert das {{domxref("RTCPeerConnection.track_event", "track")}} Ereignis, das gesendet wird, wenn ein neuer {{domxref("MediaStreamTrack")}} zu einem {{domxref("RTCRtpReceiver")}} hinzugefügt wird, der Teil der {{domxref("RTCPeerConnection")}} ist.
+Die [WebRTC API](/de/docs/Web/API/WebRTC_API) Schnittstelle **`RTCTrackEvent`** repräsentiert das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis, das gesendet wird, wenn ein neues [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zu einem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) hinzugefügt wird, der Teil der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ist.
 
-Das Ziel ist das `RTCPeerConnection` Objekt, zu dem der Track hinzugefügt wird.
+Das Ziel ist das `RTCPeerConnection`-Objekt, zu dem der Track hinzugefügt wird.
 
-Dieses Ereignis wird von der WebRTC-Schicht an die Website oder Anwendung gesendet, daher müssen Sie normalerweise kein `RTCTrackEvent` selbst instanziieren.
+Dieses Ereignis wird von der WebRTC-Schicht an die Webseite oder Anwendung gesendet, sodass Sie in der Regel kein `RTCTrackEvent` selbst instanziieren müssen.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("RTCTrackEvent.RTCTrackEvent", "RTCTrackEvent()")}}
-  - : Erstellt und gibt ein neues `RTCTrackEvent` Objekt zurück. Sie werden wahrscheinlich keine neuen Track-Ereignisse selbst erstellen müssen, da sie typischerweise von der WebRTC-Infrastruktur erstellt und an den {{domxref("RTCPeerConnection.track_event", "ontrack")}} Ereignishandler der Verbindung gesendet werden.
+- [`RTCTrackEvent()`](/de/docs/Web/API/RTCTrackEvent/RTCTrackEvent)
+  - : Erstellt und gibt ein neues `RTCTrackEvent`-Objekt zurück. Sie werden wahrscheinlich keine neuen Track-Ereignisse selbst erstellen müssen, da sie typischerweise von der WebRTC-Infrastruktur erstellt und an den [`ontrack`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignishandler der Verbindung gesendet werden.
 
 ## Instanz-Eigenschaften
 
-_Da `RTCTrackEvent` auf {{domxref("Event")}} basiert, sind auch dessen Eigenschaften verfügbar._
+_Da `RTCTrackEvent` auf [`Event`](/de/docs/Web/API/Event) basiert, sind dessen Eigenschaften ebenfalls verfügbar._
 
-- {{domxref("RTCTrackEvent.receiver", "receiver")}} {{ReadOnlyInline}}
-  - : Der {{domxref("RTCRtpReceiver")}}, der von dem Track verwendet wird, der zur `RTCPeerConnection` hinzugefügt wurde.
-- {{domxref("RTCTrackEvent.streams", "streams")}} {{ReadOnlyInline}} {{optional_inline}}
-  - : Ein Array von {{domxref("MediaStream")}} Objekten, von denen jedes einen der Medienstreams darstellt, zu denen der hinzugefügte {{domxref("RTCTrackEvent.track", "track")}} gehört. Standardmäßig ist das Array leer, was einen streamlosen Track anzeigt.
-- {{domxref("RTCTrackEvent.track", "track")}} {{ReadOnlyInline}}
-  - : Der {{domxref("MediaStreamTrack")}}, der zur Verbindung hinzugefügt wurde.
-- {{domxref("RTCTrackEvent.transceiver", "transceiver")}} {{ReadOnlyInline}}
-  - : Der {{domxref("RTCRtpTransceiver")}}, der vom neuen Track verwendet wird.
+- [`receiver`](/de/docs/Web/API/RTCTrackEvent/receiver) {{ReadOnlyInline}}
+  - : Der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), der von dem Track verwendet wird, der der `RTCPeerConnection` hinzugefügt wurde.
+- [`streams`](/de/docs/Web/API/RTCTrackEvent/streams) {{ReadOnlyInline}} {{optional_inline}}
+  - : Ein Array von [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekten, die jeweils einen der Medienströme darstellen, zu denen der hinzugefügte [`track`](/de/docs/Web/API/RTCTrackEvent/track) gehört. Standardmäßig ist das Array leer, was auf einen streamlosen Track hinweist.
+- [`track`](/de/docs/Web/API/RTCTrackEvent/track) {{ReadOnlyInline}}
+  - : Der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der der Verbindung hinzugefügt wurde.
+- [`transceiver`](/de/docs/Web/API/RTCTrackEvent/transceiver) {{ReadOnlyInline}}
+  - : Der [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver), der von dem neuen Track verwendet wird.
 
 ## Track-Ereignistypen
 
-Es gibt nur eine Art von Track-Ereignis.
+Es gibt nur einen Typ von Track-Ereignis.
 
 ### `track`
 
-Das {{domxref("RTCPeerConnection.track_event", "track")}} Ereignis wird an die {{domxref("RTCPeerConnection")}} gesendet, wenn ein neuer Track zur Verbindung hinzugefügt wurde. Wenn das `track` Ereignis an den {{domxref("RTCPeerConnection.track_event", "ontrack")}} Handler der `RTCPeerConnection` ausgeliefert wird, hat das neue Medium seine Verhandlung für einen spezifischen {{domxref("RTCRtpReceiver")}} (der durch die {{domxref("RTCTrackEvent.receiver", "receiver")}} Eigenschaft des Ereignisses spezifiziert wird) abgeschlossen.
+Das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis wird an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn ein neuer Track zur Verbindung hinzugefügt wurde. Zu dem Zeitpunkt, an dem das `track`-Ereignis an den [`ontrack`](/de/docs/Web/API/RTCPeerConnection/track_event)-Handler der `RTCPeerConnection` geliefert wird, hat das neue Medium seine Verhandlung für einen bestimmten [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) abgeschlossen (der durch die [`receiver`](/de/docs/Web/API/RTCTrackEvent/receiver)-Eigenschaft des Ereignisses angegeben wird).
 
-Darüber hinaus ist der {{domxref("MediaStreamTrack")}}, der durch den {{domxref("RTCRtpReceiver.track", "track")}} des Empfängers spezifiziert wird, derselbe, der durch den {{domxref("RTCTrackEvent.track", "track")}} des Ereignisses spezifiziert wird, und der Track wurde zu allen zugehörigen entfernten {{domxref("MediaStream")}} Objekten hinzugefügt.
+Zusätzlich ist der vom Receiver angegebene [`track`](/de/docs/Web/API/RTCRtpReceiver/track) derselbe, der durch die [`track`](/de/docs/Web/API/RTCTrackEvent/track)-Eigenschaft des Ereignisses angegeben wird, und der Track wurde zu allen zugehörigen entfernten [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekten hinzugefügt.
 
-Sie können einen `track` Ereignislistener hinzufügen, um benachrichtigt zu werden, wenn der neue Track verfügbar ist, sodass Sie beispielsweise dessen Medien an ein {{HTMLElement("video")}} Element anhängen können, entweder mit {{domxref("EventTarget.addEventListener", "RTCPeerConnection.addEventListener()")}} oder der `ontrack` Ereignishandler-Eigenschaft.
+Sie können einen `track`-Ereignislistener hinzufügen, um benachrichtigt zu werden, wenn der neue Track verfügbar ist, sodass Sie beispielsweise sein Medium an ein {{HTMLElement("video")}}-Element anhängen können, entweder durch Verwendung von [`RTCPeerConnection.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder der `ontrack`-Ereignishandlereigenschaft.
 
 > [!NOTE]
-> Es kann hilfreich sein, sich zu merken, dass Sie das `track` Ereignis erhalten, wenn ein neuer eingehender Track zu Ihrer Verbindung hinzugefügt wurde, und Sie {{domxref("RTCPeerConnection.addTrack", "addTrack()")}} aufrufen, um einen Track an das entfernte Ende der Verbindung hinzuzufügen, wodurch ein `track` Ereignis am entfernten Peer ausgelöst wird.
+> Es kann hilfreich sein, sich vor Augen zu halten, dass Sie das `track`-Ereignis empfangen, wenn ein neuer eingehender Track zu Ihrer Verbindung hinzugefügt wurde, und dass Sie [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) aufrufen, um einen Track zur entfernten Seite der Verbindung hinzuzufügen, wodurch ein `track`-Ereignis auf dem entfernten Peer ausgelöst wird.
 
 ## Beispiel
 
-Dieses einfache Beispiel erstellt einen Ereignislistener für das {{domxref("RTCPeerConnection.track_event", "track")}} Ereignis, das die {{domxref("HTMLMediaElement.srcObject", "srcObject")}} des {{HTMLElement("video")}} Elements mit der ID `videobox` auf den ersten Stream in der Liste setzt, die im {{domxref("RTCTrackEvent.streams", "streams")}} Array des Ereignisses übergeben wird.
+Dieses einfache Beispiel erstellt einen Ereignislistener für das [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)-Ereignis, der die [`srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject) des {{HTMLElement("video")}}-Elements mit der ID `videobox` auf den ersten Stream in der Liste setzt, die im [`streams`](/de/docs/Web/API/RTCTrackEvent/streams)-Array des Ereignisses übergeben wird.
 
 ```js
 peerConnection.addEventListener(

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Das **`AggregateError`**-Objekt stellt einen Fehler dar, wenn mehrere Fehler in einem einzigen Fehler zusammengefasst werden müssen. Es wird ausgelöst, wenn mehrere Fehler durch eine Operation gemeldet werden müssen, zum Beispiel von {{jsxref("Promise.any()")}}, wenn alle übergebenen Promises abgelehnt werden.
+Das **`AggregateError`**-Objekt repräsentiert einen Fehler, wenn mehrere Fehler in einem einzigen Fehler zusammengefasst werden müssen. Es wird ausgelöst, wenn mehrere Fehler von einer Operation gemeldet werden müssen, zum Beispiel durch {{jsxref("Promise.any()")}}, wenn alle an ihn übergebenen Promises abgelehnt werden.
 
 `AggregateError` ist eine Unterklasse von {{jsxref("Error")}}.
 
@@ -20,14 +20,14 @@ Das **`AggregateError`**-Objekt stellt einen Fehler dar, wenn mehrere Fehler in 
 
 _Erbt auch Instanz-Eigenschaften von seinem Elternteil {{jsxref("Error")}}_.
 
-Diese Eigenschaften sind auf `AggregateError.prototype` definiert und werden von allen `AggregateError`-Instanzen geteilt.
+Diese Eigenschaften sind auf `AggregateError.prototype` definiert und werden von allen `AggregateError`-Instanzen gemeinsam genutzt.
 
 - {{jsxref("Object/constructor", "AggregateError.prototype.constructor")}}
   - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `AggregateError`-Instanzen ist der Anfangswert der {{jsxref("AggregateError/AggregateError", "AggregateError")}}-Konstruktor.
 - {{jsxref("Error/name", "AggregateError.prototype.name")}}
-  - : Repräsentiert den Namen des Fehlertyps. Für `AggregateError.prototype.name` ist der anfängliche Wert `"AggregateError"`.
+  - : Repräsentiert den Namen für den Fehlertyp. Für `AggregateError.prototype.name` ist der Anfangswert `"AggregateError"`.
 
-Diese Eigenschaften sind eigene Eigenschaften jeder `AggregateError`-Instanz.
+Diese Eigenschaften sind Eigeneigenschaften jeder `AggregateError`-Instanz.
 
 - {{jsxref("AggregateError/errors", "errors")}}
   - : Ein Array, das die aggregierten Fehler darstellt.

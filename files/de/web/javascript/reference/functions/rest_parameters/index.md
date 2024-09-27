@@ -1,5 +1,5 @@
 ---
-title: Restparameter
+title: Rest-Parameter
 slug: Web/JavaScript/Reference/Functions/rest_parameters
 l10n:
   sourceCommit: 03075e57e2e1d2cd12cfc1d57a57037ba6cc1349
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Functions")}}
 
-Die **Restparameter**-Syntax ermöglicht es einer Funktion, eine unbestimmte Anzahl von Argumenten als Array zu akzeptieren, wodurch eine Möglichkeit geschaffen wird, [variadic functions](https://en.wikipedia.org/wiki/Variadic_function) in JavaScript darzustellen.
+Die **Rest-Parameter**-Syntax ermöglicht es einer Funktion, eine unbestimmte Anzahl von Argumenten als Array zu akzeptieren und bietet damit eine Möglichkeit, [variadic functions](https://en.wikipedia.org/wiki/Variadic_function) in JavaScript darzustellen.
 
 {{EmbedInteractiveExample("pages/js/functions-restparameters.html", "taller")}}
 
@@ -21,14 +21,14 @@ function f(a, b, ...theArgs) {
 
 Es gibt einige zusätzliche Syntaxbeschränkungen:
 
-- Eine Funktionsdefinition kann nur einen Restparameter haben.
-- Der Restparameter muss der letzte Parameter in der Funktionsdefinition sein.
-- [Abschließende Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas) sind nach dem Restparameter nicht erlaubt.
-- Der Restparameter kann keinen [Standardwert](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) haben.
+- Eine Funktionsdefinition kann nur einen Rest-Parameter haben.
+- Der Rest-Parameter muss das letzte Parameter in der Funktionsdefinition sein.
+- [Abschließende Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas) sind nach dem Rest-Parameter nicht erlaubt.
+- Der Rest-Parameter kann keinen [Standardwert](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) haben.
 
 ## Beschreibung
 
-Der letzte Parameter einer Funktionsdefinition kann mit `...` (drei U+002E FULL STOP-Zeichen) versehen werden, wodurch alle verbleibenden (vom Benutzer bereitgestellten) Parameter in einem [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array)-Objekt platziert werden.
+Das letzte Parameter einer Funktionsdefinition kann mit `...` (drei U+002E FULL STOP Zeichen) versehen werden, wodurch alle verbleibenden (vom Benutzer bereitgestellten) Parameter innerhalb eines [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array)-Objekts platziert werden.
 
 ```js
 function myFun(a, b, ...manyMoreArgs) {
@@ -39,13 +39,13 @@ function myFun(a, b, ...manyMoreArgs) {
 
 myFun("one", "two", "three", "four", "five", "six");
 
-// Konsolenausgabe:
+// Console Output:
 // a, one
 // b, two
 // manyMoreArgs, ["three", "four", "five", "six"]
 ```
 
-Der Restparameter kann [de-strukturiert](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) werden, was es Ihnen erlaubt, bestimmte Parameterpositionen zu ignorieren.
+Der Rest-Parameter kann [de-strukturiert](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) werden, was Ihnen ermöglicht, bestimmte Parameterpositionen zu ignorieren.
 
 ```js
 function ignoreFirst(...[, b, c]) {
@@ -53,7 +53,7 @@ function ignoreFirst(...[, b, c]) {
 }
 ```
 
-Die folgenden Beispiele sind jedoch alles Syntaxfehler:
+Jedoch sind die folgenden alle Syntaxfehler:
 
 ```js-nolint example-bad
 function wrong1(...one, ...wrong) {}
@@ -62,24 +62,24 @@ function wrong3(...wrong,) {}
 function wrong4(...wrong = []) {}
 ```
 
-Der Restparameter wird nicht zur [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length)-Eigenschaft der Funktion gezählt.
+Der Rest-Parameter zählt nicht zur [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length)-Eigenschaft der Funktion.
 
-### Der Unterschied zwischen Restparametern und dem arguments-Objekt
+### Der Unterschied zwischen Rest-Parametern und dem `arguments`-Objekt
 
-Es gibt vier Hauptunterschiede zwischen Restparametern und dem {{jsxref("Functions/arguments", "arguments")}}-Objekt:
+Es gibt vier Hauptunterschiede zwischen Rest-Parametern und dem {{jsxref("Functions/arguments", "arguments")}}-Objekt:
 
-- Das `arguments`-Objekt ist **kein echtes Array**, während Restparameter Instanzen von {{jsxref("Array")}} sind, was bedeutet, dass Methoden wie {{jsxref("Array/sort", "sort()")}}, {{jsxref("Array/map", "map()")}}, {{jsxref("Array/forEach", "forEach()")}} oder {{jsxref("Array/pop", "pop()")}} direkt darauf angewendet werden können.
-- Das `arguments`-Objekt hat die zusätzliche (veraltete) [`callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee)-Eigenschaft.
-- In einer nicht-strikten Funktion mit einfachen Parametern synchronisiert das `arguments`-Objekt [seine Indizes mit den Werten der Parameter](/de/docs/Web/JavaScript/Reference/Functions/arguments#assigning_to_indices). Das Restparameter-Array aktualisiert niemals seinen Wert, wenn die benannten Parameter neu zugewiesen werden.
-- Der Restparameter bündelt alle _extra_ Parameter in einem einzigen Array, enthält jedoch keine benannten Argumente, die _vor_ dem `...restParam` definiert sind. Das `arguments`-Objekt enthält alle Parameter — einschließlich der Parameter im `...restParam`-Array — gebündelt in einem array-ähnlichen Objekt.
+- Das `arguments`-Objekt ist **kein echtes Array**, während Rest-Parameter {{jsxref("Array")}}-Instanzen sind. Das bedeutet, dass Methoden wie {{jsxref("Array/sort", "sort()")}}, {{jsxref("Array/map", "map()")}}, {{jsxref("Array/forEach", "forEach()")}} oder {{jsxref("Array/pop", "pop()")}} direkt darauf angewendet werden können.
+- Das `arguments`-Objekt besitzt die zusätzliche (veraltete) [`callee`](/de/docs/Web/JavaScript/Reference/Functions/arguments/callee)-Eigenschaft.
+- In einer nicht strengen Funktion mit einfachen Parametern synchronisiert das `arguments`-Objekt [seine Indizes mit den Werten der Parameter](/de/docs/Web/JavaScript/Reference/Functions/arguments#assigning_to_indices). Das Rest-Parameter-Array aktualisiert seinen Wert nie, wenn die benannten Parameter neu zugewiesen werden.
+- Der Rest-Parameter bündelt alle _zusätzlichen_ Parameter in einem einzigen Array, enthält jedoch keine benannten Argumente, die _vor_ dem `...restParam` definiert wurden. Das `arguments`-Objekt enthält alle Parameter — einschließlich der Parameter im `...restParam`-Array — und bündelt sie in einem array-ähnlichen Objekt.
 
 ## Beispiele
 
-### Verwendung von Restparametern
+### Verwendung von Rest-Parametern
 
-In diesem Beispiel wird das erste Argument `a` zugeordnet und das zweite `b`, sodass diese benannten Argumente wie gewohnt verwendet werden.
+In diesem Beispiel wird das erste Argument auf `a` und das zweite auf `b` abgebildet, daher werden diese benannten Argumente wie gewohnt verwendet.
 
-Das dritte Argument, `manyMoreArgs`, wird jedoch ein Array enthalten, das das dritte, vierte, fünfte, sechste, …, n-te Argument umfasst – so viele Argumente wie der Benutzer angibt.
+Das dritte Argument, `manyMoreArgs`, wird jedoch ein Array sein, das das dritte, vierte, fünfte, sechste, …, n-te Argument enthält — so viele Argumente, wie der Benutzer angibt.
 
 ```js
 function myFun(a, b, ...manyMoreArgs) {
@@ -92,48 +92,48 @@ myFun("one", "two", "three", "four", "five", "six");
 
 // a, "one"
 // b, "two"
-// manyMoreArgs, ["three", "four", "five", "six"] <-- ein Array
+// manyMoreArgs, ["three", "four", "five", "six"] <-- an array
 ```
 
-Im Folgenden wird, obwohl es nur einen Wert gibt, das letzte Argument dennoch in ein Array gelegt.
+Unten, obwohl es nur einen Wert gibt, wird das letzte Argument trotzdem in ein Array gesetzt.
 
 ```js
-// Verwenden derselben Funktionsdefinition wie oben
+// Using the same function definition from example above
 
 myFun("one", "two", "three");
 
 // a, "one"
 // b, "two"
-// manyMoreArgs, ["three"] <-- ein Array mit nur einem Wert
+// manyMoreArgs, ["three"] <-- an array with just one value
 ```
 
-Im Folgenden wird das dritte Argument nicht bereitgestellt, aber `manyMoreArgs` ist trotzdem ein Array (wenn auch ein leeres).
+Unten wird das dritte Argument nicht bereitgestellt, aber `manyMoreArgs` ist weiterhin ein Array (wenn auch ein leeres).
 
 ```js
-// Verwenden derselben Funktionsdefinition wie oben
+// Using the same function definition from example above
 
 myFun("one", "two");
 
 // a, "one"
 // b, "two"
-// manyMoreArgs, [] <-- immer noch ein Array
+// manyMoreArgs, [] <-- still an array
 ```
 
-Im Folgenden wird nur ein Argument bereitgestellt, sodass `b` den Standardwert `undefined` erhält, aber `manyMoreArgs` ist immer noch ein leeres Array.
+Unten wird nur ein Argument bereitgestellt, sodass `b` den Standardwert `undefined` erhält, aber `manyMoreArgs` bleibt ein leeres Array.
 
 ```js
-// Verwenden derselben Funktionsdefinition wie oben
+// Using the same function definition from example above
 
 myFun("one");
 
 // a, "one"
 // b, undefined
-// manyMoreArgs, [] <-- immer noch ein Array
+// manyMoreArgs, [] <-- still an array
 ```
 
 ### Argumentlänge
 
-Da `theArgs` ein Array ist, wird die Anzahl seiner Elemente durch die {{jsxref("Array/length", "length")}}-Eigenschaft angegeben. Wenn der einzige Parameter der Funktion ein Restparameter ist, entspricht `restParams.length` der [`arguments.length`](/de/docs/Web/JavaScript/Reference/Functions/arguments/length).
+Da `theArgs` ein Array ist, wird die Anzahl seiner Elemente durch die {{jsxref("Array/length", "length")}}-Eigenschaft angegeben. Wenn das einzige Parameter der Funktion ein Rest-Parameter ist, wird `restParams.length` gleich [`arguments.length`](/de/docs/Web/JavaScript/Reference/Functions/arguments/length) sein.
 
 ```js
 function fun1(...theArgs) {
@@ -145,9 +145,9 @@ fun1(5); // 1
 fun1(5, 6, 7); // 3
 ```
 
-### Verwendung von Restparametern in Kombination mit gewöhnlichen Parametern
+### Verwendung von Rest-Parametern in Kombination mit gewöhnlichen Parametern
 
-Im nächsten Beispiel wird ein Restparameter verwendet, um alle Parameter nach dem ersten Parameter in einem Array zu sammeln. Jeder der Parameterwerte, die in das Array gesammelt werden, wird dann mit dem ersten Parameter multipliziert und das Array wird zurückgegeben:
+Im nächsten Beispiel wird ein Rest-Parameter verwendet, um alle Parameter nach dem ersten Parameter in einem Array zu sammeln. Jeder der im Array gesammelten Parameterwerte wird dann mit dem ersten Parameter multipliziert, und das Array wird zurückgegeben:
 
 ```js
 function multiply(multiplier, ...theArgs) {
@@ -158,9 +158,9 @@ const arr = multiply(2, 15, 25, 42);
 console.log(arr); // [30, 50, 84]
 ```
 
-### Von Arguments zu einem Array
+### Von Argumenten zu einem Array
 
-{{jsxref("Array")}}-Methoden können auf Restparameter angewendet werden, jedoch nicht auf das `arguments`-Objekt:
+{{jsxref("Array")}}-Methoden können auf Rest-Parameter angewendet werden, jedoch nicht auf das `arguments`-Objekt:
 
 ```js
 function sortRestArgs(...theArgs) {
@@ -172,36 +172,36 @@ console.log(sortRestArgs(5, 3, 7, 1)); // 1, 3, 5, 7
 
 function sortArguments() {
   const sortedArgs = arguments.sort();
-  return sortedArgs; // das wird nie passieren
+  return sortedArgs; // this will never happen
 }
 
 console.log(sortArguments(5, 3, 7, 1));
-// wirft einen TypeError (arguments.sort ist keine Funktion)
+// throws a TypeError (arguments.sort is not a function)
 ```
 
-Restparameter wurden eingeführt, um den Boilerplate-Code zu reduzieren, der häufig für die Umwandlung einer Gruppe von Argumenten in ein Array verwendet wurde.
+Rest-Parameter wurden eingeführt, um den Boilerplate-Code zu reduzieren, der üblicherweise verwendet wurde, um eine Menge von Argumenten in ein Array zu konvertieren.
 
-Vor Restparametern mussten `arguments` in ein normales Array umgewandelt werden, bevor Array-Methoden darauf angewendet werden konnten:
+Vor Rest-Parametern mussten `arguments` in ein normales Array umgewandelt werden, bevor Array-Methoden darauf aufgerufen werden konnten:
 
 ```js
 function fn(a, b) {
   const normalArray = Array.prototype.slice.call(arguments);
-  // — oder —
+  // — or —
   const normalArray2 = [].slice.call(arguments);
-  // — oder —
+  // — or —
   const normalArrayFrom = Array.from(arguments);
 
-  const first = normalArray.shift(); // OK, gibt das erste Argument
-  const firstBad = arguments.shift(); // ERROR (arguments ist kein normales Array)
+  const first = normalArray.shift(); // OK, gives the first argument
+  const firstBad = arguments.shift(); // ERROR (arguments is not a normal array)
 }
 ```
 
-Jetzt können Sie mit einem Restparameter einfach auf ein normales Array zugreifen:
+Jetzt können Sie einfach über einen Rest-Parameter auf ein normales Array zugreifen:
 
 ```js
 function fn(...args) {
   const normalArray = args;
-  const first = normalArray.shift(); // OK, gibt das erste Argument
+  const first = normalArray.shift(); // OK, gives the first argument
 }
 ```
 
@@ -209,15 +209,15 @@ function fn(...args) {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Leitfaden zu Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
+- [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) Leitfaden
 - [Funktionen](/de/docs/Web/JavaScript/Reference/Functions)
-- [Spreizsyntax (`...`)](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+- [Spread-Syntax (`...`)](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 - [Standardparameter](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters)
 - {{jsxref("Functions/arguments", "arguments")}}
 - {{jsxref("Array")}}

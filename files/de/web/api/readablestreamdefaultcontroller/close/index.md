@@ -1,5 +1,5 @@
 ---
-title: "ReadableStreamDefaultController: close()-Methode"
+title: "ReadableStreamDefaultController: close() Methode"
 short-title: close()
 slug: Web/API/ReadableStreamDefaultController/close
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`close()`**-Methode der {{domxref("ReadableStreamDefaultController")}}-Schnittstelle schließt den zugehörigen Stream.
+Die **`close()`**-Methode des [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)-Interfaces schließt den zugehörigen Stream.
 
-Leser können weiterhin alle zuvor in den Stream eingereihten Teile lesen, aber sobald diese gelesen sind, wird der Stream geschlossen. Wenn Sie den Stream vollständig entfernen und alle eingereihten Teile verwerfen möchten, verwenden Sie {{domxref("ReadableStream.cancel()")}} oder {{domxref("ReadableStreamDefaultReader.cancel()")}}.
+Leser können weiterhin zuvor in die Warteschlange gestellte Blöcke aus dem Stream lesen, aber sobald diese gelesen sind, wird der Stream geschlossen. Wenn Sie den Stream vollständig loswerden und alle in die Warteschlange gestellten Blöcke verwerfen möchten, verwenden Sie [`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel) oder [`ReadableStreamDefaultReader.cancel()`](/de/docs/Web/API/ReadableStreamDefaultReader/cancel).
 
 ## Syntax
 
@@ -24,20 +24,20 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
 
-  - : Wird ausgelöst, wenn `close()` aufgerufen wird, während der Stream nicht lesbar ist — weil er bereits geschlossen, abgebrochen oder ein Fehler aufgetreten ist — oder weil vom zugrunde liegenden Quellobjekt angefordert wurde, den Stream zu schließen, er dies jedoch noch nicht getan hat, da noch eingereihte Teile gelesen werden müssen.
+  - : Wird geworfen, wenn `close()` aufgerufen wird, während der Stream nicht lesbar ist — weil er bereits geschlossen, abgebrochen oder fehlerhaft ist — oder weil das Schließen durch die zugrunde liegende Quelle angefordert wurde, aber noch nicht erfolgt ist, da noch Blöcke in der Warteschlange zum Lesen stehen.
 
 ## Beispiele
 
-Im folgenden einfachen Beispiel wird ein benutzerdefinierter `ReadableStream` mit einem Konstruktor erstellt (sehen Sie unser [Einfaches Zufallsstrombeispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code). Die `start()`-Funktion generiert jede Sekunde eine zufällige Zeichenfolge und reiht sie in den Stream ein.
-Eine `cancel()`-Funktion wird ebenfalls bereitgestellt, um die Generierung zu stoppen, wenn {{domxref("ReadableStream.cancel()")}} aus irgendeinem Grund aufgerufen wird.
+Im folgenden einfachen Beispiel wird ein benutzerdefinierter `ReadableStream` mithilfe eines Konstruktors erstellt (siehe unser [Einfaches Zufallsstream-Beispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code). Die `start()`-Funktion generiert jede Sekunde eine zufällige Zeichenkette und stellt sie in die Stream-Warteschlange.
+Eine `cancel()`-Funktion ist ebenfalls vorhanden, um die Generierung zu stoppen, falls [`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel) aus irgendeinem Grund aufgerufen wird.
 
-Wenn ein Button gedrückt wird, wird die Generierung gestoppt, der Stream mit `close()` geschlossen, und eine andere Funktion wird ausgeführt, die die Daten aus dem Stream zurückliest.
+Wenn eine Taste gedrückt wird, wird die Generierung gestoppt, der Stream mittels `close()` geschlossen und eine weitere Funktion ausgeführt, die die Daten wieder aus dem Stream liest.
 
 ```js
 let interval;
@@ -83,4 +83,4 @@ const stream = new ReadableStream({
 ## Siehe auch
 
 - [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)
-- {{domxref("ReadableStreamDefaultController")}}
+- [`ReadableStreamDefaultController`](/de/docs/Web/API/ReadableStreamDefaultController)

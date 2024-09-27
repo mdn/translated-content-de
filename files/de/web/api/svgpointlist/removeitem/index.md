@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`removeItem()`**-Methode der {{domxref("SVGPointList")}}-Schnittstelle entfernt einen {{domxref("SVGPoint","Punkt")}} aus der Liste.
+Die **`removeItem()`**-Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle entfernt einen [`point`](/de/docs/Web/API/SVGPoint) aus der Liste.
 
 ## Syntax
 
@@ -23,18 +23,18 @@ removeItem(index)
 
 ### Rückgabewert
 
-Das entfernte {{domxref("SVGPoint")}}-Objekt.
+Das entfernte [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
 
 ### Ausnahmen
 
-- `NoModificationAllowedError` {{domxref("DOMException")}}
+- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Liste schreibgeschützt ist.
-- `IndexSizeError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der übergebene Index größer ist als die Anzahl der Elemente in der Liste.
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der übergebene Index größer als die Anzahl der Elemente in der Liste ist.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine SVG, die eine {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Das Element an Index `2` wird entfernt.
+Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Das Element an Index `2` wird entfernt.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">

@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Anwendungs-Kontext** ist ein oberster {{glossary("browsing context")}}, dem ein [Manifest](/de/docs/Web/Manifest) zugewiesen wurde.
+Ein **Anwendungs-Kontext** ist ein oberster [Browsing-Kontext](/de/docs/Glossary/browsing_context), auf den ein [Manifest](/de/docs/Web/Manifest) angewendet wird.
 
-Wenn ein Anwendungs-Kontext als Ergebnis einer Anfrage des Benutzer-Agents zum Navigieren zu einem Deep-Link erstellt wird, muss der Benutzer-Agent sofort zum Deep-Link mit aktivierter Ersetzung navigieren. Andernfalls muss der Benutzer-Agent bei der Erstellung des Anwendungs-Kontexts sofort zur Start-URL mit aktivierter Ersetzung navigieren.
+Wenn ein Anwendungs-Kontext aufgrund der Aufforderung des Benutzeragents erstellt wird, zu einem Deep-Link zu navigieren, muss der Benutzeragent sofort mit aktivierter Ersetzung zu diesem Deep-Link navigieren. Andernfalls muss der Benutzeragent bei Erstellung des Anwendungs-Kontexts sofort zur Start-URL mit aktivierter Ersetzung navigieren.
 
-Bitte beachten Sie, dass die Start-URL nicht unbedingt der Wert des start_url-Mitglieds ist: der Benutzer oder Benutzer-Agent könnte sie geändert haben, als die Anwendung zum Home-Bildschirm hinzugefügt oder anderweitig als Lesezeichen gespeichert wurde.
+Bitte beachten Sie, dass die Start-URL nicht unbedingt der Wert des start_url-Mitglieds ist: Der Benutzer oder der Benutzeragent könnte sie geändert haben, als die Anwendung zum Startbildschirm hinzugefügt oder anderweitig als Lesezeichen gesetzt wurde.
 
 ## Siehe auch
 

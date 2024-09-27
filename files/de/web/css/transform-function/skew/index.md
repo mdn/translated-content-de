@@ -11,13 +11,13 @@ Die **`skew()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functio
 
 {{EmbedInteractiveExample("pages/css/function-skew.html")}}
 
-Diese Transformation ist eine Scherabbildung ([Transvektion](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt innerhalb eines Elements in der horizontalen und vertikalen Richtung um einen bestimmten Winkel verzerrt. Der Effekt ist, als ob Sie jede Ecke des Elements greifen und sie entlang eines bestimmten Winkels ziehen würden.
+Diese Transformation ist eine Scherung ([Transvektion](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt innerhalb eines Elements durch einen bestimmten Winkel in horizontaler und vertikaler Richtung verzerrt. Der Effekt ist, als ob Sie jede Ecke des Elements greifen und sie entlang eines bestimmten Winkels ziehen würden.
 
-Die Koordinaten jedes Punktes werden um einen Wert verändert, der proportional zum angegebenen Winkel und zur Entfernung zum Ursprung ist. Je weiter ein Punkt vom Ursprung entfernt ist, desto größer ist der hinzugefügte Wert.
+Die Koordinaten jedes Punktes werden um einen Wert geändert, der proportional zum angegebenen Winkel und der Entfernung zum Ursprung ist. Je weiter ein Punkt vom Ursprung entfernt ist, desto größer ist der hinzugefügte Wert.
 
 ## Syntax
 
-Die `skew()` Funktion wird mit entweder einem oder zwei Werten angegeben, die die Menge der Verzerrung in jeder Richtung darstellen. Wenn Sie nur einen Wert angeben, wird er für die x-Achse verwendet und es wird keine Verzerrung auf der y-Achse geben.
+Die Funktion `skew()` wird mit entweder einem oder zwei Werten angegeben, die die Menge an Verzerrung darstellen, die in jede Richtung angewendet werden soll. Wenn Sie nur einen Wert angeben, wird dieser für die x-Achse verwendet, und es erfolgt keine Verzerrung auf der y-Achse.
 
 ```css
 skew(ax)
@@ -28,9 +28,9 @@ skew(ax, ay)
 ### Werte
 
 - `ax`
-  - : Ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, mit dem das Element entlang der x-Achse verzerrt werden soll.
+  - : Ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, um das Element entlang der x-Achse zu verzerren.
 - `ay`
-  - : Ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, mit dem das Element entlang der y-Achse verzerrt werden soll. Wenn nicht definiert, beträgt der Standardwert `0`, was zu einer rein horizontalen Verzerrung führt.
+  - : Ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, um das Element entlang der y-Achse zu verzerren. Wenn nicht definiert, beträgt sein Standardwert `0`, was eine rein horizontale Verzerrung zur Folge hat.
 
 <table class="standard-table">
   <thead>
@@ -95,7 +95,7 @@ div {
 }
 
 .skewed {
-  transform: skew(10deg); /* Gleichwertig zu skewX(10deg) */
+  transform: skew(10deg); /* Equal to skewX(10deg) */
   background-color: pink;
 }
 ```
@@ -154,4 +154,4 @@ div {
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}
-  - Hinweis: es gibt keine `skew` Eigenschaft
+  - Hinweis: Es gibt keine `skew`-Eigenschaft

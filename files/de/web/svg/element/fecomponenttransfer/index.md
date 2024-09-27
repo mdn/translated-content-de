@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feComponentTransfer>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv führt eine farbkomponentenweise Neuzuordnung von Daten für jedes Pixel durch. Es ermöglicht Operationen wie Helligkeitsanpassung, Kontrasteinstellung, Farbbalance oder Schwellenwertverfahren.
+Der **`<feComponentTransfer>`** [SVG](/de/docs/Web/SVG)-Filterprimitive ermöglicht die neukanalweise Remapping von Daten für jedes Pixel. Es erlaubt Operationen wie Helligkeitsanpassung, Kontrasteinstellung, Farbgleichgewicht oder Thresholding.
 
-Die Berechnungen werden auf nicht vorkomponierten Farbwerten durchgeführt. Die Farben werden verändert, indem jeder Kanal (R, G, B und A) in das Ergebnis dessen geändert wird, was die Kinder {{SVGElement("feFuncR")}}, {{SVGElement("feFuncB")}}, {{SVGElement("feFuncG")}} und {{SVGElement("feFuncA")}} zurückgeben. Wenn mehr als ein gleiches Element bereitgestellt wird, wird das zuletzt angegebene verwendet, und wenn kein Element zur Änderung eines Kanals bereitgestellt wird, ist der Effekt derselbe, als ob eine Identitätstransformation für diesen Kanal angegeben worden wäre.
+Die Berechnungen werden auf nicht-vorpremultiplizierte Farbwerte durchgeführt. Die Farben werden geändert, indem jeder Kanal (R, G, B und A) in das Ergebnis dessen umgewandelt wird, was die Kindelemente {{SVGElement("feFuncR")}}, {{SVGElement("feFuncB")}}, {{SVGElement("feFuncG")}} und {{SVGElement("feFuncA")}} zurückgeben. Wenn mehr als ein gleiches Element angegeben wird, wird das zuletzt angegebene verwendet. Falls kein Element zur Modifikation eines Kanals bereitgestellt wird, ist die Wirkung so, als ob eine Identitätstransformation für diesen Kanal gegeben worden wäre.
 
 ## Verwendungskontext
 
@@ -21,7 +21,7 @@ Die Berechnungen werden auf nicht vorkomponierten Farbwerten durchgeführt. Die 
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFEComponentTransferElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGFEComponentTransferElement`](/de/docs/Web/API/SVGFEComponentTransferElement)-Schnittstelle.
 
 ## Beispiel
 
@@ -84,35 +84,35 @@ Dieses Element implementiert die {{domxref("SVGFEComponentTransferElement")}} Sc
   <g font-weight="bold">
     <text x="0" y="20">Default</text>
     <rect x="0" y="30" width="100%" height="20"></rect>
-    <text x="0" y="70">Identität</text>
+    <text x="0" y="70">Identity</text>
     <rect
       x="0"
       y="80"
       width="100%"
       height="20"
       style="filter:url(#identity)"></rect>
-    <text x="0" y="120">Tabellenabfrage</text>
+    <text x="0" y="120">Table lookup</text>
     <rect
       x="0"
       y="130"
       width="100%"
       height="20"
       style="filter:url(#table)"></rect>
-    <text x="0" y="170">Diskrete Tabellenabfrage</text>
+    <text x="0" y="170">Discrete table lookup</text>
     <rect
       x="0"
       y="180"
       width="100%"
       height="20"
       style="filter:url(#discrete)"></rect>
-    <text x="0" y="220">Lineare Funktion</text>
+    <text x="0" y="220">Linear function</text>
     <rect
       x="0"
       y="230"
       width="100%"
       height="20"
       style="filter:url(#linear)"></rect>
-    <text x="0" y="270">Gamma-Funktion</text>
+    <text x="0" y="270">Gamma function</text>
     <rect
       x="0"
       y="280"
@@ -145,7 +145,7 @@ rect {
 
 ## Siehe auch
 
-- [SVG Filter Primitivattributen](/de/docs/Web/SVG/Attribute#filter_primitive_attributes)
+- [SVG-Filterprimitive-Attribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("feBlend")}}
 - {{SVGElement("feColorMatrix")}}
@@ -166,4 +166,4 @@ rect {
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG Tutorial: Filter-Effekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

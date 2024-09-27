@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`Navigator.language`** schreibgeschützte Eigenschaft gibt einen String zurück, der die bevorzugte Sprache des Benutzers repräsentiert, üblicherweise die Sprache der Browser-Benutzeroberfläche.
+Die schreibgeschützte Eigenschaft **`Navigator.language`** gibt einen String zurück, der die bevorzugte Sprache des Benutzers repräsentiert, in der Regel die Sprache der Browser-Oberfläche.
 
 ## Wert
 
-Ein String, der die Sprachversion gemäß {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} repräsentiert. Beispiele für gültige Sprachcodes sind "en", "en-US", "fr", "fr-FR", "es-ES" usw.
+Ein String, der die Sprachversion darstellt, wie in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definiert. Beispiele für gültige Sprachcodes sind "en", "en-US", "fr", "fr-FR", "es-ES", etc.
 
-Beachten Sie, dass in Safari auf iOS vor Version 10.2 der zurückgegebene Ländercode klein geschrieben wird: "en-us", "fr-fr" usw.
+Beachten Sie, dass in Safari auf iOS vor Version 10.2 der Ländercode in Kleinbuchstaben zurückgegeben wird: "en-us", "fr-fr" etc.
 
 ## Beispiele
 
-### Verwendung von Intl-Konstruktoren zur sprachspezifischen Formatierung
+### Verwendung von Intl-Konstruktoren für sprachspezifische Formatierung
 
-Die {{jsxref("Intl")}}-Konstruktoren ermöglichen das Formatieren von Inhalten entsprechend den Regeln einer bestimmten Sprachumgebung. Sie können `navigator.language` übergeben, um Inhalte im Format der bevorzugten Sprache des Benutzers darzustellen:
+Die {{jsxref("Intl")}}-Konstruktoren ermöglichen die Formatierung von Inhalten entsprechend den Regeln einer bestimmten Sprachumgebung. Sie können `navigator.language` an diese übergeben, um Inhalte entsprechend der vom Benutzer bevorzugten Sprachumgebung zu formatieren:
 
 ```js
 const date = new Date("2012-05-24");
@@ -38,6 +38,6 @@ const formattedDate = new Intl.DateTimeFormat(navigator.language).format(date);
 
 ## Siehe auch
 
-- {{domxref("navigator.languages")}}
-- {{domxref("navigator")}}
+- [`navigator.languages`](/de/docs/Web/API/Navigator/languages)
+- [`navigator`](/de/docs/Web/API/Navigator)
 - {{jsxref("Intl")}}

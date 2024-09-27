@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn das [DOMContentLoaded](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis auf der Seite ausgelöst wird. Zu diesem Zeitpunkt ist das Dokument geladen und geparst, und das DOM ist vollständig aufgebaut, aber verknüpfte Ressourcen wie Bilder, Stylesheets und Subframes sind möglicherweise noch nicht geladen.
+Wird ausgelöst, wenn das [DOMContentLoaded](/de/docs/Web/API/Document/DOMContentLoaded_event) Ereignis auf der Seite ausgelöst wird. Zu diesem Zeitpunkt ist das Dokument geladen und geparst, und das DOM ist vollständig konstruiert, aber verlinkte Ressourcen wie Bilder, Stylesheets und Unterrahmen sind möglicherweise noch nicht geladen.
 
 ## Syntax
 
@@ -27,9 +27,9 @@ Ereignisse haben drei Funktionen:
 - `removeListener(listener)`
   - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es hört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, `false` andernfalls.
 
-## Syntax von addListener
+## addListener Syntax
 
 ### Parameter
 
@@ -38,25 +38,25 @@ Ereignisse haben drei Funktionen:
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `details`
-      - : `object`. Details über das Navigationsevent. Siehe den Abschnitt [details](#details_2) für weitere Informationen.
+      - : `object`. Details über das Navigationsereignis. Siehe den Abschnitt [Details](#details_2) für mehr Informationen.
 
 - `filter` {{optional_inline}}
-  - : `object`. Ein Objekt, das eine einzelne Eigenschaft `url` enthält, die ein {{jsxref("Array")}} von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter einschließen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einem `UrlFilter` im Array entsprechen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
+  - : `object`. Ein Objekt, das eine einzelne Eigenschaft `url` enthält, welche ein {{jsxref("Array")}} von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter einschließen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einem `UrlFilter` im Array entsprechen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
 
 ## Zusätzliche Objekte
 
-### details
+### Details
 
 - `tabId`
   - : `integer`. Die ID des Tabs, in dem die Navigation stattgefunden hat.
 - `url`
-  - : `string`. Die URL, zu der der gegebene Frame navigiert hat.
+  - : `string`. Die URL, zu der der gegebene Rahmen navigiert hat.
 - `processId` {{optional_inline}} {{deprecated_inline}}
-  - : `integer`. Dieser Wert wird in modernen Browsern nicht festgelegt. Als er festgelegt wurde, stellte er die ID des Prozesses dar, der das Renderer für diesen Tab ausführte.
+  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt wurde, repräsentierte er die ID des Prozesses, der den Renderer für diesen Tab ausführte.
 - `frameId`
-  - : `integer`. Frame, in dem die Navigation stattfindet. `0` zeigt an, dass die Navigation im obersten Browsing-Kontext des Tabs erfolgt, nicht in einem verschachtelten {{HTMLElement("iframe")}}. Ein positiver Wert zeigt an, dass die Navigation in einem verschachtelten iframe erfolgt. Frame-IDs sind für einen bestimmten Tab und Prozess eindeutig.
+  - : `integer`. Rahmen, in dem die Navigation stattfindet. `0` bedeutet, dass die Navigation im obersten Browsing-Kontext des Tabs stattfindet, nicht in einem verschachtelten {{HTMLElement("iframe")}}. Ein positiver Wert bedeutet, dass die Navigation in einem verschachtelten iframe stattfindet. Rahmen-IDs sind eindeutig für einen bestimmten Tab und Prozess.
 - `timeStamp`
-  - : `number`. Die Zeit, zu der `DOMContentLoaded` ausgelöst wurde, in [Millisekunden seit der Epoche](https://de.wikipedia.org/wiki/Unixzeit).
+  - : `number`. Der Zeitpunkt, zu dem `DOMContentLoaded` ausgelöst wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
 
 ## Browser-Kompatibilität
 
@@ -84,7 +84,7 @@ browser.webNavigation.onDOMContentLoaded.addListener(
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API von Chromium. Diese Dokumentation ist abgeleitet von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -1,5 +1,5 @@
 ---
-title: "Document: releaseCapture()-Methode"
+title: "Document: releaseCapture() Methode"
 short-title: releaseCapture()
 slug: Web/API/Document/releaseCapture
 l10n:
@@ -8,10 +8,9 @@ l10n:
 
 {{ApiRef("DOM")}}{{Non-standard_header}}
 
-Die **`releaseCapture()`**-Methode gibt die Maussteuerung frei, wenn sie derzeit auf ein Element innerhalb dieses Dokuments angewendet ist.
-Sobald die Maussteuerung freigegeben wird, werden Mausereignisse nicht mehr ausschließlich an das Element gesendet, für das die Steuerung aktiviert war.
+Die **`releaseCapture()`** Methode gibt die Mauserfassung frei, wenn sie derzeit auf ein Element innerhalb dieses Dokuments aktiviert ist. Sobald die Mauserfassung freigegeben wird, werden Mausereignisse nicht mehr alle auf das Element ausgerichtet, bei dem die Erfassung aktiviert ist.
 
-Die Aktivierung der Maussteuerung auf einem Element erfolgt durch den Aufruf von {{domxref("element.setCapture()")}}.
+Die Aktivierung der Mauserfassung auf einem Element erfolgt durch einen Aufruf von [`element.setCapture()`](/de/docs/Web/API/Element/setCapture).
 
 ## Syntax
 
@@ -30,7 +29,7 @@ Keine ({{jsxref("undefined")}}).
 ## Beispiele
 
 Siehe das [Beispiel](/de/docs/Web/API/Element/setCapture#examples) für
-{{domxref("element.setCapture()")}}.
+[`element.setCapture()`](/de/docs/Web/API/Element/setCapture).
 
 ## Spezifikationen
 
@@ -42,4 +41,4 @@ Nicht Teil einer Spezifikation.
 
 ## Siehe auch
 
-- {{domxref("element.setCapture()")}}
+- [`element.setCapture()`](/de/docs/Web/API/Element/setCapture)

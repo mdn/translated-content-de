@@ -7,44 +7,44 @@ l10n:
 
 {{MDNSidebar}}
 
-Auf MDN finden Sie zahlreiche Code-Beispiele, die in die Seiten eingefügt werden, um die Nutzung von Web-Plattform-Features zu demonstrieren. Dieser Artikel bespricht die verschiedenen Mechanismen, die zum Hinzufügen von Code-Beispielen zu Seiten zur Verfügung stehen, und erläutert, welche davon Sie wann verwenden sollten.
+Auf MDN werden zahlreiche Code-Beispiele eingefügt, um die Nutzung von Web-Plattform-Features zu demonstrieren. Dieser Artikel behandelt die verschiedenen Mechanismen zum Hinzufügen von Code-Beispielen zu Seiten und wann Sie welche verwenden sollten.
 
 > [!NOTE]
-> Wenn Sie Ratschläge zum Styling und zur Formatierung von Code in einem MDN-Artikel wünschen, anstatt zu den unterschiedlichen Möglichkeiten, Code einzufügen, lesen Sie unseren [Code-Stil-Leitfaden](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide).
+> Wenn Sie Ratschläge zur Gestaltung und Überprüfung von Code in einem MDN-Artikel benötigen, nicht jedoch zu den verschiedenen Möglichkeiten der Einbindung von Code, siehe unser [Code-Stil-Leitfaden](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide).
 
-## Welche Arten von Code-Beispielen stehen zur Verfügung?
+## Welche Arten von Code-Beispielen sind verfügbar?
 
-Auf MDN gibt es vier Arten von Code-Beispielen:
+Es gibt vier Arten von Code-Beispielen auf MDN:
 
-- Statische Beispiele — einfache Codeblöcke, möglicherweise mit einem Screenshot, um das Ergebnis dieses Codes statisch anzuzeigen, wenn er ausgeführt würde.
-- Interaktive Beispiele — Unser System zum Erstellen von [live interaktiven Beispielen](https://github.com/mdn/interactive-examples), die den Code live ausführen, aber Ihnen auch erlauben, den Code spontan zu ändern, um zu sehen, welche Wirkung er hat und die Ergebnisse einfach zu kopieren.
-- Traditionelle MDN-"Live-Beispiele" — Ein Makro, das einfache Codeblöcke nimmt, sie dynamisch in ein Dokument innerhalb eines {{htmlelement("iframe")}}-Elements einfügt und es in die Seite einbettet, um den Code live zu zeigen.
-- GitHub-"Live-Beispiele" — Ein Makro, das ein Dokument in einem GitHub-Repo innerhalb der [MDN-Organisation](https://github.com/mdn/) nimmt, innerhalb eines {{htmlelement("iframe")}}-Elements einfügt und es in die Seite einbettet, um den Code live zu zeigen.
+- Statische Beispiele — einfache Code-Blöcke, möglicherweise mit einem Screenshot, der das Ergebnis eines solchen Codes statisch zeigt, wenn er ausgeführt würde.
+- Interaktive Beispiele — Unser System zur Erstellung von [live interaktiven Beispielen](https://github.com/mdn/interactive-examples), die den Code live ablaufen lassen, aber auch Änderungen am Code ermöglichen, um sofortige Effekte zu sehen und die Ergebnisse leicht zu kopieren.
+- Traditionelle MDN "live samples" — Ein Makro, das einfache Code-Blöcke in ein Dokument innerhalb eines {{htmlelement("iframe")}}-Elements einfügt und es in die Seite einbettet, um den Code live zu zeigen.
+- GitHub "live samples" — Ein Makro, das ein Dokument in einem GitHub-Repo innerhalb der [MDN-Organisation](https://github.com/mdn/) nimmt, es in ein {{htmlelement("iframe")}}-Element einfügt und in die Seite einbettet, um den Code live zu zeigen.
 
-Wir werden jedes davon in späteren Abschnitten besprechen.
+Wir werden jeden Typ in den folgenden Abschnitten besprechen.
 
 ## Wann sollten Sie welche verwenden?
 
-Jede Art von Code-Beispiel hat ihre eigenen Anwendungsfälle. Wann sollten Sie welche verwenden?
+Jeder Typ von Code-Beispiel hat seine eigenen Anwendungsfälle. Wann sollten Sie welchen verwenden?
 
-- Statische Beispiele sind nützlich, wenn Sie nur etwas Code zeigen müssen und es nicht besonders wichtig ist, das Live-Ergebnis zu zeigen. Manche Menschen möchten einfach nur etwas zum Kopieren und Einfügen. Vielleicht zeigen Sie nur einen Zwischenschritt, oder der Quellcode reicht aus. (Zum Beispiel ist der Artikel für ein fortgeschrittenes Publikum gedacht, das nur den Code sehen muss.) Außerdem könnten Sie eine API-Funktion demonstrieren, die sich nicht gut als eingebettetes Beispiel eignet und möglicherweise eine eigene separate Seite benötigt, auf die verwiesen wird.
-- Die interaktiven Beispiele sind großartig, da Leser Werte spontan ändern können — das ist sehr wertvoll für das Lernen. Sie sind jedoch komplexer einzurichten als die anderen Formen, haben mehr Einschränkungen und sind für spezifische Zwecke gedacht.
-- Traditionelle Live-Beispiele sind nützlich, wenn Sie Quellcode auf einer Seite zeigen möchten, ihn dann laufend anzeigen und es Ihnen nicht so wichtig ist, dass er als eigenständiges Beispiel zugänglich ist. Dieser Ansatz hat auch den Vorteil, dass, wenn Sie Quellcode und Live-Beispiele nebeneinander zeigen, Sie den Code nur einmal aktualisieren müssen, um beide zu aktualisieren. Sie können jedoch umständlich zu bearbeiten und in Gang zu bringen sein.
-- GitHub-Live-Beispiele sind nützlich, wenn Sie ein vorhandenes Beispiel einbetten möchten, den Quellcode nicht zeigen möchten und/oder sicherstellen möchten, dass das Beispiel in eigenständiger Form verfügbar ist. Sie haben einen besseren Beitrags-Workflow, erfordern jedoch, dass Sie GitHub kennen. Da sowohl der On-Page-Code als auch der Quellcode an zwei verschiedenen Orten sind, ist es einfacher, dass sie nicht synchron sind.
+- Statische Beispiele sind nützlich, wenn Sie nur etwas Code zeigen müssen, und es nicht besonders wichtig ist, das Live-Ergebnis zu zeigen. Einige Leute möchten einfach etwas kopieren und einfügen. Vielleicht zeigen Sie nur einen Zwischenschritt und der Quellcode reicht aus. (Zum Beispiel, der Artikel richtet sich an ein fortgeschrittenes Publikum und sie müssen nur den Code sehen.) Auch könnten Sie ein API-Feature demonstrieren, das als eingebettetes Beispiel nicht gut funktioniert und eine eigene separate Seite benötigt, um darauf zu verlinken.
+- Die interaktiven Beispiele sind großartig, da Leser Werte im Handumdrehen ändern können — das ist sehr wertvoll für das Lernen. Sie sind jedoch komplexer einzurichten als die anderen Formen, mit mehr Einschränkungen und für spezifische Zwecke gedacht.
+- Traditionelle Live-Beispiele sind nützlich, wenn Sie Quellcode auf einer Seite zeigen möchten, diesen dann ausführen und es Ihnen nicht so wichtig ist, dass es als eigenständiges Beispiel zugänglich ist. Dieser Ansatz hat auch den Vorteil, dass Sie, wenn Sie Quellcode und Live-Beispiele nebeneinander zeigen, den Code nur einmal aktualisieren müssen, um beides zu aktualisieren. Sie können jedoch unpraktisch zu bearbeiten und zum Laufen zu bringen sein.
+- GitHub-Live-Beispiele sind nützlich, wenn Sie ein vorhandenes Beispiel haben, das Sie einbetten möchten, den Quellcode nicht zeigen möchten und/oder sicherstellen möchten, dass das Beispiel in eigenständiger Form verfügbar ist. Sie haben einen besseren Beitragsworkflow, es erfordert jedoch, dass Sie GitHub kennen. Da zudem der On-Page-Code und der Quellcode an zwei verschiedenen Orten sind, können sie leichter auseinanderdriften.
 
 ## Allgemeine Richtlinien
 
-Abgesehen vom spezifischen System zur Präsentation der Live-Beispiele gibt es stilistische und inhaltliche Überlegungen, die zu beachten sind, wenn Beispiele auf MDN hinzugefügt oder aktualisiert werden.
+Abgesehen vom spezifischen System zur Präsentation der Live-Beispiele gibt es stilistische und inhaltliche Überlegungen, die beim Hinzufügen oder Aktualisieren von Beispielen auf MDN zu berücksichtigen sind.
 
-- Versuchen Sie, sicherzustellen, dass alle Funktionen oder Optionen der API oder des Konzepts, über das Sie schreiben, in den Beispielen abgedeckt sind. Zumindest sollten die häufigsten Optionen oder Eigenschaften in Beispielen enthalten sein.
-- Gehen Sie jedem Beispiel mit einer Erklärung dessen voraus, was das Beispiel tut und warum es interessant oder nützlich ist.
-- Folgen Sie jedem Code-Stück mit einer Erklärung dessen, was es tut.
-- Wenn möglich, teilen Sie große Beispiele in kleinere Stücke auf. Beispielsweise fügt das "Live-Beispiel"-System automatisch allen Ihren Code vor der Ausführung des Beispiels zu einem Stück zusammen, sodass Sie Ihr JavaScript, HTML und/oder CSS tatsächlich in kleinere Stücke aufteilen können, mit beschreibendem Text nach jedem Stück, wenn Sie dies wünschen. Dies ist eine großartige Möglichkeit, lange oder komplizierte Code-Abschnitte klarer zu erklären.
-- Gehen Sie darüber hinaus, einfach nur zu zeigen, wie jeder Teil der API oder Technologie funktioniert. Erwägen Sie mögliche realitätsnahe Anwendungsfälle, die Sie versuchen könnten zu demonstrieren.
+- Wenn Sie Beispiele auf einer Seite platzieren, versuchen Sie sicherzustellen, dass alle Funktionen oder Optionen der API oder des Konzepts, über das Sie schreiben, abgedeckt sind. Zumindest sollten die am häufigsten verwendeten Optionen oder Eigenschaften in den Beispielen enthalten sein.
+- Gehen Sie jedem Beispiel mit einer Erklärung voraus, was das Beispiel macht und warum es interessant oder nützlich ist.
+- Folgen Sie jedem Stück Code mit einer Erklärung, was es macht.
+- Wenn möglich, brechen Sie große Beispiele in kleinere Teile auf. Zum Beispiel wird das "live sample" System automatisch all Ihren Code vor dem Ausführen des Beispiels zu einem Stück zusammenfügen, sodass Sie tatsächlich Ihr JavaScript, HTML und/oder CSS in kleinere Teile mit beschreibendem Text nach jedem Stück aufteilen können, wenn Sie dies wünschen. Dies ist eine großartige Möglichkeit, lange oder komplizierte Codeabschnitte klarer zu erklären.
+- Gehen Sie über das einfache Demonstrieren hinaus, wie jedes Stück der API oder Technologie funktioniert. Erwägen Sie, mögliche realweltliche Anwendungsfälle zu demonstrieren, die Sie zeigen könnten.
 
 ## Statische Beispiele
 
-Mit statischen Beispielen meinen wir statische Codeblöcke, die zeigen, wie eine Funktion in Code verwendet werden könnte. Diese werden auf einer Seite mit Markdown "Code-Begrenzungen" platziert, wie in [Beispiel-Codeblöcke](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#example_code_blocks) beschrieben. Ein Beispielergebnis könnte so aussehen:
+Unter statischen Beispielen verstehen wir statische Code-Blöcke, die zeigen, wie eine Funktion in Code verwendet werden könnte. Diese werden mit Markdown "Code-Zäunen" auf einer Seite platziert, wie in [Beispielcode-Blöcke](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#example_code_blocks) beschrieben. Ein Beispielergebnis könnte so aussehen:
 
 ```js
 // This is a JS example
@@ -52,56 +52,56 @@ const test = "Hello";
 console.log(test);
 ```
 
-Optional möchten Sie möglicherweise ein statisches Bild des Ergebnisausgangs des Codes anzeigen. Zum Beispiel:
+Optional möchten Sie vielleicht ein statisches Bild des resultierenden Ausgabes des Codes zeigen. Zum Beispiel:
 
-![Screenshot einer Konsolenausgabe in Entwickler-Tools](console-example.png)
+![Screenshot einer Konsolenausgabe in Entwicklerwerkzeugen](console-example.png)
 
 ## Interaktive Beispiele
 
-Interaktive Beispiele sollen oben auf den MDN-Referenzseiten verwendet werden — wir beabsichtigen, diese bereitzustellen, um ihren Wert für Anfänger und andere Leser zu verbessern, die nur schnell ein Beispiel ausprobieren und damit spielen möchten, bevor sie alle Details des Gesuchten sehen. Es gibt einige wichtige Einschränkungen für die interaktiven Beispiele:
+Interaktive Beispiele sollen am Anfang von MDN-Referenzseiten verwendet werden — wir zielen darauf ab, diese zur Verbesserung ihres Wertes für Anfänger und andere Leser bereitzustellen, die einfach ein Beispiel schnell greifen und spielen möchten, bevor sie alle Details dessen sehen, wonach sie suchen. Es gibt einige wichtige Einschränkungen, die bei interaktiven Beispielen zu beachten sind:
 
-- Sie sind spezialisiert auf eine bestimmte Technologie — die Benutzeroberfläche für JavaScript unterscheidet sich von der Benutzeroberfläche für CSS, und sie illustrieren nur eine Technologie isoliert. Sie sind nicht geeignet, wenn Sie beispielsweise zeigen möchten, wie eine bestimmte HTML/CSS/JS-Struktur kombiniert wird.
-- Die interaktiven Live-Beispiele sind derzeit nur so eingestellt, dass sie CSS und JavaScript anzeigen. Für andere Technologien müssen Sie einfach warten.
-- Die Benutzeroberfläche ist ressourcenintensiver als andere Code-Beispiele; Sie sollten nicht mehr als ein interaktives Beispiel auf jeden MDN-Artikel anwenden, zu dem Sie sie hinzufügen.
-- Sie sind nicht für große Code-Beispiele gedacht — die Benutzeroberfläche unterstützt eine Reihe von festen Größen, die nur für kurze (sagen wir, 10–15 Zeilen) Beispiele wirklich funktionieren.
+- Sie sind für eine bestimmte Technologie spezialisiert — die Benutzeroberfläche für JavaScript unterscheidet sich von der für CSS, und sie illustrieren nur eine Technologie isoliert. Sie sind nicht geeignet, wenn Sie beispielsweise zeigen möchten, wie man eine bestimmte HTML/CSS/JS-Struktur kombiniert.
+- Die interaktiven Live-Beispiele sind derzeit nur für CSS und JavaScript eingerichtet. Für andere Technologien müssen Sie einfach abwarten.
+- Die Benutzeroberfläche ist leistungsintensiver als andere Code-Beispiele; Sie sollten nicht mehr als eins auf jedem MDN-Artikel anwenden, auf den Sie sie anwenden.
+- Sie sind nicht für große Code-Beispiele gedacht — die Benutzeroberfläche unterstützt eine Reihe fester Größen, die nur für kurze (sagen wir, 10–15 Zeilen) Beispiele wirklich funktionieren.
 
-Wenn Sie ein Beispiel einreichen möchten, erfahren Sie im [Contribution guide des interaktiven Beispiels-Repos](https://github.com/mdn/interactive-examples/blob/main/CONTRIBUTING.md), wie das geht.
+Wenn Sie ein Beispiel einreichen möchten, erfahren Sie wie im [Leitfaden zur Beitragseinreichung für interaktive Beispiele](https://github.com/mdn/interactive-examples/blob/main/CONTRIBUTING.md).
 
-Wenn Sie eine Seite finden, die kein zugeordnetes interaktives Beispiel hat, können Sie gerne eines beitragen!
+Wenn Sie eine Seite finden, die kein zugehöriges interaktives Beispiel hat, sind Sie herzlich eingeladen, eines beizutragen!
 
-### Demo des interaktiven Beispiels
+### Interaktive Beispiel-Demo
 
-Das [`EmbedInteractiveExample`](https://github.com/mdn/yari/blob/main/kumascript/macros/EmbedInteractiveExample.ejs)-Makro wird verwendet, um fertige Beispiele in MDN-Seiten einzubetten. Zum Beispiel zeigt der Makro-Aufruf \\{{EmbedInteractiveExample("pages/js/array-push.html")}} das folgende Code-Beispiel:
+Das [`EmbedInteractiveExample`](https://github.com/mdn/yari/blob/main/kumascript/macros/EmbedInteractiveExample.ejs)-Makro wird verwendet, um fertige Beispiele in MDN-Seiten einzubetten. Zum Beispiel zeigt der Makroaufruf \\{{EmbedInteractiveExample("pages/js/array-push.html")}} das folgende Codebeispiel:
 
-{{EmbedInteractiveExample("pages/js/array-push.html")}}Versuchen Sie, den Code anzupassen, um zu sehen, was passiert und spielen Sie mit den Steuerelementen.
+{{EmbedInteractiveExample("pages/js/array-push.html")}}Versuchen Sie, den Code anzupassen, um zu sehen, was passiert, und spielen Sie mit den Bedienelementen.
 
 ## Traditionelle Live-Beispiele
 
-Traditionelle Live-Beispiele werden in die Seite eingefügt, indem das [`EmbedLiveSample`](https://github.com/mdn/yari/blob/main/kumascript/macros/EmbedLiveSample.ejs)-Makro verwendet wird. Ein \\{{EmbedLiveSample}}-Aufruf erfasst dynamisch die Codeblöcke im selben Dokumentabschnitt wie er selbst und fügt sie in ein Dokument ein, das er dann in die Seite innerhalb eines {{htmlelement("iframe")}} einfügt. Weitere Informationen finden Sie in unserem [Leitfaden für Live-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples).
+Traditionelle Live-Beispiele werden auf der Seite mit dem Makro [`EmbedLiveSample`](https://github.com/mdn/yari/blob/main/kumascript/macros/EmbedLiveSample.ejs) eingefügt. Ein \\{{EmbedLiveSample}}-Aufruf erfasst dynamisch die Code-Blöcke im gleichen Dokumentabschnitt wie er selbst und fügt sie in ein Dokument ein, das dann in die Seite innerhalb eines {{htmlelement("iframe")}} eingefügt wird. Siehe unseren [Leitfaden zu Live-Beispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) für weitere Informationen.
 
 ## GitHub Live-Beispiele
 
-GitHub Live-Beispiele werden mithilfe des [`EmbedGHLiveSample`](https://github.com/mdn/yari/blob/main/kumascript/macros/EmbedGHLiveSample.ejs)-Makros in die Seite eingefügt. Ein \\{{EmbedGHLiveSample}}-Aufruf erfasst dynamisch das Dokument an einer angegebenen URL (die im GitHub-Organisation **mdn** sein muss) und fügt es innerhalb eines {{htmlelement("iframe")}} in die Seite ein.
+GitHub Live-Beispiele werden auf der Seite mit dem Makro [`EmbedGHLiveSample`](https://github.com/mdn/yari/blob/main/kumascript/macros/EmbedGHLiveSample.ejs) eingefügt. Ein \\{{EmbedGHLiveSample}}-Aufruf erfasst dynamisch das Dokument an einer angegebenen URL (die innerhalb der **mdn** GitHub-Organisation sein muss) und fügt es in die Seite innerhalb eines {{htmlelement("iframe")}} ein.
 
-Diese funktionieren sehr ähnlich wie traditionelle Live-Beispiele, sind aber viel einfacher:
+Diese funktionieren sehr ähnlich wie Traditionelle Live-Beispiele, sind jedoch viel einfacher:
 
-Sie müssen sich keine Sorgen um die Platzierung von Codeblöcken auf der Seite machen — es wird ein HTML-Dokument in einem GitHub-Repo erfasst und im `<iframe>` platziert.
+Sie müssen sich keine Gedanken über die Platzierung von Code-Blöcken auf der Seite machen — es erfasst ein HTML-Dokument in einem GitHub-Repo und platziert es im `<iframe>`.
 
 Das Makro hat nur drei Parameter:
 
-1. Die URL des einzubettenden Dokuments — diese ist relativ zur MDN-Organisation, deren oberstes Verzeichnis unter `https://mdn.github.io/` liegt. Dieser Parameter muss den Teil der URL nach diesem Punkt enthalten, z. B. `mein-unterverzeichnis/example.html`. Sie können den Dateinamen weglassen, wenn er `index.html` lautet.
+1. Die URL des einzubettenden Dokuments — diese ist relativ zur MDN-Organisation, deren oberstes Verzeichnis auf `https://mdn.github.io/` liegt. Dieser Parameter muss den Teil der URL nach diesem enthalten, z. B. `my-subdirectory/example.html`. Sie können den Dateinamen weglassen, wenn er `index.html` genannt wird.
 2. Die Breite des `<iframe>`, die als Prozentsatz oder in Pixeln ausgedrückt werden kann.
 3. Die Höhe des `<iframe>`, die als Prozentsatz oder in Pixeln ausgedrückt werden kann.
 
-Schauen wir uns ein Beispiel an. Angenommen, wir wollten den Code unter <https://mdn.github.io/learning-area/css/styling-boxes/backgrounds/> einbetten. Wir könnten den folgenden Aufruf verwenden:
+Schauen wir uns ein Beispiel an. Nehmen wir an, wir wollen den Code unter <https://mdn.github.io/learning-area/css/styling-boxes/backgrounds/> einbetten. Wir könnten den folgenden Aufruf verwenden:
 
 \\{{EmbedGHLiveSample("learning-area/css/styling-boxes/backgrounds/", '100%', 100)}}
 
-Dies sieht folgendermaßen aus, wenn es gerendert wird:
+So sieht es aus, wenn es gerendert wird:
 
 {{EmbedGHLiveSample("learning-area/css/styling-boxes/backgrounds/", '100%', 100)}}
 
-### Tipps zur Verwendung von GitHub-Live-Beispielen
+### Tipps zur Verwendung von GitHub Live-Beispielen
 
-- Sie müssen natürlich zunächst ein geeignetes Code-Beispiel in die [MDN GitHub-Organisation](https://github.com/mdn/) bringen. Dies muss mit Git erfolgen. Wenn Sie mit Git nicht vertraut sind, sehen Sie sich unseren Artikel [Wie verwende ich GitHub Pages?](/de/docs/Learn/Common_questions/Tools_and_setup/Using_GitHub_pages) an und [Vorbereitung zur Datenaufnahme](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) für fortgeschrittenere Anwendungen.
-- Ihr Code-Beispiel muss geeignet sein, um zu zeigen, was Sie demonstrieren möchten — es sollte ein einfaches Beispiel enthalten, das eine Sache gut macht, keinen anstößigen Inhalt enthalten und den MDN [Leitlinien für Code-Beispiele](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide) folgen.
+- Sie müssen offensichtlich zuerst ein geeignetes Code-Beispiel in die [MDN GitHub-Organisation](https://github.com/mdn/) bekommen. Dies muss mit Git erfolgen. Wenn Sie mit Git nicht vertraut sind, schauen Sie sich unseren [Wie nutze ich GitHub Pages?](/de/docs/Learn/Common_questions/Tools_and_setup/Using_GitHub_pages) Artikel an und [Vorbereitung zum Hinzufügen der Daten](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) für fortgeschrittene Anwendungen.
+- Ihr Code-Beispiel muss geeignet sein, um das zu zeigen, was Sie demonstrieren wollen — es sollte ein einfaches Beispiel enthalten, das eine Sache gut macht, keinen anstößigen Inhalt enthalten und den MDN [Code Sample Guidelines](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide) folgen.

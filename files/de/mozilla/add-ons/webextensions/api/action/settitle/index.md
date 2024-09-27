@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Setzt den Titel der Browser-Aktion. Der Titel wird in einem Tooltip über dem Symbol der Browser-Aktion angezeigt. Sie können einen `tabId` oder einen `windowId` als optionalen Parameter übergeben - wenn Sie dies tun, wird der Titel nur für den angegebenen Tab oder das Fenster geändert. Tabs oder Fenster ohne spezifischen Titel erben den globalen Titeltext, der standardmäßig auf den im Manifest angegebenen [`default_title`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) oder [`name`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name) zurückgreift.
+Legt den Titel der Browser-Aktion fest. Der Titel wird in einem Tooltip über dem Symbol der Browser-Aktion angezeigt. Sie können eine `tabId` oder eine `windowId` als optionalen Parameter übergeben — in diesem Fall wird der Titel nur für den angegebenen Tab oder das Fenster geändert. Tabs oder Fenster ohne spezifischen Titel übernehmen den globalen Titeltext, der standardmäßig auf den im Manifest angegebenen [`default_title`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) oder [`name`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name) zurückgreift.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
@@ -24,33 +24,33 @@ browser.action.setTitle(
 
 - `details`
 
-  - : `object`. Der neue Titel und optional die ID des Tabs oder Fensters, das angesprochen wird.
+  - : `object`. Der neue Titel und optional die ID des anzupeilenden Tabs oder Fensters.
 
     - `title`
 
-      - : `string` oder `null`. Der String, den die Browser-Aktion anzeigen soll, wenn mit der Maus darüber gefahren wird.
+      - : `string` oder `null`. Der String, den die Browser-Aktion bei einer Mausbewegung darüber anzeigen soll.
 
-        Wenn `title` ein leerer String ist, wird als Titel der Erweiterungsname verwendet, aber {{WebExtAPIRef("action.getTitle")}} liefert weiterhin den leeren String.
+        Wenn `title` ein leerer String ist, wird der Erweiterungsname als Titel verwendet, aber {{WebExtAPIRef("action.getTitle")}} liefert dennoch den leeren String.
 
         Wenn `title` `null` ist:
 
-        - Wenn `tabId` angegeben ist und der Tab einen tabspezifischen Titel hat, erbt der Tab den Titel des Fensters, zu dem er gehört.
-        - Wenn `windowId` angegeben ist und das Fenster einen fensterspezifischen Titel hat, erbt das Fenster den globalen Titel.
-        - Andernfalls wird der globale Titel auf den Manifest-Titel zurückgesetzt.
+        - Falls `tabId` angegeben ist und der Tab einen tab-spezifischen Titel hat, übernimmt der Tab den Titel des zugehörigen Fensters.
+        - Falls `windowId` angegeben ist und das Fenster einen fensterspezifischen Titel hat, übernimmt das Fenster den globalen Titel.
+        - Andernfalls wird der globale Titel auf den Manifesttitel zurückgesetzt.
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Setzt den Titel nur für den angegebenen Tab.
+      - : `integer`. Legt den Titel nur für den angegebenen Tab fest.
     - `windowId` {{optional_inline}}
-      - : `integer`. Setzt den Titel für das angegebene Fenster.
+      - : `integer`. Legt den Titel für das angegebene Fenster fest.
 
 <!---->
 
 - Wenn sowohl `windowId` als auch `tabId` angegeben sind, schlägt die Funktion fehl und der Titel wird nicht gesetzt.
-- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird der globale Titel gesetzt.
+- Wenn sowohl `windowId` als auch `tabId` weggelassen werden, wird der globale Titel festgelegt.
 
 ## Beispiele
 
-Dieser Code wechselt den Titel zwischen "this" und "that" jedes Mal, wenn der Benutzer auf die Browser-Aktion klickt:
+Dieser Code wechselt den Titel zwischen "this" und "that" bei jedem Klick des Benutzers auf die Browser-Aktion:
 
 ```js
 function toggleTitle(title) {
@@ -74,4 +74,34 @@ browser.action.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-setTitle) API von Chromium. Diese Dokumentation ist aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf Chromiums [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-setTitle) API. Diese Dokumentation basiert auf [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+
+<!--
+// Copyright 2015 The Chromium Authors. All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->

@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("Gamepad API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`effects`**-Eigenschaft der {{domxref("GamepadHapticActuator")}}-Schnittstelle gibt ein Array mit aufgezählten Werten zurück, die die verschiedenen haptischen Effekte darstellen, die der Aktuator unterstützt.
+Die schreibgeschützte Eigenschaft **`effects`** des [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Interfaces gibt ein Array von aufgezählten Werten zurück, die die verschiedenen haptischen Effekte darstellen, die der Aktuator unterstützt.
 
 ## Wert
 
 Ein Array, das die unterstützten haptischen Effekte darstellt. Mögliche enthaltene Werte sind:
 
 - `"dual-rumble"`
-  - : Ein positionsabhängiger Rummble-Effekt, der durch zwei Vibrationsmotoren in jedem Griff eines Controllers erzeugt wird, die unabhängig voneinander vibrieren können.
+  - : Ein positioneller Rumpel-Effekt, der durch doppelte Vibrationsmotoren in jedem Griff eines Controllers erzeugt wird, die unabhängig vibriert werden können.
 - `"trigger-rumble"`
-  - : Lokalisierte Rummble-Effekte auf der Oberfläche der Triggerknöpfe eines Controllers, die durch Vibrationsmotoren in jedem Knopf erzeugt werden. Diese Knöpfe nehmen meist die Form von federbelasteten Triggern an.
+  - : Lokalisierte Rumpel-Effekte auf der Oberfläche der Abzugstasten eines Controllers, erzeugt durch Vibrationsmotoren, die sich in jeder Taste befinden. Diese Tasten haben meist die Form von federbelasteten Abzügen.
 
 > [!NOTE]
-> Wenn ein Effekt nicht aufgeführt ist, von dem bekannt ist, dass er von der Hardware unterstützt wird, kann es sein, dass der Browser das Abspielen von Effekten dieses Typs nicht unterstützt.
+> Wenn ein Effekt, von dem bekannt ist, dass er von der Hardware unterstützt wird, nicht aufgeführt ist, könnte dies daran liegen, dass der Browser das Abspielen von Effekten dieses Typs nicht unterstützt.
 
 ## Beispiele
 
 ```js
 const gamepad = navigator.getGamepads()[0];
 
-// Gibt "dual-rumble" oder "trigger-rumble" aus
+// Logs "dual-rumble" or "trigger-rumble"
 console.log(gamepad.hapticActuators[0].effects[0]);
 ```
 

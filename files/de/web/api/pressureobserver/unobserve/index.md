@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`unobserve()`**-Methode der {{domxref('PressureObserver')}}-Schnittstelle stoppt den Druckbeobachter-Callback, um keine Druckaufzeichnungen mehr von der angegebenen Quelle zu erhalten.
+Die **`unobserve()`**-Methode der [`PressureObserver`](/de/docs/Web/API/PressureObserver)-Schnittstelle stoppt den Aufruf der Druckbeobachter-Rückruffunktion, sodass keine Druckdaten mehr von der angegebenen Quelle empfangen werden.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ unobserve(source)
 ### Parameter
 
 - `source`
-  - : Ein String, der angibt, welcher {{domxref("PressureRecord.source", "source")}} nicht mehr beobachtet werden soll.
+  - : Ein String, der angibt, welche [`source`](/de/docs/Web/API/PressureRecord/source) nicht mehr beobachtet werden soll.
 
 ### Rückgabewert
 
-Nichts ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Beobachtung einer bestimmten Quelle stoppen
+### Beobachtung einer spezifischen Quelle stoppen
 
 Das folgende Beispiel zeigt, wie die Beobachtung der Quelle "gpu" gestoppt wird, nachdem der Beobachter zuvor sowohl die "cpu"- als auch die "gpu"-Quellen beobachtet hat.
 
@@ -37,11 +37,11 @@ const observer = new PressureObserver(callback);
 observer.observe("cpu");
 observer.observe("gpu");
 
-// Callback wird jetzt aufgerufen, wann immer sich der Druckzustand für 'cpu' oder 'gpu' ändert.
+// Callback now gets called whenever the pressure state changes for 'cpu' or 'gpu'.
 
 observer.unobserve("gpu");
 
-// Callback wird jetzt nur aufgerufen, wann immer sich der Druckzustand für 'cpu' ändert.
+// Callback now only gets called whenever the pressure state changes for 'cpu'.
 ```
 
 ## Spezifikationen

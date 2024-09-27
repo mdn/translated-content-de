@@ -8,25 +8,25 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`valueAsDate`**-Eigenschaft der {{DOMxRef("HTMLInputElement")}} Schnittstelle repräsentiert den aktuellen Wert des {{htmlelement("input")}} Elements als {{jsxref("Date")}}, oder `null`, wenn eine Konvertierung nicht möglich ist.
+Die **`valueAsDate`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces repräsentiert den aktuellen Wert des {{htmlelement("input")}}-Elements als ein {{jsxref("Date")}}, oder `null`, wenn eine Umwandlung nicht möglich ist.
 
-Diese Eigenschaft kann direkt gesetzt werden, beispielsweise um ein Standarddatum basierend auf einer Bedingung festzulegen. Wenn der angegebene Wert weder `null` noch ein `Date` Objekt ist, wird ein {{jsxref("TypeError")}} ausgelöst. Wenn der angegebene Wert `null` oder ein [ungültiges Datum](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist, wird der Eingabewert auf den leeren String gesetzt.
+Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um ein Standarddatum basierend auf einer Bedingung zu setzen. Wenn der angegebene Wert weder `null` noch ein `Date`-Objekt ist, wird ein {{jsxref("TypeError")}} ausgelöst. Wenn der angegebene Wert `null` oder ein [ungültiges Datum](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist, wird der Eingabewert auf die leere Zeichenfolge gesetzt.
 
-Diese Eigenschaft gibt immer `null` zurück, wenn sie auf einem Eingabefeld abgerufen wird, das nicht auf Datum oder Uhrzeit basiert. Beim Setzen dieser Eigenschaft auf ein solches Eingabefeld wird ein `InvalidStateError` {{domxref("DOMException")}} ausgelöst.
+Diese Eigenschaft gibt immer `null` zurück, wenn sie auf einem Eingabefeld abgefragt wird, das nicht datum- oder uhrzeitbasiert ist. Beim Setzen dieser Eigenschaft auf ein solches Eingabefeld wird ein `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
 ## Wert
 
-Ein {{jsxref("Date")}} Objekt oder `null`, wenn eine Konvertierung unmöglich ist.
+Ein {{jsxref("Date")}}-Objekt oder `null`, wenn eine Umwandlung unmöglich ist.
 
 ## Beispiele
 
-### Abrufen eines Datumswerts
+### Abrufen eines Datumswertes
 
-Dieses Beispiel demonstriert den Zugriff auf die `valueAsDate` Eigenschaft auf einem `<input>` vom Typ {{HTMLElement("input/week", "week")}}.
+Dieses Beispiel zeigt den Zugriff auf die `valueAsDate`-Eigenschaft bei einem `<input>` vom Typ {{HTMLElement("input/week", "week")}}.
 
 #### HTML
 
-Wir fügen ein `<input>` vom Typ `week` ein:
+Wir fügen ein `<input>` des Typs `week` ein:
 
 ```html
 <label for="date">Pick a date and time:</label>
@@ -38,7 +38,7 @@ Wir fügen ein `<input>` vom Typ `week` ein:
 
 #### JavaScript
 
-Wenn kein Datum oder Uhrzeit ausgewählt ist, wird das leere Eingabefeld als `null` aufgelöst. Jedes Mal, wenn eine Auswahl getroffen wird, wird ein {{domxref("HTMLElement/change_event", "change")}} Ereignis ausgelöst, das den Inhalt des `<pre>` aktualisiert und den {{DOMXref("HTMLInputElement.value")}} des Formularelements im Vergleich zu diesem Wert als Datum anzeigt.
+Wenn kein Datum oder keine Uhrzeit ausgewählt ist, wird das leere Eingabefeld als `null` aufgelöst. Jedes Mal, wenn eine Auswahl getroffen wird, wird ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis ausgelöst, das den `<pre>`-Inhalt aktualisiert und den [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value) des Formularsteuerfeldes im Vergleich zu diesem Wert als Datum anzeigt.
 
 ```js
 const logElement = document.getElementById("log");
@@ -63,13 +63,13 @@ inputElement.addEventListener("change", () => {
 
 {{EmbedLiveSample("Retrieving a date value", "", 100)}}
 
-### Verwenden von Date-Methoden
+### Verwendung von Date-Methoden
 
-Dieses Beispiel demonstriert die direkte Anwendung von {{jsxref("Date")}} Methoden auf die `valueAsDate`-Eigenschaft eines `<input>` vom Typ {{HTMLElement("input/date", "date")}}.
+Dieses Beispiel zeigt, wie {{jsxref("Date")}}-Methoden direkt auf die `valueAsDate`-Eigenschaft eines `<input>` vom Typ {{HTMLElement("input/date", "date")}} angewendet werden.
 
 #### HTML
 
-Wir fügen ein `<input>` vom Typ `date` ein:
+Wir fügen ein `<input>` des Typs `date` ein:
 
 ```html
 <label for="date2">Pick a date:</label>
@@ -81,7 +81,7 @@ Wir fügen ein `<input>` vom Typ `date` ein:
 
 #### JavaScript
 
-Wenn kein Datum ausgewählt ist, wird der leere String als `null` aufgelöst. Jedes Mal, wenn eine Auswahl getroffen wird, wird ein {{domxref("HTMLElement/change_event", "change")}} Ereignis ausgelöst. Wir füllen dann das Log mit dem ausgewählten Datum, formatiert mittels der `Date` Objektmethode {{jsxref("Date.prototype.toLocaleDateString()", "toLocaleDateString()")}}.
+Wenn kein Datum ausgewählt ist, wird die leere Zeichenfolge als `null` aufgelöst. Jedes Mal, wenn eine Auswahl getroffen wird, wird ein [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis ausgelöst. Wir füllen dann das Protokoll mit dem ausgewählten Datum, formatiert mit der {{jsxref("Date.prototype.toLocaleDateString()", "toLocaleDateString()")}}-Methode des `Date`-Objekts.
 
 ```js
 const logElement = document.getElementById("log");
@@ -116,7 +116,7 @@ inputElement.addEventListener("change", () => {
 
 {{EmbedLiveSample("Using Date methods", "", 100)}}
 
-Das Datum kann aufgrund Ihrer lokalen Zeitzone einen Tag abweichen.
+Das Datum kann aufgrund Ihrer lokalen Zeitzone um einen Tag abweichen.
 
 ## Spezifikationen
 
@@ -129,5 +129,5 @@ Das Datum kann aufgrund Ihrer lokalen Zeitzone einen Tag abweichen.
 ## Siehe auch
 
 - {{HTMLElement("input")}}
-- {{DOMXref("HTMLInputElement.value")}}
-- {{DOMXref("HTMLInputElement.valueAsNumber")}}
+- [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value)
+- [`HTMLInputElement.valueAsNumber`](/de/docs/Web/API/HTMLInputElement/valueAsNumber)

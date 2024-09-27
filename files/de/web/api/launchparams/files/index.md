@@ -1,5 +1,5 @@
 ---
-title: "LaunchParams: files Eigenschaft"
+title: "LaunchParams: files-Eigenschaft"
 short-title: files
 slug: Web/API/LaunchParams/files
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Launch Handler API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`files`**-Eigenschaft der {{domxref("LaunchParams")}}-Schnittstelle gibt ein Array von {{domxref("FileSystemHandle")}}-Objekten zurück, die alle Dateien darstellen, die zusammen mit der Launch-Navigation über die [`POST`](/de/docs/Web/HTTP/Methods/POST)-Methode übergeben wurden.
+Die schreibgeschützte **`files`**-Eigenschaft der [`LaunchParams`](/de/docs/Web/API/LaunchParams)-Schnittstelle gibt ein Array von [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Objekten zurück, die alle Dateien darstellen, die zusammen mit der Startnavigation über die [`POST`](/de/docs/Web/HTTP/Methods/POST)-Methode übergeben wurden.
 
 ## Wert
 
-Ein schreibgeschütztes Array von {{domxref("FileSystemHandle")}}-Objekten.
+Ein schreibgeschütztes Array von [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Objekten.
 
 ## Beispiele
 
@@ -39,6 +39,6 @@ if ("launchQueue" in window) {
 
 ## Siehe auch
 
-- [Launch Handler API: Control how your app is launched](https://developer.chrome.com/docs/web-platform/launch-handler/)
-- {{domxref("Window.launchQueue")}}
+- [Launch Handler API: Steuern Sie, wie Ihre App gestartet wird](https://developer.chrome.com/docs/web-platform/launch-handler/)
+- [`Window.launchQueue`](/de/docs/Web/API/Window/launchQueue)
 - [Musicr 2.0](https://launch-handler.glitch.me/) Demo-App

@@ -1,5 +1,5 @@
 ---
-title: Autorisierung
+title: Authorization
 slug: Web/HTTP/Headers/Authorization
 l10n:
   sourceCommit: bb23abe84f0f4da3cf5d72a66d356cf5f9e3cfa2
@@ -7,24 +7,24 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Header **`Authorization`** kann verwendet werden, um Anmeldedaten bereitzustellen, die einen User-Agent gegenüber einem Server authentifizieren und den Zugriff auf eine geschützte Ressource ermöglichen.
+Der HTTP-**`Authorization`**-Anforderungsheader kann verwendet werden, um Anmeldeinformationen bereitzustellen, die einen Benutzeragenten bei einem Server authentifizieren und so den Zugriff auf eine geschützte Ressource ermöglichen.
 
-Der **`Authorization`**-Header wird normalerweise, aber nicht immer, gesendet, nachdem der User-Agent zuerst versucht hat, eine geschützte Ressource ohne Anmeldedaten anzufordern. Der Server antwortet mit einer {{HTTPStatus("401")}} `Unauthorized`-Meldung, die mindestens einen {{HTTPHeader("WWW-Authenticate")}}-Header enthält. Dieser Header gibt an, welche Authentifizierungsschemata zum Zugriff auf die Ressource verwendet werden können (und alle zusätzlichen Informationen, die der Client zur Verwendung benötigt). Der User-Agent sollte das sicherste Authentifizierungsschema auswählen, das er unterstützt, den Benutzer nach seinen Anmeldedaten fragen und dann die Ressource erneut anfordern (einschließlich der kodierten Anmeldedaten im **`Authorization`**-Header).
+Der **`Authorization`**-Header wird normalerweise, aber nicht immer, gesendet, nachdem der Benutzeragent zuerst versucht hat, eine geschützte Ressource ohne Anmeldeinformationen anzufordern. Der Server antwortet mit einer {{HTTPStatus("401")}} `Unauthorized`-Nachricht, die mindestens einen {{HTTPHeader("WWW-Authenticate")}}-Header enthält. Dieser Header gibt an, welche Authentifizierungsschemata verwendet werden können, um auf die Ressource zuzugreifen (und alle zusätzlichen Informationen, die der Client zur Verwendung benötigt). Der Benutzeragent sollte das sicherste Authentifizierungsschema, das er unterstützt, aus den angebotenen auswählen, den Benutzer nach seinen Anmeldeinformationen fragen und dann die Ressource erneut anfordern (unter Einschluss der codierten Anmeldeinformationen im **`Authorization`**-Header).
 
-Dieser Header wird bei Weiterleitungen über Ursprünge hinweg entfernt.
+Dieser Header wird bei Weiterleitungen über Domains hinweg entfernt.
 
 > [!NOTE]
-> Dieser Header ist Teil des [allgemeinen HTTP-Authentifizierungs-Frameworks](/de/docs/Web/HTTP/Authentication#the_general_http_authentication_framework).
+> Dieser Header ist Teil des [allgemeinen HTTP-Authentifizierungsrahmens](/de/docs/Web/HTTP/Authentication#the_general_http_authentication_framework).
 > Er kann mit einer Reihe von [Authentifizierungsschemata](/de/docs/Web/HTTP/Authentication#authentication_schemes) verwendet werden.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request header")}}</td>
+      <td>[Request header](/de/docs/Glossary/Request_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -36,7 +36,7 @@ Dieser Header wird bei Weiterleitungen über Ursprünge hinweg entfernt.
 Authorization: <auth-scheme> <authorization-parameters>
 ```
 
-Basis-Authentifizierung
+Basic-Authentifizierung
 
 ```http
 Authorization: Basic <credentials>
@@ -61,39 +61,40 @@ Authorization: Digest username=<username>,
 
 - `<auth-scheme>`
 
-  - : Das [Authentifizierungsschema](/de/docs/Web/HTTP/Authentication#authentication_schemes), das definiert, wie die Anmeldedaten kodiert sind.
-    Einige der häufigeren Typen sind (nicht Groß-/Kleinschreibungs-empfindlich): [`Basic`](/de/docs/Web/HTTP/Authentication#basic_authentication_scheme), `Digest`, `Negotiate` und `AWS4-HMAC-SHA256`.
+  - : Das [Authentifizierungsschema](/de/docs/Web/HTTP/Authentication#authentication_schemes), das definiert, wie die Anmeldeinformationen kodiert werden.
+    Einige der häufigeren Typen sind (nicht groß-/kleinschreibungssensitiv): [`Basic`](/de/docs/Web/HTTP/Authentication#basic_authentication_scheme), `Digest`, `Negotiate` und `AWS4-HMAC-SHA256`.
 
     > [!NOTE]
-    > Für weitere Informationen/Optionen siehe [HTTP-Authentifizierung > Authentifizierungsschemata](/de/docs/Web/HTTP/Authentication#authentication_schemes)
+    > Für weitere Informationen/Optionen siehe [HTTP Authentication > Authentication schemes](/de/docs/Web/HTTP/Authentication#authentication_schemes)
 
-Abgesehen von `<auth-scheme>` sind die restlichen Direktiven spezifisch für jedes [Authentifizierungsschema](/de/docs/Web/HTTP/Authentication#authentication_schemes). Im Allgemeinen müssen Sie die entsprechenden Spezifikationen dafür überprüfen (Schlüssel für einen kleinen Teil von Schemata sind unten aufgeführt).
+Neben dem `<auth-scheme>` sind die übrigen Direktiven spezifisch für jedes [Authentifizierungsschema](/de/docs/Web/HTTP/Authentication#authentication_schemes).
+In der Regel müssen Sie die entsprechende Spezifikation für diese überprüfen (Schlüssel für eine kleine Teilmenge von Schemata sind unten aufgeführt).
 
 ### Basic
 
 - \<credentials>
 
-  - : Die Anmeldedaten, kodiert gemäß dem angegebenen Schema.
+  - : Die Anmeldeinformationen, kodiert gemäß dem angegebenen Schema.
 
     > [!NOTE]
-    > Informationen zum Kodierungsalgorithmus finden Sie in den Beispielen: unten, in {{HTTPHeader("WWW-Authenticate")}}, in [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication) und in den entsprechenden Spezifikationen.
+    > Informationen über den Kodierungsalgorithmus finden Sie in den Beispielen: unten, in {{HTTPHeader("WWW-Authenticate")}}, in [HTTP Authentication](/de/docs/Web/HTTP/Authentication) und in den relevanten Spezifikationen.
 
 ### Digest
 
 - \<response>
-  - : Eine Zeichenkette der Hexadezimalziffern, die beweist, dass der Benutzer ein Passwort kennt.
-    Der Algorithmus kodiert den Benutzernamen und das Passwort, Realm, cnonce, qop, nc usw.
+  - : Eine Zeichenkette der Hexadezimalzahlen, die beweisen, dass der Benutzer ein Passwort kennt.
+    Der Algorithmus kodiert den Benutzernamen und das Passwort, den Bereich, `cnonce`, `qop`, `nc` und so weiter.
     Es ist detailliert in der Spezifikation beschrieben.
 - `username`
-  - : Eine zitierte Zeichenkette, die den Benutzernamen für das angegebene `realm` im Klartext oder als Hashcode in hexadezimaler Notation enthält.
-    Wenn der Name Zeichen enthält, die im Feld nicht erlaubt sind, kann stattdessen `username*` verwendet werden (nicht "sowie").
+  - : Eine in Anführungszeichen gesetzte Zeichenkette, die den Namen des Benutzers für die angegebene `realm` entweder im Klartext oder als Hashcode in hexadezimaler Notation enthält.
+    Wenn der Name Zeichen enthält, die im Feld nicht zulässig sind, kann stattdessen `username*` verwendet werden (nicht "as well").
 - `username*`
-  - : Der Benutzername, formatiert mit einer in RFC5987 definierten erweiterten Notation.
+  - : Der Benutzername formatiert mit einer erweiterten Notation, die in RFC5987 definiert ist.
     Dies sollte nur verwendet werden, wenn der Name nicht in `username` kodiert werden kann und wenn `userhash` auf `"false"` gesetzt ist.
 - `uri`
   - : Die _Effektive Anforderungs-URI_. Siehe die Spezifikation für weitere Informationen.
 - `realm`
-  - : Realm des angeforderten Benutzername/Passwort (sollte ebenfalls mit dem Wert in der entsprechenden {{HTTPHeader("WWW-Authenticate")}}-Antwort für die angeforderte Ressource übereinstimmen).
+  - : Bereich des angeforderten Benutzernamens/Passworts (sollte erneut mit dem Wert in der entsprechenden {{HTTPHeader("WWW-Authenticate")}}-Antwort für die angeforderte Ressource übereinstimmen).
 - `opaque`
   - : Der Wert in der entsprechenden {{HTTPHeader("WWW-Authenticate")}}-Antwort für die angeforderte Ressource.
 - `algorithm`
@@ -104,29 +105,29 @@ Abgesehen von `<auth-scheme>` sind die restlichen Direktiven spezifisch für jed
     - `"auth"`: Authentifizierung
     - `"auth-int"`: Authentifizierung mit Integritätsschutz
 - `cnonce`
-  - : Eine zitierte {{Glossary("ASCII")}}-Zeichenfolge, die vom Client bereitgestellt wird.
-    Diese wird sowohl vom Client als auch vom Server verwendet, um gegenseitige Authentifizierung bereitzustellen, Schutz der Nachrichtenintegrität zu bieten und "gewählte Klartextangriffe" zu vermeiden.
-    Weitere Informationen finden Sie in der Spezifikation.
+  - : Ein in Anführungszeichen gesetzter Wert ausschließlich in [ASCII](/de/docs/Glossary/ASCII), bereitgestellt vom Client.
+    Dies wird von beiden, dem Client und dem Server, verwendet, um gegenseitige Authentifizierung bereitzustellen, etwas Nachrichtenschutzauthentizität zu gewährleisten und "chosen plaintext attacks" zu verhindern.
+    Siehe die Spezifikation für zusätzliche Informationen.
 - `nc`
-  - : Nonce-Zähler. Der hexadezimale Zähler von Anfragen, bei denen der Client den aktuellen `cnonce`-Wert gesendet hat (einschließlich der aktuellen Anfrage).
+  - : Nonce-Zähler. Die hexadezimale Zählung der Anfragen, in denen der Client den aktuellen `cnonce`-Wert gesendet hat (einschließlich der aktuellen Anfrage).
     Der Server kann doppelte `nc`-Werte verwenden, um Wiederholungsanfragen zu erkennen.
 - `userhash` {{optional_inline}}
   - : `"true"`, wenn der Benutzername gehasht wurde. Standardmäßig `"false"`.
 
 ## Beispiele
 
-### Basis-Authentifizierung
+### Basic-Authentifizierung
 
-Für die `"Basic"`-Authentifizierung werden die Anmeldedaten konstruiert, indem zuerst der Benutzername und das Passwort mit einem Doppelpunkt kombiniert werden (`aladdin:opensesame`), und dann durch Kodierung der resultierenden Zeichenkette in [`base64`](/de/docs/Glossary/Base64) (`YWxhZGRpbjpvcGVuc2VzYW1l`).
+Für `"Basic"`-Authentifizierung werden die Anmeldeinformationen erstellt, indem zuerst der Benutzername und das Passwort mit einem Doppelpunkt kombiniert werden (`aladdin:opensesame`), und dann wird die resultierende Zeichenfolge in [`base64`](/de/docs/Glossary/Base64) kodiert (`YWxhZGRpbjpvcGVuc2VzYW1l`).
 
 ```http
 Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
 ```
 
-> **Warnung:** {{Glossary("Base64")}}-Kodierung kann leicht rückgängig gemacht werden, um den ursprünglichen Namen und das Passwort zu erhalten, sodass die Basis-Authentifizierung völlig unsicher ist.
-> {{Glossary("HTTPS")}} wird immer empfohlen, wenn Authentifizierung verwendet wird, aber noch mehr, wenn die `Basic`-Authentifizierung verwendet wird.
+> **Warnung:** [Base64](/de/docs/Glossary/Base64)-Kodierung kann leicht rückgängig gemacht werden, um den ursprünglichen Namen und das Passwort zu erhalten. Daher ist die Basic-Authentifizierung völlig unsicher.
+> [HTTPS](/de/docs/Glossary/HTTPS) wird bei der Verwendung der Authentifizierung immer empfohlen, insbesondere jedoch bei der Verwendung der `Basic`-Authentifizierung.
 
-Siehe auch [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication) für Beispiele, wie Apache- oder Nginx-Server konfiguriert werden, um Ihre Website mit HTTP-Basis-Authentifizierung kennwortzuschützen.
+Siehe auch [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication) für Beispiele, wie Sie Apache- oder Nginx-Server konfigurieren, um Ihre Website mit der HTTP-Basis-Authentifizierung passwortzuschützen.
 
 ## Spezifikationen
 

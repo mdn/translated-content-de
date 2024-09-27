@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der **`Repr-Digest`** Antwort- oder Anfrage-Header bietet einen {{Glossary("digest")}} der [ausgewählten Repräsentation](https://www.rfc-editor.org/rfc/rfc9110#section-6.4) der Zielressource. Er bleibt unverändert unter anderem durch {{HTTPHeader("Content-Encoding")}} oder {{HTTPHeader("Content-Range")}}, die den {{HTTPHeader("Content-Digest")}} beeinflussen. Darüber hinaus kann durch [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation) eine unterschiedliche ausgewählte Repräsentation mit unterschiedlichen Repräsentations-Digests resultieren.
+Der **`Repr-Digest`** Antwort- oder Anfrage-Header stellt einen [Digest](/de/docs/Glossary/digest) der [ausgewählten Repräsentation](https://www.rfc-editor.org/rfc/rfc9110#section-6.4) der Zielressource bereit. Er ist unveränderlich unter z.B. {{HTTPHeader("Content-Encoding")}} oder {{HTTPHeader("Content-Range")}}, die den {{HTTPHeader("Content-Digest")}} beeinflussen. Darüber hinaus kann [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation) zu unterschiedlichen ausgewählten Repräsentationen mit unterschiedlichen Repräsentations-Digests führen.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Representation header")}}</td>
+      <td>[Repräsentations-Header](/de/docs/Glossary/Representation_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -24,26 +24,26 @@ Der **`Repr-Digest`** Antwort- oder Anfrage-Header bietet einen {{Glossary("dige
 
 ## Syntax
 
-`Repr-Digest` beschreibt einen [RFC8941-Dictionary](https://www.rfc-editor.org/rfc/rfc8941#section-3.2), dessen Schlüssel die Namen der Digest-Algorithmen sind und dessen Werte der Digest in Bytes (oder ein ganzzahliger Digest für ältere Digest-Algorithmen) sind.
+`Repr-Digest` beschreibt ein [RFC8941-Wörterbuch](https://www.rfc-editor.org/rfc/rfc8941#section-3.2) mit seinen Schlüsseln als Namen von Digest-Algorithmen und seinen Werten als Digest in Bytes (oder ein ganzzahliger Digest für ältere Digest-Algorithmen).
 
 > [!NOTE]
-> Im Gegensatz zu früheren Entwürfen der Spezifikation sind die standardmäßig base-64-codierten Digest-Bytes in Doppelpunkte (`:`, ASCII 0x3A) eingeschlossen als Teil der [Dictionary-Syntax](https://www.rfc-editor.org/rfc/rfc8941#name-byte-sequences).
+> Im Gegensatz zu früheren Entwürfen der Spezifikation sind die standard-base64-kodierten Digest-Bytes in Doppelpunkte (`:`, ASCII 0x3A) gehüllt, als Teil der [Wörterbuch-Syntax](https://www.rfc-editor.org/rfc/rfc8941#name-byte-sequences).
 
 ## Direktiven
 
 ### Digest-Algorithmen
 
-Derzeit sind nur zwei Digest-Algorithmen registriert und nicht als unsicher eingestuft: `sha-512` und `sha-256`.
+Nur zwei Digest-Algorithmen sind derzeit registriert und nicht als unsicher angesehen: `sha-512` und `sha-256`.
 
 Die registrierten unsicheren Digest-Algorithmen sind: `md5`, `sha` (SHA-1), `unixsum`, `unixcksum`, `adler` (ADLER32) und `crc32c`.
 
-Die Verwendung von Digest-Algorithmen, die als unsicher gelten, wird nicht empfohlen, da Kollisionen realistisch erzwungen werden können, was die Nützlichkeit des Digest schwächt. Außer bei Arbeiten mit Altsystemen (was unwahrscheinlich ist, da die meisten das ältere {{HTTPHeader("Digest")}} Header erwarten und diese Spezifikation nicht verstehen), sollten Sie erwägen, keinen `Repr-Digest` zu senden, anstatt einen mit einem unsicheren Digest-Algorithmus zu verwenden.
+Die Verwendung von Digest-Algorithmen, die als unsicher gelten, wird nicht empfohlen, da Kollisionen realistisch erzwungen werden können, wodurch die Nützlichkeit des Digests geschwächt wird. Wenn Sie nicht mit Altsystemen arbeiten (was unwahrscheinlich ist, da die meisten erwarten, dass der alte {{HTTPHeader("Digest")}} Header verwendet wird und diese Spezifikation nicht verstehen), sollten Sie erwägen, keinen `Repr-Digest` zu senden, anstatt einen unsicheren Digest-Algorithmus zu verwenden.
 
 ## Beispiele
 
 ### HTTP-Antwort, bei der `Repr-Digest` und `Content-Digest` übereinstimmen
 
-Ein HTTP-Server kann Inhalts-Octets senden, die den Octets der ausgewählten Repräsentation entsprechen:
+Ein HTTP-Server kann Inhaltsoktette senden, die den Oktetten der ausgewählten Repräsentation entsprechen:
 
 ```http
 ...
@@ -59,7 +59,7 @@ Content-Range: 0-38053/38054
 
 ### HTTP-Antworten, bei denen `Repr-Digest` und `Content-Digest` abweichen
 
-Ein statischer Dateiserver kann jedoch eine HTML-Seite komprimieren, was zu unterschiedlichen Werten der {{HTTPHeader("Content-Digest")}} und `Repr-Digest` Header führt:
+Ein statischer Dateiserver kann jedoch eine HTML-Seite komprimieren, was zu unterschiedlichen {{HTTPHeader("Content-Digest")}} und `Repr-Digest` Header-Werten führt:
 
 ```http
 ...
@@ -85,7 +85,7 @@ Content-Encoding: deflate, deflate, deflate
 ...
 ```
 
-### Erfolgreicher HTTP-Anfrage-Antwort-Zyklus unter Verwendung von `Want-Repr-Digest`, `Repr-Digest` und `Content-Digest`
+### Erfolgreiche HTTP-Anfrage-Antwort unter Verwendung von `Want-Repr-Digest`, `Repr-Digest` und `Content-Digest`
 
 ```http
 PUT /api/transact HTTP/1.1
@@ -102,7 +102,7 @@ Content-Digest: sha-256=:2IBI7hQn83oTCgB3Z/6apOl91WGoctRfRj/F9gkvVo8=:
 ...
 ```
 
-### Erfolgslose HTTP-Anfrage-Antwort unter Verwendung von `Repr-Digest`
+### Fehlgeschlagene HTTP-Anfrage-Antwort unter Verwendung von `Repr-Digest`
 
 ```http
 GET /api/last-transaction HTTP/1.1
@@ -121,7 +121,7 @@ Repr-Digest: sha-256=:W8oN3H3CmE/CBpV6ZPNozV2AIDzzQpWL7CCOXyDyDzI=:
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

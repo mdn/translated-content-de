@@ -9,16 +9,9 @@ l10n:
 {{APIRef("Background Tasks")}}
 
 Die **`timeRemaining()`**-Methode
-der {{domxref("IdleDeadline")}}-Schnittstelle gibt die geschätzte Anzahl von
-verbleibenden Millisekunden in der aktuellen Leerlaufperiode zurück. Der Callback kann diese Methode
-jederzeit aufrufen, um festzustellen, wie lange er noch arbeiten kann, bevor er zurückkehren muss. Zum
-Beispiel kann der Callback, wenn er eine Aufgabe beendet hat und eine weitere beginnen möchte,
-`timeRemaining()` aufrufen, um zu sehen, ob genügend Zeit vorhanden ist, um die nächste Aufgabe zu
-beenden. Falls nicht, kann der Callback entweder sofort zurückkehren oder eine andere Aufgabe
-suchen, die in der verbleibenden Zeit erledigt werden kann.
+der [`IdleDeadline`](/de/docs/Web/API/IdleDeadline)-Schnittstelle gibt die geschätzte Anzahl von Millisekunden zurück, die in der aktuellen untätigen Periode verbleiben. Der Rückruf kann diese Methode jederzeit aufrufen, um festzustellen, wie viel Zeit er noch hat, bevor er zurückkehren muss. Zum Beispiel: Wenn der Rückruf eine Aufgabe beendet hat und eine neue starten möchte, kann er `timeRemaining()` aufrufen, um zu prüfen, ob genügend Zeit vorhanden ist, die nächste Aufgabe abzuschließen. Wenn es nicht genügend Zeit gibt, kann der Rückruf einfach sofort zurückkehren oder nach anderen Aufgaben suchen, die er in der verbleibenden Zeit erledigen kann.
 
-Sobald `timeRemaining()` den Wert 0 erreicht, wird empfohlen, dass der Callback die Kontrolle
-an die Ereignisschleife des Benutzeragenten zurückgibt.
+Sobald `timeRemaining()` 0 erreicht, wird empfohlen, dass der Rückruf die Kontrolle an die Ereignisschleife des Benutzeragenten zurückgibt.
 
 ## Syntax
 
@@ -32,17 +25,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("DOMHighResTimeStamp")}}-Wert (der eine Fließkommazahl ist),
-der die Anzahl von Millisekunden darstellt, die der Benutzeragent als verbleibend in der aktuellen
-Leerlaufperiode schätzt. Der Wert ist idealerweise auf etwa 5 Mikrosekunden genau.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert (eine Gleitkommazahl),
+der die Anzahl von Millisekunden darstellt, die der Benutzeragent schätzt, dass in der aktuellen
+untätigen Periode verbleiben. Der Wert ist idealerweise auf etwa 5 Mikrosekunden genau.
 
-Wenn die {{domxref("IdleDeadline")}}-Objekteigenschaft {{domxref("IdleDeadline.didTimeout", "didTimeout")}}
-wahr ist, gibt diese Methode null zurück.
+Wenn die [`didTimeout`](/de/docs/Web/API/IdleDeadline/didTimeout)-Eigenschaft des [`IdleDeadline`](/de/docs/Web/API/IdleDeadline)-Objekts wahr ist, gibt diese Methode null zurück.
 
 ## Beispiele
 
-Siehe unser [vollständiges Beispiel](/de/docs/Web/API/Background_Tasks_API#example)
-im Artikel [Kooperative Terminplanung für Hintergrundaufgaben API](/de/docs/Web/API/Background_Tasks_API).
+Sehen Sie sich unser [vollständiges Beispiel](/de/docs/Web/API/Background_Tasks_API#example)
+im Artikel [Kooperative Planung von Hintergrundaufgaben API](/de/docs/Web/API/Background_Tasks_API) an.
 
 ## Spezifikationen
 
@@ -54,7 +46,7 @@ im Artikel [Kooperative Terminplanung für Hintergrundaufgaben API](/de/docs/Web
 
 ## Siehe auch
 
-- [Kooperative Terminplanung für Hintergrundaufgaben](/de/docs/Web/API/Background_Tasks_API)
-- {{domxref("IdleDeadline")}}
-- {{domxref("Window.requestIdleCallback()")}}
-- {{domxref("Window.cancelIdleCallback()")}}
+- [Kooperative Planung von Hintergrundaufgaben](/de/docs/Web/API/Background_Tasks_API)
+- [`IdleDeadline`](/de/docs/Web/API/IdleDeadline)
+- [`Window.requestIdleCallback()`](/de/docs/Web/API/Window/requestIdleCallback)
+- [`Window.cancelIdleCallback()`](/de/docs/Web/API/Window/cancelIdleCallback)

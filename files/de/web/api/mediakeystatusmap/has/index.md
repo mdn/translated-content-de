@@ -1,5 +1,5 @@
 ---
-title: "MediaKeyStatusMap: has()-Methode"
+title: "MediaKeyStatusMap: has() Methode"
 short-title: has()
 slug: Web/API/MediaKeyStatusMap/has
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`has()`**-Methode des {{domxref("MediaKeyStatusMap")}}-Interfaces gibt einen {{jsxref('Boolean')}} zurück, welcher angibt, ob ein Wert mit dem angegebenen Schlüssel verknüpft wurde.
+Die **`has()`**-Methode der
+[`MediaKeyStatusMap`](/de/docs/Web/API/MediaKeyStatusMap) Schnittstelle gibt ein {{jsxref('Boolean')}} zurück, das angibt, ob ein Wert mit dem angegebenen Schlüssel verknüpft wurde.
 
 ## Syntax
 
@@ -19,7 +20,7 @@ has(key)
 ### Parameter
 
 - `key`
-  - : Der Schlüssel, dessen Wert Sie zurückgegeben haben möchten.
+  - : Der Schlüssel, dessen Wert Sie zurückgegeben haben möchten
 
 ### Rückgabewert
 

@@ -7,22 +7,22 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<map>`** [HTML](/de/docs/Web/HTML)-Element wird zusammen mit {{HTMLElement("area")}}-Elementen verwendet, um eine Image Map (ein anklickbarer Linkbereich) zu definieren.
+Das **`<map>`** [HTML](/de/docs/Web/HTML)-Element wird zusammen mit {{HTMLElement("area")}}-Elementen verwendet, um eine Image Map (einen klickbaren Linkbereich) zu definieren.
 
 {{EmbedInteractiveExample("pages/tabbed/map.html", "tabbed-standard")}}
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `name`
-  - : Das `name`-Attribut gibt der Karte einen Namen, sodass sie referenziert werden kann. Das Attribut muss vorhanden sein und einen nicht-leeren Wert ohne Leerzeichen enthalten. Der Wert des `name`-Attributs darf nicht gleich dem Wert des `name`-Attributs eines anderen `<map>`-Elements im selben Dokument sein. Wenn auch das [`id`](/de/docs/Web/HTML/Global_attributes#id)-Attribut angegeben ist, müssen beide Attribute denselben Wert haben.
+  - : Das `name`-Attribut verleiht der Karte einen Namen, sodass sie referenziert werden kann. Das Attribut muss vorhanden sein und einen nicht-leeren Wert ohne Leerzeichenzeichen enthalten. Der Wert des `name`-Attributs darf nicht dem Wert des `name`-Attributs eines anderen `<map>`-Elements im selben Dokument entsprechen. Wenn auch das [`id`](/de/docs/Web/HTML/Global_attributes#id)-Attribut angegeben ist, müssen beide Attribute denselben Wert haben.
 
 ## Beispiele
 
 ### Image Map mit zwei Bereichen
 
-Klicken Sie auf den linken Papagei für JavaScript oder auf den rechten Papagei für CSS.
+Klicken Sie auf den linken Papagei für JavaScript oder den rechten Papagei für CSS.
 
 #### HTML
 
@@ -45,7 +45,7 @@ Klicken Sie auf den linken Papagei für JavaScript oder auf den rechten Papagei 
 <img
   usemap="#primary"
   src="parrots.jpg"
-  alt="350 x 150 Bild von zwei Papageien" />
+  alt="350 x 150 picture of two parrots" />
 ```
 
 #### Ergebnis
@@ -59,13 +59,16 @@ Klicken Sie auf den linken Papagei für JavaScript oder auf den rechten Papagei 
     <tr>
       <th scope="row">
         <a href="/de/docs/Web/HTML/Content_categories"
-        >Inhaltskategorien</a>
+          >Inhaltskategorien</a
+        >
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-        >Flow-Inhalt</a>,
+          >Flussinhalt</a
+        >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-        >Phrasen-Inhalt</a>, fühlbarer Inhalt.
+          >Phraseninhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
@@ -74,27 +77,31 @@ Klicken Sie auf den linken Papagei für JavaScript oder auf den rechten Papagei 
         Jedes
         <a
           href="/de/docs/Web/HTML/Content_categories#transparent_content_model"
-        >transparentes</a>
+          >transparent</a
+        >
         Element.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das öffnende als auch das schließende Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern-Elemente</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-        >Phrasen-Inhalt</a> akzeptiert.
+          >Phraseninhalt</a
+        >
+        akzeptiert.
       </td>
     </tr>
     <tr>
       <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
-        >Keine entsprechende Rolle</a>
+          >Keine entsprechende Rolle</a
+        >
       </td>
     </tr>
     <tr>
@@ -103,7 +110,7 @@ Klicken Sie auf den linken Papagei für JavaScript oder auf den rechten Papagei 
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLMapElement")}}</td>
+      <td>[`HTMLMapElement`](/de/docs/Web/API/HTMLMapElement)</td>
     </tr>
   </tbody>
 </table>

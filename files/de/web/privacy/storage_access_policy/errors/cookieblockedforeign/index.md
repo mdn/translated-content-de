@@ -1,5 +1,5 @@
 ---
-title: "Blockiert: Alle Zugriffsanfragen auf Drittanbieter-Speicher"
+title: "Blockiert: Alle Anfragen auf Zugriff auf Drittanbieter-Speicher"
 slug: Web/Privacy/Storage_Access_Policy/Errors/CookieBlockedForeign
 l10n:
   sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
@@ -17,15 +17,15 @@ CookieBlockedForeign=Request to access cookies or storage on "X" was blocked bec
 
 ## Was ist schiefgelaufen?
 
-Eine Anfrage zum Zugriff auf Cookies oder Speicher wurde blockiert, da sie von einem Drittanbieter (einem anderen Ursprung) kam und das Inhaltsblockieren aktiviert ist.
+Eine Anfrage zum Zugriff auf Cookies oder Speicher wurde blockiert, weil sie von einem Drittanbieter (einem anderen Ursprung) kam und Inhaltsblockierung aktiviert ist.
 
 Die Berechtigung kann geändert oder entfernt werden durch:
 
-- Aufrufen von _Einstellungen > Inhaltsblockierung_ und entweder
-- Hinzufügen einer Ausnahme mit der Schaltfläche _Ausnahmen verwalten_...
-- die _Benutzerdefinierte_ Inhaltsblockierung wählen und das Kontrollkästchen _Cookies_ deaktivieren
+- Gehen zu _Einstellungen > Inhaltsblockierung_ und entweder
+- eine Ausnahme hinzufügen mit dem Button _Ausnahmen verwalten_…
+- die _Benutzerdefinierte_ Inhaltsblockierung wählen und das Kontrollkästchen _Cookies_ abwählen
 
-Wenn die blockierte Ressource keine Authentifizierung benötigt, können Sie die Warnmeldung beheben, indem Sie dem betreffenden Element ein `crossorigin="anonymous"` Attribut hinzufügen.
+Wenn die Ressource, die blockiert wird, keine Authentifizierung benötigt, können Sie die Warnmeldung beheben, indem Sie ein `crossorigin="anonymous"` Attribut zum relevanten Element hinzufügen.
 
 ## Siehe auch
 

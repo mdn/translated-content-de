@@ -1,5 +1,5 @@
 ---
-title: Wahrhaftig
+title: Truthy
 slug: Glossary/Truthy
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-In {{Glossary("JavaScript")}} ist ein **wahrhaftiger** Wert ein Wert, der als `true` betrachtet wird, wenn er in einem {{Glossary("Boolean")}} Kontext vorkommt. Alle Werte sind wahrhaftig, es sei denn, sie sind als {{Glossary("Falsy", "falsy")}} definiert. Das heißt, alle Werte sind _wahrhaftig_ außer `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, `NaN` und {{domxref("document.all")}}.
+In [JavaScript](/de/docs/Glossary/JavaScript) wird ein **truthy** Wert als `true` angesehen, wenn er in einem [Boolean](/de/docs/Glossary/Boolean)-Kontext auftritt. Alle Werte sind truthy, es sei denn, sie sind als [falsy](/de/docs/Glossary/Falsy) definiert. Das bedeutet, alle Werte sind _truthy_ außer `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, `NaN` und [`document.all`](/de/docs/Web/API/Document/all).
 
-{{Glossary("JavaScript")}} verwendet {{Glossary("Type_Coercion", "Typumwandlung")}} in Booleschen Kontexten.
+[JavaScript](/de/docs/Glossary/JavaScript) verwendet [Type Coercion](/de/docs/Glossary/Type_Coercion) in booleschen Kontexten.
 
-Beispiele für _wahrhaftige_ Werte in JavaScript (die in booleschen Kontexten zu `true` umgewandelt werden und somit den `if` Block ausführen):
+Beispiele für _truthy_ Werte in JavaScript (die in booleschen Kontexten zu `true` umgewandelt werden und somit den `if` Block ausführen):
 
 ```js
 if (true)
@@ -31,20 +31,20 @@ if (-Infinity)
 
 ### Der logische UND-Operator, &&
 
-Wenn der erste Operand wahrhaftig ist, gibt der [logische UND-Operator](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) den zweiten Operand zurück:
+Wenn der erste Operand truthy ist, gibt der [logische UND-Operator](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) den zweiten Operand zurück:
 
 ```js
 true && "dog"
-// gibt "dog" zurück
+// returns "dog"
 
 [] && "dog"
-// gibt "dog" zurück
+// returns "dog"
 ```
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Falsy")}}
-  - {{Glossary("Type_Coercion", "Typumwandlung")}}
-  - {{Glossary("Boolean")}}
-- [Boolesche Umwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion)
+  - [Falsy](/de/docs/Glossary/Falsy)
+  - [Type Coercion](/de/docs/Glossary/Type_Coercion)
+  - [Boolean](/de/docs/Glossary/Boolean)
+- [Boolean Coercion](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion)

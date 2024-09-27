@@ -1,5 +1,5 @@
 ---
-title: "PositionSensorVRDevice: getState()-Methode"
+title: "PositionSensorVRDevice: Methode getState()"
 short-title: getState()
 slug: Web/API/PositionSensorVRDevice/getState
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{deprecated_header}}{{APIRef("WebVR API")}}{{Non-standard_header}}
 
-Die **`getState()`**-Methode der {{domxref("PositionSensorVRDevice")}}-Schnittstelle gibt den aktuellen Zustand des Positionssensors für den aktuellen Frame zurück (z. B. innerhalb des aktuellen {{domxref("window.requestAnimationFrame")}}-Callbacks) oder für den vorherigen Frame, enthalten in einem {{domxref("VRPose")}}-Objekt. Dies ist die Methode, die Sie normalerweise verwenden möchten, im Gegensatz zu {{domxref("PositionSensorVRDevice.getImmediateState")}}.
+Die **`getState()`**-Methode des [`PositionSensorVRDevice`](/de/docs/Web/API/PositionSensorVRDevice)-Interfaces gibt den aktuellen Zustand des Positionssensors für den aktuellen Frame zurück (z.B. innerhalb des aktuellen [`window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)-Callbacks) oder für den vorherigen Frame, enthalten in einem [`VRPose`](/de/docs/Web/API/VRPose)-Objekt. Dies ist die Methode, die Sie normalerweise verwenden möchten, im Vergleich zu [`PositionSensorVRDevice.getImmediateState`](/de/docs/Web/API/PositionSensorVRDevice/getImmediateState).
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("VRPose")}}-Objekt.
+Ein [`VRPose`](/de/docs/Web/API/VRPose)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet die WebVR API, um die Ansicht einer einfachen {{domxref("CanvasRenderingContext2D")}}-Szene in jedem Frame einer {{domxref("window.requestAnimationFrame()","requestAnimationFrame")}}-Schleife zu aktualisieren.
+Das folgende Beispiel verwendet die WebVR API, um die Ansicht einer einfachen [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Szene in jedem Frame einer [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame)-Schleife zu aktualisieren.
 
 ```js
 function setView() {
@@ -53,9 +53,9 @@ function setView() {
 }
 ```
 
-Hier erfassen wir ein {{domxref("VRPose")}}-Objekt mit `getState()` und speichern es in `posState`. Wir überprüfen dann, ob Positions- und Orientierungsinformationen im aktuellen Frame vorhanden sind, indem wir {{domxref("VRPose.position")}} und {{domxref("VRPose.orientation")}} verwenden (diese geben `null` zurück, wenn beispielsweise das Head-Mounted Display ausgeschaltet oder nicht auf den Positionssensor gerichtet ist, was einen Fehler verursachen würde).
+Hier holen wir ein [`VRPose`](/de/docs/Web/API/VRPose)-Objekt mit `getState()` und speichern es in `posState`. Wir prüfen dann, ob Positions- und Orientierungsinformationen im aktuellen Frame vorhanden sind, indem wir [`VRPose.position`](/de/docs/Web/API/VRPose/position) und [`VRPose.orientation`](/de/docs/Web/API/VRPose/orientation) verwenden (diese geben `null` zurück, wenn zum Beispiel das Head-Mounted-Display ausgeschaltet ist oder nicht auf den Positionssensor zeigt, was einen Fehler verursachen würde.)
 
-Wir geben dann die x-, y- und z-Positions- sowie Orientierungswerte zu Informationszwecken aus und verwenden diese Werte, um die Variablen `xPos`, `yPos`, `zPos`, `xOrient`, `yOrient` und `zOrient` zu aktualisieren, die zur Aktualisierung der Szene-Rendering in jedem Frame verwendet werden.
+Anschließend geben wir die x-, y- und z-Position und -Orientierungswerte zu Informationszwecken aus und verwenden diese Werte, um die Variablen `xPos`, `yPos`, `zPos`, `xOrient`, `yOrient` und `zOrient` zu aktualisieren, die zur Aktualisierung der Szenenrendering in jedem Frame verwendet werden.
 
 ## Browser-Kompatibilität
 

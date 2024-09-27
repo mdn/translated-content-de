@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`EXT_disjoint_timer_query.queryCounterEXT()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) zeichnet die aktuelle Zeit in das entsprechende Abfrageobjekt auf.
+Die **`EXT_disjoint_timer_query.queryCounterEXT()`**-Methode der
+[WebGL API](/de/docs/Web/API/WebGL_API) zeichnet die aktuelle Zeit im entsprechenden Query-Objekt auf.
 
 ## Syntax
 
@@ -19,9 +20,10 @@ queryCounterEXT(query, target)
 ### Parameter
 
 - `query`
-  - : Ein {{domxref("WebGLQuery")}}-Objekt, für das die aktuelle Zeit aufgezeichnet werden soll.
+  - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt, für das die aktuelle Zeit aufgezeichnet werden soll.
 - `target`
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der das Ziel der Zeitabfrage angibt. Muss `ext.TIMESTAMP_EXT` sein.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel der Zeitabfrage angibt. Muss
+    `ext.TIMESTAMP_EXT` sein.
 
 ### Rückgabewert
 
@@ -50,6 +52,6 @@ ext.queryCounterEXT(endQuery, ext.TIMESTAMP_EXT);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLQuery")}}
-- {{domxref("EXT_disjoint_timer_query")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)
+- [`EXT_disjoint_timer_query`](/de/docs/Web/API/EXT_disjoint_timer_query)

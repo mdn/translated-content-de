@@ -7,10 +7,10 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein Slug ist der eindeutige identifizierende Teil einer Webadresse, typischerweise am Ende der URL. Im Kontext von MDN ist es der Teil der URL, der auf "_\<locale>/docs/_" folgt.
+Ein Slug ist der eindeutig identifizierende Teil einer Webadresse, typischerweise am Ende der URL. Im Kontext von MDN ist es der Abschnitt der URL nach "_\<locale>/docs/_".
 
-Es kann auch nur die letzte Komponente sein, wenn ein neues Dokument unter einem übergeordneten Dokument erstellt wird; zum Beispiel ist der Slug dieser Seite `Glossary/Slug`.
+Es kann auch einfach die letzte Komponente sein, wenn ein neues Dokument unter einem übergeordneten Dokument erstellt wird; zum Beispiel ist der Slug dieser Seite `Glossary/Slug`.
 
 ## Siehe auch
 
-- [Wählen von Titeln und Slugs](/de/docs/MDN/Writing_guidelines/Writing_style_guide#slugs)
+- [Titel und Slugs auswählen](/de/docs/MDN/Writing_guidelines/Writing_style_guide#slugs)

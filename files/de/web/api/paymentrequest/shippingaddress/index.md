@@ -1,5 +1,5 @@
 ---
-title: "PaymentRequest: Eigenschaft shippingAddress"
+title: "PaymentRequest: shippingAddress-Eigenschaft"
 short-title: shippingAddress
 slug: Web/API/PaymentRequest/shippingAddress
 l10n:
@@ -8,27 +8,19 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}{{Deprecated_header}}{{Non-standard_header}}
 
-Die **`shippingAddress`** schreibgeschützte Eigenschaft des
-{{domxref('PaymentRequest')}}-Interfaces gibt die vom Benutzer angegebene Lieferadresse zurück. Sie ist standardmäßig `null`.
+Die **`shippingAddress`** schreibgeschützte Eigenschaft des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Interfaces gibt die vom Benutzer angegebene Lieferadresse zurück. Standardmäßig ist sie `null`.
 
 ## Wert
 
 ## Beispiele
 
-Im Allgemeinen wird der Wert der Eigenschaft `shippingAddress` vom Benutzeragenten ausgefüllt.
-Sie können dies auslösen, indem Sie
-`options.requestShipping` auf `true` setzen, wenn Sie den
-`PaymentRequest`-Konstruktor aufrufen.
+In der Regel wird der Benutzeragent den Wert der `shippingAddress`-Eigenschaft ausfüllen. Sie können dies auslösen, indem Sie `options.requestShipping` auf `true` setzen, wenn Sie den `PaymentRequest`-Konstruktor aufrufen.
 
-Im untenstehenden Beispiel variieren die Versandkosten je nach geografischer Lage. Wenn das
-{{domxref('PaymentRequest.shippingaddresschange_event', 'shippingaddresschange')}}-Ereignis
-aufgerufen wird, wird `updateDetails()` aufgerufen, um die Details des
-`PaymentRequest` zu aktualisieren, wobei `shippingAddress` verwendet wird, um die korrekten
-Versandkosten festzulegen.
+Im folgenden Beispiel variiert die Versandkosten je nach Geographie. Wenn das [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event) Ereignis aufgerufen wird, wird `updateDetails()` aufgerufen, um die Details des `PaymentRequest` zu aktualisieren, wobei `shippingAddress` verwendet wird, um die korrekten Versandkosten festzulegen.
 
 ```js
-// Die Initialisierung der PaymentRequest-Argumente ist der Kürze halber
-//   ausgeschrieben.
+// Initialization of PaymentRequest arguments are excerpted for the sake of
+//   brevity.
 const payment = new PaymentRequest(supportedInstruments, details, options);
 
 payment.addEventListener("shippingaddresschange", (evt) => {
@@ -42,7 +34,7 @@ payment.addEventListener("shippingaddresschange", (evt) => {
 payment
   .show()
   .then((paymentResponse) => {
-    // Verarbeitung von paymentResponse ist der Kürze halber ausgeschrieben.
+    // Processing of paymentResponse excerpted for brevity.
   })
   .catch((err) => {
     console.error("Uh oh, something bad happened", err.message);
@@ -58,11 +50,11 @@ function updateDetails(details, shippingAddress, resolve) {
     };
     if (shippingAddress.region === "MO") {
       shippingOption.id = "mo";
-      shippingOption.label = "Kostenloser Versand in Missouri";
+      shippingOption.label = "Free shipping in Missouri";
       details.total.amount.value = "55.00";
     } else {
       shippingOption.id = "us";
-      shippingOption.label = "Standardversand in den USA";
+      shippingOption.label = "Standard shipping in US";
       shippingOption.amount.value = "5.00";
       details.total.amount.value = "60.00";
     }

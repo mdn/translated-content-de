@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLSelectElement.remove()`**-Methode entfernt das Element an dem angegebenen Index aus der Optionssammlung dieses Auswahl-Elements.
+Die **`HTMLSelectElement.remove()`**-Methode entfernt das Element am angegebenen Index aus der Optionssammlung dieses Auswahl-Elements.
 
 ## Syntax
 
@@ -19,8 +19,7 @@ remove(index)
 ### Parameter
 
 - `index`
-  - : Ein null-basierter ganzzahliger Index des {{ domxref("HTMLOptionElement") }},
-    das aus der Sammlung entfernt werden soll. Wenn der Index nicht gefunden wird, hat die Methode keine Wirkung.
+  - : Ein nullbasierter Ganzzahlwert für den Index des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement), das aus der Sammlung entfernt werden soll. Wenn der Index nicht gefunden wird, hat die Methode keine Auswirkung.
 
 ### Rückgabewert
 
@@ -30,9 +29,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ```html
 <select id="existingList" name="existingList">
-  <option value="1">Option: Wert 1</option>
-  <option value="2">Option: Wert 2</option>
-  <option value="3">Option: Wert 3</option>
+  <option value="1">Option: Value 1</option>
+  <option value="2">Option: Value 2</option>
+  <option value="3">Option: Value 3</option>
 </select>
 ```
 
@@ -45,8 +44,8 @@ HTML ist jetzt:
 
 ```html
 <select id="existingList" name="existingList">
-  <option value="1">Option: Wert 1</option>
-  <option value="3">Option: Wert 3</option>
+  <option value="1">Option: Value 1</option>
+  <option value="3">Option: Value 3</option>
 </select>
 ```
 
@@ -60,5 +59,5 @@ HTML ist jetzt:
 
 ## Siehe auch
 
-- {{ domxref("Element.remove") }}, die Methode, die aufgerufen wird, wenn remove ohne Argumente auf einem {{ domxref("HTMLSelectElement") }} aufgerufen wird.
-- {{domxref("HTMLSelectElement") }}, das sie implementiert.
+- [`Element.remove`](/de/docs/Web/API/Element/remove), die Methode, die aufgerufen wird, wenn `remove` ohne Argumente auf ein [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) angewendet wird.
+- [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement), das diese Methode implementiert.

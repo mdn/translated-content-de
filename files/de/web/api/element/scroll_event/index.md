@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das **`scroll`**-Ereignis wird ausgelöst, wenn ein Element gescrollt wird.
-Um zu erkennen, wann das Scrollen abgeschlossen ist, siehe das {{domxref("Element/scrollend_event", "scrollend")}}-Ereignis von `Element`.
+Das **`scroll`**-Ereignis wird ausgelöst, wenn ein Element gescrollt wurde. Um zu erkennen, wann das Scrollen abgeschlossen ist, siehe das [`scrollend`](/de/docs/Web/API/Element/scrollend_event)-Ereignis des `Element`.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("scroll", (event) => {});
@@ -21,17 +20,15 @@ addEventListener("scroll", (event) => {});
 onscroll = (event) => {};
 ```
 
-## Ereignistyp
+## Eventtyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen, wie das `scroll`-Ereignis mit einem Ereignis-Listener und mit der `onscroll`-Ereignis-Handler-Eigenschaft verwendet wird.
-Die Methode {{DOMxRef("setTimeout()")}} wird verwendet, um den Ereignis-Handler zu {{glossary("throttle")}}, da `scroll`-Ereignisse mit hoher Geschwindigkeit ausgelöst werden können.
-Für zusätzliche Beispiele, die {{DOMxRef("Window.requestAnimationFrame()", "requestAnimationFrame()")}} verwenden, siehe die `Document` {{domxref("Document/scroll_event", "scroll")}}-Ereignisseite.
+Die folgenden Beispiele zeigen, wie das `scroll`-Ereignis mit einem Ereignis-Listener und mit der `onscroll`-Ereignis-Handler-Eigenschaft verwendet wird. Die [`setTimeout()`](/de/docs/Web/API/SetTimeout)-Methode wird verwendet, um den Ereignis-Handler zu [drosseln](/de/docs/Glossary/throttle), da `scroll`-Ereignisse mit hoher Rate ausgelöst werden können. Für zusätzliche Beispiele, die [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) verwenden, siehe die `Document`-[`scroll`](/de/docs/Web/API/Document/scroll_event)-Ereignis-Seite.
 
-### Verwendung von `scroll` mit einem Event Listener
+### Verwendung von `scroll` mit einem Ereignis-Listener
 
 Das folgende Beispiel zeigt, wie das `scroll`-Ereignis verwendet wird, um zu erkennen, wann der Benutzer in einem Element scrollt:
 
@@ -39,9 +36,9 @@ Das folgende Beispiel zeigt, wie das `scroll`-Ereignis verwendet wird, um zu erk
 <div
   id="scroll-box"
   style="overflow: scroll; height: 100px; width: 100px; float: left;">
-  <p style="height: 200px; width: 200px;">Scrollen Sie mich!</p>
+  <p style="height: 200px; width: 200px;">Scroll me!</p>
 </div>
-<p style="text-align: center;" id="output">Warten auf Scroll-Ereignisse...</p>
+<p style="text-align: center;" id="output">Waiting on scroll events...</p>
 ```
 
 ```js
@@ -49,9 +46,9 @@ const element = document.querySelector("div#scroll-box");
 const output = document.querySelector("p#output");
 
 element.addEventListener("scroll", (event) => {
-  output.textContent = "Scroll-Ereignis ausgelöst!";
+  output.textContent = "Scroll event fired!";
   setTimeout(() => {
-    output.textContent = "Warten auf Scroll-Ereignisse...";
+    output.textContent = "Waiting on scroll events...";
   }, 1000);
 });
 ```
@@ -66,9 +63,9 @@ Das folgende Beispiel zeigt, wie die `onscroll`-Ereignis-Handler-Eigenschaft ver
 <div
   id="scroll-box"
   style="overflow: scroll; height: 100px; width: 100px; float: left;">
-  <p style="height: 200px; width: 200px;">Scrollen Sie mich!</p>
+  <p style="height: 200px; width: 200px;">Scroll me!</p>
 </div>
-<p id="output" style="text-align: center;">Warten auf Scroll-Ereignisse...</p>
+<p id="output" style="text-align: center;">Waiting on scroll events...</p>
 ```
 
 ```js
@@ -76,9 +73,9 @@ const element = document.querySelector("div#scroll-box");
 const output = document.querySelector("p#output");
 
 element.onscroll = (event) => {
-  output.textContent = "Element Scroll-Ereignis ausgelöst!";
+  output.textContent = "Element scroll event fired!";
   setTimeout(() => {
-    output.textContent = "Warten auf Scroll-Ereignisse...";
+    output.textContent = "Waiting on scroll events...";
   }, 1000);
 };
 ```

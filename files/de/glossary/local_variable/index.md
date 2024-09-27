@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine {{glossary("variable")}}, deren Name nur innerhalb eines {{Glossary("local scope")}} an ihren {{glossary("value")}} gebunden ist.
+Eine [Variable](/de/docs/Glossary/variable), deren Name nur innerhalb eines [lokalen Geltungsbereichs](/de/docs/Glossary/local_scope) an ihren [Wert](/de/docs/Glossary/value) gebunden ist.
 
 ## Beispiel
 
 ```js
-let global = 5; // Eine globale Variable
+let global = 5; // A global variable
 
 function fun() {
-  let local = 10; // Eine lokale Variable
+  let local = 10; // A local variable
 }
 ```
 

@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("XSLT")}}
 
-Eine häufige Anwendung von XSLT im Browser besteht darin, XML clientseitig in HTML zu transformieren. Dieses Beispiel wird das Eingabedokument (example2.xml), das Informationen über einen Artikel enthält, in ein HTML-Dokument umwandeln.
+Eine häufige Anwendung von XSLT im Browser ist die Umwandlung von XML in HTML auf dem Client. In diesem Beispiel wird das Eingabedokument (example2.xml), das Informationen über einen Artikel enthält, in ein HTML-Dokument umgewandelt.
 
-Das `<body>`-Element des Artikels enthält nun HTML-Elemente (ein `<b>`- und ein `<u>`-Tag). Das XML-Dokument enthält sowohl HTML-Elemente als auch XML-Elemente, aber es wird nur ein Namensraum benötigt, nämlich für die XML-Elemente. Da es keinen HTML-Namensraum gibt und die Verwendung des XHTML-Namensraums das XSL zwingen würde, ein XML-Dokument zu erstellen, das sich nicht wie ein HTML-Dokument verhalten würde, sorgt das `xsl:output` im XSL-Stylesheet dafür, dass das resultierende Dokument als HTML behandelt wird. Für die XML-Elemente ist unser eigener Namensraum erforderlich, `http://devedge.netscape.com/2002/de`, und er erhält das Präfix myNS `(xmlns:myNS="http://devedge.netscape.com/2002/de")`.
+Das `<body>`-Element des Artikels enthält nun HTML-Elemente (ein `<b>`- und `<u>`-Tag). Das XML-Dokument enthält sowohl HTML- als auch XML-Elemente, aber es wird nur ein Namensraum benötigt, nämlich für die XML-Elemente. Da es keinen HTML-Namensraum gibt und die Verwendung des XHTML-Namensraums das XSL zwingen würde, ein XML-Dokument zu erstellen, das sich nicht wie ein HTML-Dokument verhält, sorgt das `xsl:output` im XSL-Stylesheet dafür, dass das resultierende Dokument als HTML behandelt wird. Für die XML-Elemente wird ein eigener Namensraum benötigt, `http://devedge.netscape.com/2002/de`, und ihm wird das Präfix myNS zugewiesen `(xmlns:myNS="http://devedge.netscape.com/2002/de")`.
 
 ## XML-Datei
 
@@ -28,7 +28,7 @@ Das `<body>`-Element des Artikels enthält nun HTML-Elemente (ein `<b>`- und ein
   </myNS:Article>
 ```
 
-Das verwendete XSL-Stylesheet muss zwei Namensräume haben - einen für die XSLT-Elemente und einen für unsere eigenen XML-Elemente, die im XML-Dokument verwendet werden. Der Output des XSL-Stylesheets wird durch das `xsl:output`-Element auf `HTML` gesetzt. Indem der Output auf HTML gesetzt wird und die resultierenden Elemente (in blau) keinen Namensraum haben, werden diese Elemente als HTML-Elemente behandelt.
+Das verwendete XSL-Stylesheet benötigt zwei Namensräume - einen für die XSLT-Elemente und einen für unsere eigenen XML-Elemente, die im XML-Dokument verwendet werden. Das Ausgabeformat des XSL-Stylesheets wird durch das `xsl:output`-Element auf `HTML` gesetzt. Indem die Ausgabe auf HTML gesetzt wird und die resultierenden Elemente (in Blau dargestellt) keinen Namensraum haben, werden diese Elemente als HTML-Elemente behandelt.
 
 ## XSL-Stylesheet mit 2 Namensräumen
 
@@ -43,7 +43,7 @@ Das verwendete XSL-Stylesheet muss zwei Namensräume haben - einen für die XSLT
 </xsl:stylesheet version="1.0">
 ```
 
-Ein Template, das mit dem Wurzelknoten des XML-Dokuments übereinstimmt, wird erstellt und verwendet, um die Grundstruktur der HTML-Seite zu erstellen.
+Eine Vorlage, die dem Wurzelknoten des XML-Dokuments entspricht, wird erstellt und verwendet, um die Grundstruktur der HTML-Seite zu erstellen.
 
 ## Erstellen des grundlegenden HTML-Dokuments
 
@@ -85,9 +85,9 @@ Ein Template, das mit dem Wurzelknoten des XML-Dokuments übereinstimmt, wird er
 …
 ```
 
-Drei weitere `xsl:template` sind erforderlich, um das Beispiel abzuschließen. Das erste `xsl:template` wird für die Autor-Knoten verwendet, während das zweite den Body-Knoten verarbeitet. Das dritte Template hat eine allgemeine Übereinstimmungsregel, die mit jedem Knoten und jedem Attribut übereinstimmt. Es wird benötigt, um die HTML-Elemente im XML-Dokument zu erhalten, da es alle von ihnen abgleicht und in das HTML-Dokument kopiert, das die Transformation erstellt.
+Drei weitere `xsl:template`'s sind erforderlich, um das Beispiel zu vervollständigen. Die erste `xsl:template` wird für die Autor-Knoten verwendet, während die zweite den Body-Knoten verarbeitet. Die dritte Vorlage hat eine allgemeine Übereinstimmungsregel, die auf jeden Knoten und jedes Attribut passt. Sie ist erforderlich, um die HTML-Elemente im XML-Dokument zu erhalten, da sie alle von ihnen abgleicht und in das HTML-Dokument kopiert, das die Transformation erstellt.
 
-## Letzte 3 Templates
+## Letzte 3 Vorlagen
 
 ```xml
 …
@@ -117,7 +117,7 @@ Drei weitere `xsl:template` sind erforderlich, um das Beispiel abzuschließen. D
 …
 ```
 
-Das endgültige XSLT-Stylesheet sieht folgendermaßen aus:
+Das endgültige XSLT-Stylesheet sieht wie folgt aus:
 
 ## Endgültiges XSLT-Stylesheet
 

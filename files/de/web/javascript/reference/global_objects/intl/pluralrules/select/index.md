@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`select()`**-Methode von {{jsxref("Intl.PluralRules")}}-Instanzen gibt einen String zurück, der angibt, welche Pluralregel für die lokaalspezifische Formatierung einer Zahl verwendet werden soll.
+Die **`select()`**-Methode von {{jsxref("Intl.PluralRules")}} Instanzen gibt einen String zurück, der angibt, welche Pluralregel für die lokalisierte Formatierung einer Zahl verwendet werden soll.
 
 {{EmbedInteractiveExample("pages/js/intl-pluralrules-prototype-select.html")}}
 
@@ -25,12 +25,12 @@ select(number)
 ### Rückgabewert
 
 Ein String, der die Pluralisierungskategorie der `number` darstellt.
-Dies kann eine der folgenden sein: `zero`, `one`, `two`, `few`, `many` oder `other`.
+Dies kann eine der folgenden Kategorien sein: `zero`, `one`, `two`, `few`, `many` oder `other`.
 
 ## Beschreibung
 
-Diese Funktion wählt eine Pluralisierungskategorie gemäß den Locale- und Formatierungsoptionen eines {{jsxref("Intl.PluralRules")}}-Objekts.
-Diese Optionen werden im Konstruktor von [`Intl.PluralRules()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules) festgelegt.
+Diese Funktion wählt eine Pluralisierungskategorie entsprechend der Lokalisierungs- und Formatierungsoptionen eines {{jsxref("Intl.PluralRules")}}-Objekts aus.
+Diese Optionen werden im [`Intl.PluralRules()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules) Konstruktor festgelegt.
 
 ## Beispiele
 
@@ -38,14 +38,14 @@ Diese Optionen werden im Konstruktor von [`Intl.PluralRules()`](/de/docs/Web/Jav
 
 Zuerst erstellen Sie ein `Intl.PluralRules`-Objekt und übergeben die entsprechenden `locales`- und `options`-Parameter.
 Hier erstellen wir ein Pluralregel-Objekt für Arabisch im ägyptischen Dialekt.
-Da der `type` nicht angegeben ist, bietet das Regelobjekt eine Formatierung für Kardinalzahlen (die Standardeinstellung).
+Da der `type` nicht angegeben ist, wird das Regelobjekt die Formatierung für Kardinalzahlen bereitstellen (Standard).
 
 ```js
 const pr = new Intl.PluralRules("ar-EG");
 ```
 
-Rufen Sie anschließend `select()` auf dem Regelobjekt auf und geben Sie die Zahl an, für die die Pluralform erforderlich ist.
-Beachten Sie, dass Arabisch 5 Formen für Kardinalzahlen hat, wie gezeigt wird.
+Rufen Sie dann `select()` auf dem Regelobjekt auf und geben Sie die Zahl an, für die die Pluralform benötigt wird.
+Beachten Sie, dass Arabisch 5 Formen für Kardinalzahlen hat, wie gezeigt.
 
 ```js
 pr.select(0); // 'zero'

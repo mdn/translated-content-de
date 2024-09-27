@@ -1,5 +1,5 @@
 ---
-title: "DataTransfer: types Eigenschaft"
+title: "DataTransfer: types-Eigenschaft"
 short-title: types
 slug: Web/API/DataTransfer/types
 l10n:
@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte Eigenschaft **`DataTransfer.types`** gibt die verfügbaren Typen zurück, die in den {{domxref("DataTransfer.items","items")}} existieren.
+Die schreibgeschützte Eigenschaft **`DataTransfer.types`** gibt die verfügbaren Typen zurück, die in den [`items`](/de/docs/Web/API/DataTransfer/items) vorhanden sind.
 
 ## Wert
 
-Ein Array der Datenformate. Jedes Format ist ein String, der im Allgemeinen ein MIME-Typ wie `text/plain` oder `text/html` ist. Wenn der Drag-Vorgang keine Daten enthielt, ist diese Liste leer. Wenn irgendwelche Dateien im Drag-Vorgang enthalten sind, wird einer der Typen der String `Files` sein.
+Ein Array der Datenformate. Jedes Format ist ein String, der im Allgemeinen ein MIME-Typ wie `text/plain` oder `text/html` ist. Wenn der Ziehvorgang keine Daten enthalten hat, ist diese Liste leer. Wenn irgendwelche Dateien im Ziehvorgang enthalten sind, wird einer der Typen die Zeichenkette `Files` sein.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Verwendung der `types`- und {{domxref("DataTransfer.items","items")}}-Eigenschaften.
+Dieses Beispiel zeigt die Verwendung der Eigenschaften `types` und [`items`](/de/docs/Web/API/DataTransfer/items).
 
 ```html
 <!doctype html>
 <html lang="en">
-  <title>Beispiele der DataTransfer.{types,items} Eigenschaften</title>
+  <title>Examples of DataTransfer.{types,items} properties</title>
   <meta content="width=device-width" />
   <style>
     div {
@@ -72,22 +72,22 @@ Dieses Beispiel zeigt die Verwendung der `types`- und {{domxref("DataTransfer.it
   </script>
   <body>
     <h1>
-      Beispiele der <code>DataTransfer</code>.{<code>types</code>,
-      <code>items</code>} Eigenschaften
+      Examples of <code>DataTransfer</code>.{<code>types</code>,
+      <code>items</code>} properties
     </h1>
     <ul>
       <li id="i1" ondragstart="dragstart_handler(event);" draggable="true">
-        Ziehen Sie Element 1 in die Drop-Zone
+        Drag Item 1 to the Drop Zone
       </li>
       <li id="i2" ondragstart="dragstart_handler(event);" draggable="true">
-        Ziehen Sie Element 2 in die Drop-Zone
+        Drag Item 2 to the Drop Zone
       </li>
     </ul>
     <div
       id="target"
       ondrop="drop_handler(event);"
       ondragover="dragover_handler(event);">
-      Drop-Zone
+      Drop Zone
     </div>
   </body>
 </html>
@@ -103,7 +103,7 @@ Dieses Beispiel zeigt die Verwendung der `types`- und {{domxref("DataTransfer.it
 
 ## Siehe auch
 
-- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Drag Operations](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Recommended Drag Types](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
-- [DataTransfer test - Paste or Drag](https://codepen.io/tech_query/pen/MqGgap)
+- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Ziehvorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Empfohlene Ziehtypen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
+- [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)

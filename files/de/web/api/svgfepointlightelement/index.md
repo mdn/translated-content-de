@@ -7,24 +7,24 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die Schnittstelle **`SVGFEPointLightElement`** entspricht dem {{SVGElement("fePointLight")}}-Element.
+Die **`SVGFEPointLightElement`**-Schnittstelle entspricht dem {{SVGElement("fePointLight")}}-Element.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGFEPointLightElement.x")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumber")}}, der dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEPointLightElement.y")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumber")}}, der dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFEPointLightElement.z")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumber")}}, der dem {{SVGAttr("z")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEPointLightElement.x`](/de/docs/Web/API/SVGFEPointLightElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEPointLightElement.y`](/de/docs/Web/API/SVGFEPointLightElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFEPointLightElement.z`](/de/docs/Web/API/SVGFEPointLightElement/z) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("z")}}-Attribut des gegebenen Elements entspricht.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine speziellen Methoden, implementiert jedoch diejenigen ihrer Eltern, {{domxref("SVGElement")}}._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch diejenigen ihrer Eltern-, [`SVGElement`](/de/docs/Web/API/SVGElement)-Schnittstelle._
 
 ## Spezifikationen
 

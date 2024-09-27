@@ -7,47 +7,47 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`AudioEncoder`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) kodiert {{domxref("AudioData")}}-Objekte.
+Das **`AudioEncoder`**-Interface der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) kodiert [`AudioData`](/de/docs/Web/API/AudioData)-Objekte.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("AudioEncoder.AudioEncoder", "AudioEncoder()")}}
+- [`AudioEncoder()`](/de/docs/Web/API/AudioEncoder/AudioEncoder)
   - : Erstellt ein neues `AudioEncoder`-Objekt.
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{DOMxRef("EventTarget")}}._
+_Erbt Eigenschaften von seinem übergeordneten Element, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("AudioEncoder.encodeQueueSize")}} {{ReadOnlyInline}}
-  - : Ein ganzzahliger Wert, der die Anzahl der Anfragen in der Kodierungswarteschlange darstellt.
-- {{domxref("AudioEncoder.state")}} {{ReadOnlyInline}}
-  - : Stellt den Zustand des zugrunde liegenden Codecs dar und ob er für die Kodierung konfiguriert ist.
+- [`AudioEncoder.encodeQueueSize`](/de/docs/Web/API/AudioEncoder/encodeQueueSize) {{ReadOnlyInline}}
+  - : Eine ganze Zahl, die die Anzahl der Codierungsanfragen in der Warteschlange darstellt.
+- [`AudioEncoder.state`](/de/docs/Web/API/AudioEncoder/state) {{ReadOnlyInline}}
+  - : Repräsentiert den Zustand des zugrundeliegenden Codecs und ob er für die Kodierung konfiguriert ist.
 
 ### Ereignisse
 
-- {{domxref("AudioEncoder.dequeue_event", "dequeue")}}
-  - : Wird ausgelöst, um eine Verringerung der {{domxref("AudioEncoder.encodeQueueSize")}} zu signalisieren.
+- [`dequeue`](/de/docs/Web/API/AudioEncoder/dequeue_event)
+  - : Wird ausgelöst, um eine Verringerung der [`AudioEncoder.encodeQueueSize`](/de/docs/Web/API/AudioEncoder/encodeQueueSize) zu signalisieren.
 
 ## Statische Methoden
 
-- {{domxref("AudioEncoder.isConfigSupported_static", "AudioEncoder.isConfigSupported()")}}
-  - : Gibt ein Versprechen zurück, das anzeigt, ob die bereitgestellte `AudioEncoderConfig` unterstützt wird.
+- [`AudioEncoder.isConfigSupported()`](/de/docs/Web/API/AudioEncoder/isConfigSupported_static)
+  - : Gibt ein Versprechen zurück, das angibt, ob die bereitgestellte `AudioEncoderConfig` unterstützt wird.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seinem Elternteil, {{DOMxRef("EventTarget")}}._
+_Erbt Methoden von seinem übergeordneten Element, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("AudioEncoder.configure()")}}
-  - : Fügt eine Steuerungsnachricht in die Warteschlange ein, um den Audio-Encoder für die Kodierung von Chunks zu konfigurieren.
-- {{domxref("AudioEncoder.encode()")}}
-  - : Fügt eine Steuerungsnachricht in die Warteschlange ein, um gegebene {{domxref("AudioData")}}-Objekte zu kodieren.
-- {{domxref("AudioEncoder.flush()")}}
+- [`AudioEncoder.configure()`](/de/docs/Web/API/AudioEncoder/configure)
+  - : Stellt eine Steuerungsnachricht in die Warteschlange, um den Audio-Encoder für die Kodierung von Chunks zu konfigurieren.
+- [`AudioEncoder.encode()`](/de/docs/Web/API/AudioEncoder/encode)
+  - : Stellt eine Steuerungsnachricht in die Warteschlange, um ein gegebenes [`AudioData`](/de/docs/Web/API/AudioData)-Objekt zu kodieren.
+- [`AudioEncoder.flush()`](/de/docs/Web/API/AudioEncoder/flush)
   - : Gibt ein Versprechen zurück, das aufgelöst wird, sobald alle ausstehenden Nachrichten in der Warteschlange abgeschlossen sind.
-- {{domxref("AudioEncoder.reset()")}}
-  - : Setzt alle Zustände einschließlich der Konfiguration, der Steuerungsnachrichten in der Steuerungsnachrichtenschlange und aller ausstehenden Rückrufe zurück.
-- {{domxref("AudioEncoder.close()")}}
+- [`AudioEncoder.reset()`](/de/docs/Web/API/AudioEncoder/reset)
+  - : Setzt alle Zustände zurück, einschließlich Konfiguration, Steuerungsnachrichten in der Steuerungsnachrichtenwarteschlange und aller ausstehenden Rückrufe.
+- [`AudioEncoder.close()`](/de/docs/Web/API/AudioEncoder/close)
   - : Beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
 
 ## Spezifikationen

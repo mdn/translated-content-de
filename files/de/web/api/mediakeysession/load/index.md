@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die `load()`-Methode der {{domxref('MediaKeySession')}}-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das nach dem Laden von Daten für ein bestimmtes Sitzungsobjekt zu einem booleschen Wert aufgelöst wird.
+Die `load()`-Methode des [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Interfaces gibt ein {{jsxref('Promise')}} zurück, das nach dem Laden von Daten für ein angegebenes Sitzungsobjekt zu einem booleschen Wert aufgelöst wird.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ load(sessionId)
 ### Parameter
 
 - `sessionId`
-  - : Ein eindeutiger String, der vom Inhaltsbeschreibungsmodul für das aktuelle Medienobjekt und seine zugehörigen Schlüssel oder Lizenzen generiert wird.
+  - : Ein eindeutiger String, der vom Inhaltsbeschreibungsmodul für das aktuelle Media-Objekt und seine zugehörigen Schlüssel oder Lizenzen generiert wurde.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, das zu einem booleschen Wert aufgelöst wird, der angibt, ob das Laden erfolgreich war oder fehlgeschlagen ist.
+Ein {{jsxref('Promise')}}, das zu einem Booleschen Wert aufgelöst wird, der angibt, ob das Laden erfolgreich war oder fehlgeschlagen ist.
 
 ## Spezifikationen
 

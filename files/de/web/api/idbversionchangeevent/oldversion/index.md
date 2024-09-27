@@ -9,13 +9,14 @@ l10n:
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
 Die schreibgeschützte **`oldVersion`**-Eigenschaft der
-{{domxref("IDBVersionChangeEvent")}}-Schnittstelle gibt die alte Versionsnummer der Datenbank zurück.
+[`IDBVersionChangeEvent`](/de/docs/Web/API/IDBVersionChangeEvent)-Schnittstelle gibt die alte Versionsnummer der
+Datenbank zurück.
 
 Wenn die geöffnete Datenbank noch nicht existiert, ist der Wert von `oldVersion` 0.
 
 ## Wert
 
-Eine Zahl, die einen 64-Bit-Ganzzahlwert enthält.
+Eine Zahl, die eine 64-Bit-Ganzzahl enthält.
 
 ## Beispiele
 
@@ -35,7 +36,7 @@ request.onupgradeneeded = (e) => {
     db.createObjectStore("store2");
   }
 
-  // usw. für Version < 3, 4…
+  // etc. for version < 3, 4…
 };
 ```
 
@@ -50,9 +51,9 @@ request.onupgradeneeded = (e) => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Einstellen eines Schlüsselbereichs: {{domxref("IDBKeyRange")}}
-- Ihre Daten abrufen und ändern: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursors: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live anzeigen](https://mdn.github.io/dom-examples/to-do-notifications/)).

@@ -63,9 +63,9 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 132, die En
 
 ### Sonstiges
 
-## Experimentelle Webfeatures
+## Experimentelle Web-Features
 
-Diese Funktionen sind neu in Firefox 132 eingeführt, jedoch standardmäßig deaktiviert. Um sie auszuprobieren, suchen Sie auf der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`. Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen sind neu in Firefox 132 enthalten, aber standardmäßig deaktiviert. Um sie auszuprobieren, suchen Sie auf der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie diese auf `true`. Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
 
 ## Ältere Versionen
 

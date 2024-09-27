@@ -1,5 +1,5 @@
 ---
-title: "NodeIterator: nextNode()-Methode"
+title: "NodeIterator: Methode nextNode()"
 short-title: nextNode()
 slug: Web/API/NodeIterator/nextNode
 l10n:
@@ -8,11 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`NodeIterator.nextNode()`**-Methode gibt den nächsten Knoten in der Menge zurück, die durch den {{domxref("NodeIterator")}} dargestellt wird, und bewegt die Position des Iterators innerhalb der Menge. Der erste Aufruf von `nextNode()` gibt den ersten Knoten in der Menge zurück.
+Die **`NodeIterator.nextNode()`** Methode gibt den nächsten Knoten
+in der durch den [`NodeIterator`](/de/docs/Web/API/NodeIterator) dargestellten Menge zurück und verschiebt die Position des Iterators innerhalb der Menge. Der erste Aufruf von `nextNode()` gibt den
+ersten Knoten in der Menge zurück.
 
 Diese Methode gibt `null` zurück, wenn keine Knoten mehr in der Menge vorhanden sind.
 
-In alten Browsern, wie in alten Versionen der Spezifikationen angegeben, kann die Methode den `INVALID_STATE_ERR` {{domxref("DOMException")}} auslösen, wenn diese Methode nach der {{domxref("NodeIterator.detach()")}}-Methode aufgerufen wird. Neuere Browser werfen diesen Fehler nie.
+In alten Browsern, wie in früheren Versionen der Spezifikationen angegeben, kann die Methode den `INVALID_STATE_ERR` [`DOMException`](/de/docs/Web/API/DOMException) auslösen, wenn diese Methode nach der [`NodeIterator.detach()`](/de/docs/Web/API/NodeIterator/detach) Methode aufgerufen wird. Neuere Browser werfen diesen Fehler nie.
 
 ## Syntax
 
@@ -26,7 +28,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("Node")}}, der den Knoten nach dem aktuellen Knoten in der durch diesen `NodeIterator` dargestellten Menge repräsentiert, oder `null`, wenn der aktuelle Knoten der letzte Knoten in der Menge ist.
+Ein [`Node`](/de/docs/Web/API/Node), der den Knoten nach dem aktuellen Knoten in der durch diesen `NodeIterator` dargestellten Menge repräsentiert, oder `null`, wenn der aktuelle Knoten der letzte Knoten in der Menge ist.
 
 ## Beispiele
 
@@ -40,7 +42,7 @@ const nodeIterator = document.createNodeIterator(
     },
   },
 );
-currentNode = nodeIterator.nextNode(); // gibt den nächsten Knoten zurück
+currentNode = nodeIterator.nextNode(); // returns the next node
 ```
 
 ## Spezifikationen
@@ -53,4 +55,4 @@ currentNode = nodeIterator.nextNode(); // gibt den nächsten Knoten zurück
 
 ## Siehe auch
 
-- Das Interface, zu dem es gehört: {{domxref("NodeIterator")}}.
+- Das Interface, zu dem es gehört: [`NodeIterator`](/de/docs/Web/API/NodeIterator).

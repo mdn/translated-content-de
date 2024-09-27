@@ -9,22 +9,20 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die **`pliCount`**-Eigenschaft des
-{{domxref("RTCRtpStreamStats")}}-Wörterbuchs gibt an, wie oft das empfangende Ende des Streams ein **Picture Loss Indication** (**PLI**)
-Paket an den Sender geschickt hat.
+[`RTCRtpStreamStats`](/de/docs/Web/API/RTCRtpStreamStats)-Wörterbuchs gibt die Anzahl der Male an, die das empfangende Ende des Streams ein **Picture Loss Indication** (**PLI**) Paket an den Sender geschickt hat.
 
-Ein PLI-Paket zeigt an, dass eine gewisse Menge an kodierten Videodaten für einen oder mehrere Frames verloren gegangen ist.
+Ein PLI-Paket zeigt an, dass eine gewisse Menge an kodierten Videodaten für ein oder mehrere Frames verloren gegangen ist.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der Male angibt, die ein PLI-Paket vom Empfänger des Streams an den Sender gesendet wurde.
+Ein ganzzahliger Wert, der angibt, wie oft ein PLI-Paket vom Empfänger des Streams an den Sender gesendet wurde.
 
-Eine PLI-Nachricht wird von Videodecodern (die am Empfangsende des Streams laufen) verwendet, um den Encoder (den Sender) darüber zu informieren, dass eine undefinierte Menge kodierter Videodaten, die möglicherweise Frame-Grenzen überschreitet, verloren gegangen ist.
+Eine PLI-Nachricht wird von Videodecodern (die am empfangenden Ende des Streams laufen) verwendet, um den Encoder (den Sender) darüber zu informieren, dass eine undefinierte Menge an kodierten Videodaten, die möglicherweise Frame-Grenzen überschreitet, verloren gegangen ist.
 
-Dies kann den Sender dazu veranlassen, einen vollständigen Frame zu senden, um dem Empfänger das erneute Synchronisieren zu ermöglichen, da verloren gegangene Daten eine unwiderrufliche Situation für die Dekodierung von Medien darstellen können. Der Hauptzweck dieser Nachricht ist jedoch, dem Sender die Möglichkeit zu geben, Techniken zur Minderung von Netzwerkleistungsproblemen in Betracht zu ziehen. Dies wird oft durch Methoden wie das Erhöhen der Kompression, das Verringern der Auflösung oder das Finden anderer Wege zur Reduzierung der Bitrate des Streams erreicht.
+Dies könnte den Sender dazu veranlassen, ein vollständiges Frame zu senden, um dem Empfänger die Möglichkeit zur Resynchronisation zu geben, da verlorene Daten eine unwiederbringliche Situation beim Dekodieren von Medien darstellen können. Der Hauptzweck dieser Nachricht ist es jedoch, dem Sender zu ermöglichen, Techniken zur Minderung von Netzwerkleistungsproblemen in Betracht zu ziehen. Dies wird häufig durch Methoden wie Erhöhung der Kompression, Verringerung der Auflösung oder andere Möglichkeiten zur Reduzierung der Bitrate des Streams erreicht.
 
 > [!NOTE]
-> Dieser Wert ist nur auf der Empfängerseite und nur für
-> Videomedien verfügbar.
+> Dieser Wert ist nur am Empfänger verfügbar und nur für Videomedien.
 
 ## Spezifikationen
 

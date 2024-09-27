@@ -1,5 +1,5 @@
 ---
-title: "Range: Methode setStartAfter()"
+title: "Range: setStartAfter()-Methode"
 short-title: setStartAfter()
 slug: Web/API/Range/setStartAfter
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.setStartAfter()`**-Methode legt die Startposition eines {{domxref("Range")}} relativ zu einem {{domxref("Node")}} fest. Der Eltern-{{domxref("Node")}} des Anfangs des {{domxref("Range")}} wird derselbe sein wie der des `referenceNode`.
+Die **`Range.setStartAfter()`**-Methode setzt die Startposition eines [`Range`](/de/docs/Web/API/Range) relativ zu einem [`Node`](/de/docs/Web/API/Node). Der übergeordnete [`Node`](/de/docs/Web/API/Node) des Starts des [`Range`](/de/docs/Web/API/Range) wird derselbe sein wie für den `referenceNode`.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setStartAfter(referenceNode)
 ### Parameter
 
 - `referenceNode`
-  - : Der {{domxref("Node")}}, nach dem der {{domxref("Range")}} beginnen soll.
+  - : Der [`Node`](/de/docs/Web/API/Node), nach dem der [`Range`](/de/docs/Web/API/Range) starten soll.
 
 ### Rückgabewert
 

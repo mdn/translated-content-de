@@ -7,23 +7,23 @@ l10n:
 
 {{APIRef("DOM WHATWG")}}
 
-Das **`MutationObserver`**-Interface bietet die Möglichkeit, Änderungen am [DOM](/de/docs/Web/API/Document_Object_Model)-Baum zu beobachten. Es ist als Ersatz für das ältere [Mutation Events](/de/docs/Web/API/MutationEvent)-Feature geplant, das Teil der DOM3-Events-Spezifikation war.
+Die **`MutationObserver`**-Schnittstelle bietet die Möglichkeit, Änderungen im [DOM](/de/docs/Web/API/Document_Object_Model)-Baum zu beobachten. Sie wurde als Ersatz für das ältere [Mutation Events](/de/docs/Web/API/MutationEvent) Feature entworfen, welches Teil der DOM3 Events-Spezifikation war.
 
 ## Konstruktor
 
-- {{domxref("MutationObserver.MutationObserver", "MutationObserver()")}}
-  - : Erstellt und gibt einen neuen `MutationObserver` zurück, der eine angegebene Callback-Funktion aufruft, wenn DOM-Änderungen erfolgen.
+- [`MutationObserver()`](/de/docs/Web/API/MutationObserver/MutationObserver)
+  - : Erstellt und gibt einen neuen `MutationObserver` zurück, der eine angegebene Callback-Funktion aufruft, wenn DOM-Änderungen auftreten.
 
 ## Instanzmethoden
 
-- {{domxref("MutationObserver.disconnect()", "disconnect()")}}
-  - : Stoppt die `MutationObserver`-Instanz von der weiteren Benachrichtigung, bis und sofern {{domxref("MutationObserver.observe", "observe()")}} erneut aufgerufen wird.
-- {{domxref("MutationObserver.observe()", "observe()")}}
-  - : Konfiguriert den `MutationObserver`, um Benachrichtigungen über seine Callback-Funktion zu erhalten, wenn DOM-Änderungen auftreten, die den angegebenen Optionen entsprechen.
-- {{domxref("MutationObserver.takeRecords()", "takeRecords()")}}
-  - : Entfernt alle ausstehenden Benachrichtigungen aus der Benachrichtigungswarteschlange des `MutationObserver` und gibt sie in einem neuen {{jsxref("Array")}} von {{domxref("MutationRecord")}}-Objekten zurück.
+- [`disconnect()`](/de/docs/Web/API/MutationObserver/disconnect)
+  - : Stoppt die `MutationObserver`-Instanz von weiteren Benachrichtigungen, bis und sofern [`observe()`](/de/docs/Web/API/MutationObserver/observe) erneut aufgerufen wird.
+- [`observe()`](/de/docs/Web/API/MutationObserver/observe)
+  - : Konfiguriert den `MutationObserver`, um Benachrichtigungen über seine Callback-Funktion zu erhalten, wenn DOM-Änderungen gemäß den gegebenen Optionen auftreten.
+- [`takeRecords()`](/de/docs/Web/API/MutationObserver/takeRecords)
+  - : Entfernt alle ausstehenden Benachrichtigungen aus der Benachrichtigungswarteschlange des `MutationObserver` und gibt diese in einem neuen {{jsxref("Array")}} von [`MutationRecord`](/de/docs/Web/API/MutationRecord)-Objekten zurück.
 
-## Mutation Observer & Resize-Event-Listener anpassen & Demo
+## Mutation Observer & benutzerdefinierter Resize-Event-Listener & Demo
 
 <https://codepen.io/milofultz/pen/LYjPXPw>
 
@@ -32,30 +32,30 @@ Das **`MutationObserver`**-Interface bietet die Möglichkeit, Änderungen am [DO
 Das folgende Beispiel wurde von [diesem Blogbeitrag](https://hacks.mozilla.org/2012/05/dom-mutationobserver-reacting-to-dom-changes-without-killing-browser-performance/) adaptiert.
 
 ```js
-// Wählen Sie den Knoten aus, der auf Mutationen beobachtet wird
+// Select the node that will be observed for mutations
 const targetNode = document.getElementById("some-id");
 
-// Optionen für den Beobachter (welche Mutationen beobachtet werden sollen)
+// Options for the observer (which mutations to observe)
 const config = { attributes: true, childList: true, subtree: true };
 
-// Callback-Funktion, die ausgeführt wird, wenn Mutationen beobachtet werden
+// Callback function to execute when mutations are observed
 const callback = (mutationList, observer) => {
   for (const mutation of mutationList) {
     if (mutation.type === "childList") {
-      console.log("Ein Kindknoten wurde hinzugefügt oder entfernt.");
+      console.log("A child node has been added or removed.");
     } else if (mutation.type === "attributes") {
-      console.log(`Das ${mutation.attributeName} Attribut wurde geändert.`);
+      console.log(`The ${mutation.attributeName} attribute was modified.`);
     }
   }
 };
 
-// Erstellen Sie eine Beobachterinstanz, die mit der Callback-Funktion verbunden ist
+// Create an observer instance linked to the callback function
 const observer = new MutationObserver(callback);
 
-// Beginnen Sie damit, den Zielknoten auf konfigurierte Mutationen zu beobachten
+// Start observing the target node for configured mutations
 observer.observe(targetNode, config);
 
-// Später können Sie die Beobachtung beenden
+// Later, you can stop observing
 observer.disconnect();
 ```
 
@@ -69,9 +69,9 @@ observer.disconnect();
 
 ## Siehe auch
 
-- {{domxref('PerformanceObserver')}}
-- {{domxref('ResizeObserver')}}
-- {{domxref('IntersectionObserver')}}
+- [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)
+- [`ResizeObserver`](/de/docs/Web/API/ResizeObserver)
+- [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)
 - [Ein kurzer Überblick](https://developer.chrome.com/blog/detect-dom-changes-with-mutation-observers/)
-- [Eine eingehendere Diskussion](https://hacks.mozilla.org/2012/05/dom-mutationobserver-reacting-to-dom-changes-without-killing-browser-performance/)
+- [Eine ausführlichere Diskussion](https://hacks.mozilla.org/2012/05/dom-mutationobserver-reacting-to-dom-changes-without-killing-browser-performance/)
 - [Ein Screencast von Chromium-Entwickler Rafael Weinstein](https://www.youtube.com/watch?v=eRZ4pO0gVWw)

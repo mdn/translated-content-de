@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`PushSubscriptionOptions`**-Schnittstelle der {{domxref('Push API','','',' ')}} repräsentiert die Optionen, die mit einem Push-Abonnement verbunden sind.
+Das **`PushSubscriptionOptions`**-Interface der [Push-API](/de/docs/Web/API/Push_API) repräsentiert die Optionen, die mit einem Push-Abonnement verbunden sind.
 
-Das schreibgeschützte `PushSubscriptionOptions`-Objekt wird zurückgegeben, indem {{domxref("PushSubscription.options")}} auf einem {{domxref("PushSubscription")}} aufgerufen wird. Diese Schnittstelle hat keinen eigenen Konstruktor.
+Das schreibgeschützte `PushSubscriptionOptions`-Objekt wird durch den Aufruf von [`PushSubscription.options`](/de/docs/Web/API/PushSubscription/options) auf einem [`PushSubscription`](/de/docs/Web/API/PushSubscription) zurückgegeben. Dieses Interface besitzt keinen eigenen Konstruktor.
 
 ## Instanzeigenschaften
 
-- {{domxref("PushSubscriptionOptions.userVisibleOnly")}} {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der angibt, dass das zurückgegebene Push-Abonnement nur für Nachrichten verwendet wird, deren Auswirkung für den Benutzer sichtbar gemacht wird.
-- {{domxref("PushSubscriptionOptions.applicationServerKey")}} {{ReadOnlyInline}}
+- [`PushSubscriptionOptions.userVisibleOnly`](/de/docs/Web/API/PushSubscriptionOptions/userVisibleOnly) {{ReadOnlyInline}}
+  - : Ein boolescher Wert, der angibt, dass das zurückgegebene Push-Abonnement nur für Nachrichten verwendet wird, deren Effekt für den Benutzer sichtbar gemacht wird.
+- [`PushSubscriptionOptions.applicationServerKey`](/de/docs/Web/API/PushSubscriptionOptions/applicationServerKey) {{ReadOnlyInline}}
   - : Ein öffentlicher Schlüssel, den Ihr Push-Server verwenden wird, um Nachrichten über einen Push-Server an Client-Apps zu senden.
 
 ## Beispiele
 
-Durch Aufrufen von {{domxref("PushSubscription.options")}} auf einem {{domxref("PushSubscription")}} wird ein `PushSubscriptionOptions`-Objekt zurückgegeben. Im untenstehenden Beispiel wird dieses in die Konsole ausgegeben.
+Der Aufruf von [`PushSubscription.options`](/de/docs/Web/API/PushSubscription/options) auf einem [`PushSubscription`](/de/docs/Web/API/PushSubscription) gibt ein `PushSubscriptionOptions`-Objekt zurück. Im untenstehenden Beispiel wird dieses in der Konsole ausgegeben.
 
 ```js
 navigator.serviceWorker.ready.then((reg) => {

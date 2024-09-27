@@ -2,12 +2,12 @@
 title: Set.prototype.isSubsetOf()
 slug: Web/JavaScript/Reference/Global_Objects/Set/isSubsetOf
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{JSRef}}
 
-Die **`isSubsetOf()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt ein Set und gibt einen booleschen Wert zurück, der angibt, ob alle Elemente dieses Sets im gegebenen Set enthalten sind.
+Die **`isSubsetOf()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt eine Menge und gibt ein boolesches Ergebnis zurück, das angibt, ob alle Elemente dieser Menge in der gegebenen Menge enthalten sind.
 
 ## Syntax
 
@@ -18,15 +18,15 @@ isSubsetOf(other)
 ### Parameter
 
 - `other`
-  - : Ein {{jsxref("Set")}}-Objekt oder ein [mengenähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekt.
+  - : Ein {{jsxref("Set")}}-Objekt oder ein [mengenähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects).
 
 ### Rückgabewert
 
-`true`, wenn alle Elemente in diesem Set auch im `anderen` Set enthalten sind, andernfalls `false`.
+`true`, wenn alle Elemente in dieser Menge auch in der `other`-Menge enthalten sind, andernfalls `false`.
 
 ## Beschreibung
 
-In mathematischer Notation ist _Teilmenge_ definiert als:
+In mathematischer Notation wird _Subset_ definiert als:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -34,23 +34,23 @@ In mathematischer Notation ist _Teilmenge_ definiert als:
 </math>
 <!-- prettier-ignore-end -->
 
-Und mit Hilfe eines Venn-Diagramms:
+Und mit einem Venn-Diagramm:
 
-![Ein Venn-Diagramm mit zwei Kreisen. A ist eine Teilmenge von B, da A vollständig in B enthalten ist.](diagram.svg)
+![Ein Venn-Diagramm mit zwei Kreisen. A ist ein Subset von B, weil A vollständig in B enthalten ist.](diagram.svg)
 
 > [!NOTE]
-> Die _Teilmengen_-Beziehung ist keine _echte Teilmenge_, was bedeutet, dass `isSubsetOf()` `true` zurückgibt, wenn `dieses` und `anderes` die gleichen Elemente enthalten.
+> Die _Subset_-Beziehung ist kein _echtes Subset_, was bedeutet, dass `isSubsetOf()` `true` zurückgibt, wenn `this` und `other` die gleichen Elemente enthalten.
 
-`isSubsetOf()` akzeptiert [mengenähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es die zugrunde liegenden Daten in `this` direkt abruft, ohne Benutzer-Code auszuführen. Anschließend hängt das Verhalten von den Größen von `this` und `other` ab:
+`isSubsetOf()` akzeptiert [mengenähnliche Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) als den `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine echte {{jsxref("Set")}}-Instanz ist, da es direkt auf die zugrunde liegenden Daten zugreift, die in `this` gespeichert sind, ohne benutzerdefinierten Code aufzurufen. Das Verhalten hängt dann von der Größe von `this` und `other` ab:
 
-- Wenn es mehr Elemente in `this` als `other.size` gibt, gibt es direkt `false` zurück.
+- Wenn `this` mehr Elemente hat als `other.size`, gibt es direkt `false` zurück.
 - Andernfalls iteriert es über die Elemente in `this` und gibt `false` zurück, wenn ein Element `e` in `this` dazu führt, dass `other.has(e)` einen [falsy](/de/docs/Glossary/Falsy) Wert zurückgibt. Andernfalls gibt es `true` zurück.
 
 ## Beispiele
 
 ### Verwendung von isSubsetOf()
 
-Die Menge der Vielfachen von 4 (<20) ist eine Teilmenge der geraden Zahlen (<20):
+Die Menge der Vielfachen von 4 (<20) ist ein Subset der geraden Zahlen (<20):
 
 ```js
 const fours = new Set([4, 8, 12, 16]);
@@ -58,7 +58,7 @@ const evens = new Set([2, 4, 6, 8, 10, 12, 14, 16, 18]);
 console.log(fours.isSubsetOf(evens)); // true
 ```
 
-Die Menge der Primzahlen (<20) ist keine Teilmenge aller ungeraden Zahlen (<20), da 2 eine Primzahl, aber nicht ungerade ist:
+Die Menge der Primzahlen (<20) ist kein Subset aller ungeraden Zahlen (<20), weil 2 eine Primzahl, aber nicht ungerade ist:
 
 ```js
 const primes = new Set([2, 3, 5, 7, 11, 13, 17, 19]);
@@ -66,7 +66,7 @@ const odds = new Set([3, 5, 7, 9, 11, 13, 15, 17, 19]);
 console.log(primes.isSubsetOf(odds)); // false
 ```
 
-Gleichwertige Mengen sind Teilmengen voneinander:
+Gleiche Mengen sind Subsets voneinander:
 
 ```js
 const set1 = new Set([1, 2, 3]);

@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:invalid`** [CSS](/de/docs/Web/CSS)-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("form")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("input")}} oder anderes {{HTMLElement("form")}}-Element, dessen Inhalt die [Validierung](/de/docs/Web/HTML/Constraint_validation) nicht besteht.
+Die **`:invalid`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("form")}}, {{HTMLElement("fieldset")}}, {{HTMLElement("input")}} oder anderes {{HTMLElement("form")}}-Element, dessen Inhalt die [Validierung](/de/docs/Web/HTML/Constraint_validation) nicht besteht.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-invalid.html", "tabbed-shorter")}}
 
-Diese Pseudoklasse ist nützlich, um Benutzern die Fehler in Feldern hervorzuheben.
+Diese Pseudo-Klasse ist nützlich, um dem Benutzer Feldfehler hervorzuheben.
 
 ## Syntax
 
@@ -23,26 +23,26 @@ Diese Pseudoklasse ist nützlich, um Benutzern die Fehler in Feldern hervorzuheb
 
 ## Barrierefreiheit
 
-Die Farbe Rot wird häufig verwendet, um auf ungültige Eingaben hinzuweisen. Personen, die an bestimmten Arten von Farbenblindheit leiden, können den Status der Eingabe nicht erkennen, es sei denn, sie wird von einem zusätzlichen Indikator begleitet, der nicht auf Farbe angewiesen ist, um Bedeutung zu vermitteln. Typischerweise werden beschreibender Text und/oder ein Symbol verwendet.
+Die Farbe Rot wird häufig verwendet, um ungültige Eingaben anzuzeigen. Menschen mit bestimmten Arten von Farbenblindheit können den Zustand der Eingabe nicht erkennen, es sei denn, sie wird von einem zusätzlichen Indikator begleitet, der sich nicht auf Farbe verlässt, um Bedeutung zu vermitteln. Typischerweise werden beschreibender Text und/oder ein Symbol verwendet.
 
-- [MDN Understanding WCAG, Guideline 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgs-Kriteriums 1.4.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
+- [MDN Verständnis WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.1 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
 
 ## Beispiele
 
-### Elemente farblich kennzeichnen, um die Validierung anzuzeigen
+### Elemente färben, um die Validierung zu zeigen
 
 #### HTML
 
 ```html
 <form>
   <div class="field">
-    <label for="url_input">Geben Sie eine URL ein:</label>
+    <label for="url_input">Enter a URL:</label>
     <input type="url" id="url_input" />
   </div>
 
   <div class="field">
-    <label for="email_input">Geben Sie eine E-Mail-Adresse ein:</label>
+    <label for="email_input">Enter an email address:</label>
     <input type="email" id="email_input" required />
   </div>
 </form>
@@ -92,9 +92,9 @@ input:required:invalid {
 
 {{EmbedLiveSample('Coloring elements to show validation', 600, 200)}}
 
-### Abschnitte in Etappen anzeigen
+### Abschnitte stufenweise anzeigen
 
-In diesem Beispiel nutzen wir `:invalid` zusammen mit `~`, dem [nachfolgenden Geschwisterkombinator](/de/docs/Web/CSS/Subsequent-sibling_combinator), um ein Formular in Etappen erscheinen zu lassen. Das Formular zeigt zunächst das erste auszufüllende Element an, und wenn der Benutzer jedes Element abschließt, wird das nächste angezeigt. Wenn das gesamte Formular ausgefüllt ist, kann der Benutzer es abschicken.
+In diesem Beispiel verwenden wir `:invalid` zusammen mit `~`, dem [nachfolgenden Geschwisterkombinator](/de/docs/Web/CSS/Subsequent-sibling_combinator), um ein Formular stufenweise erscheinen zu lassen. Das Formular zeigt zunächst das erste auszufüllende Element, und wenn der Benutzer jedes Element ausfüllt, wird das nächste angezeigt. Wenn das gesamte Formular vollständig ist, kann der Benutzer es abschicken.
 
 #### HTML
 
@@ -106,28 +106,28 @@ In diesem Beispiel nutzen wir `:invalid` zusammen mit `~`, dem [nachfolgenden Ge
   </fieldset>
 
   <fieldset>
-    <label for="form-email">E-Mail-Adresse</label><br />
+    <label for="form-email">Email Address</label><br />
     <input type="email" name="email" id="form-email" required />
   </fieldset>
 
   <fieldset>
-    <label for="form-message">Nachricht</label><br />
+    <label for="form-message">Message</label><br />
     <textarea name="message" id="form-message" required></textarea>
   </fieldset>
 
-  <button type="submit" name="send">Absenden</button>
+  <button type="submit" name="send">Submit</button>
 </form>
 ```
 
 #### CSS
 
 ```css
-/* Verstecken Sie das Fieldset hinter einem ungültigen Fieldset */
+/* Hide the fieldset after an invalid fieldset */
 fieldset:invalid ~ fieldset {
   display: none;
 }
 
-/* Abdunkeln und Deaktivieren des Buttons, während das Formular ungültig ist */
+/* Dim and disable the button while the form is invalid */
 form:invalid button {
   opacity: 0.3;
   pointer-events: none;
@@ -156,13 +156,13 @@ button {
 
 ## Hinweise
 
-### Radiobuttons
+### Optionsfelder
 
-Wenn einer der Radiobuttons in einer Gruppe `required` ist, wird die `:invalid`-Pseudoklasse auf alle angewendet, wenn keiner der Buttons in der Gruppe ausgewählt ist. (Radiobuttons in einer Gruppe teilen denselben Wert für ihr `name`-Attribut.)
+Wenn eines der Optionsfelder in einer Gruppe `required` ist, wird die Pseudo-Klasse `:invalid` auf alle angewendet, wenn keines der Felder in der Gruppe ausgewählt ist. (Gruppierte Optionsfelder teilen denselben Wert für das `name`-Attribut.)
 
 ### Gecko-Standardeinstellungen
 
-Standardmäßig wendet Gecko keinen Stil auf die `:invalid`-Pseudoklasse an. Jedoch wird ein Stil (ein rotes "Leuchten" unter Verwendung der {{Cssxref("box-shadow")}}-Eigenschaft) auf die {{cssxref(":user-invalid")}}-Pseudoklasse angewendet, die in einem Teil der Fälle für `:invalid` gilt.
+Standardmäßig wendet Gecko keinen Stil auf die Pseudo-Klasse `:invalid` an. Es wird jedoch ein Stil (ein roter "Glanz" mit der {{Cssxref("box-shadow")}}-Eigenschaft) auf die {{cssxref(":user-invalid")}}-Pseudo-Klasse angewendet, die in einer Teilmenge der Fälle für `:invalid` gilt.
 
 ## Spezifikationen
 
@@ -174,7 +174,7 @@ Standardmäßig wendet Gecko keinen Stil auf die `:invalid`-Pseudoklasse an. Jed
 
 ## Siehe auch
 
-- Andere validierungsbezogene Pseudoklassen: {{ cssxref(":required") }}, {{ cssxref(":optional") }}, {{ cssxref(":valid") }}
-- Verwandte Mozilla-Pseudoklassen: {{cssxref(":user-invalid")}}, {{cssxref(":-moz-submit-invalid")}}
+- Andere validierungsbezogene Pseudo-Klassen: {{ cssxref(":required") }}, {{ cssxref(":optional") }}, {{ cssxref(":valid") }}
+- Verwandte Mozilla-Pseudo-Klassen: {{cssxref(":user-invalid")}}, {{cssxref(":-moz-submit-invalid")}}
 - [Formulardatenvalidierung](/de/docs/Learn/Forms/Form_validation)
-- Zugriff auf den [Gültigkeitsstatus](/de/docs/Web/API/ValidityState) mit JavaScript
+- Zugriff auf den [gültigkeitsstatus](/de/docs/Web/API/ValidityState) von JavaScript aus.

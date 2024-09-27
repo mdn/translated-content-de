@@ -1,5 +1,5 @@
 ---
-title: "BluetoothCharacteristicProperties: notify-Eigenschaft"
+title: "BluetoothCharacteristicProperties: Notify-Eigenschaft"
 short-title: notify
 slug: Web/API/BluetoothCharacteristicProperties/notify
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{securecontext_header}}{{APIRef("")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`notify`**-Eigenschaft der Schnittstelle {{domxref("BluetoothCharacteristicProperties")}} gibt einen `boolean` zurück, der `true` ist, wenn Benachrichtigungen des Charakteristikwerts ohne Bestätigung erlaubt sind.
+Die schreibgeschützte **`notify`**-Eigenschaft des [`BluetoothCharacteristicProperties`](/de/docs/Web/API/BluetoothCharacteristicProperties)-Interfaces gibt einen `boolean` zurück, der `true` ist, wenn Benachrichtigungen des Charakteristikwerts ohne Bestätigung erlaubt sind.
 
 ## Wert
 
-Ein boolean-Wert.
+Ein boolescher Wert.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

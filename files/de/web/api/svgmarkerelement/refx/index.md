@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`refX`**-Eigenschaft des {{domxref("SVGMarkerElement")}}-Interfaces ist eine schreibgeschützte Eigenschaft, die ein {{domxref("SVGAnimatedLength")}}-Objekt zurückgibt, das den Wert des {{SVGattr("refX")}}-Attributs des {{SVGElement("marker")}}-Elements enthält.
+Die **`refX`**-Eigenschaft des Interfaces [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement) gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das den Wert des {{SVGattr("refX")}}-Attributs des {{SVGElement("marker")}} enthält.
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedLength")}}-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein {{domxref("SVGLength")}} zurück, dessen Wert dem `refX` entspricht.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGLength`](/de/docs/Web/API/SVGLength) zurück, dessen Wert das `refX` zurückgibt.
 
 ## Beispiele
 
-Die `markerWidth`-Eigenschaft gibt ein {{domxref("SVGAnimatedLength")}} zurück, das ein {{domxref("SVGLength")}} enthält, welches den Wert des {{SVGattr("refX")}}-Attributs darstellt.
+Die `markerWidth`-Eigenschaft gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das ein [`SVGLength`](/de/docs/Web/API/SVGLength) mit dem Wert des {{SVGattr("refX")}}-Attributs enthält.
 
 ```html
 <svg id="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">

@@ -8,30 +8,28 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die schreibgeschützte `items`-Eigenschaft des {{domxref("DataTransfer")}}-Interfaces ist eine
-{{domxref("DataTransferItemList","Liste")}} der {{domxref("DataTransferItem","Datenübertragungsobjekte", "", "nocode")}} in einer Ziehoperation. Die Liste enthält ein Element für jedes Objekt in der Operation, und wenn die Operation keine Elemente umfasste, ist die Liste leer.
+Die schreibgeschützte `items`-Eigenschaft des [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Interfaces ist eine [`Liste`](/de/docs/Web/API/DataTransferItemList) der [Datentransfer-Items](/de/docs/Web/API/DataTransferItem) in einem Ziehvorgang. Die Liste enthält ein Item für jedes Element in der Operation und ist leer, wenn die Operation keine Elemente hatte.
 
 ## Wert
 
-Ein {{domxref("DataTransferItemList")}}-Objekt, das {{domxref("DataTransferItem")}}
-Objekte enthält, die die in einer Ziehoperation gezogenen Elemente repräsentieren, ein Listenelement für jedes gezogene Objekt. Wenn die Ziehoperation keine Daten hatte, ist die Liste leer.
+Ein [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt, das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekte enthält, die die in einem Ziehvorgang gezogenen Items repräsentieren, mit einem Listeneintrag für jedes Objekt, das gezogen wird. Wenn der Ziehvorgang keine Daten hatte, ist die Liste leer.
 
 ## Beispiele
 
-### Protokollierung gezogener Elemente
+### Protokollierung gezogener Items
 
-Dieses Beispiel verwendet `items`, um Informationen über gezogene Elemente zu protokollieren.
+Dieses Beispiel verwendet `items`, um Informationen über gezogene Items zu protokollieren.
 
 #### HTML
 
 ```html
 <ul>
-  <li id="source1" draggable="true">Ziehen Sie Element 1 auf die Ablagezone</li>
-  <li id="source2" draggable="true">Ziehen Sie Element 2 auf die Ablagezone</li>
+  <li id="source1" draggable="true">Drag Item 1 to the Drop Zone</li>
+  <li id="source2" draggable="true">Drag Item 2 to the Drop Zone</li>
 </ul>
-<div id="target">Ablagezone</div>
+<div id="target">Drop Zone</div>
 
-<button id="reset">Zurücksetzen</button>
+<button id="reset">Reset</button>
 ```
 
 #### CSS
@@ -104,7 +102,7 @@ reset.addEventListener("click", () => document.location.reload());
 
 ## Siehe auch
 
-- [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
-- [Zieh-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
-- [Empfohlene Zieh-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
+- [Drag and drop](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Ziehvorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
 - [DataTransfer-Test - Einfügen oder Ziehen](https://codepen.io/tech_query/pen/MqGgap)

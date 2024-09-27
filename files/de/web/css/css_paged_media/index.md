@@ -1,5 +1,5 @@
 ---
-title: CSS-Seitenmedien
+title: CSS paged media
 slug: Web/CSS/CSS_paged_media
 l10n:
   sourceCommit: d303345cabd0cd9ab33fdfe51957479c8fb35424
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Seitenmedien**-Modul definiert die Eigenschaften, die die Präsentation von Inhalten für den Druck oder andere Medien steuern, die Inhalte in separate Seiten aufteilen. Es ermöglicht Ihnen, Seitenumbrüche festzulegen, den druckbaren Bereich zu kontrollieren, linke und rechte Seiten unterschiedlich zu gestalten und Umbrüche innerhalb von Elementen zu steuern.
+Das **CSS paged media**-Modul definiert die Eigenschaften, die die Darstellung von Inhalten für den Druck oder andere Medien steuern, die Inhalte in separate Seiten unterteilen. Es ermöglicht Ihnen, Seitenumbrüche zu setzen, den druckbaren Bereich zu steuern, linke und rechte Seiten unterschiedlich zu gestalten und Umbrüche innerhalb von Elementen zu kontrollieren.
 
 ## Referenz
 
@@ -37,4 +37,4 @@ Das **CSS-Seitenmedien**-Modul definiert die Eigenschaften, die die Präsentatio
 ## Siehe auch
 
 - [Drucken](/de/docs/Web/CSS/CSS_media_queries/Printing) Leitfaden
-- [CSS-Media-Queries](/de/docs/Web/CSS/CSS_media_queries) Modul
+- [CSS Media Queries](/de/docs/Web/CSS/CSS_media_queries) Modul

@@ -9,13 +9,13 @@ l10n:
 
 Der **`GeneratorFunction()`** Konstruktor erstellt {{jsxref("GeneratorFunction")}} Objekte.
 
-Beachten Sie, dass `GeneratorFunction` _kein_ globales Objekt ist. Es kann mit folgendem Code erhalten werden:
+Beachten Sie, dass `GeneratorFunction` _kein_ globales Objekt ist. Es kann mit dem folgenden Code erhalten werden:
 
 ```js
 const GeneratorFunction = function* () {}.constructor;
 ```
 
-Der `GeneratorFunction()` Konstruktor ist nicht dafür gedacht, direkt verwendet zu werden, und alle in der {{jsxref("Function/Function", "Function()")}} Beschreibung erwähnten Vorbehalte gelten auch für `GeneratorFunction()`.
+Der `GeneratorFunction()` Konstruktor ist nicht dazu gedacht, direkt verwendet zu werden, und alle Warnhinweise, die in der Beschreibung von {{jsxref("Function/Function", "Function()")}} erwähnt werden, treffen auch auf `GeneratorFunction()` zu.
 
 ## Syntax
 
@@ -61,5 +61,5 @@ console.log(iterator.next().value); // 20
 - [`function*`](/de/docs/Web/JavaScript/Reference/Statements/function*)
 - [`function*` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function*)
 - [`Function()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/Function)
-- [Iteratoren und Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Anleitung
-- {{jsxref("Functions", "Funktionen", "", 1)}}
+- [Iteratoren und Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden
+- {{jsxref("Functions", "Functions", "", 1)}}

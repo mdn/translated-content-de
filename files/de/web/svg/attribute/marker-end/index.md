@@ -7,12 +7,12 @@ l10n:
 
 {{SVGRef}}
 
-Das **`marker-end`** Attribut definiert den Pfeilkopf oder das Polymarker, das am letzten Vertex der gegebenen [Form](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
+Das **`marker-end`** Attribut definiert den Pfeilkopf oder das Polymarker, das am letzten Scheitelpunkt der angegebenen [Shape](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
 
-Für alle Formelemente, außer {{SVGElement("polyline")}} und {{SVGElement("path")}}, ist der letzte Vertex derselbe wie der erste Vertex. In diesem Fall, wenn der Wert von {{SVGAttr("marker-start")}} und `marker-end` beide nicht `none` sind, werden zwei Marker auf diesem letzten Vertex angezeigt. Für `<path>` Elemente ist für jeden geschlossenen Unterpfad der letzte Vertex derselbe wie der erste Vertex. `marker-end` wird nur am letzten Vertex der [Pfaddaten](/de/docs/Web/SVG/Attribute/d#path_commands) gerendert.
+Für alle Shape-Elemente, außer {{SVGElement("polyline")}} und {{SVGElement("path")}}, ist der letzte Scheitelpunkt derselbe wie der erste Scheitelpunkt. In diesem Fall, wenn der Wert von {{SVGAttr("marker-start")}} und `marker-end` beide nicht `none` sind, dann werden zwei Marker an diesem letzten Scheitelpunkt gerendert. Für `<path>`-Elemente, bei jedem geschlossenen Unterpfad, ist der letzte Scheitelpunkt derselbe wie der erste Scheitelpunkt. `marker-end` wird nur am letzten Scheitelpunkt der [Pfad-Daten](/de/docs/Web/SVG/Attribute/d#path_commands) gerendert.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `marker-end` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('marker-end')}} für mehr Informationen.
+> Als Präsentationsattribut kann `marker-end` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('marker-end')}} für mehr.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -59,7 +59,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -79,15 +79,15 @@ svg {
 </table>
 
 - `none`
-  - : Gibt an, dass kein Markersymbol am letzten Vertex gezeichnet wird.
+  - : Gibt an, dass kein Markersymbol am letzten Scheitelpunkt gezeichnet wird.
 - `<marker-ref>`
-  - : Dieser Wert ist ein Verweis auf ein {{SVGElement("marker")}} Element, welches am letzten Vertex gezeichnet wird. Wenn der Verweis ungültig ist, wird kein Marker gezeichnet.
+  - : Dieser Wert ist eine Referenz auf ein {{SVGElement("marker")}}-Element, das am letzten Scheitelpunkt gezeichnet wird. Wenn die Referenz ungültig ist, wird kein Marker gezeichnet.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -96,4 +96,4 @@ svg {
 - {{SVGElement("marker")}}
 - {{SVGAttr("marker-start")}}
 - {{SVGAttr("marker-mid")}}
-- CSS {{cssxref('marker-end')}} Eigenschaft
+- CSS {{cssxref('marker-end')}}-Eigenschaft

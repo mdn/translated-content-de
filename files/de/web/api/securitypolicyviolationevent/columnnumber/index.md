@@ -3,16 +3,16 @@ title: "SecurityPolicyViolationEvent: columnNumber-Eigenschaft"
 short-title: columnNumber
 slug: Web/API/SecurityPolicyViolationEvent/columnNumber
 l10n:
-  sourceCommit: a5c1400a03d86162ea5c4342a93c2d96df470630
+  sourceCommit: 701ac4440432ac215713b6b7f274291ca643c49a
 ---
 
-{{APIRef("Reporting API")}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`columnNumber`** des {{domxref("SecurityPolicyViolationEvent")}}-Interfaces ist die Spaltennummer im Dokument oder Worker-Skript, an der der Verstoß gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) aufgetreten ist.
+Die **`columnNumber`**-Eigenschaft des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist die Spaltennummer im Dokument oder Worker-Skript, an der der Verstoß gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) aufgetreten ist.
 
 ## Wert
 
-Eine Zahl, die die Spaltennummer repräsentiert, an der der Verstoß aufgetreten ist.
+Eine Zahl, die die Spaltennummer darstellt, an der der Verstoß aufgetreten ist.
 
 ## Beispiele
 
@@ -32,4 +32,4 @@ document.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- [`CSPViolationReportBody.columnNumber`](/de/docs/Web/API/CSPViolationReportBody#cspviolationreportbody.columnnumber)
+- [`CSPViolationReportBody.columnNumber`](/de/docs/Web/API/CSPViolationReportBody/columnNumber)

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`paused`** schreibgeschützte Eigenschaft des {{domxref("SpeechSynthesis")}}-Interfaces ist ein boolescher Wert, der `true` zurückgibt, wenn das `SpeechSynthesis`-Objekt im pausierten Zustand ist, oder `false`, wenn nicht.
+Die schreibgeschützte **`paused`**-Eigenschaft des [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Interfaces ist ein boolescher Wert, der `true` zurückgibt, wenn das `SpeechSynthesis`-Objekt sich in einem pausierten Zustand befindet, oder `false`, wenn nicht.
 
-Sie kann auf {{domxref("SpeechSynthesis.pause()", "paused")}} gesetzt werden, auch wenn aktuell nichts über sie gesprochen wird. Wenn dann {{domxref("SpeechSynthesisUtterance","utterances")}} zur Äußerungsschlange hinzugefügt werden, werden sie nicht gesprochen, bis das `SpeechSynthesis`-Objekt mit {{domxref("SpeechSynthesis.resume()")}} fortgesetzt wird.
+Sie kann auf [`paused`](/de/docs/Web/API/SpeechSynthesis/pause) gesetzt werden, auch wenn aktuell nichts durch das Objekt gesprochen wird. Wenn dann [`utterances`](/de/docs/Web/API/SpeechSynthesisUtterance) zur Warteschlange hinzugefügt werden, werden sie nicht gesprochen, bis das `SpeechSynthesis`-Objekt mit [`SpeechSynthesis.resume()`](/de/docs/Web/API/SpeechSynthesis/resume) wieder fortgesetzt wird.
 
 ## Wert
 
@@ -23,14 +23,14 @@ const synth = window.speechSynthesis;
 
 synth.pause();
 
-const amIPaused = synth.paused; // wird true zurückgeben
+const amIPaused = synth.paused; // will return true
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

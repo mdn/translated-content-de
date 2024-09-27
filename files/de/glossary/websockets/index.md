@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-_WebSocket_ ist ein {{Glossary("protocol", "Protokoll")}}, das eine dauerhafte {{Glossary("TCP")}}-Verbindung zwischen {{Glossary("Server", "Server")}} und Client ermöglicht, sodass sie jederzeit Daten austauschen können.
+_WebSocket_ ist ein [Protokoll](/de/docs/Glossary/protocol), das eine persistente [TCP](/de/docs/Glossary/TCP)-Verbindung zwischen [Server](/de/docs/Glossary/Server) und Client ermöglicht, sodass sie jederzeit Daten austauschen können.
 
-Jede Client- oder Serveranwendung kann WebSocket nutzen, hauptsächlich jedoch webbasierte {{Glossary("Browser", "Browser")}} und Webserver. Durch WebSocket können Server Daten an einen Client senden, ohne dass vom Client eine vorherige Anfrage erforderlich ist, was dynamische Inhaltsaktualisierungen ermöglicht.
+Jede Client- oder Serveranwendung kann WebSocket verwenden, hauptsächlich jedoch Web[browser](/de/docs/Glossary/Browser) und Webserver. Durch WebSocket können Server Daten an einen Client senden, ohne dass eine vorherige Anfrage des Clients erforderlich ist, was dynamische Inhaltsaktualisierungen ermöglicht.
 
 ## Siehe auch
 
 - [Websocket](https://en.wikipedia.org/wiki/Websocket) auf Wikipedia
 - [WebSocket-Referenz auf MDN](/de/docs/Web/API/WebSocket)
-- [WebSocket-Clientanwendungen schreiben](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)
-- [WebSocket-Server schreiben](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers)
+- [Erstellen von WebSocket-Client-Anwendungen](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)
+- [Erstellen von WebSocket-Servern](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers)

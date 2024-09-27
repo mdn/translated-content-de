@@ -1,5 +1,5 @@
 ---
-title: "Location: port Eigenschaft"
+title: "Location: port-Eigenschaft"
 short-title: port
 slug: Web/API/Location/port
 l10n:
@@ -8,19 +8,18 @@ l10n:
 
 {{ApiRef("Location")}}
 
-Die **`port`**-Eigenschaft der {{domxref("Location")}}
-Schnittstelle ist ein String, der die Portnummer der URL enthält. Wenn die URL keine explizite Portnummer enthält, wird sie auf `''` gesetzt.
+Die **`port`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein Zeichenfolgenwert, der die Portnummer der URL enthält. Falls die URL keine explizite Portnummer beinhaltet, wird sie auf `''` gesetzt.
 
 ## Wert
 
-Ein String.
+Eine Zeichenfolge.
 
 ## Beispiele
 
 ```js
-// Angenommen, ein <a id="myAnchor" href="https://developer.mozilla.org:443/de/docs/Location.port">-Element befindet sich im Dokument
+// Let's an <a id="myAnchor" href="https://developer.mozilla.org:443/en-US/docs/Location.port"> element be in the document
 const anchor = document.getElementByID("myAnchor");
-const result = anchor.port; // Gibt zurück: '443'
+const result = anchor.port; // Returns:'443'
 ```
 
 ## Spezifikationen

@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`stroke-miterlimit`** Attribut ist ein Präsentationsattribut, das ein Limit für das Verhältnis der Gehrungslänge zur {{ SVGAttr("stroke-width") }} festlegt, die verwendet wird, um eine Gehrungsverbindung zu zeichnen. Wenn das Limit überschritten wird, wird die Verbindung von einer Gehrung zu einer Fase konvertiert.
+Das Attribut **`stroke-miterlimit`** ist ein Präsentationsattribut, das ein Limit für das Verhältnis der Länge der Schräge zur {{ SVGAttr("stroke-width") }} definiert, die verwendet wird, um eine Schrägenverbindung zu zeichnen. Wenn das Limit überschritten wird, wird die Verbindung von einer Schräge zu einer Fase geändert.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `stroke-miterlimit` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-miterlimit')}} für mehr Informationen.
@@ -35,7 +35,7 @@ svg {
 
 ```html
 <svg viewBox="0 0 38 30" xmlns="http://www.w3.org/2000/svg">
-  <!-- Wirkung des Standard-Gehrungslimits -->
+  <!-- Impact of the default miter limit -->
   <path
     stroke="black"
     fill="none"
@@ -47,7 +47,7 @@ svg {
        m2,0 l0.75,-3 l0.75,3
        m2,0 l0.5 ,-3 l0.5 ,3" />
 
-  <!-- Wirkung des kleinsten Gehrungslimits (1) -->
+  <!-- Impact of the smallest miter limit (1) -->
   <path
     stroke="black"
     fill="none"
@@ -60,7 +60,7 @@ svg {
        m2, 0 l0.75,-3 l0.75,3
        m2, 0 l0.5 ,-3 l0.5 ,3" />
 
-  <!-- Wirkung eines großen Gehrungslimits (8) -->
+  <!-- Impact of a large miter limit (8) -->
   <path
     stroke="black"
     fill="none"
@@ -73,7 +73,7 @@ svg {
        m2, 0 l0.75,-3 l0.75,3
        m2, 0 l0.5 ,-3 l0.5 ,3" />
 
-  <!-- die folgenden pinken Linien heben die Position des Pfades für jeden Strich hervor -->
+  <!-- the following pink lines highlight the position of the path for each stroke -->
   <path
     stroke="pink"
     fill="none"
@@ -84,11 +84,11 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel", '100%', 400)}}
+{{EmbedLiveSample("Example", '100%', 400)}}
 
-Wenn sich zwei Liniensegmente in einem scharfen Winkel treffen und `miter`-Verbindungen für {{ SVGAttr("stroke-linejoin") }} angegeben wurden, kann es möglich sein, dass sich die Gehrung weit über die Dicke der Linie, die den Pfad umrandet, hinaus erstreckt. Das `stroke-miterlimit`-Verhältnis wird verwendet, um zu definieren, wann das Limit überschritten wird. Wenn dies der Fall ist, wird die Verbindung von einer Gehrung zu einer Fase konvertiert.
+Wenn sich zwei Liniensegmente in einem scharfen Winkel treffen und `miter`-Verbindungen für {{ SVGAttr("stroke-linejoin") }} festgelegt wurden, kann es möglich sein, dass die Schräge weit über die Dicke der die Pfadlinie überziehenden Linie hinausgeht. Das Verhältnis von `stroke-miterlimit` wird verwendet, um zu definieren, wann das Limit überschritten ist; in diesem Fall wird die Verbindung von einer Schräge zu einer Fase geändert.
 
-Das Verhältnis von Gehrungslänge (Abstand zwischen der äußeren Spitze und der inneren Ecke der Gehrung) zur {{ SVGAttr("stroke-width") }} steht in direktem Zusammenhang mit dem Winkel (Theta) zwischen den Segmenten im Benutzerrraum durch die Formel:
+Das Verhältnis der Schrägenlänge (Abstand zwischen der äußeren Spitze und der inneren Ecke der Schräge) zu {{ SVGAttr("stroke-width") }} steht in direktem Zusammenhang mit dem Winkel (Theta) zwischen den Segmenten im Benutzerraum durch die Formel:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -96,9 +96,9 @@ Das Verhältnis von Gehrungslänge (Abstand zwischen der äußeren Spitze und de
 </math>
 <!-- prettier-ignore-end -->
 
-Zum Beispiel konvertiert ein Gehrungslimit von 1.414 Gehrungen zu Fasen für Theta kleiner als 90 Grad, ein Limit von 4.0 konvertiert sie für Theta kleiner als ungefähr 29 Grad, und ein Limit von 10.0 konvertiert sie für Theta kleiner als ungefähr 11.5 Grad.
+Zum Beispiel: Ein Schrägenlimit von 1.414 wandelt Schrägen in Fasen um, wenn der Winkel weniger als 90 Grad beträgt, ein Limit von 4.0 wandelt sie bei einem Winkel von weniger als etwa 29 Grad um, und ein Limit von 10.0 wandelt sie bei einem Winkel von weniger als etwa 11.5 Grad um.
 
-## Nutzungskontext
+## Verwendungskontext
 
 <table class="properties">
   <tbody>

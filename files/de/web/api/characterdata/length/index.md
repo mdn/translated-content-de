@@ -1,6 +1,6 @@
 ---
-title: "CharacterData: Länge-Eigenschaft"
-short-title: Länge
+title: "CharacterData: length Eigenschaft"
+short-title: length
 slug: Web/API/CharacterData/length
 l10n:
   sourceCommit: 1f216a70d94c3901c5767e6108a29daa48edc070
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`CharacterData.length`**-Eigenschaft gibt die Anzahl der Zeichen in den enthaltenen Daten als positive Ganzzahl zurück.
+Die schreibgeschützte Eigenschaft **`CharacterData.length`** gibt die Anzahl der Zeichen in den enthaltenen Daten als positive Ganzzahl zurück.
 
 ## Wert
 
-Eine positive Ganzzahl mit der Länge des {{domxref("CharacterData.data")}}-Strings.
+Eine positive Ganzzahl mit der Länge des [`CharacterData.data`](/de/docs/Web/API/CharacterData/data) Strings.
 
 ## Beispiel
 
-> **Note:** {{domxref("CharacterData")}} ist ein abstraktes Interface.
-> Die unten stehenden Beispiele verwenden {{domxref("Text")}}, ein konkretes Interface, das es implementiert.
+> **Note:** [`CharacterData`](/de/docs/Web/API/CharacterData) ist ein abstraktes Interface.
+> Die folgenden Beispiele verwenden [`Text`](/de/docs/Web/API/Text), ein konkretes Interface, das es implementiert.
 
 ```html
-Länge des Strings im <code>Text</code>-Knoten: <output></output>
+Length of the string in the <code>Text</code> node: <output></output>
 ```
 
 ```js

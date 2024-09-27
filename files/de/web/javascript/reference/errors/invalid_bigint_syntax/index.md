@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "ungültige BigInt-Syntax" tritt auf, wenn ein Zeichenfolgenwert in ein {{jsxref("BigInt")}} umgewandelt werden soll, aber es nicht geschafft hat, als Ganzzahl geparst zu werden.
+Die JavaScript-Ausnahme "ungültige BigInt-Syntax" tritt auf, wenn ein Zeichenfolgenwert in einen {{jsxref("BigInt")}} umgewandelt werden soll, aber das Parsen als ganze Zahl fehlgeschlagen ist.
 
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: Cannot convert x to a BigInt (V8-based)
@@ -21,9 +21,9 @@ SyntaxError: Failed to parse String to BigInt (Safari)
 
 {{jsxref("SyntaxError")}}.
 
-## Was ging schief?
+## Was ist schiefgelaufen?
 
-Wenn Sie die [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt)-Funktion verwenden, um eine Zeichenkette in ein BigInt zu konvertieren, wird die Zeichenkette auf die gleiche Weise wie Quellcode geparst, und der resultierende Wert muss ein Ganzzahlwert sein.
+Beim Verwenden der [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt)-Funktion, um eine Zeichenfolge in einen BigInt zu konvertieren, wird die Zeichenfolge auf die gleiche Weise wie Quellcode geparst, und der resultierende Wert muss eine ganze Zahl sein.
 
 ## Beispiele
 

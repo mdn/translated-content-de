@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Der **`ByteLengthQueuingStrategy()`** Konstruktor erstellt und gibt eine Instanz des `ByteLengthQueuingStrategy`-Objekts zurück.
+Der **`ByteLengthQueuingStrategy()`**
+Konstruktor erstellt und gibt eine Instanz eines `ByteLengthQueuingStrategy`-Objekts zurück.
 
 ## Syntax
 
@@ -24,13 +25,13 @@ new ByteLengthQueuingStrategy(options)
 
     - `highWaterMark`
 
-      - : Die Gesamtanzahl an Bytes, die in der internen Warteschlange enthalten sein können, bevor ein Rückstau angewendet wird.
+      - : Die Gesamtanzahl an Bytes, die in der internen Warteschlange enthalten sein können, bevor ein Gegendruck ausgeübt wird.
 
-        Im Gegensatz zu [`CountQueuingStrategy()`](/de/docs/Web/API/CountQueuingStrategy/CountQueuingStrategy), bei dem `highWaterMark` eine einfache Zählung der Anzahl von Blöcken angibt, legt `ByteLengthQueuingStrategy()` eine Anzahl von _Bytes_ fest — das heißt, angesichts eines Stroms von Blöcken, wie viele Bytes dieser Blöcke (anstatt einer Anzahl dieser Blöcke) in der internen Warteschlange enthalten sein können, bevor ein Rückstau angewendet wird.
+        Im Gegensatz zu [`CountQueuingStrategy()`](/de/docs/Web/API/CountQueuingStrategy/CountQueuingStrategy), bei dem `highWaterMark` eine einfache Anzahl von Chunks angibt, gibt `ByteLengthQueuingStrategy()` eine Anzahl von _Bytes_ an – genauer gesagt, bei einem Strom von Chunks, wie viele Bytes dieser Chunks (anstelle der Anzahl dieser Chunks) in der internen Warteschlange enthalten sein können, bevor ein Gegendruck ausgeübt wird.
 
 ### Rückgabewert
 
-Eine Instanz des {{domxref("ByteLengthQueuingStrategy")}}-Objekts.
+Eine Instanz des [`ByteLengthQueuingStrategy`](/de/docs/Web/API/ByteLengthQueuingStrategy)-Objekts.
 
 ### Ausnahmen
 
@@ -71,4 +72,4 @@ const size = queuingStrategy.size(chunk);
 
 ## Siehe auch
 
-- {{domxref("ByteLengthQueuingStrategy")}} Schnittstelle
+- [`ByteLengthQueuingStrategy`](/de/docs/Web/API/ByteLengthQueuingStrategy) Schnittstelle

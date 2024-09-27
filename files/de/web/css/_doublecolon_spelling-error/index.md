@@ -1,5 +1,5 @@
 ---
-title: "::Rechtschreibfehler"
+title: "::spelling-error"
 slug: Web/CSS/::spelling-error
 l10n:
   sourceCommit: d6defd737678e99d62bf838ad12eba532567fba5
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **`::spelling-error`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert einen Textabschnitt, den der {{glossary("user agent")}} als falsch geschrieben markiert hat.
+Das **`::spelling-error`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert ein Textsegment, das der [User Agent](/de/docs/Glossary/user_agent) als falsch geschrieben markiert hat.
 
 ## Erlaubte Eigenschaften
 
@@ -17,7 +17,7 @@ Nur eine kleine Untermenge von CSS-Eigenschaften kann in einer Regel mit `::spel
 - {{cssxref("background-color")}}
 - {{cssxref("cursor")}}
 - {{cssxref("caret-color")}}
-- {{cssxref("outline")}} und seine Langformen
+- {{cssxref("outline")}} und dessen Langformen
 - {{cssxref("text-decoration")}} und die dazugehörigen Eigenschaften
 - {{cssxref("text-emphasis-color")}}
 - {{cssxref("text-shadow")}}
@@ -32,9 +32,9 @@ Nur eine kleine Untermenge von CSS-Eigenschaften kann in einer Regel mit `::spel
 
 ## Beispiele
 
-### Einfache Dokumenten-Rechtschreibprüfung
+### Einfache Dokument-Rechtschreibprüfung
 
-In diesem Beispiel sollten unterstützende Browser alle markierten Rechtschreibfehler mit den gezeigten Stilen hervorheben.
+In diesem Beispiel sollten unterstützende Browser etwaige markierte Rechtschreibfehler mit den gezeigten Stilen hervorheben.
 
 #### HTML
 

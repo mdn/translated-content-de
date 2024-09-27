@@ -1,5 +1,5 @@
 ---
-title: "BatteryManager: Eigenschaft chargingTime"
+title: "BatteryManager: chargingTime Eigenschaft"
 short-title: chargingTime
 slug: Web/API/BatteryManager/chargingTime
 l10n:
@@ -8,10 +8,12 @@ l10n:
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`chargingTime`** des {{domxref("BatteryManager")}}-Interfaces zeigt die verbleibende Zeit in Sekunden an, bis die Batterie vollständig aufgeladen ist, oder `0`, wenn die Batterie bereits vollständig geladen ist oder der Benutzeragent nicht in der Lage ist, die Batteriestatusinformationen zu melden. Wenn der Akku derzeit entladen wird, ist sein Wert {{jsxref("Infinity")}}. Wenn sich der Wert ändert, wird das {{domxref("BatteryManager/chargingtimechange_event", "chargingtimechange")}}-Ereignis ausgelöst.
+Die schreibgeschützte **`chargingTime`**-Eigenschaft des [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Interfaces zeigt die verbleibende Zeit in Sekunden an, bis der Akku vollständig aufgeladen ist, oder `0`, wenn der Akku bereits vollständig geladen ist oder der User-Agent nicht in der Lage ist, Informationen über den Batteriestatus zu melden.
+Wenn der Akku derzeit entladen wird, ist sein Wert {{jsxref("Infinity")}}.
+Wenn sich dieser Wert ändert, wird das [`chargingtimechange`](/de/docs/Web/API/BatteryManager/chargingtimechange_event)-Ereignis ausgelöst.
 
 > [!NOTE]
-> Selbst wenn die zurückgegebene Zeit auf die Sekunde genau ist,
+> Auch wenn die zurückgegebene Zeit sekundengenau ist,
 > runden Browser sie aus Datenschutzgründen auf ein höheres Intervall
 > (typischerweise auf die nächsten 15 Minuten).
 
@@ -24,7 +26,7 @@ Eine Zahl.
 ### HTML
 
 ```html
-<div id="chargingTime">(Ladezeit unbekannt)</div>
+<div id="chargingTime">(charging time unknown)</div>
 ```
 
 ### JavaScript
@@ -50,5 +52,5 @@ navigator.getBattery().then((battery) => {
 
 ## Siehe auch
 
-- {{domxref("BatteryManager")}}
-- {{domxref("Navigator.getBattery()")}}
+- [`BatteryManager`](/de/docs/Web/API/BatteryManager)
+- [`Navigator.getBattery()`](/de/docs/Web/API/Navigator/getBattery)

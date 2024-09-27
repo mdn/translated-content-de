@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
-Der **`USBConnectionEvent()`** Konstruktor erstellt ein neues {{domxref("USBConnectionEvent")}}-Objekt. Dieser Konstruktor wird typischerweise nicht verwendet; er wird vom Browser als Reaktion auf das Verbinden und Trennen eines USB-Geräts erstellt.
+Der **`USBConnectionEvent()`**-Konstruktor erstellt ein neues [`USBConnectionEvent`](/de/docs/Web/API/USBConnectionEvent)-Objekt. Dieser Konstruktor wird normalerweise nicht verwendet, er wird vom Browser als Reaktion auf das Anschließen und Trennen eines USB-Geräts erstellt.
 
 ## Syntax
 
@@ -19,20 +19,20 @@ new USBConnectionEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Es ist zwischen Groß- und Kleinschreibung unterscheidend, und Browser setzen ihn auf `connect` oder `disconnect`.
+  - : Ein Zeichenfolgenwert mit dem Namen des Ereignisses. Er ist case-sensitiv und Browser setzen ihn auf `connect` oder `disconnect`.
 - `options`
-  - : Ein Objekt, das, _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_, die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften enthalten kann:
     - `device`
-      - : Ein {{domxref("USBDevice")}}, das das verbundene oder getrennte USB-Gerät darstellt.
+      - : Ein [`USBDevice`](/de/docs/Web/API/USBDevice), das das USB-Gerät repräsentiert, das angeschlossen oder getrennt wird.
 
 ### Rückgabewert
 
-Ein neues {{domxref("USBConnectionEvent")}}-Objekt.
+Ein neues [`USBConnectionEvent`](/de/docs/Web/API/USBConnectionEvent)-Objekt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

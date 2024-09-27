@@ -7,15 +7,15 @@ l10n:
 
 {{AddonSidebar}}
 
-Um die Nutzung von Systemressourcen zu optimieren, können Browser GPU-Ressourcen von Tabs entfernen, die der Benutzer seit einer gewissen Zeit nicht aufgerufen hat. Wenn ein Browser dies für einen Tab getan hat, kann die Reaktivierung des Tabs (zum Beispiel, wenn der Benutzer zu diesem wechselt) länger dauern als gewöhnlich.
+Um die Nutzung von Systemressourcen zu optimieren, können Browser die GPU-Ressourcen von Tabs freigeben, die der Benutzer für eine gewisse Zeit nicht besucht hat. Wenn ein Browser dies für einen Tab getan hat, kann die Reaktivierung des Tabs (zum Beispiel, wenn der Benutzer zu ihm wechselt) länger dauern als gewöhnlich.
 
-Die `tabs.warmup()` API ermöglicht es einer Erweiterung, den Prozess des Renderings der Ressourcen für einen inaktiven Tab zu starten, falls die Erweiterung erwartet, dass der Benutzer bald zu diesem Tab wechseln könnte. Dadurch wird der tatsächliche Tabwechsel schneller, als er sonst wäre.
+Die `tabs.warmup()`-API ermöglicht einer Erweiterung, den Prozess der Darstellung der Ressourcen für einen inaktiven Tab zu starten, wenn die Erweiterung erwartet, dass der Benutzer bald zu diesem Tab wechseln könnte. Dies macht den eigentlichen Tab-Wechsel schneller, als es sonst der Fall wäre.
 
-Beachten Sie, dass diese API nicht mit verworfenen Tabs funktioniert und nicht unmittelbar vor einem Tabwechsel aufgerufen werden muss. Sie stellt lediglich eine Leistungsverbesserung dar, wenn der Tabwechsel antizipiert werden kann, wie beim Überfahren eines Buttons, der beim Klicken zu dem Tab wechseln würde.
+Beachten Sie, dass diese API nicht bei verworfenen Tabs funktioniert und nicht direkt vor dem Wechseln der Tabs aufgerufen werden muss. Es handelt sich lediglich um eine Leistungsverbesserung, wenn der Tab-Wechsel vorausgesehen werden kann, etwa wenn über einen Button geschwebt wird, der bei Klick zu dem Tab wechselt.
 
-Es wird erwartet, dass diese API hauptsächlich für Tab-Management-Erweiterungen nützlich ist.
+Es wird erwartet, dass diese API hauptsächlich für Tab-Verwaltungserweiterungen nützlich ist.
 
-Es handelt sich um eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
+Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
 ## Syntax
 
@@ -28,15 +28,15 @@ let warming = browser.tabs.warmup(
 ### Parameter
 
 - `tabId`
-  - : `integer`. ID des Tabs, der aufgewärmt werden soll. Wenn das hier übergebene Argument kein Integer ist (insbesondere, wenn es `null` oder `undefined` ist), wird `warmup()` synchron eine Ausnahme auslösen.
+  - : `integer`. ID des Tabs, der vorgewärmt werden soll. Wenn das hier übergebene Argument kein Integer ist (insbesondere, wenn es `null` oder `undefined` ist), wird `warmup()` eine Ausnahme synchron auslösen.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn der durch `tabId` identifizierte Tab erfolgreich aufgewärmt wird. Wenn `tabId` keinen offenen Tab identifiziert oder das Aufwärmen aus einem anderen Grund fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn der durch `tabId` identifizierte Tab erfolgreich vorgewärmt wurde. Wenn `tabId` keinen offenen Tab identifiziert, oder wenn das Vorwärmen aus einem anderen Grund fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Dieser Code fügt einen Listener zum `browserAction.onClicked` Ereignis hinzu. Der Listener ruft alle Tabs im aktuellen Fenster ab, die Seiten unter "https\://developer.mozilla.org/" enthalten, und wärmt den ersten auf, den er findet.
+Dieser Code fügt dem `browserAction.onClicked`-Ereignis einen Listener hinzu. Der Listener ruft alle Tabs im aktuellen Fenster ab, die Seiten unter "https\://developer.mozilla.org/" enthalten, und wärmt den ersten auf, den er findet.
 
 ```js
 function onSuccess() {
@@ -44,7 +44,7 @@ function onSuccess() {
 }
 
 function onFailure(error) {
-  // z.B. ID eines nicht existierenden Tabs
+  // e.g. ID of a nonexistent tab
   console.error(error);
 }
 

@@ -1,5 +1,5 @@
 ---
-title: Nicht gleich
+title: Not equal
 slug: WebAssembly/Reference/Numeric/Not_equal
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,27 +7,27 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`ne`** Anweisungen, kurz für _not equal_, prüfen, ob zwei Zahlen nicht gleich sind. Wenn die Zahlen nicht gleich sind, wird `1` auf den Stack gelegt, andernfalls wird `0` auf den Stack gelegt.
+Die **`ne`** Anweisungen, kurz für _not equal_, überprüfen, ob zwei Zahlen ungleich sind. Wenn die Zahlen ungleich sind, wird `1` auf den Stapel gelegt, ansonsten wird `0` auf den Stapel gelegt.
 
 {{EmbedInteractiveExample("pages/wat/ne.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; lädt 2 Zahlen auf den Stack
+;; load 2 numbers on to the stack
 local.get $num
 i32.const 2
 
-;; prüft, ob $num nicht gleich '2' ist
+;; check if $num is not equal to '2'
 i32.ne
 
-;; wenn $num nicht gleich `2` ist, wird `1` auf den Stack gelegt,
-;; andernfalls wird `0` auf den Stack gelegt.
+;; if $num is not equal to `2`, `1` will be pushed on to the stack,
+;; otherwise `0` will be pushed on to the stack.
 ```
 
-| Anweisung  | Binärer Opcode |
-| ----------- | ------------- |
-| `i32.ne`    | `0x47`        |
-| `i64.ne`    | `0x52`        |
-| `f32.ne`    | `0x5c`        |
-| `f64.ne`    | `0x62`        |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `i32.ne`  | `0x47`         |
+| `i64.ne`  | `0x52`         |
+| `f32.ne`  | `0x5c`         |
+| `f64.ne`  | `0x62`         |

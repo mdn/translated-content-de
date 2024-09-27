@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: multiple Eigenschaft"
+title: "HTMLInputElement: multiple-Eigenschaft"
 short-title: multiple
 slug: Web/API/HTMLInputElement/multiple
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLInputElement.multiple`** Eigenschaft gibt an, ob ein Eingabefeld mehr als einen Wert haben kann. Derzeit unterstützt Firefox `multiple` nur für `<input type="file">`.
+Die **`HTMLInputElement.multiple`**-Eigenschaft zeigt an, ob ein Eingabefeld mehr als einen Wert haben kann. Derzeit unterstützt Firefox `multiple` nur für `<input type="file">`.
 
 ## Wert
 
@@ -24,11 +24,11 @@ Ein boolescher Wert.
 let fileInput = document.getElementById("myfileinput");
 
 if (fileInput.multiple) {
-  // Durchlaufen der fileInput.files
+  // Loop fileInput.files
   for (const file of fileInput.files) {
-    // Aktion an einer Datei ausführen
+    // Perform action on one file
   }
-  // Nur eine Datei verfügbar
+  // Only one file available
 } else {
   let [file] = fileInput.files;
 }
@@ -45,4 +45,4 @@ if (fileInput.multiple) {
 ## Siehe auch
 
 - [FileList](/de/docs/Web/API/FileList)
-- [Bug 523771](https://bugzil.la/523771) - Unterstützung \<input type=file multiple>
+- [Bug 523771](https://bugzil.la/523771) - Support \<input type=file multiple>

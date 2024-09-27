@@ -1,5 +1,5 @@
 ---
-title: "PerformanceObserverEntryList: getEntriesByName() Methode"
+title: "PerformanceObserverEntryList: getEntriesByName()-Methode"
 short-title: getEntriesByName()
 slug: Web/API/PerformanceObserverEntryList/getEntriesByName
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`getEntriesByName()`**-Methode der {{domxref("PerformanceObserverEntryList")}}-Schnittstelle gibt eine Liste explizit beobachteter {{domxref("PerformanceEntry")}}-Objekte für einen bestimmten {{domxref("PerformanceEntry.name","Namen")}} und {{domxref("PerformanceEntry.entryType","entryType")}} zurück. Die Mitglieder der Liste werden durch die Menge der {{domxref("PerformanceEntry.entryType","Eingabetypen", '', 'entry')}} bestimmt, die im Aufruf der {{domxref("PerformanceObserver.observe","observe()")}}-Methode angegeben sind. Die Liste ist in der Rückruffunktion des Observers verfügbar (als erster Parameter im Callback).
+Die **`getEntriesByName()`**-Methode des [`PerformanceObserverEntryList`](/de/docs/Web/API/PerformanceObserverEntryList)-Interfaces gibt eine Liste von explizit beobachteten [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten für einen gegebenen [`name`](/de/docs/Web/API/PerformanceEntry/name) und [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) zurück. Die Mitglieder der Liste werden durch die in dem Aufruf der [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode angegebenen [Eintragstypen](/de/docs/Web/API/PerformanceEntry/entryType) bestimmt. Die Liste ist in der Rückruffunktion des Beobachters verfügbar (als erster Parameter im Rückruf).
 
 ## Syntax
 
@@ -22,40 +22,40 @@ getEntriesByName(name, type)
 - `name`
   - : Ein String, der den Namen des abzurufenden Eintrags darstellt.
 - `type` {{optional_inline}}
-  - : Ein String, der den Typ des abzurufenden Eintrags darstellt, wie z.B. `"mark"`. Die gültigen Eingangstypen sind in {{domxref("PerformanceEntry.entryType")}} aufgeführt.
+  - : Ein String, der den Typ des abzurufenden Eintrags darstellt, wie z.B. `"mark"`. Die gültigen Eintragstypen sind in [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) aufgelistet.
 
 ### Rückgabewert
 
-Eine Liste von explizit _beobachteten_ {{domxref("PerformanceEntry","Performance-Eintrag", '', 'true')}}-Objekten, die den angegebenen `name` und `type` haben. Wenn das `type`-Argument nicht angegeben ist, wird nur der `name` verwendet, um die zurückzugebenden Einträge zu bestimmen. Die Elemente werden in chronologischer Reihenfolge basierend auf den {{domxref("PerformanceEntry.startTime","startTime")}} der Einträge angeordnet. Wenn keine Objekte die angegebenen Kriterien erfüllen, wird eine leere Liste zurückgegeben.
+Eine Liste von explizit _beobachteten_ [Performance-Entry](/de/docs/Web/API/PerformanceEntry)-Objekten, die den angegebenen `name` und `type` haben. Wenn das `type`-Argument nicht angegeben wird, wird nur der `name` verwendet, um die zurückzugebenden Einträge zu bestimmen. Die Elemente werden in chronologischer Reihenfolge basierend auf der [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) der Einträge angeordnet. Wenn keine Objekte die angegebenen Kriterien erfüllen, wird eine leere Liste zurückgegeben.
 
 ## Beispiele
 
 ### Arbeiten mit getEntries, getEntriesByName und getEntriesByType
 
-Das folgende Beispiel zeigt den Unterschied zwischen den Methoden {{domxref("PerformanceObserverEntryList.getEntries", "getEntries()")}}, `getEntriesByName()` und {{domxref("PerformanceObserverEntryList.getEntriesByType", "getEntriesByType()")}}.
+Das folgende Beispiel zeigt den Unterschied zwischen den [`getEntries()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntries)-, `getEntriesByName()`- und [`getEntriesByType()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByType)-Methoden.
 
 ```js
 const observer = new PerformanceObserver((list, obs) => {
-  // Loggen Sie alle Einträge
+  // Log all entries
   let perfEntries = list.getEntries();
   perfEntries.forEach((entry) => {
     console.log(`${entry.name}'s duration: ${entry.duration}`);
   });
 
-  // Loggen Sie Einträge mit dem Namen "debugging" und dem Typ "measure"
+  // Log entries named "debugging" with type "measure"
   perfEntries = list.getEntriesByName("debugging", "measure");
   perfEntries.forEach((entry) => {
     console.log(`${entry.name}'s duration: ${entry.duration}`);
   });
 
-  // Loggen Sie Einträge mit dem Typ "mark"
+  // Log entries with type "mark"
   perfEntries = list.getEntriesByType("mark");
   perfEntries.forEach((entry) => {
     console.log(`${entry.name}'s startTime: ${entry.startTime}`);
   });
 });
 
-// Abonnieren Sie verschiedene Performance-Ereignistypen
+// Subscribe to various performance event types
 observer.observe({
   entryTypes: ["mark", "measure", "navigation", "resource"],
 });
@@ -65,6 +65,6 @@ observer.observe({
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -1,5 +1,5 @@
 ---
-title: "KeyboardLayoutMap: forEach()-Methode"
+title: "KeyboardLayoutMap: forEach() Methode"
 short-title: forEach()
 slug: Web/API/KeyboardLayoutMap/forEach
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Keyboard API")}}{{SeeCompatTable}}
 
-Die **`forEach()`**-Methode der
-{{domxref('KeyboardLayoutMap')}}-Schnittstelle führt eine bereitgestellte Funktion einmal für jedes Element der Map aus.
+Die **`forEach()`** Methode der
+[`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap) Schnittstelle führt eine bereitgestellte Funktion einmal für jedes Element der Map aus.
 
-Die Methode entspricht ansonsten der {{jsxref("Map.prototype.forEach()")}}.
+Die Methode ist ansonsten dieselbe wie {{jsxref("Map.prototype.forEach()")}}.
 
 ## Syntax
 
@@ -27,22 +27,23 @@ forEach(callbackFn, thisArg)
   - : Die Funktion, die für jedes Element ausgeführt wird, nimmt drei Argumente entgegen:
 
     - `currentValue`
-      - : Der Wert des aktuell verarbeiteten Elements.
+      - : Der Wert des aktuellen Elements, das verarbeitet wird.
     - `index` {{optional_inline}}
-      - : Der Index des aktuell verarbeiteten Elements.
+      - : Der Index des aktuellen Elements, das verarbeitet wird.
     - `array` {{optional_inline}}
-      - : Die KeyboardLayoutMap, auf die `forEach()` aufgerufen wird.
+      - : Die KeyboardLayoutMap, auf der `forEach()` aufgerufen wird.
 
 - `thisArg` {{Optional_inline}}
-  - : Wert, der als **`this`** (d.h. das Referenz-`Objekt`) beim Ausführen von `callback` verwendet wird.
+  - : Der Wert, der als **`this`** (d.h., die Referenz
+    `Object`) beim Ausführen von `callback` verwendet wird.
 
 ### Rückgabewert
 
-Keinen ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Beispiel iteriert über jeden positions- oder layoutspezifischen String und den dazugehörigen Tastaturcode auf einer englischen QWERTY-Tastatur.
+Das folgende Beispiel iteriert über jeden orts- oder layoutspezifischen String und den zugehörigen Tastaturcode auf einer englischen QWERTY-Tastatur.
 
 ```js
 navigator.keyboard.getLayoutMap().then((keyboardLayoutMap) => {

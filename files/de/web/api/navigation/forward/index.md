@@ -1,5 +1,5 @@
 ---
-title: "Navigation: Methode forward()"
+title: "Navigation: forward() Methode"
 short-title: forward()
 slug: Web/API/Navigation/forward
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`forward()`**-Methode des {{domxref("Navigation")}}-Interfaces navigiert um einen Eintrag vorwärts in der Navigationshistorie.
+Die **`forward()`** Methode des
+[`Navigation`](/de/docs/Web/API/Navigation)-Interfaces navigiert einen Eintrag vorwärts in der Verlaufshistorie.
 
 ## Syntax
 
@@ -21,23 +22,23 @@ forward(options)
 - `options` {{optional_inline}}
   - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
     - `info` {{optional_inline}}
-      - : Entwicklerdefinierte Informationen, die an das {{domxref("Navigation/navigate_event", "navigate")}}-Event übergeben werden, verfügbar in {{domxref("NavigateEvent.info")}}. Dies kann jeder Datentyp sein. Sie könnten beispielsweise den neu navigierten Inhalt mit einer anderen Animation abhängig davon anzeigen, wie dorthin navigiert wurde (nach links wischen, nach rechts wischen oder zur Startseite gehen). Ein String, der angibt, welche Animation verwendet werden soll, könnte als `info` übergeben werden.
+      - : Entwicklerdefinierte Informationen, die an das [`navigate`](/de/docs/Web/API/Navigation/navigate_event)-Ereignis übergeben werden und im [`NavigateEvent.info`](/de/docs/Web/API/NavigateEvent/info) verfügbar sind. Dies kann jeder Datentyp sein. Beispielsweise möchten Sie möglicherweise neu navigierte Inhalte mit einer anderen Animation anzeigen, abhängig davon, wie sie erreicht wurden (nach links wischen, nach rechts wischen oder zum Startbildschirm zurückkehren). Eine Zeichenkette, die angibt, welche Animation zu verwenden ist, könnte als `info` übergeben werden.
 
 ### Rückgabewert
 
 Ein Objekt mit den folgenden Eigenschaften:
 
 - `committed`
-  - : Ein {{jsxref("Promise")}}, der erfüllt wird, wenn die sichtbare URL geändert wurde und ein neuer {{domxref("NavigationHistoryEntry")}} erstellt wurde.
+  - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn sich die sichtbare URL geändert hat und ein neuer [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) erstellt wurde.
 - `finished`
-  - : Ein {{jsxref("Promise")}}, der erfüllt wird, wenn alle Versprechen, die vom {{domxref("NavigateEvent.intercept()")}}-Handler zurückgegeben wurden, erfüllt wurden. Dies entspricht dem Erfüllen des {{domxref("NavigationTransition.finished")}}-Versprechens, wenn das {{domxref("Navigation/navigatesuccess_event", "navigatesuccess")}}-Event ausgelöst wird.
+  - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn alle von dem [`NavigateEvent.intercept()`](/de/docs/Web/API/NavigateEvent/intercept)-Handler zurückgegebenen Versprechungen erfüllt sind. Dies entspricht der Erfüllung des [`NavigationTransition.finished`](/de/docs/Web/API/NavigationTransition/finished)-Versprechens, wenn das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Ereignis ausgelöst wird.
 
-Eines dieser Versprechen wird abgelehnt, wenn die Navigation aus irgendeinem Grund fehlgeschlagen ist.
+Jedes dieser Versprechen wird abgelehnt, wenn die Navigation aus irgendeinem Grund fehlgeschlagen ist.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Wert von {{domxref("Navigation.currentEntry")}}'s {{domxref("NavigationHistoryEntry.index")}} -1 oder {{domxref("Navigation.entries", "navigation.entries().length - 1")}} ist, das heißt entweder ist das aktuelle {{domxref("Document")}} noch nicht aktiv oder der aktuelle Geschichtseintrag ist der letzte in der Historie, was bedeutet, dass ein Vorwärts-Navigation nicht möglich ist, oder wenn das aktuelle {{domxref("Document")}} entladen wird.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry)'s [`NavigationHistoryEntry.index`](/de/docs/Web/API/NavigationHistoryEntry/index)-Wert -1 oder [`navigation.entries().length - 1`](/de/docs/Web/API/Navigation/entries) ist, d.h. entweder das aktuelle [`Document`](/de/docs/Web/API/Document) ist noch nicht aktiv, oder der aktuelle Verlaufseintrag ist der letzte in der Historie, was bedeutet, dass eine Vorwärtsnavigation nicht möglich ist, oder wenn das aktuelle [`Document`](/de/docs/Web/API/Document) entladen wird.
 
 ## Beispiele
 
@@ -45,20 +46,20 @@ Eines dieser Versprechen wird abgelehnt, wenn die Navigation aus irgendeinem Gru
 async function backHandler() {
   if (navigation.canGoBack) {
     await navigation.back().finished;
-    // Behandeln Sie jegliche notwendige Bereinigung, nachdem
-    // die Navigation abgeschlossen ist
+    // Handle any required clean-up after
+    // navigation has finished
   } else {
-    displayBanner("Sie sind auf der ersten Seite");
+    displayBanner("You are on the first page");
   }
 }
 
 async function forwardHandler() {
   if (navigation.canGoForward) {
     await navigation.forward().finished;
-    // Behandeln Sie jegliche notwendige Bereinigung, nachdem
-    // die Navigation abgeschlossen ist
+    // Handle any required clean-up after
+    // navigation has finished
   } else {
-    displayBanner("Sie sind auf der letzten Seite");
+    displayBanner("You are on the last page");
   }
 }
 ```
@@ -73,6 +74,6 @@ async function forwardHandler() {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

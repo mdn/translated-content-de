@@ -1,5 +1,5 @@
 ---
-title: "Navigator: getGamepads()-Methode"
+title: "Navigator: getGamepads() Methode"
 short-title: getGamepads()
 slug: Web/API/Navigator/getGamepads
 l10n:
@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef("Gamepad API")}}{{securecontext_header}}
 
-Die **`Navigator.getGamepads()`**-Methode gibt ein Array von {{domxref("Gamepad")}}-Objekten zurück, eines für jedes mit dem Gerät verbundene Gamepad.
+Die **`Navigator.getGamepads()`** Methode gibt ein Array von
+[`Gamepad`](/de/docs/Web/API/Gamepad)-Objekten zurück, jeweils eines für jedes mit dem Gerät verbundene Gamepad.
 
-Elemente im Array können `null` sein, wenn ein Gamepad während einer Sitzung die Verbindung trennt, sodass die verbleibenden Gamepads denselben Index behalten.
+Elemente im Array können `null` sein, wenn ein Gamepad während einer Sitzung getrennt wird, damit die verbleibenden Gamepads ihren Index beibehalten.
 
 ## Syntax
 
@@ -24,12 +25,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von {{domxref("Gamepad")}}-Objekten, eventuell leer.
+Ein {{jsxref("Array")}} von [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekten, eventuell leer.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Die Verwendung dieses Features wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Die Verwendung dieses Features wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
 
 ## Beispiele
 
@@ -52,5 +53,5 @@ window.addEventListener("gamepadconnected", (e) => {
 
 ## Siehe auch
 
-- [Verwendung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+- [Verwendung der Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
 - [Gamepad API](/de/docs/Web/API/Gamepad_API)

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Bilder** Modul definiert die Arten von Bildern, die verwendet werden können (den {{CSSxRef("&lt;image&gt;")}} Typ, der URLs, Verläufe und andere Bildtypen enthält), wie sie skaliert werden und wie sie sowie anderer ersetzter Inhalt mit den verschiedenen Layoutmodellen interagieren.
+Das **CSS-Bilder**-Modul definiert die Arten von Bildern, die verwendet werden können (den {{CSSxRef("&lt;image&gt;")}}-Typ, der URLs, Verläufe und andere Arten von Bildern enthält), wie sie skaliert werden und wie sie und andere ersetzte Inhalte mit den verschiedenen Layout-Modellen interagieren.
 
 ## Referenz
 
@@ -37,11 +37,11 @@ Das **CSS-Bilder** Modul definiert die Arten von Bildern, die verwendet werden k
 - {{CSSxRef("&lt;gradient&gt;")}}
 - {{CSSxRef("&lt;image&gt;")}}
 
-## Anleitungen
+## Leitfäden
 
 - [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
 
-  - : Stellt einen spezifischen Typ von CSS-Bildern vor, _Verläufe_, und wie man diese erstellt und verwendet.
+  - : Stellt eine spezifische Art von CSS-Bildern, _Verläufe_, vor und wie diese erstellt und benutzt werden.
 
 - [Implementierung von Bild-Sprites in CSS](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS)
 
@@ -49,7 +49,7 @@ Das **CSS-Bilder** Modul definiert die Arten von Bildern, die verwendet werden k
 
 - [Verständnis von Seitenverhältnissen](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio)
 
-  - : Erfahren Sie mehr über die `aspect-ratio` Eigenschaft, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige gängige Anwendungsfälle für Seitenverhältnisse.
+  - : Erfahren Sie mehr über die `aspect-ratio`-Eigenschaft, diskutieren Sie Seitenverhältnisse für ersetzte und nicht ersetzte Elemente und untersuchen Sie einige gängige Anwendungsfälle von Seitenverhältnissen.
 
 ## Spezifikationen
 
@@ -58,5 +58,5 @@ Das **CSS-Bilder** Modul definiert die Arten von Bildern, die verwendet werden k
 ## Siehe auch
 
 - [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul
-- [CSS-Komposition und -Mischung](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul
+- [CSS-Kompositing und -Mischung](/de/docs/Web/CSS/CSS_compositing_and_blending) Modul
 - [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul

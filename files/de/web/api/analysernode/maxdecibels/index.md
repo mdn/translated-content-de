@@ -8,23 +8,22 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die **`maxDecibels`**-Eigenschaft der {{domxref("AnalyserNode")}}-Schnittstelle ist ein Doppelwert, der den maximalen Leistungswert im Skalierungsbereich für die FFT-Analysedaten darstellt, zur Umwandlung in nicht signierte Bytewerte – im Wesentlichen legt dies den Maximalwert für den Bereich der Ergebnisse bei der Verwendung von `getByteFrequencyData()` fest.
+Die **`maxDecibels`**-Eigenschaft des [`AnalyserNode`](/de/docs/Web/API/AnalyserNode)-Interfaces ist ein Doppelwert, der den maximalen Leistungswert im Skalierungsbereich für die FFT-Analysedaten darstellt, um in unsignierte Byte-Werte umgerechnet zu werden. Grundsätzlich gibt dies den maximalen Wert für den Bereich der Ergebnisse an, wenn `getByteFrequencyData()` verwendet wird.
 
 ## Wert
 
-Ein Doppelwert, der den maximalen [Dezibel](https://en.wikipedia.org/wiki/Decibel)-Wert für die Skalierung der FFT-Analysedaten darstellt, wobei `0` dB der lautest mögliche Ton ist, `-10` dB davon ein Zehntel usw. Der Standardwert ist `-30` dB.
+Ein Doppelwert, der den maximalen [Dezibel](https://en.wikipedia.org/wiki/Decibel)-Wert zum Skalieren der FFT-Analysedaten darstellt, wobei `0` dB der lautestmögliche Ton ist, `-10` dB der zehnte Teil davon ist usw. Der Standardwert ist `-30` dB.
 
-Beim Abrufen von Daten mit `getByteFrequencyData()` werden alle Frequenzen mit einer Amplitude von `maxDecibels` oder höher als `255` zurückgegeben.
+Wenn Daten von `getByteFrequencyData()` abgerufen werden, werden alle Frequenzen mit einer Amplitude von `maxDecibels` oder höher als `255` zurückgegeben.
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn ein Wert kleiner oder gleich `AnalyserNode.minDecibels` festgelegt wird.
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn ein Wert kleiner oder gleich `AnalyserNode.minDecibels` gesetzt wird.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines {{domxref("AudioContext")}}, um ein `AnalyserNode` zu erstellen, und anschließend {{domxref("window.requestAnimationFrame()","requestAnimationFrame")}} und {{htmlelement("canvas")}}, um wiederholt Frequenzdaten zu sammeln und eine "Winamp-Balkendiagramm"-Ausgabe des aktuellen Audioeingangs zu zeichnen.
-Für vollständigere angewandte Beispiele/Informationen, sehen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
+Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen `AnalyserNode` zu erstellen, dann [`requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) und {{htmlelement("canvas")}}, um wiederholt Frequenzdaten zu sammeln und eine "Winamp-Balkendiagramm-Darstellung" des aktuellen Audioeingangs zu zeichnen. Für vollständigere angewandte Beispiele/Informationen sehen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic)-Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
 
 ```js
 const audioCtx = new AudioContext();

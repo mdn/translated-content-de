@@ -8,11 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`type()`** Methode der
-{{domxref("CSSNumericValue")}} Schnittstelle gibt den Typ eines
-`CSSNumericValue` zurück, einer von `angle`, `flex`,
-`frequency`, `length`, `resolution`,
-`percent`, `percentHint` oder `time`.
+Die **`type()`** Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) Schnittstelle gibt den Typ von `CSSNumericValue` zurück, einer von `angle`, `flex`, `frequency`, `length`, `resolution`, `percent`, `percentHint` oder `time`.
 
 ## Syntax
 
@@ -26,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref('CSSNumericType')}} Objekt.
+Ein [`CSSNumericType`](/de/docs/Web/API/CSSNumericType) Objekt.
 
 ### Ausnahmen
 
@@ -39,7 +35,7 @@ let mathSum = CSS.px("23")
   .sub(CSS.percent("4"))
   .sub(CSS.cm("3"))
   .sub(CSS.in("9"));
-// Gibt ein Objekt mit der Struktur zurück: {length: 1, percentHint: "length"}
+// Returns an object with the structure: {length: 1, percentHint: "length"}
 let cssNumericType = mathSum.type();
 ```
 

@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Die **`while`**-Anweisung erstellt eine Schleife, die eine angegebene Anweisung ausführt, solange die Testbedingung als wahr bewertet wird. Die Bedingung wird vor der Ausführung der Anweisung ausgewertet.
+Die **`while`**-Anweisung erstellt eine Schleife, die eine angegebene Anweisung ausführt, solange die Testbedingung als wahr ausgewertet wird. Die Bedingung wird vor der Ausführung der Anweisung ausgewertet.
 
 {{EmbedInteractiveExample("pages/js/statement-while.html")}}
 
@@ -19,22 +19,22 @@ while (condition)
 ```
 
 - `condition`
-  - : Ein Ausdruck, der vor jedem Durchlauf der Schleife ausgewertet wird. Wenn diese Bedingung [als wahr bewertet](/de/docs/Glossary/Truthy) wird, wird `statement` ausgeführt. Wenn die Bedingung [als falsch bewertet](/de/docs/Glossary/Falsy) wird, erfolgt die Ausführung mit der Anweisung nach der `while`-Schleife.
+  - : Ein Ausdruck, der _vor_ jedem Durchlauf der Schleife ausgewertet wird. Wenn diese Bedingung [als wahr ausgewertet wird](/de/docs/Glossary/Truthy), wird `statement` ausgeführt. Wenn die Bedingung [als falsch ausgewertet wird](/de/docs/Glossary/Falsy), wird die Ausführung mit der Anweisung nach der `while`-Schleife fortgesetzt.
 - `statement`
-  - : Eine Anweisung, die ausgeführt wird, solange die Bedingung als wahr bewertet wird. Sie können eine [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen.
+  - : Eine Anweisung, die ausgeführt wird, solange die Bedingung als wahr ausgewertet wird. Sie können eine [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen.
 
 ## Beschreibung
 
-Wie andere Schleifenanweisungen können Sie in `statement` [Steuerflussanweisungen](/de/docs/Web/JavaScript/Reference/Statements#control_flow) verwenden:
+Wie andere Schleifenanweisungen können Sie [Kontrollflussanweisungen](/de/docs/Web/JavaScript/Reference/Statements#control_flow) innerhalb der `statement` verwenden:
 
-- {{jsxref("Statements/break", "break")}} stoppt die Ausführung von `statement` und geht zur ersten Anweisung nach der Schleife.
-- {{jsxref("Statements/continue", "continue")}} stoppt die Ausführung von `statement` und wertet die Bedingung erneut aus.
+- {{jsxref("Statements/break", "break")}} beendet die `statement`-Ausführung und geht zur ersten Anweisung nach der Schleife.
+- {{jsxref("Statements/continue", "continue")}} beendet die `statement`-Ausführung und wertet `condition` erneut aus.
 
 ## Beispiele
 
 ### Verwendung von while
 
-Die folgende `while`-Schleife wiederholt sich, solange `n` kleiner als drei ist.
+Die folgende `while`-Schleife wird iteriert, solange `n` kleiner als drei ist.
 
 ```js
 let n = 0;
@@ -46,19 +46,19 @@ while (n < 3) {
 }
 ```
 
-Jede Iteration erhöht die Schleife `n` und addiert es zu `x`. Daher nehmen `x` und `n` die folgenden Werte an:
+Bei jeder Iteration erhöht die Schleife `n` und addiert es zu `x`. Daher nehmen `x` und `n` die folgenden Werte an:
 
-- Nach der ersten Durchführung: `n` = 1 und `x` = 1
-- Nach der zweiten Durchführung: `n` = 2 und `x` = 3
-- Nach der dritten Durchführung: `n` = 3 und `x` = 6
+- Nach dem ersten Durchlauf: `n` = 1 und `x` = 1
+- Nach dem zweiten Durchlauf: `n` = 2 und `x` = 3
+- Nach dem dritten Durchlauf: `n` = 3 und `x` = 6
 
-Nach Abschluss des dritten Durchlaufs ist die Bedingung `n` < 3 nicht mehr wahr, sodass die Schleife endet.
+Nachdem der dritte Durchlauf abgeschlossen ist, ist die Bedingung `n` < 3 nicht mehr wahr, sodass die Schleife endet.
 
 ### Verwendung einer Zuweisung als Bedingung
 
-In einigen Fällen kann es sinnvoll sein, eine Zuweisung als Bedingung zu verwenden. Dies geht mit Kompromissen bei der Lesbarkeit einher, daher gibt es gewisse stilistische Empfehlungen, um das Muster offensichtlicher für alle zu machen.
+In einigen Fällen kann es sinnvoll sein, eine Zuweisung als Bedingung zu verwenden. Dies geht mit Kompromissen bei der Lesbarkeit einher, daher gibt es bestimmte stilistische Empfehlungen, die das Muster für alle offensichtlicher machen würden.
 
-Betrachten Sie das folgende Beispiel, das über die Kommentare eines Dokuments iteriert und sie in die Konsole schreibt.
+Betrachten Sie das folgende Beispiel, das über die Kommentare eines Dokuments iteriert und sie in die Konsole protokolliert.
 
 ```js-nolint example-bad
 const iterator = document.createNodeIterator(document, NodeFilter.SHOW_COMMENT);
@@ -68,31 +68,31 @@ while (currentNode = iterator.nextNode()) {
 }
 ```
 
-Das ist nicht vollständig ein Beispiel für beste Praxis, insbesondere aufgrund der folgenden Zeile:
+Das ist nicht vollständig ein Beispiel für gute Praktiken, insbesondere wegen der folgenden Zeile:
 
 ```js-nolint example-bad
 while (currentNode = iterator.nextNode()) {
 ```
 
-Der _Effekt_ dieser Zeile ist akzeptabel – nämlich dass jedes Mal, wenn ein Kommentarknoten gefunden wird:
+Der _Effekt_ dieser Zeile ist in Ordnung — insofern, als dass jedes Mal, wenn ein Kommentarknoten gefunden wird:
 
-1. `iterator.nextNode()` gibt diesen Kommentarknoten zurück, der an `currentNode` zugewiesen wird.
+1. `iterator.nextNode()` gibt diesen Kommentarknoten zurück, der `currentNode` zugewiesen wird.
 2. Der Wert von `currentNode = iterator.nextNode()` ist daher [wahrheitsgemäß](/de/docs/Glossary/Truthy).
-3. So wird der `console.log()`-Befehl ausgeführt und die Schleife geht weiter.
+3. Daher wird der `console.log()`-Aufruf ausgeführt und die Schleife wird fortgesetzt.
 
-…und dann, wenn keine weiteren Kommentarknoten im Dokument vorhanden sind:
+…und dann, wenn es keine Kommentarknoten mehr im Dokument gibt:
 
 1. `iterator.nextNode()` gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück.
-2. Der Wert von `currentNode = iterator.nextNode()` ist daher auch `null`, was [falsch](/de/docs/Glossary/Falsy) ist.
-3. So endet die Schleife.
+2. Der Wert von `currentNode = iterator.nextNode()` ist daher ebenfalls `null`, was [falsch](/de/docs/Glossary/Falsy) ist.
+3. Daher endet die Schleife.
 
-Das Problem bei dieser Zeile ist: Bedingungen verwenden typischerweise [Vergleichsoperatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#comparison_operators) wie `===`, aber das `=` in dieser Zeile ist kein Vergleichsoperator – stattdessen ist es ein [Zuweisungsoperator](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators). Also sieht dieses `=` _wie_ ein Tippfehler für `===` aus – obwohl es _kein_ Tippfehler ist.
+Das Problem bei dieser Zeile ist: Bedingungen verwenden typischerweise [Vergleichsoperatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#comparison_operators) wie `===`, aber das `=` in dieser Zeile ist kein Vergleichsoperator — stattdessen handelt es sich um einen [Zuweisungsoperator](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators). Daher _sieht_ dieses `=` so aus, als wäre es ein Tippfehler für `===` — obwohl es _kein_ Tippfehler ist.
 
-Daher werden in solchen Fällen einige [Code-Linting-Tools](/de/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Introducing_complete_toolchain#code_linting_tools), wie die [`no-cond-assign`](https://eslint.org/docs/latest/rules/no-cond-assign)-Regel von ESLint, um Ihnen zu helfen, einen möglichen Tippfehler zu finden, damit Sie ihn beheben können, eine Warnung wie die folgende ausgeben:
+Daher werden in solchen Fällen einige [Code-Linting-Tools](/de/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Introducing_complete_toolchain#code_linting_tools) wie die [`no-cond-assign`](https://eslint.org/docs/latest/rules/no-cond-assign)-Regel von ESLint — um Ihnen zu helfen, einen möglichen Tippfehler zu erkennen, damit Sie ihn beheben können — eine Warnung ausgeben wie die folgende:
 
-> Erwarteter bedingter Ausdruck, aber stattdessen eine Zuweisung gesehen.
+> Es wurde ein bedingter Ausdruck erwartet, stattdessen wurde eine Zuweisung gesehen.
 
-Viele Stilrichtlinien empfehlen, die Absicht, dass die Bedingung eine Zuweisung sein soll, expliziter anzugeben. Sie können dies minimal tun, indem Sie zusätzliche Klammern als [Gruppierungsoperator](/de/docs/Web/JavaScript/Reference/Operators/Grouping) um die Zuweisung setzen:
+Viele Styleguides empfehlen, die Absicht, dass die Bedingung eine Zuweisung sein soll, expliziter anzugeben. Sie können dies minimal tun, indem Sie zusätzliche Klammern als [Gruppierungsoperator](/de/docs/Web/JavaScript/Reference/Operators/Grouping) um die Zuweisung setzen:
 
 ```js example-good
 const iterator = document.createNodeIterator(document, NodeFilter.SHOW_COMMENT);
@@ -102,9 +102,9 @@ while ((currentNode = iterator.nextNode())) {
 }
 ```
 
-Tatsächlich ist dies der Stil, den die Standardkonfiguration von ESLints `no-cond-assign` sowie [Prettier](https://prettier.io/) erzwingt, sodass Sie dieses Muster in der Praxis häufig sehen werden.
+Tatsächlich ist dies der Stil, der von der Standardkonfiguration von ESLints `no-cond-assign` erzwungen wird, sowie von [Prettier](https://prettier.io/), daher werden Sie dieses Muster wahrscheinlich oft in der Praxis sehen.
 
-Einige Leute empfehlen möglicherweise auch, einen Vergleichsoperator hinzuzufügen, um die Bedingung in einen expliziten Vergleich zu verwandeln:
+Einige Leute könnten außerdem empfehlen, einen Vergleichsoperator hinzuzufügen, um die Bedingung in einen expliziten Vergleich zu verwandeln:
 
 ```js-nolint example-good
 while ((currentNode = iterator.nextNode()) !== null) {
@@ -116,7 +116,7 @@ Es gibt andere Möglichkeiten, dieses Muster zu schreiben, wie zum Beispiel:
 while ((currentNode = iterator.nextNode()) && currentNode) {
 ```
 
-Oder die Idee, eine `while`-Schleife ganz zu vermeiden:
+Oder, man verzichtet ganz auf die Idee, eine `while`-Schleife zu verwenden:
 
 ```js example-good
 const iterator = document.createNodeIterator(document, NodeFilter.SHOW_COMMENT);
@@ -129,7 +129,7 @@ for (
 }
 ```
 
-Wenn der Leser mit dem Muster der Zuweisung als Bedingung ausreichend vertraut ist, sollten alle diese Variationen eine gleichwertige Lesbarkeit haben. Andernfalls ist die letzte Form wahrscheinlich die am besten lesbare, wenn auch die ausführlichste.
+Wenn der Leser ausreichend mit dem Muster der Zuweisung als Bedingung vertraut ist, sollten alle diese Variationen eine gleichwertige Lesbarkeit haben. Andernfalls ist die letzte Form wahrscheinlich die am leichtesten lesbare, wenn auch die ausführlichste.
 
 ## Spezifikationen
 

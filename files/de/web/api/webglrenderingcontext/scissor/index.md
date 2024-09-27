@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: scissor() Methode"
+title: "WebGLRenderingContext: scissor()-Methode"
 short-title: scissor()
 slug: Web/API/WebGLRenderingContext/scissor
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.scissor()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) setzt eine Scherbox, die das Zeichnen auf ein angegebenes Rechteck begrenzt.
+Die **`WebGLRenderingContext.scissor()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) setzt einen Schereneffektbereich, der das Zeichnen auf ein bestimmtes Rechteck beschränkt.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ scissor(x, y, width, height)
 ### Parameter
 
 - `x`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der die horizontale Koordinate für die untere linke Ecke der Box angibt. Standardwert: 0.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die horizontale Koordinate für die untere linke Ecke des Bereichs spezifiziert. Standardwert: 0.
 - `y`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der die vertikale Koordinate für die untere linke Ecke der Box angibt. Standardwert: 0.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die vertikale Koordinate für die untere linke Ecke des Bereichs spezifiziert. Standardwert: 0.
 - `width`
-  - : Ein nicht-negativer {{domxref("WebGL_API/Types", "GLsizei")}}, der die Breite der Scherbox angibt. Standardwert: Breite des Canvas.
+  - : Ein nicht-negativer [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Schereneffektbereichs spezifiziert. Standardwert: Breite der Leinwand.
 - `height`
-  - : Ein nicht-negativer {{domxref("WebGL_API/Types", "GLsizei")}}, der die Höhe der Scherbox angibt. Standardwert: Höhe des Canvas.
+  - : Ein nicht-negativer [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe des Schereneffektbereichs spezifiziert. Standardwert: Höhe der Leinwand.
 
 ### Rückgabewert
 
@@ -33,27 +33,26 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Wenn entweder _width_ oder _height_ einen negativen Wert hat, wird ein
-`gl.INVALID_VALUE` Fehler ausgelöst.
+Wenn entweder _width_ oder _height_ ein negativer Wert ist, wird ein Fehler `gl.INVALID_VALUE` ausgelöst.
 
 ## Beispiele
 
-Wenn der Schertest aktiviert ist, können nur Pixel innerhalb der Scherbox durch Zeichenbefehle modifiziert werden.
+Wenn der Scherentest aktiviert ist, können nur die Pixel innerhalb des Schereneffektbereichs durch Zeichenbefehle modifiziert werden.
 
 ```js
-// Schertest aktivieren
+// turn on scissor test
 gl.enable(gl.SCISSOR_TEST);
 
-// Schereck setzen
+// set the scissor rectangle
 gl.scissor(x, y, width, height);
 
-// Zeichenbefehle innerhalb der Scherbox ausführen (z.B. löschen)
+// execute drawing commands in the scissor box (e.g. clear)
 
-// Schertest wieder deaktivieren
+// turn off scissor test again
 gl.disable(gl.SCISSOR_TEST);
 ```
 
-Um die aktuellen Dimensionen der Scherbox zu erhalten, fragen Sie die `SCISSOR_BOX` Konstante ab, die ein {{jsxref("Int32Array")}} zurückgibt.
+Um die aktuellen Dimensionen des Schereneffektbereichs zu erhalten, fragen Sie die Konstante `SCISSOR_BOX` ab, die einen {{jsxref("Int32Array")}} zurückgibt.
 
 ```js
 gl.scissor(0, 0, 200, 200);
@@ -71,6 +70,6 @@ gl.getParameter(gl.SCISSOR_BOX);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.viewport()")}}
-- {{domxref("WebGLRenderingContext.enable()")}}
-- {{domxref("WebGLRenderingContext.disable()")}}
+- [`WebGLRenderingContext.viewport()`](/de/docs/Web/API/WebGLRenderingContext/viewport)
+- [`WebGLRenderingContext.enable()`](/de/docs/Web/API/WebGLRenderingContext/enable)
+- [`WebGLRenderingContext.disable()`](/de/docs/Web/API/WebGLRenderingContext/disable)

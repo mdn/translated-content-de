@@ -12,7 +12,7 @@ Entfernt ein CSS-Stylesheet, das durch einen Aufruf von {{WebExtAPIRef("scriptin
 > [!NOTE]
 > Diese Methode ist in Manifest V3 oder höher in Chrome und Firefox 101 verfügbar. In Safari und Firefox 102+ ist diese Methode auch in Manifest V2 verfügbar.
 
-Um diese API zu verwenden, müssen Sie die Berechtigung `"scripting"` und die Berechtigung für die URL der Seite haben, entweder explizit als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder unter Verwendung der [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission).
+Um diese API zu verwenden, müssen Sie die Berechtigung `"scripting"` und die Berechtigung für die URL der Seite haben, entweder explizit als [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder durch Verwendung der [activeTab-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#activetab_permission).
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -28,27 +28,27 @@ await browser.scripting.removeCSS(
 
 - `details`
 
-  - : Ein Objekt, das das zu entfernende CSS und den Ort beschreibt, von dem es entfernt werden soll. Es enthält die folgenden Eigenschaften:
+  - : Ein Objekt, das beschreibt, welches CSS entfernt werden soll und wo es entfernt werden soll. Es enthält die folgenden Eigenschaften:
 
     - `css` {{optional_inline}}
       - : `string`. Ein String, der das einzufügende CSS enthält. Entweder `css` oder `files` muss angegeben werden und muss mit dem Stylesheet übereinstimmen, das durch {{WebExtAPIRef("scripting.insertCSS()")}} eingefügt wurde.
     - `files` {{optional_inline}}
-      - : `array` von `string`. Der Pfad einer CSS-Datei zum Einfügen, relativ zum Stammverzeichnis der Erweiterung. Entweder `files` oder `css` muss angegeben werden und muss mit dem Stylesheet übereinstimmen, das durch {{WebExtAPIRef("scripting.insertCSS()")}} eingefügt wurde.
+      - : `array` von `string`. Der Pfad zu CSS-Dateien, die eingefügt werden sollen, relativ zum Wurzelverzeichnis der Erweiterung. Entweder `files` oder `css` muss angegeben werden und muss mit dem Stylesheet übereinstimmen, das durch {{WebExtAPIRef("scripting.insertCSS()")}} eingefügt wurde.
     - `origin` {{optional_inline}}
-      - : `string`. Der Ursprungsstil für die Einfügung, entweder `USER` oder `AUTHOR`. Standard ist `AUTHOR`. Muss mit dem Ursprung des Stylesheets übereinstimmen, das durch {{WebExtAPIRef("scripting.insertCSS()")}} eingefügt wurde.
+      - : `string`. Der Stil-Ursprung für die Injektion, entweder `USER` oder `AUTHOR`. Standardmäßig `AUTHOR`. Muss dem Ursprung des Stylesheets entsprechen, das durch {{WebExtAPIRef("scripting.insertCSS()")}} eingefügt wurde.
     - `target`
-      - : {{WebExtAPIRef("scripting.InjectionTarget")}}. Details, die das Ziel angeben, von dem das CSS entfernt werden soll.
+      - : {{WebExtAPIRef("scripting.InjectionTarget")}}. Details, die das Ziel spezifizieren, von dem das CSS entfernt werden soll.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das gesamte CSS entfernt wurde. Wenn ein Fehler auftritt, wird das Promise abgelehnt. Versuche, nicht existierende Stylesheets zu entfernen, werden ignoriert.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das sich ohne Argumente erfüllt, wenn das gesamte CSS entfernt wurde. Wenn ein Fehler auftritt, wird das Promise abgelehnt. Versuche, nicht vorhandene Stylesheets zu entfernen, werden ignoriert.
 
 ## Beispiele
 
-Dieses Beispiel fügt etwas CSS mit {{WebExtAPIRef("scripting.insertCSS")}} hinzu und entfernt es wieder, wenn der Benutzer eine Browser-Aktion anklickt:
+Dieses Beispiel fügt zunächst etwas CSS mit {{WebExtAPIRef("scripting.insertCSS")}} hinzu und entfernt es dann wieder, wenn der Benutzer auf eine Browser-Aktion klickt:
 
 ```js
-// Vorausgesetzt, dass zuvor einige Styles mit dem folgenden Code eingefügt wurden:
+// Assuming some style has been injected previously with the following code:
 //
 // await browser.scripting.insertCSS({
 //   target: {
@@ -57,7 +57,7 @@ Dieses Beispiel fügt etwas CSS mit {{WebExtAPIRef("scripting.insertCSS")}} hinz
 //   css: "* { background: #c0ffee }",
 // });
 //
-// Wir können es entfernen, wenn ein Benutzer eine Erweiterungstaste wie folgt klickt:
+// We can remove it when a user clicked an extension button like this:
 browser.action.onClicked.addListener(async (tab) => {
   try {
     await browser.scripting.removeCSS({
@@ -79,4 +79,4 @@ browser.action.onClicked.addListener(async (tab) => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.scripting`](https://developer.chrome.com/docs/extensions/reference/api/scripting#method-removeCSS) API von Chromium.
+> Diese API basiert auf Chromium's [`chrome.scripting`](https://developer.chrome.com/docs/extensions/reference/api/scripting#method-removeCSS) API.

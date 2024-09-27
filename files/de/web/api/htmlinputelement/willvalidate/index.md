@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: Eigenschaft willValidate"
+title: "HTMLInputElement: willValidate-Eigenschaft"
 short-title: willValidate
 slug: Web/API/HTMLInputElement/willValidate
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`willValidate`** der {{domxref("HTMLInputElement")}}-Schnittstelle zeigt an, ob das {{htmlelement("input")}}-Element ein Kandidat für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) ist. Sie ist `false`, wenn bestimmte Bedingungen es von der Einschränkungsvalidierung ausschließen, einschließlich:
+Die schreibgeschützte Eigenschaft **`willValidate`** der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle zeigt an, ob das {{htmlelement("input")}}-Element ein Kandidat für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) ist. Sie ist `false`, wenn es Bedingungen gibt, die es von der Einschränkungsvalidierung ausschließen, einschließlich:
 
-- Sein {{domxref("HTMLInputElement.type", "type")}} ist `hidden`, `reset` oder `button`;
+- Sein [`type`](/de/docs/Web/API/HTMLInputElement/type) ist eines von `hidden`, `reset` oder `button`;
 - Es hat einen {{HTMLElement("datalist")}}-Vorfahren;
-- Seine {{domxref("HTMLInputElement.disabled", "disabled")}}-Eigenschaft ist `true`.
+- Seine [`disabled`](/de/docs/Web/API/HTMLInputElement/disabled)-Eigenschaft ist `true`.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein boolean-Wert.
 
 ## Spezifikationen
 
@@ -28,8 +28,8 @@ Ein boolescher Wert.
 
 ## Siehe auch
 
-- {{domxref("HTMLInputElement.checkValidity()")}}
+- [`HTMLInputElement.checkValidity()`](/de/docs/Web/API/HTMLInputElement/checkValidity)
 - {{HTMLElement("input")}}
 - {{HTMLElement("form")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Erlernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

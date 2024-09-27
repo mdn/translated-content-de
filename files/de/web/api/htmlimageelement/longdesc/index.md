@@ -1,5 +1,5 @@
 ---
-title: "HTMLImageElement: longDesc-Eigenschaft"
+title: "HTMLImageElement: longDesc Eigenschaft"
 short-title: longDesc
 slug: Web/API/HTMLImageElement/longDesc
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die _veraltete_ Eigenschaft **`longDesc`** der {{domxref("HTMLImageElement")}}-Schnittstelle spezifiziert die URL einer Text- oder HTML-Datei, die eine ausführliche Beschreibung des Bildes enthält. Diese kann verwendet werden, um zusätzliche Details über die kurze Beschreibung hinaus bereitzustellen, die im [`title`](/de/docs/Web/HTML/Global_attributes#title)-Attribut gegeben wird.
+Die _veraltete_ Eigenschaft **`longDesc`** auf der Schnittstelle [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) gibt die URL einer Text- oder HTML-Datei an, die eine ausführliche Beschreibung des Bildes enthält. Diese kann verwendet werden, um optionale zusätzliche Details über die kurze Beschreibung hinaus, die im [`title`](/de/docs/Web/HTML/Global_attributes#title)-Attribut angegeben werden, bereitzustellen.
 
 ## Wert
 
-Ein String, der entweder ein leerer String sein kann (was darauf hinweist, dass keine ausführliche Beschreibung verfügbar ist) oder die URL einer Datei, die eine ausführliche Beschreibung des Bildinhalts enthält.
+Ein String, der entweder ein leerer String sein kann (was anzeigt, dass keine ausführliche Beschreibung verfügbar ist) oder die URL einer Datei, die eine ausführliche Beschreibung des Bildinhalts enthält.
 
-Zum Beispiel, wenn das Bild ein [PNG](/de/docs/Web/Media/Formats/Image_types#png_portable_network_graphics) eines Flussdiagramms ist. Die Eigenschaft `longDesc` könnte verwendet werden, um eine Erklärung des dargestellten Kontrollflusses nur mit Text bereitzustellen. Dies kann von Lesern sowohl als Erklärung verwendet werden, als auch als Ersatz für sehbehinderte Benutzer.
+Ein Beispiel könnte ein [PNG](/de/docs/Web/Media/Formats/Image_types#png_portable_network_graphics) eines Flussdiagramms sein. Die `longDesc`-Eigenschaft könnte verwendet werden, um mit nur Text eine Erklärung des Kontrollflusses zu geben, der durch das Diagramm dargestellt wird. Dieser kann sowohl als Erklärung für Leser, als auch als Ersatz für sehbehinderte Benutzer verwendet werden.
 
 ## Verwendungshinweise
 
-Diese Eigenschaft ist _veraltet_ und sollte nicht mehr verwendet werden. Anstatt `longDesc` zu verwenden, um einen Link zu einer detaillierten Beschreibung eines Bildes bereitzustellen, sollten Sie das Bild mit einem {{HTMLElement("a")}}-Element in einen Link einbetten.
+Diese Eigenschaft ist _veraltet_ und sollte nicht mehr verwendet werden. Anstatt `longDesc` zu verwenden, um einen Link zu einer detaillierten Beschreibung eines Bildes bereitzustellen, kapseln Sie das Bild innerhalb eines Links mit dem {{HTMLElement("a")}} Element.
 
-Betrachten Sie das folgende ältere HTML:
+Betrachten Sie folgendes älteres HTML:
 
 ```html
 <img
@@ -29,7 +29,7 @@ Betrachten Sie das folgende ältere HTML:
   longdesc="image-descriptions/taco-tuesday.html" />
 ```
 
-Hier wird `longDesc` verwendet, um anzugeben, dass der Benutzer Zugriff auf eine detaillierte Beschreibung des Bildes `taco-tuesday.jpg` in der HTML-Datei `image-descriptions/taco-tuesday.html` haben sollte.
+Hier wird `longDesc` verwendet, um anzugeben, dass der Benutzer eine detaillierte Beschreibung des Bildes `taco-tuesday.jpg` in der HTML-Datei `image-descriptions/taco-tuesday.html` aufrufen können sollte.
 
 Dies kann leicht in modernes HTML umgewandelt werden:
 
@@ -39,13 +39,13 @@ Dies kann leicht in modernes HTML umgewandelt werden:
 </a>
 ```
 
-Damit wird das Bild zu einem Link zur HTML-Datei, die das Bild ausführlicher beschreibt.
+Damit ist das Bild ein Link zur HTML-Datei, die das Bild detaillierter beschreibt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

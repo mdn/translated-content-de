@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`toJSON()`**-Methode der {{domxref("PerformanceEventTiming")}}-Schnittstelle ist ein {{Glossary("Serialization","Serializer")}}; sie gibt eine JSON-Darstellung des {{domxref("PerformanceEventTiming")}}-Objekts zurück.
+Die **`toJSON()`**-Methode der [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Objekts zurück.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des {{domxref("PerformanceEventTiming")}}-Objekts darstellt.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Objekts darstellt.
 
-Das JSON enthält nicht die {{domxref("PerformanceEventTiming.target", "target")}}-Eigenschaft, da diese vom Typ {{domxref("Node")}} ist, welcher keine `toJSON()`-Operation bereitstellt.
+Das JSON enthält nicht die [`target`](/de/docs/Web/API/PerformanceEventTiming/target)-Eigenschaft, da diese vom Typ [`Node`](/de/docs/Web/API/Node) ist, der keine `toJSON()`-Operation bereitstellt.
 
 ## Beispiele
 
@@ -56,7 +56,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird `toJSON()` automatisch aufrufen.
+Um eine JSON-Zeichenkette zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; dies ruft automatisch `toJSON()` auf.
 
 ## Spezifikationen
 

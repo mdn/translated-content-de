@@ -1,5 +1,5 @@
 ---
-title: "DynamicsCompressorNode: DynamicsCompressorNode() Konstruktor"
+title: "DynamicsCompressorNode: DynamicsCompressorNode()-Konstruktor"
 short-title: DynamicsCompressorNode()
 slug: Web/API/DynamicsCompressorNode/DynamicsCompressorNode
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Der **`DynamicsCompressorNode()`**
-Konstruktor erstellt ein neues {{domxref("DynamicsCompressorNode")}} Objekt, das einen Kompressionseffekt bietet, der die Lautstärke der lautesten Teile des Signals reduziert, um ein Clipping und Verzerrungen zu verhindern. Dies kann auftreten, wenn mehrere Klänge gleichzeitig abgespielt und zusammen gemultiplext werden.
+Der **`DynamicsCompressorNode()`**-Konstruktor erstellt ein neues [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode)-Objekt, das einen Kompressionseffekt bietet. Dieser verringert die Lautstärke der lautesten Teile des Signals, um Clipping und Verzerrungen zu verhindern. Diese können auftreten, wenn mehrere Sounds gleichzeitig abgespielt und zusammengeführt werden.
 
 ## Syntax
 
@@ -20,24 +19,22 @@ new DynamicsCompressorNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein Verweis auf ein {{domxref("AudioContext")}}.
+  - : Eine Referenz auf einen [`AudioContext`](/de/docs/Web/API/AudioContext).
 - `options` {{optional_inline}}
 
   - : Die Optionen sind wie folgt:
 
     - `attack`
-      - : Die Zeitmenge (in Sekunden), um den Gain um 10 dB zu reduzieren.
-        Der Standardwert ist 0.003. Dieser Parameter ist k-rate. Der nominale Bereich ist \[0, 1].
+      - : Die Zeitdauer (in Sekunden), um den Pegel um 10dB zu reduzieren.
+        Der Standardwert ist 0.003. Dieser Parameter ist k-rate. Sein nomineller Bereich ist \[0, 1].
     - `knee`
-      - : Ein Dezibelwert, der den Bereich über der Schwelle darstellt, wo die Kurve
-        sanft in den "Ratio"-Abschnitt übergeht. Der Standardwert ist 30\. Dieser Parameter ist k-rate. Der nominale Bereich ist \[0, 40].
+      - : Ein Dezibelwert, der den Bereich über der Schwelle darstellt, in dem die Kurve sanft in den "Ratio"-Abschnitt übergeht. Der Standardwert ist 30. Dieser Parameter ist k-rate. Sein nomineller Bereich ist \[0, 40].
     - `ratio`
-      - : Die Menge an dB-Änderung im Eingang für eine 1 dB-Änderung im Ausgang. Der Standardwert ist 12. Dieser Parameter ist k-rate. Der nominale Bereich ist \[1, 20].
+      - : Die Menge der dB-Änderung am Eingang für eine 1 dB-Änderung am Ausgang. Der Standardwert ist 12. Dieser Parameter ist k-rate. Sein nomineller Bereich ist \[1, 20].
     - `release`
-      - : Die Zeitmenge (in Sekunden), um den Gain um 10 dB zu erhöhen. Der
-        Standardwert ist 0.250. Dieser Parameter ist k-rate. Der nominale Bereich ist \[0, 1].
+      - : Die Zeitdauer (in Sekunden), um den Pegel um 10dB zu erhöhen. Der Standardwert ist 0.250. Dieser Parameter ist k-rate. Sein nomineller Bereich ist \[0, 1].
     - `threshold`
-      - : Der Dezibelwert, über dem die Kompression wirksam wird. Der Standardwert ist -24. Dieser Parameter ist k-rate. Der nominale Bereich ist \[-100, 0].
+      - : Der Dezibelwert, über dem die Kompression beginnen wird. Der Standardwert ist -24. Dieser Parameter ist k-rate. Sein nomineller Bereich ist \[-100, 0].
 
 ## Spezifikationen
 

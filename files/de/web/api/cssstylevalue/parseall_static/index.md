@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`parseAll()`** statische Methode des {{domxref("CSSStyleValue")}} Interfaces setzt alle Vorkommen einer bestimmten CSS-Eigenschaft auf den angegebenen Wert und gibt ein Array von {{domxref('CSSStyleValue')}}-Objekten zurück, die jeweils einen der bereitgestellten Werte enthalten.
+Die **`parseAll()`** statische Methode der [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Schnittstelle setzt alle Vorkommen einer spezifischen CSS-Eigenschaft auf den angegebenen Wert und gibt ein Array von [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekten zurück, von denen jedes einen der bereitgestellten Werte enthält.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ CSSStyleValue.parseAll(property, value)
 ### Parameter
 
 - `property`
-  - : Eine CSS-Eigenschaft, die gesetzt werden soll.
+  - : Eine zu setzende CSS-Eigenschaft.
 - `value`
-  - : Ein kommagetrennter String, der einen oder mehrere Werte enthält, die auf die angegebene Eigenschaft angewendet werden.
+  - : Ein durch Kommas getrennter String, der einen oder mehrere Werte enthält, die auf die angegebene Eigenschaft anzuwenden sind.
 
 ### Rückgabewert
 
-Ein Array von `CSSStyleValue`-Objekten, die jeweils einen der bereitgestellten Werte enthalten.
+Ein Array von `CSSStyleValue`-Objekten, von denen jedes einen der bereitgestellten Werte enthält.
 
 ## Spezifikationen
 

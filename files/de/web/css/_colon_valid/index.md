@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:valid`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}} oder ein anderes {{HTMLElement("form")}}-Element, dessen Inhalt erfolgreich [validiert](/de/docs/Web/HTML/Constraint_validation) wurde. Dies ermöglicht es, gültige Felder so zu gestalten, dass der Benutzer einfacher bestätigen kann, dass seine Daten richtig formatiert sind.
+Die **`:valid`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}} oder andere {{HTMLElement("form")}} Element, dessen Inhalt erfolgreich [validiert](/de/docs/Web/HTML/Constraint_validation) wird. Dies ermöglicht es, dass gültige Felder ein Aussehen annehmen, das dem Benutzer hilft zu bestätigen, dass ihre Daten richtig formatiert sind.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-valid.html", "tabbed-shorter")}}
 
-Diese Pseudo-Klasse ist nützlich, um richtige Felder für den Benutzer hervorzuheben.
+Diese Pseudoklasse ist nützlich, um dem Benutzer korrekt ausgefüllte Felder hervorzuheben.
 
 ## Syntax
 
@@ -23,16 +23,16 @@ Diese Pseudo-Klasse ist nützlich, um richtige Felder für den Benutzer hervorzu
 
 ## Barrierefreiheit
 
-Die Farbe Grün wird häufig verwendet, um gültige Eingaben anzuzeigen. Menschen, die von bestimmten Arten von Farbenblindheit betroffen sind, können den Zustand der Eingabe nicht erkennen, es sei denn, es gibt einen zusätzlichen Indikator, der nicht auf Farben angewiesen ist, um Bedeutung zu vermitteln. Typischerweise werden erläuternder Text und/oder ein Symbol verwendet.
+Grün wird häufig verwendet, um gültige Eingaben anzuzeigen. Menschen, die eine bestimmte Art von Farbenblindheit haben, können den Zustand der Eingabe nicht erkennen, es sei denn, es wird ein zusätzlicher Indikator verwendet, der nicht auf Farbe angewiesen ist, um Bedeutung zu vermitteln. Typischerweise werden beschreibender Text und/oder ein Symbol verwendet.
 
-- [MDN Verständnis WCAG, Richtlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.1 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
+- [MDN-Verständnis der WCAG, Erläuterungen zu Richtlinie 1.4](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.1 | W3C-Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html)
 
 ## Beispiele
 
-### Anzeige von gültigen und ungültigen Formularfeldern
+### Kennzeichnung gültiger und ungültiger Formularfelder
 
-In diesem Beispiel verwenden wir Strukturen wie diese, die zusätzliche `<span>`s enthalten, um Inhalt darauf zu erzeugen. Wir verwenden diese, um Indikatoren für gültige/ungültige Daten bereitzustellen:
+In diesem Beispiel verwenden wir Strukturen wie diese, die zusätzliche `<span>`s enthalten, um Inhalte zu erzeugen; wir werden diese nutzen, um Indikatoren für gültige/ungültige Daten bereitzustellen:
 
 ```html
 <div>
@@ -70,16 +70,16 @@ input:valid + span::before {
 }
 ```
 
-Wir setzen die `<span>` auf `position: relative`, damit wir den generierten Inhalt relativ zu ihnen positionieren können. Wir positionieren dann den unterschiedlichen generierten Inhalt absolut, abhängig davon, ob die Daten des Formulars gültig oder ungültig sind — ein grüner Haken oder ein rotes Kreuz. Um der ungültigen Eingabe etwas mehr Dringlichkeit zu verleihen, haben wir den Eingaben einen dicken roten Rahmen gegeben, wenn sie ungültig sind.
+Wir setzen die `<span>`s auf `position: relative`, sodass wir den generierten Inhalt relativ zu ihnen positionieren können. Wir platzieren dann je nach Gültigkeit der Formulardaten unterschiedlich generierte Inhalte absolut — ein grüner Haken oder ein rotes Kreuz. Um der ungültigen Eingabe mehr Dringlichkeit zu verleihen, haben wir den Eingabefeldern eine dicke rote Umrandung gegeben, wenn sie ungültig sind.
 
 > [!NOTE]
-> Wir haben `::before` verwendet, um diese Labels hinzuzufügen, da wir `::after` bereits für die "erforderlich"-Labels verwenden.
+> Wir haben `::before` verwendet, um diese Labels hinzuzufügen, da `::after` bereits für die "erforderlich"-Labels benutzt wurde.
 
 Sie können es unten ausprobieren:
 
 {{EmbedGHLiveSample("learning-area/html/forms/pseudo-classes/valid-invalid.html", '100%', 430)}}
 
-Bemerkenswert ist, dass die erforderlichen Texteingaben ungültig sind, wenn sie leer sind, aber gültig sind, wenn sie ausgefüllt sind. Die E-Mail-Eingabe hingegen ist gültig, wenn sie leer ist, da sie nicht erforderlich ist, aber ungültig, wenn sie etwas enthält, das keine richtige E-Mail-Adresse ist.
+Beachten Sie, wie die erforderlichen Texteingaben ungültig sind, wenn sie leer sind, aber gültig werden, wenn sie ausgefüllt sind. Das E-Mail-Feld hingegen ist gültig, wenn es leer ist, da es nicht erforderlich ist, aber ungültig wird, wenn es etwas enthält, das keine gültige E-Mail-Adresse ist.
 
 ## Spezifikationen
 
@@ -91,6 +91,6 @@ Bemerkenswert ist, dass die erforderlichen Texteingaben ungültig sind, wenn sie
 
 ## Siehe auch
 
-- Andere validierungsbezogene Pseudo-Klassen: {{ cssxref(":required") }}, {{ cssxref(":optional") }}, {{ cssxref(":invalid") }}
-- [Überprüfung von Formulardaten](/de/docs/Learn/Forms/Form_validation)
+- Andere validierungsbezogene Pseudoklassen: {{ cssxref(":required") }}, {{ cssxref(":optional") }}, {{ cssxref(":invalid") }}
+- [Formulardatenvalidierung](/de/docs/Learn/Forms/Form_validation)
 - Zugriff auf den [ValidityState](/de/docs/Web/API/ValidityState) von JavaScript aus

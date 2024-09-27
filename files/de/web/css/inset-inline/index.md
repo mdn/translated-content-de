@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die **`inset-inline`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die logischen Anfangs- und Endabstände eines Elements in der Inline-Richtung. Diese korrespondieren mit den physischen Abständen, abhängig vom Schreibmodus des Elements, der Leserichtung und der Textausrichtung. Sie entspricht den {{cssxref("top")}} und {{cssxref("bottom")}}, oder {{cssxref("right")}} und {{cssxref("left")}} Eigenschaften, je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
+Die **`inset-inline`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die logischen Start- und Endabstände eines Elements in der Inline-Richtung, was je nach Schreibrichtung, Richtung und Textausrichtung des Elements auf physische Abstände abbildet. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}} oder {{cssxref("right")}} und {{cssxref("left")}}, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definiert sind.
 
-Diese {{glossary("inset properties", "inset-Eigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
+Diese [inset-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkungen auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-inline.html")}}
 
-## Einzelne Eigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist ein Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("inset-inline-end")}}
 - {{cssxref("inset-inline-start")}}
@@ -23,20 +23,20 @@ Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften
 ## Syntax
 
 ```css
-/* <length> Werte */
+/* <length> values */
 inset-inline: 3px 10px;
 inset-inline: 2.4em 3em;
-inset-inline: 10px; /* Wert wird auf Anfang und Ende angewendet */
+inset-inline: 10px; /* value applied to start and end */
 inset-inline: auto calc(anchor(self-start) + 20px);
 inset-inline: anchor(--myAnchor 50%) auto;
 
-/* <percentage> der Breite oder Höhe des enthaltenen Blocks */
+/* <percentage>s of the width or height of the containing block */
 inset-inline: 10% 5%;
 
-/* Schlüsselwortwert */
+/* Keyword value */
 inset-inline: auto;
 
-/* Globale Werte */
+/* Global values */
 inset-inline: inherit;
 inset-inline: initial;
 inset-inline: revert;
@@ -46,7 +46,7 @@ inset-inline: unset;
 
 ### Werte
 
-Die `inset-inline` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}} Eigenschaft an.
+Die `inset-inline`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}}-Eigenschaft an.
 
 ## Formale Definition
 
@@ -58,7 +58,7 @@ Die `inset-inline` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left"
 
 ## Beispiele
 
-### Setzen von Inline-Anfangs- und Endabständen
+### Einstellen von Start- und Endabständen für Inline
 
 #### HTML
 

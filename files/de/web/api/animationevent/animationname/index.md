@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("Web Animations")}}
 
-Die **`AnimationEvent.animationName`** schreibgeschützte Eigenschaft ist ein
-String, der den Wert der {{cssxref("animation-name")}} CSS-Eigenschaft enthält, die mit der Transition verbunden ist.
+Die schreibgeschützte **`AnimationEvent.animationName`**-Eigenschaft ist ein String, der den Wert der CSS-Eigenschaft {{cssxref("animation-name")}} enthält, die mit der Transition verbunden ist.
 
 ## Wert
 
-Ein String, der den Wert der {{cssxref("animation-name")}} CSS-Eigenschaft enthält.
+Ein String, der den Wert der CSS-Eigenschaft {{cssxref("animation-name")}} enthält.
 
 ## Spezifikationen
 
@@ -26,10 +25,10 @@ Ein String, der den Wert der {{cssxref("animation-name")}} CSS-Eigenschaft enth�
 ## Siehe auch
 
 - [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
-- Animation-bezogene CSS-Eigenschaften und At-Regeln: {{cssxref("animation")}},
+- Animationen-bezogene CSS-Eigenschaften und At-Rules: {{cssxref("animation")}},
   {{cssxref("animation-delay")}}, {{cssxref("animation-direction")}},
   {{cssxref("animation-duration")}}, {{cssxref("animation-fill-mode")}},
   {{cssxref("animation-iteration-count")}}, {{cssxref("animation-name")}},
   {{cssxref("animation-play-state")}}, {{cssxref("animation-timing-function")}},
   {{cssxref("@keyframes")}}.
-- Das {{domxref("AnimationEvent")}}-Interface, zu dem es gehört.
+- Das [`AnimationEvent`](/de/docs/Web/API/AnimationEvent) Interface, zu dem es gehört.

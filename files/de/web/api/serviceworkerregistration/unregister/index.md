@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerRegistration: Methode unregister()"
+title: "ServiceWorkerRegistration: unregister()-Methode"
 short-title: unregister()
 slug: Web/API/ServiceWorkerRegistration/unregister
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`unregister()`**-Methode der
-{{domxref("ServiceWorkerRegistration")}}-Schnittstelle hebt die Registrierung des Service Workers auf und gibt ein {{jsxref("Promise")}} zurück. Das Promise löst sich zu `false` auf, falls keine Registrierung gefunden wurde, andernfalls löst es sich zu `true` auf, unabhängig davon, ob die Abmeldung erfolgt ist oder nicht (es kann sein, dass die Abmeldung nicht durchgeführt wird, wenn jemand anderes gerade {{domxref("ServiceWorkerContainer.register()")}} mit demselben Scope aufgerufen hat). Der Service Worker wird alle laufenden Vorgänge abschließen, bevor er abgemeldet wird.
+Die **`unregister()`**-Methode des [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Interfaces meldet die Registrierung des Service Workers ab und gibt ein {{jsxref("Promise")}} zurück. Das Promise wird mit `false` aufgelöst, wenn keine Registrierung gefunden wurde, ansonsten wird es mit `true` aufgelöst, unabhängig davon, ob die Abmeldung erfolgt ist oder nicht (es könnte nicht abmelden, wenn jemand gerade [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) mit demselben Scope aufgerufen hat). Der Service Worker wird alle laufenden Operationen abschließen, bevor er abgemeldet wird.
 
 ## Syntax
 
@@ -23,25 +22,25 @@ Keine.
 
 ### Rückgabewert
 
-{{jsxref("Promise")}} löst sich mit einem boolean auf, der anzeigt, ob der Service Worker abgemeldet wurde oder nicht.
+{{jsxref("Promise")}} wird mit einem Boolean-Wert aufgelöst, der anzeigt, ob der Service Worker abgemeldet wurde oder nicht.
 
 ## Beispiele
 
-Das folgende einfache Beispiel registriert einen Service Worker und meldet ihn dann sofort wieder ab:
+Das folgende einfache Beispiel registriert einen Service Worker, meldet ihn jedoch sofort wieder ab:
 
 ```js
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register("/sw.js", { scope: "/" })
     .then((registration) => {
-      // Registrierung erfolgreich
+      // registration worked
       console.log("Registration succeeded.");
       registration.unregister().then((boolean) => {
-        // Wenn boolean = true, dann war die Abmeldung erfolgreich
+        // if boolean = true, unregister is successful
       });
     })
     .catch((error) => {
-      // Registrierung fehlgeschlagen
+      // registration failed
       console.error(`Registration failed with ${error}`);
     });
 }
@@ -57,6 +56,6 @@ if ("serviceWorker" in navigator) {
 
 ## Siehe auch
 
-- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Basisbeispiel für Code von Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Service Workers verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Codebeispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Web Workers verwenden](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

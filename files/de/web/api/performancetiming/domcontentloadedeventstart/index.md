@@ -9,13 +9,10 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist in der [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die {{domxref("PerformanceNavigationTiming")}}
-> Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist in der [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
 
-Die veraltete, schreibgeschützte
-**`PerformanceTiming.domContentLoadedEventStart`**
-Eigenschaft gibt ein `unsigned long long` zurück, das den Moment in Millisekunden seit der UNIX-Epoche darstellt, unmittelbar bevor der Parser das
-{{domxref("Document/DOMContentLoaded_event", "DOMContentLoaded")}} Event gesendet hat, also direkt nachdem alle Skripte, die unmittelbar nach dem Parsen ausgeführt werden müssen, ausgeführt wurden.
+Die veraltete, nur lesbare Eigenschaft **`PerformanceTiming.domContentLoadedEventStart`** gibt ein `unsigned long long`
+zurück, das den Zeitpunkt in Millisekunden seit dem UNIX-Epoch darstellt, unmittelbar bevor der Parser das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis gesendet hat, das heißt direkt nachdem alle Skripte ausgeführt wurden, die nach dem Parsen ausgeführt werden müssen.
 
 ## Wert
 
@@ -25,10 +22,10 @@ Ein `unsigned long long`.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Die {{domxref("PerformanceTiming")}} Schnittstelle, zu der es gehört.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle, zu der es gehört.

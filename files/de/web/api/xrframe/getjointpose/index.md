@@ -1,5 +1,5 @@
 ---
-title: "XRFrame: Methode getJointPose()"
+title: "XRFrame: getJointPose() Methode"
 short-title: getJointPose()
 slug: Web/API/XRFrame/getJointPose
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getJointPose()`**-Methode des {{domxref("XRFrame")}}-Interfaces gibt ein {{domxref("XRJointPose")}}-Objekt zurück, das die Pose eines Handgelenks (siehe {{domxref("XRHand")}}) relativ zu einem gegebenen Basisspace bereitstellt.
+Die **`getJointPose()`**-Methode der [`XRFrame`](/de/docs/Web/API/XRFrame)-Schnittstelle gibt ein [`XRJointPose`](/de/docs/Web/API/XRJointPose)-Objekt zurück, das die Pose eines Handgelenks (siehe [`XRHand`](/de/docs/Web/API/XRHand)) relativ zu einem gegebenen Basisspace bereitstellt.
 
 ## Syntax
 
@@ -19,19 +19,19 @@ getJointPose(joint, baseSpace)
 ### Parameter
 
 - `joint`
-  - : Ein {{domxref("XRJointSpace")}}, das den Raum des Handgelenks angibt, für den eine {{domxref("XRJointPose")}} angefordert wird, die die Position und Orientierung des Elements beschreibt.
+  - : Ein [`XRJointSpace`](/de/docs/Web/API/XRJointSpace), das den Handgelenkraum angibt, für den ein [`XRJointPose`](/de/docs/Web/API/XRJointPose) zur Beschreibung der Position und Ausrichtung des Elements abgerufen werden soll.
 - `baseSpace`
-  - : Ein {{domxref("XRSpace")}}, der als Basis oder Ursprung für die relative Position und Orientierung verwendet wird.
+  - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace), der als Basis oder Ursprung für die relative Position und Ausrichtung verwendet wird.
 
 ### Rückgabewert
 
-Ein {{domxref("XRJointPose")}}-Objekt, das die Position und Orientierung des Handgelenks angibt, relativ zu dem {{domxref("XRSpace")}}, der durch `baseSpace` angegeben ist.
+Ein [`XRJointPose`](/de/docs/Web/API/XRJointPose)-Objekt, das die Position und Ausrichtung des Handgelenks relativ zu dem durch `baseSpace` angegebenen [`XRSpace`](/de/docs/Web/API/XRSpace) angibt.
 
 ## Beispiele
 
 ### Verwendung von `getJointPose()`
 
-Rufen Sie `getJointPose()` mit einem {{domxref("XRJointSpace")}} und einem {{domxref("XRReferenceSpace")}} auf, um ein {{domxref("XRJointPose")}}-Objekt zu erhalten.
+Rufen Sie `getJointPose()` mit einem [`XRJointSpace`](/de/docs/Web/API/XRJointSpace) und einem [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) auf, um ein [`XRJointPose`](/de/docs/Web/API/XRJointPose)-Objekt zu erhalten.
 
 ```js
 navigator.xr
@@ -60,6 +60,6 @@ function renderFrame(session, frame) {
 
 ## Siehe auch
 
-- {{domxref("XRHand")}}
-- {{domxref("XRJointSpace")}}
-- {{domxref("XRSpace")}}
+- [`XRHand`](/de/docs/Web/API/XRHand)
+- [`XRJointSpace`](/de/docs/Web/API/XRJointSpace)
+- [`XRSpace`](/de/docs/Web/API/XRSpace)

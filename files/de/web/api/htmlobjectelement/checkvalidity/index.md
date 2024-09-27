@@ -1,5 +1,5 @@
 ---
-title: "HTMLObjectElement: Methode checkValidity()"
+title: "HTMLObjectElement: checkValidity()-Methode"
 short-title: checkValidity()
 slug: Web/API/HTMLObjectElement/checkValidity
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`checkValidity()`** Methode des {{domxref("HTMLObjectElement")}} Interfaces überprüft, ob das Element gültig ist, gibt jedoch immer `true` zurück, da {{HTMLElement("object")}} Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
+Die **`checkValidity()`**-Methode des [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces überprüft, ob das Element gültig ist, gibt aber immer `true` zurück, da {{HTMLElement("object")}}-Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein boolescher Wert, `true`.
 
 ## Beispiele
 
-Im folgenden Beispiel gibt der Aufruf von `checkValidity()` `true` zurück.
+Im folgenden Beispiel wird durch den Aufruf von `checkValidity()` `true` zurückgegeben.
 
 ```js
 const element = document.getElementById("myObjectElement");
@@ -43,7 +43,7 @@ console.log(element.checkValidity());
 
 ## Siehe auch
 
-- {{domxref("HTMLObjectElement.reportValidity()")}}
+- [`HTMLObjectElement.reportValidity()`](/de/docs/Web/API/HTMLObjectElement/reportValidity)
 - {{HTMLElement("object")}}
 - {{HTMLElement("form")}}
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)

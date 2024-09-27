@@ -2,65 +2,64 @@
 title: PerformanceEntry
 slug: Web/API/PerformanceEntry
 l10n:
-  sourceCommit: 1391eec245db45782d4c73572ce7b375cbe43989
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("Performance API")}} {{AvailableInWorkers}}
 
-Das **`PerformanceEntry`**-Objekt kapselt eine einzelne Leistungsmetrik, die Teil der Leistungszeitleiste des Browsers ist.
+Das **`PerformanceEntry`** Objekt kapselt eine einzelne Leistungsmetrik, die Teil der Leistungszeitleiste des Browsers ist.
 
-Die Performance-API bietet integrierte Metriken, die spezialisierte Unterklassen von `PerformanceEntry` sind. Dies umfasst Einträge für das Laden von Ressourcen, Ereignistiming, {{Glossary("first input delay")}} (FID) und mehr.
+Die Performance API bietet eingebaute Metriken, die spezialisierte Unterklassen von `PerformanceEntry` sind. Dazu gehören Einträge für das Laden von Ressourcen, Ereignis-Timing, [first input delay](/de/docs/Glossary/first_input_delay) (FID) und mehr.
 
-Ein Leistungs-Eintrag kann auch erstellt werden, indem die Methoden {{domxref("Performance.mark()")}} oder {{domxref("Performance.measure()")}} zu einem bestimmten Zeitpunkt in einer Anwendung aufgerufen werden. Dies ermöglicht es Ihnen, eigene Metriken zur Leistungszeitleiste hinzuzufügen.
+Ein Performance-Eintrag kann auch erstellt werden, indem die Methoden [`Performance.mark()`](/de/docs/Web/API/Performance/mark) oder [`Performance.measure()`](/de/docs/Web/API/Performance/measure) an einem expliziten Punkt in einer Anwendung aufgerufen werden. Damit können Sie eigene Metriken zur Leistungszeitleiste hinzufügen.
 
-Die Instanzen von `PerformanceEntry` werden immer eine der folgenden Unterklassen sein:
+Die `PerformanceEntry` Instanzen sind immer eine der folgenden Unterklassen:
 
-- {{domxref("LargestContentfulPaint")}}
-- {{domxref("LayoutShift")}}
-- {{domxref("PerformanceEventTiming")}}
-- {{domxref("PerformanceLongAnimationFrameTiming")}}
-- {{domxref("PerformanceLongTaskTiming")}}
-- {{domxref("PerformanceMark")}}
-- {{domxref("PerformanceMeasure")}}
-- {{domxref("PerformanceNavigationTiming")}}
-- {{domxref("PerformancePaintTiming")}}
-- {{domxref("PerformanceResourceTiming")}}
-- {{domxref("PerformanceScriptTiming")}}
-- {{domxref("PerformanceServerTiming")}}
-- {{domxref("TaskAttributionTiming")}}
-- {{domxref("VisibilityStateEntry")}}
+- [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)
+- [`LayoutShift`](/de/docs/Web/API/LayoutShift)
+- [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)
+- [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)
+- [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)
+- [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)
+- [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)
+- [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)
+- [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)
+- [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)
+- [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)
+- [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)
+- [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)
+- [`VisibilityStateEntry`](/de/docs/Web/API/VisibilityStateEntry)
 
 ## Instanzeigenschaften
 
-- {{domxref("PerformanceEntry.name")}} {{ReadOnlyInline}}
-  - : Ein String, der den Namen eines Leistungs-Eintrags darstellt. Der Wert hängt vom Untertyp ab.
-- {{domxref("PerformanceEntry.entryType")}} {{ReadOnlyInline}}
-  - : Ein String, der den Typ der Leistungsmetrik darstellt. Zum Beispiel "`mark`", wenn {{domxref("PerformanceMark")}} verwendet wird.
-- {{domxref("PerformanceEntry.startTime")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("DOMHighResTimeStamp")}}, der die Startzeit für die Leistungsmetrik darstellt.
-- {{domxref("PerformanceEntry.duration")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("DOMHighResTimeStamp")}}, der die Dauer des Leistungs-Eintrags darstellt.
+- [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}}
+  - : Ein String, der den Namen für einen Performance-Eintrag darstellt. Der Wert hängt vom Untertyp ab.
+- [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}}
+  - : Ein String, der den Typ der Leistungsmetrik darstellt. Zum Beispiel `"mark"`, wenn [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) verwendet wird.
+- [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}}
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Startzeit für die Leistungsmetrik darstellt.
+- [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}}
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Dauer des Performance-Eintrags darstellt.
 
 ## Instanzmethoden
 
-- {{domxref("PerformanceEntry.toJSON","PerformanceEntry.toJSON()")}}
-  - : Gibt eine JSON-Darstellung des `PerformanceEntry`-Objekts zurück.
+- [`PerformanceEntry.toJSON()`](/de/docs/Web/API/PerformanceEntry/toJSON)
+  - : Gibt eine JSON-Darstellung des `PerformanceEntry` Objekts zurück.
 
 ## Beispiel
 
-### Arbeiten mit Leistungs-Einträgen
+### Arbeiten mit Performance-Einträgen
 
-Das folgende Beispiel erstellt `PerformanceEntry`-Objekte, die von den Typen {{domxref("PerformanceMark")}} und {{domxref("PerformanceMeasure")}} sind.
-Die Unterklassen `PerformanceMark` und `PerformanceMeasure` erben die Eigenschaften `duration`, `entryType`, `name` und `startTime` von `PerformanceEntry` und setzen sie auf ihre entsprechenden Werte.
+Das folgende Beispiel erstellt `PerformanceEntry` Objekte, die von den Typen [`PerformanceMark`](/de/docs/Web/API/PerformanceMark) und [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure) sind. Die Unterklassen `PerformanceMark` und `PerformanceMeasure` erben die Eigenschaften `duration`, `entryType`, `name` und `startTime` von `PerformanceEntry` und setzen sie auf ihre entsprechenden Werte.
 
 ```js
-// An einem Ort im Code platzieren, der das Login startet
+// Place at a location in the code that starts login
 performance.mark("login-started");
 
-// An einem Ort im Code platzieren, der das Login beendet
+// Place at a location in the code that finishes login
 performance.mark("login-finished");
 
-// Login-Dauer messen
+// Measure login duration
 performance.measure("login-duration", "login-started", "login-finished");
 
 function perfObserver(list, observer) {

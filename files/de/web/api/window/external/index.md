@@ -1,5 +1,5 @@
 ---
-title: "Fenster: external-Eigenschaft"
+title: "Window: external Eigenschaft"
 short-title: external
 slug: Web/API/Window/external
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}} {{deprecated_header}}
 
-Die `external`-Eigenschaft der {{domxref("Window")}}-API gibt eine Instanz der `External`-Schnittstelle zurück, die ursprünglich Funktionen zum Hinzufügen externer Suchanbieter zum Browser enthalten sollte. Dies ist jedoch jetzt veraltet, und die enthaltenen Methoden sind gemäß Spezifikation nun Dummy-Funktionen, die nichts tun.
+Die `external` Eigenschaft der [`Window`](/de/docs/Web/API/Window) API gibt eine Instanz des `External` Interface zurück, die ursprünglich Funktionen zur Integration externer Suchanbieter in den Browser enthalten sollte. Diese Funktionalität ist jedoch veraltet, und die enthaltenen Methoden sind nun Dummy-Funktionen, die gemäß Spezifikation nichts tun.
 
 ## Instanzmethoden
 
-Das `External`-Objekt hat die folgenden Methoden:
+Das `External` Objekt hat die folgenden Methoden:
 
 <table class="fullwidth-table">
   <tbody>
@@ -25,15 +25,15 @@ Das `External`-Objekt hat die folgenden Methoden:
         <code>AddSearchProvider(<em>descriptionURL)</em></code>
       </td>
       <td>
-        Dummy-Funktion; tut nichts. Siehe
+        Dummy-Funktion; macht nichts. Siehe
         <a href="/de/docs/Web/OpenSearch#autodiscovery_of_search_plugins"
-          >Autodiscovery of search plugins</a
+          >Autodetektierung von Such-Plugins</a
         >.
       </td>
     </tr>
     <tr>
       <td><code>IsSearchProviderInstalled()</code></td>
-      <td>Dummy-Funktion; tut nichts.</td>
+      <td>Dummy-Funktion; macht nichts.</td>
     </tr>
   </tbody>
 </table>

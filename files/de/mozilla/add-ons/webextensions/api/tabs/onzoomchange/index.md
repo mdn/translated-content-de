@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ausgelöst, wenn ein Tab vergrößert wird.
+Wird ausgelöst, wenn ein Tab vergrößert wird.
 
 ## Syntax
 
@@ -20,9 +20,9 @@ browser.tabs.onZoomChange.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener für dieses Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören für dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
@@ -32,10 +32,10 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `ZoomChangeInfo`
-      - : `object`. Informationen über das Zoomereignis. Siehe den Abschnitt [ZoomChangeInfo](#zoomchangeinfo_2) für weitere Details.
+      - : `object`. Informationen über das Zoom-Ereignis. Siehe den Abschnitt [ZoomChangeInfo](#zoomchangeinfo_2) für weitere Details.
 
 ## Zusätzliche Objekte
 
@@ -48,11 +48,11 @@ Ereignisse haben drei Funktionen:
 - `newZoomFactor`
   - : `number`. Der neue Zoomfaktor.
 - `zoomSettings`
-  - : {{WebExtAPIRef('tabs.ZoomSettings')}}. Zoom-Einstellungen für den Tab.
+  - : {{WebExtAPIRef('tabs.ZoomSettings')}}. Zoomeinstellungen für den Tab.
 
 ## Beispiele
 
-Hören Sie auf Zoomereignisse und protokollieren Sie die Informationen:
+Auf Zoom-Ereignisse hören und die Informationen protokollieren:
 
 ```js
 function handleZoomed(zoomChangeInfo) {
@@ -66,12 +66,12 @@ browser.tabs.onZoomChange.addListener(handleZoomed);
 
 {{WebExtExamples}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onZoomChange) API von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onZoomChange) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

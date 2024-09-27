@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Headerdirektive `encrypted-media` steuert, ob das aktuelle Dokument die [Encrypted Media Extensions](/de/docs/Web/API/Encrypted_Media_Extensions_API)-API (EME) verwenden darf.
+Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `encrypted-media`-Direktive steuert, ob das aktuelle Dokument die [Encrypted Media Extensions](/de/docs/Web/API/Encrypted_Media_Extensions_API) API (EME) verwenden darf.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, wird das von {{domxref("Navigator.requestMediaKeySystemAccess","Navigator.requestMediaKeySystemAccess()")}} zurückgegebene {{jsxref("Promise")}} mit einer {{domxref("DOMException")}} vom Typ `SecurityError` abgelehnt.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, wird das von {{jsxref("Promise")}} zurückgegebene Versprechen von [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess) mit einem [`DOMException`](/de/docs/Web/API/DOMException) des Typs `SecurityError` abgelehnt.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: encrypted-media=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wurde. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standardliste für die Berechtigung von `encrypted-media` ist `self`.
+Die standardmäßige Erlaubnisliste für `encrypted-media` ist `self`.
 
 ## Spezifikationen
 

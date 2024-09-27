@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode getIndexedParameter()"
+title: "WebGL2RenderingContext: getIndexedParameter() Methode"
 short-title: getIndexedParameter()
 slug: Web/API/WebGL2RenderingContext/getIndexedParameter
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode **`WebGL2RenderingContext.getIndexedParameter()`** des [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt indizierte Informationen über ein gegebenes `target` zurück.
+Die **`WebGL2RenderingContext.getIndexedParameter()`**-Methode
+der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt indizierte
+Informationen über ein angegebenes `target` zurück.
 
 ## Syntax
 
@@ -20,34 +22,35 @@ getIndexedParameter(target, index)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das das Ziel spezifiziert, für das Informationen zurückgegeben werden sollen. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel spezifiziert, für das Informationen zurückgegeben werden sollen.
+    Mögliche Werte:
 
     - `gl.TRANSFORM_FEEDBACK_BUFFER_BINDING`: Gibt ein
-      {{domxref("WebGLBuffer")}} zurück.
+      [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) zurück.
     - `gl.TRANSFORM_FEEDBACK_BUFFER_SIZE`: Gibt ein
-      {{domxref("WebGL_API/Types", "GLsizeiptr")}} zurück.
+      [`GLsizeiptr`](/de/docs/Web/API/WebGL_API/Types) zurück.
     - `gl.TRANSFORM_FEEDBACK_BUFFER_START`: Gibt ein
-      {{domxref("WebGL_API/Types", "GLintptr")}} zurück.
-    - `gl.UNIFORM_BUFFER_BINDING`: Gibt ein {{domxref("WebGLBuffer")}} zurück.
-    - `gl.UNIFORM_BUFFER_SIZE`: Gibt ein {{domxref("WebGL_API/Types", "GLsizeiptr")}} zurück.
-    - `gl.UNIFORM_BUFFER_START`: Gibt ein {{domxref("WebGL_API/Types", "GLintptr")}} zurück.
+      [`GLintptr`](/de/docs/Web/API/WebGL_API/Types) zurück.
+    - `gl.UNIFORM_BUFFER_BINDING`: Gibt ein [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) zurück.
+    - `gl.UNIFORM_BUFFER_SIZE`: Gibt ein [`GLsizeiptr`](/de/docs/Web/API/WebGL_API/Types) zurück.
+    - `gl.UNIFORM_BUFFER_START`: Gibt ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types) zurück.
 
-    Beim Verwenden der {{domxref("OES_draw_buffers_indexed")}} WebGL 2 Erweiterung sind zusätzlich folgende Werte verfügbar:
+    Bei Verwendung der [`OES_draw_buffers_indexed`](/de/docs/Web/API/OES_draw_buffers_indexed) WebGL 2 Erweiterung sind zusätzlich folgende Werte verfügbar:
 
-    - `gl.BLEND_EQUATION_RGB`: Gibt die RGB-Mischgleichung für den Zeichnungspuffer bei `index` zurück.
-    - `gl.BLEND_EQUATION_ALPHA`: Gibt die Alpha-Mischgleichung für den Zeichnungspuffer bei `index` zurück.
-    - `gl.BLEND_SRC_RGB`: Gibt die Quell-RGB-Mischfunktion für den Zeichnungspuffer bei `index` zurück.
-    - `gl.BLEND_SRC_ALPHA`: Gibt die Quell-Alpha-Mischfunktion für den Zeichnungspuffer bei `index` zurück.
-    - `gl.BLEND_DST_RGB`: Gibt die Ziel-RGB-Mischfunktion für den Zeichnungspuffer bei `index` zurück.
-    - `gl.BLEND_DST_ALPHA`: Gibt die Ziel-Alpha-Mischfunktion für den Zeichnungspuffer bei `index` zurück.
+    - `gl.BLEND_EQUATION_RGB`: Gibt die RGB-Bland-Gleichung für den Zeichnungspuffer bei `index` zurück.
+    - `gl.BLEND_EQUATION_ALPHA`: Gibt die Alpha-Bland-Gleichung für den Zeichnungspuffer bei `index` zurück.
+    - `gl.BLEND_SRC_RGB`: Gibt die Quell-RGB-Bland-Funktion für den Zeichnungspuffer bei `index` zurück.
+    - `gl.BLEND_SRC_ALPHA`: Gibt die Quell-Alpha-Bland-Funktion für den Zeichnungspuffer bei `index` zurück.
+    - `gl.BLEND_DST_RGB`: Gibt die Ziel-RGB-Bland-Funktion für den Zeichnungspuffer bei `index` zurück.
+    - `gl.BLEND_DST_ALPHA`: Gibt die Ziel-Alpha-Bland-Funktion für den Zeichnungspuffer bei `index` zurück.
     - `gl.COLOR_WRITEMASK`: Gibt ein Array zurück, das die Farbkomponenten enthält, die für den Zeichnungspuffer bei `index` aktiviert sind.
 
 - `index`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, das den Index des abgefragten `target` spezifiziert.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des abgefragten `target` spezifiziert.
 
 ### Rückgabewert
 
-Abhängig von den angeforderten Informationen (wie durch `target` angegeben).
+Hängt von der angeforderten Information ab (wie mit `target` angegeben).
 
 ## Beispiele
 
@@ -65,4 +68,4 @@ const binding = gl.getIndexedParameter(gl.TRANSFORM_FEEDBACK_BUFFER_BINDING, 0);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getParameter()")}}
+- [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter)

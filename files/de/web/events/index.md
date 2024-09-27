@@ -1,15 +1,15 @@
 ---
-title: Ereignisreferenz
+title: Event-Referenz
 slug: Web/Events
 l10n:
   sourceCommit: 4ca4fa3d9d1de5601b406b13dc75aff30709c66f
 ---
 
-[Ereignisse](/de/docs/Learn/JavaScript/Building_blocks/Events) werden ausgelöst, um den Code über "interessante Änderungen" zu informieren, die die Codeausführung beeinflussen können. Diese können durch Benutzerinteraktionen wie der Verwendung einer Maus oder der Größenänderung eines Fensters entstehen, durch Änderungen im Zustand der zugrunde liegenden Umgebung (z. B. bei schwachem Akku oder Medienereignissen des Betriebssystems) und durch andere Ursachen.
+[Ereignisse](/de/docs/Learn/JavaScript/Building_blocks/Events) werden ausgelöst, um den Code über "interessante Änderungen" zu informieren, die die Codeausführung beeinflussen können. Diese können durch Benutzerinteraktionen wie die Verwendung einer Maus oder das Ändern der Fenstergröße, durch Änderungen im Status der zugrundeliegenden Umgebung (z. B. niedriger Batteriestand oder Medienereignisse des Betriebssystems) und andere Ursachen entstehen.
 
-Jedes Ereignis wird durch ein Objekt repräsentiert, das auf der {{domxref("Event")}}-Schnittstelle basiert und möglicherweise zusätzliche benutzerdefinierte Felder und/oder Funktionen enthält, um Informationen über das Geschehene bereitzustellen. Die Dokumentation für jedes Ereignis enthält eine Tabelle (in der Nähe des Anfangs), die einen Link zur zugehörigen Ereignisschnittstelle und andere relevante Informationen enthält. Eine vollständige Liste der verschiedenen Ereignistypen finden Sie unter [Event > Schnittstellen basierend auf Event](/de/docs/Web/API/Event#introduction).
+Jedes Ereignis wird durch ein Objekt dargestellt, das auf der [`Event`](/de/docs/Web/API/Event) Schnittstelle basiert und eventuell zusätzliche benutzerdefinierte Felder und/oder Funktionen hat, um Informationen darüber bereitzustellen, was passiert ist. Die Dokumentation für jedes Ereignis enthält eine Tabelle (nahe der Spitze), die einen Link zur zugehörigen Ereignisschnittstelle und andere relevante Informationen enthält. Eine vollständige Liste der verschiedenen Ereignisarten finden Sie unter [Event > Interfaces based on Event](/de/docs/Web/API/Event#introduction).
 
-Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie interessieren könnten (Animation, Zwischenablage, Worker usw.), zusammen mit den Hauptklassen, die diese Arten von Ereignissen implementieren.
+Dieses Thema bietet einen Index der Hauptarten von Ereignissen, die Sie interessieren könnten (Animationen, Zwischenablage, Worker usw.) zusammen mit den Hauptklassen, die diese Arten von Ereignissen implementieren.
 
 ## Ereignisindex
 
@@ -29,8 +29,7 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
           >.
         </p>
         <p>
-          Verwendet, um auf Änderungen im Animationsstatus zu reagieren (z. B.
-          wenn eine Animation beginnt oder endet).
+          Wird verwendet, um auf Änderungen im Animationsstatus zu reagieren (z. B. wenn eine Animation beginnt oder endet).
         </p>
       </td>
       <td>
@@ -69,10 +68,7 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
           Ereignisse im Zusammenhang mit der
           <a href="/de/docs/Web/API/Clipboard_API">Clipboard API</a>.
         </p>
-        <p>
-          Verwendet, um zu benachrichtigen, wenn Inhalte ausgeschnitten,
-          kopiert oder eingefügt werden.
-        </p>
+        <p>Wird verwendet, um zu informieren, wenn Inhalte ausgeschnitten, kopiert oder eingefügt werden.</p>
       </td>
       <td>
         Ereignisse ausgelöst auf
@@ -91,13 +87,10 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       <td>Komposition</td>
       <td>
         <p>
-          Ereignisse im Zusammenhang mit der Komposition; Texteingabe
-          "indirekt" (anstatt normaler Tastendrücke).
+          Ereignisse im Zusammenhang mit Komposition; Eingabe von Text "indirekt" (anstatt durch normale Tastatureingaben).
         </p>
         <p>
-          Zum Beispiel Text, der über eine Sprache-zu-Text-Engine eingegeben
-          wird, oder spezielle Tastenkombinationen, die Tastendrücke
-          modifizieren, um neue Zeichen in einer anderen Sprache darzustellen.
+          Zum Beispiel Text, der über eine Sprache-zu-Text-Engine eingegeben wurde, oder durch spezielle Tastenkombinationen, die Tastatureingaben ändern, um neue Zeichen in einer anderen Sprache darzustellen.
         </p>
       </td>
       <td>
@@ -115,8 +108,7 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
           <a href="/de/docs/Web/CSS/CSS_transitions">CSS-Übergängen</a>.
         </p>
         <p>
-          Stellt Benachrichtigungsevents bereit, wenn CSS-Übergänge beginnen,
-          stoppen, abgebrochen werden usw.
+          Bietet Benachrichtigung über Ereignisse, wenn CSS-Übergänge beginnen, enden, abgebrochen werden usw.
         </p>
       </td>
       <td>
@@ -136,8 +128,7 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       <td>Datenbank</td>
       <td>
         <p>
-          Ereignisse im Zusammenhang mit Datenbankoperationen: Öffnen,
-          Schließen, Transaktionen, Fehler usw.
+          Ereignisse im Zusammenhang mit Datenbankoperationen: Öffnen, Schließen, Transaktionen, Fehler usw.
         </p>
       </td>
       <td>
@@ -160,16 +151,14 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       <td>DOM-Mutation</td>
       <td>
         <p>
-          Ereignisse im Zusammenhang mit Änderungen an der Struktur der
-          Dokumentobjektmodell-Hierarchie (DOM) und den Knoten.
+          Ereignisse im Zusammenhang mit Änderungen an der Document Object Model (DOM)-Hierarchie und Knoten.
         </p>
       </td>
       <td>
         <div class="notecard warning">
           <p>
             <strong>Warnung:</strong>
-            <a href="/de/docs/Web/API/MutationEvent">Mutationsereignisse</a>
-            sind veraltet.
+            <a href="/de/docs/Web/API/MutationEvent">Mutationsereignisse</a> sind veraltet.
             <a href="/de/docs/Web/API/MutationObserver"
               >Mutationsbeobachter</a
             >
@@ -179,30 +168,28 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       </td>
     </tr>
     <tr>
-      <td>Drag'n'drop, Wheel</td>
+      <td>Drag'n'drop, Rad</td>
       <td>
         <p>
-          Ereignisse im Zusammenhang mit der Verwendung der
+          Ereignisse im Zusammenhang mit der
           <a href="/de/docs/Web/API/HTML_Drag_and_Drop_API"
-            >HTML Drag and Drop API</a
+            >HTML-Drag-and-Drop-API</a
           >
-          und <a href="/de/docs/Web/API/WheelEvent">Wheel-Ereignissen</a>.
+          und <a href="/de/docs/Web/API/WheelEvent">Raderereignisse</a>.
         </p>
         <p>
-          Drag- und Wheel-Ereignisse sind von Mausevents abgeleitet. Sie werden
-          ausgelöst, wenn das Mausrad oder Drag und Drop verwendet wird, können
-          aber auch mit anderer geeigneter Hardware verwendet werden.
+          Drag- und Raderereignisse leiten sich von Mausereignissen ab. Während sie beim Verwenden des Mausrads oder beim Ziehen/Ablegen ausgelöst werden, können sie auch mit anderer geeigneter Hardware verwendet werden.
         </p>
       </td>
       <td>
         <p>
-          Drag-Ereignisse ausgelöst auf
+          Ziehen-Ereignisse ausgelöst auf
           <a href="/de/docs/Web/API/Document#drag_drop_events"
             ><code>Document</code></a
           >
         </p>
         <p>
-          Wheel-Ereignisse ausgelöst auf
+          Raderereignisse ausgelöst auf
           <a href="/de/docs/Web/API/Element/wheel_event"
             ><code>Element</code></a
           >
@@ -210,8 +197,8 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       </td>
     </tr>
     <tr>
-      <td>Fokus</td>
-      <td><p>Ereignisse im Zusammenhang mit dem Erhalten und Verlieren des Fokus von Elementen.</p></td>
+      <td>Focus</td>
+      <td><p>Ereignisse im Zusammenhang mit dem Gewinnen und Verlieren des Fokus von Elementen.</p></td>
       <td>
         Ereignisse ausgelöst auf
         <a href="/de/docs/Web/API/Element#focus_events"
@@ -224,7 +211,7 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
     <tr>
       <td>Formular</td>
       <td>
-        <p>Ereignisse im Zusammenhang mit dem Erstellen, Zurücksetzen und Übermitteln von Formularen.</p>
+        <p>Ereignisse im Zusammenhang mit Formularen, die erstellt, zurückgesetzt und gesendet werden.</p>
       </td>
       <td>
         Ereignisse ausgelöst auf
@@ -241,9 +228,7 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
           <a href="/de/docs/Web/API/Fullscreen_API">Fullscreen API</a>.
         </p>
         <p>
-          Verwendet, um zu benachrichtigen, wenn zwischen Vollbild- und
-          Fenstermodus gewechselt wird, und auch über Fehler, die bei diesem
-          Übergang auftreten.
+          Wird verwendet, um zu informieren, wenn zwischen Vollbild- und Fenstermodus gewechselt wird und über Fehler, die während dieses Übergangs auftreten.
         </p>
       </td>
       <td>
@@ -275,8 +260,7 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       <td>Gesten</td>
       <td>
         <p>
-          <a href="/de/docs/Web/API/Touch_events">Touch-Ereignisse</a> werden
-          empfohlen, um Gesten zu implementieren.
+          <a href="/de/docs/Web/API/Touch_events">Berührungsereignisse</a> werden empfohlen, um Gesten zu implementieren.
         </p>
       </td>
       <td>
@@ -292,18 +276,18 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
         <p>Zusätzlich gibt es eine Reihe nicht-standardisierter Gestenereignisse:</p>
         <ul>
           <li>
-            Nicht-standardisierte WebKit-spezifische Ereignisse auf
+            Nicht-standardmäßige WebKit-spezifische Ereignisse auf
             <a href="/de/docs/Web/API/Element#touch_events"
               ><code>Element</code></a
             >:
             <a href="/de/docs/Web/API/Element/gesturestart_event"
-              ><code>gesturestart</code>-Ereignis</a
+              ><code>gesturestart</code> Ereignis</a
             >,
             <a href="/de/docs/Web/API/Element/gesturechange_event"
-              ><code>gesturechange</code>-Ereignis</a
+              ><code>gesturechange</code> Ereignis</a
             >,
             <a href="/de/docs/Web/API/Element/gestureend_event"
-              ><code>gestureend</code>-Ereignis</a
+              ><code>gestureend</code> Ereignis</a
             >.
           </li>
         </ul>
@@ -325,11 +309,10 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       </td>
     </tr>
     <tr>
-      <td>HTML-Inhaltselement-Anzeigeverwaltung</td>
+      <td>Verwaltung der HTML-Elementinhaltsanzeige</td>
       <td>
         <p>
-          Ereignisse im Zusammenhang mit der Änderung des Status eines
-          Anzeige- oder Textelements.
+          Ereignisse im Zusammenhang mit dem Ändern des Status eines Anzeige- oder Textelements.
         </p>
       </td>
       <td>
@@ -349,8 +332,8 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       <td>Eingaben</td>
       <td>
         <p>
-          Ereignisse im Zusammenhang mit HTML-Eingabenelementen, z.B.
-          {{HTMLElement("input")}}, {{HTMLElement("select")}} oder
+          Ereignisse im Zusammenhang mit HTML-Eingabeelementen, z. B.
+          {{HTMLElement("input")}}, {{HTMLElement("select")}}, oder
           {{HTMLElement("textarea")}}.
         </p>
       </td>
@@ -371,10 +354,7 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
           Ereignisse im Zusammenhang mit der Verwendung einer
           <a href="/de/docs/Web/API/KeyboardEvent">Tastatur</a>.
         </p>
-        <p>
-          Verwendet, um zu benachrichtigen, wenn Tasten hoch oder runter
-          gedrückt werden oder einfach nur gedrückt werden.
-        </p>
+        <p>Wird verwendet, um zu informieren, wenn Tasten losgelassen, gedrückt oder nur gedrückt werden.</p>
       </td>
       <td>
         Ereignisse ausgelöst auf
@@ -387,7 +367,7 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       </td>
     </tr>
     <tr>
-      <td>Laden/Entladen von Dokumenten</td>
+      <td>Dokumente laden/entladen</td>
       <td><p>Ereignisse im Zusammenhang mit dem Laden und Entladen von Dokumenten.</p></td>
       <td>
         <p>
@@ -403,11 +383,11 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       </td>
     </tr>
     <tr>
-      <td>Manifest</td>
+      <td>Manifeste</td>
       <td>
         <p>
           Ereignisse im Zusammenhang mit der Installation von
-          <a href="/de/docs/Web/Manifest">progressive web app manifests</a>.
+          <a href="/de/docs/Web/Manifest">progressiven Web-App-Manifesten</a>.
         </p>
       </td>
       <td>
@@ -421,14 +401,14 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       <td>Medien</td>
       <td>
         <p>
-          Ereignisse im Zusammenhang mit der Nutzung von Medien (einschließlich
-          der <a href="/de/docs/Web/API/Media_Capture_and_Streams_API#events"
+          Ereignisse im Zusammenhang mit der Nutzung von Medien (einschließlich der
+          <a href="/de/docs/Web/API/Media_Capture_and_Streams_API#events"
             >Media Capture and Streams API</a
           >,
           <a href="/de/docs/Web/API/Web_Audio_API#events">Web Audio API</a>,
           <a href="/de/docs/Web/API/Picture-in-Picture_API#events"
             >Picture-in-Picture API</a
-          >, etc.).
+          >, usw.).
         </p>
       </td>
       <td>
@@ -476,8 +456,7 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       <td>Nachrichtenübermittlung</td>
       <td>
         <p>
-          Ereignisse im Zusammenhang mit einem Fenster, das eine Nachricht von
-          einem anderen Browserverlaufskontext empfängt.
+          Ereignisse im Zusammenhang mit dem Empfang einer Nachricht von einem anderen Browsing-Kontext in einem Fenster.
         </p>
       </td>
       <td>
@@ -495,17 +474,14 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
           <a href="/de/docs/Web/API/MouseEvent">Computermaus</a>.
         </p>
         <p>
-          Verwendet, um zu benachrichtigen, wenn die Maus geklickt,
-          doppeltgeklickt, hoch und runter bewegt wird, Rechtsklick, Bewegung
-          in und aus einem Element, Textauswahl usw.
+          Wird verwendet, um zu informieren, wenn die Maus geklickt, doppelt geklickt wird, die Tasten nach oben oder unten bewegt werden, ein Rechtsklick ausführt wird, die Maus in und aus einem Element bewegt wird, Text ausgewählt wird usw.
         </p>
         <p>
-          Pointer-Ereignisse bieten eine hardwareunabhängige Alternative zu
-          Mausevents. Drag- und Wheel-Ereignisse sind von Mausevents abgeleitet.
+          Zeigegeräteereignisse bieten eine hardwareunabhängige Alternative zu Mauserereignissen. Drag und Radereignisse sind von Mauserereignissen abgeleitet.
         </p>
       </td>
       <td>
-        Mausevents ausgelöst auf
+        Mauserereignisse ausgelöst auf
         <a href="/de/docs/Web/API/Element#mouse_events"
           ><code>Element</code></a
         >
@@ -555,13 +531,14 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       </td>
     </tr>
     <tr>
-      <td>Leistung</td>
+      <td>Performance</td>
       <td>
         <p>
-          Ereignisse im Zusammenhang mit einer leistungsbezogenen Spezifikation
-          innerhalb der <a href="/de/docs/Web/API/Performance_API"
+          Ereignisse im Zusammenhang mit leistungsbezogenen Spezifikationen, die in
+          <a href="/de/docs/Web/API/Performance_API"
             >Performance APIs</a
-          >.
+          >
+          gruppiert sind.
         </p>
       </td>
       <td>
@@ -581,8 +558,7 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
           <a href="/de/docs/Web/API/Pointer_events">Pointer Events API</a>.
         </p>
         <p>
-          Bietet hardwareunabhängige Benachrichtigung von Zeigegeräten
-          einschließlich Maus, Touch, Stift.
+          Bietet hardwareunabhängige Benachrichtigung von Zeigegeräten einschließlich Maus, Berührung, Stift/Stylus.
         </p>
       </td>
       <td>
@@ -605,11 +581,10 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       </td>
     </tr>
     <tr>
-      <td>Promise-Zurückweisung</td>
+      <td>Promise-Ablehnung</td>
       <td>
         <p>
-          Ereignisse, die an den globalen Skriptkontext gesendet werden, wenn
-          ein JavaScript-Promise abgelehnt wird.
+          Ereignisse, die an den globalen Skriptkontext gesendet werden, wenn ein JavaScript-Promise abgelehnt wird.
         </p>
       </td>
       <td>
@@ -655,29 +630,26 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       <td>Textauswahl</td>
       <td>
         <p>
-          <a href="/de/docs/Web/API/Selection">Selection API</a>-Ereignisse
-          im Zusammenhang mit der Auswahl von Text.
+          <a href="/de/docs/Web/API/Selection">Selection API</a>-Ereignisse im Zusammenhang mit der Textauswahl.
         </p>
       </td>
       <td>
         <p>
           Ereignis (<code>selectionchange</code>) ausgelöst auf
-          {{domxref("HTMLTextAreaElement/selectionchange_event", "HTMLTextAreaElement")}},
-          {{domxref("HTMLInputElement/selectionchange_event", "HTMLInputElement")}}.
+          [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event),
+          [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement/selectionchange_event).
         </p>
       </td>
     </tr>
     <tr>
-      <td>Touch</td>
+      <td>Berührung</td>
       <td>
         <p>
           Ereignisse im Zusammenhang mit der
           <a href="/de/docs/Web/API/Touch_events">Touch Events API</a>.
         </p>
         <p>
-          Bietet Benachrichtigungsevents aus der Interaktion mit einem
-          berührungsempfindlichen Bildschirm (d.h. mit einem Finger oder Stift).
-          Nicht in Zusammenhang mit der
+          Bietet Benachrichtigungen zu Ereignissen, die durch die Interaktion mit einem berührungsempfindlichen Bildschirm (d. h. mit einem Finger oder Stift) ausgelöst werden. Nicht im Zusammenhang mit der
           <a href="/de/docs/Web/API/Force_Touch_events#events"
             >Force Touch API</a
           >.
@@ -764,7 +736,7 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
       </td>
     </tr>
     <tr>
-      <td>Sprache</td>
+      <td>Sprachereignisse</td>
       <td>
         <p>
           Ereignisse im Zusammenhang mit der
@@ -794,12 +766,7 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
           >.
         </p>
         <p>
-          Verwendet, um auf neue Nachrichten und Nachrichtenübertragungsfehler
-          zu reagieren. Service-Worker können auch über andere Ereignisse
-          benachrichtigt werden, einschließlich Push-Nachrichten, Benutzer, die
-          auf angezeigte Benachrichtigungen klicken, dass Push-Abonnements
-          ungültig geworden sind, Löschung von Elementen aus dem Inhaltsindex
-          usw.
+          Wird verwendet, um auf neue Nachrichten und Fehlschläge beim Nachrichtenversand zu reagieren. Service Worker können auch über andere Ereignisse benachrichtigt werden, einschließlich Push-Benachrichtigungen, Benutzer, die auf angezeigte Benachrichtigungen klicken, dass das Push-Abonnement ungültig geworden ist, das Löschen von Elementen aus dem Inhaltsindex usw.
         </p>
       </td>
       <td>
@@ -836,6 +803,6 @@ Dieses Thema bietet einen Index zu den Hauptarten von Ereignissen, die Sie inter
 
 <section id="Quick_links">
   <ol>
-    <li><a href="/de/docs/Learn/JavaScript/Building_blocks/Events">Einführung in Veranstaltungen</a></li>
+    <li><a href="/de/docs/Learn/JavaScript/Building_blocks/Events">Einführung in Ereignisse</a></li>
   </ol>{{ListSubpages}}
 </section>

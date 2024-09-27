@@ -9,14 +9,14 @@ l10n:
 
 Der `DangerType`-Typ der {{WebExtAPIRef("downloads")}} API definiert eine Reihe von möglichen Gründen, warum eine herunterladbare Datei als gefährlich angesehen werden könnte.
 
-Die `danger`-Eigenschaft eines {{WebExtAPIRef('downloads.DownloadItem')}} enthält einen String, der aus den in diesem Typ definierten Werten stammt.
+Die `danger`-Eigenschaft eines {{WebExtAPIRef('downloads.DownloadItem')}} enthält einen String, der aus den in diesem Typ definierten Werten entnommen wird.
 
 > [!NOTE]
-> Diese String-Konstanten ändern sich nie, allerdings kann sich die Menge der DangerTypes ändern.
+> Diese Zeichenfolgenkonstanten werden sich niemals ändern, allerdings kann sich die Menge der DangerTypes ändern.
 
 ## Typ
 
-Werte dieses Typs sind Strings. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 
 - `file`
   - : Der Dateiname des Downloads ist verdächtig.
@@ -27,7 +27,7 @@ Werte dieses Typs sind Strings. Mögliche Werte sind:
 - `uncommon`
   - : Die URL des Downloads wird nicht häufig heruntergeladen.
 - `host`
-  - : Der Download stammt von einem Host, der bekannt dafür ist, bösartige Binärdateien zu verbreiten.
+  - : Der Download kommt von einem Host, der bekannt ist, schädliche Binärdateien zu verteilen.
 - `unwanted`
   - : Der Download ist potenziell unerwünscht oder unsicher.
 - `safe`

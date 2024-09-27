@@ -1,5 +1,5 @@
 ---
-title: "MouseEvent: screenX Eigenschaft"
+title: "MouseEvent: screenX-Eigenschaft"
 short-title: screenX
 slug: Web/API/MouseEvent/screenX
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`screenX`** schreibgeschützte Eigenschaft des {{domxref("MouseEvent")}}-Interfaces gibt die horizontale Koordinate (Versatz) des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen) an.
+Die **`screenX`** schreibgeschützte Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die horizontale Koordinate (Offset) des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
 
 > [!NOTE]
-> In einer Multi-Screen-Umgebung werden horizontal ausgerichtete Bildschirme als ein einziges Gerät behandelt, und daher erhöht sich der Bereich des `screenX`-Werts auf die kombinierte Breite der Bildschirme.
+> In einer Umgebung mit mehreren Bildschirmen, die horizontal ausgerichtet sind, werden die Bildschirme als ein einziges Gerät behandelt, und daher vergrößert sich der Wertebereich von `screenX` auf die kombinierte Breite der Bildschirme.
 
 ## Wert
 
@@ -21,12 +21,12 @@ Frühere Versionen der Spezifikation definierten dies als eine ganze Zahl, die s
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Koordinaten Ihrer Maus, wenn Sie das {{domxref("Element/mousemove_event", "mousemove")}}-Ereignis auslösen.
+Dieses Beispiel zeigt die Koordinaten Ihrer Maus an, wann immer Sie das [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignis auslösen.
 
 ### HTML
 
 ```html
-<p>Bewegen Sie Ihre Maus, um ihre Position zu sehen.</p>
+<p>Move your mouse to see its position.</p>
 <p id="screen-log"></p>
 ```
 
@@ -47,9 +47,9 @@ function logKey(e) {
 
 {{EmbedLiveSample("Examples")}}
 
-### Ereignis routing
+### Routing eines Ereignisses
 
-Wenn Sie Ereignisse am Fenster, Dokument oder anderen geräumigen Elementen abfangen, können Sie die Koordinaten dieses Ereignisses (z. B. ein Klick) erhalten und korrekt weiterleiten, wie das folgende Beispiel zeigt:
+Wenn Sie Ereignisse im Fenster, Dokument oder anderen großen Elementen erfassen, können Sie die Koordinaten dieses Ereignisses (z. B. ein Klick) abrufen und ordnungsgemäß routen, wie das folgende Beispiel zeigt:
 
 ```js
 function checkClickMap(e) {
@@ -63,13 +63,13 @@ function checkClickMap(e) {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{ domxref("MouseEvent") }}
-- {{ domxref("MouseEvent.screenY","screenY") }}
-- {{ domxref("MouseEvent.clientX","clientX") }} / {{ domxref("MouseEvent.clientY", "clientY") }}
+- [`MouseEvent`](/de/docs/Web/API/MouseEvent)
+- [`screenY`](/de/docs/Web/API/MouseEvent/screenY)
+- [`clientX`](/de/docs/Web/API/MouseEvent/clientX) / [`clientY`](/de/docs/Web/API/MouseEvent/clientY)
 - [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)

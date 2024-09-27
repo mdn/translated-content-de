@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("Gamepad")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`pose`**-Eigenschaft der {{domxref("Gamepad")}}-Schnittstelle gibt ein {{domxref("GamepadPose")}}-Objekt zurück, das die Pose-Informationen eines WebVR-Controllers repräsentiert (z.B. seine Position und Orientierung im 3D-Raum).
+Die **`pose`**-Eigenschaft der [`Gamepad`](/de/docs/Web/API/Gamepad)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die ein [`GamepadPose`](/de/docs/Web/API/GamepadPose)-Objekt zurückgibt. Dieses Objekt repräsentiert die mit einem WebVR-Controller verbundenen Poseninformationen (z.B. seine Position und Orientierung im 3D-Raum).
 
 ## Wert
 
-Ein {{domxref("GamepadPose")}}-Objekt.
+Ein [`GamepadPose`](/de/docs/Web/API/GamepadPose)-Objekt.
 
 ## Beispiele
 
-TBC
+Noch ausstehend
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Gamepad-API](/de/docs/Web/API/Gamepad_API)
-- [WebVR-API](/de/docs/Web/API/WebVR_API)
+- [Gamepad API](/de/docs/Web/API/Gamepad_API)
+- [WebVR API](/de/docs/Web/API/WebVR_API)

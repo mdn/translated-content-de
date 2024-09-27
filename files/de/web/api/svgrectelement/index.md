@@ -7,36 +7,36 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die `SVGRectElement`-Schnittstelle bietet Zugriff auf die Eigenschaften von {{SVGElement("rect")}}-Elementen sowie Methoden, um diese zu manipulieren.
+Das `SVGRectElement` Interface bietet Zugriff auf die Eigenschaften von {{SVGElement("rect")}}-Elementen sowie Methoden zu deren Manipulation.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, {{domxref("SVGGeometryElement")}}._
+_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten Interface [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
 
-- {{domxref("SVGRectElement.x")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("SVGAnimatedLength")}} zurück, das dem {{SVGAttr("x")}}-Attribut des angegebenen {{SVGElement("rect")}}-Elements entspricht.
-- {{domxref("SVGRectElement.y")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("SVGAnimatedLength")}} zurück, das dem {{SVGAttr("y")}}-Attribut des angegebenen {{SVGElement("rect")}}-Elements entspricht.
-- {{domxref("SVGRectElement.width")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("SVGAnimatedLength")}} zurück, das dem {{SVGAttr("width")}}-Attribut des angegebenen {{SVGElement("rect")}}-Elements entspricht.
-- {{domxref("SVGRectElement.height")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("SVGAnimatedLength")}} zurück, das dem {{SVGAttr("height")}}-Attribut des angegebenen {{SVGElement("rect")}}-Elements entspricht.
-- {{domxref("SVGRectElement.rx")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("SVGAnimatedLength")}} zurück, das dem {{SVGAttr("rx")}}-Attribut des angegebenen {{SVGElement("rect")}}-Elements entspricht.
-- {{domxref("SVGRectElement.ry")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("SVGAnimatedLength")}} zurück, das dem {{SVGAttr("ry")}}-Attribut des angegebenen {{SVGElement("rect")}}-Elements entspricht.
+- [`SVGRectElement.x`](/de/docs/Web/API/SVGRectElement/x) {{ReadOnlyInline}}
+  - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem {{SVGAttr("x")}} Attribut des gegebenen {{SVGElement("rect")}} Elements entspricht.
+- [`SVGRectElement.y`](/de/docs/Web/API/SVGRectElement/y) {{ReadOnlyInline}}
+  - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem {{SVGAttr("y")}} Attribut des gegebenen {{SVGElement("rect")}} Elements entspricht.
+- [`SVGRectElement.width`](/de/docs/Web/API/SVGRectElement/width) {{ReadOnlyInline}}
+  - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem {{SVGAttr("width")}} Attribut des gegebenen {{SVGElement("rect")}} Elements entspricht.
+- [`SVGRectElement.height`](/de/docs/Web/API/SVGRectElement/height) {{ReadOnlyInline}}
+  - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem {{SVGAttr("height")}} Attribut des gegebenen {{SVGElement("rect")}} Elements entspricht.
+- [`SVGRectElement.rx`](/de/docs/Web/API/SVGRectElement/rx) {{ReadOnlyInline}}
+  - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem {{SVGAttr("rx")}} Attribut des gegebenen {{SVGElement("rect")}} Elements entspricht.
+- [`SVGRectElement.ry`](/de/docs/Web/API/SVGRectElement/ry) {{ReadOnlyInline}}
+  - : Gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das dem {{SVGAttr("ry")}} Attribut des gegebenen {{SVGElement("rect")}} Elements entspricht.
 
 ## Instanzmethoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, aber erbt Methoden von ihrem Elternteil, {{domxref("SVGGeometryElement")}}._
+_Dieses Interface implementiert keine spezifischen Methoden, erbt aber Methoden von seinem übergeordneten Interface [`SVGGeometryElement`](/de/docs/Web/API/SVGGeometryElement)._
 
 ## Beispiele
 
 ### Die Farbe eines SVG-Rechtecks ändern
 
-Dieses Beispiel setzt die Füllfarbe eines `SVGRectElement` auf einen zufälligen Wert, wenn der Benutzer darauf klickt.
+Dieses Beispiel setzt die Füllfarbe eines `SVGRectElement` auf einen zufälligen Wert, wann immer der Benutzer darauf klickt.
 
 #### HTML
 

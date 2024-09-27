@@ -1,5 +1,5 @@
 ---
-title: "Dokument: fullscreenElement Eigenschaft"
+title: "Document: fullscreenElement-Eigenschaft"
 short-title: fullscreenElement
 slug: Web/API/Document/fullscreenElement
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{ApiRef("Fullscreen API")}}
 
-Die schreibgeschützte Eigenschaft **`Document.fullscreenElement`** gibt das {{ domxref("Element") }} zurück, das aktuell in diesem Dokument im Vollbildmodus dargestellt wird, oder `null`, wenn der Vollbildmodus derzeit nicht verwendet wird.
+Die schreibgeschützte Eigenschaft **`Document.fullscreenElement`** gibt das [`Element`](/de/docs/Web/API/Element) zurück, das aktuell im Vollbildmodus in diesem Dokument angezeigt wird, oder `null`, wenn der Vollbildmodus derzeit nicht verwendet wird.
 
-Obwohl diese Eigenschaft schreibgeschützt ist, wird kein Fehler ausgegeben, wenn sie modifiziert wird (auch nicht im strikten Modus); der Setter ist eine No-Operation und wird ignoriert.
+Obwohl diese Eigenschaft schreibgeschützt ist, wird sie nicht ausgelöst, wenn sie verändert wird (auch nicht im strikten Modus); der Setter hat keine Funktion und wird ignoriert.
 
 ## Wert
 
-Das {{domxref("Element")}}-Objekt, das aktuell im Vollbildmodus ist; wenn der Vollbildmodus vom `document` derzeit nicht genutzt wird, ist der zurückgegebene Wert `null`.
+Das [`Element`](/de/docs/Web/API/Element)-Objekt, das sich aktuell im Vollbildmodus befindet; wenn der Vollbildmodus derzeit nicht vom `document` verwendet wird, ist der zurückgegebene Wert `null`.
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Funktion, `isVideoInFullscreen()`, die den von `fullscreenElement` zurückgegebenen Wert überprüft; wenn das Dokument im Vollbildmodus ist (`fullscreenElement` ist nicht `null`) und der {{domxref("Node.nodeName", "nodeName")}} des Fullscreen-Elements `VIDEO` ist, was auf ein {{HTMLElement("video")}}-Element hinweist, gibt die Funktion `true` zurück, was anzeigt, dass das Video im Vollbildmodus ist.
+Dieses Beispiel zeigt eine Funktion, `isVideoInFullscreen()`, die den von `fullscreenElement` zurückgegebenen Wert überprüft; wenn sich das Dokument im Vollbildmodus befindet (`fullscreenElement` ist nicht `null`) und der `nodeName` des Vollbildelements [`nodeName`](/de/docs/Web/API/Node/nodeName) `VIDEO` ist, was auf ein {{HTMLElement("video")}}-Element hinweist, gibt die Funktion `true` zurück und zeigt an, dass das Video im Vollbildmodus ist.
 
 ```js
 function isVideoInFullscreen() {
@@ -41,7 +41,7 @@ function isVideoInFullscreen() {
 
 - [Fullscreen API](/de/docs/Web/API/Fullscreen_API)
 - [Leitfaden zur Fullscreen API](/de/docs/Web/API/Fullscreen_API/Guide)
-- {{ domxref("Element.requestFullscreen()") }}
-- {{ domxref("Document.exitFullscreen()") }}
+- [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen)
+- [`Document.exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen)
 - {{ cssxref(":fullscreen") }} und {{cssxref("::backdrop")}}
-- Das {{HTMLElement("iframe")}} [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen) Attribut
+- Das {{HTMLElement("iframe")}}-Attribut [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen)

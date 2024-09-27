@@ -7,26 +7,26 @@ l10n:
 
 {{APIRef("Web Animations")}}
 
-Die **`CSSAnimation`**-Schnittstelle der {{domxref('Web Animations API','','',' ')}} repräsentiert ein {{domxref("Animation")}}-Objekt.
+Die **`CSSAnimation`**-Schnittstelle der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert ein [`Animation`](/de/docs/Web/API/Animation)-Objekt.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem Elternteil, {{domxref("Animation")}}._
+_Diese Schnittstelle erbt Eigenschaften von ihrem Elternteil, [`Animation`](/de/docs/Web/API/Animation)._
 
-- {{domxref("CSSAnimation.animationName")}} {{ReadOnlyInline}}
-  - : Gibt den Animationsnamen als String zurück.
+- [`CSSAnimation.animationName`](/de/docs/Web/API/CSSAnimation/animationName) {{ReadOnlyInline}}
+  - : Gibt den Animationsnamen als Zeichenkette zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle erbt Methoden von ihrem Elternteil, {{domxref("Animation")}}._
+_Diese Schnittstelle erbt Methoden von ihrem Elternteil, [`Animation`](/de/docs/Web/API/Animation)._
 
 ## Beispiele
 
-### Untersuchen der zurückgegebenen CSSAnimation
+### Inspektion der zurückgegebenen CSSAnimation
 
-Die Animation im folgenden Beispiel ist in CSS mit dem Namen `slide-in` definiert. Der Aufruf von {{domxref("Element.getAnimations()")}} gibt ein Array aller {{domxref("Animation")}}-Objekte zurück. In unserem Fall wird ein `CSSAnimation`-Objekt zurückgegeben, das die in CSS erstellte Animation darstellt.
+Die Animation im folgenden Beispiel ist in CSS mit dem Namen `slide-in` definiert. Der Aufruf von [`Element.getAnimations()`](/de/docs/Web/API/Element/getAnimations) gibt ein Array von allen [`Animation`](/de/docs/Web/API/Animation)-Objekten zurück. In unserem Fall ergibt dies ein `CSSAnimation`-Objekt, das die in CSS erstellte Animation repräsentiert.
 
 ```css
 .animate {

@@ -1,5 +1,5 @@
 ---
-title: UI-Ereignisse
+title: UI Events
 slug: Web/API/UI_Events
 l10n:
   sourceCommit: 8c60ba86d4c10250eb80265a3be59add51540a82
@@ -7,98 +7,98 @@ l10n:
 
 {{DefaultAPISidebar("UI Events")}}
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-Die UI-Ereignisse-API definiert ein System zum Umgang mit Benutzerinteraktionen wie Maus- und Tastatureingaben. Dazu gehören:
+Die UI Events API definiert ein System zur Handhabung von Benutzerinteraktionen wie Maus- und Tastatureingaben. Dies umfasst:
 
-- Ereignisse, die bei bestimmten Benutzeraktionen wie Tastendrücken oder Mausklicks ausgelöst werden. Die meisten dieser Ereignisse werden auf der {{domxref("Element")}}-Schnittstelle ausgelöst, aber die Ereignisse in Bezug auf das Laden und Entladen von Ressourcen werden auf der {{domxref("Window")}}-Schnittstelle ausgelöst.
-- Ereignisschnittstellen, die an die Handler dieser Ereignisse übergeben werden. Diese Schnittstellen erben von {{domxref("Event")}} und liefern zusätzliche Informationen, die speziell für die Art der Benutzerinteraktion sind: Zum Beispiel wird das {{domxref("KeyboardEvent")}} an einen {{domxref("Element.keydown_event", "keydown")}}-Ereignishandler übergeben und liefert Informationen über die gedrückte Taste.
+- Ereignisse, die bei spezifischen Benutzeraktionen wie Tastendrucken oder Mausklicks ausgelöst werden. Die meisten dieser Ereignisse werden auf der [`Element`](/de/docs/Web/API/Element)-Schnittstelle ausgelöst, aber die Ereignisse im Zusammenhang mit dem Laden und Entladen von Ressourcen treten auf der [`Window`](/de/docs/Web/API/Window)-Schnittstelle auf.
+- Ereignis-Schnittstellen, die an Handler für diese Ereignisse übergeben werden. Diese Schnittstellen erben von [`Event`](/de/docs/Web/API/Event) und bieten zusätzliche Informationen, die spezifisch für die Art der Benutzerinteraktion sind: Zum Beispiel wird das [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent) an einen [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignishandler übergeben und liefert Informationen über die gedrückte Taste.
 
 ## Schnittstellen
 
-- {{domxref("CompositionEvent")}}
+- [`CompositionEvent`](/de/docs/Web/API/CompositionEvent)
   - : Wird an Handler für Kompositionsereignisse übergeben. Kompositionsereignisse ermöglichen es einem Benutzer, Zeichen einzugeben, die möglicherweise nicht auf der physischen Tastatur verfügbar sind.
-- {{domxref("FocusEvent")}}
-  - : Wird an Handler für Fokuserignisse übergeben, die mit dem Fokuserhalt oder -verlust von Elementen verbunden sind.
-- {{domxref("InputEvent")}}
-  - : Wird an Handler für Eingabeereignisse übergeben, die mit der Benutzereingabe verbunden sind; beispielsweise die Verwendung eines {{HTMLElement("input")}}-Elements.
-- {{domxref("KeyboardEvent")}}
+- [`FocusEvent`](/de/docs/Web/API/FocusEvent)
+  - : Wird an Handler für Fokussierungsereignisse übergeben, die mit dem Erhalten oder Verlieren des Fokus von Elementen verbunden sind.
+- [`InputEvent`](/de/docs/Web/API/InputEvent)
+  - : Wird an Handler für Eingabeereignisse übergeben, die mit der Eingabe durch den Benutzer verbunden sind; zum Beispiel mit einem {{HTMLElement("input")}}-Element.
+- [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)
   - : Wird an Handler für Tastendruckereignisse übergeben.
-- {{domxref("MouseEvent")}}
-  - : Wird an Ereignishandler für Mausereignisse übergeben, einschließlich Mausbewegungen, über- und herausfahren, sowie Maustasten hoch oder runter. Beachten Sie, dass bei {{domxref("Element.auxclick_event", "auxclick")}}, {{domxref("Element.click_event", "click")}} und {{domxref("Element.dblclick_event", "dblclick")}}-Ereignissen {{domxref("PointerEvent")}}-Objekte übergeben werden.
-- {{domxref("MouseScrollEvent")}} {{deprecated_inline}}
-  - : Veraltete, nur Firefox-kompatible, nicht standardisierte Schnittstelle für Bildlaufereignisse. Verwenden Sie stattdessen {{domxref("WheelEvent")}}.
-- {{domxref("MutationEvent")}} {{deprecated_inline}}
-  - : Wird an Mutationserignishandler übergeben, die entwickelt wurden, um Benachrichtigungen über Änderungen am DOM zu ermöglichen. Jetzt veraltet: Verwenden Sie stattdessen {{domxref("MutationObserver")}}.
-- {{domxref("UIEvent")}}
-  - : Eine Basis, von der andere UI-Ereignisse erben, und auch die Ereignisschnittstelle, die in einige Ereignisse wie {{domxref("Window.load_event", "load")}} und {{domxref("Window.unload_event", "unload")}} übergeben wird.
-- {{domxref("WheelEvent")}}
-  - : Wird an den Handler für das {{domxref("Element.wheel_event", "wheel")}}-Ereignis übergeben, das ausgelöst wird, wenn der Benutzer ein Mausrad oder eine ähnliche Benutzeroberflächenkomponente wie ein Touchpad dreht.
+- [`MouseEvent`](/de/docs/Web/API/MouseEvent)
+  - : Wird an Ereignishandler für Mausereignisse übergeben, einschließlich Mausbewegungen, Überfahren und Verlassen sowie Mausknopf gedrückt oder losgelassen. Beachten Sie, dass [`auxclick`](/de/docs/Web/API/Element/auxclick_event), [`click`](/de/docs/Web/API/Element/click_event) und [`dblclick`](/de/docs/Web/API/Element/dblclick_event)-Ereignisse [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Objekte übergeben.
+- [`MouseScrollEvent`](/de/docs/Web/API/MouseScrollEvent) {{deprecated_inline}}
+  - : Veraltete, nur in Firefox unterstützte, nicht standardisierte Schnittstelle für Bildlaufergebnisse. Verwenden Sie stattdessen [`WheelEvent`](/de/docs/Web/API/WheelEvent).
+- [`MutationEvent`](/de/docs/Web/API/MutationEvent) {{deprecated_inline}}
+  - : Wird an Mutationsereignis-Handler übergeben, die für Änderungen am DOM Benachrichtigungen ermöglichen sollten. Jetzt veraltet: Verwenden Sie statt dessen [`MutationObserver`](/de/docs/Web/API/MutationObserver).
+- [`UIEvent`](/de/docs/Web/API/UIEvent)
+  - : Eine Basis, von der andere UI-Ereignisse erben, und auch die Ereignisschnittstelle, die an einige Ereignisse übergeben wird, wie z.B. [`load`](/de/docs/Web/API/Window/load_event) und [`unload`](/de/docs/Web/API/Window/unload_event).
+- [`WheelEvent`](/de/docs/Web/API/WheelEvent)
+  - : Wird an den Handler für das [`wheel`](/de/docs/Web/API/Element/wheel_event)-Ereignis übergeben, das ausgelöst wird, wenn der Benutzer ein Mausrad oder eine ähnliche Benutzeroberflächenkomponente wie ein Touchpad dreht.
 
 ## Ereignisse
 
-- {{domxref("Window.abort_event", "abort")}}
+- [`abort`](/de/docs/Web/API/Window/abort_event)
   - : Wird ausgelöst, wenn das Laden einer Ressource abgebrochen wurde (zum Beispiel, weil der Benutzer es abgebrochen hat).
-- {{domxref("Element.auxclick_event", "auxclick")}}
-  - : Wird ausgelöst, wenn der Benutzer die nicht-primäre Zeigertaste klickt.
-- {{domxref("Element.beforeinput_event", "beforeinput")}}
-  - : Wird direkt bevor das DOM mit einigen Benutzereingaben aktualisiert werden soll, ausgelöst.
-- {{domxref("Element.blur_event", "blur")}}
+- [`auxclick`](/de/docs/Web/API/Element/auxclick_event)
+  - : Wird ausgelöst, wenn der Benutzer die nicht primäre Zeigertaste klickt.
+- [`beforeinput`](/de/docs/Web/API/Element/beforeinput_event)
+  - : Wird ausgelöst, kurz bevor das DOM mit einer Benutzereingabe aktualisiert wird.
+- [`blur`](/de/docs/Web/API/Element/blur_event)
   - : Wird ausgelöst, wenn ein Element den Fokus verloren hat.
-- {{domxref("Element.click_event", "click")}}
+- [`click`](/de/docs/Web/API/Element/click_event)
   - : Wird ausgelöst, wenn der Benutzer die primäre Zeigertaste klickt.
-- {{domxref("Element.compositionend_event", "compositionend")}}
-  - : Wird ausgelöst, wenn ein Textkompositionssystem (wie ein Spracherkennungsverfahren) seine Sitzung beendet hat; zum Beispiel, weil der Benutzer es geschlossen hat.
-- {{domxref("Element.compositionstart_event", "compositionstart")}}
+- [`compositionend`](/de/docs/Web/API/Element/compositionend_event)
+  - : Wird ausgelöst, wenn ein Textkompositionssystem (wie beispielsweise ein Sprach-zu-Text-Prozessor) seine Sitzung beendet hat; zum Beispiel, weil der Benutzer es geschlossen hat.
+- [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event)
   - : Wird ausgelöst, wenn der Benutzer eine neue Sitzung mit einem Textkompositionssystem begonnen hat.
-- {{domxref("Element.compositionupdate_event", "compositionupdate")}}
-  - : Wird ausgelöst, wenn ein Textkompositionssystem seinen Text mit einem neuen Zeichen aktualisiert, was sich in einem Update der `data`-Eigenschaft des {{domxref("CompositionEvent")}} widerspiegelt.
-- {{domxref("Element.contextmenu_event", "contextmenu")}}
-  - : Wird direkt bevor ein Kontextmenü aufgerufen wird, ausgelöst.
-- {{domxref("Element.dblclick_event", "dblclick")}}
+- [`compositionupdate`](/de/docs/Web/API/Element/compositionupdate_event)
+  - : Wird ausgelöst, wenn ein Textkompositionssystem seinen Text mit einem neuen Zeichen aktualisiert, was in einem Update der `data`-Eigenschaft des [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) widergespiegelt wird.
+- [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event)
+  - : Wird ausgelöst, kurz bevor ein Kontextmenü aufgerufen wird.
+- [`dblclick`](/de/docs/Web/API/Element/dblclick_event)
   - : Wird ausgelöst, wenn der Benutzer die primäre Zeigertaste doppelklickt.
-- {{domxref("HTMLElement/error_event", "error")}}
-  - : Wird ausgelöst, wenn eine Ressource nicht geladen werden kann oder nicht verarbeitet werden kann (zum Beispiel, wenn ein Bild ungültig ist oder ein Skript einen Fehler enthält).
-- {{domxref("Element.focus_event", "focus")}}
+- [`error`](/de/docs/Web/API/HTMLElement/error_event)
+  - : Wird ausgelöst, wenn eine Ressource nicht geladen werden kann oder nicht verarbeitet werden kann (zum Beispiel, wenn ein Bild ungültig ist oder ein Skript einen Fehler hat).
+- [`focus`](/de/docs/Web/API/Element/focus_event)
   - : Wird ausgelöst, wenn ein Element den Fokus erhalten hat.
-- {{domxref("Element.focusin_event", "focusin")}}
+- [`focusin`](/de/docs/Web/API/Element/focusin_event)
   - : Wird ausgelöst, wenn ein Element gerade dabei ist, den Fokus zu erhalten.
-- {{domxref("Element.focusout_event", "focusout")}}
+- [`focusout`](/de/docs/Web/API/Element/focusout_event)
   - : Wird ausgelöst, wenn ein Element gerade dabei ist, den Fokus zu verlieren.
-- {{domxref("Element.input_event", "input")}}
-  - : Wird kurz nachdem das DOM mit einigen Benutzereingaben aktualisiert wurde (zum Beispiel einige Texteingaben) ausgelöst.
-- {{domxref("Element.keydown_event", "keydown")}}
+- [`input`](/de/docs/Web/API/Element/input_event)
+  - : Wird ausgelöst, kurz nachdem das DOM mit einer Benutzereingabe aktualisiert wurde (zum Beispiel, einige Texteingaben).
+- [`keydown`](/de/docs/Web/API/Element/keydown_event)
   - : Wird ausgelöst, wenn der Benutzer eine Taste gedrückt hat.
-- {{domxref("Element.keypress_event", "keypress")}} {{deprecated_inline}}
-  - : Wird ausgelöst, wenn der Benutzer eine Taste gedrückt hat, nur wenn die Taste einen Zeichenwert erzeugt. Verwenden Sie stattdessen {{domxref("Element.keydown_event", "keydown")}}.
-- {{domxref("Element.keyup_event", "keyup")}}
+- [`keypress`](/de/docs/Web/API/Element/keypress_event) {{deprecated_inline}}
+  - : Wird ausgelöst, wenn der Benutzer eine Taste gedrückt hat, nur wenn die Taste einen Zeichenwert erzeugt. Verwenden Sie [`keydown`](/de/docs/Web/API/Element/keydown_event) stattdessen.
+- [`keyup`](/de/docs/Web/API/Element/keyup_event)
   - : Wird ausgelöst, wenn der Benutzer eine Taste losgelassen hat.
-- {{domxref("Window.load_event", "load")}}
-  - : Wird ausgelöst, wenn die gesamte Seite geladen wurde, einschließlich aller abhängigen Ressourcen wie Stylesheets und Bilder.
-- {{domxref("Element.mousedown_event", "mousedown")}}
-  - : Wird ausgelöst, wenn der Benutzer eine Taste auf einer Maus oder einem anderen Zeigegerät drückt, während sich der Zeiger über dem Element befindet.
-- {{domxref("Element.mouseenter_event", "mouseenter")}}
-  - : Wird ausgelöst, wenn eine Maus oder ein anderes Zeigegerät in den Bereich des Elements oder eines seiner Nachkommen bewegt wird.
-- {{domxref("Element.mouseleave_event", "mouseleave")}}
-  - : Wird ausgelöst, wenn eine Maus oder ein anderes Zeigegerät außerhalb der Grenzen des Elements und aller seiner Nachkommen bewegt wird.
-- {{domxref("Element.mousemove_event", "mousemove")}}
+- [`load`](/de/docs/Web/API/Window/load_event)
+  - : Wird ausgelöst, wenn die gesamte Seite geladen ist, einschließlich aller abhängigen Ressourcen wie Stylesheets und Bilder.
+- [`mousedown`](/de/docs/Web/API/Element/mousedown_event)
+  - : Wird ausgelöst, wenn der Benutzer eine Taste auf einer Maus oder einem anderen Zeigegerät drückt, während der Zeiger über dem Element ist.
+- [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)
+  - : Wird ausgelöst, wenn eine Maus oder ein anderes Zeigegerät innerhalb der Grenze des Elements oder eines seiner Nachkommen bewegt wird.
+- [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event)
+  - : Wird ausgelöst, wenn eine Maus oder ein anderes Zeigegerät außerhalb der Grenze des Elements und aller seiner Nachkommen bewegt wird.
+- [`mousemove`](/de/docs/Web/API/Element/mousemove_event)
   - : Wird ausgelöst, wenn eine Maus oder ein anderes Zeigegerät über ein Element bewegt wird.
-- {{domxref("Element.mouseout_event", "mouseout")}}
-  - : Wird ausgelöst, wenn eine Maus oder ein anderes Zeigegerät außerhalb der Grenzen des Elements bewegt wird.
-- {{domxref("Element.mouseover_event", "mouseover")}}
+- [`mouseout`](/de/docs/Web/API/Element/mouseout_event)
+  - : Wird ausgelöst, wenn eine Maus oder ein anderes Zeigegerät außerhalb der Grenze des Elements bewegt wird.
+- [`mouseover`](/de/docs/Web/API/Element/mouseover_event)
   - : Wird ausgelöst, wenn eine Maus oder ein anderes Zeigegerät über ein Element bewegt wird.
-- {{domxref("Element.mouseup_event", "mouseup")}}
-  - : Wird ausgelöst, wenn der Benutzer eine Taste auf einer Maus oder einem anderen Zeigegerät loslässt, während sich der Zeiger über dem Element befindet.
-- {{domxref("Window.unload_event", "unload")}}
-  - : Wird ausgelöst, wenn das Dokument oder eine untergeordnete Ressource entladen wird.
-- {{domxref("Element.wheel_event", "wheel")}}
+- [`mouseup`](/de/docs/Web/API/Element/mouseup_event)
+  - : Wird ausgelöst, wenn der Benutzer eine Taste auf einer Maus oder einem anderen Zeigegerät losgelassen hat, während der Zeiger über dem Element ist.
+- [`unload`](/de/docs/Web/API/Window/unload_event)
+  - : Wird ausgelöst, wenn das Dokument oder eine untergeordnete Ressource entladen werden.
+- [`wheel`](/de/docs/Web/API/Element/wheel_event)
   - : Wird ausgelöst, wenn der Benutzer ein Mausrad oder eine ähnliche Benutzeroberflächenkomponente wie ein Touchpad dreht.
 
 ## Beispiele
 
 ### Mausereignisse
 
-Dieses Beispiel protokolliert Mausereignisse zusammen mit den X- und Y-Koordinaten, an denen das Ereignis erzeugt wurde. Versuchen Sie, die Maus in die gelben und roten Quadrate zu bewegen und zu klicken oder zu doppelklicken.
+Dieses Beispiel protokolliert Mausereignisse zusammen mit den X- und Y-Koordinaten, an denen das Ereignis erzeugt wurde. Versuchen Sie, die Maus in die gelben und roten Quadrate zu bewegen, und klicken oder doppelklicken Sie.
 
 #### HTML
 
@@ -197,7 +197,7 @@ clear.addEventListener("click", () => {
 
 ### Tastatur- und Eingabeereignisse
 
-Dieses Beispiel protokolliert {{domxref("Element.keydown_event", "keydown")}}, {{domxref("Element.beforeinput_event", "beforeinput")}} und {{domxref("Element.input_event", "input")}}-Ereignisse. Versuchen Sie, in das Textfeld zu tippen. Beachten Sie, dass Tasten wie <kbd>Shift</kbd> `keydown`-Ereignisse erzeugen, aber keine `input`-Ereignisse.
+Dieses Beispiel protokolliert [`keydown`](/de/docs/Web/API/Element/keydown_event), [`beforeinput`](/de/docs/Web/API/Element/beforeinput_event) und [`input`](/de/docs/Web/API/Element/input_event)-Ereignisse. Versuchen Sie, in das Textfeld zu tippen. Beachten Sie, dass Tasten wie <kbd>Shift</kbd> `keydown`-Ereignisse erzeugen, aber keine `input`-Ereignisse.
 
 #### HTML
 

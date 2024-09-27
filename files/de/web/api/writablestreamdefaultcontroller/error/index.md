@@ -1,5 +1,5 @@
 ---
-title: "WritableStreamDefaultController: error()-Methode"
+title: "WritableStreamDefaultController: error() Methode"
 short-title: error()
 slug: Web/API/WritableStreamDefaultController/error
 l10n:
@@ -8,9 +8,12 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`error()`**-Methode der {{domxref("WritableStreamDefaultController")}}-Schnittstelle bewirkt, dass zukünftige Interaktionen mit dem zugehörigen Stream fehlschlagen.
+Die **`error()`** Methode des
+[`WritableStreamDefaultController`](/de/docs/Web/API/WritableStreamDefaultController)-Interfaces bewirkt, dass alle zukünftigen Interaktionen
+mit dem zugehörigen Stream fehlerhaft werden.
 
-Diese Methode wird selten verwendet, da es normalerweise ausreicht, ein abgelehntes Versprechen von einer der Methoden des zugrunde liegenden Senkens zu zurückzugeben. Sie kann jedoch nützlich sein, um einen Stream plötzlich als Reaktion auf ein Ereignis außerhalb des normalen Lebenszyklus von Interaktionen mit dem zugrunde liegenden Senken zu schließen.
+Diese Methode wird selten verwendet, da es in der Regel ausreicht, ein abgelehntes Promise von
+einer der Methoden des zugrunde liegenden Sinks zurückzugeben. Sie kann jedoch nützlich sein, um einen Stream plötzlich zu beenden, wenn ein Ereignis eintritt, das außerhalb des normalen Lebenszyklus der Interaktionen mit dem zugrunde liegenden Sink liegt.
 
 ## Syntax
 
@@ -21,7 +24,8 @@ error(message)
 ### Parameter
 
 - `message`
-  - : Ein String, der den Fehler darstellt, mit dem zukünftige Interaktionen scheitern sollen.
+  - : Ein String, der den Fehler darstellt, mit dem zukünftige Interaktionen
+    fehlschlagen sollen.
 
 ### Rückgabewert
 
@@ -30,7 +34,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der Stream, den Sie zu fehlerhaft machen versuchen, ist kein {{domxref("WritableStream")}}.
+  - : Der Stream, den Sie zu fehlerhaft machen versuchen, ist kein [`WritableStream`](/de/docs/Web/API/WritableStream).
 
 ## Beispiele
 

@@ -7,26 +7,26 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGFilterElement`**-Schnittstelle bietet Zugriff auf die Eigenschaften von {{SVGElement("filter")}}-Elementen sowie Methoden zu deren Bearbeitung.
+Das **`SVGFilterElement`** Interface bietet Zugriff auf die Eigenschaften von {{SVGElement("filter")}}-Elementen sowie Methoden zu deren Manipulation.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- {{domxref("SVGFilterElement.href")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, der dem {{SVGAttr("href")}} oder dem {{SVGAttr("xlink:href")}} {{deprecated_inline}} Attribut des gegebenen {{SVGElement("filter")}} Elements entspricht.
-- {{domxref("SVGFilterElement.filterUnits")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedEnumeration")}}, der dem {{SVGAttr("filterUnits")}} Attribut des gegebenen {{SVGElement("filter")}} Elements entspricht. Nimmt einen der in {{domxref("SVGUnitTypes")}} definierten Konstanten an.
-- {{domxref("SVGFilterElement.primitiveUnits")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedEnumeration")}}, der dem {{SVGAttr("primitiveUnits")}} Attribut des gegebenen {{SVGElement("filter")}} Elements entspricht. Nimmt einen der in {{domxref("SVGUnitTypes")}} definierten Konstanten an.
-- {{domxref("SVGFilterElement.x")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("x")}} Attribut des gegebenen {{SVGElement("filter")}} Elements entspricht.
-- {{domxref("SVGFilterElement.y")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("y")}} Attribut des gegebenen {{SVGElement("filter")}} Elements entspricht.
-- {{domxref("SVGFilterElement.width")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("width")}} Attribut des gegebenen {{SVGElement("filter")}} Elements entspricht.
-- {{domxref("SVGFilterElement.height")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("height")}} Attribut des gegebenen {{SVGElement("filter")}} Elements entspricht.
+- [`SVGFilterElement.href`](/de/docs/Web/API/SVGFilterElement/href) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}} Attribut des angegebenen {{SVGElement("filter")}}-Elements entspricht.
+- [`SVGFilterElement.filterUnits`](/de/docs/Web/API/SVGFilterElement/filterUnits) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("filterUnits")}} Attribut des angegebenen {{SVGElement("filter")}}-Elements entspricht. Nimmt eine der in [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes) definierten Konstanten an.
+- [`SVGFilterElement.primitiveUnits`](/de/docs/Web/API/SVGFilterElement/primitiveUnits) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("primitiveUnits")}} Attribut des angegebenen {{SVGElement("filter")}}-Elements entspricht. Nimmt eine der in [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes) definierten Konstanten an.
+- [`SVGFilterElement.x`](/de/docs/Web/API/SVGFilterElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}} Attribut des angegebenen {{SVGElement("filter")}}-Elements entspricht.
+- [`SVGFilterElement.y`](/de/docs/Web/API/SVGFilterElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y")}} Attribut des angegebenen {{SVGElement("filter")}}-Elements entspricht.
+- [`SVGFilterElement.width`](/de/docs/Web/API/SVGFilterElement/width) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("width")}} Attribut des angegebenen {{SVGElement("filter")}}-Elements entspricht.
+- [`SVGFilterElement.height`](/de/docs/Web/API/SVGFilterElement/height) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}} Attribut des angegebenen {{SVGElement("filter")}}-Elements entspricht.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: 413 Inhalt zu groß
+title: 413 Content Too Large
 slug: Web/HTTP/Status/413
 l10n:
   sourceCommit: ba53fe04589c36a2210d7549c003f3016093ef8e
@@ -21,7 +21,7 @@ Vor {{rfc("9110")}} war der Antwortsatz für den Status **`Payload Too Large`**.
 
 ### Datei-Upload-Limit überschritten
 
-Das folgende Beispiel zeigt, was der Client senden könnte, wenn ein [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)-Element ein Bild bei der Formularübermittlung mit `method="post"` enthält:
+Das folgende Beispiel zeigt, was der Client senden könnte, wenn ein [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)-Element ein Bild bei der Formularübermittlung mit `method="post"` einschließt:
 
 ```http
 POST /upload HTTP/1.1
@@ -37,7 +37,7 @@ Content-Type: image/jpeg
 ------Boundary1234--
 ```
 
-Der Server könnte den Upload ablehnen, wenn es eine Einschränkung auf die maximale Größe der Dateien gibt, die er verarbeitet, und der Antwortkörper enthält eine `message` mit etwas Kontext:
+Der Server kann den Upload ablehnen, wenn es eine Einschränkung bezüglich der maximalen Dateigröße gibt, die er verarbeiten wird, und der Antwortkörper enthält eine `message` mit etwas Kontext:
 
 ```http
 HTTP/1.1 413 Content Too Large

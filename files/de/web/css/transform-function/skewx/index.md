@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die **`skewX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element in der horizontalen Richtung auf der 2D-Ebene verzerrt. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`skewX()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element in der horizontalen Richtung auf der 2D-Ebene verschiebt. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-skewX.html")}}
 
-Diese Transformation ist eine Scherabbildung ([Transvektion](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt innerhalb eines Elements um einen bestimmten Winkel in der horizontalen Richtung verzerrt. Die Abszisse (horizontal, x-Koordinate) jedes Punktes wird um einen Wert modifiziert, der proportional zum angegebenen Winkel und zur Entfernung vom Ursprung ist; daher wird der Wert, der dem Punkt hinzugefügt wird, umso größer sein, je weiter der Punkt vom Ursprung entfernt ist.
+Diese Transformation ist eine Scherabbildung ([Transvektion](<https://de.wikipedia.org/wiki/Scherung_(Technik)>)), die jeden Punkt innerhalb eines Elements um einen bestimmten Winkel in der horizontalen Richtung verformt. Die Abszisse (horizontal, x-Koordinate) jedes Punktes wird durch einen Wert verändert, der proportional zum angegebenen Winkel und der Entfernung zum Ursprung ist; je weiter ein Punkt vom Ursprung entfernt ist, desto größer ist der Wert, der hinzugefügt wird.
 
-> **Note:** `skewX(a)` ist gleichwertig mit
+> **Note:** `skewX(a)` ist äquivalent zu
 > `skew(a)`.
 
 ## Syntax
@@ -25,15 +25,15 @@ skewX(a)
 ### Werte
 
 - `a`
-  - : Ist ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, der verwendet wird, um das Element entlang der Abszisse (horizontal, x-Koordinate) zu verzerren.
+  - : Ist ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, der verwendet wird, um das Element entlang der Abszisse (horizontal, x-Koordinate) zu verformen.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
-      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://de.wikipedia.org/wiki/Koordinatenraum">ℝ^2</a></th>
+      <th scope="col"><a href="https://de.wikipedia.org/wiki/Homogene_Koordinaten">Homogene Koordinaten</a> auf <a href="https://de.wikipedia.org/wiki/Projektiver_Raum#Projektive_Planes">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten auf <a href="https://de.wikipedia.org/wiki/Koordinatenraum">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten auf <a href="https://de.wikipedia.org/wiki/Projektiver_Raum">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>
@@ -84,7 +84,7 @@ div {
 }
 
 .skewed {
-  transform: skewX(10deg); /* Gleichwertig mit skew(10deg) */
+  transform: skewX(10deg); /* Equal to skew(10deg) */
   background-color: pink;
 }
 ```
@@ -105,8 +105,8 @@ div {
 
 - {{cssxref("transform")}}
 - {{cssxref("&lt;transform-function&gt;")}}
-- Einzelne Transformations-Eigenschaften:
+- Individuelle Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}
-  - Hinweis: Es gibt keine `skew` Eigenschaft
+  - Hinweis: es gibt keine `skew` Eigenschaft

@@ -1,5 +1,5 @@
 ---
-title: "CacheStorage: open()-Methode"
+title: "CacheStorage: open() Methode"
 short-title: open()
 slug: Web/API/CacheStorage/open
 l10n:
@@ -8,12 +8,13 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`open()`**-Methode der {{domxref("CacheStorage")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das sich auf das {{domxref("Cache")}}-Objekt auflöst, das dem `cacheName` entspricht.
+Die **`open()`**-Methode des
+[`CacheStorage`](/de/docs/Web/API/CacheStorage)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das auf das [`Cache`](/de/docs/Web/API/Cache)-Objekt aufgelöst wird, das dem `cacheName` entspricht.
 
-Sie können auf `CacheStorage` über die {{domxref("Window.caches")}}-Eigenschaft in Fenstern oder über die {{domxref("WorkerGlobalScope.caches")}}-Eigenschaft in Workern zugreifen.
+Sie können auf `CacheStorage` über die [`Window.caches`](/de/docs/Web/API/Window/caches)-Eigenschaft in Fenstern oder über die [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches)-Eigenschaft in Workern zugreifen.
 
 > [!NOTE]
-> Wenn der angegebene {{domxref("Cache")}} nicht existiert, wird ein neuer Cache mit diesem `cacheName` erstellt und ein {{jsxref("Promise")}}, das sich auf dieses neue {{domxref("Cache")}}-Objekt auflöst, zurückgegeben.
+> Wenn der angegebene [`Cache`](/de/docs/Web/API/Cache) nicht existiert, wird ein neuer Cache mit diesem `cacheName` erstellt und ein {{jsxref("Promise")}}, das auf dieses neue [`Cache`](/de/docs/Web/API/Cache)-Objekt aufgelöst wird, zurückgegeben.
 
 ## Syntax
 
@@ -28,11 +29,12 @@ open(cacheName)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich auf das angeforderte {{domxref("Cache")}}-Objekt auflöst.
+Ein {{jsxref("Promise")}}, das auf das angeforderte [`Cache`](/de/docs/Web/API/Cache)-Objekt aufgelöst wird.
 
 ## Beispiele
 
-Dieses Beispiel stammt aus dem MDN [einfaches Service Worker-Beispiel](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker) (siehe [einfachen Service Worker live ausführen](https://bncb2v.csb.app/)). Hier warten wir auf ein {{domxref("InstallEvent")}}, das ausgelöst wird, und führen dann {{domxref("ExtendableEvent.waitUntil","waitUntil()")}} aus, um den Installationsprozess für die App zu bearbeiten. Dies besteht darin, `CacheStorage.open()` aufzurufen, um einen neuen Cache zu erstellen, und dann {{domxref("Cache.addAll()")}} zu verwenden, um eine Reihe von Dateien hinzuzufügen.
+Dieses Beispiel stammt aus dem MDN [einfaches Service Worker Beispiel](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker) (siehe [einfacher Service Worker in Aktion](https://bncb2v.csb.app/)).
+Hier warten wir darauf, dass ein [`InstallEvent`](/de/docs/Web/API/InstallEvent) ausgelöst wird, und verwenden dann [`waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil), um den Installationsvorgang für die App zu bearbeiten. Dies umfasst das Aufrufen von `CacheStorage.open()`, um einen neuen Cache zu erstellen, und anschließend die Verwendung von [`Cache.addAll()`](/de/docs/Web/API/Cache/addAll), um eine Reihe von Assets hinzuzufügen.
 
 ```js
 self.addEventListener("install", (event) => {
@@ -66,6 +68,6 @@ self.addEventListener("install", (event) => {
 
 ## Siehe auch
 
-- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- {{domxref("Cache")}}
-- {{domxref("Window.caches")}} und {{domxref("WorkerGlobalScope.caches")}}
+- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [`Cache`](/de/docs/Web/API/Cache)
+- [`Window.caches`](/de/docs/Web/API/Window/caches) und [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches)

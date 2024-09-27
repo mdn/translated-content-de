@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Das `enterpictureinpicture` Ereignis wird ausgelöst, wenn das {{DOMxRef("HTMLVideoElement")}} erfolgreich in den Bild-in-Bild-Modus wechselt.
+Das `enterpictureinpicture`-Ereignis wird ausgelöst, wenn das [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) erfolgreich in den Picture-in-Picture-Modus wechselt.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("enterpictureinpicture", (event) => {});
@@ -24,17 +24,17 @@ onenterpictureinpicture = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("PictureInPictureEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`PictureInPictureEvent`](/de/docs/Web/API/PictureInPictureEvent), das von [`Event`](/de/docs/Web/API/Event) erbt.
 
 {{InheritanceDiagram("PictureInPictureEvent")}}
 
 ## Ereigniseigenschaften
 
-Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten {{domxref("Event")}}.
+Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Diese Beispiele fügen einen Ereignislistener für das `enterpictureinpicture` Ereignis des HTMLVideoElements hinzu und senden eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
+Diese Beispiele fügen einen Ereignislistener für das `enterpictureinpicture`-Ereignis des HTMLVideoElements hinzu und senden dann eine Nachricht, wenn dieser Ereignishandler auf das Auslösen des Ereignisses reagiert hat.
 
 Verwendung von `addEventListener()`:
 
@@ -43,7 +43,7 @@ const video = document.querySelector("#video");
 const button = document.querySelector("#button");
 
 function onEnterPip() {
-  console.log("Picture-in-Picture mode aktiviert!");
+  console.log("Picture-in-Picture mode activated!");
 }
 
 video.addEventListener("enterpictureinpicture", onEnterPip, false);
@@ -53,14 +53,14 @@ button.onclick = () => {
 };
 ```
 
-Verwendung der `onenterpictureinpicture` Ereignishandlereigenschaft:
+Verwendung der `onenterpictureinpicture`-Ereignishandler-Eigenschaft:
 
 ```js
 const video = document.querySelector("#video");
 const button = document.querySelector("#button");
 
 function onEnterPip() {
-  console.log("Picture-in-Picture mode aktiviert!");
+  console.log("Picture-in-Picture mode activated!");
 }
 
 video.onenterpictureinpicture = onEnterPip;
@@ -80,5 +80,5 @@ button.onclick = () => {
 
 ## Siehe auch
 
-- {{domxref("HTMLVideoElement")}}
+- [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)
 - [Picture-in-Picture API](/de/docs/Web/API/Picture-in-Picture_API)

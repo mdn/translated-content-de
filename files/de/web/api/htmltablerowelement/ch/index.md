@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`ch`**-Eigenschaft des {{domxref("HTMLTableRowElement")}}-Interfaces hat keine Funktion. Sie spiegelt das `char`-Attribut des {{HTMLElement("tr")}}-Elements wider.
+Die **`ch`**-Eigenschaft des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Interfaces tut nichts. Sie spiegelt das `char`-Attribut des {{HTMLElement("tr")}}-Elements wider.
 
 > [!NOTE]
-> Diese Eigenschaft wurde entwickelt, um die Möglichkeit zu bieten, Tabellenzelleninhalte an einem bestimmten Zeichen (typischerweise dem Dezimalpunkt) auszurichten, wurde jedoch nie von Browsern implementiert.
+> Diese Eigenschaft wurde entwickelt, um die Möglichkeit zu bieten, Tabellenzelleninhalte an einem bestimmten Zeichen (typischerweise dem Dezimalpunkt) auszurichten, wurde jedoch von Browsern nie implementiert.
 >
-> Um eine solche Ausrichtung zu erreichen, achten Sie auf die Unterstützung eines Zeichenfolgenwertes mit der {{cssxref("text-align")}}-CSS-Eigenschaft.
+> Um eine solche Ausrichtung zu erreichen, achten Sie auf die Unterstützung eines Zeichenkettenwerts mit der {{cssxref("text-align")}}-CSS-Eigenschaft.
 
 ## Wert
 

@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Das **`loadstart`**-Ereignis des {{domxref("FileReader")}}-Interfaces wird ausgelöst, wenn eine Datei-Leseoperation begonnen hat.
+Das **`loadstart`**-Ereignis der [`FileReader`](/de/docs/Web/API/FileReader)-Schnittstelle wird ausgelöst, wenn ein Dateilesebetrieb begonnen hat.
 
-Dieses Ereignis kann nicht abgebrochen werden und propagiert nicht.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("loadstart", (event) => {});
@@ -24,20 +24,20 @@ onloadstart = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ProgressEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ProgressEvent")}}
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem übergeordneten {{domxref("Event")}}_.
+_Erbt auch Eigenschaften von seinem übergeordneten [`Event`](/de/docs/Web/API/Event)_.
 
-- {{domxref("ProgressEvent.lengthComputable")}} {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das anzeigt, ob die gesamte zu leistende Arbeit und die bereits geleistete Arbeit des zugrunde liegenden Prozesses berechenbar sind. Mit anderen Worten, es gibt an, ob der Fortschritt messbar ist oder nicht.
-- {{domxref("ProgressEvent.loaded")}} {{ReadOnlyInline}}
-  - : Ein 64-Bit-unsigned Integer-Wert, der die bereits vom zugrunde liegenden Prozess geleistete Arbeit angibt. Das Verhältnis der erledigten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Körper der HTTP-Nachricht und enthält nicht die Header und andere Overheads.
-- {{domxref("ProgressEvent.total")}} {{ReadOnlyInline}}
-  - : Ein 64-Bit-unsigned Integer, der die Gesamtmenge der Arbeit darstellt, die der zugrunde liegende Prozess gerade verrichtet. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Nachrichtentextes) und enthält nicht die Header und andere Overheads.
+- [`ProgressEvent.lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
+  - : Ein boolesches Flag, das angibt, ob die gesamte zu leistende Arbeit und die bereits geleistete Arbeit durch den zugrunde liegenden Prozess berechenbar ist. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
+- [`ProgressEvent.loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
+  - : Ein 64-Bit-Zahlenwert ohne Vorzeichen, der die Menge der bereits vom zugrunde liegenden Prozess geleisteten Arbeit angibt. Das Verhältnis der geleisteten Arbeit kann berechnet werden, indem man `total` durch den Wert dieser Eigenschaft teilt. Beim Herunterladen einer Ressource über HTTP wird hier nur der Hauptteil der HTTP-Nachricht gezählt, und Header sowie anderer Overhead werden nicht einbezogen.
+- [`ProgressEvent.total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
+  - : Ein 64-Bit-Zahlenwert ohne Vorzeichen, der die Gesamtmenge der Arbeit darstellt, die der zugrunde liegende Prozess ausführt. Beim Herunterladen einer Ressource über HTTP entspricht dies der `Content-Length` (der Größe des Nachrichtentextes) und umfasst nicht die Header und anderen Overhead.
 
 ## Beispiele
 
@@ -48,7 +48,7 @@ _Erbt auch Eigenschaften von seinem übergeordneten {{domxref("Event")}}_.
 ```html
 <div class="example">
   <div class="file-select">
-    <label for="avatar">Wählen Sie ein Profilbild:</label>
+    <label for="avatar">Choose a profile picture:</label>
     <input
       type="file"
       id="avatar"
@@ -56,10 +56,10 @@ _Erbt auch Eigenschaften von seinem übergeordneten {{domxref("Event")}}_.
       accept="image/png, image/jpeg" />
   </div>
 
-  <img src="" class="preview" height="200" alt="Bildvorschau" />
+  <img src="" class="preview" height="200" alt="Image preview" />
 
   <div class="event-log">
-    <label for="eventLog">Ereignisprotokoll:</label>
+    <label for="eventLog">Event log:</label>
     <textarea readonly class="event-log-contents" id="eventLog"></textarea>
   </div>
 </div>
@@ -154,4 +154,4 @@ fileInput.addEventListener("change", handleSelected);
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("FileReader.loadend_event", "loadend")}}, {{domxref("FileReader.load_event", "load")}}, {{domxref("FileReader.progress_event", "progress")}}, {{domxref("FileReader.error_event", "error")}}, {{domxref("FileReader.abort_event", "abort")}}
+- Verwandte Ereignisse: [`loadend`](/de/docs/Web/API/FileReader/loadend_event), [`load`](/de/docs/Web/API/FileReader/load_event), [`progress`](/de/docs/Web/API/FileReader/progress_event), [`error`](/de/docs/Web/API/FileReader/error_event), [`abort`](/de/docs/Web/API/FileReader/abort_event)

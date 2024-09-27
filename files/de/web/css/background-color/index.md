@@ -1,5 +1,5 @@
 ---
-title: Hintergrundfarbe
+title: background-color
 slug: Web/CSS/background-color
 l10n:
   sourceCommit: 3928d2b1004e2435e063ef4b037e06e1906d62f3
@@ -7,38 +7,38 @@ l10n:
 
 {{CSSRef}}
 
-Die **`background-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Hintergrundfarbe eines Elements fest.
+Die **`background-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Hintergrundfarbe eines Elements fest.
 
 {{EmbedInteractiveExample("pages/css/background-color.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 background-color: red;
 background-color: indigo;
 
-/* Hexadezimalwert */
-background-color: #bbff00; /* Vollständig undurchsichtig */
-background-color: #bf0; /* Vollständig undurchsichtige Kurzform */
-background-color: #11ffee00; /* Vollständig transparent */
-background-color: #1fe0; /* Vollständig transparente Kurzform */
-background-color: #11ffeeff; /* Vollständig undurchsichtig */
-background-color: #1fef; /* Vollständig undurchsichtige Kurzform */
+/* Hexadecimal value */
+background-color: #bbff00; /* Fully opaque */
+background-color: #bf0; /* Fully opaque shorthand */
+background-color: #11ffee00; /* Fully transparent */
+background-color: #1fe0; /* Fully transparent shorthand */
+background-color: #11ffeeff; /* Fully opaque */
+background-color: #1fef; /* Fully opaque shorthand */
 
-/* RGB-Wert */
-background-color: rgb(255 255 128); /* Vollständig undurchsichtig */
+/* RGB value */
+background-color: rgb(255 255 128); /* Fully opaque */
 background-color: rgb(117 190 218 / 50%); /* 50% transparent */
 
-/* HSL-Wert */
-background-color: hsl(50 33% 25%); /* Vollständig undurchsichtig */
-background-color: hsl(50 33% 25% / 75%); /* 75% undurchsichtig, d.h. 25% transparent */
+/* HSL value */
+background-color: hsl(50 33% 25%); /* Fully opaque */
+background-color: hsl(50 33% 25% / 75%); /* 75% opaque, i.e. 25% transparent */
 
-/* Spezielle Schlüsselwortwerte */
+/* Special keyword values */
 background-color: currentcolor;
 background-color: transparent;
 
-/* Globale Werte */
+/* Global values */
 background-color: inherit;
 background-color: initial;
 background-color: revert;
@@ -46,22 +46,22 @@ background-color: revert-layer;
 background-color: unset;
 ```
 
-Die `background-color`-Eigenschaft wird als ein einzelner `<color>`-Wert angegeben.
+Die `background-color` Eigenschaft wird als einzelner `<color>` Wert angegeben.
 
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Die einheitliche Farbe des Hintergrunds. Sie wird hinter jedem angegebenen {{cssxref("background-image")}} gerendert, obwohl die Farbe durch jede Transparenz im Bild sichtbar bleibt.
+  - : Die einheitliche Farbe des Hintergrunds. Sie wird hinter jedem angegebenen {{cssxref("background-image")}} gerendert, obwohl die Farbe bei Transparenz im Bild weiterhin sichtbar sein wird.
 
 ## Barrierefreiheit
 
-Es ist wichtig sicherzustellen, dass der Kontrast zwischen der Hintergrundfarbe und der Farbe des darüber platzierten Textes hoch genug ist, sodass Menschen mit Sehbehinderungen den Inhalt der Seite lesen können.
+Es ist wichtig sicherzustellen, dass das Kontrastverhältnis zwischen der Hintergrundfarbe und der darüber liegenden Textfarbe hoch genug ist, damit Personen mit Sehbehinderungen den Inhalt der Seite lesen können.
 
-Das Farbkontrastverhältnis wird bestimmt, indem die Luminanz der Text- und Hintergrundfarben verglichen wird. Um die aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu erfüllen, ist für Textinhalte ein Verhältnis von 4,5:1 erforderlich und 3:1 für größere Texte wie Überschriften. Großer Text ist definiert als 18,66px und [fett](/de/docs/Web/CSS/font-weight) oder größer, oder 24px oder größer.
+Das Farbkontrastverhältnis wird ermittelt, indem die Leuchtdichte der Text- und Hintergrundfarbenwerte verglichen wird. Um den aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu entsprechen, ist ein Verhältnis von 4.5:1 für Textinhalte und 3:1 für größeren Text wie Überschriften erforderlich. Großer Text ist definiert als 18.66px und [fett](/de/docs/Web/CSS/font-weight) oder größer, oder 24px oder größer.
 
 - [WebAIM: Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
-- [MDN Verständnis der WCAG, Leitfaden 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [MDN Verständnis WCAG, Guideline 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
 
 ## Formale Definition
 
@@ -73,9 +73,9 @@ Das Farbkontrastverhältnis wird bestimmt, indem die Luminanz der Text- und Hint
 
 ## Beispiele
 
-### Boxen kolorieren
+### Boxen einfärben
 
-Dieses Beispiel zeigt die Anwendung von `background-color` auf HTML-{{HTMLelement("div")}}-Elemente mit verschiedenen CSS-{{cssxref("color_value", "&lt;color&gt;")}}-Werten.
+Dieses Beispiel demonstriert die Anwendung von `background-color` auf HTML {{HTMLelement("div")}} Elemente mit verschiedenen CSS {{cssxref("color_value", "&lt;color&gt;")}} Werten.
 
 #### HTML
 
@@ -109,9 +109,9 @@ Dieses Beispiel zeigt die Anwendung von `background-color` auf HTML-{{HTMLelemen
 
 {{EmbedLiveSample("Colorize boxes", 200, 150)}}
 
-### Tabellen kolorieren
+### Tabellen einfärben
 
-Dieses Beispiel zeigt die Verwendung von `background-color` auf HTML-{{HTMLelement("table")}}-Elementen, einschließlich {{HTMLelement("tr")}}-Reihen und {{HTMLelement("td")}}-Zellen.
+Dieses Beispiel demonstriert die Verwendung von `background-color` auf HTML {{HTMLelement("table")}} Elemente, einschließlich {{HTMLelement("tr")}} Zeilen und {{HTMLelement("td")}} Zellen.
 
 #### HTML
 
@@ -176,5 +176,5 @@ td {
 ## Siehe auch
 
 - [Mehrere Hintergründe](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds)
-- Der {{cssxref("&lt;color&gt;")}}-Datentyp
-- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}} und {{cssxref("column-rule-color")}}
+- Der {{cssxref("&lt;color&gt;")}} Datentyp
+- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}}, und {{cssxref("column-rule-color")}}

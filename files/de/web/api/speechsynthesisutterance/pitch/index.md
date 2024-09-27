@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesisUtterance: pitch Eigenschaft"
+title: "SpeechSynthesisUtterance: pitch-Eigenschaft"
 short-title: pitch
 slug: Web/API/SpeechSynthesisUtterance/pitch
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`pitch`**-Eigenschaft der {{domxref("SpeechSynthesisUtterance")}}-Schnittstelle liest und setzt die Tonhöhe, mit der der Ausdruck gesprochen wird.
+Die **`pitch`**-Eigenschaft der [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Schnittstelle ruft die Tonhöhe ab und setzt sie, mit der die Äußerung gesprochen wird.
 
-Wenn sie nicht gesetzt ist, wird ein Standardwert von 1 verwendet.
+Wenn sie nicht festgelegt ist, wird ein Standardwert von 1 verwendet.
 
 ## Wert
 
-Ein Float, der den Tonhöhenwert darstellt.
-Er kann zwischen 0 (niedrigste) und 2 (höchste) variieren, wobei 1 die Standardtonhöhe für die aktuelle Plattform oder Stimme ist. Einige Sprachsynthese-Engines oder Stimmen können die minimalen und maximalen Raten weiter einschränken.
-Wenn [SSML](https://www.w3.org/TR/speech-synthesis/) verwendet wird, wird dieser Wert durch [Prosodie-Tags](https://www.w3.org/TR/speech-synthesis/#S3.2.4) im Markup überschrieben.
+Ein float-Wert, der die Tonhöhe darstellt.
+Er kann zwischen 0 (niedrigste) und 2 (höchste) liegen, wobei 1 die Standardtonhöhe für die aktuelle Plattform oder Stimme ist. Einige Sprachausgaben oder Stimmen können die minimalen und maximalen Raten weiter einschränken.
+Wenn [SSML](https://www.w3.org/TR/speech-synthesis/) verwendet wird, wird dieser Wert von [prosody tags](https://www.w3.org/TR/speech-synthesis/#S3.2.4) im Markup überschrieben.
 
 ## Beispiele
 

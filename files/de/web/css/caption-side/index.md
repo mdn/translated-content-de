@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`caption-side`** [CSS](/de/docs/Web/CSS) Eigenschaft positioniert den Inhalt eines Tabellen-{{HTMLElement("caption")}} auf der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
+Die **`caption-side`**-[CSS](/de/docs/Web/CSS)-Eigenschaft platziert den Inhalt einer {{HTMLElement("caption")}} einer Tabelle auf der angegebenen Seite. Die Werte sind relativ zum {{cssxref("writing-mode")}} der Tabelle.
 
 {{EmbedInteractiveExample("pages/css/caption-side.html")}}
 
 ## Syntax
 
 ```css
-/* Richtungswerte */
+/* Directional values */
 caption-side: top;
 caption-side: bottom;
 
-/* Globale Werte */
+/* Global values */
 caption-side: inherit;
 caption-side: initial;
 caption-side: revert;
@@ -31,12 +31,12 @@ Die `caption-side`-Eigenschaft wird als eines der unten aufgeführten Schlüssel
 ### Werte
 
 - `top`
-  - : Der Caption-Block sollte an der Blockanfangsseite der Tabelle positioniert werden.
+  - : Die caption box sollte an der Block-Startseite der Tabelle positioniert werden.
 - `bottom`
-  - : Der Caption-Block sollte am Blockende der Tabelle positioniert werden.
+  - : Die caption box sollte an der Block-Endseite der Tabelle positioniert werden.
 
 > [!NOTE]
-> Das Modul [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert zwei logische Werte, `inline-start` und `inline-end`, um den Caption-Block am Anfang bzw. Ende der Inline-Achse der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
+> Das Modul [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert zwei logische Werte, `inline-start` und `inline-end`, um die caption box an der Inline-Anfangskante bzw. Inline-Endkante der Tabelle zu positionieren. Diese Werte werden in keinem Browser unterstützt.
 
 ## Formale Definition
 
@@ -48,7 +48,7 @@ Die `caption-side`-Eigenschaft wird als eines der unten aufgeführten Schlüssel
 
 ## Beispiele
 
-### Captions oberhalb und unterhalb einstellen
+### Captions oben und unten einstellen
 
 #### HTML
 
@@ -111,5 +111,5 @@ td {
 ## Siehe auch
 
 - {{HTMLelement("caption")}}
-- [CSS-Tabelle](/de/docs/Web/CSS/CSS_table) Modul
-- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
+- [CSS table](/de/docs/Web/CSS/CSS_table) Modul
+- [CSS logical properties and values](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul

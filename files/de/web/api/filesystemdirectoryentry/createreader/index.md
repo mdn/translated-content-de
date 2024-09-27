@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die Methode **`createReader()`** der {{domxref("FileSystemDirectoryEntry")}}-Schnittstelle gibt ein {{domxref("FileSystemDirectoryReader")}}-Objekt zurück, das verwendet werden kann, um die Einträge im Verzeichnis zu lesen.
+Die Methode **`createReader()`** des [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)-Interfaces gibt ein [`FileSystemDirectoryReader`](/de/docs/Web/API/FileSystemDirectoryReader)-Objekt zurück, das verwendet werden kann, um die Einträge im Verzeichnis zu lesen.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("FileSystemDirectoryReader")}}-Objekt, das zum Lesen der Einträge des Verzeichnisses verwendet werden kann.
+Ein [`FileSystemDirectoryReader`](/de/docs/Web/API/FileSystemDirectoryReader)-Objekt, das verwendet werden kann, um die Einträge des Verzeichnisses zu lesen.
 
 ## Beispiele
 
-Dieses Beispiel erstellt eine asynchrone Funktion namens `readDirectory()`, die alle Einträge im angegebenen {{domxref("FileSystemDirectoryEntry")}} abruft und diese in einem Array zurückgibt.
+Dieses Beispiel erstellt eine asynchrone Funktion namens `readDirectory()`, die alle Einträge im angegebenen [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) abruft und in einem Array zurückgibt.
 
 ```js
 async function readDirectory(directory) {
@@ -51,13 +51,13 @@ async function readDirectory(directory) {
 }
 ```
 
-Dies funktioniert, indem {{domxref("FileSystemDirectoryReader.readEntries", "readEntries()")}} wiederholt aufgerufen wird, um alle Einträge im Verzeichnis zu erhalten, wobei jede Charge zum Array hinzugefügt wird. Wenn ein leeres Array zurückgegeben wird, wurden alle Einträge gelesen, und die Schleife endet.
+Dies funktioniert, indem wiederholt [`readEntries()`](/de/docs/Web/API/FileSystemDirectoryReader/readEntries) aufgerufen wird, um alle Einträge im Verzeichnis zu erhalten. Jeder Batch wird an das Array angehängt. Wenn eine leere Liste zurückgegeben wird, wurden alle Einträge gelesen und die Schleife endet.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -65,7 +65,7 @@ Dies funktioniert, indem {{domxref("FileSystemDirectoryReader.readEntries", "rea
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
 - [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
-- {{domxref("FileSystemDirectoryReader")}}
-- {{domxref("FileSystemDirectoryEntry")}}
-- {{domxref("FileSystemFileEntry")}}
-- {{domxref("FileSystemEntry")}}
+- [`FileSystemDirectoryReader`](/de/docs/Web/API/FileSystemDirectoryReader)
+- [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)
+- [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)
+- [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)

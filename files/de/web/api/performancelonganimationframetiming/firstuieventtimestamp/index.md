@@ -1,5 +1,5 @@
 ---
-title: "PerformanceLongAnimationFrameTiming: firstUIEventTimestamp-Eigenschaft"
+title: "PerformanceLongAnimationFrameTiming: Eigenschaft firstUIEventTimestamp"
 short-title: firstUIEventTimestamp
 slug: Web/API/PerformanceLongAnimationFrameTiming/firstUIEventTimestamp
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte **`firstUIEventTimestamp`**-Eigenschaft des {{domxref("PerformanceLongAnimationFrameTiming")}}-Interfaces gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der den Zeitpunkt des ersten Benutzeroberflächenereignisses angibt — wie ein Maus- oder Tastaturereignis — das während des aktuellen Animationsframes in die Warteschlange gestellt wird.
+Die schreibgeschützte Eigenschaft **`firstUIEventTimestamp`** des [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Interfaces gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der den Zeitpunkt des ersten UI-Ereignisses angibt — wie z.B. ein Maus- oder Tastaturereignis — das während des aktuellen Animationsframes in die Warteschlange eingereiht wird.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Siehe [Langes Animationsframe-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frame API.
+Siehe [Timing von langen Animationsframes](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ Siehe [Langes Animationsframe-Timing](/de/docs/Web/API/Performance_API/Long_anim
 
 ## Siehe auch
 
-- [Langes Animationsframe-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
-- {{domxref("PerformanceScriptTiming")}}
+- [Timing von langen Animationsframes](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)

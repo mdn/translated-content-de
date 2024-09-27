@@ -1,5 +1,5 @@
 ---
-title: Kleiner oder gleich
+title: Weniger oder gleich
 slug: WebAssembly/Reference/Numeric/Less_or_equal
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,31 +7,31 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`le`** Anweisungen, kurz für _kleiner oder gleich_, überprüfen, ob eine Zahl kleiner oder gleich einer anderen Zahl ist. Wenn die erste Zahl kleiner oder gleich der zweiten Zahl ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
+Die **`le`**-Anweisungen, abgekürzt für _less or equal_, prüfen, ob eine Zahl kleiner oder gleich einer anderen Zahl ist. Wenn die erste Zahl kleiner oder gleich der zweiten Zahl ist, wird `1` auf den Stapel gelegt, andernfalls `0`.
 
-Die Ganzzahltypen haben separate Anweisungen für kleiner oder gleich für vorzeichenbehaftete (**`le_s`**) und vorzeichenlose (**`le_u`**) Zahlen.
+Die Ganzzahltypen haben separate "less or equal"-Anweisungen für vorzeichenbehaftete (**`le_s`**) und vorzeichenlose (**`le_u`**) Zahlen.
 
 {{EmbedInteractiveExample("pages/wat/le.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; zwei Zahlen auf den Stapel laden
+;; load 2 numbers on to the stack
 local.get $num
 i32.const 2
 
-;; prüfen, ob $num kleiner oder gleich '2' ist
+;; check if $num is less then or equal to '2'
 i32.le_u
 
-;; wenn $num kleiner oder gleich der `2` ist, wird `1` auf den Stapel geschoben,
-;; andernfalls wird `0` auf den Stapel geschoben.
+;; if $num is less than or equal to the `2`, `1` will be pushed on to the stack,
+;; otherwise `0` will be pushed on to the stack.
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `i32.le_s`  | `0x4C`         |
-| `i32.le_u`  | `0x4D`         |
-| `i64.le_s`  | `0x57`         |
-| `i64.le_u`  | `0x58`         |
-| `f32.le`    | `0x5F`         |
-| `f64.le`    | `0x65`         |
+| Anweisung  | Binärer Opcode |
+| ---------- | -------------- |
+| `i32.le_s` | `0x4C`         |
+| `i32.le_u` | `0x4D`         |
+| `i64.le_s` | `0x57`         |
+| `i64.le_u` | `0x58`         |
+| `f32.le`   | `0x5F`         |
+| `f64.le`   | `0x65`         |

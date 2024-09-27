@@ -1,5 +1,5 @@
 ---
-title: Querachse
+title: Cross-Achse
 slug: Glossary/Cross_Axis
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,19 +7,19 @@ l10n:
 
 {{GlossarySidebar}}
 
-Die **Querachse** im {{glossary("flexbox")}} verläuft senkrecht zur {{glossary("Hauptachse")}}, daher läuft die Querachse entlang der Spalten, wenn Ihre {{cssxref("flex-direction")}} entweder `row` oder `row-reverse` ist.
+Die **Cross-Achse** in [flexbox](/de/docs/Glossary/flexbox) verläuft senkrecht zur [Hauptachse](/de/docs/Glossary/main_axis). Wenn Ihre {{cssxref("flex-direction")}} entweder `row` oder `row-reverse` ist, verläuft die Cross-Achse die Spalten hinunter.
 
-![Die Querachse verläuft entlang der Spalte](basics3.png)
+![Die Cross-Achse verläuft die Spalte hinunter.](basics3.png)
 
-Wenn Ihre Hauptachse `column` oder `column-reverse` ist, verläuft die Querachse entlang der Zeilen.
+Wenn Ihre Hauptachse `column` oder `column-reverse` ist, verläuft die Cross-Achse entlang der Zeilen.
 
-![Die Querachse verläuft entlang der Zeile.](basics4.png)
+![Die Cross-Achse verläuft entlang der Zeile.](basics4.png)
 
-Die Ausrichtung von Elementen auf der Querachse wird mit der `align-items`-Eigenschaft des Flex-Containers oder der `align-self`-Eigenschaft einzelner Elemente erreicht. Bei einem mehrzeiligen Flex-Container, mit zusätzlichem Raum auf der Querachse, können Sie `align-content` verwenden, um den Abstand der Zeilen zu steuern.
+Die Ausrichtung von Elementen auf der Cross-Achse wird mit der Eigenschaft `align-items` am Flex-Container oder der Eigenschaft `align-self` an einzelnen Elementen erreicht. Im Falle eines mehrzeiligen Flex-Containers mit zusätzlichem Raum auf der Cross-Achse können Sie `align-content` verwenden, um den Abstand der Zeilen zu steuern.
 
 ## Siehe auch
 
-### Eigenschaftsreferenz
+### Eigenschaftenreferenz
 
 - {{cssxref("align-content")}}
 - {{cssxref("align-items")}}
@@ -36,13 +36,13 @@ Die Ausrichtung von Elementen auf der Querachse wird mit der `align-items`-Eigen
 
 ### Weiterführende Lektüre
 
-CSS-Flexbox-Leitfäden:
+CSS Flexbox-Leitfäden:
 
 - [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
 - [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
-- [Meistern des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
-- Verwandte Glossarbegriffe:
-  - {{Glossary("Flex")}}
-  - {{Glossary("Flex Container")}}
-  - {{Glossary("Flex Item")}}
-  - {{Glossary("Grid")}}
+- [Beherrschen des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
+- Verwandte Glossareinträge:
+  - [Flex](/de/docs/Glossary/Flex)
+  - [Flex-Container](/de/docs/Glossary/Flex_Container)
+  - [Flex-Element](/de/docs/Glossary/Flex_Item)
+  - [Grid](/de/docs/Glossary/Grid)

@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Multiplikationsoperator (`*`)** erzeugt das Produkt der Operanden.
+Der **Multiplikationsoperator (`*`)** berechnet das Produkt der Operanden.
 
 {{EmbedInteractiveExample("pages/js/expressions-multiplication.html")}}
 
@@ -19,7 +19,7 @@ x * y
 
 ## Beschreibung
 
-Der `*` Operator ist für zwei Typen von Operanden überladen: number und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt zunächst beide Operanden in numerische Werte](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und prüft deren Typen. Er führt eine BigInt-Multiplikation durch, wenn beide Operanden zu BigInts werden; andernfalls wird eine Zahl-Multiplikation durchgeführt. Ein {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand zu einem BigInt wird, der andere jedoch zu einer Zahl.
+Der `*` Operator ist für zwei Arten von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [zwingt zunächst beide Operanden in numerische Werte](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und prüft deren Typen. Er führt die Multiplikation von BigInt durch, wenn beide Operanden BigInts werden; andernfalls führt er die Multiplikation von Zahlen durch. Eine {{jsxref("TypeError")}} wird ausgelöst, wenn ein Operand ein BigInt wird, der andere jedoch eine Zahl.
 
 ## Beispiele
 
@@ -33,7 +33,7 @@ Infinity * 0; // NaN
 Infinity * Infinity; // Infinity
 ```
 
-Andere Nicht-BigInt-Werte werden in Zahlen konvertiert:
+Andere Werte, die keine BigInts sind, werden in Zahlen umgewandelt:
 
 ```js
 "foo" * 2; // NaN
@@ -47,7 +47,7 @@ Andere Nicht-BigInt-Werte werden in Zahlen konvertiert:
 -2n * 2n; // -4n
 ```
 
-Sie können BigInt und Zahl-Operanden bei der Multiplikation nicht mischen.
+Sie können BigInt- und Zahlenoperanden nicht bei der Multiplikation mischen.
 
 ```js example-bad
 2n * 2; // TypeError: Cannot mix BigInt and other types, use explicit conversions
@@ -78,5 +78,5 @@ Number(2n) * 2; // 4
 - [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 - [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
 - [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
-- [Unäre Negation (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
+- [Unäres Minus (`-`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
 - [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

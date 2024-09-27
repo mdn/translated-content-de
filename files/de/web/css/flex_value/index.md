@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<flex>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) bezeichnet eine flexible Länge innerhalb eines Gittercontainers. Er wird in {{cssxref("grid-template-columns")}}, {{cssxref("grid-template-rows")}} und anderen verwandten Eigenschaften verwendet.
+Der **`<flex>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) bezeichnet eine flexible Länge innerhalb eines Raster-Containers. Er wird in {{cssxref("grid-template-columns")}}, {{cssxref("grid-template-rows")}} und anderen verwandten Eigenschaften verwendet.
 
 ## Syntax
 
-Der `<flex>` Datentyp wird als ein {{cssxref("&lt;number&gt;")}} gefolgt von der Einheit `fr` angegeben. Die `fr` Einheit repräsentiert einen Bruchteil des verbleibenden Raums im Gittercontainer. Wie bei allen CSS-Dimensionen gibt es keinen Abstand zwischen der Einheit und der Zahl.
+Der `<flex>` Datentyp wird als ein {{cssxref("&lt;number&gt;")}} gefolgt von der Einheit `fr` angegeben. Die `fr` Einheit repräsentiert einen Bruchteil des verbleibenden Platzes im Raster-Container. Wie bei allen CSS-Dimensionen gibt es keinen Abstand zwischen der Einheit und der Zahl.
 
 ## Beispiele
 
-### Beispiele für korrekte Werte des fr Datentyps
+### Beispiele für korrekte Werte des fr-Datentyps
 
 ```plain
-1fr    /* Verwendung eines ganzzahligen Werts */
-2.5fr  /* Verwendung eines Fließkommawerts */
+1fr    /* Using an integer value */
+2.5fr  /* Using a float value */
 ```
 
-### Beispiel für die Verwendung in einer Spuraufzählung für ein CSS-Gitterlayout
+### Beispiel für die Verwendung in einer Auflistung für ein CSS-Rasterlayout
 
 ```css
 .grid {
@@ -41,4 +41,4 @@ Der `<flex>` Datentyp wird als ein {{cssxref("&lt;number&gt;")}} gefolgt von der
 
 ## Siehe auch
 
-- [CSS-Gitterlayout](/de/docs/Web/CSS/CSS_grid_layout)
+- [CSS-Rasterlayout](/de/docs/Web/CSS/CSS_grid_layout)

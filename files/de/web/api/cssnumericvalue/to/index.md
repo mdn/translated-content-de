@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`to()`**-Methode des
-{{domxref("CSSNumericValue")}}-Interfaces konvertiert einen numerischen Wert von einer Einheit in eine andere.
+Die **`to()`**-Methode der
+[`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle wandelt einen numerischen Wert von einer Einheit in eine andere um.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ to(unit)
 
 ### Rückgabewert
 
-Ein {{domxref('CSSMathSum')}}.
+Ein [`CSSMathSum`](/de/docs/Web/API/CSSMathSum).
 
 ### Ausnahmen
 
-- `SyntaxError` {{domxref("DOMException")}}
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn ein ungültiger Typ an die Methode übergeben wurde.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn die übergebenen Werte nicht summiert werden können.
@@ -36,7 +36,7 @@ Ein {{domxref('CSSMathSum')}}.
 ## Beispiele
 
 ```js
-// Gibt "0.608542cm" aus
+// Prints "0.608542cm"
 console.log(CSS.px("23").to("cm").toString());
 ```
 

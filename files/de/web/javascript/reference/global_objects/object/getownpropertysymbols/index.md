@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Object.getOwnPropertySymbols()`** gibt ein Array aller Symbols zurück, die direkt auf einem gegebenen Objekt gefunden werden.
+Die statische Methode **`Object.getOwnPropertySymbols()`** gibt ein Array aller direkt auf einem bestimmten Objekt gefundenen Symbol-Eigenschaften zurück.
 
 {{EmbedInteractiveExample("pages/js/object-getownpropertysymbols.html")}}
 
@@ -24,13 +24,13 @@ Object.getOwnPropertySymbols(obj)
 
 ### Rückgabewert
 
-Ein Array aller Symbols, die direkt auf dem angegebenen Objekt gefunden werden.
+Ein Array aller direkt auf dem angegebenen Objekt gefundenen Symbol-Eigenschaften.
 
 ## Beschreibung
 
-Ähnlich wie {{jsxref("Object.getOwnPropertyNames()")}} können Sie alle Symbol-Eigenschaften eines gegebenen Objektes als ein Array von Symbols erhalten. Beachten Sie, dass {{jsxref("Object.getOwnPropertyNames()")}} selbst die Symbol-Eigenschaften eines Objekts nicht enthält und nur die String-Eigenschaften.
+Ähnlich wie {{jsxref("Object.getOwnPropertyNames()")}} können Sie alle Symbol-Eigenschaften eines bestimmten Objekts als Array von Symbolen erhalten. Beachten Sie, dass {{jsxref("Object.getOwnPropertyNames()")}} selbst nicht die Symbol-Eigenschaften eines Objekts enthält und nur die String-Eigenschaften auflistet.
 
-Da alle Objekte anfangs keine eigenen Symbol-Eigenschaften haben, gibt `Object.getOwnPropertySymbols()` ein leeres Array zurück, es sei denn, Sie haben Symbol-Eigenschaften auf Ihrem Objekt festgelegt.
+Da alle Objekte anfänglich keine eigenen Symbol-Eigenschaften haben, gibt `Object.getOwnPropertySymbols()` ein leeres Array zurück, es sei denn, Sie haben Symbol-Eigenschaften auf Ihrem Objekt gesetzt.
 
 ## Beispiele
 

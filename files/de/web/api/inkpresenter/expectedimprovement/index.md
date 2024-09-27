@@ -1,5 +1,5 @@
 ---
-title: "InkPresenter: Eigenschaft expectedImprovement"
+title: "InkPresenter: expectedImprovement-Eigenschaft"
 short-title: expectedImprovement
 slug: Web/API/InkPresenter/expectedImprovement
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Ink API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`expectedImprovement`** des {{domxref("InkPresenter")}} Interface gibt einen Wert in Millisekunden zurück, der die zu erwartende Latenzverbesserung bei der Verwendung dieses Presenters angibt.
+Die schreibgeschützte **`expectedImprovement`**-Eigenschaft der [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Schnittstelle gibt einen Wert in Millisekunden zurück, der die Latenzverbesserung angibt, die durch die Verwendung dieses Presenters erwartet werden kann.
 
 ### Wert
 
@@ -36,4 +36,4 @@ async function inkInit() {
 
 ## Siehe auch
 
-- [Verbesserung der Stifteingabe im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)
+- [Verbesserung des Inking im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)

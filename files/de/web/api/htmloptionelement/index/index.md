@@ -1,5 +1,5 @@
 ---
-title: "HTMLOptionElement: index Eigenschaft"
+title: "HTMLOptionElement: index-Eigenschaft"
 short-title: index
 slug: Web/API/HTMLOptionElement/index
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`index`**-Eigenschaft der {{DOMxRef("HTMLOptionElement")}}-Schnittstelle gibt den 0-basierten Index des Elements an; das heißt die Position des {{HTMLElement("option")}} innerhalb der Liste von Optionen, zu der es gehört, in Baumreihenfolge, als Ganzzahl. Wenn das `<option>` nicht Teil einer Optionsliste ist, beträgt der Wert `0`.
+Die schreibgeschützte **`index`**-Eigenschaft der [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Schnittstelle gibt den 0-basierten Index des Elements an; das heißt, die Position des {{HTMLElement("option")}} innerhalb der Liste von Optionen, zu der es gehört, in Baumreihenfolge, als Ganzzahl. Wenn das `<option>` nicht Teil einer Optionsliste ist, ist der Wert `0`.
 
 ## Wert
 
@@ -25,7 +25,7 @@ console.log(optionElement.index);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -34,7 +34,7 @@ console.log(optionElement.index);
 - {{HTMLElement("option")}}
 - {{HTMLElement("select")}}
 - {{HTMLElement("datalist")}}
-- {{DOMxRef("HTMLOptionElement.defaultSelected")}}
-- {{DOMxRef("HTMLOptionElement.selected")}}
-- {{DOMxRef("HTMLSelectElement.selectedIndex")}}
-- {{DOMxRef("HTMLOptionsCollection")}}
+- [`HTMLOptionElement.defaultSelected`](/de/docs/Web/API/HTMLOptionElement/defaultSelected)
+- [`HTMLOptionElement.selected`](/de/docs/Web/API/HTMLOptionElement/selected)
+- [`HTMLSelectElement.selectedIndex`](/de/docs/Web/API/HTMLSelectElement/selectedIndex)
+- [`HTMLOptionsCollection`](/de/docs/Web/API/HTMLOptionsCollection)

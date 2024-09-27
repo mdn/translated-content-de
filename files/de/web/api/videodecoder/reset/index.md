@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`reset()`**-Methode der {{domxref("VideoDecoder")}}-Schnittstelle setzt alle Zustände zurück, einschließlich der Konfiguration, Steuerungsnachrichten in der Steuerungsnachrichtenwarteschlange und aller ausstehenden Rückrufe.
+Die **`reset()`**-Methode der [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Schnittstelle setzt alle Zustände zurück, einschließlich der Konfiguration, der Steuerungsnachrichten in der Steuerungsnachrichtenwarteschlange und aller ausstehenden Rückrufe.
 
 ## Syntax
 

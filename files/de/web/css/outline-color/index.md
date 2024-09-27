@@ -7,19 +7,19 @@ l10n:
 
 {{CSSRef}}
 
-Die **`outline-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Umrandung eines Elements fest.
+Die **`outline-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Kontur eines Elements fest.
 
 {{EmbedInteractiveExample("pages/css/outline-color.html")}}
 
 ## Syntax
 
 ```css
-/* <color> Werte */
+/* <color> values */
 outline-color: #f92525;
 outline-color: rgb(30 222 121);
 outline-color: blue;
 
-/* Globale Werte */
+/* Global values */
 outline-color: inherit;
 outline-color: initial;
 outline-color: revert;
@@ -32,25 +32,25 @@ Die `outline-color` Eigenschaft wird als einer der unten aufgeführten Werte ang
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe der Umrandung, angegeben als ein `<color>`.
+  - : Die Farbe der Kontur, angegeben als `<color>`.
 
-Die Spezifikation listet auch einen zusätzlichen Wert, `auto`, der derzeit in keinem Browser unterstützt wird. Wenn implementiert, wird `auto` zu [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) ausgewertet, es sei denn, [`outline-style`](/de/docs/Web/CSS/outline-style) ist auf `auto` gesetzt, dann wird es auf die [Akzentfarbe](/de/docs/Web/CSS/accent-color) ausgewertet.
+Die Spezifikation listet außerdem einen zusätzlichen Wert, `auto`, auf, der derzeit in keinem Browser unterstützt wird. Wenn implementiert, wird `auto` zu [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) berechnet, es sei denn, [`outline-style`](/de/docs/Web/CSS/outline-style) ist auf `auto` gesetzt, dann wird es zur [Akzentfarbe](/de/docs/Web/CSS/accent-color) berechnet.
 
 ## Beschreibung
 
-Eine Umrandung ist eine Linie, die um ein Element herum gezeichnet wird, außerhalb des {{cssxref("border")}}. Im Gegensatz zur Rahmenlinie wird die Umrandung außerhalb des Rahmens des Elements gezeichnet und kann andere Inhalte überlappen. Der Rahmen hingegen ändert das Layout der Seite tatsächlich so, dass er ohne Überlappung passt (sofern nicht explizit anders festgelegt).
+Eine Kontur ist eine Linie, die um ein Element gezogen wird, außerhalb des {{cssxref("border")}}. Anders als der Rand des Elements wird die Kontur außerhalb des Rahmens des Elements gezeichnet und kann anderen Inhalt überlappen. Der Rand hingegen verändert das Layout der Seite tatsächlich, um sicherzustellen, dass er passt, ohne etwas anderes zu überlappen (es sei denn, es wurde explizit so eingestellt, dass er überlappt).
 
-Es ist oft bequemer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwenden, wenn Sie das Erscheinungsbild einer Umrandung definieren.
+Es ist oft bequemer, die Kurzform-Eigenschaft {{cssxref("outline")}} zu verwenden, wenn das Aussehen einer Kontur definiert wird.
 
 ## Barrierefreiheit
 
-Benutzerdefinierte [Fokus-Stile](/de/docs/Web/CSS/:focus) beinhalten häufig Anpassungen der {{cssxref("outline")}} Eigenschaft. Wenn die Farbe der Umrandung angepasst wird, ist es wichtig sicherzustellen, dass der Kontrastunterschied zwischen ihr und dem Hintergrund, über dem die Umrandung liegt, hoch genug ist, damit Menschen mit Sehbehinderungen sie wahrnehmen können.
+Benutzerdefinierte [Fokus-Stile](/de/docs/Web/CSS/:focus) beinhalten häufig Anpassungen der {{cssxref("outline")}}-Eigenschaft. Wenn die Farbe der Kontur angepasst wird, ist es wichtig sicherzustellen, dass der Kontrast zwischen ihr und dem Hintergrund, über den die Kontur gelegt wird, hoch genug ist, damit Menschen mit Sehbehinderungen sie wahrnehmen können.
 
-Der Farbkontrast wird ermittelt, indem die Leuchtkraft der Text- und Hintergrundfarbwerte verglichen wird. Um die aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu erfüllen, ist ein Verhältnis von 4.5:1 für Textinhalt und 3:1 für größere Texte wie Überschriften erforderlich. Großer Text ist definiert als 18,66px und [fett](/de/docs/Web/CSS/font-weight) oder größer oder 24px oder größer.
+Der Farbkontrast wird bestimmt, indem die Leuchtkraft der Text- und Hintergrundfarbenwerte verglichen wird. Um die aktuellen [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) zu erfüllen, ist ein Verhältnis von 4,5:1 für Textinhalt und 3:1 für größeren Text wie Überschriften erforderlich. Großer Text wird als 18,66px und [fett](/de/docs/Web/CSS/font-weight) oder größer oder 24px oder größer definiert.
 
-- [WebAIM: Farbkontrastprüfer](https://webaim.org/resources/contrastchecker/)
-- [MDN Verständnis von WCAG, Erläuterungen zu Richtlinie 1.4](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
-- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [WebAIM: Farbkontrast-Prüfer](https://webaim.org/resources/contrastchecker/)
+- [MDN Verständnis von WCAG, Leitlinie 1.4 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background)
+- [Verständnis des Erfolgskriteriums 1.4.3 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
 
 ## Formale Definition
 
@@ -62,7 +62,7 @@ Der Farbkontrast wird ermittelt, indem die Leuchtkraft der Text- und Hintergrund
 
 ## Beispiele
 
-### Festlegen einer festen blauen Umrandung
+### Ein festes blaues Outline setzen
 
 #### HTML
 
@@ -98,4 +98,4 @@ p {
 - {{cssxref("outline-width")}}
 - {{cssxref("outline-style")}}
 - Der {{cssxref("&lt;color&gt;")}} Datentyp
-- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}} und {{cssxref("column-rule-color")}}
+- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, {{cssxref("caret-color")}}, und {{cssxref("column-rule-color")}}

@@ -1,5 +1,5 @@
 ---
-title: "PaymentResponse: Eigenschaft shippingAddress"
+title: "PaymentResponse: shippingAddress-Eigenschaft"
 short-title: shippingAddress
 slug: Web/API/PaymentResponse/shippingAddress
 l10n:
@@ -8,20 +8,20 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die schreibgeschützte **`shippingAddress`**-Eigenschaft des `PaymentRequest`-Interfaces gibt ein {{domxref('PaymentAddress')}}-Objekt zurück, das die vom Benutzer angegebene Lieferadresse enthält.
+Die schreibgeschützte Eigenschaft **`shippingAddress`** der `PaymentRequest`-Schnittstelle gibt ein [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Objekt zurück, das die vom Benutzer bereitgestellte Versandadresse enthält.
 
 ## Wert
 
-Ein {{domxref("PaymentAddress")}}-Objekt, das Details zur vom Benutzer angegebenen Lieferadresse bietet.
+Ein [`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Objekt, das Details zur vom Benutzer bereitgestellten Versandadresse enthält.
 
 ## Beispiele
 
-Normalerweise füllt der User Agent die `shippingAddress`-Eigenschaft für Sie aus. Sie können dies auslösen, indem Sie `options.requestShipping` auf `true` setzen, wenn Sie den {{domxref('PaymentRequest.paymentRequest','PaymentRequest')}}-Konstruktor aufrufen.
+In der Regel wird der `shippingAddress`-Eigenschaft vom Benutzeragenten für Sie ausgefüllt. Sie können dies auslösen, indem Sie `options.requestShipping` auf `true` setzen, wenn Sie den [`PaymentRequest`](/de/docs/Web/API/PaymentRequest/paymentRequest)-Konstruktor aufrufen.
 
-Im untenstehenden Beispiel variieren die Versandkosten je nach geografischem Standort. Wenn das {{domxref('PaymentRequest.shippingaddresschange_event', 'shippingaddresschange')}}-Ereignis ausgelöst und erfasst wird, wird `updateDetails()` aufgerufen, um die Details des `PaymentRequest` zu aktualisieren und mithilfe von `shippingAddress` die korrekten Versandkosten festzulegen.
+Im folgenden Beispiel variieren die Versandkosten je nach geografischer Lage. Wenn das [`shippingaddresschange`](/de/docs/Web/API/PaymentRequest/shippingaddresschange_event)-Ereignis ausgelöst und abgefangen wird, wird `updateDetails()` aufgerufen, um die Details des `PaymentRequest` zu aktualisieren, wobei `shippingAddress` verwendet wird, um die korrekten Versandkosten festzulegen.
 
 ```js
-// Die Initialisierung der PaymentRequest-Argumente wurde der Kürze halber weggelassen.
+// Initialization of PaymentRequest arguments are excerpted for brevity.
 
 const payment = new PaymentRequest(supportedInstruments, details, options);
 
@@ -36,10 +36,10 @@ request.addEventListener("shippingaddresschange", (evt) => {
 payment
   .show()
   .then((paymentResponse) => {
-    // Verarbeitung von paymentResponse wurde der Kürze halber weggelassen.
+    // Processing of paymentResponse excerpted for the same of brevity.
   })
   .catch((err) => {
-    console.error("Oh je, etwas Schlimmes ist passiert", err.message);
+    console.error("Uh oh, something bad happened", err.message);
   });
 
 function updateDetails(details, shippingAddress, resolve) {
@@ -52,11 +52,11 @@ function updateDetails(details, shippingAddress, resolve) {
     };
     if (shippingAddress.region === "MO") {
       shippingOption.id = "mo";
-      shippingOption.label = "Kostenloser Versand in Missouri";
+      shippingOption.label = "Free shipping in Missouri";
       details.total.amount.value = "55.00";
     } else {
       shippingOption.id = "us";
-      shippingOption.label = "Standardversand in den USA";
+      shippingOption.label = "Standard shipping in US";
       shippingOption.amount.value = "5.00";
       details.total.amount.value = "60.00";
     }

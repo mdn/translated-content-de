@@ -7,18 +7,18 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`MediaKeySystemAccess`**-Schnittstelle der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) bietet Zugriff auf ein Schlüsselsystem zur Entschlüsselung und/oder einen Inhaltschutzanbieter. Sie können eine Instanz dieses Objekts mit der Methode {{domxref("Navigator.requestMediaKeySystemAccess","Navigator.requestMediaKeySystemAccess()")}} anfordern.
+Die **`MediaKeySystemAccess`**-Schnittstelle der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) bietet Zugriff auf ein Schlüsselsystem zur Entschlüsselung und/oder einen Inhaltschutzanbieter. Sie können eine Instanz dieses Objekts mit der Methode [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess) anfordern.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("MediaKeySystemAccess.keySystem")}} {{ReadOnlyInline}}
+- [`MediaKeySystemAccess.keySystem`](/de/docs/Web/API/MediaKeySystemAccess/keySystem) {{ReadOnlyInline}}
   - : Gibt einen String zurück, der das verwendete Schlüsselsystem identifiziert.
 
 ## Instanz-Methoden
 
-- {{domxref("MediaKeySystemAccess.createMediaKeys()")}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das zu einem neuen {{domxref("MediaKeys")}}-Objekt aufgelöst wird.
-- {{domxref("MediaKeySystemAccess.getConfiguration()")}}
+- [`MediaKeySystemAccess.createMediaKeys()`](/de/docs/Web/API/MediaKeySystemAccess/createMediaKeys)
+  - : Gibt ein {{jsxref('Promise')}} zurück, das zu einem neuen [`MediaKeys`](/de/docs/Web/API/MediaKeys)-Objekt aufgelöst wird.
+- [`MediaKeySystemAccess.getConfiguration()`](/de/docs/Web/API/MediaKeySystemAccess/getConfiguration)
   - : Gibt ein Objekt mit der unterstützten Kombination von Konfigurationsoptionen zurück.
 
 ## Spezifikationen

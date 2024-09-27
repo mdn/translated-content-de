@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`data`**-Eigenschaft der {{domxref("HIDInputReportEvent")}}-Schnittstelle gibt ein {{jsxref("DataView")}} zurück, das die Daten aus dem Eingabereport enthält, ohne die `reportId`, falls die HID-Schnittstelle Report-IDs verwendet.
+Die **`data`**-Eigenschaft der [`HIDInputReportEvent`](/de/docs/Web/API/HIDInputReportEvent)-Schnittstelle gibt eine {{jsxref("DataView")}} zurück, die die Daten aus dem Eingaberapport enthält, abzüglich der `reportId`, falls die HID-Schnittstelle Report-IDs verwendet.
 
 ## Wert
 
-Ein {{jsxref("DataView")}}.
+Eine {{jsxref("DataView")}}.
 
 ## Beispiele
 
-Im folgenden Beispiel wird das zurückgegebene `data` in der Konsole protokolliert.
+Im folgenden Beispiel werden die zurückgegebenen `data` an die Konsole ausgegeben.
 
 ```js
 device.addEventListener("inputreport", (event) => {

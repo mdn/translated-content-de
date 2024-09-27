@@ -1,5 +1,5 @@
 ---
-title: "PaymentRequest: Eigenschaft shippingType"
+title: "PaymentRequest: shippingType-Eigenschaft"
 short-title: shippingType
 slug: Web/API/PaymentRequest/shippingType
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}{{Deprecated_header}}{{Non-standard_header}}
 
-Die schreibgeschützte Eigenschaft **`shippingType`** des {{domxref("PaymentRequest")}} Interfaces gibt einen der Werte `"shipping"`, `"delivery"`, `"pickup"` oder `null` zurück, falls keiner vom Konstruktor bereitgestellt wurde.
+Die schreibgeschützte **`shippingType`**-Eigenschaft des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Interfaces gibt einen der Werte `"shipping"`, `"delivery"`, `"pickup"` oder `null` zurück, wenn keiner vom Konstruktor bereitgestellt wurde.
 
 ## Wert
 
-Einer der Werte: `"shipping"`, `"delivery"`, `"pickup"` oder `null`.
+Einer der Werte `"shipping"`, `"delivery"`, `"pickup"` oder `null`.
 
 ## Browser-Kompatibilität
 

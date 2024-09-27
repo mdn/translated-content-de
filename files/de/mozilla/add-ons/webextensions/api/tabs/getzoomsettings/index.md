@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft die aktuellen Zoom-Einstellungen für einen angegebenen Tab ab.
+Holt die aktuellen Zoom-Einstellungen für einen angegebenen Tab.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -30,7 +30,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Rufen Sie die Zoom-Einstellungen für den aktuellen Tab ab:
+Holen Sie die Zoom-Einstellungen für den aktuellen Tab:
 
 ```js
 function onGot(settings) {
@@ -47,12 +47,12 @@ gettingZoomSettings.then(onGot, onError);
 
 {{WebExtExamples}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getZoomSettings) API von Chromium. Diese Dokumentation stammt von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-getZoomSettings). Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

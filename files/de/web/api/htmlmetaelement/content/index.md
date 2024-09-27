@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMetaElement.content`**-Eigenschaft ruft das `content`-Attribut von Pragma-Direktiven und benannten {{htmlelement("meta")}}-Daten in Verbindung mit {{domxref("HTMLMetaElement.name")}} oder {{domxref("HTMLMetaElement.httpEquiv")}} ab oder setzt es.
-Für weitere Informationen siehe das [content](/de/docs/Web/HTML/Element/meta#content)-Attribut.
+Die **`HTMLMetaElement.content`**-Eigenschaft ruft das `content`-Attribut von Pragma-Direktiven und benannten {{htmlelement("meta")}}-Daten in Verbindung mit [`HTMLMetaElement.name`](/de/docs/Web/API/HTMLMetaElement/name) oder [`HTMLMetaElement.httpEquiv`](/de/docs/Web/API/HTMLMetaElement/httpEquiv) ab oder setzt es.
+Weitere Informationen finden Sie im Attribut [content](/de/docs/Web/HTML/Element/meta#content).
 
 ## Wert
 
@@ -19,11 +19,11 @@ Ein String.
 
 ### Lesen des Inhalts eines Meta-Elements
 
-Das folgende Beispiel fragt ein `<meta>`-Element ab, das ein `name`-Attribut mit dem Wert `keywords` enthält.
-Der `content`-Wert wird in die Konsole protokolliert, um die [Stichwörter](/de/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_the_html_specification) des Dokuments anzuzeigen:
+Im folgenden Beispiel wird ein `<meta>`-Element abgefragt, das ein `name`-Attribut mit dem Wert `keywords` enthält.
+Der `content`-Wert wird in der Konsole ausgegeben, um die [Schlüsselwörter](/de/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_the_html_specification) des Dokuments anzuzeigen:
 
 ```js
-// gegeben <meta name="keywords" content="documentation, HTML, web">
+// given <meta name="keywords" content="documentation, HTML, web">
 const meta = document.querySelector("meta[name='keywords']");
 console.log(meta.content);
 // "documentation, HTML, web"
@@ -31,8 +31,8 @@ console.log(meta.content);
 
 ### Erstellen eines Meta-Elements mit Inhalt
 
-Das folgende Beispiel erstellt ein neues `<meta>`-Element mit einem `name`-Attribut, das auf [`description`](/de/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_the_html_specification) gesetzt ist.
-Das `content`-Attribut setzt eine Beschreibung des Dokuments und wird dem Dokument `<head>` hinzugefügt:
+Im folgenden Beispiel wird ein neues `<meta>`-Element erstellt, dessen `name`-Attribut auf [`description`](/de/docs/Web/HTML/Element/meta/name#standard_metadata_names_defined_in_the_html_specification) gesetzt ist.
+Das `content`-Attribut legt eine Beschreibung des Dokuments fest und wird dem Dokument-`<head>` hinzugefügt:
 
 ```js
 const meta = document.createElement("meta");
@@ -53,6 +53,6 @@ document.head.appendChild(meta);
 ## Siehe auch
 
 - {{HTMLElement("meta")}}
-- {{domxref("HTMLMetaElement.name")}}
-- {{domxref("HTMLMetaElement.httpEquiv")}}
+- [`HTMLMetaElement.name`](/de/docs/Web/API/HTMLMetaElement/name)
+- [`HTMLMetaElement.httpEquiv`](/de/docs/Web/API/HTMLMetaElement/httpEquiv)
 - [Lernen: Metadaten in HTML](/de/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#metadata_the_meta_element)

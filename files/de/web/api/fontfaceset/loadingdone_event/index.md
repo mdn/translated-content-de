@@ -12,7 +12,7 @@ Das `loadingdone` Ereignis wird ausgelöst, wenn das Dokument alle Schriftarten 
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("loadingdone", (event) => {});
@@ -22,7 +22,7 @@ onloadingdone = (event) => {};
 
 ## Beispiel
 
-Im folgenden Beispiel wird "Font loading complete" in die Konsole ausgegeben, wenn das Laden der Schriftart `Ephesis` abgeschlossen ist.
+Im folgenden Beispiel wird, wenn die Schriftart `Ephesis` das Laden abgeschlossen hat, "Font loading complete" in die Konsole ausgegeben.
 
 ```js
 document.fonts.onloadingdone = () => {

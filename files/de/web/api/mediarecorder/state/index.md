@@ -1,5 +1,5 @@
 ---
-title: "MediaRecorder: state-Eigenschaft"
+title: "MediaRecorder: state Eigenschaft"
 short-title: state
 slug: Web/API/MediaRecorder/state
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Die schreibgeschützte Eigenschaft **`state`** des {{domxref("MediaRecorder")}}-Interfaces gibt den aktuellen Zustand des aktuellen `MediaRecorder`-Objekts zurück.
+Die schreibgeschützte **`state`**-Eigenschaft des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces gibt den aktuellen Zustand des `MediaRecorder`-Objekts zurück.
 
 ## Wert
 
 Ein String, der einen der folgenden Werte enthält:
 
 - `inactive`
-  - : Die Aufnahme erfolgt nicht — sie wurde entweder noch nicht gestartet oder sie wurde gestartet und dann gestoppt.
+  - : Es findet keine Aufnahme statt — sie wurde entweder noch nicht gestartet oder wurde gestartet und dann gestoppt.
 - `recording`
-  - : Die Aufnahme wurde gestartet und der {{glossary("user agent")}} erfasst Daten.
+  - : Die Aufnahme wurde gestartet und der [User-Agent](/de/docs/Glossary/user_agent) erfasst Daten.
 - `paused`
-  - : Die Aufnahme wurde gestartet, dann pausiert, aber noch nicht gestoppt oder fortgesetzt.
+  - : Die Aufnahme wurde gestartet und dann pausiert, aber noch nicht gestoppt oder fortgesetzt.
 
 ## Beispiele
 
@@ -27,8 +27,8 @@ Ein String, der einen der folgenden Werte enthält:
 record.onclick = () => {
   mediaRecorder.start();
   console.log(mediaRecorder.state);
-  // Wird "recording" zurückgeben
-  console.log("recorder gestartet");
+  // Will return "recording"
+  console.log("recorder started");
 };
 ```
 
@@ -43,6 +43,6 @@ record.onclick = () => {
 ## Siehe auch
 
 - [Verwendung der MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API)
-- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder + getUserMedia + Web Audio API Visualisierungsdemo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelldatei auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
+- [Web Diktiergerät](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder + getUserMedia + Visualisierungs-Demo mit der Web Audio API, von [Chris Mills](https://github.com/chrisdavidmills) ([Quellcode auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
 - [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
-- {{domxref("Navigator.getUserMedia()")}}
+- [`Navigator.getUserMedia()`](/de/docs/Web/API/Navigator/getUserMedia)

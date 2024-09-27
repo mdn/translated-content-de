@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`arrayBuffer()`** Methode des {{domxref("Request")}}-Interfaces
-liest den Request-Body und gibt ihn als ein Promise zurück, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
+Die **`arrayBuffer()`**-Methode der [`Request`](/de/docs/Web/API/Request)-Schnittstelle liest den Anfrageinhalt und gibt ihn als ein Versprechen zurück, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
 
 ## Syntax
 
@@ -23,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Promise, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
+Ein Versprechen, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
 
 ## Beispiele
 
@@ -50,4 +49,4 @@ request.arrayBuffer().then((buffer) => {
 
 ## Siehe auch
 
-- {{domxref("Response.arrayBuffer()")}}
+- [`Response.arrayBuffer()`](/de/docs/Web/API/Response/arrayBuffer)

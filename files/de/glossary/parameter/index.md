@@ -7,42 +7,42 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Parameter** sind benannte Variablen, die als Teil einer {{Glossary("function")}} deklariert werden. Sie werden verwendet, um auf die an die Funktion übergebenen {{Glossary("argument", "arguments")}} zu verweisen.
+**Parameter** sind benannte Variablen, die als Teil einer [function](/de/docs/Glossary/function) deklariert werden. Sie werden verwendet, um auf die [arguments](/de/docs/Glossary/argument) zu verweisen, die in die Funktion übergeben werden.
 
 Zum Beispiel:
 
 ```js
 const argument1 = "Web";
 const argument2 = "Development";
-example(argument1, argument2); // zwei Argumente werden übergeben
+example(argument1, argument2); // passing two arguments
 
-// Diese Funktion nimmt zwei Werte entgegen
+// This function takes two values
 function example(parameter1, parameter2) {
-  console.log(parameter1); // Ausgabe = "Web"
-  console.log(parameter2); // Ausgabe = "Development"
+  console.log(parameter1); // Output = "Web"
+  console.log(parameter2); // Output = "Development"
 }
 ```
 
 Es gibt zwei Arten von Parametern:
 
 - Eingabeparameter
-  - : die häufigste Art; sie übergeben Werte an Funktionen. Abhängig von der Programmiersprache können Eingabeparameter auf verschiedene Weisen übergeben werden (z.B. call-by-value, call-by-address, call-by-reference).
-- Ausgabe-/Rückgabeparameter
-  - : geben in erster Linie mehrere Werte aus einer Funktion zurück, werden jedoch nicht empfohlen, da sie Verwirrung stiften
+  - : die häufigste Art; sie übermitteln Werte an Funktionen. Je nach Programmiersprache können Eingabeparameter auf verschiedene Weise übergeben werden (z.B. Call-by-Value, Call-by-Address, Call-by-Reference).
+- Ausgabe/Rückgabeparameter
+  - : hauptsächlich, um mehrere Werte aus einer Funktion zurückzugeben, aber sie werden nicht empfohlen, da sie Verwirrung verursachen
 
 ### Parameter versus Argumente
 
 Beachten Sie den Unterschied zwischen _Parameter_ und _Argumente_:
 
 - Funktionsparameter sind die Namen, die in der Definition der Funktion aufgeführt sind.
-- Funktions{{Glossary("argument","arguments")}} sind die tatsächlichen Werte, die an die Funktion übergeben werden.
-- Parameter werden mit den Werten der bereitgestellten Argumente initialisiert.
+- Funktions-[arguments](/de/docs/Glossary/argument) sind die tatsächlichen Werte, die der Funktion übergeben werden.
+- Parameter werden auf die Werte der bereitgestellten Argumente initialisiert.
 
 ## Siehe auch
 
 - [Unterschied zwischen _Parameter_ und _Argumente_](<https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments>)
-- [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function)
-- [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function)
+- [Function declaration](/de/docs/Web/JavaScript/Reference/Statements/function)
+- [Function expression](/de/docs/Web/JavaScript/Reference/Operators/function)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Function")}}
-  - {{Glossary("Argument")}}
+  - [Function](/de/docs/Glossary/Function)
+  - [Argument](/de/docs/Glossary/Argument)

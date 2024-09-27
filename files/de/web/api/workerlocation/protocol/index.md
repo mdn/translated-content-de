@@ -1,5 +1,5 @@
 ---
-title: "WorkerLocation: Eigenschaft protocol"
+title: "WorkerLocation: protocol-Eigenschaft"
 short-title: protocol
 slug: Web/API/WorkerLocation/protocol
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`protocol`**-Eigenschaft eines {{domxref("WorkerLocation")}}-Objekts gibt den {{domxref("URL.protocol", "Protokoll")}}-Teil des Standorts des Workers zurück.
+Die **`protocol`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt den [`protocol`](/de/docs/Web/API/URL/protocol)-Teil des Standortes des Workers zurück.
 
 ## Wert
 
@@ -17,18 +17,18 @@ Ein String.
 ## Beispiele
 
 ```js
-// In einem Web Worker, auf der Seite https://developer.mozilla.org/de/docs/Web
-const result = location.protocol; // Gibt 'https:' zurück
+// In a Web worker, on the page https://developer.mozilla.org/en-US/docs/Web
+const result = location.protocol; // Returns 'https:'
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Das {{domxref("WorkerLocation")}}-Interface, zu dem es gehört.
+- Das [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Interface, zu dem es gehört.

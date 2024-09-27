@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`TransformStreamDefaultController`**-Schnittstelle der [Streams API](/de/docs/Web/API/Streams_API) bietet Methoden zur Manipulation des zugehörigen {{domxref("ReadableStream")}} und {{domxref("WritableStream")}}.
+Die **`TransformStreamDefaultController`**-Schnittstelle der [Streams API](/de/docs/Web/API/Streams_API) bietet Methoden zur Manipulation des zugehörigen [`ReadableStream`](/de/docs/Web/API/ReadableStream) und [`WritableStream`](/de/docs/Web/API/WritableStream).
 
-Bei der Konstruktion eines {{domxref("TransformStream")}} wird der `TransformStreamDefaultController` erstellt. Daher hat er keinen Konstruktor. Eine Instanz von `TransformStreamDefaultController` erhält man über die Callback-Methoden von {{domxref("TransformStream.TransformStream", "TransformStream()")}}.
+Beim Erstellen eines [`TransformStream`](/de/docs/Web/API/TransformStream) wird der `TransformStreamDefaultController` erstellt. Daher hat er keinen Konstruktor. Eine Instanz von `TransformStreamDefaultController` erhält man über die Callback-Methoden von [`TransformStream()`](/de/docs/Web/API/TransformStream/TransformStream).
 
 ## Instanz-Eigenschaften
 
-- {{domxref("TransformStreamDefaultController.desiredSize")}} {{ReadOnlyInline}}
+- [`TransformStreamDefaultController.desiredSize`](/de/docs/Web/API/TransformStreamDefaultController/desiredSize) {{ReadOnlyInline}}
   - : Gibt die gewünschte Größe zurück, um die lesbare Seite der internen Warteschlange des Streams zu füllen.
 
 ## Instanz-Methoden
 
-- {{domxref("TransformStreamDefaultController.enqueue()")}}
-  - : Stellt ein Stück (einzelnes Datenstück) in die lesbare Seite des Streams ein.
-- {{domxref("TransformStreamDefaultController.error()")}}
-  - : Fehler sowohl auf der lesbaren als auch auf der beschreibbaren Seite des Transform-Streams.
-- {{domxref("TransformStreamDefaultController.terminate()")}}
-  - : Schließt die lesbare Seite und fehlerhaft die beschreibbare Seite des Streams.
+- [`TransformStreamDefaultController.enqueue()`](/de/docs/Web/API/TransformStreamDefaultController/enqueue)
+  - : Stellt ein Datenstück (einzelnes Datenstück) in der lesbaren Seite des Streams in die Warteschlange.
+- [`TransformStreamDefaultController.error()`](/de/docs/Web/API/TransformStreamDefaultController/error)
+  - : Fehlerbehaftet sowohl die lesbare als auch die beschreibbare Seite des Transform-Streams.
+- [`TransformStreamDefaultController.terminate()`](/de/docs/Web/API/TransformStreamDefaultController/terminate)
+  - : Schließt die lesbare Seite und fehlerbehaftet die beschreibbare Seite des Streams.
 
 ## Beispiele
 
-Im folgenden Beispiel leitet ein Transform-Stream alle empfangenen Stücke als {{jsxref("Uint8Array")}}-Werte weiter, indem die Methoden {{domxref("TransformStreamDefaultController.error()","error()")}} und {{domxref("TransformStreamDefaultController.enqueue()","enqueue()")}} verwendet werden.
+Im folgenden Beispiel leitet ein Transform-Stream alle Datenstücke, die er als {{jsxref("Uint8Array")}}-Werte erhält, weiter und verwendet die Methoden [`error()`](/de/docs/Web/API/TransformStreamDefaultController/error) und [`enqueue()`](/de/docs/Web/API/TransformStreamDefaultController/enqueue).
 
 ```js
 const transformContent = {

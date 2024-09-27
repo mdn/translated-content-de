@@ -8,30 +8,30 @@ l10n:
 
 {{APIRef("Screen Orientation API")}}
 
-Die schreibgeschützte **`orientation`**-Eigenschaft der {{DOMxRef("Screen")}}-Schnittstelle gibt die aktuelle Ausrichtung des Bildschirms zurück.
+Die **`orientation`**-Eigenschaft des [`Screen`](/de/docs/Web/API/Screen)-Interfaces ist eine schreibgeschützte Eigenschaft und gibt die aktuelle Ausrichtung des Bildschirms zurück.
 
 ## Wert
 
-Eine Instanz von {{DOMxRef("ScreenOrientation")}}, die die Ausrichtung des Bildschirms darstellt.
+Eine Instanz von [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation), die die Ausrichtung des Bildschirms darstellt.
 
-Beachten Sie, dass ältere, vorgepräfixte Versionen einen String zurückgaben, der äquivalent zu {{DOMxRef("ScreenOrientation.type")}} ist.
+Beachten Sie, dass ältere, mit Präfix versehene Versionen einen String zurückgaben, der dem [`ScreenOrientation.type`](/de/docs/Web/API/ScreenOrientation/type) äquivalent ist.
 
 ## Beispiele
 
 ```js
 switch (screen.orientation.type) {
   case "landscape-primary":
-    console.log("Das sieht gut aus.");
+    console.log("That looks good.");
     break;
   case "landscape-secondary":
-    console.log("Mmmh… der Bildschirm steht kopfüber!");
+    console.log("Mmmh… the screen is upside down!");
     break;
   case "portrait-secondary":
   case "portrait-primary":
-    console.log("Mmmh… Sie sollten Ihr Gerät in den Querformatmodus drehen");
+    console.log("Mmmh… you should rotate your device to landscape");
     break;
   default:
-    console.log("Die Orientation-API wird in diesem Browser nicht unterstützt :(");
+    console.log("The orientation API isn't supported in this browser :(");
 }
 ```
 
@@ -45,6 +45,6 @@ switch (screen.orientation.type) {
 
 ## Siehe auch
 
-- {{DOMxRef("ScreenOrientation")}}
-- {{DOMxRef("Screen.orientationchange_event", "orientationchange")}}-Ereignis
-- [Verwalten der Bildschirmausrichtung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
+- [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)
+- [`orientationchange`](/de/docs/Web/API/Screen/orientationchange_event) Ereignis
+- [Verwaltung der Bildschirmausrichtung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)

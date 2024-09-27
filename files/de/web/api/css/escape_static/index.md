@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`CSS.escape()`** statische Methode gibt eine Zeichenkette zurück, die die übergebene Zeichenkette maskiert enthält, hauptsächlich zur Verwendung als Teil eines CSS-Selektors.
+Die statische Methode **`CSS.escape()`** gibt einen String zurück, der den übergebenen String in entkommener Form enthält, hauptsächlich zur Verwendung als Teil eines CSS-Selectors.
 
 ## Syntax
 
@@ -19,35 +19,35 @@ CSS.escape(str)
 ### Parameter
 
 - `str`
-  - : Die Zeichenkette, die maskiert werden soll.
+  - : Der zu entkommende String.
 
 ### Rückgabewert
 
-Die maskierte Zeichenkette.
+Der entkommene String.
 
 ## Beispiele
 
 ### Grundlegende Ergebnisse
 
-<!-- Hinweis: die {} müssen dreifach-escaped werden, einmal für Yari -->
+<!-- Note: the {} need to be triple-escaped, once for Yari -->
 
 ```js-nolint
 CSS.escape(".foo#bar"); // "\\.foo\\#bar"
 CSS.escape("()[]{}"); // "\\(\\)\\[\\]\\\{\\\}"
 CSS.escape('--a'); // "--a"
-CSS.escape(0); // "\\30 ", der Unicode-Codepunkt von '0' ist 30
-CSS.escape('\0'); // "\ufffd", das Unicode-ERSATZ-ZEICHEN
+CSS.escape(0); // "\\30 ", the Unicode code point of '0' is 30
+CSS.escape('\0'); // "\ufffd", the Unicode REPLACEMENT CHARACTER
 ```
 
-### Verwendung im Kontext
+### Anwendungsbeispiele im Kontext
 
-Um eine Zeichenkette zur Verwendung als Teil eines Selektors zu maskieren, kann die Methode `escape()` verwendet werden:
+Um einen String zur Verwendung als Teil eines Selectors zu entkommen, kann die Methode `escape()` verwendet werden:
 
 ```js
 const element = document.querySelector(`#${CSS.escape(id)} > img`);
 ```
 
-Die `escape()`-Methode kann auch zum Maskieren von Zeichenketten verwendet werden, obwohl sie Zeichen maskiert, die nicht unbedingt maskiert werden müssen:
+Die Methode `escape()` kann auch zum Entkommen von Strings verwendet werden, obwohl sie Zeichen entkommt, die nicht unbedingt entkommen werden müssen:
 
 ```js
 const element = document.querySelector(`a[href="#${CSS.escape(fragment)}"]`);
@@ -63,5 +63,5 @@ const element = document.querySelector(`a[href="#${CSS.escape(fragment)}"]`);
 
 ## Siehe auch
 
-- Das {{DOMxRef("CSS")}} Interface, in welchem sich diese statische Methode befindet.
+- Das [`CSS`](/de/docs/Web/API/CSS) Interface, in dem sich diese statische Methode befindet.
 - [Ein Polyfill für CSS.escape](https://github.com/mathiasbynens/CSS.escape/blob/master/css.escape.js)

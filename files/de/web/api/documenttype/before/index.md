@@ -1,5 +1,5 @@
 ---
-title: "DocumentType: Methode before()"
+title: "DocumentType: before() Methode"
 short-title: before()
 slug: Web/API/DocumentType/before
 l10n:
@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die Methode **`DocumentType.before()`** fügt eine Reihe von {{domxref("Node")}}-Objekten oder Zeichenfolgen in die Kinderliste des Elternteils des `DocumentType` ein, direkt vor dem `DocumentType`. Zeichenfolgen werden als gleichwertige {{domxref("Text")}}-Knoten eingefügt.
+Die **`DocumentType.before()`** Methode fügt eine Menge von
+[`Node`](/de/docs/Web/API/Node) Objekten oder Zeichenfolgen in die Kinderliste des
+Elternteils des `DocumentType` ein, direkt vor dem `DocumentType`.
+Zeichenfolgen werden als gleichwertige [`Text`](/de/docs/Web/API/Text) Knoten eingefügt.
 
 ## Syntax
 
@@ -21,7 +24,7 @@ before(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Reihe von {{domxref("Node")}}-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+  - : Eine Menge von [`Node`](/de/docs/Web/API/Node) Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -29,14 +32,17 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
 
 ## Beispiele
 
 ### Hinzufügen eines bedingten Kommentars
 
-Kommentarknoten sind vor Doctype-Deklarationen gültig, jedoch nicht ratsam, da sie den Quirks-Modus in IE auslösen. Ein [bedingter Kommentar](https://en.wikipedia.org/wiki/Conditional_comment) funktioniert jedoch auch in IE:
+Kommentarknoten sind vor Doctyp-Deklarationen gültig, aber nicht ratsam,
+da sie den Quirks-Modus in IE auslösen. Ein
+[bedingter Kommentar](https://en.wikipedia.org/wiki/Conditional_comment)
+funktioniert allerdings auch in IE:
 
 ```js
 let docType = document.implementation.createDocumentType("html", "", "");
@@ -54,12 +60,12 @@ myDoc.childNodes;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("DocumentType.after()")}}
-- {{domxref("CharacterData.before()")}}
-- {{domxref("Element.before()")}}
+- [`DocumentType.after()`](/de/docs/Web/API/DocumentType/after)
+- [`CharacterData.before()`](/de/docs/Web/API/CharacterData/before)
+- [`Element.before()`](/de/docs/Web/API/Element/before)

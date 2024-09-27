@@ -7,16 +7,16 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:active`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) stellt ein Element (wie einen Button) dar, das vom Benutzer aktiviert wird. Bei der Verwendung einer Maus beginnt die "Aktivierung" normalerweise, wenn der Benutzer die primäre Maustaste drückt.
+Die **`:active`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element (wie einen Button), das vom Benutzer aktiviert wird. Bei Verwendung einer Maus beginnt die "Aktivierung" typischerweise, wenn der Benutzer die primäre Maustaste drückt.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-active.html", "tabbed-shorter")}}
 
-Die `:active` Pseudoklasse wird häufig auf {{HTMLElement("a")}} und {{HTMLElement("button")}} Elemente angewendet. Weitere häufige Ziele dieser Pseudoklasse sind Elemente, die _in einem_ aktivierten Element enthalten sind, und Formularelemente, die über ihr zugehöriges {{HTMLElement("label")}} aktiviert werden.
+Die `:active` Pseudoklasse wird häufig auf {{HTMLElement("a")}}- und {{HTMLElement("button")}}-Elementen verwendet. Weitere häufige Ziele dieser Pseudoklasse sind Elemente, die _in_ einem aktivierten Element enthalten sind, und Formularelemente, die durch ihr zugehöriges {{HTMLElement("label")}} aktiviert werden.
 
-Von der `:active` Pseudoklasse definierte Stile werden von nachfolgenden linkbezogenen Pseudoklassen ({{cssxref(":link")}}, {{cssxref(":hover")}}, oder {{cssxref(":visited")}}) mit mindestens gleicher Spezifität überschrieben. Um Links korrekt zu stylen, platzieren Sie die `:active` Regel nach allen anderen linkbezogenen Regeln, wie es von der _LVHA-Reihenfolge_ definiert wird: `:link` — `:visited` — `:hover` — `:active`.
+Durch die `:active` Pseudoklasse definierte Stile werden von jeder nachfolgenden, verknüpfungsbezogenen Pseudoklasse ({{cssxref(":link")}}, {{cssxref(":hover")}}, oder {{cssxref(":visited")}}) überschrieben, die mindestens die gleiche Spezifität aufweist. Um Links korrekt zu gestalten, setzen Sie die `:active` Regel nach allen anderen verknüpfungsbezogenen Regeln, wie im _LVHA-Reihenfolge_ definiert: `:link` — `:visited` — `:hover` — `:active`.
 
 > [!NOTE]
-> Auf Systemen mit Mehrtastenmäusen gibt CSS an, dass die `:active` Pseudoklasse nur auf die primäre Taste angewendet werden muss; bei rechtshändigen Mäusen ist dies typischerweise die linkeste Taste.
+> Auf Systemen mit Mäusen, die mehrere Tasten haben, gibt CSS an, dass die `:active` Pseudoklasse nur auf die primäre Taste angewendet werden muss; bei rechtshändigen Mäusen ist dies typischerweise die linke Taste.
 
 ## Syntax
 
@@ -34,33 +34,33 @@ Von der `:active` Pseudoklasse definierte Stile werden von nachfolgenden linkbez
 
 ```html
 <p>
-  Dieser Absatz enthält einen Link:
-  <a href="#">Dieser Link wird rot, während Sie darauf klicken.</a>
-  Der Absatz erhält einen grauen Hintergrund, während Sie auf ihn oder den Link klicken.
+  This paragraph contains a link:
+  <a href="#">This link will turn red while you click on it.</a>
+  The paragraph will get a gray background while you click on it or the link.
 </p>
 ```
 
 #### CSS
 
 ```css
-/* Unbesuchte Links */
+/* Unvisited links */
 a:link {
   color: blue;
 }
-/* Besuchte Links */
+/* Visited links */
 a:visited {
   color: purple;
 }
-/* Gehoverte Links */
+/* Hovered links */
 a:hover {
   background: yellow;
 }
-/* Aktive Links */
+/* Active links */
 a:active {
   color: red;
 }
 
-/* Aktive Absätze */
+/* Active paragraphs */
 p:active {
   background: #eee;
 }
@@ -76,8 +76,8 @@ p:active {
 
 ```html
 <form>
-  <label for="my-button">Mein Button: </label>
-  <button id="my-button" type="button">Versuchen Sie, mich oder mein Label anzuklicken!</button>
+  <label for="my-button">My button: </label>
+  <button id="my-button" type="button">Try Clicking Me or My Label!</button>
 </form>
 ```
 
@@ -107,4 +107,4 @@ form button {
 
 ## Siehe auch
 
-- Linkbezogene Pseudoklassen: {{cssxref(":link")}}, {{cssxref(":visited")}}, und {{cssxref(":hover")}}
+- Verknüpfungsbezogene Pseudoklassen: {{cssxref(":link")}}, {{cssxref(":visited")}}, und {{cssxref(":hover")}}

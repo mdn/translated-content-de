@@ -7,39 +7,39 @@ l10n:
 
 {{DefaultAPISidebar("Image Capture API")}}{{SeeCompatTable}}
 
-Die **MediaStream Image Capture API** ist eine API zum Erfassen von Bildern oder Videos von einem fotografischen Gerät. Neben der Erfassung von Daten können Sie auch Informationen über Gerätekapazitäten wie Bildgröße, Rote-Augen-Reduktion und darüber, ob ein Blitz vorhanden ist und wie sie aktuell eingestellt sind, abrufen. Umgekehrt ermöglicht die API die Konfiguration der Fähigkeiten innerhalb der vom Gerät erlaubten Einschränkungen.
+Die **MediaStream Image Capture API** ist eine API zum Erfassen von Bildern oder Videos von einem fotografischen Gerät. Neben der Erfassung von Daten ermöglicht sie es auch, Informationen über die Gerätefähigkeiten wie Bildgröße, Rote-Augen-Reduktion und ob ein Blitz vorhanden ist und wie diese derzeit eingestellt sind, abzurufen. Im Gegenzug erlaubt die API das Konfigurieren der Fähigkeiten innerhalb der Grenzen, die das Gerät zulässt.
 
-## Konzepte und Verwendung der MediaStream Image Capture
+## Konzepte und Verwendung von MediaStream Image Capture
 
-Der Prozess des Abrufens eines Bild- oder Videostreams erfolgt wie unten beschrieben. Der Beispielcode ist an [Chromes Image Capture-Beispiele](https://googlechrome.github.io/samples/image-capture/) angepasst.
+Der Prozess des Abrufens eines Bild- oder Videostreams erfolgt wie unten beschrieben. Der Beispielcode ist aus den [Beispielen zur Bildaufnahme von Chrome](https://googlechrome.github.io/samples/image-capture/) übernommen.
 
-Zuerst erhalten Sie eine Referenz auf ein Gerät, indem Sie {{domxref("MediaDevices.getUserMedia()")}} aufrufen. Das untenstehende Beispiel gibt an, dass ein verfügbares Videogerät verwendet werden soll, obwohl die Methode `getUserMedia()` spezifischere Fähigkeiten anfordern kann. Diese Methode gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("MediaStream")}}-Objekt aufgelöst wird.
+Zuerst erhalten Sie eine Referenz zu einem Gerät, indem Sie [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) aufrufen. Das untenstehende Beispiel gibt an, welches Videogerät verfügbar ist, obwohl die `getUserMedia()`-Methode ermöglicht, spezifischere Fähigkeiten anzufordern. Diese Methode gibt ein {{jsxref("Promise")}} zurück, das mit einem [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt aufgelöst wird.
 
 ```js
 navigator.mediaDevices.getUserMedia({ video: true }).then((mediaStream) => {
-  // Tun Sie etwas mit dem Stream.
+  // Do something with the stream.
 });
 ```
 
-Als nächstes isolieren Sie den visuellen Teil des Medienstreams. Dies erfolgt durch Aufrufen von {{domxref("MediaStream.getVideoTracks()")}}. Dies gibt ein Array von {{domxref("MediaStreamTrack")}}-Objekten zurück. Der folgende Code geht davon aus, dass das erste Element im `MediaStreamTrack`-Array das zu verwendende ist. Sie können die Eigenschaften der `MediaStreamTrack`-Objekte verwenden, um das benötigte auszuwählen.
+Als Nächstes isolieren Sie den visuellen Teil des Medienstreams. Dies tun Sie, indem Sie [`MediaStream.getVideoTracks()`](/de/docs/Web/API/MediaStream/getVideoTracks) aufrufen. Dies gibt ein Array von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekten zurück. Der untenstehende Code geht davon aus, dass das erste Element im `MediaStreamTrack`-Array das zu verwendende ist. Sie können die Eigenschaften der `MediaStreamTrack`-Objekte verwenden, um das benötigte auszuwählen.
 
 ```js
 const track = mediaStream.getVideoTracks()[0];
 ```
 
-An diesem Punkt möchten Sie möglicherweise die Geräteeinstellungen konfigurieren, bevor Sie ein Bild aufnehmen. Sie können dies tun, indem Sie {{domxref("MediaStreamTrack.applyConstraints","applyConstraints()")}} auf dem Track-Objekt aufrufen, bevor Sie etwas anderes tun.
+An diesem Punkt möchten Sie möglicherweise die Gerätefähigkeiten konfigurieren, bevor Sie ein Bild erfassen. Sie können dies tun, indem Sie [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) auf dem Track-Objekt aufrufen, bevor Sie etwas anderes tun.
 
 ```js
 let zoom = document.querySelector("#zoom");
 const capabilities = track.getCapabilities();
-// Überprüfen, ob Zoom unterstützt wird oder nicht.
+// Check whether zoom is supported or not.
 if (!capabilities.zoom) {
   return;
 }
 track.applyConstraints({ advanced: [{ zoom: zoom.value }] });
 ```
 
-Schließlich übergeben Sie das `MediaStreamTrack`-Objekt dem {{domxref("ImageCapture.ImageCapture()", "ImageCapture()")}}-Konstruktor. Obwohl ein `MediaStream` mehrere Arten von Tracks enthält und mehrere Methoden zu deren Abruf bereitstellt, wird der ImageCapture-Konstruktor eine {{domxref("DOMException")}} des Typs `NotSupportedError` auslösen, wenn {{domxref("MediaStreamTrack.kind")}} nicht `"video"` ist.
+Schließlich übergeben Sie das `MediaStreamTrack`-Objekt an den [`ImageCapture()`](/de/docs/Web/API/ImageCapture/ImageCapture)-Konstruktor. Obwohl ein `MediaStream` mehrere Arten von Tracks hält und mehrere Methoden zum Abrufen bereitstellt, wird der ImageCapture-Konstruktor eine [`DOMException`](/de/docs/Web/API/DOMException) des Typs `NotSupportedError` werfen, wenn [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) nicht `"video"` ist.
 
 ```js
 let imageCapture = new ImageCapture(track);
@@ -47,8 +47,8 @@ let imageCapture = new ImageCapture(track);
 
 ## Schnittstellen
 
-- {{domxref("ImageCapture")}} {{Experimental_Inline}}
-  - : Eine Schnittstelle zum Erfassen von Bildern von einem über einen gültigen {{domxref("MediaStreamTrack")}} referenzierten fotografischen Gerät.
+- [`ImageCapture`](/de/docs/Web/API/ImageCapture) {{Experimental_Inline}}
+  - : Eine Schnittstelle zum Aufnehmen von Bildern von einem fotografischen Gerät, das über einen gültigen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) referenziert wird.
 
 ## Spezifikationen
 
@@ -60,5 +60,5 @@ let imageCapture = new ImageCapture(track);
 
 ## Siehe auch
 
-- {{domxref("MediaStream")}}
-- {{domxref("MediaStreamTrack")}}
+- [`MediaStream`](/de/docs/Web/API/MediaStream)
+- [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

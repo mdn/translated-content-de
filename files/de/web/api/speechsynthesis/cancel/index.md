@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`cancel()`**-Methode der {{domxref("SpeechSynthesis")}}-Schnittstelle entfernt alle Äußerungen aus der Warteschlange.
+Die **`cancel()`** Methode des [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Interfaces entfernt alle Äußerungen aus der Äußerungsschlange.
 
-Wenn gerade eine Äußerung gesprochen wird, wird das Sprechen sofort gestoppt.
+Wenn gerade eine Äußerung gesprochen wird, stoppt das Sprechen sofort.
 
 ## Syntax
 
@@ -41,7 +41,7 @@ const utterance2 = new SpeechSynthesisUtterance(
 synth.speak(utterance1);
 synth.speak(utterance2);
 
-synth.cancel(); // utterance1 wird sofort gestoppt, und beide werden aus der Warteschlange entfernt
+synth.cancel(); // utterance1 stops being spoken immediately, and both are removed from the queue
 ```
 
 ## Spezifikationen

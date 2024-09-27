@@ -1,5 +1,5 @@
 ---
-title: "Dokument: preferredStyleSheetSet-Eigenschaft"
+title: "Document: preferredStyleSheetSet-Eigenschaft"
 short-title: preferredStyleSheetSet
 slug: Web/API/Document/preferredStyleSheetSet
 l10n:
@@ -12,10 +12,9 @@ Die **`preferredStyleSheetSet`**-Eigenschaft gibt das bevorzugte Stylesheet-Set 
 
 ## Wert
 
-Das vom Autor bevorzugte Stylesheet-Set. Dies wird aus der Reihenfolge der Stylesheet-Deklarationen und dem
-`Default-Style` HTTP-Header bestimmt.
+Das bevorzugte Stylesheet-Set des Autors. Dies wird durch die Reihenfolge der Stylesheet-Deklarationen und den `Default-Style` HTTP-Header bestimmt.
 
-Wenn kein bevorzugtes Stylesheet-Set vom Autor definiert ist, wird der leere String (`""`) zurückgegeben.
+Wenn kein bevorzugtes Stylesheet-Set vom Autor definiert wurde, wird der leere String (`""`) zurückgegeben.
 
 ## Beispiele
 
@@ -35,7 +34,7 @@ if (document.preferredStyleSheetSet) {
 
 ## Siehe auch
 
-- {{domxref("document.lastStyleSheetSet")}}
-- {{domxref("document.selectedStyleSheetSet")}}
-- {{domxref("document.styleSheetSets")}}
-- {{domxref("document.enableStyleSheetsForSet()")}}
+- [`document.lastStyleSheetSet`](/de/docs/Web/API/Document/lastStyleSheetSet)
+- [`document.selectedStyleSheetSet`](/de/docs/Web/API/Document/selectedStyleSheetSet)
+- [`document.styleSheetSets`](/de/docs/Web/API/Document/styleSheetSets)
+- [`document.enableStyleSheetsForSet()`](/de/docs/Web/API/Document/enableStyleSheetsForSet)

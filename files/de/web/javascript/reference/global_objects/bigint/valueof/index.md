@@ -7,8 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`valueOf()`** Methode der {{jsxref("BigInt")}} Werte gibt den eingeschlossenen primitiven Wert
-eines {{jsxref("BigInt")}} Objekts zurück.
+Die **`valueOf()`**-Methode von {{jsxref("BigInt")}}-Werten gibt den eingebetteten primitiven Wert eines {{jsxref("BigInt")}}-Objekts zurück.
 
 {{EmbedInteractiveExample("pages/js/bigint-valueof.html", "shorter")}}
 
@@ -24,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein BigInt, das den primitiven Wert des angegebenen {{jsxref("BigInt")}} Objekts darstellt.
+Ein BigInt, das den primitiven Wert des angegebenen {{jsxref("BigInt")}}-Objekts darstellt.
 
 ## Beispiele
 

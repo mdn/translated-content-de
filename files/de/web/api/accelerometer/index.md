@@ -1,5 +1,5 @@
 ---
-title: Beschleunigungsmesser
+title: Accelerometer
 slug: Web/API/Accelerometer
 l10n:
   sourceCommit: 4ea748e5f025c2a00a8ca8babd7c505e73ad9def
@@ -7,41 +7,41 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Das **`Accelerometer`**-Interface der [Sensor APIs](/de/docs/Web/API/Sensor_APIs) liefert bei jeder Messung die auf das Gerät angewendete Beschleunigung entlang aller drei Achsen.
+Die **`Accelerometer`**-Schnittstelle der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) liefert bei jeder Ablesung die Beschleunigung, die auf das Gerät entlang aller drei Achsen angewendet wird.
 
-Um diesen Sensor zu verwenden, muss der Benutzer die Berechtigung für den `'accelerometer'`, Gerätesensor über die [Permissions API](/de/docs/Web/API/Permissions_API) erteilen.
+Um diesen Sensor zu verwenden, muss der Benutzer die Berechtigung für den `'accelerometer'`, Geräte-Sensor über die [Permissions-API](/de/docs/Web/API/Permissions_API) erteilen.
 
-Diese Funktion kann durch eine auf Ihrem Server gesetzte [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
+Diese Funktion kann durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden, die auf Ihrem Server festgelegt ist.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("Accelerometer.Accelerometer()", "Accelerometer()")}} {{Experimental_Inline}}
+- [`Accelerometer()`](/de/docs/Web/API/Accelerometer/Accelerometer) {{Experimental_Inline}}
   - : Erstellt ein neues `Accelerometer`-Objekt.
 
 ## Instanz-Eigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften erbt `Accelerometer` Eigenschaften von seinen übergeordneten Schnittstellen, {{domxref("Sensor")}} und {{domxref("EventTarget")}}._
+_Zusätzlich zu den unten aufgeführten Eigenschaften erbt `Accelerometer` Eigenschaften von seinen übergeordneten Schnittstellen, [`Sensor`](/de/docs/Web/API/Sensor) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref('Accelerometer.x')}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen Double-Wert zurück, der die Beschleunigung des Geräts entlang der x-Achse des Geräts enthält.
-- {{domxref('Accelerometer.y')}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen Double-Wert zurück, der die Beschleunigung des Geräts entlang der y-Achse des Geräts enthält.
-- {{domxref('Accelerometer.z')}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen Double-Wert zurück, der die Beschleunigung des Geräts entlang der z-Achse des Geräts enthält.
+- [`Accelerometer.x`](/de/docs/Web/API/Accelerometer/x) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen Doppelwert zurück, der die Beschleunigung des Geräts entlang der x-Achse des Geräts enthält.
+- [`Accelerometer.y`](/de/docs/Web/API/Accelerometer/y) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen Doppelwert zurück, der die Beschleunigung des Geräts entlang der y-Achse des Geräts enthält.
+- [`Accelerometer.z`](/de/docs/Web/API/Accelerometer/z) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen Doppelwert zurück, der die Beschleunigung des Geräts entlang der z-Achse des Geräts enthält.
 
 ## Instanz-Methoden
 
-_`Accelerometer` hat keine eigenen Methoden. Es erbt jedoch Methoden von seinen übergeordneten Schnittstellen, {{domxref("Sensor")}} und {{domxref("EventTarget")}}._
+_`Accelerometer` hat keine eigenen Methoden. Es erbt jedoch Methoden seiner übergeordneten Schnittstellen, [`Sensor`](/de/docs/Web/API/Sensor) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Ereignisse
 
-_`Accelerometer` hat keine eigenen Ereignisse. Es erbt jedoch Ereignisse von seiner übergeordneten Schnittstelle, {{domxref('Sensor')}}._
+_`Accelerometer` hat keine eigenen Ereignisse. Es erbt jedoch Ereignisse von seiner übergeordneten Schnittstelle, [`Sensor`](/de/docs/Web/API/Sensor)._
 
 ## Beispiel
 
-Die Beschleunigung wird typischerweise im {{domxref('Sensor.reading_event', 'reading')}}-Ereignis-Callback gelesen. Im folgenden Beispiel erfolgt dies sechzig Mal pro Sekunde.
+Die Beschleunigung wird normalerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback ausgelesen. Im untenstehenden Beispiel geschieht dies sechzig Mal pro Sekunde.
 
 ```js
 const acl = new Accelerometer({ frequency: 60 });

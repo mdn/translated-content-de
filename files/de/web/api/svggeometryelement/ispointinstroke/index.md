@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die Methode **`SVGGeometryElement.isPointInStroke()`** ermittelt, ob ein gegebener Punkt innerhalb der Konturform eines Elements liegt. Normale Regeln für Treffertests gelten; der Wert der {{cssxref("pointer-events")}}-Eigenschaft auf dem Element bestimmt, ob ein Punkt innerhalb der Kontur betrachtet wird. Das `point`-Argument wird als ein Punkt im lokalen Koordinatensystem des Elements interpretiert.
+Die **`SVGGeometryElement.isPointInStroke()`**-Methode
+ermittelt, ob ein gegebener Punkt innerhalb der Konturform eines Elements liegt. Es gelten die normalen Regeln für Treffertests; der Wert der {{cssxref("pointer-events")}}-Eigenschaft des Elements bestimmt, ob ein Punkt innerhalb der Kontur betrachtet wird. Das `point`-Argument wird als Punkt im lokalen Koordinatensystem des Elements interpretiert.
 
 ## Syntax
 
@@ -19,7 +20,8 @@ isPointInStroke(point)
 ### Parameter
 
 - `point`
-  - : Ein Objekt, das als Punkt im lokalen Koordinatensystem des Elements interpretiert wird.
+  - : Ein Objekt, das als Punkt im lokalen Koordinatensystem des
+    Elements interpretiert wird.
 
 ### Rückgabewert
 
@@ -95,6 +97,6 @@ for (const point of points) {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

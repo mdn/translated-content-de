@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das **`markerWidth`**-Attribut repräsentiert die Breite des Viewports, in den das {{SVGElement("marker")}} eingefügt wird, wenn es gemäß den Attributen {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} gerendert wird.
+Das Attribut **`markerWidth`** repräsentiert die Breite des Ansichtsbereichs, in den das {{SVGElement("marker")}} eingefügt werden soll, wenn es gemäß den Attributen {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} gerendert wird.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("marker")}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -37,11 +37,11 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - `<length-percentage>`
   - : Dieser Wert definiert entweder eine absolute oder eine relative Breite des Markers.
-    Relative Werte beziehen sich auf die Breite, die über die Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} angegeben wird.
+    Relative Werte beziehen sich auf die Breite, die durch die Attribute {{SVGAttr("viewBox")}} und {{SVGAttr("preserveAspectRatio")}} angegeben wird.
 - `<number>`
   - : Dieser Wert definiert die Breite des Markers in den Einheiten, die durch das Attribut {{SVGAttr("markerUnits")}} festgelegt sind.
 
-Ein Wert von Null deaktiviert das Rendern des Elements und negative Werte sind ein Fehler.
+Ein Wert von null deaktiviert das Rendern des Elements, und negative Werte sind ein Fehler.
 
 ## Spezifikationen
 

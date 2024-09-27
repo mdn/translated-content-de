@@ -7,26 +7,26 @@ l10n:
 
 {{AddonSidebar}}
 
-Details, die beschreiben, wie eine Umleitung durchgeführt werden soll, als die `redirect`-Eigenschaft einer {{WebExtAPIRef("declarativeNetRequest.RuleAction", "RuleAction")}}. Nur gültig für Umleitungsregeln.
+Details, die beschreiben, wie eine Weiterleitung durchgeführt werden soll, als die `redirect`-Eigenschaft eines {{WebExtAPIRef("declarativeNetRequest.RuleAction", "RuleAction")}}. Nur gültig für Weiterleitungsregeln.
 
 > [!NOTE]
-> Eine Umleitungsaktion leitet die Anfrage nicht um, und die Anfrage wird wie gewohnt fortgesetzt, wenn:
+> Eine Weiterleitungsaktion leitet die Anfrage nicht um, und die Anfrage wird wie gewohnt fortgesetzt, wenn:
 >
 > - die Aktion die Anfrage nicht ändert.
-> - die Umleitungs-URL ungültig ist (z.B. wenn der Wert von {{WebExtAPIRef("declarativeNetRequest.redirect","redirect.regexSubstitution")}} keine gültige URL ist).
+> - die Weiterleitungs-URL ungültig ist (z.B. ist der Wert von {{WebExtAPIRef("declarativeNetRequest.redirect","redirect.regexSubstitution")}} keine gültige URL).
 
 ## Typ
 
-Werte dieses Typs sind Objekte. Sie enthalten diese Eigenschaften:
+Werte dieses Typs sind Objekte. Sie enthalten folgende Eigenschaften:
 
 - `extensionPath` {{optional_inline}}
-  - : Ein `string`. Der Pfad relativ zum Erweiterungsverzeichnis. Sollte mit '/' beginnen. Der Initiator der Anfrage kann der Umleitung nur folgen, wenn die Ressource in [`web_accessible_resources`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) aufgeführt ist.
+  - : Ein `string`. Der Pfad relativ zum Erweiterungsverzeichnis. Sollte mit '/' beginnen. Der Initiator der Anfrage kann der Weiterleitung nur folgen, wenn die Ressource in [`web_accessible_resources`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) aufgeführt ist.
 - `regexSubstitution` {{optional_inline}}
-  - : Ein `string`. Das Ersetzungsmuster für Regeln, die einen `regexFilter` angeben. Der erste Treffer von `regexFilter` innerhalb der URL wird durch dieses Muster ersetzt. Innerhalb von `regexSubstitution` werden rückwärtsschließende Ziffern (`\1` bis `\9`) verwendet, um die entsprechenden Erfassungsgruppen einzufügen. `\0` bezieht sich auf den gesamten übereinstimmenden Text.
+  - : Ein `string`. Das Ersatzmuster für Regeln, die einen `regexFilter` spezifizieren. Das erste Vorkommen von `regexFilter` innerhalb der URL wird durch dieses Muster ersetzt. Innerhalb von `regexSubstitution` werden rückwärtsschritteskaped Ziffern (`\1` bis `\9`) verwendet, um die entsprechenden Erfassungsgruppen einzufügen. `\0` bezieht sich auf den gesamten übereinstimmenden Text.
 - `transform` {{optional_inline}}
-  - : {{WebExtAPIRef("declarativeNetRequest.URLTransform")}}. Die durchzuführenden URL-Transformationen.
+  - : {{WebExtAPIRef("declarativeNetRequest.URLTransform")}}. Die auszuführenden URL-Transformationen.
 - `url` {{optional_inline}}
-  - : Ein `string`. Die Umleitungs-URL. Umleitungen zu JavaScript-URLs sind nicht erlaubt.
+  - : Ein `string`. Die Weiterleitungs-URL. Weiterleitungen zu JavaScript-URLs sind nicht erlaubt.
 
 {{WebExtExamples("h2")}}
 

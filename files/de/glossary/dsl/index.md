@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der Begriff **DSL** kann je nach Kontext mehrere Bedeutungen haben. Er kann sich beziehen auf:
+Der Begriff **DSL** kann je nach Kontext mehrere Bedeutungen haben. Es kann sich beziehen auf:
 
 {{GlossaryDisambiguation}}
 

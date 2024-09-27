@@ -1,5 +1,5 @@
 ---
-title: "Window: btoa()-Methode"
+title: "Window: btoa() Methode"
 short-title: btoa()
 slug: Web/API/Window/btoa
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`btoa()`**-Methode der {{domxref("Window")}}-Schnittstelle erstellt einen {{glossary("Base64")}}-kodierten {{Glossary("ASCII")}}-String aus einem _binären String_ (d.h. ein String, bei dem jedes Zeichen im String als Byte binärer Daten behandelt wird).
+Die **`btoa()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces erstellt einen [Base64](/de/docs/Glossary/Base64)-kodierten [ASCII](/de/docs/Glossary/ASCII)-String aus einem _binären String_ (d. h. einem String, bei dem jedes Zeichen als Byte von Binärdaten behandelt wird).
 
-Sie können diese Methode verwenden, um Daten zu kodieren, die sonst Kommunikationsprobleme verursachen könnten, sie zu übertragen und dann die {{domxref("Window.atob()")}}-Methode zu verwenden, um die Daten wieder zu dekodieren. Beispielsweise können Sie Steuerzeichen wie ASCII-Werte 0 bis 31 kodieren.
+Sie können diese Methode verwenden, um Daten zu kodieren, die sonst Kommunikationsprobleme verursachen könnten, sie zu übertragen und dann die [`Window.atob()`](/de/docs/Web/API/Window/atob)-Methode zu verwenden, um die Daten wieder zu dekodieren. Zum Beispiel können Sie Steuerzeichen wie ASCII-Werte 0 bis 31 kodieren.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ btoa(stringToEncode)
 ### Parameter
 
 - `stringToEncode`
-  - : Der _binäre String_, der kodiert werden soll.
+  - : Der zu kodierende _binäre String_.
 
 ### Rückgabewert
 
@@ -29,32 +29,32 @@ Ein ASCII-String, der die Base64-Darstellung von `stringToEncode` enthält.
 
 ### Ausnahmen
 
-- `InvalidCharacterError` {{domxref("DOMException")}}
-  - : Der String enthielt ein Zeichen, das nicht in ein einzelnes Byte passte. Siehe "Unicode-Strings" unten für weitere Details.
+- `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Der String enthielt ein Zeichen, das nicht in ein einzelnes Byte passte. Siehe unten "Unicode-Strings" für weitere Details.
 
 ## Beispiele
 
 ```js
-const encodedData = window.btoa("Hello, world"); // einen String kodieren
-const decodedData = window.atob(encodedData); // den String dekodieren
+const encodedData = window.btoa("Hello, world"); // encode a string
+const decodedData = window.atob(encodedData); // decode the string
 ```
 
 ## Unicode-Strings
 
-Base64 erwartet von seiner Konstruktion her Binärdaten als Eingabe. In Bezug auf JavaScript-Strings bedeutet dies Strings, bei denen der Codepunkt jedes Zeichens nur ein Byte einnimmt. Wenn Sie also einen String an `btoa()` übergeben, der Zeichen enthält, die mehr als ein Byte belegen, erhalten Sie einen Fehler, da dies nicht als Binärdaten betrachtet wird:
+Base64 erwartet von Haus aus Binärdaten als Eingabe. In Bezug auf JavaScript-Strings bedeutet dies Strings, bei denen der Codepunkt jedes Zeichens nur ein Byte belegt. Wenn Sie also einen String mit Zeichen, die mehr als ein Byte belegen, an `btoa()` übergeben, erhalten Sie einen Fehler, da dies nicht als Binärdaten betrachtet wird:
 
 ```js
 const ok = "a";
-console.log(ok.codePointAt(0).toString(16)); //   61: belegt < 1 Byte
+console.log(ok.codePointAt(0).toString(16)); //   61: occupies < 1 byte
 
 const notOK = "✓";
-console.log(notOK.codePointAt(0).toString(16)); // 2713: belegt > 1 Byte
+console.log(notOK.codePointAt(0).toString(16)); // 2713: occupies > 1 byte
 
 console.log(window.btoa(ok)); // YQ==
-console.log(window.btoa(notOK)); // Fehler
+console.log(window.btoa(notOK)); // error
 ```
 
-Um zu erfahren, wie Sie dieses Limit umgehen können, wenn Sie mit beliebigem Unicode-Text arbeiten, siehe _Das "Unicode-Problem"_ im {{Glossary("Base64")}}-Glossareintrag.
+Wie Sie dieses Problem beim Umgang mit beliebigem Unicode-Text umgehen können, wird unter _Das "Unicode-Problem"_ im [Base64](/de/docs/Glossary/Base64)-Glossareintrag beschrieben.
 
 ## Spezifikationen
 
@@ -66,8 +66,8 @@ Um zu erfahren, wie Sie dieses Limit umgehen können, wenn Sie mit beliebigem Un
 
 ## Siehe auch
 
-- Ein [Polyfill von `btoa`](https://github.com/zloirock/core-js#base64-utility-methods) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar.
+- [Ein Polyfill von `btoa`](https://github.com/zloirock/core-js#base64-utility-methods) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar
 - [`data` URLs](/de/docs/Web/URI/Schemes/data)
-- {{domxref("WorkerGlobalScope.btoa()")}}: die gleiche Methode, aber in Arbeiterumgebungen.
-- {{domxref("Window.atob()")}}
-- {{Glossary("Base64")}}
+- [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa): die gleiche Methode, aber in Worker-Scopes.
+- [`Window.atob()`](/de/docs/Web/API/Window/atob)
+- [Base64](/de/docs/Glossary/Base64)

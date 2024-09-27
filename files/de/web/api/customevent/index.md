@@ -7,31 +7,31 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`CustomEvent`**-Schnittstelle steht für Ereignisse, die von einer Anwendung zu beliebigen Zwecken initialisiert werden.
+Das **`CustomEvent`**-Interface steht für Ereignisse, die von einer Anwendung zu beliebigen Zwecken initialisiert werden.
 
 > [!NOTE]
-> Wenn Sie versuchen, zwischen einem Inhalts-Skript einer Web-Erweiterung und einem Webseitenskript zu kommunizieren, führt eine nicht-string `detail`-Eigenschaft in Firefox zu einer "Permission denied to access property"-Fehlermeldung. Um dieses Problem zu vermeiden, klonen Sie das Objekt. Weitere Informationen finden Sie unter [Objekte mit Seitenskripten teilen](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts).
+> Wenn es versucht wird, zwischen einem Inhalts-Skript einer Web-Erweiterung und einem Skript einer Webseite zu kommunizieren, löst eine nicht auf String basierende `detail`-Eigenschaft in Firefox einen Fehler "Permission denied to access property" aus. Um dieses Problem zu vermeiden, klonen Sie das Objekt. Weitere Informationen finden Sie unter [Objekte mit Seitenskripten teilen](/de/docs/Mozilla/Add-ons/WebExtensions/Sharing_objects_with_page_scripts).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("CustomEvent.CustomEvent", "CustomEvent()")}}
-  - : Erstellt ein neues `CustomEvent`.
+- [`CustomEvent()`](/de/docs/Web/API/CustomEvent/CustomEvent)
+  - : Erzeugt ein neues `CustomEvent`.
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem Elternteil, {{domxref("Event")}}._
+_Dieses Interface erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("CustomEvent.detail")}} {{ReadOnlyInline}}
+- [`CustomEvent.detail`](/de/docs/Web/API/CustomEvent/detail) {{ReadOnlyInline}}
   - : Gibt alle Daten zurück, die beim Initialisieren des Ereignisses übergeben wurden.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt Methoden von ihrem Elternteil, {{domxref("Event")}}._
+_Dieses Interface erbt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("CustomEvent.initCustomEvent()")}} {{deprecated_inline}}
-  - : Initialisiert ein `CustomEvent`-Objekt. Wenn das Ereignis bereits ausgelöst wurde, tut diese Methode nichts.
+- [`CustomEvent.initCustomEvent()`](/de/docs/Web/API/CustomEvent/initCustomEvent) {{deprecated_inline}}
+  - : Initialisiert ein `CustomEvent`-Objekt. Wenn das Ereignis bereits ausgeliefert wurde, macht diese Methode nichts.
 
 ## Spezifikationen
 
@@ -43,5 +43,5 @@ _Diese Schnittstelle erbt Methoden von ihrem Elternteil, {{domxref("Event")}}._
 
 ## Siehe auch
 
-- {{domxref("Window.postMessage()")}}
-- [Ereignisse erstellen und auslösen](/de/docs/Web/Events/Creating_and_triggering_events)
+- [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage)
+- [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events)

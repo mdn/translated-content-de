@@ -7,12 +7,12 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header-Direktive `window-management` kontrolliert, ob das aktuelle Dokument die [Window Management API](/de/docs/Web/API/Window_Management_API) verwenden darf, um Fenster auf mehreren Anzeigen zu verwalten.
+Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Direktive `window-management` steuert, ob das aktuelle Dokument die [Window Management API](/de/docs/Web/API/Window_Management_API) verwenden darf, um Fenster auf mehreren Displays zu verwalten.
 
-Wenn diese Richtlinie die Nutzung der API verbietet:
+Wo diese Richtlinie die Verwendung der API untersagt:
 
-- Das von der Methode {{domxref("Window.getScreenDetails()")}} zurückgegebene {{jsxref("Promise")}} wird mit einer `NotAllowedError`-Ausnahme abgelehnt.
-- Die Eigenschaft {{domxref("Screen.isExtended", "Window.screen.isExtended")}} wird immer `false` zurückgeben.
+- Das von der Methode [`Window.getScreenDetails()`](/de/docs/Web/API/Window/getScreenDetails) zurückgegebene {{jsxref("Promise")}} wird mit einer `NotAllowedError`-Ausnahme abgelehnt.
+- Die Eigenschaft [`Window.screen.isExtended`](/de/docs/Web/API/Screen/isExtended) wird immer `false` zurückgeben.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ Permissions-Policy: window-management=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für mehr Details.
 
 ## Standardrichtlinie
 
@@ -39,4 +39,4 @@ Die Standard-Whitelist für `window-management` ist `self`.
 
 - [Window Management API](/de/docs/Web/API/Window_Management_API)
 - {{HTTPHeader("Permissions-Policy")}}-Header
-- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)
+- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

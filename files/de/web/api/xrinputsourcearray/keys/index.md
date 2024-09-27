@@ -8,10 +8,11 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`keys()`**-Methode der
-{{domxref("XRInputSourceArray")}}-Schnittstelle gibt einen {{Glossary("JavaScript")}}
+Die **`keys()`** Methode in der
+[`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray) Schnittstelle gibt einen [JavaScript](/de/docs/Glossary/JavaScript)
 [`Iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)
-zurück, der verwendet werden kann, um über die Schlüssel zu iterieren, die zum Referenzieren jedes Elements im Array der Eingabequellen verwendet werden.
+zurück, der verwendet werden kann, um über die Schlüssel zu iterieren, die zum Referenzieren jedes Elements im Array
+der Eingabequellen verwendet werden.
 
 ## Syntax
 
@@ -28,37 +29,37 @@ Keine.
 Ein
 JavaScript [`Iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator), der
 verwendet werden kann, um durch die Schlüssel für jeden Eintrag in der Liste der Eingabequellen zu gehen. Die
-vom Iterator zurückgegebenen Werte sind die Indizes jedes Eintrags in der Liste, das heißt, die
-Nummern 0, 1, 2 und so weiter bis zum Index des letzten Elements in der Liste.
+vom Iterator zurückgegebenen Werte sind die Indizes jedes Eintrags in der Liste; das heißt, die
+Zahlen 0, 1, 2 und so weiter bis zum Index des letzten Elements in der Liste.
 
 ## Beispiele
 
-Dieses Beispiel-Snippet holt die Liste der Eingaben für eine Sitzung und versucht, mit jedem
-Unterstützten Eingabegerättyp umzugehen.
+Dieses Beispiel-Snippet holt die Liste der Eingaben für eine Sitzung und versucht, jeden
+unterstützten Eingabetyp zu handhaben.
 
 ```js
 for (const inputIdx of xrSession.inputSources.keys()) {
-  /* die Schlüssel sind die Indizes in der Liste der Eingaben */
+  /* the keys are the indexes into the list of inputs */
   checkInput(xrSession.inputSources[inputIdx]);
 }
 ```
 
-Hier wird
+Hierbei wird
 [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)
-verwendet, um über jeden der Schlüssel zu iterieren. Für jeden Schlüssel wird die Eingabe mit dem
-Index der Array-Notation abgerufen: `xrSession.inputSources[inputIdx]`.
+verwendet, um über jeden der Schlüssel zu iterieren. Für jeden Schlüssel wird die Eingabe unter Verwendung des
+Index mit Array-Notation abgerufen: `xrSession.inputSources[inputIdx]`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Eingaben und Eingabequellen](/de/docs/Web/API/WebXR_Device_API/Inputs)
-- Die {{domxref("XRInputSourceArray")}} Methode {{domxref("XRInputSourceArray.values", "values()")}}
+- Die [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray) Methode [`values()`](/de/docs/Web/API/XRInputSourceArray/values)
 - Die [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) Methode `keys()`
-- {{domxref("XRInputSource")}}
+- [`XRInputSource`](/de/docs/Web/API/XRInputSource)

@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die `scroll-padding-inline`-[Kurzform-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) legt das Scroll-Padding eines Elements in der Inline-Dimension fest.
+Die `scroll-padding-inline` [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) setzt das Scroll-Padding eines Elements in der Inline-Dimension.
 
 {{EmbedInteractiveExample("pages/css/scroll-padding-inline.html")}}
 
-Die Scroll-Padding-Eigenschaften definieren Abstände für den _optimalen Anzeigebereich_ des Scrollport: den Bereich, der als Zielregion dient, um Dinge im Sichtbereich des Benutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie fest positionierte Werkzeugleisten oder Seitenleisten) verdeckt sind, oder zusätzlichen Freiraum zwischen einem Ziel-Element und den Rändern des Scrollports zu schaffen.
+Die Scroll-Padding-Eigenschaften definieren Versätze für den _optimalen Betrachtungsbereich_ des Scrollports: den Bereich, der als Zielregion verwendet wird, um Elemente im Sichtbereich des Benutzers zu platzieren. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die von anderem Inhalt verdeckt werden (wie fest positionierte Werkzeugleisten oder Seitenleisten) oder mehr Platz zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
-## Zugehörige Eigenschaften
+## Bestandeigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - [`scroll-padding-inline-end`](/de/docs/Web/CSS/scroll-padding-inline-end)
 - [`scroll-padding-inline-start`](/de/docs/Web/CSS/scroll-padding-inline-start)
@@ -23,15 +23,15 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 scroll-padding-inline: auto;
 
-/* <length> Werte */
+/* <length> values */
 scroll-padding-inline: 10px;
 scroll-padding-inline: 1em 0.5em;
 scroll-padding-inline: 10%;
 
-/* Globale Werte */
+/* Global values */
 scroll-padding-inline: inherit;
 scroll-padding-inline: initial;
 scroll-padding-inline: revert;
@@ -42,9 +42,9 @@ scroll-padding-inline: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein nach innen gerichteter Abstand von der entsprechenden Kante des Scrollports, als gültige Länge oder als Prozentsatz.
+  - : Ein innerer Versatz vom entsprechenden Rand des Scrollports, als gültige Länge oder Prozentsatz.
 - `auto`
-  - : Der Abstand wird durch den Benutzer-Agenten bestimmt. Dies wird in der Regel 0px sein, aber ein Benutzer-Agent kann auch etwas anderes erkennen und anwenden, wenn ein Wert ungleich null angemessener ist.
+  - : Der Versatz wird vom User-Agent bestimmt. Dies wird in der Regel 0px sein, aber ein User-Agent kann etwas anderes erkennen und tun, wenn ein nicht-nullwertiger Wert angemessener ist.
 
 ## Formale Definition
 

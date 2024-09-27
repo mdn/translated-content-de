@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Insertable Streams for MediaStreamTrack API")}}{{SeeCompatTable}}{{Non-standard_Header}}
 
-Die **`writable`**-Eigenschaft der {{domxref("MediaStreamTrackGenerator")}}-Schnittstelle gibt einen {{domxref("WritableStream")}} zurück. Dies ermöglicht das Schreiben von Medienframes in den `MediaStreamTrackGenerator`. Die Frames sind entweder Audio oder Video. Der Typ wird durch die Art des erstellten `MediaStreamTrackGenerator` vorgegeben.
+Die **`writable`**-Eigenschaft des [`MediaStreamTrackGenerator`](/de/docs/Web/API/MediaStreamTrackGenerator)-Interfaces gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück. Dies ermöglicht das Schreiben von Medienrahmen in den `MediaStreamTrackGenerator`. Die Rahmen werden Audio oder Video sein. Der Typ wird durch die Art des erstellten `MediaStreamTrackGenerator` bestimmt.
 
 ## Wert
 
-Ein {{domxref("WritableStream")}}.
+Ein [`WritableStream`](/de/docs/Web/API/WritableStream).
 
 ## Beispiele
 
-Im folgenden Beispiel werden Videoframes transformiert und dann in den {{domxref("WritableStream")}} geschrieben, der mit `MediaStreamTrackGenerator.writable` aufgerufen wird.
+Im folgenden Beispiel werden Videorahmen transformiert und anschließend in den mit `MediaStreamTrackGenerator.writable` zugegriffenen [`WritableStream`](/de/docs/Web/API/WritableStream) geschrieben.
 
 ```js
 const trackProcessor = new MediaStreamTrackProcessor({ track: videoTrack });

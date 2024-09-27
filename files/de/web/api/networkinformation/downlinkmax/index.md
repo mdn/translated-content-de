@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Network Information API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`downlinkMax`**-Eigenschaft des {{domxref("NetworkInformation")}}-Interfaces gibt die maximale Downlink-Geschwindigkeit in Megabit pro Sekunde (Mbps) für die zugrunde liegende Verbindungstechnologie zurück.
+Die **`downlinkMax`**-Eigenschaft des [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Interfaces gibt die maximale Downlink-Geschwindigkeit, in Megabit pro Sekunde (Mbps), der zugrunde liegenden Verbindungstechnologie zurück.
 
 ## Wert
 
-Eine Zahl, die die maximale Downlink-Geschwindigkeit in Megabit pro Sekunde (Mb/s) für die zugrunde liegende Verbindungstechnologie darstellt.
+Eine Zahl, die die maximale Downlink-Geschwindigkeit, in Megabit pro Sekunde (Mb/s), der zugrunde liegenden Verbindungstechnologie darstellt.
 
 ## Beispiele
 
-Das folgende Beispiel überwacht die Verbindung mit dem `change`-Ereignis und protokolliert Veränderungen, sobald sie auftreten.
+Das folgende Beispiel überwacht die Verbindung mit dem `change`-Event und protokolliert Änderungen, sobald sie auftreten.
 
 ```js
 function logConnectionType() {

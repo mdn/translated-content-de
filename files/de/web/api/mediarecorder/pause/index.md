@@ -8,19 +8,14 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Die **`pause()`** Methode der {{domxref("MediaRecorder")}} Schnittstelle wird verwendet,
-um die Aufnahme von Medienströmen zu unterbrechen.
+Die **`pause()`** Methode des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces wird verwendet, um die Aufzeichnung von Medienströmen zu pausieren.
 
-Wenn die `pause()` Methode eines `MediaRecorder` Objekts aufgerufen wird, stellt der
-Browser eine Aufgabe in die Warteschlange, die die folgenden Schritte ausführt:
+Wenn die `pause()`-Methode eines `MediaRecorder`-Objekts aufgerufen wird, stellt der Browser eine Aufgabe in die Warteschlange, die die folgenden Schritte ausführt:
 
-1. Wenn {{domxref("MediaRecorder.state")}} "inactive" ist, wird ein DOM
-   `InvalidState` Fehler ausgelöst und diese Schritte beendet. Falls nicht, fahren Sie mit dem
-   nächsten Schritt fort.
-2. Setzen Sie {{domxref("MediaRecorder.state")}} auf "paused".
-3. Beenden Sie das Sammeln von Daten in das aktuelle {{domxref("Blob")}}, halten Sie es aber verfügbar, damit
-   die Aufnahme später fortgesetzt werden kann.
-4. Lösen Sie ein {{domxref("MediaRecorder/pause_event", "pause")}} Ereignis aus.
+1. Wenn der [`MediaRecorder.state`](/de/docs/Web/API/MediaRecorder/state) "inactive" ist, wird ein DOM-`InvalidState`-Fehler ausgelöst und diese Schritte beendet. Andernfalls fahren Sie mit dem nächsten Schritt fort.
+2. Setzen Sie [`MediaRecorder.state`](/de/docs/Web/API/MediaRecorder/state) auf "paused".
+3. Stoppen Sie das Sammeln von Daten in das aktuelle [`Blob`](/de/docs/Web/API/Blob), aber halten Sie es verfügbar, damit die Aufnahme später fortgesetzt werden kann.
+4. Ein [`pause`](/de/docs/Web/API/MediaRecorder/pause_event)-Ereignis wird ausgelöst.
 
 ## Syntax
 
@@ -38,8 +33,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der `MediaRecorder` derzeit `"inactive"` ist; Sie können die Aufnahme nicht unterbrechen, wenn der `MediaRecorder` nicht aktiv ist. Wenn Sie `pause()` aufrufen, während bereits pausiert ist, führt die Methode stillschweigend nichts aus.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der `MediaRecorder` derzeit `"inactive"` ist; Sie können die Aufnahme nicht pausieren, wenn der `MediaRecorder` nicht aktiv ist. Wenn Sie `pause()` aufrufen, während bereits pausiert ist, tut die Methode stillschweigend nichts.
 
 ## Beispiele
 
@@ -61,7 +56,6 @@ pause.onclick = () => {
 ## Siehe auch
 
 - [Verwendung der MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API)
-- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder +
-  getUserMedia + Web Audio API Visualisierungsdemo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quellcode auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
+- [Web Diktiergerät](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder + getUserMedia + Web Audio API Visualisierungs-Demo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
 - [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
-- {{domxref("Navigator.getUserMedia")}}
+- [`Navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia)

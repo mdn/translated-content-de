@@ -1,5 +1,5 @@
 ---
-title: "RTCRtpTransceiver: stop()-Methode"
+title: "RTCRtpTransceiver: stop() Methode"
 short-title: stop()
 slug: Web/API/RTCRtpTransceiver/stop
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`stop()`**-Methode in der {{domxref("RTCRtpTransceiver")}}-Schnittstelle stoppt dauerhaft den Transceiver, indem sowohl der zugehörige {{domxref("RTCRtpSender")}} als auch der {{domxref("RTCRtpReceiver")}} gestoppt werden.
+Die **`stop()`**-Methode im [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver)-Interface stoppt den Transceiver dauerhaft, indem sowohl der zugehörige [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) als auch der
+[`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) gestoppt werden.
 
 ## Syntax
 
@@ -26,20 +27,20 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die `RTCPeerConnection`, zu der der Transceiver gehört, geschlossen ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die `RTCPeerConnection`, deren Mitglied der Transceiver ist, geschlossen ist.
 
 ## Beschreibung
 
-Wenn Sie `stop()` auf einem Transceiver aufrufen, stoppt der Sender sofort das Senden von Medien und jeder seiner RTP-Ströme wird mit der {{Glossary("RTCP")}}-`"BYE"`-Nachricht geschlossen.
-Der Empfänger hört dann auf, Medien zu empfangen; der {{domxref("RTCRtpReceiver.track", "track")}} des Empfängers wird gestoppt, und die {{domxref("RTCRtpTransceiver.direction", "Richtung")}} des Transceivers wird auf `stopped` geändert.
-Eine neue Verhandlung wird ausgelöst, indem ein {{domxref("RTCPeerConnection.negotiationneeded_event", "negotiationneeded")}}-Event an die {{domxref("RTCPeerConnection")}} des Transceivers gesendet wird, damit sich die Verbindung an die Änderung anpassen kann.
+Wenn Sie `stop()` auf einem Transceiver aufrufen, hört der Sender sofort auf, Medien zu senden, und jeder seiner RTP-Ströme wird mit der [RTCP](/de/docs/Glossary/RTCP) `"BYE"`-Nachricht geschlossen.
+Der Empfänger stellt dann den Empfang von Medien ein; die [`track`](/de/docs/Web/API/RTCRtpReceiver/track) des Empfängers wird gestoppt, und die [`direction`](/de/docs/Web/API/RTCRtpTransceiver/direction) des Transceivers wird auf `stopped` gesetzt.
+Eine Neuverhandlung wird ausgelöst, indem ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) des Transceivers gesendet wird, damit die Verbindung sich an die Änderung anpassen kann.
 
 Die Methode tut nichts, wenn der Transceiver bereits gestoppt ist.
-Sie können überprüfen, ob er gestoppt wurde, indem Sie {{domxref("RTCRtpTransceiver.currentDirection", "currentDirection")}} mit `"stopped"` vergleichen.
+Sie können überprüfen, ob er gestoppt wurde, indem Sie [`currentDirection`](/de/docs/Web/API/RTCRtpTransceiver/currentDirection) mit `"stopped"` vergleichen.
 
 > [!NOTE]
-> Frühere Versionen der Spezifikation verwendeten die veraltete Eigenschaft {{domxref("RTCRtpTransceiver.stopped", "stopped")}} {{deprecated_inline}}, um anzuzeigen, ob der Transceiver gestoppt wurde.
+> Frühere Versionen der Spezifikation verwendeten die veraltete [`stopped`](/de/docs/Web/API/RTCRtpTransceiver/stopped) {{deprecated_inline}}-Eigenschaft, um anzugeben, ob der Transceiver gestoppt wurde.
 
 ## Spezifikationen
 
@@ -53,4 +54,4 @@ Sie können überprüfen, ob er gestoppt wurde, indem Sie {{domxref("RTCRtpTrans
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
 - [Einführung in das Real-time Transport Protocol (RTP)](/de/docs/Web/API/WebRTC_API/Intro_to_RTP)
-- {{domxref("MediaStreamTrack")}}
+- [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

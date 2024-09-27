@@ -1,5 +1,5 @@
 ---
-title: übersetzen
+title: translate
 slug: Web/CSS/translate
 l10n:
   sourceCommit: b82ff59aab7883b7bb2222cf9f9f9b6eed818e08
@@ -7,28 +7,28 @@ l10n:
 
 {{CSSRef}}
 
-Die **`translate`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, Übersetzungstransformationen individuell und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft festzulegen. Dies passt besser zu typischen Benutzeroberflächen, da Sie sich nicht die genaue Reihenfolge der Transformationsfunktionen im `transform`-Wert merken müssen.
+Die **`translate`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, Translations-Transformationen individuell und unabhängig von der {{CSSxRef("transform")}}-Eigenschaft zu spezifizieren. Dies passt besser zu typischen Benutzeroberflächenanwendungen und erspart es Ihnen, sich die genaue Reihenfolge der Transformationsfunktionen zu merken, die im `transform`-Wert angegeben werden sollen.
 
 {{EmbedInteractiveExample("pages/css/translate.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 translate: none;
 
-/* Einzelne Werte */
+/* Single values */
 translate: 100px;
 translate: 50%;
 
-/* Zwei Werte */
+/* Two values */
 translate: 100px 200px;
 translate: 50% 105px;
 
-/* Drei Werte */
+/* Three values */
 translate: 50% 105px 5rem;
 
-/* Globale Werte */
+/* Global values */
 translate: inherit;
 translate: initial;
 translate: revert;
@@ -38,20 +38,20 @@ translate: unset;
 
 ### Werte
 
-- Einzelner {{cssxref("&lt;length-percentage&gt;")}}-Wert
-  - : Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der eine Übersetzung entlang der X-Achse spezifiziert. Entspricht einer `translate()`-Funktion (2D-Übersetzung) mit einem angegebenen Wert.
-- Zwei {{cssxref("&lt;length-percentage&gt;")}}-Werte
-  - : Zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die Übersetzungswerte der X- und Y-Achse (respektive) einer 2D-Übersetzung spezifizieren. Entspricht einer `translate()`-Funktion (2D-Übersetzung) mit zwei angegebenen Werten.
+- Einzelner {{cssxref("&lt;length-percentage&gt;")}} Wert
+  - : Ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der eine Translation entlang der X-Achse angibt. Entspricht einer `translate()` (2D-Translation) Funktion mit einem angegebenen Wert.
+- Zwei {{cssxref("&lt;length-percentage&gt;")}} Werte
+  - : Zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die X- und Y-Achsen-Translationswerte (jeweils) einer 2D-Translation angeben. Entspricht einer `translate()` (2D-Translation) Funktion mit zwei angegebenen Werten.
 - Drei Werte
-  - : Zwei {{cssxref("&lt;length-percentage&gt;")}}- und ein einzelner {{cssxref("&lt;length&gt;")}}-Wert, die die Übersetzungswerte der X-, Y- und Z-Achse (respektive) einer 3D-Übersetzung spezifizieren. Entspricht einer `translate3d()`-Funktion (3D-Übersetzung).
+  - : Zwei {{cssxref("&lt;length-percentage&gt;")}} und ein einzelner {{cssxref("&lt;length&gt;")}} Wert, die die X-, Y- und Z-Achsen-Translationswerte (jeweils) einer 3D-Translation angeben. Entspricht einer `translate3d()` (3D-Translation) Funktion.
 - `none`
-  - : Gibt an, dass keine Übersetzung angewendet werden soll.
+  - : Gibt an, dass keine Translation angewendet werden soll.
 
 ## Formale Definition
 
 {{CSSInfo}}
 
-## Formale Syntax
+## Formaler Syntax
 
 {{CSSSyntax}}
 
@@ -59,9 +59,7 @@ translate: unset;
 
 ### Übersetzen eines Elements bei Hover
 
-Dieses Beispiel zeigt, wie die `translate`-Eigenschaft verwendet wird, um ein Element in drei Achsen zu verschieben.
-Das erste Feld wird entlang der X-Achse verschoben und das zweite Feld wird entlang der X- und Y-Achsen verschoben.
-Das dritte Feld wird entlang der X-, Y- und Z-Achsen verschoben und wirkt, als bewege es sich auf den Betrachter zu, da {{cssxref('perspective')}} zum Elternelement hinzugefügt wurde.
+Dieses Beispiel zeigt, wie die `translate`-Eigenschaft verwendet wird, um ein Element in drei Achsen zu verschieben. Das erste Kästchen wird entlang der X-Achse verschoben und das zweite Kästchen wird entlang der X- und Y-Achsen verschoben. Das dritte Kästchen wird entlang der X-, Y- und Z-Achsen verschoben und erweckt den Anschein, sich aufgrund der Hinzufügung von {{cssxref('perspective')}} zum Elternelement auf den Betrachter zu zubewegen.
 
 #### HTML
 

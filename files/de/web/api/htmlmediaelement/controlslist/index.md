@@ -8,13 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`controlsList`**-Eigenschaft der
-{{domxref("HTMLMediaElement")}}-Schnittstelle gibt eine DOMTokenList zurück, die dem Benutzeragenten
-hilft, auszuwählen, welche Steuerelemente auf dem Medienelement angezeigt werden sollen, wann immer der Benutzeragent seine eigene Menge von Steuerelementen zeigt. Die DOMTokenList nimmt einen oder mehrere der drei möglichen Werte an: `nodownload`, `nofullscreen` und `noremoteplayback`.
+Die **`controlsList`**-Eigenschaft des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Interfaces gibt eine DOMTokenList zurück, die dem Benutzeragenten dabei hilft, auszuwählen, welche Steuerelemente auf dem Medien-Element angezeigt werden sollen, wann immer der Benutzeragent seine eigenen Steuerelemente anzeigt. Die DOMTokenList kann einen oder mehrere der drei möglichen Werte annehmen: `nodownload`, `nofullscreen` und `noremoteplayback`.
 
 ## Wert
 
-Eine {{domxref("DOMTokenList")}}.
+Eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList).
 
 ## Spezifikationen
 
@@ -26,4 +24,4 @@ Eine {{domxref("DOMTokenList")}}.
 
 ## Siehe auch
 
-- [Chrome HTMLMediaElement controlsList Beispiel](https://googlechrome.github.io/samples/media/controlslist.html)
+- [Chrome HTMLMediaElement controlsList Sample](https://googlechrome.github.io/samples/media/controlslist.html)

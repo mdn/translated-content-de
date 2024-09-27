@@ -1,6 +1,6 @@
 ---
-title: "RTCSessionDescription: SDP-Eigenschaft"
-short-title: SDP
+title: "RTCSessionDescription: sdp-Eigenschaft"
+short-title: sdp
 slug: Web/API/RTCSessionDescription/sdp
 l10n:
   sourceCommit: 592f6ec42e54981b6573b58ec0343c9aa8cbbda8
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`RTCSessionDescription.sdp`** ist eine schreibgeschützte Zeichenkette, die das {{Glossary("SDP")}} enthält, welches die Sitzung beschreibt.
+Die Eigenschaft **`RTCSessionDescription.sdp`** ist ein schreibgeschützter
+String, der das [SDP](/de/docs/Glossary/SDP) enthält, welches die Sitzung beschreibt.
 
 ## Syntax
 
@@ -19,7 +20,7 @@ sessionDescription.sdp = value
 
 ### Wert
 
-Der Wert ist eine Zeichenkette, die eine SDP-Nachricht enthält, wie diese hier:
+Der Wert ist ein String, der eine SDP-Nachricht wie diese hier enthält:
 
 ```plain
 v=0
@@ -38,7 +39,7 @@ a=rtpmap:32 MPV/90000
 ## Beispiel
 
 ```js
-// Die entfernte Beschreibung wurde zuvor auf pc, einer RTCPeerConnection, festgelegt
+// The remote description has been set previously on pc, an RTCPeerConnection
 
 alert(pc.remoteDescription.sdp);
 ```
@@ -54,4 +55,4 @@ alert(pc.remoteDescription.sdp);
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- Der Standard für die Verwendung von SDP in einem Angebot/Antwort-Protokoll {{rfc("3264")}}.
+- Der Standard zur Verwendung von SDP in einem Angebot-/Antwortprotokoll {{rfc("3264")}}.

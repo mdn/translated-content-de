@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: error-Ereignis"
+title: "HTMLElement: error Ereignis"
 short-title: error
 slug: Web/API/HTMLElement/error_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das `error`-Ereignis wird auf einem Element ausgelöst, wenn eine Ressource nicht geladen werden konnte oder nicht verwendet werden kann. Zum Beispiel, wenn ein Skript einen Ausführungsfehler hat oder ein Bild nicht gefunden wird oder ungültig ist.
+Das `error`-Ereignis wird auf einem Element ausgelöst, wenn eine Ressource nicht geladen werden konnte oder nicht verwendet werden kann. Zum Beispiel, wenn ein Skript einen Ausführungsfehler hat oder ein Bild nicht gefunden oder ungültig ist.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergegeben.
+Dieses Ereignis ist nicht abbrichbar und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -24,24 +24,24 @@ onerror = (event) => {};
 
 ## Ereignistyp
 
-Das Ereignisobjekt ist eine Instanz von {{domxref("UIEvent")}}, wenn es von einem Benutzeroberflächenelement erzeugt wurde, oder eine Instanz von {{domxref("Event")}}, andernfalls.
+Das Ereignisobjekt ist eine Instanz von [`UIEvent`](/de/docs/Web/API/UIEvent), wenn es von einem Benutzeroberflächenelement generiert wurde, oder eine Instanz von [`Event`](/de/docs/Web/API/Event) andernfalls.
 
 {{InheritanceDiagram("UIEvent")}}
 
 ## Beispiele
 
-### Lebendes Beispiel
+### Live-Beispiel
 
 #### HTML
 
 ```html
 <div class="controls">
-  <button id="img-error" type="button">Bildfehler erzeugen</button>
+  <button id="img-error" type="button">Generate image error</button>
   <img class="bad-img" />
 </div>
 
 <div class="event-log">
-  <label for="eventLog">Ereignisprotokoll:</label>
+  <label for="eventLog">Event log:</label>
   <textarea
     readonly
     class="event-log-contents"
@@ -95,7 +95,7 @@ const log = document.querySelector(".event-log-contents");
 
 const badImg = document.querySelector(".bad-img");
 badImg.addEventListener("error", (event) => {
-  log.textContent += `${event.type}: Bild wird geladen\n`;
+  log.textContent += `${event.type}: Loading image\n`;
   console.log(event);
 });
 
@@ -121,5 +121,5 @@ imgError.addEventListener("click", () => {
 
 - Verwandte Ereignisse
 
-  - Fenster: {{domxref("Window/error_event", "error")}} Ereignis
-  - HTMLElement: {{domxref("HTMLElement/load_event", "load")}} Ereignis
+  - Window: [`error`](/de/docs/Web/API/Window/error_event) Ereignis
+  - HTMLElement: [`load`](/de/docs/Web/API/HTMLElement/load_event) Ereignis

@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.canvas`**-Eigenschaft ist eine schreibgeschützte Referenz auf das {{domxref("HTMLCanvasElement")}} oder {{domxref("OffscreenCanvas")}}-Objekt, das mit dem Kontext verbunden ist. Sie könnte [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein, wenn sie nicht mit einem {{HTMLElement("canvas")}}-Element oder einem {{domxref("OffscreenCanvas")}}-Objekt verknüpft ist.
+Die **`WebGLRenderingContext.canvas`**-Eigenschaft ist eine schreibgeschützte
+Referenz auf das [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt, das mit dem Kontext verknüpft ist. Sie kann [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein, wenn sie nicht mit einem {{HTMLElement("canvas")}}-Element oder einem [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt verknüpft ist.
 
 ## Syntax
 
@@ -18,19 +19,21 @@ gl.canvas
 
 ### Rückgabewert
 
-Entweder ein {{domxref("HTMLCanvasElement")}} oder {{domxref("OffscreenCanvas")}}-Objekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
+Entweder ein [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt oder
+[`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
 
 ## Beispiele
 
 ### Canvas-Element
 
-Gegeben dieses {{HTMLElement("canvas")}}-Element:
+Gegeben sei dieses {{HTMLElement("canvas")}}-Element:
 
 ```html
 <canvas id="canvas"></canvas>
 ```
 
-Sie können eine Referenz darauf von dem `WebGLRenderingContext` über die `canvas`-Eigenschaft erhalten:
+Sie können eine Referenz darauf vom `WebGLRenderingContext` mittels
+der `canvas`-Eigenschaft erhalten:
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -40,7 +43,7 @@ gl.canvas; // HTMLCanvasElement
 
 ### Offscreen-Canvas
 
-Beispiel mit dem experimentellen {{domxref("OffscreenCanvas")}}-Objekt.
+Beispiel unter Verwendung des experimentellen [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekts.
 
 ```js
 const offscreen = new OffscreenCanvas(256, 256);
@@ -58,5 +61,5 @@ gl.canvas; // OffscreenCanvas
 
 ## Siehe auch
 
-- {{domxref("CanvasRenderingContext2D.canvas")}}
-- Die {{domxref("OffscreenCanvas")}}-Schnittstelle
+- [`CanvasRenderingContext2D.canvas`](/de/docs/Web/API/CanvasRenderingContext2D/canvas)
+- Die [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Schnittstelle

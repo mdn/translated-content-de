@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: Fehlendes ':' nach Eigenschafts-ID"
+title: "SyntaxError: missing : after property id"
 slug: Web/JavaScript/Reference/Errors/Missing_colon_after_property_id
 l10n:
   sourceCommit: e3faa375b0179de77a5eff00074e3d168a0a904c
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Ausnahmefehler "missing : after property id" tritt auf, wenn Objekte mit der [Objekt-Initialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Syntax erstellt werden. Ein Doppelpunkt (`:`) trennt die Schlüssel und Werte der Eigenschaften des Objekts. Irgendwie fehlt oder ist dieser Doppelpunkt falsch platziert.
+Die JavaScript-Ausnahme "missing : after property id" tritt auf, wenn Objekte mit der [Objekt-Initialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) Syntax erstellt werden. Ein Doppelpunkt (`:`) trennt Schlüssel und Werte für die Eigenschaften des Objekts. Irgendwie fehlt dieser Doppelpunkt oder ist fehl am Platz.
 
 ## Meldung
 
@@ -24,7 +24,7 @@ SyntaxError: Unexpected token '+'. Expected an identifier as property name. (Saf
 
 ## Was ist schiefgelaufen?
 
-Beim Erstellen von Objekten mit der [Objekt-Initialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Syntax trennt ein Doppelpunkt (`:`) die Schlüssel und Werte der Eigenschaften des Objekts.
+Beim Erstellen von Objekten mit der [Objekt-Initialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) Syntax trennt ein Doppelpunkt (`:`) Schlüssel und Werte für die Eigenschaften des Objekts.
 
 ```js
 const obj = { propertyKey: "value" };
@@ -34,14 +34,14 @@ const obj = { propertyKey: "value" };
 
 ### Doppelpunkte vs. Gleichheitszeichen
 
-Dieser Code schlägt fehl, da das Gleichheitszeichen nicht auf diese Weise in dieser Objekt-Initialisierer-Syntax verwendet werden kann.
+Dieser Code schlägt fehl, da das Gleichheitszeichen in dieser Objekt-Initialisierer-Syntax nicht auf diese Weise verwendet werden kann.
 
 ```js-nolint example-bad
 const obj = { propertyKey = "value" };
 // SyntaxError: missing : after property id
 ```
 
-Richtig wäre es, einen Doppelpunkt zu verwenden, oder eckige Klammern zu nutzen, um ein neues Attribut zuzuweisen, nachdem das Objekt bereits erstellt wurde.
+Richtig wäre es, einen Doppelpunkt zu verwenden oder eckige Klammern zu benutzen, um eine neue Eigenschaft zuzuweisen, nachdem das Objekt bereits erstellt wurde.
 
 ```js example-good
 const obj = { propertyKey: "value" };

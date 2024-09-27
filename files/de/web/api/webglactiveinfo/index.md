@@ -7,24 +7,24 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **WebGLActiveInfo**-Schnittstelle ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und stellt die Informationen dar, die durch Aufruf der Methoden {{domxref("WebGLRenderingContext.getActiveAttrib()")}} und {{domxref("WebGLRenderingContext.getActiveUniform()")}} zurückgegeben werden.
+Die **WebGLActiveInfo**-Schnittstelle ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und repräsentiert die Informationen, die durch Aufruf der Methoden [`WebGLRenderingContext.getActiveAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getActiveAttrib) und [`WebGLRenderingContext.getActiveUniform()`](/de/docs/Web/API/WebGLRenderingContext/getActiveUniform) zurückgegeben werden.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("WebGLActiveInfo.name")}}
-  - : Der schreibgeschützte Name der angeforderten Variablen.
-- {{domxref("WebGLActiveInfo.size")}}
-  - : Die schreibgeschützte Größe der angeforderten Variablen.
-- {{domxref("WebGLActiveInfo.type")}}
-  - : Der schreibgeschützte Typ der angeforderten Variablen.
+- [`WebGLActiveInfo.name`](/de/docs/Web/API/WebGLActiveInfo/name)
+  - : Der schreibgeschützte Name der angeforderten Variable.
+- [`WebGLActiveInfo.size`](/de/docs/Web/API/WebGLActiveInfo/size)
+  - : Die schreibgeschützte Größe der angeforderten Variable.
+- [`WebGLActiveInfo.type`](/de/docs/Web/API/WebGLActiveInfo/type)
+  - : Der schreibgeschützte Typ der angeforderten Variable.
 
 ## Beispiele
 
-Ein `WebGLActiveInfo`-Objekt wird zurückgegeben durch:
+Ein `WebGLActiveInfo`-Objekt wird zurückgegeben von:
 
-- {{domxref("WebGLRenderingContext.getActiveAttrib()")}}
-- {{domxref("WebGLRenderingContext.getActiveUniform()")}} oder
-- {{domxref("WebGL2RenderingContext.getTransformFeedbackVarying()")}}
+- [`WebGLRenderingContext.getActiveAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getActiveAttrib)
+- [`WebGLRenderingContext.getActiveUniform()`](/de/docs/Web/API/WebGLRenderingContext/getActiveUniform) oder
+- [`WebGL2RenderingContext.getTransformFeedbackVarying()`](/de/docs/Web/API/WebGL2RenderingContext/getTransformFeedbackVarying)
 
 ## Spezifikationen
 
@@ -36,5 +36,5 @@ Ein `WebGLActiveInfo`-Objekt wird zurückgegeben durch:
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getActiveAttrib()")}}
-- {{domxref("WebGLRenderingContext.getActiveUniform()")}}
+- [`WebGLRenderingContext.getActiveAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getActiveAttrib)
+- [`WebGLRenderingContext.getActiveUniform()`](/de/docs/Web/API/WebGLRenderingContext/getActiveUniform)

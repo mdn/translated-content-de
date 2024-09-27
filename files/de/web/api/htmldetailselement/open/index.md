@@ -1,5 +1,5 @@
 ---
-title: "HTMLDetailsElement: open-Eigenschaft"
+title: "HTMLDetailsElement: open property"
 short-title: open
 slug: Web/API/HTMLDetailsElement/open
 l10n:
@@ -9,14 +9,14 @@ l10n:
 {{ APIRef("HTML DOM") }}
 
 Die **`open`**-Eigenschaft der
-{{domxref("HTMLDetailsElement")}}-Schnittstelle ist ein boolescher Wert, der das
-[`open`](/de/docs/Web/HTML/Element/details#open)-HTML-Attribut widerspiegelt und angibt, ob der Inhalt des {{htmlelement("details")}} (ohne Berücksichtigung des {{htmlelement("summary")}}) dem Benutzer angezeigt werden soll.
+[`HTMLDetailsElement`](/de/docs/Web/API/HTMLDetailsElement)-Schnittstelle ist ein boolescher Wert, der das
+[`open`](/de/docs/Web/HTML/Element/details#open)-HTML-Attribut widerspiegelt und angibt, ob der Inhalt des {{htmlelement("details")}}-Elements (ohne das {{htmlelement("summary")}}) dem Benutzer angezeigt werden soll.
 
 ## Wert
 
 Ein boolescher Wert.
 
-Der boolesche Wert stellt den Zustand des [`open`](/de/docs/Web/HTML/Element/details#open)-HTML-Attributs dar. Der Wert `true` bedeutet, dass es gesetzt ist und sowohl die Zusammenfassung als auch die zusätzlichen Informationen dem Benutzer gezeigt werden. Der Wert `false` bedeutet, dass es nicht gesetzt ist und nur die Zusammenfassung angezeigt wird.
+Der boolesche Wert stellt den Zustand des [`open`](/de/docs/Web/HTML/Element/details#open)-HTML-Attributs dar. Der Wert `true` bedeutet, dass er gesetzt ist und sowohl die Zusammenfassung als auch die zusätzlichen Informationen dem Benutzer angezeigt werden. Der Wert `false` bedeutet, dass er nicht gesetzt ist und nur die Zusammenfassung angezeigt wird.
 
 ## Spezifikationen
 

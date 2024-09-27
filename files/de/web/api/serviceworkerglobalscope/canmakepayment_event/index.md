@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerGlobalScope: canmakepayment Ereignis"
+title: "ServiceWorkerGlobalScope: canmakepayment-Event"
 short-title: canmakepayment
 slug: Web/API/ServiceWorkerGlobalScope/canmakepayment_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`canmakepayment`** Ereignis der {{domxref("ServiceWorkerGlobalScope")}} Schnittstelle wird im Service Worker einer Zahlungs-App ausgelöst, um zu prüfen, ob sie bereit ist, eine Zahlung zu bearbeiten. Genauer gesagt wird es ausgelöst, wenn die Händlerwebsite den {{domxref("PaymentRequest.PaymentRequest", "PaymentRequest()")}} Konstruktor aufruft.
+Das **`canmakepayment`**-Event der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle wird in einem Zahlungs-App-Service-Worker ausgelöst, um zu überprüfen, ob dieser bereit ist, eine Zahlung zu bearbeiten. Genauer gesagt wird es ausgelöst, wenn die Händlerwebsite den [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor aufruft.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("canmakepayment", (event) => {});
@@ -22,13 +22,13 @@ oncanmakepayment = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("CanMakePaymentEvent")}}. Erbt von {{domxref("ExtendableEvent")}}.
+Ein [`CanMakePaymentEvent`](/de/docs/Web/API/CanMakePaymentEvent). Erbt von [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent).
 
 {{InheritanceDiagram("CanMakePaymentEvent")}}
 
 ## Beispiele
 
-Das `canmakepayment` Ereignis wird im Service Worker einer Zahlungs-App ausgelöst, um zu prüfen, ob sie bereit ist, eine Zahlung zu bearbeiten. Genauer gesagt wird es ausgelöst, wenn die Händlerwebsite den {{domxref("PaymentRequest.PaymentRequest", "PaymentRequest()")}} Konstruktor aufruft. Der Service Worker kann dann die Methode {{domxref("CanMakePaymentEvent.respondWith()")}} verwenden, um entsprechend zu antworten:
+Das `canmakepayment`-Event wird in einem Zahlungs-App-Service-Worker ausgelöst, um zu überprüfen, ob dieser bereit ist, eine Zahlung zu bearbeiten. Genauer gesagt wird es ausgelöst, wenn die Händlerwebsite den [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor aufruft. Der Service-Worker kann dann die Methode [`CanMakePaymentEvent.respondWith()`](/de/docs/Web/API/CanMakePaymentEvent/respondWith) verwenden, um angemessen zu reagieren:
 
 ```js
 self.addEventListener("canmakepayment", (e) => {
@@ -46,7 +46,7 @@ self.addEventListener("canmakepayment", (e) => {
 });
 ```
 
-`respondWith()` gibt ein {{jsxref("Promise")}} zurück, das mit einem booleschen Wert aufgelöst wird, um anzuzeigen, dass der Service Worker bereit ist, eine Zahlungsanforderung zu bearbeiten (`true`), oder nicht (`false`).
+`respondWith()` gibt ein {{jsxref("Promise")}} zurück, das mit einem booleschen Wert aufgelöst wird, um zu signalisieren, dass der Service-Worker bereit ist, eine Zahlungsanfrage zu bearbeiten (`true`) oder nicht (`false`).
 
 ## Spezifikationen
 
@@ -58,9 +58,9 @@ self.addEventListener("canmakepayment", (e) => {
 
 ## Siehe auch
 
-- {{domxref("Payment Handler API", "Payment Handler API", "", "nocode")}}
+- [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
 - [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Leben eines Zahlungsvorgangs](https://web.dev/articles/life-of-a-payment-transaction)
-- [Using the Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
+- [Einzahlungsmethode einrichten](https://web.dev/articles/setting-up-a-payment-method)
+- [Leben einer Transaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

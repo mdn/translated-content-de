@@ -7,12 +7,12 @@ l10n:
 
 {{CSSRef}}
 
-In CSS erzeugt **`::before`** ein [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements), das das erste Kind des ausgewählten Elements ist. Es wird häufig verwendet, um mit der {{cssxref("content")}}-Eigenschaft kosmetischen Inhalt zu einem Element hinzuzufügen. Es ist standardmäßig inline.
+In CSS erstellt **`::before`** ein [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements), das das erste Kind des ausgewählten Elements ist. Es wird häufig verwendet, um kosmetische Inhalte mit der {{cssxref("content")}}-Eigenschaft zu einem Element hinzuzufügen. Standardmäßig ist es inline.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-element-before.html", "tabbed-standard")}}
 
 > [!NOTE]
-> Die von `::before` und `::after` erzeugten Pseudoelemente sind Boxen, die erzeugt werden, als wären sie unmittelbare Kinder des Elements, auf dem sie angewendet werden, oder des „ursprünglichen Elements“ und können daher nicht auf _[ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)_, wie z. B. {{htmlelement("img")}}, angewendet werden, deren Inhalt außerhalb des Gültigkeitsbereichs des CSS-Formatierungsmodells liegt.
+> Die von `::before` und `::after` generierten Pseudo-Elemente sind Boxen, die so erzeugt werden, als wären sie unmittelbare Kinder des Elements, auf das sie angewendet werden, oder des "ursprünglichen Elements", und können daher nicht auf _[ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)_ wie {{htmlelement("img")}} angewendet werden, deren Inhalt außerhalb des Geltungsbereichs des CSS-Formatierungsmodells liegt.
 
 ## Syntax
 
@@ -23,19 +23,19 @@ In CSS erzeugt **`::before`** ein [Pseudoelement](/de/docs/Web/CSS/Pseudo-elemen
 }
 ```
 
-Wenn die [`content`](/de/docs/Web/CSS/content)-Eigenschaft nicht angegeben ist, einen ungültigen Wert hat oder `normal` oder `none` als Wert hat, wird das `::before`-Pseudoelement nicht gerendert. Es verhält sich, als ob `display: none` gesetzt ist.
+Wenn die [`content`](/de/docs/Web/CSS/content)-Eigenschaft nicht angegeben ist, einen ungültigen Wert hat oder `normal` oder `none` als Wert hat, dann wird das `::before`-Pseudo-Element nicht gerendert. Es verhält sich so, als wäre `display: none` gesetzt.
 
-> **Hinweis:** [Selectors Level 3](https://drafts.csswg.org/selectors-3/#gen-content) führte die doppelten Doppelpunkte `::before` ein, um [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudoelementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Browser akzeptieren auch die einzelnen Doppelpunkte `:before`, die in CSS2 eingeführt wurden.
+> **Hinweis:** [Selectors Level 3](https://drafts.csswg.org/selectors-3/#gen-content) führte die Doppelpunkt-Notation `::before` ein, um [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Browser akzeptieren auch die Einpunkt-Notation `:before`, die in CSS2 eingeführt wurde.
 
 ## Barrierefreiheit
 
-Es wird davon abgeraten, ein `::before`-Pseudoelement zur Hinzufügung von Inhalten zu verwenden, da es für Screenreader nicht zuverlässig zugänglich ist.
+Die Verwendung eines `::before`-Pseudo-Elements zum Hinzufügen von Inhalten wird nicht empfohlen, da es für Bildschirmleser nicht zuverlässig zugänglich ist.
 
 ## Beispiele
 
 ### Hinzufügen von Anführungszeichen
 
-Ein einfaches Beispiel für die Verwendung von `::before`-Pseudoelementen ist das Bereitstellen von Anführungszeichen. Hier verwenden wir sowohl `::before` als auch {{Cssxref("::after")}}, um Anführungszeichen zu platzieren.
+Ein einfaches Beispiel für die Verwendung von `::before`-Pseudo-Elementen ist das Bereitstellen von Anführungszeichen. Hier verwenden wir sowohl `::before` als auch {{Cssxref("::after")}}, um Anführungszeichenzeichen einzufügen.
 
 #### HTML
 
@@ -63,7 +63,7 @@ q::after {
 
 ### Dekoratives Beispiel
 
-Wir können Text oder Bilder in der {{cssxref("content")}}-Eigenschaft fast beliebig gestalten.
+Wir können Text oder Bilder in der {{cssxref("content")}}-Eigenschaft fast nach Belieben gestalten.
 
 #### HTML
 
@@ -92,7 +92,7 @@ Wir können Text oder Bilder in der {{cssxref("content")}}-Eigenschaft fast beli
 
 ### To-do-Liste
 
-In diesem Beispiel erstellen wir eine einfache To-do-Liste mit Pseudoelementen. Diese Methode kann oft verwendet werden, um der Benutzeroberfläche kleine Details hinzuzufügen und das Benutzererlebnis zu verbessern.
+In diesem Beispiel erstellen wir eine einfache To-do-Liste mit Pseudo-Elementen. Diese Methode kann häufig verwendet werden, um kleine Akzente in der Benutzeroberfläche hinzuzufügen und die Benutzererfahrung zu verbessern.
 
 #### HTML
 
@@ -153,7 +153,7 @@ list.addEventListener(
 );
 ```
 
-Hier ist das obige Codebeispiel live laufend. Beachten Sie, dass keine Symbole verwendet werden und das Häkchen tatsächlich das `::before` ist, das in CSS gestaltet wurde. Gehen Sie voran und erledigen Sie einige Aufgaben.
+Hier läuft das obige Codebeispiel live. Beachten Sie, dass keine Symbole verwendet wurden und das Häkchen tatsächlich das `::before` ist, das in CSS gestaltet wurde. Legen Sie los und erledigen Sie einige Dinge.
 
 #### Ergebnis
 
@@ -161,7 +161,7 @@ Hier ist das obige Codebeispiel live laufend. Beachten Sie, dass keine Symbole v
 
 ### Sonderzeichen
 
-Da dies CSS und kein HTML ist, können Sie **keine** Markup-Entitäten in Inhaltswerten verwenden. Wenn Sie ein Sonderzeichen verwenden müssen und es nicht direkt in Ihren CSS-Inhaltsstring eingeben können, verwenden Sie eine Unicode-Escape-Sequenz bestehend aus einem Rückwärtsstrich gefolgt vom hexadezimalen Unicode-Wert.
+Da dies CSS und nicht HTML ist, können Sie keine Markup-Entitäten in Inhaltswerten verwenden. Wenn Sie ein Sonderzeichen verwenden müssen und es nicht direkt in Ihre CSS-Inhaltszeichenfolge eingeben können, verwenden Sie eine Unicode-Escape-Sequenz, die aus einem Backslash gefolgt vom hexadezimalen Unicode-Wert besteht.
 
 #### HTML
 
@@ -190,7 +190,7 @@ li[aria-current="step"] {
 }
 
 li[aria-current="step"]::after {
-  content: " \21E6"; /* Hexadezimal für Unicode Links-weißer Pfeil */
+  content: " \21E6"; /* Hexadecimal for Unicode Leftwards white arrow*/
   display: inline;
 }
 ```
@@ -203,7 +203,7 @@ li[aria-current="step"]::after {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

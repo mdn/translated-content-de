@@ -9,12 +9,12 @@ l10n:
 {{APIRef("HTML DOM")}}
 
 Die **`HTMLTableElement.tHead`** repräsentiert das
-{{HTMLElement("thead")}}-Element einer {{HTMLElement("table")}}. Ihr Wert wird
-`null` sein, wenn es ein solches Element nicht gibt.
+{{HTMLElement("thead")}}-Element eines {{HTMLElement("table")}}. Ihr Wert ist
+`null`, falls ein solches Element nicht existiert.
 
 ## Wert
 
-Ein {{domxref("HTMLTableSectionElement")}}.
+Ein [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement).
 
 ## Beispiele
 
@@ -34,4 +34,4 @@ if (table.tHead === my_head_el) {
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Eigenschaft implementiert: {{domxref("HTMLTableElement")}}.
+- Die Schnittstelle, die diese Eigenschaft implementiert: [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement).

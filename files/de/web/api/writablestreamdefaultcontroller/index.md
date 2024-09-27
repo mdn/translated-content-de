@@ -7,30 +7,30 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`WritableStreamDefaultController`**-Schnittstelle der [Streams API](/de/docs/Web/API/Streams_API) stellt einen Controller dar, der die Kontrolle über den Zustand eines {{domxref("WritableStream")}} ermöglicht. Beim Erstellen eines `WritableStream` wird dem zugrunde liegenden Sink eine entsprechende Instanz von `WritableStreamDefaultController` zur Manipulation zugewiesen.
+Das **`WritableStreamDefaultController`**-Interface der [Streams API](/de/docs/Web/API/Streams_API) repräsentiert einen Controller, der die Kontrolle über den Zustand eines [`WritableStream`](/de/docs/Web/API/WritableStream) ermöglicht. Beim Erstellen eines `WritableStream` wird dem zugrunde liegenden Sink ein entsprechendes `WritableStreamDefaultController`-Instance übergeben, um es zu manipulieren.
 
 ## Konstruktor
 
-Keiner. `WritableStreamDefaultController`-Instanzen werden automatisch während der Konstruktion eines `WritableStream` erstellt.
+Keiner. `WritableStreamDefaultController`-Instanzen werden automatisch während der Erstellung von `WritableStream` erstellt.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("WritableStreamDefaultController.signal")}} {{ReadOnlyInline}}
-  - : Gibt das mit dem Controller verbundene {{domxref("AbortSignal")}} zurück.
+- [`WritableStreamDefaultController.signal`](/de/docs/Web/API/WritableStreamDefaultController/signal) {{ReadOnlyInline}}
+  - : Gibt das [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück, das mit dem Controller verknüpft ist.
 
 ## Instanz-Methoden
 
-- {{domxref("WritableStreamDefaultController.error()")}}
-  - : Verursacht, dass alle zukünftigen Interaktionen mit dem zugehörigen Stream fehlschlagen.
+- [`WritableStreamDefaultController.error()`](/de/docs/Web/API/WritableStreamDefaultController/error)
+  - : Verursacht einen Fehler bei allen zukünftigen Interaktionen mit dem zugehörigen Stream.
 
 ## Beispiele
 
 ```js
 const writableStream = new WritableStream({
   start(controller) {
-    // Tun Sie etwas mit dem Controller
+    // do stuff with controller
 
-    // Fehler im Stream verursachen, falls erforderlich
+    // error stream if necessary
     controller.error("My stream is broken");
   },
   write(chunk, controller) {

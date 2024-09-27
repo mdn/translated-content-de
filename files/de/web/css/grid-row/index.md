@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-row`** CSS-[Kurzform-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) legt die Größe und Position eines Grid-Elements innerhalb einer {{glossary("grid row", "Gitterreihe")}} fest, indem eine Linie, eine Spanne oder nichts (automatisch) zu seiner Gitterplatzierung beigetragen wird und dadurch den Anfangs- und Endrand seines {{glossary("grid areas", "Gitterbereichs")}} bestimmt.
+Die **`grid-row`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt die Größe und Position eines Grid-Items innerhalb einer [Gitterreihe](/de/docs/Glossary/grid_row) fest, indem es eine Linie, eine Spanne oder nichts (automatisch) zu seiner Gitterplatzierung beiträgt und somit die Start- und Endkante seines [Gittersbereichs](/de/docs/Glossary/grid_areas) angibt.
 
 {{EmbedInteractiveExample("pages/css/grid-row.html")}}
 
-## Bestandteile der Eigenschaften
+## Bestandteile von Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - [`grid-row-end`](/de/docs/Web/CSS/grid-row-end)
 - [`grid-row-start`](/de/docs/Web/CSS/grid-row-start)
@@ -21,19 +21,19 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 grid-row: auto;
 grid-row: auto / auto;
 
-/* <custom-ident> Werte */
+/* <custom-ident> values */
 grid-row: somegridarea;
 grid-row: somegridarea / someothergridarea;
 
-/* <integer> + <custom-ident> Werte */
+/* <integer> + <custom-ident> values */
 grid-row: somegridarea 4;
 grid-row: 4 somegridarea / 6;
 
-/* span + <integer> + <custom-ident> Werte */
+/* span + <integer> + <custom-ident> values */
 grid-row: span 3;
 grid-row: span somegridarea;
 grid-row: 5 somegridarea span;
@@ -41,7 +41,7 @@ grid-row: span 3 / 6;
 grid-row: span somegridarea / span someothergridarea;
 grid-row: 5 somegridarea span / 2 span;
 
-/* Globale Werte */
+/* Global values */
 grid-row: inherit;
 grid-row: initial;
 grid-row: revert;
@@ -51,44 +51,44 @@ grid-row: unset;
 
 Diese Eigenschaft wird als ein oder zwei `<grid-line>` Werte angegeben.
 
-Wenn zwei `<grid-line>` Werte angegeben sind, werden sie durch `/` getrennt. Der Langtext von `grid-row-start` wird auf den Wert vor dem Schrägstrich gesetzt, und der Langtext von `grid-row-end` wird auf den Wert nach dem Schrägstrich gesetzt.
+Wenn zwei `<grid-line>`-Werte angegeben werden, werden sie durch `/` getrennt. Die Langschreibweise `grid-row-start` wird auf den Wert vor dem Schrägstrich gesetzt, und die Langschreibweise `grid-row-end` wird auf den Wert nach dem Schrägstrich gesetzt.
 
-Jeder `<grid-line>` Wert kann angegeben werden als:
+Jeder `<grid-line>`-Wert kann angegeben werden als:
 
 - entweder das Schlüsselwort `auto`
-- oder ein `<custom-ident>` Wert
-- oder ein `<integer>` Wert
-- oder sowohl `<custom-ident>` als auch `<integer>`, getrennt durch ein Leerzeichen
+- oder ein `<custom-ident>`-Wert
+- oder ein `<integer>`-Wert
+- oder beide `<custom-ident>` und `<integer>`, getrennt durch ein Leerzeichen
 - oder das Schlüsselwort `span` zusammen mit entweder einem `<custom-ident>` oder einem `<integer>` oder beidem.
 
 ### Werte
 
 - `auto`
-  - : Ist ein Schlüsselwort, das anzeigt, dass die Eigenschaft nichts zur Platzierung des Grid-Elements beiträgt, was eine automatische Platzierung, eine automatische Spanne oder eine Standardspranne von `1` bedeutet.
+  - : Ist ein Schlüsselwort, das anzeigt, dass die Eigenschaft nichts zur Platzierung des Grid-Elements beiträgt, was auf eine automatische Platzierung, eine automatische Spanne oder eine Standardspanne von `1` hinweist.
 - `<custom-ident>`
 
   - : Wenn es eine benannte Linie mit dem Namen `<custom-ident>-start`/`<custom-ident>-end` gibt, trägt sie die erste solche Linie zur Platzierung des Grid-Elements bei.
 
     > [!NOTE]
-    > Benannte Gitterbereiche erzeugen automatisch implizit benannte Linien dieser Form, sodass die Angabe von `grid-row: foo;` den Start-/Endrand dieses benannten Gitterbereichs auswählt (es sei denn, eine andere Linie namens `foo-start`/`foo-end` wurde vorher explizit angegeben).
+    > Benannte Gittersbereiche erzeugen automatisch implizit benannte Linien dieser Form, sodass die Angabe von `grid-row: foo;` die Start-/Endkante dieses benannten Gittersbereichs auswählt (sofern nicht eine andere Linie mit dem Namen `foo-start`/`foo-end` vorher explizit angegeben wurde).
 
-    Andernfalls wird dies behandelt, als ob der integer `1` zusammen mit dem `<custom-ident>` angegeben wurde.
+    Andernfalls wird dies behandelt, als wäre die Ganzzahl `1` zusammen mit dem `<custom-ident>` angegeben worden.
 
 - `<integer> && <custom-ident>?`
 
-  - : Trägt die n-te Gitterlinie zur Platzierung des Grid-Elements bei. Wenn eine negative Ganzzahl angegeben wird, zählt sie stattdessen rückwärts, beginnend vom Endrand des expliziten Gitters.
+  - : Trägt die n-te Gitterslinie zur Platzierung des Grid-Elements bei. Wenn eine negative Ganzzahl angegeben wird, wird rückwärts gezählt, beginnend von der Endkante des expliziten Gitters.
 
-    Wenn ein Name als `<custom-ident>` angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, haben alle impliziten Gitterlinien für den Zweck, diese Position zu finden, diesen Namen.
+    Wenn ein Name als `<custom-ident>` angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Gitterslinien diesen Namen zur Bestimmung dieser Position haben.
 
-    Ein {{cssxref("integer")}} Wert von `0` ist ungültig.
+    Ein {{cssxref("integer")}}-Wert von `0` ist ungültig.
 
 - `span && [ <integer> || <custom-ident> ]`
 
-  - : Trägt eine Gitterspranne zur Platzierung des Grid-Elements bei, sodass der entsprechende Rand des Gitters des Grid-Elements n Linien vom gegenüberliegenden Rand entfernt ist.
+  - : Trägt eine Gittersabstand zur Platzierung des Grid-Elements bei, sodass die entsprechende Kante des Gittersbereichs des Grid-Elements n Linien von der gegenüberliegenden Kante entfernt ist.
 
-    Wenn ein Name als `<custom-ident>` angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, haben alle impliziten Gitterlinien auf der Seite des expliziten Gitters, die mit der Suchrichtung übereinstimmt, diesen Namen für den Zweck der Zählung dieser Spanne.
+    Wenn ein Name als `<custom-ident>` angegeben wird, werden nur Linien mit diesem Namen gezählt. Wenn nicht genügend Linien mit diesem Namen existieren, wird angenommen, dass alle impliziten Gitterslinien auf der Seite des expliziten Gitters, die der Suchrichtung entspricht, diesen Namen zum Zweck des Zählens dieser Spanne haben.
 
-    Wenn der `<integer>` weggelassen wird, ist er standardmäßig auf `1`. Negative Ganzzahlen oder 0 sind ungültig.
+    Wenn die `<integer>`-Angabe ausgelassen wird, wird sie standardmäßig auf `1` gesetzt. Negative Ganzzahlen oder 0 sind ungültig.
 
 ## Formale Definition
 
@@ -156,5 +156,5 @@ Jeder `<grid-line>` Wert kann angegeben werden als:
 - {{cssxref("grid-column")}}
 - {{cssxref("grid-column-start")}}
 - {{cssxref("grid-column-end")}}
-- [Line-based placement with CSS grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-- Video: [Line-based placement](https://gridbyexample.com/video/series-line-based-placement/)
+- [Linienbasierte Platzierung mit CSS Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
+- Video: [Linienbasierte Platzierung](https://gridbyexample.com/video/series-line-based-placement/)

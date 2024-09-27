@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`x1`** Attribut wird verwendet, um die erste x-Koordinate für das Zeichnen eines SVG-Elements anzugeben, das mehr als eine Koordinate benötigt. Elemente, die nur eine Koordinate benötigen, verwenden stattdessen das {{SVGAttr("x")}} Attribut.
+Das **`x1`**-Attribut wird verwendet, um die erste x-Koordinate zum Zeichnen eines SVG-Elements anzugeben, das mehr als eine Koordinate benötigt. Elemente, die nur eine Koordinate benötigen, verwenden das {{SVGAttr("x")}}-Attribut.
 
 ## Elemente
 
@@ -72,7 +72,7 @@ svg {
 
 ### `<linearGradient>`
 
-Für {{SVGElement('linearGradient')}} definiert `x1` die x-Koordinate des Startpunkts des _Gradientenvektors_, der zur Abbildung der Farbverlauf-Stopwerte verwendet wird. Das genaue Verhalten dieses Attributs wird durch die {{SVGAttr('gradientUnits')}} Attribute beeinflusst.
+Für {{SVGElement('linearGradient')}} definiert `x1` die x-Koordinate des Startpunkts des _gradient vector_, der zur Abbildung der Gradientenstoppwerte verwendet wird. Das genaue Verhalten dieses Attributs wird durch die {{SVGAttr('gradientUnits')}}-Attribute beeinflusst.
 
 <table class="properties">
   <tbody>

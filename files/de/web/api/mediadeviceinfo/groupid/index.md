@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`groupId`** des {{domxref("MediaDeviceInfo")}}-Interfaces gibt einen Zeichenfolgenwert zurück, der ein Gruppenkennzeichen ist.
+Die **`groupId`** schreibgeschützte Eigenschaft der [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Schnittstelle liefert einen String, der eine Gruppenkennung darstellt.
 
-Zwei Geräte haben das gleiche Gruppenkennzeichen, wenn sie zum selben physischen Gerät gehören; zum Beispiel ein Monitor mit integrierter Kamera und Mikrofon.
+Zwei Geräte haben dieselbe Gruppenkennung, wenn sie zu demselben physischen Gerät gehören; zum Beispiel ein Monitor mit sowohl einer eingebauten Kamera als auch einem Mikrofon.
 
 ## Wert
 
-Eine Zeichenkette, die die Gruppe von verwandten Geräten, zu der dieses Gerät gehört, eindeutig identifiziert.
+Ein String, der die Gruppe von verwandten Geräten, zu der dieses Gerät gehört, eindeutig identifiziert.
 
 ## Spezifikationen
 
@@ -22,7 +22,7 @@ Eine Zeichenkette, die die Gruppe von verwandten Geräten, zu der dieses Gerät 
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir eine Liste der Geräte, die zur gleichen Gruppe wie ein gegebenes Gerät gehören. Dies könnte verwendet werden, um eine Benutzeroberfläche zu erstellen, die zugehörige Geräte zur Präsentation zusammenfasst, oder es dem Benutzer erleichtert, die eingebaute Kamera und das Mikrofon auf demselben Display gleichzeitig zu verwenden.
+In diesem Beispiel erstellen wir eine Liste der Geräte, die Teil derselben Gruppe wie ein gegebenes Gerät sind. Dies könnte verwendet werden, um eine Benutzeroberfläche zu erstellen, die zusammengehörige Geräte zur Präsentation bündelt, oder um es dem Benutzer zu erleichtern, die eingebaute Kamera und das Mikrofon auf demselben Display gleichzeitig zu nutzen.
 
 ```js
 const getDeviceGroup = (mainDevInfo) => {
@@ -40,16 +40,15 @@ const getDeviceGroup = (mainDevInfo) => {
 };
 ```
 
-Die Funktion `getDeviceGroup()` nimmt als Eingabe das `MediaDeviceInfo`-Objekt entgegen, das das Gerät beschreibt, für das eine Gruppenliste erstellt werden soll. Die Funktion beginnt mit der Initialisierung des Ergebnisarrays, `devList`, als leeres Array.
+Die `getDeviceGroup()`-Funktion nimmt als Eingabe das `MediaDeviceInfo`-Objekt, das das Gerät beschreibt, für das eine Gruppenliste erstellt werden soll. Die Funktion beginnt, indem sie das Ergebnis-Array `devList` als leeres Array initialisiert.
 
-Dann wird {{domxref("MediaDevices.enumerateDevices", "navigator.mediaDevices.enumerateDevices()")}} aufgerufen, um die Liste aller Mediengeräte zu erhalten. Sobald das Versprechen erfüllt ist, durchlaufen wir die Liste mit {{jsxref("Array.forEach", "forEach()")}}.
-Für jedes Gerät wird, wenn sein `groupId` mit dem `groupId` des Hauptgeräts übereinstimmt, das {{domxref("MediaDeviceInfo")}}-Objekt zur Liste hinzugefügt.
+Dann wird [`navigator.mediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) aufgerufen, um die Liste aller Mediengeräte zu erhalten. Sobald das Versprechen erfüllt ist, durchlaufen wir die Liste mit {{jsxref("Array.forEach", "forEach()")}}. Für jedes Gerät, dessen `groupId` mit der `groupId` des Hauptgeräts übereinstimmt, fügen wir das [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Objekt der Liste hinzu.
 
-Schließlich wird die Liste, die nun ein `MediaDeviceInfo`-Objekt für jedes Gerät in derselben Gruppe enthält, an den Anrufer zurückgegeben.
+Schließlich wird die Liste, die nun ein `MediaDeviceInfo`-Objekt für jedes Gerät in derselben Gruppe enthält, an den Aufrufer zurückgegeben.
 
-Diese Funktion kann leicht geändert werden, um das übergebene Gerät entweder wegzulassen oder an den Anfang der Liste zu setzen, indem die beiden Objekte anhand ihrer {{domxref("MediaDeviceInfo.deviceId", "deviceId")}}-Werte verglichen werden und das Gerät nur dann zur Ergebnisliste hinzugefügt wird, wenn es nicht übereinstimmt.
+Dies könnte leicht geändert werden, um entweder das übergebene Gerät aus der zurückgegebenen Liste auszuschließen oder es an die Spitze der Liste zu setzen, indem die [`deviceId`](/de/docs/Web/API/MediaDeviceInfo/deviceId)-Werte der beiden Objekte verglichen werden und das Gerät nur dann zur Ergebnisliste hinzugefügt wird, wenn es nicht übereinstimmt.
 
-Diese Version des Beispiels platziert das übergebene Gerät an der Spitze der Ergebnisliste und fügt dann alle anderen Mitglieder der gefundenen Gruppe hinzu:
+Diese Version des Beispiels platziert das übergebene Gerät an die Spitze der Ergebnisliste und fügt dann alle anderen Mitglieder der Gruppe hinzu, die gefunden werden:
 
 ```js
 const getDeviceGroup = (mainDevInfo) => {

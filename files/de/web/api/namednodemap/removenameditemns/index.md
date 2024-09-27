@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`removeNamedItemNS()`** Methode der {{domxref("NamedNodeMap")}} Schnittstelle
-entfernt das {{domxref("Attr")}}, das dem angegebenen Namespace und lokalen Namen entspricht, aus der Map.
+Die **`removeNamedItemNS()`**-Methode der [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Schnittstelle entfernt das [`Attr`](/de/docs/Web/API/Attr), das dem angegebenen Namensraum und lokalen Namen im Map entspricht.
 
 ## Syntax
 
@@ -21,20 +20,20 @@ removeNamedItem(namespace, localName)
 
 - `namespace`
 
-  - : Der Namespace des Attributs, das aus der Map entfernt werden soll.
-    > **Warning:** `namespace` ist die URI des Namespace, nicht das Präfix.
+  - : Der Namensraum des Attributs, das aus der Map entfernt werden soll
+    > **Warning:** `namespace` ist der URI des Namensraums, nicht das Präfix.
 
 - `localName`
   - : Der lokale Name des Attributs, das aus der Map entfernt werden soll.
 
 ### Rückgabewert
 
-Das entfernte {{domxref("Attr")}}.
+Das entfernte [`Attr`](/de/docs/Web/API/Attr).
 
 ### Ausnahmen
 
-- `NotFoundError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn kein Attribut mit dem gegebenen Namespace und lokalen Namen vorhanden ist.
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn kein Attribut mit dem angegebenen Namensraum und lokalen Namen vorhanden ist.
 
 ## Beispiel
 

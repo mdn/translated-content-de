@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`:current`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) Selektor ist eine zeitdimensionale Pseudoklasse, die ein Element oder den Vorfahren eines Elements repräsentiert, das derzeit angezeigt wird. Zum Beispiel kann diese Pseudoklasse verwendet werden, um ein Video darzustellen, das mit Untertiteln mittels [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt wird.
+Der **`:current`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) ist eine zeitdimensionale Pseudoklasse, die ein Element oder dessen Vorfahren darstellt, das derzeit angezeigt wird. Zum Beispiel kann diese Pseudoklasse verwendet werden, um ein Video darzustellen, das mit Untertiteln von [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt wird.
 
 ```css
 :current(p, span) {

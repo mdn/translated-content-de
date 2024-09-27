@@ -1,5 +1,5 @@
 ---
-title: Verwendung von Mehrspaltenlayouts
+title: Verwendung von mehrspaltigen Layouts
 slug: Web/CSS/CSS_multicol_layout/Using_multicol_layouts
 l10n:
   sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die im **CSS-Mehrspaltenlayout-Modul** definierten Eigenschaften erweitern den _Block-Layout-Modus_, wodurch die einfache Definition mehrerer Textspalten ermöglicht wird. Menschen haben Schwierigkeiten beim Lesen von Texten, wenn Zeilen zu lang sind. Wenn es zu lange dauert, bis die Augen vom Ende einer Zeile zum Anfang der nächsten Zeile gelangen, kann es passieren, dass die Leser die Übersicht verlieren, auf welcher Zeile sie sich befanden. Um eine bessere Benutzererfahrung beim Lesen von Texten auf einem großen Bildschirm zu bieten, sollten Sie die Breite des Textes begrenzen, indem Sie nebeneinander platzierte Textspalten verwenden, wie es Zeitungen tun.
+Die im **CSS-Multi-Column-Layout-Modul** definierten Eigenschaften erweitern den _Block-Layout-Modus_ und ermöglichen die einfache Definition mehrerer Textspalten. Menschen haben Schwierigkeiten, Text zu lesen, wenn die Zeilen zu lang sind. Wenn es zu lange dauert, bis die Augen vom Ende einer Zeile zum Anfang der nächsten Zeile wechseln, können Leser den Überblick darüber verlieren, in welcher Zeile sie sich befinden. Um eine bessere Benutzererfahrung beim Lesen von Texten auf einem großen Bildschirm zu bieten, sollten Sie die Breite des Textes begrenzen, indem Sie nebeneinander platzierte Textspalten verwenden, genau wie es Zeitungen tun.
 
 ## Verwendung von Spalten
 
-### Spaltenanzahl und Breite
+### Spaltenanzahl und -breite
 
-Zwei CSS-Eigenschaften steuern, ob und wie viele Spalten erscheinen: {{cssxref("column-count")}} und {{cssxref("column-width")}}.
+Zwei CSS-Eigenschaften steuern, ob und wie viele Spalten angezeigt werden: {{cssxref("column-count")}} und {{cssxref("column-width")}}.
 
-Die Eigenschaft `column-count` legt die Anzahl der Spalten auf eine bestimmte Anzahl fest. Zum Beispiel:
+Die Eigenschaft `column-count` legt die Anzahl der Spalten auf eine bestimmte Zahl fest. Z.B.,
 
 ## Beispiel 1
 
@@ -56,7 +56,7 @@ Der Inhalt wird in zwei Spalten angezeigt:
 
 {{EmbedLiveSample("Example_1", "100%")}}
 
-Die Eigenschaft `column-width` legt die minimale gewünschte Spaltenbreite fest. Wenn `column-count` nicht ebenfalls festgelegt ist, erstellt der Browser automatisch so viele Spalten, wie in der verfügbaren Breite passen.
+Die Eigenschaft `column-width` legt die gewünschte Mindestbreite der Spalten fest. Wenn `column-count` nicht ebenfalls festgelegt ist, erstellt der Browser automatisch so viele Spalten, wie in die verfügbare Breite passen.
 
 ## Beispiel 2
 
@@ -85,11 +85,11 @@ Die Eigenschaft `column-width` legt die minimale gewünschte Spaltenbreite fest.
 
 {{EmbedLiveSample("Example_2", "100%")}}
 
-In einem mehrspaltigen Block fließt der Inhalt automatisch von einer Spalte in die nächste, wenn dies erforderlich ist. Alle HTML-, CSS- und DOM-Funktionalitäten werden innerhalb von Spalten unterstützt, ebenso wie Bearbeitung und Druck.
+In einem mehrspaltigen Block fließt der Inhalt bei Bedarf automatisch von einer Spalte in die nächste. Alle HTML-, CSS- und DOM-Funktionen werden innerhalb von Spalten unterstützt, ebenso wie Bearbeiten und Drucken.
 
-### Die Spalten-Kurzschrift
+### Die Spalten-Kurzform
 
-Sie können entweder {{cssxref("column-count")}} oder {{cssxref("column-width")}} verwenden. Da Werte für diese Eigenschaften sich nicht überschneiden, ist es oft bequem, die Kurzschrift {{cssxref("columns")}} zu verwenden.
+Sie können entweder {{cssxref("column-count")}} oder {{cssxref("column-width")}} verwenden. Da die Werte für diese Eigenschaften nicht überlappen, ist es oft bequem, die Kurzform {{cssxref("columns")}} zu verwenden.
 
 ## Beispiel 3
 
@@ -149,7 +149,7 @@ In diesem Beispiel wird die CSS-Deklaration `column-count: 4` durch `columns: 4`
 
 ## Beispiel 5
 
-Die beiden CSS-Deklarationen `column-width: 8em` und `column-count: 12` können durch `columns: 12 8em` ersetzt werden. Der `column-count` Teil der Kurzschrift gibt die maximale Anzahl der Spalten an, die vorhanden sein werden. Die `column-width` ist die Mindestbreite, die jede Spalte haben sollte.
+Die beiden CSS-Deklarationen `column-width: 8em` und `column-count: 12` können durch `columns: 12 8em` ersetzt werden. Der `column-count`-Teil der Kurzform ist die maximale Anzahl der Spalten, die vorhanden sein werden. Die `column-width` ist die minimale Breite, die jede Spalte haben sollte.
 
 ### HTML
 
@@ -176,17 +176,17 @@ Die beiden CSS-Deklarationen `column-width: 8em` und `column-count: 12` können 
 
 {{EmbedLiveSample("Example_5", "100%")}}
 
-Angenommen, ein standardmäßiger `1em` Abstand zwischen den Spalten wird verwendet, dann werden, wenn der Container breiter als `103ems` ist (12 Spalten \* `8em` Breite je Spalte + 7 `1em` Abstände), 12 Spalten vorhanden sein, jede mit einer Breite von `8ems` oder mehr. Wenn der Container weniger als `103ems` breit ist, gibt es weniger als 12 Spalten. Wenn der Container weniger als `17ems` breit ist (`8em` Spalte + `8em` Spalte + `1em` Abstand), wird der Inhalt als einzelne Spalte ohne Spaltenabstand angezeigt.
+Bei einer Standardlücke von `1em` zwischen den Spalten gilt: Wenn der Container breiter als `103ems` ist (12 Spalten \* `8em` Breite + 7 `1em` Lücken), wird es 12 Spalten geben, von denen jede eine Breite von `8ems` oder mehr hat. Wenn der Container weniger als `103ems` breit ist, wird es weniger als 12 Spalten geben. Wenn der Container weniger als `17ems` breit ist (`8em` Spalte + `8em` Spalte + `1em` Lücke), wird der Inhalt als einzelne Spalte ohne Spaltenabstand angezeigt.
 
 ### Höhenbalancierung
 
-CSS-Spalten erfordern, dass die Spaltenhöhen ausgeglichen werden müssen: Das heißt, der Browser setzt automatisch die maximale Spaltenhöhe so, dass die Höhen des Inhalts in jeder Spalte annähernd gleich sind. Firefox tut dies.
+CSS-Spalten erfordern, dass die Spaltenhöhen ausgeglichen sein müssen: d.h. der Browser setzt automatisch die maximale Spaltenhöhe so, dass die Höhen des Inhalts in jeder Spalte ungefähr gleich sind. Firefox tut dies.
 
-In einigen Situationen ist es jedoch auch hilfreich, die maximale Höhe der Spalten explizit festzulegen und dann den Inhalt von der ersten Spalte aus anzuordnen und so viele Spalten wie nötig zu erstellen, möglicherweise mit Überlauf nach rechts. Wenn die Höhe begrenzt ist, indem die CSS-Eigenschaften {{cssxref("height")}} oder {{cssxref("max-height")}} auf einen mehrspaltigen Block angewendet werden, darf jede Spalte bis zu dieser Höhe und nicht weiter wachsen, bevor eine neue Spalte hinzugefügt wird. Dieser Modus ist auch viel effizienter für das Layout.
+In einigen Situationen ist es jedoch auch nützlich, die maximale Höhe der Spalten explizit festzulegen und dann den Inhalt beginnend bei der ersten Spalte anzuordnen und bei Bedarf weitere Spalten hinzuzufügen, wodurch der Inhalt möglicherweise nach rechts überläuft. Daher darf, wenn die Höhe eingeschränkt ist, indem die CSS-Eigenschaften {{cssxref("height")}} oder {{cssxref("max-height")}} auf einem mehrspaltigen Block festgelegt werden, jede Spalte auf diese Höhe und nicht weiter wachsen, bevor sie neue Spalten hinzufügt. Dieser Modus ist auch weitaus effizienter für das Layout.
 
 ### Spaltenabstände
 
-Es gibt einen Abstand zwischen den Spalten. Der empfohlene Standard ist `1em`. Diese Größe kann geändert werden, indem die Eigenschaft {{cssxref("column-gap")}} auf den mehrspaltigen Block angewendet wird:
+Zwischen den Spalten gibt es einen Abstand. Der empfohlene Standard ist `1em`. Diese Größe kann geändert werden, indem die Eigenschaft {{cssxref("column-gap")}} auf den mehrspaltigen Block angewendet wird:
 
 ## Beispiel 6
 
@@ -218,4 +218,4 @@ Es gibt einen Abstand zwischen den Spalten. Der empfohlene Standard ist `1em`. D
 
 ## Fazit
 
-CSS-Spalten sind ein Layout-Primitiv, das helfen kann, große Textblöcke leichter lesbar zu machen, wenn responsive Inhalte auf großen Ansichtsbereichen betrachtet werden. Einfallsreiche Entwickler können viele Verwendungszwecke dafür finden, insbesondere in Verbindung mit [Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries) und der automatischen Höhenbalancierung.
+CSS-Spalten sind ein Layout-Primitiv, das helfen kann, große Textblöcke leichter lesbar zu machen, wenn responsiver Inhalt auf großen Ansichten angezeigt wird. Erfinderische Entwickler könnten viele Verwendungsmöglichkeiten für sie finden, insbesondere in Verbindung mit [Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries) und mit der automatischen Höhenausgleichsfunktion.

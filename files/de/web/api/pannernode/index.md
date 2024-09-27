@@ -7,7 +7,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `PannerNode`-Schnittstelle definiert ein Audiobearbeitungsobjekt, das die Position, Richtung und das Verhalten eines Audiosignals in einem simulierten physischen Raum darstellt. Dieser {{domxref("AudioNode")}} verwendet rechtshändige kartesische Koordinaten, um die _Position_ der Quelle als Vektor und ihre _Ausrichtung_ als 3D-Richtungskegel zu beschreiben.
+Das `PannerNode`-Interface definiert ein Audioverarbeitungsobjekt, das den Standort, die Richtung und das Verhalten eines Audiosignalquellens in einem simulierten physischen Raum darstellt. Dieser [`AudioNode`](/de/docs/Web/API/AudioNode) verwendet rechtshändige kartesische Koordinaten, um die _Position_ der Quelle als Vektor und ihre _Ausrichtung_ als 3D-Richtungskegel zu beschreiben.
 
 Ein `PannerNode` hat immer genau einen Eingang und einen Ausgang: Der Eingang kann _mono_ oder _stereo_ sein, aber der Ausgang ist immer _stereo_ (2 Kanäle); Panning-Effekte sind ohne mindestens zwei Audiokanäle nicht möglich!
 
@@ -26,11 +26,11 @@ Ein `PannerNode` hat immer genau einen Eingang und einen Ausgang: Der Eingang ka
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalanzahlmodus</th>
+      <th scope="row">Kanalmode</th>
       <td><code>"clamped-max"</code></td>
     </tr>
     <tr>
-      <th scope="row">Kanalanzahl</th>
+      <th scope="row">Anzahl der Kanäle</th>
       <td><code>2</code></td>
     </tr>
     <tr>
@@ -42,53 +42,53 @@ Ein `PannerNode` hat immer genau einen Eingang und einen Ausgang: Der Eingang ka
 
 ## Konstruktor
 
-- {{domxref("PannerNode.PannerNode", "PannerNode()")}}
-  - : Erstellt eine neue Instanz eines `PannerNode`-Objekts.
+- [`PannerNode()`](/de/docs/Web/API/PannerNode/PannerNode)
+  - : Erstellt eine neue `PannerNode`-Objektinstanz.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seiner Elternklasse, {{domxref("AudioNode")}}_.
+_Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 > [!NOTE]
-> Die Werte für Ausrichtung und Position werden mit unterschiedlichen Syntaxen gesetzt und abgerufen, da sie als {{domxref("AudioParam")}}-Werte gespeichert sind. Das Abrufen erfolgt durch Zugriff zum Beispiel auf `PannerNode.positionX`. Die Einstellung derselben Eigenschaft erfolgt mit `PannerNode.positionX.value`. Aus diesem Grund sind diese Werte nicht als schreibgeschützt markiert, wie sie im WebIDL erscheinen.
+> Die Orientierungs- und Positionswerte werden mit unterschiedlichen Syntaxen gesetzt und abgerufen, da sie als [`AudioParam`](/de/docs/Web/API/AudioParam)-Werte gespeichert werden. Das Abrufen erfolgt durch Zugriff, beispielsweise auf `PannerNode.positionX`. Das Setzen derselben Eigenschaft erfolgt mit `PannerNode.positionX.value`. Aus diesem Grund sind diese Werte nicht als schreibgeschützt markiert, obwohl sie im WebIDL so erscheinen.
 
-- {{domxref("PannerNode.coneInnerAngle")}}
-  - : Ein Doppelwert, der den Winkel in Grad beschreibt, innerhalb dessen keine Lautstärkereduzierung erfolgt.
-- {{domxref("PannerNode.coneOuterAngle")}}
-  - : Ein Doppelwert, der den Winkel in Grad beschreibt, außerhalb dessen die Lautstärke um einen konstanten Wert, definiert durch die Eigenschaft `coneOuterGain`, reduziert wird.
-- {{domxref("PannerNode.coneOuterGain")}}
-  - : Ein Doppelwert, der die Lautstärkereduzierung außerhalb des durch das Attribut `coneOuterAngle` definierten Kegels beschreibt. Sein Standardwert ist `0`, was bedeutet, dass kein Ton zu hören ist.
-- {{domxref("PannerNode.distanceModel")}}
-  - : Ein enumerierter Wert, der bestimmt, welcher Algorithmus zur Reduzierung der Lautstärke der Audioquelle verwendet wird, wenn sich diese vom Zuhörer entfernt. Mögliche Werte sind `"linear"`, `"inverse"` und `"exponential"`. Der Standardwert ist `"inverse"`.
-- {{domxref("PannerNode.maxDistance")}}
-  - : Ein Doppelwert, der die maximale Entfernung zwischen der Audioquelle und dem Zuhörer darstellt, nach der die Lautstärke nicht weiter reduziert wird.
-- {{domxref("PannerNode.orientationX")}}
-  - : Repräsentiert die horizontale Position des Vektors der Audioquelle in einem rechtshändigen kartesischen Koordinatensystem. Während dieses {{domxref("AudioParam")}} nicht direkt geändert werden kann, kann sein Wert über seine {{domxref("AudioParam.value", "value")}}-Eigenschaft verändert werden. Der Standardwert ist 1.
-- {{domxref("PannerNode.orientationY")}}
-  - : Repräsentiert die vertikale Position des Vektors der Audioquelle in einem rechtshändigen kartesischen Koordinatensystem. Der Standardwert ist 0. Während dieses {{domxref("AudioParam")}} nicht direkt geändert werden kann, kann sein Wert über seine {{domxref("AudioParam.value", "value")}}-Eigenschaft verändert werden. Der Standardwert ist 0.
-- {{domxref("PannerNode.orientationZ")}}
-  - : Repräsentiert die longitudinale (vor und zurück) Position des Vektors der Audioquelle in einem rechtshändigen kartesischen Koordinatensystem. Der Standardwert ist 0. Während dieses {{domxref("AudioParam")}} nicht direkt geändert werden kann, kann sein Wert über seine {{domxref("AudioParam.value", "value")}}-Eigenschaft verändert werden. Der Standardwert ist 0.
-- {{domxref("PannerNode.panningModel")}}
-  - : Ein enumerierter Wert, der bestimmt, welcher Spatialisation-Algorithmus verwendet werden soll, um das Audio im 3D-Raum zu positionieren.
-- {{domxref("PannerNode.positionX")}}
-  - : Repräsentiert die horizontale Position des Audios in einem rechtshändigen kartesischen Koordinatensystem. Der Standardwert ist 0. Während dieses {{domxref("AudioParam")}} nicht direkt geändert werden kann, kann sein Wert über seine {{domxref("AudioParam.value", "value")}}-Eigenschaft verändert werden. Der Standardwert ist 0.
-- {{domxref("PannerNode.positionY")}}
-  - : Repräsentiert die vertikale Position des Audios in einem rechtshändigen kartesischen Koordinatensystem. Der Standardwert ist 0. Während dieses {{domxref("AudioParam")}} nicht direkt geändert werden kann, kann sein Wert über seine {{domxref("AudioParam.value", "value")}}-Eigenschaft verändert werden. Der Standardwert ist 0.
-- {{domxref("PannerNode.positionZ")}}
-  - : Repräsentiert die longitudinale (vor und zurück) Position des Audios in einem rechtshändigen kartesischen Koordinatensystem. Der Standardwert ist 0. Während dieses {{domxref("AudioParam")}} nicht direkt geändert werden kann, kann sein Wert über seine {{domxref("AudioParam.value", "value")}}-Eigenschaft verändert werden. Der Standardwert ist 0.
-- {{domxref("PannerNode.refDistance")}}
-  - : Ein Doppelwert, der die Referenzentfernung zur Lautstärkereduzierung beschreibt, wenn sich die Audioquelle weiter vom Zuhörer entfernt. Für Entfernungen größer als diesen Wert wird die Lautstärke basierend auf `rolloffFactor` und `distanceModel` reduziert.
-- {{domxref("PannerNode.rolloffFactor")}}
+- [`PannerNode.coneInnerAngle`](/de/docs/Web/API/PannerNode/coneInnerAngle)
+  - : Ein Doppelwert, der den Winkel in Grad eines Kegels beschreibt, innerhalb dessen es keine Lautstärkereduzierung gibt.
+- [`PannerNode.coneOuterAngle`](/de/docs/Web/API/PannerNode/coneOuterAngle)
+  - : Ein Doppelwert, der den Winkel in Grad eines Kegels beschreibt, außerhalb dessen die Lautstärke um einen konstanten Wert reduziert wird, der durch die Eigenschaft `coneOuterGain` definiert ist.
+- [`PannerNode.coneOuterGain`](/de/docs/Web/API/PannerNode/coneOuterGain)
+  - : Ein Doppelwert, der die Menge der Lautstärkereduzierung außerhalb des durch das Attribut `coneOuterAngle` definierten Kegels beschreibt. Der Standardwert ist `0`, was bedeutet, dass kein Ton hörbar ist.
+- [`PannerNode.distanceModel`](/de/docs/Web/API/PannerNode/distanceModel)
+  - : Ein enumerierter Wert, der angibt, welcher Algorithmus verwendet werden soll, um die Lautstärke der Tonquelle zu reduzieren, wenn sie sich vom Zuhörer entfernt. Mögliche Werte sind `"linear"`, `"inverse"` und `"exponential"`. Der Standardwert ist `"inverse"`.
+- [`PannerNode.maxDistance`](/de/docs/Web/API/PannerNode/maxDistance)
+  - : Ein Doppelwert, der die maximale Entfernung zwischen der Tonquelle und dem Zuhörer darstellt, nach der die Lautstärke nicht weiter reduziert wird.
+- [`PannerNode.orientationX`](/de/docs/Web/API/PannerNode/orientationX)
+  - : Repräsentiert die horizontale Position der Vektor der Tonquelle in einem rechtshändigen kartesischen Koordinatensystem. Obwohl dieses [`AudioParam`](/de/docs/Web/API/AudioParam) nicht direkt geändert werden kann, kann sein Wert über seine [`value`](/de/docs/Web/API/AudioParam/value)-Eigenschaft verändert werden. Der Standardwert ist 1.
+- [`PannerNode.orientationY`](/de/docs/Web/API/PannerNode/orientationY)
+  - : Repräsentiert die vertikale Position der Vektor der Tonquelle in einem rechtshändigen kartesischen Koordinatensystem. Der Standardwert ist 0. Obwohl dieses [`AudioParam`](/de/docs/Web/API/AudioParam) nicht direkt geändert werden kann, kann sein Wert über seine [`value`](/de/docs/Web/API/AudioParam/value)-Eigenschaft verändert werden. Der Standardwert ist 0.
+- [`PannerNode.orientationZ`](/de/docs/Web/API/PannerNode/orientationZ)
+  - : Repräsentiert die longitudinale (vorwärts und rückwärts) Position der Vektor der Tonquelle in einem rechtshändigen kartesischen Koordinatensystem. Der Standardwert ist 0. Obwohl dieses [`AudioParam`](/de/docs/Web/API/AudioParam) nicht direkt geändert werden kann, kann sein Wert über seine [`value`](/de/docs/Web/API/AudioParam/value)-Eigenschaft verändert werden. Der Standardwert ist 0.
+- [`PannerNode.panningModel`](/de/docs/Web/API/PannerNode/panningModel)
+  - : Ein enumerierter Wert, der angibt, welcher Spatialisation-Algorithmus verwendet werden soll, um den Ton in einem 3D-Raum zu positionieren.
+- [`PannerNode.positionX`](/de/docs/Web/API/PannerNode/positionX)
+  - : Repräsentiert die horizontale Position des Tons in einem rechtshändigen kartesischen Koordinatensystem. Der Standardwert ist 0. Obwohl dieses [`AudioParam`](/de/docs/Web/API/AudioParam) nicht direkt geändert werden kann, kann sein Wert über seine [`value`](/de/docs/Web/API/AudioParam/value)-Eigenschaft verändert werden. Der Standardwert ist 0.
+- [`PannerNode.positionY`](/de/docs/Web/API/PannerNode/positionY)
+  - : Repräsentiert die vertikale Position des Tons in einem rechtshändigen kartesischen Koordinatensystem. Der Standardwert ist 0. Obwohl dieses [`AudioParam`](/de/docs/Web/API/AudioParam) nicht direkt geändert werden kann, kann sein Wert über seine [`value`](/de/docs/Web/API/AudioParam/value)-Eigenschaft verändert werden. Der Standardwert ist 0.
+- [`PannerNode.positionZ`](/de/docs/Web/API/PannerNode/positionZ)
+  - : Repräsentiert die longitudinale (vorwärts und rückwärts) Position des Tons in einem rechtshändigen kartesischen Koordinatensystem. Der Standardwert ist 0. Obwohl dieses [`AudioParam`](/de/docs/Web/API/AudioParam) nicht direkt geändert werden kann, kann sein Wert über seine [`value`](/de/docs/Web/API/AudioParam/value)-Eigenschaft verändert werden. Der Standardwert ist 0.
+- [`PannerNode.refDistance`](/de/docs/Web/API/PannerNode/refDistance)
+  - : Ein Doppelwert, der die Referenzdistanz für die Lautstärkereduzierung beschreibt, wenn sich die Tonquelle weiter vom Zuhörer entfernt. Für Distanzen, die größer sind als dieser Wert, wird die Lautstärke basierend auf `rolloffFactor` und `distanceModel` reduziert.
+- [`PannerNode.rolloffFactor`](/de/docs/Web/API/PannerNode/rolloffFactor)
   - : Ein Doppelwert, der beschreibt, wie schnell die Lautstärke reduziert wird, wenn sich die Quelle vom Zuhörer entfernt. Dieser Wert wird von allen Distanzmodellen verwendet.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Methoden von seiner Elternklasse, {{domxref("AudioNode")}}_.
+_Erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
-- {{domxref("PannerNode.setPosition()")}} {{deprecated_inline}}
-  - : Definiert die Position der Audioquelle relativ zum Zuhörer (dargestellt durch ein {{domxref("AudioListener")}}-Objekt, das im {{domxref("BaseAudioContext.listener")}}-Attribut gespeichert ist.)
-- {{domxref("PannerNode.setOrientation()")}} {{deprecated_inline}}
-  - : Definiert die Richtung, in die die Audioquelle abspielt.
+- [`PannerNode.setPosition()`](/de/docs/Web/API/PannerNode/setPosition) {{deprecated_inline}}
+  - : Definiert die Position der Tonquelle relativ zum Zuhörer (repräsentiert durch ein [`AudioListener`](/de/docs/Web/API/AudioListener)-Objekt, das im Attribut [`BaseAudioContext.listener`](/de/docs/Web/API/BaseAudioContext/listener) gespeichert ist).
+- [`PannerNode.setOrientation()`](/de/docs/Web/API/PannerNode/setOrientation) {{deprecated_inline}}
+  - : Definiert die Richtung, in die die Tonquelle spielt.
 
 ## Beispiele
 

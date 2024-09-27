@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`forEach()`**-Methode der {{domxref("URLSearchParams")}}-Schnittstelle ermöglicht die Iteration durch alle in diesem Objekt enthaltenen Werte mittels einer Callback-Funktion.
+Die **`forEach()`**-Methode der [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)-Schnittstelle ermöglicht die Iteration durch alle in diesem Objekt enthaltenen Werte mittels einer Rückruffunktion.
 
 ## Syntax
 
@@ -21,17 +21,17 @@ forEach(callback, thisArg)
 
 - `callback`
 
-  - : Funktion, die auf jedes Element ausgeführt wird und die folgenden Argumente erhält:
+  - : Funktion, die auf jedes Element angewendet wird und die folgende Argumente erhält:
 
     - `value`
-      - : Der Wert des aktuellen Eintrags, der im `URLSearchParams`-Objekt verarbeitet wird.
+      - : Der Wert des aktuell verarbeiteten Eintrags im `URLSearchParams`-Objekt.
     - `key`
-      - : Der Schlüssel des aktuellen Eintrags, der im `URLSearchParams`-Objekt verarbeitet wird.
+      - : Der Schlüssel des aktuell verarbeiteten Eintrags im `URLSearchParams`-Objekt.
     - `searchParams`
-      - : Das `URLSearchParams`-Objekt, auf das `forEach()` aufgerufen wurde.
+      - : Das `URLSearchParams`-Objekt, auf dem `forEach()` aufgerufen wurde.
 
 - `thisArg` {{optional_inline}}
-  - : Wert, der als `this` verwendet wird, wenn `callback` ausgeführt wird.
+  - : Wert, der als `this` verwendet wird, wenn der `callback` ausgeführt wird.
 
 ### Rückgabewert
 
@@ -40,10 +40,10 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```js
-// Erstellen Sie ein Test-URLSearchParams-Objekt
+// Create a test URLSearchParams object
 const searchParams = new URLSearchParams("key1=value1&key2=value2");
 
-// Die Werte protokollieren
+// Log the values
 searchParams.forEach((value, key) => {
   console.log(value, key);
 });
@@ -66,4 +66,4 @@ value2 key2
 
 ## Siehe auch
 
-- Die {{domxref("URL")}}-Schnittstelle.
+- Die [`URL`](/de/docs/Web/API/URL)-Schnittstelle.

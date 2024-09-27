@@ -1,5 +1,5 @@
 ---
-title: "NavigateEvent: scroll()-Methode"
+title: "NavigateEvent: scroll() Methode"
 short-title: scroll()
 slug: Web/API/NavigateEvent/scroll
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`scroll()`**-Methode der
-{{domxref("NavigateEvent")}}-Schnittstelle kann aufgerufen werden, um das vom Browser gesteuerte Scroll-Verhalten manuell auszulösen, das als Reaktion auf die Navigation auftritt, wenn Sie möchten, dass es vor Abschluss der Navigationsbearbeitung erfolgt.
+Die **`scroll()`** Methode des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent) Schnittstelle kann aufgerufen werden, um das vom Browser gesteuerte Scrollverhalten, das als Reaktion auf die Navigation auftritt, manuell auszulösen, falls Sie möchten, dass es passiert, bevor die Navigationsverarbeitung abgeschlossen ist.
 
 ## Syntax
 
@@ -23,20 +22,20 @@ Keine.
 
 ### Rückgabewert
 
-Keiner (`undefined`).
+Keine (`undefined`).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das aktuelle {{domxref("Document")}} noch nicht aktiv ist oder wenn die Navigation abgebrochen wurde.
-- `SecurityError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das Ereignis durch einen Aufruf von {{domxref("EventTarget.dispatchEvent", "dispatchEvent()")}} statt durch den Benutzeragenten ausgelöst wurde.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn das aktuelle [`Document`](/de/docs/Web/API/Document) noch nicht aktiv ist oder die Navigation abgebrochen wurde.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn das Ereignis durch einen Aufruf von [`dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) und nicht durch den User-Agent ausgelöst wurde.
 
 ## Beispiele
 
-### Scroll-Verarbeitung mit `scroll()`
+### Handhabung des Scrollens mit `scroll()`
 
-In diesem Beispiel zum Abfangen einer Navigation beginnt die `handler()`-Funktion damit, einige Artikelinhalte abzurufen und darzustellen, und ruft dann anschließend einige sekundäre Inhalte ab und stellt sie dar. Es ist sinnvoll, die Seite sofort zum Hauptartikelinhalt zu scrollen, sobald dieser verfügbar ist, damit der Benutzer damit interagieren kann, anstatt zu warten, bis auch die sekundären Inhalte dargestellt sind. Um dies zu erreichen, haben wir einen `scroll()`-Aufruf zwischen den beiden hinzugefügt.
+In diesem Beispiel der Abfang von Navigationen beginnt die `handler()` Funktion mit dem Abrufen und Rendern von Artikelinhalten, um dann anschließend einige sekundäre Inhalte abzurufen und darzustellen. Es ist sinnvoll, die Seite zum Hauptartikelinhalt zu scrollen, sobald dieser verfügbar ist, sodass der Benutzer mit ihm interagieren kann, anstatt zu warten, bis die sekundären Inhalte ebenfalls gerendert sind. Um dies zu erreichen, haben wir einen `scroll()` Aufruf zwischen den beiden hinzugefügt.
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -71,6 +70,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Modern client-side routing: the Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API explainer](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Navigation API live demo](https://gigantic-honored-octagon.glitch.me/)

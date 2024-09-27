@@ -7,46 +7,46 @@ l10n:
 
 {{APIRef("CSS Painting API")}}{{SeeCompatTable}}
 
-Das **`PaintWorkletGlobalScope`**-Interface der [CSS Painting API](/de/docs/Web/API/CSS_Painting_API) repräsentiert das globale Objekt, das innerhalb eines Paint-{{domxref("Worklet")}} verfügbar ist.
+Das **`PaintWorkletGlobalScope`** Interface der [CSS Painting API](/de/docs/Web/API/CSS_Painting_API) repräsentiert das globale Objekt, das innerhalb eines Paint-`Worklet` verfügbar ist.
 
 ## Datenschutzbedenken
 
-Um das Ausspähen besuchter Links zu vermeiden, ist dieses Feature in Chrome-basierten Browsern derzeit für {{HTMLElement("a")}}-Elemente mit einem [`href`](/de/docs/Web/HTML/Element/a#href)-Attribut und für deren Kinder deaktiviert. Einzelheiten finden Sie in den folgenden Quellen:
+Um ein Auslaufen von besuchten Links zu vermeiden, ist diese Funktion derzeit in Chrome-basierten Browsern für {{HTMLElement("a")}}-Elemente mit einem [`href`](/de/docs/Web/HTML/Element/a#href)-Attribut und für Kinder solcher Elemente deaktiviert. Weitere Informationen finden Sie in den folgenden Abschnitten:
 
-- Der Abschnitt [Datenschutzüberlegungen der CSS Painting API](https://drafts.css-houdini.org/css-paint-api/#privacy-considerations)
-- Das Problem im CSS Painting API-Spezifikations-Repo ["CSS Paint API leaks browsing history"](https://github.com/w3c/css-houdini-drafts/issues/791)
+- Im Abschnitt Datenschutzüberlegungen der CSS Painting API [Privacy Considerations section](https://drafts.css-houdini.org/css-paint-api/#privacy-considerations)
+- Das Problem in der CSS Painting API Spezifikation ["CSS Paint API leaks browsing history"](https://github.com/w3c/css-houdini-drafts/issues/791)
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Dieses Interface erbt Eigenschaften von {{domxref('WorkletGlobalScope')}}._
+_Dieses Interface erbt Eigenschaften von [`WorkletGlobalScope`](/de/docs/Web/API/WorkletGlobalScope)._
 
-- {{domxref('PaintWorkletGlobalScope.devicePixelRatio')}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt das Verhältnis der physischen zu logischen Pixeln des aktuellen Geräts zurück.
+- [`PaintWorkletGlobalScope.devicePixelRatio`](/de/docs/Web/API/PaintWorkletGlobalScope/devicePixelRatio) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt das aktuelle Verhältnis von physischen Pixeln zu logischen Pixeln des Geräts zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Dieses Interface erbt Methoden von {{domxref('WorkletGlobalScope')}}._
+_Dieses Interface erbt Methoden von [`WorkletGlobalScope`](/de/docs/Web/API/WorkletGlobalScope)._
 
-- {{domxref('PaintWorkletGlobalScope.registerPaint()')}} {{Experimental_Inline}}
-  - : Registriert eine Klasse, um ein Bild programmatisch zu erzeugen, wo eine CSS-Eigenschaft eine Datei erwartet.
+- [`PaintWorkletGlobalScope.registerPaint()`](/de/docs/Web/API/PaintWorkletGlobalScope/registerPaint) {{Experimental_Inline}}
+  - : Registriert eine Klasse, um programmgesteuert ein Bild zu erzeugen, wo eine CSS-Eigenschaft eine Datei erwartet.
 
 ## Beispiele
 
 Die folgenden drei Beispiele zeigen zusammen das Erstellen, Laden und Verwenden eines Paint-`Worklet`.
 
-### Erstellen eines Paint-Worklets
+### Erstellen eines Paint-Worklet
 
-Das folgende Beispiel zeigt ein Worklet-Modul. Dies sollte in einer separaten JS-Datei sein. Beachten Sie, dass `registerPaint()` ohne Referenz auf ein Paint-`Worklet` aufgerufen wird.
+Das folgende Beispiel zeigt ein Worklet-Modul. Dies sollte in einer separaten JS-Datei sein. Beachten Sie, dass `registerPaint()` ohne einen Verweis auf ein Paint-`Worklet` aufgerufen wird.
 
 ```js
 class CheckerboardPainter {
   paint(ctx, geom, properties) {
-    // Das globale Objekt hier ist ein PaintWorkletGlobalScope
-    // Methoden und Eigenschaften können direkt zugegriffen werden
-    // als globale Merkmale oder mit Präfix self
+    // The global object here is a PaintWorkletGlobalScope
+    // Methods and properties can be accessed directly
+    // as global features or prefixed using self
     const dpr = self.devicePixelRatio;
 
-    // Verwenden Sie `ctx`, als ob es eine normale Leinwand wäre
+    // Use `ctx` as if it was a normal canvas
     const colors = ["red", "green", "blue"];
     const size = 32;
     for (let y = 0; y < geom.height / size; y++) {
@@ -61,13 +61,13 @@ class CheckerboardPainter {
   }
 }
 
-// Registrieren unserer Klasse unter einem bestimmten Namen
+// Register our class under a specific name
 registerPaint("checkerboard", CheckerboardPainter);
 ```
 
-### Laden eines Paint-Worklets
+### Laden eines Paint-Worklet
 
-Das folgende Beispiel zeigt das Laden des obigen Worklets aus seiner JS-Datei und erfolgt durch Feature-Erkennung.
+Das folgende Beispiel demonstriert das Laden des oben genannten Worklets aus seiner JS-Datei und tut dies durch Feature-Erkennung.
 
 ```js
 if ("paintWorklet" in CSS) {
@@ -75,9 +75,9 @@ if ("paintWorklet" in CSS) {
 }
 ```
 
-### Verwenden eines Paint-Worklets
+### Verwenden eines Paint-Worklet
 
-Dieses Beispiel zeigt, wie man ein Paint-`Worklet` in einem Stylesheet verwendet, einschließlich der einfachsten Möglichkeit, ein Fallback bereitzustellen, falls `CSS.paintWorklet` nicht unterstützt wird.
+Dieses Beispiel zeigt, wie ein Paint-`Worklet` in einem Stylesheet verwendet wird, einschließlich der einfachsten Möglichkeit, ein Fallback bereitzustellen, wenn `CSS.paintWorklet` nicht unterstützt wird.
 
 ```html
 <style>
@@ -101,7 +101,7 @@ Sie können auch die {{cssxref('@supports')}}-Regel verwenden.
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

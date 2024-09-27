@@ -7,29 +7,29 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-right`** [Kurzform](/de/docs/Web/CSS/Shorthand_properties) der [CSS](/de/docs/Web/CSS)-Eigenschaft setzt alle Eigenschaften des rechten [Rahmens](/de/docs/Web/CSS/border) eines Elements.
+Die **`border-right`** [Shorthand-](/de/docs/Web/CSS/Shorthand_properties) [CSS-](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des rechten [Randes](/de/docs/Web/CSS/border) eines Elements.
 
 {{EmbedInteractiveExample("pages/css/border-right.html")}}
 
-Wie bei allen Kurzform-Eigenschaften setzt `border-right` immer die Werte aller Eigenschaften, die sie setzen kann, auch wenn sie nicht angegeben sind. Sie setzt diejenigen, die nicht angegeben sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+Wie bei allen Shorthand-Eigenschaften setzt `border-right` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Die nicht angegebenen werden auf ihre Standardwerte gesetzt. Betrachten Sie den folgenden Code:
 
 ```css
 border-right-style: dotted;
 border-right: thick green;
 ```
 
-Er ist tatsächlich gleichbedeutend mit diesem hier:
+Er ist tatsächlich gleichbedeutend mit diesem:
 
 ```css
 border-right-style: dotted;
 border-right: none thick green;
 ```
 
-Der vor `border-right` angegebene Wert von {{cssxref("border-right-style")}} wird ignoriert. Da der Standardwert von {{cssxref("border-right-style")}} `none` ist, führt das Nichtangeben des `border-style`-Teils zu keinem Rahmen.
+Der zuvor angegebene Wert von {{cssxref("border-right-style")}} vor `border-right` wird ignoriert. Da der Standardwert von {{cssxref("border-right-style")}} `none` ist, führt das Nicht-Spezifizieren des `border-style`-Teils zu keinem Rand.
 
-## Zusammengesetzte Eigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Abkürzung für die folgenden CSS-Eigenschaften:
 
 - {{cssxref("border-right-color")}}
 - {{cssxref("border-right-style")}}
@@ -42,7 +42,7 @@ border-right: 1px;
 border-right: 2px dotted;
 border-right: medium dashed green;
 
-/* Globale Werte */
+/* Global values */
 border-right: inherit;
 border-right: initial;
 border-right: revert;
@@ -50,7 +50,7 @@ border-right: revert-layer;
 border-right: unset;
 ```
 
-Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen können weggelassen werden.
+Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen können ausgelassen werden.
 
 ### Werte
 
@@ -71,12 +71,12 @@ Die drei Werte der Kurzform-Eigenschaft können in beliebiger Reihenfolge angege
 
 ## Beispiele
 
-### Anwenden eines rechten Rahmens
+### Einen rechten Rand anwenden
 
 #### HTML
 
 ```html
-<div>Dieses Feld hat einen Rahmen auf der rechten Seite.</div>
+<div>This box has a border on the right side.</div>
 ```
 
 #### CSS

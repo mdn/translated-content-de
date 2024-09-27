@@ -8,37 +8,37 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`fixedFoveation`**-Eigenschaft des {{domxref("XRProjectionLayer")}}-Interfaces ist eine Zahl, die den Grad der Fixierung bei der Fovea-Wiedergabe angibt, die vom XR-Kompositor für die Ebene genutzt wird. Fixed Foveated Rendering (FFR) stellt die Ränder der Augentexturen mit einer geringeren Auflösung als das Zentrum dar und reduziert die GPU-Auslastung.
+Die **`fixedFoveation`**-Eigenschaft der [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer)-Schnittstelle ist eine Zahl, die die Menge an Foveation angibt, die vom XR-Kompositor für die Ebene verwendet wird. Fixed Foveated Rendering (FFR) rendert die Ränder der Augen-Texturen in einer niedrigeren Auflösung als das Zentrum und reduziert die GPU-Belastung.
 
-Es ist am nützlichsten für Texturen mit niedrigem Kontrast wie Hintergrundbilder, jedoch weniger für solche mit hohem Kontrast wie Text oder detaillierte Bilder. Autoren können die Stufe für jeden Frame anpassen, um den besten Kompromiss zwischen Leistung und visueller Qualität zu erreichen.
+Es ist am nützlichsten für Texturen mit geringem Kontrast, wie z. B. Hintergrundbilder, jedoch weniger für solche mit hohem Kontrast, wie z. B. Text oder detailreiche Bilder. Autoren können das Niveau frameweise anpassen, um den besten Kompromiss zwischen Leistung und visueller Qualität zu erreichen.
 
 ## Wert
 
 Eine Zahl zwischen 0 und 1.
 
-- Die minimale Fixierung wird durch 0 angezeigt (volle Auflösung).
-- Die maximale Fixierung wird durch 1 angezeigt (die Ränder werden in niedrigerer Auflösung gerendert).
+- Die minimale Foveation wird durch 0 angezeigt (volle Auflösung).
+- Die maximale Foveation wird durch 1 angezeigt (die Ränder werden in niedrigerer Auflösung gerendert).
 
-Es liegt im Ermessen des Benutzeragenten, wie die Zahlen in diesem Bereich interpretiert werden. Beim Ändern der Fixierungsstufe ist die Wirkung im nächsten {{domxref("XRFrame")}} sichtbar.
+Es liegt am Benutzeragenten, wie die Zahlen in diesem Bereich interpretiert werden. Beim Ändern des Foveation-Levels wird der Effekt im nächsten [`XRFrame`](/de/docs/Web/API/XRFrame) sichtbar.
 
-Beachten Sie, dass einige Benutzeragenten bestimmte Fixierungsstufen implementieren können, sodass Sie unter Umständen die Fixierungsstufe in größeren Schritten ändern müssen, um eine Wirkung zu sehen. Beispielstufen:
+Beachten Sie, dass einige Benutzeragenten bestimmte Foveation-Level implementieren könnten, sodass Sie möglicherweise die Foveation in großen Schritten ändern müssen, um einen Effekt zu sehen. Beispiel-Level:
 
-- `0`: keine Fixierung
-- `1/3`: niedrige Fixierung
-- `2/3`: mittlere Fixierung
-- `1.0`: maximale Fixierung
+- `0`: keine Foveation
+- `1/3`: niedrige Foveation
+- `2/3`: mittlere Foveation
+- `1.0`: maximale Foveation
 
-Einige Geräte unterstützen keine foveated rendering. In diesem Fall ist `fixedFoveation` [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und das Festlegen hat keine Auswirkung.
+Einige Geräte unterstützen kein foveated rendering. In diesem Fall ist `fixedFoveation` [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und das Einstellen hat keine Wirkung.
 
 ## Beispiele
 
-### Dynamisches Festlegen der Stufe für Fixed Foveation Rendering
+### Dynamisches Einstellen der Stufe der Fixed Foveation-Darstellung
 
-Die Eigenschaft `fixedFoveation` erlaubt Ihnen das Festlegen der Fixierungsstufe zur Laufzeit und für jeden Frame. Um die maximale Fixierung für eine bestimmte {{domxref("XRProjectionLayer")}} festzulegen, verwenden Sie den Wert `1`.
+Die `fixedFoveation`-Eigenschaft ermöglicht es, die Stufe der Foveation zur Laufzeit und für jedes Frame festzulegen. Um die maximale Foveation für eine bestimmte [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) festzulegen, verwenden Sie einen Wert von `1`.
 
 ```js
 let glProjectionLayer = glBinding.createProjectionLayer(/* … */);
-glProjectionLayer.fixedFoveation = 1; // maximale Fixierung
+glProjectionLayer.fixedFoveation = 1; // maximum foveation
 ```
 
 ## Spezifikationen

@@ -1,5 +1,5 @@
 ---
-title: URL-Fragment-Textanweisungen
+title: URL Fragment Text Directives
 slug: Web/API/URL_Fragment_Text_Directives
 l10n:
   sourceCommit: 06b418a190b8e4a46682ab706d14984e7db34862
@@ -7,23 +7,23 @@ l10n:
 
 {{DefaultAPISidebar("URL Fragment Text Directives")}}
 
-Die **API für URL-Fragment-Textanweisungen** ermöglicht es Webanwendungen, mit _Textfragmenten_ in der URL zu interagieren. [Textfragmente](/de/docs/Web/URI/Fragment/Text_fragments) erlauben es, direkt auf einen bestimmten Abschnitt eines Textes in einem Webdokument zu verlinken, ohne dass der Autor diesen mit einer ID versehen muss. Dies erfolgt durch eine spezielle Syntax im URL-Fragment.
+Die **URL-Fragment-Textdirektiven** API ermöglicht es Webanwendungen, mit _Textfragmenten_ in der URL zu interagieren. [Textfragmente](/de/docs/Web/URI/Fragment/Text_fragments) erlauben es, direkt auf einen bestimmten Textabschnitt in einem Webdokument zu verlinken, ohne dass der Autor ihn mit einer ID annotieren muss, indem eine spezielle Syntax im URL-Fragment verwendet wird.
 
 ## Schnittstellen
 
-- {{domxref("FragmentDirective")}}
+- [`FragmentDirective`](/de/docs/Web/API/FragmentDirective)
   - : Ein (derzeit) leeres Objekt.
-    Das Vorhandensein eines Objekts dieses Typs in {{domxref("document.fragmentDirective")}} wird zur Feature-Erkennung verwendet.
+    Das Vorhandensein eines Objekts dieses Typs in [`document.fragmentDirective`](/de/docs/Web/API/Document/fragmentDirective) wird zur Funktionsüberprüfung verwendet.
 
-## Erweiterungen anderer Schnittstellen
+## Erweiterungen zu anderen Schnittstellen
 
-- {{domxref("Document.fragmentDirective")}}
-  - : Eine Eigenschaft, die ein `FragmentDirective`-Objekt für das aktuelle Dokument zurückgibt. Derzeit nur zur Feature-Erkennung verwendet.
+- [`Document.fragmentDirective`](/de/docs/Web/API/Document/fragmentDirective)
+  - : Eine Eigenschaft, die ein `FragmentDirective`-Objekt für das aktuelle Dokument zurückgibt. Derzeit nur für die Funktionsüberprüfung verwendet.
 
 ## CSS-Selektoren
 
 - {{cssxref("::target-text")}}
-  - : Repräsentiert den Text, zu dem gescrollt wurde. Es ermöglicht es den Autoren, zu wählen, wie dieser Textabschnitt hervorgehoben werden soll.
+  - : Repräsentiert den Text, zu dem gescrollt wurde. Es erlaubt den Autoren, auszuwählen, wie sie diesen Textabschnitt hervorheben möchten.
 
 ## Spezifikationen
 

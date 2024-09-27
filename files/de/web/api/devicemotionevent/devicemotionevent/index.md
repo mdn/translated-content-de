@@ -1,5 +1,5 @@
 ---
-title: "DeviceMotionEvent: DeviceMotionEvent() Konstruktor"
+title: "DeviceMotionEvent: DeviceMotionEvent()-Konstruktor"
 short-title: DeviceMotionEvent()
 slug: Web/API/DeviceMotionEvent/DeviceMotionEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Der **`DeviceMotionEvent()`** Konstruktor erstellt ein neues {{DOMxRef("DeviceMotionEvent")}}-Objekt.
+Der **`DeviceMotionEvent()`**-Konstruktor erstellt ein neues [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent)-Objekt.
 
 ## Syntax
 
@@ -21,21 +21,21 @@ new DeviceMotionEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist groß- und kleinschreibungssensitiv, und Browser setzen ihn immer auf `devicemotion`.
+    Er ist case-sensitiv, und Browser setzen ihn immer auf `devicemotion`.
 - `options` {{Optional_Inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ folgende Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den Eigenschaften, die in [`Event()`](/de/docs/Web/API/Event/Event) definiert sind_, die folgenden Eigenschaften haben kann:
     - `acceleration` {{Optional_Inline}}
-      - : Ein {{domxref("DeviceMotionEventAcceleration")}}-Objekt, das die Beschleunigung des Geräts auf den drei Achsen X, Y und Z angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt. Wird sie nicht angegeben, sind alle Eigenschaften im Objekt `null`.
+      - : Ein [`DeviceMotionEventAcceleration`](/de/docs/Web/API/DeviceMotionEventAcceleration)-Objekt, das die Beschleunigung des Geräts auf den drei Achsen X, Y und Z angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt. Wenn nicht angegeben, werden alle Eigenschaften im Objekt auf `null` gesetzt.
     - `accelerationIncludingGravity` {{Optional_Inline}}
-      - : Ein {{domxref("DeviceMotionEventAcceleration")}}-Objekt, das die Beschleunigung des Geräts auf den drei Achsen X, Y und Z mit der Wirkung der Schwerkraft angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt. Wird sie nicht angegeben, sind alle Eigenschaften im Objekt `null`.
+      - : Ein [`DeviceMotionEventAcceleration`](/de/docs/Web/API/DeviceMotionEventAcceleration)-Objekt, das die Beschleunigung des Geräts auf den drei Achsen X, Y und Z unter Berücksichtigung der Schwerkraft angibt. Die Beschleunigung wird in [m/s²](https://en.wikipedia.org/wiki/Meter_per_second_squared) ausgedrückt. Wenn nicht angegeben, werden alle Eigenschaften im Objekt auf `null` gesetzt.
     - `rotationRate` {{Optional_Inline}}
-      - : Ein {{domxref("DeviceMotionEventRotationRate")}}-Objekt, das die Änderungsrate der Orientierung des Geräts auf den drei Orientierungsachsen Alpha, Beta und Gamma angibt. Die Rotationsrate wird in Grad pro Sekunde ausgedrückt. Wird sie nicht angegeben, sind alle Eigenschaften im Objekt `null`.
+      - : Ein [`DeviceMotionEventRotationRate`](/de/docs/Web/API/DeviceMotionEventRotationRate)-Objekt, das die Änderungsrate der Orientierung des Geräts auf den drei Orientierungsachsen Alpha, Beta und Gamma angibt. Die Rotationsrate wird in Grad pro Sekunde ausgedrückt. Wenn nicht angegeben, werden alle Eigenschaften im Objekt auf `null` gesetzt.
     - `interval` {{Optional_Inline}}
-      - : Eine Zahl, die das Intervall der Zeit in Millisekunden darstellt, in dem Daten vom Gerät abgerufen werden. Der Standardwert ist `0`.
+      - : Eine Zahl, die das Intervall der Zeit in Millisekunden repräsentiert, in dem Daten vom Gerät abgerufen werden. Der Standardwert ist `0`.
 
 ### Rückgabewert
 
-Ein neues {{domxref("DeviceMotionEvent")}}-Objekt.
+Ein neues [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent)-Objekt.
 
 ## Spezifikationen
 

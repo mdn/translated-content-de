@@ -1,5 +1,5 @@
 ---
-title: "HTMLTemplateElement: shadowRootMode-Eigenschaft"
+title: "HTMLTemplateElement: Eigenschaft shadowRootMode"
 short-title: shadowRootMode
 slug: Web/API/HTMLTemplateElement/shadowRootMode
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`shadowRootMode`**-Eigenschaft der {{domxref("HTMLTemplateElement")}}-Schnittstelle spiegelt den Wert des [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode)-Attributs des zugehörigen [`<template>`](/de/docs/Web/HTML/Element/template)-Elements wider.
+Die **`shadowRootMode`**-Eigenschaft des [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement)-Interfaces spiegelt den Wert des [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode)-Attributs des zugehörigen [`<template>`](/de/docs/Web/HTML/Element/template) Elements wider.
 
 Beachten Sie, dass diese Eigenschaft für Entwickler nicht nützlich ist.
-Wenn ein `<template>`-Element verwendet wird, um deklarativ ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) zu erstellen, dann existieren dieses Objekt und diese Eigenschaft nicht.
-Andernfalls ist, wenn ein `HTMLTemplateElement` erstellt wird, der Wert dieser Eigenschaft irrelevant, da das Objekt keine Shadow-Root ist und anschließend nicht mehr in eine Shadow-Root umgewandelt werden kann.
+Wenn ein `<template>`-Element verwendet wird, um deklarativ einen [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) zu erstellen, dann existieren dieses Objekt und diese Eigenschaft nicht.
+Andernfalls, wenn ein `HTMLTemplateElement` erstellt wird, ist der Wert dieser Eigenschaft irrelevant, weil das Objekt keine Schattenwurzel ist und nicht nachträglich in eine Schattenwurzel geändert werden kann.
 
 ## Wert
 
-Spiegelt den Wert des [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode)-Attributs des zugehörigen [`<template>`](/de/docs/Web/HTML/Element/template)-Elements wider.
+Spiegelt den Wert des [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode)-Attributs des zugehörigen [`<template>`](/de/docs/Web/HTML/Element/template) Elements wider.
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ Spiegelt den Wert des [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shad
 
 ## Siehe auch
 
-- [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode)-Attribut des `<template>`-Elements
+- [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode) Attribut des `<template>` Elements
 - [`ShadowRoot.mode`](/de/docs/Web/API/ShadowRoot/mode)

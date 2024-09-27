@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.font`**-Eigenschaft der Canvas 2D API gibt den aktuellen Textstil an, der beim Zeichnen von Text verwendet werden soll. Dieser String verwendet die gleiche Syntax wie der [CSS-Schriftart-](/de/docs/Web/CSS/font) Bezeichner.
+Die **`CanvasRenderingContext2D.font`**-Eigenschaft der Canvas 2D API gibt den aktuellen Textstil an, der beim Zeichnen von Text verwendet werden soll. Dieser String verwendet die gleiche Syntax wie der [CSS-Schriftart](/de/docs/Web/CSS/font)-Spezifizierer.
 
 ## Wert
 
-Ein String, der als CSS {{cssxref("font")}}-Wert geparst wird. Die Standardschriftart ist 10px sans-serif.
+Ein String, der als CSS-{{cssxref("font")}}-Wert geparst wird. Die Standardschriftart ist 10px sans-serif.
 
 ## Beispiele
 
-### Verwendung einer benutzerdefinierten Schriftart
+### Verwenden einer benutzerdefinierten Schriftart
 
 In diesem Beispiel verwenden wir die `font`-Eigenschaft, um ein benutzerdefiniertes Schriftgewicht, eine Größe und eine Familie anzugeben.
 
@@ -40,15 +40,15 @@ ctx.strokeText("Hello world", 50, 100);
 
 {{ EmbedLiveSample('Using_a_custom_font', 700, 180) }}
 
-### Laden von Schriften mit der CSS Font Loading API
+### Laden von Schriftarten mit der CSS Font Loading API
 
-Mit Hilfe der {{domxref("FontFace")}} API können Sie Schriftarten explizit laden, bevor Sie sie in einem Canvas verwenden.
+Mit Hilfe der [`FontFace`](/de/docs/Web/API/FontFace) API können Sie Schriftarten explizit laden, bevor Sie sie in einem Canvas verwenden.
 
 ```js
 let f = new FontFace("test", "url(x)");
 
 f.load().then(() => {
-  // Bereit, die Schriftart im Canvas-Kontext zu verwenden
+  // Ready to use the font in a canvas context
 });
 ```
 
@@ -62,4 +62,4 @@ f.load().then(() => {
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Eigenschaft definiert: {{domxref("CanvasRenderingContext2D")}}
+- Das Interface, das diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

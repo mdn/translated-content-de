@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.replaceChildren()`**-Methode ersetzt die bestehenden Kinder eines {{domxref("Node")}} mit einem angegebenen neuen Satz von Kindern. Diese können Zeichenfolgen oder {{domxref("Node")}} Objekte sein.
+Die **`Element.replaceChildren()`**-Methode ersetzt die vorhandenen Kinder eines [`Node`](/de/docs/Web/API/Node) durch einen bestimmten neuen Satz von Kindern. Diese können Zeichenfolgen oder [`Node`](/de/docs/Web/API/Node)-Objekte sein.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ replaceChildren(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Ein Satz von {{domxref("Node")}} Objekten oder Zeichenfolgen, mit dem die vorhandenen Kinder des `Element` ersetzt werden sollen. Wenn keine Ersetzungsobjekte angegeben sind, wird das `Element` von allen Kindknoten geleert.
+  - : Ein Satz von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, mit denen die vorhandenen Kinder des `Element` ersetzt werden sollen. Wenn keine Ersetzungsobjekte angegeben sind, wird das `Element` von allen Kindknoten geleert.
 
 ### Rückgabewert
 
@@ -29,65 +29,65 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
-  - : Wird ausgelöst, wenn die [Einschränkungen des Knotendiagramms](https://dom.spec.whatwg.org/#concept-node-tree) verletzt werden.
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die [Beschränkungen des Knotenbaums](https://dom.spec.whatwg.org/#concept-node-tree) verletzt werden.
 
 ## Beispiele
 
-### Leeren eines Knotens
+### Einen Knoten leeren
 
-`replaceChildren()` bietet eine sehr bequeme Möglichkeit, einen Knoten von allen seinen Kindern zu leeren. Sie rufen es beim übergeordneten Knoten ohne Angabe eines Arguments auf:
+`replaceChildren()` bietet einen sehr bequemen Mechanismus, um einen Knoten von all seinen Kindern zu leeren. Sie rufen es am übergeordneten Knoten ohne Argumente auf:
 
 ```js
 myNode.replaceChildren();
 ```
 
-### Übertragen von Knoten zwischen Elementen
+### Knoten zwischen Elementen verschieben
 
-`replaceChildren()` ermöglicht es Ihnen, Knoten zwischen Elementen einfach zu übertragen, ohne auf umfangreichen Schleifencode zurückgreifen zu müssen. Angenommen, wir haben eine einfache Anwendung, die es Ihnen ermöglicht, auszuwählen, welches Essen Sie für Ihre Party möchten. Dieses HTML könnte folgendermaßen aussehen:
+`replaceChildren()` ermöglicht es Ihnen, Knoten leicht zwischen Elementen zu verschieben, ohne auf umständlichen Schleifencode zurückgreifen zu müssen. Angenommen, wir haben eine einfache Anwendung, die es Ihnen ermöglicht, auszuwählen, welches Essen Sie für Ihre Party möchten. Dieses HTML könnte so aussehen:
 
 ```html
-<h2>Party-Essensoptionen-Liste</h2>
+<h2>Party food option list</h2>
 
 <main>
   <div>
-    <label for="no">Nein danke!</label>
+    <label for="no">No thanks!</label>
 
     <select id="no" multiple size="10">
-      <option>Äpfel</option>
-      <option>Orangen</option>
-      <option>Trauben</option>
-      <option>Bananen</option>
-      <option>Kiwi</option>
-      <option>Schokoladenkekse</option>
-      <option>Erdnusskekse</option>
-      <option>Schokoladenriegel</option>
-      <option>Schinkensandwiches</option>
-      <option>Käsesandwiches</option>
-      <option>Falafel-Sandwiches</option>
-      <option>Eiscreme</option>
-      <option>Gelee</option>
-      <option>Karottensticks und Hummus</option>
-      <option>Margherita-Pizza</option>
-      <option>Pepperoni-Pizza</option>
-      <option>Vegane Veggie-Pizza</option>
+      <option>Apples</option>
+      <option>Oranges</option>
+      <option>Grapes</option>
+      <option>Bananas</option>
+      <option>Kiwi fruits</option>
+      <option>Chocolate cookies</option>
+      <option>Peanut cookies</option>
+      <option>Chocolate bars</option>
+      <option>Ham Sandwiches</option>
+      <option>Cheese Sandwiches</option>
+      <option>Falafel sandwiches</option>
+      <option>Ice cream</option>
+      <option>Jelly</option>
+      <option>Carrot sticks and hummus</option>
+      <option>Margherita pizza</option>
+      <option>Pepperoni pizza</option>
+      <option>Vegan veggie pizza</option>
     </select>
   </div>
 
   <div class="buttons">
-    <button id="to-yes">Zu "Ja" übertragen --&gt;</button>
-    <button id="to-no">&lt;-- Zu "Nein" übertragen</button>
+    <button id="to-yes">Transfer to "Yes" --&gt;</button>
+    <button id="to-no">&lt;-- Transfer to "No"</button>
   </div>
 
   <div>
-    <label for="yes">Ja bitte!</label>
+    <label for="yes">Yes please!</label>
 
     <select id="yes" multiple size="10"></select>
   </div>
 </main>
 ```
 
-Es wäre sinnvoll, einfaches CSS zu verwenden, um die beiden Auswahllisten in einer Linie nebeneinander anzuordnen, mit den Steuerungstasten dazwischen:
+Es würde sinnvoll sein, etwas einfaches CSS zu verwenden, um die beiden Auswahllisten in einer Zeile nebeneinander anzuordnen, mit den Steuertasten dazwischen:
 
 ```css
 main {
@@ -114,9 +114,9 @@ select {
 }
 ```
 
-Wir wollen die ausgewählten Optionen in der "Nein"-Liste in die "Ja"-Liste übertragen, wenn die "Ja"-Taste gedrückt wird und umgekehrt die ausgewählten Optionen in der "Ja"-Liste in die "Nein"-Liste übertragen, wenn die "Nein"-Taste gedrückt wird.
+Was wir tun wollen, ist, alle ausgewählten Optionen in der "Nein"-Liste zur "Ja"-Liste zu übertragen, wenn die "Ja"-Taste gedrückt wird, und alle ausgewählten Optionen in der "Ja"-Liste zur "Nein"-Liste zu übertragen, wenn die "Nein"-Taste gedrückt wird.
 
-Dafür geben wir jedem der Tasten einen Klick-Event-Handler, der die zu übertragenden ausgewählten Optionen in einer Konstante sammelt und die vorhandenen Optionen in der Liste, zu der Sie übertragen wollen, in einer anderen Konstante. Er ruft dann `replaceChildren()` bei der Liste auf, in die die Optionen übertragen werden sollen, und verwendet den Spread-Operator, um alle in beiden Konstanten enthaltenen Optionen zu übergeben.
+Dazu geben wir jedem der Tasten einen Klick-Ereignishandler, der die ausgewählten Optionen, die Sie übertragen möchten, in einer Konstanten und die vorhandenen Optionen in der Liste, zu der Sie übertragen, in einer anderen Konstante sammelt. Dann ruft er `replaceChildren()` auf der Liste auf, zu der Sie die Optionen übertragen, und verwendet den Spread-Operator, um alle Optionen in beiden Konstanten zu übergeben.
 
 ```js
 const noSelect = document.getElementById("no");
@@ -140,7 +140,7 @@ noBtn.addEventListener("click", () => {
 });
 ```
 
-Das Endergebnis sieht folgendermaßen aus:
+Das Endergebnis sieht so aus:
 
 {{EmbedLiveSample('Transferring_nodes_between_elements', '100%', '350')}}
 
@@ -154,6 +154,6 @@ Das Endergebnis sieht folgendermaßen aus:
 
 ## Siehe auch
 
-- {{domxref("Element.prepend()")}}
-- {{domxref("Element.append()")}}
-- {{domxref("NodeList")}}
+- [`Element.prepend()`](/de/docs/Web/API/Element/prepend)
+- [`Element.append()`](/de/docs/Web/API/Element/append)
+- [`NodeList`](/de/docs/Web/API/NodeList)

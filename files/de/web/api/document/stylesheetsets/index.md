@@ -1,5 +1,5 @@
 ---
-title: "Dokument: styleSheetSets-Eigenschaft"
+title: "Document: styleSheetSets-Eigenschaft"
 short-title: styleSheetSets
 slug: Web/API/Document/styleSheetSets
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}{{deprecated_header}}{{Non-standard_header}}
 
-Die schreibgeschützte Eigenschaft **`styleSheetSets`** gibt eine aktuelle Liste aller derzeit verfügbaren Stylesheet-Sets zurück.
+Die schreibgeschützte **`styleSheetSets`**-Eigenschaft gibt eine aktuelle Liste aller derzeit verfügbaren Style-Sheet-Sets zurück.
 
 ## Wert
 
-Eine Liste der verfügbaren Stylesheet-Sets.
+Eine Liste der verfügbaren Style-Sheet-Sets.
 
 ## Beispiele
 
-Angenommen, Sie haben ein {{HTMLElement("ul")}}-Element mit der ID "sheetList", können Sie es mit den Namen aller verfügbaren Stylesheet-Sets mit folgendem Code füllen:
+Angenommen, es gibt ein {{HTMLElement("ul")}} (Listen-)Element mit der ID "sheetList", so können Sie es mit den Namen aller verfügbaren Style-Sheet-Sets mit einem Code wie diesem füllen:
 
 ```js
 const list = document.getElementById("sheetList");
@@ -31,9 +31,9 @@ for (const sheet of sheets) {
 }
 ```
 
-## Anmerkungen
+## Hinweise
 
-Die Liste der verfügbaren Stylesheet-Sets wird erstellt, indem alle für das Dokument verfügbaren Stylesheets in der Reihenfolge, in der sie im {{domxref("Document.styleSheets")}}-Attribut aufgeführt sind, aufgezählt werden. Dabei wird der `title` jedes Stylesheets, das einen Titel hat, zur Liste hinzugefügt. Duplikate werden aus der Liste entfernt (verwendet wird ein case-sensitiver Vergleich).
+Die Liste der verfügbaren Style-Sheet-Sets wird erstellt, indem alle für das Dokument verfügbaren Style-Sheets in der Reihenfolge, in der sie im Attribut [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) aufgeführt sind, aufgezählt werden und der `title` jedes Style-Sheets, das einen Titel hat, der Liste hinzugefügt wird. Duplikate werden aus der Liste entfernt (unter Verwendung eines groß- und kleinschreibungssensitiven Vergleichs).
 
 ## Browser-Kompatibilität
 
@@ -41,9 +41,9 @@ Die Liste der verfügbaren Stylesheet-Sets wird erstellt, indem alle für das Do
 
 ## Siehe auch
 
-- {{domxref("Stylesheet")}}
-- {{domxref("Document.styleSheets")}}
-- {{domxref("document.lastStyleSheetSet")}}
-- {{domxref("document.preferredStyleSheetSet")}}
-- {{domxref("document.selectedStyleSheetSet")}}
-- {{domxref("document.enableStyleSheetsForSet()")}}
+- [`Stylesheet`](/de/docs/Web/API/Stylesheet)
+- [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets)
+- [`document.lastStyleSheetSet`](/de/docs/Web/API/Document/lastStyleSheetSet)
+- [`document.preferredStyleSheetSet`](/de/docs/Web/API/Document/preferredStyleSheetSet)
+- [`document.selectedStyleSheetSet`](/de/docs/Web/API/Document/selectedStyleSheetSet)
+- [`document.enableStyleSheetsForSet()`](/de/docs/Web/API/Document/enableStyleSheetsForSet)

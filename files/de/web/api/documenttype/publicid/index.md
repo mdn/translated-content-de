@@ -1,5 +1,5 @@
 ---
-title: "DocumentType: Eigenschaft publicId"
+title: "DocumentType: publicId-Eigenschaft"
 short-title: publicId
 slug: Web/API/DocumentType/publicId
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`publicId`**-Eigenschaft des {{domxref("DocumentType")}} gibt einen formalen Bezeichner des Dokuments zurück.
+Die schreibgeschützte **`publicId`**-Eigenschaft des [`DocumentType`](/de/docs/Web/API/DocumentType) gibt einen formalen Bezeichner des Dokuments zurück.
 
-Für synthetische `DocumentType` spiegelt diese Eigenschaft den im Parameter übergebenen Wert an {{domxref("DOMImplementation.createDocumentType()")}} wider.
+Bei einem synthetischen `DocumentType` spiegelt diese Eigenschaft den im Parameter an [`DOMImplementation.createDocumentType()`](/de/docs/Web/API/DOMImplementation/createDocumentType) übergebenen Wert wider.
 
-Bei HTML-Dokumenten setzen Browser diesen Wert immer auf `html`, unabhängig davon, welches tatsächliche `doctype` im Quellcode angegeben ist. Bei SVG-Dokumenten kann es beispielsweise `"-//W3C//DTD SVG 1.1//EN"` sein.
+Für HTML-Dokumente setzen Browser sie immer auf `html`, unabhängig davon, welches tatsächliche `doctype` im Quellcode vorhanden ist. Bei SVG-Dokumenten kann es beispielsweise `"-//W3C//DTD SVG 1.1//EN"` sein.
 
 ## Wert
 
@@ -27,7 +27,7 @@ const docType = document.implementation.createDocumentType(
   "http://www.w3.org/2000/svg",
 );
 
-console.log(docType.publicId); // Gibt "-//W3C//DTD SVG 1.1//EN" aus
+console.log(docType.publicId); // Displays "-//W3C//DTD SVG 1.1//EN"
 ```
 
 ## Spezifikationen

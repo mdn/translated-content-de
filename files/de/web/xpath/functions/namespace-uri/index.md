@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `namespace-uri` gibt eine Zeichenkette zurück, die den Namespace-URI des ersten Knotens in einer gegebenen Knotensatz darstellt.
+Die Funktion `namespace-uri` gibt einen String zurück, der den Namespace-URI des ersten Knotens in einem gegebenen Knotensatz darstellt.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ namespace-uri( [node-set] )
 
 ### Rückgabewert
 
-Eine Zeichenkette, die den URI des Namespaces darstellt, in dem sich der gegebene Knoten befindet.
+Ein String, der den URI des Namespace darstellt, in dem sich der gegebene Knoten befindet.
 
 ## Beschreibung
 
-- Wenn der gegebene Knoten keinen festgelegten Namespace hat, wird die zurückgegebene Zeichenkette eine leere Zeichenkette sein.
-- Für andere Knoten als Element- und Attributknoten wird die zurückgegebene Zeichenkette immer eine leere Zeichenkette sein.
+- Wenn der gegebene Knoten keinen spezifischen Namespace hat, wird ein leerer String zurückgegeben.
+- Für andere Knoten als Element- und Attributknoten wird immer ein leerer String zurückgegeben.
 
 ## Spezifikationen
 

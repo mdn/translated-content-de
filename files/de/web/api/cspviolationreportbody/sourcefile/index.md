@@ -8,31 +8,27 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die schreibgeschützte Eigenschaft **`sourceFile`** des Interfaces {{domxref("CSPViolationReportBody")}} gibt die URL der Quelldatei an, die gegen die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) verstoßen hat.
+Die **`sourceFile`** schreibgeschützte Eigenschaft des [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Interfaces gibt die URL der Quelldatei an, die die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) verletzt hat.
 
-Bei einem Verstoß, der durch die Verwendung eines Inline-Skripts ausgelöst wurde, ist `sourceFile` die URL des aktuellen Dokuments.
-Ähnlich verhält es sich, wenn ein Dokument erfolgreich ein Skript lädt, das dann gegen die Dokument-CSP verstößt; `sourceFile` ist dann die URL des Skripts.
+Bei einer Verletzung, die durch die Verwendung eines Inline-Skripts ausgelöst wird, ist `sourceFile` die URL des aktuellen Dokuments. Ähnlich verhält es sich, wenn ein Dokument erfolgreich ein Skript lädt, das anschließend die CSP des Dokuments verletzt; `sourceFile` ist dann die URL des Skripts.
 
-Beachten Sie jedoch, dass `sourceFile` `null` ist, wenn ein Dokument mit einer CSP, die externe Ressourcen blockiert, versucht, eine externe Ressource zu laden.
-Dies liegt daran, dass der Browser den Wert aus dem _globalen Objekt_ der Datei extrahiert, die den Verstoß ausgelöst hat.
-Aufgrund der CSP-Beschränkung wird die externe Ressource niemals geladen und hat daher kein entsprechendes globales Objekt.
+Beachten Sie jedoch, dass `sourceFile` `null` ist, wenn ein Dokument mit einer CSP, die externe Ressourcen blockiert, versucht, eine externe Ressource zu laden. Dies liegt daran, dass der Browser den Wert aus _dem globalen Objekt_ der Datei extrahiert, die die Verletzung ausgelöst hat. Aufgrund der CSP-Einschränkung wird die externe Ressource nie geladen und hat daher kein entsprechendes globales Objekt.
 
-Diese Eigenschaft ist besonders nützlich in Verbindung mit {{domxref("CSPViolationReportBody.lineNumber")}} und {{domxref("CSPViolationReportBody.columnNumber")}}, die den Ort innerhalb der Datei angeben, der zu einem Verstoß geführt hat.
+Diese Eigenschaft ist besonders nützlich in Verbindung mit [`CSPViolationReportBody.lineNumber`](/de/docs/Web/API/CSPViolationReportBody/lineNumber) und [`CSPViolationReportBody.columnNumber`](/de/docs/Web/API/CSPViolationReportBody/columnNumber), die den Ort innerhalb der Datei angeben, der zur Verletzung geführt hat.
 
 ## Wert
 
-Ein String, der die URL der Datei enthält, die den Verstoß ausgelöst hat, oder `null`.
+Ein String, der die URL der Datei enthält, die die Verletzung ausgelöst hat, oder `null`.
 
 ## Beispiele
 
-### CSP Inline-Skript-Verstoß
+### CSP-Verletzung durch Inline-Skript
 
-Dieses Beispiel löst einen CSP-Verstoß mit einem Inline-Skript aus und meldet den Verstoß mit einem {{domxref("ReportingObserver")}}.
+Dieses Beispiel löst eine CSP-Verletzung mit einem Inline-Skript aus und meldet die Verletzung mithilfe eines [`ReportingObserver`](/de/docs/Web/API/ReportingObserver).
 
 #### HTML
 
-Die folgende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um den {{httpheader('Content-Security-Policy')}} `default-src` auf `self` zu setzen, was es Skripten und anderen Ressourcen erlaubt, vom gleichen Ursprung geladen zu werden, jedoch nicht die Ausführung von Inline-Skripten gestattet.
-Das Dokument enthält auch ein Inline-Skript, das daher einen CSP-Verstoß auslösen sollte.
+Die unten stehende HTML-Datei verwendet das [`<meta>`](/de/docs/Web/HTML/Element/meta)-Element, um die {{httpheader('Content-Security-Policy')}} `default-src` auf `self` zu setzen, was bedeutet, dass Skripte und andere Ressourcen nur von demselben Ursprung geladen werden dürfen, jedoch keine Inline-Skripte ausgeführt werden dürfen. Das Dokument enthält zudem ein Inline-Skript, das daher eine CSP-Verletzung auslösen sollte.
 
 ```html
 <!doctype html>
@@ -45,10 +41,10 @@ Das Dokument enthält auch ein Inline-Skript, das daher einen CSP-Verstoß ausl�
       http-equiv="Reporting-Endpoints"
       content="csp-endpoint='https://example.com/csp-reports'" />
     <script src="main.js"></script>
-    <title>CSP: Verstoß aufgrund von Inline-Skript</title>
+    <title>CSP: Violation due to inline script</title>
   </head>
   <body>
-    <h1>CSP: Verstoß aufgrund von Inline-Skript</h1>
+    <h1>CSP: Violation due to inline script</h1>
     <script>
       const int = 4;
     </script>
@@ -58,11 +54,9 @@ Das Dokument enthält auch ein Inline-Skript, das daher einen CSP-Verstoß ausl�
 
 #### JavaScript (main.js)
 
-Das oben gezeigte Dokument lädt auch das externe Skript `main.js`, das unten gezeigt wird.
-Da dies vom gleichen Domain wie das HTML geladen wird, wird es von der CSP nicht blockiert.
+Das oben dargestellte Dokument lädt auch das externe Skript `main.js`, das unten gezeigt wird. Da dieses Skript von derselben Domain wie das HTML geladen wird, wird es nicht durch die CSP blockiert.
 
-Das Skript erstellt einen neuen {{domxref("ReportingObserver")}}, um Berichte über Inhaltsverletzungen vom Typ `"csp-violation"` zu beobachten.
-Jedes Mal, wenn die Rückruffunktion aufgerufen wird, erhalten wir den Körper des ersten Eintrags des Berichtsarrays und verwenden ihn, um die Datei, die Zeile und die Spalte des Verstoßes in der Konsole zu protokollieren.
+Das Skript erstellt einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Berichte über Inhaltsverletzungen des Typs `"csp-violation"` zu beobachten. Jedes Mal, wenn die Rückruffunktion aufgerufen wird, erhalten wir den Body des ersten Eintrags des Reports-Arrays und verwenden ihn, um die Datei, Zeile und Spalte der Verletzung in die Konsole zu protokollieren.
 
 ```js
 // main.js
@@ -82,15 +76,13 @@ const observer = new ReportingObserver(
 observer.observe();
 ```
 
-Beachten Sie, dass es zwar mehrere Berichte im zurückgegebenen Array geben könnte, wir aber der Kürze halber nur die Werte des ersten Elements protokollieren.
+Beachten Sie, dass es mehrere Berichte im zurückgegebenen Array geben kann, wir aber der Einfachheit halber nur die Werte des ersten Elements protokollieren.
 
 #### Ergebnisse
 
-Sie können dies mit einem [lokalen Server](/de/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server) ausprobieren.
-Kopieren Sie den obigen Code in `test/index.html` und `test/main.js` und führen Sie den Server im Stammverzeichnis aus.
-Angenommen, die Adresse des lokalen Servers ist `http://127.0.0.1:9999`, können Sie die HTML-Datei unter `http://127.0.0.1:9999/test/` (oder `http://127.0.0.1:9999/test/index.html`) laden.
+Sie können dies mit einem [lokalen Server](/de/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server) ausprobieren. Kopieren Sie den obigen Code in `test/index.html` und `test/main.js` und führen Sie den Server im Stammverzeichnis aus. Angenommen, die Adresse des lokalen Servers lautet `http://127.0.0.1:9999`, können Sie die HTML-Datei von `http://127.0.0.1:9999/test/` (oder `http://127.0.0.1:9999/test/index.html`) laden.
 
-Mit der obigen Einrichtung ist die Konsolenausgabe in Chrome:
+Mit der obigen Einrichtung ist die Ausgabe des Logs in Chrome:
 
 ```plain
 sourceFile: http://127.0.0.1:9999/test/
@@ -98,7 +90,7 @@ lineNumber: 15
 columnNumber: 0
 ```
 
-Das Ergebnis ist für Firefox ähnlich:
+Das Ergebnis ist ähnlich in Firefox:
 
 ```plain
 sourceFile: http://127.0.0.1:9999/test/
@@ -106,9 +98,7 @@ lineNumber: 15
 columnNumber: 13
 ```
 
-Beachten Sie, dass die Spaltennummer bei den beiden Browsern unterschiedlich ist.
-Chrome scheint immer `0` zu melden.
-Der Wert in Firefox repräsentiert die Position des ersten Zeichens nach dem Ende des öffnenden `<script>`-Elements.
+Beachten Sie, dass die Spaltennummer in den beiden Browsern unterschiedlich ist. In Chrome wird immer `0` gemeldet. Der Wert in Firefox stellt die Position des ersten Zeichens nach dem Ende des öffnenden `<script>`-Elements dar.
 
 ## Spezifikationen
 
@@ -120,4 +110,4 @@ Der Wert in Firefox repräsentiert die Position des ersten Zeichens nach dem End
 
 ## Siehe auch
 
-- {{domxref("SecurityPolicyViolationEvent.sourceFile")}}
+- [`SecurityPolicyViolationEvent.sourceFile`](/de/docs/Web/API/SecurityPolicyViolationEvent/sourceFile)

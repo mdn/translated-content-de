@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`fx`**-Attribut definiert die x-Achsenkoordinate des Brennpunkts für einen radialen Verlauf.
+Das **`fx`** Attribut definiert die x-Achsen-Koordinate des Brennpunktes für einen radialen Verlauf.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("radialGradient")}}
 
@@ -62,7 +62,7 @@ svg {
 
 {{EmbedLiveSample("Example", "480", "200")}}
 
-## Verwendungshinweise
+## Verwendungsnotizen
 
 <table class="properties">
   <tbody>
@@ -73,8 +73,8 @@ svg {
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        Entspricht dem präsentativen Wert von {{SVGAttr("cx")}} für
-        das Element, unabhängig davon, ob der Wert für <code>cx</code> geerbt wurde oder nicht.
+        Entspricht dem Präsentationswert von {{SVGAttr("cx")}} für das
+        Element, unabhängig davon, ob der Wert für <code>cx</code> geerbt wurde oder nicht.
       </td>
     </tr>
     <tr>
@@ -88,6 +88,6 @@ svg {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`UIEvent.view`** schreibgeschützte Eigenschaft gibt das {{glossary("WindowProxy")}}-Objekt zurück, aus dem das Ereignis generiert wurde. In Browsern ist dies das {{ domxref("Window") }}-Objekt, in dem das Ereignis aufgetreten ist.
+Die **`UIEvent.view`**-Eigenschaft, die nur lesbar ist, gibt das [WindowProxy](/de/docs/Glossary/WindowProxy)-Objekt zurück, von dem das Ereignis generiert wurde. In Browsern ist dies das [`Window`](/de/docs/Web/API/Window)-Objekt, in dem das Ereignis aufgetreten ist.
 
 ## Wert
 
-Ein Verweis auf ein `AbstractView`-Objekt.
+Eine Referenz zu einem `AbstractView`-Objekt.
 
 ## Spezifikationen
 

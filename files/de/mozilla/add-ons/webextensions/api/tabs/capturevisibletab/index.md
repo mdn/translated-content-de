@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Erstellt eine Daten-URL, die das Bild eines Bereichs des aktiven Tabs im angegebenen Fenster kodiert. Sie müssen die Berechtigung `<all_urls>` oder `activeTab` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) besitzen.
+Erstellt eine Daten-URL, die das Bild eines Bereichs des aktiven Tabs im angegebenen Fenster codiert. Sie müssen die Berechtigung `<all_urls>` oder `activeTab` [berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) besitzen.
 
 > [!NOTE]
-> In Firefox 125 und früher war diese Methode nur mit der `<all_urls>`-Berechtigung verfügbar.
+> In Firefox 125 und früher war diese Methode nur mit der Berechtigung `<all_urls>` verfügbar.
 
-Zusätzlich zu den Seiten, auf die Erweiterungen normalerweise zugreifen können, ermöglicht diese Methode Erweiterungen das Erfassen sensibler Seiten, die ansonsten eingeschränkt sind, einschließlich Browser-UI-Seiten und Seiten anderer Erweiterungen. Diese sensiblen Seiten können nur mit der `activeTab`-Berechtigung erfasst werden. Chrome erlaubt auch das Erfassen von Datei-URLs, wenn der Erweiterung Dateizugriff gewährt wurde.
+Zusätzlich zu den Sites, auf die Erweiterungen normalerweise zugreifen können, ermöglicht diese Methode Erweiterungen das Erfassen sensibler Sites, die ansonsten eingeschränkt sind, einschließlich Browser-UI-Seiten und Seiten anderer Erweiterungen. Diese sensiblen Sites können nur mit der Berechtigung `activeTab` erfasst werden. Chrome erlaubt auch das Erfassen von Datei-URLs, wenn der Erweiterung Dateizugriff gewährt wurde.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -28,17 +28,17 @@ let capturing = browser.tabs.captureVisibleTab(
 ### Parameter
 
 - `windowId` {{optional_inline}}
-  - : `integer`. Das Ziel-Fenster. Standardmäßig das aktuelle Fenster.
+  - : `integer`. Das Ziel-Fenster. Standardmäßig wird das aktuelle Fenster verwendet.
 - `options` {{optional_inline}}
   - : {{WebExtAPIRef('extensionTypes.ImageDetails')}}.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Daten-URL erfüllt wird, die das erfasste Bild kodiert. Es kann der 'src'-Eigenschaft eines HTML-Bildelements zur Anzeige zugeordnet werden. Wenn ein Fehler auftritt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer Daten-URL erfüllt wird, die das erfasste Bild codiert. Diese kann der 'src'-Eigenschaft eines HTML-Bildelements zur Anzeige zugewiesen werden. Wenn ein Fehler auftritt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
-Erfassen eines Bildes des aktiven Tabs im aktuellen Fenster mit den Standardbildeinstellungen:
+Erfassen Sie ein Bild des aktiven Tabs im aktuellen Fenster mit den standardmäßigen Bildeinstellungen:
 
 ```js
 function onCaptured(imageUri) {
@@ -62,7 +62,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-captureVisibleTab) API von Chromium. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-captureVisibleTab) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

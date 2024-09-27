@@ -7,7 +7,7 @@ l10n:
 
 {{MathMLRef}}
 
-Das Element **`<mroot>`** von [MathML](/de/docs/Web/MathML) wird verwendet, um Wurzeln mit einem expliziten Index darzustellen. Es werden zwei Argumente akzeptiert, was zur Syntax führt: `<mroot> basis index </mroot>`.
+Das **`<mroot>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Wurzeln mit einem expliziten Index darzustellen. Zwei Argumente werden akzeptiert, was zur Syntax führt: `<mroot> base index </mroot>`.
 
 ## Attribute
 

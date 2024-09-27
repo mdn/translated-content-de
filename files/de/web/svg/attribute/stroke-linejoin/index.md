@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das **`stroke-linejoin`** Attribut ist ein Präsentationsattribut, das die Form definiert, die an den Ecken von Pfaden verwendet wird, wenn diese gestrichen werden.
+Das **`stroke-linejoin`** Attribut ist ein Präsentationsattribut, das die Form definiert, die an den Ecken von Pfaden verwendet werden soll, wenn sie umrandet werden.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke-linejoin` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-linejoin')}} für mehr.
+> Als Präsentationsattribut kann `stroke-linejoin` auch als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-linejoin')}} für weitere Informationen.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -36,8 +36,8 @@ svg {
 ```html
 <svg viewBox="0 0 18 12" xmlns="http://www.w3.org/2000/svg">
   <!--
-  Obere linke Pfad:
-  Effekt des "miter"-Wertes
+  Upper left path:
+  Effect of the "miter" value
   -->
   <path
     d="M1,5 a2,2 0,0,0 2,-3 a3,3 0 0 1 2,3.5"
@@ -46,8 +46,8 @@ svg {
     stroke-linejoin="miter" />
 
   <!--
-  Mitte Pfad:
-  Effekt des "round"-Wertes
+  Center path:
+  Effect of the "round" value
   -->
   <path
     d="M7,5 a2,2 0,0,0 2,-3 a3,3 0 0 1 2,3.5"
@@ -56,8 +56,8 @@ svg {
     stroke-linejoin="round" />
 
   <!--
-  Obere rechte Pfad:
-  Effekt des "bevel"-Wertes
+  Upper right path:
+  Effect of the "bevel" value
   -->
   <path
     d="M13,5 a2,2 0,0,0 2,-3 a3,3 0 0 1 2,3.5"
@@ -66,9 +66,9 @@ svg {
     stroke-linejoin="bevel" />
 
   <!--
-  Untere linke Pfad:
-  Effekt des "miter-clip"-Wertes
-  mit Fallback zu "miter", wenn nicht unterstützt.
+  Bottom left path:
+  Effect of the "miter-clip" value
+  with fallback to "miter" if not supported.
   -->
   <path
     d="M3,11 a2,2 0,0,0 2,-3 a3,3 0 0 1 2,3.5"
@@ -77,9 +77,9 @@ svg {
     stroke-linejoin="miter-clip" />
 
   <!--
-  Untere rechte Pfad:
-  Effekt des "arcs"-Wertes
-  mit Fallback zu "miter", wenn nicht unterstützt.
+  Bottom right path:
+  Effect of the "arcs" value
+  with fallback to "miter" if not supported.
   -->
   <path
     d="M9,11 a2,2 0,0,0 2,-3 a3,3 0 0 1 2,3.5"
@@ -88,8 +88,8 @@ svg {
     stroke-linejoin="arcs" />
 
   <!--
-  die folgenden rosa Linien heben die
-  Position des Pfades für jeden Strich hervor
+  the following pink lines highlight the
+  position of the path for each stroke
   -->
   <g id="highlight">
     <path
@@ -110,7 +110,7 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 400)}}
 
-## Nutzungskontext
+## Verwendungskontext
 
 <table class="properties">
   <tbody>
@@ -135,9 +135,9 @@ svg {
 ### arcs
 
 > [!NOTE]
-> Der `arcs`-Wert wurde in SVG2 eingeführt und wird noch nicht weit verbreitet unterstützt. Siehe unten [Browserkompatibilität](#browser-kompatibilität) für Details.
+> Der `arcs` Wert wurde in SVG2 eingeführt und wird noch nicht weit unterstützt, siehe [Browser-Kompatibilität](#browser-kompatibilität) unten für Details.
 
-Der `arcs`-Wert gibt an, dass eine Bogenverbindung verwendet werden soll, um Pfadsegmente zu verbinden. Die Bogenform entsteht, indem die äußeren Kanten des Strichs an der Verbindungsstelle mit Bögen verlängert werden, die dieselbe Krümmung haben wie die äußeren Kanten an der Verbindungsstelle.
+Der `arcs` Wert gibt an, dass eine Bogenform verwendet wird, um Pfadsegmente zu verbinden. Die Bogenform wird gebildet, indem die äußeren Kanten des Strichs an der Verbindungsstelle mit Bögen versehen werden, die die gleiche Krümmung wie die äußeren Kanten an der Verbindungsstelle haben.
 
 ```css hidden
 html,
@@ -149,7 +149,7 @@ svg {
 
 ```html
 <svg viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg">
-  <!-- Effekt des "arcs"-Wertes -->
+  <!-- Effect of the "arcs" value -->
   <path
     d="M1,5 a2,2 0,0,0 2,-3 a3,3 0 0 1 2,3"
     stroke="black"
@@ -157,8 +157,8 @@ svg {
     stroke-linejoin="arcs" />
 
   <!--
-  die folgenden rosa Linien heben die
-  Position des Pfades für jeden Strich hervor
+  the following pink lines highlight the
+  position of the path for each stroke
   -->
   <g id="p">
     <path
@@ -177,7 +177,7 @@ svg {
 
 ### bevel
 
-Der `bevel`-Wert gibt an, dass eine abgeschrägte Ecke verwendet werden soll, um Pfadsegmente zu verbinden.
+Der `bevel` Wert gibt an, dass ein abgeschrägtes Eck verwendet wird, um Pfadsegmente zu verbinden.
 
 ```css hidden
 html,
@@ -189,7 +189,7 @@ svg {
 
 ```html
 <svg viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg">
-  <!-- Effekt des "bevel"-Wertes -->
+  <!-- Effect of the "bevel" value -->
   <path
     d="M1,5 l2,-3 l2,3"
     stroke="black"
@@ -197,8 +197,8 @@ svg {
     stroke-linejoin="bevel" />
 
   <!--
-  die folgenden rosa Linien heben die
-  Position des Pfades für jeden Strich hervor
+  the following pink lines highlight the
+  position of the path for each stroke
   -->
   <g id="p">
     <path d="M1,5 l2,-3 l2,3" stroke="pink" fill="none" stroke-width="0.025" />
@@ -213,10 +213,10 @@ svg {
 
 ### miter
 
-Der `miter`-Wert gibt an, dass eine scharfe Ecke verwendet werden soll, um Pfadsegmente zu verbinden. Die Ecke wird gebildet, indem die äußeren Kanten des Strichs an den Tangenten der Pfadsegmente verlängert werden, bis sie sich schneiden.
+Der `miter` Wert gibt an, dass ein scharfes Eck verwendet wird, um Pfadsegmente zu verbinden. Das Eck wird gebildet, indem die äußeren Kanten des Strichs entlang der Tangenten der Pfadsegmente verlängert werden, bis sie sich schneiden.
 
 > [!NOTE]
-> Wenn das {{SVGAttr('stroke-miterlimit')}} überschritten wird, fällt die Linienecke auf `bevel` zurück.
+> Wenn die {{SVGAttr('stroke-miterlimit')}} überschritten wird, fällt die Verbindung auf `bevel` zurück.
 
 ```css hidden
 html,
@@ -228,30 +228,30 @@ svg {
 
 ```html
 <svg viewBox="0 -1 10 7" xmlns="http://www.w3.org/2000/svg">
-  <!-- Effekt des "miter"-Wertes -->
+  <!-- Effect of the "miter" value -->
   <path
     d="M1,5 l2,-3 l2,3"
     stroke="black"
     fill="none"
     stroke-linejoin="miter" />
 
-  <!-- Effekt des "miter"-Wertes bei einem scharfen Winkel
-       wo das standardmäßige miter-Limit überschritten wird -->
+  <!-- Effect of the "miter" value on a sharp angle
+       where de default miter limit is exceeded -->
   <path
     d="M7,5 l0.75,-3 l0.75,3"
     stroke="black"
     fill="none"
     stroke-linejoin="miter" />
 
-  <!-- die folgende rote gepunktete Linie zeigt, wo
-       der miter-Wert auf den bevel-Wert zurückfällt -->
+  <!-- the following red dotted line show where
+       the miter value falls back to the bevel value -->
   <path
     d="M0,0 h10"
     stroke="red"
     stroke-dasharray="0.05"
     stroke-width="0.025" />
 
-  <!-- die folgenden rosa Linien heben die Position des Pfades für jeden Strich hervor -->
+  <!-- the following pink lines highlight the position of the path for each stroke -->
   <g>
     <path d="M1,5 l2,-3 l2,3" stroke="pink" fill="none" stroke-width="0.025" />
     <circle cx="1" cy="5" r="0.05" fill="pink" />
@@ -275,11 +275,11 @@ svg {
 ### miter-clip
 
 > [!NOTE]
-> Der `miter-clip`-Wert wurde in SVG2 eingeführt und wird noch nicht weit verbreitet unterstützt. Siehe unten [Browserkompatibilität](#browser-kompatibilität) für Details.
+> Der `miter-clip` Wert wurde in SVG2 eingeführt und wird noch nicht weit unterstützt, siehe [Browser-Kompatibilität](#browser-kompatibilität) unten für Details.
 
-Der `miter-clip`-Wert gibt an, dass eine scharfe Ecke verwendet werden soll, um Pfadsegmente zu verbinden. Die Ecke wird gebildet, indem die äußeren Kanten des Strichs an den Tangenten der Pfadsegmente verlängert werden, bis sie sich schneiden.
+Der `miter-clip` Wert gibt an, dass ein scharfes Eck verwendet wird, um Pfadsegmente zu verbinden. Das Eck wird gebildet, indem die äußeren Kanten des Strichs entlang der Tangenten der Pfadsegmente verlängert werden, bis sie sich schneiden.
 
-Wenn das {{SVGAttr('stroke-miterlimit')}} überschritten wird, wird der miter an einer Entfernung abgeschnitten, die der Hälfte des {{SVGAttr('stroke-miterlimit')}}-Wertes multipliziert mit der Strichbreite vom Schnittpunkt der Pfadsegmente entspricht. Dies bietet eine bessere Darstellung als `miter` bei sehr scharfen Verbindungen oder im Fall einer Animation.
+Wenn die {{SVGAttr('stroke-miterlimit')}} überschritten wird, wird das Schräg bei einer Entfernung abgeschnitten, die gleich der Hälfte des Werts {{SVGAttr('stroke-miterlimit')}} multipliziert mit der Strichbreite vom Schnittpunkt der Pfadsegmente ist. Dies bietet eine bessere Darstellung als `miter` bei sehr scharfen Verbindungen oder im Fall einer Animation.
 
 ```css hidden
 html,
@@ -291,29 +291,29 @@ svg {
 
 ```html
 <svg viewBox="0 -1 10 7" xmlns="http://www.w3.org/2000/svg">
-  <!-- Effekt des "miter-clip"-Wertes -->
+  <!-- Effect of the "miter-clip" value -->
   <path
     d="M1,5 l2,-3 l2,3"
     stroke="black"
     fill="none"
     stroke-linejoin="miter-clip" />
 
-  <!-- Effekt des "miter-clip"-Wertes bei einem scharfen Winkel
-       wo das standardmäßige miter-Limit überschritten wird -->
+  <!-- Effect of the "miter-clip" value on a sharp angle
+       where de default miter limit is exceeded -->
   <path
     d="M7,5 l0.75,-3 l0.75,3"
     stroke="black"
     fill="none"
     stroke-linejoin="miter-clip" />
 
-  <!-- die folgende rote gepunktete Linie zeigt, wo der Schnitt erfolgen sollte -->
+  <!-- the following red dotted line show where the clip should happen -->
   <path
     d="M0,0 h10"
     stroke="red"
     stroke-dasharray="0.05"
     stroke-width="0.025" />
 
-  <!-- die folgenden rosa Linien heben die Position des Pfades für jeden Strich hervor -->
+  <!-- the following pink lines highlight the position of the path for each stroke -->
   <g>
     <path d="M1,5 l2,-3 l2,3" stroke="pink" fill="none" stroke-width="0.025" />
     <circle cx="1" cy="5" r="0.05" fill="pink" />
@@ -336,7 +336,7 @@ svg {
 
 ### round
 
-Der `round`-Wert gibt an, dass eine abgerundete Ecke verwendet werden soll, um Pfadsegmente zu verbinden.
+Der `round` Wert gibt an, dass ein abgerundetes Eck verwendet wird, um Pfadsegmente zu verbinden.
 
 ```css hidden
 html,
@@ -348,7 +348,7 @@ svg {
 
 ```html
 <svg viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg">
-  <!-- Effekt des "round"-Wertes -->
+  <!-- Effect of the "round" value -->
   <path
     d="M1,5 l2,-3 l2,3"
     stroke="black"
@@ -356,8 +356,8 @@ svg {
     stroke-linejoin="round" />
 
   <!--
-  die folgenden rosa Linien heben die
-  Position des Pfades für jeden Strich hervor
+  the following pink lines highlight the
+  position of the path for each stroke
   -->
   <g id="p">
     <path d="M1,5 l2,-3 l2,3" stroke="pink" fill="none" stroke-width="0.025" />

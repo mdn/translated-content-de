@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`clear()`**-Methode der {{domxref("SVGPointList")}}-Schnittstelle entfernt alle Elemente aus der Liste.
+Die **`clear()`**-Methode des [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Interfaces entfernt alle Elemente aus der Liste.
 
 ## Syntax
 
@@ -26,12 +26,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `NoModificationAllowedError` {{domxref("DOMException")}}
+- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Liste schreibgeschützt ist.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine SVG, die ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Die Methode `clear()` leert die Liste. Folglich wird die Polylinie nicht mehr im SVG angezeigt.
+Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Das Aufrufen von `clear()` leert die Liste. Daher wird die Polylinie im SVG nicht mehr angezeigt.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.hasAttribute()`** Methode gibt einen **booleschen** Wert zurück, der angibt, ob das angegebene Element das angegebene Attribut besitzt oder nicht.
+Die **`Element.hasAttribute()`** Methode gibt einen **Boolean**-Wert zurück, der anzeigt, ob das angegebene Element das angegebene Attribut besitzt oder nicht.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ hasAttribute(name)
 
 ### Rückgabewert
 
-Ein boolescher Wert.
+Ein boolean.
 
 ## Beispiele
 
@@ -44,8 +44,8 @@ if (foo.hasAttribute("bar")) {
 
 ## Siehe auch
 
-- {{domxref("Element.hasAttributes()")}}
-- {{domxref("Element.getAttribute()")}}
-- {{domxref("Element.setAttribute()")}}
-- {{domxref("Element.removeAttribute()")}}
-- {{domxref("Element.toggleAttribute()")}}
+- [`Element.hasAttributes()`](/de/docs/Web/API/Element/hasAttributes)
+- [`Element.getAttribute()`](/de/docs/Web/API/Element/getAttribute)
+- [`Element.setAttribute()`](/de/docs/Web/API/Element/setAttribute)
+- [`Element.removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)
+- [`Element.toggleAttribute()`](/de/docs/Web/API/Element/toggleAttribute)

@@ -1,5 +1,5 @@
 ---
-title: "Fenster: releaseEvents()-Methode"
+title: "Window: releaseEvents()-Methode"
 short-title: releaseEvents()
 slug: Web/API/Window/releaseEvents
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}{{Deprecated_Header}}
 
-Befreit das Fenster vom Erfassen von Ereignissen eines bestimmten Typs.
+Gibt das Fenster von der Erfassung von Ereignissen eines bestimmten Typs frei.
 
 ## Syntax
 
@@ -42,7 +42,7 @@ window.releaseEvents(Event.KEYPRESS);
 
 ## Hinweise
 
-Beachten Sie, dass Sie dieser Methode eine Liste von Ereignissen mittels folgender Syntax übergeben können:
+Beachten Sie, dass Sie eine Liste von Ereignissen mit der folgenden Syntax an diese Methode übergeben können:
 `window.releaseEvents(Event.KEYPRESS | Event.KEYDOWN | Event.KEYUP)`.
 
 Siehe auch [`window.captureEvents`](/de/docs/Web/API/Window/captureEvents)

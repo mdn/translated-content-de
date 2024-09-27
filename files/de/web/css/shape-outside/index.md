@@ -7,37 +7,37 @@ l10n:
 
 {{CSSRef}}
 
-Die **`shape-outside`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert eine Form – die möglicherweise nicht rechteckig ist – um die sich angrenzender Inline-Inhalt legen soll. Standardmäßig legt sich Inline-Inhalt um seinen Randrahmen; `shape-outside` bietet eine Möglichkeit, dieses Umfließen anzupassen, sodass es möglich ist, Text um komplexe Objekte statt nur einfache Kästen fließen zu lassen.
+Die **`shape-outside`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert eine Form—die nicht rechteckig sein muss—um die herum benachbarter Inline-Inhalt fließen soll. Standardmäßig fließt Inline-Inhalt um die Margin-Box; `shape-outside` bietet eine Möglichkeit, dieses Fließen anzupassen, was es ermöglicht, Text um komplexe Objekte zu wickeln, anstatt um einfache Kästchen.
 
 {{EmbedInteractiveExample("pages/css/shape-outside.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 shape-outside: none;
 shape-outside: margin-box;
 shape-outside: content-box;
 shape-outside: border-box;
 shape-outside: padding-box;
 
-/* Funktionswerte */
+/* Function values */
 shape-outside: circle();
 shape-outside: ellipse();
 shape-outside: inset(10px 10px 10px 10px);
 shape-outside: polygon(10px 10px, 20px 20px, 30px 30px);
 
-/* Formrahmen mit Grundform */
+/* Shape box with basic shape */
 shape-outside: circle() border-box;
 shape-outside: margin-box ellipse();
 
-/* <url>-Wert */
+/* <url> value */
 shape-outside: url(image.png);
 
-/* <gradient>-Wert */
+/* <gradient> value */
 shape-outside: linear-gradient(45deg, #fff 150px, red 150px);
 
-/* Globale Werte */
+/* Global values */
 shape-outside: inherit;
 shape-outside: initial;
 shape-outside: revert;
@@ -45,32 +45,32 @@ shape-outside: revert-layer;
 shape-outside: unset;
 ```
 
-Die Eigenschaft `shape-outside` wird mit Werten aus der untenstehenden Liste angegeben, die den _Float-Bereich_ für _Float-Elemente_ definieren. Der Float-Bereich bestimmt die Form, um die sich der Inline-Inhalt (Float-Elemente) legt.
+Die `shape-outside` Eigenschaft wird mit den Werten aus der unten aufgeführten Liste angegeben, die den _float area_ für _Float-Elemente_ definieren. Der Float-Bereich bestimmt die Form, um die herum Inline-Inhalt (Float-Elemente) fließt.
 
 ### Werte
 
 - `none`
-  - : Der Float-Bereich bleibt unbeeinflusst. Der Inline-Inhalt legt sich um den Randrahmen des Elements, wie üblich.
+  - : Der Float-Bereich ist unbeeinflusst. Inline-Inhalt fließt um die Margin-Box des Elements, wie üblich.
 - `<shape-box>`
 
-  - : Der Float-Bereich wird gemäß der Form der Kanten eines Float-Elements berechnet (wie im [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) definiert). Dies kann `margin-box`, `border-box`, `padding-box` oder `content-box` sein. Die Form schließt jede Krümmung ein, die durch die {{cssxref("border-radius")}}-Eigenschaft erzeugt wird (Verhalten, das dem von {{cssxref("background-clip")}} ähnelt).
+  - : Der Float-Bereich wird entsprechend der Form der Kanten eines Float-Elements berechnet (wie im [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) definiert). Dies kann `margin-box`, `border-box`, `padding-box` oder `content-box` sein. Die Form schließt jede Krümmung ein, die durch die {{cssxref("border-radius")}} Eigenschaft erzeugt wird (ein Verhalten, das {{cssxref("background-clip")}} ähnelt).
 
     - `margin-box`
-      - : Definiert die Form, die durch den äußeren Rand des Margins eingeschlossen wird. Die Eckenradien dieser Form werden durch die entsprechenden {{cssxref("border-radius")}}- und {{cssxref("margin")}}-Werte bestimmt. Wenn das Verhältnis `border-radius / margin` `1` oder mehr ist, dann beträgt der Eckenradius des Margin-Box `border-radius + margin`. Wenn das Verhältnis kleiner als `1` ist, dann beträgt der Eckenradius des Margin-Box `border-radius + (margin * (1 + (ratio - 1) ^ 3))`.
+      - : Definiert die Form, die durch den äußeren Randabschluss eingeschlossen wird. Die Eckradien dieser Form werden durch die entsprechenden {{cssxref("border-radius")}} und {{cssxref("margin")}} Werte bestimmt. Wenn das Verhältnis `border-radius / margin` `1` oder mehr ist, dann ist der Eckradius der Margin-Box `border-radius + margin`. Wenn das Verhältnis weniger als `1` ist, dann ist der Eckradius der Margin-Box `border-radius + (margin * (1 + (ratio - 1) ^ 3))`.
     - `border-box`
-      - : Definiert die Form, die durch den äußeren Rand des Borders eingeschlossen wird. Die Form folgt den normalen Regeln der Eckenradiusbildung für den Außenbereich des Borders.
+      - : Definiert die Form, die durch den äußeren Randabschluss eingeschlossen wird. Die Form folgt den normalen Regeln der Randbogenformung für die Außenseite des Randes.
     - `padding-box`
-      - : Definiert die Form, die durch den äußeren Rand des Paddings eingeschlossen wird. Die Form folgt den normalen Regeln der Eckenradiusbildung für den Innenbereich des Borders.
+      - : Definiert die Form, die durch den äußeren Polsterabschluss eingeschlossen wird. Die Form folgt den normalen Regeln der Randbogenformung für die Innenseite des Randes.
     - `content-box`
-      - : Definiert die Form, die durch den äußeren Rand des Inhalts eingeschlossen wird. Jeder Eckenradius dieses Kastens ist der größere Wert von `0` oder `border-radius - border-width - padding`.
+      - : Definiert die Form, die durch den äußeren Inhaltsabschluss eingeschlossen wird. Jeder Eckradius dieser Box ist der größere von `0` oder `border-radius - border-width - padding`.
 
 - {{cssxref("&lt;basic-shape&gt;")}}
-  - : Der Float-Bereich wird basierend auf der Form berechnet, die durch eine {{cssxref("basic-shape/inset","inset()")}}, {{cssxref("basic-shape/circle","circle()")}}, {{cssxref("basic-shape/ellipse","ellipse()")}}, oder {{cssxref("basic-shape/polygon","polygon()")}}-Funktion erstellt wird; andere `<basic-shape>`-Funktionen sind ungültig. Wenn ein `<shape-box>` ebenfalls angegeben wird, definiert es den Referenzrahmen für die `<basic-shape>`-Funktion. Andernfalls wird der Referenzrahmen standardmäßig zu `margin-box`.
+  - : Der Float-Bereich wird basierend auf der Form berechnet, die von einer {{cssxref("basic-shape/inset","inset()")}}, {{cssxref("basic-shape/circle","circle()")}}, {{cssxref("basic-shape/ellipse","ellipse()")}} oder {{cssxref("basic-shape/polygon","polygon()")}} Funktion erstellt wird; andere `<basic-shape>` Funktionen sind ungültig. Wenn ein `<shape-box>` ebenfalls angegeben wird, definiert es das Referenzkästchen für die `<basic-shape>` Funktion. Andernfalls wird das Referenzkästchen auf `margin-box` zurückgesetzt.
 - {{cssxref("&lt;image&gt;")}}
-  - : Der Float-Bereich wird basierend auf dem Alphakanal des angegebenen {{cssxref("&lt;image&gt;")}} extrahiert und berechnet, wie durch {{cssxref("shape-image-threshold")}} definiert.
+  - : Der Float-Bereich wird basierend auf dem Alpha-Kanal des spezifizierten {{cssxref("&lt;image&gt;")}} berechnet, wie von {{cssxref("shape-image-threshold")}} definiert.
 
 > [!NOTE]
-> Wenn das Bild ungültig ist, hat dies denselben Effekt, als ob das Schlüsselwort `none` angegeben worden wäre. Zusätzlich muss das Bild mit {{Glossary("CORS")}}-Headern bereitgestellt werden, die seine Verwendung erlauben.
+> Ist das Bild ungültig, hat dies den Effekt, als ob das Schlüsselwort `none` angegeben worden wäre. Außerdem muss das Bild mit [CORS](/de/docs/Glossary/CORS)-Headern geliefert werden, die seine Verwendung erlauben.
 
 ## Formale Definition
 
@@ -82,7 +82,7 @@ Die Eigenschaft `shape-outside` wird mit Werten aus der untenstehenden Liste ang
 
 ## Beispiele
 
-### Textleiten
+### Text bündeln
 
 #### HTML
 
@@ -91,7 +91,9 @@ Die Eigenschaft `shape-outside` wird mit Werten aus der untenstehenden Liste ang
   <div class="left"></div>
   <div class="right"></div>
   <p>
-    Manchmal scheint der Textinhalt einer Webseite Ihre Aufmerksamkeit auf einen bestimmten Punkt auf der Seite zu lenken, um Sie zu bewegen, einem bestimmten Link zu folgen. Manchmal bemerken Sie es nicht.
+    Sometimes a web page's text content appears to be funneling your attention
+    towards a spot on the page to drive you to follow a particular link.
+    Sometimes you don't notice.
   </p>
 </div>
 ```
@@ -141,7 +143,7 @@ p {
 
 ## Siehe auch
 
-- [CSS-Shapes](/de/docs/Web/CSS/CSS_shapes)
+- [CSS Shapes](/de/docs/Web/CSS/CSS_shapes)
 - [Überblick über Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
 - {{cssxref("&lt;basic-shape&gt;")}}
 - {{cssxref("shape-margin")}}

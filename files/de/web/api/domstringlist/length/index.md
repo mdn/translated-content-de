@@ -1,6 +1,6 @@
 ---
-title: "DOMStringList: Länge Eigenschaft"
-short-title: Länge
+title: "DOMStringList: length Eigenschaft"
+short-title: length
 slug: Web/API/DOMStringList/length
 l10n:
   sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`length`**-Eigenschaft gibt die Anzahl der Zeichenfolgen in der {{domxref("DOMStringList")}} an.
+Die schreibgeschützte **`length`**-Eigenschaft gibt die Anzahl der Zeichenfolgen in der [`DOMStringList`](/de/docs/Web/API/DOMStringList) an.
 
-## Value
+## Wert
 
 Eine {{jsxref("Number")}}.
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 
-## Browser compatibility
+## Browser-Kompatibilität
 
 {{Compat}}

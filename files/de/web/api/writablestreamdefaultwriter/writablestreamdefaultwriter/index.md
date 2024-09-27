@@ -8,10 +8,12 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Der **`WritableStreamDefaultWriter()`** Konstruktor erstellt eine neue Instanz des {{domxref("WritableStreamDefaultWriter")}} Objekts.
+Der **`WritableStreamDefaultWriter()`**
+Konstruktor erstellt eine neue Instanz des [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter).
 
 > [!NOTE]
-> Im Allgemeinen würden Sie diesen Konstruktor nicht manuell verwenden; stattdessen würden Sie die Methode {{domxref("WritableStream.getWriter()")}} verwenden.
+> Diesen Konstruktor würden Sie normalerweise nicht manuell verwenden; stattdessen
+> würden Sie die Methode [`WritableStream.getWriter()`](/de/docs/Web/API/WritableStream/getWriter) verwenden.
 
 ## Syntax
 
@@ -22,26 +24,34 @@ new WritableStreamDefaultWriter(stream)
 ### Parameter
 
 - `stream`
-  - : Der {{domxref("WritableStream")}}, in den geschrieben werden soll.
+  - : Der [`WritableStream`](/de/docs/Web/API/WritableStream), der beschrieben werden soll.
 
 ### Rückgabewert
 
-Eine Instanz des {{domxref("WritableStreamDefaultWriter")}} Objekts.
+Eine Instanz des [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) Objekts.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der angegebene `stream`-Wert ist kein {{domxref("WritableStream")}}, oder er ist bereits an einen anderen Writer gebunden.
+  - : Der angegebene `stream`-Wert ist kein [`WritableStream`](/de/docs/Web/API/WritableStream), oder er
+    ist bereits an einen anderen Writer gebunden.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Erstellung eines `WritableStream` mit einem benutzerdefinierten Senke und einer von der API bereitgestellten Warteschlangenstrategie. Dann wird eine Funktion namens `sendMessage()` aufgerufen, die den neu erstellten Stream und einen String übergibt. Innerhalb dieser Funktion wird die Methode `getWriter()` des Streams aufgerufen, die eine Instanz von {{domxref("WritableStreamDefaultWriter")}} zurückgibt. Ein `forEach()`-Aufruf wird verwendet, um jedes Chunk des Strings in den Stream zu schreiben. Schließlich geben `write()` und `close()` Promises zurück, die verarbeitet werden, um mit dem Erfolg oder dem Misserfolg von Chunks und Streams umzugehen.
+Das folgende Beispiel zeigt die Erstellung eines `WritableStream` mit einem benutzerdefinierten
+Sink und einer vom API bereitgestellten Warteschlangenstrategie. Es ruft dann eine Funktion namens
+`sendMessage()` auf, wobei der neu erstellte Stream und ein String übergeben werden. Innerhalb dieser
+Funktion wird die Methode `getWriter()` des Streams aufgerufen, die eine
+Instanz von [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) zurückgibt. Ein `forEach()`-Aufruf wird
+verwendet, um jedes Stück des Strings in den Stream zu schreiben. Schließlich geben `write()` und
+`close()` Versprechen zurück, die verarbeitet werden, um den Erfolg oder das Versagen
+der Stücke und Streams zu behandeln.
 
 ```js
 const list = document.querySelector("ul");
 
 function sendMessage(message, writableStream) {
-  // defaultWriter ist vom Typ WritableStreamDefaultWriter
+  // defaultWriter is of type WritableStreamDefaultWriter
   const defaultWriter = writableStream.getWriter();
   const encoder = new TextEncoder();
   const encoded = encoder.encode(message, { stream: true });
@@ -55,8 +65,8 @@ function sendMessage(message, writableStream) {
         console.log("Chunk error:", err);
       });
   });
-  // Rufen Sie ready erneut auf, um sicherzustellen, dass alle Chunks geschrieben werden,
-  // bevor der Writer geschlossen wird.
+  // Call ready again to ensure that all chunks are written
+  //   before closing the writer.
   defaultWriter.ready
     .then(() => {
       defaultWriter.close();
@@ -74,7 +84,7 @@ const queuingStrategy = new CountQueuingStrategy({ highWaterMark: 1 });
 let result = "";
 const writableStream = new WritableStream(
   {
-    // Implementieren Sie die Senke
+    // Implement the sink
     write(chunk) {
       return new Promise((resolve, reject) => {
         const buffer = new ArrayBuffer(1);
@@ -103,7 +113,7 @@ const writableStream = new WritableStream(
 sendMessage("Hello, world.", writableStream);
 ```
 
-Den vollständigen Code finden Sie in unserem [einfachen Writer-Beispiel](https://mdn.github.io/dom-examples/streams/simple-writer/).
+Sie finden den vollständigen Code in unserem [einfachen Writer-Beispiel](https://mdn.github.io/dom-examples/streams/simple-writer/).
 
 ## Spezifikationen
 

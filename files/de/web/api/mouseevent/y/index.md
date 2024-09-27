@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`MouseEvent.y`**-Eigenschaft ist ein Alias für die {{domxref("MouseEvent.clientY")}}-Eigenschaft.
+Die **`MouseEvent.y`**-Eigenschaft ist ein Alias für die [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY)-Eigenschaft.
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 
-## Browser compatibility
+## Browser-Kompatibilität
 
 {{Compat}}

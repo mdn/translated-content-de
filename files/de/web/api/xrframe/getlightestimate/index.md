@@ -1,5 +1,5 @@
 ---
-title: "XRFrame: getLightEstimate()-Methode"
+title: "XRFrame: getLightEstimate() Methode"
 short-title: getLightEstimate()
 slug: Web/API/XRFrame/getLightEstimate
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getLightEstimate()`**-Methode des {{domxref("XRFrame")}}-Interfaces gibt ein {{domxref("XRLightEstimate")}}-Objekt zurück, das geschätzte Beleuchtungswerte für eine gegebene {{domxref("XRLightProbe")}} enthält.
+Die **`getLightEstimate()`**-Methode der [`XRFrame`](/de/docs/Web/API/XRFrame)-Schnittstelle gibt ein [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate)-Objekt zurück, das geschätzte Beleuchtungswerte für eine gegebene [`XRLightProbe`](/de/docs/Web/API/XRLightProbe) enthält.
 
 ## Syntax
 
@@ -19,28 +19,28 @@ getLightEstimate(lightProbe)
 ### Parameter
 
 - `lightProbe`
-  - : Ein {{domxref("XRLightProbe")}}-Objekt, das den aktuellen Beleuchtungszustand für den Frame enthält.
+  - : Ein [`XRLightProbe`](/de/docs/Web/API/XRLightProbe)-Objekt, das den aktuellen Beleuchtungszustand für den Rahmen enthält.
 
 ### Rückgabewert
 
-Ein {{domxref("XRLightEstimate")}}-Objekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn das Gerät die Beleuchtung für diesen Frame nicht schätzen kann.
+Ein [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate)-Objekt oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn das Gerät die Beleuchtung für diesen Rahmen nicht abschätzen kann.
 
 ## Beispiele
 
-### Beleuchtungsschätzungen für jeden Frame erhalten
+### Lichtschätzungen für jeden Rahmen erhalten
 
-Angesichts der {{domxref("XRLightProbe")}} einer Sitzung holt die `getLightEstimate()`-Methode ein {{domxref("XRLightEstimate")}}-Objekt, das die Beleuchtungswerte für jeden Frame enthält.
+Gegeben einer Sitzung's [`XRLightProbe`](/de/docs/Web/API/XRLightProbe), erhält die `getLightEstimate()`-Methode ein [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate)-Objekt, das die Beleuchtungswerte für jeden Rahmen enthält.
 
 ```js
 const lightProbe = await xrSession.requestLightProbe();
 
-// Frame-Schleife
+// frame loop
 function onXRFrame(time, xrFrame) {
   let lightEstimate = xrFrame.getLightEstimate(lightProbe);
 
-  // Beleuchtungsschätzungsdaten verwenden, um die Szene zu beleuchten
+  // Use light estimate data to light the scene
 
-  // Verfügbare Eigenschaften
+  // Available properties
   lightEstimate.sphericalHarmonicsCoefficients;
   lightEstimate.primaryLightDirection;
   lightEstimate.primaryLightIntensity;
@@ -57,5 +57,5 @@ function onXRFrame(time, xrFrame) {
 
 ## Siehe auch
 
-- {{domxref("XRLightEstimate")}}
-- {{domxref("XRLightProbe")}}
+- [`XRLightEstimate`](/de/docs/Web/API/XRLightEstimate)
+- [`XRLightProbe`](/de/docs/Web/API/XRLightProbe)

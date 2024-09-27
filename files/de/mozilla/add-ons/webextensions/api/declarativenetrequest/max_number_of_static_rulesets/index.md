@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Die maximale Anzahl von statischen Regelsets, die eine Erweiterung als Teil des Manifests unter dem Schlüssel [`declarative_net_request.rule_resources`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/declarative_net_request) angeben kann. Weitere Informationen zu den Beschränkungen statischer Regelsets finden Sie unter [statische Regelset-Beschränkungen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
+Die maximale Anzahl an statischen Regelsätzen, die eine Erweiterung als Teil des Manifests `declarative_net_request.rule_resources` angeben kann. Weitere Informationen zu den Limits für statische Regelsätze finden Sie unter [statische Regelsatz-Limits](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
 
 Der Wert ist `50`.
 

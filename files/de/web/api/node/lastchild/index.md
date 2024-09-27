@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`lastChild`**-Eigenschaft des {{domxref("Node")}}-Interfaces gibt das letzte Kind des Knotens zurück oder `null`, wenn keine Kindknoten vorhanden sind.
+Die schreibgeschützte **`lastChild`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces gibt das letzte Kind des Knotens zurück oder `null`, wenn es keine Kindknoten gibt.
 
 > [!NOTE]
-> Diese Eigenschaft gibt jeden Knoten zurück, der das letzte Kind dieses Knotens ist.
-> Es könnte ein {{domxref("Text")}}- oder ein {{domxref("Comment")}}-Knoten sein.
-> Wenn Sie das letzte {{domxref("Element")}}, das ein Kind eines anderen Elements ist, abrufen möchten,
-> sollten Sie {{domxref("Element.lastElementChild")}} verwenden.
+> Diese Eigenschaft gibt jeden Knotentyp zurück, der das letzte Kind des aktuellen Knotens ist.
+> Es kann sich dabei um einen [`Text`](/de/docs/Web/API/Text)- oder einen [`Comment`](/de/docs/Web/API/Comment)-Knoten handeln.
+> Wenn Sie das letzte [`Element`](/de/docs/Web/API/Element), das ein Kind eines anderen Elements ist, erhalten möchten,
+> ziehen Sie in Betracht, [`Element.lastElementChild`](/de/docs/Web/API/Element/lastElementChild) zu verwenden.
 
 ## Wert
 
-Ein {{domxref("Node")}}, der das letzte Kind des Knotens ist, oder `null`, wenn keine Kindknoten vorhanden sind.
+Ein [`Node`](/de/docs/Web/API/Node), der das letzte Kind des Knotens ist, oder `null`, wenn es keine Kindknoten gibt.
 
 ## Beispiel
 
@@ -37,5 +37,5 @@ const corner_td = tr.lastChild;
 
 ## Siehe auch
 
-- {{domxref("Node.firstChild")}}
-- {{domxref("Element.lastElementChild")}}
+- [`Node.firstChild`](/de/docs/Web/API/Node/firstChild)
+- [`Element.lastElementChild`](/de/docs/Web/API/Element/lastElementChild)

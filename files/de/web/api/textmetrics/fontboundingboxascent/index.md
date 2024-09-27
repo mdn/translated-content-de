@@ -1,5 +1,5 @@
 ---
-title: "TextMetrics: fontBoundingBoxAscent Eigenschaft"
+title: "TextMetrics: fontBoundingBoxAscent-Eigenschaft"
 short-title: fontBoundingBoxAscent
 slug: Web/API/TextMetrics/fontBoundingBoxAscent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft `fontBoundingBoxAscent` der {{domxref("TextMetrics")}} Schnittstelle gibt die Entfernung von der horizontalen Linie, die durch das {{domxref("CanvasRenderingContext2D.textBaseline")}} Attribut angezeigt wird, bis zur Oberseite des höchsten Begrenzungsrechtecks aller Schriftarten zurück, die zum Rendern des Textes verwendet werden, in CSS-Pixeln.
+Die schreibgeschützte Eigenschaft `fontBoundingBoxAscent` des [`TextMetrics`](/de/docs/Web/API/TextMetrics) Schnittstelle gibt die Entfernung von der horizontalen Linie an, die durch das Attribut [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) angezeigt wird, bis zur Oberseite des höchsten Begrenzungsrechtecks aller Schriften, die zum Rendern des Textes verwendet werden, in CSS-Pixeln zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine Zahl, in CSS-Pixeln.
 
 ## Beispiele
 
-Der folgende Code zeigt, wie Sie das `fontBoundingBoxAscent` für einen Text in einer bestimmten Schriftart erhalten können.
+Der untenstehende Code zeigt, wie Sie die `fontBoundingBoxAscent` für einen Text in einer bestimmten Schriftart erhalten können.
 
 ```js
 const canvas = document.createElement("canvas");
@@ -38,7 +38,7 @@ const log = document.getElementById("log");
 log.innerText = `fontBoundingBoxAscent: ${ascentCssPixels}`;
 ```
 
-Der Anstieg in CSS-Pixeln für den Text "Foo" in einer 25px-Serifenschrift wird unten angezeigt.
+Der Anstieg in CSS-Pixeln für den Text "Foo" in einer 25px-Serifenschrift wird unten gezeigt.
 
 {{EmbedLiveSample('Examples', 100, 50)}}
 
@@ -52,5 +52,5 @@ Der Anstieg in CSS-Pixeln für den Text "Foo" in einer 25px-Serifenschrift wird 
 
 ## Siehe auch
 
-- {{domxref("TextMetrics.fontBoundingBoxDescent")}}
-- {{domxref("TextMetrics")}}
+- [`TextMetrics.fontBoundingBoxDescent`](/de/docs/Web/API/TextMetrics/fontBoundingBoxDescent)
+- [`TextMetrics`](/de/docs/Web/API/TextMetrics)

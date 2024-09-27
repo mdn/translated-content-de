@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte **`data`**-Eigenschaft des {{domxref("CompositionEvent")}}-Interfaces gibt die Zeichen zurück, die von der Eingabemethode generiert wurden, die das Ereignis ausgelöst hat; ihre genaue Natur variiert je nach dem Typ des Ereignisses, das das `CompositionEvent`-Objekt generiert hat.
+Die **`data`** schreibgeschützte Eigenschaft des [`CompositionEvent`](/de/docs/Web/API/CompositionEvent)-Interfaces gibt die Zeichen zurück, die durch die Eingabemethode erzeugt wurden, die das Ereignis ausgelöst hat; ihre genaue Natur variiert je nach Art des Ereignisses, das das `CompositionEvent`-Objekt generiert hat.
 
 ## Wert
 
-Ein String, der die Ereignisdaten repräsentiert:
+Ein String, der die Ereignisdaten darstellt:
 
-- Für `compositionstart`-Ereignisse ist dies der aktuell ausgewählte Text, der durch den sich in der Komposition befindlichen String ersetzt wird. Dieser Wert ändert sich nicht, selbst wenn der Inhalt den Auswahlbereich verändert; vielmehr zeigt er den String an, der ausgewählt war, als die Komposition begann.
-- Für `compositionupdate` ist dies der String, wie er aktuell beim Bearbeiten besteht.
-- Für `compositionend`-Ereignisse ist dies der String, wie er im Editor festgeschrieben wurde.
+- Bei `compositionstart`-Ereignissen handelt es sich um den aktuell ausgewählten Text, der durch den komponierten String ersetzt wird. Dieser Wert ändert sich nicht, selbst wenn der Inhalt den Auswahlbereich ändert; vielmehr gibt er den String an, der ausgewählt war, als die Komposition begann.
+- Bei `compositionupdate` ist dies der String in seinem aktuellen Zustand, während die Bearbeitung fortschreitet.
+- Bei `compositionend`-Ereignissen ist dies der String, wie er im Editor übernommen wurde.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("CompositionEvent")}}
+- [`CompositionEvent`](/de/docs/Web/API/CompositionEvent)

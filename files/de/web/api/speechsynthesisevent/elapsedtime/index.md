@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte Eigenschaft **`elapsedTime`** des {{domxref("SpeechSynthesisEvent")}} gibt die vergangene Zeit in Sekunden an, nachdem das {{domxref("SpeechSynthesisUtterance.text")}} zu sprechen begonnen hat, zu welchem Zeitpunkt das [Ereignis](/de/docs/Web/API/SpeechSynthesisUtterance#events) ausgelöst wurde.
+Die **`elapsedTime`** schreibgeschützte Eigenschaft des [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent) gibt die verstrichene Zeit in Sekunden zurück, nachdem das [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zu sprechen begonnen hat, zu der das [Ereignis](/de/docs/Web/API/SpeechSynthesisUtterance#events) ausgelöst wurde.
 
 ## Wert
 
-Ein Float, der die vergangene Zeit in Sekunden enthält.
+Ein Float, der die verstrichene Zeit in Sekunden enthält.
 
 > [!NOTE]
-> Frühere Versionen der Spezifikation verlangten die verstrichene Zeit in Millisekunden.
+> Frühere Versionen der Spezifikation erforderten die verstrichene Zeit in Millisekunden.
 > Überprüfen Sie die [Kompatibilitätstabelle](#browser-kompatibilität) unten für Ihren Browser.
 
 ## Beispiele

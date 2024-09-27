@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`transportId`**-Eigenschaft des {{domxref("RTCRtpStreamStats")}}-Dictionary ist ein String, der das Objekt eindeutig identifiziert, von dem die in den {{domxref("RTCTransportStats")}}-Eigenschaften des {{domxref("RTCStatsReport")}} enthaltenen Statistiken stammen.
+Die **`transportId`**-Eigenschaft des [`RTCRtpStreamStats`](/de/docs/Web/API/RTCRtpStreamStats)-Wörterbuchs ist ein String, der das Objekt, aus dem die in den [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Eigenschaften im [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) enthaltenen Statistiken stammen, eindeutig identifiziert.
 
 ## Wert
 
-Ein String, der die Quelle der in den {{domxref("RTCTransportStats")}}-Eigenschaften des {{domxref("RTCStatsReport")}} enthaltenen Statistiken eindeutig identifiziert.
+Ein String, der die Quelle der in den [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Eigenschaften im [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) enthaltenen Statistiken eindeutig identifiziert.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

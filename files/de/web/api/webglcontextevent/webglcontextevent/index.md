@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Der **`WebGLContextEvent()`** Konstruktor erstellt ein neues {{domxref("WebGLContextEvent")}} Objekt.
+Der **`WebGLContextEvent()`** Konstruktor erstellt ein neues [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent) Objekt.
 
 > [!NOTE]
-> Normalerweise müssen Sie diesen Konstruktor nicht aufrufen; der Browser erstellt diese Objekte automatisch, wenn WebGL-Kontextereignisse ausgelöst werden. Um ein `webglcontextlost` Ereignis manuell auszulösen, verwenden Sie {{domxref("WEBGL_lose_context.loseContext()")}}.
+> In der Regel benötigen Sie diesen Konstruktor nicht aufzurufen; der Browser erstellt diese Objekte automatisch, wenn WebGL-Kontextereignisse ausgelöst werden. Um ein `webglcontextlost`-Ereignis manuell auszulösen, verwenden Sie [`WEBGL_lose_context.loseContext()`](/de/docs/Web/API/WEBGL_lose_context/loseContext).
 
 ## Syntax
 
@@ -23,15 +23,15 @@ new WebGLContextEvent(type, options)
 
 - `type`
   - : Ein String, der den Typ des Ereignisses angibt.
-    Es ist groß- und kleinschreibungssensitiv und sollte einer der folgenden sein: `webglcontextcreationerror`, `webglcontextlost` oder `webglcontextrestored`.
+    Er ist case-sensitiv und sollte einer von `webglcontextcreationerror`, `webglcontextlost` oder `webglcontextrestored` sein.
 - `options` {{Optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ folgende Eigenschaften hat:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften hat:
     - `statusMessage` {{Optional_inline}}
-      - : Ein String mit zusätzlichen Statusinformationen. Er ist standardmäßig leer (`""`).
+      - : Ein String mit zusätzlichen Statusinformationen. Es ist standardmäßig der leere String (`""`).
 
 ### Rückgabewert
 
-Ein neues {{domxref("WebGLContextEvent")}} Objekt.
+Ein neues [`WebGLContextEvent`](/de/docs/Web/API/WebGLContextEvent) Objekt.
 
 ## Spezifikationen
 

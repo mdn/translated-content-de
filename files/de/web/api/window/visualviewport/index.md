@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Visual Viewport")}}
 
-Die schreibgeschützte **`visualViewport`**-Eigenschaft der {{domxref("Window")}}-Schnittstelle gibt ein {{domxref("VisualViewport")}}-Objekt zurück, das den visuellen Viewport für ein gegebenes Fenster darstellt, oder `null`, wenn das aktuelle Dokument nicht vollständig aktiv ist.
+Die schreibgeschützte **`visualViewport`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt ein [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Objekt zurück, das den visuellen Viewport für ein bestimmtes Fenster darstellt, oder `null`, wenn das aktuelle Dokument nicht vollständig aktiv ist.
 
 ## Wert
 
-Ein {{domxref("VisualViewport")}}-Objekt.
+Ein [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Objekt.
 
 ## Spezifikationen
 

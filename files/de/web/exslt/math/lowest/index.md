@@ -7,9 +7,9 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`math:lowest()` gibt den Knoten in der angegebenen Knotenmenge zurück, der den niedrigsten Wert hat (wobei der niedrigste Wert unter Verwendung von [`math:min()`](/de/docs/Web/EXSLT/math/min) berechnet wird).
+`math:lowest()` gibt den Knoten im angegebenen Knoten-Set zurück, der den niedrigsten Wert hat (wo der niedrigste Wert mittels [`math:min()`](/de/docs/Web/EXSLT/math/min) berechnet wird).
 
-Ein Knoten hat diesen minimalen Wert, wenn das Umwandeln seines Zeichenfolgenwerts in eine Zahl dem minimalen Wert entspricht.
+Ein Knoten hat diesen Minimalwert, wenn die Umwandlung seines Zeichenfolgenwerts in eine Zahl dem Minimalwert entspricht.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ math:lowest(nodeSet)
 ### Parameter
 
 - `nodeSet`
-  - : Die Knotenmenge, deren niedrigster Wert zurückgegeben werden soll.
+  - : Das Knoten-Set, dessen niedrigster Wert zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Ein Ergebnisbaumfragment, das aus Kopien der von [`math:min()`](/de/docs/Web/EXSLT/math/min) zurückgegebenen Knoten besteht.
+Ein Ergebnisbaumfragment, das Kopien der Knoten enthält, die von [`math:min()`](/de/docs/Web/EXSLT/math/min) zurückgegeben werden.
 
 ## Spezifikationen
 

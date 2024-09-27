@@ -7,58 +7,58 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Das **`PageRevealEvent`**-Ereignisobjekt ist innerhalb der Handler-Funktionen für das {{domxref("Window.pagereveal_event", "pagereveal")}}-Ereignis verfügbar.
+Das **`PageRevealEvent`**-Ereignisobjekt steht innerhalb von Handlerfunktionen für das [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Ereignis zur Verfügung.
 
-Während einer Cross-Dokument-Navigation ermöglicht es Ihnen, einen zugehörigen [View Transition](/de/docs/Web/API/View_Transitions_API) zu manipulieren (indem es Zugriff auf das relevante {{domxref("ViewTransition")}}-Objekt bietet) von dem Dokument, zu dem navigiert wird, falls die Navigation eine View Transition ausgelöst hat.
+Während einer Navigation über Dokumentgrenzen hinweg können Sie damit eine zugehörige [View-Transition](/de/docs/Web/API/View_Transitions_API) (die den Zugriff auf das relevante [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt ermöglicht) vom Dokument aus steuern, zu dem navigiert wird, wenn eine View-Transition durch die Navigation ausgelöst wurde.
 
-Außerhalb von View Transitions ist dieses Ereignis auch nützlich für Fälle wie das Auslösen einer Startanimation oder das Melden eines Seitenaufrufs. Es entspricht dem ersten Durchlauf von {{domxref("Window.requestAnimationFrame()")}} nach einer Cross-Dokument-Navigation, wenn Sie `requestAnimationFrame()` im {{htmlelement("head")}} des Dokuments auslösen würden. Zum Beispiel, wenn Sie die folgende `reveal()`-Funktion im `<head>` ausführen:
+Außerhalb von View-Transitions ist dieses Ereignis auch nützlich für Fälle wie das Auslösen einer Startanimation oder das Melden eines Seitenaufrufs. Es entspricht der ersten Ausführung von [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) nach einer Navigation über Dokumentgrenzen hinweg, wenn Sie `requestAnimationFrame()` im {{htmlelement("head")}} des Dokuments auslösen würden. Beispielsweise, wenn Sie die folgende `reveal()`-Funktion im `<head>` ausführen:
 
 ```js
 function reveal() {
-  // Startanimation hier einfügen
+  // Include startup animation here
 }
-/* Dies wird im ersten gerenderten Frame nach dem Laden ausgelöst */
+/* This will fire in the first rendered frame after loading */
 requestAnimationFrame(() => reveal());
 
-/* Dies wird ausgelöst, wenn die Seite aus dem BFCache wiederhergestellt wird */
+/* This will fire if the page is restored from BFCache */
 window.onpagehide = () => requestAnimationFrame(() => reveal());
 ```
 
-## Constructor
+## Konstruktor
 
-- {{domxref("PageRevealEvent.PageRevealEvent", "PageRevealEvent()")}} {{experimental_inline}}
-  - : Erstellt eine neue Instanz des `PageRevealEvent`-Objekts.
+- [`PageRevealEvent()`](/de/docs/Web/API/PageRevealEvent/PageRevealEvent) {{experimental_inline}}
+  - : Erstellt eine neue `PageRevealEvent`-Objektinstanz.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("PageRevealEvent.viewTransition", "viewTransition")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Enthält ein {{domxref("ViewTransition")}}-Objekt, das die aktive View Transition für die Cross-Dokument-Navigation repräsentiert.
+- [`viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Enthält ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das die aktive View-Transition für die Navigation über Dokumentgrenzen hinweg repräsentiert.
 
 ## Beispiele
 
 ```js
 window.addEventListener("pagereveal", async (e) => {
-  // Wenn der "from"-Verlaufseintrag nicht existiert, zurückkehren
+  // If the "from" history entry does not exist, return
   if (!navigation.activation.from) return;
 
-  // Nur ausführen, wenn eine aktive View Transition existiert
+  // Only run this if an active view transition exists
   if (e.viewTransition) {
     const fromUrl = new URL(navigation.activation.from.url);
     const currentUrl = new URL(navigation.activation.entry.url);
 
-    // Wechsel von der Profilseite zur Startseite
-    // ~> Set VT-Namen auf das relevante Listenelement
+    // Went from profile page to homepage
+    // ~> Set VT names on the relevant list item
     if (isProfilePage(fromUrl) && isHomePage(currentUrl)) {
       const profile = extractProfileNameFromUrl(fromUrl);
 
-      // Setze view-transition-name-Werte auf die zu animierenden Elemente
+      // Set view-transition-name values on the elements to animate
       document.querySelector(`#${profile} span`).style.viewTransitionName =
         "name";
       document.querySelector(`#${profile} img`).style.viewTransitionName =
         "avatar";
 
-      // Entfernen der Namen, nachdem die Schnappschüsse aufgenommen wurden
-      // damit wir bereit für die nächste Navigation sind
+      // Remove names after snapshots have been taken
+      // so that we're ready for the next navigation
       await e.viewTransition.ready;
       document.querySelector(`#${profile} span`).style.viewTransitionName =
         "none";
@@ -66,17 +66,17 @@ window.addEventListener("pagereveal", async (e) => {
         "none";
     }
 
-    // Wechsel zur Profilseite
-    // ~> VT-Namen auf den Haupttitel und das Bild setzen
+    // Went to profile page
+    // ~> Set VT names on the main title and image
     if (isProfilePage(currentUrl)) {
-      // Setze view-transition-name-Werte auf die zu animierenden Elemente
+      // Set view-transition-name values on the elements to animate
       document.querySelector(`#detail main h1`).style.viewTransitionName =
         "name";
       document.querySelector(`#detail main img`).style.viewTransitionName =
         "avatar";
 
-      // Entfernen der Namen, nachdem die Schnappschüsse aufgenommen wurden
-      // damit wir bereit für die nächste Navigation sind
+      // Remove names after snapshots have been taken
+      // so that we're ready for the next navigation
       await e.viewTransition.ready;
       document.querySelector(`#detail main h1`).style.viewTransitionName =
         "none";
@@ -88,13 +88,13 @@ window.addEventListener("pagereveal", async (e) => {
 ```
 
 > [!NOTE]
-> Sehen Sie sich die [Liste der Chrome DevRel-Teammitglieder](https://view-transitions.netlify.app/profiles/mpa/) für die Live-Demo an, aus der dieser Code stammt.
+> Siehe [Liste der Chrome DevRel-Teammitglieder](https://view-transitions.netlify.app/profiles/mpa/) für die Live-Demo, aus der dieser Code stammt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -8,10 +8,11 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`cancel()`**-Methode der {{domxref("ReadableStreamBYOBReader")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird. Dieser Methodenaufruf signalisiert einen Verlust des Interesses an dem Stream durch einen Konsumenten.
+Die **`cancel()`**-Methode der [`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird.
+Das Aufrufen dieser Methode signalisiert einen Verlust des Interesses an dem Stream durch einen Verbraucher.
 
 > [!NOTE]
-> Wenn der Leser aktiv ist, verhält sich die `cancel()`-Methode gleich wie die für den zugehörigen Stream ({{domxref("ReadableStream.cancel()")}}).
+> Wenn der Leser aktiv ist, verhält sich die `cancel()`-Methode genauso wie für den zugehörigen Stream ([`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel)).
 
 ## Syntax
 
@@ -27,16 +28,16 @@ cancel(reason)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich mit dem im `reason`-Parameter angegebenen Wert erfüllt.
+Ein {{jsxref("Promise")}}, das mit dem im `reason`-Parameter angegebenen Wert aufgelöst wird.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Das Quellobjekt ist kein `ReadableStreamBYOBReader` oder der Stream hat keinen Besitzer.
+  - : Das Quellobjekt ist kein `ReadableStreamBYOBReader`, oder der Stream hat keinen Besitzer.
 
 ## Beispiele
 
-Dieses Beispiel ruft die `cancel()`-Methode auf, wenn eine Schaltfläche gedrückt wird, und übergibt den String "user choice" als Grund. Das Versprechen wird aufgelöst, wenn die Stornierung abgeschlossen ist.
+Dieses Beispiel ruft die `cancel()`-Methode auf, wenn eine Schaltfläche gedrückt wird, und übergibt den String "user choice" als Grund. Das Versprechen wird eingelöst, wenn die Stornierung abgeschlossen ist.
 
 ```js
 button.addEventListener("click", () => {
@@ -44,7 +45,7 @@ button.addEventListener("click", () => {
 });
 ```
 
-Beachten Sie, dass dieser Code in dem Beispielcode [Verwendung von lesbaren Byte-Strömen](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#result) ausgeführt werden kann (drücken Sie die **Cancel stream**-Schaltfläche).
+Beachten Sie, dass dieser Code im [Beispiel für die Verwendung von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#result) ausgeführt werden kann (drücken Sie die Schaltfläche **Cancel stream**).
 
 ## Spezifikationen
 
@@ -56,5 +57,5 @@ Beachten Sie, dass dieser Code in dem Beispielcode [Verwendung von lesbaren Byte
 
 ## Siehe auch
 
-- {{domxref("ReadableStreamBYOBReader.ReadableStreamBYOBReader", "ReadableStreamBYOBReader()")}}-Konstruktor
-- [Verwendung von lesbarem Byte-Stream](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [`ReadableStreamBYOBReader()`](/de/docs/Web/API/ReadableStreamBYOBReader/ReadableStreamBYOBReader)-Konstruktor
+- [Verwendung von lesbaren Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)

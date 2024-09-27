@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: await ist nur in asynchronen Funktionen, asynchronen Generatoren und Modulen gültig"
+title: "SyntaxError: await ist nur in async-Funktionen, async-Generatoren und Modulen gültig"
 slug: Web/JavaScript/Reference/Errors/Bad_await
 l10n:
   sourceCommit: d71b141d2d18b96639547856714df19cefacfebf
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "await ist nur in asynchronen Funktionen, asynchronen Generatoren und Modulen gültig" tritt auf, wenn ein {{jsxref("Operators/await", "await")}}-Ausdruck außerhalb von [asynchronen Funktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function) oder [Modulen](/de/docs/Web/JavaScript/Guide/Modules) oder anderen asynchronen Kontexten verwendet wird.
+Die JavaScript-Ausnahme "await ist nur in async-Funktionen, async-Generatoren und Modulen gültig" tritt auf, wenn ein {{jsxref("Operators/await", "await")}}-Ausdruck außerhalb von [async-Funktionen](/de/docs/Web/JavaScript/Reference/Statements/async_function) oder [Modulen](/de/docs/Web/JavaScript/Guide/Modules) oder anderen async-Kontexten verwendet wird.
 
 ## Nachricht
 
@@ -17,13 +17,13 @@ SyntaxError: await is only valid in async functions, async generators and module
 SyntaxError: Unexpected identifier (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("SyntaxError")}}.
 
 ## Was ist schiefgelaufen?
 
-Die Ausführung von JavaScript blockiert niemals: ein `await` kann die Ausführung des Programms niemals blockieren. Stattdessen pausiert es die Ausführung der umgebenden asynchronen Aufgabe, während andere Aufgaben weiterhin laufen können. Daher kann `await` nicht in synchronen Aufgaben verwendet werden, wie Funktionen, Generatorfunktionen oder auf oberster Ebene von Skripten. Es ist nicht immer offensichtlich, ob die aktuelle Datei ein Skript oder ein Modul ist — siehe den [Module-Leitfaden](/de/docs/Web/JavaScript/Guide/Modules#top_level_await) für mehr Informationen.
+JavaScript-Ausführung ist niemals blockierend: ein `await` kann niemals die Ausführung des Programms blockieren. Stattdessen pausiert es die Ausführung der umgebenden asynchronen Aufgabe, während es anderen Aufgaben ermöglicht, weiterzulaufen. Daher kann `await` nicht in synchronen Aufgaben verwendet werden, wie z.B. Funktionen, Generatorfunktionen oder auf oberster Ebene von Skripten. Es ist nicht immer offensichtlich, ob die aktuelle Datei ein Skript oder ein Modul ist — siehe den [Module Leitfaden](/de/docs/Web/JavaScript/Guide/Modules#top_level_await) für mehr Informationen.
 
 ## Beispiele
 
@@ -38,7 +38,7 @@ Sie können `await` nicht auf oberster Ebene eines Skripts verwenden:
 </script>
 ```
 
-Machen Sie stattdessen das Skript zu einem Modul:
+Stattdessen machen Sie das Skript zu einem Modul:
 
 ```html example-good
 <script type="module">
@@ -57,7 +57,7 @@ urls.forEach((url) => {
 });
 ```
 
-Machen Sie stattdessen den Rückruf asynchron. Weitere Erklärungen finden Sie im [Leitfaden zur Verwendung von Promises](/de/docs/Web/JavaScript/Guide/Using_promises#composition).
+Stattdessen machen Sie den Rückruf async. Weitere Erklärungen finden Sie im [Verwendung von Promises Leitfaden](/de/docs/Web/JavaScript/Guide/Using_promises#composition).
 
 ```js example-good
 Promise.all(

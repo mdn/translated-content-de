@@ -1,5 +1,5 @@
 ---
-title: DASH-Adaptives Streaming für HTML 5 Video
+title: DASH Adaptive Streaming für HTML 5 Video
 slug: Web/Media/DASH_Adaptive_Streaming_for_HTML_5_Video
 l10n:
   sourceCommit: 9f325923caffac2d0239773d4562303fd02ea30a
@@ -7,23 +7,23 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Media")}}
 
-Dynamic Adaptive Streaming over HTTP (DASH) ist ein adaptives Streaming-Protokoll. Das bedeutet, dass es einem Videostream ermöglicht, die Bitrate basierend auf der Netzwerkleistung anzupassen, um einen reibungslosen Videobetrieb zu gewährleisten.
+Dynamic Adaptive Streaming over HTTP (DASH) ist ein adaptives Streaming-Protokoll. Dies bedeutet, dass es einem Videostream ermöglicht, basierend auf der Netzwerkperformance zwischen Bitraten zu wechseln, um das Abspielen eines Videos aufrechtzuerhalten.
 
-## Browserunterstützung
+## Browser-Kompatibilität
 
-Firefox 21 enthält eine Implementierung von DASH für HTML WebM-Video, die standardmäßig deaktiviert ist. Sie kann über "about:config" und die Einstellung "media.dash.enabled" aktiviert werden.
+Firefox 21 beinhaltet eine Implementierung von DASH für HTML WebM Video, die standardmäßig deaktiviert ist. Sie kann über "about:config" und die Einstellung "media.dash.enabled" aktiviert werden.
 
-Firefox 23 hat die Unterstützung für DASH für HTML WebM-Video entfernt. Es wird durch eine Implementierung der [Media Source Extensions API](https://www.w3.org/TR/media-source/) ersetzt, die Unterstützung für DASH über JavaScript-Bibliotheken wie dash.js ermöglicht. Weitere Details finden Sie im Bug [778617](https://bugzil.la/778617).
+Firefox 23 hat den Support für DASH für HTML WebM Video entfernt. Es wird durch eine Implementierung der [Media Source Extensions API](https://www.w3.org/TR/media-source/) ersetzt, die den Support für DASH über JavaScript-Bibliotheken wie dash.js ermöglichen wird. Siehe Bug [778617](https://bugzil.la/778617) für Details.
 
 ## Verwendung von DASH - Serverseitig
 
-Zuerst müssen Sie Ihr WebM-Video in ein DASH-Manifest mit den begleitenden Videodateien in verschiedenen Bitraten konvertieren. Zunächst benötigen Sie nur das FFmpeg-Programm von [ffmpeg.org](https://www.ffmpeg.org/), mit Unterstützung für libvpx und libvorbis für WebM-Video und -Audio, mindestens Version 2.5 (wahrscheinlich; dies wurde mit Version 3.2.5 getestet).
+Zuerst müssen Sie Ihr WebM-Video in eine DASH-Manifestdatei mit den zugehörigen Videodateien in verschiedenen Bitraten konvertieren. Zuerst benötigen Sie nur das FFmpeg-Programm von [ffmpeg.org](https://www.ffmpeg.org/), mit libvpx- und libvorbis-Unterstützung für WebM-Video und -Audio, mindestens Version 2.5 (höchstwahrscheinlich; dies wurde mit Version 3.2.5 getestet).
 
 ### 1. Verwenden Sie Ihre vorhandene WebM-Datei, um eine Audiodatei und mehrere Videodateien zu erstellen
 
-Zum Beispiel:
+Beispielsweise:
 
-Die Datei **_in.video_** kann ein beliebiges Containerformat sein, das mindestens einen Audio- und einen Videostream enthält, die von FFmpeg dekodiert werden können.
+Die Datei **_in.video_** kann ein beliebiger Container mit mindestens einem Audio- und einem Videostream sein, der von FFmpeg decodiert werden kann.
 
 Erstellen Sie die Audiodatei mit:
 
@@ -58,7 +58,7 @@ ffmpeg -i in.video -c:v libvpx-vp9 -keyint_min 150 -g 150 -tile-columns 4 -frame
 -an -vf scale=1280:720 -b:v 1500k -dash 1 video_1280x720_1500k.webm
 ```
 
-Oder alles in einem einzigen Befehl ausführen.
+Oder machen Sie alles in einem Befehl.
 
 ```bash
 ffmpeg -i in.video -c:v libvpx-vp9 -keyint_min 150 \
@@ -86,28 +86,28 @@ ffmpeg \
   my_video_manifest.mpd
 ```
 
-Die `-map` Argumente entsprechen den Eingabedateien in der gegebenen Reihenfolge; Sie sollten für jede Datei eines haben. Das Argument `-adaptation_sets` ordnet sie in Adaptationssets ein; dieses Beispiel erstellt ein Set (0), das die Streams 0, 1, 2 und 3 (die Videos) enthält, und ein weiteres Set (1), das nur Stream 4, den Audiostream, enthält.
+Die `-map` Argumente entsprechen den Eingabedateien in der Reihenfolge, in der sie angegeben werden; Sie sollten eines für jede Datei haben. Das `-adaptation_sets` Argument weist sie Adapationssets zu; zum Beispiel wird hier ein Set (0) erstellt, das die Streams 0, 1, 2 und 3 (die Videos) enthält, und ein weiteres Set (1), das nur Stream 4, den Audiostream, enthält.
 
-Stellen Sie das Manifest und die zugehörigen Videodateien auf Ihrem Webserver oder CDN bereit. DASH funktioniert über HTTP, daher sind Sie gut gerüstet, solange Ihr HTTP-Server Byte-Range-Anfragen unterstützt und so konfiguriert ist, `.mpd`-Dateien mit `mimetype="application/dash+xml"` bereitzustellen.
+Legen Sie das Manifest und die zugehörigen Videodateien auf Ihrem Webserver oder CDN ab. DASH funktioniert über HTTP, sodass Ihre HTTP-Server Byte-Range-Anfragen unterstützen sollte und es so konfiguriert sein muss, `.mpd` Dateien mit `mimetype="application/dash+xml"` auszuliefern. Dann sind Sie einsatzbereit.
 
 ## Verwendung von DASH - Clientseitig
 
-Sie sollten Ihre Webseite so anpassen, dass sie zuerst auf das DASH-Manifest verweist, anstatt direkt auf eine bestimmte Videodatei:
+Sie sollten Ihre Webseite zuerst so modifizieren, dass sie auf das DASH-Manifest zeigt, anstatt direkt auf eine bestimmte Videodatei:
 
 ```html
 <video>
   <source src="movie.mpd" />
   <source src="movie.webm" />
-  Ihr Browser unterstützt das Video-Tag nicht.
+  Your browser does not support the video tag.
 </video>
 ```
 
-Das war's! Wenn der Browser DASH unterstützt, wird Ihr Video nun adaptiv gestreamt.
+Das war's! Wenn DASH vom Browser unterstützt wird, wird Ihr Video nun adaptiv gestreamt.
 
 ## Links
 
-[WebM DASH Spezifikation beim WebM-Projekt](https://wiki.webmproject.org/adaptive-streaming/webm-dash-specification)
+[WebM DASH Spezifikation beim WebM Projekt](https://wiki.webmproject.org/adaptive-streaming/webm-dash-specification)
 
 [DASH Industry Forum](https://dashif.org/)
 
-[WebM-Projektbeschreibung, wie man DASH-Dateien mit FFMPEG erstellt](https://wiki.webmproject.org/adaptive-streaming/instructions-to-playback-adaptive-webm-using-dash)
+[Beschreibung des WebM-Projekts zur Erstellung von DASH-Dateien mit FFMPEG](https://wiki.webmproject.org/adaptive-streaming/instructions-to-playback-adaptive-webm-using-dash)

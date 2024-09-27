@@ -8,25 +8,27 @@ l10n:
 
 {{APIRef}}
 
-Die **`fetchPriority`**-Eigenschaft des {{domxref("HTMLImageElement")}}-Interfaces stellt einen Hinweis für den Browser dar, wie er das Abrufen des Bildes im Vergleich zu anderen Bildern priorisieren soll.
+Die **`fetchPriority`**-Eigenschaft des
+[`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces repräsentiert einen Hinweis an den Browser, wie
+er das Laden des Bildes im Vergleich zu anderen Bildern priorisieren soll.
 
 ## Wert
 
 Ein String, der den Prioritätshinweis darstellt. Mögliche Werte sind:
 
 - `high`
-  - : Ruft das Bild mit hoher Priorität im Vergleich zu anderen Bildern ab.
+  - : Das Bild mit hoher Priorität im Vergleich zu anderen Bildern laden.
 - `low`
-  - : Ruft das Bild mit niedriger Priorität im Vergleich zu anderen Bildern ab.
+  - : Das Bild mit niedriger Priorität im Vergleich zu anderen Bildern laden.
 - `auto`
-  - : Standardmodus, der keine Präferenz für die Abrufpriorität ausdrückt.
+  - : Standardmodus, der keine Präferenz für die Ladepriorität festlegt.
     Der Browser entscheidet, was am besten für den Benutzer ist.
 
-Die `fetchPriority`-Eigenschaft ermöglicht es Ihnen, hohe oder niedrige Prioritäten für das Abrufen von Bildern zu signalisieren. Dies kann nützlich sein, wenn sie auf {{HTMLElement("img")}}-Elemente angewendet wird, um Bilder zu signalisieren, die zu Beginn des Ladeprozesses für die Benutzererfahrung "wichtig" sind.
+Die `fetchPriority`-Eigenschaft ermöglicht es Ihnen, Signale für hohe oder niedrige Priorität für Bildladevorgänge zu senden. Dies kann nützlich sein, wenn es auf {{HTMLElement("img")}}-Elemente angewendet wird, um anzuzeigen, dass Bilder zu Beginn des Ladeprozesses "wichtig" für die Benutzererfahrung sind.
 
-Die Auswirkungen des Hinweises auf das Laden von Ressourcen sind browserspezifisch, daher sollten Sie auf mehreren Browser-Engines testen.
+Die Auswirkungen des Hinweises auf das Ressourcenladen sind browserspezifisch, testen Sie daher in mehreren Browser-Engines.
 
-Verwenden Sie es sparsam für außergewöhnliche Fälle, in denen der Browser möglicherweise nicht in der Lage ist, automatisch den besten Weg zum Laden des Bildes zu bestimmen. Ein übermäßiger Gebrauch kann zu Leistungseinbußen führen.
+Verwenden Sie es sparsam für besondere Fälle, in denen der Browser möglicherweise nicht in der Lage ist, automatisch die beste Methode zum Laden des Bildes zu ermitteln. Übermäßige Nutzung kann die Leistung beeinträchtigen.
 
 ## Beispiele
 
@@ -46,5 +48,5 @@ img.src = "img/logo.png";
 
 ## Siehe auch
 
-- {{domxref("HTMLLinkElement.fetchPriority")}}
-- {{domxref("HTMLScriptElement.fetchPriority")}}
+- [`HTMLLinkElement.fetchPriority`](/de/docs/Web/API/HTMLLinkElement/fetchPriority)
+- [`HTMLScriptElement.fetchPriority`](/de/docs/Web/API/HTMLScriptElement/fetchPriority)

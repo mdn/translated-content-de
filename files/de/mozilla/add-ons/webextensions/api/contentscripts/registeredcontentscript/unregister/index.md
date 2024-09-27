@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Entfernt die Registrierung der Inhalts-Skripte, die durch dieses `RegisteredContentScript`-Objekt dargestellt werden.
+Hebt die Registrierung der Content-Skripte auf, die durch dieses `RegisteredContentScript`-Objekt repräsentiert werden.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Keine.
 
 ## Beispiele
 
-Dieser Code aktiviert oder deaktiviert ein registriertes Inhalts-Skript bei einem Klick auf eine Browser-Aktion:
+Dieser Code schaltet ein registriertes Content-Skript bei einem Klick auf die Browser-Aktion um:
 
 ```js
 let registered = null;

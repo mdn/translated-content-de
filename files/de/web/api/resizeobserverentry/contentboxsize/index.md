@@ -8,29 +8,30 @@ l10n:
 
 {{APIRef("Resize Observer API")}}
 
-Die **`contentBoxSize`** schreibgeschützte Eigenschaft der Schnittstelle {{domxref("ResizeObserverEntry")}} gibt ein Array zurück, das die neue Größe des Inhaltsbereichs des beobachteten Elements enthält, wenn der Callback ausgeführt wird.
+Die **`contentBoxSize`** schreibgeschützte Eigenschaft des [`ResizeObserverEntry`](/de/docs/Web/API/ResizeObserverEntry)-Interfaces gibt ein Array zurück, das die neue Größe des Content-Box der beobachteten Elemente enthält, wenn der Callback ausgeführt wird.
 
 ## Wert
 
-Ein Array, das Objekte mit der neuen Größe des Inhaltsbereichs des beobachteten Elements enthält. Das Array ist notwendig, um Elemente zu unterstützen, die mehrere Fragmente haben, was in Mehrspaltenszenarien vorkommt. Jedes Objekt im Array enthält zwei Eigenschaften:
+Ein Array, das Objekte mit der neuen Content-Box-Größe des beobachteten Elements enthält. Das Array ist notwendig, um Elemente zu unterstützen, die mehrere Fragmente haben, wie sie in Mehrspaltenszenarien vorkommen. Jedes Objekt im Array enthält zwei Eigenschaften:
 
 - `blockSize`
-  - : Die Länge des Inhaltsbereichs des beobachteten Elements in der Blockdimension. Für Boxen mit einer horizontalen {{cssxref("writing-mode")}} ist dies die vertikale Dimension oder Höhe; wenn die Schreibweise vertikal ist, handelt es sich um die horizontale Dimension oder Breite.
+  - : Die Länge der Content-Box des beobachteten Elements in der Block-Dimension. Bei Boxen mit einem horizontalen {{cssxref("writing-mode")}}, ist dies die vertikale Dimension oder Höhe; wenn der Schreibmodus vertikal ist, ist dies die horizontale Dimension oder Breite.
 - `inlineSize`
-  - : Die Länge des Inhaltsbereichs des beobachteten Elements in der Inline-Dimension. Für Boxen mit einer horizontalen {{cssxref("writing-mode")}} ist dies die horizontale Dimension oder Breite; wenn die Schreibweise vertikal ist, handelt es sich um die vertikale Dimension oder Höhe.
+  - : Die Länge der Content-Box des beobachteten Elements in der Inline-Dimension. Bei Boxen mit einem horizontalen {{cssxref("writing-mode")}}, ist dies die horizontale Dimension oder Breite; wenn der Schreibmodus vertikal ist, ist dies die vertikale Dimension oder Höhe.
 
 > [!NOTE]
-> Für eine ausführlichere Erklärung von Schreibmodi sowie Block- und Inline-Dimensionen lesen Sie [Umgang mit verschiedenen Textausrichtungen](/de/docs/Learn/CSS/Building_blocks/Handling_different_text_directions).
+> Für weitere Erklärungen zu Schreibmodi sowie Block- und Inline-Dimensionen lesen Sie [Umgang mit verschiedenen Schreibrichtungen](/de/docs/Learn/CSS/Building_blocks/Handling_different_text_directions).
 
 ## Beispiele
 
-Das folgende Snippet stammt aus dem [resize-observer-border-radius.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-border-radius.html) ([siehe Quelle](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-border-radius.html)) Beispiel. Dieses Beispiel enthält ein grünes Kästchen, das als Prozentsatz der Viewport-Größe dimensioniert ist. Wenn sich die Viewport-Größe ändert, ändern sich die abgerundeten Ecken des Kästchens proportional zur Größe des Kästchens. Wir könnten dies einfach durch die Verwendung von {{cssxref("border-radius")}} mit einem Prozentsatz umsetzen, aber das führt schnell zu hässlich aussehenden elliptischen Ecken; diese Lösung liefert Ihnen schöne quadratische Ecken, die mit der Größe des Kästchens skalieren.
+Der folgende Ausschnitt stammt aus dem Beispiel [resize-observer-border-radius.html](https://mdn.github.io/dom-examples/resize-observer/resize-observer-border-radius.html)
+([Quellcode ansehen](https://github.com/mdn/dom-examples/blob/main/resize-observer/resize-observer-border-radius.html)). Dieses Beispiel enthält ein grünes Quadrat, dessen Größe als Prozentsatz der Ansichtsfenstergröße definiert ist. Wenn die Größe des Ansichtsfensters geändert wird, ändern sich die abgerundeten Ecken der Box proportional zur Größe der Box. Wir könnten dies einfach mit {{cssxref("border-radius")}} und einem Prozentsatz umsetzen, aber das führt schnell zu unschön aussehenden elliptischen Ecken; diese Lösung bietet Ihnen schöne quadratische Ecken, die mit der Boxgröße skalieren.
 
 ```js
 const resizeObserver = new ResizeObserver((entries) => {
   for (let entry of entries) {
     if (entry.contentBoxSize) {
-      // Der Standard macht contentBoxSize zu einem Array...
+      // The standard makes contentBoxSize an array...
       if (entry.contentBoxSize[0]) {
         entry.target.style.borderRadius =
           Math.min(
@@ -39,7 +40,7 @@ const resizeObserver = new ResizeObserver((entries) => {
               entry.contentBoxSize[0].blockSize / 10,
           ) + "px";
       } else {
-        // ...aber ältere Versionen von Firefox behandeln es als einzelnes Element
+        // ...but old versions of Firefox treat it as a single item
         entry.target.style.borderRadius =
           Math.min(
             100,

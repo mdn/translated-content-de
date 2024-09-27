@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`width`**-Eigenschaft des {{domxref("TextMetrics")}}-Interfaces enthält die Vorabreite des Textes (die Breite dieser Inline-Box) in CSS-Pixeln.
+Die schreibgeschützte **`width`**-Eigenschaft der [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Schnittstelle enthält die Vorschubreite des Textes (die Breite dieser Inline-Box) in CSS-Pixeln.
 
 ## Beispiele
 
@@ -18,13 +18,13 @@ Beginnen Sie mit diesem {{HTMLElement("canvas")}}-Element:
 <canvas id="canvas"></canvas>
 ```
 
-Sie können ein {{domxref("TextMetrics")}}-Objekt mit dem folgenden Code erhalten:
+Sie können ein [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Objekt mit folgendem Code erhalten:
 
 ```js
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-let text = ctx.measureText("foo"); // TextMetrics-Objekt
+let text = ctx.measureText("foo"); // TextMetrics object
 text.width; // 16;
 ```
 
@@ -38,4 +38,4 @@ text.width; // 16;
 
 ## Siehe auch
 
-- {{domxref("TextMetrics")}}
+- [`TextMetrics`](/de/docs/Web/API/TextMetrics)

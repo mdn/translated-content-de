@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`resolvedOptions()`**-Methode von {{jsxref("Intl.RelativeTimeFormat")}}-Instanzen gibt ein neues Objekt zurück, das Eigenschaften widerspiegelt, die während der Initialisierung dieses `Intl.RelativeTimeFormat`-Objekts für die Lokalisierung und das relative Zeitformatieren berechnet wurden.
+Die **`resolvedOptions()`**-Methode von {{jsxref("Intl.RelativeTimeFormat")}}-Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses `Intl.RelativeTimeFormat`-Objekts berechneten Locale- und relativen Zeitformatierungsoptionen widerspiegeln.
 
 {{EmbedInteractiveExample("pages/js/intl-relativetimeformat-prototype-resolvedoptions.html")}}
 
@@ -23,35 +23,35 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die die während der Initialisierung des angegebenen {{jsxref("Intl.RelativeTimeFormat")}}-Objekts berechneten Lokale- und Zahlenformatierungsoptionen widerspiegeln.
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung des gegebenen {{jsxref("Intl.RelativeTimeFormat")}}-Objekts berechneten Locale- und Zahlenformatierungsoptionen widerspiegeln.
 
 ## Beschreibung
 
-Das resultierende Objekt hat die folgenden Eigenschaften:
+Das resultierende Objekt verfügt über die folgenden Eigenschaften:
 
 - `locale`
-  - : Der BCP 47-Sprachcode für die tatsächlich verwendete Lokale. Wenn im Eingabe-BCP 47-Sprachcode Unicode-Erweiterungswerte angefordert wurden, die zu dieser Lokale führten, sind die angeforderten und für diese Lokale unterstützten Schlüssel-Wert-Paare in `locale` enthalten.
+  - : Der BCP 47-Sprachtag für das tatsächlich verwendete Locale. Wenn im Eingabe-BCP 47-Sprachtag Unicode-Erweiterungswerte angefordert wurden, die zu diesem Locale führten, sind die angeforderten und für dieses Locale unterstützten Schlüssel-Wert-Paare im `locale` enthalten.
 - `style`
 
-  - : Die Länge der internationalisierten Meldung. Mögliche Werte sind:
+  - : Die Länge der internationalisierten Nachricht. Mögliche Werte sind:
 
-    - `"long"` (Standard, z.B. `in 1 Monat`)
-    - `"short"` (z.B. `in 1 Mo.`),
-    - oder `"narrow"` (z.B. `in 1 Mo.`). Der schmale Stil könnte für einige Lokalitäten dem kurzen Stil ähneln.
+    - `"long"` (Standard, z.B. `in 1 month`)
+    - `"short"` (z.B., `in 1 mo.`),
+    - oder `"narrow"` (z.B., `in 1 mo.`). Der schmale Stil könnte für einige Locale dem kurzen Stil ähneln.
 
 - `numeric`
 
   - : Das Format der Ausgabemeldung. Mögliche Werte sind:
 
-    - `"always"` (Standard, z.B. `vor 1 Tag`),
-    - oder `"auto"` (z.B. `gestern`). Der `"auto"`-Wert ermöglicht es, nicht immer numerische Werte in der Ausgabe verwenden zu müssen.
+    - `"always"` (Standard, z.B. `1 day ago`),
+    - oder `"auto"` (z.B. `yesterday`). Der `"auto"`-Wert ermöglicht es, nicht immer numerische Werte in der Ausgabe verwenden zu müssen.
 
 - `numberingSystem`
-  - : Der Wert, der mit dem Unicode-Erweiterungsschlüssel `"nu"` angefordert wurde oder als Standardwert gefüllt wurde.
+  - : Der Wert, der mithilfe des Unicode-Erweiterungsschlüssels `"nu"` angefordert oder als Standardwert gesetzt wurde.
 
 ## Beispiele
 
-### Verwendung der Methode resolvedOptions()
+### Verwendung der resolvedOptions()-Methode
 
 ```js
 const de = new Intl.RelativeTimeFormat("de-DE");

@@ -7,17 +7,17 @@ l10n:
 
 {{DefaultAPISidebar("XMLHttpRequest API")}}
 
-{{domxref('XMLHttpRequest')}} unterstützt sowohl synchrone als auch asynchrone Kommunikation. Im Allgemeinen sollten jedoch asynchrone Anfragen aus Leistungsgründen synchronen Anfragen vorgezogen werden.
+[`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) unterstützt sowohl synchrone als auch asynchrone Kommunikation. Im Allgemeinen sollten jedoch asynchrone Anfragen den synchronen Anfragen aus Leistungsgründen vorgezogen werden.
 
-Synchrone Anfragen blockieren die Ausführung von Code, was zu einem "Einfrieren" des Bildschirms und einer nicht reagierenden Benutzererfahrung führt.
+Synchrone Anfragen blockieren die Ausführung des Codes, was zu einem "Einfrieren" auf dem Bildschirm und einer nicht reagierenden Benutzererfahrung führt.
 
 ## Asynchrone Anfrage
 
-Wenn Sie eine asynchrone {{domxref('XMLHttpRequest')}} verwenden, erhalten Sie einen Callback, wenn die Daten empfangen wurden. Dadurch kann der Browser normal weiterarbeiten, während Ihre Anfrage bearbeitet wird.
+Wenn Sie ein asynchrones [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) verwenden, erhalten Sie einen Rückruf, wenn die Daten empfangen wurden. Dadurch kann der Browser weiter normal arbeiten, während Ihre Anfrage bearbeitet wird.
 
-### Beispiel: Eine Datei in die Konsolenausgabe senden
+### Beispiel: Eine Datei an die Konsolenprotokolle senden
 
-Dies ist die einfachste Verwendung von asynchronem {{domxref('XMLHttpRequest')}}.
+Dies ist die einfachste Verwendung von asynchronem [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest).
 
 ```js
 const xhr = new XMLHttpRequest();
@@ -37,15 +37,15 @@ xhr.onerror = (e) => {
 xhr.send(null);
 ```
 
-Die Zeile `xhr.open` gibt `true` als dritten Parameter an, um zu kennzeichnen, dass die Anfrage asynchron behandelt werden soll.
+Die `xhr.open`-Zeile gibt `true` als drittes Parameter an, um anzuzeigen, dass die Anfrage asynchron behandelt werden soll.
 
-Wir erstellen dann ein Ereignishandler-Objekt und weisen es dem `onload`-Attribut der Anfrage zu. Dieser Handler prüft den `readyState` der Anfrage, um festzustellen, ob die Transaktion abgeschlossen ist; wenn ja, und der HTTP-Status 200 ist, gibt der Handler den empfangenen Inhalt aus. Wenn ein Fehler aufgetreten ist, wird eine Fehlermeldung angezeigt.
+Wir erstellen dann ein Event-Handler-Funktionsobjekt und weisen es dem `onload`-Attribut der Anfrage zu. Dieser Handler überprüft den `readyState` der Anfrage, um festzustellen, ob die Transaktion abgeschlossen ist. Wenn ja, und der HTTP-Status 200 ist, gibt der Handler den empfangenen Inhalt aus. Wenn ein Fehler auftrat, wird eine Fehlermeldung angezeigt.
 
-Der Aufruf `xhr.send` startet die Anfrage tatsächlich. Die Callback-Routine wird immer dann aufgerufen, wenn sich der Status der Anfrage ändert.
+Der `xhr.send`-Aufruf startet die Anfrage tatsächlich. Die Rückrufroutine wird aufgerufen, wann immer sich der Status der Anfrage ändert.
 
-### Beispiel: Eine Funktion zum Lesen einer externen Datei schreiben
+### Beispiel: Eine Funktion schreiben, um eine externe Datei zu lesen
 
-In einigen Fällen müssen Sie viele externe Dateien lesen. Dies ist eine Standardfunktion, die das {{domxref('XMLHttpRequest')}}-Objekt asynchron verwendet, um den Inhalt der gelesenen Datei an einen angegebenen Listener zu übermitteln.
+In einigen Fällen müssen Sie viele externe Dateien lesen. Dies ist eine Standardfunktion, die das [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekt asynchron verwendet, um den Inhalt der gelesenen Datei an einen bestimmten Listener zu übergeben.
 
 ```js
 function xhrSuccess() {
@@ -74,22 +74,22 @@ function showMessage(message) {
   console.log(`${message} ${this.responseText}`);
 }
 
-loadFile("message.txt", showMessage, "Neue Nachricht!\n\n");
+loadFile("message.txt", showMessage, "New message!\n\n");
 ```
 
-Die Signatur der Hilfsfunktion **_loadFile_** deklariert (i) eine Ziel-URL zum Lesen (über einen HTTP-GET-Request), (ii) eine Funktion, die bei erfolgreichem Abschluss der XHR-Operation ausgeführt werden soll, und (iii) eine beliebige Liste zusätzlicher Argumente, die durch das XHR-Objekt an die Erfolgs-Callback-Funktion weitergegeben werden.
+Die Signatur der Dienstprogrammfunktion **_loadFile_** erklärt (i) eine Ziel-URL zum Lesen (über eine HTTP-GET-Anfrage), (ii) eine Funktion, die bei erfolgreichem Abschluss der XHR-Operation ausgeführt werden soll, und (iii) eine beliebige Liste zusätzlicher Argumente, die durch das XHR-Objekt (über die `arguments`-Eigenschaft) an die Erfolgs-Rückruffunktion übergeben werden.
 
-Wir deklarieren zuerst eine Funktion `xhrSuccess`, die aufgerufen wird, wenn die XHR-Operation erfolgreich abgeschlossen wird. Diese wiederum ruft die in der Aufrufung der Funktion `loadFile` angegebene Callback-Funktion auf (in diesem Fall die Funktion `showMessage`), die einer Eigenschaft des XHR-Objekts zugewiesen wurde. Die zusätzlichen Argumente (falls vorhanden), die beim Aufruf der Funktion `loadFile` übergeben wurden, werden beim Aufrufen der Callback-Funktion "angewendet". Die Funktion `xhrError` wird aufgerufen, wenn die XHR-Operation nicht erfolgreich abgeschlossen werden kann.
+Zuerst deklarieren wir eine Funktion `xhrSuccess`, die aufgerufen wird, wenn die XHR-Operation erfolgreich abgeschlossen ist. Diese ruft wiederum die Rückruffunktion auf, die in der Aufrufung der `loadFile`-Funktion spezifiziert ist (in diesem Fall die Funktion `showMessage`), die einer Eigenschaft des XHR-Objekts zugewiesen wurde. Die zusätzlichen Argumente (falls vorhanden), die an die Aufrufung der Funktion loadFile übergeben werden, werden auf den Ablauf der Rückruffunktion "angewendet". Die `xhrError`-Funktion wird aufgerufen, wenn die XHR-Operation nicht erfolgreich abgeschlossen wurde.
 
-Wir speichern die als zweites Argument an `loadFile` übergebene Erfolgs-Callback-Funktion in der `callback`-Eigenschaft des XHR-Objekts. Beginnend mit dem dritten Argument werden alle verbleibenden Argumente von `loadFile` gesammelt (unter Verwendung der [Restparametersyntax](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters)), der `arguments`-Eigenschaft der Variablen `xhr` zugewiesen, an die Erfolgs-Callback-Funktion `xhrSuccess` übergeben und letztendlich an die Callback-Funktion (in diesem Fall `showMessage`) geliefert, die von der Funktion `xhrSuccess` aufgerufen wird.
+Wir speichern die als zweites Argument an `loadFile` übergebene Erfolgs-Rückruffunktion in der `callback`-Eigenschaft des XHR-Objekts. Ab dem dritten Argument werden alle verbleibenden Argumente von `loadFile` gesammelt (mithilfe der [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters)-Syntax), der `arguments`-Eigenschaft der Variablen `xhr` zugewiesen, an die Erfolgs-Rückruffunktion `xhrSuccess` übergeben und schließlich der Rückruffunktion (in diesem Fall `showMessage`) übergeben, die von der Funktion `xhrSuccess` aufgerufen wird.
 
-Der Aufruf `xhr.open` gibt `true` als dritten Parameter an, um zu kennzeichnen, dass die Anfrage asynchron behandelt werden soll.
+Der `xhr.open`-Aufruf gibt `true` als drittes Parameter an, um anzuzeigen, dass die Anfrage asynchron behandelt werden soll.
 
-Schließlich startet `xhr.send` tatsächlich die Anfrage.
+Schließlich startet `xhr.send` die Anfrage tatsächlich.
 
-### Beispiel: Verwendung eines Timeouts
+### Beispiel: Ein Timeout verwenden
 
-Sie können ein Timeout verwenden, um zu verhindern, dass Ihr Code während des Wartens auf das Ende eines Lesevorgangs hängenbleibt. Dies wird durch das Setzen des Werts der `timeout`-Eigenschaft am {{domxref('XMLHttpRequest')}}-Objekt erreicht, wie im folgenden Code gezeigt:
+Sie können ein Timeout verwenden, um zu verhindern, dass Ihr Code beim Warten auf eine Lesebeendigung hängen bleibt. Dies geschieht, indem Sie den Wert der `timeout`-Eigenschaft des [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekts festlegen, wie im folgenden Code gezeigt:
 
 ```js
 function loadFile(url, timeout, callback, ...args) {
@@ -112,7 +112,7 @@ function loadFile(url, timeout, callback, ...args) {
 }
 ```
 
-Beachten Sie die Hinzufügung von Code, um das "Timeout"-Ereignis zu behandeln, indem der `ontimeout`-Handler gesetzt wird.
+Beachten Sie die Ergänzung von Code, um das "timeout"-Ereignis durch Festlegung des `ontimeout`-Handlers zu behandeln.
 
 Verwendung:
 
@@ -121,7 +121,7 @@ function showMessage(message) {
   console.log(`${message} ${this.responseText}`);
 }
 
-loadFile("message.txt", 2000, showMessage, "Neue Nachricht!\n");
+loadFile("message.txt", 2000, showMessage, "New message!\n");
 ```
 
 Hier geben wir ein Timeout von 2000 ms an.
@@ -129,17 +129,17 @@ Hier geben wir ein Timeout von 2000 ms an.
 ## Synchrone Anfrage
 
 > [!WARNING]
-> Synchrone XHR-Anfragen führen häufig zu Verzögerungen im Web, insbesondere bei schlechten Netzwerkbedingungen oder wenn der entfernte Server langsam reagiert. Synchrone XHR ist jetzt veraltet und sollte zugunsten asynchroner Anfragen vermieden werden.
+> Synchrone XHR-Anfragen führen häufig zu Hängern im Web, insbesondere bei schlechten Netzwerkbedingungen oder wenn der Remote-Server langsam reagiert. Synchrone XHR ist jetzt veraltet und sollte zugunsten asynchroner Anfragen vermieden werden.
 
-Alle neuen XHR-Funktionen wie `timeout` oder `abort` sind für synchrone XHR nicht erlaubt. Dies würde einen `InvalidAccessError` verursachen.
+Alle neuen XHR-Funktionen wie `timeout` oder `abort` sind für synchrone XHR nicht erlaubt. Dies führt zu einem `InvalidAccessError`.
 
 ### Beispiel: HTTP-synchrone Anfrage
 
-Dieses Beispiel zeigt, wie man eine einfache synchrone Anfrage erstellt.
+Dieses Beispiel zeigt, wie man eine einfache synchrone Anfrage macht.
 
 ```js
 const request = new XMLHttpRequest();
-request.open("GET", "/bar/foo.txt", false); // `false` macht die Anfrage synchron
+request.open("GET", "/bar/foo.txt", false); // `false` makes the request synchronous
 request.send(null);
 
 if (request.status === 200) {
@@ -147,13 +147,13 @@ if (request.status === 200) {
 }
 ```
 
-Der Aufruf von `request.send` sendet die Anfrage. Der `null`-Parameter zeigt an, dass kein Body-Inhalt für die `GET`-Anfrage benötigt wird.
+Der `request.send`-Aufruf sendet die Anfrage. Der `null`-Parameter gibt an, dass für die `GET`-Anfrage kein Body-Inhalt benötigt wird.
 
-Die `if`-Anweisung überprüft den Statuscode, nachdem die Transaktion abgeschlossen wurde. Wenn das Ergebnis 200 ist — das "OK"-Ergebnis des HTTP — wird der Textinhalt des Dokuments in der Konsole ausgegeben.
+Die `if`-Anweisung überprüft den Statuscode, nachdem die Transaktion abgeschlossen ist. Wenn das Ergebnis 200 ist — HTTPs "OK" Ergebnis — wird der Textinhalt des Dokuments an die Konsole ausgegeben.
 
 ### Beispiel: Synchrone HTTP-Anfrage von einem Worker
 
-Einer der wenigen Fälle, in denen eine synchrone Anfrage normalerweise nicht die Ausführung blockiert, ist die Verwendung von {{domxref('XMLHttpRequest')}} innerhalb eines [`Web Worker`](/de/docs/Web/API/Worker).
+Einer der wenigen Fälle, in denen eine synchrone Anfrage die Ausführung nicht normalerweise blockiert, ist die Verwendung von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) innerhalb eines [`Worker`](/de/docs/Web/API/Worker).
 
 **`example.html`** (die Hauptseite):
 
@@ -163,14 +163,14 @@ Einer der wenigen Fälle, in denen eine synchrone Anfrage normalerweise nicht di
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>MDN Beispiel</title>
+    <title>MDN Example</title>
     <script>
       const worker = new Worker("myTask.js");
       worker.onmessage = (event) => {
-        alert(`Worker sagte: ${event.data}`);
+        alert(`Worker said: ${event.data}`);
       };
 
-      worker.postMessage("Hallo");
+      worker.postMessage("Hello");
     </script>
   </head>
   <body>
@@ -179,19 +179,19 @@ Einer der wenigen Fälle, in denen eine synchrone Anfrage normalerweise nicht di
 </html>
 ```
 
-**`myFile.txt`** (das Ziel der synchronen {{domxref('XMLHttpRequest')}}-Aufruf):
+**`myFile.txt`** (das Ziel der synchronen [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Aufrufung):
 
 ```plain
-Hallo Welt!!
+Hello World!!
 ```
 
 **`myTask.js`** (der [`Worker`](/de/docs/Web/API/Worker)):
 
 ```js
 self.onmessage = (event) => {
-  if (event.data === "Hallo") {
+  if (event.data === "Hello") {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "myFile.txt", false); // synchrone Anfrage
+    xhr.open("GET", "myFile.txt", false); // synchronous request
     xhr.send(null);
     self.postMessage(xhr.responseText);
   }
@@ -199,30 +199,30 @@ self.onmessage = (event) => {
 ```
 
 > [!NOTE]
-> Der Effekt ist asynchron, aufgrund der Verwendung des `Worker`.
+> Der Effekt ist asynchron aufgrund der Verwendung des `Worker`.
 
-Dieses Muster kann nützlich sein, um beispielsweise im Hintergrund mit dem Server zu interagieren oder um Inhalte vorzuladen. Siehe [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers) für Beispiele und Details.
+Dieses Muster kann nützlich sein, um zum Beispiel im Hintergrund mit dem Server zu interagieren oder um Inhalte vorzuladen. Siehe [Using web workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers) für Beispiele und Details.
 
-### Anpassung der Verwendung synchroner XHR an die Beacon-API
+### Anpassen von synchronen XHR-Anwendungsfällen an die Beacon API
 
-Es gibt einige Fälle, in denen die synchrone Verwendung von {{domxref('XMLHttpRequest')}} nicht ersetzbar ist, wie z.B. während der Ereignisse {{domxref("Window.unload_event", "unload")}}, {{domxref("Window.beforeunload_event", "beforeunload")}} und {{domxref("Window.pagehide_event", "pagehide")}}. Sie sollten in Betracht ziehen, die `fetch()`-API mit dem `keepalive`-Flag zu verwenden. Wenn `fetch` mit `keepalive` nicht verfügbar ist, können Sie in Betracht ziehen, die {{domxref("navigator.sendBeacon()")}}-API zu verwenden, die diese Anwendungsfälle unterstützen kann, während sie typischerweise eine gute Benutzererfahrung bereitstellt.
+Es gibt einige Fälle, in denen die synchrone Verwendung von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) nicht ersetzbar ist, wie bei den Ereignissen [`unload`](/de/docs/Web/API/Window/unload_event), [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) und [`pagehide`](/de/docs/Web/API/Window/pagehide_event). Sie sollten in Erwägung ziehen, die `fetch()` API mit dem `keepalive`-Flag zu verwenden. Wenn `fetch` mit `keepalive` nicht verfügbar ist, können Sie in Erwägung ziehen, die [`navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon)-API zu verwenden, die diese Anwendungsfälle unterstützen kann, während sie typischerweise eine gute Benutzererfahrung bietet.
 
-Das folgende Beispiel zeigt theoretischen Analysencode, der versucht, Daten an einen Server zu senden, indem er eine synchrone {{domxref('XMLHttpRequest')}} in einem Unload-Handler verwendet. Dies führt dazu, dass das Entladen der Seite verzögert wird.
+Das folgende Beispiel zeigt theoretischen Analytik-Code, der versucht, Daten an einen Server zu senden, indem er einen synchronen [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) in einem Unload-Handler verwendet. Dies führt dazu, dass das Entladen der Seite verzögert wird.
 
 ```js
 window.addEventListener("unload", logData, false);
 
 function logData() {
   const client = new XMLHttpRequest();
-  client.open("POST", "/log", false); // dritter Parameter zeigt synchronen XHR an. :(
+  client.open("POST", "/log", false); // third parameter indicates sync xhr. :(
   client.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
   client.send(analyticsData);
 }
 ```
 
-Mit der Methode **`sendBeacon()`** werden die Daten asynchron an den Webserver übertragen, wenn der Benutzeragent die Gelegenheit dazu hatte, **ohne das Entladen zu verzögern oder die Leistung der nächsten Navigation zu beeinträchtigen.**
+Mit der **`sendBeacon()`**-Methode werden die Daten asynchron an den Webserver übertragen, wenn der Benutzeragent die Möglichkeit dazu hatte, **ohne das Entladen zu verzögern oder die Leistung der nächsten Navigation zu beeinträchtigen.**
 
-Das folgende Beispiel zeigt ein theoretisches Analysencode-Muster, das Daten an einen Server sendet, indem es die Methode **`sendBeacon()`** verwendet.
+Das folgende Beispiel zeigt ein theoretisches Analytik-Code-Muster, das Daten an einen Server sendet, indem es die **`sendBeacon()`**-Methode verwendet.
 
 ```js
 window.addEventListener("unload", logData, false);
@@ -234,5 +234,5 @@ function logData() {
 
 ## Siehe auch
 
-- [Verwendung von XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)
+- [Using XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)
 - [`navigator.sendBeacon`](/de/docs/Web/API/Navigator/sendBeacon)

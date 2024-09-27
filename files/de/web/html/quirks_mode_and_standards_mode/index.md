@@ -7,15 +7,15 @@ l10n:
 
 {{HTMLSidebar}}
 
-In den frühen Tagen des Webs wurden Seiten typischerweise in zwei Versionen geschrieben: Eine für Netscape Navigator und eine für Microsoft Internet Explorer. Als die Webstandards beim W3C entwickelt wurden, konnten Browser nicht einfach beginnen, diese zu verwenden, da dies die meisten existierenden Websites im Web zerstören würde. Browser führten daher zwei Modi ein, um neue standardkonforme Sites anders zu behandeln als alte Legacy-Sites.
+In den frühen Tagen des Webs wurden Seiten typischerweise in zwei Versionen geschrieben: Eine für Netscape Navigator und eine für Microsoft Internet Explorer. Als die Webstandards beim W3C eingeführt wurden, konnten Browser nicht einfach beginnen, diese zu verwenden, da dies die meisten existierenden Websites im Web hätte zerstören können. Daher führten Browser zwei Modi ein, um neue standardkonforme Seiten anders als alte Legacy-Seiten zu behandeln.
 
-Es gibt jetzt drei Modi, die von den Layout-Engines in Webbrowsern verwendet werden: Quirks-Modus, eingeschränkter-Quirks-Modus und Kein-Quirks-Modus. Im **Quirks-Modus** emuliert das Layout das Verhalten in Navigator 4 und Internet Explorer 5. Dies ist entscheidend, um Websites zu unterstützen, die vor der weit verbreiteten Akzeptanz von Webstandards erstellt wurden. Im **Kein-Quirks-Modus** ist das Verhalten (hoffentlich) das gewünschte Verhalten, das in den modernen HTML- und CSS-Spezifikationen beschrieben wird. Im **eingeschränkten-Quirks-Modus** werden nur eine sehr kleine Anzahl von Eigenheiten implementiert.
+Es gibt nun drei Modi, die von den Layout-Engines in Webbrowsern verwendet werden: der Quirks-Modus, der eingeschränkte Quirks-Modus und der Nicht-Quirks-Modus. Im **Quirks-Modus** emuliert das Layout das Verhalten in Navigator 4 und Internet Explorer 5. Dies ist essentiell, um Websites zu unterstützen, die vor der weit verbreiteten Einführung von Webstandards erstellt wurden. Im **Nicht-Quirks-Modus** entspricht das Verhalten (hoffentlich) dem gewünschten Verhalten, das von den modernen HTML- und CSS-Spezifikationen beschrieben wird. Im **eingeschränkten Quirks-Modus** werden nur eine sehr kleine Anzahl von Eigenheiten implementiert.
 
-Die Modi eingeschränkter-Quirks und Kein-Quirks wurden früher als "Fast-Standard"-Modus und "Vollstandard"-Modus bezeichnet. Diese Namen wurden geändert, da das Verhalten jetzt standardisiert ist.
+Die eingeschränkten Quirks- und Nicht-Quirks-Modi wurden früher "Fast-Standards-Modus" und "Voll-Standards-Modus" genannt. Diese Namen wurden geändert, da das Verhalten nun standardisiert ist.
 
 ## Wie bestimmen Browser, welchen Modus sie verwenden sollen?
 
-Für [HTML](/de/docs/Web/HTML)-Dokumente verwenden Browser ein Doctype am Anfang des Dokuments, um zu entscheiden, ob es im Quirks-Modus oder im Standardmodus verarbeitet werden soll. Um sicherzustellen, dass Ihre Seite den Vollstandardmodus verwendet, stellen Sie sicher, dass Ihre Seite einen Doctype wie in diesem Beispiel hat:
+Für [HTML](/de/docs/Web/HTML)-Dokumente verwenden Browser einen Doctype am Anfang des Dokuments, um zu entscheiden, ob es im Quirks-Modus oder im Standards-Modus behandelt werden soll. Um sicherzustellen, dass Ihre Seite den Voll-Standards-Modus verwendet, stellen Sie sicher, dass Ihre Seite einen Doctype wie in diesem Beispiel verwendet:
 
 ```html
 <!doctype html>
@@ -28,22 +28,22 @@ Für [HTML](/de/docs/Web/HTML)-Dokumente verwenden Browser ein Doctype am Anfang
 </html>
 ```
 
-Der im Beispiel gezeigte Doctype, `<!doctype html>`, ist der einfachstmögliche und der, der von aktuellen HTML-Standards empfohlen wird. Frühere Versionen des HTML-Standards empfahlen andere Varianten, aber alle existierenden Browser werden heute für diesen Doctype den Vollstandardmodus verwenden. Es gibt keinen gültigen Grund, einen komplizierteren Doctype zu verwenden. Wenn Sie einen anderen Doctype verwenden, riskieren Sie, einen zu wählen, der den Fast-Standardmodus oder den Quirks-Modus auslöst.
+Der im Beispiel gezeigte Doctype, `<!doctype html>`, ist der einfachste mögliche und der von den aktuellen HTML-Standards empfohlene. Frühere Versionen des HTML-Standards empfahlen andere Varianten, aber alle heutigen Browser verwenden den Voll-Standards-Modus für diesen Doctype. Es gibt keinen validen Grund, einen komplizierteren Doctype zu verwenden. Wenn Sie einen anderen Doctype verwenden, riskieren Sie, einen zu wählen, der den Fast-Standards-Modus oder den Quirks-Modus auslöst.
 
-Platzieren Sie den Doctype direkt am Anfang Ihres HTML-Dokuments, vor jedem anderen Inhalt.
+Platzieren Sie den Doctype direkt am Anfang Ihres HTML-Dokuments, vor jeglichem anderen Inhalt.
 
-Der einzige Zweck von `<!doctype html>` ist, den Kein-Quirks-Modus zu aktivieren. Ältere Versionen von HTML-Standard-Doctypes hatten zusätzliche Bedeutungen, aber kein Browser hat den Doctype jemals für etwas anderes verwendet als den Wechsel zwischen den Render-Modi.
+Der einzige Zweck von `<!doctype html>` ist es, den Nicht-Quirks-Modus zu aktivieren. Ältere Versionen von HTML-Standard-Doctypes hatten eine zusätzliche Bedeutung, aber kein Browser hat den Doctype jemals für etwas anderes eingesetzt, als zwischen Rendermodi zu wechseln.
 
-Siehe auch eine detaillierte Beschreibung, [wann verschiedene Browser verschiedene Modi wählen](https://hsivonen.fi/doctype/).
+Siehe auch eine detaillierte Beschreibung von [wann verschiedene Browser verschiedene Modi wählen](https://hsivonen.fi/doctype/).
 
 ### XHTML
 
-Wenn Sie Ihre Seite als [XHTML](/de/docs/Glossary/XHTML) mit dem `application/xhtml+xml` MIME-Typ im `Content-Type` HTTP-Header anbieten, benötigen Sie keinen Doctype, um den Standardmodus zu aktivieren, da solche Dokumente immer im „Vollstandardmodus“ verwenden.
+Wenn Sie Ihre Seite als [XHTML](/de/docs/Glossary/XHTML) mit dem `application/xhtml+xml` MIME-Typ im `Content-Type` HTTP-Header bereitstellen, benötigen Sie keinen Doctype, um den Standards-Modus zu aktivieren, da solche Dokumente immer im 'Voll-Standards-Modus' verwendet werden.
 
-Wenn Sie XHTML-ähnlichen Inhalt mit dem MIME-Typ `text/html` anbieten, lesen Browser ihn als HTML, und Sie benötigen den Doctype, um den Standardmodus zu verwenden.
+Wenn Sie XHTML-ähnlichen Inhalt mit dem `text/html` MIME-Typ bereitstellen, lesen Browser es als HTML und Sie benötigen den Doctype, um den Standards-Modus zu verwenden.
 
-## Wie kann ich sehen, welcher Modus verwendet wird?
+## Wie sehe ich, welcher Modus verwendet wird?
 
-Wenn die Seite im Quirks- oder eingeschränkten-Quirks-Modus gerendert wird, wird Firefox eine Warnung an die Konsole in den Entwicklerwerkzeugen protokollieren. Wenn diese Warnung nicht angezeigt wird, verwendet Firefox den Kein-Quirks-Modus.
+Wenn die Seite im Quirks- oder eingeschränkten Quirks-Modus gerendert wird, protokolliert Firefox eine Warnung in der Konsole der Entwicklerwerkzeuge. Wenn diese Warnung nicht angezeigt wird, verwendet Firefox den Nicht-Quirks-Modus.
 
-Der Wert von `document.compatMode` in JavaScript zeigt, ob das Dokument im Quirks-Modus ist. Wenn der Wert `"BackCompat"` ist, befindet sich das Dokument im Quirks-Modus. Wenn nicht, hat es den Wert `"CSS1Compat"`.
+Der Wert von `document.compatMode` in JavaScript zeigt an, ob sich das Dokument im Quirks-Modus befindet. Wenn der Wert `"BackCompat"` ist, befindet sich das Dokument im Quirks-Modus. Wenn nicht, wird der Wert `"CSS1Compat"` sein.

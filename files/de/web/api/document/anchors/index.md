@@ -1,5 +1,5 @@
 ---
-title: "Dokument: anchors Eigenschaft"
+title: "Document: anchors-Eigenschaft"
 short-title: anchors
 slug: Web/API/Document/anchors
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("DOM")}} {{Deprecated_Header}}
 
-Die schreibgeschützte **`anchors`** Eigenschaft des {{domxref("Document")}} Interfaces gibt eine Liste aller Anker im Dokument zurück.
+Die schreibgeschützte **`anchors`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine Liste aller Anker im Dokument zurück.
 
 ## Wert
 
-Eine {{domxref("HTMLCollection")}}.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
 
 ## Beispiele
 
 ```js
 if (document.anchors.length >= 5) {
-  console.log("zu viele Anker gefunden");
+  console.log("found too many anchors");
 }
 ```
 
@@ -45,32 +45,32 @@ Das folgende Beispiel zeigt, wie ein Inhaltsverzeichnis automatisch mit jedem An
     </script>
   </head>
   <body onload="init()">
-    <h1>Titel</h1>
-    <h2><a name="contents">Inhalt</a></h2>
+    <h1>Title</h1>
+    <h2><a name="contents">Contents</a></h2>
     <ul id="toc"></ul>
 
-    <h2><a name="plants">Pflanzen</a></h2>
+    <h2><a name="plants">Plants</a></h2>
     <ol>
-      <li>Äpfel</li>
-      <li>Orangen</li>
-      <li>Birnen</li>
+      <li>Apples</li>
+      <li>Oranges</li>
+      <li>Pears</li>
     </ol>
 
-    <h2><a name="veggies">Gemüse</a></h2>
+    <h2><a name="veggies">Veggies</a></h2>
     <ol>
-      <li>Karotten</li>
-      <li>Sellerie</li>
-      <li>Rüben</li>
+      <li>Carrots</li>
+      <li>Celery</li>
+      <li>Beats</li>
     </ol>
   </body>
 </html>
 ```
 
-[Auf JSFiddle ansehen](https://jsfiddle.net/S4yNp)
+[Im JSFiddle anzeigen](https://jsfiddle.net/S4yNp)
 
 ## Hinweise
 
-Aus Gründen der Abwärtskompatibilität enthält die zurückgegebene Menge an Ankern nur diejenigen, die mit dem `name`-Attribut erstellt wurden, nicht diejenigen, die mit dem `id`-Attribut erstellt wurden.
+Aus Gründen der Abwärtskompatibilität enthält die zurückgegebene Menge von Ankern nur die Anker, die mit dem `name`-Attribut erstellt wurden, nicht jene, die mit dem `id`-Attribut erstellt wurden.
 
 ## Spezifikationen
 

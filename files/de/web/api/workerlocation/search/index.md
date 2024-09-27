@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`search`**-Eigenschaft eines {{domxref("WorkerLocation")}}-Objekts gibt den {{domxref("URL.search", "search")}}-Teil des Standorts des Workers zurück.
+Die **`search`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt den [`search`](/de/docs/Web/API/URL/search)-Teil der Position des Workers zurück.
 
 ## Wert
 
@@ -17,8 +17,8 @@ Ein String.
 ## Beispiele
 
 ```js
-// In einem Web Worker, auf der Seite https://developer.mozilla.org/de/docs/Web?t=67
-const result = location.search; // Gibt zurück: '?t=67'
+// In a Web worker, on the page https://developer.mozilla.org/en-US/docs/Web?t=67
+const result = location.search; // Returns:'?t=67'
 ```
 
 ## Spezifikationen
@@ -31,4 +31,4 @@ const result = location.search; // Gibt zurück: '?t=67'
 
 ## Siehe auch
 
-- Das {{domxref("WorkerLocation")}}-Interface, zu dem es gehört.
+- Die [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) Schnittstelle, zu der es gehört.

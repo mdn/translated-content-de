@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`y`**-Eigenschaft des {{domxref("SVGMaskElement")}}-Interfaces gibt ein {{domxref("SVGAnimatedLength")}}-Objekt zurück, das den Wert des {{SVGattr("y")}}-Attributs des {{SVGElement("marker")}} enthält. Es repräsentiert die y-Achsenkoordinate der _oberen linken_ Ecke des Maskierungsbereichs.
+Die schreibgeschützte **`y`**-Eigenschaft des [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement)-Interfaces gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das den Wert des {{SVGattr("y")}}-Attributes des {{SVGElement("marker")}} enthält. Es repräsentiert die y-Achsen-Koordinate der _oberen linken_ Ecke des Maskierungsbereichs.
 
 > [!NOTE]
-> Obwohl diese Eigenschaft schreibgeschützt ist, fungiert sie lediglich als Behälter für zwei Werte, die Sie ändern können: {{domxref("SVGAnimatedLength.baseVal", "baseVal")}} und {{domxref("SVGAnimatedLength.animVal", "animVal")}}.
+> Obwohl diese Eigenschaft schreibgeschützt ist, dient sie lediglich als Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLength/animVal).
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedLength")}}-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein {{domxref("SVGLength")}} zurück, dessen Wert den `y`-Wert zurückgibt.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGLength`](/de/docs/Web/API/SVGLength) zurück, dessen Wert den `y`-Wert liefert.
 
 ## Beispiele
 

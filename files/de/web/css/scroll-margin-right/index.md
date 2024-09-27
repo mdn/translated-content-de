@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-margin-right` definiert den rechten Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Element an den Snapport anzudocken. Der Scroll-Snap-Bereich wird bestimmt, indem das transformierte Rahmenfeld genommen, dessen rechteckige Umrandung (achsenausgerichtet im Koordinatenraum des Scrollcontainers) gefunden wird, und dann die angegebenen Außenabstände hinzugefügt werden.
+Die Eigenschaft `scroll-margin-right` definiert den rechten Rand des Scroll-Snap-Bereichs, der verwendet wird, um diesen Kasten am Snapport einrasten zu lassen. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Rahmenkasten genommen wird, seine rechteckige Begrenzungsbox (achsenparallel im Koordinatenbereich des Scrollcontainers) ermittelt wird und anschließend die angegebenen Abstände hinzugefügt werden.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-right.html")}}
 
 ## Syntax
 
 ```css
-/* <length> Werte */
+/* <length> values */
 scroll-margin-right: 10px;
 scroll-margin-right: 1em;
 
-/* Globale Werte */
+/* Global values */
 scroll-margin-right: inherit;
 scroll-margin-right: initial;
 scroll-margin-right: revert;
@@ -29,7 +29,7 @@ scroll-margin-right: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Außenabstand vom rechten Rand des Scrollcontainers.
+  - : Ein Abstand vom rechten Rand des Scrollcontainers.
 
 ## Formale Definition
 
@@ -43,11 +43,11 @@ scroll-margin-right: unset;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS Scroll Snap](https://web.dev/articles/css-scroll-snap)
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

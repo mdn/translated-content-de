@@ -7,23 +7,21 @@ l10n:
 
 {{AddonSidebar}}
 
-Um HTTP-Anfragen abzufangen, verwenden Sie die {{WebExtAPIRef("webRequest")}}-API.
-Diese API ermöglicht es Ihnen, Listener für verschiedene Phasen eines HTTP-Anfragevorgangs hinzuzufügen. In den Listenern können Sie:
+Um HTTP-Anfragen abzufangen, verwenden Sie die {{WebExtAPIRef("webRequest")}} API. Diese API ermöglicht es Ihnen, Listener für verschiedene Phasen einer HTTP-Anfrage hinzuzufügen. In den Listenern können Sie:
 
-- Zugriff auf Anforderungsheader und -körper sowie Antwortheader erhalten.
+- Zugriff auf Anfrage-Header und -Körper sowie Antwort-Header erhalten.
 - Anfragen abbrechen und umleiten.
-- Anforderungs- und Antwortheader modifizieren.
+- Anfrage- und Antwort-Header ändern.
 
-Dieser Artikel behandelt drei verschiedene Verwendungszwecke des `webRequest` Moduls:
+Dieser Artikel behandelt drei verschiedene Anwendungen für das `webRequest`-Modul:
 
-- Protokollierung von Anfrage-URLs, während sie gestellt werden.
+- Protokollierung von Anfrage-URLs, während sie durchgeführt werden.
 - Umleitung von Anfragen.
-- Modifizierung von Anforderungsheadern.
+- Änderung von Anfrage-Headern.
 
 ## Protokollierung von Anfrage-URLs
 
-Um zu sehen, wie Sie `webRequest` zur Protokollierung von Anfragen verwenden können, erstellen Sie ein neues Verzeichnis namens "requests".
-Erstellen Sie in diesem Verzeichnis eine Datei namens "manifest.json" und ergänzen Sie:
+Um zu sehen, wie Sie `webRequest` zur Protokollierung von Anfragen verwenden können, erstellen Sie ein neues Verzeichnis namens "requests". Erstellen Sie in diesem Verzeichnis eine Datei namens "manifest.json" und fügen Sie Folgendes hinzu:
 
 ```json
 {
@@ -40,7 +38,7 @@ Erstellen Sie in diesem Verzeichnis eine Datei namens "manifest.json" und ergän
 }
 ```
 
-Erstellen Sie als Nächstes eine Datei namens "background.js" und fügen Sie hinzu:
+Erstellen Sie anschließend eine Datei namens "background.js" und fügen Sie Folgendes hinzu:
 
 ```js
 function logURL(requestDetails) {
@@ -52,29 +50,25 @@ browser.webRequest.onBeforeRequest.addListener(logURL, {
 });
 ```
 
-Sie verwenden {{WebExtAPIRef("webRequest.onBeforeRequest", "onBeforeRequest")}}, um die Funktion `logURL()` kurz vor dem Start der Anfrage aufzurufen. Die Funktion `logURL()` greift die URL der Anfrage aus dem Ereignisobjekt ab und protokolliert sie in der Browser-Konsole.
-Das `{urls: ["<all_urls>"]}` [Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) bedeutet, dass Sie HTTP-Anfragen an alle URLs abfangen.
+Sie verwenden {{WebExtAPIRef("webRequest.onBeforeRequest", "onBeforeRequest")}}, um die `logURL()`-Funktion direkt vor Beginn der Anfrage aufzurufen. Die `logURL()`-Funktion erfasst die URL der Anfrage aus dem Ereignisobjekt und protokolliert sie in der Browser-Konsole. Das `{urls: ["<all_urls>"]}` [Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) bedeutet, dass Sie HTTP-Anfragen an alle URLs abfangen.
 
-Zum Testen:
+Um es zu testen:
 
 - [Installieren Sie die Erweiterung](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
 - Öffnen Sie die [Browser-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/browser_console/) (verwenden Sie <kbd>Strg + Umschalt + J</kbd>)
-- Aktivieren Sie _Inhaltsmeldungen anzeigen_ im Menü:
+- Aktivieren Sie _Show Content Messages_ im Menü:
 
-  ![Browser-Konsolenmenü: Inhaltsmeldungen anzeigen](browser_console_show_content_messages.png)
+  ![Browser-Konsole-Menü: Inhaltsnachrichten anzeigen](browser_console_show_content_messages.png)
 
 - Öffnen Sie einige Webseiten.
 
-In der Browser-Konsole sollten Sie die URLs für alle Ressourcen sehen, die der Browser anfordert.
-Zum Beispiel zeigt dieser Screenshot die URLs beim Laden einer Wikipedia-Seite:
+In der Browser-Konsole sollten Sie die URLs für alle Ressourcen sehen, die der Browser anfordert. Zum Beispiel zeigt dieser Screenshot die URLs, die beim Laden einer Wikipedia-Seite angefordert werden:
 
-![Browser-Konsolenmenü: URLs von der Erweiterung](browser_console_url_from_extension.png)
-
-<!-- {{EmbedYouTube("X3rMgkRkB1Q")}} -->
+![Browser-Konsole-Menü: URLs von Erweiterung](browser_console_url_from_extension.png)
 
 ## Anfragen umleiten
 
-Verwenden Sie nun `webRequest`, um HTTP-Anfragen umzuleiten. Ersetzen Sie zuerst "manifest.json" durch Folgendes:
+Verwenden Sie nun `webRequest`, um HTTP-Anfragen umzuleiten. Ersetzen Sie zuerst "manifest.json" durch dieses:
 
 ```json
 {
@@ -97,16 +91,16 @@ Verwenden Sie nun `webRequest`, um HTTP-Anfragen umzuleiten. Ersetzen Sie zuerst
 
 Die Änderungen hier:
 
-- Fügen Sie die `webRequestBlocking` [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) hinzu.
-  Diese zusätzliche Berechtigung ist erforderlich, wenn eine Erweiterung eine Anfrage modifizieren möchte.
-- Ersetzen Sie die `<all_urls>`-Berechtigung durch individuelle [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions), da es eine gute Praxis ist, die Anzahl der angeforderten Berechtigungen zu minimieren.
+- Fügen Sie die `webRequestBlocking` [`permission`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) hinzu.
+  Diese zusätzliche Berechtigung wird benötigt, wenn eine Erweiterung eine Anfrage ändern möchte.
+- Ersetzen Sie die Berechtigung `<all_urls>` durch individuelle [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions), da es gute Praxis ist, die Anzahl der angeforderten Berechtigungen zu minimieren.
 
-Ersetzen Sie als Nächstes "background.js" durch Folgendes:
+Ersetzen Sie anschließend "background.js" durch dieses:
 
 ```js
 let pattern = "https://developer.mozilla.org/*";
 const targetUrl =
-  "https://developer.mozilla.org/de/docs/Mozilla/Add-ons/WebExtensions/Your_second_WebExtension/frog.jpg";
+  "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_second_WebExtension/frog.jpg";
 
 function redirect(requestDetails) {
   console.log(`Redirecting: ${requestDetails.url}`);
@@ -125,26 +119,21 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Wieder verwenden Sie den {{WebExtAPIRef("webRequest.onBeforeRequest", "onBeforeRequest")}}-Ereignislistener, um eine Funktion kurz vor jeder gestellten Anfrage auszuführen.
-Diese Funktion ersetzt die `redirectUrl` durch die in der Funktion angegebene Ziel-URL. In diesem Fall ist es das Frosch-Bild aus dem [Ihr zweites Erweiterungs-Tutorial](/de/docs/Mozilla/Add-ons/WebExtensions/Your_second_WebExtension).
+Sie verwenden erneut den {{WebExtAPIRef("webRequest.onBeforeRequest", "onBeforeRequest")}} Ereignis-Listener, um eine Funktion auszuführen, bevor jede Anfrage gestellt wird. Diese Funktion ersetzt die `redirectUrl` mit der im Funktionsumfang angegebenen Ziel-URL. In diesem Fall das Froschbild aus dem [Zweites Erweiterungstutorial](/de/docs/Mozilla/Add-ons/WebExtensions/Your_second_WebExtension).
 
-Dieses Mal fangen Sie nicht jede Anfrage ab: die `{urls:[pattern], types:["image"]}`-Option gibt an, dass Sie nur Anfragen (1) an URLs unter "https\://developer.mozilla.org/" und (2) für Bildressourcen abfangen.
-Siehe {{WebExtAPIRef("webRequest.RequestFilter")}} für mehr dazu.
+Diesmal fangen Sie nicht jede Anfrage ab: Die Option `{urls:[pattern], types:["image"]}` gibt an, dass Sie nur Anfragen (1) zu URLs, die unter "https\://developer.mozilla.org/" liegen, und (2) für Bildressourcen abfangen. Siehe {{WebExtAPIRef("webRequest.RequestFilter")}} für weitere Informationen dazu.
 
-Beachten Sie außerdem, dass Sie eine Option namens `"blocking"` übergeben: Diese müssen Sie immer übergeben, wenn Sie die Anfrage modifizieren möchten.
-Sie bewirkt, dass die Listener-Funktion die Netzwerk-Anfrage blockiert, sodass der Browser wartet, bis der Listener zurückkehrt, bevor es weitergeht.
-Siehe die {{WebExtAPIRef("webRequest.onBeforeRequest")}}-Dokumentation für mehr zu `"blocking"`.
+Beachten Sie auch, dass Sie eine Option namens `"blocking"` übergeben: Diese muss übergeben werden, wann immer Sie eine Anfrage ändern möchten. Sie bewirkt, dass die Listener-Funktion die Netzwerk-Anfrage blockiert, sodass der Browser wartet, bis der Listener zurückkehrt, bevor er fortfährt. Weitere Informationen über `"blocking"` finden Sie in der {{WebExtAPIRef("webRequest.onBeforeRequest")}}-Dokumentation.
 
-Um es zu testen, öffnen Sie eine Seite auf MDN, die Bilder enthält (zum Beispiel [die Seite, die Komponenten der Benutzeroberfläche von Erweiterungen auflistet](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface)), [laden Sie die Erweiterung neu](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/#reloading_a_temporary_add-on) und laden Sie dann die MDN-Seite neu. Sie sehen etwas Ähnliches:
+Um es zu testen, öffnen Sie eine Seite auf MDN, die Bilder enthält (z.B. [die Seite mit der Auflistung von Erweiterungsbenutzeroberflächenkomponenten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface)), [laden Sie die Erweiterung neu](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/#reloading_a_temporary_add-on) und laden Sie dann die MDN-Seite neu. Sie sehen etwas Ähnliches wie dies:
 
-![Bilder auf einer Seite durch ein Frosch-Bild ersetzt](beastify_by_redirect.png)
+![Bilder auf einer Seite durch ein Froschbild ersetzt](beastify_by_redirect.png)
 
-## Anforderungsheader modifizieren
+## Anfrage-Header ändern
 
-Verwenden Sie schließlich `webRequest`, um Anforderungsheader zu modifizieren.
-In diesem Beispiel ändern Sie den "User-Agent"-Header, sodass sich der Browser als Opera 12.16 ausgibt, jedoch nur beim Besuch von Seiten unter "https\://useragentstring.com/".
+Verwenden Sie schließlich `webRequest`, um Anfrage-Header zu ändern. In diesem Beispiel ändern Sie den "User-Agent"-Header, sodass sich der Browser als Opera 12.16 ausgibt, aber nur beim Besuch von Seiten unter "https\://useragentstring.com/".
 
-Aktualisieren Sie die "manifest.json", um `https://useragentstring.com/` wie folgt einzuschließen:
+Aktualisieren Sie die "manifest.json", um `https://useragentstring.com/` so zu enthalten:
 
 ```json
 {
@@ -189,20 +178,16 @@ browser.webRequest.onBeforeSendHeaders.addListener(
 );
 ```
 
-Sie verwenden den {{WebExtAPIRef("webRequest.onBeforeSendHeaders", "onBeforeSendHeaders")}}-Ereignislistener, um eine Funktion kurz bevor die Anforderungsheader gesendet werden, auszuführen.
+Sie verwenden den {{WebExtAPIRef("webRequest.onBeforeSendHeaders", "onBeforeSendHeaders")}} Ereignis-Listener, um eine Funktion auszuführen, kurz bevor die Anfrage-Header gesendet werden.
 
-Die Listener-Funktion wird nur für Anfragen an URLs aufgerufen, die zum `targetPage` [Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) passen.
-Beachten Sie auch, dass Sie erneut `"blocking"` als Option übergeben. Sie übergeben auch `"requestHeaders"`, was bedeutet, dass dem Listener ein Array mit den zu sendenden Anforderungsheadern übergeben wird.
-Siehe {{WebExtAPIRef("webRequest.onBeforeSendHeaders")}} für weitere Informationen zu diesen Optionen.
+Die Listener-Funktion wird nur für Anfragen zu URLs aufgerufen, die dem `targetPage` [Muster](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) entsprechen. Beachten Sie auch, dass Sie erneut `"blocking"` als Option übergeben. Sie übergeben auch `"requestHeaders"`, was bedeutet, dass der Listener ein Array erhält, das die von Ihnen erwarteten zu sendenden Anfrage-Header enthält. Weitere Informationen zu diesen Optionen finden Sie in der {{WebExtAPIRef("webRequest.onBeforeSendHeaders")}}-Dokumentation.
 
-Die Listener-Funktion sucht im Array der Anforderungsheader nach dem "User-Agent"-Header, ersetzt dessen Wert mit dem Wert der `ua`-Variable und gibt das modifizierte Array zurück.
-Dieses modifizierte Array wird an den Server gesendet.
+Die Listener-Funktion sucht im Array der Anfrage-Header nach dem "User-Agent"-Header, ersetzt dessen Wert durch den Wert der `ua`-Variablen und gibt das geänderte Array zurück. Dieses geänderte Array wird an den Server gesendet.
 
-Um es zu testen, öffnen Sie [useragentstring.com](https://useragentstring.com/) und prüfen Sie, ob der Browser als Firefox erkannt wird.
-Laden Sie dann die Erweiterung neu, laden Sie [useragentstring.com](https://useragentstring.com/) neu und sehen Sie, dass Firefox jetzt als Opera erkannt wird.
+Um es zu testen, öffnen Sie [useragentstring.com](https://useragentstring.com/) und überprüfen Sie, dass der Browser als Firefox identifiziert wird. Laden Sie dann die Erweiterung neu, laden Sie [useragentstring.com](https://useragentstring.com/) neu und stellen Sie fest, dass Firefox nun als Opera identifiziert wird.
 
-![useragentstring.com zeigt Details des modifizierten User-Agent-Strings](modified_request_header.png)
+![useragentstring.com zeigt Details der geänderten User-Agent-Zeichenfolge](modified_request_header.png)
 
-## Mehr erfahren
+## Weitere Informationen
 
-Um mehr über alle Möglichkeiten zu erfahren, die Sie mit der `webRequest` API haben, lesen Sie die [Referenzdokumentation](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest).
+Um mehr über alle Dinge zu erfahren, die Sie mit der `webRequest` API tun können, sehen Sie sich die [Referenzdokumentation](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest) an.

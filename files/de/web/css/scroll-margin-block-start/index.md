@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-margin-block-start` definiert den Abstand des Scroll-Schnappbereichs am Anfang der Blockdimension, der verwendet wird, um dieses Element an den Snapport zu schnappen. Der Scroll-Schnappbereich wird durch die Transformation der Border-Box, das Finden ihrer rechteckigen Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) und das Hinzufügen der angegebenen Ausmaße bestimmt.
+Die `scroll-margin-block-start`-Eigenschaft definiert den Rand des Scroll-Snap-Bereichs am Anfang der Block-Dimension, der verwendet wird, um dieses Element an den Snapport zu schnappen. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Rahmenkasten genommen, dessen rechteckiger Begrenzungskasten (achsenbündig im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Überstände hinzugefügt werden.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-block-start.html")}}
 
 ## Syntax
 
 ```css
-/* <length> Werte */
+/* <length> values */
 scroll-margin-block-start: 10px;
 scroll-margin-block-start: 1em;
 
-/* Globale Werte */
+/* Global values */
 scroll-margin-block-start: inherit;
 scroll-margin-block-start: initial;
 scroll-margin-block-start: revert;
@@ -29,7 +29,7 @@ scroll-margin-block-start: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Vorsprung vom Blockanfang des Scroll-Containers.
+  - : Ein Überstand von der Blockanfangskante des Scroll-Containers.
 
 ## Formale Definition
 

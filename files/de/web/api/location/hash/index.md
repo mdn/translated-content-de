@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("Location") }}
 
-Die **`hash`**-Eigenschaft der {{domxref("Location")}}-Schnittstelle gibt eine Zeichenkette zurück, die ein `'#'` gefolgt von dem Fragmentbezeichner der URL enthält — die ID auf der Seite, auf die die URL abzielt.
+Die **`hash`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces gibt einen String zurück, der ein `'#'` enthält, gefolgt von dem Fragmentbezeichner der URL – der ID auf der Seite, die die URL ansprechen möchte.
 
-Das Fragment wird nicht {{Glossary("Percent-encoding", "percent-kodiert")}}. Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft eine leere Zeichenkette, `""`.
+Das Fragment wird nicht [prozentcodiert](/de/docs/Glossary/Percent-encoding). Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft einen leeren String, `""`.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
 ```html
-<a id="myAnchor" href="/de/docs/Location.href#examples">Examples</a>
+<a id="myAnchor" href="/en-US/docs/Location.href#examples">Examples</a>
 <script>
   const anchor = document.getElementById("myAnchor");
   console.log(anchor.hash); // '#examples'

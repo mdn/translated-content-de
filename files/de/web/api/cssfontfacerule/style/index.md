@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`style`**-Eigenschaft der {{domxref("CSSFontFaceRule")}}-Schnittstelle gibt die Stilinformationen der {{cssxref("@font-face")}} [at-rule](/de/docs/Web/CSS/At-rule) zurück. Diese werden in Form eines {{domxref("CSSStyleDeclaration")}}-Objekts vorliegen.
+Die schreibgeschützte **`style`**-Eigenschaft des [`CSSFontFaceRule`](/de/docs/Web/API/CSSFontFaceRule)-Interfaces gibt die Stilinformationen aus der {{cssxref("@font-face")}}-[@-Regel](/de/docs/Web/CSS/At-rule) zurück. Diese wird in Form eines [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekts vorliegen.
 
 ## Wert
 
-Eine {{domxref("CSSStyleDeclaration")}}.
+Ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration).
 
 ## Beispiele
 
-Dieses Beispiel verwendet das CSS, das als Beispiel auf der {{cssxref("@font-face")}}-Seite zu finden ist. Die erste zurückgegebene {{domxref("CSSRule")}} wird eine `CSSFontFaceRule` sein. Die `style`-Eigenschaft gibt eine {{domxref("CSSStyleDeclaration")}} mit den Eigenschaften `fontFamily`, `fontWeight` und `src` zurück, die mit den Informationen aus der Regel gefüllt sind.
+Dieses Beispiel verwendet die CSS, die als Beispiel auf der {{cssxref("@font-face")}}-Seite gefunden wird. Die erste zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) wird eine `CSSFontFaceRule` sein. Die `style`-Eigenschaft liefert eine [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) mit den Eigenschaften `fontFamily`, `fontWeight` und `src`, die mit den Informationen aus der Regel gefüllt sind.
 
 ```css
 @font-face {

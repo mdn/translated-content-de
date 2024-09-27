@@ -1,5 +1,5 @@
 ---
-title: "HTMLOutputElement: Methode setCustomValidity()"
+title: "HTMLOutputElement: setCustomValidity()-Methode"
 short-title: setCustomValidity()
 slug: Web/API/HTMLOutputElement/setCustomValidity
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`setCustomValidity()`** Methode des {{DOMxRef("HTMLOutputElement")}} Schnittstelle setzt die benutzerdefinierte Fehlermeldung für das {{htmlelement("output")}} Element. Verwenden Sie den leeren String, um anzuzeigen, dass das Element _keine_ benutzerdefinierte Fehlermeldung hat.
+Die **`setCustomValidity()`**-Methode der Schnittstelle [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement) setzt die benutzerdefinierte Fehlermeldung für das {{htmlelement("output")}}-Element. Verwenden Sie den leeren String, um anzugeben, dass das Element _keinen_ benutzerdefinierten Validierungsfehler hat.
 
-Das `<output>` Element ist kein Kandidat für die Überprüfung von Eingabebeschränkungen. Die {{DOMxRef("HTMLOutputElement.reportValidity()", "reportValidity()")}} Methode führt nicht dazu, dass die benutzerdefinierte Fehlermeldung dem Benutzer angezeigt wird. Sie setzt jedoch die {{DOMxRef("ValidityState.customError", "customError")}} Eigenschaft des {{DOMxRef("ValidityState")}} Objekts des Elements auf `true` und die {{DOMxRef("ValidityState.valid", "valid")}} Eigenschaft auf `false`.
+Das `<output>`-Element ist kein Kandidat für die Validierung von Einschränkungen. Die Methode [`reportValidity()`](/de/docs/Web/API/HTMLOutputElement/reportValidity) wird nicht dazu führen, dass die benutzerdefinierte Fehlermeldung dem Benutzer angezeigt wird, setzt jedoch die [`customError`](/de/docs/Web/API/ValidityState/customError)-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts des Elements auf `true` und die [`valid`](/de/docs/Web/API/ValidityState/valid)-Eigenschaft auf `false`.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ setCustomValidity(string)
 ### Parameter
 
 - `string`
-  - : Der String, der die Fehlermeldung enthält. Der leere String entfernt alle benutzerdefinierten Fehler.
+  - : Der String, welcher die Fehlermeldung enthält. Der leere String entfernt alle benutzerdefinierten Validierungsfehler.
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-In diesem Beispiel, wenn der {{domxref("HTMLOutputElement.value", "value")}} des `<output>` kein von null unterschiedener Wert ist, setzen wir eine benutzerdefinierte Fehlermeldung. Wenn es eine Zahl ist, setzen wir den benutzerdefinierten Fehler auf einen leeren String:
+In diesem Beispiel setzen wir eine benutzerdefinierte Fehlermeldung, wenn der [`value`](/de/docs/Web/API/HTMLOutputElement/value) des `<output>`-Elements keine von Null verschiedene Zahl ist. Ist es eine Zahl, setzen wir die benutzerdefinierte Fehlermeldung auf einen leeren String:
 
 ```js
 const cart = document.getElementById("cart-form");
@@ -52,11 +52,11 @@ if (parseFloat(total.value)) {
 ## Siehe auch
 
 - {{HTMLelement("output")}}
-- {{domxref("HTMLOutputElement")}}
-- {{domxref("HTMLOutputElement.validity")}}
-- {{domxref("HTMLOutputElement.checkValidity()")}}
-- {{domxref("HTMLOutputElement.reportValidity()")}}
-- [Formularvalidierung](/de/docs/Web/HTML/Constraint_validation).
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Anleitung: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen
+- [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)
+- [`HTMLOutputElement.validity`](/de/docs/Web/API/HTMLOutputElement/validity)
+- [`HTMLOutputElement.checkValidity()`](/de/docs/Web/API/HTMLOutputElement/checkValidity)
+- [`HTMLOutputElement.reportValidity()`](/de/docs/Web/API/HTMLOutputElement/reportValidity)
+- [Form validation](/de/docs/Web/HTML/Constraint_validation).
+- [Learn: Client-side form validation](/de/docs/Learn/Forms/Form_validation)
+- [Leitfaden: Constraint validation](/de/docs/Web/HTML/Constraint_validation)
+- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudo-Klassen

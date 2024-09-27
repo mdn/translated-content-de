@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Pausiert eine Anfrage. Nach dem Aufruf dieser Funktion werden keine weiteren Daten übermittelt, bis die Anfrage mit einem Aufruf von {{WebExtAPIRef("webRequest.StreamFilter.resume()", "resume()")}} fortgesetzt wird.
+Hält eine Anfrage an. Nachdem dies aufgerufen wurde, werden keine weiteren Daten geliefert, bis die Anfrage mit einem Aufruf von {{WebExtAPIRef("webRequest.StreamFilter.resume()", "resume()")}} fortgesetzt wird.
 
 Sie können diese Funktion erst aufrufen, nachdem das {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}}-Ereignis ausgelöst wurde.
 

@@ -7,7 +7,10 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} (CSP) **`worker-src`** gibt gültige Quellen für {{domxref("Worker")}}, {{domxref("SharedWorker")}} oder {{domxref("ServiceWorker")}} Skripte an.
+Das HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`worker-src`**-Direktive gibt gültige Quellen für
+[`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)
+Skripte an.
 
 <table class="properties">
   <tbody>
@@ -17,13 +20,16 @@ Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} (CSP) **`worker-src
     </tr>
     <tr>
       <th scope="row">Direktivtyp</th>
-      <td>{{Glossary("Fetch directive")}}</td>
+      <td>[Fetch-Direktive](/de/docs/Glossary/Fetch_directive)</td>
     </tr>
     <tr>
-      <th scope="row">Fallback</th>
+      <th scope="row">Ausweichmöglichkeit</th>
       <td>
         <p>
-          Falls diese Direktive fehlt, sucht der User-Agent zuerst nach der {{CSP("child-src")}}-Direktive, dann nach der {{CSP("script-src")}}-Direktive und schließlich nach der {{CSP("default-src")}}-Direktive, um die Ausführung des Workers zu steuern.
+          Wenn diese Direktive nicht vorhanden ist, wird der User-Agent zunächst nach der
+          {{CSP("child-src")}}-Direktive suchen, dann nach der
+          {{CSP("script-src")}}-Direktive und schließlich nach der
+          {{CSP("default-src")}}-Direktive, um die Ausführung von Workern zu regeln.
         </p>
       </td>
     </tr>
@@ -32,7 +38,7 @@ Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} (CSP) **`worker-src
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die `worker-src`-Richtlinie erlaubt werden:
+Für die `worker-src`-Richtlinie können eine oder mehrere Quellen erlaubt werden:
 
 ```http
 Content-Security-Policy: worker-src <source>;
@@ -43,19 +49,20 @@ Content-Security-Policy: worker-src <source> <source>;
 
 `<source>` kann einer der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
 
-Beachten Sie, dass dieser gleiche Satz von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass derselbe Satz von Werten in allen [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 
-### Verletzungsfälle
+### Verstöße
 
-Angenommen, dieser CSP-Header ist gesetzt:
+Gegeben ist dieser CSP-Header:
 
 ```http
 Content-Security-Policy: worker-src https://example.com/
 ```
 
-{{domxref("Worker")}}, {{domxref("SharedWorker")}}, {{domxref("ServiceWorker")}} werden blockiert und nicht geladen:
+[`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker), [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) werden
+blockiert und nicht geladen:
 
 ```html
 <script>
@@ -69,7 +76,7 @@ Content-Security-Policy: worker-src https://example.com/
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -77,4 +84,4 @@ Content-Security-Policy: worker-src https://example.com/
 
 - {{HTTPHeader("Content-Security-Policy")}}
 - [CSP für Web Workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers#content_security_policy)
-- {{domxref("Worker")}}, {{domxref("SharedWorker")}}, {{domxref("ServiceWorker")}}
+- [`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker), [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)

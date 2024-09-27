@@ -8,8 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`TreeWalker.nextNode()`**-Methode bewegt den aktuellen
-{{domxref("Node")}} zum nächsten _sichtbaren_ Knoten in der Dokumentreihenfolge und gibt den gefundenen Knoten zurück. Wenn ein solcher Knoten nicht existiert, gibt sie `null` zurück und der aktuelle Knoten bleibt unverändert.
+Die **`TreeWalker.nextNode()`** Methode bewegt den aktuellen [`Node`](/de/docs/Web/API/Node) zum nächsten _sichtbaren_ Knoten in der Dokumentenreihenfolge und gibt den gefundenen Knoten zurück. Existiert ein solcher Knoten nicht, wird `null` zurückgegeben und der aktuelle Knoten wird nicht geändert.
 
 ## Syntax
 
@@ -23,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("Node")}}-Objekt oder `null`.
+Ein [`Node`](/de/docs/Web/API/Node) Objekt oder `null`.
 
 ## Beispiele
 
@@ -38,17 +37,17 @@ const treeWalker = document.createTreeWalker(
   },
   false,
 );
-const node = treeWalker.nextNode(); // gibt das erste Kind des Stammknotens zurück, da es der nächste Knoten in der Dokumentreihenfolge ist
+const node = treeWalker.nextNode(); // returns the first child of root, as it is the next node in document order
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Die {{domxref("TreeWalker")}}-Schnittstelle, zu der sie gehört.
+- Das [`TreeWalker`](/de/docs/Web/API/TreeWalker) Interface, zu dem es gehört.

@@ -1,5 +1,5 @@
 ---
-title: "<pre>: Das Element für vorformatierten Text"
+title: "<pre>: Das Preformatierte Textelement"
 slug: Web/HTML/Element/pre
 l10n:
   sourceCommit: 9fe5e2339bb17192e502c7e0875b9676ce211163
@@ -7,32 +7,32 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<pre>`**-[HTML](/de/docs/Web/HTML)-Element stellt vorformatierten Text dar, der genau so angezeigt wird, wie er in der HTML-Datei geschrieben ist. Der Text wird typischerweise mit einer nicht-proportionalen oder [monospaced](https://en.wikipedia.org/wiki/Monospaced_font)-Schriftart wiedergegeben. Leerzeichen innerhalb dieses Elements werden so angezeigt, wie sie geschrieben sind.
+Das **`<pre>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert vorformatierten Text, der genau so dargestellt werden soll, wie er in der HTML-Datei geschrieben ist. Der Text wird typischerweise in einer nicht proportionalen oder [monospace](https://en.wikipedia.org/wiki/Monospaced_font) Schriftart dargestellt. Leerzeichen innerhalb dieses Elements werden angezeigt, wie sie geschrieben sind.
 
-Standardmäßig ist `<pre>` ein [Block-Level](/de/docs/Glossary/Block-level_content)-Element, d.h. sein Standard-{{cssxref("display")}}-Wert ist `block`.
+Standardmäßig ist `<pre>` ein [Block-Level](/de/docs/Glossary/Block-level_content)-Element, d.h. sein Standardwert für {{cssxref("display")}} ist `block`.
 
 {{EmbedInteractiveExample("pages/tabbed/pre.html", "tabbed-standard")}}
 
-Wenn Sie reservierte Zeichen wie `<`, `>`, `&` und `"` innerhalb des `<pre>`-Tags anzeigen müssen, müssen die Zeichen mit ihren jeweiligen {{glossary("character reference", "Zeichenreferenzen")}} maskiert werden.
+Wenn Sie reservierte Zeichen wie `<`, `>`, `&` und `"` innerhalb des `<pre>`-Tags anzeigen müssen, müssen diese Zeichen mit ihren jeweiligen [Zeichenreferenzen](/de/docs/Glossary/character_reference) maskiert werden.
 
-`<pre>`-Elemente enthalten häufig {{HTMLElement("code")}}, {{HTMLElement("samp")}} und {{HTMLElement("kbd")}}-Elemente, um Computer-Code, Computerausgabe und Benutzereingabe darzustellen.
+`<pre>`-Elemente enthalten häufig {{HTMLElement("code")}}, {{HTMLElement("samp")}} und {{HTMLElement("kbd")}}-Elemente, um Computercode, Computerausgaben und Benutzereingaben darzustellen.
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `width` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Enthält die _bevorzugte_ Anzahl von Zeichen, die eine Zeile haben sollte. Obwohl technisch noch implementiert, hat dieses Attribut keine visuelle Wirkung; um einen solchen Effekt zu erzielen, verwenden Sie stattdessen CSS {{Cssxref("width")}}.
+  - : Enthält die _bevorzugte_ Anzahl von Zeichen, die eine Zeile haben sollte. Obwohl technisch noch implementiert, hat dieses Attribut keinen visuellen Effekt; um einen solchen Effekt zu erzielen, verwenden Sie stattdessen CSS {{Cssxref("width")}}.
 - `wrap` {{non-standard_inline}} {{Deprecated_Inline}}
-  - : Ist ein _Hinweis_, wie der Überlauf erfolgen muss. In modernen Browsern wird dieser Hinweis ignoriert und hat keine visuelle Wirkung; um einen solchen Effekt zu erzielen, verwenden Sie stattdessen CSS {{Cssxref("white-space")}}.
+  - : Ist ein _Hinweis_, der angibt, wie der Überlauf erfolgen muss. In modernen Browsern wird dieser Hinweis ignoriert und es entsteht kein visueller Effekt; um einen solchen Effekt zu erzielen, verwenden Sie stattdessen CSS {{Cssxref("white-space")}}.
 
 ## Barrierefreiheit
 
-Es ist wichtig, eine alternative Beschreibung für alle Bilder oder Diagramme bereitzustellen, die mit vorformatiertem Text erstellt wurden. Die alternative Beschreibung sollte klar und prägnant den Inhalt des Bildes oder Diagramms beschreiben.
+Es ist wichtig, eine alternative Beschreibung für alle Bilder oder Diagramme zu liefern, die mit vorformatiertem Text erstellt wurden. Die alternative Beschreibung sollte den Inhalt des Bildes oder Diagramms klar und prägnant beschreiben.
 
-Menschen mit Sehbehinderungen, die mit Hilfe unterstützender Technologien wie einem Screenreader surfen, verstehen möglicherweise nicht, was die Zeichen des vorformatierten Textes darstellen, wenn sie in der Reihenfolge vorgelesen werden.
+Menschen mit Sehbehinderungen, die mit Unterstützungstechnologien wie einem Screenreader browsen, verstehen möglicherweise nicht, was die Zeichen des vorformatierten Textes darstellen, wenn sie in der Reihenfolge vorgelesen werden.
 
-Eine Kombination aus den {{HTMLElement("figure")}}- und {{HTMLElement("figcaption")}}-Elementen, ergänzt durch die [ARIA](/de/docs/Web/Accessibility/ARIA) `role`- und [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)-Attribute auf dem `pre`-Element, ermöglicht es, die vorformatierte {{Glossary("ASCII")}}-Kunst als Bild mit alternativem Text anzukündigen, wobei die `figcaption` als Bildunterschrift dient.
+Eine Kombination der {{HTMLElement("figure")}} und {{HTMLElement("figcaption")}}-Elemente, ergänzt durch die [ARIA](/de/docs/Web/Accessibility/ARIA) `role`- und [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)-Attribute auf dem `pre`-Element, ermöglicht es, dass die vorformatierte [ASCII](/de/docs/Glossary/ASCII)-Kunst als Bild mit alternativem Text angekündigt wird, wobei die `figcaption` als Bildunterschrift dient.
 
 ### Beispiel
 
@@ -49,13 +49,13 @@ Eine Kombination aus den {{HTMLElement("figure")}}- und {{HTMLElement("figcaptio
                   ||     ||
   </pre>
   <figcaption id="cow-caption">
-    Eine Kuh, die sagt: "I'm an expert in my field." Die Kuh ist mit
-    vorformatierten Textzeichen illustriert.
+    A cow saying, "I'm an expert in my field." The cow is illustrated using
+    preformatted text characters.
   </figcaption>
 </figure>
 ```
 
-- [MDN Verständnis von WCAG, Richtlinie 1.1 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [MDN Verständnis der WCAG, Erläuterungen zu Richtlinie 1.1](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
 - [H86: Bereitstellung von Textalternativen für ASCII-Kunst, Emoticons und Leetspeak | W3C Techniken für WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/H86.html)
 
 ## Beispiele
@@ -65,7 +65,7 @@ Eine Kombination aus den {{HTMLElement("figure")}}- und {{HTMLElement("figcaptio
 #### HTML
 
 ```html
-<p>Mit CSS die Schriftfarbe zu ändern, ist einfach.</p>
+<p>Using CSS to change the font color is easy.</p>
 <pre><code>
 body {
   color: red;
@@ -106,7 +106,7 @@ if (i &lt; 10 &amp;&amp; i &gt; 0)
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -114,40 +114,40 @@ if (i &lt; 10 &amp;&amp; i &gt; 0)
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasierter Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das startende als auch das endende Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >fließenden Inhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
-            >generisch</a
+            >generic</a
           ></code
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>Alle</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLPreElement")}}</td>
+      <td>[`HTMLPreElement`](/de/docs/Web/API/HTMLPreElement)</td>
     </tr>
   </tbody>
 </table>
@@ -163,5 +163,5 @@ if (i &lt; 10 &amp;&amp; i &gt; 0)
 ## Siehe auch
 
 - CSS: {{Cssxref('white-space')}}, {{Cssxref('word-break')}}
-- {{glossary("Zeichenreferenz")}}
+- [Zeichenreferenz](/de/docs/Glossary/Character_reference)
 - Verwandtes Element: {{HTMLElement("code")}}, {{HTMLElement("samp")}}, {{HTMLElement("kbd")}}

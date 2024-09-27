@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`endContainer`**-Eigenschaft des {{domxref("AbstractRange")}}-Interfaces gibt den {{domxref("Node")}} zurück, in dem das Ende des Bereichs liegt.
+Die schreibgeschützte **`endContainer`**-Eigenschaft der [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Schnittstelle gibt den [`Node`](/de/docs/Web/API/Node) zurück, in dem sich das Ende des Bereichs befindet.
 
 ## Wert
 
-Der {{domxref("Node")}}, der das letzte Zeichen des Bereichs enthält.
+Der [`Node`](/de/docs/Web/API/Node), der das letzte Zeichen des Bereichs enthält.
 
 ## Beispiel
 

@@ -14,17 +14,17 @@ Die **`border-left-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 border-left-width: thin;
 border-left-width: medium;
 border-left-width: thick;
 
-/* <length> Werte */
+/* <length> values */
 border-left-width: 10em;
 border-left-width: 3vmax;
 border-left-width: 6px;
 
-/* Globale Schlüsselwörter */
+/* Global keywords */
 border-left-width: inherit;
 border-left-width: initial;
 border-left-width: revert;
@@ -36,14 +36,14 @@ border-left-width: unset;
 
 - `<line-width>`
 
-  - : Definiert die Breite des Rahmens, entweder als explizite nicht-negative {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einer der folgenden Werte sein:
+  - : Definiert die Breite des Rahmens, entweder als explizite positive {{cssxref("&lt;length&gt;")}} oder als Schlüsselwort. Wenn es ein Schlüsselwort ist, muss es einen der folgenden Werte haben:
 
     - `thin`
     - `medium`
     - `thick`
 
 > [!NOTE]
-> Da die Spezifikation die genaue Dicke, die durch jedes Schlüsselwort bezeichnet wird, nicht definiert, ist das genaue Ergebnis bei Verwendung eines dieser Schlüsselwörter implementationsspezifisch. Dennoch folgen sie immer dem Muster `thin ≤ medium ≤ thick`, und die Werte sind innerhalb eines Dokuments konstant.
+> Da die Spezifikation die genaue Dicke, die durch jedes Schlüsselwort angegeben wird, nicht definiert, ist das genaue Ergebnis bei der Verwendung eines dieser Begriffe implementierungsspezifisch. Sie folgen jedoch immer dem Muster `thin ≤ medium ≤ thick`, und die Werte sind innerhalb eines einzelnen Dokuments konstant.
 
 ## Formale Definition
 
@@ -94,5 +94,5 @@ div:nth-child(2) {
 
 ## Siehe auch
 
-- Die anderen CSS-Eigenschaften, die mit der Rahmenbreite in Verbindung stehen: {{Cssxref("border-top-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-bottom-width")}}, und {{Cssxref("border-width")}}.
-- Die anderen CSS-Eigenschaften, die mit der linken Rahmenlinie in Verbindung stehen: {{Cssxref("border")}}, {{Cssxref("border-left")}}, {{Cssxref("border-left-style")}}, und {{Cssxref("border-left-color")}}.
+- Die anderen rahmenbreitenbezogenen CSS-Eigenschaften: {{Cssxref("border-top-width")}}, {{Cssxref("border-right-width")}}, {{Cssxref("border-bottom-width")}}, und {{Cssxref("border-width")}}.
+- Die anderen linksrahmenbezogenen CSS-Eigenschaften: {{Cssxref("border")}}, {{Cssxref("border-left")}}, {{Cssxref("border-left-style")}}, und {{Cssxref("border-left-color")}}.

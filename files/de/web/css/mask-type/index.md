@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mask-type`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob ein SVG {{svgElement("mask")}}-Element als _Luminanz_- oder _Alpha_-Maske verwendet wird. Sie gilt für das `<mask>`-Element selbst.
+Die **`mask-type`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein SVG {{svgElement("mask")}}-Element als _Luminanz_- oder _Alpha_-Maske verwendet wird. Sie gilt für das `<mask>`-Element selbst.
 
-Diese Eigenschaft kann durch die {{cssxref("mask-mode")}}-Eigenschaft überschrieben werden, die denselben Effekt hat, aber auf das Element angewendet wird, auf dem die Maske benutzt wird. Alpha-Masken werden im Allgemeinen schneller gerendert.
+Diese Eigenschaft kann von der {{cssxref("mask-mode")}} Eigenschaft überschrieben werden, die denselben Effekt hat, jedoch für das Element gilt, bei dem die Maske verwendet wird. Alpha-Masken sind in der Regel schneller zu rendern.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 mask-type: luminance;
 mask-type: alpha;
 
-/* Globale Werte */
+/* Global values */
 mask-type: inherit;
 mask-type: initial;
 mask-type: revert;
@@ -26,7 +26,7 @@ mask-type: revert-layer;
 mask-type: unset;
 ```
 
-Die `mask-type`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `mask-type` Eigenschaft wird als eines der unten aufgeführten Schlüsselwörter spezifiziert.
 
 ### Werte
 
@@ -45,7 +45,7 @@ Die `mask-type`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwor
 
 ## Beispiele
 
-### Eine Alphamaske einstellen
+### Festlegen einer Alphamaske
 
 #### HTML
 
@@ -87,7 +87,7 @@ Die `mask-type`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwor
 
 {{EmbedLiveSample('Setting_an_alpha_mask', '100%', '102')}}
 
-### Eine Luminanzmaske einstellen
+### Festlegen einer Luminanzmaske
 
 #### HTML
 
@@ -142,4 +142,4 @@ Die `mask-type`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwor
 
 ## Siehe auch
 
-- Andere maskenbezogene Eigenschaften: {{cssxref("mask")}}, {{cssxref("mask-mode")}}
+- Andere Masken-bezogene Eigenschaften: {{cssxref("mask")}}, {{cssxref("mask-mode")}}

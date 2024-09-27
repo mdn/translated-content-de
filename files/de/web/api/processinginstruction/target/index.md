@@ -1,5 +1,5 @@
 ---
-title: "ProcessingInstruction: target-Eigenschaft"
+title: "ProcessingInstruction: target Eigenschaft"
 short-title: target
 slug: Web/API/ProcessingInstruction/target
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die schreibgeschützte **`target`**-Eigenschaft des {{domxref("ProcessingInstruction")}}-Interfaces steht für die Anwendung, auf die die `ProcessingInstruction` abzielt.
+Die schreibgeschützte **`target`**-Eigenschaft der [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Schnittstelle repräsentiert die Anwendung, auf die die `ProcessingInstruction` abzielt.
 
 Zum Beispiel:
 
@@ -46,11 +46,11 @@ const output = document.querySelector("output");
 output.textContent = `This processing instruction's target is: ${doc.firstChild.target}`;
 ```
 
-{{EmbedLiveSample("In an XML document", "100%", 50)}}
+{{EmbedLiveSample("In einem XML-Dokument", "100%", 50)}}
 
 ### In einem HTML-Dokument
 
-Die Verarbeitungsanweisungszeile wird als {{domxref("Comment")}}-Objekt angesehen und dargestellt.
+Die Zeile mit der Verarbeitungsanweisung wird als [`Comment`](/de/docs/Web/API/Comment)-Objekt betrachtet und repräsentiert.
 
 ```html
 <?xml version="1.0"?>
@@ -63,7 +63,7 @@ const result = `Node with the processing instruction: ${node.nodeName}: ${node.n
 document.querySelector("pre").textContent = result;
 ```
 
-{{EmbedLiveSample("In an HTML document", "100%", 50)}}
+{{EmbedLiveSample("In einem HTML-Dokument", "100%", 50)}}
 
 ## Spezifikationen
 

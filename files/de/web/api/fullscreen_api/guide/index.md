@@ -1,17 +1,17 @@
 ---
-title: Anleitung zur Fullscreen-API
+title: Leitfaden zur Fullscreen API
 slug: Web/API/Fullscreen_API/Guide
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: 8a12b2889c9dbcb7d9ed026cac3a8538ec5cb277
 ---
 
 {{DefaultAPISidebar("Fullscreen API")}}
 
-Dieser Artikel zeigt, wie Sie die [Fullscreen-API](/de/docs/Web/API/Fullscreen_API) verwenden, um ein gegebenes Element im Vollbildmodus anzuzeigen, sowie wie Sie erkennen können, wann der Browser in den oder aus dem Vollbildmodus wechselt.
+Dieser Artikel zeigt, wie Sie die [Fullscreen API](/de/docs/Web/API/Fullscreen_API) verwenden, um ein gegebenes Element im Vollbildmodus darzustellen und wie Sie erkennen, wann der Browser den Vollbildmodus betritt oder verlässt.
 
 ## Aktivierung des Vollbildmodus
 
-Für ein Element, das Sie im Vollbildmodus präsentieren möchten (zum Beispiel ein {{HTMLElement("video")}}), können Sie es im Vollbildmodus darstellen, indem Sie die Methode {{DOMxRef("Element.requestFullscreen", "requestFullscreen()")}} aufrufen.
+Angenommen, Sie möchten ein Element im Vollbildmodus präsentieren (wie zum Beispiel ein {{HTMLElement("video")}}), können Sie dieses im Vollbildmodus anzeigen, indem Sie seine Methode [`requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) aufrufen.
 
 Betrachten wir dieses {{HTMLElement("video")}}-Element:
 
@@ -22,7 +22,7 @@ Betrachten wir dieses {{HTMLElement("video")}}-Element:
 </video>
 ```
 
-Wir können dieses Video wie folgt im Vollbildmodus anzeigen:
+Wir können dieses Video im Vollbildmodus wie folgt darstellen:
 
 ```js
 const elem = document.getElementById("myvideo");
@@ -31,51 +31,51 @@ if (elem.requestFullscreen) {
 }
 ```
 
-Dieser Code prüft das Vorhandensein der `requestFullscreen()`-Methode, bevor er sie aufruft.
+Dieser Code überprüft, ob die Methode `requestFullscreen()` existiert, bevor sie aufgerufen wird.
 
 ### Benachrichtigung
 
-Wenn der Vollbildmodus erfolgreich aktiviert wurde, erhält das Dokument, das das Element enthält, ein {{domxref("Element/fullscreenchange_event", "fullscreenchange")}}-Ereignis. Beim Beenden des Vollbildmodus erhält das Dokument erneut ein {{domxref("Document/fullscreenchange_event", "fullscreenchange")}}-Ereignis. Beachten Sie, dass das {{domxref("Document/fullscreenchange_event", "fullscreenchange")}}-Ereignis selbst keine Informationen darüber liefert, ob das Dokument in den oder aus dem Vollbildmodus wechselt, aber wenn das Dokument ein nicht-nullwertiges {{DOMxRef("document.fullscreenElement", "fullscreenElement")}} hat, wissen Sie, dass Sie sich im Vollbildmodus befinden.
+Wenn der Vollbildmodus erfolgreich aktiviert wird, erhält das Dokument, das das Element enthält, ein [`fullscreenchange`](/de/docs/Web/API/Element/fullscreenchange_event)-Ereignis. Beim Verlassen des Vollbildmodus erhält das Dokument erneut ein [`fullscreenchange`](/de/docs/Web/API/Document/fullscreenchange_event)-Ereignis. Beachten Sie, dass das [`fullscreenchange`](/de/docs/Web/API/Document/fullscreenchange_event)-Ereignis selbst keine Informationen darüber liefert, ob das Dokument in den oder aus dem Vollbildmodus wechselt. Wenn das Dokument jedoch ein nicht nullbares [`fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement) hat, wissen Sie, dass Sie sich im Vollbildmodus befinden.
 
-### Wenn eine Fullscreen-Anforderung fehlschlägt
+### Wenn eine Vollbildanforderung fehlschlägt
 
-Es ist nicht garantiert, dass Sie in den Vollbildmodus wechseln können. Zum Beispiel haben {{HTMLElement("iframe")}}-Elemente das [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen)-Attribut, um zu erlauben, dass ihr Inhalt im Vollbildmodus angezeigt wird. Darüber hinaus können bestimmte Arten von Inhalten, wie beispielsweise fensterbasierte Plug-Ins, nicht im Vollbildmodus dargestellt werden. Der Versuch, ein solches Element oder ein Elternelement oder einen Nachkommen davon im Vollbildmodus darzustellen, wird nicht funktionieren. Stattdessen erhält das Element, das den Vollbildmodus angefordert hat, ein `mozfullscreenerror`-Ereignis. Wenn eine Fullscreen-Anforderung fehlschlägt, wird Firefox eine Fehlermeldung an die Web-Konsole ausgeben, die erklärt, warum die Anforderung fehlschlug. In Chrome und neueren Versionen von Opera wird jedoch keine solche Warnung generiert.
+Es ist nicht garantiert, dass Sie in den Vollbildmodus wechseln können. Zum Beispiel haben {{HTMLElement("iframe")}}-Elemente das Attribut [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen), um zu ermöglichen, dass ihr Inhalt im Vollbildmodus angezeigt wird. Darüber hinaus können bestimmte Arten von Inhalten, wie fensterbezogene Plugins, nicht im Vollbildmodus präsentiert werden. Der Versuch, ein Element in den Vollbildmodus zu versetzen, das nicht im Vollbildmodus angezeigt werden kann (oder Elternteil oder Nachkomme eines solchen Elements ist), wird nicht funktionieren. Stattdessen erhält das Element, das den Vollbildmodus angefordert hat, ein `fullscreenerror`-Ereignis. Wenn eine Vollbildanforderung fehlschlägt, wird im Webkonsole von Firefox eine Fehlermeldung protokolliert, die erklärt, warum die Anforderung fehlgeschlagen ist. In Chrome und neueren Versionen von Opera wird jedoch keine solche Warnung generiert.
 
 > [!NOTE]
-> Fullscreen-Anforderungen müssen innerhalb eines Event-Handlers aufgerufen werden, andernfalls werden sie abgelehnt.
+> Vollbildanforderungen müssen innerhalb eines Ereignis-Handlers aufgerufen werden, sonst werden sie abgelehnt.
 
 ## Verlassen des Vollbildmodus
 
-Der Benutzer hat immer die Möglichkeit, den Vollbildmodus eigenständig zu verlassen; siehe [Was Ihre Benutzer wissen möchten](#was_ihre_benutzer_wissen_möchten). Sie können dies auch programmatisch tun, indem Sie die Methode {{DOMxRef("Document.exitFullscreen()")}} aufrufen.
+Der Benutzer hat immer die Möglichkeit, den Vollbildmodus selbst zu verlassen; siehe [Dinge, die Ihre Benutzer wissen möchten](#dinge,_die_ihre_benutzer_wissen_möchten). Sie können dies auch programmgesteuert tun, indem Sie die Methode [`Document.exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen) aufrufen.
 
 ## Weitere Informationen
 
-Das {{DOMxRef("Document")}} stellt einige zusätzliche Informationen bereit, die bei der Entwicklung von Vollbild-Webanwendungen nützlich sein können:
+Das [`Document`](/de/docs/Web/API/Document) bietet einige zusätzliche Informationen, die nützlich sein können, wenn Sie Vollbild-Webanwendungen entwickeln:
 
-- {{DOMxRef("Document.fullscreenElement")}} / {{DOMxRef("ShadowRoot.fullscreenElement")}}
-  - : Die `fullscreenElement`-Eigenschaft gibt an, welches {{DOMxRef("Element")}} derzeit im Vollbildmodus angezeigt wird. Wenn dies nicht null ist, befindet sich das Dokument (oder der Shadow-DOM) im Vollbildmodus. Wenn es null ist, befindet sich das Dokument (oder der Shadow-DOM) nicht im Vollbildmodus.
-- {{DOMxRef("Document.fullscreenEnabled")}}
-  - : Die `fullscreenEnabled`-Eigenschaft gibt an, ob sich das Dokument derzeit in einem Zustand befindet, der das Anfordern des Vollbildmodus zulässt oder nicht.
+- [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement) / [`ShadowRoot.fullscreenElement`](/de/docs/Web/API/ShadowRoot/fullscreenElement)
+  - : Die Eigenschaft `fullscreenElement` teilt Ihnen mit, welches [`Element`](/de/docs/Web/API/Element) derzeit im Vollbildmodus dargestellt wird. Wenn dies nicht null ist, befindet sich das Dokument (oder das Schatten-DOM) im Vollbildmodus. Wenn dies null ist, befindet sich das Dokument (oder das Schatten-DOM) nicht im Vollbildmodus.
+- [`Document.fullscreenEnabled`](/de/docs/Web/API/Document/fullscreenEnabled)
+  - : Die Eigenschaft `fullscreenEnabled` teilt Ihnen mit, ob das Dokument derzeit in einem Zustand ist, in dem der Vollbildmodus angefordert werden kann.
 
 ### Viewport-Skalierung in mobilen Browsern
 
-Einige mobile Browser ignorieren im Vollbildmodus die Einstelllungen des Viewport-Meta-Tags und blockieren die Benutzerskalierung; zum Beispiel funktioniert eine "Zoom-Geste" möglicherweise nicht auf einer Seite, die im Vollbildmodus dargestellt wird — auch wenn die Seite ohne Vollbildmodus mit der Pinch-Zoom-Geste skaliert werden kann.
+Einige mobile Browser ignorieren im Vollbildmodus die Einstellungen des Viewport-Meta-Tags und blockieren die Benutzerskalierung; zum Beispiel: Eine "Pinch to Zoom"-Geste funktioniert möglicherweise auf einer Seite, die im Vollbildmodus präsentiert wird, nicht – selbst wenn die Seite, wenn sie nicht im Vollbildmodus ist, durch Pinch to Zoom skaliert werden kann.
 
-## Was Ihre Benutzer wissen möchten
+## Dinge, die Ihre Benutzer wissen möchten
 
 Sie sollten sicherstellen, dass Ihre Benutzer wissen, dass sie die <kbd>Esc</kbd>-Taste (oder <kbd>F11</kbd>) drücken können, um den Vollbildmodus zu verlassen.
 
-Darüber hinaus wird das Navigieren zu einer anderen Seite, das Wechseln von Tabs oder das Umschalten zu einer anderen Anwendung (zum Beispiel durch <kbd>Alt</kbd>-<kbd>Tab</kbd>) im Vollbildmodus den Vollbildmodus ebenfalls beenden.
+Außerdem führt das Navigieren zu einer anderen Seite, das Wechseln der Tabs oder das Wechseln zu einer anderen Anwendung (zum Beispiel durch <kbd>Alt</kbd>-<kbd>Tab</kbd>) ebenfalls zum Verlassen des Vollbildmodus.
 
 ## Beispiel
 
-In diesem Beispiel wird ein Video auf einer Webseite dargestellt. Durch Drücken der <kbd>Return</kbd>- oder <kbd>Enter</kbd>-Taste kann der Benutzer zwischen Fenster- und Vollbilddarstellung des Videos umschalten.
+In diesem Beispiel wird ein Video auf einer Webseite angesprochen. Durch Drücken der <kbd>Return</kbd>- oder <kbd>Enter</kbd>-Taste kann der Benutzer zwischen Fenster- und Vollbilddarstellung des Videos umschalten.
 
-[Live-Beispiele ansehen](https://mdn.dev/archives/media/samples/domref/fullscreen.html)
+[Live-Beispiele anzeigen](https://mdn.dev/archives/media/samples/domref/fullscreen.html)
 
-### Überwachung der Eingabetaste
+### Auf die Eingabetaste achten
 
-Wenn die Seite geladen ist, wird dieser Code ausgeführt, um einen Event-Listener einzurichten, der auf die Eingabetaste (<kbd>Enter</kbd>) achtet.
+Beim Laden der Seite wird dieser Code ausgeführt, um einen Ereignis-Listener einzurichten, der auf die <kbd>Enter</kbd>-Taste achtet.
 
 ```js
 document.addEventListener(
@@ -89,7 +89,7 @@ document.addEventListener(
 );
 ```
 
-### Umschalten des Vollbildmodus
+### Umschalten in den Vollbildmodus
 
 Dieser Code wird aufgerufen, wenn der Benutzer die <kbd>Enter</kbd>-Taste drückt, wie oben gezeigt.
 
@@ -103,9 +103,9 @@ function toggleFullScreen() {
 }
 ```
 
-Dies beginnt mit der Überprüfung des Werts des `fullscreenElement`-Attributs auf dem {{DOMxRef("document")}}. Wenn es `null` ist, befindet sich das Dokument derzeit im Fenstermodus, also müssen wir in den Vollbildmodus wechseln. Der Wechsel in den Vollbildmodus erfolgt durch Aufruf von {{DOMxRef("element.requestFullscreen()")}}.
+Dies beginnt mit dem Überprüfen des Wertes des Attributs `fullscreenElement` im [`document`](/de/docs/Web/API/Document). Wenn es `null` ist, befindet sich das Dokument derzeit im Fenstermodus, sodass wir in den Vollbildmodus wechseln müssen. Der Wechsel in den Vollbildmodus erfolgt durch Aufrufen von [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen).
 
-Wenn der Vollbildmodus bereits aktiv ist (`fullscreenElement` ist nicht `null`), rufen wir {{DOMxRef("document.exitFullscreen()")}} auf.
+Wenn der Vollbildmodus bereits aktiv ist (`fullscreenElement` ist nicht `null`), rufen wir [`document.exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen) auf.
 
 ## Spezifikationen
 
@@ -118,9 +118,9 @@ Wenn der Vollbildmodus bereits aktiv ist (`fullscreenElement` ist nicht `null`),
 ## Siehe auch
 
 - [Verwendung des Vollbildmodus](/de/docs/Web/API/Fullscreen_API)
-- {{DOMxRef("Element.requestFullscreen()")}}
-- {{DOMxRef("Document.exitFullscreen()")}}
-- {{DOMxRef("Document.fullscreen")}}
-- {{DOMxRef("Document.fullscreenElement")}}
+- [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen)
+- [`Document.exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen)
+- [`Document.fullscreen`](/de/docs/Web/API/Document/fullscreen)
+- [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement)
 - {{CSSxRef(":fullscreen")}}, {{CSSxRef("::backdrop")}}
 - [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen)

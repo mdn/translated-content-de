@@ -7,33 +7,33 @@ l10n:
 
 {{APIRef("DOM XPath")}}
 
-Das `XPathEvaluator`-Interface ermöglicht das Kompilieren und Auswerten von {{Glossary("XPath")}}-Ausdrücken.
+Das `XPathEvaluator`-Interface ermöglicht das Kompilieren und Auswerten von [XPath](/de/docs/Glossary/XPath)-Ausdrücken.
 
 ## Konstruktor
 
-- {{domxref("XPathEvaluator.XPathEvaluator", "XPathEvaluator()")}}
+- [`XPathEvaluator()`](/de/docs/Web/API/XPathEvaluator/XPathEvaluator)
   - : Erstellt ein neues `XPathEvaluator`-Objekt.
 
 ## Instanzmethoden
 
-- {{DOMxRef("XPathEvaluator.createExpression()")}}
-  - : Erstellt einen geparsten XPath-Ausdruck mit aufgelösten Namespaces.
-- {{DOMxRef("XPathEvaluator.createNSResolver()")}} {{deprecated_inline}}
+- [`XPathEvaluator.createExpression()`](/de/docs/Web/API/XPathEvaluator/createExpression)
+  - : Erstellt einen geparsten XPath-Ausdruck mit aufgelösten Namensräumen.
+- [`XPathEvaluator.createNSResolver()`](/de/docs/Web/API/XPathEvaluator/createNSResolver) {{deprecated_inline}}
   - : Gibt die Eingabe unverändert zurück.
-- {{DOMxRef("XPathEvaluator.evaluate()")}}
-  - : Wertet einen XPath-Ausdrucksstring aus und gibt, wenn möglich, ein Ergebnis des angegebenen Typs zurück.
+- [`XPathEvaluator.evaluate()`](/de/docs/Web/API/XPathEvaluator/evaluate)
+  - : Wertet eine XPath-Ausdruckszeichenkette aus und gibt, wenn möglich, ein Ergebnis des angegebenen Typs zurück.
 
 ## Beispiel
 
-### Die Anzahl der `<div>`-Elemente zählen
+### Zählen Sie die Anzahl der `<div>`-Elemente
 
 Das folgende Beispiel zeigt die Verwendung des `XPathEvaluator`-Interfaces.
 
 #### HTML
 
 ```html
-<div>XPath-Beispiel</div>
-<div>Anzahl der &lt;div&gt;-Elemente: <output></output></div>
+<div>XPath example</div>
+<div>Number of &lt;div&gt; elements: <output></output></div>
 ```
 
 #### JavaScript
@@ -63,5 +63,5 @@ document.querySelector("output").textContent = result.snapshotLength;
 
 ## Siehe auch
 
-- {{domxref("document.createExpression()")}}
-- {{domxref("XPathExpression")}}
+- [`document.createExpression()`](/de/docs/Web/API/Document/createExpression)
+- [`XPathExpression`](/de/docs/Web/API/XPathExpression)

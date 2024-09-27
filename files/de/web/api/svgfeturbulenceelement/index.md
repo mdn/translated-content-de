@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGFETurbulenceElement`**-Schnittstelle entspricht dem {{SVGElement("feTurbulence")}}-Element.
+Das **`SVGFETurbulenceElement`**-Interface entspricht dem {{SVGElement("feTurbulence")}}-Element.
 
 {{InheritanceDiagram}}
 
@@ -26,25 +26,23 @@ Die **`SVGFETurbulenceElement`**-Schnittstelle entspricht dem {{SVGElement("feTu
       <td><code>SVG_TURBULENCE_TYPE_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig,
-        einen neuen Wert dieses Typs zu definieren oder zu versuchen, einen
-        bestehenden Wert auf diesen Typ zu ändern.
+        Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder zu versuchen, einen bestehenden Wert auf diesen Typ umzustellen.
       </td>
     </tr>
     <tr>
       <td><code>SVG_TURBULENCE_TYPE_FRACTALNOISE</code></td>
       <td>1</td>
-      <td>Entspricht dem <code>fractalNoise</code>-Wert.</td>
+      <td>Entspricht dem Wert <code>fractalNoise</code>.</td>
     </tr>
     <tr>
       <td><code>SVG_TURBULENCE_TYPE_TURBULENCE</code></td>
       <td>2</td>
-      <td>Entspricht dem <code>turbulence</code>-Wert.</td>
+      <td>Entspricht dem Wert <code>turbulence</code>.</td>
     </tr>
   </tbody>
 </table>
 
-### Stitch-Optionen
+### Stich-Optionen
 
 <table class="no-markdown">
   <tbody>
@@ -57,54 +55,52 @@ Die **`SVGFETurbulenceElement`**-Schnittstelle entspricht dem {{SVGElement("feTu
       <td><code>SVG_STITCHTYPE_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig,
-        einen neuen Wert dieses Typs zu definieren oder zu versuchen, einen
-        bestehenden Wert auf diesen Typ zu ändern.
+        Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder zu versuchen, einen bestehenden Wert auf diesen Typ umzustellen.
       </td>
     </tr>
     <tr>
       <td><code>SVG_STITCHTYPE_STITCH</code></td>
       <td>1</td>
-      <td>Entspricht dem <code>stitch</code>-Wert.</td>
+      <td>Entspricht dem Wert <code>stitch</code>.</td>
     </tr>
     <tr>
       <td><code>SVG_STITCHTYPE_NOSTITCH</code></td>
       <td>2</td>
-      <td>Entspricht dem <code>noStitch</code>-Wert.</td>
+      <td>Entspricht dem Wert <code>noStitch</code>.</td>
     </tr>
   </tbody>
 </table>
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten Interface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGFETurbulenceElement.baseFrequencyX")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumber")}}, der der X-Komponente des {{SVGAttr("baseFrequency")}}-Attributs des gegebenen Elements entspricht.
-- {{domxref("SVGFETurbulenceElement.baseFrequencyY")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumber")}}, der der Y-Komponente des {{SVGAttr("baseFrequency")}}-Attributs des gegebenen Elements entspricht.
-- {{domxref("SVGFETurbulenceElement.height")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("height")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFETurbulenceElement.numOctaves")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedInteger")}}, der dem {{SVGAttr("numOctaves")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFETurbulenceElement.result")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, der dem {{SVGAttr("result")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFETurbulenceElement.seed")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedNumber")}}, der dem {{SVGAttr("seed")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFETurbulenceElement.stitchTiles")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedEnumeration")}}, der dem {{SVGAttr("stitchTiles")}}-Attribut des gegebenen Elements entspricht. Dies nimmt einen der `SVG_STITCHTYPE_*`-Konstanten an, die in dieser Schnittstelle definiert sind.
-- {{domxref("SVGFETurbulenceElement.type")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedEnumeration")}}, der dem {{SVGAttr("type")}}-Attribut des gegebenen Elements entspricht. Dies nimmt einen der `SVG_TURBULENCE_TYPE_*`-Konstanten an, die in dieser Schnittstelle definiert sind.
-- {{domxref("SVGFETurbulenceElement.width")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("width")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFETurbulenceElement.x")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("x")}}-Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGFETurbulenceElement.y")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("y")}}-Attribut des gegebenen Elements entspricht.
+- [`SVGFETurbulenceElement.baseFrequencyX`](/de/docs/Web/API/SVGFETurbulenceElement/baseFrequencyX) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das der X-Komponente des {{SVGAttr("baseFrequency")}}-Attributs des angegebenen Elements entspricht.
+- [`SVGFETurbulenceElement.baseFrequencyY`](/de/docs/Web/API/SVGFETurbulenceElement/baseFrequencyY) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das der Y-Komponente des {{SVGAttr("baseFrequency")}}-Attributs des angegebenen Elements entspricht.
+- [`SVGFETurbulenceElement.height`](/de/docs/Web/API/SVGFETurbulenceElement/height) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}}-Attribut des angegebenen Elements entspricht.
+- [`SVGFETurbulenceElement.numOctaves`](/de/docs/Web/API/SVGFETurbulenceElement/numOctaves) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedInteger`](/de/docs/Web/API/SVGAnimatedInteger), das dem {{SVGAttr("numOctaves")}}-Attribut des angegebenen Elements entspricht.
+- [`SVGFETurbulenceElement.result`](/de/docs/Web/API/SVGFETurbulenceElement/result) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("result")}}-Attribut des angegebenen Elements entspricht.
+- [`SVGFETurbulenceElement.seed`](/de/docs/Web/API/SVGFETurbulenceElement/seed) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedNumber`](/de/docs/Web/API/SVGAnimatedNumber), das dem {{SVGAttr("seed")}}-Attribut des angegebenen Elements entspricht.
+- [`SVGFETurbulenceElement.stitchTiles`](/de/docs/Web/API/SVGFETurbulenceElement/stitchTiles) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("stitchTiles")}}-Attribut des angegebenen Elements entspricht. Es nimmt einen der `SVG_STITCHTYPE_*`-Konstanten an, die in diesem Interface definiert sind.
+- [`SVGFETurbulenceElement.type`](/de/docs/Web/API/SVGFETurbulenceElement/type) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("type")}}-Attribut des angegebenen Elements entspricht. Es nimmt einen der `SVG_TURBULENCE_TYPE_*`-Konstanten an, die in diesem Interface definiert sind.
+- [`SVGFETurbulenceElement.width`](/de/docs/Web/API/SVGFETurbulenceElement/width) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("width")}}-Attribut des angegebenen Elements entspricht.
+- [`SVGFETurbulenceElement.x`](/de/docs/Web/API/SVGFETurbulenceElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}}-Attribut des angegebenen Elements entspricht.
+- [`SVGFETurbulenceElement.y`](/de/docs/Web/API/SVGFETurbulenceElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y")}}-Attribut des angegebenen Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert aber die ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Dieses Interface bietet keine spezifischen Methoden, implementiert jedoch die seines übergeordneten Interfaces, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

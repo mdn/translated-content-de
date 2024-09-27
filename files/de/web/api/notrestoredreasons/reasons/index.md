@@ -1,6 +1,6 @@
 ---
-title: "NotRestoredReasons: Eigenschaft reasons"
-short-title: Gründe
+title: "NotRestoredReasons: reasons-Eigenschaft"
+short-title: reasons
 slug: Web/API/NotRestoredReasons/reasons
 l10n:
   sourceCommit: 3148591fa7280daf3e88a5cece3b60dfc9470330
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`reasons`** schreibgeschützte Eigenschaft des {{domxref("NotRestoredReasons")}}-Interfaces gibt ein Array von {{domxref("NotRestoredReasonDetails")}}-Objekten zurück, von denen jedes einen Grund repräsentiert, warum die navigierte Seite daran gehindert wurde, den Vorwärts-/Rückwärts-Cache ({{Glossary("bfcache")}}) zu nutzen.
+Die schreibgeschützte **`reasons`**-Eigenschaft der [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Schnittstelle gibt ein Array von [`NotRestoredReasonDetails`](/de/docs/Web/API/NotRestoredReasonDetails)-Objekten zurück, die jeweils einen Grund darstellen, warum die navigierte Seite daran gehindert wurde, den Vor-/Zurück-Cache ([bfcache](/de/docs/Glossary/bfcache)) zu nutzen.
 
 ## Wert
 
-Ein Array von {{domxref("NotRestoredReasonDetails")}}-Objekten. Siehe [Blockierungsgründe](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons#blocking_reasons) für eine Liste der möglichen Blockierungsgründe.
+Ein Array von [`NotRestoredReasonDetails`](/de/docs/Web/API/NotRestoredReasonDetails)-Objekten. Siehe [Blocking-Gründe](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons#blocking_reasons) für eine Liste der möglichen Blockierungsgründe.
 
-Befindet sich das Dokument in einem Cross-Origin-{{htmlelement("iframe")}}, wird `reasons` `null` zurückgeben, aber das übergeordnete Dokument kann einen `reason` von `"masked"` anzeigen, wenn ein `<iframe>` die Nutzung von bfcache für den Haupt-Frame blockiert hat.
+Wenn das Dokument in einem Cross-Origin {{htmlelement("iframe")}} ist, wird `reasons` `null` zurückgeben, aber das übergeordnete Dokument kann einen `reason` von `"masked"` anzeigen, wenn irgendwelche `<iframe>`s die bfcache-Nutzung für den obersten Frame blockiert haben.
 
 ## Beispiele
 
-Siehe [Überwachung von bfcache Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) für Beispiele.
+Siehe [Überwachung der bfcache-Blocking-Gründe](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) für Beispiele.
 
 ## Spezifikationen
 
@@ -30,5 +30,5 @@ Siehe [Überwachung von bfcache Blockierungsgründen](/de/docs/Web/API/Performan
 
 ## Siehe auch
 
-- [Überwachung von bfcache Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
-- {{domxref("PerformanceNavigationTiming.notRestoredReasons")}}
+- [Überwachung der bfcache-Blocking-Gründe](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
+- [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons)

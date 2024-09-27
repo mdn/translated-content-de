@@ -1,5 +1,5 @@
 ---
-title: "IntersectionObserverEntry: isIntersecting-Eigenschaft"
+title: "IntersectionObserverEntry: isIntersecting Eigenschaft"
 short-title: isIntersecting
 slug: Web/API/IntersectionObserverEntry/isIntersecting
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die schreibgeschützte **`isIntersecting`**-Eigenschaft des {{domxref("IntersectionObserverEntry")}}-Interfaces ist ein Boolean-Wert, der `true` ist, wenn das Zielelement mit der Wurzel des Intersection Observers schneidet. Wenn dies `true` ist, beschreibt der `IntersectionObserverEntry` einen Übergang in einen Zustand der Schnittmenge; wenn es `false` ist, wissen Sie, dass der Übergang von Schnittmenge zu Nicht-Schnittmenge erfolgt.
+Die schreibgeschützte **`isIntersecting`**-Eigenschaft des [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Interfaces ist ein Boolean-Wert, der `true` ist, wenn das Zielelement mit dem Wurzelknoten des Intersection Observers überlappt. Ist dieser Wert `true`, so beschreibt das `IntersectionObserverEntry` einen Übergang in einen Zustand der Überlappung; ist er `false`, wissen Sie, dass der Übergang von Überlappung zu Nicht-Überlappung erfolgt.
 
 ## Wert
 
-Ein Boolean-Wert, der anzeigt, ob das {{domxref("IntersectionObserverEntry.target", "target")}}-Element in einen Zustand der Schnittmenge (`true`) oder aus einem Zustand der Schnittmenge (`false`) übergegangen ist.
+Ein Boolean-Wert, der angibt, ob das [`target`](/de/docs/Web/API/IntersectionObserverEntry/target)-Element in einen Zustand der Überlappung (`true`) übergegangen ist oder aus einem Zustand der Überlappung (`false`) heraus.
 
 ## Beispiele
 
-In diesem einfachen Beispiel wird ein Schnittmengen-Callback verwendet, um einen Zähler für die Anzahl der Zielelemente zu aktualisieren, die sich derzeit mit der {{domxref("IntersectionObserver.root", "Schnittwurzel", "", 1)}} schneiden.
+In diesem einfachen Beispiel wird ein Intersection-Callback verwendet, um einen Zähler zu aktualisieren, wie viele Ziel-Elemente derzeit mit der {{domxref("IntersectionObserver.root", "Schnittstelle des Intersectionswurzel", "", 1)}} überlappen.
 
 ```js
 function intersectionCallback(entries) {
@@ -30,7 +30,7 @@ function intersectionCallback(entries) {
 }
 ```
 
-Um ein konkreteres Beispiel zu sehen, schauen Sie sich [Handling intersection changes](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility#handling_intersection_changes) an.
+Um ein konkreteres Beispiel zu sehen, werfen Sie einen Blick auf [Umgang mit Überlappungsänderungen](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility#handling_intersection_changes).
 
 ## Spezifikationen
 

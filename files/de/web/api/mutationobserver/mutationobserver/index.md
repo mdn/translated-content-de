@@ -1,5 +1,5 @@
 ---
-title: "MutationObserver: MutationObserver()-Konstruktor"
+title: "MutationObserver: MutationObserver() Konstruktor"
 short-title: MutationObserver()
 slug: Web/API/MutationObserver/MutationObserver
 l10n:
@@ -9,11 +9,13 @@ l10n:
 {{APIRef("DOM WHATWG")}}
 
 Der DOM-**`MutationObserver()`**
-Konstruktor – Teil der {{domxref("MutationObserver")}}-Schnittstelle – erstellt und
-gibt einen neuen Observer zurück, welcher beim Auftreten von DOM-Ereignissen einen angegebenen Rückruf aufruft.
+Konstruktor – Teil der [`MutationObserver`](/de/docs/Web/API/MutationObserver) Schnittstelle – erstellt und
+gibt einen neuen Beobachter zurück, der eine angegebene Rückruffunktion aufruft, wenn DOM-Ereignisse
+stattfinden.
 
-Die DOM-Beobachtung beginnt nicht sofort; die
-{{domxref("MutationObserver.observe", "observe()")}}-Methode muss zuerst aufgerufen werden, um festzulegen, welcher Teil des DOM beobachtet werden soll und welche Arten von Änderungen zu überwachen sind.
+Die Beobachtung des DOM beginnt nicht sofort; die
+[`observe()`](/de/docs/Web/API/MutationObserver/observe) Methode muss zuerst aufgerufen werden, um
+festzulegen, welcher Teil des DOM beobachtet werden soll und auf welche Arten von Änderungen zu achten ist.
 
 ## Syntax
 
@@ -25,29 +27,30 @@ new MutationObserver(callback)
 
 - `callback`
 
-  - : Eine Funktion, die bei jeder DOM-Änderung aufgerufen wird, die bei dem beobachteten Knoten oder Teilbaum und den Optionen zutrifft.
+  - : Eine Funktion, die bei jeder DOM-Änderung aufgerufen wird, die im beobachteten Knoten oder Unterbaum und den Optionen angegeben ist.
 
-    Die `callback`-Funktion nimmt zwei Parameter als Eingabe entgegen:
+    Die `callback`-Funktion nimmt zwei Parameter entgegen:
 
-    1. Ein Array von {{domxref("MutationRecord")}}-Objekten, die jede aufgetretene Änderung beschreiben.
-    2. Der {{domxref("MutationObserver")}}, der den `callback` aufgerufen hat. Dies wird meistens verwendet, um den Observer mit {{domxref("MutationObserver.disconnect()")}} zu trennen.
+    1. Ein Array von [`MutationRecord`](/de/docs/Web/API/MutationRecord)-Objekten, die jede aufgetretene Änderung beschreiben.
+    2. Der [`MutationObserver`](/de/docs/Web/API/MutationObserver), der den
+       `callback` aufgerufen hat. Dies wird meistens verwendet, um den Beobachter mithilfe von [`MutationObserver.disconnect()`](/de/docs/Web/API/MutationObserver/disconnect) zu trennen.
 
     Siehe die [Beispiele](#beispiele) unten für weitere Details.
 
 ### Rückgabewert
 
-Ein neues {{domxref("MutationObserver")}}-Objekt, konfiguriert, um den angegebenen
-`callback` aufzurufen, wenn DOM-Mutationen auftreten.
+Ein neues [`MutationObserver`](/de/docs/Web/API/MutationObserver) Objekt, das konfiguriert ist, die angegebene
+`callback`-Funktion aufzurufen, wenn DOM-Mutationen auftreten.
 
 ## Beispiele
 
-### Beobachten von Kindelementen
+### Beobachtung von Kindelementen
 
-Dieses Beispiel verfügt über Schaltflächen zum Hinzufügen eines {{htmlelement("li")}}-Elements zu einer Liste und zum Entfernen des ersten `<li>`-Elements aus der Liste.
+In diesem Beispiel gibt es Schaltflächen, um ein {{htmlelement("li")}}-Element zu einer Liste hinzuzufügen und das erste `<li>`-Element aus der Liste zu entfernen.
 
-Wir verwenden einen `MutationObserver`, um über Änderungen an der Liste benachrichtigt zu werden. Im Callback protokollieren wir Hinzufügungen und Entfernungen, und sobald die Liste leer ist, trennen wir den Observer.
+Wir verwenden einen `MutationObserver`, um über Änderungen an der Liste benachrichtigt zu werden. Im Rückrufprotokollieren wir Hinzufügungen und Entfernungen, und sobald die Liste leer ist, trennen wir den Beobachter.
 
-Die Schaltfläche "Beispiel zurücksetzen" setzt das Beispiel in den ursprünglichen Zustand zurück.
+Die Schaltfläche "Beispiel zurücksetzen" setzt das Beispiel auf seinen ursprünglichen Zustand zurück.
 
 #### HTML
 
@@ -132,11 +135,11 @@ observer.observe(container, observerOptions);
 
 #### Ergebnis
 
-Versuchen Sie, auf "Add child" zu klicken, um Listenelemente hinzuzufügen, und auf "Remove child", um sie zu entfernen. Der Observer-Callback protokolliert Hinzufügungen und Entfernungen. Sobald die Liste leer ist, protokolliert der Observer eine "Disconnected"-Meldung und trennt den Observer.
+Versuchen Sie, auf "Add child" zu klicken, um Listenelemente hinzuzufügen, und "Remove child", um sie zu entfernen. Der Rückruf des Beobachters protokolliert Hinzufügungen und Entfernungen. Sobald die Liste leer ist, protokolliert der Beobachter eine "Disconnected"-Meldung und trennt den Beobachter.
 
-Die Schaltfläche "Beispiel zurücksetzen" lädt das Beispiel neu, sodass Sie es erneut versuchen können.
+Die Schaltfläche "Beispiel zurücksetzen" lädt das Beispiel neu, damit Sie es erneut ausprobieren können.
 
-{{EmbedLiveSample("Observing child elements", 0, 400)}}
+{{EmbedLiveSample("Beobachtung von Kindelementen", 0, 400)}}
 
 ## Spezifikationen
 

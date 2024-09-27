@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die **`Window.resizeBy()`**-Methode ändert die Größe des aktuellen Fensters um einen bestimmten Betrag.
+Die **`Window.resizeBy()`**-Methode ändert die Größe des aktuellen Fensters um einen angegebenen Betrag.
 
 ## Syntax
 
@@ -25,41 +25,41 @@ resizeBy(xDelta, yDelta)
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ```js
-// Fenster verkleinern
+// Shrink the window
 window.resizeBy(-200, -200);
 ```
 
 ## Hinweise
 
-Diese Methode ändert die Größe des Fensters relativ zu seiner aktuellen Größe. Um die Fenstergröße in absoluten Zahlen zu ändern, verwenden Sie {{domxref("window.resizeTo()")}}.
+Diese Methode ändert die Größe des Fensters relativ zu seiner aktuellen Größe. Um die Größe des Fensters absolut zu ändern, verwenden Sie [`window.resizeTo()`](/de/docs/Web/API/Window/resizeTo).
 
-### Erstellen und Größenänderung eines externen Fensters
+### Erstellen und Ändern der Größe eines externen Fensters
 
-Aus Sicherheitsgründen ist es in Firefox nicht mehr möglich, dass eine Website die Standardgröße eines Fensters in einem Browser ändert, wenn das Fenster nicht durch `window.open()` erstellt wurde oder mehr als ein Tab enthält. Details zur Änderung finden Sie in der Kompatibilitätstabelle.
+Aus Sicherheitsgründen ist es in Firefox nicht mehr möglich, dass eine Website die Standardgröße eines Fensters in einem Browser ändert, wenn das Fenster nicht durch `window.open()` erstellt wurde oder mehr als einen Tab enthält. Details zur Änderung finden Sie in der Kompatibilitätstabelle.
 
-Selbst wenn Sie ein Fenster mit `window.open()` erstellen, **ist es standardmäßig nicht anpassbar.** Um das Fenster anpassbar zu machen, müssen Sie es mit der `"resizable"`-Funktion öffnen.
+Auch wenn Sie ein Fenster mit `window.open()` erstellen, **ist es standardmäßig nicht anpassbar.** Um das Fenster anpassbar zu machen, müssen Sie es mit der `"resizable"`-Funktion öffnen.
 
 ```js
-// Anpassbares Fenster erstellen
+// Create resizable window
 myExternalWindow = window.open(
   "https://example.com",
   "myWindowName",
-  "resizable"
+  "resizable",
 );
 
-// Fenstergröße auf 500x500 ändern
+// Resize window to 500x500
 myExternalWindow.resizeTo(500, 500);
 
-// Fenster relativ verkleinern auf 400x400
+// Make window relatively smaller to 400x400
 myExternalWindow.resizeBy(-100, -100);
 ```
 
-Das von Ihnen erstellte Fenster muss die Same-Origin-Richtlinie respektieren. Wenn das von Ihnen geöffnete Fenster nicht in der gleichen Herkunft wie das aktuelle Fenster ist, können Sie weder die Größe ändern noch auf Informationen in diesem Fenster/Tab zugreifen.
+Das von Ihnen erstellte Fenster muss die Same-Origin-Policy respektieren. Wenn das von Ihnen geöffnete Fenster nicht im gleichen Ursprung wie das aktuelle Fenster liegt, können Sie die Größe nicht ändern oder auf Informationen in diesem Fenster/Tab zugreifen.
 
 ## Spezifikationen
 
@@ -70,4 +70,4 @@ Das von Ihnen erstellte Fenster muss die Same-Origin-Richtlinie respektieren. We
 {{Compat}}
 
 > [!NOTE]
-> Diese Funktion könnte das Fenster nicht synchron vergrößern. In einigen Umgebungen (wie mobil) könnte es das Fenster überhaupt nicht vergrößern. Sie können das {{domxref("Window/resize_event", "resize")}}-Ereignis abhören, um zu sehen, ob/wann das Fenster vergrößert wurde.
+> Diese Funktion könnte das Fenster möglicherweise nicht synchron verkleinern. In einigen Umgebungen (wie z.B. Mobilgeräten) könnte die Größe des Fensters überhaupt nicht geändert werden. Sie können dem [`resize`](/de/docs/Web/API/Window/resize_event) Ereignis lauschen, um zu sehen, ob/wann das Fenster verkleinert wurde.

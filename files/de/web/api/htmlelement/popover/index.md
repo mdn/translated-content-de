@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("Popover API")}}
 
-Die **`popover`**-Eigenschaft der {{domxref("HTMLElement")}}-Schnittstelle ruft den Popover-Zustand eines Elements ab und setzt diesen über JavaScript (`"auto"` oder `"manual"`) und kann zur Funktionserkennung verwendet werden.
+Die **`popover`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces holt und setzt den Popover-Status eines Elements via JavaScript (`"auto"` oder `"manual"`), und kann zur Feature-Erkennung verwendet werden.
 
 Sie spiegelt den Wert des globalen HTML-Attributs [`popover`](/de/docs/Web/HTML/Global_attributes/popover) wider.
 
 ## Wert
 
-Ein enumerierter Wert; mögliche Werte sind:
+Ein aufgezählter Wert; mögliche Werte sind:
 
-- `"auto"`: Im [Auto-Zustand](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss):
-  - Das Popover kann „leicht ausgeblendet“ werden – das bedeutet, dass Sie das Popover ausblenden können, indem Sie außerhalb davon klicken oder die Taste <kbd>Esc</kbd> drücken.
-  - Normalerweise kann nur ein Popover gleichzeitig angezeigt werden – das Anzeige eines zweiten Popovers, wenn bereits eines angezeigt wird, blendet das erste aus. Die Ausnahme von dieser Regel ist, wenn Sie verschachtelte Popovers haben. Siehe [Verschachtelte Popovers](/de/docs/Web/API/Popover_API/Using#nested_popovers) für weitere Details.
-- `"manual"`: Im [Manuellen Zustand](/de/docs/Web/API/Popover_API/Using#using_manual_popover_state):
-  - Das Popover kann nicht „leicht ausgeblendet“ werden, obwohl deklarative Anzeigen/Verbergen/Umschalt-Buttons weiterhin funktionieren.
+- `"auto"`: Im [Auto-Status](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss):
+  - Der Popover kann durch "leichtes Entlassen" versteckt werden — das bedeutet, Sie können den Popover verbergen, indem Sie außerhalb davon klicken oder die <kbd>Esc</kbd>-Taste drücken.
+  - Normalerweise kann nur ein Popover gleichzeitig angezeigt werden — das Anzeigen eines zweiten Popovers, wenn bereits einer angezeigt wird, wird den ersten verbergen. Die Ausnahme von dieser Regel ist, wenn Sie verschachtelte Auto-Popovers haben. Siehe [Verschachtelte Popovers](/de/docs/Web/API/Popover_API/Using#nested_popovers) für weitere Details.
+- `"manual"`: Im [manuellen Status](/de/docs/Web/API/Popover_API/Using#using_manual_popover_state):
+  - Der Popover kann nicht durch "leichtes Entlassen" versteckt werden, obwohl deklarative Anzeigen/Verbergen/Toggle-Schaltflächen weiterhin funktionieren.
   - Mehrere unabhängige Popovers können gleichzeitig angezeigt werden.
 
 ## Beispiele
 
-### Funktionserkennung
+### Feature-Erkennung
 
-Sie können das `popover`-Attribut verwenden, um die [Popover API](/de/docs/Web/API/Popover_API) zu erkennen:
+Sie können das `popover`-Attribut zur Erkennung der [Popover API](/de/docs/Web/API/Popover_API) verwenden:
 
 ```js
 function supportsPopover() {
@@ -35,7 +35,7 @@ function supportsPopover() {
 }
 ```
 
-### Ein Popover programmatisch einrichten
+### Einrichten eines Popovers programmgesteuert
 
 ```js
 const popover = document.getElementById("mypopover");
@@ -62,5 +62,5 @@ if (popoverSupported) {
 
 ## Siehe auch
 
-- [`popover`](/de/docs/Web/HTML/Global_attributes/popover) HTML-Globalattribut
+- [`popover`](/de/docs/Web/HTML/Global_attributes/popover) globales HTML-Attribut
 - [Popover API](/de/docs/Web/API/Popover_API)

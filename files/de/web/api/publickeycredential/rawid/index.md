@@ -8,28 +8,34 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`rawId`** schreibgeschützte Eigenschaft des {{domxref("PublicKeyCredential")}}-Interfaces ist ein {{jsxref("ArrayBuffer")}}-Objekt, das den Bezeichner der Anmeldedaten enthält.
+Die **`rawId`** schreibgeschützte Eigenschaft des
+[`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces ist ein {{jsxref("ArrayBuffer")}}-Objekt,
+das den Identifikator der Anmeldeinformationen enthält.
 
-Die {{domxref("PublicKeyCredential.id")}}-Eigenschaft ist eine [base64url kodierte](/de/docs/Glossary/Base64) Version dieses Bezeichners.
+Die [`PublicKeyCredential.id`](/de/docs/Web/API/PublicKeyCredential/id)-Eigenschaft ist eine [base64url-kodierte](/de/docs/Glossary/Base64) Version dieses Identifikators.
 
 > [!NOTE]
-> Diese Eigenschaft darf nur in obersten Kontexten verwendet werden und wird beispielsweise in einem {{HTMLElement("iframe")}} nicht verfügbar sein.
+> Diese Eigenschaft kann nur in obersten Kontexten verwendet werden und wird
+> zum Beispiel in einem {{HTMLElement("iframe")}} nicht verfügbar sein.
 
 ## Wert
 
-Ein {{jsxref("ArrayBuffer")}}, der den Bezeichner der Anmeldedaten enthält. Dieser Bezeichner soll global einzigartig sein und ist für den aktuellen `PublicKeyCredential` und seine zugehörige {{domxref("AuthenticatorAssertionResponse")}} vorgesehen.
+Ein {{jsxref("ArrayBuffer")}}, das den Identifikator der Anmeldeinformationen enthält. Dieser
+Identifikator soll global eindeutig sein und ist für das aktuelle
+`PublicKeyCredential` und dessen zugehörige
+[`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse) bestimmt.
 
 ## Beispiele
 
 ```js
 const options = {
-  challenge: new Uint8Array(26) /* vom Server */,
+  challenge: new Uint8Array(26) /* from the server */,
   rp: {
     name: "Example CORP",
     id: "login.example.com",
   },
   user: {
-    id: new Uint8Array(26) /* Für jeden Benutzer zu ändern */,
+    id: new Uint8Array(26) /* To be changed for each user */,
     name: "canand@example.com",
     displayName: "Carina Anand",
   },
@@ -45,10 +51,10 @@ navigator.credentials
   .create({ publicKey: options })
   .then((pubKeyCredential) => {
     const rawId = pubKeyCredential.rawId;
-    // Machen Sie etwas mit rawId
+    // Do something with rawId
   })
   .catch((err) => {
-    // Behandeln Sie alle Fehler
+    // Deal with any error
   });
 ```
 

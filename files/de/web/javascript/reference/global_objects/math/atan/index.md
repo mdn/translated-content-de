@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Math.atan()`** gibt die Arkustangente (in Radiant) einer Zahl zurück, das heißt:
+Die statische Methode **`Math.atan()`** gibt den Arkustangens (in Radiant) einer Zahl zurück, das heißt
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -30,11 +30,11 @@ Math.atan(x)
 
 ### Rückgabewert
 
-Die Arkustangente (Winkel in Radiant zwischen <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> und <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math>, inklusive) von `x`. Wenn `x` {{jsxref("Infinity")}} ist, wird <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math> zurückgegeben. Wenn `x` `-Infinity` ist, wird <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> zurückgegeben.
+Der Arkustangens (Winkel in Radiant zwischen <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> und <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math>, einschließlich) von `x`. Wenn `x` {{jsxref("Infinity")}} ist, gibt es <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math> zurück. Wenn `x` `-Infinity` ist, gibt es <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> zurück.
 
 ## Beschreibung
 
-Da `atan()` eine statische Methode von `Math` ist, wird sie immer als `Math.atan()` verwendet, nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `atan()` eine statische Methode von `Math` ist, wird sie immer als `Math.atan()` verwendet und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -47,11 +47,11 @@ Math.atan(0); // 0
 Math.atan(1); // 0.7853981633974483  (π/4)
 Math.atan(Infinity); // 1.5707963267948966  (π/2)
 
-// Der Winkel, den die Linie (0,0) -- (x,y) mit der x-Achse in einem kartesischen Koordinatensystem bildet
+// The angle that the line (0,0) -- (x,y) forms with the x-axis in a Cartesian coordinate system
 const theta = (x, y) => Math.atan(y / x);
 ```
 
-Beachten Sie, dass Sie die `theta`-Funktion vermeiden und stattdessen {{jsxref("Math.atan2()")}} verwenden sollten, die einen größeren Bereich (zwischen -π und π) hat und verhindert, dass `NaN` ausgegeben wird, beispielsweise wenn `x` `0` ist.
+Beachten Sie, dass es sinnvoll sein kann, die `theta`-Funktion zu vermeiden und stattdessen {{jsxref("Math.atan2()")}} zu verwenden, die einen größeren Bereich (zwischen -π und π) hat und das Ausgeben von `NaN` für Fälle vermeidet, in denen `x` `0` ist.
 
 ## Spezifikationen
 

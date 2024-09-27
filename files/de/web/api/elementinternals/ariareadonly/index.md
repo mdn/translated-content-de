@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaReadOnly`**-Eigenschaft der {{domxref("ElementInternals")}}-Schnittstelle spiegelt den Wert des [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-readonly)-Attributs wider, welches anzeigt, dass das Element nicht bearbeitbar ist, aber ansonsten bedienbar bleibt.
+Die **`ariaReadOnly`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-readonly`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-readonly)-Attributs wider, welches angibt, dass das Element nicht editierbar ist, aber ansonsten bedienbar.
 
 > [!NOTE]
-> Das Setzen von ARIA-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken für ein benutzerdefiniertes Element festzulegen. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder gar nicht hinzufügt. Weitere Informationen finden Sie im [Erklärungsdokument des Accessibility Object Model](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, jedoch wird sichergestellt, dass die Standardsemantiken beibehalten werden, sollte der Autor diese Attribute löschen oder sie überhaupt nicht hinzufügen. Weitere Informationen finden Sie im [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
-Eine Zeichenkette mit einem der folgenden Werte:
+Ein String mit einem der folgenden Werte:
 
 - `"true"`
   - : Der Benutzer kann den Wert des Elements nicht ändern.
 - `"false"`
-  - : Der Benutzer kann den Wert des Elements festlegen.
+  - : Der Benutzer kann den Wert des Elements setzen.
 
 ## Beispiele
 
@@ -40,4 +40,4 @@ this.internals_.ariaReadonly = "true";
 
 ## Siehe auch
 
-- [ARIA: textbox-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role)
+- [ARIA: textbox role](/de/docs/Web/Accessibility/ARIA/Roles/textbox_role)

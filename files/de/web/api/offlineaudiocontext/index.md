@@ -7,58 +7,58 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Das `OfflineAudioContext`-Interface ist ein {{domxref("AudioContext")}}-Interface, das einen Audio-Verarbeitungsgraphen repräsentiert, der aus miteinander verbundenen {{domxref("AudioNode")}}s besteht. Im Gegensatz zu einem standardmäßigen {{domxref("AudioContext")}} rendert ein `OfflineAudioContext` den Ton nicht an die Gerätehardware, sondern erzeugt ihn so schnell wie möglich und gibt das Ergebnis an einen {{domxref("AudioBuffer")}} aus.
+Das `OfflineAudioContext` Interface ist ein [`AudioContext`](/de/docs/Web/API/AudioContext) Interface, das einen Audiobearbeitungs-Graph repräsentiert, der aus miteinander verbundenen [`AudioNode`](/de/docs/Web/API/AudioNode)s aufgebaut ist. Im Gegensatz zu einem standardmäßigen [`AudioContext`](/de/docs/Web/API/AudioContext) rendert ein `OfflineAudioContext` den Ton nicht auf der Gerätehardware; stattdessen erzeugt es diesen so schnell wie möglich und gibt das Ergebnis an einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) aus.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("OfflineAudioContext.OfflineAudioContext()", "OfflineAudioContext()")}}
+- [`OfflineAudioContext()`](/de/docs/Web/API/OfflineAudioContext/OfflineAudioContext)
   - : Erstellt eine neue Instanz von `OfflineAudioContext`.
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seinem Elterninterface, {{domxref("BaseAudioContext")}}._
+_Erbt auch Eigenschaften von seinem übergeordneten Interface [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)._
 
-- {{domxref('OfflineAudioContext.length')}} {{ReadOnlyInline}}
-  - : Eine Ganzzahl, die die Größe des Puffers in Sample-Frames darstellt.
+- [`OfflineAudioContext.length`](/de/docs/Web/API/OfflineAudioContext/length) {{ReadOnlyInline}}
+  - : Eine Ganzzahl, die die Größe des Buffers in Sample-Frames darstellt.
 
 ## Instanz-Methoden
 
-_Erbt auch Methoden von seinem Elterninterface, {{domxref("BaseAudioContext")}}._
+_Erbt auch Methoden von seinem übergeordneten Interface [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)._
 
-- {{domxref("OfflineAudioContext.suspend()")}}
-  - : Plant eine Unterbrechung des Zeitfortschritts im Audio-Context zur angegebenen Zeit und gibt ein Promise zurück.
-- {{domxref("OfflineAudioContext.startRendering()")}}
-  - : Startet das Rendern des Audios unter Berücksichtigung der aktuellen Verbindungen und geplanten Änderungen. Diese Seite behandelt sowohl die ereignisbasierte als auch die promise-basierte Version.
+- [`OfflineAudioContext.suspend()`](/de/docs/Web/API/OfflineAudioContext/suspend)
+  - : Plant eine Aussetzung des Zeitfortschritts im Audiokontext zu einem bestimmten Zeitpunkt und gibt ein Versprechen zurück.
+- [`OfflineAudioContext.startRendering()`](/de/docs/Web/API/OfflineAudioContext/startRendering)
+  - : Beginnt mit dem Rendern des Audios, unter Berücksichtigung der aktuellen Verbindungen und der aktuell geplanten Änderungen. Diese Seite behandelt sowohl die ereignisbasierte als auch die versprechensbasierte Version.
 
 ### Veraltete Methoden
 
-- {{domxref("OfflineAudioContext.resume()")}}
-  - : Setzt den Zeitfortschritt in einem Audio-Context fort, der zuvor unterbrochen wurde.
+- [`OfflineAudioContext.resume()`](/de/docs/Web/API/OfflineAudioContext/resume)
+  - : Setzt den Zeitfortschritt in einem Audiokontext fort, der zuvor ausgesetzt wurde.
 
 > [!NOTE]
-> Die `resume()`-Methode ist weiterhin verfügbar — sie ist nun im {{domxref("BaseAudioContext")}}-Interface definiert (siehe {{domxref("AudioContext.resume")}}) und kann somit von sowohl dem {{domxref("AudioContext")}} als auch dem `OfflineAudioContext`-Interface aufgerufen werden.
+> Die Methode `resume()` ist weiterhin verfügbar — sie ist nun im [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) Interface definiert (siehe [`AudioContext.resume`](/de/docs/Web/API/AudioContext/resume)) und kann somit von den Interfaces [`AudioContext`](/de/docs/Web/API/AudioContext) und `OfflineAudioContext` aufgerufen werden.
 
 ## Ereignisse
 
-Diese Ereignisse können mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) gehört werden, oder indem ein Event-Listener der `oneventname`-Eigenschaft dieses Interfaces zugewiesen wird:
+Diese Ereignisse können mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) abgehört werden oder durch Zuweisen eines Ereignis-Listeners zur `oneventname` Eigenschaft dieses Interfaces:
 
 - [`complete`](/de/docs/Web/API/OfflineAudioContext/complete_event)
-  - : Wird ausgelöst, wenn das Rendern eines Offline-Audio-Contexts abgeschlossen ist.
+  - : Wird ausgelöst, wenn das Rendern eines offline Audiokontexts abgeschlossen ist.
 
 ## Beispiele
 
-### Abspielen von Audio mit einem Offline-Audio-Context
+### Abspielen von Audio mit einem Offline-Audiokontext
 
-In diesem Beispiel deklarieren wir sowohl ein {{domxref("AudioContext")}} als auch ein `OfflineAudioContext`-Objekt. Wir verwenden das `AudioContext`, um einen Audiotrack mit {{domxref("Window/fetch", "fetch()")}} zu laden, und dann das `OfflineAudioContext`, um das Audio in einen {{domxref("AudioBufferSourceNode")}} zu rendern und den Track abzuspielen. Nachdem der Offline-Audiograph eingerichtet ist, rendern wir ihn mit `OfflineAudioContext.startRendering()` in einen {{domxref("AudioBuffer")}}.
+In diesem Beispiel deklarieren wir sowohl ein [`AudioContext`](/de/docs/Web/API/AudioContext) als auch ein `OfflineAudioContext` Objekt. Wir nutzen das `AudioContext`, um eine Audiospur mit [`fetch()`](/de/docs/Web/API/Window/fetch) zu laden, und dann das `OfflineAudioContext`, um das Audio in einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) zu rendern und die Spur abzuspielen. Nachdem der Offline-Audiograph eingerichtet ist, rendern wir ihn mit `OfflineAudioContext.startRendering()` in einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer).
 
-Wenn das `startRendering()`-Promise aufgelöst wird, ist das Rendern abgeschlossen und der Ausgabe-`AudioBuffer` wird aus dem Promise zurückgegeben.
+Wenn das `startRendering()` Versprechen erfüllt ist, ist das Rendern abgeschlossen und der Ausgabe-`AudioBuffer` wird aus dem Versprechen zurückgegeben.
 
-An diesem Punkt erstellen wir einen weiteren Audio-Context, erstellen einen {{domxref("AudioBufferSourceNode")}} darin und setzen dessen Puffer gleich dem Promise-`AudioBuffer`. Dieser wird dann als Teil eines einfachen Standard-Audiographen abgespielt.
+An diesem Punkt erstellen wir einen weiteren Audiokontext, erstellen einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) darin und setzen dessen Buffer gleich dem Versprechen-`AudioBuffer`. Dieser wird dann als Teil eines einfachen standardmäßigen Audiographs abgespielt.
 
 > [!NOTE]
-> Sie können [das vollständige Beispiel live ausführen](https://mdn.github.io/webaudio-examples/offline-audio-context-promise/) oder [den Quellcode anzeigen](https://github.com/mdn/webaudio-examples/tree/main/offline-audio-context-promise).
+> Sie können das [vollständige Beispiel live ausführen](https://mdn.github.io/webaudio-examples/offline-audio-context-promise/) oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/offline-audio-context-promise).
 
 ```js
 // Define both online and offline audio contexts
@@ -120,4 +120,4 @@ play.onclick = () => {
 
 ## Siehe auch
 
-- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Die Web Audio API verwenden](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

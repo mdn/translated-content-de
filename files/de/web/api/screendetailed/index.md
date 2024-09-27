@@ -7,45 +7,45 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`ScreenDetailed`**-Schnittstelle der [Window Management API](/de/docs/Web/API/Window_Management_API) repräsentiert detaillierte Informationen über einen bestimmten Bildschirm, der dem Gerät des Benutzers zur Verfügung steht.
+Das **`ScreenDetailed`**-Interface der [Window Management API](/de/docs/Web/API/Window_Management_API) repräsentiert detaillierte Informationen über einen spezifischen Bildschirm, der dem Gerät des Benutzers zur Verfügung steht.
 
-`ScreenDetailed`-Objekte können über die Eigenschaften {{domxref("ScreenDetails.screens")}} und {{domxref("ScreenDetails.currentScreen")}} abgerufen werden.
+`ScreenDetailed`-Objekte können über die Eigenschaften [`ScreenDetails.screens`](/de/docs/Web/API/ScreenDetails/screens) und [`ScreenDetails.currentScreen`](/de/docs/Web/API/ScreenDetails/currentScreen) zugegriffen werden.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, {{DOMxRef("Screen")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`Screen`](/de/docs/Web/API/Screen)._
 
-- {{domxref("ScreenDetailed.availLeft", "availLeft")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine Zahl, die die x-Koordinate (linke Kante) des verfügbaren Bildschirmbereichs darstellt.
-- {{domxref("ScreenDetailed.availTop", "availTop")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine Zahl, die die y-Koordinate (obere Kante) des verfügbaren Bildschirmbereichs darstellt.
-- {{domxref("ScreenDetailed.devicePixelRatio", "devicePixelRatio")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine Zahl, die das Device-Pixel-Verhältnis des Bildschirms repräsentiert.
-- {{domxref("ScreenDetailed.isInternal", "isInternal")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein Boolean, der angibt, ob der Bildschirm intern zum Gerät ist oder extern.
-- {{domxref("ScreenDetailed.isPrimary", "isPrimary")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein Boolean, der angibt, ob der Bildschirm als primärer Bildschirm des Betriebssystems eingestellt ist oder nicht.
-- {{domxref("ScreenDetailed.label", "label")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein String, der eine beschreibende Bezeichnung für den Bildschirm bietet, zum Beispiel "Built-in Retina Display".
-- {{domxref("ScreenDetailed.left", "left")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine Zahl, die die x-Koordinate (linke Kante) des gesamten Bildschirmbereichs darstellt.
-- {{domxref("ScreenDetailed.top", "top")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine Zahl, die die y-Koordinate (obere Kante) des gesamten Bildschirmbereichs darstellt.
+- [`availLeft`](/de/docs/Web/API/ScreenDetailed/availLeft) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Eine Zahl, die die x-Koordinate (linker Rand) des verfügbaren Bildschirmbereichs darstellt.
+- [`availTop`](/de/docs/Web/API/ScreenDetailed/availTop) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Eine Zahl, die die y-Koordinate (oberer Rand) des verfügbaren Bildschirmbereichs darstellt.
+- [`devicePixelRatio`](/de/docs/Web/API/ScreenDetailed/devicePixelRatio) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Eine Zahl, die das Gerät-Pixel-Verhältnis des Bildschirms darstellt.
+- [`isInternal`](/de/docs/Web/API/ScreenDetailed/isInternal) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein boolescher Wert, der anzeigt, ob der Bildschirm intern zum Gerät gehört oder extern ist.
+- [`isPrimary`](/de/docs/Web/API/ScreenDetailed/isPrimary) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein boolescher Wert, der anzeigt, ob der Bildschirm als primärer Bildschirm des Betriebssystems (OS) festgelegt ist oder nicht.
+- [`label`](/de/docs/Web/API/ScreenDetailed/label) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein String, der eine beschreibende Bezeichnung für den Bildschirm liefert, z.B. "Eingebautes Retina-Display".
+- [`left`](/de/docs/Web/API/ScreenDetailed/left) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Eine Zahl, die die x-Koordinate (linker Rand) des gesamten Bildschirmbereichs darstellt.
+- [`top`](/de/docs/Web/API/ScreenDetailed/top) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Eine Zahl, die die y-Koordinate (oberer Rand) des gesamten Bildschirmbereichs darstellt.
 
 ## Ereignisse
 
-_Erbt Ereignisse von ihrem Elternteil, {{DOMxRef("Screen")}}._
+_Erbt Ereignisse von seinem Elternteil, [`Screen`](/de/docs/Web/API/Screen)._
 
 - `change` {{experimental_inline}}
-  - : Wird auf einem bestimmten Bildschirm ausgelöst, wenn sich eine Eigenschaft des Bildschirms ändert — Breite oder Höhe, verfügbare Breite oder verfügbare Höhe, Farbtiefe oder Orientierung, Position des Bildschirms und verfügbare Position des Bildschirms, Device-Pixel-Verhältnis, Bezeichnung oder Zuweisung des Bildschirms.
+  - : Wird auf einem bestimmten Bildschirm ausgelöst, wenn sich eine Eigenschaft des Bildschirms ändert — Breite oder Höhe, verfügbare Breite oder verfügbare Höhe, Farbtiefe oder Ausrichtung, Bildschirmposition und verfügbare Bildschirmposition, Gerät-Pixel-Verhältnis, Bezeichnung oder Zuweisung des Bildschirms.
 
 ## Beispiele
 
-Wenn {{domxref("Window.getScreenDetails()")}} aufgerufen wird, wird der Benutzer um Erlaubnis gefragt, Fenster auf allen seinen Bildschirmen zu verwalten (der Status dieser Erlaubnis kann mithilfe von {{domxref("Permissions.query()")}} abgefragt werden, um `window-management` zu überprüfen). Wenn die Erlaubnis erteilt wird, enthält das resultierende {{domxref("ScreenDetails")}}-Objekt `ScreenDetailed`-Objekte, die alle Bildschirme repräsentieren, die dem System des Benutzers zur Verfügung stehen.
+Wenn [`Window.getScreenDetails()`](/de/docs/Web/API/Window/getScreenDetails) aufgerufen wird, wird der Benutzer um Erlaubnis gefragt, Fenster auf allen seinen Bildschirmen zu verwalten (der Status dieser Erlaubnis kann überprüft werden, indem [`Permissions.query()`](/de/docs/Web/API/Permissions/query) verwendet wird, um `window-management` abzufragen). Wenn die Erlaubnis erteilt wird, enthält das resultierende [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Objekt `ScreenDetailed`-Objekte, die alle dem System des Benutzers zur Verfügung stehenden Bildschirme repräsentieren.
 
-Das folgende Beispiel öffnet ein Fenster in der oberen linken Ecke des primären Betriebssystembildschirms:
+Das folgende Beispiel öffnet ein Fenster in der oberen linken Ecke des primären OS-Bildschirms:
 
 ```js
 // Return ScreenDetails

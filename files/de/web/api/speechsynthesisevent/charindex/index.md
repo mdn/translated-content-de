@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesisEvent: Eigenschaft charIndex"
+title: "SpeechSynthesisEvent: charIndex-Eigenschaft"
 short-title: charIndex
 slug: Web/API/SpeechSynthesisEvent/charIndex
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte Eigenschaft **`charIndex`** der Schnittstelle {{domxref("SpeechSynthesisUtterance")}} gibt die Indexposition des Zeichens in {{domxref("SpeechSynthesisUtterance.text")}} zurück, das gesprochen wurde, als das Ereignis ausgelöst wurde.
+Die **`charIndex`**-Eigenschaft des schreibgeschützten Interface [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) gibt die Indexposition des Zeichens in [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zurück, das gesprochen wurde, als das Ereignis ausgelöst wurde.
 
 ## Wert
 
@@ -29,7 +29,7 @@ utterThis.onpause = (event) => {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 

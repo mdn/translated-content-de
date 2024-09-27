@@ -1,5 +1,5 @@
 ---
-title: Einen Anruf beantworten
+title: Einen Anruf annehmen
 slug: Web/API/WebRTC_API/Build_a_phone_with_peerjs/Connect_peers/Answer_a_call
 l10n:
   sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
@@ -9,9 +9,9 @@ l10n:
 
 {{PreviousMenuNext("Web/API/WebRTC_API/Build_a_phone_with_peerjs/Connect_peers/Creating_a_call", "Web/API/WebRTC_API/Build_a_phone_with_peerjs/Connect_peers/End_a_call")}}
 
-Nun können unsere Nutzer einen Anruf tätigen, aber sie können keinen beantworten. Lassen Sie uns das nächste Puzzlestück hinzufügen, damit die Nutzer Anrufe, die an sie gerichtet sind, beantworten können.
+Jetzt können unsere Benutzer einen Anruf tätigen, aber sie können keinen entgegennehmen. Fügen wir das nächste Puzzlestück hinzu, damit Benutzer Anrufe, die an sie gerichtet sind, annehmen können.
 
-1. Das peerJS-Framework stellt das `.on('call')`-Ereignis zur Verfügung, also nutzen wir es hier. Fügen Sie dies am Ende der `script.js` hinzu:
+1. Das peerJS-Framework stellt das `.on('call')`-Ereignis zur Verfügung, das wir hier verwenden werden. Fügen Sie dies am Ende von `script.js` hinzu:
 
    ```js
    peer.on("call", (call) => {
@@ -19,14 +19,14 @@ Nun können unsere Nutzer einen Anruf tätigen, aber sie können keinen beantwor
    });
    ```
 
-   Zuerst fordern wir den Nutzer mit einem Bestätigungsfenster auf, den Anruf zu beantworten. Dieses Fenster wird auf dem Bildschirm angezeigt (wie im Bild gezeigt), aus dem der Nutzer "OK" oder "Abbrechen" auswählen kann — das entspricht einem zurückgegebenen booleschen Wert. Wenn Sie in Ihrem Browser auf "Anrufen" drücken, sollte das folgende Fenster erscheinen:
+   Zuerst fordern wir den Benutzer mit einem Bestätigungsdialog auf, den Anruf anzunehmen. Dies zeigt ein Fenster auf dem Bildschirm an (wie im Bild gezeigt), aus dem der Benutzer "OK" oder "Abbrechen" auswählen kann — dies ergibt einen zurückgegebenen booleschen Wert. Wenn Sie im Browser auf "Call" klicken, sollte der folgende Aufforderung erscheinen:
 
-   ![Ein Browservorschlag, der fragt "Do you want to answer?" mit zwei Optionen: "Cancel" und "Ok"](confirm_prompt.png)
+   ![Ein Browser-Prompt, der fragt: "Möchten Sie antworten?" mit zwei Optionen: "Abbrechen" und "Ok"](confirm_prompt.png)
 
    > [!WARNING]
-   > Da wir eine `confirm`-Eingabeaufforderung verwenden, um den Nutzer zu fragen, ob er den Anruf annehmen möchte, ist es wichtig, dass der Browser und der Tab, der angerufen wird, "aktiv" ist. Das bedeutet, dass das Fenster nicht minimiert sein sollte und der Tab auf dem Bildschirm sein und der Mausfokus irgendwo darin liegen sollte. Idealerweise würden Sie in einer Produktionsversion dieser App ein eigenes modales Fenster in HTML erstellen, das diese Einschränkungen nicht hat.
+   > Da wir einen `confirm`-Dialog verwenden, um den Benutzer zu fragen, ob er den Anruf annehmen möchte, ist es wichtig, dass der Browser und die Registerkarte, die angerufen werden, "aktiv" sind. Das bedeutet, dass das Fenster nicht minimiert und die Registerkarte auf dem Bildschirm sichtbar sein und irgendwo den Fokus der Maus haben sollte. Idealerweise würden Sie in einer Produktionsversion dieser App Ihr eigenes modales Fenster in HTML erstellen, das diese Einschränkungen nicht hat.
 
-2. Lassen Sie uns diesen Ereignis-Listener ausarbeiten. Aktualisieren Sie ihn wie folgt:
+2. Lasst uns diesen Ereignislistener weiter ausarbeiten. Aktualisieren Sie ihn wie folgt:
 
    ```js
    peer.on("call", (call) => {
@@ -49,13 +49,13 @@ Nun können unsere Nutzer einen Anruf tätigen, aber sie können keinen beantwor
 
    Lassen Sie uns die wichtigsten Teile dieses Codes durchgehen:
 
-   - `call.answer(window.localStream)`: wenn `answerCall` `true` ist, sollten Sie die `answer()`-Funktion von peerJS für den Anruf aufrufen, um eine Antwort zu erstellen, indem Sie den lokalen Stream übergeben.
-   - `showCallContent`: Ähnlich wie bei dem, was Sie im Ereignis-Listener des Anrufbuttons gemacht haben, möchten Sie sicherstellen, dass die Person, die angerufen wird, den richtigen HTML-Inhalt sieht.
-   - Alles im Block `call.on('stream', () => { }` ist genau dasselbe wie im Ereignis-Listener des Anrufbuttons. Der Grund, warum Sie es hier ebenfalls hinzufügen müssen, ist, dass der Browser auch für die Person, die den Anruf beantwortet, aktualisiert wird.
-   - Wenn die Person den Anruf ablehnt, protokollieren wir einfach eine Nachricht in der Konsole.
+   - `call.answer(window.localStream)`: Wenn `answerCall` `true` ist, sollten Sie die `answer()`-Funktion von peerJS auf den Anruf aufrufen, um eine Antwort zu erstellen, und dabei den lokalen Stream übergeben.
+   - `showCallContent`: Ähnlich wie bei dem Event-Listener des Anruf-Buttons möchten Sie sicherstellen, dass die angerufene Person den richtigen HTML-Inhalt sieht.
+   - Alles im Block `call.on('stream', () => { }` ist genau das gleiche wie im Ereignislistener des Anruf-Buttons. Der Grund, warum Sie es hier ebenfalls hinzufügen müssen, ist, dass der Browser auch für die Person, die den Anruf annimmt, aktualisiert wird.
+   - Wenn die Person den Anruf ablehnt, werden wir einfach eine Nachricht im Console-Log ausgeben.
 
-3. Der Code, den Sie jetzt haben, reicht aus, damit Sie einen Anruf erstellen und beantworten können. Aktualisieren Sie Ihre Browser und testen Sie es aus. Stellen Sie sicher, dass beide Browser die Konsole geöffnet haben, sonst erhalten Sie die Eingabeaufforderung zur Anrufbeantwortung nicht. Klicken Sie auf Anruf, übermitteln Sie die Peer-ID des anderen Browsers und beantworten Sie dann den Anruf. Die endgültige Seite sollte so aussehen:
+3. Der Code, den Sie jetzt haben, reicht aus, um einen Anruf zu erstellen und ihn zu beantworten. Laden Sie Ihre Browser neu und testen Sie es aus. Sie sollten sicherstellen, dass beide Browser die Konsole geöffnet haben, sonst erhalten Sie keine Aufforderung, den Anruf zu beantworten. Klicken Sie auf "Call", geben Sie die Peer-ID des anderen Browsers ein und nehmen Sie den Anruf entgegen. Die endgültige Seite sollte so aussehen:
 
-   ![Zwei Bildschirme nebeneinander haben beide einen cremefarbenen Hintergrund mit den Worten "phone a friend" in fettgedruckter, dunkelgrüner Schrift als Überschrift. Darunter befindet sich "You're connected" und "please use headphones!" sowie "You're automatically muted, please unmute yourself!" Weiter unten ein großer dunkelroter Knopf mit "Hang up" in der gleichen cremigen Farbe wie der Hintergrund.](screens_side_by_side.png)
+   ![Zwei Bildschirme nebeneinander, beide haben einen cremefarbenen Hintergrund mit den Worten 'phone a friend' in fettgedruckter, dunkelgrüner Schrift als Überschrift. Darunter steht 'You're connected', gefolgt von 'please use headphones!' und 'You're automatically muted, please unmute yourself!'. Darauf folgt ein großer dunkelroter Button mit 'Hang up' in derselben cremefarbenen Farbe des Hintergrunds.](screens_side_by_side.png)
 
 {{PreviousMenuNext("Web/API/WebRTC_API/Build_a_phone_with_peerjs/Connect_peers/Creating_a_call", "Web/API/WebRTC_API/Build_a_phone_with_peerjs/Connect_peers/End_a_call")}}

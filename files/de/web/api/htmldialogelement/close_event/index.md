@@ -1,5 +1,5 @@
 ---
-title: "HTMLDialogElement: close Ereignis"
+title: "HTMLDialogElement: close-Event"
 short-title: close
 slug: Web/API/HTMLDialogElement/close_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das `close` Ereignis wird auf einem `HTMLDialogElement` Objekt ausgelöst, wenn das {{htmlelement("dialog")}}, das es repräsentiert, geschlossen wurde.
+Das `close`-Ereignis wird auf einem `HTMLDialogElement`-Objekt ausgelöst, wenn das von ihm repräsentierte {{htmlelement("dialog")}} geschlossen wurde.
 
-Dieses Ereignis ist nicht abbruchfähig und propagiert nicht.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht hochgebubbelt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("close", (event) => {});
@@ -24,7 +24,7 @@ onclose = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -35,13 +35,13 @@ Ein generisches {{domxref("Event")}}.
 ```html
 <dialog class="example-dialog">
   <form method="dialog">
-    <button>Schließen über method="dialog"</button>
+    <button>Close via method="dialog"</button>
   </form>
-  <button class="close">Schließen über .close() Methode</button>
-  <p>Oder drücken Sie die <kbd>Esc</kbd>-Taste</p>
+  <button class="close">Close via .close() method</button>
+  <p>Or hit the <kbd>Esc</kbd> key</p>
 </dialog>
 
-<button class="open-dialog">Dialog öffnen</button>
+<button class="open-dialog">Open dialog</button>
 
 <div class="result"></div>
 ```

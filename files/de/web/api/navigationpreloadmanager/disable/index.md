@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`disable()`**-Methode des {{domxref("NavigationPreloadManager")}}-Interfaces stoppt das automatische Vorladen von Ressourcen, die vom Service Worker verwaltet werden und zuvor mit {{domxref("NavigationPreloadManager.enable()","enable()")}} gestartet wurden. Sie gibt ein Versprechen zurück, das mit `undefined` aufgelöst wird.
+Die **`disable()`**-Methode der [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager)-Schnittstelle stoppt das automatische Vorladen von Ressourcen, die durch den Service-Worker verwaltet werden und zuvor mit [`enable()`](/de/docs/Web/API/NavigationPreloadManager/enable) gestartet wurden. Sie gibt ein Promise zurück, das mit `undefined` aufgelöst wird.
 
-Die Methode kann im `activate`-Ereignishandler des Service Workers aufgerufen werden (bevor der `fetch`-Ereignishandler aufgerufen werden kann).
+Die Methode kann im `activate`-Event-Handler des Service-Workers aufgerufen werden (bevor der `fetch`-Event-Handler aufgerufen werden kann).
 
 ## Syntax
 
@@ -28,19 +28,19 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref('undefined')}} aufgelöst wird.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Es gibt keinen aktiven Worker, der mit der Registrierung verbunden ist, zu der dieses {{domxref("NavigationPreloadManager")}} gehört.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Es gibt keinen aktiven Worker, der mit der Registrierung verbunden ist, zu der dieser [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager) gehört.
 
 ## Beispiele
 
-Der folgende Code zeigt, wie das Vorladen deaktiviert werden kann, nachdem zuerst {{domxref("ServiceWorkerRegistration.navigationPreload")}} verwendet wurde, um zu testen, ob es unterstützt wird.
+Der folgende Code zeigt, wie das Vorladen deaktiviert wird, nachdem zuerst mit [`ServiceWorkerRegistration.navigationPreload`](/de/docs/Web/API/ServiceWorkerRegistration/navigationPreload) getestet wurde, ob es unterstützt wird.
 
 ```js
 addEventListener("activate", (event) => {
   event.waitUntil(
     (async () => {
       if (self.registration.navigationPreload) {
-        // Navigation Preloads deaktivieren!
+        // Disable navigation preloads!
         await self.registration.navigationPreload.disable();
       }
     })(),
@@ -58,4 +58,4 @@ addEventListener("activate", (event) => {
 
 ## Siehe auch
 
-{{domxref("NavigationPreloadManager.enable()")}}
+[`NavigationPreloadManager.enable()`](/de/docs/Web/API/NavigationPreloadManager/enable)

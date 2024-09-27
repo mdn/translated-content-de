@@ -1,5 +1,5 @@
 ---
-title: "Document: requestStorageAccess()-Methode"
+title: "Document: requestStorageAccess() Methode"
 short-title: requestStorageAccess()
 slug: Web/API/Document/requestStorageAccess
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Storage Access API")}}
 
-Die **`requestStorageAccess()`**-Methode des {{domxref("Document")}}-Interfaces ermöglicht es Inhalten, die in einem Drittanbieterkontext geladen sind (d.h. eingebettet in einem {{htmlelement("iframe")}}), den Zugriff auf [Drittanbieter-Cookies](/de/docs/Web/Privacy/Third-party_cookies) und [nicht partitionierten Zustand](/de/docs/Web/Privacy/State_Partitioning#state_partitioning) anzufordern. Dies ist relevant für Benutzeragenten, die standardmäßig den Zugriff auf Drittanbieter-[nicht partitionierte](/de/docs/Web/API/Storage_Access_API#unpartitioned_versus_partitioned_cookies) Cookies blockieren, um die Privatsphäre zu verbessern (z.B. um Tracking zu verhindern) und ist Teil der [Storage Access API](/de/docs/Web/API/Storage_Access_API).
+Die **`requestStorageAccess()`** Methode der [`Document`](/de/docs/Web/API/Document) Schnittstelle ermöglicht es Inhalten, die in einem Drittanbieter-Kontext geladen werden (d. h. eingebettet in einem {{htmlelement("iframe")}}), den Zugriff auf [Drittanbieter-Cookies](/de/docs/Web/Privacy/Third-party_cookies) und [unpartitionierten Zustand](/de/docs/Web/Privacy/State_Partitioning#state_partitioning) anzufordern. Dies ist relevant für Benutzeragenten, die standardmäßig den Zugriff auf Drittanbieter-[unpartitionierte](/de/docs/Web/API/Storage_Access_API#unpartitioned_versus_partitioned_cookies) Cookies blockieren, um die Privatsphäre zu verbessern (z. B. um Tracking zu verhindern), und ist Teil der [Storage Access API](/de/docs/Web/API/Storage_Access_API).
 
-Um zu überprüfen, ob die Berechtigung zum Zugriff auf Drittanbieter-Cookies bereits erteilt wurde, können Sie {{domxref("Permissions.query()")}} aufrufen und den Funktionsnamen `"storage-access"` angeben.
+Um zu überprüfen, ob bereits die Berechtigung zum Zugriff auf Drittanbieter-Cookies erteilt wurde, können Sie [`Permissions.query()`](/de/docs/Web/API/Permissions/query) aufrufen und den Funktionsnamen `"storage-access"` angeben.
 
 > [!NOTE]
-> Die Nutzung dieser Funktion kann durch eine auf Ihrem Server festgelegte {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden. Darüber hinaus muss das Dokument zusätzliche, browserspezifische Prüfungen bestehen, wie Whitelists, Blacklists, On-Device-Klassifizierungen, Benutzereinstellungen, Anti-[Clickjacking](/de/docs/Glossary/Clickjacking)-Heuristiken oder Anfordern der ausdrücklichen Zustimmung des Benutzers.
+> Die Nutzung dieser Funktion kann durch eine {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy), die auf Ihrem Server eingerichtet ist, blockiert werden. Darüber hinaus muss das Dokument zusätzliche, browserspezifische Prüfungen bestehen, wie z. B. Zulassungslisten, Sperrlisten, auf dem Gerät durchgeführte Klassifizierungen, Benutzereinstellungen, Anti-[Clickjacking](/de/docs/Glossary/Clickjacking) Heuristiken oder die explizite Einholung der Erlaubnis des Benutzers.
 
 ## Syntax
 
@@ -26,57 +26,57 @@ requestStorageAccess(types)
 
 - `types` {{optional_inline}}
 
-  - : Ein Objekt, das Eigenschaften enthält, die steuern, welcher nicht partitionierte Zustand zugänglich gemacht werden soll. Wenn nicht angegeben, ist der Standardwert der Eigenschaft `false`. Verfügbare Eigenschaften sind wie folgt:
+  - : Ein Objekt, das Eigenschaften enthält, die steuern, welcher unpartitionierte Zustand zugänglich gemacht wird. Wird nichts angegeben, beträgt der Standardwert der Eigenschaft `false`. Verfügbare Eigenschaften sind wie folgt:
 
     - `all`
-      - : Ein boolescher Wert, der angibt, dass alle möglichen nicht partitionierten Zustände zugänglich gemacht werden sollen.
+      - : Ein Boolean, der angibt, dass alle möglichen unpartitionierten Zustände zugänglich gemacht werden sollen.
     - `cookies`
-      - : Ein boolescher Wert, der angibt, dass Drittanbieter-Cookies zugänglich gemacht werden sollen.
+      - : Ein Boolean, der angibt, dass Drittanbieter-Cookies zugänglich gemacht werden sollen.
     - `sessionStorage`
-      - : Ein boolescher Wert, der angibt, dass {{domxref("StorageAccessHandle.sessionStorage")}} zugänglich gemacht werden soll.
+      - : Ein Boolean, der angibt, dass [`StorageAccessHandle.sessionStorage`](/de/docs/Web/API/StorageAccessHandle/sessionStorage) zugänglich gemacht werden soll.
     - `localStorage`
-      - : Ein boolescher Wert, der angibt, dass {{domxref("StorageAccessHandle.localStorage")}} zugänglich gemacht werden soll.
+      - : Ein Boolean, der angibt, dass [`StorageAccessHandle.localStorage`](/de/docs/Web/API/StorageAccessHandle/localStorage) zugänglich gemacht werden soll.
     - `indexedDB`
-      - : Ein boolescher Wert, der angibt, dass {{domxref("StorageAccessHandle.indexedDB")}} zugänglich gemacht werden soll.
+      - : Ein Boolean, der angibt, dass [`StorageAccessHandle.indexedDB`](/de/docs/Web/API/StorageAccessHandle/indexedDB) zugänglich gemacht werden soll.
     - `locks`
-      - : Ein boolescher Wert, der angibt, dass {{domxref("StorageAccessHandle.locks")}} zugänglich gemacht werden soll.
+      - : Ein Boolean, der angibt, dass [`StorageAccessHandle.locks`](/de/docs/Web/API/StorageAccessHandle/locks) zugänglich gemacht werden soll.
     - `caches`
-      - : Ein boolescher Wert, der angibt, dass {{domxref("StorageAccessHandle.caches")}} zugänglich gemacht werden soll.
+      - : Ein Boolean, der angibt, dass [`StorageAccessHandle.caches`](/de/docs/Web/API/StorageAccessHandle/caches) zugänglich gemacht werden soll.
     - `getDirectory`
-      - : Ein boolescher Wert, der angibt, dass {{domxref("StorageAccessHandle.getDirectory()")}} zugänglich gemacht werden soll.
+      - : Ein Boolean, der angibt, dass [`StorageAccessHandle.getDirectory()`](/de/docs/Web/API/StorageAccessHandle/getDirectory) zugänglich gemacht werden soll.
     - `estimate`
-      - : Ein boolescher Wert, der angibt, dass {{domxref("StorageAccessHandle.estimate()")}} zugänglich gemacht werden soll.
+      - : Ein Boolean, der angibt, dass [`StorageAccessHandle.estimate()`](/de/docs/Web/API/StorageAccessHandle/estimate) zugänglich gemacht werden soll.
     - `createObjectURL`
-      - : Ein boolescher Wert, der angibt, dass {{domxref("StorageAccessHandle.createObjectURL()")}} zugänglich gemacht werden soll.
+      - : Ein Boolean, der angibt, dass [`StorageAccessHandle.createObjectURL()`](/de/docs/Web/API/StorageAccessHandle/createObjectURL) zugänglich gemacht werden soll.
     - `revokeObjectURL`
-      - : Ein boolescher Wert, der angibt, dass {{domxref("StorageAccessHandle.revokeObjectURL()")}} zugänglich gemacht werden soll.
+      - : Ein Boolean, der angibt, dass [`StorageAccessHandle.revokeObjectURL()`](/de/docs/Web/API/StorageAccessHandle/revokeObjectURL) zugänglich gemacht werden soll.
     - `BroadcastChannel`
-      - : Ein boolescher Wert, der angibt, dass {{domxref("StorageAccessHandle.BroadcastChannel()")}} zugänglich gemacht werden soll.
+      - : Ein Boolean, der angibt, dass [`StorageAccessHandle.BroadcastChannel()`](/de/docs/Web/API/StorageAccessHandle/BroadcastChannel) zugänglich gemacht werden soll.
     - `SharedWorker`
-      - : Ein boolescher Wert, der angibt, dass {{domxref("StorageAccessHandle.SharedWorker()")}} zugänglich gemacht werden soll.
+      - : Ein Boolean, der angibt, dass [`StorageAccessHandle.SharedWorker()`](/de/docs/Web/API/StorageAccessHandle/SharedWorker) zugänglich gemacht werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit `undefined` erfüllt wird, wenn der Zugriff auf Drittanbieter-Cookies gewährt wurde und kein `types`-Parameter angegeben wurde, wird mit {{domxref("StorageAccessHandle")}} erfüllt, wenn der Zugriff auf den nicht partitionierten Zustand, der durch den `types`-Parameter angefordert wurde, gewährt wurde, und wird abgelehnt, wenn der Zugriff verweigert wurde.
+Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird, wenn der Zugriff auf Drittanbieter-Cookies gewährt wurde und kein `types`-Parameter angegeben wurde, wird mit [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle) erfüllt, wenn der Zugriff auf den vom `types`-Parameter angeforderten unpartitionierten Zustand gewährt wurde, und wird abgelehnt, wenn der Zugriff verweigert wurde.
 
-`requestStorageAccess()`-Anfragen werden automatisch abgelehnt, es sei denn, der eingebettete Inhalt verarbeitet derzeit einen Benutzerbefehl, wie ein Tippen oder Klicken ({{Glossary("transient activation")}}), oder es wurde bereits zuvor eine Erlaubnis erteilt. Wenn die Erlaubnis nicht zuvor erteilt wurde, müssen sie innerhalb eines benutzerbefehlbasierten Ereignishandlers ausgeführt werden. Das Verhalten des Benutzerbefehls hängt vom Zustand des Versprechens ab:
+`requestStorageAccess()` Anfragen werden automatisch abgelehnt, es sei denn, der eingebettete Inhalt verarbeitet derzeit eine Benutzergeste wie einen Tipp oder Klick ([transiente Aktivierung](/de/docs/Glossary/transient_activation)) oder es wurde bereits zuvor die Erlaubnis erteilt. Wenn bislang keine Erlaubnis erteilt wurde, müssen sie innerhalb eines benutzergesteuerten Ereignis-Handlers ausgeführt werden. Das Verhalten der Benutzergeste hängt vom Status des Versprechens ab:
 
-- Wenn das Versprechen erfüllt wird (d.h. wenn die Erlaubnis erteilt wurde), wurde der Benutzerbefehl nicht verbraucht, sodass das Skript anschließend APIs aufrufen kann, die einen Benutzerbefehl erfordern.
-- Wenn das Versprechen abgelehnt wird (d.h. die Erlaubnis wurde nicht erteilt), wurde der Benutzerbefehl verbraucht, sodass das Skript nichts tun kann, was einen Befehl erfordert. Dies ist ein beabsichtigter Schutz vor Missbrauch — es verhindert, dass Skripte `requestStorageAccess()` in einer Schleife aufrufen, bis der Benutzer die Eingabeaufforderung akzeptiert.
+- Wenn das Versprechen aufgelöst wird (d. h. wenn die Erlaubnis erteilt wurde), wurde die Benutzergeste nicht verbraucht, sodass das Skript anschließend APIs aufrufen kann, die eine Benutzergeste erfordern.
+- Wenn das Versprechen abgelehnt wird (d. h. die Erlaubnis wurde nicht erteilt), wurde die Benutzergeste verbraucht, sodass das Skript nichts tun kann, was eine Geste erfordert. Dies ist ein beabsichtigter Schutz gegen Missbrauch — es verhindert, dass Skripts `requestStorageAccess()` in einer Schleife aufrufen, bis der Benutzer die Eingabeaufforderung akzeptiert.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Ausgelöst wenn:
-    - Das aktuelle {{domxref("Document")}} ist noch nicht aktiv.
-    - Der `types`-Parameter wird angegeben und alle seine Eigenschaften sind `false`.
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Ausgelöst wenn:
-    - Das Fenster des Dokuments befindet sich nicht in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts).
-    - Die Nutzung wird durch eine {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
-    - Das Dokument oder das oberste Dokument hat einen `null`-Ursprung.
-    - Das einbettende {{htmlelement("iframe")}} ist sandboxed, und das `allow-storage-access-by-user-activation` Token ist nicht gesetzt.
-    - Die Nutzung wird durch die Berechtigungsanforderung des Benutzeragenten zur Nutzung der API verweigert.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn:
+    - Das aktuelle [`Document`](/de/docs/Web/API/Document) noch nicht aktiv ist.
+    - Der `types`-Parameter angegeben wird und alle seine Eigenschaften `false` sind.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn:
+    - Das Fenster des Dokuments kein [sicherer Kontext](/de/docs/Web/Security/Secure_Contexts) ist.
+    - Die Nutzung durch eine {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert wird.
+    - Das Dokument oder das übergeordnete Dokument einen `null` Ursprung hat.
+    - Das einbettende {{htmlelement("iframe")}} sandboxed ist und das `allow-storage-access-by-user-activation` Token nicht gesetzt ist.
+    - Die Nutzung durch die Berechtigungsanfrage des Benutzeragenten, die API zu verwenden, verweigert wird.
 
 ## Beispiele
 
@@ -102,7 +102,7 @@ document.requestStorageAccess({ localStorage: true }).then(
 ```
 
 > [!NOTE]
-> Siehe [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
+> Sehen Sie [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
 
 ## Spezifikationen
 
@@ -114,6 +114,6 @@ document.requestStorageAccess({ localStorage: true }).then(
 
 ## Siehe auch
 
-- {{domxref("Document.hasStorageAccess()")}}, {{domxref("Document.hasUnpartitionedCookieAccess()")}}, {{domxref("Document.requestStorageAccessFor()")}}
-- [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
-- [Introducing Storage Access API](https://webkit.org/blog/8124/introducing-storage-access-api/) (WebKit Blog)
+- [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess), [`Document.hasUnpartitionedCookieAccess()`](/de/docs/Web/API/Document/hasUnpartitionedCookieAccess), [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor)
+- [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
+- [Einführung der Storage Access API](https://webkit.org/blog/8124/introducing-storage-access-api/) (WebKit Blog)

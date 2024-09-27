@@ -7,42 +7,42 @@ l10n:
 
 {{ApiRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`PushManager`**-Schnittstelle der [Push-API](/de/docs/Web/API/Push_API) bietet eine Möglichkeit, Benachrichtigungen von Drittanbieter-Servern zu empfangen und URLs für Push-Benachrichtigungen anzufordern.
+Das **`PushManager`**-Interface der [Push-API](/de/docs/Web/API/Push_API) bietet eine Möglichkeit, Benachrichtigungen von Drittservern zu empfangen sowie URLs für Push-Benachrichtigungen anzufordern.
 
-Auf diese Schnittstelle wird über die {{domxref("ServiceWorkerRegistration.pushManager")}}-Eigenschaft zugegriffen.
+Auf dieses Interface wird über die [`ServiceWorkerRegistration.pushManager`](/de/docs/Web/API/ServiceWorkerRegistration/pushManager)-Eigenschaft zugegriffen.
 
 ## Statische Eigenschaften
 
 - [`PushManager.supportedContentEncodings`](/de/docs/Web/API/PushManager/supportedContentEncodings_static)
-  - : Gibt ein Array unterstützter Inhaltscodierungen zurück, die zur Verschlüsselung der Nutzlast einer Push-Nachricht verwendet werden können.
+  - : Gibt ein Array der unterstützten Inhaltskodierungen zurück, die verwendet werden können, um die Nutzlast einer Push-Nachricht zu verschlüsseln.
 
 ## Instanzmethoden
 
-- {{domxref("PushManager.getSubscription()")}}
-  - : Ruft ein vorhandenes Push-Abonnement ab. Es gibt ein {{jsxref("Promise")}} zurück, das zu einem {{domxref("PushSubscription")}}-Objekt aufgelöst wird, das Details eines vorhandenen Abonnements enthält. Wenn kein bestehendes Abonnement vorhanden ist, wird dies zu einem `null`-Wert aufgelöst.
-- {{domxref("PushManager.permissionState()")}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das den Berechtigungsstatus des aktuellen `PushManager` auflöst, der einer von `'granted'`, `'denied'` oder `'prompt'` sein wird.
-- {{domxref("PushManager.subscribe()")}}
-  - : Abonniert einen Push-Dienst. Es gibt ein {{jsxref("Promise")}} zurück, das zu einem {{domxref("PushSubscription")}}-Objekt aufgelöst wird, das Details eines Push-Abonnements enthält. Ein neues Push-Abonnement wird erstellt, wenn der aktuelle Service Worker kein vorhandenes Abonnement hat.
+- [`PushManager.getSubscription()`](/de/docs/Web/API/PushManager/getSubscription)
+  - : Ruft ein bestehendes Push-Abonnement ab. Es gibt ein {{jsxref("Promise")}} zurück, das zu einem [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Objekt aufgelöst wird, das Details eines bestehenden Abonnements enthält. Wenn kein bestehendes Abonnement existiert, wird es zu einem `null`-Wert aufgelöst.
+- [`PushManager.permissionState()`](/de/docs/Web/API/PushManager/permissionState)
+  - : Gibt ein {{jsxref("Promise")}} zurück, das auf den Berechtigungsstatus des aktuellen `PushManager` aufgelöst wird, der einer von `'granted'`, `'denied'` oder `'prompt'` sein wird.
+- [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe)
+  - : Abonniert einen Push-Dienst. Es gibt ein {{jsxref("Promise")}} zurück, das auf ein [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Objekt aufgelöst wird, das Details eines Push-Abonnements enthält. Ein neues Push-Abonnement wird erstellt, wenn der aktuelle Service Worker kein bestehendes Abonnement hat.
 
 ### Veraltete Methoden
 
-- {{domxref("PushManager.hasPermission()")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das den `PushPermissionStatus` der anfragenden Webanwendung auflöst, der einer von `granted`, `denied` oder `default` sein wird. Ersetzt durch {{domxref("PushManager.permissionState()")}}.
-- {{domxref("PushManager.register()")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Abonniert ein Push-Abonnement. Ersetzt durch {{domxref("PushManager.subscribe()")}}.
-- {{domxref("PushManager.registrations()")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Ruft bestehende Push-Abonnements ab. Ersetzt durch {{domxref("PushManager.getSubscription()")}}.
-- {{domxref("PushManager.unregister()")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Heben Sie die Registrierung auf und löschen Sie einen angegebenen Abonnementendpunkt. In der aktualisierten API wird ein Abonnement abgemeldet, indem die {{domxref("PushSubscription.unsubscribe()")}}-Methode aufgerufen wird.
+- [`PushManager.hasPermission()`](/de/docs/Web/API/PushManager/hasPermission) {{deprecated_inline}} {{non-standard_inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das auf den `PushPermissionStatus` der anfordernden Webanwendung aufgelöst wird, der einer von `granted`, `denied` oder `default` sein wird. Ersetzt durch [`PushManager.permissionState()`](/de/docs/Web/API/PushManager/permissionState).
+- [`PushManager.register()`](/de/docs/Web/API/PushManager/register) {{deprecated_inline}} {{non-standard_inline}}
+  - : Abonniert ein Push-Abonnement. Ersetzt durch [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe).
+- [`PushManager.registrations()`](/de/docs/Web/API/PushManager/registrations) {{deprecated_inline}} {{non-standard_inline}}
+  - : Ruft bestehende Push-Abonnements ab. Ersetzt durch [`PushManager.getSubscription()`](/de/docs/Web/API/PushManager/getSubscription).
+- [`PushManager.unregister()`](/de/docs/Web/API/PushManager/unregister) {{deprecated_inline}} {{non-standard_inline}}
+  - : Hebt die Registrierung eines bestimmten Abonnement-Endpunkts auf und löscht diesen. In der aktualisierten API wird ein Abonnement durch Aufrufen der [`PushSubscription.unsubscribe()`](/de/docs/Web/API/PushSubscription/unsubscribe)-Methode abgemeldet.
 
 ## Beispiel
 
 ```js
 this.onpush = (event) => {
   console.log(event.data);
-  // Von hier aus können wir die Daten in IndexedDB schreiben, sie an
-  // offene Fenster senden, eine Benachrichtigung anzeigen usw.
+  // From here we can write the data to IndexedDB, send it to any open
+  // windows, display a notification, etc.
 };
 
 navigator.serviceWorker
@@ -51,9 +51,9 @@ navigator.serviceWorker
     serviceWorkerRegistration.pushManager.subscribe().then(
       (pushSubscription) => {
         console.log(pushSubscription.endpoint);
-        // Die für den Anwendungsserver erforderlichen Push-Abonnementdetails
-        // sind jetzt verfügbar und können ihm beispielsweise
-        // über die fetch() API gesendet werden.
+        // The push subscription details needed by the application
+        // server are now available, and can be sent to it using,
+        // for example, the fetch() API.
       },
       (error) => {
         console.error(error);
@@ -66,7 +66,7 @@ navigator.serviceWorker
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

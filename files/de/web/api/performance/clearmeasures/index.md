@@ -3,12 +3,12 @@ title: "Performance: clearMeasures() Methode"
 short-title: clearMeasures()
 slug: Web/API/Performance/clearMeasures
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("Performance API")}}
 
-Die **`clearMeasures()`** Methode entfernt alle oder spezifische {{domxref("PerformanceMeasure")}} Objekte aus der Performance-Zeitleiste des Browsers.
+Die **`clearMeasures()`**-Methode entfernt alle oder spezifische [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekte aus der Leistungstimeline des Browsers.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ clearMeasures(name)
 ### Parameter
 
 - `name` {{optional_inline}}
-  - : Ein String, der den {{domxref("PerformanceEntry.name", "name")}} des {{domxref("PerformanceMeasure")}} Objekts darstellt. Wenn dieses Argument weggelassen wird, werden alle Einträge mit einem {{domxref("PerformanceEntry.entryType","entryType")}} von "`measure`" entfernt.
+  - : Ein Zeichenfolgenwert, der den [`name`](/de/docs/Web/API/PerformanceEntry/name) des [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekts darstellt. Wenn dieses Argument weggelassen wird, werden alle Einträge mit einem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"measure"` entfernt.
 
 ### Rückgabewert
 
@@ -28,12 +28,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Entfernen von Messungen
+### Entfernen von Maßnahmen
 
-Um alle Performance-Messungen oder nur bestimmte Einträge zu bereinigen, verwenden Sie die `clearMeasures()` Methode wie folgt:
+Um alle Performance-Maßnahmen oder nur bestimmte Einträge zu bereinigen, verwenden Sie die `clearMeasures()`-Methode wie folgt:
 
 ```js
-// Erstellen Sie eine Reihe von Messungen
+// Create a bunch of measures
 performance.measure("from navigation");
 performance.mark("a");
 performance.measure("from mark a", "a");
@@ -44,11 +44,11 @@ performance.measure("between a and b", "a", "b");
 
 performance.getEntriesByType("measure").length; // 5
 
-// Löschen Sie nur die "from navigation" Messungseinträge
+// Delete just the "from navigation" measure entries
 performance.clearMeasures("from navigation");
 performance.getEntriesByType("measure").length; // 3
 
-// Löschen Sie alle Messungseinträge
+// Delete all of the measure entries
 performance.clearMeasures();
 performance.getEntriesByType("measure").length; // 0
 ```
@@ -63,4 +63,4 @@ performance.getEntriesByType("measure").length; // 0
 
 ## Siehe auch
 
-- {{domxref("PerformanceMeasure")}}
+- [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)

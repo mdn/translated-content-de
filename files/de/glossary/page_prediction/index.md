@@ -1,5 +1,5 @@
 ---
-title: Seitenvorhersage
+title: Seitenerkennung
 slug: Glossary/Page_prediction
 l10n:
   sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
@@ -7,14 +7,14 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Seitenvorhersage** ist eine Browserfunktion oder ein Skript, das, wenn es aktiviert ist, dem Browser mitteilt, Ressourcen herunterzuladen, die der Benutzer wahrscheinlich besuchen wird, bevor der Benutzer den Inhalt anfordert. Die Seitenvorhersage verbessert die Leistung, indem sie nahezu sofortiges Laden von vorhergesagtem Inhalt ermöglicht. Allerdings kann die Seitenvorhersage auch Inhalte herunterladen, die ein Benutzer nicht sucht.
+**Seitenerkennung** ist eine Browserfunktion oder ein Skript, das, wenn aktiviert, dem Browser anweist, Ressourcen herunterzuladen, die der Benutzer wahrscheinlich besuchen wird, bevor der Benutzer die Inhalte anfordert. Die Seitenerkennung verbessert die Leistung, indem sie fast sofortiges Laden der vorhergesagten Inhalte ermöglicht. Allerdings kann die Seitenerkennung auch Inhalte herunterladen, die ein Benutzer nicht benötigt.
 
-Einige Webanwendungen beinhalten eine Vorhersagefunktion, die Suchtext und Adressleisten-URLs basierend auf dem Browserverlauf und verwandten Suchen vervollständigt. Beispielsweise könnte der Browser, während der Benutzer in die Adressleiste tippt, den aktuellen Text in der Adressleiste an die Suchmaschine senden, bevor der Benutzer die Anfrage abschickt.
+Einige Webanwendungen beinhalten eine Vorhersagefunktion, die Suchtexte und Adressleisten-URLs basierend auf dem Browserverlauf und verwandten Suchanfragen vervollständigt. Zum Beispiel, wenn der Benutzer in die Adressleiste eingibt, könnte der Browser den aktuellen Text in der Adressleiste an die Suchmaschine senden, bevor der Benutzer die Anfrage absendet.
 
-Obwohl die Seitenvorhersage durch den Browser und Vorhersagedienste schnellere Seitenladezeiten ermöglichen, verbrauchen sie zusätzlich Bandbreite. Außerdem können vorab geladene Webseiten und eingebettete Inhalte ihre Cookies setzen und lesen, als ob sie besucht worden wären, auch wenn sie es nicht wurden.
+Obwohl Browser-Seitenerkennung und Vorhersagedienste schnellere Seitenladezeiten ermöglichen, verbrauchen sie zusätzliche Bandbreite. Außerdem können vorgeladene Websites und eingebettete Inhalte ihre Cookies setzen und lesen, als ob sie besucht worden wären, selbst wenn sie es nicht wurden.
 
 ## Siehe auch
 
-- Verwandte Glossartermine:
-  - {{Glossary("prerender")}}
-  - {{Glossary("prefetch")}}
+- Verwandte Glossarbegriffe:
+  - [prerender](/de/docs/Glossary/prerender)
+  - [prefetch](/de/docs/Glossary/prefetch)

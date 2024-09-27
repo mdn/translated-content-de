@@ -1,5 +1,5 @@
 ---
-title: Barrierefreiheit
+title: Zugänglichkeit
 slug: Learn/Accessibility
 l10n:
   sourceCommit: 33d92d501901ca505f1d33f914531753ca289f2e
@@ -7,58 +7,58 @@ l10n:
 
 {{LearnSidebar}}
 
-Es ist nützlich, etwas HTML, CSS und JavaScript zu lernen, wenn Sie Webentwickler werden möchten. Über den mechanischen Gebrauch hinaus ist es wichtig zu lernen, wie man diese Technologien **verantwortungsbewusst** einsetzt, damit alle Nutzer Ihre Kreationen im Web nutzen können. Um Ihnen dabei zu helfen, wird dieses Modul allgemeine Best Practices abdecken (die in den Themen [HTML](/de/docs/Learn/HTML), [CSS](/de/docs/Learn/CSS) und [JavaScript](/de/docs/Learn/JavaScript) demonstriert werden), [Cross-Browser-Tests](/de/docs/Learn/Tools_and_testing/Cross_browser_testing) und einige Tipps zur Durchsetzung von Barrierefreiheit von Anfang an. Wir werden Barrierefreiheit im Detail behandeln.
+Es ist nützlich, etwas HTML, CSS und JavaScript zu lernen, wenn Sie Webentwickler werden möchten. Über die mechanische Nutzung hinaus ist es wichtig, zu lernen, wie man diese Technologien **verantwortungsbewusst** einsetzt, damit alle Leser Ihre Kreationen im Internet nutzen können. Um Ihnen dabei zu helfen, behandelt dieses Modul grundlegende Best Practices (die in den Themen [HTML](/de/docs/Learn/HTML), [CSS](/de/docs/Learn/CSS) und [JavaScript](/de/docs/Learn/JavaScript) demonstriert werden), [Cross-Browser-Testing](/de/docs/Learn/Tools_and_testing/Cross_browser_testing) und einige Tipps zur Durchsetzung von Zugänglichkeit von Anfang an. Wir werden die Zugänglichkeit im Besonderen detailliert behandeln.
 
-## Überblick
+## Übersicht
 
-Wenn jemand eine Website als "zugänglich" beschreibt, bedeutet das, dass alle Benutzer alle Funktionen und Inhalte nutzen können, unabhängig davon, wie der Benutzer auf das Internet zugreift — insbesondere auch Benutzer mit körperlichen oder geistigen Beeinträchtigungen.
+Wenn jemand eine Website als "barrierefrei" beschreibt, bedeutet das, dass jeder Benutzer alle Funktionen und Inhalte nutzen kann, unabhängig davon, wie der Benutzer auf das Internet zugreift — und insbesondere auch Benutzer mit körperlichen oder geistigen Beeinträchtigungen.
 
-- Websites sollten für Tastatur-, Maus- und Touchscreen-Nutzer zugänglich sein und für jede andere Art, wie Benutzer auf das Web zugreifen, einschließlich Screenreader und Sprachassistenten wie Alexa und Google Home.
-- Anwendungen sollten von Menschen unabhängig von auditiven, visuellen, physischen oder kognitiven Fähigkeiten verstanden und genutzt werden können.
-- Websites sollten auch keinen Schaden verursachen: Web-Funktionen wie Bewegung können Migräne oder epileptische Anfälle auslösen.
+- Websites sollten für Tastatur-, Maus- und Touchscreen-Nutzer sowie jede andere Art, wie Nutzer auf das Internet zugreifen, einschließlich Bildschirmlesegeräten und Sprachassistenten wie Alexa und Google Home, zugänglich sein.
+- Anwendungen sollten unabhängig von auditiven, visuellen, körperlichen oder kognitiven Fähigkeiten verständlich und nutzbar sein.
+- Websites sollten auch keinen Schaden verursachen: Webfunktionen wie Bewegung können Migräne oder epileptische Anfälle auslösen.
 
-**Standardmäßig ist HTML, wenn es korrekt verwendet wird, zugänglich.** Web-Barrierefreiheit beinhaltet, sicherzustellen, dass Inhalte zugänglich bleiben, unabhängig davon, wer und wie auf das Web zugegriffen wird.
+**HTML ist standardmäßig zugänglich, wenn es korrekt verwendet wird.** Barrierefreiheit im Web bedeutet sicherzustellen, dass Inhalte zugänglich bleiben, unabhängig davon, wer und wie auf das Internet zugegriffen wird.
 
-Der Firefox Accessibility Inspector ist ein sehr nützliches Werkzeug, um Barrierefreiheitsprobleme auf Webseiten zu prüfen. Das folgende Video bietet eine schöne Einführung:
+Das Firefox Accessibility Inspector ist ein sehr nützliches Werkzeug, um Zugänglichkeitsprobleme auf Webseiten zu überprüfen. Das folgende Video bietet eine gute Einführung dazu:
 
 {{EmbedYouTube("7mqqgIxX_NU")}}
 
 ## Voraussetzungen
 
-Um das Beste aus diesem Modul herauszuholen, wäre es eine gute Idee, mindestens die ersten zwei Module der Themen [HTML](/de/docs/Learn/HTML), [CSS](/de/docs/Learn/CSS) und [JavaScript](/de/docs/Learn/JavaScript) durchzuarbeiten oder vielleicht noch besser, die relevanten Teile des Barrierefreiheitsmoduls durchzugehen, während Sie die verwandten Technologiethemen bearbeiten.
+Um das meiste aus diesem Modul herauszuholen, wäre es eine gute Idee, entweder mindestens die ersten beiden Module der Themen [HTML](/de/docs/Learn/HTML), [CSS](/de/docs/Learn/CSS) und [JavaScript](/de/docs/Learn/JavaScript) zu bearbeiten, oder sogar besser, die relevanten Teile des Zugänglichkeitsmoduls zu bearbeiten, während Sie die verwandten Technologiethemen durchgehen.
 
 > [!NOTE]
-> Wenn Sie an einem Computer/Tablet/anderen Geräten arbeiten, wo Sie keine eigenen Dateien erstellen können, können Sie die meisten der Codebeispiele in einem Online-Coding-Programm wie [JSBin](https://jsbin.com/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Wenn Sie an einem Computer/Tablet/anderen Geräten arbeiten, auf denen Sie nicht die Möglichkeit haben, eigene Dateien zu erstellen, können Sie die meisten der Codebeispiele in einem Online-Coding-Programm wie [JSBin](https://jsbin.com/) oder [Glitch](https://glitch.com/) ausprobieren.
 
 ## Leitfäden
 
-- [Was ist Barrierefreiheit?](/de/docs/Learn/Accessibility/What_is_accessibility)
-  - : Dieser Artikel beginnt das Modul mit einem guten Überblick darüber, was Barrierefreiheit ist — dazu gehört, welche Personengruppen wir berücksichtigen müssen und warum, welche Werkzeuge verschiedene Menschen verwenden, um mit dem Web zu interagieren, und wie wir Barrierefreiheit in unseren Webentwicklungsworkflow integrieren können.
-- [HTML: Eine gute Basis für Barrierefreiheit](/de/docs/Learn/Accessibility/HTML)
-  - : Ein großer Teil der Webinhalte kann zugänglich gemacht werden, indem sichergestellt wird, dass die richtigen HTML-Elemente immer für den richtigen Zweck verwendet werden. Dieser Artikel befasst sich im Detail damit, wie HTML verwendet werden kann, um maximale Barrierefreiheit zu gewährleisten.
-- [Beste Praktiken für CSS und JavaScript in Bezug auf Barrierefreiheit](/de/docs/Learn/Accessibility/CSS_and_JavaScript)
-  - : CSS und JavaScript, richtig verwendet, haben auch das Potenzial, barrierefreie Web-Erfahrungen zu ermöglichen, aber wenn sie missbräuchlich verwendet werden, können sie die Barrierefreiheit erheblich beeinträchtigen. Dieser Artikel skizziert einige CSS- und JavaScript-Best-Practices, die berücksichtigt werden sollten, um sicherzustellen, dass selbst komplexe Inhalte so zugänglich wie möglich sind.
-- [Grundlagen von WAI-ARIA](/de/docs/Learn/Accessibility/WAI-ARIA_basics)
-  - : Aufbauend auf dem vorherigen Artikel, kann es manchmal schwierig sein, komplexe UI-Kontrollen zu erstellen, die semantikfreies HTML und dynamisch aktualisierte JavaScript-Inhalte beinhalten. WAI-ARIA ist eine Technologie, die bei solchen Problemen helfen kann, indem sie zusätzliche Semantiken hinzufügt, die von Browsern und unterstützenden Technologien erkannt und verwendet werden kann, um Benutzern mitzuteilen, was vor sich geht. Hier zeigen wir, wie man sie auf einer grundlegenden Ebene verwenden kann, um die Barrierefreiheit zu verbessern.
-- [Zugängliche Multimediainhalte](/de/docs/Learn/Accessibility/Multimedia)
-  - : Eine weitere Kategorie von Inhalten, die Barrierefreiheitsprobleme verursachen können, ist Multimedia — Video-, Audio- und Bildinhalte müssen mit geeigneten textlichen Alternativen versehen werden, damit sie von unterstützenden Technologien und deren Nutzern verstanden werden können. Dieser Artikel zeigt, wie das geht.
-- [Mobile Barrierefreiheit](/de/docs/Learn/Accessibility/Mobile)
-  - : Da der Zugriff auf das Internet über mobile Geräte so beliebt ist und beliebte Plattformen wie iOS und Android vollwertige Barrierefreiheitswerkzeuge haben, ist es wichtig, die Barrierefreiheit Ihrer Webinhalte auf diesen Plattformen zu berücksichtigen. Dieser Artikel behandelt mobile spezifische Barrierefreiheitsüberlegungen.
+- [Was ist Zugänglichkeit?](/de/docs/Learn/Accessibility/What_is_accessibility)
+  - : Dieser Artikel beginnt das Modul mit einem guten Überblick darüber, was Zugänglichkeit ist — dazu gehört, welche Personengruppen wir berücksichtigen müssen und warum, welche Werkzeuge verschiedene Menschen verwenden, um mit dem Internet zu interagieren, und wie wir Zugänglichkeit in unseren Webentwicklungsprozess integrieren können.
+- [HTML: Eine gute Grundlage für Zugänglichkeit](/de/docs/Learn/Accessibility/HTML)
+  - : Ein großer Teil des Webinhalts kann zugänglich gemacht werden, indem sichergestellt wird, dass die richtigen HTML-Elemente immer für den richtigen Zweck verwendet werden. Dieser Artikel betrachtet im Detail, wie HTML verwendet werden kann, um maximale Zugänglichkeit zu gewährleisten.
+- [CSS- und JavaScript-Zugänglichkeitsbest-Praktiken](/de/docs/Learn/Accessibility/CSS_and_JavaScript)
+  - : CSS und JavaScript haben, wenn sie richtig eingesetzt werden, auch das Potenzial, zugängliche Weberfahrungen zu ermöglichen. Wenn sie jedoch missbraucht werden, können sie der Zugänglichkeit erheblich schaden. Dieser Artikel skizziert einige CSS- und JavaScript-Best-Practices, die berücksichtigt werden sollten, um sicherzustellen, dass auch komplexe Inhalte so zugänglich wie möglich sind.
+- [WAI-ARIA Grundlagen](/de/docs/Learn/Accessibility/WAI-ARIA_basics)
+  - : Aufbauend auf dem vorherigen Artikel kann es manchmal schwierig sein, komplexe UI-Steuerelemente zu erstellen, die unsemantisches HTML und dynamisch aktualisierte JavaScript-Inhalte beinhalten. WAI-ARIA ist eine Technologie, die bei solchen Problemen helfen kann, indem sie weitere Semantiken hinzufügt, die Browser und Hilfstechnologien erkennen und verwenden können, um Benutzern anzuzeigen, was vor sich geht. Hier zeigen wir auf einfache Weise, wie es zur Verbesserung der Zugänglichkeit genutzt werden kann.
+- [Barrierefreie Multimedia](/de/docs/Learn/Accessibility/Multimedia)
+  - : Eine weitere Kategorie von Inhalten, die Zugänglichkeitsprobleme verursachen können, ist Multimedia — Video-, Audio- und Bildinhalte müssen geeignete textliche Alternativen erhalten, damit sie von Hilfstechnologien und ihren Benutzern verstanden werden können. Dieser Artikel zeigt, wie das gemacht wird.
+- [Mobile Zugänglichkeit](/de/docs/Learn/Accessibility/Mobile)
+  - : Da der Webzugang auf mobilen Geräten so beliebt ist und Plattformen wie iOS und Android vollständig entwickelte Zugänglichkeitstools besitzen, ist es wichtig, die Zugänglichkeit Ihrer Webinhalte auf diesen Plattformen zu berücksichtigen. Dieser Artikel behandelt mobile spezifische Zugänglichkeitsüberlegungen.
 
 ## Bewertungen
 
-- [Fehlerbehebung bei Barrierefreiheit](/de/docs/Learn/Accessibility/Accessibility_troubleshooting)
-  - : In der Bewertung für dieses Modul präsentieren wir Ihnen eine einfache Website mit mehreren Barrierefreiheitsproblemen, die Sie diagnostizieren und beheben müssen.
+- [Fehlerbehebung bei der Zugänglichkeit](/de/docs/Learn/Accessibility/Accessibility_troubleshooting)
+  - : In der Bewertung für dieses Modul präsentieren wir Ihnen eine einfache Website mit mehreren Zugänglichkeitsproblemen, die Sie diagnostizieren und beheben müssen.
 
 ## Siehe auch
 
-- [Learn Accessible Web Design](https://v2.scrimba.com/learn-accessible-web-design-c031?via=mdn) <sup>_MDN Curriculum-Partner_</sup>
-  - : Der Kurs _Learn Accessible Web Design_ von [Scrimba](https://scrimba.com?via=mdn) lehrt Sie, wie man zugängliches HTML schreibt, indem Sie interaktive Programmieraufgaben lösen und eine reale Website reparieren.
+- [Learn Accessible Web Design](https://v2.scrimba.com/learn-accessible-web-design-c031?via=mdn) <sup>_MDN Curriculum Partner_</sup>
+  - : Der Kurs _Learn Accessible Web Design_ von [Scrimba](https://scrimba.com?via=mdn) lehrt Ihnen, wie man zugängliches HTML schreibt, indem Sie interaktive Coding-Herausforderungen lösen und eine reale Website reparieren.
 - [Start Building Accessible Web Applications Today](https://egghead.io/courses/start-building-accessible-web-applications-today)
-  - : Eine ausgezeichnete Serie von Video-Tutorials von Marcy Sutton.
-- [Ressourcen der Deque University](https://dequeuniversity.com/resources/)
-  - : Beinhaltet Codebeispiele, Screenreader-Referenzen und andere nützliche Ressourcen.
-- [Ressourcen von WebAIM](https://webaim.org/resources/)
-  - : Beinhaltet Leitfäden, Checklisten, Werkzeuge und mehr.
-- [Liste der Web-Barrierefreiheit-Bewertungswerkzeuge](https://www.w3.org/WAI/ER/tools/)
-  - : Beinhaltet eine Liste von Web-Barrierefreiheit-Bewertungswerkzeugen.
+  - : Eine ausgezeichnete Reihe von Video-Tutorials von Marcy Sutton.
+- [Deque University Ressourcen](https://dequeuniversity.com/resources/)
+  - : Enthält Codebeispiele, Bildschirmleser-Referenzen und andere nützliche Ressourcen.
+- [WebAIM Ressourcen](https://webaim.org/resources/)
+  - : Enthält Leitfäden, Checklisten, Tools und mehr.
+- [Liste der Webzugänglichkeits-Bewertungstools](https://www.w3.org/WAI/ER/tools/)
+  - : Enthält eine Liste von Webzugänglichkeits-Bewertungstools.

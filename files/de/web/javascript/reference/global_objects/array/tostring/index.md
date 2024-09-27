@@ -7,7 +7,8 @@ l10n:
 
 {{JSRef}}
 
-Die **`toString()`** Methode von {{jsxref("Array")}} Instanzen gibt einen String zurück, der das angegebene Array und dessen Elemente darstellt.
+Die **`toString()`** Methode von {{jsxref("Array")}} Instanzen gibt einen String zurück, der das
+spezifizierte Array und seine Elemente repräsentiert.
 
 {{EmbedInteractiveExample("pages/js/array-tostring.html", "shorter")}}
 
@@ -27,19 +28,19 @@ Ein String, der die Elemente des Arrays darstellt.
 
 ## Beschreibung
 
-Das {{jsxref("Array")}}-Objekt überschreibt die `toString`-Methode von {{jsxref("Object")}}. Die `toString`-Methode von Arrays ruft intern [`join()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/join) auf, das das Array verbindet und einen String zurückgibt, der jedes Array-Element durch Kommas getrennt enthält. Wenn die `join`-Methode nicht verfügbar ist oder keine Funktion ist, wird [`Object.prototype.toString`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) stattdessen verwendet, welches `[object Array]` zurückgibt.
+Das {{jsxref("Array")}} Objekt überschreibt die `toString` Methode von {{jsxref("Object")}}. Die `toString` Methode von Arrays ruft intern [`join()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/join) auf, die das Array verbindet und einen String zurückgibt, der jedes Array-Element durch Kommas getrennt enthält. Wenn die `join` Methode nicht verfügbar oder keine Funktion ist, wird stattdessen [`Object.prototype.toString`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) verwendet, was `[object Array]` zurückgibt.
 
 ```js
 const arr = [];
-arr.join = 1; // `join` mit einer Nicht-Funktion überschreiben
+arr.join = 1; // re-assign `join` with a non-function
 console.log(arr.toString()); // [object Array]
 
 console.log(Array.prototype.toString.call({ join: () => 1 })); // 1
 ```
 
-JavaScript ruft die `toString`-Methode automatisch auf, wenn ein Array als Textwert dargestellt werden soll oder wenn ein Array in einem String-Zusammenhang erwähnt wird.
+JavaScript ruft die `toString` Methode automatisch auf, wenn ein Array als Textwert dargestellt werden soll oder wenn auf ein Array in einer String-Konkatenation verwiesen wird.
 
-`Array.prototype.toString` wandelt jedes Element, einschließlich anderer Arrays, rekursiv in Strings um. Da der von `Array.prototype.toString` zurückgegebene String keine Trennzeichen hat, sehen verschachtelte Arrays aus, als wären sie abgeflacht.
+`Array.prototype.toString` konvertiert rekursiv jedes Element, einschließlich anderer Arrays, in Strings. Da der von `Array.prototype.toString` zurückgegebene String keine Trennzeichen enthält, scheinen verschachtelte Arrays flach zu sein.
 
 ```js
 const matrix = [
@@ -71,24 +72,17 @@ console.log(array1.toString()); // "1,2,a,1a"
 
 ### Verwendung von toString() bei spärlichen Arrays
 
-Entsprechend dem Verhalten von `join()` behandelt `toString()` leere Slots genauso wie `undefined` und erzeugt ein zusätzliches Trennzeichen:
+Gemäß dem Verhalten von `join()` behandelt `toString()` leere Plätze genauso wie `undefined` und erzeugt einen zusätzlichen Separator:
 
 ```js
 console.log([1, , 3].toString()); // '1,,3'
 ```
 
-### Aufruf von toString() auf Nicht-Array-Objekten
+### Aufrufen von toString() bei Nicht-Array-Objekten
 
-`toString()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Es erwartet, dass `this` über eine `join()`-Methode verfügt; oder, falls nicht, wird stattdessen `Object.prototype.toString()` verwendet.
+`toString()` ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Es erwartet, dass `this` eine `join()` Methode hat; oder, wenn das fehlschlägt, wird stattdessen `Object.prototype.toString()` verwendet.
 
-```js
-console.log(Array.prototype.toString.call({ join: () => 1 }));
-// 1; eine Zahl
-console.log(Array.prototype.toString.call({ join: () => undefined }));
-// undefined
-console.log(Array.prototype.toString.call({ join: "not function" }));
-// "[object Object]"
-```
+![](6-0e4ca7d.md)
 
 ## Spezifikationen
 

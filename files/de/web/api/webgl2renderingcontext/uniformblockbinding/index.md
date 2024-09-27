@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: uniformBlockBinding()-Methode"
+title: "WebGL2RenderingContext: uniformBlockBinding() Methode"
 short-title: uniformBlockBinding()
 slug: Web/API/WebGL2RenderingContext/uniformBlockBinding
 l10n:
@@ -8,9 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.uniformBlockBinding()`**-Methode
-der [WebGL 2 API](/de/docs/Web/API/WebGL_API) weist Bindepunkte
-für aktive Uniformblöcke zu.
+Die **`WebGL2RenderingContext.uniformBlockBinding()`** Methode
+der [WebGL 2 API](/de/docs/Web/API/WebGL_API) weist Bindungspunkte für aktive Uniformblöcke zu.
 
 ## Syntax
 
@@ -21,11 +20,11 @@ uniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}, das den aktiven Uniformblock enthält, dessen Bindung zugewiesen werden soll.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das den aktiven Uniformblock enthält, dessen Bindung festgelegt werden soll.
 - `uniformBlockIndex`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der den Index des aktiven Uniformblocks innerhalb des Programms angibt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des aktiven Uniformblocks innerhalb des Programms angibt.
 - `uniformBlockBinding`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der den Bindepunkt angibt, an den der Uniformblock gebunden werden soll.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt angibt, an den der Uniformblock gebunden werden soll.
 
 ### Rückgabewert
 
@@ -47,4 +46,4 @@ gl.uniformBlockBinding(program, 0, 1);
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.getUniformIndices()")}}
+- [`WebGL2RenderingContext.getUniformIndices()`](/de/docs/Web/API/WebGL2RenderingContext/getUniformIndices)

@@ -1,5 +1,5 @@
 ---
-title: Verwenden mehrerer Hintergründe
+title: Verwendung mehrerer Hintergründe
 slug: Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds
 l10n:
   sourceCommit: 24a11cf78b69ae4f93f1557433ddb6eec29a2972
@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Sie können **mehrere Hintergründe** auf Elemente anwenden. Diese werden übereinander geschichtet, wobei der erste von Ihnen angegebene Hintergrund oben liegt und der zuletzt aufgeführte Hintergrund im Hintergrund steht. Nur der letzte Hintergrund kann eine Hintergrundfarbe enthalten.
+Sie können **mehrere Hintergründe** für Elemente anwenden. Diese werden übereinander geschichtet, wobei der erste bereitgestellte Hintergrund oben liegt und der zuletzt aufgeführte Hintergrund hinten liegt. Nur der letzte Hintergrund kann eine Hintergrundfarbe enthalten.
 
-Mehrere Hintergründe anzugeben ist einfach:
+Das Spezifizieren mehrerer Hintergründe ist einfach:
 
 ```css
 .myclass {
@@ -20,11 +20,11 @@ Mehrere Hintergründe anzugeben ist einfach:
 }
 ```
 
-Sie können dies sowohl mit der Kurzschreibweise der {{ cssxref("background") }}-Eigenschaft als auch mit den individuellen Eigenschaften — mit Ausnahme von {{ cssxref("background-color") }} — tun. Das heißt, die folgenden Hintergrundeigenschaften können als Liste angegeben werden, eine pro Hintergrund: {{ cssxref("background") }}, {{ cssxref("background-attachment") }}, {{ cssxref("background-clip") }}, {{ cssxref("background-image") }}, {{ cssxref("background-origin") }}, {{ cssxref("background-position") }}, {{ cssxref("background-repeat") }}, {{ cssxref("background-size") }}.
+Sie können dies sowohl mit der Kurzform-{{ cssxref("background") }}-Eigenschaft als auch mit den einzelnen Eigenschaften tun, außer {{ cssxref("background-color") }}. Das heißt, die folgenden Hintergrundeigenschaften können als Liste angegeben werden, eine pro Hintergrund: {{ cssxref("background") }}, {{ cssxref("background-attachment") }}, {{ cssxref("background-clip") }}, {{ cssxref("background-image") }}, {{ cssxref("background-origin") }}, {{ cssxref("background-position") }}, {{ cssxref("background-repeat") }}, {{ cssxref("background-size") }}.
 
 ## Beispiel
 
-In diesem Beispiel werden drei Hintergründe gestapelt: das Firefox-Logo, ein Bild von Blasen und ein [lineares Gradient](/de/docs/Web/CSS/gradient/linear-gradient):
+In diesem Beispiel werden drei Hintergründe gestapelt: das Firefox-Logo, ein Bild von Blasen und ein [linearer Verlauf](/de/docs/Web/CSS/gradient/linear-gradient):
 
 ### HTML
 
@@ -52,9 +52,9 @@ In diesem Beispiel werden drei Hintergründe gestapelt: das Firefox-Logo, ein Bi
 
 {{EmbedLiveSample('Example','600','400')}}
 
-Wie Sie hier sehen können, liegt das Firefox-Logo (zuerst innerhalb von {{ cssxref("background-image") }} aufgeführt) oben, direkt über der Blasengrafik, gefolgt vom Gradienten (zuletzt aufgeführt), welcher unter allen vorhergehenden 'Bildern' liegt. Jede nachfolgende Untereigenschaft ({{ cssxref("background-repeat") }} und {{ cssxref("background-position") }}) gilt für die entsprechenden Hintergründe. Der zuerst aufgeführte Wert für {{ cssxref("background-repeat") }} gilt also für den ersten (vordersten) Hintergrund und so weiter.
+Wie Sie hier sehen können, befindet sich das Firefox-Logo (zuerst in {{ cssxref("background-image") }} aufgelistet) oben, direkt über der Blasengrafik, gefolgt vom Verlauf (zuletzt gelistet), der unter allen vorherigen 'Bildern' liegt. Jede nachfolgende Untereigenschaft ({{ cssxref("background-repeat") }} und {{ cssxref("background-position") }}) gilt für die entsprechenden Hintergründe. Der zuerst angegebene Wert für {{ cssxref("background-repeat") }} gilt also für den ersten (vordersten) Hintergrund und so weiter.
 
 ## Siehe auch
 
-- [Verwenden von CSS-Gradienten](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
-- [CSS-Hintergründe und -Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
+- [Verwendung von CSS-Verläufen](/de/docs/Web/CSS/CSS_images/Using_CSS_gradients)
+- Modul [CSS-Hintergründe und -Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders)

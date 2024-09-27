@@ -7,32 +7,32 @@ l10n:
 
 {{ APIRef("Web Crypto API") }}
 
-Das **`RsaHashedImportParams`** Dictionary des [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert das Objekt, das als `algorithm` Parameter in {{domxref("SubtleCrypto.importKey()")}} oder {{domxref("SubtleCrypto.unwrapKey()")}} übergeben werden soll, wenn ein RSA-basiertes Schlüsselpaar importiert wird: Das heißt, wenn der Algorithmus als einer von [RSASSA-PKCS1-v1_5](/de/docs/Web/API/SubtleCrypto/sign#rsassa-pkcs1-v1_5), [RSA-PSS](/de/docs/Web/API/SubtleCrypto/sign#rsa-pss) oder [RSA-OAEP](/de/docs/Web/API/SubtleCrypto/encrypt#rsa-oaep) identifiziert wird.
+Das **`RsaHashedImportParams`**-Wörterbuch der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert das Objekt, das als `algorithm`-Parameter in [`SubtleCrypto.importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) oder [`SubtleCrypto.unwrapKey()`](/de/docs/Web/API/SubtleCrypto/unwrapKey) übergeben werden sollte, wenn ein RSA-basiertes Schlüsselpaar importiert wird: Das heißt, wenn der Algorithmus als einer der folgenden identifiziert wird: [RSASSA-PKCS1-v1_5](/de/docs/Web/API/SubtleCrypto/sign#rsassa-pkcs1-v1_5), [RSA-PSS](/de/docs/Web/API/SubtleCrypto/sign#rsa-pss) oder [RSA-OAEP](/de/docs/Web/API/SubtleCrypto/encrypt#rsa-oaep).
 
 ## Instanz-Eigenschaften
 
 - `name`
-  - : Ein String. Dieser sollte auf `RSASSA-PKCS1-v1_5`, `RSA-PSS` oder `RSA-OAEP` gesetzt werden, je nachdem, welchen Algorithmus Sie verwenden möchten.
+  - : Ein String. Dieser sollte auf `RSASSA-PKCS1-v1_5`, `RSA-PSS` oder `RSA-OAEP` gesetzt werden, abhängig vom Algorithmus, den Sie verwenden möchten.
 - `hash`
 
-  - : Ein String, der den Namen der zu verwendenden [Digest-Funktion](/de/docs/Web/API/SubtleCrypto#supported_algorithms) darstellt. Dies kann eine der folgenden sein: `SHA-256`, `SHA-384` oder `SHA-512`.
+  - : Ein String, der den Namen der zu verwendenden [Digest-Funktion](/de/docs/Web/API/SubtleCrypto#supported_algorithms) darstellt. Dies kann einer von `SHA-256`, `SHA-384` oder `SHA-512` sein.
 
     > [!WARNING]
-    > Obwohl Sie hier technisch `SHA-1` übergeben können, wird dies stark abgeraten, da es als anfällig gilt.
+    > Obwohl Sie hier technisch `SHA-1` übergeben können, wird dies dringend abgeraten, da es als unsicher gilt.
 
 ## Beispiele
 
-Siehe die Beispiele für {{domxref("SubtleCrypto.importKey()")}}.
+Siehe die Beispiele für [`SubtleCrypto.importKey()`](/de/docs/Web/API/SubtleCrypto/importKey).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
-Browser, die einen auf RSA basierenden Algorithmus für die Methoden {{domxref("SubtleCrypto.importKey()")}} oder {{domxref("SubtleCrypto.unwrapKey()")}} unterstützen, werden diesen Typ unterstützen.
+Browser, die einen RSA-basierten Algorithmus für die Methoden [`SubtleCrypto.importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) oder [`SubtleCrypto.unwrapKey()`](/de/docs/Web/API/SubtleCrypto/unwrapKey) unterstützen, werden diesen Typ unterstützen.
 
 ## Siehe auch
 
-- {{domxref("SubtleCrypto.importKey()")}}.
-- {{domxref("SubtleCrypto.unwrapKey()")}}.
+- [`SubtleCrypto.importKey()`](/de/docs/Web/API/SubtleCrypto/importKey).
+- [`SubtleCrypto.unwrapKey()`](/de/docs/Web/API/SubtleCrypto/unwrapKey).

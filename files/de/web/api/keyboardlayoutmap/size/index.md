@@ -1,5 +1,5 @@
 ---
-title: "KeyboardLayoutMap: Eigenschaft size"
+title: "KeyboardLayoutMap: size-Eigenschaft"
 short-title: size
 slug: Web/API/KeyboardLayoutMap/size
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Keyboard API")}}
 
-Die **`size`**-Eigenschaft der {{domxref("KeyboardLayoutMap")}}-Schnittstelle ist eine schreibgeschützte Eigenschaft, die die Anzahl der Elemente in der Map zurückgibt.
+Die schreibgeschützte **`size`**-Eigenschaft der [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap)-Schnittstelle gibt die Anzahl der Elemente in der Map zurück.
 
-Die Eigenschaft entspricht ansonsten {{jsxref("Map.prototype.size")}}.
+Die Eigenschaft ist ansonsten identisch mit {{jsxref("Map.prototype.size")}}.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Im folgenden Beispiel wird die Anzahl des orts- oder layoutspezifischen Strings und dessen zugehörigem Tastaturcode auf einer englischen QWERTY-Tastatur ermittelt.
+Das folgende Beispiel ermittelt die Anzahl der orts- oder layoutspezifischen Zeichenfolgen und den zugehörigen Tastaturcode auf einer englischen QWERTY-Tastatur.
 
 ```js
 navigator.keyboard.getLayoutMap().then((keyboardLayoutMap) => {

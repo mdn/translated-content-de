@@ -9,21 +9,21 @@ l10n:
 
 Die `AnimationPlaybackEvent`-Schnittstelle der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert Animationsereignisse.
 
-Während Animationen ablaufen, melden sie Änderungen in ihrem {{domxref("Animation.playState", "playState")}} durch Animationsereignisse.
+Während Animationsabspielen berichten sie Änderungen ihres [`playState`](/de/docs/Web/API/Animation/playState) durch Animationsereignisse.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("AnimationPlaybackEvent.AnimationPlaybackEvent", "AnimationPlaybackEvent()")}}
-  - : Konstruktiert eine neue `AnimationPlaybackEvent` Objektinstanz.
+- [`AnimationPlaybackEvent()`](/de/docs/Web/API/AnimationPlaybackEvent/AnimationPlaybackEvent)
+  - : Erstellt eine neue Instanz des `AnimationPlaybackEvent`-Objekts.
 
 ## Instanzeigenschaften
 
-- {{domxref("AnimationPlaybackEvent.currentTime")}} {{ReadOnlyInline}}
-  - : Die aktuelle Zeit der Animation, die das Ereignis generiert hat.
-- {{domxref("AnimationPlaybackEvent.timelineTime")}} {{ReadOnlyInline}}
-  - : Der Zeitwert der Zeitleiste der Animation, die das Ereignis generiert hat.
+- [`AnimationPlaybackEvent.currentTime`](/de/docs/Web/API/AnimationPlaybackEvent/currentTime) {{ReadOnlyInline}}
+  - : Die aktuelle Zeit der Animation, die das Ereignis erzeugt hat.
+- [`AnimationPlaybackEvent.timelineTime`](/de/docs/Web/API/AnimationPlaybackEvent/timelineTime) {{ReadOnlyInline}}
+  - : Der Zeitwert der Zeitleiste der Animation, die das Ereignis erzeugt hat.
 
 ## Spezifikationen
 
@@ -36,4 +36,4 @@ Während Animationen ablaufen, melden sie Änderungen in ihrem {{domxref("Animat
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("Animation.playState")}}
+- [`Animation.playState`](/de/docs/Web/API/Animation/playState)

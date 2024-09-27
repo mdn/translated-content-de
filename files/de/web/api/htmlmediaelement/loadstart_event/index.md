@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: loadstart Ereignis"
+title: "HTMLMediaElement: loadstart-Ereignis"
 short-title: loadstart
 slug: Web/API/HTMLMediaElement/loadstart_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das **`loadstart`** Ereignis wird ausgelöst, wenn der Browser begonnen hat, eine Ressource zu laden.
+Das **`loadstart`**-Ereignis wird ausgelöst, wenn der Browser begonnen hat, eine Ressource zu laden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("loadstart", (event) => {});
@@ -22,7 +22,7 @@ onloadstart = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -32,11 +32,11 @@ Ein generisches {{domxref("Event")}}.
 
 ```html
 <div class="example">
-  <button type="button">Video laden</button>
+  <button type="button">Load video</button>
   <video controls width="250"></video>
 
   <div class="event-log">
-    <label for="eventLog">Ereignisprotokoll:</label>
+    <label for="eventLog">Event log:</label>
     <textarea readonly class="event-log-contents" id="eventLog"></textarea>
   </div>
 </div>
@@ -98,7 +98,7 @@ loadVideo.addEventListener("click", () => {
   if (source) {
     document.location.reload();
   } else {
-    loadVideo.textContent = "Beispiel zurücksetzen";
+    loadVideo.textContent = "Reset example";
     source = document.createElement("source");
     source.setAttribute(
       "src",
@@ -125,7 +125,7 @@ loadVideo.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("HTMLAudioElement")}}
-- {{domxref("HTMLVideoElement")}}
+- [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement)
+- [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)
 - {{HTMLElement("audio")}}
 - {{HTMLElement("video")}}

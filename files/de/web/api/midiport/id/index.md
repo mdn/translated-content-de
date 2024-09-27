@@ -1,5 +1,5 @@
 ---
-title: "MIDIPort: id-Eigenschaft"
+title: "MIDIPort: id Eigenschaft"
 short-title: id
 slug: Web/API/MIDIPort/id
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die **`id`**-Eigenschaft der {{domxref("MIDIPort")}}-Schnittstelle gibt die eindeutige ID des Ports zurück und ist schreibgeschützt.
+Die schreibgeschützte **`id`**-Eigenschaft der [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Schnittstelle gibt die eindeutige ID des Ports zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der eine ID für den Port enthält.
 
 ## Beispiele
 
-Das folgende Beispiel durchläuft alle Eingabeports und gibt die ID jedes einzelnen in der Konsole aus.
+Das folgende Beispiel durchläuft alle Eingangsporten und gibt die id jedes Ports in der Konsole aus.
 
 ```js
 for (const entry of midiAccess.inputs) {

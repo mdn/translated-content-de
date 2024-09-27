@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Intl.supportedValuesOf()`** gibt ein Array zurück, das die von der Implementierung unterstützten Werte für Kalender, Kollation, Währungen, Zahlensysteme oder Einheiten enthält.
+Die **`Intl.supportedValuesOf()`** statische Methode gibt ein Array zurück, das die von der Implementierung unterstützten Kalender, Kollationen, Währungen, Nummerierungssysteme oder Einheitswerte enthält.
 
-Duplikate werden weggelassen und das Array wird in aufsteigender lexikografischer Reihenfolge sortiert (oder präziser gesagt, unter Verwendung von {{jsxref("Array/sort", "Array.prototype.sort()")}} mit einer `undefined` Vergleichsfunktion).
+Duplikate werden weggelassen und das Array wird in aufsteigender lexikografischer Reihenfolge sortiert (oder genauer gesagt, indem {{jsxref("Array/sort", "Array.prototype.sort()")}} mit einer `undefined` Vergleichsfunktion verwendet wird).
 
-Die Methode kann verwendet werden, um zu testen, ob Werte in einer bestimmten Implementierung unterstützt werden, und um nur bei Bedarf ein Polyfill herunterzuladen. Sie kann auch verwendet werden, um Benutzeroberflächen zu erstellen, die es den Nutzern ermöglichen, ihre bevorzugten lokalen Werte auszuwählen, beispielsweise wenn die Benutzeroberfläche von WebGL oder serverseitig erstellt wird.
+Die Methode kann verwendet werden, um zu testen, ob Werte in einer bestimmten Implementierung unterstützt werden, und einen Polyfill nur bei Bedarf herunterzuladen. Sie kann auch verwendet werden, um Benutzeroberflächen zu erstellen, die es Benutzern ermöglichen, ihre bevorzugten lokalisierten Werte auszuwählen, beispielsweise wenn die Benutzeroberfläche von WebGL oder serverseitig erstellt wird.
 
 {{EmbedInteractiveExample("pages/js/intl-supportedvaluesof.html", "taller")}}
 
@@ -24,14 +24,14 @@ Intl.supportedValuesOf(key)
 ### Parameter
 
 - `key`
-  - : Ein Schlüsselstring, der die Kategorie der zurückzugebenden Werte angibt. Dies ist einer von: `"calendar"`, `"collation"`, `"currency"`, `"numberingSystem"`, `"timeZone"`, `"unit"`.
+  - : Ein Schlüsselstring, der die Kategorie der zurückzugebenden Werte angibt. Dies ist eine der folgenden: `"calendar"`, `"collation"`, `"currency"`, `"numberingSystem"`, `"timeZone"`, `"unit"`.
 
 ### Rückgabewert
 
-Ein sortiertes Array von eindeutigen Stringwerten, das die von der Implementierung für den gegebenen Schlüssel unterstützten Werte angibt.
+Ein sortiertes Array mit eindeutigen Zeichenfolgen, das die von der Implementierung für den angegebenen Schlüssel unterstützten Werte anzeigt.
 
 > [!NOTE]
-> Während sich die IANA-Datenbank von Zeit zu Zeit ändert, behält die Unicode CLDR-Datenbank (die von Browsern verwendet wird) alte Zeitzonennamen zu Stabilitätszwecken bei. Einige Browser verwenden möglicherweise den alten Namen, während andere ihn mit dem neuen Namen überschreiben. Siehe {{jsxref("Intl/Locale/getTimeZones", "Intl.Locale.prototype.getTimeZones")}} für mehr Informationen.
+> Während sich die IANA-Datenbank von Zeit zu Zeit ändert, hält die Unicode CLDR-Datenbank (die von Browsern verwendet wird) alte Zeitzonennamen aus Gründen der Stabilität bei. Einige Browser verwenden möglicherweise den alten Namen, während andere ihn durch den neuen Namen ersetzen. Weitere Informationen finden Sie unter {{jsxref("Intl/Locale/getTimeZones", "Intl.Locale.prototype.getTimeZones")}}.
 
 ### Ausnahmen
 
@@ -40,19 +40,19 @@ Ein sortiertes Array von eindeutigen Stringwerten, das die von der Implementieru
 
 ## Beispiele
 
-### Feature-Testing
+### Funktionsprüfung
 
 Sie können überprüfen, ob die Methode unterstützt wird, indem Sie sie mit `undefined` vergleichen:
 
 ```js
 if (typeof Intl.supportedValuesOf !== "undefined") {
-  // Methode wird unterstützt
+  // method is supported
 }
 ```
 
 ### Alle Werte für einen Schlüssel abrufen
 
-Um die unterstützten Werte für Kalender zu erhalten, rufen Sie die Methode mit dem Schlüssel `"calendar"` auf. Sie können dann durch das zurückgegebene Array iterieren, wie im Folgenden gezeigt:
+Um die unterstützten Werte für Kalender zu erhalten, rufen Sie die Methode mit dem Schlüssel `"calendar"` auf. Sie können dann durch das zurückgegebene Array iterieren, wie unten gezeigt:
 
 ```js
 Intl.supportedValuesOf("calendar").forEach((calendar) => {
@@ -61,9 +61,9 @@ Intl.supportedValuesOf("calendar").forEach((calendar) => {
 ```
 
 > [!NOTE]
-> Das für Kalenderwerte zurückgegebene Array wird immer den Wert "gregory" (gregorianisch) enthalten.
+> Das für Kalenderwerte zurückgegebene Array enthält immer den Wert "gregory" (gregorianischer Kalender).
 
-Die anderen Werte werden auf die gleiche Weise abgerufen:
+Die anderen Werte werden alle auf die gleiche Weise abgerufen:
 
 ```js
 Intl.supportedValuesOf("collation").forEach((collation) => {
@@ -87,7 +87,7 @@ Intl.supportedValuesOf("unit").forEach((unit) => {
 });
 ```
 
-### Ungültiger Schlüssel löst RangeError aus
+### Ungültiger Schlüssel wirft einen RangeError
 
 ```js
 try {

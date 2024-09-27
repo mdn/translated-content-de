@@ -10,7 +10,7 @@ l10n:
 
 Der **`AudioBuffer`**-Konstruktor der
 [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues
-{{domxref("AudioBuffer")}}-Objekt.
+[`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Objekt.
 
 ## Syntax
 
@@ -25,31 +25,45 @@ new AudioBuffer(options)
   - : Optionen sind wie folgt:
 
     - `length`
-      - : Die Größe des Audiopuffers in Sample-Frames. Um die `length` für eine bestimmte Anzahl von Sekunden Audio zu bestimmen, verwenden Sie `numSeconds * sampleRate`.
+      - : Die Größe des Audiobuffers in Sample-Frames. Um die `length`
+        für eine bestimmte Anzahl von Sekunden Audio zu bestimmen, verwenden Sie
+        `numSeconds * sampleRate`.
     - `numberOfChannels`
-      - : Die Anzahl der Kanäle für den Puffer. Der Standardwert ist 1, und alle Benutzeragenten müssen mindestens 32 Kanäle unterstützen.
+      - : Die Anzahl der Kanäle für den Buffer. Der
+        Standardwert ist 1, und alle User Agents müssen mindestens 32 Kanäle unterstützen.
     - `sampleRate`
-      - : Die Abtastrate in Hz für den Puffer. Der Standardwert ist die Abtastrate des `context`, das beim Erstellen dieses Objekts verwendet wird. Benutzeragenten müssen Abtastraten von 8.000 Hz bis 96.000 Hz unterstützen (dürfen jedoch auch darüber hinausgehen).
+      - : Die Abtastrate in Hz für den Buffer. Der Standard ist
+        die Abtastrate des `context`, der zum Erstellen dieses Objekts verwendet wird.
+        User Agents müssen Abtastraten von 8.000 Hz bis 96.000 Hz unterstützen (aber sie dürfen
+        auch außerhalb dieses Bereichs gehen).
     - `channelCount`
-      - : Repräsentiert eine ganze Zahl, die verwendet wird, um zu bestimmen, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu irgendwelchen Eingängen zum Node verwendet werden.
-        (Siehe {{domxref("AudioNode.channelCount")}} für weitere Informationen.) Seine Nutzung und genaue Definition hängen vom Wert von `channelCountMode` ab.
+      - : Stellt eine Ganzzahl dar, die bestimmt, wie viele Kanäle verwendet werden, wenn Verbindungen zu Eingängen des Knotens [up-mixing und down-mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) verwendet werden.
+        (Weitere Informationen finden Sie unter [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount).)
+        Seine Nutzung und genaue Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode`
-      - : Repräsentiert einen enumerierten Wert, der beschreibt, wie Kanäle zwischen den Eingängen und Ausgängen des Nodes abgeglichen werden müssen. (Siehe {{domxref("AudioNode.channelCountMode")}} für weitere Informationen, einschließlich der Standardwerte.)
+      - : Stellt einen enumerierten Wert dar, der beschreibt, wie Kanäle zwischen
+        den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Weitere Informationen,
+        einschließlich der Standardwerte, finden Sie unter [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode).)
     - `channelInterpretation`
-      - : Repräsentiert einen enumerierten Wert, der die Bedeutung der Kanäle beschreibt. Diese Interpretation definiert, wie Audio [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) stattfinden wird.
-        Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe {{domxref("AudioNode.channelCountMode")}} für weitere Informationen einschließlich der Standardwerte.)
+      - : Stellt einen enumerierten Wert dar, der die Bedeutung der Kanäle beschreibt.
+        Diese Interpretation wird bestimmen, wie Audio [up-mixing und down-mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) verarbeitet wird.
+        Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Weitere Informationen, einschließlich der Standardwerte, finden Sie unter
+        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode).)
 
 #### Veraltete Parameter
 
 - `context` {{Deprecated_Inline}}
-  - : Ein Verweis auf ein {{domxref("AudioContext")}}. Dieser Parameter wurde aus der Spezifikation entfernt.
+  - : Eine Referenz zu einem [`AudioContext`](/de/docs/Web/API/AudioContext). Dieser Parameter wurde aus der
+    Spezifikation entfernt.
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn eine oder mehrere Optionen negativ oder anderweitig ungültig sind (wie `numberOfChannels` höher als unterstützt oder eine `sampleRate` außerhalb des nominalen Bereichs).
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn eine oder mehrere der Optionen negativ oder anderweitig einen ungültigen Wert haben
+    (wie `numberOfChannels`, die höher ist als unterstützt,
+    oder eine `sampleRate` außerhalb des nominalen Bereichs).
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn nicht genügend Speicher verfügbar ist, um den Puffer zuzuweisen.
+  - : Wird ausgelöst, wenn nicht genügend Speicher verfügbar ist, um den Buffer zuzuweisen.
 
 ## Spezifikationen
 

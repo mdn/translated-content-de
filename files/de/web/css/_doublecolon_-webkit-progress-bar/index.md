@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-webkit-progress-bar`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die gesamte Leiste eines {{HTMLElement("progress")}}-Elements. Normalerweise ist es nur als der nicht gefüllte Teil der Leiste sichtbar, da es standardmäßig unterhalb des {{ cssxref("::-webkit-progress-value") }} Pseudo-Elements gerendert wird. Es ist ein Kind des {{cssxref("::-webkit-progress-inner-element")}} Pseudo-Elements und das Elternteil des {{cssxref("::-webkit-progress-value")}} Pseudo-Elements.
+Das **`::-webkit-progress-bar`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die gesamte Leiste eines {{HTMLElement("progress")}}-Elements. Normalerweise ist es nur als der nicht ausgefüllte Teil der Leiste sichtbar, da es standardmäßig unter dem {{ cssxref("::-webkit-progress-value") }}-Pseudoelement gerendert wird. Es ist ein Kind des {{cssxref("::-webkit-progress-inner-element")}}-Pseudoelements und das Elternteil des {{cssxref("::-webkit-progress-value")}}-Pseudoelements.
 
 > [!NOTE]
-> Damit `::-webkit-progress-value` Wirkung zeigt, muss das {{cssxref("appearance")}} auf `none` für das `<progress>`-Element gesetzt werden.
+> Damit `::-webkit-progress-value` wirksam wird, muss {{cssxref("appearance")}} auf `none` für das `<progress>`-Element gesetzt werden.
 
 ## Syntax
 
@@ -44,11 +44,11 @@ progress {
 
 {{EmbedLiveSample("Examples", 200, 50)}}
 
-### Ergebnisbild
+### Ergebnis-Screenshot
 
-Der obige Code ergibt eine Fortschrittsleiste, die in einem WebKit- oder Blink-Browser folgendermaßen aussieht:
+Der obige Code führt zu einer Fortschrittsanzeige, die in einem WebKit- oder Blink-Browser so aussieht:
 
-![Die Fortschrittsleiste ist eine horizontale Leiste in der Höhe eines Buchstabens. Die linken 20% sind grün. Die rechten 80% sind orange.](progress-bar.png)
+![Der Fortschrittsbalken ist eine horizontale Leiste in der Höhe eines Buchstabens. Die linken 20% sind grün. Die rechten 80% sind orange.](progress-bar.png)
 
 ## Spezifikationen
 
@@ -60,7 +60,7 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-- Die Pseudo-Elemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{HTMLElement("progress")}}-Elements zu stylen:
+- Die Pseudoelemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{HTMLElement("progress")}}-Elements zu stylen:
 
   - {{ cssxref("::-webkit-progress-value") }}
   - {{ cssxref("::-webkit-progress-inner-element") }}

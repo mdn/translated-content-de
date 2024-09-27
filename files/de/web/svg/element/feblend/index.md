@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feBlend>`** [SVG](/de/docs/Web/SVG) Filter-Primitive setzt zwei Objekte mit einem bestimmten Mischmodus zusammen. Dies ist vergleichbar mit dem, was aus Bildbearbeitungssoftware bekannt ist, wenn zwei Ebenen gemischt werden. Der Modus wird durch das Attribut {{SVGAttr("mode")}} definiert.
+Der **`<feBlend>`** [SVG](/de/docs/Web/SVG) Filter-Primitive kombiniert zwei Objekte miteinander, gesteuert durch einen bestimmten Mischmodus. Dies ist ähnlich zu dem, was aus Bildbearbeitungssoftware bekannt ist, wenn zwei Ebenen gemischt werden. Der Modus wird durch das {{SVGAttr("mode")}} Attribut definiert.
 
-## Verwendungszusammenhang
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -21,7 +21,7 @@ Das **`<feBlend>`** [SVG](/de/docs/Web/SVG) Filter-Primitive setzt zwei Objekte 
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFEBlendElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGFEBlendElement`](/de/docs/Web/API/SVGFEBlendElement) Schnittstelle.
 
 ## Beispiel
 

@@ -10,16 +10,16 @@ l10n:
 
 Gibt das `statusbar`-Objekt zurück.
 
-Dies ist eine von mehreren `Window`-Eigenschaften, die eine boolesche `visible`-Eigenschaft enthalten, die früher repräsentierte, ob ein bestimmter Teil der Benutzeroberfläche eines Webbrowsers sichtbar war.
+Dies ist eine von mehreren `Window`-Eigenschaften, die eine boolesche `visible`-Eigenschaft enthalten. Diese Eigenschaften wurden verwendet, um darzustellen, ob ein bestimmter Teil der Benutzeroberfläche eines Webbrowsers sichtbar war.
 
-Aus Datenschutz- und Interoperabilitätsgründen ist der Wert der `visible`-Eigenschaft nun `false`, wenn es sich bei diesem `Window` um ein Popup handelt, und `true` andernfalls.
+Aus Datenschutz- und Interoperabilitätsgründen ist der Wert der `visible`-Eigenschaft nun `false`, wenn dieses `Window` ein Popup ist, und ansonsten `true`.
 
 ## Wert
 
 Ein Objekt, das eine einzelne Eigenschaft enthält:
 
 - `visible` {{ReadOnlyInline}}
-  - : Eine boolesche Eigenschaft, `false`, wenn es sich bei diesem `Window` um ein Popup handelt, und `true` andernfalls.
+  - : Eine boolesche Eigenschaft, `false`, wenn dieses `Window` ein Popup ist, und ansonsten `true`.
 
 ## Spezifikationen
 
@@ -31,8 +31,8 @@ Ein Objekt, das eine einzelne Eigenschaft enthält:
 
 ## Siehe auch
 
-- {{domxref("window.locationbar")}}
-- {{domxref("window.menubar")}}
-- {{domxref("window.personalbar")}}
-- {{domxref("window.scrollbars")}}
-- {{domxref("window.toolbar")}}
+- [`window.locationbar`](/de/docs/Web/API/Window/locationbar)
+- [`window.menubar`](/de/docs/Web/API/Window/menubar)
+- [`window.personalbar`](/de/docs/Web/API/Window/personalbar)
+- [`window.scrollbars`](/de/docs/Web/API/Window/scrollbars)
+- [`window.toolbar`](/de/docs/Web/API/Window/toolbar)

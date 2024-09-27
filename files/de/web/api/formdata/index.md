@@ -7,43 +7,43 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
-Das **`FormData`** Interface bietet eine Möglichkeit, ein Set von Schlüssel/Wert-Paaren zu erstellen, die Formularfelder und deren Werte repräsentieren. Diese können mit den Methoden {{domxref("Window/fetch", "fetch()")}}, {{domxref("XMLHttpRequest.send()")}} oder {{domxref("navigator.sendBeacon()")}} gesendet werden. Es verwendet dasselbe Format, das ein Formular verwenden würde, wenn der Codierungstyp auf `"multipart/form-data"` gesetzt wäre.
+Das **`FormData`** Interface bietet eine Möglichkeit, ein Set von Schlüssel/Wert-Paaren zu konstruieren, das Formularfelder und deren Werte repräsentiert und über die Methoden [`fetch()`](/de/docs/Web/API/Window/fetch), [`XMLHttpRequest.send()`](/de/docs/Web/API/XMLHttpRequest/send) oder [`navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon) gesendet werden kann. Es verwendet dasselbe Format, das ein Formular nutzen würde, wenn der Encodierungstyp auf `"multipart/form-data"` gesetzt wäre.
 
-Sie können es auch direkt an den {{domxref("URLSearchParams")}} Konstruktor übergeben, wenn Sie Abfrageparameter in der Art und Weise generieren möchten, wie es ein {{HTMLElement("form")}} tun würde, wenn es eine einfache `GET`-Übermittlung verwenden würde.
+Sie können es auch direkt an den [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Konstruktor übergeben, wenn Sie Abfrageparameter erzeugen möchten, wie es ein {{HTMLElement("form")}} tun würde, wenn es eine einfache `GET`-Übermittlung nutzen würde.
 
-Ein Objekt, das `FormData` implementiert, kann direkt in einer {{jsxref("Statements/for...of", "for...of")}} Struktur verwendet werden, anstatt {{domxref('FormData.entries()', 'entries()')}}: `for (const p of myFormData)` ist äquivalent zu `for (const p of myFormData.entries())`.
+Ein Objekt, das `FormData` implementiert, kann direkt in einer {{jsxref("Statements/for...of", "for...of")}} Struktur verwendet werden, anstatt [`entries()`](/de/docs/Web/API/FormData/entries): `for (const p of myFormData)` ist gleichbedeutend mit `for (const p of myFormData.entries())`.
 
 ## Konstruktor
 
-- {{domxref("FormData.FormData","FormData()")}}
-  - : Erstellt ein neues `FormData`-Objekt.
+- [`FormData()`](/de/docs/Web/API/FormData/FormData)
+  - : Erstellt ein neues `FormData` Objekt.
 
 ## Instanzmethoden
 
-- {{domxref("FormData.append()")}}
-  - : Hängt einen neuen Wert an einen bestehenden Schlüssel in einem `FormData`-Objekt an oder fügt den Schlüssel hinzu, falls dieser noch nicht existiert.
-- {{domxref("FormData.delete()")}}
+- [`FormData.append()`](/de/docs/Web/API/FormData/append)
+  - : Hängt einen neuen Wert an einen vorhandenen Schlüssel innerhalb eines `FormData`-Objekts an oder fügt den Schlüssel hinzu, wenn er noch nicht existiert.
+- [`FormData.delete()`](/de/docs/Web/API/FormData/delete)
   - : Löscht ein Schlüssel/Wert-Paar aus einem `FormData`-Objekt.
-- {{domxref("FormData.entries()")}}
-  - : Gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der durch alle im `FormData` enthaltenen Schlüssel/Wert-Paare iteriert.
-- {{domxref("FormData.get()")}}
+- [`FormData.entries()`](/de/docs/Web/API/FormData/entries)
+  - : Gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der durch alle Schlüssel/Wert-Paare im `FormData` iteriert.
+- [`FormData.get()`](/de/docs/Web/API/FormData/get)
   - : Gibt den ersten Wert zurück, der mit einem gegebenen Schlüssel innerhalb eines `FormData`-Objekts assoziiert ist.
-- {{domxref("FormData.getAll()")}}
-  - : Gibt ein Array aller mit einem gegebenen Schlüssel innerhalb eines `FormData`-Objekts assoziierten Werte zurück.
-- {{domxref("FormData.has()")}}
+- [`FormData.getAll()`](/de/docs/Web/API/FormData/getAll)
+  - : Gibt ein Array aller Werte zurück, die mit einem gegebenen Schlüssel innerhalb eines `FormData` verbunden sind.
+- [`FormData.has()`](/de/docs/Web/API/FormData/has)
   - : Gibt zurück, ob ein `FormData`-Objekt einen bestimmten Schlüssel enthält.
-- {{domxref("FormData.keys()")}}
-  - : Gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der durch alle Schlüssel der im `FormData` enthaltenen Schlüssel/Wert-Paare iteriert.
-- {{domxref("FormData.set()")}}
-  - : Setzt einen neuen Wert für einen bestehenden Schlüssel in einem `FormData`-Objekt oder fügt das Schlüssel/Wert-Paar hinzu, falls es noch nicht existiert.
-- {{domxref("FormData.values()")}}
-  - : Gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der durch alle im `FormData` enthaltenen Werte iteriert.
+- [`FormData.keys()`](/de/docs/Web/API/FormData/keys)
+  - : Gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der durch alle Schlüssel der Schlüssel/Wert-Paare im `FormData` iteriert.
+- [`FormData.set()`](/de/docs/Web/API/FormData/set)
+  - : Setzt einen neuen Wert für einen vorhandenen Schlüssel innerhalb eines `FormData`-Objekts oder fügt das Schlüssel/Wert-Paar hinzu, wenn es noch nicht existiert.
+- [`FormData.values()`](/de/docs/Web/API/FormData/values)
+  - : Gibt einen [Iterator](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der durch alle Werte im `FormData` iteriert.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -1,5 +1,5 @@
 ---
-title: "Blob: bytes()-Methode"
+title: "Blob: bytes() Methode"
 short-title: bytes()
 slug: Web/API/Blob/bytes
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`bytes()`**-Methode der {{domxref("Blob")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird, der den Inhalt des Blob als ein Array von Bytes enthält.
+Die **`bytes()`** Methode der [`Blob`](/de/docs/Web/API/Blob) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird, das den Inhalt des Blob als ein Array von Bytes enthält.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{jsxref("Uint8Array")}}-Objekt aufgelöst wird, das die Blob-Daten enthält.
+Ein {{jsxref("Promise")}}, das mit einem {{jsxref("Uint8Array")}} Objekt erfüllt wird, das die Blob-Daten enthält.
 
 ### Ausnahmen
 
-Die Methode wird das zurückgegebene {{jsxref("Promise")}} ablehnen, wenn beispielsweise der Reader, der zum Abrufen der Blob-Daten verwendet wird, eine Ausnahme auslöst.
+Die Methode wird das zurückgegebene {{jsxref("Promise")}} ablehnen, wenn zum Beispiel der Reader, der verwendet wird, um die Blob-Daten abzurufen, eine Ausnahme auslöst.
 
 ## Spezifikationen
 

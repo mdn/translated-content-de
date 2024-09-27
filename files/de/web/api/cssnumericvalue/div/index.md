@@ -1,5 +1,5 @@
 ---
-title: "CSSNumericValue: div() Methode"
+title: "CSSNumericValue: div()-Methode"
 short-title: div()
 slug: Web/API/CSSNumericValue/div
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`div()`**-Methode der
-{{domxref("CSSNumericValue")}}-Schnittstelle teilt den `CSSNumericValue` durch den angegebenen Wert.
+Die **`div()`**-Methode der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Schnittstelle teilt den `CSSNumericValue` durch den angegebenen Wert.
 
 ## Syntax
 
@@ -20,11 +19,11 @@ div(number)
 ### Parameter
 
 - `number`
-  - : Entweder eine Zahl oder ein {{domxref('CSSNumericValue')}}.
+  - : Entweder eine Nummer oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ### Rückgabewert
 
-Ein {{domxref('CSSMathProduct')}}.
+Ein [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct).
 
 ### Ausnahmen
 
@@ -35,7 +34,7 @@ Ein {{domxref('CSSMathProduct')}}.
 
 ```js
 let mathProduct = CSS.px("24").div(CSS.percent("4"));
-// Druckt "calc(24px / 4%)" aus
+// Prints "calc(24px / 4%)"
 mathProduct.toString();
 ```
 
@@ -43,6 +42,6 @@ mathProduct.toString();
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

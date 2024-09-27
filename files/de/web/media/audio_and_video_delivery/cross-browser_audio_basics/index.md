@@ -1,5 +1,5 @@
 ---
-title: Grundlagen der plattformübergreifenden Audiowiedergabe
+title: Grundlegendes zu plattformübergreifendem Audio
 slug: Web/Media/Audio_and_video_delivery/Cross-browser_audio_basics
 l10n:
   sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
@@ -9,59 +9,59 @@ l10n:
 
 Dieser Artikel bietet:
 
-- eine grundlegende Anleitung zur Erstellung eines plattformübergreifenden HTML-Audioplayers, bei dem alle zugehörigen Attribute, Eigenschaften und Ereignisse erklärt werden
-- eine Anleitung für benutzerdefinierte Steuerungen, die mit der Media API erstellt wurden
+- einen grundlegenden Leitfaden zur Erstellung eines plattformübergreifenden HTML-Audioplayers mit allen zugehörigen Attributen, Eigenschaften und Ereignissen
+- einen Leitfaden zu benutzerdefinierten Steuerelementen, die mit der Media API erstellt werden
 
 ## Einfaches Audio-Beispiel
 
-Der folgende Code ist ein Beispiel für eine einfache Audio-Implementierung unter Verwendung von HTML5:
+Der folgende Code ist ein Beispiel für eine grundlegende Audio-Implementierung mit HTML5:
 
 ```html
 <audio controls>
   <source src="audiofile.mp3" type="audio/mpeg" />
   <source src="audiofile.ogg" type="audio/ogg" />
-  <!-- Fallback für nicht unterstützende Browser -->
+  <!-- fallback for non-supporting browsers goes here -->
   <p>
-    Ihr Browser unterstützt kein HTML-Audio, aber Sie können die Musik
-    trotzdem <a href="audiofile.mp3">herunterladen</a>.
+    Your browser does not support HTML audio, but you can still
+    <a href="audiofile.mp3">download the music</a>.
   </p>
 </audio>
 ```
 
 > [!NOTE]
-> Sie können auch eine MP4-Datei anstelle von MP3 verwenden. MP4-Dateien enthalten typischerweise [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) codiertes Audio. Sie können `type="audio/mp4"` verwenden. (Derzeit unterstützen Browser, die mp3 unterstützen, auch mp4-Audio).
+> Sie können auch eine MP4-Datei anstelle von MP3 verwenden. MP4-Dateien enthalten typischerweise [AAC](https://de.wikipedia.org/wiki/Advanced_Audio_Coding)-kodierten Ton. Sie können `type="audio/mp4"` verwenden. (Derzeit unterstützen Browser, die MP3 unterstützen, auch MP4-Audio).
 
-- Hier definieren wir ein {{ htmlelement("audio") }}-Element mit mehreren Quellen — wir tun dies, da nicht alle Browser dieselben Audioformate unterstützen. Um eine angemessene Abdeckung sicherzustellen, sollten wir mindestens zwei verschiedene Formate angeben. Die beiden Formate, die die größte Abdeckung bieten, sind mp3 und ogg vorbis.
-- Wir machen dies durch das {{ htmlelement("source") }}-Element, das die Attribute `src` und `type` annimmt.
+- Hier definieren wir ein {{ htmlelement("audio") }}-Element mit mehreren Quellen — dies tun wir, da nicht alle Browser dieselben Audioformate unterstützen. Um eine angemessene Abdeckung sicherzustellen, sollten wir mindestens zwei unterschiedliche Formate angeben. Die beiden Formate, die die maximale Abdeckung bieten, sind MP3 und Ogg Vorbis.
+- Dies geschieht mithilfe des {{ htmlelement("source") }}-Elements, das die Attribute `src` und `type` übernimmt.
 
   - `src` enthält den Pfad zur zu ladenden Audiodatei (relativ oder absolut).
-  - `type` wird verwendet, um den Browser über den Dateityp zu informieren. Wenn dies ausgelassen wird, versuchen die meisten Browser, dies anhand der Dateierweiterung zu erraten.
+  - `type` wird verwendet, um den Browser über den Dateityp zu informieren. Wenn es weggelassen wird, versuchen die meisten Browser, dies anhand der Dateiendung zu erraten.
 
-- Wenn das {{ htmlelement("audio") }}-Element nicht unterstützt wird, werden {{ htmlelement("audio") }} und {{ htmlelement("source") }} ignoriert. Allerdings wird jeder unterstützte Text oder jedes von Ihnen definierte Element innerhalb von {{ htmlelement("audio") }} angezeigt oder ausgeführt. Der ideale Platz für einen Fallback oder einen Hinweis auf Inkompatibilität ist also vor dem abschließenden `</audio>`-Tag. In diesem Fall haben wir einen einfachen Absatz mit einem Link zum direkten Herunterladen des Audios bereitgestellt.
-- Das `controls`-Attribut am {{ htmlelement("audio") }}-Element wird angegeben, wenn wir vom Browser die Bereitstellung der Standardwiedergabesteuerungen benötigen. Wenn Sie dieses Attribut nicht angeben, erscheinen keine Steuerungen — und Sie müssen stattdessen Ihre eigenen Steuerungen erstellen und deren Funktionalität mit der Media API programmieren (siehe unten). Dies kann jedoch ein guter Ansatz sein, da die Standardsteuerungen in verschiedenen Browsern unterschiedlich aussehen. Eigene Steuerungen zu erstellen, gewährleistet ein einheitliches Erscheinungsbild der Steuerungen über alle Browser hinweg.
+- Wenn das {{ htmlelement("audio") }}-Element nicht unterstützt wird, werden {{ htmlelement("audio") }} und {{ htmlelement("source") }} ignoriert. Jedoch wird jeder unterstützte Text oder jedes Element, das Sie innerhalb von {{ htmlelement("audio") }} definieren, angezeigt oder ausgeführt. Daher ist der ideale Ort, um ein Fallback zu erstellen oder über Inkompatibilität zu informieren, vor dem schließenden `</audio>`-Tag. In diesem Fall haben wir einen einfachen Absatz mit einem Link zum direkten Herunterladen des Audios bereitgestellt.
+- Das `controls`-Attribut im {{ htmlelement("audio") }}-Element wird angegeben, wenn wir möchten, dass der Browser uns die standardmäßigen Wiedergabesteuerelemente bereitstellt. Wenn Sie dieses Attribut nicht angeben, erscheinen keine Steuerelemente — und stattdessen müssen Sie Ihre eigenen Steuerelemente erstellen und deren Funktionalität mit der Media API programmieren (siehe unten). Das kann jedoch ein guter Ansatz sein, da die Standard-Steuerelemente in verschiedenen Browsern unterschiedlich aussehen. Das Erstellen eigener Steuerelemente stellt sicher, dass die Steuerelemente in allen Browsern einheitlich aussehen.
 
 ## HTML-Audio im Detail
 
-Nachdem wir ein einfaches Beispiel betrachtet haben, wollen wir nun die verschiedenen Aspekte von HTML-Audio im Detail erkunden.
+Nachdem wir uns ein einfaches Beispiel angesehen haben, lassen Sie uns nun die verschiedenen Aspekte von HTML-Audio im Detail erkunden.
 
 ### Audio-HTML-Attribute
 
-Wir können eine Anzahl von Attributen mit dem audio-Tag angeben, um die Art und Weise, wie Audio initialisiert wird, weiter zu bestimmen.
+Wir können dem Audio-Tag eine Reihe von Attributen zuweisen, um weiter zu bestimmen, wie Audio initialisiert wird.
 
 #### autoplay
 
-Die Angabe von `autoplay` bewirkt, dass das Audio so schnell wie möglich und ohne Benutzerinteraktion startet — kurz gesagt, das Audio wird automatisch abgespielt.
+Das Angeben von `autoplay` bewirkt, dass die Audiodatei so schnell wie möglich und ohne Benutzereingriff startet — kurz gesagt, das Audio wird automatisch abgespielt.
 
 ```html
 <audio autoplay>…</audio>
 ```
 
 > [!NOTE]
-> Dieser Wert wird auf mobilen Plattformen oft ignoriert, und seine Verwendung wird nicht empfohlen, es sei denn, es ist wirklich notwendig. Automatisch abgespieltes Audio (und Video) ist in der Regel wirklich lästig. Außerdem haben Browser Richtlinien, die das automatische Abspielen in vielen Situationen vollständig blockieren. Siehe den [Autoplay-Leitfaden für Media- und Web-Audio-APIs](/de/docs/Web/Media/Autoplay_guide) für Details.
+> Dieser Wert wird auf mobilen Plattformen häufig ignoriert, und seine Verwendung ist nicht empfohlen, es sei denn, es ist wirklich notwendig. Automatisch abgespieltes Audio (und Video) ist normalerweise wirklich störend. Außerdem haben Browser Richtlinien, die das automatische Abspielen in vielen Situationen ganz blockieren. Siehe den [Leitfaden zum automatischen Abspielen von Medien und Web Audio APIs](/de/docs/Web/Media/Autoplay_guide) für Details.
 
 #### loop
 
-Das `loop`-Attribut stellt sicher, dass das Audio beim Erreichen des Endes des Audioclips an den Anfang springt und erneut abgespielt wird.
+Das `loop`-Attribut stellt sicher, dass beim Erreichen des Endes des Audioclips der Audioclip zum Anfang zurückkehrt und erneut abgespielt wird.
 
 ```html
 <audio loop>…</audio>
@@ -69,27 +69,27 @@ Das `loop`-Attribut stellt sicher, dass das Audio beim Erreichen des Endes des A
 
 #### muted
 
-Wenn Sie möchten, dass das Audio stummgeschaltet startet (keine Lautstärke), fügen Sie das `muted`-Attribut hinzu.
+Wenn Sie möchten, dass das Audio stummgeschaltet (ohne Lautstärke) startet, fügen Sie das `muted`-Attribut hinzu.
 
 ```html
 <audio muted>…</audio>
 ```
 
 > [!NOTE]
-> Dieser Wert wird auf mobilen Plattformen oft ignoriert.
+> Dieser Wert wird auf mobilen Plattformen häufig ignoriert.
 
 #### preload
 
-Das `preload`-Attribut ermöglicht es Ihnen, eine Präferenz anzugeben, wie der Browser das Audio vorlädt, mit anderen Worten, welchen Teil der Datei er herunterlädt, wenn das {{ htmlelement("audio") }}-Element initialisiert wird und bevor der Wiedergabe-Button gedrückt wird.
+Das `preload`-Attribut ermöglicht es Ihnen, eine Präferenz anzugeben, wie der Browser das Audio pre-cachen soll, mit anderen Worten, welchen Teil der Datei er herunterlädt, wenn das {{ htmlelement("audio") }}-Element initialisiert wird und bevor der Wiedergabeknopf gedrückt wird.
 
-`preload` kann drei verschiedene Werte annehmen:
+`preload` kann 3 verschiedene Werte annehmen:
 
-1. `none`: Nichts herunterladen, bevor der Wiedergabe-Button gedrückt wird.
-2. `metadata`: Die Audiodaten-Metadaten herunterladen; dies ist in der Regel die beste Option, da sie Ihnen erlaubt, auf Informationen wie die Audiolänge zuzugreifen und diese anzuzeigen und dem Browser zu ermöglichen, herauszufinden, welche Audiodatei er verwenden soll.
-3. `auto`: Die gesamte Audiodatei so schnell wie möglich herunterladen. Dies ist im Allgemeinen keine gute Option, es sei denn, Sie können garantieren, dass Ihre Benutzer über eine schnelle Netzwerkverbindung verfügen.
+1. `none`: Nichts herunterladen, bevor der Wiedergabeknopf gedrückt wird.
+2. `metadata`: Die Audiometadaten herunterladen; dies ist normalerweise die beste Option, da es ermöglicht, Informationen wie Audiolänge anzuzeigen und den Browser herausfinden lässt, welche Audiodatei er verwenden soll.
+3. `auto`: Die gesamte Audiodatei so schnell wie möglich herunterladen. Dies ist im Allgemeinen keine gute Option, es sei denn, Sie können garantieren, dass Ihre Benutzer eine schnelle Netzwerkverbindung haben.
 
 > [!NOTE]
-> Dieser Wert wird auf mobilen Plattformen oft ignoriert.
+> Dieser Wert wird auf mobilen Plattformen häufig ignoriert.
 
 ```html
 <audio preload="auto">…</audio>
@@ -97,7 +97,7 @@ Das `preload`-Attribut ermöglicht es Ihnen, eine Präferenz anzugeben, wie der 
 
 #### controls
 
-Wir spezifizieren das `controls`-Attribut, wenn wir vom Browser benötigen, dass er uns seine Standard-Wiedergabesteuerungen bereitstellt.
+Wir geben das `controls`-Attribut an, wenn wir möchten, dass der Browser uns seine Standardwiedergabesteuerelemente bereitstellt.
 
 ```html
 <audio controls>…</audio>
@@ -105,7 +105,7 @@ Wir spezifizieren das `controls`-Attribut, wenn wir vom Browser benötigen, dass
 
 #### src
 
-Wie oben erwähnt, können Sie das {{ htmlelement("source") }}-Element verwenden, um eine oder mehrere Quell-Audiodateien anzugeben. Alternativ können Sie das `src`-Attribut direkt am {{ htmlelement("audio") }}-Element einschließen, um eine einzelne Quelldatei anzugeben.
+Wie oben erwähnt, können Sie das {{ htmlelement("source") }}-Element verwenden, um eine oder mehrere Quell-Audiodateien anzugeben. Alternativ können Sie das `src`-Attribut direkt im {{ htmlelement("audio") }}-Element verwenden, um eine einzelne Quelldatei anzugeben.
 
 ```html
 <audio src="audiofile.mp3">…</audio>
@@ -113,7 +113,7 @@ Wie oben erwähnt, können Sie das {{ htmlelement("source") }}-Element verwenden
 
 #### type
 
-Wie oben erwähnt, um sicherzustellen, dass der Browser weiß, welcher Dateityp angegeben wird, ist es eine gute Praxis, ein `type`-Attribut zusammen mit dem `src`-Attribut anzugeben. Das `type`-Attribut gibt den MIME-Typ oder Internet Media Type der Datei an.
+Wie oben erwähnt, ist es eine gute Praxis, ein `type`-Attribut zusammen mit dem `src`-Attribut anzugeben, um sicherzustellen, dass der Browser weiß, welcher Dateityp angegeben wird. Das `type`-Attribut gibt den MIME-Typ oder den Internet Media Type der Datei an.
 
 ```html
 <audio src="audiofile.mp3" type="audio/mpeg">…</audio>
@@ -121,9 +121,9 @@ Wie oben erwähnt, um sicherzustellen, dass der Browser weiß, welcher Dateityp 
 
 ### Manipulation des Audio-Elements mit JavaScript
 
-Zusätzlich zur Möglichkeit, verschiedene Attribute in HTML anzugeben, bietet das {{ htmlelement("audio") }}-Element mehrere Eigenschaften und Methoden, die Sie über JavaScript manipulieren können.
+Zusätzlich zur Möglichkeit, verschiedene Attribute in HTML anzugeben, verfügt das {{ htmlelement("audio") }}-Element über mehrere Eigenschaften und Methoden, die Sie über JavaScript manipulieren können.
 
-Angenommen, das folgende HTML:
+Gegeben ist das folgende HTML:
 
 ```html
 <audio id="my-audio" src="audiofile.mp3">…</audio>
@@ -135,7 +135,7 @@ Sie können das {{ htmlelement("audio") }}-Element so abrufen:
 const audio = document.getElementById("my-audio");
 ```
 
-Alternativ können Sie ein neues Element erstellen. Hier ist ein Beispiel, wie Sie ein {{ htmlelement("audio") }}-Element erstellen, das Medien zum Abspielen festlegt, abspielt und pausiert, und dann ab 5 Sekunden in das Audio abspielt:
+Alternativ können Sie ein neues Element erstellen. Hier ist ein Beispiel zum Erstellen eines {{ htmlelement("audio") }}-Elements, zum Festlegen des abzuspielenden Mediums, zum Abspielen und Pausieren und zum Abspielen ab 5 Sekunden im Audio:
 
 ```js
 const audio = document.createElement("audio");
@@ -162,11 +162,11 @@ audio.currentTime = 5;
 audio.play();
 ```
 
-Lassen Sie uns die verfügbaren Eigenschaften und Methoden im Detail erkunden.
+Lassen Sie uns die verfügbaren Eigenschaften und Methoden genauer erkunden.
 
 #### play
 
-Die `play()`-Methode wird verwendet, um das Audio abzuspielen. Sie nimmt keine Parameter.
+Die `play()`-Methode wird verwendet, um das Audio abzuspielen. Sie benötigt keine Parameter.
 
 ```js
 audio.play();
@@ -174,42 +174,42 @@ audio.play();
 
 #### pause
 
-Die `pause()`-Methode wird verwendet, um das Audio anzuhalten. Sie nimmt keine Parameter.
+Die `pause()`-Methode wird verwendet, um das Audio zu pausieren. Sie benötigt keine Parameter.
 
 ```js
 audio.pause();
 ```
 
 > [!NOTE]
-> Es gibt keine Stopp-Methode — um eine Stop-Funktion umzusetzen, müssten Sie das Medium pausieren und dann den Wert der [`currentTime`](#currenttime)-Eigenschaft auf 0 setzen.
+> Es gibt keine Stopp-Methode — um eine Stopp-Funktion zu implementieren, müssten Sie das Medium pausieren und dann den Wert der [`currentTime`](#currenttime) Eigenschaft auf 0 setzen.
 
 #### canPlayType
 
-Die `canPlayType()`-Methode fragt den Browser, ob ein bestimmter Audio-Dateityp unterstützt wird. Sie nimmt den MIME-Typ des zu prüfenden Typs als Parameter.
+Die `canPlayType()`-Methode fragt den Browser, ob ein bestimmter Audio-Dateityp unterstützt wird. Sie nimmt den mime-Typ des zu überprüfenden Typs als Parameter.
 
 ```js
 if (audio.canPlayType("audio/mpeg")) {
-  // Unterstützt.
-  // Tun Sie hier etwas!
+  // It's supported.
+  // Do something here!
 }
 ```
 
-`canPlayType()` gibt eines von drei Werten zurück:
+`canPlayType()` gibt einen von drei Werten zurück:
 
 1. `probably`
 2. `maybe`
-3. "" (ein leerer String)
+3. "" (eine leere Zeichenfolge)
 
-In der Praxis prüfen wir normalerweise, ob das Ergebnis wahr oder falsch ist. Nicht-leere Strings sind wahr.
+In der Praxis prüfen wir normalerweise, ob das Ergebnis wahr oder falsch ist. Nicht-leere Zeichenfolgen sind wahr.
 
 > [!NOTE]
-> Eine sehr frühe Spezifikation gab an, dass der Browser `no` anstelle eines leeren Strings zurückgeben sollte, aber glücklicherweise sind die Anzahl der Personen, die ältere Browser verwenden, die diese Version der Spezifikation implementieren, gering und selten.
+> Eine sehr frühe Spezifikation sah vor, dass der Browser `no` statt einer leeren Zeichenfolge zurückgeben sollte, aber glücklicherweise gibt es nur wenige Leute, die ältere Browser verwenden, die diese Version der Spezifikation implementieren.
 
 #### currentTime
 
-Die `currentTime`-Eigenschaft erhält oder setzt die aktuelle Zeit, bei der das Audio abgespielt werden soll. Dies ist auf viele Arten nützlich, zum Beispiel da `play()` keinen Parameter nimmt, müssen wir den Punkt, von dem aus abgespielt werden soll, separat festlegen, wenn er nicht 0 sein soll.
+Die `currentTime`-Eigenschaft ruft die aktuelle Zeit ab oder setzt sie, zu der das Audio abgespielt werden soll. Dies ist auf viele Arten nützlich, zum Beispiel da `play()` keinen Parameter nimmt, müssen wir den Punkt zum Abspielen separat setzen, wenn er nicht 0 sein soll.
 
-Der Wert von `currentTime` ist eine Zahl, die die Zeit in Sekunden darstellt.
+Der Wert von `currentTime` ist eine Nummer, die die Zeit in Sekunden darstellt.
 
 ```js
 if (audio.currentTime > 5) {
@@ -219,31 +219,31 @@ if (audio.currentTime > 5) {
 
 #### volume
 
-Die `volume`-Eigenschaft ermöglicht es uns, die Lautstärke des Audios zu setzen, als eine Zahl zwischen 0 und 1.
+Die `volume`-Eigenschaft ermöglicht es uns, die Lautstärke des Audios einzustellen, als eine Zahl zwischen 0 und 1.
 
 ```js
-// Setzen Sie die Lautstärke auf 50 %
+// set the volume at 50%
 audio.volume = 0.5;
 ```
 
 ## Erstellen Ihres eigenen benutzerdefinierten Audioplayers
 
-Die JavaScript Media API ermöglicht es Ihnen, Ihren eigenen benutzerdefinierten Player zu erstellen. Lassen Sie uns ein sehr minimales Beispiel betrachten. Wir können HTML und JavaScript kombinieren, um einen sehr einfachen Player mit einem Play- und einem Pause-Button zu erstellen. Zuerst richten wir das Audio im HTML ein, ohne das `controls`-Attribut, da wir unsere eigenen Steuerungen erstellen:
+Die JavaScript Media API ermöglicht es Ihnen, Ihren eigenen benutzerdefinierten Player zu erstellen. Werfen wir einen Blick auf ein sehr minimales Beispiel. Wir können HTML und JavaScript kombinieren, um einen sehr einfachen Player mit einem Abspiel- und einem Pausenknopf zu erstellen. Zuerst richten wir das Audio im HTML ein, ohne das `controls`-Attribut, da wir unsere eigenen Steuerelemente erstellen:
 
 ```html
 <audio id="my-audio">
   <source src="audiofile.mp3" type="audio/mpeg" />
   <source src="audiofile.ogg" type="audio/ogg" />
-  <!-- Fallback hier platzieren, da <audio> unterstützende Browser es ignorieren werden -->
-  <p>Herunterladen<a href="audiofile.mp3">audiofile.mp3</a></p>
+  <!-- place fallback here as <audio> supporting browsers will ignore it -->
+  <p>Download<a href="audiofile.mp3">audiofile.mp3</a></p>
 </audio>
 
-<!-- Benutzerdefinierte Play- und Pause-Buttons -->
+<!-- custom play and pause buttons -->
 <button id="play">play</button>
 <button id="pause">pause</button>
 ```
 
-Als nächstes fügen wir dem Player etwas Funktionalität mit JavaScript hinzu:
+Als nächstes fügen wir der Funktionalität des Players mit JavaScript hinzu:
 
 ```js
 window.onload = () => {
@@ -251,7 +251,7 @@ window.onload = () => {
   const play = document.getElementById("play");
   const pause = document.getElementById("pause");
 
-  // Funktionen mit den 'onclick'-Ereignissen verknüpfen
+  // associate functions with the 'onclick' events
   play.onclick = playAudio;
   pause.onclick = pauseAudio;
 
@@ -267,100 +267,100 @@ window.onload = () => {
 
 ## Medienladeereignisse
 
-Oben haben wir gezeigt, wie Sie einen sehr einfachen Audioplayer erstellen können, aber was, wenn wir den Fortschritt, das Puffern zeigen und die Buttons nur aktivieren möchten, wenn das Medium bereit zum Abspielen ist? Glücklicherweise gibt es eine Anzahl von Ereignissen, die wir verwenden können, um unseren Player genau wissen zu lassen, was passiert.
+Oben haben wir gezeigt, wie Sie einen sehr einfachen Audioplayer erstellen können, aber was ist, wenn wir Fortschritte anzeigen, puffern und die Schaltflächen nur aktivieren möchten, wenn das Medium bereit zum Abspielen ist? Glücklicherweise gibt es eine Reihe von Ereignissen, die uns wissen lassen, was genau passiert.
 
-Zuerst werfen wir einen Blick auf den Medienladeprozess in der Reihenfolge:
+Zuerst schauen wir uns den Medienladeprozess in der Reihenfolge an:
 
 ### loadstart
 
-Das `loadstart`-Ereignis teilt uns mit, dass der Ladeprozess begonnen hat und der Browser mit dem Medium verbindet.
+Das `loadstart`-Ereignis teilt uns mit, dass der Ladevorgang begonnen hat und der Browser mit dem Medium verbinden.
 
 ```js
 audio.addEventListener("loadstart", () => {
-  // Datei wird geladen
+  //grabbing the file
 });
 ```
 
 ### durationchange
 
-Wenn Sie nur wissen möchten, sobald die Dauer Ihres Mediums feststeht, ist dies das Ereignis für Sie. Dies kann nützlich sein, da der Anfangswert für die Dauer `NaN` (Not a Number) ist, was Sie wahrscheinlich nicht Ihren Benutzern anzeigen möchten.
+Wenn Sie nur wissen möchten, sobald die Dauer Ihres Mediums festgelegt ist, ist dies das Ereignis für Sie. Dies kann nützlich sein, weil der anfängliche Wert für die Dauer `NaN` (Nicht eine Nummer) ist, den Sie wahrscheinlich nicht Ihren Benutzern anzeigen möchten.
 
 ```js
 audio.addEventListener("durationchange", () => {
-  // Sie können die Dauer jetzt anzeigen
+  //you can display the duration now
 });
 ```
 
 ### loadedmetadata
 
-Metadaten können mehr als nur Dauer enthalten — wenn Sie warten möchten, bis alle Metadaten heruntergeladen sind, bevor Sie etwas tun, können Sie das `loadedmetadata`-Ereignis feststellen.
+Metadaten können aus mehr als nur der Dauer bestehen — wenn Sie warten möchten, bis alle Metadaten heruntergeladen sind, bevor Sie etwas tun, können Sie das `loadedmetadata`-Ereignis erkennen.
 
 ```js
 audio.addEventListener("loadedmetadata", () => {
-  // Sie können die Dauer jetzt anzeigen
+  //you can display the duration now
 });
 ```
 
 ### loadeddata
 
-Das `loadeddata`-Ereignis wird ausgelöst, wenn das erste Stück des Mediums angekommen ist. Der Playhead ist in Position, aber noch nicht ganz bereit zum Abspielen.
+Das `loadeddata`-Ereignis wird ausgelöst, wenn das erste Medienstück ankommt. Der Wiedergabekopf ist in Position, aber noch nicht ganz bereit zur Wiedergabe.
 
 ```js
 audio.addEventListener("loadeddata", () => {
-  // Sie könnten den Playhead jetzt anzeigen
+  //you could display the playhead now
 });
 ```
 
 ### progress
 
-Das `progress`-Ereignis zeigt an, dass der Download von Medien noch im Gange ist. Es ist eine gute Praxis, zu diesem Zeitpunkt eine Art "Ladeanzeige" anzuzeigen.
+Das `progress`-Ereignis zeigt an, dass der Download von Medien noch im Gange ist. Es ist gute Praxis, zu diesem Zeitpunkt eine Art 'Ladeanzeige' anzuzeigen.
 
 ```js
 audio.addEventListener("progress", () => {
-  // Sie könnten dem Benutzer mitteilen, dass das Medium heruntergeladen wird
+  // you could let the user know the media is downloading
 });
 ```
 
 ### canplay
 
-`canplay` ist ein nützliches Ereignis, das Sie feststellen sollten, wenn Sie bestimmen möchten, ob das Medium bereit zum Abspielen ist. Sie könnten beispielsweise benutzerdefinierte Steuerungen deaktivieren, bis dieses Ereignis eintritt.
+Das `canplay`-Ereignis ist nützlich, wenn Sie feststellen möchten, ob das Medium bereit zum Abspielen ist. Sie könnten beispielsweise benutzerdefinierte Steuerelemente deaktivieren, bis dieses Ereignis auftritt.
 
 ```js
 audio.addEventListener("canplay", () => {
-  // Das Audio ist bereit zum Abspielen
+  //audio is ready to play
 });
 ```
 
 ### canplaythrough
 
-`canplaythrough` ist ähnlich wie `canplay`, aber es informiert Sie darüber, dass das Medium bereit ist, vollständig abgespielt zu werden (das heißt, dass die Datei vollständig heruntergeladen wurde oder es geschätzt wird, dass sie rechtzeitig heruntergeladen wird, sodass keine Pufferstopps auftreten).
+`canplaythrough` ist ähnlich wie `canplay`, aber es teilt Ihnen mit, dass das Medium bereit ist, vollständig abgespielt zu werden (das heißt, die Datei wurde vollständig heruntergeladen, oder es wird geschätzt, dass sie rechtzeitig heruntergeladen wird, sodass Pufferstopps nicht auftreten).
 
 ```js
 audio.addEventListener("canplaythrough", () => {
-  // Das Audio ist bereit, vollständig abgespielt zu werden
+  //audio is ready to play all the way through
 });
 ```
 
-### Ereignisreihenfolge beim Laden von Medien
+### Reihenfolge der Medienladeereignisse
 
 Um zusammenzufassen, die Reihenfolge der Medienladeereignisse ist:
 
 `loadstart` > `durationchange` > `loadedmetadata` > `loadeddata` > `progress` > `canplay` > `canplaythrough`
 
-### Ereignisse bei Ladeunterbrechung
+### Unterbrechungsereignisse beim Laden
 
 Wir haben auch einige Ereignisse, die ausgelöst werden, wenn es eine Art Unterbrechung im Medienladeprozess gibt.
 
 - suspend
   - : Mediendaten werden nicht mehr abgerufen, obwohl die Datei nicht vollständig heruntergeladen wurde.
 - abort
-  - : Mediendaten-Download wurde abgebrochen, aber nicht aufgrund eines Fehlers.
+  - : Der Download der Mediendaten wurde abgebrochen, jedoch nicht aufgrund eines Fehlers.
 - error
-  - : Ein Fehler wird beim Herunterladen der Mediendaten festgestellt.
+  - : Beim Herunterladen der Mediendaten ist ein Fehler aufgetreten.
 - emptied
-  - : Der Mediapuffer wurde geleert, möglicherweise aufgrund eines Fehlers oder weil die Methode load() aufgerufen wurde, um es neu zu laden.
+  - : Der Mediapuffer wurde geleert, möglicherweise aufgrund eines Fehlers oder weil die load()-Methode erneut aufgerufen wurde.
 - stalled
-  - : Mediendaten sind uner erwartet nicht mehr verfügbar.
+  - : Mediendaten sind unerwartet nicht mehr verfügbar.
 
 ## Medienwiedergabeereignisse
 
@@ -368,29 +368,29 @@ Wir haben auch eine weitere Reihe von Ereignissen, die nützlich sind, um auf de
 
 ### timeupdate
 
-Das `timeupdate`-Ereignis wird jedes Mal ausgelöst, wenn sich die `currentTime`-Eigenschaft ändert. In der Praxis geschieht dies etwa alle 250 Millisekunden. Dieses Ereignis kann verwendet werden, um die Anzeige des Wiedergabefortschritts zu starten.
+Das `timeupdate`-Ereignis wird jedes Mal ausgelöst, wenn sich die `currentTime`-Eigenschaft ändert. In der Praxis passiert dies alle 250 Millisekunden. Dieses Ereignis kann verwendet werden, um die Anzeige des Wiedergabefortschritts auszulösen.
 
 ```js
 audio.addEventListener("timeupdate", () => {
-  // Aktualisieren Sie etwas im Zusammenhang mit dem Wiedergabefortschritt
+  //update something related to playback progress
 });
 ```
 
 ### playing
 
-Das `playing`-Ereignis wird initiiert, wenn die Wiedergabe bereit ist, nach einer Pause aufgrund eines Mangels an Mediendaten zu starten.
+Das `playing`-Ereignis wird ausgelöst, wenn die Wiedergabe nach einer Pause aufgrund fehlender Mediadaten startbereit ist.
 
 ### waiting
 
-Das `waiting`-Ereignis wird ausgelöst, wenn die Wiedergabe aufgrund eines Mangels an Mediendaten gestoppt wurde, obwohl sie erwartet wird, sobald Daten verfügbar werden.
+Das `waiting`-Ereignis wird ausgelöst, wenn die Wiedergabe aufgrund fehlender Mediadaten gestoppt wurde, obwohl erwartet wird, dass sie wiederaufgenommen wird, sobald Daten verfügbar sind.
 
 ### play
 
-Das `play`-Ereignis wird initiiert, nachdem die Methode `play()` zurückgegeben wurde oder wenn das `autoplay`-Attribut dazu geführt hat, dass die Wiedergabe beginnt. Dies ist, wenn sich der Zustand des Mediums von pausiert zu abgespielt ändert.
+Das `play`-Ereignis wird initiiert, nachdem die `play()`-Methode zurückgegeben wurde oder wenn das `autoplay`-Attribut die Wiedergabe verursacht hat. Dies ist der Moment, in dem der Zustand des Mediums von pausiert zu abspielend wechselt.
 
 ### pause
 
-Das `pause`-Ereignis wird ausgelöst, nachdem die Methode `pause()` zurückgegeben wurde. Dies ist, wenn sich die Zustände von abgespielt zu pausiert ändern.
+Das `pause`-Ereignis wird ausgelöst, nachdem die `pause()`-Methode zurückgegeben wurde. Dies ist der Moment, in dem der Zustand von abspielend zu pausiert wechselt.
 
 ### ended
 
@@ -398,17 +398,17 @@ Das `ended`-Ereignis wird initiiert, wenn das Ende des Mediums erreicht ist.
 
 ```js
 audio.addEventListener("ended", () => {
-  // Tun Sie etwas, sobald der Audiotrack beendet ist
+  //do something once audio track has finished playing
 });
 ```
 
 ### volumechange
 
-Das `volumechange`-Ereignis zeigt an, dass sich die Lautstärke geändert hat, einschließlich, wenn sie stummgeschaltet wurde.
+Das `volumechange`-Ereignis signalisiert, dass sich die Lautstärke geändert hat; dazu gehört auch, dass die Lautstärke stummgeschaltet wurde.
 
 ## Ein Audioplayer mit Rückmeldung
 
-Betrachten Sie diesen HTML-Ausschnitt:
+Betrachten Sie dieses HTML-Fragment:
 
 ```html
 <audio id="my-audio">
@@ -418,7 +418,7 @@ Betrachten Sie diesen HTML-Ausschnitt:
   <source
     src="http://jPlayer.org/audio/ogg/Miaow-07-Bubble.ogg"
     type="audio/ogg" />
-  <!-- Fallback hier platzieren, da <audio> unterstützende Browser es ignorieren werden -->
+  <!-- place fallback here as <audio> supporting browsers will ignore it -->
   <a href="audiofile.mp3">audiofile.mp3</a>
 </audio>
 
@@ -432,7 +432,7 @@ Betrachten Sie diesen HTML-Ausschnitt:
 </div>
 ```
 
-Gestaltet wie folgt:
+Stilen Sie es so:
 
 ```css
 #controls {
@@ -452,7 +452,7 @@ Gestaltet wie folgt:
 }
 ```
 
-Nun lassen Sie uns dieses Ding mit JavaScript verbinden:
+Nun verbinden wir das Ganze mit JavaScript:
 
 ```js
 window.onload = () => {
@@ -467,11 +467,11 @@ window.onload = () => {
     play.style.display = "block";
   }
 
-  // Überprüfen, ob das Medium bereit ist, bevor die Steuerungen angezeigt werden
+  // Check that the media is ready before displaying the controls
   if (audio.paused) {
     displayControls();
   } else {
-    // noch nicht bereit - auf das canplay-Ereignis warten
+    // not ready yet - wait for canplay event
     audio.addEventListener("canplay", () => {
       displayControls();
     });
@@ -489,9 +489,9 @@ window.onload = () => {
     play.style.display = "block";
   });
 
-  // Fortschritt anzeigen
+  // Display progress
   audio.addEventListener("timeupdate", () => {
-    // Prozentangabe setzen
+    // Sets the percentage
     bar.style.width = `${Math.floor(
       (audio.currentTime / audio.duration) * 100,
     )}%`;
@@ -499,15 +499,15 @@ window.onload = () => {
 };
 ```
 
-Sie sollten am Ende mit etwas wie diesem dastehen:
+Sie sollten mit etwas wie diesem enden:
 
-![Ein einfacher Audioplayer mit Play/Pause-Button und Fortschrittsanzeige](simpleplayer.png)
+![Ein einfacher Audioplayer mit Abspiel-/Pause-Schaltfläche und Suchleiste](simpleplayer.png)
 
 ### Suchen mit der Suchleiste
 
-Dies ist ein guter Anfang, aber es wäre schön, wenn man das Audio über die Fortschrittsleiste navigieren könnte. Glücklicherweise ist es nicht allzu schwer, dies zu implementieren.
+Dies ist ein guter Anfang, aber es wäre schön, wenn man das Audio mit der Fortschrittsleiste navigieren könnte. Glücklicherweise ist dies nicht allzu schwer zu implementieren.
 
-Zuerst führen wir ein schnelles Update auf die CSS der Fortschrittsleiste durch, um den Handcursor beim Überfahren anzuzeigen:
+Zuerst nehmen wir eine schnelle Anpassung des CSS der Fortschrittsleiste vor, um den Handzeiger beim Hover anzuzeigen:
 
 ```css
 #progress {
@@ -517,30 +517,30 @@ Zuerst führen wir ein schnelles Update auf die CSS der Fortschrittsleiste durch
 }
 ```
 
-Dann fügen wir den Code hinzu, der den Klick erkennt und den "Playhead" an die richtige Position bewegt:
+Dann fügen wir den Code hinzu, der den Klick erkennt und den 'Wiedergabekopf' an die richtige Position bewegt:
 
 ```js
 const progress = document.getElementById("progress");
 
 progress.addEventListener("click", (e) => {
-  // Berechnen Sie die normalisierte Position, auf die geklickt wurde
+  // Calculate the normalized position clicked
   const clickPosition = (e.pageX - progress.offsetLeft) / progress.offsetWidth;
   const clickTime = clickPosition * audio.duration;
 
-  // Bewegen Sie den Playhead an die richtige Position
+  // Move the playhead to the correct position
   audio.currentTime = clickTime;
 });
 ```
 
-### Pufferung
+### Puffern
 
-Okay, wir nähern uns dem Ziel, aber es gibt ein weiteres nützliches Stück Information, das wir anzeigen können: die Menge an Audio, die gepuffert oder im Voraus heruntergeladen wurde.
+Okay, wir nähern uns, aber es gibt ein weiteres nützliches Stück Information, das wir anzeigen können: die Menge an Audio, das vorgepuffert oder im Voraus heruntergeladen wurde.
 
 Es gibt ein paar Eigenschaften, die wir noch nicht betrachtet haben, `buffered` und `seekable`.
 
 #### buffered
 
-Diese Eigenschaft lässt uns wissen, welche Teile des Audios gepuffert (im Voraus heruntergeladen) worden sind. Sie gibt ein sogenanntes `TimeRanges`-Objekt zurück.
+Diese Eigenschaft informiert uns, welche Teile des Audios vorgepuffert (im Voraus heruntergeladen) wurden. Sie gibt ein sogenanntes `TimeRanges`-Objekt zurück.
 
 ```js
 bufferedTimeRanges = audio.buffered;
@@ -548,29 +548,29 @@ bufferedTimeRanges = audio.buffered;
 
 #### seekable
 
-Die `seekable`-Eigenschaft informiert Sie darüber, ob Sie direkt zu diesem Teil des Mediums springen können, ohne weiter zu puffern.
+Die `seekable`-Eigenschaft informiert darüber, ob Sie direkt zu diesem Medienteil springen können, ohne weiteres Puffern.
 
 ```js
 seekableTimeRanges = audio.seekable;
 ```
 
-#### Pufferereignisse
+#### Puffereignisse
 
-Es gibt auch ein paar Ereignisse in Bezug auf das Puffern:
+Es gibt auch ein paar Ereignisse, die sich auf das Puffern beziehen:
 
 - `seeking`
-  - : Das `seeking`-Ereignis wird ausgelöst, wenn Medien gesucht werden.
+  - : Das `seeking`-Ereignis wird ausgelöst, wenn nach Medien gesucht wird.
 - `seeked`
   - : `seeked` tritt auf, wenn sich das `seeking`-Attribut in `false` ändert.
 
 > [!NOTE]
-> Sie können mehr über [Pufferung, Suchen und Zeitbereiche](/de/docs/Web/Media/Audio_and_video_delivery/buffering_seeking_time_ranges) anderswo lesen.
+> Sie können mehr über [Puffern, Suchen und Zeitbereiche](/de/docs/Web/Media/Audio_and_video_delivery/buffering_seeking_time_ranges) anderswo lesen.
 
 ## Siehe auch
 
-- [Pufferung, Suchen und Zeitbereiche](/de/docs/Web/Media/Audio_and_video_delivery/buffering_seeking_time_ranges)
+- [Puffern, Suchen und Zeitbereiche](/de/docs/Web/Media/Audio_and_video_delivery/buffering_seeking_time_ranges)
 - [HTMLMediaElement-Ereignisse](/de/docs/Web/API/HTMLMediaElement#events)
 - [Ereignisreferenz > Medien](/de/docs/Web/Events#media)
 - [Verwendung von HTML-Audio und -Video](/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content)
-- [Erstellung eines plattformübergreifenden Videoplayers](/de/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player)
+- [Erstellen eines plattformübergreifenden Videoplayers](/de/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player)
 - [jPlayer](https://jplayer.org/): Eine Open-Source-Audio- und Videobibliothek für jQuery und Zepto.

@@ -1,5 +1,5 @@
 ---
-title: Lange Aufgabe
+title: Long task
 slug: Glossary/Long_task
 l10n:
   sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **lange Aufgabe** ist eine Aufgabe, die mehr als 50 ms zur Ausführung benötigt.
+Ein **Long Task** ist eine Aufgabe, die mehr als 50 ms zur Fertigstellung benötigt.
 
-Es ist ein ununterbrochener Zeitraum, in dem der {{Glossary("main thread", "haupt UI-Thread")}} für 50 ms oder länger beschäftigt ist. Häufige Beispiele sind lang laufende Event-Handler, aufwendige {{Glossary("reflow", "Reflows")}} und andere Neu-Renderings sowie Arbeiten, die der Browser zwischen verschiedenen Durchläufen der Ereignisschleife ausführt und die 50 ms überschreiten.
+Es handelt sich um eine ununterbrochene Periode, in der der [Main-UI-Thread](/de/docs/Glossary/main_thread) für 50 ms oder länger beschäftigt ist. Häufige Beispiele sind lang laufende Ereignis-Handler, aufwendige [Reflows](/de/docs/Glossary/reflow) und andere Neudarstellungen sowie Arbeiten, die der Browser zwischen den verschiedenen Umdrehungen der Ereignisschleife ausführt und die 50 ms überschreiten.
 
 ## Siehe auch
 

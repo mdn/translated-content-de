@@ -8,38 +8,36 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`loading`**-Eigenschaft des {{domxref("HTMLIFrameElement")}}-Interfaces ist ein String, der dem {{Glossary("user agent")}} einen Hinweis darauf gibt, ob das [iframe](/de/docs/Web/HTML/Element/iframe) sofort beim Laden der Seite oder erst bei Bedarf geladen werden soll.
+Die **`loading`**-Eigenschaft der [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Schnittstelle ist ein Zeichenfolgenwert, der dem [User Agent](/de/docs/Glossary/user_agent) einen Hinweis gibt, ob das [iframe](/de/docs/Web/HTML/Element/iframe) sofort beim Laden der Seite oder nur bei Bedarf geladen werden soll.
 
-Dies kann verwendet werden, um das Laden der Inhalte des Dokuments zu optimieren. Iframes, die beim Laden der Seite sichtbar sind, können sofort (eifrig) heruntergeladen werden, während Iframes, die bei der anfänglichen Seitenlade möglicherweise außerhalb des Bildschirms sind, verzögert – kurz bevor sie im {{Glossary("visual viewport")}} des Fensters erscheinen – heruntergeladen werden können.
+Dies kann genutzt werden, um die Ladezeiten der Inhalte des Dokuments zu optimieren. Iframes, die sichtbar sind, wenn die Seite geladen wird, können sofort (eagerly) heruntergeladen werden, während Iframes, die beim ersten Laden der Seite wahrscheinlich außerhalb des Bildschirms sind, verzögert (lazily) heruntergeladen werden können – gerade bevor sie im [visuellen Viewport](/de/docs/Glossary/visual_viewport) des Fensters erscheinen.
 
 ## Wert
 
-Ein String, der dem User Agent einen Hinweis darauf gibt, wie das Laden des iframes am besten geplant werden sollte.
-Die möglichen Werte sind:
+Ein Zeichenfolgenwert, der dem User Agent einen Hinweis darauf gibt, wie das Laden des iframes am besten geplant werden sollte. Die möglichen Werte sind:
 
 - `eager`
-  - : Lädt das iframe, sobald das Element verarbeitet wird.
-    Dies ist der Standardwert.
+  - : Lädt das iframe, sobald das Element verarbeitet wird. Dies ist der Standardwert.
 - `lazy`
-  - : Lädt das iframe, wenn der Browser der Meinung ist, dass es bald benötigt wird.
+  - : Lädt das iframe, wenn der Browser glaubt, dass es in naher Zukunft benötigt wird.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 ### JavaScript muss aktiviert sein
 
 Das Laden wird nur verzögert, wenn JavaScript aktiviert ist, unabhängig vom Wert dieser Eigenschaft.
 
-Dies ist eine Maßnahme gegen das Verfolgen, da es bei Unterstützung der verzögerten Ladezeit durch den User Agent möglich wäre, die ungefähre Scrollposition eines Benutzers während einer Sitzung zu verfolgen, indem Iframes strategisch im Seitenmarkup platziert werden, sodass ein Server verfolgen kann, wie viele angefordert werden und wann.
+Dies ist eine Maßnahme gegen Tracking, denn wenn ein User Agent verzögertes Laden unterstützte, während Skripting deaktiviert ist, wäre es einer Webseite dennoch möglich, die ungefähre Scroll-Position eines Benutzers während einer Sitzung zu verfolgen, indem strategisch Iframes in das Markup einer Seite eingefügt werden, sodass ein Server registrieren kann, wie viele angefordert werden und wann.
 
-### Zeitpunkt des Ladeereignisses
+### Zeitlicher Ablauf des Ladeereignisses
 
-Das {{domxref("Window.load_event", "load")}}-Ereignis wird ausgelöst, wenn das Dokument vollständig verarbeitet wurde.
+Das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis wird ausgelöst, wenn das Dokument vollständig verarbeitet wurde.
 
-Verzögert geladene Iframes beeinflussen den Zeitpunkt des `load`-Ereignisses nicht, selbst wenn das iframe sich im visual viewport befindet und daher beim Seitenaufruf abgerufen wird. Alle eifrig geladenen Iframes im Dokument müssen abgerufen werden, bevor das `load`-Ereignis ausgelöst werden kann.
+Verzögert geladene Iframes beeinflussen das Timing des `load`-Ereignisses nicht, selbst wenn das iframe im visuellen Viewport ist und daher beim Laden der Seite abgerufen wird. Alle aufwendig geladenen Iframes im Dokument müssen geladen sein, bevor das `load`-Ereignis ausgelöst werden kann.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein verzögert geladenes iframe definiert und dann einem `<div>` im Dokument hinzugefügt werden kann. Der Rahmen wird dann erst geladen, wenn er kurz davor ist, sichtbar zu werden.
+Das folgende Beispiel zeigt, wie Sie ein lazy-geladenes iframe definieren und es dann in ein `<div>` im Dokument einfügen könnten. Der Frame würde dann nur geladen, wenn er sichtbar wird.
 
 ```js
 // Define iframe with lazy loading
@@ -65,6 +63,6 @@ frameDiv.appendChild(iframe);
 ## Siehe auch
 
 - Das {{HTMLElement("iframe")}}-Element
-- [Web-Performance](/de/docs/Learn/Performance) im MDN Lernbereich
-- [Lazy Loading](/de/docs/Web/Performance/Lazy_loading) im MDN-Web-Performance-Leitfaden
+- [Web-Leistung](/de/docs/Learn/Performance) im MDN-Lernbereich
+- [Lazy Loading](/de/docs/Web/Performance/Lazy_loading) im MDN-Web-Leistungsleitfaden
 - [It's time to lazy-load offscreen iframes!](https://web.dev/articles/iframe-lazy-loading) auf web.dev

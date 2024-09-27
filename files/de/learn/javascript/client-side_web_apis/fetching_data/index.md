@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/JavaScript/Client-side_web_APIs/Manipulating_documents", "Learn/JavaScript/Client-side_web_APIs/Third_party_APIs", "Learn/JavaScript/Client-side_web_APIs")}}
 
-Eine weitere sehr verbreitete Aufgabe auf modernen Websites und in Anwendungen ist das Abrufen einzelner Datenpunkte vom Server, um Abschnitte einer Webseite zu aktualisieren, ohne eine komplett neue Seite laden zu müssen. Dieses scheinbar kleine Detail hat einen enormen Einfluss auf die Leistung und das Verhalten von Websites gehabt. In diesem Artikel erklären wir das Konzept und betrachten die Technologien, die dies ermöglichen: insbesondere die [Fetch API](/de/docs/Web/API/Fetch_API).
+Eine weitere sehr häufige Aufgabe in modernen Websites und Anwendungen ist das Abrufen individueller Datenobjekte vom Server, um Abschnitte einer Webseite zu aktualisieren, ohne eine komplette neue Seite laden zu müssen. Dieses scheinbar kleine Detail hat einen großen Einfluss auf die Leistung und das Verhalten von Webseiten. Daher werden wir in diesem Artikel das Konzept erklären und die Technologien betrachten, die dies ermöglichen: insbesondere die [Fetch API](/de/docs/Web/API/Fetch_API).
 
 <table>
   <tbody>
@@ -16,65 +16,60 @@ Eine weitere sehr verbreitete Aufgabe auf modernen Websites und in Anwendungen i
       <td>
         JavaScript-Grundlagen (siehe
         <a href="/de/docs/Learn/JavaScript/First_steps">erste Schritte</a>,
-        <a href="/de/docs/Learn/JavaScript/Building_blocks"
-          >Bausteine</a
-        >,
+        <a href="/de/docs/Learn/JavaScript/Building_blocks">Bausteine</a>,
         <a href="/de/docs/Learn/JavaScript/Objects">JavaScript-Objekte</a>),
         die
-        <a href="/de/docs/Learn/JavaScript/Client-side_web_APIs/Introduction"
-          >Grundlagen von Client-seitigen APIs</a
-        >
+        <a href="/de/docs/Learn/JavaScript/Client-side_web_APIs/Introduction">Grundlagen von Client-seitigen APIs</a>
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen, wie man Daten vom Server abruft und sie verwendet, um die
-        Inhalte einer Webseite zu aktualisieren.
+        Lernen, wie man Daten vom Server abruft und verwendet, um den Inhalt einer Webseite zu aktualisieren.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Was ist das Problem hier?
+## Was ist hier das Problem?
 
-Eine Webseite besteht aus einer HTML-Seite und (in der Regel) verschiedenen anderen Dateien wie Stylesheets, Skripten und Bildern. Das grundlegende Modell des Seitenladens im Web ist, dass Ihr Browser eine oder mehrere HTTP-Anfragen an den Server für die zum Anzeigen der Seite benötigten Dateien stellt, und der Server mit den angeforderten Dateien antwortet. Wenn Sie eine andere Seite besuchen, fordert der Browser die neuen Dateien an und der Server liefert diese.
+Eine Webseite besteht aus einer HTML-Seite und (normalerweise) verschiedenen anderen Dateien, wie Stylesheets, Skripten und Bildern. Das grundlegende Modell des Seitenladens im Web ist, dass Ihr Browser eine oder mehrere HTTP-Anfragen an den Server für die Dateien stellt, die benötigt werden, um die Seite anzuzeigen, und der Server antwortet mit den angeforderten Dateien. Wenn Sie eine andere Seite besuchen, fordert der Browser die neuen Dateien an, und der Server antwortet mit ihnen.
 
-![Traditionelles Laden von Seiten](traditional-loading.svg)
+![Traditionelles Seitenladen](traditional-loading.svg)
 
-Dieses Modell funktioniert für viele Seiten sehr gut. Aber stellen Sie sich eine Website vor, die sehr datengetrieben ist. Zum Beispiel eine Bibliothekswebsite wie die [Vancouver Public Library](https://www.vpl.ca/). Unter anderem könnten Sie sich eine solche Seite als Benutzeroberfläche zu einer Datenbank vorstellen. Sie könnte es Ihnen ermöglichen, nach einem bestimmten Buchgenre zu suchen oder Ihnen Empfehlungen für Bücher zu geben, die Ihnen gefallen könnten, basierend auf Büchern, die Sie zuvor ausgeliehen haben. Wenn Sie dies tun, muss die Seite mit dem neuen Satz Bücher, die angezeigt werden sollen, aktualisiert werden. Beachten Sie jedoch, dass der größte Teil des Seiteninhalts - einschließlich Elemente wie der Seitenkopf, die Seitenleiste und die Fußzeile - gleich bleibt.
+Dieses Modell funktioniert für viele Seiten gut. Aber betrachten Sie eine sehr datengesteuerte Website. Zum Beispiel eine Bibliothekswebsite wie die [Vancouver Public Library](https://www.vpl.ca/). Eine Seite wie diese könnte als Benutzeroberfläche für eine Datenbank gesehen werden. Sie könnte Ihnen erlauben, nach einem bestimmten Buchgenre zu suchen oder Ihnen Empfehlungen für Bücher zu geben, die Ihnen gefallen könnten, basierend auf Büchern, die Sie zuvor ausgeliehen haben. Wenn Sie dies tun, muss die Seite mit der neuen Buchauswahl aktualisiert werden. Beachten Sie jedoch, dass der Großteil des Seiteninhalts – einschließlich Elementen wie dem Seitenkopf, der Seitenleiste und dem Fußbereich – gleich bleibt.
 
-Das Problem mit dem traditionellen Modell hier ist, dass wir die gesamte Seite abrufen und laden müssten, selbst wenn wir nur einen Teil davon aktualisieren müssen. Dies ist ineffizient und kann zu einer schlechten Benutzererfahrung führen.
+Das Problem mit dem traditionellen Modell ist, dass wir die gesamte Seite neu laden müssten, auch wenn wir nur einen Teil von ihr aktualisieren müssen. Dies ist ineffizient und kann zu einer schlechten Benutzererfahrung führen.
 
-Statt des traditionellen Modells verwenden viele Websites JavaScript-APIs, um Daten vom Server anzufordern und den Seiteninhalt ohne Seitenladen zu aktualisieren. Wenn der Benutzer beispielsweise nach einem neuen Produkt sucht, fordert der Browser nur die Daten an, die benötigt werden, um die Seite zu aktualisieren - wie etwa den neuen Satz von Büchern, die angezeigt werden sollen.
+Stattdessen verwenden viele Websites JavaScript-APIs, um Daten vom Server anzufordern und den Seiteninhalt ohne Seitenladevorgang zu aktualisieren. Wenn der Benutzer nach einem neuen Produkt sucht, fordert der Browser nur die Daten an, die benötigt werden, um die Seite zu aktualisieren – zum Beispiel die neuen Bücher, die angezeigt werden sollen.
 
-![Verwenden von Fetch zum Aktualisieren von Seiten](fetch-update.svg)
+![Fetch verwenden, um Seiten zu aktualisieren](fetch-update.svg)
 
-Die Haupt-API hier ist die [Fetch API](/de/docs/Web/API/Fetch_API). Diese ermöglicht es, dass JavaScript, das in einer Seite ausgeführt wird, eine [HTTP](/de/docs/Web/HTTP)-Anfrage an einen Server stellt, um bestimmte Ressourcen abzurufen. Wenn der Server diese bereitstellt, kann das JavaScript die Daten verwenden, um die Seite zu aktualisieren, typischerweise durch die Verwendung von [DOM-Manipulations-APIs](/de/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents). Die angeforderten Daten sind oft [JSON](/de/docs/Learn/JavaScript/Objects/JSON), welches ein gutes Format zur Übertragung strukturierter Daten ist, können jedoch auch HTML oder einfacher Text sein.
+Die Haupt-API hier ist die [Fetch API](/de/docs/Web/API/Fetch_API). Diese ermöglicht es JavaScript, das auf einer Seite ausgeführt wird, eine [HTTP](/de/docs/Web/HTTP)-Anfrage an einen Server zu stellen, um spezifische Ressourcen abzurufen. Wenn der Server diese bereitstellt, kann das JavaScript die Daten verwenden, um die Seite zu aktualisieren, normalerweise durch die Verwendung von [DOM Manipulations-APIs](/de/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents). Die angeforderten Daten sind oft im [JSON](/de/docs/Learn/JavaScript/Objects/JSON)-Format, das gut für die Übertragung strukturierter Daten geeignet ist, können aber auch HTML oder nur Text sein.
 
-Dies ist ein gängiges Muster für datengetriebene Websites wie Amazon, YouTube, eBay usw. Mit diesem Modell:
+Dies ist ein häufiges Muster für datengesteuerte Seiten wie Amazon, YouTube, eBay und so weiter. Mit diesem Modell:
 
-- Seitenaktualisierungen sind viel schneller und Sie müssen nicht auf das Laden der Seite warten, was bedeutet, dass die Website schneller und reaktionsschneller wirkt.
-- Bei jeder Aktualisierung werden weniger Daten heruntergeladen, was weniger verschwendete Bandbreite bedeutet. Dies mag auf einem Desktop mit Breitbandverbindung kein großes Problem sein, ist aber ein großes Problem auf mobilen Geräten und in Ländern ohne allgegenwärtige schnelle Internetdienste.
+- Seitenaktualisierungen sind viel schneller und Sie müssen nicht auf ein Neuladen der Seite warten, was bedeutet, dass die Seite schneller und reaktionsfähiger wirkt.
+- Weniger Daten werden bei jedem Update heruntergeladen, was weniger verschwendete Bandbreite bedeutet. Dies mag auf einem Desktop mit Breitbandverbindung nicht so wichtig sein, ist aber ein großes Problem auf mobilen Geräten und in Ländern ohne durchgängig schnellen Internetdienst.
 
 > [!NOTE]
-> In den frühen Tagen war diese allgemeine Technik als [Asynchrones](/de/docs/Glossary/Asynchronous) JavaScript und XML ([Ajax](/de/docs/Glossary/AJAX)) bekannt, weil sie dazu neigte, XML-Daten anzufordern. Dies ist heutzutage normalerweise nicht der Fall (Sie würden eher JSON anfordern), aber das Ergebnis ist dasselbe, und der Begriff "Ajax" wird oft noch verwendet, um die Technik zu beschreiben.
+> In den frühen Tagen war diese allgemeine Technik als [Asynchronous](/de/docs/Glossary/Asynchronous) JavaScript and XML ([Ajax](/de/docs/Glossary/AJAX)) bekannt, weil sie dazu neigte, XML-Daten anzufordern. Heute ist das normalerweise nicht mehr der Fall (Sie würden eher JSON anfordern), aber das Ergebnis ist immer noch dasselbe und der Begriff „Ajax“ wird oft verwendet, um die Technik zu beschreiben.
 
-Um die Geschwindigkeit weiter zu erhöhen, speichern einige Websites auch Assets und Daten auf dem Computer des Benutzers, wenn diese zuerst angefordert werden, was bedeutet, dass sie bei späteren Besuchen die lokalen Versionen verwenden, anstatt bei jedem erstmaligen Laden der Seite neue Kopien herunterzuladen. Der Inhalt wird nur dann vom Server neu geladen, wenn er aktualisiert wurde.
+Um die Dinge noch weiter zu beschleunigen, speichern einige Seiten auch Assets und Daten auf dem Computer des Benutzers, wenn sie das erste Mal angefordert werden, was bedeutet, dass bei nachfolgenden Besuchen die lokalen Versionen verwendet werden, anstatt jedes Mal beim ersten Laden der Seite frische Kopien herunterzuladen. Der Inhalt wird nur dann vom Server neu geladen, wenn er aktualisiert wurde.
 
 ## Die Fetch API
 
-Lassen Sie uns einige Beispiele der Fetch API durchgehen.
+Lassen Sie uns einige Beispiele für die Fetch API durchgehen.
 
 ### Abrufen von Textinhalten
 
 Für dieses Beispiel werden wir Daten aus einigen verschiedenen Textdateien anfordern und sie verwenden, um einen Inhaltsbereich zu füllen.
 
-Diese Reihe von Dateien wird als unsere gefälschte Datenbank fungieren; in einer echten Anwendung würden wir eher eine serverseitige Sprache wie PHP, Python oder Node verwenden, um unsere Daten aus einer Datenbank anzufordern. Hier wollen wir es jedoch einfach halten und uns auf den clientseitigen Teil konzentrieren.
+Diese Reihe von Dateien wird als unsere gefälschte Datenbank fungieren; in einer echten Anwendung würden wir eher eine serverseitige Sprache wie PHP, Python oder Node verwenden, um unsere Daten aus einer Datenbank anzufordern. Hier möchten wir es jedoch einfach halten und uns auf den clientseitigen Teil konzentrieren.
 
-Um dieses Beispiel zu beginnen, machen Sie eine lokale Kopie von [fetch-start.html](https://github.com/mdn/learning-area/blob/main/javascript/apis/fetching-data/fetch-start.html) und den vier Textdateien — [verse1.txt](https://github.com/mdn/learning-area/blob/main/javascript/apis/fetching-data/verse1.txt), [verse2.txt](https://github.com/mdn/learning-area/blob/main/javascript/apis/fetching-data/verse2.txt), [verse3.txt](https://github.com/mdn/learning-area/blob/main/javascript/apis/fetching-data/verse3.txt) und [verse4.txt](https://github.com/mdn/learning-area/blob/main/javascript/apis/fetching-data/verse4.txt) — in einem neuen Verzeichnis auf Ihrem Computer. In diesem Beispiel werden wir einen anderen Vers des Gedichts abrufen (den Sie wohl erkennen könnten), wenn er im Dropdown-Menü ausgewählt wird.
+Um dieses Beispiel zu beginnen, erstellen Sie eine lokale Kopie von [fetch-start.html](https://github.com/mdn/learning-area/blob/main/javascript/apis/fetching-data/fetch-start.html) und den vier Textdateien — [verse1.txt](https://github.com/mdn/learning-area/blob/main/javascript/apis/fetching-data/verse1.txt), [verse2.txt](https://github.com/mdn/learning-area/blob/main/javascript/apis/fetching-data/verse2.txt), [verse3.txt](https://github.com/mdn/learning-area/blob/main/javascript/apis/fetching-data/verse3.txt) und [verse4.txt](https://github.com/mdn/learning-area/blob/main/javascript/apis/fetching-data/verse4.txt) — in einem neuen Verzeichnis auf Ihrem Computer. In diesem Beispiel werden wir einen anderen Vers des Gedichts (den Sie wahrscheinlich erkennen werden) abrufen, wenn er im Dropdown-Menü ausgewählt wird.
 
-Fügen Sie direkt innerhalb des {{htmlelement("script")}}-Elements den folgenden Code hinzu. Dieser speichert Referenzen zu den {{htmlelement("select")}}- und {{htmlelement("pre")}}-Elementen und fügt dem `<select>`-Element einen Listener hinzu, sodass, wenn der Benutzer einen neuen Wert auswählt, der neue Wert als Parameter an die Funktion `updateDisplay()` übergeben wird.
+Fügen Sie direkt im {{htmlelement("script")}}-Element den folgenden Code hinzu. Dieser speichert Referenzen auf die {{htmlelement("select")}}- und {{htmlelement("pre")}}-Elemente und fügt einen Listener zum `<select>`-Element hinzu, sodass beim Auswählen eines neuen Werts durch den Benutzer der neue Wert als Parameter an die Funktion `updateDisplay()` übergeben wird.
 
 ```js
 const verseChoose = document.querySelector("select");
@@ -86,7 +81,7 @@ verseChoose.addEventListener("change", () => {
 });
 ```
 
-Definieren wir unsere Funktion `updateDisplay()`. Fügen Sie zunächst das folgende Gerüst der Funktion unter Ihrem vorherigen Codeblock hinzu.
+Definieren wir unsere `updateDisplay()`-Funktion. Zuerst fügen Sie das Folgende unter Ihrem vorherigen Codeblock hinzu — dies ist das leere Gerüst der Funktion.
 
 ```js-nolint
 function updateDisplay(verse) {
@@ -94,9 +89,9 @@ function updateDisplay(verse) {
 }
 ```
 
-Wir starten unsere Funktion, indem wir eine relative URL erstellen, die auf die Textdatei zeigt, die wir laden wollen, da wir sie später benötigen. Der Wert des {{htmlelement("select")}}-Elements zu einem beliebigen Zeitpunkt ist derselbe wie der Text innerhalb der ausgewählten {{htmlelement("option")}} (es sei denn, Sie geben einen anderen Wert in einem value-Attribut an) — zum Beispiel "Vers 1". Die entsprechende Vers-Textdatei ist "verse1.txt" und befindet sich im selben Verzeichnis wie die HTML-Datei, daher reicht der Dateiname aus.
+Wir beginnen unsere Funktion, indem wir eine relative URL konstruieren, die auf die Textdatei zeigt, die wir laden möchten, da wir sie später benötigen. Der Wert des {{htmlelement("select")}}-Elements ist zu jedem Zeitpunkt derselbe wie der Text im ausgewählten {{htmlelement("option")}} (es sei denn, Sie geben einen anderen Wert in einem Wertattribut an) — also zum Beispiel "Vers 1". Die entsprechende Vers-Textdatei ist "verse1.txt" und befindet sich im selben Verzeichnis wie die HTML-Datei; daher genügt der Dateiname.
 
-Webserver neigen jedoch dazu, zwischen Groß- und Kleinschreibung zu unterscheiden, und der Dateiname enthält keine Leerzeichen. Um "Vers 1" in "verse1.txt" umzuwandeln, müssen wir das "V" in Kleinbuchstaben umwandeln, den Leerraum entfernen und ".txt" anhängen. Dies kann mit {{jsxref("String.replace", "replace()")}}, {{jsxref("String.toLowerCase", "toLowerCase()")}} und [Template Literals](/de/docs/Web/JavaScript/Reference/Template_literals) durchgeführt werden. Fügen Sie die folgenden Zeilen innerhalb Ihrer `updateDisplay()`-Funktion hinzu:
+Webserver sind jedoch oft case-sensitiv, und der Dateiname enthält kein Leerzeichen. Um "Vers 1" in "verse1.txt" zu konvertieren, müssen wir das 'V' in Kleinbuchstaben umwandeln, das Leerzeichen entfernen und ".txt" am Ende hinzufügen. Dies kann mit {{jsxref("String.replace", "replace()")}}, {{jsxref("String.toLowerCase", "toLowerCase()")}} und [Template Literal](/de/docs/Web/JavaScript/Reference/Template_literals) erfolgen. Fügen Sie die folgenden Zeilen in Ihre `updateDisplay()`-Funktion ein:
 
 ```js
 verse = verse.replace(" ", "").toLowerCase();
@@ -106,45 +101,45 @@ const url = `${verse}.txt`;
 Endlich sind wir bereit, die Fetch API zu verwenden:
 
 ```js
-// Rufen Sie `fetch()` auf und übergeben Sie die URL.
+// Call `fetch()`, passing in the URL.
 fetch(url)
-  // fetch() gibt ein Versprechen zurück. Wenn wir eine Antwort vom Server erhalten haben,
-  // wird der `then()`-Handler des Versprechens mit der Antwort aufgerufen.
+  // fetch() returns a promise. When we have received a response from the server,
+  // the promise's `then()` handler is called with the response.
   .then((response) => {
-    // Unser Handler wirft einen Fehler, wenn die Anforderung nicht erfolgreich war.
+    // Our handler throws an error if the request did not succeed.
     if (!response.ok) {
-      throw new Error(`HTTP-Fehler: ${response.status}`);
+      throw new Error(`HTTP error: ${response.status}`);
     }
-    // Andernfalls (wenn die Antwort erfolgreich war), ruft unser Handler die Antwort
-    // als Text ab, indem er response.text() aufruft, und gibt sofort das von `response.text()`
-    // zurückgegebene Versprechen zurück.
+    // Otherwise (if the response succeeded), our handler fetches the response
+    // as text by calling response.text(), and immediately returns the promise
+    // returned by `response.text()`.
     return response.text();
   })
-  // Wenn response.text() erfolgreich war, wird der `then()`-Handler mit
-  // dem Text aufgerufen, und wir kopieren ihn in das `poemDisplay`-Feld.
+  // When response.text() has succeeded, the `then()` handler is called with
+  // the text, and we copy it into the `poemDisplay` box.
   .then((text) => {
     poemDisplay.textContent = text;
   })
-  // Fangen Sie etwaige Fehler ab, die auftreten könnten, und zeigen Sie eine Nachricht
-  // im `poemDisplay`-Feld an.
+  // Catch any errors that might happen, and display a message
+  // in the `poemDisplay` box.
   .catch((error) => {
-    poemDisplay.textContent = `Konnte Vers nicht abrufen: ${error}`;
+    poemDisplay.textContent = `Could not fetch verse: ${error}`;
   });
 ```
 
-Es gibt hier ziemlich viel zu entpacken.
+Hier gibt es einiges zu entwirren.
 
-Zuerst ist der Einstiegspunkt zur Fetch API eine globale Funktion namens {{domxref("Window/fetch", "fetch()")}}, die die URL als Parameter annimmt (sie nimmt einen weiteren optionalen Parameter für benutzerdefinierte Einstellungen an, aber wir verwenden das hier nicht).
+Zuerst: Der Einstiegspunkt zur Fetch API ist eine globale Funktion namens [`fetch()`](/de/docs/Web/API/Window/fetch), die die URL als Parameter nimmt (sie nimmt einen weiteren optionalen Parameter für benutzerdefinierte Einstellungen, aber den verwenden wir hier nicht).
 
-Als nächstes ist `fetch()` eine asynchrone API, die ein {{jsxref("Promise")}} zurückgibt. Wenn Sie nicht wissen, was das ist, lesen Sie das Modul über [asynchrones JavaScript](/de/docs/Learn/JavaScript/Asynchronous) und insbesondere den Artikel über [Promises](/de/docs/Learn/JavaScript/Asynchronous/Promises), dann kommen Sie hierher zurück. Sie werden feststellen, dass dieser Artikel auch über die `fetch()`-API spricht!
+Als nächstes: `fetch()` ist eine asynchrone API, die ein {{jsxref("Promise")}} zurückgibt. Wenn Sie nicht wissen, was das ist, lesen Sie das Modul zu [asynchronem JavaScript](/de/docs/Learn/JavaScript/Asynchronous), und insbesondere den Artikel zu [Promises](/de/docs/Learn/JavaScript/Asynchronous/Promises), und kommen Sie dann hierher zurück. In diesem Artikel wird auch die `fetch()`-API behandelt!
 
-Da `fetch()` ein Versprechen zurückgibt, übergeben wir eine Funktion in die {{jsxref("Promise/then", "then()")}}-Methode des zurückgegebenen Versprechens. Diese Methode wird aufgerufen, wenn die HTTP-Anfrage eine Antwort vom Server erhalten hat. In dem Handler überprüfen wir, ob die Anforderung erfolgreich war, und werfen einen Fehler, wenn nicht. Ansonsten rufen wir {{domxref("Response/text", "response.text()")}} auf, um den Antwortkörper als Text zu erhalten.
+Da `fetch()` ein Promise zurückgibt, übergeben wir eine Funktion an die {{jsxref("Promise/then", "then()")}}-Methode des zurückgegebenen Promise. Diese Methode wird aufgerufen, wenn die HTTP-Anfrage eine Antwort vom Server erhalten hat. In der Funktion prüfen wir, ob die Anfrage erfolgreich war, und werfen einen Fehler, wenn dies nicht der Fall ist. Anderenfalls rufen wir [`response.text()`](/de/docs/Web/API/Response/text) auf, um den Antwortkörper als Text zu erhalten.
 
-Es stellt sich heraus, dass `response.text()` _auch_ asynchron ist, daher geben wir das von ihm zurückgegebene Versprechen zurück und übergeben eine Funktion an die `then()`-Methode dieses neuen Versprechens. Diese Funktion wird aufgerufen, wenn der Antworttext bereit ist, und darin aktualisieren wir unseren `<pre>`-Block mit dem Text.
+Es stellt sich heraus, dass `response.text()` _ebenfalls_ asynchron ist. Daher geben wir das Promise, das zurückgegeben wird, zurück und übergeben eine Funktion an die `then()`-Methode dieses neuen Promise. Diese Funktion wird aufgerufen, wenn der Antworttext bereit ist, und in ihr aktualisieren wir unseren `<pre>`-Block mit dem Text.
 
-Zuletzt hängen wir am Ende einen {{jsxref("Promise/catch", "catch()")}}-Handler an, um alle in den von uns aufgerufenen asynchronen Funktionen oder deren Handler ausgelösten Fehler zu erfassen.
+Schließlich verketten wir einen {{jsxref("Promise/catch", "catch()")}}-Handler am Ende, um Fehler zu fangen, die in einer der asynchronen Funktionen, die wir aufgerufen haben, oder deren Handler aufgetreten sind.
 
-Ein Problem mit dem Beispiel, wie es derzeit steht, ist, dass es keines der Gedichte anzeigt, wenn es zuerst geladen wird. Um dies zu beheben, fügen Sie am Ende Ihres Codes (direkt über dem schließenden `</script>`-Tag) die folgenden zwei Zeilen hinzu, um Vers 1 standardmäßig zu laden und sicherzustellen, dass das {{htmlelement("select")}}-Element immer den richtigen Wert anzeigt:
+Ein Problem mit dem Beispiel in seinem jetzigen Zustand ist, dass es beim ersten Laden keinen der Verse anzeigt. Um dies zu beheben, fügen Sie die folgenden zwei Zeilen am Ende Ihres Codes (direkt über dem schließenden `</script>`-Tag) hinzu, um standardmäßig Vers 1 zu laden und sicherzustellen, dass das `<select>`-Element immer den richtigen Wert anzeigt:
 
 ```js
 updateDisplay("Verse 1");
@@ -153,77 +148,77 @@ verseChoose.value = "Verse 1";
 
 #### Ihr Beispiel von einem Server bereitstellen
 
-Moderne Browser führen keine HTTP-Anfragen aus, wenn Sie das Beispiel einfach aus einer lokalen Datei ausführen. Dies liegt an Sicherheitsbeschränkungen (für mehr zum Thema Web-Sicherheit lesen Sie [Webseiten-Sicherheit](/de/docs/Learn/Server-side/First_steps/Website_security)).
+Moderne Browser führen keine HTTP-Anfragen aus, wenn Sie das Beispiel nur von einer lokalen Datei ausführen. Dies liegt an Sicherheitsbeschränkungen (für mehr Informationen über Web-Sicherheit lesen Sie [Website-Sicherheit](/de/docs/Learn/Server-side/First_steps/Website_security)).
 
-Um dies zu umgehen, müssen wir das Beispiel testen, indem wir es durch einen lokalen Webserver laufen lassen. Um herauszufinden, wie das geht, lesen Sie [unseren Leitfaden zur Einrichtung eines lokalen Testservers](/de/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server).
+Um dies zu umgehen, müssen wir das Beispiel testen, indem wir es über einen lokalen Webserver laufen lassen. Um herauszufinden, wie das geht, lesen Sie [unseren Leitfaden zum Einrichten eines lokalen Testservers](/de/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server).
 
-### Der Konservenladen
+### Der Dosenladen
 
-In diesem Beispiel haben wir eine Beispielseite namens Der Konservenladen erstellt - es ist ein fiktiver Supermarkt, der nur Dosenwaren verkauft. Sie können dieses [Beispiel live auf GitHub sehen](https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/), und [sehen Sie sich den Quellcode an](https://github.com/mdn/learning-area/tree/main/javascript/apis/fetching-data/can-store).
+In diesem Beispiel haben wir eine Beispielseite namens The Can Store erstellt — es ist ein fiktiver Supermarkt, der nur Dosenwaren verkauft. Sie können dieses [Beispiel live auf GitHub finden](https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/), und [den Quellcode ansehen](https://github.com/mdn/learning-area/tree/main/javascript/apis/fetching-data/can-store).
 
-![Eine gefälschte E-Commerce-Website, die Suchoptionen in der linken Spalte und Suchergebnisse für Produkte in der rechten Spalte zeigt.](can-store.png)
+![Eine gefälschte E-Commerce-Seite mit Suchoptionen in der linken Spalte und Produktsuchergebnissen in der rechten Spalte.](can-store.png)
 
-Standardmäßig zeigt die Seite alle Produkte an, aber Sie können die Formularsteuerungen in der linken Spalte verwenden, um sie nach Kategorie oder Suchbegriff oder beidem zu filtern.
+Standardmäßig zeigt die Seite alle Produkte an, aber Sie können die Steuerelemente in der linken Spalte verwenden, um sie nach Kategorie oder Suchbegriff oder beidem zu filtern.
 
-Es gibt eine Menge komplexen Code, der sich damit befasst, die Produkte nach Kategorie und Suchbegriffen zu filtern, Strings so zu manipulieren, dass die Daten korrekt in der Benutzeroberfläche angezeigt werden usw. Wir werden nicht alles davon im Artikel besprechen, aber Sie können umfangreiche Kommentare im Code finden (siehe [can-script.js](https://github.com/mdn/learning-area/blob/main/javascript/apis/fetching-data/can-store/can-script.js)).
+Es gibt einen ziemlich komplexen Code, der sich mit dem Filtern der Produkte nach Kategorie und Suchbegriffen, dem Manipulieren von Strings, damit die Daten korrekt in der Benutzeroberfläche angezeigt werden, usw. beschäftigt. Wir werden nicht alles in dem Artikel besprechen, aber Sie finden ausführliche Kommentare im Code (siehe [can-script.js](https://github.com/mdn/learning-area/blob/main/javascript/apis/fetching-data/can-store/can-script.js)).
 
 Wir werden jedoch den Fetch-Code erklären.
 
-Der erste Block, der Fetch verwendet, kann zu Beginn des JavaScripts gefunden werden:
+Der erste Block, der Fetch verwendet, kann am Anfang des JavaScript gefunden werden:
 
 ```js
 fetch("products.json")
   .then((response) => {
     if (!response.ok) {
-      throw new Error(`HTTP-Fehler: ${response.status}`);
+      throw new Error(`HTTP error: ${response.status}`);
     }
     return response.json();
   })
   .then((json) => initialize(json))
-  .catch((err) => console.error(`Fetch-Problem: ${err.message}`));
+  .catch((err) => console.error(`Fetch problem: ${err.message}`));
 ```
 
-Die `fetch()`-Funktion gibt ein Versprechen zurück. Wenn dieses erfolgreich abgeschlossen wird, enthält die Funktion im ersten `.then()`-Block die vom Netzwerk zurückgegebene `response`.
+Die `fetch()`-Funktion gibt ein Promise zurück. Wenn dieses erfolgreich abgeschlossen wird, enthält die Funktion im ersten `.then()`-Block die `response`, die vom Netzwerk zurückgegeben wird.
 
-Innerhalb dieser Funktion:
+In dieser Funktion:
 
-- überprüfen wir, ob der Server keinen Fehler (wie z.B. [`404 Not Found`](/de/docs/Web/HTTP/Status/404)) zurückgegeben hat. Wenn er das getan hat, werfen wir den Fehler.
-- rufen wir {{domxref("Response.json","json()")}} auf die Antwort auf. Dadurch werden die Daten als [JSON-Objekt](/de/docs/Learn/JavaScript/Objects/JSON) abgerufen. Wir geben das von `response.json()` zurückgegebene Versprechen zurück.
+- prüfen wir, ob der Server keinen Fehler zurückgegeben hat (wie beispielsweise [`404 Not Found`](/de/docs/Web/HTTP/Status/404)). Falls doch, werfen wir den Fehler.
+- rufen wir [`json()`](/de/docs/Web/API/Response/json) auf der Antwort auf. Dies wird die Daten als [JSON-Objekt](/de/docs/Learn/JavaScript/Objects/JSON) abrufen. Wir geben das Promise zurück, das von `response.json()` zurückgegeben wird.
 
-Als nächstes geben wir eine Funktion in die `then()`-Methode des zurückgegebenen Versprechens ein. Diese Funktion erhält ein Objekt mit den Antwortdaten als JSON, das wir in die Funktion `initialize()` übergeben. Diese Funktion startet den Prozess, alle Produkte in der Benutzeroberfläche anzuzeigen.
+Als nächstes übergeben wir eine Funktion an die `then()`-Methode dieses zurückgegebenen Promise. Diese Funktion wird ein Objekt enthalten, das die Antwortdaten als JSON enthält, das wir an die `initialize()`-Funktion übergeben. Diese Funktion startet den Prozess der Anzeige aller Produkte in der Benutzeroberfläche.
 
-Um Fehler zu behandeln, hängen wir einen `.catch()`-Block an das Ende der Kette an. Dieser wird ausgeführt, wenn das Versprechen aus irgendeinem Grund fehlschlägt. Darin beinhalten wir eine Funktion, die als Parameter ein `err`-Objekt übergeben bekommt. Dieses `err`-Objekt kann verwendet werden, um die Art des aufgetretenen Fehlers zu berichten, in diesem Fall machen wir es mit einem einfachen `console.error()`.
+Um Fehler zu behandeln, hängen wir einen `.catch()`-Block an das Ende der Kette. Dieser wird ausgeführt, wenn das Promise aus irgendeinem Grund fehlschlägt. Darin enthalten wir eine Funktion, die als Parameter ein `err`-Objekt übergeben bekommt. Dieses `err`-Objekt kann verwendet werden, um die Art des Fehlers zu melden, der aufgetreten ist. In diesem Fall tun wir dies mit einem einfachen `console.error()`.
 
-Ein vollständiges Website würde diesen Fehler jedoch eleganter behandeln, indem eine Nachricht auf dem Bildschirm des Benutzers angezeigt wird und möglicherweise Optionen zur Behebung der Situation angeboten werden. Aber wir benötigen nichts weiter als ein einfaches `console.error()`.
+Eine komplette Website würde diesen Fehler jedoch eleganter behandeln, indem sie möglicherweise eine Nachricht auf dem Bildschirm des Benutzers anzeigt und Optionen zur Behebung der Situation anbietet, aber wir benötigen nicht mehr als ein einfaches `console.error()`.
 
 Sie können den Fehlerfall selbst testen:
 
-1. Machen Sie eine lokale Kopie der Beispieldateien.
-2. Führen Sie den Code durch einen Webserver aus (wie oben beschrieben, in [Ihr Beispiel von einem Server bereitstellen](#ihr_beispiel_von_einem_server_bereitstellen)).
-3. Ändern Sie den Pfad zur Datei, die abgerufen werden soll, zu etwas wie 'produc.json' (stellen Sie sicher, dass es falsch geschrieben ist).
-4. Laden Sie nun die Indexdatei in Ihrem Browser (`localhost:8000`) und schauen Sie in der Entwicklerkonsole Ihres Browsers. Sie werden eine Nachricht sehen, die dem "Fetch-Problem: HTTP-Fehler: 404" ähnelt.
+1. Erstellen Sie eine lokale Kopie der Beispieldateien.
+2. Führen Sie den Code durch einen Webserver aus (wie oben beschrieben, im Abschnitt [Ihr Beispiel von einem Server bereitstellen](#ihr_beispiel_von_einem_server_bereitstellen)).
+3. Ändern Sie den Pfad zur abgerufenen Datei in etwas wie 'produc.json' (stellen Sie sicher, dass es falsch geschrieben ist).
+4. Laden Sie nun die Indexdatei in Ihrem Browser (über `localhost:8000`) und schauen Sie in der Entwicklerkonsole Ihres Browsers nach. Sie werden eine Nachricht ähnlich "Fetch-Problem: HTTP-Fehler: 404" sehen.
 
-Der zweite Fetch-Block kann innerhalb der `fetchBlob()`-Funktion gefunden werden:
+Der zweite Fetch-Block kann in der `fetchBlob()`-Funktion gefunden werden:
 
 ```js
 fetch(url)
   .then((response) => {
     if (!response.ok) {
-      throw new Error(`HTTP-Fehler: ${response.status}`);
+      throw new Error(`HTTP error: ${response.status}`);
     }
     return response.blob();
   })
   .then((blob) => showProduct(blob, product))
-  .catch((err) => console.error(`Fetch-Problem: ${err.message}`));
+  .catch((err) => console.error(`Fetch problem: ${err.message}`));
 ```
 
-Dies funktioniert im Wesentlichen genauso wie das vorherige, außer dass wir anstelle von {{domxref("Response.json","json()")}} {{domxref("Response.blob","blob()")}} verwenden. In diesem Fall möchten wir unsere Antwort als Bilddatei zurückgeben, und das Datenformat, das wir dafür verwenden, ist [Blob](/de/docs/Web/API/Blob) (der Begriff ist eine Abkürzung für "Binary Large Object" und kann im Grunde verwendet werden, um große, dateiähnliche Objekte darzustellen, wie Bilder oder Videodateien).
+Dieser funktioniert im Wesentlichen auf die gleiche Weise wie der vorherige, außer dass wir anstelle von [`json()`](/de/docs/Web/API/Response/json) [`blob()`](/de/docs/Web/API/Response/blob) verwenden. In diesem Fall möchten wir unsere Antwort als Bilddatei zurückgeben, und das Datenformat, das wir dafür verwenden, ist [Blob](/de/docs/Web/API/Blob) (der Begriff ist eine Abkürzung für "Binary Large Object" und kann im Wesentlichen verwendet werden, um große dateiähnliche Objekte darzustellen, wie Bild- oder Videodateien).
 
-Sobald wir unseren Blob erfolgreich erhalten haben, übergeben wir ihn an unsere `showProduct()`-Funktion, die ihn anzeigt.
+Sobald wir unseren Blob erfolgreich empfangen haben, reichen wir ihn an unsere `showProduct()`-Funktion weiter, die ihn anzeigt.
 
 ## Die XMLHttpRequest API
 
-Manchmal, besonders in älterem Code, werden Sie eine andere API namens [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) (oft als "XHR" abgekürzt) sehen, die verwendet wird, um HTTP-Anfragen zu machen. Diese ging Fetch voraus und war wirklich die erste API, die weit verbreitet verwendet wurde, um AJAX zu implementieren. Wir empfehlen, Fetch zu verwenden, wenn Sie können: es ist eine einfachere API und hat mehr Funktionen als `XMLHttpRequest`. Wir werden kein Beispiel durchgehen, das `XMLHttpRequest` verwendet, aber wir zeigen Ihnen, wie die `XMLHttpRequest`-Version unserer ersten Kan-Speicher-Anforderung aussehen würde:
+Manchmal, insbesondere in älterem Code, sehen Sie eine andere API namens [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) (oft als "XHR" abgekürzt), die verwendet wird, um HTTP-Anfragen zu machen. Diese existierte vor Fetch und war wirklich die erste weit verbreitete API, um AJAX zu implementieren. Wir empfehlen, Fetch zu verwenden, wenn Sie können: Es ist eine einfachere API und hat mehr Funktionen als `XMLHttpRequest`. Wir werden kein Beispiel durcharbeiten, das `XMLHttpRequest` verwendet, aber wir zeigen Ihnen, wie die `XMLHttpRequest`-Version unserer ersten Abfrage im Dosenladen aussehen würde:
 
 ```js
 const request = new XMLHttpRequest();
@@ -234,37 +229,37 @@ try {
   request.responseType = "json";
 
   request.addEventListener("load", () => initialize(request.response));
-  request.addEventListener("error", () => console.error("XHR-Fehler"));
+  request.addEventListener("error", () => console.error("XHR error"));
 
   request.send();
 } catch (error) {
-  console.error(`XHR-Fehler ${request.status}`);
+  console.error(`XHR error ${request.status}`);
 }
 ```
 
-Es gibt fünf Schritte dazu:
+Es gibt fünf Phasen dazu:
 
-1. Erstellen Sie ein neues `XMLHttpRequest`-Objekt.
-2. Rufen Sie seine [`open()`](/de/docs/Web/API/XMLHttpRequest/open)-Methode auf, um es zu initialisieren.
-3. Fügen Sie einen Ereignis-Listener für sein [`load`](/de/docs/Web/API/XMLHttpRequest/load_event)-Ereignis hinzu, das ausgelöst wird, wenn die Antwort erfolgreich abgeschlossen wurde. Im Listener rufen wir `initialize()` mit den Daten auf.
-4. Fügen Sie einen Ereignis-Listener für sein [`error`](/de/docs/Web/API/XMLHttpRequest/error_event)-Ereignis hinzu, das ausgelöst wird, wenn die Anfrage auf einen Fehler trifft.
-5. Senden Sie die Anfrage.
+1. Erstellen eines neuen `XMLHttpRequest`-Objekts.
+2. Aufrufen seiner [`open()`](/de/docs/Web/API/XMLHttpRequest/open)-Methode, um es zu initialisieren.
+3. Hinzufügen eines Ereignis-Listeners für sein [`load`](/de/docs/Web/API/XMLHttpRequest/load_event)-Ereignis, das ausgelöst wird, wenn die Antwort erfolgreich abgeschlossen wurde. Im Listener rufen wir `initialize()` mit den Daten auf.
+4. Hinzufügen eines Ereignis-Listeners für sein [`error`](/de/docs/Web/API/XMLHttpRequest/error_event)-Ereignis, das ausgelöst wird, wenn bei der Anfrage ein Fehler auftritt.
+5. Senden der Anfrage.
 
-Wir müssen das Ganze auch in einen [try...catch](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Block einwickeln, um alle von `open()` oder `send()` ausgelösten Fehler zu behandeln.
+Wir müssen auch das Ganze im [try...catch](/de/docs/Web/JavaScript/Reference/Statements/try...catch)-Block einwickeln, um mit Fehlern umzugehen, die von `open()` oder `send()` geworfen werden können.
 
-Hoffentlich denken Sie, dass die Fetch API eine Verbesserung im Vergleich dazu ist. Insbesondere sehen Sie, wie wir Fehler an zwei verschiedenen Stellen behandeln müssen.
+Hoffentlich denken Sie, dass die Fetch API eine Verbesserung gegenüber diesem Ansatz darstellt. Insbesondere sehen Sie, wie wir Fehler an zwei verschiedenen Stellen handhaben müssen.
 
 ## Zusammenfassung
 
-Dieser Artikel zeigt, wie man beginnt, mit Fetch zu arbeiten, um Daten vom Server zu holen.
+Dieser Artikel zeigt, wie man beginnt, mit Fetch zu arbeiten, um Daten vom Server abzurufen.
 
 ## Siehe auch
 
-In diesem Artikel werden jedoch viele verschiedene Themen diskutiert, die wirklich nur die Oberfläche angekratzt haben. Für viel mehr Details zu diesen Themen, probieren Sie die folgenden Artikel:
+Es gibt jedoch viele verschiedene Themen, die in diesem Artikel diskutiert werden und die nur die Oberfläche kratzt. Für viele weitere Details zu diesen Themen versuchen Sie die folgenden Artikel:
 
-- [Verwenden von Fetch](/de/docs/Web/API/Fetch_API/Using_Fetch)
+- [Using Fetch](/de/docs/Web/API/Fetch_API/Using_Fetch)
 - [Promises](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-- [Arbeiten mit JSON-Daten](/de/docs/Learn/JavaScript/Objects/JSON)
+- [Mit JSON-Daten arbeiten](/de/docs/Learn/JavaScript/Objects/JSON)
 - [Ein Überblick über HTTP](/de/docs/Web/HTTP/Overview)
 - [Server-seitige Website-Programmierung](/de/docs/Learn/Server-side)
 

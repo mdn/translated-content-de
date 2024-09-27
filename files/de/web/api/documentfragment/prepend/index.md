@@ -1,5 +1,5 @@
 ---
-title: "DocumentFragment: prepend()-Methode"
+title: "DocumentFragment: prepend() Methode"
 short-title: prepend()
 slug: Web/API/DocumentFragment/prepend
 l10n:
@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DocumentFragment.prepend()`**-Methode fügt eine Reihe von {{domxref("Node")}}-Objekten oder Zeichenfolgen vor dem ersten Kind des Dokumentfragments ein. Zeichenfolgen werden als äquivalente {{domxref("Text")}}-Knoten eingefügt.
+Die **`DocumentFragment.prepend()`**-Methode
+fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen vor dem ersten Kind des Dokumentfragments ein. Zeichenfolgen werden als entsprechende [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
-Diese Methode fügt ein Kind zu einem `DocumentFragment` hinzu. Um einem beliebigen Element im Baum etwas voranzustellen, siehe {{domxref("Element.prepend()")}}.
+Diese Methode fügt ein Kind zu einem `DocumentFragment` voran. Um einem beliebigen Element im Baum etwas voranzustellen, siehe [`Element.prepend()`](/de/docs/Web/API/Element/prepend).
 
 ## Syntax
 
@@ -23,7 +24,7 @@ prepend(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Reihe von {{domxref("Node")}}-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -31,12 +32,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
-  - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
 
 ## Beispiele
 
-### Ein Element zu einem Dokumentfragment voranstellen
+### Einem Dokumentfragment ein Element voranstellen
 
 ```js
 let fragment = new DocumentFragment();
@@ -58,5 +59,5 @@ fragment.children; // HTMLCollection [<div>, <p>]
 
 ## Siehe auch
 
-- {{domxref("DocumentFragment.append()")}}
-- {{domxref("Element.prepend()")}}
+- [`DocumentFragment.append()`](/de/docs/Web/API/DocumentFragment/append)
+- [`Element.prepend()`](/de/docs/Web/API/Element/prepend)

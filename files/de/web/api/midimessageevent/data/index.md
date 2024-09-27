@@ -1,5 +1,5 @@
 ---
-title: "MIDIMessageEvent: data Eigenschaft"
+title: "MIDIMessageEvent: data-Eigenschaft"
 short-title: data
 slug: Web/API/MIDIMessageEvent/data
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die schreibgeschützte Eigenschaft **`data`** des {{domxref("MIDIMessageEvent")}}-Interfaces gibt die MIDI-Daten-Bytes einer einzelnen MIDI-Nachricht zurück.
+Die schreibgeschützte **`data`**-Eigenschaft des [`MIDIMessageEvent`](/de/docs/Web/API/MIDIMessageEvent)-Interfaces gibt die MIDI-Datenbytes einer einzelnen MIDI-Nachricht zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein {{jsxref("Uint8Array")}}.
 
 ## Beispiele
 
-Im folgenden Beispiel wird auf alle Eingabeports für {{domxref("MIDIInput.midimessage_event", "midimessage")}}-Ereignisse gehört. Wenn eine Nachricht empfangen wird, wird der Wert von `data` in die Konsole ausgegeben.
+Im folgenden Beispiel wird auf [`midimessage`](/de/docs/Web/API/MIDIInput/midimessage_event)-Ereignisse auf allen Eingangsports gehört. Wenn eine Nachricht empfangen wird, wird der Wert von `data` in die Konsole ausgegeben.
 
 ```js
 inputs.forEach((input) => {

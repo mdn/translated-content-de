@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`controlTransferOut()`**-Methode des {{domxref("USBDevice")}}-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("USBOutTransferResult")}} aufgelöst wird, wenn ein Befehl oder eine Statusoperation vom USB-Gerät übertragen wurde.
+Die **`controlTransferOut()`**-Methode des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem [`USBOutTransferResult`](/de/docs/Web/API/USBOutTransferResult) aufgelöst wird, wenn ein Steuer- oder Statusbefehl vom USB-Gerät übertragen wurde.
 
 ## Syntax
 
@@ -23,28 +23,29 @@ controlTransferOut(setup, data)
   - : Ein Objekt, das Optionen festlegt. Die verfügbaren Optionen sind:
 
     - `requestType`
-      - : Muss einen der drei Werte annehmen, die angeben, ob die Übertragung `"standard"` (alltäglich für alle USB-Geräte), `"class"` (alltäglich für eine branchenspezifische Klasse von Geräten) oder `"vendor"` ist.
+      - : Muss einer von drei Werten sein, die angeben, ob die Übertragung `"standard"` (für alle USB-Geräte üblich), `"class"` (für eine branchenübliche Gerätegruppe üblich) oder `"vendor"` ist.
     - `recipient`
       - : Gibt das Ziel der Übertragung auf dem Gerät an, eines von `"device"`, `"interface"`, `"endpoint"` oder `"other"`.
     - `request`
-      - : Ein herstellerspezifischer Befehl.
+      - : Ein gerätespezifischer Befehl.
     - `value`
-      - : Herstellerspezifische Anforderungsparameter.
+      - : Gerätespezifische Anforderungsparameter.
     - `index`
       - : Die Schnittstellennummer des Empfängers.
 
 - `data`
-  - : Ein {{jsxref("TypedArray")}}, das die Daten enthält, die an das Gerät übertragen werden sollen. Nicht alle Befehle erfordern Daten; einige Befehle können Daten nur über den Wertparameter senden.
-    Überprüfen Sie mit Ihrem Gerät, was die spezifische Anforderung erfordert.
+  - : Ein {{jsxref("TypedArray")}}, das die Daten enthält, die an das Gerät übertragen werden sollen.
+    Nicht alle Befehle erfordern Daten; einige Befehle können Daten allein über den Wertparameter senden.
+    Überprüfen Sie mit Ihrem Gerät, welche spezifische Anfrage erforderlich ist.
 
 ### Rückgabewert
 
-Ein {{jsxref("promise")}}, das mit einem {{domxref("USBOutTransferResult")}} aufgelöst wird.
+Ein {{jsxref("promise")}}, das mit einem [`USBOutTransferResult`](/de/docs/Web/API/USBOutTransferResult) aufgelöst wird.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

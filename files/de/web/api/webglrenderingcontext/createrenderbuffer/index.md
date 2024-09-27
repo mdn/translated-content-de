@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode **`WebGLRenderingContext.createRenderbuffer()`** der [WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein {{domxref("WebGLRenderbuffer")}}-Objekt.
+Die **`WebGLRenderingContext.createRenderbuffer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)-Objekt.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLRenderbuffer")}}-Objekt, das Daten wie ein Bild speichert oder Quelle oder Ziel einer Renderoperation sein kann.
+Ein [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)-Objekt, das Daten wie ein Bild speichert oder Quelle oder Ziel einer Renderoperation sein kann.
 
 ## Beispiele
 
-### Erstellen eines Renderpuffers
+### Erstellen eines Renderbuffers
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -44,7 +44,7 @@ const renderBuffer = gl.createRenderbuffer();
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.isRenderbuffer()")}}
-- Andere Puffer: {{domxref("WebGLBuffer")}}, {{domxref("WebGLFramebuffer")}}
+- [`WebGLRenderingContext.bindRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindRenderbuffer)
+- [`WebGLRenderingContext.deleteRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteRenderbuffer)
+- [`WebGLRenderingContext.isRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/isRenderbuffer)
+- Andere Buffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)

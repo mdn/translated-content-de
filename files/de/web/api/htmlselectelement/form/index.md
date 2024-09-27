@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`form`**-Eigenschaft der {{domxref("HTMLSelectElement")}}-Schnittstelle gibt ein {{domxref("HTMLFormElement")}}-Objekt zurück, das dieses {{htmlelement("select")}} besitzt, oder `null`, wenn dieses select zu keinem Formular gehört.
+Die schreibgeschützte **`form`**-Eigenschaft der [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Schnittstelle gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("select")}} besitzt, oder `null`, wenn dieses select zu keinem Formular gehört.
 
 ## Wert
 
-Ein {{domxref("HTMLFormElement")}} oder `null`.
+Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 
 ## Spezifikationen
 
@@ -24,8 +24,8 @@ Ein {{domxref("HTMLFormElement")}} oder `null`.
 
 ## Siehe auch
 
-- {{domxref("HTMLSelectElement")}}
-- {{domxref("HTMLFormElement")}}
+- [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)
+- [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("select")}}
 - HTML [`form`](/de/docs/Web/HTML/Element/select#form)-Attribut
-- [HTML Formulare-Leitfaden](/de/docs/Learn/Forms)
+- [HTML Forms Leitfaden](/de/docs/Learn/Forms)

@@ -7,25 +7,25 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`SpeechSynthesisErrorEvent`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) enthält Informationen über Fehler, die bei der Verarbeitung von {{domxref("SpeechSynthesisUtterance")}}-Objekten im Sprachdienst auftreten.
+Das **`SpeechSynthesisErrorEvent`**-Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) enthält Informationen über Fehler, die bei der Verarbeitung von [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekten im Sprachdienst auftreten.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("SpeechSynthesisErrorEvent.SpeechSynthesisErrorEvent", "SpeechSynthesisErrorEvent()")}}
+- [`SpeechSynthesisErrorEvent()`](/de/docs/Web/API/SpeechSynthesisErrorEvent/SpeechSynthesisErrorEvent)
   - : Erstellt ein neues `SpeechSynthesisErrorEvent`.
 
 ## Instanz-Eigenschaften
 
-_`SpeechSynthesisErrorEvent` erweitert die {{domxref("SpeechSynthesisEvent")}}-Schnittstelle, welche Eigenschaften von ihrer Elternschnittstelle {{domxref("Event")}} erbt._
+`SpeechSynthesisErrorEvent` erweitert das [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent)-Interface, das Eigenschaften von seinem Eltern-Interface [`Event`](/de/docs/Web/API/Event) erbt.
 
-- {{domxref("SpeechSynthesisErrorEvent.error")}} {{ReadOnlyInline}}
-  - : Gibt einen Fehlercode zurück, der anzeigt, was bei einem Sprachsyntheseversuch schiefgegangen ist.
+- [`SpeechSynthesisErrorEvent.error`](/de/docs/Web/API/SpeechSynthesisErrorEvent/error) {{ReadOnlyInline}}
+  - : Gibt einen Fehlercode zurück, der anzeigt, was bei einem Sprachsyntheseversuch schiefgelaufen ist.
 
 ## Instanz-Methoden
 
-_`SpeechSynthesisErrorEvent` erweitert die {{domxref("SpeechSynthesisEvent")}}-Schnittstelle, welche Methoden von ihrer Elternschnittstelle {{domxref("Event")}} erbt._
+`SpeechSynthesisErrorEvent` erweitert das [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent)-Interface, das Methoden von seinem Eltern-Interface [`Event`](/de/docs/Web/API/Event) erbt.
 
 ## Beispiele
 

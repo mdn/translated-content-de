@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`abort()`**-Methode des
-{{domxref("WritableStreamDefaultWriter")}}-Interfaces bricht den Stream ab und signalisiert, dass der Ersteller nicht mehr erfolgreich in den Stream schreiben kann und er sofort in einen Fehlerzustand versetzt wird, wobei alle in der Warteschlange befindlichen Schreibvorgänge verworfen werden.
+Die **`abort()`**-Methode der [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Schnittstelle bricht den Stream ab und signalisiert, dass der Erzeuger nicht mehr erfolgreich in den Stream schreiben kann und dieser sofort in einen Fehlerzustand versetzt wird, wobei alle wartenden Schreibvorgänge verworfen werden.
 
-Wenn der Writer aktiv ist, verhält sich die `abort()`-Methode genauso wie bei dem zugehörigen Stream ({{domxref("WritableStream.abort()")}}). Andernfalls gibt sie ein abgelehntes Promise zurück.
+Wenn der Writer aktiv ist, verhält sich die `abort()`-Methode genauso wie die des zugehörigen Streams ([`WritableStream.abort()`](/de/docs/Web/API/WritableStream/abort)). Wenn nicht, wird ein zurückgewiesenes Versprechen zurückgegeben.
 
 ## Syntax
 
@@ -23,16 +22,16 @@ abort(reason)
 ### Parameter
 
 - `reason` {{optional_inline}}
-  - : Ein String, der einen lesbaren Grund für das Abbrechen darstellt.
+  - : Ein String, der einen menschenlesbaren Grund für den Abbruch darstellt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich zu `undefined` erfüllt, wenn der Stream abgebrochen wird, oder mit einem Fehler zurückgewiesen wird, wenn der Writer inaktiv war oder der empfangende Stream ungültig ist.
+Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird, wenn der Stream abgebrochen wird, oder mit einem Fehler abgelehnt wird, falls der Writer inaktiv oder der empfangende Stream ungültig war.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der Stream, den Sie zu abbrechen versuchen, ist kein {{domxref("WritableStream")}}, oder er ist gesperrt.
+  - : Der Stream, den Sie abzubrechen versuchen, ist kein [`WritableStream`](/de/docs/Web/API/WritableStream), oder er ist gesperrt.
 
 ## Beispiele
 
@@ -58,8 +57,8 @@ const writer = writableStream.getWriter();
 
 // ...
 
-// abbrechen des Streams bei Bedarf
-await writer.abort("WritableStream abgebrochen. Grund: ...");
+// abort the stream when desired
+await writer.abort("WritableStream aborted. Reason: ...");
 ```
 
 ## Spezifikationen

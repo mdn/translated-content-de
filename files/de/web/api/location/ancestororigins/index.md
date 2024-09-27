@@ -8,13 +8,18 @@ l10n:
 
 {{APIRef("Location")}}
 
-Die **`ancestorOrigins`**-Schreibgeschützte Eigenschaft des {{domxref("Location")}}-Interfaces ist eine statische {{domxref("DOMStringList")}}, die, in umgekehrter Reihenfolge, die Ursprünge aller übergeordneten Browsing-Kontexte des Dokuments enthält, das mit dem gegebenen {{domxref("Location")}}-Objekt verknüpft ist.
+Die **`ancestorOrigins`** schreibgeschützte
+Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist eine statische
+[`DOMStringList`](/de/docs/Web/API/DOMStringList), die in umgekehrter Reihenfolge die Ursprünge aller übergeordneten
+Browsing-Kontexte des mit dem gegebenen [`Location`](/de/docs/Web/API/Location)-Objekt verbundenen Dokuments enthält.
 
-Sie können `location.ancestorOrigins` im Skript für ein Dokument verwenden, um beispielsweise festzustellen, wann das Dokument von einer Website gerahmt wird, von der Sie es nicht erwarten. Sie können es auch verwenden, um das Verhalten des Dokuments je nach der Website oder der Liste von Websites, die es rahmen, zu variieren.
+Sie können `location.ancestorOrigins` im Skript für ein Dokument verwenden, um
+beispielsweise festzustellen, ob das Dokument von einer Site eingebettet wird, von der Sie nicht erwarten,
+dass sie es einbettet. Sie können es auch verwenden, um das Verhalten des Dokuments basierend darauf zu variieren, welche Site oder Liste von Sites es einbettet.
 
 ## Wert
 
-Eine {{domxref("DOMStringList")}}.
+Eine [`DOMStringList`](/de/docs/Web/API/DOMStringList).
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "CanvasCaptureMediaStreamTrack: requestFrame()-Methode"
+title: "CanvasCaptureMediaStreamTrack: requestFrame() Methode"
 short-title: requestFrame()
 slug: Web/API/CanvasCaptureMediaStreamTrack/requestFrame
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`requestFrame()`**-Methode der {{domxref("CanvasCaptureMediaStreamTrack")}}-Schnittstelle fordert, dass ein Rahmen von der Leinwand aufgenommen und an den Stream gesendet wird.
+Die **`requestFrame()`**-Methode der [`CanvasCaptureMediaStreamTrack`](/de/docs/Web/API/CanvasCaptureMediaStreamTrack)-Schnittstelle fordert an, dass ein Frame von der Leinwand erfasst und an den Stream gesendet wird.
 
-Anwendungen, die das Timing von Rendering und Rahmenaufnahme sorgfältig steuern müssen, können `requestFrame()` verwenden, um direkt anzugeben, wann es Zeit ist, einen Rahmen aufzunehmen.
+Anwendungen, die die Zeitsteuerung von Rendering und Frame-Erfassung präzise kontrollieren müssen, können `requestFrame()` verwenden, um direkt festzulegen, wann ein Frame erfasst werden soll.
 
-Um die automatische Aufnahme von Rahmen zu verhindern, damit Rahmen nur dann aufgenommen werden, wenn `requestFrame()` aufgerufen wird, geben Sie einen Wert von 0 für die {{domxref("HTMLCanvasElement.captureStream", "captureStream()")}}-Methode an, wenn Sie den Stream erstellen.
+Um die automatische Erfassung von Frames zu verhindern, so dass Frames nur erfasst werden, wenn `requestFrame()` aufgerufen wird, geben Sie bei der Erstellung des Streams einen Wert von 0 für die [`captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream)-Methode an.
 
 ## Syntax
 
@@ -24,20 +24,20 @@ requestFrame()
 
 Keiner ({{jsxref("undefined")}}).
 
-## Verwendungshinweise
+## Anwendungshinweise
 
-Derzeit gibt es ein im Spezifikationsentwurf markiertes Problem, das darauf hinweist, dass momentan keine Ausnahmen ausgelöst werden, wenn die Leinwand nicht origin-sauber ist. Dies könnte sich in Zukunft ändern, daher wäre es klug, vorauszuplanen und auf Ausnahmen wie `SecurityError` zu achten (obwohl der spezifische Fehler, der ausgelöst werden könnte, in der Spezifikation nicht erwähnt wird, ist dies ein wahrscheinlicher Kandidat).
+Derzeit gibt es im Spezifikationsentwurf einen Vermerk, der darauf hinweist, dass zum jetzigen Zeitpunkt keine Ausnahmen ausgelöst werden, wenn die Leinwand nicht origin-clean ist. Dies könnte sich in Zukunft ändern, daher wäre es klug, vorauszuplanen und auf Ausnahmen wie `SecurityError` zu achten (obwohl der spezifische Fehler, der möglicherweise ausgelöst wird, in der Spezifikation nicht erwähnt wird, ist dies ein wahrscheinlicher Kandidat).
 
 ## Beispiel
 
 ```js
-// Finden Sie das zu erfassende Leinwandelement
+// Find the canvas element to capture
 const canvasElt = document.querySelector("canvas");
 
-// Holen Sie den Stream
+// Get the stream
 const stream = canvasElt.captureStream(25); // 25 FPS
 
-// Senden Sie den aktuellen Zustand der Leinwand als Rahmen an den Stream
+// Send the current state of the canvas as a frame to the stream
 stream.getVideoTracks()[0].requestFrame();
 ```
 
@@ -51,5 +51,5 @@ stream.getVideoTracks()[0].requestFrame();
 
 ## Siehe auch
 
-- {{domxref("CanvasCaptureMediaStreamTrack")}}, die Schnittstelle, zu der es gehört.
+- [`CanvasCaptureMediaStreamTrack`](/de/docs/Web/API/CanvasCaptureMediaStreamTrack), die Schnittstelle, zu der es gehört.
 - {{HTMLElement("canvas")}}

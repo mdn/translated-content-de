@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.loop`**-Eigenschaft spiegelt das [`loop`](/de/docs/Web/HTML/Element/video#loop) HTML-Attribut wider, das steuert, ob das Medienelement von vorne beginnen soll, wenn es das Ende erreicht.
+Die **`HTMLMediaElement.loop`**-Eigenschaft entspricht dem [`loop`](/de/docs/Web/HTML/Element/video#loop) HTML-Attribut, das steuert, ob das Medienelement neu starten soll, wenn es das Ende erreicht.
 
 ## Wert
 
@@ -31,4 +31,4 @@ obj.loop = true; // true
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement")}}: Schnittstelle, die verwendet wird, um die `HTMLMediaElement.loop`-Eigenschaft zu definieren
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle zur Definition der `HTMLMediaElement.loop`-Eigenschaft

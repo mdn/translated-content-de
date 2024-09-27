@@ -1,5 +1,5 @@
 ---
-title: Vorzeichenlose Rechtsschiebung (>>>)
+title: Unsigned right shift (>>>)
 slug: Web/JavaScript/Reference/Operators/Unsigned_right_shift
 l10n:
   sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **vorzeichenlose Rechtsschiebungsoperator (`>>>`)** gibt eine Zahl zurück, deren binäre Darstellung dem ersten Operanden entspricht, der um die angegebene Anzahl von Bits nach rechts verschoben wird. Überzählige Bits, die nach rechts verschoben werden, werden verworfen, und von links werden Nullen eingeschoben. Diese Operation wird auch "zero-filling right shift" genannt, weil das Vorzeichenbit zu `0` wird, so dass das Ergebnis immer positiv ist. Vorzeichenlose Rechtsschiebung akzeptiert keine [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt)-Werte.
+Der **unsigned right shift (`>>>`)** Operator gibt eine Zahl zurück, deren Binärdarstellung das Ergebnis des ersten Operanden ist, der um die angegebene Anzahl von Bits nach rechts verschoben wurde. Überflüssige Bits, die nach rechts verschoben werden, werden verworfen, und null Bits werden von links eingefügt. Diese Operation wird auch "Zero-Fill-Right-Shift" genannt, da das Vorzeichenbit zu `0` wird, sodass die resultierende Zahl immer positiv ist. Der Unsigned Right Shift akzeptiert keine [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt)-Werte.
 
 {{EmbedInteractiveExample("pages/js/expressions-unsigned-right-shift.html")}}
 
@@ -19,60 +19,62 @@ x >>> y
 
 ## Beschreibung
 
-Im Unterschied zu anderen arithmetischen und bitweisen Operatoren akzeptiert der vorzeichenlose Rechtsschiebungsoperator keine [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt)-Werte. Dies liegt daran, dass er die linkesten Bits mit Nullen auffüllt, aber konzeptionell haben BigInts eine unendliche Anzahl führender Vorzeichenbits, so dass es kein "linkestes Bit" gibt, das mit Nullen aufgefüllt werden könnte.
+Im Gegensatz zu anderen arithmetischen und bitweisen Operatoren akzeptiert der Unsigned Right Shift Operator keine [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt)-Werte. Dies liegt daran, dass er die linksseitigen Bits mit Nullen auffüllt, aber konzeptionell haben BigInts eine unendliche Anzahl von führenden Vorzeichenbits, sodass es kein "linksseitiges Bit" gibt, das mit Nullen gefüllt werden könnte.
 
-Der Operator arbeitet mit der Bitdarstellung des linken Operanden in [Zweierkomplement](https://de.wikipedia.org/wiki/Zweierkomplement). Betrachten Sie die 32-Bit-Binärdarstellungen der Dezimalzahlen (Basis 10) `9` und `-9`:
+Der Operator arbeitet mit der Bit-Darstellung des linken Operanden im [Zweierkomplement](https://en.wikipedia.org/wiki/Two's_complement). Betrachten Sie die 32-Bit-Binärdarstellungen der Dezimalzahlen (Basis 10) `9` und `-9`:
 
 ```plain
-     9 (Basis 10): 00000000000000000000000000001001 (Basis 2)
-    -9 (Basis 10): 11111111111111111111111111110111 (Basis 2)
+     9 (base 10): 00000000000000000000000000001001 (base 2)
+    -9 (base 10): 11111111111111111111111111110111 (base 2)
 ```
 
-Die binäre Darstellung im Zweierkomplement der negativen Dezimalzahl (Basis 10) `-9` wird gebildet, indem alle Bits ihres Gegenteils invertiert werden, das `9` und `00000000000000000000000000001001` in Binär ist, und `1` hinzugefügt wird.
+Die Binärdarstellung im Zweierkomplement der negativen Dezimalzahl (Basis 10) `-9` wird gebildet, indem alle Bits ihrer Gegenzahl invertiert werden, was `9` ist und `00000000000000000000000000001001` binär entspricht, und `1` addiert wird.
 
-In beiden Fällen wird das Vorzeichen der binären Zahl durch ihr linkestes Bit angegeben: Für die positive Dezimalzahl `9` ist das linkeste Bit der binären Darstellung `0`, und für die negative Dezimalzahl `-9` ist das linkeste Bit der binären Darstellung `1`.
+In beiden Fällen wird das Vorzeichen der Binärzahl durch ihr linksseitiges Bit angegeben: Für die positive Dezimalzahl `9` ist das linksseitige Bit der Binärdarstellung `0`, und für die negative Dezimalzahl `-9` ist das linksseitige Bit der Binärdarstellung `1`.
 
-Für die positiven Zahlen `9`, ergeben sowohl das Zero-Fill-Right-Shift als auch das [vorzeichenbehaftete Rechtsschieben](/de/docs/Web/JavaScript/Reference/Operators/Right_shift) dasselbe Ergebnis: `9 >>> 2` ergibt `2`, gleich wie `9 >> 2`:
+Gegeben diese Binärdarstellungen der Dezimalzahlen (Basis 10) `9` und `-9`:
+
+Für die positive Zahl `9` ergeben Zero-Fill-Right-Shift und [zeichenpropagierender Rechtsshift](/de/docs/Web/JavaScript/Reference/Operators/Right_shift) dasselbe Ergebnis: `9 >>> 2` ergibt `2`, dasselbe wie `9 >> 2`:
 
 ```plain
-      9 (Basis 10): 00000000000000000000000000001001 (Basis 2)
+      9 (base 10): 00000000000000000000000000001001 (base 2)
                    --------------------------------
-9 >>  2 (Basis 10): 00000000000000000000000000000010 (Basis 2) = 2 (Basis 10)
-9 >>> 2 (Basis 10): 00000000000000000000000000000010 (Basis 2) = 2 (Basis 10)
+9 >>  2 (base 10): 00000000000000000000000000000010 (base 2) = 2 (base 10)
+9 >>> 2 (base 10): 00000000000000000000000000000010 (base 2) = 2 (base 10)
 ```
 
-Beachten Sie, wie zwei rechteste Bits, `01`, verschoben wurden, und zwei Nullen von links eingeshiftet wurden.
+Beachten Sie, wie zwei rechte Bits, `01`, verschoben wurden und zwei Nullen von links eingefügt wurden.
 
-Beachten Sie jedoch, was mit `-9` passiert: `-9 >> 2` ([vorzeichenbehaftetes Rechtsschieben](/de/docs/Web/JavaScript/Reference/Operators/Right_shift)) ergibt `-3`, aber `-9 >>> 2` (zero-fill right shift) ergibt 1073741821:
+Beachten Sie jedoch, was bei `-9` passiert: `-9 >> 2` ([zeichenpropagierender Rechtsshift](/de/docs/Web/JavaScript/Reference/Operators/Right_shift)) ergibt `-3`, aber `-9 >>> 2` (Zero-Fill-Right-Shift) ergibt 1073741821:
 
 ```plain
-      -9 (Basis 10): 11111111111111111111111111110111 (Basis 2)
+      -9 (base 10): 11111111111111111111111111110111 (base 2)
                     --------------------------------
--9 >>  2 (Basis 10): 11111111111111111111111111111101 (Basis 2) = -3 (Basis 10)
--9 >>> 2 (Basis 10): 00111111111111111111111111111101 (Basis 2) = 1073741821 (Basis 10)
+-9 >>  2 (base 10): 11111111111111111111111111111101 (base 2) = -3 (base 10)
+-9 >>> 2 (base 10): 00111111111111111111111111111101 (base 2) = 1073741821 (base 10)
 ```
 
-Beachten Sie, wie zwei rechteste Bits, `11`, verschoben wurden. Bei `-9 >> 2` ([vorzeichenbehaftetes Rechtsschieben](/de/docs/Web/JavaScript/Reference/Operators/Right_shift)), wurden zwei Kopien des linkesten `1` Bits von links eingeshiftet, was das negative Vorzeichen bewahrt. Andererseits, bei `-9 >>> 2` (zero-fill right shift), wurden stattdessen Nullen von links eingeshiftet, so dass das negative Vorzeichen der Zahl nicht bewahrt wird, und das Ergebnis stattdessen eine (große) positive Zahl ist.
+Beachten Sie, wie zwei rechte Bits, `11`, verschoben wurden. Bei `-9 >> 2` ([zeichenpropagierender Rechtsshift](/de/docs/Web/JavaScript/Reference/Operators/Right_shift)) wurden zwei Kopien des linksseitigen `1`-Bits von links eingefügt, was das negative Vorzeichen beibehält. Andererseits, bei `-9 >>> 2` (Zero-Fill-Right-Shift) wurden stattdessen Nullen von links eingefügt, sodass das negative Vorzeichen der Zahl nicht erhalten bleibt und das Ergebnis stattdessen eine (große) positive Zahl ist.
 
-Wenn der linke Operand eine Zahl mit mehr als 32 Bits ist, werden die bedeutendsten Bits verworfen. Zum Beispiel wird folgende Ganzzahl mit mehr als 32 Bits in eine 32-Bit-Ganzzahl umgewandelt:
+Wenn der linke Operand eine Zahl mit mehr als 32 Bits ist, werden die bedeutendsten Bits verworfen. Zum Beispiel wird die folgende Ganzzahl mit mehr als 32 Bits in eine 32-Bit-Ganzzahl umgewandelt:
 
 ```plain
-Vorher: 11100110111110100000000000000110000000000001
-Nachher:              10100000000000000110000000000001
+Before: 11100110111110100000000000000110000000000001
+After:              10100000000000000110000000000001
 ```
 
-Der rechte Operand wird in eine vorzeichenlose 32-Bit-Ganzzahl umgewandelt und dann modulo 32 genommen, so dass das tatsächliche Verschiebeoffset immer eine positive Ganzzahl zwischen 0 und 31, einschließlich, sein wird. Zum Beispiel, `100 >>> 32` ist dasselbe wie `100 >>> 0` (und ergibt `100`), weil 32 modulo 32 gleich 0 ist.
+Der rechte Operand wird in eine unsignierte 32-Bit-Ganzzahl konvertiert und dann modulo 32 genommen, sodass der tatsächliche Verschiebungsoffset immer eine positive Ganzzahl zwischen 0 und 31, inklusive, ist. Zum Beispiel ist `100 >>> 32` dasselbe wie `100 >>> 0` (und ergibt `100`), weil 32 modulo 32 gleich 0 ist.
 
 ## Beispiele
 
-### Verwendung der vorzeichenlosen Rechtsschiebeoperation
+### Verwendung von Unsigned Right Shift
 
 ```js
 9 >>> 2; // 2
 -9 >>> 2; // 1073741821
 ```
 
-Die vorzeichenlose Rechtsschiebeoperation funktioniert nicht mit BigInts.
+Unsigned Right Shift funktioniert nicht mit BigInts.
 
 ```js
 9n >>> 2n; // TypeError: BigInts have no unsigned right shift, use >> instead
@@ -88,5 +90,5 @@ Die vorzeichenlose Rechtsschiebeoperation funktioniert nicht mit BigInts.
 
 ## Siehe auch
 
-- [Bitweise Operatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#bitwise_operators)
-- [Vorzeichenlose Rechtsschiebezuweisung (`>>>=`)](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift_assignment)
+- [Bitweise Operatoren im JavaScript Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#bitwise_operators)
+- [Unsigned Right Shift Zuweisung (`>>>=`)](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift_assignment)

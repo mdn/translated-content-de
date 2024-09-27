@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die schreibgeschützte **`id`**-Eigenschaft des {{domxref("MediaStreamTrack")}}-Interfaces gibt einen String zurück, der eine eindeutige Kennung (GUID) für die Spur enthält, die vom {{glossary("user agent")}} generiert wird.
+Die schreibgeschützte **`id`**-Eigenschaft der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle gibt einen String zurück, der eine eindeutige Kennung (GUID) für den Track enthält, die vom [user agent](/de/docs/Glossary/user_agent) generiert wird.
 
 ## Syntax
 
@@ -16,7 +16,7 @@ Die schreibgeschützte **`id`**-Eigenschaft des {{domxref("MediaStreamTrack")}}-
 const id = track.id
 ```
 
-## Spezifikationen
+## Specifications
 
 {{Specifications}}
 

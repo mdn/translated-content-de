@@ -1,5 +1,5 @@
 ---
-title: "Document: Methode createComment()"
+title: "Document: createComment()-Methode"
 short-title: createComment()
 slug: Web/API/Document/createComment
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die Methode **`createComment()`** erstellt einen neuen Kommentar-Knoten und gibt ihn zurück.
+**`createComment()`** erstellt einen neuen Kommentar-Knoten und gibt
+ihn zurück.
 
 ## Syntax
 
@@ -19,11 +20,11 @@ createComment(data)
 ### Parameter
 
 - `data`
-  - : Ein String, der die Daten enthält, die dem Kommentar hinzugefügt werden sollen.
+  - : Ein String, der die hinzuzufügenden Daten zum Kommentar enthält.
 
 ### Rückgabewert
 
-Ein neues {{domxref("Comment")}}-Objekt.
+Ein neues [`Comment`](/de/docs/Web/API/Comment)-Objekt.
 
 ## Beispiele
 

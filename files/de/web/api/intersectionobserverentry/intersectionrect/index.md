@@ -1,5 +1,5 @@
 ---
-title: "IntersectionObserverEntry: intersectionRect Eigenschaft"
+title: "IntersectionObserverEntry: Eigenschaft intersectionRect"
 short-title: intersectionRect
 slug: Web/API/IntersectionObserverEntry/intersectionRect
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die schreibgeschützte **`intersectionRect`**-Eigenschaft des {{domxref("IntersectionObserverEntry")}}-Interfaces ist ein
-{{domxref("DOMRectReadOnly")}}-Objekt, das das kleinste Rechteck beschreibt, das den gesamten Teil des Ziel-Elements enthält, der derzeit innerhalb der Schnittstelle sichtbar ist.
+Die schreibgeschützte Eigenschaft **`intersectionRect`** des [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry) Interfaces ist ein
+[`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) Objekt, das das kleinste Rechteck beschreibt, das den gesamten Teil des Ziel-Elements enthält, der aktuell innerhalb des Schnittmengen-Wurzelbereichs sichtbar ist.
 
 ## Wert
 
-Ein {{domxref("DOMRectReadOnly")}}, das den Teil des Ziel-Elements beschreibt, der momentan im Schnittstellen-Rechteck der Wurzel sichtbar ist.
+Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly), das den Teil des Ziel-Elements beschreibt, der aktuell innerhalb des Schnittmengen-Rechtecks der Wurzel sichtbar ist.
 
-Dieses Rechteck wird berechnet, indem der Schnittpunkt von
-{{domxref("IntersectionObserverEntry", "boundingClientRect")}} mit den Clip-Rechtecken der Vorfahren des {{domxref("IntersectionObserverEntry.target", "Ziels")}} genommen wird, mit Ausnahme der Schnittstelle der {{domxref("IntersectionObserver.root", "Wurzel")}} selbst.
+Dieses Rechteck wird berechnet, indem die Schnittmenge des
+[`boundingClientRect`](/de/docs/Web/API/IntersectionObserverEntry) mit jedem der Clip-Rechtecke der Vorfahren des [`target`](/de/docs/Web/API/IntersectionObserverEntry/target) gebildet wird, mit Ausnahme des Schnittmengen-[`root`](/de/docs/Web/API/IntersectionObserver/root) selbst.
 
 ## Beispiele
 
-In diesem einfachen Beispiel speichert ein Schnittstellen-Callback das Schnittstellenrechteck zur späteren Verwendung durch den Code, der den Inhalt der Zielelemente zeichnet, so dass nur der sichtbare Bereich neu gezeichnet wird.
+In diesem einfachen Beispiel speichert ein Schnittmengen-Callback das Schnittmengen-Rechteck zur späteren Verwendung durch den Code, der den Inhalt der Zielelemente zeichnet, sodass nur der sichtbare Bereich neu gezeichnet wird.
 
 ```js
 function intersectionCallback(entries) {

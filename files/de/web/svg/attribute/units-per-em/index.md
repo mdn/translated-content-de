@@ -7,16 +7,16 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`units-per-em`** Attribut gibt die Anzahl der Koordinateneinheiten auf dem "em-Quadrat" an, einem abstrakten Quadrat, dessen Höhe der beabsichtigte Abstand zwischen den Zeilen des Textes in derselben Schriftgröße ist. Dies ist die Größe des Designrasters, auf dem die {{Glossary("glyph", "Glyphen")}} angeordnet werden.
+Das **`units-per-em`**-Attribut gibt die Anzahl der Koordinateneinheiten im "em Quadrat" an, einem abstrakten Quadrat, dessen Höhe den beabsichtigten Abstand zwischen den Zeilen beim gleichen Schriftgrad darstellt. Dies ist die Größe des Design-Rasters, auf dem die [Glyphen](/de/docs/Glossary/glyph) angeordnet sind.
 
 > [!NOTE]
-> Dieser Wert ist fast immer notwendig, da fast jedes andere Attribut die Definition eines Designrasters erfordert.
+> Dieser Wert ist fast immer notwendig, da nahezu jedes andere Attribut die Definition eines Design-Rasters erfordert.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font-face")}}
 
-## Verwendungsnotizen
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -42,12 +42,12 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die Anzahl der Koordinateneinheiten auf dem em-Quadrat an.
+  - : Dieser Wert gibt die Anzahl der Koordinateneinheiten im em Quadrat an.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

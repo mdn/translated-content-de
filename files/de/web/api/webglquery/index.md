@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLQuery`**-Schnittstelle ist Teil der [WebGL 2](/de/docs/Web/API/WebGL_API) API und bietet Möglichkeiten, Informationen asynchron abzufragen. Standardmäßig sind Okklusionsabfragen und Primitive-Abfragen verfügbar.
+Die **`WebGLQuery`**-Schnittstelle ist Teil der [WebGL 2](/de/docs/Web/API/WebGL_API) API und bietet Möglichkeiten, um Informationen asynchron abzufragen. Standardmäßig stehen Okklusionsabfragen und Primitive-Abfragen zur Verfügung.
 
-Eine weitere Art von Abfragen sind disjunkte Zeitmessungsabfragen, die es Ihnen ermöglichen, die Leistung und das Profiling Ihrer GPU zu messen. Disjunkte Zeitmessungsabfragen sind nur mit der {{domxref("EXT_disjoint_timer_query")}}-Erweiterung verfügbar.
+Eine andere Art von Abfragen sind disjunkte Timer-Abfragen, die es Ihnen ermöglichen, die Leistung und das Profiling Ihrer GPU zu messen. Disjunkte Timer-Abfragen sind nur mit der [`EXT_disjoint_timer_query`](/de/docs/Web/API/EXT_disjoint_timer_query) Erweiterung verfügbar.
 
 {{InheritanceDiagram}}
 
-Bei der Arbeit mit `WebGLQuery`-Objekten sind die folgenden Methoden des {{domxref("WebGL2RenderingContext")}} nützlich:
+Beim Arbeiten mit `WebGLQuery`-Objekten sind die folgenden Methoden des [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) nützlich:
 
-- {{domxref("WebGL2RenderingContext.createQuery()")}}
-- {{domxref("WebGL2RenderingContext.deleteQuery()")}}
-- {{domxref("WebGL2RenderingContext.isQuery()")}}
-- {{domxref("WebGL2RenderingContext.beginQuery()")}}
-- {{domxref("WebGL2RenderingContext.endQuery()")}}
-- {{domxref("WebGL2RenderingContext.getQuery()")}}
-- {{domxref("WebGL2RenderingContext.getQueryParameter()")}}
+- [`WebGL2RenderingContext.createQuery()`](/de/docs/Web/API/WebGL2RenderingContext/createQuery)
+- [`WebGL2RenderingContext.deleteQuery()`](/de/docs/Web/API/WebGL2RenderingContext/deleteQuery)
+- [`WebGL2RenderingContext.isQuery()`](/de/docs/Web/API/WebGL2RenderingContext/isQuery)
+- [`WebGL2RenderingContext.beginQuery()`](/de/docs/Web/API/WebGL2RenderingContext/beginQuery)
+- [`WebGL2RenderingContext.endQuery()`](/de/docs/Web/API/WebGL2RenderingContext/endQuery)
+- [`WebGL2RenderingContext.getQuery()`](/de/docs/Web/API/WebGL2RenderingContext/getQuery)
+- [`WebGL2RenderingContext.getQueryParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getQueryParameter)
 
 ## Beispiele
 
 ### Erstellen eines `WebGLQuery`-Objekts
 
-In diesem Beispiel muss `gl` ein {{domxref("WebGL2RenderingContext")}} sein. `WebGLQuery`-Objekte sind in WebGL 1 nicht verfügbar.
+In diesem Beispiel muss `gl` ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein. `WebGLQuery`-Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
 const query = gl.createQuery();
@@ -43,4 +43,4 @@ const query = gl.createQuery();
 
 ## Siehe auch
 
-- {{domxref("EXT_disjoint_timer_query")}}
+- [`EXT_disjoint_timer_query`](/de/docs/Web/API/EXT_disjoint_timer_query)

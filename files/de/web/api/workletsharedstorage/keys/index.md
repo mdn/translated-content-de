@@ -1,5 +1,5 @@
 ---
-title: "WorkletSharedStorage: keys()-Methode"
+title: "WorkletSharedStorage: keys() Methode"
 short-title: keys()
 slug: Web/API/WorkletSharedStorage/keys
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`keys()`**-Methode der
-{{domxref("WorkletSharedStorage")}}-Schnittstelle gibt einen [asynchronen Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) zurück, der die Schlüssel für jedes Element in einer `WorkletSharedStorage`-Instanz enthält.
+Die **`keys()`** Methode des [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Interfaces gibt einen [asynchronen Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) zurück, der die Schlüssel für jedes Element in einer `WorkletSharedStorage`-Instanz enthält.
 
 ## Syntax
 
@@ -28,12 +27,12 @@ Ein Array der aufzählbaren Eigenschaftsschlüssel des `WorkletSharedStorage`.
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die aufrufende Seite die Shared Storage API nicht im Rahmen eines erfolgreichen [Privacy Sandbox Enrollment-Prozesses](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) einbezogen hat.
+  - : Wird ausgelöst, wenn die aufrufende Stelle die Shared Storage API nicht in einem erfolgreichen [Datenschutz-Sandbox-Einschreibungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) enthalten hat.
 
 ## Beispiele
 
 ```js
-// keys() verfügbar innerhalb eines Shared Storage Worklet-Moduls
+// keys() available inside a shared storage worklet module
 const storage = await this.sharedStorage;
 
 async function logKeys() {

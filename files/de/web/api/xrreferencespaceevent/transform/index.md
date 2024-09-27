@@ -1,5 +1,5 @@
 ---
-title: "XRReferenceSpaceEvent: transform Eigenschaft"
+title: "XRReferenceSpaceEvent: transform-Eigenschaft"
 short-title: transform
 slug: Web/API/XRReferenceSpaceEvent/transform
 l10n:
@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`transform`** des {{domxref("XRReferenceSpaceEvent")}} gibt die Position und Ausrichtung des betroffenen nativen Ursprungs des {{domxref("XRReferenceSpaceEvent.referenceSpace", "referenceSpace")}} an, nachdem die Veränderungen, die das Ereignis darstellt, angewendet wurden. Der `transform` wird im alten Koordinatensystem definiert, was seine Nutzung zur Umwandlung von Koordinaten vom Vor-Ereignis- zum Nach-Ereignis-Koordinatensystem ermöglicht.
+Die schreibgeschützte [`XRReferenceSpaceEvent`](/de/docs/Web/API/XRReferenceSpaceEvent)-Eigenschaft **`transform`** zeigt die Position und Orientierung des betroffenen [`referenceSpace`](/de/docs/Web/API/XRReferenceSpaceEvent/referenceSpace) nativen Ursprungs, nachdem die im Ereignis dargestellten Änderungen angewendet wurden. Der `transform` wird unter Verwendung des alten Koordinatensystems definiert, was es ermöglicht, Koordinaten vom Vor-Ereignis-Koordinatensystem in das Nach-Ereignis-Koordinatensystem zu konvertieren.
 
 ## Wert
 
-Ein {{domxref("XRRigidTransform")}}-Objekt, das eine Transformation bereitstellt, die verwendet werden kann, um Koordinaten vom Vor-Ereignis-Koordinatensystem in das Nach-Ereignis-Koordinatensystem umzuwandeln.
+Ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt, das eine Transformation bietet, die verwendet werden kann, um Koordinaten vom Vor-Ereignis-Koordinatensystem in das Nach-Ereignis-Koordinatensystem zu konvertieren.
 
 ## Verwendungshinweise
 
-Bei Erhalt eines `reset`-Ereignisses können Sie den `transform` auf zwischengespeicherte Positions- oder Orientierungsinformationen anwenden, um sie in das aktualisierte Koordinatensystem zu verschieben. Alternativ können Sie alle zwischengespeicherten Positionsinformationen verwerfen und vollständig neu berechnen. Welche Vorgehensweise Sie wählen, hängt von Ihren Anforderungen ab.
+Beim Empfang eines `reset`-Ereignisses können Sie den `transform` auf zwischengespeicherte Positions- oder Orientierungsinformationen anwenden, um diese in das aktualisierte Koordinatensystem zu verschieben. Alternativ können Sie sämtliche zwischengespeicherten Positionsinformationen verwerfen und von Grund auf neu berechnen. Die von Ihnen gewählte Herangehensweise hängt von Ihren Bedürfnissen ab.
 
-Einzelheiten dazu, was ein `reset`-Ereignis auslöst und wie darauf zu reagieren ist, finden Sie in der Dokumentation des {{domxref("XRReferenceSpace.reset_event", "reset")}}-Ereignisses.
+Weitere Informationen zu den Ursachen eines `reset`-Ereignisses und zur Reaktion darauf finden Sie in der Dokumentation zum [`reset`](/de/docs/Web/API/XRReferenceSpace/reset_event)-Ereignis.
 
 ## Beispiele
 
-Dieses Beispiel behandelt das `reset`-Ereignis, indem es alle Objekte in einer Szene durchgeht und die Position jedes Objekts durch Multiplikation mit dem im Ereignis angegebenen `transform` aktualisiert. Die Szene wird durch ein `scene`-Objekt dargestellt, in dem sich alle Objekte in einem Array namens `objects` befinden.
+Dieses Beispiel verarbeitet das `reset`-Ereignis, indem es alle Objekte in einer Szene durchgeht und die Position jedes Objekts aktualisiert, indem sie mit dem im Ereignis angegebenen `transform` multipliziert wird. Die Szene wird durch ein `scene`-Objekt dargestellt, wobei alle Objekte in einem Array namens `objects` enthalten sind.
 
 ```js
 xrReferenceSpace.addEventListener("reset", (event) => {

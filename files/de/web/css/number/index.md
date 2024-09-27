@@ -7,38 +7,38 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<number>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert eine Zahl, sei es eine ganze Zahl oder eine Zahl mit einem Bruchteil.
+Der **`<number>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert eine Zahl, entweder als ganze Zahl oder als Zahl mit einem Bruchteil.
 
 ## Syntax
 
-Die Syntax von `<number>` erweitert die Syntax von {{CSSxRef("&lt;integer&gt;")}}. Ein Bruchwert wird durch einen Punkt `.` gefolgt von einer oder mehreren Dezimalstellen dargestellt und kann an eine Ganzzahl angehängt werden. Es gibt keine Einheit, die mit Zahlen verbunden ist.
+Die Syntax von `<number>` erweitert die Syntax von {{CSSxRef("&lt;integer&gt;")}}. Ein Bruchteil wird durch einen `.` gefolgt von einer oder mehreren Dezimalstellen dargestellt und kann an eine ganze Zahl angehängt werden. Zahlen sind mit keiner Einheit verbunden.
 
 ## Interpolation
 
-Bei der Animation werden Werte des CSS-Datentyps `<number>` als reale, Gleitkommazahlen interpoliert. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verknüpfte [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
+Wenn animiert, werden Werte des CSS-Datentyps `<number>` als reale, Gleitkommazahlen interpoliert. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verbundene [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
 
 ## Beispiele
 
 ### Gültige Zahlen
 
 ```plain example-good
-12          Ein rohes <integer> ist auch ein <number>.
-4.01        Positive Bruchzahl
--456.8      Negative Bruchzahl
-0.0         Null
-+0.0        Null, mit einem führenden +
--0.0        Null, mit einem führenden -
-.60         Bruchzahl ohne führende Null
-10e3        Wissenschaftliche Notation
--3.4e-2     Komplizierte wissenschaftliche Notation
+12          A raw <integer> is also a <number>.
+4.01        Positive fraction
+-456.8      Negative fraction
+0.0         Zero
++0.0        Zero, with a leading +
+-0.0        Zero, with a leading -
+.60         Fractional number without a leading zero
+10e3        Scientific notation
+-3.4e-2     Complicated scientific notation
 ```
 
 ### Ungültige Zahlen
 
 ```plain example-bad
-12.         Dezimalpunkte müssen von mindestens einer Ziffer gefolgt werden.
-+-12.2      Es ist nur ein führendes +/- zulässig.
-12.1.1      Es ist nur ein Dezimalpunkt zulässig.
+12.         Decimal points must be followed by at least one digit.
++-12.2      Only one leading +/- is allowed.
+12.1.1      Only one decimal point is allowed.
 ```
 
 ## Spezifikationen

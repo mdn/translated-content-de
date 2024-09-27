@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte **`Range.collapsed`**-Eigenschaft gibt einen booleschen Wert zurück, der anzeigt, ob die Start- und Endpunkte des {{domxref("Range")}} an der gleichen Position liegen. Sie gibt `true` zurück, wenn die Start- und Endgrenzpunkte des {{domxref("Range")}} derselbe Punkt im DOM sind, andernfalls `false`.
+Die **`Range.collapsed`** schreibgeschützte Eigenschaft gibt einen booleschen Wert zurück, der anzeigt, ob die Anfangs- und Endpunkte des [`Range`](/de/docs/Web/API/Range) an derselben Position liegen. Sie gibt `true` zurück, wenn die Anfangs- und Endgrenzpunkte des [`Range`](/de/docs/Web/API/Range) derselbe Punkt im DOM sind, andernfalls `false`.
 
-Ein kollabierter {{domxref("Range")}} ist leer (enthält keinen Inhalt) und spezifiziert einen einzigen Punkt in einem DOM-Baum. Um einen Bereich zu kollabieren, siehe die Methode {{domxref("Range.collapse()")}}.
+Ein zusammengefallener [`Range`](/de/docs/Web/API/Range) ist leer (beinhaltet keinen Inhalt) und spezifiziert einen einzigen Punkt in einem DOM-Baum. Um einen Bereich zu verkleinern, siehe die Methode [`Range.collapse()`](/de/docs/Web/API/Range/collapse).
 
 ## Wert
 
@@ -36,4 +36,4 @@ isCollapsed = range.collapsed;
 
 ## Siehe auch
 
-- [DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Interfaces-Verzeichnis](/de/docs/Web/API/Document_Object_Model)

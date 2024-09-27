@@ -1,5 +1,5 @@
 ---
-title: "FileReaderSync: readAsBinaryString() Methode"
+title: "FileReaderSync: readAsBinaryString()-Methode"
 short-title: readAsBinaryString()
 slug: Web/API/FileReaderSync/readAsBinaryString
 l10n:
@@ -9,9 +9,9 @@ l10n:
 {{APIRef("File API")}}{{deprecated_header}} {{AvailableInWorkers("worker_except_service")}}
 
 > [!NOTE]
-> Diese Methode ist zugunsten von {{DOMxRef("FileReaderSync.readAsArrayBuffer","readAsArrayBuffer()")}} veraltet.
+> Diese Methode ist zugunsten von [`readAsArrayBuffer()`](/de/docs/Web/API/FileReaderSync/readAsArrayBuffer) veraltet.
 
-Die **`readAsBinaryString()`** Methode der {{DOMxRef("FileReaderSync")}} Schnittstelle ermöglicht das synchrone Lesen von {{DOMxRef("File")}} oder {{DOMxRef("Blob")}} Objekten in einen String. Diese Schnittstelle ist [nur verfügbar](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) in [Workern](/de/docs/Web/API/Worker), da sie synchrones I/O ermöglicht, das potenziell blockieren könnte.
+Die **`readAsBinaryString()`**-Methode der [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)-Schnittstelle ermöglicht das synchrone Lesen von [`File`](/de/docs/Web/API/File)- oder [`Blob`](/de/docs/Web/API/Blob)-Objekten in eine Zeichenkette. Diese Schnittstelle ist [nur verfügbar](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers) in [Web Workern](/de/docs/Web/API/Worker), da sie synchrones I/O ermöglicht, das potenziell blockierend wirkt.
 
 ## Syntax
 
@@ -22,25 +22,25 @@ readAsBinaryString(blob)
 ### Parameter
 
 - `blob`
-  - : Die {{DOMxRef("File")}} oder {{DOMxRef("Blob")}}, die gelesen werden soll.
+  - : Das zu lesende [`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob).
 
 ### Rückgabewert
 
-Ein String, der die Eingabedaten darstellt.
+Eine Zeichenkette, die die eingelesenen Daten darstellt.
 
 ### Ausnahmen
 
-- `NotFoundError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die durch die DOM {{DOMxRef("File")}} oder {{DOMxRef("Blob")}} dargestellte Ressource nicht gefunden werden kann, z. B. weil sie gelöscht wurde.
-- `SecurityError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn eine der folgenden problematischen Situationen festgestellt wird:
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die durch das DOM-[`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob) repräsentierte Ressource nicht gefunden werden kann, z.B. weil sie gelöscht wurde.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn eine der folgenden problematischen Situationen erkannt wird:
     - die Ressource wurde von einem Dritten verändert;
-    - es werden zu viele Lesevorgänge gleichzeitig durchgeführt;
-    - die durch die Ressource angezeigte Datei ist unsicher für eine Verwendung im Web (wie ein Systemdatei).
-- `NotReadableError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Ressource aufgrund eines Berechtigungsproblems, wie einem gleichzeitigen Sperren, nicht gelesen werden kann.
-- `EncodingError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Ressource eine Daten-URL ist und die durch jeden Browser definierte Längenbegrenzung überschreitet.
+    - es werden gleichzeitig zu viele Lesevorgänge durchgeführt;
+    - die durch die Ressource bezeichnete Datei ist unsicher für die Verwendung im Web (z.B. ist es eine Systemdatei).
+- `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Ressource aufgrund eines Berechtigungsproblems, wie einer parallelen Sperre, nicht gelesen werden kann.
+- `EncodingError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Ressource eine Daten-URL ist und das von jedem Browser definierte Längenlimit überschreitet.
 
 ## Spezifikationen
 
@@ -53,7 +53,7 @@ Ein String, der die Eingabedaten darstellt.
 ## Siehe auch
 
 - [File API](/de/docs/Web/API/File_API)
-- {{DOMxRef("File")}}
-- {{DOMxRef("FileReaderSync")}}
-- {{DOMxRef("FileReader")}}
-- {{ domxref("Blob") }}
+- [`File`](/de/docs/Web/API/File)
+- [`FileReaderSync`](/de/docs/Web/API/FileReaderSync)
+- [`FileReader`](/de/docs/Web/API/FileReader)
+- [`Blob`](/de/docs/Web/API/Blob)

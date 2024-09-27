@@ -1,5 +1,5 @@
 ---
-title: "DOMPointReadOnly: Methode toJSON()"
+title: "DOMPointReadOnly: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/DOMPointReadOnly/toJSON
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die Methode `toJSON()` von {{domxref("DOMPointReadOnly")}} gibt ein Objekt zurück, das die {{Glossary("JSON")}}-Form des Punktobjekts darstellt.
+Die [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Methode `toJSON()` gibt ein Objekt zurück, das die [JSON](/de/docs/Glossary/JSON)-Form des Punktobjekts darstellt.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt, dessen Eigenschaften auf die Werte des `DOMPoint` oder `DOMPointReadOnly` gesetzt sind, auf denen die Methode aufgerufen wurde.
+Ein neues Objekt, dessen Eigenschaften auf die Werte des `DOMPoint` oder `DOMPointReadOnly`, auf dem die Methode aufgerufen wurde, gesetzt sind.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein {{domxref("DOMPoint")}}-Objekt, das die obere linke Ecke des aktuellen Fensters in Bildschirmkoordinaten darstellt, und konvertiert es dann in JSON.
+Dieses Beispiel erstellt ein [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt, das die obere linke Ecke des aktuellen Fensters in Bildschirmkoordinaten darstellt, und wandelt dieses dann in JSON um.
 
 ```js
 const topLeft = new DOMPoint(window.screenX, window.screenY);

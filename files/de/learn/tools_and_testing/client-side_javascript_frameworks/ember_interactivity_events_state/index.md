@@ -1,5 +1,5 @@
 ---
-title: "Ember-Interaktivität: Ereignisse, Klassen und Zustand"
+title: "Ember-Interaktivität: Events, Klassen und Status"
 slug: Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_interactivity_events_state
 l10n:
   sourceCommit: cfb8ef1a19700fbfd3b5c2d3e832036c8f5f6197
@@ -8,7 +8,7 @@ l10n:
 {{LearnSidebar}}
 {{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_structure_componentization","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_conditional_footer", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}
 
-An diesem Punkt werden wir anfangen, etwas Interaktivität zu unserer App hinzuzufügen, indem wir die Möglichkeit hinzufügen, neue Todo-Elemente hinzuzufügen und anzuzeigen. Dabei werden wir uns ansehen, wie Ereignisse in Ember genutzt werden, wie man Komponentenklassen erstellt, um JavaScript-Code zur Steuerung interaktiver Funktionen einzufügen, und wie man einen Service einrichtet, um den Datenzustand unserer App zu verfolgen.
+An diesem Punkt werden wir beginnen, unserer App etwas Interaktivität hinzuzufügen, indem wir die Möglichkeit bereitstellen, neue To-Do-Elemente hinzuzufügen und anzuzeigen. Auf dem Weg dorthin werden wir uns ansehen, wie man Events in Ember verwendet, Komponentenklassen erstellt, um JavaScript-Code zur Steuerung interaktiver Funktionen zu enthalten, und wie man einen Dienst einrichtet, um den Datenstatus unserer App zu verfolgen.
 
 <table>
   <tbody>
@@ -23,21 +23,20 @@ An diesem Punkt werden wir anfangen, etwas Interaktivität zu unserer App hinzuz
           Kenntnisse über die
           <a
             href="/de/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line"
-            >Terminal-/Kommandozeile</a
+            >Terminal/Kommandozeile</a
           > haben.
         </p>
         <p>
-          Ein tieferes Verständnis moderner JavaScript-Features (wie Klassen,
-          Module, etc.) wird äußerst vorteilhaft sein, da Ember intensiv Gebrauch
-          davon macht.
+          Ein tieferes Verständnis moderner JavaScript-Funktionen (wie Klassen,
+          Module usw.) wird äußerst vorteilhaft sein, da Ember diese intensiv nutzt.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Zu lernen, wie man Komponentenklassen erstellt und Ereignisse nutzt, um
-        Interaktivität zu steuern, und den App-Zustand mithilfe eines Services zu
+        Erlernen, wie man Komponentenklassen erstellt und Events verwendet, um
+        die Interaktivität zu steuern und den App-Status mit einem Dienst zu
         verfolgen.
       </td>
     </tr>
@@ -46,19 +45,19 @@ An diesem Punkt werden wir anfangen, etwas Interaktivität zu unserer App hinzuz
 
 ## Hinzufügen von Interaktivität
 
-Nun haben wir eine überarbeitete, komponentisierte Version unserer Todo-App. Lassen Sie uns durchgehen, wie wir die Interaktivität hinzufügen können, die wir benötigen, um die App funktionsfähig zu machen.
+Nun haben wir eine refaktorierte, komponentenbasierte Version unserer To-Do-App. Gehen wir durch, wie wir die nötige Interaktivität hinzufügen können, um die App funktional zu machen.
 
-Wenn man über Interaktivität nachdenkt, ist es gut zu erklären, was die Ziele und Verantwortlichkeiten jedes Komponentenbestandteils sind. In den folgenden Abschnitten werden wir dies für jede Komponente tun und Ihnen dann zeigen, wie die Funktionalität implementiert werden kann.
+Zu Beginn sollte man sich überlegen, welche Ziele und Verantwortlichkeiten jede Komponente hat. In den folgenden Abschnitten werden wir dies für jede Komponente tun und Ihnen anschließend zeigen, wie die Funktionalität implementiert werden kann.
 
-## Erstellen von Todos
+## Erstellen von To-Dos
 
-Für unsere card-header- / todo-Eingabe möchten wir in der Lage sein, unsere eingegebene Todo-Aufgabe zu übermitteln, wenn wir die <kbd>Enter</kbd>-Taste drücken und sie in der Todo-Liste erscheinen lassen.
+Für unseren Kartenkopf / To-Do-Eingabe möchten wir in der Lage sein, unsere eingegebene To-Do-Aufgabe zu senden, wenn wir die <kbd>Eingabetaste</kbd> drücken, und dass sie in der To-Do-Liste erscheint.
 
-Wir möchten den eingegebenen Text im Eingabefeld erfassen können. Dies tun wir, damit unser JavaScript-Code weiß, was wir eingegeben haben, und wir können unser Todo speichern und diesen Text an die Todo-Listenkomponente weitergeben, um ihn anzuzeigen.
+Wir möchten den Text erfassen können, der in das Eingabefeld eingegeben wurde. Das tun wir, damit unser JavaScript-Code weiß, was wir eingegeben haben, und wir unser To-Do speichern und diesen Text an die To-Do-Listen-Komponente weitergeben können, um ihn anzuzeigen.
 
-Wir können das [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignis über den [on modifier](https://api.emberjs.com/ember/3.16/classes/Ember.Templates.helpers/methods/on?anchor=on) erfassen, der einfach syntaktischer Zucker von Ember über [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) und [`removeEventListener`](/de/docs/Web/API/EventTarget/removeEventListener) ist (siehe [Einführung in Ereignisse](/de/docs/Learn/JavaScript/Building_blocks/Events) bei Bedarf).
+Wir können das [`keydown`](/de/docs/Web/API/Element/keydown_event)-Event über den [on-Modifikator](https://api.emberjs.com/ember/3.16/classes/Ember.Templates.helpers/methods/on?anchor=on) erfassen, der nur syntaktischer Zucker von Ember um [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) und [`removeEventListener`](/de/docs/Web/API/EventTarget/removeEventListener) ist (siehe [Einführung in Events](/de/docs/Learn/JavaScript/Building_blocks/Events), falls nötig).
 
-Fügen Sie die folgende Zeile zu Ihrer `header.hbs`-Datei hinzu:
+Fügen Sie die folgende neue Zeile in Ihrer `header.hbs`-Datei hinzu:
 
 ```hbs
 <input
@@ -70,11 +69,11 @@ Fügen Sie die folgende Zeile zu Ihrer `header.hbs`-Datei hinzu:
 >
 ```
 
-Dieses neue Attribut befindet sich innerhalb von doppelten geschweiften Klammern, was darauf hinweist, dass es Teil der dynamischen Templatingsyntax von Ember ist. Das erste Argument, das an `on` übergeben wird, ist der Ereignistyp, auf den reagiert werden soll (`keydown`), und das letzte Argument ist der Ereignishandler – der Code, der als Reaktion auf das Auftreten des `keydown`-Ereignisses ausgeführt wird. Wie Sie es von der Arbeit mit [vanilla JavaScript-Objekten](/de/docs/Learn/JavaScript/Objects/Basics#what_is_this) erwarten können, bezieht sich das `this`-Schlüsselwort auf den "Kontext" oder den "Scope" der Komponente. `this` einer Komponente unterscheidet sich von `this` einer anderen Komponente.
+Dieses neue Attribut steht in doppelten geschweiften Klammern, was Ihnen signalisiert, dass es Teil der dynamischen Template-Syntax von Ember ist. Das erste Argument, das an `on` übergeben wird, ist der Typ des Events, auf das reagiert werden soll (`keydown`), und das letzte Argument ist der Event-Handler — der Code, der als Reaktion auf das `keydown`-Event ausgeführt wird. Wie Sie es vom Umgang mit [Vanille-JavaScript-Objekten](/de/docs/Learn/JavaScript/Objects/Basics#what_is_this) erwarten können, bezieht sich das Schlüsselwort `this` auf den "Kontext" oder "Gültigkeitsbereich" der Komponente. Das `this` einer Komponente wird sich von dem `this` einer anderen Komponente unterscheiden.
 
-Wir können definieren, was in `this` verfügbar ist, indem wir eine Komponentenklasse generieren, die mit Ihrer Komponente einhergeht. Dies ist eine vanilla JavaScript-Klasse und hat keine besondere Bedeutung für Ember, außer dass sie von der `Component`-Superklasse _erweitert_ wird.
+Wir können definieren, was in `this` verfügbar ist, indem wir eine Komponentenklasse generieren, die zu Ihrer Komponente gehört. Dies ist eine Vanille-JavaScript-Klasse und hat für Ember keine besondere Bedeutung, abgesehen vom _Erweitern_ der `Component`-Oberklasse.
 
-Um eine Header-Klasse zu Ihrer Header-Komponente hinzuzufügen, geben Sie Folgendes in Ihr Terminal ein:
+Um eine Header-Klasse zu Ihrer Header-Komponente hinzuzufügen, geben Sie dies in Ihr Terminal ein:
 
 ```bash
 ember generate component-class header
@@ -88,7 +87,7 @@ import Component from "@glimmer/component";
 export default class HeaderComponent extends Component {}
 ```
 
-Innerhalb dieser Datei werden wir den Code für den Ereignishandler implementieren. Aktualisieren Sie den Inhalt auf Folgendes:
+In dieser Datei werden wir den Event-Handler-Code implementieren. Aktualisieren Sie den Inhalt auf Folgendes:
 
 ```js
 import Component from "@glimmer/component";
@@ -109,28 +108,28 @@ export default class HeaderComponent extends Component {
 }
 ```
 
-Der `@action`-Dekorator ist der einzige Ember-spezifische Code hier (abgesehen von der Erweiterung der `Component`-Superklasse und den Ember-spezifischen Elementen, die wir mit [JavaScript-Modul-Syntax](/de/docs/Web/JavaScript/Guide/Modules) importieren) — der Rest der Datei ist vanilla JavaScript und würde in jeder Anwendung funktionieren. Der `@action`-Dekorator erklärt, dass die Funktion eine "Aktion" ist, das heißt, sie ist eine Art Funktion, die von einem Ereignis ausgelöst wird, das im Template aufgetreten ist. `@action` bindet auch das `this` der Funktion an die Klasseninstanz.
+Der `@action`-Dekorator ist der einzige Ember-spezifische Code hier (abgesehen vom Erweitern der `Component`-Oberklasse und den Ember-spezifischen Elementen, die wir mit der [JavaScript-Modulsyntax](/de/docs/Web/JavaScript/Guide/Modules) importieren) — der Rest der Datei ist Vanille-JavaScript und würde in jeder Anwendung funktionieren. Der `@action`-Dekorator erklärt, dass die Funktion eine "Aktion" ist, was bedeutet, dass sie von einem Event, das im Template aufgetreten ist, aufgerufen wird. `@action` bindet auch das `this` der Funktion an die Klasseninstanz.
 
 > [!NOTE]
-> Ein Dekorator ist im Grunde eine Wrapper-Funktion, die andere Funktionen oder Eigenschaften umschließt und aufruft, wobei sie zusätzlichen Nutzen bietet. Zum Beispiel führt der `@tracked`-Dekorator (siehe etwas später) den Code aus, auf den er angewendet wird, verfolgt ihn aber zusätzlich und aktualisiert automatisch die App, wenn sich Werte ändern. [Lesen Sie JavaScript Decorators: What They Are and When to Use Them](https://www.sitepoint.com/javascript-decorators-what-they-are/) für weitere allgemeine Informationen zu Dekoratoren.
+> Ein Dekorator ist im Grunde eine Wrapper-Funktion, die andere Funktionen oder Eigenschaften einwickelt und aufruft und auf dem Weg zusätzliche Funktionen bereitstellt. Zum Beispiel führt der `@tracked`-Dekorator (etwas später darauf eingehend) den Code aus, auf den er angewendet wird, verfolgt ihn aber zusätzlich und aktualisiert die App automatisch, wenn sich Werte ändern. Lesen Sie [JavaScript-Dekoratoren: Was sie sind und wann sie verwendet werden sollten](https://www.sitepoint.com/javascript-decorators-what-they-are/) für allgemeine Informationen zu Dekoratoren.
 
-Zurück zu unserem Browser-Tab mit der laufenden App, wir können eingeben, was wir wollen, und wenn wir <kbd>Enter</kbd> drücken, werden wir mit einer Warnmeldung begrüßt, die uns genau sagt, was wir eingegeben haben.
+Zurück in unserem Browser-Tab, in dem die App läuft, können wir eingeben, was wir möchten, und wenn wir <kbd>Eingabetaste</kbd> drücken, wird uns eine Nachricht angezeigt, die uns genau sagt, was wir eingegeben haben.
 
-![Der anfängliche Platzhalterzustand der Hinzufunktion, zeigt den Text, der in die Eingabeelemente eingegeben wurde, der Ihnen zurückgemeldet wird.](todos-hello-there-alert.png)
+![Der anfängliche Platzhalter-Zustand der Hinzufügungsfunktion, die den in die Eingabeelemente eingegebenen Text zurückmeldet.](todos-hello-there-alert.png)
 
-Mit der Interaktivität der Header-Eingabe aus dem Weg benötigen wir einen Ort, um Todos zu speichern, damit andere Komponenten darauf zugreifen können.
+Mit der Interaktivität der Header-Eingabe aus dem Weg benötigen wir einen Speicherort für To-Dos, damit andere Komponenten darauf zugreifen können.
 
-## Speichern von Todos mit einem Service
+## Speichern von To-Dos mit einem Dienst
 
-Ember hat ein integriertes **Zustands**-Management auf Anwendungsebene, das wir nutzen können, um die Speicherung unserer Todos zu verwalten und es unseren Komponenten zu ermöglichen, Daten aus diesem Zustandsmanagement zu beziehen. Ember nennt diese Konstrukte [Services](https://guides.emberjs.com/release/services/), und sie leben für die gesamte Lebensdauer der Seite (ein Seitenneuladen wird sie löschen; die Daten länger zu speichern, liegt außerhalb des Umfangs dieses Tutorials).
+Ember hat eine integrierte Anwendungsebene zur **Zustandsverwaltung**, die wir verwenden können, um die Speicherung unserer To-Dos zu verwalten und es jeder unserer Komponenten zu ermöglichen, auf Daten aus diesem anwendungsweiten Zustand zuzugreifen. Ember nennt diese Konstrukte [Services](https://guides.emberjs.com/release/services/), und sie bleiben für die gesamte Lebensdauer der Seite bestehen (ein Seiten-Refresh wird sie löschen; das Persistieren der Daten für längere Zeit ist über den Umfang dieses Tutorials hinaus).
 
-Führen Sie diesen Terminal-Befehl aus, um einen Service zu generieren, in dem wir unsere Todo-Listendaten speichern können:
+Führen Sie diesen Terminalbefehl aus, um einen Dienst zu generieren, in dem wir unsere To-Do-Listen-Daten speichern:
 
 ```bash
 ember generate service todo-data
 ```
 
-Dies sollte Ihnen eine Terminalausgabe geben wie folgt:
+Dies sollte Ihnen folgende Terminal-Ausgabe geben:
 
 ```plain
 installing service
@@ -139,7 +138,7 @@ installing service-test
   create tests/unit/services/todo-data-test.js
 ```
 
-Dies erstellt eine `todo-data.js`-Datei im `todomvc/app/services`-Verzeichnis, um unseren Service zu enthalten, der anfangs eine Importanweisung und eine leere Klasse enthält:
+Dies erstellt eine `todo-data.js`-Datei im Verzeichnis `todomvc/app/services`, um unseren Dienst aufzunehmen, die zunächst eine Import-Anweisung und eine leere Klasse enthält:
 
 ```js
 import Service from "@ember/service";
@@ -147,7 +146,7 @@ import Service from "@ember/service";
 export default class TodoDataService extends Service {}
 ```
 
-Zunächst wollen wir definieren, _was ein Todo ist_. Wir wissen, dass wir sowohl den Text eines Todos als auch ob es abgeschlossen ist, verfolgen möchten.
+Zunächst möchten wir definieren, _was ein To-Do ist_. Wir wissen, dass wir sowohl den Text eines To-Dos als auch dessen Erledigungsstatus nachverfolgen möchten.
 
 Fügen Sie die folgende `import`-Anweisung unter der bestehenden hinzu:
 
@@ -155,7 +154,7 @@ Fügen Sie die folgende `import`-Anweisung unter der bestehenden hinzu:
 import { tracked } from "@glimmer/tracking";
 ```
 
-Fügen Sie nun die folgende Klasse unter der vorherigen Zeile hinzu, die Sie hinzugefügt haben:
+Fügen Sie nun die folgende Klasse unter der vorherigen hinzugefügten Zeile hinzu:
 
 ```js
 class Todo {
@@ -168,11 +167,11 @@ class Todo {
 }
 ```
 
-Diese Klasse stellt ein Todo dar — sie enthält eine `@tracked text`-Eigenschaft, die den Text des Todos enthält, und eine `@tracked isCompleted`-Eigenschaft, die angibt, ob das Todo abgeschlossen wurde oder nicht. Wenn eine `Todo`-Instanz erstellt wird, hat sie einen anfänglichen `text`-Wert, der dem bei ihrer Erstellung angegebenen Text entspricht (siehe unten), und einen `isCompleted`-Wert von `false`. Der einzige Ember-spezifische Teil dieser Klasse ist der `@tracked`-Dekorator — dieser ist in das Reaktivitätssystem integriert und erlaubt Ember, das, was Sie in Ihrer App sehen, automatisch zu aktualisieren, wenn sich die verfolgten Eigenschaften ändern. [Weitere Informationen zu tracked finden Sie hier](https://api.emberjs.com/ember/3.15/functions/@glimmer%2Ftracking/tracked).
+Diese Klasse repräsentiert ein To-Do — sie enthält eine `@tracked text`-Eigenschaft, die den Text des To-Dos enthält, und eine `@tracked isCompleted`-Eigenschaft, die angibt, ob das To-Do abgeschlossen ist oder nicht. Wenn eine `Todo`-Objekt instanziiert wird, hat es einen anfänglichen `text`-Wert, der dem Text entspricht, der ihm bei der Erstellung gegeben wurde (siehe unten), und einen `isCompleted`-Wert von `false`. Der einzige Ember-spezifische Teil dieser Klasse ist der `@tracked`-Dekorator — dieser verbindet sich mit dem Reaktivitätssystem und ermöglicht es Ember, das, was Sie in Ihrer App sehen, automatisch zu aktualisieren, wenn sich die verfolgten Eigenschaften ändern. [Weitere Informationen zu tracked finden Sie hier](https://api.emberjs.com/ember/3.15/functions/@glimmer%2Ftracking/tracked).
 
-Nun ist es an der Zeit, den Körper des Services zu ergänzen.
+Jetzt ist es Zeit, den Rumpf des Dienstes hinzuzufügen.
 
-Fügen Sie zunächst unterhalb der vorherigen Importzeile eine weitere `import`-Anweisung hinzu, um Aktionen innerhalb des Services verfügbar zu machen:
+Fügen Sie zuerst eine weitere `import`-Anweisung unter der vorherigen hinzu, um Aktionen innerhalb des Dienstes verfügbar zu machen:
 
 ```js
 import { action } from "@ember/object";
@@ -193,41 +192,41 @@ export default class TodoDataService extends Service {
 }
 ```
 
-Hier wird die `todos`-Eigenschaft des Services unsere Liste von Todos in einem Array pflegen, und wir werden sie mit `@tracked` markieren, weil wir möchten, dass sich die Benutzeroberfläche ebenfalls aktualisiert, wenn sich der Wert von `todos` ändert.
+Hier wird die `todos`-Eigenschaft im Dienst unsere Liste von To-Dos innerhalb eines Arrays verwalten, und wir werden sie mit `@tracked` markieren, da wir möchten, dass die Benutzeroberfläche ebenfalls aktualisiert wird, wenn sich der Wert von `todos` ändert.
 
-Und wie zuvor wird die `add()`-Funktion, die vom Template aus aufgerufen wird, mit dem `@action`-Dekorator annotiert, um sie an die Klasseninstanz zu binden. Wir [verbreiten unser `todos`-Array](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), um `newTodo` hinzuzufügen, was ein neues Array erstellt und das Reaktivitätssystem auslöst, die Benutzeroberfläche zu aktualisieren.
+Und wie zuvor wird die `add()`-Funktion, die aus dem Template aufgerufen wird, mit dem `@action`-Dekorator versehen, um sie an die Klasseninstanz zu binden. Wir [erweitern unser `todos`-Array](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), um `newTodo` hinzuzufügen, was ein neues Array erstellt und das Reaktivitätssystem auslöst, um die Benutzeroberfläche zu aktualisieren.
 
-## Verwenden des Services aus unserer Header-Komponente
+## Verwendung des Dienstes aus unserer Header-Komponente
 
-Jetzt, da wir eine Möglichkeit definiert haben, Todos hinzuzufügen, können wir mit diesem Service von der `header.js`-Eingabekomponente aus interagieren, um sie tatsächlich hinzuzufügen.
+Da wir nun eine Möglichkeit definiert haben, To-Dos hinzuzufügen, können wir von der `header.js`-Eingabekomponente aus mit diesem Dienst interagieren, um sie tatsächlich hinzuzufügen.
 
-Als Erstes muss der Service über den `@inject`-Dekorator in das Template eingefügt werden, den wir aus semantischen Gründen in `@service` umbenennen. Um dies zu tun, fügen Sie die folgende `import`-Zeile in `header.js` unterhalb der beiden bestehenden `import`-Zeilen hinzu:
+Zunächst muss der Dienst über den `@inject`-Dekorator in das Template injiziert werden, den wir zur semantischen Klarheit in `@service` umbenennen. Um dies zu tun, fügen Sie folgende `import`-Zeile in `header.js` unter die beiden vorhandenen `import`-Zeilen hinzu:
 
 ```js
 import { inject as service } from "@ember/service";
 ```
 
-Mit diesem Import können wir nun den `todo-data`-Service innerhalb der `HeaderComponent`-Klasse über das `todos`-Objekt mit dem `@service`-Dekorator verfügbar machen. Fügen Sie die folgende Zeile direkt unter der eröffnenden `export…`-Zeile hinzu:
+Mit diesem Import können wir nun den `todo-data`-Dienst innerhalb der `HeaderComponent`-Klasse über das `todos`-Objekt verfügbar machen, wobei wir den `@service`-Dekorator verwenden. Fügen Sie die folgende Zeile direkt unter der öffnenden `export…`-Zeile hinzu:
 
 ```js
 @service('todo-data') todos;
 ```
 
-Nun kann die Platzhalterzeile `alert(text);` durch einen Aufruf unserer neuen `add()`-Funktion ersetzt werden. Ersetzen Sie ihn durch Folgendes:
+Nun kann die Platzhalterzeile `alert(text);` durch einen Aufruf unserer neuen `add()`-Funktion ersetzt werden. Ersetzen Sie sie durch Folgendes:
 
 ```js
 this.todos.add(text);
 ```
 
-Wenn wir dies in der Todo-App in unserem Browser ausprobieren (`npm start`, gehen Sie zu `localhost:4200`), sieht es so aus, als ob nach dem Drücken der <kbd>Enter</kbd>-Taste nichts passiert (obwohl die Tatsache, dass die App ohne Fehler erstellt wird, ein gutes Zeichen ist). Mit dem [Ember Inspector](https://guides.emberjs.com/release/ember-inspector/installation/) können wir jedoch sehen, dass unser Todo hinzugefügt wurde:
+Wenn wir dies in der To-Do-App in unserem Browser ausprobieren (`npm start`, gehen Sie zu `localhost:4200`), scheint es, als würde nichts passieren, nachdem wir die <kbd>Eingabetaste</kbd> gedrückt haben (obwohl die Tatsache, dass die App ohne Fehler gebaut wird, ein gutes Zeichen ist). Mit dem [Ember Inspector](https://guides.emberjs.com/release/ember-inspector/installation/) können wir jedoch sehen, dass unser To-Do hinzugefügt wurde:
 
-![Die App wird im Ember Inspector gezeigt, um zu beweisen, dass hinzugefügte Todos vom Service gespeichert werden, auch wenn sie noch nicht in der Benutzeroberfläche angezeigt werden](todos-in-ember-inspector.gif)
+![Die App wird im Ember Inspector gezeigt, um zu beweisen, dass hinzugefügte To-Dos vom Dienst gespeichert werden, auch wenn sie noch nicht in der Benutzeroberfläche angezeigt werden](todos-in-ember-inspector.gif)
 
-## Anzeigen unserer Todos
+## Anzeigen unserer To-Dos
 
-Nun, da wir wissen, dass wir Todos erstellen können, muss es einen Weg geben, unsere statischen "Buy Movie Tickets"-Todos mit den tatsächlich erstellten Todos zu tauschen. In der `TodoList`-Komponente möchten wir die Todos aus dem Service abrufen und eine `Todo`-Komponente für jedes Todo rendern.
+Nun, da wir wissen, dass wir To-Dos erstellen können, muss es eine Möglichkeit geben, unsere statischen "Buy Movie Tickets"-To-Dos mit den To-Dos, die wir tatsächlich erstellen, auszutauschen. In der `TodoList`-Komponente möchten wir die To-Dos aus dem Dienst abrufen und für jedes To-Do eine `Todo`-Komponente rendern.
 
-Um die Todos aus dem Service abzurufen, benötigt unsere `TodoList`-Komponente zunächst eine unterstützende Komponentenklasse, um diese Funktionalität zu enthalten. Drücken Sie <kbd>Strg</kbd> + <kbd>C</kbd>, um den Entwicklungsserver zu stoppen, und geben Sie den folgenden Terminal-Befehl ein:
+Um die To-Dos vom Dienst abzurufen, benötigt unsere `TodoList`-Komponente zunächst eine unterstützende Komponentenklasse, um diese Funktionalität zu enthalten. Drücken Sie <kbd>Strg</kbd> + <kbd>C</kbd>, um den Entwicklungsserver zu stoppen, und geben Sie den folgenden Terminalbefehl ein:
 
 ```bash
 ember generate component-class todo-list
@@ -235,7 +234,7 @@ ember generate component-class todo-list
 
 Dies generiert die neue Komponentenklasse `todomvc/app/components/todo-list.js`.
 
-Füllen Sie diese Datei mit dem folgenden Code, der den `todo-data`-Service über die `todos`-Eigenschaft für unser Template verfügbar macht. Dies macht ihn innerhalb sowohl der Klasse als auch des Templates über `this.todos` zugänglich:
+Füllen Sie diese Datei mit dem folgenden Code, der den `todo-data`-Dienst über die `todos`-Eigenschaft für unser Template freilegt. Dadurch wird es sowohl innerhalb der Klasse als auch des Templates über `this.todos` zugänglich:
 
 ```js
 import Component from "@glimmer/component";
@@ -246,9 +245,9 @@ export default class TodoListComponent extends Component {
 }
 ```
 
-Ein Problem hier ist, dass unser Service `todos` genannt wird, die Liste der Todos jedoch auch `todos` genannt wird, sodass wir derzeit auf die Daten mit `this.todos.todos` zugreifen würden. Dies ist nicht intuitiv, also fügen wir dem `todos`-Service einen [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) namens `all` hinzu, der alle Todos darstellen wird.
+Ein Problem hier ist, dass unser Dienst `todos` genannt wird, aber die Liste der To-Dos ebenfalls `todos` heißt, sodass wir derzeit auf die Daten mit `this.todos.todos` zugreifen würden. Dies ist nicht intuitiv, also fügen wir einen [Getter](/de/docs/Web/JavaScript/Reference/Functions/get) zum `todos`-Dienst namens `all` hinzu, der alle To-Dos darstellt.
 
-Um dies zu tun, gehen Sie zurück zu Ihrer `todo-data.js`-Datei und fügen Sie Folgendes unterhalb der `@tracked todos = [];`-Zeile hinzu:
+Um dies zu tun, gehen Sie zurück zu Ihrer `todo-data.js`-Datei und fügen Sie folgendes unter der `@tracked todos = [];`-Zeile hinzu:
 
 ```js
 get all() {
@@ -256,14 +255,14 @@ get all() {
 }
 ```
 
-Nun können wir über `this.todos.all` auf die Daten zugreifen, was viel intuitiver ist. Um dies in Aktion zu sehen, gehen Sie zu Ihrer `todo-list.hbs`-Komponente und ersetzen Sie die statischen Komponentenaufrufe:
+Jetzt können wir auf die Daten mit `this.todos.all` zugreifen, was viel intuitiver ist. Um dies in Aktion zu sehen, gehen Sie zu Ihrer `todo-list.hbs`-Komponente und ersetzen Sie die statischen Komponentenaufrufe:
 
 ```hbs
 <Todo />
 <Todo />
 ```
 
-Durch einen dynamischen `#each`-Block (der im Grunde syntaktischer Zucker über der JavaScript-[`forEach()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)-Methode ist), der eine `<Todo />`-Komponente für jedes verfügbare Todo in der vom Service zurückgegebenen Todos-Liste erstellt:
+Mit einem dynamischen `#each`-Block (der im Grunde syntaktischer Zucker über JavaScript's [`forEach()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) ist), der eine `<Todo />`-Komponente für jedes verfügbare To-Do in der vom Dienst zurückgegebenen Liste von To-Dos erstellt:
 
 ```hbs-nolint
 \{{#each this.todos.all as |todo|}}
@@ -271,32 +270,32 @@ Durch einen dynamischen `#each`-Block (der im Grunde syntaktischer Zucker über 
 \{{/each}}
 ```
 
-Ein anderes mal zur Anschauung:
+Eine andere Möglichkeit, dies zu betrachten:
 
-- `this` — der Rendering-Kontext / die Komponenteninstanz.
-- `todos` — eine Eigenschaft von `this`, die wir in der `todo-list.js`-Komponente mit `@service('todo-data') todos;` definiert haben. Dies ist eine Referenz zum `todo-data`-Service, die es uns ermöglicht, direkt mit der Service-Instanz zu interagieren.
-- `all` — ein Getter im `todo-data`-Service, der alle Todos zurückgibt.
+- `this` — der Darstellungskontext / die Komponenteninstanz.
+- `todos` — eine Eigenschaft auf `this`, die wir in der `todo-list.js`-Komponente mit `@service('todo-data') todos;` definiert haben. Dies ist eine Referenz auf den `todo-data`-Dienst und ermöglicht es uns, direkt mit der Dienstinstanz zu interagieren.
+- `all` — ein Getter im `todo-data`-Dienst, der alle To-Dos zurückgibt.
 
-Versuchen Sie, den Server erneut zu starten und zu unserer App zu navigieren, und Sie werden feststellen, dass es funktioniert! Nun, mehr oder weniger. Jedes Mal, wenn Sie ein neues Todo-Element eingeben, erscheint ein neues Listenelement unter der Texteingabe, aber leider wird immer "Buy Movie Tickets" angezeigt.
+Versuchen Sie, den Server erneut zu starten und zu unserer App zu navigieren, und Sie werden feststellen, dass es funktioniert! Nun ja, irgendwie. Immer wenn Sie ein neues To-Do-Element eingeben, erscheint ein neues Listenelement unter dem Texteingabefeld, aber leider steht dort immer "Buy Movie Tickets".
 
-Dies liegt daran, dass das Textetikett in jedem Listenelement auf diesen Text festgelegt ist, wie in `todo.hbs` zu sehen:
+Dies liegt daran, dass das Textetikett in jedem Listenelement auf diesen Text fest codiert ist, wie in `todo.hbs` zu sehen:
 
 ```hbs
 <label>Buy Movie Tickets</label>
 ```
 
-Aktualisieren Sie diese Zeile, um das Argument `@todo` zu verwenden — welches das Todo darstellen wird, das wir in dieser Komponente beim Aufruf in `todo-list.hbs` über den Zeilen `<Todo @todo=\{{todo}} />` übergeben haben:
+Aktualisieren Sie diese Zeile, um das Argument `@todo` zu verwenden — welches das To-Do darstellt, das wir beim Aufruf dieser Komponente in `todo-list.hbs` übergeben haben, in der Zeile `<Todo @todo=\{{todo}} />`:
 
 ```hbs
 <label>\{{@todo.text}}</label>
 ```
 
-OK, probieren Sie es noch einmal. Sie sollten feststellen, dass nun der im `<input>`-Feld eingegebene Text korrekt in der Benutzeroberfläche widergespiegelt wird:
+OK, probieren Sie es erneut. Sie sollten feststellen, dass der im `<input>` eingegebene Text jetzt korrekt in der Benutzeroberfläche wiedergegeben wird:
 
-![Die App wird in ihrem endgültigen Zustand dieses Artikels gezeigt, mit eingegebenen Todo-Elementen, die in der Benutzeroberfläche angezeigt werden](todos-being-appended-with-correct-text.gif)
+![Die App wird in ihrem endgültigen Zustand dieses Artikels gezeigt, wobei eingegebene To-Do-Elemente in der Benutzeroberfläche angezeigt werden](todos-being-appended-with-correct-text.gif)
 
 ## Zusammenfassung
 
-OK, das ist ein großer Fortschritt für den Moment. Wir können nun Todo-Elemente zu unserer App hinzufügen und der Zustand der Daten wird mit unserem Service nachverfolgt. Als Nächstes werden wir die Funktionalität unseres Footer zum Laufen bringen, einschließlich des Todo-Zählers, und uns die bedingte Darstellung ansehen, einschließlich der korrekten Gestaltung von Todos, wenn sie angekreuzt wurden. Wir werden auch unsere Schaltfläche "Erledigte löschen" anschließen.
+Ok, das ist für den Moment ein großer Fortschritt. Wir können nun To-Do-Elemente zu unserer App hinzufügen und der Datenstatus wird mit unserem Dienst verfolgt. Als nächstes werden wir uns mit der Funktionalität unserer Fußzeile befassen, einschließlich des To-Do-Zählers, und uns die bedingte Darstellung ansehen, einschließlich des korrekten Stils von To-Dos, wenn sie markiert wurden. Wir werden auch unsere Schaltfläche "Clear completed" verkabeln.
 
 {{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_structure_componentization","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Ember_conditional_footer", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}

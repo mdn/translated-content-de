@@ -7,20 +7,21 @@ l10n:
 
 {{CSSRef}}
 
-Die **`scale()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element auf der 2D-Ebene skaliert. Da der Skalierungsfaktor durch einen Vektor [sx, sy] definiert ist, können die horizontalen und vertikalen Dimensionen in unterschiedlichen Maßstäben skaliert werden. Das Resultat ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scale()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element auf der 2D-Ebene vergrößert oder verkleinert. Da der Skalierungsgrad durch einen Vektor [sx, sy] definiert ist, kann sie die horizontalen und vertikalen Dimensionen in unterschiedlichen Skalen ändern. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-scale.html")}}
 
-Diese Skalierungstransformation wird durch einen zweidimensionalen Vektor charakterisiert. Ihre Koordinaten bestimmen, wie viel Skalierung in jeder Richtung erfolgt. Wenn beide Koordinaten gleich sind, ist die Skalierung einheitlich (_isotrop_) und das Seitenverhältnis des Elements bleibt erhalten (dies ist eine [homothetische Transformation](https://en.wikipedia.org/wiki/Homothetic_transformation)).
+Diese Skalierungs-Transformation wird durch einen zweidimensionalen Vektor charakterisiert. Dessen Koordinaten definieren, wie viel Skalierung in jeder Richtung durchgeführt wird. Wenn beide Koordinaten gleich sind, ist die Skalierung einheitlich (_isotrop_) und das Seitenverhältnis des Elements bleibt erhalten (dies ist eine [homothetische Transformation](https://en.wikipedia.org/wiki/Homothetic_transformation)).
 
-Wenn ein Koordinatenwert außerhalb des Bereichs \[-1, 1] liegt, wächst das Element entlang dieser Dimension; innerhalb des Bereichs schrumpft es. Ein negativer Wert führt zu einer [Punktspiegelung](https://en.wikipedia.org/wiki/Point_reflection) in dieser Dimension. Der Wert `1` hat keinen Effekt.
+Wenn ein Koordinatenwert außerhalb des Bereichs \[-1, 1] liegt, wächst das Element in dieser Dimension; wenn es innerhalb des Bereichs liegt, schrumpft es. Ein negativer Wert führt zu einer [Punktspiegelung](https://de.wikipedia.org/wiki/Punktspiegelung) in dieser Dimension. Der Wert `1` hat keinen Effekt.
 
 > [!NOTE]
-> Die `scale()` Funktion skaliert nur in 2D. Um in 3D zu skalieren, verwenden Sie stattdessen [`scale3d()`](/de/docs/Web/CSS/transform-function/scale3d).
+> Die `scale()` Funktion skaliert nur in 2D. Um in 3D zu skalieren, verwenden Sie
+> [`scale3d()`](/de/docs/Web/CSS/transform-function/scale3d) stattdessen.
 
 ## Syntax
 
-Die `scale()` Funktion wird mit einem oder zwei Werten angegeben, die die Menge der Skalierung in jeder Richtung darstellen.
+Die `scale()` Funktion wird mit entweder einem oder zwei Werten angegeben, die die Menge der Skalierung in jede Richtung angeben.
 
 ```css
 scale(sx)
@@ -33,7 +34,8 @@ scale(sx, sy)
 - `sx`
   - : Ein {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} das die Abszisse (horizontal, x-Komponente) des Skalierungsvektors darstellt.
 - `sy`
-  - : Ein {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} das die Ordinate (vertikal, y-Komponente) des Skalierungsvektors darstellt. Wenn nicht definiert, ist der Standardwert `sx`, was zu einer einheitlichen Skalierung führt, die das {{glossary("Seitenverhältnis")}} des Elements beibehält.
+  - : Ein {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} das die Ordinate (vertikal, y-Komponente) des Skalierungsvektors darstellt.
+    Falls nicht definiert, ist der Standardwert `sx`, was zu einer gleichmäßigen Skalierung führt, die das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Elements beibehält.
 
 <table class="standard-table">
   <thead>
@@ -75,18 +77,18 @@ scale(sx, sy)
 
 ## Barrierefreiheit
 
-Skalierungs-/Zoom-Animationen sind problematisch für die Barrierefreiheit, da sie oft Auslöser für bestimmte Arten von Migräne sind. Wenn Sie solche Animationen auf Ihrer Website einfügen müssen, sollten Sie eine Steuerung bereitstellen, die es den Nutzern ermöglicht, Animationen auszuschalten, vorzugsweise für die gesamte Website.
+Skalier-/Zoom-Animationen sind problematisch für die Barrierefreiheit, da sie ein häufiger Auslöser für bestimmte Arten von Migräne sind. Wenn Sie solche Animationen auf Ihrer Website verwenden müssen, sollten Sie eine Steuerung bereitstellen, die es Nutzern ermöglicht, Animationen abzuschalten, vorzugsweise auf der gesamten Website.
 
-Berücksichtigen Sie auch die Verwendung des {{cssxref("@media/prefers-reduced-motion", "prefers-reduced-motion")}} Media-Features — verwenden Sie es, um eine [Media Query](/de/docs/Web/CSS/CSS_media_queries) zu schreiben, die Animationen ausschaltet, wenn der Nutzer in seinen Systemeinstellungen reduzierte Animationen angegeben hat.
+Zudem sollten Sie die {{cssxref("@media/prefers-reduced-motion", "prefers-reduced-motion")}} Medienabfrage verwenden — nutzen Sie sie, um eine [Media Query](/de/docs/Web/CSS/CSS_media_queries) zu schreiben, die Animationen deaktiviert, wenn der Nutzer reduzierte Animationen in seinen Systemeinstellungen spezifiziert hat.
 
 Erfahren Sie mehr:
 
-- [MDN Understanding WCAG, Erläuterungen zur Richtlinie 2.3](/de/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.3_%e2%80%94_seizures_and_physical_reactions_do_not_design_content_in_a_way_that_is_known_to_cause_seizures_or_physical_reactions)
-- [Verständnis des Erfolgskriteriums 2.3.3 | W3C Understanding WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions)
+- [MDN Verständnis von WCAG, Leitlinie 2.3 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.3_%e2%80%94_seizures_and_physical_reactions_do_not_design_content_in_a_way_that_is_known_to_cause_seizures_or_physical_reactions)
+- [Verstehen des Erfolgskriteriums 2.3.3 | W3C Verständnis von WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions)
 
 ## Beispiele
 
-### Gleichzeitige Skalierung der X- und Y-Dimensionen
+### Gemeinsames Skalieren der X- und Y-Dimensionen
 
 #### HTML
 
@@ -105,7 +107,7 @@ div {
 }
 
 .scaled {
-  transform: scale(0.7); /* Entspricht scaleX(0.7) scaleY(0.7) */
+  transform: scale(0.7); /* Equal to scaleX(0.7) scaleY(0.7) */
   background-color: pink;
 }
 ```
@@ -114,7 +116,7 @@ div {
 
 {{EmbedLiveSample("Scaling_the_X_and_Y_dimensions_together", "200", "200")}}
 
-### Separate Skalierung der X- und Y-Dimensionen und Übersetzung des Ursprungs
+### Separate Skalierung der X- und Y-Dimensionen und Verschiebung des Ursprungs
 
 #### HTML
 
@@ -133,7 +135,7 @@ div {
 }
 
 .scaled {
-  transform: scale(2, 0.5); /* Entspricht scaleX(2) scaleY(0.5) */
+  transform: scale(2, 0.5); /* Equal to scaleX(2) scaleY(0.5) */
   transform-origin: left;
   background-color: pink;
 }
@@ -158,4 +160,4 @@ div {
 - {{cssxref("zoom")}}
 - {{cssxref("&lt;transform-function&gt;")}}
 - {{cssxref("transform-function/scale3d", "scale3d()")}}
-- Weitere einzelne Transform-Eigenschaften: {{cssxref("translate")}} und {{cssxref("rotate")}}
+- Andere einzelne Transformations-Eigenschaften {{cssxref("translate")}} und {{cssxref("rotate")}}

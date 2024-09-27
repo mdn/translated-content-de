@@ -1,5 +1,5 @@
 ---
-title: "VRDisplay: getFrameData()-Methode"
+title: "VRDisplay: getFrameData() Methode"
 short-title: getFrameData()
 slug: Web/API/VRDisplay/getFrameData
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`getFrameData()`**-Methode der {{domxref("VRDisplay")}}-Schnittstelle akzeptiert ein {{domxref("VRFrameData")}}-Objekt und füllt es mit den Informationen, die erforderlich sind, um den aktuellen Frame darzustellen.
+Die **`getFrameData()`** Methode des [`VRDisplay`](/de/docs/Web/API/VRDisplay) Schnittstelle akzeptiert ein [`VRFrameData`](/de/docs/Web/API/VRFrameData) Objekt und füllt es mit den Informationen, die zum Rendern des aktuellen Frames erforderlich sind.
 
 > [!NOTE]
 > Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
-Dies umfasst die {{domxref("VRPose")}} und die Ansichts- und Projektionsmatrizen für den aktuellen Frame.
+Dies beinhaltet die [`VRPose`](/de/docs/Web/API/VRPose) und Ansichts- und Projektionsmatrizen für den aktuellen Frame.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ getFrameData(frameData)
 ### Parameter
 
 - `frameData`
-  - : Das {{domxref("VRFrameData")}}-Objekt, das Sie füllen möchten.
+  - : Das [`VRFrameData`](/de/docs/Web/API/VRFrameData) Objekt, das Sie füllen möchten.
 
 ### Rückgabewert
 
-Ein boolescher Wert — Ein Wert von `true` wird zurückgegeben, wenn das {{domxref("VRFrameData")}}-Objekt erfolgreich gefüllt wurde, oder `false`, wenn dies nicht der Fall war.
+Ein boolescher Wert — ein Wert von `true` wird zurückgegeben, wenn das [`VRFrameData`](/de/docs/Web/API/VRFrameData) Objekt erfolgreich gefüllt wurde, oder `false`, wenn nicht.
 
 ## Beispiele
 
@@ -38,8 +38,8 @@ let vrDisplay;
 
 navigator.getVRDisplays().then((displays) => {
   vrDisplay = displays[0];
-  console.log("Display gefunden");
-  // Starten der Präsentation, wenn der Button geklickt wird: Es kann nur als Antwort auf eine Benutzeraktion aufgerufen werden
+  console.log("Display found");
+  // Starting the presentation when the button is clicked: It can only be called in response to a user gesture
   btn.addEventListener("click", () => {
     vrDisplay.requestPresent([{ source: canvas }]).then(() => {
       drawVRScene();
@@ -47,26 +47,26 @@ navigator.getVRDisplays().then((displays) => {
   });
 });
 
-// WebVR: Zeichnen der Szene für das WebVR-Display.
+// WebVR: Draw the scene for the WebVR display.
 function drawVRScene() {
-  // WebVR: Anfordern des nächsten Frames der Animation
+  // WebVR: Request the next frame of the animation
   vrSceneFrame = vrDisplay.requestAnimationFrame(drawVRScene);
 
-  // Füllen von frameData mit den Daten des nächsten darzustellenden Frames
+  // Populate frameData with the data of the next frame to display
   vrDisplay.getFrameData(frameData);
 
-  // Sie können die Position, Orientierung usw. des Displays von der Pose des aktuellen Frames abrufen
-  // curFramePose ist ein VRPose-Objekt
+  // You can get the position, orientation, etc. of the display from the current frame's pose
+  // curFramePose is a VRPose object
   const curFramePose = frameData.pose;
   const curPos = curFramePose.position;
   const curOrient = curFramePose.orientation;
 
-  // Löschen der Leinwand, bevor wir darauf zeichnen.
+  // Clear the canvas before we start drawing on it.
 
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-  // WebVR: Erstellen der erforderlichen Projektions- und Ansichts-Matrix-Positionen,
-  // die zum Übergeben in die uniformMatrix4fv-Methoden unten benötigt werden
+  // WebVR: Create the required projection and view matrix locations needed
+  // for passing into the uniformMatrix4fv methods below
 
   const projectionMatrixLocation = gl.getUniformLocation(
     shaderProgram,
@@ -74,7 +74,7 @@ function drawVRScene() {
   );
   const viewMatrixLocation = gl.getUniformLocation(shaderProgram, "viewMatrix");
 
-  // WebVR: Rendern der Ansicht des linken Auges auf die linke Hälfte der Leinwand
+  // WebVR: Render the left eye's view to the left half of the canvas
   gl.viewport(0, 0, canvas.width * 0.5, canvas.height);
   gl.uniformMatrix4fv(
     projectionMatrixLocation,
@@ -84,7 +84,7 @@ function drawVRScene() {
   gl.uniformMatrix4fv(viewMatrixLocation, false, frameData.leftViewMatrix);
   drawGeometry();
 
-  // WebVR: Rendern der Ansicht des rechten Auges auf die rechte Hälfte der Leinwand
+  // WebVR: Render the right eye's view to the right half of the canvas
   gl.viewport(canvas.width * 0.5, 0, canvas.width * 0.5, canvas.height);
   gl.uniformMatrix4fv(
     projectionMatrixLocation,
@@ -95,24 +95,24 @@ function drawVRScene() {
   drawGeometry();
 
   function drawGeometry() {
-    // Zeichnen der Ansicht für jedes Auge
+    // draw the view for each eye
   }
 
   // …
 
-  // WebVR: Anzeigen, dass wir bereit sind, den gerenderten Frame auf dem VR-Display darzustellen
+  // WebVR: Indicate that we are ready to present the rendered frame to the VR display
   vrDisplay.submitFrame();
 }
 ```
 
 > [!NOTE]
-> Sie können diesen vollständigen Code bei [raw-webgl-example](https://github.com/mdn/webvr-tests/blob/main/webvr/raw-webgl-example/webgl-demo.js) sehen.
+> Sie können diesen vollständigen Code unter [raw-webgl-example](https://github.com/mdn/webvr-tests/blob/main/webvr/raw-webgl-example/webgl-demo.js) einsehen.
 
 ## Spezifikationen
 
 Diese Methode war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie die Anleitung [Porting from WebVR to WebXR von Meta](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu setzen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Porting from WebVR to WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) Leitfaden für weitere Informationen.
 
 ## Browser-Kompatibilität
 

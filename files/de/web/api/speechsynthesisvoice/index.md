@@ -7,24 +7,24 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`SpeechSynthesisVoice`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Stimme, die das System unterstützt. Jede `SpeechSynthesisVoice` hat ihren eigenen relativen Sprachdienst, einschließlich Informationen über Sprache, Name und URI.
+Die **`SpeechSynthesisVoice`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Stimme, die das System unterstützt. Jede `SpeechSynthesisVoice` hat ihren eigenen zugehörigen Sprachdienst, der Informationen über Sprache, Name und URI enthält.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("SpeechSynthesisVoice.default")}} {{ReadOnlyInline}}
-  - : Ein boolean-Wert, der angibt, ob die Stimme die Standardstimme für die aktuelle App-Sprache ist (`true`) oder nicht (`false`).
-- {{domxref("SpeechSynthesisVoice.lang")}} {{ReadOnlyInline}}
-  - : Gibt ein BCP 47-Sprach-Tag zurück, das die Sprache der Stimme angibt.
-- {{domxref("SpeechSynthesisVoice.localService")}} {{ReadOnlyInline}}
-  - : Ein boolean-Wert, der angibt, ob die Stimme von einem lokalen Sprachsynthesizer-Dienst (`true`) oder einem entfernten Sprachsynthesizer-Dienst (`false`) bereitgestellt wird.
-- {{domxref("SpeechSynthesisVoice.name")}} {{ReadOnlyInline}}
+- [`SpeechSynthesisVoice.default`](/de/docs/Web/API/SpeechSynthesisVoice/default) {{ReadOnlyInline}}
+  - : Ein boolescher Wert, der angibt, ob die Stimme die Standardstimme für die aktuelle App-Sprache ist (`true`) oder nicht (`false`).
+- [`SpeechSynthesisVoice.lang`](/de/docs/Web/API/SpeechSynthesisVoice/lang) {{ReadOnlyInline}}
+  - : Gibt ein BCP 47-Sprachtag zurück, das die Sprache der Stimme anzeigt.
+- [`SpeechSynthesisVoice.localService`](/de/docs/Web/API/SpeechSynthesisVoice/localService) {{ReadOnlyInline}}
+  - : Ein boolescher Wert, der angibt, ob die Stimme von einem lokalen Sprachsynthesizer-Dienst bereitgestellt wird (`true`) oder von einem entfernten Sprachsynthesizer-Dienst (`false`).
+- [`SpeechSynthesisVoice.name`](/de/docs/Web/API/SpeechSynthesisVoice/name) {{ReadOnlyInline}}
   - : Gibt einen menschenlesbaren Namen zurück, der die Stimme repräsentiert.
-- {{domxref("SpeechSynthesisVoice.voiceURI")}} {{ReadOnlyInline}}
-  - : Gibt den URI-Typ und den Ort des Sprachsynthesedienstes für diese Stimme zurück.
+- [`SpeechSynthesisVoice.voiceURI`](/de/docs/Web/API/SpeechSynthesisVoice/voiceURI) {{ReadOnlyInline}}
+  - : Gibt den URI-Typ und Ort des Sprachsynthesedienstes für diese Stimme zurück.
 
 ## Beispiele
 
-Das folgende Beispiel stammt aus unserem [Sprachsynthesizer-Demo](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speak-easy-synthesis/script.js).
+Der folgende Codeausschnitt stammt aus unserem [Speech synthesizer demo](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speak-easy-synthesis/script.js).
 
 ```js
 const synth = window.speechSynthesis;

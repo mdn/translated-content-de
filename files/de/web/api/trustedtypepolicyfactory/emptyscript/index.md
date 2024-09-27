@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`emptyScript`**-Eigenschaft des {{domxref("TrustedTypePolicyFactory")}}-Interfaces gibt ein {{domxref("TrustedScript")}}-Objekt zurück, das einen leeren String enthält.
+Die schreibgeschützte **`emptyScript`**-Eigenschaft der [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Schnittstelle gibt ein [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekt zurück, das einen leeren String enthält.
 
-Dieses Objekt kann verwendet werden, wenn die Anwendung einen leeren String in einen Einspeisepunkt einfügen muss, der ein `TrustedScript`-Objekt erwartet.
+Dieses Objekt kann verwendet werden, wenn die Anwendung einen leeren String in eine Einsinkstelle einfügen muss, die ein `TrustedScript`-Objekt erwartet.
 
 ## Wert
 
-Ein {{domxref("TrustedScript")}}-Objekt.
+Ein [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekt.
 
 ## Beispiele
 
-Die [Spezifikation](https://w3c.github.io/trusted-types/dist/spec/#dom-trustedtypepolicyfactory-emptyscript) erklärt, dass das `emptyScript`-Objekt verwendet werden kann, um die Unterstützung für die dynamische Codekompilierung zu erkennen.
+Die [Spezifikation](https://w3c.github.io/trusted-types/dist/spec/#dom-trustedtypepolicyfactory-emptyscript) erklärt, dass das `emptyScript`-Objekt verwendet werden kann, um die Unterstützung für dynamische Codekompilierung zu erkennen.
 
-Natürliche Implementierungen der Trusted Types können `eval(TrustedScript)` unterstützen, weshalb im folgenden Beispiel eine native Implementierung für `eval(trustedTypes.emptyScript)` `false` zurückgeben wird. Ein Polyfill wird ein wahres Objekt zurückgeben.
+Native Implementierungen von Trusted Types können `eval(TrustedScript)` unterstützen. Daher wird im folgenden Beispiel bei einer nativen Implementierung `eval(trustedTypes.emptyScript)` false zurückgeben. Ein Polyfill wird ein wahrheitswertiges Objekt zurückgeben.
 
 ```js
 const supportsTS = !eval(trustedTypes.emptyScript);

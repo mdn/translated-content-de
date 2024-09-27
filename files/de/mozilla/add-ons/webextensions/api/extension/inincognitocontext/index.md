@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein boolescher Wert, `true` für Inhalts-Skripte, die in Tabs des privaten Modus ausgeführt werden, und für Erweiterungsseiten, die in einem Prozess des privaten Modus ausgeführt werden.
+Ein boolean-Wert, `true` für Inhalts-Skripte, die in privaten Browsing-Tabs ausgeführt werden, und für Erweiterungsseiten, die innerhalb eines privaten Browsing-Prozesses laufen.
 
 ## Syntax
 
@@ -17,13 +17,13 @@ let isPrivate = browser.extension.inIncognitoContext;  // true or false
 
 ### Wert
 
-Ein _boolescher_ Wert, der angibt, ob das aktuelle Skript in einem privaten Tab oder Prozess läuft.
+Ein _boolean_ Wert, der angibt, ob das aktuelle Skript in einem privaten Tab oder Prozess läuft.
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#property-inIncognitoContext) API von Chromium. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#property-inIncognitoContext) API von Chromium. Diese Dokumentation stammt von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.

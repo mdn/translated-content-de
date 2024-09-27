@@ -7,30 +7,30 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGMaskElement`**-Schnittstelle bietet Zugriff auf die Eigenschaften der {{SVGElement("mask")}}-Elemente sowie Methoden zu deren Manipulation.
+Das **`SVGMaskElement`** Interface bietet Zugriff auf die Eigenschaften der {{SVGElement("mask")}}-Elemente sowie Methoden, um diese zu manipulieren.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, {{domxref("SVGElement")}}._
+_Dieses Interface erbt auch Eigenschaften von seinem übergeordneten Interface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGMaskElement.maskUnits")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedEnumeration")}}, das dem {{SVGAttr("maskUnits")}}-Attribut des angegebenen {{SVGElement("mask")}}-Elements entspricht. Nimmt einen der in {{domxref("SVGUnitTypes")}} definierten Konstanten an.
-- {{domxref("SVGMaskElement.maskContentUnits")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedEnumeration")}}, das dem {{SVGAttr("maskContentUnits")}}-Attribut des angegebenen {{SVGElement("mask")}}-Elements entspricht. Nimmt einen der in {{domxref("SVGUnitTypes")}} definierten Konstanten an.
-- {{domxref("SVGMaskElement.x")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem {{SVGAttr("x")}}-Attribut des angegebenen {{SVGElement("mask")}}-Elements entspricht.
-- {{domxref("SVGMaskElement.y")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem {{SVGAttr("y")}}-Attribut des angegebenen {{SVGElement("mask")}}-Elements entspricht.
-- {{domxref("SVGMaskElement.width")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem {{SVGAttr("width")}}-Attribut des angegebenen {{SVGElement("mask")}}-Elements entspricht.
-- {{domxref("SVGMaskElement.height")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das dem {{SVGAttr("height")}}-Attribut des angegebenen {{SVGElement("mask")}}-Elements entspricht.
+- [`SVGMaskElement.maskUnits`](/de/docs/Web/API/SVGMaskElement/maskUnits) {{ReadOnlyInline}}
+  - : Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die dem {{SVGAttr("maskUnits")}}-Attribut des gegebenen {{SVGElement("mask")}}-Elements entspricht. Nimmt einen der in [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes) definierten Konstanten an.
+- [`SVGMaskElement.maskContentUnits`](/de/docs/Web/API/SVGMaskElement/maskContentUnits) {{ReadOnlyInline}}
+  - : Eine [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), die dem {{SVGAttr("maskContentUnits")}}-Attribut des gegebenen {{SVGElement("mask")}}-Elements entspricht. Nimmt einen der in [`SVGUnitTypes`](/de/docs/Web/API/SVGUnitTypes) definierten Konstanten an.
+- [`SVGMaskElement.x`](/de/docs/Web/API/SVGMaskElement/x) {{ReadOnlyInline}}
+  - : Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), die dem {{SVGAttr("x")}}-Attribut des gegebenen {{SVGElement("mask")}}-Elements entspricht.
+- [`SVGMaskElement.y`](/de/docs/Web/API/SVGMaskElement/y) {{ReadOnlyInline}}
+  - : Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), die dem {{SVGAttr("y")}}-Attribut des gegebenen {{SVGElement("mask")}}-Elements entspricht.
+- [`SVGMaskElement.width`](/de/docs/Web/API/SVGMaskElement/width) {{ReadOnlyInline}}
+  - : Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), die dem {{SVGAttr("width")}}-Attribut des gegebenen {{SVGElement("mask")}}-Elements entspricht.
+- [`SVGMaskElement.height`](/de/docs/Web/API/SVGMaskElement/height) {{ReadOnlyInline}}
+  - : Eine [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), die dem {{SVGAttr("height")}}-Attribut des gegebenen {{SVGElement("mask")}}-Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer Elternschnittstelle, {{domxref("SVGElement")}}._
+_Dieses Interface implementiert keine spezifischen Methoden, erbt jedoch Methoden von seinem übergeordneten Interface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

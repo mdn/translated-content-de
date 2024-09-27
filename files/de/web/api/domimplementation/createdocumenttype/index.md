@@ -1,5 +1,5 @@
 ---
-title: "DOMImplementation: Methode createDocumentType()"
+title: "DOMImplementation: createDocumentType() Methode"
 short-title: createDocumentType()
 slug: Web/API/DOMImplementation/createDocumentType
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM")}}
 
-Die **`DOMImplementation.createDocumentType()`**-Methode gibt ein {{domxref("DocumentType")}}-Objekt zurück, das entweder mit {{domxref("DOMImplementation.createDocument")}} bei der Dokumentenerstellung verwendet werden kann oder über Methoden wie {{domxref("Node.insertBefore()")}} oder {{domxref("Node.replaceChild()")}} in das Dokument eingefügt werden kann.
+Die **`DOMImplementation.createDocumentType()`** Methode gibt ein [`DocumentType`](/de/docs/Web/API/DocumentType)-Objekt zurück, das entweder bei der Dokumentenerstellung mit [`DOMImplementation.createDocument`](/de/docs/Web/API/DOMImplementation/createDocument) verwendet werden kann oder über Methoden wie [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore) oder [`Node.replaceChild()`](/de/docs/Web/API/Node/replaceChild) in das Dokument eingefügt werden kann.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ createDocumentType(qualifiedNameStr, publicId, systemId)
 - `qualifiedNameStr`
   - : Ein String, der den qualifizierten Namen enthält, wie `svg:svg`.
 - `publicId`
-  - : Ein String, der den `PUBLIC`-Bezeichner enthält.
+  - : Ein String, der den `PUBLIC`-Identifier enthält.
 - `systemId`
-  - : Ein String, der die `SYSTEM`-Bezeichner enthält.
+  - : Ein String, der die `SYSTEM`-Identifier enthält.
 
 ### Rückgabewert
 
@@ -55,4 +55,4 @@ alert(d.doctype.publicId); // -//W3C//DTD SVG 1.1//EN
 
 ## Siehe auch
 
-- Das {{domxref("DOMImplementation")}}-Interface, zu dem es gehört.
+- Das [`DOMImplementation`](/de/docs/Web/API/DOMImplementation) Interface, zu dem es gehört.

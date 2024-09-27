@@ -1,5 +1,5 @@
 ---
-title: "PushEvent: PushEvent()-Konstruktor"
+title: "PushEvent: PushEvent() Konstruktor"
 short-title: PushEvent()
 slug: Web/API/PushEvent/PushEvent
 l10n:
@@ -8,8 +8,9 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Der **`PushEvent()`**-Konstruktor erstellt ein neues
-{{domxref("PushEvent")}}-Objekt. Beachten Sie, dass dieser Konstruktor nur in einem Service-Worker-Kontext verfügbar ist.
+Der **`PushEvent()`** Konstruktor erstellt ein neues
+[`PushEvent`](/de/docs/Web/API/PushEvent) Objekt. Beachten Sie, dass dieser Konstruktor nur in einem
+Service Worker-Kontext verfügbar ist.
 
 ## Syntax
 
@@ -21,17 +22,18 @@ new PushEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses.
-    Er ist case-sensitiv und Browser setzen ihn auf `push` oder `pushsubscriptionchange`.
+  - : Ein String mit dem Namen des Events.
+    Es ist case-sensitiv und Browser setzen es auf `push` oder `pushsubscriptionchange`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das, _zusätzlich zu den in {{domxref("ExtendableEvent/ExtendableEvent", "ExtendableEvent()")}} definierten Eigenschaften_, die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften_, die folgenden Eigenschaften haben kann:
     - `data`
       - : Die Daten, die Sie möchten, dass das `PushEvent` enthält, falls vorhanden.
-        Wenn der Konstruktor aufgerufen wird, wird die {{domxref("PushEvent.data")}}-Eigenschaft des resultierenden Objekts auf ein neues {{domxref("PushMessageData")}}-Objekt gesetzt, das diese Bytes enthält.
+        Wenn der Konstruktor aufgerufen wird, wird die [`PushEvent.data`](/de/docs/Web/API/PushEvent/data) Eigenschaft des resultierenden Objekts
+        auf ein neues [`PushMessageData`](/de/docs/Web/API/PushMessageData) Objekt gesetzt, das diese Bytes enthält.
 
 ### Rückgabewert
 
-Ein neues {{domxref("PushEvent")}}-Objekt.
+Ein neues [`PushEvent`](/de/docs/Web/API/PushEvent) Objekt.
 
 ## Beispiele
 

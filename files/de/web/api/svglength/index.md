@@ -9,17 +9,17 @@ l10n:
 
 ## SVG-Längen-Schnittstelle
 
-Die `SVGLength`-Schnittstelle entspricht dem [\<length>](/de/docs/Web/SVG/Content_type#length) grundlegenden Datentyp.
+Die `SVGLength`-Schnittstelle entspricht dem [\<length>](/de/docs/Web/SVG/Content_type#length) Basisdatentyp.
 
-Ein `SVGLength`-Objekt kann als schreibgeschützt markiert sein, was bedeutet, dass Versuche, das Objekt zu ändern, eine Ausnahme auslösen werden.
+Ein `SVGLength`-Objekt kann als schreibgeschützt gekennzeichnet werden, was bedeutet, dass Versuche, das Objekt zu modifizieren, zu einer Ausnahme führen.
 
-### Schnittstellenübersicht
+### Überblick über die Schnittstelle
 
 <table class="no-markdown">
   <tbody>
     <tr>
-      <th scope="row">Auch implementieren</th>
-      <td>Keine</td>
+      <th scope="row">Ebenso implementiert</th>
+      <td>Nichts</td>
     </tr>
     <tr>
       <th scope="row">Methoden</th>
@@ -76,7 +76,7 @@ Ein `SVGLength`-Objekt kann als schreibgeschützt markiert sein, was bedeutet, d
       <th scope="row">Normatives Dokument</th>
       <td>
         <a href="https://www.w3.org/TR/SVG11/types.html#InterfaceSVGLength"
-          >SVG 1.1 (2. Ausgabe)</a
+          >SVG 1.1 (2nd Edition)</a
         >
       </td>
     </tr>
@@ -92,18 +92,18 @@ function start() {
   const rect = document.getElementById("myRect");
   const val  = rect.x.baseVal;
 
-  // lies x in Pixel- und cm-Einheiten
+  // read x in pixel and cm units
   console.log("value: " + val.value +
             ", valueInSpecifiedUnits: " + val.unitType + ": " + val.valueInSpecifiedUnits +
             ", valueAsString: " + val.valueAsString);
 
-  // setze x = 20pt und lies es in Pixel- und pt-Einheiten aus
+  // set x = 20pt and read it out in pixel and pt units
   val.newValueSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_PT, 20);
   console.log("value: " + val.value +
             ", valueInSpecifiedUnits " + val.unitType + ": " + val.valueInSpecifiedUnits +
             ", valueAsString: " + val.valueAsString);
 
-  // konvertiere x = 20pt in Zoll und lies es in Pixel- und Zolleinheiten aus
+  // convert x = 20pt to inches and read out in pixel and inch units
   val.convertToSpecifiedUnits(SVGLength.SVG_LENGTHTYPE_IN);
   console.log("value: " + val.value +
             ", valueInSpecifiedUnits " + val.unitType + ": " + val.valueInSpecifiedUnits +
@@ -141,14 +141,14 @@ value: 26.66666603088379, valueInSpecifiedUnits 8: 0.277777761220932, valueAsStr
       <td><code>SVG_LENGTHTYPE_UNKNOWN</code></td>
       <td><code>0</code></td>
       <td>
-        Der Einheitstyp ist nicht einer der vordefinierten Einheitstypen. Es ist ungültig, einen neuen Wert dieses Typs zu definieren oder einen vorhandenen Wert auf diesen Typ zu ändern.
+        Der Einheitstyp ist nicht einer der vordefinierten Einheitstypen. Es ist unzulässig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert auf diesen Typ zu ändern.
       </td>
     </tr>
     <tr>
       <td><code>SVG_LENGTHTYPE_NUMBER</code></td>
       <td><code>1</code></td>
       <td>
-        Es wurde kein Einheitstyp angegeben (z. B. ein einheitenloser Wert), was auf einen Wert in Benutzereinheiten hinweist.
+        Es wurde kein Einheitstyp angegeben (d. h., ein wert ohne Einheit wurde angegeben), was auf einen Wert in Benutzereinheiten hinweist.
       </td>
     </tr>
     <tr>
@@ -184,7 +184,7 @@ value: 26.66666603088379, valueInSpecifiedUnits 8: 0.277777761220932, valueAsStr
     <tr>
       <td><code>SVG_LENGTHTYPE_IN</code></td>
       <td><code>8</code></td>
-      <td>Ein Wert wurde unter Verwendung der in CSS2 definierten Zollmaßeinheiten angegeben.</td>
+      <td>Ein Wert wurde unter Verwendung der in CSS2 definierten in-Einheiten angegeben.</td>
     </tr>
     <tr>
       <td><code>SVG_LENGTHTYPE_PT</code></td>
@@ -214,7 +214,7 @@ value: 26.66666603088379, valueInSpecifiedUnits 8: 0.277777761220932, valueAsStr
       <td><code>unitType</code></td>
       <td>unsigned short</td>
       <td>
-        Der Typ des Wertes, angegeben durch eine der <code>SVG_LENGTHTYPE_*</code> Konstanten, die in dieser Schnittstelle definiert sind.
+        Der Typ des Wertes, wie er durch eine der auf dieser Schnittstelle definierten <code>SVG_LENGTHTYPE_*</code>-Konstanten festgelegt wird.
       </td>
     </tr>
     <tr>
@@ -222,10 +222,10 @@ value: 26.66666603088379, valueInSpecifiedUnits 8: 0.277777761220932, valueAsStr
       <td>float</td>
       <td>
         <p>
-          Der Wert als Gleitkommawert, in Benutzereinheiten. Das Setzen dieses Attributs bewirkt, dass <code>valueInSpecifiedUnits</code> und <code>valueAsString</code> automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
+          Der Wert als Gleitpunktwert in Benutzereinheiten. Das Setzen dieses Attributs führt dazu, dass <code>valueInSpecifiedUnits</code> und <code>valueAsString</code> automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
         </p>
         <p>
-          <strong>Ausnahmen beim Setzen:</strong> Ein {{ domxref("DOMException") }} mit dem Code <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder das Objekt selbst schreibgeschützt ist.
+          <strong>Ausnahmen beim Setzen:</strong> Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder das Objekt selbst schreibgeschützt ist.
         </p>
       </td>
     </tr>
@@ -234,10 +234,10 @@ value: 26.66666603088379, valueInSpecifiedUnits 8: 0.277777761220932, valueAsStr
       <td>float</td>
       <td>
         <p>
-          Der Wert als Gleitkommawert in den durch <code>unitType</code> ausgedrückten Einheiten. Das Setzen dieses Attributs führt dazu, dass <code>value</code> und <code>valueAsString</code> automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
+          Der Wert als Gleitpunktwert, in den durch <code>unitType</code> ausgedrückten Einheiten. Das Setzen dieses Attributs führt dazu, dass <code>value</code> und <code>valueAsString</code> automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
         </p>
         <p>
-          <strong>Ausnahmen beim Setzen:</strong> Ein {{ domxref("DOMException") }} mit dem Code <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder das Objekt selbst schreibgeschützt ist.
+          <strong>Ausnahmen beim Setzen:</strong> Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder das Objekt selbst schreibgeschützt ist.
         </p>
       </td>
     </tr>
@@ -246,15 +246,16 @@ value: 26.66666603088379, valueInSpecifiedUnits 8: 0.277777761220932, valueAsStr
       <td>string</td>
       <td>
         <p>
-          Der Wert als Zeichenfolgenwert, in den durch <code>unitType</code> ausgedrückten Einheiten. Das Setzen dieses Attributs bewirkt, dass <code>value</code>, <code>valueInSpecifiedUnits</code> und <code>unitType</code> automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
+          Der Wert als String, in den durch <code>unitType</code> ausgedrückten Einheiten. Das Setzen dieses Attributs führt dazu, dass <code>value</code>, <code>valueInSpecifiedUnits</code> und <code>unitType</code> automatisch aktualisiert werden, um diese Einstellung widerzuspiegeln.
         </p>
         <p><strong>Ausnahmen beim Setzen:</strong></p>
         <ul>
           <li>
-            Ein {{ domxref("DOMException") }} mit dem Code <code>SYNTAX_ERR</code> wird ausgelöst, wenn die zugewiesene Zeichenfolge nicht als gültige <a href="/de/docs/Web/SVG/Content_type#length">&#x3C;length></a> analysiert werden kann.
+            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code <code>SYNTAX_ERR</code> wird ausgelöst, wenn der zugewiesene String nicht als gültige
+            <a href="/de/docs/Web/SVG/Content_type#length">&#x3C;length></a> geparst werden kann.
           </li>
           <li>
-            Ein {{ domxref("DOMException") }} mit dem Code <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder das Objekt selbst schreibgeschützt ist.
+            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder das Objekt selbst schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -267,7 +268,7 @@ value: 26.66666603088379, valueInSpecifiedUnits 8: 0.277777761220932, valueAsStr
 <table class="no-markdown">
   <thead>
     <tr>
-      <th>Name &amp; Argumente</th>
+      <th>Name & Argumente</th>
       <th>Rückgabewert</th>
       <th>Beschreibung</th>
     </tr>
@@ -283,15 +284,15 @@ value: 26.66666603088379, valueInSpecifiedUnits 8: 0.277777761220932, valueAsStr
       <td><var>void</var></td>
       <td>
         <p>
-          Setzen Sie den Wert als Zahl mit einem zugehörigen unitType zurück und ersetzen Sie dabei die Werte aller Attribute im Objekt.
+          Setzt den Wert als eine Zahl mit einem zugeordneten `unitType` zurück und ersetzt dadurch die Werte aller Attribute des Objekts.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            Ein {{ domxref("DOMException") }} mit dem Code <code>NOT_SUPPORTED_ERR</code> wird ausgelöst, wenn <code>unitType</code> <code>SVG_LENGTHTYPE_UNKNOWN</code> ist oder kein gültiger Einheitstypkonstant ist (eine der anderen <code>SVG_LENGTHTYPE_*</code>-Konstanten, die in dieser Schnittstelle definiert sind).
+            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code <code>NOT_SUPPORTED_ERR</code> wird ausgelöst, wenn <code>unitType</code> <code>SVG_LENGTHTYPE_UNKNOWN</code> oder kein gültiger Einheitstyp-Konstantwert ist (einer der anderen auf dieser Schnittstelle definierten <code>SVG_LENGTHTYPE_*</code>-Konstanten).
           </li>
           <li>
-            Ein {{ domxref("DOMException") }} mit dem Code <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder das Objekt selbst schreibgeschützt ist.
+            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Länge einem schreibgeschützten Attribut entspricht oder das Objekt selbst schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -305,7 +306,9 @@ value: 26.66666603088379, valueInSpecifiedUnits 8: 0.277777761220932, valueAsStr
       </td>
       <td><var>void</var></td>
       <td>
-        Bewahrt den gleichen zugrunde liegenden gespeicherten Wert, setzt jedoch die gespeicherte Einheitskennung auf den angegebenen <code><var>unitType</var></code> zurück. Die Objektattribute <code>unitType</code>, <code>valueInSpecifiedUnits</code> und <code>valueAsString</code> könnten infolge dieser Methode geändert werden. Wenn zum Beispiel der ursprüngliche Wert <code>"0.5cm"</code> war und die Methode aufgerufen wurde, um in Millimeter zu konvertieren, würde sich der <code>unitType</code> auf <code>SVG_LENGTHTYPE_MM</code> ändern, <code>valueInSpecifiedUnits</code> würde auf den numerischen Wert <code>5</code> geändert und <code>valueAsString</code> würde auf <code>"5mm"</code> geändert.
+        Bewahrt den gleichen zugrunde liegenden gespeicherten Wert, aber setzt das gespeicherte Einheitensymbol auf das angegebene <code><var>unitType</var></code
+        > zurück. Die Objektattribute <code>unitType</code>,
+        <code>valueInSpecifiedUnits</code> und <code>valueAsString</code> können als Ergebnis dieser Methode geändert werden. Wenn zum Beispiel der ursprüngliche Wert <code>"0.5cm"</code> wäre und die Methode aufgerufen wurde, um in Millimeter umzuwandeln, würde der <code>unitType</code> auf <code>SVG_LENGTHTYPE_MM</code> geändert, <code>valueInSpecifiedUnits</code> auf den numerischen Wert <code>5</code> geändert und <code>valueAsString</code> auf <code>"5mm"</code> geändert.
       </td>
     </tr>
   </tbody>

@@ -7,18 +7,18 @@ l10n:
 
 {{SVGRef}}
 
-Das **`intercept`**-Attribut definiert den Schnittpunkt der linearen Funktion zur Farbbestandteilübertragung, wenn das {{SVGAttr("type")}}-Attribut auf `linear` gesetzt ist.
+Das **`intercept`**-Attribut definiert den Schnittpunkt der linearen Funktion für Farbkomponentenübertragungen, wenn das {{SVGAttr("type")}}-Attribut auf `linear` gesetzt ist.
 
-Die `linear`-Funktion ist definiert als `slope * color + intercept`, wobei `color` der Farbwert ist, das `intercept` einen Basiswert für das Ergebnis liefert und die [`slope`](/de/docs/Web/SVG/Attribute/slope) ein Skalierungsfaktor ist.
+Die `linear`-Funktion wird definiert als `slope * color + intercept`, wobei `color` der Farbwert ist, `intercept` einen Grundwert für das Ergebnis liefert und die [`slope`](/de/docs/Web/SVG/Attribute/slope) ein Skalierungsfaktor ist.
 
-Das `intercept`-Attribut wird von Kindern der {{SVGElement("feComponentTransfer")}} Filterprimitiven unterstützt und wird mit den folgenden SVG-Komponentenübertragungsfunktionselementen verwendet, wenn `type="linear"` gesetzt ist:
+Das `intercept`-Attribut wird von den Kind-Elementen der {{SVGElement("feComponentTransfer")}} Filterprimitive unterstützt und wird mit den folgenden SVG-Komponentenübertragungsfunktions-Elementen verwendet, wenn `type="linear"` gesetzt ist:
 
 - {{SVGElement("feFuncA")}}
 - {{SVGElement("feFuncB")}}
 - {{SVGElement("feFuncG")}}
 - {{SVGElement("feFuncR")}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>

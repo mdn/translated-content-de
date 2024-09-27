@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`context`** schreibgeschützte Eigenschaft der {{domxref("SharedStorageWorkletGlobalScope")}} Schnittstelle enthält eine Instanz des {{domxref("WorkletSharedStorage")}} Objekts, die den gemeinsamen Speicher für einen bestimmten Ursprung darstellt, wie er einem Worklet-Kontext zur Verfügung steht.
+Die schreibgeschützte **`context`**-Eigenschaft des [`SharedStorageWorkletGlobalScope`](/de/docs/Web/API/SharedStorageWorkletGlobalScope)-Interfaces enthält eine [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Objektinstanz, die den freigegebenen Speicher für einen bestimmten Ursprungsort darstellt, wie er einem Worklet-Kontext zur Verfügung gestellt wird.
 
 ## Wert
 
-Eine Instanz des {{domxref("WorkletSharedStorage")}} Objekts.
+Eine [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Objektinstanz.
 
 ## Beispiele
 
@@ -20,10 +20,10 @@ Eine Instanz des {{domxref("WorkletSharedStorage")}} Objekts.
 // ab-testing-worklet.js
 class SelectURLOperation {
   async run(urls, data) {
-    // Lesen Sie die Experimentgruppe des Benutzers aus dem gemeinsamen Speicher
+    // Read the user's experiment group from shared storage
     const experimentGroup = await this.sharedStorage.get("ab-testing-group");
 
-    // Geben Sie die Gruppennummer zurück
+    // Return the group number
     return experimentGroup;
   }
 }

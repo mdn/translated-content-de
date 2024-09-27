@@ -1,5 +1,5 @@
 ---
-title: "StylePropertyMap: delete()-Methode"
+title: "StylePropertyMap: delete() Methode"
 short-title: delete()
 slug: Web/API/StylePropertyMap/delete
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`delete()`**-Methode der {{domxref("StylePropertyMap")}}-Schnittstelle entfernt die CSS-Deklaration mit der angegebenen Eigenschaft.
+Die **`delete()`**-Methode der [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Schnittstelle entfernt die CSS-Deklaration mit der angegebenen Eigenschaft.
 
 ## Syntax
 
@@ -19,21 +19,21 @@ delete(property)
 ### Parameter
 
 - `property`
-  - : Ein Bezeichner, der das stilistische Merkmal angibt (z. B. Schriftart, Breite, Hintergrundfarbe), das entfernt werden soll.
+  - : Ein Bezeichner, der das stilistische Merkmal angibt (z.B. Schriftart, Breite, Hintergrundfarbe), das entfernt werden soll.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Beispiel wird die {{cssxref('background-image')}}-Eigenschaft aus dem [Style-Attribut](/de/docs/Web/HTML/Global_attributes/style) des Elements entfernt.
+Das folgende Beispiel entfernt die {{cssxref('background-image')}}-Eigenschaft aus dem [style-Attribut](/de/docs/Web/HTML/Global_attributes/style) des Elements.
 
 ```js
-// das Button-Element abrufen
+// get the button element
 const buttonEl = document.querySelector("button");
 
-// background-image aus dem Style-Attribut entfernen
+// remove background-image from style attribute
 buttonEl.attributeStyleMap.delete("background-image");
 ```
 

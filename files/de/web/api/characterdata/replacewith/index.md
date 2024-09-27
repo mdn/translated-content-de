@@ -1,5 +1,5 @@
 ---
-title: "CharacterData: Methode replaceWith()"
+title: "CharacterData: replaceWith() Methode"
 short-title: replaceWith()
 slug: Web/API/CharacterData/replaceWith
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`replaceWith()`** Methode der {{domxref("CharacterData")}} Schnittstelle
-ersetzt diesen Knoten in der Kindliste seines übergeordneten Elements
-durch eine Gruppe von {{domxref("Node")}} Objekten oder Zeichenfolgen.
+Die **`replaceWith()`** Methode der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle
+ersetzt diesen Knoten in der Kindliste seines Elternteils
+durch eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenketten.
 
-Zeichenfolgen werden als {{domxref("Text")}} Knoten eingefügt; die Zeichenfolge wird als Argument an den {{domxref("Text/Text", "Text()")}} Konstruktor übergeben.
+Zeichenketten werden als [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt; die Zeichenkette wird als Argument an den [`Text()`](/de/docs/Web/API/Text/Text)-Konstruktor übergeben.
 
 ## Syntax
 
@@ -23,10 +23,10 @@ replaceWith(...nodes)
 ### Parameter
 
 - `nodes` {{optional_inline}}
-  - : Eine durch Kommas getrennte Liste von {{domxref("Node")}} Objekten oder Zeichenfolgen, die den aktuellen Knoten ersetzen werden.
+  - : Eine durch Kommas getrennte Liste von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenketten, die den aktuellen Knoten ersetzen.
 
 > [!NOTE]
-> Wenn keine Argumente übergeben werden, entfernt diese Methode den Knoten aus dem DOM-Baum.
+> Wenn keine Argumente übergeben werden, wird dieser Knoten aus dem DOM-Baum entfernt.
 
 ### Rückgabewert
 
@@ -34,7 +34,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
 
 ## Beispiele
@@ -48,7 +48,7 @@ let text = document.getElementById("myText").firstChild;
 let em = document.createElement("em");
 em.textContent = "Italic text";
 
-text.replaceWith(em); // Ersetzt `Some text` durch `Italic text`
+text.replaceWith(em); // Replace `Some text` by `Italic text`
 ```
 
 {{EmbedLiveSample("Examples", "100%", 30)}}
@@ -63,6 +63,6 @@ text.replaceWith(em); // Ersetzt `Some text` durch `Italic text`
 
 ## Siehe auch
 
-- {{domxref("CharacterData.replaceData()")}}
-- {{domxref("DocumentType.replaceWith()")}}
-- {{domxref("Element.replaceWith()")}}
+- [`CharacterData.replaceData()`](/de/docs/Web/API/CharacterData/replaceData)
+- [`DocumentType.replaceWith()`](/de/docs/Web/API/DocumentType/replaceWith)
+- [`Element.replaceWith()`](/de/docs/Web/API/Element/replaceWith)

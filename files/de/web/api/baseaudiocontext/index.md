@@ -7,74 +7,74 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die `BaseAudioContext`-Schnittstelle der [Web Audio API](/de/docs/Web/API/Web_Audio_API) dient als grundlegende Definition für Online- und Offline-Audiobearbeitungsgraphen, wie sie durch {{domxref("AudioContext")}} und {{domxref("OfflineAudioContext")}} dargestellt werden. Sie würden `BaseAudioContext` nicht direkt verwenden – Sie würden seine Funktionen über eine dieser beiden erbenden Schnittstellen nutzen.
+Das `BaseAudioContext`-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) dient als Basisdefinition für Online- und Offline-Audioverarbeitungsgraphen, die durch [`AudioContext`](/de/docs/Web/API/AudioContext) und [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) dargestellt werden. Sie würden `BaseAudioContext` nicht direkt verwenden – Sie würden seine Funktionen über eine der beiden erbenden Schnittstellen nutzen.
 
-Ein `BaseAudioContext` kann Ziel von Ereignissen sein, daher implementiert es die {{domxref("EventTarget")}}-Schnittstelle.
+Ein `BaseAudioContext` kann das Ziel von Ereignissen sein und implementiert daher das [`EventTarget`](/de/docs/Web/API/EventTarget) Interface.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- {{domxref("BaseAudioContext.audioWorklet")}} {{ReadOnlyInline}} {{securecontext_inline}}
-  - : Gibt das {{domxref("AudioWorklet")}}-Objekt zurück, das verwendet werden kann, um {{domxref("AudioNode")}}s zu erstellen und zu verwalten, in denen JavaScript-Code, der die {{domxref("AudioWorkletProcessor")}}-Schnittstelle implementiert, im Hintergrund ausgeführt wird, um Audiodaten zu verarbeiten.
-- {{domxref("BaseAudioContext.currentTime")}} {{ReadOnlyInline}}
-  - : Gibt einen Double-Wert zurück, der die sich ständig erhöhende Hardware-Zeit in Sekunden darstellt, die für die Planung verwendet wird. Sie beginnt bei `0`.
-- {{domxref("BaseAudioContext.destination")}} {{ReadOnlyInline}}
-  - : Gibt einen {{domxref("AudioDestinationNode")}} zurück, der das endgültige Ziel aller Audios im Kontext darstellt. Es kann als das Audio-Wiedergabegerät angesehen werden.
-- {{domxref("BaseAudioContext.listener")}} {{ReadOnlyInline}}
-  - : Gibt das {{domxref("AudioListener")}}-Objekt zurück, das für die 3D-Raummodellierung verwendet wird.
-- {{domxref("BaseAudioContext.sampleRate")}} {{ReadOnlyInline}}
-  - : Gibt einen Float-Wert zurück, der die Abtastrate (in Samples pro Sekunde) darstellt, die von allen Knoten in diesem Kontext verwendet wird. Die Abtastrate eines {{domxref("AudioContext")}} kann nicht geändert werden.
-- {{domxref("BaseAudioContext.state")}} {{ReadOnlyInline}}
+- [`BaseAudioContext.audioWorklet`](/de/docs/Web/API/BaseAudioContext/audioWorklet) {{ReadOnlyInline}} {{securecontext_inline}}
+  - : Gibt das [`AudioWorklet`](/de/docs/Web/API/AudioWorklet) Objekt zurück, das zum Erstellen und Verwalten von [`AudioNode`](/de/docs/Web/API/AudioNode)s verwendet werden kann, in denen JavaScript-Code, der das [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) Interface implementiert, im Hintergrund läuft, um Audiodaten zu verarbeiten.
+- [`BaseAudioContext.currentTime`](/de/docs/Web/API/BaseAudioContext/currentTime) {{ReadOnlyInline}}
+  - : Gibt eine Zahl zurück, die eine ständig zunehmende Hardware-Zeit in Sekunden für die Planung darstellt. Sie beginnt bei `0`.
+- [`BaseAudioContext.destination`](/de/docs/Web/API/BaseAudioContext/destination) {{ReadOnlyInline}}
+  - : Gibt einen [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) zurück, der das endgültige Ziel aller Audios im Kontext darstellt. Es kann als das Audio-Wiedergabegerät betrachtet werden.
+- [`BaseAudioContext.listener`](/de/docs/Web/API/BaseAudioContext/listener) {{ReadOnlyInline}}
+  - : Gibt das [`AudioListener`](/de/docs/Web/API/AudioListener) Objekt zurück, das für die 3D-Raumklangverarbeitung verwendet wird.
+- [`BaseAudioContext.sampleRate`](/de/docs/Web/API/BaseAudioContext/sampleRate) {{ReadOnlyInline}}
+  - : Gibt eine Fließkommazahl zurück, die die Abtastrate (in Abtastungen pro Sekunde) darstellt, die von allen Knoten in diesem Kontext verwendet wird. Die Abtastrate eines [`AudioContext`](/de/docs/Web/API/AudioContext) kann nicht geändert werden.
+- [`BaseAudioContext.state`](/de/docs/Web/API/BaseAudioContext/state) {{ReadOnlyInline}}
   - : Gibt den aktuellen Zustand des `AudioContext` zurück.
 
 ## Instanz-Methoden
 
-_Implementiert auch Methoden aus der Schnittstelle_ {{domxref("EventTarget")}}.
+_Implementiert auch Methoden aus der Schnittstelle_ [`EventTarget`](/de/docs/Web/API/EventTarget).
 
-- {{domxref("BaseAudioContext.createAnalyser()")}}
-  - : Erstellt einen {{domxref("AnalyserNode")}}, der verwendet werden kann, um Audiozeit- und Frequenzdaten offenzulegen und beispielsweise Datenvisualisierungen zu erstellen.
-- {{domxref("BaseAudioContext.createBiquadFilter()")}}
-  - : Erstellt einen {{domxref("BiquadFilterNode")}}, der einen Filter zweiter Ordnung darstellt, der als verschiedene gängige Filtertypen konfiguriert werden kann: Hochpass, Tiefpass, Bandpass usw.
-- {{domxref("BaseAudioContext.createBuffer()")}}
-  - : Erstellt ein neues, leeres {{domxref("AudioBuffer")}}-Objekt, das dann mit Daten gefüllt und über einen {{domxref("AudioBufferSourceNode")}} abgespielt werden kann.
-- {{domxref("BaseAudioContext.createBufferSource()")}}
-  - : Erstellt einen {{domxref("AudioBufferSourceNode")}}, der verwendet werden kann, um Audiodaten zu spielen und zu manipulieren, die in einem {{domxref("AudioBuffer")}}-Objekt enthalten sind. {{domxref("AudioBuffer")}}s werden mittels {{domxref("BaseAudioContext/createBuffer", "AudioContext.createBuffer()")}} erstellt oder durch {{domxref("BaseAudioContext/decodeAudioData", "AudioContext.decodeAudioData()")}} zurückgegeben, wenn es erfolgreich einen Audiotrack dekodiert.
-- {{domxref("BaseAudioContext.createConstantSource()")}}
-  - : Erstellt ein {{domxref("ConstantSourceNode")}}-Objekt, das eine Audioquelle ist, die kontinuierlich ein einkanaliges Audiosignal ausgibt, dessen Samples alle den gleichen Wert haben.
-- {{domxref("BaseAudioContext.createChannelMerger()")}}
-  - : Erstellt einen {{domxref("ChannelMergerNode")}}, der verwendet wird, um Kanäle aus mehreren Audioströmen in einen einzelnen Audiostrom zu kombinieren.
-- {{domxref("BaseAudioContext.createChannelSplitter()")}}
-  - : Erstellt einen {{domxref("ChannelSplitterNode")}}, der verwendet wird, um auf die einzelnen Kanäle eines Audiostroms zuzugreifen und sie separat zu verarbeiten.
-- {{domxref("BaseAudioContext.createConvolver()")}}
-  - : Erstellt einen {{domxref("ConvolverNode")}}, der verwendet werden kann, um Faltungseffekte auf Ihren Audiografen anzuwenden, beispielsweise einen Halleffekt.
-- {{domxref("BaseAudioContext.createDelay()")}}
-  - : Erstellt einen {{domxref("DelayNode")}}, der verwendet wird, um das eingehende Audiosignal um einen bestimmten Betrag zu verzögern. Dieser Knoten ist auch nützlich, um Feedbackschleifen in einem Web-Audio-API-Graphen zu erstellen.
-- {{domxref("BaseAudioContext.createDynamicsCompressor()")}}
-  - : Erstellt einen {{domxref("DynamicsCompressorNode")}}, der verwendet werden kann, um eine akustische Kompression auf ein Audiosignal anzuwenden.
-- {{domxref("BaseAudioContext.createGain()")}}
-  - : Erstellt einen {{domxref("GainNode")}}, der verwendet werden kann, um die Gesamtlautstärke des Audiografen zu steuern.
-- {{domxref("BaseAudioContext.createIIRFilter()")}}
-  - : Erstellt einen {{domxref("IIRFilterNode")}}, der einen Filter zweiter Ordnung darstellt, der als verschiedene gängige Filtertypen konfiguriert werden kann.
-- {{domxref("BaseAudioContext.createOscillator()")}}
-  - : Erstellt einen {{domxref("OscillatorNode")}}, eine Quelle, die eine periodische Wellenform darstellt. Er erzeugt im Wesentlichen einen Ton.
-- {{domxref("BaseAudioContext.createPanner()")}}
-  - : Erstellt einen {{domxref("PannerNode")}}, der verwendet wird, um einen eingehenden Audiostrom im 3D-Raum zu raummodellieren.
-- {{domxref("BaseAudioContext.createPeriodicWave()")}}
-  - : Erstellt eine {{domxref("PeriodicWave")}}, die verwendet wird, um eine periodische Wellenform zu definieren, die verwendet werden kann, um die Ausgabe eines {{domxref("OscillatorNode")}} zu bestimmen.
-- {{domxref("BaseAudioContext.createScriptProcessor()")}} {{deprecated_inline}}
-  - : Erstellt einen {{domxref("ScriptProcessorNode")}}, der für die direkte Audiobearbeitung über JavaScript verwendet werden kann.
-- {{domxref("BaseAudioContext.createStereoPanner()")}}
-  - : Erstellt einen {{domxref("StereoPannerNode")}}, der verwendet werden kann, um Stereo-Panning auf eine Audioquelle anzuwenden.
-- {{domxref("BaseAudioContext.createWaveShaper()")}}
-  - : Erstellt einen {{domxref("WaveShaperNode")}}, der verwendet wird, um nichtlineare Verzerrungseffekte zu implementieren.
-- {{domxref("BaseAudioContext.decodeAudioData()")}}
-  - : Dekodiert asynchron Audiodateidaten, die in einem {{jsxref("ArrayBuffer")}} enthalten sind. In diesem Fall wird `ArrayBuffer` normalerweise aus einem `response`-Attribut von {{domxref("XMLHttpRequest")}} geladen, nachdem der `responseType` auf `arraybuffer` gesetzt wurde. Diese Methode funktioniert nur mit vollständigen Dateien, nicht mit Fragmenten von Audiodateien.
+- [`BaseAudioContext.createAnalyser()`](/de/docs/Web/API/BaseAudioContext/createAnalyser)
+  - : Erstellt einen [`AnalyserNode`](/de/docs/Web/API/AnalyserNode), der verwendet werden kann, um Audio-Zeit- und Frequenzdaten offenzulegen und beispielsweise Datenvisualisierungen zu erstellen.
+- [`BaseAudioContext.createBiquadFilter()`](/de/docs/Web/API/BaseAudioContext/createBiquadFilter)
+  - : Erstellt einen [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode), der einen Zweitordnungsfilter darstellt, der als verschiedene gängige Filtertypen konfigurierbar ist: Hochpass, Tiefpass, Bandpass usw.
+- [`BaseAudioContext.createBuffer()`](/de/docs/Web/API/BaseAudioContext/createBuffer)
+  - : Erstellt ein neues, leeres [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) Objekt, das dann mit Daten gefüllt und über einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) abgespielt werden kann.
+- [`BaseAudioContext.createBufferSource()`](/de/docs/Web/API/BaseAudioContext/createBufferSource)
+  - : Erstellt einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode), der verwendet werden kann, um Audiodaten, die in einem [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) Objekt enthalten sind, abzuspielen und zu manipulieren. [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)s werden mit [`AudioContext.createBuffer()`](/de/docs/Web/API/BaseAudioContext/createBuffer) erstellt oder von [`AudioContext.decodeAudioData()`](/de/docs/Web/API/BaseAudioContext/decodeAudioData) zurückgegeben, wenn es eine Audiospur erfolgreich dekodiert.
+- [`BaseAudioContext.createConstantSource()`](/de/docs/Web/API/BaseAudioContext/createConstantSource)
+  - : Erstellt ein [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode) Objekt, das eine Audioquelle ist, die kontinuierlich ein monaurales (ein-Kanal) Audiosignal ausgibt, dessen Abtastungen alle denselben Wert haben.
+- [`BaseAudioContext.createChannelMerger()`](/de/docs/Web/API/BaseAudioContext/createChannelMerger)
+  - : Erstellt einen [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode), der verwendet wird, um Kanäle aus mehreren Audiostreams in einem einzigen Audiostream zu kombinieren.
+- [`BaseAudioContext.createChannelSplitter()`](/de/docs/Web/API/BaseAudioContext/createChannelSplitter)
+  - : Erstellt einen [`ChannelSplitterNode`](/de/docs/Web/API/ChannelSplitterNode), der verwendet wird, um die einzelnen Kanäle eines Audiostreams zuzugreifen und sie separat zu verarbeiten.
+- [`BaseAudioContext.createConvolver()`](/de/docs/Web/API/BaseAudioContext/createConvolver)
+  - : Erstellt einen [`ConvolverNode`](/de/docs/Web/API/ConvolverNode), der verwendet werden kann, um Faltungseffekte auf Ihren Audiographen anzuwenden, beispielsweise einen Halleffekt.
+- [`BaseAudioContext.createDelay()`](/de/docs/Web/API/BaseAudioContext/createDelay)
+  - : Erstellt einen [`DelayNode`](/de/docs/Web/API/DelayNode), der verwendet wird, um das eingehende Audiosignal um einen bestimmten Betrag zu verzögern. Dieser Knoten ist auch nützlich, um Rückkopplungsschleifen in einem Web Audio API Graphen zu erstellen.
+- [`BaseAudioContext.createDynamicsCompressor()`](/de/docs/Web/API/BaseAudioContext/createDynamicsCompressor)
+  - : Erstellt einen [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode), der verwendet werden kann, um auf ein Audiosignal akustische Kompression anzuwenden.
+- [`BaseAudioContext.createGain()`](/de/docs/Web/API/BaseAudioContext/createGain)
+  - : Erstellt einen [`GainNode`](/de/docs/Web/API/GainNode), der verwendet werden kann, um die Gesamtlautstärke des Audiographen zu steuern.
+- [`BaseAudioContext.createIIRFilter()`](/de/docs/Web/API/BaseAudioContext/createIIRFilter)
+  - : Erstellt einen [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode), der einen Zweitordnungsfilter darstellt, der als verschiedene gängige Filtertypen konfigurierbar ist.
+- [`BaseAudioContext.createOscillator()`](/de/docs/Web/API/BaseAudioContext/createOscillator)
+  - : Erstellt einen [`OscillatorNode`](/de/docs/Web/API/OscillatorNode), eine Quelle, die eine periodische Wellenform darstellt. Es erzeugt im Grunde einen Ton.
+- [`BaseAudioContext.createPanner()`](/de/docs/Web/API/BaseAudioContext/createPanner)
+  - : Erstellt einen [`PannerNode`](/de/docs/Web/API/PannerNode), der verwendet wird, um einen eingehenden Audiostream im 3D-Raum zu räumlich zu positionieren.
+- [`BaseAudioContext.createPeriodicWave()`](/de/docs/Web/API/BaseAudioContext/createPeriodicWave)
+  - : Erstellt eine [`PeriodicWave`](/de/docs/Web/API/PeriodicWave), die verwendet wird, um eine periodische Wellenform zu definieren, die verwendet werden kann, um den Ausgang eines [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) zu bestimmen.
+- [`BaseAudioContext.createScriptProcessor()`](/de/docs/Web/API/BaseAudioContext/createScriptProcessor) {{deprecated_inline}}
+  - : Erstellt einen [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode), der für die direkte Audiobearbeitung über JavaScript verwendet werden kann.
+- [`BaseAudioContext.createStereoPanner()`](/de/docs/Web/API/BaseAudioContext/createStereoPanner)
+  - : Erstellt einen [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode), der verwendet werden kann, um eine Stereo-Panorama zu einer Audioquelle anzuwenden.
+- [`BaseAudioContext.createWaveShaper()`](/de/docs/Web/API/BaseAudioContext/createWaveShaper)
+  - : Erstellt einen [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode), der verwendet wird, um nichtlineare Verzerrungseffekte zu implementieren.
+- [`BaseAudioContext.decodeAudioData()`](/de/docs/Web/API/BaseAudioContext/decodeAudioData)
+  - : Dekodiert asynchron Audiodaten, die in einem {{jsxref("ArrayBuffer")}} enthalten sind. In diesem Fall wird `ArrayBuffer` normalerweise aus dem `response`-Attribut eines [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) geladen, nachdem der `responseType` auf `arraybuffer` gesetzt wurde. Diese Methode funktioniert nur bei vollständigen Dateien, nicht bei Fragmenten von Audiodateien.
 
 ## Ereignisse
 
-- {{domxref("BaseAudioContext.statechange_event", "statechange")}}
-  - : Wird ausgelöst, wenn sich der Zustand des `AudioContext` aufgrund des Aufrufs einer der Zustandsänderungsmethoden ({{domxref("AudioContext.suspend")}}, {{domxref("AudioContext.resume")}} oder {{domxref("AudioContext.close")}}) ändert.
+- [`statechange`](/de/docs/Web/API/BaseAudioContext/statechange_event)
+  - : Wird ausgelöst, wenn sich der Zustand des `AudioContext` aufgrund des Aufrufs einer der Methoden zur Zustandsänderung ([`AudioContext.suspend`](/de/docs/Web/API/AudioContext/suspend), [`AudioContext.resume`](/de/docs/Web/API/AudioContext/resume) oder [`AudioContext.close`](/de/docs/Web/API/AudioContext/close)) ändert.
 
 ## Beispiele
 
@@ -90,12 +90,12 @@ const finish = audioContext.destination;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- {{domxref("AudioContext")}}
-- {{domxref("OfflineAudioContext")}}
+- [`AudioContext`](/de/docs/Web/API/AudioContext)
+- [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)

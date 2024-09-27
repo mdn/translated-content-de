@@ -1,5 +1,5 @@
 ---
-title: Anforderungsheader
+title: Request header
 slug: Glossary/Request_header
 l10n:
   sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Anforderungsheader** ist ein {{glossary("HTTP header")}}, der in einer HTTP-Anfrage verwendet werden kann, um Informationen über den Anforderungskontext bereitzustellen, damit der Server die Antwort entsprechend anpassen kann. Zum Beispiel geben die {{HTTPHeader("Accept", "Accept-*")}}-Header die erlaubten und bevorzugten Formate der Antwort an. Andere Header können verwendet werden, um Authentifizierungsdaten bereitzustellen (z.B. {{HTTPHeader("Authorization")}}), das Caching zu steuern oder Informationen über den User Agent oder den Referrer zu erhalten, usw.
+Ein **Request-Header** ist ein [HTTP-Header](/de/docs/Glossary/HTTP_header), der in einer HTTP-Anfrage verwendet werden kann, um Informationen über den Anfragekontext bereitzustellen, sodass der Server die Antwort entsprechend anpassen kann. Zum Beispiel geben die {{HTTPHeader("Accept", "Accept-*")}}-Header die erlaubten und bevorzugten Formate der Antwort an. Weitere Header können verwendet werden, um Authentifizierungsdaten (z. B. {{HTTPHeader("Authorization")}}) bereitzustellen, um das Caching zu steuern oder um Informationen über den User-Agent oder Referrer zu erhalten, etc.
 
-Nicht alle Header, die in einer Anfrage erscheinen können, werden von der Spezifikation als _Anforderungsheader_ bezeichnet. Zum Beispiel wird der {{HTTPHeader("Content-Type")}}-Header als ein {{glossary("representation header")}} bezeichnet.
+Nicht alle Header, die in einer Anfrage erscheinen können, werden in der Spezifikation als _Request-Header_ bezeichnet. Zum Beispiel wird der {{HTTPHeader("Content-Type")}}-Header als [Representation-Header](/de/docs/Glossary/representation_header) bezeichnet.
 
-Darüber hinaus definiert {{Glossary("CORS")}} eine Teilmenge von Anforderungsheadern als {{glossary('CORS-safelisted request header', 'simple headers')}}, Anforderungsheader, die immer als autorisiert angesehen werden und in Antworten auf {{glossary("preflight request", "preflight")}}-Anfragen nicht explizit aufgeführt sind.
+Darüber hinaus definiert [CORS](/de/docs/Glossary/CORS) eine Untergruppe von Request-Headern als [einfache Header](/de/docs/Glossary/CORS-safelisted_request_header), Header, die immer als autorisiert betrachtet werden und nicht explizit in Antworten auf [Preflight-Anfragen](/de/docs/Glossary/preflight_request) aufgeführt werden.
 
-Die folgende HTTP-Nachricht zeigt einige Anforderungsheader nach einer {{HTTPMethod("GET")}}-Anfrage:
+Die folgende HTTP-Nachricht zeigt einige Request-Header nach einer {{HTTPMethod("GET")}}-Anfrage:
 
 ```http
 GET /home.html HTTP/1.1
@@ -33,4 +33,4 @@ Cache-Control: max-age=0
 ## Siehe auch
 
 - [Liste aller HTTP-Header](/de/docs/Web/HTTP/Headers)
-- [RFC 9110, Abschnitt 6.3: Header-Felder](https://httpwg.org/specs/rfc9110.html#header.fields)
+- [RFC 9110, Abschnitt 6.3: Header Fields](https://httpwg.org/specs/rfc9110.html#header.fields)

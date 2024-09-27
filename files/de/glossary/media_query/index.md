@@ -1,5 +1,5 @@
 ---
-title: Media-Abfrage
+title: Media query
 slug: Glossary/Media_query
 l10n:
   sourceCommit: 9ff83eb7950a8d4e2d55d61fcf9b06cf82eae6bf
@@ -7,19 +7,19 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Media-Abfrage** ist ein logischer Ausdruck, der eine Methode für CSS, JavaScript, HTML und andere Websprachen darstellt, um Aspekte des User-Agents oder Geräts, auf dem das Dokument angezeigt wird, zu überprüfen. Dies geschieht unabhängig vom Dokumentinhalt, um festzustellen, ob der zugehörige Codeblock oder das Feature angewendet werden soll.
+Eine **Media Query** ist ein logischer Ausdruck, der eine Methode für CSS, JavaScript, HTML und andere Web-Sprachen darstellt, um Aspekte des Benutzeragenten oder Gerätes, auf dem das Dokument angezeigt wird, unabhängig vom Dokumentinhalt zu überprüfen, um festzustellen, ob der zugehörige Codeblock oder das Merkmal angewendet werden soll.
 
-Media-Abfragen werden verwendet, um CSS-Stile bedingt mit den CSS-At-Regeln {{cssxref("@media")}} und {{cssxref("@import")}} anzuwenden und in JavaScript, um Medienzustände zu testen und zu überwachen, wie mit der Methode {{DOMxRef("Window.matchMedia", "matchMedia()")}}, der Eigenschaft {{DOMxRef("MediaQueryList.matches", "matches")}} und dem Ereignis {{DOMxRef("MediaQueryList.change_event", "change")}}. Media-Abfragen werden als Werte der `media`-Attribute der [`<link>`](/de/docs/Web/HTML/Element/link#media), [`<source>`](/de/docs/Web/HTML/Element/source#media) und [`<style>`](/de/docs/Web/HTML/Element/style#media) [HTML](/de/docs/Web/HTML)-Elemente verwendet, um den Link, die Quelle oder den Stil bedingt anzuwenden, wenn die Media-Abfrage wahr ist. Wenn ein `media`-Attribut nicht angegeben wird, ist es standardmäßig auf `true` gesetzt. Media-Abfragen werden auch als Wert des `sizes`-Attributs des {{HTMLElement("img")}}-Elements verwendet.
+Media Queries werden verwendet, um CSS-Stile bedingt mit den CSS {{cssxref("@media")}}- und {{cssxref("@import")}}-At-Regeln anzuwenden und in JavaScript, um Medienzustände zu testen und zu überwachen, wie mit der [`matchMedia()`](/de/docs/Web/API/Window/matchMedia)-Methode, der [`matches`](/de/docs/Web/API/MediaQueryList/matches)-Eigenschaft und dem [`change`](/de/docs/Web/API/MediaQueryList/change_event)-Ereignis. Media Queries werden als Werte der `media`-Attribute der HTML-Elemente [`<link>`](/de/docs/Web/HTML/Element/link#media), [`<source>`](/de/docs/Web/HTML/Element/source#media) und [`<style>`](/de/docs/Web/HTML/Element/style#media) verwendet, um den Link, die Quelle oder den Stil bedingt anzuwenden, wenn die Media Query wahr ist. Wenn ein `media`-Attribut weggelassen wird, ist es standardmäßig `true`. Media Queries werden auch als Wert des `sizes`-Attributs des {{HTMLElement("img")}}-Elements verwendet.
 
-Media-Abfragen bestehen aus optionalen Medientyp- und Modifikatoren, sowie null oder mehr Medienbedingungen und logischen Operatoren.
+Media Queries bestehen aus optionalen Media Query-Modifikatoren und Medientypen sowie null oder mehr Medienbedingungen zusammen mit logischen Operatoren.
 
-Media-Abfragen werden in Reaktion auf Änderungen in der Benutzerumgebung neu ausgewertet, beispielsweise wenn ein Benutzer ein Browserfenster vergrößert oder ein mobiles Gerät auf die Seite dreht und von Hoch- zu Querformat wechselt.
+Media Queries werden als Reaktion auf Änderungen in der Benutzerumgebung neu ausgewertet, beispielsweise wenn ein Benutzer ein Browserfenster erweitert oder ein mobiles Gerät auf die Seite dreht, wodurch sich die Ausrichtung von Porträt auf Landschaft ändert.
 
-Mehrere durch Kommas getrennte Media-Abfragen bilden eine **Media-Abfrageliste**. Eine Media-Abfrageliste ist wahr, wenn eine ihrer Komponenten-Media-Abfragen wahr ist, und nur falsch, wenn alle ihrer Komponenten-Media-Abfragen falsch sind.
+Mehrere durch Kommas getrennte Media Queries bilden eine **Media Query-Liste**. Eine Media Query-Liste ist dann wahr, wenn eine ihrer Media Queries wahr ist und nur dann falsch, wenn alle ihre Media Queries falsch sind.
 
-Eine Media-Abfrage kann optional durch einen einzelnen Media-Abfrage-Modifikator oder `not` oder `only` vorangestellt werden, wobei im Falle von `not` die Bedeutung der folgenden Media-Abfrage verändert wird.
+Eine Media Query kann optional durch einen einzelnen Media Query-Modifikator oder `not` oder `only` vorangestellt werden, wobei im Falle von `not` die Bedeutung der folgenden Media Query verändert wird.
 
 ## Siehe auch
 
-- [Verwendung von Media-Abfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [CSS Media-Abfragen](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) Modul
+- [Verwendung von Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- CSS-Media Queries-Modul

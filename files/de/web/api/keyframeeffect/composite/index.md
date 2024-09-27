@@ -8,16 +8,16 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`composite`**-Eigenschaft eines {{domxref("KeyframeEffect")}} bestimmt, wie eine Animation eines Elements sich auf die zugrunde liegenden Eigenschaftswerte auswirkt.
+Die **`composite`**-Eigenschaft eines [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) legt fest, wie die Animation eines Elements deren zugrunde liegende Eigenschaftswerte beeinflusst.
 
 ## Wert
 
-Um diese Werte zu verstehen, nehmen Sie das Beispiel eines `keyframeEffect`-Wertes von `blur(2)`, der auf einen zugrunde liegenden Eigenschaftswert von `blur(3)` wirkt.
+Um diese Werte zu verstehen, nehmen Sie das Beispiel eines `keyframeEffect`-Werts von `blur(2)`, der auf einen zugrunde liegenden Eigenschaftswert von `blur(3)` wirkt.
 
 - `replace`
   - : Der `keyframeEffect` **überschreibt** den zugrunde liegenden Wert, mit dem er kombiniert wird: `blur(2)` ersetzt `blur(3)`.
 - `add`
-  - : Der `keyframeEffect` wird dem zugrunde liegenden Wert, mit dem er kombiniert wird, **hinzugefügt** (auch als _additiv_ bezeichnet): `blur(2) blur(3)`.
+  - : Der `keyframeEffect` wird dem zugrunde liegenden Wert **hinzugefügt**, mit dem er kombiniert wird (auch _additiv_ genannt): `blur(2) blur(3)`.
 - `accumulate`
   - : Der `keyframeEffect` wird auf den zugrunde liegenden Wert **akkumuliert**: `blur(5)`.
 
@@ -32,5 +32,5 @@ Um diese Werte zu verstehen, nehmen Sie das Beispiel eines `keyframeEffect`-Wert
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- Eigenschaft von {{domxref("KeyframeEffect")}}-Objekten
-- {{Glossary("Composite operation")}}
+- Eigenschaft von [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Objekten
+- [Composite operation](/de/docs/Glossary/Composite_operation)

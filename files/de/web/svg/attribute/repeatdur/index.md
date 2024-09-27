@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`repeatDur`**-Attribut gibt die Gesamtdauer für die Wiederholung einer Animation an.
+Das **`repeatDur`**-Attribut gibt die Gesamtdauer für das Wiederholen einer Animation an.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
@@ -51,7 +51,7 @@ svg {
 
 {{EmbedLiveSample("Example", "220", "150")}}
 
-## Nutzungshinweise
+## Anmerkungen zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -78,9 +78,9 @@ svg {
 </table>
 
 - `<clock-value>`
-  - : Dieser Wert gibt die Dauer in Vorführungszeit an, um die Animation zu wiederholen.
+  - : Dieser Wert gibt die Dauer in Präsentationszeit an, um die Animation zu wiederholen.
 - `indefinite`
-  - : Dieser Wert zeigt an, dass die Animation unendlich wiederholt wird (d. h. bis das Dokument endet).
+  - : Dieser Wert gibt an, dass die Animation unbegrenzt wiederholt wird (d.h. bis das Dokument endet).
 
 ## Spezifikationen
 

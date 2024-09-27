@@ -7,50 +7,51 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Screen Wake Lock API")}}
 
-Die **`WakeLockSentinel`**-Schnittstelle der [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API) kann verwendet werden, um den Status der Bildschirmsperren zu überwachen und die Sperre manuell freizugeben, wenn dies erforderlich ist.
+Die **`WakeLockSentinel`**-Schnittstelle der [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API) kann verwendet werden, um den Status der Plattform-Bildschirm-Aufwecksperre zu überwachen und die Sperre bei Bedarf manuell freizugeben.
 
-Die Bildschirmsperre verhindert, dass Geräteschirme gedimmt oder gesperrt werden, wenn eine Anwendung weiterlaufen muss.
+Die Bildschirm-Aufwecksperre verhindert, dass Gerätebildschirme gedimmt oder gesperrt werden, wenn eine Anwendung weiterlaufen muss.
 
-Eine Bildschirmsperre wird mit der Methode {{domxref('WakeLock.request()','navigator.wakeLock.request()')}} angefordert, die ein {{jsxref('Promise')}} zurückgibt, das mit einem `WakeLockSentinel`-Objekt erfüllt wird, wenn die Sperre gewährt wird.
+Eine Bildschirm-Aufwecksperre wird mit der Methode [`navigator.wakeLock.request()`](/de/docs/Web/API/WakeLock/request) angefordert, die ein {{jsxref('Promise')}} zurückgibt, das mit einem `WakeLockSentinel`-Objekt erfüllt wird, wenn die Sperre gewährt wird.
 
-Eine erworbene Bildschirmsperre kann manuell über die Methode {{domxref('WakeLockSentinel.release','release()')}} oder automatisch über die Plattform-Bildschirmsperre freigegeben werden. Letzteres kann auftreten, wenn das Dokument inaktiv wird oder die Sichtbarkeit verliert, wenn das Gerät wenig Strom hat oder wenn der Benutzer einen Energiesparmodus aktiviert.
-Ein freigegebener `WakeLockSentinel` kann nicht erneut verwendet werden: Es muss ein neuer Sentinel über {{domxref('WakeLock.request()','navigator.wakeLock.request()')}} angefordert werden, wenn eine neue Sperre benötigt wird.
-Das Freigeben aller `WakeLockSentinel`-Instanzen eines bestimmten Sperrentyps führt dazu, dass die zugrunde liegende Plattform-Sperre freigegeben wird.
+Eine erworbene Bildschirm-Aufwecksperre kann manuell über die [`release()`](/de/docs/Web/API/WakeLockSentinel/release)-Methode oder automatisch über die Plattform-Bildschirm-Aufwecksperre freigegeben werden. Letzteres kann auftreten, wenn das Dokument inaktiv wird oder die Sichtbarkeit verliert, das Gerät wenig Energie hat oder der Benutzer den Energiesparmodus aktiviert.
+Ein freigegebener `WakeLockSentinel` kann nicht erneut verwendet werden: Ein neuer Wächter muss über [`navigator.wakeLock.request()`](/de/docs/Web/API/WakeLock/request) angefordert werden, wenn eine neue Sperre erforderlich ist.
+Das Freigeben aller `WakeLockSentinel`-Instanzen eines bestimmten Typs von Aufwecksperren führt dazu, dass die zugrunde liegende Plattform-Aufwecksperre freigegeben wird.
 
-Ein Ereignis wird am `WakeLockSentinel` ausgelöst, wenn die Plattform-Sperre freigegeben wird, wodurch Anwendungen ihre Benutzeroberfläche konfigurieren und die Sperre bei Bedarf erneut anfordern können.
+Ein Ereignis wird beim `WakeLockSentinel` ausgelöst, wenn die Plattform-Sperre freigegeben wird, wodurch Anwendungen ihre Benutzeroberfläche konfigurieren und die Sperre bei Bedarf erneut anfordern können.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seiner Elternschnittstelle, {{DOMxRef("EventTarget")}}._
+_Erbt auch Eigenschaften von der übergeordneten Schnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("WakeLockSentinel.released", "released")}} {{ReadOnlyInline}}
-  - : Gibt einen booleschen Wert zurück, der anzeigt, ob der `WakeLockSentinel` freigegeben wurde.
-- {{domxref("WakeLockSentinel.type", "type")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenfolgenrepräsentation des aktuell erworbenen `WakeLockSentinel`-Typs zurück.
+- [`released`](/de/docs/Web/API/WakeLockSentinel/released) {{ReadOnlyInline}}
+  - : Gibt einen booleschen Wert zurück, der angibt, ob der `WakeLockSentinel` freigegeben wurde.
+- [`type`](/de/docs/Web/API/WakeLockSentinel/type) {{ReadOnlyInline}}
+
+  - : Gibt eine Zeichenfolgendarstellung des derzeit erworbenen `WakeLockSentinel`-Typs zurück.
     Rückgabewerte sind:
 
-    - `screen`: Eine Bildschirmwachhalt-Sperre.
-      Verhindert, dass Geräte den Bildschirm dimmen oder sperren.
+    - `screen`: Eine Bildschirm-Aufwecksperre.
+      Verhindert, dass Gerätebildschirme gedimmt oder gesperrt werden.
 
 ## Instanz-Methoden
 
-_Erbt auch Methoden von seiner Elternschnittstelle, {{DOMxRef("EventTarget")}}._
+_Erbt auch Methoden von der übergeordneten Schnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref('WakeLockSentinel.release()', 'release()')}}
-  - : Gibt den `WakeLockSentinel` frei und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Sentinel erfolgreich freigegeben wurde.
+- [`release()`](/de/docs/Web/API/WakeLockSentinel/release)
+  - : Gibt den `WakeLockSentinel` frei und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Wächter erfolgreich freigegeben wurde.
 
 ## Ereignisse
 
-- {{domxref("WakeLockSentinel.release_event", "release")}}
-  - : Wird ausgelöst, wenn die Methode {{domxref('WakeLockSentinel.release','release()')}} aufgerufen wird oder die Sperre durch den Benutzeragenten freigegeben wird.
+- [`release`](/de/docs/Web/API/WakeLockSentinel/release_event)
+  - : Wird ausgelöst, wenn die [`release()`](/de/docs/Web/API/WakeLockSentinel/release)-Methode aufgerufen wird oder die Aufwecksperre durch den Benutzeragenten freigegeben wird.
 
 ## Beispiele
 
 In diesem Beispiel erstellen wir eine asynchrone Funktion, die einen `WakeLockSentinel` anfordert.
-Sobald die Bildschirmsperre erworben ist, hören wir auf das `release`-Ereignis, das genutzt werden kann, um entsprechendes UI-Feedback zu geben.
-Der Sentinel kann durch entsprechende Interaktionen erworben oder freigegeben werden.
+Sobald die Bildschirm-Aufwecksperre erworben wurde, hören wir auf das `release`-Ereignis, das verwendet werden kann, um entsprechendes UI-Feedback zu geben.
+Der Wächter kann über entsprechende Interaktionen erworben oder freigegeben werden.
 
 ```js
 // create a reference for the wake lock

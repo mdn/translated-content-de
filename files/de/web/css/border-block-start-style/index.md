@@ -7,19 +7,19 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-block-start-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil des logischen Blockanfang-Randes eines Elements, der je nach Schreibmodus, Richtung und Textorientierung des Elements einer physischen Randstil-Eigenschaft zugeordnet wird. Sie entspricht der {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}} Eigenschaft, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definierten Werten.
+Die **`border-block-start-style`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den Stil des logischen Blockanfangsrandes eines Elements, der je nach Schreibrichtung, Richtung und Textausrichtung des Elements auf einen physikalischen Randstil abgebildet wird. Sie entspricht der Eigenschaft {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}} je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definierten Werten.
 
 {{EmbedInteractiveExample("pages/css/border-block-start-style.html")}}
 
 ## Syntax
 
 ```css
-/* <'border-style'> Werte */
+/* <'border-style'> values */
 border-block-start-style: dashed;
 border-block-start-style: dotted;
 border-block-start-style: groove;
 
-/* Globale Werte */
+/* Global values */
 border-block-start-style: inherit;
 border-block-start-style: initial;
 border-block-start-style: revert;
@@ -27,7 +27,7 @@ border-block-start-style: revert-layer;
 border-block-start-style: unset;
 ```
 
-Verwandte Eigenschaften sind {{cssxref("border-block-end-style")}}, {{cssxref("border-inline-start-style")}}, und {{cssxref("border-inline-end-style")}}, die die anderen Randstile eines Elements definieren.
+Verwandte Eigenschaften sind {{cssxref("border-block-end-style")}}, {{cssxref("border-inline-start-style")}}, und {{cssxref("border-inline-end-style")}}, welche die anderen Randstile des Elements definieren.
 
 ### Werte
 
@@ -84,6 +84,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft wird einer der physischen Rand-Eigenschaften zugeordnet: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}.
+- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- Diese Eigenschaft wird auf eine der physikalischen Rand-Eigenschaften abgebildet: {{cssxref("border-top-style")}}, {{cssxref("border-right-style")}}, {{cssxref("border-bottom-style")}}, oder {{cssxref("border-left-style")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

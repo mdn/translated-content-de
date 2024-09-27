@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`deleted`**-Eigenschaft des {{domxref("RTCIceCandidateStats")}} Dictionaries gibt an, ob der Kandidat gelöscht oder freigegeben wurde.
+Die **`deleted`**-Eigenschaft des Dictionaries [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) gibt an, ob der Kandidat gelöscht oder freigegeben wurde.
 
 ## Wert
 
-Ein Boolean-Wert, der anzeigt, ob der Kandidat gelöscht oder freigegeben wurde. Wenn dieser Wert `true` ist, wird der durch das {{domxref("RTCIceCandidateStats")}}-Objekt beschriebene Kandidat nicht mehr in Betracht gezogen. Die genaue Bedeutung variiert je nach Art des Kandidaten:
+Ein Boolean-Wert, der angibt, ob der Kandidat gelöscht oder freigegeben wurde. Wenn dieser Wert `true` ist, wird der vom [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) Objekt beschriebene Kandidat nicht mehr in Betracht gezogen. Die genaue Bedeutung variiert je nach Art des Kandidaten:
 
 - Lokaler Kandidat
-  - : Ein Wert von `true` bedeutet, dass der Kandidat gemäß {{RFC(5245, "", "8.3")}} gelöscht wurde.
+  - : Ein Wert von `true` bedeutet, dass der Kandidat wie in {{RFC(5245, "", "8.3")}} beschrieben gelöscht wurde.
 - Host-Kandidat
-  - : Ein Wert von `true` zeigt an, dass die Netzwerkressourcen des Kandidaten freigegeben wurden. Dies bedeutet in der Regel, dass alle zugehörigen Sockets geschlossen und freigegeben wurden.
+  - : Ein Wert von `true` zeigt an, dass die Netzwerkressourcen des Kandidaten freigegeben wurden. Dies bedeutet im Allgemeinen, dass alle zugehörigen Socket(s) geschlossen und freigegeben wurden.
 - Remote (TURN)-Kandidat
-  - : Ein Wert von `true` bedeutet, dass die {{Glossary("TURN")}}-Zuweisung des Kandidaten nicht mehr aktiv ist.
+  - : Ein Wert von `true` bedeutet, dass die [TURN](/de/docs/Glossary/TURN) Allokation des Kandidaten nicht mehr aktiv ist.
 
-Das Endergebnis ist dasselbe; der Kandidat wird nicht mehr in Betracht gezogen, wenn dieser Wert `true` ist.
+Das Endresultat ist dasselbe; der Kandidat wird nicht mehr in Betracht gezogen, wenn dieser Wert `true` ist.
 
 ## Beispiele
 
-In diesem Beispiel wird {{domxref("setInterval()")}} verwendet, um eine Funktion einzurichten, die regelmäßig ausgeführt wird, um die neuesten Statistiken für Kandidaten anzuzeigen. Nur Kandidaten, die nicht gelöscht wurden, sind in der Ausgabe enthalten.
+In diesem Beispiel wird [`setInterval()`](/de/docs/Web/API/SetInterval) verwendet, um eine Funktion einzurichten, die periodisch ausgeführt wird, um die neuesten Statistiken für Kandidaten anzuzeigen. Nur Kandidaten, die nicht gelöscht wurden, werden in die Ausgabe einbezogen.
 
 ```js
 setInterval(() => {
@@ -65,6 +65,6 @@ setInterval(() => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

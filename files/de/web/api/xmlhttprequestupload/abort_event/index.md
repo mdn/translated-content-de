@@ -1,5 +1,5 @@
 ---
-title: "XMLHttpRequestUpload: abort-Ereignis"
+title: "XMLHttpRequestUpload: abort Ereignis"
 short-title: abort
 slug: Web/API/XMLHttpRequestUpload/abort_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das `abort`-Ereignis wird bei {{domxref("XMLHttpRequestUpload")}} ausgelöst, wenn eine Anfrage abgebrochen wurde, zum Beispiel, weil das Programm {{domxref("XMLHttpRequest.abort()")}} aufgerufen hat.
+Das `abort` Ereignis wird auf [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload) ausgelöst, wenn eine Anfrage abgebrochen wurde, zum Beispiel, weil das Programm [`XMLHttpRequest.abort()`](/de/docs/Web/API/XMLHttpRequest/abort) aufgerufen hat.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("abort", (event) => {});
@@ -22,33 +22,33 @@ onabort = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ProgressEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ProgressEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle {{domxref("Event")}} verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind auch die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref("ProgressEvent.lengthComputable", "lengthComputable")}} {{ReadOnlyInline}}
-  - : Ein booleanes Flag, das angibt, ob die gesamte zu erledigende Arbeit und die bereits vom zugrunde liegenden Prozess geleistete Arbeit berechenbar sind. Mit anderen Worten, es sagt, ob der Fortschritt messbar ist oder nicht.
-- {{domxref("ProgressEvent.loaded", "loaded")}} {{ReadOnlyInline}}
-  - : Ein 64-Bit-Unsigned-Integer-Wert, der die bereits vom zugrunde liegenden Prozess geleistete Arbeit angibt. Das Verhältnis der erledigten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource mit HTTP wird hierbei nur der Hauptteil der HTTP-Nachricht gezählt und nicht die Header und anderer Overhead.
-- {{domxref("ProgressEvent.total", "total")}} {{ReadOnlyInline}}
-  - : Ein 64-Bit-Unsigned-Integer, der die gesamte Menge der Arbeit repräsentiert, die der zugrunde liegende Prozess im Gange ist zu leisten. Beim Herunterladen einer Ressource mit HTTP ist dies die `Content-Length` (die Größe des Hauptteils der Nachricht) und schließt die Header und anderen Overhead nicht ein.
+- [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
+  - : Ein boolesches Flag, das angibt, ob die gesamte Arbeit, die zu erledigen ist, und die bereits vom zugrunde liegenden Prozess geleistete Arbeit berechenbar sind. Mit anderen Worten, es zeigt, ob der Fortschritt messbar ist oder nicht.
+- [`loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
+  - : Ein 64-Bit-Unsigned-Integer-Wert, der die Menge der bereits vom zugrunde liegenden Prozess geleisteten Arbeit angibt. Das Verhältnis der geleisteten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Nachrichtentext und schließt Header und weiteren Overhead nicht ein.
+- [`total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
+  - : Ein 64-Bit-Unsigned-Integer, der die gesamte Menge an Arbeit darstellt, die der zugrunde liegende Prozess gerade ausführt. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Nachrichtentextes) und schließt die Header und weiteren Overhead nicht ein.
 
 ## Beispiele
 
-### Verwenden des `abort`-Ereignisses
+### Verwendung des `abort` Ereignisses
 
-Sie können das `abort`-Ereignis verwenden, um den Upload zu stoppen, bevor er fertig ist. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige anzeigt, siehe die Hauptseite von {{domxref("XMLHttpRequestUpload")}}.
+Sie können das `abort` Ereignis verwenden, um den Upload zu stoppen, bevor er beendet ist. Ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige anzeigt, finden Sie auf der Hauptseite [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
 
 ```js
-// Im Falle eines Abbruchs blenden wir die Fortschrittsanzeige aus
-// Beachten Sie, dass dieses Ereignis auch am xhr-Objekt abgehört werden kann
+// In case of an abort we hide the progress bar
+// Note that this event can be listened to on the xhr object too
 function errorAction(event) {
   progressBar.classList.remove("visible");
-  log.textContent = `Upload fehlgeschlagen: ${event.type}`;
+  log.textContent = `Upload failed: ${event.type}`;
 }
 xhr.upload.addEventListener("abort", errorAction);
 ```
@@ -63,5 +63,5 @@ xhr.upload.addEventListener("abort", errorAction);
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("XMLHttpRequestUpload/loadstart_event", "loadstart")}}, {{domxref("XMLHttpRequestUpload/load_event", "load")}}, {{domxref("XMLHttpRequestUpload/progress_event", "progress")}}, {{domxref("XMLHttpRequestUpload/error_event", "error")}}, {{domxref("XMLHttpRequestUpload/loadend_event", "loadend")}}, {{domxref("XMLHttpRequestUpload/timeout_event", "timeout")}}
-- {{domxref("XMLHttpRequestUpload")}}
+- Verwandte Ereignisse: [`loadstart`](/de/docs/Web/API/XMLHttpRequestUpload/loadstart_event), [`load`](/de/docs/Web/API/XMLHttpRequestUpload/load_event), [`progress`](/de/docs/Web/API/XMLHttpRequestUpload/progress_event), [`error`](/de/docs/Web/API/XMLHttpRequestUpload/error_event), [`loadend`](/de/docs/Web/API/XMLHttpRequestUpload/loadend_event), [`timeout`](/de/docs/Web/API/XMLHttpRequestUpload/timeout_event)
+- [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload)

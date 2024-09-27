@@ -8,9 +8,8 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`text()`** Methode der {{domxref("Request")}} Schnittstelle
-liest den Anfragetext und gibt ihn als ein Promise zurück, das mit einem {{jsxref("String")}} aufgelöst wird.
-Die Antwort wird _immer_ mit UTF-8 dekodiert.
+Die **`text()`** Methode des [`Request`](/de/docs/Web/API/Request)-Interfaces
+liest den Request-Body und gibt ihn als ein Promise zurück, das mit einem {{jsxref("String")}} aufgelöst wird. Die Antwort wird _immer_ mit UTF-8 dekodiert.
 
 ## Syntax
 
@@ -51,4 +50,4 @@ request.text().then((text) => {
 
 ## Siehe auch
 
-- {{domxref("Response.text()")}}
+- [`Response.text()`](/de/docs/Web/API/Response/text)

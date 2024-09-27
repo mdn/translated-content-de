@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Badging API")}}{{securecontext_header}}
 
-Die **`setAppBadge()`**-Methode der {{domxref("WorkerNavigator")}}-Schnittstelle setzt ein Abzeichen auf das mit dieser App verbundene Symbol. Wenn der Methode ein Wert übergeben wird, wird dieser als Wert des Abzeichens festgelegt. Andernfalls wird das Abzeichen als Punkt oder einem anderen Indikator angezeigt, wie es von der Plattform definiert ist.
+Die **`setAppBadge()`**-Methode der [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Schnittstelle setzt ein Abzeichen auf das mit dieser App verknüpfte Symbol. Wenn ein Wert an die Methode übergeben wird, wird dieser als Wert des Abzeichens festgelegt. Andernfalls wird das Abzeichen als Punkt oder ein anderes, von der Plattform definiertes Symbol angezeigt.
 
 ## Syntax
 
@@ -28,16 +28,16 @@ Ein {{jsxref("Promise")}}, der mit {{jsxref("undefined")}} aufgelöst wird.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Dokument nicht vollständig aktiv ist.
-- `SecurityError` {{domxref("DOMException")}}
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) blockiert wurde.
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn {{domxref('PermissionStatus.state')}} nicht `granted` ist.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) nicht `granted` ist.
 
 ## Beispiele
 
-Im folgenden Beispiel wird eine Anzahl ungelesener Nachrichten an `setAppBadge()` übergeben. Das Abzeichen sollte dann `30` anzeigen.
+Im folgenden Beispiel wird `setAppBadge()` eine Anzahl ungelesener Nachrichten übergeben. Das Abzeichen sollte dann `30` anzeigen.
 
 ```js
 const unread = 30;
@@ -48,7 +48,7 @@ navigator.setAppBadge(unread);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

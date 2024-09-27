@@ -1,5 +1,5 @@
 ---
-title: "PerformanceTiming: Eigenschaft unloadEventEnd"
+title: "PerformanceTiming: unloadEventEnd-Eigenschaft"
 short-title: unloadEventEnd
 slug: Web/API/PerformanceTiming/unloadEventEnd
 l10n:
@@ -9,12 +9,11 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die {{domxref("PerformanceNavigationTiming")}}
-> Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist in der [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
 
-Die veraltete
+Die veraltete, schreibgeschützte Eigenschaft
 **`PerformanceTiming.unloadEventEnd`**
-Read-only-Eigenschaft gibt einen `unsigned long long` zurück, der den Zeitpunkt in Millisekunden seit dem UNIX-Epoch darstellt, an dem der {{domxref("Window/unload_event", "unload")}} Event-Handler abgeschlossen wird. Wenn es kein vorheriges Dokument gibt oder wenn das vorherige Dokument oder einer der erforderlichen Weiterleitungen nicht vom gleichen Ursprung ist, wird der Wert `0` zurückgegeben.
+gibt ein `unsigned long long` zurück, das den Moment angibt, in Millisekunden seit der UNIX-Epoche, an dem der [`unload`](/de/docs/Web/API/Window/unload_event)-Ereignishandler beendet ist. Wenn kein vorheriges Dokument vorhanden ist oder das vorherige Dokument oder einer der erforderlichen Umleitungen nicht vom gleichen Ursprung ist, wird der Wert `0` zurückgegeben.
 
 ## Wert
 
@@ -30,4 +29,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Das {{domxref("PerformanceTiming")}} Interface, zu dem es gehört.
+- Die Schnittstelle [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming), zu der sie gehört.

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Storage Access API")}}
 
-Die **`indexedDB`**-Eigenschaft der {{domxref("StorageAccessHandle")}}-Schnittstelle gibt ein nicht partitioniertes {{domxref("IDBFactory")}}-Objekt zurück, wenn der Zugriff gewährt wurde, und löst andernfalls einen `SecurityError` {{DOMxRef("DOMException")}} aus.
+Die **`indexedDB`**-Eigenschaft der [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle)-Schnittstelle gibt ein unpartitioniertes [`IDBFactory`](/de/docs/Web/API/IDBFactory)-Objekt zurück, wenn der Zugriff gewährt wurde, und wirft andernfalls einen `SecurityError`-[`DOMException`](/de/docs/Web/API/DOMException).
 
 ## Wert
 
-Ein {{domxref("IDBFactory")}}-Objekt.
+Ein [`IDBFactory`](/de/docs/Web/API/IDBFactory)-Objekt.
 
 ## Beispiele
 
@@ -29,7 +29,7 @@ document.requestStorageAccess({ indexedDB: true }).then(
 ```
 
 > [!NOTE]
-> Siehe [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
+> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeren Beispiel.
 
 ## Spezifikationen
 
@@ -41,5 +41,5 @@ document.requestStorageAccess({ indexedDB: true }).then(
 
 ## Siehe auch
 
-- {{domxref("Document.requestStorageAccess()")}}
-- [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
+- [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
+- [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)

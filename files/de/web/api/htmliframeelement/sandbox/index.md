@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`sandbox`** Schultereigenschaft der {{domxref("HTMLIFrameElement")}} Schnittstelle gibt eine {{domxref("DOMTokenList")}} zurück, die zusätzliche Einschränkungen für das Verhalten des eingebetteten Inhalts anzeigt.
+Die **`sandbox`**-Eigenschaft der schreibgeschützten [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Schnittstelle gibt eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) zurück, die zusätzliche Einschränkungen für das Verhalten des verschachtelten Inhalts angibt.
 
-Sie spiegelt das `sandbox`-Attribut des {{HTMLElement("iframe")}} Elements wider.
+Sie spiegelt das `sandbox`-Attribut des {{HTMLElement("iframe")}}-Elements wider.
 
 ## Wert
 
-Ein {{domxref("DOMTokenList")}}. Jedes Element muss einer der Tokens sein, die im `sandbox`-Attribut des {{HTMLElement("iframe")}} Elements aufgelistet sind.
+Eine [`DOMTokenList`](/de/docs/Web/API/DOMTokenList). Jedes Element muss einer der Token sein, die im `sandbox`-Attribut des {{HTMLElement("iframe")}}-Elements aufgeführt sind.
 
 ## Beispiele
 
@@ -28,16 +28,16 @@ Ein {{domxref("DOMTokenList")}}. Jedes Element muss einer der Tokens sein, die i
 
 ```js
 const el = document.getElementById("el");
-console.log(Array.from(el.sandbox)); // Ausgabe: ["allow-same-origin", "allow-scripts"]
+console.log(Array.from(el.sandbox)); // Output: ["allow-same-origin", "allow-scripts"]
 
 el.sandbox = "";
-console.log(Array.from(el.sandbox)); // Ausgabe: []
+console.log(Array.from(el.sandbox)); // Output: []
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

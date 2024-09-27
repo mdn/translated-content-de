@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: Eigenschaft shadowOffsetX"
+title: "CanvasRenderingContext2D: shadowOffsetX-Eigenschaft"
 short-title: shadowOffsetX
 slug: Web/API/CanvasRenderingContext2D/shadowOffsetX
 l10n:
@@ -8,28 +8,20 @@ l10n:
 
 {{APIRef}}
 
-Die Eigenschaft
-**`CanvasRenderingContext2D.shadowOffsetX`**
-der Canvas 2D API gibt den horizontalen Abstand an, um den Schatten versetzt werden soll.
+Die **`CanvasRenderingContext2D.shadowOffsetX`**-Eigenschaft der Canvas 2D API gibt die Distanz an, um die Schatten horizontal versetzt werden.
 
 > [!NOTE]
-> Schatten werden nur gezeichnet, wenn die
-> Eigenschaft {{domxref("CanvasRenderingContext2D.shadowColor", "shadowColor")}} auf einen
-> nicht-transparenten Wert gesetzt ist. Mindestens eine der Eigenschaften {{domxref("CanvasRenderingContext2D.shadowBlur", "shadowBlur")}}, `shadowOffsetX` oder
-> {{domxref("CanvasRenderingContext2D.shadowOffsetY", "shadowOffsetY")}} muss ebenfalls einen Wert ungleich null aufweisen.
+> Schatten werden nur gezeichnet, wenn die [`shadowColor`](/de/docs/Web/API/CanvasRenderingContext2D/shadowColor)-Eigenschaft auf einen nicht-transparenten Wert gesetzt ist. Eine der Eigenschaften [`shadowBlur`](/de/docs/Web/API/CanvasRenderingContext2D/shadowBlur), `shadowOffsetX` oder [`shadowOffsetY`](/de/docs/Web/API/CanvasRenderingContext2D/shadowOffsetY) muss ebenfalls ungleich null sein.
 
 ## Wert
 
-Ein Fließkommawert, der den horizontalen Abstand angibt, um den Schatten versetzt werden soll. Positive Werte verschieben den Schatten nach rechts, negative nach links. Der Standardwert ist `0` (keine horizontale Verschiebung). Die Werte {{jsxref("Infinity")}} und {{jsxref("NaN")}} werden ignoriert.
+Ein Float, der die Distanz angibt, um die Schatten horizontal versetzt werden. Positive Werte verschieben den Schatten nach rechts, negative nach links. Der Standardwert ist `0` (kein horizontaler Versatz). Werte wie {{jsxref("Infinity")}} und {{jsxref("NaN")}} werden ignoriert.
 
 ## Beispiele
 
 ### Einen Schatten horizontal verschieben
 
-Dieses Beispiel fügt einem Rechteck einen verschwommenen Schatten hinzu. Die
-Eigenschaft {{domxref("CanvasRenderingContext2D.shadowColor", "shadowColor")}} setzt die
-Farbe, `shadowOffsetX` legt den Versatz 25 Einheiten nach rechts fest, und
-{{domxref("CanvasRenderingContext2D.shadowBlur", "shadowBlur")}} gibt ihm eine Unschärfe von 10.
+Dieses Beispiel fügt einem Rechteck einen verschwommenen Schatten hinzu. Die [`shadowColor`](/de/docs/Web/API/CanvasRenderingContext2D/shadowColor)-Eigenschaft setzt dessen Farbe, `shadowOffsetX` verschiebt ihn 25 Einheiten nach rechts, und [`shadowBlur`](/de/docs/Web/API/CanvasRenderingContext2D/shadowBlur) gibt ihm einen Unschärfegrad von 10.
 
 #### HTML
 
@@ -67,7 +59,7 @@ ctx.fillRect(20, 20, 150, 100);
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Eigenschaft definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasRenderingContext2D.shadowOffsetY")}}
-- {{domxref("CanvasRenderingContext2D.shadowColor")}}
-- {{domxref("CanvasRenderingContext2D.shadowBlur")}}
+- Das Interface, das diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasRenderingContext2D.shadowOffsetY`](/de/docs/Web/API/CanvasRenderingContext2D/shadowOffsetY)
+- [`CanvasRenderingContext2D.shadowColor`](/de/docs/Web/API/CanvasRenderingContext2D/shadowColor)
+- [`CanvasRenderingContext2D.shadowBlur`](/de/docs/Web/API/CanvasRenderingContext2D/shadowBlur)

@@ -7,18 +7,18 @@ l10n:
 
 {{HTMLSidebar}}{{deprecated_header}}
 
-Das **`<acronym>`** [HTML](/de/docs/Web/HTML)-Element ermöglicht es Autoren, eine Zeichenfolge, die ein Akronym oder eine Abkürzung für ein Wort darstellt, klar zu kennzeichnen.
+Das **`<acronym>`** [HTML](/de/docs/Web/HTML)-Element ermöglicht es Autoren, eine Zeichenfolge, die ein Akronym oder eine Abkürzung eines Wortes darstellt, klar zu kennzeichnen.
 
 > [!WARNING]
-> Verwenden Sie dieses Element nicht. Nutzen Sie stattdessen das {{HTMLElement("abbr")}}-Element.
+> Verwenden Sie dieses Element nicht. Verwenden Sie stattdessen das {{HTMLElement("abbr")}}-Element.
 
 ## Attribute
 
-Dieses Element verfügt nur über [globale Attribute](/de/docs/Web/HTML/Global_attributes), die allen Elementen gemeinsam sind.
+Dieses Element besitzt nur [globale Attribute](/de/docs/Web/HTML/Global_attributes), die allen Elementen gemeinsam sind.
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref('HTMLElement')}}-Schnittstelle.
+Dieses Element implementiert die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
 
 ## Beispiele
 
@@ -33,16 +33,14 @@ Dieses Element implementiert die {{domxref('HTMLElement')}}-Schnittstelle.
 
 {{EmbedLiveSample('Examples')}}
 
-## Standardmäßige Formatierung
+## Standardstil
 
-Obwohl der Zweck dieses Tags rein zum Nutzen des Autors gedacht ist, variiert die Standardformatierung von Browser zu Browser:
+Obwohl der Zweck dieses Tags rein für die Bequemlichkeit des Autors gedacht ist, variiert sein Standardstil von Browser zu Browser:
 
 - Opera, Firefox, Chrome und einige andere fügen dem Inhalt des Elements eine gepunktete Unterstreichung hinzu.
-- Einige wenige Browser fügen nicht nur eine gepunktete Unterstreichung hinzu, sondern setzen den Text auch in Kapitälchen; um diese Formatierung zu vermeiden, kann in der CSS-Datei etwas wie {{cssxref("font-variant", "font-variant: none")}} hinzugefügt werden.
+- Einige Browser fügen nicht nur eine gepunktete Unterstreichung hinzu, sondern setzen den Text auch in Kapitälchen; um diesen Stil zu vermeiden, behebt das Hinzufügen von etwas wie {{cssxref("font-variant", "font-variant: none")}} im CSS diesen Fall.
 
-Es wird daher empfohlen, dass Webautoren entweder dieses Element explizit formatieren oder einige plattformübergreifende Unterschiede akzeptieren.
-
-<!-- ## Technische Zusammenfassung -->
+Es wird daher empfohlen, dass Webautoren entweder explizit den Stil dieses Elements festlegen oder einige Unterschiede zwischen den Browsern akzeptieren.
 
 ## Spezifikationen
 

@@ -3,12 +3,12 @@ title: "WebSocket: url-Eigenschaft"
 short-title: url
 slug: Web/API/WebSocket/url
 l10n:
-  sourceCommit: eba47bb55d10e6dc73f61dbefc9d3da2abf1fd78
+  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
 ---
 
-{{APIRef("WebSockets API")}}
+{{APIRef("WebSockets API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`WebSocket.url`**-Eigenschaft gibt die absolute URL des {{domxref("WebSocket")}} zurück, wie sie vom Konstruktor aufgelöst wurde.
+Die schreibgeschützte Eigenschaft **`WebSocket.url`** gibt die absolute URL des [`WebSocket`](/de/docs/Web/API/WebSocket) zurück, wie sie durch den Konstruktor aufgelöst wurde.
 
 ## Wert
 

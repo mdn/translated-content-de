@@ -1,14 +1,14 @@
 ---
-title: "GPUDevice: importExternalTexture()-Methode"
+title: "GPUDevice: importExternalTexture() Methode"
 short-title: importExternalTexture()
 slug: Web/API/GPUDevice/importExternalTexture
 l10n:
-  sourceCommit: 0c3f18aca2c8a93d3982183f64bf7762c2c310b0
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`importExternalTexture()`**-Methode der {{domxref("GPUDevice")}}-Schnittstelle nimmt ein {{domxref("HTMLVideoElement")}}- oder ein {{domxref("VideoFrame")}}-Objekt als Eingabe und gibt ein {{domxref("GPUExternalTexture")}}-Wrapper-Objekt zurück, das einen Schnappschuss des Videos enthält, der als Frame in GPU-Rendering-Operationen verwendet werden kann.
+Die **`importExternalTexture()`**-Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle nimmt ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) oder ein [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekt als Eingabe und gibt ein [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Wrapper-Objekt zurück, das einen Snapshot des Videos enthält, der als Frame in GPU-Rendering-Operationen verwendet werden kann.
 
 ## Syntax
 
@@ -19,37 +19,37 @@ importExternalTexture(descriptor)
 ### Parameter
 
 - `descriptor`
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `colorSpace` {{optional_inline}}
-      - : Ein enumerierter Wert, der den Farbraum angibt, der für den Videoframe verwendet werden soll. Mögliche Werte sind `"srgb"` und `"display-p3"`. Wenn weggelassen, ist der Standardwert von `colorSpace` `"srgb"`.
+      - : Ein enumerierter Wert, der den Farbraum angibt, der für den Videoframe verwendet werden soll. Mögliche Werte sind `"srgb"` und `"display-p3"`. Wenn nicht angegeben, wird `colorSpace` standardmäßig auf `"srgb"` gesetzt.
     - `label` {{optional_inline}}
-      - : Ein String, der ein Label bereitstellt, mit dem das Objekt identifiziert werden kann, beispielsweise in {{domxref("GPUError")}}-Nachrichten oder Konsolenwarnungen.
+      - : Ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
     - `source`
-      - : Die {{domxref("HTMLVideoElement")}}- oder {{domxref("VideoFrame")}}-Quelle des Videoschnappschusses.
+      - : Die [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) oder [`VideoFrame`](/de/docs/Web/API/VideoFrame) Quelle des Videosnapshots.
 
 ### Rückgabewert
 
-Eine Instanz des {{domxref("GPUExternalTexture")}}-Objekts.
+Eine [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Objektinstanz.
 
-Beachten Sie, dass der Moment, zu dem das {{domxref("GPUExternalTexture")}}-Objekt abläuft (zerstört wird), davon abhängt, was seine Quelle ist:
+Beachten Sie, dass der Zeitpunkt, an dem das [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Objekt abläuft (zerstört wird), davon abhängt, was seine Quelle ist:
 
-- {{domxref("GPUExternalTexture")}}-Objekte mit einer {{domxref("HTMLVideoElement")}}-Quelle laufen ab, sobald sie verwendet werden (zum Beispiel in einer Bind-Gruppe).
-- {{domxref("GPUExternalTexture")}}-Objekte mit einer {{domxref("VideoFrame")}}-Quelle laufen erst ab, wenn der `VideoFrame` geschlossen wird, beispielsweise durch einen {{domxref("VideoFrame.close()")}}-Aufruf.
+- [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Objekte mit einer [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Quelle laufen ab, sobald sie verwendet werden (zum Beispiel in einer Bind-Gruppe).
+- [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Objekte mit einer [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Quelle laufen nur dann ab, wenn das `VideoFrame` geschlossen wird, zum Beispiel durch einen Aufruf von [`VideoFrame.close()`](/de/docs/Web/API/VideoFrame/close).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`importExternalTexture()`** aufgerufen wird, andernfalls wird ein {{domxref("GPUValidationError")}} generiert und ein ungültiges {{domxref("GPUExternalTexture")}}-Objekt zurückgegeben:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`importExternalTexture()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und ein ungültiges [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Objekt zurückgegeben:
 
-- Der Videoschnappschuss ist verwendbar (z.B. die Videoquelle ist korrekt geladen und hat keine Breite oder Höhe von 0).
+- Der Videosnapshot muss nutzbar sein (z.B. die Videoquelle muss richtig geladen sein und darf keine Breite oder Höhe von 0 haben).
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Quelldaten des Videos von einer anderen Herkunft stammen.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Videodatenquelle von einer anderen Herkunft stammt.
 
 ## Beispiele
 
-Im WebGPU-Beispiel [Video Uploading sample](https://webgpu.github.io/webgpu-samples/samples/videoUploading/) wird ein Aufruf von `importExternalTexture()` als Wert eines `resource`-Eintrags in einer Bind-Gruppe verwendet, der beim Erstellen einer {{domxref("GPUBindGroup")}} mittels eines {{domxref("GPUDevice.createBindGroup()")}}-Aufrufs angegeben wird:
+Im WebGPU-Beispiel [Video Uploading sample](https://webgpu.github.io/webgpu-samples/samples/videoUploading/) wird ein Aufruf von `importExternalTexture()` als Wert eines Bind-Gruppen-Eintrags `resource` verwendet, der beim Erstellen einer [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup) über einen Aufruf von [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup) angegeben wird:
 
 ```js
 //...

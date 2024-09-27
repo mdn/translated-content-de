@@ -8,9 +8,10 @@ l10n:
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die **`lang`**-Eigenschaft der {{DOMxRef("NDEFRecord")}}-Schnittstelle gibt die Sprache einer Textnutzlast zurück oder `null`, wenn keine angegeben wurde.
+Die **`lang`**
+Eigenschaft der [`NDEFRecord`](/de/docs/Web/API/NDEFRecord) Schnittstelle gibt die Sprache einer textuellen Nutzlast zurück oder `null`, wenn keine angegeben wurde.
 
-Der Datensatz könnte ein Sprach-Tag fehlen, zum Beispiel, wenn die aufgezeichnete Information nicht lokalspezifisch ist.
+Der Datensatz könnte ein Sprach-Tag fehlen, zum Beispiel, wenn die aufgezeichneten Informationen nicht lokalspezifisch sind.
 
 ## Syntax
 
@@ -32,5 +33,5 @@ Ein String.
 
 ## Siehe auch
 
-- [HTML `lang`-Attribut](/de/docs/Web/HTML/Global_attributes/lang), das die Inhaltssprache des Dokuments oder seiner Elemente deklariert
-- HTTP-Header, die die Inhaltssprache deklarieren: {{HTTPHeader("Content-Language")}} und {{HTTPHEader("Accept-Language")}}
+- [HTML `lang` Attribut](/de/docs/Web/HTML/Global_attributes/lang), das die Sprache des Inhalts des Dokuments oder seiner Elemente deklariert
+- HTTP-Header, die die Sprache des Inhalts deklarieren: {{HTTPHeader("Content-Language")}} und {{HTTPHEader("Accept-Language")}}

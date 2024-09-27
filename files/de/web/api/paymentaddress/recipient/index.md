@@ -8,11 +8,14 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{SecureContext_Header}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte **`recipient`**-Eigenschaft des {{domxref('PaymentAddress')}}-Interfaces gibt einen String zurück, der den Namen des Empfängers, Käufers oder Ansprechpartners an der Zahlungsadresse enthält.
+Die schreibgeschützte **`recipient`**-Eigenschaft des
+[`PaymentAddress`](/de/docs/Web/API/PaymentAddress)-Interfaces gibt einen String zurück, der den Namen des
+Empfängers, Käufers oder der Kontaktperson an der Zahlungsadresse enthält.
 
 ## Wert
 
-Ein String, der den Namen der Person angibt, die die Zahlung erhält oder tätigt, oder den Namen einer Kontaktperson in anderen Kontexten. Wenn kein Name verfügbar ist, ist dieser String leer.
+Ein String, der den Namen der Person angibt, die den Kauf empfängt oder bezahlt, oder der Name einer Kontaktperson in anderen Zusammenhängen. Wenn kein Name verfügbar ist,
+ist dieser String leer.
 
 ## Browser-Kompatibilität
 

@@ -7,34 +7,34 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGFEImageElement`**-Schnittstelle entspricht dem {{SVGElement("feImage")}}-Element.
+Das **`SVGFEImageElement`** Interface entspricht dem {{SVGElement("feImage")}} Element.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Dieses Interface erbt auch Eigenschaften von seinem Elterninterface, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
-- {{domxref("SVGFEImageElement.crossOrigin")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}} spiegelt das {{SVGAttr("crossorigin")}}-Attribut des gegebenen Elements wider, beschränkt auf nur bekannte Werte.
-- {{domxref("SVGFEImageElement.height")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}} entspricht dem {{SVGAttr("height")}}-Attribut des gegebenen Elements.
-- {{domxref("SVGFEImageElement.href")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}} spiegelt das {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}}-Attribut des gegebenen Elements wider.
-- {{domxref("SVGFEImageElement.preserveAspectRatio")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedPreserveAspectRatio")}} entspricht dem {{SVGAttr("preserveAspectRatio")}}-Attribut des gegebenen Elements.
-- {{domxref("SVGFEImageElement.result")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}} entspricht dem {{SVGAttr("result")}}-Attribut des gegebenen Elements.
-- {{domxref("SVGFEImageElement.width")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}} entspricht dem {{SVGAttr("width")}}-Attribut des gegebenen Elements.
-- {{domxref("SVGFEImageElement.x")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}} entspricht dem {{SVGAttr("x")}}-Attribut des gegebenen Elements.
-- {{domxref("SVGFEImageElement.y")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}} entspricht dem {{SVGAttr("y")}}-Attribut des gegebenen Elements.
+- [`SVGFEImageElement.crossOrigin`](/de/docs/Web/API/SVGFEImageElement/crossOrigin) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das das {{SVGAttr("crossorigin")}} Attribut des angegebenen Elements widerspiegelt, begrenzt auf nur bekannte Werte.
+- [`SVGFEImageElement.height`](/de/docs/Web/API/SVGFEImageElement/height) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}} Attribut des angegebenen Elements entspricht.
+- [`SVGFEImageElement.href`](/de/docs/Web/API/SVGFEImageElement/href) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das das {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}} Attribut des angegebenen Elements widerspiegelt.
+- [`SVGFEImageElement.preserveAspectRatio`](/de/docs/Web/API/SVGFEImageElement/preserveAspectRatio) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedPreserveAspectRatio`](/de/docs/Web/API/SVGAnimatedPreserveAspectRatio), das dem {{SVGAttr("preserveAspectRatio")}} Attribut des angegebenen Elements entspricht.
+- [`SVGFEImageElement.result`](/de/docs/Web/API/SVGFEImageElement/result) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("result")}} Attribut des angegebenen Elements entspricht.
+- [`SVGFEImageElement.width`](/de/docs/Web/API/SVGFEImageElement/width) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("width")}} Attribut des angegebenen Elements entspricht.
+- [`SVGFEImageElement.x`](/de/docs/Web/API/SVGFEImageElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}} Attribut des angegebenen Elements entspricht.
+- [`SVGFEImageElement.y`](/de/docs/Web/API/SVGFEImageElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("y")}} Attribut des angegebenen Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die ihres übergeordneten, {{domxref("SVGElement")}}._
+_Dieses Interface bietet keine spezifischen Methoden, implementiert jedoch die seines Elternteils, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

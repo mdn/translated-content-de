@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`size`**-Eigenschaft gibt die Anzahl der {{domxref("Highlight")}}-Objekte im {{domxref("HighlightRegistry")}} zurück.
+Die **`size`**-Eigenschaft gibt die Anzahl der [`Highlight`](/de/docs/Web/API/Highlight)-Objekte im [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry) zurück.
 
 ## Wert
 
-Ein schreibgeschützter Integer, der angibt, wie viele `Highlight`-Objekte das Register enthält.
+Ein schreibgeschützter integer, der angibt, wie viele `Highlight`-Objekte das Registry enthält.
 
 ## Beispiele
 
@@ -32,11 +32,11 @@ console.log(CSS.highlights.size); // 2
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "Die CSS Custom Highlight API", "", "nocode")}}
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
 - [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

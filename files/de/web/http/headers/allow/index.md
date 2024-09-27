@@ -7,18 +7,18 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Allow`**-Header listet die Menge der von einer Ressource unterstützten Methoden auf.
+Der **`Allow`** Header listet die Menge der von einer Ressource unterstützten Methoden auf.
 
-Dieser Header muss gesendet werden, wenn der Server mit dem Statuscode {{HTTPStatus("405")}} `Method Not Allowed` antwortet, um anzuzeigen, welche Anfragemethoden verwendet werden können. Ein leerer `Allow`-Header bedeutet, dass die Ressource keine Anfragemethoden zulässt, was zum Beispiel vorübergehend für eine bestimmte Ressource auftreten könnte.
+Dieser Header muss gesendet werden, wenn der Server mit einem {{HTTPStatus("405")}} `Method Not Allowed` Statuscode antwortet, um anzuzeigen, welche Anfragemethoden verwendet werden können. Ein leerer `Allow`-Header deutet darauf hin, dass die Ressource keine Anfragemethoden erlaubt, was möglicherweise vorübergehend für eine bestimmte Ressource auftritt.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response header")}}</td>
+      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Unzulässiger Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -33,7 +33,7 @@ Allow: <http-methods>
 ## Direktiven
 
 - \<http-methods>
-  - : Die durch Komma getrennte Liste der erlaubten [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods).
+  - : Die durch Kommas getrennte Liste der erlaubten [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods).
 
 ## Beispiele
 

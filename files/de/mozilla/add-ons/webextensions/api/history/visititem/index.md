@@ -14,24 +14,24 @@ Ein Objekt, das einen einzelnen Besuch auf einer Seite beschreibt.
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `id`
-  - : `string`. Der eindeutige Bezeichner für das mit diesem Besuch verbundene {{WebExtAPIRef("history.HistoryItem")}}.
+  - : `string`. Der eindeutige Bezeichner für das {{WebExtAPIRef("history.HistoryItem")}}, das mit diesem Besuch verknüpft ist.
 - `visitId`
   - : `string`. Der eindeutige Bezeichner für diesen Besuch.
 - `visitTime` {{optional_inline}}
-  - : `number`. Wann dieser Besuch stattfand, dargestellt in Millisekunden seit der Epoche.
+  - : `number`. Wann dieser Besuch stattfand, dargestellt in Millisekunden seit dem Epoche-Zeitpunkt.
 - `referringVisitId`
-  - : `string`. Die Besuchs-ID des Referrers.
+  - : `string`. Die Visit ID des Referrers.
 - `transition`
   - : {{WebExtAPIRef('history.TransitionType')}}. Beschreibt, wie der Browser bei dieser Gelegenheit zur Seite navigierte.
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#type-VisitItem) API von Chromium. Diese Dokumentation ist abgeleitet von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#type-VisitItem)-API von Chromium. Diese Dokumentation ist abgeleitet von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

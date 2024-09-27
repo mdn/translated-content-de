@@ -8,15 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.append()`**-Methode fügt eine Reihe von {{domxref("Node")}}-Objekten oder Zeichenketten nach dem letzten Kind des `Element` ein. Zeichenketten werden als äquivalente {{domxref("Text")}}-Knoten eingefügt.
+Die **`Element.append()`**-Methode fügt eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen nach dem letzten Kind des `Element` ein. Zeichenfolgen werden als äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
-Unterschiede zu {{domxref("Node.appendChild()")}}:
+Unterschiede zu [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild):
 
-- `Element.append()` ermöglicht es Ihnen, auch Zeichenketten anzufügen, während `Node.appendChild()` nur {{domxref("Node")}}-Objekte akzeptiert.
-- `Element.append()` hat keinen Rückgabewert, während
-  `Node.appendChild()` das angefügte {{domxref("Node")}}-Objekt zurückgibt.
-- `Element.append()` kann mehrere Knoten und Zeichenketten anfügen, während
-  `Node.appendChild()` nur einen Knoten anfügen kann.
+- `Element.append()` ermöglicht es Ihnen, auch Zeichenfolgen anzuhängen, während `Node.appendChild()` nur [`Node`](/de/docs/Web/API/Node)-Objekte akzeptiert.
+- `Element.append()` hat keinen Rückgabewert, während `Node.appendChild()` das angehängte [`Node`](/de/docs/Web/API/Node)-Objekt zurückgibt.
+- `Element.append()` kann mehrere Knoten und Zeichenfolgen anhängen, während `Node.appendChild()` nur einen Knoten anhängen kann.
 
 ## Syntax
 
@@ -29,7 +27,7 @@ append(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Reihe von {{domxref("Node")}}-Objekten oder Zeichenketten, die eingefügt werden sollen.
+  - : Eine Menge von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -37,7 +35,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
 
 ## Beispiele
@@ -61,7 +59,7 @@ div.append("Some text");
 console.log(div.textContent); // "Some text"
 ```
 
-### Anhängen eines Elements und von Text
+### Anhängen eines Elements und Text
 
 ```js
 let div = document.createElement("div");
@@ -71,9 +69,9 @@ div.append("Some text", p);
 console.log(div.childNodes); // NodeList [ #text "Some text", <p> ]
 ```
 
-### Die append-Methode ist nicht scopable
+### Die append-Methode ist unscopebar
 
-Die `append()`-Methode ist nicht in die `with`-Anweisung eingebunden. Weitere Informationen finden Sie unter {{jsxref("Symbol.unscopables")}}.
+Die `append()`-Methode wird nicht in die `with`-Anweisung einbezogen. Weitere Informationen finden Sie unter {{jsxref("Symbol.unscopables")}}.
 
 ```js
 let div = document.createElement("div");
@@ -94,8 +92,8 @@ with (div) {
 
 ## Siehe auch
 
-- {{domxref("Element.prepend()")}}
-- {{domxref("Node.appendChild()")}}
-- {{domxref("Element.after()")}}
-- {{domxref("Element.insertAdjacentElement()")}}
-- {{domxref("NodeList")}}
+- [`Element.prepend()`](/de/docs/Web/API/Element/prepend)
+- [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild)
+- [`Element.after()`](/de/docs/Web/API/Element/after)
+- [`Element.insertAdjacentElement()`](/de/docs/Web/API/Element/insertAdjacentElement)
+- [`NodeList`](/de/docs/Web/API/NodeList)

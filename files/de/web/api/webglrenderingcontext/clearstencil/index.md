@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: clearStencil()-Methode"
+title: "WebGLRenderingContext: clearStencil() Methode"
 short-title: clearStencil()
 slug: Web/API/WebGLRenderingContext/clearStencil
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.clearStencil()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) legt den Löschwert für den Stencil-Puffer fest.
+Die **`WebGLRenderingContext.clearStencil()`** Methode des [WebGL API](/de/docs/Web/API/WebGL_API) legt den Löschwert für den Stencil-Buffer fest.
 
-Dies bestimmt, welchen Stencil-Wert verwendet wird, wenn die {{domxref("WebGLRenderingContext.clear", "clear()")}}-Methode aufgerufen wird.
+Diese Methode gibt an, welcher Stencil-Wert verwendet werden soll, wenn die [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) Methode aufgerufen wird.
 
 ## Syntax
 
@@ -21,7 +21,8 @@ clearStencil(s)
 ### Parameter
 
 - `s`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der den Index angibt, der verwendet wird, wenn der Stencil-Puffer gelöscht wird. Standardwert: 0.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Index angibt, der verwendet wird, wenn der Stencil-Buffer gelöscht wird.
+    Standardwert: 0.
 
 ### Rückgabewert
 
@@ -33,7 +34,7 @@ Keiner ({{jsxref("undefined")}}).
 gl.clearStencil(1);
 ```
 
-Um den aktuellen Stencil-Löschwert zu erhalten, fragen Sie die `STENCIL_CLEAR_VALUE`-Konstante ab.
+Um den aktuellen Löschwert des Stencils zu erhalten, fragen Sie die Konstante `STENCIL_CLEAR_VALUE` ab.
 
 ```js
 gl.getParameter(gl.STENCIL_CLEAR_VALUE);
@@ -50,6 +51,6 @@ gl.getParameter(gl.STENCIL_CLEAR_VALUE);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.clear()")}}
-- {{domxref("WebGLRenderingContext.clearColor()")}}
-- {{domxref("WebGLRenderingContext.clearDepth()")}}
+- [`WebGLRenderingContext.clear()`](/de/docs/Web/API/WebGLRenderingContext/clear)
+- [`WebGLRenderingContext.clearColor()`](/de/docs/Web/API/WebGLRenderingContext/clearColor)
+- [`WebGLRenderingContext.clearDepth()`](/de/docs/Web/API/WebGLRenderingContext/clearDepth)

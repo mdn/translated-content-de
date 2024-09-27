@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`getSubImage()`**-Methode der {{domxref("XRWebGLBinding")}}-Schnittstelle gibt ein {{domxref("XRWebGLSubImage")}}-Objekt zurück, das die WebGL-Textur zur Darstellung repräsentiert.
+Die **`getSubImage()`**-Methode der [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)-Schnittstelle gibt ein [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Objekt zurück, das die zu rendernde WebGL-Textur repräsentiert.
 
 ## Syntax
 
@@ -20,37 +20,36 @@ getSubImage(layer, frame, eye)
 ### Parameter
 
 - `layer`
-  - : Der {{domxref("XRCompositionLayer")}}, der für das Rendern verwendet werden soll (kann alle Arten von `XRCompositionLayer`-Objekten sein, außer {{domxref("XRProjectionLayer")}}, siehe {{domxref("XRWebGLBinding.getViewSubImage()")}} für die Projektion von Ebenen).
+  - : Der [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer), der zum Rendern verwendet werden soll (kann alle Arten von `XRCompositionLayer`-Objekten außer [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) sein, siehe [`XRWebGLBinding.getViewSubImage()`](/de/docs/Web/API/XRWebGLBinding/getViewSubImage) für das Rendern von Projektionsschichten).
 - `frame`
-  - : Der {{domxref("XRFrame")}}-Frame, der zum Rendern verwendet wird.
+  - : Der [`XRFrame`](/de/docs/Web/API/XRFrame)-Frame, der zum Rendern verwendet werden soll.
 - `eye` {{optional_inline}}
-  - : Ein optionales {{domxref("XRView.eye")}}, das angibt, welches Auge der Ansicht zum Rendern verwendet werden soll. Mögliche Werte:
+  - : Ein optionales [`XRView.eye`](/de/docs/Web/API/XRView/eye), das angibt, welches Auge der Ansicht zum Rendern verwendet werden soll. Mögliche Werte:
     - `left`
-      - : Die {{domxref("XRView")}} repräsentiert die Perspektive des linken Auges des Betrachters.
+      - : Die [`XRView`](/de/docs/Web/API/XRView) repräsentiert den Blickwinkel des linken Auges des Betrachters.
     - `right`
       - : Die Ansicht repräsentiert das rechte Auge des Betrachters.
     - `none`
-      - : Die Ansicht beschreibt eine monokulare Ansicht oder repräsentiert in anderer Weise nicht die Perspektive eines bestimmten Auges.
-        Standardmäßig `none`.
+      - : Die Ansicht beschreibt eine monokulare Sicht oder repräsentiert ansonsten nicht den Blickwinkel eines bestimmten Auges. Standardmäßig `none`.
 
 ### Rückgabewert
 
-Ein {{domxref("XRWebGLSubImage")}}-Objekt.
+Ein [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)-Objekt.
 
 ### Ausnahmen
 
 Ein {{jsxref("TypeError")}} wird ausgelöst,
 
-- wenn `layer` nicht im [Schicht-Array der Sitzung](/de/docs/Web/API/XRSession/updateRenderState#setting_the_layers_array) enthalten ist.
-- wenn `layer` eine {{domxref("XRProjectionLayer")}} ist.
-- wenn die [`layout`-Eigenschaft](/de/docs/Web/API/XRCompositionLayer/layout) der Schicht `default` ist.
-- wenn die [`layout`-Eigenschaft](/de/docs/Web/API/XRCompositionLayer/layout) der Schicht `stereo` ist und `eye` `none` ist.
+- wenn `layer` nicht im [Session-`layer`-Array](/de/docs/Web/API/XRSession/updateRenderState#setting_the_layers_array) enthalten ist.
+- wenn `layer` ein [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer) ist.
+- wenn die [`layout`](/de/docs/Web/API/XRCompositionLayer/layout)-Eigenschaft des Layers `default` ist.
+- wenn die [`layout`](/de/docs/Web/API/XRCompositionLayer/layout)-Eigenschaft des Layers `stereo` ist und `eye` `none` ist.
 
 ## Beispiele
 
-### Rendering eines `XRQuadLayer`
+### Rendern eines `XRQuadLayer`
 
-Das folgende Beispiel rendert eine {{domxref("XRQuadLayer")}}.
+Das folgende Beispiel rendert einen [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer).
 
 ```js
 const xrGlBinding = new XRWebGLBinding(xrSession, gl);
@@ -60,7 +59,7 @@ const quadLayer = xrGlBinding.createQuadLayer({
   viewPixelHeight: 512,
 });
 
-// Position 2 Meter vom Ursprung entfernt mit einer Breite und Höhe von 1,5 Metern
+// Position 2 meters away from the origin with a width and height of 1.5 meters
 quadLayer.transform = new XRRigidTransform({ z: -2 });
 quadLayer.width = 1.5;
 quadLayer.height = 1.5;
@@ -97,4 +96,4 @@ function onXRFrame(time, xrFrame) {
 
 ## Siehe auch
 
-- {{domxref("XRWebGLSubImage")}}
+- [`XRWebGLSubImage`](/de/docs/Web/API/XRWebGLSubImage)

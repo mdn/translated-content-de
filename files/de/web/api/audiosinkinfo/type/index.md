@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`type`**-Eigenschaft der {{domxref("AudioSinkInfo")}}-Schnittstelle gibt den Typ des Audioausgabegeräts zurück.
+Die **`type`** Eigenschaft des [`AudioSinkInfo`](/de/docs/Web/API/AudioSinkInfo) Interface ist eine schreibgeschützte Eigenschaft, die den Typ des Audioausgabegeräts zurückgibt.
 
 ## Wert
 
@@ -25,6 +25,6 @@ Ein String. Derzeit ist der einzige Wert `none`.
 ## Siehe auch
 
 - [SetSinkId Testbeispiel](https://set-sink-id.glitch.me/)
-- {{domxref("AudioContext.setSinkId()")}}
-- {{domxref("AudioContext.sinkId")}}
-- {{domxref("AudioContext/sinkchange_event", "sinkchange")}}
+- [`AudioContext.setSinkId()`](/de/docs/Web/API/AudioContext/setSinkId)
+- [`AudioContext.sinkId`](/de/docs/Web/API/AudioContext/sinkId)
+- [`sinkchange`](/de/docs/Web/API/AudioContext/sinkchange_event)

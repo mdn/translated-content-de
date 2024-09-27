@@ -1,5 +1,5 @@
 ---
-title: "CSSTransformValue: CSSTransformValue()-Konstruktor"
+title: "CSSTransformValue: CSSTransformValue() Konstruktor"
 short-title: CSSTransformValue()
 slug: Web/API/CSSTransformValue/CSSTransformValue
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Der **`CSSTransformValue()`**-Konstruktor erstellt ein neues {{domxref("CSSTransformValue")}}-Objekt, das eine Liste einzelner Transformationsobjekte darstellt.
+Der **`CSSTransformValue()`** Konstruktor erstellt ein neues [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue)-Objekt, das eine Liste einzelner Transformationsobjekte darstellt.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ new CSSTransformValue(transforms)
 ### Parameter
 
 - `transforms`
-  - : Eine Liste von {{domxref("CSSTransformComponent")}}-Objekten zur Iteration.
+  - : Eine Liste von [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent)-Objekten, über die iteriert werden soll.
 
 ### Rückgabewert
 
-Ein neues {{domxref("CSSTransformValue")}}.
+Ein neues [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
 
 ### Ausnahmen
 
@@ -32,7 +32,7 @@ Ein neues {{domxref("CSSTransformValue")}}.
 
 ## Beispiele
 
-To do
+Noch zu tun
 
 ## Spezifikationen
 

@@ -3,16 +3,16 @@ title: "SourceBuffer: buffered-Eigenschaft"
 short-title: buffered
 slug: Web/API/SourceBuffer/buffered
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
 ---
 
-{{APIRef("Media Source Extensions")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`buffered`**-Eigenschaft (nur lesbar) des {{domxref("SourceBuffer")}}-Interfaces gibt die Zeitbereiche zurück, die derzeit im `SourceBuffer` gepuffert sind, als ein normalisiertes {{domxref("TimeRanges")}}-Objekt.
+Die **`buffered`** schreibgeschützte Eigenschaft des [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Interfaces gibt die Zeitbereiche zurück, die derzeit im `SourceBuffer` als ein normalisiertes [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt gepuffert sind.
 
 ## Wert
 
-Ein {{domxref("TimeRanges")}}-Objekt.
+Ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt.
 
 ## Beispiele
 
@@ -28,5 +28,5 @@ TBD
 
 ## Siehe auch
 
-- {{domxref("MediaSource")}}
-- {{domxref("SourceBufferList")}}
+- [`MediaSource`](/de/docs/Web/API/MediaSource)
+- [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)

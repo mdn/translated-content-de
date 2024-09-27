@@ -8,20 +8,18 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`type`**-Eigenschaft des {{domxref("RTCDataChannelStats")}}-Wörterbuchs ist ein String mit dem Wert `"data-channel"`.
+Die **`type`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats)-Wörterbuchs ist ein Zeichenfolgenwert mit dem Wert `"data-channel"`.
 
-Verschiedene Statistiken werden durch Iteration über das {{domxref("RTCStatsReport")}}-Objekt, das durch einen Aufruf von {{domxref("RTCPeerConnection.getStats()")}} zurückgegeben wird, erhalten.
-Der Typ gibt den Satz an Statistiken an, die durch das Objekt in einem bestimmten Iterationsschritt verfügbar sind.
-Ein Wert von `"data-channel"` zeigt an, dass die in diesem Schritt verfügbaren Statistiken diejenigen sind, die in {{domxref("RTCDataChannelStats")}} definiert sind.
+Verschiedene Statistiken werden durch Iteration über das [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt erhalten, das durch einen Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird. Der Typ gibt die Menge der Statistiken an, die durch das Objekt in einem bestimmten Iterationsschritt verfügbar sind. Ein Wert von `"data-channel"` zeigt an, dass die Statistiken, die im aktuellen Schritt verfügbar sind, diejenigen sind, die in [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats) definiert sind.
 
 ## Wert
 
-Ein String mit dem Wert `"data-channel"`.
+Eine Zeichenfolge mit dem Wert `"data-channel"`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

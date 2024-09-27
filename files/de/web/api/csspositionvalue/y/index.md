@@ -1,5 +1,5 @@
 ---
-title: "CSSPositionValue: y Eigenschaft"
+title: "CSSPositionValue: y-Eigenschaft"
 short-title: "y"
 slug: Web/API/CSSPositionValue/y
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{deprecated_header}}{{APIRef("CSS Typed Object Model API")}}{{Non-standard_header}}
 
-Die **`y`** Eigenschaft der
-{{domxref("CSSPositionValue")}} Schnittstelle gibt die Position des Elements entlang der
+Die **`y`**-Eigenschaft der
+[`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue)-Schnittstelle gibt die Position des Elements entlang der
 vertikalen Achse zurück.
 
 ## Wert
 
-Ein {{domxref('CSSNumericValue')}}.
+Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein Container `<div>` 5 Pixel von oben und 10 Pixel von der linken Seite der Seite positioniert.
+Im folgenden Beispiel wird ein Container-`<div>` 5 Pixel vom oberen Rand und 10 Pixel vom linken Rand der Seite positioniert.
 
 ```js
 let replaceEl = document.getElementById("container");
@@ -28,13 +28,13 @@ someDiv.attributeStyleMap.set("object-position", position);
 console.log(position.x.value, position.y.value);
 ```
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("CSSPositionValue.CSSPositionValue", "CSSPositionValue()")}}
-- {{domxref("CSSPositionValue.x")}}
+- [`CSSPositionValue()`](/de/docs/Web/API/CSSPositionValue/CSSPositionValue)
+- [`CSSPositionValue.x`](/de/docs/Web/API/CSSPositionValue/x)
 - [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)

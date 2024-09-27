@@ -1,5 +1,5 @@
 ---
-title: "ContactAddress: city-Eigenschaft"
+title: "ContactAddress: city Eigenschaft"
 short-title: city
 slug: Web/API/ContactAddress/city
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Contact Picker API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`city`**-Eigenschaft des {{domxref("ContactAddress")}}-Interfaces gibt einen String zurück, der den Stadt- oder Ortsteil der Adresse enthält.
+Die **`city`** Schreibgeschützte Eigenschaft des [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Interfaces gibt einen Zeichenkette zurück, die den Stadt- oder Ortsanteil der Adresse enthält.
 
 ## Wert
 
-Ein String, der den Stadt- oder Ortsbereich der vom {{domxref("ContactAddress")}}-Objekt beschriebenen Adresse angibt.
+Eine Zeichenkette, die den Stadt- oder Ortsanteil der Adresse angibt, der durch das [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Objekt beschrieben wird.
 
 ## Spezifikationen
 

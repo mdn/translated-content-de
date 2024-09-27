@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Der **`ConstantSourceNode()`** Konstruktor erstellt eine neue Instanz eines {{domxref("ConstantSourceNode")}}-Objekts, das eine Audioquelle darstellt, welche konstant Proben ausgibt, deren Werte immer gleich sind.
+Der **`ConstantSourceNode()`** Konstruktor erstellt eine neue [`ConstantSourceNode`](/de/docs/Web/API/ConstantSourceNode)-Objektinstanz, die eine Audioquelle darstellt, welche kontinuierlich Proben ausgibt, deren Werte immer gleich sind.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ new ConstantSourceNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein {{domxref("AudioContext")}}, der den Audiokontext repräsentiert, mit dem der Knoten verbunden werden soll.
+  - : Ein [`AudioContext`](/de/docs/Web/API/AudioContext), der den Audiokontext darstellt, mit dem der Knoten verknüpft werden soll.
 - `options`
 
-  - : Ein `ConstantSourceOptions` Wörterbuchobjekt, das die Eigenschaften definiert, die der `ConstantSourceNode` haben soll:
+  - : Ein `ConstantSourceOptions`-Wörterbuchobjekt, das die Eigenschaften definiert, die der `ConstantSourceNode` haben soll:
 
     - `offset`
-      - : Ein schreibgeschützter {{domxref("AudioParam")}}, der den von der Quelle erzeugten konstanten Wert angibt. Der Standardwert ist 1.0. Der normale Bereich liegt zwischen \-1.0 und 1.0, aber der Wert kann überall im Bereich von `-Infinity` bis `+Infinity` liegen.
+      - : Ein schreibgeschützter [`AudioParam`](/de/docs/Web/API/AudioParam), der den konstanten Wert angibt, der von der Quelle erzeugt wird. Der Standardwert ist 1.0. Der normale Bereich liegt zwischen \-1.0 und 1.0, aber der Wert kann sich überall im Bereich von `-Infinity` bis `+Infinity` befinden.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Audiokontext erstellt, dann wird ein `ConstantSourceNode` mit seinem initialisierten `offset` von 0.5 festgelegt.
+In diesem Beispiel wird ein Audiokontext erstellt, dann wird ein `ConstantSourceNode` eingerichtet, dessen `offset` auf 0,5 initialisiert wird.
 
 ```js
 let audioContext = new AudioContext();

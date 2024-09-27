@@ -7,46 +7,46 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Das **`Path2D`**-Interface der Canvas 2D API wird verwendet, um einen Pfad zu deklarieren, der dann auf einem {{domxref("CanvasRenderingContext2D")}}-Objekt verwendet werden kann. Die [Pfade-Methoden](/de/docs/Web/API/CanvasRenderingContext2D#paths) des `CanvasRenderingContext2D`-Interfaces sind ebenfalls in diesem Interface vorhanden, was Ihnen die Bequemlichkeit gibt, Ihren Pfad wann immer gewünscht zu speichern und wieder abzurufen.
+Das **`Path2D`** Interface der Canvas 2D API wird verwendet, um einen Pfad zu deklarieren, der dann auf einem [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) Objekt verwendet werden kann. Die [Pfadmethoden](/de/docs/Web/API/CanvasRenderingContext2D#paths) des `CanvasRenderingContext2D` Interfaces sind ebenfalls in diesem Interface vorhanden, was Ihnen den Komfort gibt, Ihren Pfad beizubehalten und bei Bedarf erneut abzuspielen.
 
 ## Konstruktoren
 
-- {{domxref("Path2D.Path2D", "Path2D()")}}
-  - : `Path2D`-Konstruktor. Erstellt ein neues `Path2D`-Objekt.
+- [`Path2D()`](/de/docs/Web/API/Path2D/Path2D)
+  - : `Path2D` Konstruktor. Erstellt ein neues `Path2D` Objekt.
 
 ## Instanzmethoden
 
-- {{domxref("Path2D.addPath()")}}
-  - : Fügt dem aktuellen Pfad einen neuen Pfad hinzu.
-- {{domxref("CanvasRenderingContext2D.closePath", "Path2D.closePath()")}}
-  - : Bewegt den Stiftpunkt zurück zum Anfang des aktuellen Unterpfades. Es wird versucht, eine gerade Linie vom aktuellen Punkt zum Anfang zu zeichnen. Wenn die Form bereits geschlossen ist oder nur einen Punkt hat, tut diese Funktion nichts.
-- {{domxref("CanvasRenderingContext2D.moveTo()", "Path2D.moveTo()")}}
-  - : Bewegt den Startpunkt eines neuen Unterpfades zu den Koordinaten (`x, y`).
-- {{domxref("CanvasRenderingContext2D.lineTo()", "Path2D.lineTo()")}}
-  - : Verbindet den letzten Punkt im Unterpfad mit den Koordinaten (`x, y`) mit einer geraden Linie.
-- {{domxref("CanvasRenderingContext2D.bezierCurveTo()", "Path2D.bezierCurveTo()")}}
-  - : Fügt dem Pfad eine kubische Bézier-Kurve hinzu. Es erfordert drei Punkte. Die ersten zwei Punkte sind Kontrollpunkte und der dritte ist der Endpunkt. Der Startpunkt ist der letzte Punkt im aktuellen Pfad, der vor dem Erstellen der Bézier-Kurve mit `moveTo()` geändert werden kann.
-- {{domxref("CanvasRenderingContext2D.quadraticCurveTo()", "Path2D.quadraticCurveTo()")}}
-  - : Fügt dem aktuellen Pfad eine quadratische Bézier-Kurve hinzu.
-- {{domxref("CanvasRenderingContext2D.arc()", "Path2D.arc()")}}
-  - : Fügt dem Pfad einen Bogen hinzu, der sich an der Position (`x, y`) mit dem Radius `r` befindet und beim `startAngle` beginnt und beim `endAngle` in der angegebenen Richtung durch `counterclockwise` (standardmäßig im Uhrzeigersinn) endet.
-- {{domxref("CanvasRenderingContext2D.arcTo()", "Path2D.arcTo()")}}
-  - : Fügt dem Pfad einen kreisförmigen Bogen mit den gegebenen Kontrollpunkten und Radius hinzu, der mit dem vorherigen Punkt durch eine gerade Linie verbunden ist.
-- {{domxref("CanvasRenderingContext2D.ellipse()", "Path2D.ellipse()")}}
-  - : Fügt dem Pfad einen elliptischen Bogen hinzu, der sich an der Position (`x, y`) mit den Radien `radiusX` und `radiusY` befindet und beim `startAngle` beginnt und beim `endAngle` in der angegebenen Richtung durch `counterclockwise` (standardmäßig im Uhrzeigersinn) endet.
-- {{domxref("CanvasRenderingContext2D.rect()", "Path2D.rect()")}}
+- [`Path2D.addPath()`](/de/docs/Web/API/Path2D/addPath)
+  - : Fügt den aktuellen Pfad einem weiteren Pfad hinzu.
+- [`Path2D.closePath()`](/de/docs/Web/API/CanvasRenderingContext2D/closePath)
+  - : Bewirkt, dass der Stiftpunkt zum Beginn des aktuellen Unterpfades zurückzuführen. Es versucht, eine gerade Linie vom aktuellen Punkt zum Anfang zu ziehen. Wenn die Form bereits geschlossen ist oder nur einen Punkt hat, macht diese Funktion nichts.
+- [`Path2D.moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo)
+  - : Bewegt den Startpunkt eines neuen Unterpfades zu den (`x, y`) Koordinaten.
+- [`Path2D.lineTo()`](/de/docs/Web/API/CanvasRenderingContext2D/lineTo)
+  - : Verbindet den letzten Punkt im Unterpfad mit den (`x, y`) Koordinaten durch eine gerade Linie.
+- [`Path2D.bezierCurveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/bezierCurveTo)
+  - : Fügt eine kubische Bézier-Kurve zum Pfad hinzu. Es erfordert drei Punkte. Die ersten beiden Punkte sind Kontrollpunkte und der dritte ist der Endpunkt. Der Startpunkt ist der letzte Punkt im aktuellen Pfad, der mithilfe von `moveTo()` geändert werden kann, bevor die Bézier-Kurve erstellt wird.
+- [`Path2D.quadraticCurveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/quadraticCurveTo)
+  - : Fügt eine quadratische Bézier-Kurve zum aktuellen Pfad hinzu.
+- [`Path2D.arc()`](/de/docs/Web/API/CanvasRenderingContext2D/arc)
+  - : Fügt dem Pfad einen Bogen hinzu, der am (`x, y`) Punkt mit Radius `r` zentriert ist, beginnend bei `startAngle` und endend bei `endAngle`, die in der angegebenen Richtung durch `counterclockwise` (standardmäßig im Uhrzeigersinn) verlaufen.
+- [`Path2D.arcTo()`](/de/docs/Web/API/CanvasRenderingContext2D/arcTo)
+  - : Fügt dem Pfad einen Kreisbogen mit den angegebenen Kontrollpunkten und einem Radius hinzu, der durch eine gerade Linie mit dem vorherigen Punkt verbunden ist.
+- [`Path2D.ellipse()`](/de/docs/Web/API/CanvasRenderingContext2D/ellipse)
+  - : Fügt dem Pfad einen elliptischen Bogen hinzu, der am (`x, y`) Punkt mit den Radien `radiusX` und `radiusY` zentriert ist, beginnend bei `startAngle` und endend bei `endAngle`, die in der angegebenen Richtung durch `counterclockwise` (standardmäßig im Uhrzeigersinn) verlaufen.
+- [`Path2D.rect()`](/de/docs/Web/API/CanvasRenderingContext2D/rect)
   - : Erstellt einen Pfad für ein Rechteck an der Position (`x, y`) mit einer Größe, die durch `width` und `height` bestimmt wird.
-- {{domxref("CanvasRenderingContext2D.roundRect()", "Path2D.roundRect()")}}
-  - : Erstellt einen Pfad für ein abgerundetes Rechteck an der Position (`x, y`) mit einer Größe, die durch `width` und `height` bestimmt wird, und die Radien des zu verwendenden Kreisbogens für die Ecken des Rechtecks werden durch `radii` bestimmt.
+- [`Path2D.roundRect()`](/de/docs/Web/API/CanvasRenderingContext2D/roundRect)
+  - : Erstellt einen Pfad für ein abgerundetes Rechteck an der Position (`x, y`) mit einer Größe, die durch `width` und `height` bestimmt wird, und die Radien des Kreisbogens für die Ecken des Rechtecks werden durch `radii` bestimmt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("CanvasRenderingContext2D")}}
+- [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

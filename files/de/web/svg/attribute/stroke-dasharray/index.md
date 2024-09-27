@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das **`stroke-dasharray`**-Attribut ist ein Präsentationsattribut, das das Muster von Strichen und Lücken definiert, das verwendet wird, um die Kontur der Form zu zeichnen.
+Das **`stroke-dasharray`** Attribut ist ein Präsentationsattribut, das das Muster von Strichen und Lücken definiert, das verwendet wird, um die Kontur der Form zu zeichnen.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke-dasharray` auch als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-dasharray')}} für mehr Informationen.
+> Als Präsentationsattribut kann `stroke-dasharray` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-dasharray')}} für mehr Informationen.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -43,29 +43,29 @@ svg {
       stroke: black;
     }
   </style>
-  <!-- Keine Striche oder Lücken -->
+  <!-- No dashes nor gaps -->
   <line x1="0" y1="1" x2="30" y2="1" />
 
-  <!-- Striche und Lücken gleicher Größe -->
+  <!-- Dashes and gaps of the same size -->
   <line x1="0" y1="3" x2="30" y2="3" stroke-dasharray="4" />
 
-  <!-- Striche und Lücken unterschiedlicher Größen -->
+  <!-- Dashes and gaps of different sizes -->
   <line x1="0" y1="5" x2="30" y2="5" stroke-dasharray="4 1" />
 
-  <!-- Striche und Lücken unterschiedlicher Größen mit einer ungeraden Anzahl von Werten -->
+  <!-- Dashes and gaps of various sizes with an odd number of values -->
   <line x1="0" y1="7" x2="30" y2="7" stroke-dasharray="4 1 2" />
 
-  <!-- Striche und Lücken unterschiedlicher Größen mit einer geraden Anzahl von Werten -->
+  <!-- Dashes and gaps of various sizes with an even number of values -->
   <line x1="0" y1="9" x2="30" y2="9" stroke-dasharray="4 1 2 3" />
 
-  <!-- Striche beginnend mit einer Lücke -->
+  <!-- Dashes starting with a gap -->
   <line x1="0" y1="11" x2="30" y2="11" stroke-dasharray="0 4 0" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-## Verwendungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -78,7 +78,7 @@ svg {
       <td><code>none</code></td>
     </tr>
     <tr>
-      <th scope="row">Animierbar</th>
+      <th scope="row">Animation möglich</th>
       <td>Ja</td>
     </tr>
   </tbody>
@@ -86,9 +86,9 @@ svg {
 
 - \<dasharray>
 
-  - : Eine Liste von durch Kommas und/oder Leerzeichen getrennten [`<length>`](/de/docs/Web/SVG/Content_type#length)-Werten und [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage)-Werten, die die Längen der wechselnden Striche und Lücken angeben.
+  - : Eine Liste von durch Kommas und/oder Leerzeichen getrennten [`<length>`](/de/docs/Web/SVG/Content_type#length)s und [`<percentage>`](/de/docs/Web/SVG/Content_type#percentage)s, die die Längen der abwechselnden Striche und Lücken angeben.
 
-    Wenn eine ungerade Anzahl von Werten angegeben wird, wird die Werteliste wiederholt, um eine gerade Anzahl von Werten zu erhalten. Daher entspricht `5,3,2` dem Muster `5,3,2,5,3,2`.
+    Wenn eine ungerade Anzahl von Werten angegeben wird, wird die Liste der Werte wiederholt, um eine gerade Anzahl von Werten zu ergeben. Somit ist `5,3,2` gleichbedeutend mit `5,3,2,5,3,2`.
 
 ## Spezifikationen
 

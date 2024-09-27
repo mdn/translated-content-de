@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Die **`clipboard`** Lese-only Eigenschaft des {{domxref("Navigator")}} Interface gibt ein {{domxref("Clipboard")}} Objekt zurück, das zum Lesen und Schreiben der Inhalte der Zwischenablage verwendet wird.
+Die schreibgeschützte **`clipboard`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt ein [`Clipboard`](/de/docs/Web/API/Clipboard)-Objekt zurück, das verwendet wird, um die Inhalte der Zwischenablage zu lesen und zu schreiben.
 
-Dies ist der Einstiegspunkt zur [Clipboard-API](/de/docs/Web/API/Clipboard_API), die verwendet werden kann, um Ausschneiden-, Kopieren- und Einfügen-Funktionen in einer Webanwendung zu implementieren.
+Dies ist der Einstiegspunkt zur [Clipboard API](/de/docs/Web/API/Clipboard_API), die verwendet werden kann, um Ausschneiden-, Kopieren- und Einfügen-Funktionen innerhalb einer Webanwendung zu implementieren.
 
 ## Wert
 
-Das {{domxref("Clipboard")}} Objekt, das zum Zugriff auf die Systemzwischenablage verwendet wird.
+Das [`Clipboard`](/de/docs/Web/API/Clipboard)-Objekt, das verwendet wird, um auf die Systemzwischenablage zuzugreifen.
 
 ## Beispiele
 
-Der folgende Code verwendet `navigator.clipboard`, um auf die Systemzwischenablage zuzugreifen und Textinhalte aus der Zwischenablage zu lesen.
+Der folgende Code verwendet `navigator.clipboard`, um auf die System-Zwischenablage zuzugreifen, um Textinhalte von der Zwischenablage zu lesen.
 
 ```js
 navigator.clipboard
@@ -28,16 +28,14 @@ navigator.clipboard
   );
 ```
 
-Dieses Snippet ersetzt den Inhalt des Elements, dessen Klasse `"cliptext"` ist, mit dem Textinhalt der Zwischenablage.
-Vielleicht wird dieser Code in einer Browsererweiterung verwendet, die die aktuellen Zwischenablageinhalte anzeigt und diese automatisch aktualisiert, entweder periodisch oder wenn bestimmte Ereignisse ausgelöst werden.
+Dieses Snippet ersetzt den Inhalt des Elements, dessen Klasse `"cliptext"` ist, mit den Textinhalten der Zwischenablage. Vielleicht wird dieser Code in einer Browsererweiterung verwendet, die die aktuellen Inhalte der Zwischenablage anzeigt und diese automatisch in regelmäßigen Abständen oder bei bestimmten Ereignissen aktualisiert.
 
-Wenn die Zwischenablage leer ist oder keinen Text enthält, werden die Inhalte des `"cliptext"`-Elements gelöscht.
-Dies geschieht, weil {{domxref("Clipboard.readText", "readText()")}} einen leeren String zurückgibt, wenn die Zwischenablage leer ist oder keinen Text enthält.
+Wenn die Zwischenablage leer ist oder keinen Text enthält, werden die Inhalte des `"cliptext"`-Elements gelöscht. Dies geschieht, weil [`readText()`](/de/docs/Web/API/Clipboard/readText) einen leeren String zurückgibt, wenn die Zwischenablage leer ist oder keinen Text enthält.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

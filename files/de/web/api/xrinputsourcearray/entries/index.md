@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`entries()`**-Methode des {{domxref("XRInputSourceArray")}}-Interfaces gibt einen JavaScript-[`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der dann verwendet werden kann, um über die Schlüssel/Wert-Paare im Eingabequellen-Array zu iterieren. Jedes Element im Array ist ein {{domxref("XRInputSource")}}-Objekt.
+Die **`entries()`**-Methode des [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray)-Interfaces gibt einen JavaScript-[`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols) zurück, der verwendet werden kann, um über die Schlüssel/Wert-Paare im Eingabequellen-Array zu iterieren. Jeder Eintrag im Array ist ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt.
 
-Am häufigsten wird dies in Verbindung mit Anweisungen wie [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) verwendet.
+Am häufigsten wird diese Methode zusammen mit Anweisungen wie [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of) verwendet.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols), der verwendet werden kann, um die Liste der `XRInputSource`-Objekte, die im Eingabequellen-Array enthalten sind, zu durchlaufen.
+Ein [`Iterator`](/de/docs/Web/JavaScript/Reference/Iteration_protocols), der verwendet werden kann, um durch die Liste der `XRInputSource`-Objekte zu gehen, die im Eingabequellen-Array enthalten sind.
 
 ## Beispiele
 
-Dieses Beispiel-Snippet erhält die Liste der Eingaben für eine Sitzung und versucht, jeden unterstützten Eingabegerätetyp zu behandeln.
+Dieses Beispielelement erhält die Liste der Eingaben für eine Sitzung und versucht, jeden unterstützten Eingabetyp zu verarbeiten.
 
 ```js
 let sources = xrSession.inputSources;
@@ -40,17 +40,17 @@ for (const input of sources.entries()) {
     input.targetRayMode === "tracked-pointer" &&
     input.handedness === player.handedness
   ) {
-    /* Behandeln Sie den Haupt-Hand-Controller */
+    /* Handle main hand controller */
     handleMainHandInput(input);
   } else {
-    /* Behandeln Sie andere Eingaben */
+    /* Handle other inputs */
   }
 }
 ```
 
-Für jede Eingabe in der Liste werden Gamepad-Eingaben an eine `checkGamepad()`-Methode mit dem {{domxref("Gamepad")}}-Objekt der Eingabe, das von seiner {{domxref("XRInputSource.gamepad", "gamepad")}}-Eigenschaft abgerufen wird, weitergeleitet.
+Für jede Eingabe in der Liste werden Gamepad-Eingaben an eine `checkGamepad()`-Funktion übergeben, wobei das [`Gamepad`](/de/docs/Web/API/Gamepad)-Objekt der Eingabe, das aus der [`gamepad`](/de/docs/Web/API/XRInputSource/gamepad)-Eigenschaft stammt, als Eingabeparameter dient.
 
-Für andere Geräte suchen wir nach `tracked-pointer`-Geräten in der Haupt-Hand des Spielers und leiten diese an eine `handleMainHandInput()`-Methode weiter.
+Für andere Geräte suchen wir nach `tracked-pointer`-Geräten in der Haupthand des Spielers und leiten diese an eine `handleMainHandInput()`-Methode weiter.
 
 ## Spezifikationen
 

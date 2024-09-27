@@ -1,5 +1,5 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Grundlegendes Styling"
+title: "Testen Sie Ihre Fähigkeiten: Grundlagen des Stylings"
 slug: Learn/Forms/Test_your_skills:_Styling_basics
 l10n:
   sourceCommit: b76266228bd0900aa1256902c7858971156a58c9
@@ -7,20 +7,20 @@ l10n:
 
 {{learnsidebar}}
 
-Das Ziel dieses Fähigkeits-Tests ist es zu beurteilen, ob Sie unseren Artikel [Styling von Webformularen](/de/docs/Learn/Forms/Styling_web_forms) verstanden haben.
+Ziel dieses Fähigkeitstests ist es zu überprüfen, ob Sie unseren Artikel [Stylings von Webformularen](/de/docs/Learn/Forms/Styling_web_forms) verstanden haben.
 
 > [!NOTE]
 > Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
 >
-> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
+> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
-## Grundlegendes Styling 1
+## Grundlagen des Stylings 1
 
-Unsere grundlegende Formular-Styling-Bewertung ist ziemlich frei gestaltet, und Sie haben viel Flexibilität, was Sie hier erreichen können. Aber Ihr CSS sollte die folgenden Anforderungen erfüllen:
+Unsere Bewertung des grundlegenden Formularstylings ist ziemlich offen gestaltet, und Sie haben viel Spielraum, was Sie hier letztendlich tun. Ihr CSS sollte jedoch die folgenden Anforderungen erfüllen:
 
-1. Fügen Sie eine Art leichtgewichtigen "Reset" hinzu, um Schriftarten, Auffüllungen, Ränder und Größen von Anfang an konsistenter zu gestalten.
-2. Darüber hinaus fügen Sie ein schönes, einheitliches Styling für die Eingaben und den Button hinzu.
-3. Verwenden Sie eine Art von Layout-Technik, um die Eingaben und Beschriftungen ordentlich auszurichten.
+1. Fügen Sie eine Art von "Reset" ein, um Schriftarten, Abstände, Ränder und Größen von Anfang an konsistenter zu gestalten.
+2. Ergänzen Sie diese durch ein schönes, konsistentes Styling für die Eingaben und den Button.
+3. Verwenden Sie eine Art Layout-Technik, um die Eingaben und Labels ordentlich auszurichten.
 
 > [!CALLOUT]
 >

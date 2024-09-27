@@ -1,6 +1,6 @@
 ---
-title: "WebTransport: Datagrams-Eigenschaft"
-short-title: Datagrams
+title: "WebTransport: datagrams-Eigenschaft"
+short-title: datagrams
 slug: Web/API/WebTransport/datagrams
 l10n:
   sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`datagrams`** nur-lesbare Eigenschaft der {{domxref("WebTransport")}}-Schnittstelle gibt eine {{domxref("WebTransportDatagramDuplexStream")}}-Instanz zurück, die zum Senden und Empfangen von Datagrammen — unzuverlässiger Datenübertragung — verwendet werden kann.
+Die **`datagrams`** Schreibgeschützt-Eigenschaft des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces gibt eine Instanz von [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream) zurück, die zum Senden und Empfangen von Datagrammen – unzuverlässiger Datenübertragung – verwendet werden kann.
 
-"Unzuverlässig" bedeutet, dass die Datenübertragung nicht garantiert ist und auch nicht in einer bestimmten Reihenfolge ankommt. Dies ist in einigen Situationen in Ordnung und ermöglicht eine sehr schnelle Lieferung. Zum Beispiel könnte man regelmäßig Spielstatusaktualisierungen übertragen wollen, bei denen jede Nachricht die zuletzt eingetroffene überschreibt und die Reihenfolge unwichtig ist.
+"Unzuverlässig" bedeutet, dass die Übertragung von Daten nicht garantiert wird und auch nicht in einer bestimmten Reihenfolge erfolgt. Dies ist in einigen Situationen in Ordnung und ermöglicht eine sehr schnelle Zustellung. Beispielsweise möchten Sie vielleicht regelmäßige Spielzustands-Updates übertragen, bei denen jede Nachricht die vorhergehende ersetzt und die Reihenfolge unwichtig ist.
 
 ## Wert
 
-Ein {{domxref("WebTransportDatagramDuplexStream")}}-Objekt.
+Ein [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Objekt.
 
 ## Beispiele
 
 ### Schreiben eines ausgehenden Datagramms
 
-Die {{domxref("WebTransportDatagramDuplexStream.writable")}}-Eigenschaft gibt ein {{domxref("WritableStream")}}-Objekt zurück, an das Sie Daten mithilfe eines Writers zur Übertragung an den Server schreiben können:
+Die [`WebTransportDatagramDuplexStream.writable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/writable)-Eigenschaft gibt ein [`WritableStream`](/de/docs/Web/API/WritableStream)-Objekt zurück, auf das Sie mit einem Schreiber Daten zur Übertragung an den Server schreiben können:
 
 ```js
 const writer = transport.datagrams.writable.getWriter();
@@ -32,7 +32,7 @@ writer.write(data2);
 
 ### Lesen eines eingehenden Datagramms
 
-Die {{domxref("WebTransportDatagramDuplexStream.readable")}}-Eigenschaft gibt ein {{domxref("ReadableStream")}}-Objekt zurück, das Sie zum Empfangen von Daten vom Server verwenden können:
+Die [`WebTransportDatagramDuplexStream.readable`](/de/docs/Web/API/WebTransportDatagramDuplexStream/readable)-Eigenschaft gibt ein [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Objekt zurück, mit dem Sie Daten vom Server empfangen können:
 
 ```js
 async function readData() {
@@ -58,7 +58,7 @@ async function readData() {
 
 ## Siehe auch
 
-- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

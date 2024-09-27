@@ -1,13 +1,13 @@
 ---
-title: Einführung in die serverseitige Programmierung
+title: Einführung in die Serverseite
 slug: Learn/Server-side/First_steps/Introduction
 l10n:
-  sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
+  sourceCommit: cae1efc0face20ee84d888dd93ca4f276c40a5d8
 ---
 
 {{LearnSidebar}}{{NextMenu("Learn/Server-side/First_steps/Client-Server_overview", "Learn/Server-side/First_steps")}}
 
-Willkommen beim MDN Anfängerkurs in serverseitiger Programmierung! In diesem ersten Artikel betrachten wir die serverseitige Programmierung aus einer übergeordneten Perspektive und beantworten Fragen wie "Was ist das?", "Wie unterscheidet es sich von der clientseitigen Programmierung?" und "Warum ist es so nützlich?". Nach dem Lesen dieses Artikels werden Sie die zusätzlichen Möglichkeiten verstehen, die Websites durch serverseitige Programmierung zur Verfügung stehen.
+Willkommen zum Einstiegsprogrammierkurs für die Serverseite auf MDN! In diesem ersten Artikel betrachten wir die Programmierung auf der Serverseite aus einer höheren Perspektive und beantworten Fragen wie "was ist das?", "wie unterscheidet es sich von der Programmierung auf der Clientseite?" und "warum ist es so nützlich?". Nach dem Lesen dieses Artikels werden Sie die zusätzliche Leistungsfähigkeit verstehen, die Webseiten durch serverseitige Codierung zur Verfügung steht.
 
 <table>
   <tbody>
@@ -20,176 +20,176 @@ Willkommen beim MDN Anfängerkurs in serverseitiger Programmierung! In diesem er
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Vertrautheit mit dem zu gewinnen, was serverseitige Programmierung ist, was sie leisten kann und wie sie sich von der clientseitigen Programmierung unterscheidet.
+        Vertrautheit mit der Programmierung auf der Serverseite zu gewinnen, was sie leisten kann und wie sie sich von der Programmierung auf der Clientseite unterscheidet.
       </td>
     </tr>
   </tbody>
 </table>
 
-Die meisten groß angelegten Websites verwenden serverseitigen Code, um bei Bedarf unterschiedliche Daten dynamisch anzuzeigen, die in der Regel aus einer auf einem Server gehosteten Datenbank abgerufen und dann an den Client gesendet werden, um mittels Code (z. B. HTML und JavaScript) angezeigt zu werden.
+Die meisten groß angelegten Websites verwenden serverseitigen Code, um bei Bedarf unterschiedliche Daten dynamisch anzuzeigen, die in der Regel aus einer auf einem Server gespeicherten Datenbank abgerufen und über Code (z. B. HTML und JavaScript) an den Client gesendet werden, um angezeigt zu werden.
 
-Vielleicht ist der größte Vorteil von serverseitigem Code, dass er es ermöglicht, Website-Inhalte für einzelne Benutzer individuell anzupassen. Dynamische Seiten können Inhalte hervorheben, die auf Benutzerpräferenzen und -gewohnheiten basieren. Sie können auch Websites benutzerfreundlicher machen, indem sie persönliche Einstellungen und Informationen speichern — zum Beispiel durch Wiederverwendung gespeicherter Kreditkartendaten, um nachfolgende Zahlungen zu vereinfachen.
+Der vielleicht bedeutendste Vorteil von serverseitigem Code ist, dass er es Ihnen ermöglicht, Website-Inhalte für einzelne Benutzer anzupassen. Dynamische Seiten können Inhalte hervorheben, die basierend auf Benutzerpräferenzen und -gewohnheiten relevanter sind. Sie können Websites auch benutzerfreundlicher machen, indem sie persönliche Präferenzen und Informationen speichern — beispielsweise die Wiederverwendung gespeicherter Kreditkartendaten, um nachfolgende Zahlungen zu vereinfachen.
 
-Es kann sogar die Interaktion mit den Benutzern der Website ermöglichen, indem Benachrichtigungen und Updates per E-Mail oder über andere Kanäle gesendet werden. All diese Fähigkeiten ermöglichen eine viel tiefere Einbindung der Nutzer.
+Sie können sogar die Interaktion mit den Benutzern der Website ermöglichen, indem sie Benachrichtigungen und Updates per E-Mail oder über andere Kanäle senden. All diese Funktionen ermöglichen eine viel tiefere Einbindung der Benutzer.
 
-In der modernen Welt der Webentwicklung ist es sehr empfehlenswert, sich über serverseitige Entwicklung zu informieren.
+In der modernen Welt der Webentwicklung ist es sehr zu empfehlen, etwas über serverseitige Entwicklung zu lernen.
 
 ## Was ist serverseitige Website-Programmierung?
 
-Webbrowser kommunizieren mit [Webservern](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server) über das **H**yper**T**ext **T**ransfer **P**rotocol ({{glossary("HTTP")}}). Wenn Sie auf einen Link auf einer Webseite klicken, ein Formular absenden oder eine Suche durchführen, wird eine **HTTP-Anfrage** von Ihrem Browser an den Zielserver gesendet.
+Webbrowser kommunizieren mit [Webservern](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server) über das **H**yper**T**ext **T**ransfer **P**rotocol ([HTTP](/de/docs/Glossary/HTTP)). Wenn Sie auf einer Webseite auf einen Link klicken, ein Formular absenden oder eine Suche starten, wird eine **HTTP-Anfrage** von Ihrem Browser an den Zielserver gesendet.
 
-Die Anfrage umfasst eine URL, die die betroffene Ressource identifiziert, eine Methode, die die erforderliche Aktion definiert (z. B. um die Ressource zu erhalten, zu löschen oder zu übermitteln) und kann zusätzliche Informationen enthalten, die in URL-Parametern codiert sind (die Feld-Wert-Paare, die über eine [Abfragezeichenfolge](https://en.wikipedia.org/wiki/Query_string) gesendet werden), als POST-Daten (Daten, die durch die [HTTP POST-Methode](/de/docs/Web/HTTP/Methods/POST) gesendet werden) oder in zugehörigen {{glossary("Cookie", "Cookies")}}.
+Die Anfrage enthält eine URL, die die betroffene Ressource identifiziert, eine Methode, die die erforderliche Aktion definiert (z. B. um die Ressource abzurufen, zu löschen oder zu posten), und kann zusätzliche Informationen enthalten, die in URL-Parametern kodiert sind (die Feld-Wert-Paare, die über eine [Query-String](https://en.wikipedia.org/wiki/Query_string) gesendet werden), als POST-Daten (Daten, die von der [HTTP POST-Methode](/de/docs/Web/HTTP/Methods/POST) gesendet werden) oder in zugehörigen [Cookies](/de/docs/Glossary/Cookie).
 
-Webserver warten auf Client-Anfragen, verarbeiten sie, wenn sie eintreffen, und antworten dem Webbrowser mit einer **HTTP-Antwort**. Die Antwort enthält eine Statuszeile, die angibt, ob die Anfrage erfolgreich war oder nicht (z. B. "HTTP/1.1 200 OK" für Erfolg).
+Webserver warten auf Client-Anfragen, verarbeiten sie, wenn sie eintreffen, und antworten dem Webbrowser mit einer **HTTP-Antwort**. Die Antwort enthält eine Statuszeile, die angibt, ob die Anfrage erfolgreich war (z.B. "HTTP/1.1 200 OK" für Erfolg).
 
-Der Hauptteil einer erfolgreichen Antwort auf eine Anfrage würde die angeforderte Ressource enthalten (z. B. eine neue HTML-Seite oder ein Bild), die dann vom Webbrowser angezeigt werden könnte.
+Der Körper einer erfolgreichen Antwort auf eine Anfrage würde die angeforderte Ressource enthalten (z.B. eine neue HTML-Seite oder ein Bild), die dann vom Webbrowser angezeigt werden könnte.
 
 ### Statische Seiten
 
-Das untenstehende Diagramm zeigt eine grundlegende Webserver-Architektur für eine _statische Seite_ (eine statische Seite ist eine, die bei Anforderung einer bestimmten Ressource immer denselben hartcodierten Inhalt vom Server zurückgibt). Wenn ein Benutzer zu einer Seite navigieren möchte, sendet der Browser eine HTTP-"GET"-Anfrage, in der die URL angegeben wird.
+Das folgende Diagramm zeigt eine grundlegende Webserver-Architektur für eine _statische Seite_ (eine statische Seite ist eine, die denselben fest programmierten Inhalt vom Server zurückgibt, wann immer eine bestimmte Ressource angefordert wird). Wenn ein Benutzer auf eine Seite navigieren möchte, sendet der Browser eine HTTP-"GET"-Anfrage, die ihre URL angibt.
 
-Der Server ruft das angeforderte Dokument aus seinem Dateisystem ab und gibt eine HTTP-Antwort zurück, die das Dokument und einen [Erfolgsstatus](/de/docs/Web/HTTP/Status#successful_responses) enthält (normalerweise 200 OK). Wenn die Datei aus irgendeinem Grund nicht abgerufen werden kann, wird ein Fehlerstatus zurückgegeben (siehe [Client-Fehlerantworten](/de/docs/Web/HTTP/Status#client_error_responses) und [Server-Fehlerantworten](/de/docs/Web/HTTP/Status#server_error_responses)).
+Der Server ruft das angeforderte Dokument aus seinem Dateisystem ab und gibt eine HTTP-Antwort zurück, die das Dokument und einen [Erfolgsstatus](/de/docs/Web/HTTP/Status#successful_responses) (normalerweise 200 OK) enthält. Kann die Datei aus irgendeinem Grund nicht abgerufen werden, wird ein Fehlerstatus zurückgegeben (siehe [Client-Fehlerantworten](/de/docs/Web/HTTP/Status#client_error_responses) und [Server-Fehlerantworten](/de/docs/Web/HTTP/Status#server_error_responses)).
 
 ![Ein vereinfachtes Diagramm eines statischen Webservers.](basic_static_app_server.png)
 
 ### Dynamische Seiten
 
-Eine dynamische Website ist eine, bei der ein Teil des Antwortinhalts _dynamisch_ erzeugt wird, nur bei Bedarf. Auf einer dynamischen Website werden HTML-Seiten normalerweise erstellt, indem Daten aus einer Datenbank in Platzhalter in HTML-Vorlagen eingefügt werden (dies ist eine viel effizientere Methode, große Mengen an Inhalten zu speichern, als statische Websites zu verwenden).
+Eine dynamische Website ist eine, bei der ein Teil des Antwortinhalts _dynamisch_ erzeugt wird, nur bei Bedarf. Auf einer dynamischen Website werden HTML-Seiten normalerweise durch das Einfügen von Daten aus einer Datenbank in Platzhalter in HTML-Vorlagen erstellt (dies ist eine viel effizientere Möglichkeit, große Mengen an Inhalten zu speichern, als statische Websites zu verwenden).
 
-Eine dynamische Seite kann für eine URL unterschiedliche Daten zurückgeben, basierend auf den vom Benutzer bereitgestellten Informationen oder gespeicherten Präferenzen, und kann andere Operationen als Teil der Rückgabe einer Antwort durchführen (z. B. Benachrichtigungen senden).
+Eine dynamische Seite kann für eine URL unterschiedliche Daten basierend auf Informationen liefern, die vom Benutzer bereitgestellt oder in gespeicherten Präferenzen gespeichert sind, und kann als Teil der Rückgabeantwort andere Operationen ausführen (z.B. Benachrichtigungen senden).
 
-Ein Großteil des Codes zur Unterstützung einer dynamischen Website muss auf dem Server ausgeführt werden. Das Erstellen dieses Codes wird als "**serverseitige Programmierung**" (oder manchmal "**Back-end-Scripting**") bezeichnet.
+Der größte Teil des Codes zur Unterstützung einer dynamischen Website muss auf dem Server ausgeführt werden. Die Erstellung dieses Codes nennt man "**serverseitige Programmierung**" (oder gelegentlich "**Back-End-Scripting**").
 
-Das untenstehende Diagramm zeigt eine einfache Architektur für eine _dynamische Website_. Wie im vorherigen Diagramm senden Browser HTTP-Anfragen an den Server, der die Anfragen dann verarbeitet und entsprechende HTTP-Antworten zurückgibt.
+Das folgende Diagramm zeigt eine einfache Architektur für eine _dynamische Website_. Wie im vorherigen Diagramm senden Browser HTTP-Anfragen an den Server, der dann die Anfragen verarbeitet und entsprechende HTTP-Antworten zurückgibt.
 
-Anfragen für _statische_ Ressourcen werden genauso behandelt wie bei statischen Websites (statische Ressourcen sind alle Dateien, die sich nicht ändern — typischerweise: CSS, JavaScript, Bilder, vorerstellte PDF-Dateien etc.).
+Anfragen nach _statischen_ Ressourcen werden auf dieselbe Weise wie bei statischen Seiten behandelt (statische Ressourcen sind alle Dateien, die sich nicht ändern — typischerweise: CSS, JavaScript, Bilder, vorab erstellte PDF-Dateien, etc.).
 
 ![Ein vereinfachtes Diagramm eines Webservers, der serverseitige Programmierung verwendet, um Informationen aus einer Datenbank abzurufen und HTML aus Vorlagen zu erstellen. Dies ist dasselbe Diagramm wie in der Client-Server-Übersicht.](web_application_with_html_and_steps.png)
 
-Anfragen nach dynamischen Ressourcen werden stattdessen (2) an serverseitigen Code weitergeleitet (im Diagramm als _Webanwendung_ bezeichnet). Für "dynamische Anfragen" interpretiert der Server die Anfrage, liest die erforderlichen Informationen aus der Datenbank (3), kombiniert die abgerufenen Daten mit HTML-Vorlagen (4) und sendet eine Antwort mit dem generierten HTML zurück (5,6).
+Anfragen nach dynamischen Ressourcen werden stattdessen an serverseitigen Code weitergeleitet (im Diagramm als _Web-Anwendung_ gezeigt). Für "dynamische Anfragen" interpretiert der Server die Anfrage, liest die erforderlichen Informationen aus der Datenbank (3), kombiniert die abgerufenen Daten mit HTML-Vorlagen (4) und sendet eine Antwort mit dem generierten HTML zurück (5,6).
 
-## Sind serverseitige und clientseitige Programmierung dasselbe?
+## Sind serverseitige und clientseitige Programmierung gleich?
 
-Lassen Sie uns nun den Code betrachten, der für die serverseitige und clientseitige Programmierung verwendet wird. In beiden Fällen ist der Code signifikant unterschiedlich:
+Wenden wir uns nun dem Code zu, der bei der serverseitigen und clientseitigen Programmierung beteiligt ist. In jedem Fall ist der Code signifikant unterschiedlich:
 
-- Sie haben verschiedene Zwecke und Anliegen.
-- Sie verwenden im Allgemeinen nicht dieselben Programmiersprachen (Ausnahme ist JavaScript, das auf Server- und Client-Seite verwendet werden kann).
+- Sie haben unterschiedliche Zwecke und Belange.
+- Sie verwenden in der Regel nicht dieselben Programmiersprachen (die Ausnahme ist JavaScript, das sowohl auf der Server- als auch auf der Clientseite verwendet werden kann).
 - Sie laufen in unterschiedlichen Betriebssystemumgebungen.
 
-Code, der im Browser ausgeführt wird, ist als **clientseitiger Code** bekannt und konzentriert sich in erster Linie darauf, das Erscheinungsbild und Verhalten einer gerenderten Webseite zu verbessern. Dazu gehören das Auswählen und Gestalten von UI-Komponenten, das Erstellen von Layouts, Navigation, Formularvalidierung usw. Im Gegensatz dazu geht es bei der serverseitigen Website-Programmierung hauptsächlich darum, _welche Inhalte_ als Antwort auf Anfragen an den Browser zurückgeschickt werden. Der serverseitige Code übernimmt Aufgaben wie die Validierung eingesendeter Daten und Anfragen, die Nutzung von Datenbanken zum Speichern und Abrufen von Daten und das Senden der richtigen Daten an den Client nach Bedarf.
+Der im Browser ausgeführte Code ist als **Client-seitiger Code** bekannt und befasst sich hauptsächlich mit der Verbesserung des Erscheinungsbildes und des Verhaltens einer gerenderten Webseite. Dies umfasst die Auswahl und das Styling von UI-Komponenten, das Erstellen von Layouts, Navigation, Formularvalidierungen, etc. Im Gegensatz dazu betrifft die serverseitige Websiteprogrammierung hauptsächlich die Auswahl, _welche Inhalte_ als Reaktion auf Anfragen an den Browser zurückgegeben werden. Der serverseitige Code erledigt Aufgaben wie die Validierung übermittelter Daten und Anfragen, die Nutzung von Datenbanken zur Speicherung und zum Abrufen von Daten und die Entsendung der korrekten Daten an den Client, wenn erforderlich.
 
-Clientseitiger Code wird mit [HTML](/de/docs/Learn/HTML), [CSS](/de/docs/Learn/CSS) und [JavaScript](/de/docs/Learn/JavaScript) geschrieben — er wird innerhalb eines Webbrowsers ausgeführt und hat wenig bis keinen Zugriff auf das zugrunde liegende Betriebssystem (einschließlich eingeschränktem Zugriff auf das Dateisystem).
+Client-seitiger Code wird unter Verwendung von [HTML](/de/docs/Learn/HTML), [CSS](/de/docs/Learn/CSS) und [JavaScript](/de/docs/Learn/JavaScript) geschrieben — er wird in einem Webbrowser ausgeführt und hat nur geringen oder keinen Zugriff auf das zugrunde liegende Betriebssystem (einschließlich eingeschränkten Zugriffs auf das Dateisystem).
 
-Webentwickler können nicht steuern, welchen Browser jeder Benutzer zur Ansicht einer Webseite verwendet — Browser bieten unterschiedliche Niveaus an Kompatibilität mit clientseitigen Code-Features, und eine der Herausforderungen bei der clientseitigen Programmierung besteht darin, die Unterschiede in der Browserunterstützung elegant zu handhaben.
+Webentwickler können nicht kontrollieren, welchen Browser ein Benutzer zur Anzeige einer Website verwenden könnte — Browser bieten unterschiedliche Kompatibilitätsstufen für Funktionen von Client-seitigem Code, und Teil der Herausforderung bei der Programmierung auf der Clientseite besteht darin, Unterschiede in der Browserunterstützung elegant zu handhaben.
 
-Serverseitiger Code kann in einer Vielzahl von Programmiersprachen geschrieben werden — Beispiele für beliebte serverseitige Websprachen sind PHP, Python, Ruby, C# und JavaScript (NodeJS). Der serverseitige Code hat vollen Zugriff auf das Server-Betriebssystem und der Entwickler kann wählen, welche Programmiersprache (und spezifische Version) er verwenden möchte.
+Serverseitiger Code kann in einer Vielzahl von Programmiersprachen geschrieben werden — Beispiele für beliebte serverseitige Websprachen sind PHP, Python, Ruby, C# und JavaScript (NodeJS). Der serverseitige Code hat vollen Zugriff auf das Serverbetriebssystem und der Entwickler kann die Programmiersprache (und die spezifische Version) wählen, die er verwenden möchte.
 
-Entwickler schreiben ihren Code in der Regel unter Verwendung von **Web-Frameworks**. Web-Frameworks sind Sammlungen von Funktionen, Objekten, Regeln und anderen Code-Konstrukten, die entwickelt wurden, um häufige Probleme zu lösen, die Entwicklung zu beschleunigen und die verschiedenen Arten von Aufgaben in einem bestimmten Bereich zu vereinfachen.
+Entwickler schreiben ihren Code typischerweise unter Verwendung von **Web-Frameworks**. Web-Frameworks sind Sammlungen von Funktionen, Objekten, Regeln und anderen Code-Konstrukten, die entwickelt wurden, um häufige Probleme zu lösen, die Entwicklung zu beschleunigen und die unterschiedlichen Arten von Aufgaben zu vereinfachen, die in einem bestimmten Bereich anfallen.
 
-Auch wenn sowohl clientseitiger als auch serverseitiger Code Frameworks verwendet, sind die Bereiche sehr unterschiedlich, und daher sind es auch die Frameworks. Clientseitige Web-Frameworks vereinfachen Layout- und Präsentationsaufgaben, während serverseitige Web-Frameworks eine Menge "gemeinsamer" Webserver-Funktionalität bieten, die Sie ansonsten selbst implementieren müssten (z. B. Unterstützung für Sitzungen, Unterstützung für Benutzer und Authentifizierung, einfacher Datenbankzugriff, Templating-Bibliotheken usw.).
-
-> [!NOTE]
-> Clientseitige Frameworks werden oft verwendet, um die Entwicklung von clientseitigem Code zu beschleunigen, aber Sie können sich auch entscheiden, den gesamten Code von Hand zu schreiben; tatsächlich kann es schneller und effizienter sein, den Code von Hand zu schreiben, wenn Sie nur eine kleine, einfache Website-UI benötigen.
->
-> Im Gegensatz dazu würden Sie fast nie in Erwägung ziehen, die serverseitige Komponente einer Webanwendung ohne ein Framework zu schreiben — eine wichtige Funktion wie einen HTTP-Server von Grund auf neu zu implementieren, ist in Python zum Beispiel sehr schwierig, aber Python-Web-Frameworks wie Django bieten einen standardmäßig an, zusammen mit anderen sehr nützlichen Werkzeugen.
-
-## Was können Sie auf der Serverseite tun?
-
-Serverseitige Programmierung ist sehr nützlich, weil sie es uns ermöglicht, Informationen _effizient_ bereitzustellen, die für einzelne Benutzer maßgeschneidert sind und damit ein viel besseres Benutzererlebnis zu schaffen.
-
-Unternehmen wie Amazon nutzen serverseitige Programmierung, um Suchergebnisse für Produkte zu konstruieren, gezielte Produktempfehlungen basierend auf Kundenpräferenzen und früheren Kaufgewohnheiten zu machen, Käufe zu vereinfachen usw.
-
-Banken verwenden serverseitige Programmierung, um Kontoinformationen zu speichern und nur autorisierten Benutzern die Ansicht und Durchführung von Transaktionen zu ermöglichen. Andere Dienste wie Facebook, Twitter, Instagram und Wikipedia nutzen serverseitige Programmierung, um interessante Inhalte hervorzuheben, zu teilen und den Zugriff auf sie zu kontrollieren.
-
-Einige der häufigsten Verwendungen und Vorteile der serverseitigen Programmierung sind unten aufgeführt. Dabei werden Sie feststellen, dass es einige Überschneidungen gibt!
-
-### Effiziente Speicherung und Bereitstellung von Informationen
-
-Stellen Sie sich vor, wie viele Produkte auf Amazon verfügbar sind, und stellen Sie sich vor, wie viele Beiträge auf Facebook geschrieben wurden? Für jedes Produkt oder jede Nachricht eine separate statische Seite zu erstellen, wäre völlig unpraktisch.
-
-Serverseitige Programmierung ermöglicht es, die Informationen stattdessen in einer Datenbank zu speichern und HTML und andere Dateitypen (z. B. PDFs, Bilder usw.) dynamisch zu konstruieren und zurückzusenden. Es ist auch möglich, Daten ({{glossary("JSON")}}, {{glossary("XML")}} usw.) zur Darstellung durch geeignete clientseitige Web-Frameworks zurückzugeben (dies reduziert die Belastung des Servers und die Menge der zu sendenden Daten).
-
-Der Server ist nicht darauf beschränkt, Informationen aus Datenbanken zu senden, und kann alternativ das Ergebnis von Software-Tools oder Daten von Kommunikationsdiensten zurückgeben. Der Inhalt kann sogar für den Typ des Client-Geräts, das ihn empfängt, gezielt sein.
-
-Da die Informationen in einer Datenbank vorliegen, können sie auch leichter mit anderen Geschäftssystemen geteilt und aktualisiert werden (zum Beispiel, wenn Produkte entweder online oder im stationären Handel verkauft werden, könnte der Shop sein Inventar-Datenbank aktualisieren).
+Erneut, während sowohl Client- als auch serverseitige Code-Frameworks verwenden, sind die Domänen sehr unterschiedlich, und daher sind es auch die Frameworks. Client-seitige Web-Frameworks erleichtern Layout- und Präsentationsaufgaben, während serverseitige Web-Frameworks viel "gemeinsame" Webserver-Funktionalität bereitstellen, die Sie ansonsten selbst implementieren müssten (z. B. Unterstützung für Sitzungen, Unterstützung für Benutzer und Authentifizierung, einfacher Datenbankzugriff, Templating-Bibliotheken usw.).
 
 > [!NOTE]
-> Ihre Fantasie muss sich nicht anstrengen, um den Nutzen von serverseitigem Code für die effiziente Speicherung und Bereitstellung von Informationen zu erkennen:
+> Client-seitige Frameworks werden häufig verwendet, um die Entwicklung von Client-seitigem Code zu beschleunigen, aber Sie können sich auch entscheiden, den gesamten Code von Hand zu schreiben; in der Tat kann das Schreiben Ihres Codes von Hand schneller und effizienter sein, wenn Sie nur ein kleines, einfaches Website-UI benötigen.
 >
-> 1. Gehen Sie zu [Amazon](https://www.amazon.com/) oder einer anderen E-Commerce-Site.
-> 2. Suchen Sie nach einer Reihe von Schlüsselwörtern und beachten Sie, wie sich die Seitenstruktur nicht ändert, auch wenn sich die Ergebnisse ändern.
-> 3. Öffnen Sie zwei oder drei verschiedene Produkte. Beachten Sie erneut, wie sie eine gemeinsame Struktur und ein gemeinsames Layout haben, aber die Inhalte für verschiedene Produkte aus der Datenbank abgerufen wurden.
+> Im Gegensatz dazu würden Sie fast nie erwägen, die serverseitige Komponente einer Web-App ohne ein Framework zu schreiben — die Implementierung einer wichtigen Funktion wie eines HTTP-Servers ist wirklich schwer von Grund auf neu zu erstellen, sagen wir in Python, aber Python-Web-Frameworks wie Django bieten einen von Haus aus, zusammen mit anderen sehr nützlichen Tools.
+
+## Was kann man auf der Serverseite tun?
+
+Serverseitige Programmierung ist sehr nützlich, weil sie es uns ermöglicht, Informationen _effizient_ zu liefern, die für einzelne Benutzer maßgeschneidert sind, und damit ein viel besseres Benutzererlebnis zu schaffen.
+
+Unternehmen wie Amazon verwenden serverseitige Programmierung, um Suchergebnisse für Produkte zu erstellen, gezielte Produktempfehlungen basierend auf Client-Präferenzen und vorherigen Kaufgewohnheiten zu geben, Käufe zu vereinfachen, usw.
+
+Banken nutzen serverseitige Programmierung, um Kontoinformationen zu speichern und nur autorisierten Benutzern die Ansicht und Transaktion zu ermöglichen. Andere Dienste wie Facebook, Twitter, Instagram und Wikipedia verwenden serverseitige Programmierung, um interessante Inhalte hervorzuheben, zu teilen und den Zugriff darauf zu kontrollieren.
+
+Einige der häufigen Verwendungen und Vorteile der serverseitigen Programmierung sind unten aufgeführt. Sie werden feststellen, dass es einige Überschneidungen gibt!
+
+### Effiziente Speicherung und Lieferung von Informationen
+
+Stellen Sie sich vor, wie viele Produkte auf Amazon verfügbar sind, und stellen Sie sich vor, wie viele Beiträge auf Facebook geschrieben wurden? Für jedes Produkt oder jeden Beitrag eine separate statische Seite zu erstellen, wäre völlig unpraktisch.
+
+Serverseitige Programmierung ermöglicht es uns stattdessen, die Informationen in einer Datenbank zu speichern und HTML sowie andere Dateitypen (z.B. PDFs, Bilder, etc.) dynamisch zu erstellen und zurückzugeben. Es ist auch möglich, Daten ([JSON](/de/docs/Glossary/JSON), [XML](/de/docs/Glossary/XML), etc.) zur Darstellung durch entsprechende Client-seitige Web-Frameworks zurückzugeben (was die Verarbeitungsbelastung auf dem Server reduziert und die Menge an Daten, die gesendet werden müssen).
+
+Der Server ist nicht darauf beschränkt, Informationen aus Datenbanken zu senden, und könnte alternativ das Ergebnis von Softwaretools oder Daten von Kommunikationsdiensten zurückgeben. Der Inhalt kann sogar für den Typ des Empfangsgeräts des Clients gezielt werden.
+
+Da die Informationen in einer Datenbank sind, können sie auch leichter mit anderen Geschäftssystemen geteilt und aktualisiert werden (zum Beispiel, wenn Produkte entweder online oder in einem Geschäft verkauft werden, könnte das Geschäft seine Inventardatenbank aktualisieren).
+
+> [!NOTE]
+> Ihre Fantasie muss nicht hart arbeiten, um den Nutzen von serverseitigem Code für die effiziente Speicherung und Lieferung von Informationen zu erkennen:
 >
-> Bei einem häufig gesuchten Begriff ("Fisch", zum Beispiel) können Sie buchstäblich Millionen von zurückgegebenen Werten sehen. Mit einer Datenbank können diese effizient gespeichert und geteilt werden, und sie erlaubt die Präsentation der Informationen an nur einem Ort zu steuern.
-
-### Personalisierte Benutzererfahrung
-
-Server können Informationen über Clients speichern und verwenden, um eine bequeme und maßgeschneiderte Benutzererfahrung bereitzustellen. Beispielsweise speichern viele Websites Kreditkarteninformationen, so dass Details nicht erneut eingegeben werden müssen. Websites wie Google Maps können gespeicherte oder aktuelle Standorte verwenden, um Routeninformationen bereitzustellen, und Such- oder Reisehistorien, um lokale Unternehmen in den Suchergebnissen hervorzuheben.
-
-Eine tiefere Analyse der Benutzergewohnheiten kann verwendet werden, um ihre Interessen vorherzusehen und die Antworten und Benachrichtigungen weiter anzupassen, beispielsweise indem eine Liste zuvor besuchter oder beliebter Orte bereitgestellt wird, die Sie sich auf einer Karte ansehen möchten.
-
-> **Hinweis:** [Google Maps](https://www.google.com/maps) speichert Ihre Such- und Besuchshistorie. Häufig besuchte oder häufig gesuchte Orte werden mehr als andere hervorgehoben.
+> 1. Gehen Sie zu [Amazon](https://www.amazon.com/) oder einer anderen E-Commerce-Website.
+> 2. Suchen Sie nach mehreren Schlüsselwörtern und beachten Sie, wie sich die Seitenstruktur nicht ändert, auch wenn sich die Ergebnisse ändern.
+> 3. Öffnen Sie zwei oder drei verschiedene Produkte. Beachten Sie erneut, wie sie eine gemeinsame Struktur und ein gemeinsames Layout haben, aber der Inhalt für verschiedene Produkte aus der Datenbank gezogen wurde.
 >
-> Google-Suchergebnisse sind basierend auf früheren Suchanfragen optimiert.
+> Bei einem gängigen Suchbegriff ("Fisch", sagen wir) können Sie buchstäblich Millionen von zurückgegebenen Werten sehen. Mithilfe einer Datenbank können diese effizient gespeichert und geteilt werden, und es ermöglicht, die Darstellung der Informationen an einem einzigen Ort zu steuern.
+
+### Angepasste Benutzererfahrung
+
+Server können Informationen über Kunden speichern und verwenden, um eine bequeme und maßgeschneiderte Benutzererfahrung zu bieten. Beispielsweise speichern viele Websites Kreditkarten, damit die Informationen nicht erneut eingegeben werden müssen. Websites wie Google Maps können gespeicherte oder aktuelle Standorte verwenden, um Routeninformationen bereitzustellen, und Such- oder Reiseverläufe, um lokale Geschäfte in den Suchergebnissen hervorzuheben.
+
+Eine tiefere Analyse von Benutzergewohnheiten kann verwendet werden, um ihre Interessen vorherzusehen und Antworten und Benachrichtigungen weiter anzupassen, beispielsweise eine Liste zuvor besuchter oder populärer Orte, die Sie sich auf einer Karte ansehen möchten.
+
+> **Hinweis:** [Google Maps](https://www.google.com/maps) speichert Ihre Such- und Besuchshistorie. Häufig besuchte oder häufig gesuchte Standorte werden stärker hervorgehoben als andere.
+>
+> Die Google-Suchergebnisse werden basierend auf vorherigen Suchen optimiert.
 >
 > 1. Gehen Sie zur [Google-Suche](https://www.google.com/).
 > 2. Suchen Sie nach "Fußball".
-> 3. Versuchen Sie nun, "Lieblings-" in das Suchfeld einzugeben und beobachten Sie die Autovervollständigungssuchvorschläge.
+> 3. Versuchen Sie nun, "Lieblings" in das Suchfeld einzugeben, und beobachten Sie die automatische Vervollständigungsvorschläge der Suche.
 >
-> Zufall? Nada!
+> Ein Zufall? Nein!
 
 ### Kontrollierter Zugriff auf Inhalte
 
 Serverseitige Programmierung ermöglicht es Websites, den Zugriff auf autorisierte Benutzer zu beschränken und nur die Informationen bereitzustellen, die ein Benutzer sehen darf.
 
-Reale Beispiele umfassen soziale Netzwerke, die es Benutzern ermöglichen zu bestimmen, wer die von ihnen auf die Website eingestellten Inhalte sehen kann und wessen Inhalte in ihrem Feed erscheinen.
+Reale Beispiele umfassen soziale Netzwerke, die Benutzern erlauben, zu bestimmen, wer die Inhalte sehen kann, die sie auf die Seite posten, und wessen Inhalt in ihrem Feed angezeigt wird.
 
 > [!NOTE]
-> Denken Sie an andere reale Beispiele, bei denen der Zugang zu Inhalten kontrolliert wird. Zum Beispiel, was können Sie sehen, wenn Sie zur Online-Site Ihrer Bank gehen? Loggen Sie sich in Ihr Konto ein — welche zusätzlichen Informationen können Sie sehen und ändern? Welche Informationen können Sie sehen, die nur die Bank ändern kann?
+> Denken Sie an andere reale Beispiele, bei denen der Zugriff auf Inhalte kontrolliert wird. Zum Beispiel, was können Sie sehen, wenn Sie zur Online-Seite Ihrer Bank gehen? Melden Sie sich in Ihrem Konto an — welche zusätzlichen Informationen können Sie sehen und ändern? Welche Informationen können Sie sehen, die nur die Bank ändern kann?
 
 ### Speicherung von Sitzungs-/Statusinformationen
 
-Serverseitige Programmierung ermöglicht es Entwicklern, **Sitzungen** zu nutzen — im Grunde ein Mechanismus, der es einem Server ermöglicht, Informationen zu speichern, die mit dem aktuellen Benutzer einer Site verbunden sind, und verschiedene Antworten basierend auf diesen Informationen zu senden.
+Serverseitige Programmierung ermöglicht es Entwicklern, **Sitzungen** zu verwenden — im Grunde ein Mechanismus, der es einem Server ermöglicht, Informationen im Zusammenhang mit dem aktuellen Benutzer einer Website zu speichern und basierend auf diesen Informationen unterschiedliche Antworten zu senden.
 
-Dies erlaubt es beispielsweise einer Site zu wissen, dass ein Benutzer bereits eingeloggt ist und Links zu ihren E-Mails oder Bestellhistorie anzuzeigen, oder vielleicht den Status eines einfachen Spiels zu speichern, damit der Benutzer die Site erneut besuchen und dort weitermachen kann, wo er aufgehört hat.
+Dies ermöglicht es beispielsweise einer Seite zu wissen, dass sich ein Benutzer vorher eingeloggt hat und Links zu seinen E-Mails oder Bestellhistorien anzuzeigen, oder vielleicht den Status eines einfachen Spiels zu speichern, sodass den Benutzer die Seite erneut besuchen kann und den Punkt wieder aufnehmen kann, wo er es verlassen hat.
 
 > [!NOTE]
-> Besuchen Sie eine Zeitungsseite, die ein Abonnementmodell hat und öffnen Sie eine Reihe von Tabs (z. B. [The Age](https://www.theage.com.au/)). Besuchen Sie die Seite weiter über mehrere Stunden/Tage hinweg. Schließlich werden Sie beginnen, zu Seiten umgeleitet zu werden, die erklären, wie Sie ein Abonnement abschließen können, und Sie werden nicht mehr auf Artikel zugreifen können. Diese Informationen sind ein Beispiel für Sitzungsinformationen, die in Cookies gespeichert werden.
+> Besuchen Sie eine Zeitungsseite, die ein Abonnementmodell hat, und öffnen Sie eine Reihe von Tabs (z.B. [The Age](https://www.theage.com.au/)). Besuchen Sie die Seite über einige Stunden/Tage weiterhin. Irgendwann werden Sie anfangen, auf Seiten weitergeleitet zu werden, die erklären, wie man ein Abonnement abschließt, und Sie werden nicht mehr auf Artikel zugreifen können. Diese Informationen sind ein Beispiel für Sitzungsinformationen, die in Cookies gespeichert werden.
 
 ### Benachrichtigungen und Kommunikation
 
-Server können allgemeine oder benutzerspezifische Benachrichtigungen über die Website selbst oder per E-Mail, SMS, Instant Messaging, Video-Unterhaltungen oder andere Kommunikationsdienste senden.
+Server können allgemeine oder benutzerspezifische Benachrichtigungen über die Website selbst oder per E-Mail, SMS, Instant Messaging, Videoanrufe oder andere Kommunikationsdienste senden.
 
-Einige Beispiele sind:
+Einige Beispiele umfassen:
 
-- Facebook und Twitter versenden E-Mails und SMS-Nachrichten, um Sie über neue Mitteilungen zu informieren.
-- Amazon sendet regelmäßig Produkt-E-Mails, die Ihnen Produkte vorschlagen, die den bereits gekauften oder angesehenen ähneln, die Sie möglicherweise interessieren könnten.
-- Ein Webserver könnte Warnmeldungen an die Site-Administratoren senden, die sie über geringen Speicherplatz auf dem Server oder verdächtige Benutzeraktivitäten informieren.
+- Facebook und Twitter senden E-Mails und SMS-Nachrichten, um Sie über neue Kommunikation zu informieren.
+- Amazon sendet regelmäßig Produkt-E-Mails, die Produkte vorschlagen, die denjenigen ähneln, die bereits gekauft oder angesehen wurden und die Sie interessieren könnten.
+- Ein Webserver könnte Warnmeldungen an Site-Administratoren darüber senden, dass auf dem Server wenig Speicher verfügbar ist, oder über verdächtige Benutzeraktivitäten.
 
 > [!NOTE]
-> Der häufigste Benachrichtigungstyp ist eine "Registrierungsbestätigung". Wählen Sie fast jede große Website aus, die Sie interessiert (Google, Amazon, Instagram usw.) und erstellen Sie ein neues Konto mit Ihrer E-Mail-Adresse. Sie erhalten bald eine E-Mail, die Ihre Registrierung bestätigt oder eine Bestätigung erfordert, um Ihr Konto zu aktivieren.
+> Die häufigste Art von Benachrichtigung ist eine "Bestätigung der Registrierung". Wählen Sie fast jede große Site aus, die Sie interessiert (Google, Amazon, Instagram, usw.) und erstellen Sie ein neues Konto mit Ihrer E-Mail-Adresse. Sie erhalten bald eine E-Mail, die Ihre Registrierung bestätigt oder die Anerkennung erfordert, um Ihr Konto zu aktivieren.
 
 ### Datenanalyse
 
-Eine Website kann viele Daten über Benutzer sammeln: wonach sie suchen, was sie kaufen, was sie empfehlen, wie lange sie auf jeder Seite bleiben. Serverseitige Programmierung kann verwendet werden, um Antworten basierend auf einer Analyse dieser Daten zu verfeinern.
+Eine Website kann viele Daten über Benutzer sammeln: was sie suchen, was sie kaufen, was sie empfehlen, wie lange sie auf jeder Seite bleiben. Serverseitige Programmierung kann verwendet werden, um Antworten basierend auf der Analyse dieser Daten zu verfeinern.
 
-Zum Beispiel werben sowohl Amazon als auch Google für Produkte basierend auf früheren Suchanfragen (und Käufen).
+Zum Beispiel werben sowohl Amazon als auch Google für Produkte basierend auf vorherigen Suchanfragen (und Käufen).
 
 > [!NOTE]
-> Wenn Sie ein Facebook-Benutzer sind, gehen Sie zu Ihrem Hauptfeed und schauen Sie sich die Vielzahl von Beiträgen an. Beachten Sie, wie einige der Beiträge nicht in numerischer Reihenfolge sind — insbesondere Beiträge mit mehr "Likes" sind oft höher in der Liste als neuere Beiträge.
+> Wenn Sie ein Facebook-Nutzer sind, gehen Sie zu Ihrem Haupt-Feed und schauen Sie sich den Strom von Beiträgen an. Beachten Sie, wie einige der Beiträge nicht in numerischer Reihenfolge sind - insbesondere Beiträge mit mehr "Gefällt mir" sind oft höher auf der Liste als neuere Beiträge.
 >
-> Schauen Sie sich auch an, welche Art von Anzeigen Ihnen gezeigt werden — Sie könnten Anzeigen für Dinge sehen, die Sie auf anderen Seiten angesehen haben. Der Algorithmus von Facebook zur Hervorhebung von Inhalten und Werbung kann etwas mysteriös sein, aber es ist klar, dass er auf Ihren Vorlieben und Betrachtungsgewohnheiten basiert!
+> Schauen Sie sich auch an, welche Art von Anzeigen Ihnen gezeigt werden — Sie sehen möglicherweise Anzeigen für Dinge, die Sie auf anderen Sites angesehen haben. Der Algorithmus von Facebook zur Hervorhebung von Inhalten und Werbung kann ein bisschen ein Rätsel sein, aber es ist klar, dass es von Ihren Likes und Sehgewohnheiten abhängt!
 
 ## Zusammenfassung
 
 Herzlichen Glückwunsch, Sie haben das Ende des ersten Artikels über serverseitige Programmierung erreicht.
 
-Sie haben nun gelernt, dass serverseitiger Code auf einem Webserver ausgeführt wird und dass seine Hauptaufgabe darin besteht, zu kontrollieren, _welche_ Informationen an den Benutzer gesendet werden (während sich clientseitiger Code hauptsächlich mit der Struktur und Darstellung dieser Daten für den Benutzer befasst).
+Sie haben jetzt gelernt, dass serverseitiger Code auf einem Webserver ausgeführt wird und dass seine Hauptrolle darin besteht, zu kontrollieren, _welche_ Informationen an den Benutzer gesendet werden (während Client-seitiger Code hauptsächlich die Struktur und Präsentation dieser Daten an den Benutzer behandelt).
 
-Sie sollten auch verstehen, dass es nützlich ist, weil es uns ermöglicht, Websites zu erstellen, die Informationen, die für einzelne Benutzer maßgeschneidert sind, _effizient_ liefern, und Sie haben eine gute Vorstellung davon, was Sie tun könnten, wenn Sie ein serverseitiger Programmierer werden.
+Sie sollten auch verstehen, dass es nützlich ist, weil es uns ermöglicht, Websites zu erstellen, die Informationen effizient liefern, die für einzelne Benutzer maßgeschneidert sind, und eine gute Vorstellung davon haben, einige der Dinge, die Sie tun könnten, wenn Sie ein serverseitiger Programmierer sind.
 
-Zuletzt sollten Sie verstehen, dass serverseitiger Code in einer Reihe von Programmiersprachen geschrieben werden kann und dass Sie ein Web-Framework verwenden sollten, um den gesamten Prozess zu erleichtern.
+Zuletzt sollten Sie verstehen, dass serverseitiger Code in einer Reihe von Programmiersprachen geschrieben werden kann und dass Sie ein Webframework verwenden sollten, um den gesamten Prozess einfacher zu machen.
 
-In einem zukünftigen Artikel werden wir Ihnen helfen, das beste Web-Framework für Ihre erste Website auszuwählen. Hier werden wir Ihnen die wichtigsten Client-Server-Interaktionen in etwas mehr Detail erklären.
+In einem zukünftigen Artikel helfen wir Ihnen dabei, das beste Webframework für Ihre erste Seite auszuwählen. Hier führen wir Sie durch die wichtigsten Client-Server-Interaktionen mit nur ein wenig mehr Details.
 
 {{NextMenu("Learn/Server-side/First_steps/Client-Server_overview", "Learn/Server-side/First_steps")}}

@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Das **`<missing-glyph>`** [SVG](/de/docs/Web/SVG)-Element wird angezeigt, wenn für ein bestimmtes Zeichen die Schriftart keinen passenden {{SVGElement("glyph")}} definiert.
+Das **`<missing-glyph>`** [SVG](/de/docs/Web/SVG) Element wird dargestellt, wenn für ein bestimmtes Zeichen die Schriftart kein geeignetes {{SVGElement("glyph")}} definiert.
 
 ## Verwendungskontext
 
@@ -23,7 +23,7 @@ Das **`<missing-glyph>`** [SVG](/de/docs/Web/SVG)-Element wird angezeigt, wenn f
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGMissingGlyphElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGMissingGlyphElement`](/de/docs/Web/API/SVGMissingGlyphElement) Schnittstelle.
 
 ## Spezifikationen
 
@@ -37,4 +37,4 @@ Dieses Element implementiert die {{domxref("SVGMissingGlyphElement")}} Schnittst
 
 - {{SVGElement("font")}}
 - {{SVGElement("glyph")}}
-- [SVG-Tutorial: SVG-Schriften](/de/docs/Web/SVG/Tutorial/SVG_fonts)
+- [SVG-Leitfaden: SVG-Schriften](/de/docs/Web/SVG/Tutorial/SVG_fonts)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.getActiveUniform()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt ein {{domxref("WebGLActiveInfo")}}-Objekt zurück, das die Größe, den Typ und den Namen eines Uniform-Attributs enthält. Sie wird im Allgemeinen genutzt, wenn unbekannte Uniforms abgefragt werden, entweder zum Debuggen oder zur generischen Bibliothekserstellung.
+Die **`WebGLRenderingContext.getActiveUniform()`**-Methode des [WebGL API](/de/docs/Web/API/WebGL_API) gibt ein [`WebGLActiveInfo`](/de/docs/Web/API/WebGLActiveInfo)-Objekt zurück, das Größe, Typ und Namen eines Uniform-Attributs enthält. Sie wird im Allgemeinen verwendet, wenn unbekannte Uniforms abgefragt werden sollen, entweder zu Debugging-Zwecken oder zur Erstellung generischer Bibliotheken.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ getActiveUniform(program, index)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}, der das WebGL-Shader-Programm angibt, aus dem die Informationen über die Uniform-Variable erhalten werden sollen.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das das WebGL-Shader-Programm angibt, aus dem die Informationen der Uniform-Variable abgerufen werden sollen.
 - `index`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der den Index des Uniform-Attributs angibt, das abgerufen werden soll. Dieser Wert ist ein Index von 0 bis N - 1, wie von {{domxref("WebGLRenderingContext.getProgramParameter", "gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS)")}} zurückgegeben.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des abzurufenden Uniform-Attributs angibt. Dieser Wert ist ein Index von 0 bis N - 1, wie er von [`gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS)`](/de/docs/Web/API/WebGLRenderingContext/getProgramParameter) zurückgegeben wird.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLActiveInfo")}}-Objekt, das die Uniform beschreibt.
+Ein [`WebGLActiveInfo`](/de/docs/Web/API/WebGLActiveInfo)-Objekt, das die Uniform beschreibt.
 
-Das `type`-Attribut des Rückgabewerts wird einer der folgenden sein:
+Das `type`-Attribut des Rückgabewertes wird einer der folgenden Werte sein:
 
 - `gl.FLOAT`
 - `gl.FLOAT_VEC2`
@@ -46,7 +46,7 @@ Das `type`-Attribut des Rückgabewerts wird einer der folgenden sein:
 - `gl.FLOAT_MAT4`
 - `gl.SAMPLER_2D`
 - `gl.SAMPLER_CUBE`
-- Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}} sind zusätzlich die folgenden Werte möglich:
+- Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontext", "", 1)}} sind zusätzlich die folgenden Werte möglich:
 
   - `gl.UNSIGNED_INT`
   - `gl.UNSIGNED_INT_VEC2`
@@ -72,26 +72,26 @@ Das `type`-Attribut des Rückgabewerts wird einer der folgenden sein:
   - `gl.UNSIGNED_INT_SAMPLER_CUBE`
   - `gl.UNSIGNED_INT_SAMPLER_2D_ARRAY`
 
-Wenn `gl.linkProgram` aufgerufen wird, erstellt WebGL eine Liste aktiver Uniforms. Dies sind mögliche Werte des `name`-Attributs der Rückgabewerte von `getActiveUniform`. WebGL generiert je nach erklärtem Typ der Uniform im Shader einen oder mehrere Einträge in der Liste:
+Wenn `gl.linkProgram` aufgerufen wird, erstellt WebGL eine Liste aktiver Uniforms. Dies sind mögliche Werte des `name`-Attributs von Rückgabewerten von `getActiveUniform`. WebGL generiert je nach deklariertem Typ der Uniform im Shader einen oder mehrere Einträge in der Liste:
 
-- Einzelner Basistyp: Ein Eintrag mit dem Namen der Uniform. Z. B. `uniform vec4 a;` wird zu `a`.
-- Array von Basistyp: Ein Eintrag mit dem Namen der Uniform, gefolgt von `[0]`. Z. B. `uniform vec4 b[];` wird zu `b[0]`.
-- Strukt-Typ: Ein Eintrag für jedes Mitglied der Struktur. Z. B. `uniform struct { float foo; vec4 bar; } c;` wird zu `c.foo` und `c.bar`.
-- Arrays von Strukturen oder Arrays: Jeder Eintrag des Arrays generiert eigene Einträge. Z. B. `uniform struct { float foo; vec4 bar; } d[2];` wird zu:
+- Einzelner Basistyp: ein Eintrag mit dem Namen der Uniform. Z.B. `uniform vec4 a;` wird zu `a`.
+- Array von Basistypen: ein Eintrag mit dem Namen der Uniform, der mit `[0]` suffigiert wird. Z.B. `uniform vec4 b[];` wird zu `b[0]`.
+- Strukturtip: ein Eintrag für jedes Mitglied der Struktur. Z.B. `uniform struct { float foo; vec4 bar; } c;` wird zu `c.foo` und `c.bar`.
+- Arrays von Strukturen oder Arrays: jeder Eintrag des Arrays erzeugt eigene Einträge. Z.B. `uniform struct { float foo; vec4 bar; } d[2];` wird zu:
 
   - `d[0].foo`
   - `d[0].bar`
   - `d[1].foo`
   - `d[1].bar`
 
-- Uniform-Blöcke: Ein Eintrag für jedes Mitglied. Falls der Uniform-Block einen Instanzennamen hat, wird der Blockname vorangestellt. Z. B. `uniform Block { float foo; };` wird zu `foo`, und `uniform Block { float bar; } e;` wird zu `e.bar`.
+- Uniform-Blöcke: ein Eintrag für jedes Mitglied. Wenn der Uniform-Block einen Instanznamen hat, wird der Blockname vorangestellt. Z.B. `uniform Block { float foo; };` wird zu `foo`, und `uniform Block { float bar; } e;` wird zu `e.bar`.
 
-Das `size`-Attribut des Rückgabewerts entspricht der Länge des Arrays für Uniforms, die als Arrays deklariert sind. Andernfalls ist es 1 (dies schließt Interface-Blöcke ein, die mit Arrays instanziiert sind).
+Das `size`-Attribut des Rückgabewertes entspricht der Länge des Arrays für als Arrays deklarierte Uniforms. Andernfalls beträgt es 1 (dies schließt instanzierte Blöcke mit Arrays ein).
 
 ### Ausnahmen
 
-- `gl.INVALID_VALUE` wird erzeugt, wenn das Programm {{domxref("WebGLProgram")}} ungültig ist (nicht verbunden, gelöscht, etc.).
-- `gl.INVALID_VALUE` wird erzeugt, wenn der Index nicht im Bereich \[0, `gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS)` - 1] liegt.
+- `gl.INVALID_VALUE` wird generiert, wenn das Programm [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) ungültig ist (nicht verlinkt, gelöscht, etc.).
+- `gl.INVALID_VALUE` wird generiert, wenn der Index nicht im Bereich \[0, `gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS)` - 1] liegt.
 
 ## Beispiele
 
@@ -107,11 +107,11 @@ for (let i = 0; i < numUniforms; ++i) {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLActiveInfo")}}
-- {{domxref("WebGLRenderingContext.getUniformLocation()")}}
+- [`WebGLActiveInfo`](/de/docs/Web/API/WebGLActiveInfo)
+- [`WebGLRenderingContext.getUniformLocation()`](/de/docs/Web/API/WebGLRenderingContext/getUniformLocation)

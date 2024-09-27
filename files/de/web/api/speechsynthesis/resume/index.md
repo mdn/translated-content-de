@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`resume()`**-Methode der {{domxref("SpeechSynthesis")}}-Schnittstelle versetzt das `SpeechSynthesis`-Objekt in einen nicht pausierten Zustand: Sie setzt es fort, wenn es bereits pausiert war.
+Die **`resume()`**-Methode der [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Schnittstelle versetzt das `SpeechSynthesis`-Objekt in einen nicht pausierten Zustand: Sie setzt es fort, wenn es bereits pausiert war.
 
 ## Syntax
 

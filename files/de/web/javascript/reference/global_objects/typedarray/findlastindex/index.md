@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`findLastIndex()`**-Methode von {{jsxref("TypedArray")}}-Instanzen iteriert das typisierte Array in umgekehrter Reihenfolge und gibt den Index des ersten Elements zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Element die Testfunktion erfüllt, wird -1 zurückgegeben. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.findLastIndex()")}}.
+Die **`findLastIndex()`**-Methode von {{jsxref("TypedArray")}} Instanzen durchläuft das typisierte Array in umgekehrter Reihenfolge und gibt den Index des ersten Elements zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Element die Testfunktion erfüllt, wird -1 zurückgegeben. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.findLastIndex()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-findlastindex.html")}}
 
@@ -21,30 +21,29 @@ findLastIndex(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgeben, um anzuzeigen, dass ein passendes Element gefunden wurde, und einen [falsy](/de/docs/Glossary/Falsy) Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und einen [falsy](/de/docs/Glossary/Falsy) Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
     - `index`
       - : Der Index des aktuellen Elements, das im typisierten Array verarbeitet wird.
     - `array`
-      - : Das typisierte Array, auf das `findLastIndex()` angewendet wurde.
+      - : Das typisierte Array, auf dem `findLastIndex()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
   - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-Der Index des letzten (höchstindexierten) Elements im typisierten Array, das den Test besteht.
-Andernfalls `-1`, wenn kein passendes Element gefunden wird.
+Der Index des letzten (höchstindexierten) Elements im typisierten Array, das den Test besteht. Andernfalls `-1`, wenn kein übereinstimmendes Element gefunden wird.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.findLastIndex()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.findLastIndex()")}}. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
 ### Den Index der letzten Primzahl in einem typisierten Array finden
 
-Das folgende Beispiel gibt den Index des letzten Elements im typisierten Array zurück, das eine Primzahl ist, oder `-1`, wenn es keine Primzahl gibt.
+Im folgenden Beispiel wird der Index des letzten Elements im typisierten Array zurückgegeben, das eine Primzahl ist, oder `-1`, wenn keine Primzahl vorhanden ist.
 
 ```js
 function isPrime(element) {

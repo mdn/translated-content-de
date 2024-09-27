@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`EXT_disjoint_timer_query.beginQueryEXT()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) startet eine Zeitmessungsanfrage.
+Die **`EXT_disjoint_timer_query.beginQueryEXT()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) startet eine Zeitmessungsanfrage.
 
 ## Syntax
 
@@ -19,10 +19,9 @@ beginQueryEXT(target, query)
 ### Parameter
 
 - `target`
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der das Ziel der Zeitmessungsanfrage angibt. Muss
-    `ext.TIME_ELAPSED_EXT` sein.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel der Zeitmessungsanfrage angibt. Muss `ext.TIME_ELAPSED_EXT` sein.
 - `query`
-  - : Ein {{domxref("WebGLQuery")}}-Objekt, für das die Zeitmessung gestartet wird.
+  - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery) Objekt, für das die Zeitmessung gestartet werden soll.
 
 ### Rückgabewert
 
@@ -48,6 +47,6 @@ ext.beginQueryEXT(ext.TIME_ELAPSED_EXT, query);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLQuery")}}
-- {{domxref("EXT_disjoint_timer_query")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)
+- [`EXT_disjoint_timer_query`](/de/docs/Web/API/EXT_disjoint_timer_query)

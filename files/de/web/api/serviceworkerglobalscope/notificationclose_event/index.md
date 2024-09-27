@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`notificationclose`**-Ereignis des {{domxref("ServiceWorkerGlobalScope")}}-Interfaces wird ausgelöst, wenn ein Benutzer eine angezeigte Benachrichtigung schließt, die durch {{domxref("ServiceWorkerRegistration.showNotification()")}} erzeugt wurde.
+Das **`notificationclose`**-Ereignis der [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope)-Schnittstelle wird ausgelöst, wenn ein Nutzer eine angezeigte Benachrichtigung schließt, die durch [`ServiceWorkerRegistration.showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification) erzeugt wurde.
 
-Benachrichtigungen, die im Haupt-Thread oder in Workern erstellt werden, die keine Service Worker sind und den {{domxref("Notification.Notification","Notification()")}}-Konstruktor verwenden, erhalten stattdessen ein {{domxref("Notification/close_event", "close")}}-Ereignis auf dem {{domxref("Notification")}}-Objekt selbst.
+Benachrichtigungen, die im Hauptthread oder in Workern, die keine Service-Worker sind, mit dem [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktor erzeugt werden, erhalten stattdessen ein [`close`](/de/docs/Web/API/Notification/close_event)-Ereignis auf dem [`Notification`](/de/docs/Web/API/Notification)-Objekt selbst.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbrechbar und löst keine Ereigniskette (bubbling) aus.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("notificationclose", (event) => {});
@@ -26,25 +26,25 @@ onnotificationclose = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("NotificationEvent")}}. Erbt von {{domxref("ExtendableEvent")}} und {{domxref("Event")}}.
+Ein [`NotificationEvent`](/de/docs/Web/API/NotificationEvent). Erbt von [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("NotificationEvent")}}
 
 ## Ereigniseigenschaften
 
-_Erbt Eigenschaften von seinem Vorgänger, {{domxref("ExtendableEvent")}} und {{domxref("Event")}}_.
+_Erbt Eigenschaften von seinen Vorfahren, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) und [`Event`](/de/docs/Web/API/Event)_.
 
-- {{domxref("NotificationEvent.notification")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("Notification")}}-Objekt zurück, das die Benachrichtigung repräsentiert, die geklickt wurde, um das Ereignis auszulösen.
-- {{domxref("NotificationEvent.action")}} {{ReadOnlyInline}}
-  - : Gibt die String-ID des Benachrichtigungsknopfes zurück, den der Benutzer geklickt hat. Dieser Wert gibt eine leere Zeichenkette zurück, wenn der Benutzer die Benachrichtigung an einer anderen Stelle als einem Aktionsknopf angeklickt hat oder die Benachrichtigung keinen Knopf hat.
+- [`NotificationEvent.notification`](/de/docs/Web/API/NotificationEvent/notification) {{ReadOnlyInline}}
+  - : Gibt ein [`Notification`](/de/docs/Web/API/Notification)-Objekt zurück, das die Benachrichtigung darstellt, die angeklickt wurde, um das Ereignis auszulösen.
+- [`NotificationEvent.action`](/de/docs/Web/API/NotificationEvent/action) {{ReadOnlyInline}}
+  - : Gibt die Zeichenfolgen-ID des Benachrichtigungsbuttons zurück, den der Nutzer angeklickt hat. Dieser Wert gibt einen leeren String zurück, wenn der Nutzer die Benachrichtigung an einer anderen Stelle als einem Aktionsbutton angeklickt hat oder die Benachrichtigung keinen Button hat.
 
 ## Beispiel
 
 ```js
-// Innerhalb eines Service Workers.
+// Inside a service worker.
 self.onnotificationclose = (event) => {
-  console.log("Bei Schließen der Benachrichtigung: ", event.notification.tag);
+  console.log("On notification close: ", event.notification.tag);
 };
 ```
 

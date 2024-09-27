@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getFloat64()`** Methode der {{jsxref("DataView")}} Instanzen liest 8 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als 64-Bit-Gleitkommazahl. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Grenzen abgerufen werden.
+Die **`getFloat64()`**-Methode von {{jsxref("DataView")}}-Instanzen liest 8 Bytes ab dem angegebenen Byte-Offset dieses `DataView` und interpretiert sie als eine 64-Bit-Gleitkommazahl. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können von jedem Offset innerhalb der Begrenzung abgerufen werden.
 
 {{EmbedInteractiveExample("pages/js/dataview-getfloat64.html")}}
 
@@ -21,18 +21,18 @@ getFloat64(byteOffset, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Anfang der Ansicht, von dem die Daten gelesen werden.
+  - : Der Offset in Bytes, ab dem die Daten gelesen werden.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness) Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness)-Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 
-Jeder Zahlenwert.
+Beliebiger Zahlenwert.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass über das Ende der Ansicht hinaus gelesen würde.
+  - : Wird ausgelöst, wenn `byteOffset` so gesetzt ist, dass darüber hinaus gelesen würde.
 
 ## Beispiele
 
@@ -54,7 +54,7 @@ console.log(dataview.getFloat64(1)); // 8.20788039913184e-304
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- [JavaScript Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("DataView")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("Float64Array")}}

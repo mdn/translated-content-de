@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`has()`**-Methode des {{domxref("RTCStatsReport")}}-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob ein Bericht ein Statistik-Wörterbuch mit der angegebenen ID enthält.
+Die **`has()`**-Methode des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Interfaces gibt einen Boolean-Wert zurück, der angibt, ob ein Bericht ein Statistik-Wörterbuch mit der angegebenen ID enthält.
 
-Die Methode ist ansonsten identisch mit {{jsxref("Map.prototype.has()")}}.
+Die Methode entspricht ansonsten der {{jsxref("Map.prototype.has()")}}.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ has(id)
 ### Parameter
 
 - `id`
-  - : Ein String, der die ID eines Statistikobjekts enthält, das möglicherweise in diesem `RTCStatsReport` vorhanden ist.
+  - : Ein String, der die ID eines Statistik-Objekts enthält, das möglicherweise in diesem `RTCStatsReport` vorhanden ist.
 
 ### Rückgabewert
 
-`true`, wenn ein Element mit der angegebenen `id` im `RTCStatsReport`-Objekt existiert; sonst `false`.
+`true`, wenn ein Element mit der angegebenen `id` im `RTCStatsReport`-Objekt existiert; andernfalls `false`.
 
 ## Spezifikationen
 

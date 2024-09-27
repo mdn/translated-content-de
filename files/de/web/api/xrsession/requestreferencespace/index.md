@@ -1,5 +1,5 @@
 ---
-title: "XRSession: requestReferenceSpace() Methode"
+title: "XRSession: requestReferenceSpace()-Methode"
 short-title: requestReferenceSpace()
 slug: Web/API/XRSession/requestReferenceSpace
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`requestReferenceSpace()`** Methode der
-{{DOMxRef("XRSession")}} Schnittstelle gibt ein {{JSxRef("promise")}} zurück, das mit
-einer Instanz von entweder {{DOMxRef("XRReferenceSpace")}} oder
-{{DOMxRef("XRBoundedReferenceSpace")}} aufgelöst wird, je nach dem angeforderten Typ des Referenzraums.
+Die **`requestReferenceSpace()`**-Methode des
+[`XRSession`](/de/docs/Web/API/XRSession)-Interfaces gibt ein {{JSxRef("promise")}} zurück, das mit
+einer Instanz von entweder [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)
+oder [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace) aufgelöst wird, je nach dem angeforderten Typ des Referenzraums.
 
 ## Syntax
 
@@ -22,29 +22,30 @@ requestReferenceSpace(referenceSpaceType)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Referenzraums angibt, für den eine Instanz zurückgegeben werden soll.
-    Der String muss einer der unten aufgeführten Werte sein.
+  - : Ein String, der den Typ des Referenzraums spezifiziert, für den eine Instanz zurückgegeben werden soll.
+    Der String muss einer der untenstehenden Werte sein.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das mit einem {{DOMxRef("XRReferenceSpace")}} Objekt aufgelöst wird.
+Ein {{JSxRef("Promise")}}, das mit einem [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)-Objekt aufgelöst wird.
 
-Die Typen von Referenzräumen sind unten aufgeführt, mit kurzen Informationen über ihre Anwendungsfälle und welche Schnittstelle zu deren Implementierung verwendet wird.
+Die Arten von Referenzräumen sind unten aufgeführt, mit kurzen Informationen über ihre Anwendungsfälle und welches Interface verwendet wird, um sie zu implementieren.
 
 - `bounded-floor`
-  - : Ein {{domxref("XRBoundedReferenceSpace")}}, ähnlich dem `local` Typ, außer dass der Benutzer nicht erwarten sollte, sich außerhalb einer vorbestimmten Grenze zu bewegen, die durch die {{domxref("XRBoundedReferenceSpace.boundsGeometry", "boundsGeometry")}} im zurückgegebenen Objekt angegeben wird.
+  - : Ein [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace) ähnlich dem `local`-Typ, außer dass der Benutzer nicht erwartet wird, sich außerhalb einer vorbestimmten Grenze zu bewegen, gegeben durch die [`boundsGeometry`](/de/docs/Web/API/XRBoundedReferenceSpace/boundsGeometry) im zurückgegebenen Objekt.
 - `local`
-  - : Ein {{domxref("XRReferenceSpace")}} Verfolgungsraum, dessen natürlicher Ursprung sich in der Nähe der Position des Betrachters zum Zeitpunkt der Erstellung der Sitzung befindet. Die genaue Position hängt von der zugrunde liegenden Plattform und Implementierung ab. Es wird nicht erwartet, dass der Benutzer sich viel über seine Ausgangsposition hinaus bewegt, und das Tracking ist für diesen Anwendungsfall optimiert. Bei Geräten mit sechs Freiheitsgraden (6DoF) versucht der `local` Referenzraum, den Ursprung stabil relativ zur Umgebung zu halten.
+  - : Ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)-Tracking-Raum, dessen nativer Ursprung sich in der Nähe der Ansicht des Nutzers bei der Erstellung der Sitzung befindet. Die genaue Position hängt von der zugrunde liegenden Plattform und Implementierung ab. Der Benutzer sollte sich von seinem Ausgangspunkt aus nicht wesentlich bewegen, und das Tracking ist für diesen Anwendungsfall optimiert. Für Geräte mit sechs Freiheitsgraden (6DoF)-Tracking versucht der `local`-Referenzraum, den Ursprung stabil in Bezug auf die Umgebung zu halten.
 - `local-floor`
-  - : Ein {{domxref("XRReferenceSpace")}}, ähnlich dem `local` Typ, außer dass die Ausgangsposition an einem sicheren Ort für den Betrachter zum Stehen platziert wird, wo der Wert der y-Achse auf Bodenniveau 0 beträgt. Wenn dieses Bodenniveau nicht bekannt ist, wird der {{Glossary("user agent")}} das Bodenniveau schätzen. Wenn das geschätzte Bodenniveau ungleich null ist, wird erwartet, dass der Browser es auf eine Weise rundet, die [Fingerprinting](/de/docs/Glossary/Fingerprinting) vermeidet (wahrscheinlich auf den nächsten Zentimeter).
+  - : Ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) ähnlich dem `local`-Typ, außer dass die Ausgangsposition an einem sicheren Ort für den Betrachter platziert ist, wobei der y-Achsen-Wert auf Bodenniveau bei 0 liegt. Wenn dieses Bodenniveau nicht bekannt ist, wird der [User-Agent](/de/docs/Glossary/user_agent) das Bodenniveau schätzen. Wenn das geschätzte Bodenniveau ungleich Null ist, wird erwartet, dass der Browser es so rundet, dass Fingerprinting vermieden wird (wahrscheinlich auf den nächsten Zentimeter).
 - `unbounded`
-  - : Ein {{domxref("XRReferenceSpace")}} Verfolgungsraum, der dem Benutzer völlige Bewegungsfreiheit ermöglicht, möglicherweise über extrem lange Distanzen von seinem Ursprungspunkt. Der Betrachter wird überhaupt nicht verfolgt; das Tracking ist für Stabilität um die aktuelle Position des Benutzers optimiert, sodass der natürliche Ursprung je nach Bedarf driften kann, um diesem Bedarf gerecht zu werden.
+  - : Ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)-Tracking-Raum, der dem Benutzer völlige Bewegungsfreiheit ermöglicht, möglicherweise über extrem lange Distanzen von ihrem Ursprungsort. Der Betrachter wird überhaupt nicht verfolgt; das Tracking ist auf die Stabilität um die aktuelle Position des Benutzers optimiert, sodass der native Ursprung sich möglicherweise nach Bedarf verschieben kann, um diesem Bedarf gerecht zu werden.
 - `viewer`
-  - : Ein {{domxref("XRReferenceSpace")}} Verfolgungsraum, dessen natürlicher Ursprung die Position und Orientierung des Betrachters verfolgt. Dies wird für Umgebungen verwendet, in denen der Benutzer sich physisch bewegen kann, und wird von allen Instanzen von {{domxref("XRSession")}}, sowohl immersiven als auch Inline-Sitzungen, unterstützt, obwohl es für Inline-Sitzungen am nützlichsten ist. Es ist besonders nützlich, wenn der Abstand zwischen dem Betrachter und einer Eingabe bestimmt wird oder wenn mit Offseträumen gearbeitet wird. Ansonsten wird in der Regel einer der anderen Referenzraumtypen häufiger verwendet.
+  - : Ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)-Tracking-Raum, dessen nativer Ursprung die Position und Orientierung des Betrachters verfolgt. Dies wird für Umgebungen verwendet, in denen der Benutzer sich physisch bewegen kann und wird von allen Instanzen von [`XRSession`](/de/docs/Web/API/XRSession) unterstützt, sowohl immersiv als auch inline, obwohl es für inline-Sitzungen am nützlichsten ist. Es ist besonders nützlich, um die Entfernung zwischen dem Betrachter und einer Eingabe zu bestimmen oder beim Arbeiten mit Offset-Räumen. Ansonsten wird typischerweise eine der anderen Arten von Referenzräumen häufiger verwendet.
 
 ### Ausnahmen
 
-Statt echte Ausnahmen zu werfen, lehnt `requestReferenceSpace()` das zurückgegebene Promise mit einem {{domxref("DOMException")}} ab, dessen Name in der Liste unten zu finden ist:
+Anstatt echte Ausnahmen zu werfen, lehnt `requestReferenceSpace()` das
+zurückgegebene Promise mit einem [`DOMException`](/de/docs/Web/API/DOMException) ab, dessen Name in der untenstehenden Liste zu finden ist:
 
 - `NotSupportedError`
   - : Der angeforderte Referenzraum wird nicht unterstützt.

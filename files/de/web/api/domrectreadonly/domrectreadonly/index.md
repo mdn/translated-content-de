@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Der **`DOMRectReadOnly()`** Konstruktor erstellt ein neues {{domxref("DOMRectReadOnly")}}-Objekt.
+Der **`DOMRectReadOnly()`** Konstruktor erstellt ein neues [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) Objekt.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ new DOMRectReadOnly(x, y, width, height)
 ### Parameter
 
 - `x`
-  - : Die `x` Koordinate des Ursprungs des `DOMRectReadOnly`.
+  - : Die `x` Koordinate des Ursprungs von `DOMRectReadOnly`.
 - `y`
-  - : Die `y` Koordinate des Ursprungs des `DOMRectReadOnly`.
+  - : Die `y` Koordinate des Ursprungs von `DOMRectReadOnly`.
 - `width`
   - : Die Breite des `DOMRectReadOnly`.
 - `height`
@@ -29,11 +29,11 @@ new DOMRectReadOnly(x, y, width, height)
 
 ## Beispiele
 
-Um ein neues `DOMRectReadOnly` zu erstellen, könnten Sie eine Codezeile wie folgt ausführen:
+Um ein neues `DOMRectReadOnly` zu erstellen, könnten Sie eine Zeile Code wie folgt ausführen:
 
 ```js
 const myDOMRect = new DOMRectReadOnly(0, 0, 100, 100);
-// 'myDOMRect' im Konsolenfenster ausführen würde dann zurückgeben
+// running 'myDOMRect' in the console would then return
 // DOMRectReadOnly { x: 0, y: 0, width: 100, height: 100, top: 0, right: 100, bottom: 100, left: 0 }
 ```
 
@@ -47,5 +47,5 @@ const myDOMRect = new DOMRectReadOnly(0, 0, 100, 100);
 
 ## Siehe auch
 
-- {{domxref("DOMPoint")}}
-- {{domxref("DOMRect")}}
+- [`DOMPoint`](/de/docs/Web/API/DOMPoint)
+- [`DOMRect`](/de/docs/Web/API/DOMRect)

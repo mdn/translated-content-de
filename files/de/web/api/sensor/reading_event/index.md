@@ -1,6 +1,6 @@
 ---
-title: "Sensor: Leseereignis"
-short-title: Lesevorgang
+title: "Sensor: reading Event"
+short-title: reading
 slug: Web/API/Sensor/reading_event
 l10n:
   sourceCommit: 4ea748e5f025c2a00a8ca8babd7c505e73ad9def
@@ -10,11 +10,11 @@ l10n:
 
 Das **`reading`**-Ereignis wird ausgelöst, wenn eine neue Messung auf einem Sensor verfügbar ist.
 
-Das {{domxref('Sensor')}}-Interface ist eine Basisklasse, `onreading` und das `reading`-Ereignis können nur in einer der [abgeleiteten Klassen](/de/docs/Web/API/Sensor#interfaces_based_on_sensor) verwendet werden.
+Das [`Sensor`](/de/docs/Web/API/Sensor)-Interface ist eine Basisklasse, `onreading` und das `reading`-Ereignis können nur auf einer der [abgeleiteten Klassen](/de/docs/Web/API/Sensor#interfaces_based_on_sensor) verwendet werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("reading", (event) => {});
@@ -24,13 +24,13 @@ onreading = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}} ohne zusätzliche Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beispiele
 
-### Beschleunigung lesen
+### Lesen der Beschleunigung
 
-Dieses Beispiel fügt einen Ereignislistener hinzu, um die Beschleunigungswerte eines {{domxref("Accelerometer")}} zu lesen. Es liest sechzig Mal pro Sekunde.
+Dieses Beispiel fügt einen Event-Listener hinzu, um Beschleunigungswerte eines [`Accelerometer`](/de/docs/Web/API/Accelerometer) auszulesen. Es liest sechzig Mal pro Sekunde.
 
 ```js
 const acl = new Accelerometer({ frequency: 60 });
@@ -52,5 +52,5 @@ acl.start();
 
 ## Siehe auch
 
-- Sensor {{domxref('Sensor.activate_event', 'activate')}}-Ereignis
-- Sensor {{domxref('Sensor.error_event', 'error')}}-Ereignis
+- Sensor [`activate`](/de/docs/Web/API/Sensor/activate_event) Ereignis
+- Sensor [`error`](/de/docs/Web/API/Sensor/error_event) Ereignis

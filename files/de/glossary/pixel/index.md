@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein Pixel ist der kleinste Baustein einer grafischen Anzeige wie einem Computerbildschirm.
+Ein Pixel ist der kleinste Baustein einer grafischen Anzeige wie eines Computerbildschirms.
 
-Die Auflösung eines Displays wird in der Einheit Pixel ausgedrückt. Zum Beispiel bedeutet eine "800 x 600" Pixelauflösung, dass 800 Pixel in der Breite und 600 Pixel in der Höhe dargestellt werden können.
+Die Bildschirmauflösung wird in der Einheit Pixel ausgedrückt. Zum Beispiel bedeutet eine "800 x 600" Pixel-Auflösung, dass 800 Pixel in der Breite und 600 Pixel in der Höhe angezeigt werden können.
 
 ## Siehe auch
 

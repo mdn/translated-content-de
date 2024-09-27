@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Entfernt Regeln, die bei einem deklarativen Ereignis mithilfe von {{WebExtAPIRef("events.Event.addRules()")}} registriert wurden.
+Entfernt Regeln, die bei einem deklarativen Ereignis mit {{WebExtAPIRef("events.Event.addRules()")}} registriert wurden.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ events.Event.removeRules(ruleIdentifiers, callback)
 
 - `ruleIdentifiers` {{optional_inline}}
 
-  - : `array` von `string`. Identifikatoren für die zu entfernenden Regeln. Wenn kein Array übergeben wird, werden alle Regeln entfernt.
+  - : `array` von `string`. Bezeichner für die zu entfernenden Regeln. Wenn kein Array übergeben wird, werden alle Regeln entfernt.
 
 - `callback` {{optional_inline}}
 
-  - : `function`. Wird aufgerufen, ohne Argumente zu übergeben, wenn die Regeln entfernt wurden.
+  - : `function`. Wird ohne Argumente aufgerufen, wenn die Regeln entfernt sind.
 
 ## Browser-Kompatibilität
 

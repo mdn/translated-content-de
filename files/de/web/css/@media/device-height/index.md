@@ -8,13 +8,13 @@ l10n:
 {{CSSRef}} {{deprecated_header}}
 
 > [!NOTE]
-> Entwickler sollten anstelle von `device-height` die [`height`](/de/docs/Web/CSS/@media/height) Media-Feature verwenden, um die Höhe des Viewports abzufragen.
+> Um die Höhe des Viewports abzufragen, sollten Entwickler stattdessen die [`height`](/de/docs/Web/CSS/@media/height) Media-Feature verwenden.
 
-Das **`device-height`** [CSS](/de/docs/Web/CSS) [Medienfeature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Höhe der Renderingfläche eines Ausgabegeräts zu testen.
+Das **`device-height`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Höhe der Ausgabegeräte-Renderingfläche zu testen.
 
 ## Syntax
 
-Das `device-height` Feature wird als ein {{cssxref("&lt;length&gt;")}} Wert angegeben. Es ist ein Bereichsfeature, was bedeutet, dass Sie auch die Präfixvarianten **`min-device-height`** und **`max-device-height`** verwenden können, um minimale bzw. maximale Werte abzufragen.
+Das `device-height` Feature wird als ein {{cssxref("&lt;length&gt;")}} Wert angegeben. Es ist ein Bereichs-Feature, was bedeutet, dass Sie auch die präfixierten Varianten **`min-device-height`** und **`max-device-height`** verwenden können, um Mindest- bzw. Höchstwerte abzufragen.
 
 ## Beispiele
 

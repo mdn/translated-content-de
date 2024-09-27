@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Feature Policy API")}}{{SeeCompatTable}}
 
-Die **`featurePolicy`** schreibgeschützte Eigenschaft des {{DOMxRef("HTMLIFrameElement")}}-Interfaces gibt das {{DOMxRef("FeaturePolicy")}}-Interface zurück, das eine einfache API zum Prüfen der auf einen bestimmten Frame angewendeten [Permissions Policies](/de/docs/Web/HTTP/Permissions_Policy) bereitstellt.
+Die **`featurePolicy`** schreibgeschützte Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Interfaces gibt das [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Interface zurück, das eine einfache API zum Überprüfen der [Permissions Policies](/de/docs/Web/HTTP/Permissions_Policy) bietet, die auf einen bestimmten Frame angewendet werden.
 
 ## Wert
 
-Ein [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Objekt, das verwendet werden kann, um die auf den Frame angewendeten Einstellungen der Permissions Policy zu überprüfen.
+Ein [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Objekt, das verwendet werden kann, um die Einstellungen der Permissions Policy zu prüfen, die auf den Frame angewendet werden.
 
 ## Spezifikationen
 

@@ -8,76 +8,72 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`cache`**-Schreibgeschützte Eigenschaft der {{domxref("Request")}}-Schnittstelle enthält den Cache-Modus der Anfrage. Sie steuert, wie die Anfrage mit dem [HTTP-Cache](/de/docs/Web/HTTP/Caching) des Browsers interagiert.
+Die schreibgeschützte **`cache`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält den Cache-Modus der Anfrage. Sie steuert, wie die Anfrage mit dem [HTTP-Cache](/de/docs/Web/HTTP/Caching) des Browsers interagiert.
 
 ## Wert
 
 Ein `RequestCache`-Wert. Die verfügbaren Werte sind:
 
-- `default` — Der Browser sucht in seinem HTTP-Cache nach einer übereinstimmenden Anfrage.
+- `default` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache.
 
-  - Wenn eine Übereinstimmung vorliegt und diese [aktuell](/de/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) ist, wird sie aus dem Cache zurückgegeben.
-  - Wenn eine Übereinstimmung vorliegt, diese aber [veraltet](/de/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) ist, wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Conditional_requests) an den entfernten Server stellen. Wenn der Server angibt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache aktualisiert.
-  - Wenn keine Übereinstimmung vorliegt, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
+  - Wenn es eine Übereinstimmung gibt und diese [frisch](/de/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) ist, wird sie aus dem Cache zurückgegeben.
+  - Wenn es eine Übereinstimmung gibt, die jedoch [abgelaufen](/de/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) ist, wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Conditional_requests) an den entfernten Server stellen. Wenn der Server anzeigt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache aktualisiert.
+  - Wenn es keine Übereinstimmung gibt, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
 
-- `no-store` — Der Browser ruft die Ressource vom entfernten Server ab, ohne zuerst im Cache zu suchen, und wird den Cache _nicht_ mit der heruntergeladenen Ressource aktualisieren.
-- `reload` — Der Browser ruft die Ressource vom entfernten Server ab, ohne zuerst im Cache zu suchen, _aber wird_ den Cache mit der heruntergeladenen Ressource aktualisieren.
-- `no-cache` — Der Browser sucht in seinem HTTP-Cache nach einer übereinstimmenden Anfrage.
+- `no-store` — Der Browser ruft die Ressource vom entfernten Server ab, ohne zuerst im Cache nachzusehen, _und wird_ den Cache nicht mit der heruntergeladenen Ressource aktualisieren.
+- `reload` — Der Browser ruft die Ressource vom entfernten Server ab, ohne zuerst im Cache nachzusehen, _aber wird_ den Cache dann mit der heruntergeladenen Ressource aktualisieren.
+- `no-cache` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache.
 
-  - Wenn eine Übereinstimmung vorliegt, _aktuell oder veraltet_, wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Conditional_requests) an den entfernten Server stellen. Wenn der Server angibt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache aktualisiert.
-  - Wenn keine Übereinstimmung vorliegt, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
+  - Wenn es eine Übereinstimmung gibt, _frisch oder abgelaufen,_ wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Conditional_requests) an den entfernten Server stellen. Wenn der Server anzeigt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache aktualisiert.
+  - Wenn es keine Übereinstimmung gibt, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
 
-- `force-cache` — Der Browser sucht in seinem HTTP-Cache nach einer übereinstimmenden Anfrage.
+- `force-cache` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache.
 
-  - Wenn eine Übereinstimmung vorliegt, _aktuell oder veraltet_, wird sie aus dem Cache zurückgegeben.
-  - Wenn keine Übereinstimmung vorliegt, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
+  - Wenn es eine Übereinstimmung gibt, _frisch oder abgelaufen_, wird sie aus dem Cache zurückgegeben.
+  - Wenn es keine Übereinstimmung gibt, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
 
-- `only-if-cached` — Der Browser sucht in seinem HTTP-Cache nach einer übereinstimmenden Anfrage. {{experimental_inline}}
+- `only-if-cached` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache. {{experimental_inline}}
 
-  - Wenn eine Übereinstimmung vorliegt, _aktuell oder veraltet_, wird sie aus dem Cache zurückgegeben.
-  - Wenn keine Übereinstimmung vorliegt, wird der Browser mit einem [504 Gateway Timeout](/de/docs/Web/HTTP/Status/504)-Status antworten.
+  - Wenn es eine Übereinstimmung gibt, _frisch oder abgelaufen_, wird sie aus dem Cache zurückgegeben.
+  - Wenn es keine Übereinstimmung gibt, reagiert der Browser mit einem [504 Gateway timeout](/de/docs/Web/HTTP/Status/504)-Status.
 
-  Der `"only-if-cached"`-Modus kann nur verwendet werden, wenn der [`mode`](/de/docs/Web/API/Request/mode) der Anfrage `"same-origin"` ist. Zwischengespeicherte Weiterleitungen werden befolgt, wenn die `redirect`-Eigenschaft der Anfrage `"follow"` ist und die Weiterleitungen den `"same-origin"`-Modus nicht verletzen.
+  Der `"only-if-cached"`-Modus kann nur verwendet werden, wenn der `mode` der Anfrage `"same-origin"` ist. Zwischengespeicherte Umleitungen werden gefolgt, wenn die `redirect`-Eigenschaft der Anfrage auf `"follow"` steht und die Umleitungen den `"same-origin"`-Modus nicht verletzen.
 
 ## Beispiele
 
 ```js
-// Laden einer Ressource mit Cache-Busting, um den Cache
-// vollständig zu umgehen.
+// Download a resource with cache busting, to bypass the cache
+// completely.
 fetch("some.json", { cache: "no-store" }).then((response) => {
-  /* Verarbeite die Antwort */
+  /* consume the response */
 });
 
-// Laden einer Ressource mit Cache-Busting, aber Aktualisierung des HTTP-
-// Caches mit der heruntergeladenen Ressource.
+// Download a resource with cache busting, but update the HTTP
+// cache with the downloaded resource.
 fetch("some.json", { cache: "reload" }).then((response) => {
-  /* Verarbeite die Antwort */
+  /* consume the response */
 });
 
-// Laden einer Ressource mit Cache-Busting, wenn man mit einem
-// korrekt konfigurierten Server arbeitet, der die richtigen ETag-
-// und Date-Header sendet und die If-Modified-Since- und
-// If-None-Match-Request-Header korrekt behandelt, sodass wir uns
-// auf die Validierung verlassen können, um eine frische Antwort
-// zu garantieren.
+// Download a resource with cache busting when dealing with a
+// properly configured server that will send the correct ETag
+// and Date headers and properly handle If-Modified-Since and
+// If-None-Match request headers, therefore we can rely on the
+// validation to guarantee a fresh response.
 fetch("some.json", { cache: "no-cache" }).then((response) => {
-  /* Verarbeite die Antwort */
+  /* consume the response */
 });
 
-// Laden einer Ressource mit Rücksicht auf ökonomische Aspekte!
-// Bevorzugen Sie eine zwischengespeicherte, wenn auch veraltete
-// Antwort, um möglichst viel Bandbreite zu sparen.
+// Download a resource with economics in mind! Prefer a cached
+// albeit stale response to conserve as much bandwidth as possible.
 fetch("some.json", { cache: "force-cache" }).then((response) => {
-  /* Verarbeite die Antwort */
+  /* consume the response */
 });
 
-// Naive Implementierung eines Stale-While-Revalidate-Clients auf
-// der Anwendungsebene. Bevorzugen Sie eine zwischengespeicherte,
-// wenn auch veraltete Antwort; aktualisieren Sie aber, wenn sie zu
-// alt ist. AbortController und Signal zur besseren Speicherbereinigung.
-// In Wirklichkeit wäre dies eine Funktion, die einen Pfad und einen
-// Verweis auf den Controller übernimmt, da der Wert geändert werden
-// muss.
+// Naive stale-while-revalidate client-level implementation.
+// Prefer a cached albeit stale response; but update if it's too old.
+// AbortController and signal to allow better memory cleaning.
+// In reality; this would be a function that takes a path and a
+// reference to the controller since it would need to change the value
 let controller = new AbortController();
 fetch("some.json", {
   cache: "only-if-cached",
@@ -86,7 +82,7 @@ fetch("some.json", {
 })
   .catch((e) =>
     e instanceof TypeError && e.message === "Failed to fetch"
-      ? { status: 504 } // Workaround für Chrome, das mit einem TypeError fehlschlägt
+      ? { status: 504 } // Workaround for chrome; which fails with a TypeError
       : Promise.reject(e),
   )
   .then((res) => {
@@ -102,7 +98,7 @@ fetch("some.json", {
     const date = res.headers.get("date"),
       dt = date ? new Date(date).getTime() : 0;
     if (dt < Date.now() - 86_400_000) {
-      // Wenn älter als 24 Stunden
+      // if older than 24 hours
       controller.abort();
       controller = new AbortController();
       return fetch("some.json", {
@@ -112,17 +108,17 @@ fetch("some.json", {
       });
     }
 
-    // Andere mögliche Bedingungen
+    // Other possible conditions
     if (dt < Date.now() - 300_000)
-      // Wenn älter als 5 Minuten
-      fetch("some.json", { cache: "no-cache", mode: "same-origin" }); // keine Stornierung oder Rückgabewert.
+      // If it's older than 5 minutes
+      fetch("some.json", { cache: "no-cache", mode: "same-origin" }); // no cancellation or return value.
     return res;
   })
   .then((response) => {
-    /* Verarbeite die (möglicherweise veraltete) Antwort */
+    /* consume the (possibly stale) response */
   })
   .catch((error) => {
-    /* Kann ein AbortError/DOMException oder ein TypeError sein */
+    /* Can be an AbortError/DOMException or a TypeError */
   });
 ```
 

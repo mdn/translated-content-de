@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`relayProtocol`**-Eigenschaft des {{domxref("RTCIceCandidateStats")}}-Dictionaries gibt das Protokoll an, das von einem lokalen {{Glossary("ICE")}}-Kandidaten zur Kommunikation mit dem {{Glossary("TURN")}}-Server verwendet wird.
+Die **`relayProtocol`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs gibt das Protokoll an, das von einem lokalen [ICE](/de/docs/Glossary/ICE)-Kandidaten genutzt wird, um mit dem [TURN](/de/docs/Glossary/TURN)-Server zu kommunizieren.
 
-Das ansonsten von dem Kandidaten verwendete ICE-Protokoll kann über die {{domxref("RTCIceCandidateStats.protocol", "protocol")}}-Eigenschaft abgerufen werden.
+Das ICE-Protokoll, das sonst von dem Kandidaten verwendet wird, kann aus der [`protocol`](/de/docs/Web/API/RTCIceCandidateStats/protocol)-Eigenschaft abgerufen werden.
 
 ## Wert
 
@@ -24,7 +24,7 @@ Ein String, der das Protokoll identifiziert, das vom Endpunkt zur Kommunikation 
   - : UDP (User Datagram Protocol) wird zur Kommunikation mit dem TURN-Server verwendet.
 
 > [!NOTE]
-> Diese Eigenschaft ist nur auf {{domxref("RTCIceCandidateStats")}}-Objekten vorhanden, die lokale Kandidaten repräsentieren.
+> Diese Eigenschaft ist nur in [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Objekten vorhanden, die lokale Kandidaten darstellen.
 
 ## Spezifikationen
 

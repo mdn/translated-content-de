@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Popover API")}}
 
-Die **`popoverTargetElement`**-Eigenschaft des {{domxref("HTMLInputElement")}}-Interfaces ruft das Popover-Element ab und setzt es, das über ein {{htmlelement("input")}}-Element vom `type="button"` gesteuert werden soll.
+Die **`popoverTargetElement`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces erhält und setzt das Popover-Element, das über ein {{htmlelement("input")}}-Element vom Typ `type="button"` gesteuert wird.
 
-Es ist das JavaScript-Äquivalent zum HTML-Attribut [`popovertarget`](/de/docs/Web/HTML/Element/button#popovertarget).
+Es ist das JavaScript-Äquivalent des [`popovertarget`](/de/docs/Web/HTML/Element/button#popovertarget) HTML-Attributs.
 
 ## Wert
 
@@ -37,13 +37,13 @@ if (popoverSupported) {
 }
 ```
 
-### Popover-Aktion mit einem automatischen Popover umschalten
+### Umschalten der Popover-Aktion mit einem automatischen Popover
 
-Dieses Beispiel zeigt die grundlegende Verwendung der Popover-API, wobei ein `<div>`-Element als Popover festgelegt wird und dann als `popoverTargetElement` eines [`<input>`](/de/docs/Web/HTML/Element/input/button) vom `type="button"` eingestellt wird.
-Das `popover`-Attribut wird auf [`"auto"`](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss) gesetzt, sodass das Popover durch Klicken außerhalb des Popover-Bereichs geschlossen ("leicht ausgeblendet") werden kann.
+Dieses Beispiel zeigt die grundlegende Verwendung der Popover-API, indem ein `<div>`-Element als Popover festgelegt wird und dieses dann als `popoverTargetElement` eines [`<input>`](/de/docs/Web/HTML/Element/input/button) vom Typ `type="button"` gesetzt wird.
+Das `popover`-Attribut ist auf [`"auto"`](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss) gesetzt, sodass das Popover geschlossen ("light-dismissed") werden kann, indem außerhalb des Popover-Bereichs geklickt wird.
 
-Zuerst definieren wir ein `<input>`, das wir zum Anzeigen und Verbergen des Popovers verwenden, und ein `<div>`, das das Popover sein wird.
-In diesem Fall setzen wir nicht das HTML-Attribut [`popovertargetaction`](/de/docs/Web/HTML/Element/button#popovertargetaction) auf dem `<input>` oder das [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut auf dem `<div>`, da wir dies programmatisch tun werden.
+Zuerst definieren wir ein `<input>`, das wir verwenden werden, um das Popover anzuzeigen und zu verbergen, und ein `<div>`, das das Popover sein wird.
+In diesem Fall setzen wir das [`popovertargetaction`](/de/docs/Web/HTML/Element/button#popovertargetaction) HTML-Attribut auf dem `<input>` oder das [`popover`](/de/docs/Web/HTML/Global_attributes/popover) Attribut auf dem `<div>` nicht, da wir dies programmatisch tun.
 
 ```html
 <input id="toggleBtn" type="button" value="Toggle popover" />
@@ -51,46 +51,46 @@ In diesem Fall setzen wir nicht das HTML-Attribut [`popovertargetaction`](/de/do
 ```
 
 Der JavaScript-Code erhält zunächst einen Zugriff auf die `<div>`- und `<input>`-Elemente.
-Dann wird eine Funktion definiert, um die Unterstützung für Popover zu überprüfen.
+Dann wird eine Funktion definiert, um die Unterstützung der Popover-Funktion zu überprüfen.
 
 ```js
 const popover = document.getElementById("mypopover");
 const toggleBtn = document.getElementById("toggleBtn");
 
-// Überprüfung der Unterstützung für die Popover-API.
+// Check for popover API support.
 function supportsPopover() {
   return HTMLElement.prototype.hasOwnProperty("popover");
 }
 ```
 
-Wenn die Popover-API unterstützt wird, setzt der Code das `popover`-Attribut des `<div>`-Elements auf `"auto"` und macht es zum Popover-Ziel des Umschalt-Buttons.
-Wir setzen dann die `popoverTargetAction` der Schaltfläche auf `"toggle"`.
-Wenn die Popover-API nicht unterstützt wird, ändern wir den Textinhalt des `<div>`-Elements, um dies anzuzeigen, und blenden das Eingabeelement aus.
+Wenn die Popover-API unterstützt wird, setzt der Code das `popover`-Attribut des `<div>`-Elements auf `"auto"` und macht es zum Popover-Ziel der Umschalttaste.
+Wir setzen dann die `popoverTargetAction` der Taste auf `"toggle"`.
+Wenn die Popover-API nicht unterstützt wird, ändern wir den Textinhalt des `<div>`-Elements, um dies anzugeben, und blenden das Eingabeelement aus.
 
 ```js
 if (supportsPopover()) {
-  // Setzt das <div>-Element als automatisches Popover
+  // Set the <div> element to be an auto popover
   popover.popover = "auto";
 
-  // Setzt das Button-Popover-Ziel auf das Popover
+  // Set the button popover target to be the popover
   toggleBtn.popoverTargetElement = popover;
 
-  // Setzt, dass die Schaltfläche die Popover-Sichtbarkeit umschaltet
+  // Set that the button toggles popover visibility
   toggleBtn.popoverTargetAction = "toggle";
 } else {
-  popover.textContent = "Popover API nicht unterstützt.";
+  popover.textContent = "Popover API not supported.";
   toggleBtn.hidden = true;
 }
 ```
 
 > [!NOTE]
-> Ein Popover-Element ist standardmäßig ausgeblendet, aber wenn die API nicht unterstützt wird, wird Ihr Element "wie gewohnt" angezeigt.
+> Ein Popover-Element ist standardmäßig versteckt, aber wenn die API nicht unterstützt wird, wird Ihr Element "wie gewohnt" angezeigt.
 
 Sie können das Beispiel unten ausprobieren.
 Zeigen und verbergen Sie das Popover, indem Sie die Schaltfläche umschalten.
-Das "automatische" Popover kann auch durch Auswahl außerhalb der Grenzen des Popover-Texts leicht ausgeblendet werden.
+Das "auto"-Popover kann auch durch Auswahl außerhalb der Grenzen des Popover-Textes leicht verworfen werden.
 
-{{EmbedLiveSample("Toggle popover action with an auto popover", "100%")}}
+{{EmbedLiveSample("Umschalten der Popover-Aktion mit einem automatischen Popover", "100%")}}
 
 ## Spezifikationen
 
@@ -102,5 +102,5 @@ Das "automatische" Popover kann auch durch Auswahl außerhalb der Grenzen des Po
 
 ## Siehe auch
 
-- [`popover`](/de/docs/Web/HTML/Global_attributes/popover) HTML-Globalattribut
-- [Popover API](/de/docs/Web/API/Popover_API)
+- [`popover`](/de/docs/Web/HTML/Global_attributes/popover) HTML-Gloabalattribut
+- [Popover-API](/de/docs/Web/API/Popover_API)

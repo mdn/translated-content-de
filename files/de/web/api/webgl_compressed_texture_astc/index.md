@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WEBGL_compressed_texture_astc`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und macht die komprimierten Texturformate der [Adaptive Scalable Texture Compression](https://en.wikipedia.org/wiki/Adaptive_Scalable_Texture_Compression) (ASTC) für WebGL zugänglich.
+Die **`WEBGL_compressed_texture_astc`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt die [Adaptive Scalable Texture Compression](https://en.wikipedia.org/wiki/Adaptive_Scalable_Texture_Compression) (ASTC) komprimierten Texturformate für WebGL zur Verfügung.
 
-Weitere Informationen finden Sie in dem Artikel [Using ASTC Texture Compression for Game Assets](https://developer.nvidia.com/astc-texture-compression-for-game-assets) von NVIDIA.
+Für mehr Informationen lesen Sie den Artikel [Using ASTC Texture Compression for Game Assets](https://developer.nvidia.com/astc-texture-compression-for-game-assets) von NVIDIA.
 
-WebGL-Erweiterungen sind über die Methode {{domxref("WebGLRenderingContext.getExtension()")}} verfügbar. Weitere Informationen finden Sie unter [Using Extensions](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind verfügbar über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension). Weitere Informationen finden Sie auch unter [Using Extensions](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
 > ASTC-Kompression ist typischerweise auf Mali ARM GPUs, Intel GPUs und NVIDIA Tegra Chips verfügbar.
@@ -21,14 +21,14 @@ WebGL-Erweiterungen sind über die Methode {{domxref("WebGLRenderingContext.getE
 
 ## Instanzmethoden
 
-Diese Erweiterung stellt eine neue Methode bereit.
+Diese Erweiterung stellt eine neue Methode zur Verfügung.
 
-- {{domxref("WEBGL_compressed_texture_astc.getSupportedProfiles", "ext.getSupportedProfiles()")}}
+- [`ext.getSupportedProfiles()`](/de/docs/Web/API/WEBGL_compressed_texture_astc/getSupportedProfiles)
   - : Gibt ein Array von Strings zurück, das die Namen der von der Implementierung unterstützten ASTC-Profile enthält.
 
 ## Konstanten
 
-Die komprimierten Texturformate werden von 28 Konstanten bereitgestellt und können in zwei Funktionen verwendet werden: {{domxref("WebGLRenderingContext.compressedTexImage2D", "compressedTexImage2D()")}} und {{domxref("WebGLRenderingContext.compressedTexSubImage2D", "compressedTexSubImage2D()")}}.
+Die komprimierten Texturformate werden durch 28 Konstanten zur Verfügung gestellt und können in zwei Funktionen verwendet werden: [`compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D) und [`compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D).
 
 <table class="no-markdown">
   <thead>
@@ -37,7 +37,7 @@ Die komprimierten Texturformate werden von 28 Konstanten bereitgestellt und kön
       <th>Blöcke</th>
       <th>Bits pro Pixel</th>
       <th>{{jsxref("ArrayBuffer")}} <code>byteLength</code></th>
-      <th>Bytes wenn Höhe und Breite 512 sind</th>
+      <th>Bytes, wenn Höhe und Breite 512 sind</th>
     </tr>
   </thead>
   <tbody>
@@ -256,7 +256,7 @@ gl.compressedTexImage2D(
 ## Siehe auch
 
 - [Using ASTC Texture Compression for Game Assets](https://developer.nvidia.com/astc-texture-compression-for-game-assets)
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLRenderingContext.compressedTexImage2D()")}}
-- {{domxref("WebGLRenderingContext.compressedTexSubImage2D()")}}
-- {{domxref("WebGLRenderingContext.getParameter()")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLRenderingContext.compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D)
+- [`WebGLRenderingContext.compressedTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexSubImage2D)
+- [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`willValidate`** schreibgeschützte Eigenschaft des {{domxref("HTMLFieldSetElement")}}-Interfaces gibt `false` zurück, da {{HTMLElement("fieldset")}}-Elemente keine Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
+Die schreibgeschützte Eigenschaft **`willValidate`** des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces gibt `false` zurück, da {{HTMLElement("fieldset")}}-Elemente keine Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
 
 ## Wert
 
@@ -24,8 +24,8 @@ Der boolesche Wert `false`.
 
 ## Siehe auch
 
-- {{domxref("HTMLFieldSetElement.checkValidity()")}}
+- [`HTMLFieldSetElement.checkValidity()`](/de/docs/Web/API/HTMLFieldSetElement/checkValidity)
 - {{HTMLElement("fieldset")}}
 - {{HTMLElement("form")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Erlernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

@@ -8,21 +8,20 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **{{domxref("AudioTrack")}}**
-Eigenschaft **`label`** gibt einen String zurück, der das für Menschen lesbare Label des Audiotracks angibt, sofern eines verfügbar ist; andernfalls wird ein leerer String zurückgegeben.
+Die schreibgeschützte **[`AudioTrack`](/de/docs/Web/API/AudioTrack)**
+Eigenschaft **`label`** liefert eine Zeichenkette zurück, die das für Menschen lesbare Label des Audiotracks angibt, falls vorhanden; andernfalls wird eine leere Zeichenkette zurückgegeben.
 
 ## Wert
 
-Ein String, der das für Menschen lesbare Label des Tracks angibt, sofern eines
-in den Track-Metadaten verfügbar ist. Andernfalls wird ein leerer String (`""`)
-zurückgegeben.
+Eine Zeichenkette, die das für Menschen lesbare Label des Tracks angibt, falls eines in den Spurmetadaten verfügbar ist. Andernfalls wird eine leere Zeichenkette (`""`) zurückgegeben.
 
-Zum Beispiel könnte ein Track, dessen {{domxref("AudioTrack.kind", "kind")}} `"commentary"` ist, ein `label` wie
+Zum Beispiel könnte ein Track, dessen [`kind`](/de/docs/Web/API/AudioTrack/kind) `"commentary"` ist,
+ein `label` wie
 `"Commentary with director Mark Markmarkimark and star Donna Donnalidon"` haben.
 
 ## Beispiele
 
-Dieses Beispiel gibt ein Array von Track-Arten und Labels für einen möglichen Einsatz in einer Benutzeroberfläche zurück, um Audiotracks für ein bestimmtes Medienelement auszuwählen. Die Liste wird gefiltert, um nur bestimmte Track-Arten zuzulassen.
+Dieses Beispiel gibt ein Array von Track-Arten und Labels zurück, das potenziell in einer Benutzeroberfläche verwendet werden kann, um Audiotracks für ein angegebenes Medien-Element auszuwählen. Die Liste wird gefiltert, um nur bestimmte Track-Arten zuzulassen.
 
 ```js
 function getTrackList(el) {
@@ -48,8 +47,8 @@ function getTrackList(el) {
 }
 ```
 
-Die resultierende `trackList` enthält ein Array von Audiotracks, deren
-`kind` eines der in dem Array `wantedKinds` ist, wobei jeder Eintrag die {{domxref("AudioTrack.id", "id")}}, {{domxref("AudioTrack.kind", "kind")}}, und das `label` des Tracks bereitstellt.
+Das resultierende `trackList` enthält ein Array von Audio-Tracks, deren
+`kind` einer der Einträge im Array `wantedKinds` ist, wobei jeder Eintrag die [`id`](/de/docs/Web/API/AudioTrack/id), [`kind`](/de/docs/Web/API/AudioTrack/kind) und `label` des Tracks bereitstellt.
 
 ## Spezifikationen
 

@@ -3,16 +3,18 @@ title: "ShadowRoot: pictureInPictureElement-Eigenschaft"
 short-title: pictureInPictureElement
 slug: Web/API/ShadowRoot/pictureInPictureElement
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: bb4d21e3c6e71db4e0ba983a450d6ed628e82670
 ---
 
-{{APIRef("Shadow DOM")}}
+{{APIRef("Picture-in-Picture API")}}
 
-Die schreibgeschützte Eigenschaft **`pictureInPictureElement`** der {{domxref("ShadowRoot")}}-Schnittstelle gibt das {{domxref("Element")}} zurück, das derzeit in diesem Shadow-Tree im Bild-in-Bild-Modus dargestellt wird, oder `null`, wenn der Bild-in-Bild-Modus derzeit nicht verwendet wird.
+Die schreibgeschützte **`pictureInPictureElement`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces gibt das [`Element`](/de/docs/Web/API/Element) zurück, das derzeit in diesem `shadow tree` im Bild-im-Bild-Modus dargestellt wird, oder `null`, wenn der Bild-im-Bild-Modus derzeit nicht verwendet wird.
 
 ## Wert
 
-Eine Referenz auf das {{domxref("Element")}}-Objekt, das sich derzeit im Bild-in-Bild-Modus befindet, oder, wenn der Bild-in-Bild-Modus vom Shadow-Tree derzeit nicht genutzt wird, der zurückgegebene Wert ist `null`.
+Ein Verweis auf das [`Element`](/de/docs/Web/API/Element)-Objekt, das sich derzeit im Bild-im-Bild-Modus befindet.
+
+Es wird `null` zurückgegeben, wenn der `shadow tree` kein zugeordnetes Element im Bild-im-Bild-Modus hat. Zum Beispiel gibt es kein Bild-im-Bild-Element, oder das Element befindet sich nicht im `shadow tree`.
 
 ## Beispiele
 
@@ -26,10 +28,10 @@ let pipElem = shadow.pictureInPictureElement;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Document.pictureInPictureElement")}}
+- [`Document.pictureInPictureElement`](/de/docs/Web/API/Document/pictureInPictureElement)

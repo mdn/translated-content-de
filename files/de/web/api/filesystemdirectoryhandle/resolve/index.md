@@ -8,7 +8,10 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`resolve()`**-Methode der {{domxref("FileSystemDirectoryHandle")}}-Schnittstelle gibt ein {{jsxref('Array')}} von Verzeichnisnamen vom übergeordneten Handle bis zum angegebenen Kindeintrag zurück, wobei der Name des Kindeintrags das letzte Element des Arrays ist.
+Die **`resolve()`**-Methode des
+[`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Interfaces gibt ein {{jsxref('Array')}} von
+Verzeichnisnamen vom übergeordneten Handle zum angegebenen untergeordneten Eintrag zurück, wobei der Name des
+untergeordneten Eintrags das letzte Array-Element ist.
 
 ## Syntax
 
@@ -19,38 +22,40 @@ resolve(possibleDescendant)
 ### Parameter
 
 - `possibleDescendant`
-  - : Der {{domxref('FileSystemHandle')}}, von dem der relative Pfad zurückgegeben werden soll.
+  - : Der [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle), von dem der relative Pfad zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref('Promise')}}, der mit einem {{jsxref('Array')}} von Zeichenfolgen aufgelöst wird oder `null`, wenn `possibleDescendant` kein Nachkomme dieses {{domxref('FileSystemDirectoryHandle')}} ist.
+Ein {{jsxref('Promise')}}, das mit einem {{jsxref('Array')}} von
+Strings aufgelöst wird, oder `null`, wenn `possibleDescendant` kein Nachfahre dieses [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) ist.
 
 ### Ausnahmen
 
-Es werden keine Ausnahmen ausgelöst.
+Keine Ausnahmen werden geworfen.
 
 ## Beispiele
 
-Die folgende asynchrone Funktion verwendet `resolve()`, um den Pfad zu einer gewählten Datei relativ zu einem angegebenen Verzeichnis-Handle zu finden.
+Die folgende asynchrone Funktion verwendet `resolve()`, um den Pfad zu einer
+ausgewählten Datei relativ zu einem angegebenen Verzeichnis-Handle zu finden.
 
 ```js
 async function returnPathDirectories(directoryHandle) {
-  // Holen Sie sich ein Datei-Handle, indem Sie einen Dateiauswahldialog anzeigen:
+  // Get a file handle by showing a file picker:
   const [handle] = await self.showOpenFilePicker();
   if (!handle) {
-    // Der Benutzer hat abgebrochen oder es ist anderweitig fehlgeschlagen, eine Datei zu öffnen.
+    // User cancelled, or otherwise failed to open a file.
     return;
   }
 
-  // Überprüfen Sie, ob handle innerhalb unseres Verzeichnis-Handles existiert
+  // Check if handle exists inside our directory handle
   const relativePaths = await directoryHandle.resolve(handle);
 
   if (relativePaths === null) {
-    // Nicht innerhalb des Verzeichnis-Handles
+    // Not inside directory handle
   } else {
-    // relativePath ist ein Array von Namen, das den relativen Pfad angibt
+    // relativePath is an array of names, giving the relative path
     for (const name of relativePaths) {
-      // Jede Eingabe protokollieren
+      // log each entry
       console.log(name);
     }
   }

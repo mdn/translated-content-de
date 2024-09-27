@@ -7,9 +7,9 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mtext>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um beliebigen Text ohne notationalen Sinn darzustellen, wie Kommentare oder Anmerkungen.
+Das **`<mtext>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um beliebigen Text ohne notationale Bedeutung darzustellen, wie Kommentare oder Anmerkungen.
 
-Um Text mit notationalem Sinn darzustellen, verwenden Sie stattdessen {{ MathMLElement("mi") }}, {{ MathMLElement("mn") }}, {{ MathMLElement("mo") }} oder {{ MathMLElement("ms") }}.
+Um Text _mit_ notationaler Bedeutung darzustellen, verwenden Sie stattdessen {{ MathMLElement("mi") }}, {{ MathMLElement("mn") }}, {{ MathMLElement("mo") }} oder {{ MathMLElement("ms") }}.
 
 ## Attribute
 

@@ -8,10 +8,8 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die schreibgeschützte **`name`**-Eigenschaft der
-{{domxref("FileSystemEntry")}}-Schnittstelle gibt einen String zurück,
-der den Namen des Eintrags angibt; dies ist der Eintrag innerhalb seines übergeordneten Verzeichnisses (die letzte
-Komponente des Pfads, wie sie durch die {{domxref("FileSystemEntry.fullPath", "fullPath")}}-Eigenschaft angegeben wird).
+Die schreibgeschützte **`name`**-Eigenschaft des
+[`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Interfaces gibt einen String zurück, der den Namen des Eintrags angibt; dies ist der Eintrag innerhalb seines übergeordneten Verzeichnisses (die letzte Komponente des Pfads, wie durch die [`fullPath`](/de/docs/Web/API/FileSystemEntry/fullPath)-Eigenschaft angegeben).
 
 ## Wert
 
@@ -19,9 +17,7 @@ Ein String, der den Namen des Eintrags angibt.
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Funktion namens `isFileWithExtension()`, die
-wahr zurückgibt, wenn das angegebene {{domxref("FileSystemEntry")}} sowohl eine Datei ist als auch der Dateiname
-mit einer bestimmten Erweiterung endet.
+Dieses Beispiel zeigt eine Funktion namens `isFileWithExtension()`, die `true` zurückgibt, wenn das angegebene [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) sowohl eine Datei ist als auch der Dateiname mit einer gegebenen Erweiterung endet.
 
 ```js
 function isFileWithExtension(entry, extension) {
@@ -41,5 +37,5 @@ function isFileWithExtension(entry, extension) {
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
 - [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
-- {{domxref("FileSystemEntry")}}
-- {{domxref("FileSystemEntry.fullPath")}}
+- [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)
+- [`FileSystemEntry.fullPath`](/de/docs/Web/API/FileSystemEntry/fullPath)

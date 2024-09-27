@@ -1,5 +1,5 @@
 ---
-title: "HTMLSourceElement: width Eigenschaft"
+title: "HTMLSourceElement: width-Eigenschaft"
 short-title: width
 slug: Web/API/HTMLSourceElement/width
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`** Eigenschaft des {{domxref("HTMLSourceElement")}} Interfaces ist eine nicht negative Zahl, die die Breite der Bildressource in CSS-Pixels angibt.
+Die **`width`**-Eigenschaft der Schnittstelle [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement) ist eine nicht-negative Zahl, die die Breite der Bildressource in CSS-Pixeln angibt.
 
-Die Eigenschaft hat nur eine Wirkung, wenn das übergeordnete Element des aktuellen {{HTMLElement("source")}} Elements ein {{HTMLElement("picture")}} Element ist.
+Die Eigenschaft hat nur dann eine Wirkung, wenn das übergeordnete Element des aktuellen {{HTMLElement("source")}}-Elements ein {{HTMLElement("picture")}}-Element ist.
 
-Sie spiegelt das `width` Attribut des {{HTMLElement("source")}} Elements wider.
+Sie spiegelt das `width`-Attribut des {{HTMLElement("source")}}-Elements wider.
 
 ## Wert
 
-Eine nicht negative Zahl, die die Breite der Bildressource in CSS-Pixels angibt.
+Eine nicht-negative Zahl, die die Breite der Bildressource in CSS-Pixeln angibt.
 
 ## Beispiele
 
@@ -48,7 +48,7 @@ Eine nicht negative Zahl, die die Breite der Bildressource in CSS-Pixels angibt.
 ```js
 const img = document.getElementById("img");
 const sources = img.querySelectorAll("source");
-console.log(Array.from(sources).map((el) => el.width)); // Ausgabe: [1000, 800, 600]
+console.log(Array.from(sources).map((el) => el.width)); // Output: [1000, 800, 600]
 ```
 
 ## Spezifikationen
@@ -61,9 +61,9 @@ console.log(Array.from(sources).map((el) => el.width)); // Ausgabe: [1000, 800, 
 
 ## Siehe auch
 
-- {{domxref("HTMLCanvasElement.width")}}
-- {{domxref("HTMLEmbedElement.width")}}
-- {{domxref("HTMLIFrameElement.width")}}
-- {{domxref("HTMLImageElement.width")}}
-- {{domxref("HTMLObjectElement.width")}}
-- {{domxref("HTMLVideoElement.width")}}
+- [`HTMLCanvasElement.width`](/de/docs/Web/API/HTMLCanvasElement/width)
+- [`HTMLEmbedElement.width`](/de/docs/Web/API/HTMLEmbedElement/width)
+- [`HTMLIFrameElement.width`](/de/docs/Web/API/HTMLIFrameElement/width)
+- [`HTMLImageElement.width`](/de/docs/Web/API/HTMLImageElement/width)
+- [`HTMLObjectElement.width`](/de/docs/Web/API/HTMLObjectElement/width)
+- [`HTMLVideoElement.width`](/de/docs/Web/API/HTMLVideoElement/width)

@@ -8,31 +8,31 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`basePalette`**-Eigenschaft der {{domxref("CSSFontPaletteValuesRule")}}-Schnittstelle gibt die Basis-Palette an, die mit der Regel verknüpft ist.
+Die schreibgeschützte **`basePalette`**-Eigenschaft der [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Schnittstelle gibt die Basis-Palette an, die mit der Regel verknüpft ist.
 
 ## Wert
 
-Ein String, der einen der folgenden Farbwerte annehmen kann:
+Ein String, der einen der folgenden Farbwerte haben kann:
 
 - `light`
-  - : Entspricht der ersten Palette in der Schriftdatei, die als für einen hellen Hintergrund geeignet markiert ist, also _nahezu weiß_. Wenn es in der Schrift keine Palette gibt oder keine Palette die erforderlichen Metadaten besitzt, ist der Wert äquivalent zu `"0"`, also der ersten Palette in der Schrift.
+  - : Entspricht der ersten Palette in der Schriftdatei, die als geeignet für einen hellen Hintergrund, also _nahezu weiß_, markiert ist. Falls keine Palette in der Schrift vorhanden ist oder keine Palette die erforderlichen Metadaten besitzt, ist der Wert gleichbedeutend mit `"0"`, also der ersten Palette in der Schrift.
 - `dark`
-  - : Entspricht der ersten Palette in der Schriftdatei, die als für einen dunklen Hintergrund geeignet markiert ist, also _nahezu schwarz_. Wenn es in der Schrift keine Palette gibt oder keine Palette die erforderlichen Metadaten besitzt, ist der Wert äquivalent zu `"0"`, also der ersten Palette in der Schrift.
-- Ein String, der einen Index enthält (wie `"0"`, `"1"`, …)
+  - : Entspricht der ersten Palette in der Schriftdatei, die als geeignet für einen dunklen Hintergrund, also _nahezu schwarz_, markiert ist. Falls keine Palette in der Schrift vorhanden ist oder keine Palette die erforderlichen Metadaten besitzt, ist der Wert gleichbedeutend mit `"0"`, also der ersten Palette in der Schrift.
+- ein String, der einen Index enthält (wie `"0"`, `"1"`, …)
   - : Entspricht der Palette, die dem Index entspricht. Die erste Palette entspricht `"0"`.
 
 ## Beispiele
 
-### Lesen der zugeordneten Basis-Palette
+### Lesen der zugehörigen Basis-Palette
 
-Dieses Beispiel fügt Regeln in einem zusätzlichen Stylesheet hinzu, das als letztes Stylesheet im Dokument zurückgegeben wird (`document.styleSheets[document.styleSheets.length-1].cssRules`). So liefert `rules[2]` das erste {{domxref("CSSFontPaletteValuesRule")}}-Objekt und `rules[3]` das zweite.
+Dieses Beispiel fügt Regeln in ein zusätzliches Stylesheet hinzu, das dem Dokument hinzugefügt wird und als letztes Stylesheet im Dokument (`document.styleSheets[document.styleSheets.length-1].cssRules`) zurückgegeben wird. Somit gibt `rules[2]` das erste [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)-Objekt zurück, und `rules[3]` das zweite.
 
 #### HTML
 
 ```html
-<h2>Standard-Basis-Palette</h2>
-<h2 class="two">Basis-Palette an Index 2</h2>
-<h2 class="five">Basis-Palette an Index 5</h2>
+<h2>default base-palette</h2>
+<h2 class="two">base-palette at index 2</h2>
+<h2 class="five">base-palette at index 5</h2>
 <pre id="log"></pre>
 ```
 
@@ -79,7 +79,7 @@ log.textContent += `The ${fiveRule.name} @font-palette-values base palette is: $
 
 #### Ergebnis
 
-{{EmbedLiveSample("Read the associated base palette", "100", "255")}}
+{{EmbedLiveSample("Lesen der zugehörigen Basis-Palette", "100", "255")}}
 
 ## Spezifikationen
 
@@ -91,5 +91,5 @@ log.textContent += `The ${fiveRule.name} @font-palette-values base palette is: $
 
 ## Siehe auch
 
-- {{cssxref("@font-palette-values")}}-Regel
-- {{cssxref("@font-palette-values/base-palette", "base-palette")}}-Deskriptor
+- {{cssxref("@font-palette-values")}} At-Regel
+- {{cssxref("@font-palette-values/base-palette", "base-palette")}} Deskriptor

@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`gradientUnits`** Attribut definiert das Koordinatensystem, das für Attribute verwendet wird, die an den Gradienten-Elementen angegeben sind.
+Das **`gradientUnits`** Attribut definiert das Koordinatensystem, das für Attribute auf den Gradienten-Elementen verwendet wird.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("linearGradient")}}
 - {{SVGElement("radialGradient")}}
@@ -36,14 +36,15 @@ Für {{SVGElement("linearGradient")}} definiert `gradientUnits` das Koordinatens
 </table>
 
 - `userSpaceOnUse`
-  - : Dieser Wert gibt an, dass die Attribute Werte im Koordinatensystem darstellen, das durch Übernahme des aktuellen Benutzerkoordinatensystems zum Zeitpunkt der Referenzierung des Gradienten-Elements (d. h. des Benutzerkoordinatensystems für das Element, das das Gradienten-Element über eine {{SVGAttr("fill")}}- oder {{SVGAttr("stroke")}}-Eigenschaft referenziert) entsteht und dann die durch das Attribut {{SVGAttr("gradientTransform")}} spezifizierte Transformation angewendet wird. Prozentangaben beziehen sich auf das aktuelle SVG-Viewport.
+  - : Dieser Wert zeigt an, dass die Attribute Werte im Koordinatensystem darstellen, das aus der Anwendung des aktuellen Benutzerkoordinatensystems resultiert, das in Kraft ist, wenn das Gradienten-Element referenziert wird (d.h., das Benutzerkoordinatensystem für das Element, das das Gradienten-Element über eine {{SVGAttr("fill")}} oder {{SVGAttr("stroke")}} Eigenschaft referenziert) und dann die Transformation, die durch das Attribut {{SVGAttr("gradientTransform")}} festgelegt wird, verwendet.
+    Prozentsätze stellen Werte relativ zur aktuellen SVG-Ansichtsport dar.
 - `objectBoundingBox`
 
-  - : Dieser Wert gibt an, dass das Benutzerkoordinatensystem für die Attribute unter Verwendung der Begrenzungsbox des Elements erstellt wird, auf das der Gradient angewendet wird, und dann die durch das Attribut `gradientTransform` spezifizierte Transformation angewendet wird.
+  - : Dieser Wert zeigt an, dass das Benutzerkoordinatensystem für die Attribute durch die Verwendung des Begrenzungsrahmens des Elements, auf das der Gradient angewendet wird, festgelegt wird und dann die Transformation verwendet wird, die durch das `gradientTransform`-Attribut festgelegt wird.
 
-    Prozentangaben beziehen sich auf die Begrenzungsbox des Objekts.
+    Prozentsätze stellen Werte relativ zum Begrenzungsrahmen für das Objekt dar.
 
-    Mit diesem Wert und `gradientTransform` als der Identitätsmatrix ist das Normale des linearen Gradienten senkrecht zum Gradientenvektor im Objektbegrenzungsboxraum (d. h. dem abstrakten Koordinatensystem, in dem (0,0) an der oberen/ linken Ecke der Objektbegrenzungsbox und (1,1) an der unteren/rechten Ecke der Objektbegrenzungsbox ist). Wenn die Objektbegrenzungsbox nicht quadratisch ist, kann das Normale des Gradienten, das innerhalb des Objektbegrenzungsboxraums anfänglich senkrecht zum Gradientenvektor ist, relativ zum Gradientenvektor im Benutzerraum nicht senkrecht erscheinen. Wenn der Gradientenvektor parallel zu einer der Achsen der Begrenzungsbox verläuft, bleibt das Normale des Gradienten senkrecht. Diese Transformation erfolgt durch die Anwendung der nicht-uniformen Skalierungstransformation vom Begrenzungsboxraum in den Benutzerraum.
+    Mit diesem Wert und `gradientTransform` als Einheitsmatrix ist die Normale des linearen Gradienten senkrecht zum Gradientenvektor im Raum des Objektbegrenzungsrahmens (d.h., das abstrakte Koordinatensystem, in dem (0,0) oben/links im Objektbegrenzungsrahmen liegt und (1,1) unten/rechts im Objektbegrenzungsrahmen liegt). Wenn der Begrenzungsrahmen des Objekts nicht quadratisch ist, könnte die Gradienten-Normale, die ursprünglich senkrecht zum Gradientenvektor im Raum des Objektbegrenzungsrahmens ist, relativ zum Gradientenvektor im Benutzerraum nicht senkrecht darstellen. Wenn der Gradientenvektor parallel zu einer der Achsen des Begrenzungsrahmens ist, bleibt die Gradienten-Normale senkrecht. Diese Transformation ist auf die Anwendung der nicht-uniformen Skalierungstransformation vom Raum des Begrenzungsrahmens zum Benutzerraum zurückzuführen.
 
 ## radialGradient
 
@@ -67,10 +68,10 @@ Für {{SVGElement("radialGradient")}} definiert `gradientUnits` das Koordinatens
 </table>
 
 - `userSpaceOnUse`
-  - : {{SVGAttr("cx")}}, {{SVGAttr("cy")}}, {{SVGAttr("r")}}, {{SVGAttr("fx")}}, {{SVGAttr("fy")}}, und {{SVGAttr("fr")}} repräsentieren Werte im Koordinatensystem, das durch Übernahme des aktuellen Benutzerkoordinatensystems zum Zeitpunkt der Referenzierung des Gradienten-Elements (d. h. des Benutzerkoordinatensystems für das Element, das das Gradienten-Element über eine {{SVGAttr("fill")}}- oder {{SVGAttr("stroke")}}-Eigenschaft referenziert) entsteht und dann die durch das Attribut {{SVGAttr("gradientTransform")}} spezifizierte Transformation angewendet wird.
+  - : {{SVGAttr("cx")}}, {{SVGAttr("cy")}}, {{SVGAttr("r")}}, {{SVGAttr("fx")}}, {{SVGAttr("fy")}} und {{SVGAttr("fr")}} stellen Werte im Koordinatensystem dar, das aus der Anwendung des aktuellen Benutzerkoordinatensystems resultiert, das in Kraft ist, wenn das Gradienten-Element referenziert wird (d.h., das Benutzerkoordinatensystem für das Element, das das Gradienten-Element über eine {{SVGAttr("fill")}} oder {{SVGAttr("stroke")}} Eigenschaft referenziert) und dann die Transformation, die durch das Attribut {{SVGAttr("gradientTransform")}} festgelegt wird, verwendet.
 - `objectBoundingBox`
-  - : für {{SVGElement("radialGradient")}}: das Benutzerkoordinatensystem für die Attribute {{SVGAttr("cx")}}, {{SVGAttr("cy")}}, {{SVGAttr("r")}}, {{SVGAttr("fx")}}, {{SVGAttr("fy")}} und {{SVGAttr("fr")}} wird durch die Begrenzungsbox des Elements erstellt, auf das der Gradient angewendet wird (siehe Objektbegrenzungsbox-Einheiten) und dann die durch das Attribut `gradientTransform` spezifizierte Transformation angewendet.
-    Mit diesem Wert und `gradientTransform` als der Identitätsmatrix sind die Kreise des radialen Gradienten in Bezug auf den Objektbegrenzungsboxraum kreisförmig (d. h. das abstrakte Koordinatensystem, in dem (0,0) an der oberen/ linken Ecke der Objektbegrenzungsbox und (1,1) an der unteren/rechten Ecke der Objektbegrenzungsbox ist). Wenn die Objektbegrenzungsbox nicht quadratisch ist, werden die konzeptionell kreisförmigen Kreise im Objektbegrenzungsboxraum als Ellipsen wiedergegeben, aufgrund der Anwendung der nicht-uniformen Skalierungstransformation vom Begrenzungsboxraum in den Benutzerraum.
+  - : für {{SVGElement("radialGradient")}}: Das Benutzerkoordinatensystem für die Attribute {{SVGAttr("cx")}}, {{SVGAttr("cy")}}, {{SVGAttr("r")}}, {{SVGAttr("fx")}}, {{SVGAttr("fy")}} und {{SVGAttr("fr")}} wird durch die Verwendung des Begrenzungsrahmens des Elements, auf das der Gradient angewendet wird, festgelegt (siehe Einheiten des Objektbegrenzungsrahmens) und dann die Transformation, die durch das Attribut `gradientTransform` festgelegt wird, verwendet.
+    Mit diesem Wert und `gradientTransform` als Einheitsmatrix sind die Ringe des radialen Gradienten im Raum des Objektbegrenzungsrahmens kreisförmig (d.h., das abstrakte Koordinatensystem, in dem (0,0) oben/links im Objektbegrenzungsrahmen liegt und (1,1) unten/rechts im Objektbegrenzungsrahmen liegt). Wenn der Begrenzungsrahmen des Objekts nicht quadratisch ist, werden die konzeptionell kreisförmigen Ringe im Raum des Objektbegrenzungsrahmens aufgrund der Anwendung der nicht-uniformen Skalierungstransformation vom Raum des Begrenzungsrahmens zum Benutzerraum als elliptisch dargestellt.
 
 ## Spezifikationen
 

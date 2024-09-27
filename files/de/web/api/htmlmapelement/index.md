@@ -7,22 +7,22 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Das **`HTMLMapElement`**-Interface bietet spezielle Eigenschaften und Methoden (zusätzlich zu denen des regulären Objekts {{domxref("HTMLElement")}}-Interfaces, die es auch durch Vererbung zur Verfügung hat) für die Manipulation des Layouts und der Darstellung von Map-Elementen.
+Die **`HTMLMapElement`**-Schnittstelle bietet spezielle Eigenschaften und Methoden (zusätzlich zu denen des regulären Objektschnittstelle [`HTMLElement`](/de/docs/Web/API/HTMLElement), die sie auch durch Vererbung zur Verfügung hat) zur Manipulation des Layouts und der Darstellung von Kartenelementen.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLMapElement.name")}}
-  - : Ein String, der das {{HTMLElement("map")}}-Element repräsentiert, um es in anderen Kontexten zu referenzieren. Wenn das `id`-Attribut gesetzt ist, muss es denselben Wert haben und darf nicht `null` oder leer sein.
-- {{domxref("HTMLMapElement.areas")}} {{ReadOnlyInline}}
-  - : Eine Live-{{domxref("HTMLCollection")}}, die die mit diesem {{HTMLElement("map")}} assoziierten {{HTMLElement("area")}}-Elemente darstellt.
+- [`HTMLMapElement.name`](/de/docs/Web/API/HTMLMapElement/name)
+  - : Ein String, der das {{HTMLElement("map")}}-Element darstellt, um es in anderen Kontexten zu referenzieren. Wenn das `id`-Attribut gesetzt ist, muss dies denselben Wert haben; es darf nicht `null` oder leer sein.
+- [`HTMLMapElement.areas`](/de/docs/Web/API/HTMLMapElement/areas) {{ReadOnlyInline}}
+  - : Eine lebendige [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von {{HTMLElement("area")}}-Elementen, die mit diesem {{HTMLElement("map")}} verbunden sind.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 
@@ -34,4 +34,4 @@ _Keine spezifische Methode; erbt Methoden von seinem Elternteil, {{domxref("HTML
 
 ## Siehe auch
 
-- HTML-Element, das dieses Interface implementiert: {{ HTMLElement("map") }}.
+- HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("map") }}.

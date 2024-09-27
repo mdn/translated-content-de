@@ -1,5 +1,5 @@
 ---
-title: Markierungssprache
+title: Markup
 slug: Glossary/Markup
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,23 +7,23 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine Markierungssprache ist eine Sprache, die zum Definieren und Präsentieren von Text entwickelt wurde. {{glossary("HTML")}} (HyperText Markup Language) ist ein Beispiel für eine Markierungssprache.
+Eine Markup-Sprache ist eine Sprache, die zum Definieren und Präsentieren von Text entwickelt wurde. [HTML](/de/docs/Glossary/HTML) (HyperText Markup Language) ist ein Beispiel für eine Markup-Sprache.
 
-Innerhalb einer Textdatei wie einer HTML-Datei werden Elemente mithilfe von {{glossary("Tag","tags")}} _markiert_, die den Zweck des jeweiligen Inhalts erläutern.
+Innerhalb einer Textdatei wie einer HTML-Datei werden Elemente mit [Tags](/de/docs/Glossary/Tag) _ausgezeichnet_, die den Zweck dieses Teils des Inhalts erklären.
 
-## Arten von Markierungssprachen
+## Arten von Markup-Sprachen
 
 - **Präsentations-Markup:**
-  - : Wird von traditionellen Textverarbeitungssystemen mit WYSIWYG (was Sie sehen, ist das, was Sie bekommen) verwendet; dies ist für menschliche Autoren, Benutzer und Redakteure verborgen.
+  - : Wird von traditionellen Textverarbeitungssystemen mit WYSIWYG (What You See Is What You Get) verwendet; dies ist für menschliche Autoren, Benutzer und Editoren verborgen.
 - **Prozedurales Markup:**
-  - : Wird mit Text kombiniert, um Programmen Anweisungen zur Textverarbeitung zu geben. Dieser Text wird vom Autor sichtbar manipuliert.
+  - : Wird mit Text kombiniert, um Programme mit Anweisungen zur Textverarbeitung zu versehen. Dieser Text wird vom Autor sichtbar manipuliert.
 - **Deskriptives Markup:**
-  - : Kennzeichnet Dokumentabschnitte, um dem Programm zu zeigen, wie sie behandelt werden sollen. Zum Beispiel definiert das HTML {{HTMLElement("td")}} eine Zelle in einer HTML-Tabelle.
+  - : Kennzeichnet Abschnitte von Dokumenten, wie das Programm sie verarbeiten soll. Zum Beispiel definiert das HTML {{HTMLElement("td")}} eine Zelle in einer HTML-Tabelle.
 
 ## Siehe auch
 
-- Verwandte Glossareinträge:
-  - {{Glossary("HTML")}}
-  - {{Glossary("XHTML")}}
-  - {{Glossary("XML")}}
-  - {{Glossary("SVG")}}
+- Verwandte Glossarbegriffe:
+  - [HTML](/de/docs/Glossary/HTML)
+  - [XHTML](/de/docs/Glossary/XHTML)
+  - [XML](/de/docs/Glossary/XML)
+  - [SVG](/de/docs/Glossary/SVG)

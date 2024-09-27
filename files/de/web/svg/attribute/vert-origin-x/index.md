@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`vert-origin-x`** Attribut gibt die x-Koordinate im Schriftkoordinatensystem des Ursprungs eines {{Glossary("glyph")}} an, der verwendet wird, wenn vertikal orientierter Text gezeichnet wird.
+Das **`vert-origin-x`** Attribut gibt die x-Koordinate im Schriftkoordinatensystem des Ursprungs eines [Glyphs](/de/docs/Glossary/glyph) an, das verwendet werden soll, wenn vertikal ausgerichteter Text gezeichnet wird.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -39,13 +39,13 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die x-Koordinate des Ursprungs eines Glyphen für vertikal orientierten Text an.
+  - : Dieser Wert gibt die x-Koordinate des Ursprungs eines Glyphs für vertikal ausgerichteten Text an.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -1,5 +1,5 @@
 ---
-title: "CloseWatcher: CloseWatcher() Konstruktor"
+title: "CloseWatcher: CloseWatcher()-Konstruktor"
 short-title: CloseWatcher()
 slug: Web/API/CloseWatcher/CloseWatcher
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{SeeCompatTable}}
 
-Der **`CloseWatcher()`** Konstruktor erstellt ein neues {{domxref("CloseWatcher")}} Objekt.
+Der **`CloseWatcher()`**-Konstruktor erstellt ein neues [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Objekt.
 
-Sie können `CloseWatcher` Instanzen ohne [Benutzeraktivierung](/de/docs/Web/Security/User_activation) erstellen, was nützlich sein kann, um Fälle wie Sitzungsinaktivitäts-Timeout-Dialoge zu implementieren. Wenn Sie jedoch mehr als einen `CloseWatcher` ohne Benutzeraktivierung erstellen, wird der neu erstellte mit dem letzten gruppiert, sodass eine einzelne Schließanforderung beide schließen wird. Dies bedeutet, dass es wichtig ist, {{domxref("CloseWatcher.destroy()", "destroy()")}}, {{domxref("CloseWatcher.close()", "close()")}} und {{domxref("CloseWatcher.requestClose()", "requestClose()")}} ordnungsgemäß aufzurufen.
+Sie können `CloseWatcher`-Instanzen ohne [Benutzeraktivierung](/de/docs/Web/Security/User_activation) erstellen. Dies kann nützlich sein, um Fälle wie Dialoge zum Sitzungs-Inaktivitäts-Timeout zu implementieren. Wenn Sie jedoch mehr als einen `CloseWatcher` ohne Benutzeraktivierung erstellen, wird der neu erstellte mit dem letzten gruppiert, sodass eine einzelne Schließanforderung beide schließen wird. Deshalb ist es wichtig, [`destroy()`](/de/docs/Web/API/CloseWatcher/destroy), [`close()`](/de/docs/Web/API/CloseWatcher/close) und [`requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose) ordnungsgemäß zu verwenden.
 
 ## Syntax
 
@@ -22,17 +22,17 @@ new CloseWatcher(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften hat:
+  - : Ein Objekt, das die folgenden Eigenschaften besitzt:
     - `signal`
-      - : Ein {{domxref("AbortSignal")}}. Wenn dies angegeben ist, kann der Beobachter zerstört werden (wie durch Aufrufen von {{domxref("CloseWatcher.destroy()")}}), indem {{domxref("AbortController.abort()")}} auf dem entsprechenden {{domxref("AbortController")}} aufgerufen wird.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal). Wenn dies angegeben ist, kann der Watcher durch Aufrufen von [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) auf dem entsprechenden [`AbortController`](/de/docs/Web/API/AbortController) zerstört werden (als ob [`CloseWatcher.destroy()`](/de/docs/Web/API/CloseWatcher/destroy) aufgerufen wird).
 
 ### Rückgabewert
 
-Ein neues {{domxref("CloseWatcher")}} Objekt.
+Ein neues [`CloseWatcher`](/de/docs/Web/API/CloseWatcher)-Objekt.
 
 ## Beispiele
 
-### Erstellen neuer `CloseWatcher` Instanzen
+### Erstellen neuer `CloseWatcher`-Instanzen
 
 Erstellen Sie einen neuen `CloseWatcher`.
 
@@ -40,7 +40,7 @@ Erstellen Sie einen neuen `CloseWatcher`.
 const watcher = new CloseWatcher();
 ```
 
-Erstellen Sie einen neuen `CloseWatcher` mit einem {{domxref("AbortSignal")}}, das die Zerstörung des Beobachters steuert.
+Erstellen Sie einen neuen `CloseWatcher` mit einem [`AbortSignal`](/de/docs/Web/API/AbortSignal), das das Zerstören des Watchers steuert.
 
 ```js
 const controller = new AbortController();
@@ -51,6 +51,6 @@ const signalWatcher = new CloseWatcher({ signal: controller.signal };
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -1,5 +1,5 @@
 ---
-title: "XRCylinderLayer: centralAngle Eigenschaft"
+title: "XRCylinderLayer: centralAngle-Eigenschaft"
 short-title: centralAngle
 slug: Web/API/XRCylinderLayer/centralAngle
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`centralAngle`**-Eigenschaft der {{domxref("XRCylinderLayer")}}-Schnittstelle repräsentiert den Winkel in Radiant des sichtbaren Abschnitts des Zylinders.
+Die **`centralAngle`**-Eigenschaft der [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer)-Schnittstelle repräsentiert den Winkel in Radianten des sichtbaren Abschnitts des Zylinders.
 
 ## Wert
 
-Eine Zahl, die den Winkel in Radiant des sichtbaren Abschnitts des Zylinders darstellt.
+Eine Zahl, die den Winkel in Radianten des sichtbaren Abschnitts des Zylinders darstellt.
 
 ## Beispiele
 
-### Ermitteln des zentralen Winkels einer Ebene
+### Abrufen des zentralen Winkels eines Layers
 
-Die Methode {{domxref("XRWebGLBinding.createCylinderLayer()")}} erstellt eine Zylinderebene und ermöglicht es, einen `centralAngle` festzulegen. Die Eigenschaft `XRCylinder.centralAngle` kann nach der Erstellung der Ebene verwendet werden, um den verwendeten zentralen Winkel zu ermitteln oder ihn auf einen neuen Wert zu setzen.
+Die Methode [`XRWebGLBinding.createCylinderLayer()`](/de/docs/Web/API/XRWebGLBinding/createCylinderLayer) erstellt einen Zylinder-Layer und ermöglicht es, einen `centralAngle` anzugeben. Die Eigenschaft `XRCylinder.centralAngle` kann nach der Layer-Erstellung verwendet werden, um den verwendeten zentralen Winkel zu erhalten oder ihn auf einen neuen zu setzen.
 
 ```js
 const cylinderLayer = xrGlBinding.createCylinderLayer({
@@ -44,6 +44,6 @@ cylinderLayer.centralAngle; // 1.0471975511965976
 
 ## Siehe auch
 
-- {{domxref("XRCylinderLayer.aspectRatio")}}
-- {{domxref("XRCylinderLayer.radius")}}
+- [`XRCylinderLayer.aspectRatio`](/de/docs/Web/API/XRCylinderLayer/aspectRatio)
+- [`XRCylinderLayer.radius`](/de/docs/Web/API/XRCylinderLayer/radius)
 - {{jsxref("Math.PI")}}

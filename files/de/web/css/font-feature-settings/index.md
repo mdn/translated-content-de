@@ -14,10 +14,10 @@ Die **`font-feature-settings`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert erwe
 ## Syntax
 
 ```css
-/* Verwenden Sie die Standardeinstellungen */
+/* Use the default settings */
 font-feature-settings: normal;
 
-/* Werte für OpenType-Feature-Tags festlegen */
+/* Set values for OpenType feature tags */
 font-feature-settings: "smcp";
 font-feature-settings: "smcp" on;
 font-feature-settings: "swsh" 2;
@@ -25,7 +25,7 @@ font-feature-settings:
   "smcp",
   "swsh" 2;
 
-/* Globale Werte */
+/* Global values */
 font-feature-settings: inherit;
 font-feature-settings: initial;
 font-feature-settings: revert;
@@ -33,23 +33,23 @@ font-feature-settings: revert-layer;
 font-feature-settings: unset;
 ```
 
-Wann immer möglich, sollten Web-Entwickler stattdessen die {{cssxref("font-variant")}} Kurzschreibweise oder eine zugehörige Langform wie {{cssxref("font-variant-ligatures")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-variant-east-asian")}}, {{cssxref("font-variant-alternates")}}, {{cssxref("font-variant-numeric")}} oder {{cssxref("font-variant-position")}} verwenden.
+Wann immer möglich, sollten Webautoren stattdessen die Kurzschreibweise {{cssxref("font-variant")}} oder eine zugehörige Langform-Eigenschaft wie {{cssxref("font-variant-ligatures")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-variant-east-asian")}}, {{cssxref("font-variant-alternates")}}, {{cssxref("font-variant-numeric")}} oder {{cssxref("font-variant-position")}} verwenden.
 
-Diese führen zu effektiveren, vorhersehbareren und verständlicheren Ergebnissen als `font-feature-settings`, das eine niedrigstufige Funktion ist, die entwickelt wurde, um Sonderfälle zu behandeln, in denen es keine andere Möglichkeit gibt, ein OpenType-Schriftmerkmal zu aktivieren oder darauf zuzugreifen. Insbesondere sollte `font-feature-settings` nicht verwendet werden, um Kapitälchen zu aktivieren.
+Diese führen zu effektiveren, vorhersehbareren und verständlicheren Ergebnissen als `font-feature-settings`, welches ein Low-Level-Feature ist, das darauf ausgelegt ist, Sonderfälle zu handhaben, in denen es keine andere Möglichkeit gibt, um ein OpenType-Schriftmerkmal zu aktivieren oder darauf zuzugreifen. Insbesondere sollte `font-feature-settings` nicht verwendet werden, um Kapitälchen zu aktivieren.
 
 ### Werte
 
-Diese Eigenschaft wird entweder als das Schlüsselwort `normal` oder als kommagetrennte Liste von `<feature-tag-value>` Werten angegeben. Beim Rendern von Text wird die Liste der OpenType `<feature-tag-value>` Werte an die Textlayout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren.
+Diese Eigenschaft wird entweder als das Schlüsselwort `normal` oder als eine durch Kommas getrennte Liste von `<feature-tag-value>`-Werten angegeben. Beim Rendern von Text wird die Liste der OpenType `<feature-tag-value>`-Werte an die Textlayout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren.
 
 - `normal`
-  - : Gibt an, dass Text mit den Standardeinstellungen der Schrift gestaltet wird. Dies ist der Standardwert.
+  - : Gibt an, dass der Text mit den Standardeinstellungen der Schrift layoutet wird. Dies ist der Standardwert.
 - `<feature-tag-value>`
 
-  - : Stellt ein durch Leerzeichen getrenntes Tupel dar, das aus einem Tag-Namen und einem optionalen Wert besteht.
+  - : Stellt ein leerzeichengetrenntes Tupel dar, das aus einem Tag-Namen und einem optionalen Wert besteht.
 
-    Der Tag-Name ist immer ein {{cssxref("&lt;string&gt;")}} aus vier {{Glossary("ASCII")}} Zeichen. Wenn der Tag-Name mehr oder weniger Zeichen hat oder Zeichen außerhalb des Code-Punkt-Bereichs `U+20` bis `U+7E` enthält, ist der Deskriptor ungültig.
+    Der Tag-Name ist immer ein {{cssxref("&lt;string&gt;")}} von vier [ASCII](/de/docs/Glossary/ASCII)-Zeichen. Wenn der Tag-Name mehr oder weniger Zeichen aufweist oder Zeichen außerhalb des `U+20` – `U+7E`-Codepunktbereichs enthält, ist der Deskriptor ungültig.
 
-    Der optionale Wert kann eine positive Ganzzahl oder das Schlüsselwort `on` oder `off` sein. Die Schlüsselwörter `on` und `off` sind Synonyme für die Werte `1` und `0`. Wenn kein Wert festgelegt ist, lautet der Standard `1`. Für nicht-boolesche OpenType-Funktionen (z.B. [stylistische Alternativen](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-salt)) impliziert der Wert die Auswahl eines bestimmten Glyphen; für boolesche Funktionen aktiviert oder deaktiviert der Wert die Funktion.
+    Der optionale Wert kann eine positive ganze Zahl oder das Schlüsselwort `on` oder `off` sein. Die Schlüsselwörter `on` und `off` sind Synonyme für die Werte `1` und `0`. Wenn kein Wert gesetzt ist, ist der Standardwert `1`. Bei nicht-boolean OpenType-Features (z.B. [stilistische Alternativen](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-salt)) impliziert der Wert die Auswahl eines bestimmten Glyphs; bei boolean Features schaltet der Wert das Feature ein oder aus.
 
 ## Formale Definition
 
@@ -64,47 +64,47 @@ Diese Eigenschaft wird entweder als das Schlüsselwort `normal` oder als kommage
 ### Aktivieren verschiedener Schriftfunktionen
 
 ```css
-/* Verwendung von alternativen kleinen Buchstaben */
+/* use small-cap alternate glyphs */
 .smallcaps {
   font-feature-settings: "smcp" on;
 }
 
-/* Sowohl Groß- als auch Kleinbuchstaben in Kapitälchen umwandeln (betrifft auch Satzzeichen) */
+/* convert both upper and lowercase to small caps (affects punctuation also) */
 .allsmallcaps {
   font-feature-settings: "c2sc", "smcp";
 }
 
-/* Nullen mit einem Schrägstrich verwenden, um sie von "O" zu unterscheiden */
+/* use zeros with a slash through them to differentiate from "O" */
 .nicezero {
   font-feature-settings: "zero";
 }
 
-/* Historische Formen aktivieren */
+/* enable historical forms */
 .hist {
   font-feature-settings: "hist";
 }
 
-/* Häufige Ligaturen deaktivieren, die normalerweise standardmäßig aktiviert sind */
+/* disable common ligatures, usually on by default */
 .noligs {
   font-feature-settings: "liga" 0;
 }
 
-/* Tabellarische (monospace) Zahlen aktivieren */
+/* enable tabular (monospaced) figures */
 td.tabular {
   font-feature-settings: "tnum";
 }
 
-/* Automatische Brüche aktivieren */
+/* enable automatic fractions */
 .fractions {
   font-feature-settings: "frac";
 }
 
-/* Den zweiten verfügbaren Schwungbuchstaben verwenden */
+/* use the second available swash character */
 .swash {
   font-feature-settings: "swsh" 2;
 }
 
-/* Stilistische Satz 7 aktivieren */
+/* enable stylistic set 7 */
 .fancystyle {
   font-family: Gabriola;
   font-feature-settings: "ss07";
@@ -129,5 +129,5 @@ td.tabular {
 - {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}}
 - {{cssxref("@font-face/src", "src")}}
 - {{cssxref("@font-face/unicode-range", "unicode-range")}}
-- [Liste der OpenType Feature-Tags](https://learn.microsoft.com/en-us/typography/opentype/spec/featurelist)
-- [OpenType-Funktionen in CSS](https://sparanoid.com/lab/opentype-features/)
+- [OpenType-Feature-Tags](https://learn.microsoft.com/en-us/typography/opentype/spec/featurelist) Liste
+- [OpenType Features in CSS](https://sparanoid.com/lab/opentype-features/)

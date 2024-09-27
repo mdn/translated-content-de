@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`getSenders()`**-Methode der {{domxref("RTCPeerConnection")}}-Schnittstelle gibt ein Array von {{domxref("RTCRtpSender")}}-Objekten zurück, von denen jedes den RTP-Sender repräsentiert, der für die Übertragung der Daten eines Tracks verantwortlich ist. Ein Senderobjekt bietet Methoden und Eigenschaften zum Überprüfen und Steuern der Kodierung und Übertragung der Trackdaten.
+Die **`getSenders()`**-Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces gibt ein Array von [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekten zurück, von denen jedes den RTP-Sender repräsentiert, der für die Übertragung der Daten eines einzelnen Tracks verantwortlich ist. Ein Sender-Objekt bietet Methoden und Eigenschaften, um die Kodierung und Übertragung der Track-Daten zu untersuchen und zu steuern.
 
 ## Syntax
 
@@ -18,15 +18,15 @@ getSenders()
 
 ### Rückgabewert
 
-Ein Array von {{domxref("RTCRtpSender")}}-Objekten, eines für jeden Track in der Verbindung. Das Array ist leer, wenn es keine RTP-Sender in der Verbindung gibt.
+Ein Array von [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekten, eines für jeden Track in der Verbindung. Das Array ist leer, wenn keine RTP-Sender in der Verbindung vorhanden sind.
 
-Die Reihenfolge der zurückgegebenen `RTCRtpSender`-Instanzen wird nicht von der Spezifikation definiert und kann sich von einem Aufruf von `getSenders()` zum nächsten ändern.
+Die Reihenfolge der zurückgegebenen `RTCRtpSender`-Instanzen ist nicht durch die Spezifikation definiert und kann sich von einem Aufruf von `getSenders()` zum nächsten ändern.
 
-Das Array schließt keine Sender ein, die Transceivern zugeordnet sind, die [gestoppt](/de/docs/Web/API/RTCRtpTransceiver/currentDirection) wurden (nach Angebot/Antwort).
+Das Array enthält keine Sender, die mit Transceivern assoziiert sind, die [gestoppt](/de/docs/Web/API/RTCRtpTransceiver/currentDirection) wurden (nach Angebot/Antwort).
 
 ## Beispiel
 
-In diesem Beispiel wird eine `setMuting()`-Funktion gezeigt. Diese Funktion nimmt als Eingabe eine {{domxref("RTCPeerConnection")}}, `pc`, und ein Boolean, `muting`. Die Funktion erhält die Liste der Sender der Peer-Verbindung und iteriert über jeden Sender, um die entsprechende Medien-Track-{{domxref("MediaStreamTrack.enabled", "enabled")}}-Eigenschaft auf das inverse `muting` zu setzen.
+In diesem Beispiel wird eine `setMuting()`-Funktion gezeigt. Diese Funktion nimmt eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), `pc`, und einen Boolean, `muting`, als Eingabe. Die Funktion erhält die Liste der Sender der Peer-Verbindung und iteriert über jeden Sender, um die entsprechende Medien-Track-Eigenschaft [`enabled`](/de/docs/Web/API/MediaStreamTrack/enabled) auf das Inverse des angegebenen `muting` zu setzen.
 
 ```js
 function setMuting(pc, muting) {
@@ -49,4 +49,4 @@ function setMuting(pc, muting) {
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCRtpSender")}}
+- [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)

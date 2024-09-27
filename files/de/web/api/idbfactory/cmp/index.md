@@ -1,5 +1,5 @@
 ---
-title: "IDBFactory: cmp()-Methode"
+title: "IDBFactory: cmp() Methode"
 short-title: cmp()
 slug: Web/API/IDBFactory/cmp
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`cmp()`**-Methode des {{domxref("IDBFactory")}}-Interfaces vergleicht zwei Werte als Schlüssel, um Gleichheit und Ordnung für IndexedDB-Operationen zu bestimmen, wie zum Beispiel Speichern und Iterieren.
+Die **`cmp()`** Methode der [`IDBFactory`](/de/docs/Web/API/IDBFactory) Schnittstelle vergleicht zwei Werte als Schlüssel, um Gleichheit und Reihenfolge für IndexedDB-Operationen zu bestimmen, wie z.B. das Speichern und Iterieren.
 
 > [!NOTE]
-> Verwenden Sie diese Methode nicht zum Vergleichen beliebiger JavaScript-Werte, da viele JavaScript-Werte entweder keine gültigen IndexedDB-Schlüssel sind (z.B. Booleans und Objekte) oder als gleichwertige IndexedDB-Schlüssel behandelt werden (zum Beispiel ignoriert IndexedDB Arrays mit nicht-numerischen Eigenschaften und behandelt sie als leere Arrays, sodass alle nicht-numerischen Arrays als gleichwertig gelten). Dies führt zu einer Ausnahme, wenn einer der Werte kein gültiger Schlüssel ist.
+> Verwenden Sie diese Methode nicht zum Vergleich beliebiger JavaScript-Werte, da viele JavaScript-Werte entweder keine gültigen IndexedDB-Schlüssel sind (z.B. Booleans und Objekte) oder als äquivalente IndexedDB-Schlüssel behandelt werden. Beispielsweise ignoriert IndexedDB Arrays mit nicht-numerischen Eigenschaften und behandelt sie als leere Arrays, sodass alle nicht-numerischen Arrays als äquivalent behandelt werden. Dies wirft eine Ausnahme, wenn einer der Werte kein gültiger Schlüssel ist.
 
 ## Syntax
 
@@ -22,23 +22,23 @@ cmp(first, second)
 ### Parameter
 
 - `first`
-  - : Der erste zu vergleichende Schlüssel.
+  - : Der erste Schlüssel, der verglichen werden soll.
 - `second`
-  - : Der zweite zu vergleichende Schlüssel.
+  - : Der zweite Schlüssel, der verglichen werden soll.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert, der das Ergebnis des Vergleichs angibt; die folgende Tabelle listet die möglichen Werte und deren Bedeutungen auf:
+Ein Ganzzahlwert, der das Ergebnis des Vergleichs angibt; die Tabelle unten listet die möglichen Werte und deren Bedeutungen auf:
 
-| Rückgabewert | Beschreibung                         |
-| ------------ | ------------------------------------ |
+| Rückgabewert | Beschreibung                                  |
+| ------------ | --------------------------------------------- |
 | -1           | 1. Schlüssel ist kleiner als der 2. Schlüssel |
-| 0            | 1. Schlüssel ist gleich dem 2. Schlüssel     |
+| 0            | 1. Schlüssel ist gleich dem 2. Schlüssel      |
 | 1            | 1. Schlüssel ist größer als der 2. Schlüssel  |
 
 ### Ausnahmen
 
-- `DataError` {{domxref("DOMException")}}
+- `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn einer der angegebenen Schlüssel kein gültiger Schlüssel war.
 
 ## Beispiele
@@ -61,9 +61,9 @@ console.log(`Comparison results: ${result}`);
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Bereichs von Schlüsseln: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursorn: {{domxref("IDBCursor")}}
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einstellen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

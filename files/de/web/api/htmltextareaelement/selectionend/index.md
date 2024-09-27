@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`selectionEnd`**-Eigenschaft des {{domxref("HTMLTextAreaElement")}}-Interfaces gibt die Endposition der aktuellen Textauswahl in einem {{HTMLElement("textarea")}}-Element an. Es ist eine Zahl, die den letzten Index des ausgewählten Textes darstellt. Sie können sowohl den Index des Endes des ausgewählten Texts in einem `<textarea>` abrufen als auch festlegen.
+Die **`selectionEnd`**-Eigenschaft des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt die Endposition der aktuellen Textauswahl in einem {{HTMLElement("textarea")}}-Element an. Es ist eine Zahl, die den letzten Index des ausgewählten Textes darstellt. Sie kann sowohl verwendet werden, um den Index des Endes eines ausgewählten Textes in einem `<textarea>` abzurufen als auch zu setzen.
 
-Wenn nichts ausgewählt ist, entspricht der Wert sowohl von {{domxref("HTMLTextAreaElement.selectionStart", "selectionStart")}} als auch `selectionEnd` der Position des Cursors (Einfügemarke) innerhalb des `<textarea>`-Elements.
+Wenn nichts ausgewählt ist, ist der Wert von sowohl [`selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart) als auch `selectionEnd` die Position des Cursors (Eingabemarkers) im `<textarea>`-Element.
 
-Wenn `selectionEnd` auf einen Wert gesetzt wird, der kleiner als der aktuelle Wert von {{domxref("HTMLTextAreaElement.selectionStart", "selectionStart")}} ist, werden sowohl `selectionEnd` als auch `selectionStart` auf diesen Wert aktualisiert. Wenn beide Werte kleiner als 0 sind, werden beide Eigenschaften auf den Wert der {{domxref("HTMLTextAreaElement.textLength", "textLength")}}-Eigenschaft gesetzt.
+Wird `selectionEnd` auf einen Wert kleiner als der aktuelle Wert von [`selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart) gesetzt, werden sowohl die `selectionEnd`- als auch die `selectionStart`-Eigenschaften auf diesen Wert aktualisiert. Wenn beide Werte kleiner als 0 sind, werden beide Eigenschaften auf den Wert der [`textLength`](/de/docs/Web/API/HTMLTextAreaElement/textLength)-Eigenschaft gesetzt.
 
-Der Eigenschaftswert kann abgerufen und festgelegt werden, ohne dass das `<textarea>` den Fokus haben muss, aber das Element muss den Fokus haben, damit das {{cssxref("::selection")}} Pseudo-Element den ausgewählten Text übereinstimmt.
+Der Eigenschaftswert kann abgerufen und gesetzt werden, ohne dass das `<textarea>` den Fokus hat. Jedoch muss das Element den Fokus haben, damit das {{cssxref("::selection")}}-Pseudoelement den ausgewählten Text übereinstimmt.
 
-Das Setzen von `selectionEnd` auf einen neuen Wert löst die Ereignisse {{domxref("HTMLTextAreaElement.selectionchange_event", "selectchange")}} und {{domxref("HTMLTextAreaElement.select_event", "select")}} aus.
+Das Setzen der `selectionEnd` auf einen neuen Wert löst die Ereignisse [`selectchange`](/de/docs/Web/API/HTMLTextAreaElement/selectionchange_event) und [`select`](/de/docs/Web/API/HTMLTextAreaElement/select_event) aus.
 
 ## Wert
 
-Eine nicht negative Zahl.
+Eine nicht-negative Zahl.
 
 ## Beispiele
 
@@ -40,14 +40,14 @@ const end = textarea.selectionEnd;
 ## Siehe auch
 
 - {{HTMLElement("textarea")}}
-- {{domxref("HTMLTextAreaElement")}}
-- {{domxref("HTMLTextAreaElement.selectionStart")}}
-- {{domxref("HTMLTextAreaElement.selectionDirection")}}
-- {{domxref("HTMLTextAreaElement.textLength")}}
-- {{domxref("HTMLTextAreaElement.selectionChange_event", "selectionChange")}} event
-- {{domxref("HTMLTextAreaElement.select()")}}
-- {{domxref("HTMLTextAreaElement.setSelectionRange()")}}
-- {{domxref("HTMLTextAreaElement.setRangeText()")}}
-- {{domxref("HTMLInputElement.selectionEnd")}}
-- {{domxref("Selection")}}
-- {{cssxref("::selection")}} Pseudo-Element
+- [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)
+- [`HTMLTextAreaElement.selectionStart`](/de/docs/Web/API/HTMLTextAreaElement/selectionStart)
+- [`HTMLTextAreaElement.selectionDirection`](/de/docs/Web/API/HTMLTextAreaElement/selectionDirection)
+- [`HTMLTextAreaElement.textLength`](/de/docs/Web/API/HTMLTextAreaElement/textLength)
+- [`selectionChange`](/de/docs/Web/API/HTMLTextAreaElement/selectionChange_event) Ereignis
+- [`HTMLTextAreaElement.select()`](/de/docs/Web/API/HTMLTextAreaElement/select)
+- [`HTMLTextAreaElement.setSelectionRange()`](/de/docs/Web/API/HTMLTextAreaElement/setSelectionRange)
+- [`HTMLTextAreaElement.setRangeText()`](/de/docs/Web/API/HTMLTextAreaElement/setRangeText)
+- [`HTMLInputElement.selectionEnd`](/de/docs/Web/API/HTMLInputElement/selectionEnd)
+- [`Selection`](/de/docs/Web/API/Selection)
+- {{cssxref("::selection")}} Pseudoelement

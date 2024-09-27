@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`isPrimary`**-Eigenschaft des {{domxref("ScreenDetailed")}}-Interfaces ist ein Boolean, der angibt, ob der Bildschirm als primärer Bildschirm des Betriebssystems (OS) festgelegt ist oder nicht.
+Die schreibgeschützte Eigenschaft **`isPrimary`** des [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Interfaces ist ein boolescher Wert, der angibt, ob der Bildschirm als primärer Bildschirm des Betriebssystems (OS) festgelegt ist oder nicht.
 
-Das Betriebssystem, auf dem der Browser läuft, wird einen primären Bildschirm und einen oder mehrere sekundäre Bildschirme haben. Der primäre Bildschirm kann normalerweise vom Benutzer über die Betriebssystemeinstellungen festgelegt werden und enthält in der Regel OS-UI-Funktionen wie die Taskleiste/Das Dock mit den Symbolen. Der primäre Bildschirm kann aus mehreren Gründen geändert werden, zum Beispiel wenn ein Bildschirm abgesteckt wird.
+Das Betriebssystem, das den Browser hostet, verfügt über einen primären Bildschirm und einen oder mehrere sekundäre Bildschirme. Der primäre Bildschirm kann normalerweise vom Benutzer über die OS-Einstellungen festgelegt werden und enthält im Allgemeinen OS-Benutzeroberflächenelemente wie die Taskleiste oder das Symbol-Dock. Der primäre Bildschirm kann sich aus verschiedenen Gründen ändern, beispielsweise wenn ein Bildschirm abgesteckt wird.
 
 ## Wert
 
-Ein Boolescher Wert — `true`, wenn der Bildschirm primär ist, und `false`, wenn er sekundär ist.
+Ein boolescher Wert — `true`, wenn der Bildschirm primär ist, und `false`, wenn er sekundär ist.
 
 ## Beispiele
 
 ```js
 const screenDetails = await window.getScreenDetails();
 
-// Ist der erste Bildschirm primär?
+// Is the first screen primary?
 const screen1Primary = screenDetails.screens[0].isPrimary;
 ```
 

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`min-block-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die minimale horizontale oder vertikale Größe eines Block-Elements, abhängig von seinem Schreibmodus. Sie entspricht entweder der {{cssxref("min-width")}} oder der {{cssxref("min-height")}} Eigenschaft, abhängig vom Wert des {{cssxref("writing-mode")}}.
+Die **`min-block-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die minimale horizontale oder vertikale Größe eines Blockelements, abhängig von seinem Schreibmodus. Sie entspricht entweder der {{cssxref("min-width")}} oder der {{cssxref("min-height")}} Eigenschaft, je nach Wert des {{cssxref("writing-mode")}}.
 
 Wenn der Schreibmodus vertikal orientiert ist, bezieht sich der Wert von `min-block-size` auf die minimale Breite des Elements; andernfalls bezieht er sich auf die minimale Höhe des Elements. Eine verwandte Eigenschaft ist {{cssxref("min-inline-size")}}, die die andere Dimension des Elements definiert.
 
@@ -16,21 +16,21 @@ Wenn der Schreibmodus vertikal orientiert ist, bezieht sich der Wert von `min-bl
 ## Syntax
 
 ```css
-/* <length> Werte */
+/* <length> values */
 min-block-size: 100px;
 min-block-size: 5em;
 min-block-size: anchor-size(self-inline);
 
-/* <percentage> Werte */
+/* <percentage> values */
 min-block-size: 10%;
 
-/* Schlüsselwortwerte */
+/* Keyword values */
 min-block-size: max-content;
 min-block-size: min-content;
 min-block-size: fit-content;
 min-block-size: fit-content(20em);
 
-/* Globale Werte */
+/* Global values */
 min-block-size: inherit;
 min-block-size: initial;
 min-block-size: revert;
@@ -40,7 +40,7 @@ min-block-size: unset;
 
 ### Werte
 
-Die `min-block-size` Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("min-width")}} und {{cssxref("min-height")}} Eigenschaften.
+Die Eigenschaft `min-block-size` akzeptiert dieselben Werte wie die Eigenschaften {{cssxref("min-width")}} und {{cssxref("min-height")}}.
 
 ## Formale Definition
 
@@ -52,12 +52,12 @@ Die `min-block-size` Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("
 
 ## Beispiele
 
-### Mindestblockgröße für vertikalen Text festlegen
+### Minimale Blockgröße für vertikalen Text festlegen
 
 #### HTML
 
 ```html
-<p class="exampleText">Beispieltext</p>
+<p class="exampleText">Example text</p>
 ```
 
 #### CSS
@@ -84,5 +84,5 @@ Die `min-block-size` Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("
 
 ## Siehe auch
 
-- Die abgebildeten physikalischen Eigenschaften: {{cssxref("min-width")}} und {{cssxref("min-height")}}
+- Die zugeordneten physischen Eigenschaften: {{cssxref("min-width")}} und {{cssxref("min-height")}}
 - {{cssxref("writing-mode")}}

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Gibt `"locked"` zurück, wenn das System gesperrt ist, `"idle"`, wenn der Benutzer für eine festgelegte Anzahl von Sekunden keine Eingaben gemacht hat, oder `"active"` in allen anderen Fällen.
+Gibt `"locked"` zurück, wenn das System gesperrt ist, `"idle"`, wenn der Benutzer für eine angegebene Anzahl von Sekunden keine Eingabe getätigt hat, oder `"active"` andernfalls.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,26 +22,26 @@ let querying = browser.idle.queryState(
 ### Parameter
 
 - `detectionIntervalInSeconds`
-  - : `integer`. Das System wird als inaktiv betrachtet, wenn `detectionIntervalInSeconds` Sekunden seit der letzten erkannten Benutzereingabe vergangen sind.
+  - : `integer`. Das System wird als im Ruhezustand angesehen, wenn `detectionIntervalInSeconds` Sekunden seit der letzten erkannten Benutzereingabe vergangen sind.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('idle.IdleState')}}-String erfüllt wird, der den aktuellen Zustand angibt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('idle.IdleState')}}-String erfüllt wird, der den aktuellen Status anzeigt.
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Beispiele
 
-In diesem einfachen Beispiel rufen wir `queryState()` auf und überprüfen dann, ob der zurückgegebene `newState` `idle` oder `active` ist, und protokollieren eine entsprechende Nachricht. Da wir ein `detectionIntervalInSeconds` von 15 angegeben haben, wird ein `idle`-Zustand nur gemeldet, wenn für mindestens 15 Sekunden keine Benutzeraktivität vorhanden war.
+In diesem einfachen Beispiel rufen wir `queryState()` auf und prüfen dann, ob der zurückgegebene `newState` `idle` oder `active` ist, und protokollieren entsprechend eine Nachricht. Da wir einen `detectionIntervalInSeconds` von 15 angegeben haben, wird ein `idle`-Status nur gemeldet, wenn es mindestens 15 Sekunden lang keine Benutzeraktivität gegeben hat.
 
 ```js
 function onGot(newState) {
   if (newState === "idle") {
-    console.log("Bitte kommen Sie zurück — wir vermissen Sie!");
+    console.log("Please come back — we miss you!");
   } else if (newState === "active") {
-    console.log("Es freut uns, dass Sie noch bei uns sind!");
+    console.log("Glad to still have you with us!");
   }
 }
 
@@ -52,7 +52,7 @@ querying.then(onGot);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#method-queryState) API von Chromium. Diese Dokumentation stammt von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#method-queryState) API von Chromium. Diese Dokumentation ist abgeleitet von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

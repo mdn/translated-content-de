@@ -1,5 +1,5 @@
 ---
-title: 207 Mehrfachstatus
+title: 207 Multi-Status
 slug: Web/HTTP/Status/207
 l10n:
   sourceCommit: 3f68a9604259dfa862dd741dc88ebc8fb5fa10fe
@@ -7,14 +7,13 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`207 Mehrfachstatus`** für eine [erfolgreiche Antwort](/de/docs/Web/HTTP/Status#successful_responses) zeigt eine Mischung von Antworten an.
-Diese Antwort wird ausschließlich im Kontext von Web Distributed Authoring and Versioning ({{Glossary("WebDAV")}}) verwendet.
+Der HTTP-Statuscode **`207 Multi-Status`** für [erfolgreiche Antworten](/de/docs/Web/HTTP/Status#successful_responses) zeigt eine Mischung von Antworten an. Diese Antwort wird ausschließlich im Kontext des Web Distributed Authoring and Versioning ([WebDAV](/de/docs/Glossary/WebDAV)) verwendet.
 
-Der Antwortkörper ist eine `text/xml` oder `application/xml` HTTP-Entität mit einem `multistatus`-Root-Element, das die einzelnen Antwortcodes auflistet.
+Der Antwortinhalt ist eine `text/xml` oder `application/xml` HTTP-Entität mit einem `multistatus`-Wurzelelement, das einzelne Antwortcodes auflistet.
 
 > [!NOTE]
-> Browser, die auf Webseiten zugreifen, werden diesen Statuscode niemals antreffen.
-> Die Fähigkeit, eine _Sammlung von Ressourcen_ zurückzugeben, ist Teil des {{Glossary("WebDAV")}}-Protokolls und wird nur von Webanwendungen angetroffen, die auf einen WebDAV-Server zugreifen.
+> Browser, die auf Webseiten zugreifen, werden diesen Statuscode nie antreffen.
+> Die Fähigkeit, eine _Sammlung von Ressourcen_ zurückzugeben, ist Teil des [WebDAV](/de/docs/Glossary/WebDAV)-Protokolls und wird nur von Webanwendungen angetroffen, die auf einen WebDAV-Server zugreifen.
 
 ## Status
 
@@ -26,8 +25,7 @@ Der Antwortkörper ist eine `text/xml` oder `application/xml` HTTP-Entität mit 
 
 ### Empfang einer `207`-Antwort in einem WebDAV-Kontext
 
-Die folgende Antwort ist ein Beispiel für eine `207`-Antwort, die ein {{Glossary("WebDAV")}}-Server an einen Client sendet.
-Es gibt ein `multistatus`-Root-Element mit Details zu den einzelnen Sammlungen:
+Die folgende Antwort ist ein Beispiel für eine `207`-Antwort, die ein [WebDAV](/de/docs/Glossary/WebDAV)-Server an einen Client sendet. Es gibt ein `multistatus`-Wurzelelement mit Details zu den einzelnen Sammlungen:
 
 ```http
 HTTP/1.1 207 Multi-Status
@@ -71,5 +69,5 @@ Content-Length: 1241
 
 - {{HTTPStatus("204")}}
 - {{HTTPStatus("403")}}
-- [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods)
+- [HTTP-Anforderungsmethoden](/de/docs/Web/HTTP/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)

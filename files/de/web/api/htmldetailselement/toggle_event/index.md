@@ -1,5 +1,5 @@
 ---
-title: "HTMLDetailsElement: toggle Ereignis"
+title: "HTMLDetailsElement: toggle-Event"
 short-title: toggle
 slug: Web/API/HTMLDetailsElement/toggle_event
 l10n:
@@ -10,14 +10,14 @@ l10n:
 
 Das **`toggle`**-Ereignis wird ausgelöst, wenn der `open`/`closed`-Zustand eines {{HtmlElement("details")}}-Elements umgeschaltet wird.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
+Dieses Ereignis ist nicht abbruchbar und löst keine Bubbling-Effekte aus.
 
 > [!NOTE]
-> Das `toggle`-Ereignis ist auch in einer anderen Form auf {{domxref("HTMLElement")}} verfügbar; diese Version wird bei [Popover-Elementen](/de/docs/Web/API/Popover_API) unmittelbar nach deren Anzeige oder Ausblendung ausgelöst. Weitere Informationen finden Sie auf der `HTMLElement` {{domxref("HTMLElement.toggle_event", "toggle")}} Ereignisseite.
+> Das `toggle`-Ereignis ist auch in einer anderen Form auf [`HTMLElement`](/de/docs/Web/API/HTMLElement) verfügbar; diese Version wird auf [Popover-Elementen](/de/docs/Web/API/Popover_API) unmittelbar nach deren Anzeige oder Ausblendung ausgelöst. Weitere Informationen finden Sie auf der `HTMLElement`-[`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignisseite.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js example-good
 addEventListener("toggle", (event) => {});
@@ -30,11 +30,11 @@ ontoggle = (event) => {};
 ```
 
 > [!NOTE]
-> Im obigen Beispiel wird der Ereignis-Listener einmal ohne Benutzereingriff aufgerufen, da das `open`-Attribut gesetzt ist. Die Verwendung von Ereignis-Handlern auf diese Weise [wird nicht empfohlen](/de/docs/Web/HTML/Attributes#event_handler_attributes).
+> Im obigen Beispiel wird der Event-Listener einmal ohne Benutzereingriff aufgerufen, weil das `open`-Attribut gesetzt ist. Die Verwendung von Event-Handlern auf diese Weise [wird nicht empfohlen](/de/docs/Web/HTML/Attributes#event_handler_attributes).
 
 ## Ereignistyp
 
-Ein {{domxref("ToggleEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ToggleEvent`](/de/docs/Web/API/ToggleEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ToggleEvent")}}
 
@@ -46,28 +46,27 @@ Dieses Beispiel protokolliert Kapitel, die geöffnet sind. Kapitel werden aus de
 
 ```html
 <aside id="log">
-  <p>Offene Kapitel:</p>
+  <p>Open chapters:</p>
   <div data-id="ch1" hidden>I</div>
   <div data-id="ch2" hidden>II</div>
   <div data-id="ch3" hidden>III</div>
 </aside>
 <section id="summaries">
-  <p>Kurzfassungen der Kapitel:</p>
+  <p>Chapter summaries:</p>
   <details id="ch1">
-    <summary>Kapitel I</summary>
-    Die Philosophie tadelt Boethius wegen der Torheit seiner Klagen gegen das
-    Glück. Ihre Natur selbst ist Wechselhaftigkeit.
+    <summary>Chapter I</summary>
+    Philosophy reproves Boethius for the foolishness of his complaints against
+    Fortune. Her very nature is caprice.
   </details>
   <details id="ch2">
-    <summary>Kapitel II</summary>
-    Die Philosophie erwidert im Namen des Glücks auf Boethius' Vorwürfe und
-    beweist, dass die Gaben des Glücks ihre eigenen sind, zu geben oder zu
-    nehmen.
+    <summary>Chapter II</summary>
+    Philosophy in Fortune's name replies to Boethius' reproaches, and proves
+    that the gifts of Fortune are hers to give and to take away.
   </details>
   <details id="ch3">
-    <summary>Kapitel III</summary>
-    Boethius fällt auf sein gegenwärtiges Gefühl des Elends zurück. Die
-    Philosophie erinnert ihn an den Glanz seines früheren Schicksals.
+    <summary>Chapter III</summary>
+    Boethius falls back upon his present sense of misery. Philosophy reminds him
+    of the brilliancy of his former fortunes.
   </details>
 </section>
 ```

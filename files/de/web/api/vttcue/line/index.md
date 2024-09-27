@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`line`**-Eigenschaft der {{domxref("VTTCue")}}-Schnittstelle repräsentiert die Cue-Linie dieses WebVTT-Cues.
+Die **`line`**-Eigenschaft der [`VTTCue`](/de/docs/Web/API/VTTCue)-Schnittstelle repräsentiert die Zeile dieses WebVTT-Cue.
 
 ## Wert
 
-Eine Zahl oder `"auto"`, die die Cue-Linie dieses WebVTT-Cues darstellt.
+Eine Zahl oder `"auto"`, die die Zeile dieses WebVTT-Cue darstellt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neuer {{domxref("VTTCue")}} erstellt, dann wird der Wert von `line` auf `1` gesetzt. Der Wert wird dann auf der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `line` auf `1` gesetzt. Der Wert wird anschließend in die Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

@@ -7,25 +7,25 @@ l10n:
 
 {{GlossarySidebar}}
 
-Webstandards sind von internationalen Standardisierungsgremien festgelegte Regeln, die definieren, wie das {{Glossary("World Wide Web", "Web")}} funktioniert (und die manchmal auch das {{Glossary("Internet")}} kontrollieren).
+Webstandards sind Regeln, die von internationalen Normungsorganisationen festgelegt werden und definieren, wie das [Web](/de/docs/Glossary/World_Wide_Web) funktioniert (und die manchmal auch das [Internet](/de/docs/Glossary/Internet) kontrollieren).
 
-Mehrere Standardisierungsgremien sind dafür verantwortlich, verschiedene Aspekte des Webs zu definieren, und alle Standards müssen koordiniert werden, um das Web maximal benutzbar und zugänglich zu halten. Webstandards müssen sich auch weiterentwickeln, um den aktuellen Status zu verbessern und sich an neue Umstände anzupassen.
+Mehrere Normungsorganisationen sind dafür verantwortlich, unterschiedliche Aspekte des Webs zu definieren, und alle Standards müssen koordiniert werden, um das Web maximal nutzbar und zugänglich zu halten. Webstandards müssen sich auch weiterentwickeln, um den aktuellen Status zu verbessern und sich an neue Gegebenheiten anzupassen.
 
-Diese nicht erschöpfende Liste gibt Ihnen eine Vorstellung davon, an welche Standards Websites und Netzwerksysteme sich halten müssen:
+Diese nicht erschöpfende Liste gibt Ihnen einen Überblick darüber, welchen Standards Webseiten und Netzwerksysteme entsprechen müssen:
 
-- **IETF** (Internet Engineering Task Force): Internetstandards (STD), die unter anderem die Einrichtung und Nutzung von {{Glossary("URI", "URIs")}}, {{Glossary("HTTP")}} und {{Glossary("MIME")}} regeln
-- **{{Glossary("W3C")}}**: Spezifikationen für Markupsprachen (z. B. {{Glossary("HTML")}}), Stildefinitionen (d. h. {{Glossary("CSS")}}), {{Glossary("DOM")}}, {{Glossary("Accessibility", "Zugänglichkeit")}}
-- **IANA** (Internet Assigned Numbers Authority): Namens- und Zahlenregister
-- **Ecma Intl.:** Skriptstandards, vor allem für {{Glossary("JavaScript")}}
-- **{{Glossary("ISO")}}** (International Organization for Standardization): Standards, die verschiedene Aspekte betreffen, einschließlich Zeichencodierungen, Website-Management und Benutzeroberflächendesign
+- **IETF** (Internet Engineering Task Force): Internetstandards (STD), die unter anderem die Einrichtung und Nutzung von [URIs](/de/docs/Glossary/URI), [HTTP](/de/docs/Glossary/HTTP) und [MIME](/de/docs/Glossary/MIME) regeln
+- **[W3C](/de/docs/Glossary/W3C)**: Spezifikationen für Markup-Sprachen (z. B. [HTML](/de/docs/Glossary/HTML)), Stildefinitionen (d. h. [CSS](/de/docs/Glossary/CSS)), [DOM](/de/docs/Glossary/DOM), [Barrierefreiheit](/de/docs/Glossary/Accessibility)
+- **IANA** (Internet Assigned Numbers Authority): Namens- und Nummernregister
+- **Ecma Intl.:** Skriptstandards, am bekanntesten für [JavaScript](/de/docs/Glossary/JavaScript)
+- **[ISO](/de/docs/Glossary/ISO)** (Internationale Organisation für Normung): Standards, die eine Vielzahl von Aspekten regeln, darunter Zeichencodierungen, Webseiten-Management und Benutzeroberflächengestaltung
 
-## Entgegenstehende Standards
+## Entgegengesetzte Standards
 
-Gelegentlich können die Mitglieder eines Standardisierungsgremiums mit der Entwicklung eines Features nicht einverstanden sein, und einige können es **ablehnen**. Das bedeutet, dass Technologieentwickler (z. B. Webbrowser-Anbieter), die mit dem Feature in seiner aktuellen Form nicht einverstanden sind, es wahrscheinlich niemals implementieren werden.
+Gelegentlich können Mitglieder eines Normungsgremiums mit der Entwicklung eines Features nicht einverstanden sein und einige könnten es **ablehnen**. Das bedeutet, dass Technologie-Implementierer (wie Web-Browser-Anbieter), die mit dem aktuellen Stand des Features nicht einverstanden sind, es wahrscheinlich niemals implementieren werden.
 
-Anbieter, die mit dem Feature _einverstanden_ sind, implementieren es normalerweise trotzdem, damit es zur Experimentierung und Rückmeldung verfügbar ist. Dies ermöglicht interessierten Parteien, Anwendungsfälle zu erstellen und die Probleme mit dem Feature zu demonstrieren, in der Hoffnung, in einer zukünftigen Version einen Konsens zu erreichen.
+Anbieter, die mit dem Feature _einverstanden sind_, implementieren es normalerweise trotzdem, damit es getestet und Feedback dazu gegeben werden kann. Dies ermöglicht interessierten Parteien, Anwendungsfälle zu erstellen und die Probleme mit dem Feature aufzuzeigen, hoffentlich mit dem Ziel, in einer zukünftigen Version einen Konsens zu erreichen.
 
-Mitglieder von Standardisierungsgremien veröffentlichen häufig einen Bericht über ihre Positionen zu verschiedenen Standards zur Orientierung. Siehe zum Beispiel [Mozilla Specification Positions](https://mozilla.github.io/standards-positions/) und [WebKit Standards Positions](https://webkit.org/standards-positions/).
+Mitglieder von Normungsgremien veröffentlichen oft eine Aufzeichnung ihrer Position zu verschiedenen Standards zur Referenz. Beispielsweise finden Sie [Mozilla Specification Positions](https://mozilla.github.io/standards-positions/) und [WebKit Standards Positions](https://webkit.org/standards-positions/).
 
 ## Siehe auch
 

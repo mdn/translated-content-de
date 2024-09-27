@@ -1,5 +1,5 @@
 ---
-title: "Request: bytes()-Methode"
+title: "Request: bytes() Methode"
 short-title: bytes()
 slug: Web/API/Request/bytes
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`bytes()`**-Methode der {{domxref("Request")}}-Schnittstelle liest den Anfragetext und gibt diesen als ein Promise zurück, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
+Die **`bytes()`** Methode des [`Request`](/de/docs/Web/API/Request) Interfaces liest den Anfragetext und gibt ein Promise zurück, das mit einem {{jsxref("Uint8Array")}} aufgelöst wird.
 
 ## Syntax
 
@@ -49,4 +49,4 @@ request.bytes().then((buffer) => {
 
 ## Siehe auch
 
-- {{domxref("Response.arrayBuffer()")}}
+- [`Response.arrayBuffer()`](/de/docs/Web/API/Response/arrayBuffer)

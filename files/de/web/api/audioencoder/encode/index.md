@@ -1,5 +1,5 @@
 ---
-title: "AudioEncoder: encode()-Methode"
+title: "AudioEncoder: encode() Methode"
 short-title: encode()
 slug: Web/API/AudioEncoder/encode
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`encode()`**-Methode der {{domxref("AudioEncoder")}}-Schnittstelle stellt eine Steuerungsnachricht in die Warteschlange, um ein gegebenes {{domxref("AudioData")}}-Objekt zu kodieren.
+Die **`encode()`** Methode der [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Schnittstelle stellt eine Steuerungsnachricht in die Warteschlange, um ein gegebenes [`AudioData`](/de/docs/Web/API/AudioData)-Objekt zu kodieren.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ encode(data)
 ### Parameter
 
 - `data`
-  - : Ein {{domxref("AudioData")}}-Objekt.
+  - : Ein [`AudioData`](/de/docs/Web/API/AudioData)-Objekt.
 
 ### Rückgabewert
 
@@ -27,8 +27,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{domxref("AudioEncoder.state","state")}} nicht `"configured"` ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der [`state`](/de/docs/Web/API/AudioEncoder/state) nicht `"configured"` ist.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn das `AudioData`-Objekt [übertragen](/de/docs/Web/API/Web_Workers_API/Transferable_objects) wurde.
 
@@ -44,6 +44,6 @@ encoder.encode(data);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

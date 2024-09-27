@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-block-end-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe des logischen Block-Ende-Rands eines Elements, die je nach Schreibmodus, Richtung und Textausrichtung des Elements auf eine physische Randfarbe abgebildet wird. Sie entspricht der Eigenschaft {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}}.
+Die **`border-block-end-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe des logischen Block-Ende-Rands eines Elements, die abhängig vom Schreibmodus, der Richtung und der Textausrichtung des Elements einer physischen Randfarbe entspricht. Sie entspricht der {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}} Eigenschaft, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definiert sind.
 
 {{EmbedInteractiveExample("pages/css/border-block-end-color.html")}}
 
@@ -17,7 +17,7 @@ Die **`border-block-end-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert d
 border-block-end-color: yellow;
 border-block-end-color: #f5f6f7;
 
-/* Globale Werte */
+/* Global values */
 border-block-end-color: inherit;
 border-block-end-color: initial;
 border-block-end-color: revert;
@@ -48,7 +48,7 @@ Verwandte Eigenschaften sind {{cssxref("border-block-start-color")}}, {{cssxref(
 
 ```html
 <div>
-  <p class="exampleText">Beispieltext</p>
+  <p class="exampleText">Example text</p>
 </div>
 ```
 
@@ -83,5 +83,5 @@ div {
 ## Siehe auch
 
 - [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Diese Eigenschaft wird auf eine der physischen Rand-Eigenschaften abgebildet: {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}}.
+- Diese Eigenschaft entspricht einer der physischen Rand-Eigenschaften: {{cssxref("border-top-color")}}, {{cssxref("border-right-color")}}, {{cssxref("border-bottom-color")}}, oder {{cssxref("border-left-color")}}.
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

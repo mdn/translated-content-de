@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`markerHeight`** schreibgeschützte Eigenschaft des {{domxref("SVGMarkerElement")}}-Interfaces gibt ein {{domxref("SVGAnimatedLength")}}-Objekt zurück, das die Höhe des Ansichtsbereichs des {{SVGElement("marker")}} enthält, wie durch das {{SVGattr("markerHeight")}}-Attribut definiert.
+Die **`markerHeight`**-Eigenschaft der schreibgeschützten [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Schnittstelle gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das die Höhe des {{SVGElement("marker")}}-Viewports enthält, wie durch das {{SVGattr("markerHeight")}}-Attribut definiert.
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedLength")}}-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein {{domxref("SVGLength")}} zurück, dessen Wert die `height` zurückgibt.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGLength`](/de/docs/Web/API/SVGLength) zurück, dessen Wert die `height` zurückgibt.
 
 ## Beispiele
 
-Die `markerHeight`-Eigenschaft gibt ein {{domxref("SVGAnimatedLength")}} zurück, das ein {{domxref("SVGLength")}} mit dem Wert des {{SVGattr("markerHeight")}}-Attributs enthält.
+Die `markerHeight`-Eigenschaft gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das ein [`SVGLength`](/de/docs/Web/API/SVGLength) mit dem Wert des {{SVGattr("markerHeight")}}-Attributs enthält.
 
 ```html
 <svg id="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">

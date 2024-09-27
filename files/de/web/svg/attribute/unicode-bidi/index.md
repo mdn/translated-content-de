@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das **`unicode-bidi`**-Attribut gibt an, wie die Ansammlung des Hintergrundbilds verwaltet wird.
+Das **`unicode-bidi`** Attribut gibt an, wie die Ansammlung des Hintergrundbildes verwaltet wird.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `unicode-bidi` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der [CSS-`unicode-bidi`](/de/docs/Web/CSS/unicode-bidi)-Eigenschaft.
+> Als Präsentationsattribut kann `unicode-bidi` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der [CSS `unicode-bidi`](/de/docs/Web/CSS/unicode-bidi) Eigenschaft.
 
 ## Elemente
 
@@ -21,7 +21,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("tref")}}
 - {{SVGElement("tspan")}}
 
-## Nutzungshinweise
+## Hinweise zur Verwendung
 
 <table class="properties">
   <tbody>
@@ -40,7 +40,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   </tbody>
 </table>
 
-Eine Beschreibung der Werte finden Sie in der CSS {{cssxref("unicode-bidi")}}-Eigenschaft.
+Eine Beschreibung der Werte finden Sie in der CSS {{cssxref("unicode-bidi")}} Eigenschaft.
 
 ## Spezifikationen
 

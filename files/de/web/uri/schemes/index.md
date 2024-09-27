@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/URI")}}
 
-Das **Schema** einer URI ist der erste Teil der URI, vor dem `:`-Zeichen. Es gibt an, welches Protokoll der Browser verwenden muss, um die Ressource abzurufen. Das Schema kann beeinflussen, wie der restliche Teil der URI strukturiert und interpretiert wird.
+Das **Schema** einer URI ist der erste Teil der URI, vor dem `:` Zeichen. Es zeigt an, welches Protokoll der Browser verwenden muss, um die Ressource abzurufen. Das Schema kann beeinflussen, wie der Rest der URI strukturiert und interpretiert wird.
 
 ## Syntax
 
@@ -15,8 +15,8 @@ Das **Schema** einer URI ist der erste Teil der URI, vor dem `:`-Zeichen. Es gib
 protocol:
 ```
 
-- protocol
-  - : Eine Zeichenfolge, die das zu verwendende Protokoll identifiziert. Es sollte nur aus alphanumerischen Zeichen und den Zeichen `+`, `-` und `.` bestehen. Häufige Schemata sind:
+- Protokoll
+  - : Eine Zeichenfolge, die das zu verwendende Protokoll identifiziert. Es sollte nur aus alphanumerischen Zeichen und den Zeichen `+`, `-` und `.` bestehen. Gängige Schemata sind:
     - [`blob`](/de/docs/Web/API/URL/createObjectURL_static)
       - : Binary Large Object; ein Zeiger auf ein großes Objekt im Speicher
     - [`data`](/de/docs/Web/URI/Schemes/data)
@@ -24,21 +24,21 @@ protocol:
     - `file`
       - : Host-spezifische Dateinamen
     - `ftp`
-      - : {{Glossary("FTP", "File Transfer Protocol")}}
+      - : [File Transfer Protocol](/de/docs/Glossary/FTP)
     - `http` / `https`
-      - : Hypertext-Übertragungsprotokoll (Sicher) ({{glossary("HTTP")}}/{{glossary("HTTPS")}})
+      - : Hypertext-Übertragungsprotokoll (Sicher) ([HTTP](/de/docs/Glossary/HTTP)/[HTTPS](/de/docs/Glossary/HTTPS))
     - [`javascript`](/de/docs/Web/URI/Schemes/javascript)
       - : In die URL eingebetteter JavaScript-Code
     - `mailto`
-      - : Elektronische Mail-Adresse
+      - : Elektronische Mailadresse
     - [`resource`](/de/docs/Web/URI/Schemes/resource) {{Non-standard_inline}}
-      - : Firefox und Firefox-Browsererweiterungen, um Ressourcen intern zu laden
+      - : Firefox und Firefox-Browsererweiterungen zum internen Laden von Ressourcen
     - `ssh`
       - : Secure Shell
     - `tel`
       - : Telefon
     - `urn`
-      - : Einheitliche Ressourcen-Namen
+      - : Uniform Resource Names
     - `view-source`
       - : Quellcode der Ressource
     - `ws` / `wss`

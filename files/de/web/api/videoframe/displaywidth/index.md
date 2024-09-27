@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`displayWidth`**-Eigenschaft des {{domxref("VideoFrame")}}-Interfaces gibt die Breite des `VideoFrame` nach Anwendung von Seitenverhältnisanpassungen zurück.
+Die **`displayWidth`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt die Breite des `VideoFrame` nach Anwendung von Seitenverhältnis-Anpassungen zurück.
 
 ## Wert
 
-Ein Integer.
+Ein Ganzzahlwert.
 
 ## Beispiele
 
-Das folgende Beispiel gibt die `displayWidth` in die Konsole aus.
+Das folgende Beispiel gibt die `displayWidth` in der Konsole aus.
 
 ```js
 console.log(VideoFrame.displayWidth);

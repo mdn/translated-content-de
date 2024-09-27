@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Die **`stream`** schreibgeschützte Eigenschaft des {{domxref("MediaRecorder")}}-Interfaces gibt den Stream zurück, der dem {{domxref("MediaRecorder.MediaRecorder", "MediaRecorder()")}}-Konstruktor übergeben wurde, als der `MediaRecorder` erstellt wurde.
+Die **`stream`** schreibgeschützte Eigenschaft der [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Schnittstelle gibt den Stream zurück, der in den [`MediaRecorder()`](/de/docs/Web/API/MediaRecorder/MediaRecorder)-Konstruktor übergeben wurde, als der `MediaRecorder` erstellt wurde.
 
 ## Wert
 
-Der {{domxref("MediaStream")}}-Parameter, der dem `MediaRecorder()`-Konstruktor übergeben wurde, als der `MediaRecorder` ursprünglich erstellt wurde.
+Der [`MediaStream`](/de/docs/Web/API/MediaStream), der in den `MediaRecorder()`-Konstruktor übergeben wurde, als der `MediaRecorder` ursprünglich erstellt wurde.
 
 ## Beispiele
 
@@ -40,14 +40,13 @@ if (navigator.getUserMedia) {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Verwendung der MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API)
-- [Web Diktiergerät](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder +
-  getUserMedia + Web Audio API Visualisierungs-Demo, von [Chris Mills](https://github.com/chrisdavidmills) ([Source auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
+- [Web Dictaphone](https://mdn.github.io/dom-examples/media/web-dictaphone/): MediaRecorder + getUserMedia + Web Audio API Visualisierungsdemo, von [Chris Mills](https://github.com/chrisdavidmills) ([Quelle auf GitHub](https://github.com/mdn/dom-examples/tree/main/media/web-dictaphone).)
 - [simpl.info MediaStream Recording Demo](https://simpl.info/mediarecorder/), von [Sam Dutton](https://github.com/samdutton).
-- {{domxref("Navigator.getUserMedia")}}
+- [`Navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia)

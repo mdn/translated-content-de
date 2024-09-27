@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Der **`DataTransfer`** Konstruktor erstellt eine neue Instanz des {{domxref("DataTransfer")}}-Objekts.
+Der **`DataTransfer`** Konstruktor erstellt eine neue Instanz des [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekts.
 
 ## Syntax
 

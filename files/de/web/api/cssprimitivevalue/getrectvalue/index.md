@@ -1,5 +1,5 @@
 ---
-title: "CSSPrimitiveValue: getRectValue()-Methode"
+title: "CSSPrimitiveValue: getRectValue() Methode"
 short-title: getRectValue()
 slug: Web/API/CSSPrimitiveValue/getRectValue
 l10n:
@@ -8,15 +8,17 @@ l10n:
 
 {{APIRef("CSSOM")}}{{deprecated_header}}
 
-Die **`getRectValue()`**-Methode der {{domxref("CSSPrimitiveValue")}}-Schnittstelle wird verwendet, um einen Rechteckwert zu erhalten. Falls dieser CSS-Wert keinen Rechteckwert enthält, wird eine {{domxref("DOMException")}} ausgelöst. Änderungen an der entsprechenden Stil-Eigenschaft können über die {{domxref("Rect")}}-Schnittstelle erreicht werden.
+Die **`getRectValue()`** Methode der
+[`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue) Schnittstelle wird verwendet, um einen `rect`-Wert zu erhalten. Wenn dieser CSS-Wert keinen `rect`-Wert enthält, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst. Modifikationen der entsprechenden Stil-Eigenschaft können mit der
+[`Rect`](/de/docs/Web/API/Rect) Schnittstelle erreicht werden.
 
 > [!NOTE]
 > Diese Methode war Teil eines Versuchs, ein typisiertes CSS-Objektmodell zu erstellen. Dieser Versuch wurde aufgegeben, und die meisten Browser implementieren es nicht.
 >
 > Um Ihr Ziel zu erreichen, können Sie verwenden:
 >
-> - das untypisierte [CSS-Objektmodell](/de/docs/Web/API/CSS_Object_Model), das weit verbreitet unterstützt wird, oder
-> - das moderne [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API), das weniger unterstützt wird und als experimentell gilt.
+> - das untypisierte [CSS Objektmodell](/de/docs/Web/API/CSS_Object_Model), weit verbreitet unterstützt, oder
+> - das moderne [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API), weniger unterstützt und als experimentell betrachtet.
 
 ## Syntax
 
@@ -30,13 +32,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("Rect")}}-Objekt, das den Rechteckwert darstellt.
+Ein [`Rect`](/de/docs/Web/API/Rect) Objekt, das den `rect`-Wert repräsentiert.
 
 ### Ausnahmen
 
-| **Typ**         | **Beschreibung**                                                                                                 |
-| --------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `DOMException`  | Ein `INVALID_ACCESS_ERR` wird ausgelöst, wenn der CSS-Wert keinen Rechteckwert enthält. (d. h., es ist nicht `CSS_RECT`). |
+| **Typ**        | **Beschreibung**                                                                                                       |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `DOMException` | Ein `INVALID_ACCESS_ERR` wird ausgelöst, wenn der CSS-Wert keinen Rect-Wert enthält. (d.h. dies ist nicht `CSS_RECT`). |
 
 ## Beispiele
 
@@ -48,10 +50,10 @@ console.log(cssValue.getRectValue());
 
 ## Spezifikationen
 
-Dieses Feature wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/)-Spezifikation definiert, wurde jedoch seitdem aus jeglichen Standardisierungsbemühungen entfernt.
+Dieses Feature wurde ursprünglich in der [DOM Style Level 2](https://www.w3.org/TR/DOM-Level-2-Style/) Spezifikation definiert, wurde aber seitdem aus jedem Standardisierungsversuch gestrichen.
 
-Es wurde durch ein modernes, aber inkompatibles [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, das sich nun auf dem Standardisierungspfad befindet.
+Es wurde durch ein modernes, aber inkompatibles [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API) ersetzt, das sich jetzt auf dem Standardweg befindet.
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -8,30 +8,25 @@ l10n:
 
 {{APIRef("History API")}}
 
-Die **`state`**-Eigenschaft der {{DOMxRef("History")}}-Schnittstelle ist schreibgeschützt und gibt einen Wert zurück, der den Zustand an der Spitze des Verlaufstapels darstellt. Dies ist eine Möglichkeit, sich den Zustand anzusehen, ohne auf ein {{domxref("Window/popstate_event", "popstate")}}-Ereignis warten zu müssen.
+Die **`state`**-Eigenschaft der [`History`](/de/docs/Web/API/History)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die einen Wert zurückgibt, der den Zustand am oberen Ende des Verlaufsstapels darstellt. Dies ist eine Möglichkeit, den Zustand zu betrachten, ohne auf ein [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis warten zu müssen.
 
 ## Wert
 
-Der Zustand an der Spitze des Verlaufstapels. Der Wert ist [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), bis die
-Methode {{domxref("History.pushState","pushState()")}} oder
-{{domxref("History.replaceState","replaceState()")}} verwendet wird.
+Der Zustand am oberen Ende des Verlaufsstapels. Der Wert ist [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), bis die Methoden [`pushState()`](/de/docs/Web/API/History/pushState) oder [`replaceState()`](/de/docs/Web/API/History/replaceState) verwendet werden.
 
 ## Beispiele
 
-Der folgende Code protokolliert den Wert von `history.state`, bevor die Methode
-{{domxref("History.pushState","pushState()")}} verwendet wird, um einen Wert in den Verlauf zu schieben.
-Die nächste Zeile protokolliert den Wert erneut in der Konsole und zeigt, dass
-`history.state` nun einen Wert hat.
+Der untenstehende Code protokolliert den Wert von `history.state`, bevor die [`pushState()`](/de/docs/Web/API/History/pushState)-Methode verwendet wird, um einen Wert in den Verlauf zu schieben. Die nächste Zeile protokolliert den Wert erneut in der Konsole und zeigt, dass `history.state` nun einen Wert hat.
 
 ```js
-// Sollte null sein, da wir den Verlaufstapel noch nicht verändert haben
-console.log("History.state vor pushState: ", history.state);
+// Should be null because we haven't modified the history stack yet
+console.log("History.state before pushState: ", history.state);
 
-// Jetzt etwas auf den Stapel schieben
+// Now push something on the stack
 history.pushState({ name: "Example" }, "pushState example", "page3.html");
 
-// Jetzt hat der Zustand einen Wert.
-console.log("History.state nach pushState: ", history.state);
+// Now state has a value.
+console.log("History.state after pushState: ", history.state);
 ```
 
 ## Spezifikationen

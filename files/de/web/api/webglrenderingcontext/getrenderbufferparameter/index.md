@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.getRenderbufferParameter()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt Informationen über den Renderpuffer zurück.
+Die **`WebGLRenderingContext.getRenderbufferParameter()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) liefert Informationen über den Renderbuffer.
 
 ## Syntax
 
@@ -20,51 +20,51 @@ getRenderbufferParameter(target, pname)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der das Ziel-Renderpufferobjekt angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel-Renderbuffer-Objekt angibt. Mögliche Werte:
 
     - `gl.RENDERBUFFER`
-      - : Pufferspeicher für einzelne Bilder in einem darstellbaren internen Format.
+      - : Datenspeicher für Buffers für einzelne Bilder in einem renderbaren internen Format.
 
 - `pname`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der die abzufragende Information angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die abzufragende Information angibt. Mögliche Werte:
 
     - `gl.RENDERBUFFER_WIDTH`
-      - : Gibt eine {{domxref("WebGL_API/Types", "GLint")}} zurück, die die Breite des Bildes des aktuell gebundenen Renderpuffers angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Breite des Bildes des aktuell gebundenen Renderbuffers angibt.
     - `gl.RENDERBUFFER_HEIGHT`
-      - : Gibt eine {{domxref("WebGL_API/Types", "GLint")}} zurück, die die Höhe des Bildes des aktuell gebundenen Renderpuffers angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Höhe des Bildes des aktuell gebundenen Renderbuffers angibt.
     - `gl.RENDERBUFFER_INTERNAL_FORMAT`
 
-      - : Gibt eine {{domxref("WebGL_API/Types", "GLenum")}} zurück, die das interne Format des aktuell gebundenen Renderpuffers angibt. Der Standardwert ist `gl.RGBA4`. Mögliche Rückgabewerte:
+      - : Gibt ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das das interne Format des aktuell gebundenen Renderbuffers angibt. Der Standardwert ist `gl.RGBA4`. Mögliche Rückgabewerte:
 
-        - `gl.RGBA4`: 4 rote Bits, 4 grüne Bits, 4 blaue Bits, 4 Alpha-Bits.
-        - `gl.RGB565`: 5 rote Bits, 6 grüne Bits, 5 blaue Bits.
-        - `gl.RGB5_A1`: 5 rote Bits, 5 grüne Bits, 5 blaue Bits, 1 Alpha-Bit.
+        - `gl.RGBA4`: 4 Rot-Bits, 4 Grün-Bits, 4 Blau-Bits, 4 Alpha-Bits.
+        - `gl.RGB565`: 5 Rot-Bits, 6 Grün-Bits, 5 Blau-Bits.
+        - `gl.RGB5_A1`: 5 Rot-Bits, 5 Grün-Bits, 5 Blau-Bits, 1 Alpha-Bit.
         - `gl.DEPTH_COMPONENT16`: 16 Tiefen-Bits.
         - `gl.STENCIL_INDEX8`: 8 Stencil-Bits.
 
     - `gl.RENDERBUFFER_GREEN_SIZE`
-      - : Gibt eine {{domxref("WebGL_API/Types", "GLint")}} zurück, die die Auflösungsgröße (in Bits) für die grüne Farbe angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Auflösungsgröße (in Bits) für die grüne Farbe ist.
     - `gl.RENDERBUFFER_BLUE_SIZE`
-      - : Gibt eine {{domxref("WebGL_API/Types", "GLint")}} zurück, die die Auflösungsgröße (in Bits) für die blaue Farbe angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Auflösungsgröße (in Bits) für die blaue Farbe ist.
     - `gl.RENDERBUFFER_RED_SIZE`
-      - : Gibt eine {{domxref("WebGL_API/Types", "GLint")}} zurück, die die Auflösungsgröße (in Bits) für die rote Farbe angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Auflösungsgröße (in Bits) für die rote Farbe ist.
     - `gl.RENDERBUFFER_ALPHA_SIZE`
-      - : Gibt eine {{domxref("WebGL_API/Types", "GLint")}} zurück, die die Auflösungsgröße (in Bits) für die Alpha-Komponente angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Auflösungsgröße (in Bits) für die Alpha-Komponente ist.
     - `gl.RENDERBUFFER_DEPTH_SIZE`
-      - : Gibt eine {{domxref("WebGL_API/Types", "GLint")}} zurück, die die Auflösungsgröße (in Bits) für die Tiefen-Komponente angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Auflösungsgröße (in Bits) für die Tiefenkomponente ist.
     - `gl.RENDERBUFFER_STENCIL_SIZE`
 
-      - : Gibt eine {{domxref("WebGL_API/Types", "GLint")}} zurück, die die Auflösungsgröße (in Bits) für die Stencil-Komponente angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Auflösungsgröße (in Bits) für die Stencil-Komponente ist.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontexts", "", 1)}} ist der folgende Wert zusätzlich verfügbar:
+    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontexts", "", 1)}} ist folgender Wert zusätzlich verfügbar:
 
     - `gl.RENDERBUFFER_SAMPLES`
-      - : Gibt eine {{domxref("WebGL_API/Types", "GLint")}} zurück, die die Anzahl der Proben des Bildes des aktuell gebundenen Renderpuffers angibt.
+      - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Anzahl der Abtastungen des Bildes des aktuell gebundenen Renderbuffers angibt.
 
 ### Rückgabewert
 
-Hängt von der angeforderten Information ab (wie mit `pname` angegeben). Entweder eine {{domxref("WebGL_API/Types", "GLint")}} oder eine {{domxref("WebGL_API/Types", "GLenum")}}.
+Hängt von den angeforderten Informationen ab (wie mit `pname` angegeben). Entweder ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) oder ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types).
 
 ## Beispiele
 
@@ -82,8 +82,8 @@ gl.getRenderbufferParameter(gl.RENDERBUFFER, gl.RENDERBUFFER_WIDTH);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.createRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.renderbufferStorage()")}}
-- Andere Puffer: {{domxref("WebGLBuffer")}}, {{domxref("WebGLFramebuffer")}}
+- [`WebGLRenderingContext.bindRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindRenderbuffer)
+- [`WebGLRenderingContext.createRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/createRenderbuffer)
+- [`WebGLRenderingContext.deleteRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteRenderbuffer)
+- [`WebGLRenderingContext.renderbufferStorage()`](/de/docs/Web/API/WebGLRenderingContext/renderbufferStorage)
+- Andere Buffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)

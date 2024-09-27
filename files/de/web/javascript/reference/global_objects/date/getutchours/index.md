@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getUTCHours()`** Methode von {{jsxref("Date")}}-Instanzen liefert die Stunden für dieses Datum gemäß der Weltzeit.
+Die **`getUTCHours()`**-Methode von Instanzen des {{jsxref("Date")}} gibt die Stunden für dieses Datum gemäß der Weltzeit zurück.
 
 {{EmbedInteractiveExample("pages/js/date-getutchours.html")}}
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine ganze Zahl, zwischen 0 und 23, die die Stunden für das gegebene Datum gemäß der Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Ein Integer, zwischen 0 und 23, der die Stunden für das angegebene Datum gemäß der Weltzeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 

@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`maxMessageSize`** schreibgeschützte Eigenschaft der {{DOMxRef("RTCSctpTransport")}}-Schnittstelle gibt die maximale Größe einer Nachricht an, die mit der {{DOMxRef("RTCDataChannel.send()")}}-Methode gesendet werden kann.
+Die **`maxMessageSize`** schreibgeschützte Eigenschaft der [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Schnittstelle gibt die maximale Größe einer Nachricht an, die mithilfe der [`RTCDataChannel.send()`](/de/docs/Web/API/RTCDataChannel/send)-Methode gesendet werden kann.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die maximale Größe in Bytes einer Nachricht angibt, die mit der {{DOMxRef("RTCDataChannel.send()")}}-Methode gesendet werden kann.
+Ein Ganzzahlenwert, der die maximale Größe in Bytes einer Nachricht angibt, die mithilfe der [`RTCDataChannel.send()`](/de/docs/Web/API/RTCDataChannel/send)-Methode gesendet werden kann.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie Sie einen String in kleine Teile aufteilen könnten, die basierend auf der maximalen Nachrichtenlänge gesendet werden können.
+Dieses Beispiel zeigt, wie Sie möglicherweise einen String in kleine Teile aufteilen, um ihn basierend auf der maximalen Nachrichtenhöhe zu senden.
 
 ```js
-// Funktion teilt Zeichenfolgen auf eine festgelegte Größe auf und gibt ein Array zurück.
+// Function splits strings to a specified size and returns array.
 function splitStringToMax(str, maxLength) {
   const result = [];
   let i = 0;
@@ -51,5 +51,5 @@ channel.onopen = (event) => {
 
 ## Siehe auch
 
-- {{DOMxRef("RTCSctpTransport")}}
-- [Verständnis der Nachrichtenbegrenzungen](/de/docs/Web/API/WebRTC_API/Using_data_channels#understanding_message_size_limits) Abschnitt von [Verwendung von WebRTC-Datenkanälen](/de/docs/Web/API/WebRTC_API/Using_data_channels)
+- [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)
+- Abschnitt [Verstehen von Nachrichtenhöchstgrenzen](/de/docs/Web/API/WebRTC_API/Using_data_channels#understanding_message_size_limits) von [Verwendung von WebRTC-Datenkanälen](/de/docs/Web/API/WebRTC_API/Using_data_channels)

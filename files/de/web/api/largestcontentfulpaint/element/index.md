@@ -1,6 +1,6 @@
 ---
-title: "LargestContentfulPaint: Element-Eigenschaft"
-short-title: Element
+title: "LargestContentfulPaint: element-Eigenschaft"
+short-title: element
 slug: Web/API/LargestContentfulPaint/element
 l10n:
   sourceCommit: 92eab76b7686dadbce22affd372889bc2154f4ef
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`element`** schreibgeschützte Eigenschaft der {{domxref("LargestContentfulPaint")}}-Schnittstelle gibt ein Objekt zurück, das das {{domxref("Element")}} darstellt, welches das größte inhaltsreiche Rendern ist.
+Die schreibgeschützte **`element`**-Eigenschaft der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Schnittstelle gibt ein Objekt zurück, das das [`Element`](/de/docs/Web/API/Element) repräsentiert, welches der größte darstellbare Inhalt ist.
 
 ## Wert
 
-Ein {{domxref("Element")}}.
+Ein [`Element`](/de/docs/Web/API/Element).
 
 ## Beispiele
 
-### Protokollierung des Elements des größten inhaltsreichen Renderns
+### Protokollierung des größten darstellbaren Inhalts-Elements
 
-Dieses Beispiel verwendet einen {{domxref("PerformanceObserver")}}, der über neue `largest-contentful-paint`-Leistungseinträge benachrichtigt, sobald sie in der Leistungszeitleiste des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge vor der Erstellung des Observers zuzugreifen.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `largest-contentful-paint`-Leistungseinträge benachrichtigt, sobald sie in der Leistungszeitleiste des Browsers aufgezeichnet werden. Die `buffered`-Option wird verwendet, um auf Einträge von vor der Erstellung des Beobachters zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {

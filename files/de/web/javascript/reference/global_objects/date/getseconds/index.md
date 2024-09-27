@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`getSeconds()`** Methode von {{jsxref("Date")}} Instanzen gibt die Sekunden für dieses Datum entsprechend der lokalen Zeit zurück.
+Die **`getSeconds()`** Methode von {{jsxref("Date")}} Instanzen gibt die Sekunden für dieses Datum entsprechend der Ortszeit zurück.
 
 {{EmbedInteractiveExample("pages/js/date-getseconds.html", "shorter")}}
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert, zwischen 0 und 59, der die Sekunden für das angegebene Datum entsprechend der lokalen Zeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
+Eine Ganzzahl zwischen 0 und 59, die die Sekunden für das angegebene Datum entsprechend der Ortszeit darstellt. Gibt `NaN` zurück, wenn das Datum [ungültig](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) ist.
 
 ## Beispiele
 

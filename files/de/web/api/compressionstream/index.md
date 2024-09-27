@@ -7,23 +7,23 @@ l10n:
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Das **`CompressionStream`**-Interface der {{domxref('Compression Streams API','','',' ')}} ist eine API zum Komprimieren eines Datenstroms.
+Die **`CompressionStream`**-Schnittstelle der [Compression Streams API](/de/docs/Web/API/Compression_Streams_API) ist eine API zum Komprimieren eines Datenstroms.
 
 ## Konstruktor
 
-- {{domxref("CompressionStream.CompressionStream", "CompressionStream()")}}
+- [`CompressionStream()`](/de/docs/Web/API/CompressionStream/CompressionStream)
   - : Erstellt einen neuen `CompressionStream`
 
 ## Instanzeigenschaften
 
-- {{domxref("CompressionStream.readable")}}
-  - : Gibt die {{domxref("ReadableStream")}}-Instanz zurück, die von diesem Objekt gesteuert wird.
-- {{domxref("CompressionStream.writable")}}
-  - : Gibt die {{domxref("WritableStream")}}-Instanz zurück, die von diesem Objekt gesteuert wird.
+- [`CompressionStream.readable`](/de/docs/Web/API/CompressionStream/readable)
+  - : Gibt die [`ReadableStream`](/de/docs/Web/API/ReadableStream)-Instanz zurück, die von diesem Objekt gesteuert wird.
+- [`CompressionStream.writable`](/de/docs/Web/API/CompressionStream/writable)
+  - : Gibt die [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück, die von diesem Objekt gesteuert wird.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Stream unter Verwendung der gzip-Kompression komprimiert.
+In diesem Beispiel wird ein Stream mit Gzip-Komprimierung komprimiert.
 
 ```js
 const compressedReadableStream = inputReadableStream.pipeThrough(

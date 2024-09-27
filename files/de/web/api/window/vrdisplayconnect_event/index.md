@@ -1,5 +1,5 @@
 ---
-title: "Fenster: vrdisplayconnect-Ereignis"
+title: "Window: vrdisplayconnect Event"
 short-title: vrdisplayconnect
 slug: Web/API/Window/vrdisplayconnect_event
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Window")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Das **`vrdisplayconnect`**-Ereignis der [WebVR-API](/de/docs/Web/API/WebVR_API) wird ausgelöst, wenn ein kompatibles VR-Display mit dem Computer verbunden wird.
+Das **`vrdisplayconnect`**-Ereignis der [WebVR API](/de/docs/Web/API/WebVR_API) wird ausgelöst, wenn ein kompatibles VR-Display mit dem Computer verbunden wird.
 
 > [!NOTE]
-> Dieses Ereignis war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/). Es wurde durch die [WebXR-Geräte-API](https://immersive-web.github.io/webxr/) ersetzt.
+> Dieses Ereignis war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Es wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und es tritt keine Ereignis-Bubbling auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("vrdisplayconnect", (event) => {});
@@ -27,18 +27,18 @@ onvrdisplayconnect = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("VRDisplayEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`VRDisplayEvent`](/de/docs/Web/API/VRDisplayEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("VRDisplayEvent")}}
 
 ## Ereigniseigenschaften
 
-_`VRDisplayEvent` erbt auch Eigenschaften von seinem übergeordneten Objekt, {{domxref("Event")}}._
+_`VRDisplayEvent` erbt auch Eigenschaften von seinem Elternobjekt [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("VRDisplayEvent.display")}} {{Deprecated_Inline}} {{ReadOnlyInline}}
-  - : Das mit diesem Ereignis verbundene {{domxref("VRDisplay")}}.
-- {{domxref("VRDisplayEvent.reason")}} {{Deprecated_Inline}} {{ReadOnlyInline}}
-  - : Ein lesbarer Grund, warum das Ereignis ausgelöst wurde.
+- [`VRDisplayEvent.display`](/de/docs/Web/API/VRDisplayEvent/display) {{Deprecated_Inline}} {{ReadOnlyInline}}
+  - : Das [`VRDisplay`](/de/docs/Web/API/VRDisplay), das mit diesem Ereignis verknüpft ist.
+- [`VRDisplayEvent.reason`](/de/docs/Web/API/VRDisplayEvent/reason) {{Deprecated_Inline}} {{ReadOnlyInline}}
+  - : Eine lesbare Begründung, warum das Ereignis ausgelöst wurde.
 
 ## Beispiele
 
@@ -62,9 +62,9 @@ window.onvrdisplayconnect = () => {
 
 ## Spezifikationen
 
-Dieses Ereignis war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR-Geräte-API](https://immersive-web.github.io/webxr/) ersetzt wurde. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Ereignis war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Es befindet sich nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neue [WebXR-Geräte-API](https://immersive-web.github.io/webxr/) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) zu verlassen, oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verwenden, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den Leitfaden [Portierung von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) von Meta für weitere Informationen.
+Bis alle Browser die neue [WebXR Device API](https://immersive-web.github.io/webxr/) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verlassen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Leitfaden zum Portieren von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 
@@ -72,4 +72,4 @@ Bis alle Browser die neue [WebXR-Geräte-API](https://immersive-web.github.io/we
 
 ## Siehe auch
 
-- [WebVR-API](/de/docs/Web/API/WebVR_API)
+- [WebVR API](/de/docs/Web/API/WebVR_API)

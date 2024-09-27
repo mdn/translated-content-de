@@ -7,25 +7,25 @@ l10n:
 
 {{ APIRef("Web Crypto API") }}
 
-Das **`EcdsaParams`**-Wörterbuch der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert das Objekt, das als `algorithm`-Parameter in {{domxref("SubtleCrypto.sign()")}} oder {{domxref("SubtleCrypto.verify()")}} übergeben werden sollte, wenn der [ECDSA](/de/docs/Web/API/SubtleCrypto/sign#ecdsa)-Algorithmus verwendet wird.
+Das **`EcdsaParams`**-Wörterbuch der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert das Objekt, das als `algorithm`-Parameter in [`SubtleCrypto.sign()`](/de/docs/Web/API/SubtleCrypto/sign) oder [`SubtleCrypto.verify()`](/de/docs/Web/API/SubtleCrypto/verify) übergeben werden sollte, wenn der [ECDSA](/de/docs/Web/API/SubtleCrypto/sign#ecdsa)-Algorithmus verwendet wird.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - `name`
-  - : Ein String. Dies sollte auf `ECDSA` gesetzt werden.
+  - : Ein String. Dieser sollte auf `ECDSA` gesetzt werden.
 - `hash`
 
-  - : Ein String. Ein Kennzeichner für den zu verwendenden [Digest-Algorithmus](/de/docs/Web/API/SubtleCrypto/digest). Dies sollte einer der folgenden sein:
+  - : Ein String. Ein Bezeichner für den zu verwendenden [Digest-Algorithmus](/de/docs/Web/API/SubtleCrypto/digest). Dieser sollte einer der folgenden sein:
 
-    - `SHA-256`: wählt den [SHA-256](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms)-Algorithmus aus.
-    - `SHA-384`: wählt den [SHA-384](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms)-Algorithmus aus.
-    - `SHA-512`: wählt den [SHA-512](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms)-Algorithmus aus.
+    - `SHA-256`: Wählt den [SHA-256](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms)-Algorithmus.
+    - `SHA-384`: Wählt den [SHA-384](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms)-Algorithmus.
+    - `SHA-512`: Wählt den [SHA-512](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms)-Algorithmus.
 
     > **Warning:** `SHA-1` wird hier ebenfalls unterstützt, aber der [SHA-1](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms)-Algorithmus gilt als unsicher und sollte nicht mehr verwendet werden.
 
 ## Beispiele
 
-Siehe die Beispiele für {{domxref("SubtleCrypto.sign()")}} oder {{domxref("SubtleCrypto.verify()")}}.
+Siehe die Beispiele für [`SubtleCrypto.sign()`](/de/docs/Web/API/SubtleCrypto/sign) oder [`SubtleCrypto.verify()`](/de/docs/Web/API/SubtleCrypto/verify).
 
 ## Spezifikationen
 
@@ -33,10 +33,10 @@ Siehe die Beispiele für {{domxref("SubtleCrypto.sign()")}} oder {{domxref("Subt
 
 ## Browser-Kompatibilität
 
-Browser, die den "ECDSA"-Algorithmus für die Methoden {{domxref("SubtleCrypto.sign()")}} und {{domxref("SubtleCrypto.verify()")}} unterstützen, werden diesen Typ unterstützen.
+Browser, die den "ECDSA"-Algorithmus für die Methoden [`SubtleCrypto.sign()`](/de/docs/Web/API/SubtleCrypto/sign) und [`SubtleCrypto.verify()`](/de/docs/Web/API/SubtleCrypto/verify) unterstützen, werden diesen Typ unterstützen.
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("SubtleCrypto.sign()")}} und {{domxref("SubtleCrypto.verify()")}}.
+- [`SubtleCrypto.sign()`](/de/docs/Web/API/SubtleCrypto/sign) und [`SubtleCrypto.verify()`](/de/docs/Web/API/SubtleCrypto/verify).

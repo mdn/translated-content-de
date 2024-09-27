@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM") }}
 
-Die **`name`**-Eigenschaft der {{domxref("CSSKeyframeRule")}}-Schnittstelle ruft den Namen der Animation ab und setzt diesen, wie er von der {{cssxref("animation-name")}}-Eigenschaft verwendet wird.
+Die **`name`**-Eigenschaft des [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Interfaces ruft den Namen der Animation ab und setzt ihn, wie er von der {{cssxref("animation-name")}}-Eigenschaft verwendet wird.
 
 ## Wert
 
@@ -16,8 +16,8 @@ Ein String.
 
 ## Beispiele
 
-Das CSS enthält eine Keyframes-At-Regel. Dies wird die erste {{domxref("CSSRule")}} sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
-`myRules[0]` gibt ein {{domxref("CSSKeyframesRule")}}-Objekt zurück, mit dem `name` auf "slidein" gesetzt.
+Das CSS enthält eine `keyframes`-At-Regel. Dies wird die erste durch `document.styleSheets[0].cssRules` zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) sein.
+`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück, dessen `name` auf "slidein" gesetzt ist.
 
 ```css
 @keyframes slidein {

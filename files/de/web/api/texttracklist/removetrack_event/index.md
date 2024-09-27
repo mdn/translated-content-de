@@ -1,5 +1,5 @@
 ---
-title: "TextTrackList: removetrack-Ereignis"
+title: "TextTrackList: removetrack Ereignis"
 short-title: removetrack
 slug: Web/API/TextTrackList/removetrack_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das **`removetrack`**-Ereignis wird ausgelöst, wenn ein Track aus einer [`TextTrackList`](/de/docs/Web/API/TextTrackList) entfernt wird.
+Das **`removetrack`** Ereignis wird ausgelöst, wenn ein Track aus einer [`TextTrackList`](/de/docs/Web/API/TextTrackList) entfernt wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("removetrack", (event) => {});
@@ -22,16 +22,16 @@ onremovetrack = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("TrackEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`TrackEvent`](/de/docs/Web/API/TrackEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("TrackEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle, {{domxref("Event")}}, verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind die Eigenschaften der Elternschnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
-- {{domxref("TrackEvent.track", "track")}} {{ReadOnlyInline}}
-  - : Das {{domxref("TextTrack")}}-Objekt, auf das sich das Ereignis bezieht.
+- [`track`](/de/docs/Web/API/TrackEvent/track) {{ReadOnlyInline}}
+  - : Das [`TextTrack`](/de/docs/Web/API/TextTrack) Objekt, auf das sich das Ereignis bezieht.
 
 ## Beispiele
 
@@ -66,8 +66,8 @@ mediaElement.textTracks.onremovetrack = (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`addtrack`](/de/docs/Web/API/VideoTrackList/addtrack_event), [`change`](/de/docs/Web/API/VideoTrackList/change_event)
-- Dieses Ereignis bei [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) richtet sich an: [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)
-- Dieses Ereignis bei [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) richtet sich an: [`removetrack`](/de/docs/Web/API/AudioTrackList/removetrack_event)
-- Dieses Ereignis bei [`MediaStream`](/de/docs/Web/API/MediaStream) richtet sich an: [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)
+- Dieses Ereignis auf [`VideoTrackList`](/de/docs/Web/API/VideoTrackList) zielt auf: [`removetrack`](/de/docs/Web/API/VideoTrackList/removetrack_event)
+- Dieses Ereignis auf [`AudioTrackList`](/de/docs/Web/API/AudioTrackList) zielt auf: [`removetrack`](/de/docs/Web/API/AudioTrackList/removetrack_event)
+- Dieses Ereignis auf [`MediaStream`](/de/docs/Web/API/MediaStream) zielt auf: [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

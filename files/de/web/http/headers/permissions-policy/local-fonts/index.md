@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Das HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `local-fonts`-Direktive steuert, ob das aktuelle Dokument berechtigt ist, Daten über die lokal installierten Schriftarten des Benutzers über die {{DOMxRef("Window.queryLocalFonts()")}}-Methode zu sammeln.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `local-fonts` steuert, ob das aktuelle Dokument berechtigt ist, Daten über die lokal installierten Schriftarten des Benutzers mittels der Methode [`Window.queryLocalFonts()`](/de/docs/Web/API/Window/queryLocalFonts) zu sammeln.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden die von {{DOMxRef("Window.queryLocalFonts()")}} zurückgegebenen {{jsxref("Promise")}}s mit einer {{domxref("DOMException")}} des Typs `SecurityError` abgelehnt.
+Insbesondere in Fällen, in denen eine definierte Richtlinie die Nutzung dieser Funktion unterbindet, werden die von [`Window.queryLocalFonts()`](/de/docs/Web/API/Window/queryLocalFonts) zurückgegebenen {{jsxref("Promise")}}s mit einer [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` abgelehnt.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: local-fonts=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung dieser Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wird, das Feature zu verwenden. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für mehr Details.
 
 ## Standardrichtlinie
 
-Die Standard-Zulassungsliste für `local-fonts` ist `self`.
+Die Standard-Whitelist für `local-fonts` ist `self`.
 
 ## Spezifikationen
 
@@ -34,6 +34,6 @@ Die Standard-Zulassungsliste für `local-fonts` ist `self`.
 
 ## Siehe auch
 
-- {{domxref("Local Font Access API", "Local Font Access API", "", "nocode")}}
-- {{HTTPHeader("Permissions-Policy")}}-Header
-- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)
+- [Local Font Access API](/de/docs/Web/API/Local_Font_Access_API)
+- HTTP-Header {{HTTPHeader("Permissions-Policy")}}
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)

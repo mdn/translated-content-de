@@ -10,15 +10,15 @@ l10n:
 
 Die schreibgeschützte Eigenschaft **`MouseEvent.ctrlKey`** ist ein boolescher Wert, der angibt, ob die <kbd>ctrl</kbd>-Taste gedrückt war oder nicht, als ein bestimmtes Mausereignis auftrat.
 
-Auf Macintosh-Tastaturen ist diese Taste als <kbd>control</kbd>-Taste beschriftet. Beachten Sie auch, dass auf einem Mac ein Klick in Kombination mit der <kbd>control</kbd>-Taste vom Betriebssystem abgefangen und zum Öffnen eines Kontextmenüs verwendet wird. Daher ist `ctrlKey` bei Klickereignissen nicht nachweisbar.
+Auf Macintosh-Tastaturen ist diese Taste als <kbd>control</kbd>-Taste gekennzeichnet. Beachten Sie auch, dass ein Klick in Kombination mit der <kbd>control</kbd>-Taste auf einem Mac vom Betriebssystem abgefangen wird, um ein Kontextmenü zu öffnen, sodass `ctrlKey` bei Klick-Ereignissen nicht erkennbar ist.
 
 ## Wert
 
-Ein boolescher Wert, wobei `true` anzeigt, dass die Taste gedrückt ist, und `false` anzeigt, dass die Taste _nicht_ gedrückt ist.
+Ein boolescher Wert, bei dem `true` anzeigt, dass die Taste gedrückt ist, und `false` anzeigt, dass die Taste _nicht_ gedrückt ist.
 
 ## Beispiele
 
-Dieses Beispiel protokolliert die `ctrlKey`-Eigenschaft, wenn Sie ein {{domxref("Element/mousemove_event", "mousemove")}}-Ereignis auslösen.
+In diesem Beispiel wird die `ctrlKey`-Eigenschaft protokolliert, wenn Sie ein [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis auslösen.
 
 ### HTML
 
@@ -51,4 +51,4 @@ function logKey(e) {
 
 ## Siehe auch
 
-- {{ domxref("MouseEvent") }}
+- [`MouseEvent`](/de/docs/Web/API/MouseEvent)

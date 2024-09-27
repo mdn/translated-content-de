@@ -1,5 +1,5 @@
 ---
-title: "XPathEvaluator: Methode createNSResolver()"
+title: "XPathEvaluator: createNSResolver() Methode"
 short-title: createNSResolver()
 slug: Web/API/XPathEvaluator/createNSResolver
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM XPath")}}{{deprecated_header}}
 
-Die **`createNSResolver()`**-Methode des {{domxref("XPathEvaluator")}} Interfaces diente der Erstellung eines benutzerdefinierten `XPathNSResolver` Objekts. Sie gibt nun den Eingabewert unverändert zurück und wird nur aus Kompatibilitätsgründen beibehalten.
+Die **`createNSResolver()`** Methode der [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator) Schnittstelle wurde verwendet, um ein benutzerdefiniertes `XPathNSResolver`-Objekt zu erstellen. Sie gibt nun das Eingabeobjekt unverändert zurück und wird nur noch aus Kompatibilitätsgründen beibehalten.
 
 ## Syntax
 
@@ -19,21 +19,21 @@ createNSResolver(nodeResolver)
 ### Parameter
 
 - `nodeResolver`
-  - : Ein {{domxref("Node")}}.
+  - : Ein [`Node`](/de/docs/Web/API/Node).
 
 ### Rückgabewert
 
-`nodeResolver` selbst.
+Das `nodeResolver` selbst.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{DOMxRef("Document.createNSResolver()")}}
-- {{DOMxRef("XPathExpression")}}
+- [`Document.createNSResolver()`](/de/docs/Web/API/Document/createNSResolver)
+- [`XPathExpression`](/de/docs/Web/API/XPathExpression)

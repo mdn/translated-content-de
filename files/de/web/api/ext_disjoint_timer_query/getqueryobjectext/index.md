@@ -9,7 +9,8 @@ l10n:
 {{APIRef("WebGL")}}
 
 Die **`EXT_disjoint_timer_query.getQueryObjectEXT()`**-Methode
-der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt den Status eines Abfrageobjekts zurück.
+der [WebGL API](/de/docs/Web/API/WebGL_API) gibt den Zustand eines
+Abfrageobjekts zurück.
 
 ## Syntax
 
@@ -20,19 +21,18 @@ getQueryObjectEXT(query, pname)
 ### Parameter
 
 - `query`
-  - : Ein {{domxref("WebGLQuery")}}-Objekt, von dem Informationen zurückgegeben werden sollen.
+  - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt, aus dem Informationen zurückgegeben werden sollen.
 - `pname`
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der angibt, welche Informationen zurückgegeben werden sollen. Muss
-    `ext.QUERY_RESULT_EXT` oder `ext.QUERY_RESULT_AVAILABLE_EXT` sein.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welche Informationen zurückgegeben werden sollen. Muss entweder `ext.QUERY_RESULT_EXT` oder `ext.QUERY_RESULT_AVAILABLE_EXT` sein.
 
 ### Rückgabewert
 
-Hängt von `pname` ab:
+Abhängig von `pname`:
 
 - Wenn `pname` `ext.QUERY_RESULT_EXT` ist: Ein
-  {{domxref("WebGL_API/Types", "GLuint64EXT")}}, der das Abfrageergebnis enthält.
+  [`GLuint64EXT`](/de/docs/Web/API/WebGL_API/Types), der das Abfrageergebnis enthält.
 - Wenn `pname` `ext.QUERY_RESULT_AVAILABLE_EXT` ist: Ein
-  {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob ein Abfrageergebnis verfügbar ist oder nicht.
+  [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob ein Abfrageergebnis verfügbar ist oder nicht.
 
 ## Beispiele
 
@@ -41,15 +41,15 @@ const ext = gl.getExtension("EXT_disjoint_timer_query");
 const query = ext.createQueryEXT();
 ext.beginQueryEXT(ext.TIME_ELAPSED_EXT, query);
 
-// Zeichnen
+// Draw
 ext.endQueryEXT(ext.TIME_ELAPSED_EXT);
 
-// Irgendwann in der Zukunft, nachdem die Kontrolle an den Browser zurückgegeben wurde
+// At some point in the future, after returning control to the browser
 const available = ext.getQueryObjectEXT(query, ext.QUERY_RESULT_AVAILABLE_EXT);
 const disjoint = gl.getParameter(ext.GPU_DISJOINT_EXT);
 
 if (available && !disjoint) {
-  // Sie können sehen, wie viel Zeit das Rendern des Objekts in Nanosekunden gedauert hat.
+  // See how much time the rendering of the object took in nanoseconds.
   const timeElapsed = ext.getQueryObjectEXT(query, ext.QUERY_RESULT_EXT);
 }
 ```
@@ -64,6 +64,6 @@ if (available && !disjoint) {
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLQuery")}}
-- {{domxref("EXT_disjoint_timer_query")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)
+- [`EXT_disjoint_timer_query`](/de/docs/Web/API/EXT_disjoint_timer_query)

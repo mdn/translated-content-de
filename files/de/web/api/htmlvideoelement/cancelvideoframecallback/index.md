@@ -1,5 +1,5 @@
 ---
-title: "HTMLVideoElement: cancelVideoFrameCallback()-Methode"
+title: "HTMLVideoElement: cancelVideoFrameCallback() Methode"
 short-title: cancelVideoFrameCallback()
 slug: Web/API/HTMLVideoElement/cancelVideoFrameCallback
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`cancelVideoFrameCallback()`**-Methode der {{domxref("HTMLVideoElement")}}-Schnittstelle storniert einen zuvor registrierten Video-Frame-Callback.
+Die **`cancelVideoFrameCallback()`**-Methode der [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)-Schnittstelle storniert einen zuvor registrierten Video-Frame-Callback.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ cancelVideoFrameCallback(id)
 ### Parameter
 
 - `id`
-  - : Eine Zahl, die die ID des Video-Frame-Callbacks darstellt, den Sie stornieren möchten. Dies ist der Wert, der von dem entsprechenden {{DOMxRef("HTMLVideoElement.requestVideoFrameCallback")}}-Aufruf zurückgegeben wird.
+  - : Eine Zahl, die die ID des Video-Frame-Callbacks repräsentiert, den Sie stornieren möchten. Dies wird der Wert sein, der durch den entsprechenden Aufruf von [`HTMLVideoElement.requestVideoFrameCallback`](/de/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback) zurückgegeben wurde.
 
 ### Rückgabewert
 
@@ -63,5 +63,5 @@ video.cancelVideoFrameCallback(videoCallbackId);
 ## Siehe auch
 
 - Das {{HTMLElement("video")}}-Element
-- {{DOMxRef("HTMLVideoElement.requestVideoFrameCallback()")}}
-- [Effiziente Pro-Video-Frame-Operationen mit `requestVideoFrameCallback()` durchführen](https://web.dev/articles/requestvideoframecallback-rvfc) auf developer.chrome.com (2023)
+- [`HTMLVideoElement.requestVideoFrameCallback()`](/de/docs/Web/API/HTMLVideoElement/requestVideoFrameCallback)
+- [Führen Sie effiziente Operationen pro Video-Frame mit `requestVideoFrameCallback()` aus](https://web.dev/articles/requestvideoframecallback-rvfc) auf developer.chrome.com (2023)

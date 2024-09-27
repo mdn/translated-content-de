@@ -10,7 +10,7 @@ l10n:
 
 Die schreibgeschützte **`XMLHttpRequest.status`** Eigenschaft gibt den numerischen HTTP-[Statuscode](/de/docs/Web/HTTP/Status) der Antwort des `XMLHttpRequest` zurück.
 
-Bevor die Anfrage abgeschlossen ist, hat `status` den Wert 0. Browser geben auch einen Status von 0 zurück, wenn `XMLHttpRequest`-Fehler auftreten.
+Bevor die Anfrage abgeschlossen ist, hat `status` den Wert 0. Browser melden außerdem einen Status von 0 im Falle von `XMLHttpRequest`-Fehlern.
 
 ## Wert
 
@@ -36,7 +36,7 @@ xhr.onload = () => {
 xhr.send();
 
 /**
- * Gibt Folgendes aus:
+ * Outputs the following:
  *
  * UNSENT: 0
  * OPENED: 0

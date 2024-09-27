@@ -8,15 +8,14 @@ l10n:
 
 {{APIRef("WebRTC")}}{{deprecated_header}}{{non-standard_header}}
 
-Die _veraltete_ {{domxref("RTCIceCandidatePairStats")}}
-Eigenschaft **`priority`** gibt die Priorität des Kandidatenpaares als Ganzzahlwert an. Je höher der Wert, desto wahrscheinlicher ist es, dass die WebRTC-Schicht das Kandidatenpaar auswählt, wenn es an der Zeit ist, eine Verbindung zwischen den beiden Peers zu etablieren (oder wiederherzustellen).
+Die _veraltete_ [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Eigenschaft **`priority`** gibt die Priorität des Kandidatenpaares als Integer-Wert an. Je höher der Wert, desto wahrscheinlicher ist es, dass die WebRTC-Schicht das Kandidatenpaar auswählt, wenn es darum geht, eine Verbindung zwischen den beiden Peers herzustellen (oder wiederherzustellen).
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Priorität dieses Kandidatenpaares im Vergleich zu anderen Paaren in derselben Peer-Verbindung anzeigt. Je höher dieser Wert, desto besser denkt die WebRTC-Schicht, dass dieses Paar von Kandidaten im Vergleich zu den anderen ist, und desto wahrscheinlicher wird ein Paar zur Verwendung ausgewählt.
+Ein Integer-Wert, der die Priorität dieses Kandidatenpaares im Vergleich zu anderen Paaren auf derselben Peer-Verbindung anzeigt. Je höher dieser Wert ist, desto besser schätzt die WebRTC-Schicht dieses Paar von Kandidaten im Vergleich zu den anderen ein, und desto wahrscheinlicher ist es, dass ein Paar zur Verwendung ausgewählt wird.
 
 > [!NOTE]
-> Diese Eigenschaft wurde aus der Spezifikation entfernt, da ihr Wert nicht garantiert genau in einer JavaScript-Nummer dargestellt werden kann. Sie können seinen Wert mit dem im {{RFC(5245, "", "5.7.2")}} beschriebenen Algorithmus berechnen, wenn Sie diese Information benötigen und das Risiko akzeptieren können, dass das Ergebnis möglicherweise nicht vollständig genau ist.
+> Diese Eigenschaft wurde aus der Spezifikation entfernt, da ihr Wert nicht garantiert genau mit einer JavaScript-Zahl dargestellt werden kann. Sie können ihren Wert mithilfe des Algorithmus berechnen, der in {{RFC(5245, "", "5.7.2")}} beschrieben ist, falls Sie diese Information benötigen und das Risiko akzeptieren können, dass das Ergebnis möglicherweise nicht vollständig genau ist.
 
 ## Spezifikationen
 

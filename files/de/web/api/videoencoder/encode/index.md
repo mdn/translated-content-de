@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`encode()`**-Methode der {{domxref("VideoEncoder")}}-Schnittstelle kodiert asynchron ein {{domxref("VideoFrame")}}.
-Kodierte Daten ({{domxref("EncodedVideoChunk")}}) oder ein Fehler werden schließlich über die bei der Erstellung des {{domxref("VideoEncoder")}} bereitgestellten Rückrufmöglichkeiten zurückgegeben.
+Die **`encode()`**-Methode des [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Interfaces kodiert asynchron ein [`VideoFrame`](/de/docs/Web/API/VideoFrame).
+Kodierte Daten ([`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)) oder ein Fehler werden schließlich über die Rückrufmethoden, die dem [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Konstruktor bereitgestellt wurden, zurückgegeben.
 
 ## Syntax
 
@@ -21,23 +21,23 @@ encode(frame, options)
 ### Parameter
 
 - `frame`
-  - : Ein {{domxref("VideoFrame")}}-Objekt.
+  - : Ein [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekt.
 - `options` {{optional_inline}}
-  - : Ein Objekt mit den folgenden Mitgliedern:
+  - : Ein Objekt, das die folgenden Mitglieder enthält:
     - `keyFrame` {{optional_inline}}
-      - : Ein {{jsxref("boolean")}}, standardmäßig `false`, wodurch der Benutzeragent die Flexibilität erhält, zu entscheiden, ob dieses Bild als Schlüsselbild kodiert werden soll. Wenn `true`, bedeutet dies, dass das angegebene Bild als Schlüsselbild kodiert werden muss.
+      - : Ein {{jsxref("boolean")}}, das standardmäßig auf `false` steht und dem Benutzeragenten Flexibilität darüber gibt, ob dieses Frame als Key-Frame kodiert werden soll. Wenn `true`, bedeutet dies, dass das gegebene Frame unbedingt als Key-Frame kodiert werden muss.
     - `vp9` {{optional_inline}}
       - : Kodierungsoptionen für den [VP9](/de/docs/Web/Media/Formats/Video_codecs#vp9)-Codec.
         - `quantizer`
-          - : Frame-Quantisierer-Wert von 0 bis 63. Wirksam nur, wenn {{domxref("VideoEncoder")}} mit `quantizer`-Bitratenmodus konfiguriert wurde.
+          - : Frame-Quantisiererwert von 0 bis 63. Nur wirksam, wenn [`VideoEncoder`](/de/docs/Web/API/VideoEncoder) mit `quantizer`-Bitratenmodus konfiguriert wurde.
     - `av1` {{optional_inline}}
       - : Kodierungsoptionen für den [AV1](/de/docs/Web/Media/Formats/Video_codecs#av1)-Codec.
         - `quantizer`
-          - : Frame-Quantisierer-Wert von 0 bis 63. Wirksam nur, wenn {{domxref("VideoEncoder")}} mit `quantizer`-Bitratenmodus konfiguriert wurde.
+          - : Frame-Quantisiererwert von 0 bis 63. Nur wirksam, wenn [`VideoEncoder`](/de/docs/Web/API/VideoEncoder) mit `quantizer`-Bitratenmodus konfiguriert wurde.
     - `avc` {{optional_inline}}
       - : Kodierungsoptionen für den [AVC (H.264)](/de/docs/Web/Media/Formats/Video_codecs#avc_h.264)-Codec.
         - `quantizer`
-          - : Frame-Quantisierer-Wert von 0 bis 51. Wirksam nur, wenn {{domxref("VideoEncoder")}} mit `quantizer`-Bitratenmodus konfiguriert wurde.
+          - : Frame-Quantisiererwert von 0 bis 51. Nur wirksam, wenn [`VideoEncoder`](/de/docs/Web/API/VideoEncoder) mit `quantizer`-Bitratenmodus konfiguriert wurde.
 
 ### Rückgabewert
 
@@ -45,20 +45,20 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{domxref("VideoEncoder.state","state")}} nicht `"configured"` ist.
-- `DataError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der `chunk` nicht dekodiert werden kann, da er auf andere Frames zum Dekodieren angewiesen ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der [`state`](/de/docs/Web/API/VideoEncoder/state) nicht `"configured"` ist.
+- `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das `chunk` aufgrund der Abhängigkeit von anderen Frames zur Dekodierung nicht dekodiert werden kann.
 
 ## Beispiele
 
-Im folgenden Beispiel wird `encode` ein `VideoFrame` übergeben sowie der Optionsparameter, der anzeigt, dass dieses Bild als Schlüsselbild betrachtet werden soll.
+Im folgenden Beispiel wird `encode` ein `VideoFrame` und der Optionsparameter übergeben, der angibt, dass dieses Frame als Keyframe betrachtet werden soll.
 
 ```js
 encoder.encode(frame, { keyFrame: true });
 ```
 
-Pro-Frame-QP-Wert für die Kodierung einzelner Frames einstellen.
+Einstellen eines pro Frame QP-Wertes zur Kodierung einzelner Frames.
 
 ```js
 const encoder = new VideoEncoder(init);

@@ -1,5 +1,5 @@
 ---
-title: Was ist der Unterschied zwischen Webseite, Website, Webserver und Suchmaschine?
+title: Was ist der Unterschied zwischen web page, website, web server und search engine?
 slug: Learn/Common_questions/Web_mechanics/Pages_sites_servers_and_search_engines
 l10n:
   sourceCommit: 9de3d03957f1d66f02f45400a6981372aa368c1f
@@ -7,14 +7,14 @@ l10n:
 
 {{QuicklinksWithSubPages("Learn/Common_questions")}}
 
-In diesem Artikel beschreiben wir verschiedene webbezogene Konzepte: Webseiten, Websites, Webserver und Suchmaschinen. Diese Begriffe werden von Neulingen im Web oft verwechselt oder falsch verwendet. Lassen Sie uns lernen, was sie jeweils bedeuten!
+In diesem Artikel beschreiben wir verschiedene webbezogene Konzepte: web pages, websites, web servers und search engines. Diese Begriffe werden oft von Neueinsteigern ins Web verwechselt oder falsch verwendet. Lassen Sie uns lernen, was sie jeweils bedeuten!
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Sie sollten wissen
+        Sie sollten wissen,
         <a href="/de/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work"
           >wie das Internet funktioniert</a
         >.
@@ -23,7 +23,7 @@ In diesem Artikel beschreiben wir verschiedene webbezogene Konzepte: Webseiten, 
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        In der Lage sein, die Unterschiede zwischen einer Webseite, einer Website, einem Webserver und einer Suchmaschine zu beschreiben.
+        In der Lage sein, die Unterschiede zwischen einer web page, einer website, einem web server und einer search engine zu beschreiben.
       </td>
     </tr>
   </tbody>
@@ -31,84 +31,84 @@ In diesem Artikel beschreiben wir verschiedene webbezogene Konzepte: Webseiten, 
 
 ## Zusammenfassung
 
-Wie in jedem Wissensbereich bringt auch das Internet eine Menge Fachjargon mit sich. Keine Sorge, wir werden Sie nicht mit allem überhäufen (wir haben ein [Glossar](/de/docs/Glossary), wenn Sie neugierig sind). Es gibt jedoch einige grundlegende Begriffe, die Sie von Anfang an verstehen müssen, da Sie diese Ausdrücke immer wieder hören werden, während Sie weiterlesen. Es ist einfach, diese Begriffe zu verwechseln, da sie sich auf verwandte, aber unterschiedliche Funktionen beziehen. Sie werden diese Begriffe manchmal in Nachrichtenberichten und anderswo falsch verwendet sehen, daher ist es verständlich, dass sie verwechselt werden.
+Wie in jedem Wissensgebiet bringt auch das Web eine Menge Fachjargon mit sich. Keine Sorge, wir werden Sie nicht mit allem überfordern (wir haben ein [Glossar](/de/docs/Glossary), wenn Sie neugierig sind). Es gibt jedoch einige grundlegende Begriffe, die Sie zu Beginn verstehen sollten, da Sie diese Ausdrücke ständig hören werden, während Sie weiterlesen. Es ist einfach, diese Begriffe zu verwechseln, da sie sich auf verwandte, aber unterschiedliche Funktionen beziehen. Sie werden diese Begriffe manchmal in Nachrichtenberichten und anderswo falsch verwendet sehen, daher ist es verständlich, wenn man sie durcheinander bringt.
 
-Wir werden diese Begriffe und Technologien in weiteren Erkundungen detaillierter behandeln, aber diese schnellen Definitionen werden ein guter Start für Sie sein:
+Wir werden diese Begriffe und Technologien im weiteren Verlauf ausführlicher behandeln, aber diese kurzen Definitionen sind ein guter Anfang für Sie:
 
-- Webseite
-  - : Ein Dokument, das in einem Webbrowser wie Firefox, Google Chrome, Opera, Microsoft Edge oder Apple Safari angezeigt werden kann. Diese werden oft einfach als "Seiten" bezeichnet.
-- Website
-  - : Eine Sammlung von Webseiten, die zusammen gruppiert sind und normalerweise auf verschiedene Weise miteinander verbunden sind. Oft als "Website" oder "Site" bezeichnet.
-- Webserver
-  - : Ein Computer, der eine Website im Internet hostet.
-- Suchmaschine
-  - : Ein Webdienst, der Ihnen hilft, andere Webseiten zu finden, wie Google, Bing, Yahoo oder DuckDuckGo. Suchmaschinen werden normalerweise über einen Webbrowser aufgerufen (z.B. können Sie Suchmaschinenabfragen direkt in der Adressleiste von Firefox, Chrome usw. durchführen) oder über eine Webseite (z.B. [bing.com](https://www.bing.com/) oder [duckduckgo.com](https://duckduckgo.com/)).
+- web page
+  - : Ein Dokument, das in einem Webbrowser wie Firefox, Google Chrome, Opera, Microsoft Edge oder Apple Safari angezeigt werden kann. Diese werden oft einfach "pages" genannt.
+- website
+  - : Eine Sammlung von web pages, die zusammengefasst und normalerweise in verschiedenen Weisen miteinander verbunden sind. Oft auch "website" oder "site" genannt.
+- web server
+  - : Ein Computer, der eine Webseite im Internet hostet.
+- search engine
+  - : Ein Webdienst, der Ihnen hilft, andere web pages zu finden, wie Google, Bing, Yahoo oder DuckDuckGo. Search engines sind normalerweise über einen Webbrowser zugänglich (z.B. können Sie Suchmaschinenabfragen direkt in der Adressleiste von Firefox, Chrome usw. durchführen) oder über eine Webseite (z.B. [bing.com](https://www.bing.com/) oder [duckduckgo.com](https://duckduckgo.com/)).
 
-Betrachten wir ein einfaches Beispiel — eine öffentliche Bibliothek. Dies ist das, was Sie normalerweise tun würden, wenn Sie eine Bibliothek besuchen:
+Betrachten wir ein einfaches Beispiel - eine öffentliche Bibliothek. Dies würden Sie normalerweise tun, wenn Sie eine Bibliothek besuchen:
 
-1. Finden Sie ein Suchregister und suchen Sie nach dem Titel des Buches, das Sie wollen.
+1. Finden Sie einen Suchindex und suchen Sie nach dem Titel des gewünschten Buches.
 2. Notieren Sie sich die Katalognummer des Buches.
-3. Gehen Sie zum bestimmten Abschnitt mit dem Buch, finden Sie die richtige Katalognummer und holen Sie sich das Buch.
+3. Gehen Sie zu dem speziellen Abschnitt, der das Buch enthält, finden Sie die richtige Katalognummer und nehmen Sie das Buch.
 
-Vergleichen wir die Bibliothek mit einem Webserver:
+Vergleichen wir die Bibliothek mit einem web server:
 
-- Die Bibliothek ist wie ein Webserver. Sie hat mehrere Abteilungen, ähnlich wie ein Webserver, der mehrere Websites hostet.
-- Die verschiedenen Abteilungen (Wissenschaft, Mathematik, Geschichte usw.) in der Bibliothek sind wie Websites. Jede Abteilung ist wie eine einzigartige Website (zwei Abteilungen enthalten nicht dieselben Bücher).
-- Die Bücher in jeder Abteilung sind wie Webseiten. Eine Website kann mehrere Webseiten haben, z.B. wird der Wissenschaftsbereich (die Website) Bücher über Wärme, Schall, Thermodynamik, Statik usw. (die Webseiten) haben. Webseiten können an einem eindeutigen Ort (URL) gefunden werden.
-- Das Suchregister ist wie die Suchmaschine. Jedes Buch hat seinen eigenen einzigartigen Platz in der Bibliothek (zwei Bücher können nicht am selben Ort aufbewahrt werden), der durch die Katalognummer spezifiziert ist.
+- Die Bibliothek ist wie ein web server. Sie hat mehrere Abteilungen, was einem Webserver ähnelt, der mehrere Webseiten hostet.
+- Die verschiedenen Abteilungen (Wissenschaft, Mathematik, Geschichte usw.) in der Bibliothek sind wie websites. Jede Abteilung ist wie eine einzigartige website (zwei Abteilungen enthalten nicht die gleichen Bücher).
+- Die Bücher in jeder Abteilung sind wie web pages. Eine Website kann mehrere web pages haben, z.B. wird die Wissenschaftsabteilung (die Website) Bücher über Wärme, Schall, Thermodynamik, Statik usw. haben (die Webseiten). Webseiten können jeweils an einem einzigartigen Ort (URL) gefunden werden.
+- Der Suchindex ist wie die search engine. Jedes Buch hat seinen eigenen einzigartigen Ort in der Bibliothek (zwei Bücher können nicht am selben Ort aufbewahrt werden), der durch die Katalognummer angegeben ist.
 
 ## Aktives Lernen
 
-_Es gibt derzeit kein aktives Lernen. [Bitte erwägen Sie einen Beitrag](/de/docs/MDN/Community/Contributing/Getting_started)._
+_Es ist noch kein aktives Lernen verfügbar. [Bitte, erwägen Sie einen Beitrag](/de/docs/MDN/Community/Contributing/Getting_started)._
 
-## Tiefere Einsicht
+## Vertiefter Einblick
 
-Lassen Sie uns tiefer in die Zusammenhänge zwischen diesen vier Begriffen schauen und warum sie manchmal miteinander verwechselt werden.
+Lassen Sie uns tiefer in die Beziehung zwischen diesen vier Begriffen eintauchen und warum sie manchmal miteinander verwechselt werden.
 
-### Webseite
+### Web page
 
-Eine **Webseite** ist ein einfaches Dokument, das von einem {{Glossary("browser")}} angezeigt werden kann. Solche Dokumente sind in der Sprache {{Glossary("HTML")}} geschrieben (die wir in [anderen Artikeln](/de/docs/Web/HTML) näher betrachten). Eine Webseite kann eine Vielzahl von unterschiedlichen Ressourcentypen einbetten, wie:
+Eine **web page** ist ein einfaches Dokument, das von einem [Browser](/de/docs/Glossary/browser) angezeigt werden kann. Solche Dokumente sind in der Sprache [HTML](/de/docs/Glossary/HTML) geschrieben (die wir in [anderen Artikeln](/de/docs/Web/HTML) genauer betrachten). Eine web page kann verschiedene Arten von Ressourcen einbetten, wie:
 
-- _Stilinformationen_ — Regelung des Erscheinungsbildes einer Seite
-- _Skripten_ — die der Seite Interaktivität hinzufügen
-- _Medien_ — Bilder, Töne und Videos.
+- _Stilinformationen_ — Kontrolle über das Aussehen und Verhalten einer Seite
+- _Skripte_ — die Interaktivität zur Seite hinzufügen
+- _Medien_ — Bilder, Klänge und Videos.
 
 > [!NOTE]
-> Browser können auch andere Dokumente anzeigen, wie {{Glossary("PDF")}}-Dateien oder Bilder, aber der Begriff **Webseite** bezieht sich speziell auf HTML-Dokumente. Andernfalls verwenden wir nur den Begriff **Dokument**.
+> Browser können auch andere Dokumente wie [PDF](/de/docs/Glossary/PDF)-Dateien oder Bilder anzeigen, aber der Begriff **web page** bezieht sich speziell auf HTML-Dokumente. Ansonsten verwenden wir nur den Begriff **Dokument**.
 
-Alle im Web verfügbaren Webseiten sind über eine eindeutige Adresse erreichbar. Um auf eine Seite zuzugreifen, geben Sie einfach deren Adresse in die Adressleiste Ihres Browsers ein:
+Alle im Web verfügbaren web pages sind über eine eindeutige Adresse erreichbar. Um auf eine Seite zuzugreifen, geben Sie einfach deren Adresse in die Adressleiste Ihres Browsers ein:
 
-![Beispiel einer Webseitadresse in der Adressleiste des Browsers](web-page.jpg)
+![Beispiel einer Webpage-Adresse in der Adressleiste des Browsers](web-page.jpg)
 
 ### Website
 
-Eine _Website_ ist eine Sammlung von verlinkten Webseiten (plus ihrer zugehörigen Ressourcen), die einen einzigartigen Domainnamen teilen. Jede Webseite einer bestimmten Website bietet explizite Links — meist in Form von klickbaren Textteilen — die es dem Nutzer erlauben, von einer Seite der Website zu einer anderen zu wechseln.
+Eine _website_ ist eine Sammlung von verlinkten web pages (plus ihrer zugehörigen Ressourcen), die einen einzigartigen Domainnamen teilen. Jede web page einer bestimmten Website bietet explizite Links—meist in Form von klickbaren Textabschnitten—, die es dem Benutzer ermöglichen, von einer Seite der Website zu einer anderen zu wechseln.
 
-Um auf eine Website zuzugreifen, geben Sie deren Domainnamen in die Adressleiste Ihres Browsers ein, und der Browser zeigt die Hauptwebseite der Website an, oder die _Homepage_ (umgangssprachlich als "die Startseite" bezeichnet):
+Um auf eine Website zuzugreifen, geben Sie deren Domainnamen in die Adressleiste Ihres Browsers ein, und der Browser zeigt die Hauptwebseite der Website oder _Homepage_ an (im Allgemeinen als "das Zuhause" bezeichnet):
 
 ![Beispiel eines Website-Domainnamens in der Adressleiste des Browsers](web-site.jpg)
 
-Bitte beachten Sie, dass es auch möglich ist, eine _einseitige Website_ zu haben: eine Website, die aus einer einzigen Webseite besteht, die bei Bedarf dynamisch mit neuen Inhalten aktualisiert wird.
+Beachten Sie, dass es auch möglich ist, eine _Einzelseiten-Website_ zu haben: eine Site, die aus einer einzigen web page besteht, die bei Bedarf dynamisch mit neuen Inhalten aktualisiert wird.
 
-### Webserver
+### Web server
 
-Ein _Webserver_ ist ein Computer, der eine oder mehrere _Websites_ hostet. "Hosting" bedeutet, dass alle _Webseiten_ und deren unterstützenden Dateien auf diesem Computer verfügbar sind. Der _Webserver_ wird auf Anfrage des Nutzers jede _Webseite_ von der von ihm gehosteten _Website_ an den Browser des Nutzers senden.
+Ein _web server_ ist ein Computer, der eine oder mehrere _websites_ hostet. "Hosting" bedeutet, dass alle _web pages_ und ihre unterstützenden Dateien auf diesem Computer verfügbar sind. Der _web server_ wird jede _web page_ der _website_, die er hostet, auf Anfrage des Benutzers an dessen Browser senden.
 
-Verwechseln Sie nicht _Websites_ und _Webserver_. Wenn Sie beispielsweise jemanden sagen hören: "Meine Website reagiert nicht," bedeutet dies eigentlich, dass der _Webserver_ nicht reagiert und daher die _Website_ nicht verfügbar ist. Noch wichtiger ist, dass ein Webserver mehrere Websites hosten kann, der Begriff _Webserver_ wird niemals verwendet, um eine Website zu bezeichnen, da dies zu großer Verwirrung führen könnte. In unserem vorherigen Beispiel, wenn wir sagen würden: "Mein Webserver reagiert nicht," bedeutet dies, dass mehrere Websites auf diesem Webserver nicht verfügbar sind.
+Verwechseln Sie nicht _websites_ und _web servers_. Wenn Sie zum Beispiel hören, dass jemand sagt: "Meine Website reagiert nicht", bedeutet das eigentlich, dass der _web server_ nicht reagiert und daher die _website_ nicht verfügbar ist. Wichtiger noch, da ein Webserver mehrere Websites hosten kann, wird der Begriff _web server_ niemals verwendet, um eine Website zu bezeichnen, da dies zu großer Verwirrung führen könnte. In unserem vorherigen Beispiel, wenn wir sagen: "Mein web server reagiert nicht", bedeutet dies, dass mehrere Websites auf diesem Webserver nicht verfügbar sind.
 
-### Suchmaschine
+### Search engine
 
-Suchmaschinen sind eine häufige Quelle der Verwirrung im Web. Eine Suchmaschine ist eine spezielle Art von Website, die Nutzern hilft, Webseiten von _anderen_ Websites zu finden.
+Search engines sind eine häufige Quelle der Verwirrung im Web. Eine search engine ist eine spezielle Art von Website, die Benutzern hilft, web pages von _anderen_ Websites zu finden.
 
-Es gibt viele: [Google](https://www.google.com/), [Bing](https://www.bing.com/), [Yandex](https://yandex.com/), [DuckDuckGo](https://duckduckgo.com/) und viele mehr. Einige sind generell, andere sind auf bestimmte Themen spezialisiert. Verwenden Sie diejenige, die Sie bevorzugen.
+Es gibt viele davon: [Google](https://www.google.com/), [Bing](https://www.bing.com/), [Yandex](https://yandex.com/), [DuckDuckGo](https://duckduckgo.com/) und viele mehr. Einige sind generisch, einige sind auf bestimmte Themen spezialisiert. Verwenden Sie, was Sie bevorzugen.
 
-Viele Webanfänger verwechseln Suchmaschinen und Browser. Machen wir es klar: Ein **_Browser_** ist ein Softwareprogramm, das Webseiten abruft und anzeigt; eine **_Suchmaschine_** ist eine Website, die den Menschen hilft, Webseiten von anderen Websites zu finden. Die Verwirrung entsteht, weil, wenn jemand zum ersten Mal einen Browser öffnet, der Browser die Startseite einer Suchmaschine anzeigt. Dies ist sinnvoll, da offensichtlich das Erste, was Sie mit einem Browser tun möchten, eine Webseite zu finden, die angezeigt werden soll. Verwechseln Sie nicht die Infrastruktur (z. B. den Browser) mit dem Service (z. B. die Suchmaschine). Diese Unterscheidung wird Ihnen sehr helfen, aber sogar einige Fachleute sprechen locker darüber, also seien Sie deshalb nicht besorgt.
+Viele Webanfänger verwechseln search engines und Browser. Lassen Sie es uns klären: Ein **_Browser_** ist ein Softwareprogramm, das web pages abruft und anzeigt; eine **_search engine_** ist eine Website, die Menschen hilft, web pages von anderen Websites zu finden. Die Verwirrung entsteht, weil beim ersten Start eines Browsers die Startseite einer Suchmaschine angezeigt wird. Das macht Sinn, denn offensichtlich ist das Erste, was Sie mit einem Browser tun möchten, eine Webseite zum Anzeigen zu finden. Verwechseln Sie nicht die Infrastruktur (z.B. den Browser) mit dem Service (z.B. die Suchmaschine). Die Unterscheidung wird Ihnen sehr helfen, selbst wenn einige Fachleute locker sprechen, also fühlen Sie sich deshalb nicht verunsichert.
 
-Hier ist ein Beispiel, in dem Firefox ein Google-Suchfeld als Standard-Startseite anzeigt:
+Hier ist ein Beispiel von Firefox, das ein Google-Suchfeld als seine Standard-Startseite anzeigt:
 
-![Beispiel von Firefox Nightly, das eine benutzerdefinierte Google-Seite als Standard anzeigt](search-engine.jpg)
+![Beispiel für Firefox Nightly, das eine benutzerdefinierte Google-Seite als Standard anzeigt](search-engine.jpg)
 
 ## Nächste Schritte
 
-- Vertiefen Sie sich: [Was ist ein Webserver](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server)
-- Sehen Sie, wie Webseiten zu einer Website verlinkt sind: [Verstehen von Links im Web](/de/docs/Learn/Common_questions/Web_mechanics/What_are_hyperlinks)
+- Tiefer eintauchen: [Was ist ein Webserver](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server)
+- Sehen Sie, wie Webpages zu einer Website verknüpft sind: [Verstehen von Links im Web](/de/docs/Learn/Common_questions/Web_mechanics/What_are_hyperlinks)

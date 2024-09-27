@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "super() zweimal im abgeleiteten Klassenkonstruktor aufgerufen" tritt auf, wenn das {{jsxref("Operators/super", "super()")}} ein zweites Mal für einen bestimmten abgeleiteten Klassenkonstruktor aufgerufen wird.
+Die JavaScript-Ausnahme "super() called twice in derived class constructor" tritt auf, wenn `super()` in einem abgeleiteten Klassenkonstruktor ein zweites Mal aufgerufen wird.
 
-## Meldung
+## Nachricht
 
 ```plain
 ReferenceError: Super constructor may only be called once (V8-based)
@@ -17,17 +17,17 @@ ReferenceError: super() called twice in derived class constructor (Firefox)
 ReferenceError: 'super()' can't be called more than once in a constructor. (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("ReferenceError")}}
 
 ## Was ist schiefgelaufen?
 
-Der `super()`-Aufruf kann höchstens einmal für jeden `new`-Aufruf eines abgeleiteten Klassenkonstruktors aufgerufen werden. Das liegt daran, dass `super()` für die Initialisierung der Elternklasse verantwortlich ist und ein mehrfaches Aufrufen dazu führen würde, dass der Elternkonstruktor mehrfach aufgerufen wird.
+Der `super()`-Aufruf kann höchstens einmal für jeden `new`-Aufruf eines abgeleiteten Klassenkonstruktors aufgerufen werden. Dies liegt daran, dass `super()` für die Initialisierung der übergeordneten Klasse verantwortlich ist, und mehrfache Aufrufe dazu führen würden, dass der Elternkonstruktor mehrfach aufgerufen wird.
 
-Die beste Möglichkeit, dies zu verhindern, besteht darin, sicherzustellen, dass `super()` außerhalb jeder Steuerflussstruktur platziert wird. Andernfalls stellen Sie sicher, dass alle Codepfade im Konstruktor nur zu einem `super()`-Aufruf führen.
+Der beste Weg, dies zu verhindern, besteht darin, sicherzustellen, dass `super()` außerhalb jeder Kontrollflussstruktur platziert wird. Andernfalls stellen Sie sicher, dass alle Codepfade im Konstruktor nur zu einem `super()`-Aufruf führen.
 
-Der `super()`-Aufruf kann in einer Pfeilfunktion innerhalb des Konstruktors "gespeichert" werden. Wenn Sie dann die Pfeilfunktion aufrufen, werden Sie auch `super()` aufrufen, und die gleiche Regel gilt: Die Pfeilfunktion darf höchstens einmal aufgerufen werden.
+Der `super()`-Aufruf kann in einer im Konstruktor verschachtelten Pfeilfunktion "gespeichert" werden. Wenn Sie dann die Pfeilfunktion aufrufen, rufen Sie auch `super()` auf, und dieselbe Regel gilt: Die Pfeilfunktion darf höchstens einmal aufgerufen werden.
 
 ## Beispiele
 
@@ -65,7 +65,7 @@ class Derived extends Base {
 }
 ```
 
-Ursprünglich könnte `flavors` niemals gleichzeitig sowohl "chocolate" als auch "vanilla" umfassen, aber wenn das jemals passiert, wird der Konstruktor `super()` zweimal aufrufen. Sie müssen überdenken, wie Ihre Klasse strukturiert sein sollte, um dieses Problem zu vermeiden.
+Ursprünglich darf `flavors` möglicherweise nie gleichzeitig sowohl "chocolate" als auch "vanilla" enthalten, aber wenn das jemals passiert, wird der Konstruktor `super()` zweimal aufrufen. Sie müssen darüber nachdenken, wie Ihre Klasse strukturiert sein sollte, um dieses Problem zu vermeiden.
 
 ### Gültige Fälle
 
@@ -75,7 +75,7 @@ class Base {}
 class Derived extends Base {
   constructor() {
     super();
-    // Weitere Initialisierungslogik
+    // More initialization logic
   }
 }
 ```

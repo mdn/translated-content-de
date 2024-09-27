@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<url>`**-[CSS](/de/docs/Web/CSS)-[Datentyp](/de/docs/Web/CSS/CSS_Types) ist ein Verweis auf eine Ressource. Die Ressource könnte ein Bild, ein Video, eine CSS-Datei, eine Schriftdatei, ein SVG-Merkmal usw. sein.
+Der **`<url>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) ist ein Zeiger auf eine Ressource. Die Ressource könnte ein Bild, ein Video, eine CSS-Datei, eine Schriftdatei, ein SVG-Merkmal usw. sein.
 
 ## Syntax
 
@@ -17,12 +17,12 @@ Der **`<url>`**-[CSS](/de/docs/Web/CSS)-[Datentyp](/de/docs/Web/CSS/CSS_Types) i
 
 ### Werte
 
-Der Wert ist entweder einer der folgenden:
+Der Wert ist einer der folgenden:
 
 - [`<url()>`](/de/docs/Web/CSS/url_function)
-  - : Die `url()`-Funktion akzeptiert nur eine URL-String-Literal (mit oder ohne Anführungszeichen).
+  - : Die `url()`-Funktion akzeptiert nur eine URL-Zeichenkette (mit oder ohne Anführungszeichen).
 - `<src()>`
-  - : Diese Funktion kann einen URL-String oder eine [CSS-Variable](/de/docs/Web/CSS/var) akzeptieren.
+  - : Diese Funktion kann eine URL-Zeichenkette oder eine [CSS-Variable](/de/docs/Web/CSS/var) akzeptieren.
 
 ## Spezifikationen
 

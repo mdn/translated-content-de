@@ -7,25 +7,25 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Content-Length`**-Header gibt die Größe des Nachrichtenkörpers in Bytes an, die an den Empfänger gesendet wird.
+Der **`Content-Length`**-Header gibt die Größe des Nachrichtentextes in Bytes an, der an den Empfänger gesendet wird.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
+      <th scope="row">Header Typ</th>
       <td>
-        {{Glossary("Request header")}},
-        {{Glossary("Response header")}},
-        {{Glossary("Content header")}}
+        [Request header](/de/docs/Glossary/Request_header),
+        [Response header](/de/docs/Glossary/Response_header),
+        [Content header](/de/docs/Glossary/Content_header)
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Forbidden header name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted response header")}}
+        [CORS-safelisted response header](/de/docs/Glossary/CORS-safelisted_response_header)
       </th>
       <td>ja</td>
     </tr>
@@ -47,7 +47,7 @@ Content-Length: <length>
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

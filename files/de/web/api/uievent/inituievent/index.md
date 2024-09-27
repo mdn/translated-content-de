@@ -1,5 +1,5 @@
 ---
-title: "UIEvent: initUIEvent()-Methode"
+title: "UIEvent: initUIEvent() Methode"
 short-title: initUIEvent()
 slug: Web/API/UIEvent/initUIEvent
 l10n:
@@ -8,15 +8,14 @@ l10n:
 
 {{APIRef("UI Events")}} {{deprecated_header}}
 
-Die **`UIEvent.initUIEvent()`** Methode initialisiert ein UI-Ereignis,
-nachdem es erstellt wurde.
+Die **`UIEvent.initUIEvent()`**-Methode initialisiert ein UI-Ereignis, nachdem es erstellt wurde.
 
-Ereignisse, die auf diese Weise initialisiert werden, müssen mit der Methode {{domxref("Document.createEvent()")}} erstellt worden sein. Diese Methode muss aufgerufen werden, um das Ereignis einzustellen, bevor es mit {{ domxref("EventTarget.dispatchEvent()") }} ausgelöst wird. Einmal ausgelöst, tut sie nichts mehr.
+Ereignisse, die auf diese Weise initialisiert werden, müssen mit der Methode [`Document.createEvent()`](/de/docs/Web/API/Document/createEvent) erstellt worden sein. Diese Methode muss aufgerufen werden, um das Ereignis festzulegen, bevor es mittels [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgelöst wird. Einmal ausgelöst, tut es nichts mehr.
 
 > [!WARNING]
-> Diese Methode sollte nicht mehr verwendet werden, da sie veraltet ist.
+> Verwenden Sie diese Methode nicht mehr, da sie veraltet ist.
 >
-> Verwenden Sie stattdessen spezifische Ereigniskonstruktoren wie {{domxref("UIEvent.UIEvent", "UIEvent()")}}. Die Seite über [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events) bietet weitere Informationen darüber, wie diese verwendet werden.
+> Verwenden Sie stattdessen spezifische Ereignis-Konstruktoren, wie z.B. [`UIEvent()`](/de/docs/Web/API/UIEvent/UIEvent). Die Seite über [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events) bietet mehr Informationen zur Nutzung dieser.
 
 ## Syntax
 
@@ -27,19 +26,15 @@ initUIEvent(type, canBubble, cancelable, view, detail)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Ereignisses definiert.
+  - : Ein Zeichenfolgenwert, der den Typ des Ereignisses definiert.
 - `canBubble`
-  - : Ein boolescher Wert, der entscheidet, ob das Ereignis die Ereigniskette
-    hinaufsteigen soll oder nicht. Sobald festgelegt, gibt die schreibgeschützte
-    Eigenschaft {{ domxref("Event.bubbles") }} ihren Wert an.
+  - : Ein boolescher Wert, der entscheidet, ob das Ereignis in der Ereigniskette nach oben steigen soll oder nicht. Einmal festgelegt, gibt die schreibgeschützte Eigenschaft [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) dessen Wert an.
 - `cancelable`
-  - : Ein boolescher Wert, der definiert, ob das Ereignis abgebrochen werden kann.
-    Sobald festgelegt, gibt die schreibgeschützte Eigenschaft {{ domxref("Event.cancelable") }} ihren Wert an.
+  - : Ein boolescher Wert, der definiert, ob das Ereignis abgebrochen werden kann. Einmal festgelegt, gibt die schreibgeschützte Eigenschaft [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) dessen Wert an.
 - `view`
-  - : Das {{glossary("WindowProxy")}}, das dem Ereignis zugeordnet ist.
+  - : Ist das [WindowProxy](/de/docs/Glossary/WindowProxy), das mit dem Ereignis verbunden ist.
 - `detail`
-  - : Ein `unsigned long`, das je nach Ereignistyp einige Detailinformationen
-    über das Ereignis angibt. Bei Mausevents zeigt es an, wie oft die Maus an einer bestimmten Bildschirmposition geklickt wurde.
+  - : Ein `unsigned long`, der einige Detailinformationen über das Ereignis angibt, abhängig vom Ereignistyp. Bei Mausereignissen zeigt es an, wie oft die Maus an einem bestimmten Bildschirmort geklickt wurde.
 
 ### Rückgabewert
 
@@ -49,9 +44,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ```js
 const e = document.createEvent("UIEvent");
-// erstellt ein Klickereignis, das aufsteigt, abgebrochen werden kann
-// und dessen view- und detail-Eigenschaft auf window und 1 initialisiert wird,
-// jeweils
+// creates a click event that bubbles, can be cancelled,
+// and with its view and detail property initialized to window and 1,
+// respectively
 e.initUIEvent("click", true, true, window, 1);
 ```
 
@@ -65,6 +60,6 @@ e.initUIEvent("click", true, true, window, 1);
 
 ## Siehe auch
 
-- {{ domxref("UIEvent") }}
-- Der Konstruktor, der anstelle dieser veralteten Methode verwendet werden soll:
-  {{domxref("UIEvent.UIEvent", "UIEvent()")}}. Es können auch speziellere Konstruktoren verwendet werden.
+- [`UIEvent`](/de/docs/Web/API/UIEvent)
+- Der Konstruktor, der anstelle dieser veralteten Methode verwendet werden sollte:
+  [`UIEvent()`](/de/docs/Web/API/UIEvent/UIEvent). Auch spezifischere Konstruktoren können verwendet werden.

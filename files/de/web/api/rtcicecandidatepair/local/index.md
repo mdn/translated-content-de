@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`local`** Eigenschaft des **{{domxref("RTCIceCandidatePair")}}** Wörterbuchs gibt das {{domxref("RTCIceCandidate")}} an, welches die Konfiguration des lokalen Endes einer funktionierenden WebRTC-Verbindung beschreibt.
+Die **`local`**-Eigenschaft des **[`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair)**-Wörterbuchs gibt das [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) an, das die Konfiguration des lokalen Endes einer funktionsfähigen WebRTC-Verbindung beschreibt.
 
 ## Wert
 
-Ein {{domxref("RTCIceCandidate")}}, der die Konfiguration des lokalen Endes eines funktionsfähigen Paares von ICE-Kandidaten beschreibt. Das `RTCIceCandidatePair` wird durch die {{domxref("RTCIceTransport")}} Methode {{domxref("RTCIceTransport.getSelectedCandidatePair", "getSelectedCandidatePair()")}} zurückgegeben.
+Ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate), das die Konfiguration des lokalen Endes eines funktionsfähigen Paars von ICE-Kandidaten beschreibt.
+Das `RTCIceCandidatePair` wird von der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Methode [`getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) zurückgegeben.
 
 ## Beispiele
 
@@ -25,7 +26,8 @@ const candidatePair = pc
 const localCandidate = candidatePair.local;
 ```
 
-Die {{domxref("RTCIceTransport")}} wird gefunden, indem die Liste der {{domxref("RTCRtpSender")}} Objekte für die {{domxref("RTCPeerConnection")}} `pc` abgerufen wird. Beim ersten `RTCRtpSender` erhalten wir das {{domxref("RTCDtlsTransport")}}, über das die Mediendaten übertragen werden, und schließlich davon die `RTCIceTransport`.
+Das [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) wird gefunden, indem die Liste der [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekte für das [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) `pc` abgerufen wird.
+Im ersten `RTCRtpSender` erhalten wir das [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport), über das die Mediendaten übertragen werden, und schließlich daraus das `RTCIceTransport`.
 
 ## Spezifikationen
 

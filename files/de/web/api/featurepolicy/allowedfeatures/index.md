@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Feature Policy API")}}{{SeeCompatTable}}
 
-Die **`allowedFeatures()`**-Methode des {{DOMxRef("FeaturePolicy")}}-Interfaces gibt eine Liste der Direktivenamen aller Funktionen zurück, die von der [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) erlaubt sind. Dies ermöglicht die Untersuchung einzelner Direktiven der Berechtigungsrichtlinie, auf der sie ausgeführt wird. Daher gibt die `allowedFeatures()`-Methode ein Unterset der von {{DOMxRef("FeaturePolicy.features", "features()")}} zurückgegebenen Direktiven zurück.
+Die **`allowedFeatures()`** Methode der [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy) Schnittstelle gibt eine Liste von Richtlinienschlüsseln aller Funktionen zurück, die durch die [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) erlaubt sind. Dies ermöglicht eine Prüfung der einzelnen Richtlinien der Permissions Policy, auf der sie ausgeführt wird. Somit gibt die `allowedFeatures()` Methode eine Teilmenge der Richtlinien zurück, die von [`features()`](/de/docs/Web/API/FeaturePolicy/features) geliefert werden.
 
 ## Syntax
 
@@ -22,17 +22,17 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von Strings, das die Namen der Berechtigungsrichtlinien-Direktiven darstellt, die von der Berechtigungsrichtlinie erlaubt sind, auf der diese Methode aufgerufen wird.
+Ein Array von Strings, die die Namen der Richtlinien der Permissions Policy darstellen, die von der Permissions Policy erlaubt sind, auf der diese Methode aufgerufen wird.
 
 ## Beispiel
 
-Das folgende Beispiel protokolliert alle erlaubten Direktiven für das aktuelle Dokument. Bitte beachten Sie, dass diese Funktionen durch die Permissions API eingeschränkt sein könnten, falls der Benutzer die entsprechende Berechtigung noch nicht erteilt hat.
+Das folgende Beispiel protokolliert alle erlaubten Richtlinien für das aktuelle Dokument. Bitte beachten Sie, dass diese Funktionen durch die Permissions API eingeschränkt sein können, wenn der Benutzer die entsprechende Berechtigung noch nicht erteilt hat.
 
 ```js
-// Zuerst das Permissions Policy-Objekt erhalten
+// First, get the Permissions Policy object
 const featurePolicy = document.featurePolicy;
 
-// Dann die Funktion für spezifische fragen
+// Then query feature for specific
 const allowed = featurePolicy.allowedFeatures();
 
 for (const directive of allowed) {

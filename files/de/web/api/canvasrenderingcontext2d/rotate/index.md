@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: rotate() Methode"
+title: "CanvasRenderingContext2D: rotate()-Methode"
 short-title: rotate()
 slug: Web/API/CanvasRenderingContext2D/rotate
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die Methode **`CanvasRenderingContext2D.rotate()`** der Canvas 2D API fügt der Transformationsmatrix eine Rotation hinzu.
+Die **`CanvasRenderingContext2D.rotate()`**-Methode der Canvas 2D API fügt der Transformationsmatrix eine Rotation hinzu.
 
 ## Syntax
 
@@ -16,14 +16,14 @@ Die Methode **`CanvasRenderingContext2D.rotate()`** der Canvas 2D API fügt der 
 rotate(angle)
 ```
 
-![Rechteckiges Koordinatensystem mit der Drehung der Abszissenachse um den Winkel Alpha](canvas_grid_rotate.png)
+![Rechteckiges Koordinatensystem mit der Drehung der Abszissenachse um den Alpha-Winkel](canvas_grid_rotate.png)
 
 ### Parameter
 
 - `angle`
-  - : Der Drehwinkel im Uhrzeigersinn in Radianten. Sie können `degree * Math.PI / 180` verwenden, um einen Radianten aus einem Grad zu berechnen.
+  - : Der Rotationswinkel, im Uhrzeigersinn in Bogenmaß. Sie können `degree * Math.PI / 180` verwenden, um ein Gradmaß in ein Bogenmaß umzuwandeln.
 
-Der Drehmittelpunkt ist immer der Ursprung der Leinwand (canvas). Um den Mittelpunkt zu ändern, müssen Sie die Leinwand mit der {{domxref("CanvasRenderingContext2D.translate", "translate()")}} Methode verschieben.
+Der Rotationsmittelpunkt ist immer der Ursprung der Leinwand. Um den Mittelpunkt zu ändern, müssen Sie die Leinwand mit der [`translate()`](/de/docs/Web/API/CanvasRenderingContext2D/translate)-Methode verschieben.
 
 ### Rückgabewert
 
@@ -31,9 +31,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Eine Form drehen
+### Drehen einer Form
 
-Dieses Beispiel dreht ein Rechteck um 45°. Beachten Sie, dass der Drehmittelpunkt die obere linke Ecke der Leinwand und nicht eine Position relativ zur Form ist.
+In diesem Beispiel wird ein Rechteck um 45° gedreht. Beachten Sie, dass der Drehpunkt die obere linke Ecke der Leinwand ist und nicht ein Punkt relativ zu irgendeiner Form.
 
 #### HTML
 
@@ -47,37 +47,37 @@ Dieses Beispiel dreht ein Rechteck um 45°. Beachten Sie, dass der Drehmittelpun
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// Punkt des Transformationsursprungs
+// Point of transform origin
 ctx.arc(0, 0, 5, 0, 2 * Math.PI);
 ctx.fillStyle = "blue";
 ctx.fill();
 
-// Nicht-gedrehtes Rechteck
+// Non-rotated rectangle
 ctx.fillStyle = "gray";
 ctx.fillRect(100, 0, 80, 20);
 
-// Gedrehtes Rechteck
+// Rotated rectangle
 ctx.rotate((45 * Math.PI) / 180);
 ctx.fillStyle = "red";
 ctx.fillRect(100, 0, 80, 20);
 
-// Transformationmatrix auf die Identitätsmatrix zurücksetzen
+// Reset transformation matrix to the identity matrix
 ctx.setTransform(1, 0, 0, 1, 0, 0);
 ```
 
 #### Ergebnis
 
-Der Drehmittelpunkt ist blau. Das nicht-gedrehte Rechteck ist grau, und das gedrehte Rechteck ist rot.
+Der Drehpunkt ist blau. Das nicht gedrehte Rechteck ist grau, und das gedrehte Rechteck ist rot.
 
 {{ EmbedLiveSample('Rotating_a_shape', 700, 180) }}
 
-### Eine Form um ihren Mittelpunkt drehen
+### Drehen einer Form um ihren Mittelpunkt
 
-Dieses Beispiel dreht eine Form um ihren Mittelpunkt. Dazu werden folgende Schritte auf die Matrix angewendet:
+Dieses Beispiel dreht eine Form um ihren Mittelpunkt. Dazu werden die folgenden Schritte auf die Matrix angewendet:
 
-1. Zuerst verschiebt {{domxref("CanvasRenderingContext2D.translate()", "translate()")}} den Ursprung der Matrix zum Mittelpunkt der Form.
+1. Zuerst verschiebt [`translate()`](/de/docs/Web/API/CanvasRenderingContext2D/translate) den Ursprung der Matrix zum Mittelpunkt der Form.
 2. `rotate()` dreht die Matrix um den gewünschten Betrag.
-3. Schließlich verschiebt `translate()` den Ursprung der Matrix zurück zu seinem Ausgangspunkt. Dies geschieht durch Anwenden der Koordinatenwerte des Mittelpunkts der Form in negativer Richtung.
+3. Schließlich verschiebt `translate()` den Ursprung der Matrix zurück an den Ausgangspunkt. Dies geschieht, indem die Koordinaten des Mittelpunkts der Form in negativer Richtung angewendet werden.
 
 #### HTML
 
@@ -87,29 +87,29 @@ Dieses Beispiel dreht eine Form um ihren Mittelpunkt. Dazu werden folgende Schri
 
 #### JavaScript
 
-Die Form ist ein Rechteck mit ihrer Ecke bei (80, 60), einer Breite von 140 und einer Höhe von 30. Ihr horizontaler Mittelpunkt ist bei (80 + 140 / 2), also 150. Ihr vertikaler Mittelpunkt ist bei (60 + 30 / 2), also 75. Somit befindet sich der Mittelpunkt bei (150, 75).
+Die Form ist ein Rechteck mit seiner Ecke bei (80, 60), einer Breite von 140 und einer Höhe von 30. Sein horizontaler Mittelpunkt liegt bei (80 + 140 / 2), also 150. Sein vertikaler Mittelpunkt liegt bei (60 + 30 / 2), also 75. Somit befindet sich der Mittelpunkt bei (150, 75).
 
 ```js
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// Nicht-gedrehtes Rechteck
+// Non-rotated rectangle
 ctx.fillStyle = "gray";
 ctx.fillRect(80, 60, 140, 30);
 
-// Matrixtransformation
+// Matrix transformation
 ctx.translate(150, 75);
 ctx.rotate(Math.PI / 2);
 ctx.translate(-150, -75);
 
-// Gedrehtes Rechteck
+// Rotated rectangle
 ctx.fillStyle = "red";
 ctx.fillRect(80, 60, 140, 30);
 ```
 
 #### Ergebnis
 
-Das nicht-gedrehte Rechteck ist grau, und das gedrehte Rechteck ist rot.
+Das nicht gedrehte Rechteck ist grau, und das gedrehte Rechteck ist rot.
 
 {{ EmbedLiveSample('Rotating_a_shape_around_its_center', 700, 180) }}
 
@@ -123,4 +123,4 @@ Das nicht-gedrehte Rechteck ist grau, und das gedrehte Rechteck ist rot.
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

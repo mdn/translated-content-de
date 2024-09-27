@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<ol>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine geordnete Liste von Elementen - typischerweise als nummerierte Liste dargestellt.
+Das **`<ol>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine geordnete Liste von Elementen — typischerweise als nummerierte Liste dargestellt.
 
 {{EmbedInteractiveExample("pages/tabbed/ol.html", "tabbed-shorter")}}
 
@@ -16,9 +16,9 @@ Das **`<ol>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine geordnete L
 Dieses Element akzeptiert auch die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `reversed`
-  - : Dieses boolesche Attribut gibt an, dass die Elemente der Liste in umgekehrter Reihenfolge sind. Elemente werden von hoch nach niedrig nummeriert.
+  - : Dieses Boolean-Attribut gibt an, dass die Elemente der Liste in umgekehrter Reihenfolge angeordnet sind. Die Elemente werden von hoch nach niedrig nummeriert.
 - `start`
-  - : Eine ganze Zahl, ab der für die Listenelemente gezählt wird. Immer eine arabische Ziffer (1, 2, 3, etc.), auch wenn der Nummerierungstyp Buchstaben oder römische Zahlen sind. Um beispielsweise mit der Nummerierung ab dem Buchstaben "d" oder der römischen Ziffer "iv" zu beginnen, verwenden Sie `start="4"`.
+  - : Eine ganze Zahl, von der aus das Zählen für die Listenelemente beginnt. Immer eine arabische Ziffer (1, 2, 3, etc.), auch wenn der Zahlen`type` Buchstaben oder römische Ziffern sind. Zum Beispiel, um das Nummerieren von Elementen mit dem Buchstaben "d" oder der römischen Ziffer "iv" zu beginnen, verwenden Sie `start="4"`.
 - `type`
 
   - : Legt den Nummerierungstyp fest:
@@ -32,21 +32,21 @@ Dieses Element akzeptiert auch die [globalen Attribute](/de/docs/Web/HTML/Global
     Der angegebene Typ wird für die gesamte Liste verwendet, es sei denn, ein anderes [`type`](/de/docs/Web/HTML/Element/li#type)-Attribut wird auf einem eingeschlossenen {{HTMLElement("li")}}-Element verwendet.
 
     > [!NOTE]
-    > Sofern der Typ der Listennummer nicht wichtig ist (wie in rechtlichen oder technischen Dokumenten, in denen Elemente durch ihre Nummer/Buchstabe referenziert werden), verwenden Sie die CSS-Eigenschaft {{CSSxRef("list-style-type")}}.
+    > Es sei denn, der Typ der Listennummer ist wichtig (wie bei rechtlichen oder technischen Dokumenten, in denen Elemente nach ihrer Nummer/Buchstabe referenziert werden), verwenden Sie stattdessen die CSS-{{CSSxRef("list-style-type")}}-Eigenschaft.
 
-## Anwendungshinweise
+## Nutzungshinweise
 
-Typischerweise werden geordnete Listenelemente mit einem vorangestellten [Marker](/de/docs/Web/CSS/::marker) angezeigt, wie einer Zahl oder einem Buchstaben.
+Typischerweise werden geordnete Listenelemente mit einem vorangestellten [Marker](/de/docs/Web/CSS/::marker) angezeigt, wie einer Nummer oder einem Buchstaben.
 
-Die `<ol>`- und {{HTMLElement("ul")}}- (oder das Synonym {{HTMLElement("menu")}}-) Elemente können beliebig tief geschachtelt werden, wobei zwischen `<ol>`, `<ul>` (oder `<menu>`) je nach Bedarf gewechselt wird.
+Die `<ol>` und {{HTMLElement("ul")}} (oder das Synonym {{HTMLElement("menu")}}) Elemente können beliebig tief verschachtelt werden, wobei zwischen `<ol>`, `<ul>` (oder `<menu>`) nach Bedarf gewechselt wird.
 
-Die `<ol>`- und {{HTMLElement("ul")}}-Elemente repräsentieren beide eine Liste von Elementen. Der Unterschied besteht darin, dass beim `<ol>`-Element die Reihenfolge bedeutsam ist. Zum Beispiel:
+Die `<ol>` und {{HTMLElement("ul")}} Elemente repräsentieren beide eine Liste von Elementen. Der Unterschied besteht darin, dass bei dem `<ol>`-Element die Reihenfolge von Bedeutung ist. Zum Beispiel:
 
 - Schritte in einem Rezept
-- Schritt-für-Schritt-Anweisungen
+- Wegbeschreibungen
 - Die Liste der Zutaten in abnehmender Reihenfolge auf Nährwertkennzeichnungen
 
-Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge der Listenelemente zu ändern; wenn sich die Bedeutung ändert, verwenden Sie das `<ol>`-Element — andernfalls können Sie {{HTMLElement("ul")}} oder {{HTMLElement("menu")}} verwenden, wenn Ihre Liste ein Menü ist.
+Um festzustellen, welche Liste verwendet werden soll, ändern Sie die Reihenfolge der Listenelemente; wenn sich die Bedeutung ändert, verwenden Sie das `<ol>`-Element – andernfalls können Sie {{HTMLElement("ul")}} verwenden oder {{HTMLElement("menu")}}, wenn Ihre Liste ein Menü ist.
 
 ## Beispiele
 
@@ -65,13 +65,13 @@ Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge d
 
 {{EmbedLiveSample("Simple_example", 400, 100)}}
 
-### Verwendung des römischen Numerierungstyps
+### Verwendung des römischen Zahlentyps
 
 ```html
 <ol type="i">
-  <li>Einleitung</li>
-  <li>Liste der Beschwerden</li>
-  <li>Fazit</li>
+  <li>Introduction</li>
+  <li>List of Grievances</li>
+  <li>Conclusion</li>
 </ol>
 ```
 
@@ -79,10 +79,10 @@ Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge d
 
 {{EmbedLiveSample("Using_Roman_Numeral_type", 400, 100)}}
 
-### Verwendung des start-Attributs
+### Verwendung des Start-Attributs
 
 ```html
-<p>Platzierungen der Teilnehmer, die nicht unter den Gewinnern sind:</p>
+<p>Finishing places of contestants not in the winners' circle:</p>
 
 <ol start="4">
   <li>Speedwalk Stu</li>
@@ -99,18 +99,18 @@ Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge d
 
 ```html
 <ol>
-  <li>erstes Element</li>
+  <li>first item</li>
   <li>
-    zweites Element
-    <!-- das schließende </li>-Tag ist nicht hier! -->
+    second item
+    <!-- closing </li> tag is not here! -->
     <ol>
-      <li>zweites Element erstes Unterelement</li>
-      <li>zweites Element zweites Unterelement</li>
-      <li>zweites Element drittes Unterelement</li>
+      <li>second item first subitem</li>
+      <li>second item second subitem</li>
+      <li>second item third subitem</li>
     </ol>
   </li>
-  <!-- Hier ist das schließende </li>-Tag -->
-  <li>drittes Element</li>
+  <!-- Here's the closing </li> tag -->
+  <li>third item</li>
 </ol>
 ```
 
@@ -118,22 +118,22 @@ Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge d
 
 {{EmbedLiveSample("Nesting_lists", 400, 150)}}
 
-### Ungeordnete Liste innerhalb einer geordneten Liste
+### Ungeordnete Liste innerhalb geordneter Liste
 
 ```html
 <ol>
-  <li>erstes Element</li>
+  <li>first item</li>
   <li>
-    zweites Element
-    <!-- das schließende </li>-Tag ist nicht hier! -->
+    second item
+    <!-- closing </li> tag is not here! -->
     <ul>
-      <li>zweites Element erstes Unterelement</li>
-      <li>zweites Element zweites Unterelement</li>
-      <li>zweites Element drittes Unterelement</li>
+      <li>second item first subitem</li>
+      <li>second item second subitem</li>
+      <li>second item third subitem</li>
     </ul>
   </li>
-  <!-- Hier ist das schließende </li>-Tag -->
-  <li>drittes Element</li>
+  <!-- Here's the closing </li> tag -->
+  <li>third item</li>
 </ol>
 ```
 
@@ -153,11 +153,11 @@ Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge d
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >, und wenn die Kinder des <code>&#x3C;ol></code>-Elements mindestens
         ein {{HTMLElement("li")}}-Element enthalten,
         <a href="/de/docs/Web/HTML/Content_categories#palpable_content"
-          >spürbarer Inhalt</a
+          >fühlbarer Inhalt</a
         >.
       </td>
     </tr>
@@ -166,19 +166,19 @@ Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge d
       <td>
         Null oder mehr {{ HTMLElement("li") }},
         {{HTMLElement("script")}} und
-        {{HTMLElement("template")}}-Elemente.
+        {{HTMLElement("template")}} Elemente.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind zwingend erforderlich.</td>
+      <td>Keine, sowohl das öffnende als auch das schließende Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >fließenden Inhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -205,7 +205,7 @@ Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge d
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{DOMxRef("HTMLOListElement")}}</td>
+      <td>[`HTMLOListElement`](/de/docs/Web/API/HTMLOListElement)</td>
     </tr>
   </tbody>
 </table>
@@ -220,10 +220,10 @@ Um zu bestimmen, welche Liste zu verwenden ist, versuchen Sie, die Reihenfolge d
 
 ## Siehe auch
 
-- Andere listenbezogene HTML-Elemente: {{HTMLElement("ul")}}, {{HTMLElement("li")}}, {{HTMLElement("menu")}}
-- CSS-Eigenschaften, die nützlich sein könnten, um das `<ol>`-Element zu stylen:
+- Andere listenspezifische HTML-Elemente: {{HTMLElement("ul")}}, {{HTMLElement("li")}}, {{HTMLElement("menu")}}
+- CSS-Eigenschaften, die zur Gestaltung des `<ol>`-Elements besonders nützlich sein können:
 
-  - die {{CSSxRef("list-style")}}-Eigenschaft, um die Art der Darstellung des Ordnungszeichens auszuwählen
-  - [CSS-Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters), um komplexe geschachtelte Listen zu handhaben
+  - die {{CSSxRef("list-style")}}-Eigenschaft, um die Anzeige der Ordnungszahlen zu wählen
+  - [CSS-Counter](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters), um komplexe verschachtelte Listen zu handhaben
   - die {{CSSxRef("line-height")}}-Eigenschaft, um das veraltete `compact`-Attribut zu simulieren
-  - die {{CSSxRef("margin")}}-Eigenschaft, um den Einzug der Liste zu steuern
+  - die {{CSSxRef("margin")}}-Eigenschaft, um die Einrückung der Liste zu steuern

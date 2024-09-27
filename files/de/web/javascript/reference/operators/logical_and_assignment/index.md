@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **logische UND-Zuweisungsoperator (`&&=`)** bewertet nur den rechten Operanden und weist dem linken zu, wenn der linke Operand {{Glossary("truthy")}} ist.
+Der **logische UND-Zuweisungsoperator (`&&=`)** wertet den rechten Operanden nur aus und weist den linken zu, wenn der linke Operand [truthy](/de/docs/Glossary/truthy) ist.
 
 {{EmbedInteractiveExample("pages/js/expressions-logical-and-assignment.html")}}
 
@@ -19,9 +19,9 @@ x &&= y
 
 ## Beschreibung
 
-Die logische UND-Zuweisung [_short-circuits_](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting), was bedeutet, dass `x &&= y` gleichbedeutend mit `x && (x = y)` ist, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+Die logische UND-Zuweisung [_short-circuits_](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence#short-circuiting), was bedeutet, dass `x &&= y` gleichbedeutend ist mit `x && (x = y)`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
-Es wird keine Zuweisung vorgenommen, wenn die linke Seite nicht truthy ist, aufgrund des Short-Circuiting des [logischen UND](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND)-Operators. Zum Beispiel führt das Folgende nicht zu einem Fehler, obwohl `x` ein `const` ist:
+Es wird keine Zuweisung vorgenommen, wenn die linke Seite nicht truthy ist, aufgrund des Short-Circuitings des [logischen UND](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) Operators. Zum Beispiel wirft das folgende Beispiel keinen Fehler, obwohl `x` ein `const` ist:
 
 ```js
 const x = 0;
@@ -43,12 +43,12 @@ const x = {
 x.value &&= 2;
 ```
 
-Tatsächlich wird `y` überhaupt nicht bewertet, wenn `x` nicht truthy ist.
+Tatsächlich wird `y` überhaupt nicht ausgewertet, wenn `x` nicht truthy ist.
 
 ```js
 const x = 0;
 x &&= console.log("y evaluated");
-// Es wird nichts geloggt
+// Logs nothing
 ```
 
 ## Beispiele
@@ -76,7 +76,7 @@ y &&= 0; // 0
 ## Siehe auch
 
 - [Logisches UND (`&&`)](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND)
-- [Nullish coalescing operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
+- [Nullish coalescing Operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
 - [Bitweise UND-Zuweisung (`&=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND_assignment)
-- {{Glossary("Truthy")}}
-- {{Glossary("Falsy")}}
+- [Truthy](/de/docs/Glossary/Truthy)
+- [Falsy](/de/docs/Glossary/Falsy)

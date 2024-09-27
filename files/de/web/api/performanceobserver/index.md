@@ -7,33 +7,33 @@ l10n:
 
 {{APIRef("Performance API")}} {{AvailableInWorkers}}
 
-Das **`PerformanceObserver`** Interface wird verwendet, um Leistungsereignisse zu beobachten und über neue {{domxref("PerformanceEntry","Performance-Einträge", '', 'true')}} benachrichtigt zu werden, sobald diese in der _Performance-Zeitleiste_ des Browsers aufgezeichnet werden.
+Das **`PerformanceObserver`**-Interface wird verwendet, um Leistungsmesseinträge zu beobachten und bei neuen [Performance-Einträgen](/de/docs/Web/API/PerformanceEntry) benachrichtigt zu werden, sobald sie in der _Leistungstimeline_ des Browsers aufgezeichnet werden.
 
 ## Konstruktor
 
-- {{domxref("PerformanceObserver.PerformanceObserver","PerformanceObserver()")}}
+- [`PerformanceObserver()`](/de/docs/Web/API/PerformanceObserver/PerformanceObserver)
   - : Erstellt und gibt ein neues `PerformanceObserver`-Objekt zurück.
 
 ## Statische Eigenschaften
 
-- {{domxref("PerformanceObserver.supportedEntryTypes_static", "PerformanceObserver.supportedEntryTypes")}} {{ReadOnlyInline}}
-  - : Gibt ein Array der vom Benutzeragenten unterstützten {{domxref("PerformanceEntry.entryType","entryType")}} Werte zurück.
+- [`PerformanceObserver.supportedEntryTypes`](/de/docs/Web/API/PerformanceObserver/supportedEntryTypes_static) {{ReadOnlyInline}}
+  - : Gibt ein Array der vom Benutzeragenten unterstützten [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType)-Werte zurück.
 
 ## Instanzmethoden
 
-- {{domxref("PerformanceObserver.observe","PerformanceObserver.observe()")}}
-  - : Legt die Menge der zu beobachtenden Eintragsarten fest. Die Rückruffunktion des Leistungsbeobachters wird aufgerufen, wenn ein Leistungseintrag für eine der angegebenen `entryTypes` aufgezeichnet wird.
-- {{domxref("PerformanceObserver.disconnect","PerformanceObserver.disconnect()")}}
-  - : Stoppt den Leistungsbeobachter-Rückruf vom Empfangen von Leistungseinträgen.
-- {{domxref("PerformanceObserver.takeRecords","PerformanceObserver.takeRecords()")}}
-  - : Gibt die aktuelle Liste der im Leistungsbeobachter gespeicherten Leistungseinträge zurück und leert sie.
+- [`PerformanceObserver.observe()`](/de/docs/Web/API/PerformanceObserver/observe)
+  - : Legt die zu beobachtenden Eintragstypen fest. Die Callback-Funktion des Performance-Observers wird aufgerufen, wenn ein Leistungseintrag für einen der angegebenen `entryTypes` aufgezeichnet wird.
+- [`PerformanceObserver.disconnect()`](/de/docs/Web/API/PerformanceObserver/disconnect)
+  - : Stoppt die Callback-Funktion des Performance-Observers, um keine Leistungsaufzeichnungen mehr zu erhalten.
+- [`PerformanceObserver.takeRecords()`](/de/docs/Web/API/PerformanceObserver/takeRecords)
+  - : Gibt die aktuelle Liste der im Performance-Observer gespeicherten Leistungseinträge zurück und leert sie.
 
 ## Beispiele
 
-### Erstellen eines PerformanceObserver
+### Einen PerformanceObserver erstellen
 
-Das folgende Beispiel erstellt einen `PerformanceObserver`, der auf "mark"- ({{domxref("PerformanceMark")}}) und "measure"- ({{domxref("PerformanceMeasure")}}) Ereignisse achtet.
-Der `perfObserver`-Rückruf stellt eine `list` ({{domxref("PerformanceObserverEntryList")}}) zur Verfügung, die es Ihnen ermöglicht, beobachtete Leistungseinträge abzurufen.
+Im folgenden Beispiel wird ein `PerformanceObserver` für "mark" ([`PerformanceMark`](/de/docs/Web/API/PerformanceMark)) und "measure" ([`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)) Ereignisse erstellt.
+Der `perfObserver` Callback stellt eine `list` ([`PerformanceObserverEntryList`](/de/docs/Web/API/PerformanceObserverEntryList)) bereit, die es Ihnen ermöglicht, beobachtete Leistungseinträge abzurufen.
 
 ```js
 function perfObserver(list, observer) {
@@ -60,6 +60,6 @@ observer.observe({ entryTypes: ["measure", "mark"] });
 
 ## Siehe auch
 
-- {{domxref('MutationObserver')}}
-- {{domxref('ResizeObserver')}}
-- {{domxref('IntersectionObserver')}}
+- [`MutationObserver`](/de/docs/Web/API/MutationObserver)
+- [`ResizeObserver`](/de/docs/Web/API/ResizeObserver)
+- [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)

@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: beforetoggle-Ereignis"
+title: "HTMLElement: beforetoggle Ereignis"
 slug: Web/API/HTMLElement/beforetoggle_event
 l10n:
   sourceCommit: a4e0df90868c274842b083ad034eb60f57b76aae
@@ -7,14 +7,14 @@ l10n:
 
 {{APIRef("Popover API")}}
 
-Das **`beforetoggle`**-Ereignis des {{domxref("HTMLElement")}}-Interfaces wird auf einem {{domxref("Popover_API", "Popover", "", "nocode")}}-Element (d.h. eines, das ein gültiges [`popover`](/de/docs/Web/HTML/Global_attributes/popover) Attribut hat) ausgelöst, unmittelbar bevor es angezeigt oder verborgen wird.
+Das **`beforetoggle`**-Ereignis des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces wird auf einem [Popover](/de/docs/Web/API/Popover_API)-Element ausgelöst (d.h. einem Element mit einem gültigen [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut), unmittelbar bevor es angezeigt oder verborgen wird.
 
-- Wenn das Popover von verborgen zu angezeigt wechselt, wird die Eigenschaft `event.oldState` auf `closed` und die Eigenschaft `event.newState` auf `open` gesetzt.
-- Wenn das Popover von angezeigt zu verborgen wechselt, wird `event.oldState` auf `open` und `event.newState` auf `closed` gesetzt.
+- Wenn das Popover von verborgen zu sichtbar wechselt, wird die Eigenschaft `event.oldState` auf `closed` gesetzt und die Eigenschaft `event.newState` auf `open`.
+- Wenn das Popover von sichtbar zu verborgen wechselt, wird `event.oldState` auf `open` und `event.newState` auf `closed` gesetzt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("beforetoggle", (event) => {});
@@ -24,7 +24,7 @@ onbeforetoggle = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ToggleEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ToggleEvent`](/de/docs/Web/API/ToggleEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ToggleEvent")}}
 
@@ -39,16 +39,16 @@ const popover = document.getElementById("mypopover");
 
 popover.addEventListener("beforetoggle", (event) => {
   if (event.newState === "open") {
-    console.log("Popover wird angezeigt");
+    console.log("Popover is being shown");
   } else {
-    console.log("Popover wird verborgen");
+    console.log("Popover is being hidden");
   }
 });
 ```
 
-### Eine Anmerkung zum Coalescing von Toggle-Ereignissen
+### Ein Hinweis zur Koaleszenz von Toggle-Ereignissen
 
-Es ist erwähnenswert, dass `beforetoggle`-Ereignisse zusammengefasst werden, was bedeutet, dass, wenn mehrere `beforetoggle`-Ereignisse ausgelöst werden, bevor die Ereignisschleife die Chance hat, zu zyklisieren, nur ein einziges Ereignis ausgelöst wird.
+Es ist anzumerken, dass `beforetoggle`-Ereignisse koalesziert werden, was bedeutet, dass, wenn mehrere `beforetoggle`-Ereignisse ausgelöst werden, bevor die Ereignisschleife die Chance hat, zu zyklisieren, nur ein einziges Ereignis ausgelöst wird.
 
 Zum Beispiel:
 
@@ -59,7 +59,7 @@ popover.addEventListener("beforetoggle", () => {
 
 popover.showPopover();
 popover.hidePopover();
-// `beforetoggle` wird nur einmal ausgelöst
+// `beforetoggle` only fires once
 ```
 
 ## Spezifikationen
@@ -72,6 +72,6 @@ popover.hidePopover();
 
 ## Siehe auch
 
-- [`popover`](/de/docs/Web/HTML/Global_attributes/popover) HTML globales Attribut
+- [`popover`](/de/docs/Web/HTML/Global_attributes/popover) globales HTML-Attribut
 - [Popover API](/de/docs/Web/API/Popover_API)
 - Verwandtes Ereignis: [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)

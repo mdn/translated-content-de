@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-webkit-meter-optimum-value`** CSS-[Pseudoelement](/de/docs/Glossary/Pseudo-element) gestaltet das {{htmlelement("meter")}}-Element, wenn dessen Wert im Low-High-Bereich liegt oder wenn der Wert dem optimalen Wert entspricht.
+Das **`::-webkit-meter-optimum-value`** CSS-[Pseudo-Element](/de/docs/Glossary/Pseudo-element) gestaltet das {{htmlelement("meter")}}-Element, wenn dessen Wert innerhalb des Low-High-Bereichs liegt oder wenn der Wert dem optimalen Wert entspricht.
 
 Grün ist die Standardfarbe.
 
@@ -45,8 +45,8 @@ body {
 }
 
 .safari meter {
-  /* Setzt das Standardaussehen nur für Safari zurück */
-  /* .safari-Klasse wird über JavaScript hinzugefügt */
+  /* Reset the default appearance for Safari only */
+  /* .safari class is added via JavaScript */
   -webkit-appearance: none;
 }
 
@@ -60,9 +60,9 @@ body {
 ### JavaScript
 
 ```js
-// Safari erfordert, dass <meter>-Elemente ein `appearance` von `none` haben,
-// um eine benutzerdefinierte Gestaltung mit `::-webkit-meter-*`-Selektoren zu ermöglichen,
-// aber `appearance: none` zerstört das Rendering in Chrome. Daher müssen wir prüfen, ob der Browser Safari-basiert ist.
+// Safari requires <meter> elements to have an `appearance` of `none` for custom styling
+// using `::-webkit-meter-*` selectors, but `appearance: none` breaks rendering on Chrome.
+// Therefore, we must check if the browser is Safari-based.
 
 const is_safari =
   navigator.userAgent.includes("AppleWebKit/") &&
@@ -79,7 +79,7 @@ if (is_safari) {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Bestandteil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -87,7 +87,7 @@ Nicht Teil eines Standards.
 
 ## Siehe auch
 
-Die Pseudoelemente, die von WebKit/Blink zur Gestaltung anderer Teile eines {{htmlelement("meter")}}-Elements verwendet werden, sind wie folgt:
+Die Pseudo-Elemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{htmlelement("meter")}}-Elements zu gestalten, sind wie folgt:
 
 - {{cssxref("::-webkit-meter-inner-element")}}
 - {{cssxref("::-webkit-meter-bar")}}

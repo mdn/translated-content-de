@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef('XMLSerializer')}}
 
-Der **`XMLSerializer()`** Konstruktor erstellt ein neues {{domxref("XMLSerializer")}}.
+Der **`XMLSerializer()`** Konstruktor erstellt einen neuen [`XMLSerializer`](/de/docs/Web/API/XMLSerializer).
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues {{domxref("XMLSerializer")}} Objekt.
+Ein neues [`XMLSerializer`](/de/docs/Web/API/XMLSerializer) Objekt.
 
 ## Beispiele
 
-### Serialisieren von XML in einen String
+### Serialisierung von XML in eine Zeichenkette
 
-Dieses Beispiel serialisiert ein gesamtes Dokument in einen String, der XML enthält.
+Dieses Beispiel serialisiert ein gesamtes Dokument in eine Zeichenkette, die XML enthält.
 
 ```js
 const s = new XMLSerializer();
@@ -37,7 +37,7 @@ const str = s.serializeToString(d);
 saveXML(str);
 ```
 
-Dies beinhaltet das Erstellen eines neuen `XMLSerializer`-Objekts und das Übergeben des zu serialisierenden {{domxref("Document")}} an {{domxref("XMLSerializer.serializeToString", "serializeToString()")}}, welches das XML-Äquivalent des Dokuments zurückgibt. `saveXML()` stellt eine Funktion dar, die den serialisierten String speichert.
+Dies beinhaltet das Erstellen eines neuen `XMLSerializer` Objekts und dann das Übergeben des zu serialisierenden [`Document`](/de/docs/Web/API/Document) an [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString), welches das XML-Äquivalent des Dokuments zurückgibt. `saveXML()` stellt eine Funktion dar, die dann die serialisierte Zeichenkette speichert.
 
 ## Spezifikationen
 

@@ -8,8 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`requestPermission()`**-Methode der
-{{domxref("FileSystemHandle")}}-Schnittstelle erfragt Lese- oder Lese-/Schreibberechtigungen für den Datei-Handle.
+Die **`requestPermission()`**-Methode des [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)-Interfaces fordert Lese- oder Lese-/Schreibrechte für den Dateigriff an.
 
 ## Syntax
 
@@ -21,7 +20,7 @@ requestPermission(descriptor)
 
 - `descriptor` {{optional_inline}}
 
-  - : Ein Objekt, das den Abfragemodus der Berechtigung angibt. Die Optionen sind wie folgt:
+  - : Ein Objekt, das den Berechtigungsmodus angibt, für den angefragt wird. Optionen sind wie folgt:
 
     - `'mode'` {{optional_inline}}
 
@@ -29,28 +28,28 @@ requestPermission(descriptor)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit {{domxref('PermissionStatus.state')}} aufgelöst wird und entweder `'granted'`, `'denied'` oder `'prompt'` ist. Es kann auch mit einer der unten aufgeführten Ausnahmen abgelehnt werden.
+Ein {{jsxref("Promise")}}, das mit [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) aufgelöst wird, das entweder `'granted'`, `'denied'` oder `'prompt'` sein kann. Es kann auch mit einer der unten aufgeführten Ausnahmen abgelehnt werden.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn kein Parameter angegeben ist oder der `mode` nicht `'read'` oder `'readwrite'` ist.
-- `SecurityError` {{domxref("DOMException")}}
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Die Methode wurde in einem Kontext aufgerufen, der nicht [same-origin](/de/docs/Web/Security/Same-origin_policy) mit dem Top-Level-Kontext ist (d. h. ein Cross-Origin-Iframe).
-    - Es lag keine transiente Benutzeraktivierung wie ein Tastendruck vor. Dies umfasst Situationen, in denen sich der Handle in einem Nicht-Window-Kontext befindet, der keine Benutzeraktivierung nutzen kann, wie z. B. ein Worker.
+    - Die Methode wurde in einem Kontext aufgerufen, der nicht [same-origin](/de/docs/Web/Security/Same-origin_policy) wie der Top-Level-Kontext ist (d.h. ein Cross-Origin-iframe).
+    - Es gab keine vorübergehende Benutzeraktivierung wie einen Tastendruck. Dies schließt ein, dass der Griff sich in einem Nicht-Fenster-Kontext befindet, der keine Benutzeraktivierung verbrauchen kann, wie zum Beispiel ein Worker.
 
 ## Sicherheit
 
-[Transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 
-Die folgende asynchrone Funktion fordert Berechtigungen an, wenn sie nicht bereits erteilt wurden.
+Die folgende asynchrone Funktion fordert Berechtigungen an, falls diese nicht erteilt wurden.
 
 ```js
 // fileHandle is a FileSystemFileHandle
-// withWrite ist ein Boolean, der auf true gesetzt wird, wenn Schreibrechte benötigt werden
+// withWrite is a boolean set to true if write
 
 async function verifyPermission(fileHandle, withWrite) {
   const opts = {};
@@ -58,17 +57,17 @@ async function verifyPermission(fileHandle, withWrite) {
     opts.mode = "readwrite";
   }
 
-  // Prüfen, ob bereits eine Berechtigung vorliegt, wenn ja, gibt true zurück.
+  // Check if we already have permission, if so, return true.
   if ((await fileHandle.queryPermission(opts)) === "granted") {
     return true;
   }
 
-  // Fordert Berechtigung für die Datei an, wenn der Benutzer die Berechtigung erteilt, gibt true zurück.
+  // Request permission to the file, if the user grants permission, return true.
   if ((await fileHandle.requestPermission(opts)) === "granted") {
     return true;
   }
 
-  // Der Benutzer hat die Berechtigung nicht erteilt, gibt false zurück.
+  // The user did not grant permission, return false.
   return false;
 }
 ```
@@ -84,4 +83,4 @@ async function verifyPermission(fileHandle, withWrite) {
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [Die File System Access API: Vereinfachter Zugriff auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

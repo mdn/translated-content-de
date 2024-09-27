@@ -7,21 +7,21 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<header>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einführende Inhalte, typischerweise eine Gruppe von einführenden oder navigativen Hilfsmitteln. Es kann einige Überschriftselemente, aber auch ein Logo, ein Suchformular, einen Autorennamen und andere Elemente enthalten.
+Das **`<header>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einführende Inhalte, typischerweise eine Gruppe von einleitenden oder navigativen Hilfsmitteln. Es kann einige Überschriftselemente enthalten, aber auch ein Logo, ein Suchformular, einen Autorennamen und andere Elemente.
 
 {{EmbedInteractiveExample("pages/tabbed/header.html", "tabbed-standard")}}
 
-## Verwendungsnotizen
+## Nutzungshinweise
 
-Das `<header>`-Element hat eine identische Bedeutung wie die seitenweite [`banner`](/de/docs/Web/Accessibility/ARIA/Roles/banner_role)-Landmarke, außer es ist in verschachtelten Abschnittsinhalten enthalten. Dann ist das `<header>`-Element keine Landmarke.
+Das `<header>`-Element hat dieselbe Bedeutung wie die seitenweite [`banner`](/de/docs/Web/Accessibility/ARIA/Roles/banner_role)-Landmark-Rolle, es sei denn, es ist innerhalb von Sektionsinhalten verschachtelt. Dann ist das `<header>`-Element kein Landmark.
 
-Das `<header>`-Element kann eine globale Site-Header definieren, die im Barrierefreiheitstree als `banner` beschrieben wird. Es umfasst normalerweise ein Logo, den Firmennamen, eine Suchfunktion und möglicherweise die globale Navigation oder einen Slogan. Es befindet sich in der Regel oben auf der Seite.
+Das `<header>`-Element kann einen globalen Site-Header definieren, der in der Accessibility-Struktur als `banner` beschrieben wird. Es enthält normalerweise ein Logo, den Firmennamen, eine Suchfunktion und möglicherweise die globale Navigation oder einen Slogan. Es befindet sich in der Regel oben auf der Seite.
 
-Andernfalls ist es ein `section` im Barrierefreiheitstree und enthält normalerweise die Überschrift des umgebenden Abschnitts (ein `h1` – `h6` Element) und eine optionale Unterüberschrift, dies ist jedoch **nicht** erforderlich.
+Andernfalls ist es ein `section` in der Accessibility-Struktur und enthält normalerweise die Überschrift des umgebenden Abschnitts (ein `h1` – `h6` Element) und eine optionale Unterüberschrift, dies ist jedoch **nicht** erforderlich.
 
 ### Historische Nutzung
 
-Das `<header>`-Element existierte ursprünglich ganz am Anfang von HTML für Überschriften. Es ist auf [der allerersten Website](https://info.cern.ch/) zu sehen. Irgendwann wurden Überschriften zu [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Element/Heading_Elements), sodass `<header>` frei wurde, um eine andere Rolle zu übernehmen.
+Das `<header>`-Element existierte ursprünglich am Anfang von HTML für Überschriften. Es ist auf [der allerersten Website](https://info.cern.ch/) zu sehen. Irgendwann wurden Überschriften zu [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Element/Heading_Elements), was es dem `<header>`-Element ermöglichte, eine andere Rolle zu übernehmen.
 
 ## Attribute
 
@@ -29,7 +29,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 ## Barrierefreiheit
 
-Das `<header>`-Element definiert eine [`banner`](/de/docs/Web/Accessibility/ARIA/Roles/banner_role)-Landmarke, wenn sein Kontext das {{HTMLElement('body')}}-Element ist. Das HTML-Header-Element wird nicht als Banner-Landmarke betrachtet, wenn es Nachfahre eines {{HTMLElement('article')}}, {{HTMLElement('aside')}}, {{HTMLElement('main')}}, {{HTMLElement('nav')}} oder {{HTMLElement('section')}}-Elements ist.
+Das `<header>`-Element definiert ein [`banner`](/de/docs/Web/Accessibility/ARIA/Roles/banner_role)-Landmark, wenn sein Kontext das {{HTMLElement('body')}}-Element ist. Das HTML-Header-Element wird nicht als Banner-Landmark betrachtet, wenn es ein Nachfahre eines {{HTMLElement('article')}}, {{HTMLElement('aside')}}, {{HTMLElement('main')}}, {{HTMLElement('nav')}} oder {{HTMLElement('section')}} Elements ist.
 
 ## Beispiele
 
@@ -37,8 +37,8 @@ Das `<header>`-Element definiert eine [`banner`](/de/docs/Web/Accessibility/ARIA
 
 ```html
 <header>
-  <h1>Hauptseitentitel</h1>
-  <img src="mdn-logo-sm.png" alt="MDN-Logo" />
+  <h1>Main Page Title</h1>
+  <img src="mdn-logo-sm.png" alt="MDN logo" />
 </header>
 ```
 
@@ -51,16 +51,16 @@ Das `<header>`-Element definiert eine [`banner`](/de/docs/Web/Accessibility/ARIA
 ```html
 <article>
   <header>
-    <h2>Der Planet Erde</h2>
+    <h2>The Planet Earth</h2>
     <p>
-      Veröffentlicht am Mittwoch, <time datetime="2017-10-04">4. Oktober 2017</time> von
+      Posted on Wednesday, <time datetime="2017-10-04">4 October 2017</time> by
       Jane Smith
     </p>
   </header>
   <p>
-    Wir leben auf einem Planeten, der blau und grün ist, mit so vielen Dingen, die noch unentdeckt sind.
+    We live on a planet that's blue and green, with so many things still unseen.
   </p>
-  <p><a href="https://example.com/the-planet-earth/">Weiterlesen…</a></p>
+  <p><a href="https://example.com/the-planet-earth/">Continue reading…</a></p>
 </article>
 ```
 
@@ -80,32 +80,32 @@ Das `<header>`-Element definiert eine [`banner`](/de/docs/Web/Accessibility/ARIA
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließende Inhalte</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#palpable_content"
-          >spürbare Inhalte</a
+          >greifbarer Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließende Inhalte</a
+          >Flussinhalt</a
         >, aber ohne <code>&#x3C;header></code> oder
-        {{HTMLElement("footer")}} Nachfahre.
+        {{HTMLElement("footer")}} Nachfahren.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind zwingend erforderlich.</td>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >fließende Inhalte</a
+          >Flussinhalt</a
         > akzeptiert. Beachten Sie, dass ein <code>&#x3C;header></code>-Element kein
         Nachfahre eines {{HTMLElement("address")}},
         {{HTMLElement("footer")}} oder eines anderen
@@ -118,15 +118,15 @@ Das `<header>`-Element definiert eine [`banner`](/de/docs/Web/Accessibility/ARIA
         <a href="/de/docs/Web/Accessibility/ARIA/Roles/banner_role">banner</a
         >, oder
         <a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
-          >generisch</a
+          >generic</a
         >
-        wenn es ein Nachfahre eines
+        wenn ein Nachfahre eines
         <code><a href="/de/docs/Web/HTML/Element/article">article</a></code
         >, <code><a href="/de/docs/Web/HTML/Element/aside">aside</a></code
         >, <code><a href="/de/docs/Web/HTML/Element/main">main</a></code
         >, <code><a href="/de/docs/Web/HTML/Element/nav">nav</a></code> oder
         <code><a href="/de/docs/Web/HTML/Element/section">section</a></code>
-        -Elements ist, oder eines Elements mit
+        Elements, oder eines Elements mit
         <code
           >role=<a href="/de/docs/Web/Accessibility/ARIA/Roles/article_role"
             >article</a
@@ -156,7 +156,7 @@ Das `<header>`-Element definiert eine [`banner`](/de/docs/Web/Accessibility/ARIA
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Roles/group_role"><code>group</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/presentation_role"><code>presentation</code></a> oder
         <a href="/de/docs/Web/Accessibility/ARIA/Roles/none_role"><code>none</code></a>
@@ -164,7 +164,7 @@ Das `<header>`-Element definiert eine [`banner`](/de/docs/Web/Accessibility/ARIA
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLElement")}}</td>
+      <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
 </table>

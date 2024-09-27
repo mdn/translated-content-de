@@ -1,5 +1,5 @@
 ---
-title: "Geolocation: clearWatch()-Methode"
+title: "Geolocation: clearWatch() Methode"
 short-title: clearWatch()
 slug: Web/API/Geolocation/clearWatch
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{ APIref("Geolocation API") }}
 
-Die **`clearWatch()`**-Methode der {{domxref("Geolocation")}}-Schnittstelle wird verwendet, um zuvor mit {{domxref("Geolocation.watchPosition()")}} installierte Überwachungs-Handler für den Standort/Fehler zu deregistrieren.
+Die **`clearWatch()`**-Methode der [`Geolocation`](/de/docs/Web/API/Geolocation)-Schnittstelle wird verwendet, um Überwachungs-Handler für Positionen/Fehler zu deregistrieren, die zuvor mit [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition) installiert wurden.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ clearWatch(id)
 ### Parameter
 
 - `id`
-  - : Die ID-Nummer, die von der {{domxref("Geolocation.watchPosition()")}}-Methode zurückgegeben wird, wenn Sie den zu entfernenden Handler installiert haben.
+  - : Die ID-Nummer, die von der [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition)-Methode zurückgegeben wird, wenn Sie den Handler installieren, den Sie entfernen möchten.
 
 ### Rückgabewert
 
@@ -36,7 +36,7 @@ function success(pos) {
   const crd = pos.coords;
 
   if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
-    console.log("Herzlichen Glückwunsch, Sie haben das Ziel erreicht!");
+    console.log("Congratulations, you've reached the target!");
     navigator.geolocation.clearWatch(id);
   }
 }
@@ -69,7 +69,7 @@ id = navigator.geolocation.watchPosition(success, error, options);
 
 ## Siehe auch
 
-- [Die Geolokalisierung verwenden](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- {{domxref("Geolocation")}}
-- {{domxref("Geolocation.watchPosition()")}}
-- {{domxref("Geolocation.getCurrentPosition()")}}
+- [Verwendung von Geolocation](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
+- [`Geolocation`](/de/docs/Web/API/Geolocation)
+- [`Geolocation.watchPosition()`](/de/docs/Web/API/Geolocation/watchPosition)
+- [`Geolocation.getCurrentPosition()`](/de/docs/Web/API/Geolocation/getCurrentPosition)

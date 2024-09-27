@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`error()`** statische Methode der {{domxref("Response")}} Schnittstelle gibt ein neues `Response`-Objekt zurück, das mit einem Netzwerkfehler verknüpft ist.
+Die **`error()`** statische Methode der [`Response`](/de/docs/Web/API/Response)-Schnittstelle gibt ein neues `Response`-Objekt zurück, das mit einem Netzwerkfehler verknüpft ist.
 
-Dies ist hauptsächlich nützlich, wenn Sie Service Worker schreiben: Es ermöglicht einem Service Worker, eine Antwort von einem {{domxref("ServiceWorkerGlobalScope.fetch_event", "fetch")}} Event-Handler zu senden, die dazu führt, dass der {{domxref("Window/fetch", "fetch()")}} Aufruf im Hauptanwendungscode das Versprechen ablehnt.
+Dies ist hauptsächlich nützlich beim Schreiben von Service-Workern: Es ermöglicht einem Service-Worker, eine Antwort aus einem [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignishandler zu senden, die dazu führt, dass der [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf im Hauptanwendungscode das Versprechen ablehnt.
 
-Eine Fehlerantwort hat ihren {{domxref("Response.type","type")}} auf `error` gesetzt.
+Eine Fehlerantwort hat ihren [`type`](/de/docs/Web/API/Response/type) auf `error` gesetzt.
 
 ## Syntax
 
@@ -26,13 +26,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("Response")}} Objekt.
+Ein [`Response`](/de/docs/Web/API/Response)-Objekt.
 
 ## Beispiele
 
-### Rückgabe eines Netzwerkfehlers von einem Service Worker
+### Rückgabe eines Netzwerkfehlers von einem Service-Worker
 
-Angenommen, eine Webanwendung hat einen Service Worker, der den folgenden `fetch` Event-Handler enthält:
+Angenommen, eine Webanwendung hat einen Service-Worker, der den folgenden `fetch`-Ereignishandler enthält:
 
 ```js
 // service-worker.js
@@ -45,7 +45,7 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-Mit diesem Service Worker werden alle Fetch-Anfragen der App über den Service Worker zum Netzwerk geleitet, außer Anfragen zum Abrufen von "salamander.jpg", die abgelehnt werden. Dies bedeutet, dass der folgende Hauptthread-Code einen Fehler auslöst und der `catch`-Handler ausgeführt wird.
+Mit diesem Service-Worker werden alle Abrufanfragen von der App über den Service-Worker zum Netzwerk geleitet, mit Ausnahme von Anfragen zum Abrufen von "salamander.jpg", die abgelehnt werden. Dies bedeutet, dass der folgende Hauptthread-Code einen Fehler auslösen würde und der `catch`-Handler ausgeführt wird.
 
 ```js
 // main.js

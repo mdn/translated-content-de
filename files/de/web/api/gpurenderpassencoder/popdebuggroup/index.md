@@ -3,15 +3,14 @@ title: "GPURenderPassEncoder: popDebugGroup() Methode"
 short-title: popDebugGroup()
 slug: Web/API/GPURenderPassEncoder/popDebugGroup
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`popDebugGroup()`** Methode der
-{{domxref("GPURenderPassEncoder")}} Schnittstelle beendet eine Render-Pass-Debug-Gruppe, die mit einem {{domxref("GPURenderPassEncoder.pushDebugGroup", "pushDebugGroup()")}} Aufruf begonnen wurde.
+Die **`popDebugGroup()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beendet eine Render-Pass-Debug-Gruppe, die mit einem [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup)-Aufruf begonnen wurde.
 
-Diese Methode könnte für Telemetrie genutzt werden oder in Zukunft in {{domxref("GPUError")}}-Meldungen, Entwicklerwerkzeugen des Browsers oder anderen Diensten zur Unterstützung bei der Fehlersuche verwendet werden.
+Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Entwicklertools des Browsers oder anderen Diensten genutzt werden, um bei der Fehlersuche zu helfen.
 
 ## Syntax
 
@@ -25,13 +24,13 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("Undefined")}}).
+Keine ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`popDebugGroup()`** aufgerufen wird, andernfalls wird ein {{domxref("GPUValidationError")}} erzeugt und der {{domxref("GPURenderPassEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`popDebugGroup()`** aufgerufen wird. Andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Der Debug-Stack des Render-Pass-Encoders ist nicht leer (d.h. mindestens eine Render-Pass-Debug-Gruppe wurde zuvor mit {{domxref("GPURenderPassEncoder.pushDebugGroup", "pushDebugGroup()")}} gestartet).
+- Der Debug-Stack des Render-Pass-Encoders ist nicht leer (d. h. mindestens eine Render-Pass-Debug-Gruppe wurde zuvor mit [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup) gestartet).
 
 ## Beispiele
 
@@ -40,7 +39,7 @@ Die folgenden Kriterien müssen erfüllt sein, wenn **`popDebugGroup()`** aufger
 
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 
-passEncoder.pushDebugGroup("mygroupmarker"); // Starten Sie die Debug-Gruppe mit Label
+passEncoder.pushDebugGroup("mygroupmarker"); // Start labeled debug group
 
 passEncoder.setPipeline(renderPipeline);
 passEncoder.setVertexBuffer(0, vertexBuffer);

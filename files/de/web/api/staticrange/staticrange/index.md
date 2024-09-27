@@ -1,5 +1,5 @@
 ---
-title: "StaticRange: StaticRange() Konstruktor"
+title: "StaticRange: StaticRange()-Konstruktor"
 short-title: StaticRange()
 slug: Web/API/StaticRange/StaticRange
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Der **`StaticRange()`** Konstruktor erstellt ein neues {{domxref("StaticRange")}}-Objekt, das einen Abschnitt von Inhalten innerhalb des DOM darstellt.
+Der **`StaticRange()`**-Konstruktor erstellt ein neues [`StaticRange`](/de/docs/Web/API/StaticRange)-Objekt, das einen Abschnitt von Inhalten innerhalb des DOM darstellt.
 
-Dieser Konstruktor enthält Eigenschaften, die den Start- und Endpunkt des Bereichs sowie ein Boolean angeben, das aufzeigt, ob der Bereich **zusammengefallen** (also leer) ist oder nicht.
+Dieser Konstruktor enthält Eigenschaften, die die Start- und Endpositionen des Bereichs sowie ein Boolean angeben, ob der Bereich **kollabiert** ist (d.h. leer).
 
 ## Syntax
 
@@ -22,25 +22,25 @@ new StaticRange(rangeSpec)
 
 - `rangeSpec`
 
-  - : Der erforderliche `rangeSpec` Parameter ist ein Objekt, das die folgenden vier Eigenschaften enthält:
+  - : Der erforderliche `rangeSpec`-Parameter ist ein Objekt, das die folgenden vier Eigenschaften enthält:
 
     - `startContainer`
-      - : Der {{domxref("Node")}}, in dem sich der Startpunkt des Bereichs befindet.
+      - : Der [`Node`](/de/docs/Web/API/Node), in dem sich der Startpunkt des Bereichs befindet.
     - `startOffset`
-      - : Der Offset im Startknoten, bei dem das erste Zeichen des Bereichs gefunden wird.
+      - : Der Versatz in den anfänglichen Knoten, an dem das erste Zeichen des Bereichs gefunden wird.
     - `endContainer`
-      - : Der `Node`, in dem der Endpunkt des Bereichs liegt.
+      - : Der `Node`, in dem sich der Endpunkt des Bereichs befindet.
     - `endOffset`
-      - : Der Offset im durch `endOffset` angegebenen Knoten, bei dem das letzte Zeichen im Bereich gefunden wird.
+      - : Der Versatz in den Knoten, der von `endOffset` angegeben wird, an dem sich das letzte Zeichen im Bereich befindet.
 
 ### Rückgabewert
 
-Ein neues `StaticRange`-Objekt, das mit den im `rangeSpec`-Objekt angegebenen Werten initialisiert wurde.
+Ein neues `StaticRange`-Objekt, das mit den im `rangeSpec`-Objekt angegebenen Werten initialisiert ist.
 
 ### Ausnahmen
 
 - `InvalidNodeTypeError`
-  - : Ein {{domxref("DOMException")}} wird ausgelöst, wenn entweder oder beide `startContainer` und/oder `endContainer` ein Knotentyp sind, den Sie in einem Bereich nicht einschließen können. Diese Knotentypen sind `Node.DOCUMENT_TYPE_NODE` (darstellt den {{domxref("DocumentType")}}-Knoten, der aus dem {{Glossary("Doctype", "DTD")}} abgeleitet wird, wie zum Beispiel das preamble doctype in HTML identifiziert) und der {{domxref("Attr")}}-Knoten, der ein Attribut eines Elements im DOM beschreibt.
+  - : Ein [`DOMException`](/de/docs/Web/API/DOMException), der ausgelöst wird, wenn entweder oder beide der `startContainer` und/oder `endContainer` eine Art von Knoten sind, die Sie nicht in einen Bereich einschließen können. Diese Knotentypen sind `Node.DOCUMENT_TYPE_NODE` (repräsentiert den [`DocumentType`](/de/docs/Web/API/DocumentType)-Knoten, der aus dem [DTD](/de/docs/Glossary/Doctype) abgeleitet wird, der beispielsweise mit dem `doctype`-Präambel im HTML identifiziert wird) und der [`Attr`](/de/docs/Web/API/Attr)-Knoten, der ein Attribut eines Elements im DOM beschreibt.
 
 ## Spezifikationen
 

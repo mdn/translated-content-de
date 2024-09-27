@@ -1,5 +1,5 @@
 ---
-title: Lokal get
+title: Local get
 slug: WebAssembly/Reference/Variables/Local_get
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`local.get`** Anweisung lädt den Wert einer lokalen Variablen auf den Stack.
+Die **`local.get`**-Anweisung lädt den Wert einer lokalen Variablen auf den Stapel.
 
 {{EmbedInteractiveExample("pages/wat/local.html", "tabbed-taller")}}
 

@@ -1,5 +1,5 @@
 ---
-title: "TouchEvent: touches Eigenschaft"
+title: "TouchEvent: touches-Eigenschaft"
 short-title: touches
 slug: Web/API/TouchEvent/touches
 l10n:
@@ -8,29 +8,29 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-**`touches`** ist eine schreibgeschützte {{ domxref("TouchList") }}, die alle {{ domxref("Touch") }} Objekte für Berührungspunkte auflistet, die derzeit mit der Berührungsfläche in Kontakt stehen, unabhängig davon, ob sie sich geändert haben oder welches ihre Zielelemente zum Zeitpunkt von {{domxref("Element/touchstart_event", "touchstart")}} waren.
+**`touches`** ist eine schreibgeschützte [`TouchList`](/de/docs/Web/API/TouchList), die alle [`Touch`](/de/docs/Web/API/Touch)-Objekte für Touchpunkte auflistet, die sich derzeit in Kontakt mit der Berührungsfläche befinden, unabhängig davon, ob sie sich geändert haben oder welches ihr Ziel-Element zum Zeitpunkt von [`touchstart`](/de/docs/Web/API/Element/touchstart_event) war.
 
-Sie können es sich so vorstellen, dass es angibt, wie viele separate Finger als die den Bildschirm berührend identifiziert werden können.
+Sie können es sich so vorstellen, dass es angibt, wie viele separate Finger als Berührung auf dem Bildschirm erkannt werden können.
 
 > [!NOTE]
-> Die Berührungen im Array sind nicht unbedingt nach der Reihenfolge ihrer Ereignisse geordnet (das i-te Element im Array ist also nicht unbedingt die i-te Berührung, die stattgefunden hat). Sie können keine spezielle Reihenfolge annehmen. Um die Reihenfolge der Berührungen zu bestimmen, verwenden Sie die `touch` Objekt-IDs.
+> Die Berührungen im Array sind nicht unbedingt in der Reihenfolge ihres Auftretens geordnet (das i-te Element im Array ist die i-te Berührung, die auftrat). Sie können keine spezifische Reihenfolge annehmen. Um die Reihenfolge der Berührungen zu bestimmen, verwenden Sie die `touch`-Objekt-IDs.
 
 ## Wert
 
-Eine {{ domxref("TouchList") }}, die alle {{ domxref("Touch") }} Objekte für Berührungspunkte auflistet, die weiterhin mit der Berührungsfläche in Kontakt stehen, unabhängig davon, ob sie sich geändert haben oder welches ihre Zielelemente bei `touchstart` waren.
+Eine [`TouchList`](/de/docs/Web/API/TouchList), die alle [`Touch`](/de/docs/Web/API/Touch)-Objekte für Touchpunkte auflistet, die noch in Kontakt mit der Berührungsfläche sind, unabhängig davon, ob sie sich geändert haben oder welches ihr Ziel-Element zum Zeitpunkt von `touchstart` war.
 
 ## Beispiele
 
-Dieses Beispiel veranschaulicht die {{domxref("TouchEvent")}}-Eigenschaft `TouchEvent.touches`. Die `TouchEvent.touches`-Eigenschaft ist ein {{domxref("TouchList")}}-Objekt und enthält eine Liste von {{domxref("Touch")}}-Objekten für jeden Berührungspunkt, der derzeit die Oberfläche berührt.
+Dieses Beispiel veranschaulicht die `TouchEvent.touches`-Eigenschaft des [`TouchEvent`](/de/docs/Web/API/TouchEvent)-Objekts. Die `TouchEvent.touches`-Eigenschaft ist ein [`TouchList`](/de/docs/Web/API/TouchList)-Objekt und enthält eine Liste von [`Touch`](/de/docs/Web/API/Touch)-Objekten für jeden Berührungspunkt, der derzeit die Oberfläche berührt.
 
-Im folgenden Code-Snippet prüft der {{domxref("Element/touchstart_event", "touchstart")}}-Ereignishandler die Länge der Liste `TouchEvent.touches`, um die Anzahl der aktivierten Berührungspunkte zu bestimmen und dann je nach Anzahl der Berührungspunkte verschiedene Handler aufzurufen.
+Im folgenden Codeausschnitt prüft der [`touchstart`](/de/docs/Web/API/Element/touchstart_event) Ereignishandler die Länge der `TouchEvent.touches`-Liste, um die Anzahl der aktivierten Berührungspunkte zu bestimmen und dann je nach Anzahl der Berührungspunkte unterschiedliche Handler aufzurufen.
 
 ```js
 someElement.addEventListener(
   "touchstart",
   (e) => {
-    // Rufen Sie den entsprechenden Handler abhängig von der
-    // Anzahl der Berührungspunkte auf.
+    // Invoke the appropriate handler depending on the
+    // number of touch points.
     switch (e.touches.length) {
       case 1:
         handle_one_touch(e);

@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Das **`error`** Ereignis wird ausgelöst, wenn bei einem Sensor eine Ausnahme auftritt.
+Das **`error`**-Ereignis wird ausgelöst, wenn bei einem Sensor eine Ausnahme auftritt.
 
-Das {{domxref('Sensor')}}-Interface ist eine Basisklasse. `onerror` und das `error` Ereignis können nur auf einer der [abgeleiteten Klassen](/de/docs/Web/API/Sensor#interfaces_based_on_sensor) verwendet werden.
+Das [`Sensor`](/de/docs/Web/API/Sensor)-Interface ist eine Basisklasse, `onerror` und das `error`-Ereignis können nur bei einer der [abgeleiteten Klassen](/de/docs/Web/API/Sensor#interfaces_based_on_sensor) verwendet werden.
 
-Nach dem Auftreten dieses Ereignisses wird das {{domxref('Sensor')}}-Objekt inaktiv. Wenn der Sensor Werte gelesen hat, wird er stoppen, bis er neu startet.
+Nachdem dieses Ereignis aufgetreten ist, wird das [`Sensor`](/de/docs/Web/API/Sensor)-Objekt inaktiv. Wenn der Sensor Werte gelesen hat, wird er stoppen, bis er neu gestartet wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -26,22 +26,22 @@ onerror = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("SensorErrorEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`SensorErrorEvent`](/de/docs/Web/API/SensorErrorEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("SensorErrorEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften stehen auch Eigenschaften der Eltern-Schnittstelle, {{domxref("Event")}}, zur Verfügung._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref('SensorErrorEvent.error', 'error')}} {{ReadOnlyInline}}
-  - : Gibt die {{domxref('DOMException')}} zurück, die ausgelöst wurde.
+- [`error`](/de/docs/Web/API/SensorErrorEvent/error) {{ReadOnlyInline}}
+  - : Gibt die [`DOMException`](/de/docs/Web/API/DOMException) zurück, die ausgelöst wurde.
 
 ## Beispiele
 
-### Protokollieren von Beschleunigungsmesser-Ausnahmen
+### Ausnahmen von Beschleunigungsmessern protokollieren
 
-Dieses Beispiel fügt einen Event Listener hinzu, um Fehler zu protokollieren, die bei einem {{domxref("Accelerometer")}} auftreten.
+Dieses Beispiel fügt einen Ereignislistener hinzu, um Fehler zu protokollieren, die bei einem [`Accelerometer`](/de/docs/Web/API/Accelerometer) aufgetreten sind.
 
 ```js
 const acl = new Accelerometer({ frequency: 60 });
@@ -59,5 +59,5 @@ acl.start();
 
 ## Siehe auch
 
-- Sensor {{domxref('Sensor.activate_event', 'activate')}} Ereignis
-- Sensor {{domxref('Sensor.reading_event', 'reading')}} Ereignis
+- Sensor [`activate`](/de/docs/Web/API/Sensor/activate_event) Ereignis
+- Sensor [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis

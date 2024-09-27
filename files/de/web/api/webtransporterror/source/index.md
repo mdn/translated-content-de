@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`source`**-Eigenschaft der {{domxref("WebTransportError")}}-Schnittstelle gibt einen enumerierten Wert zurück, der die Quelle des Fehlers angibt.
+Die **`source`**-Schreibgeschützte Eigenschaft der [`WebTransportError`](/de/docs/Web/API/WebTransportError)-Schnittstelle gibt einen aufgezählten Wert zurück, der die Quelle des Fehlers angibt.
 
 ## Wert
 
-Ein enumerierter Wert; kann entweder `stream` oder `session` sein.
+Ein aufgezählter Wert; kann entweder `stream` oder `session` sein.
 
 ## Beispiele
 
@@ -21,18 +21,18 @@ const url = "notaurl";
 
 async function initTransport(url) {
   try {
-    // Verbindungstransport initialisieren
+    // Initialize transport connection
     const transport = new WebTransport(url);
 
-    // Die Verbindung kann genutzt werden, sobald ready erfüllt ist
+    // The connection can be used once ready fulfills
     await transport.ready;
 
     // ...
   } catch (error) {
-    const msg = `Transportinitialisierung fehlgeschlagen.
-                 Grund: ${error.message}.
-                 Quelle: ${error.source}.
-                 Fehlercode: ${error.streamErrorCode}.`;
+    const msg = `Transport initialization failed.
+                 Reason: ${error.message}.
+                 Source: ${error.source}.
+                 Error code: ${error.streamErrorCode}.`;
     console.log(msg);
   }
 }
@@ -49,6 +49,6 @@ async function initTransport(url) {
 ## Siehe auch
 
 - [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

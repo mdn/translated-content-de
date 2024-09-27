@@ -8,20 +8,21 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`headers`** schreibgeschützte Eigenschaft der {{domxref("Response")}}-Schnittstelle enthält das {{domxref("Headers")}}-Objekt, das mit der Antwort verknüpft ist.
+Die **`headers`** schreibgeschützte Eigenschaft der
+[`Response`](/de/docs/Web/API/Response)-Schnittstelle enthält das [`Headers`](/de/docs/Web/API/Headers)-Objekt, das mit der Antwort verknüpft ist.
 
 ## Wert
 
-Ein {{domxref("Headers")}}-Objekt.
+Ein [`Headers`](/de/docs/Web/API/Headers)-Objekt.
 
 ## Beispiele
 
 In unserem [Fetch Response Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/))
-erstellen wir ein neues {{domxref("Request")}}-Objekt mit dem {{domxref("Request.Request","Request()")}}-Konstruktor und übergeben ihm einen JPG-Pfad.
-Wir holen dann diese Anfrage mit {{domxref("Window/fetch", "fetch()")}} ab, extrahieren ein Blob aus der Antwort mit {{domxref("Response.blob")}},
-erstellen daraus eine Objekt-URL mit {{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}} und zeigen diese in einem {{htmlelement("img")}} an.
+erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor und übergeben ihm einen JPG-Pfad.
+Wir holen dann diese Anfrage mittels [`fetch()`](/de/docs/Web/API/Window/fetch) ein, extrahieren ein Blob aus der Antwort mittels [`Response.blob`](/de/docs/Web/API/Response/blob),
+erstellen daraus eine Objekt-URL mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und zeigen dies in einem {{htmlelement("img")}} an.
 
-Beachten Sie, dass wir zu Beginn des `fetch()`-Blocks die Antwort-Header in die Konsole protokollieren.
+Beachten Sie, dass wir am Anfang des `fetch()`-Blocks die Antwort-Header in die Konsole protokollieren.
 
 ```js
 const myImage = document.querySelector("img");

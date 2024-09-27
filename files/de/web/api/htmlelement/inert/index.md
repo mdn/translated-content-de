@@ -8,10 +8,10 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`inert`**-Eigenschaft des {{domxref("HTMLElement")}} spiegelt den Wert des [`inert`](/de/docs/Web/HTML/Global_attributes/inert)-Attributs des Elements wider. Es handelt sich um einen booleschen Wert, der, wenn vorhanden, den Browser dazu veranlasst, Benutzereingabeereignisse für das Element, einschließlich Fokuserereignissen und Ereignissen von unterstützenden Technologien, zu "ignorieren". Der Browser kann auch die Seitensuche und Textauswahl im Element ignorieren. Dies kann nützlich sein, wenn Sie Benutzeroberflächen wie Modals erstellen, bei denen Sie den Fokus im sichtbaren Modal "einsperren" möchten.
+Die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Eigenschaft **`inert`** spiegelt den Wert des [`inert`](/de/docs/Web/HTML/Global_attributes/inert)-Attributs des Elements wider. Es handelt sich um einen booleschen Wert, der, wenn vorhanden, bewirkt, dass der Browser Benutzereingabeveranstaltungen für das Element "ignoriert", einschließlich Fokussierung und Ereignissen von unterstützenden Technologien. Der Browser kann auch die Seitensuche und die Textauswahl im Element ignorieren. Dies kann nützlich sein, wenn Sie Benutzeroberflächen wie Modale erstellen, bei denen der Fokus im sichtbaren Modal "eingefangen" werden soll.
 
 > [!NOTE]
-> Verschachteln Sie keine interaktiven Elemente oder wichtigen Inhalte innerhalb von Elementen mit dem `inert`-Attribut, da inerte Inhalte und deren Nachkommen für alle Benutzer weder fokussierbar noch wahrnehmbar sind.
+> Verschachteln Sie keine interaktiven Elemente oder wichtigen Inhalte in Elementen mit dem `inert`-Attribut, da inerte Inhalte und deren Nachkommen weder fokussierbar noch für alle Benutzer wahrnehmbar sind.
 
 ## Wert
 
@@ -43,7 +43,7 @@ Ein boolescher Wert, der `true` ist, wenn das Element inert ist; andernfalls ist
 {{ EmbedLiveSample('Example', 560, 200) }}
 
 > [!NOTE]
-> Dieses Attribut bewirkt allein keine visuelle Änderung des Inhalts, wie im Browser angezeigt. Im obigen Beispiel wurde CSS angewendet, damit alle direkten Nachkommen eines Elements mit dem inert-Attribut halbtransparent dargestellt werden.
+> Dieses Attribut allein wird keine visuelle Änderung des Inhalts im Browser bewirken. Im obigen Beispiel wurde CSS angewendet, sodass jeder direkte Nachkomme eines Elements mit dem inert-Attribut halbtransparent dargestellt wird.
 
 ## Spezifikationen
 
@@ -58,4 +58,4 @@ Ein boolescher Wert, der `true` ist, wenn das Element inert ist; andernfalls ist
 - [Globales Attribut: `inert`](/de/docs/Web/HTML/Global_attributes/inert)
 - {{HTMLElement("dialog")}}
 - [Inert Polyfill](https://github.com/WICG/inert)
-- {{domxref("HTMLInputElement.disabled", "disabled")}}
+- [`disabled`](/de/docs/Web/API/HTMLInputElement/disabled)

@@ -1,5 +1,5 @@
 ---
-title: Bildrate (FPS)
+title: Frame rate (FPS)
 slug: Glossary/FPS
 l10n:
   sourceCommit: 8d28f65319b14e4687d7c3f98200973400e9ec79
@@ -7,10 +7,10 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Bildrate** ist die Geschwindigkeit, mit der der Browser in der Lage ist, Inhalte neu zu berechnen, zu layouten und auf das Display zu zeichnen. Die **Frames pro Sekunde** oder **fps** geben an, wie viele Frames in einer Sekunde neu gezeichnet werden können. Die angestrebte Bildrate für Computergraphics auf Websites beträgt 60 fps.
+Eine **Bildfrequenz** ist die Geschwindigkeit, mit der der Browser Inhalte neu berechnen, layouten und auf das Display malen kann. Die **Bilder pro Sekunde** oder **fps** geben an, wie viele Bilder in einer Sekunde neu gemalt werden können. Die angestrebte Bildfrequenz für Computergrafiken auf Webseiten beträgt 60fps.
 
-Filme haben in der Regel eine Bildrate von 24 fps. Sie können weniger Frames pro Sekunde aufweisen, weil die Illusion von Leben durch Bewegungsunschärfen erzeugt wird. Auf einem Computerbildschirm gibt es keine Bewegungsunschärfen (es sei denn, Sie animieren ein Bild [Sprite](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS) mit Bewegungsunschärfen).
+Filme haben in der Regel eine Bildfrequenz von 24 fps. Sie können weniger Bilder pro Sekunde verwenden, weil die Illusion von Leben mit Bewegungsunschärfen erzeugt wird. Beim Bewegen auf einem Computerbildschirm gibt es keine Bewegungsunschärfen (es sei denn, Sie animieren ein Bild [Sprite](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS) mit Bewegungsunschärfen).
 
 ## Siehe auch
 
-- [Bildrate](https://en.wikipedia.org/wiki/Frame_rate) (Wikipedia)
+- [Frame rate](https://en.wikipedia.org/wiki/Frame_rate) (Wikipedia)

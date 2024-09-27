@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Gamepad API")}}
 
-Die **`reset()`** Methode der {{domxref("GamepadHapticActuator")}} Schnittstelle stoppt die Hardware von der Wiedergabe eines aktiven Vibrationseffekts.
+Die **`reset()`**-Methode des [`GamepadHapticActuator`](/de/docs/Web/API/GamepadHapticActuator)-Interfaces stoppt die Hardware davon, einen aktiven Vibrationseffekt abzuspielen.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein Promise, das mit `"complete"` aufgelöst wird, wenn der Effekt erfolgreich zurückgesetzt wird, oder mit `"preempted"`, wenn der Effekt gestoppt oder durch einen anderen Effekt ersetzt wurde.
+Ein Promise, das mit `"complete"` aufgelöst wird, wenn der Effekt erfolgreich zurückgesetzt wurde, oder mit `"preempted"`, wenn der Effekt gestoppt oder durch einen anderen Effekt ersetzt wurde.
 
-Das Promise kann mit den folgenden Ausnahmetypen abgelehnt werden:
+Das Promise kann mit den folgenden Ausnahmetypen verworfen werden:
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Promise wird mit `InvalidStateError` abgelehnt, wenn das aktuelle Dokument nicht aktiv oder verborgen ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Das Promise wird mit `InvalidStateError` verworfen, wenn das aktuelle Dokument nicht aktiv oder versteckt ist.
 
 ## Beispiele
 
@@ -46,7 +46,7 @@ gamepad.vibrationActuator
     strongMagnitude: 1.0,
   })
   .then((result) => console.log(result));
-// Sollte "preempted" protokollieren, da reset() ausgeführt wird, bevor der Effekt endet
+// Should log "preempted" because reset() will run before the effect ends
 ```
 
 ## Spezifikationen

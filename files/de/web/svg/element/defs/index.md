@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<defs>`**-Element wird verwendet, um grafische Objekte zu speichern, die zu einem späteren Zeitpunkt verwendet werden. Objekte, die innerhalb eines `<defs>`-Elements erstellt werden, werden nicht direkt gerendert. Um sie anzuzeigen, müssen Sie auf sie verweisen (z.B. mit einem {{SVGElement("use")}}-Element).
+Das **`<defs>`**-Element wird verwendet, um grafische Objekte zu speichern, die zu einem späteren Zeitpunkt verwendet werden. Objekte, die innerhalb eines `<defs>`-Elements erstellt werden, werden nicht direkt gerendert. Um sie anzuzeigen, müssen Sie sie referenzieren (zum Beispiel mit einem {{SVGElement("use")}}-Element).
 
-Grafische Objekte können von überall aus referenziert werden. Dennoch fördert die Definition dieser Objekte innerhalb eines `<defs>`-Elements das Verständnis des SVG-Inhalts und ist vorteilhaft für die allgemeine Zugänglichkeit des Dokuments.
+Grafische Objekte können von überall referenziert werden, jedoch fördert das Definieren dieser Objekte innerhalb eines `<defs>`-Elements die Verständlichkeit des SVG-Inhalts und ist vorteilhaft für die Gesamtzugänglichkeit des Dokuments.
 
 ## Beispiel
 
@@ -23,7 +23,7 @@ svg {
 
 ```html
 <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-  <!-- Einige grafische Objekte zum Verwenden -->
+  <!-- Some graphical objects to use -->
   <defs>
     <circle id="myCircle" cx="0" cy="0" r="5" />
 
@@ -33,7 +33,7 @@ svg {
     </linearGradient>
   </defs>
 
-  <!-- Verwendung meiner grafischen Objekte -->
+  <!-- using my graphical objects -->
   <use x="5" y="5" href="#myCircle" fill="url('#myGradient')" />
 </svg>
 ```

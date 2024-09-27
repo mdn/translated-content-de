@@ -7,22 +7,22 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebXR")}}{{SeeCompatTable}}
 
-Das **`XRRenderState`** Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) enthält konfigurierbare Werte, die beeinflussen, wie die von einer {{DOMxRef("XRSession")}} erzeugten Bilder zusammengesetzt werden. Diese Eigenschaften umfassen den Bereich der Entfernungen vom Betrachter, innerhalb dessen Inhalte gerendert werden sollen, das vertikale Sichtfeld (für Inline-Präsentationen) und eine Referenz auf die verwendete {{domxref("XRWebGLLayer")}} als Ziel für das Rendern der Szene, bevor sie auf dem oder den Displays des XR-Geräts angezeigt wird.
+Das **`XRRenderState`**-Interface der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) enthält konfigurierbare Werte, die beeinflussen, wie die vom [`XRSession`](/de/docs/Web/API/XRSession) erzeugten Bilder zusammengesetzt werden. Diese Eigenschaften umfassen den Entfernungsbereich vom Betrachter, innerhalb dessen Inhalte gerendert werden sollen, das vertikale Sichtfeld (für Inline-Präsentationen) und einen Verweis auf den [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer), der als Ziel für das Rendering der Szene verwendet wird, bevor es auf dem Display oder den Displays des XR-Geräts präsentiert wird.
 
-Wenn Sie Änderungen mit der `XRSession`-Methode {{domxref("XRSession.updateRenderState", "updateRenderState()")}} anwenden, treten die angegebenen Änderungen nach Abschluss des aktuellen Animationsrahmens, aber vor Beginn des nächsten, in Kraft.
+Wenn Sie Änderungen mithilfe der `XRSession`-Methode [`updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) anwenden, treten die angegebenen Änderungen nach dem Abschluss des aktuellen Animationsrahmens in Kraft, jedoch bevor der nächste beginnt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{DOMxRef("XRRenderState.baseLayer")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die {{DOMxRef("XRWebGLLayer")}}, aus der das Kompositionssystem des Browsers das Bild für die XR-Sitzung bezieht.
-- {{DOMxRef("XRRenderState.depthFar")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die Entfernung, in Metern, der **Fernclip-Ebene** vom Betrachter. Die Fernclip-Ebene ist die Ebene, die parallel zur Anzeige verläuft und jenseits derer das Rendern der Szene nicht mehr stattfindet. Dies legt im Wesentlichen die maximale Entfernung fest, die der Benutzer sehen kann.
-- {{DOMxRef("XRRenderState.depthNear")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Die Entfernung, in Metern, der **Nahclip-Ebene** vom Betrachter. Die Nahclip-Ebene ist die Ebene, die parallel zur Anzeige verläuft, an der das Rendern der Szene beginnt. Näher am Betrachter gelegene Teile der Szene werden nicht gezeichnet.
-- {{DOMxRef("XRRenderState.inlineVerticalFieldOfView")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Das standardmäßige vertikale Sichtfeld, definiert in Radianten, das verwendet wird, wenn die Sitzung im `Inline`-Modus ist. Für alle immersiven Sitzungen `null`.
-- {{DOMxRef("XRRenderState.layers")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein geordnetes Array, das {{domxref("XRLayer")}}-Objekte enthält, die vom XR-Compositor angezeigt werden.
+- [`XRRenderState.baseLayer`](/de/docs/Web/API/XRRenderState/baseLayer) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Der [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer), von dem das Compositing-System des Browsers das Bild für die XR-Sitzung erhält.
+- [`XRRenderState.depthFar`](/de/docs/Web/API/XRRenderState/depthFar) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Die Entfernung, in Metern, der **weiten Clipping-Ebene** vom Betrachter. Die weite Clipping-Ebene ist die Ebene, die parallel zur Anzeige verläuft, jenseits derer das Rendern der Szene nicht mehr stattfindet. Dies gibt im Wesentlichen die maximale Entfernung an, die der Benutzer sehen kann.
+- [`XRRenderState.depthNear`](/de/docs/Web/API/XRRenderState/depthNear) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Die Entfernung, in Metern, der **nahen Clipping-Ebene** vom Betrachter. Die nahe Clipping-Ebene ist die Ebene, parallel zur Anzeige, bei der das Rendern der Szene beginnt. Alles, was näher am Betrachter ist, wird nicht gezeichnet.
+- [`XRRenderState.inlineVerticalFieldOfView`](/de/docs/Web/API/XRRenderState/inlineVerticalFieldOfView) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Das Standard-vertikale Sichtfeld, definiert in Radiant, das verwendet wird, wenn die Sitzung im `inline`-Modus ist. `null` für alle immersiven Sitzungen.
+- [`XRRenderState.layers`](/de/docs/Web/API/XRRenderState/layers) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein geordnetes Array, das [`XRLayer`](/de/docs/Web/API/XRLayer)-Objekte enthält, die vom XR-Compositor angezeigt werden.
 
 ## Spezifikationen
 
@@ -34,6 +34,6 @@ Wenn Sie Änderungen mit der `XRSession`-Methode {{domxref("XRSession.updateRend
 
 ## Siehe auch
 
-- {{DOMxRef("XRSession.renderState")}}
-- {{DOMxRef("XRSession.updateRenderState()")}}
-- {{DOMxRef("XRSystem.requestSession", "navigator.xr.requestSession()")}}
+- [`XRSession.renderState`](/de/docs/Web/API/XRSession/renderState)
+- [`XRSession.updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState)
+- [`navigator.xr.requestSession()`](/de/docs/Web/API/XRSystem/requestSession)

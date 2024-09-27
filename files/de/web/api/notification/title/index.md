@@ -1,5 +1,5 @@
 ---
-title: "Notification: title Eigenschaft"
+title: "Notification: title-Eigenschaft"
 short-title: title
 slug: Web/API/Notification/title
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`title`** schreibgeschützte Eigenschaft des
-{{domxref("Notification")}} Schnittstelle gibt den Titel der Benachrichtigung an, wie
-im `title`-Parameter des
-{{domxref("Notification.Notification","Notification()")}} Konstruktors angegeben.
+Die **`title`** schreibgeschützte Eigenschaft der [`Notification`](/de/docs/Web/API/Notification)-Schnittstelle zeigt den Titel der Benachrichtigung an, wie im `title`-Parameter des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
 
 ## Wert
 

@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`ImageDecoder.isTypeSupported()`** statische Methode prüft, ob ein gegebener [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) vom Benutzeragenten dekodiert werden kann.
+Die **`ImageDecoder.isTypeSupported()`** statische Methode überprüft, ob ein gegebener [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) von der Benutzerumgebung dekodiert werden kann.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ ImageDecoder.isTypeSupported(type)
 ### Parameter
 
 - `type`
-  - : Ein String, der den [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) enthält, für den die Unterstützung der Dekodierung überprüft werden soll.
+  - : Ein String, der den [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) enthält, für den die Dekodierungsunterstützung überprüft werden soll.
 
 ### Rückgabewert
 
@@ -27,14 +27,14 @@ Ein {{jsxref("promise")}}, das mit einem booleschen Wert aufgelöst wird, der an
 
 ## Beispiele
 
-Das folgende Beispiel überprüft, ob GIF- und PCX-Bilder zur Dekodierung unterstützt werden und gibt das Ergebnis in die Konsole aus.
+Das folgende Beispiel überprüft, ob GIF- und PCX-Bilder zur Dekodierung unterstützt werden, und druckt das Ergebnis in die Konsole.
 
 ```js
 let isGifSupported = await ImageDecoder.isTypeSupported("image/gif");
-console.log(`GIF unterstützt: ${isGifSupported}`); // Wahrscheinlich wahr.
+console.log(`GIF supported: ${isGifSupported}`); // Likely true.
 
 let isPcxSupported = await ImageDecoder.isTypeSupported("image/pcx");
-console.log(`PCX unterstützt: ${isPcxSupported}`); // Wahrscheinlich falsch
+console.log(`PCX supported: ${isPcxSupported}`); // Probably false
 ```
 
 ## Spezifikationen

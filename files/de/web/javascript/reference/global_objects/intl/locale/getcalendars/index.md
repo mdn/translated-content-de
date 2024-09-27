@@ -7,10 +7,10 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`getCalendars()`** von {{jsxref("Intl.Locale")}} Instanzen gibt eine Liste von einem oder mehreren eindeutigen Kalender-Identifikatoren für dieses Locale zurück.
+Die **`getCalendars()`**-Methode von Instanzen des {{jsxref("Intl.Locale")}} gibt eine Liste von einem oder mehreren eindeutigen Kalenderkennungen für diese Lokalisierung zurück.
 
 > [!NOTE]
-> In einigen Versionen von einigen Browsern wurde diese Methode als Zugriffs-Eigenschaft namens `calendars` implementiert. Da sie jedoch bei jedem Zugriff ein neues Array zurückgibt, wird sie jetzt als Methode implementiert, um die Situation zu verhindern, dass `locale.calendars === locale.calendars` `false` zurückgibt. Überprüfen Sie die [Kompatibilitätstabelle des Browsers](#browser-kompatibilität) für Details.
+> In einigen Versionen einiger Browser wurde diese Methode als Zugriffs-Eigenschaft namens `calendars` implementiert. Da sie jedoch bei jedem Zugriff ein neues Array zurückgab, wird sie jetzt als Methode implementiert, um zu verhindern, dass `locale.calendars === locale.calendars` `false` zurückgibt. Details finden Sie in der [Tabelle zur Browser-Kompatibilität](#browser-kompatibilität).
 
 ## Syntax
 
@@ -24,9 +24,9 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von Strings, das alle Kalender darstellt, die üblicherweise für das `Locale` verwendet werden, sortiert in absteigender Präferenz. Wenn das `Locale` bereits einen [`calendar`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar) hat, dann enthält das zurückgegebene Array diesen einzigen Wert.
+Ein Array von Zeichenfolgen, das alle Kalender darstellt, die üblicherweise für die `Locale` verwendet werden, sortiert in absteigender Präferenz. Wenn die `Locale` bereits einen [`calendar`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar) hat, enthält das zurückgegebene Array diesen einzigen Wert.
 
-Unten ist eine Liste der unterstützten Kalendertypen.
+Unten ist eine Liste der unterstützten Kalenderaeratypen aufgeführt.
 
 ### Unterstützte Kalendertypen
 
@@ -39,9 +39,9 @@ Unten ist eine Liste der unterstützten Kalendertypen.
 - `dangi`
   - : Traditioneller koreanischer Kalender
 - `ethioaa`
-  - : Äthiopischer Kalender, Amete Alem (Epoche ca. 5493 B.C.E)
+  - : Äthiopischer Kalender, Amete Alem (Epoche ca. 5493 v. Chr.)
 - `ethiopic`
-  - : Äthiopischer Kalender, Amete Mihret (Epoche ca. 8 C.E.)
+  - : Äthiopischer Kalender, Amete Mihret (Epoche ca. 8 n. Chr.)
 - `gregory`
   - : Gregorianischer Kalender
 - `hebrew`
@@ -59,7 +59,7 @@ Unten ist eine Liste der unterstützten Kalendertypen.
 - `islamic-rgsa`
   - : Islamischer Kalender, Sichtung in Saudi-Arabien
 - `iso8601`
-  - : ISO-Kalender (Gregorianischer Kalender mit den ISO 8601 Kalenderwochenregeln)
+  - : ISO-Kalender (Gregorianischer Kalender mit den Kalenderwochenregeln der ISO 8601)
 - `japanese`
   - : Japanischer Kaiserlicher Kalender
 - `persian`
@@ -69,13 +69,13 @@ Unten ist eine Liste der unterstützten Kalendertypen.
 - `islamicc`
   - : Ziviler (algorithmischer) Arabischer Kalender
     > [!WARNING]
-    > Der `islamicc` Kalender-Schlüssel wurde veraltet. Bitte verwenden Sie `islamic-civil`.
+    > Der `islamicc`-Kalender-Schlüssel wurde veraltet. Bitte verwenden Sie `islamic-civil`.
 
 ## Beispiele
 
-### Ermitteln von unterstützten Kalendern
+### Erhalten der unterstützten Kalender
 
-Falls das `Locale`-Objekt noch keinen `calendar` hat, listet `getCalendars()` alle üblicherweise verwendeten Kalender für das gegebene `Locale` auf. Für Beispiele zum expliziten Festlegen eines `calendar`, siehe [`calendar` Beispiele](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar#examples).
+Wenn das `Locale`-Objekt noch keinen `calendar` hat, listet `getCalendars()` alle üblicherweise verwendeten Kalender für die angegebene `Locale` auf. Für Beispiele zur expliziten Einstellung eines `calendar`, siehe [`calendar` Beispiele](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar#examples).
 
 ```js
 const arEG = new Intl.Locale("ar-EG");
@@ -99,4 +99,4 @@ console.log(jaJP.getCalendars()); // ["gregory", "japanese"]
 
 - {{jsxref("Intl.Locale")}}
 - [`Intl.Locale.prototype.calendar`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar)
-- [Unicode Calendar Identifier](https://www.unicode.org/reports/tr35/#UnicodeCalendarIdentifier) in der Unicode-Locale-Daten-Markup-Sprachenspezifikation
+- [Unicode Calendar Identifier](https://www.unicode.org/reports/tr35/#UnicodeCalendarIdentifier) in der Unicode-Lokalisierungsdaten-Markup-Sprache Spec

@@ -1,5 +1,5 @@
 ---
-title: "HTMLOListElement: start Eigenschaft"
+title: "HTMLOListElement: start-Eigenschaft"
 short-title: start
 slug: Web/API/HTMLOListElement/start
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`start`**-Eigenschaft der {{domxref("HTMLOListElement")}}-Schnittstelle gibt den Startwert der nummerierten Liste an, mit einem Standardwert von 1.
+Die **`start`**-Eigenschaft des [`HTMLOListElement`](/de/docs/Web/API/HTMLOListElement)-Interfaces gibt den Startwert der geordneten Liste an, wobei der Standardwert 1 ist.
 
 Sie spiegelt das [`start`](/de/docs/Web/HTML/Element/ol#start)-Attribut des {{HTMLElement("ol")}}-Elements wider.
 
 > [!NOTE]
-> Der Wert der `start`-Eigenschaft ist unabhängig von der {{domxref("HTMLOListElement.type")}}-Eigenschaft; er ist immer numerisch, auch wenn der Typ Buchstaben oder römische Ziffern sind.
+> Der Wert der `start`-Eigenschaft ist unabhängig von der [`HTMLOListElement.type`](/de/docs/Web/API/HTMLOListElement/type)-Eigenschaft; er ist immer numerisch, auch wenn der Typ Buchstaben oder römische Ziffern ist.
 
 ## Wert
 
@@ -36,9 +36,9 @@ Ein `long`-Wert.
 
 ```js
 const olElement = document.querySelector("#order-list");
-console.log(olElement.start); // Ausgabe: "1"
+console.log(olElement.start); // Output: "1"
 olElement.start = "11";
-console.log(olElement.start); // Ausgabe: "11"
+console.log(olElement.start); // Output: "11"
 ```
 
 ### Ergebnis

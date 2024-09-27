@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-webkit-meter-suboptimum-value`** [Pseudoelement](/de/docs/Glossary/Pseudo-element) stylt das {{htmlelement("meter")}}-Element, wenn der Wert außerhalb des "low-high"-Bereichs liegt und nicht dem optimalen Wert entspricht.
+Das **`::-webkit-meter-suboptimum-value`** [Pseudoelement](/de/docs/Glossary/Pseudo-element) stylt das {{htmlelement("meter")}}-Element, wenn der Wertattribut außerhalb des low-high-Bereichs liegt und nicht dem optimalen Wert entspricht.
 
 Gelb ist die Standardfarbe.
 
@@ -21,7 +21,7 @@ Gelb ist die Standardfarbe.
 
 ## Beispiele
 
-Dieses Beispiel funktioniert nur in auf WebKit oder Blink basierenden Browsern.
+Dieses Beispiel funktioniert nur in Browsern, die auf WebKit oder Blink basieren.
 
 ### HTML
 
@@ -31,7 +31,7 @@ Normal:
   Score 2/10
 </meter>
 <br />
-Gestylt:
+Styled:
 <meter id="styled" min="0" max="10" low="3" high="7" optimum="6" value="2">
   Score 2/10
 </meter>
@@ -45,8 +45,8 @@ body {
 }
 
 .safari meter {
-  /* Setzt das Standardaussehen nur für Safari zurück */
-  /* .safari Klasse wird über JavaScript hinzugefügt */
+  /* Reset the default appearance for Safari only */
+  /* .safari class is added via JavaScript */
   -webkit-appearance: none;
 }
 
@@ -60,10 +60,9 @@ body {
 ### JavaScript
 
 ```js
-// Safari erfordert, dass <meter>-Elemente ein `appearance` von `none` für die
-// benutzerdefinierte Gestaltung mit `::-webkit-meter-*` Selektoren haben,
-// aber `appearance: none` führt zu Darstellungsproblemen in Chrome.
-// Daher müssen wir prüfen, ob der Browser auf Safari basiert.
+// Safari requires <meter> elements to have an `appearance` of `none` for custom styling
+// using `::-webkit-meter-*` selectors, but `appearance: none` breaks rendering on Chrome.
+// Therefore, we must check if the browser is Safari-based.
 
 const is_safari =
   navigator.userAgent.includes("AppleWebKit/") &&
@@ -80,7 +79,7 @@ if (is_safari) {
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -88,7 +87,7 @@ Teil keiner Norm.
 
 ## Siehe auch
 
-Die von WebKit/Blink verwendeten Pseudoelemente, um andere Teile eines {{htmlelement("meter")}}-Elements zu stylen, sind wie folgt:
+Die Pseudoelemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{htmlelement("meter")}}-Elements zu stylen, sind wie folgt:
 
 - {{cssxref("::-webkit-meter-inner-element")}}
 - {{cssxref("::-webkit-meter-bar")}}

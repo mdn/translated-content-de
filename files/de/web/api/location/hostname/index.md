@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("URL API")}}
 
-Die **`hostname`**-Eigenschaft der {{domxref("Location")}}-Schnittstelle ist ein String, der den {{glossary("domain name", "Domänennamen")}} der URL enthält.
+Die **`hostname`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist eine Zeichenkette, die den [Domainnamen](/de/docs/Glossary/domain_name) der URL enthält.
 
 ## Wert
 
-Ein String.
+Eine Zeichenkette.
 
 ## Beispiele
 
@@ -23,7 +23,7 @@ console.log(window.location.hostname);
 const anchor = document.createElement("a");
 anchor.href = "https://developer.mozilla.org:4097/";
 console.log(anchor.hostname === "developer.mozilla.org");
-// Die Portnummer ist nicht in hostname enthalten
+// The port number is not included in hostname
 ```
 
 ## Spezifikationen

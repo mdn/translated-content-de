@@ -1,5 +1,5 @@
 ---
-title: "PushSubscription: endpoint-Eigenschaft"
+title: "PushSubscription: Endpunkt-Eigenschaft"
 short-title: endpoint
 slug: Web/API/PushSubscription/endpoint
 l10n:
@@ -8,11 +8,9 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`endpoint`**-Eigenschaft der
-{{domxref("PushSubscription")}}-Schnittstelle gibt einen String zurück, der
-den mit dem Push-Abonnement verknüpften Endpunkt enthält.
+Die schreibgeschützte **`endpoint`**-Eigenschaft der [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Schnittstelle gibt einen String zurück, der den mit dem Push-Abonnement verknüpften Endpunkt enthält.
 
-Der Endpunkt hat die Form einer benutzerdefinierten URL, die auf einen Push-Server verweist und mit der eine Push-Nachricht an die spezielle Service-Worker-Instanz gesendet werden kann, die den Push-Dienst abonniert hat. Aus diesem Grund ist es ratsam, Ihren Endpunkt geheim zu halten, damit andere ihn nicht kapern und die Push-Funktionalität missbrauchen können.
+Der Endpunkt hat die Form einer benutzerdefinierten URL, die zu einem Push-Server zeigt und verwendet werden kann, um eine Push-Nachricht an die spezielle Service-Worker-Instanz zu senden, die den Push-Dienst abonniert hat. Aus diesem Grund ist es ratsam, Ihren Endpunkt geheim zu halten, damit andere ihn nicht hijacken und die Push-Funktionalität missbrauchen.
 
 ## Wert
 
@@ -25,9 +23,9 @@ navigator.serviceWorker.ready.then((reg) => {
   reg.pushManager.subscribe({ userVisibleOnly: true }).then((subscription) => {
     console.log(subscription.endpoint);
 
-    // An diesem Punkt würden Sie höchstwahrscheinlich den Abonnement-Endpunkt
-    // an Ihren Server senden, speichern und dann verwenden, um
-    // zu einem späteren Zeitpunkt eine Push-Nachricht zu senden
+    // At this point you would most likely send the subscription
+    // endpoint to your server, save it, then use it to send a
+    // push message at a later date
   });
 });
 ```

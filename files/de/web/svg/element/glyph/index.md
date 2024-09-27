@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Ein **`<glyph>`** definiert ein einzelnes Glyph im SVG-Font.
+Ein **`<glyph>`** definiert ein einzelnes Glyph in einer SVG-Schriftart.
 
 ## Verwendungskontext
 
@@ -28,7 +28,7 @@ Ein **`<glyph>`** definiert ein einzelnes Glyph im SVG-Font.
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGGlyphElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGGlyphElement`](/de/docs/Web/API/SVGGlyphElement)-Schnittstelle.
 
 ## Beispiel
 
@@ -40,7 +40,7 @@ Dieses Element implementiert die {{domxref("SVGGlyphElement")}} Schnittstelle.
   height="300px"
   version="1.1"
   xmlns="http://www.w3.org/2000/svg">
-  <!-- Beispiel kopiert von https://www.w3.org/TR/SVG/fonts.html#GlyphElement -->
+  <!-- Example copied from https://www.w3.org/TR/SVG/fonts.html#GlyphElement -->
   <defs>
     <font id="Font1" horiz-adv-x="1000">
       <font-face
@@ -92,4 +92,4 @@ Dieses Element implementiert die {{domxref("SVGGlyphElement")}} Schnittstelle.
 
 - {{SVGElement("font")}}
 - {{SVGElement("missing-glyph")}}
-- [SVG Tutorial: SVG Fonts](/de/docs/Web/SVG/Tutorial/SVG_fonts)
+- [SVG-Tutorial: SVG-Schriftarten](/de/docs/Web/SVG/Tutorial/SVG_fonts)

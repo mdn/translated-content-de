@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`lastPacketReceivedTimestamp`** des {{domxref("RTCIceCandidatePairStats")}} gibt an, zu welchem Zeitpunkt die Verbindung, die durch das Kandidatenpaar beschrieben wird, zuletzt ein Paket empfangen hat. {{Glossary("STUN")}}-Pakete sind ausgeschlossen.
+Die [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Eigenschaft **`lastPacketReceivedTimestamp`** zeigt die Zeit an, zu der die Verbindung, die durch das Kandidatenpaar beschrieben wird, zuletzt ein Paket empfangen hat. [STUN](/de/docs/Glossary/STUN)-Pakete sind nicht eingeschlossen.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}-Objekt, das den Zeitstempel angibt, zu dem die durch das Kandidatenpaar beschriebene Verbindung zuletzt ein Paket empfangen hat, STUN-Pakete ausgeschlossen.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das den Zeitstempel anzeigt, zu dem die Verbindung, die durch das Paar von Kandidaten beschrieben wird, zuletzt ein Paket empfangen hat, STUN-Pakete ausgeschlossen.
 
 ## Spezifikationen
 

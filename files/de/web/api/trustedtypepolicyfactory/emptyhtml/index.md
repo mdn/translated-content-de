@@ -1,5 +1,5 @@
 ---
-title: "TrustedTypePolicyFactory: Eigenschaft emptyHTML"
+title: "TrustedTypePolicyFactory: emptyHTML-Eigenschaft"
 short-title: emptyHTML
 slug: Web/API/TrustedTypePolicyFactory/emptyHTML
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`emptyHTML`** Leseeigenschaft der {{domxref("TrustedTypePolicyFactory")}}-Schnittstelle gibt ein {{domxref("TrustedHTML")}}-Objekt zurück, das eine leere Zeichenkette enthält.
+Die schreibgeschützte Eigenschaft **`emptyHTML`** der [`TrustedTypePolicyFactory`](/de/docs/Web/API/TrustedTypePolicyFactory)-Schnittstelle gibt ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt zurück, das einen leeren String enthält.
 
-Dieses Objekt kann verwendet werden, wenn die Anwendung eine leere Zeichenkette in einen Injection-Sink einfügen muss.
+Dieses Objekt kann verwendet werden, wenn die Anwendung einen leeren String in ein Injektionsziel einfügen muss.
 
 ## Wert
 
-Ein {{domxref("TrustedHTML")}}-Objekt.
+Ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt.
 
 ## Beispiele
 
-Im folgenden Beispiel soll eine leere Zeichenkette in das Element eingefügt werden. Daher ist es nicht notwendig, eine Richtlinie zu erstellen, und die `emptyHTML`-Eigenschaft kann verwendet werden, um das leere Element einzufügen, wenn ein Trusted Types-Objekt erwartet wird.
+Im folgenden Beispiel soll ein leerer String in das Element eingefügt werden. Daher besteht keine Notwendigkeit, eine Richtlinie zu erstellen, und die `emptyHTML`-Eigenschaft kann verwendet werden, um das leere Element einzufügen, wenn ein Trusted Types-Objekt erwartet wird.
 
 ```js
 el.innerHTML = trustedTypes.emptyHTML;

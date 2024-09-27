@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte **`stageParameters`**-Eigenschaft der {{domxref("VRDisplay")}}-Schnittstelle gibt ein {{domxref("VRStageParameters")}}-Objekt zurück, das Raumschalen-Parameter enthält, wenn das `VRDisplay` in der Lage ist, Raumschalen-Erfahrungen zu unterstützen.
+Die schreibgeschützte Eigenschaft **`stageParameters`** des [`VRDisplay`](/de/docs/Web/API/VRDisplay)-Interfaces gibt ein [`VRStageParameters`](/de/docs/Web/API/VRStageParameters)-Objekt zurück, das Raummaßstab-Parameter enthält, wenn das `VRDisplay` in der Lage ist, Erfahrungen im Raummaßstab zu unterstützen.
 
 > [!NOTE]
 > Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
 ## Wert
 
-{{domxref("VRStageParameters")}} Objekt, das die Raumschalen-Parameter des `VRDisplay` enthält, oder `null`, wenn das `VRDisplay` nicht in der Lage ist, Raumschalen-Erfahrungen zu unterstützen.
+Ein [`VRStageParameters`](/de/docs/Web/API/VRStageParameters)-Objekt, das die Raummaßstab-Parameter des `VRDisplay` enthält, oder `null`, wenn das `VRDisplay` nicht in der Lage ist, Erfahrungen im Raummaßstab zu unterstützen.
 
 ## Beispiele
 
@@ -25,7 +25,7 @@ Siehe [`VRStageParameters`](/de/docs/Web/API/VRStageParameters#examples) für Be
 
 Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) zurückzugreifen oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verwenden, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den Leitfaden [Metas Porting from WebVR to WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verlassen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie [Metas Leitfaden zur Portierung von WebVR zu WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 

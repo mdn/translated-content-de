@@ -18,7 +18,7 @@ l10n:
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Manifest-Version</th>
+      <th scope="row">Manifestversion</th>
       <td>2 oder höher</td>
     </tr>
     <tr>
@@ -42,7 +42,7 @@ l10n:
 
 Verwenden Sie den **`commands`**-Schlüssel, um eine oder mehrere Tastenkombinationen für Ihre Erweiterung zu definieren.
 
-Jede Tastenkombination wird mit einem **Namen**, einer **Tastenkombination** und einer **Beschreibung** definiert. Sobald Sie Befehle in der `manifest.json` Ihrer Erweiterung definiert haben, können Sie die zugehörigen Tastenkombinationen mit der {{WebExtAPIRef("commands")}} JavaScript-API überwachen.
+Jede Tastenkombination wird mit einem **Namen**, einer **Tastenkombination** und einer **Beschreibung** definiert. Sobald Sie Befehle im `manifest.json` Ihrer Erweiterung definiert haben, können Sie mit der {{WebExtAPIRef("commands")}} JavaScript-API auf deren zugeordnete Tastenkombinationen hören.
 
 ## Syntax
 
@@ -51,9 +51,9 @@ Der `commands`-Schlüssel ist ein Objekt, und jede Verknüpfung ist eine Eigensc
 Der Wert jeder Verknüpfung ist ein Objekt mit bis zu 2 Eigenschaften:
 
 1. `suggested_key`: die Tastenkombination, die die Verknüpfung aktiviert.
-2. `description`: ein String, der die Verknüpfung beschreibt, d.h. was sie tut.
+2. `description`: ein String, der die Verknüpfung beschreibt, also was sie tut.
 
-Die Eigenschaft `suggested_key` ist ein Objekt mit beliebigen der folgenden Eigenschaften (alle Strings):
+Die Eigenschaft `suggested_key` ist ein Objekt mit einer beliebigen der folgenden Eigenschaften (alle Strings):
 
 - `"default"`
 - `"mac"`
@@ -63,7 +63,7 @@ Die Eigenschaft `suggested_key` ist ein Objekt mit beliebigen der folgenden Eige
 - `"android"`
 - `"ios"`
 
-Der Wert jeder Eigenschaft ist die Tastenkombination für den Befehl auf dieser Plattform, als String, der durch "`+`" getrennte Tasten enthält. Der Wert für `"default"` wird auf allen Plattformen verwendet, die nicht explizit aufgeführt sind.
+Der Wert jeder Eigenschaft ist die Tastenkombination für das Kommando auf dieser Plattform, als String mit durch "`+`" getrennten Tasten. Der Wert für `"default"` wird auf allen Plattformen verwendet, die nicht explizit aufgelistet sind.
 
 Zum Beispiel:
 
@@ -86,7 +86,7 @@ Zum Beispiel:
 
 Dieses JSON definiert 2 Verknüpfungen:
 
-1. `"toggle-feature"`, aufgerufen mit
+1. `"toggle-feature"`, zugänglich mit
 
    <kbd>Ctrl</kbd>
 
@@ -98,7 +98,7 @@ Dieses JSON definiert 2 Verknüpfungen:
 
    <kbd>U</kbd>
 
-   unter Linux, und
+   auf Linux, und
 
    <kbd>Alt</kbd>
 
@@ -112,7 +112,7 @@ Dieses JSON definiert 2 Verknüpfungen:
 
    auf allen anderen Plattformen.
 
-2. `"do-another-thing"`, aufgerufen mit
+2. `"do-another-thing"`, zugänglich mit
 
    <kbd>Ctrl</kbd>
 
@@ -126,7 +126,7 @@ Dieses JSON definiert 2 Verknüpfungen:
 
    auf allen Plattformen.
 
-Sie könnten dann auf den `"toggle-feature"`-Befehl mit einem Code wie diesem hören:
+Sie könnten dann mit Code wie diesem auf den `"toggle-feature"`-Befehl hören:
 
 ```js
 browser.commands.onCommand.addListener((command) => {
@@ -136,16 +136,16 @@ browser.commands.onCommand.addListener((command) => {
 });
 ```
 
-### Besondere Verknüpfungen
+### Spezielle Verknüpfungen
 
-Es gibt diese 4 **besonderen Verknüpfungen mit Standardaktionen**, für die das {{WebExtAPIRef("commands.onCommand")}}-Ereignis nicht ausgelöst wird:
+Es gibt diese 4 **speziellen Verknüpfungen mit Standardaktionen**, für die das {{WebExtAPIRef("commands.onCommand")}}-Ereignis nicht ausgelöst wird:
 
-- `_execute_browser_action`: funktioniert wie ein Klick auf eine [Symbolleisten-Schaltfläche](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button), die mit {{WebExtAPIRef("browserAction")}} erstellt oder im [browser_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action)-Schlüssel in der manifest.json angegeben wurde.
-- `_execute_action`: funktioniert wie ein Klick auf eine [Symbolleisten-Schaltfläche](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button), die mit {{WebExtAPIRef("action")}} erstellt oder im [action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action)-Schlüssel in der manifest.json angegeben wurde.
-- `_execute_page_action`: funktioniert wie ein Klick auf eine [Adressleisten-Schaltfläche](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions), die mit {{WebExtAPIRef("pageAction")}} erstellt oder im [page_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action)-Schlüssel in der manifest.json angegeben wurde.
-- `_execute_sidebar_action`: öffnet die [Seitenleiste](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Sidebars) der Erweiterung, die im [sidebar_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action)-Schlüssel in der manifest.json angegeben ist.
+- `_execute_browser_action`: funktioniert wie ein Klick auf einen [Toolbar-Button](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button), der mit {{WebExtAPIRef("browserAction")}} erstellt oder im [browser_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action)-Schlüssel in der manifest.json angegeben wurde.
+- `_execute_action`: funktioniert wie ein Klick auf einen [Toolbar-Button](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button), der mit {{WebExtAPIRef("action")}} erstellt oder im [action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action)-Schlüssel in der manifest.json angegeben wurde.
+- `_execute_page_action`: funktioniert wie ein Klick auf einen [Adressleisten-Button](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions), der mit {{WebExtAPIRef("pageAction")}} erstellt oder im [page_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action)-Schlüssel in der manifest.json angegeben wurde.
+- `_execute_sidebar_action`: öffnet die [Seitenleiste](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Sidebars) der Erweiterung, die im [sidebar_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action)-Schlüssel in der manifest.json angegeben wurde.
 
-Die Verfügbarkeit dieser besonderen Verknüpfungen variiert zwischen Manifest-Versionen und Browsern wie folgt:
+Die Verfügbarkeit dieser speziellen Verknüpfungen variiert zwischen den Manifestversionen und Browsern, wie folgt:
 
 <table>
 <thead>
@@ -182,7 +182,7 @@ Die Verfügbarkeit dieser besonderen Verknüpfungen variiert zwischen Manifest-V
 > [!NOTE]
 > Wenn der Benutzer die Verknüpfung des `_execute_browser_action`-Befehls ändert, wird diese automatisch auf den `_execute_action`-Befehl übertragen, wenn die Erweiterung von Manifest V2 auf V3 migriert. Dies wurde in Chrome 111 und Firefox 127 implementiert.
 
-Zum Beispiel, dieses JSON definiert eine Tastenkombination, die die Browser-Aktion der Erweiterung klickt:
+Zum Beispiel, dieses JSON definiert eine Tastenkombination, die die Browser-Aktion der Erweiterung anklickt:
 
 ```json
 "commands": {
@@ -196,17 +196,17 @@ Zum Beispiel, dieses JSON definiert eine Tastenkombination, die die Browser-Akti
 
 ## Verknüpfungswerte
 
-Es gibt zwei gültige Formate für Verknüpfungstasten: als **Tastenkombination** oder als **Media-Taste**.
+Es gibt zwei gültige Formate für Verknüpfungstasten: als **Tastenkombination** oder als **Medientaste**.
 
 ### Tastenkombinationen
 
 > [!NOTE]
-> Auf Macs wird `"Ctrl"` als `"Command"` interpretiert. Wenn Sie tatsächlich `"Ctrl"` benötigen, geben Sie `"MacCtrl"` an.
+> Auf Macs wird `"Ctrl"` als `"Command"` interpretiert, daher müssen Sie, wenn Sie wirklich `"Ctrl"` benötigen, `"MacCtrl"` angeben.
 
 Tastenkombinationen müssen aus 2 oder 3 Tasten bestehen:
 
-1. **Modifikator** (obligatorisch, außer bei Funktionstasten). Dies kann eines der folgenden sein: `"Ctrl"`, `"Alt"`, `"Command"` oder `"MacCtrl"`.
-2. **Zweiter Modifikator** (optional). Wenn angegeben, muss dies entweder `"Shift"` sein oder (für Firefox ≥ 63) eines von `"Ctrl"`, `"Alt"`, `"Command"` oder `"MacCtrl"`. Darf nicht der bereits als Hauptmodifikator verwendete Modifikator sein.
+1. **Modifier** (obligatorisch, außer für Funktionstasten). Dies kann eine der folgenden sein: `"Ctrl"`, `"Alt"`, `"Command"` oder `"MacCtrl"`.
+2. **Sekundärer Modifier** (optional). Wenn angegeben, muss dies entweder `"Shift"` sein oder (für Firefox ≥ 63) eine der folgenden: `"Ctrl"`, `"Alt"`, `"Command"` oder `"MacCtrl"`. Darf nicht der Modifier sein, der bereits als Hauptmodifier verwendet wird.
 3. **Taste** (obligatorisch). Dies kann eine der folgenden sein:
 
    - die Buchstaben `A` – `Z`
@@ -214,11 +214,11 @@ Tastenkombinationen müssen aus 2 oder 3 Tasten bestehen:
    - die Funktionstasten `F1` – `F12`
    - `Comma`, `Period`, `Home`, `End`, `PageUp`, `PageDown`, `Space`, `Insert`, `Delete`, `Up`, `Down`, `Left`, `Right`
 
-Die Taste wird dann als String angegeben, der die Reihe von Tastenwerten in der oben genannten Reihenfolge enthält, getrennt durch "`+`". Zum Beispiel, `"Ctrl+Shift+Z"`.
+Die Taste wird dann als String angegeben, der die Menge der Tastenwerte im oben aufgeführten Reihenfolge enthält, getrennt durch "`+`". Zum Beispiel, `"Ctrl+Shift+Z"`.
 
-Wenn eine Tastenkombination bereits vom Browser (wie `"Ctrl+P"`) oder von einem bestehenden Add-on verwendet wird, können Sie sie nicht überschreiben. Sie können sie definieren, aber Ihr Ereignishandler wird nicht aufgerufen, wenn der Benutzer die Tastenkombination drückt.
+Wenn eine Tastenkombination bereits vom Browser (wie `"Ctrl+P"`) oder von einem vorhandenen Add-on verwendet wird, können Sie sie nicht überschreiben. Sie können sie definieren, aber Ihr Ereignishandler wird nicht aufgerufen, wenn der Benutzer die Tastenkombination drückt.
 
-### Medien-Tasten
+### Medientasten
 
 Alternativ kann die Verknüpfung als eine der folgenden Medientasten angegeben werden:
 
@@ -233,7 +233,7 @@ Verknüpfungen können über {{WebExtAPIRef("commands.update()")}} aktualisiert 
 
 ## Beispiel
 
-Definieren Sie eine einzelne Tastenkombination mit nur der Standard-Tastenkombination:
+Definieren Sie eine einzelne Tastenkombination unter Verwendung nur der Standardtastenkombination:
 
 ```json
 "commands": {
@@ -246,7 +246,7 @@ Definieren Sie eine einzelne Tastenkombination mit nur der Standard-Tastenkombin
 }
 ```
 
-Definieren Sie zwei Tastenkombinationen, eine mit einer plattform-spezifischen Tastenkombination:
+Definieren Sie zwei Tastenkombinationen, eine mit einer plattformspezifischen Tastenkombination:
 
 ```json
 "commands": {

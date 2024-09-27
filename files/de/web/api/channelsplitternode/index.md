@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die `ChannelSplitterNode`-Schnittstelle, die oft in Verbindung mit ihrem Gegenstück {{domxref("ChannelMergerNode")}} verwendet wird, trennt die verschiedenen Kanäle einer Audioquelle in eine Reihe von Mono-Ausgängen. Dies ist nützlich, um auf jeden Kanal separat zuzugreifen, z.B. um Kanal-Mixing durchzuführen, bei dem die Verstärkung auf jedem Kanal separat gesteuert werden muss.
+Das `ChannelSplitterNode`-Interface, das häufig in Verbindung mit seinem Gegenstück, dem [`ChannelMergerNode`](/de/docs/Web/API/ChannelMergerNode), verwendet wird, trennt die verschiedenen Kanäle einer Audioquelle in eine Reihe von Mono-Ausgängen. Dies ist nützlich, um auf jeden Kanal separat zuzugreifen, z.B. um Kanal-Mixing durchzuführen, bei dem die Verstärkung auf jedem Kanal separat gesteuert werden muss.
 
-![Standard-Channel-Splitter-Node mit einem einzelnen Eingang, der in 6 Mono-Ausgänge aufgeteilt wird.](webaudiosplitter.png)
+![Standard-ChannelSplitterNode mit einem einzelnen Eingang, der in 6 Mono-Ausgänge aufgeteilt wird.](webaudiosplitter.png)
 
-Wenn Ihr `ChannelSplitterNode` immer nur einen einzigen Eingang hat, wird die Anzahl der Ausgänge durch einen Parameter im Konstruktor und den Aufruf von {{domxref("BaseAudioContext/createChannelSplitter", "AudioContext.createChannelSplitter()")}} definiert. Falls kein Wert angegeben wird, ist der Standardwert `6`. Wenn es weniger Kanäle im Eingang als Ausgänge gibt, sind überzählige Ausgänge still.
+Wenn Ihr `ChannelSplitterNode` immer nur einen einzelnen Eingang hat, wird die Anzahl der Ausgänge durch einen Parameter im Konstruktor und den Aufruf von [`AudioContext.createChannelSplitter()`](/de/docs/Web/API/BaseAudioContext/createChannelSplitter) definiert. Falls kein Wert angegeben wird, ist der Standardwert `6`. Wenn es weniger Kanäle im Eingang gibt als Ausgänge, sind überzählige Ausgänge stummgeschaltet.
 
 {{InheritanceDiagram}}
 
@@ -23,24 +23,24 @@ Wenn Ihr `ChannelSplitterNode` immer nur einen einzigen Eingang hat, wird die An
     </tr>
     <tr>
       <th scope="row">Anzahl der Ausgänge</th>
-      <td>variabel; Standard ist <code>6</code>.</td>
+      <td>variabel; Standardwert <code>6</code>.</td>
     </tr>
     <tr>
-      <th scope="row">Kanalzählmodus</th>
+      <th scope="row">Channel-Zählmodus</th>
       <td>
-        <code>"explicit"</code> Ältere Implementierungen gemäß früheren
-        Versionen der Spezifikation verwenden <code>"max"</code>.
+        <code>"explicit"</code> Ältere Implementierungen entsprechen früheren Versionen
+        der Spezifikation und verwenden <code>"max"</code>.
       </td>
     </tr>
     <tr>
-      <th scope="row">Kanalanzahl</th>
+      <th scope="row">Channel-Zahl</th>
       <td>
-        Fixiert auf die Anzahl der Ausgänge. Ältere Implementierungen gemäß
-        früheren Versionen der Spezifikation verwenden <code>2</code> (im Standardzählmodus nicht verwendet).
+        Festgelegt auf die Anzahl der Ausgänge. Ältere Implementierungen, entsprechend früherer
+        Versionen der Spezifikation, verwenden <code>2</code> (nicht im Standardzählmodus verwendet).
       </td>
     </tr>
     <tr>
-      <th scope="row">Kanalinterpretation</th>
+      <th scope="row">Channel-Interpretation</th>
       <td><code>"discrete"</code></td>
     </tr>
   </tbody>
@@ -48,16 +48,16 @@ Wenn Ihr `ChannelSplitterNode` immer nur einen einzigen Eingang hat, wird die An
 
 ## Konstruktor
 
-- {{domxref("ChannelSplitterNode.ChannelSplitterNode()","ChannelSplitterNode()")}}
+- [`ChannelSplitterNode()`](/de/docs/Web/API/ChannelSplitterNode/ChannelSplitterNode)
   - : Erstellt eine neue Instanz eines `ChannelSplitterNode`-Objekts.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Keine spezifischen Eigenschaften; erbt Eigenschaften von seinem Elternteil, {{domxref("AudioNode")}}_.
+_Keine spezifische Eigenschaft; erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Keine spezifischen Methoden; erbt Methoden von seinem Elternteil, {{domxref("AudioNode")}}_.
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 ## Beispiel
 

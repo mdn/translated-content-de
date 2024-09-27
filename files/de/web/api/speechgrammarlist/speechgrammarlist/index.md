@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{ SeeCompatTable() }}
 
-Der **`SpeechGrammarList()`** Konstruktor erstellt eine neue Instanz eines `SpeechGrammarList` Objekts.
+Der **`SpeechGrammarList()`** Konstruktor erstellt eine neue Instanz des `SpeechGrammarList` Objekts.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ## Beispiele
 
-In unserem einfachen [Sprachfarbwechsler](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speech-color-changer)-Beispiel erstellen wir eine neue `SpeechRecognition` Objektinstanz mit dem {{domxref("SpeechRecognition.SpeechRecognition", "SpeechRecognition()")}} Konstruktor, erstellen eine neue {{domxref("SpeechGrammarList")}}, fügen unsere Grammatikzeichenfolge mit der Methode {{domxref("SpeechGrammarList.addFromString")}} hinzu und legen diese als Grammatik fest, die durch die `SpeechRecognition` Instanz erkannt wird, mithilfe der {{domxref("SpeechRecognition.grammars")}} Eigenschaft.
+In unserem einfachen [Speech color changer](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speech-color-changer) Beispiel erstellen wir eine neue Instanz des `SpeechRecognition` Objekts mit dem [`SpeechRecognition()`](/de/docs/Web/API/SpeechRecognition/SpeechRecognition) Konstruktor, erstellen eine neue [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList), fügen unseren Grammatik-String mit der Methode [`SpeechGrammarList.addFromString`](/de/docs/Web/API/SpeechGrammarList/addFromString) hinzu, und legen diese als die Grammatik fest, die von der `SpeechRecognition` Instanz mit der [`SpeechRecognition.grammars`](/de/docs/Web/API/SpeechRecognition/grammars) Eigenschaft erkannt wird.
 
 ```js
 const grammar =
@@ -37,7 +37,7 @@ recognition.grammars = speechRecognitionList;
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -1,5 +1,5 @@
 ---
-title: "BatteryManager: dischargingtimechange-Ereignis"
+title: "BatteryManager: dischargingtimechange Ereignis"
 short-title: dischargingtimechange
 slug: Web/API/BatteryManager/dischargingtimechange_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Das **`dischargingtimechange`**-Ereignis der {{domxref("BatteryManager")}}-Schnittstelle wird ausgelöst, wenn die {{domxref("BatteryManager.dischargingTime", "dischargingTime")}}-Eigenschaft des Akkus aktualisiert wird.
+Das **`dischargingtimechange`**-Ereignis des [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Interfaces wird ausgelöst, wenn die [`dischargingTime`](/de/docs/Web/API/BatteryManager/dischargingTime)-Eigenschaft der Batterie aktualisiert wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("dischargingtimechange", (event) => { })
@@ -22,15 +22,15 @@ ondischargingtimechange = (event) => { }
 
 ## Ereignistyp
 
-_Ein generisches {{domxref("Event")}}._
+_Ein generisches [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiel
 
 ### HTML
 
 ```html
-<div id="level">(Akkustand unbekannt)</div>
-<div id="chargingTime">(Ladezeit unbekannt)</div>
+<div id="level">(battery level unknown)</div>
+<div id="chargingTime">(charging time unknown)</div>
 ```
 
 ### JavaScript
@@ -56,5 +56,5 @@ navigator.getBattery().then((battery) => {
 
 ## Siehe auch
 
-- {{domxref("BatteryManager")}}
-- {{domxref("Navigator.getBattery()")}}
+- [`BatteryManager`](/de/docs/Web/API/BatteryManager)
+- [`Navigator.getBattery()`](/de/docs/Web/API/Navigator/getBattery)

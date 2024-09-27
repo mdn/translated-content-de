@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Der **`Event()`**-Konstruktor erstellt ein neues {{domxref("Event")}}-Objekt. Ein auf diese Weise erstelltes Ereignis wird als _synthetisches Ereignis_ bezeichnet, im Gegensatz zu einem Ereignis, das vom Browser ausgelöst wird, und kann durch ein Skript [ausgelöst](/de/docs/Web/Events/Creating_and_triggering_events) werden.
+Der **`Event()`**-Konstruktor erstellt ein neues [`Event`](/de/docs/Web/API/Event)-Objekt. Ein auf diese Weise erstelltes Ereignis wird als _synthetisches Ereignis_ bezeichnet, im Gegensatz zu einem vom Browser ausgelösten Ereignis, und kann durch ein Skript [ausgelöst](/de/docs/Web/Events/Creating_and_triggering_events) werden.
 
 ## Syntax
 
@@ -24,25 +24,25 @@ new Event(type, options)
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `bubbles` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob das Ereignis aufsteigt. Der Standardwert ist `false`.
+      - : Ein boolescher Wert, der angibt, ob das Ereignis gebubbelt wird. Der Standardwert ist `false`.
     - `cancelable` {{optional_inline}}
       - : Ein boolescher Wert, der angibt, ob das Ereignis abgebrochen werden kann. Der Standardwert ist `false`.
     - `composed` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob das Ereignis Listener außerhalb eines Shadow-Root-Bereichs auslöst (siehe {{domxref("Event.composed")}} für mehr Details). Der Standardwert ist `false`.
+      - : Ein boolescher Wert, der angibt, ob das Ereignis Listener außerhalb eines Shadow Roots auslösen wird (siehe [`Event.composed`](/de/docs/Web/API/Event/composed) für weitere Details). Der Standardwert ist `false`.
 
 ### Rückgabewert
 
-Ein neues {{domxref("Event")}}-Objekt.
+Ein neues [`Event`](/de/docs/Web/API/Event)-Objekt.
 
 ## Beispiel
 
 ```js
-// Erstellen eines "look"-Ereignisses, das aufsteigt und nicht abgebrochen werden kann
+// create a look event that bubbles up and cannot be canceled
 
 const evt = new Event("look", { bubbles: true, cancelable: false });
 document.dispatchEvent(evt);
 
-// Ereignis kann von jedem Element ausgelöst werden, nicht nur vom Dokument
+// event can be dispatched from any element, not only the document
 myDiv.dispatchEvent(evt);
 ```
 
@@ -56,6 +56,6 @@ myDiv.dispatchEvent(evt);
 
 ## Siehe auch
 
-- {{domxref("Event")}}
-- {{domxref("EventTarget.dispatchEvent()")}}
+- [`Event`](/de/docs/Web/API/Event)
+- [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent)
 - [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events)

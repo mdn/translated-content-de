@@ -7,27 +7,27 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die globale `aria-braillelabel`-Eigenschaft definiert einen Zeichenfolgenwert, der das aktuelle Element bezeichnet und in Braille umgewandelt werden soll.
+Die globale Eigenschaft `aria-braillelabel` definiert einen Zeichenfolgenwert, der das aktuelle Element kennzeichnet und in Braille umgewandelt werden soll.
 
 ## Beschreibung
 
-Das globale Attribut `aria-braillelabel` ähnelt dem globalen [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label), da es einen Zeichenfolgenwert definiert, der das aktuelle Element bezeichnet. Während `aria-label` vom Bildschirmleser gelesen wird, werden die Inhalte des `aria-braillelabel`-Attributs in Braille umgewandelt, um dem Benutzer einen erkennbaren Namen des Objekts in Braille bereitzustellen.
+Das globale Attribut `aria-braillelabel` ähnelt dem globalen Attribut [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label), da es einen Zeichenfolgenwert definiert, der das aktuelle Element kennzeichnet. Während `aria-label` vom Screenreader vorgelesen wird, werden die Inhalte des Attributs `aria-braillelabel` in Braille umgewandelt, um dem Benutzer einen erkennbaren Namen des Objekts in Braille zu bieten.
 
-Der Zweck der `aria-braillelabel`-Eigenschaft besteht darin, die Lokalisierung und Darstellung des zugänglichen Namens eines Elements in Braille durch unterstützende Technologien zu überschreiben. Sie sollte nur verwendet werden, wenn ohne dieses Attribut der zugängliche Name nicht das gewünschte Benutzererlebnis darstellen würde, wenn er in Braille umgewandelt wird.
+Der Zweck der Eigenschaft `aria-braillelabel` besteht darin, zu überschreiben, wie assistive Technologien den zugänglichen Namen eines Elements in Braille lokalisieren und ausdrücken. Sie sollte nur verwendet werden, wenn ohne dieses Attribut der zugängliche Name bei der Umwandlung in Braille nicht der gewünschten Benutzererfahrung entspricht.
 
-Bei der Verwendung von `aria-braillelabel` stellen Sie sicher, dass:
+Beim Verwenden von `aria-braillelabel` stellen Sie sicher, dass:
 
 - Das Element, auf das `aria-braillelabel` angewendet wird, einen gültigen zugänglichen Namen hat.
-- Der Wert von `aria-braillelabel` tatsächlichen Inhalt hat und nicht leer oder nur Leerzeichen in Unicode oder Unicode-Braille enthält.
-- Der Wert NICHT mit dem zugänglichen Namen identisch ist.
-- Die `aria-braillelabel`-Werte lokalisiert sind und mit der Dokumentensprache übereinstimmen.
-- Es den Benutzer darüber informiert wird, dass dieses Attribut verfügbar ist, insbesondere wenn der Inhalt Unicode-Braille-Muster enthält, damit der Benutzer seine Einstellungen auf benutzerspezifische Braille-Übersetzungen anpassen kann.
+- Der Wert von `aria-braillelabel` tatsächliche Inhalte hat und nicht leer oder nur Unicode- oder Unicode-Brailleschrift-Leerzeichen ist.
+- Der Wert NICHT identisch mit dem zugänglichen Namen ist.
+- Die `aria-braillelabel`-Werte an die Sprache des Dokuments angepasst sind.
+- Dem Benutzer mitgeteilt wird, dass dieses Attribut verfügbar ist, besonders wenn der Inhalt Unicode-Braille-Muster enthält, sodass der Benutzer die Einstellungen zur Anwendung eigener Brailleschrift-Übersetzungen setzen kann.
 
 > [!NOTE]
-> Unterstützende Technologien mit Brailleunterstützung können die zugänglichen Namen in Braille umwandeln.
-> Daher sollten Sie `aria-braillelabel` nur verwenden, wenn der zugängliche Name nicht das gewünschte Benutzererlebnis darstellt.
+> Assistive Technologien mit Brailleunterstützung können die zugänglichen Namen in Braille umwandeln.
+> Verwenden Sie daher `aria-braillelabel` nur, wenn der zugängliche Name nicht die gewünschte Benutzererfahrung bietet.
 
-Nur den zugänglichen Namen zu verwenden, z. B. aus dem Inhalt oder über `aria-label`, bietet fast immer das bessere Benutzererlebnis. Verwenden Sie `aria-braillelabel` nicht, um `aria-label` zu replizieren. Verwenden Sie `aria-braillelabel` nur, wenn der zugängliche Name keine angemessene Braille-Darstellung bieten kann.
+Allein die Verwendung des zugänglichen Namens, z.B. aus dem Inhalt oder über `aria-label`, bietet fast immer die bessere Benutzererfahrung, daher verwenden Sie aria-braillelabel nicht, um aria-label zu duplizieren. Verwenden Sie `aria-braillelabel` nur, wenn der zugängliche Name keine angemessene Brailleschrift-Repräsentation liefern kann.
 
 ```html
 <button aria-braillelabel="***">
@@ -35,16 +35,16 @@ Nur den zugänglichen Namen zu verwenden, z. B. aus dem Inhalt oder über `aria-
 </button>
 ```
 
-Ein Braille-Display könnte "btn \*\*\*" in Braille anzeigen, anstatt der ausführlicheren "btn gra 3 out of 5 stars".
+Eine Brailleanzeige kann "btn \*\*\*" in Braille anzeigen, anstatt die ausführlichere "btn gra 3 out of 5 stars".
 
 ## Werte
 
 - `<string>`
-  - : Der Wert ist eine Zeichenfolge, ein uneingeschränkter Werttyp, der in Braille umgewandelt werden soll.
+  - : Der Wert ist eine Zeichenfolge, ein unbeschränkter Werttyp, der in Braille umgewandelt werden soll.
 
 ## Zugehörige Rollen
 
-Wird in **ALLEN** Rollen verwendet.
+Verwendet in **ALLEN** Rollen.
 
 ## Spezifikationen
 
@@ -52,6 +52,6 @@ Wird in **ALLEN** Rollen verwendet.
 
 ## Siehe auch
 
-- {{domxref("Element.ariaBrailleLabel")}}
+- [`Element.ariaBrailleLabel`](/de/docs/Web/API/Element/ariaBrailleLabel)
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)
 - [`aria-brailleroledescription`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-brailleroledescription)

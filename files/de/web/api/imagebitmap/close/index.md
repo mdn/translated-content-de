@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}
 
-Die **`ImageBitmap.close()`**
-Methode entsorgt alle grafischen Ressourcen, die mit einem `ImageBitmap` verbunden sind.
+Die **`ImageBitmap.close()`**-Methode entsorgt alle grafischen Ressourcen, die mit einem `ImageBitmap` verbunden sind.
 
 ## Syntax
 
@@ -31,7 +30,7 @@ Keiner ({{jsxref("undefined")}}).
 const offscreen = new OffscreenCanvas(256, 256);
 const gl = offscreen.getContext("webgl");
 
-// Führen Sie einige Zeichnungen mit dem gl-Kontext aus
+// Perform some drawing using the gl context
 
 const bitmap = offscreen.transferToImageBitmap();
 // ImageBitmap { width: 256, height: 256 }
@@ -44,10 +43,10 @@ bitmap.close();
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert, {{domxref("ImageBitmap")}}.
+- Das Interface, das diese Methode definiert, [`ImageBitmap`](/de/docs/Web/API/ImageBitmap).

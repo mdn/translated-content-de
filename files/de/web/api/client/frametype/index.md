@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`frameType`**-Eigenschaft des {{domxref("Client")}}-Interfaces gibt den Typ des aktuellen {{domxref("Client")}}-Browserskontexts an. Dieser Wert kann einer der folgenden sein: `"auxiliary"`, `"top-level"`, `"nested"` oder `"none"`.
+Die schreibgeschützte **`frameType`**-Eigenschaft des [`Client`](/de/docs/Web/API/Client)-Interfaces gibt den Typ des aktuellen [`Client`](/de/docs/Web/API/Client)-Browsing-Kontextes an. Dieser Wert kann einer der folgenden sein: `"auxiliary"`, `"top-level"`, `"nested"` oder `"none"`.
 
 ## Wert
 
@@ -18,6 +18,6 @@ Einer dieser vier Zeichenfolgen: `"auxiliary"`, `"top-level"`, `"nested"` oder `
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

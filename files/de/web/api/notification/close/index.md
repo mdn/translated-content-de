@@ -1,5 +1,5 @@
 ---
-title: "Notification: close()-Methode"
+title: "Benachrichtigung: close() Methode"
 short-title: close()
 slug: Web/API/Notification/close
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`close()`**-Methode des {{domxref("Notification")}}-Interfaces wird verwendet, um eine zuvor angezeigte Benachrichtigung zu schließen/entfernen.
+Die **`close()`** Methode des [`Notification`](/de/docs/Web/API/Notification)-Interfaces wird verwendet, um eine zuvor angezeigte Benachrichtigung zu schließen/entfernen.
 
 > [!NOTE]
-> Dieses API sollte nicht nur verwendet werden, um die Benachrichtigung nach einer festgelegten Verzögerung vom Bildschirm zu entfernen, da diese Methode die Benachrichtigung auch aus jedem Benachrichtigungsbereich entfernt und verhindert, dass Benutzer nach der ersten Anzeige mit ihr interagieren können. Eine gültige Verwendung für dieses API wäre es, eine Benachrichtigung zu entfernen, die nicht mehr relevant ist (z. B. der Benutzer hat die Benachrichtigung bereits auf der Webseite in einer Messaging-App gelesen oder der nächste Song wird bereits in einer Musik-App abgespielt).
+> Diese API sollte nicht verwendet werden, um die Benachrichtigung nach einer festen Verzögerung vom Bildschirm zu entfernen, da diese Methode die Benachrichtigung auch aus jeder Benachrichtigungsleiste entfernt und verhindert, dass Benutzer mit ihr interagieren können, nachdem sie ursprünglich angezeigt wurde. Ein gültiger Anwendungsfall für diese API wäre das Entfernen einer Benachrichtigung, die nicht mehr relevant ist (z. B. hat der Benutzer die Benachrichtigung auf der Webseite bereits gelesen im Fall einer Messaging-App, oder das folgende Lied spielt bereits in einer Musik-App).
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Codeausschnitt haben wir eine einfache Funktion, die ein `options`-Objekt erstellt und dann eine neue Benachrichtigung erzeugt, wenn sie aufgerufen wird. Am Ende der Funktion wird `close()` in einer {{domxref("EventTarget.addEventListener", "addEventListener()")}}-Funktion aufgerufen, um die Benachrichtigung zu entfernen, wenn der relevante Inhalt auf der Webseite gelesen wurde.
+Im folgenden Codeausschnitt haben wir eine einfache Funktion, die, wenn sie aufgerufen wird, ein `options`-Objekt erstellt und dann eine neue Benachrichtigung. Am Ende der Funktion wird auch `close()` innerhalb einer [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Funktion aufgerufen, um die Benachrichtigung zu entfernen, wenn die relevanten Inhalte auf der Webseite gelesen wurden.
 
 ```js
 function spawnNotification(theBody, theIcon, theTitle) {
@@ -58,4 +58,4 @@ function spawnNotification(theBody, theIcon, theTitle) {
 
 ## Siehe auch
 
-- [Verwendung der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
+- [Verwenden der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)

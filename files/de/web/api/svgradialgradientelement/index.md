@@ -13,22 +13,22 @@ Die **`SVGRadialGradientElement`**-Schnittstelle entspricht dem {{SVGElement("Ra
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, {{domxref("SVGGradientElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGGradientElement`](/de/docs/Web/API/SVGGradientElement)._
 
-- {{domxref("SVGRadialGradientElement.cx")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("cx")}}-Attribut des angegebenen {{SVGElement("RadialGradient")}}-Elements entspricht.
-- {{domxref("SVGRadialGradientElement.cy")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("cy")}}-Attribut des angegebenen {{SVGElement("RadialGradient")}}-Elements entspricht.
-- {{domxref("SVGRadialGradientElement.r")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("r")}}-Attribut des angegebenen {{SVGElement("RadialGradient")}}-Elements entspricht.
-- {{domxref("SVGRadialGradientElement.fx")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("fx")}}-Attribut des angegebenen {{SVGElement("RadialGradient")}}-Elements entspricht.
-- {{domxref("SVGRadialGradientElement.fy")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("fy")}}-Attribut des angegebenen {{SVGElement("RadialGradient")}}-Elements entspricht.
+- [`SVGRadialGradientElement.cx`](/de/docs/Web/API/SVGRadialGradientElement/cx) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("cx")}}-Attribut des angegebenen {{SVGElement("RadialGradient")}}-Elements entspricht.
+- [`SVGRadialGradientElement.cy`](/de/docs/Web/API/SVGRadialGradientElement/cy) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("cy")}}-Attribut des angegebenen {{SVGElement("RadialGradient")}}-Elements entspricht.
+- [`SVGRadialGradientElement.r`](/de/docs/Web/API/SVGRadialGradientElement/r) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("r")}}-Attribut des angegebenen {{SVGElement("RadialGradient")}}-Elements entspricht.
+- [`SVGRadialGradientElement.fx`](/de/docs/Web/API/SVGRadialGradientElement/fx) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("fx")}}-Attribut des angegebenen {{SVGElement("RadialGradient")}}-Elements entspricht.
+- [`SVGRadialGradientElement.fy`](/de/docs/Web/API/SVGRadialGradientElement/fy) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("fy")}}-Attribut des angegebenen {{SVGElement("RadialGradient")}}-Elements entspricht.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, sondern erbt Methoden von ihrer Elternschnittstelle, {{domxref("SVGGradientElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer Elternschnittstelle [`SVGGradientElement`](/de/docs/Web/API/SVGGradientElement)._
 
 ## Spezifikationen
 

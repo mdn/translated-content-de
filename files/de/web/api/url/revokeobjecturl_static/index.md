@@ -1,5 +1,5 @@
 ---
-title: "URL: Die statische Methode revokeObjectURL()"
+title: "URL: revokeObjectURL() statische Methode"
 short-title: revokeObjectURL()
 slug: Web/API/URL/revokeObjectURL_static
 l10n:
@@ -8,12 +8,15 @@ l10n:
 
 {{APIRef("File API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die statische Methode **`revokeObjectURL()`** der {{domxref("URL")}}-Schnittstelle gibt eine bestehende Objekt-URL frei, die zuvor durch den Aufruf von {{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}} erstellt wurde.
+Die **`revokeObjectURL()`** statische Methode der [`URL`](/de/docs/Web/API/URL)-Schnittstelle
+gibt eine bestehende Objekt-URL frei, die zuvor durch Aufruf von
+[`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) erstellt wurde.
 
-Rufen Sie diese Methode auf, wenn Sie mit einer Objekt-URL fertig sind, um dem Browser mitzuteilen, dass die Referenz auf die Datei nicht mehr behalten werden muss.
+Rufen Sie diese Methode auf, wenn Sie eine Objekt-URL nicht mehr benötigen, um den Browser darüber zu informieren, dass die Referenz zur Datei nicht mehr gehalten werden soll.
 
 > [!NOTE]
-> Diese Methode ist _nicht_ verfügbar in [Service Workers](/de/docs/Web/API/Service_Worker_API), aufgrund von Problemen mit dem Lebenszyklus der {{domxref("Blob")}}-Schnittstelle und dem Potenzial für Speicherlecks.
+> Diese Methode ist _nicht_ in [Service Workers](/de/docs/Web/API/Service_Worker_API) verfügbar, aufgrund von
+> Problemen mit dem Lebenszyklus der [`Blob`](/de/docs/Web/API/Blob)-Schnittstelle und dem Potenzial für Lecks.
 
 ## Syntax
 
@@ -24,7 +27,8 @@ URL.revokeObjectURL(objectURL)
 ### Parameter
 
 - `objectURL`
-  - : Ein String, der eine Objekt-URL darstellt, die zuvor durch den Aufruf von {{domxref("URL.createObjectURL_static", "createObjectURL()")}} erstellt wurde.
+  - : Ein String, der eine Objekt-URL darstellt, die zuvor durch Aufruf von
+    [`createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) erstellt wurde.
 
 ### Rückgabewert
 
@@ -32,7 +36,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Siehe [Verwendung von Objekt-URLs zum Anzeigen von Bildern](/de/docs/Web/API/File_API/Using_files_from_web_applications#example_using_object_urls_to_display_images).
+Siehe [Verwendung von Objekt-URLs zur Anzeige von Bildern](/de/docs/Web/API/File_API/Using_files_from_web_applications#example_using_object_urls_to_display_images).
 
 ## Spezifikationen
 
@@ -45,5 +49,5 @@ Siehe [Verwendung von Objekt-URLs zum Anzeigen von Bildern](/de/docs/Web/API/Fil
 ## Siehe auch
 
 - [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)
-- [Verwendung von Objekt-URLs zum Anzeigen von Bildern](/de/docs/Web/API/File_API/Using_files_from_web_applications#example_using_object_urls_to_display_images)
-- {{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}}
+- [Verwendung von Objekt-URLs zur Anzeige von Bildern](/de/docs/Web/API/File_API/Using_files_from_web_applications#example_using_object_urls_to_display_images)
+- [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static)

@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Der **`:muted`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) Selektor repräsentiert ein Element, das in der Lage ist, Ton wiederzugeben, wie z. B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, aber stummgeschaltet (erzwungene Stille) ist.
+Der **`:muted`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das in der Lage ist, Töne zu erzeugen, wie z.B. {{htmlelement("audio")}} oder {{htmlelement("video")}}, jedoch stummgeschaltet ist (erzwungene Stille).
 
-Stummgeschaltet unterscheidet sich von {{cssxref(":volume-locked")}} dadurch, dass der Seitenautor die Kontrolle darüber hat, ob ein Medienelement stummgeschaltet oder wieder aktiviert werden kann.
-Benutzeragenten können den `muted` Wert gemäß den Nutzungsvorlieben einstellen (z. B. indem sie den zuletzt eingestellten Wert über Sitzungen hinweg, pro Seite oder anderweitig speichern).
-Ein Element, das `:volume-locked` ist, kann aufgrund einer Betriebssystem- oder Benutzeragentenpräferenz nicht stummgeschaltet, reaktiviert oder seine Lautstärke über JavaScript geändert werden.
+`Muted` unterscheidet sich von {{cssxref(":volume-locked")}}, da der Seitenautor die Kontrolle darüber hat, ob ein Medienelement stummgeschaltet oder wieder eingeschaltet werden kann.
+Benutzeragenten können den `muted`-Wert des Mediums gemäß den Nutzungsvorlieben festlegen (z.B. indem sie den zuletzt festgelegten Wert über Sitzungen hinweg, pro Website oder anderweitig merken).
+Ein Element, das `:volume-locked` ist, kann aufgrund einer Betriebssystem- oder Benutzeragentenpräferenz nicht stummgeschaltet, un-stummgeschaltet oder dessen Lautstärke über JavaScript geändert werden.
 
 ## Syntax
 
@@ -51,5 +51,5 @@ video:muted {
 - {{cssxref(":seeking")}}
 - {{cssxref(":stalled")}}
 - {{cssxref(":volume-locked")}}
-- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [`muted`](/de/docs/Web/API/HTMLMediaElement/muted) Eigenschaft von {{domxref("HTMLMediaElement")}} Objekten
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [`muted`](/de/docs/Web/API/HTMLMediaElement/muted)-Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten

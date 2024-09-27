@@ -7,56 +7,56 @@ l10n:
 
 {{DefaultAPISidebar("EditContext API")}}{{SeeCompatTable}}
 
-Die **EditContext API** kann verwendet werden, um Rich-Text-Editoren im Web zu erstellen, die fortgeschrittene Texterfassungserfahrungen unterstützen, wie z.B. die {{glossary("Input Method Editor")}} (IME) Komposition, Emoji-Auswahl oder andere plattformabhängige, bearbeitungsbezogene Benutzeroberflächen.
+Die **EditContext API** kann verwendet werden, um Rich-Text-Editoren im Web zu erstellen, die erweiterte Texteingabeerlebnisse unterstützen, wie die Zusammensetzung mit einem [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME), Emoji-Auswahl oder andere plattformspezifische Bearbeitungs-UI-Oberflächen.
 
-Mit der EditContext API haben Sie die Flexibilität, Ihre eigene editierbare Textregion mit beliebigen Technologien zu erstellen.
+Mit der EditContext API haben Sie die Flexibilität, Ihre eigene bearbeitbare Textregion mit jeder beliebigen Technologie zu rendern.
 
 ## Konzept
 
-Beim Eingeben von Text in einer editierbaren Region einer Anwendung sind mehrere Akteure beteiligt:
+Beim Texteingeben in einer bearbeitbaren Region einer Anwendung sind mehrere Akteure beteiligt:
 
 - **Benutzer**
-  - : Der Benutzer gibt den Text mittels einer Eingabemethode ein: eine Tastatur, Maus, Stimme oder andere Eingabemethode.
-- **Eingabemethoden-Software**
-  - : Die Eingabemethoden-Software wandelt die Eingabe des Benutzers in Text um. Dies könnte beispielsweise ein {{glossary("Input Method Editor")}} (IME) sein, der Tastenanschläge von einer Standardtastatur in japanische, chinesische oder koreanische Zeichen umwandelt.
-- **Textdienste des Betriebssystems**
-  - : Der Textdienst des Betriebssystems fungiert als Verbindung zwischen der Eingabemethoden-Software und der Anwendung.
-- **Bearbeitungskontext der Anwendung**
-  - : Der Bearbeitungskontext der Anwendung stellt einen Status des bearbeiteten Textes zur Verfügung. Der Status enthält Informationen wie den Text selbst, die aktuelle Auswahl und die Position des Textes in der Benutzeroberfläche der App.
-- **Anwendung editierbare Region**
-  - : Die Anwendung editierbare Region ist das UI-Element der Anwendung, das den Text anzeigt.
+  - : Der Benutzer stellt den Text mittels einer Eingabemethode bereit: eine Tastatur, Maus, Sprache oder eine andere Eingabemethode.
+- **Eingabemethodensoftware**
+  - : Die Eingabemethodensoftware konvertiert die Eingabe des Benutzers in Text. Dies könnte zum Beispiel ein [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME) sein, der Tastenanschläge einer Standardtastatur in japanische, chinesische oder koreanische Zeichen umwandelt.
+- **Textdienst des Betriebssystems**
+  - : Der Textdienst des Betriebssystems wirkt als Verbindung zwischen der Eingabemethodensoftware und der Anwendung.
+- **Textbearbeitungskontext der Anwendung**
+  - : Der Textbearbeitungskontext der Anwendung stellt den Zustand des bearbeiteten Textes bereit. Der Zustand enthält Informationen wie den Text selbst, die aktuelle Auswahl, die Position des Textes in der Benutzeroberfläche der App.
+- **Bearbeitbare Region der Anwendung**
+  - : Die bearbeitbare Region der Anwendung ist das UI-Element der Anwendung, das den Text anzeigt.
 
-Während die ersten drei Akteure vom Betriebssystem bereitgestellt werden, ist die Anwendung dafür verantwortlich, die editierbare Region und den Bearbeitungskontext bereitzustellen.
+Während die ersten drei Akteure vom Betriebssystem bereitgestellt werden, ist die Anwendung dafür verantwortlich, die bearbeitbare Region und den Textbearbeitungskontext bereitzustellen.
 
-Im Web sind editierbare Regionen oft [`<textarea>`](/de/docs/Web/HTML/Element/textarea)-Elemente, [`<input>`](/de/docs/Web/HTML/Element/input)-Elemente oder Elemente mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Attribut, das auf `true` gesetzt ist. Für diese Elemente stellt der Browser automatisch den Bearbeitungskontext bereit, und Webautoren müssen keinen Code schreiben, um die Texteingabe zu unterstützen.
+Im Web sind bearbeitbare Regionen oft [`<textarea>`](/de/docs/Web/HTML/Element/textarea)-Elemente, [`<input>`](/de/docs/Web/HTML/Element/input)-Elemente oder Elemente mit dem Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) auf `true` gesetzt. Für diese Elemente stellt der Browser automatisch den Textbearbeitungskontext bereit, und Webautoren müssen keinen Code schreiben, um Texteingaben zu unterstützen.
 
-### Erstellen von benutzerdefinierten editierbaren Regionen
+### Erstellen von benutzerdefinierten bearbeitbaren Regionen
 
-Webautoren können auch benutzerdefinierte editierbare Regionen mithilfe der EditContext API erstellen. Beispielsweise könnte ein Webautor einen Rich-Text-Editor mit einem [`<canvas>`](/de/docs/Web/HTML/Element/canvas)-Element zum Rendern des Textes erstellen. In diesem Fall muss der Webautor Code schreiben, um die Texteingabe zu unterstützen.
+Webautoren können auch benutzerdefinierte bearbeitbare Regionen mit der EditContext API erstellen. Ein Webautor könnte zum Beispiel einen Rich-Text-Editor mithilfe eines [`<canvas>`](/de/docs/Web/HTML/Element/canvas)-Elements erstellen, um den Text zu rendern. In diesem Fall muss der Webautor Code schreiben, um Texteingaben zu unterstützen.
 
 ### Verantwortlichkeiten des Autors
 
-Wenn Sie sich entscheiden, Ihre eigene editierbare Region zu implementieren, sei es in einem `<canvas>` oder in einer Reihe von DOM-Elementen, sind Sie dafür verantwortlich, die Dinge bereitzustellen, die der Browser normalerweise bereitstellen würde, wenn Sie stattdessen ein `<textarea>` verwenden würden. Dazu gehört:
+Wenn Sie sich entscheiden, Ihre eigene bearbeitbare Region zu implementieren, sei es, dass sie Text in ein `<canvas>` zeichnet oder in eine Reihe von DOM-Elementen rendert, sind Sie dafür verantwortlich, die Dinge bereitzustellen, die der Browser für Sie bereitstellen würde, wenn Sie stattdessen ein `<textarea>` verwenden würden. Dazu gehören:
 
 - Das Rendern des Textes.
-- Das Rendern der Auswahl (wenn Sie Ihre editierbare Region mit DOM-Elementen anstelle eines `<canvas>` erstellen, rendert der Browser die Auswahl für Sie).
+- Das Rendern der Auswahl (wenn Sie Ihre bearbeitbare Region mit DOM-Elementen statt einem `<canvas>` erstellen, rendert der Browser die Auswahl für Sie).
 - Dem Textdienst des Betriebssystems mitzuteilen, wenn sich die Auswahl ändert.
-- Dem Textdienst des Betriebssystems mitteilen, wo sich der Text in der Benutzeroberfläche befindet, sodass die Eingabemethoden-Software das IME-Kompositionsfenster an der richtigen Position anzeigen kann.
-- Bestimmte Textformate anwenden, wenn der Benutzer Text innerhalb des IME-Kompositionsfensters eingibt.
+- Dem Textdienst des Betriebssystems mitzuteilen, wo sich der Text in der Benutzeroberfläche befindet, damit die Eingabemethodensoftware das IME-Kompositionsfenster an der richtigen Stelle anzeigen kann.
+- Bestimmte Textformate anzuwenden, wenn der Benutzer Text im IME-Kompositionsfenster verfasst.
 
-Im Gegenzug macht die EditContext API das DOM-Element, das Sie wählen, editierbar und Teil der Fokusreihenfolge des Dokuments. Darüber hinaus bietet die EditContext API auch Informationen über den Zustand des bearbeiteten Textes, was es Ihnen ermöglicht, ihn auf eine benutzerdefinierte Weise darzustellen. Zu den bereitgestellten Informationen gehören:
+Im Gegenzug macht die EditContext API das von Ihnen gewählte DOM-Element bearbeitbar und zum Bestandteil der Fokusreihenfolge des Dokuments. Darüber hinaus liefert die EditContext API auch Informationen über den Zustand des bearbeiteten Textes, sodass Sie ihn auf eine benutzerdefinierte Weise darstellen können. Die Ihnen bereitgestellten Informationen umfassen:
 
-- Der aktuelle Textinhalt.
+- Den aktuellen Textinhalt.
 - Die aktuelle Auswahl.
-- Ob gerade IME-Komposition im Gange ist und ob Textformate angewendet werden müssen.
+- Ob eine IME-Komposition im Gange ist und ob Textformate angewendet werden müssen.
 
 ### Barrierefreiheit
 
-Wenn Sie die EditContext API mit einem `<canvas>`-Element verwenden, stellen Sie sicher, dass der Text auch für unterstützende Technologien zugänglich ist. Screenreader können den Text in einem `<canvas>`-Element nicht lesen. Beispielsweise könnten Sie eine separate Ansicht des Textes in einem unsichtbaren DOM-Element beibehalten, das Screenreadern präsentiert wird.
+Wenn Sie die EditContext API mit einem `<canvas>`-Element verwenden, stellen Sie sicher, dass der Text auch assistiven Technologien zugänglich ist. Bildschirmlesegeräte können den Text in einem `<canvas>`-Element nicht lesen. Sie könnten zum Beispiel eine separate Ansicht des Textes in einem außerhalb des Bildschirms befindlichen DOM-Element verwalten, die Bildschirmlesegeräten präsentiert wird.
 
 ### Grundlegende Verwendung
 
-Um die EditContext API zu verwenden, müssen Sie eine Instanz der {{domxref("EditContext")}}-Schnittstelle erstellen und sie dann an das DOM-Element anhängen, das Sie editierbar machen möchten, indem Sie die {{domxref("HTMLElement/editContext", "editContext")}}-Eigenschaft verwenden. Das DOM-Element kann jedes Element sein, einschließlich eines `<div>`- oder eines `<canvas>`-Elements.
+Um die EditContext API zu verwenden, müssen Sie eine Instanz der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle erstellen und sie dann an das DOM-Element anhängen, das Sie bearbeitbar machen möchten, indem Sie die [`editContext`](/de/docs/Web/API/HTMLElement/editContext)-Eigenschaft nutzen. Das DOM-Element kann jedes Element sein, einschließlich eines `<div>`- oder `<canvas>`-Elements.
 
 ```html
 <canvas id="editor-canvas"></canvas>
@@ -70,22 +70,22 @@ canvas.editContext = editContext;
 
 Eine `EditContext`-Instanz kann jeweils nur an ein DOM-Element angehängt werden.
 
-Das Anhängen einer `EditContext`-Instanz an ein DOM-Element macht das Element fokussierbar, als Teil der Fokusreihenfolge des Dokuments. Der Benutzer kann Text in das Element eingeben, indem er die Eingabemethode seiner Wahl nutzt, und Sie können Ereignisse verwenden, die von der `EditContext`-Instanz ausgelöst werden, um den Text und die Auswahl darzustellen.
+Das Anhängen einer `EditContext`-Instanz an ein DOM-Element macht das Element fokussierbar, als Teil der Fokusreihenfolge des Dokuments. Der Benutzer kann Text in das Element eingeben, indem er die Eingabemethode seiner Wahl verwendet, und Sie können Ereignisse, die von der `EditContext`-Instanz ausgelöst werden, nutzen, um den Text und die Auswahl zu rendern.
 
-### Modell- und Ansicht-Architektur
+### Model- und View-Architektur
 
-Beim Verwenden der EditContext API kann es hilfreich sein, Ihre Bearbeitungserfahrung als Modell- und Ansicht-Architektur zu gestalten.
+Wenn Sie die EditContext API verwenden, ist es hilfreich, Ihr Bearbeitungserlebnis als Model- und View-Architektur aufzubauen.
 
-Die `EditContext`-Instanz stellt das Modell Ihrer editierbaren Region dar. Ihr interner Zustand wird aktualisiert, wenn eine Texteingabe erfolgt und wenn sich die Auswahl ändert.
+Die `EditContext`-Instanz stellt das Modell Ihrer bearbeitbaren Region dar. Ihr interner Zustand wird aktualisiert, wenn Texteingaben empfangen werden und wenn sich die Auswahl ändert.
 
-Sie können dann den Text und die Auswahl in der Ansicht rendern, basierend auf den Informationen der `EditContext`-Instanz, müssen jedoch die Ansicht nicht exakt mit dem Modell übereinstimmen lassen. Sie sind frei, den Text auf jede gewünschte Weise darzustellen.
+Sie können dann den Text und die Auswahl in der Ansicht rendern, indem Sie die von der `EditContext`-Instanz bereitgestellten Informationen verwenden, aber Ihre Ansicht muss nicht exakt dem Modell entsprechen. Sie sind frei, den Text in beliebiger Weise darzustellen.
 
 ## Schnittstellen
 
-- {{DOMxRef("EditContext")}} {{experimental_inline}}
-  - : Die **`EditContext`**-Schnittstelle ist eine JavaScript-Reflexion des Bearbeitungskontextes, der normalerweise transparent vom Browser bereitgestellt wird, wenn Standardbearbeitungsregionen wie `textarea` verwendet werden. `EditContext` liefert den Zustand des bearbeiteten Textes, mit Informationen wie dem Text selbst, der aktuellen Auswahl oder der Position des Textes in der Benutzeroberfläche der App.
-- {{DOMxRef("TextFormat")}}
-  - : Die **`TextFormat`**-Schnittstelle wird verwendet, um bestimmte Formate zu repräsentieren, die auf Textranges angewendet werden sollen, wenn der Benutzer Text innerhalb des IME-Kompositionsfensters eingibt.
+- [`EditContext`](/de/docs/Web/API/EditContext) {{experimental_inline}}
+  - : Die **`EditContext`**-Schnittstelle ist eine JavaScript-Darstellung des Textbearbeitungskontexts, der normalerweise transparent vom Browser bereitgestellt wird, wenn Standard-Bearbeitungsregionen wie `textarea` verwendet werden. `EditContext` bietet den Zustand des bearbeiteten Textes mit Informationen wie den Text selbst, die aktuelle Auswahl oder den Standort des Textes in der Benutzeroberfläche der App.
+- [`TextFormat`](/de/docs/Web/API/TextFormat)
+  - : Die **`TextFormat`**-Schnittstelle wird verwendet, um bestimmte Formate darzustellen, die auf Textbereiche angewendet werden sollen, wenn der Benutzer Text innerhalb des IME-Kompositionsfensters verfasst.
 
 ## Spezifikationen
 

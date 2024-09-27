@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn das System in einen aktiven, inaktiven oder gesperrten Zustand wechselt. Der Ereignis-Listener erhält einen String, der einen von drei Werten hat:
+Wird ausgelöst, wenn das System in einen aktiven, inaktiven oder gesperrten Zustand wechselt. Der Event-Listener erhält einen String, der einen von drei Werten hat:
 
 - "locked", wenn der Bildschirm gesperrt ist oder der Bildschirmschoner aktiviert wird
-- "idle", wenn das System entsperrt ist und der Benutzer eine bestimmte Anzahl von Sekunden keine Eingaben gemacht hat. Diese Zahl ist standardmäßig 60, kann aber mit {{WebExtAPIRef("idle.setDetectionInterval()")}} festgelegt werden.
-- "active", wenn der Benutzer auf einem inaktiven System Eingaben macht.
+- "idle", wenn das System entsperrt ist und der Benutzer für eine festgelegte Anzahl von Sekunden keine Eingabe gemacht hat. Diese Zahl ist standardmäßig 60, kann aber mit {{WebExtAPIRef("idle.setDetectionInterval()")}} eingestellt werden.
+- "active", wenn der Benutzer eine Eingabe auf einem inaktiven System macht.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, diesem Ereignis zuzuhören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, `false` andernfalls.
 
 ## addListener Syntax
 
@@ -36,12 +36,12 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Die Funktion erhält dieses Argument:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `newState`
-      - : {{WebExtAPIRef('idle.IdleState')}}. Der neue inaktive Zustand.
+      - : {{WebExtAPIRef('idle.IdleState')}}. Der neue Inaktivitätszustand.
 
-## Unterstützung durch Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -58,7 +58,7 @@ browser.idle.onStateChanged.addListener(newState);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#event-onStateChanged) API. Diese Dokumentation ist abgeleitet von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
+> Diese API basiert auf der Chromium [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#event-onStateChanged) API. Diese Dokumentation ist abgeleitet von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

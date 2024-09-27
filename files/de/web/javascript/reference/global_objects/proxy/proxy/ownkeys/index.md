@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`handler.ownKeys()`** Methode ist eine Falle für die `[[OwnPropertyKeys]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.keys()")}}, {{jsxref("Reflect.ownKeys()")}}, etc. verwendet wird.
+Die **`handler.ownKeys()`** Methode ist eine Trap für die `[[OwnPropertyKeys]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.keys()")}}, {{jsxref("Reflect.ownKeys()")}}, usw. verwendet wird.
 
 {{EmbedInteractiveExample("pages/js/proxyhandler-ownkeys.html", "taller")}}
 
@@ -22,20 +22,20 @@ new Proxy(target, {
 
 ### Parameter
 
-Der folgende Parameter wird an die `ownKeys()`-Methode übergeben. `this` ist an den Handler gebunden.
+Der folgende Parameter wird der `ownKeys()` Methode übergeben. `this` ist an den Handler gebunden.
 
 - `target`
   - : Das Zielobjekt.
 
 ### Rückgabewert
 
-Die `ownKeys()`-Methode muss ein [array-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#array-like_objects) zurückgeben, bei dem jedes Element entweder ein {{jsxref("String")}} oder ein {{jsxref("Symbol")}} ohne doppelte Elemente ist.
+Die `ownKeys()` Methode muss ein [array-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#array-like_objects) zurückgeben, bei dem jedes Element entweder ein {{jsxref("String")}} oder ein {{jsxref("Symbol")}} ist und keine doppelten Elemente enthält.
 
 ## Beschreibung
 
-### Interceptionen
+### Abfangbare Operationen
 
-Diese Falle kann diese Operationen abfangen:
+Diese Trap kann folgende Operationen abfangen:
 
 - {{jsxref("Object.getOwnPropertyNames()")}}
 - {{jsxref("Object.getOwnPropertySymbols()")}}
@@ -46,17 +46,17 @@ Oder jede andere Operation, die die `[[OwnPropertyKeys]]` [interne Methode](/de/
 
 ### Invarianten
 
-Die `[[OwnPropertyKeys]]`-Methode des Proxies löst einen {{jsxref("TypeError")}} aus, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
+Die `[[OwnPropertyKeys]]` interne Methode des Proxys löst einen {{jsxref("TypeError")}} aus, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
 - Das Ergebnis ist ein {{jsxref("Object")}}.
 - Die Liste der Schlüssel enthält keine doppelten Werte.
 - Der Typ jedes Schlüssels ist entweder ein {{jsxref("String")}} oder ein {{jsxref("Symbol")}}.
-- Die Ergebnisliste muss die Schlüssel aller nicht konfigurierbaren eigenen Eigenschaften des Zielobjekts enthalten. Das heißt, für alle Schlüssel, die durch {{jsxref("Reflect.ownKeys()")}} auf dem Zielobjekt zurückgegeben werden, wenn der Schlüssel durch {{jsxref("Reflect.getOwnPropertyDescriptor()")}} als `configurable: false` berichtet wird, muss der Schlüssel in der Ergebnisliste enthalten sein.
-- Wenn das Zielobjekt nicht erweiterbar ist, muss die Ergebnisliste alle Schlüssel der eigenen Eigenschaften des Zielobjekts und keine anderen Werte enthalten. Das heißt, wenn {{jsxref("Reflect.isExtensible()")}} auf `target` `false` zurückgibt, muss die Ergebnisliste die gleichen Werte enthalten wie das Ergebnis von {{jsxref("Reflect.ownKeys()")}} auf `target`.
+- Die Ergebnisliste muss die Schlüssel aller nicht konfigurierbaren eigenen Eigenschaften des Zielobjekts enthalten. Das heißt, für alle Schlüssel, die von {{jsxref("Reflect.ownKeys()")}} am Zielobjekt zurückgegeben werden, muss der Schlüssel, wenn er durch {{jsxref("Reflect.getOwnPropertyDescriptor()")}} als `configurable: false` berichtet wird, in der Ergebnisliste enthalten sein.
+- Wenn das Zielobjekt nicht erweiterbar ist, muss die Ergebnisliste alle Schlüssel der eigenen Eigenschaften des Zielobjekts und keine anderen Werte enthalten. Das heißt, wenn {{jsxref("Reflect.isExtensible()")}} `false` auf `target` zurückgibt, muss die Ergebnisliste dieselben Werte wie das Ergebnis von {{jsxref("Reflect.ownKeys()")}} auf `target` enthalten.
 
 ## Beispiele
 
-### Das Abfangen von getOwnPropertyNames
+### Abfangen von getOwnPropertyNames
 
 Der folgende Code fängt {{jsxref("Object.getOwnPropertyNames()")}} ab.
 

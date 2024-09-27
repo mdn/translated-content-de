@@ -1,5 +1,5 @@
 ---
-title: "HTMLMeterElement: high Eigenschaft"
+title: "HTMLMeterElement: high-Eigenschaft"
 short-title: high
 slug: Web/API/HTMLMeterElement/high
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`high`**-Eigenschaft der {{DOMxRef("HTMLMeterElement")}}-Schnittstelle repräsentiert die obere Grenze des {{htmlelement("meter")}}-Elements als Gleitkommazahl. Sie spiegelt das [`high`](/de/docs/Web/HTML/Element/meter#high)-Attribut des Elements wider oder den Wert von `max`, wenn nicht definiert. Der Wert von `high` wird durch die Werte `low` und `max` begrenzt.
+Die **`high`**-Eigenschaft des [`HTMLMeterElement`](/de/docs/Web/API/HTMLMeterElement)-Interfaces repräsentiert die obere Grenze des {{htmlelement("meter")}}-Elements als Fließkommazahl. Sie entspricht dem [`high`](/de/docs/Web/HTML/Element/meter#high)-Attribut des Elements oder dem Wert von `max`, wenn nicht definiert. Der Wert von `high` wird durch die Werte `low` und `max` begrenzt.
 
-Diese Eigenschaft kann auch direkt gesetzt werden, zum Beispiel um einen Standardwert basierend auf einer Bedingung festzulegen.
+Diese Eigenschaft kann auch direkt gesetzt werden, z. B. um einen Standardwert basierend auf einer bestimmten Bedingung festzulegen.
 
 ## Wert
 
-Eine Zahl, die nicht kleiner als {{DOMxRef("HTMLMeterElement.low")}} und nicht größer als {{DOMxRef("HTMLMeterElement.max")}} ist.
+Eine Zahl, die nicht kleiner ist als [`HTMLMeterElement.low`](/de/docs/Web/API/HTMLMeterElement/low) und nicht größer als [`HTMLMeterElement.max`](/de/docs/Web/API/HTMLMeterElement/max).
 
 ## Beispiele
 
 ```html
-<label for="fuel">Aktueller Kraftstoffstand:</label>
+<label for="fuel">Current fuel level:</label>
 <meter
   id="fuel"
   min="0"
@@ -48,7 +48,7 @@ console.log(meterElement.high); // 67
 ## Siehe auch
 
 - {{HTMLElement("meter")}}
-- {{DOMXref("HTMLMeterElement.value")}}
-- {{DOMXref("HTMLMeterElement.max")}}
-- {{DOMXref("HTMLMeterElement.low")}}
-- {{DOMXref("HTMLProgressElement")}}
+- [`HTMLMeterElement.value`](/de/docs/Web/API/HTMLMeterElement/value)
+- [`HTMLMeterElement.max`](/de/docs/Web/API/HTMLMeterElement/max)
+- [`HTMLMeterElement.low`](/de/docs/Web/API/HTMLMeterElement/low)
+- [`HTMLProgressElement`](/de/docs/Web/API/HTMLProgressElement)

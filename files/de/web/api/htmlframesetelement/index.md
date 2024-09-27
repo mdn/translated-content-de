@@ -7,67 +7,67 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`HTMLFrameSetElement`**-Schnittstelle stellt spezielle Eigenschaften bereit (zusätzlich zu denen, die sie von der regulären {{domxref("HTMLElement")}}-Schnittstelle erben) zur Manipulation von {{HTMLELEment("frameset")}}-Elementen.
+Das **`HTMLFrameSetElement`** Interface bietet spezielle Eigenschaften (über die hinaus, die sie auch von dem regulären [`HTMLElement`](/de/docs/Web/API/HTMLElement) Interface erben) zur Manipulation von {{HTMLELEment("frameset")}} Elementen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLFrameSetElement.cols")}} {{deprecated_inline}}
-  - : Ein String, der als kommagetrennte Liste strukturiert ist und die Breite jeder Spalte in einem Frameset angibt.
-- {{domxref("HTMLFrameSetElement.rows")}} {{deprecated_inline}}
-  - : Ein String, der als kommagetrennte Liste strukturiert ist und die Höhe jeder Zeile in einem Frameset angibt.
+- [`HTMLFrameSetElement.cols`](/de/docs/Web/API/HTMLFrameSetElement/cols) {{deprecated_inline}}
+  - : Eine als durch Kommas getrennte Liste strukturierte Zeichenfolge, die die Breite jeder Spalte innerhalb eines Framesets angibt.
+- [`HTMLFrameSetElement.rows`](/de/docs/Web/API/HTMLFrameSetElement/rows) {{deprecated_inline}}
+  - : Eine als durch Kommas getrennte Liste strukturierte Zeichenfolge, die die Höhe jeder Spalte innerhalb eines Framesets angibt.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, {{domxref("HTMLElement")}}._
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-## Ereignis-Handler
+## Ereignishandler
 
-Die {{domxref("HTMLElement")}}-Ereignisse werden geerbt.
+Die Ereignisse des [`HTMLElement`](/de/docs/Web/API/HTMLElement) werden geerbt.
 
-Die folgenden {{domxref("Window")}} `onXYZ`-Ereignis-Handler-Eigenschaften sind ebenfalls als Aliase verfügbar, die auf das `window` Objekt abzielen. Es wird jedoch empfohlen, diese direkt auf dem `window` Objekt zu überwachen, anstatt auf `HTMLFrameSetElement`.
+Die folgenden [`Window`](/de/docs/Web/API/Window) `onXYZ` Ereignishandler-Eigenschaften sind ebenfalls als Aliase verfügbar, die auf das `window` Objekt abzielen. Es wird jedoch empfohlen, sie direkt am `window` Objekt zu überwachen, anstatt am `HTMLFrameSetElement`.
 
 > [!NOTE]
-> Die Verwendung von `addEventListener()` auf `HTMLFrameSetElement` wird für die unten aufgeführten `onXYZ`-Ereignishandler nicht funktionieren. Lauschen Sie stattdessen auf die Ereignisse auf dem {{domxref("window")}} Objekt.
+> Die Verwendung von `addEventListener()` am `HTMLFrameSetElement` funktioniert nicht für die unten aufgelisteten `onXYZ` Ereignishandler. Hören Sie stattdessen die Ereignisse auf dem [`window`](/de/docs/Web/API/Window) Objekt ab.
 
-- {{domxref("window.afterprint_event", "HTMLFrameSetElement.onafterprint")}}
+- [`HTMLFrameSetElement.onafterprint`](/de/docs/Web/API/Window/afterprint_event)
   - : Wird ausgelöst, nachdem das zugehörige Dokument mit dem Drucken begonnen hat oder die Druckvorschau geschlossen wurde.
-- {{domxref("window.beforeprint_event", "HTMLFrameSetElement.onbeforeprint")}}
-  - : Wird ausgelöst, wenn das zugehörige Dokument zum Drucken vorbereitet wird oder in der Druckvorschau erscheint.
-- {{domxref("window.beforeunload_event", "HTMLFrameSetElement.onbeforeunload")}}
-  - : Wird ausgelöst, wenn das Fenster, das Dokument und seine Ressourcen kurz vor dem Entladen stehen.
-- {{domxref("window.gamepadconnected_event", "HTMLFrameSetElement.ongamepadconnected")}}
-  - : Wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad angeschlossen wurde oder das erste Mal eine Taste/Achse des Gamepads verwendet wird.
-- {{domxref("window.gamepaddisconnected_event", "HTMLFrameSetElement.ongamepaddisconnected")}}
+- [`HTMLFrameSetElement.onbeforeprint`](/de/docs/Web/API/Window/beforeprint_event)
+  - : Wird ausgelöst, wenn das zugehörige Dokument gedruckt oder in der Druckvorschau angezeigt werden soll.
+- [`HTMLFrameSetElement.onbeforeunload`](/de/docs/Web/API/Window/beforeunload_event)
+  - : Wird ausgelöst, wenn das Fenster, das Dokument und seine Ressourcen entladen werden sollen.
+- [`HTMLFrameSetElement.ongamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)
+  - : Wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad verbunden wurde oder das erste Mal eine Taste/Achse des Gamepads verwendet wird.
+- [`HTMLFrameSetElement.ongamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event)
   - : Wird ausgelöst, wenn der Browser erkennt, dass ein Gamepad getrennt wurde.
-- {{domxref("window.hashchange_event", "HTMLFrameSetElement.onhashchange")}}
-  - : Wird ausgelöst, wenn sich der Fragmentbezeichner der URL geändert hat (der Teil der URL, der mit dem `#`-Symbol beginnt und folgt).
-- {{domxref("window.languagechange_event", "HTMLFrameSetElement.onlanguagechange")}}
+- [`HTMLFrameSetElement.onhashchange`](/de/docs/Web/API/Window/hashchange_event)
+  - : Wird ausgelöst, wenn sich der Fragment-Identifikator der URL geändert hat (der Teil der URL, der mit dem `#`-Symbol beginnt).
+- [`HTMLFrameSetElement.onlanguagechange`](/de/docs/Web/API/Window/languagechange_event)
   - : Wird ausgelöst, wenn sich die bevorzugte Sprache des Benutzers ändert.
-- {{domxref("window.message_event", "HTMLFrameSetElement.onmessage")}}
-  - : Wird ausgelöst, wenn das Fenster eine Nachricht erhält, z. B. von einem Aufruf an [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) aus einem anderen Browsing-Kontext.
-- {{domxref("window.messageerror_event", "HTMLFrameSetElement.onmessageerror")}}
+- [`HTMLFrameSetElement.onmessage`](/de/docs/Web/API/Window/message_event)
+  - : Wird ausgelöst, wenn das Fenster eine Nachricht erhält, beispielsweise von einem Aufruf von [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) aus einem anderen Browsing-Kontext.
+- [`HTMLFrameSetElement.onmessageerror`](/de/docs/Web/API/Window/messageerror_event)
   - : Wird ausgelöst, wenn das Fenster eine Nachricht erhält, die nicht deserialisiert werden kann.
-- {{domxref("window.offline_event", "HTMLFrameSetElement.onoffline")}}
-  - : Wird ausgelöst, wenn der Browser den Zugang zum Netzwerk verloren hat und der Wert von {{domxref("Navigator.onLine")}} auf `false` wechselt.
-- {{domxref("window.online_event", "HTMLFrameSetElement.ononline")}}
-  - : Wird ausgelöst, wenn der Browser den Zugang zum Netzwerk erlangt hat und der Wert von {{domxref("Navigator.onLine")}} auf `true` wechselt.
-- {{domxref("window.pagehide_event", "HTMLFrameSetElement.onpagehide")}}
-  - : Wird ausgelöst, wenn der Browser die aktuelle Seite verbirgt, während er eine andere Seite aus dem Sitzungsverlauf anzeigt.
-- {{domxref("window.pageshow_event", "HTMLFrameSetElement.onpageshow")}}
+- [`HTMLFrameSetElement.onoffline`](/de/docs/Web/API/Window/offline_event)
+  - : Wird ausgelöst, wenn der Browser den Zugang zum Netzwerk verloren hat und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `false` wechselt.
+- [`HTMLFrameSetElement.ononline`](/de/docs/Web/API/Window/online_event)
+  - : Wird ausgelöst, wenn der Browser Zugang zum Netzwerk erlangt und der Wert von [`Navigator.onLine`](/de/docs/Web/API/Navigator/onLine) auf `true` wechselt.
+- [`HTMLFrameSetElement.onpagehide`](/de/docs/Web/API/Window/pagehide_event)
+  - : Wird ausgelöst, wenn der Browser die aktuelle Seite versteckt, um eine andere Seite aus der Sitzungsverlauf anzuzeigen.
+- [`HTMLFrameSetElement.onpageshow`](/de/docs/Web/API/Window/pageshow_event)
   - : Wird ausgelöst, wenn der Browser das Dokument des Fensters aufgrund einer Navigation anzeigt.
-- {{domxref("window.popstate_event", "HTMLFrameSetElement.onpopstate")}}
-  - : Wird ausgelöst, wenn der aktive Verlaufseintrag gewechselt wird, während der Benutzer im Sitzungsverlauf navigiert.
-- {{domxref("window.rejectionhandled_event", "HTMLFrameSetElement.onrejectionhandled")}}
-  - : Wird ausgelöst, wenn immer ein JavaScript {{jsxref("Promise")}} abgelehnt wird und die Ablehnung behandelt wurde.
-- {{domxref("window.storage_event", "HTMLFrameSetElement.onstorage")}}
+- [`HTMLFrameSetElement.onpopstate`](/de/docs/Web/API/Window/popstate_event)
+  - : Wird ausgelöst, wenn sich der aktive Verlaufseintrag ändert, während der Benutzer den Sitzungsverlauf durchsucht.
+- [`HTMLFrameSetElement.onrejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)
+  - : Wird ausgelöst, wann immer ein JavaScript {{jsxref("Promise")}} abgelehnt und die Ablehnung behandelt wurde.
+- [`HTMLFrameSetElement.onstorage`](/de/docs/Web/API/Window/storage_event)
   - : Wird ausgelöst, wenn ein Speicherbereich (`localStorage`) im Kontext eines anderen Dokuments modifiziert wurde.
-- {{domxref("window.unhandledrejection_event", "HTMLFrameSetElement.onunhandledrejection")}}
-  - : Wird ausgelöst, wenn eine {{jsxref("Promise")}} abgelehnt wird, aber die Ablehnung nicht behandelt wurde.
-- {{domxref("window.unload_event", "HTMLFrameSetElement.onunload")}}
+- [`HTMLFrameSetElement.onunhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)
+  - : Wird ausgelöst, wann immer ein {{jsxref("Promise")}} abgelehnt wurde, die Ablehnung jedoch nicht behandelt wurde.
+- [`HTMLFrameSetElement.onunload`](/de/docs/Web/API/Window/unload_event)
   - : Wird ausgelöst, wenn das Dokument entladen wird.
 
 ## Spezifikationen
@@ -80,5 +80,5 @@ Die folgenden {{domxref("Window")}} `onXYZ`-Ereignis-Handler-Eigenschaften sind 
 
 ## Siehe auch
 
-- HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("frameset")}}
+- HTML-Element, das dieses Interface implementiert: {{HTMLElement("frameset")}}
 - Das Äquivalent dieses Elements außerhalb von Frames: `HTMLFrameSetElement`.

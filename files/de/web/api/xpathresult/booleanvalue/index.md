@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("DOM XPath")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`booleanValue`**-Eigenschaft der
-{{domxref("XPathResult")}}-Schnittstelle gibt den booleschen Wert eines Ergebnisses zurück, bei dem
-{{domxref("XPathResult.resultType")}} `BOOLEAN_TYPE` ist.
+Die schreibgeschützte **`booleanValue`**-Eigenschaft des
+[`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces gibt den booleschen Wert eines Ergebnisses zurück, dessen
+[`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) `BOOLEAN_TYPE` ist.
 
 ## Wert
 
-Der Rückgabewert ist der boolesche Wert des `XPathResult`, der durch
-{{domxref("Document.evaluate()")}} zurückgegeben wird.
+Der Rückgabewert ist der boolesche Wert des `XPathResult`, das von
+[`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) zurückgegeben wird.
 
 ### Ausnahmen
 
 #### TYPE_ERR
 
-Falls {{domxref("XPathResult.resultType")}} nicht `BOOLEAN_TYPE` ist, wird eine
-{{domxref("XPathException")}} vom Typ `TYPE_ERR` ausgelöst.
+Falls der [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `BOOLEAN_TYPE` ist, wird eine
+[`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 
@@ -31,8 +31,8 @@ Das folgende Beispiel zeigt die Verwendung der `booleanValue`-Eigenschaft.
 ### HTML
 
 ```html
-<div>XPath Beispiel</div>
-<p>Text ist 'XPath Beispiel': <output></output></p>
+<div>XPath example</div>
+<p>Text is 'XPath example': <output></output></p>
 ```
 
 ### JavaScript
@@ -57,6 +57,6 @@ document.querySelector("output").textContent = result.booleanValue;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

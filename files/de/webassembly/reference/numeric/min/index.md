@@ -7,24 +7,24 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`min`**-Anweisungen werden verwendet, um die kleinere der beiden Zahlen zu ermitteln.
+Die **`min`** Anweisungen werden verwendet, um die kleinere von zwei Zahlen zu erhalten.
 
 {{EmbedInteractiveExample("pages/wat/min.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; zwei Zahlen auf den Stapel laden
+;; load two numbers onto the stack
 f32.const 10
 f32.const 3
 
-;; kleinere Zahl erhalten
+;; get lower number
 f32.min
 
-;; das oberste Element auf dem Stapel wird jetzt 3 sein
+;; the top item on the stack will now be 3
 ```
 
-| Anweisung   | Binärer Opcodes |
-| ----------- | --------------- |
-| `f32.min`   | `0x96`          |
-| `f64.min`   | `0xa4`          |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `f32.min` | `0x96`         |
+| `f64.min` | `0xa4`         |

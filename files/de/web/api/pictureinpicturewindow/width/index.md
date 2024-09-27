@@ -1,14 +1,14 @@
 ---
-title: "PictureInPictureWindow: Breite-Eigenschaft"
-short-title: Breite
+title: "PictureInPictureWindow: width-Eigenschaft"
+short-title: width
 slug: Web/API/PictureInPictureWindow/width
 l10n:
-  sourceCommit: ee99bfdebd8f9c691a06afec0895285a3bf2da2a
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die schreibgeschützte **`width`**-Eigenschaft des {{domxref("PictureInPictureWindow")}}-Interfaces gibt die Breite des schwebenden Videofensters in Pixeln zurück.
+Die schreibgeschützte **`width`**-Eigenschaft des [`PictureInPictureWindow`](/de/docs/Web/API/PictureInPictureWindow)-Interfaces gibt die Breite des schwebenden Video-Fensters in Pixel zurück.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ pictureInPictureWindow.width
 
 ### Wert
 
-Ein ganzzahliger Wert, der die Breite des schwebenden Videofensters in Pixeln angibt, wenn das Picture-in-Picture-Fenster geöffnet ist. Andernfalls wird `0` zurückgegeben.
+Ein Integer-Wert, der die Breite des schwebenden Video-Fensters in Pixel angibt, wenn das Picture-in-Picture-Fenster geöffnet ist. Andernfalls gibt es `0` zurück.
 
 ## Spezifikationen
 
@@ -31,4 +31,4 @@ Ein ganzzahliger Wert, der die Breite des schwebenden Videofensters in Pixeln an
 ## Siehe auch
 
 - [Picture-in-Picture API](/de/docs/Web/API/Picture-in-Picture_API)
-- {{DOMxRef("PictureInPictureWindow.height")}}
+- [`PictureInPictureWindow.height`](/de/docs/Web/API/PictureInPictureWindow/height)

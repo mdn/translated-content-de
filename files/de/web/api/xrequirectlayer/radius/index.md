@@ -1,6 +1,6 @@
 ---
-title: "XREquirectLayer: Radius-Eigenschaft"
-short-title: Radius
+title: "XREquirectLayer: radius-Eigenschaft"
+short-title: radius
 slug: Web/API/XREquirectLayer/radius
 l10n:
   sourceCommit: 76637f9517e4b0a57a3096a36f66b5e33a3f1051
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`radius`**-Eigenschaft der {{domxref("XREquirectLayer")}}-Schnittstelle repräsentiert den Radius der Kugel.
+Die **`radius`**-Eigenschaft der [`XREquirectLayer`](/de/docs/Web/API/XREquirectLayer)-Schnittstelle repräsentiert den Radius der Kugel.
 
 ## Wert
 
-Eine Zahl, die den nicht-negativen Radius (in Metern) der Kugel darstellt. Werte von null oder unendlich werden als unbeendliche Kugel behandelt. Wenn `radius` auf einen Wert kleiner als 0 gesetzt wird, wird er auf 0 gesetzt.
+Eine Zahl, die den nicht-negativen Radius (in Metern) der Kugel darstellt. Werte von Null oder Unendlichkeit werden als Darstellung einer unendlichen Kugel behandelt. Wenn `radius` auf einen Wert kleiner als 0 gesetzt wird, wird er auf 0 gesetzt.
 
 ## Beispiele
 
-### Den Radius einer Schicht abrufen
+### Abrufen des Radius eines Layers
 
-Die Methode {{domxref("XRWebGLBinding.createEquirectLayer()")}} erstellt eine equirektangulare Schicht und ermöglicht das Angeben eines `radius`. Die Eigenschaft `XREquirectLayer.radius` kann nach der Schichterstellung verwendet werden, um den verwendeten Radius abzurufen oder um einen neuen zu setzen.
+Die Methode [`XRWebGLBinding.createEquirectLayer()`](/de/docs/Web/API/XRWebGLBinding/createEquirectLayer) erstellt einen equirectangular Layer und ermöglicht die Angabe eines `radius`. Die `XREquirectLayer.radius`-Eigenschaft kann nach der Erstellung des Layers verwendet werden, um den verwendeten Radius zu erhalten oder um ihn auf einen neuen Wert zu setzen.
 
 ```js
 const equirectLayer = xrGlBinding.createEquirectLayer({
@@ -44,6 +44,6 @@ equirectLayer.radius; // 0
 
 ## Siehe auch
 
-- {{domxref("XREquirectLayer.centralHorizontalAngle")}}
-- {{domxref("XREquirectLayer.lowerVerticalAngle")}}
-- {{domxref("XREquirectLayer.upperVerticalAngle")}}
+- [`XREquirectLayer.centralHorizontalAngle`](/de/docs/Web/API/XREquirectLayer/centralHorizontalAngle)
+- [`XREquirectLayer.lowerVerticalAngle`](/de/docs/Web/API/XREquirectLayer/lowerVerticalAngle)
+- [`XREquirectLayer.upperVerticalAngle`](/de/docs/Web/API/XREquirectLayer/upperVerticalAngle)

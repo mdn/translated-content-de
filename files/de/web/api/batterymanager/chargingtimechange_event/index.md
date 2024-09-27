@@ -1,5 +1,5 @@
 ---
-title: "BatteryManager: chargingtimechange Ereignis"
+title: "BatteryManager: chargingtimechange-Ereignis"
 short-title: chargingtimechange
 slug: Web/API/BatteryManager/chargingtimechange_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
 
-Das **`chargingtimechange`** Ereignis des {{domxref("BatteryManager")}} Interfaces wird ausgelöst, wenn die {{domxref("BatteryManager.chargingTime", "chargingTime")}} Eigenschaft der Batterie aktualisiert wird.
+Das **`chargingtimechange`**-Ereignis der [`BatteryManager`](/de/docs/Web/API/BatteryManager)-Schnittstelle wird ausgelöst, wenn die [`chargingTime`](/de/docs/Web/API/BatteryManager/chargingTime)-Eigenschaft des Akkus aktualisiert wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("chargingtimechange", (event) => { })
@@ -22,7 +22,7 @@ onchargingtimechange = (event) => { }
 
 ## Ereignistyp
 
-_Ein generisches {{domxref("Event")}}._
+_Ein generisches [`Event`](/de/docs/Web/API/Event)._
 
 ## Beispiel
 
@@ -56,5 +56,5 @@ navigator.getBattery().then((battery) => {
 
 ## Siehe auch
 
-- {{domxref("BatteryManager")}}
-- {{domxref("Navigator.getBattery()")}}
+- [`BatteryManager`](/de/docs/Web/API/BatteryManager)
+- [`Navigator.getBattery()`](/de/docs/Web/API/Navigator/getBattery)

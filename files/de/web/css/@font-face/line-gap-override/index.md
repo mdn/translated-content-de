@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`line-gap-override`** CSS-Deskriptor für die {{cssxref("@font-face")}} At-Regel definiert die Line-Gap-Metrik für die Schriftart. Die Line-Gap-Metrik ist die von der Schriftart empfohlene Line-Gap oder der externe Abstand.
+Der CSS-Deskriptor **`line-gap-override`** für die {{cssxref("@font-face")}}-Regel definiert die Line-Gap-Metrik für die Schriftart. Die Line-Gap-Metrik ist die empfohlene Line-Gap- oder externe Leading-Wert der Schriftart.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ line-gap-override: 90%;
 ### Werte
 
 - `normal`
-  - : Der Standardwert. Bei Verwendung wird der Metrikwert aus der Schriftartdatei übernommen.
+  - : Der Standardwert. Wenn verwendet, wird der Metrikwert aus der Schriftartdatei bezogen.
 - `<percentage>`
-  - : Ein {{cssxref("&lt;percentage&gt;")}} Wert.
+  - : Ein {{cssxref("&lt;percentage&gt;")}}-Wert.
 
 ## Formale Definition
 
@@ -35,7 +35,7 @@ line-gap-override: 90%;
 
 ### Überschreiben von Metriken einer Ersatzschrift
 
-Die `line-gap-override` Eigenschaft kann hilfreich sein, wenn Metriken einer Ersatzschrift überschrieben werden sollen, um besser zu einer primären Webschrift zu passen.
+Die Eigenschaft `line-gap-override` kann helfen, wenn Metriken einer Ersatzschrift überschrieben werden sollen, um besser mit denen einer primären Web-Schriftart übereinzustimmen.
 
 ```css
 @font-face {
@@ -70,4 +70,4 @@ Die `line-gap-override` Eigenschaft kann hilfreich sein, wenn Metriken einer Ers
 - {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}}
 - {{cssxref("@font-face/src", "src")}}
 - {{cssxref("@font-face/size-adjust", "size-adjust")}}
-- {{cssxref("@font-face/unicode-range", "unicode-range")}} Deskriptor
+- {{cssxref("@font-face/unicode-range", "unicode-range")}}-Deskriptor

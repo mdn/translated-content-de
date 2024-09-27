@@ -1,5 +1,5 @@
 ---
-title: Erstellen vertikaler Formularsteuerungen
+title: Erstellen vertikaler Formularelemente
 slug: Web/CSS/CSS_writing_modes/Vertical_controls
 l10n:
   sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
@@ -7,48 +7,48 @@ l10n:
 
 {{CSSRef}}
 
-Dieser Leitfaden erklärt, wie Sie die CSS-Eigenschaften {{cssxref("writing-mode")}} und {{cssxref("direction")}} verwenden, um vertikale Formularsteuerungen zu erstellen und zu konfigurieren. Dies umfasst:
+Der Leitfaden erklärt, wie Sie die CSS-Eigenschaften {{cssxref("writing-mode")}} und {{cssxref("direction")}} verwenden, um vertikale Formularelemente zu erstellen und zu konfigurieren. Dies umfasst:
 
 - [`<input type="range">`](/de/docs/Web/HTML/Element/input/range) Schieberegler, {{htmlelement("progress")}}-Balken und {{htmlelement("meter")}}-Elemente.
 - {{htmlelement("select")}}-Elemente.
-- {{htmlelement("button")}}-Elemente und Schaltflächeneingabetypen wie [`<input type="button">`](/de/docs/Web/HTML/Element/input/button), [`<input type="reset">`](/de/docs/Web/HTML/Element/input/reset) und [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit).
+- {{htmlelement("button")}}-Elemente und Schaltflächen-Eingabetypen wie [`<input type="button">`](/de/docs/Web/HTML/Element/input/button), [`<input type="reset">`](/de/docs/Web/HTML/Element/input/reset) und [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit).
 - {{htmlelement("textarea")}}-Elemente und textbasierte Eingabetypen wie [`<input type="text">`](/de/docs/Web/HTML/Element/input/text), [`<input type="datetime-local">`](/de/docs/Web/HTML/Element/input/datetime-local) und [`<input type="url">`](/de/docs/Web/HTML/Element/input/url).
 
 ## Allgemeine Technik
 
-In modernen Browsern kann die Eigenschaft {{cssxref("writing-mode")}} auf einen vertikalen Wert gesetzt werden, um Formularsteuerungen vertikal darzustellen, bei denen Textzeichen normalerweise horizontal sind (zum Beispiel in lateinischen Sprachen), wobei der Text um 90 Grad gegenüber der Standardeinstellung gedreht angezeigt wird. Normalerweise vertikale Textzeichen, beispielsweise in Chinesisch oder Japanisch, bleiben in dieser Hinsicht unbeeinflusst.
+In modernen Browsern kann die Eigenschaft {{cssxref("writing-mode")}} auf einen vertikalen Wert eingestellt werden, um Formularsteuerungen mit Textzeichen, die normalerweise horizontal sind (zum Beispiel in lateinischen Sprachen), vertikal anzuzeigen. Die Zeichen werden in einem 90-Grad-Winkel zum Standard angezeigt. Normalerweise vertikale Textzeichen, zum Beispiel in Chinesisch oder Japanisch, bleiben in dieser Hinsicht unverändert.
 
-Dies ist nützlich, wenn vertikale Sprachformulare erstellt werden.
+Dies ist nützlich beim Erstellen von Formularen für vertikale Sprachen.
 
 Konkret:
 
-- `writing-mode: vertical-lr` erstellt vertikale Formularsteuerungen mit einer Links-nach-Rechts-Blockfließrichtung, was bedeutet, dass in Steuerungen mit Umbruch oder mehreren Textzeilen nachfolgende Zeilen rechts von vorherigen Zeilen erscheinen.
-- `writing-mode: vertical-rl` erstellt vertikale Formularsteuerungen mit einer Rechts-nach-Links-Blockfließrichtung, was bedeutet, dass in Steuerungen mit Umbruch oder mehreren Textzeilen nachfolgende Zeilen links von vorherigen Zeilen erscheinen.
+- Mit `writing-mode: vertical-lr` werden vertikale Formularelemente mit einer Blockflussrichtung von links nach rechts erstellt. Das bedeutet, dass bei Steuerungen mit Umbrüchen oder mehreren Textzeilen nachfolgende Zeilen rechts von vorhergehenden Zeilen erscheinen.
+- Mit `writing-mode: vertical-rl` werden vertikale Formularelemente mit einer Blockflussrichtung von rechts nach links erstellt, was bedeutet, dass bei Steuerungen mit Umbrüchen oder mehreren Textzeilen nachfolgende Zeilen links von vorhergehenden Zeilen erscheinen.
 
-Sie könnten einen [Transformieren](/de/docs/Web/CSS/transform) verwenden, um die Steuerungen um 90 Grad zu drehen, aber das würde die Steuerungen in ihrer eigenen Ebene platzieren und unbeabsichtigte Layouteffekte wie das Überlappen anderer Inhalte verursachen. Die Verwendung von `writing-mode` bietet eine zuverlässigere Lösung.
-
-> [!NOTE]
-> Während die Eigenschaft {{cssxref("writing-mode")}} gut unterstützt wird, erhielt die Erstellung vertikal ausgerichteter Formularsteuerungen mit `writing-mode` erst 2024 vollständige Browserunterstützung.
+Sie könnten [transform](/de/docs/Web/CSS/transform) verwenden, um die Steuerungen um 90 Grad zu drehen, jedoch würde dies die Steuerungen in ihrer eigenen Ebene platzieren und unbeabsichtigte Layout-Nebeneffekte verursachen, wie das Überlappen anderer Inhalte. Die Verwendung von `writing-mode` bietet eine zuverlässigere Lösung.
 
 > [!NOTE]
-> Die experimentellen Werte `sideways-lr` und `sideways-rl` haben eine ähnliche Wirkung wie `vertical-lr` und `vertical-rl`, außer dass normalerweise vertikale Textzeichen (z.B. in Chinesisch oder Japanisch) um 90 Grad gedreht werden, um auf ihren Seiten anzuzeigen, während horizontale Textzeichen (z.B. in lateinischen Sprachen) von diesen Werten unbeeinflusst bleiben.
+> Während die Eigenschaft {{cssxref("writing-mode")}} gut unterstützt wird, erlangte die Erstellung vertikal ausgerichteter Formularelemente mit `writing-mode` erst 2024 die vollständige Browser-Unterstützung.
+
+> [!NOTE]
+> Die experimentellen Werte `sideways-lr` und `sideways-rl` haben eine ähnliche Wirkung wie `vertical-lr` und `vertical-rl`, außer dass normalerweise vertikale Textzeichen (zum Beispiel in Chinesisch oder Japanisch) um 90 Grad gedreht werden, um seitlich angezeigt zu werden, während horizontale Textzeichen (zum Beispiel in lateinischen Sprachen) von diesen Werten nicht beeinflusst werden.
 
 Zusätzlich kann die Eigenschaft {{cssxref("direction")}} verwendet werden, um die Richtung des Inhalts innerhalb der Steuerungen zu steuern:
 
 - `direction: ltr` lässt den Inhalt oben beginnen und nach unten fließen.
 - `direction: rtl` lässt den Inhalt unten beginnen und nach oben fließen.
 
-Die Eigenschaft `direction` kann verwendet werden, um die **inline Basisausrichtung** festzulegen – die primäre Richtung, in der der Inhalt auf einer Zeile geordnet ist, die definiert, auf welchen Seiten der "Start" und das "Ende" einer Zeile sind. Bei textbasierten Formularsteuerungen ist der Unterschied offensichtlich – der Textfluss beginnt entweder oben oder unten. In nicht-textbasierten Steuerungen wie Bereichsschiebereglern legt `direction` die Richtung fest, in der die Steuerung gezeichnet wird. Zum Beispiel legt `direction: ltr` auf einem vertikalen Schieberegler den niedrigsten Wert oben und den höchsten Wert unten am Schieberegler fest.
+Die Eigenschaft `direction` kann verwendet werden, um die **Inline-Basisrichtung** festzulegen — die primäre Richtung, in die der Inhalt in einer Zeile geordnet ist, die festlegt, auf welchen Seiten sich der "Anfang" und das "Ende" einer Zeile befinden. Bei textbasierten Formularelementen ist der Unterschied offensichtlich — der Textfluss beginnt oben oder unten. Bei nicht textbasierten Steuerungen wie Bereichsreglern legt `direction` die Richtung fest, in der die Steuerung gezeichnet wird. Zum Beispiel legt `direction: ltr` auf einem vertikalen Schieberegler den niedrigsten Wert oben und den höchsten Wert unten am Schieberegler fest.
 
-Die folgenden Abschnitte zeigen, wie verschiedene Arten von vertikalen Formularsteuerungen erstellt werden, zusammen mit Beispielen für jede. Konsultieren Sie die Browserkompatibilitätsinformationen auf jeder der verlinkten Referenzseiten, um die genaue Unterstützung jedes Typs zu erfahren.
+Die folgenden Abschnitte zeigen, wie Sie verschiedene Arten von vertikalen Formularelementen erstellen, zusammen mit Beispielen für jedes. Informieren Sie sich über die Browser-Kompatibilitätsinformationen auf jeder der verlinkten Referenzseiten, um die genauen Informationen zur Unterstützung jedes Typs zu finden.
 
-## Bereichsschieberegler, Messgeräte und Fortschrittsbalken
+## Bereichsregler, Zähler und Fortschrittsbalken
 
-Lassen Sie uns einen Blick darauf werfen, wie vertikale Bereichsschieberegler, Messgeräte und Fortschrittsbalken erstellt werden.
+Werfen wir einen Blick darauf, wie man vertikale Bereichsregler, Zähler und Fortschrittsbalken erstellt.
 
 ### Einfaches Beispiel
 
-Ein typischer Satz von visuellen Steuerungen für [`<input type="range">`](/de/docs/Web/HTML/Element/input/range)-Schieberegler, {{htmlelement("progress")}} und {{htmlelement("meter")}} wird so erstellt:
+Ein typischer Satz visueller [`<input type="range">`](/de/docs/Web/HTML/Element/input/range) Schieberegler, {{htmlelement("progress")}}, und {{htmlelement("meter")}}-Steuerungen wird so erstellt:
 
 ```html
 <form>
@@ -61,7 +61,7 @@ Ein typischer Satz von visuellen Steuerungen für [`<input type="range">`](/de/d
 ```
 
 > [!NOTE]
-> Beste Praxis ist es, für jedes Formularsteuerungselement ein {{htmlelement("label")}}-Element einzuschließen, um eine sinnvolle Textbeschreibung für jeden Bereich zuzuordnen, um die Barrierefreiheit zu verbessern (siehe [Sinnvolle Textetiketten](/de/docs/Learn/Accessibility/HTML#meaningful_text_labels) für weitere Informationen). Wir haben das hier nicht gemacht, da sich dieser Artikel nur auf die visuellen Renderaspekte der Formularsteuerungen konzentriert, aber Sie sollten dies in Ihrem Produktionscode sicherstellen.
+> Eine bewährte Methode besteht darin, für jedes Formularelement ein {{htmlelement("label")}}-Element hinzuzufügen, um jedem Feld eine aussagekräftige Textbeschreibung für Barrierefreiheitszwecke zuzuordnen (siehe [Aussagekräftige Textetiketten](/de/docs/Learn/Accessibility/HTML#meaningful_text_labels) für weitere Informationen). Wir haben dies hier nicht getan, da sich dieser Artikel ausschließlich auf Aspekte der visuellen Darstellung der Formularelemente konzentriert, aber Sie sollten dies im Produktionscode sicherstellen.
 
 Um die Steuerungen vertikal anzuzeigen, können wir CSS wie folgt verwenden:
 
@@ -74,17 +74,17 @@ progress {
 }
 ```
 
-{{cssxref("writing-mode", "writing-mode: vertical-lr")}} (und `vertical-rl`) sorgt dafür, dass die Steuerungen in modernen Browsern vertikal angezeigt werden.
+{{cssxref("writing-mode", "writing-mode: vertical-lr")}} (und `vertical-rl`) führt dazu, dass die Steuerungen in modernen Browsern vertikal angezeigt werden.
 
 Das Ergebnis sieht so aus:
 
-{{ EmbedLiveSample("Einfaches Beispiel", "100%", "170") }}
+{{ EmbedLiveSample("Basic example", "100%", "170") }}
 
 ### Zeichnen der Steuerung von unten nach oben
 
-Standardmäßig haben die Steuerungen einen {{cssxref("direction")}}-Wert von `ltr`. Dies bewirkt, dass Ihre Schieberegler, Messgeräte und Fortschrittsbalken von oben nach unten gezeichnet werden, wie oben gesehen.
+Standardmäßig haben die Steuerungen einen {{cssxref("direction")}}-Wert von `ltr`. Dies führt dazu, dass Ihre Schieberegler, Zähler und Fortschrittsbalken von oben nach unten gezeichnet werden, wie oben zu sehen ist.
 
-Sie können dies ändern, indem Sie `direction: rtl` setzen – dies bewirkt, dass sie von unten nach oben gezeichnet werden:
+Sie können dies ändern, indem Sie `direction: rtl` setzen — dies führt dazu, dass sie stattdessen von unten nach oben gezeichnet werden:
 
 ```html hidden
 <form>
@@ -108,16 +108,16 @@ progress {
 
 Das Ergebnis sieht so aus:
 
-{{ EmbedLiveSample("Zeichnen der Steuerung von unten nach oben", "100%", "170") }}
+{{ EmbedLiveSample("Drawing the control from bottom to top", "100%", "170") }}
 
-### Erstellen vertikaler Bereichsschieberegler in älteren Browsern
+### Erstellen vertikaler Bereichsregler in älteren Browsern
 
-In älteren Browsern, die die Erstellung vertikaler Formularsteuerungen mit `writing-mode` und `direction` nicht unterstützen, gibt es begrenzte Alternativen. Die folgenden funktionieren nur bei `<input type="range">` und bewirken, dass der Text von unten nach oben fließt – sie haben keinen Einfluss auf `<meter>` und `<progress>`-Elemente:
+In älteren Browsern, die die Erstellung vertikaler Formularelemente mit `writing-mode` und `direction` nicht unterstützen, stehen nur begrenzte Alternativen zur Verfügung. Die folgenden funktionieren nur auf `<input type="range">` und bewirken, dass der Text von unten nach oben fließt — sie haben keine Wirkung auf `<meter>`- und `<progress>`-Elemente:
 
 - Die nicht standardisierte Eigenschaft [`appearance: slider-vertical`](/de/docs/Web/CSS/appearance) kann in älteren Versionen von Safari und Chrome verwendet werden.
-- Das nicht standardisierte `orient="vertical"`-Attribut kann dem `<input type="range">`-Element selbst in älteren Firefox-Versionen hinzugefügt werden.
+- Das nicht standardisierte Attribut `orient="vertical"` kann dem `<input type="range">`-Element selbst in älteren Versionen von Firefox hinzugefügt werden.
 
-Der HTML-Code für dieses Beispiel umfasst einen [`<input type="range">`](/de/docs/Web/HTML/Element/input/range)-Schieberegler, bei dem `orient="vertical"` hinzugefügt wurde, um ihn in älteren Firefox-Versionen vertikal darzustellen:
+Das HTML für dieses Beispiel enthält nur einen [`<input type="range">`](/de/docs/Web/HTML/Element/input/range) Schieberegler, mit `orient="vertical"` hinzugefügt, um ihn in älteren Firefox-Versionen vertikal anzuzeigen:
 
 ```html
 <form>
@@ -136,31 +136,31 @@ input[type="range"] {
 
 Das Ergebnis sieht so aus:
 
-{{ EmbedLiveSample("Erstellen vertikaler Bereichsschieberegler in älteren Browsern", "100%", "190") }}
+{{ EmbedLiveSample("Creating vertical range sliders in older browsers", "100%", "190") }}
 
 ## Select-Elemente
 
-Dieser Abschnitt zeigt, wie vertikale {{htmlelement("select")}}-Elemente behandelt werden.
+Dieser Abschnitt zeigt, wie man vertikale {{htmlelement("select")}}-Elemente handhabt.
 
 ### Einfaches Select-Beispiel
 
-Das folgende HTML erstellt zwei `<select>`-Elemente, eines, bei dem eine einzelne Auswahl getroffen werden kann, und eines mit mehreren Auswahlen:
+Das folgende HTML erstellt zwei `<select>`-Elemente: eines, bei dem eine einzige Auswahl getroffen werden kann, und eines mit mehreren Auswahlmöglichkeiten:
 
 ```html
 <form>
   <select multiple>
-    <option>Erster</option>
-    <option>Zweiter</option>
-    <option>Dritter</option>
-    <option>Vierter</option>
-    <option>Fünfter</option>
+    <option>First</option>
+    <option>Second</option>
+    <option>Third</option>
+    <option>Fourth</option>
+    <option>Fifth</option>
   </select>
   <select>
-    <option>Erster</option>
-    <option>Zweiter</option>
-    <option>Dritter</option>
-    <option>Vierter</option>
-    <option>Fünfter</option>
+    <option>First</option>
+    <option>Second</option>
+    <option>Third</option>
+    <option>Fourth</option>
+    <option>Fifth</option>
   </select>
 </form>
 ```
@@ -177,56 +177,56 @@ select {
 
 Das Ergebnis sieht so aus:
 
-{{ EmbedLiveSample("Einfaches Select-Beispiel", "100%", "130") }}
+{{ EmbedLiveSample("Select basic example", "100%", "130") }}
 
-### Anpassen der Textrichtung und Optionsreihenfolge
+### Anpassen der Textrichtung und Reihenfolge der Optionen
 
-Es ist auch hier möglich, einen {{cssxref("direction")}}-Wert von `rtl` zu verwenden, um die Textrichtung von unten nach oben und nicht in der Standardrichtung von oben nach unten zu setzen.
+Es ist wieder möglich, einen {{cssxref("direction")}}-Wert von `rtl` zu verwenden, um die Textrichtung von unten nach oben statt der Standardrichtung von oben nach unten einzustellen.
 
-Es sei auch darauf hingewiesen, dass im obigen Beispiel die Inlinerichtung für die Select-Optionen von rechts nach links geht, weil wir `writing-mode: vertical-rl` verwendet haben. Wenn wir `writing-mode: vertical-lr` verwenden, erscheint der `<option>`-Text von links nach rechts.
+Es ist auch erwähnenswert, dass in dem obigen Beispiel die Inline-Richtung der Select-Optionen von rechts nach links geht, weil wir `writing-mode: vertical-rl` verwendet haben. Wenn wir stattdessen `writing-mode: vertical-lr` verwenden, erscheinen die `<option>`-Texte von links nach rechts.
 
-Wir werden diese beiden Anwendungsfälle anhand von drei Listenboxen (`multiple`) `<select>`-Elementen erkunden, um die Effekte im Vergleich einfach nebeneinander zu sehen.
+Wir werden diese beiden Anwendungsfälle untersuchen, indem wir drei Listenfeld (`multiple`) `<select>`-Elemente verwenden, um die Effekte nebeneinander einfach zu vergleichen.
 
 ```html
 <form>
   <div>
     <h2>writing-mode: vertical-lr</h2>
     <select multiple>
-      <option>Erster</option>
-      <option>Zweiter</option>
-      <option>Dritter</option>
-      <option>Vierter</option>
-      <option>Fünfter</option>
+      <option>First</option>
+      <option>Second</option>
+      <option>Third</option>
+      <option>Fourth</option>
+      <option>Fifth</option>
     </select>
   </div>
   <div class="direction">
     <h2>direction: rtl & writing-mode: vertical-lr</h2>
     <select multiple>
-      <option>Erster</option>
-      <option>Zweiter</option>
-      <option>Dritter</option>
-      <option>Vierter</option>
-      <option>Fünfter</option>
+      <option>First</option>
+      <option>Second</option>
+      <option>Third</option>
+      <option>Fourth</option>
+      <option>Fifth</option>
     </select>
   </div>
   <div class="reverse-option-order">
     <h2>writing-mode: vertical-rl</h2>
     <select multiple>
-      <option>Erster</option>
-      <option>Zweiter</option>
-      <option>Dritter</option>
-      <option>Vierter</option>
-      <option>Fünfter</option>
+      <option>First</option>
+      <option>Second</option>
+      <option>Third</option>
+      <option>Fourth</option>
+      <option>Fifth</option>
     </select>
   </div>
 </form>
 ```
 
-Im CSS für dieses Beispiel setzen wir die folgenden Eigenschaften auf den drei Listenboxen:
+Im CSS für dieses Beispiel setzen wir die folgenden Eigenschaften auf die drei Listenfelder:
 
-1. `writing-mode: vertical-rl`, das sich genauso ausrichtet wie im vorherigen Beispiel - Text fließt von oben nach unten und Optionen werden von rechts nach links angezeigt.
+1. `writing-mode: vertical-rl`, das genauso wie im vorherigen Beispiel angezeigt wird — Text fließt von oben nach unten, und die Optionen werden von rechts nach links angezeigt.
 2. `writing-mode: vertical-rl` und `direction: rtl`, wobei die Optionen von rechts nach links gehen, aber der Textfluss von unten nach oben umgekehrt wird.
-3. `writing-mode: vertical-lr`, bei dem der Text von oben nach unten geht und die Optionsreihenfolge von links nach rechts umkehrt.
+3. `writing-mode: vertical-lr`, wobei der Text von oben nach unten geht, während die Reihenfolge der Optionen von links nach rechts umgekehrt wird.
 
 ```css hidden
 form {
@@ -271,18 +271,18 @@ select {
 
 Das Ergebnis sieht so aus:
 
-{{ EmbedLiveSample("Anpassen der Textrichtung und Optionsreihenfolge", "100%", "200") }}
+{{ EmbedLiveSample("Adjusting text direction and option order", "100%", "200") }}
 
 ## Schaltflächen
 
-Dieser Abschnitt zeigt, wie Sie vertikale {{htmlelement("button")}}-Elemente behandeln. Beachten Sie, dass wir in den folgenden Beispielen nur ein `<button>`-Element verwendet haben, das Verhalten jedoch das gleiche ist wie bei anderen Elementen, die Schaltflächen erstellen, wie [`<input>`](/de/docs/Web/HTML/Element/input)-Typen von [`button`](/de/docs/Web/HTML/Element/input/button), [`reset`](/de/docs/Web/HTML/Element/input/reset) und [`submit`](/de/docs/Web/HTML/Element/input/submit).
+Dieser Abschnitt zeigt, wie man vertikale {{htmlelement("button")}}-Elemente handhabt. Beachten Sie, dass wir in den folgenden Beispielen nur ein `<button>`-Element verwendet haben, das Verhalten jedoch bei anderen Elementen, die Schaltflächen erstellen, wie [`<input>`](/de/docs/Web/HTML/Element/input) Typen von [`button`](/de/docs/Web/HTML/Element/input/button), [`reset`](/de/docs/Web/HTML/Element/input/reset) und [`submit`](/de/docs/Web/HTML/Element/input/submit) dasselbe ist.
 
 ### Einfaches Schaltflächenbeispiel
 
-Das folgende HTML erstellt zwei `<button>`-Elemente, eines mit einer einzelnen Textzeile und eines mit drei:
+Das folgende HTML erstellt zwei `<button>`-Elemente, eines mit einer einzigen Textzeile und eines mit drei:
 
 ```html
-<button>Drücken Sie mich</button> <button>Drücken Sie mich<br />Bitte?<br />Danke</button>
+<button>Press me</button> <button>Press me<br />Please?<br />Thanks</button>
 ```
 
 Um die Schaltflächen vertikal anzuzeigen, können wir CSS wie folgt verwenden:
@@ -297,26 +297,26 @@ button {
 
 Das Ergebnis sieht so aus:
 
-{{ EmbedLiveSample("Einfaches Schaltflächenbeispiel", "100%", "130") }}
+{{ EmbedLiveSample("Basic button example", "100%", "130") }}
 
-### Anpassen der Zeilenreihenfolge des Schaltflächentexts
+### Anpassen der Reihenfolge der Schaltflächentextzeilen
 
-Wenn Sie den `writing-mode`-Wert von `vertical-rl` zu `vertical-lr` wechseln, erscheinen nachfolgende Textzeilen rechts von vorherigen Zeilen anstatt links.
+Wenn Sie den `writing-mode`-Wert von `vertical-rl` auf `vertical-lr` ändern, erscheinen nachfolgende Textzeilen rechts von vorhergehenden Zeilen, anstatt links.
 
-Dieses Beispiel verwendet zwei Kopien der Schaltfläche mit drei Textzeilen, die wir im vorherigen Beispiel gesehen haben, damit Sie die Effekte des Wechsels des Schreibmodus leicht sehen können:
+In diesem Beispiel verwenden wir zwei Kopien der Schaltfläche mit drei Textzeilen, die wir im vorherigen Beispiel gesehen haben, damit Sie die Effekte des Änderung des Schreibmodus leicht sehen können:
 
 ```html
 <div>
   <h2>writing-mode: vertical-lr</h2>
-  <button>Drücken Sie mich<br />Bitte?<br />Danke</button>
+  <button>Press me<br />Please?<br />Thanks</button>
 </div>
 <div class="reverse-line-order">
   <h2>writing-mode: vertical-rl</h2>
-  <button>Drücken Sie mich<br />Bitte?<br />Danke</button>
+  <button>Press me<br />Please?<br />Thanks</button>
 </div>
 ```
 
-Im CSS setzen wir `writing-mode: vertical-rl` auf die erste Schaltfläche, um die Zeilenreihenfolge von rechts nach links anzuordnen. Auf der zweiten Schaltfläche setzen wir `writing-mode: vertical-lr`, um die Zeilenreihenfolge umzukehren — von links nach rechts:
+Im CSS setzen wir `writing-mode: vertical-rl` auf die erste Schaltfläche, um die Zeilenreihenfolge von rechts nach links zu layouten. Auf die zweite Schaltfläche setzen wir `writing-mode: vertical-lr`, um die Zeilenreihenfolge umzukehren — von links nach rechts:
 
 ```css hidden
 body {
@@ -357,24 +357,24 @@ button {
 
 Das Ergebnis sieht so aus:
 
-{{ EmbedLiveSample("Anpassen der Zeilenreihenfolge des Schaltflächentexts", "100%", "160") }}
+{{ EmbedLiveSample("Adjusting button text line order", "100%", "160") }}
 
-## Textbasierte Formularsteuerungen
+## Textbasierte Formularelemente
 
-Zu guter Letzt schauen wir uns an, wie vertikale {{htmlelement("textarea")}}s und textuelle `<input>`-Typen behandelt werden. Beachten Sie, dass, während wir nur den `<input type="text">`-Elementtyp in den folgenden Beispielen verwenden, das Verhalten bei anderen textuellen [`<input>`](/de/docs/Web/HTML/Element/input)-Typen wie [`password`](/de/docs/Web/HTML/Element/input/button), [`number`](/de/docs/Web/HTML/Element/input/reset), [`url`](/de/docs/Web/HTML/Element/input/submit) usw. das gleiche ist.
+Zuletzt betrachten wir das Handling von vertikalen {{htmlelement("textarea")}}-Elementen und textbasierten `<input>`-Typen. Beachten Sie, dass, obwohl wir in den folgenden Beispielen nur einen `<input type="text">` in den Beispiel enthalten haben, das Verhalten bei anderen textbasierten [`<input>`](/de/docs/Web/HTML/Element/input)-Typen dasselbe ist: [`password`](/de/docs/Web/HTML/Element/input/button), [`number`](/de/docs/Web/HTML/Element/input/reset), [`url`](/de/docs/Web/HTML/Element/input/submit), etc.
 
-### Einfaches Text-Input- und Textarea-Beispiel
+### Einfaches Text-Eingabe- und Textbereich-Beispiel
 
-Das folgende HTML erstellt ein `<textarea>` und ein `<input type="text">`:
+Das folgende HTML erstellt eine `<textarea>` und ein `<input type="text">`:
 
 ```html
 <form>
-  <textarea>Das ist mein Textbereich</textarea>
-  <input type="text" value="Eingabetext" />
+  <textarea>This is my textarea</textarea>
+  <input type="text" value="Input text" />
 </form>
 ```
 
-Um die Eingabe und die Textarea vertikal anzuzeigen, können wir CSS wie folgt verwenden:
+Um die Eingabe und den Textbereich vertikal anzuzeigen, können wir CSS wie folgt verwenden:
 
 ```css
 textarea,
@@ -387,39 +387,39 @@ input[type="text"] {
 
 Das Ergebnis sieht so aus:
 
-{{ EmbedLiveSample("Einfaches Text-Input- und Textarea-Beispiel", "100%", "130") }}
+{{ EmbedLiveSample("Basic text input and textarea example", "100%", "130") }}
 
-### Anpassen der Textrichtung und Linienlayoutordnung
+### Anpassen der Textrichtung und Zeilenlayout-Reihenfolge
 
-Sie können einen {{cssxref("direction")}}-Wert von `rtl` verwenden, um die Textrichtung von der Standardrichtung oben-nach-unten auf unten-nach-oben zu ändern. Sie können auch den `writing-mode` auf `vertical-lr` statt `vertical-rl` setzen, um zu bewirken, dass mehrere Textzeilen in `<textarea>`s von links nach rechts statt der Standardrichtung von rechts nach links erscheinen.
+Sie können den Wert der Eigenschaft {{cssxref("direction")}} auf `rtl` setzen, um die Textrichtung von oben nach unten auf unten nach oben zu ändern. Sie können auch `writing-mode` auf `vertical-lr` anstatt `vertical-rl` setzen, um mehrere Textzeilen in `<textarea>`s von links nach rechts anstatt der Standardrichtung von rechts nach links erscheinen zu lassen.
 
-Dieses Beispiel verwendet drei Kopien derselben Texteingaben, die wir im vorherigen Beispiel gesehen haben, damit Sie die Effekte der Änderung von `direction` und `writing-mode`, wie oben beschrieben, leicht sehen können:
+In diesem Beispiel verwenden wir drei Kopien der gleichen Textelemente, die wir im vorherigen Beispiel gesehen haben, damit Sie die Effekte der Änderung von `direction` und `writing-mode` wie oben diskutiert leicht sehen können:
 
 ```html
 <form>
   <div>
     <h2>writing-mode: vertical-lr</h2>
-    <textarea>Das ist mein Textbereich</textarea>
-    <input type="text" value="Eingabetext" />
+    <textarea>This is my textarea</textarea>
+    <input type="text" value="Input text" />
   </div>
   <div class="direction">
     <h2>direction: rtl & writing-mode: vertical-lr</h2>
-    <textarea>Das ist mein Textbereich</textarea>
-    <input type="text" value="Eingabetext" />
+    <textarea>This is my textarea</textarea>
+    <input type="text" value="Input text" />
   </div>
   <div class="reverse-line-order">
     <h2>writing-mode: vertical-rl</h2>
-    <textarea>Das ist mein Textbereich</textarea>
-    <input type="text" value="Eingabetext" />
+    <textarea>This is my textarea</textarea>
+    <input type="text" value="Input text" />
   </div>
 </form>
 ```
 
-Im CSS setzen wir die folgenden Eigenschaften auf die drei Sets von Texteingaben:
+Im CSS setzen wir die folgenden Eigenschaften auf die drei Sätze von Textelementen:
 
-1. `writing-mode: vertical-rl`, um es genauso darzustellen wie im vorherigen Beispiel – Text fließt von oben nach unten, und Zeilen fließen von rechts nach links.
-2. `writing-mode: vertical-rl` und `direction: rtl`, um die Zeilen von rechts nach links fließen zu lassen, aber den Textfluss von unten nach oben umzukehren.
-3. `writing-mode: vertical-lr`, um den Text von oben nach unten fließen zu lassen, aber den Fluss der Zeilen von links nach rechts umzukehren. Beachten Sie, dass dies keine Auswirkungen auf `<input type="text">`-Elemente hat, da diese immer einzeilig sind.
+1. `writing-mode: vertical-rl`, um es genauso wie im vorherigen Beispiel anzuzeigen — Text fließt von oben nach unten, und die Zeilen fließen von rechts nach links.
+2. `writing-mode: vertical-rl` und `direction: rtl`, um die Zeilen von rechts nach links zu fließen, aber den Textfluss von unten nach oben umzukehren.
+3. `writing-mode: vertical-lr`, um den Text von oben nach unten zu fließen, aber den Fluss der Zeilen umzukehren — von links nach rechts. Beachten Sie, dass dies keine Wirkung auf `<input type="text">`-Elemente hat, da sie immer einzeilig sind.
 
 ```css hidden
 form {
@@ -468,11 +468,11 @@ input[type="text"] {
 
 Das Ergebnis sieht so aus:
 
-{{ EmbedLiveSample("Anpassen der Textrichtung und Linienlayoutordnung", "100%", "180") }}
+{{ EmbedLiveSample("Adjusting text direction and line layout order", "100%", "180") }}
 
 ## Siehe auch
 
 - Das [`<input>`](/de/docs/Web/HTML/Element/input)-Element.
 - Andere relevante Elemente: {{htmlelement("button")}}, {{htmlelement("meter")}}, {{htmlelement("progress")}}, und {{htmlelement("select")}}.
 - [Umgang mit verschiedenen Textrichtungen](/de/docs/Learn/CSS/Building_blocks/Handling_different_text_directions)
-- [Gestaltung von Webformularen](/de/docs/Learn/Forms/Styling_web_forms)
+- [Styling von Webformularen](/de/docs/Learn/Forms/Styling_web_forms)

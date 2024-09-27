@@ -7,22 +7,22 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Das **`HTMLLegendElement`** ist eine Schnittstelle, die den Zugriff auf Eigenschaften der {{HTMLElement("legend")}}-Elemente ermöglicht. Sie erbt Eigenschaften und Methoden von der {{domxref("HTMLElement")}}-Schnittstelle.
+Das **`HTMLLegendElement`** ist eine Schnittstelle, die den Zugriff auf Eigenschaften der {{HTMLElement("legend")}}-Elemente ermöglicht. Es erbt Eigenschaften und Methoden von der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLLegendElement.align")}} {{deprecated_inline}}
-  - : Ein String, der die Ausrichtung relativ zur Formulargruppe darstellt.
-- {{domxref("HTMLLegendElement.form")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("HTMLFormElement")}}, das das Formular darstellt, zu dem diese Legende gehört. Wenn die Legende ein Fieldset-Element als übergeordnetes Element hat, gibt dieses Attribut denselben Wert zurück wie das **form**-Attribut des übergeordneten Fieldset-Elements. Andernfalls gibt es `null` zurück.
+- [`HTMLLegendElement.align`](/de/docs/Web/API/HTMLLegendElement/align) {{deprecated_inline}}
+  - : Ein String, der die Ausrichtung relativ zum Formularsatz darstellt.
+- [`HTMLLegendElement.form`](/de/docs/Web/API/HTMLLegendElement/form) {{ReadOnlyInline}}
+  - : Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement), das das Formular darstellt, zu dem dieser Legendentext gehört. Falls der Legendentext ein `fieldset`-Element als übergeordnetes Element hat, gibt dieses Attribut denselben Wert wie das **form**-Attribut des übergeordneten `fieldset`-Elements zurück. Andernfalls wird `null` zurückgegeben.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, {{domxref("HTMLElement")}}._
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 

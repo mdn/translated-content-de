@@ -7,29 +7,29 @@ l10n:
 
 {{APIRef("Media Session API")}}
 
-Das **`MediaMetadata`** Interface der {{domxref("Media Session API", "", "", "nocode")}} ermöglicht es einer Webseite, reichhaltige Mediadaten für die Anzeige in einem Plattform-Benutzeroberfläche bereitzustellen.
+Das **`MediaMetadata`**-Interface der [Media Session API](/de/docs/Web/API/Media_Session_API) ermöglicht es einer Webseite, reichhaltige Medien-Metadaten zur Anzeige in einer Plattform-UI bereitzustellen.
 
 ## Konstruktor
 
-- {{domxref("MediaMetadata.MediaMetadata", "MediaMetadata()")}}
+- [`MediaMetadata()`](/de/docs/Web/API/MediaMetadata/MediaMetadata)
   - : Erstellt ein neues `MediaMetaData`-Objekt.
 
 ## Instanzeigenschaften
 
-- {{domxref("MediaMetadata.album")}}
-  - : Gibt den Namen des Albums oder der Sammlung zurück oder legt diesen fest, das oder die das abzuspielende Medium enthält.
-- {{domxref("MediaMetadata.artist")}}
-  - : Gibt den Namen des Künstlers, der Gruppe, des Schöpfers usw. des abzuspielenden Mediums zurück oder legt diesen fest.
-- {{domxref("MediaMetadata.artwork")}}
-  - : Gibt ein Array von Bildern zurück oder legt dieses fest, das mit dem abzuspielenden Medium verbunden ist.
-- {{domxref("MediaMetadata.chapterInfo")}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt ein Array von Kapitelinformationen zurück, die mit dem abzuspielenden Medium verbunden sind und durch {{domxref("ChapterInformation")}}-Objektinstanzen dargestellt werden.
-- {{domxref("MediaMetadata.title")}}
-  - : Gibt den Titel des abzuspielenden Mediums zurück oder legt diesen fest.
+- [`MediaMetadata.album`](/de/docs/Web/API/MediaMetadata/album)
+  - : Gibt den Namen des Albums oder der Sammlung zurück, in dem die zu spielenden Medien enthalten sind, oder setzt diesen Namen.
+- [`MediaMetadata.artist`](/de/docs/Web/API/MediaMetadata/artist)
+  - : Gibt den Namen des Künstlers, der Gruppe, des Erstellers usw. der zu spielenden Medien zurück oder setzt diesen Namen.
+- [`MediaMetadata.artwork`](/de/docs/Web/API/MediaMetadata/artwork)
+  - : Gibt ein Array von Bildern zurück, die mit den abzuspielenden Medien verbunden sind, oder setzt dieses Array.
+- [`MediaMetadata.chapterInfo`](/de/docs/Web/API/MediaMetadata/chapterInfo) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Gibt ein Array von Kapitel-Informationsmetadaten zurück, die mit den abzuspielenden Medien verbunden sind, dargestellt durch [`ChapterInformation`](/de/docs/Web/API/ChapterInformation)-Objektinstanzen.
+- [`MediaMetadata.title`](/de/docs/Web/API/MediaMetadata/title)
+  - : Gibt den Titel der abzuspielenden Medien zurück oder setzt diesen Titel.
 
 ## Beispiele
 
-Das folgende Beispiel überprüft die Browserkompatibilität und setzt die aktuellen Metadaten für die Mediasitzung.
+Das folgende Beispiel prüft die Browser-Kompatibilität und setzt die aktuellen Metadaten für die Mediensitzung.
 
 ```js
 if ("mediaSession" in navigator) {

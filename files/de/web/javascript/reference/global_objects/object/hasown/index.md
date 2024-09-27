@@ -8,9 +8,9 @@ l10n:
 {{JSRef}}
 
 Die statische Methode **`Object.hasOwn()`** gibt `true` zurück, wenn das angegebene Objekt die angegebene Eigenschaft als _eigene_ Eigenschaft besitzt.
-Wenn die Eigenschaft vererbt wird oder nicht existiert, gibt die Methode `false` zurück.
+Wenn die Eigenschaft geerbt ist oder nicht existiert, gibt die Methode `false` zurück.
 
-> **Note:** `Object.hasOwn()` ist als Ersatz für {{jsxref("Object.prototype.hasOwnProperty()")}} gedacht.
+> **Hinweis:** `Object.hasOwn()` ist als Ersatz für {{jsxref("Object.prototype.hasOwnProperty()")}} gedacht.
 
 {{EmbedInteractiveExample("pages/js/object-hasown.html")}}
 
@@ -34,59 +34,60 @@ Andernfalls `false`.
 
 ## Beschreibung
 
-Die Methode **`Object.hasOwn()`** gibt `true` zurück, wenn die angegebene Eigenschaft eine
+Die **`Object.hasOwn()`**-Methode gibt `true` zurück, wenn die angegebene Eigenschaft eine
 direkte Eigenschaft des Objekts ist — selbst wenn der Eigenschaftswert `null` oder `undefined` ist.
-Die Methode gibt `false` zurück, wenn die Eigenschaft vererbt wird oder überhaupt nicht deklariert ist.
-Im Gegensatz zum {{jsxref("Operators/in", "in")}} Operator überprüft diese
-Methode nicht, ob die angegebene Eigenschaft in der Prototypenkette des Objekts vorhanden ist.
+Die Methode gibt `false` zurück, wenn die Eigenschaft geerbt ist oder überhaupt nicht deklariert wurde.
+Im Gegensatz zum {{jsxref("Operators/in", "in")}}-Operator überprüft diese
+Methode nicht die angegebene Eigenschaft in der Prototypenkette des Objekts.
 
-Sie wird über {{jsxref("Object.prototype.hasOwnProperty()")}} empfohlen, da
-sie mit [`null`-Prototyp-Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) und mit Objekten funktioniert, die die geerbte Methode `hasOwnProperty()` überschrieben haben. Während es möglich ist,
-diese Probleme zu umgehen, indem `Object.prototype.hasOwnProperty()` auf einem
-externen Objekt aufgerufen wird, ist `Object.hasOwn()` intuitiver.
+Sie wird gegenüber {{jsxref("Object.prototype.hasOwnProperty()")}} empfohlen, da
+sie sowohl für [`null`-Prototyp-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) als auch für Objekte funktioniert, die
+die geerbte Methode `hasOwnProperty()` überschrieben haben. Während es möglich ist,
+diese Probleme zu umgehen, indem man `Object.prototype.hasOwnProperty()` auf einem
+externen Objekt aufruft, ist `Object.hasOwn()` intuitiver.
 
 ## Beispiele
 
-### Verwendung von hasOwn zum Testen des Vorhandenseins einer Eigenschaft
+### Verwenden von hasOwn, um auf die Existenz einer Eigenschaft zu testen
 
-Der folgende Code zeigt, wie man bestimmt, ob das `example` Objekt eine Eigenschaft namens `prop` enthält.
+Der folgende Code zeigt, wie festgestellt werden kann, ob das `example`-Objekt eine Eigenschaft mit dem Namen `prop` enthält.
 
 ```js
 const example = {};
-Object.hasOwn(example, "prop"); // false - 'prop' wurde nicht definiert
+Object.hasOwn(example, "prop"); // false - 'prop' has not been defined
 
 example.prop = "exists";
-Object.hasOwn(example, "prop"); // true - 'prop' wurde definiert
+Object.hasOwn(example, "prop"); // true - 'prop' has been defined
 
 example.prop = null;
-Object.hasOwn(example, "prop"); // true - eigene Eigenschaft existiert mit Wert null
+Object.hasOwn(example, "prop"); // true - own property exists with value of null
 
 example.prop = undefined;
-Object.hasOwn(example, "prop"); // true - eigene Eigenschaft existiert mit Wert undefined
+Object.hasOwn(example, "prop"); // true - own property exists with value of undefined
 ```
 
-### Direkte vs. vererbte Eigenschaften
+### Direkte vs. geerbte Eigenschaften
 
-Das folgende Beispiel unterscheidet zwischen direkten Eigenschaften und Eigenschaften, die über die Prototypenkette vererbt werden:
+Das folgende Beispiel unterscheidet zwischen direkten Eigenschaften und Eigenschaften, die über die Prototypenkette geerbt wurden:
 
 ```js
 const example = {};
 example.prop = "exists";
 
-// `hasOwn` gibt nur true für direkte Eigenschaften zurück:
+// `hasOwn` will only return true for direct properties:
 Object.hasOwn(example, "prop"); // true
 Object.hasOwn(example, "toString"); // false
 Object.hasOwn(example, "hasOwnProperty"); // false
 
-// Der `in` Operator gibt true für direkte oder vererbte Eigenschaften zurück:
+// The `in` operator will return true for direct or inherited properties:
 "prop" in example; // true
 "toString" in example; // true
 "hasOwnProperty" in example; // true
 ```
 
-### Iterieren über die Eigenschaften eines Objekts
+### Iteration über die Eigenschaften eines Objekts
 
-Um über die aufzählbaren Eigenschaften eines Objekts zu iterieren, _sollten_ Sie:
+Um über die aufzählbaren Eigenschaften eines Objekts zu iterieren, _sollten_ Sie verwenden:
 
 ```js
 const example = { foo: true, bar: true };
@@ -95,7 +96,7 @@ for (const name of Object.keys(example)) {
 }
 ```
 
-Aber wenn Sie `for...in` verwenden müssen, können Sie `Object.hasOwn()` verwenden, um die vererbten Eigenschaften zu überspringen:
+Aber wenn Sie `for...in` verwenden müssen, können Sie `Object.hasOwn()` verwenden, um die geerbten Eigenschaften zu überspringen:
 
 ```js
 const example = { foo: true, bar: true };
@@ -108,20 +109,18 @@ for (const name in example) {
 
 ### Überprüfen, ob ein Array-Index existiert
 
-Die Elemente eines {{jsxref("Array")}}s sind als direkte Eigenschaften definiert, sodass
-Sie die Methode `hasOwn()` verwenden können, um zu überprüfen, ob ein bestimmter Index existiert:
+Die Elemente eines {{jsxref("Array")}} sind als direkte Eigenschaften definiert, daher
+können Sie die `hasOwn()`-Methode verwenden, um zu überprüfen, ob ein bestimmter Index existiert:
 
 ```js
 const fruits = ["Apple", "Banana", "Watermelon", "Orange"];
 Object.hasOwn(fruits, 3); // true ('Orange')
-Object.hasOwn(fruits, 4); // false - nicht definiert
+Object.hasOwn(fruits, 4); // false - not defined
 ```
 
 ### Problematische Fälle für hasOwnProperty
 
-Dieser Abschnitt zeigt, dass `hasOwn()` gegen die Probleme immun ist, die
-`hasOwnProperty` betreffen. Erstens kann es mit Objekten verwendet werden, die
-`hasOwnProperty()` neu implementiert haben:
+Dieser Abschnitt zeigt, dass `hasOwn()` unempfindlich gegenüber den Problemen ist, die `hasOwnProperty` betreffen. Erstens kann es mit Objekten verwendet werden, die `hasOwnProperty()` neu implementiert haben:
 
 ```js
 const foo = {
@@ -132,18 +131,17 @@ const foo = {
 };
 
 if (Object.hasOwn(foo, "bar")) {
-  console.log(foo.bar); // true - die Neuimplementierung von hasOwnProperty() beeinflusst Object nicht
+  console.log(foo.bar); // true - re-implementation of hasOwnProperty() does not affect Object
 }
 ```
 
-Es kann auch mit [`null`-Prototyp-Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) verwendet werden. Diese erben
-nicht von `Object.prototype`, sodass `hasOwnProperty()` nicht zugänglich ist.
+Es kann auch mit [`null`-Prototyp-Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) verwendet werden. Diese erben nicht von `Object.prototype` und daher ist `hasOwnProperty()` unzugänglich.
 
 ```js
 const foo = Object.create(null);
 foo.prop = "exists";
 if (Object.hasOwn(foo, "prop")) {
-  console.log(foo.prop); // true - funktioniert unabhängig davon, wie das Objekt erstellt wurde.
+  console.log(foo.prop); // true - works irrespective of how the object is created.
 }
 ```
 
@@ -159,8 +157,8 @@ if (Object.hasOwn(foo, "prop")) {
 
 - [Polyfill von `Object.hasOwn` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
 - {{jsxref("Object.prototype.hasOwnProperty()")}}
-- [Aufzählbarkeit und Eigentum von Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)
+- [Aufzählbarkeit und Besitz von Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)
 - {{jsxref("Object.getOwnPropertyNames()")}}
 - {{jsxref("Statements/for...in", "for...in")}}
 - {{jsxref("Operators/in", "in")}}
-- [Vererbung und die Prototypkette](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+- [Vererbung und die Prototypenkette](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`index`**-Schreibgeschützte Eigenschaft des {{domxref("NavigationHistoryEntry")}}-Interfaces gibt den Index des Verlaufseintrags in der Liste der Verlaufseinträge zurück (das heißt, die Liste, die von {{domxref("Navigation.entries()")}} zurückgegeben wird), oder `-1`, wenn der Eintrag nicht in der Liste erscheint oder das aktuelle Dokument nicht vollständig aktiv ist.
+Die **`index`**-Schreibgeschützte Eigenschaft der [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Schnittstelle gibt den Index des Verlaufseintrags in der Liste der Verlaufseinträge zurück (das ist, die Liste, die von [`Navigation.entries()`](/de/docs/Web/API/Navigation/entries) zurückgegeben wird), oder `-1`, wenn der Eintrag nicht in der Liste erscheint oder das aktuelle Dokument nicht vollständig aktiv ist.
 
 ## Wert
 
@@ -31,6 +31,6 @@ console.log(current.index);
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
 - [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)

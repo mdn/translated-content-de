@@ -1,5 +1,5 @@
 ---
-title: Scheren-Animation
+title: Scherenschnitt-Animation
 slug: Web/API/WebGL_API/By_example/Scissor_animation
 l10n:
   sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
@@ -7,28 +7,28 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Boilerplate_1","Learn/WebGL/By_example/Raining_rectangles")}}
 
-Ein einfaches WebGL-Beispiel, in dem wir mit Scherung und Löschoperationen etwas Animation machen.
+Ein einfaches WebGL-Beispiel, bei dem wir mit Scherenschnitt- und Löschoperationen etwas Animationsspaß haben.
 
-## Animation mit Scherung
+## Animation mit Scherenschnitt
 
 {{EmbedLiveSample("Animation_with_scissoring",660,425)}}
 
-In diesem Beispiel animieren wir Quadrate mit {{domxref("WebGLRenderingContext.scissor()","scissor()")}} und {{domxref("WebGLRenderingContext.clear()","clear()")}}. Wir etablieren wieder eine Animationsschleife mit Timern. Beachten Sie, dass dieses Mal die Position des Quadrats (der Scherungsbereich) ist, die bei jedem Frame aktualisiert wird (wir setzen die Bildrate auf etwa alle 17ms oder ungefähr 60fps – Bilder pro Sekunde).
+In diesem Beispiel animieren wir Quadrate mithilfe von [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor) und [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear). Wir richten erneut eine Animationsschleife mit Timern ein. Beachten Sie, dass diesmal die Position des Quadrats (der Scherenbereich) ist, die in jedem Frame aktualisiert wird (wir setzen die Bildrate auf ungefähr eine alle 17 ms, oder etwa 60 fps – Bilder pro Sekunde).
 
-Im Gegensatz dazu wird die Farbe des Quadrats (gesetzt mit {{domxref("WebGLRenderingContext.clearColor()","clearColor")}}) nur dann aktualisiert, wenn ein neues Quadrat erstellt wird. Dies ist eine schöne Demonstration von {{Glossary("WebGL")}} als Zustandsmaschine. Für jedes Quadrat setzen wir einmal seine Farbe und aktualisieren dann nur seine Position bei jedem Frame. Der Löschfarbzustand von WebGL bleibt beim gesetzten Wert, bis wir ihn erneut ändern, wenn ein neues Quadrat erstellt wird.
+Im Gegensatz dazu wird die Farbe des Quadrats (festgelegt mit [`clearColor`](/de/docs/Web/API/WebGLRenderingContext/clearColor)) nur aktualisiert, wenn ein neues Quadrat erstellt wird. Dies ist eine schöne Demonstration von [WebGL](/de/docs/Glossary/WebGL) als Zustandsmaschine. Für jedes Quadrat setzen wir einmal seine Farbe und aktualisieren dann in jedem Frame nur seine Position. Der Löschfarbenzustand von WebGL bleibt beim eingestellten Wert, bis wir ihn erneut ändern, wenn ein neues Quadrat erstellt wird.
 
 ```html hidden
 <p>
-  WebGL-Animation durch Löschen des Zeichenpuffers mit Volltonfarbe und Anwenden
-  eines Scherentests.
+  WebGL animation by clearing the drawing buffer with solid color and applying
+  scissor test.
 </p>
 <button id="animation-onoff">
-  Drücken Sie hier, um die Animation zu <strong>[verb goes here]</strong>.
+  Press here to <strong>[verb goes here]</strong> the animation.
 </button>
 ```
 
 ```html hidden
-<canvas>Ihr Browser scheint keine Canvas zu unterstützen.</canvas>
+<canvas>Your browser does not seem to support canvases.</canvas>
 ```
 
 ```css hidden
@@ -59,8 +59,8 @@ button {
 
 ```js
 window.addEventListener("load", setupAnimation, false);
-// Variablen, um den WebGL-Kontext sowie die Farbe und
-// Position der animierten Quadrate zu halten.
+// Variables to hold the WebGL context, and the color and
+// position of animated squares.
 let gl;
 let color = getRandomColor();
 let position;
@@ -71,9 +71,10 @@ function setupAnimation(evt) {
 
   gl.enable(gl.SCISSOR_TEST);
   gl.clearColor(color[0], color[1], color[2], 1.0);
-  // Anders als bei einem Browserfenster wird die vertikale Position in WebGL
-  // von unten nach oben gemessen. Hier setzen wir die Anfangsposition
-  // des Quadrats auf die linke obere Ecke des Zeichenpuffers.
+  // Unlike the browser window, vertical position in WebGL is
+  // measured from bottom to top. In here we set the initial
+  // position of the square to be at the top left corner of the
+  // drawing buffer.
   position = [0, gl.drawingBufferHeight];
 
   const button = document.querySelector("button");
@@ -97,26 +98,26 @@ function setupAnimation(evt) {
   stopAnimation({ type: "click" });
 }
 
-// Variablen, um die Größe und Geschwindigkeit des Quadrats zu halten.
+// Variables to hold the size and velocity of the square.
 const size = [60, 60];
 let velocity = 3.0;
 function drawAnimation() {
   gl.scissor(position[0], position[1], size[0], size[1]);
   gl.clear(gl.COLOR_BUFFER_BIT);
-  // Bei jedem Frame wird die vertikale Position des Quadrats
-  // verringert, um die Illusion von Bewegung zu erzeugen.
+  // Every frame the vertical position of the square is
+  // decreased, to create the illusion of movement.
   position[1] -= velocity;
-  // Wenn das Quadrat den unteren Rand des Zeichenpuffers erreicht,
-  // überschreiben wir es mit einem neuen Quadrat in einer anderen Farbe und
-  // Geschwindigkeit.
+  // When the square hits the bottom of the drawing buffer,
+  // we override it with new square of different color and
+  // velocity.
   if (position[1] < 0) {
-    // Horizontale Position wird zufällig gewählt, und vertikale
-    // Position oben am Zeichenpuffer.
+    // Horizontal position chosen randomly, and vertical
+    // position at the top of the drawing buffer.
     position = [
       Math.random() * (gl.drawingBufferWidth - size[0]),
       gl.drawingBufferHeight,
     ];
-    // Zufällige Geschwindigkeit zwischen 1.0 und 7.0
+    // Random velocity between 1.0 and 7.0
     velocity = 1.0 + 6.0 * Math.random();
     color = getRandomColor();
     gl.clearColor(color[0], color[1], color[2], 1.0);
@@ -138,7 +139,7 @@ function getRenderingContext() {
   if (!gl) {
     const paragraph = document.querySelector("p");
     paragraph.textContent =
-      "Fehlgeschlagen. Ihr Browser oder Gerät unterstützt möglicherweise kein WebGL.";
+      "Failed. Your browser or device may not support WebGL.";
     return null;
   }
   gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
@@ -152,6 +153,6 @@ function getRenderingContext() {
 })();
 ```
 
-Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/scissor-animation) verfügbar.
+Der Quellcode dieses Beispiels ist ebenfalls auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/scissor-animation) verfügbar.
 
 {{PreviousNext("Learn/WebGL/By_example/Boilerplate_1","Learn/WebGL/By_example/Raining_rectangles")}}

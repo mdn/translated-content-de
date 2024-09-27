@@ -7,11 +7,11 @@ l10n:
 
 {{LearnSidebar}}
 
-Dieser Abschnitt des Lernbereichs ist darauf ausgelegt, Antworten auf häufige Fragen zu geben, die möglicherweise auftreten, aber nicht unbedingt Teil der strukturierten Kernlernpfade sind (z. B. die [HTML](/de/docs/Learn/HTML)- oder [CSS](/de/docs/Learn/CSS)-Lernartikel). Diese Artikel sind so konzipiert, dass sie eigenständig funktionieren.
+Dieser Abschnitt des Lernbereichs ist darauf ausgelegt, Antworten auf häufige Fragen bereitzustellen, die aufkommen können und nicht unbedingt Teil der strukturierten Kernlernwege sind (z.B. die [HTML](/de/docs/Learn/HTML)- oder [CSS](/de/docs/Learn/CSS)-Lernartikel). Diese Artikel sind so gestaltet, dass sie eigenständig funktionieren.
 
 - [HTML-Fragen](/de/docs/Learn/HTML/Howto)
 - [CSS-Fragen](/de/docs/Learn/CSS/Howto)
 - [JavaScript-Fragen](/de/docs/Learn/JavaScript/Howto)
-- [Webmechanik](/de/docs/Learn/Common_questions/Web_mechanics)
+- [Web-Mechanik](/de/docs/Learn/Common_questions/Web_mechanics)
 - [Werkzeuge und Einrichtung](/de/docs/Learn/Common_questions/Tools_and_setup)
 - [Design und Barrierefreiheit](/de/docs/Learn/Common_questions/Design_and_accessibility)

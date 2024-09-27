@@ -8,30 +8,30 @@ l10n:
 
 {{APIRef("Performance API")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`name`**-Eigenschaft der {{domxref("PerformanceEntry")}}-Schnittstelle ist ein String, der den Namen eines Performance-Eintrags darstellt. Sie dient als Identifikator, muss jedoch nicht eindeutig sein. Der Wert hängt von der Unterklasse ab.
+Die schreibgeschützte **`name`**-Eigenschaft des [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Interfaces ist ein String, der den Namen für einen Performance-Eintrag darstellt. Sie fungiert als Bezeichner, muss aber nicht einzigartig sein. Der Wert hängt von der Subklasse ab.
 
 ## Wert
 
-Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts ab, wie in der untenstehenden Tabelle gezeigt.
+Ein String. Der Wert hängt von der Subklasse des `PerformanceEntry`-Objekts ab, wie in der nachstehenden Tabelle gezeigt.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th scope="col">Unterklasse</th>
+      <th scope="col">Subklasse</th>
       <th scope="col">Wert</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>{{domxref('LargestContentfulPaint')}}</td>
+      <td>[`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)</td>
       <td>Gibt immer einen leeren String zurück.</td>
     </tr>
     <tr>
-      <td>{{domxref('LayoutShift')}}</td>
+      <td>[`LayoutShift`](/de/docs/Web/API/LayoutShift)</td>
       <td>Gibt immer <code>"layout-shift"</code> zurück.</td>
     </tr>
     <tr>
-      <td>{{domxref('PerformanceElementTiming')}}</td>
+      <td>[`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)</td>
       <td>Einer der folgenden Strings:
         <ul>
           <li><code>"image-paint"</code></li>
@@ -40,11 +40,11 @@ Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts a
       </td>
     </tr>
     <tr>
-      <td>{{domxref('PerformanceEventTiming')}}</td>
+      <td>[`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)</td>
       <td>Der Typ des zugehörigen Ereignisses.</td>
     </tr>
     <tr>
-      <td>{{domxref('PerformanceLongTaskTiming')}}</td>
+      <td>[`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)</td>
       <td>Einer der folgenden Strings:
         <ul>
           <li><code>"cross-origin-ancestor"</code></li>
@@ -60,25 +60,25 @@ Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts a
       </td>
     </tr>
     <tr>
-      <td>{{domxref('PerformanceMark')}}</td>
+      <td>[`PerformanceMark`](/de/docs/Web/API/PerformanceMark)</td>
       <td>
-        Der Name, der beim Erstellen der Markierung durch Aufruf von
-        {{domxref("Performance.mark","performance.mark()")}} verwendet wurde.
+        Der Name, der verwendet wurde, als die Markierung durch den Aufruf von
+        [`performance.mark()`](/de/docs/Web/API/Performance/mark) erstellt wurde.
       </td>
     </tr>
     <tr>
-      <td>{{domxref('PerformanceMeasure')}}</td>
+      <td>[`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)</td>
       <td>
-        Der Name, der beim Erstellen der Messung durch Aufruf von
-        {{domxref("Performance.measure","performance.measure()")}} verwendet wurde.
+        Der Name, der verwendet wurde, als die Messung durch den Aufruf von
+        [`performance.measure()`](/de/docs/Web/API/Performance/measure) erstellt wurde.
       </td>
     </tr>
     <tr>
-      <td>{{domxref('PerformanceNavigationTiming')}}</td>
-      <td>Die aufgelöste URL der angeforderten Ressource. Dieser Wert ändert sich nicht, selbst wenn die Anforderung umgeleitet wird.</td>
+      <td>[`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)</td>
+      <td>Die aufgelöste URL der angeforderten Ressource. Dieser Wert ändert sich nicht, selbst wenn die Anfrage weitergeleitet wird.</td>
     </tr>
     <tr>
-      <td>{{domxref('PerformancePaintTiming')}}</td>
+      <td>[`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)</td>
       <td>Einer der folgenden Strings:
         <ul>
           <li><code>"first-paint"</code></li>
@@ -87,15 +87,15 @@ Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts a
       </td>
     </tr>
     <tr>
-      <td>{{domxref('PerformanceResourceTiming')}}</td>
-      <td>Die aufgelöste URL der angeforderten Ressource. Dieser Wert ändert sich nicht, selbst wenn die Anforderung umgeleitet wird.</td>
+      <td>[`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)</td>
+      <td>Die aufgelöste URL der angeforderten Ressource. Dieser Wert ändert sich nicht, selbst wenn die Anfrage weitergeleitet wird.</td>
     </tr>
     <tr>
-      <td>{{domxref('TaskAttributionTiming')}}</td>
+      <td>[`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)</td>
       <td>Gibt immer <code>"unknown"</code> zurück.</td>
     </tr>
     <tr>
-      <td>{{domxref('VisibilityStateEntry')}}</td>
+      <td>[`VisibilityStateEntry`](/de/docs/Web/API/VisibilityStateEntry)</td>
       <td>Einer der folgenden Strings:
         <ul>
           <li><code>"visible"</code></li>
@@ -108,12 +108,13 @@ Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts a
 
 ## Beispiele
 
-### Performance-Einträge nach Namen filtern
+### Performance-Einträge nach Name filtern
 
-Wenn der `PerformanceEntry` ein {{domxref('PerformanceResourceTiming')}}-Objekt ist, bezieht sich die `name`-Eigenschaft auf die aufgelöste URL der angeforderten Ressource. In diesem Fall kann die `name`-Eigenschaft nützlich sein, um bestimmte Ressourcen herauszufiltern, zum Beispiel alle SVG-Bilder.
+Wenn das `PerformanceEntry`-Objekt ein [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Objekt ist, bezieht sich die `name`-Eigenschaft auf die aufgelöste URL der angeforderten Ressource.
+In diesem Fall kann die `name`-Eigenschaft nützlich sein, um bestimmte Ressourcen herauszufiltern, zum Beispiel alle SVG-Bilder.
 
 ```js
-// Protokollieren Sie die Dauer von SVG-Ressourcen
+// Log durations of SVG resources
 performance.getEntriesByType("resource").forEach((entry) => {
   if (entry.name.endsWith(".svg")) {
     console.log(`${entry.name}'s duration: ${entry.duration}`);
@@ -121,19 +122,19 @@ performance.getEntriesByType("resource").forEach((entry) => {
 });
 ```
 
-### Performance-Einträge nach Namen abrufen
+### Performance-Einträge nach Name abrufen
 
-Sowohl {{domxref("Performance")}} als auch {{domxref("PerformanceObserver")}} bieten Methoden, mit denen Sie Performance-Einträge direkt nach Namen abrufen können. Sie benötigen nicht unbedingt die `name`-Eigenschaft dafür, stattdessen könnten Sie {{domxref("Performance.getEntriesByName()")}} oder {{domxref("PerformanceObserverEntryList.getEntriesByName()")}} verwenden.
+Sowohl [`Performance`](/de/docs/Web/API/Performance) als auch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) bieten Methoden, mit denen Sie die Performance-Einträge direkt nach Name abrufen können. Sie benötigen die `name`-Eigenschaft dafür nicht unbedingt, stattdessen können Sie [`Performance.getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName) oder [`PerformanceObserverEntryList.getEntriesByName()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByName) verwenden.
 
 ```js
-// Protokollieren Sie alle Marks mit dem Namen "debug-marks" zu diesem Zeitpunkt
+// Log all marks named "debug-marks" at this point in time
 const debugMarks = performance.getEntriesByName("debug-mark", "mark");
 debugMarks.forEach((entry) => {
   console.log(`${entry.name}'s startTime: ${entry.startTime}`);
 });
 
-// PerformanceObserver-Version
-// Protokollieren Sie alle Marks mit dem Namen "debug-marks", wenn sie auftreten
+// PerformanceObserver version
+// Log all marks named "debug-marks" when they happen
 function perfObserver(list, observer) {
   list.getEntriesByName("debug-mark", "mark").forEach((entry) => {
     console.log(`${entry.name}'s startTime: ${entry.startTime}`);
@@ -153,5 +154,5 @@ observer.observe({ entryTypes: ["measure", "mark"] });
 
 ## Siehe auch
 
-- {{domxref("Performance.getEntriesByName()")}}
-- {{domxref("PerformanceObserverEntryList.getEntriesByName()")}}
+- [`Performance.getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName)
+- [`PerformanceObserverEntryList.getEntriesByName()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByName)

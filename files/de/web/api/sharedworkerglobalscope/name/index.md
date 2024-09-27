@@ -8,11 +8,7 @@ l10n:
 
 {{APIRef("Web Workers API")}}
 
-Die **`name`**-Schreibgeschützte Eigenschaft des
-{{domxref("SharedWorkerGlobalScope")}}-Interfaces gibt den Namen zurück, der dem
-{{domxref("SharedWorker")}} (optional) bei seiner Erstellung gegeben wurde. Dies ist der Name,
-den der {{domxref("SharedWorker.SharedWorker", "SharedWorker()")}}-Konstruktor übergeben kann,
-um eine Referenz auf den {{domxref("SharedWorkerGlobalScope")}} zu erhalten.
+Die schreibgeschützte Eigenschaft **`name`** der Schnittstelle [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) gibt den Namen zurück, der dem [`SharedWorker`](/de/docs/Web/API/SharedWorker) (optional) bei seiner Erstellung gegeben wurde. Dies ist der Name, den der [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker)-Konstruktor verwenden kann, um eine Referenz auf den [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) zu erhalten.
 
 ## Wert
 
@@ -20,20 +16,19 @@ Ein String.
 
 ## Beispiele
 
-Wenn ein Shared Worker mit einem Konstruktor unter Verwendung der Option `name` erstellt wird:
+Wenn ein Shared Worker mit einem Konstruktor mit einer `name`-Option erstellt wird:
 
 ```js
 const myWorker = new SharedWorker("worker.js", { name: "mySharedWorker" });
 ```
 
-wird der {{domxref("SharedWorkerGlobalScope")}} nun den Namen "mySharedWorker" haben,
-der durch das Ausführen von
+wird der [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) nun einen Namen "mySharedWorker" haben, der durch Ausführen von
 
 ```js
 self.name;
 ```
 
-von innerhalb des Shared Workers zurückgegeben werden kann.
+aus dem Inneren des Shared Workers zurückgebbar ist.
 
 ## Spezifikationen
 
@@ -45,4 +40,4 @@ von innerhalb des Shared Workers zurückgegeben werden kann.
 
 ## Siehe auch
 
-- {{domxref("SharedWorkerGlobalScope")}}
+- [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope)

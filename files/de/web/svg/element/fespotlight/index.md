@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feSpotLight>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv definiert eine Lichtquelle, die verwendet werden kann, um einen Spotlichteffekt zu erzeugen. Es wird innerhalb eines Beleuchtungsfilter-Primitivs verwendet: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
+Das **`<feSpotLight>`** [SVG](/de/docs/Web/SVG) Filter-Primitive definiert eine Lichtquelle, die verwendet werden kann, um einen Scheinwerfereffekt zu erzeugen. Es wird innerhalb eines Beleuchtungsfilter-Primitives verwendet: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
 
 ## Verwendungskontext
 
@@ -26,7 +26,7 @@ Das **`<feSpotLight>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv definiert eine L
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFESpotLightElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGFESpotLightElement`](/de/docs/Web/API/SVGFESpotLightElement) Schnittstelle.
 
 ## Beispiel
 

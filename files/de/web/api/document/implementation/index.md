@@ -1,6 +1,6 @@
 ---
-title: "Dokument: Implementierungseigenschaft"
-short-title: Implementierung
+title: "Document: implementation-Eigenschaft"
+short-title: implementation
 slug: Web/API/Document/implementation
 l10n:
   sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
@@ -8,12 +8,11 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Document.implementation`** Eigenschaft gibt ein
-{{domxref("DOMImplementation")}} Objekt zurück, das mit dem aktuellen Dokument verknüpft ist.
+Die **`Document.implementation`**-Eigenschaft gibt ein [`DOMImplementation`](/de/docs/Web/API/DOMImplementation)-Objekt zurück, das mit dem aktuellen Dokument verknüpft ist.
 
 ## Wert
 
-Ein {{domxref("DOMImplementation")}} Objekt.
+Ein [`DOMImplementation`](/de/docs/Web/API/DOMImplementation)-Objekt.
 
 ## Beispiele
 
@@ -28,11 +27,11 @@ console.log(`DOM ${modName} ${modVer} supported?: ${conformTest}`);
 ```
 
 > [!WARNING]
-> Verwenden Sie dies nicht zur Erkennung von Funktionen. Die `hasFeature()` Methode gibt immer true zurück.
+> Verwenden Sie dies nicht zur Feature-Erkennung. Die Methode `hasFeature()` gibt immer true zurück.
 
 ## Hinweise
 
-Die W3C DOM Level 1 Empfehlung spezifizierte nur die `hasFeature` Methode, die eine Möglichkeit bietet, festzustellen, ob ein DOM-Modul von einem Browser unterstützt wird (siehe Beispiel oben und [Welche Funktionen unterstützt Ihr User-Agent?](https://www.w3.org/2003/02/06-dom-support.html)). Falls verfügbar, bieten andere `DOMImplementation` Methoden Dienste zur Steuerung von Funktionen außerhalb eines einzelnen Dokuments. Zum Beispiel enthält die `DOMImplementation` Schnittstelle eine `createDocumentType` Methode, mit der DTDs für eines oder mehrere von der Implementierung verwaltete Dokumente erstellt werden können.
+Die DOM-Level-1-Empfehlung des W3C spezifizierte nur die `hasFeature`-Methode, die eine Möglichkeit darstellt, um festzustellen, ob ein DOM-Modul von einem Browser unterstützt wird (siehe Beispiel oben und [Was behauptet Ihr User-Agent zu unterstützen?](https://www.w3.org/2003/02/06-dom-support.html)). Wenn verfügbar, bieten andere `DOMImplementation`-Methoden Dienste zur Steuerung von Dingen außerhalb eines einzelnen Dokuments. Zum Beispiel enthält die `DOMImplementation`-Schnittstelle eine `createDocumentType`-Methode, mit der DTDs für ein oder mehrere Dokumente erstellt werden können, die von der Implementierung verwaltet werden.
 
 ## Spezifikationen
 

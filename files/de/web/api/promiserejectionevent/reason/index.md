@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`reason`** des {{domxref("PromiseRejectionEvent")}} ist ein beliebiger JavaScript-Wert oder ein {{jsxref("Object")}}, der den Grund angibt, der in {{jsxref("Promise.reject()")}} übergeben wurde. Dies soll theoretisch Informationen darüber liefern, warum das Promise abgelehnt wurde.
+Die schreibgeschützte **`reason`**-Eigenschaft des [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent) ist ein beliebiger JavaScript-Wert oder ein {{jsxref("Object")}}, das den Grund angibt, der in {{jsxref("Promise.reject()")}} übergeben wurde. Dies liefert theoretisch Informationen darüber, warum das Versprechen abgelehnt wurde.
 
 ## Wert
 
-Ein Wert oder Objekt, das Informationen bereitstellt, um zu verstehen, warum das Promise abgelehnt wurde. Dies kann alles sein, von einem Fehlercode bis hin zu einem Objekt mit Text, Links und allem anderen, was Sie möglicherweise einschließen möchten.
+Ein Wert oder Objekt, das Informationen bereitstellt, die Sie zur Beurteilung verwenden können, warum das Versprechen abgelehnt wurde. Dies kann alles sein, von einem Fehlercode bis hin zu einem Objekt mit Text, Links und allem, was Sie sonst noch einfügen möchten.
 
 ## Beispiele
 
@@ -33,6 +33,6 @@ window.onunhandledrejection = (e) => {
 ## Siehe auch
 
 - {{jsxref("Promise")}}
-- {{domxref("PromiseRejectionEvent")}}
-- {{domxref("Window.rejectionhandled_event", "rejectionhandled")}}
-- {{domxref("Window.unhandledrejection_event", "unhandledrejection")}}
+- [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent)
+- [`rejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)
+- [`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)

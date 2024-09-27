@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Insertable Streams for MediaStreamTrack API")}}
 
-Der **`MediaStreamTrackProcessor()`** Konstruktor erstellt ein neues {{domxref("MediaStreamTrackProcessor")}} Objekt, das die Quelle eines {{domxref("MediaStreamTrack")}} Objekts nutzt und einen Stream von Medienframes erzeugt.
+Der **`MediaStreamTrackProcessor()`** Konstruktor erstellt ein neues [`MediaStreamTrackProcessor`](/de/docs/Web/API/MediaStreamTrackProcessor)-Objekt, das die Quelle eines [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekts konsumiert und einen Strom von Medienrahmen generiert.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ new MediaStreamTrackProcessor(options)
 - `options`
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `track`
-      - : Ein {{domxref("MediaStreamTrack")}}.
+      - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack).
     - `maxBufferSize` {{optional_inline}}
-      - : Eine ganze Zahl, die die maximale Anzahl der zu puffernden Medienframes angibt.
+      - : Eine ganze Zahl, die die maximale Anzahl zu puffernder Medienrahmen angibt.
 
 ## Beispiele
 

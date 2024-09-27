@@ -1,23 +1,23 @@
 ---
-title: "TextDecoder: encoding-Eigenschaft"
+title: "TextDecoder: encoding Eigenschaft"
 short-title: encoding
 slug: Web/API/TextDecoder/encoding
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
 ---
 
-{{APIRef("Encoding API")}}
+{{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Die **`TextDecoder.encoding`** schreibgeschützte Eigenschaft gibt einen String zurück, der den Namen des Dekodierungsalgorithmus enthält, der von dem spezifischen Decoder-Objekt verwendet wird.
+Die schreibgeschützte Eigenschaft **`TextDecoder.encoding`** gibt eine Zeichenkette zurück, die den Namen des Dekodierungsalgorithmus enthält, der von dem spezifischen Decoder-Objekt verwendet wird.
 
-Das Encoding wird durch den [Konstruktor](/de/docs/Web/API/TextDecoder/TextDecoder)-`label`-Parameter festgelegt und hat standardmäßig den Wert `utf-8`.
+Die Kodierung wird durch den `label`-Parameter des [Konstruktors](/de/docs/Web/API/TextDecoder/TextDecoder) festgelegt und hat standardmäßig den Wert `utf-8`.
 
 ## Wert
 
-Ein kleingeschriebener ASCII-String, der einer der folgenden Werte sein kann:
+Eine kleingeschriebene ASCII-Zeichenkette, die einen der folgenden Werte annehmen kann:
 
-- Das empfohlene Encoding für das Web: `'utf-8'`.
-- Die alten einbyteigen Encodings:
+- Die empfohlene Kodierung für das Web: `'utf-8'`.
+- Die veralteten Ein-Byte-Kodierungen:
   ['ibm866'](https://en.wikipedia.org/wiki/Code_page_866),
   ['iso-8859-2'](https://en.wikipedia.org/wiki/ISO/IEC_8859-2),
   ['iso-8859-3'](https://en.wikipedia.org/wiki/ISO/IEC_8859-3),
@@ -44,27 +44,27 @@ Ein kleingeschriebener ASCII-String, der einer der folgenden Werte sein kann:
   ['windows-1255'](https://en.wikipedia.org/wiki/Windows-1255),
   ['windows-1256'](https://en.wikipedia.org/wiki/Windows-1256),
   ['windows-1257'](https://en.wikipedia.org/wiki/Windows-1257),
-  ['windows-1258'](https://en.wikipedia.org/wiki/Windows-1258) oder
+  ['windows-1258'](https://en.wikipedia.org/wiki/Windows-1258), oder
   ['x-mac-cyrillic'](https://en.wikipedia.org/wiki/Macintosh_Cyrillic_encoding).
-- Die alten mehrbyteigen chinesischen (vereinfachten) Encodings:
+- Die veralteten multi-byte chinesischen (vereinfachten) Kodierungen:
   ['gbk'](https://en.wikipedia.org/wiki/GBK),
   ['gb18030'](https://en.wikipedia.org/wiki/GB_18030).
-- Das alte mehrbyteige chinesische (traditionelle) Encoding:
+- Die veraltete multi-byte chinesische (traditionelle) Kodierung:
   ['big5'](https://en.wikipedia.org/wiki/Big5).
-- Die alten mehrbyteigen japanischen Encodings:
+- Die veralteten multi-byte japanischen Kodierungen:
   ['euc-jp'](https://en.wikipedia.org/wiki/Extended_Unix_Code#EUC-JP),
   ['iso-2022-jp'](https://en.wikipedia.org/wiki/ISO/IEC_2022#ISO-2022-JP),
   ['shift-jis'](https://en.wikipedia.org/wiki/Shift_JIS).
-- Die alten mehrbyteigen koreanischen Encodings:
+- Die veralteten multi-byte koreanischen Kodierungen:
   ['euc-kr'](https://en.wikipedia.org/wiki/Extended_Unix_Code#EUC-KR).
-- Die alten sonstigen Encodings:
+- Die veralteten sonstigen Kodierungen:
   ['utf-16be'](https://en.wikipedia.org/wiki/UTF-16#Byte_order_encoding_schemes),
   ['utf-16le'](https://en.wikipedia.org/wiki/UTF-16#Byte_order_encoding_schemes),
   `'x-user-defined'`.
-- Ein spezielles Encoding, `'replacement'`.
-  Dieses dekodiert leeren Eingabetext in leeren Ausgabetext und jeglichen anderen Eingabetext beliebiger Länge in ein einzelnes Ersatzzeichen.
-  Es wird verwendet, um Angriffe zu verhindern, die durch inkonsistente Encodings zwischen Client und Server entstehen können.
-  Die folgenden Encodings werden auch dem Ersatzencoding zugeordnet: `ISO-2022-CN`, `ISO-2022-CN-ext`, ['iso-2022-kr'](https://en.wikipedia.org/wiki/ISO/IEC_2022#ISO-2022-KR) und ['hz-gb-2312'](<https://en.wikipedia.org/wiki/HZ_(character_encoding)>).
+- Eine spezielle Kodierung, `'replacement'`.
+  Diese dekodiert leere Eingaben in leere Ausgaben und jede andere Eingabe beliebiger Länge in ein einziges Ersatzzeichen.
+  Sie wird verwendet, um Angriffe zu verhindern, die auf fehlerhafte Kodierungszuordnungen zwischen Client und Server abzielen.
+  Die folgenden Kodierungen werden ebenfalls der Ersatzkodierung zugeordnet: `ISO-2022-CN`, `ISO-2022-CN-ext`, ['iso-2022-kr'](https://en.wikipedia.org/wiki/ISO/IEC_2022#ISO-2022-KR), und ['hz-gb-2312'](<https://en.wikipedia.org/wiki/HZ_(character_encoding)>).
 
 ## Spezifikationen
 
@@ -76,4 +76,4 @@ Ein kleingeschriebener ASCII-String, der einer der folgenden Werte sein kann:
 
 ## Siehe auch
 
-- Das {{DOMxRef("TextDecoder")}} Interface, zu dem es gehört.
+- Die [`TextDecoder`](/de/docs/Web/API/TextDecoder) Schnittstelle, zu der es gehört.

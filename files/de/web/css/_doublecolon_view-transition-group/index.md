@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Das **`::view-transition-group`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert eine einzelne View-Transition-Snapshot-Gruppe.
+Das **`::view-transition-group`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert eine einzelne Ansichtstransitions-Snapshot-Gruppe.
 
-Während einer View-Transition ist `::view-transition-group` in dem zugehörigen Pseudoelement-Baum enthalten, wie in [Der View-Transition-Pseudoelement-Baum](/de/docs/Web/API/View_Transitions_API/Using#the_view_transition_pseudo-element_tree) beschrieben. Es ist immer nur ein Kind von {{cssxref("::view-transition")}} und hat ein {{cssxref("::view-transition-image-pair")}} als Kind.
+Während einer Ansichtstransition wird `::view-transition-group` im zugehörigen Pseudoelement-Baum wie in [Der Ansichtstransitions-Pseudoelement-Baum](/de/docs/Web/API/View_Transitions_API/Using#the_view_transition_pseudo-element_tree) beschrieben aufgenommen. Es ist immer nur ein Kind von {{cssxref("::view-transition")}} und hat ein {{cssxref("::view-transition-image-pair")}} als Kind.
 
-`::view-transition-group` erhält das folgende Standard-Styling im UA-Stylesheet:
+`::view-transition-group` erhält im UA-Stylesheet die folgende Standardformatierung:
 
 ```css
 html::view-transition-group(*) {
@@ -24,14 +24,14 @@ html::view-transition-group(*) {
 }
 ```
 
-Standardmäßig spiegeln ausgewählte Elemente zunächst die Größe und Position des {{cssxref("::view-transition-old")}} Pseudoelements wider, das den "alten" View-Zustand repräsentiert, oder des {{cssxref("::view-transition-new")}} Pseudoelements, das den "neuen" View-Zustand repräsentiert, falls kein "alter" View-Zustand vorhanden ist.
+Standardmäßig spiegeln ausgewählte Elemente zunächst die Größe und Position des {{cssxref("::view-transition-old")}} Pseudoelements wider, das den "alten" Ansichtsstatus darstellt, bzw. des {{cssxref("::view-transition-new")}} Pseudoelements, das den "neuen" Ansichtsstatus darstellt, wenn es keinen "alten" Ansichtsstatus gibt.
 
-Wenn es sowohl einen "alten" als auch einen "neuen" View-Zustand gibt, animieren die Stile im View-Transition-Stylesheet die {{cssxref("width")}} und {{cssxref("height")}} dieses Pseudoelements von der Größe des "alten" View-Zustands-Border-Box zur des "neuen" View-Zustands-Border-Box.
+Wenn es sowohl einen "alten" als auch einen "neuen" Ansichtsstatus gibt, animieren die Stile im Ansichtstransitions-Stylesheet die {{cssxref("width")}} und {{cssxref("height")}} dieses Pseudoelements von der Größe des Rahmenkastens des "alten" Ansichtsstatus zur Größe des Rahmenkastens des "neuen" Ansichtsstatus.
 
 > [!NOTE]
-> View-Transition-Stile werden während der View-Transition dynamisch generiert; siehe die Abschnitte der Spezifikation [Übergangs-Pseudoelemente einrichten](https://drafts.csswg.org/css-view-transitions-1/#setup-transition-pseudo-elements) und [Pseudoelement-Stile aktualisieren](https://drafts.csswg.org/css-view-transitions-1/#update-pseudo-element-styles) für weitere Details.
+> Ansichtstransitions-Stile werden während der Ansichtstransition dynamisch generiert; siehe die Spezifikationsabschnitte [Setup von Übergangs-Pseudoelementen](https://drafts.csswg.org/css-view-transitions-1/#setup-transition-pseudo-elements) und [Aktualisierung von Pseudoelement-Stilen](https://drafts.csswg.org/css-view-transitions-1/#update-pseudo-element-styles) für mehr Details.
 
-Darüber hinaus wird das Transformieren des Elements vom "alten" View-Zustand-Bildschirmraum-Transformieren zum neuen View-Zustand-Bildschirmraum-Transformieren animiert. Dieser Stil wird dynamisch generiert, da die Werte der animierten Eigenschaften bestimmt werden, sobald der Übergang beginnt.
+Außerdem wird die Transformation des Elements vom Bildschirmraum-Transformation des "alten" Ansichtsstatus zur Bildschirmraum-Transformation des neuen Ansichtsstatus animiert. Dieser Stil wird dynamisch generiert, da die Werte der animierten Eigenschaften zum Zeitpunkt des Übergangsstarts bestimmt werden.
 
 ## Syntax
 
@@ -41,14 +41,14 @@ Darüber hinaus wird das Transformieren des Elements vom "alten" View-Zustand-Bi
 }
 ```
 
-`<pt-name-selector>` kann einen der folgenden Werte annehmen:
+`<pt-name-selector>` kann einen der folgenden Werte haben:
 
 - `*`
-  - : Bewirkt, dass das Pseudoelement mit allen View-Transition-Gruppen übereinstimmt.
+  - : Verursacht, dass das Pseudoelement mit allen Ansichtstransitions-Gruppen übereinstimmt.
 - `root`
-  - : Bewirkt, dass das Pseudoelement mit der Standard-`root`-View-Transition-Gruppe übereinstimmt, die vom Benutzeragenten erstellt wird, um die View-Transition für die gesamte Seite zu enthalten. Diese Gruppe umfasst jedes Element, das nicht durch die Eigenschaft {{cssxref("view-transition-name")}} einer eigenen spezifischen View-Transition-Gruppe zugewiesen wird.
+  - : Verursacht, dass das Pseudoelement mit der Standard-`root`-Ansichtstransitions-Gruppe übereinstimmt, die vom Benutzeragenten erstellt wird, um die Ansichtstransition für die gesamte Seite zu enthalten. Diese Gruppe umfasst jedes Element, das nicht über die {{cssxref("view-transition-name")}} Eigenschaft einer eigenen spezifischen Ansichtstransitions-Gruppe zugewiesen wurde.
 - {{cssxref("custom-ident")}}
-  - : Bewirkt, dass das Pseudoelement mit einer spezifischen View-Transition-Gruppe übereinstimmt, die erstellt wird, indem das angegebene {{cssxref("custom-ident")}} einem Element über die Eigenschaft {{cssxref("view-transition-name")}} zugewiesen wird.
+  - : Verursacht, dass das Pseudoelement mit einer spezifischen Ansichtstransitions-Gruppe übereinstimmt, die erstellt wird, indem das gegebene {{cssxref("custom-ident")}} einem Element über die {{cssxref("view-transition-name")}} Eigenschaft zugewiesen wird.
 
 ## Beispiele
 
@@ -64,11 +64,11 @@ Darüber hinaus wird das Transformieren des Elements vom "alten" View-Zustand-Bi
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [View Transitions API](/de/docs/Web/API/View_Transitions_API)
-- [Reibungslose und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Sanfte und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)

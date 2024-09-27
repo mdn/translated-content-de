@@ -7,38 +7,38 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`NamedNodeMap`**-Schnittstelle repräsentiert eine Sammlung von {{domxref("Attr")}}-Objekten. Objekte innerhalb einer `NamedNodeMap` sind in keiner bestimmten Reihenfolge vorhanden, im Gegensatz zu {{domxref("NodeList")}}, obwohl sie wie in einem Array über einen Index zugänglich sind.
+Das **`NamedNodeMap`**-Interface repräsentiert eine Sammlung von [`Attr`](/de/docs/Web/API/Attr)-Objekten. Objekte innerhalb eines `NamedNodeMap` sind im Gegensatz zu [`NodeList`](/de/docs/Web/API/NodeList) in keiner bestimmten Reihenfolge angeordnet, obwohl sie ähnlich wie in einem Array über einen Index zugänglich sind.
 
-Ein `NamedNodeMap`-Objekt ist _live_ und wird daher automatisch aktualisiert, wenn Änderungen an seinem Inhalt intern oder anderswo vorgenommen werden.
+Ein `NamedNodeMap`-Objekt ist _dynamisch_ und wird daher automatisch aktualisiert, wenn Änderungen an seinen Inhalten intern oder anderswo vorgenommen werden.
 
 > [!NOTE]
-> Obwohl sie `NamedNodeMap` genannt wird, befasst sich diese Schnittstelle nicht mit {{domxref("Node")}}-Objekten, sondern mit {{domxref("Attr")}}-Objekten, die eine spezialisierte Klasse von {{domxref("Node")}}-Objekten sind.
+> Obwohl `NamedNodeMap` genannt, befasst sich dieses Interface nicht mit [`Node`](/de/docs/Web/API/Node)-Objekten, sondern mit [`Attr`](/de/docs/Web/API/Attr)-Objekten, die eine spezialisierte Klasse von [`Node`](/de/docs/Web/API/Node)-Objekten sind.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle erbt keine Eigenschaften._
+_Dieses Interface erbt keine Eigenschaft._
 
-- {{domxref("NamedNodeMap.length")}} {{ReadOnlyInline}}
+- [`NamedNodeMap.length`](/de/docs/Web/API/NamedNodeMap/length) {{ReadOnlyInline}}
   - : Gibt die Anzahl der Objekte in der Map zurück.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle erbt keine Methoden._
+_Dieses Interface erbt keine Methode._
 
-- {{domxref("NamedNodeMap.getNamedItem()")}}
-  - : Gibt ein {{domxref("Attr")}} zurück, das dem angegebenen Namen entspricht.
-- {{domxref("NamedNodeMap.setNamedItem()")}}
-  - : Ersetzt oder fügt das im Map identifizierte {{domxref("Attr")}} mit dem angegebenen Namen hinzu.
-- {{domxref("NamedNodeMap.removeNamedItem()")}}
-  - : Entfernt das {{domxref("Attr")}}, das durch die gegebene Map identifiziert wird.
-- {{domxref("NamedNodeMap.item()")}}
-  - : Gibt das {{domxref("Attr")}} am angegebenen Index oder `null` zurück, wenn der Index höher oder gleich der Anzahl der Knoten ist.
-- {{domxref("NamedNodeMap.getNamedItemNS()")}}
-  - : Gibt ein {{domxref("Attr")}} zurück, das durch einen Namespace und den zugehörigen lokalen Namen identifiziert wird.
-- {{domxref("NamedNodeMap.setNamedItemNS()")}}
-  - : Ersetzt oder fügt das in der Map identifizierte {{domxref("Attr")}} mit dem angegebenen Namespace und dem zugehörigen lokalen Namen hinzu.
-- {{domxref("NamedNodeMap.removeNamedItemNS()")}}
-  - : Entfernt das {{domxref("Attr")}}, das durch den angegebenen Namespace und den zugehörigen lokalen Namen identifiziert wird.
+- [`NamedNodeMap.getNamedItem()`](/de/docs/Web/API/NamedNodeMap/getNamedItem)
+  - : Gibt ein [`Attr`](/de/docs/Web/API/Attr) zurück, das dem angegebenen Namen entspricht.
+- [`NamedNodeMap.setNamedItem()`](/de/docs/Web/API/NamedNodeMap/setNamedItem)
+  - : Ersetzt oder fügt das in der Map identifizierte [`Attr`](/de/docs/Web/API/Attr) durch den angegebenen Namen hinzu.
+- [`NamedNodeMap.removeNamedItem()`](/de/docs/Web/API/NamedNodeMap/removeNamedItem)
+  - : Entfernt das durch die Map identifizierte [`Attr`](/de/docs/Web/API/Attr).
+- [`NamedNodeMap.item()`](/de/docs/Web/API/NamedNodeMap/item)
+  - : Gibt das [`Attr`](/de/docs/Web/API/Attr) am angegebenen Index zurück oder `null`, wenn der Index größer oder gleich der Anzahl der Knoten ist.
+- [`NamedNodeMap.getNamedItemNS()`](/de/docs/Web/API/NamedNodeMap/getNamedItemNS)
+  - : Gibt ein durch einen Namensraum und den zugehörigen lokalen Namen identifiziertes [`Attr`](/de/docs/Web/API/Attr) zurück.
+- [`NamedNodeMap.setNamedItemNS()`](/de/docs/Web/API/NamedNodeMap/setNamedItemNS)
+  - : Ersetzt oder fügt das in der Map durch den angegebenen Namensraum und den zugehörigen lokalen Namen identifizierte [`Attr`](/de/docs/Web/API/Attr) hinzu.
+- [`NamedNodeMap.removeNamedItemNS()`](/de/docs/Web/API/NamedNodeMap/removeNamedItemNS)
+  - : Entfernt das durch den angegebenen Namensraum und den zugehörigen lokalen Namen identifizierte [`Attr`](/de/docs/Web/API/Attr).
 
 ## Spezifikationen
 
@@ -50,4 +50,4 @@ _Diese Schnittstelle erbt keine Methoden._
 
 ## Siehe auch
 
-- {{domxref("Element.attributes")}}
+- [`Element.attributes`](/de/docs/Web/API/Element/attributes)

@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine globale Variable ist eine {{glossary("variable")}}, die im {{glossary("global scope")}} deklariert wird, mit anderen Worten, eine Variable, die von allen anderen Scopes sichtbar ist.
+Eine globale Variable ist eine [variable](/de/docs/Glossary/variable), die im [globalen Gültigkeitsbereich](/de/docs/Glossary/global_scope) deklariert ist, mit anderen Worten, eine Variable, die von allen anderen Gültigkeitsbereichen aus sichtbar ist.
 
-In JavaScript ist es eine {{glossary("property")}} des {{glossary("global object")}}.
+In JavaScript ist es eine [property](/de/docs/Glossary/property) des [globalen Objekts](/de/docs/Glossary/global_object).
 
 ## Siehe auch
 

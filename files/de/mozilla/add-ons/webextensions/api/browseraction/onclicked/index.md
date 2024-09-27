@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn ein Browser-Aktionssymbol angeklickt wird. Dieses Ereignis wird nicht ausgelöst, wenn die Browser-Aktion ein Popup hat.
+Wird ausgelöst, wenn auf ein `browser action`-Symbol geklickt wird. Dieses Ereignis wird nicht ausgelöst, wenn die `browser action` ein Popup hat.
 
-Um eine Rechtsklickaktion zu definieren, verwenden Sie die [`contextMenus`](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus) API mit dem "browser_action" [Kontexttyp](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus/ContextType).
+Um eine Aktion für einen Rechtsklick zu definieren, verwenden Sie die [`contextMenus`](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus)-API mit dem "browser_action" [Kontexttyp](/de/docs/Mozilla/Add-ons/WebExtensions/API/menus/ContextType).
 
 ## Syntax
 
@@ -24,9 +24,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, auf dieses Ereignis zu lauschen. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener Syntax
 
@@ -34,18 +34,18 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden folgende Argumente übergeben:
 
     - `tab`
-      - : {{WebExtAPIRef('tabs.Tab')}}. Der Tab, der aktiv war, als das Symbol angeklickt wurde.
+      - : {{WebExtAPIRef('tabs.Tab')}}. Der Tab, der aktiv war, als auf das Symbol geklickt wurde.
     - `OnClickData`
 
       - : Ein Objekt, das Informationen über den Klick enthält.
 
         - `modifiers`
-          - : Ein `array`. Die Tastaturmodifikatoren, die zum Zeitpunkt des Klicks aktiv waren, eine oder mehrere von `Shift`, `Alt`, `Command`, `Ctrl` oder `MacCtrl`.
+          - : Ein `Array`. Die Tastaturmodifikatoren, die zum Zeitpunkt des Klicks aktiv waren, ein oder mehrere von `Shift`, `Alt`, `Command`, `Ctrl` oder `MacCtrl`.
         - `button`
-          - : Ein `integer`. Gibt die Schaltfläche an, mit der das Seitensymbol geklickt wurde: `0` für einen Linksklick oder einen Klick, der nicht mit einer Maus verbunden ist, wie z. B. ein Tastaturklick, und `1` für einen mittleren Schalt- oder Radklick. Beachten Sie, dass der Rechtsklick nicht unterstützt wird, da Firefox diesen Klick konsumiert, um das Kontextmenü anzuzeigen, bevor dieses Ereignis ausgelöst wird.
+          - : Ein `Integer`. Gibt die Taste an, mit der auf das Seitenaktionssymbol geklickt wurde: `0` für einen Linksklick oder einen Klick, der nicht mit einer Maus verbunden ist, wie z.B. einer von der Tastatur, und `1` für eine mittlere Taste oder einen Radklick. Beachten Sie, dass der Rechtsklick nicht unterstützt wird, da Firefox diesen Klick verwendet, um das Kontextmenü anzuzeigen, bevor dieses Ereignis ausgelöst wird.
 
 ## Browser-Kompatibilität
 
@@ -53,13 +53,13 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Wenn der Benutzer auf das Browser-Aktionssymbol klickt, deaktiviert dieser Code es für den aktiven Tab und protokolliert die URL des Tabs:
+Wenn der Benutzer auf das `browser action`-Symbol klickt, schaltet dieser Code es für den aktiven Tab aus und protokolliert die URL des Tabs:
 
 ```js
 browser.browserAction.onClicked.addListener((tab) => {
-  // deaktiviert die Browser-Aktion für den Tab
+  // disable the browser action for the tab
   browser.browserAction.disable(tab.id);
-  // erfordert die "tabs" oder "activeTab" Berechtigung oder Host-Berechtigungen für die URL
+  // requires the "tabs" or "activeTab" permission, or host permissions for the URL
   console.log(tab.url);
 });
 ```
@@ -67,4 +67,4 @@ browser.browserAction.onClicked.addListener((tab) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#event-onClicked) API von Chromium. Diese Dokumentation wird aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf Chromiums [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#event-onClicked) API. Diese Dokumentation leitet sich von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code ab.

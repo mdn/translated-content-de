@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## SVG animiertes boolesches Interface
+## SVG animierte boolesche Schnittstelle
 
-Das `SVGAnimatedBoolean`-Interface wird für Attribute vom Typ Boolean verwendet, die animiert werden können.
+Die `SVGAnimatedBoolean` Schnittstelle wird für Attribute des Typs boolean verwendet, die animiert werden können.
 
-### Überblick über das Interface
+### Schnittstellenübersicht
 
 <table class="no-markdown">
   <tbody>
@@ -44,7 +44,7 @@ Das `SVGAnimatedBoolean`-Interface wird für Attribute vom Typ Boolean verwendet
   </tbody>
 </table>
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 <table class="no-markdown">
   <thead>
@@ -59,22 +59,22 @@ Das `SVGAnimatedBoolean`-Interface wird für Attribute vom Typ Boolean verwendet
       <td><code>baseVal</code></td>
       <td>boolean</td>
       <td>
-        Der Basiswert des gegebenen Attributs vor jeglichen Animationen.
+        Der Basiswert des gegebenen Attributs, bevor Animationen angewendet werden.
       </td>
     </tr>
     <tr>
       <td><code>animVal</code></td>
       <td>boolean</td>
       <td>
-        Falls das gegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Falls das gegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es den gleichen Wert wie <code>baseVal</code>.
+        Wenn das gegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das gegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es denselben Wert wie <code>baseVal</code>.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Instanzmethoden
+## Instanz-Methoden
 
-Das `SVGAnimatedBoolean`-Interface stellt keine spezifischen Methoden bereit.
+Die `SVGAnimatedBoolean` Schnittstelle stellt keine spezifischen Methoden zur Verfügung.
 
 ## Spezifikationen
 

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`locked`** des {{domxref("WritableStream")}}-Interfaces gibt ein Boolean zurück, das angibt, ob der `WritableStream` an einen Schreiber gebunden ist.
+Die schreibgeschützte Eigenschaft **`locked`** der [`WritableStream`](/de/docs/Web/API/WritableStream)-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob der `WritableStream` an einen Writer gebunden ist.
 
 ## Wert
 
-Ein Boolean-Wert, der angibt, ob der Writable Stream gesperrt ist oder nicht.
+Ein boolescher Wert, der angibt, ob der schreibbare Stream gesperrt ist oder nicht.
 
 ## Beispiele
 
@@ -37,7 +37,7 @@ const writableStream = new WritableStream(
 const writer = writableStream.getWriter();
 
 writableStream.locked;
-// sollte true zurückgeben, da der Stream an einen Schreiber gebunden wurde
+// should return true, as the stream has been locked to a writer
 ```
 
 ## Spezifikationen

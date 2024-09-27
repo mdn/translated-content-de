@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`if`**-Anweisung führt eine Anweisung aus, wenn das letzte Element auf dem Stack wahr (ungleich null) ist. Wenn die Bedingung falsch (0) ist, kann eine andere Anweisung ausgeführt werden.
+Die **`if`**-Anweisung führt eine Anweisung aus, wenn das letzte Element auf dem Stapel wahr (ungleich null) ist. Falls die Bedingung falsch (0) ist, kann eine andere Anweisung ausgeführt werden.
 
 {{EmbedInteractiveExample("pages/wat/if...else.html", "tabbed-taller")}}
 
@@ -25,7 +25,7 @@ i32.const 0
 )
 ```
 
-Um Rückgabewerte auf dem Stack zu belassen, fügen Sie die `result`-Anweisung hinzu.
+Um Rückgabewerte auf dem Stapel zu belassen, fügen Sie die `result`-Anweisung hinzu.
 
 ```wasm
 i32.const 0
@@ -42,7 +42,7 @@ i32.const 0
 (drop)
 ```
 
-| Anweisung | Binäroperation Code |
-| --------- | ------------------- |
-| `if`      | `0x04`              |
-| `else`    | `0x05`              |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `if`      | `0x04`         |
+| `else`    | `0x05`         |

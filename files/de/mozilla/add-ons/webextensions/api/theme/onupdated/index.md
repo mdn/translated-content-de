@@ -7,13 +7,13 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn ein als Browser-Erweiterung bereitgestelltes Theme angewendet oder entfernt wird. Genauer gesagt:
+Wird ausgelöst, wenn ein als Browsererweiterung bereitgestelltes Thema angewendet oder entfernt wird. Insbesondere:
 
-- wenn ein [statisches Theme](https://extensionworkshop.com/documentation/themes/static-themes/) installiert wird
-- wenn ein [dynamisches Theme](/de/docs/Mozilla/Add-ons/WebExtensions/API/theme) [`theme.update()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/theme/update) oder [`theme.reset()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/theme/reset) aufruft
-- wenn ein Theme deinstalliert wird.
+- wenn ein [statisches Thema](https://extensionworkshop.com/documentation/themes/static-themes/) installiert wird
+- wenn ein [dynamisches Thema](/de/docs/Mozilla/Add-ons/WebExtensions/API/theme) [`theme.update()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/theme/update) oder [`theme.reset()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/theme/reset) aufruft
+- wenn ein Thema deinstalliert wird.
 
-Dieses Ereignis wird nicht ausgelöst, wenn Änderungen an den integrierten Themes vorgenommen werden.
+Dieses Ereignis wird nicht ausgelöst, wenn Änderungen an den eingebauten Themen vorgenommen werden.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören bei diesem Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Hört auf, dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
@@ -38,16 +38,16 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
 
     - `updateInfo`
 
-      - : `object`. Ein Objekt, das zwei Eigenschaften enthält:
+      - : `object`. Ein Objekt mit zwei Eigenschaften:
 
         - `theme`
-          - : `object`. Wenn das Ereignis ausgelöst wurde, weil ein von der Erweiterung bereitgestelltes Theme entfernt wurde, ist dies ein leeres Objekt. Wurde es ausgelöst, weil ein von der Erweiterung bereitgestelltes Theme angewendet wurde, dann ist es ein {{WebExtAPIRef("theme.Theme")}}-Objekt, das das angewendete Theme repräsentiert.
+          - : `object`. Wenn das Ereignis ausgelöst wurde, weil ein von der Erweiterung bereitgestelltes Thema entfernt wurde, ist dies ein leeres Objekt. Wenn es ausgelöst wurde, weil ein von der Erweiterung bereitgestelltes Thema angewendet wurde, dann ist es ein {{WebExtAPIRef("theme.Theme")}} Objekt, das das angewendete Thema darstellt.
         - `windowId` {{optional_inline}}
-          - : `integer`. Die ID des Fensters, in dem das Theme aktualisiert wurde. Wenn diese Eigenschaft nicht vorhanden ist, wurde das Theme in allen Fenstern aktualisiert.
+          - : `integer`. Die ID des Fensters, in dem das Thema aktualisiert wurde. Wenn diese Eigenschaft nicht vorhanden ist, wurde das Thema in allen Fenstern aktualisiert.
 
 ## Beispiele
 

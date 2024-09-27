@@ -1,5 +1,5 @@
 ---
-title: "CustomElementRegistry: Methode getName()"
+title: "CustomElementRegistry: getName()-Methode"
 short-title: getName()
 slug: Web/API/CustomElementRegistry/getName
 l10n:
@@ -8,8 +8,9 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`getName()`** Methode der
-{{domxref("CustomElementRegistry")}} Schnittstelle gibt den Namen eines zuvor definierten benutzerdefinierten Elements zurück.
+Die **`getName()`**-Methode des
+[`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Interfaces gibt den Namen für ein
+zuvor definiertes benutzerdefiniertes Element zurück.
 
 ## Syntax
 
@@ -24,7 +25,7 @@ getName(constructor)
 
 ### Rückgabewert
 
-Der Name des zuvor definierten benutzerdefinierten Elements oder `null`, wenn kein benutzerdefiniertes Element mit dem Konstruktor definiert wurde.
+Der Name für das zuvor definierte benutzerdefinierte Element oder `null`, wenn kein benutzerdefiniertes Element mit dem Konstruktor definiert ist.
 
 ## Beispiele
 
@@ -40,7 +41,7 @@ class MyParagraph extends HTMLElement {
 
 customElements.define("my-paragraph", MyParagraph);
 
-// Returns a reference to the my-paragraph constructor
+// Return a reference to the my-paragraph constructor
 customElements.getName(MyParagraph) === "my-paragraph";
 ```
 
@@ -48,6 +49,6 @@ customElements.getName(MyParagraph) === "my-paragraph";
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

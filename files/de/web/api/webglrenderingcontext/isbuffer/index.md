@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode isBuffer()"
+title: "WebGLRenderingContext: isBuffer()-Methode"
 short-title: isBuffer()
 slug: Web/API/WebGLRenderingContext/isBuffer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.isBuffer()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn der übergebene {{domxref("WebGLBuffer")}} gültig ist, und `false`, wenn nicht.
+Die **`WebGLRenderingContext.isBuffer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt `true` zurück, wenn der übergebene [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer) gültig ist, und `false` andernfalls.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ isBuffer(buffer)
 ### Parameter
 
 - `buffer`
-  - : Ein {{domxref("WebGLBuffer")}}, der überprüft werden soll.
+  - : Ein [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), der überprüft werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob der Buffer gültig ist oder nicht.
+Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der anzeigt, ob der Buffer gültig ist oder nicht.
 
 ## Beispiele
 
@@ -47,7 +47,7 @@ gl.isBuffer(buffer);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindBuffer()")}}
-- {{domxref("WebGLRenderingContext.createBuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteBuffer()")}}
-- Andere Buffer: {{domxref("WebGLFramebuffer")}}, {{domxref("WebGLRenderbuffer")}}
+- [`WebGLRenderingContext.bindBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindBuffer)
+- [`WebGLRenderingContext.createBuffer()`](/de/docs/Web/API/WebGLRenderingContext/createBuffer)
+- [`WebGLRenderingContext.deleteBuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteBuffer)
+- Andere Buffers: [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)

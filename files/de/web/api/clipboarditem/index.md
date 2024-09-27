@@ -7,47 +7,47 @@ l10n:
 
 {{APIRef("Clipboard API")}}{{SecureContext_Header}}
 
-Das **`ClipboardItem`**-Interface der [Zwischenablage-API (Clipboard API)](/de/docs/Web/API/Clipboard_API) repräsentiert ein einzelnes Datenformat, das beim Lesen oder Schreiben von Zwischenablagedaten mit {{domxref("clipboard.read()")}} bzw. {{domxref("clipboard.write()")}} verwendet wird.
+Die **`ClipboardItem`**-Schnittstelle der [Clipboard API](/de/docs/Web/API/Clipboard_API) repräsentiert ein einzelnes Format-Element, das beim Lesen oder Schreiben von Zwischenablagedaten mit [`clipboard.read()`](/de/docs/Web/API/Clipboard/read) und [`clipboard.write()`](/de/docs/Web/API/Clipboard/write) verwendet wird.
 
-Der Vorteil des **`ClipboardItem`**-Interfaces zur Darstellung von Daten besteht darin, dass es Entwicklern ermöglicht, mit dem unterschiedlichen Umfang von Dateitypen und Daten umzugehen.
+Der Vorteil der **`ClipboardItem`**-Schnittstelle zur Darstellung von Daten besteht darin, dass sie es Entwicklern ermöglicht, mit der unterschiedlichen Reichweite von Dateitypen und Daten umzugehen.
 
 > [!NOTE]
-> Um mit Text zu arbeiten, siehe die Methoden {{domxref("Clipboard.readText()")}} und {{domxref("Clipboard.writeText()")}} des {{domxref("Clipboard")}}-Interfaces.
+> Um mit Text zu arbeiten, siehe die Methoden [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) und [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText) der [`Clipboard`](/de/docs/Web/API/Clipboard)-Schnittstelle.
 
 ## Konstruktor
 
-- {{domxref("ClipboardItem.ClipboardItem", "ClipboardItem()")}}
-  - : Erstellt ein neues **`ClipboardItem`**-Objekt, mit dem {{Glossary("MIME-Typ")}} als Schlüssel und {{domxref("Blob")}} als Wert.
+- [`ClipboardItem()`](/de/docs/Web/API/ClipboardItem/ClipboardItem)
+  - : Erstellt ein neues **`ClipboardItem`**-Objekt, wobei der [MIME-Typ](/de/docs/Glossary/MIME_type) als Schlüssel und [`Blob`](/de/docs/Web/API/Blob) als Wert dient.
 
 ## Instanz-Eigenschaften
 
-_Dieses Interface stellt die folgenden Eigenschaften bereit._
+_Diese Schnittstelle bietet die folgenden Eigenschaften._
 
-- {{domxref("ClipboardItem.types", "types")}} {{ReadOnlyInline}}
+- [`types`](/de/docs/Web/API/ClipboardItem/types) {{ReadOnlyInline}}
   - : Gibt ein {{jsxref("Array")}} von MIME-Typen zurück, die im **`ClipboardItem`** verfügbar sind.
-- {{domxref("ClipboardItem.presentationStyle", "presentationStyle")}} {{ReadOnlyInline}}
+- [`presentationStyle`](/de/docs/Web/API/ClipboardItem/presentationStyle) {{ReadOnlyInline}}
   - : Gibt einen der folgenden Werte zurück: `"unspecified"`, `"inline"` oder `"attachment"`.
 
 ## Statische Methoden
 
-_Dieses Interface definiert die folgenden Methoden._
+_Diese Schnittstelle definiert die folgenden Methoden._
 
-- {{domxref("ClipboardItem.supports_static", "ClipboardItem.supports()")}}
-  - : Prüft, ob ein gegebener {{Glossary("MIME-Typ")}} von der Zwischenablage unterstützt wird. Dies ermöglicht es einer Website zu erkennen, ob ein MIME-Typ von der Zwischenablage unterstützt wird, bevor versucht wird, Daten zu schreiben.
+- [`ClipboardItem.supports()`](/de/docs/Web/API/ClipboardItem/supports_static)
+  - : Überprüft, ob ein gegebener [MIME-Typ](/de/docs/Glossary/MIME_type) von der Zwischenablage unterstützt wird. Dies ermöglicht es einer Website zu erkennen, ob ein MIME-Typ von der Zwischenablage unterstützt wird, bevor versucht wird, Daten zu schreiben.
 
 ## Instanz-Methoden
 
-_Dieses Interface definiert die folgenden Methoden._
+_Diese Schnittstelle definiert die folgenden Methoden._
 
-- {{domxref("ClipboardItem.getType", "getType()")}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("Blob")}} des angeforderten {{Glossary("MIME-Typ")}} aufgelöst wird, oder einen Fehler, wenn der MIME-Typ nicht gefunden wird.
+- [`getType()`](/de/docs/Web/API/ClipboardItem/getType)
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) des angeforderten [MIME-Typs](/de/docs/Glossary/MIME_type) aufgelöst wird, oder einen Fehler, wenn der MIME-Typ nicht gefunden wird.
 
 ## Beispiele
 
 ### In die Zwischenablage schreiben
 
-Hier verwenden wir {{domxref("ClipboardItem.supports_static", "supports()")}}, um zu prüfen, ob der MIME-Datentyp `image/svg+xml` unterstützt wird.
-Falls ja, holen wir das Bild mit der ["Fetch API"](/de/docs/Web/API/Fetch_API) und lesen es dann in ein {{domxref("Blob")}} ein, das wir verwenden können, um ein `ClipboardItem` zu erstellen, das in die Zwischenablage geschrieben wird.
+Hier verwenden wir [`supports()`](/de/docs/Web/API/ClipboardItem/supports_static), um zu überprüfen, ob der `image/svg+xml` MIME-Datentyp unterstützt wird.
+Falls ja, holen wir das Bild mit der ["Fetch API"](/de/docs/Web/API/Fetch_API) und lesen es dann in einen [`Blob`](/de/docs/Web/API/Blob) ein, den wir zur Erstellung eines `ClipboardItem` verwenden können, das in die Zwischenablage geschrieben wird.
 
 ```js
 async function writeClipImg() {
@@ -71,10 +71,10 @@ async function writeClipImg() {
 }
 ```
 
-### Aus der Zwischenablage lesen
+### Von der Zwischenablage lesen
 
-Hier geben wir alle Elemente auf der Zwischenablage mit der {{domxref("clipboard.read()")}} Methode zurück.
-Dann nutzen wir die {{domxref("ClipboardItem.types")}} Eigenschaft, um das Argument von {{domxref("ClipboardItem.getType", "getType()")}} zu setzen und das entsprechende Blob-Objekt zurückzugeben.
+Hier geben wir alle Elemente auf der Zwischenablage über die [`clipboard.read()`](/de/docs/Web/API/Clipboard/read)-Methode zurück.
+Dann nutzen wir die [`ClipboardItem.types`](/de/docs/Web/API/ClipboardItem/types)-Eigenschaft, um das Argument von [`getType()`](/de/docs/Web/API/ClipboardItem/getType) festzulegen und das entsprechende Blob-Objekt zurückzugeben.
 
 ```js
 async function getClipboardContents() {
@@ -103,5 +103,5 @@ async function getClipboardContents() {
 
 ## Siehe auch
 
-- [Zwischenablage-API (Clipboard API)](/de/docs/Web/API/Clipboard_API)
-- [Artikel zur Bildunterstützung für die asynchrone Zwischenablage](https://web.dev/articles/async-clipboard)
+- [Clipboard API](/de/docs/Web/API/Clipboard_API)
+- [Image support for Async Clipboard article](https://web.dev/articles/async-clipboard)

@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der **`Want-Repr-Digest`** Anforderungs- oder Antwort-Header gibt den Wunsch nach einem {{HTTPHeader("Repr-Digest")}} Header an.
+Der **`Want-Repr-Digest`** Anforderungs- oder Antwort-Header gibt den Wunsch nach einem {{HTTPHeader("Repr-Digest")}}-Header an.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Representation header")}}</td>
+      <td>[Representation header](/de/docs/Glossary/Representation_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -24,14 +24,14 @@ Der **`Want-Repr-Digest`** Anforderungs- oder Antwort-Header gibt den Wunsch nac
 
 ## Syntax
 
-`Want-Repr-Digest` beschreibt ein [RFC8941-Wörterbuch](https://www.rfc-editor.org/rfc/rfc8941#section-3.2) mit seinen Schlüsseln als Hash-Algorithmen und seinen Werten als die Ganzzahlen `0` (bedeutet "nicht akzeptabel") oder `1` bis `9` (die aufsteigende, relative, gewichtete Präferenzen vermitteln).
+`Want-Repr-Digest` beschreibt ein [RFC8941-Dictionary](https://www.rfc-editor.org/rfc/rfc8941#section-3.2) mit Schlüsseln, die Hashing-Algorithmen sind, und Werten, die die Ganzzahlen `0` (bedeutet "nicht akzeptabel") oder von `1` bis `9` sind (ausdrückend eine aufsteigende, relative, gewichtete Präferenz).
 
 > [!NOTE]
-> Im Gegensatz zu früheren Entwürfen der Spezifikationen wird die Gewichtung _nicht_ über [q-values](/de/docs/Glossary/Quality_values) erklärt.
+> Im Gegensatz zu früheren Entwürfen der Spezifikationen wird die Gewichtung _nicht_ durch [q-Werte](/de/docs/Glossary/Quality_values) angegeben.
 
 ## Direktiven
 
-Für zulässige Digest-Algorithmen siehe {{HTTPHeader("Repr-Digest")}}.
+Erlaubte Digest-Algorithmen finden Sie unter {{HTTPHeader("Repr-Digest")}}.
 
 ## Beispiele
 

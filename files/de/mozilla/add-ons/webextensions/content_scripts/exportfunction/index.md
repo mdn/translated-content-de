@@ -7,13 +7,13 @@ l10n:
 
 {{AddonSidebar()}}
 
-Diese Funktion bietet eine sichere Möglichkeit, eine Funktion aus einem privilegierten Bereich in einen weniger privilegierten Bereich zu exportieren. Dies ermöglicht es privilegiertem Code, wie z.B. einer Erweiterung, Code mit weniger privilegiertem Code, wie z.B. einem Standard-Webseiten-Skript, zu teilen. Eine aus privilegiertem zu weniger privilegiertem Code exportierte Funktion kann aus dem Kontext des weniger privilegierten Codes aufgerufen werden.
+Diese Funktion bietet eine sichere Möglichkeit, eine Funktion von einem privilegierten in einen weniger privilegierten Bereich zu exportieren. Dadurch kann privilegierter Code, wie beispielsweise eine Erweiterung, Code mit weniger privilegiertem Code, wie einem Standard-Webseitenskript, teilen. Eine Funktion, die aus dem privilegierten in den weniger privilegierten Code exportiert wird, kann aus dem Kontext des weniger privilegierten Codes aufgerufen werden.
 
-Die Funktion hat Zugriff auf ihren umgebenden Abschluss, als ob sie im privilegierten Kontext aufgerufen wurde.
+Die Funktion hat Zugriff auf ihren umgebenden Abschluss, als ob sie im privilegierten Kontext aufgerufen würde.
 
-Die exportierte Funktion muss nicht dem globalen Fensterobjekt des weniger privilegierten Codes hinzugefügt werden; sie kann stattdessen zu jedem Objekt im Zielbereich exportiert werden.
+Die exportierte Funktion muss nicht dem globalen `window`-Objekt des weniger privilegierten Codes hinzugefügt werden; sie kann auf ein beliebiges Objekt im Zielbereich exportiert werden.
 
-Siehe [Export von Funktionen, die Argumente übernehmen](#export_von_funktionen,_die_argumente_übernehmen), um zu verstehen, was passiert, wenn die von Ihnen exportierten Funktionen Argumente akzeptieren.
+Lesen Sie [Exportieren von Funktionen, die Argumente akzeptieren](#exportieren_von_funktionen,_die_argumente_akzeptieren), um zu verstehen, was passiert, wenn die von Ihnen exportierten Funktionen Argumente akzeptieren.
 
 ## Syntax
 
@@ -28,32 +28,32 @@ let exportedFunction = exportFunction(
 ### Parameter
 
 - `func`
-  - : `function`. Die Funktion, die exportiert werden soll.
+  - : `function`. Die zu exportierende Funktion.
 - `targetScope`
-  - : `object`. Das Objekt, dem die Funktion hinzugefügt werden soll. Dies muss nicht das globale Fensterobjekt sein; es könnte ein Objekt im Ziel-Fenster oder vom Aufrufer erstellt sein.
+  - : `object`. Das Objekt, an das die Funktion angehängt werden soll. Dies muss nicht das globale `window`-Objekt sein; es könnte ein Objekt im Ziel-Fenster oder vom Aufrufer erstellt sein.
 - `options` {{optional_inline}}
 
   - : `object`. Optionen für die Funktion.
 
     - `defineAs` {{optional_inline}}
-      - : `string`. Der Name der Funktion im `targetScope`. Falls nicht angegeben, müssen Sie den Rückgabewert von `exportFunction()` einem Objekt im Zielbereich zuweisen.
+      - : `string`. Der Name der Funktion in `targetScope`. Falls nicht angegeben, müssen Sie den Rückgabewert von `exportFunction()` einem Objekt im Zielbereich zuweisen.
     - `allowCrossOriginArguments` {{optional_inline}}
-      - : `boolean`. Ob geprüft werden soll, dass Argumente der exportierten Funktion vom Aufrufer [übernommen](https://firefox-source-docs.mozilla.org/dom/scriptSecurity/index.html#subsumes) werden. Dies erlaubt dem Aufrufer, Objekte mit einem anderen Ursprung in die exportierte Funktion zu übergeben, die dann ihren privilegierten Status nutzen kann, um Cross-Origin-Anfragen mit dem Objekt zu machen. Standard ist `false`.
+      - : `boolean`. Ob geprüft werden soll, dass Argumente der exportierten Funktion vom Aufrufer [übergeordnet](https://firefox-source-docs.mozilla.org/dom/scriptSecurity/index.html#subsumes) sind. Dies ermöglicht es dem Aufrufer, Objekte mit einem anderen Ursprung in die exportierte Funktion zu übergeben, die dann ihren privilegierten Status nutzen kann, um Cross-Origin-Anfragen mit dem Objekt zu stellen. Standardwert ist `false`.
 
 ### Rückgabewert
 
-Die Platzhalterfunktion, die im Zielkontext erstellt wurde.
+Die Platzhalterfunktion, die im Zielkontext erstellt wird.
 
-## Export von Funktionen, die Argumente übernehmen
+## Exportieren von Funktionen, die Argumente akzeptieren
 
-Alle an die Funktion übergebenen Argumente werden nicht geklont. Stattdessen werden sie als [Xrays](https://firefox-source-docs.mozilla.org/dom/scriptSecurity/xray_vision.html) an den privilegierten Bereich weitergegeben.
+Alle an die Funktion übergebenen Argumente werden nicht geklont. Stattdessen werden sie als [Xrays](https://firefox-source-docs.mozilla.org/dom/scriptSecurity/xray_vision.html) an den privilegierten Bereich weitergeleitet.
 
-### Modifikation des Arguments
+### Ändern des Arguments
 
-Ein Xray für ein Objekt bezieht sich auf das Original. Jede Änderung am Argument, die in der exportierten Funktion vorgenommen wird, beeinflusst das ursprüngliche Objekt. Zum Beispiel:
+Ein Xray für ein Objekt bezieht sich auf das Original. Alle Änderungen am Argument, die in der exportierten Funktion vorgenommen werden, betreffen das ursprünglich übergebene Objekt. Zum Beispiel:
 
 ```js
-// privilegierter Bereich: z.B. ein Inhaltsskript
+// privileged scope: for example, a content script
 function changeMyName(user) {
   user.name = "Bill";
 }
@@ -63,7 +63,7 @@ exportFunction(changeMyName, window, {
 ```
 
 ```js
-// weniger privilegierter Bereich: z.B. ein Seitenskript
+// less-privileged scope: for example, a page script
 var user = { name: "Jim" };
 var test = document.getElementById("test");
 test.addEventListener(
@@ -77,16 +77,16 @@ test.addEventListener(
 );
 ```
 
-Dieses Verhalten unterliegt den normalen Regeln der Xrays. Zum Beispiel ist eine Expando-Eigenschaft, die einem DOM-Knoten hinzugefügt wurde, im ursprünglichen Objekt nicht sichtbar.
+Dieses Verhalten unterliegt den normalen Regeln der Xrays. Zum Beispiel ist eine hinzugefügte Expando-Eigenschaft an einem DOM-Knoten im ursprünglichen Objekt nicht sichtbar.
 
-### Xray-Filterung und Verzicht
+### Xray-Filterung und -Verzicht
 
-Xrays bieten eine gefilterte Ansicht des ursprünglichen Objekts. Zum Beispiel sind Funktionen in den Xrays von JavaScript-[`Object`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object)-Typen nicht sichtbar. Wenn Sie ungefilterten Zugriff auf das Original benötigen, können Sie [auf Xrays verzichten](https://firefox-source-docs.mozilla.org/dom/scriptSecurity/xray_vision.html#waiving-xray-vision):
+Xrays bieten eine gefilterte Ansicht des Originalobjekts. Zum Beispiel sind Funktionen in den Xrays von JavaScript- [`Object`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object)-Typen nicht sichtbar. Wenn Sie ungefilterten Zugriff auf das Original benötigen, können Sie [auf Xrays verzichten](https://firefox-source-docs.mozilla.org/dom/scriptSecurity/xray_vision.html#waiving-xray-vision):
 
 ```js
-// privilegierter Bereich: z.B. ein Inhaltsskript
+// privileged scope: for example, a content script
 function logUser(user) {
-  // console.log(user.getUser());                 // Fehler
+  // console.log(user.getUser());                 // error
   console.log(user.wrappedJSObject.getUser()); // "Bill"
 }
 exportFunction(logUser, window, {
@@ -95,7 +95,7 @@ exportFunction(logUser, window, {
 ```
 
 ```js
-// weniger privilegierter Bereich: z.B. ein Seitenskript
+// less-privileged scope: for example, a page script
 var user = {
   getUser: function () {
     return "Bill";
@@ -111,14 +111,14 @@ test.addEventListener(
 );
 ```
 
-Weitere Informationen finden Sie in der [Xray vision](https://firefox-source-docs.mozilla.org/dom/scriptSecurity/xray_vision.html) in der Dokumentation des Firefox Source Tree.
+Weitere Informationen finden Sie unter [Xray-Sicht](https://firefox-source-docs.mozilla.org/dom/scriptSecurity/xray_vision.html) in der Firefox-Source-Tree-Dokumentation.
 
 ### Übergeben von Funktionen als Argumente
 
-Wenn Funktionen als Argumente übergeben werden, werden auch diese als Xrays übergeben. Da Sie `Function`-Xrays wie normale Funktionen aufrufen können, funktioniert das Übergeben von Rückruffunktionen in die exportierte Funktion:
+Wenn Funktionen als Argumente gegeben werden, werden auch diese als Xrays übergeben. Da Sie `Function`-Xrays wie normale Funktionen aufrufen können, bedeutet dies, dass das Übergeben von Rückruffunktionen in die exportierte Funktion funktioniert:
 
 ```js
-// privilegierter Bereich: z.B. ein Inhaltsskript
+// privileged scope: for example, a content script
 function logUser(getUser) {
   console.log(getUser()); // "Bill"
 }
@@ -128,7 +128,7 @@ exportFunction(logUser, unsafeWindow, {
 ```
 
 ```js
-// weniger privilegierter Bereich: z.B. ein Seitenskript
+// less-privileged scope: for example, a page script
 function getUser() {
   return "Bill";
 }
@@ -142,9 +142,9 @@ test.addEventListener(
 );
 ```
 
-### Cross-Origin-Prüfung
+### Cross-Origin-Überprüfung
 
-Wenn die exportierte Funktion aufgerufen wird, wird jedes Argument, einschließlich `this`, überprüft, um sicherzustellen, dass der Aufrufer dieses Argument [übernimmt](https://firefox-source-docs.mozilla.org/dom/scriptSecurity/index.html#subsumes). Dies verhindert das Übergeben von Cross-Origin-Objekten (z.B. `Window` oder `Location`) an privilegierte Funktionen, da der privilegierte Code vollen Zugriff auf diese Objekte hat und möglicherweise unbeabsichtigt etwas Gefährliches tun könnte. Diese Bestimmung kann durch Übergeben von `{ allowCrossOriginArguments: true }` an `exportFunction` außer Kraft gesetzt werden.
+Wenn die exportierte Funktion aufgerufen wird, wird jedes Argument, einschließlich `this`, geprüft, um sicherzustellen, dass der Aufrufer dieses Argument [übergeordnet](https://firefox-source-docs.mozilla.org/dom/scriptSecurity/index.html#subsumes) ist. Dies verhindert, dass Cross-Origin-Objekte (wie `Window` oder `Location`) an privilegierte Funktionen übergeben werden, da der privilegierte Code vollen Zugriff auf diese Objekte hat und unbeabsichtigt etwas Gefährliches tun könnte. Diese Bestimmung kann durch das Übergeben von `{ allowCrossOriginArguments: true }` an `exportFunction` außer Kraft gesetzt werden.
 
 ## Beispiele
 
@@ -161,7 +161,7 @@ function greetMe(user) {
 exportFunction(greetMe, window, { defineAs: "foo" });
 ```
 
-Statt `defineAs` zu verwenden, kann das Skript das Ergebnis von `exportFunction` einem Objekt im Zielbereich zuweisen:
+Anstelle der Verwendung von `defineAs` kann das Skript das Ergebnis von `exportFunction` einem Objekt im Zielbereich zuweisen:
 
 ```js
 // extension-script.js
@@ -172,7 +172,7 @@ function greetMe(user) {
 window.foo = exportFunction(greetMe, window);
 ```
 
-In jedem Fall kann der im Bereich des Inhaltsfensters laufende Code die Funktion aufrufen:
+In beiden Fällen kann der im Inhaltsfenster laufende Code die Funktion aufrufen:
 
 ```js
 // page-script.js
@@ -183,7 +183,7 @@ console.log(greeting);
 
 ### Export zu einem bestehenden lokalen Objekt
 
-Statt die Funktion dem globalen `window`-Objekt des Ziels hinzuzufügen, kann der Aufrufer sie an ein anderes Objekt im Zielkontext hinzufügen. Angenommen, das Inhaltsfenster definiert eine lokale Variable `bar`:
+Anstelle des Anhängens der Funktion an das globale `window`-Objekt des Ziels, kann der Aufrufer sie an jedes andere Objekt im Zielkontext anhängen. Angenommen, das Inhaltsfenster definiert eine lokale Variable `bar`:
 
 ```js
 // page-script.js

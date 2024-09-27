@@ -9,23 +9,27 @@ l10n:
 
 Der **`If-Match`** HTTP-Anforderungsheader macht eine Anfrage bedingt.
 
-Ein Server wird nur angeforderte Ressourcen für {{HTTPMethod("GET")}}- und {{HTTPMethod("HEAD")}}-Methoden zurückgeben, oder Ressourcen für {{HTTPMethod("PUT")}} und andere unsichere Methoden hochladen, wenn die Ressource mit einem der aufgelisteten {{HTTPHeader("ETag")}}-Werte übereinstimmt. Wenn die Bedingung nicht übereinstimmt, wird die Antwort {{HTTPStatus("412")}} (Precondition Failed) zurückgegeben.
+Ein Server wird angeforderte Ressourcen für die Methoden {{HTTPMethod("GET")}} und {{HTTPMethod("HEAD")}} nur dann zurückgeben, oder Ressourcen für {{HTTPMethod("PUT")}} und andere nicht-sichere Methoden hochladen, wenn die Ressource einem der aufgeführten {{HTTPHeader("ETag")}}-Werte entspricht.
+Wenn die Bedingung nicht übereinstimmt, wird die Antwort {{HTTPStatus("412")}} (Precondition Failed) zurückgegeben.
 
-Der Vergleich mit dem gespeicherten {{HTTPHeader("ETag")}} verwendet den _starken Vergleichsalgorithmus_, was bedeutet, dass zwei Dateien nur dann als identisch angesehen werden, wenn sie Byte für Byte identisch sind. Wenn ein aufgelistetes `ETag` das Präfix `W/` hat, das auf ein schwaches Entitätstag hinweist, wird dieser Vergleichsalgorithmus nie übereinstimmen.
+Der Vergleich mit dem gespeicherten {{HTTPHeader("ETag")}} verwendet den _starken Vergleichsalgorithmus_, was bedeutet, dass zwei Dateien nur dann als identisch gelten, wenn sie byteweise identisch sind.
+Wenn ein aufgeführtes `ETag` das `W/`-Präfix trägt, das auf ein schwaches Entitätsetikett hinweist, wird dieser Vergleichsalgorithmus es niemals als übereinstimmend betrachten.
 
 Es gibt zwei häufige Anwendungsfälle:
 
-- Für {{HTTPMethod("GET")}}- und {{HTTPMethod("HEAD")}}-Methoden, die in Kombination mit einem {{HTTPHeader("Range")}}-Header verwendet werden, kann dies garantieren, dass die neu angeforderten Bereiche von derselben Ressource wie der vorherige stammen.
-- Für andere Methoden, insbesondere für {{HTTPMethod("PUT")}}, kann `If-Match` verwendet werden, um das [Problem des verlorenen Updates](https://www.w3.org/1999/04/Editing/#3.1) zu verhindern. Es kann überprüft werden, ob die Änderung einer Ressource, die der Benutzer hochladen möchte, keine andere Änderung überschreibt, die seit dem Abruf der ursprünglichen Ressource erfolgt ist.
+- Für die Methoden {{HTTPMethod("GET")}} und {{HTTPMethod("HEAD")}}, in Kombination mit einem {{HTTPHeader("Range")}}-Header verwendet, kann sichergestellt werden, dass die neu angeforderten Bereiche
+  von derselben Ressource stammen wie der vorherige.
+- Für andere Methoden, insbesondere für {{HTTPMethod("PUT")}}, kann `If-Match` verwendet werden, um das [Problem des verlorenen Updates](https://www.w3.org/1999/04/Editing/#3.1) zu verhindern.
+  Es kann prüfen, ob die Änderung einer Ressource, die der Benutzer hochladen möchte, keine andere Änderung überschreibt, die seit dem ursprünglichen Abrufen der Ressource vorgenommen wurde.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>{{Glossary("Request header")}}</td>
+      <th scope="row">Header-Typ</th>
+      <td>[Request header](/de/docs/Glossary/Request_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -41,9 +45,13 @@ If-Match: <etag_value>, <etag_value>, …
 ## Direktiven
 
 - `<etag_value>`
-  - : Entitätstags, die die angeforderten Ressourcen eindeutig repräsentieren. Sie sind eine Zeichenreihe von {{Glossary("ASCII")}}-Zeichen, die in Anführungszeichen gesetzt sind (wie `"675af34563dc-tr34"`). Sie können mit `W/` vorangestellt werden, um anzuzeigen, dass sie "schwach" sind, d.h. dass sie die Ressource semantisch, aber nicht Byte für Byte repräsentieren. In einem **`If-Match`**-Header werden schwache Entitätstags jedoch nie übereinstimmen.
+  - : Entitätsetiketten, die die angeforderten Ressourcen eindeutig repräsentieren.
+    Sie sind eine Zeichenkette aus [ASCII](/de/docs/Glossary/ASCII)-Zeichen, die in doppelte Anführungszeichen gesetzt ist (wie `"675af34563dc-tr34"`).
+    Sie können mit `W/` versehen sein, um anzuzeigen, dass sie "schwach" sind, d.h. sie repräsentieren die Ressource semantisch, aber nicht byteweise.
+    In einem **`If-Match`**-Header werden schwache Entitätsetiketten jedoch niemals übereinstimmen.
 - `*`
-  - : Der Stern ist ein spezieller Wert, der jede Ressource repräsentiert. Beachten Sie, dass dies als `false` bewertet werden muss, wenn der Ursprungsserver keine aktuelle Darstellung für die Zielressource hat.
+  - : Der Asterisk ist ein spezieller Wert, der jede Ressource repräsentiert.
+    Beachten Sie, dass dies als `false` übereinstimmen muss, wenn der Ursprungsserver keine aktuelle Darstellung für die Zielressource hat.
 
 ## Beispiele
 

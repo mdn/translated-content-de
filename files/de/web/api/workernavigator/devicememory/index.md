@@ -8,13 +8,14 @@ l10n:
 
 {{APIRef("Device Memory API")}}{{securecontext_header}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`deviceMemory`**-Eigenschaft der {{domxref("WorkerNavigator")}}-Schnittstelle gibt die ungefähre Menge des Gerätespeichers in Gigabyte zurück.
+Die **`deviceMemory`** schreibgeschützte
+Eigenschaft der [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Schnittstelle gibt die ungefähre Menge des Gerätespeichers in Gigabyte zurück.
 
-Der gemeldete Wert ist ungenau, um {{glossary("fingerprinting")}} einzuschränken. Er wird approximiert, indem auf die nächstniedrigere Potenz von 2 abgerundet und diese Zahl dann durch 1024 geteilt wird. Anschließend wird er innerhalb unterer und oberer Grenzen eingeschränkt, um die Privatsphäre der Besitzer von Geräten mit sehr wenig oder sehr viel Speicher zu schützen.
+Der gemeldete Wert ist ungenau, um [Fingerprinting](/de/docs/Glossary/fingerprinting) einzuschränken. Er wird angenähert, indem er auf die nächste Zweierpotenz abgerundet und diese Zahl dann durch 1024 geteilt wird. Anschließend wird der Wert innerhalb unterer und oberer Grenzen gehalten, um die Privatsphäre der Besitzer von Geräten mit sehr wenig oder sehr viel Speicher zu schützen.
 
 ## Wert
 
-Eine Gleitkommazahl; eine von `0.25`, `0.5`, `1`, `2`, `4`, `8`.
+Eine Gleitkommazahl; eine der folgenden: `0.25`, `0.5`, `1`, `2`, `4`, `8`.
 
 ## Beispiele
 

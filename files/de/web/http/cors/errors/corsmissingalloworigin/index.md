@@ -15,59 +15,41 @@ Reason: CORS header 'Access-Control-Allow-Origin' missing
 
 ## Was ist schiefgelaufen?
 
-Die Antwort auf die {{Glossary("CORS")}}-Anfrage fehlt der erforderliche
-{{HTTPHeader("Access-Control-Allow-Origin")}}-Header, der verwendet wird, um zu bestimmen,
-ob die Ressource durch Inhalte, die innerhalb des aktuellen Ursprungs betrieben werden, zugänglich ist.
+Die Antwort auf die [CORS](/de/docs/Glossary/CORS)-Anfrage fehlt der erforderliche
+{{HTTPHeader("Access-Control-Allow-Origin")}}-Header, der verwendet wird, um festzustellen, ob der Zugriff auf die Ressource durch Inhalte der aktuellen Origin erlaubt ist.
 
-Wenn der Server unter Ihrer Kontrolle ist, fügen Sie den Ursprung der anfragenden Website dem Satz
-von Domains hinzu, die Zugriff haben, indem Sie ihn dem Wert des `Access-Control-Allow-Origin`
--Headers hinzufügen.
+Wenn der Server unter Ihrer Kontrolle steht, fügen Sie die Origin der anfragenden Seite zu der Menge der Domains hinzu, denen der Zugriff im `Access-Control-Allow-Origin`-Header gestattet ist.
 
-Zum Beispiel, um einer Website unter `https://example.com` den Zugriff auf die Ressource
-mithilfe von CORS zu erlauben, sollte der Header folgendermaßen aussehen:
+Zum Beispiel, um einer Seite unter `https://example.com` den Zugriff auf die Ressource mit CORS zu erlauben, sollte der Header folgendermaßen aussehen:
 
 ```http
 Access-Control-Allow-Origin: https://example.com
 ```
 
-Sie können eine Website auch so konfigurieren, dass jede Website darauf zugreifen kann, indem Sie
-das `*`-Wildcard verwenden. Sie sollten dies nur für öffentliche APIs verwenden. Private APIs sollten
-niemals `*` verwenden und stattdessen eine spezifische Domain oder Domains festgelegt haben. Zusätzlich
-funktioniert das Wildcard nur für Anfragen, die mit dem
-[`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)-Attribut mit dem Wert `anonymous` gestellt werden, und verhindert,
-dass Anmeldeinformationen wie Cookies in Anfragen gesendet werden.
+Sie können eine Seite auch so konfigurieren, dass jede Seite darauf zugreifen kann, indem Sie den `*`-Wildcard verwenden. Dies sollte nur für öffentliche APIs verwendet werden. Private APIs sollten niemals `*` verwenden und stattdessen eine spezifische Domain oder Domains festlegen. Zudem funktioniert der Wildcard nur für Anfragen, die mit dem [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)-Attribut auf `anonymous` gesetzt sind und verhindert das Senden von Anmeldeinformationen wie Cookies in Anfragen.
 
 ```http
 Access-Control-Allow-Origin: *
 ```
 
 > [!WARNING]
-> Die Verwendung des Wildcards, um allen Websites den Zugriff auf eine private
-> API zu ermöglichen, ist eine schlechte Idee.
+> Die Verwendung des Wildcards, um allen Seiten den Zugriff auf eine private API zu ermöglichen, ist eine schlechte Idee.
 
-Um jeder Website zu erlauben, CORS-Anfragen _ohne_ Verwendung des `*`-Wildcards zu stellen (zum Beispiel, um Anmeldeinformationen zu ermöglichen), muss Ihr Server den Wert des
-`Origin`-Headers der Anfrage lesen und diesen Wert verwenden, um
-`Access-Control-Allow-Origin` zu setzen und auch einen `Vary: Origin`
--Header setzen, um anzuzeigen, dass einige Header dynamisch abhängig vom Ursprung gesetzt werden.
+Um jeder Seite CORS-Anfragen ohne Nutzung des `*`-Wildcards zu erlauben (zum Beispiel, um Anmeldeinformationen zu ermöglichen), muss Ihr Server den Wert des `Origin`-Headers der Anfrage lesen und diesen Wert verwenden, um `Access-Control-Allow-Origin` zu setzen, und muss außerdem einen `Vary: Origin`-Header setzen, um anzuzeigen, dass einige Header dynamisch abhängig von der Origin gesetzt werden.
 
 ## Beispiele für gängige Webserver
 
-Die genaue Anweisung zur Festlegung von Headern hängt von Ihrem Webserver ab.
+Die exakte Anweisung zum Setzen von Headers hängt von Ihrem Webserver ab.
 
-In den folgenden Beispielen,
+In den untenstehenden Beispielen,
 
-Fügen Sie in **Apache** ([Dokumentation](https://httpd.apache.org/docs/2.4/mod/mod_headers.html#header)) eine Zeile wie die folgende in die Serverkonfiguration ein (innerhalb des entsprechenden
-`<Directory>`, `<Location>`,
-`<Files>` oder `<VirtualHost>` Abschnitts). Die
-Konfiguration befindet sich typischerweise in einer `.conf`-Datei (übliche Namen dafür sind `httpd.conf`
-und `apache.conf`), oder in einer
-`.htaccess`-Datei:
+In **Apache** ([Dokumentation](https://httpd.apache.org/docs/2.4/mod/mod_headers.html#header)) fügen Sie eine Zeile wie die folgende in die Serverkonfiguration ein (innerhalb der entsprechenden `<Directory>`, `<Location>`, `<Files>`, oder `<VirtualHost>`-Sektion). Die Konfiguration befindet sich typischerweise in einer `.conf`-Datei (`httpd.conf` und `apache.conf` sind gebräuchliche Namen dafür) oder in einer `.htaccess`-Datei:
 
 ```apacheconf
 Header set Access-Control-Allow-Origin 'https://example.com'
 ```
 
-Für **Nginx** ([Dokumentation](https://nginx.org/en/docs/http/ngx_http_headers_module.html#add_header)) lautet der Befehl zur Einrichtung dieses Headers:
+Für **Nginx** ([Dokumentation](https://nginx.org/en/docs/http/ngx_http_headers_module.html#add_header)), ist der Befehl zum Einrichten dieses Headers:
 
 ```nginx
 add_header 'Access-Control-Allow-Origin' 'https://example.com' always;
@@ -76,5 +58,5 @@ add_header 'Access-Control-Allow-Origin' 'https://example.com' always;
 ## Siehe auch
 
 - [CORS-Fehler](/de/docs/Web/HTTP/CORS/Errors)
-- Glossar: {{Glossary("CORS")}}
-- [Einführung in CORS](/de/docs/Web/HTTP/CORS)
+- Glossar: [CORS](/de/docs/Glossary/CORS)
+- [Einführung zu CORS](/de/docs/Web/HTTP/CORS)

@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `picture-in-picture`-Direktive steuert, ob das aktuelle Dokument berechtigt ist, ein Video im {{domxref("Picture-in-Picture API", "Picture-in-Picture", "", "nocode")}}-Modus abzuspielen.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `picture-in-picture` steuert, ob das aktuelle Dokument ein Video im [Picture-in-Picture](/de/docs/Web/API/Picture-in-Picture_API)-Modus abspielen darf.
 
-Insbesondere wird bei einer definierten Richtlinie, die die Nutzung dieser Funktion blockiert, ein Aufruf von {{domxref("HTMLVideoElement.requestPictureInPicture()")}} einen {{domxref("DOMException")}} vom Typ `SecurityError` auslösen.
+Insbesondere wird, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, ein Aufruf von [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: picture-in-picture=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wird, die Funktion zu nutzen. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Berechtigung erteilt wird, die Funktion zu nutzen. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Allowlist für `picture-in-picture` ist `*`.
+Die Standard-Whitelist für `picture-in-picture` ist `*`.
 
 ## Spezifikationen
 
@@ -34,5 +34,5 @@ Die Standard-Allowlist für `picture-in-picture` ist `*`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}}-Header
+- {{HTTPHeader("Permissions-Policy")}} header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

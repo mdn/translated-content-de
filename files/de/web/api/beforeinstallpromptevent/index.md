@@ -7,44 +7,44 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}{{Non-standard_header}}
 
-Die **`BeforeInstallPromptEvent`** Schnittstelle gehört zum {{domxref("Window.beforeinstallprompt_event", "beforeinstallprompt")}}-Ereignis, das am {{domxref("Window")}}-Objekt ausgelöst wird, bevor ein Benutzer aufgefordert wird, eine Website auf einem mobilen Gerät zur Startseite hinzuzufügen.
+Das **`BeforeInstallPromptEvent`** ist die Schnittstelle des [`beforeinstallprompt`](/de/docs/Web/API/Window/beforeinstallprompt_event)-Ereignisses, das im [`Window`](/de/docs/Web/API/Window)-Objekt ausgelöst wird, bevor ein Benutzer aufgefordert wird, eine Webseite zu einem Startbildschirm auf mobilen Geräten zu "installieren".
 
-Diese Schnittstelle erbt von der {{domxref("Event")}} Schnittstelle.
+Diese Schnittstelle erbt von der [`Event`](/de/docs/Web/API/Event)-Schnittstelle.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("BeforeInstallPromptEvent.BeforeInstallPromptEvent","BeforeInstallPromptEvent()")}}{{Non-standard_Inline}} {{Experimental_Inline}}
+- [`BeforeInstallPromptEvent()`](/de/docs/Web/API/BeforeInstallPromptEvent/BeforeInstallPromptEvent){{Non-standard_Inline}} {{Experimental_Inline}}
   - : Erstellt ein neues `BeforeInstallPromptEvent`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("Event")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("BeforeInstallPromptEvent.platforms")}} {{ReadOnlyInline}}{{Non-standard_Inline}} {{Experimental_Inline}}
-  - : Gibt ein Array von Zeichenketten zurück, das die Plattformen enthält, auf denen das Ereignis ausgelöst wurde. Dies wird für Benutzeragenten bereitgestellt, die dem Benutzer eine Auswahl von Versionen präsentieren möchten, wie zum Beispiel „web“ oder „play“, wodurch der Benutzer zwischen einer Web- oder einer Android-Version wählen kann.
-- {{domxref("BeforeInstallPromptEvent.userChoice")}} {{ReadOnlyInline}}{{Non-standard_Inline}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das zu einem Objekt aufgelöst wird, das die Wahl des Benutzers beschreibt, als er zur Installation der App aufgefordert wurde.
+- [`BeforeInstallPromptEvent.platforms`](/de/docs/Web/API/BeforeInstallPromptEvent/platforms) {{ReadOnlyInline}}{{Non-standard_Inline}} {{Experimental_Inline}}
+  - : Gibt ein Array von Zeichenfolgen zurück, das die Plattformen enthält, auf denen das Ereignis ausgelöst wurde. Dies wird für Benutzeragenten bereitgestellt, die dem Benutzer eine Auswahl an Versionen anbieten möchten, wie beispielsweise "web" oder "play", wodurch der Benutzer zwischen einer Web-Version oder einer Android-Version wählen kann.
+- [`BeforeInstallPromptEvent.userChoice`](/de/docs/Web/API/BeforeInstallPromptEvent/userChoice) {{ReadOnlyInline}}{{Non-standard_Inline}} {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das sich zu einem Objekt auflöst, das die Entscheidung des Benutzers beschreibt, als er aufgefordert wurde, die App zu installieren.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("BeforeInstallPromptEvent.prompt()")}}{{Non-standard_Inline}} {{Experimental_Inline}}
-  - : Zeigt eine Aufforderung an, die den Benutzer fragt, ob er die App installieren möchte. Diese Methode gibt ein {{jsxref("Promise")}} zurück, das zu einem Objekt aufgelöst wird, das die Wahl des Benutzers beschreibt, als er zur Installation der App aufgefordert wurde.
+- [`BeforeInstallPromptEvent.prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt){{Non-standard_Inline}} {{Experimental_Inline}}
+  - : Zeigt eine Aufforderung, ob der Benutzer die App installieren möchte. Diese Methode gibt ein {{jsxref("Promise")}} zurück, das sich zu einem Objekt auflöst, das die Entscheidung des Benutzers beschreibt, als er aufgefordert wurde, die App zu installieren.
 
 ## Beispiele
 
-Im folgenden Beispiel bietet eine App ihre eigene Installationsschaltfläche mit der `id` `"install"`. Die Schaltfläche ist anfänglich ausgeblendet.
+Im folgenden Beispiel bietet eine App ihren eigenen Installationsbutton, der eine `id` von `"install"` hat. Der Button ist zunächst verborgen.
 
 ```html
-<button id="install" hidden>Installieren</button>
+<button id="install" hidden>Install</button>
 ```
 
 Der `beforeinstallprompt`-Handler:
 
-- Bricht das Ereignis ab, um zu verhindern, dass der Browser auf einigen Plattformen seine eigene Installationsoberfläche anzeigt.
+- Bricht das Ereignis ab, wodurch verhindert wird, dass der Browser auf einigen Plattformen seine eigene Installationsbenutzeroberfläche anzeigt.
 - Weist das `BeforeInstallPromptEvent`-Objekt einer Variablen zu, damit es später verwendet werden kann.
-- Zeigt die Installationsschaltfläche der App an.
+- Macht den Installationsbutton der App sichtbar.
 
 ```js
 let installPrompt = null;
@@ -57,10 +57,10 @@ window.addEventListener("beforeinstallprompt", (event) => {
 });
 ```
 
-Beim Klicken ruft die Installationsschaltfläche der App:
+Bei einem Klick auf den Installationsbutton der App:
 
-- Die {{domxref("BeforeInstallPromptEvent.prompt()", "prompt()")}}-Methode des gespeicherten Ereignisobjekts auf, um die Installationsaufforderung auszulösen.
-- Setzt ihren Zustand zurück, indem sie die `installPrompt`-Variable löscht und sich selbst wieder ausblendet.
+- Wird die [`prompt()`](/de/docs/Web/API/BeforeInstallPromptEvent/prompt)-Methode des gespeicherten Ereignisobjekts aufgerufen, um die Installationsaufforderung auszulösen.
+- Setzt seinen Zustand zurück, indem die `installPrompt`-Variable gelöscht und der Button wieder versteckt wird.
 
 ```js
 installButton.addEventListener("click", async () => {
@@ -68,7 +68,7 @@ installButton.addEventListener("click", async () => {
     return;
   }
   const result = await installPrompt.prompt();
-  console.log(`Installationsaufforderung war: ${result.outcome}`);
+  console.log(`Install prompt was: ${result.outcome}`);
   installPrompt = null;
   installButton.setAttribute("hidden", "");
 });
@@ -81,4 +81,4 @@ installButton.addEventListener("click", async () => {
 ## Siehe auch
 
 - [PWAs installierbar machen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
-- [Wie Sie Ihre eigene Installationserfahrung in der App bieten] (https://web.dev/articles/customize-install) auf web.dev (2021)
+- [Anleitung zur Bereitstellung eines eigenen In-App-Installationserlebnisses](https://web.dev/articles/customize-install) auf web.dev (2021)

@@ -1,5 +1,5 @@
 ---
-title: "ANGLE_instanced_arrays: drawArraysInstancedANGLE()-Methode"
+title: "ANGLE_instanced_arrays: drawArraysInstancedANGLE() Methode"
 short-title: drawArraysInstancedANGLE()
 slug: Web/API/ANGLE_instanced_arrays/drawArraysInstancedANGLE
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`ANGLE_instanced_arrays.drawArraysInstancedANGLE()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) rendert Primitiven aus Array-Daten ähnlich wie die {{domxref("WebGLRenderingContext.drawArrays()", "gl.drawArrays()")}}-Methode. Zusätzlich kann sie mehrere Instanzen des Elementbereichs ausführen.
+Die **`ANGLE_instanced_arrays.drawArraysInstancedANGLE()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) rendert Primitive aus Array-Daten ähnlich wie die [`gl.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays) Methode. Zusätzlich kann sie mehrere Instanzen des Bereichs von Elementen ausführen.
 
 > [!NOTE]
-> Bei Verwendung von {{domxref("WebGL2RenderingContext", "WebGL2")}} ist diese Methode standardmäßig als {{domxref("WebGL2RenderingContext.drawArraysInstanced()", "gl.drawArraysInstanced()")}} verfügbar.
+> Bei Verwendung von [`WebGL2`](/de/docs/Web/API/WebGL2RenderingContext) ist diese Methode standardmäßig als [`gl.drawArraysInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced) verfügbar.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ drawArraysInstancedANGLE(mode, first, count, primcount)
 
 - `mode`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Typ des zu rendernden Primitivs spezifiziert. Mögliche Werte sind:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Typ des zu rendernden Primitivs angibt. Mögliche Werte sind:
 
     - `gl.POINTS`: Zeichnet einen einzelnen Punkt.
     - `gl.LINE_STRIP`: Zeichnet eine gerade Linie zum nächsten Scheitelpunkt.
@@ -34,11 +34,11 @@ drawArraysInstancedANGLE(mode, first, count, primcount)
     - `gl.TRIANGLES`: Zeichnet ein Dreieck für eine Gruppe von drei Scheitelpunkten.
 
 - `first`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der den Startindex im Array der Vektorpunkte angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den Startindex im Array der Vektorpunkte angibt.
 - `count`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, der die Anzahl der zu rendernden Indizes angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der zu rendernden Indizes angibt.
 - `primcount`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, der die Anzahl der Instanzen des auszuführenden Elementbereichs angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Instanzen des Bereichs von Elementen angibt, die ausgeführt werden sollen.
 
 ### Rückgabewert
 
@@ -46,9 +46,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Wenn `mode` nicht einer der akzeptierten Werte ist, wird ein `gl.INVALID_ENUM`-Fehler ausgelöst.
-- Wenn `first`, `count` oder `primcount` negativ sind, wird ein `gl.INVALID_VALUE`-Fehler ausgelöst.
-- Wenn `gl.CURRENT_PROGRAM` [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist, wird ein `gl.INVALID_OPERATION`-Fehler ausgelöst.
+- Wenn `mode` nicht einer der akzeptierten Werte ist, wird ein `gl.INVALID_ENUM` Fehler ausgelöst.
+- Wenn `first`, `count` oder `primcount` negativ sind, wird ein `gl.INVALID_VALUE` Fehler ausgelöst.
+- Wenn `gl.CURRENT_PROGRAM` [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist, wird ein `gl.INVALID_OPERATION` Fehler ausgelöst.
 
 ## Beispiele
 
@@ -67,11 +67,11 @@ ext.drawArraysInstancedANGLE(gl.POINTS, 0, 8, 4);
 
 ## Siehe auch
 
-- {{domxref("ANGLE_instanced_arrays.drawElementsInstancedANGLE()", "ext.drawElementsInstancedANGLE()")}}
-- {{domxref("ANGLE_instanced_arrays.vertexAttribDivisorANGLE()", "ext.vertexAttribDivisorANGLE()")}}
-- {{domxref("WebGLRenderingContext.drawArrays()")}}
-- {{domxref("WebGLRenderingContext.drawElements()")}}
-- {{domxref("WebGL2RenderingContext.drawArraysInstanced()")}}
-- {{domxref("WebGL2RenderingContext.drawElementsInstanced()")}}
-- {{domxref("WebGL2RenderingContext.vertexAttribDivisor()")}}
-- {{domxref("WEBGL_multi_draw.multiDrawArraysInstancedWEBGL()")}}
+- [`ext.drawElementsInstancedANGLE()`](/de/docs/Web/API/ANGLE_instanced_arrays/drawElementsInstancedANGLE)
+- [`ext.vertexAttribDivisorANGLE()`](/de/docs/Web/API/ANGLE_instanced_arrays/vertexAttribDivisorANGLE)
+- [`WebGLRenderingContext.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays)
+- [`WebGLRenderingContext.drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements)
+- [`WebGL2RenderingContext.drawArraysInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced)
+- [`WebGL2RenderingContext.drawElementsInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced)
+- [`WebGL2RenderingContext.vertexAttribDivisor()`](/de/docs/Web/API/WebGL2RenderingContext/vertexAttribDivisor)
+- [`WEBGL_multi_draw.multiDrawArraysInstancedWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawArraysInstancedWEBGL)

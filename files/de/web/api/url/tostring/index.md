@@ -1,5 +1,5 @@
 ---
-title: "URL: toString() Methode"
+title: "URL: toString()-Methode"
 short-title: toString()
 slug: Web/API/URL/toString
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`toString()`**-Methode des {{domxref("URL")}}-Interfaces gibt einen String zurück, der die gesamte URL enthält. Sie ist im Wesentlichen eine schreibgeschützte Version von {{domxref("URL.href")}}.
+Die **`toString()`**-Methode der [`URL`](/de/docs/Web/API/URL)-Schnittstelle gibt einen String zurück, der die gesamte URL enthält. Sie ist im Wesentlichen eine schreibgeschützte Version von [`URL.href`](/de/docs/Web/API/URL/href).
 
 ## Syntax
 
@@ -28,9 +28,9 @@ Ein String.
 
 ```js
 const url = new URL(
-  "https://developer.mozilla.org/de/docs/Web/API/URL/toString",
+  "https://developer.mozilla.org/en-US/docs/Web/API/URL/toString",
 );
-url.toString(); // sollte die URL als String zurückgeben
+url.toString(); // should return the URL as a string
 ```
 
 ## Spezifikationen
@@ -43,4 +43,4 @@ url.toString(); // sollte die URL als String zurückgeben
 
 ## Siehe auch
 
-- Das {{domxref("URL")}} Interface, zu dem es gehört.
+- Die [`URL`](/de/docs/Web/API/URL)-Schnittstelle, zu der sie gehört.

@@ -1,5 +1,5 @@
 ---
-title: Beitrag zu den MDN Web Docs
+title: Beiträge zu den MDN Web Docs
 slug: MDN/Community/Contributing
 l10n:
   sourceCommit: aa66311219951396e7305df61eb31831360d2c79

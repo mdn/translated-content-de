@@ -1,5 +1,5 @@
 ---
-title: "Navigator: gpu Eigenschaft"
+title: "Navigator: gpu-Eigenschaft"
 short-title: gpu
 slug: Web/API/Navigator/gpu
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`Navigator.gpu`**-Eigenschaft gibt das {{domxref("GPU")}}-Objekt für den aktuellen Browsing-Kontext zurück, das den Einstiegspunkt für die {{domxref("WebGPU_API", "WebGPU API", "", "nocode")}} darstellt.
+Die schreibgeschützte Eigenschaft **`Navigator.gpu`** gibt das [`GPU`](/de/docs/Web/API/GPU)-Objekt für den aktuellen Browsing-Kontext zurück, welches der Einstiegspunkt für die [WebGPU API](/de/docs/Web/API/WebGPU_API) ist.
 
 ## Wert
 
-Ein {{domxref("GPU")}}-Objekt.
+Ein [`GPU`](/de/docs/Web/API/GPU)-Objekt.
 
 ## Beispiele
 
@@ -43,4 +43,4 @@ async function init() {
 
 ## Siehe auch
 
-- {{domxref("WebGPU_API", "WebGPU API", "", "nocode")}}
+- [WebGPU API](/de/docs/Web/API/WebGPU_API)

@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:if>`-Element enthält ein Testattribut und eine Vorlage. Wenn der Test als wahr ausgewertet wird, wird die Vorlage verarbeitet. Damit ist es einem If-Befehl in anderen Sprachen ähnlich. Um jedoch die Funktionalität eines If-Then-Else-Befehls zu erreichen, verwenden Sie das `<xsl:choose>`-Element mit einem `<xsl:when>`- und einem `<xsl:otherwise>`-Kind.
+Das `<xsl:if>`-Element enthält ein Testattribut und eine Vorlage. Wenn der Test erfolgreich ist, wird die Vorlage verarbeitet. In dieser Hinsicht ist es ähnlich einer if-Anweisung in anderen Sprachen. Um jedoch die Funktionalität einer if-then-else-Anweisung zu erreichen, verwenden Sie das `<xsl:choose>`-Element mit einem `<xsl:when>` und einem `<xsl:otherwise>` Kind.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ Das `<xsl:if>`-Element enthält ein Testattribut und eine Vorlage. Wenn der Test
 ### Erforderliche Attribute
 
 - `test`
-  - : Enthält einen XPath-Ausdruck, der (gegebenenfalls unter Verwendung der für `boolean( )` definierten Regeln) zu einem Booleschen Wert ausgewertet werden kann. Wenn der Wert wahr ist, wird die Vorlage verarbeitet; ist dies nicht der Fall, wird keine Handlung vorgenommen.
+  - : Enthält einen XPath-Ausdruck, der (gegebenenfalls unter Verwendung der für `boolean( )` definierten Regeln) zu einem Boolean-Wert ausgewertet werden kann. Wenn der Wert true ist, wird die Vorlage verarbeitet; wenn nicht, wird keine Aktion ausgeführt.
 
 ### Optionale Attribute
 

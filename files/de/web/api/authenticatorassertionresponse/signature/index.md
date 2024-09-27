@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`signature`**-Eigenschaft des schreibgeschützten {{domxref("AuthenticatorAssertionResponse")}}-Interfaces ist ein {{jsxref("ArrayBuffer")}}-Objekt, welches die Signatur des Authenticators für sowohl {{domxref("AuthenticatorAssertionResponse.authenticatorData")}} als auch einen SHA-256-Hash der Client-Daten ({{domxref("AuthenticatorResponse.clientDataJSON","AuthenticatorAssertionResponse.clientDataJSON")}}) ist.
+Die schreibgeschützte **`signature`**-Eigenschaft der [`AuthenticatorAssertionResponse`](/de/docs/Web/API/AuthenticatorAssertionResponse)-Schnittstelle ist ein {{jsxref("ArrayBuffer")}}-Objekt, welches die Signatur des Authentifikators für sowohl [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData) als auch einen SHA-256-Hash der Client-Daten ([`AuthenticatorAssertionResponse.clientDataJSON`](/de/docs/Web/API/AuthenticatorResponse/clientDataJSON)) darstellt.
 
-Diese Signatur wird als Teil der Antwort an den Server gesendet, um eine Überprüfung durchzuführen. Sie liefert den Nachweis, dass ein Authenticator den privaten Schlüssel besitzt, der zur Erzeugung der Berechtigung verwendet wurde.
+Diese Signatur wird als Teil der Antwort an den Server zur Kontrolle gesendet. Sie liefert den Nachweis, dass ein Authentifikator tatsächlich den privaten Schlüssel besitzt, der zur Erstellung der Anmeldeinformation verwendet wurde.
 
 ## Wert
 
-Ein {{jsxref("ArrayBuffer")}}-Objekt, welches die Signatur des Authenticators (unter Verwendung seines privaten Schlüssels) für sowohl {{domxref("AuthenticatorAssertionResponse.authenticatorData")}} als auch einen vom Client bereitgestellten SHA-256-Hash seiner Daten (die Herausforderung, der Ursprung usw. und verfügbar von {{domxref("AuthenticatorResponse.clientDataJSON","AuthenticatorAssertionResponse.clientDataJSON")}}) ist.
+Ein {{jsxref("ArrayBuffer")}}-Objekt, das die Signatur des Authentifikators (unter Verwendung seines privaten Schlüssels) für sowohl [`AuthenticatorAssertionResponse.authenticatorData`](/de/docs/Web/API/AuthenticatorAssertionResponse/authenticatorData) als auch einen vom Client bereitgestellten SHA-256-Hash seiner Daten (die Herausforderung, der Ursprung, etc. und verfügbar unter [`AuthenticatorAssertionResponse.clientDataJSON`](/de/docs/Web/API/AuthenticatorResponse/clientDataJSON)) darstellt.
 
 ## Beispiele
 
-Siehe [Benutzeranmeldung mit der WebAuthn API](/de/docs/Web/API/CredentialsContainer/get#user_login_using_the_webauthn_api) für ein detailliertes Beispiel.
+Siehe [Benutzeranmeldung mit der WebAuthn-API](/de/docs/Web/API/CredentialsContainer/get#user_login_using_the_webauthn_api) für ein detailliertes Beispiel.
 
 ## Spezifikationen
 

@@ -1,29 +1,36 @@
 ---
-title: "SourceBuffer: appendWindowEnd-Eigenschaft"
+title: "SourceBuffer: appendWindowEnd Eigenschaft"
 short-title: appendWindowEnd
 slug: Web/API/SourceBuffer/appendWindowEnd
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
 ---
 
-{{APIRef("Media Source Extensions")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`appendWindowEnd`**-Eigenschaft des {{domxref("SourceBuffer")}}-Interfaces steuert den Zeitstempel für das Ende des [Anfügungsfensters](https://w3c.github.io/media-source/#append-window), ein Zeitstempelbereich, der genutzt werden kann, um zu filtern, welche Mediendaten zum `SourceBuffer` hinzugefügt werden. Codierte Medienframes mit Zeitstempeln innerhalb dieses Bereichs werden hinzugefügt, während diejenigen außerhalb des Bereichs herausgefiltert werden.
+Die **`appendWindowEnd`** Eigenschaft der
+[`SourceBuffer`](/de/docs/Web/API/SourceBuffer) Schnittstelle steuert den Zeitstempel für das Ende des [Anhängefensters](https://w3c.github.io/media-source/#append-window), ein
+Zeitstempelbereich, der verwendet werden kann, um zu filtern, welche Mediendaten an den
+`SourceBuffer` angehängt werden. Codierte Medienrahmen mit Zeitstempeln innerhalb dieses Bereichs werden
+angehängt, während diejenigen außerhalb des Bereichs herausgefiltert werden.
 
-Der Standardwert von `appendWindowEnd` ist positiv unendlich.
+Der Standardwert von `appendWindowEnd` ist positive Unendlichkeit.
 
 ## Wert
 
-Ein Double, das die Endzeit des Anfügungsfensters in Sekunden angibt.
+Ein Double, das die Endzeit des Anhängefensters in Sekunden angibt.
 
 ### Ausnahmen
 
-Die folgenden Ausnahmen können auftreten, wenn ein neuer Wert für diese Eigenschaft festgelegt wird:
+Die folgenden Ausnahmen können ausgelöst werden, wenn ein neuer Wert für diese Eigenschaft festgelegt wird:
 
-- `InvalidAccessError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn versucht wurde, den Wert auf weniger als oder gleich {{domxref("SourceBuffer.appendWindowStart")}} oder `NaN` zu setzen.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn dieses {{domxref("SourceBuffer")}}-Objekt aktualisiert wird (d.h. seine {{domxref("SourceBuffer.updating")}}-Eigenschaft ist aktuell `true`), oder wenn dieser `SourceBuffer` aus dem {{domxref("MediaSource")}} entfernt wurde.
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn versucht wird, den Wert auf kleiner oder gleich
+    [`SourceBuffer.appendWindowStart`](/de/docs/Web/API/SourceBuffer/appendWindowStart) oder `NaN` zu setzen.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn dieses [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) Objekt aktualisiert wird (d.h.
+    seine [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating) Eigenschaft ist
+    derzeit `true`), oder dieses `SourceBuffer` von dem [`MediaSource`](/de/docs/Web/API/MediaSource) entfernt wurde.
 
 ## Beispiele
 
@@ -39,5 +46,5 @@ TBD
 
 ## Siehe auch
 
-- {{domxref("MediaSource")}}
-- {{domxref("SourceBufferList")}}
+- [`MediaSource`](/de/docs/Web/API/MediaSource)
+- [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)

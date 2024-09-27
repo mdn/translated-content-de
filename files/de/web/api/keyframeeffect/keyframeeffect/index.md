@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Der **`KeyframeEffect()`** Konstruktor der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt eine neue {{domxref("KeyframeEffect")}} Objektinstanz zurück und ermöglicht es Ihnen auch, eine bestehende Keyframe-Effekt-Objektinstanz zu klonen.
+Der **`KeyframeEffect()`** Konstruktor der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt eine neue [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) Objektinstanz zurück und ermöglicht es Ihnen auch, eine existierende Keyframe-Effekt-Objektinstanz zu klonen.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ new KeyframeEffect(sourceKeyFrames)
 
 ### Parameter
 
-Der Multi-Argument-Konstruktor (siehe oben) erstellt eine komplett neue {{domxref("KeyframeEffect")}} Objektinstanz. Seine Parameter sind:
+Der Mehrfach-Argument-Konstruktor (siehe oben) erstellt eine komplett neue [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) Objektinstanz. Seine Parameter sind:
 
 - `target`
   - : Das DOM-Element, das animiert werden soll, oder `null`.
@@ -28,57 +28,67 @@ Der Multi-Argument-Konstruktor (siehe oben) erstellt eine komplett neue {{domxre
   - : Ein [Keyframes-Objekt](/de/docs/Web/API/Web_Animations_API/Keyframe_Formats) oder `null`.
 - `options` {{optional_inline}}
 
-  - : Entweder eine ganze Zahl, die die Dauer der Animation in Millisekunden darstellt, oder ein Objekt, das eines oder mehrere der folgenden enthält:
+  - : Entweder eine ganze Zahl, die die Dauer der Animation (in Millisekunden) darstellt, oder ein Objekt, das einen oder mehrere der folgenden Werte enthält:
 
     - `delay` {{optional_inline}}
-      - : Die Anzahl der Millisekunden, die der Start der Animation verzögert wird. Standard ist 0.
+      - : Die Anzahl der Millisekunden, um den Start der Animation zu verzögern. Standardmäßig 0.
     - `direction` {{optional_inline}}
-      - : Ob die Animation vorwärts (`normal`), rückwärts (`reverse`), nach jeder Iteration die Richtung wechselt (`alternate`) oder rückwärts läuft und nach jeder Iteration die Richtung wechselt (`alternate-reverse`). Standard ist `"normal"`.
+      - : Gibt an, ob die Animation vorwärts (`normal`), rückwärts (`reverse`), die Richtung nach jeder Iteration wechselt (`alternate`) oder rückwärts läuft und die Richtung nach jeder Iteration wechselt (`alternate-reverse`). Standardmäßig `"normal"`.
     - `duration` {{optional_inline}}
-      - : Die Anzahl der Millisekunden, die jede Iteration der Animation benötigt, um abgeschlossen zu werden. Standard ist 0. Auch wenn dies technisch optional ist, beachten Sie bitte, dass Ihre Animation nicht ausgeführt wird, wenn dieser Wert 0 ist.
+      - : Die Anzahl der Millisekunden, die jede Iteration der Animation benötigt, um abgeschlossen zu werden. Standardmäßig 0. Obwohl dies technisch optional ist, beachten Sie, dass Ihre Animation nicht abläuft, wenn dieser Wert 0 ist.
     - `easing` {{optional_inline}}
-      - : Die Rate der Änderung der Animation über die Zeit. Akzeptiert eine {{cssxref("easing-function")}}, wie `"linear"`, `"ease-in"`, `"step-end"` oder `"cubic-bezier(0.42, 0, 0.58, 1)"`. Standard ist `"linear"`.
+      - : Die Änderungsrate der Animation über die Zeit. Akzeptiert eine {{cssxref("easing-function")}}, wie zum Beispiel `"linear"`, `"ease-in"`, `"step-end"` oder `"cubic-bezier(0.42, 0, 0.58, 1)"`. Standardmäßig `"linear"`.
     - `endDelay` {{optional_inline}}
-      - : Die Anzahl der Millisekunden, die nach dem Ende einer Animation verzögert werden. Dies ist hauptsächlich nützlich, wenn Animationen basierend auf der Endzeit einer anderen Animation sequenziert werden. Standard ist 0.
+      - : Die Anzahl der Millisekunden Verzögerung nach dem Ende einer Animation. Dies ist hauptsächlich nützlich, wenn Animationen basierend auf der Endzeit einer anderen Animation sequentiert werden. Standardmäßig 0.
     - `fill` {{optional_inline}}
-      - : Bestimmt, ob die Effekte der Animation vor dem Abspielen (`"backwards"`), nach dem vollständigen Abspielen der Animation (`"forwards"`) oder `both` auf das Element bzw. die Elemente reflektiert werden sollen. Standard ist `"none"`.
+      - : Bestimmt, ob die Effekte der Animation vor dem Abspielen vom/von den Element(en) reflektiert werden sollen (`"backwards"`), nach dem vollständigen Abspielen der Animation beibehalten werden sollen (`"forwards"`) oder `both`. Standardmäßig `"none"`.
     - `iterationStart` {{optional_inline}}
-      - : Beschreibt, ab welchem Punkt in der Iteration die Animation starten soll. Zum Beispiel würde 0,5 bedeuten, dass die Animation zur Hälfte der ersten Iteration startet, und bei diesem Wert würde eine Animation mit 2 Iterationen zur Hälfte einer dritten Iteration enden. Standard ist 0,0.
+      - : Beschreibt, zu welchem Zeitpunkt in der Iteration die Animation beginnen soll. 0.5 würde beispielsweise den Start in der Mitte der ersten Iteration anzeigen, und mit diesem Wert würde eine Animation mit 2 Iterationen in der Mitte einer dritten Iteration enden. Standardmäßig 0.0.
     - `iterations` {{optional_inline}}
-      - : Die Anzahl der Wiederholungen, die die Animation durchlaufen soll. Der Standardwert ist `1`, und sie kann auch den Wert {{jsxref("Infinity")}} annehmen, um sie so lange wiederholen zu lassen, wie das Element existiert.
+      - : Die Anzahl der Wiederholungen der Animation. Standardmäßig `1`, und kann auch den Wert {{jsxref("Infinity")}} annehmen, damit sie sich so lange wiederholt, wie das Element existiert.
     - `composite` {{optional_inline}}
 
-      - : Bestimmt, wie Werte zwischen dieser Animation und anderen, separaten Animationen, die keine eigene spezifische Kompositionsoperation angeben, kombiniert werden. Standard ist `replace`.
+      - : Bestimmt, wie Werte zwischen dieser Animation und anderen, separaten
+        Animationen kombiniert werden, die nicht ihre eigene spezifische Zusammensetzungsoperation angeben. Standardmäßig
+        `replace`.
 
-        - `add` diktiert einen additiven Effekt, bei dem jede nachfolgende Iteration auf der letzten aufbaut. Zum Beispiel würde bei `transform` ein `translateX(-200px)` einen vorherigen `rotate(20deg)` Wert nicht überschreiben sondern in `translateX(-200px) rotate(20deg)` resultieren.
-        - `accumulate` ist ähnlich, aber ein wenig intelligenter: `blur(2)` und `blur(5)` werden zu `blur(7)`, nicht zu `blur(2) blur(5)`.
+        - `add` bestimmt einen additiven Effekt, bei dem jede nachfolgende Iteration
+          auf der vorhergehenden aufbaut. Beispielsweise würde bei `transform` ein
+          `translateX(-200px)` einen früheren
+          `rotate(20deg)` Wert nicht überschreiben, sondern in einem
+          `translateX(-200px) rotate(20deg)` resultieren.
+        - `accumulate` ist ähnlich, aber etwas intelligenter: `blur(2)`
+          und `blur(5)` werden zu `blur(7)`, nicht
+          `blur(2) blur(5)`.
         - `replace` überschreibt den vorherigen Wert mit dem neuen.
 
     - `iterationComposite` {{optional_inline}}
-      - : Bestimmt, wie Werte von Iteration zu Iteration in dieser Animation aufgebaut werden. Kann auf `accumulate` oder `replace` gesetzt werden (siehe oben). Standard ist `replace`.
+      - : Bestimmt, wie Werte von Iteration zu Iteration in dieser Animation aufgebaut werden. Kann auf
+        `accumulate` oder `replace` (siehe oben) gesetzt werden. Standardmäßig
+        `replace`.
     - `pseudoElement` {{optional_inline}}
-      - : Ein `string`, der einen {{cssxref("pseudo-elements","Pseudo-Elementen")}}-Selektor wie `"::before"` enthält. Wenn vorhanden, wird der Effekt auf das ausgewählte Pseudo-Element von `target` anstatt auf `target` selbst angewendet.
+      - : Ein `string`, der einen {{cssxref("pseudo-elements","Pseudo-Element-")}} Selektor enthält, wie zum Beispiel `"::before"`. Wenn vorhanden, wird der Effekt auf das ausgewählte Pseudo-Element von `target` angewendet, anstatt auf `target` selbst.
 
-Der Einzelargument-Konstruktor (siehe oben) erstellt eine Kopie einer bestehenden {{domxref("KeyframeEffect")}} Objektinstanz. Sein Parameter lautet wie folgt:
+Der Einzel-Argument-Konstruktor (siehe oben) erstellt eine Kopie einer existierenden [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) Objektinstanz. Sein Parameter ist wie folgt:
 
 - `sourceKeyFrames`
-  - : Ein {{domxref("KeyframeEffect")}} Objekt, das Sie klonen möchten.
+  - : Ein [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) Objekt, das Sie klonen möchten.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der KeyframeEffect-Konstruktor verwendet, um eine Reihe von Keyframes zu erstellen, die festlegen, wie das Emoji über den Boden rollen soll:
+Im folgenden Beispiel wird der KeyframeEffect-Konstruktor verwendet, um eine Reihe von Keyframes zu erstellen, die bestimmen, wie das Emoji über den Boden rollen soll:
 
 ```js
-const emoji = document.querySelector("div"); // Element, das animiert werden soll
+const emoji = document.querySelector("div"); // element to animate
 
 const rollingKeyframes = new KeyframeEffect(
   emoji,
   [
-    { transform: "translateX(0) rotate(0)" }, // Keyframe
-    { transform: "translateX(200px) rotate(1.3turn)" }, // Keyframe
+    { transform: "translateX(0) rotate(0)" }, // keyframe
+    { transform: "translateX(200px) rotate(1.3turn)" }, // keyframe
   ],
   {
-    // Keyframe-Optionen
+    // keyframe options
     duration: 2000,
     direction: "alternate",
     easing: "ease-in-out",
@@ -122,4 +132,4 @@ div {
 
 - [KeyframeEffect Schnittstelle](/de/docs/Web/API/KeyframeEffect)
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("Animation")}}
+- [`Animation`](/de/docs/Web/API/Animation)

@@ -1,5 +1,5 @@
 ---
-title: "Window: resizeTo()-Methode"
+title: "Fenster: resizeTo()-Methode"
 short-title: resizeTo()
 slug: Web/API/Window/resizeTo
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die **`Window.resizeTo()`**-Methode ändert die Größe des Fensters dynamisch.
+Die **`Window.resizeTo()`**-Methode passt die Größe des Fensters dynamisch an.
 
 ## Syntax
 
@@ -19,9 +19,12 @@ resizeTo(width, height)
 ### Parameter
 
 - `width`
-  - : Ein ganzzahliger Wert, der die neue {{domxref("window.outerWidth","outerWidth")}} in Pixeln darstellt (einschließlich Scrollleisten, Titelleisten usw.).
+  - : Ein ganzzahliger Wert, der die neue [`outerWidth`](/de/docs/Web/API/Window/outerWidth) in
+    Pixeln darstellt (einschließlich Scrollleisten, Titelleisten usw.).
 - `height`
-  - : Ein ganzzahliger Wert, der die neue {{domxref("window.outerHeight","outerHeight")}} in Pixeln darstellt (einschließlich Scrollleisten, Titelleisten usw.).
+  - : Ein ganzzahliger Wert, der die neue
+    [`outerHeight`](/de/docs/Web/API/Window/outerHeight) in Pixeln darstellt (einschließlich Scrollleisten,
+    Titelleisten usw.).
 
 ### Rückgabewert
 
@@ -29,7 +32,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Diese Funktion ändert die Größe des Fensters, sodass es ein Viertel des verfügbaren Bildschirms einnimmt. Siehe die Eigenschaften {{domxref("Screen.availWidth")}} und {{domxref("Screen.availHeight")}}.
+Diese Funktion ändert die Größe des Fensters so, dass es ein Viertel des verfügbaren
+Bildschirms einnimmt. Siehe die Eigenschaften [`Screen.availWidth`](/de/docs/Web/API/Screen/availWidth) und [`Screen.availHeight`](/de/docs/Web/API/Screen/availHeight).
 
 ```js
 function quarter() {
@@ -41,16 +45,20 @@ function quarter() {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
-Hinweis: Es ist nicht möglich, die Größe eines Fensters oder Tabs zu ändern, das nicht durch **`window.open()`** erstellt wurde. Es ist auch nicht möglich, die Größe zu ändern, wenn das Fenster mehrere Tabs hat.
+Hinweis: Es ist nicht möglich, ein Fenster oder einen Tab zu vergrößern, der nicht durch
+**`window.open()`** erstellt wurde. Es ist auch nicht möglich, die Größe zu ändern, wenn das
+Fenster mehrere Tabs enthält.
 
 > [!NOTE]
-> Diese Funktion kann das Fenster möglicherweise nicht synchron in der Größe ändern.
-> In einigen Umgebungen (wie auf mobilen Geräten) kann sie das Fenster überhaupt nicht in der Größe ändern. Sie können das {{domxref("Window/resize_event", "resize")}}-Ereignis überwachen, um zu sehen, ob/wann das Fenster in der Größe geändert wurde.
+> Diese Funktion passt die Fenstergröße möglicherweise nicht synchron an.
+> In einigen Umgebungen (wie mobile Geräte) wird die Fenstergröße möglicherweise überhaupt nicht geändert. Sie
+> können das [`resize`](/de/docs/Web/API/Window/resize_event)-Ereignis überwachen, um zu sehen,
+> ob/wann die Fenstergröße angepasst wurde.
 
 ## Siehe auch
 
-- {{domxref("window.resizeBy()")}}
+- [`window.resizeBy()`](/de/docs/Web/API/Window/resizeBy)

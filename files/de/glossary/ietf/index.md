@@ -7,10 +7,10 @@ l10n:
 
 {{GlossarySidebar}}
 
-Die Internet Engineering Task Force (**IETF**) ist eine weltweit tätige Organisation, die {{glossary('specification','Spezifikationen')}} entwirft, die die Mechanismen hinter dem {{glossary("Internet")}} regeln, insbesondere die {{glossary("TCP")}}/{{glossary("IPv6","IP")}} oder Internet {{glossary("Protocol")}} Suite.
+Die Internet Engineering Task Force (**IETF**) ist eine weltweite Organisation, die Entwürfe für [Spezifikationen](/de/docs/Glossary/specification) erstellt, welche die Mechanismen hinter dem [Internet](/de/docs/Glossary/Internet) regeln, insbesondere die [TCP](/de/docs/Glossary/TCP)/[IP](/de/docs/Glossary/IPv6) oder Internet-[Protokoll](/de/docs/Glossary/Protocol)-Suite.
 
 Die IETF ist offen, wird von Freiwilligen betrieben und von der [Internet Society](https://www.internetsociety.org/) gesponsert.
 
 ## Siehe auch
 
-- [Offizielle Webseite](https://www.ietf.org/)
+- [Offizielle Website](https://www.ietf.org/)

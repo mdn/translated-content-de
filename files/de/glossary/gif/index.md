@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das GIF (Graphics Interchange Format) ist ein Bildformat, das verlustfreie Kompression verwendet und für Animationen genutzt werden kann. Ein GIF verwendet bis zu 8 Bit pro Pixel und maximal 256 Farben aus dem 24-Bit-Farbraum.
+GIF (Graphics Interchange Format) ist ein Bildformat, das verlustfreie Kompression verwendet und für Animationen genutzt werden kann. Ein GIF verwendet bis zu 8 Bits pro Pixel und maximal 256 Farben aus dem 24-Bit-Farbraum.
 
 ## Siehe auch
 

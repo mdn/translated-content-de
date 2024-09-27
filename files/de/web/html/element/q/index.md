@@ -1,5 +1,5 @@
 ---
-title: "<q>: Das Inline-Zitat-Element"
+title: "<q>: Das Inline-Zitationselement"
 slug: Web/HTML/Element/q
 l10n:
   sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
@@ -7,24 +7,24 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<q>`** [HTML](/de/docs/Web/HTML)-Element zeigt an, dass der eingeschlossene Text ein kurzes Inline-Zitat ist. Die meisten modernen Browser setzen dies um, indem sie den Text in Anführungszeichen einschließen. Dieses Element ist für kurze Zitate gedacht, die keine Absatzumbrüche erfordern; für lange Zitate verwenden Sie das {{HTMLElement("blockquote")}}-Element.
+Das **`<q>`** [HTML](/de/docs/Web/HTML) Element zeigt an, dass der umschlossene Text ein kurzes Inline-Zitat ist. Die meisten modernen Browser setzen dies um, indem sie den Text mit Anführungszeichen umgeben. Dieses Element ist für kurze Zitate gedacht, die keine Absatzumbrüche erfordern; für lange Zitate verwenden Sie das {{HTMLElement("blockquote")}} Element.
 
 {{EmbedInteractiveExample("pages/tabbed/q.html", "tabbed-shorter")}}
 
 ## Attribute
 
-Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `cite`
-  - : Der Wert dieses Attributs ist eine URL, die ein Quelldokument oder eine Nachricht für die zitierte Information angibt. Dieses Attribut soll auf Informationen verweisen, die den Kontext oder die Referenz für das Zitat erläutern.
+  - : Der Wert dieses Attributs ist eine URL, die ein Quelldokument oder eine Nachricht für die zitierte Information bezeichnet. Dieses Attribut soll auf Informationen hinweisen, die den Kontext oder die Referenz für das Zitat erklären.
 
 ## Beispiele
 
 ```html
 <p>
-  Laut der Mozilla-Website,
+  According to Mozilla's website,
   <q cite="https://www.mozilla.org/en-US/about/history/details/">
-    wurde Firefox 1.0 im Jahr 2004 veröffentlicht und ein großer Erfolg.
+    Firefox 1.0 was released in 2004 and became a big success.
   </q>
 </p>
 ```
@@ -45,10 +45,10 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fluss-Inhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Ausdrucksinhalt</a
+          >Phrasinhalte</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -56,21 +56,21 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Ausdrucksinhalt</a
+          >Phrasinhalte</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Weglassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind zwingend erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Ausdrucksinhalt</a
-        >akzeptiert.
+          >Phrasinhalte</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
@@ -78,7 +78,7 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
-            >generisch</a
+            >generic</a
           ></code
         >
       </td>
@@ -89,7 +89,7 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLQuoteElement")}}</td>
+      <td>[`HTMLQuoteElement`](/de/docs/Web/API/HTMLQuoteElement)</td>
     </tr>
   </tbody>
 </table>
@@ -98,11 +98,11 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Das {{HTMLElement("blockquote")}}-Element für lange Zitate.
-- Das {{HTMLElement("cite")}}-Element für Quellenangaben.
+- Das {{HTMLElement("blockquote")}} Element für lange Zitate.
+- Das {{HTMLElement("cite")}} Element für Quellenangaben.

@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("DOM")}}{{deprecated_header}}{{Non-standard_Header}}
 
-Die **`Range.compareNode()`**-Methode gibt eine Konstante zurück, die die Position des {{DOMxRef("Node")}} angibt.
+Die **`Range.compareNode()`**-Methode gibt eine Konstante zurück, die die Position des [`Node`](/de/docs/Web/API/Node) angibt.
 
 Die möglichen Werte sind:
 
 - `NODE_BEFORE` (`0`)
-  - : Der Knoten beginnt vor dem Bereich
+  - : Der Knoten beginnt vor dem `Range`.
 - `NODE_AFTER` (`1`)
-  - : Der Knoten endet nach dem Bereich
+  - : Der Knoten endet nach dem `Range`.
 - `NODE_BEFORE_AND_AFTER` (`2`)
-  - : Der Knoten beginnt vor und endet nach dem Bereich
+  - : Der Knoten beginnt vor und endet nach dem `Range`.
 - `NODE_INSIDE` (`3`)
-  - : Der Knoten beginnt nach und endet vor dem Bereich, d.h. der Knoten wird vollständig vom Bereich ausgewählt.
+  - : Der Knoten beginnt nach und endet vor dem `Range`, d. h. der Knoten wird vollständig durch das `Range` ausgewählt.
 
 > [!WARNING]
-> Diese Methode [wurde entfernt](/de/docs/Mozilla/Firefox/Releases/3/Site_compatibility) aus [Gecko 1.9](/de/docs/Mozilla/Firefox/Releases/3) und wird in zukünftigen Versionen von Firefox, dem einzigen Browser, der sie implementierte, nicht mehr vorhanden sein; Sie sollten so bald wie möglich zu {{DOMxRef("Range.compareBoundaryPoints()")}} wechseln.
+> Diese Methode [wurde entfernt](/de/docs/Mozilla/Firefox/Releases/3/Site_compatibility) aus [Gecko 1.9](/de/docs/Mozilla/Firefox/Releases/3) und wird in zukünftigen Versionen von Firefox, dem einzigen Browser, der sie implementierte, nicht mehr existieren; Sie sollten so bald wie möglich auf [`Range.compareBoundaryPoints()`](/de/docs/Web/API/Range/compareBoundaryPoints) umsteigen.
 
 Die folgende Funktion kann als Ersatz verwendet werden:
 
@@ -56,11 +56,11 @@ compareNode(referenceNode)
 ### Parameter
 
 - `referenceNode`
-  - : Der {{DOMxRef("Node")}}, mit dem der `Range` verglichen wird.
+  - : Der [`Node`](/de/docs/Web/API/Node), der mit dem `Range` verglichen wird.
 
 ### Rückgabewert
 
-Eine Konstante, die die Position des {{DOMxRef("Node")}} angibt.
+Eine Konstante, die die Position des [`Node`](/de/docs/Web/API/Node) angibt.
 
 ## Beispiele
 
@@ -72,16 +72,17 @@ returnValue = range.compareNode(document.getElementsByTagName("p").item(0));
 
 ## Anmerkungen
 
-Diese Methode ist veraltet; Sie sollten die W3C DOM {{DOMxRef("Range.compareBoundaryPoints()")}}-Methode verwenden.
+Diese Methode ist veraltet; Sie sollten die W3C DOM-Methode
+[`Range.compareBoundaryPoints()`](/de/docs/Web/API/Range/compareBoundaryPoints) verwenden.
 
 ## Spezifikationen
 
 Diese Methode ist nicht standardisiert und daher nicht Teil einer Spezifikation.
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)
+- [Der DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)

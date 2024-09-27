@@ -1,5 +1,5 @@
 ---
-title: "GamepadButton: Eigenschaft pressed"
+title: "GamepadButton: pressed-Eigenschaft"
 short-title: pressed
 slug: Web/API/GamepadButton/pressed
 l10n:
@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("Gamepad API")}}{{SecureContext_Header}}
 
-Die **`GamepadButton.pressed`** Eigenschaft des
-{{domxref("GamepadButton")}} Interfaces gibt einen `boolean` zurück, der angibt, ob der Button derzeit gedrückt (`true`) oder nicht gedrückt (`false`) ist.
+Die **`GamepadButton.pressed`**-Eigenschaft des
+[`GamepadButton`](/de/docs/Web/API/GamepadButton)-Interfaces gibt ein `boolean` zurück, das angibt, ob der Button momentan gedrückt (`true`) oder nicht gedrückt (`false`) ist.
 
 ## Beispiele
 
 ```js
-let gp = navigator.getGamepads()[0]; // Das erste Gamepad-Objekt abrufen
+let gp = navigator.getGamepads()[0]; // Get the first gamepad object
 
 if (gp.buttons[0].pressed) {
-  // auf den Druck des Buttons reagieren
+  // respond to button being pressed
 }
 ```
 
 ## Wert
 
-Ein boolescher Wert.
+Ein boolean-Wert.
 
 ## Spezifikationen
 
@@ -35,4 +35,4 @@ Ein boolescher Wert.
 
 ## Siehe auch
 
-- [Verwendung der Gamepad-API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)
+- [Verwendung der Gamepad API](/de/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

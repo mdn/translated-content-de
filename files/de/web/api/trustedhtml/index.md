@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`TrustedHTML`**-Schnittstelle der {{domxref("Trusted Types API", "", "", "nocode")}} repräsentiert einen String, den ein Entwickler in ein [Injektions-Sink](/de/docs/Web/API/Trusted_Types_API#injection_sinks) einfügen kann, das ihn als HTML rendert. Diese Objekte werden über {{domxref("TrustedTypePolicy.createHTML()")}} erstellt und haben daher keinen Konstruktor.
+Das **`TrustedHTML`**-Interface der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) repräsentiert einen String, den ein Entwickler in einen [Injektionspunkt](/de/docs/Web/API/Trusted_Types_API#injection_sinks) einfügen kann, um ihn als HTML darzustellen. Diese Objekte werden über [`TrustedTypePolicy.createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML) erstellt und haben daher keinen Konstruktor.
 
-Der Wert eines `TrustedHTML`-Objekts wird beim Erstellen des Objekts festgelegt und kann nicht durch JavaScript geändert werden, da kein Setter verfügbar ist.
+Wert eines `TrustedHTML`-Objekts wird beim Erstellen des Objekts festgelegt und kann von JavaScript nicht geändert werden, da kein Setter bereitgestellt wird.
 
 ## Instanzmethoden
 
-- {{domxref("TrustedHTML.toJSON()")}}
+- [`TrustedHTML.toJSON()`](/de/docs/Web/API/TrustedHTML/toJSON)
   - : Gibt eine JSON-Darstellung der gespeicherten Daten zurück.
-- {{domxref("TrustedHTML.toString()")}}
+- [`TrustedHTML.toString()`](/de/docs/Web/API/TrustedHTML/toString)
   - : Ein String, der das bereinigte HTML enthält.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine Richtlinie, die `TrustedHTML`-Objekte unter Nutzung von {{domxref("TrustedTypePolicyFactory.createPolicy()")}} erzeugt. Wir können dann {{domxref("TrustedTypePolicy.createHTML()")}} verwenden, um einen bereinigten HTML-String zu erstellen, der in das Dokument eingefügt werden soll.
+Im folgenden Beispiel erstellen wir eine Richtlinie, die `TrustedHTML`-Objekte mit [`TrustedTypePolicyFactory.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) erstellt. Wir können dann [`TrustedTypePolicy.createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML) verwenden, um einen bereinigten HTML-String zu erstellen, der in das Dokument eingefügt wird.
 
-Der bereinigte Wert kann dann mit {{domxref("Element.innerHTML")}} verwendet werden, um sicherzustellen, dass keine neuen HTML-Elemente injiziert werden können.
+Der bereinigte Wert kann dann mit [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwendet werden, um sicherzustellen, dass keine neuen HTML-Elemente injiziert werden können.
 
 ```html
 <div id="myDiv"></div>
@@ -49,4 +49,4 @@ el.innerHTML = escaped;
 
 ## Siehe auch
 
-- [Vermeiden Sie DOM-basierte Cross-Site-Scripting-Schwachstellen mit Trusted Types](https://web.dev/articles/trusted-types)
+- [Verhindern Sie DOM-basierte Cross-Site Scripting-Schwachstellen mit Trusted Types](https://web.dev/articles/trusted-types)

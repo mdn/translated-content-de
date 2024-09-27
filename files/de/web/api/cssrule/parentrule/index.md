@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **`parentRule`**-Eigenschaft des {{domxref("CSSRule")}} Interface gibt die umgebende Regel der aktuellen Regel zurück, falls diese existiert, oder andernfalls null.
+Die **`parentRule`**-Eigenschaft der [`CSSRule`](/de/docs/Web/API/CSSRule)-Schnittstelle gibt die umgebende Regel der aktuellen Regel zurück, falls diese existiert, oder andernfalls `null`.
 
 ## Wert
 
-Ein {{domxref("CSSRule")}}, welches der Typ der umgebenden Regeln ist. Wenn die aktuelle Regel innerhalb einer Medienabfrage steht, würde dies {{domxref("CSSMediaRule")}} zurückgeben. Andernfalls wird null zurückgegeben.
+Ein [`CSSRule`](/de/docs/Web/API/CSSRule), welcher der Typ der umgebenden Regeln ist. Wenn die aktuelle Regel innerhalb einer Media-Query ist, würde dies [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule) zurückgeben. Andernfalls wird `null` zurückgegeben.
 
 ## Beispiele
 

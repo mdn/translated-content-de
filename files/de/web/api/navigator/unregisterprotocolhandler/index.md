@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{securecontext_header}}
 
-Die **{{domxref("Navigator")}}**-Methode **`unregisterProtocolHandler()`** entfernt einen Protokollhandler für ein gegebenes URL-[Schema](#erlaubte_schemas).
+Die **[`Navigator`](/de/docs/Web/API/Navigator)**-Methode **`unregisterProtocolHandler()`** entfernt einen Protokoll-Handler für ein gegebenes URL-[Schema](#erlaubte_schemas).
 
-Diese Methode ist das Gegenstück zu **`registerProtocolHandler()`**.
+Diese Methode ist das Gegenteil von **`registerProtocolHandler()`**.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ unregisterProtocolHandler(scheme, url)
 ### Parameter
 
 - `scheme`
-  - : Ein String, der das [erlaubte Schema](#erlaubte_schemas) im Protokoll-Handler enthält, das abgemeldet werden soll.
-    Zum Beispiel kann man den Handler für SMS-Textnachrichten-Links abmelden, indem man das Schema `"sms"` übergibt.
+  - : Ein String, der das [erlaubte Schema](#erlaubte_schemas) im Protokoll-Handler enthält, der abgemeldet wird.
+    Zum Beispiel können Sie den Handler für SMS-Nachrichtenlinks abmelden, indem Sie das `"sms"`-Schema übergeben.
 - `url`
   - : Ein String, der die URL des Handlers enthält.
-    **Diese URL sollte mit derjenigen übereinstimmen, die zum Registrieren des Handlers verwendet wurde (zum Beispiel muss sie `%s` enthalten).**
+    **Diese URL sollte mit derjenigen übereinstimmen, die zur Registrierung des Handlers verwendet wurde (z. B. muss sie `%s` enthalten).**
 
 ### Rückgabewert
 
@@ -33,14 +33,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Der Benutzeragent hat die Abmeldung blockiert.
-    Dies könnte geschehen, wenn:
-    - Das Schema (Protokoll) ungültig ist, wie etwa ein Schema, das der Browser selbst verwaltet (`https:`, `about:`, etc.)
-    - Der {{Glossary("origin")}} der Handler-URL nicht mit dem Ursprung der Seite, die diese API aufruft, übereinstimmt.
-    - Der Browser verlangt, dass diese Funktion aus einem sicheren Kontext aufgerufen wird.
-    - Der Browser verlangt, dass die URL des Handlers über HTTPS erfolgt.
-- `SyntaxError` {{domxref("DOMException")}}
+    Dies könnte passieren, wenn:
+    - Das Schema (Protokoll) ungültig ist, wie ein Schema, das der Browser selbst handhabt (`https:`, `about:`, etc.)
+    - Der [Origin](/de/docs/Glossary/origin) der Handler-URL nicht mit dem Origin der Seite übereinstimmt, die diese API aufruft.
+    - Der Browser erfordert, dass diese Funktion aus einem sicheren Kontext aufgerufen wird.
+    - Der Browser erfordert, dass die URL des Handlers über HTTPS ist.
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Der `%s`-Platzhalter fehlt in der Handler-URL.
 
 ## Erlaubte Schemas
@@ -50,10 +50,10 @@ Aus Sicherheitsgründen beschränkt `unregisterProtocolHandler()`, welche Schema
 Ein **benutzerdefiniertes Schema** kann abgemeldet werden, solange:
 
 - Der Name des benutzerdefinierten Schemas mit `web+` beginnt
-- Der Name des benutzerdefinierten Schemas mindestens einen Buchstaben nach dem `web+`-Präfix enthält
-- Der Name des benutzerdefinierten Schemas nur aus Kleinbuchstaben im ASCII-Zeichensatz besteht.
+- Der Name des benutzerdefinierten Schemas mindestens 1 Buchstaben nach dem `web+`-Präfix enthält
+- Das benutzerdefinierte Schema nur Kleinbuchstaben des ASCII-Codes in seinem Namen hat.
 
-Zum Beispiel `web+burger`, wie im [Beispiel](#beispiele) unten gezeigt.
+Zum Beispiel, `web+burger`, wie im [Beispiel](#beispiele) unten gezeigt.
 
 Andernfalls muss das Schema eines der folgenden sein:
 
@@ -93,12 +93,12 @@ navigator.unregisterProtocolHandler(
 );
 ```
 
-Dieses Skript muss vom gleichen Ursprung wie die Handler-URL ausgeführt werden (also jede Seite unter `https://burgers.example.com`), und die Handler-URL muss `http` oder `https` sein.
+Dieses Skript muss vom gleichen Origin aus ausgeführt werden wie die Handler-URL (also von jeder Seite unter `https://burgers.example.com`), und die Handler-URL muss `http` oder `https` sein.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

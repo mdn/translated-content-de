@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Akzent** ist eine typischerweise helle Farbe, die im Kontrast zu den eher funktionalen Hintergrund- und Vordergrundfarben innerhalb eines Farbschemas steht. Diese sind im visuellen Stil vieler Plattformen vorhanden (wenn auch nicht in allen).
+Ein **Akzent** ist eine typischerweise leuchtende Farbe, die im Kontrast zu den eher zweckmäßigen Hintergrund- und Vordergrundfarben eines Farbschemas steht. Diese sind im visuellen Stil vieler Plattformen (wenn auch nicht aller) präsent.
 
-Im Web wird ein Akzent manchmal in {{HTMLElement("input")}}-Elementen für den aktiven Teil des Steuerungselements verwendet, zum Beispiel der Hintergrund eines aktivierten [Kontrollkästchens](/de/docs/Web/HTML/Element/input/checkbox).
+Im Web wird ein Akzent manchmal in `input`-Elementen für den aktiven Teil des Steuerelements verwendet, zum Beispiel der Hintergrund eines aktivierten [Checkbox](/de/docs/Web/HTML/Element/input/checkbox).
 
 ## Siehe auch
 
-### CSS in Bezug auf den Akzent
+### CSS im Zusammenhang mit dem Akzent
 
-Sie können die Farbe des Akzents für ein bestimmtes Element festlegen, indem Sie die CSS-Eigenschaft {{cssxref("accent-color")}} des Elements auf den entsprechenden {{cssxref("&lt;color&gt;")}}-Wert setzen.
+Sie können die Farbe des Akzents für ein bestimmtes Element festlegen, indem Sie die CSS-Eigenschaft `accent-color` des Elements auf den entsprechenden `<color>`-Wert setzen.

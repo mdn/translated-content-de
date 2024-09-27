@@ -1,5 +1,5 @@
 ---
-title: "CSSConditionRule: Eigenschaft conditionText"
+title: "CSSConditionRule: conditionText-Eigenschaft"
 short-title: conditionText
 slug: Web/API/CSSConditionRule/conditionText
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **`conditionText`**-Eigenschaft des
-{{domxref("CSSConditionRule")}}-Interfaces gibt den Text der CSS-Regel zurück oder setzt diesen.
+Die schreibgeschützte **`conditionText`**-Eigenschaft der [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule)-Schnittstelle gibt den Text der CSS-Regel zurück oder setzt ihn.
 
 ## Wert
 
@@ -17,9 +16,9 @@ Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie der Wert von
-`conditionText` bei einer {{domxref("CSSMediaRule")}} gelesen wird, die das
-{{domxref("CSSConditionRule")}}-Interface implementiert.
+Das folgende Beispiel demonstriert das Auslesen des Werts von
+`conditionText` in einem [`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule), der die
+[`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule)-Schnittstelle implementiert.
 
 ```css
 @media (min-width: 500px) {
@@ -44,4 +43,4 @@ console.log(targetRule.conditionText); // "(min-width: 500px)"
 
 ## Siehe auch
 
-- [Verwendung von dynamischen Styling-Informationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
+- [Verwendung dynamischer Stilinformationen](/de/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)

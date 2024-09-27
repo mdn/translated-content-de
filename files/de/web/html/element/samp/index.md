@@ -1,5 +1,5 @@
 ---
-title: "<samp>: Das Element für Beispielausgaben"
+title: "<samp>: Das Sample Output-Element"
 slug: Web/HTML/Element/samp
 l10n:
   sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<samp>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um eingebetteten Text zu umschließen, der eine Beispielausgabe (oder zitierte Ausgabe) eines Computerprogrammbereichs darstellt. Sein Inhalt wird typischerweise mit der standardmäßigen Monospace-Schriftart des Browsers (wie [Courier](<https://en.wikipedia.org/wiki/Courier_(typeface)>) oder Lucida Console) gerendert.
+Das **`<samp>`**-[HTML](/de/docs/Web/HTML)-Element wird verwendet, um Inline-Text zu umschließen, der eine Beispiel- (oder zitierte) Ausgabe eines Computerprogramms darstellt. Sein Inhalt wird typischerweise in der Standard-Schriftart des Browsers im Monospace (wie [Courier](<https://en.wikipedia.org/wiki/Courier_(typeface)>) oder Lucida Console) dargestellt.
 
 {{EmbedInteractiveExample("pages/tabbed/samp.html", "tabbed-shorter")}}
 
@@ -17,9 +17,9 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 ## Verwendungshinweise
 
-Sie können eine CSS-Regel verwenden, um die standardmäßige Schriftart des `<samp>`-Elements des Browsers zu überschreiben; es ist jedoch möglich, dass die Einstellungen des Browsers Vorrang vor dem von Ihnen angegebenen CSS haben.
+Sie können eine CSS-Regel verwenden, um die Standardschriftart des Browsers für das `<samp>`-Element zu überschreiben; es ist jedoch möglich, dass die Einstellungen des Browsers Vorrang vor dem von Ihnen angegebenen CSS haben.
 
-Das CSS, um die standardmäßige Schriftart zu überschreiben, sieht wie folgt aus:
+Das CSS zum Überschreiben der Standardschriftart würde so aussehen:
 
 ```css
 samp {
@@ -28,7 +28,7 @@ samp {
 ```
 
 > [!NOTE]
-> Wenn Sie ein Element benötigen, das als Container für Ausgaben dient, die durch den JavaScript-Code Ihrer Website oder App generiert werden, sollten Sie stattdessen das {{HTMLElement("output")}}-Element verwenden.
+> Wenn Sie ein Element benötigen, das als Container für die von Ihrem JavaScript-Code generierte Ausgabe Ihrer Website oder App dient, sollten Sie stattdessen das {{HTMLElement("output")}}-Element verwenden.
 
 ## Beispiele
 
@@ -38,9 +38,9 @@ In diesem einfachen Beispiel enthält ein Absatz ein Beispiel für die Ausgabe e
 
 ```html
 <p>
-  Wenn der Prozess abgeschlossen ist, gibt das Dienstprogramm den Text
-  <samp>Scan complete. Found <em>N</em> results.</samp> aus. Sie können dann
-  mit dem nächsten Schritt fortfahren.
+  When the process is complete, the utility will output the text
+  <samp>Scan complete. Found <em>N</em> results.</samp> You can then proceed to
+  the next step.
 </p>
 ```
 
@@ -48,7 +48,7 @@ In diesem einfachen Beispiel enthält ein Absatz ein Beispiel für die Ausgabe e
 
 {{EmbedLiveSample("Basic_example", 650, 100)}}
 
-### Beispielausgabe einschließlich Benutzereingaben
+### Beispieldaten inklusive Benutzereingabe
 
 Sie können das {{HTMLElement("kbd")}}-Element innerhalb eines `<samp>`-Blocks verschachteln, um ein Beispiel darzustellen, das vom Benutzer eingegebenen Text enthält. Betrachten Sie zum Beispiel diesen Text, der ein Transkript einer Linux- (oder macOS-) Konsolensitzung präsentiert:
 
@@ -62,7 +62,7 @@ MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
 <span class="prompt">mike@interwebz:~$</span> <span class="cursor">█</span></samp></pre>
 ```
 
-Beachten Sie die Verwendung von {{HTMLElement("span")}}, um das Erscheinungsbild bestimmter Teile des Beispieltextes wie die Eingabeaufforderungen und den Cursor anzupassen. Beachten Sie auch die Verwendung von `<kbd>`, um den vom Benutzer eingegebenen Befehl an der Eingabeaufforderung im Beispieltext darzustellen.
+Beachten Sie die Verwendung von {{HTMLElement("span")}}, um die Darstellung bestimmter Teile des Beispieltexts wie die Konsolenaufforderungen und den Cursor anzupassen. Beachten Sie auch die Verwendung von `<kbd>`, um den Befehl darzustellen, den der Benutzer bei der Eingabeaufforderung im Beispieltext eingegeben hat.
 
 #### CSS
 
@@ -82,11 +82,11 @@ samp > kbd {
 }
 ```
 
-Dies verleiht der Eingabeaufforderung und dem Cursor eine recht dezente Farbgebung und hebt die Tastatureingaben im Beispieltext hervor.
+Dies verleiht der Eingabeaufforderung und dem Cursor eine ziemlich subtile Farbgebung und hebt die Tastatureingabe im Beispieltext hervor.
 
 #### Ergebnis
 
-Die resultierende Ausgabe sieht wie folgt aus:
+Die resultierende Ausgabe ist diese:
 
 {{EmbedLiveSample("Sample_output_including_user_input", 650, 120)}}
 
@@ -102,11 +102,11 @@ Die resultierende Ausgabe sieht wie folgt aus:
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phrasierungsinhalt</a
-        >, fühlbarer Inhalt.
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
@@ -119,7 +119,7 @@ Die resultierende Ausgabe sieht wie folgt aus:
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das öffnende als auch das schließende Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind zwingend erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -127,16 +127,15 @@ Die resultierende Ausgabe sieht wie folgt aus:
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phrasierungsinhalt</a
-        >
-        akzeptiert.
+        > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
-            >generic</a
+            >generisch</a
           ></code
         >
       </td>
@@ -147,7 +146,7 @@ Die resultierende Ausgabe sieht wie folgt aus:
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLElement")}}</td>
+      <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
 </table>
@@ -156,11 +155,11 @@ Die resultierende Ausgabe sieht wie folgt aus:
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - Verwandte Elemente: {{HTMLElement("kbd")}}, {{HTMLElement("code")}}, {{HTMLElement("pre")}}
-- Das {{HTMLElement("output")}}-Element: ein Container für skriptgenerierte Ausgaben
+- Das {{HTMLElement("output")}}-Element: ein Container für skriptgenerierte Ausgabe

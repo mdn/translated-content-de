@@ -1,5 +1,5 @@
 ---
-title: "HTMLEmbedElement: src Eigenschaft"
+title: "HTMLEmbedElement: src-Eigenschaft"
 short-title: src
 slug: Web/API/HTMLEmbedElement/src
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`src`**-Eigenschaft der {{domxref("HTMLEmbedElement")}}-Schnittstelle gibt einen String zurück, der die URL der eingebetteten Ressource angibt.
+Die **`src`**-Eigenschaft des [`HTMLEmbedElement`](/de/docs/Web/API/HTMLEmbedElement)-Interfaces gibt einen String zurück, der die URL der eingebetteten Ressource angibt.
 
 Sie spiegelt das `src`-Attribut des {{HTMLElement("embed")}}-Elements wider.
 
@@ -30,7 +30,7 @@ Ein String.
 
 ```js
 const el = document.getElementById("el");
-console.log(el.src); // Ausgabe: "movie.mov"
+console.log(el.src); // Output: "movie.mov"
 ```
 
 ## Spezifikationen

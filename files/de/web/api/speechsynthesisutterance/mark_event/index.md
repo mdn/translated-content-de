@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesisUtterance: mark-Ereignis"
+title: "SpeechSynthesisUtterance: Mark-Ereignis"
 short-title: mark
 slug: Web/API/SpeechSynthesisUtterance/mark_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`mark`**-Ereignis des [Web Speech API](/de/docs/Web/API/Web_Speech_API) {{domxref("SpeechSynthesisUtterance")}}-Objekts wird ausgelöst, wenn das gesprochene Utterance ein benanntes SSML-"mark"-Tag erreicht.
+Das **`mark`**-Ereignis des [Web Speech API](/de/docs/Web/API/Web_Speech_API) [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) Objekts wird ausgelöst, wenn das gesprochene Utterance einen benannten SSML-"Mark"-Tag erreicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("mark", (event) => {});
@@ -22,22 +22,22 @@ onmark = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("SpeechSynthesisEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("SpeechSynthesisEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgelisteten Eigenschaften stehen Eigenschaften der übergeordneten Schnittstelle {{domxref("Event")}} zur Verfügung._
+_Neben den unten aufgeführten Eigenschaften sind Eigenschaften der Elternschnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref("SpeechSynthesisEvent.charIndex", "charIndex")}} {{ReadOnlyInline}}
-  - : Gibt die Indexposition des Zeichens in der {{domxref("SpeechSynthesisUtterance.text")}} zurück, das gesprochen wurde, als das Ereignis ausgelöst wurde.
-- {{domxref("SpeechSynthesisEvent.elapsedTime", "elapsedTime")}} {{ReadOnlyInline}}
-  - : Gibt die vergangene Zeit in Sekunden zurück, nachdem die {{domxref("SpeechSynthesisUtterance.text")}} zu sprechen begonnen hatte und das Ereignis ausgelöst wurde.
-- {{domxref("SpeechSynthesisEvent.name", "name")}} {{ReadOnlyInline}}
-  - : Gibt den Namen zurück, der mit bestimmten Arten von Ereignissen verknüpft ist, die auftreten, während die {{domxref("SpeechSynthesisUtterance.text")}} gesprochen wird: der Name des [SSML](https://www.w3.org/TR/speech-synthesis/#S3.3.2) Markers, der im Falle eines `mark`-Ereignisses erreicht wurde, oder die Art der Grenze, die im Falle eines {{domxref("SpeechSynthesisUtterance.boundary_event", "boundary")}}-Ereignisses erreicht wurde.
-- {{domxref("SpeechSynthesisEvent.utterance", "utterance")}} {{ReadOnlyInline}}
-  - : Gibt die {{domxref("SpeechSynthesisUtterance")}}-Instanz zurück, auf der das Ereignis ausgelöst wurde.
+- [`charIndex`](/de/docs/Web/API/SpeechSynthesisEvent/charIndex) {{ReadOnlyInline}}
+  - : Gibt die Indexposition des Zeichens in der [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zurück, das gesprochen wurde, als das Ereignis ausgelöst wurde.
+- [`elapsedTime`](/de/docs/Web/API/SpeechSynthesisEvent/elapsedTime) {{ReadOnlyInline}}
+  - : Gibt die verstrichene Zeit in Sekunden seit Beginn des Sprechens der [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zurück, zu der das Ereignis ausgelöst wurde.
+- [`name`](/de/docs/Web/API/SpeechSynthesisEvent/name) {{ReadOnlyInline}}
+  - : Gibt den Namen zurück, der mit bestimmten Arten von Ereignissen in Verbindung gebracht wird, die auftreten, während die [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) gesprochen wird: den Namen des erreichten [SSML](https://www.w3.org/TR/speech-synthesis/#S3.3.2)-Markers im Falle eines `mark`-Ereignisses oder die Art der erreichten Grenze im Falle eines [`boundary`](/de/docs/Web/API/SpeechSynthesisUtterance/boundary_event)-Ereignisses.
+- [`utterance`](/de/docs/Web/API/SpeechSynthesisEvent/utterance) {{ReadOnlyInline}}
+  - : Gibt die [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Instanz zurück, bei der das Ereignis ausgelöst wurde.
 
 ## Beispiele
 

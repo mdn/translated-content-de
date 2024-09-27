@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`format()`**-Methode von Instanzen des {{jsxref("Intl.DurationFormat")}} formatiert eine Dauer gemäß der Lokalisierung und Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}}-Objekts.
+Die **`format()`** Methode von {{jsxref("Intl.DurationFormat")}} Instanzen formatiert eine Dauer entsprechend den Gebietsschema- und Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}} Objekts.
 
 ## Syntax
 
@@ -18,20 +18,20 @@ format(duration)
 ### Parameter
 
 - `duration`
-  - : Das zu formatierende Dauerobjekt. Es sollte einige oder alle der folgenden Eigenschaften enthalten: `months`, `weeks`, `days`, `hours`, `minutes`, `seconds`, `milliseconds`, `microseconds`, `nanoseconds`.
+  - : Das zu formatierende Dauer-Objekt. Es sollte einige oder alle der folgenden Eigenschaften enthalten: `months`, `weeks`, `days`, `hours`, `minutes`, `seconds`, `milliseconds`, `microseconds`, `nanoseconds`.
 
 ### Rückgabewert
 
-Ein String, der die angegebene `duration` gemäß der Lokalisierung und Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}}-Objekts formatiert darstellt.
+Ein String, der die angegebene `duration` entsprechend dem Gebietsschema und den Formatierungsoptionen dieses {{jsxref("Intl.DurationFormat")}} Objekts formatiert darstellt.
 
 > [!NOTE]
-> Meistens ist das von `format()` zurückgegebene Format konsistent. Allerdings kann die Ausgabe zwischen verschiedenen Implementierungen variieren, selbst innerhalb derselben Lokalisierung — solche Variationen sind laut Spezifikation vorgesehen und erlaubt. Es kann auch anders ausfallen als erwartet. Beispielsweise kann der String nicht trennbare Leerzeichen enthalten oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest kodierten Konstanten vergleichen.
+> Meistens ist das von `format()` zurückgegebene Format konsistent. Der Output kann jedoch zwischen Implementierungen variieren, selbst innerhalb desselben Gebietsschemas — diese Variationen sind beabsichtigt und durch die Spezifikation erlaubt. Es kann auch nicht dem entsprechen, was Sie erwarten. Zum Beispiel könnte der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest codierten Konstanten vergleichen.
 
 ## Beispiele
 
 ### Verwendung von format()
 
-Das folgende Beispiel zeigt, wie ein Dauerformatierer mit der englischen Sprache erstellt wird.
+Das folgende Beispiel zeigt, wie ein Dauer-Formatter mit der englischen Sprache erstellt wird.
 
 ```js
 const duration = {
@@ -47,20 +47,20 @@ const duration = {
   nanoseconds: 9,
 };
 
-// Ohne Optionen, Standardstil ist "short"
+// Without options, style defaults to "short"
 new Intl.DurationFormat("en").format(duration);
 // "1 yr, 2 mths, 3 wks, 3 days, 4 hr, 5 min, 6 sec, 7 ms, 8 μs, 9 ns"
 
-// Mit Stil "long"
+// With style set to "long"
 new Intl.DurationFormat("en", { style: "long" }).format(duration);
 // "1 year, 2 months, 3 weeks, 3 days, 4 hours, 5 minutes, 6 seconds, 7 milliseconds, 8 microseconds, 9 nanoseconds"
 
-// Mit Stil "narrow"
+// With style set to "narrow"
 new Intl.DurationFormat("en", { style: "narrow" }).format(duration);
 // "1y 2mo 3w 3d 4h 5m 6s 7ms 8μs 9ns"
 ```
 
-### Verwendung von format() mit verschiedenen Lokalisierungen und Stilen
+### Verwendung von format() mit verschiedenen Gebietsschemas und Stilen
 
 ```js
 const duration = {
@@ -69,30 +69,30 @@ const duration = {
   seconds: 40,
 };
 
-// Mit Stil "long" und Lokalisierung "fr-FR"
+// With style set to "long" and locale "fr-FR"
 new Intl.DurationFormat("fr-FR", { style: "long" }).format(duration);
 // "1 heure, 46 minutes et 40 secondes"
 
-// Mit Stil "short" und Lokalisierung "en"
+// With style set to "short" and locale set to "en"
 new Intl.DurationFormat("en", { style: "short" }).format(duration);
 // "1 hr, 46 min and 40 sec"
 
-// Mit Stil "narrow" und Lokalisierung "pt"
+// With style set to "short" and locale set to "pt"
 new Intl.DurationFormat("pt", { style: "narrow" }).format(duration);
 // "1h 46min 40s"
 
-// Mit Stil "digital" und Lokalisierung "en"
+// With style set to "digital" and locale set to "en"
 new Intl.DurationFormat("en", { style: "digital" }).format(duration);
 // "1:46:40"
 
-// Mit Stil "digital", Lokalisierung "en", und Stunden auf "long" gesetzt
+// With style set to "digital", locale set to "en", and hours set to "long"
 new Intl.DurationFormat("en", { style: "digital", hours: "long" }).format(
   duration,
 );
 // "1 hour, 46:40"
 ```
 
-### Verwendung von format() mit der fractionalDigits-Option
+### Verwendung von format() mit der Option fractionalDigits
 
 ```js
 const duration = {

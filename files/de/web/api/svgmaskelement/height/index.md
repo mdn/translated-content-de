@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`height`**-Eigenschaft der {{domxref("SVGMaskElement")}}-Schnittstelle gibt ein {{domxref("SVGAnimatedLength")}}-Objekt zurück, das den Wert des {{SVGattr("height")}}-Attributs des {{SVGElement("marker")}} enthält.
+Die schreibgeschützte **`height`**-Eigenschaft des [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement)-Interfaces gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das den Wert des {{SVGattr("height")}}-Attributs des {{SVGElement("marker")}} enthält.
 
 > [!NOTE]
-> Obwohl diese Eigenschaft schreibgeschützt ist, handelt es sich lediglich um einen Container für zwei Werte, die Sie ändern können: {{domxref("SVGAnimatedLength.baseVal", "baseVal")}} und {{domxref("SVGAnimatedLength.animVal", "animVal")}}.
+> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLength/animVal).
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedLength")}}-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein {{domxref("SVGLength")}} zurück, dessen Wert den `height`-Wert zurückgibt.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGLength`](/de/docs/Web/API/SVGLength) zurück, dessen Wert den `height`-Wert zurückgibt.
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "WorkerNavigator: Eigenschaft mediaCapabilities"
+title: "WorkerNavigator: mediaCapabilities Eigenschaft"
 short-title: mediaCapabilities
 slug: Web/API/WorkerNavigator/mediaCapabilities
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`mediaCapabilities`**-Eigenschaft der {{domxref("WorkerNavigator")}}-Schnittstelle verweist auf ein {{domxref("MediaCapabilities")}}-Objekt, das Informationen über die Dekodierungs- und Kodierungsfähigkeiten für ein gegebenes Format und die Ausgabemöglichkeiten bereitstellen kann (wie im [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API) definiert).
+Die schreibgeschützte **`mediaCapabilities`**-Eigenschaft der [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Schnittstelle verweist auf ein [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)-Objekt, das Informationen über die Dekodierungs- und Kodierungsfähigkeiten für ein gegebenes Format und Ausgabe-Fähigkeiten (wie im [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API) definiert) bereitstellen kann.
 
 ## Wert
 
-Ein {{domxref("MediaCapabilities")}}-Objekt.
+Ein [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)-Objekt.
 
 ## Beispiele
 
@@ -29,10 +29,10 @@ navigator.mediaCapabilities
   })
   .then((result) => {
     console.log(
-      `Diese Konfiguration wird ${result.supported ? "" : "nicht "}unterstützt,`,
+      `This configuration is ${result.supported ? "" : "not "}supported,`,
     );
-    console.log(`${result.smooth ? "" : "nicht "}flüssig dargestellt, und`);
-    console.log(`${result.powerEfficient ? "" : "nicht "}energieeffizient.`);
+    console.log(`${result.smooth ? "" : "not "}smooth, and`);
+    console.log(`${result.powerEfficient ? "" : "not "}power efficient.`);
   });
 ```
 
@@ -47,4 +47,4 @@ navigator.mediaCapabilities
 ## Siehe auch
 
 - [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API)
-- {{domxref("WorkerNavigator")}}
+- [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)

@@ -7,60 +7,60 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers}}
 
-Die **`FileSystemWritableFileStream`** Schnittstelle der {{domxref("File System API", "File System API", "", "nocode")}} ist ein {{domxref('WritableStream')}} Objekt mit zusätzlichen Komfortmethoden, das auf einer einzigen Datei auf der Festplatte arbeitet. Auf die Schnittstelle wird über die Methode {{domxref('FileSystemFileHandle.createWritable()')}} zugegriffen.
+Das **`FileSystemWritableFileStream`**-Interface der [File System API](/de/docs/Web/API/File_System_API) ist ein [`WritableStream`](/de/docs/Web/API/WritableStream)-Objekt mit zusätzlichen Komfortmethoden, das auf einer einzelnen Datei auf der Festplatte arbeitet. Auf das Interface wird über die [`FileSystemFileHandle.createWritable()`](/de/docs/Web/API/FileSystemFileHandle/createWritable)-Methode zugegriffen.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, {{DOMxRef("WritableStream")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`WritableStream`](/de/docs/Web/API/WritableStream)._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Methoden von ihrem Elternteil, {{DOMxRef("WritableStream")}}._
+_Erbt Methoden von seinem Elternteil, [`WritableStream`](/de/docs/Web/API/WritableStream)._
 
-- {{domxref('FileSystemWritableFileStream.write()')}}
-  - : Schreibt Inhalte in die Datei, auf der die Methode aufgerufen wird, bei der aktuellen Dateizeigerposition.
-- {{domxref('FileSystemWritableFileStream.seek()')}}
-  - : Aktualisiert die aktuelle Dateizeigerposition auf die angegebene Position (in Bytes).
-- {{domxref('FileSystemWritableFileStream.truncate()')}}
-  - : Ändert die Größe der Datei, die mit dem Stream verbunden ist, auf die angegebene Größe in Bytes.
+- [`FileSystemWritableFileStream.write()`](/de/docs/Web/API/FileSystemWritableFileStream/write)
+  - : Schreibt Inhalt in die Datei, auf die die Methode aufgerufen wird, an der aktuellen Datei-Cursor-Position.
+- [`FileSystemWritableFileStream.seek()`](/de/docs/Web/API/FileSystemWritableFileStream/seek)
+  - : Aktualisiert die aktuelle Datei-Cursor-Position auf die angegebene Position (in Bytes).
+- [`FileSystemWritableFileStream.truncate()`](/de/docs/Web/API/FileSystemWritableFileStream/truncate)
+  - : Passt die Größe der mit dem Stream verknüpften Datei auf die angegebene Größe in Bytes an.
 
 ## Beispiele
 
-Die folgende asynchrone Funktion öffnet den 'Datei speichern'-Auswahldialog, der einen {{domxref('FileSystemFileHandle')}} zurückgibt, sobald eine Datei ausgewählt wurde. Daraus wird ein beschreibbarer Stream mit der Methode {{domxref('FileSystemFileHandle.createWritable()')}} erstellt.
+Die folgende asynchrone Funktion öffnet den 'Datei speichern'-Auswahldialog, der einen [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) zurückgibt, sobald eine Datei ausgewählt wurde. Daraus wird ein beschreibbarer Stream mit der [`FileSystemFileHandle.createWritable()`](/de/docs/Web/API/FileSystemFileHandle/createWritable)-Methode erstellt.
 
-Ein Textstring wird dann in den Stream geschrieben, der anschließend geschlossen wird.
+Ein Textstring wird dann in den Stream geschrieben, welcher anschließend geschlossen wird.
 
 ```js
 async function saveFile() {
-  // erstellen Sie einen neuen Handle
+  // create a new handle
   const newHandle = await window.showSaveFilePicker();
 
-  // erstellen Sie einen FileSystemWritableFileStream zum Schreiben
+  // create a FileSystemWritableFileStream to write to
   const writableStream = await newHandle.createWritable();
 
-  // schreiben Sie unsere Datei
+  // write our file
   await writableStream.write("This is my file content");
 
-  // schließen Sie die Datei und schreiben Sie die Inhalte auf die Festplatte.
+  // close the file and write the contents to disk.
   await writableStream.close();
 }
 ```
 
-Die folgenden Beispiele zeigen verschiedene Optionen, die in die `write()` Methode übergeben werden können.
+Die folgenden Beispiele zeigen verschiedene Optionen, die an die `write()`-Methode übergeben werden können.
 
 ```js
-// einfach die Daten übergeben (keine Optionen)
+// just pass in the data (no options)
 writableStream.write(data);
 
-// schreibt die Daten aus der ermittelten Position in den Stream
+// writes the data to the stream from the determined position
 writableStream.write({ type: "write", position, data });
 
-// aktualisiert die aktuelle Dateizeigerposition auf die angegebene Position
+// updates the current file cursor offset to the position specified
 writableStream.write({ type: "seek", position });
 
-// ändert die Größe der Datei auf die Länge von size Bytes
+// resizes the file to be size bytes long
 writableStream.write({ type: "truncate", size });
 ```
 
@@ -75,4 +75,4 @@ writableStream.write({ type: "truncate", size });
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [Das File System Access API: Zugriff auf lokale Dateien vereinfachen](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

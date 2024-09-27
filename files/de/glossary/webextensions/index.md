@@ -7,8 +7,8 @@ l10n:
 
 {{GlossarySidebar}}
 
-WebExtensions ist ein browserübergreifendes System zur Entwicklung von Browser-Erweiterungen in Firefox. Dieses System bietet APIs, die größtenteils von verschiedenen Browsern wie Mozilla Firefox, Google Chrome, Opera Browser, Microsoft Edge oder Apple Safari unterstützt werden.
+WebExtensions ist ein browserübergreifendes System zur Entwicklung von Browsererweiterungen in Firefox. Dieses System bietet APIs, die in hohem Maße von verschiedenen Browsern wie Mozilla Firefox, Google Chrome, Opera Browser, Microsoft Edge oder Apple Safari unterstützt werden.
 
 ## Siehe auch
 
-- [Browser-Erweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions) auf MDN
+- [Browsererweiterungen](/de/docs/Mozilla/Add-ons/WebExtensions) auf MDN

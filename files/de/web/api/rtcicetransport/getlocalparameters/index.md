@@ -1,5 +1,5 @@
 ---
-title: "RTCIceTransport: Methode getLocalParameters()"
+title: "RTCIceTransport: getLocalParameters()-Methode"
 short-title: getLocalParameters()
 slug: Web/API/RTCIceTransport/getLocalParameters
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`getLocalParameters()`** Methode der {{domxref("RTCIceTransport")}} Schnittstelle gibt ein {{domxref("RTCIceParameters")}} Objekt zurück, das Informationen bereitstellt, die den lokalen Peer für die Dauer der ICE-Sitzung eindeutig identifizieren.
+Die **`getLocalParameters()`**-Methode der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Schnittstelle gibt ein [`RTCIceParameters`](/de/docs/Web/API/RTCIceParameters)-Objekt zurück, das Informationen enthält, die den lokalen Peer für die Dauer der ICE-Sitzung eindeutig identifizieren.
 
-Die Parameter des lokalen Peers werden während des ICE-Signalisierens erfasst und an den Transport geliefert, wenn der Client {{domxref("RTCPeerConnection.setLocalDescription()")}} aufruft.
+Die Parameter des lokalen Peers werden während des ICE-Signalings erhalten und dem Transport übergeben, wenn der Client [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) aufruft.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("RTCIceParameters")}} Objekt, das den {{domxref("RTCIceParameters.usernameFragment", "usernameFragment")}} und das {{domxref("RTCIceParameters.password", "password")}} angibt, die den lokalen Peer für die Dauer der ICE-Sitzung eindeutig identifizieren.
+Ein [`RTCIceParameters`](/de/docs/Web/API/RTCIceParameters)-Objekt, das das [`usernameFragment`](/de/docs/Web/API/RTCIceParameters/usernameFragment) und das [`password`](/de/docs/Web/API/RTCIceParameters/password) angibt, welche den lokalen Peer für die Dauer der ICE-Sitzung eindeutig identifizieren.
 
 Gibt `null` zurück, wenn die Parameter noch nicht empfangen wurden.
 
@@ -32,6 +32,6 @@ Gibt `null` zurück, wenn die Parameter noch nicht empfangen wurden.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

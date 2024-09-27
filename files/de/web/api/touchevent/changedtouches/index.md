@@ -8,29 +8,28 @@ l10n:
 
 {{ APIRef("Touch Events") }}
 
-Die **`changedTouches`** Leseeigenschaft ist eine {{ domxref("TouchList") }}, deren Berührungspunkte ({{domxref("Touch")}}-Objekte) je nach Ereignistyp wie folgt variieren:
+Die **`changedTouches`**-Eigenschaft ist eine schreibgeschützte [`TouchList`](/de/docs/Web/API/TouchList), deren Berührungspunkte ([`Touch`](/de/docs/Web/API/Touch)-Objekte) je nach Ereignistyp wie folgt variieren:
 
-- Für das {{domxref("Element/touchstart_event", "touchstart")}}-Ereignis ist es eine Liste der Berührungspunkte, die mit dem aktuellen Ereignis aktiv geworden sind.
-- Für das {{domxref("Element/touchmove_event", "touchmove")}}-Ereignis ist es eine Liste der Berührungspunkte, die sich seit dem letzten Ereignis geändert haben.
-- Für die {{domxref("Element/touchend_event", "touchend")}}- und {{domxref("Element/touchcancel_event", "touchcancel")}}-Ereignisse ist es eine Liste der Berührungspunkte, die von der Oberfläche entfernt wurden (d. h. die Menge der Berührungspunkte, die Fingern entsprechen, die die Oberfläche nicht mehr berühren).
+- Für das [`touchstart`](/de/docs/Web/API/Element/touchstart_event)-Ereignis ist es eine Liste der Berührungspunkte, die mit dem aktuellen Ereignis aktiv wurden.
+- Für das [`touchmove`](/de/docs/Web/API/Element/touchmove_event)-Ereignis ist es eine Liste der Berührungspunkte, die sich seit dem letzten Ereignis verändert haben.
+- Für die [`touchend`](/de/docs/Web/API/Element/touchend_event) und [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event)-Ereignisse ist es eine Liste der Berührungspunkte, die von der Oberfläche entfernt wurden (das heißt, die Menge der Berührungspunkte, die zu Fingern gehören, die die Oberfläche nicht mehr berühren).
 
 ## Wert
 
-Eine {{ domxref("TouchList") }}, deren {{ domxref("Touch") }}-Objekte alle Berührungspunkte enthalten, die zu diesem Berührungsereignis beigetragen haben.
+Eine [`TouchList`](/de/docs/Web/API/TouchList), deren [`Touch`](/de/docs/Web/API/Touch)-Objekte alle Berührungspunkte umfassen, die zu diesem Berührungsereignis beigetragen haben.
 
 ## Beispiele
 
-Dieses Beispiel veranschaulicht die `TouchEvent.changedTouches`-Eigenschaft des {{domxref("TouchEvent")}}-Objekts. Die `TouchEvent.changedTouches`-Eigenschaft ist ein {{domxref("TouchList")}}-Objekt, das ein {{domxref("Touch")}}-Objekt für jeden Berührungspunkt enthält, der zum Ereignis beigetragen hat.
+Dieses Beispiel veranschaulicht die `TouchEvent.changedTouches`-Eigenschaft des [`TouchEvent`](/de/docs/Web/API/TouchEvent)-Objekts. Die `TouchEvent.changedTouches`-Eigenschaft ist ein [`TouchList`](/de/docs/Web/API/TouchList)-Objekt, das ein [`Touch`](/de/docs/Web/API/Touch)-Objekt für jeden Berührungspunkt enthält, der zu dem Ereignis beigetragen hat.
 
-Im folgenden Code-Schnipsel durchläuft der {{domxref("Element/touchmove_event", "touchmove")}}-Ereignis-Handler die `changedTouches`-Liste und gibt den Bezeichner jedes Berührungspunkts aus, der sich seit dem letzten Ereignis geändert hat.
+Im folgenden Code-Snippet iteriert der [`touchmove`](/de/docs/Web/API/Element/touchmove_event)-Ereignishandler durch die `changedTouches`-Liste und gibt die Kennung jedes Berührungspunkts aus, der sich seit dem letzten Ereignis geändert hat.
 
 ```js
 someElement.addEventListener(
   "touchmove",
   (e) => {
-    // Durchlaufen Sie die Liste der Berührungspunkte, die sich
-    // seit dem letzten Ereignis geändert haben, und geben Sie den
-    // Bezeichner jedes Berührungspunkts aus.
+    // Iterate through the list of touch points that changed
+    // since the last event and print each touch point's identifier.
     for (let i = 0; i < e.changedTouches.length; i++) {
       console.log(
         `changedTouches[${i}].identifier = ${e.changedTouches[i].identifier}`,

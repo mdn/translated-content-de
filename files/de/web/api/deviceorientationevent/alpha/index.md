@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft **`alpha`** des {{domxref("DeviceOrientationEvent")}}-Interfaces gibt die Drehung des Geräts um die Z-Achse zurück; das heißt, die Anzahl der Grad, um die das Gerät um die Mitte des Bildschirms gedreht wird.
-Siehe [Orientation und Bewegungsdaten erklärt](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained) für Details.
+Die schreibgeschützte Eigenschaft **`alpha`** des [`DeviceOrientationEvent`](/de/docs/Web/API/DeviceOrientationEvent)-Interfaces gibt die Rotation des Geräts um die Z-Achse zurück; das heißt, die Anzahl der Grad, um die das Gerät um die Mitte des Bildschirms verdreht wird. Siehe [Orientierungs- und Bewegungsdaten erklärt](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained) für Details.
 
 ## Wert
 
@@ -25,7 +24,7 @@ Eine Zahl.
 
 ## Siehe auch
 
-- {{domxref("Device orientation events/Detecting device orientation", "Erkennung der Geräteausrichtung", "", "nocode")}}
-- {{domxref("Device orientation events/Orientation and motion data explained", "Orientation und Bewegungsdaten erklärt", "", "nocode")}}
-- {{domxref("Window.deviceorientation_event", "deviceorientation")}} Ereignis
-- {{domxref("Window.deviceorientationabsolute_event", "deviceorientationabsolute")}} Ereignis
+- [Erkennung der Geräteorientierung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [Orientierungs- und Bewegungsdaten erklärt](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)
+- [`deviceorientation`](/de/docs/Web/API/Window/deviceorientation_event)-Ereignis
+- [`deviceorientationabsolute`](/de/docs/Web/API/Window/deviceorientationabsolute_event)-Ereignis

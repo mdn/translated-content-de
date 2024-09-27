@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein Ereignishandler, der aufgerufen wird, wenn ein Fehler auftritt. Dies geschieht meistens, weil eine ungültige Anforderungs-ID an {{WebExtAPIRef("webRequest.filterResponseData()")}} übergeben wurde.
+Ein Ereignishandler, der aufgerufen wird, wenn ein Fehler auftritt. Dies geschieht meist, weil eine ungültige Anforderungs-ID an {{WebExtAPIRef("webRequest.filterResponseData()")}} übergeben wurde.
 
-Nachdem dieses Ereignis ausgelöst wurde, enthält die Eigenschaft {{WebExtAPIRef("webRequest.StreamFilter.error")}} eine Nachricht, die mehr Informationen über den Fehler gibt.
+Nachdem dieses Ereignis ausgelöst wurde, wird die Eigenschaft {{WebExtAPIRef("webRequest.StreamFilter.error")}} eine Nachricht enthalten, die weitere Informationen über den Fehler gibt.
 
-Beachten Sie, dass dieses Ereignis bei Netzwerkfehlern **nicht** ausgelöst wird.
+Beachten Sie, dass dieses Ereignis **nicht** bei Netzwerkfehlern ausgelöst wird.
 
 ## Browser-Kompatibilität
 
@@ -19,12 +19,12 @@ Beachten Sie, dass dieses Ereignis bei Netzwerkfehlern **nicht** ausgelöst wird
 
 ## Beispiele
 
-Dieses Beispiel fügt einen `onerror`-Listener hinzu, der den Wert von {{WebExtAPIRef("webRequest.StreamFilter.error")}} protokolliert.
+Dieses Beispiel fügt einen `onerror` Listener hinzu, der den Wert von {{WebExtAPIRef("webRequest.StreamFilter.error")}} protokolliert.
 
 ```js
 function listener(details) {
-  // Dieses Beispiel scheint nicht nützlich, weil
-  // eine Erweiterung "details.requestId" verwenden würde
+  // This example seems not useful because,
+  // an extension would use "details.requestId"
   let filter = browser.webRequest.filterResponseData("12345");
 
   filter.onerror = (event) => {

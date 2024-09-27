@@ -1,5 +1,5 @@
 ---
-title: "VTTCue: getCueAsHTML()-Methode"
+title: "VTTCue: getCueAsHTML() Methode"
 short-title: getCueAsHTML()
 slug: Web/API/VTTCue/getCueAsHTML
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`getCueAsHTML()`**-Methode der {{domxref("VTTCue")}}-Schnittstelle gibt ein {{domxref("DocumentFragment")}} zurück, das den Cue-Inhalt enthält.
+Die **`getCueAsHTML()`**-Methode des [`VTTCue`](/de/docs/Web/API/VTTCue)-Interfaces gibt ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) zurück, das den Cue-Inhalt enthält.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("DocumentFragment")}}.
+Ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment).
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neuer {{domxref("VTTCue")}} erstellt. Der Wert als Dokumentfragment wird dann in die Konsole ausgegeben.
+Im folgenden Beispiel wird ein neuer [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt. Der Wert als Dokumentfragment wird dann in der Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

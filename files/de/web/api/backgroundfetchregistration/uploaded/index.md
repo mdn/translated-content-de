@@ -1,5 +1,5 @@
 ---
-title: "BackgroundFetchRegistration: Eigenschaft uploaded"
+title: "BackgroundFetchRegistration: uploaded-Eigenschaft"
 short-title: uploaded
 slug: Web/API/BackgroundFetchRegistration/uploaded
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`uploaded`** schreibgeschützte Eigenschaft des {{domxref("BackgroundFetchRegistration")}}-Interfaces gibt die in Bytes erfolgreich gesendete Größe zurück, anfangs `0`.
+Die schreibgeschützte **`uploaded`**-Eigenschaft der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Schnittstelle gibt die erfolgreich gesendete Größe in Bytes zurück, initial `0`.
 
-Wenn sich der Wert dieser Eigenschaft ändert, wird das [Fortschrittsereignis](/de/docs/Web/API/BackgroundFetchRegistration/progress_event) beim zugehörigen {{domxref("BackgroundFetchRegistration")}}-Objekt ausgelöst.
+Wenn sich der Wert dieser Eigenschaft ändert, wird das [progress](/de/docs/Web/API/BackgroundFetchRegistration/progress_event)-Ereignis am zugehörigen [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Objekt ausgelöst.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine {{jsxref("number")}}.
 
 ## Beispiele
 
-Das Protokollieren dieser Eigenschaft in der Konsole gibt die Anzahl der hochgeladenen Bytes zurück.
+Das Protokollieren dieser Eigenschaft in die Konsole gibt die Anzahl der hochgeladenen Bytes zurück.
 
 ```js
 console.log(bgFetch.uploaded);

@@ -7,22 +7,22 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`drop`** Anweisung entfernt einen Wert vom Stapel und verwirft ihn.
+Die **`drop`**-Anweisung entfernt einen Wert vom Stapel und verwirft ihn.
 
 {{EmbedInteractiveExample("pages/wat/drop.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; mehrere Werte auf den Stapel legen
+;; push multiple values onto the stack
 i32.const 1
 i32.const 2
 i32.const 3
 
-;; das oberste Element vom Stapel entfernen (`3`)
+;; drop the top item from the stack (`3`)
 drop
 
-;; das oberste Element auf dem Stapel ist jetzt `2`
+;; the top item on the stack will now be `2`
 ```
 
 | Anweisung | Binärer Opcode |

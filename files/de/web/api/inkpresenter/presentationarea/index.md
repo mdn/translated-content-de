@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Ink API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`presentationArea`**-Eigenschaft der {{domxref("InkPresenter")}}-Schnittstelle gibt das {{domxref("Element")}} zurück, in dem die Darstellung der Tintenstriche eingeschränkt ist.
+Die **`presentationArea`**-Eigenschaft der [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Schnittstelle, die nur gelesen werden kann, gibt das [`Element`](/de/docs/Web/API/Element) zurück, in dem das Rendern von Tintenstrichen beschränkt ist.
 
-Wenn der vorhergehende Aufruf der Methode {{domxref("Ink.requestPresenter", "Ink.requestPresenter()")}} eine spezifische Definition des `presentationArea`-Elements enthielt, wird dieses Element zurückgegeben. Andernfalls wird der Standardwert zurückgegeben, der dem umgebenden Viewport entspricht.
+Wenn der vorhergehende Aufruf der Methode [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) eine spezifische Definition eines `presentationArea`-Elements enthielt, wird dieses Element zurückgegeben. Andernfalls wird der Standard zurückgegeben, was der umgebende Viewport ist.
 
-Dieser Bereich wird immer in den Client-Koordinaten des Randbereichs des Elements berechnet, sodass das Verschieben oder Scrollen des Elements keine Neuberechnung seitens des Entwicklers erfordert.
+Dieser Bereich bezieht sich immer auf die Client-Koordinaten der Rahmenbox des Elements, sodass das Verschieben oder Scrollen des Elements keine Neuberechnung seitens des Entwicklers erfordert.
 
 ### Wert
 
-Ein {{domxref("Element")}}.
+Ein [`Element`](/de/docs/Web/API/Element).
 
 ## Beispiel
 
@@ -40,4 +40,4 @@ async function inkInit() {
 
 ## Siehe auch
 
-- [Verbesserung der Eingabe durch Tinte im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)
+- [Verbesserung des Tintens auf dem Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)

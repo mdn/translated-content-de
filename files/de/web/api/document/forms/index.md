@@ -1,5 +1,5 @@
 ---
-title: "Document: forms-Eigenschaft"
+title: "Document: forms Eigenschaft"
 short-title: forms
 slug: Web/API/Document/forms
 l10n:
@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`forms`** schreibgeschützte Eigenschaft des {{domxref("Document")}} Interfaces gibt ein {{domxref("HTMLCollection")}} zurück, das alle im Dokument enthaltenen {{HTMLElement("form")}}-Elemente auflistet.
+Die schreibgeschützte **`forms`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle im Dokument enthaltenen {{HTMLElement("form")}}-Elemente auflistet.
 
 > [!NOTE]
-> In ähnlicher Weise können Sie eine Liste der Benutzereingabeelemente eines Formulars mit der {{domxref("HTMLFormElement.elements")}}-Eigenschaft abrufen.
+> Ähnlich können Sie eine Liste der Benutzereingabekomponenten eines Formulars mit der [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements)-Eigenschaft abrufen.
 
 ## Wert
 
-Ein {{domxref("HTMLCollection")}}-Objekt, das alle Formulare des Dokuments auflistet. Jedes Element in der Sammlung ist ein {{domxref("HTMLFormElement")}}, das ein einzelnes `<form>`-Element darstellt.
+Ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Objekt, das alle Formulare des Dokuments auflistet. Jedes Element in der Sammlung ist ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement), das ein einzelnes `<form>`-Element darstellt.
 
-Wenn das Dokument keine Formulare enthält, ist die zurückgegebene Sammlung leer und hat eine Länge von null.
+Wenn das Dokument keine Formulare hat, ist die zurückgegebene Sammlung leer und hat eine Länge von null.
 
 ## Beispiele
 
-### Abrufen von Formularinformationen
+### Formulardaten abrufen
 
 ```html
 <!doctype html>
@@ -98,4 +98,4 @@ const selectFormElement = document.forms[index].elements[index];
 ## Siehe auch
 
 - [HTML-Formulare](/de/docs/Learn/Forms)
-- {{HTMLElement("form")}} und das {{domxref("HTMLFormElement")}} Interface
+- {{HTMLElement("form")}} und das [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Interface

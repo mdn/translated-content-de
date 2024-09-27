@@ -1,5 +1,5 @@
 ---
-title: Speicher
+title: Storage
 slug: Web/API/Storage
 l10n:
   sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
@@ -7,31 +7,31 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Das **`Storage`** Interface der [Web Storage API](/de/docs/Web/API/Web_Storage_API) ermöglicht den Zugriff auf den Sitzungs- oder lokalen Speicher einer bestimmten Domäne. Es erlaubt beispielsweise das Hinzufügen, Ändern oder Löschen von gespeicherten Datenobjekten.
+Das **`Storage`**-Interface der [Web Storage API](/de/docs/Web/API/Web_Storage_API) ermöglicht den Zugriff auf den Sitzungs- oder lokalen Speicher einer bestimmten Domain. Es erlaubt beispielsweise das Hinzufügen, Ändern oder Löschen von gespeicherten Datenobjekten.
 
-Um den Sitzungsspeicher einer Domäne zu manipulieren, wird ein Aufruf an {{domxref("Window.sessionStorage")}} vorgenommen; für lokalen Speicher erfolgt der Aufruf an {{domxref("Window.localStorage")}}.
+Um beispielsweise den Sitzungs-Speicher für eine Domain zu manipulieren, wird ein Aufruf an [`Window.sessionStorage`](/de/docs/Web/API/Window/sessionStorage) gemacht; während für den lokalen Speicher der Aufruf an [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) gemacht wird.
 
 ## Instanzeigenschaften
 
-- {{domxref("Storage.length")}} {{ReadOnlyInline}}
-  - : Gibt eine ganze Zahl zurück, die die Anzahl der im `Storage` Objekt gespeicherten Datenobjekte darstellt.
+- [`Storage.length`](/de/docs/Web/API/Storage/length) {{ReadOnlyInline}}
+  - : Gibt eine Ganzzahl zurück, die die Anzahl der im `Storage`-Objekt gespeicherten Datenobjekte repräsentiert.
 
 ## Instanzmethoden
 
-- {{domxref("Storage.key()")}}
+- [`Storage.key()`](/de/docs/Web/API/Storage/key)
   - : Wenn eine Zahl `n` übergeben wird, gibt diese Methode den Namen des n-ten Schlüssels im Speicher zurück.
-- {{domxref("Storage.getItem()")}}
-  - : Wenn ein Schlüsselname übergeben wird, wird der Wert dieses Schlüssels zurückgegeben.
-- {{domxref("Storage.setItem()")}}
-  - : Wenn ein Schlüsselname und ein Wert übergeben werden, wird dieser Schlüssel dem Speicher hinzugefügt oder der Wert des Schlüssels aktualisiert, falls dieser bereits existiert.
-- {{domxref("Storage.removeItem()")}}
-  - : Bei übergebenem Schlüsselname wird dieser Schlüssel aus dem Speicher entfernt.
-- {{domxref("Storage.clear()")}}
-  - : Wenn aufgerufen, werden alle Schlüssel aus dem Speicher entfernt.
+- [`Storage.getItem()`](/de/docs/Web/API/Storage/getItem)
+  - : Wenn ein Schlüsselname übergeben wird, gibt diese Methode den Wert des Schlüssels zurück.
+- [`Storage.setItem()`](/de/docs/Web/API/Storage/setItem)
+  - : Wenn ein Schlüsselname und ein Wert übergeben werden, wird dieser Schlüssel dem Speicher hinzugefügt oder der Wert des Schlüssels aktualisiert, wenn er bereits existiert.
+- [`Storage.removeItem()`](/de/docs/Web/API/Storage/removeItem)
+  - : Wenn ein Schlüsselname übergeben wird, wird dieser Schlüssel aus dem Speicher entfernt.
+- [`Storage.clear()`](/de/docs/Web/API/Storage/clear)
+  - : Wenn diese Methode aufgerufen wird, werden alle Schlüssel aus dem Speicher geleert.
 
 ## Beispiele
 
-Hier greifen wir auf ein `Storage` Objekt zu, indem wir `localStorage` aufrufen. Wir testen zunächst, ob der lokale Speicher Datenobjekte enthält, indem wir `!localStorage.getItem('bgcolor')` verwenden. Falls vorhanden, führen wir eine Funktion namens `setStyles()` aus, die die Datenobjekte mit {{domxref("Storage.getItem()")}} abruft und diese Werte verwendet, um die Seitenstile zu aktualisieren. Falls nicht, führen wir eine andere Funktion `populateStorage()` aus, die {{domxref("Storage.setItem()")}} verwendet, um die Elementwerte einzustellen und anschließend `setStyles()` ausführt.
+Hier greifen wir auf ein `Storage`-Objekt zu, indem wir `localStorage` aufrufen. Wir prüfen zunächst, ob der lokale Speicher Datenobjekte enthält, indem wir `!localStorage.getItem('bgcolor')` verwenden. Wenn dies der Fall ist, führen wir eine Funktion namens `setStyles()` aus, die die Datenobjekte mit [`Storage.getItem()`](/de/docs/Web/API/Storage/getItem) abruft und diese Werte verwendet, um die Seitenstile zu aktualisieren. Wenn nicht, führen wir eine andere Funktion, `populateStorage()`, aus, die [`Storage.setItem()`](/de/docs/Web/API/Storage/setItem) verwendet, um die Elementwerte festzulegen, und dann `setStyles()` ausführt.
 
 ```js
 if (!localStorage.getItem("bgcolor")) {
@@ -64,7 +64,7 @@ function setStyles() {
 ```
 
 > [!NOTE]
-> Um dies als vollständiges, funktionierendes Beispiel zu sehen, siehe unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
+> Um dies als vollständiges Arbeitsbeispiel zu sehen, besuchen Sie unser [Web Storage Demo](https://mdn.github.io/dom-examples/web-storage/).
 
 ## Spezifikationen
 
@@ -77,6 +77,6 @@ function setStyles() {
 ## Siehe auch
 
 - [Verwendung der Web Storage API](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
-- {{domxref("Window.localStorage")}}
-- {{domxref("Window.sessionStorage")}}
-- {{domxref("CacheStorage")}}
+- [`Window.localStorage`](/de/docs/Web/API/Window/localStorage)
+- [`Window.sessionStorage`](/de/docs/Web/API/Window/sessionStorage)
+- [`CacheStorage`](/de/docs/Web/API/CacheStorage)

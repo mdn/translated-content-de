@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das Internet ist ein weltweites Netzwerk von Netzwerken, das die Internet-Protokollfamilie verwendet (auch benannt nach {{glossary("TCP")}}/{{glossary("IPv6","IP")}} von seinen zwei wichtigsten {{glossary("protocol","Protokollen")}}).
+Das Internet ist ein weltweites Netzwerk von Netzwerken, das die Internetprotokoll-Suite verwendet (auch benannt nach [TCP](/de/docs/Glossary/TCP)/[IP](/de/docs/Glossary/IPv6) von seinen zwei wichtigsten [Protokollen](/de/docs/Glossary/protocol)).
 
 ## Siehe auch
 

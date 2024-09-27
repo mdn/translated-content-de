@@ -1,20 +1,20 @@
 ---
-title: "GPUCommandEncoder: label Eigenschaft"
+title: "GPUCommandEncoder: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUCommandEncoder/label
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`** schreibgeschützte Eigenschaft des {{domxref("GPUCommandEncoder")}}-Interfaces ist ein String, der ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in {{domxref("GPUError")}}-Meldungen oder Konsolenwarnungen.
+Die schreibgeschützte **`label`**-Eigenschaft der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle ist eine Zeichenkette, die eine Kennzeichnung bereitstellt, die zur Identifikation des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann durch Angabe einer `label`-Eigenschaft im Beschreibungsobjekt, das in den ursprünglichen {{domxref("GPUDevice.createCommandEncoder()")}}-Aufruf übergeben wird, gesetzt werden, oder Sie können es direkt am `GPUCommandEncoder`-Objekt abrufen und setzen.
+Dies kann durch Bereitstellen einer `label`-Eigenschaft im Deskripturobjekt, das im ursprünglichen Aufruf von [`GPUDevice.createCommandEncoder()`](/de/docs/Web/API/GPUDevice/createCommandEncoder) übergeben wird, gesetzt werden, oder Sie können es direkt am `GPUCommandEncoder`-Objekt holen und setzen.
 
 ## Wert
 
-Ein String. Wenn noch kein Labelwert festgelegt wurde, gibt das Abrufen des Labels einen leeren String zurück.
+Eine Zeichenkette. Wenn zuvor kein Labelwert festgelegt wurde, gibt das Abrufen des Labels eine leere Zeichenkette zurück.
 
 ## Beispiele
 
@@ -26,7 +26,7 @@ commandEncoder.label = "mycommandencoder";
 console.log(commandEncoder.label); // "mycommandencoder";
 ```
 
-Festlegen eines Labels über den ursprünglichen {{domxref("GPUDevice.createCommandEncoder()")}}-Aufruf und dann das Abrufen über `GPUCommandEncoder.label`:
+Festlegen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createCommandEncoder()`](/de/docs/Web/API/GPUDevice/createCommandEncoder) und anschließendes Abrufen über `GPUCommandEncoder.label`:
 
 ```js
 const commandEncoder = device.createCommandEncoder({

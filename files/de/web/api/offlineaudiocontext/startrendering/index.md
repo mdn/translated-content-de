@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `startRendering()`-Methode der {{ domxref("OfflineAudioContext") }}-Schnittstelle startet das Rendern des Audiographen, wobei die aktuellen Verbindungen und die derzeit geplanten Änderungen berücksichtigt werden.
+Die `startRendering()`-Methode der [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext)-Schnittstelle startet das Rendern des Audiographen, wobei die aktuellen Verbindungen und die geplanten Änderungen berücksichtigt werden.
 
-Das {{domxref("OfflineAudioContext/complete_event", "complete")}}-Ereignis (vom Typ {{domxref("OfflineAudioCompletionEvent")}}) wird ausgelöst, wenn das Rendering abgeschlossen ist und das resultierende {{domxref("AudioBuffer")}} in seiner `renderedBuffer`-Eigenschaft enthalten ist.
+Das [`complete`](/de/docs/Web/API/OfflineAudioContext/complete_event)-Ereignis (vom Typ [`OfflineAudioCompletionEvent`](/de/docs/Web/API/OfflineAudioCompletionEvent)) wird ausgelöst, wenn das Rendern abgeschlossen ist und den resultierenden [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) in seiner `renderedBuffer`-Eigenschaft enthält.
 
-Browser unterstützen derzeit zwei Versionen der `startRendering()`-Methode: eine ältere, ereignisbasierte Version und eine neuere, auf Versprechen basierende Version. Erstere wird letztendlich entfernt, aber derzeit werden beide Mechanismen aus Gründen der Kompatibilität bereitgestellt.
+Aktuell unterstützen Browser zwei Versionen der `startRendering()`-Methode — eine ältere, ereignisbasierte Version und eine neuere, auf Versprechen basierende Version. Die ältere Version wird letztendlich entfernt, aber derzeit werden beide Mechanismen aus Gründen der Abwärtskompatibilität bereitgestellt.
 
 ## Syntax
 
@@ -26,37 +26,37 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{domxref("AudioBuffer")}} erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit einem [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) erfüllt wird.
 
 ## Beispiele
 
-### Audio mit einem Offline-Audiokontext abspielen
+### Audio mit einem Offline-Audio-Kontext wiedergeben
 
-In diesem Beispiel deklarieren wir sowohl ein {{domxref("AudioContext")}}- als auch ein `OfflineAudioContext`-Objekt. Wir verwenden den `AudioContext`, um einen Audiotrack mit {{domxref("Window/fetch", "fetch()")}} zu laden, und dann das `OfflineAudioContext`, um das Audio in einen {{domxref("AudioBufferSourceNode")}} zu rendern und den Track abzuspielen. Nachdem der Offline-Audiograph eingerichtet ist, rendern wir ihn zu einem {{domxref("AudioBuffer")}} mittels `OfflineAudioContext.startRendering()`.
+In diesem Beispiel deklarieren wir sowohl ein [`AudioContext`](/de/docs/Web/API/AudioContext)- als auch ein `OfflineAudioContext`-Objekt. Wir verwenden das `AudioContext`, um einen Audiotrack mit [`fetch()`](/de/docs/Web/API/Window/fetch) zu laden, und dann `OfflineAudioContext`, um das Audio in einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) zu rendern und den Track abzuspielen. Nachdem der Offline-Audiograph eingerichtet ist, rendern wir ihn mit `OfflineAudioContext.startRendering()` in einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer).
 
-Wenn das `startRendering()`-Versprechen erfüllt ist, ist das Rendering abgeschlossen und der Ausgabe-`AudioBuffer` wird aus dem Versprechen zurückgegeben.
+Wenn das `startRendering()`-Versprechen gelöst wird, ist das Rendern abgeschlossen, und der Ausgabe-`AudioBuffer` wird aus dem Versprechen zurückgegeben.
 
-Zu diesem Zeitpunkt erstellen wir einen weiteren Audiokontext, erstellen darin einen {{domxref("AudioBufferSourceNode")}}, und setzen dessen Buffer gleich dem versprochenen `AudioBuffer`. Dieser wird dann als Teil eines einfachen standardmäßigen Audiographen abgespielt.
+An diesem Punkt erstellen wir einen weiteren Audiokontext, erstellen einen [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode) darin und setzen dessen Puffer gleich dem Versprechen-`AudioBuffer`. Dies wird dann als Teil eines einfachen Standard-Audiographs abgespielt.
 
 > [!NOTE]
 > Sie können [das vollständige Beispiel live ausführen](https://mdn.github.io/webaudio-examples/offline-audio-context-promise/) oder [den Quellcode anzeigen](https://github.com/mdn/webaudio-examples/tree/main/offline-audio-context-promise).
 
 ```js
-// Definieren Sie sowohl Online- als auch Offline-Audiokontexte
-let audioCtx; // Muss nach einer Benutzerinteraktion initialisiert werden
+// Define both online and offline audio contexts
+let audioCtx; // Must be initialized after a user interaction
 const offlineCtx = new OfflineAudioContext(2, 44100 * 40, 44100);
 
-// Definieren Sie Konstanten für DOM-Knoten
+// Define constants for dom nodes
 const play = document.querySelector("#play");
 
 function getData() {
-  // Holen Sie einen Audiotrack, decodieren Sie ihn und legen Sie ihn in einen Buffer.
-  // Dann legen wir den Buffer in die Quelle und können ihn abspielen.
+  // Fetch an audio track, decode it and stick it in a buffer.
+  // Then we put the buffer into the source and can play it.
   fetch("viper.ogg")
     .then((response) => response.arrayBuffer())
     .then((downloadedBuffer) => audioCtx.decodeAudioData(downloadedBuffer))
     .then((decodedBuffer) => {
-      console.log("Datei erfolgreich heruntergeladen.");
+      console.log("File downloaded successfully.");
       const source = new AudioBufferSourceNode(offlineCtx, {
         buffer: decodedBuffer,
       });
@@ -65,28 +65,28 @@ function getData() {
     })
     .then(() => offlineCtx.startRendering())
     .then((renderedBuffer) => {
-      console.log("Rendering erfolgreich abgeschlossen.");
+      console.log("Rendering completed successfully.");
       play.disabled = false;
       const song = new AudioBufferSourceNode(audioCtx, {
         buffer: renderedBuffer,
       });
       song.connect(audioCtx.destination);
 
-      // Starten Sie das Lied
+      // Start the song
       song.start();
     })
     .catch((err) => {
-      console.error(`Fehler aufgetreten: ${err}`);
+      console.error(`Error encountered: ${err}`);
     });
 }
 
-// Aktivieren Sie die Play-Schaltfläche
+// Activate the play button
 play.onclick = () => {
   play.disabled = true;
-  // Wir können den Kontext initialisieren, da der Benutzer geklickt hat.
+  // We can initialize the context as the user clicked.
   audioCtx = new AudioContext();
 
-  // Holen Sie die Daten und starten Sie das Lied
+  // Fetch the data and start the song
   getData();
 };
 ```

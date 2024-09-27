@@ -1,5 +1,5 @@
 ---
-title: "VideoDecoder: state-Eigenschaft"
+title: "VideoDecoder: state Eigenschaft"
 short-title: state
 slug: Web/API/VideoDecoder/state
 l10n:
@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`state`**-Eigenschaft der {{domxref("VideoDecoder")}}-Schnittstelle gibt den aktuellen Status des zugrunde liegenden Codecs zurück.
+Die **`state`**-Eigenschaft des [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Interfaces gibt den aktuellen Status des zugrunde liegenden Codecs zurück.
 
 ## Wert
 
 Ein String, der einen der folgenden Werte enthält:
 
 - `"unconfigured"`
-  - : Der Codec ist nicht für das Dekodieren konfiguriert.
+  - : Der Codec ist nicht für das Decodieren konfiguriert.
 - `"configured"`
-  - : Der Codec hat eine gültige Konfiguration und ist bereit.
+  - : Der Codec hat eine gültige Konfiguration und ist einsatzbereit.
 - `"closed"`
-  - : Der Codec ist nicht mehr verwendbar und die Systemressourcen wurden freigegeben.
+  - : Der Codec ist nicht mehr verwendbar und Systemressourcen wurden freigegeben.
 
 ## Beispiele
 
-Das folgende Beispiel druckt den Status des `VideoDecoder` in die Konsole.
+Das folgende Beispiel gibt den Zustand des `VideoDecoder` in der Konsole aus.
 
 ```js
 console.log(VideoDecoder.state);

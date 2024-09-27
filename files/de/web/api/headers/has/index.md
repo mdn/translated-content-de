@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
-Die **`has()`** Methode der {{domxref("Headers")}} Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob ein `Headers` Objekt einen bestimmten Header enthält.
+Die **`has()`** Methode der [`Headers`](/de/docs/Web/API/Headers) Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob ein `Headers`-Objekt einen bestimmten Header enthält.
 
-Aus Sicherheitsgründen können einige Header nur vom User Agent kontrolliert werden. Diese Header umfassen die {{Glossary("Forbidden_header_name", "verbotenen Header-Namen")}} und {{Glossary("Forbidden_response_header_name", "verbotenen Antwort-Header-Namen")}}.
+Aus Sicherheitsgründen können einige Header nur vom Benutzeragenten gesteuert werden. Dazu gehören die [verbotenen Headernamen](/de/docs/Glossary/Forbidden_header_name) und [verbotenen Antwortheadernamen](/de/docs/Glossary/Forbidden_response_header_name).
 
 ## Syntax
 
@@ -21,7 +21,7 @@ has(name)
 ### Parameter
 
 - `name`
-  - : Der Name des HTTP-Headers, den Sie testen möchten. Wenn der angegebene Name kein gültiger HTTP-Header-Name ist, wirft diese Methode einen {{jsxref("TypeError")}}.
+  - : Der Name des HTTP-Headers, dessen Vorhandensein getestet werden soll. Wenn der angegebene Name kein gültiger HTTP-Header-Name ist, wirft diese Methode einen {{jsxref("TypeError")}}.
 
 ### Rückgabewert
 
@@ -29,18 +29,18 @@ Ein boolescher Wert.
 
 ## Beispiele
 
-Ein leeres `Headers` Objekt zu erstellen, ist einfach:
+Das Erstellen eines leeren `Headers`-Objekts ist einfach:
 
 ```js
-const myHeaders = new Headers(); // Derzeit leer
+const myHeaders = new Headers(); // Currently empty
 ```
 
-Sie könnten dieser mit {{domxref("Headers.append")}} einen Header hinzufügen und dann mit `has()` testen, ob er existiert:
+Sie könnten diesem einen Header hinzufügen, indem Sie [`Headers.append`](/de/docs/Web/API/Headers/append) verwenden, und dann mit `has()` das Vorhandensein testen:
 
 ```js
 myHeaders.append("Content-Type", "image/jpeg");
-myHeaders.has("Content-Type"); // Gibt true zurück
-myHeaders.has("Accept-Encoding"); // Gibt false zurück
+myHeaders.has("Content-Type"); // Returns true
+myHeaders.has("Accept-Encoding"); // Returns false
 ```
 
 ## Spezifikationen

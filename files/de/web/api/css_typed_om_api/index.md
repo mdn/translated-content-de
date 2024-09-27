@@ -7,101 +7,101 @@ l10n:
 
 {{DefaultAPISidebar("CSS Typed Object Model API")}}
 
-Die CSS Typed Object Model API vereinfacht die Manipulation von CSS-Eigenschaften, indem sie CSS-Werte als typisierte JavaScript-Objekte anstelle von Zeichenfolgen bereitstellt. Dies vereinfacht nicht nur die Manipulation von CSS, sondern verringert auch die negative Auswirkung auf die Leistung im Vergleich zu {{domxref('HTMLElement.style')}}.
+Die CSS Typed Object Model API vereinfacht die Bearbeitung von CSS-Eigenschaften, indem sie CSS-Werte als typisierte JavaScript-Objekte statt als Zeichenketten zur Verfügung stellt. Dies vereinfacht nicht nur die CSS-Manipulation, sondern verringert im Vergleich zu [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style) auch den negativen Einfluss auf die Leistung.
 
-Im Allgemeinen können CSS-Werte in JavaScript als Zeichenfolgen gelesen und geschrieben werden, was langsam und umständlich sein kann. Die CSS Typed Object Model API bietet Schnittstellen zur Interaktion mit zugrunde liegenden Werten, indem sie diese mit spezialisierten JS-Objekten darstellt, die einfacher und zuverlässiger manipuliert und verstanden werden können als das Parsen und Verketten von Strings. Das ist für Autoren einfacher (zum Beispiel werden numerische Werte mit tatsächlichen JS-Zahlen widergespiegelt und haben einheitenbewusste mathematische Operationen, die für sie definiert sind). Es ist auch generell schneller, da Werte direkt manipuliert und dann kostengünstig in zugrunde liegende Werte übersetzt werden können, ohne sowohl Strings zu bauen als auch zu parsen.
+Im Allgemeinen können CSS-Werte in JavaScript als Zeichenketten gelesen und geschrieben werden, was langsam und umständlich sein kann. Die CSS Typed Object Model API bietet Schnittstellen zum Arbeiten mit zugrundeliegenden Werten, indem sie diese mit spezialisierten JS-Objekten darstellt, die einfacher und zuverlässiger zu manipulieren und zu verstehen sind als das Parsen und Verketten von Zeichenketten. Dies ist für Autoren einfacher (zum Beispiel werden numerische Werte mit tatsächlichen JS-Zahlen reflektiert und haben einheitenbewusste mathematische Operationen, die für sie definiert sind). Es ist in der Regel auch schneller, da Werte direkt manipuliert und dann kostengünstig wieder in zugrundeliegende Werte umgewandelt werden können, ohne dass Zeichenketten von CSS erstellt und geparst werden müssen.
 
-CSS Typed OM erlaubt sowohl die performante Manipulation von Werten, die CSS-Eigenschaften zugewiesen sind, als auch die Erstellung von wartbarem Code, der sowohl besser verständlich als auch einfacher zu schreiben ist.
+Die CSS Typed OM ermöglicht sowohl die performante Manipulation von Werten, die CSS-Eigenschaften zugewiesen sind, als auch die Erstellung von wartbarem Code, der verständlicher und einfacher zu schreiben ist.
 
 ## Schnittstellen
 
 ### `CSSStyleValue`
 
-Die {{domxref('CSSStyleValue')}}-Schnittstelle der CSS Typed Object Model API ist die Basisklasse aller CSS-Werte, die über die Typed OM API zugänglich sind. Eine Instanz dieser Klasse kann überall verwendet werden, wo eine Zeichenkette erwartet wird.
+Die [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Schnittstelle der CSS Typed Object Model API ist die Basisklasse aller über die Typed OM API zugänglichen CSS-Werte. Eine Instanz dieser Klasse kann überall dort verwendet werden, wo ein String erwartet wird.
 
-- {{domxref('CSSStyleValue/parse_static', 'CSSStyleValue.parse()')}}
-  - : Die parse()-Methode der CSSStyleValue-Schnittstelle ermöglicht es, einen CSSNumericValue aus einer CSS-Zeichenkette zu erstellen. Sie setzt eine bestimmte CSS-Eigenschaft auf die angegebenen Werte und gibt den ersten Wert als CSSStyleValue-Objekt zurück.
-- {{domxref('CSSStyleValue.parseAll_static', 'CSSStyleValue.parseAll()')}}
-  - : Die parseAll()-Methode der CSSStyleValue-Schnittstelle setzt alle Vorkommen einer bestimmten CSS-Eigenschaft auf den angegebenen Wert und gibt ein Array von CSSStyleValue-Objekten zurück, die jeweils einen der gelieferten Werte enthalten.
+- [`CSSStyleValue.parse()`](/de/docs/Web/API/CSSStyleValue/parse_static)
+  - : Die parse()-Methode der CSSStyleValue-Schnittstelle ermöglicht es, ein CSSNumericValue aus einem CSS-String zu konstruieren. Sie setzt eine bestimmte CSS-Eigenschaft auf die angegebenen Werte und gibt den ersten Wert als CSSStyleValue-Objekt zurück.
+- [`CSSStyleValue.parseAll()`](/de/docs/Web/API/CSSStyleValue/parseAll_static)
+  - : Die parseAll()-Methode der CSSStyleValue-Schnittstelle setzt alle Vorkommen einer bestimmten CSS-Eigenschaft auf den angegebenen Wert und gibt ein Array von CSSStyleValue-Objekten zurück, die jeweils einen der übergebenen Werte enthalten.
 
 ### `StylePropertyMap`
 
-Die {{domxref('StylePropertyMap')}}-Schnittstelle der CSS Typed Object Model API bietet eine Darstellung eines CSS-Deklarationsblocks, der eine Alternative zu CSSStyleDeclaration ist.
+Die [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Schnittstelle der CSS Typed Object Model API bietet eine Darstellung eines CSS-Deklarationsblocks, der eine Alternative zu CSSStyleDeclaration darstellt.
 
-- {{domxref('StylePropertyMap.set()')}}
-  - : Methode der StylePropertyMap-Schnittstelle, die die CSS-Deklaration mit der angegebenen Eigenschaft auf den gegebenen Wert ändert.
-- {{domxref('StylePropertyMap.append()')}}
-  - : Methode, die eine neue CSS-Deklaration mit der angegebenen Eigenschaft und dem Wert zur StylePropertyMap hinzufügt.
-- {{domxref('StylePropertyMap.delete()')}}
+- [`StylePropertyMap.set()`](/de/docs/Web/API/StylePropertyMap/set)
+  - : Methode der StylePropertyMap-Schnittstelle, die die CSS-Deklaration mit der angegebenen Eigenschaft auf den angegebenen Wert ändert.
+- [`StylePropertyMap.append()`](/de/docs/Web/API/StylePropertyMap/append)
+  - : Methode, die eine neue CSS-Deklaration zur StylePropertyMap mit der angegebenen Eigenschaft und dem Wert hinzufügt.
+- [`StylePropertyMap.delete()`](/de/docs/Web/API/StylePropertyMap/delete)
   - : Methode, die die CSS-Deklaration mit der angegebenen Eigenschaft aus der StylePropertyMap entfernt.
-- {{domxref('StylePropertyMap.clear()')}}
+- [`StylePropertyMap.clear()`](/de/docs/Web/API/StylePropertyMap/clear)
   - : Methode, die alle Deklarationen in der StylePropertyMap entfernt.
 
 ### `CSSUnparsedValue`
 
-Die {{domxref('CSSUnparsedValue')}}-Schnittstelle der CSS Typed Object Model API repräsentiert Eigenschaftswerte, die benutzerdefinierte Eigenschaften referenzieren. Sie besteht aus einer Liste von Zeichenfolgenfragmenten und Variablenreferenzen.
+Die [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue)-Schnittstelle der CSS Typed Object Model API repräsentiert Eigenschaftswerte, die auf benutzerdefinierte Eigenschaften verweisen. Sie besteht aus einer Liste von Zeichenfolgenfragmenten und Variablenreferenzen.
 
-- {{domxref("CSSUnparsedValue.CSSUnparsedValue", "CSSUnparsedValue()")}} Konstruktor
-  - : Erstellt ein neues CSSUnparsedValue-Objekt, das Eigenschaftswerte repräsentiert, die benutzerdefinierte Eigenschaften referenzieren.
-- {{domxref('CSSUnparsedValue.entries()')}}
-  - : Methode, die ein Array der eigenen aufzählbaren \[Schlüssel, Wert]-Paare eines gegebenen Objekts in der gleichen Reihenfolge wie durch eine for...in-Schleife bereitstellt (der Unterschied besteht darin, dass eine for-in-Schleife auch Eigenschaften in der Prototypkette aufzählt).
-- {{domxref('CSSUnparsedValue.forEach()')}}
+- [`CSSUnparsedValue()`](/de/docs/Web/API/CSSUnparsedValue/CSSUnparsedValue)-Konstruktor
+  - : Erstellt ein neues CSSUnparsedValue-Objekt, das Eigenschaftswerte repräsentiert, die auf benutzerdefinierte Eigenschaften verweisen.
+- [`CSSUnparsedValue.entries()`](/de/docs/Web/API/CSSUnparsedValue/entries)
+  - : Methode, die ein Array der eigenen aufzählbaren \[Schlüssel, Wert]-Paare eines gegebenen Objekts in derselben Reihenfolge wie die in einer for...in-Schleife bereitstellt (der Unterschied besteht darin, dass in einer for-in-Schleife auch Eigenschaften in der Prototypenkette aufgezählt werden).
+- [`CSSUnparsedValue.forEach()`](/de/docs/Web/API/CSSUnparsedValue/forEach)
   - : Methode, die eine bereitgestellte Funktion einmal für jedes Element des CSSUnparsedValue ausführt.
-- {{domxref('CSSUnparsedValue.keys()')}}
+- [`CSSUnparsedValue.keys()`](/de/docs/Web/API/CSSUnparsedValue/keys)
   - : Methode, die ein neues _Array-Iterator_-Objekt zurückgibt, das die Schlüssel für jeden Index im Array enthält.
 
-### `CSSKeywordValue` Serialisierung
+### `CSSKeywordValue` Serialization
 
-Die {{domxref('CSSKeywordValue')}}-Schnittstelle der CSS Typed Object Model API erstellt ein Objekt, um CSS-Schlüsselwörter und andere Bezeichner darzustellen.
+Die [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)-Schnittstelle der CSS Typed Object Model API erstellt ein Objekt zur Darstellung von CSS-Schlüsselwörtern und anderen Identifikatoren.
 
-- {{domxref("CSSKeywordValue.CSSKeywordValue", "CSSKeywordValue()")}} Konstruktor
-  - : Konstruktor erstellt ein neues {{domxref("CSSKeywordValue.CSSKeywordValue", "CSSKeywordValue()")}}-Objekt, das CSS-Schlüsselwörter und andere Bezeichner darstellt.
-- {{domxref('CSSKeywordValue.value()')}}
+- [`CSSKeywordValue()`](/de/docs/Web/API/CSSKeywordValue/CSSKeywordValue)-Konstruktor
+  - : Konstruktor erstellt ein neues [`CSSKeywordValue()`](/de/docs/Web/API/CSSKeywordValue/CSSKeywordValue)-Objekt, das CSS-Schlüsselwörter und andere Identifikatoren repräsentiert.
+- [`CSSKeywordValue.value()`](/de/docs/Web/API/CSSKeywordValue/value)
   - : Eigenschaft der CSSKeywordValue-Schnittstelle, die den Wert des CSSKeywordValue zurückgibt oder setzt.
 
-## CSSStyleValue Schnittstellen
+## CSSStyleValue-Schnittstellen
 
-CSSStyleValue ist die Basisklasse, durch die alle CSS-Werte ausgedrückt werden. Subklassen sind:
+CSSStyleValue ist die Basisklasse, durch die alle CSS-Werte ausgedrückt werden. Unterklassen umfassen:
 
-- {{domxref('CSSImageValue')}} Objekte
-  - : Eine Schnittstelle, die Werte für Eigenschaften repräsentiert, die ein Bild erfordern, zum Beispiel [`background-image`](/de/docs/Web/CSS/background-image), [`list-style-image`](/de/docs/Web/CSS/list-style-image) oder [`border-image-source`](/de/docs/Web/CSS/border-image-source).
-- {{domxref('CSSKeywordValue')}}
-  - : Eine Schnittstelle, die ein Objekt erstellt, um CSS-Schlüsselwörter und andere Bezeichner darzustellen. Wenn sie verwendet wird, wo eine Zeichenkette erwartet wird, gibt sie den Wert von CSSKeyword.value zurück.
-- {{domxref('CSSMathValue')}}
+- [`CSSImageValue`](/de/docs/Web/API/CSSImageValue)-Objekte
+  - : Eine Schnittstelle, die Werte für Eigenschaften, die ein Bild annehmen, darstellt, zum Beispiel [`background-image`](/de/docs/Web/CSS/background-image), [`list-style-image`](/de/docs/Web/CSS/list-style-image) oder [`border-image-source`](/de/docs/Web/CSS/border-image-source).
+- [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)
+  - : Eine Schnittstelle, die ein Objekt zur Darstellung von CSS-Schlüsselwörtern und anderen Identifikatoren erstellt. Wenn sie dort verwendet wird, wo ein String erwartet wird, gibt sie den Wert von CSSKeyword.value zurück.
+- [`CSSMathValue`](/de/docs/Web/API/CSSMathValue)
 
-  - : Ein Baum von Subklassen, die numerische Werte darstellen, die komplexer sind als ein einzelner Wert und eine Einheit, einschließlich:
+  - : Eine Hierarchie von Unterklassen, die numerische Werte darstellen, die komplizierter sind als nur ein einfacher Wert und eine Einheit, einschließlich:
 
-    - {{domxref('CSSMathInvert')}} - repräsentiert eine CSS {{cssxref("calc","calc()")}}-Wert, der als `calc(1 / <value>)` verwendet wird.
-    - {{domxref('CSSMathMax')}} - repräsentiert die CSS {{cssxref("max","max()")}}-Funktion.
-    - {{domxref('CSSMathMin')}} - repräsentiert die CSS {{cssxref("min","min()")}}-Funktion.
-    - {{domxref('CSSMathNegate')}} - negiert den übergebenen Wert.
-    - {{domxref('CSSMathProduct')}} - repräsentiert das Ergebnis, das durch Aufrufen von {{domxref('CSSNumericValue.add','add()')}}, {{domxref('CSSNumericValue.sub','sub()')}}, oder {{domxref('CSSNumericValue.toSum','toSum()')}} auf {{domxref('CSSNumericValue')}} erhalten wird.
-    - {{domxref('CSSMathSum')}} - repräsentiert das Ergebnis, das durch Aufrufen von {{domxref('CSSNumericValue.add','add()')}}, {{domxref('CSSNumericValue.sub','sub()')}}, oder {{domxref('CSSNumericValue.toSum','toSum()')}} auf {{domxref('CSSNumericValue')}} erhalten wird.
+    - [`CSSMathInvert`](/de/docs/Web/API/CSSMathInvert) - stellt einen CSS-Wert dar, der als `calc(1 / <value>)` verwendet wird.
+    - [`CSSMathMax`](/de/docs/Web/API/CSSMathMax) - stellt die CSS-{{cssxref("max","max()")}}-Funktion dar.
+    - [`CSSMathMin`](/de/docs/Web/API/CSSMathMin) - stellt die CSS-{{cssxref("min","min()")}}-Funktion dar.
+    - [`CSSMathNegate`](/de/docs/Web/API/CSSMathNegate) - negiert den Wert, der in ihn eingefügt wird.
+    - [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct) - stellt das Ergebnis dar, das durch Aufrufen von [`add()`](/de/docs/Web/API/CSSNumericValue/add), [`sub()`](/de/docs/Web/API/CSSNumericValue/sub) oder [`toSum()`](/de/docs/Web/API/CSSNumericValue/toSum) auf [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) erhalten wird.
+    - [`CSSMathSum`](/de/docs/Web/API/CSSMathSum) - stellt das Ergebnis dar, das durch Aufrufen von [`add()`](/de/docs/Web/API/CSSNumericValue/add), [`sub()`](/de/docs/Web/API/CSSNumericValue/sub) oder [`toSum()`](/de/docs/Web/API/CSSNumericValue/toSum) auf [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) erhalten wird.
 
-- {{domxref('CSSNumericValue')}}
+- [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
 
   - : Eine Schnittstelle, die Operationen darstellt, die alle numerischen Werte ausführen können, einschließlich:
 
-    - {{domxref('CSSNumericValue.add')}} - Fügt die übergebenen Zahlen zum `CSSNumericValue` hinzu.
-    - {{domxref('CSSNumericValue.sub')}} - Subtrahiert die übergebenen Zahlen vom `CSSNumericValue`.
-    - {{domxref('CSSNumericValue.mul')}} - Multipliziert die übergebenen Zahlen mit dem `CSSNumericValue`.
-    - {{domxref('CSSNumericValue.div')}} - Teilt eine übergebene Zahl durch andere Zahlen und löst einen Fehler aus, wenn 0.
-    - {{domxref('CSSNumericValue.min')}} - Gibt den minimalen übergebenen Wert zurück
-    - {{domxref('CSSNumericValue.max')}} - Gibt den maximalen übergebenen Wert zurück
-    - {{domxref('CSSNumericValue.equals')}} - Gibt true zurück, wenn alle Werte genau denselben Typ und Wert in der gleichen Reihenfolge haben. Andernfalls false
-    - {{domxref('CSSNumericValue.to')}} - Konvertiert `value` in einen anderen mit der angegebenen _Einheit._
-    - {{domxref('CSSNumericValue.toSum')}}
-    - {{domxref('CSSNumericValue.type')}}
-    - {{domxref('CSSNumericValue/parse_static', 'CSSNumericValue.parse')}} - Gibt eine Nummer zurück, die aus einer CSS-Zeichenkette geparst wurde
+    - [`CSSNumericValue.add`](/de/docs/Web/API/CSSNumericValue/add) - Fügt der `CSSNumericValue` die angegebenen Zahlen hinzu.
+    - [`CSSNumericValue.sub`](/de/docs/Web/API/CSSNumericValue/sub) - Subtrahiert von der `CSSNumericValue` die angegebenen Zahlen.
+    - [`CSSNumericValue.mul`](/de/docs/Web/API/CSSNumericValue/mul) - Multipliziert mit der `CSSNumericValue` die angegebenen Zahlen.
+    - [`CSSNumericValue.div`](/de/docs/Web/API/CSSNumericValue/div) - Dividiert eine angegebene Zahl durch andere Zahlen, führt einen Fehler aus, wenn 0 angegeben wird.
+    - [`CSSNumericValue.min`](/de/docs/Web/API/CSSNumericValue/min) - Gibt den minimalen übergebenen Wert zurück
+    - [`CSSNumericValue.max`](/de/docs/Web/API/CSSNumericValue/max) - Gibt den maximalen übergebenen Wert zurück
+    - [`CSSNumericValue.equals`](/de/docs/Web/API/CSSNumericValue/equals) - Gibt true zurück, wenn alle Werte genau denselben Typ und Wert in derselben Reihenfolge haben. Andernfalls false
+    - [`CSSNumericValue.to`](/de/docs/Web/API/CSSNumericValue/to) - Konvertiert `value` in einen anderen mit der angegebenen _Einheit._
+    - [`CSSNumericValue.toSum`](/de/docs/Web/API/CSSNumericValue/toSum)
+    - [`CSSNumericValue.type`](/de/docs/Web/API/CSSNumericValue/type)
+    - [`CSSNumericValue.parse`](/de/docs/Web/API/CSSNumericValue/parse_static) - Gibt eine Zahl zurück, die aus einem CSS-String geparst wurde
 
-- {{domxref('CSSPositionValue')}}
-  - : Repräsentiert Werte für Eigenschaften, die eine Position erfordern, zum Beispiel object-position.
-- {{domxref('CSSTransformValue')}}
-  - : Eine Schnittstelle, die eine Liste von [`transform`](/de/docs/Web/CSS/transform) List-Werten repräsentiert. Sie "enthalten" ein oder mehrere {{domxref('CSSTransformComponent')}}s, die individuelle `transform` Funktionswerte darstellen.
-- {{domxref('CSSUnitValue')}}
+- [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue)
+  - : Stellt Werte für Eigenschaften dar, die eine Position annehmen, zum Beispiel object-position.
+- [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue)
+  - : Eine Schnittstelle, die eine Liste von [`transform`](/de/docs/Web/CSS/transform)-Listeneinträgen darstellt. Sie "enthalten" einen oder mehrere [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent)s, die einzelne `transform`-Funktionswerte darstellen.
+- [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue)
   - : Eine Schnittstelle, die numerische Werte darstellt, die als eine einzelne Einheit oder als benannte Zahl und Prozentsatz dargestellt werden können.
-- {{domxref('CSSUnparsedValue')}}
-  - : Repräsentiert Eigenschaftswerte, die [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) referenzieren. Sie besteht aus einer Liste von Zeichenfolgenfragmenten und Variablenreferenzen.
+- [`CSSUnparsedValue`](/de/docs/Web/API/CSSUnparsedValue)
+  - : Stellt Eigenschaftswerte dar, die auf [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/--*) verweisen. Sie besteht aus einer Liste von Zeichenfolgenfragmenten und Variablenreferenzen.
 
 ## Spezifikationen
 
@@ -114,5 +114,5 @@ CSSStyleValue ist die Basisklasse, durch die alle CSS-Werte ausgedrückt werden.
 ## Siehe auch
 
 - [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)
-- [Verwendung des CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
+- [Verwendung des CSS Typed Object Models](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Houdini](/de/docs/Web/API/Houdini_APIs)

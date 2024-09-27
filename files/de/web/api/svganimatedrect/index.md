@@ -7,14 +7,14 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die `SVGAnimatedRect`-Schnittstelle wird für Attribute von grundlegenden {{ domxref("SVGRect") }} verwendet, die animiert werden können.
+Die `SVGAnimatedRect`-Schnittstelle wird für Attribute von grundlegenden [`SVGRect`](/de/docs/Web/API/SVGRect) verwendet, die animiert werden können.
 
 ### Schnittstellenübersicht
 
 <table class="no-markdown">
   <tbody>
     <tr>
-      <th scope="row">Ebenfalls implementieren</th>
+      <th scope="row">Implementiert auch</th>
       <td><em>Keine</em></td>
     </tr>
     <tr>
@@ -26,10 +26,10 @@ Die `SVGAnimatedRect`-Schnittstelle wird für Attribute von grundlegenden {{ dom
       <td>
         <ul>
           <li>
-            readonly {{ domxref("SVGRect") }} <code>baseVal</code>
+            readonly [`SVGRect`](/de/docs/Web/API/SVGRect) <code>baseVal</code>
           </li>
           <li>
-            readonly {{ domxref("SVGRect") }} <code>animVal</code>
+            readonly [`SVGRect`](/de/docs/Web/API/SVGRect) <code>animVal</code>
           </li>
         </ul>
       </td>
@@ -59,20 +59,22 @@ Die `SVGAnimatedRect`-Schnittstelle wird für Attribute von grundlegenden {{ dom
   <tbody>
     <tr>
       <td><code>baseVal</code></td>
-      <td>{{ domxref("SVGRect") }}</td>
+      <td>[`SVGRect`](/de/docs/Web/API/SVGRect)</td>
       <td>
-        Der Basiswert des angegebenen Attributs vor der Anwendung von Animationen.
+        Der Basiswert des angegebenen Attributs vor Anwendung von Animationen.
       </td>
     </tr>
     <tr>
       <td><code>animVal</code></td>
-      <td>{{ domxref("SVGRect") }}</td>
+      <td>[`SVGRect`](/de/docs/Web/API/SVGRect)</td>
       <td>
-        Ein schreibgeschütztes {{ domxref("SVGRect") }}, das den aktuellen
-        animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut
-        momentan nicht animiert wird, hat das {{ domxref("SVGRect") }} den gleichen Inhalt
-        wie <code>baseVal</code>. Das durch <code>animVal</code> referenzierte Objekt
-        ist immer ein anderes als das durch <code>baseVal</code> referenzierte, selbst wenn das Attribut nicht animiert ist.
+        Ein schreibgeschützter [`SVGRect`](/de/docs/Web/API/SVGRect), der den
+        aktuellen animierten Wert des angegebenen Attributs darstellt. Wenn das
+        angegebene Attribut derzeit nicht animiert wird, hat der
+        [`SVGRect`](/de/docs/Web/API/SVGRect) denselben Inhalt wie
+        <code>baseVal</code>. Das durch <code>animVal</code> referenzierte
+        Objekt wird immer von dem durch <code>baseVal</code> referenzierten
+        Objekt abweichen, selbst wenn das Attribut nicht animiert wird.
       </td>
     </tr>
   </tbody>
@@ -80,7 +82,7 @@ Die `SVGAnimatedRect`-Schnittstelle wird für Attribute von grundlegenden {{ dom
 
 ## Instanz-Methoden
 
-_Die `SVGAnimatedRect`-Schnittstelle bietet keine spezifischen Methoden._
+_Die `SVGAnimatedRect`-Schnittstelle bietet keine speziellen Methoden._
 
 ## Spezifikationen
 

@@ -8,7 +8,9 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.extend()`**-Methode bewegt den Fokus der Auswahl zu einem angegebenen Punkt. Der Anker der Auswahl bewegt sich nicht. Die Auswahl erstreckt sich vom Anker bis zum neuen Fokus, unabhängig von der Richtung.
+Die **`Selection.extend()`** Methode bewegt den Fokus der
+Auswahl zu einem angegebenen Punkt. Der Anker der Auswahl bewegt sich nicht. Die Auswahl
+erstreckt sich vom Anker zum neuen Fokus, unabhängig von der Richtung.
 
 ## Syntax
 
@@ -22,21 +24,21 @@ extend(node, offset)
 - `node`
   - : Der Knoten, innerhalb dessen der Fokus bewegt wird.
 - `offset` {{optional_inline}}
-  - : Die Position innerhalb von `node`, zu der der Fokus bewegt wird. Wenn
+  - : Die Versatzposition innerhalb von `node`, wohin der Fokus verschoben werden soll. Wenn
     nicht angegeben, wird der Standardwert `0` verwendet.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+None ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Selection")}}, die Schnittstelle, zu der es gehört.
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der es gehört.

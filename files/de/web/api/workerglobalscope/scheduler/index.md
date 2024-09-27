@@ -3,44 +3,44 @@ title: "WorkerGlobalScope: scheduler-Eigenschaft"
 short-title: scheduler
 slug: Web/API/WorkerGlobalScope/scheduler
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: 3c359c63c1b58e10bdfe3bec2c245ea626560427
 ---
 
 {{APIRef("Prioritized Task Scheduling API")}}{{AvailableInWorkers("worker")}}
 
-Die **`scheduler`** schreibgeschützte Eigenschaft der {{domxref("WorkerGlobalScope")}}-Schnittstelle ist der Einstiegspunkt zur Verwendung der [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API).
+Die schreibgeschützte **`scheduler`**-Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces ist der Einstiegspunkt zur Verwendung der [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API).
 
-Das Objekt besitzt eine einzelne Instanzmethode {{domxref('Scheduler.postTask()')}}, die verwendet wird, um priorisierte Aufgaben zur Planung zu übermitteln.
+Sie gibt eine [`Scheduler`](/de/docs/Web/API/Scheduler)-Objektinstanz zurück, die die Methoden [`postTask()`](/de/docs/Web/API/Scheduler/postTask) und [`yield()`](/de/docs/Web/API/Scheduler/yield) enthält, mit denen priorisierte Aufgaben geplant werden können.
 
 ## Wert
 
-Ein {{domxref("Scheduler")}}.
+Ein [`Scheduler`](/de/docs/Web/API/Scheduler).
 
 ## Beispiele
 
-Der folgende Code zeigt eine sehr grundlegende Verwendung der Eigenschaft und der zugehörigen Schnittstelle.
-Es wird demonstriert, wie überprüft wird, ob die Eigenschaft existiert, und dann eine Aufgabe übermittelt wird, die ein Promise zurückgibt.
+Der untenstehende Code zeigt eine sehr einfache Verwendung der Eigenschaft und ihres zugehörigen Interfaces.
+Er demonstriert, wie geprüft wird, ob die Eigenschaft existiert, und dann eine Aufgabe gepostet wird, die ein Versprechen zurückgibt.
 
 ```js
-// Überprüfen, ob die Priorisierte Task API unterstützt wird
+// Check if the prioritized task API is supported
 if ("scheduler" in self) {
-  // Callback-Funktion - "die Aufgabe"
-  const myTask = () => "Task 1: benutzersichtbar";
+  // Callback function - "the task"
+  const myTask = () => "Task 1: user-visible";
 
-  // Aufgabe mit Standardpriorität übermitteln: 'user-visible' (keine weiteren Optionen)
-  // Wenn die Aufgabe gelöst wird, protokolliert Promise.then() das Ergebnis.
+  // Post task with default priority: 'user-visible' (no other options)
+  // When the task resolves, Promise.then() logs the result.
   self.scheduler
     .postTask(myTask)
-    // Verarbeite gelösten Wert
+    // Handle resolved value
     .then((taskResult) => console.log(`${taskResult}`))
-    // Verarbeite Fehler oder Abbruch
+    // Handle error or abort
     .catch((error) => console.log(`Error: ${error}`));
 } else {
-  console.log("Feature: NICHT unterstützt");
+  console.log("Feature: NOT Supported");
 }
 ```
 
-Für umfassenden Beispielcode zur Verwendung der API siehe [Prioritized Task Scheduling API > Beispiele](/de/docs/Web/API/Prioritized_Task_Scheduling_API#examples).
+Für umfassende Beispielcodes, die die Verwendung der API zeigen, siehe [Prioritized Task Scheduling API > Beispiele](/de/docs/Web/API/Prioritized_Task_Scheduling_API#examples).
 
 ## Spezifikationen
 
@@ -53,6 +53,7 @@ Für umfassenden Beispielcode zur Verwendung der API siehe [Prioritized Task Sch
 ## Siehe auch
 
 - [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API)
-- {{domxref('Scheduler.postTask()')}}
-- {{domxref('TaskController')}}
-- {{domxref("Window.scheduler")}}
+- [`Scheduler.postTask()`](/de/docs/Web/API/Scheduler/postTask)
+- [`Scheduler.yield()`](/de/docs/Web/API/Scheduler/yield)
+- [`TaskController`](/de/docs/Web/API/TaskController)
+- [`Window.scheduler`](/de/docs/Web/API/Window/scheduler)

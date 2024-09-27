@@ -8,35 +8,35 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`layout`**-Eigenschaft der {{domxref("XRCompositionLayer")}}-Schnittstelle ist der Layout-Typ der Ebene.
+Die schreibgeschützte **`layout`**-Eigenschaft der [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)-Schnittstelle ist der Layout-Typ der Schicht.
 
-Um den Layout-Typ einer Ebene festzulegen, verwenden Sie eine der Methoden zur Erzeugung von Ebenen und deren `layout`-Option:
+Um den Layout-Typ einer Schicht zu spezifizieren, verwenden Sie eine der Methoden zur Schichterstellung und deren `layout`-Option:
 
-- {{domxref("XRWebGLBinding.createQuadLayer()")}}
-- {{domxref("XRWebGLBinding.createCylinderLayer()")}}
-- {{domxref("XRWebGLBinding.createEquirectLayer()")}}
-- {{domxref("XRWebGLBinding.createCubeLayer()")}}
+- [`XRWebGLBinding.createQuadLayer()`](/de/docs/Web/API/XRWebGLBinding/createQuadLayer)
+- [`XRWebGLBinding.createCylinderLayer()`](/de/docs/Web/API/XRWebGLBinding/createCylinderLayer)
+- [`XRWebGLBinding.createEquirectLayer()`](/de/docs/Web/API/XRWebGLBinding/createEquirectLayer)
+- [`XRWebGLBinding.createCubeLayer()`](/de/docs/Web/API/XRWebGLBinding/createCubeLayer)
 
 ## Wert
 
-Ein String. Mögliche Werte:
+Ein Zeichenfolgenwert. Mögliche Werte:
 
 - `default`
-  - : Die Ebene umfasst alle Ansichten der Sitzung. Es wird empfohlen, den Texturtyp `texture-array` für `default`-Layouts zu verwenden.
+  - : Die Schicht berücksichtigt alle Ansichten der Sitzung. Es wird empfohlen, den `texture-array`-Texturtyp für `default`-Layouts zu verwenden.
 - `mono`
-  - : Ein einzelnes {{domxref("XRSubImage")}} wird zugewiesen und beiden Augen präsentiert.
+  - : Ein einzelnes [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird beiden Augen zugewiesen und angezeigt.
 - `stereo`
-  - : Der Benutzeragent entscheidet, wie das {{domxref("XRSubImage")}} zugewiesen wird (eins oder zwei) und das Layout (oben/unten oder links/rechts). Es wird empfohlen, den Texturtyp `texture-array` für `stereo`-Layouts zu verwenden.
+  - : Der User Agent entscheidet, wie das [`XRSubImage`](/de/docs/Web/API/XRSubImage) (eins oder zwei) zugewiesen und das Layout (oben/unten oder links/rechts) gestaltet wird. Es wird empfohlen, den `texture-array`-Texturtyp für `stereo`-Layouts zu verwenden.
 - `stereo-left-right`
-  - : Ein einzelnes {{domxref("XRSubImage")}} wird zugewiesen. Das linke Auge erhält den linken Bereich der Textur, das rechte Auge den rechten. Dieses Layout ist darauf ausgelegt, die Anzahl der Zeichenaufrufe für Inhalte zu minimieren, die bereits in Stereo vorliegen (zum Beispiel Stereo-Videos oder -Bilder).
+  - : Ein einzelnes [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird zugewiesen. Das linke Auge erhält den linken Bereich der Textur, das rechte Auge den rechten. Dieses Layout ist so konzipiert, dass es die Anzahl der Zeichnungsaufrufe für Inhalte minimiert, die bereits in Stereo vorliegen (zum Beispiel Stereo-Videos oder -Bilder).
 - `stereo-top-bottom`
-  - : Ein einzelnes {{domxref("XRSubImage")}} wird zugewiesen. Das linke Auge erhält den oberen Bereich der Textur, das rechte Auge den unteren. Dieses Layout ist darauf ausgelegt, die Anzahl der Zeichenaufrufe für Inhalte zu minimieren, die bereits in Stereo vorliegen (zum Beispiel Stereo-Videos oder -Bilder).
+  - : Ein einzelnes [`XRSubImage`](/de/docs/Web/API/XRSubImage) wird zugewiesen. Das linke Auge erhält den oberen Bereich der Textur, das rechte Auge den unteren. Dieses Layout ist so konzipiert, dass es die Anzahl der Zeichnungsaufrufe für Inhalte minimiert, die bereits in Stereo vorliegen (zum Beispiel Stereo-Videos oder -Bilder).
 
 ## Beispiele
 
-### Setzen und Abrufen des Layouts einer Ebene
+### Festlegen und Abrufen des Layouts einer Schicht
 
-Um das Layout einer Ebene festzulegen, verwenden Sie eine Methode zur Erstellung von Ebenen (wie {{domxref("XRWebGLBinding.createQuadLayer()")}}) und deren `layout`-Option. Um den Typ des Ebenenlayouts abzurufen, verwenden Sie die `layout`-Eigenschaft:
+Um das Layout einer Schicht festzulegen, verwenden Sie eine Schichterstellungsmethode (wie [`XRWebGLBinding.createQuadLayer()`](/de/docs/Web/API/XRWebGLBinding/createQuadLayer)) und deren `layout`-Option. Um den Layout-Typ der Schicht abzurufen, verwenden Sie die `layout`-Eigenschaft:
 
 ```js
 const layer = xrGlBinding.createQuadLayer({
@@ -58,8 +58,8 @@ layer.layout; // "stereo"
 
 ## Siehe auch
 
-- {{domxref("XRSubImage")}}
-- {{domxref("XRWebGLBinding.createQuadLayer()")}}
-- {{domxref("XRWebGLBinding.createCylinderLayer()")}}
-- {{domxref("XRWebGLBinding.createEquirectLayer()")}}
-- {{domxref("XRWebGLBinding.createCubeLayer()")}}
+- [`XRSubImage`](/de/docs/Web/API/XRSubImage)
+- [`XRWebGLBinding.createQuadLayer()`](/de/docs/Web/API/XRWebGLBinding/createQuadLayer)
+- [`XRWebGLBinding.createCylinderLayer()`](/de/docs/Web/API/XRWebGLBinding/createCylinderLayer)
+- [`XRWebGLBinding.createEquirectLayer()`](/de/docs/Web/API/XRWebGLBinding/createEquirectLayer)
+- [`XRWebGLBinding.createCubeLayer()`](/de/docs/Web/API/XRWebGLBinding/createCubeLayer)

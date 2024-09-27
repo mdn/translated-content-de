@@ -1,5 +1,5 @@
 ---
-title: "Window: top-Eigenschaft"
+title: "Window: top Eigenschaft"
 short-title: top
 slug: Web/API/Window/top
 l10n:
@@ -16,9 +16,9 @@ Die Referenz auf das oberste Fenster.
 
 ## Hinweise
 
-Während die {{domxref("window.parent")}}-Eigenschaft das unmittelbare Elternteil des aktuellen Fensters zurückgibt, liefert `window.top` das oberste Fenster in der Hierarchie von Fensterobjekten.
+Während die [`window.parent`](/de/docs/Web/API/Window/parent)-Eigenschaft den unmittelbaren Elternteil des aktuellen Fensters zurückgibt, gibt `window.top` das oberste Fenster in der Hierarchie der Fensterobjekte zurück.
 
-Diese Eigenschaft ist besonders nützlich, wenn Sie es mit einem Fenster zu tun haben, das sich in einem Unterrahmen eines oder mehrerer übergeordneter Fenster befindet, und Sie das oberste Frameset erreichen möchten.
+Diese Eigenschaft ist besonders nützlich, wenn Sie mit einem Fenster arbeiten, das sich in einem Unterrahmen eines oder mehrerer Eltern befindet, und Sie zum obersten Frameset gelangen möchten.
 
 ## Spezifikationen
 

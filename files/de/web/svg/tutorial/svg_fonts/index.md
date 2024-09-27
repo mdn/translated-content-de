@@ -9,18 +9,18 @@ l10n:
 
 {{ PreviousNext("Web/SVG/Tutorial/Filter_effects", "Web/SVG/Tutorial/SVG_Image_Tag") }}
 
-Als SVG spezifiziert wurde, war die Unterstützung für Webfonts in Browsern nicht weit verbreitet. Da der Zugriff auf die richtige Schriftdatei jedoch entscheidend für die korrekte Darstellung von Text ist, wurde SVG eine Schriftbeschreibungstechnologie hinzugefügt, um diese Fähigkeit bereitzustellen. Sie war nicht für die Kompatibilität mit anderen Formaten wie [PostScript](https://www.adobe.com/products/postscript.html) oder [OTF](https://fonts.google.com/knowledge/glossary/open_type) gedacht, sondern vielmehr als einfaches Mittel zur Einbettung von Glypheninformationen in SVG beim Rendern.
+Als SVG spezifiziert wurde, war die Unterstützung für Web-Schriften in Browsern nicht weit verbreitet. Da der Zugriff auf die korrekte Schriftartdatei jedoch entscheidend für die korrekte Darstellung von Texten ist, wurde SVG eine Schriftbeschreibungstechnologie hinzugefügt, um diese Möglichkeit bereitzustellen. Sie war nicht für die Kompatibilität mit anderen Formaten wie [PostScript](https://www.adobe.com/products/postscript.html) oder [OTF](https://fonts.google.com/knowledge/glossary/open_type) gedacht, sondern vielmehr als einfaches Mittel, um Glypheninformationen beim Rendern in SVG einzubetten.
 
 > [!NOTE]
-> SVG-Schriften werden derzeit nur in Safari und Android Browser unterstützt.
+> SVG-Schriften werden derzeit nur in Safari und dem Android-Browser unterstützt.
 >
-> Die Funktionalität wurde [ab Chrome 38 entfernt](https://chromestatus.com/feature/5930075908210688) (und Opera 25), und Firefox hat [die Implementierung auf unbestimmte Zeit verschoben](https://bugzil.la/119490), um sich auf [WOFF](/de/docs/Web/CSS/CSS_fonts/WOFF) zu konzentrieren. Andere Tools wie Batik und Teile von Inkscape unterstützen jedoch das Einbetten von SVG-Schriften.
+> Die Funktionalität wurde [aus Chrome 38 entfernt](https://chromestatus.com/feature/5930075908210688) (und Opera 25) und Firefox [hat seine Implementierung auf unbestimmte Zeit verschoben](https://bugzil.la/119490), um sich auf [WOFF](/de/docs/Web/CSS/CSS_fonts/WOFF) zu konzentrieren. Andere Tools wie Batik und Teile von Inkscape unterstützen jedoch das Einbetten von SVG-Schriften.
 
 Die Basis zur Definition einer SVG-Schrift ist das {{ SVGElement("font") }}-Element.
 
-## Definieren einer Schriftart
+## Eine Schrift definieren
 
-Es gibt einige Zutaten, die erforderlich sind, um eine Schriftart in SVG einzubetten. Lassen Sie uns eine Beispiel-Deklaration zeigen (die [aus der Spezifikation](https://www.w3.org/TR/SVG/fonts.html#FontElement)), und die Details erklären.
+Es gibt einige Elemente, die erforderlich sind, um eine Schriftart in SVG einzubetten. Lassen Sie uns ein Beispiel für eine Deklaration zeigen (das [aus der Spezifikation](https://www.w3.org/TR/SVG/fonts.html#FontElement)) und die Details erklären.
 
 ```html
 <font id="Font1" horiz-adv-x="1000">
@@ -42,51 +42,51 @@ Es gibt einige Zutaten, die erforderlich sind, um eine Schriftart in SVG einzube
     </font-face-src>
   </font-face>
   <missing-glyph><path d="M0,0h200v200h-200z" /></missing-glyph>
-  <!-- Umriss des Ausrufezeichenglyphen -->
+  <!-- Outline of exclamation point glyph -->
   <glyph unicode="!" horiz-adv-x="300"></glyph>
-  <glyph unicode="@"><!-- Umriss des @ Glyphen --></glyph>
-  <!-- weitere Glyphen -->
+  <glyph unicode="@"><!-- Outline of @ glyph --></glyph>
+  <!-- more glyphs -->
 </font>
 ```
 
-Wir beginnen mit dem {{ SVGElement("font") }}-Element. Dieses trägt ein `id`-Attribut, damit es über eine URI referenziert werden kann (siehe unten). Das `horiz-adv-x`-Attribut bestimmt, wie breit ein Zeichen im Durchschnitt im Vergleich zu den Pfaddefinitionen der einzelnen Glyphen ist. Der Wert `1000` legt einen angemessenen Arbeitswert fest. Es gibt mehrere begleitende Attribute, die dazu beitragen, das grundlegende Glyphen-Box-Layout weiter zu definieren.
+Wir beginnen mit dem {{ SVGElement("font") }}-Element. Dieses trägt ein `id`-Attribut, damit es über eine URI referenziert werden kann (siehe unten). Das `horiz-adv-x`-Attribut bestimmt, wie breit ein Zeichen im Vergleich zu den Pfaddefinitionen der einzelnen Glyphen im Durchschnitt ist. Der Wert `1000` setzt einen vernünftigen Wert zum Arbeiten. Es gibt mehrere begleitende Attribute, die helfen, das grundlegende Glyphen-Box-Layout weiter zu definieren.
 
-Das {{ SVGElement("font-face") }}-Element ist das SVG-Äquivalent zur CSS [`@font-face`](/de/docs/Web/CSS/@font-face)-Deklaration. Es definiert grundlegende Eigenschaften der endgültigen Schriftart wie Gewicht, Stil usw. Im obigen Beispiel ist die erste und wichtigste zu definierende Eigenschaft `font-family`, deren Wert dann in CSS- und SVG-`font-family`-Eigenschaften referenziert werden kann. Die Attribute `font-weight` und `font-style` haben denselben Zweck wie die entsprechenden Deskriptoren in CSS. Alle folgenden Attribute sind Rendering-Anweisungen für die Schrift-Layout-Engine; zum Beispiel, wie viel von der gesamten Höhe der Glyphen [Oberlängen](<https://de.wikipedia.org/wiki/Oberl%C3%A4nge_(Typografie)>) sind.
+Das {{ SVGElement("font-face") }}-Element ist das SVG-Äquivalent zur CSS-Deklaration [`@font-face`](/de/docs/Web/CSS/@font-face). Es definiert grundlegende Eigenschaften der finalen Schriftart wie Gewicht, Stil etc. Im obigen Beispiel wird zuerst und am wichtigsten `font-family` definiert, dessen Wert dann in den `font-family`-Eigenschaften in CSS und SVG referenziert werden kann. Die Attribute `font-weight` und `font-style` haben denselben Zweck wie die entsprechenden Deskriptoren in CSS. Alle folgenden Attribute sind Anweisungen für das Rendering im Schriftarten-Layout des Engines; beispielsweise, wie viel von der Gesamthöhe der Glyphen [Aufsteiger](<https://en.wikipedia.org/wiki/Ascender_(typography)>) sind.
 
-Sein Kind, das {{ SVGElement("font-face-src") }}-Element, entspricht dem CSS-`src`-Deskriptor in `@font-face`-Deklarationen. Sie können mit seinen Kindern {{ SVGElement("font-face-name") }} und {{ SVGElement("font-face-uri") }} auf externe Quellen für Schriftdeklarationen verweisen. Das obige Beispiel gibt an, dass, wenn der Renderer eine lokale Schriftart mit dem Namen "Super Sans Bold" verfügbar hat, diese verwendet werden sollte.
+Sein Kind, das {{ SVGElement("font-face-src") }}-Element, entspricht dem `src`-Deskriptor von CSS in `@font-face`-Deklarationen. Sie können auf externe Quellen für Schriftartdeklarationen verweisen, indem Sie seine Kinder {{ SVGElement("font-face-name") }} und {{ SVGElement("font-face-uri") }} verwenden. Das obige Beispiel gibt an, dass der Renderer eine lokale Schriftart namens "Super Sans Bold" verwenden sollte, wenn diese verfügbar ist.
 
-Dem {{ SVGElement("font-face-src") }} folgt ein {{ SVGElement("missing-glyph") }}-Element. Dieses definiert, was angezeigt werden soll, wenn ein bestimmtes Glyphe nicht in der Schrift vorhanden ist und keine Fallback-Mechanismen verfügbar sind. Es zeigt auch, wie Glyphen erstellt werden: Indem beliebiger grafischer SVG-Inhalt hinzugefügt wird. Sie können hier buchstäblich alle anderen SVG-Elemente verwenden, sogar {{ SVGElement("filter") }}, {{ SVGElement("a") }} oder {{ SVGElement("script") }}. Für einfache Glyphen können Sie jedoch ein `d`-Attribut hinzufügen — dies definiert eine Form für die Glyphe genau so, wie es mit Standard-SVG-Pfaden funktioniert.
+Auf das {{ SVGElement("font-face-src") }}-Element folgt ein {{ SVGElement("missing-glyph") }}-Element. Dies definiert, was angezeigt werden soll, wenn eine bestimmte Glyphe in der Schriftart nicht gefunden wird und es keine Fallback-Mechanismen gibt. Es zeigt auch, wie Glyphen erstellt werden: Indem man jegliche grafischen SVG-Inhalte hinzufügt. Sie können hier buchstäblich jede andere SVG-Elemente verwenden, sogar {{ SVGElement("filter") }}, {{ SVGElement("a") }} oder {{ SVGElement("script") }}. Für einfache Glyphen können Sie jedoch ein `d`-Attribut hinzufügen — dies definiert eine Form für die Glyphe genau wie es bei standardmäßigen SVG-Pfaden der Fall ist.
 
-Die tatsächlichen Glyphen werden dann durch {{ SVGElement("glyph") }}-Elemente definiert. Das wichtigste Attribut ist `unicode`. Es definiert den Unicode-Codepunkt, der durch diese Glyphe dargestellt wird. Wenn Sie auch das [`lang`](/de/docs/Web/HTML/Global_attributes#lang)-Attribut auf einer Glyphe angeben, können Sie es weiter auf bestimmte Sprachen (dargestellt durch `xml:lang` am Ziel) beschränken. Auch hier können Sie beliebiges SVG verwenden, um die Glyphe zu definieren, was zu großartigen Effekten bei der Unterstützung von Benutzeragenten führen kann.
+Die eigentlichen Glyphen werden dann von {{ SVGElement("glyph") }}-Elementen definiert. Das wichtigste Attribut ist `unicode`. Es definiert den Unicode-Codepunkt, der durch diese Glyphe dargestellt wird. Wenn Sie auch das [`lang`](/de/docs/Web/HTML/Global_attributes#lang)-Attribut auf einer Glyphe angeben, können Sie es weiter auf bestimmte Sprachen (dargestellt durch `xml:lang` auf dem Ziel) exklusiv beschränken. Auch hier können Sie beliebige SVGs verwenden, um die Glyphe zu definieren, was in unterstützenden Benutzeragenten zu großartigen Effekten führt.
 
-Zwei weitere Elemente können innerhalb von `font` definiert werden: {{ SVGElement("hkern") }} und {{ SVGElement("vkern") }}. Jedes enthält Referenzen zu mindestens zwei Zeichen (Attribute `u1` und `u2`) und ein Attribut `k`, das bestimmt, um wie viel der Abstand zwischen diesen Zeichen verringert werden soll. Das folgende Beispiel weist Benutzeragenten an, die Zeichen "A" und "V" näher zusammen als den Standardabstand zwischen Zeichen zu platzieren.
+Zwei weitere Elemente können innerhalb von `font` definiert werden: {{ SVGElement("hkern") }} und {{ SVGElement("vkern") }}. Jedes trägt Referenzen zu mindestens zwei Zeichen (Attribute `u1` und `u2`) und ein `k`-Attribut, das bestimmt, wie weit der Abstand zwischen diesen Zeichen verringert werden soll. Das untenstehende Beispiel weist Benutzeragenten an, die Zeichen "A" und "V" näher zusammen zu platzieren als der Standardabstand zwischen Zeichen.
 
 ```html
 <hkern u1="A" u2="V" k="20" />
 ```
 
-## Eine Schriftart referenzieren
+## Eine Schrift referenzieren
 
-Wenn Sie Ihre Schrifterklärung wie oben beschrieben zusammengestellt haben, können Sie einfach ein `font-family`-Attribut verwenden, um die Schrift tatsächlich auf einen SVG-Text anzuwenden:
+Wenn Sie Ihre Schriftdeklaration wie oben beschrieben zusammengestellt haben, können Sie einfach ein `font-family`-Attribut verwenden, um die Schrift tatsächlich auf einen SVG-Text anzuwenden:
 
 ```html
 <font>
   <font-face font-family="Super Sans" />
-  <!-- und so weiter -->
+  <!-- and so on -->
 </font>
 
-<text font-family="Super Sans">Mein Text verwendet Super Sans</text>
+<text font-family="Super Sans">My text uses Super Sans</text>
 ```
 
-Sie sind jedoch frei, mehrere Methoden zu kombinieren, um große Freiheit bezüglich der Definition und des Ortes der Schrift zu erzielen.
+Sie sind jedoch frei, mehrere Methoden zu kombinieren, um große Freiheit zu haben, wie und wo die Schrift definiert wird.
 
-### Option: Verwenden Sie CSS @font-face
+### Option: Verwendung von CSS @font-face
 
-Sie können `@font-face` verwenden, um auf entfernte (und nicht so entfernte) Schriften zu verweisen:
+Sie können `@font-face` verwenden, um auf entfernte (und weniger entfernte) Schriftarten zu verweisen:
 
 ```html
 <font id="Super_Sans">
-  <!-- und so weiter -->
+  <!-- and so on -->
 </font>
 
 <style>
@@ -96,12 +96,12 @@ Sie können `@font-face` verwenden, um auf entfernte (und nicht so entfernte) Sc
   }
 </style>
 
-<text font-family="Super Sans">Mein Text verwendet Super Sans</text>
+<text font-family="Super Sans">My text uses Super Sans</text>
 ```
 
-### Option: Eine entfernte Schriftart referenzieren
+### Option: eine externe Schriftart referenzieren
 
-Das oben erwähnte `font-face-uri`-Element ermöglicht es Ihnen, auf eine externe Schriftart zu verweisen; dies ermöglicht eine größere Wiederverwendbarkeit:
+Das oben erwähnte `font-face-uri`-Element erlaubt es Ihnen, eine externe Schriftart zu referenzieren, was eine größere Wiederverwendbarkeit ermöglicht:
 
 ```html
 <font>

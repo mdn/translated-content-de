@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`entries()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt ein neues _[Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die Schlüssel/Wert-Paare für jeden Index im typisierten Array enthält. Diese Methode verwendet den gleichen Algorithmus wie {{jsxref("Array.prototype.entries()")}}.
+Die **`entries()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt ein neues _[Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das die Schlüssel/Wert-Paare für jeden Index im typisierten Array enthält. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.entries()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-entries.html")}}
 
@@ -65,7 +65,7 @@ console.log(arrayEntries.next().value); // [4, 50]
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.entries` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript-typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Anleitung
+- [Leitfaden für JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.keys()")}}
 - {{jsxref("TypedArray.prototype.values()")}}

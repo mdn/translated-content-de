@@ -8,33 +8,40 @@ l10n:
 
 {{APIRef}}
 
-Die Eigenschaft
+Die
 **`HTMLIFrameElement.referrerPolicy`**
-spiegelt das HTML-Attribut [`referrerpolicy`](/de/docs/Web/HTML/Element/iframe#referrerpolicy) des
-{{HTMLElement("iframe")}}-Elements wider, welches definiert, welcher Referrer gesendet wird, wenn die Ressource abgerufen wird.
+Eigenschaft spiegelt das HTML [`referrerpolicy`](/de/docs/Web/HTML/Element/iframe#referrerpolicy) Attribut des
+{{HTMLElement("iframe")}}-Elements wider, welches definiert, welcher Referrer beim Abrufen der
+Ressource gesendet wird.
 
 ## Wert
 
 - `no-referrer`
-  - : Der {{HTTPHeader("Referer")}}-Header wird vollständig weggelassen. Es werden keine Referrer-Informationen mit Anfragen gesendet.
+  - : Der {{HTTPHeader("Referer")}}-Header wird vollständig weggelassen. Es werden keine Referrer-Informationen zusammen mit Anfragen gesendet.
 - `no-referrer-when-downgrade`
-  - : Die URL wird als Referrer gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTP→HTTP, HTTPS→HTTPS), aber nicht an eine weniger sichere Zieladresse (HTTPS→HTTP) gesendet wird.
+  - : Die URL wird als Referrer gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTP→HTTP,
+    HTTPS→HTTPS), jedoch nicht an ein weniger sicheres Ziel (HTTPS→HTTP) gesendet.
 - `origin`
-  - : Sendet in allen Fällen nur den Ursprung des Dokuments als Referrer. Das Dokument `https://example.com/page.html` sendet den Referrer `https://example.com/`.
+  - : Nur der Ursprung des Dokuments wird in allen Fällen als Referrer gesendet.
+    Das Dokument `https://example.com/page.html` wird den Referrer
+    `https://example.com/` senden.
 - `origin-when-cross-origin`
-  - : Sendet eine vollständige URL bei einer gleichnamigen Anfrage, sendet aber nur den Ursprung des Dokuments in anderen Fällen.
+  - : Eine vollständige URL wird gesendet, wenn eine Anfrage derselben Herkunft erfolgt, jedoch wird nur der Ursprung des Dokuments in anderen Fällen gesendet.
 - `same-origin`
-  - : Ein Referrer wird für [gleiche Ursprünge](/de/docs/Web/Security/Same-origin_policy) gesendet, aber Cross-Origin-Anfragen enthalten keine Referrer-Informationen.
+  - : Ein Referrer wird für [Same-Site-Herkünfte](/de/docs/Web/Security/Same-origin_policy) gesendet, aber
+    Cross-Origin-Anfragen enthalten keine Referrer-Informationen.
 - `strict-origin`
-  - : Sendet nur den Ursprung des Dokuments als Referrer, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), aber nicht an eine weniger sichere Zieladresse (HTTPS→HTTP).
+  - : Nur der Ursprung des Dokuments wird als Referrer gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), jedoch nicht an ein weniger sicheres Ziel
+    (HTTPS→HTTP) gesendet.
 - `strict-origin-when-cross-origin` (Standard)
-  - : Dies ist das Standardverhalten des Benutzeragents, wenn keine Richtlinie angegeben ist. Sendet eine vollständige URL bei einer gleichnamigen Anfrage, sendet nur den Ursprung, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), und sendet keinen Header an eine weniger sichere Zieladresse (HTTPS→HTTP).
+  - : Dies ist das Standardverhalten des Benutzeragenten, wenn keine Richtlinie angegeben ist. Eine vollständige URL wird gesendet, wenn eine Anfrage derselben Herkunft erfolgt, nur der Ursprung wird gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), und es wird kein Header an ein weniger
+    sicheres Ziel gesendet (HTTPS→HTTP).
 - `unsafe-url`
 
-  - : Sendet eine vollständige URL sowohl bei gleichnamigen als auch bei Cross-Origin-Anfragen.
+  - : Eine vollständige URL wird gesendet, wenn eine Anfrage derselben Herkunft oder einer anderen Herkunft erfolgt.
 
     > [!NOTE]
-    > Diese Richtlinie wird Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge durchsickern lassen. Betrachten Sie die Auswirkungen dieser Einstellung sorgfältig.
+    > Diese Richtlinie wird Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge leaken. Überlegen Sie sorgfältig die Auswirkungen dieser Einstellung.
 
 ## Beispiele
 
@@ -56,6 +63,6 @@ body.appendChild(iframe); // Fetch the image using the complete URL as the refer
 
 ## Siehe auch
 
-- {{domxref("HTMLAnchorElement.referrerPolicy")}},
-  {{domxref("HTMLAreaElement.referrerPolicy")}}, und
-  {{domxref("HTMLAreaElement.referrerPolicy")}}.
+- [`HTMLAnchorElement.referrerPolicy`](/de/docs/Web/API/HTMLAnchorElement/referrerPolicy),
+  [`HTMLAreaElement.referrerPolicy`](/de/docs/Web/API/HTMLAreaElement/referrerPolicy), und
+  [`HTMLAreaElement.referrerPolicy`](/de/docs/Web/API/HTMLAreaElement/referrerPolicy).

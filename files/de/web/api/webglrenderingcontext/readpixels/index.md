@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: readPixels() Methode"
+title: "WebGLRenderingContext: Methode readPixels()"
 short-title: readPixels()
 slug: Web/API/WebGLRenderingContext/readPixels
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.readPixels()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) liest einen Block von Pixeln aus einem angegebenen Rechteck des aktuellen Farb-Framebuffers in ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}} Objekt ein.
+Die **`WebGLRenderingContext.readPixels()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) liest einen Block von Pixeln aus einem angegebenen Rechteck des aktuellen Farb-Framebuffers in ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}-Objekt ein.
 
 ## Syntax
 
@@ -25,23 +25,23 @@ readPixels(x, y, width, height, format, type, pixels, dstOffset)
 ### Parameter
 
 - `x`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, das das erste horizontale Pixel angibt, das aus der unteren linken Ecke eines rechteckigen Blocks von Pixeln gelesen wird.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der das erste horizontale Pixel angibt, das aus der unteren linken Ecke eines rechteckigen Blocks von Pixeln gelesen wird.
 - `y`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, das das erste vertikale Pixel angibt, das aus der unteren linken Ecke eines rechteckigen Blocks von Pixeln gelesen wird.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der das erste vertikale Pixel angibt, das aus der unteren linken Ecke eines rechteckigen Blocks von Pixeln gelesen wird.
 - `width`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, das die Breite des Rechtecks angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Rechtecks angibt.
 - `height`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, das die Höhe des Rechtecks angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe des Rechtecks angibt.
 - `format`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das das Format der Pixeldaten angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Format der Pixel-Daten angibt. Mögliche Werte:
 
     - `gl.ALPHA`
-      - : Verwift die roten, grünen und blauen Komponenten und liest die Alphakomponente.
+      - : Ignoriert die roten, grünen und blauen Komponenten und liest die Alpha-Komponente.
     - `gl.RGB`
-      - : Verwift die Alphakomponenten und liest die roten, grünen und blauen Komponenten.
+      - : Ignoriert die Alpha-Komponenten und liest die roten, grünen und blauen Komponenten.
     - `gl.RGBA`
-      - : Rote, grüne, blaue und Alphakomponenten werden aus dem Farbbuffer gelesen.
+      - : Rot-, Grün-, Blau- und Alpha-Komponenten werden aus dem Farb-Puffer gelesen.
 
     WebGL2 fügt hinzu
 
@@ -54,7 +54,7 @@ readPixels(x, y, width, height, format, type, pixels, dstOffset)
 
 - `type`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das den Datentyp der Pixeldaten angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Datentyp der Pixel-Daten angibt. Mögliche Werte:
 
     - `gl.UNSIGNED_BYTE`
     - `gl.UNSIGNED_SHORT_5_6_5`
@@ -76,11 +76,10 @@ readPixels(x, y, width, height, format, type, pixels, dstOffset)
 
 - `pixels`
 
-  - : Ein Objekt, in das die Daten gelesen werden. Der Array-Typ muss mit dem Typ des `type` Parameters übereinstimmen:
+  - : Ein Objekt, in das Daten eingelesen werden. Der Array-Typ muss mit dem Typ des `type`-Parameters übereinstimmen:
 
     - {{jsxref("Uint8Array")}} für `gl.UNSIGNED_BYTE`.
-    - {{jsxref("Uint16Array")}} für `gl.UNSIGNED_SHORT_5_6_5`,
-      `gl.UNSIGNED_SHORT_4_4_4_4`, oder `gl.UNSIGNED_SHORT_5_5_5_1`.
+    - {{jsxref("Uint16Array")}} für `gl.UNSIGNED_SHORT_5_6_5`, `gl.UNSIGNED_SHORT_4_4_4_4` oder `gl.UNSIGNED_SHORT_5_5_5_1`.
     - {{jsxref("Float32Array")}} für `gl.FLOAT`.
 
 - `dstOffset` {{optional_inline}}
@@ -92,14 +91,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Ein `gl.INVALID_ENUM` Fehler wird ausgelöst, wenn `format` oder `type` kein akzeptierter Wert ist.
-- Ein `gl.INVALID_OPERATION` Fehler wird ausgelöst, wenn
+- Ein `gl.INVALID_ENUM`-Fehler wird ausgelöst, wenn `format` oder `type` kein akzeptierter Wert ist.
+- Ein `gl.INVALID_OPERATION`-Fehler wird ausgelöst, wenn
 
-  - `type` `gl.UNSIGNED_SHORT_5_6_5` ist und `format` nicht `gl.RGB` ist.
-  - `type` `gl.UNSIGNED_SHORT_4_4_4_4` ist und `format` nicht `gl.RGBA` ist.
+  - `type` `gl.UNSIGNED_SHORT_5_6_5` ist und `format` nicht `gl.RGB`.
+  - `type` `gl.UNSIGNED_SHORT_4_4_4_4` ist und `format` nicht `gl.RGBA`.
   - `type` nicht mit dem typisierten Array-Typ von `pixels` übereinstimmt.
 
-- Ein `gl.INVALID_FRAMEBUFFER_OPERATION` Fehler wird ausgelöst, wenn der derzeit gebundene Framebuffer nicht vollständig ist.
+- Ein `gl.INVALID_FRAMEBUFFER_OPERATION`-Fehler wird ausgelöst, wenn der aktuell gebundene Framebuffer nicht Framebuffer-komplett ist.
 
 ## Beispiele
 
@@ -131,4 +130,4 @@ console.log(pixels); // Uint8Array
 
 ## Siehe auch
 
-- [Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [Typed Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)

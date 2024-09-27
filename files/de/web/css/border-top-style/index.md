@@ -12,12 +12,12 @@ Die **`border-top-style`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Linienst
 {{EmbedInteractiveExample("pages/css/border-top-style.html")}}
 
 > [!NOTE]
-> Die Spezifikation definiert nicht, wie sich Rahmen mit unterschiedlichen Stilen in den Ecken verbinden.
+> Die Spezifikation definiert nicht, wie Ränder unterschiedlicher Stile in den Ecken verbunden werden.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 border-top-style: none;
 border-top-style: hidden;
 border-top-style: dotted;
@@ -29,7 +29,7 @@ border-top-style: ridge;
 border-top-style: inset;
 border-top-style: outset;
 
-/* Globale Werte */
+/* Global values */
 border-top-style: inherit;
 border-top-style: initial;
 border-top-style: revert;
@@ -37,7 +37,7 @@ border-top-style: revert-layer;
 border-top-style: unset;
 ```
 
-Die Eigenschaft `border-top-style` wird als einzelnes {{cssxref("line-style")}} Schlüsselwortwert angegeben.
+Die Eigenschaft `border-top-style` wird als einzelner {{cssxref("line-style")}}-Schlüsselwortwert angegeben.
 
 ## Formale Definition
 
@@ -77,7 +77,7 @@ Die Eigenschaft `border-top-style` wird als einzelnes {{cssxref("line-style")}} 
 #### CSS
 
 ```css
-/* Aussehen der Tabelle definieren */
+/* Define look of the table */
 table {
   border-width: 2px;
   background-color: #52e385;
@@ -87,7 +87,7 @@ td {
   padding: 3px;
 }
 
-/* Beispielklassen für border-top-style */
+/* border-top-style example classes */
 .b1 {
   border-top-style: none;
 }
@@ -134,5 +134,5 @@ td {
 
 ## Siehe auch
 
-- Die anderen stilbezogenen Rahmeneigenschaften: {{CSSxRef("border-left-style")}}, {{CSSxRef("border-right-style")}}, {{CSSxRef("border-bottom-style")}}, und {{CSSxRef("border-style")}}.
-- Die anderen Eigenschaften, die sich auf den oberen Rand beziehen: {{CSSxRef("border-top")}}, {{CSSxRef("border-top-color")}}, und {{CSSxRef("border-top-width")}}.
+- Die anderen stilbezogenen Randeigenschaften: {{CSSxRef("border-left-style")}}, {{CSSxRef("border-right-style")}}, {{CSSxRef("border-bottom-style")}}, und {{CSSxRef("border-style")}}.
+- Die anderen oberen Randeigenschaften: {{CSSxRef("border-top")}}, {{CSSxRef("border-top-color")}}, und {{CSSxRef("border-top-width")}}.

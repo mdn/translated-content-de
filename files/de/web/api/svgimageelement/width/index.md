@@ -8,11 +8,14 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`width`** schreibgeschützte Eigenschaft des {{domxref("SVGImageElement")}} Interfaces gibt ein {{domxref("SVGAnimatedLength")}} zurück, das dem {{SVGAttr("width")}}-Attribut des gegebenen {{SVGElement("image")}}-Elements entspricht.
+Die **`width`** Eigenschaft des
+[`SVGImageElement`](/de/docs/Web/API/SVGImageElement) Interfaces ist eine schreibgeschützte Eigenschaft und gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)
+zurück, das dem {{SVGAttr("width")}} Attribut des angegebenen {{SVGElement("image")}}
+Elements entspricht.
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedLength")}}.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength).
 
 ## Spezifikationen
 

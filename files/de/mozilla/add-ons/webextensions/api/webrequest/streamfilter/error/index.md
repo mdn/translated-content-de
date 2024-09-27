@@ -1,5 +1,5 @@
 ---
-title: webRequest.StreamFilter.fehler
+title: webRequest.StreamFilter.error
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/StreamFilter/error
 l10n:
   sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein String, der eine Fehlermeldung enthält, nachdem das {{WebExtAPIRef("webRequest.StreamFilter.onerror", "onerror")}}-Ereignis ausgelöst wurde.
+Ein String, der eine Fehlermeldung enthalten wird, nachdem das {{WebExtAPIRef("webRequest.StreamFilter.onerror", "onerror")}}-Ereignis ausgelöst wurde.
 
 ## Browser-Kompatibilität
 

@@ -7,10 +7,10 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft das HTML-Dokument ab, das als Popup für diese Browseraktion festgelegt ist.
+Ruft das HTML-Dokument ab, das als Popup für diese Browser-Aktion festgelegt wurde.
 
 > [!NOTE]
-> Diese API ist ab Manifest V3 oder höher verfügbar.
+> Diese API ist in Manifest V3 oder höher verfügbar.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -40,11 +40,11 @@ let gettingPopup = browser.action.getPopup(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der die URL des Popup-Dokuments enthält. Dies wird eine vollqualifizierte URL sein, wie `moz-extension://d1d8a2eb-fe60-f646-af30-a866c5b39942/popups/popup2.html`.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der die URL für das Popup-Dokument enthält. Dies wird eine vollständig qualifizierte URL sein, wie z.B. `moz-extension://d1d8a2eb-fe60-f646-af30-a866c5b39942/popups/popup2.html`.
 
 ## Beispiele
 
-URL des Popups abrufen:
+Holen Sie die URL des Popups:
 
 ```js
 function gotPopup(popupURL) {
@@ -62,7 +62,7 @@ gettingPopup.then(gotPopup);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-getPopup) API. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-getPopup) API von Chromium. Diese Dokumentation ist abgeleitet von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

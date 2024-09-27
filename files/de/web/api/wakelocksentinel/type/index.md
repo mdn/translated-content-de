@@ -1,6 +1,6 @@
 ---
-title: "WakeLockSentinel: Typ-Eigenschaft"
-short-title: Typ
+title: "WakeLockSentinel: type-Eigenschaft"
+short-title: type
 slug: Web/API/WakeLockSentinel/type
 l10n:
   sourceCommit: 0d9c7bb3574c48373ad96e2efc6701f306a9a3af
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Screen Wake Lock API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`type`** der {{domxref("WakeLockSentinel")}} Schnittstelle gibt eine Zeichenfolgen-Darstellung des aktuell erworbenen {{domxref("WakeLockSentinel")}} Typs zurück.
+Die schreibgeschützte Eigenschaft **`type`** der [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Schnittstelle gibt eine String-Darstellung des aktuell erworbenen [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel)-Typs zurück.
 
 ## Wert
 
-Eine Zeichenfolgen-Darstellung des aktuell erworbenen Wake-Lock-Typs.
-Derzeit ist der Wert immer `screen`, was ein Bildschirm-Wake-Lock darstellt.
-Dies verhindert, dass Geräte den Bildschirm dimmen oder sperren.
+Eine String-Darstellung des aktuell erworbenen `wake lock`-Typs.
+Derzeit ist der Wert immer `screen`, was einen Bildschirm-Wake-Lock darstellt.
+Er verhindert, dass Geräte den Bildschirm dimmen oder sperren.
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine asynchrone Funktion, die eine {{domxref("WakeLockSentinel")}} anfordert und dann den Typ in die Konsole protokolliert.
+Dieses Beispiel zeigt eine asynchrone Funktion, die einen [`WakeLockSentinel`](/de/docs/Web/API/WakeLockSentinel) erwirbt und dann den Typ in der Konsole protokolliert.
 
 ```js
 const requestWakeLock = async () => {
@@ -39,4 +39,4 @@ requestWakeLock();
 
 ## Siehe auch
 
-- [Sorgen Sie mit der Screen Wake Lock API dafür, dass der Bildschirm wach bleibt](https://developer.chrome.com/docs/capabilities/web-apis/wake-lock/)
+- [Wach bleiben mit der Screen Wake Lock API](https://developer.chrome.com/docs/capabilities/web-apis/wake-lock/)

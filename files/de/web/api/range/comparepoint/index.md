@@ -1,5 +1,5 @@
 ---
-title: "Range: comparePoint() Methode"
+title: "Range: comparePoint()-Methode"
 short-title: comparePoint()
 slug: Web/API/Range/comparePoint
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.comparePoint()`** Methode gibt `-1`, `0` oder `1` zurück, je nachdem, ob der `referenceNode` vor, gleich oder nach dem {{domxref("Range")}} liegt.
+Die **`Range.comparePoint()`**-Methode gibt `-1`, `0` oder `1` zurück, je nachdem, ob der `referenceNode` vor, gleich oder nach dem [`Range`](/de/docs/Web/API/Range) liegt.
 
-Wenn der _Referenzknoten_ ein {{domxref("Node")}} vom Typ {{domxref("Text")}}, {{domxref("Comment")}} oder {{domxref("CDATASection")}} ist, dann ist der Offset die Anzahl der Zeichen vom Anfang des _Referenzknotens_. Für andere {{domxref("Node")}}-Typen ist der Offset die Anzahl der Kindknoten vom Beginn des _Referenzknotens_.
+Wenn der _reference node_ ein [`Node`](/de/docs/Web/API/Node) vom Typ [`Text`](/de/docs/Web/API/Text), [`Comment`](/de/docs/Web/API/Comment) oder [`CDATASection`](/de/docs/Web/API/CDATASection) ist, dann ist der Offset die Anzahl der Zeichen vom Start des _reference node_. Für andere [`Node`](/de/docs/Web/API/Node)-Typen ist der Offset die Anzahl der Kindknoten vom Start des _reference node_.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ comparePoint(referenceNode, offset)
 ### Parameter
 
 - `referenceNode`
-  - : Der {{domxref("Node")}}, der mit dem {{domxref("Range")}} verglichen wird.
+  - : Der [`Node`](/de/docs/Web/API/Node), der mit dem [`Range`](/de/docs/Web/API/Range) verglichen wird.
 - `offset`
-  - : Eine ganze Zahl größer oder gleich null, die den Offset innerhalb des _referenceNode_ darstellt.
+  - : Eine ganze Zahl, die größer oder gleich null ist und den Offset innerhalb des _referenceNode_ repräsentiert.
 
 ### Rückgabewert
 
@@ -47,4 +47,4 @@ returnValue = range.comparePoint(document.getElementsByTagName("p").item(0), 1);
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)

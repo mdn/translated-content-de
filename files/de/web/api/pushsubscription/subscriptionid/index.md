@@ -8,20 +8,19 @@ l10n:
 
 {{ApiRef("Push API")}}{{deprecated_header}}{{non-standard_header}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`subscriptionId`** schreibgeschützte Eigenschaft des
-{{domxref("PushSubscription")}}-Interfaces gibt eine Zeichenfolge zurück, die
-die Abonnement-ID enthält, die mit dem Push-Abonnement verknüpft ist.
+Die schreibgeschützte Eigenschaft **`subscriptionId`** des
+[`PushSubscription`](/de/docs/Web/API/PushSubscription)-Interfaces gibt einen String zurück, der die mit der Push-Abonnement verknüpfte Abonnement-ID enthält.
 
 > [!WARNING]
-> Verwenden Sie anstelle dieser Funktion die {{domxref("PushSubscription.endpoint")}}-Eigenschaft auf demselben Interface.
+> Verwenden Sie anstelle dieses Features die Eigenschaft [`PushSubscription.endpoint`](/de/docs/Web/API/PushSubscription/endpoint) im selben Interface.
 
 ## Wert
 
-Eine Zeichenfolge.
+Ein String.
 
 ## Spezifikationen
 
-Diese Funktion wurde aus der [Push API](https://w3c.github.io/push-api/#pushsubscription-interface)-Spezifikation entfernt. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Dieses Feature wurde aus der [Push API](https://w3c.github.io/push-api/#pushsubscription-interface)-Spezifikation entfernt. Es ist nicht mehr darauf ausgelegt, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

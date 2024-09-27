@@ -8,32 +8,32 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`type`**-Eigenschaft gibt den Typ der Navigation zurück.
+Die **`type`**-Eigenschaft mit Schreibschutz gibt den Typ der Navigation zurück.
 
-Sie können diese Eigenschaft verwenden, um Ihre Navigationszeitdaten zu kategorisieren, da jeder dieser Typen unterschiedliche Leistungsmerkmale aufweist. Benutzer, die hin- und herwechseln, könnten eine schnellere Website erleben als Benutzer, die zum ersten Mal navigieren oder Formulare absenden, usw.
+Sie können diese Eigenschaft verwenden, um Ihre Navigationstiming-Daten zu kategorisieren, da jeder dieser Typen unterschiedliche Leistungsmerkmale aufweist. Benutzer, die vor- und zurückgehen, könnten eine schnellere Seite erleben als Benutzer, die die Navigation zum ersten Mal durchführen oder Formulare übermitteln, usw.
 
-Zum Beispiel, wenn Ihre Website häufig neue Inhalte bereitstellt, möchten Sie diese Inhalte möglicherweise mit [Fetch](/de/docs/Web/API/Fetch_API) oder Ähnlichem aktualisieren und vermeiden, dass Benutzer die gesamte Seite ständig neu laden müssen. Der Typ `"reload"` kann Ihnen helfen, Seiten zu finden, die häufig neu geladen werden.
+Zum Beispiel, wenn Ihre Seite häufig neue Inhalte bereitstellt, möchten Sie vielleicht diese Inhalte mit [Fetch](/de/docs/Web/API/Fetch_API) oder ähnlichem aktualisieren und vermeiden, dass Benutzer die gesamte Seite ständig neu laden müssen. Der `"reload"`-Typ kann Ihnen helfen, Seiten zu finden, die häufig neu geladen werden.
 
 ## Wert
 
-Die `type`-Eigenschaft kann die folgenden Werte haben:
+Die `type`-Eigenschaft kann folgende Werte annehmen:
 
 - `"navigate"`
-  - : Navigation, die durch Klicken auf einen Link, Eingeben der URL in die Adressleiste des Browsers, Formulareinsendung oder Initialisierung über eine Skriptoperation, die nicht `reload` und `back_forward` ist, gestartet wurde.
+  - : Navigation gestartet durch Klicken auf einen Link, Eingabe der URL in der Adressleiste des Browsers, Formularübermittlung oder Initialisierung durch ein Skriptoperation, die nicht `reload` und `back_forward` wie unten aufgeführt sind.
 - `"reload"`
-  - : Navigation über die Neuladungsoperation des Browsers, {{domxref("location.reload()")}} oder eine Refresh-Pragma-Direktive wie `<meta http-equiv="refresh" content="300">`.
+  - : Navigation erfolgt durch die Neuladeoperation des Browsers, [`location.reload()`](/de/docs/Web/API/Location/reload) oder eine Refresh-Pragma-Direktive wie `<meta http-equiv="refresh" content="300">`.
 - `"back_forward"`
-  - : Navigation über die Verlaufsdurchlaufoperation des Browsers.
+  - : Navigation erfolgt durch die Verlaufstraversenoperation des Browsers.
 - `"prerender"`
-  - : Navigation wird durch einen [Prerender-Hinweis](/de/docs/Web/HTML/Attributes/rel/prerender) initiiert.
+  - : Navigation wird durch einen [prerender-Hinweis](/de/docs/Web/HTML/Attributes/rel/prerender) initiiert.
 
 ## Beispiele
 
-### Protokollierung von Neuladungsnavigation
+### Protokollierung der Reload-Navigation
 
-Die `type`-Eigenschaft kann verwendet werden, um zu überprüfen, ob die Navigation vom Typ `reload` war. Sie könnten diese `reload`-Einträge in einem serverseitigen Endpunkt sammeln, um festzustellen, welche Seiten Ihrer Website am häufigsten neu geladen werden, oder alle Navigationstypen sammeln und bestimmen, welcher Prozentsatz der Benutzer vor- und zurückgeht, zum Beispiel.
+Die `type`-Eigenschaft kann verwendet werden, um zu überprüfen, ob die Navigation vom Typ `reload` war. Sie könnten diese `reload`-Einträge in einem serverseitigen Endpunkt sammeln, um zu bestimmen, welche Seiten Ihrer Website am häufigsten neu geladen werden, oder alle Navigationstypen sammeln und feststellen, welcher Prozentsatz der Benutzer vor- und zurückgeht, zum Beispiel.
 
-Beispiel mit einem {{domxref("PerformanceObserver")}}, der über neue `navigation`-Leistungseinträge benachrichtigt, sobald diese in der Leistungstimeline des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge vor der Erstellung des Observers zuzugreifen.
+Beispiel unter Verwendung eines [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation`-Performanceeinträge benachrichtigt, wenn sie in der Leistungstimeline des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden waren.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -48,7 +48,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "navigation", buffered: true });
 ```
 
-Beispiel mit {{domxref("Performance.getEntriesByType()")}}, das nur `navigation`-Leistungseinträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungstimeline des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `navigation`-Performanceeinträge anzeigt, die zu dem Zeitpunkt in der Leistungstimeline des Browsers vorhanden sind, an dem Sie diese Methode aufrufen:
 
 ```js
 const entries = performance.getEntriesByType("navigation");

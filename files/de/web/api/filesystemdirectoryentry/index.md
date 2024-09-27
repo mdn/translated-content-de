@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die **`FileSystemDirectoryEntry`**-Schnittstelle der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API) repräsentiert ein Verzeichnis in einem Dateisystem. Sie bietet Methoden, die es ermöglichen, Dateien in einem Verzeichnis zuzugreifen und zu manipulieren, sowie auf die Einträge innerhalb des Verzeichnisses zuzugreifen.
+Die **`FileSystemDirectoryEntry`**-Schnittstelle der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API) repräsentiert ein Verzeichnis in einem Dateisystem. Sie bietet Methoden, die den Zugriff auf und die Manipulation von Dateien in einem Verzeichnis ermöglichen, sowie den Zugriff auf die Einträge innerhalb des Verzeichnisses.
 
 {{InheritanceDiagram}}
 
-## Grundkonzepte
+## Grundlegende Konzepte
 
-Sie können ein neues Verzeichnis erstellen, indem Sie {{domxref("FileSystemDirectoryEntry.getDirectory", "getDirectory()")}} aufrufen. Wenn Sie Unterverzeichnisse erstellen möchten, erstellen Sie jedes Kindverzeichnis nacheinander. Wenn Sie versuchen, ein Verzeichnis mit einem vollständigen Pfad zu erstellen, der übergeordnete Verzeichnisse enthält, die noch nicht existieren, wird ein Fehler zurückgegeben. Erstellen Sie also die Hierarchie, indem Sie rekursiv einen neuen Pfad nach der Erstellung des übergeordneten Verzeichnisses hinzufügen.
+Sie können ein neues Verzeichnis erstellen, indem Sie [`getDirectory()`](/de/docs/Web/API/FileSystemDirectoryEntry/getDirectory) aufrufen. Wenn Sie Unterverzeichnisse erstellen möchten, erstellen Sie jedes untergeordnete Verzeichnis nacheinander. Wenn Sie versuchen, ein Verzeichnis mit einem vollständigen Pfad zu erstellen, das übergeordnete Verzeichnisse enthält, die noch nicht existieren, wird ein Fehler zurückgegeben. Erstellen Sie die Hierarchie also, indem Sie rekursiv einen neuen Pfad hinzufügen, nachdem Sie das übergeordnete Verzeichnis erstellt haben.
 
 ### Beispiel
 
-Im folgenden Code-Schnipsel erstellen wir ein Verzeichnis namens "Documents."
+Im folgenden Code-Snippet erstellen wir ein Verzeichnis namens "Documents".
 
 ```js
-// Berücksichtigung der browserspezifischen Präfixe.
+// Taking care of the browser-specific prefixes.
 window.requestFileSystem =
   window.requestFileSystem || window.webkitRequestFileSystem;
 window.directoryEntry = window.directoryEntry || window.webkitDirectoryEntry;
@@ -41,26 +41,26 @@ function onFs(fs) {
   );
 }
 
-// Öffnen eines Dateisystems mit temporärem Speicher
+// Opening a file system with temporary storage
 window.requestFileSystem(TEMPORARY, 1024 * 1024 /*1MB*/, onFs, onError);
 ```
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle hat keine eigenen Eigenschaften, sondern erbt Eigenschaften von ihrer übergeordneten Schnittstelle, {{domxref("FileSystemEntry")}}._
+_Diese Schnittstelle hat keine eigenen Eigenschaften, sondern erbt Eigenschaften von ihrer übergeordneten Schnittstelle, [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt Methoden von ihrer übergeordneten Schnittstelle, {{domxref("FileSystemEntry")}}._
+_Diese Schnittstelle erbt Methoden von ihrer übergeordneten Schnittstelle, [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)._
 
-- {{domxref("FileSystemDirectoryEntry.createReader", "createReader()")}}
-  - : Erstellt ein {{domxref("FileSystemDirectoryReader")}}-Objekt, das verwendet werden kann, um die Einträge in diesem Verzeichnis zu lesen.
-- {{domxref("FileSystemDirectoryEntry.getDirectory", "getDirectory()")}}
-  - : Gibt ein `FileSystemDirectoryEntry`-Objekt zurück, das ein Verzeichnis repräsentiert, das sich an einem bestimmten Pfad befindet, relativ zu dem Verzeichnis, auf dem die Methode aufgerufen wird.
-- {{domxref("FileSystemDirectoryEntry.getFile", "getFile()")}}
-  - : Gibt ein {{domxref("FileSystemFileEntry")}}-Objekt zurück, das eine Datei repräsentiert, die sich innerhalb der Verzeichnishierarchie befindet, unter Angabe eines Pfads relativ zu dem Verzeichnis, auf dem die Methode aufgerufen wird.
-- {{domxref("FileSystemDirectoryEntry.removeRecursively", "removeRecursively()")}} {{Deprecated_inline}} {{Non-standard_inline}}
-  - : Entfernt das Verzeichnis sowie seinen gesamten Inhalt, indem es hierarchisch über den gesamten Unterbaum der Nachkommendateien und Verzeichnisse iteriert.
+- [`createReader()`](/de/docs/Web/API/FileSystemDirectoryEntry/createReader)
+  - : Erstellt ein [`FileSystemDirectoryReader`](/de/docs/Web/API/FileSystemDirectoryReader)-Objekt, das zum Lesen der Einträge in diesem Verzeichnis verwendet werden kann.
+- [`getDirectory()`](/de/docs/Web/API/FileSystemDirectoryEntry/getDirectory)
+  - : Gibt ein `FileSystemDirectoryEntry`-Objekt zurück, das ein Verzeichnis darstellt, das sich an einem angegebenen Pfad befindet, relativ zu dem Verzeichnis, auf dem die Methode aufgerufen wird.
+- [`getFile()`](/de/docs/Web/API/FileSystemDirectoryEntry/getFile)
+  - : Gibt ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)-Objekt zurück, das eine Datei darstellt, die sich innerhalb der Verzeichnishierarchie befindet, unter Angabe eines Pfads relativ zu dem Verzeichnis, auf dem die Methode aufgerufen wird.
+- [`removeRecursively()`](/de/docs/Web/API/FileSystemDirectoryEntry/removeRecursively) {{Deprecated_inline}} {{Non-standard_inline}}
+  - : Entfernt das Verzeichnis sowie den gesamten Inhalt, indem hierarchisch über den gesamten Nachkommenbaum von Dateien und Verzeichnissen iteriert wird.
 
 ## Spezifikationen
 
@@ -74,6 +74,6 @@ _Diese Schnittstelle erbt Methoden von ihrer übergeordneten Schnittstelle, {{do
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
 - [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
-- {{domxref("FileSystemDirectoryReader")}}
-- {{domxref("FileSystemEntry")}}
-- {{domxref("FileSystemFileEntry")}}
+- [`FileSystemDirectoryReader`](/de/docs/Web/API/FileSystemDirectoryReader)
+- [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)
+- [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry)

@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}
 
-Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie verstehen, wie sich [flexbox und Flex-Elemente](/de/docs/Learn/CSS/CSS_layout/Flexbox) verhalten. Unten sind vier gängige Designmuster aufgeführt, die Sie mit Flexbox erstellen könnten. Ihre Aufgabe ist es, diese Muster nachzubauen.
+Ziel dieses Fähigkeitstests ist es zu beurteilen, ob Sie verstehen, wie [flexbox und Flex-Elemente](/de/docs/Learn/CSS/CSS_layout/Flexbox) funktionieren. Unten finden Sie vier gängige Designmuster, die Sie mit Flexbox erstellen könnten. Ihre Aufgabe ist es, diese nachzubauen.
 
 > [!NOTE]
 > Sie können die Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
@@ -16,11 +16,11 @@ Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie verstehen, wie sich
 
 ## Aufgabe 1
 
-In dieser Aufgabe sind die Listenelemente die Navigation für eine Website. Sie sollten als Reihe mit einem gleichen Abstand zwischen jedem Element angeordnet werden.
+In dieser Aufgabe sind die Listenelemente die Navigation für eine Website. Sie sollten als Reihe angeordnet sein, mit einem gleichmäßigen Abstand zwischen jedem Element.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Flex-Elemente als Reihe mit Abstand dazwischen angeordnet.](flex-task1.png)
+![Flex-Elemente sind als Reihe mit Abstand dazwischen angeordnet.](flex-task1.png)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -32,11 +32,11 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 2
 
-In dieser Aufgabe haben die Listenelemente alle unterschiedliche Größen, aber wir möchten, dass sie als drei gleich große Spalten angezeigt werden, unabhängig davon, welcher Inhalt in jedem Element enthalten ist.
+In dieser Aufgabe haben die Listenelemente unterschiedliche Größen, aber wir möchten, dass sie als drei gleich große Spalten angezeigt werden, unabhängig davon, welcher Inhalt in jedem Element ist.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Flex-Elemente als drei gleich große Spalten mit unterschiedlichen Inhaltsmengen angeordnet.](flex-task2.png)
+![Flex-Elemente sind als drei gleich große Spalten mit unterschiedlichen Inhaltsmengen angeordnet.](flex-task2.png)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -44,7 +44,7 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 Zusätzliche Frage:
 
-- Können Sie nun das erste Element doppelt so groß machen wie die anderen Elemente?
+- Können Sie jetzt das erste Element doppelt so groß machen wie die anderen?
 
 > [!CALLOUT]
 >
@@ -52,11 +52,11 @@ Zusätzliche Frage:
 
 ## Aufgabe 3
 
-In dieser Aufgabe gibt es zwei Elemente im HTML unten, ein `<div>`-Element mit einer Klasse `parent`, das ein weiteres `<div>`-Element mit einer Klasse `child` enthält. Verwenden Sie Flexbox, um das Kind in der Mitte des Elternteils zu positionieren. Beachten Sie, dass es hier nicht nur eine Lösung gibt.
+In dieser Aufgabe gibt es zwei Elemente im HTML unten, ein `<div>`-Element mit der Klasse `parent`, das ein weiteres `<div>`-Element mit der Klasse `child` enthält. Verwenden Sie Flexbox, um das Kind innerhalb des Elternteils zu zentrieren. Beachten Sie, dass es hier nicht nur eine mögliche Lösung gibt.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Ein Kasten in einem anderen Kasten zentriert.](flex-task3.png)
+![Ein Kasten, der in einem anderen Kasten zentriert ist.](flex-task3.png)
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
@@ -68,7 +68,7 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 4
 
-In dieser Aufgabe möchten wir, dass Sie diese Elemente in Reihen anordnen, wie im Bild unten:
+In dieser Aufgabe möchten wir, dass Sie diese Elemente in Reihen anordnen, wie im Bild unten gezeigt:
 
 ![Eine Reihe von Elementen, die als Reihen angezeigt werden.](flex-task4.png)
 

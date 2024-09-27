@@ -1,5 +1,5 @@
 ---
-title: Chiffre
+title: Cipher
 slug: Glossary/Cipher
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,35 +7,35 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der {{glossary("cryptography", "Kryptographie")}} ist ein **Chiffre** ein Algorithmus, der {{glossary("encryption", "Verschlüsselung")}} von {{glossary("plaintext", "Klartext")}} ermöglicht, um ihn unleserlich zu machen, und der die {{glossary("decryption", "Entschlüsselung")}} der kodierten Daten zurück in Klartext erlaubt.
+In der [Kryptographie](/de/docs/Glossary/cryptography) ist ein **Cipher** ein Algorithmus, der [Plaintext](/de/docs/Glossary/plaintext) [verschlüsseln](/de/docs/Glossary/encryption) kann, um ihn unlesbar zu machen, und die kodierten Daten wieder in Plaintext [entschlüsseln](/de/docs/Glossary/decryption) kann.
 
-Chiffren waren lange vor dem Informationszeitalter üblich (z.B. [Substitutionschiffren](https://en.wikipedia.org/wiki/Substitution_cipher), [Transpositionschiffren](https://en.wikipedia.org/wiki/Transposition_cipher) und [Permutationschiffren](https://en.wikipedia.org/wiki/Permutation_cipher)), aber keine von ihnen war kryptographisch sicher, außer dem [One-Time-Pad](https://en.wikipedia.org/wiki/One-time_pad).
+Cipher waren schon lange vor dem Informationszeitalter verbreitet (z. B. [Substitutionsverschlüsselungen](https://en.wikipedia.org/wiki/Substitution_cipher), [Transpositionsverschlüsselungen](https://en.wikipedia.org/wiki/Transposition_cipher) und [Permutationverschlüsselungen](https://en.wikipedia.org/wiki/Permutation_cipher)), aber keine von ihnen war kryptographisch sicher, mit Ausnahme des [One-Time-Pads](https://en.wikipedia.org/wiki/One-time_pad).
 
-Im modernen Zeitalter haben sich Chiffren drastisch weiterentwickelt. [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), [RSA](<https://en.wikipedia.org/wiki/RSA_(cryptosystem)>) und [Blowfish](<https://en.wikipedia.org/wiki/Blowfish_(cipher)>) sind Beispiele für Chiffren, die ein integraler Bestandteil zeitgenössischer Verschlüsselungsstandards und -systeme sind.
+Im modernen Zeitalter haben sich Kryptosysteme dramatisch weiterentwickelt. [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), [RSA](<https://en.wikipedia.org/wiki/RSA_(cryptosystem)>) und [Blowfish](<https://en.wikipedia.org/wiki/Blowfish_(cipher)>) sind Beispiele für Chiffren, die ein integraler Bestandteil zeitgenössischer Verschlüsselungsstandards und Systeme sind.
 
-Moderne Chiffren sind so konzipiert, dass sie Angriffen standhalten, die durch {{glossary("cryptanalysis", "Kryptanalyse")}} entdeckt werden. Es gibt keine Garantie, dass alle Angriffsmethoden entdeckt wurden, daher wird jeder Algorithmus [für unterschiedliche Zwecke empfohlen](/de/docs/Web/API/SubtleCrypto#supported_algorithms), basierend auf bekannten Angriffsklassen.
+Moderne Verschlüsselungsverfahren sind darauf ausgelegt, Angriffen zu widerstehen, die durch [Kryptanalyse](/de/docs/Glossary/cryptanalysis) entdeckt wurden. Es gibt keine Garantie dafür, dass alle Angriffsarten entdeckt wurden, daher wird jeder Algorithmus [für unterschiedliche Zwecke empfohlen](/de/docs/Web/API/SubtleCrypto#supported_algorithms), basierend auf bekannten Klassen von Angriffen.
 
-Chiffren arbeiten entweder als [Blockchiffren](https://en.wikipedia.org/wiki/Block_cipher) auf aufeinanderfolgenden Blöcken (oder Puffer) von Daten oder als [Stromchiffren](https://en.wikipedia.org/wiki/Stream_cipher) auf einem kontinuierlichen Datenfluss (oft von Ton oder Video).
+Cipher arbeiten entweder als [Blockchiffren](https://en.wikipedia.org/wiki/Block_cipher) in aufeinanderfolgenden Datenblöcken (oder Puffer) oder als [Stromchiffren](https://en.wikipedia.org/wiki/Stream_cipher) in einem kontinuierlichen Datenfluss (häufig Ton oder Video).
 
-Chiffren werden auch danach klassifiziert, wie ihre {{glossary("key", "Schlüssel")}} gehandhabt werden:
+Chiffren werden auch danach klassifiziert, wie ihre [Schlüssel](/de/docs/Glossary/key) gehandhabt werden:
 
-- Algorithmen der {{Glossary("Symmetric-key cryptography", "symmetrischen Kryptographie")}} verwenden denselben Schlüssel, um eine Nachricht zu codieren und zu decodieren. Der Schlüssel muss auch sicher übermittelt werden, wenn die Nachricht vertraulich bleiben soll.
-- Algorithmen der {{Glossary("Public-key cryptography", "asymmetrischen Kryptographie")}} verwenden einen Schlüssel für die Verschlüsselung und einen anderen für die Entschlüsselung.
+- [Symmetrische Schlüssel](/de/docs/Glossary/Symmetric-key_cryptography) Algorithmen verwenden denselben Schlüssel zum Kodieren und Dekodieren einer Nachricht. Der Schlüssel muss ebenfalls sicher übermittelt werden, wenn die Nachricht vertraulich bleiben soll.
+- [Asymmetrische Schlüssel](/de/docs/Glossary/Public-key_cryptography) Algorithmen verwenden einen Schlüssel zur Verschlüsselung und den anderen zur Entschlüsselung.
 
 ## Siehe auch
 
 - [Web Crypto API](/de/docs/Web/API/Web_Crypto_API)
 - [SubtleCrypto unterstützte Algorithmen](/de/docs/Web/API/SubtleCrypto#supported_algorithms)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Block cipher mode of operation")}}
-  - {{Glossary("Ciphertext")}}
-  - {{Glossary("Cipher suite")}}
-  - {{Glossary("Cryptanalysis")}}
-  - {{Glossary("Cryptography")}}
-  - {{Glossary("Decryption")}}
-  - {{Glossary("Encryption")}}
-  - {{Glossary("Key")}}
-  - {{Glossary("Plaintext")}}
-  - {{Glossary("Public-key cryptography")}}
-  - {{Glossary("Symmetric-key cryptography")}}
-- [Chiffre](https://en.wikipedia.org/wiki/Cipher) auf Wikipedia
+  - [Block Cipher Betriebsarten](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
+  - [Ciphertext](/de/docs/Glossary/Ciphertext)
+  - [Cipher Suite](/de/docs/Glossary/Cipher_suite)
+  - [Kryptanalyse](/de/docs/Glossary/Cryptanalysis)
+  - [Kryptographie](/de/docs/Glossary/Cryptography)
+  - [Entschlüsselung](/de/docs/Glossary/Decryption)
+  - [Verschlüsselung](/de/docs/Glossary/Encryption)
+  - [Schlüssel](/de/docs/Glossary/Key)
+  - [Plaintext](/de/docs/Glossary/Plaintext)
+  - [Öffentlicher Schlüssel Kryptographie](/de/docs/Glossary/Public-key_cryptography)
+  - [Symmetrische Schlüssel Kryptographie](/de/docs/Glossary/Symmetric-key_cryptography)
+- [Cipher](https://en.wikipedia.org/wiki/Cipher) auf Wikipedia

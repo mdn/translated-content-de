@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: track-Ereignis"
+title: "RTCPeerConnection: track Ereignis"
 short-title: track
 slug: Web/API/RTCPeerConnection/track_event
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`track`**-Ereignis wird an den `ontrack`-Ereignishandler auf {{domxref("RTCPeerConnection")}}s gesendet, nachdem ein neuer Track zu einem {{domxref("RTCRtpReceiver")}} hinzugefügt wurde, der Teil der Verbindung ist.
+Das **`track`** Ereignis wird an den `ontrack` Ereignishandler des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, nachdem ein neuer Track zu einem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), der Teil der Verbindung ist, hinzugefügt wurde.
 
-Zu dem Zeitpunkt, an dem dieses Ereignis ausgeliefert wird, ist der neue Track vollständig zur Peer-Verbindung hinzugefügt. Weitere Details finden Sie unter [Track-Ereignistypen](/de/docs/Web/API/RTCTrackEvent#track_event_types).
+Zu dem Zeitpunkt, an dem dieses Ereignis ausgeliefert wird, wurde der neue Track vollständig zur Peer-Verbindung hinzugefügt. Weitere Details finden Sie unter [Track Ereignistypen](/de/docs/Web/API/RTCTrackEvent#track_event_types).
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
+Dieses Ereignis kann nicht abgebrochen werden und blubbert nicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("track", (event) => {});
@@ -26,26 +26,26 @@ ontrack = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("RTCTrackEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("RTCTrackEvent")}}
 
 ## Ereigniseigenschaften
 
-_Da `RTCTrackEvent` auf dem {{domxref("Event")}} basiert, sind dessen Eigenschaften ebenfalls verfügbar._
+_Da `RTCTrackEvent` auf [`Event`](/de/docs/Web/API/Event) basiert, sind dessen Eigenschaften ebenfalls verfügbar._
 
-- {{domxref("RTCTrackEvent.receiver", "receiver")}} {{ReadOnlyInline}}
-  - : Der {{domxref("RTCRtpReceiver")}}, der vom hinzugefügten Track zur `RTCPeerConnection` verwendet wird.
-- {{domxref("RTCTrackEvent.streams", "streams")}} {{ReadOnlyInline}} {{optional_inline}}
-  - : Ein Array von {{domxref("MediaStream")}}-Objekten, von denen jedes einen der Mediastreams repräsentiert, zu denen der hinzugefügte {{domxref("RTCTrackEvent.track", "track")}} gehört. Standardmäßig ist das Array leer, was auf einen streamlosen Track hinweist.
-- {{domxref("RTCTrackEvent.track", "track")}} {{ReadOnlyInline}}
-  - : Der {{domxref("MediaStreamTrack")}}, der zur Verbindung hinzugefügt wurde.
-- {{domxref("RTCTrackEvent.transceiver", "transceiver")}} {{ReadOnlyInline}}
-  - : Der {{domxref("RTCRtpTransceiver")}}, der von dem neuen Track verwendet wird.
+- [`receiver`](/de/docs/Web/API/RTCTrackEvent/receiver) {{ReadOnlyInline}}
+  - : Der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), der von dem Track verwendet wird, der zum `RTCPeerConnection` hinzugefügt wurde.
+- [`streams`](/de/docs/Web/API/RTCTrackEvent/streams) {{ReadOnlyInline}} {{optional_inline}}
+  - : Ein Array von [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekten, von denen jedes einen der Medienstreams repräsentiert, zu denen der hinzugefügte [`track`](/de/docs/Web/API/RTCTrackEvent/track) gehört. Standardmäßig ist das Array leer, was einen streamlosen Track anzeigt.
+- [`track`](/de/docs/Web/API/RTCTrackEvent/track) {{ReadOnlyInline}}
+  - : Der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der zur Verbindung hinzugefügt wurde.
+- [`transceiver`](/de/docs/Web/API/RTCTrackEvent/transceiver) {{ReadOnlyInline}}
+  - : Der [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver), der von dem neuen Track verwendet wird.
 
 ## Beispiele
 
-Dieses Beispiel zeigt Code, der eine neue {{domxref("RTCPeerConnection")}} erstellt und dann einen neuen `track`-Ereignishandler hinzufügt.
+Dieses Beispiel zeigt Code, der eine neue [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellt und dann einen neuen `track` Ereignishandler hinzufügt.
 
 ```js
 pc = new RTCPeerConnection({
@@ -68,9 +68,9 @@ pc.addEventListener(
 );
 ```
 
-Der Ereignishandler weist den ersten Stream des neuen Tracks einem vorhandenen {{HTMLElement("video")}}-Element zu, das mit der Variable `videoElement` identifiziert wird.
+Der Ereignishandler weist den ersten Stream des neuen Tracks einem bestehenden {{HTMLElement("video")}} Element zu, das mit der Variablen `videoElement` identifiziert wird.
 
-Sie können die Ereignishandlerfunktion auch der `ontrack`-Eigenschaft zuweisen, anstatt {{domxref("EventTarget.addEventListener", "addEventListener()")}} zu verwenden.
+Sie können die Ereignishandlerfunktion auch der `ontrack` Eigenschaft zuweisen, anstatt [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) zu verwenden.
 
 ```js
 pc.ontrack = (e) => {

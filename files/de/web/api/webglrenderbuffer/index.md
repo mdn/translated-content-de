@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Das **WebGLRenderbuffer** Interface ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und repräsentiert einen Puffer, der ein Bild enthalten kann oder als Quelle oder Ziel einer Renderoperation dienen kann.
+Das **WebGLRenderbuffer**-Interface ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und repräsentiert einen Puffer, der ein Bild enthalten kann oder eine Quelle oder ein Ziel einer Rendering-Operation sein kann.
 
 {{InheritanceDiagram}}
 
@@ -15,18 +15,18 @@ Das **WebGLRenderbuffer** Interface ist Teil der [WebGL API](/de/docs/Web/API/We
 
 Das `WebGLRenderbuffer`-Objekt definiert keine eigenen Methoden oder Eigenschaften und sein Inhalt ist nicht direkt zugänglich. Beim Arbeiten mit `WebGLRenderbuffer`-Objekten sind die folgenden Methoden nützlich:
 
-- {{domxref("WebGLRenderingContext.bindRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.createRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.framebufferRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.getRenderbufferParameter()")}}
-- {{domxref("WebGLRenderingContext.isRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.renderbufferStorage()")}}
-- {{domxref("WebGL2RenderingContext.renderbufferStorageMultisample()")}}
+- [`WebGLRenderingContext.bindRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindRenderbuffer)
+- [`WebGLRenderingContext.createRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/createRenderbuffer)
+- [`WebGLRenderingContext.deleteRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteRenderbuffer)
+- [`WebGLRenderingContext.framebufferRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/framebufferRenderbuffer)
+- [`WebGLRenderingContext.getRenderbufferParameter()`](/de/docs/Web/API/WebGLRenderingContext/getRenderbufferParameter)
+- [`WebGLRenderingContext.isRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/isRenderbuffer)
+- [`WebGLRenderingContext.renderbufferStorage()`](/de/docs/Web/API/WebGLRenderingContext/renderbufferStorage)
+- [`WebGL2RenderingContext.renderbufferStorageMultisample()`](/de/docs/Web/API/WebGL2RenderingContext/renderbufferStorageMultisample)
 
 ## Beispiele
 
-### Erstellen eines Renderbuffers
+### Erstellen eines Renderpuffers
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -44,11 +44,11 @@ const buffer = gl.createRenderbuffer();
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.createRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.framebufferRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.getRenderbufferParameter()")}}
-- {{domxref("WebGLRenderingContext.isRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.renderbufferStorage()")}}
-- Andere Puffer: {{domxref("WebGLBuffer")}}, {{domxref("WebGLFramebuffer")}}
+- [`WebGLRenderingContext.bindRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindRenderbuffer)
+- [`WebGLRenderingContext.createRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/createRenderbuffer)
+- [`WebGLRenderingContext.deleteRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteRenderbuffer)
+- [`WebGLRenderingContext.framebufferRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/framebufferRenderbuffer)
+- [`WebGLRenderingContext.getRenderbufferParameter()`](/de/docs/Web/API/WebGLRenderingContext/getRenderbufferParameter)
+- [`WebGLRenderingContext.isRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/isRenderbuffer)
+- [`WebGLRenderingContext.renderbufferStorage()`](/de/docs/Web/API/WebGLRenderingContext/renderbufferStorage)
+- Andere Puffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)

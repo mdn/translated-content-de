@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`fullRange`**-Eigenschaft des {{domxref("VideoColorSpace")}}-Interfaces gibt `true` zurück, wenn Vollbereichsfarbenwerte verwendet werden.
+Die schreibgeschützte **`fullRange`**-Eigenschaft des [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Interfaces gibt `true` zurück, wenn Vollbereichsfarbwerte verwendet werden.
 
 ## Wert
 
-Ein {{jsxref("Boolean")}}, `true`, wenn Vollbereichsfarbenwerte verwendet werden.
+Ein {{jsxref("Boolean")}}, `true`, wenn Vollbereichsfarbwerte verwendet werden.
 
 ## Beispiele
 
-Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von {{domxref("VideoFrame")}} zurückgegeben wird. Der Wert von `fullRange` wird in der Konsole ausgegeben.
+Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von [`VideoFrame`](/de/docs/Web/API/VideoFrame) zurückgegeben wird. Der Wert von `fullRange` wird in die Konsole ausgegeben.
 
 ```js
 let colorSpace = VideoFrame.colorSpace;

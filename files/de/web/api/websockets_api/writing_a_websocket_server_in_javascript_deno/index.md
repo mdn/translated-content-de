@@ -7,13 +7,13 @@ l10n:
 
 {{DefaultAPISidebar("WebSockets API")}}
 
-Dieses Beispiel zeigt Ihnen, wie Sie einen WebSocket-API-Server mit Deno erstellen, zusammen mit einer zugehörigen Webseite.
+Dieses Beispiel zeigt Ihnen, wie Sie einen WebSocket-API-Server unter Verwendung von Deno erstellen, zusammen mit einer dazugehörigen Webseite.
 
-Deno ist eine JavaScript-Laufzeitumgebung, die die Kompilierung und das Cachen von TypeScript im laufenden Betrieb unterstützt. Deno verfügt über einen integrierten Formatierer, Linter, Test-Runner und mehr, und implementiert auch viele Web-APIs. Da es konform mit den Webstandards ist, werden alle Deno-spezifischen APIs unter dem `Deno`-Namespace implementiert.
+Deno ist eine JavaScript-Laufzeitumgebung, die das Kompilieren und Cachen von TypeScript im Fluge unterstützt. Deno verfügt über einen eingebauten Formatierer, Linter, Test-Runner und mehr und implementiert zudem viele Web-APIs. Da es konform mit den Webstandards ist, werden alle Deno-spezifischen APIs unter dem `Deno`-Namespace implementiert.
 
-Die [Deno Website](https://deno.com/) bietet Anleitungen zur Installation von Deno.
+Die [Deno-Website](https://deno.com/) bietet Anweisungen zur Installation von Deno.
 
-Deno-Version zum Zeitpunkt des Schreibens: `1.36`.
+Deno-Version zum Zeitpunkt der Erstellung: `1.36`.
 
 ## Code
 
@@ -21,14 +21,14 @@ Der Code wird in zwei Dateien enthalten sein, eine für den Server und eine für
 
 ### Server
 
-Erstellen Sie eine `main.js` Datei. Diese Datei wird den Code für einen einfachen HTTP-Server enthalten, der auch den Client-HTML bedient.
+Erstellen Sie eine `main.js`-Datei. Diese Datei wird den Code für einen einfachen HTTP-Server enthalten, der auch die HTML des Clients bereitstellt.
 
 ```js
 Deno.serve({
   port: 80,
   handler: async (request) => {
-    // Wenn die Anfrage ein WebSocket-Upgrade ist,
-    // müssen wir den Deno.upgradeWebSocket-Helfer verwenden
+    // If the request is a websocket upgrade,
+    // we need to use the Deno.upgradeWebSocket helper
     if (request.headers.get("upgrade") === "websocket") {
       const { socket, response } = Deno.upgradeWebSocket(request);
 
@@ -44,8 +44,8 @@ Deno.serve({
 
       return response;
     } else {
-      // Wenn die Anfrage eine normale HTTP-Anfrage ist,
-      // servieren wir die Client-HTML-Datei.
+      // If the request is a normal HTTP request,
+      // we serve the client HTML file.
       const file = await Deno.open("./index.html", { read: true });
       return new Response(file.readable);
     }
@@ -53,9 +53,9 @@ Deno.serve({
 });
 ```
 
-`Deno.upgradeWebSocket()` aktualisiert die Verbindung zu einer WebSocket-Verbindung, was im [Protokoll-Upgrade-Mechanismus](/de/docs/Web/HTTP/Protocol_upgrade_mechanism) weiter erläutert wird.
+`Deno.upgradeWebSocket()` verbessert die Verbindung zu einer WebSocket-Verbindung, was im [Protokoll-Upgrade-Mechanismus](/de/docs/Web/HTTP/Protocol_upgrade_mechanism) weiter erklärt wird.
 
-[`Deno.serve()`](https://docs.deno.com/api/deno/~/Deno.serve) verwendet `Deno.listen()` und `Deno.serveHttp()` im Hintergrund und ist eine höherstufige Schnittstelle, um einfach einen HTTP-Server einzurichten. Ohne diese würde der Code in etwa so aussehen.
+[`Deno.serve()`](https://docs.deno.com/api/deno/~/Deno.serve) verwendet `Deno.listen()` und `Deno.serveHttp()` im Hintergrund und ist eine höherstufige Schnittstelle, um einfach einen HTTP-Server einzurichten. Ohne sie würde der Code in etwa so aussehen.
 
 ```js
 for await (const conn of Deno.listen({ port: 80 })) {
@@ -67,12 +67,12 @@ for await (const conn of Deno.listen({ port: 80 })) {
 
 ### Client
 
-Erstellen Sie eine `index.html` Datei. Diese Datei wird ein Skript enthalten, das den Server alle fünf Sekunden pingt, nachdem eine Verbindung hergestellt wurde.
+Erstellen Sie eine `index.html`-Datei. Diese Datei wird ein Skript enthalten, das den Server alle fünf Sekunden pingt, nachdem eine Verbindung hergestellt wurde.
 
 ```html
 <!doctype html>
 <h2>WebSocket Test</h2>
-<p>Sendet alle fünf Sekunden einen Ping</p>
+<p>Sends a ping every five seconds</p>
 <div id="output"></div>
 <script>
   const wsUri = "ws://127.0.0.1/";
@@ -120,11 +120,11 @@ Mit den beiden Dateien führen Sie die App mit Deno aus.
 deno run --allow-net=0.0.0.0:80 --allow-read=./index.html main.js
 ```
 
-Deno verlangt von uns, dass wir explizit Berechtigungen für den Zugriff auf den Host-Computer geben.
+Deno verlangt, dass wir explizite Berechtigungen für den Zugriff auf die Host-Maschine erteilen.
 
-- `--allow-net=0.0.0.0:80` erlaubt der App, sich mit localhost über Port 80 zu verbinden
+- `--allow-net=0.0.0.0:80` erlaubt der App, sich über den Port 80 mit localhost zu verbinden
 - `--allow-read=./index.html` erlaubt den Zugriff auf die HTML-Datei für den Client
 
 ## Siehe auch
 
-- [WebSocket-Server schreiben](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers)
+- [Schreiben von WebSocket-Servern](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers)

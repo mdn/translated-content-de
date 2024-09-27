@@ -3,12 +3,12 @@ title: "Performance: clearMarks() Methode"
 short-title: clearMarks()
 slug: Web/API/Performance/clearMarks
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("Performance API")}}
 
-Die **`clearMarks()`** Methode entfernt alle oder spezifische {{domxref("PerformanceMark")}} Objekte aus der Performance-Timeline des Browsers.
+Die Methode **`clearMarks()`** entfernt alle oder spezifische [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekte aus der Leistungszeitleiste des Browsers.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ clearMarks(name)
 ### Parameter
 
 - `name` {{optional_inline}}
-  - : Ein String, der den {{domxref("PerformanceEntry.name", "Namen")}} des {{domxref("PerformanceMark")}} Objekts darstellt. Wenn dieses Argument weggelassen wird, werden alle Einträge mit einem {{domxref("PerformanceEntry.entryType","Eintragstyp")}} von "`mark`" entfernt.
+  - : Ein String, der den [`name`](/de/docs/Web/API/PerformanceEntry/name) des [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekts darstellt. Wenn dieses Argument weggelassen wird, werden alle Einträge mit einem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"mark"` entfernt.
 
 ### Rückgabewert
 
@@ -30,10 +30,10 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Entfernen von Markierungen
 
-Um alle Performance-Markierungen oder nur bestimmte Einträge zu bereinigen, verwenden Sie die `clearMarks()` Methode wie folgt:
+Um alle Leistungsmarken oder nur bestimmte Einträge zu bereinigen, verwenden Sie die `clearMarks()`-Methode wie folgt:
 
 ```js
-// Erstellen Sie mehrere Markierungen
+// Create a bunch of marks
 performance.mark("login-started");
 performance.mark("login-started");
 performance.mark("login-finished");
@@ -43,11 +43,11 @@ performance.mark("video-loaded");
 
 performance.getEntriesByType("mark").length; // 6
 
-// Löschen Sie nur die "login-started" Markierungseinträge
+// Delete just the "login-started" mark entries
 performance.clearMarks("login-started");
 performance.getEntriesByType("mark").length; // 4
 
-// Löschen Sie alle Markierungseinträge
+// Delete all of the mark entries
 performance.clearMarks();
 performance.getEntriesByType("mark").length; // 0
 ```
@@ -62,4 +62,4 @@ performance.getEntriesByType("mark").length; // 0
 
 ## Siehe auch
 
-- {{domxref("PerformanceMark")}}
+- [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)

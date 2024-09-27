@@ -1,5 +1,5 @@
 ---
-title: "HTMLObjectElement: setCustomValidity() Methode"
+title: "HTMLObjectElement: setCustomValidity()-Methode"
 short-title: setCustomValidity()
 slug: Web/API/HTMLObjectElement/setCustomValidity
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`setCustomValidity()`** Methode des
-{{domxref("HTMLObjectElement")}} Interfaces setzt eine benutzerdefinierte Fehlermeldung für das
+Die **`setCustomValidity()`**-Methode der
+[`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Schnittstelle setzt eine benutzerdefinierte Fehlermeldung für das
 Element.
 
 ## Syntax
@@ -21,7 +21,7 @@ setCustomValidity(errorMessage)
 ### Parameter
 
 - `errorMessage`
-  - : Die Nachricht, die für Gültigkeitsfehler verwendet werden soll.
+  - : Die Nachricht, die bei Gültigkeitsfehlern verwendet wird.
 
 ### Rückgabewert
 
@@ -33,7 +33,9 @@ Keine.
 
 ## Beispiele
 
-In diesem Beispiel übergeben wir die ID eines Eingabeelements und setzen unterschiedliche Fehlermeldungen, je nachdem, ob der Wert fehlt, zu niedrig oder zu hoch ist. Beachten Sie, dass die Nachricht nicht sofort angezeigt wird. Beim Versuch, das Formular abzusenden, wird die Nachricht angezeigt, oder Sie können die Methode [`reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity) auf dem Element aufrufen.
+In diesem Beispiel übergeben wir die ID eines Eingabeelements und setzen unterschiedliche Fehlermeldungen je nachdem, ob der Wert fehlt, zu niedrig oder zu hoch ist. Beachten Sie, dass die Nachricht nicht sofort angezeigt wird. Der Versuch, das Formular abzusenden, wird die Nachricht anzeigen, oder Sie können die
+[`reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity)-Methode
+auf dem Element aufrufen.
 
 ```js
 function validate(inputID) {
@@ -66,14 +68,14 @@ Es ist wichtig, die Nachricht auf einen leeren String zu setzen, wenn keine Fehl
 
 ## Siehe auch
 
-- {{domxref('validityState')}}
-- {{domxref('validityState.valueMissing')}}
-- {{domxref('validityState.typeMismatch')}}
-- {{domxref('validityState.patternMismatch')}}
-- {{domxref('validityState.tooLong')}}
-- {{domxref('validityState.tooShort')}}
-- {{domxref('validityState.rangeUnderflow')}}
-- {{domxref('validityState.rangeOverflow')}}
-- {{domxref('validityState.stepMismatch')}}
-- {{domxref('validityState.valid')}}
-- {{domxref('validityState.customError')}}
+- [`validityState`](/de/docs/Web/API/ValidityState)
+- [`validityState.valueMissing`](/de/docs/Web/API/ValidityState/valueMissing)
+- [`validityState.typeMismatch`](/de/docs/Web/API/ValidityState/typeMismatch)
+- [`validityState.patternMismatch`](/de/docs/Web/API/ValidityState/patternMismatch)
+- [`validityState.tooLong`](/de/docs/Web/API/ValidityState/tooLong)
+- [`validityState.tooShort`](/de/docs/Web/API/ValidityState/tooShort)
+- [`validityState.rangeUnderflow`](/de/docs/Web/API/ValidityState/rangeUnderflow)
+- [`validityState.rangeOverflow`](/de/docs/Web/API/ValidityState/rangeOverflow)
+- [`validityState.stepMismatch`](/de/docs/Web/API/ValidityState/stepMismatch)
+- [`validityState.valid`](/de/docs/Web/API/ValidityState/valid)
+- [`validityState.customError`](/de/docs/Web/API/ValidityState/customError)

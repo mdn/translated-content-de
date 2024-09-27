@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`clientId`**-Eigenschaft der
-{{domxref("FetchEvent")}}-Schnittstelle gibt die ID des {{domxref("Client")}} zurück, den der
-aktuelle Service-Worker steuert.
+Die **`clientId`** schreibgeschützte Eigenschaft der
+[`FetchEvent`](/de/docs/Web/API/FetchEvent)-Schnittstelle gibt die ID des [`Client`](/de/docs/Web/API/Client) zurück, den der
+aktuelle Service Worker steuert.
 
-Die Methode {{domxref("Clients.get()")}} könnte dann diese ID übergeben werden, um den
+Die [`Clients.get()`](/de/docs/Web/API/Clients/get)-Methode kann dann mit dieser ID aufgerufen werden, um den
 zugehörigen Client abzurufen.
 
 ## Wert
@@ -39,4 +39,4 @@ self.addEventListener("fetch", (event) => {
 
 - [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
 - [Grundlegendes Codebeispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

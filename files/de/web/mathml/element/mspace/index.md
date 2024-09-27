@@ -7,7 +7,7 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mspace>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um einen leeren Raum darzustellen, dessen Größe durch seine Attribute festgelegt wird.
+Das **`<mspace>`**-Element [MathML](/de/docs/Web/MathML) wird verwendet, um einen Leerraum anzuzeigen, dessen Größe durch seine Attribute festgelegt wird.
 
 ## Attribute
 

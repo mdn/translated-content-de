@@ -10,19 +10,19 @@ l10n:
 <table class="fullwidth-table standard-table">
   <tbody>
     <tr>
-      <th scope="row">Type</th>
+      <th scope="row">Typ</th>
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Mandatory</th>
+      <th scope="row">Verpflichtend</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Manifest version</th>
+      <th scope="row">Manifest-Version</th>
       <td>2 oder höher</td>
     </tr>
     <tr>
-      <th scope="row">Example</th>
+      <th scope="row">Beispiel</th>
       <td>
         <pre class="brush: json">
 "theme_experiment": {
@@ -44,22 +44,22 @@ l10n:
   </tbody>
 </table>
 
-Dieser Schlüssel ermöglicht die Definition von experimentellen Eigenschaften des [`theme`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme) Schlüssels für die Firefox-Oberfläche. Diese Experimente sind ein Vorläufer zur Vorschlag neuer Theme-Funktionen für die Aufnahme in Firefox. Die Experimentierung erfolgt durch:
+Dieser Schlüssel ermöglicht die Definition von experimentellen Eigenschaften des [`theme`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme)-Schlüssels für die Firefox-Oberfläche. Diese Experimente sind ein Vorläufer, um neue Theme-Funktionen für die Aufnahme in Firefox vorzuschlagen. Experimentiert wird durch:
 
-- das Erstellen eines Stylesheets, das Zuordnungen zwischen internen CSS-Selektoren für Firefox-UI-Elemente und beliebigen CSS-Variablen definiert. Die CSS-Variablen werden dann in den Objekten `colors`, `images` und `properties` neuen `theme`-Schlüsseleigenschaften zugeordnet.
-- (ohne ein Stylesheet) die Verwendung von `colors`, `images` und `properties`, um interne Firefox-CSS-Selektoren, wie `--arrowpanel-dimmed`, neuen `theme`-Schlüsseleigenschaften zuzuordnen. Diese Option beschränkt die Experimentierung auf UI-Komponenten, die mit einer integrierten CSS-Variablen verknüpft sind.
+- das Erstellen eines Stylesheets, das Zuordnungen zwischen internen CSS-Selektoren für Firefox-UI-Elemente und beliebigen CSS-Variablen definiert. Die CSS-Variablen werden dann in den Objekten `colors`, `images` und `properties` neuen Eigenschaften des `theme`-Schlüssels zugeordnet.
+- (ohne ein Stylesheet) die Verwendung von `colors`, `images` und `properties`, um interne Firefox-CSS-Selektoren, wie `--arrowpanel-dimmed`, neuen Eigenschaften des `theme`-Schlüssels zuzuordnen. Diese Option beschränkt das Experimentieren auf UI-Komponenten, die mit einer eingebauten CSS-Variable verknüpft sind.
 
-Um die CSS-Selektoren für Firefox-UI-Elemente oder interne Firefox-CSS-Variablen zu entdecken, verwenden Sie die [Browser-Toolbox](https://firefox-source-docs.mozilla.org/devtools-user/browser_toolbox/index.html).
+Um die CSS-Selektoren für Firefox-UI-Elemente oder interne Firefox-CSS-Variablen zu entdecken, verwenden Sie das [Browser-Entwicklertools](https://firefox-source-docs.mozilla.org/devtools-user/browser_toolbox/index.html).
 
 > [!NOTE]
-> Dieser Schlüssel ist nur zur Verwendung in Firefox Developer Edition und Firefox Nightly Channels verfügbar und erfordert, dass die Einstellung `extensions.experiments.enabled` aktiviert ist. In Firefox 73 und früher musste stattdessen `extensions.legacy.enabled` verwendet werden.
+> Dieser Schlüssel steht nur in den Firefox Developer Edition und Firefox Nightly-Kanälen zur Verfügung und erfordert, dass die Einstellung `extensions.experiments.enabled` aktiviert ist. In Firefox 73 und früher musste stattdessen `extensions.legacy.enabled` verwendet werden.
 
 > [!WARNING]
-> Diese Funktion ist experimentell und könnte Änderungen unterliegen.
+> Diese Funktion ist experimentell und könnte sich ändern.
 
 ## Syntax
 
-Der Schlüssel `theme_experiment` ist ein Objekt, das die folgenden Eigenschaften akzeptiert:
+Der Schlüssel theme_experiment ist ein Objekt, das die folgenden Eigenschaften hat:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -76,7 +76,7 @@ Der Schlüssel `theme_experiment` ist ein Objekt, das die folgenden Eigenschafte
       <td>
         <p>Optional</p>
         <p>
-          Name eines Stylesheets, das die Zuordnung von CSS-Selektoren für Firefox-UI-Elemente zu CSS-Variablen bereitstellt.
+          Name eines Stylesheets, das eine Zuordnung von CSS-Selektoren für Firefox-UI-Elemente zu CSS-Variablen bereitstellt.
         </p>
       </td>
     </tr>
@@ -86,7 +86,7 @@ Der Schlüssel `theme_experiment` ist ein Objekt, das die folgenden Eigenschafte
       <td>
         <p>Optional</p>
         <p>
-          Zuordnungen von CSS-Variablen (wie in Firefox oder durch das im <code>stylesheet</code> definierte Stylesheet festgelegt) zu <code>images</code>-Eigenschaftsnamen zur Verwendung im
+          Zuordnungen von CSS-Variablen (wie in Firefox oder im über <code>stylesheet</code> definierten Stylesheet definiert) zu <code>images</code>-Eigenschaftsnamen zur Verwendung im
           <code
             ><a
               href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme"
@@ -103,7 +103,7 @@ Der Schlüssel `theme_experiment` ist ein Objekt, das die folgenden Eigenschafte
       <td>
         <p>Optional</p>
         <p>
-          Zuordnungen von CSS-Variablen (wie in Firefox oder durch das im <code>stylesheet</code> definierte Stylesheet festgelegt) zu <code>colors</code>-Eigenschaftsnamen zur Verwendung im
+          Zuordnungen von CSS-Variablen (wie in Firefox oder im über <code>stylesheet</code> definierten Stylesheet definiert) zu <code>colors</code>-Eigenschaftsnamen zur Verwendung im
           <code
             ><a
               href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme"
@@ -120,7 +120,7 @@ Der Schlüssel `theme_experiment` ist ein Objekt, das die folgenden Eigenschafte
       <td>
         <p>Optional</p>
         <p>
-          Zuordnungen von CSS-Variablen (wie in Firefox oder durch das im <code>stylesheet</code> definierte Stylesheet festgelegt) zu
+          Zuordnungen von CSS-Variablen (wie in Firefox oder im über <code>stylesheet</code> definierten Stylesheet definiert) zu
           <code>properties</code>-Eigenschaftsnamen zur Verwendung im
           <code
             ><a
@@ -137,7 +137,7 @@ Der Schlüssel `theme_experiment` ist ein Objekt, das die folgenden Eigenschafte
 
 ## Beispiele
 
-Dieses Beispiel verwendet ein Stylesheet mit dem Namen `style.css`, um die Möglichkeit zu bieten, eine Farbe für die Browser-Neuladetaste im [`theme`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme) Schlüssel festzulegen.
+Dieses Beispiel verwendet ein Stylesheet namens `style.css`, um die Möglichkeit zu bieten, eine Farbe für die Browser-Neuladetaste im [`theme`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme)-Schlüssel festzulegen.
 
 Das Stylesheet definiert:
 
@@ -149,7 +149,7 @@ Das Stylesheet definiert:
 
 wobei `#reload-button` der interne CSS-Selektor von Firefox für die Neuladetaste ist und `--reload-button-color` ein beliebiger Name ist.
 
-In der `manifest.json`-Datei wird `--reload-button-color` dann dem Namen zugeordnet, der in der `colors`-Eigenschaft von `theme` verwendet wird:
+In der `manifest.json`-Datei wird `--reload-button-color` dann dem Namen zugeordnet, der in der `colors`-Eigenschaft von `theme` verwendet werden soll:
 
 ```json
 "theme_experiment": {
@@ -160,7 +160,7 @@ In der `manifest.json`-Datei wird `--reload-button-color` dann dem Namen zugeord
 }
 ```
 
-Das Argument `reload_button` wird auf die gleiche Weise wie jede andere `theme`-Eigenschaft verwendet:
+Das Argument `reload_button` wird ebenso wie jede andere `theme`-Eigenschaft verwendet:
 
 ```json
 "theme": {
@@ -170,11 +170,11 @@ Das Argument `reload_button` wird auf die gleiche Weise wie jede andere `theme`-
 }
 ```
 
-Dies führt dazu, dass das Neulade-Symbol orange wird.
+Dies bewirkt, dass das Neuladesymbol orange wird.
 
-![Ergebnis eines Theme-Experiments, das den Neulade-Button orange färbt.](theme_experiment.png)
+![Ergebnis eines Theme-Experiments, bei dem die Neuladetaste orange gefärbt wurde.](theme_experiment.png)
 
-Diese Eigenschaft kann auch in `browser.theme.update()` verwendet werden. `images` und `properties` funktionieren ähnlich wie `colors`.
+Diese Eigenschaft kann auch in `browser.theme.update()` verwendet werden. `images` und `properties` funktionieren auf ähnliche Weise wie `colors`.
 
 ## Browser-Kompatibilität
 

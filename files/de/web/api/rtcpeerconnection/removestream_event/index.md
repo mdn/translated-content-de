@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: removestream-Ereignis"
+title: "RTCPeerConnection: removestream Ereignis"
 short-title: removestream
 slug: Web/API/RTCPeerConnection/removestream_event
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebRTC")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Das veraltete **`removestream`**-Ereignis wurde an eine {{domxref("RTCPeerConnection")}} gesendet, um sie darüber zu informieren, dass ein {{domxref("MediaStream")}} aus der Verbindung entfernt wurde. Sie können die `onremovestream`-Eigenschaft der Schnittstelle `RTCPeerConnection` verwenden, um einen Handler für dieses Ereignis festzulegen.
+Das veraltete **`removestream`** Ereignis wurde an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, um darüber zu informieren, dass ein [`MediaStream`](/de/docs/Web/API/MediaStream) aus der Verbindung entfernt wurde. Sie können die `onremovestream` Eigenschaft der `RTCPeerConnection`-Schnittstelle verwenden, um einen Handler für dieses Ereignis festzulegen.
 
-Dies ist das Gegenstück zum {{domxref("RTCPeerConnection.addstream_event", "addstream")}}-Ereignis, das ebenfalls veraltet ist.
+Dies ist das Gegenstück zum [`addstream`](/de/docs/Web/API/RTCPeerConnection/addstream_event) Ereignis, das ebenfalls veraltet ist.
 
 > [!WARNING]
-> Dieses Ereignis wurde aus der WebRTC-Spezifikation entfernt zugunsten des vorhandenen {{DOMxRef("MediaStream/removetrack_event", "removetrack")}}-Ereignisses im entfernten {{domxref("MediaStream")}} und der entsprechenden Ereignishandler-Eigenschaft des entfernten {{domxref("MediaStream")}}. Die {{domxref("RTCPeerConnection")}}-API ist jetzt track-basiert, sodass das Vorhandensein von null Tracks im entfernten Stream gleichbedeutend damit ist, dass der entfernte Stream entfernt wurde, was ein `removestream`-Ereignis auslöste.
+> Dieses Ereignis wurde aus der WebRTC-Spezifikation zugunsten des bestehenden [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event) Ereignisses auf dem entfernten [`MediaStream`](/de/docs/Web/API/MediaStream) und der entsprechenden Ereignishandler-Eigenschaft des entfernten [`MediaStream`](/de/docs/Web/API/MediaStream) entfernt. Die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) API ist jetzt track-basiert, sodass das Vorhandensein von null Spuren im entfernten Stream dem Entfernen des entfernten Streams entspricht, was ein `removestream` Ereignis verursachte.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht gebubbelt.
+Dieses Ereignis ist nicht abbrechbar und wird nicht gebubbled.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("removestream", (event) => {});
@@ -29,16 +29,16 @@ onremovestream = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("MediaStreamEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MediaStreamEvent")}}
 
 ## Ereigniseigenschaften
 
-_Ein {{domxref("MediaStreamEvent")}} als ein {{domxref("Event")}} implementiert auch diese Eigenschaften_.
+_Ein [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent), der ein [`Event`](/de/docs/Web/API/Event) ist, implementiert auch diese Eigenschaften_.
 
-- {{domxref("MediaStreamEvent.stream")}} {{ReadOnlyInline}}
-  - : Enthält den {{domxref("MediaStream")}}, welcher den mit dem Ereignis verbundenen Stream enthält.
+- [`MediaStreamEvent.stream`](/de/docs/Web/API/MediaStreamEvent/stream) {{ReadOnlyInline}}
+  - : Enthält den [`MediaStream`](/de/docs/Web/API/MediaStream), der den mit dem Ereignis assoziierten Stream enthält.
 
 ## Browser-Kompatibilität
 
@@ -47,5 +47,5 @@ _Ein {{domxref("MediaStreamEvent")}} als ein {{domxref("Event")}} implementiert 
 ## Siehe auch
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCPeerConnection.removeStream()")}}
-- {{domxref("MediaStream.removetrack_event", "removetrack")}}
+- [`RTCPeerConnection.removeStream()`](/de/docs/Web/API/RTCPeerConnection/removeStream)
+- [`removetrack`](/de/docs/Web/API/MediaStream/removetrack_event)

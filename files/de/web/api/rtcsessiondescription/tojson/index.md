@@ -1,5 +1,5 @@
 ---
-title: "RTCSessionDescription: toJSON()-Methode"
+title: "RTCSessionDescription: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/RTCSessionDescription/toJSON
 l10n:
@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCSessionDescription.toJSON()`**-Methode erzeugt eine {{Glossary("JSON")}}-Beschreibung des Objekts. Beide Eigenschaften, {{domxref("RTCSessionDescription.type", "type")}} und {{domxref("RTCSessionDescription.sdp", "sdp")}}, sind im generierten JSON enthalten.
+Die **`RTCSessionDescription.toJSON()`**-Methode erzeugt eine
+[JSON](/de/docs/Glossary/JSON)-Beschreibung des Objekts. Sowohl die Eigenschaften
+[`type`](/de/docs/Web/API/RTCSessionDescription/type) als auch
+[`sdp`](/de/docs/Web/API/RTCSessionDescription/sdp) sind in dem erzeugten JSON enthalten.
 
 ## Syntax
 
@@ -25,16 +28,16 @@ Keine.
 Ein {{jsxref("JSON")}}-Objekt, das die folgenden Eigenschaften enthält:
 
 - `type`
-  - : Eine der folgenden Optionen: `"offer"`, `"answer"`, `"pranswer"` oder `null`.
+  - : Eine der folgenden: `"offer"`, `"answer"`, `"pranswer"` oder `null`.
 - `sdp`
-  - : Entweder `null` oder der {{Glossary("SDP")}}-Nachrichtenstring, der der Eigenschaft {{domxref("RTCSessionDescription.sdp")}} entspricht.
+  - : Entweder `null` oder der [SDP](/de/docs/Glossary/SDP)-Nachrichtenstring, der der Eigenschaft [`RTCSessionDescription.sdp`](/de/docs/Web/API/RTCSessionDescription/sdp) entspricht.
 
 ## Beispiel
 
 ```js
-// sd ist ein RTCSessionDescriptor
+// sd is a RTCSessionDescriptor
 
-alert(JSON.stringify(sd)); // Dies ruft die toJSON()-Methode im Hintergrund auf.
+alert(JSON.stringify(sd)); // This call the toJSON() method behind the scene.
 ```
 
 ## Spezifikationen

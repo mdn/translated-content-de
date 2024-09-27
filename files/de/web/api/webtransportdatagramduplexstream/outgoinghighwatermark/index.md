@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`outgoingHighWaterMark`**-Eigenschaft der {{domxref("WebTransportDatagramDuplexStream")}}-Schnittstelle erhält oder setzt die High-Water-Marke für ausgehende Datenblöcke. Dies ist die maximale Größe in Blöcken, die die interne Warteschlange des ausgehenden {{domxref("WritableStream")}} erreichen kann, bevor sie als voll gilt. Siehe [Interne Warteschlangen und Warteschlangenstrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies) für weitere Informationen.
+Die **`outgoingHighWaterMark`**-Eigenschaft des [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Interfaces gibt die maximale Anzahl an Datenblöcken an, die die interne Warteschlange des ausgehenden [`WritableStream`](/de/docs/Web/API/WritableStream) erreichen kann, bevor sie als voll betrachtet wird. Weitere Informationen finden Sie unter [Interne Warteschlangen und Warteschlangenstrategien](/de/docs/Web/API/Streams_API/Concepts#internal_queues_and_queuing_strategies).
 
 ## Wert
 
@@ -20,18 +20,18 @@ Eine Zahl.
 const url = "https://example.com:4999/wt";
 
 async function initTransport(url) {
-  // Transportverbindung initialisieren
+  // Initialize transport connection
   const transport = new WebTransport(url);
 
-  // Die Verbindung kann genutzt werden, sobald ready erfüllt ist
+  // The connection can be used once ready fulfills
   await transport.ready;
 
   const datagrams = transport.datagrams;
 
-  // outgoingHighWaterMark setzen
+  // set outgoingHighWaterMark
   datagrams.outgoingHighWaterMark = 20000;
 
-  // outgoingHighWaterMark abrufen
+  // get outgoingHighWaterMark
   console.log(datagrams.outgoingHighWaterMark);
 }
 ```
@@ -47,6 +47,6 @@ async function initTransport(url) {
 ## Siehe auch
 
 - [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

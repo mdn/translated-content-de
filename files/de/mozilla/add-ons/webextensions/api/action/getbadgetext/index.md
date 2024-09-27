@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ruft den Text des Browserelement-Badges ab.
+Ruft den Badge-Text der Browser-Aktion ab.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
@@ -29,9 +29,9 @@ let gettingText = browser.action.getBadgeText(
   - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `tabId` {{optional_inline}}
-      - : `integer`. Gibt den Tab an, aus dem der Badge-Text abgerufen werden soll.
+      - : `integer`. Gibt den Tab an, von dem der Badge-Text abgerufen werden soll.
     - `windowId` {{optional_inline}}
-      - : `integer`. Gibt das Fenster an, aus dem der Badge-Text abgerufen werden soll.
+      - : `integer`. Gibt das Fenster an, von dem der Badge-Text abgerufen werden soll.
 
 <!---->
 
@@ -40,11 +40,11 @@ let gettingText = browser.action.getBadgeText(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem String erfüllt wird, der den Badge-Text enthält.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der mit einem String erfüllt wird, der den Badge-Text enthält.
 
 ## Beispiele
 
-Protokollieren Sie den Badge-Text:
+Den Badge-Text protokollieren:
 
 ```js
 function gotBadgeText(text) {
@@ -62,7 +62,7 @@ gettingBadgeText.then(gotBadgeText);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-getBadgeText) API. Diese Dokumentation stammt aus [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.action`](https://developer.chrome.com/docs/extensions/reference/api/action#method-getBadgeText) API von Chromium. Diese Dokumentation leitet sich von [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

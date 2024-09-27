@@ -1,5 +1,5 @@
 ---
-title: "URL: statische Methode createObjectURL()"
+title: "URL: createObjectURL() statische Methode"
 short-title: createObjectURL()
 slug: Web/API/URL/createObjectURL_static
 l10n:
@@ -8,18 +8,14 @@ l10n:
 
 {{APIRef("File API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **`createObjectURL()`** statische Methode des {{domxref("URL")}}-Interfaces
-erzeugt eine Zeichenkette, die eine URL enthält, die das im Parameter angegebene Objekt darstellt.
+Die **`createObjectURL()`** statische Methode der [`URL`](/de/docs/Web/API/URL) Schnittstelle erstellt einen String, der eine URL enthält, die das im Parameter angegebene Objekt darstellt.
 
-Die Lebensdauer der URL ist an das {{domxref("document")}}
-im Fenster gebunden, in dem sie erstellt wurde. Die neue Objekt-URL repräsentiert das angegebene
-{{domxref("File")}}-Objekt oder {{domxref("Blob")}}-Objekt.
+Die Lebensdauer der URL ist an das [`document`](/de/docs/Web/API/Document) im Fenster gebunden, in dem sie erstellt wurde. Die neue Objekt-URL repräsentiert das angegebene [`File`](/de/docs/Web/API/File)-Objekt oder [`Blob`](/de/docs/Web/API/Blob)-Objekt.
 
-Um eine Objekt-URL freizugeben, rufen Sie {{domxref("URL.revokeObjectURL_static", "revokeObjectURL()")}} auf.
+Um eine Objekt-URL freizugeben, rufen Sie [`revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static) auf.
 
 > [!NOTE]
-> Diese Funktion ist _nicht_ in [Service Workers](/de/docs/Web/API/Service_Worker_API) verfügbar, da sie
-> möglicherweise Speicherlecks verursachen kann.
+> Dieses Feature ist _nicht_ in [Service Workers](/de/docs/Web/API/Service_Worker_API) verfügbar, da es möglicherweise Speicherlecks verursachen kann.
 
 ## Syntax
 
@@ -30,41 +26,32 @@ URL.createObjectURL(object)
 ### Parameter
 
 - `object`
-  - : Ein {{domxref("File")}}, {{domxref("Blob")}} oder {{domxref("MediaSource")}}-Objekt,
-    für das eine Objekt-URL erstellt werden soll.
+  - : Ein [`File`](/de/docs/Web/API/File)-, [`Blob`](/de/docs/Web/API/Blob)- oder [`MediaSource`](/de/docs/Web/API/MediaSource)-Objekt, für das eine Objekt-URL erstellt werden soll.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die eine Objekt-URL enthält, die verwendet werden kann, um
-den Inhalt des angegebenen Quellobjekts zu referenzieren.
+Ein String, der eine Objekt-URL enthält, die verwendet werden kann, um auf den Inhalt des angegebenen Quell-`object` zu verweisen.
 
 ## Beispiele
 
-Siehe [Verwendung von Objekt-URLs zur Anzeige von Bildern](/de/docs/Web/API/File_API/Using_files_from_web_applications#example_using_object_urls_to_display_images).
+Siehe [Verwendung von Objekt-URLs zum Anzeigen von Bildern](/de/docs/Web/API/File_API/Using_files_from_web_applications#example_using_object_urls_to_display_images).
 
-## Hinweise zur Verwendung
+## Anwendungshinweise
 
 ### Speicherverwaltung
 
-Jedes Mal, wenn Sie `createObjectURL()` aufrufen, wird eine neue Objekt-URL erstellt, auch wenn
-Sie bereits eine für dasselbe Objekt erstellt haben. Jede dieser URLs muss durch
-einen Aufruf von {{domxref("URL.revokeObjectURL_static", "URL.revokeObjectURL()")}} freigegeben werden, wenn Sie sie nicht mehr benötigen.
+Jedes Mal, wenn Sie `createObjectURL()` aufrufen, wird eine neue Objekt-URL erstellt, selbst wenn Sie bereits eine für dasselbe Objekt erstellt haben. Jede dieser URLs muss freigegeben werden, indem Sie [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static) aufrufen, wenn Sie sie nicht mehr benötigen.
 
-Browser geben Objekt-URLs automatisch frei, wenn das Dokument entladen wird; jedoch
-für optimale Leistung und Speichernutzung, sollten Sie diese zu sicheren Zeitpunkten,
-zu denen Sie sie explizit entladen können, freigeben.
+Browser geben Objekt-URLs automatisch frei, wenn das Dokument entladen wird. Für optimale Leistung und Speichernutzung sollten Sie sie jedoch explizit entladen, wenn es sichere Zeitpunkte dafür gibt.
 
-### Verwendung von Objekt-URLs für Medienstreams
+### Verwendung von Objekt-URLs für Media Streams
 
-In älteren Versionen der Media Source-Spezifikation erforderte das Anhängen eines Streams an ein
-{{HTMLElement("video")}}-Element das Erstellen einer Objekt-URL für den
-{{domxref("MediaStream")}}. Dies ist nicht mehr notwendig, und Browser entfernen die
-Unterstützung dafür.
+In älteren Versionen der Media Source-Spezifikation war es erforderlich, einen Stream an ein {{HTMLElement("video")}}-Element anzuhängen, indem eine Objekt-URL für den [`MediaStream`](/de/docs/Web/API/MediaStream) erstellt wurde. Dies ist nicht mehr notwendig, und Browser entfernen die Unterstützung für diese Vorgehensweise.
 
 > [!WARNING]
-> Wenn Sie noch Code haben, der auf
-> `createObjectURL()` angewiesen ist, um Streams an Medienelemente anzuhängen,
-> müssen Sie Ihren Code aktualisieren, um {{domxref("HTMLMediaElement.srcObject", "srcObject")}} direkt auf den `MediaStream` zu setzen.
+> Wenn Sie noch Code haben, der sich auf
+> `createObjectURL()` verlässt, um Streams an Media
+> Elemente anzuhängen, müssen Sie Ihren Code aktualisieren, um [`srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject) direkt auf den `MediaStream` zu setzen.
 
 ## Spezifikationen
 
@@ -77,7 +64,7 @@ Unterstützung dafür.
 ## Siehe auch
 
 - [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)
-- [Verwendung von Objekt-URLs zur Anzeige von Bildern](/de/docs/Web/API/File_API/Using_files_from_web_applications#example_using_object_urls_to_display_images)
-- {{domxref("URL.revokeObjectURL_static", "URL.revokeObjectURL()")}}
-- {{domxref("HTMLMediaElement.srcObject")}}
-- {{domxref("FileReader.readAsDataURL()")}}
+- [Verwendung von Objekt-URLs zum Anzeigen von Bildern](/de/docs/Web/API/File_API/Using_files_from_web_applications#example_using_object_urls_to_display_images)
+- [`URL.revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static)
+- [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject)
+- [`FileReader.readAsDataURL()`](/de/docs/Web/API/FileReader/readAsDataURL)

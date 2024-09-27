@@ -7,11 +7,11 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`accesskey`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) gibt einen Hinweis zur Erstellung einer Tastenkombination für das aktuelle Element. Der Attributwert muss aus einem einzelnen druckbaren Zeichen bestehen (einschließlich akzentuierter und anderer Zeichen, die mit der Tastatur generiert werden können).
+Das **`accesskey`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) liefert einen Hinweis zum Erstellen einer Tastenkombination für das aktuelle Element. Der Attributwert muss aus einem einzelnen druckbaren Zeichen bestehen (einschließlich Akzentzeichen und anderer Zeichen, die von der Tastatur erzeugt werden können).
 
 {{EmbedInteractiveExample("pages/tabbed/attribute-accesskey.html","tabbed-shorter")}}
 
-Die Art und Weise, wie das accesskey aktiviert wird, hängt vom Browser und dessen Plattform ab:
+Die Art und Weise, wie der accesskey aktiviert wird, hängt vom Browser und der Plattform ab:
 
 <table class="standard-table">
   <tbody>
@@ -57,28 +57,28 @@ Die Art und Weise, wie das accesskey aktiviert wird, hängt vom Browser und dess
 
 ## Barrierefreiheitsbedenken
 
-Es gibt zahlreiche Bedenken im Zusammenhang mit dem `accesskey`-Attribut:
+Es gibt zahlreiche Bedenken hinsichtlich des `accesskey`-Attributs:
 
-- Ein `accesskey`-Wert kann mit einer System- oder Browser-Tastenkombination oder der Funktionalität von unterstützenden Technologien in Konflikt geraten. Was für eine Kombination aus Betriebssystem, unterstützender Technologie und Browser funktioniert, funktioniert möglicherweise nicht mit anderen Kombinationen.
-- Bestimmte `accesskey`-Werte sind auf bestimmten Tastaturen möglicherweise nicht vorhanden, insbesondere wenn die Internationalisierung eine Rolle spielt. Die Anpassung an bestimmte Sprachen könnte daher weitere Probleme verursachen.
-- `accesskey`-Werte, die auf Zahlen basieren, können für Personen mit kognitiven Beeinträchtigungen verwirrend sein, da die Zahl keine logische Verbindung zu der Funktionalität hat, die sie auslöst.
-- Den Benutzer über die Anwesenheit von `accesskey`s zu informieren, damit er sich der Funktionalität bewusst ist. Wenn das System keine Möglichkeit bietet, den Benutzer über diese Funktion zu informieren, könnte der Benutzer versehentlich `accesskey`s aktivieren.
+- Ein `accesskey`-Wert kann mit einer System- oder Browser-Tastenkombination oder der Funktionalität unterstützender Technologien in Konflikt geraten. Was für eine Kombination aus Betriebssystem, unterstützender Technologie und Browser funktioniert, mag bei anderen Kombinationen nicht funktionieren.
+- Bestimmte `accesskey`-Werte sind möglicherweise nicht auf bestimmten Tastaturen vorhanden, insbesondere wenn die Internationalisierung ein Faktor ist. Das Anpassen an bestimmte Sprachen könnte daher weitere Probleme verursachen.
+- `accesskey`-Werte, die auf Zahlen basieren, können für Personen mit kognitiven Beeinträchtigungen verwirrend sein, wenn die Zahl keine logische Verbindung zu der durch sie ausgelösten Funktionalität hat.
+- Den Benutzer darüber informieren, dass `accesskey`s vorhanden sind, damit er sich der Funktionalität bewusst ist. Wenn dem System eine Methode zur Benachrichtigung des Benutzers über diese Funktion fehlt, könnte der Benutzer versehentlich `accesskey`s aktivieren.
 
-Aufgrund dieser Probleme wird allgemein empfohlen, `accesskey`s für die meisten allgemein-zweckmäßigen Websites und Web-Apps nicht zu verwenden.
+Aufgrund dieser Probleme wird im Allgemeinen empfohlen, `accesskey`s für die meisten allgemeinen Websites und Webanwendungen nicht zu verwenden.
 
-- [WebAIM: Keyboard Accessibility - Accesskey](https://webaim.org/techniques/keyboard/accesskey#spec)
+- [WebAIM: Tastaturzugänglichkeit - Accesskey](https://webaim.org/techniques/keyboard/accesskey#spec)
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLElement.accessKey")}}
-- {{domxref("HTMLElement.accessKeyLabel")}}
+- [`HTMLElement.accessKey`](/de/docs/Web/API/HTMLElement/accessKey)
+- [`HTMLElement.accessKeyLabel`](/de/docs/Web/API/HTMLElement/accessKeyLabel)
 - Alle [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 - [`aria-keyshortcuts`](https://www.w3.org/TR/wai-aria-1.1/#aria-keyshortcuts)

@@ -7,10 +7,10 @@ l10n:
 
 {{Non-standard_header}}{{CSSRef}}{{SeeCompatTable}}
 
-Die **`:-moz-first-node`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die ein beliebiges Element darstellt, das das erste Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{Cssxref(":first-child")}}, da sie nicht mit einem Erstkindelement übereinstimmt, wenn sich (nicht leere) Text vor ihm befindet.
+Die **`:-moz-first-node`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die jedes Element repräsentiert, das das erste Kindknoten eines anderen Elements ist. Sie unterscheidet sich von {{Cssxref(":first-child")}}, da sie kein erstes Kind-Element mit (nicht leerem) Text davor erfasst.
 
 > [!NOTE]
-> Jegliche Leerzeichen am Anfang eines Elements werden bei der Bestimmung von `:-moz-first-node` ignoriert.
+> Jeglicher Leerraum zu Beginn eines Elements wird bei der Bestimmung von `:-moz-first-node` ignoriert.
 
 ## Syntax
 
@@ -34,13 +34,13 @@ span:-moz-first-node {
 
 ```html
 <p>
-  <span>Dies passt!</span>
-  <span>Dies passt nicht.</span>
+  <span>This matches!</span>
+  <span>This doesn't match.</span>
 </p>
 
 <p>
   Blahblah.
-  <span>Dies passt nicht, weil es von Text vorangegangen wird.</span>
+  <span>This doesn't match because it's preceded by text.</span>
 </p>
 ```
 

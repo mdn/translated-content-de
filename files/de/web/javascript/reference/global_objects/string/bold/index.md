@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`bold()`** Methode von {{jsxref("String")}} Werten erzeugt eine Zeichenkette, die diese Zeichenkette in einem {{HTMLElement("b")}} Element (`<b>str</b>`) einbettet, was dazu führt, dass diese Zeichenkette fett dargestellt wird.
+Die **`bold()`**-Methode von {{jsxref("String")}}-Werten erstellt einen String, der diesen String in ein {{HTMLElement("b")}}-Element (`<b>str</b>`) einbettet, wodurch dieser String fett angezeigt wird.
 
 > [!NOTE]
 > Alle [HTML-Wrapper-Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#html_wrapper_methods) sind veraltet und nur aus Kompatibilitätsgründen standardisiert. Verwenden Sie stattdessen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) wie [`document.createElement()`](/de/docs/Web/API/Document/createElement).
@@ -24,13 +24,13 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die mit einem `<b>` Start-Tag beginnt, dann den Text `str` und anschließend einen `</b>` End-Tag enthält.
+Ein String, der mit einem `<b>`-Start-Tag beginnt, dann den Text `str` und dann ein `</b>`-End-Tag enthält.
 
 ## Beispiele
 
 ### Verwendung von bold()
 
-Der folgende Code erstellt eine HTML-Zeichenkette und ersetzt damit den Body des Dokuments:
+Der untenstehende Code erstellt einen HTML-String und ersetzt dann den Body des Dokuments damit:
 
 ```js
 const contentString = "Hello, world";
@@ -38,13 +38,13 @@ const contentString = "Hello, world";
 document.body.innerHTML = contentString.bold();
 ```
 
-Dies erzeugt folgendes HTML:
+Dies wird das folgende HTML erzeugen:
 
 ```html
 <b>Hello, world</b>
 ```
 
-Anstatt `bold()` zu verwenden und direkt HTML-Text zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) benutzen. Zum Beispiel:
+Anstatt `bold()` zu verwenden und HTML-Text direkt zu erstellen, sollten Sie DOM-APIs wie [`document.createElement()`](/de/docs/Web/API/Document/createElement) verwenden. Zum Beispiel:
 
 ```js
 const contentString = "Hello, world";

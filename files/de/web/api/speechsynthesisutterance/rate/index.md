@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesisUtterance: rate-Eigenschaft"
+title: "SpeechSynthesisUtterance: rate Eigenschaft"
 short-title: rate
 slug: Web/API/SpeechSynthesisUtterance/rate
 l10n:
@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`rate`**-Eigenschaft des {{domxref("SpeechSynthesisUtterance")}}-Interfaces liest und setzt die Geschwindigkeit, mit der die Äußerung ausgesprochen wird.
+Die **`rate`**-Eigenschaft der [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Schnittstelle erhält und setzt die Geschwindigkeit, mit der die Äußerung gesprochen wird.
 
 Falls nicht gesetzt, wird ein Standardwert von 1 verwendet.
 
 ## Wert
 
-Ein Float, der den Rate-Wert darstellt.
-Er kann zwischen 0,1 (niedrigste) und 10 (höchste) liegen, wobei 1 die Standardrate für die aktuelle Plattform oder Stimme ist, die einer normalen Sprechgeschwindigkeit entsprechen sollte.
-Andere Werte wirken als Prozentsatz relativ dazu, zum Beispiel ist 2 zweimal so schnell, 0,5 ist halb so schnell, usw.
+Ein Float, der den Wert der Geschwindigkeit repräsentiert.
+Er kann zwischen 0,1 (am niedrigsten) und 10 (am höchsten) liegen, wobei 1 die Standardgeschwindigkeit der aktuellen Plattform oder Stimme ist, die einer normalen Sprechgeschwindigkeit entsprechen sollte.
+Andere Werte verhalten sich relativ zu diesem als Prozentsatz, sodass zum Beispiel 2 doppelt so schnell ist, 0,5 halb so schnell, etc.
 
-Einige Sprachsynthese-Engines oder Stimmen können die minimalen und maximalen Raten weiter einschränken.
+Einige Sprachsynthese-Engines oder Stimmen können die minimalen und maximalen Geschwindigkeiten weiter einschränken.
 Wenn [SSML](https://www.w3.org/TR/speech-synthesis/) verwendet wird, wird dieser Wert durch [Prosodie-Tags](https://www.w3.org/TR/speech-synthesis/#S3.2.4) im Markup überschrieben.
 
 ## Beispiele
 
 ### Anpassung der Wiedergabegeschwindigkeit
 
-In diesem Beispiel können wir die Wiedergabegeschwindigkeit mit dem Schieberegler anpassen und dann die Äußerung mit dem "Play"-Button abspielen.
+In diesem Beispiel können wir die Wiedergabegeschwindigkeit mit dem Schieberegler anpassen und die Äußerung mit der "Abspielen"-Taste abspielen.
 
 #### HTML
 

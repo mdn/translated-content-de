@@ -1,5 +1,5 @@
 ---
-title: "Navigation: reload()-Methode"
+title: "Navigation: reload() Methode"
 short-title: reload()
 slug: Web/API/Navigation/reload
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`reload()`**-Methode der
-{{domxref("Navigation")}}-Schnittstelle lädt die aktuelle URL neu und aktualisiert dabei alle bereitgestellten Zustandsinformationen in der Historieneintragliste.
+Die **`reload()`**-Methode des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces lädt die aktuelle URL neu und aktualisiert dabei beliebige bereitgestellte Zustände in der Liste der Verlaufseinträge.
 
 ## Syntax
 
@@ -20,27 +19,27 @@ navigate(options)
 ### Parameter
 
 - `options` {{optional_inline}}
-  - : Ein Optionsobjekt mit den folgenden Eigenschaften:
+  - : Ein Optionsobjekt, das die folgenden Eigenschaften enthält:
     - `state` {{optional_inline}}
-      - : Vom Entwickler definierte Informationen, die in dem zugehörigen {{domxref("NavigationHistoryEntry")}} gespeichert werden sollen, sobald die Navigation abgeschlossen ist und die über {{domxref("NavigationHistoryEntry.getState", "getState()")}} abrufbar sind. Dies kann jeder Datentyp sein. Beispielsweise möchten Sie möglicherweise eine Seitenbesuchszählung für Analysezwecke speichern oder UI-Zustandsdetails speichern, sodass die Ansicht genau so angezeigt werden kann, wie der Benutzer sie zuletzt verlassen hat. Alle im `state` gespeicherten Daten müssen [structured-cloneable](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
+      - : Vom Entwickler definierte Informationen, die in dem zugehörigen [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) gespeichert werden, sobald die Navigation abgeschlossen ist. Diese können über [`getState()`](/de/docs/Web/API/NavigationHistoryEntry/getState) abgerufen werden. Dies kann jeder Datentyp sein. Sie möchten beispielsweise die Anzahl der Seitenbesuche für Analysezwecke speichern oder Details zur UI-Zustand speichern, damit die Ansicht genau so angezeigt werden kann, wie der Benutzer sie zuletzt verlassen hat. Alle Daten, die in `state` gespeichert werden, müssen [strukturiert klonbar](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
     - `info` {{optional_inline}}
-      - : Vom Entwickler definierte Informationen, die an das {{domxref("Navigation/navigate_event", "navigate")}}-Ereignis weitergegeben werden, verfügbar in {{domxref("NavigateEvent.info")}}. Dies kann jeder Datentyp sein. Beispielsweise möchten Sie den neu navigierten Inhalt mit einer anderen Animation anzeigen, je nachdem, wie er erreicht wurde (nach links wischen, nach rechts wischen oder zur Startseite gehen). Eine Zeichenkette, die angibt, welche Animation verwendet werden soll, könnte als `info` übergeben werden.
+      - : Vom Entwickler definierte Informationen, die an das [`navigate`](/de/docs/Web/API/Navigation/navigate_event)-Ereignis übergeben werden, verfügbar in [`NavigateEvent.info`](/de/docs/Web/API/NavigateEvent/info). Dies kann jeder Datentyp sein. Sie möchten beispielsweise neu navigierte Inhalte mit einer anderen Animation anzeigen, abhängig davon, wie sie navigiert wurden (nach links wischen, nach rechts wischen oder nach Hause gehen). Eine Zeichenkette, die angibt, welche Animation verwendet werden soll, könnte als `info` übergeben werden.
 
 ### Rückgabewert
 
 Ein Objekt mit den folgenden Eigenschaften:
 
 - `committed`
-  - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn sich die sichtbare URL geändert hat und ein neuer {{domxref("NavigationHistoryEntry")}} erstellt wurde.
+  - : Ein {{jsxref("Promise")}}, der erfüllt wird, wenn sich die sichtbare URL geändert hat und ein neuer [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry) erstellt wurde.
 - `finished`
-  - : Ein {{jsxref("Promise")}}, das erfüllt wird, wenn alle von dem `intercept()`-Handler zurückgegebenen Promises erfüllt sind. Dies entspricht der Erfüllung des {{domxref("NavigationTransition.finished")}}-Promises, wenn das {{domxref("Navigation/navigatesuccess_event", "navigatesuccess")}}-Ereignis ausgelöst wird.
+  - : Ein {{jsxref("Promise")}}, der erfüllt wird, wenn alle von der `intercept()`-Handler zurückgegebenen Versprechen erfüllt sind. Dies entspricht dem Erfüllen des [`NavigationTransition.finished`](/de/docs/Web/API/NavigationTransition/finished) Promise, wenn das [`navigatesuccess`](/de/docs/Web/API/Navigation/navigatesuccess_event)-Ereignis ausgelöst wird.
 
-Eines dieser Promises weist eine Ablehnung auf, wenn die Navigation aus irgendeinem Grund fehlgeschlagen ist.
+Eines dieser Versprechen wird abgelehnt, falls die Navigation aus irgendeinem Grund fehlgeschlagen ist.
 
 ### Ausnahmen
 
-- `DataCloneError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der `state`-Parameter nicht strukturierte-klonbare Werte enthielt.
+- `DataCloneError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der `state`-Parameter Werte enthält, die nicht strukturiert klonbar sind.
 
 ## Beispiele
 
@@ -53,7 +52,7 @@ async function handleReload() {
     state: { infoPaneOpen: true },
   }).finished;
 
-  // Anwendungszustand aktualisieren
+  // Update application state
   // ...
 }
 ```
@@ -66,7 +65,7 @@ async function handleReload() {
     state: { ...navigation.currentEntry.getState(), newState: 3 },
   }).finished;
 
-  // Anwendungszustand aktualisieren
+  // Update application state
   // ...
 }
 ```
@@ -81,6 +80,6 @@ async function handleReload() {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicola's [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

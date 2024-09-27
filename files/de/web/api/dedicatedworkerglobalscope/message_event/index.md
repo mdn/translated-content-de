@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("dedicated")}}
 
-Das `message`-Ereignis wird auf einem {{domxref('DedicatedWorkerGlobalScope')}}-Objekt ausgelöst, wenn der Worker eine Nachricht von seinem Elternteil erhält (d.h. wenn das Elternteil eine Nachricht mit [`Worker.postMessage()`](/de/docs/Web/API/Worker/postMessage) sendet).
+Das `message` Ereignis wird auf einem [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Objekt ausgelöst, wenn der Worker eine Nachricht von seinem Elternteil erhält (d.h. wenn das Elternteil eine Nachricht mit [`Worker.postMessage()`](/de/docs/Web/API/Worker/postMessage) sendet).
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergereicht.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("message", (event) => {});
@@ -24,28 +24,28 @@ onmessage = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("MessageEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MessageEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("MessageEvent.data")}} {{ReadOnlyInline}}
-  - : Die Daten, die vom Nachrichtensender gesendet wurden.
-- {{domxref("MessageEvent.origin")}} {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtensenders darstellt.
-- {{domxref("MessageEvent.lastEventId")}} {{ReadOnlyInline}}
+- [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
+  - : Die von dem Nachrichtensender gesendeten Daten.
+- [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
+  - : Ein String, der die Herkunft des Nachrichtensenders repräsentiert.
+- [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
-- {{domxref("MessageEvent.source")}} {{ReadOnlyInline}}
-  - : Ein `MessageEventSource` (was ein {{domxref("Window")}}, {{domxref("MessagePort")}} oder {{domxref("ServiceWorker")}} Objekt sein kann), das den Nachrichtensender darstellt.
-- {{domxref("MessageEvent.ports")}} {{ReadOnlyInline}}
-  - : Ein Array von {{domxref("MessagePort")}}-Objekten, die die Ports repräsentieren, die mit dem Kanal verbunden sind, über den die Nachricht gesendet wird (wenn zutreffend, z.B. beim Kanal-Messaging oder wenn eine Nachricht an einen Shared Worker gesendet wird).
+- [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
+  - : Eine `MessageEventSource` (die ein [`Window`](/de/docs/Web/API/Window), [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), die den Nachrichtensender repräsentiert.
+- [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports repräsentieren, die mit dem Kanal verbunden sind, durch den die Nachricht gesendet wird (wo zutreffend, z.B. bei Kanalnachrichten oder beim Senden einer Nachricht an einen Shared Worker).
 
 ## Beispiel
 
-Das folgende Code-Snippet zeigt die Erstellung eines {{domxref("Worker")}}-Objekts unter Verwendung des {{domxref("Worker.Worker", "Worker()")}}-Konstruktors. Nachrichten werden an den Worker gesendet, wenn sich der Wert im Formulareingabefeld `first` ändert. Ein {{domxref("Worker.message_event", "onmessage")}}-Handler ist ebenfalls vorhanden, um mit Nachrichten umzugehen, die vom Worker zurückgeschickt werden.
+Der folgende Code-Schnipsel zeigt die Erstellung eines [`Worker`](/de/docs/Web/API/Worker)-Objekts mit dem [`Worker()`](/de/docs/Web/API/Worker/Worker)-Konstruktor. Nachrichten werden an den Worker gesendet, wenn sich der Wert im Formulareingabefeld `first` ändert. Ein [`onmessage`](/de/docs/Web/API/Worker/message_event)-Handler ist ebenfalls vorhanden, um Nachrichten zu bearbeiten, die vom Worker zurückgesendet werden.
 
 ```js
 // main.js
@@ -67,7 +67,7 @@ self.onmessage = (e) => {
 };
 ```
 
-Im `main.js`-Skript wird ein `onmessage`-Handler verwendet, um Nachrichten aus dem Workerskript zu bearbeiten:
+Im `main.js`-Skript wird ein `onmessage`-Handler verwendet, um Nachrichten aus dem Worker-Skript zu bearbeiten:
 
 ```js
 // main.js
@@ -78,7 +78,7 @@ myWorker.onmessage = (e) => {
 };
 ```
 
-Alternativ kann das Skript mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf die Nachricht hören:
+Alternativ kann das Skript für die Nachricht das [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden:
 
 ```js
 // worker.js
@@ -89,9 +89,9 @@ self.addEventListener("message", (e) => {
 });
 ```
 
-Beachten Sie, wie im Hauptskript `onmessage` auf `myWorker` aufgerufen werden muss, während im Workerskript nur `onmessage` benötigt wird, weil der Worker effektiv der globale Gültigkeitsbereich ist ({{domxref("DedicatedWorkerGlobalScope")}}).
+Beachten Sie, wie im Hauptskript `onmessage` auf `myWorker` aufgerufen werden muss, während innerhalb des Worker-Skripts einfach `onmessage` ausreicht, da der Worker effektiv den globalen Gültigkeitsbereich ([`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)) darstellt.
 
-Für ein vollständiges Beispiel siehe unser [Einfaches dediziertes Worker-Beispiel](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) ([dedizierten Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)).
+Für ein vollständiges Beispiel siehe unser [Grundlegendes Beispiel für einen dedizierten Worker](https://github.com/mdn/dom-examples/tree/main/web-workers/simple-web-worker) ([dedizierten Worker ausführen](https://mdn.github.io/dom-examples/web-workers/simple-web-worker/)).
 
 ## Spezifikationen
 
@@ -103,8 +103,8 @@ Für ein vollständiges Beispiel siehe unser [Einfaches dediziertes Worker-Beisp
 
 ## Siehe auch
 
-- {{domxref("DedicatedWorkerGlobalScope")}}
-- {{domxref("WorkerGlobalScope")}}
+- [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)
+- [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
 - Verwandte Ereignisse: [`messageerror`](/de/docs/Web/API/DedicatedWorkerGlobalScope/messageerror_event)
 - [`Worker.postMessage()`](/de/docs/Web/API/Worker/postMessage)
-- [Verwendung von Kanal-Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwendung von Kanalnachrichten](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

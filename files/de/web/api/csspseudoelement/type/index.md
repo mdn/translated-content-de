@@ -8,9 +8,8 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}
 
-Die **`type`**-Eigenschaft der schreibgeschützten
-{{DOMxRef('CSSPseudoElement')}}-Schnittstelle gibt den Typ des Pseudoelements als
-Zeichenkette zurück, dargestellt in Form eines [CSS-Selectors](/de/docs/Web/CSS/CSS_pseudo-elements#selectors).
+Die **`type`** schreibgeschützte Eigenschaft des
+[`CSSPseudoElement`](/de/docs/Web/API/CSSPseudoElement)-Interfaces gibt den Typ des Pseudo-Elements als Zeichenkette zurück, dargestellt in Form eines [CSS-Selectors](/de/docs/Web/CSS/CSS_pseudo-elements#selectors).
 
 ## Wert
 
@@ -22,8 +21,8 @@ Eine Zeichenkette, die einen der folgenden Werte enthält:
 
 ## Beispiele
 
-Das folgende Beispiel veranschaulicht die Beziehung zwischen
-`CSSPseudoElement.type` und {{DOMxRef('Element.pseudo()')}}:
+Das folgende Beispiel zeigt die Beziehung zwischen
+`CSSPseudoElement.type` und [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo):
 
 ```js
 const myElement = document.querySelector("q");
@@ -31,7 +30,7 @@ const mySelector = "::after";
 const cssPseudoElement = myElement.pseudo(mySelector);
 const typeOfPseudoElement = cssPseudoElement.type;
 
-console.log(mySelector === typeOfPseudoElement); // Gibt true aus
+console.log(mySelector === typeOfPseudoElement); // Outputs true
 ```
 
 ## Spezifikationen
@@ -44,5 +43,5 @@ console.log(mySelector === typeOfPseudoElement); // Gibt true aus
 
 ## Siehe auch
 
-- {{DOMxRef('Element.pseudo()')}}
-- [Liste der Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements#list_of_pseudo-elements)
+- [`Element.pseudo()`](/de/docs/Web/API/Element/pseudo)
+- [Liste der Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements#list_of_pseudo-elements)

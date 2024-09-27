@@ -8,29 +8,29 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`offset`** schreibgeschützte Eigenschaft des {{domxref("VREyeParameters")}}-Interfaces repräsentiert den Abstand vom Mittelpunkt zwischen den Augen des Benutzers zum Mittelpunkt des Auges, gemessen in Metern.
+Die **`offset`** schreibgeschützte Eigenschaft der [`VREyeParameters`](/de/docs/Web/API/VREyeParameters)-Schnittstelle stellt den Versatz vom Mittelpunkt zwischen den Augen des Benutzers zum Mittelpunkt des Auges dar, gemessen in Metern.
 
 > [!NOTE]
-> Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
+> Diese Eigenschaft war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde von der [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst.
 
-Dieser Wert sollte die Hälfte des interpupillaren Abstands (IPD) des Benutzers darstellen, kann aber auch den Abstand vom Mittelpunkt des Headsets zum Mittelpunkt der Linse für das jeweilige Auge darstellen.
+Dieser Wert sollte die Hälfte des interpupillären Abstands (IPD) des Benutzers darstellen, kann aber auch die Entfernung vom Mittelpunkt des Headsets zum Mittelpunkt der Linse für das jeweilige Auge repräsentieren.
 
 ## Wert
 
-Ein {{jsxref("Float32Array")}}, das einen Vektor beschreibt, der den Abstand vom Mittelpunkt zwischen den Augen des Benutzers zum Mittelpunkt des Auges in Metern darstellt.
+Ein {{jsxref("Float32Array")}}, der einen Vektor beschreibt, der den Versatz vom Mittelpunkt zwischen den Augen des Benutzers zum Mittelpunkt des Auges in Metern darstellt.
 
 > [!NOTE]
-> Werte für das linke Auge werden negativ sein; Werte für das rechte Auge positiv.
+> Werte für das linke Auge werden negativ sein; Werte für das rechte Auge werden positiv sein.
 
 ## Beispiele
 
-Sehen Sie sich den [`VRFieldOfView`](/de/docs/Web/API/VRFieldOfView#examples) für Beispielcode an.
+Sehen Sie sich [`VRFieldOfView`](/de/docs/Web/API/VRFieldOfView#examples) für Beispielcode an.
 
 ## Spezifikationen
 
-Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Eigenschaft war Teil der alten [WebVR-API](https://immersive-web.github.io/webvr/spec/1.1/), die von der [WebXR Device API](https://immersive-web.github.io/webxr/) abgelöst wurde. Sie wird nicht weiter als Standard verfolgt.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den Leitfaden [Meta's Porting from WebVR to WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR-APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, sich auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zu verlassen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den [Leitfaden "Porting from WebVR to WebXR"](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) von Meta für weitere Informationen.
 
 ## Browser-Kompatibilität
 

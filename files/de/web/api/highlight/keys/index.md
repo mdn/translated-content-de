@@ -1,5 +1,5 @@
 ---
-title: "Highlight: keys()-Methode"
+title: "Highlight: keys() Methode"
 short-title: keys()
 slug: Web/API/Highlight/keys
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`keys()`**-Methode der {{domxref("Highlight")}}-Schnittstelle ist ein Alias für die {{domxref("Highlight.values()", "values()")}}-Methode.
+Die **`keys()`** Methode der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle ist ein Alias für die [`values()`](/de/docs/Web/API/Highlight/values) Methode.
 
-`Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies vergleichbar mit der Verwendung von {{jsxref("Set.keys()")}}.
+`Highlight` ist ein {{jsxref("Set")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Set.keys()")}}.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ keys()
 
 ### Rückgabewert
 
-Ein neues Iterator-Objekt, das jedes `Range`-Objekt in der gegebenen `Highlight` in der Einfügereihenfolge enthält.
+Ein neuer Iterator, der jedes `Range`-Objekt im angegebenen `Highlight` in Einfüge-Reihenfolge enthält.
 
 ## Spezifikationen
 
@@ -32,5 +32,5 @@ Ein neues Iterator-Objekt, das jedes `Range`-Objekt in der gegebenen `Highlight`
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "Die CSS Custom Highlight API", "", "nocode")}}
-- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

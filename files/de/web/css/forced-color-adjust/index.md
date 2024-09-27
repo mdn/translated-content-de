@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`forced-color-adjust`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Autoren, bestimmte Elemente vom erzwungenen Farbmodus auszunehmen. Dadurch wird die Kontrolle über diese Werte an CSS zurückgegeben.
+Die **`forced-color-adjust`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ermöglicht es Autoren, bestimmte Elemente vom erzwungenen Farbenmodus auszuschließen. Dadurch wird die Kontrolle über diese Werte wieder auf CSS übertragen.
 
 ## Syntax
 
@@ -15,7 +15,7 @@ Die **`forced-color-adjust`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es
 forced-color-adjust: auto;
 forced-color-adjust: none;
 
-/* Globale Werte */
+/* Global values */
 forced-color-adjust: inherit;
 forced-color-adjust: initial;
 forced-color-adjust: revert;
@@ -28,13 +28,13 @@ Der Wert der `forced-color-adjust`-Eigenschaft muss eines der folgenden Schlüss
 ### Werte
 
 - `auto`
-  - : Die Farben des Elements werden durch den {{Glossary("user agent")}} im erzwungenen Farbmodus angepasst. Dies ist der Standard.
+  - : Die Farben des Elements werden im erzwungenen Farbenmodus vom [User Agent](/de/docs/Glossary/user_agent) angepasst. Dies ist der Standardwert.
 - `none`
-  - : Die Farben des Elements werden im erzwungenen Farbmodus nicht automatisch vom {{Glossary("user agent")}} angepasst.
+  - : Die Farben des Elements werden im erzwungenen Farbenmodus nicht automatisch vom [User Agent](/de/docs/Glossary/user_agent) angepasst.
 
 ## Anwendungshinweise
 
-Diese Eigenschaft sollte nur verwendet werden, um Änderungen vorzunehmen, die den Farb- und Kontrastanforderungen eines Benutzers entsprechen. Zum Beispiel, wenn Ihnen bewusst wird, dass die Farbanpassungen durch den {{Glossary("user agent")}} zu einer schlechten Benutzererfahrung im Hochkontrast- oder Dunkelmodus führen. Die Verwendung dieser Eigenschaft würde es ermöglichen, das Ergebnis in diesem Modus zu optimieren, um eine bessere Benutzererfahrung zu bieten. **Sie sollte nicht verwendet werden, um Benutzerentscheidungen zu ignorieren**.
+Diese Eigenschaft sollte nur verwendet werden, um Änderungen zu unterstützen, die den Farb- und Kontrastanforderungen eines Benutzers gerecht werden. Zum Beispiel, wenn Sie feststellen, dass die Farboptimierungen, die vom [User Agent](/de/docs/Glossary/user_agent) vorgenommen werden, zu einer schlechten Benutzererfahrung im Hochkontrast- oder Dunkelmodus führen. Durch die Verwendung dieser Eigenschaft können Sie das Ergebnis in diesem Modus optimieren, um eine bessere Erfahrung zu bieten. **Sie sollte nicht verwendet werden, um zu verhindern, dass Benutzerentscheidungen respektiert werden.**
 
 ## Formale Definition
 
@@ -46,11 +46,11 @@ Diese Eigenschaft sollte nur verwendet werden, um Änderungen vorzunehmen, die d
 
 ## Beispiele
 
-### Farben beibehalten
+### Farben erhalten
 
-Im folgenden Beispiel verwendet das erste Feld das vom Benutzer eingestellte Farbschema. Im Windows-Hochkontrastmodus mit schwarzem Schema wird es einen schwarzen Hintergrund und weißen Text haben. Das zweite Feld behält die auf der `.box`-Klasse gesetzten Farben der Seite bei.
+Im folgenden Beispiel wird die erste Box das Farbschema verwenden, das der Benutzer festgelegt hat. Zum Beispiel hat sie im Windows Hochkontrastmodus mit schwarzem Farbschema einen schwarzen Hintergrund und weißen Text. Die zweite Box wird die auf der `.box`-Klasse festgelegten Seitenfarben beibehalten.
 
-Durch die Verwendung der [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors) Medienfunktion könnten Sie weitere Optimierungen für den erzwungenen Farbmodus zusammen mit der `forced-color-adjust`-Eigenschaft hinzufügen.
+Durch die Verwendung des [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors) Media Features können Sie zusätzlich zur `forced-color-adjust`-Eigenschaft weitere Optimierungen für den erzwungenen Farbenmodus hinzufügen.
 
 #### CSS
 
@@ -74,11 +74,11 @@ Durch die Verwendung der [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors
 
 ```html
 <div class="box">
-  <p>Das ist ein Feld, das Ihre Farbeinstellungen verwenden sollte.</p>
+  <p>This is a box which should use your color preferences.</p>
 </div>
 
 <div class="box forced">
-  <p>Das ist ein Feld, das die vom Site festgelegten Farben behalten sollte.</p>
+  <p>This is a box which should stay the colors set by the site.</p>
 </div>
 ```
 
@@ -86,9 +86,9 @@ Durch die Verwendung der [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors
 
 {{EmbedLiveSample("Preserving_colors", 640, 300)}}
 
-Der folgende Screenshot zeigt das obige Bild im Windows-Hochkontrastmodus:
+Der folgende Screenshot zeigt das obige Bild im Windows Hochkontrastmodus:
 
-![Das obige Beispiel im Hochkontrastmodus zeigt das erste Feld mit schwarzem Hintergrund und das zweite mit dem grauen Hintergrund des CSS.](windows-high-contrast.jpg)
+![Das obige Beispiel im Hochkontrastmodus zeigt die erste Box mit einem schwarzen Hintergrund und die zweite mit dem grauen Hintergrund der CSS.](windows-high-contrast.jpg)
 
 ## Spezifikationen
 

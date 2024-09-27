@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Installiert und aktiviert eine Thema-Erweiterung von der angegebenen URL.
+Installiert und aktiviert eine Theme-Erweiterung von der angegebenen URL.
 
-Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) und funktioniert nur mit signierten Themen.
+Diese API erfordert die "management" [API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) und funktioniert nur mit signierten Themes.
 
 Dies ist eine asynchrone Funktion, die ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,11 +22,11 @@ browser.management.install(options)
 ### Parameter
 
 - options
-  - : Ein Objekt, das die URL der XPI-Datei des Themas von [addons.mozilla.org](https://addons.mozilla.org) und optional einen Hash der XPI-Datei, mit sha256 oder stärker, enthält.
+  - : Ein Objekt, das die URL der XPI-Datei des Themes von [addons.mozilla.org](https://addons.mozilla.org) und optional einen Hash der XPI-Datei, unter Verwendung von sha256 oder stärker, enthält.
 
 ### Rückgabewert
 
-Ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das die `ExtensionID`, definiert für das Thema in manifest.json, enthält.
+Ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, welches die im manifest.json definierte `ExtensionID` für das Theme enthält.
 
 ## Browser-Kompatibilität
 
@@ -34,7 +34,7 @@ Ein [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit
 
 ## Beispiele
 
-Durch eine Liste von Themen wechseln:
+Durchlaufen Sie eine Liste von Themes:
 
 ```js
 "use strict";

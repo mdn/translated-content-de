@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`add()`** Methode von {{jsxref("Set")}} Instanzen fügt ein neues Element mit einem angegebenen Wert in dieses Set ein, wenn sich noch kein Element mit demselben Wert in diesem Set befindet.
+Die **`add()`**-Methode von {{jsxref("Set")}}-Instanzen fügt ein neues Element mit einem angegebenen Wert in diese Menge ein, falls sich nicht bereits ein Element mit demselben Wert in dieser Menge befindet.
 
 {{EmbedInteractiveExample("pages/js/set-prototype-add.html")}}
 
@@ -20,21 +20,21 @@ add(value)
 ### Parameter
 
 - `value`
-  - : Der Wert des hinzuzufügenden Elements zum `Set` Objekt.
+  - : Der Wert des Elements, das dem `Set`-Objekt hinzugefügt werden soll.
 
 ### Rückgabewert
 
-Das `Set` Objekt mit hinzugefügtem Wert.
+Das `Set`-Objekt mit hinzugefügtem Wert.
 
 ## Beispiele
 
-### Verwendung der add() Methode
+### Verwendung der add()-Methode
 
 ```js
 const mySet = new Set();
 
 mySet.add(1);
-mySet.add(5).add("some text"); // verkettbar
+mySet.add(5).add("some text"); // chainable
 
 console.log(mySet);
 // Set [1, 5, "some text"]

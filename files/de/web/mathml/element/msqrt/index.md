@@ -7,7 +7,7 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<msqrt>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Quadratwurzeln darzustellen (es wird kein Index angezeigt). Die Quadratwurzel akzeptiert nur ein Argument, was zu folgendem Syntax führt: `<msqrt> basis </msqrt>`.
+Das **`<msqrt>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Quadratwurzeln darzustellen (es wird kein Index angezeigt). Die Quadratwurzel akzeptiert nur ein Argument, was zu folgendem Syntax führt: `<msqrt> base </msqrt>`.
 
 ## Attribute
 
@@ -35,4 +35,4 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Gl
 
 ## Siehe auch
 
-- {{ MathMLElement("mroot") }} (Radikal mit einem Index)
+- {{ MathMLElement("mroot") }} (Radikaldarstellung mit Index)

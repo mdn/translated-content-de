@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}
 
-Dies ist das erste Beispiel für Code, der erklärt, [wie man ein benutzerdefiniertes Formularelement erstellt](/de/docs/Learn/Forms/How_to_build_custom_form_controls).
+Dies ist das erste Codebeispiel, das erklärt, [wie man ein benutzerdefiniertes Formular-Widget erstellt](/de/docs/Learn/Forms/How_to_build_custom_form_controls).
 
 ## Grundzustand
 

@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}
 
-Die **`stroke-opacity`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Opazität des Strichs einer [SVG](/de/docs/Web/SVG)-Form. Der Effekt ist identisch mit dem von {{CSSxref('opacity')}}, wird jedoch nur auf den Strich angewendet, nicht auf das gesamte Element. Wenn vorhanden, überschreibt er das {{SVGAttr("stroke-opacity")}}-Attribut des Elements.
+Die **`stroke-opacity`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Transparenz des Stils einer [SVG](/de/docs/Web/SVG) Form. Der Effekt ist identisch mit dem von {{CSSxref('opacity')}}, außer dass er nur auf den Stil angewendet wird, nicht auf das gesamte Element. Falls vorhanden, überschreibt diese Eigenschaft das {{SVGAttr("stroke-opacity")}} Attribut des Elements.
 
-Diese Eigenschaft gilt für SVG-Formen und textbezogene Elemente (siehe {{SVGAttr("stroke-opacity")}} für eine vollständige Liste), aber als geerbte Eigenschaft kann sie auch auf Elemente wie {{SVGElement("g")}} angewendet werden und hat dennoch die gewünschte Wirkung auf die Striche nachfolgender Elemente.
+Diese Eigenschaft gilt für SVG-Formen und Textinhaltselemente (siehe {{SVGAttr("stroke-opacity")}} für eine vollständige Liste), kann aber als vererbte Eigenschaft auf Elemente wie {{SVGElement("g")}} angewendet werden und trotzdem den gewünschten Effekt auf die Stile der untergeordneten Elemente haben.
 
-Beachten Sie, dass der Strich einer Form teilweise die Füllung dieser Form überdeckt, sodass ein Strich mit einer Opazität von weniger als `1` die Füllung mit dem Strich mischt, wo sie sich überlappen. Um diesen Effekt zu vermeiden, ist es möglich, eine globale Opazität mit der {{cssxref('opacity')}}-Eigenschaft anzuwenden oder den Strich hinter der Füllung mit dem {{cssxref('paint-order')}}-Attribut zu platzieren.
+Beachten Sie, dass der Stil einer Form teilweise die Füllung dieser Form überlagert. Ein Stil mit einer Transparenz von weniger als `1` zeigt die Füllung gemischt mit dem Stil, wo sie sich überlappen. Um diesen Effekt zu vermeiden, kann eine globale Transparenz mit der {{cssxref('opacity')}} Eigenschaft angewendet werden oder der Stil hinter die Füllung mit dem {{cssxref('paint-order')}} Attribut gesetzt werden.
 
 ## Syntax
 
 ```css
-/* numerische und prozentuale Werte */
+/* numeric and percentage values */
 stroke-opacity: 1;
 stroke-opacity: 0.3;
 stroke-opacity: 50%;
 
-/* Globale Werte */
+/* Global values */
 stroke-opacity: inherit;
 stroke-opacity: initial;
 stroke-opacity: revert;
@@ -33,11 +33,11 @@ stroke-opacity: unset;
 
 - {{cssxref("&lt;number&gt;")}}
 
-  - : Jede reelle Zahl von 0 bis 1, einschließlich. Ein Wert von `0` macht den Strich vollständig transparent, und ein Wert von `1` macht ihn vollständig undurchsichtig. Werte außerhalb des Bereichs 0–1 werden auf das nächstgelegene Ende dieses Bereichs geklippt; negative Werte werden also auf `0` geklippt.
+  - : Jede reelle Zahl von 0 bis 1, einschließlich. Ein Wert von `0` macht den Stil komplett transparent, und ein Wert von `1` macht ihn vollständig undurchsichtig. Werte außerhalb des Bereichs 0 – 1 werden auf das nächste Ende dieses Bereichs begrenzt; negative Werte werden also auf `0` begrenzt.
 
 - {{cssxref("&lt;percentage&gt;")}}
 
-  - : Dasselbe wie `<number>` (siehe oben), außer dass der zulässige Bereich 0% bis 100% beträgt und das Klicken in Bezug auf diesen Bereich erfolgt.
+  - : Gleiche wie `<number>` (siehe oben), außer der erlaubte Bereich ist 0% bis 100%, und die Begrenzung erfolgt im Hinblick auf diesen Bereich.
 
 ## Formale Definition
 
@@ -49,13 +49,13 @@ stroke-opacity: unset;
 
 ## Beispiele
 
-### Verschiedene Strichopazitäten
+### Verschiedene Stopacity-Werte
 
-Dieses Beispiel demonstriert die grundlegende Verwendung der `stroke-opacity`-Eigenschaft und wie, da der Strich einer Form teilweise ihre Füllung überdeckt, ein Strich mit einer Opazität von weniger als `1` mit der Füllung dort mischt, wo sie sich überlappen.
+Dieses Beispiel demonstriert die grundlegende Verwendung der `stroke-opacity` Eigenschaft und wie, da der Stil einer Form teilweise ihre Füllung überlagert, ein Stil mit einer Transparenz von weniger als `1` mit der Füllung an den Stellen, an denen sie sich überlappen, vermischt wird.
 
 #### HTML
 
-Zunächst richten wir fünf Mehrsegmentpfade ein, die alle einen schwarzen Strich mit einer Breite von eins und eine `dodgerblue`-Füllung für die Teilpfade verwenden. Jeder Pfad erstellt eine Reihe von Bergsymbolen, die von links (ein flacher Eckwinkel) nach rechts (ein extremer Eckwinkel) verlaufen.
+Zuerst richten wir fünf Multi-Segment-Pfade ein, die alle einen schwarzen Stil mit einer Breite von eins und eine `dodgerblue` Füllung für die Unterpfade verwenden. Jeder Pfad erzeugt eine Serie von Bergsymbolen, von links (ein flacher Winkel) nach rechts (ein extremer Winkel).
 
 ```html
 <svg viewBox="0 0 39 36" xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +80,7 @@ Zunächst richten wir fünf Mehrsegmentpfade ein, die alle einen schwarzen Stric
 
 #### CSS
 
-Für diese Pfade wenden wir aufeinanderfolgend höhere Strichopazitätswerte an. Für die ersten vier Pfade kann die Füllung durch die innere Hälfte des Strichpfads gesehen werden, obwohl es bei dem vierten Pfad schwierig zu erkennen sein kann. Beim fünften und letzten Pfad ist der Strich vollständig undurchsichtig, sodass die Füllung durch den Strich nicht gesehen werden kann.
+Auf diese Pfade wenden wir sukzessiv höhere Stopacity-Werte an. Bei den ersten vier Pfaden kann die Füllung durch die innere Hälfte des Stilpfads gesehen werden, auch wenn es beim vierten Pfad schwer zu erkennen sein mag. Für den fünften und letzten Pfad ist der Stil vollständig undurchsichtig und daher kann die Füllung nicht durch den Stil gesehen werden.
 
 ```css
 g path:nth-child(1) {

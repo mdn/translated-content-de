@@ -3,12 +3,12 @@ title: "GPURenderPassEncoder: draw()-Methode"
 short-title: draw()
 slug: Web/API/GPURenderPassEncoder/draw
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`draw()`**-Methode der {{domxref("GPURenderPassEncoder")}}-Schnittstelle zeichnet Primitive basierend auf den von {{domxref("GPURenderPassEncoder.setVertexBuffer", "setVertexBuffer()")}} bereitgestellten Vertex-Puffern.
+Die **`draw()`**-Methode des [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Interfaces zeichnet Primitive auf Basis der von [`setVertexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setVertexBuffer) bereitgestellten Vertex-Buffer.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ draw(vertexCount, instanceCount, firstVertex, firstInstance)
 - `vertexCount`
   - : Eine Zahl, die die Anzahl der zu zeichnenden Vertices definiert.
 - `instanceCount` {{optional_inline}}
-  - : Eine Zahl, die die Anzahl der zu zeichnenden Instanzen definiert. Wenn weggelassen, wird `instanceCount` standardmäßig auf 1 gesetzt.
+  - : Eine Zahl, die die Anzahl der zu zeichnenden Instanzen definiert. Wenn weggelassen, ist der Standardwert für `instanceCount` 1.
 - `firstVertex` {{optional_inline}}
-  - : Eine Zahl, die den Versatz in die Vertex-Puffer definiert, in Vertices, von dem aus gezeichnet werden soll. Wenn weggelassen, wird `firstVertex` standardmäßig auf 0 gesetzt.
+  - : Eine Zahl, die den Offset in den Vertex-Buffer, in Vertices, definiert, ab dem mit dem Zeichnen begonnen wird. Wenn weggelassen, ist der Standardwert für `firstVertex` 0.
 - `firstInstance` {{optional_inline}}
-  - : Eine Zahl, die die erste zu zeichnende Instanz definiert. Wenn weggelassen, wird `firstInstance` standardmäßig auf 0 gesetzt.
+  - : Eine Zahl, die die erste zu zeichnende Instanz definiert. Wenn weggelassen, ist der Standardwert für `firstInstance` 0.
 
 ### Rückgabewert
 
@@ -36,18 +36,18 @@ Keiner ({{jsxref("Undefined")}}).
 
 ## Beispiele
 
-In unserem [basic render demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen {{domxref("GPUCommandEncoder")}} aufgezeichnet. Die meisten dieser Befehle stammen vom `GPURenderPassEncoder`, der über {{domxref("GPUCommandEncoder.beginRenderPass()")}} erstellt wird. `draw()` wird verwendet, um anzugeben, dass drei Vertices gezeichnet werden sollen, um unser Dreieck zu erstellen.
+In unserem [Basis-Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen von dem durch [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellten `GPURenderPassEncoder`. `draw()` wird verwendet, um anzugeben, dass drei Vertices gezeichnet werden sollen, um unser Dreieck zu erstellen.
 
 ```js
 // ...
 
 const renderPipeline = device.createRenderPipeline(pipelineDescriptor);
 
-// Erstellen Sie einen GPUCommandEncoder, um Befehle an die GPU zu senden
-// Hinweis: Render-Pass-Deskriptor, Command-Encoder usw. werden nach der Verwendung zerstört, ein neuer wird für jeden Frame benötigt.
+// Create GPUCommandEncoder to issue commands to the GPU
+// Note: render pass descriptor, command encoder, etc. are destroyed after use, fresh one needed for each frame.
 const commandEncoder = device.createCommandEncoder();
 
-// Erstellen Sie einen GPURenderPassDescriptor, um WebGPU mitzuteilen, in welche Textur gezeichnet werden soll, und initiieren Sie dann den Render-Pass
+// Create GPURenderPassDescriptor to tell WebGPU which texture to draw into, then initiate render pass
 const renderPassDescriptor = {
   colorAttachments: [
     {
@@ -61,15 +61,15 @@ const renderPassDescriptor = {
 
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 
-// Zeichnen Sie das Dreieck
+// Draw the triangle
 passEncoder.setPipeline(renderPipeline);
 passEncoder.setVertexBuffer(0, vertexBuffer);
 passEncoder.draw(3);
 
-// Beenden Sie den Render-Pass
+// End the render pass
 passEncoder.end();
 
-// Beenden Sie den Frame, indem Sie ein Array von Command-Buffern zur Ausführung an die Befehlswarteschlange übergeben
+// End frame by passing array of command buffers to command queue for execution
 device.queue.submit([commandEncoder.finish()]);
 
 // ...

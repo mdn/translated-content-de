@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die schreibgeschützte **`track`**-Eigenschaft der {{domxref("TextTrackCue")}}-Schnittstelle gibt das {{domxref("TextTrack")}}-Objekt zurück, zu dem dieses Cue gehört.
+Die schreibgeschützte Eigenschaft **`track`** des [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Interfaces gibt das [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt zurück, zu dem dieser Cue gehört.
 
 ## Wert
 
-Ein {{domxref("TextTrack")}}-Objekt.
+Ein [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues {{domxref("VTTCue")}} (das von `TextTrackCue` erbt) erstellt und dann einem Track hinzugefügt. Der Wert von `track` wird in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) (das von `TextTrackCue` erbt) erstellt und dann einem Track hinzugefügt. Der Wert von `track` wird in die Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

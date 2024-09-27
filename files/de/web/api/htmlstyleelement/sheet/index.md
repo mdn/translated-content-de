@@ -8,14 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`sheet`**-Eigenschaft der {{domxref("HTMLStyleElement")}}-Schnittstelle
-enthält das Stylesheet, das mit diesem Element verknüpft ist.
+Die schreibgeschützte **`sheet`**-Eigenschaft der [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement)-Schnittstelle enthält das Stylesheet, das mit diesem Element verknüpft ist.
 
-Ein {{DOMxref("StyleSheet")}} ist immer mit einem {{domxref("HTMLStyleElement")}} verknüpft, es sei denn, das `type`-Attribut ist nicht `text/css`.
+Ein [`StyleSheet`](/de/docs/Web/API/StyleSheet) ist immer mit einem [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement) verknüpft, es sei denn, das `type`-Attribut ist nicht `text/css`.
 
 ## Wert
 
-Ein {{DOMxRef("StyleSheet")}}-Objekt oder `null`, wenn keines mit dem Element verknüpft ist.
+Ein [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt oder `null`, wenn keines mit dem Element verknüpft ist.
 
 ## Beispiele
 
@@ -28,7 +27,7 @@ Ein {{DOMxRef("StyleSheet")}}-Objekt oder `null`, wenn keines mit dem Element ve
 </html>
 ```
 
-Die `sheet`-Eigenschaft des zugehörigen `HTMLStyleElement`-Objekts gibt das {{domxref("StyleSheet")}}-Objekt zurück, das es beschreibt.
+Die `sheet`-Eigenschaft des zugehörigen `HTMLStyleElement`-Objekts gibt das [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Objekt zurück, das es beschreibt.
 
 ## Spezifikationen
 

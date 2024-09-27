@@ -8,17 +8,15 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`styleMap`**-Eigenschaft des Lesezugriffs der
-{{domxref("CSSStyleRule")}}-Schnittstelle gibt ein {{domxref('StylePropertyMap')}} Objekt zurück,
-das Zugriff auf die Eigenschaft-Wert-Paare der Regel bietet.
+Die schreibgeschützte **`styleMap`**-Eigenschaft der [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule)-Schnittstelle gibt ein [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt zurück, das Zugriff auf die Eigenschaft-Wert-Paare der Regel bietet.
 
 ## Wert
 
-Ein {{domxref('StylePropertyMap')}} Objekt.
+Ein [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt die Verwendung von `styleMap`, um einen Stil mit der {{domxref('StylePropertyMap.set()')}}-Methode zu ändern.
+Das folgende Beispiel zeigt die Verwendung von `styleMap`, um einen Stil mithilfe der [`StylePropertyMap.set()`](/de/docs/Web/API/StylePropertyMap/set)-Methode zu ändern.
 
 ```js
 const stylesheet = document.styleSheets[0];

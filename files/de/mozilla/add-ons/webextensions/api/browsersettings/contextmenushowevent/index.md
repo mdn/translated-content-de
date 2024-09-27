@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, welches bestimmt, ob das Kontextmenü des Browsers beim Mouseup-Event oder beim Mousedown-Event angezeigt wird.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das bestimmt, ob das Kontextmenü des Browsers beim `mouseup`-Ereignis oder beim `mousedown`-Ereignis angezeigt wird.
 
-Sein zugrundeliegender Wert ist ein String, der entweder "mouseup" oder "mousedown" sein kann.
+Sein zugrunde liegender Wert ist eine Zeichenfolge, die entweder "mouseup" oder "mousedown" sein kann.
 
-Der Standardwert ist "mouseup" unter Windows und "mousedown" auf macOS und Linux. Eine Zuweisung unter Windows hat keine Auswirkung - die Einstellung ist nur dafür gedacht, das Kontextmenü für den Mouseup- anstelle des Mousedown-Events zu öffnen, nicht umgekehrt.
+Der Standardwert ist "mouseup" unter Windows und "mousedown" unter macOS und Linux. Eine Zuweisung unter Windows hat keine Auswirkung - die Einstellung ist nur dafür gedacht, das Kontextmenü bei `mouseup` anstelle von `mousedown` zu öffnen, nicht umgekehrt.
 
 ## Browser-Kompatibilität
 
@@ -19,7 +19,7 @@ Der Standardwert ist "mouseup" unter Windows und "mousedown" auf macOS und Linux
 
 ## Beispiele
 
-Die Einstellung auf "mouseup" setzen:
+Setzen Sie die Einstellung auf "mouseup":
 
 ```js
 function logResult(result) {

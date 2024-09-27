@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode getActiveUniforms()"
+title: "WebGL2RenderingContext: getActiveUniforms()-Methode"
 short-title: getActiveUniforms()
 slug: Web/API/WebGL2RenderingContext/getActiveUniforms
 l10n:
@@ -9,7 +9,8 @@ l10n:
 {{APIRef("WebGL")}}
 
 Die **`WebGL2RenderingContext.getActiveUniforms()`**-Methode der
-[WebGL 2 API](/de/docs/Web/API/WebGL_API) ruft Informationen über aktive Uniforms innerhalb eines {{domxref("WebGLProgram")}} ab.
+[WebGL 2 API](/de/docs/Web/API/WebGL_API) ruft Informationen über
+aktive Uniforms innerhalb eines [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) ab.
 
 ## Syntax
 
@@ -20,40 +21,41 @@ getActiveUniforms(program, uniformIndices, pname)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}, das die aktiven Uniforms enthält.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das die aktiven Uniforms enthält.
 - `uniformIndices`
-  - : Ein {{jsxref("Array")}} von {{domxref("WebGL_API/Types", "GLuint")}}, die die Indizes der abzufragenden aktiven Uniforms spezifizieren.
+  - : Ein(e) {{jsxref("Array")}} von [`GLuint`](/de/docs/Web/API/WebGL_API/Types), die die Indizes der zu abfragenden aktiven
+    Uniforms angibt.
 - `pname`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der angibt, welche Informationen abgefragt werden sollen. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welche Informationen abgefragt werden sollen. Mögliche Werte:
 
     - `gl.UNIFORM_TYPE`
-      - : Gibt ein {{jsxref("Array")}} von
-        {{domxref("WebGL_API/Types", "GLenum")}} zurück, das die [Typen der Uniforms](/de/docs/Web/API/WebGLRenderingContext/getUniform#return_value) angibt.
+      - : Gibt ein(e) {{jsxref("Array")}} von
+        [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das die [Typen der Uniforms](/de/docs/Web/API/WebGLRenderingContext/getUniform#return_value) angibt.
     - `gl.UNIFORM_SIZE`
-      - : Gibt ein {{jsxref("Array")}} von
-        {{domxref("WebGL_API/Types", "GLuint")}} zurück, das die Größen der Uniforms angibt.
+      - : Gibt ein(e) {{jsxref("Array")}} von
+        [`GLuint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Größen der Uniforms angibt.
     - `gl.UNIFORM_BLOCK_INDEX`
-      - : Gibt ein {{jsxref("Array")}} von
-        {{domxref("WebGL_API/Types", "GLint")}} zurück, das die Blockindices der Uniforms angibt.
+      - : Gibt ein(e) {{jsxref("Array")}} von
+        [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Block-Indizes der Uniforms angibt.
     - `gl.UNIFORM_OFFSET`
-      - : Gibt ein {{jsxref("Array")}} von
-        {{domxref("WebGL_API/Types", "GLint")}} zurück, das die Buffer-Offsets der Uniforms angibt.
+      - : Gibt ein(e) {{jsxref("Array")}} von
+        [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Uniform-Buffer-Offsets angibt.
     - `gl.UNIFORM_ARRAY_STRIDE`
-      - : Gibt ein {{jsxref("Array")}} von
-        {{domxref("WebGL_API/Types", "GLint")}} zurück, das die Abstände zwischen den Elementen angibt.
+      - : Gibt ein(e) {{jsxref("Array")}} von
+        [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Schritte zwischen den Elementen angibt.
     - `gl.UNIFORM_MATRIX_STRIDE`
-      - : Gibt ein {{jsxref("Array")}} von
-        {{domxref("WebGL_API/Types", "GLint")}} zurück, das die Abstände zwischen Spalten einer Spalten-Major-
-        oder Zeilen-Major-Matrix angibt.
+      - : Gibt ein(e) {{jsxref("Array")}} von
+        [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Schritte zwischen den Spalten einer spaltenweise
+        oder zeilenweise Matrix angibt.
     - `gl.UNIFORM_IS_ROW_MAJOR`
-      - : Gibt ein {{jsxref("Array")}} von
-        {{domxref("WebGL_API/Types", "GLboolean")}} zurück, das angibt, ob jede der Uniforms eine Zeilen-Major-
+      - : Gibt ein(e) {{jsxref("Array")}} von
+        [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das angibt, ob jede der Uniforms eine zeilenweise
         Matrix ist oder nicht.
 
 ### Rückgabewert
 
-Hängt davon ab, welche Informationen mit dem `pname`-Parameter angefordert werden.
+Hängt von den angeforderten Informationen mit dem `pname`-Parameter ab.
 
 ## Beispiele
 
@@ -80,4 +82,4 @@ const uniformOffsets = gl.getActiveUniforms(
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.getActiveUniformBlockParameter()")}}
+- [`WebGL2RenderingContext.getActiveUniformBlockParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getActiveUniformBlockParameter)

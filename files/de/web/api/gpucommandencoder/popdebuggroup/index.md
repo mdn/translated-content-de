@@ -1,16 +1,16 @@
 ---
-title: "GPUCommandEncoder: popDebugGroup()-Methode"
+title: "GPUCommandEncoder: Methode popDebugGroup()"
 short-title: popDebugGroup()
 slug: Web/API/GPUCommandEncoder/popDebugGroup
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`popDebugGroup()`**-Methode der {{domxref("GPUCommandEncoder")}}-Schnittstelle beendet eine Debug-Gruppe, die mit einem {{domxref("GPUCommandEncoder.pushDebugGroup", "pushDebugGroup()")}}-Aufruf begonnen wurde.
+Die **`popDebugGroup()`**-Methode der Schnittstelle [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) beendet eine Debug-Gruppe, die mit einem Aufruf von [`pushDebugGroup()`](/de/docs/Web/API/GPUCommandEncoder/pushDebugGroup) begonnen wurde.
 
-Dies könnte für Telemetrie verwendet werden oder in Zukunft in {{domxref("GPUError")}}-Nachrichten, Entwickler-Tools des Browsers oder anderen Diensten genutzt werden, um das Debugging zu unterstützen.
+Dies könnte für Telemetrie verwendet werden oder in Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten, Browser-Entwicklungstools oder anderen Diensten genutzt werden, um beim Debugging zu helfen.
 
 ## Syntax
 
@@ -28,16 +28,16 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`popDebugGroup()`** aufgerufen wird. Andernfalls wird ein {{domxref("GPUValidationError")}} erzeugt und der {{domxref("GPUCommandEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`popDebugGroup()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) wird ungültig:
 
-- Der Debug-Stack des Befehlskodierers ist nicht leer (d. h. mindestens eine Debug-Gruppe wurde zuvor mit {{domxref("GPUCommandEncoder.pushDebugGroup", "pushDebugGroup()")}} gestartet).
+- Der Debug-Stack des Command Encoders ist nicht leer (d.h. es wurde zuvor mindestens eine Debug-Gruppe mit [`pushDebugGroup()`](/de/docs/Web/API/GPUCommandEncoder/pushDebugGroup) begonnen).
 
 ## Beispiele
 
 ```js
 // ...
 
-commandEncoder.pushDebugGroup("mygroupmarker"); // Start des markierten Debug-Gruppe
+commandEncoder.pushDebugGroup("mygroupmarker"); // Start labeled debug group
 
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 
@@ -47,7 +47,7 @@ passEncoder.draw(3);
 
 passEncoder.end();
 
-commandEncoder.popDebugGroup(); // Ende der markierten Debug-Gruppe
+commandEncoder.popDebugGroup(); // End labeled debug group
 
 // ...
 ```

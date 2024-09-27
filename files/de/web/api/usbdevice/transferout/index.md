@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: transferOut() Methode"
+title: "USBDevice: transferOut()-Methode"
 short-title: transferOut()
 slug: Web/API/USBDevice/transferOut
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`transferOut()`** Methode des {{domxref("USBDevice")}} Schnittstelle gibt ein {{jsxref("promise")}} zurück, das sich mit einem {{domxref("USBOutTransferResult")}} auflöst, wenn Bulk- oder Interrupt-Daten an das USB-Gerät gesendet werden.
+Die **`transferOut()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das mit einem [`USBOutTransferResult`](/de/docs/Web/API/USBOutTransferResult) aufgelöst wird, wenn Bulk- oder Interrupt-Daten an das USB-Gerät gesendet werden.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ transferOut(endpointNumber, data)
 - `endpointNumber`
   - : Die Nummer eines gerätespezifischen Endpunkts (Puffer).
 - `data`
-  - : Ein {{jsxref("TypedArray")}}, das die an das Gerät zu sendenden Daten enthält.
+  - : Ein {{jsxref("TypedArray")}}, das die zu sendenden Daten an das Gerät enthält.
 
 ### Rückgabewert
 
-Ein {{jsxref("promise")}}, das sich mit einem {{domxref("USBOutTransferResult")}} auflöst.
+Ein {{jsxref("promise")}}, das mit einem [`USBOutTransferResult`](/de/docs/Web/API/USBOutTransferResult) aufgelöst wird.
 
 ## Spezifikationen
 

@@ -7,20 +7,20 @@ l10n:
 
 {{CSSRef}}
 
-In CSS steuert die **Vererbung**, was passiert, wenn kein Wert für eine Eigenschaft an einem Element angegeben wird.
+In CSS steuert die **Vererbung**, was passiert, wenn für eine Eigenschaft auf einem Element kein Wert festgelegt ist.
 
 CSS-Eigenschaften können in zwei Typen kategorisiert werden:
 
-- **vererbte Eigenschaften**, die standardmäßig auf den [berechneten Wert](/de/docs/Web/CSS/computed_value) des Elternelements gesetzt sind
-- **nicht vererbte Eigenschaften**, die standardmäßig auf den [Anfangswert](/de/docs/Web/CSS/initial_value) der Eigenschaft gesetzt sind
+- **Vererbte Eigenschaften**, die standardmäßig auf den [berechneten Wert](/de/docs/Web/CSS/computed_value) des Elternelements gesetzt sind
+- **Nicht-vererbte Eigenschaften**, die standardmäßig auf den [Initialwert](/de/docs/Web/CSS/initial_value) der Eigenschaft gesetzt sind
 
-Sie können in der Definition [einer beliebigen CSS-Eigenschaft](/de/docs/Web/CSS/Reference#index) nachsehen, ob eine spezifische Eigenschaft standardmäßig vererbt wird ("Inherited: yes") oder nicht ("Inherited: no").
+Lesen Sie die Definition jeder [CSS-Eigenschaft](/de/docs/Web/CSS/Reference#index), um zu sehen, ob eine bestimmte Eigenschaft standardmäßig vererbt wird ("Inherited: yes") oder nicht ("Inherited: no").
 
 ## Vererbte Eigenschaften
 
-Wenn für eine **vererbte Eigenschaft** kein Wert an einem Element festgelegt wurde, erhält das Element den [berechneten Wert](/de/docs/Web/CSS/computed_value) dieser Eigenschaft vom Elternelement. Nur das Wurzelelement des Dokuments erhält den [Anfangswert](/de/docs/Web/CSS/initial_value), der in der Zusammenfassung der Eigenschaft angegeben ist.
+Wenn für eine **vererbte Eigenschaft** auf einem Element kein Wert festgelegt wurde, erhält das Element den [berechneten Wert](/de/docs/Web/CSS/computed_value) dieser Eigenschaft des Elternelements. Nur das Wurzelelement des Dokuments erhält den [Initialwert](/de/docs/Web/CSS/initial_value), der in der Eigenschaften-Zusammenfassung angegeben ist.
 
-Ein typisches Beispiel für eine vererbte Eigenschaft ist die [`color`](/de/docs/Web/CSS/color) Eigenschaft. Betrachten Sie die folgenden Stilregeln und das Markup:
+Ein typisches Beispiel für eine vererbte Eigenschaft ist die [`color`](/de/docs/Web/CSS/color)-Eigenschaft. Betrachten Sie die folgenden Stilregeln und das Markup:
 
 ```css
 p {
@@ -29,18 +29,18 @@ p {
 ```
 
 ```html
-<p>Dieser Absatz hat <em>betonten Text</em> darin.</p>
+<p>This paragraph has <em>emphasized text</em> in it.</p>
 ```
 
 {{EmbedLiveSample("Inherited properties","",40)}}
 
-Die Wörter "betonter Text" erscheinen grün, da das `em`-Element den Wert der [`color`](/de/docs/Web/CSS/color) Eigenschaft vom `p`-Element geerbt hat. Es erhält _nicht_ den Anfangswert der Eigenschaft (was die Farbe ist, die für das Wurzelelement verwendet wird, wenn keine Farbe auf der Seite angegeben ist).
+Die Worte "emphasized text" erscheinen grün, da das `em` Element den Wert der [`color`](/de/docs/Web/CSS/color)-Eigenschaft vom `p` Element geerbt hat. Es erhält _nicht_ den Initialwert der Eigenschaft (was die Farbe ist, die für das Wurzelelement verwendet wird, wenn die Seite keine Farbe angibt).
 
-## Nicht vererbte Eigenschaften
+## Nicht-vererbte Eigenschaften
 
-Wenn für eine **nicht vererbte Eigenschaft** kein Wert an einem Element festgelegt wurde, erhält das Element den [Anfangswert](/de/docs/Web/CSS/initial_value) dieser Eigenschaft (wie in der Zusammenfassung der Eigenschaft angegeben).
+Wenn für eine **nicht-vererbte Eigenschaft** auf einem Element kein Wert festgelegt wurde, erhält das Element den [Initialwert](/de/docs/Web/CSS/initial_value) dieser Eigenschaft (wie in der Eigenschaften-Zusammenfassung angegeben).
 
-Ein typisches Beispiel für eine nicht vererbte Eigenschaft ist die {{ Cssxref("border") }} Eigenschaft. Betrachten Sie die folgenden Stilregeln und das Markup:
+Ein typisches Beispiel für eine nicht-vererbte Eigenschaft ist die {{ Cssxref("border") }}-Eigenschaft. Betrachten Sie die folgenden Stilregeln und das Markup:
 
 ```css
 p {
@@ -49,18 +49,18 @@ p {
 ```
 
 ```html
-<p>Dieser Absatz hat <em>betonten Text</em> darin.</p>
+<p>This paragraph has <em>emphasized text</em> in it.</p>
 ```
 
 {{EmbedLiveSample("Non-inherited properties","",40)}}
 
-Die Wörter "betonter Text" werden keinen weiteren Rand haben (da der Anfangswert von [`border-style`](/de/docs/Web/CSS/border-style) `none` ist).
+Die Wörter "emphasized text" werden keinen zusätzlichen Rahmen haben (da der Initialwert von [`border-style`](/de/docs/Web/CSS/border-style) `none` ist).
 
-## Anmerkungen
+## Hinweise
 
-Das [`inherit`](/de/docs/Web/CSS/inherit) Schlüsselwort ermöglicht es Autoren, die Vererbung explizit festzulegen. Es funktioniert sowohl bei vererbten als auch bei nicht vererbten Eigenschaften.
+Das [`inherit`](/de/docs/Web/CSS/inherit)-Schlüsselwort ermöglicht es Autoren, die Vererbung explizit anzugeben. Es funktioniert sowohl bei vererbten als auch bei nicht-vererbten Eigenschaften.
 
-Sie können die Vererbung für alle Eigenschaften auf einmal mit der Kurzform-Eigenschaft [`all`](/de/docs/Web/CSS/all) steuern, die ihren Wert auf alle Eigenschaften anwendet. Zum Beispiel:
+Sie können die Vererbung für alle Eigenschaften gleichzeitig mit der [`all`](/de/docs/Web/CSS/all)-Kurzschreibweise steuern, die ihren Wert auf alle Eigenschaften anwendet. Zum Beispiel:
 
 ```css
 p {
@@ -70,11 +70,11 @@ p {
 }
 ```
 
-Dies setzt den Stil der [`font`](/de/docs/Web/CSS/font)-Eigenschaft der Absätze auf den Standard des Benutzeragenten zurück, es sei denn, es existiert ein Benutzerstylesheet, in welchem Fall dieses verwendet wird. Dann wird die Schriftgröße verdoppelt und ein [`font-weight`](/de/docs/Web/CSS/font-weight) von `"bold"` angewendet.
+Dies setzt den Stil der Schriftart des Absatzes auf den Standard des Benutzer-Agents zurück, es sei denn, es existiert ein Benutzer-Stilblatt, in welchem Fall dieses verwendet wird. Dann wird die Schriftgröße verdoppelt und eine [`font-weight`](/de/docs/Web/CSS/font-weight) von `"bold"` angewendet.
 
-### Die Vererbung überschreiben, ein Beispiel
+### Vererbung überschreiben, ein Beispiel
 
-Verwenden Sie unser vorheriges Beispiel mit [`border`](/de/docs/Web/CSS/border), setzen wir die Vererbung explizit mit `inherit`, erhalten wir Folgendes:
+Anhand unseres vorherigen Beispiels mit [`border`](/de/docs/Web/CSS/border), wenn wir die Vererbung explizit mit `inherit` setzen, erhalten wir Folgendes:
 
 ```css
 p {
@@ -87,12 +87,12 @@ em {
 ```
 
 ```html
-<p>Dieser Absatz hat <em>betonten Text</em> darin.</p>
+<p>This paragraph has <em>emphasized text</em> in it.</p>
 ```
 
 {{EmbedLiveSample("Overriding inheritance, an example","",40)}}
 
-Hier sehen wir einen weiteren Rand um das Wort "betonter Text".
+Hier sehen wir einen weiteren Rahmen um das Wort "emphasized text".
 
 ## Siehe auch
 
@@ -101,10 +101,10 @@ Hier sehen wir einen weiteren Rand um das Wort "betonter Text".
 - [Einführung in die CSS-Kaskade](/de/docs/Web/CSS/Cascade)
 - [Bausteine: die CSS-Kaskade](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance)
 - [Bausteine: Kaskadenschichten](/de/docs/Learn/CSS/Building_blocks/Cascade_layers)
-- [CSS-Kaskade und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
+- [CSS-Kaskade und Vererbung](/de/docs/Web/CSS/CSS_cascade)-Modul
 - [CSS-Syntax](/de/docs/Web/CSS/Syntax) Leitfaden
-- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax) Modul
+- [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax)-Modul
 - [At-Regeln](/de/docs/Web/CSS/At-rule)
-- [Initialwert](/de/docs/Web/CSS/initial_value), [berechneter Wert](/de/docs/Web/CSS/computed_value), [verwendeter Wert](/de/docs/Web/CSS/used_value), und [tatsächlicher Wert](/de/docs/Web/CSS/actual_value)
-- [Wert-Definitions-Syntax](/de/docs/Web/CSS/Value_definition_syntax)
-- [CSS-Nesting-Modul](/de/docs/Web/CSS/CSS_nesting)
+- [Initial](/de/docs/Web/CSS/initial_value), [berechnet](/de/docs/Web/CSS/computed_value), [benutzt](/de/docs/Web/CSS/used_value), und [tatsächliche](/de/docs/Web/CSS/actual_value) Werte
+- [Wertedefinitionssyntax](/de/docs/Web/CSS/Value_definition_syntax)
+- [CSS-Einrückungsmodul](/de/docs/Web/CSS/CSS_nesting)

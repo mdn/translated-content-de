@@ -1,5 +1,5 @@
 ---
-title: "HTMLFieldSetElement: validationMessage-Eigenschaft"
+title: "HTMLFieldSetElement: validationMessage Eigenschaft"
 short-title: validationMessage
 slug: Web/API/HTMLFieldSetElement/validationMessage
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`validationMessage`**-Eigenschaft der {{domxref("HTMLFieldSetElement")}}-Schnittstelle gibt eine Zeichenkette zurück, die eine lokalisierte Nachricht beschreibt, die die Validierungseinschränkungen angibt, die das {{htmlelement("fieldset")}}-Steuerelement nicht erfüllt (falls vorhanden). Dies ist die leere Zeichenkette, da `<fieldset>`-Elemente keine Kandidaten für die Einschränkungsvalidierung sind ({{domxref("HTMLFieldSetElement.willValidate")}} ist `false`).
+Die schreibgeschützte Eigenschaft **`validationMessage`** des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces gibt einen String zurück, der eine lokalisierte Nachricht darstellt, die die Validierungsbeschränkungen beschreibt, die das {{htmlelement("fieldset")}}-Element nicht erfüllt (falls vorhanden). Dies ist der leere String, da `<fieldset>`-Elemente keine Kandidaten für die Einschränkungsvalidierung sind ([`HTMLFieldSetElement.willValidate`](/de/docs/Web/API/HTMLFieldSetElement/willValidate) ist `false`).
 
 ## Wert
 
-Die leere Zeichenkette, `""`;
+Der leere String, `""`;
 
 ## Spezifikationen
 
@@ -25,12 +25,12 @@ Die leere Zeichenkette, `""`;
 ## Siehe auch
 
 - {{HTMLelement("fieldset")}}
-- {{domxref("HTMLFieldSetElement")}}
-- {{domxref("HTMLFieldSetElement.willValidate")}}
-- {{domxref("HTMLFieldSetElement.validity")}}
-- {{domxref("HTMLFieldSetElement.checkValidity()")}}
-- {{domxref("HTMLFieldSetElement.reportValidity()")}}
-- {{domxref("HTMLFieldSetElement.setCustomValidity()")}}
-- [Lernen: Formularvalidierung auf der Client-Seite](/de/docs/Learn/Forms/Form_validation)
+- [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)
+- [`HTMLFieldSetElement.willValidate`](/de/docs/Web/API/HTMLFieldSetElement/willValidate)
+- [`HTMLFieldSetElement.validity`](/de/docs/Web/API/HTMLFieldSetElement/validity)
+- [`HTMLFieldSetElement.checkValidity()`](/de/docs/Web/API/HTMLFieldSetElement/checkValidity)
+- [`HTMLFieldSetElement.reportValidity()`](/de/docs/Web/API/HTMLFieldSetElement/reportValidity)
+- [`HTMLFieldSetElement.setCustomValidity()`](/de/docs/Web/API/HTMLFieldSetElement/setCustomValidity)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
 - CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudo-Klassen

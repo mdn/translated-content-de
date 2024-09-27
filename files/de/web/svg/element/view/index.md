@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das `<view>` SVG-Element definiert eine bestimmte Ansicht eines SVG-Dokuments. Eine spezifische Ansicht kann angezeigt werden, indem auf das [`id`](/de/docs/Web/HTML/Global_attributes/id) des `<view>`-Elements als Ziel-Fragment einer URL verwiesen wird.
+Das `<view>` SVG-Element definiert eine bestimmte Ansicht eines SVG-Dokuments. Eine bestimmte Ansicht kann angezeigt werden, indem auf das [`id`](/de/docs/Web/HTML/Global_attributes/id) des `<view>`-Elements als Ziel-Fragment einer URL verwiesen wird.
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -52,12 +52,12 @@ Das `<view>` SVG-Element definiert eine bestimmte Ansicht eines SVG-Dokuments. E
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGViewElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGViewElement`](/de/docs/Web/API/SVGViewElement) Schnittstelle.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

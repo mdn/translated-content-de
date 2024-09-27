@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{SecureContext_Header}}
 
-Die **`getSupportedConstraints()`**-Methode der {{domxref("MediaDevices")}}-Schnittstelle gibt ein Objekt basierend auf dem {{domxref("MediaTrackSupportedConstraints")}}-Wörterbuch zurück, dessen Felder jeweils eine der einschränkbaren Eigenschaften spezifizieren, die der {{Glossary("Benutzeragent")}} versteht.
+Die **`getSupportedConstraints()`**-Methode der [`MediaDevices`](/de/docs/Web/API/MediaDevices)-Schnittstelle gibt ein Objekt auf Grundlage des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs zurück, dessen Mitgliedsfelder jeweils eine der einschränkbaren Eigenschaften angeben, die der [User Agent](/de/docs/Glossary/user_agent) versteht.
 
 ## Syntax
 
@@ -22,15 +22,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt basierend auf dem {{domxref("MediaTrackSupportedConstraints")}}-Wörterbuch, das die vom Benutzeragenten unterstützten Einschränkungen auflistet.
-Da nur vom Benutzeragenten unterstützte Einschränkungen in die Liste aufgenommen werden, hat jede dieser Booleschen Eigenschaften den Wert `true`.
+Ein neues Objekt basierend auf dem [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuch, das die vom User Agent unterstützten Einschränkungen auflistet. Da nur vom User Agent unterstützte Einschränkungen in der Liste enthalten sind, hat jede dieser booleschen Eigenschaften den Wert `true`.
 
 ## Beispiele
 
 Dieses Beispiel gibt eine Liste der von Ihrem Browser unterstützten Einschränkungen aus.
 
 ```html hidden
-<p>Die folgenden Medieneinschränkungen werden von Ihrem Browser unterstützt:</p>
+<p>The following media constraints are supported by your browser:</p>
 
 <ul id="constraintList"></ul>
 ```

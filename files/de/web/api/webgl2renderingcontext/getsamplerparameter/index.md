@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.getSamplerParameter()`** Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt Parameterinformationen eines {{domxref("WebGLSampler")}} Objekts zurück.
+Die **`WebGL2RenderingContext.getSamplerParameter()`**-Methode
+der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt Parameterinformationen eines [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekts zurück.
 
 ## Syntax
 
@@ -19,24 +20,24 @@ getSamplerParameter(sampler, pname)
 ### Parameter
 
 - `sampler`
-  - : Ein {{domxref("WebGLSampler")}} Objekt.
+  - : Ein [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt.
 - `pname`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das angibt, welche Informationen zurückgegeben werden sollen. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welche Informationen zurückgegeben werden sollen. Mögliche Werte:
 
-    - `gl.TEXTURE_COMPARE_FUNC`: Gibt ein {{domxref("WebGL_API/Types", "GLenum")}} zurück, das die Texturvergleichsfunktion angibt.
-    - `gl.TEXTURE_COMPARE_MODE`: Gibt ein {{domxref("WebGL_API/Types", "GLenum")}} zurück, das den Texturvergleichsmodus angibt.
-    - `gl.TEXTURE_MAG_FILTER`: Gibt ein {{domxref("WebGL_API/Types", "GLenum")}} zurück, das den Texturvergrößerungsfilter angibt.
-    - `gl.TEXTURE_MAX_LOD`: Gibt ein {{domxref("WebGL_API/Types", "GLfloat")}} zurück, das den maximalen Level-of-Detail-Wert angibt.
-    - `gl.TEXTURE_MIN_FILTER`: Gibt ein {{domxref("WebGL_API/Types", "GLenum")}} zurück, das den Texturverkleinerungsfilter angibt.
-    - `gl.TEXTURE_MIN_LOD`: Gibt ein {{domxref("WebGL_API/Types", "GLfloat")}} zurück, das den minimalen Level-of-Detail-Wert angibt.
-    - `gl.TEXTURE_WRAP_R`: Gibt ein {{domxref("WebGL_API/Types", "GLenum")}} zurück, das die Texturwickelfunktion für die Texturkoordinate r angibt.
-    - `gl.TEXTURE_WRAP_S`: Gibt ein {{domxref("WebGL_API/Types", "GLenum")}} zurück, das die Texturwickelfunktion für die Texturkoordinate s angibt.
-    - `gl.TEXTURE_WRAP_T`: Gibt ein {{domxref("WebGL_API/Types", "GLenum")}} zurück, das die Texturwickelfunktion für die Texturkoordinate t angibt.
+    - `gl.TEXTURE_COMPARE_FUNC`: Gibt einen [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Texturvergleichsfunktion angibt.
+    - `gl.TEXTURE_COMPARE_MODE`: Gibt einen [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, der den Texturvergleichsmodus angibt.
+    - `gl.TEXTURE_MAG_FILTER`: Gibt einen [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, der den Texturvergrößerungsfilter angibt.
+    - `gl.TEXTURE_MAX_LOD`: Gibt einen [`GLfloat`](/de/docs/Web/API/WebGL_API/Types) zurück, der den maximalen Detailgradwert angibt.
+    - `gl.TEXTURE_MIN_FILTER`: Gibt einen [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, der den Texturverkleinerungsfilter angibt.
+    - `gl.TEXTURE_MIN_LOD`: Gibt einen [`GLfloat`](/de/docs/Web/API/WebGL_API/Types) zurück, der den minimalen Detailgradwert angibt.
+    - `gl.TEXTURE_WRAP_R`: Gibt einen [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Texturwickelfunktion für die Texturkoordinate r angibt.
+    - `gl.TEXTURE_WRAP_S`: Gibt einen [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Texturwickelfunktion für die Texturkoordinate s angibt.
+    - `gl.TEXTURE_WRAP_T`: Gibt einen [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Texturwickelfunktion für die Texturkoordinate t angibt.
 
 ### Rückgabewert
 
-Hängt vom `pname` Parameter ab, entweder ein {{domxref("WebGL_API/Types", "GLenum")}} oder ein {{domxref("WebGL_API/Types", "GLfloat")}}.
+Abhängig vom Parameter `pname`, entweder ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) oder ein [`GLfloat`](/de/docs/Web/API/WebGL_API/Types).
 
 ## Beispiele
 
@@ -55,4 +56,4 @@ gl.getSamplerParameter(sampler, gl.TEXTURE_COMPARE_FUNC);
 
 ## Siehe auch
 
-- {{domxref("WebGLSampler")}}
+- [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)

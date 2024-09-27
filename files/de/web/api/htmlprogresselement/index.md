@@ -7,26 +7,26 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLProgressElement`**-Schnittstelle bietet spezielle Eigenschaften und Methoden (zusätzlich zu der regulären {{domxref("HTMLElement")}}-Schnittstelle, die sie durch Vererbung ebenfalls zur Verfügung hat) zur Manipulation des Layouts und der Darstellung von {{HTMLElement("progress")}}-Elementen.
+Die **`HTMLProgressElement`**-Schnittstelle bietet spezielle Eigenschaften und Methoden (über die reguläre [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle hinaus, die ihr durch Vererbung ebenfalls zur Verfügung steht) zur Manipulation des Layouts und der Präsentation von {{HTMLElement("progress")}}-Elementen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLProgressElement.max")}}
-  - : Ein `double`-Wert, der das Inhaltsattribut mit demselben Namen widerspiegelt, begrenzt auf Zahlen größer als Null. Der Standardwert ist `1.0`.
-- {{domxref("HTMLProgressElement.position")}} {{ReadOnlyInline}}
-  - : Gibt einen `double`-Wert zurück, der das Ergebnis der Division des aktuellen Wertes (`value`) durch den Maximalwert (`max`) darstellt; wenn die Fortschrittsleiste eine unbestimmte Fortschrittsleiste ist, gibt sie `-1` zurück.
-- {{domxref("HTMLProgressElement.value")}}
-  - : Ein `double`-Wert, der den aktuellen Wert widerspiegelt; wenn die Fortschrittsleiste eine unbestimmte Fortschrittsleiste ist, gibt sie `0` zurück.
-- {{domxref("HTMLProgressElement.labels")}} {{ReadOnlyInline}}
-  - : Gibt {{domxref("NodeList")}} zurück, die die Liste der {{HTMLElement("label")}}-Elemente enthält, die Beschriftungen für dieses Element sind.
+- [`HTMLProgressElement.max`](/de/docs/Web/API/HTMLProgressElement/max)
+  - : Ein `double`-Wert, der das Inhaltsattribut mit demselben Namen widerspiegelt, beschränkt auf Zahlen größer als Null. Sein Standardwert ist `1.0`.
+- [`HTMLProgressElement.position`](/de/docs/Web/API/HTMLProgressElement/position) {{ReadOnlyInline}}
+  - : Gibt einen `double`-Wert zurück, der sich aus der Division des aktuellen Wertes (`value`) durch den Maximalwert (`max`) ergibt; wenn die Fortschrittsanzeige eine indeterminierte Fortschrittsanzeige ist, gibt sie `-1` zurück.
+- [`HTMLProgressElement.value`](/de/docs/Web/API/HTMLProgressElement/value)
+  - : Ein `double`-Wert, der den aktuellen Wert widerspiegelt; wenn die Fortschrittsanzeige eine indeterminierte Fortschrittsanzeige ist, gibt sie `0` zurück.
+- [`HTMLProgressElement.labels`](/de/docs/Web/API/HTMLProgressElement/labels) {{ReadOnlyInline}}
+  - : Gibt eine [`NodeList`](/de/docs/Web/API/NodeList) zurück, die die Liste von {{HTMLElement("label")}}-Elementen enthält, die Labels für dieses Element sind.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, {{domxref("HTMLElement")}}._
+_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 

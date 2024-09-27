@@ -1,5 +1,5 @@
 ---
-title: "Auswahl: Eigenschaft anchorNode"
+title: "Selection: anchorNode-Eigenschaft"
 short-title: anchorNode
 slug: Web/API/Selection/anchorNode
 l10n:
@@ -8,13 +8,18 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`Selection.anchorNode`** gibt den {{domxref("Node")}} zurück, in dem die Auswahl beginnt.
+Die schreibgeschützte Eigenschaft **`Selection.anchorNode`** gibt den
+[`Node`](/de/docs/Web/API/Node) zurück, in dem die Auswahl beginnt.
 
-Ein Benutzer kann eine Auswahl von links nach rechts (in Dokumentreihenfolge) oder von rechts nach links (umgekehrte Dokumentreihenfolge) vornehmen. Der Anker ist der Punkt, an dem der Benutzer die Auswahl begonnen hat. Dies kann veranschaulicht werden, indem die Umschalttaste gehalten und die Pfeiltasten auf Ihrer Tastatur gedrückt werden. Der Anker der Auswahl bewegt sich nicht, jedoch bewegt sich der Fokus der Auswahl, das andere Ende der Auswahl.
+Ein Benutzer kann eine Auswahl von links nach rechts (in Dokumentreihenfolge) oder von rechts nach links
+(umgekehrte Dokumentreihenfolge) treffen. Der Anker ist der Punkt, an dem der Benutzer die Auswahl begonnen hat. Dies
+kann visualisiert werden, indem Sie die Umschalttaste gedrückt halten und die Pfeiltasten auf Ihrer Tastatur drücken. Der
+Anker der Auswahl bewegt sich nicht, aber der Fokus der Auswahl, das andere Ende der
+Auswahl, bewegt sich.
 
 ## Wert
 
-Ein {{domxref("Node")}}-Objekt.
+Ein [`Node`](/de/docs/Web/API/Node)-Objekt.
 
 ## Spezifikationen
 
@@ -26,4 +31,4 @@ Ein {{domxref("Node")}}-Objekt.
 
 ## Siehe auch
 
-- {{domxref("Selection")}}, die Schnittstelle, zu der es gehört.
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der es gehört.

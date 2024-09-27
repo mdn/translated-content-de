@@ -9,7 +9,7 @@ l10n:
 {{APIRef("WebGL")}}
 
 Die **`WebGLRenderingContext.bindTexture()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) bindet eine gegebene
-{{domxref("WebGLTexture")}} an ein Ziel (Bindepunkt).
+[`WebGLTexture`](/de/docs/Web/API/WebGLTexture) an ein Ziel (Bindungspunkt).
 
 ## Syntax
 
@@ -21,10 +21,10 @@ bindTexture(target, texture)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Bindepunkt (Ziel) spezifiziert. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) angibt. Mögliche Werte:
 
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
-    - `gl.TEXTURE_CUBE_MAP`: Eine Cube-Map-Textur.
+    - `gl.TEXTURE_CUBE_MAP`: Eine Würfelkartierungstextur.
       Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontext", "", 1)}}
       sind zusätzlich folgende Werte verfügbar:
 
@@ -32,7 +32,7 @@ bindTexture(target, texture)
       - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
 
 - `texture`
-  - : Ein {{domxref("WebGLTexture")}}-Objekt zum Binden.
+  - : Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt, das gebunden werden soll.
 
 ### Rückgabewert
 
@@ -40,7 +40,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Ein `gl.INVALID_ENUM`-Fehler wird ausgelöst, wenn `target` nicht
+Ein `gl.INVALID_ENUM`-Fehler wird ausgegeben, wenn `target` nicht
 `gl.TEXTURE_2D`, `gl.TEXTURE_CUBE_MAP`,
 `gl.TEXTURE_3D` oder `gl.TEXTURE_2D_ARRAY` ist.
 
@@ -56,10 +56,10 @@ const texture = gl.createTexture();
 gl.bindTexture(gl.TEXTURE_2D, texture);
 ```
 
-### Aktuelle Bindungen abrufen
+### Abrufen der aktuellen Bindungen
 
-Um die aktuelle Texturbindung zu überprüfen, fragen Sie die `gl.TEXTURE_BINDING_2D` oder
-`gl.TEXTURE_BINDING_CUBE_MAP` Konstanten ab.
+Um die aktuelle Texturbindung zu überprüfen, fragen Sie die Konstanten `gl.TEXTURE_BINDING_2D` oder
+`gl.TEXTURE_BINDING_CUBE_MAP` ab.
 
 ```js
 gl.getParameter(gl.TEXTURE_BINDING_2D);
@@ -75,7 +75,7 @@ gl.getParameter(gl.TEXTURE_BINDING_2D);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.createTexture()")}}
-- {{domxref("WebGLRenderingContext.deleteTexture()")}}
-- {{domxref("WebGLRenderingContext.isTexture()")}}
-- {{domxref("WebGLRenderingContext.texImage2D()")}}
+- [`WebGLRenderingContext.createTexture()`](/de/docs/Web/API/WebGLRenderingContext/createTexture)
+- [`WebGLRenderingContext.deleteTexture()`](/de/docs/Web/API/WebGLRenderingContext/deleteTexture)
+- [`WebGLRenderingContext.isTexture()`](/de/docs/Web/API/WebGLRenderingContext/isTexture)
+- [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D)

@@ -13,7 +13,7 @@ Die **`SVGTextPathElement`** Schnittstelle entspricht dem {{SVGElement("textPath
 
 ## Konstanten
 
-### Methodenarten
+### Methodentypen
 
 <table class="no-markdown">
   <tbody>
@@ -26,9 +26,7 @@ Die **`SVGTextPathElement`** Schnittstelle entspricht dem {{SVGElement("textPath
       <td><code>TEXTPATH_METHODTYPE_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig zu
-        versuchen, einen neuen Wert dieses Typs zu definieren oder einen
-        bestehenden Wert auf diesen Typ zu ändern.
+        Der Typ gehört nicht zu den vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert auf diesen Typ zu ändern.
       </td>
     </tr>
     <tr>
@@ -57,9 +55,7 @@ Die **`SVGTextPathElement`** Schnittstelle entspricht dem {{SVGElement("textPath
       <td><code>TEXTPATH_SPACINGTYPE_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig zu
-        versuchen, einen neuen Wert dieses Typs zu definieren oder einen
-        bestehenden Wert auf diesen Typ zu ändern.
+        Der Typ gehört nicht zu den vordefinierten Typen. Es ist ungültig, zu versuchen, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert auf diesen Typ zu ändern.
       </td>
     </tr>
     <tr>
@@ -75,28 +71,28 @@ Die **`SVGTextPathElement`** Schnittstelle entspricht dem {{SVGElement("textPath
   </tbody>
 </table>
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrer übergeordneten Schnittstelle, {{domxref("SVGTextContentElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrer Elternschnittstelle, [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)._
 
-- {{domxref("SVGTextPathElement.href")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedString")}}, das dem {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}} Attribut des gegebenen Elements entspricht.
-- {{domxref("SVGTextPathElement.startOffset")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, das der X-Komponente des {{SVGAttr("startOffset")}} Attributs des gegebenen Elements entspricht.
-- {{domxref("SVGTextPathElement.method")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedEnumeration")}}, das dem {{SVGAttr("method")}} Attribut des gegebenen Elements entspricht. Es nimmt einen der `TEXTPATH_METHODTYPE_*` Konstanten an, die in dieser Schnittstelle definiert sind.
-- {{domxref("SVGTextPathElement.spacing")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedEnumeration")}}, das dem {{SVGAttr("spacing")}} Attribut des gegebenen Elements entspricht. Es nimmt einen der `TEXTPATH_SPACINGTYPE_*` Konstanten an, die in dieser Schnittstelle definiert sind.
+- [`SVGTextPathElement.href`](/de/docs/Web/API/SVGTextPathElement/href) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString), das dem {{SVGAttr("href")}} oder {{SVGAttr("xlink:href")}} {{deprecated_inline}} Attribut des angegebenen Elements entspricht.
+- [`SVGTextPathElement.startOffset`](/de/docs/Web/API/SVGTextPathElement/startOffset) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das der X-Komponente des {{SVGAttr("startOffset")}} Attributs des angegebenen Elements entspricht.
+- [`SVGTextPathElement.method`](/de/docs/Web/API/SVGTextPathElement/method) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("method")}} Attribut des angegebenen Elements entspricht. Es nimmt einen der auf dieser Schnittstelle definierten `TEXTPATH_METHODTYPE_*` Konstanten an.
+- [`SVGTextPathElement.spacing`](/de/docs/Web/API/SVGTextPathElement/spacing) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration), das dem {{SVGAttr("spacing")}} Attribut des angegebenen Elements entspricht. Es nimmt einen der auf dieser Schnittstelle definierten `TEXTPATH_SPACINGTYPE_*` Konstanten an.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert jedoch die ihres übergeordneten Elements, {{domxref("SVGTextContentElement")}}._
+_Diese Schnittstelle bietet keine spezifischen Methoden, implementiert aber die ihrer Elternschnittstelle, [`SVGTextContentElement`](/de/docs/Web/API/SVGTextContentElement)._
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

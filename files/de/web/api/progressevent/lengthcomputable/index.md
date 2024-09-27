@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}}
 
-Die schreibgeschützte Eigenschaft **`ProgressEvent.lengthComputable`** ist ein boolesches Flag, das angibt, ob die Ressource, die vom {{domxref("ProgressEvent")}} betroffen ist, eine berechenbare Länge hat. Falls nicht, hat die Eigenschaft {{domxref("ProgressEvent.total")}} keinen signifikanten Wert.
+Die schreibgeschützte Eigenschaft **`ProgressEvent.lengthComputable`** ist eine boolesche Kennzeichnung, die angibt, ob die Ressource, die vom [`ProgressEvent`](/de/docs/Web/API/ProgressEvent) betroffen ist, eine berechenbare Länge hat. Wenn dies nicht der Fall ist, hat die Eigenschaft [`ProgressEvent.total`](/de/docs/Web/API/ProgressEvent/total) keinen signifikanten Wert.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein boolean.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Das {{domxref("ProgressEvent")}}-Interface, zu dem es gehört.
+- Das [`ProgressEvent`](/de/docs/Web/API/ProgressEvent)-Interface, zu dem es gehört.

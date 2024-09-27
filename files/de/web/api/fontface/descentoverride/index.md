@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`descentOverride`**-Eigenschaft der {{domxref("FontFace")}}-Schnittstelle gibt den Wert des {{cssxref("@font-face/descent-override")}}-Deskriptors zurück und setzt ihn. Die möglichen Werte sind `normal`, was bedeutet, dass der zu verwendende Wert aus der Schriftartdatei entnommen werden soll, oder ein Prozentsatz.
+Die **`descentOverride`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces gibt den Wert des {{cssxref("@font-face/descent-override")}}-Descriptors zurück oder setzt diesen. Die möglichen Werte sind `normal`, was bedeutet, dass die Metrik aus der Schriftdatei entnommen werden sollte, oder ein Prozentsatz.
 
 ## Wert
 

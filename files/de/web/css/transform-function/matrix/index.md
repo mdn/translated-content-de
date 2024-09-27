@@ -7,16 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Die **`matrix()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine homogene 2D-Transformationsmatrix. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`matrix()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine homogene 2D-Transformationsmatrix. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-matrix.html")}}
 
-> **Note:** `matrix(a, b, c, d, tx, ty)` ist eine Kurzform für
-> `matrix3d(a, b, 0, 0, c, d, 0, 0, 0, 0, 1, 0, tx, ty, 0, 1)`.
+> **Note:** `matrix(a, b, c, d, tx, ty)` ist eine Kurzform für `matrix3d(a, b, 0, 0, c, d, 0, 0, 0, 0, 1, 0, tx, ty, 0, 1)`.
 
 ## Syntax
 
-Die `matrix()`-Funktion wird mit sechs Werten angegeben. Die konstanten Werte sind impliziert und werden nicht als Parameter übergeben; die anderen Parameter sind in spaltenmajorer Reihenfolge beschrieben.
+Die `matrix()` Funktion wird mit sechs Werten spezifiziert. Die konstanten Werte sind implizit und werden nicht als Parameter übergeben; die anderen Parameter werden in spaltenmajorer Reihenfolge beschrieben.
 
 ```css
 matrix(a, b, c, d, tx, ty)
@@ -67,8 +66,7 @@ matrix(a, b, c, d, tx, ty)
   </tbody>
 </table>
 
-Die Werte repräsentieren die folgenden Funktionen:
-`matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())`
+Die Werte repräsentieren die folgenden Funktionen: `matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())`
 
 ## Beispiele
 
@@ -102,7 +100,7 @@ div {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

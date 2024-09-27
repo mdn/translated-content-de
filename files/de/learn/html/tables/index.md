@@ -7,27 +7,27 @@ l10n:
 
 {{LearnSidebar}}
 
-Eine sehr häufige Aufgabe in HTML ist die Strukturierung tabellarischer Daten, und es gibt eine Reihe von Elementen und Attributen, die genau dafür gedacht sind. In Kombination mit ein wenig [CSS](/de/docs/Learn/CSS) für das Styling macht HTML es einfach, Tabellen mit Informationen im Web anzuzeigen, wie beispielsweise Ihren Schulstundenplan, den Fahrplan Ihres örtlichen Schwimmbads oder Statistiken über Ihre Lieblingsdinosaurier oder Fußballmannschaft. Dieses Modul führt Sie durch alles, was Sie über die Strukturierung tabellarischer Daten mit HTML wissen müssen.
+Eine sehr häufige Aufgabe in HTML ist das Strukturieren von Tabellendaten, und dafür gibt es eine Reihe von Elementen und Attributen. In Kombination mit etwas [CSS](/de/docs/Learn/CSS) zum Stylen macht es HTML einfach, Tabellen mit Informationen im Web darzustellen, wie z.B. Ihren Stundenplan in der Schule, den Zeitplan in Ihrem örtlichen Schwimmbad oder Statistiken zu Ihren Lieblingsdinosauriern oder Ihrer Fußballmannschaft. Dieses Modul führt Sie durch alles, was Sie über das Strukturieren von Tabellendaten mittels HTML wissen müssen.
 
 ## Voraussetzungen
 
-Bevor Sie mit diesem Modul beginnen, sollten Sie bereits die Grundlagen von HTML behandelt haben – siehe [Einführung in HTML](/de/docs/Learn/HTML/Introduction_to_HTML).
+Bevor Sie mit diesem Modul beginnen, sollten Sie bereits die Grundlagen von HTML behandelt haben — siehe [Einführung in HTML](/de/docs/Learn/HTML/Introduction_to_HTML).
 
 > [!NOTE]
-> Wenn Sie an einem Computer/Tablet/anderen Gerät arbeiten, auf dem Sie nicht die Möglichkeit haben, eigene Dateien zu erstellen, könnten Sie (die meisten) Codebeispiele in einem Online-Coding-Programm wie [JSBin](https://jsbin.com/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Wenn Sie an einem Computer/Tablet/anderen Gerät arbeiten, auf dem Sie nicht die Möglichkeit haben, eigene Dateien zu erstellen, können Sie (die meisten) Code-Beispiele in einem Online-Coding-Programm wie [JSBin](https://jsbin.com/) oder [Glitch](https://glitch.com/) ausprobieren.
 
-## Anleitungen
+## Leitfäden
 
-Dieses Modul enthält die folgenden Artikel, die Sie durch alle Grundlagen der Erstellung von Tabellen in HTML führen.
+Dieses Modul enthält die folgenden Artikel, die Sie durch alle Grundlagen des Erstellens von Tabellen in HTML führen.
 
-- [Grundlagen von HTML-Tabellen](/de/docs/Learn/HTML/Tables/Basics)
-  - : Dieser Artikel bringt Ihnen den Umgang mit HTML-Tabellen näher und behandelt die absoluten Grundlagen wie Zeilen und Zellen, Überschriften, das Spannen von Zellen über mehrere Spalten und Zeilen sowie wie man alle Zellen in einer Spalte für Styling-Zwecke gruppiert.
-- [Fortgeschrittene Funktionen und Barrierefreiheit von HTML-Tabellen](/de/docs/Learn/HTML/Tables/Advanced)
-  - : Dieser Artikel behandelt einige fortgeschrittene Funktionen von HTML-Tabellen – wie Beschreibungen/Zusammenfassungen und das Gruppieren Ihrer Zeilen in Kopf-, Körper- und Fußzeilenbereiche – und betrachtet auch die Barrierefreiheit von Tabellen für sehbehinderte Benutzer.
+- [HTML-Tabellen-Grundlagen](/de/docs/Learn/HTML/Tables/Basics)
+  - : Dieser Artikel bringt Sie in die Grundlagen von HTML-Tabellen ein, wie zum Beispiel Zeilen und Zellen, Überschriften, das Spannen von Zellen über mehrere Spalten und Zeilen sowie das Gruppieren von Zellen in einer Spalte zu Stilisierungszwecken.
+- [HTML-Tabellen erweiterte Funktionen und Barrierefreiheit](/de/docs/Learn/HTML/Tables/Advanced)
+  - : Dieser Artikel befasst sich mit einigen fortgeschritteneren Funktionen von HTML-Tabellen – wie Überschriften/Zusammenfassungen und das Gruppieren Ihrer Zeilen in Kopf-, Körper- und Fußbereiche der Tabelle – sowie mit der Barrierefreiheit von Tabellen für sehbehinderte Benutzer.
 
 ## Bewertungen
 
-Die folgende Bewertung wird Ihr Verständnis der in den obigen Anleitungen behandelten Techniken für HTML-Tabellen prüfen.
+Die folgende Bewertung wird Ihr Verständnis der in den obigen Leitfäden behandelten HTML-Tabellentechniken testen.
 
 - [Strukturierung von Planetendaten](/de/docs/Learn/HTML/Tables/Structuring_planet_data)
-  - : In unserer Tabellenbewertung stellen wir Ihnen einige Daten über die Planeten in unserem Sonnensystem zur Verfügung und fordern Sie auf, diese in einer HTML-Tabelle zu strukturieren.
+  - : In unserer Tabellenbewertung stellen wir Ihnen einige Daten zu den Planeten in unserem Sonnensystem zur Verfügung und bitten Sie, diese in einer HTML-Tabelle zu strukturieren.

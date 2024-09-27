@@ -8,23 +8,23 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLElement.offsetWidth`** schreibgeschützte Eigenschaft gibt die Layoutbreite eines Elements als Ganzzahl zurück.
+Die schreibgeschützte Eigenschaft **`HTMLElement.offsetWidth`** gibt die Layout-Breite eines Elements als Ganzzahl zurück.
 
-Typischerweise ist `offsetWidth` eine Messung in Pixeln der CSS-Breite des Elements, einschließlich aller Rahmen, Polsterungen und vertikalen Scrollbalken (falls gerendert). Es enthält nicht die Breite von Pseudo-Elementen wie `::before` oder `::after`.
+Typischerweise ist `offsetWidth` ein Maß in Pixeln der CSS-Breite des Elements, einschließlich jeglicher Rahmen, Auffüllung und vertikaler Bildlaufleisten (falls angezeigt). Es schließt nicht die Breite von Pseudo-Elementen wie `::before` oder `::after` ein.
 
-Wenn das Element ausgeblendet ist (zum Beispiel, indem `style.display` auf das Element oder einen seiner Vorfahren auf `"none"` gesetzt wird), wird `0` zurückgegeben.
+Wenn das Element versteckt ist (zum Beispiel durch das Setzen von `style.display` auf dem Element oder einem seiner Vorfahren auf `"none"`), wird `0` zurückgegeben.
 
 ## Wert
 
-Ein Ganzzahl-Wert, der dem Pixelwert von `offsetWidth` des Elements entspricht. Die `offsetWidth`-Eigenschaft ist schreibgeschützt.
+Eine Ganzzahl, die dem `offsetWidth`-Pixelwert des Elements entspricht. Die Eigenschaft `offsetWidth` ist schreibgeschützt.
 
 > [!NOTE]
-> Diese Eigenschaft rundet den Wert auf eine Ganzzahl. Wenn Sie einen Bruchwert benötigen, verwenden Sie
-> {{ domxref("element.getBoundingClientRect()") }}.
+> Diese Eigenschaft wird den Wert auf eine Ganzzahl runden. Wenn Sie einen Bruchwert benötigen, verwenden Sie
+> [`element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect).
 
 ## Beispiele
 
-![Ein Beispiel eines Elements mit großen Abständen, Rahmen und Rändern. `offsetWidth` ist die Layoutbreite des Elements einschließlich seiner Polsterung und seines Rahmens, jedoch ohne seinen Rand.](dimensions-offset.png)
+![Ein Beispiel-Element mit großer Auffüllung, Rahmen und Rand. `offsetWidth` ist die Layout-Breite des Elements einschließlich seiner Auffüllung und seines Rahmens, und ohne seinen Rand.](dimensions-offset.png)
 
 ## Spezifikationen
 
@@ -36,6 +36,6 @@ Ein Ganzzahl-Wert, der dem Pixelwert von `offsetWidth` des Elements entspricht. 
 
 ## Siehe auch
 
-- {{domxref("Element.clientWidth")}}
-- {{domxref("Element.scrollWidth")}}
+- [`Element.clientWidth`](/de/docs/Web/API/Element/clientWidth)
+- [`Element.scrollWidth`](/de/docs/Web/API/Element/scrollWidth)
 - [Bestimmung der Dimensionen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)

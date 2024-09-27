@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`formatToParts()`** Methode von {{jsxref("Intl.RelativeTimeFormat")}} Instanzen gibt ein {{jsxref("Array")}} von Objekten zurück, die das relative Zeitformat in Teilen darstellen und für benutzerdefinierte lokalisierte Formatierungen verwendet werden können.
+Die Methode **`formatToParts()`** von {{jsxref("Intl.RelativeTimeFormat")}}-Instanzen gibt ein {{jsxref("Array")}} von Objekten zurück, das die relative Zeitformatierung in Teile aufteilt, die für benutzerdefinierte, lokalisierungsbewusste Formatierungen verwendet werden können.
 
 {{EmbedInteractiveExample("pages/js/intl-relativetimeformat-prototype-formattoparts.html")}}
 
@@ -20,17 +20,17 @@ formatToParts(value, unit)
 ### Parameter
 
 - `value`
-  - : Numerischer Wert, der in der internationalisierten relativen Zeitnachricht verwendet werden soll.
+  - : Numerischer Wert, der in der internationalisierten relativen Zeitnachricht verwendet wird.
 - `unit`
-  - : Einheit, die in der internationalisierten relativen Zeitnachricht verwendet werden soll. Mögliche Werte sind: `"year"`, `"quarter"`, `"month"`, `"week"`, `"day"`, `"hour"`, `"minute"`, `"second"`. Auch Pluralformen sind zulässig.
+  - : Einheit, die in der internationalisierten relativen Zeitnachricht verwendet wird. Mögliche Werte sind: `"year"`, `"quarter"`, `"month"`, `"week"`, `"day"`, `"hour"`, `"minute"`, `"second"`. Auch Pluralformen sind erlaubt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, die die formatierte relative Zeit in Teilen enthalten.
+Ein {{jsxref("Array")}} von Objekten, das die formatierte relative Zeit in Teilen enthält.
 
 ## Beschreibung
 
-Die Methode `Intl.RelativeTimeFormat.prototype.formatToParts` ist eine Version der Format-Methode, welche ein Array von Objekten zurückgibt, die "Teile" des Objekts repräsentieren. Dabei wird die formatierte Nummer in ihre Bestandteile getrennt und von anderem umliegendem Text getrennt. Diese Objekte haben zwei Eigenschaften: type, ein `NumberFormat` formatToParts Typ, und value, welches der String ist, der die Komponente der Ausgabe darstellt. Wenn ein "Teil" von `NumberFormat` stammt, enthält er eine Unit-Eigenschaft, die die formatierte Einheit angibt; Literale, die Teil des größeren Rahmens sind, haben diese Eigenschaft nicht.
+Die Methode `Intl.RelativeTimeFormat.prototype.formatToParts` ist eine Version der Formatmethode, die ein Array von Objekten zurückgibt, welche "Teile" des Objekts darstellen und die formatierte Zahl in ihre Bestandteile zerlegen und von anderem umgebenden Text trennen. Diese Objekte haben zwei Eigenschaften: `type`, ein `NumberFormat` formatToParts-Typ, und `value`, welches die Zeichenkette ist, die die Komponente der Ausgabe darstellt. Wenn ein "Teil" von `NumberFormat` kam, wird er eine `unit`-Eigenschaft haben, die die formatierte Einheit angibt; Literale, die Teil des größeren Rahmens sind, werden diese Eigenschaft nicht haben.
 
 ## Beispiele
 
@@ -39,7 +39,7 @@ Die Methode `Intl.RelativeTimeFormat.prototype.formatToParts` ist eine Version d
 ```js
 const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
 
-// Relative Zeit mit der Tageseinheit formatieren
+// Format relative time using the day unit
 rtf.formatToParts(-1, "day");
 // [{ type: "literal", value: "yesterday"}]
 

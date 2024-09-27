@@ -8,18 +8,18 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`maxLength`**-Eigenschaft der {{domxref("HTMLInputElement")}}-Schnittstelle gibt die maximale Anzahl von Zeichen (in UTF-16-Codeeinheiten) an, die in den Wert des {{HTMLElement("input")}}-Elements eingegeben werden dürfen, sowie die maximale Anzahl von Zeichen, die für einen gültigen Wert erlaubt sind. Sie spiegelt das [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength)-Attribut des Elements wider. `-1` bedeutet, dass es keine Begrenzung für die Länge des Werts gibt.
+Die **`maxLength`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt die maximale Anzahl von Zeichen (in UTF-16 Codeeinheiten) an, die für den Wert des {{HTMLElement("input")}}-Elements eingegeben werden dürfen, und die maximale Anzahl von Zeichen, die für den Wert gültig sind. Sie spiegelt das [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength)-Attribut des Elements wider. `-1` bedeutet, dass keine Begrenzung der Wertelänge existiert.
 
 > [!NOTE]
-> Browser verhindern in der Regel, dass Benutzer mehr Zeichen eingeben, als das `maxlength`-Attribut erlaubt. Sollte die Länge überschritten werden, wird das Element als ungültig betrachtet und die {{domxref("ValidityState")}}-Eigenschaft {{domxref("ValidityState.tooLong", "tooLong")}} wird auf `true` gesetzt.
+> Browser verhindern im Allgemeinen, dass Benutzer mehr Zeichen eingeben, als das `maxlength`-Attribut erlaubt. Sollte die Länge länger sein, wird das Element als ungültig betrachtet, und die [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt-Eigenschaft [`tooLong`](/de/docs/Web/API/ValidityState/tooLong) wird `true` sein.
 
 ## Wert
 
-Eine Zahl, die das `maxlength` des Elements darstellt, falls vorhanden, oder `-1`.
+Eine Zahl, die das `maxlength` des Elements repräsentiert, falls vorhanden, oder `-1`.
 
 ## Beispiel
 
-Gegeben sei der folgende HTML-Code:
+Bei folgendem HTML:
 
 ```html
 <p>
@@ -46,6 +46,6 @@ inputElement.maxLength = 18; // updates the element's maxlength attribute value
 
 ## Siehe auch
 
-- {{domxref("HTMLInputElement.value")}}
-- {{domxref("HTMLInputElement.minLength")}}
-- {{domxref("ValidityState.tooLong")}}
+- [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value)
+- [`HTMLInputElement.minLength`](/de/docs/Web/API/HTMLInputElement/minLength)
+- [`ValidityState.tooLong`](/de/docs/Web/API/ValidityState/tooLong)

@@ -1,5 +1,5 @@
 ---
-title: "EXT_disjoint_timer_query: endQueryEXT()-Methode"
+title: "EXT_disjoint_timer_query: endQueryEXT() Methode"
 short-title: endQueryEXT()
 slug: Web/API/EXT_disjoint_timer_query/endQueryEXT
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`EXT_disjoint_timer_query.endQueryEXT()`**-Methode der
-[WebGL-API](/de/docs/Web/API/WebGL_API) beendet eine Timer-Abfrage.
+Die **`EXT_disjoint_timer_query.endQueryEXT()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) beendet eine Zeitabfrage.
 
 ## Syntax
 
@@ -20,8 +19,7 @@ endQueryEXT(target)
 ### Parameter
 
 - `target`
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das das Ziel der Zeitabfrage angibt. Muss
-    `ext.TIME_ELAPSED_EXT` sein.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel der Zeitabfrage spezifiziert. Muss `ext.TIME_ELAPSED_EXT` sein.
 
 ### Rückgabewert
 
@@ -49,6 +47,6 @@ ext.endQueryEXT(ext.TIME_ELAPSED_EXT);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLQuery")}}
-- {{domxref("EXT_disjoint_timer_query")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)
+- [`EXT_disjoint_timer_query`](/de/docs/Web/API/EXT_disjoint_timer_query)

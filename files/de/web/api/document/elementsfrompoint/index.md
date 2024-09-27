@@ -1,5 +1,5 @@
 ---
-title: "Document: elementsFromPoint()-Methode"
+title: "Document: elementsFromPoint() Methode"
 short-title: elementsFromPoint()
 slug: Web/API/Document/elementsFromPoint
 l10n:
@@ -9,11 +9,11 @@ l10n:
 {{APIRef("DOM")}}
 
 Die **`elementsFromPoint()`**-Methode
-der {{domxref("Document")}}-Schnittstelle gibt ein Array von allen Elementen
-an den angegebenen Koordinaten (relativ zum Viewport) zurück.
-Die Elemente sind vom obersten bis zum untersten Kasten des Viewports geordnet.
+der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt ein Array aller Elemente
+an den angegebenen Koordinaten (relativ zur Ansicht) zurück.
+Die Elemente sind vom obersten bis zum untersten Kasten der Ansicht sortiert.
 
-Sie funktioniert ähnlich wie die {{domxref("Document.elementFromPoint", "elementFromPoint()")}}-Methode.
+Sie arbeitet ähnlich wie die [`elementFromPoint()`](/de/docs/Web/API/Document/elementFromPoint)-Methode.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ elementsFromPoint(x, y)
 
 ### Rückgabewert
 
-Ein Array von {{domxref('Element')}}-Objekten, geordnet vom obersten bis zum untersten Kasten des Viewports.
+Ein Array von [`Element`](/de/docs/Web/API/Element)-Objekten, geordnet vom obersten bis zum untersten Kasten der Ansicht.
 
 ## Beispiele
 
@@ -38,9 +38,9 @@ Ein Array von {{domxref('Element')}}-Objekten, geordnet vom obersten bis zum unt
 
 ```html
 <div>
-  <p>Einige Texte</p>
+  <p>Some text</p>
 </div>
-<p>Elemente am Punkt 30, 20:</p>
+<p>Elements at point 30, 20:</p>
 <div id="output"></div>
 ```
 
@@ -77,4 +77,4 @@ if (document.elementsFromPoint) {
 
 ## Siehe auch
 
-- {{DOMxRef("Document.elementFromPoint()")}}
+- [`Document.elementFromPoint()`](/de/docs/Web/API/Document/elementFromPoint)

@@ -1,5 +1,5 @@
 ---
-title: "Response: Response() Konstruktor"
+title: "Response: Konstruktor Response()"
 short-title: Response()
 slug: Web/API/Response/Response
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Der **`Response()`** Konstruktor erstellt ein neues {{domxref("Response")}}-Objekt.
+Der **`Response()`**-Konstruktor erstellt ein neues [`Response`](/de/docs/Web/API/Response)-Objekt.
 
 ## Syntax
 
@@ -22,36 +22,36 @@ new Response(body, options)
 
 - `body` {{optional_inline}}
 
-  - : Ein Objekt, das einen Inhalt für die Antwort definiert. Dies kann `null` sein (was der Standardwert ist) oder eines von:
+  - : Ein Objekt, das einen Körper für die Antwort definiert. Dies kann `null` sein (was der Standardwert ist) oder eines der folgenden:
 
-    - {{domxref("Blob")}}
+    - [`Blob`](/de/docs/Web/API/Blob)
     - {{jsxref("ArrayBuffer")}}
     - {{jsxref("TypedArray")}}
     - {{jsxref("DataView")}}
-    - {{domxref("FormData")}}
-    - {{domxref("ReadableStream")}}
-    - {{domxref("URLSearchParams")}}
+    - [`FormData`](/de/docs/Web/API/FormData)
+    - [`ReadableStream`](/de/docs/Web/API/ReadableStream)
+    - [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)
     - {{jsxref("String")}}
-    - Zeichenkettenliteral
+    - Zeichenfolgenliteral
 
 - `options` {{optional_inline}}
 
-  - : Ein Optionsobjekt, das alle benutzerdefinierten Einstellungen enthält, die Sie auf die Antwort anwenden möchten, oder ein leeres Objekt (was der Standardwert ist). Mögliche Optionen sind:
+  - : Ein Optionsobjekt, das benutzerdefinierte Einstellungen enthält, die Sie auf die Antwort anwenden möchten, oder ein leeres Objekt (was der Standardwert ist). Die möglichen Optionen sind:
 
     - `status`
       - : Der Statuscode für die Antwort.
         Der Standardwert ist `200`.
     - `statusText`
-      - : Die Statusnachricht, die mit dem Statuscode verbunden ist, wie z.B. `"OK"`.
+      - : Die Statusnachricht, die dem Statuscode zugeordnet ist, wie z.B. `"OK"`.
         Der Standardwert ist `""`.
     - `headers`
-      - : Alle Header, die Sie Ihrer Antwort hinzufügen möchten, enthalten in einem {{domxref("Headers")}}-Objekt oder Objektliteral mit {{jsxref("String")}} Schlüssel/Wert-Paaren (siehe [HTTP-Header](/de/docs/Web/HTTP/Headers) für eine Referenz).
-        Standardmäßig ist dies leer.
+      - : Alle Header, die Sie Ihrer Antwort hinzufügen möchten, enthalten in einem [`Headers`](/de/docs/Web/API/Headers)-Objekt oder einem Objektliteral von {{jsxref("String")}} Schlüssel/Wert-Paaren (siehe [HTTP-Header](/de/docs/Web/HTTP/Headers) für eine Referenz).
+        Standardmäßig ist dieses leer.
 
 ## Beispiele
 
-In unserem [Fetch Response Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/))
-erstellen wir ein neues `Response`-Objekt mit dem Konstruktor, indem wir ihm ein neues {{domxref("Blob")}} als Body und ein Init-Objekt mit einem benutzerdefinierten `status` und `statusText` übergeben:
+In unserem [Fetch-Response-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/))
+erstellen wir ein neues `Response`-Objekt mit dem Konstruktor, indem wir ihm ein neues [`Blob`](/de/docs/Web/API/Blob) als Körper und ein Initialisierungsobjekt mit einem benutzerdefinierten `status` und `statusText` übergeben:
 
 ```js
 const myBlob = new Blob();

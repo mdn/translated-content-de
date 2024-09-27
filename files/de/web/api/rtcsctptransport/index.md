@@ -7,41 +7,41 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCSctpTransport`**-Interface bietet Informationen, die ein Stream Control Transmission Protocol (**{{Glossary("SCTP")}}**) Transport beschreiben. Es liefert Informationen über die Einschränkungen des Transports und bietet zudem eine Möglichkeit, auf das zugrunde liegende Datagram Transport Layer Security (**{{Glossary("DTLS")}}**) Transportprotokoll zuzugreifen, über das SCTP-Pakete für alle Datenkanäle einer {{DOMxRef("RTCPeerConnection")}} gesendet und empfangen werden.
+Die **`RTCSctpTransport`**-Schnittstelle stellt Informationen bereit, die ein Stream Control Transmission Protocol (**[SCTP](/de/docs/Glossary/SCTP)**)-Transport beschreiben. Dies bietet Informationen über die Einschränkungen des Transports, ermöglicht jedoch auch den Zugriff auf den zugrunde liegenden Datagram Transport Layer Security (**[DTLS](/de/docs/Glossary/DTLS)**)-Transport, über den SCTP-Pakete für alle Datenkanäle einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet und empfangen werden.
 
-Sie erstellen keine `RTCSctpTransport`-Objekte selbst; stattdessen erhalten Sie Zugriff auf das `RTCSctpTransport` für eine bestimmte `RTCPeerConnection` über deren **{{DOMxRef("RTCPeerConnection.sctp", "sctp")}}**-Eigenschaft.
+Sie erstellen `RTCSctpTransport`-Objekte nicht selbst; stattdessen erhalten Sie Zugriff auf den `RTCSctpTransport` für eine gegebene `RTCPeerConnection` über deren **[`sctp`](/de/docs/Web/API/RTCPeerConnection/sctp)**-Eigenschaft.
 
-Die wahrscheinlich nützlichste Eigenschaft auf diesem Interface ist die [`maxMessageSize`](#rtcsctptransport.maxmessagesize)-Eigenschaft, mit der Sie die Obergrenze für die Größe von Nachrichten bestimmen können, die Sie über einen Datenkanal der Peer-Verbindung senden können.
+Wahrscheinlich die nützlichste Eigenschaft dieser Schnittstelle ist ihre [`maxMessageSize`](#rtcsctptransport.maxmessagesize)-Eigenschaft, die Sie verwenden können, um die Obergrenze für die Größe von Nachrichten zu bestimmen, die Sie über einen Datenkanal der Peer-Verbindung senden können.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von: {{DOMxRef("EventTarget")}}_.
+_Erbt auch Eigenschaften von: [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
-- {{DOMxRef("RTCSctpTransport.maxChannels")}} {{ReadOnlyInline}}
+- [`RTCSctpTransport.maxChannels`](/de/docs/Web/API/RTCSctpTransport/maxChannels) {{ReadOnlyInline}}
   - : Ein ganzzahliger Wert, der die maximale Anzahl von [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekten angibt, die gleichzeitig geöffnet werden können.
-- {{DOMxRef("RTCSctpTransport.maxMessageSize")}} {{ReadOnlyInline}}
-  - : Ein ganzzahliger Wert, der die maximale Größe in Byte einer Nachricht angibt, die mit der {{DOMxRef("RTCDataChannel.send()")}}-Methode gesendet werden kann.
-- {{DOMxRef("RTCSctpTransport.state")}} {{ReadOnlyInline}}
-  - : Ein String-Wert, der den Zustand des SCTP-Transports angibt.
-- {{DOMxRef("RTCSctpTransport.transport")}} {{ReadOnlyInline}}
-  - : Ein {{DOMxRef("RTCDtlsTransport")}}-Objekt, das den für die Übertragung und den Empfang von Datenpaketen verwendeten {{Glossary("DTLS")}}-Transport darstellt.
+- [`RTCSctpTransport.maxMessageSize`](/de/docs/Web/API/RTCSctpTransport/maxMessageSize) {{ReadOnlyInline}}
+  - : Ein ganzzahliger Wert, der die maximale Größe in Bytes angibt, die eine Nachricht haben kann, die mit der Methode [`RTCDataChannel.send()`](/de/docs/Web/API/RTCDataChannel/send) gesendet wird.
+- [`RTCSctpTransport.state`](/de/docs/Web/API/RTCSctpTransport/state) {{ReadOnlyInline}}
+  - : Ein aufgezählter Zeichenfolgenwert, der den Status des SCTP-Transports angibt.
+- [`RTCSctpTransport.transport`](/de/docs/Web/API/RTCSctpTransport/transport) {{ReadOnlyInline}}
+  - : Ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Objekt, das den [DTLS](/de/docs/Glossary/DTLS)-Transport darstellt, der für die Übertragung und den Empfang von Datenpaketen verwendet wird.
 
 ## Ereignisse
 
-Hören Sie auf diese Ereignisse mit {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder durch Zuweisen eines Ereignis-Listeners zu der `oneventname`-Eigenschaft dieses Interfaces.
+Hören Sie auf diese Ereignisse mithilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder indem Sie einen Ereignis-Listener der `oneventname`-Eigenschaft dieser Schnittstelle zuweisen.
 
-- {{domxref("RTCSctpTransport.statechange_event", "statechange")}}
-  - : Wird gesendet, wenn sich der {{DOMxRef("RTCSctpTransport.state")}} ändert.
+- [`statechange`](/de/docs/Web/API/RTCSctpTransport/statechange_event)
+  - : Wird gesendet, wenn sich der [`RTCSctpTransport.state`](/de/docs/Web/API/RTCSctpTransport/state) ändert.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Dieses Interface hat keine Methoden, erbt jedoch Methoden von: {{DOMxRef("EventTarget")}}._
+_Diese Schnittstelle hat keine Methoden, erbt jedoch Methoden von: [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Beispiel
 
-TBD
+Wird noch festgelegt
 
 ## Spezifikationen
 
@@ -54,5 +54,5 @@ TBD
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{DOMxRef("RTCPeerConnection")}}
-- {{DOMxRef("RTCPeerConnection.sctp")}}
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)
+- [`RTCPeerConnection.sctp`](/de/docs/Web/API/RTCPeerConnection/sctp)

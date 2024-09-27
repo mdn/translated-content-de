@@ -3,12 +3,12 @@ title: "SecurityPolicyViolationEvent: disposition-Eigenschaft"
 short-title: disposition
 slug: Web/API/SecurityPolicyViolationEvent/disposition
 l10n:
-  sourceCommit: a5c1400a03d86162ea5c4342a93c2d96df470630
+  sourceCommit: 701ac4440432ac215713b6b7f274291ca643c49a
 ---
 
-{{APIRef("Reporting API")}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`disposition`** des {{domxref("SecurityPolicyViolationEvent")}}-Interfaces gibt an, wie die verletzte [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) vom Benutzeragenten behandelt werden soll.
+Die **`disposition`**-Eigenschaft (nur lesen) der Schnittstelle [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent) gibt an, wie die verletzte [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) vom Benutzeragenten behandelt werden soll.
 
 ## Wert
 
@@ -37,4 +37,4 @@ document.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- [`CSPViolationReportBody.disposition`](/de/docs/Web/API/CSPViolationReportBody#cspviolationreportbody.disposition)
+- [`CSPViolationReportBody.disposition`](/de/docs/Web/API/CSPViolationReportBody/disposition)

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`id`**-Eigenschaft des {{domxref("RTCRemoteOutboundRtpStreamStats")}}-Wörterbuchs ist ein String, der das Objekt, für das dieses Objekt Statistiken liefert, eindeutig identifiziert.
+Die **`id`**-Eigenschaft des [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Dictionaries ist ein String, der das Objekt, für das dieser Statistik-Objekt Statistiken bereitstellt, eindeutig identifiziert.
 
-Mit der `id` können Sie dieses Statistikobjekt mit anderen korrelieren, um Statistiken über die Zeit für ein bestimmtes WebRTC-Objekt, wie eine {{domxref("RTCPeerConnection")}} oder einen {{domxref("RTCDataChannel")}}, zu überwachen.
+Mit der `id` können Sie dieses Statistik-Objekt mit anderen korrelieren, um Statistiken über die Zeit für ein gegebenes WebRTC-Objekt wie eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) oder einen [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zu überwachen.
 
 ## Wert
 
-Ein String, der das Objekt, für das dieses `RTCRemoteOutboundRtpStreamStats`-Objekt Statistiken liefert, eindeutig identifiziert.
+Ein String, der das Objekt, für das dieses `RTCRemoteOutboundRtpStreamStats`-Objekt Statistiken bereitstellt, eindeutig identifiziert.
 
-Das Format des ID-Strings ist nicht durch die Spezifikation definiert, daher können Sie keine verlässlichen Annahmen über den Inhalt des Strings treffen oder davon ausgehen, dass das Format des Strings für einen bestimmten Objekttyp unverändert bleibt.
+Das Format des ID-Strings ist nicht durch die Spezifikation definiert, daher können Sie keine verlässlichen Annahmen über den Inhalt des Strings treffen oder davon ausgehen, dass das Format des Strings für einen gegebenen Objekttyp unverändert bleibt.
 
 ## Spezifikationen
 

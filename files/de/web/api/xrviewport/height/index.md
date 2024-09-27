@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte {{domxref("XRViewport")}}-Eigenschaft **`height`** gibt die Höhe in Pixeln des Viewports an, auf die Zeichenfläche, innerhalb der die WebXR-Ansicht gerendert werden soll. Zusammen mit {{domxref("XRViewport.width", "width")}} und dem Ursprungspunkt, der durch {{domxref("XRViewport.x", "x")}} und {{domxref("XRViewport.y", "y")}} angegeben wird, definiert dies den Bereich, in dem der gerenderte Inhalt gezeichnet wird.
+Die schreibgeschützte [`XRViewport`](/de/docs/Web/API/XRViewport)-Eigenschaft **`height`** gibt die Höhe in Pixel des Ansichtsbereichs auf der Zeichenfläche an, in dem die WebXR-Ansicht gerendert werden soll. Zusammen mit [`width`](/de/docs/Web/API/XRViewport/width) und dem Ursprungspunkt, der durch [`x`](/de/docs/Web/API/XRViewport/x) und [`y`](/de/docs/Web/API/XRViewport/y) gegeben ist, definiert dies den Bereich, in dem gerenderte Inhalte gezeichnet werden.
 
 ## Wert
 
-Die Höhe des Viewports in Pixeln.
+Die Höhe des Ansichtsbereichs in Pixel.
 
 ## Beispiele
 
-Siehe die Hauptseite von {{domxref("XRViewport")}} für Beispiele.
+Siehe die Hauptseite von [`XRViewport`](/de/docs/Web/API/XRViewport) für Beispiele.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

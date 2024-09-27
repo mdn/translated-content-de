@@ -1,5 +1,5 @@
 ---
-title: "XPathResult: Eigenschaft invalidIteratorState"
+title: "XPathResult: invalidIteratorState-Eigenschaft"
 short-title: invalidIteratorState
 slug: Web/API/XPathResult/invalidIteratorState
 l10n:
@@ -8,8 +8,11 @@ l10n:
 
 {{APIRef("DOM XPath")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`invalidIteratorState`**-Eigenschaft der
-{{domxref("XPathResult")}}-Schnittstelle zeigt an, dass der Iterator ungültig geworden ist. Sie ist `true`, wenn {{domxref("XPathResult.resultType")}} `UNORDERED_NODE_ITERATOR_TYPE` oder `ORDERED_NODE_ITERATOR_TYPE` ist und das Dokument verändert wurde, seit dieses Ergebnis zurückgegeben wurde.
+Die schreibgeschützte **`invalidIteratorState`** Eigenschaft des
+[`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces zeigt an, dass der Iterator ungültig geworden ist.
+Es ist `true`, wenn [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType)
+`UNORDERED_NODE_ITERATOR_TYPE` oder `ORDERED_NODE_ITERATOR_TYPE` ist und
+das Dokument seit der Rückgabe dieses Ergebnisses verändert wurde.
 
 ## Wert
 
@@ -22,8 +25,8 @@ Das folgende Beispiel zeigt die Verwendung der `invalidIteratorState`-Eigenschaf
 ### HTML
 
 ```html
-<div>XPath-Beispiel</div>
-<p>Iterator-Zustand: <output></output></p>
+<div>XPath example</div>
+<p>Iterator state: <output></output></p>
 ```
 
 ### JavaScript
@@ -37,11 +40,11 @@ const result = document.evaluate(
   XPathResult.ANY_TYPE,
   null,
 );
-// Macht den Iterator-Zustand ungültig
+// Invalidates the iterator state
 document.querySelector("div").remove();
 document.querySelector("output").textContent = result.invalidIteratorState
-  ? "ungültig"
-  : "gültig";
+  ? "invalid"
+  : "valid";
 ```
 
 ### Ergebnis

@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: texStorage2D()-Methode"
+title: "WebGL2RenderingContext: texStorage2D() Methode"
 short-title: texStorage2D()
 slug: Web/API/WebGL2RenderingContext/texStorage2D
 l10n:
@@ -9,8 +9,8 @@ l10n:
 {{APIRef("WebGL")}}
 
 Die **`WebGL2RenderingContext.texStorage2D()`** Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) spezifiziert alle Ebenen der
-zweidimensionalen Texturspeicherung.
+[WebGL API](/de/docs/Web/API/WebGL_API) legt alle Level der
+zweidimensionalen Texturspeicherung fest.
 
 ## Syntax
 
@@ -22,16 +22,17 @@ texStorage2D(target, levels, internalformat, width, height)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Bindungspunkt (Ziel) der aktiven Textur angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (das Ziel) der aktiven Textur angibt.
+    Mögliche Werte:
 
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
     - `gl.TEXTURE_CUBE_MAP`: Eine würfelförmige Textur.
 
 - `levels`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der die Anzahl der Texturebenen angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Texturebenen angibt.
 - `internalformat`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der das Speicherformat der Textur angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Format der Texturspeicherung angibt. Mögliche Werte:
 
     - `gl.R8`
     - `gl.R16F`
@@ -57,7 +58,9 @@ texStorage2D(target, levels, internalformat, width, height)
     - `gl.RGBA32F`
     - `gl.RGBA8UI`
 
-    Im Gegensatz zu OpenGL 3.0 unterstützt WebGL 2 **nicht** die folgenden ETC2- und EAC-komprimierten Texturformate (siehe [Abschnitt 5.37](https://registry.khronos.org/webgl/specs/latest/2.0/#5.37) in der WebGL 2-Spezifikation). Sie könnten jedoch möglicherweise über die {{domxref("WEBGL_compressed_texture_etc")}}-Erweiterung aktiviert werden.
+    Im Gegensatz zu OpenGL 3.0 unterstützt WebGL 2 **nicht** die folgenden ETC2- und
+    EAC-komprimierten Texturformate (siehe [Abschnitt 5.37](https://registry.khronos.org/webgl/specs/latest/2.0/#5.37) in der WebGL 2 Spezifikation). Sie können jedoch möglicherweise über die
+    [`WEBGL_compressed_texture_etc`](/de/docs/Web/API/WEBGL_compressed_texture_etc) Erweiterung aktiviert werden.
 
     - `gl.COMPRESSED_R11_EAC`
     - `gl.COMPRESSED_SIGNED_R11_EAC`
@@ -71,9 +74,9 @@ texStorage2D(target, levels, internalformat, width, height)
     - `gl.COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2`
 
 - `width`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, der die Breite der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur angibt.
 - `height`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, der die Höhe der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur angibt.
 
 ### Rückgabewert
 
@@ -95,5 +98,5 @@ gl.texStorage2D(gl.TEXTURE_2D, 1, gl.RGB8, 256, 256);
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.texStorage3D()")}}
-- {{domxref("WEBGL_compressed_texture_etc")}}
+- [`WebGL2RenderingContext.texStorage3D()`](/de/docs/Web/API/WebGL2RenderingContext/texStorage3D)
+- [`WEBGL_compressed_texture_etc`](/de/docs/Web/API/WEBGL_compressed_texture_etc)

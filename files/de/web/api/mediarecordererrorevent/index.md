@@ -7,29 +7,29 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`MediaRecorderErrorEvent`**-Schnittstelle repräsentiert Fehler, die von der [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API) zurückgegeben werden. Es handelt sich um ein {{domxref("Event")}}-Objekt, das einen Verweis auf eine {{domxref("DOMException")}} enthält, die den aufgetretenen Fehler beschreibt.
+Die **`MediaRecorderErrorEvent`**-Schnittstelle stellt Fehler dar, die von der [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API) zurückgegeben werden. Es ist ein [`Event`](/de/docs/Web/API/Event)-Objekt, das eine Referenz zu einem [`DOMException`](/de/docs/Web/API/DOMException) kapselt, das den aufgetretenen Fehler beschreibt.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("MediaRecorderErrorEvent.MediaRecorderErrorEvent", "MediaStreamRecorderEvent()")}} {{Deprecated_Inline}} {{Non-standard_Inline}}
+- [`MediaStreamRecorderEvent()`](/de/docs/Web/API/MediaRecorderErrorEvent/MediaRecorderErrorEvent) {{Deprecated_Inline}} {{Non-standard_Inline}}
   - : Erstellt und gibt ein neues `MediaRecorderErrorEvent`-Ereignisobjekt mit den angegebenen Parametern zurück.
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seiner Elternschnittstelle, {{domxref("Event")}}_.
+_Erbt Eigenschaften von der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event)_.
 
-- {{domxref("MediaRecorderErrorEvent.error", "error")}} {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Eine {{domxref("DOMException")}}, die Informationen über den aufgetretenen Fehler enthält.
+- [`error`](/de/docs/Web/API/MediaRecorderErrorEvent/error) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
+  - : Ein [`DOMException`](/de/docs/Web/API/DOMException), das Informationen über den aufgetretenen Fehler enthält.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seiner Elternschnittstelle, {{domxref("Event")}}_.
+_Erbt Methoden von der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event)_.
 
 ## Spezifikationen
 
-Dieses Feature ist nicht mehr Teil einer Spezifikation.
+Dieses Merkmal ist nicht mehr Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Löst den angegebenen Hostnamen in einen DNS-Eintrag auf.
+Löst den angegebenen Hostnamen zu einem DNS-Eintrag auf.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,29 +26,29 @@ let resolving = browser.dns.resolve(
   - : `string`. Der aufzulösende Hostname.
 - `flags` {{optional_inline}}
 
-  - : `array` von `string`. Flags zur Modifikation der Art und Weise, wie der Hostname aufgelöst wird. Alle ausgelassenen Flags sind standardmäßig `false`. Sie können null oder mehr der folgenden Flags übergeben:
+  - : `array` von `string`. Flags, um die Art und Weise der Auflösung des Hostnamens zu modifizieren. Jegliche ausgelassenen Flags haben standardmäßig den Wert `false`. Sie können null oder mehr der folgenden Flags übergeben:
 
-    - `"allow_name_collisions"`: Erlaubt Ergebnisse von Namenskollisionen, die normalerweise herausgefiltert werden.
-    - `"bypass_cache"`: Unterdrückt den internen DNS Lookup-Cache.
+    - `"allow_name_collisions"`: Erlaubt Namenskollisionen, die normalerweise herausgefiltert werden.
+    - `"bypass_cache"`: Unterdrückt den internen DNS-Lookup-Cache.
     - `"canonical_name"`: Der kanonische Name des angegebenen Hosts wird abgefragt.
     - `"disable_ipv4"`: Es werden nur IPv6-Adressen zurückgegeben.
     - `"disable_ipv6"`: Es werden nur IPv4-Adressen zurückgegeben.
-    - `"disable_trr"`: Verwenden Sie nicht den Trusted Recursive Resolver (TRR) zum Auflösen des Hostnamens. Ein TRR ermöglicht das Auflösen von Hostnamen über einen dedizierten [DNS-over-HTTPS](https://datatracker.ietf.org/doc/html/draft-ietf-doh-dns-over-https-02)-Server.
-    - `"offline"`: Es werden nur literale und gecachte Einträge zurückgegeben.
-    - `"priority_low"`: Die Anfrage erhält eine niedrigere Priorität. Wenn auch "priority_medium" angegeben ist, erhält die Anfrage mittlere Priorität.
-    - `"priority_medium"`: Die Anfrage erhält mittlere Priorität. Wenn auch "priority_low" angegeben ist, erhält die Anfrage mittlere Priorität.
-    - `"speculate"`: Gibt an, dass die Anfrage spekulativ ist. Spekulative Anfragen geben Fehler zurück, wenn Prefetching durch die Konfiguration des Browsers deaktiviert ist.
+    - `"disable_trr"`: Verwenden Sie keinen Trusted Recursive Resolver (TRR) zur Auflösung des Hostnamens. Ein TRR ermöglicht die Auflösung von Hostnamen über einen dedizierten [DNS-over-HTTPS](https://datatracker.ietf.org/doc/html/draft-ietf-doh-dns-over-https-02) Server.
+    - `"offline"`: Es werden nur Literale und gecachte Einträge zurückgegeben.
+    - `"priority_low"`: Die Anfrage erhält eine niedrigere Priorität. Wenn "priority_medium" ebenfalls angegeben wird, erhält die Abfrage mittlere Priorität.
+    - `"priority_medium"`: Die Anfrage erhält mittlere Priorität. Wenn "priority_low" ebenfalls angegeben wird, erhält die Abfrage mittlere Priorität.
+    - `"speculate"`: Gibt an, dass die Anfrage spekulativ ist. Spekulative Anfragen geben Fehler zurück, wenn das Vorabrufen durch die Konfiguration des Browsers deaktiviert ist.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `DNSRecord`-Objekt erfüllt wird. Dieses Objekt kann die folgenden Eigenschaften enthalten:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `DNSRecord`-Objekt erfüllt wird. Dieses Objekt kann folgende Eigenschaften enthalten:
 
 - `addresses`
-  - : `array` von `string`. Die IP-Adressen, die mit diesem DNS-Eintrag verbunden sind.
+  - : `array` von `string`. Die mit diesem DNS-Eintrag verbundenen IP-Adressen.
 - `canonicalName`
-  - : `string`. Der kanonische Name für diesen Eintrag. Dies wird nur in die Antwort aufgenommen, wenn das `"canonical_name"` Flag an `resolve()` übergeben wurde.
+  - : `string`. Der kanonische Name für diesen Eintrag. Dies wird nur in die Antwort eingeschlossen, wenn das Flag `"canonical_name"` an `resolve()` übergeben wurde.
 - `isTRR`
-  - : `boolean`: `true` wenn der Eintrag mit einem Trusted Recursive Resolver (TRR) abgerufen wurde.
+  - : `boolean`: `true`, wenn der Eintrag unter Verwendung eines Trusted Recursive Resolvers (TRR) abgerufen wurde.
 
 ## Browser-Kompatibilität
 

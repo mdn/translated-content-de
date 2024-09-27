@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableElement: insertRow() Methode"
+title: "HTMLTableElement: insertRow()-Methode"
 short-title: insertRow()
 slug: Web/API/HTMLTableElement/insertRow
 l10n:
@@ -8,18 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`insertRow()`** Methode des {{domxref("HTMLTableElement")}} Interfaces fügt eine neue Zeile
-({{HtmlElement("tr")}}) in eine gegebene {{HtmlElement("table")}} ein und gibt eine Referenz auf
-die neue Zeile zurück.
+Die **`insertRow()`**-Methode der [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Schnittstelle fügt eine neue Zeile ({{HtmlElement("tr")}}) in ein angegebenes {{HtmlElement("table")}} ein und gibt eine Referenz auf die neue Zeile zurück.
 
-Wenn eine Tabelle mehrere {{HtmlElement("tbody")}} Elemente hat, wird standardmäßig die neue Zeile
-in das letzte `<tbody>` eingefügt.
-Um die Zeile in einen bestimmten Abschnitt einzufügen, verwenden Sie {{domxref("HTMLTableSectionElement.insertRow()")}}.
+Wenn eine Tabelle mehrere {{HtmlElement("tbody")}}-Elemente hat, wird die neue Zeile standardmäßig in das letzte `<tbody>` eingefügt. Um die Zeile in einen bestimmten Abschnitt einzufügen, verwenden Sie [`HTMLTableSectionElement.insertRow()`](/de/docs/Web/API/HTMLTableSectionElement/insertRow).
 
-> **Note:** `insertRow()` fügt die Zeile direkt in die
-> Tabelle ein. Die Zeile muss nicht separat angehängt werden, wie dies der Fall wäre, wenn
-> {{domxref("Document.createElement()")}} verwendet worden wäre, um das neue
-> `<tr>` Element zu erstellen.
+> **Note:** `insertRow()` fügt die Zeile direkt in die Tabelle ein. Es ist nicht notwendig, die Zeile separat anzuhängen, wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue `<tr>`-Element zu erstellen.
 
 ## Syntax
 
@@ -28,34 +21,27 @@ insertRow()
 insertRow(index)
 ```
 
-{{domxref("HTMLTableElement")}} ist eine Referenz auf ein HTML {{HtmlElement("table")}}
-Element.
+[`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) ist eine Referenz auf ein HTML {{HtmlElement("table")}}-Element.
 
 ### Parameter
 
 - `index` {{optional_inline}}
-  - : Der Zeilenindex der neuen Zeile. Wenn `index` `-1` ist oder
-    der Anzahl der Zeilen entspricht, wird die Zeile als letzte Zeile angehängt.
-    Wenn `index` weggelassen wird, ist der Standardwert `-1`.
+  - : Der Zeilenindex der neuen Zeile. Wenn `index` `-1` ist oder der Anzahl der Zeilen entspricht, wird die Zeile als letzte Zeile angehängt. Wenn `index` weggelassen wird, ist der Standardwert `-1`.
 
 ### Rückgabewert
 
-Ein {{domxref("HTMLTableRowElement")}}, das auf die neue
-Zeile verweist.
+Ein [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement), das auf die neue Zeile verweist.
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `index` größer als die Anzahl der Zeilen ist.
 
 ## Beispiele
 
 Dieses Beispiel verwendet `insertRow(-1)`, um eine neue Zeile an eine Tabelle anzuhängen.
 
-Wir verwenden dann {{domxref("HTMLTableRowElement.insertCell()")}}, um eine neue Zelle in der
-neuen Zeile einzufügen. (Um gültiges HTML zu sein, muss ein `<tr>` mindestens ein
-`<td>` Element haben.) Schließlich fügen wir der Zelle etwas Text hinzu, indem wir
-{{domxref("Document.createTextNode()")}} und {{domxref("Node.appendChild()")}} verwenden.
+Wir verwenden dann [`HTMLTableRowElement.insertCell()`](/de/docs/Web/API/HTMLTableRowElement/insertCell), um eine neue Zelle in die neue Zeile einzufügen. (Um gültiges HTML zu sein, muss ein `<tr>` mindestens ein `<td>`-Element haben.) Schließlich fügen wir etwas Text zur Zelle hinzu, indem wir [`Document.createTextNode()`](/de/docs/Web/API/Document/createTextNode) und [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild) verwenden.
 
 ### HTML
 
@@ -109,5 +95,5 @@ addRow("my-table");
 
 ## Siehe auch
 
-- {{domxref("HTMLTableRowElement.insertCell()")}}
-- {{domxref("HTMLTableSectionElement.insertRow()")}}
+- [`HTMLTableRowElement.insertCell()`](/de/docs/Web/API/HTMLTableRowElement/insertCell)
+- [`HTMLTableSectionElement.insertRow()`](/de/docs/Web/API/HTMLTableSectionElement/insertRow)

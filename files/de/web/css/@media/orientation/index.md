@@ -1,5 +1,5 @@
 ---
-title: Orientierung
+title: orientation
 slug: Web/CSS/@media/orientation
 l10n:
   sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
@@ -7,29 +7,29 @@ l10n:
 
 {{CSSRef}}
 
-Die **`orientation`** [CSS](/de/docs/Web/CSS)-[Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Ausrichtung des {{glossary("viewport")}} (oder des Seitenkastens für [paginierte Medien](/de/docs/Web/CSS/CSS_paged_media)) zu testen.
+Die **`orientation`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Orientierung des [Viewports](/de/docs/Glossary/viewport) (oder des Seitenkastens bei [paginierte Medien](/de/docs/Web/CSS/CSS_paged_media)) zu testen.
 
 > [!NOTE]
-> Diese Funktion entspricht nicht der _Geräte_-Ausrichtung. Das Öffnen der virtuellen Tastatur auf vielen Geräten in Hochformat-Ausrichtung kann dazu führen, dass das Viewport breiter wird als es hoch ist, wodurch der Browser anstelle von Hochformat-Styles, Querformat-Styles verwendet.
+> Diese Funktion entspricht nicht der _Geräte_-Orientierung. Das Öffnen der Soft-Tastatur auf vielen Geräten im Hochformat wird dazu führen, dass der Viewport breiter als hoch wird, wodurch der Browser Landschaftsstile anstelle von Hochformat verwendet.
 
 ## Syntax
 
-Die `orientation`-Funktion wird als Schlüsselwortwert angegeben, der aus der unten stehenden Liste ausgewählt wird.
+Das `orientation`-Feature wird als Schlüsselwortwert aus der unten stehenden Liste spezifiziert.
 
 ### Schlüsselwortwerte
 
 - `portrait`
-  - : Das Viewport ist im Hochformat, d. h., die Höhe ist größer als oder gleich der Breite.
+  - : Der Viewport befindet sich in einer Hochformat-Orientierung, d. h. die Höhe ist größer oder gleich der Breite.
 - `landscape`
-  - : Das Viewport ist im Querformat, d. h., die Breite ist größer als die Höhe.
+  - : Der Viewport befindet sich in einer Querformat-Orientierung, d. h. die Breite ist größer als die Höhe.
 
 ## Beispiele
 
-### Hochformat-Ausrichtung
+### Hochformat
 
-In diesem Beispiel haben wir drei Boxen im HTML und verwenden die `orientation`-Medienfunktion, um zwischen einem Zeilenlayout (im Querformat) und einem Spaltenlayout (im Hochformat) zu wechseln.
+In diesem Beispiel haben wir drei Boxen im HTML und verwenden das `orientation`-Media-Feature, um zwischen einem Reihenlayout (im Querformat) und einem Spaltenlayout (im Hochformat) zu wechseln.
 
-Die Beispielausgabe ist in ein {{HTMLElement("iframe")}} eingebettet, dessen Höhe größer ist als seine Breite, sodass die Boxen ein Spaltenlayout erhalten.
+Der Beispielsoutput ist in ein {{HTMLElement("iframe")}} eingebettet, dessen Höhe größer als seine Breite ist, sodass die Boxen ein Spaltenlayout erhalten.
 
 #### HTML
 
@@ -71,11 +71,11 @@ div {
 
 {{EmbedLiveSample("Portrait orientation", "", "800")}}
 
-### Querformat-Ausrichtung
+### Querformat
 
-Dieses Beispiel hat genau denselben Code wie das vorherige Beispiel: Es hat drei Boxen im HTML und verwendet die `orientation`-Medienfunktion, um zwischen einem Zeilenlayout (im Querformat) und einem Spaltenlayout (im Hochformat) zu wechseln.
+Dieses Beispiel hat genau denselben Code wie das vorherige Beispiel: Es hat drei Boxen im HTML und verwendet das `orientation`-Media-Feature, um zwischen einem Reihenlayout (im Querformat) und einem Spaltenlayout (im Hochformat) zu wechseln.
 
-In diesem Beispiel ist die Beispielausgabe jedoch in ein {{HTMLElement("iframe")}} eingebettet, dessen Höhe kleiner ist als seine Breite, sodass die Boxen ein Zeilenlayout erhalten.
+In diesem Beispiel ist jedoch der Beispielsoutput in ein {{HTMLElement("iframe")}} eingebettet, dessen Höhe kleiner ist als seine Breite, sodass die Boxen ein Reihenlayout erhalten.
 
 #### HTML
 
@@ -119,6 +119,6 @@ div {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

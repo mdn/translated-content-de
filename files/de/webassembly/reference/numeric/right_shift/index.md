@@ -1,5 +1,5 @@
 ---
-title: Rechtsschiebung
+title: Right shift
 slug: WebAssembly/Reference/Numeric/Right_shift
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,26 +7,26 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`shr`**-Anweisungen, kurz für _shift-right_, werden genutzt, um eine bitweise Rechtsschiebung durchzuführen, ähnlich dem **`>>>`** Operator in anderen Sprachen.
+Die **`shr`** Anweisungen, kurz für _shift-right_, werden verwendet, um einen bitweisen Rechts-Shift durchzuführen, ähnlich wie der **`>>>`** Operator in anderen Sprachen.
 
 {{EmbedInteractiveExample("pages/wat/shr.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; zwei Zahlen auf den Stack laden
+;; load two numbers onto the stack
 i32.const 7   ;; 00000111
-i32.const 1   ;; um eine Stelle nach rechts schieben
+i32.const 1   ;; right shift one spot
 
-;; eine bitweise Rechtsschiebung durchführen
+;; perform a bitwise right-shift
 i32.shr_u
 
-;; das oberste Element auf dem Stack wird nun 3 sein (00000011)
+;; the top item on the stack will now be 3 (00000011)
 ```
 
-| Anweisung   | Binäroperationscode |
-| ----------- | -------------------- |
-| `i32.shr_s` | `0x75`               |
-| `i32.shr_u` | `0x76`               |
-| `i64.shr_s` | `0x87`               |
-| `i64.shr_u` | `0x88`               |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `i32.shr_s` | `0x75`         |
+| `i32.shr_u` | `0x76`         |
+| `i64.shr_s` | `0x87`         |
+| `i64.shr_u` | `0x88`         |

@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`badInput`**-Eigenschaft der [ValidityState](/de/docs/Web/API/ValidityState)-Schnittstelle gibt an, ob der Benutzer eine Eingabe gemacht hat, die der Browser nicht konvertieren kann. Zum Beispiel, wenn Sie ein Nummern-Eingabefeld haben, dessen Inhalt eine Zeichenkette ist.
+Die schreibgeschützte **`badInput`**-Eigenschaft der [ValidityState](/de/docs/Web/API/ValidityState)-Schnittstelle gibt an, ob der Benutzer eine Eingabe gemacht hat, die der Browser nicht umwandeln kann. Zum Beispiel, wenn Sie ein Zahleneingabeelement haben, dessen Inhalt eine Zeichenkette ist.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn das `ValidityState`-Objekt nicht dem erwarteten Typ entspricht.
+Ein Boolean, der `true` ist, wenn das `ValidityState`-Objekt nicht dem erwarteten Typ entspricht.
 
 ## Beispiele
 
-### Erkennung von fehlerhaften Eingaben
+### Schlechte Eingabe erkennen
 
 Das folgende Beispiel überprüft die Gültigkeit eines [numerischen Eingabeelements](/de/docs/Web/HTML/Element/input/number).
-Wenn der Benutzer statt einer Zahl Text eingibt, schlägt die Validierung des Elements fehl und die Stile, die auf [`input:invalid`](/de/docs/Web/CSS/:invalid) zutreffen, werden angewendet.
-Das [`<pre>`](/de/docs/Web/HTML/Element/pre)-Element oberhalb der Eingabe zeigt die Validierungsmeldung an, wenn die `badInput`-Eigenschaft des Elements zu `true` auswertet:
+Wenn der Benutzer Text anstelle einer Zahl eingibt, schlägt die Einschränkungsvalidierung des Elements fehl, und die Stile, die zu [`input:invalid`](/de/docs/Web/CSS/:invalid) passen, werden angewendet.
+Das [`<pre>`](/de/docs/Web/HTML/Element/pre)-Element oberhalb der Eingabe zeigt die Validierungsnachricht an, wenn die Eigenschaft `badInput` des Elements auf `true` bewertet wird:
 
 ```css
 input:invalid {
@@ -73,6 +73,6 @@ userInput.addEventListener("input", () => {
 
 ## Siehe auch
 
-- ValidityState [valid](/de/docs/Web/API/ValidityState/valid), [customError](/de/docs/Web/API/ValidityState/customError)-Eigenschaften.
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- [Tutorial: Formular-Datenvalidierung](/de/docs/Learn/Forms/Form_validation)
+- ValidityState [valid](/de/docs/Web/API/ValidityState/valid), [customError](/de/docs/Web/API/ValidityState/customError) Eigenschaften.
+- [Leitfaden: Beschränktheitsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Anleitung: Validierung von Formulardaten](/de/docs/Learn/Forms/Form_validation)

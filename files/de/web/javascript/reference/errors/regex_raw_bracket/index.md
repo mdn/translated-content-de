@@ -1,15 +1,15 @@
 ---
-title: "SyntaxError: Rohklammer ist in regulärem Ausdruck mit Unicode-Flag nicht erlaubt"
+title: "SyntaxError: Raw-Klammer ist im regulären Ausdruck mit Unicode-Flag nicht erlaubt"
 slug: Web/JavaScript/Reference/Errors/Regex_raw_bracket
 l10n:
-  sourceCommit: 50d5e7cdb972c64a8f02a34a229bbc5ed7305c24
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Fehler "raw bracket is not allowed in regular expression with unicode flag" tritt auf, wenn ein [Unicode-bewusstes](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) regulärer Ausdruck ein Rohklammerzeichen (`{`, `}`, `]`) enthält, das nicht Teil eines [Quantors](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) oder einer [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) ist.
+Die JavaScript-Ausnahme "raw bracket is not allowed in regular expression with unicode flag" tritt auf, wenn ein [Unicode-bewusstes](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) regulärer Ausdruck Muster eine rohe Klammer (`{`, `}`, `]`) enthält, die nicht Teil eines [Quantors](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) oder einer [Zeichenklasse](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) ist.
 
-## Meldung
+## Nachricht
 
 ```plain
 SyntaxError: Invalid regular expression: /{/u: Lone quantifier brackets (V8-based)
@@ -24,9 +24,9 @@ SyntaxError: Invalid regular expression: unmatched ] or } bracket for Unicode pa
 
 ## Was ist schiefgelaufen?
 
-Im nicht Unicode-bewussten Modus werden `{`, `}` und `]`, die nicht Teil eines Quantors oder einer Zeichenklasse sind, als literale Zeichen behandelt. Dies kann Fehler in Ihrem Code verbergen und ist im Unicode-bewussten Modus daher veraltet und unzulässig. Sie sollten entweder überprüfen, ob Sie ungültige Syntax haben, oder Sie sollten die Zeichen [escapen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape), um sie wörtlich zu behandeln.
+Im nicht Unicode-bewussten Modus werden `{`, `}` und `]`, die nicht Teil eines Quantors oder einer Zeichenklasse sind, als literale Zeichen behandelt. Dies kann Fehler in Ihrem Code verbergen und ist daher veraltet und im Unicode-bewussten Modus nicht erlaubt. Sie sollten entweder überprüfen, ob Sie ungültige Syntax haben, oder Sie sollten die Zeichen [maskieren](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape), um sie wörtlich zu erfassen.
 
-Wenn `{` in einem Kontext erscheint, der einen [Quantor](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) akzeptiert, wird es als Beginn eines Quantors behandelt. Wenn das Folgende kein gültiger Quantor ist, wird ein weiterer Syntaxfehler, [unvollständiger Quantor](/de/docs/Web/JavaScript/Reference/Errors/Regex_incomplete_quantifier), ausgelöst.
+Wenn `{` in einem Kontext erscheint, der einen [Quantor](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier) akzeptiert, wird es als Beginn eines Quantors behandelt. Wenn dem nichts folgt, was ein gültiger Quantor ist, wird ein anderer Syntaxfehler, [unvollständiger Quantor](/de/docs/Web/JavaScript/Reference/Errors/Regex_incomplete_quantifier), ausgelöst.
 
 ## Beispiele
 
@@ -42,9 +42,9 @@ Wenn `{` in einem Kontext erscheint, der einen [Quantor](/de/docs/Web/JavaScript
 <!-- Note: the {} need to be double-escaped, once for Yari -->
 
 ```js example-good
-// Alle { und } müssen geescaped werden
+// All { and } need to be escaped
 /\\{\\{MDN_Macro\\}\\}/u;
-// Das ] muss geescaped werden
+// The ] needs to be escaped
 /\[sic\]/u;
 ```
 
@@ -52,5 +52,5 @@ Wenn `{` in einem Kontext erscheint, der einen [Quantor](/de/docs/Web/JavaScript
 
 - [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
 - [Zeichenklasse: `[...]`, `[^...]`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)
-- [Zeichenescape: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
+- [Zeichenmaskierung: `\n`, `\u{...}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape)
 - [Quantor: `*`, `+`, `?`, `{n}`, `{n,}`, `{n,m}`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Quantifier)

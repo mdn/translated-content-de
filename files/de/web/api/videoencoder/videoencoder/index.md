@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`VideoEncoder()`** Konstruktor erzeugt ein neues {{domxref("VideoEncoder")}}-Objekt, wobei der bereitgestellte `options.output`-Callback als Output-Callback und der bereitgestellte `options.error`-Callback als Fehler-Callback zugewiesen wird. Der {{domxref("VideoEncoder.state")}} wird auf `"unconfigured"` gesetzt.
+Der **`VideoEncoder()`**-Konstruktor erstellt ein neues [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Objekt mit der bereitgestellten `options.output`-Rückruffunktion als Ausgabe-Rückruffunktion, der bereitgestellten `options.error`-Rückruffunktion als Fehler-Rückruffunktion und setzt den [`VideoEncoder.state`](/de/docs/Web/API/VideoEncoder/state) auf `"unconfigured"`.
 
 ## Syntax
 
@@ -19,43 +19,43 @@ new VideoEncoder(options)
 ### Parameter
 
 - `options`
-  - : Ein Objekt, das zwei erforderliche Callbacks enthält.
+  - : Ein Objekt, das zwei erforderliche Rückruffunktionen enthält.
     - `output`
-      - : Ein Callback, das ein {{domxref("EncodedVideoChunk")}}-Objekt als erstes Argument und optional ein Metadaten-Objekt als zweites Argument entgegennimmt. Das Metadaten-Objekt hat drei Mitglieder:
+      - : Eine Rückruffunktion, die ein [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Objekt als erstes Argument und ein optionales Metadatenobjekt als zweites Argument entgegennimmt. Das Metadatenobjekt hat drei Mitglieder:
         - `decoderConfig` {{Optional_Inline}}
-          - : Ein Objekt, das Folgendes enthält:
+          - : Ein Objekt, das enthält:
             - `codec`
               - : Ein String, der einen [gültigen Codec-String](https://www.w3.org/TR/webcodecs-codec-registry/#video-codec-registry) enthält.
             - `description` {{Optional_Inline}}
-              - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}, das eine Sequenz von codec-spezifischen Bytes enthält, allgemein bekannt als "Extradata".
+              - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder eine {{jsxref("DataView")}}, die eine Folge von codec-spezifischen Bytes enthält, allgemein bekannt als "extradata".
             - `codedWidth` {{Optional_Inline}}
-              - : Ein Integer, der die Breite des {{domxref("VideoFrame")}} in Pixeln darstellt, möglicherweise einschließlich unsichtbarer Abstände, und vor möglichen Verhältnis-Anpassungen.
+              - : Eine Ganzzahl, die die Breite des [`VideoFrame`](/de/docs/Web/API/VideoFrame) in Pixeln darstellt, möglicherweise nicht sichtbares Padding enthaltend und vor potenziellen Verhältnis-Anpassungen.
             - `codedHeight` {{Optional_Inline}}
-              - : Ein Integer, der die Höhe des {{domxref("VideoFrame")}} in Pixeln darstellt, möglicherweise einschließlich unsichtbarer Abstände, und vor möglichen Verhältnis-Anpassungen.
+              - : Eine Ganzzahl, die die Höhe des [`VideoFrame`](/de/docs/Web/API/VideoFrame) in Pixeln darstellt, möglicherweise nicht sichtbares Padding enthaltend und vor potenziellen Verhältnis-Anpassungen.
             - `displayAspectWidth` {{Optional_Inline}}
-              - : Ein Integer, der die horizontale Dimension des {{domxref("VideoFrame")}}-{{glossary("Seitenverhältnis")}} beim Anzeigen darstellt.
+              - : Eine Ganzzahl, die die horizontale Dimension des [Seitenverhältnisses](/de/docs/Glossary/aspect_ratio) des [`VideoFrame`](/de/docs/Web/API/VideoFrame) bei der Anzeige darstellt.
             - `displayAspectHeight` {{Optional_Inline}}
-              - : Ein Integer, der die vertikale Dimension des aspect ratio des {{domxref("VideoFrame")}} beim Anzeigen darstellt.
+              - : Eine Ganzzahl, die die vertikale Dimension des Seitenverhältnisses des [`VideoFrame`](/de/docs/Web/API/VideoFrame) bei der Anzeige darstellt.
             - `colorSpace` {{Optional_Inline}}
-              - : Ein Objekt, das Sie dem {{domxref("VideoColorSpace")}}-Konstruktor als `init`-Argument übergeben und das {{domxref("VideoFrame.colorSpace")}} für {{domxref("VideoFrame","VideoFrames")}} konfiguriert, die mit diesem `decoderConfig`-Objekt verknüpft sind. Wenn `colorSpace` existiert, überschreiben die bereitgestellten Werte alle In-Band-Werte aus dem Bitstrom.
+              - : Ein Objekt, das Sie dem Konstruktor [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace) als `init`-Argument übergeben, zur Konfiguration des [`VideoFrame.colorSpace`](/de/docs/Web/API/VideoFrame/colorSpace) für [`VideoFrames`](/de/docs/Web/API/VideoFrame), die mit diesem `decoderConfig`-Objekt verknüpft sind. Wenn `colorSpace` existiert, überschreiben die bereitgestellten Werte alle In-Band-Werte aus dem Datenstrom.
             - `hardwareAcceleration` {{Optional_Inline}}
-              - : Ein String, der die Hardware-Beschleunigung für diesen Codec konfiguriert. Standard ist `"no-preference"`. Optionen sind:
+              - : Ein String, der die Hardwarebeschleunigung für diesen Codec konfiguriert. Standardmäßig `"no-preference"`. Optionen sind:
                 - `"no-preference"`
                 - `"prefer-hardware"`
                 - `"prefer-software"`
             - `optimizeForLatency` {{Optional_Inline}}
-              - : Ein Boolean, der darstellt, ob der ausgewählte Decoder so konfiguriert werden sollte, dass die Anzahl der {{domxref("EncodedVideoChunk","EncodedVideoChunks")}}, die dekodiert werden müssen, bevor ein {{domxref("VideoFrame")}} ausgegeben wird, minimiert wird.
+              - : Ein boolescher Wert, der angibt, ob der ausgewählte Decoder so konfiguriert werden soll, dass die Anzahl der [`EncodedVideoChunks`](/de/docs/Web/API/EncodedVideoChunk) minimiert wird, die dekodiert werden müssen, bevor ein [`VideoFrame`](/de/docs/Web/API/VideoFrame) ausgegeben wird.
         - `svc` {{Optional_Inline}}
-          - : Ein optionales Objekt mit nur einem Mitglied: `temporalLayerId`, das eine Nummer ist, die die [temporal layer](https://w3c.github.io/webcodecs/#temporal-layer) für das zugehörige {{domxref("EncodedVideoChunk")}} identifiziert.
+          - : Ein optionales Objekt mit nur einem Mitglied: `temporalLayerId`, das eine Zahl ist, die die [temporale Ebene](https://w3c.github.io/webcodecs/#temporal-layer) für das zugehörige [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) identifiziert.
         - `alphaSideData` {{Optional_Inline}}
-          - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}
-            das die zusätzlichen Alphakanal-Daten des {{domxref("EncodedVideoChunk")}} enthält.
+          - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder eine {{jsxref("DataView")}},
+            die die zusätzlichen Alpha-Kanal-Daten des [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk) enthält.
     - `error`
-      - : Ein Callback, das ein {{jsxref("Error")}}-Objekt als einziges Argument entgegennimmt.
+      - : Eine Rückruffunktion, die ein {{jsxref("Error")}}-Objekt als einziges Argument entgegennimmt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein `VideoEncoder` mit den zwei erforderlichen Callback-Funktionen erstellt, eine für die Verarbeitung des codierten Frames und die andere zur Behandlung von Fehlern.
+Im folgenden Beispiel wird ein `VideoEncoder` mit den zwei erforderlichen Rückruffunktionen erstellt, eine zum Umgang mit dem kodierten Frame und die andere zur Fehlerbehandlung.
 
 ```js
 const videoEncoder = new VideoEncoder({

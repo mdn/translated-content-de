@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Konfiguriert, ob der Aktionszähler für Tabs als Badgetext der Erweiterungsaktion angezeigt wird und bietet eine Möglichkeit, den Aktionszähler zu erhöhen.
+Konfiguriert, ob die Aktionsanzahl für Tabs als Badge-Text der Erweiterungsaktion angezeigt wird und bietet eine Möglichkeit, die Aktionsanzahl zu erhöhen.
 
 ## Syntax
 
@@ -21,24 +21,24 @@ let count = browser.declarativeNetRequest.setExtensionActionOptions(
 
 - `extensionActionOptions`
 
-  - : Ein Objekt, das die Konfigurationsdetails für den Aktionszähler für Tabs enthält.
+  - : Ein Objekt, das die Konfigurationsdetails für die Aktionsanzahl für Tabs enthält.
     - `displayActionCountAsBadgeText` {{optional_inline}}
-      - : `boolean` Ob die Aktionsanzahl für eine Seite automatisch als Badgetext der Erweiterung angezeigt wird. Diese Einstellung bleibt über Sitzungen hinweg bestehen.
+      - : `boolean` Ob die Aktionsanzahl für eine Seite automatisch als Badge-Text der Erweiterung angezeigt wird. Diese Präferenz bleibt über Sitzungen hinweg bestehen.
     - `tabUpdate` {{optional_inline}}
-      - : `object`. Details dazu, wie der Aktionszähler des Tabs angepasst werden soll. Siehe den Abschnitt [tabUpdate](#tabupdate_2) für weitere Details.
+      - : `object`. Details, wie die Aktionsanzahl des Tabs angepasst werden soll. Siehe den Abschnitt [tabUpdate](#tabupdate_2) für weitere Details.
 
 ## Zusätzliche Objekte
 
 ### tabUpdate
 
 - `increment`
-  - : `number` Der Betrag, um den der Aktionszähler des Tabs erhöht werden soll. Negative Werte verringern den Zähler.
+  - : `number` Der Betrag, um den die Aktionsanzahl des Tabs erhöht werden soll. Negative Werte verringern die Anzahl.
 - `tabId`
-  - : `number` Der Tab, für den der Aktionszähler aktualisiert werden soll.
+  - : `number` Der Tab, für den die Aktionsanzahl aktualisiert werden soll.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der ohne Argumente erfüllt wird. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird. Wenn die Anfrage fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -49,7 +49,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), der o
 {{Compat}}
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are

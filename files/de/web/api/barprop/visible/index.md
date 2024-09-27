@@ -1,6 +1,6 @@
 ---
-title: "BarProp: sichtbare Eigenschaft"
-short-title: sichtbar
+title: "BarProp: visible-Eigenschaft"
+short-title: visible
 slug: Web/API/BarProp/visible
 l10n:
   sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
@@ -8,14 +8,16 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`visible`** der {{domxref("BarProp")}}-Schnittstelle gibt `true` zurück, wenn das Benutzeroberflächenelement, das sie repräsentiert, sichtbar ist.
+Die schreibgeschützte **`visible`**-Eigenschaft der [`BarProp`](/de/docs/Web/API/BarProp)-Schnittstelle gibt `true` zurück, wenn das von ihr dargestellte Benutzeroberflächenelement sichtbar ist.
 
 ## Wert
 
-Ein {{jsxref("Boolean")}}, das wahr ist, wenn das oberste Fenster durch {{domxref("window.open")}} mit dem [`popup`](/de/docs/Web/API/Window/open#popup)-Merkmal aktiviert geöffnet wurde.
+Ein {{jsxref("Boolean")}}, der wahr ist, wenn das oberste Fenster durch [`window.open`](/de/docs/Web/API/Window/open) geöffnet wurde, und das [`popup`](/de/docs/Web/API/Window/open#popup)-Feature aktiviert ist.
 
 > [!NOTE]
-> Historisch gesehen stellte dies dar, ob das verwendete Schnittstellenelement sichtbar ist oder nicht. Aus Datenschutzgründen stellt dies jedoch nicht mehr die tatsächliche Sichtbarkeit jedes Schnittstellenelements dar.
+> Historisch gesehen zeigte dies an, ob das verwendete Schnittstellenelement sichtbar ist
+> oder nicht. Aus Datenschutzgründen stellt dies jedoch nicht mehr die tatsächliche Sichtbarkeit jedes
+> Schnittstellenelements dar.
 
 ## Beispiele
 

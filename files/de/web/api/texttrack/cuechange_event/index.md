@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Das **`cuechange`**-Ereignis wird ausgelöst, wenn ein {{domxref("TextTrack")}} die aktuell angezeigten Cues geändert hat. Das Ereignis wird sowohl auf dem `TextTrack` als auch auf dem {{domxref("HTMLTrackElement")}}, in dem es präsentiert wird, ausgelöst, falls vorhanden.
+Das **`cuechange`**-Ereignis wird ausgelöst, wenn ein [`TextTrack`](/de/docs/Web/API/TextTrack) die aktuell angezeigten Cues geändert hat. Das Ereignis wird sowohl auf dem `TextTrack` als auch auf dem [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement), in dem es dargestellt wird, ausgelöst, falls vorhanden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("cuechange", (event) => {});
@@ -22,11 +22,11 @@ oncuechange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{DOMxRef("Event")}} ohne zusätzliche Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beispiele
 
-Sie können einen Listener für das `cuechange`-Ereignis auf einem `TextTrack` unter Verwendung der Methode {{domxref("EventTarget.addEventListener", "addEventListener()")}} einrichten:
+Sie können einen Listener für das `cuechange`-Ereignis bei einem `TextTrack` mit der Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) einrichten:
 
 ```js
 track.addEventListener("cuechange", () => {
@@ -35,7 +35,7 @@ track.addEventListener("cuechange", () => {
 });
 ```
 
-Oder Sie können die `oncuechange`-Ereignis-Handler-Eigenschaft setzen:
+Oder Sie können die `oncuechange`-Event-Handler-Eigenschaft setzen:
 
 ```js
 track.oncuechange = (event) => {
@@ -53,5 +53,5 @@ track.oncuechange = (event) => {
 
 ## Siehe auch
 
-- {{glossary("WebVTT")}}
-- Dasselbe Ereignis auf {{domxref("HTMLTrackElement")}}: {{domxref("HTMLTrackElement.cuechange_event", "cuechange")}}
+- [WebVTT](/de/docs/Glossary/WebVTT)
+- Dasselbe Ereignis auf [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement): [`cuechange`](/de/docs/Web/API/HTMLTrackElement/cuechange_event)

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Das CSS-**`::-webkit-slider-runnable-track`**-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die "Spur" (die Rille, in der der Indikator gleitet) eines {{HTMLElement("input/range", '&lt;input type="range"&gt;')}}.
+Das **`::-webkit-slider-runnable-track`** CSS-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die "Schiene" (die Rille, in der der Indikator gleitet) eines {{HTMLElement("input/range", '&lt;input type="range"&gt;')}}.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ Das CSS-**`::-webkit-slider-runnable-track`**-[Pseudo-Element](/de/docs/Web/CSS/
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 

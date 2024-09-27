@@ -7,24 +7,24 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`and`** Anweisungen werden verwendet, um eine bitweise UND-Operation durchzuführen, ähnlich dem **`&`** Operator in anderen Sprachen.
+Die **`and`** Anweisungen werden zur Durchführung eines bitweisen UND verwendet, ähnlich wie der **`&`** Operator in anderen Sprachen.
 
 {{EmbedInteractiveExample("pages/wat/and.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; lade zwei Zahlen auf den Stapel
+;; load two numbers onto the stack
 i32.const 5   ;; 00000101
 i32.const 3   ;; 00000011
 
-;; führe eine bitweise UND-Operation durch
+;; perform a bitwise AND
 i32.and
 
-;; das oberste Element auf dem Stapel ist jetzt 1 (00000001)
+;; the top item on the stack will now be 1 (00000001)
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `i32.and`   | `0x71`         |
-| `i64.and`   | `0x83`         |
+| Anweisung | Binäroperationscode |
+| --------- | ------------------- |
+| `i32.and` | `0x71`              |
+| `i64.and` | `0x83`              |

@@ -1,5 +1,5 @@
 ---
-title: "BackgroundFetchRegistration: Eigenschaft uploadTotal"
+title: "BackgroundFetchRegistration: uploadTotal-Eigenschaft"
 short-title: uploadTotal
 slug: Web/API/BackgroundFetchRegistration/uploadTotal
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`uploadTotal`** schreibgeschützte Eigenschaft der {{domxref("BackgroundFetchRegistration")}}-Schnittstelle gibt die Gesamtanzahl der Bytes zurück, die an den Server gesendet werden sollen.
+Die schreibgeschützte **`uploadTotal`**-Eigenschaft der [`BackgroundFetchRegistration`](/de/docs/Web/API/BackgroundFetchRegistration)-Schnittstelle gibt die Gesamtanzahl der Bytes zurück, die an den Server gesendet werden sollen.
 
 ## Wert
 
@@ -26,6 +26,6 @@ console.log(bgFetch.uploadTotal);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

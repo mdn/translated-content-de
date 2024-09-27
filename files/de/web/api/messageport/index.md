@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Die **`MessagePort`** Schnittstelle der [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API) repräsentiert einen der beiden Ports eines {{domxref("MessageChannel")}}, wodurch Nachrichten von einem Port gesendet und am anderen empfangen werden können.
+Die **`MessagePort`**-Schnittstelle der [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API) repräsentiert einen der beiden Ports eines [`MessageChannel`](/de/docs/Web/API/MessageChannel), der es ermöglicht, Nachrichten von einem Port zu senden und am anderen auf deren Ankunft zu lauschen.
 
 `MessagePort` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
@@ -15,57 +15,57 @@ Die **`MessagePort`** Schnittstelle der [Channel Messaging API](/de/docs/Web/API
 
 ## Instanzmethoden
 
-_Erbt Methoden von seinem Elternteil {{domxref("EventTarget")}}_.
+_Erbt Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
-- {{domxref("MessagePort.postMessage","postMessage()")}}
-  - : Sendet eine Nachricht vom Port und überträgt gegebenenfalls das Eigentum von Objekten an andere Browsing-Kontexte.
-- {{domxref("MessagePort.start","start()")}}
-  - : Startet das Senden von Nachrichten, die in der Warteschlange des Ports stehen (nur erforderlich bei Verwendung von {{domxref("EventTarget.addEventListener")}}; bei Verwendung von {{domxref("MessagePort.message_event", "onmessage")}} ist es impliziert).
-- {{domxref("MessagePort.close","close()")}}
-  - : Trennt den Port, sodass er nicht mehr aktiv ist.
+- [`postMessage()`](/de/docs/Web/API/MessagePort/postMessage)
+  - : Sendet eine Nachricht vom Port und überträgt optional den Besitz von Objekten an andere Browsing-Kontexte.
+- [`start()`](/de/docs/Web/API/MessagePort/start)
+  - : Startet das Senden von Nachrichten, die in der Warteschlange des Ports stehen (nur erforderlich, wenn [`EventTarget.addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) verwendet wird; es ist impliziert, wenn [`onmessage`](/de/docs/Web/API/MessagePort/message_event) verwendet wird).
+- [`close()`](/de/docs/Web/API/MessagePort/close)
+  - : Trennt den Port, so dass er nicht mehr aktiv ist.
 
 ## Ereignisse
 
-_Erbt Ereignisse von seinem Elternteil {{domxref("EventTarget")}}_.
+_Erbt Ereignisse von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 
-- {{domxref("MessagePort.message_event","message")}}
-  - : Wird ausgelöst, wenn ein `MessagePort`-Objekt eine Nachricht empfängt.
-- {{domxref("MessagePort.messageerror_event","messageerror")}}
-  - : Wird ausgelöst, wenn ein `MessagePort`-Objekt eine Nachricht empfängt, die nicht deserialisiert werden kann.
+- [`message`](/de/docs/Web/API/MessagePort/message_event)
+  - : Wird ausgelöst, wenn ein `MessagePort`-Objekt eine Nachricht erhält.
+- [`messageerror`](/de/docs/Web/API/MessagePort/messageerror_event)
+  - : Wird ausgelöst, wenn ein `MessagePort`-Objekt eine Nachricht erhält, die nicht deserialisiert werden kann.
 
 ## Beispiel
 
-Im folgenden Beispiel sehen Sie, wie ein neuer Kanal mit dem {{domxref("MessageChannel.MessageChannel","MessageChannel()")}} Konstruktor erstellt wird.
+Im folgenden Beispiel sehen Sie, wie ein neuer Kanal mit dem [`MessageChannel()`](/de/docs/Web/API/MessageChannel/MessageChannel)-Konstruktor erstellt wird.
 
-Wenn das IFrame geladen ist, registrieren wir einen {{domxref("MessagePort/message_event","onmessage")}}-Handler für {{domxref("MessageChannel.port1")}} und übertragen {{domxref("MessageChannel.port2")}} an das IFrame mittels der {{domxref("window.postMessage")}} Methode zusammen mit einer Nachricht.
+Wenn das IFrame geladen ist, registrieren wir einen [`onmessage`](/de/docs/Web/API/MessagePort/message_event)-Handler für [`MessageChannel.port1`](/de/docs/Web/API/MessageChannel/port1) und übertragen [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) an das IFrame, indem wir zusammen mit einer Nachricht die [`window.postMessage`](/de/docs/Web/API/Window/postMessage)-Methode verwenden.
 
-Wenn eine Nachricht vom IFrame zurückempfangen wird, gibt die Funktion `onMessage` die Nachricht in einem Absatz aus.
+Wenn eine Nachricht vom IFrame zurück empfangen wird, gibt die `onMessage`-Funktion die Nachricht in einem Absatz aus.
 
 ```js
 const channel = new MessageChannel();
 const output = document.querySelector(".output");
 const iframe = document.querySelector("iframe");
 
-// Warten Sie, bis das IFrame geladen ist
+// Wait for the iframe to load
 iframe.addEventListener("load", onLoad);
 
 function onLoad() {
-  // Hören Sie auf Nachrichten auf port1
+  // Listen for messages on port1
   channel.port1.onmessage = onMessage;
 
-  // Übertragen Sie port2 an das IFrame
+  // Transfer port2 to the iframe
   iframe.contentWindow.postMessage("Hello from the main page!", "*", [
     channel.port2,
   ]);
 }
 
-// Nachrichten behandeln, die auf port1 empfangen werden
+// Handle messages received on port1
 function onMessage(e) {
   output.innerHTML = e.data;
 }
 ```
 
-Für ein vollständig funktionierendes Beispiel sehen Sie unser [Grundlegendes Beispiel zur Channel-Kommunikation](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub ([auch live ausführen](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
+Für ein vollständiges funktionierendes Beispiel siehe unser [Grundlehrgang zur Kanalnachricht](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub ([führen Sie es auch live aus](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
 
 ## Spezifikationen
 
@@ -77,4 +77,4 @@ Für ein vollständig funktionierendes Beispiel sehen Sie unser [Grundlegendes B
 
 ## Siehe auch
 
-- [Verwendung des Channel Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwendung des Kanalnachrichtensystems](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

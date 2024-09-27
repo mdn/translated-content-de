@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef}}{{Deprecated_header}}
 
-Die schreibgeschützte Eigenschaft **`inputBuffer`** der {{domxref("AudioProcessingEvent")}}-Schnittstelle repräsentiert den Eingabepuffer eines Audioverarbeitungsereignisses.
+Die **`inputBuffer`**-Schreibgeschützte Eigenschaft des [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent)-Interfaces repräsentiert den Eingabepuffer eines Audioverarbeitungsereignisses.
 
-Der Eingabepuffer wird durch ein {{domxref("AudioBuffer")}}-Objekt dargestellt, das eine Sammlung von Audiokanälen enthält. Jeder Kanal ist ein Array von Gleitkommawerten, die das Audiosignal als eine Reihe von Amplituden kodieren. Die Anzahl der Kanäle und die Länge jedes Kanals werden durch die Kanälenzahl- und Puffergröße-Eigenschaften des `AudioBuffer` bestimmt.
+Der Eingabepuffer wird durch ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Objekt dargestellt, das eine Sammlung von Audiokanälen enthält. Jeder Kanal ist ein Array von Gleitkommawerten, die die Audiosignalwellenform als eine Reihe von Amplituden darstellen. Die Anzahl der Kanäle und die Länge jedes Kanals werden durch die Kanalanzahl und die Puffergrößeigenschaften des `AudioBuffer` bestimmt.
 
 ## Wert
 
-Ein {{domxref("AudioBuffer")}}-Objekt.
+Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer)-Objekt.
 
 ## Beispiele
 
-In diesem Beispiel wird ein {{domxref("ScriptProcessorNode")}} mit einer Puffergröße von 256 Samples, 2 Eingabekanälen und 2 Ausgabekanälen erstellt. Wenn ein {{domxref("ScriptProcessorNode/audioprocess_event", "audioprocess")}}-Ereignis ausgelöst wird, werden die Ein- und Ausgabepuffer aus dem Ereignisobjekt abgerufen. Die Audiodaten im Eingabepuffer werden verarbeitet und das Ergebnis wird in den Ausgabepuffer geschrieben. In diesem Fall werden die Audiodaten um den Faktor 0,5 reduziert.
+In diesem Beispiel wird ein [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode) mit einer Puffergröße von 256 Samples, 2 Eingangskanälen und 2 Ausgangskanälen erstellt. Wenn ein [`audioprocess`](/de/docs/Web/API/ScriptProcessorNode/audioprocess_event)-Ereignis ausgelöst wird, werden die Eingabe- und Ausgabepuffer aus dem Ereignisobjekt abgerufen. Die Audiodaten im Eingabepuffer werden verarbeitet, und das Ergebnis wird in den Ausgabepuffer geschrieben. In diesem Fall werden die Audiodaten um den Faktor 0,5 skaliert.
 
 ```js
 const audioContext = new AudioContext();
@@ -46,11 +46,11 @@ processor.connect(audioContext.destination);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("AudioProcessingEvent.outputBuffer")}}
-- {{domxref("ScriptProcessorNode")}}
+- [`AudioProcessingEvent.outputBuffer`](/de/docs/Web/API/AudioProcessingEvent/outputBuffer)
+- [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode)

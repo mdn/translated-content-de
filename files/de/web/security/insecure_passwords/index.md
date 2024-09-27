@@ -7,18 +7,18 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Login-Formulare über HTTP bereitzustellen, ist besonders gefährlich wegen der Vielzahl von Angriffen, die gegen sie eingesetzt werden können, um das Passwort eines Benutzers zu extrahieren. Netzwerk-Spione könnten das Passwort eines Benutzers stehlen, indem sie das Netzwerk abhören oder die während der Übertragung bereitgestellte Seite verändern.
+Das Ausliefern von Anmeldeformularen über HTTP ist besonders gefährlich wegen der Vielzahl an Angriffen, die genutzt werden können, um das Passwort eines Nutzers zu extrahieren. Netzwerk-Lauscher könnten das Passwort eines Nutzers stehlen, indem sie das Netzwerk abhören oder die unterwegs ausgelieferte Seite verändern.
 
-Das [HTTPS](/de/docs/Glossary/HTTPS)-Protokoll ist darauf ausgelegt, Benutzerdaten vor Abhörmaßnahmen (Vertraulichkeit) und vor Veränderungen (Integrität) im Netzwerk zu schützen. Websites, die Benutzerdaten verarbeiten, sollten HTTPS verwenden, um ihre Benutzer vor Angreifern zu schützen. Wenn eine Website HTTP anstelle von HTTPS verwendet, ist es trivial, Benutzerdaten (wie ihre Anmeldedaten) zu stehlen. Dies wurde berühmt durch [Firesheep](https://codebutler.github.io/firesheep/) demonstriert.
+Das [HTTPS](/de/docs/Glossary/HTTPS)-Protokoll ist dafür ausgelegt, Benutzerdaten auf dem Netzwerk vor Abhören (Vertraulichkeit) und vor Manipulation (Integrität) zu schützen. Websites, die Benutzerdaten verarbeiten, sollten HTTPS verwenden, um ihre Nutzer vor Angreifern zu schützen. Wenn eine Website HTTP statt HTTPS nutzt, ist es trivial, Benutzerinformationen (wie ihre Anmeldedaten) zu stehlen. Dies wurde eindrucksvoll von [Firesheep](https://codebutler.github.io/firesheep/) demonstriert.
 
-Um dieses Problem zu beheben, installieren und konfigurieren Sie ein [TLS](/de/docs/Glossary/TLS)-Zertifikat auf Ihrem Server. Es gibt verschiedene Anbieter, die kostenlose und kostenpflichtige Zertifikate anbieten. Wenn Sie eine Cloud-Plattform verwenden, kann diese eigene Methoden zur Aktivierung von HTTPS haben.
+Um dieses Problem zu beheben, installieren und konfigurieren Sie ein [TLS](/de/docs/Glossary/TLS)-Zertifikat auf Ihrem Server. Es gibt verschiedene Anbieter, die sowohl kostenlose als auch kostenpflichtige Zertifikate anbieten. Wenn Sie eine Cloud-Plattform nutzen, kann es sein, dass diese eigene Methoden zur Aktivierung von HTTPS hat.
 
-## Hinweis zur Wiederverwendung von Passwörtern
+## Hinweis zur Passwort-Wiederverwendung
 
-Manchmal erfordern Websites Benutzernamen und Passwörter, speichern jedoch keine sehr sensiblen Daten. Zum Beispiel kann eine Nachrichtenseite speichern, welche Nachrichtenartikel ein Benutzer später lesen möchte, aber keine weiteren Daten über einen Benutzer speichern. Webentwickler der Nachrichtenseite könnten weniger motiviert sein, ihre Seite und die Benutzerdaten zu sichern.
+Manchmal benötigen Websites Benutzernamen und Passwörter, speichern jedoch keine besonders sensiblen Daten. Ein Nachrichtenportal könnte zum Beispiel nur speichern, welche Artikel ein Nutzer später lesen möchte, aber keine weiteren Daten. Webentwickler der Nachrichtenwebsite könnten daher weniger motiviert sein, ihre Website und Benutzerdaten zu sichern.
 
-Leider ist die [Wiederverwendung von Passwörtern ein großes Problem](https://www.lightbluetouchpaper.org/2011/02/09/measuring-password-re-use-empirically/). Benutzer verwenden dasselbe Passwort auf mehreren Seiten (Nachrichtenseiten, soziale Netzwerke, E-Mail-Anbieter, Banken). Daher ist selbst wenn der Zugriff auf den Benutzernamen und das Passwort Ihrer Seite für Sie kein großes Risiko darstellt, es ein enormes Risiko für Benutzer, die dieselben Anmeldedaten verwenden, um sich bei ihren Bankkonten anzumelden. Angreifer werden immer schlauer; sie stehlen Benutzernamen/Passwort-Kombinationen von einer Seite und versuchen dann, sie auf lukrativeren Seiten wiederzuverwenden.
+Leider ist [Passwort-Wiederverwendung ein großes Problem](https://www.lightbluetouchpaper.org/2011/02/09/measuring-password-re-use-empirically/). Nutzer verwenden dasselbe Passwort auf mehreren Websites (Nachrichtenportale, soziale Netzwerke, E-Mail-Anbieter, Banken). Selbst wenn der Zugriff auf den Benutzernamen und das Passwort Ihrer Website für Sie nicht nach einem großen Risiko aussieht, ist es ein erhebliches Risiko für Nutzer, die dieselben Anmeldedaten für ihre Bankkonten verwenden. Angreifer werden immer smarter; sie stehlen Benutzernamen/Passwort-Kombinationen von einer Website und versuchen dann, diese auf lukrativeren Seiten zu verwenden.
 
 ## Siehe auch
 
-- [No More Passwords over HTTP, Please!](https://blog.mozilla.org/tanvi/2016/01/28/no-more-passwords-over-http-please/) — Detaillierter Blog-Beitrag mit weiteren Informationen und FAQ.
+- [No More Passwords over HTTP, Please!](https://blog.mozilla.org/tanvi/2016/01/28/no-more-passwords-over-http-please/) — Ausführlicher Blogpost mit weiteren Informationen und FAQs.

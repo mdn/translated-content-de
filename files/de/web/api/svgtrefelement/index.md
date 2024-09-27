@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("SVG")}}{{deprecated_header}}
 
-Die **`SVGTRefElement`**-Schnittstelle entspricht den {{SVGElement("tref")}}-Elementen.
+Die **`SVGTRefElement`** Schnittstelle entspricht den {{SVGElement("tref")}} Elementen.
 
-Objektorientierter Zugriff auf die Attribute des {{SVGElement("tref")}}-Elements über das SVG-DOM ist nicht möglich.
+Ein objektorientierter Zugriff auf die Attribute des {{SVGElement("tref")}} Elements über das SVG-DOM ist nicht möglich.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle hat keine Eigenschaften, erbt jedoch Eigenschaften von ihrem Elternteil, {{domxref("SVGTextPositioningElement")}}._
+_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von ihrem übergeordneten Element, [`SVGTextPositioningElement`](/de/docs/Web/API/SVGTextPositioningElement)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine Methoden, erbt jedoch Methoden von ihrem Elternteil, {{domxref("SVGTextPositioningElement")}}._
+_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch Methoden von ihrem übergeordneten Element, [`SVGTextPositioningElement`](/de/docs/Web/API/SVGTextPositioningElement)._
 
 ## Spezifikationen
 

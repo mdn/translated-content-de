@@ -1,5 +1,5 @@
 ---
-title: "CustomEvent: detail-Eigenschaft"
+title: "CustomEvent: Detail-Eigenschaft"
 short-title: detail
 slug: Web/API/CustomEvent/detail
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`detail`**-Eigenschaft der {{domxref("CustomEvent")}}-Schnittstelle gibt alle Daten zurück, die beim Initialisieren des Ereignisses übergeben wurden.
+Die schreibgeschützte **`detail`**-Eigenschaft der [`CustomEvent`](/de/docs/Web/API/CustomEvent)-Schnittstelle gibt die Daten zurück, die beim Initialisieren des Events übergeben wurden.
 
 ## Wert
 
-Welche Daten auch immer das Ereignis initialisiert wurden.
+Welche Daten auch immer das Event mit initialisiert wurde.
 
 ## Beispiel
 
 ```js
-// benutzerdefinierte Ereignisse erstellen
+// create custom events
 const catFound = new CustomEvent("animalfound", {
   detail: {
     name: "cat",
@@ -29,16 +29,16 @@ const dogFound = new CustomEvent("animalfound", {
   },
 });
 
-const element = document.createElement("div"); // ein <div>-Element erstellen
+const element = document.createElement("div"); // create a <div> element
 
-// einen entsprechenden Ereignis-Listener hinzufügen
+// add an appropriate event listener
 element.addEventListener("animalfound", (e) => console.log(e.detail.name));
 
-// die Ereignisse auslösen
+// dispatch the events
 element.dispatchEvent(catFound);
 element.dispatchEvent(dogFound);
 
-// "cat" und "dog" werden in der Konsole protokolliert
+// "cat" and "dog" logged in the console
 ```
 
 ## Spezifikationen
@@ -51,4 +51,4 @@ element.dispatchEvent(dogFound);
 
 ## Siehe auch
 
-- {{domxref("CustomEvent")}}
+- [`CustomEvent`](/de/docs/Web/API/CustomEvent)

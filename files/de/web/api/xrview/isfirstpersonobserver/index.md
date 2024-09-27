@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`isFirstPersonObserver`**-Eigenschaft der Schnittstelle {{domxref("XRView")}} ist ein boolescher Wert, der angibt, ob die `XRView` eine Ich-Perspektive-Ansicht ist.
+Die schreibgeschützte Eigenschaft **`isFirstPersonObserver`** des [`XRView`](/de/docs/Web/API/XRView)-Interfaces ist ein boolean, der angibt, ob das `XRView` eine Egoperspektive ist.
 
-Um Videoaufzeichnungen von AR-Geräte-Kameras zu erstellen, können Sie nicht einfach eines der gerenderten Augen verwenden, da es häufig einen physischen Versatz gibt. Einige Geräte stellen eine sekundäre Ansicht bereit, die Ich-Perspektive-Ansicht, die ein `eye` von `none` hat.
+Um Videoaufnahmen von AR-Gerätekameras zu erstellen, können Sie nicht einfach eines der gerenderten Augen verwenden, da es oft einen physischen Abstand gibt. Einige Geräte bieten eine sekundäre Ansicht, die Egoperspektive, die ein `eye` von `none` hat.
 
-Um eine Ich-Perspektive-Ansicht zu erhalten, müssen Sie den "secondary-views"-Feature-Descriptor explizit aktivieren (typischerweise als optionales Merkmal). Siehe {{domxref("XRSystem.requestSession()")}} für Details.
+Um eine Egoperspektive zu erhalten, müssen Sie den "secondary-views" Feature-Descriptor explizit aktivieren (typischerweise als optionales Feature). Weitere Details finden Sie unter [`XRSystem.requestSession()`](/de/docs/Web/API/XRSystem/requestSession).
 
-Die `isFirstPersonObserver`-Eigenschaft ermöglicht es Ihnen dann zu überprüfen, welche sekundäre Ansicht eine Ich-Perspektive-Ansicht ist.
+Die Eigenschaft `isFirstPersonObserver` ermöglicht es Ihnen dann zu überprüfen, welche sekundäre Ansicht eine Egoperspektive ist.
 
 ## Beispiele
 
-### Überprüfung auf Ich-Perspektive-Ansichten
+### Überprüfung auf Egoperspektiven
 
 ```js
-// Stellen Sie sicher, dass "secondary-view" aktiviert ist
+// Make sure to enable "secondary-view"
 navigator.xr
   .requestSession("immersive-ar", {
     optionalFeatures: ["secondary-views"],
@@ -31,7 +31,7 @@ navigator.xr
 
     session.requestAnimationFrame((frame) => {
       const views = frame.getViewerPose(space);
-      // Stellen Sie sicher, dass Sie alle Ansichten durchlaufen
+      // Make sure to iterate over all views
       for (const view of views) {
         if (view.isFirstPersonObserver) {
           renderFPO();

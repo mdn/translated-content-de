@@ -9,7 +9,9 @@ l10n:
 {{ApiRef("DOM")}}
 
 Die **`Range.selectNode()`**-Methode setzt den
-{{domxref("Range")}} so, dass er den {{domxref("Node")}} und dessen Inhalt enthält. Der Eltern-{{domxref("Node")}} des Anfangs und Endes des {{domxref("Range")}} wird derselbe sein wie der Elternteil des _referenceNode_.
+[`Range`](/de/docs/Web/API/Range) so, dass er den [`Node`](/de/docs/Web/API/Node) und dessen Inhalt umfasst. Der übergeordnete
+[`Node`](/de/docs/Web/API/Node) des Anfangs und Endes des [`Range`](/de/docs/Web/API/Range) wird derselbe sein wie
+der übergeordnete Knoten des _referenceNode_.
 
 ## Syntax
 
@@ -20,7 +22,7 @@ selectNode(referenceNode)
 ### Parameter
 
 - `referenceNode`
-  - : Der {{domxref("Node")}}, der innerhalb eines {{domxref("Range")}} ausgewählt werden soll.
+  - : Der [`Node`](/de/docs/Web/API/Node), der innerhalb eines [`Range`](/de/docs/Web/API/Range) ausgewählt werden soll.
 
 ### Rückgabewert
 
@@ -39,10 +41,10 @@ range.selectNode(referenceNode);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Interface-Index](/de/docs/Web/API/Document_Object_Model)

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Typumwandlung ist die automatische oder implizite Konvertierung von Werten von einem Datentyp in einen anderen (z. B. von Strings zu Zahlen). _{{Glossary("Type conversion")}}_ ist der _Typumwandlung_ ähnlich, da beide Werte von einem Datentyp in einen anderen konvertieren, mit einem entscheidenden Unterschied – die _Typumwandlung_ ist implizit, während die _Typkonvertierung_ sowohl implizit _als auch_ explizit sein kann.
+Typumwandlung ist die automatische oder implizite Konvertierung von Werten von einem Datentyp in einen anderen (wie z.B. von Zeichenfolgen zu Zahlen). Die _[Typkonvertierung](/de/docs/Glossary/Type_conversion)_ ist der _Typumwandlung_ ähnlich, da sie beide Werte von einem Datentyp in einen anderen konvertieren, mit einem entscheidenden Unterschied – die _Typumwandlung_ ist implizit, während die _Typkonvertierung_ entweder implizit _oder_ explizit sein kann.
 
 ## Beispiele
 
@@ -19,9 +19,9 @@ let sum = value1 + value2;
 console.log(sum);
 ```
 
-Im obigen Beispiel hat JavaScript die `9` von einer Zahl in einen String umgewandelt und dann die beiden Werte zusammenkonkateniert, was zu einem String von `59` führt. JavaScript hatte die Wahl zwischen einem String oder einer Zahl und entschied sich für einen String.
+Im obigen Beispiel hat JavaScript die `9` von einer Zahl in eine Zeichenfolge umgewandelt und dann die beiden Werte zusammengefügt, was zu einer Zeichenfolge von `59` führt. JavaScript hatte die Wahl zwischen einer Zeichenfolge oder einer Zahl und entschied sich für eine Zeichenfolge.
 
-Der Compiler hätte die `5` in eine Zahl umwandeln und eine Summe von `14` zurückgeben können, tat es aber nicht. Um dieses Ergebnis zu erhalten, müssten Sie die `5` explizit mit der Methode {{jsxref("Global_Objects/Number", "Number()")}} in eine Zahl konvertieren:
+Der Compiler hätte die `5` in eine Zahl umwandeln und eine Summe von `14` zurückgeben können, hat es aber nicht. Um dieses Ergebnis zu erzielen, müssten Sie die `5` explizit in eine Zahl konvertieren, indem Sie die {{jsxref("Global_Objects/Number", "Number()")}} Methode verwenden:
 
 ```js
 sum = Number(value1) + value2;
@@ -31,5 +31,5 @@ sum = Number(value1) + value2;
 
 - [Typkonvertierung](https://en.wikipedia.org/wiki/Type_conversion) (Wikipedia)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Type")}}
-  - {{Glossary("Type conversion")}}
+  - [Typ](/de/docs/Glossary/Type)
+  - [Typkonvertierung](/de/docs/Glossary/Type_conversion)

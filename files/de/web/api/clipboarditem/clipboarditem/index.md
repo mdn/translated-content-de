@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Der **`ClipboardItem()`**-Konstruktor erstellt ein neues {{domxref("ClipboardItem")}}-Objekt, das Daten repräsentiert, die mittels der [Clipboard API](/de/docs/Web/API/Clipboard_API) über die Methoden {{domxref("clipboard.write()")}} und {{domxref("clipboard.read()")}} gespeichert oder abgerufen werden.
+Der **`ClipboardItem()`** Konstruktor erstellt ein neues [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Objekt, das Daten darstellt, die über die [Clipboard API](/de/docs/Web/API/Clipboard_API) Methoden [`clipboard.write()`](/de/docs/Web/API/Clipboard/write) und [`clipboard.read()`](/de/docs/Web/API/Clipboard/read) gespeichert oder abgerufen werden können.
 
 > [!NOTE]
-> Die Unterstützung von Bildformaten variiert je nach Browser. Siehe die Kompatibilitätstabelle der {{domxref("Clipboard")}}-Schnittstelle.
+> Die Unterstützung von Bildformaten variiert je nach Browser. Siehe die Tabelle zur Browser-Kompatibilität für die [`Clipboard`](/de/docs/Web/API/Clipboard) Schnittstelle.
 
 ## Syntax
 
@@ -23,8 +23,8 @@ new ClipboardItem(data, options)
 ### Parameter
 
 - `data`
-  - : Ein {{jsxref("Object")}} mit dem {{Glossary("MIME type")}} als Schlüssel und den Daten als Wert.
-    Die Daten können als {{domxref("Blob")}}, {{jsxref("String")}} oder {{jsxref("Promise")}}, die zu einem Blob oder String auflösen, dargestellt werden.
+  - : Ein {{jsxref("Object")}} mit dem [MIME-Typ](/de/docs/Glossary/MIME_type) als Schlüssel und den Daten als Wert.
+    Die Daten können als [`Blob`](/de/docs/Web/API/Blob), als {{jsxref("String")}} oder als {{jsxref("Promise")}} dargestellt werden, das entweder zu einem Blob oder String auflöst.
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `presentationStyle` {{optional_inline}}
@@ -32,15 +32,15 @@ new ClipboardItem(data, options)
         Der Standardwert ist `unspecified`.
 
 > [!NOTE]
-> Sie können auch mit Texten über die Methoden {{domxref("Clipboard.readText()")}} und {{domxref("Clipboard.writeText()")}} der {{domxref("Clipboard")}}-Schnittstelle arbeiten.
+> Sie können auch mit Text über die Methoden [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) und [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText) der [`Clipboard`](/de/docs/Web/API/Clipboard) Schnittstelle arbeiten.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein PNG-Bild mithilfe von {{domxref("Window/fetch", "fetch()")}} sowie der {{domxref("Response.blob()")}}-Methode abgefragt, um ein neues {{domxref("ClipboardItem")}} zu erstellen.
-Dieses Element wird dann mithilfe der {{domxref("Clipboard.write()")}}-Methode in die Zwischenablage geschrieben.
+Das untenstehende Beispiel fordert ein PNG-Bild mit [`fetch()`](/de/docs/Web/API/Window/fetch) und der Methode [`Response.blob()`](/de/docs/Web/API/Response/blob) an, um ein neues [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) zu erstellen.
+Dieses Element wird dann mit der Methode [`Clipboard.write()`](/de/docs/Web/API/Clipboard/write) in die Zwischenablage geschrieben.
 
 > [!NOTE]
-> Sie können jeweils nur ein Zwischenablage-Element übertragen.
+> Sie können jeweils nur ein Element in die Zwischenablage übergeben.
 
 ```js
 async function writeClipImg() {
@@ -75,4 +75,4 @@ async function writeClipImg() {
 ## Siehe auch
 
 - [Clipboard API](/de/docs/Web/API/Clipboard_API)
-- [Image support for Async Clipboard article](https://web.dev/articles/async-clipboard)
+- [Artikel zur Bildunterstützung für die asynchrone Zwischenablage](https://web.dev/articles/async-clipboard)

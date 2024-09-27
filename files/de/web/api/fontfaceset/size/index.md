@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`size`**-Eigenschaft des {{domxref("FontFaceSet")}}-Interfaces gibt die Anzahl der Elemente im `FontFaceSet` zurück.
+Die **`size`**-Eigenschaft des [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Interfaces gibt die Anzahl der Elemente im `FontFaceSet` zurück.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der Elemente im `FontFaceSet` angibt.
+Eine Ganzzahl, die die Anzahl der Elemente im `FontFaceSet` angibt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird die `size` des `FontFaceSet` in die Konsole ausgegeben.
+Im folgenden Beispiel wird die `size` des `FontFaceSet` in der Konsole ausgegeben.
 
 ```js
 console.log(document.fonts.size);
@@ -26,6 +26,6 @@ console.log(document.fonts.size);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -1,5 +1,5 @@
 ---
-title: Spalten-Kombinator
+title: Column-Kombinator
 slug: Web/CSS/Column_combinator
 l10n:
   sourceCommit: 7fa9b134e7a886b47bd8c6e3135ba329ee0ddf09
@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}} {{SeeCompatTable}}
 
-Der **Spalten-Kombinator** (`||`) wird zwischen zwei CSS-Selektoren platziert. Er matched nur die Elemente, die vom zweiten Selektor erfasst werden und zu den Spaltenelementen gehören, die vom ersten erfasst werden.
+Der **Column-Kombinator** (`||`) wird zwischen zwei CSS-Selektoren platziert. Er matcht nur die Elemente, die vom zweiten Selektor erfasst werden und zu den Spaltenelementen gehören, die vom ersten Selektor erfasst werden.
 
 ```css
-/* Tabellenzellen, die zur "selected" Spalte gehören */
+/* Table cells that belong to the "selected" column */
 col.selected||td {
   background: gray;
 }
@@ -19,9 +19,9 @@ col.selected||td {
 ## Syntax
 
 ```css-nolint
-/* Der Leerraum um den || Kombinator ist optional, aber empfohlen. */
+/* The white space around the || combinator is optional but recommended. */
 column-selector || cell-selector {
-  /* Stil-Eigenschaften */
+  /* style properties */
 }
 ```
 

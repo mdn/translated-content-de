@@ -7,21 +7,20 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMenuElement`**-Schnittstelle bietet zusätzliche Eigenschaften (über die von der {{domxref("HTMLElement")}}-Schnittstelle geerbten hinaus) zur Manipulation eines {{HTMLElement("menu")}}-Elements.
-`<menu>` ist eine semantische Alternative zum {{HTMLElement("ul")}}-Element.
+Das **`HTMLMenuElement`** Interface bietet zusätzliche Eigenschaften (über die von dem [`HTMLElement`](/de/docs/Web/API/HTMLElement) Interface geerbten hinaus) zur Manipulation eines {{HTMLElement("menu")}}-Elements. `<menu>` ist eine semantische Alternative zum {{HTMLElement("ul")}}-Element.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("HTMLElement")}}, und seinen Vorfahren._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement), und seinen Vorfahren._
 
-- {{domxref("HTMLMenuElement.compact")}} {{deprecated_inline}}
-  - : Ein Boolean, der bestimmt, ob das Menü kompakt angezeigt wird.
+- [`HTMLMenuElement.compact`](/de/docs/Web/API/HTMLMenuElement/compact) {{deprecated_inline}}
+  - : Ein boolean, der bestimmt, ob das Menü kompakt angezeigt wird.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seinem Elternteil, {{domxref("HTMLElement")}}, und seinen Vorfahren._
+_Erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement), und seinen Vorfahren._
 
 _`HTMLMenuElement` implementiert keine spezifischen Methoden._
 

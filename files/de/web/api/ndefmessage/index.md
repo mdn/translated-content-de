@@ -7,22 +7,22 @@ l10n:
 
 {{securecontext_header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die **`NDEFMessage`**-Schnittstelle der [Web NFC API](/de/docs/Web/API/Web_NFC_API) repräsentiert den Inhalt einer NDEF-Nachricht, die von einem NFC-Tag gelesen wurde oder auf einen NFC-Tag geschrieben werden könnte. Eine Instanz wird durch Aufrufen des `NDEFMessage()`-Konstruktors oder über die {{domxref("NDEFReadingEvent.message")}}-Eigenschaft, die an das {{domxref("NDEFReader.reading_event", "reading")}}-Ereignis übergeben wird, erworben.
+Die **`NDEFMessage`**-Schnittstelle der [Web NFC API](/de/docs/Web/API/Web_NFC_API) repräsentiert den Inhalt einer NDEF-Nachricht, die von einem NFC-Tag gelesen wurde oder auf ein solches geschrieben werden könnte. Eine Instanz wird durch Aufrufen des `NDEFMessage()`-Konstruktors oder aus der [`NDEFReadingEvent.message`](/de/docs/Web/API/NDEFReadingEvent/message)-Eigenschaft, die an das [`reading`](/de/docs/Web/API/NDEFReader/reading_event)-Ereignis übergeben wird, erworben.
 
 ## Konstruktor
 
-- {{DOMxRef("NDEFMessage.NDEFMessage", "NDEFMessage()")}} {{Experimental_Inline}}
-  - : Erzeugt ein neues `NDEFMessage`-Objekt, das mit den angegebenen NDEF-Datensätzen initialisiert wird.
+- [`NDEFMessage()`](/de/docs/Web/API/NDEFMessage/NDEFMessage) {{Experimental_Inline}}
+  - : Erstellt ein neues `NDEFMessage`-Objekt, initialisiert mit den gegebenen NDEF-Datensätzen.
 
 ## Attribute
 
-- {{DOMxRef("NDEFMessage.records")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`NDEFMessage.records`](/de/docs/Web/API/NDEFMessage/records) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt die Liste der NDEF-Datensätze zurück, die in der Nachricht enthalten sind.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

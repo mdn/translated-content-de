@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`paint()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert einen {{cssxref("&lt;image&gt;")}}-Wert, der mit einem PaintWorklet generiert wird.
+Die **`paint()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert einen {{cssxref("&lt;image&gt;")}} Wert, der mit einem PaintWorklet erzeugt wird.
 
 ## Syntax
 
@@ -15,7 +15,7 @@ Die **`paint()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functi
 paint(workletName, ...parameters)
 ```
 
-wobei:
+wo:
 
 - _workletName_
   - : Der Name des registrierten Worklets.
@@ -26,13 +26,13 @@ wobei:
 
 ### Grundlegendes Anwendungsbeispiel
 
-In JavaScript registrieren wir das [paint worklet](/de/docs/Web/API/PaintWorkletGlobalScope):
+In JavaScript registrieren wir das [Paint Worklet](/de/docs/Web/API/PaintWorkletGlobalScope):
 
 ```js
 CSS.paintWorklet.addModule("boxbg.js");
 ```
 
-...dann definieren wir im CSS das `background-image` als `paint()`-Typ mit dem Worklet-Namen, `boxbg`, zusammen mit allen Variablen (z.B. `--boxColor` und `--widthSubtractor`), die das Worklet verwenden wird:
+...dann definieren wir im CSS das `background-image` als einen `paint()` Typ mit dem Worklet-Namen `boxbg` sowie alle Variablen (z. B. `--boxColor` und `--widthSubtractor`), die das Worklet verwenden wird:
 
 ```css
 li {
@@ -49,13 +49,13 @@ li:nth-of-type(3n + 1) {
 }
 ```
 
-Das Ergebnis wird das folgende sein:
+Das Ergebnis ist folgendes:
 
 {{EmbedGHLiveSample("css-examples/houdini/css_painting_api/example-boxbg.html", '100%', 400)}}
 
 ### Mit zusätzlichen Parametern
 
-Sie können zusätzliche Argumente über die CSS paint() Funktion übergeben. In diesem Beispiel haben wir zwei Argumente übergeben: Ob das `background-image` bei einer Gruppe von Listenelementen gefüllt ist oder nur eine Umrisslinie hat, und die Breite dieser Umrisslinie:
+Sie können zusätzliche Argumente über die CSS paint() Funktion übergeben. In diesem Beispiel haben wir zwei Argumente übergeben: ob das `background-image` einer Gruppe von Listenelementen gefüllt ist oder nur eine Umrisslinie hat und die Breite dieser Linie:
 
 ```html hidden
 <ul>
@@ -105,7 +105,7 @@ li:nth-of-type(3n + 1) {
 }
 ```
 
-Wir haben im Selektorblock eine benutzerdefinierte Eigenschaft zur Definition von boxColor hinzugefügt. Benutzerdefinierte Eigenschaften sind für das PaintWorklet zugänglich.
+Wir haben eine benutzerdefinierte Eigenschaft im Selektorblock hinzugefügt, die eine boxColor definiert. Benutzerdefinierte Eigenschaften sind für das PaintWorklet zugänglich.
 
 {{EmbedLiveSample("Mit zusätzlichen Parametern", 300, 300)}}
 
@@ -119,7 +119,7 @@ Wir haben im Selektorblock eine benutzerdefinierte Eigenschaft zur Definition vo
 
 ## Siehe auch
 
-- {{domxref('PaintWorkletGlobalScope')}}
+- [`PaintWorkletGlobalScope`](/de/docs/Web/API/PaintWorkletGlobalScope)
 - [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)
 - [Verwendung der CSS Painting API](/de/docs/Web/API/CSS_Painting_API/Guide)
 - {{cssxref("&lt;image&gt;")}}

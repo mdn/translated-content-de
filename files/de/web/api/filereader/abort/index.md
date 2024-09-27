@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`abort()`**-Methode des {{domxref("FileReader")}}-Interface bricht den Lesevorgang ab. Nach der Rückkehr wird der {{domxref("FileReader.readyState","readyState")}} den Wert `DONE` haben.
+Die **`abort()`**-Methode des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces bricht den Lesevorgang ab. Nach Rückkehr wird der [`readyState`](/de/docs/Web/API/FileReader/readyState) `DONE` sein.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
@@ -34,4 +34,4 @@ Keine ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- {{domxref("FileReader")}}
+- [`FileReader`](/de/docs/Web/API/FileReader)

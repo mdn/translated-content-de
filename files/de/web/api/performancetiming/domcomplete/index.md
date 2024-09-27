@@ -9,14 +9,12 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dieses Interface dieser Eigenschaft ist in der [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen das {{domxref("PerformanceNavigationTiming")}} Interface.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) als veraltet markiert. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
 
-Die veraltete, nur lesbare Eigenschaft
+Die veraltete
 **`PerformanceTiming.domComplete`**
-gibt ein `unsigned long long` zurück, welches den Moment darstellt,
-in Millisekunden seit der UNIX-Epoche, als der Parser seine Arbeit am Hauptdokument abgeschlossen hat, also wenn sich der {{domxref("Document.readyState")}} auf
-`'complete'` ändert und das entsprechende {{domxref("Document/readystatechange_event", "readystatechange")}}-Ereignis
-ausgelöst wird.
+Schreibgeschützte Eigenschaft liefert ein `unsigned long long`, das den Zeitpunkt in Millisekunden seit dem UNIX-Epoch darstellt, zu dem der Parser seine Arbeit am Hauptdokument abgeschlossen hat. Dies geschieht, wenn sich der [`Document.readyState`](/de/docs/Web/API/Document/readyState) auf
+`'complete'` ändert und das entsprechende [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event)-Ereignis ausgelöst wird.
 
 ## Wert
 
@@ -32,4 +30,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Das {{domxref("PerformanceTiming")}}-Interface, zu dem es gehört.
+- Die [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle, zu der es gehört.

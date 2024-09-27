@@ -1,5 +1,5 @@
 ---
-title: "DOMMatrixReadOnly: translate()-Methode"
+title: "DOMMatrixReadOnly: translate() Methode"
 short-title: translate()
 slug: Web/API/DOMMatrixReadOnly/translate
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Die `translate()`-Methode des {{domxref("DOMMatrixReadOnly")}}-Interfaces erstellt eine neue Matrix, die das Ergebnis der Originalmatrix mit einer angewandten Translation ist.
+Die `translate()` Methode des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly) Interfaces
+erzeugt eine neue Matrix, die das Ergebnis der ursprünglichen Matrix mit angewendeter Translation ist.
 
 ## Syntax
 
@@ -24,13 +25,18 @@ DOMMatrix.translate(translateX, translateY, translateZ)
 - `translateY`
   - : Eine Zahl, die die Ordinate (y-Koordinate) des Translationsvektors darstellt.
 - `translateZ` {{optional_inline}}
-  - : Eine Zahl, die die z-Komponente des Translationsvektors darstellt. Wenn nicht angegeben, ist der Standardwert 0. Wenn dieser Wert ungleich 0 ist, wird die resultierende Matrix 3D sein.
+  - : Eine Zahl, die die z-Komponente des Translationsvektors darstellt. Wenn nicht angegeben,
+    beträgt der Standardwert 0. Wenn dieser Wert ungleich 0 ist, wird die resultierende Matrix
+    3D sein.
 
 ### Rückgabewert
 
-Gibt eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die eine neue Matrix enthält, entstanden durch die Translation der Matrix um den angegebenen Vektor. Die Originalmatrix wird nicht modifiziert.
+Gibt eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)
+zurück, die eine neue Matrix enthält, die das Ergebnis der Matrix darstellt, die durch den angegebenen
+Vektor transformiert wurde. Die ursprüngliche Matrix wird nicht verändert.
 
-Wenn eine Translation entlang der z-Achse angewendet wird, ist die resultierende Matrix eine 4x4 3D-Matrix.
+Wenn eine Translation entlang der z-Achse angewendet wird, wird die resultierende Matrix eine 4x4 3D
+Matrix sein.
 
 ## Beispiele
 
@@ -43,7 +49,9 @@ Dieses SVG enthält zwei Quadrate, eines rot und eines blau, die jeweils am Doku
 </svg>
 ```
 
-Das folgende JavaScript erstellt zuerst eine Identitätsmatrix und verwendet dann die `translate()`-Methode, um eine neue, übersetzte Matrix zu erstellen — welche dann auf das blaue Quadrat als `transform` angewendet wird. Das rote Quadrat bleibt unberührt.
+Der folgende JavaScript-Code erstellt zunächst eine Einheitsmatrix und verwendet dann
+die `translate()` Methode, um eine neue, übersetzte Matrix zu erstellen — die dann
+auf das blaue Quadrat als `transform` angewendet wird. Das rote Quadrat bleibt an seiner Stelle.
 
 ```js
 const matrix = new DOMMatrixReadOnly().translate(25, 25);
@@ -59,6 +67,6 @@ document
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

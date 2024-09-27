@@ -7,15 +7,15 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`part`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) enthält eine durch Leerzeichen getrennte Liste der Part-Namen des Elements. Part-Namen ermöglichen es CSS, spezifische Elemente in einem Shadow-Baum über das {{CSSxRef("::part")}} Pseudo-Element auszuwählen und zu stylen.
+Das **`part`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) enthält eine durch Leerzeichen getrennte Liste der Teilnamen des Elements. Teilnamen ermöglichen es CSS, spezifische Elemente in einem Schattenbaum über das {{CSSxRef("::part")}} Pseudoelement auszuwählen und zu stylen.
 
-Sehen Sie sich das [`exportparts`-Attribut](/de/docs/Web/HTML/Global_attributes/exportparts) für ein Anwendungsbeispiel an.
+Siehe das [`exportparts`-Attribut](/de/docs/Web/HTML/Global_attributes/exportparts) für ein Anwendungsbeispiel.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -23,8 +23,8 @@ Sehen Sie sich das [`exportparts`-Attribut](/de/docs/Web/HTML/Global_attributes/
 
 - [`exportparts`](/de/docs/Web/HTML/Global_attributes/exportparts) HTML-Attribut
 - {{HTMLElement("template")}} und {{HTMLElement("slot")}} HTML-Elemente
-- {{CSSXref("::part")}} und {{CSSXref("::slotted")}} CSS-Pseudo-Elemente
+- {{CSSXref("::part")}} und {{CSSXref("::slotted")}} CSS-Pseudoelemente
 - [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Schnittstelle
-- {{DOMxRef("Element.part")}} Eigenschaft
-- [Vorlagen und Slots verwenden](/de/docs/Web/API/Web_components/Using_templates_and_slots)
-- [CSS-Scoping](/de/docs/Web/CSS/CSS_scoping) Modul
+- [`Element.part`](/de/docs/Web/API/Element/part) Eigenschaft
+- [Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots)
+- [CSS-Einschränkungen](/de/docs/Web/CSS/CSS_scoping) Modul

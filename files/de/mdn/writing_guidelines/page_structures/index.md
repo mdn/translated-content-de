@@ -7,7 +7,7 @@ l10n:
 
 {{MDNSidebar}}
 
-Im gesamten MDN gibt es Dokumentstrukturen, die verwendet werden, um eine konsistente Darstellung von Informationen in MDN-Artikeln zu gewährleisten. Diese Seite listet Artikel auf, die diese Strukturen beschreiben, damit Sie den Seiteninhalt entsprechend für die Dokumente, die Sie schreiben, bearbeiten oder übersetzen, anpassen können.
+Auf MDN gibt es Dokumentstrukturen, die verwendet werden, um eine konsistente Darstellung von Informationen in MDN-Artikeln zu gewährleisten. Diese Seite listet Artikel auf, die diese Strukturen beschreiben, damit Sie den Seiteninhalt entsprechend für die Dokumente, die Sie schreiben, bearbeiten oder übersetzen, anpassen können.
 
 {{LandingPageListSubPages}}
 

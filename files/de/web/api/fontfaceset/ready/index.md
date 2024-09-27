@@ -1,5 +1,5 @@
 ---
-title: "FontFaceSet: ready Eigenschaft"
+title: "FontFaceSet: ready-Eigenschaft"
 short-title: ready
 slug: Web/API/FontFaceSet/ready
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die schreibgeschützte Eigenschaft `ready` des {{domxref("FontFaceSet")}}-Interfaces gibt ein {{jsxref("Promise")}} zurück, das auf das gegebene {{domxref("FontFaceSet")}} aufgelöst wird.
+Die schreibgeschützte Eigenschaft `ready` des [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das auf das gegebene [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) aufgelöst wird.
 
-Das Versprechen wird erst aufgelöst, wenn das Dokument das Laden der Schriftarten abgeschlossen hat, Layout-Operationen abgeschlossen sind und keine weiteren Schriften mehr geladen werden müssen.
+Das Promise wird nur aufgelöst, wenn das Dokument das Laden von Schriften abgeschlossen hat, Layout-Operationen abgeschlossen sind und keine weiteren Schriftladungen erforderlich sind.
 
 ## Wert
 
-Ein {{jsxref("Promise")}}, das auf das gegebene {{domxref("FontFaceSet")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, das auf das gegebene [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) aufgelöst wird.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der Wert von `ready` in die Konsole ausgegeben, sobald das Versprechen aufgelöst wurde.
+Im folgenden Beispiel wird der Wert von `ready` in die Konsole ausgegeben, sobald das Promise aufgelöst wurde.
 
 ```js
 async function isReady() {

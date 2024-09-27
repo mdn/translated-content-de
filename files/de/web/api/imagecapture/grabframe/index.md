@@ -1,5 +1,5 @@
 ---
-title: "ImageCapture: grabFrame()-Methode"
+title: "ImageCapture: grabFrame() Methode"
 short-title: grabFrame()
 slug: Web/API/ImageCapture/grabFrame
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Image Capture API")}}{{SeeCompatTable}}
 
-Die **`grabFrame()`**-Methode des {{domxref("ImageCapture")}}-Interfaces erstellt einen Schnappschuss des Live-Videos in einem {{domxref("MediaStreamTrack")}} und gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("ImageBitmap")}} aufgelöst wird, welches den Schnappschuss enthält.
+Die **`grabFrame()`**-Methode des [`ImageCapture`](/de/docs/Web/API/ImageCapture)-Interfaces nimmt einen Schnappschuss des Live-Videos in einem [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) auf und gibt ein {{jsxref("Promise")}} zurück, das mit einem [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) aufgelöst wird, welches den Schnappschuss enthält.
 
 ## Syntax
 
@@ -22,18 +22,18 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem {{domxref("ImageBitmap")}}-Objekt aufgelöst wird.
+Ein {{jsxref("Promise")}}, das zu einem [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)-Objekt führt.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die `readyState`-Eigenschaft des `MediaStreamTrack`, das im Konstruktor übergeben wurde, nicht `live` ist.
-- `UnknownError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Vorgang aus irgendeinem Grund nicht abgeschlossen werden kann.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die `readyState`-Eigenschaft des `MediaStreamTrack`, das im Konstruktor übergeben wird, nicht `live` ist.
+- `UnknownError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Operation aus irgendeinem Grund nicht abgeschlossen werden kann.
 
 ## Beispiele
 
-Dieses Beispiel ist aus diesem [Simple Image Capture Demo](https://simpl.info/imagecapture/) entnommen. Es zeigt, wie das von `grabFrame()` zurückgegebene {{jsxref("Promise")}} verwendet wird, um den zurückgegebenen Frame in ein {{htmlelement("canvas")}}-Element zu kopieren. Der Einfachheit halber wird nicht gezeigt, wie das {{domxref("ImageCapture")}}-Objekt instanziiert wird.
+Dieses Beispiel stammt aus diesem [Simple Image Capture Demo](https://simpl.info/imagecapture/). Es zeigt, wie Sie das von `grabFrame()` zurückgegebene {{jsxref("Promise")}} verwenden, um den zurückgegebenen Frame auf ein {{htmlelement("canvas")}}-Element zu kopieren. Der Einfachheit halber wird nicht gezeigt, wie das [`ImageCapture`](/de/docs/Web/API/ImageCapture)-Objekt instanziiert wird.
 
 ```js
 let grabFrameButton = document.querySelector("button#grabFrame");

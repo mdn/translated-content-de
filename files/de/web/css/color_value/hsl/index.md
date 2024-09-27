@@ -8,43 +8,43 @@ l10n:
 {{CSSRef}}
 
 > [!NOTE]
-> Die funktionale Notation `hsla()` ist ein Alias für `hsl()`. Sie sind genau gleichwertig. Es wird empfohlen, `hsl()` zu verwenden.
+> Die funktionale Notation `hsla()` ist ein Alias für `hsl()`. Sie sind genau gleich. Es wird empfohlen, `hsl()` zu verwenden.
 
-Die **`hsl()`** funktionale Notation drückt eine Farbe im {{glossary("RGB", "sRGB")}}-{{glossary("color space", "Farbraum")}} gemäß ihren Komponenten _Farbton_, _Sättigung_ und _Helligkeit_ aus. Eine optionale _Alpha_-Komponente repräsentiert die Transparenz der Farbe.
+Die funktionale Notation **`hsl()`** drückt eine Farbe im [sRGB](/de/docs/Glossary/RGB) [Farbraum](/de/docs/Glossary/color_space) gemäß ihren Komponenten _Farbton_ (hue), _Sättigung_ (saturation) und _Helligkeit_ (lightness) aus. Eine optionale _Alpha_-Komponente steht für die Transparenz der Farbe.
 
 {{EmbedInteractiveExample("pages/css/function-hsl.html")}}
 
-Konträrfarben mit `hsl()` können definiert werden, indem zum Farbtonwert 180 Grad hinzugefügt oder subtrahiert werden, da sie sich auf demselben Durchmesser des {{glossary("color wheel", "Farbkreises")}} befinden. Zum Beispiel hat eine Farbe mit einem Farbtonwinkel von `10deg` eine Komplementärfarbe mit einem Farbtonwinkel von `190deg`.
+Das Definieren von _komplementären Farben_ mit `hsl()` kann durch Hinzufügen oder Subtrahieren von 180 Grad vom Farbwert erfolgen, da sie auf demselben Durchmesser des [Farbkreises](/de/docs/Glossary/color_wheel) positioniert sind. Zum Beispiel hat eine Farbe mit einem Farbwinkel von `10deg` ihre komplementäre Farbe bei `190deg`.
 
 ## Syntax
 
 ```css
-/* Absolute Werte */
+/* Absolute values */
 hsl(120deg 75% 25%)
-hsl(120 75 25) /* Grad- und %-Einheiten sind optional */
+hsl(120 75 25) /* deg and % units are optional */
 hsl(120deg 75% 25% / 60%)
 hsl(none 75% 25%)
 
-/* Relative Werte */
+/* Relative values */
 hsl(from green h s l / 0.5)
 hsl(from #0000FF h s calc(l + 20))
 hsl(from rgb(200 0 0) calc(h + 30) s calc(l + 30))
 
-/* Veralteter 'hsla()'-Alias */
+/* Legacy 'hsla()' alias */
 hsla(120deg 75% 25% / 60%)
 
-/* Veraltetes Format */
+/* Legacy format */
 hsl(120, 75%, 25%)
 hsl(120deg, 75%, 25%, 0.8)
 ```
 
-> **Hinweis:** `hsl()`/`hsla()` kann auch in einer veralteten Form geschrieben werden, bei der alle Werte durch Kommata getrennt sind, zum Beispiel `hsl(120, 75%, 25%)` oder `hsla(120deg, 75%, 25%, 0.8)`. Der Wert `none` ist in der durch Kommata getrennten veralteten Syntax nicht zulässig, der `deg` auf dem Farbtonwert ist optional, und die `%`-Einheiten sind für die Sättigungs- und Helligkeitswerte erforderlich.
+> **Hinweis:** `hsl()`/`hsla()` kann auch in einer älteren Form geschrieben werden, bei der alle Werte durch Kommas getrennt sind, zum Beispiel `hsl(120, 75%, 25%)` oder `hsla(120deg, 75%, 25%, 0.8)`. Der Wert `none` ist in der Syntax mit Kommaseparierung nicht zulässig, das `deg` beim Farbwert ist optional, und die `%` Einheiten sind für die Werte der Sättigung und Helligkeit erforderlich.
 
 ### Werte
 
-Nachfolgend sind Beschreibungen der zulässigen Werte sowohl für absolute als auch für [relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors) aufgeführt.
+Nachfolgend finden Sie Beschreibungen der zulässigen Werte für absolute und [relative Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors).
 
-#### Absoluter Wert-Syntax
+#### Absolute Wertsyntax
 
 ```plain
 hsl(H S L[ / A])
@@ -54,25 +54,25 @@ Die Parameter sind wie folgt:
 
 - `H`
 
-  - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}} oder das Schlüsselwort `none` (in diesem Fall gleichwertig mit `0deg`), das den Farbtonwinkel der Farbe repräsentiert.
+  - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}}, oder das Schlüsselwort `none` (gleichwertig mit `0deg` in diesem Fall), das den Winkel des Farbtons der Farbe darstellt.
 
     > [!NOTE]
-    > Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich zwischen den sRGB-Farbräumen (verwendet von `hsl()` und {{CSSXref("color_value/hwb", "hwb()")}}), CIELAB (verwendet von {{CSSXref("color_value/lch", "lch()")}}) und Oklab (verwendet von {{CSSXref("color_value/oklch", "oklch()")}}). Weitere Details und Beispiele finden Sie auf der Referenzseite {{CSSXref("&lt;hue&gt;")}}.
+    > Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich in den Farbmodellen sRGB (verwendet von `hsl()` und {{CSSXref("color_value/hwb", "hwb()")}}), CIELAB (verwendet von {{CSSXref("color_value/lch", "lch()")}}), und Oklab (verwendet von {{CSSXref("color_value/oklch", "oklch()")}}). Siehe die Referenzseite {{CSSXref("&lt;hue&gt;")}} für mehr Details und Beispiele.
 
 - `S`
-  - : Eine {{CSSXref("&lt;percentage&gt;")}} oder das Schlüsselwort `none` (in diesem Fall gleichwertig mit `0%`). Dieser Wert repräsentiert die Sättigung der Farbe. `100%` ist vollständig gesättigt, während `0%` völlig ungesättigt (grau) ist.
+  - : Ein {{CSSXref("&lt;percentage&gt;")}} oder das Schlüsselwort `none` (gleichwertig mit `0%` in diesem Fall). Dieser Wert repräsentiert die Sättigung der Farbe. Hierbei ist `100%` vollständig gesättigt, während `0%` vollständig ungesättigt (grau) ist.
 - `L`
-  - : Eine {{CSSXref("&lt;percentage&gt;")}} oder das Schlüsselwort `none` (in diesem Fall gleichwertig mit `0%`). Dieser Wert repräsentiert die Helligkeit der Farbe. `100%` ist weiß, `0%` ist schwarz und `50%` ist "normal".
+  - : Ein {{CSSXref("&lt;percentage&gt;")}} oder das Schlüsselwort `none` (gleichwertig mit `0%` in diesem Fall). Dieser Wert repräsentiert die Helligkeit der Farbe. Hierbei ist `100%` weiß, `0%` schwarz, und `50%` "normal".
 - `A` {{optional_inline}}
-  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, das den Alphakanalwert der Farbe repräsentiert, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig opak) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um keinen Alphakanal explizit anzugeben. Wird der `A`-Kanal-Wert nicht ausdrücklich angegeben, wird er standardmäßig auf 100 % gesetzt. Wenn enthalten, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
+  - : Ein {{CSSXref("&lt;alpha-value&gt;")}} repräsentiert den Alpha-Kanalwert der Farbe, wobei die Zahl `0` `0%` entspricht (vollständig transparent) und `1` `100%` entspricht (vollständig undurchsichtig). Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alpha-Kanal festzulegen. Wenn der `A`-Kanalwert nicht explizit angegeben ist, wird er standardmäßig auf 100% gesetzt. Wenn er enthalten ist, wird der Wert von einem Schrägstrich (`/`) vorangestellt.
 
 > [!NOTE]
-> Weitere Informationen zur Auswirkung von `none` finden Sie unter [Fehlende Farbkomponenten](/de/docs/Web/CSS/color_value#missing_color_components).
+> Weitere Informationen zu den Auswirkungen von `none` finden Sie unter [Fehlende Farbkomponenten](/de/docs/Web/CSS/color_value#missing_color_components).
 
 > [!NOTE]
-> Absolute `hsl()`-Farben werden in {{CSSXref("color_value/rgb", "rgb()")}}-Werte serialisiert. Die Werte der roten, grünen und blauen Komponenten können bei der Serialisierung gerundet werden.
+> Absolute `hsl()`-Farben werden zu {{CSSXref("color_value/rgb", "rgb()")}}-Werten serialisiert. Die Werte der roten, grünen und blauen Komponenten können bei der Serialisierung gerundet werden.
 
-#### Relative Wert-Syntax
+#### Relative Wertsyntax
 
 ```plain
 hsl(from <color> H S L[ / A])
@@ -81,40 +81,40 @@ hsl(from <color> H S L[ / A])
 Die Parameter sind wie folgt:
 
 - `from <color>`
-  - : Das Schlüsselwort `from` wird immer dann verwendet, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}}-Wert, der die **Ursprungsfarbe** repräsentiert. Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann in _jeder_ gültigen {{cssxref("&lt;color&gt;")}}-Syntax angegeben werden, einschließlich einer anderen relativen Farbe.
+  - : Das Schlüsselwort `from` ist immer enthalten, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}} Wert, der die **Ursprungsfarbe** darstellt. Dies ist die ursprüngliche Farbe, auf der die relative Farbe basiert. Die Ursprungsfarbe kann _jede_ gültige {{cssxref("&lt;color&gt;")}}-Syntax sein, einschließlich einer anderen relativen Farbe.
 - `H`
-  - : Eine {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}} oder das Schlüsselwort `none` (in diesem Fall gleichwertig mit `0deg`), das den Ausgabefarbtonwinkel der Farbe repräsentiert.
+  - : Ein {{CSSXref("&lt;number&gt;")}}, ein {{CSSXref("&lt;angle&gt;")}}, oder das Schlüsselwort `none` (gleichwertig mit `0deg` in diesem Fall), repräsentiert den Farbwinkel der Ausgabefarbe.
 - `S`
-  - : Eine {{CSSXref("&lt;percentage&gt;")}} oder das Schlüsselwort `none` (in diesem Fall gleichwertig mit `0%`). Dies repräsentiert die Sättigung der Ausgabefarbe. `100%` ist vollständig gesättigt, während `0%` vollständig ungesättigt (grau) ist.
+  - : Ein {{CSSXref("&lt;percentage&gt;")}} oder das Schlüsselwort `none` (gleichwertig mit `0%` in diesem Fall). Dies repräsentiert die Sättigung der Ausgabefarbe. Hierbei ist `100%` vollständig gesättigt, während `0%` vollständig ungesättigt (grau) ist.
 - `L`
-  - : Eine {{CSSXref("&lt;percentage&gt;")}} oder das Schlüsselwort `none` (in diesem Fall gleichwertig mit `0%`). Dies repräsentiert die Helligkeit der Ausgabefarbe. `100%` ist weiß, `0%` ist schwarz und `50%` ist "normal".
+  - : Ein {{CSSXref("&lt;percentage&gt;")}} oder das Schlüsselwort `none` (gleichwertig mit `0%` in diesem Fall). Dies repräsentiert die Helligkeit der Ausgabefarbe. Hierbei ist `100%` weiß, `0%` schwarz, und `50%` "normal".
 - `A` {{optional_inline}}
-  - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, das den Alphakanalwert der Ausgabefarbe repräsentiert, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig opak) entspricht. Zusätzlich kann das Schlüsselwort `none` verwendet werden, um keinen Alphakanal explizit anzugeben. Wird der `A`-Kanal-Wert nicht ausdrücklich angegeben, wird er standardmäßig auf den Alphakanalwert der Ursprungsfarbe gesetzt. Wenn enthalten, wird der Wert durch einen Schrägstrich (`/`) vorangestellt.
+  - : Ein {{CSSXref("&lt;alpha-value&gt;")}} repräsentiert den Alpha-Kanalwert der Ausgabefarbe, wobei die Zahl `0` `0%` entspricht (vollständig transparent) und `1` `100%` entspricht (vollständig undurchsichtig). Zusätzlich kann das Schlüsselwort `none` verwendet werden, um explizit keinen Alpha-Kanal festzulegen. Wenn der `A`-Kanalwert nicht explizit angegeben ist, wird er standardmäßig auf den Alpha-Kanalwert der Ursprungsfarbe gesetzt. Wenn er enthalten ist, wird der Wert von einem Schrägstrich (`/`) vorangestellt.
 
 > [!NOTE]
-> Um die Darstellung des gesamten Spektrums der sichtbaren Farben vollständig zu ermöglichen, wird das Ergebnis der relativen `hsl()`-Farbfunktionen in `color(srgb)` serialisiert. Das bedeutet, dass das Abfragen des Ausgabefarbwertes über die {{DOMxRef("HTMLElement.style")}}-Eigenschaft oder die {{DOMxRef("CSSStyleDeclaration.getPropertyValue()")}}-Methode den Ausgabefarbwert als [`color(srgb ...)`](/de/docs/Web/CSS/color_value/color) zurückgibt.
+> Um die Darstellung des gesamten sichtbaren Farbspektrums vollständig zu ermöglichen, wird die Ausgabe von relativen `hsl()`-Farbfunktionen als `color(srgb)` serialisiert. Das bedeutet, dass bei Abfrage des Ausgabefarbwerts über die [`HTMLElement.style`](/de/docs/Web/API/HTMLElement/style) Eigenschaft oder die Methode [`CSSStyleDeclaration.getPropertyValue()`](/de/docs/Web/API/CSSStyleDeclaration/getPropertyValue) der Ausgabefarbwert als [`color(srgb ...)`](/de/docs/Web/CSS/color_value/color) Wert zurückgegeben wird.
 
-#### Definition der Ausgabe-Kanal-Komponenten der relativen Farben
+#### Definieren von relativen Farbkanalkomponenten
 
-Bei der Verwendung der relativen Farbsyntax innerhalb einer `hsl()`-Funktion konvertiert der Browser die Ursprungsfarbe in eine gleichwertige HSL-Farbe (wenn sie nicht bereits als solche angegeben ist). Die Farbe wird als drei verschiedene Farbkanalwerte definiert – `h` (Farbton), `s` (Sättigung) und `l` (Helligkeit) – sowie ein Alphakanalwert (`alpha`). Diese Kanalwerte stehen innerhalb der Funktion zur Verfügung, um bei der Definition der Ausgabefarbkanalwerte verwendet zu werden:
+Bei Verwendung der relativen Farbsyntax innerhalb einer `hsl()`-Funktion wandelt der Browser die Ursprungsfarbe in eine äquivalente HSL-Farbe um (falls sie nicht bereits als solche angegeben ist). Die Farbe wird als drei verschiedene Farbkanalwerte definiert — `h` (hue), `s` (saturation) und `l` (lightness) — sowie einen Alpha-Kanalwert (`alpha`). Diese Kanalwerte sind innerhalb der Funktion verfügbar, um beim Definieren der Ausgabefarbkanalwerte verwendet zu werden:
 
-- Der `h`-Wert wird auf eine {{cssxref("&lt;number&gt;")}} zwischen `0` und `360` aufgelöst, inklusive, die den Ursprungsfarbtonwinkel repräsentiert.
-- Die Werte `s` und `l` werden jeweils auf eine `<number>` zwischen `0` und `100` aufgelöst, inklusive, wobei `100` 100 % entspricht.
-- Der `alpha`-Wert wird auf eine `<number>` zwischen `0` und `1` aufgelöst, inklusive.
+- Der `h`-Wert wird zu einer {{cssxref("&lt;number&gt;")}} zwischen `0` und `360` aufgelöst, einschließlich, der den Farbwerts der Ursprungsfarbe darstellt.
+- Die `s`- und `l`-Werte werden jeweils in eine `<number>` zwischen `0` und `100` aufgelöst, einschließlich, wobei `100` `100%` entspricht.
+- Der `alpha`-Wert wird in eine `<number>` zwischen `0` und `1` aufgelöst, einschließlich.
 
-Bei der Definition einer relativen Farbe können die verschiedenen Kanäle der Ausgabefarbe auf verschiedene Weise ausgedrückt werden. Im Folgenden untersuchen wir einige Beispiele, um diese zu veranschaulichen.
+Bei der Definition einer relativen Farbe können die verschiedenen Kanäle der Ausgabefarbe auf verschiedene Arten ausgedrückt werden. Im Folgenden werden wir einige Beispiele untersuchen, um diese zu veranschaulichen.
 
-In den ersten beiden Beispielen unten verwenden wir die relative Farbsyntax. Das erste Beispiel gibt jedoch die gleiche Farbe wie die Ursprungsfarbe aus, und das zweite gibt eine Farbe aus, die überhaupt nicht auf der Ursprungsfarbe basiert. Sie erzeugen wirklich keine relativen Farben! Sie würden wahrscheinlich diese in einem echten Codebase nicht verwenden und stattdessen einen absoluten Farbwert verwenden. Wir haben diese Beispiele als Ausgangspunkt für das Erlernen der relativen `hsl()`-Syntax aufgenommen.
+In den ersten beiden Beispielen unten verwenden wir die relative Farbsyntax. Das erste Ausgabe ist jedoch dieselbe Farbe wie die Ursprungsfarbe und das zweite Ausgabe eine Farbe, die nicht auf der Ursprungsfarbe basiert. Sie erzeugen eigentlich keine relativen Farben! Es ist unwahrscheinlich, dass Sie diese jemals in einer realen Codebasis verwenden würden und stattdessen wahrscheinlich einen absoluten Farbwert verwenden würden. Wir haben diese Beispiele als Ausgangspunkt für das Lernen über die relative `hsl()`-Syntax aufgenommen.
 
-Beginnen wir mit einer Ursprungsfarbe `rgb(255 0 0)` (entspricht `hsl(0 100% 50%)`). Die folgende Funktion gibt die gleiche Farbe wie die Ursprungsfarbe aus – sie verwendet die `h`, `s` und `l`-Kanalwerte der Ursprungsfarbe (`0`, `100%`, und `50%`) als die Ausgabekanalwerte:
+Beginnen wir mit einer Ursprungsfarbe von `rgb(255 0 0)` (entspricht `hsl(0 100% 50%)`). Die folgende Funktion gibt die gleiche Farbe wie die Ursprungsfarbe aus — sie verwendet die `h`-, `s`- und `l`-Kanalwerte (`0`, `100%` und `50%`) der Ursprungsfarbe als Ausgabekanäle:
 
 ```css
 hsl(from rgb(255 0 0) h s l)
 ```
 
-Die Ausgabefarbe dieser Funktion ist das sRGB `color()`-Äquivalent von `hsl(0 100% 50%)`: `color(srgb 1 0 0)`.
+Die Ausgabe dieser Funktion ist das sRGB `color()`-Äquivalent von `hsl(0 100% 50%)`: `color(srgb 1 0 0)`.
 
-Die nächste Funktion verwendet absolute Werte für die Ausgabefarbkanalwerte und gibt eine völlig andere Farbe aus, die nicht auf der Ursprungsfarbe basiert:
+Die nächste Funktion verwendet absolute Werte für die Kanäle der Ausgabefarbe und gibt eine völlig andere Farbe aus, die nicht auf der Ursprungsfarbe basiert:
 
 ```css
 hsl(from rgb(255 0 0) 240 60% 70%)
@@ -122,43 +122,43 @@ hsl(from rgb(255 0 0) 240 60% 70%)
 
 In diesem Fall ist die Ausgabefarbe das sRGB `color()`-Äquivalent von `hsl(240 60% 70%)`: `color(srgb 0.52 0.52 0.88)`.
 
-Die folgende Funktion erstellt eine relative Farbe basierend auf der Ursprungsfarbe:
+Die folgende Funktion erzeugt eine relative Farbe basierend auf der Ursprungsfarbe:
 
 ```css
 hsl(from rgb(255 0 0) h 30% 60%)
 ```
 
-In diesem Beispiel:
+Dieses Beispiel:
 
-- Wird die Ursprungsfarbe (`rgb(255 0 0)`) in ein `hsl()`-Äquivalent (`hsl(0 100% 50%)`) umgewandelt.
-- Setzt den `H`-Kanalwert für die Ausgabefarbe auf den `H`-Kanalwert des `hsl()`-Äquivalents der Ursprungsfarbe — `0`.
-- Setzt die `S`- und `L`-Kanalwerte der Ausgabefarbe auf neue Werte, die nicht auf der Ursprungsfarbe basieren: `30%` bzw. `60%`.
+- Wandelt die Ursprungsfarbe (`rgb(255 0 0)`) in ein `hsl()`-Äquivalent um (`hsl(0 100% 50%)`).
+- Setzt den `H`-Kanalwert für die Ausgabefarbe auf den `H`-Kanalwert der Ursprungsfarbe — `0`.
+- Setzt die `S`- und `L`-Kanalwerte der Ausgabefarbe auf neue Werte, die nicht auf der Ursprungsfarbe basieren: `30%` und `60%`.
 
-Die endgültige Ausgabefarbe ist das Äquivalent von `hsl(0 30% 60%)` im sRGB-Farbraum — `color(srgb 0.72 0.48 0.48)`.
+Die endgültige Ausgabefarbe entspricht `hsl(0 30% 60%)` im sRGB-Farbraum — `color(srgb 0.72 0.48 0.48)`.
 
 > [!NOTE]
-> Wie oben erwähnt, wenn die Ausgabefarbe ein anderes Farbmodell als die Ursprungsfarbe verwendet, wird die Ursprungsfarbe im Hintergrund in dasselbe Modell wie die Ausgabefarbe umgewandelt, damit sie auf eine kompatible Weise dargestellt werden kann (d. h. mit denselben Kanälen).
+> Wie oben erwähnt, wenn die Ausgabefarbe ein anderes Farbmodell als die Ursprungsfarbe verwendet, wird die Ursprungsfarbe im Hintergrund in dasselbe Modell wie die Ausgabefarbe umgewandelt, sodass sie auf kompatible Weise dargestellt werden kann (d.h. unter Verwendung derselben Kanäle).
 
-In den bisher in diesem Abschnitt gesehenen Beispielen wurden die Alphakanäle weder für die Ursprungs- noch für die Ausgabefarben explizit angegeben. Wenn der Alphakanal der Ausgabefarbe nicht angegeben ist, wird er standardmäßig auf denselben Wert wie der Alphakanal der Ursprungsfarbe gesetzt. Wenn der Alphakanal der Ursprungsfarbe nicht angegeben ist (und es sich nicht um eine relative Farbe handelt), wird er standardmäßig auf `1` gesetzt. Daher sind die Alphakanalwerte der Ursprungs- und Ausgabefarbe für die obigen Beispiele `1`.
+In den Beispielen, die wir bisher in diesem Abschnitt gesehen haben, wurden die Alpha-Kanäle weder für die Ursprungs- noch für die Ausgabefarben explizit angegeben. Wenn der Alpha-Kanal der Ausgabefarbe nicht angegeben ist, wird er standardmäßig auf denselben Wert wie der Alpha-Kanal der Ursprungsfarbe gesetzt. Wenn der Alpha-Kanal der Ursprungsfarbe nicht angegeben ist (und es sich nicht um eine relative Farbe handelt), wird er standardmäßig auf `1` gesetzt. Daher sind die Alpha-Kanalwerte der Ursprung- und Ausgabefarbe in den obigen Beispielen `1`.
 
-Werfen wir einen Blick auf einige Beispiele, die Ursprungs- und Ausgabefarbalphakanalwerte angeben. Das erste Beispiel gibt den Alphakanalwert der Ausgabefarbe als denselben wie den Alphakanalwert der Ursprungsfarbe an, während das zweite Beispiel einen anderen Alphakanalwert der Ausgabe angibt, der mit dem Alphakanalwert der Ursprungsfarbe nicht in Zusammenhang steht.
+Schauen wir uns einige Beispiele an, die spezifizieren, dass der Ursprungs- und Ausgabefarbkanalwert spezifiziert wird. Das erste Beispiel gibt den Alpha-Kanalwert der Ausgabefarbe als gleich dem Alpha-Kanalwert der Ursprungsfarbe an, während das zweite Beispiel einen anderen Alpha-Kanalwert für die Ausgabefarbe angibt, der nicht mit dem Alpha-Kanalwert der Ursprungsfarbe basiert.
 
 ```css
 hsl(from rgb(255 0 0 / 0.8) h s l / alpha)
-/* Berechnete Ausgabefarbe: color(srgb 1 0 0 / 0.8) */
+/* Computed output color: color(srgb 1 0 0 / 0.8) */
 
 hsl(from rgb(255 0 0 / 0.8) h s l / 0.5)
-/* Berechnete Ausgabefarbe: color(srgb 1 0 0 / 0.5) */
+/* Computed output color: color(srgb 1 0 0 / 0.5) */
 ```
 
-Im folgenden Beispiel wird die `rgb()`-Ursprungsfarbe erneut in eine `hsl()`-Darstellung umgewandelt — `hsl(0 100% 50% / 0.8)`. {{cssxref("calc")}}-Berechnungen werden auf die `H`-, `S`-, `L`- und `A`-Werte angewendet, und die endgültige Ausgabefarbe ist das Äquivalent von `hsl(60 80% 30% / 0.7)` im sRGB-Farbraum: `color(srgb 0.72 0.72 0.08 / 0.7)`.
+Im folgenden Beispiel wird die `rgb()`-Ursprungsfarbe wieder in eine `hsl()`-Darstellung konvertiert — `hsl(0 100% 50% / 0.8)`. {{cssxref("calc")}}-Berechnungen werden auf die `H`-, `S`-, `L`- und `A`-Werte angewendet und die endgültige Ausgabefarbe ist das Äquivalent von `hsl(60 80% 30% / 0.7)` im sRGB-Farbraum: `color(srgb 0.72 0.72 0.08 / 0.7)`.
 
 ```css
 hsl(from rgb(255 0 0 / 0.8) calc(h + 60) calc(s - 20) calc(l - 10) / calc(alpha - 0.1))
 ```
 
 > [!NOTE]
-> Da die Ursprungsfarbkanalwerte auf `<number>`-Werte aufgelöst werden, müssen Sie Zahlen zu ihnen hinzufügen, wenn Sie sie in Berechnungen verwenden, selbst in Fällen, in denen ein Kanal normalerweise `<percentage>`, `<angle>` oder andere Werttypen akzeptieren würde. Das Hinzufügen eines `<percentage>` zu einem `<number>`, zum Beispiel, funktioniert nicht.
+> Da die Ursprungsfarbkanalwerte zu `<number>`-Werten gelöst werden, müssen Sie Zahlen zu ihnen hinzufügen, wenn Sie sie in Berechnungen verwenden, auch in Fällen, in denen ein Kanal normalerweise `<percentage>`, `<angle>` oder andere Werttypen akzeptiert. Das Hinzufügen eines `<percentage>` zu einem `<number>`, zum Beispiel, funktioniert nicht.
 
 ### Formale Syntax
 
@@ -166,9 +166,9 @@ hsl(from rgb(255 0 0 / 0.8) calc(h + 60) calc(s - 20) calc(l - 10) / calc(alpha 
 
 ## Beispiele
 
-### Verwendung von hsl() mit Kegelverlauf (conic-gradient())
+### Verwendung von hsl() mit conic-gradient()
 
-Die Funktion `hsl()` funktioniert gut mit [`conic-gradient()`](/de/docs/Web/CSS/gradient/conic-gradient), da beide mit Winkeln arbeiten.
+Die `hsl()`-Funktion funktioniert gut mit [`conic-gradient()`](/de/docs/Web/CSS/gradient/conic-gradient), da beide mit Winkeln arbeiten.
 
 ```html hidden
 <div></div>
@@ -199,11 +199,11 @@ div {
 
 {{EmbedLiveSample("using_hsl_with_conic-gradient", "100%", 140)}}
 
-### Verwendung von relativen Farben mit hsl()
+### Verwendung relativer Farben mit hsl()
 
-In diesem Beispiel werden drei {{htmlelement("div")}}-Elemente mit unterschiedlichen Hintergrundfarben gestaltet. Das mittlere erhält die unveränderte `--base-color`, während die linke und rechte Variante aufgehellte und abgedunkelte Varianten dieser `--base-color` erhalten.
+In diesem Beispiel werden drei {{htmlelement("div")}}-Elemente mit unterschiedlichen Hintergrundfarben gestaltet. Das mittlere erhält die unveränderte `--base-color`, während die linken und rechten mit aufgehellten und abgedunkelten Varianten dieser `--base-color` versehen sind.
 
-Diese Varianten werden unter Verwendung relativer Farben definiert — die `--base-color` [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) wird in eine `hsl()`-Funktion übergeben, und die Ausgabefarbe hat ihren Helligkeitskanal modifiziert, um den gewünschten Effekt über eine `calc()`-Funktion zu erzielen, während der Farbton und die Sättigung unverändert bleiben. Die aufgehellte Farbe hat 20% zur Helligkeit hinzugefügt, und die abgedunkelte Farbe hat 20% davon subtrahiert.
+Diese Varianten werden unter Verwendung relativer Farben definiert — die [benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/--*) `--base-color` wird in eine `hsl()`-Funktion übergeben, und die Ausgabefarbe hat ihren Helligkeitskanal modifiziert, um den gewünschten Effekt über eine `calc()`-Funktion zu erzielen, während der Farbton und die Sättigung unverändert bleiben. Die aufgehellte Farbe hat 20% zum Helligkeitskanal hinzugefügt, und die abgedunkelte Farbe hat 20% davon subtrahiert.
 
 ```html hidden
 <div id="container">
@@ -234,10 +234,9 @@ Diese Varianten werden unter Verwendung relativer Farben definiert — die `--ba
   --base-color: orange;
 }
 
-/* Laut Spezifikation sollten s- und l-Werte auf eine Zahl zwischen 0-100
-   aufgelöst werden. Allerdings löst Chrome 121+ sie fälschlicherweise zu
-   Zahlen zwischen 0-1 auf, daher werden derzeit Berechnungen wie l + 0.2
-   anstelle von l + 20 verwendet */
+/* As per the spec, s and l values should resolve to a number between 0-100
+   However, Chrome 121+ incorrectly resolves them to numbers between 0-1
+   hence currently using calculations like l + 0.2 instead of l + 20 */
 
 #one {
   background-color: hsl(from var(--base-color) h s calc(l + 0.2));
@@ -251,8 +250,9 @@ Diese Varianten werden unter Verwendung relativer Farben definiert — die `--ba
   background-color: hsl(from var(--base-color) h s calc(l - 0.2));
 }
 
-/* Verwenden Sie @supports, um Unterstützung für die alte Syntax hinzuzufügen, die % Einheiten
-   benötigt, um Helligkeitsberechnungen anzugeben. Dies ist für Safari 16.4+ erforderlich */
+/* Use @supports to add in support for old syntax that requires % units to
+   be specified in lightness calculations. This is required for
+   Safari 16.4+ */
 @supports (color: hsl(from red h s calc(l - 20%))) {
   #one {
     background-color: hsl(from var(--base-color) h s calc(l + 20%));
@@ -266,13 +266,13 @@ Diese Varianten werden unter Verwendung relativer Farben definiert — die `--ba
 
 #### Ergebnis
 
-Die Ausgabe ist wie folgt:
+Das Ergebnis ist wie folgt:
 
 {{ EmbedLiveSample("Using relative colors with hsl()", "100%", "200") }}
 
-### Veraltete Syntax: Mit Kommas getrennte Werte
+### Legacy-Syntax: Kommagetrennte Werte
 
-Aus Gründen der Abwärtskompatibilität akzeptiert die Funktion `hsl()` eine Form, bei der alle Werte mit Kommas getrennt sind.
+Aus historischen Gründen akzeptiert die `hsl()`-Funktion eine Form, in der alle Werte durch Kommas getrennt werden.
 
 #### HTML
 
@@ -303,9 +303,9 @@ div.comma-separated {
 
 {{EmbedLiveSample("legacy_syntax_comma-separated_values", "100%", 150)}}
 
-### Veraltete versus moderne Syntax
+### Legacy versus moderne Syntax
 
-Das Beispiel zeigt, wie die `hsla()`-Syntax ein Alias für `hsl()` ist; beide werden sowohl in der modernen als auch in der veralteten (durch Kommas getrennten) Syntax unterstützt.
+Das Beispiel zeigt, wie die `hsla()`-Syntax ein Alias für `hsl()` ist; beide werden unterstützt, sowohl mit moderner als auch mit älterer (kommagetrennter) Syntax.
 
 #### HTML
 
@@ -374,7 +374,7 @@ div.legacyHSLA {
 - [`lch()`](/de/docs/Web/CSS/color_value/lch) und [`hwb()`](/de/docs/Web/CSS/color_value/hwb) Farb-Funktionen
 - [Farbtoninterpolation in `color-mix()`](/de/docs/Web/CSS/color_value/color-mix#using_hue_interpolation_in_color-mix)
 - [Liste aller Farbnotationen](/de/docs/Web/CSS/color_value)
-- [sRGB-Farbwähler und -Konvertierungstool](/de/docs/Web/CSS/CSS_colors/Color_picker_tool)
-- [Verwendung von relativen Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
-- [CSS-Farbmodul](/de/docs/Web/CSS/CSS_colors)
-- [Farbpicker-Tool](https://apps.colorjs.io/picker/) von Lea Verou
+- [sRGB-Farbwähler und Konvertierungs-Tool](/de/docs/Web/CSS/CSS_colors/Color_picker_tool)
+- [Verwendung relativer Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
+- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [Farbwähler-Tool](https://apps.colorjs.io/picker/) von Lea Verou

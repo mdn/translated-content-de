@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Der **`CompositionEvent()`** Konstruktor erstellt ein neues {{domxref("CompositionEvent")}} Objekt.
+Der **`CompositionEvent()`** Konstruktor erstellt ein neues [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) Objekt.
 
 ## Syntax
 
@@ -21,16 +21,17 @@ new CompositionEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist case-sensitiv und Browser setzen es auf `compositionstart`, `compositionupdate` oder `compositionend`.
+    Es unterscheidet zwischen Groß- und Kleinschreibung und Browser setzen es auf `compositionstart`, `compositionupdate` oder `compositionend`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("UIEvent/UIEvent", "UIEvent()")}} definierten Eigenschaften_ die folgenden Eigenschaften enthält:
+  - : Ein Objekt, das, _zusätzlich zu den in [`UIEvent()`](/de/docs/Web/API/UIEvent/UIEvent) definierten Eigenschaften_, die folgenden Eigenschaften hat:
     - `data` {{optional_inline}}
-      - : Ein String, der verwendet wird, um die {{domxref("CompositionEvent.data", "data")}} Eigenschaft des neuen
-        {{domxref("CompositionEvent")}} zu initialisieren. Von Browsern generierte Ereignisse setzen es auf die durch die IME-Zusammensetzung erzeugten Zeichen.
+      - : Ein String, der verwendet wird, um die [`data`](/de/docs/Web/API/CompositionEvent/data) Eigenschaft des neuen
+        [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) zu initialisieren. Von Browsern generierte Ereignisse setzen es auf die von der IME
+        Komposition erzeugten Zeichen.
 
 ### Rückgabewert
 
-Ein neues {{domxref("CompositionEvent")}} Objekt.
+Ein neues [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) Objekt.
 
 ## Spezifikationen
 
@@ -42,4 +43,4 @@ Ein neues {{domxref("CompositionEvent")}} Objekt.
 
 ## Siehe auch
 
-- {{domxref("CompositionEvent")}}, die Schnittstelle der Objekte, die es konstruiert.
+- [`CompositionEvent`](/de/docs/Web/API/CompositionEvent), das Interface der Objekte, die es konstruiert.

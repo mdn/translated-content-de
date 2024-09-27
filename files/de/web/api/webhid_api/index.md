@@ -1,5 +1,5 @@
 ---
-title: WebHID-API
+title: WebHID API
 slug: Web/API/WebHID_API
 l10n:
   sourceCommit: c29cee3dcb0d0e66093dd0c18aa82e0eab9d6d14
@@ -7,30 +7,30 @@ l10n:
 
 {{DefaultAPISidebar("WebHID API")}}{{SeeCompatTable}}
 
-Ein Human Interface Device (HID) ist eine Art von Gerät, das Eingaben von oder Ausgaben an Menschen verarbeitet. Es bezieht sich auch auf das HID-Protokoll, einen Standard für die bidirektionale Kommunikation zwischen einem Host und einem Gerät, der die Installationsprozedur vereinfachen soll. Das HID-Protokoll wurde ursprünglich für USB-Geräte entwickelt, ist aber seither in vielen anderen Protokollen, einschließlich Bluetooth, implementiert worden.
+Ein Human Interface Device (HID) ist eine Art von Gerät, das Eingaben von Menschen entgegennimmt oder Ausgaben an Menschen liefert. Es bezieht sich auch auf das HID-Protokoll, einen Standard für die bidirektionale Kommunikation zwischen einem Host und einem Gerät, das den Installationsvorgang vereinfachen soll. Das HID-Protokoll wurde ursprünglich für USB-Geräte entwickelt, wurde aber seitdem über viele andere Protokolle hinweg implementiert, einschließlich Bluetooth.
 
 ## Schnittstellen
 
-- {{domxref("HID")}}
-  - : Bietet Methoden zum Verbinden mit HID-Geräten, Auflisten von angeschlossenen HID-Geräten und Event-Handler für verbundene HID-Geräte.
-- {{domxref("HIDDevice")}}
-  - : Stellt ein HID-Gerät dar. Es ist möglich, dass ein einzelnes physisches Gerät durch mehrere `HIDDevice`-Objekte repräsentiert wird.
-- {{domxref("HIDInputReportEvent")}}
-  - : Wird an das `HIDDevice`-{{domxref("HIDDevice.inputreport_event", "inputreport")}}-Ereignis übergeben, wenn ein Eingabereport von einem verbundenen HID-Gerät empfangen wird.
-- {{domxref("HIDConnectionEvent")}}
-  - : Wird an die `HID`-{{domxref("HID.connect_event", "connect")}}- und {{domxref("HID.disconnect_event", "disconnect")}}-Ereignisse übergeben, wenn ein Gerät verbunden oder getrennt wird.
+- [`HID`](/de/docs/Web/API/HID)
+  - : Bietet Methoden zum Anschließen an HID-Geräte, Auflisten angeschlossener HID-Geräte und Ereignis-Handler für verbundene HID-Geräte.
+- [`HIDDevice`](/de/docs/Web/API/HIDDevice)
+  - : Repräsentiert ein HID-Gerät. Ein einzelnes physisches Gerät kann durch mehrere `HIDDevice`-Objekte dargestellt werden.
+- [`HIDInputReportEvent`](/de/docs/Web/API/HIDInputReportEvent)
+  - : Wird an das `HIDDevice`-[`inputreport`](/de/docs/Web/API/HIDDevice/inputreport_event)-Ereignis übergeben, wenn ein Eingaberichtbericht von einem zugehörigen HID-Gerät empfangen wird.
+- [`HIDConnectionEvent`](/de/docs/Web/API/HIDConnectionEvent)
+  - : Wird an die `HID`-[`connect`](/de/docs/Web/API/HID/connect_event) und [`disconnect`](/de/docs/Web/API/HID/disconnect_event)-Ereignisse übergeben, wenn ein Gerät verbunden oder getrennt wird.
 
 ## Beispiele
 
-Sie können sich mit der {{domxref("HID.requestDevice","requestDevice()")}}-Methode mit einem Gerät verbinden. In diesem Fall wählen wir aus allen verfügbaren Geräten aus.
+Sie können sich mit der Methode [`requestDevice()`](/de/docs/Web/API/HID/requestDevice) mit einem Gerät verbinden. In diesem Fall wählen wir aus allen verfügbaren Geräten aus.
 
 ```js
 const device = await navigator.hid.requestDevice({ filters: [] });
-// Ein Popup mit dem Titel `... möchte eine Verbindung zu einem HID-Gerät herstellen` mit den Schaltflächen `Abbrechen` und `Verbinden` wird angezeigt, mit einer Geräteliste zum Auswählen.
-// Wählen Sie eines aus und klicken Sie auf die Schaltfläche `Verbinden`. Dann wird das Gerät ein Array mit dem ausgewählten Gerät darin sein.
+// A popup titled `... wants to connect to a HID Device` with `Cancel` and `Connect` buttons will show up with a device list to select from.
+// Select one and click on `Connect` button. Then the device will be an array with the selected device in it.
 ```
 
-Wir können alle Geräte abrufen, auf die der Website zuvor Zugriff gewährt wurde, und die Gerätenamen in die Konsole protokollieren.
+Wir können alle Geräte abrufen, auf die der Website zuvor Zugriff gewährt wurde, und die Gerätenamen in der Konsole protokollieren.
 
 ```js
 let devices = await navigator.hid.getDevices();
@@ -46,7 +46,7 @@ navigator.hid.addEventListener("disconnect", (event) => {
   console.log(`HID disconnected: ${event.device.productName}`);
   console.dir(event);
 });
-// Zum Beispiel, wenn meine verbundene Tastatur getrennt wird, zeigt das Protokoll in der Konsole:
+// For example, when my connected keyboard gets disconnected, the log in the console will show:
 // HID disconnected: USB Keyboard
 // {
 //    bubbles: false
@@ -66,7 +66,7 @@ navigator.hid.addEventListener("disconnect", (event) => {
 //    type: "disconnect"
 // }
 
-// Das oben genannte Ereignis ist eine Instanz der Schnittstelle HIDConnectionEvent.
+// The event above is an instance of the HIDConnectionEvent interface.
 ```
 
 ## Spezifikationen

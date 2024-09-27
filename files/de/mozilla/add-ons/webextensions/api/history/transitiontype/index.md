@@ -7,32 +7,32 @@ l10n:
 
 {{AddonSidebar}}
 
-Dies beschreibt, wie der Browser zu einer bestimmten Seite navigiert hat. Zum Beispiel bedeutet "link", dass der Browser zur Seite navigiert hat, weil der Benutzer auf einen Link geklickt hat.
+Dies beschreibt, wie der Browser zu einer bestimmten Seite navigiert ist. Zum Beispiel bedeutet "link", dass der Browser zur Seite navigierte, weil der Benutzer auf einen Link geklickt hat.
 
 ## Typ
 
-Werte dieses Typs sind Strings. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 
 - "link"
-  - : Der Benutzer hat auf einen Link in einer anderen Seite geklickt.
+  - : Der Benutzer klickte auf einen Link in einer anderen Seite.
 - "typed"
-  - : Der Benutzer hat die URL in die Adressleiste eingegeben. Dies wird auch verwendet, wenn der Benutzer anfängt, in die Adressleiste zu tippen und dann eine URL aus den angebotenen Vorschlägen auswählt. Siehe auch "generated".
+  - : Der Benutzer tippte die URL in die Adressleiste ein. Dies wird auch verwendet, wenn der Benutzer anfängt, in die Adressleiste zu tippen und dann eine URL aus den vorgeschlagenen Einträgen auswählt. Siehe auch "generated".
 - "auto_bookmark"
-  - : Der Benutzer hat auf ein Lesezeichen oder ein Element im Browserverlauf geklickt.
+  - : Der Benutzer klickte auf ein Lesezeichen oder ein Element im Browserverlauf.
 - "auto_subframe"
-  - : Alle verschachtelten iframes, die automatisch von ihrem übergeordneten Element geladen werden.
+  - : Alle geschachtelten iframes, die automatisch von ihrem übergeordneten Element geladen werden.
 - "manual_subframe"
-  - : Alle verschachtelten iframes, die als explizite Benutzeraktion geladen werden. Das Laden eines solchen iframes erzeugt einen Eintrag in der Liste für die Navigation vor/zurück.
+  - : Alle geschachtelten iframes, die als explizite Benutzeraktion geladen werden. Das Laden eines solchen iframes erzeugt einen Eintrag in der Rückwärts/Vorwärts-Navigation.
 - "generated"
-  - : Der Benutzer hat angefangen, in die Adressleiste zu tippen, und dann auf einen vorgeschlagenen Eintrag geklickt, der keine URL enthielt.
+  - : Der Benutzer begann in die Adressleiste zu tippen und klickte dann auf einen vorgeschlagenen Eintrag, der keine URL enthielt.
 - "auto_toplevel"
   - : Die Seite wurde über die Befehlszeile übergeben oder ist die Startseite.
 - "form_submit"
-  - : Der Benutzer hat ein Formular abgeschickt. Beachten Sie, dass in einigen Situationen, zum Beispiel wenn ein Formular ein Skript verwendet, um seine Inhalte abzusenden, das Absenden eines Formulars nicht zu diesem Übergangstyp führt.
+  - : Der Benutzer reichte ein Formular ein. Beachten Sie, dass in einigen Situationen, wie etwa wenn ein Formular ein Skript verwendet, um seine Inhalte einzureichen, das Einreichen eines Formulars nicht zu diesem Übergangstyp führt.
 - "reload"
-  - : Der Benutzer hat die Seite neu geladen, indem er die Neu laden-Taste benutzt hat oder Enter in der Adressleiste gedrückt hat. Dies wird auch für die Wiederherstellung von Sitzungen und das Wiederöffnen geschlossener Tabs verwendet.
+  - : Der Benutzer hat die Seite neu geladen, indem er den Neuladen-Button verwendet oder die Eingabetaste in der Adressleiste gedrückt hat. Dies wird auch für Sitzungswiederherstellung und das erneute Öffnen geschlossener Tabs verwendet.
 - "keyword"
-  - : Die URL wurde mithilfe einer vom Benutzer konfigurierten [Schlüsselwortsuche](https://support.mozilla.org/en-US/kb/how-search-from-address-bar) generiert.
+  - : Die URL wurde mithilfe einer [Schlüsselwortsuche](https://support.mozilla.org/en-US/kb/how-search-from-address-bar) generiert, die vom Benutzer konfiguriert wurde.
 - "keyword_generated"
   - : Entspricht einem Besuch, der für ein Schlüsselwort generiert wurde.
 
@@ -43,7 +43,7 @@ Werte dieses Typs sind Strings. Mögliche Werte sind:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#type-TransitionType) API von Chromium. Diese Dokumentation ist von [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der Chromium-API [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#type-TransitionType). Diese Dokumentation stammt aus [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

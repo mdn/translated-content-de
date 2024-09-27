@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`minmax()`**-Funktion in [CSS](/de/docs/Web/CSS/CSS_Functions) definiert einen Größenbereich, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Sie wird mit [CSS Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout) verwendet.
+Die **`minmax()`** [CSS-Funktion](/de/docs/Web/CSS/CSS_Functions) definiert einen Größenbereich, der größer oder gleich _min_ und kleiner oder gleich _max_ ist. Sie wird mit [CSS-Grids](/de/docs/Web/CSS/CSS_grid_layout) verwendet.
 
 {{EmbedInteractiveExample("pages/css/function-minmax.html")}}
 
 ## Syntax
 
 ```css
-/* <inflexible-breadth>, <track-breadth> Werte */
+/* <inflexible-breadth>, <track-breadth> values */
 minmax(200px, 1fr)
 minmax(400px, 50%)
 minmax(30%, 300px)
@@ -24,7 +24,7 @@ minmax(max-content, auto)
 minmax(auto, 300px)
 minmax(min-content, auto)
 
-/* <fixed-breadth>, <track-breadth> Werte */
+/* <fixed-breadth>, <track-breadth> values */
 minmax(200px, 1fr)
 minmax(30%, 300px)
 minmax(400px, 50%)
@@ -32,7 +32,7 @@ minmax(50%, min-content)
 minmax(300px, max-content)
 minmax(200px, auto)
 
-/* <inflexible-breadth>, <fixed-breadth> Werte */
+/* <inflexible-breadth>, <fixed-breadth> values */
 minmax(400px, 50%)
 minmax(30%, 300px)
 minmax(min-content, 200px)
@@ -40,27 +40,27 @@ minmax(max-content, 200px)
 minmax(auto, 300px)
 ```
 
-Eine Funktion, die zwei Parameter annimmt, _min_ und _max_.
+Eine Funktion, die zwei Parameter, _min_ und _max_, übernimmt.
 
-Jeder Parameter kann eine `<length>`, ein `<percentage>`, ein `<flex>`-Wert oder einer der Schlüsselwort-Werte `max-content`, `min-content` oder `auto` sein.
+Jeder Parameter kann ein `<length>`, ein `<percentage>`, ein `<flex>`-Wert oder einer der Schlüsselwortwerte `max-content`, `min-content` oder `auto` sein.
 
-Wenn _max_ < _min_ ist, wird _max_ ignoriert und `minmax(min,max)` wird als _min_ behandelt. Ein {{cssxref("flex_value","&lt;flex&gt;")}}-Wert als Maximum setzt den Flexfaktor einer Rasterspur; er ist als Minimum ungültig.
+Wenn _max_ < _min_ ist, wird _max_ ignoriert und `minmax(min,max)` wird als _min_ behandelt. Als Maximum setzt ein {{cssxref("flex_value","&lt;flex&gt;")}}-Wert den Flexfaktor einer Grid-Spur; es ist als Minimum ungültig.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
   - : Eine nicht-negative Länge.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Ein nicht-negativer Prozentsatz, der relativ zur Inline-Größe des Grid-Containers bei Spaltengittern sowie zur Blockgröße des Grid-Containers bei Zeilengittern ist. Wenn die Größe des Grid-Containers von der Größe seiner Spuren abhängt, muss der `<percentage>` als `auto` behandelt werden. Der {{glossary("user agent")}} kann die intrinsischen Größenbeiträge der Spur an die Größe des Grid-Containers anpassen und die endgültige Größe der Spur um das Mindestmaß erhöhen, das zur Einhaltung des Prozentsatzes führen würde.
+  - : Ein nicht-negativer Prozentsatz relativ zur Inline-Größe des Grid-Containers in Spaltengrids, und der Blockgröße des Grid-Containers in Zeilengrids. Wenn die Größe des Grid-Containers von der Größe seiner Spuren abhängt, muss das `<percentage>` als `auto` behandelt werden. Der [User-Agent](/de/docs/Glossary/user_agent) kann die intrinsischen Größenbeiträge der Spur zur Größe des Grid-Containers anpassen und die endgültige Größe der Spur um den minimalen Betrag erhöhen, der zur Einhaltung des Prozentsatzes erforderlich wäre.
 - {{cssxref("&lt;flex&gt;")}}
-  - : Eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor der Spur angibt. Jede `<flex>`-Größe einer Spur nimmt einen Anteil des verbleibenden Raums proportional zu ihrem Flex-Faktor ein.
+  - : Eine nicht-negative Dimension mit der Einheit `fr`, die den Flexfaktor der Spur angibt. Jede `<flex>`-größenbemessene Spur erhält einen Anteil an dem verbleibenden Platz proportional zu ihrem Flexfaktor.
 - `max-content`
-  - : Repräsentiert den größten max-content-Beitrag der Grid-Items, die die Spur belegen.
+  - : Repräsentiert den größten max-content-Beitrag der Grid-Elemente, die die Grid-Spur belegen.
 - `min-content`
-  - : Repräsentiert den größten min-content-Beitrag der Grid-Items, die die Spur belegen.
+  - : Repräsentiert den größten min-content-Beitrag der Grid-Elemente, die die Grid-Spur belegen.
 - `auto`
-  - : Als `min` repräsentiert es die größte Mindestgröße (wie durch {{cssxref("min-width")}}/{{cssxref("min-height")}} spezifiziert) der Grid-Items, die die Spur belegen.
-    Als `max` ist es identisch mit `max-content`. Anders als `max-content` erlaubt es jedoch die Erweiterung der Spur durch die {{cssxref("align-content")}}- und {{cssxref("justify-content")}}-Eigenschaftenwerte wie `normal` und `stretch`.
+  - : Als `min` repräsentiert es die größte Mindestgröße (wie durch {{cssxref("min-width")}}/{{cssxref("min-height")}} angegeben) der Grid-Elemente, die die Grid-Spur belegen.
+    Als `max` ist es identisch mit `max-content`. Im Gegensatz zu `max-content` erlaubt es jedoch die Erweiterung der Spur durch die Werte der Eigenschaften {{cssxref("align-content")}} und {{cssxref("justify-content")}} wie `normal` und `stretch`.
 
 ### Formale Syntax
 
@@ -68,7 +68,7 @@ Wenn _max_ < _min_ ist, wird _max_ ignoriert und `minmax(min,max)` wird als _min
 
 ### CSS-Eigenschaften
 
-Die `minmax()`-Funktion kann verwendet werden in:
+Die Funktion `minmax()` kann verwendet werden in:
 
 - {{CSSxRef("grid-template-columns")}}
 - {{CSSxRef("grid-template-rows")}}
@@ -101,9 +101,9 @@ Die `minmax()`-Funktion kann verwendet werden in:
 
 ```html
 <div id="container">
-  <div>Element so breit wie der Inhalt, aber maximal 300 Pixel.</div>
-  <div>Element mit flexibler Breite, aber mindestens 200 Pixel.</div>
-  <div>Unflexibles Element mit einer Breite von 150 Pixel.</div>
+  <div>Item as wide as the content, but at most 300 pixels.</div>
+  <div>Item with flexible width but a minimum of 200 pixels.</div>
+  <div>Inflexible item of 150 pixels width.</div>
 </div>
 ```
 
@@ -121,6 +121,6 @@ Die `minmax()`-Funktion kann verwendet werden in:
 
 ## Siehe auch
 
-- [Grundkonzepte des Grid-Layouts: Spurgrößenanpassung mit minmax()](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#track_sizing_and_minmax)
-- [CSS-Gitter, logische Werte und Schreibmodi](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes)
-- Video: [Einführung von minmax()](https://gridbyexample.com/video/series-minmax/)
+- [Grundlegende Konzepte des Grid-Layouts: Spurgrößenanpassung mit minmax()](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout#track_sizing_and_minmax)
+- [CSS-Grids, logische Werte und Schreibrichtungen](/de/docs/Web/CSS/CSS_grid_layout/Grids_logical_values_and_writing_modes)
+- Video: [Introducing minmax()](https://gridbyexample.com/video/series-minmax/)

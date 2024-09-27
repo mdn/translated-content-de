@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{deprecated_header}}{{AvailableInWorkers}}
 
-Die veraltete **`Event.srcElement`**-Eigenschaft ist ein Alias für die {{domxref("Event.target")}}-Eigenschaft. Verwenden Sie stattdessen {{domxref("Event.target")}}.
+Die veraltete **`Event.srcElement`** ist ein Alias für die [`Event.target`](/de/docs/Web/API/Event/target)-Eigenschaft. Verwenden Sie stattdessen [`Event.target`](/de/docs/Web/API/Event/target).
 
 ## Spezifikationen
 
@@ -20,4 +20,4 @@ Die veraltete **`Event.srcElement`**-Eigenschaft ist ein Alias für die {{domxre
 
 ## Siehe auch
 
-- {{domxref("Window.event")}}
+- [`Window.event`](/de/docs/Web/API/Window/event)

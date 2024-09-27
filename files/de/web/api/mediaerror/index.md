@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`MediaError`**-Schnittstelle stellt einen Fehler dar, der bei der Handhabung von Medien in einem HTML-Medienelement aufgetreten ist, das auf {{domxref("HTMLMediaElement")}} basiert, wie etwa {{HTMLElement("audio")}} oder {{HTMLElement("video")}}.
+Die **`MediaError`**-Schnittstelle repräsentiert einen Fehler, der beim Umgang mit Medien in einem HTML-Medienelement aufgetreten ist, basierend auf [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement), wie z.B. {{HTMLElement("audio")}} oder {{HTMLElement("video")}}.
 
-Ein `MediaError`-Objekt beschreibt den Fehler allgemein mit einem numerischen `code`, der die Art des Fehlers kategorisiert, und einer `message`, die spezifische Diagnosen darüber liefert, was schiefgelaufen ist.
+Ein `MediaError`-Objekt beschreibt den Fehler im Allgemeinen mit einem numerischen `code`, der die Art des Fehlers kategorisiert, und einer `message`, die spezifische Diagnosen darüber bietet, was schiefgelaufen ist.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Diese Schnittstelle erbt keine Eigenschaften._
 
-- {{domxref("MediaError.code")}}
+- [`MediaError.code`](/de/docs/Web/API/MediaError/code)
   - : Eine Zahl, die [die allgemeine Art des aufgetretenen Fehlers](/de/docs/Web/API/MediaError/code#media_error_code_constants) darstellt.
-- {{domxref("MediaError.message")}}
-  - : Ein lesbarer Textstring, der _spezifische diagnostische Informationen_ liefert, um dem Leser zu helfen, die aufgetretene Fehlersituation zu verstehen; es handelt sich dabei nicht um eine Zusammenfassung der Bedeutung des Fehlercodes, sondern um tatsächliche diagnostische Informationen, die helfen sollen, genau zu verstehen, was schiefgelaufen ist. Dieser Text und sein Format sind nicht durch die Spezifikation definiert und variieren von einem {{Glossary("user agent")}} zum anderen. Wenn keine Diagnosen verfügbar sind oder keine Erklärung geliefert werden kann, ist dieser Wert ein leerer String (`""`).
+- [`MediaError.message`](/de/docs/Web/API/MediaError/message)
+  - : Eine menschenlesbare Zeichenkette, die _spezifische diagnostische Informationen_ bereitstellt, um dem Leser zu helfen, die aufgetretene Fehlerbedingung zu verstehen; insbesondere ist sie keine Zusammenfassung der Bedeutung des Fehlercodes, sondern tatsächliche Diagnoseinformationen, um zu verstehen, was genau schiefging. Dieser Text und sein Format sind nicht durch die Spezifikation definiert und variieren von einem [User-Agent](/de/docs/Glossary/user_agent) zum anderen. Wenn keine Diagnosen verfügbar sind oder keine Erklärung gegeben werden kann, hat dieser Wert eine leere Zeichenkette (`""`).
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Diese Schnittstelle implementiert oder erbt keine Methoden und hat keine eigenen._
 
@@ -34,4 +34,4 @@ _Diese Schnittstelle implementiert oder erbt keine Methoden und hat keine eigene
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement.error")}}
+- [`HTMLMediaElement.error`](/de/docs/Web/API/HTMLMediaElement/error)

@@ -8,9 +8,11 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.blendEquationSeparate()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) wird verwendet, um die RGB-Bildmischgleichung und die Alpha-Bildmischgleichung getrennt festzulegen.
+Die **`WebGLRenderingContext.blendEquationSeparate()`**-Methode
+der [WebGL API](/de/docs/Web/API/WebGL_API) wird verwendet, um die RGB-Blend-Gleichung und die Alpha-Blend-Gleichung separat festzulegen.
 
-Die Bildmischgleichung bestimmt, wie ein neues Pixel mit einem bereits im {{domxref("WebGLFramebuffer")}} vorhandenen Pixel kombiniert wird.
+Die Blend-Gleichung bestimmt, wie ein neuer Pixel mit einem bereits im
+[`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) enthaltenen Pixel kombiniert wird.
 
 ## Syntax
 
@@ -22,34 +24,36 @@ blendEquationSeparate(modeRGB, modeAlpha)
 
 - `modeRGB`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der angibt, wie die roten, grünen und blauen Komponenten der Quell- und Ziel-Farben kombiniert werden. Muss einer der folgenden Werte sein:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, wie die Rot-, Grün- und Blaukomponenten der Quell- und Ziel-Farbe kombiniert werden. Muss einer der folgenden sein:
 
     - `gl.FUNC_ADD`: Quelle + Ziel (Standardwert),
     - `gl.FUNC_SUBTRACT`: Quelle - Ziel,
     - `gl.FUNC_REVERSE_SUBTRACT`: Ziel - Quelle,
-    - Bei Verwendung der {{domxref("EXT_blend_minmax")}}-Erweiterung:
+    - Bei Verwendung der [`EXT_blend_minmax`](/de/docs/Web/API/EXT_blend_minmax)-Erweiterung:
 
       - `ext.MIN_EXT`: Minimum von Quelle und Ziel,
       - `ext.MAX_EXT`: Maximum von Quelle und Ziel.
 
-    - Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}} sind zusätzlich folgende Werte verfügbar:
+    - Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}},
+      stehen zusätzlich die folgenden Werte zur Verfügung:
 
       - `gl.MIN`: Minimum von Quelle und Ziel,
       - `gl.MAX`: Maximum von Quelle und Ziel.
 
 - `modeAlpha`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der angibt, wie die Alphakomponente (Transparenz) der Quell- und Ziel-Farben kombiniert werden. Muss einer der folgenden Werte sein:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das angibt, wie die Alphakomponente (Transparenz) der Quelle und der Ziel-Farbe kombiniert werden. Muss einer der folgenden sein:
 
     - `gl.FUNC_ADD`: Quelle + Ziel (Standardwert),
     - `gl.FUNC_SUBTRACT`: Quelle - Ziel,
     - `gl.FUNC_REVERSE_SUBTRACT`: Ziel - Quelle,
-    - Bei Verwendung der {{domxref("EXT_blend_minmax")}}-Erweiterung:
+    - Bei Verwendung der [`EXT_blend_minmax`](/de/docs/Web/API/EXT_blend_minmax)-Erweiterung:
 
       - `ext.MIN_EXT`: Minimum von Quelle und Ziel,
       - `ext.MAX_EXT`: Maximum von Quelle und Ziel.
 
-    - Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}} sind zusätzlich folgende Werte verfügbar:
+    - Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}},
+      stehen zusätzlich die folgenden Werte zur Verfügung:
 
       - `gl.MIN`: Minimum von Quelle und Ziel,
       - `gl.MAX`: Maximum von Quelle und Ziel.
@@ -60,17 +64,19 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Wenn _mode_ nicht einer der drei möglichen Werte ist, wird ein `gl.INVALID_ENUM` Fehler ausgelöst.
+Wenn _mode_ nicht einer der drei möglichen Werte ist, wird ein
+`gl.INVALID_ENUM` Fehler ausgelöst.
 
 ## Beispiele
 
-Um die Bildmischgleichungen festzulegen, verwenden Sie:
+Um die Blend-Gleichungen festzulegen, verwenden Sie:
 
 ```js
 gl.blendEquationSeparate(gl.FUNC_ADD, gl.FUNC_SUBTRACT);
 ```
 
-Um die aktuellen Bildmischgleichungen zu erhalten, fragen Sie die Konstanten `BLEND_EQUATION`, `BLEND_EQUATION_RGB` und `BLEND_EQUATION_ALPHA` ab, die `gl.FUNC_ADD`, `gl.FUNC_SUBTRACT`, `gl.FUNC_REVERSE_SUBTRACT` oder, wenn die {{domxref("EXT_blend_minmax")}} aktiviert ist, `ext.MIN_EXT` oder `ext.MAX_EXT` zurückgeben.
+Um die aktuellen Blend-Gleichungen abzufragen, verwenden Sie die Konstanten `BLEND_EQUATION`, `BLEND_EQUATION_RGB` und `BLEND_EQUATION_ALPHA`, die `gl.FUNC_ADD`, `gl.FUNC_SUBTRACT`,
+`gl.FUNC_REVERSE_SUBTRACT` zurückgeben oder, wenn die [`EXT_blend_minmax`](/de/docs/Web/API/EXT_blend_minmax) aktiviert ist: `ext.MIN_EXT` oder `ext.MAX_EXT`.
 
 ```js
 gl.getParameter(gl.BLEND_EQUATION_RGB) === gl.FUNC_ADD;
@@ -90,7 +96,7 @@ gl.getParameter(gl.BLEND_EQUATION_ALPHA) === gl.FUNC_ADD;
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.blendEquation()")}}
-- {{domxref("WebGLRenderingContext.blendColor()")}}
-- {{domxref("WebGLRenderingContext.blendFunc()")}}
-- {{domxref("EXT_blend_minmax")}}
+- [`WebGLRenderingContext.blendEquation()`](/de/docs/Web/API/WebGLRenderingContext/blendEquation)
+- [`WebGLRenderingContext.blendColor()`](/de/docs/Web/API/WebGLRenderingContext/blendColor)
+- [`WebGLRenderingContext.blendFunc()`](/de/docs/Web/API/WebGLRenderingContext/blendFunc)
+- [`EXT_blend_minmax`](/de/docs/Web/API/EXT_blend_minmax)

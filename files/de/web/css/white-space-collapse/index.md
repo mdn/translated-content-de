@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Die **`white-space-collapse`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie {{Glossary("whitespace", "Leerraum")}} innerhalb eines Elements reduziert wird.
+Die **`white-space-collapse`**-Eigenschaft von [CSS](/de/docs/Web/CSS) steuert, wie [Leerraum](/de/docs/Glossary/whitespace) innerhalb eines Elements reduziert wird.
 
 > [!NOTE]
-> Die Eigenschaften `white-space-collapse` und {{CSSxRef("text-wrap")}} können zusammen mit der Kurzform-Eigenschaft {{CSSxRef("white-space")}} deklariert werden.
+> Die Eigenschaften `white-space-collapse` und {{CSSxRef("text-wrap")}} können zusammen mit der Kurzschreibweise {{CSSxRef("white-space")}} deklariert werden.
 
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 white-space-collapse: collapse;
 white-space-collapse: preserve;
 white-space-collapse: preserve-breaks;
 white-space-collapse: preserve-spaces;
 white-space-collapse: break-spaces;
 
-/* Globale Werte */
+/* Global values */
 white-space-collapse: inherit;
 white-space-collapse: initial;
 white-space-collapse: revert;
@@ -30,38 +30,38 @@ white-space-collapse: revert-layer;
 white-space-collapse: unset;
 ```
 
-Die Eigenschaft `white-space-collapse` wird als einzelnes Schlüsselwort aus der unten stehenden Werteliste festgelegt.
+Die `white-space-collapse`-Eigenschaft wird als Schlüsselwort aus der folgenden Liste von Werten angegeben.
 
 ### Werte
 
 - `collapse`
-  - : Leerraumsequenzen werden [zusammengefasst](#zusammenfassen_von_leerraum).
+  - : Leerraumsequenzen werden [reduziert](#reduzierung_von_leerraum).
 - `preserve`
-  - : Leerraumsequenzen und Segmentumbruchzeichen werden beibehalten.
+  - : Leerraumsequenzen und Segmentabbruchzeichen bleiben bestehen.
 - `preserve-breaks`
-  - : Leerraumsequenzen werden zusammengefasst, während Segmentumbruchzeichen beibehalten werden.
+  - : Leerraumsequenzen werden reduziert, während Segmentabbruchzeichen erhalten bleiben.
 - `preserve-spaces`
-  - : Leerraumsequenzen werden beibehalten, während Tabs und Segmentumbruchzeichen in Leerzeichen umgewandelt werden.
+  - : Leerraumsequenzen bleiben erhalten, während Tabs und Segmentabbruchzeichen in Leerzeichen umgewandelt werden.
 - `break-spaces`
-  - : Das Verhalten ist identisch zu `preserve`, außer dass:
-    - Jede Folge von erhaltenem Leerraum immer Platz beansprucht, einschließlich am Ende der Zeile.
-    - Es nach jedem beibehaltenen Leerraumzeichen eine Zeilenumbruchmöglichkeit gibt, einschließlich zwischen Leerraumzeichen.
-    - Beibehaltene Leerzeichen beanspruchen Platz und hängen nicht, was die intrinsischen Größen der Box beeinflusst ({{cssxref("min-content")}} Größe und {{cssxref("max-content")}} Größe).
+  - : Das Verhalten ist identisch mit `preserve`, außer dass:
+    - Jede Folge von erhaltenem Leerraum nimmt immer Platz ein, auch am Ende der Zeile.
+    - Eine Gelegenheit zum Zeilenumbruch besteht nach jedem erhaltenen Leerzeichen, auch zwischen Leerzeichen.
+    - Erhaltene Leerzeichen nehmen Platz ein und hängen nicht herunter, was die intrinsischen Größen der Box beeinflusst ({{cssxref("min-content")}}-Größe und {{cssxref("max-content")}}-Größe).
 
-> **Hinweis:** _Segmentumbruchzeichen_ sind Zeichen wie Zeilenumbrüche, die bewirken, dass Text auf neue Zeilen umbricht.
+> **Hinweis:** _Segmentabbruchzeichen_ sind Zeichen wie Zeilenenden, die Text dazu bringen, in neuen Zeilen fortzufahren.
 
-## Zusammenfassen von Leerraum
+## Reduzierung von Leerraum
 
-Benutzeragenten handhaben das Zusammenfassen von Leerraum wie folgt:
+Benutzeragenten behandeln die Reduzierung von Leerraum wie folgt:
 
 - Tabs werden im Allgemeinen in Leerzeichen umgewandelt.
-- Wenn Segmentumbrüche zusammengefasst werden sollen:
+- Wenn Segmentumbrüche reduziert werden sollen:
   - Folgen von Segmentumbrüchen werden auf einen einzigen Segmentumbruch reduziert.
-  - Sie werden in den Fällen von Sprachen, die Wörter mit Leerzeichen trennen (wie Englisch), in Leerzeichen umgewandelt oder bei Sprachen, die Wörter nicht mit Leerzeichen trennen (wie Chinesisch), ganz entfernt.
-- Wenn Leerzeichen zusammengefasst werden sollen:
+  - Sie werden in Sprachen, die Wörter mit Leerzeichen trennen (wie Englisch), in Leerzeichen umgewandelt oder in Sprachen, die Wörter nicht mit Leerzeichen trennen (wie Chinesisch), ganz entfernt.
+- Wenn Leerzeichen reduziert werden sollen:
   - Leerzeichen oder Tabs vor oder nach Segmentumbrüchen werden entfernt.
-  - Sequenzen von Leerzeichen werden in ein einzelnes Leerzeichen umgewandelt oder „zusammengefasst“.
-- Wenn Leerzeichen beibehalten werden, werden Sequenzen von Leerzeichen als nicht trennend behandelt, außer dass sie am Ende jeder Sequenz weich umbrochen werden - d.h. die nächste Zeile beginnt immer mit dem nächsten Nicht-Leerzeichen-Zeichen. Im Fall des `break-spaces`-Wertes könnte jedoch ein weicher Umbruch nach jedem Leerzeichen auftreten, sodass die nächste Zeile mit einem oder mehreren Leerzeichen beginnen kann.
+  - Folgen von Leerzeichen werden in ein einziges Leerzeichen umgewandelt oder "reduziert".
+- Wenn Leerzeichen erhalten bleiben, werden Folgen von Leerzeichen als nicht umbrechend behandelt, außer dass sie am Ende jeder Folge weich umgebrochen werden — d.h. die nächste Zeile beginnt immer mit dem nächsten Nicht-Leerzeichen-Zeichen. Im Fall des `break-spaces`-Werts könnte jedoch ein weicher Umbruch nach jedem Leerzeichen auftreten, sodass die nächste Zeile mit einem oder mehreren Leerzeichen beginnen kann.
 
 ## Formale Definition
 
@@ -77,17 +77,17 @@ Benutzeragenten handhaben das Zusammenfassen von Leerraum wie folgt:
 
 <!-- prettier-ignore-start -->
 ```html
-<h2 class="collapse">Standardverhalten;
-  alle   Leerzeichen   werden   zusammengefasst
-  in    der          Überschrift       .</h2>
+<h2 class="collapse">Default behavior;
+  all   whitespace   is   collapsed
+  in    the          heading       .</h2>
 
-<h2 class="preserve">In diesem Fall
-  werden   alle   Leerzeichen   beibehalten
-  in    der          Überschrift       .</h2>
+<h2 class="preserve">In this case
+  all   whitespace   is   preserved
+  in    the          heading       .</h2>
 
-<h2 class="preserve-breaks">In diesem Fall werden nur
-  die   Zeilenumbrüche  beibehalten
-  in    der          Überschrift       .</h2>
+<h2 class="preserve-breaks">In this case only
+  the   line breaks  are  preserved
+  in    the          heading       .</h2>
 ```
 <!-- prettier-ignore-end -->
 
@@ -126,5 +126,5 @@ h2 {
 
 ## Siehe auch
 
-- Kurzform für `white-space-collapse` und {{CSSxRef("text-wrap")}}: Die {{CSSxRef("white-space")}} Eigenschaft.
-- [CSS Textmodul](/de/docs/Web/CSS/CSS_text)
+- Kurzschreibweise für `white-space-collapse` und {{CSSxRef("text-wrap")}}: Die Eigenschaft {{CSSxRef("white-space")}}.
+- [CSS-Textmodul](/de/docs/Web/CSS/CSS_text)

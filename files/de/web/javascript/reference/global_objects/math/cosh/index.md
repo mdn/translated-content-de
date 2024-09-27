@@ -34,7 +34,7 @@ Der hyperbolische Kosinus von `x`.
 
 ## Beschreibung
 
-Da `cosh()` eine statische Methode von `Math` ist, verwendet man sie immer als `Math.cosh()` und nicht als eine Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `cosh()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.cosh()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

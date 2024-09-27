@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Der **`MediaStreamEvent()`** Konstruktor erstellt ein neues {{domxref("MediaStreamEvent")}} Objekt.
+Der **`MediaStreamEvent()`** Konstruktor erstellt ein neues [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent) Objekt.
 
 ## Syntax
 
@@ -19,26 +19,26 @@ Der **`MediaStreamEvent()`** Konstruktor erstellt ein neues {{domxref("MediaStre
 ### Werte
 
 - `type`
-  - : Ein String mit dem Namen des Events, wie `addstream` oder `removestream`.
+  - : Ein String mit dem Namen des Ereignisses, wie `addstream` oder `removestream`.
 - `options`
-  - : Ein Objekt, das zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das zusätzlich zu den Eigenschaften, die in [`Event()`](/de/docs/Web/API/Event/Event) definiert sind, folgende Eigenschaften haben kann:
     - `stream`
-      - : Ein {{domxref("MediaStream")}}, das den Stream repräsentiert, der durch das Event betroffen ist.
+      - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream), das den Stream repräsentiert, der von dem Ereignis betroffen ist.
 
 ### Rückgabewert
 
-Ein neues {{domxref("MediaStreamEvent")}} Objekt.
+Ein neues [`MediaStreamEvent`](/de/docs/Web/API/MediaStreamEvent) Objekt.
 
 ## Beispiel
 
 ```js
-// s ist ein MediaStream
+// s is a MediaStream
 const event = new MediaStreamEvent("addstream", { stream: s });
 ```
 
 ## Spezifikationen
 
-_Diese Funktion ist nicht mehr Teil einer Spezifikation._
+_Dieses Feature ist nicht mehr Teil einer Spezifikation._
 
 ## Browser-Kompatibilität
 

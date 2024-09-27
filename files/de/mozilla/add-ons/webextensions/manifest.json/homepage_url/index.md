@@ -34,7 +34,7 @@ l10n:
 
 URL für die Startseite der Erweiterung.
 
-Wenn ein [Entwickler](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer)-Schlüssel mit der Eigenschaft "url" und "homepage_url" definiert ist, verwendet Firefox "developer.url", während Opera "homepage_url" verwendet. Chrome und Safari unterstützen den "developer"-Schlüssel nicht.
+Wenn sowohl ein [Entwickler](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer)-Schlüssel, der die Eigenschaft "url" enthält, als auch "homepage_url" definiert sind, verwendet Firefox "developer.url", während Opera "homepage_url" verwendet. Chrome und Safari unterstützen den "developer"-Schlüssel nicht.
 
 Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 
@@ -44,6 +44,6 @@ Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtension
 "homepage_url": "https://github.com/mdn/webextensions-examples/tree/main/beastify"
 ```
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

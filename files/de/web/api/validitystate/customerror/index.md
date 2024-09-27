@@ -1,5 +1,5 @@
 ---
-title: "ValidityState: Eigenschaft customError"
+title: "ValidityState: customError-Eigenschaft"
 short-title: customError
 slug: Web/API/ValidityState/customError
 l10n:
@@ -8,22 +8,19 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`customError`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces gibt `true` zurück, wenn ein Element nicht die Validierung erfüllt, die in der benutzerdefinierten Gültigkeit gesetzt wurde, durch die {{domxref("HTMLObjectElement.setCustomValidity", "setCustomValidity()")}} Methode des Elements.
+Die schreibgeschützte **`customError`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces gibt `true` zurück, wenn ein Element die in der benutzerdefinierten Gültigkeitsmeldung festgelegte Validierung nicht erfüllt, die durch die Methode [`setCustomValidity()`](/de/docs/Web/API/HTMLObjectElement/setCustomValidity) des Elements gesetzt wurde.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn eine benutzerdefinierte Fehlermeldung auf eine nicht-leere Zeichenfolge gesetzt wurde.
+Ein boolescher Wert, der `true` ist, wenn eine benutzerdefinierte Fehlermeldung auf eine nicht-leere Zeichenkette gesetzt wurde.
 
 ## Beispiele
 
 ### Erkennen eines benutzerdefinierten Fehlers
 
-In diesem Beispiel setzt {{domxref("HTMLObjectElement.setCustomValidity", "setCustomValidity()")}} eine benutzerdefinierte Fehlermeldung, wenn ein Formular, welches Benutzereingaben enthält, als ungültig angesehen wird.
-Der Button "Eingabe validieren" ruft {{domxref("HTMLFormElement.reportValidity", "reportValidity()")}} auf, welches eine Validierungsnachricht unter dem Element anzeigt, wenn ein Benutzer Werte eingibt, die nicht den [Einschränkungen des Formulars](/de/docs/Web/HTML/Constraint_validation#constraint_validation_process) entsprechen.
+In diesem Beispiel setzt [`setCustomValidity()`](/de/docs/Web/API/HTMLObjectElement/setCustomValidity) eine benutzerdefinierte Fehlermeldung, wenn eine Formularübermittlung Benutzereingaben enthält, die als ungültig angesehen werden. Der Button "Eingabe validieren" ruft [`reportValidity()`](/de/docs/Web/API/HTMLFormElement/reportValidity) auf, was eine Validierungsmeldung unter dem Element anzeigt, wenn ein Benutzer Werte eingibt, die den [Formularbeschränkungen](/de/docs/Web/HTML/Constraint_validation#constraint_validation_process) nicht entsprechen.
 
-Wenn Sie den Text "good" oder "fine" eingeben und versuchen, die Eingabe zu validieren, wird das Feld als ungültig markiert, bis die benutzerdefinierte Fehlermeldung gelöscht wird (auf eine leere Zeichenfolge gesetzt).
-Zum Vergleich gibt es ein [`minlength`](/de/docs/Web/HTML/Attributes/minlength)-Attribut auf dem Eingabeelement, das es uns erlaubt, den [`tooShort` Gültigkeitszustand](/de/docs/Web/API/ValidityState/tooShort) zu demonstrieren, wenn der Benutzer weniger als zwei Zeichen eingibt.
-Wenn der Wert im Formularelement ungültig ist, wird das Eingabefeld einen roten Umriss haben, auch wenn kein benutzerdefinierter Fehler vorliegt.
+Wenn Sie den Text "good" oder "fine" eingeben und versuchen, die Eingabe zu validieren, wird das Feld als ungültig markiert, bis die benutzerdefinierte Fehlermeldung gelöscht wird (auf eine leere Zeichenkette gesetzt). Zum Vergleich gibt es ein [`minlength`](/de/docs/Web/HTML/Attributes/minlength)-Attribut am Eingabeelement, das es ermöglicht, den [`tooShort`-Gültigkeitszustand](/de/docs/Web/API/ValidityState/tooShort) zu demonstrieren, wenn der Benutzer weniger als zwei Zeichen eingibt. Wenn der Wert im Formularelement ungültig ist, selbst wenn kein benutzerdefinierter Fehler vorhanden ist, wird die Eingabe mit einem roten Umriss versehen.
 
 #### HTML
 

@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef}} {{Deprecated_Header}}
 
-Die **`Window.captureEvents()`** Methode macht nichts.
+Die **`Window.captureEvents()`**-Methode macht nichts.
 
 > [!NOTE]
-> Dies ist eine Methode, die lange aus der Spezifikation entfernt wurde. Sie wird in Browsern beibehalten, um Codebrüchen zu vermeiden, tut jedoch nichts.
+> Dies ist eine Methode, die schon lange aus der Spezifikation entfernt wurde. Sie wird in Browsern beibehalten, um Codebrüche zu verhindern, hat aber keine Funktion.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 

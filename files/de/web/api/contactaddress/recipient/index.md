@@ -1,6 +1,6 @@
 ---
-title: "ContactAddress: recipient-Eigenschaft"
-short-title: recipient
+title: "ContactAddress: Empfänger-Eigenschaft"
+short-title: Empfänger
 slug: Web/API/ContactAddress/recipient
 l10n:
   sourceCommit: fffaf01b3968b14820cdefdd988daecaf58fb286
@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Contact Picker API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`recipient`**-Eigenschaft der {{domxref("ContactAddress")}}-Schnittstelle gibt einen String zurück, der den Namen des Empfängers, Käufers oder der Kontaktperson an der Adresse enthält.
+Die schreibgeschützte **`recipient`**-Eigenschaft der [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Schnittstelle gibt einen String zurück, der den Namen des Empfängers, Käufers oder Kontaktperson an der Adresse enthält.
 
 ## Wert
 
-Ein String, der den Namen der Person oder den Namen einer Kontaktperson in anderen Kontexten angibt. Wenn kein Name verfügbar ist, ist dieser String leer.
+Ein String, der den Namen der Person angibt oder den Namen einer Kontaktperson in anderen Kontexten. Wenn kein Name verfügbar ist, ist dieser String leer.
 
 ## Spezifikationen
 

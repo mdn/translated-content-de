@@ -20,11 +20,11 @@ browser.devtools.panels.onThemeChanged.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, dieses Ereignis zu überwachen. Das Argument `listener` ist der Listener, der entfernt werden soll.
+  - : Beendet das Hören auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, ansonsten `false`.
 
 ## addListener-Syntax
 
@@ -32,7 +32,7 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion wird folgendes Argument übergeben:
 
     - `themeName`
       - : `string`. Name des neuen Themes: Dies wird einer der zulässigen Werte für [`devtools.panels.themeName`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/themeName) sein.
@@ -52,4 +52,4 @@ browser.devtools.panels.onThemeChanged.addListener((newThemeName) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der API [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) von Chromium.
+> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API von Chromium.

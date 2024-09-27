@@ -1,5 +1,5 @@
 ---
-title: "PushMessageData: blob() Methode"
+title: "PushMessageData: blob()-Methode"
 short-title: blob()
 slug: Web/API/PushMessageData/blob
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Die **`blob()`** Methode der {{domxref("PushMessageData")}} Schnittstelle extrahiert die Push-Nachrichtendaten als ein {{domxref("Blob")}} Objekt.
+Die **`blob()`**-Methode der [`PushMessageData`](/de/docs/Web/API/PushMessageData)-Schnittstelle extrahiert Push-Daten als ein [`Blob`](/de/docs/Web/API/Blob)-Objekt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("Blob")}}.
+Ein [`Blob`](/de/docs/Web/API/Blob).
 
 ## Beispiele
 
@@ -38,6 +38,6 @@ self.addEventListener("push", (event) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

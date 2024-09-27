@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Geolocation API")}}
 
-Die **`toJSON()`**-Methode des {{domxref("GeolocationPosition")}} Interfaces ist ein {{Glossary("Serialization","Serializer")}}; sie gibt eine JSON-Darstellung des {{domxref("GeolocationPosition")}} Objekts zurück.
+Die **`toJSON()`**-Methode der [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Objekts zurück.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des {{domxref("GeolocationPosition")}}-Objekts darstellt.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Objekts darstellt.
 
 ## Beispiele
 
 ### Verwendung der `toJSON()`-Methode
 
-In diesem Beispiel führt ein Aufruf von `position.toJSON()` zu einer JSON-Darstellung des `GeolocationPosition`-Objekts.
+In diesem Beispiel gibt ein Aufruf von `position.toJSON()` eine JSON-Darstellung des `GeolocationPosition`-Objekts zurück.
 
 ```js
 navigator.geolocation.getCurrentPosition((position) => {
@@ -53,7 +53,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(position)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird automatisch `toJSON()` aufrufen.
+Um eine JSON-Zeichenkette zu erhalten, können Sie direkt [`JSON.stringify(position)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; es wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableElement: Methode createTHead()"
+title: "HTMLTableElement: createTHead()-Methode"
 short-title: createTHead()
 slug: Web/API/HTMLTableElement/createTHead
 l10n:
@@ -9,11 +9,15 @@ l10n:
 {{APIRef("HTML DOM")}}
 
 Die **`createTHead()`**-Methode von
-{{domxref("HTMLTableElement")}}-Objekten gibt das mit einem gegebenen {{HtmlElement("table")}}-Element verbundene {{HTMLElement("thead")}}-Element zurück. Wenn in der Tabelle kein Header existiert, erstellt diese Methode ihn und gibt ihn dann zurück.
+[`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Objekten gibt das {{HTMLElement("thead")}}-Element zurück,
+das mit einem gegebenen {{HtmlElement("table")}} verknüpft ist. Wenn die Tabelle keinen Kopfbereich hat, wird dieser
+durch diese Methode erstellt und dann zurückgegeben.
 
 > [!NOTE]
-> Wenn kein Header existiert, fügt `createTHead()` einen neuen
-> Header direkt in die Tabelle ein. Der Header muss nicht separat hinzugefügt werden, wie es der Fall wäre, wenn {{domxref("Document.createElement()")}} verwendet worden wäre, um das neue `<thead>`-Element zu erstellen.
+> Wenn kein Kopfbereich vorhanden ist, fügt `createTHead()` direkt einen neuen
+> Kopfbereich in die Tabelle ein. Der Kopfbereich muss nicht separat hinzugefügt werden,
+> wie es der Fall wäre, wenn [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um
+> das neue `<thead>`-Element zu erstellen.
 
 ## Syntax
 
@@ -27,7 +31,7 @@ Keine.
 
 ### Rückgabewert
 
-{{domxref("HTMLTableSectionElement")}}
+[`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)
 
 ## Beispiele
 

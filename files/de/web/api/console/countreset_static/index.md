@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die **`console.countReset()`** statische Methode setzt den Zähler zurück, der mit {{domxref("console/count_static", "console.count()")}} verwendet wird.
+Die **`console.countReset()`** statische Methode setzt den Zähler zurück, der mit [`console.count()`](/de/docs/Web/API/Console/count_static) verwendet wird.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ countReset(label)
 ### Parameter
 
 - `label` {{optional_inline}}
-  - : Ein String. Wenn angegeben, setzt `countReset()` den Zähler für dieses Label auf 0 zurück. Falls weggelassen, wird der Standardzähler auf 0 zurückgesetzt.
+  - : Ein String. Wenn angegeben, setzt `countReset()` den Zähler für dieses Label auf 0 zurück. Wenn weggelassen, setzt `countReset()` den Standardzähler auf 0 zurück.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Zum Beispiel, bei einem Code wie diesem:
+Zum Beispiel, bei folgendem Code:
 
 ```js
 function greet(user) {
@@ -43,7 +43,7 @@ console.count();
 console.countReset();
 ```
 
-Sie werden eine Konsolenausgabe in etwa wie folgt sehen:
+Die Konsolenausgabe sieht ungefähr so aus:
 
 ```plain
 "default: 1"
@@ -53,9 +53,9 @@ Sie werden eine Konsolenausgabe in etwa wie folgt sehen:
 "default: 0"
 ```
 
-Beachten Sie, dass der Aufruf von `console.counterReset()` den Wert des Standardzählers auf Null zurücksetzt.
+Beachten Sie, dass der Aufruf von `console.counterReset()` den Wert des Standardzählers auf null zurücksetzt.
 
-Wenn wir die `user`-Variable als `label`-Argument mit dem String "bob" beim ersten Aufruf von `console.count()` übergeben und den String "alice" beim zweiten:
+Wenn wir die Variable `user` als `label`-Parameter mit dem String "bob" beim ersten Aufruf von `console.count()` und den String "alice" beim zweiten übergeben:
 
 ```js
 function greet(user) {
@@ -70,7 +70,7 @@ console.countReset("bob");
 console.count("alice");
 ```
 
-Werden wir eine Ausgabe wie diese sehen:
+Erhalten wir eine Ausgabe wie diese:
 
 ```plain
 "bob: 1"
@@ -80,7 +80,7 @@ Werden wir eine Ausgabe wie diese sehen:
 "alice: 3"
 ```
 
-Das Zurücksetzen des Wertes des Zählers "bob" ändert nur den Wert dieses Zählers. Der Wert von "alice" bleibt unverändert.
+Das Zurücksetzen des Zählers "bob" ändert nur den Wert dieses Zählers. Der Wert von "alice" bleibt unverändert.
 
 ## Spezifikationen
 
@@ -92,6 +92,6 @@ Das Zurücksetzen des Wertes des Zählers "bob" ändert nur den Wert dieses Zäh
 
 ## Siehe auch
 
-- [Microsoft Edge-Dokumentation für `console.countReset()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#countreset)
+- [Dokumentation von Microsoft Edge für `console.countReset()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#countreset)
 - [Node.JS-Dokumentation für `console.countReset()`](https://nodejs.org/docs/latest/api/console.html#consolecountresetlabel)
-- [Google Chrome-Dokumentation für `console.countReset()`](https://developer.chrome.com/docs/devtools/console/api/#countreset)
+- [Dokumentation von Google Chrome für `console.countReset()`](https://developer.chrome.com/docs/devtools/console/api/#countreset)

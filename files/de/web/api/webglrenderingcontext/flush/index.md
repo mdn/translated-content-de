@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.flush()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) leert verschiedene Pufferbefehle und bewirkt, dass alle Befehle so schnell wie möglich ausgeführt werden.
+Die **`WebGLRenderingContext.flush()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) leert verschiedene Pufferbefehle und führt alle Befehle so schnell wie möglich aus.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
@@ -34,4 +34,4 @@ Keine ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.finish()")}}
+- [`WebGLRenderingContext.finish()`](/de/docs/Web/API/WebGLRenderingContext/finish)

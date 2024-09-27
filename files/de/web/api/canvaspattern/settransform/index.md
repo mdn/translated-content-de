@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`CanvasPattern.setTransform()`** Methode verwendet ein {{domxref("DOMMatrix")}}-Objekt als Transformationsmatrix des Musters und wendet es auf das Muster an.
+Die **`CanvasPattern.setTransform()`** Methode verwendet ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt als Transformationsmatrix des Musters und wendet es auf das Muster an.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setTransform(matrix)
 ### Parameter
 
 - `matrix`
-  - : Eine {{domxref("DOMMatrix")}}, die als Transformationsmatrix des Musters verwendet wird.
+  - : Eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix), die als Transformationsmatrix des Musters verwendet wird.
 
 ### Rückgabewert
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwendung der `setTransform` Methode
 
-Dies ist nur ein einfaches Codebeispiel, das die `setTransform` Methode verwendet, um ein {{domxref("CanvasPattern")}} mit der angegebenen Mustertransformation aus einer {{domxref("DOMMatrix")}} zu erstellen. Das Muster wird angewendet, wenn Sie es als aktuelles {{domxref("CanvasRenderingContext2D.fillStyle", "fillStyle")}} festlegen und auf die Leinwand zeichnen, zum Beispiel mit der {{domxref("CanvasRenderingContext2D.fillRect", "fillRect()")}} Methode.
+Dies ist nur ein einfaches Code-Snippet, das die `setTransform` Methode verwendet, um ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern) mit der angegebenen Mustertransformation aus einer [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zu erstellen. Das Muster wird angewendet, wenn Sie es als aktuellen [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) festlegen, und wird auf die Leinwand gezeichnet, wenn Sie beispielsweise die [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) Methode verwenden.
 
 #### HTML
 
@@ -56,9 +56,9 @@ img.onload = () => {
 };
 ```
 
-#### Editierbare Demo
+#### Bearbeitbares Beispiel
 
-Hier ist eine editierbare Demo des obigen Codebeispiels. Versuchen Sie, das Argument von `SetTransform()` zu ändern, um die Auswirkungen zu sehen.
+Hier ist ein bearbeitbares Beispiel des obigen Code-Snippets. Versuchen Sie, das Argument von `SetTransform()` zu ändern, um den Effekt zu sehen.
 
 ```html hidden
 <canvas id="canvas" width="400" height="200" class="playable-canvas"></canvas>
@@ -118,5 +118,5 @@ window.addEventListener("load", drawCanvas);
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: {{domxref("CanvasPattern")}}
-- {{domxref("DOMMatrix")}}
+- Die Schnittstelle, die diese Methode definiert: [`CanvasPattern`](/de/docs/Web/API/CanvasPattern)
+- [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)

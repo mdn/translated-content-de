@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Credential Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`PasswordCredential()`** Konstruktor erstellt ein neues {{domxref("PasswordCredential")}} Objekt. In unterstützenden Browsern kann eine Instanz dieser Klasse das `credential` aus dem `init` Objekt für die globale {{domxref("Window/fetch", "fetch()")}} übergeben bekommen.
+Der **`PasswordCredential()`**
+Konstruktor erstellt ein neues [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekt. In unterstützenden Browsern kann eine Instanz dieser Klasse `credential` aus dem `init`-Objekt für den globalen [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben werden.
 
 ## Syntax
 
@@ -26,18 +27,20 @@ Einer der folgenden:
   - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `iconURL` {{optional_inline}}
-      - : Ein String, der die URL eines Icons oder Avatars darstellt, das mit dem Credential verknüpft werden soll.
+      - : Eine Zeichenkette, die die URL eines Symbols oder Avatars darstellt, das mit der Berechtigung verknüpft wird.
     - `id`
-      - : Ein String, der eine eindeutige ID für das Credential darstellt.
+      - : Eine Zeichenkette, die eine eindeutige ID für die Berechtigung darstellt.
     - `name` {{optional_inline}}
-      - : Ein String, der den Benutzernamen des Credentials darstellt.
+      - : Eine Zeichenkette, die den Benutzernamen der Berechtigung darstellt.
     - `origin`
-      - : Ein String, der den Ursprung des Credentials darstellt. {{domxref("PasswordCredential")}} Objekte sind ursprungsgebunden, was bedeutet, dass sie nur auf dem angegebenen Ursprung verwendbar sind, für den sie vorgesehen waren.
+      - : Eine Zeichenkette, die den Ursprung der Berechtigung darstellt. [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekte sind ursprungsgebunden, was bedeutet, dass sie nur auf dem angegebenen Ursprung verwendet werden können, für den sie vorgesehen sind.
     - `password`
-      - : Ein String, der das Passwort des Credentials darstellt.
+      - : Eine Zeichenkette, die das Passwort der Berechtigung darstellt.
 
 - `form`
-  - : Ein Verweis auf ein {{domxref("HTMLFormElement")}} mit geeigneten Eingabefeldern. Das Formular sollte mindestens eine ID und ein Passwort enthalten. Es könnte auch ein CSRF-Token erfordern.
+  - : Eine Referenz zu einem [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) mit geeigneten Eingabefeldern. Das
+    Formular sollte mindestens eine ID und ein Passwort enthalten. Es könnte auch ein
+    CSRF-Token erfordern.
 
 ### Ausnahmen
 
@@ -46,28 +49,30 @@ Einer der folgenden:
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie ein {{domxref("HTMLFormElement")}} eingerichtet wird, um Daten zu erfassen, die wir zur Erstellung eines {{domxref("PasswordCredential")}} Objekts verwenden.
+Dieses Beispiel zeigt, wie ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) eingerichtet wird, um Daten zu erfassen,
+die wir zur Erstellung eines [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekts verwenden werden.
 
-Beginnen wir mit dem Formularelement.
+Beginnend mit dem Formularelement.
 
 ```html
 <form id="form" method="post">
-  <label for="id">Benutzername:</label>
+  <label for="id">Username:</label>
   <input type="text" name="id" autocomplete="username" />
-  <label for="password">Passwort:</label>
+  <label for="password">Password:</label>
   <input type="password" name="password" autocomplete="current-password" />
   <input type="hidden" name="csrf_token" value="*****" />
 </form>
 ```
 
-Dann ein Verweis auf dieses Formularelement, um damit ein {{domxref("PasswordCredential")}} Objekt zu erstellen und es im Passwortsystem des Browsers zu speichern.
+Dann eine Referenz zu diesem Formularelement, die zur Erstellung eines
+[`PasswordCredential`](/de/docs/Web/API/PasswordCredential)-Objekts verwendet und im Passwortsystem des Browsers gespeichert wird.
 
 ```js
 const form = document.querySelector("#form");
 const creds = new PasswordCredential(form);
-// Die Zugangsdaten speichern.
+// Store the credentials.
 navigator.credentials.store(creds).then((creds) => {
-  // Machen Sie etwas mit den Zugangsdaten, wenn nötig.
+  // Do something with the credentials if you need to.
 });
 ```
 
@@ -75,6 +80,6 @@ navigator.credentials.store(creds).then((creds) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

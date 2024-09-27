@@ -7,10 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **strikte Gleichheitsoperator (`===`)** überprüft, ob seine beiden Operanden
-gleich sind und gibt ein Boolesches Ergebnis zurück. Im Gegensatz zum [Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Equality),
-betrachtet der strikte Gleichheitsoperator Operanden unterschiedlicher Typen immer als
-unterschiedlich.
+Der Operator **strikte Gleichheit (`===`)** überprüft, ob seine beiden Operanden gleich sind und gibt ein Boolesches Ergebnis zurück. Im Gegensatz zum [Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Equality) betrachtet der Operator für strikte Gleichheit Operanden unterschiedlichen Typs immer als verschieden.
 
 {{EmbedInteractiveExample("pages/js/expressions-strict-equality.html")}}
 
@@ -22,26 +19,23 @@ x === y
 
 ## Beschreibung
 
-Die strikten Gleichheitsoperatoren (`===` und `!==`) bieten die [IsStrictlyEqual](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#strict_equality_using) Semantik.
+Die Operatoren für strikte Gleichheit (`===` und `!==`) bieten die [IsStrictlyEqual](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#strict_equality_using) Semantik.
 
-- Wenn die Operanden unterschiedliche Typen haben, wird `false` zurückgegeben.
-- Wenn beide Operanden Objekte sind, wird `true` nur zurückgegeben, wenn sie sich auf dasselbe Objekt beziehen.
-- Wenn beide Operanden `null` sind oder beide Operanden `undefined` sind,
-  wird `true` zurückgegeben.
+- Wenn die Operanden von verschiedenen Typen sind, wird `false` zurückgegeben.
+- Wenn beide Operanden Objekte sind, wird `true` nur zurückgegeben, wenn sie auf dasselbe Objekt verweisen.
+- Wenn beide Operanden `null` sind oder beide `undefined`, wird `true` zurückgegeben.
 - Wenn einer der Operanden `NaN` ist, wird `false` zurückgegeben.
 - Andernfalls werden die Werte der beiden Operanden verglichen:
 
-  - Zahlen müssen denselben numerischen Wert haben. `+0` und `-0`
-    werden als derselbe Wert betrachtet.
-  - Zeichenketten müssen dieselben Zeichen in derselben Reihenfolge haben.
-  - Boolesche Werte müssen entweder beide `true` oder beide `false` sein.
+  - Zahlen müssen die gleichen numerischen Werte haben. `+0` und `-0` werden als derselbe Wert betrachtet.
+  - Zeichenfolgen müssen die gleichen Zeichen in derselben Reihenfolge haben.
+  - Boolesche Werte müssen beide `true` oder beide `false` sein.
 
-Der auffallendste Unterschied zwischen diesem Operator und dem [Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Equality)
-(`==`) ist, dass der `==`-Operator versucht, die Operanden auf denselben Typ zu konvertieren, bevor er sie vergleicht, wenn sie unterschiedliche Typen haben.
+Der bemerkenswerteste Unterschied zwischen diesem Operator und dem [Gleichheitsoperator](/de/docs/Web/JavaScript/Reference/Operators/Equality) (`==`) ist, dass der `==` Operator versucht, die Operanden vor dem Vergleich in denselben Typ zu konvertieren, wenn sie unterschiedlichen Typs sind.
 
 ## Beispiele
 
-### Vergleich von Operanden desselben Typs
+### Vergleichen von Operanden desselben Typs
 
 ```js
 "hello" === "hello"; // true
@@ -56,7 +50,7 @@ true === false; // false
 null === null; // true
 ```
 
-### Vergleich von Operanden unterschiedlicher Typen
+### Vergleichen von Operanden unterschiedlichen Typs
 
 ```js
 "3" === 3; // false
@@ -65,7 +59,7 @@ null === undefined; // false
 3 === new Number(3); // false
 ```
 
-### Vergleich von Objekten
+### Vergleichen von Objekten
 
 ```js
 const object1 = {
@@ -84,7 +78,7 @@ console.log(object1 === object1); // true
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

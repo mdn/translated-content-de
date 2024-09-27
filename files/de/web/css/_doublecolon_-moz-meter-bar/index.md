@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-moz-meter-bar`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Glossary/Pseudo-element) repräsentiert die Anzeigeskala in einem {{HTMLElement("meter")}}-Element. Es wird verwendet, um das Pseudoelement auszuwählen und Stile auf die Skala innerhalb eines Meter-Elements anzuwenden.
+Das **`::-moz-meter-bar`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Glossary/Pseudo-element) repräsentiert die Messskala in einem {{HTMLElement("meter")}}-Element. Es wird verwendet, um die Skala innerhalb eines Meters auszuwählen und zu stylen.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ Das **`::-moz-meter-bar`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Glos
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Kein Bestandteil eines Standards.
 
 ## Beispiele
 
 ### HTML
 
 ```html
-Normal: <meter min="0" max="10" value="6">Punktzahl 6/10</meter>
+Normal: <meter min="0" max="10" value="6">Score 6/10</meter>
 <br />
-Gestylt: &nbsp;&nbsp;<meter class="styled" min="0" max="10" value="6">
-  Punktzahl 6/10
+Styled: &nbsp;&nbsp;<meter class="styled" min="0" max="10" value="6">
+  Score 6/10
 </meter>
 ```
 

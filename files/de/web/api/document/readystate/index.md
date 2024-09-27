@@ -1,5 +1,5 @@
 ---
-title: "Dokument: readyState-Eigenschaft"
+title: "Document: readyState-Eigenschaft"
 short-title: readyState
 slug: Web/API/Document/readyState
 l10n:
@@ -8,18 +8,19 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Document.readyState`**-Eigenschaft beschreibt den Ladezustand des {{domxref("document")}}. Wenn sich der Wert dieser Eigenschaft ändert, wird ein {{domxref("Document/readystatechange_event", "readystatechange")}}-Ereignis auf dem {{domxref("document")}}-Objekt ausgelöst.
+Die **`Document.readyState`**-Eigenschaft beschreibt den Ladezustand des [`Dokuments`](/de/docs/Web/API/Document).
+Wenn der Wert dieser Eigenschaft sich ändert, wird ein [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event)-Ereignis auf dem [`Dokument`](/de/docs/Web/API/Document)-Objekt ausgelöst.
 
 ## Wert
 
 Der `readyState` eines Dokuments kann einer der folgenden sein:
 
 - `loading`
-  - : Das {{domxref("document")}} wird noch geladen.
+  - : Das [`Dokument`](/de/docs/Web/API/Document) lädt noch.
 - `interactive`
-  - : Das Dokument ist fertig geladen und das Dokument wurde geparst, aber Subressourcen wie Skripte, Bilder, Stylesheets und Frames werden noch geladen. Der Zustand zeigt an, dass das {{domxref("Document/DOMContentLoaded_event", "DOMContentLoaded")}}-Ereignis gleich ausgelöst wird.
+  - : Das Dokument ist fertig geladen und das Dokument wurde geparst, aber Unterressourcen wie Skripte, Bilder, Stylesheets und Frames laden noch. Der Zustand zeigt an, dass das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis kurz davor ist, ausgelöst zu werden.
 - `complete`
-  - : Das Dokument und alle Subressourcen sind fertig geladen. Der Zustand zeigt an, dass das {{domxref("Window/load_event", "load")}}-Ereignis gleich ausgelöst wird.
+  - : Das Dokument und alle Unterressourcen sind fertig geladen. Der Zustand zeigt an, dass das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis kurz davor ist, ausgelöst zu werden.
 
 ## Beispiele
 
@@ -28,20 +29,20 @@ Der `readyState` eines Dokuments kann einer der folgenden sein:
 ```js
 switch (document.readyState) {
   case "loading":
-    // Das Dokument wird geladen.
+    // The document is loading.
     break;
   case "interactive": {
-    // Das Dokument ist fertig geladen und wir können auf DOM-Elemente zugreifen.
-    // Subressourcen wie Skripte, Bilder, Stylesheets und Frames werden noch geladen.
+    // The document has finished loading and we can access DOM elements.
+    // Sub-resources such as scripts, images, stylesheets and frames are still loading.
     const span = document.createElement("span");
-    span.textContent = "Ein <span>-Element.";
+    span.textContent = "A <span> element.";
     document.body.appendChild(span);
     break;
   }
   case "complete":
-    // Die Seite ist vollständig geladen.
+    // The page is fully loaded.
     console.log(
-      `Die erste CSS-Regel ist: ${document.styleSheets[0].cssRules[0].cssText}`,
+      `The first CSS rule is: ${document.styleSheets[0].cssRules[0].cssText}`,
     );
     break;
 }
@@ -50,7 +51,7 @@ switch (document.readyState) {
 ### readystatechange als Alternative zum DOMContentLoaded-Ereignis
 
 ```js
-// Alternative zum DOMContentLoaded-Ereignis
+// Alternative to DOMContentLoaded event
 document.onreadystatechange = () => {
   if (document.readyState === "interactive") {
     initApplication();
@@ -61,7 +62,7 @@ document.onreadystatechange = () => {
 ### readystatechange als Alternative zum load-Ereignis
 
 ```js
-// Alternative zum load-Ereignis
+// Alternative to load event
 document.onreadystatechange = () => {
   if (document.readyState === "complete") {
     initApplication();
@@ -69,7 +70,7 @@ document.onreadystatechange = () => {
 };
 ```
 
-### readystatechange als Event-Listener, um vor DOMContentLoaded Elemente in den DOM einzufügen oder zu ändern
+### readystatechange als Event-Listener, um das DOM vor DOMContentLoaded einzufügen oder zu ändern
 
 ```js
 document.addEventListener("readystatechange", (event) => {
@@ -92,6 +93,6 @@ document.addEventListener("readystatechange", (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse:
-  - {{domxref("Document/readystatechange_event", "readystatechange")}}
-  - {{domxref("Document/DOMContentLoaded_event", "DOMContentLoaded")}}
-  - {{domxref("Window/load_event", "load")}}
+  - [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event)
+  - [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)
+  - [`load`](/de/docs/Web/API/Window/load_event)

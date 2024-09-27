@@ -1,5 +1,5 @@
 ---
-title: "Response: formData() Methode"
+title: "Response: Methode formData()"
 short-title: formData()
 slug: Web/API/Response/formData
 l10n:
@@ -8,13 +8,10 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`formData()`** Methode der {{domxref("Response")}} Schnittstelle
-nimmt einen {{domxref("Response")}}-Stream und liest ihn bis zum Ende. Sie gibt ein Promise
-zurück, das mit einem {{domxref("FormData")}}-Objekt auflöst.
+Die **`formData()`** Methode des [`Response`](/de/docs/Web/API/Response)-Interfaces nimmt einen [`Response`](/de/docs/Web/API/Response)-Stream und liest ihn bis zum Ende. Sie gibt ein Versprechen zurück, das mit einem [`FormData`](/de/docs/Web/API/FormData)-Objekt aufgelöst wird.
 
 > [!NOTE]
-> Dies ist hauptsächlich relevant für [Service Worker](/de/docs/Web/API/Service_Worker_API). Wenn ein Benutzer
-> ein Formular absendet und ein Service Worker die Anfrage abfängt, könnten Sie beispielsweise `formData()` aufrufen, um eine Schlüssel-Wert-Karte zu erhalten, einige Felder zu ändern und das Formular dann an den Server weiterzuleiten (oder es lokal zu verwenden).
+> Dies ist hauptsächlich relevant für [Service-Worker](/de/docs/Web/API/Service_Worker_API). Wenn ein Benutzer ein Formular absendet und ein Service-Worker die Anfrage abfängt, könnten Sie beispielsweise `formData()` aufrufen, um eine Schlüssel-Wert-Zuordnung zu erhalten, einige Felder zu ändern und dann das Formular an den Server weiterzuleiten (oder es lokal zu verwenden).
 
 ## Syntax
 
@@ -28,18 +25,18 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{domxref("FormData")}}-Objekt auflöst.
+Ein {{jsxref("Promise")}}, das mit einem [`FormData`](/de/docs/Web/API/FormData)-Objekt aufgelöst wird.
 
 ### Ausnahmen
 
-- {{domxref("DOMException")}} `AbortError`
+- [`DOMException`](/de/docs/Web/API/DOMException) `AbortError`
   - : Die Anfrage wurde [abgebrochen](/de/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
 - {{jsxref("TypeError")}}
   - : Wird aus einem der folgenden Gründe ausgelöst:
-    - Der Response-Body ist [gestört oder gesperrt](/de/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - Es gab einen Fehler beim Dekodieren des Body-Inhalts (zum Beispiel, weil der {{httpheader("Content-Encoding")}}-Header falsch ist).
-    - Der {{glossary("MIME")}}-Typ des Bodys kann nicht aus den im Response enthaltenen {{httpheader("Content-Type")}}-Headern bestimmt werden.
-    - Der Body kann nicht als `FormData`-Objekt analysiert werden.
+    - Der Antwortkörper ist [gestört oder gesperrt](/de/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
+    - Es gab einen Fehler beim Dekodieren des Inhalt des Körpers (zum Beispiel, weil der {{httpheader("Content-Encoding")}}-Header nicht korrekt ist).
+    - Der [MIME](/de/docs/Glossary/MIME)-Typ des Körpers kann nicht aus den im Antwort enthaltenen {{httpheader("Content-Type")}}-Headern bestimmt werden.
+    - Der Körper kann nicht als `FormData`-Objekt analysiert werden.
 
 ## Beispiele
 

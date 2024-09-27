@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`namedItem()`**-Methode der {{domxref("HTMLCollection")}}-Schnittstelle gibt das erste {{domxref("Element")}} in der Sammlung zurück, dessen `id`- oder `name`-Attribut mit dem angegebenen Namen übereinstimmt, oder `null`, wenn kein Element übereinstimmt.
+Die **`namedItem()`**-Methode der [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Schnittstelle gibt
+das erste [`Element`](/de/docs/Web/API/Element) in der Sammlung zurück, dessen `id`- oder `name`-Attribut mit dem angegebenen Namen übereinstimmt, oder `null`, wenn kein Element übereinstimmt.
 
-In JavaScript können Sie anstelle von `collection.namedItem("value")` auch direkt auf den Namen in der Sammlung zugreifen, wie `collection["value"]`, es sei denn, der Name kollidiert mit einer der bestehenden `HTMLCollection`-Eigenschaften.
+In JavaScript können Sie anstelle von `collection.namedItem("value")` auch direkt auf den Namen in der Sammlung zugreifen, wie `collection["value"]`, es sei denn, der Name kollidiert mit einer der bestehenden Eigenschaften von `HTMLCollection`.
 
 ## Syntax
 
@@ -21,11 +22,11 @@ namedItem(key)
 ### Parameter
 
 - `key`
-  - : Ein String, der den Wert des `id`- oder `name`-Attributs des Elements darstellt, das wir suchen.
+  - : Ein String, der den Wert des `id`- oder `name`-Attributs des gesuchten Elements darstellt.
 
 ### Rückgabewert
 
-Das erste {{domxref("Element")}} in der {{domxref("HTMLCollection")}}, das dem `key` entspricht, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn keines vorhanden ist. Gibt immer `null` zurück, wenn `key` die leere Zeichenkette ist.
+Das erste [`Element`](/de/docs/Web/API/Element) in der [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), das mit dem `key` übereinstimmt, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn es keines gibt. Gibt immer `null` zurück, wenn `key` der leere String ist.
 
 ## Beispiel
 
@@ -45,14 +46,14 @@ Das erste {{domxref("Element")}} in der {{domxref("HTMLCollection")}}, das dem `
 ```js
 const container = document.getElementById("personal");
 
-// Gibt das HTMLSpanElement mit dem Namen "title" zurück, wenn kein solches Element existiert, wird null zurückgegeben
+// Returns the HTMLSpanElement with the name "title" if no such element exists null is returned
 const titleSpan = container.children.namedItem("title");
 
-// Die folgenden Varianten geben undefined statt null zurück, wenn kein Element mit einem übereinstimmenden Namen oder id vorhanden ist
+// The following variants return undefined instead of null if there's no element with a matching name or id
 const firstnameSpan = container.children["firstname"];
 const lastnameSpan = container.children.lastname;
 
-// Gibt das span-Element mit der id "degree" zurück
+// Returns the span element with the id "degree"
 const degreeSpan = container.children.namedItem("degree");
 
 const output = document.createElement("div");

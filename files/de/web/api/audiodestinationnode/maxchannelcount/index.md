@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die Eigenschaft `maxchannelCount` des {{ domxref("AudioDestinationNode") }}-Interfaces ist ein `unsigned long`, das die maximale Anzahl an Kanälen definiert, die das physische Gerät verarbeiten kann.
+Die Eigenschaft `maxchannelCount` des [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode)-Interfaces ist ein `unsigned long`, das die maximale Anzahl an Kanälen definiert, die das physische Gerät verarbeiten kann.
 
-Die {{domxref("AudioNode.channelCount")}}-Eigenschaft kann auf einen Wert zwischen 0 und diesem Wert (beide inklusive) gesetzt werden. Wenn `maxChannelCount` `0` ist, wie im {{domxref("OfflineAudioContext")}}, kann die Anzahl der Kanäle nicht geändert werden.
+Die [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount)-Eigenschaft kann zwischen 0 und diesem Wert (beide eingeschlossen) gesetzt werden. Wenn `maxChannelCount` `0` ist, wie im [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext), kann die Anzahl der Kanäle nicht geändert werden.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein `unsigned long`.
 
 ## Beispiele
 
-Das folgende Beispiel würde ein einfaches Audiograf erstellen, mit einem `AudioDestinationNode` und einer `maxChannelCount` von 2:
+Das Folgende würde ein einfaches Audiograf einrichten, das einen `AudioDestinationNode` mit `maxChannelCount` von 2 enthält:
 
 ```js
 const audioCtx = new AudioContext();
@@ -28,7 +28,7 @@ audioCtx.destination.maxChannelCount = 2;
 gainNode.connect(audioCtx.destination);
 ```
 
-Um eine vollständigere Implementierung zu sehen, schauen Sie sich eines unserer MDN Web Audio Beispiele an, wie z.B. [Voice-change-o-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) oder [Violent Theremin](https://mdn.github.io/webaudio-examples/violent-theremin/).
+Um eine vollständigere Implementierung zu sehen, probieren Sie eines der MDN Web Audio Beispiele aus, wie z.B. [Voice-change-o-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) oder [Violent Theremin](https://mdn.github.io/webaudio-examples/violent-theremin/).
 
 ## Spezifikationen
 

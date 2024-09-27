@@ -9,7 +9,7 @@ l10n:
 
 **`bookmarks.getTree()`** gibt ein Array zurück, das die Wurzel des Lesezeichenbaums als ein {{WebExtAPIRef("bookmarks.BookmarkTreeNode")}} Objekt enthält.
 
-Sie können auf den gesamten Baum rekursiv über seine Eigenschaft `children` und die `children` Eigenschaften seiner Nachkommen zugreifen, wenn diese selbst Ordner sind.
+Sie können auf den gesamten Baum rekursiv über seine `children`-Eigenschaft und die `children`-Eigenschaft seiner Nachkommen zugreifen, wenn diese selbst Ordner sind.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array erfüllt wird, welches ein Objekt enthält, ein [`bookmarks.BookmarkTreeNode`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks/BookmarkTreeNode) Objekt, das den Wurzelknoten darstellt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Array erfüllt wird, das ein Objekt enthält, ein [`bookmarks.BookmarkTreeNode`](/de/docs/Mozilla/Add-ons/WebExtensions/API/bookmarks/BookmarkTreeNode) Objekt, das den Wurzelknoten darstellt.
 
 ## Beispiele
 
@@ -70,7 +70,7 @@ gettingTree.then(logTree, onRejected);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-getTree) API von Chromium. Diese Dokumentation ist aus [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code übernommen.
+> Diese API basiert auf der Chromium API [`chrome.bookmarks`](https://developer.chrome.com/docs/extensions/reference/api/bookmarks#method-getTree). Diese Dokumentation ist abgeleitet von [`bookmarks.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/bookmarks.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.
@@ -79,31 +79,25 @@ gettingTree.then(logTree, onRejected);
 // modification, are permitted provided that the following conditions are
 // met:
 //
-//    * Redistributions von Quellcode müssen den obigen Copyright-Hinweis,
-// diese Bedingungen und den folgenden Haftungsausschluss enthalten.
-//    * Redistributions in binärerer Form müssen den obigen
-// Copyright-Hinweis, diese Liste von Bedingungen und den folgenden
-// Haftungsausschluss in der Dokumentation und/oder anderen Materialien, die
-// mit der Verteilung bereitgestellt werden, enthalten.
-//    * Weder der Name von Google Inc. noch die Namen seiner
-// Mitwirkenden dürfen verwendet werden, um Produkte, die von dieser
-// Software abgeleitet wurden, zu unterstützen oder zu bewerben, ohne
-// vorherige schriftliche Genehmigung.
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
 //
-// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN
-// "WIE BESEHEN" ZUR VERFÜGUNG GESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER
-// STILLSCHWEIGENDE GARANTIEN, EINSCHLIESSLICH, ABER NICHT
-// BESCHRÄNKT AUF DIE STILLSCHWEIGENDEN GARANTIEN DER
-// BELASTBARKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK WERDEN
-// ABGELEHNT. IN KEINEM FALL SIND DIE URHEBERRECHTSINHABER ODER
-// MITWIRKENDEN HAFTBAR FÜR JEGLICHE DIREKTEN, INDIREKTEN,
-// ZUFÄLLIGEN, SPEZIELLEN, EXEMPLARISCHEN ODER FOLGESCHÄDEN
-// (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF BESCHAFFUNG VON
-// ERSATZGÜTERN ODER DIENSTLEISTUNGEN; VERLUST VON NUTZUNG, DATEN ODER
-// GEWINNEN; ODER GESCHÄFTSUNTERBRECHUNG) WIE AUCH IMMER
-// VERURSACHT UND UNABHÄNGIG VON DER HAFTUNGSTHEORIE, OB IN
-// VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG
-// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUS DER
-// NUTZUNG DIESER SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE
-// MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WIRD.
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->

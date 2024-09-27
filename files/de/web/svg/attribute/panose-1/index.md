@@ -7,15 +7,15 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`panose-1`** Attribut gibt die Panose-1-Zahl eines Zeichensatzes an.
+Das **`panose-1`** Attribut gibt die Panose-1-Nummer eines Font-Gesichts an.
 
-Panose-1 ist ein Industriestandard zur Klassifikation und zum Abgleich von TrueType-Schriften. Das PANOSE-System besteht aus einer Reihe von zehn Zahlen, die die Hauptmerkmale eines lateinischen Schriftstils kategorisieren, einem Klassifikationsverfahren zur Erstellung dieser Zahlen und einer Mapping-Software, die den am besten passenden Zeichensatz anhand einer Gruppe von Schriftstilen ermittelt.
+Panose-1 ist ein Industriestandard für die Klassifizierung und das Matching von TrueType-Schriften. Das PANOSE-System besteht aus einer Reihe von zehn Zahlen, die die wesentlichen Merkmale einer lateinischen Schriftart kategorisieren, einem Klassifizierungsverfahren zur Erstellung dieser Zahlen und einem Mapper-Software, das die nächstgelegene mögliche Schriftart bestimmt, wenn eine Reihe von Schriftarten vorliegt.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("font-face")}}
 
-## Nutzungs-Hinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -40,7 +40,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<integer>{10}`
-  - : Dieser Wert spezifiziert eine Panose-1-Zahl und besteht aus zehn Dezimalzahlen, die durch Leerzeichen getrennt sind. Der Anfangswert null für jede PANOSE-Ziffer bedeutet "beliebig", d.h. alle Schriften passen zu der Panose-Zahl, wenn dieser Wert verwendet wird.
+  - : Dieser Wert spezifiziert eine Panose-1-Nummer und besteht aus zehn Dezimalzahlen, getrennt durch Leerzeichen. Der Anfangswert Null für jede PANOSE-Ziffer bedeutet "beliebig", d.h. alle Schriften stimmen mit der Panose-Nummer überein, wenn dieser Wert verwendet wird.
 
 ## Spezifikationen
 

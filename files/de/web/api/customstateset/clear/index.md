@@ -1,5 +1,5 @@
 ---
-title: "CustomStateSet: clear()-Methode"
+title: "CustomStateSet: clear() Methode"
 short-title: clear()
 slug: Web/API/CustomStateSet/clear
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`clear()`**-Methode der {{domxref("CustomStateSet")}}-Schnittstelle entfernt alle Elemente aus dem `CustomStateSet`-Objekt.
+Die **`clear()`** Methode der [`CustomStateSet`](/de/docs/Web/API/CustomStateSet)-Schnittstelle entfernt alle Elemente aus dem `CustomStateSet`-Objekt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Undefined.
+Undefiniert.
 
 ## Spezifikationen
 

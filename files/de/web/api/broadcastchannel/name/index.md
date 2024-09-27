@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("BroadCastChannel API")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`name`**-Eigenschaft der {{domxref("BroadcastChannel")}}-Schnittstelle gibt einen String zurück, der den gegebenen Kanal mit seinem Namen eindeutig identifiziert. Dieser Name wird zum Zeitpunkt der Erstellung an den {{domxref("BroadcastChannel.BroadCastChannel", "BroadcastChannel()")}}-Konstruktor übergeben und ist daher schreibgeschützt.
+Die schreibgeschützte **`name`**-Eigenschaft des [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Interfaces gibt einen String zurück, der den gegebenen Kanal durch seinen Namen eindeutig identifiziert. Dieser Name wird bei der Erstellung an den [`BroadcastChannel()`](/de/docs/Web/API/BroadcastChannel/BroadCastChannel)-Konstruktor übergeben und ist daher schreibgeschützt.
 
 ## Werte
 
@@ -17,15 +17,15 @@ Ein String.
 ## Beispiele
 
 ```js
-// Verbindung zu einem Kanal herstellen
+// Connect to a channel
 const bc = new BroadcastChannel("test_channel");
 
-// Weitere Operationen (wie postMessage, …)
+// More operations (like postMessage, …)
 
-// Protokollieren Sie den Kanalnamen in der Konsole
+// Log the channel name to the console
 console.log(bc.name); // "test_channel"
 
-// Wenn Sie fertig sind, trennen Sie die Verbindung vom Kanal
+// When done, disconnect from the channel
 bc.close();
 ```
 
@@ -39,4 +39,4 @@ bc.close();
 
 ## Siehe auch
 
-- {{domxref("BroadcastChannel")}}, die Schnittstelle, zu der sie gehört.
+- [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel), das Interface, zu dem es gehört.

@@ -8,10 +8,12 @@ l10n:
 
 {{APIRef}}
 
-Die **`setLineDash()`**-Methode der {{domxref("CanvasRenderingContext2D")}}-Schnittstelle des Canvas 2D API setzt das Linienstreichmuster, das beim Zeichnen von Linien verwendet wird. Sie verwendet ein Array von Werten, die abwechselnd Längen von Linien und Lücken spezifizieren, um das Muster zu beschreiben.
+Die **`setLineDash()`**-Methode des Canvas 2D API-Interfaces
+[`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) setzt das Linienmuster, das beim Zeichnen von Linien verwendet wird. Es verwendet ein Array von Werten, die abwechselnde Längen von Linien und Lücken angeben, die das Muster beschreiben.
 
 > [!NOTE]
-> Um wieder feste Linien zu verwenden, setzen Sie die Liste der Linienstreichelungen auf ein leeres Array.
+> Um wieder durchgehende Linien zu verwenden, setzen Sie die Strichliste auf ein
+> leeres Array.
 
 ## Syntax
 
@@ -22,7 +24,7 @@ setLineDash(segments)
 ### Parameter
 
 - `segments`
-  - : Ein {{jsxref("Array")}} von Zahlen, das Entfernungen angibt, um abwechselnd eine Linie und eine Lücke zu zeichnen (in Einheiten des Koordinatenraums). Wenn die Anzahl der Elemente im Array ungerade ist, werden die Elemente des Arrays kopiert und verkettet. Zum Beispiel wird `[5, 15, 25]` zu `[5, 15, 25, 5, 15, 25]`. Wenn das Array leer ist, wird die Liste der Linienstreichelungen gelöscht und die Linien werden wieder fest.
+  - : Ein {{jsxref("Array")}} von Zahlen, die die Abstände angeben, um abwechselnd eine Linie und eine Lücke zu zeichnen (in Koordinatenraumeinheiten). Wenn die Anzahl der Elemente im Array ungerade ist, werden die Elemente des Arrays kopiert und miteinander verknüpft. Zum Beispiel wird `[5, 15, 25]` zu `[5, 15, 25, 5, 15, 25]`. Wenn das Array leer ist, wird die Strichliste gelöscht und die Linien werden wieder durchgehend.
 
 ### Rückgabewert
 
@@ -32,7 +34,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Einfaches Beispiel
 
-Dieses Beispiel verwendet die `setLineDash()`-Methode, um eine gestrichelte Linie über einer festen Linie zu zeichnen.
+Dieses Beispiel verwendet die `setLineDash()`-Methode, um eine gestrichelte Linie über einer
+durchgehenden Linie zu zeichnen.
 
 #### HTML
 
@@ -46,14 +49,14 @@ Dieses Beispiel verwendet die `setLineDash()`-Methode, um eine gestrichelte Lini
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// Gestrichelte Linie
+// Dashed line
 ctx.beginPath();
 ctx.setLineDash([5, 15]);
 ctx.moveTo(0, 50);
 ctx.lineTo(300, 50);
 ctx.stroke();
 
-// Feste Linie
+// Solid line
 ctx.beginPath();
 ctx.setLineDash([]);
 ctx.moveTo(0, 100);
@@ -65,9 +68,9 @@ ctx.stroke();
 
 {{ EmbedLiveSample('Basic_example', 700, 180) }}
 
-### Einige gängige Muster
+### Einige gebräuchliche Muster
 
-Dieses Beispiel illustriert eine Vielzahl von gängigen Linienstreichmustern.
+Dieses Beispiel zeigt eine Vielzahl gebräuchlicher Linienmuster.
 
 #### HTML
 
@@ -77,7 +80,7 @@ Dieses Beispiel illustriert eine Vielzahl von gängigen Linienstreichmustern.
 
 #### JavaScript
 
-Die unten erstellte Funktion `drawDashedLine()` vereinfacht das Zeichnen mehrerer gestrichelter Linien. Sie erhält ein Muster-Array als einzigen Parameter.
+Die unten erstellte Funktion `drawDashedLine()` erleichtert das Zeichnen mehrerer gestrichelter Linien. Sie erhält ein Muster-Array als einzigen Parameter.
 
 ```js
 function drawDashedLine(pattern) {
@@ -99,7 +102,7 @@ drawDashedLine([10, 10]);
 drawDashedLine([20, 5]);
 drawDashedLine([15, 3, 3, 3]);
 drawDashedLine([20, 3, 3, 3, 3, 3, 3, 3]);
-drawDashedLine([12, 3, 3]); // Entspricht [12, 3, 3, 12, 3, 3]
+drawDashedLine([12, 3, 3]); // Equals [12, 3, 3, 12, 3, 3]
 ```
 
 #### Ergebnis
@@ -116,6 +119,6 @@ drawDashedLine([12, 3, 3]); // Entspricht [12, 3, 3, 12, 3, 3]
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasRenderingContext2D.getLineDash()")}}
-- {{domxref("CanvasRenderingContext2D.lineDashOffset")}}
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasRenderingContext2D.getLineDash()`](/de/docs/Web/API/CanvasRenderingContext2D/getLineDash)
+- [`CanvasRenderingContext2D.lineDashOffset`](/de/docs/Web/API/CanvasRenderingContext2D/lineDashOffset)

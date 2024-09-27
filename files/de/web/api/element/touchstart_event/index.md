@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das `touchstart`-Ereignis wird ausgelöst, wenn ein oder mehrere Berührungspunkte auf die Berührungsoberfläche gesetzt werden.
+Das `touchstart`-Ereignis wird ausgelöst, wenn ein oder mehrere Berührungspunkte die Berührungsoberfläche berühren.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("touchstart", (event) => {});
@@ -22,36 +22,36 @@ ontouchstart = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("TouchEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`TouchEvent`](/de/docs/Web/API/TouchEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("TouchEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem Elternteil, {{domxref("UIEvent")}} und {{domxref("Event")}}._
+_Diese Schnittstelle erbt Eigenschaften von ihrem Elternteil, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("TouchEvent.altKey")}} {{ReadOnlyInline}}
-  - : Ein Boolean-Wert, der angibt, ob die Alt-Taste gedrückt war, als das Berührungsereignis ausgelöst wurde.
-- {{domxref("TouchEvent.changedTouches")}} {{ReadOnlyInline}}
-  - : Eine {{domxref("TouchList")}} von allen {{domxref("Touch")}} Objekten, die einzelne Berührungspunkte repräsentieren, deren Zustände sich zwischen dem vorherigen Berührungsereignis und diesem geändert haben.
-- {{domxref("TouchEvent.ctrlKey")}} {{ReadOnlyInline}}
-  - : Ein Boolean-Wert, der angibt, ob die Strg-Taste gedrückt war, als das Berührungsereignis ausgelöst wurde.
-- {{domxref("TouchEvent.metaKey")}} {{ReadOnlyInline}}
-  - : Ein Boolean-Wert, der angibt, ob die Meta-Taste gedrückt war, als das Berührungsereignis ausgelöst wurde.
-- {{domxref("TouchEvent.shiftKey")}} {{ReadOnlyInline}}
-  - : Ein Boolean-Wert, der angibt, ob die Umschalttaste gedrückt war, als das Berührungsereignis ausgelöst wurde.
-- {{domxref("TouchEvent.targetTouches")}} {{ReadOnlyInline}}
-  - : Eine {{domxref("TouchList")}} von allen {{domxref("Touch")}} Objekten, die sowohl momentan mit der Berührungsoberfläche in Kontakt sind **als auch** auf demselben Element begonnen wurden, das das Ziel des Ereignisses ist.
-- {{domxref("TouchEvent.touches")}} {{ReadOnlyInline}}
-  - : Eine {{domxref("TouchList")}} von allen {{domxref("Touch")}} Objekten, die alle aktuellen Berührungspunkte mit der Oberfläche repräsentieren, unabhängig von Ziel oder geändertem Status.
-- {{domxref("TouchEvent.rotation")}} {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Änderung in der Rotation (in Grad) seit Beginn des Ereignisses. Positive Werte zeigen eine Drehung im Uhrzeigersinn an; negative Werte zeigen eine Drehung gegen den Uhrzeigersinn an. Anfangswert: `0.0`.
-- {{domxref("TouchEvent.scale")}} {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Abstand zwischen zwei Fingern seit Beginn des Ereignisses. Ausgedrückt als Gleitkommapunkt-Multiplikator des ursprünglichen Abstands zwischen den Fingern zu Beginn des Ereignisses. Werte unter 1.0 deuten auf ein Einkneifen (Herauszoomen) hin. Werte über 1.0 deuten auf ein Auseinanderkneifen (Hineinzoomen) hin. Anfangswert: `1.0`.
+- [`TouchEvent.altKey`](/de/docs/Web/API/TouchEvent/altKey) {{ReadOnlyInline}}
+  - : Ein Boolescher Wert, der angibt, ob die Alt-Taste gedrückt war, als das Touch-Ereignis ausgelöst wurde.
+- [`TouchEvent.changedTouches`](/de/docs/Web/API/TouchEvent/changedTouches) {{ReadOnlyInline}}
+  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch)-Objekte, die einzelne Berührungspunkte darstellen, deren Zustände sich zwischen dem vorherigen und diesem Touch-Ereignis geändert haben.
+- [`TouchEvent.ctrlKey`](/de/docs/Web/API/TouchEvent/ctrlKey) {{ReadOnlyInline}}
+  - : Ein Boolescher Wert, der angibt, ob die Steuerungstaste gedrückt war, als das Touch-Ereignis ausgelöst wurde.
+- [`TouchEvent.metaKey`](/de/docs/Web/API/TouchEvent/metaKey) {{ReadOnlyInline}}
+  - : Ein Boolescher Wert, der angibt, ob die Meta-Taste gedrückt war, als das Touch-Ereignis ausgelöst wurde.
+- [`TouchEvent.shiftKey`](/de/docs/Web/API/TouchEvent/shiftKey) {{ReadOnlyInline}}
+  - : Ein Boolescher Wert, der angibt, ob die Umschalttaste gedrückt war, als das Touch-Ereignis ausgelöst wurde.
+- [`TouchEvent.targetTouches`](/de/docs/Web/API/TouchEvent/targetTouches) {{ReadOnlyInline}}
+  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch)-Objekte, die derzeit sowohl in Kontakt mit der Berührungsoberfläche sind **als auch** auf demselben Element gestartet wurden, das Ziel des Ereignisses ist.
+- [`TouchEvent.touches`](/de/docs/Web/API/TouchEvent/touches) {{ReadOnlyInline}}
+  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch)-Objekte, die alle aktuellen Berührungspunkte mit der Oberfläche darstellen, unabhängig vom Ziel oder vom geänderten Status.
+- [`TouchEvent.rotation`](/de/docs/Web/API/TouchEvent/rotation) {{non-standard_inline()}} {{ReadOnlyInline}}
+  - : Änderung der Rotation (in Grad) seit Beginn des Ereignisses. Positive Werte zeigen eine Drehung im Uhrzeigersinn an; negative Werte zeigen eine Drehung gegen den Uhrzeigersinn an. Anfangswert: `0.0`.
+- [`TouchEvent.scale`](/de/docs/Web/API/TouchEvent/scale) {{non-standard_inline()}} {{ReadOnlyInline}}
+  - : Abstand zwischen zwei Fingern seit Beginn des Ereignisses. Ausgedrückt als Gleitkommazahl, die das Vielfache des anfänglichen Abstands zwischen den Fingern zu Beginn des Ereignisses angibt. Werte unter 1.0 zeigen ein Zusammenziehen (Herauszoomen) an. Werte über 1.0 zeigen ein Auseinanderziehen (Hineinzoomen) an. Anfangswert: `1.0`.
 
 ## Beispiele
 
-Codebeispiele für diese Ereignisse sind auf der dedizierten Seite verfügbar: [Berührungsereignisse](/de/docs/Web/API/Touch_events).
+Codebeispiele für diese Ereignisse sind auf der speziellen Seite verfügbar: [Touch Events](/de/docs/Web/API/Touch_events).
 
 ## Spezifikationen
 
@@ -63,4 +63,4 @@ Codebeispiele für diese Ereignisse sind auf der dedizierten Seite verfügbar: [
 
 ## Siehe auch
 
-- [Berührungsereignisse](/de/docs/Web/API/Touch_events)
+- [Touch Events](/de/docs/Web/API/Touch_events)

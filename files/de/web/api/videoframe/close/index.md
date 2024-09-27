@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`close()`**-Methode der {{domxref("VideoFrame")}}-Schnittstelle löscht alle Zustände und gibt die Referenz zur Medienressource frei.
+Die **`close()`**-Methode der [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Schnittstelle löscht alle Zustände und gibt die Referenz auf die Medienressource frei.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Undefined.
+Undefiniert.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt das Schließen des `VideoFrame`-Objekts.
+Das folgende Beispiel zeigt, wie das `VideoFrame`-Objekt geschlossen wird.
 
 ```js
 VideoFrame.close();

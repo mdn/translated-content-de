@@ -1,5 +1,5 @@
 ---
-title: Beweis des Satzes des Pythagoras
+title: Beweis des Pythagoreischen Theorems
 slug: Web/MathML/Examples/MathML_Pythagorean_Theorem
 l10n:
   sourceCommit: 9f325923caffac2d0239773d4562303fd02ea30a
@@ -7,11 +7,11 @@ l10n:
 
 {{MathMLRef}}
 
-Wir werden nun den [Satz des Pythagoras](https://en.wikipedia.org/wiki/Pythagorean_theorem) beweisen:
+Wir werden nun das [Pythagoreische Theorem](https://en.wikipedia.org/wiki/Pythagorean_theorem) beweisen:
 
 **Aussage**: In einem rechtwinkligen Dreieck ist das Quadrat der Hypotenuse gleich der Summe der Quadrate der anderen beiden Seiten. Genauer gesagt, wenn <math><mi>a</mi></math> und <math><mi>b</mi></math> die Katheten und <math><mi>c</mi></math> die Hypotenuse sind, dann gilt <math><semantics><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="TeX">a^2 + b^2 = c^2</annotation></semantics></math>.
 
-**Beweis:** Wir können den Satz algebraisch beweisen, indem wir zeigen, dass in [dieser Figur](https://www.cut-the-knot.org/pythagoras/proof31.gif) die Fläche des großen Quadrats gleich der Fläche des inneren Quadrats (Hypotenuse im Quadrat) plus der Fläche der vier Dreiecke ist:
+**Beweis:** Wir können das Theorem algebraisch beweisen, indem wir zeigen, dass die Fläche des großen Quadrats auf [dieser Abbildung](https://www.cut-the-knot.org/pythagoras/proof31.gif) gleich der Fläche des inneren Quadrats (Hypotenuse im Quadrat) plus der Fläche der vier Dreiecke ist:
 
 <!-- prettier-ignore-start -->
 <math display="block">

@@ -1,5 +1,5 @@
 ---
-title: "TrustedScriptURL: toJSON()-Methode"
+title: "TrustedScriptURL: die toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/TrustedScriptURL/toJSON
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`toJSON()`**-Methode der {{domxref("TrustedScriptURL")}}-Schnittstelle gibt eine JSON-Darstellung der gespeicherten Daten zurück.
+Die **`toJSON()`**-Methode der [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Schnittstelle gibt eine JSON-Darstellung der gespeicherten Daten zurück.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein String, der eine JSON-Darstellung der gespeicherten Daten enthält.
 
 ## Beispiele
 
-Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types-Policy erstellt wurde. Die `toString()`-Methode gibt einen String zurück, der sicher verwendet werden kann, um ein Drittanbieterskript zu laden.
+Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types-Richtlinie erstellt wurde. Die `toString()`-Methode liefert einen String zurück, der sicher verwendet werden kann, um ein Skript eines Drittanbieters zu laden.
 
 ```js
 const sanitized = scriptPolicy.createScriptURL(
@@ -39,6 +39,6 @@ console.log(sanitized.toJSON());
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

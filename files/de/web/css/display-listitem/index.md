@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das Schlüsselwort `list-item` bewirkt, dass das Element ein `::marker` Pseudo-Element mit dem Inhalt erzeugt, der durch seine {{CSSxRef("list-style")}} Eigenschaften festgelegt wird (zum Beispiel ein Aufzählungszeichen), zusammen mit einem Hauptblock des angegebenen Typs für dessen eigene Inhalte.
+Das Schlüsselwort `list-item` bewirkt, dass das Element ein `::marker` Pseudoelement erzeugt, dessen Inhalt durch seine {{CSSxRef("list-style")}} Eigenschaften festgelegt wird (zum Beispiel ein Aufzählungspunkt) zusammen mit einem Hauptblock des angegebenen Typs für den eigenen Inhalt.
 
 ## Syntax
 
@@ -16,7 +16,7 @@ Ein einzelner Wert von `list-item` sorgt dafür, dass das Element sich wie ein L
 `list-item` kann auch mit jedem {{CSSxRef("&lt;display-outside&gt;")}} Schlüsselwort und den `flow` oder `flow-root` {{CSSxRef("&lt;display-inside&gt;")}} Schlüsselwörtern kombiniert werden.
 
 > [!NOTE]
-> In Browsern, die die Zwei-Werte-Syntax unterstützen, wird, falls kein innerer Wert angegeben ist, standardmäßig `flow` verwendet. Wenn kein äußerer Wert angegeben ist, hat der Hauptblock einen äußeren Anzeigetyp von `block`.
+> In Browsern, die die Zwei-Wert-Syntax unterstützen, wird, wenn kein innerer Wert angegeben ist, standardmäßig `flow` verwendet. Wenn kein äußerer Wert angegeben ist, hat der Hauptblock einen äußeren Anzeigetyp `block`.
 
 ## Formale Syntax
 

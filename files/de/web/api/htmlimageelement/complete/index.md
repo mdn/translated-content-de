@@ -8,30 +8,29 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Das schreibgeschützte Attribut **`complete`** der
-{{domxref("HTMLImageElement")}}-Schnittstelle ist ein Boolean-Wert, der angibt, ob das Bild vollständig geladen ist oder nicht.
+Das schreibgeschützte Attribut **`complete`** der Schnittstelle [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) ist ein Boolescher Wert, der angibt, ob das Bild vollständig geladen ist oder nicht.
 
 ## Wert
 
-Ein Boolean-Wert, der `true` ist, wenn das Bild vollständig geladen ist; andernfalls ist der Wert `false`.
+Ein Boolescher Wert, der `true` ist, wenn das Bild vollständig geladen ist; andernfalls ist der Wert `false`.
 
-Das Bild gilt als vollständig geladen, wenn eines der folgenden Kriterien erfüllt ist:
+Das Bild gilt als vollständig geladen, wenn eine der folgenden Bedingungen zutrifft:
 
-- Weder das [`src`](/de/docs/Web/HTML/Element/img#src)- noch das [`srcset`](/de/docs/Web/HTML/Element/img#srcset)-Attribut ist angegeben.
-- Das `srcset`-Attribut fehlt, und das `src`-Attribut, obwohl angegeben, ist der leere String (`""`).
-- Die Bildressource wurde vollständig abgerufen und steht zur Darstellung/Komposition bereit.
+- Weder das Attribut [`src`](/de/docs/Web/HTML/Element/img#src) noch [`srcset`](/de/docs/Web/HTML/Element/img#srcset) ist angegeben.
+- Das Attribut `srcset` fehlt, und das Attribut `src`, obwohl angegeben, ist der leere String (`""`).
+- Die Bildressource wurde vollständig abgerufen und zur Darstellung/Komposition bereitgestellt.
 - Das Bildelement hat zuvor festgestellt, dass das Bild vollständig verfügbar und einsatzbereit ist.
-- Das Bild ist "defekt"; das heißt, das Bild konnte aufgrund eines Fehlers oder weil das Laden von Bildern deaktiviert ist, nicht geladen werden.
+- Das Bild ist "defekt"; das heißt, das Laden des Bildes ist aufgrund eines Fehlers fehlgeschlagen oder weil das Laden von Bildern deaktiviert ist.
 
-Es ist wichtig zu beachten, dass sich der Wert von `complete` ändern kann, während Ihr Skript ausgeführt wird, da das Bild möglicherweise asynchron empfangen wird.
+Es ist erwähnenswert, dass sich der Wert von `complete` ändern kann, während Ihr Skript ausgeführt wird, da das Bild möglicherweise asynchron empfangen wird.
 
 ## Beispiele
 
-Angenommen, Sie haben eine Fotobibliothek-App, die die Möglichkeit bietet, Bilder in einem Lightbox-Modus zur verbesserten Ansicht sowie zum Bearbeiten des Bildes zu öffnen. Diese Fotos können sehr groß sein, daher möchten Sie nicht auf deren Laden warten, sodass Ihr Code `async`/`await` verwendet, um die Bilder im Hintergrund zu laden.
+Betrachten Sie eine Fotobibliotheks-App, die die Möglichkeit bietet, Bilder in einem Lightbox-Modus zu öffnen, um die Betrachtung sowie die Bearbeitung des Bildes zu verbessern. Diese Fotos können sehr groß sein, daher möchten Sie nicht darauf warten, dass sie geladen werden. Ihr Code verwendet also `async`/`await`, um die Bilder im Hintergrund zu laden.
 
-Stellen Sie sich jedoch vor, Sie haben anderen Code, der nur ausgeführt werden muss, wenn das Bild vollständig geladen ist, wie ein Befehl, der rote Augen aus dem Bild in der Lightbox entfernt. Idealerweise sollte dieser Befehl nicht einmal ausgeführt werden, wenn das Bild noch nicht vollständig geladen ist. Zur Verbesserung der Zuverlässigkeit möchten Sie jedoch sicherstellen, dass dies der Fall ist.
+Stellen Sie sich jedoch vor, dass Sie anderen Code haben, der nur ausgeführt werden soll, wenn das Bild vollständig geladen ist, wie zum Beispiel ein Befehl, der die Entfernung des Rote-Augen-Effekts auf das Bild im Lightbox-Modus durchführt. Während dieser Befehl idealerweise nicht ausgeführt würde, wenn das Bild nicht vollständig geladen ist, möchten Sie für verbesserte Zuverlässigkeit sicherstellen, dass dies der Fall ist.
 
-Daher überprüft die Funktion `fixRedEyeCommand()`, die durch den Knopf, der die rote Augeen-Entfernung auslöst, aufgerufen wird, den Wert der `complete`-Eigenschaft des Lightbox-Bildes, bevor sie ihre Aufgabe ausführt. Dies wird im folgenden Code demonstriert.
+Die Funktion `fixRedEyeCommand()`, die durch die Schaltfläche für die Entfernung des Rote-Augen-Effekts aufgerufen wird, überprüft den Wert der `complete`-Eigenschaft des Lightbox-Bildes, bevor sie versucht, ihre Arbeit zu verrichten. Dies wird im folgenden Code demonstriert.
 
 ```js
 let lightboxElem = document.querySelector("#lightbox");
@@ -58,7 +57,7 @@ function fixRedEyeCommand() {
   if (lightboxElem.style.display === "block" && lightboxImgElem.complete) {
     fixRedEye(lightboxImgElem);
   } else {
-    /* kann erst gestartet werden, wenn das Bild vollständig geladen ist */
+    /* can't start doing this until the image is fully loaded */
   }
 }
 ```

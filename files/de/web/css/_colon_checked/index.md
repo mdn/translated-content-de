@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Der **`:checked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes)-Selektor repräsentiert jedes **Radio** ([`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)), **Checkbox** ([`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox)) oder **Option** ({{HTMLElement("option")}} in einem {{HTMLElement("select")}}) Element, das ausgewählt oder in einen `on`-Zustand geschaltet ist.
+Der **`:checked`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) Selektor repräsentiert jedes **Radio** ([`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)), **Checkbox** ([`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox)) oder **Option** ({{HTMLElement("option")}} in einem {{HTMLElement("select")}}) Element, das aktiviert oder auf den `on` Zustand umgeschaltet ist.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-checked.html", "tabbed-shorter")}}
 
-Der Benutzer kann diesen Zustand durch Auswählen eines Elements aktivieren oder durch Abwählen deaktivieren.
+Der Benutzer kann diesen Zustand aktivieren, indem er ein Element auswählt/markiert, oder deaktivieren, indem er das Element abwählt/demarkiert.
 
 > [!NOTE]
-> Da Browser `<option>`s oft als [ersetzte Elemente](/de/docs/Web/CSS/Replaced_element) behandeln, variiert das Ausmaß, in dem sie mit der `:checked` Pseudoklasse gestaltet werden können, von Browser zu Browser.
+> Da Browser `<option>`s oft als [ersetzte Elemente](/de/docs/Web/CSS/Replaced_element) behandeln, variiert das Ausmaß, in dem sie mit der `:checked` Pseudoklasse gestylt werden können, von Browser zu Browser.
 
 ## Syntax
 
@@ -33,21 +33,21 @@ Der Benutzer kann diesen Zustand durch Auswählen eines Elements aktivieren oder
 ```html
 <div>
   <input type="radio" name="my-input" id="yes" value="yes" />
-  <label for="yes">Ja</label>
+  <label for="yes">Yes</label>
 
   <input type="radio" name="my-input" id="no" value="no" />
-  <label for="no">Nein</label>
+  <label for="no">No</label>
 </div>
 
 <div>
   <input type="checkbox" name="my-checkbox" id="opt-in" />
-  <label for="opt-in">Kreuzen Sie mich an!</label>
+  <label for="opt-in">Check me!</label>
 </div>
 
 <select name="my-select" id="fruit">
-  <option value="opt1">Äpfel</option>
-  <option value="opt2">Trauben</option>
-  <option value="opt3">Birnen</option>
+  <option value="opt1">Apples</option>
+  <option value="opt2">Grapes</option>
+  <option value="opt3">Pears</option>
 </select>
 ```
 
@@ -59,22 +59,22 @@ select {
   margin: 8px;
 }
 
-/* Labels für geprüfte Eingaben */
+/* Labels for checked inputs */
 input:checked + label {
   color: red;
 }
 
-/* Radio-Element, wenn geprüft */
+/* Radio element, when checked */
 input[type="radio"]:checked {
   box-shadow: 0 0 0 3px orange;
 }
 
-/* Checkbox-Element, wenn geprüft */
+/* Checkbox element, when checked */
 input[type="checkbox"]:checked {
   box-shadow: 0 0 0 3px hotpink;
 }
 
-/* Auswahl-Elemente, wenn ausgewählt */
+/* Option elements, when selected */
 option:checked {
   box-shadow: 0 0 0 3px lime;
   color: red;
@@ -85,9 +85,9 @@ option:checked {
 
 {{EmbedLiveSample("Basic_example")}}
 
-### Umschalten von Elementen mit einer verborgenen Checkbox
+### Elemente mit einer versteckten Checkbox umschalten
 
-Dieses Beispiel nutzt die `:checked` Pseudoklasse, damit der Benutzer den Inhalt basierend auf dem Zustand einer Checkbox umschalten kann, und das alles ohne [JavaScript](/de/docs/Web/JavaScript).
+Dieses Beispiel verwendet die `:checked` Pseudoklasse, um dem Benutzer das Umschalten von Inhalten basierend auf dem Zustand einer Checkbox zu ermöglichen, alles ohne die Verwendung von [JavaScript](/de/docs/Web/JavaScript).
 
 #### HTML
 
@@ -97,58 +97,58 @@ Dieses Beispiel nutzt die `:checked` Pseudoklasse, damit der Benutzer den Inhalt
 <table>
   <thead>
     <tr>
-      <th>Spalte #1</th>
-      <th>Spalte #2</th>
-      <th>Spalte #3</th>
+      <th>Column #1</th>
+      <th>Column #2</th>
+      <th>Column #3</th>
     </tr>
   </thead>
   <tbody>
     <tr class="expandable">
-      <td>[Weitere Texte]</td>
-      <td>[Weitere Texte]</td>
-      <td>[Weitere Texte]</td>
+      <td>[more text]</td>
+      <td>[more text]</td>
+      <td>[more text]</td>
     </tr>
     <tr>
-      <td>[Zelleninhalt]</td>
-      <td>[Zelleninhalt]</td>
-      <td>[Zelleninhalt]</td>
+      <td>[cell text]</td>
+      <td>[cell text]</td>
+      <td>[cell text]</td>
     </tr>
     <tr>
-      <td>[Zelleninhalt]</td>
-      <td>[Zelleninhalt]</td>
-      <td>[Zelleninhalt]</td>
+      <td>[cell text]</td>
+      <td>[cell text]</td>
+      <td>[cell text]</td>
     </tr>
     <tr class="expandable">
-      <td>[Weitere Texte]</td>
-      <td>[Weitere Texte]</td>
-      <td>[Weitere Texte]</td>
+      <td>[more text]</td>
+      <td>[more text]</td>
+      <td>[more text]</td>
     </tr>
     <tr class="expandable">
-      <td>[Weitere Texte]</td>
-      <td>[Weitere Texte]</td>
-      <td>[Weitere Texte]</td>
+      <td>[more text]</td>
+      <td>[more text]</td>
+      <td>[more text]</td>
     </tr>
   </tbody>
 </table>
 
-<label for="expand-toggle" id="expand-btn">Verborgene Zeilen umschalten</label>
+<label for="expand-toggle" id="expand-btn">Toggle hidden rows</label>
 ```
 
 #### CSS
 
 ```css
-/* Checkbox ausblenden */
+/* Hide the toggle checkbox */
 #expand-toggle {
   display: none;
 }
 
-/* Erweiterbaren Inhalt standardmäßig ausblenden */
+/* Hide expandable content by default */
 .expandable {
   visibility: collapse;
   background: #ddd;
 }
 
-/* Den Button stylen */
+/* Style the button */
 #expand-btn {
   display: inline-block;
   margin-top: 12px;
@@ -158,12 +158,12 @@ Dieses Beispiel nutzt die `:checked` Pseudoklasse, damit der Benutzer den Inhalt
   border-radius: 3px;
 }
 
-/* Verborgenen Inhalt anzeigen, wenn die Checkbox geprüft ist */
+/* Show hidden content when the checkbox is checked */
 #expand-toggle:checked ~ * .expandable {
   visibility: visible;
 }
 
-/* Den Button stylen, wenn die Checkbox geprüft ist */
+/* Style the button when the checkbox is checked */
 #expand-toggle:checked ~ #expand-btn {
   background-color: #ccc;
 }
@@ -183,7 +183,7 @@ Dieses Beispiel nutzt die `:checked` Pseudoklasse, damit der Benutzer den Inhalt
 
 ## Siehe auch
 
-- [Webformulare — Benutzerdaten verarbeiten](/de/docs/Learn/Forms)
-- [Gestaltung von Webformularen](/de/docs/Learn/Forms/Styling_web_forms)
-- Verwandte HTML-Elemente: [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox), [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio), {{HTMLElement("select")}}, und {{HTMLElement("option")}}
+- [Webformulare — Arbeiten mit Benutzerdaten](/de/docs/Learn/Forms)
+- [Styling für Webformulare](/de/docs/Learn/Forms/Styling_web_forms)
+- Verwandte HTML-Elemente: [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox), [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio), {{HTMLElement("select")}} und {{HTMLElement("option")}}
 - [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)

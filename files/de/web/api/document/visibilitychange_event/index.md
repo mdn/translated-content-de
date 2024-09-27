@@ -1,5 +1,5 @@
 ---
-title: "Dokument: visibilitychange-Ereignis"
+title: "Document: visibilitychange Ereignis"
 short-title: visibilitychange
 slug: Web/API/Document/visibilitychange_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das `visibilitychange`-Ereignis wird im Dokument ausgelöst, wenn der Inhalt seines Tabs sichtbar wird oder ausgeblendet wurde.
+Das `visibilitychange` Ereignis wird beim Dokument ausgelöst, wenn der Inhalt des Tabs sichtbar geworden ist oder versteckt wurde.
 
 Das Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder definieren Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("visibilitychange", (event) => {});
@@ -24,21 +24,21 @@ onvisibilitychange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Verwendungshinweise
+## Anwendungshinweise
 
-Das Ereignis enthält keinen aktualisierten Sichtbarkeitsstatus des Dokuments, aber Sie können diese Information aus der {{domxref("Document.visibilityState", "visibilityState")}}-Eigenschaft des Dokuments erhalten.
+Das Ereignis beinhaltet nicht den aktualisierten Sichtbarkeitsstatus des Dokuments, aber diese Information kann aus der [`visibilityState`](/de/docs/Web/API/Document/visibilityState) Eigenschaft des Dokuments entnommen werden.
 
-Dieses Ereignis wird mit einem `visibilityState` von `hidden` ausgelöst, wenn ein Benutzer zu einer neuen Seite navigiert, Tabs wechselt, den Tab schließt, den Browser minimiert oder schließt oder auf einem mobilen Gerät vom Browser zu einer anderen App wechselt. Der Übergang zu `hidden` ist das letzte Ereignis, das zuverlässig von der Seite beobachtet werden kann, daher sollten Entwickler es als wahrscheinliches Ende der Benutzersitzung betrachten (zum Beispiel für das [Versenden von Analysedaten](/de/docs/Web/API/Navigator/sendBeacon)).
+Dieses Ereignis wird mit einem `visibilityState` von `hidden` ausgelöst, wenn ein Benutzer zu einer neuen Seite navigiert, Tabs wechselt, den Tab schließt, den Browser minimiert oder schließt oder auf einem mobilen Gerät vom Browser zu einer anderen App wechselt. Der Übergang zu `hidden` ist das letzte Ereignis, das von der Seite zuverlässig beobachtet werden kann, daher sollten Entwickler es als das wahrscheinliche Ende der Benutzersitzung betrachten (zum Beispiel zum [Senden von Analysedaten](/de/docs/Web/API/Navigator/sendBeacon)).
 
-Der Übergang zu `hidden` ist auch ein guter Zeitpunkt, an dem Seiten die Aktualisierung der Benutzeroberfläche stoppen und alle Aufgaben beenden können, die der Benutzer nicht im Hintergrund laufen haben möchte.
+Der Übergang zu `hidden` ist auch ein guter Zeitpunkt, an dem Seiten aufhören können, Benutzeroberfläche-Updates vorzunehmen und Aufgaben zu stoppen, die der Benutzer im Hintergrund nicht laufen lassen möchte.
 
 ## Beispiele
 
-### Musik pausieren beim Wechsel zu versteckt
+### Musik pausieren beim Übergang zu versteckt
 
-Dieses Beispiel pausiert die Wiedergabe von Audio, wenn die Seite ausgeblendet ist, und setzt die Wiedergabe fort, wenn die Seite wieder sichtbar wird. Ein vollständiges Beispiel finden Sie in der [Dokumentation zur Page Visibility API: Pausieren von Audio bei Seitenversteckung](/de/docs/Web/API/Page_Visibility_API#pausing_audio_on_page_hide).
+Dieses Beispiel pausiert das Abspielen von Audio, wenn die Seite versteckt wird, und setzt es fort, wenn die Seite wieder sichtbar wird. Ein vollständiges Beispiel finden Sie in der [Page Visibility API: Pausing audio on page hide](/de/docs/Web/API/Page_Visibility_API#pausing_audio_on_page_hide) Dokumentation.
 
 ```js
 document.addEventListener("visibilitychange", () => {
@@ -46,7 +46,7 @@ document.addEventListener("visibilitychange", () => {
     playingOnHide = !audio.paused;
     audio.pause();
   } else {
-    // Wiedergabe fortsetzen, wenn Audio "beim Verstecken gespielt wurde"
+    // Resume playing if audio was "playing on hide"
     if (playingOnHide) {
       audio.play();
     }
@@ -54,9 +54,10 @@ document.addEventListener("visibilitychange", () => {
 });
 ```
 
-### Senden von Analyse am Ende der Sitzung beim Wechsel zu versteckt
+### Senden von End-der-Sitzung-Analytik beim Übergang zu versteckt
 
-Dieses Beispiel betrachtet den Übergang zu `hidden` als das Ende der Benutzersitzung und sendet die entsprechenden Analysen mit der {{domxref("Navigator.sendBeacon()")}} API:
+Dieses Beispiel behandelt den Übergang zu `hidden` als das Ende der Benutzersitzung und sendet die entsprechenden Analysen unter Verwendung der [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon)
+API:
 
 ```js
 document.onvisibilitychange = () => {
@@ -77,7 +78,7 @@ document.onvisibilitychange = () => {
 ## Siehe auch
 
 - [Page Visibility API](/de/docs/Web/API/Page_Visibility_API)
-- {{domxref("Document.visibilityState")}}
-- {{domxref("Document.hidden")}}
+- [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState)
+- [`Document.hidden`](/de/docs/Web/API/Document/hidden)
 - [Don't lose user and app state, use Page Visibility](https://www.igvita.com/2015/11/20/dont-lose-user-and-app-state-use-page-visibility/) erklärt im Detail, warum Sie `visibilitychange` und nicht `beforeunload`/`unload` verwenden sollten.
-- [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api) gibt Best-Practice-Ratschläge zum Umgang mit dem Verhalten des Seitenlebenszyklus in Ihren Webanwendungen.
+- [Page Lifecycle API](https://developer.chrome.com/docs/web-platform/page-lifecycle-api) bietet Leitfäden für Best Practices im Umgang mit dem Seitenlebenszyklusverhalten in Ihren Webanwendungen.

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`text`**-Eigenschaft der {{domxref("VTTCue")}}-Schnittstelle repräsentiert den Textinhalt der Cue.
+Die **`text`**-Eigenschaft des [`VTTCue`](/de/docs/Web/API/VTTCue)-Interfaces repräsentiert den Textinhalt des Cues.
 
 ## Wert
 
-Ein String, der den rohen Text der Cue enthält.
+Ein String, der den unverarbeiteten Text des Cues enthält.
 
 ## Beispiele
 
-Im folgenden Beispiel wird eine neue {{domxref("VTTCue")}} erstellt und dann der Wert von `size` auf den String `"new cue value"` gesetzt. Der Wert wird anschließend in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) erstellt, dann wird der Wert von `size` auf den String `"new cue value"` gesetzt. Der Wert wird dann in die Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

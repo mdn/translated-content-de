@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte {{domxref("HTMLImageElement")}}-Eigenschaft **`currentSrc`** gibt die URL des Bildes an, das aktuell im {{HTMLElement("img")}}-Element, das sie repräsentiert, angezeigt wird.
+Die schreibgeschützte [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Eigenschaft **`currentSrc`** gibt die URL des Bildes an, das derzeit im {{HTMLElement("img")}}-Element dargestellt wird, das es repräsentiert.
 
 ## Wert
 
-Ein String, der die vollständige URL des aktuell sichtbaren Bildes im {{HTMLElement("img")}}-Element, das durch das `HTMLImageElement` repräsentiert wird, angibt. Dies ist nützlich, wenn Sie mit den {{domxref("HTMLImageElement.sizes", "sizes")}}- und/oder {{domxref("HTMLImageElement.srcset")}}-Eigenschaften mehrere Bildoptionen bereitstellen. `currentSrc` ermöglicht es Ihnen, festzustellen, welches Bild aus der Menge der bereitgestellten Bilder vom Browser ausgewählt wurde.
+Ein String, der die vollständige URL des Bildes angibt, das derzeit im {{HTMLElement("img")}}-Element sichtbar ist, das durch das `HTMLImageElement` repräsentiert wird. Dies ist nützlich, wenn Sie mehrere Bildoptionen mit den Eigenschaften [`sizes`](/de/docs/Web/API/HTMLImageElement/sizes) und/oder [`HTMLImageElement.srcset`](/de/docs/Web/API/HTMLImageElement/srcset) bereitstellen. `currentSrc` ermöglicht es Ihnen festzustellen, welches Bild aus dem bereitgestellten Set vom Browser ausgewählt wurde.
 
 ## Beispiele
 
-In diesem Beispiel werden zwei verschiedene Größen für ein Bild einer Uhr bereitgestellt. Eine ist 200px breit und die andere ist 400px breit. Das [`sizes`]-Attribut(/de/docs/Web/HTML/Element/img#sizes) wird bereitgestellt, um anzugeben, dass das Bild bei einer Breite unter 400px im Ansichtsfenster zu 50% der Dokumentenbreite dargestellt werden soll; andernfalls wird das Bild mit 90% der Breite des Dokuments gezeichnet.
+In diesem Beispiel werden zwei verschiedene Größen für ein Bild einer Uhr bereitgestellt. Eine ist 200px breit und die andere 400px breit. Das [`sizes`](/de/docs/Web/HTML/Element/img#sizes)-Attribut wird bereitgestellt, um anzugeben, dass das Bild bei einer Viewport-Breite von unter 400px in 50% der Dokumentbreite gezeichnet werden soll; anderenfalls wird das Bild in 90% der Dokumentbreite gezeichnet.
 
 ### HTML
 
 ```html
 <img
-  src="/de/docs/Web/HTML/Element/img/clock-demo-400px.png"
+  src="/en-US/docs/Web/HTML/Element/img/clock-demo-400px.png"
   alt="Clock"
   srcset="
-    /de/docs/Web/HTML/Element/img/clock-demo-200px.png 200w,
-    /de/docs/Web/HTML/Element/img/clock-demo-400px.png 400w
+    /en-US/docs/Web/HTML/Element/img/clock-demo-200px.png 200w,
+    /en-US/docs/Web/HTML/Element/img/clock-demo-400px.png 400w
   "
   sizes="(max-width: 400px) 50%, 90%" />
 ```

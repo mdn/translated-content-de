@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableElement: Eigenschaft align"
+title: "HTMLTableElement: align-Eigenschaft"
 short-title: align
 slug: Web/API/HTMLTableElement/align
 l10n:
@@ -8,11 +8,12 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}
 
-Die Eigenschaft **`HTMLTableElement.align`** gibt die Ausrichtung der Tabelle an.
+Die **`HTMLTableElement.align`**-Eigenschaft repräsentiert die
+Ausrichtung der Tabelle.
 
 ## Wert
 
-Einer der folgenden Zeichenfolgenwerte:
+Einer der folgenden Zeichenkettenwerte:
 
 - `left`
 - `center`
@@ -21,7 +22,7 @@ Einer der folgenden Zeichenfolgenwerte:
 ## Beispiele
 
 ```js
-// Setzen Sie die Ausrichtung einer Tabelle
+// Set the alignment of a table
 const t = document.getElementById("TableA");
 t.align = "center";
 ```

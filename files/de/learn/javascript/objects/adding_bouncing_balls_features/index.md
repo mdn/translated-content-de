@@ -14,13 +14,13 @@ In dieser Bewertung wird erwartet, dass Sie das hüpfende Bälle-Demo aus dem vo
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Bevor Sie diese Bewertung versuchen, sollten Sie bereits alle Artikel in diesem Modul durchgearbeitet haben.
+        Bevor Sie diese Bewertung versuchen, sollten Sie alle Artikel in diesem Modul durchgearbeitet haben.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Das Verständnis von JavaScript-Objekten und objektorientierten Konstrukten zu testen.
+        Das Verständnis von JavaScript-Objekten und objektorientierten Konstrukten testen
       </td>
     </tr>
   </tbody>
@@ -30,27 +30,27 @@ In dieser Bewertung wird erwartet, dass Sie das hüpfende Bälle-Demo aus dem vo
 
 Um mit dieser Bewertung zu beginnen, erstellen Sie eine lokale Kopie von [index-finished.html](https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/index-finished.html), [style.css](https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/style.css) und [main-finished.js](https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/main-finished.js) aus unserem letzten Artikel in einem neuen Verzeichnis auf Ihrem lokalen Computer.
 
-Alternativ können Sie einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) verwenden. Sie können das HTML, CSS und JavaScript in einen dieser Online-Editoren einfügen. Wenn der von Ihnen verwendete Online-Editor kein separates JavaScript-Panel hat, können Sie es gerne inline in einem `<script>`-Element innerhalb der HTML-Seite einfügen.
+Alternativ könnten Sie einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) verwenden. Sie könnten das HTML, CSS und JavaScript in einen dieser Online-Editoren einfügen. Falls der von Ihnen verwendete Online-Editor kein separates JavaScript-Panel hat, können Sie es auch inline in einem `<script>`-Element innerhalb der HTML-Seite einfügen.
 
 > [!NOTE]
-> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## Hinweise und Tipps
 
 Ein paar Hinweise, bevor Sie beginnen.
 
-- Diese Bewertung ist ziemlich herausfordernd. Lesen Sie die gesamte Bewertung, bevor Sie mit dem Codieren beginnen, und nehmen Sie sich jeden Schritt langsam und sorgfältig vor.
-- Es könnte eine gute Idee sein, eine separate Kopie des Demos zu speichern, nachdem Sie jede Etappe erfolgreich erreicht haben, damit Sie darauf zurückgreifen können, falls Sie später in Schwierigkeiten geraten.
+- Diese Bewertung ist ziemlich herausfordernd. Lesen Sie die gesamte Bewertung, bevor Sie mit dem Codieren beginnen, und nehmen Sie sich für jeden Schritt Zeit.
+- Es könnte eine gute Idee sein, eine separate Kopie des Demos zu speichern, nachdem jeder Abschnitt funktioniert, damit Sie darauf zurückgreifen können, falls Sie später Probleme haben.
 
-## Projektbrief
+## Projektauftrag
 
-Unser hüpfendes Bälle-Demo macht Spaß, aber jetzt möchten wir es ein bisschen interaktiver machen, indem wir einen benutzergesteuerten bösen Kreis hinzufügen, der die Bälle frisst, wenn er sie fängt. Außerdem möchten wir Ihre Fähigkeiten im Objektaufbau testen, indem wir ein generisches `Shape()`-Objekt erstellen, von dem unsere Bälle und der böse Kreis erben können. Schließlich möchten wir einen Punktzähler hinzufügen, um die Anzahl der noch einzufangenden Bälle zu verfolgen.
+Unser hüpfendes Bälle-Demo macht Spaß, aber jetzt wollen wir es etwas interaktiver machen, indem wir einen benutzerkontrollierten bösen Kreis hinzufügen, der die Bälle frisst, wenn er sie fängt. Außerdem wollen wir Ihre Objektbau-Fähigkeiten prüfen, indem wir ein generisches `Shape()`-Objekt erstellen, von dem unsere Bälle und der böse Kreis erben können. Schließlich wollen wir einen Punktestand-Zähler hinzufügen, um die Anzahl der noch zu fangenden Bälle zu verfolgen.
 
 Der folgende Screenshot gibt Ihnen eine Vorstellung davon, wie das fertige Programm aussehen sollte:
 
-![Screenshot der hüpfenden Bälle-Demoseite. Ein weiß umrandeter Kreis ist neben den farbigen Bällen sichtbar, und der Text "Ball count: 23" ist unter der Überschrift sichtbar.](bouncing-evil-circle.png)
+![Screenshot der hüpfenden Bälle-Demoseite. Zusätzlich zu den farbigen Bällen ist ein weiß umrandeter Kreis sichtbar, und der Text „Ball count: 23“ ist unter der Überschrift sichtbar.](bouncing-evil-circle.png)
 
-Um Ihnen einen besseren Einblick zu geben, sehen Sie sich das [fertige Beispiel](https://mdn.github.io/learning-area/javascript/oojs/assessment/) an (keine Einsicht in den Quellcode!).
+Um Ihnen eine bessere Vorstellung zu geben, sehen Sie sich das [fertige Beispiel](https://mdn.github.io/learning-area/javascript/oojs/assessment/) an (nicht im Quellcode spicken!)
 
 ## Schritte zur Fertigstellung
 
@@ -58,17 +58,17 @@ Die folgenden Abschnitte beschreiben, was Sie tun müssen.
 
 ### Erstellen einer Shape-Klasse
 
-Erstellen Sie zunächst eine neue `Shape`-Klasse. Diese hat nur einen Konstruktor. Der `Shape`-Konstruktor sollte die Eigenschaften `x`, `y`, `velX` und `velY` auf dieselbe Weise definieren, wie es der `Ball()`-Konstruktor ursprünglich tat, jedoch nicht die `color`- und `size`-Eigenschaften.
+Erstellen Sie zuerst eine neue `Shape`-Klasse. Diese hat nur einen Konstruktor. Der `Shape`-Konstruktor sollte die Eigenschaften `x`, `y`, `velX` und `velY` auf die gleiche Weise definieren wie das `Ball()` ursprünglich, jedoch nicht die Eigenschaften `color` und `size`.
 
-Die `Ball`-Klasse sollte von `Shape` mit `extends` abgeleitet werden. Der Konstruktor für `Ball` sollte:
+Die `Ball`-Klasse sollte von `Shape` mit `extends` erben. Der Konstruktor für `Ball` sollte:
 
-- dieselben Argumente wie zuvor entgegennehmen: `x`, `y`, `velX`, `velY`, `size` und `color`
-- den `Shape`-Konstruktor mit `super()` aufrufen und die `x`, `y`, `velX` und `velY` Argumente übergeben
-- seine eigenen `color`- und `size`-Eigenschaften aus den gegebenen Parametern initialisieren.
+- die gleichen Argumente nehmen wie zuvor: `x`, `y`, `velX`, `velY`, `size` und `color`
+- den `Shape`-Konstruktor mit `super()` aufrufen und die Argumente `x`, `y`, `velX` und `velY` übergeben
+- ihre eigenen `color` und `size` Eigenschaften von den übergebenen Parametern initialisieren.
 
-Der `Ball`-Konstruktor sollte eine neue Eigenschaft namens `exists` definieren, die verwendet wird, um zu verfolgen, ob die Bälle im Programm existieren (nicht vom bösen Kreis gefressen wurden). Diese sollte ein Boolean (`true`/`false`) sein, der im Konstruktor auf `true` initialisiert wird.
+Der `Ball`-Konstruktor sollte eine neue Eigenschaft namens `exists` definieren, die verwendet wird, um zu verfolgen, ob die Bälle im Programm existieren (nicht vom bösen Kreis gefressen wurden). Dies sollte ein boolescher Wert (`true`/`false`) sein, der im Konstruktor auf `true` initialisiert wird.
 
-Die `collisionDetect()`-Methode der `Ball`-Klasse benötigt ein kleines Update. Ein Ball sollte nur dann für die Kollisionsdetektion in Betracht gezogen werden, wenn die `exists`-Eigenschaft `true` ist. Ersetzen Sie daher den vorhandenen `collisionDetect()`-Code durch den folgenden Code:
+Die `collisionDetect()`-Methode der `Ball`-Klasse benötigt ein kleines Update. Ein Ball muss nur dann zur Kollisionsprüfung in Betracht gezogen werden, wenn die Eigenschaft `exists` `true` ist. Ersetzen Sie daher den vorhandenen `collisionDetect()`-Code durch den folgenden Code:
 
 ```js
 collisionDetect() {
@@ -86,27 +86,27 @@ collisionDetect() {
 }
 ```
 
-Wie oben besprochen, ist die einzige Ergänzung, zu prüfen, ob der Ball existiert — indem `ball.exists` im `if`-Bedingungsblock verwendet wird.
+Wie oben besprochen, ist die einzige Ergänzung die Überprüfung, ob der Ball existiert — indem `ball.exists` in der `if`-Bedingung verwendet wird.
 
-Die `draw()`- und `update()`-Methodendefinitionen des Balls sollten genauso bleiben können wie zuvor.
+Die `draw()` und `update()` Methodendefinitionen des Balls sollten genau so bleiben können, wie sie vorher waren.
 
-Versuchen Sie an diesem Punkt, den Code neu zu laden — er sollte genauso funktionieren wie zuvor, mit unseren neu gestalteten Objekten.
+Versuchen Sie an diesem Punkt, den Code neu zu laden — er sollte genauso funktionieren wie zuvor, mit unseren überarbeiteten Objekten.
 
 ### Definition von EvilCircle
 
-Jetzt ist es Zeit, den Bösewicht kennenzulernen — den `EvilCircle()`! Unser Spiel wird nur einen bösen Kreis beinhalten, aber wir werden ihn trotzdem mit einem Konstruktor definieren, der von `Shape()` erbt, um Ihnen etwas Übung zu geben. Vielleicht möchten Sie später einen weiteren Kreis zur App hinzufügen, der von einem anderen Spieler gesteuert werden kann, oder mehrere computergesteuerte böse Kreise. Sie werden wahrscheinlich nicht die Welt mit einem einzelnen bösen Kreis erobern, aber es wird für diese Bewertung genügen.
+Nun ist es Zeit, den Bösewicht kennenzulernen — den `EvilCircle()`! Unser Spiel wird nur einen bösen Kreis beinhalten, aber wir werden ihn trotzdem mit einem Konstruktor definieren, der von `Shape()` erbt, um Ihnen etwas Übung zu geben. Vielleicht möchten Sie später einen weiteren Kreis zur App hinzufügen, der von einem anderen Spieler kontrolliert wird, oder mehrere computergesteuerte böse Kreise. Sie werden die Welt wahrscheinlich nicht mit einem einzigen bösen Kreis erobern, aber es wird für diese Bewertung ausreichen.
 
-Erstellen Sie eine Definition für eine `EvilCircle`-Klasse. Sie sollte von `Shape` mit `extends` erben.
+Erstellen Sie eine Definition für eine `EvilCircle`-Klasse. Sie sollte mit `extends` von `Shape` erben.
 
-#### EvilCircle-Konstruktor
+#### EvilCircle Konstruktor
 
 Der Konstruktor für `EvilCircle` sollte:
 
-- nur die Argumente `x`, `y` erhalten
-- die `x`, `y`-Argumente zur `Shape`-Superklasse hochleiten sowie die Werte für `velX` und `velY`, die auf 20 festgelegt sind. Dies sollten Sie mit einem Code wie `super(x, y, 20, 20);` tun.
+- nur `x`, `y` Argumente empfangen
+- die `x`, `y`-Argumente an die `Shape`-Superklasse übergeben, zusammen mit festkodierten Werten für `velX` und `velY` auf 20. Sie sollten dies mit einem Code wie `super(x, y, 20, 20);` tun.
 - `color` auf `white` und `size` auf `10` setzen.
 
-Schließlich sollte der Konstruktor den Code einrichten, der es dem Benutzer ermöglicht, den bösen Kreis auf dem Bildschirm zu bewegen:
+Schließlich sollte der Konstruktor den Code einrichten, der es dem Benutzer ermöglicht, den bösen Kreis über den Bildschirm zu bewegen:
 
 ```js
 window.addEventListener("keydown", (e) => {
@@ -127,7 +127,7 @@ window.addEventListener("keydown", (e) => {
 });
 ```
 
-Dies fügt dem `window`-Objekt einen `keydown`-Ereignislistener hinzu, sodass beim Drücken einer Taste die [`key`](/de/docs/Web/API/KeyboardEvent/key)-Eigenschaft des Ereignisobjekts überprüft wird, um zu sehen, welche Taste gedrückt wurde. Wenn es sich um eine der vier angegebenen Tasten handelt, dann bewegt sich der böse Kreis nach links/rechts/oben/unten.
+Dies fügt dem `window`-Objekt einen `keydown`-Ereignislistener hinzu, so dass, wenn eine Taste gedrückt wird, die [`key`](/de/docs/Web/API/KeyboardEvent/key) Eigenschaft des Event-Objekts konsultiert wird, um zu sehen, welche Taste gedrückt wird. Wenn es eine der vier angegebenen Tasten ist, bewegt sich der böse Kreis nach links/rechts/oben/unten.
 
 ### Definition von Methoden für EvilCircle
 
@@ -135,36 +135,36 @@ Die `EvilCircle`-Klasse sollte drei Methoden haben, wie unten beschrieben.
 
 #### draw()
 
-Diese Methode hat den gleichen Zweck wie die `draw()`-Methode für `Ball`: Sie zeichnet die Objektinstanz auf die Leinwand. Die `draw()`-Methode für `EvilCircle` funktioniert auf sehr ähnliche Weise, sodass Sie mit dem Kopieren der `draw()`-Methode für `Ball` beginnen können. Sie sollten dann die folgenden Änderungen vornehmen:
+Diese Methode hat den gleichen Zweck wie die `draw()`-Methode für `Ball`: sie zeichnet die Objektinstanz auf der Leinwand. Die `draw()`-Methode für `EvilCircle` funktioniert sehr ähnlich, also können Sie mit dem Kopieren der `draw()`-Methode für `Ball` beginnen. Sie sollten dann die folgenden Änderungen vornehmen:
 
-- Wir möchten, dass der böse Kreis nicht ausgefüllt ist, sondern nur eine äußere Linie (Stroke) hat. Sie können dies erreichen, indem Sie [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) und [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) zu [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) und [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) ändern.
-- Wir möchten auch, dass der Stroke etwas dicker ist, damit Sie den bösen Kreis leichter sehen können. Dies kann erreicht werden, indem ein Wert für [`lineWidth`](/de/docs/Web/API/CanvasRenderingContext2D/lineWidth) irgendwo nach dem [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath)-Aufruf gesetzt wird (3 genügt).
+- Wir wollen, dass der böse Kreis nicht gefüllt ist, sondern nur eine Außenlinie (Stroke) hat. Sie können dies erreichen, indem Sie [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) und [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) durch [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) und [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) ersetzen.
+- Wir wollen auch, dass der Strich etwas dicker ist, damit Sie den bösen Kreis etwas leichter sehen können. Dies kann erreicht werden, indem Sie irgendwo nach dem [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath)-Aufruf einen Wert für [`lineWidth`](/de/docs/Web/API/CanvasRenderingContext2D/lineWidth) festlegen (3 reicht aus).
 
 #### checkBounds()
 
-Diese Methode wird das gleiche tun wie der erste Teil der `update()`-Methode für `Ball` — prüfen, ob der böse Kreis vom Bildschirmrand gehen wird, und ihn davon abhalten. Auch hier können Sie größtenteils die `update()`-Methode für `Ball` kopieren, aber es gibt einige Änderungen, die Sie vornehmen sollten:
+Diese Methode wird dasselbe tun wie der erste Teil der `update()`-Methode für `Ball` — überprüfen, ob der böse Kreis am Rand des Bildschirms hinausgeht, und verhindern, dass dies geschieht. Auch hier können Sie die `update()`-Methode für `Ball` größtenteils kopieren, aber es gibt ein paar Änderungen, die Sie vornehmen sollten:
 
-- Entfernen Sie die letzten beiden Zeilen — wir wollen die Position des bösen Kreises nicht automatisch bei jedem Frame aktualisieren, weil wir ihn auf eine andere Weise bewegen werden, wie Sie unten sehen werden.
-- Innerhalb der `if ()`-Anweisungen, wenn die Tests wahr sind, wollen wir nicht `velX`/`velY` aktualisieren; wir wollen stattdessen den Wert von `x`/`y` ändern, damit der böse Kreis leicht zurück auf den Bildschirm prallt. Hinzufügen oder Subtrahieren (je nach Bedarf) der `size`-Eigenschaft des bösen Kreises wäre sinnvoll.
+- Entfernen Sie die letzten beiden Zeilen — wir wollen die Position des bösen Kreises nicht automatisch in jedem Frame aktualisieren, weil wir es auf eine andere Weise bewegen werden, wie Sie unten sehen werden.
+- Innerhalb der `if ()`-Anweisungen, wenn die Tests wahr zurückgeben, wollen wir nicht `velX`/`velY` aktualisieren; wir wollen stattdessen den Wert von `x`/`y` ändern, sodass der böse Kreis leicht auf den Bildschirm zurückprallt. Das Hinzufügen oder Subtrahieren (wie angebracht) der `size`-Eigenschaft des bösen Kreises wäre sinnvoll.
 
 #### collisionDetect()
 
-Diese Methode wird auf sehr ähnliche Weise wie die `collisionDetect()`-Methode für `Ball` funktionieren, sodass Sie eine Kopie davon als Grundlage für diese neue Methode verwenden können. Aber es gibt einige Unterschiede:
+Diese Methode wird sehr ähnlich arbeiten wie die `collisionDetect()`-Methode für `Ball`, sodass Sie eine Kopie davon als Grundlage für diese neue Methode verwenden können. Aber es gibt ein paar Unterschiede:
 
-- In der äußeren `if`-Anweisung müssen Sie nicht mehr prüfen, ob der aktuelle Ball in der Iteration derselbe ist wie der Ball, der die Überprüfung durchführt — weil es kein Ball mehr ist, es ist der böse Kreis! Stattdessen müssen Sie einen Test durchführen, um zu sehen, ob der überprüfte Ball existiert (mit welcher Eigenschaft könnten Sie das tun?). Wenn er nicht existiert, wurde er bereits vom bösen Kreis gefressen, sodass keine Notwendigkeit besteht, ihn erneut zu überprüfen.
-- In der inneren `if`-Anweisung möchten Sie nicht mehr, dass sich die Objekte bei einer Kollision verfärben — stattdessen möchten Sie, dass alle Bälle, die mit dem bösen Kreis kollidieren, nicht mehr existieren (wiederum, wie würden Sie das tun?).
+- In der äußeren `if`-Anweisung müssen Sie nicht mehr überprüfen, ob der aktuelle Ball in der Iteration derselbe ist wie der Ball, der die Prüfung durchführt — weil es sich nicht mehr um einen Ball handelt, sondern um den bösen Kreis! Stattdessen müssen Sie einen Test durchführen, um zu sehen, ob der zu prüfende Ball existiert (mit welcher Eigenschaft könnten Sie dies tun?). Wenn er nicht existiert, wurde er bereits vom bösen Kreis gefressen, sodass es nicht nötig ist, ihn erneut zu überprüfen.
+- In der inneren `if`-Anweisung wollen Sie nicht mehr, dass die Objekte die Farbe ändern, wenn eine Kollision erkannt wird — stattdessen möchten Sie, dass alle Bälle, die mit dem bösen Kreis kollidieren, nicht mehr existieren (nochmals, wie könnten Sie das erreichen?).
 
-### Einfügen des bösen Kreises in das Programm
+### Den bösen Kreis ins Programm bringen
 
-Jetzt, da wir den bösen Kreis definiert haben, müssen wir ihn tatsächlich in unserer Szene erscheinen lassen. Dazu müssen Sie einige Änderungen an der `loop()`-Funktion vornehmen.
+Nachdem wir nun den bösen Kreis definiert haben, müssen wir ihn tatsächlich in unserer Szene erscheinen lassen. Dazu müssen Sie einige Änderungen in der `loop()`-Funktion vornehmen.
 
-- Erstellen Sie zunächst ein neues Objektinstanz des bösen Kreises (unter Angabe der erforderlichen Parameter). Sie müssen dies nur einmal tun, nicht bei jeder Iteration der Schleife.
-- An der Stelle, an der Sie durch jeden Ball schleifen und die Funktionen `draw()`, `update()` und `collisionDetect()` für jeden aufrufen, sorgen Sie dafür, dass diese Funktionen nur aufgerufen werden, wenn der aktuelle Ball existiert.
-- Rufen Sie die `draw()`, `checkBounds()` und `collisionDetect()`-Methoden der Instanz des bösen Kreises bei jeder Iteration der Schleife auf.
+- Zuallererst erstellen Sie eine neue Objektinstanz des bösen Kreises (die erforderlichen Parameter angeben). Sie müssen dies nur einmal tun, nicht bei jeder Iteration der Schleife.
+- An dem Punkt, an dem Sie jeden Ball durchlaufen und die `draw()`, `update()` und `collisionDetect()`-Funktionen für jeden aufrufen, stellen Sie sicher, dass diese Funktionen nur aufgerufen werden, wenn der aktuelle Ball existiert.
+- Rufen Sie die `draw()`, `checkBounds()` und `collisionDetect()` Methoden der bösen Kreis-Instanz bei jeder Iteration der Schleife auf.
 
-### Implementieren des Punktzählers
+### Implementierung des Punktestand-Zählers
 
-Um den Punktzähler zu implementieren, befolgen Sie die folgenden Schritte:
+Um den Punktestand-Zähler zu implementieren, folgen Sie den folgenden Schritten:
 
 1. Fügen Sie in Ihrer HTML-Datei ein {{HTMLElement("p")}}-Element direkt unter dem {{HTMLElement("Heading_Elements", "h1")}}-Element mit dem Text "Ball count: " hinzu.
 2. Fügen Sie in Ihrer CSS-Datei die folgende Regel am Ende hinzu:
@@ -179,11 +179,11 @@ Um den Punktzähler zu implementieren, befolgen Sie die folgenden Schritte:
    }
    ```
 
-3. Machen Sie in Ihrem JavaScript die folgenden Updates:
+3. Machen Sie in Ihrem JavaScript die folgenden Aktualisierungen:
 
    - Erstellen Sie eine Variable, die eine Referenz auf den Absatz speichert.
-   - Halten Sie auf irgendeine Weise die Anzahl der Bälle auf dem Bildschirm nach.
-   - Erhöhen Sie die Anzahl und zeigen Sie die aktualisierte Anzahl der Bälle jedes Mal, wenn ein Ball zur Szene hinzugefügt wird.
-   - Verringern Sie die Anzahl und zeigen Sie die aktualisierte Anzahl der Bälle jedes Mal, wenn der böse Kreis einen Ball frisst (dafür sorgt, dass er nicht mehr existiert).
+   - Behalten Sie in irgendeiner Weise die Anzahl der Bälle auf dem Bildschirm im Auge.
+   - Erhöhen Sie die Anzahl und zeigen Sie die aktualisierte Anzahl der Bälle jedes Mal an, wenn ein Ball zur Szene hinzugefügt wird.
+   - Verringern Sie die Anzahl und zeigen Sie die aktualisierte Anzahl der Bälle jedes Mal an, wenn der böse Kreis einen Ball frisst (verursacht, dass er nicht mehr existiert).
 
 {{PreviousMenuNext("Learn/JavaScript/Objects/Object_building_practice", "", "Learn/JavaScript/Objects")}}

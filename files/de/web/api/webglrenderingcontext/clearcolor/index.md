@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: clearColor()-Methode"
+title: "WebGLRenderingContext: clearColor() Methode"
 short-title: clearColor()
 slug: Web/API/WebGLRenderingContext/clearColor
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.clearColor()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) legt die Farbwerte fest, die beim Löschen von Farb-Puffern verwendet werden.
+Die **`WebGLRenderingContext.clearColor()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt die Farbwerte an, die beim Löschen von Farb-Puffern verwendet werden.
 
-Dies gibt an, welche Farbwerte verwendet werden, wenn die {{domxref("WebGLRenderingContext.clear", "clear()")}}-Methode aufgerufen wird. Die Werte werden zwischen 0 und 1 begrenzt.
+Diese Methode spezifiziert, welche Farbwerte bei dem Aufruf der [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) Methode verwendet werden. Die Werte werden zwischen 0 und 1 begrenzt.
 
 ## Syntax
 
@@ -21,17 +21,17 @@ clearColor(red, green, blue, alpha)
 ### Parameter
 
 - `red`
-  - : Ein {{domxref("WebGL_API/Types", "GLclampf")}}, der den roten Farbwert angibt, der verwendet wird, wenn die Farb-Puffer gelöscht werden. Standardwert: 0.
+  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types), der den roten Farbwert angibt, der verwendet wird, wenn die Farb-Puffer gelöscht werden. Standardwert: 0.
 - `green`
-  - : Ein {{domxref("WebGL_API/Types", "GLclampf")}}, der den grünen Farbwert angibt, der verwendet wird, wenn die Farb-Puffer gelöscht werden. Standardwert: 0.
+  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types), der den grünen Farbwert angibt, der verwendet wird, wenn die Farb-Puffer gelöscht werden. Standardwert: 0.
 - `blue`
-  - : Ein {{domxref("WebGL_API/Types", "GLclampf")}}, der den blauen Farbwert angibt, der verwendet wird, wenn die Farb-Puffer gelöscht werden. Standardwert: 0.
+  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types), der den blauen Farbwert angibt, der verwendet wird, wenn die Farb-Puffer gelöscht werden. Standardwert: 0.
 - `alpha`
-  - : Ein {{domxref("WebGL_API/Types", "GLclampf")}}, der den Alpha-(Transparenz-)Wert angibt, der verwendet wird, wenn die Farb-Puffer gelöscht werden. Standardwert: 0.
+  - : Ein [`GLclampf`](/de/docs/Web/API/WebGL_API/Types), der den Alpha- (Transparenz-) Wert angibt, der verwendet wird, wenn die Farb-Puffer gelöscht werden. Standardwert: 0.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -39,7 +39,7 @@ Keiner ({{jsxref("undefined")}}).
 gl.clearColor(1, 0.5, 0.5, 1);
 ```
 
-Um die aktuelle Löschfarbe zu erhalten, fragen Sie die `COLOR_CLEAR_VALUE`-Konstante ab, die ein {{jsxref("Float32Array")}} zurückgibt.
+Um die aktuelle Löschfarbe zu ermitteln, fragen Sie die `COLOR_CLEAR_VALUE` Konstante ab, die eine {{jsxref("Float32Array")}} zurückgibt.
 
 ```js
 gl.getParameter(gl.COLOR_CLEAR_VALUE);
@@ -56,6 +56,6 @@ gl.getParameter(gl.COLOR_CLEAR_VALUE);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.clear()")}}
-- {{domxref("WebGLRenderingContext.clearDepth()")}}
-- {{domxref("WebGLRenderingContext.clearStencil()")}}
+- [`WebGLRenderingContext.clear()`](/de/docs/Web/API/WebGLRenderingContext/clear)
+- [`WebGLRenderingContext.clearDepth()`](/de/docs/Web/API/WebGLRenderingContext/clearDepth)
+- [`WebGLRenderingContext.clearStencil()`](/de/docs/Web/API/WebGLRenderingContext/clearStencil)

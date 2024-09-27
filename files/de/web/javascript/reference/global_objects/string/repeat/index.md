@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`repeat()`**-Methode von {{jsxref("String")}}-Werten konstruiert und gibt eine neue Zeichenkette zurück, die die angegebene Anzahl von Kopien dieser Zeichenkette enthält, zusammengefügt.
+Die Methode **`repeat()`** von {{jsxref("String")}}-Werten erstellt und gibt eine neue Zeichenkette zurück, die die angegebene Anzahl von Kopien dieser Zeichenkette enthält, zusammengefügt.
 
 {{EmbedInteractiveExample("pages/js/string-repeat.html", "shorter")}}
 
@@ -20,8 +20,7 @@ repeat(count)
 ### Parameter
 
 - `count`
-  - : Eine ganze Zahl zwischen `0` und
-    {{jsxref("Number/POSITIVE_INFINITY", "+Infinity")}}, die angibt, wie oft die Zeichenkette wiederholt werden soll.
+  - : Eine ganze Zahl zwischen `0` und {{jsxref("Number/POSITIVE_INFINITY", "+Infinity")}}, die die Anzahl der Wiederholungen der Zeichenkette angibt.
 
 ### Rückgabewert
 
@@ -41,11 +40,11 @@ Eine neue Zeichenkette, die die angegebene Anzahl von Kopien der gegebenen Zeich
 "abc".repeat(0); // ''
 "abc".repeat(1); // 'abc'
 "abc".repeat(2); // 'abcabc'
-"abc".repeat(3.5); // 'abcabcabc' (count wird in eine ganze Zahl umgewandelt)
+"abc".repeat(3.5); // 'abcabcabc' (count will be converted to integer)
 "abc".repeat(1 / 0); // RangeError
 
 ({ toString: () => "abc", repeat: String.prototype.repeat }).repeat(2);
-// 'abcabc' (repeat() ist eine generische Methode)
+// 'abcabc' (repeat() is a generic method)
 ```
 
 ## Spezifikationen

@@ -1,5 +1,5 @@
 ---
-title: "StorageAccessHandle: Eigenschaft revokeObjectURL()"
+title: "StorageAccessHandle: revokeObjectURL() Eigenschaft"
 short-title: revokeObjectURL()
 slug: Web/API/StorageAccessHandle/revokeObjectURL
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Siehe {{domxref("URL.revokeObjectURL_static", "revokeObjectURL()")}}, um die Verwendung zu verstehen.
+> Lesen Sie [`revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static), um die Verwendung zu verstehen.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ handle.revokeObjectURL(objectURL)
 ### Parameter
 
 - `objectURL`
-  - : Siehe {{domxref("URL.revokeObjectURL_static", "revokeObjectURL()")}}.
+  - : Siehe [`revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static).
 
 ### Rückgabewert
 
@@ -28,27 +28,27 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DomException")}}
+- `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
   - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
-Siehe {{domxref("URL.revokeObjectURL_static", "revokeObjectURL()")}}
+Siehe [`revokeObjectURL()`](/de/docs/Web/API/URL/revokeObjectURL_static).
 
 ## Beispiele
 
 ```js
 document.requestStorageAccess({ revokeObjectURL: true }).then(
   (handle) => {
-    console.log("revokeObjectURL Zugriff gewährt");
+    console.log("revokeObjectURL access granted");
     handle.revokeObjectURL(blob_url);
   },
   () => {
-    console.log("revokeObjectURL Zugriff verweigert");
+    console.log("revokeObjectURL access denied");
   },
 );
 ```
 
 > [!NOTE]
-> Siehe [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
+> Sehen Sie sich [Die Storage Access API verwenden](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel an.
 
 ## Spezifikationen
 
@@ -60,5 +60,5 @@ document.requestStorageAccess({ revokeObjectURL: true }).then(
 
 ## Siehe auch
 
-- {{domxref("Document.requestStorageAccess()")}}
-- [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
+- [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
+- [Die Storage Access API verwenden](/de/docs/Web/API/Storage_Access_API/Using)

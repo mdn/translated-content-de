@@ -8,15 +8,21 @@ l10n:
 
 {{APIRef}}
 
-**`document.designMode`** steuert, ob das gesamte Dokument bearbeitbar ist. Gültige Werte sind `"on"` und `"off"`. Laut der Spezifikation soll diese Eigenschaft standardmäßig auf `"off"` gesetzt sein. Firefox folgt diesem Standard. Die früheren Versionen von Chrome und IE standardisieren auf `"inherit"`. Ab Chrome 43 ist der Standard `"off"` und `"inherit"` wird nicht mehr unterstützt. In IE6-10 ist der Wert großgeschrieben.
+**`document.designMode`** steuert, ob das gesamte Dokument
+bearbeitbar ist. Gültige Werte sind `"on"` und `"off"`. Laut der
+Spezifikation soll diese Eigenschaft standardmäßig auf `"off"` gesetzt sein. Firefox befolgt
+diesen Standard. Die früheren Versionen von Chrome und IE verwenden standardmäßig `"inherit"`.
+Seit Chrome 43 ist der Standardwert `"off"`, und `"inherit"` wird
+nicht mehr unterstützt. In IE6-10 wird der Wert großgeschrieben.
 
 ## Wert
 
-Ein String, der angibt, ob `designMode` aktiviert oder deaktiviert ist (oder sein soll). Gültige Werte sind `on` und `off`.
+Ein String, der angibt, ob `designMode` auf on oder off gesetzt ist (oder gesetzt werden sollte).
+Gültige Werte sind `on` und `off`.
 
 ## Beispiele
 
-Ein Dokument eines {{HTMLElement("iframe")}} bearbeitbar machen:
+Machen Sie das Dokument eines {{HTMLElement("iframe")}} bearbeitbar:
 
 ```js
 iframeNode.contentDocument.designMode = "on";
@@ -32,4 +38,4 @@ iframeNode.contentDocument.designMode = "on";
 
 ## Siehe auch
 
-- {{domxref("HTMLElement.contentEditable")}}
+- [`HTMLElement.contentEditable`](/de/docs/Web/API/HTMLElement/contentEditable)

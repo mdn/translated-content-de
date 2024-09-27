@@ -18,9 +18,9 @@ Werte dieses Typs sind Objekte, die die folgenden Eigenschaften enthalten:
 - `arch`
   - : {{WebExtAPIRef('runtime.PlatformArch')}}. Die Prozessorarchitektur der Plattform.
 - `nacl_arch`
-  - : {{WebExtAPIRef('runtime.PlatformNaclArch')}}. Die Architektur des nativen Clients. Dies kann auf einigen Plattformen von `arch` abweichen.
+  - : {{WebExtAPIRef('runtime.PlatformNaclArch')}}. Die Native Client-Architektur. Diese kann sich bei einigen Plattformen von `arch` unterscheiden.
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

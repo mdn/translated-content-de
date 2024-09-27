@@ -7,12 +7,12 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`stroke-width`** ist ein Präsentationsattribut, das die Breite des auf die Form anzuwendenden Strichs definiert. Es gilt für jedes SVG-Form- oder Textinhaltelement (siehe {{SVGAttr("stroke-width")}} für eine vollständige Liste), kann jedoch als vererbte Eigenschaft auch auf Elemente wie {{SVGElement("g")}} angewendet werden und hat immer noch die beabsichtigte Wirkung auf die Striche der Nachfahrenelemente.
+Das **`stroke-width`** Attribut ist ein Präsentationsattribut, das die Breite des auf die Form anzuwendenden Strichs definiert. Es gilt für jedes SVG-Form- oder Text-Inhaltselement (siehe {{SVGAttr("stroke-width")}} für eine vollständige Liste), kann aber als geerbte Eigenschaft auf Elemente wie {{SVGElement("g")}} angewendet werden und dennoch die gewünschte Wirkung auf die Striche der Nachkommenelemente haben.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `stroke-width` auch als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-width')}} für mehr Informationen.
+> Als Präsentationsattribut kann `stroke-width` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('stroke-width')}} für mehr Informationen.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
@@ -38,20 +38,20 @@ svg {
 
 ```html
 <svg viewBox="0 0 30 10" xmlns="http://www.w3.org/2000/svg">
-  <!-- Standard Strichbreite: 1 -->
+  <!-- Default stroke width: 1 -->
   <circle cx="5" cy="5" r="3" stroke="green" />
 
-  <!-- Strichbreite als Zahl -->
+  <!-- Stroke width as a number -->
   <circle cx="15" cy="5" r="3" stroke="green" stroke-width="3" />
 
-  <!-- Strichbreite als Prozentsatz -->
+  <!-- Stroke width as a percentage -->
   <circle cx="25" cy="5" r="3" stroke="green" stroke-width="2%" />
 </svg>
 ```
 
 {{EmbedLiveSample("Example", '100%', 150)}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -82,7 +82,7 @@ svg {
 </table>
 
 > [!NOTE]
-> Ein Prozentsatzwert wird immer als Prozentsatz der normalisierten {{SVGAttr('viewBox')}}-Diagonale berechnet.
+> Ein Prozentwert wird immer als Prozentsatz der normalisierten {{SVGAttr('viewBox')}} Diagonalenlänge berechnet.
 
 ## Spezifikationen
 

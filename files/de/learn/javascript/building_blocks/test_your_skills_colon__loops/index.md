@@ -7,57 +7,57 @@ l10n:
 
 {{learnsidebar}}
 
-Das Ziel dieses Fähigkeitstests ist es, zu überprüfen, ob Sie unseren Artikel [Schleifen von Code](/de/docs/Learn/JavaScript/Building_blocks/Looping_code) verstanden haben.
+Ziel dieses Fähigkeitstests ist es, zu prüfen, ob Sie unseren Artikel [Code-Schleifen](/de/docs/Learn/JavaScript/Building_blocks/Looping_code) verstanden haben.
 
 > [!NOTE]
-> Sie können Lösungen ausprobieren, indem Sie den Code herunterladen und ihn in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
+> Sie können Lösungen ausprobieren, indem Sie den Code herunterladen und in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) platzieren.
 >
-> Wenn Sie feststecken, können Sie sich an einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) wenden.
+> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## DOM-Manipulation: als nützlich erachtet
 
-Einige der unten stehenden Fragen erfordern, dass Sie etwas [DOM](/de/docs/Glossary/DOM)-Manipulationscode schreiben, um sie zu lösen — wie das Erstellen neuer HTML-Elemente, deren Textinhalt bestimmten Zeichenfolgenwerten zuzuweisen und diese innerhalb bestehender Elemente auf der Seite zu verschachteln — alles mittels JavaScript.
+Einige der unten stehenden Fragen erfordern von Ihnen, etwas [DOM](/de/docs/Glossary/DOM)-Manipulationscode zu schreiben, um sie zu vervollständigen – zum Beispiel neue HTML-Elemente zu erstellen, deren Textinhalte auf bestimmte Zeichenfolgenwerte zu setzen und diese in vorhandene Elemente auf der Seite einzufügen – alles über JavaScript.
 
-Wir haben dies im Kurs noch nicht explizit gelehrt, aber Sie haben einige Beispiele gesehen, die davon Gebrauch machen, und wir möchten, dass Sie einige Nachforschungen anstellen, welche DOM-APIs Sie benötigen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser Tutorial [Dokumente manipulieren](/de/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents).
+Wir haben dies im Kurs noch nicht explizit gelehrt, aber Sie werden einige Beispiele gesehen haben, die dies verwenden, und wir möchten, dass Sie etwas recherchieren, welche DOM-APIs Sie benötigen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser Tutorial [Manipulating documents](/de/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents).
 
 ## Schleifen 1
 
-In unserer ersten Schleifenaufgabe möchten wir, dass Sie mit einer einfachen Schleife beginnen, die alle Elemente des bereitgestellten `myArray` durchläuft und sie auf dem Bildschirm innerhalb von Listenelementen (d.h. [`<li>`](/de/docs/Web/HTML/Element/li)-Elemente) ausgibt, die der bereitgestellten `list` hinzugefügt werden.
+In unserer ersten Schleifenaufgabe möchten wir, dass Sie mit einer einfachen Schleife beginnen, die alle Elemente im bereitgestellten `myArray` durchläuft und sie auf dem Bildschirm innerhalb von Listenelementen (d.h. [`<li>`](/de/docs/Web/HTML/Element/li) Elemente), die an die bereitgestellte `list` angehängt werden, ausgibt.
 
 > [!CALLOUT]
 >
-> [Laden Sie das Startmaterial für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/loops/loops1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/loops/loops1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
 
 ## Schleifen 2
 
-In dieser nächsten Aufgabe möchten wir, dass Sie ein einfaches Programm schreiben, das, gegeben einem Namen, ein Array von [Objekten](/de/docs/Glossary/Object) mit Namen und Telefonnummern (`phonebook`) durchsucht und, wenn der Name gefunden wird, den Namen und die Telefonnummer in den Absatz (`para`) ausgibt und dann die Schleife verlässt, bevor sie vollständig durchgelaufen ist.
+Bei dieser nächsten Aufgabe möchten wir, dass Sie ein einfaches Programm schreiben, das, gegeben einen Namen, ein Array von [Objekte](/de/docs/Glossary/Object) mit Namen und Telefonnummern (`phonebook`) durchsucht und, wenn es den Namen findet, den Namen und die Telefonnummer in den Absatz (`para`) ausgibt und dann die Schleife beendet, bevor sie ihren Lauf beendet hat.
 
-Wenn Sie noch nicht über Objekte gelesen haben, keine Sorge! Vorläufig müssen Sie nur wissen, wie Sie auf ein Mitglied-Werte-Paar zugreifen. Sie können in dem Tutorial [Grundlagen von JavaScript-Objekten](/de/docs/Learn/JavaScript/Objects/Basics) darüber lesen.
+Wenn Sie noch nichts über Objekte gelesen haben, machen Sie sich keine Sorgen! Im Moment müssen Sie nur wissen, wie Sie auf ein Element-Wert-Paar zugreifen können. Sie können sich im Tutorial [JavaScript-Objekt-Grundlagen](/de/docs/Learn/JavaScript/Objects/Basics) darüber informieren.
 
-Ihnen werden drei Variablen zur Verfügung gestellt, mit denen Sie beginnen können:
+Es werden Ihnen drei Variablen zur Verfügung gestellt:
 
 - `name` — enthält einen Namen, nach dem gesucht werden soll
-- `para` — enthält einen Verweis auf einen Absatz, der verwendet wird, um die Ergebnisse zu melden
+- `para` — enthält einen Verweis auf einen Absatz, der verwendet wird, um die Ergebnisse anzuzeigen
 - `phonebook` - enthält die Telefonbucheinträge, die durchsucht werden sollen.
 
-Sie sollten eine Art Schleife verwenden, die Sie in der vorherigen Aufgabe noch nicht verwendet haben.
+Sie sollten einen Schleifentyp verwenden, den Sie in der vorherigen Aufgabe nicht verwendet haben.
 
 > [!CALLOUT]
 >
-> [Laden Sie das Startmaterial für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/loops/loops2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/loops/loops2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
 
 ## Schleifen 3
 
-In dieser letzten Aufgabe wird Ihnen Folgendes bereitgestellt:
+In dieser letzten Aufgabe werden Ihnen Folgendes bereitgestellt:
 
 - `i` — beginnt mit einem Wert von 500; soll als Iterator verwendet werden.
-- `para` — enthält einen Verweis auf einen Absatz, der verwendet wird, um die Ergebnisse zu melden.
-- `isPrime()` — eine Funktion, die, wenn sie eine Zahl übergeben bekommt, `true` zurückgibt, wenn die Zahl eine Primzahl ist, andernfalls `false`.
+- `para` — enthält einen Verweis auf einen Absatz, der verwendet wird, um die Ergebnisse anzuzeigen.
+- `isPrime()` — eine Funktion, die, wenn sie eine Zahl übergeben bekommt, `true` zurückgibt, wenn die Zahl eine Primzahl ist, und `false`, wenn nicht.
 
-Sie müssen eine Schleife verwenden, um die Zahlen 2 bis 500 rückwärts zu durchlaufen (1 wird nicht als Primzahl gezählt) und die bereitgestellte `isPrime()`-Funktion auf sie anzuwenden. Für jede Zahl, die nicht eine Primzahl ist, setzen Sie die Schleifeniteration fort. Für jede, die eine Primzahl ist, fügen Sie sie dem `textContent` des Absatzes zusammen mit einer Art von Separator hinzu.
+Sie müssen eine Schleife verwenden, um die Zahlen von 2 bis 500 rückwärts durchzugehen (1 wird nicht als Primzahl gezählt) und die bereitgestellte Funktion `isPrime()` darauf auszuführen. Für jede Zahl, die keine Primzahl ist, fahren Sie mit der nächsten Schleifeniteration fort. Für jede, die eine Primzahl ist, fügen Sie sie der `textContent` des Absatzes zusammen mit einer Art von Separator hinzu.
 
-Sie sollten eine Art Schleife verwenden, die Sie in den vorherigen beiden Aufgaben noch nicht verwendet haben.
+Sie sollten einen Schleifentyp verwenden, den Sie in den vorherigen beiden Aufgaben nicht verwendet haben.
 
 > [!CALLOUT]
 >
-> [Laden Sie das Startmaterial für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/loops/loops3-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/tasks/loops/loops3-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.

@@ -1,5 +1,5 @@
 ---
-title: "Screen: lockOrientation()-Methode"
+title: "Screen: lockOrientation() Methode"
 short-title: lockOrientation()
 slug: Web/API/Screen/lockOrientation
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Screen Orientation API")}}{{Deprecated_Header}}
 
-Die **`lockOrientation()`**-Methode der {{DOMxRef("Screen")}}-Schnittstelle sperrt den Bildschirm in eine angegebene Ausrichtung.
+Die **`lockOrientation()`**-Methode des [`Screen`](/de/docs/Web/API/Screen)-Interfaces sperrt den Bildschirm in eine bestimmte Ausrichtung.
 
 > [!WARNING]
-> Diese Funktion ist veraltet und sollte vermieden werden. Verwenden Sie stattdessen die Methode {{DOMxRef("ScreenOrientation.lock()")}}.
+> Diese Funktion ist veraltet und sollte vermieden werden. Verwenden Sie stattdessen die [`ScreenOrientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock)-Methode.
 
 > [!NOTE]
-> Diese Methode funktioniert nur für installierte Webanwendungen oder für Webseiten im [Vollbildmodus](/de/docs/Web/API/Fullscreen_API).
+> Diese Methode funktioniert nur für installierte Web-Apps oder für Webseiten im [Vollbildmodus](/de/docs/Web/API/Fullscreen_API).
 
 ## Syntax
 
@@ -26,33 +26,37 @@ lockOrientation(orientation)
 
 - `orientation`
 
-  - : Die Ausrichtung, in die der Bildschirm gesperrt werden soll. Dies ist entweder ein String oder ein Array von Strings. Das Übergeben mehrerer Strings erlaubt es dem Bildschirm, sich nur in den ausgewählten Ausrichtungen zu drehen.
+  - : Die Ausrichtung, in der der Bildschirm gesperrt werden soll. Dies ist entweder ein String oder ein Array von Strings. Durch das Übergeben mehrerer Strings kann der Bildschirm nur in den ausgewählten Ausrichtungen gedreht werden.
 
-    Die folgenden Strings repräsentieren die möglichen Anforderung an Ausrichtungen, die Sie angeben können:
+    Die folgenden Strings repräsentieren die möglichen Ausrichtungsanforderungen, die Sie angeben können:
 
     - `portrait-primary`
 
-      - : Dies repräsentiert die Ausrichtung des Bildschirms, wenn er sich im primären Hochformatmodus befindet. Ein Bildschirm befindet sich im primären Hochformatmodus, wenn das Gerät in seiner normalen Position gehalten wird und diese Position im Hochformat ist oder wenn die normale Position des Geräts im Querformat ist und das Gerät um 90° im Uhrzeigersinn gedreht wird. Die normale Position ist geräteabhängig.
+      - : Repräsentiert die Ausrichtung des Bildschirms im primären Porträtmodus. Ein Bildschirm befindet sich im primären Porträtmodus, wenn das Gerät in seiner normalen Position gehalten wird und diese Position im Hochformat ist, oder wenn die normale Position des Geräts im Querformat und das Gerät um 90° im Uhrzeigersinn gedreht wird. Die normale Position hängt vom Gerät ab.
 
     - `portrait-secondary`
-      - : Dies repräsentiert die Ausrichtung des Bildschirms, wenn er sich im sekundären Hochformatmodus befindet. Ein Bildschirm befindet sich im sekundären Hochformatmodus, wenn das Gerät um 180° von seiner normalen Position gehalten wird und diese Position im Hochformat ist oder wenn die normale Position des Geräts im Querformat ist und das Gerät um 90° gegen den Uhrzeigersinn gedreht wird. Die normale Position ist geräteabhängig.
+      - : Repräsentiert die Ausrichtung des Bildschirms im sekundären Porträtmodus. Ein Bildschirm befindet sich im sekundären Porträtmodus, wenn das Gerät 180° von seiner normalen Position gehalten wird und diese Position im Hochformat ist, oder wenn die normale Position des Geräts im Querformat ist und das Gerät um 90° gegen den Uhrzeigersinn gedreht wird. Die normale Position hängt vom Gerät ab.
     - `landscape-primary`
-      - : Dies repräsentiert die Ausrichtung des Bildschirms, wenn er sich im primären Querformatmodus befindet. Ein Bildschirm befindet sich im primären Querformatmodus, wenn das Gerät in seiner normalen Position gehalten wird und diese Position im Querformat ist oder wenn die normale Position des Geräts im Hochformat ist und das Gerät um 90° im Uhrzeigersinn gedreht wird. Die normale Position ist geräteabhängig.
+      - : Repräsentiert die Ausrichtung des Bildschirms im primären Querformatmodus. Ein Bildschirm befindet sich im primären Querformatmodus, wenn das Gerät in seiner normalen Position gehalten wird und diese Position im Querformat ist, oder wenn die normale Position des Geräts im Hochformat ist und das Gerät um 90° im Uhrzeigersinn gedreht wird. Die normale Position hängt vom Gerät ab.
     - `landscape-secondary`
-      - : Dies repräsentiert die Ausrichtung des Bildschirms, wenn er sich im sekundären Querformatmodus befindet. Ein Bildschirm befindet sich im sekundären Querformatmodus, wenn das Gerät um 180° von seiner normalen Position gehalten wird und diese Position im Querformat ist oder wenn die normale Position des Geräts im Hochformat ist und das Gerät um 90° gegen den Uhrzeigersinn gedreht wird. Die normale Position ist geräteabhängig.
+      - : Repräsentiert die Ausrichtung des Bildschirms im sekundären Querformatmodus. Ein Bildschirm befindet sich im sekundären Querformatmodus, wenn das Gerät 180° von seiner normalen Position gehalten wird und diese Position im Querformat ist, oder wenn die normale Position des Geräts im Hochformat ist und das Gerät um 90° gegen den Uhrzeigersinn gedreht wird. Die normale Position hängt vom Gerät ab.
     - `portrait`
-      - : Dies repräsentiert sowohl `portrait-primary` als auch `portrait-secondary`.
+      - : Repräsentiert sowohl `portrait-primary` als auch
+        `portrait-secondary`.
     - `landscape`
-      - : Dies repräsentiert sowohl `landscape-primary` als auch `landscape-secondary`.
+      - : Repräsentiert sowohl `landscape-primary` als auch
+        `landscape-secondary`.
     - `default`
-      - : Dies repräsentiert entweder `portrait-primary` oder `landscape-primary`, abhängig von der natürlichen Ausrichtung der Geräte. Zum Beispiel, wenn die Bildschirmauflösung 1280\*800 ist, wird `default` es in Querformat setzen, wenn die Auflösung 800\*1280 ist, wird `default` es in Hochformat setzen.
+      - : Repräsentiert entweder `portrait-primary` oder `landscape-primary`, abhängig von der natürlichen Ausrichtung der Geräte. Zum Beispiel, wenn die Auflösung des Panels 1280\*800 ist, wird `default` es im Querformat machen, wenn die Auflösung 800\*1280 ist, wird `default` es im Hochformat machen.
 
 > [!NOTE]
-> Es ist möglich, mehrere Sperren gleichzeitig festzulegen. Wenn also die Sperre nur für eine Ausrichtung festgelegt ist, ändert sich die Bildschirmausrichtung nicht, bis die Bildschirmsperre aufgehoben wird. Andernfalls ändert sich die Bildschirmausrichtung von einer Ausrichtung zur anderen, solange die Ausrichtungen zu denjenigen gehören, auf die das Gerät gesperrt wurde.
+> Es ist möglich, mehrere Sperren gleichzeitig festzulegen. Wenn die Sperre nur für eine Ausrichtung gesetzt ist, ändert sich die Bildschirmorientierung niemals, bis die Bildschirmorientierung entsperrt ist. Andernfalls ändert sich die Bildschirmorientierung von einer zur anderen, solange die Ausrichtungen zu den Ausrichtungen gehören, auf die das Gerät gesperrt ist.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn die Ausrichtung gesperrt werden durfte oder `false`, wenn die Sperrung der Ausrichtung abgelehnt wurde. Beachten Sie, dass der Rückgabewert nicht anzeigt, dass die Bildschirmausrichtung tatsächlich gesperrt ist: Es kann zu Verzögerungen kommen.
+Gibt `true` zurück, wenn die Ausrichtung gesperrt werden durfte, oder
+`false`, wenn das Sperren der Ausrichtung abgelehnt wurde. Beachten Sie, dass der Rückgabewert
+nicht darauf hinweist, dass die Bildschirmorientierung tatsächlich gesperrt ist: Es kann eine Verzögerung geben.
 
 ## Beispiele
 
@@ -90,9 +94,9 @@ if (
 
 ## Spezifikationen
 
-Dieses Feature ist Teil keiner Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Diese Funktion ist Teil keiner Spezifikation. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Verwenden Sie stattdessen {{domxref("ScreenOrientation.lock()")}}.
+Verwenden Sie stattdessen [`ScreenOrientation.lock()`](/de/docs/Web/API/ScreenOrientation/lock).
 
 ## Browser-Kompatibilität
 
@@ -100,7 +104,7 @@ Verwenden Sie stattdessen {{domxref("ScreenOrientation.lock()")}}.
 
 ## Siehe auch
 
-- {{DOMxRef("Screen.orientation")}}
-- {{DOMxRef("Screen.unlockOrientation()")}}
-- {{DOMxRef("Screen.orientationchange_event", "orientationchange")}} Event
-- [Verwalten der Bildschirmausrichtung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
+- [`Screen.orientation`](/de/docs/Web/API/Screen/orientation)
+- [`Screen.unlockOrientation()`](/de/docs/Web/API/Screen/unlockOrientation)
+- [`orientationchange`](/de/docs/Web/API/Screen/orientationchange_event) Ereignis
+- [Verwalten der Bildschirmorientierung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)

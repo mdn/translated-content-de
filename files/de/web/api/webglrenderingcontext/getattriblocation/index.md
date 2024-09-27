@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode getAttribLocation()"
+title: "WebGLRenderingContext: getAttribLocation()-Methode"
 short-title: getAttribLocation()
 slug: Web/API/WebGLRenderingContext/getAttribLocation
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.getAttribLocation()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt die Position einer Attributvariable in einem gegebenen {{domxref("WebGLProgram")}} zurück.
+Die **`WebGLRenderingContext.getAttribLocation()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt die Position einer Attributvariablen in einem gegebenen [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) zurück.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ getAttribLocation(program, name)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}, das die Attributvariable enthält.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das die Attributvariable enthält.
 - `name`
-  - : Ein String, der den Namen der Attributvariable angibt, deren Position ermittelt werden soll.
+  - : Ein String, der den Namen der Attributvariablen angibt, deren Position ermittelt werden soll.
 
 ### Rückgabewert
 
-Eine {{domxref("WebGL_API/Types", "GLint")}}-Zahl, die die Position des Variablennamens angibt, falls gefunden. Gibt andernfalls -1 zurück.
+Eine [`GLint`](/de/docs/Web/API/WebGL_API/Types)-Zahl, die die Position der Variablen angibt, falls gefunden. Gibt andernfalls -1 zurück.
 
 ## Beispiele
 
@@ -43,4 +43,4 @@ gl.getAttribLocation(program, "vColor");
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getUniformLocation()")}}
+- [`WebGLRenderingContext.getUniformLocation()`](/de/docs/Web/API/WebGLRenderingContext/getUniformLocation)

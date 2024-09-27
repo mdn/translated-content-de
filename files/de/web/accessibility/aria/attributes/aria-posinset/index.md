@@ -7,46 +7,46 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das Attribut `aria-posinset` definiert die Nummer oder Position eines Elements im aktuellen Satz von Listenelementen oder Baumelementen, wenn nicht alle Elemente im DOM vorhanden sind.
+Das `aria-posinset`-Attribut definiert die Nummer oder Position eines Elements im aktuellen Satz von Listeneinträgen oder Baumeinträgen, wenn nicht alle Elemente im DOM vorhanden sind.
 
 ## Beschreibung
 
-Kurz für "Position im Satz", definiert das Attribut `aria-posinset` die Position des Elements innerhalb des gesamten Satzes von Listenelementen oder Baumelementen, wenn nur ein Teil der Elemente im DOM vorhanden ist.
+Kurz für "position in set", definiert das `aria-posinset`-Attribut die Position des Elements innerhalb des gesamten Satzes von Listeneinträgen oder Baumeinträgen, wenn nur ein Teil der Elemente im DOM vorhanden ist.
 
-Wenn alle Elemente einer Liste im DOM vorhanden sind, kann der Browser die Gesamtheit und die Position jedes Elements berechnen, wodurch `aria-posinset` überflüssig wird. Sind nur Teile eines Satzes im DOM, fügt man `aria-posinset` hinzu, um Informationen über die Position des Elements im Satz zu liefern, zusammen mit [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize), um den Benutzer darüber zu informieren, wie viele Elemente im gesamten Satz enthalten sind.
+Wenn alle Elemente in einer Liste im DOM vorhanden sind, kann der Browser die Gesamtanzahl und die Position jedes Elements berechnen, wodurch `aria-posinset` überflüssig wird. Wenn nur ein Teil eines Satzes im DOM ist, fügen Sie `aria-posinset` hinzu, um Informationen über die Position des Elements innerhalb des Satzes bereitzustellen, zusammen mit [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize), um den Benutzer darüber zu informieren, wie viele Elemente sich im gesamten Satz befinden.
 
-Das folgende Beispiel zeigt ein Listenfeld mit vier Elementeoptionen von den 118 im Periodensystem der chemischen Elemente.
+Das folgende Beispiel zeigt ein Listenfeld mit vier Elementoptionen aus den 118 im Periodensystem der chemischen Elemente.
 
 ```html
-<h2 id="periodic-table">Periodensystem der chemischen Elemente</h2>
+<h2 id="periodic-table">Periodic table of chemical elements</h2>
 <ul role="listbox" aria-labelledby="periodic-table">
-  <li role="option" aria-setsize="118" aria-posinset="1">Wasserstoff</li>
+  <li role="option" aria-setsize="118" aria-posinset="1">Hydrogen</li>
   <li role="option" aria-setsize="118" aria-posinset="3">Lithium</li>
-  <li role="option" aria-setsize="118" aria-posinset="11">Natrium</li>
-  <li role="option" aria-setsize="118" aria-posinset="19">Kalium</li>
+  <li role="option" aria-setsize="118" aria-posinset="11">Sodium</li>
+  <li role="option" aria-setsize="118" aria-posinset="19">Potassium</li>
 </ul>
 ```
 
-Der Wert jedes `aria-posinset` ist eine Ganzzahl, die größer oder gleich `1` und kleiner oder gleich der Größe des Satzes ist, wenn diese Größe bekannt ist.
+Der Wert jedes `aria-posinset` ist eine ganze Zahl, die größer oder gleich `1` und kleiner oder gleich der Größe des Satzes ist, wenn diese Größe bekannt ist.
 
 > [!NOTE]
-> Bei der Verwendung von `aria-posinset` müssen Sie auch einen Wert für [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize) angeben, der die Größe des gesamten Satzes darstellt. Wenn die Größe des gesamten Satzes unbekannt ist, setzen Sie `aria-setsize="-1"`.
+> Wenn Sie `aria-posinset` verwenden, müssen Sie auch einen Wert für [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize) angeben, der die Größe des gesamten Satzes ist. Wenn die Größe des gesamten Satzes unbekannt ist, setzen Sie `aria-setsize="-1"`.
 
-Für [`menuitem`](/de/docs/Web/Accessibility/ARIA/Roles/menuitem_role), [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role) oder [`menuitemradio`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemradio_role) setzen Sie den Wert von `aria-posinset` in Bezug auf die Gesamtzahl der Elemente im Menü, ohne Trennzeichen einzuschließen.
+Für [`menuitem`](/de/docs/Web/Accessibility/ARIA/Roles/menuitem_role), [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role) oder [`menuitemradio`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemradio_role) legen Sie den Wert von `aria-posinset` in Bezug auf die Gesamtzahl der Elemente im Menü fest, ohne Trennzeichen einzubeziehen.
 
-In einem [`feed`](/de/docs/Web/Accessibility/ARIA/Roles/feed_role) hat jedes {{HTMLElement('article')}}-Element `aria-posinset` auf einen Wert eingestellt, der seine Position im Feed darstellt, zusammen mit `aria-setsize`, das entweder auf die Anzahl der geladenen Artikel oder die Gesamtzahl im Feed gesetzt ist, je nachdem, welcher Wert für die Benutzer am hilfreichsten ist.
+In einem [`feed`](/de/docs/Web/Accessibility/ARIA/Roles/feed_role) hat jedes {{HTMLElement('article')}}-Element `aria-posinset`, das auf einen Wert gesetzt ist, der seine Position im Feed darstellt, zusammen mit `aria-setsize`, das entweder auf die Anzahl der geladenen Artikel oder auf die Gesamtanzahl im Feed gesetzt ist, je nachdem, welcher Wert für die Benutzer am hilfreichsten ist.
 
 ## Werte
 
 - `<integer>`
-  - : Eine Ganzzahl, die größer oder gleich 1 ist, und kleiner oder gleich dem Wert von `aria-setsize`.
+  - : Ganze Zahl, die größer oder gleich 1 und kleiner oder gleich dem Wert von `aria-setsize` ist.
 
 ## Zugehörige Schnittstellen
 
-- {{domxref("Element.ariaPosInSet")}}
-  - : Die Eigenschaft [`ariaPosInSet`](/de/docs/Web/API/Element/ariaPosInSet), Teil der {{domxref("Element")}}-Schnittstelle, spiegelt den Wert des Attributs `aria-posinset` wider.
-- {{domxref("ElementInternals.ariaPosInSet")}}
-  - : Die Eigenschaft [`ariaPosInSet`](/de/docs/Web/API/ElementInternals/ariaPosInSet), Teil der {{domxref("ElementInternals")}}-Schnittstelle, spiegelt den Wert des Attributs `aria-posinset` wider.
+- [`Element.ariaPosInSet`](/de/docs/Web/API/Element/ariaPosInSet)
+  - : Die [`ariaPosInSet`](/de/docs/Web/API/Element/ariaPosInSet)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-posinset`-Attributes wider.
+- [`ElementInternals.ariaPosInSet`](/de/docs/Web/API/ElementInternals/ariaPosInSet)
+  - : Die [`ariaPosInSet`](/de/docs/Web/API/ElementInternals/ariaPosInSet)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-posinset`-Attributes wider.
 
 ## Zugehörige Rollen
 
@@ -63,7 +63,7 @@ Verwendet in Rollen:
 - [`row`](/de/docs/Web/Accessibility/ARIA/Roles/row_role)
 - [`tab`](/de/docs/Web/Accessibility/ARIA/Roles/tab_role)
 
-Erbt in Rollen:
+Vererbt in Rollen:
 
 - [`comment`](/de/docs/Web/Accessibility/ARIA/Roles/comment_role)
 - [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role)

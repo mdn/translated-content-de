@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Der **`FormDataEvent()`** Konstruktor erstellt ein neues {{domxref("FormDataEvent")}}-Objekt.
+Der **`FormDataEvent()`** Konstruktor erstellt ein neues [`FormDataEvent`](/de/docs/Web/API/FormDataEvent) Objekt.
 
 ## Syntax
 
@@ -19,15 +19,17 @@ new FormDataEvent(type, formEventInit)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Er ist case-sensitiv und Browser setzen ihn immer auf `formdata`.
+  - : Ein String mit dem Namen des Ereignisses.
+    Er ist case-sensitive und Browser setzen ihn immer auf `formdata`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `formData`
-      - : Ein {{domxref("FormData")}}-Objekt, um das {{domxref("FormDataEvent")}} vorab zu befüllen. Dieses wird dann über die {{domxref("FormDataEvent.formData")}}-Eigenschaft zugänglich gemacht.
+      - : Ein [`FormData`](/de/docs/Web/API/FormData) Objekt, um das [`FormDataEvent`](/de/docs/Web/API/FormDataEvent) vorab zu befüllen.
+        Dieses wird dann über die [`FormDataEvent.formData`](/de/docs/Web/API/FormDataEvent/formData) Eigenschaft zugegriffen.
 
 ### Rückgabewert
 
-Ein neues {{domxref("FormDataEvent")}}-Objekt.
+Ein neues [`FormDataEvent`](/de/docs/Web/API/FormDataEvent) Objekt.
 
 ## Beispiele
 
@@ -52,4 +54,4 @@ for (const value of fdEv.formData.values()) {
 
 ## Siehe auch
 
-- {{domxref("FormDataEvent")}}
+- [`FormDataEvent`](/de/docs/Web/API/FormDataEvent)

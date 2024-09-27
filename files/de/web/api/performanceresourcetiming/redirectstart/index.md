@@ -8,31 +8,31 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`redirectStart`** gibt einen {{domxref("DOMHighResTimeStamp","Zeitstempel")}} zurück, der die Startzeit des Fetch-Vorgangs darstellt, der die Weiterleitung initiiert.
+Die **`redirectStart`** schreibgeschützte Eigenschaft gibt einen [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Startzeit des Abrufs darstellt, der die Umleitung einleitet.
 
-Wenn es HTTP-Weiterleitungen beim Abrufen der Ressource gibt und wenn irgendeine der Weiterleitungen nicht von derselben Quelle wie das aktuelle Dokument stammt, jedoch der Überprüfungsalgorithmus für die Zeitmessung für jede weitergeleitete Ressource gilt, gibt diese Eigenschaft die Startzeit des Fetch-Vorgangs zurück, der die Weiterleitung initiiert; andernfalls wird null zurückgegeben.
+Wenn es beim Abrufen der Ressource HTTP-Weiterleitungen gibt und wenn eine der Weiterleitungen nicht von demselben Ursprung wie das aktuelle Dokument stammt, aber der Timing-Allow-Check-Algorithmus für jede umgeleitete Ressource besteht, gibt diese Eigenschaft die Startzeit des Abrufs zurück, der die Umleitung einleitet; andernfalls wird null zurückgegeben.
 
-Um die Anzahl der Weiterleitungen zu ermitteln, siehe auch {{domxref("PerformanceNavigationTiming.redirectCount")}}.
+Um die Anzahl der Umleitungen zu ermitteln, siehe auch [`PerformanceNavigationTiming.redirectCount`](/de/docs/Web/API/PerformanceNavigationTiming/redirectCount).
 
 ## Wert
 
-Die `redirectStart`-Eigenschaft kann folgende Werte haben:
+Die `redirectStart`-Eigenschaft kann folgende Werte annehmen:
 
-- Einen {{domxref("DOMHighResTimeStamp","Zeitstempel")}}, der die Startzeit des Fetch-Vorgangs darstellt, der die Weiterleitung initiiert.
-- `0`, wenn es keine Weiterleitung gibt.
+- Ein [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp), der die Startzeit des Abrufs darstellt, der die Umleitung einleitet.
+- `0`, wenn es keine Umleitung gibt.
 - `0`, wenn die Ressource eine Cross-Origin-Anfrage ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header verwendet wird.
 
 ## Beispiele
 
-### Messung der Weiterleitungszeit
+### Messung der Umleitungszeit
 
-Die Eigenschaften `redirectStart` und {{domxref("PerformanceResourceTiming.redirectEnd", "redirectEnd")}} können verwendet werden, um zu messen, wie lange die Weiterleitung dauert.
+Die Eigenschaften `redirectStart` und [`redirectEnd`](/de/docs/Web/API/PerformanceResourceTiming/redirectEnd) können verwendet werden, um zu messen, wie lange die Umleitung dauert.
 
 ```js
 const redirect = entry.redirectEnd - entry.redirectStart;
 ```
 
-Ein Beispiel mit einem {{domxref("PerformanceObserver")}}, der über neue `resource`-Performance-Einträge benachrichtigt, sobald sie in der Performance-Timeline des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge vor der Erzeugung des Observers zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource` Performance-Einträge benachrichtigt, sobald sie in der Leistungs-Timeline des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge zuzugreifen, die vor der Erstellung des Beobachters vorhanden sind.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -47,7 +47,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Ein Beispiel unter Verwendung von {{domxref("Performance.getEntriesByType()")}}, das nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Timeline des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource` Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungs-Timeline des Browsers vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -59,11 +59,11 @@ resources.forEach((entry) => {
 });
 ```
 
-### Timing-Informationen für Cross-Origin
+### Timing-Informationen bei Cross-Origin-Anfragen
 
-Wenn der Wert der `redirectStart`-Eigenschaft `0` ist, könnte die Ressource eine Cross-Origin-Anfrage sein. Um Timing-Informationen für Cross-Origin anzuzeigen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt werden.
+Wenn der Wert der `redirectStart`-Eigenschaft `0` ist, könnte die Ressource eine Cross-Origin-Anfrage sein. Um die Anzeige von Timing-Informationen für Cross-Origin-Anfragen zu ermöglichen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt werden.
 
-Zum Beispiel, um `https://developer.mozilla.org` zu erlauben, Timing-Ressourcen zu sehen, sollte die Cross-Origin-Ressource senden:
+Um beispielsweise `https://developer.mozilla.org` den Zugriff auf Timing-Ressourcen zu ermöglichen, sollte die Cross-Origin-Ressource senden:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org
@@ -79,5 +79,5 @@ Timing-Allow-Origin: https://developer.mozilla.org
 
 ## Siehe auch
 
-- {{domxref("PerformanceNavigationTiming.redirectCount")}}
+- [`PerformanceNavigationTiming.redirectCount`](/de/docs/Web/API/PerformanceNavigationTiming/redirectCount)
 - {{HTTPHeader("Timing-Allow-Origin")}}

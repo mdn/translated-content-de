@@ -1,5 +1,5 @@
 ---
-title: Verlauf
+title: History
 slug: Web/API/History
 l10n:
   sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
@@ -7,46 +7,46 @@ l10n:
 
 {{APIRef("History API")}}
 
-Das **`History`**-Interface der {{domxref("History API", "", "", "nocode")}} ermöglicht die Manipulation des Browser-_Sitzungsverlaufs_, also der Seiten, die im Tab oder Frame besucht wurden, in dem die aktuelle Seite geladen ist.
+Das **`History`** Interface der [History API](/de/docs/Web/API/History_API) ermöglicht die Manipulation des Browser-_Sitzungsverlaufs_, also der in dem Tab oder Frame besuchten Seiten, in dem die aktuelle Seite geladen ist.
 
-Es gibt nur eine Instanz von `history` (Es ist ein _Singleton._) zugänglich über das globale Objekt {{domxref("Window.history", "history")}}.
+Es gibt nur eine Instanz von `history` (Es ist ein _Singleton_), auf die über das globale Objekt [`history`](/de/docs/Web/API/Window/history) zugegriffen werden kann.
 
 > [!NOTE]
-> Dieses Interface steht nur im Haupt-Thread ({{domxref("Window")}}) zur Verfügung. Es kann nicht in {{domxref("Worker")}}- oder {{domxref("Worklet")}}-Kontexten aufgerufen werden.
+> Dieses Interface ist nur im Hauptthread ([`Window`](/de/docs/Web/API/Window)) verfügbar. Es kann nicht in [`Worker`](/de/docs/Web/API/Worker) oder [`Worklet`](/de/docs/Web/API/Worklet) Kontexten aufgerufen werden.
 
-## Instanz-Eigenschaften
+## Instanzattribute
 
-_Das `History`-Interface erbt keine Eigenschaften._
+_Das `History` Interface erbt keine Attribute._
 
-- {{domxref("History.length","length")}} {{ReadOnlyInline}}
-  - : Gibt eine `Integer` zurück, die die Anzahl der Elemente im Sitzungsverlauf darstellt, einschließlich der aktuell geladenen Seite. Zum Beispiel gibt diese Eigenschaft für eine in einem neuen Tab geladene Seite `1` zurück.
-- {{domxref("History.scrollRestoration","scrollRestoration")}}
-  - : Ermöglicht Webanwendungen, standardmäßiges Scroll-Verhalten bei Verlaufsnavigation explizit festzulegen. Diese Eigenschaft kann entweder `auto` oder `manual` sein.
-- {{domxref("History.state","state")}} {{ReadOnlyInline}}
-  - : Gibt einen `any`-Wert zurück, der den Zustand an der Spitze des Verlauf-Stacks darstellt. Dies ist eine Möglichkeit, den Zustand einzusehen, ohne auf ein {{domxref("Window/popstate_event", "popstate")}}-Ereignis warten zu müssen.
+- [`length`](/de/docs/Web/API/History/length) {{ReadOnlyInline}}
+  - : Gibt eine `Integer`-Zahl zurück, die die Anzahl der Elemente im Sitzungsverlauf darstellt, einschließlich der aktuell geladenen Seite. Zum Beispiel gibt diese Eigenschaft für eine Seite, die in einem neuen Tab geladen wurde, `1` zurück.
+- [`scrollRestoration`](/de/docs/Web/API/History/scrollRestoration)
+  - : Ermöglicht es Webanwendungen, das Standardverhalten der Wiederherstellung des Scroll-Status bei Navigationsvorgängen im Verlauf explizit festzulegen. Diese Eigenschaft kann entweder `auto` oder `manual` sein.
+- [`state`](/de/docs/Web/API/History/state) {{ReadOnlyInline}}
+  - : Gibt einen `any`-Wert zurück, der den Zustand an der Spitze des Verlauf-Stacks darstellt. Dies ist eine Möglichkeit, sich den Zustand anzusehen, ohne auf ein [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis warten zu müssen.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Das `History`_-_Interface erbt keine Methoden._
+_Das `History` Interface erbt keine Methoden._
 
-- {{domxref("History.back","back()")}}
+- [`back()`](/de/docs/Web/API/History/back)
 
-  - : Diese asynchrone Methode geht zur vorherigen Seite im Sitzungsverlauf, die gleiche Aktion wie beim Klicken des <kbd>Zurück</kbd>-Buttons im Browser. Entspricht `history.go(-1)`.
+  - : Diese asynchrone Methode geht zur vorherigen Seite im Sitzungsverlauf, dieselbe Aktion, als würde der Benutzer auf die <kbd>Zurück</kbd>-Schaltfläche des Browsers klicken. Entspricht `history.go(-1)`.
 
-    Das Aufrufen dieser Methode, um über die erste Seite im Sitzungsverlauf zurückzugehen, hat keine Wirkung und löst keine Ausnahme aus.
+    Wenn diese Methode aufgerufen wird, um über die erste Seite im Sitzungsverlauf hinaus zurückzugehen, hat dies keine Auswirkung und löst keine Ausnahme aus.
 
-- {{domxref("History.forward","forward()")}}
+- [`forward()`](/de/docs/Web/API/History/forward)
 
-  - : Diese asynchrone Methode geht zur nächsten Seite im Sitzungsverlauf, die gleiche Aktion wie beim Klicken des <kbd>Vorwärts</kbd>-Buttons im Browser; dies entspricht `history.go(1)`.
+  - : Diese asynchrone Methode geht zur nächsten Seite im Sitzungsverlauf, dieselbe Aktion, als würde der Benutzer auf die <kbd>Weiter</kbd>-Schaltfläche des Browsers klicken; das entspricht `history.go(1)`.
 
-    Das Aufrufen dieser Methode, um über die zuletzt besuchte Seite im Sitzungsverlauf hinauszugehen, hat keine Wirkung und löst keine Ausnahme aus.
+    Wenn diese Methode aufgerufen wird, um über die letzte Seite im Sitzungsverlauf hinaus weiterzugehen, hat dies keine Auswirkung und löst keine Ausnahme aus.
 
-- {{domxref("History.go","go()")}}
-  - : Lädt asynchron eine Seite aus dem Sitzungsverlauf, identifiziert durch ihre relative Position zur aktuellen Seite, zum Beispiel `-1` für die vorherige Seite oder `1` für die nächste Seite. Falls Sie einen außerhalb des Bereichs liegenden Wert angeben (zum Beispiel, `-1` anzugeben, wenn es keine zuvor besuchten Seiten im Sitzungsverlauf gibt), hat diese Methode stillschweigend keine Wirkung. Das Aufrufen von `go()` ohne Parameter oder mit einem Wert von `0` lädt die aktuelle Seite neu.
-- {{domxref("History.pushState","pushState()")}}
-  - : Schiebt die angegebenen Daten mit dem angegebenen Titel (und, falls bereitgestellt, URL) auf den Sitzungsverlauf-Stack. Die Daten werden vom DOM als undurchsichtig behandelt; Sie können jedes JavaScript-Objekt angeben, das serialisiert werden kann. Beachten Sie, dass alle Browser außer Safari derzeit den _title_-Parameter ignorieren. Weitere Informationen finden Sie unter [Arbeiten mit der History API](/de/docs/Web/API/History_API/Working_with_the_History_API).
-- {{domxref("History.replaceState","replaceState()")}}
-  - : Aktualisiert den letzten Eintrag im Verlaufs-Stack, um die angegebenen Daten, den Titel und, falls bereitgestellt, die URL zu enthalten. Die Daten werden vom DOM als undurchsichtig behandelt; Sie können jedes JavaScript-Objekt angeben, das serialisiert werden kann. Beachten Sie, dass alle Browser außer Safari derzeit den _title_-Parameter ignorieren. Weitere Informationen finden Sie unter [Arbeiten mit der History API](/de/docs/Web/API/History_API/Working_with_the_History_API).
+- [`go()`](/de/docs/Web/API/History/go)
+  - : Lässt eine Seite aus dem Sitzungsverlauf asynchron laden, identifiziert durch ihre relative Position zur aktuellen Seite, zum Beispiel `-1` für die vorherige Seite oder `1` für die nächste Seite. Wenn Sie einen Wert außerhalb des gültigen Bereichs angeben (zum Beispiel `-1`, wenn es keine zuvor besuchten Seiten im Sitzungsverlauf gibt), hat diese Methode stillschweigend keine Wirkung. Ein Aufruf von `go()` ohne Parameter oder mit einem Wert von `0` lädt die aktuelle Seite neu.
+- [`pushState()`](/de/docs/Web/API/History/pushState)
+  - : Fügt die angegebenen Daten mit dem spezifizierten Titel (und, falls angegeben, URL) dem Sitzungsverlauf-Stack hinzu. Die Daten werden vom DOM als undurchsichtig behandelt; Sie können jedes JavaScript-Objekt angeben, das serialisiert werden kann. Beachten Sie, dass alle Browser außer Safari derzeit den _title_-Parameter ignorieren. Für weitere Informationen siehe [Working with the History API](/de/docs/Web/API/History_API/Working_with_the_History_API).
+- [`replaceState()`](/de/docs/Web/API/History/replaceState)
+  - : Aktualisiert den zuletzt im Verlauf-Stack gespeicherten Eintrag mit den angegebenen Daten, dem Titel, und, falls angegeben, der URL. Die Daten werden vom DOM als undurchsichtig behandelt; Sie können jedes JavaScript-Objekt angeben, das serialisiert werden kann. Beachten Sie, dass alle Browser außer Safari derzeit den _title_-Parameter ignorieren. Für weitere Informationen siehe [Working with the History API](/de/docs/Web/API/History_API/Working_with_the_History_API).
 
 ## Spezifikationen
 
@@ -58,4 +58,4 @@ _Das `History`_-_Interface erbt keine Methoden._
 
 ## Siehe auch
 
-- {{domxref("Window.history", "history")}} globales Objekt
+- Globales Objekt [`history`](/de/docs/Web/API/Window/history)

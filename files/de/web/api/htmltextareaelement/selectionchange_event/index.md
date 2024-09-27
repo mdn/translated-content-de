@@ -10,15 +10,15 @@ l10n:
 
 Das **`selectionchange`**-Ereignis der [Selection API](/de/docs/Web/API/Selection) wird ausgelöst, wenn die Textauswahl innerhalb eines {{HTMLElement("textarea")}}-Elements geändert wird. Dies umfasst sowohl Änderungen im ausgewählten Zeichenbereich als auch das Bewegen des Cursors.
 
-Dieses Ereignis ist nicht abbrechbar.
+Dieses Ereignis kann nicht abgebrochen werden.
 
-Das Ereignis wird normalerweise verarbeitet, indem ein Ereignislistener auf das {{HTMLElement("textarea")}} hinzugefügt wird, in der Handler-Funktion werden die Eigenschaften `selectionStart`, `selectionEnd` und `selectionDirection` des {{domxref("HTMLTextAreaElement")}} ausgelesen.
+Das Ereignis wird normalerweise verarbeitet, indem ein Ereignislistener auf das {{HTMLElement("textarea")}} hinzugefügt wird. In der Handlerfunktion werden die `selectionStart`, `selectionEnd` und `selectionDirection` Eigenschaften des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) ausgelesen.
 
-Es ist auch möglich, einen Listener auf den globalen `onselectionchange` Ereignis-Handler hinzuzufügen und in der Handler-Funktion {{domxref("Document.getSelection()")}} zu verwenden, um an die {{domxref("Selection", "Selektion")}} zu gelangen. Dies ist jedoch nicht sehr nützlich, um Änderungen bei _Text_-Auswahlen zu erhalten.
+Es ist auch möglich, einen Listener auf den globalen `onselectionchange` Ereignishandler hinzuzufügen und innerhalb der Handlerfunktion [`Document.getSelection()`](/de/docs/Web/API/Document/getSelection) zu verwenden, um die [`Selection`](/de/docs/Web/API/Selection) zu erhalten. Dies ist jedoch nicht sehr nützlich, um Änderungen an _Text_-Auswahlen zu erhalten.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("selectionchange", (event) => {});
@@ -28,17 +28,17 @@ onselectionchange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Das untenstehende Beispiel zeigt, wie man den in einem {{HTMLElement("textarea")}}-Element ausgewählten Text ermitteln kann.
+Das untenstehende Beispiel zeigt, wie man den im {{HTMLElement("textarea")}}-Element ausgewählten Text erhält.
 
 ### HTML
 
 ```html
 <div>
-  Geben Sie hier Text ein und wählen Sie ihn aus:<br /><textarea
+  Enter and select text here:<br /><textarea
     id="mytext"
     rows="2"
     cols="20"></textarea>

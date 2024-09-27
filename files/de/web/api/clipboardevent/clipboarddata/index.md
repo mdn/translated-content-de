@@ -1,5 +1,5 @@
 ---
-title: "ClipboardEvent: Eigenschaft clipboardData"
+title: "ClipboardEvent: clipboardData-Eigenschaft"
 short-title: clipboardData
 slug: Web/API/ClipboardEvent/clipboardData
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Clipboard API")}}
 
-Die **`clipboardData`**-Eigenschaft des {{domxref("ClipboardEvent")}}-Interfaces enthält ein {{domxref("DataTransfer")}}-Objekt, das verwendet werden kann, um:
+Die **`clipboardData`**-Eigenschaft der [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent)-Schnittstelle enthält ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das verwendet werden kann, um:
 
-- festzulegen, welche Daten über die {{domxref("Element/cut_event", "cut")}}- und {{domxref("Element/copy_event", "copy")}}-Ereignishandler in die Zwischenablage eingefügt werden sollen, typischerweise mit einem Aufruf von {{domxref("DataTransfer.setData", "setData(format, data)")}};
-- die einzufügenden Daten vom {{domxref("Element/paste_event", "paste")}}-Ereignishandler abzurufen, typischerweise mit einem Aufruf von {{domxref("DataTransfer.getData", "getData(format)")}}.
+- anzugeben, welche Daten durch die [`cut`](/de/docs/Web/API/Element/cut_event)- und [`copy`](/de/docs/Web/API/Element/copy_event)-Ereignishandler in die Zwischenablage eingefügt werden sollen, typischerweise mit einem Aufruf von [`setData(format, data)`](/de/docs/Web/API/DataTransfer/setData);
+- die einzufügenden Daten durch den [`paste`](/de/docs/Web/API/Element/paste_event)-Ereignishandler zu erhalten, typischerweise mit einem Aufruf von [`getData(format)`](/de/docs/Web/API/DataTransfer/getData).
 
-Siehe die Dokumentation zu den Ereignissen {{domxref("Element/cut_event", "cut")}}, {{domxref("Element/copy_event", "copy")}} und {{domxref("Element/paste_event", "paste")}} für weitere Informationen.
+Siehe die Dokumentation zu den Ereignissen [`cut`](/de/docs/Web/API/Element/cut_event), [`copy`](/de/docs/Web/API/Element/copy_event) und [`paste`](/de/docs/Web/API/Element/paste_event) für weitere Informationen.
 
 ## Wert
 
-Ein {{domxref("DataTransfer")}}-Objekt.
+Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt.
 
-Die Eigenschaft kann `null` sein, wenn das Ereignis mit dem Konstruktor erstellt wurde. Beim Auslösen durch den Browser ist sie niemals `null`.
+Die Eigenschaft kann `null` sein, wenn das Ereignis mit dem Konstruktor erstellt wird. Sie ist niemals `null`, wenn sie vom Browser ausgelöst wird.
 
 ## Spezifikationen
 
@@ -31,6 +31,6 @@ Die Eigenschaft kann `null` sein, wenn das Ereignis mit dem Konstruktor erstellt
 
 ## Siehe auch
 
-- Kopierbezogene Ereignisse: {{domxref("Element/copy_event", "copy")}}, {{domxref("Element/cut_event", "cut")}}, {{domxref("Element/paste_event", "paste")}}
-- Das {{domxref("ClipboardEvent")}}-Interface, zu dem es gehört.
+- Kopierbezogene Ereignisse: [`copy`](/de/docs/Web/API/Element/copy_event), [`cut`](/de/docs/Web/API/Element/cut_event), [`paste`](/de/docs/Web/API/Element/paste_event)
+- Die [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent)-Schnittstelle, zu der es gehört.
 - [Clipboard API](/de/docs/Web/API/Clipboard_API)

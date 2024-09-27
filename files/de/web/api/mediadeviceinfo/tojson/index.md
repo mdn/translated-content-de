@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{securecontext_header}}
 
-Die **`toJSON()`**-Methode der {{domxref("MediaDeviceInfo")}}-Schnittstelle ist ein {{Glossary("Serialization","Serializer")}}; sie gibt eine JSON-Darstellung des {{domxref("MediaDeviceInfo")}}-Objekts zurück.
+Die **`toJSON()`**-Methode der [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Objekts zurück.
 
 ## Syntax
 
@@ -22,15 +22,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des {{domxref("MediaDeviceInfo")}}-Objekts ist.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Objekts darstellt.
 
 ### Beispiele
 
 ```js
 if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
-  console.log("enumerateDevices() nicht unterstützt.");
+  console.log("enumerateDevices() not supported.");
 } else {
-  // Kameras und Mikrofone auflisten.
+  // List cameras and microphones.
   navigator.mediaDevices
     .enumerateDevices()
     .then((devices) => {
@@ -44,7 +44,7 @@ if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
 }
 ```
 
-Dies könnte zu folgender Ausgabe führen:
+Dies könnte folgendes erzeugen:
 
 ```bash
 Object { deviceId: "HJtTemQTM64Bivxv3ZEyKjCi1VR8042lPNpmXKObKJE=", kind: "videoinput", label: "", groupId: "Okm2l1YZTrwy8awTxE8QSLNFoVMdIXx++wLh68tbmv0=" }

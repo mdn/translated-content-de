@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **`CSSStyleDeclaration.setProperty()`**-Methodenschnittstelle setzt einen neuen Wert für eine Eigenschaft auf einem CSS-Stil-Deklarationsobjekt.
+Die Methode **`CSSStyleDeclaration.setProperty()`** der Schnittstelle setzt einen neuen Wert für eine Eigenschaft auf einem CSS-Stildeklarationsobjekt.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ setProperty(propertyName, value, priority)
 ### Parameter
 
 - `propertyName`
-  - : Ein String, der den CSS-Eigenschaftsnamen (in Bindestrich-Schreibweise) repräsentiert, der geändert werden soll.
+  - : Ein String, der den Namen der zu ändernden CSS-Eigenschaft (in Bindestrich-Schreibweise) darstellt.
 - `value` {{optional_inline}}
-  - : Ein String, der den neuen Eigenschaftswert enthält. Wenn nicht angegeben, wird er als leerer String behandelt. Ein [`null`](/de/docs/Web/JavaScript/Reference/Operators/null)-Wert wird genauso behandelt wie der leere String (`""`).
-    > **Note:** `value` darf nicht `"!important"` enthalten; dies sollte mit dem `priority`-Parameter gesetzt werden.
+  - : Ein String, der den neuen Eigenschaftswert enthält. Wird er nicht angegeben, wird er als leerer String behandelt. Ein [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) Wert wird genauso wie der leere String (`""`) behandelt.
+    > **Note:** `value` darf nicht `"!important"` enthalten, das sollte mit dem `priority`-Parameter gesetzt werden.
 - `priority` {{optional_inline}}
 
-  - : Ein String, der die "wichtige" CSS-Priorität setzen lässt. Wenn nicht angegeben, wird er als leerer String behandelt. Die folgenden Werte werden akzeptiert:
+  - : Ein String, der es ermöglicht, die "important"-Priorität in CSS zu setzen. Wird er nicht angegeben, wird er als leerer String behandelt. Die folgenden Werte werden akzeptiert:
 
     - String-Wert `"important"`
     - Schlüsselwort `undefined`
@@ -38,12 +38,13 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `NoModificationAllowedError` {{domxref('DOMException')}}
+- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Eigenschaft oder der Deklarationsblock schreibgeschützt ist.
 
 ## Alternative Nutzung
 
-Wenn `priority` weggelassen werden kann, bietet JavaScript eine besondere, einfachere Syntax zum Setzen einer CSS-Eigenschaft auf einem Stil-Deklarationsobjekt:
+Wenn `priority` weggelassen werden kann, hat JavaScript eine spezielle einfachere
+Syntax, um eine CSS-Eigenschaft auf einem Stil-Deklarationsobjekt zu setzen:
 
 ```js
 style.cssPropertyName = "value";
@@ -51,12 +52,17 @@ style.cssPropertyName = "value";
 
 ## Beispiele
 
-In diesem Beispiel haben wir drei Schaltflächen, die gedrückt werden können, um dynamisch den Rahmen, die Hintergrundfarbe und die Textfarbe unseres Box-Absatzes zufällige Werte zu ändern (siehe das Live-Beispiel am Ende dieses Abschnitts).
+In diesem Beispiel haben wir drei Schaltflächen, die gedrückt werden können, um dynamisch den Rand, die Hintergrundfarbe und die Textfarbe unseres Box-Absatzes zu zufälligen Werten zu ändern (siehe das Live-Beispiel am Ende dieses Abschnitts).
 
-Wir wissen, dass die Regel, die wir ändern möchten, im zweiten Stylesheet enthalten ist, das auf die Seite angewendet wird, daher holen wir uns eine Referenz darauf mit [`document.styleSheets[1]`](/de/docs/Web/API/Document/styleSheets).
-Dann durchlaufen wir die verschiedenen Regeln innerhalb des Stylesheets, die in dem Array zu finden sind unter [`stylesheet.cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules); bei jeder prüfen wir, ob ihre [`CSSStyleRule.selectorText`](/de/docs/Web/API/CSSStyleRule/selectorText)-Eigenschaft gleich dem Selektor `.box p` ist, was andeutet, dass es diejenige ist, die wir wollen.
+Wir wissen, dass die Regel, die wir ändern möchten, im zweiten auf die Seite angewendeten Stylesheet enthalten ist, also holen wir uns mit [`document.styleSheets[1]`](/de/docs/Web/API/Document/styleSheets) eine Referenz darauf.
+Dann durchlaufen wir die verschiedenen Regeln, die im Stylesheet enthalten sind, die im Array unter
+[`stylesheet.cssRules`](/de/docs/Web/API/CSSStyleSheet/cssRules) enthalten sind;
+für jede Regel überprüfen wir, ob ihre
+[`CSSStyleRule.selectorText`](/de/docs/Web/API/CSSStyleRule/selectorText)
+Eigenschaft dem Selektor `.box p` entspricht, was anzeigt, dass es die Regel ist, die wir benötigen.
 
-Falls ja, speichern wir eine Referenz zu diesem `CSSStyleRule`-Objekt in einer Variablen. Wir verwenden dann drei Funktionen, um zufällige Werte für die betreffenden Eigenschaften zu generieren und aktualisieren die Regel mit diesen Werten. In jedem Fall wird dies mit der `setProperty()`-Methode durchgeführt, zum Beispiel `boxParaRule.style.setProperty('border', newBorder);`.
+Wenn ja, speichern wir eine Referenz zu diesem `CSSStyleRule` Objekt in einer Variablen. Wir verwenden dann drei Funktionen, um zufällige Werte für die betreffenden Eigenschaften zu generieren und aktualisieren die Regel mit diesen Werten. In jedem Fall geschieht dies mit der
+`setProperty()` Methode, zum Beispiel `boxParaRule.style.setProperty('border', newBorder);`.
 
 ### HTML
 

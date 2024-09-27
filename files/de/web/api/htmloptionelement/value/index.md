@@ -1,5 +1,5 @@
 ---
-title: "HTMLOptionElement: value-Eigenschaft"
+title: "HTMLOptionElement: value Eigenschaft"
 short-title: value
 slug: Web/API/HTMLOptionElement/value
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`value`**-Eigenschaft des {{DOMxRef("HTMLOptionElement")}}-Interfaces repräsentiert den Wert des {{htmlelement("option")}}-Elements als Zeichenkette oder den leeren String, wenn kein Wert festgelegt ist. Sie spiegelt das [`value`](/de/docs/Web/HTML/Element/option#value)-Attribut des Elements wider, falls vorhanden. Andernfalls gibt sie die Inhalte des Elements zurück oder setzt diese, ähnlich der Eigenschaft {{domxref("Node.textContent","textContent")}}.
+Die **`value`**-Eigenschaft der [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement)-Schnittstelle repräsentiert den Wert des {{htmlelement("option")}}-Elements als einen String oder den leeren String, wenn kein Wert festgelegt ist. Sie spiegelt das [`value`](/de/docs/Web/HTML/Element/option#value)-Attribut des Elements wider, falls vorhanden. Andernfalls gibt sie den Inhalt des Elements zurück oder legt diesen fest, ähnlich der [`textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft.
 
 ## Wert
 
-Eine Zeichenkette, die den Wert des `value`-Attributs enthält, falls vorhanden, oder die Inhalte des Elements.
+Ein String, der den `value`-Attributwert enthält, falls vorhanden, oder den Inhalt des Elements.
 
 ## Beispiele
 
@@ -33,6 +33,6 @@ optionElement.value = oldValue.toUpperCase();
 ## Siehe auch
 
 - {{HTMLElement("option")}}
-- {{DOMXref("HTMLOptionElement.selected")}}
-- {{DOMXref("HTMLOptionElement.defaultSelected")}}
-- {{DOMXref("HTMLOptionElement.label")}}
+- [`HTMLOptionElement.selected`](/de/docs/Web/API/HTMLOptionElement/selected)
+- [`HTMLOptionElement.defaultSelected`](/de/docs/Web/API/HTMLOptionElement/defaultSelected)
+- [`HTMLOptionElement.label`](/de/docs/Web/API/HTMLOptionElement/label)

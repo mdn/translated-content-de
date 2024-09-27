@@ -1,5 +1,5 @@
 ---
-title: "Warnung: -file- wird ein //# sourceMappingURL zugewiesen, hat aber bereits eines"
+title: "Warnung: -file- wird ein //# sourceMappingURL zugewiesen, aber es hat bereits eines"
 slug: Web/JavaScript/Reference/Errors/Already_has_pragma
 l10n:
   sourceCommit: a71b8929628a2187794754c202ad399fe357141b
@@ -7,35 +7,35 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Warnung "-file- wird ein //# sourceMappingURL zugewiesen, hat aber bereits eines." tritt auf, wenn eine Quellkarte mehr als einmal für eine bestimmte JavaScript-Quelle angegeben wurde.
+Die JavaScript-Warnung "-file- wird ein //# sourceMappingURL zugewiesen, aber es hat bereits eines." tritt auf, wenn eine Quellkarte für eine bestimmte JavaScript-Quelle mehrmals angegeben wurde.
 
-## Meldung
+## Nachricht
 
 ```plain
 Warning: -file- is being assigned a //# sourceMappingURL, but already has one.
 ```
 
-## Fehlertyp
+## Fehlerart
 
-Eine Warnung. Die JavaScript-Ausführung wird nicht gestoppt.
+Eine Warnung. Die JavaScript-Ausführung wird nicht angehalten.
 
 ## Was ist schiefgelaufen?
 
-Eine Quellkarte wurde mehr als einmal für eine bestimmte JavaScript-Quelle angegeben.
+Eine Quellkarte wurde mehrmals für eine bestimmte JavaScript-Quelle angegeben.
 
-JavaScript-Quellen werden oft kombiniert und komprimiert, um ihre Bereitstellung vom Server effizienter zu gestalten. Mit [Source Maps](https://developer.chrome.com/blog/sourcemaps/) kann der Debugger den ausgeführten Code den ursprünglichen Quelldateien zuordnen. Es gibt zwei Möglichkeiten, eine Quellkarte zuzuweisen: entweder durch einen Kommentar oder durch Setzen eines Headers in der JavaScript-Datei.
+JavaScript-Quellen werden oft kombiniert und minimiert, um die Bereitstellung vom Server effizienter zu gestalten. Mit [Quellkarten](https://developer.chrome.com/blog/sourcemaps/) kann der Debugger den ausgeführten Code auf die Original-Quelldateien abbilden. Es gibt zwei Möglichkeiten, eine Quellkarte zuzuweisen: entweder durch einen Kommentar oder durch das Setzen eines Headers in der JavaScript-Datei.
 
 ## Beispiele
 
-### Festlegen von Quellkarten
+### Quellkarten festlegen
 
-Festlegen einer Quellkarte durch Verwendung eines Kommentars in der Datei:
+Festlegen einer Quellkarte durch Verwenden eines Kommentars in der Datei:
 
 ```js example-good
 //# sourceMappingURL=http://example.com/path/to/your/sourcemap.map
 ```
 
-Alternativ können Sie einen Header für Ihre JavaScript-Datei setzen:
+Alternativ können Sie einen Header in Ihrer JavaScript-Datei setzen:
 
 ```http example-good
 X-SourceMap: /path/to/file.js.map
@@ -43,5 +43,5 @@ X-SourceMap: /path/to/file.js.map
 
 ## Siehe auch
 
-- [Verwendung einer Quellkarte](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html) in den Firefox-Quellendokumenten
+- [Verwenden einer Quellkarte](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/use_a_source_map/index.html) in den Firefox-Quellendokumenten
 - [Einführung in JavaScript-Quellkarten](https://developer.chrome.com/blog/sourcemaps/) auf developer.chrome.com (2012)

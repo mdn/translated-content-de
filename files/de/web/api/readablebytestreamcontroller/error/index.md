@@ -1,5 +1,5 @@
 ---
-title: "ReadableByteStreamController: error()-Methode"
+title: "ReadableByteStreamController: error() Methode"
 short-title: error()
 slug: Web/API/ReadableByteStreamController/error
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`error()`**-Methode der {{domxref("ReadableByteStreamController")}}-Schnittstelle verursacht, dass alle zukünftigen Interaktionen mit dem zugehörigen Stream mit dem angegebenen Grund fehlschlagen.
+Die **`error()`** Methode der [`ReadableByteStreamController`](/de/docs/Web/API/ReadableByteStreamController)-Schnittstelle bewirkt, dass alle zukünftigen Interaktionen mit dem zugehörigen Stream mit dem angegebenen Grund fehlschlagen.
 
-Diese Methode wird häufig von einer unterliegenden Quelle aufgerufen, um einen Fehler von der Schnittstelle, von der sie ihre Daten erhält (wie ein Datei-Lese- oder Socketfehler), zu melden. Sie kann auch von anderer Stelle aufgerufen werden, um einen Stream-Fehler auszulösen, z. B. wenn ein anderer Teil des Systems, auf den der Stream angewiesen ist, ausfällt.
+Diese Methode wird häufig von einer zugrunde liegenden Quelle aufgerufen, um einen Fehler von der Schnittstelle, von der sie ihre Daten bezieht (z.B. ein Datei- oder Socket-Fehler), sichtbar zu machen. Sie kann auch von anderen Stellen aufgerufen werden, um einen Stream-Fehler auszulösen, z.B. wenn ein anderer Teil des Systems, auf den der Stream angewiesen ist, ausfällt.
 
 ## Syntax
 
@@ -34,9 +34,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das Beispiel in [Verwendung von lesbaren Byte-Streams > Erstellen eines lesbaren Socket-Push-Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#creating_a_readable_socket_push_byte_stream) zeigt, wie Sie `error()` verwenden könnten, um manuell einen Stream-Fehler auszulösen, falls ein anderer Teil des Systems, auf den dieser angewiesen ist, ausfällt.
+Das Beispiel in [Verwendung von lesbaren Byte-Streams > Erstellen eines lesbaren Socket-Push-Byte-Streams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#creating_a_readable_socket_push_byte_stream) zeigt, wie Sie `error()` verwenden könnten, um einen Stream-Fehler manuell auszulösen, falls ein anderer Teil des Systems, auf das es sich stützt, fehlschlägt.
 
-Konkret ruft die `start()`-Methode der unterliegenden Quelle `readRepeatedly()` auf, um alle Einrichtungsvorgänge auszuführen und eine Datenanfrage zu stellen. Dies gibt ein Versprechen zurück. Wenn beim Lesen der Daten Fehler auftreten, werden sie von der verketteten `catch()`-Funktion abgefangen. In `catch()` rufen wir dann `error()` am Controller auf und übergeben den Grund von der unterliegenden Quelle.
+Insbesondere ruft die `start()`-Methode der zugrunde liegenden Quelle `readRepeatedly()` auf, um alle Einrichtungsoperationen durchzuführen und eine Datenanforderung zu stellen. Dies gibt ein Versprechen zurück. Wenn beim Lesen der Daten Fehler auftreten, werden diese von der verketteten `catch()`-Funktion abgefangen. In `catch()` rufen wir dann `error()` beim Controller auf und übergeben den Grund von der zugrunde liegenden Quelle.
 
 ```js
 function start(controller) {

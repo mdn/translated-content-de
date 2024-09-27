@@ -1,5 +1,5 @@
 ---
-title: "WebTransportError: streamErrorCode-Eigenschaft"
+title: "WebTransportError: Eigenschaft streamErrorCode"
 short-title: streamErrorCode
 slug: Web/API/WebTransportError/streamErrorCode
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`streamErrorCode`**-Eigenschaft des {{domxref("WebTransportError")}}-Interfaces gibt eine Zahl im Bereich von 0-255 zurück, welche den Anwendungsprotokoll-Fehlercode für diesen Fehler angibt, oder `null`, falls keiner verfügbar ist.
+Die schreibgeschützte Eigenschaft **`streamErrorCode`** des [`WebTransportError`](/de/docs/Web/API/WebTransportError)-Interfaces gibt eine Zahl im Bereich von 0-255 zurück, die den Anwendungsprotokoll-Fehlercode für diesen Fehler angibt, oder `null`, wenn keiner verfügbar ist.
 
 ## Wert
 
@@ -48,7 +48,7 @@ async function initTransport(url) {
 
 ## Siehe auch
 
-- [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

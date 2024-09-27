@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Der **`IIRFilterNode()`** Konstruktor
-der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues
-{{domxref("IIRFilterNode")}}-Objekt, das einen {{domxref("AudioNode")}} Prozessor
-darstellt, der einen allgemeinen Infinite Impulse Response-Filter implementiert.
+Der **`IIRFilterNode()`**-Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt ein neues [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode)-Objekt, ein [`AudioNode`](/de/docs/Web/API/AudioNode)-Prozessor, der einen allgemeinen Infinite Impulse Response-Filter implementiert.
 
 ## Syntax
 
@@ -22,35 +19,32 @@ new IIRFilterNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein Verweis auf einen {{domxref("AudioContext")}}.
+  - : Ein Verweis auf einen [`AudioContext`](/de/docs/Web/API/AudioContext).
 - `options`
 
-  - : Optionen sind wie folgt:
+  - : Die Optionen sind wie folgt:
 
     - `feedforward`
-      - : Eine Sequenz von Vorwärts-Koeffizienten.
+      - : Eine Sequenz von Feedforward-Koeffizienten.
     - `feedback`
-      - : Eine Sequenz von Rückkopplungs-Koeffizienten.
+      - : Eine Sequenz von Feedback-Koeffizienten.
     - `channelCount`
-      - : Stellt eine Ganzzahl dar, die verwendet wird, um zu bestimmen, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu Eingaben des Knotens verwendet werden. (Siehe
-        {{domxref("AudioNode.channelCount")}} für mehr Informationen.) Seine Nutzung und präzise
+      - : Repräsentiert eine Ganzzahl, die bestimmt, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu beliebigen Eingängen des Knotens verwendet werden. (Weitere Informationen finden Sie unter [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount).) Die Nutzung und genaue
         Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode`
-      - : Stellt einen enumerierten Wert dar, der beschreibt, wie Kanäle zwischen den
-        Eingängen und Ausgängen des Knotens übereinstimmen müssen. (Siehe {{domxref("AudioNode.channelCountMode")}} für weitere
-        Informationen einschließlich Standardwerte.)
+      - : Repräsentiert einen enumerierten Wert, der beschreibt, wie Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für
+        weitere Informationen, einschließlich Standardwerte.)
     - `channelInterpretation`
-      - : Stellt einen enumerierten Wert dar, der die Bedeutung der Kanäle beschreibt. Diese
-        Interpretation definiert, wie Audio [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) durchgeführt wird.
-        Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe
-        {{domxref("AudioNode.channelCountMode")}} für weitere Informationen einschließlich
-        Standardwerte.)
+      - : Repräsentiert einen enumerierten Wert, der die Bedeutung der Kanäle beschreibt. Diese
+        Interpretation definiert, wie das [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) erfolgt.
+        Mögliche Werte sind `"speakers"` oder `"discrete"`. (Weitere Informationen, einschließlich Standardwerte, finden Sie unter
+        [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode).)
 
-Im Gegensatz zu anderen Knoten der Web Audio API sind die beim Erstellen an den IIR-Filter übergebenen Optionen nicht optional. Der Filter benötigt diese Werte, um zu funktionieren, und bei der Vielzahl von verfügbaren Filtern gibt es keinen Standard.
+Im Gegensatz zu anderen Knoten in der Web Audio API sind die Optionen, die beim Erstellen des IIR-Filters übergeben werden, nicht optional. Der Filter benötigt diese Werte, um zu funktionieren, und angesichts der Vielzahl von verfügbaren Filtern gibt es keinen Standard.
 
 ### Rückgabewert
 
-Eine neue Instanz des {{domxref("IIRFilterNode")}}-Objekts.
+Eine neue Instanz des [`IIRFilterNode`](/de/docs/Web/API/IIRFilterNode)-Objekts.
 
 ## Beispiele
 

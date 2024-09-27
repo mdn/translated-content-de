@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaRoleDescription`**-Eigenschaft der {{domxref("Element")}}-Schnittstelle spiegelt den Wert des [`aria-roledescription`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-roledescription)-Attributs wider, das eine für den Menschen lesbare und vom Autor lokalisierte Beschreibung der Rolle eines Elements definiert.
+Die **`ariaRoleDescription`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-roledescription`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-roledescription)-Attributs wider, das eine für Menschen lesbare, vom Autor lokalisierte Beschreibung der Rolle eines Elements definiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel wurde das `aria-roledescription`-Attribut auf dem Element mit der ID `myApplication` gesetzt. Mithilfe von `ariaRoleDescription` können wir den Wert aktualisieren.
+In diesem Beispiel wurde das `aria-roledescription`-Attribut des Elements mit der ID `myApplication` gesetzt. Mit `ariaRoleDescription` können wir den Wert aktualisieren.
 
 ```html
 <div

@@ -7,18 +7,18 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **WebGLBuffer**-Schnittstelle ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und repräsentiert ein undurchsichtiges Pufferobjekt, das Daten wie Vertizes oder Farben speichert.
+Die **WebGLBuffer** Schnittstelle ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt ein undurchsichtiges Pufferobjekt dar, das Daten wie Vertices oder Farben speichert.
 
 {{InheritanceDiagram}}
 
 ## Beschreibung
 
-Das `WebGLBuffer`-Objekt definiert keine eigenen Methoden oder Eigenschaften und sein Inhalt ist nicht direkt zugänglich. Beim Arbeiten mit `WebGLBuffer`-Objekten sind die folgenden Methoden des {{domxref("WebGLRenderingContext")}} nützlich:
+Das `WebGLBuffer` Objekt definiert keine eigenen Methoden oder Eigenschaften und sein Inhalt ist nicht direkt zugänglich. Beim Arbeiten mit `WebGLBuffer` Objekten sind die folgenden Methoden des [`WebGLRenderingContext`](/de/docs/Web/API/WebGLRenderingContext) nützlich:
 
-- {{domxref("WebGLRenderingContext.bindBuffer()")}}
-- {{domxref("WebGLRenderingContext.createBuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteBuffer()")}}
-- {{domxref("WebGLRenderingContext.isBuffer()")}}
+- [`WebGLRenderingContext.bindBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindBuffer)
+- [`WebGLRenderingContext.createBuffer()`](/de/docs/Web/API/WebGLRenderingContext/createBuffer)
+- [`WebGLRenderingContext.deleteBuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteBuffer)
+- [`WebGLRenderingContext.isBuffer()`](/de/docs/Web/API/WebGLRenderingContext/isBuffer)
 
 ## Beispiele
 
@@ -40,8 +40,8 @@ const buffer = gl.createBuffer();
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindBuffer()")}}
-- {{domxref("WebGLRenderingContext.createBuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteBuffer()")}}
-- {{domxref("WebGLRenderingContext.isBuffer()")}}
-- Andere Puffer: {{domxref("WebGLFramebuffer")}}, {{domxref("WebGLRenderbuffer")}}
+- [`WebGLRenderingContext.bindBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindBuffer)
+- [`WebGLRenderingContext.createBuffer()`](/de/docs/Web/API/WebGLRenderingContext/createBuffer)
+- [`WebGLRenderingContext.deleteBuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteBuffer)
+- [`WebGLRenderingContext.isBuffer()`](/de/docs/Web/API/WebGLRenderingContext/isBuffer)
+- Andere Puffer: [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)

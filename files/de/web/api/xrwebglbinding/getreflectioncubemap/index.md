@@ -1,5 +1,5 @@
 ---
-title: "XRWebGLBinding: getReflectionCubeMap()-Methode"
+title: "XRWebGLBinding: Methode getReflectionCubeMap()"
 short-title: getReflectionCubeMap()
 slug: Web/API/XRWebGLBinding/getReflectionCubeMap
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`getReflectionCubeMap()`**-Methode der {{domxref("XRWebGLBinding")}}-Schnittstelle gibt ein {{domxref("WebGLTexture")}}-Objekt zurück, das eine Reflexions-Cube-Map-Textur enthält.
+Die **`getReflectionCubeMap()`**-Methode der [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)-Schnittstelle gibt ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt zurück, das eine Reflexions-Cube-Map-Textur enthält.
 
-Das Texturformat wird durch das `reflectionFormat` der Sitzung bestimmt. Weitere Informationen finden Sie im `options`-Parameter bei {{domxref("XRSession.requestLightProbe()")}} und {{domxref("XRSession.preferredReflectionFormat")}}. Standardmäßig wird das `srgba8`-Format verwendet. Bei Verwendung des `rgba16f`-Formats müssen Sie sich in einem WebGL 2.0-Kontext befinden oder die {{domxref("OES_texture_half_float")}}-Erweiterung in WebGL 1.0-Kontexten aktivieren.
+Das Texturformat wird durch das `reflectionFormat` der Sitzung spezifiziert. Weitere Details finden Sie im `options` Parameter bei [`XRSession.requestLightProbe()`](/de/docs/Web/API/XRSession/requestLightProbe) und [`XRSession.preferredReflectionFormat`](/de/docs/Web/API/XRSession/preferredReflectionFormat). Standardmäßig wird das `srgba8`-Format verwendet. Wenn das `rgba16f`-Format verwendet wird, müssen Sie sich in einem WebGL-2.0-Kontext befinden oder die [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float)-Erweiterung innerhalb von WebGL-1.0-Kontexten aktivieren.
 
 ## Syntax
 
@@ -21,21 +21,21 @@ getReflectionCubeMap(lightProbe)
 ### Parameter
 
 - `lightProbe`
-  - : Ein {{domxref("XRLightProbe")}}-Objekt, das durch den Aufruf von {{domxref("XRSession.requestLightProbe()")}} zurückgegeben wird.
+  - : Ein [`XRLightProbe`](/de/docs/Web/API/XRLightProbe)-Objekt, das durch den Aufruf von [`XRSession.requestLightProbe()`](/de/docs/Web/API/XRSession/requestLightProbe) zurückgegeben wird.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLTexture")}}-Objekt.
+Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt.
 
 ## Beispiele
 
-Üblicherweise ruft man `getReflectionCubeMap()` auf, wenn das `reflectionchange`-Ereignis auf einer Lichtsonde ausgelöst wird, um eine aktualisierte Cube-Map zu erhalten. Dies ist weniger aufwendig, als Beleuchtungsinformationen bei jedem {{domxref("XRFrame")}} abzurufen.
+Sie rufen typischerweise `getReflectionCubeMap()` immer dann auf, wenn das `reflectionchange`-Event auf einer Lichtsonde ausgelöst wird, um eine aktualisierte Cube-Map abzurufen. Dies ist weniger aufwendig als das Abrufen von Beleuchtungsinformationen bei jedem [`XRFrame`](/de/docs/Web/API/XRFrame).
 
-Wenn das Format `rgba16f` verwendet wird, aktivieren Sie die {{domxref("OES_texture_half_float")}}-Erweiterung in WebGL 1.0-Kontexten.
+Wenn das `rgba16f`-Format verwendet wird, aktivieren Sie die [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float)-Erweiterung innerhalb von WebGL-1.0-Kontexten.
 
 ```js
 const glBinding = new XRWebGLBinding(xrSession, gl);
-gl.getExtension("OES_texture_half_float"); // falls rgba16f das bevorzugte ReflectionFormat ist
+gl.getExtension("OES_texture_half_float"); // if rgba16f is the preferredReflectionFormat
 
 xrSession.requestLightProbe().then((lightProbe) => {
   lightProbe.addEventListener("reflectionchange", () => {
@@ -48,11 +48,11 @@ xrSession.requestLightProbe().then((lightProbe) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("XRLightProbe")}}
-- {{domxref("OES_texture_half_float")}}
+- [`XRLightProbe`](/de/docs/Web/API/XRLightProbe)
+- [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float)

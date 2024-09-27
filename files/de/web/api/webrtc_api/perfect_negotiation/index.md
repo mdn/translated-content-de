@@ -1,5 +1,5 @@
 ---
-title: "Verbindung herstellen: Das WebRTC-Perfekte-Verhandlungs-Muster"
+title: "Eine Verbindung herstellen: Das WebRTC Mustergültige Verhandlungsverfahren"
 slug: Web/API/WebRTC_API/Perfect_negotiation
 l10n:
   sourceCommit: 0b2db5ae5d76003622a3fb7dab024a1e31e72561
@@ -7,38 +7,38 @@ l10n:
 
 {{DefaultAPISidebar("WebRTC")}}
 
-Dieser Artikel führt in das WebRTC **perfekte Verhandeln** ein, beschreibt, wie es funktioniert und warum es die empfohlene Methode ist, um eine WebRTC-Verbindung zwischen den Peers auszuhandeln, und liefert Beispielcode zur Demonstration der Technik.
+Dieser Artikel stellt das Mustergültige Verhandlungsverfahren von WebRTC vor, beschreibt, wie es funktioniert und warum es die empfohlene Methode ist, um eine WebRTC-Verbindung zwischen Peers zu verhandeln. Außerdem wird Beispielcode bereitgestellt, um die Technik zu demonstrieren.
 
-Da [WebRTC](/de/docs/Web/API/WebRTC_API) keinen spezifischen Transportmechanismus für Signalisierung während der Verhandlung einer neuen Peer-Verbindung vorschreibt, ist es hochflexibel. Trotz dieser Flexibilität hinsichtlich Transport und Kommunikation der Signalisierungsnachrichten gibt es immer noch ein empfohlenes Designmuster, das Sie nach Möglichkeit befolgen sollten, bekannt als perfektes Verhandeln.
+Da [WebRTC](/de/docs/Web/API/WebRTC_API) keinen spezifischen Transportmechanismus für das Signaling während der Aushandlung einer neuen Peer-Verbindung vorschreibt, ist es äußerst flexibel. Trotz dieser Flexibilität bei Transport und Kommunikation von Signaling-Nachrichten gibt es ein empfohlenes Designmuster, das Sie nach Möglichkeit befolgen sollten, bekannt als das Mustergültige Verhandlungsverfahren.
 
-Nach den ersten Einsätzen von WebRTC-fähigen Browsern wurde erkannt, dass Teile des Verhandlungsprozesses für typische Anwendungsfälle komplizierter waren als nötig. Dies lag an einer kleinen Anzahl von Problemen mit der API sowie an potenziellen Race-Bedingungen, die verhindert werden mussten. Diese Probleme wurden mittlerweile behoben, wodurch wir unsere WebRTC-Verhandlungen erheblich vereinfachen können. Das perfekte Verhandeln ist ein Beispiel dafür, wie die Verhandlungen sich seit den Anfängen von WebRTC verbessert haben.
+Nach den ersten Einsätzen von WebRTC-fähigen Browsern wurde erkannt, dass Teile des Verhandlungsprozesses für typische Anwendungsfälle komplizierter waren als nötig. Dies lag an einer kleinen Anzahl von Problemen mit der API und einigen potenziellen Race Conditions, die vermieden werden mussten. Diese Probleme wurden inzwischen behoben, sodass wir unsere WebRTC-Verhandlungen erheblich vereinfachen können. Das Mustergültige Verhandlungsverfahren ist ein Beispiel für die Verbesserungen der Verhandlung seit den frühen Tagen von WebRTC.
 
-## Konzepte des Perfekten Verhandelns
+## Konzepte der mustergültigen Verhandlung
 
-Das perfekte Verhandeln ermöglicht es, den Verhandlungsprozess nahtlos und vollständig von der restlichen Logik Ihrer Anwendung zu trennen. Verhandlungen sind von Natur aus ein asymmetrischer Vorgang: Eine Seite muss als "Anrufer" fungieren, während der andere Peer der "Angerufene" ist. Das perfekte Verhandeln glättet diesen Unterschied, indem es diese Unterschiede in eine unabhängige Verhandlungslogik ausgliedert, sodass Ihre Anwendung nicht beachten muss, welches Ende der Verbindung es ist. Für Ihre Anwendung macht es keinen Unterschied, ob Sie einen Anruf tätigen oder empfangen.
+Die mustergültige Verhandlung ermöglicht es, den Verhandlungsprozess nahtlos und vollständig von der restlichen Logik Ihrer Anwendung zu trennen. Die Verhandlung ist eine von Natur aus asymmetrische Operation: Eine Seite muss als "Anrufer" dienen, während das andere Peer der "Angerufene" ist. Das Mustergültige Verhandlungsverfahren beseitigt diesen Unterschied, indem es diese Asymmetrie in unabhängige Verhandlungslogik auslagert, sodass Ihre Anwendung nicht darauf achten muss, welches Ende der Verbindung es ist. Für Ihre Anwendung macht es keinen Unterschied, ob Sie hinauswählen oder einen Anruf entgegennehmen.
 
-Das Beste am perfekten Verhandeln ist, dass derselbe Code sowohl für den Anrufer als auch für den Angerufenen verwendet wird, sodass keine Wiederholung oder zusätzliche Verhandlungscode geschrieben werden muss.
+Das Beste an der mustergültigen Verhandlung ist, dass derselbe Code sowohl für den Anrufer als auch den Angerufenen verwendet wird, sodass keine Wiederholung oder zusätzliche Ebenen von Verhandlungscode geschrieben werden müssen.
 
-Das perfekte Verhandeln funktioniert, indem jedem der beiden Peers eine Rolle im Verhandlungsprozess zugewiesen wird, die völlig unabhängig vom WebRTC-Verbindungsstatus ist:
+Die mustergültige Verhandlung funktioniert, indem jeder der beiden Peers eine Rolle zugewiesen wird, die im Verhandlungsprozess vollständig vom WebRTC-Verbindungsstatus getrennt ist:
 
-- Ein **höflicher** Peer, der ICE-Rollback verwendet, um Kollisionen mit eingehenden Angeboten zu verhindern. Im Wesentlichen ist ein höflicher Peer einer, der Angebote senden kann, aber darauf reagiert, wenn ein Angebot vom anderen Peer eingeht, indem er sagt: "Okay, schon gut, verwerfen Sie mein Angebot und ich werde stattdessen Ihres berücksichtigen."
-- Ein **unhöflicher** Peer, der eingehende Angebote, die mit seinen eigenen kollidieren, immer ignoriert. Er entschuldigt sich nie oder gibt dem höflichen Peer etwas auf. Jedes Mal, wenn eine Kollision auftritt, gewinnt der unhöfliche Peer.
+- Ein **höflicher** Peer, das ICE-Rollback verwendet, um Kollisionen mit eingehenden Angeboten zu vermeiden. Ein höflicher Peer kann Angebote senden, aber wenn ein Angebot vom anderen Peer eingeht, antwortet er mit „Okay, vergiss mein Angebot, ich werde stattdessen deines in Betracht ziehen.“
+- Ein **unhöflicher** Peer, der eingehende Angebote, die mit seinen eigenen kollidieren, immer ignoriert. Er entschuldigt sich nie und gibt dem höflichen Peer nichts auf. Bei jeder Kollision gewinnt der unhöfliche Peer.
 
-Auf diese Weise wissen beide Peers genau, was passieren soll, wenn es zu Kollisionen zwischen gesendeten Angeboten kommt. Reaktionen auf Fehlerbedingungen werden dadurch wesentlich vorhersehbarer.
+Auf diese Weise wissen beide Peers genau, was geschehen soll, wenn es Kollisionen zwischen gesendeten Angeboten gibt. Die Reaktionen auf Fehlerbedingungen werden dadurch viel vorhersehbarer.
 
-Wie Sie bestimmen, welcher Peer höflich und welcher unhöflich ist, bleibt in der Regel Ihnen überlassen. Es könnte so einfach sein, die höfliche Rolle dem ersten Peer zuzuweisen, der sich mit dem Signalisierungsserver verbindet, oder Sie könnten etwas aufwendiger vorgehen, indem Sie die Peers zufällig Zahlen austauschen lassen und die höfliche Rolle dem Gewinner zuweisen. Wie auch immer Sie die Entscheidung treffen, sobald diese Rollen den beiden Peers zugewiesen sind, können sie zusammenarbeiten, um die Signalisierung auf eine Weise zu verwalten, die keine Blockaden verursacht und nicht viel zusätzlichen Code erfordert.
+Wie Sie bestimmen, welches Peer höflich und welches unhöflich ist, liegt in der Regel bei Ihnen. Es könnte so einfach sein, die höfliche Rolle dem ersten Peer zuzuordnen, das sich mit dem Signalisierungsserver verbindet, oder Sie könnten etwas aufwändiger vorgehen, indem Sie die Peers zufällige Zahlen austauschen lassen und die höfliche Rolle dem Gewinner zuweisen. Wie auch immer Sie die Entscheidung treffen, sobald diese Rollen den beiden Peers zugewiesen sind, können sie gemeinsam Signalisierung in einer Weise verwalten, die keine Deadlocks verursacht und keinen großen zusätzlichen Code erfordert.
 
-Eine wichtige Sache, die man im Auge behalten sollte, ist, dass sich die Rollen von Anrufer und Angerufenem während des perfekten Verhandelns wechseln können. Wenn der höfliche Peer der Anrufer ist und ein Angebot sendet, aber eine Kollision mit dem unhöflichen Peer auftritt, verwirft der höfliche Peer sein Angebot und antwortet stattdessen auf das Angebot, das er vom unhöflichen Peer erhalten hat. Dadurch hat sich der höfliche Peer vom Anrufer zum Angerufenen gewandelt!
+Etwas Wichtiges, das Sie beachten sollten: Die Rollen von Anrufer und Angerufenem können während der mustergültigen Verhandlung wechseln. Wenn der höfliche Peer der Anrufer ist und ein Angebot sendet, aber eine Kollision mit dem unhöflichen Peer auftritt, verwirft der höfliche Peer sein Angebot und antwortet stattdessen auf das empfangene Angebot vom unhöflichen Peer. Durch diese Handlung hat der höfliche Peer von Anrufer zu Angerufenem gewechselt!
 
-## Implementierung des Perfekten Verhandelns
+## Implementierung der mustergültigen Verhandlung
 
-Schauen wir uns ein Beispiel an, das das Muster des perfekten Verhandelns implementiert. Der Code geht davon aus, dass es eine `SignalingChannel`-Klasse gibt, die zur Kommunikation mit dem Signalisierungsserver verwendet wird. Ihr eigener Code kann natürlich jede Signalisierungstechnik verwenden, die Sie möchten.
+Lassen Sie uns einen Blick auf ein Beispiel werfen, das das Mustergültige Verhandlungsverfahren implementiert. Der Code geht davon aus, dass eine `SignalingChannel` Klasse definiert ist, die zur Kommunikation mit dem Signalisierungsserver verwendet wird. Ihr eigener Code kann natürlich jede beliebige Signaltechnik verwenden.
 
-Beachten Sie, dass dieser Code für beide Peers, die an der Verbindung beteiligt sind, identisch ist.
+Beachten Sie, dass dieser Code für beide in die Verbindung involvierten Peers identisch ist.
 
-### Erstellung der Signalisierungs- und Peer-Verbindungen
+### Erstellen der Signalisierungs- und Peer-Verbindungen
 
-Zuerst muss der Signalisierungskanal geöffnet und die {{domxref("RTCPeerConnection")}} erstellt werden. Der hier aufgeführte {{Glossary("STUN")}}-Server ist offensichtlich kein echter; Sie müssen `stun.myserver.tld` durch die Adresse eines echten STUN-Servers ersetzen.
+Zuerst muss der Signalisierungskanal geöffnet und die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellt werden. Der hier aufgeführte [STUN](/de/docs/Glossary/STUN) Server ist offensichtlich kein echter; Sie müssen `stun.myserver.tld` durch die Adresse eines echten STUN-Servers ersetzen.
 
 ```js
 const config = {
@@ -49,9 +49,9 @@ const signaler = new SignalingChannel();
 const pc = new RTCPeerConnection(config);
 ```
 
-Dieser Code holt auch die {{HTMLElement("video")}}-Elemente mit den Klassen "selfview" und "remoteview"; diese enthalten entsprechend die Selbstansicht des lokalen Benutzers und die Ansicht des eingehenden Streams vom Remote-Peer.
+Dieser Code erhält auch die {{HTMLElement("video")}} Elemente mit den Klassen "selfview" und "remoteview"; diese enthalten jeweils die Selbstansicht des lokalen Benutzers und die Ansicht des eingehenden Streams vom entfernten Peer.
 
-### Verbindung mit einem entfernten Peer
+### Verbindung zu einem entfernten Peer herstellen
 
 ```js
 const constraints = { audio: true, video: true };
@@ -72,13 +72,13 @@ async function start() {
 }
 ```
 
-Die oben gezeigte `start()`-Funktion kann von einem der beiden Endpunkte aufgerufen werden, die miteinander sprechen möchten. Es spielt keine Rolle, wer es zuerst tut; die Verhandlung wird einfach funktionieren.
+Die oben gezeigte `start()` Funktion kann von jedem der beiden Endpunkte aufgerufen werden, die miteinander sprechen möchten. Es spielt keine Rolle, wer es zuerst tut; die Verhandlungen werden einfach funktionieren.
 
-Dies unterscheidet sich nicht wesentlich vom älteren Code zur Einrichtung einer WebRTC-Verbindung. Die Kamera und das Mikrofon des Benutzers werden durch Aufruf von {{domxref("MediaDevices.getUserMedia", "getUserMedia()")}} erlangt. Die resultierenden Medientracks werden dann durch Übergabe an {{domxref("RTCPeerConnection.addTrack", "addTrack()")}} zur {{domxref("RTCPeerConnection")}} hinzugefügt. Zuletzt wird die Medienquelle für das Selbstansicht-{{HTMLElement("video")}}-Element, das durch die konstante `selfVideo` angegeben ist, auf den Kamera- und Mikrofon-Stream gesetzt, sodass der lokale Benutzer sehen kann, was der andere Peer sieht.
+Dies unterscheidet sich nicht wesentlich von älterem WebRTC-Verbindungsaufbaucode. Die Kamera und das Mikrofon des Benutzers werden durch Aufruf von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) abgerufen. Die resultierenden Media-Tracks werden dann der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) hinzugefügt, indem sie an [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) übergeben werden. Schließlich wird die Medienquelle für das Selbstansicht-{{HTMLElement("video")}} Element, angegeben durch die `selfVideo` Konstante, auf den Stream von Kamera und Mikrofon gesetzt, was dem lokalen Benutzer ermöglicht zu sehen, was der andere Peer sieht.
 
 ### Umgang mit eingehenden Tracks
 
-Als nächstes müssen wir einen Handler einrichten für {{domxref("RTCPeerConnection.track_event", "track")}}-Events, um eingehende Video- und Audiotracks zu behandeln, die für diese Peer-Verbindung verhandelt wurden, um empfangen zu werden. Dazu implementieren wir den {{domxref("RTCPeerConnection")}}-Handler für das {{domxref("RTCPeerConnection.track_event", "ontrack")}}-Event.
+Als nächstes müssen wir einen Handler für [`track`](/de/docs/Web/API/RTCPeerConnection/track_event) Ereignisse einrichten, um eingehende Video- und Audio-Tracks zu verarbeiten, die für diese Peer-Verbindung ausgehandelt wurden. Dazu implementieren wir den [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) [`ontrack`](/de/docs/Web/API/RTCPeerConnection/track_event) Ereignishandler.
 
 ```js
 pc.ontrack = ({ track, streams }) => {
@@ -91,19 +91,19 @@ pc.ontrack = ({ track, streams }) => {
 };
 ```
 
-Wenn das `track`-Event auftritt, wird dieser Handler ausgeführt. Mit [Destructuring](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) werden die Eigenschaften {{domxref("RTCTrackEvent")}}'s {{domxref("RTCTrackEvent.track", "track")}} und {{domxref("RTCTrackEvent.streams", "streams")}} extrahiert. Ersteres ist entweder der Video- oder Audiotrack, der empfangen wird. Letzteres ist ein Array von {{domxref("MediaStream")}}-Objekten, die jeweils einen Stream enthalten, der diesen Track enthält (ein Track kann in seltenen Fällen gleichzeitig zu mehreren Streams gehören). In unserem Fall wird dies immer einen Stream enthalten, an Index 0, weil wir zuvor einen Stream in `addTrack()` übergeben haben.
+Wenn das `track` Ereignis auftritt, wird dieser Handler ausgeführt. Mithilfe von [Destructuring](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) werden die Eigenschaften [`track`](/de/docs/Web/API/RTCTrackEvent/track) und [`streams`](/de/docs/Web/API/RTCTrackEvent/streams) des [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent) extrahiert. Ersteres ist entweder der empfangene Videotrack oder Audiotrack. Letzteres ist ein Array von [`MediaStream`](/de/docs/Web/API/MediaStream) Objekten, die jeweils einen Stream darstellen, der diesen Track enthält (ein Track kann in seltenen Fällen zu mehreren Streams gehören). In unserem Fall wird dies immer einen Stream an Index 0 enthalten, da wir zuvor einen Stream in `addTrack()` übergeben haben.
 
-Wir fügen dem Track einen Unmute-Event-Handler hinzu, da der Track unmuted wird, sobald er Pakete empfängt. Der Rest unseres Empfangscodes wird dort eingefügt.
+Wir fügen dem Track einen Handler für das Unmute-Ereignis hinzu, da der Track stummgeschaltet wird, sobald er Pakete empfängt. Den Rest unseres Empfangscodes platzieren wir darin.
 
-Wenn wir bereits Video vom Remote-Peer empfangen (was wir sehen können, wenn die `srcObject`-Eigenschaft des `<video>`-Elements des Remote-Anzeige bereits einen Wert hat), tun wir nichts. Andernfalls setzen wir `srcObject` auf den Stream bei Index 0 im `streams`-Array.
+Wenn wir bereits Video vom entfernten Peer empfangen (was wir sehen können, wenn die [`srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject) Eigenschaft des Remote-Ansichts-`<video>` Elements bereits einen Wert hat), tun wir nichts. Andernfalls setzen wir `srcObject` auf den Stream an Index 0 im `streams` Array.
 
-### Die Perfekte-Verhandlungs-Logik
+### Die mustergültige Verhandlungslogik
 
-Nun kommen wir zur eigentlichen Logik des perfekten Verhandelns, die völlig unabhängig vom Rest der Anwendung funktioniert.
+Nun kommen wir zur eigentlichen mustergültigen Verhandlungslogik, die völlig unabhängig vom Rest der Anwendung funktioniert.
 
-#### Umgang mit dem negotiationneeded-Event
+#### Umgang mit dem Negotiationneeded-Ereignis
 
-Zuerst implementieren wir den {{domxref("RTCPeerConnection")}}-Event-Handler {{domxref("RTCPeerConnection.negotiationneeded_event", "onnegotiationneeded")}}, um eine lokale Beschreibung zu erhalten und diese über den Signalisierungskanal an den entfernten Peer zu senden.
+Zuerst implementieren wir den Ereignishandler [`onnegotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) für [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), um eine lokale Beschreibung zu erhalten und sie mit dem Signalisierungskanal an das Remote-Peer zu senden.
 
 ```js
 let makingOffer = false;
@@ -121,25 +121,25 @@ pc.onnegotiationneeded = async () => {
 };
 ```
 
-Beachten Sie, dass `setLocalDescription()` ohne Argumente automatisch eine passende Beschreibung basierend auf dem aktuellen {{domxref("RTCPeerConnection.signalingState", "signalingState")}} erstellt und setzt. Die gesetzte Beschreibung ist entweder eine Antwort auf das zuletzt vom Remote-Peer empfangene Angebot _oder_ ein frisch erstelltes Angebot, wenn keine Verhandlung im Gange ist. Hier wird es immer ein `offer` sein, da das negotiationneeded-Event nur im `stable`-Zustand ausgelöst wird.
+Beachten Sie, dass `setLocalDescription()` ohne Argumente automatisch die passende Beschreibung basierend auf dem aktuellen [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) erstellt und setzt. Die gesetzte Beschreibung ist entweder eine Antwort auf das jüngste Angebot des entfernten Peers _oder_ ein frisch erstelltes Angebot, wenn keine Verhandlung im Gange ist. Hier wird es immer ein `angebot` sein, da das Negotiationneeded-Ereignis nur im `stabilen` Zustand ausgelöst wird.
 
-Wir setzen eine boolesche Variable, `makingOffer`, auf `true`, um zu kennzeichnen, dass wir ein Angebot vorbereiten. Um Race-Bedingungen zu vermeiden, verwenden wir diesen Wert später statt des Signalisierungszustands, um zu bestimmen, ob ein Angebot bearbeitet wird, da der Wert von {{domxref("RTCPeerConnection.signalingState", "signalingState")}} asynchron ändert, was eine Glare-Gelegenheit einführt.
+Wir setzen eine boolesche Variable `makingOffer` auf `true`, um zu kennzeichnen, dass wir ein Angebot vorbereiten. Um Race Conditions zu vermeiden, werden wir später diesen Wert anstelle des Signalisierungsstatus verwenden, um zu bestimmen, ob ein Angebot verarbeitet wird, da sich der Wert von [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) asynchron ändert und eine Glare-Gelegenheit bietet.
 
 Sobald das Angebot erstellt, gesetzt und gesendet wurde (oder ein Fehler auftritt), wird `makingOffer` wieder auf `false` gesetzt.
 
 #### Umgang mit eingehenden ICE-Kandidaten
 
-Als Nächstes müssen wir das `RTCPeerConnection`-Event {{domxref("RTCPeerConnection.icecandidate_event", "icecandidate")}} behandeln, das uns vom lokalen ICE-Layer Kandidaten zur Übermittlung an den Remote-Peer über den Signalisierungskanal bereitstellt.
+Als nächstes müssen wir das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event) Ereignis von `RTCPeerConnection` behandeln, das die lokale ICE-Schicht mit Kandidaten versorgt, die wir zur Übermittlung an das entfernte Peer über den Signalisierungskanal erhalten.
 
 ```js
 pc.onicecandidate = ({ candidate }) => signaler.send({ candidate });
 ```
 
-Dies nimmt das `candidate`-Element dieses ICE-Events und gibt es an die `send()`-Methode des Signalisierungskanals weiter, um es über den Signalisierungsserver an den Remote-Peer zu senden.
+Dies nimmt das `candidate`-Mitglied dieses ICE-Ereignisses und übergibt es der `send()` Methode des Signalisierungs-Kanals, um es über den Signalisierungsserver an das entfernte Peer zu senden.
 
 #### Umgang mit eingehenden Nachrichten auf dem Signalisierungskanal
 
-Das letzte Puzzleteil ist der Code zum Umgang mit eingehenden Nachrichten vom Signalisierungsserver. Das wird hier als `onmessage`-Event-Handler auf dem Signalisierungskanal-Objekt implementiert. Diese Methode wird jedes Mal aufgerufen, wenn eine Nachricht vom Signalisierungsserver eintrifft.
+Das letzte Element des Puzzles ist der Code, um eingehende Nachrichten vom Signalisierungsserver zu behandeln. Dies wird hier als `onmessage` Ereignishandler auf dem Signalisierungskanal-Objekt implementiert. Diese Methode wird jedes Mal aufgerufen, wenn eine Nachricht vom Signalisierungsserver eintrifft.
 
 ```js
 let ignoreOffer = false;
@@ -176,37 +176,37 @@ signaler.onmessage = async ({ data: { description, candidate } }) => {
 };
 ```
 
-Beim Empfang einer eingehenden Nachricht vom `SignalingChannel` über seinen `onmessage`-Event-Handler wird das empfangene JSON-Objekt destrukturisiert, um die darin enthaltene `description` oder `candidate` zu erhalten. Wenn die eingehende Nachricht eine `description` hat, ist sie entweder ein Angebot oder eine Antwort, die vom anderen Peer gesendet wurde.
+Nach dem Empfang einer eingehenden Nachricht vom `SignalingChannel` durch sein `onmessage` Ereignishandler wird das empfangene JSON-Objekt desktruiert, um die darin enthaltene `description` oder `candidate` zu erhalten. Wenn die eingehende Nachricht eine `description` enthält, handelt es sich dabei entweder um ein Angebot oder eine Antwort, die von dem anderen Peer gesendet wurde.
 
-Wenn die Nachricht hingegen einen `candidate` enthält, ist es ein ICE-Kandidat, der vom Remote-Peer als Teil von [trickle ICE](/de/docs/Web/API/RTCPeerConnection/canTrickleIceCandidates) empfangen wurde. Der Kandidat soll der lokalen ICE-Schicht durch Übergabe an {{domxref("RTCPeerConnection.addIceCandidate", "addIceCandidate()")}} zugeführt werden.
+Wenn die Nachricht andererseits einen `candidate` enthält, handelt es sich um einen ICE-Kandidaten, der vom entfernten Peer als Teil von [trickle ICE](/de/docs/Web/API/RTCPeerConnection/canTrickleIceCandidates) empfangen wurde. Der Kandidat soll zur lokalen ICE-Schicht geliefert werden, indem er in [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) übergeben wird.
 
 ##### Beim Empfang einer Beschreibung
 
-Wenn wir eine `description` erhalten haben, bereiten wir uns darauf vor, auf das eingehende Angebot oder die Antwort zu reagieren. Zuerst überprüfen wir, ob wir in einem Zustand sind, in dem wir ein Angebot akzeptieren können. Wenn der Signalisierungszustand der Verbindung nicht `stable` ist oder unser Ende der Verbindung den Prozess der Erstellung eines eigenen Angebots gestartet hat, müssen wir eine Angebot-Kollision vermeiden.
+Wenn wir eine `description` empfangen, bereiten wir uns darauf vor, auf das eingehende Angebot oder die Antwort zu reagieren. Zuerst überprüfen wir, ob wir uns in einem Zustand befinden, in dem wir ein Angebot annehmen können. Wenn sich der Signalisierungsstatus der Verbindung nicht im `stabilen` Zustand befindet oder unsere Seite der Verbindung begonnen hat, den Prozess zur Erstellung eines eigenen Angebots einzuleiten, müssen wir auf Angebotskollisionen achten.
 
-Wenn wir der unhöfliche Peer sind und ein kollidierendes Angebot erhalten, kehren wir zurück, ohne die Beschreibung zu setzen, und setzen stattdessen `ignoreOffer` auf `true`, um sicherzustellen, dass wir auch alle Kandidaten ignorieren, die die andere Seite uns möglicherweise auf dem Signalisierungskanal sendet, der zu diesem Angebot gehört. Auf diese Weise vermeiden wir Fehlgeräusche, da wir unser Ende niemals über dieses Angebot informiert haben.
+Wenn wir der unhöfliche Peer sind und ein kollidierendes Angebot erhalten, kehren wir zurück, ohne die Beschreibung festzulegen, und setzen stattdessen `ignoreOffer` auf `true`, um sicherzustellen, dass wir auch alle Kandidaten ignorieren, die die andere Seite uns möglicherweise für dieses Angebot über den Signalisierungskanal sendet. Dadurch wird Fehlergeräusch vermieden, da wir unsere Seite nie über dieses Angebot informierten.
 
-Wenn wir der höfliche Peer sind und ein kollidierendes Angebot erhalten, müssen wir nichts Besonderes tun, da unser bestehendes Angebot im nächsten Schritt automatisch zurückgesetzt wird.
+Wenn wir der höfliche Peer sind und ein kollidierendes Angebot erhalten, müssen wir nichts Besonderes tun, da unser bestehendes Angebot im nächsten Schritt automatisch zurückgenommen wird.
 
-Nachdem wir sichergestellt haben, dass wir das Angebot annehmen möchten, setzen wir die Remote-Beschreibung auf das eingehende Angebot, indem wir {{domxref("RTCPeerConnection.setRemoteDescription", "setRemoteDescription()")}} aufrufen. Dadurch erfährt WebRTC, welche Konfiguration des anderen Peers vorgeschlagen wird. Wenn wir der höfliche Peer sind, werden wir unser Angebot fallen lassen und das neue akzeptieren.
+Nachdem sichergestellt wurde, dass wir das Angebot annehmen möchten, setzen wir die Remote-Beschreibung auf das eingehende Angebot, indem wir [`setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) aufrufen. Dies teilt WebRTC mit, wie die vorgeschlagene Konfiguration des anderen Peers aussieht. Wenn wir der höfliche Peer sind, wird unser Angebot zurückgenommen und das neue angenommen.
 
-Wenn die neu gesetzte Remote-Beschreibung ein Angebot ist, bitten wir WebRTC, eine passende lokale Konfiguration auszuwählen, indem wir die {{domxref("RTCPeerConnection")}}-Methode {{domxref("RTCPeerConnection.setLocalDescription", "setLocalDescription()")}} ohne Parameter aufrufen. Dadurch wird `setLocalDescription()` automatisch eine passende Antwort im Hinblick auf das empfangene Angebot generieren. Dann senden wir die Antwort über den Signalisierungskanal zurück an den ersten Peer.
+Wenn die neu eingestellte Remote-Beschreibung ein Angebot ist, bitten wir WebRTC, eine passende lokale Konfiguration zu wählen, indem wir die Methode [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) aufrufen, ohne Parameter. Dies führt dazu, dass `setLocalDescription()` automatisch eine passende Antwort auf das empfangene Angebot generiert. Dann senden wir die Antwort über den Signalisierungsserver an das erste Peer zurück.
 
 ##### Beim Empfang eines ICE-Kandidaten
 
-Wenn die empfangene Nachricht hingegen einen ICE-Kandidaten enthält, stellen wir ihn der lokalen {{Glossary("ICE")}}-Schicht zu, indem wir die {{domxref("RTCPeerConnection")}}-Methode {{domxref("RTCPeerConnection.addIceCandidate", "addIceCandidate()")}} aufrufen. Wenn ein Fehler auftritt und wir das jüngste Angebot ignoriert haben, ignorieren wir auch jeden Fehler, der auftreten kann, wenn wir versuchen, den Kandidaten hinzuzufügen.
+Wenn die empfangene Nachricht andererseits einen ICE-Kandidaten enthält, liefern wir ihn an die lokale [ICE](/de/docs/Glossary/ICE)-Schicht, indem wir die Methode [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) von [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) aufrufen. Wenn ein Fehler auftritt und wir das letzte Angebot ignoriert haben, ignorieren wir auch jeden Fehler, der beim Versuch, den Kandidaten hinzuzufügen, auftreten kann.
 
-## Perfekte Verhandlungen ermöglichen
+## Die mustergültige Verhandlung perfekt machen
 
-Wenn Sie neugierig sind, was das perfekte Verhandeln _so perfekt_ macht, ist dieser Abschnitt genau das Richtige für Sie. Hier schauen wir auf jede Änderung, die an der WebRTC-API und den Best-Practice-Empfehlungen vorgenommen wurde, um perfektes Verhandeln möglich zu machen.
+Wenn Sie neugierig sind, was die mustergültige Verhandlung _so perfekt_ macht, ist dieser Abschnitt für Sie. Hier werfen wir einen Blick auf jede Änderung, die an der WebRTC API vorgenommen wurde, und auf die Empfehlungen für Best Practices, um mustergültige Verhandlungen möglich zu machen.
 
-### Glare-freie setLocalDescription()
+### Glare-freies setLocalDescription()
 
-In der Vergangenheit war das {{domxref("RTCPeerConnection.negotiationneeded_event", "negotiationneeded")}}-Event leicht auf eine Weise behandelte, die anfällig für Glare war - das heißt, es war anfällig für Kollisionen, bei denen beide Peers gleichzeitig versuchen konnten, ein Angebot zu machen, was dazu führte, dass einer oder der andere Peer einen Fehler erhielt und der Verbindungsversuch abgebrochen wurde.
+In der Vergangenheit war das [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) Ereignis einfach in einer Weise zu handhaben, die anfällig für Glare war – das heißt, es war anfällig für Kollisionen, bei denen beide Peers versuchen konnten, gleichzeitig ein Angebot zu machen, was dazu führte, dass einer der Peers einen Fehler erhielt und die Verbindungsversuche abbrach.
 
 #### Die alte Methode
 
-Betrachten Sie diesen {{domxref("RTCPeerConnection.negotiationneeded_event", "onnegotiationneeded")}}-Event-Handler:
+Betrachten Sie diesen [`onnegotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) Ereignishandler:
 
 ```js example-bad
 pc.onnegotiationneeded = async () => {
@@ -219,11 +219,11 @@ pc.onnegotiationneeded = async () => {
 };
 ```
 
-Da die Methode {{domxref("RTCPeerConnection.createOffer", "createOffer()")}} asynchron ist und einige Zeit benötigt, um abgeschlossen zu werden, gibt es eine Phase, in der der Remote-Peer versuchen könnte, ein eigenes Angebot zu senden, wodurch wir den `stable`-Zustand verlassen und den `have-remote-offer`-Zustand betreten, was bedeutet, dass wir auf eine Antwort auf das Angebot warten. Aber sobald es das Angebot erhält, das wir gerade gesendet haben, ist auch der Remote-Peer in diesem Zustand. Dies lässt beide Peers in einem Zustand, in dem der Verbindungsversuch nicht abgeschlossen werden kann.
+Da die Methode [`createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) asynchron ist und einige Zeit zur Ausführung benötigt, gibt es einen Zeitraum, in dem der entfernte Peer möglicherweise versucht, ein eigenes Angebot zu senden, wodurch wir den `stabilen` Zustand verlassen und in den `have-remote-offer` Zustand gelangen, was bedeutet, dass wir nun auf eine Antwort auf das Angebot warten. Sobald jedoch das gerade gesendete Angebot empfangen wird, ist dies auch der entfernte Peer. Dies lässt beide Peers in einem Zustand, in dem der Verbindungsversuch nicht abgeschlossen werden kann.
 
-#### Perfektes Verhandeln mit der aktualisierten API
+#### Die mustergültige Verhandlung mit der aktualisierten API
 
-Wie im Abschnitt [Implementierung des Perfekten Verhandelns](#implementierung_des_perfekten_verhandelns) gezeigt, können wir dieses Problem durch die Einführung einer Variablen (hier `makingOffer` genannt) lösen, die wir verwenden, um anzuzeigen, dass wir gerade dabei sind, ein Angebot zu senden, und die aktualisierte Methode `setLocalDescription()` verwenden:
+Wie im Abschnitt [Implementierung der mustergültigen Verhandlung](#implementierung_der_mustergültigen_verhandlung) gezeigt, können wir dieses Problem beheben, indem wir eine Variable (hier `makingOffer` genannt) einführen, die wir verwenden, um anzuzeigen, dass wir dabei sind, ein Angebot zu senden, und indem wir die aktualisierte `setLocalDescription()` Methode verwenden:
 
 ```js example-good
 let makingOffer = false;
@@ -241,21 +241,21 @@ pc.onnegotiationneeded = async () => {
 };
 ```
 
-Wir setzen `makingOffer` unmittelbar bevor wir `setLocalDescription()` aufrufen, um gegen das Senden dieses Angebots zu sperren, und wir setzen es nicht zurück auf `false`, bis das Angebot an den Signalisierungsserver gesendet wurde (oder ein Fehler aufgetreten ist, der verhindert, dass das Angebot gemacht wird). Auf diese Weise vermeiden wir das Risiko von Angebotskollisionen.
+Wir setzen `makingOffer` sofort bevor wir `setLocalDescription()` aufrufen, um den Versand dieses Angebots einzusperren, und setzen es erst dann wieder auf `false`, wenn das Angebot an den Signalisierungsserver gesendet wurde (oder ein Fehler aufgetreten ist, der verhindert, dass das Angebot gemacht wird). Auf diese Weise vermeiden wir das Risiko von Angebotskollisionen.
 
 ### Automatischer Rollback in setRemoteDescription()
 
-Ein wesentlicher Bestandteil des perfekten Verhandelns ist das Konzept des höflichen Peers, der sich immer zurückrollt, wenn er ein Angebot empfängt, während er selbst auf eine Antwort auf ein Angebot wartet. Früher erforderte das Auslösen eines Rollbacks die manuelle Überprüfung der Rollback-Bedingungen und das manuelle Auslösen des Rollbacks, indem die lokale Beschreibung auf eine mit dem Typ `rollback` gesetzt wurde, wie folgt:
+Ein Schlüsselelement der mustergültigen Verhandlung ist das Konzept des höflichen Peers, der immer zurückrollt, wenn es ein Angebot erhält, während es selbst auf eine Antwort auf ein Angebot wartet. Früher bedeutete das Auslösen des Rollbacks das manuelle Überprüfen auf Rollback-Bedingungen und das manuelle Auslösen des Rollbacks, indem die lokale Beschreibung auf eine mit dem Typ `rollback` gesetzt wurde, wie hier:
 
 ```js
 await pc.setLocalDescription({ type: "rollback" });
 ```
 
-Dadurch wird der lokale Peer auf den `stable`-{{domxref("RTCPeerConnection.signalingState", "signalingState")}} zurückversetzt, aus welchem Zustand er sich vorher auch immer befinden mochte. Da ein Peer Angebote nur akzeptieren kann, wenn er im `stable`-Zustand ist, hat sich der Peer somit von seinem Angebot zurückgezogen und ist bereit, das Angebot des entfernten (unhöflichen) Peers zu empfangen. Wie wir gleich sehen werden, gibt es jedoch Probleme mit diesem Ansatz.
+Durch das Zurücksetzen des lokalen Peers in den `stabilen` [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) von welchem Zustand auch immer er sich zuvor befand, kann ein Peer nur dann Angebote annehmen, wenn er sich im `stabilen` Zustand befindet, und der Peer hat somit sein Angebot zurückgezogen und ist bereit, das Angebot vom entfernten (unhöflichen) Peer zu erhalten. Wie wir jedoch in einem Moment sehen werden, gibt es bei diesem Ansatz Probleme.
 
-#### Perfektes Verhandeln mit der alten API
+#### Die mustergültige Verhandlung mit der alten API
 
-Bei Verwendung der bisherigen API zur Implementierung eingehender Verhandlungsnachrichten während des perfekten Verhandelns würde dies etwa so aussehen:
+Die Verwendung der vorherigen API zum Implementieren eingehender Verhandlungsnachrichten während der mustergültigen Verhandlung würde etwa so aussehen:
 
 ```js example-bad
 signaler.onmessage = async ({ data: { description, candidate } }) => {
@@ -293,21 +293,21 @@ signaler.onmessage = async ({ data: { description, candidate } }) => {
 };
 ```
 
-Da Rollback funktioniert, indem Änderungen bis zur nächsten Verhandlung verschoben werden (die sofort nach der aktuellen abgeschlossen wird), muss der höfliche Peer wissen, wann er ein empfangenes Angebot verwerfen muss, wenn er gerade auf eine Antwort auf ein bereits gesendetes Angebot wartet.
+Da Rückfragen aufgeschoben werden, bis die nächste Verhandlung beginnt (die sofort nach Abschluss der aktuellen Sitzung starten wird), muss der höfliche Peer wissen, wann er ein empfangenes Angebot wegwerfen muss, wenn er derzeit auf eine Antwort auf ein bereits gesendetes Angebot wartet.
 
-Der Code überprüft, ob die Nachricht ein Angebot ist und ob der lokale Signalisierungszustand nicht `stable` ist. Wenn er nicht stabil ist _und_ der lokale Peer der höfliche ist, müssen wir einen Rollback auslösen, damit wir das ausgehende Angebot durch das neue eingehende ersetzen können. Und diese müssen beide vollständig ausgeführt werden, bevor wir mit der Bearbeitung des empfangenen Angebots fortfahren können.
+Der Code überprüft, ob die Nachricht ein Angebot ist und ob der lokale Signalisierungsstatus nicht `stabil` ist. Wenn sie nicht stabil ist _und_ der lokale Peer der höfliche ist, müssen wir ein Rollback auslösen, damit wir das ausgehende Angebot mit dem neuen eingehenden ersetzen können. Und beides muss abgeschlossen sein, bevor wir mit der Handhabung des empfangenen Angebots fortfahren können.
 
-Da es keinen einzigen "Rückwärtsgang und dieses Angebot stattdessen verwenden" gibt, erfordert die Durchführung dieser Änderung am höflichen Peer zwei Schritte, die im Kontext von [`Promise.all()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) ausgeführt werden, das verwendet wird, um sicherzustellen, dass beide Anweisungen vollständig ausgeführt werden, bevor die Verarbeitung des empfangenen Angebots fortgesetzt wird. Die erste Anweisung löst einen Rollback aus und die zweite setzt die Remote-Beschreibung auf die empfangene, wodurch der Prozess des Ersetzens des zuvor _gesendeten_ Angebots mit dem neu _empfangenen_ Angebot abgeschlossen wird. Der höfliche Peer ist nun der Angerufene anstelle des Anrufers geworden.
+Da es keinen einzigen „Rollback und verwenden dieses Angebot statt“ gibt, erfordert die Durchführung dieser Änderung auf dem höflichen Peer zwei Schritte, die im Kontext von [`Promise.all()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) ausgeführt werden, das verwendet wird, um sicherzustellen, dass beide Anweisungen vollständig ausgeführt werden, bevor die Verarbeitung des empfangenen Angebots fortgesetzt wird. Die erste Anweisung löst das Rollback aus, und die zweite setzt die Remote-Beschreibung auf die empfangene, wodurch der Prozess des Ersetzens des zuvor _gesendeten_ Angebots durch das neu _empfangene_ Angebot abgeschlossen wird. Der höfliche Peer ist nun vom Anrufer zum Angerufenen geworden.
 
-Alle anderen vom unhöflichen Peer empfangenen Beschreibungen werden wie gewohnt verarbeitet, indem sie an {{domxref("RTCPeerConnection.setRemoteDescription", "setRemoteDescription()")}} übergeben werden.
+Alle anderen vom unhöflichen Peer empfangenen Beschreibungen werden normal verarbeitet, indem sie in [`setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) übergeben werden.
 
-Schließlich verarbeiten wir ein empfangenes Angebot, indem wir `setLocalDescription()` aufrufen, um unsere lokale Beschreibung auf die von {{domxref("RTCPeerConnection.createAnswer", "createAnswer()")}} zurückgegebene zu setzen. Dann wird diese über den Signalisierungskanal an den höflichen Peer gesendet.
+Schließlich verarbeiten wir ein empfangenes Angebot, indem wir `setLocalDescription()` aufrufen, um unsere lokale Beschreibung auf die von [`createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer) zurückgegebene einzustellen. Diese wird dann über den Signalisierungskanal an den höflichen Peer gesendet.
 
-Wenn die eingehende Nachricht ein ICE-Kandidat anstelle einer SDP-Beschreibung ist, wird sie der ICE-Schicht zugeführt, indem sie an die {{domxref("RTCPeerConnection")}}-Methode {{domxref("RTCPeerConnection.addIceCandidate", "addIceCandidate()")}} übergeben wird. Wenn dabei ein Fehler auftritt und wir nicht gerade ein Angebot wegen einer Kollision infolge der Unhöflichkeit verworfen haben, [`werfen`](/de/docs/Web/JavaScript/Reference/Statements/throw) wir den Fehler, damit der Aufrufer ihn behandeln kann. Ansonsten ignorieren wir den Fehler, da er in diesem Kontext keine Bedeutung hat.
+Wenn die eingehende Nachricht ein ICE-Kandidat ist, anstatt einer SDP-Beschreibung, wird sie an die ICE-Schicht übergeben, indem sie in die Methode [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) von [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) übergeben wird. Wenn hier ein Fehler auftritt und wir gerade kein Angebot aufgrund einer Kollision ignorieren, werfen wir den Fehler mit [`throw`](/de/docs/Web/JavaScript/Reference/Statements/throw), damit der Anrufer ihn abfangen kann. Andernfalls ignorieren wir den Fehler, da er in diesem Kontext keine Rolle spielt.
 
-#### Perfektes Verhandeln mit der aktualisierten API
+#### Die mustergültige Verhandlung mit der aktualisierten API
 
-Der aktualisierte Code nutzt die Tatsache, dass Sie jetzt {{domxref("RTCPeerConnection.setLocalDescription", "setLocalDescription()")}} ohne Parameter aufrufen können, sodass es einfach das Richtige für Sie tut, sowie die Tatsache, dass `setRemoteDescription()` automatisch zurücksetzt, wenn nötig. Dadurch wird die Notwendigkeit, ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zu verwenden, beseitigt, um das Timing in Ordnung zu halten, da das Zurückrollen ein im Wesentlichen atomarer Teil des `setRemoteDescription()`-Aufrufs wird.
+Der aktualisierte Code nutzt die Tatsache, dass Sie jetzt [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) ohne Parameter aufrufen können, sodass diese automatisch das Richtige für Sie tut, sowie die Tatsache, dass `setRemoteDescription()` automatisch zurückgerollt wird, wenn nötig. Dies ermöglicht es uns, die Verwendung von [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zur Sicherstellung der richtigen Zeitabläufe zu vermeiden, da das Rollback zu einem im Wesentlichen atomaren Teil des `setRemoteDescription()` Aufrufs wird.
 
 ```js example-good
 let ignoreOffer = false;
@@ -344,27 +344,27 @@ signaler.onmessage = async ({ data: { description, candidate } }) => {
 };
 ```
 
-Obwohl der Unterschied im Codeumfang gering ist und die Komplexität sich nicht stark verringert, ist der Code weitaus zuverlässiger. Werfen wir einen Blick in den Code, um zu sehen, wie er jetzt funktioniert.
+Obwohl der Unterschied im Codeumfang gering ist und die Komplexität auch nicht wesentlich reduziert wird, ist der Code viel, viel zuverlässiger. Schauen wir uns den Code jetzt an, um zu sehen, wie er funktioniert.
 
 ##### Beim Empfang einer Beschreibung
 
-Im überarbeiteten Code, wenn die empfangene Nachricht eine SDP-`description` ist, überprüfen wir, ob sie eingetroffen ist, während wir versuchen, ein Angebot zu übertragen. Wenn die empfangene Nachricht ein `offer` ist _und_ der lokale Peer der unhöfliche Peer ist, _und_ eine Kollision auftritt, ignorieren wir das Angebot, weil wir weiterhin versuchen möchten, das Angebot zu verwenden, das bereits gesendet wird. Das ist das unhöfliche Verhalten des Peers in Aktion.
+Im überarbeiteten Code überprüfen wir, wenn die empfangene Nachricht eine SDP `description` ist, ob sie eingetroffen ist, während wir versuchen, ein Angebot zu senden. Wenn die empfangene Nachricht ein `Angebot` _und_ der lokale Peer der unhöfliche Peer ist und eine Kollision stattfindet, ignorieren wir das Angebot, da wir weiterhin versuchen möchten, das Angebot zu verwenden, das bereits im Prozess des Sendens ist. Das ist der unhöfliche Peer in Aktion.
 
-In jedem anderen Fall werden wir versuchen, die eingehende Nachricht zu verarbeiten. Dies beginnt damit, dass wir die Remote-Beschreibung auf die empfangene `description` setzen, indem wir sie an {{domxref("RTCPeerConnection.setRemoteDescription", "setRemoteDescription()")}} übergeben. Dies funktioniert unabhängig davon, ob wir ein Angebot oder eine Antwort bearbeiten, da das Zurücksetzen bei Bedarf automatisch durchgeführt wird.
+In jedem anderen Fall werden wir stattdessen versuchen, die eingehende Nachricht zu verarbeiten. Dies beginnt damit, die Remote-Beschreibung auf die empfangene `description` zu setzen, indem sie in [`setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription) übergeben wird. Dies funktioniert unabhängig davon, ob wir ein Angebot oder eine Antwort behandeln, da Rollbacks automatisch nach Bedarf ausgeführt werden.
 
-An diesem Punkt, wenn die empfangene Nachricht ein `offer` ist, verwenden wir `setLocalDescription()`, um eine passende lokale Beschreibung zu erstellen und zu setzen, und senden sie dann über den Signalisierungsserver an den Remote-Peer.
+Zu diesem Zeitpunkt, wenn die empfangene Nachricht ein `Angebot` ist, verwenden wir `setLocalDescription()`, um eine passende lokale Beschreibung zu erstellen und zu setzen, und senden sie dann über den Signalisierungsserver an das entfernte Peer.
 
 ##### Beim Empfang eines ICE-Kandidaten
 
-Wenn die empfangene Nachricht hingegen ein ICE-Kandidat ist—angezeigt durch das JSON-Objekt, das ein `candidate`-Element enthält—liefern wir ihn an die lokale ICE-Schicht, indem wir die {{domxref("RTCPeerConnection")}}-Methode {{domxref("RTCPeerConnection.addIceCandidate", "addIceCandidate()")}} aufrufen. Wenn dabei ein Fehler auftritt, ignorieren wir ihn, ebenso wie vorher, wenn wir gerade ein Angebot verworfen haben.
+Wenn die empfangene Nachricht hingegen einen ICE-Kandidaten enthält – was an dem Vorhandensein eines `candidate` Mitglieds im JSON-Objekt zu erkennen ist – übergeben wir ihn an die lokale ICE-Schicht, indem wir die Methode [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) von [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) aufrufen. Fehler werden, wie zuvor, ignoriert, wenn wir gerade ein Angebot verworfen haben.
 
-### Explizite restartIce()-Methode hinzugefügt
+### Explizite restartIce() Methode hinzugefügt
 
-Die Techniken, die bisher verwendet wurden, um ein [ICE-Restart](/de/docs/Web/API/WebRTC_API/Session_lifetime#ice_restart) während des {{domxref("RTCPeerConnection.negotiationneeded_event", "negotiationneeded")}}-Events auszulösen, hatten erhebliche Schwächen. Diese Schwächen erschwerten es, sicher und zuverlässig einen Neustart während der Verhandlung auszulösen. Die Verbesserungen beim perfekten Verhandeln haben dies behoben, indem eine neue {{domxref("RTCPeerConnection.restartIce", "restartIce()")}}-Methode zu `RTCPeerConnection` hinzugefügt wurde.
+Die zuvor verwendeten Techniken, um einen [ICE Neustart](/de/docs/Web/API/WebRTC_API/Session_lifetime#ice_restart) während der Behandlung des Ereignisses [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) auszulösen, wiesen erhebliche Mängel auf. Diese Mängel haben es schwierig gemacht, während der Verhandlung sicher und zuverlässig einen Neustart auszulösen. Die Verbesserungen der mustergültigen Verhandlung haben dieses Problem durch die Hinzufügung einer neuen [`restartIce()`](/de/docs/Web/API/RTCPeerConnection/restartIce) Methode für `RTCPeerConnection` behoben.
 
 #### Die alte Methode
 
-Früher, wenn Sie auf einen ICE-Fehler stießen und die Verhandlung neu starten mussten, haben Sie möglicherweise etwas Ähnliches gemacht:
+In der Vergangenheit, wenn ein ICE-Fehler auftrat und Sie die Verhandlung neu starten mussten, könnten Sie so etwas gemacht haben:
 
 ```js example-bad
 pc.onnegotiationneeded = async (options) => {
@@ -378,11 +378,11 @@ pc.oniceconnectionstatechange = () => {
 };
 ```
 
-Dies hat eine Reihe von Zuverlässigkeitsproblemen und offensichtlichen Fehlern (wie das Fehlschlagen, wenn das {{domxref("RTCPeerConnection.iceconnectionstatechange_event", "iceconnectionstatechange")}}-Event ausgelöst wird, wenn der Signalisierungszustand nicht `stable` ist), aber es gab keine Möglichkeit, eine ICE-Neustart tatsächlich zu fordern, außer durch Erstellung und Senden eines Angebots mit der Option `iceRestart` auf `true`. Der Neustart musste durch direktes Aufrufen des `negotiationneeded`-Event-Handlers gesendet werden. Es richtig zu machen war bestenfalls schwierig, und es war so einfach, es falsch zu machen, dass Fehler häufig sind.
+Dies hat eine Vielzahl von Zuverlässigkeitsproblemen und sogar Fehler (wie das Versagen, wenn das [`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event) Ereignis ausgelöst wird, während der Signalisierungsstatus nicht `stabil` ist), aber es gab keine Möglichkeit, tatsächlich einen ICE-Neustart anzufordern, außer durch Erstellen und Senden eines Angebots mit der `iceRestart` Option auf `true`. Das Senden der Neustartanfrage erforderte also das direkte Auslösen des Handlers des `negotiationneeded` Ereignisses. Dies richtig zu machen war im besten Fall schwierig und war so leicht falsch zu machen, dass es häufig zu Fehlern kam.
 
-#### Verwendung von restartIce()
+#### Verwenden von restartIce()
 
-Jetzt können Sie `restartIce()` verwenden, um dies viel sauberer zu tun:
+Jetzt können Sie `restartIce()` verwenden, um dies viel sauberer zu erledigen:
 
 ```js example-good
 let makingOffer = false;
@@ -405,15 +405,15 @@ pc.oniceconnectionstatechange = () => {
 };
 ```
 
-Mit dieser verbesserten Technik, anstatt den `onnegotiationneeded`-Handler direkt mit Optionen zum Auslösen des ICE-Neustarts aufzurufen, ruft der `failed` [ICE-Verbindungszustand](/de/docs/Web/API/RTCPeerConnection/iceConnectionState) {{domxref("RTCPeerConnection.restartIce", "restartIce()")}} auf. `restartIce()` weist die ICE-Schicht an, das `iceRestart`-Flag automatisch zur nächsten gesendeten ICE-Nachricht hinzuzufügen. Problem gelöst!
+Mit dieser verbesserten Technik, anstatt direkt `onnegotiationneeded` mit Optionen aufzurufen, um einen ICE-Neustart auszulösen, ruft der `failed` [ICE Verbindungsstatus](/de/docs/Web/API/RTCPeerConnection/iceConnectionState) [`restartIce()`](/de/docs/Web/API/RTCPeerConnection/restartIce) auf. `restartIce()` teilt der ICE-Schicht mit, automatisch das `iceRestart` Flag an die nächste gesendete ICE-Nachricht anzufügen. Problem gelöst!
 
-### Rollback im pranswer-Zustand nicht mehr unterstützt
+### Rollback im pranswer Zustand nicht mehr unterstützt
 
-Die letzte herausragende Änderung der API ist, dass Sie beim Aufenthalt in einem der `have-remote-pranswer`- oder `have-local-pranswer`-Zustände nicht mehr zurückrollen können. Glücklicherweise besteht bei der Verwendung des perfekten Verhandelns keine Notwendigkeit mehr, dies zu tun, da die Situationen, die dies verursachen, rechtzeitig erkannt und verhindert werden, bevor das Rückrollen jemals erforderlich wird.
+Die letzte der herausragenden API-Änderungen ist, dass Sie beim Verwenden der `have-remote-pranswer` oder `have-local-pranswer` Zustände nicht mehr zurückrollen können. Glücklicherweise ist dies bei Verwendung der mustergültigen Verhandlung ohnehin nicht erforderlich, da die Situationen, die dies verursachen, abgefangen und verhindert werden, bevor ein Zurückrollen jemals notwendig wird.
 
-Daher wird der Versuch, ein Rollback im einen der beiden `pranswer`-Zustände auszulösen, nun einen `InvalidStateError` auslösen.
+Daher führt ein Versuch, ein Rollback auszulösen, während Sie sich in einem der beiden `pranswer` Zustände befinden, jetzt zu einem `InvalidStateError`.
 
 ## Siehe auch
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [Lebenszyklus einer WebRTC-Sitzung](/de/docs/Web/API/WebRTC_API/Session_lifetime)
+- [Lebensdauer einer WebRTC-Sitzung](/de/docs/Web/API/WebRTC_API/Session_lifetime)

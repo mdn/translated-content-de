@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Visual Viewport")}}
 
-Das **`scrollend`** Ereignis der {{domxref("VisualViewport")}}-Schnittstelle wird ausgelöst, wenn ein Scrollvorgang auf dem visuellen Viewport beendet wird. Dies ermöglicht es Ihnen, ein Element zu aktualisieren, wenn eine Scrollaktion abgeschlossen ist. Beispielsweise könnten Sie die {{domxref("VisualViewport/resize_event", "resize")}}- und {{domxref("VisualViewport/scroll_event", "scroll")}}-Ereignisse verwenden, um ein Element beim Pinch-Zoomen und Scrollen fest an den visuellen Viewport zu binden, und es mit neuen Inhalten zu aktualisieren, wenn das Scrollen mit `scrollend` endet.
+Das **`scrollend`**-Ereignis der [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Schnittstelle wird ausgelöst, wenn ein Scrollvorgang auf dem visuellen Viewport endet. Dadurch können Sie ein Element aktualisieren, wenn eine Scrollaktion abgeschlossen ist. Zum Beispiel könnten Sie die [`resize`](/de/docs/Web/API/VisualViewport/resize_event)- und [`scroll`](/de/docs/Web/API/VisualViewport/scroll_event)-Ereignisse verwenden, um ein Element am visuellen Viewport fixiert zu halten, während es gezoomt und gescrollt wird, und es mit neuem Inhalt aktualisieren, wenn das Scrollen mit `scrollend` endet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder legen Sie eine Ereignishandler-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("scrollend", (event) => {});
@@ -22,16 +22,16 @@ onscrollend = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Siehe die [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API#examples) Übersichtsseite für eine Verwendungsvorführung.
+Sehen Sie sich die [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API#examples) Startseite für eine Demo zur Verwendung an.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

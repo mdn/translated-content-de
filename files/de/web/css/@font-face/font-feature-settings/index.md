@@ -7,17 +7,17 @@ l10n:
 
 {{CSSRef}}
 
-Der CSS-Deskriptor **`font-feature-settings`** ermöglicht es Ihnen, die anfänglichen Einstellungen für die durch die {{cssxref("@font-face")}}-At-Regel definierte Schriftart festzulegen. Mit diesem Deskriptor können Sie typografische Schrifteigenschaften wie Ligaturen, Kapitälchen und Schwünge für die durch `@font-face` definierte Schriftart steuern. Die Werte für diesen Deskriptor sind identisch mit der {{cssxref("font-feature-settings")}}-Eigenschaft, ausgenommen die globalen Schlüsselwortwerte.
+Der **`font-feature-settings`** CSS-Deskriptor ermöglicht es Ihnen, die initialen Einstellungen für die mit der {{cssxref("@font-face")}} at-rule definierte Schriftart zu definieren. Sie können diesen Deskriptor weiter verwenden, um typografische Schrifteigenschaften wie Ligaturen, Kapitälchen und Zierbuchstaben für die mit `@font-face` definierte Schriftart zu steuern. Die Werte für diesen Deskriptor sind die gleichen wie für die {{cssxref("font-feature-settings")}} Eigenschaft, mit Ausnahme der globalen Schlüsselwortwerte.
 
-Da dieser Deskriptor die Werte der Features auf dem Schriftobjekt in der `@font-face` Regel und nicht auf einem gesamten Element setzt, können nur einige Glyphen in einem Element mit diesem Deskriptor gerendert werden.
+Da dieser Deskriptor Werte für Schrifteigenschaften am Schriftobjekt in der `@font-face` At-Regel festlegt und nicht auf ein gesamtes Element, können nur einige Glyphen in einem Element mithilfe dieses Deskriptors gerendert werden.
 
 ## Syntax
 
 ```css
-/* Verwenden Sie die Standardeinstellungen */
+/* Use the default settings */
 font-feature-settings: normal;
 
-/* Setzen Sie Werte für OpenType-Feature-Tags */
+/* Set values for OpenType feature tags */
 font-feature-settings: "smcp";
 font-feature-settings: "smcp" on;
 font-feature-settings: "swsh" 2;
@@ -25,17 +25,17 @@ font-feature-settings: "swsh" 2;
 
 ### Werte
 
-Dieser Deskriptor wird entweder als das Schlüsselwort `normal` oder als kommagetrennte Liste von `<feature-tag-value>` Werten angegeben. Beim Rendern von Text wird die Liste von OpenType `<feature-tag-value>` Werten an die Text-Layout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren.
+Dieser Deskriptor wird entweder als Schlüsselwort `normal` oder als durch Kommas getrennte Liste von `<feature-tag-value>` Werten spezifiziert. Beim Rendern von Text wird die Liste der OpenType `<feature-tag-value>` Werte an die Text-Layout-Engine übergeben, um Schriftfunktionen zu aktivieren oder zu deaktivieren.
 
 - `normal`
-  - : Gibt an, dass der Text mit den Standardeinstellungen der Schriftart gestaltet wird. Dies ist der Standardwert.
+  - : Gibt an, dass der Text mit den standardmäßigen Schriftsatzeinstellungen gestaltet wird. Dies ist der Standardwert.
 - `<feature-tag-value>`
 
-  - : Repräsentiert ein leerzeichengetrenntes Tupel, das aus einem Tag-Namen und einem optionalen Wert besteht.
+  - : Stellt ein durch Leerzeichen getrenntes Tupel dar, das aus einem Tag-Namen und einem optionalen Wert besteht.
 
-    Der Tag-Name ist immer ein {{cssxref("&lt;string&gt;")}} bestehend aus vier {{Glossary("ASCII")}}-Zeichen. Hat der Tag-Name mehr oder weniger Zeichen oder enthält er Zeichen außerhalb des `U+20` – `U+7E` Codepunktbereichs, ist der Deskriptor ungültig.
+    Der Tag-Name ist immer ein {{cssxref("&lt;string&gt;")}} aus vier [ASCII](/de/docs/Glossary/ASCII) Zeichen. Wenn der Tag-Name mehr oder weniger Zeichen hat oder Zeichen außerhalb des `U+20` – `U+7E` Codepoint-Bereichs enthält, ist der Deskriptor ungültig.
 
-    Der optionale Wert kann eine positive ganze Zahl oder das Schlüsselwort `on` oder `off` sein. Die Schlüsselwörter `on` und `off` sind Synonyme für die Werte `1` und `0`. Wenn kein Wert gesetzt ist, ist der Standard `1`. Bei nicht-boolean OpenType Eigenschaften (z.B. [stylistische Alternativen](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-salt)) impliziert der Wert die Auswahl eines bestimmten Glyphs; bei boolean Eigenschaften schaltet der Wert das Merkmal ein oder aus.
+    Der optionale Wert kann eine positive ganze Zahl oder das Schlüsselwort `on` oder `off` sein. Die Schlüsselwörter `on` und `off` sind Synonyme für die Werte `1` und `0`. Wenn kein Wert gesetzt ist, ist der Standard `1`. Für nicht-boolean OpenType-Features (z. B. [stilistische Alternativen](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-salt)) impliziert der Wert die Auswahl eines bestimmten Glyphs; für boolesche Features aktiviert oder deaktiviert der Wert das Feature.
 
 ## Formale Definition
 
@@ -47,15 +47,15 @@ Dieser Deskriptor wird entweder als das Schlüsselwort `normal` oder als kommage
 
 ## Beispiele
 
-### Schwungglyphen mit der @font-face Regel aktivieren
+### Aktivieren von Zierglyphen mit der @font-face At-Regel
 
-In diesem Beispiel werden der Tag-Name `swsh` und ein boolean Wert `1` als Wert für den `font-feature-settings` Deskriptor in der `@font-face` Regel verwendet.
+In diesem Beispiel werden der Tag-Name `swsh` und ein boolescher Wert `1` als Wert für den Deskriptor `font-feature-settings` in der `@font-face` At-Regel verwendet.
 
 #### HTML
 
 ```html
-<p class="swashoff">Schwung ist hier aus</p>
-<p class="swashon">Schwung ist hier an</p>
+<p class="swashoff">Swash is off here</p>
+<p class="swashon">Swash is on here</p>
 ```
 
 #### CSS
@@ -84,9 +84,9 @@ p {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Enabling swash glyphs using the @font-face rule", 0, 230)}}
+{{EmbedLiveSample("Aktivieren von Zierglyphen mit der @font-face Regel", 0, 230)}}
 
-Linie 1 zeigt das standardmäßige verschnörkelte Design der [MonteCarlo](https://github.com/googlefonts/monte-carlo) Schriftart, und Linie 2 zeigt die Ersetzung der Standardglyphen durch [Schwung](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-swsh) Glyphen.
+Zeile 1 zeigt das standardmäßige verzierte Design der [MonteCarlo](https://github.com/googlefonts/monte-carlo) Schriftart, und Zeile 2 zeigt die standardmäßigen Glyphen, die durch [Zier](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-swsh) Glyphen ersetzt werden.
 
 ## Spezifikationen
 

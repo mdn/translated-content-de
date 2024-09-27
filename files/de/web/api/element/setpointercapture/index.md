@@ -1,5 +1,5 @@
 ---
-title: "Element: setPointerCapture()-Methode"
+title: "Element: Methode setPointerCapture()"
 short-title: setPointerCapture()
 slug: Web/API/Element/setPointerCapture
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`setPointerCapture()`**-Methode der {{domxref("Element")}}-Schnittstelle wird verwendet, um ein bestimmtes Element als _Erfassungsziel_ für zukünftige Zeigerereignisse zu bestimmen. Nachfolgende Ereignisse für den Zeiger werden auf das Erfassungselement ausgerichtet, bis die Erfassung freigegeben wird (via {{domxref("Element.releasePointerCapture()")}} oder das {{domxref("Element/pointerup_event", "pointerup")}}-Ereignis ausgelöst wird).
+Die **`setPointerCapture()`** Methode des [`Element`](/de/docs/Web/API/Element) Interfaces wird verwendet, um ein bestimmtes Element als _Erfassungsziel_ für zukünftige Zeigerereignisse zu bestimmen. Nachfolgende Ereignisse für den Zeiger werden auf das Erfassungselement gerichtet, bis die Erfassung freigegeben wird (über [`Element.releasePointerCapture()`](/de/docs/Web/API/Element/releasePointerCapture) oder das [`pointerup`](/de/docs/Web/API/Element/pointerup_event) Ereignis ausgelöst wird).
 
-Sehen Sie unter [Zeiger-Ereignisse](/de/docs/Web/API/Pointer_events#pointer_capture) eine Übersicht über die Funktionsweise der Zeigererfassung und Beispiele dazu.
+Siehe [Zeigerereignisse](/de/docs/Web/API/Pointer_events#pointer_capture) für einen Überblick und Beispiele, wie Zeigererfassung funktioniert.
 
 ## Syntax
 
@@ -21,7 +21,8 @@ setPointerCapture(pointerId)
 ### Parameter
 
 - `pointerId`
-  - : Die {{domxref("PointerEvent.pointerId", "pointerId")}} eines {{domxref("PointerEvent")}}-Objekts.
+  - : Die [`pointerId`](/de/docs/Web/API/PointerEvent/pointerId) eines
+    [`PointerEvent`](/de/docs/Web/API/PointerEvent) Objekts.
 
 ### Rückgabewert
 
@@ -29,12 +30,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `NotFoundError` {{domxref("DOMException")}}
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `pointerId` keinem aktiven Zeiger entspricht.
 
 ## Beispiele
 
-In diesem Beispiel wird die Zeigererfassung auf einem {{HtmlElement("div")}} gesetzt, wenn Sie darauf drücken. Dies ermöglicht es Ihnen, das Element horizontal zu verschieben, selbst wenn Ihr Zeiger sich außerhalb seiner Grenzen bewegt.
+Dieses Beispiel setzt eine Zeigererfassung auf ein {{HtmlElement("div")}}, wenn Sie darauf drücken. Dadurch können Sie das Element horizontal verschieben, selbst wenn Ihr Zeiger sich außerhalb seiner Grenzen bewegt.
 
 ### HTML
 
@@ -92,6 +93,6 @@ slider.onpointerup = stopSliding;
 
 ## Siehe auch
 
-- {{domxref("Element.hasPointerCapture","Element.hasPointerCapture()")}}
-- {{domxref("Element.releasePointerCapture","Element.releasePointerCapture()")}}
-- [Zeiger-Ereignisse](/de/docs/Web/API/Pointer_events)
+- [`Element.hasPointerCapture()`](/de/docs/Web/API/Element/hasPointerCapture)
+- [`Element.releasePointerCapture()`](/de/docs/Web/API/Element/releasePointerCapture)
+- [Zeigerereignisse](/de/docs/Web/API/Pointer_events)

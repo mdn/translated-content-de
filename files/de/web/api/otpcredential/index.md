@@ -7,24 +7,24 @@ l10n:
 
 {{APIRef("WebOTP API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Die **`OTPCredential`** Schnittstelle der {{domxref('WebOTP API','','',' ')}} wird zurückgegeben, wenn ein WebOTP {{domxref("CredentialsContainer.get", "navigator.credentials.get()")}} Aufruf (d.h. mit einer `otp` Option) erfolgreich ist. Sie enthält eine `code` Eigenschaft, die das abgerufene Einmalpasswort (OTP) enthält.
+Das **`OTPCredential`**-Interface der [WebOTP API](/de/docs/Web/API/WebOTP_API) wird zurückgegeben, wenn ein `navigator.credentials.get()`-Aufruf (d. h. mit einer `otp`-Option) der WebOTP API erfüllt wird. Es enthält eine `code`-Eigenschaft, die das erhaltene Einmalpasswort (OTP) enthält.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von {{domxref("Credential")}}._
+_Dieses Interface erbt auch Eigenschaften von [`Credential`](/de/docs/Web/API/Credential)._
 
-- {{domxref("OTPCredential.code")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`OTPCredential.code`](/de/docs/Web/API/OTPCredential/code) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Das Einmalpasswort (OTP).
 
-## Instanzmethoden
+## Instanz-Methoden
 
 Keine.
 
 ## Beispiele
 
-Der untenstehende Code löst den Berechtigungsablauf des Browsers aus, wenn eine SMS-Nachricht eingeht. Wird die Berechtigung erteilt, wird das Promise mit einem `OTPCredential` Objekt erfüllt. Der enthaltene `code`-Wert wird dann als Wert eines {{htmlelement("input")}} Formularelements gesetzt, das anschließend übermittelt wird.
+Der untenstehende Code löst den Berechtigungsfluss des Browsers aus, wenn eine SMS-Nachricht eintrifft. Wenn die Berechtigung erteilt wird, wird das Versprechen mit einem `OTPCredential`-Objekt aufgelöst. Der enthaltene `code`-Wert wird dann als Wert eines {{htmlelement("input")}} Formular-Elements gesetzt, welches anschließend übermittelt wird.
 
 ```js
 navigator.credentials
@@ -42,7 +42,7 @@ navigator.credentials
 ```
 
 > [!NOTE]
-> Für eine vollständige Erklärung des Codes siehe die {{domxref('WebOTP API','','',' ')}} Startseite. Sie können diesen Code auch [als Teil eines vollständig funktionierenden Demos sehen](https://web-otp.glitch.me/).
+> Für eine vollständige Erklärung des Codes siehe die [WebOTP API](/de/docs/Web/API/WebOTP_API) Hauptseite. Sie können diesen Code auch [als Teil einer vollständigen funktionierenden Demo ansehen](https://web-otp.glitch.me/).
 
 ## Spezifikationen
 

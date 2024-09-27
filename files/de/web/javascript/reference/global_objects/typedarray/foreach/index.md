@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`forEach()`** Methode von {{jsxref("TypedArray")}} Instanzen führt eine bereitgestellte Funktion einmal für jedes Element des typisierten Arrays aus. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.forEach()")}}.
+Die **`forEach()`**-Methode von {{jsxref("TypedArray")}}-Instanzen führt eine bereitgestellte Funktion einmal für jedes Element des typisierten Arrays aus. Diese Methode hat den gleichen Algorithmus wie {{jsxref("Array.prototype.forEach()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-foreach.html")}}
 
@@ -27,7 +27,7 @@ forEach(callbackFn, thisArg)
     - `index`
       - : Der Index des aktuellen Elements, das im typisierten Array verarbeitet wird.
     - `array`
-      - : Das typisierte Array, auf das `forEach()` angewendet wurde.
+      - : Das typisierte Array, auf dem `forEach()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
   - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet wird. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
@@ -37,11 +37,11 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.forEach()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen eines typisierten Arrays aufgerufen werden.
+Siehe {{jsxref("Array.prototype.forEach()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 
-### Protokollieren der Inhalte eines typisierten Arrays
+### Protokollierung des Inhalts eines typisierten Arrays
 
 Der folgende Code protokolliert eine Zeile für jedes Element in einem typisierten Array:
 
@@ -51,7 +51,7 @@ function logArrayElements(element, index, array) {
 }
 
 new Uint8Array([0, 1, 2, 3]).forEach(logArrayElements);
-// Protokolliert:
+// Logs:
 // a[0] = 0
 // a[1] = 1
 // a[2] = 2
@@ -62,14 +62,14 @@ new Uint8Array([0, 1, 2, 3]).forEach(logArrayElements);
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.forEach` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Anleitung
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.find()")}}
 - {{jsxref("TypedArray.prototype.map()")}}

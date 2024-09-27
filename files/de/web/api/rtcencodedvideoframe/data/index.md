@@ -1,6 +1,6 @@
 ---
 title: "RTCEncodedVideoFrame: Daten-Eigenschaft"
-short-title: Daten
+short-title: data
 slug: Web/API/RTCEncodedVideoFrame/data
 l10n:
   sourceCommit: 7cf04da4f63ea96edfddde0a74ac0d0b1bc4d12e
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`data`**-Eigenschaft des {{domxref("RTCEncodedVideoFrame")}}-Interfaces gibt einen Puffer zurück, der die Frame-Daten enthält.
+Die **`data`**-Eigenschaft des [`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame)-Interfaces gibt einen Puffer zurück, der die Rahmendaten enthält.
 
 ## Wert
 
@@ -16,10 +16,10 @@ Ein {{jsxref("ArrayBuffer")}}.
 
 ## Beispiele
 
-Dieses Beispiel zu [WebRTC-kodierten Transformationen](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) zeigt, wie Sie die Frame-Daten in einer {{domxref("TransformStream")}}-`transform()`-Funktion erhalten und alle Bits negieren könnten.
+Dieses Beispiel für [WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) zeigt, wie Sie die Rahmendaten in einer [`TransformStream`](/de/docs/Web/API/TransformStream)-`transform()`-Funktion erhalten und alle Bits negieren können.
 
-Die `transform()`-Funktion konstruiert ein {{jsxref("DataView")}} auf dem Puffer in der `data`-Eigenschaft des Frames und erstellt auch eine Ansicht auf einem neuen {{jsxref("ArrayBuffer")}}.
-Sie schreibt dann die invertierten Bytes der Originaldaten in den neuen Puffer, weist den Puffer der `data`-Eigenschaft des kodierten Frames zu und reiht den modifizierten Frame im Stream ein.
+Die `transform()`-Funktion erstellt eine {{jsxref("DataView")}} auf dem Puffer in der `data`-Eigenschaft des Rahmens und erstellt auch eine Ansicht auf einem neuen {{jsxref("ArrayBuffer")}}.
+Anschließend schreibt sie die invertierten Bytes der Originaldaten in den neuen Puffer, weist den Puffer der `data`-Eigenschaft des codierten Rahmens zu und stellt den modifizierten Rahmen in den Stream ein.
 
 ```js
 addEventListener("rtctransform", (event) => {
@@ -47,7 +47,7 @@ addEventListener("rtctransform", (event) => {
 });
 ```
 
-Beachten Sie, dass der umgebende Code, der hier gezeigt wird, in [Verwendung von WebRTC-kodierten Transformationen](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) beschrieben wird.
+Beachten Sie, dass der umgebende Code hier im [Verwenden von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) beschrieben wird.
 
 ## Spezifikationen
 
@@ -59,4 +59,4 @@ Beachten Sie, dass der umgebende Code, der hier gezeigt wird, in [Verwendung von
 
 ## Siehe auch
 
-- [Verwendung von WebRTC-kodierten Transformationen](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
+- [Verwenden von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)

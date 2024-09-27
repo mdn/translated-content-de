@@ -7,20 +7,20 @@ l10n:
 
 {{CSSRef}}
 
-Die **`flex-wrap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Flex-Elemente auf eine Zeile gezwungen oder auf mehrere Zeilen umgebrochen werden können. Wenn das Umbrechen erlaubt ist, legt es die Richtung fest, in der die Zeilen gestapelt werden.
+Die **`flex-wrap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Flex-Elemente in eine einzige Zeile gezwungen werden oder über mehrere Zeilen umgebrochen werden können. Wenn das Umbruch zulässig ist, legt sie die Richtung fest, in der die Zeilen gestapelt werden.
 
 {{EmbedInteractiveExample("pages/css/flex-wrap.html")}}
 
-Die {{cssxref("flex-flow")}} Kurzschreibweise kann verwendet werden, um sowohl die {{CSSXRef("flex-direction")}} als auch die `flex-wrap` Eigenschaften festzulegen, die die Haupt- und Kreuzachsen des Flex-Containers definieren.
+Die Kurzschreibweise der {{cssxref("flex-flow")}}-Eigenschaft kann verwendet werden, um sowohl die {{CSSXRef("flex-direction")}}- als auch die `flex-wrap`-Eigenschaften festzulegen, welche die Haupt- und Kreuzachsen des Flex-Containers definieren.
 
 ## Syntax
 
 ```css
-flex-wrap: nowrap; /* Standardwert */
+flex-wrap: nowrap; /* Default value */
 flex-wrap: wrap;
 flex-wrap: wrap-reverse;
 
-/* Globale Werte */
+/* Global values */
 flex-wrap: inherit;
 flex-wrap: initial;
 flex-wrap: revert;
@@ -30,14 +30,14 @@ flex-wrap: unset;
 
 ### Werte
 
-Die `flex-wrap` Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, das aus den folgenden Werten ausgewählt wird:
+Die `flex-wrap`-Eigenschaft wird als einzelnes Schlüsselwort angegeben, das aus den folgenden Werten ausgewählt wird:
 
 - `nowrap`
-  - : Die Flex-Elemente werden in einer einzigen Zeile angeordnet, was dazu führen kann, dass der Flex-Container überläuft. Der Cross-Start entspricht [inline-start oder block-start](/de/docs/Glossary/Flow_relative_values), abhängig vom {{cssxref("flex-direction")}} Wert. Dies ist der Standardwert.
+  - : Die Flex-Elemente werden in einer einzigen Zeile ausgelegt, was dazu führen kann, dass der Flex-Container überläuft. Der cross-start entspricht [inline-start oder block-start](/de/docs/Glossary/Flow_relative_values), abhängig vom Wert der {{cssxref("flex-direction")}}-Eigenschaft. Dies ist der Standardwert.
 - `wrap`
-  - : Die Flex-Elemente brechen in mehrere Zeilen um. Der Cross-Start entspricht [inline-start oder block-start](/de/docs/Glossary/Flow_relative_values), abhängig vom aktuellen [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) und dem {{cssxref("flex-direction")}} Wert.
+  - : Die Flex-Elemente brechen in mehrere Zeilen um. Der cross-start entspricht [inline-start oder block-start](/de/docs/Glossary/Flow_relative_values), abhängig vom aktuellen [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) und vom Wert der {{cssxref("flex-direction")}}-Eigenschaft.
 - `wrap-reverse`
-  - : Verhält sich genauso wie `wrap`, aber Cross-Start und Cross-Ende sind invertiert.
+  - : Verhält sich wie `wrap`, aber cross-start und cross-end sind vertauscht.
 
 ## Formale Definition
 
@@ -49,24 +49,24 @@ Die `flex-wrap` Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, das
 
 ## Beispiele
 
-### Festlegen von Flex-Container-Umbruchwerten
+### Festlegen von Wrap-Werten für Flex-Container
 
 #### HTML
 
 ```html
-<h4>Dies ist ein Beispiel für flex-wrap:wrap</h4>
+<h4>This is an example for flex-wrap:wrap</h4>
 <div class="content">
   <div class="red">1</div>
   <div class="green">2</div>
   <div class="blue">3</div>
 </div>
-<h4>Dies ist ein Beispiel für flex-wrap:nowrap</h4>
+<h4>This is an example for flex-wrap:nowrap</h4>
 <div class="content1">
   <div class="red">1</div>
   <div class="green">2</div>
   <div class="blue">3</div>
 </div>
-<h4>Dies ist ein Beispiel für flex-wrap:wrap-reverse</h4>
+<h4>This is an example for flex-wrap:wrap-reverse</h4>
 <div class="content2">
   <div class="red">1</div>
   <div class="green">2</div>
@@ -77,7 +77,7 @@ Die `flex-wrap` Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, das
 #### CSS
 
 ```css
-/* Gemeinsame Stile */
+/* Common Styles */
 .content,
 .content1,
 .content2 {
@@ -104,7 +104,7 @@ Die `flex-wrap` Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, das
   background: steelblue;
 }
 
-/* Flexbox-Stile */
+/* Flexbox Styles */
 .content {
   display: flex;
   flex-wrap: wrap;
@@ -127,7 +127,7 @@ Die `flex-wrap` Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, das
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -136,5 +136,5 @@ Die `flex-wrap` Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, das
 - {{CSSXRef("flex-direction")}}
 - {{CSSXRef("flex-flow")}} Kurzschreibweise
 - [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Beherrschen des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
+- [Meisterung des Umbruchs von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items)
 - [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul

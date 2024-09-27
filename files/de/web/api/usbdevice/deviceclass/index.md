@@ -8,8 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die **`deviceClass`**-Eigenschaft ist eine schreibgeschützte Eigenschaft der
-{{domxref("USBDevice")}}-Schnittstelle. Sie ist eine von drei Eigenschaften, die USB-Geräte identifizieren, um einen USB-Treiber zu laden, der mit diesem Gerät funktioniert. Die anderen beiden Eigenschaften sind USBDevice.deviceSubclass und USBDevice.deviceProtocol.
+Die schreibgeschützte Eigenschaft **`deviceClass`** des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces ist eine von drei Eigenschaften, die USB-Geräte zur Identifizierung für das Laden eines USB-Treibers, der mit dem Gerät funktioniert, nutzen. Die anderen beiden Eigenschaften sind USBDevice.deviceSubclass und USBDevice.deviceprotocol.
 
 ## Wert
 

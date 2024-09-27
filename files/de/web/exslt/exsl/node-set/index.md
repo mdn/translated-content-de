@@ -7,7 +7,7 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`exsl:node-set()` gibt eine Knotenmenge aus einem Ergebnisbaumfragment zurück, welches Sie erhalten, wenn Sie auf die `xsl:variable` statt auf ihr select-Attribut blicken, um den Wert einer Variablen zu erhalten. Dies ermöglicht es Ihnen, das innerhalb einer Variablen erstellte XML in mehreren Schritten zu verarbeiten.
+`exsl:node-set()` gibt eine Node-Set aus einem Ergebnisbaumfragment zurück, das Sie erhalten, wenn Sie die `xsl:variable` anstelle ihres select-Attributs betrachten, um den Wert einer Variablen abzurufen. Dies ermöglicht es Ihnen, das innerhalb einer Variablen erstellte XML in mehreren Schritten zu verarbeiten.
 
 Sie können `exsl:node-set()` auch verwenden, um Zeichenfolgen in Textknoten umzuwandeln.
 
@@ -20,11 +20,11 @@ exsl:node-set(object)
 ### Parameter
 
 - `object`
-  - : Das Objekt, für das die entsprechende Knotenmenge zurückgegeben werden soll.
+  - : Das Objekt, für das das entsprechende Node-Set zurückgegeben werden soll.
 
 ### Rückgabewert
 
-Die Knotenmenge, die dem angegebenen `object` entspricht.
+Das Node-Set, das dem angegebenen `object` entspricht.
 
 ## Spezifikationen
 

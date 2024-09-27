@@ -1,5 +1,5 @@
 ---
-title: "Attr: value-Eigenschaft"
+title: "Attr: Wert-Eigenschaft"
 short-title: value
 slug: Web/API/Attr/value
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`value`**-Eigenschaft des {{domxref("Attr")}}-Interfaces enthält den Wert des Attributs.
+Die **`value`**-Eigenschaft des [`Attr`](/de/docs/Web/API/Attr)-Interfaces enthält den Wert des Attributs.
 
 ## Wert
 
-Ein String, der den Attributwert darstellt.
+Ein String, der den Attributswert darstellt.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt den aktuellen Wert des Attributs `test` an. Ein Klick auf den Button ändert diesen zu einem anderen Wert und liest ihn erneut, um den angezeigten Wert zu aktualisieren.
+Das folgende Beispiel zeigt den aktuellen Wert des Attributs `test`. Durch Klicken auf den Button wird es auf einen anderen Wert geändert und erneut gelesen, um den angezeigten Wert zu aktualisieren.
 
 ### HTML
 

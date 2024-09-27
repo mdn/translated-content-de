@@ -7,11 +7,11 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## Schnittstelle für animierte SVG-Transformationslisten
+## Schnittstelle für die SVG-animierte Transformationsliste
 
-Die `SVGAnimatedTransformList`-Schnittstelle wird für Attribute verwendet, die eine Liste von Zahlen enthalten und animiert werden können.
+Die `SVGAnimatedTransformList`-Schnittstelle wird für Attribute verwendet, die eine Liste von Zahlen erfordern und animiert werden können.
 
-### Übersicht über die Schnittstelle
+### Schnittstellenübersicht
 
 <table class="no-markdown">
   <tbody>
@@ -28,11 +28,11 @@ Die `SVGAnimatedTransformList`-Schnittstelle wird für Attribute verwendet, die 
       <td>
         <ul>
           <li>
-            readonly {{ domxref("SVGTransformList") }}
+            readonly [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)
             <code>baseVal</code>
           </li>
           <li>
-            readonly {{ domxref("SVGTransformList") }}
+            readonly [`SVGTransformList`](/de/docs/Web/API/SVGTransformList)
             <code>animVal</code>
           </li>
         </ul>
@@ -63,16 +63,16 @@ Die `SVGAnimatedTransformList`-Schnittstelle wird für Attribute verwendet, die 
   <tbody>
     <tr>
       <td><code>baseVal</code></td>
-      <td>{{ domxref("SVGTransformList") }}</td>
+      <td>[`SVGTransformList`](/de/docs/Web/API/SVGTransformList)</td>
       <td>
-        Der Grundwert des angegebenen Attributs bevor irgendwelche Animationen angewendet werden.
+        Der Basiswert des angegebenen Attributs vor der Anwendung von Animationen.
       </td>
     </tr>
     <tr>
       <td><code>animVal</code></td>
-      <td>{{ domxref("SVGTransformList") }}</td>
+      <td>[`SVGTransformList`](/de/docs/Web/API/SVGTransformList)</td>
       <td>
-        Eine schreibgeschützte {{ domxref("SVGTransformList") }}, die den aktuell animierten Wert des angegebenen Attributs darstellt. Wenn das gegebene Attribut derzeit nicht animiert wird, dann wird die {{ domxref("SVGTransformList") }} die gleichen Inhalte wie <code>baseVal</code> haben. Das Objekt, auf das durch <code>animVal</code> verwiesen wird, wird immer von demjenigen, auf das durch <code>baseVal</code> verwiesen wird, verschieden sein, selbst wenn das Attribut nicht animiert ist.
+        Eine schreibgeschützte [`SVGTransformList`](/de/docs/Web/API/SVGTransformList), die den aktuellen animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut derzeit nicht animiert wird, dann hat die [`SVGTransformList`](/de/docs/Web/API/SVGTransformList) denselben Inhalt wie <code>baseVal</code>. Das durch <code>animVal</code> referenzierte Objekt ist immer von dem durch <code>baseVal</code> referenzierten Objekt getrennt, selbst wenn das Attribut nicht animiert ist.
       </td>
     </tr>
   </tbody>

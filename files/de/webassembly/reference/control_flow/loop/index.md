@@ -1,5 +1,5 @@
 ---
-title: Schleife
+title: loop
 slug: WebAssembly/Reference/Control_flow/loop
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,26 +7,26 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`loop`**-Anweisung erstellt ein Label, das später mit einem `br` angesprungen werden kann. Die Schleifenanweisung selbst führt keine Wiederholung durch; Sie müssen zu ihr verzweigen, um tatsächlich eine Schleife zu erstellen.
+Die **`loop`** Anweisung erstellt ein Label, zu dem später mit einem `br` verzweigt werden kann. Die `loop`-Anweisung führt nicht von selbst eine Schleife aus; Sie müssen zu dieser verzweigen, um tatsächlich eine Schleife zu erstellen.
 
-Die **`loop`**-Anweisung ist das Gegenteil der `block`-Anweisung, in dem Sinne, dass bei einer Verzweigung zu einer `loop` zum Anfang der Schleife gesprungen wird, während bei einer Verzweigung zu einem `block` zum Ende des Blocks gesprungen wird, also aus dem Block heraus.
+Die **`loop`** Anweisung ist das Gegenteil der `block` Anweisung, da das Verzweigen zu einer `loop` zum Anfang der Schleife springt, während das Verzweigen zu einem `block` zum Ende des Blocks springt, also aus dem Block heraus.
 
 {{EmbedInteractiveExample("pages/wat/loop.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; die Schleife labeln, damit sie angesprungen werden kann
+;; label the loop so that it can be branched to
 (loop $my_loop
 
-  ;; zur Schleife verzweigen.
-  ;; meistens möchte man dies in eine if-Anweisung einfügen und nur bei einer Bedingung verzweigen,
-  ;; andernfalls hat man eine Endlosschleife.
+  ;; branch to the loop.
+  ;; most of the time you'll want to put this in an if statement and only branch on condition,
+  ;; otherwise you have an infinite loop.
   br $my_loop
 
 )
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `loop`      | `0x03`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `loop`    | `0x03`         |

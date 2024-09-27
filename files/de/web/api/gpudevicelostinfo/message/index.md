@@ -3,12 +3,12 @@ title: "GPUDeviceLostInfo: message-Eigenschaft"
 short-title: message
 slug: Web/API/GPUDeviceLostInfo/message
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`message`**-Eigenschaft der {{domxref("GPUDeviceLostInfo")}}-Schnittstelle ist eine schreibgeschützte Eigenschaft, die eine menschenlesbare Nachricht bereitstellt, die erklärt, warum das Gerät verloren gegangen ist.
+Die **`message`** schreibgeschützte Eigenschaft des [`GPUDeviceLostInfo`](/de/docs/Web/API/GPUDeviceLostInfo)-Interfaces liefert eine menschenlesbare Nachricht, die erklärt, warum das Gerät verloren gegangen ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Ein Beispiel finden Sie auf der Hauptseite von [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost#examples).
+Siehe die Hauptseite [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost#examples) für ein Beispiel.
 
 ## Spezifikationen
 

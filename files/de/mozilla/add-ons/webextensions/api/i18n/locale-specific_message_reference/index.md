@@ -1,5 +1,5 @@
 ---
-title: „Lokal spezifische Nachrichtenreferenz“
+title: Referenz für ortsspezifische Nachrichten
 slug: Mozilla/Add-ons/WebExtensions/API/i18n/Locale-Specific_Message_reference
 l10n:
   sourceCommit: a16fecbf75f71fc11e03ef6cd0b0c34ad6f3d480
@@ -7,14 +7,14 @@ l10n:
 
 {{AddonSidebar}}
 
-Jede internationalisierte Erweiterung hat mindestens eine Datei mit dem Namen `messages.json`, die lokale spezifische Zeichenfolgen bereitstellt. Diese Seite beschreibt das Format der `messages.json`-Dateien.
+Jede internationalisierte Erweiterung hat mindestens eine Datei mit dem Namen `messages.json`, die ortsspezifische Zeichenketten bereitstellt. Diese Seite beschreibt das Format von `messages.json`-Dateien.
 
 > [!NOTE]
-> Informationen zur Internationalisierung Ihrer Erweiterungen finden Sie in unserem [i18n](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization) Leitfaden.
+> Informationen zur Internationalisierung Ihrer Erweiterungen finden Sie in unserem [i18n Leitfaden](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization).
 
 ## Beispiel für messages.json
 
-Der folgende Code zeigt ein Beispiel für eine `messages.json`-Datei, entnommen aus unserer [notify-link-clicks-i18n Beispiel](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n) Erweiterung. Nur die Felder „_name_“ und „message“ sind erforderlich.
+Der folgende Code zeigt ein Beispiel einer `messages.json`-Datei, entnommen aus unserer [notify-link-clicks-i18n Beispiel](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n) Erweiterung. Nur die Felder „_name_“ und „message“ sind erforderlich.
 
 ```json
 {
@@ -48,15 +48,15 @@ Der folgende Code zeigt ein Beispiel für eine `messages.json`-Datei, entnommen 
 
 ## Platzierung
 
-Ihre `messages.json`-Dateien müssen in Verzeichnissen platziert werden, die nach der jeweiligen unterstützenden Lokale benannt sind — `en`, `de`, `ja` usw. Diese müssen wiederum in einem Verzeichnis namens `_locales` platziert werden, das sich im Stammverzeichnis Ihrer Erweiterung befindet.
+Ihre `messages.json`-Dateien müssen in Verzeichnissen abgelegt werden, die nach dem jeweiligen unterstützten Gebietsschema benannt sind — `en`, `de`, `ja` usw. Diese wiederum müssen sich in einem Verzeichnis namens `_locales` im Stammverzeichnis Ihrer Erweiterung befinden.
 
-## Details der Mitglieder
+## Mitgliederdetails
 
-Dieser Abschnitt beschreibt jedes Mitglied, das in einer `messages.json`-Datei auftreten kann.
+Dieser Abschnitt beschreibt jedes Mitglied, das in einer `messages.json`-Datei erscheinen kann.
 
-### name
+### Name
 
-Jedes Top-Level-Mitglied wird nach dem Namen der zu lokalisierenden Nachrichtenzeichenfolge benannt, zum Beispiel `"extensionName"` oder `"notificationContent"` im obigen Beispiel. Jeder Name ist nicht ohne Bezug auf Groß- oder Kleinschreibung, und er fungiert als Schlüssel, mit dem Sie den lokalisierten Nachrichtentext abrufen können.
+Jedes oberste Mitglied wird nach dem Namen der Nachrichtenzeichenkette benannt, die Sie lokalisiert haben, zum Beispiel `"extensionName"` oder `"notificationContent"` im obigen Beispiel. Jeder Name ist nicht case-sensitiv und fungiert als Schlüssel, mit dem Sie den lokalisierten Nachrichtentext abrufen können.
 
 Der Name kann die folgenden Zeichen enthalten:
 
@@ -69,33 +69,33 @@ Der Name kann die folgenden Zeichen enthalten:
 > [!NOTE]
 > Sie sollten keine Namen definieren, die mit @@ beginnen. Solche Namen sind für [vordefinierte Nachrichten](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#predefined_messages) reserviert.
 
-### message
+### Nachricht
 
-Mindestens diese Eigenschaft muss für jede Zeichenfolge gesetzt werden. Das `"message"`-Mitglied enthält eine lokalisierte Zeichenfolge, die [Platzhalter](#placeholders) enthalten kann. Sie können verwenden:
+Mindestens diese Eigenschaft muss für jede Zeichenkette gesetzt werden. Das `"message"`-Mitglied enthält eine lokalisierte Zeichenkette, die [Platzhalter](#platzhalter) enthalten kann. Sie können verwenden:
 
-- _$placeholder_name$_ (unabhängig von der Groß- oder Kleinschreibung), um einen bestimmten Platzhalter (zum Beispiel $URL$ im obigen Beispiel) in Ihrer Zeichenfolge einzufügen.
-- `$1`, `$2`, `$3` usw., um Werte direkt in Ihre Zeichenfolge einzufügen, die von einem {{WebExtAPIRef("i18n.getMessage()")}} Aufruf erhalten werden.
+- _$placeholder_name$_ (nicht case-sensitiv), um einen bestimmten Platzhalter (zum Beispiel $URL$ im obigen Beispiel) in Ihre Zeichenkette einzufügen.
+- `$1`, `$2`, `$3` usw., um direkt Werte einzufügen, die von einem {{WebExtAPIRef("i18n.getMessage()")}}-Aufruf in Ihre Zeichenkette erhalten wurden.
 
-Weitere Punkte zu beachten:
+Weitere Anmerkungen:
 
-- Beliebig viele aufeinanderfolgende Dollarzeichen in Zeichenfolgen werden durch dieselbe Anzahl von Dollarzeichen minus eins ersetzt. Also, $$ > $, $$$ > $$ usw.
-- Wenn die Locale-Datei gelesen wird, werden mit `/\$([a-z0-9_@]+)\$/i` übereinstimmende Tokens durch den entsprechenden Wert aus dem „placeholders“-Objekt der Zeichenfolge ersetzt. Diese Ersetzungen erfolgen vor der Verarbeitung von `/\$\d/` Tokens in der Nachricht.
-- Wenn eine Locale-Zeichenfolge verwendet wird, werden mit `/\$\d+/` übereinstimmende Tokens durch die an {{WebExtAPIRef("i18n.getMessage()")}} übergebenen Ersetzungen ersetzt.
+- Jede Anzahl von aufeinanderfolgenden Dollarzeichen, die in Zeichenketten erscheinen, wird durch die gleiche Anzahl von Dollarzeichen minus eins ersetzt. Also, $$ > $, $$$ > $$, usw.
+- Wenn die Gebietsschema-Datei gelesen wird, werden Tokens, die `/\$([a-z0-9_@]+)\$/i` entsprechen, durch den übereinstimmenden Wert aus dem "placeholders"-Objekt der Zeichenkette ersetzt. Diese Ersetzungen erfolgen vor der Verarbeitung von Tokens, die `/\$\d/` im Text entsprechen.
+- Wenn eine Ortszeichenkette verwendet wird, werden Tokens, die `/\$\d+/` entsprechen, mit den Ersatzwerten ersetzt, die {{WebExtAPIRef("i18n.getMessage()")}} übergeben werden.
 - `getMessage()` verarbeitet keine Aufrufe mit mehr als 9 Platzhaltern/Ersetzungen.
 
-### description
+### Beschreibung
 
 {{optional_inline}}
 
-Das `"description"`-Mitglied sollte eine Beschreibung des Inhalts der Nachrichtenzeichenfolge enthalten, die einem Übersetzer helfen soll, die bestmögliche Übersetzung der Zeichenfolge zu erstellen.
+Das `"description"`-Mitglied sollte eine Beschreibung des Inhalts der Nachrichtenzeichenkette enthalten, um einem Übersetzer zu helfen, die bestmögliche Übersetzung der Zeichenkette zu erstellen.
 
-### placeholders
+### Platzhalter
 
 {{optional_inline}}
 
-Das `"placeholders"`-Mitglied definiert ein oder mehrere Platzhalter-Teilzeichenfolgen zur Verwendung in der Nachricht — diese können verwendet werden, um Dinge zu kodifizieren, die nicht übersetzt werden sollen, oder um auf Variablen zu verweisen.
+Das `"placeholders"`-Mitglied definiert einen oder mehrere Platzhalte-Zeichenfolgen, die innerhalb der Nachricht verwendet werden sollen — diese können verwendet werden, um Elemente festzulegen, die Sie nicht übersetzen möchten, oder um auf Variablen zu verweisen.
 
-Jede Platzhalter-Teilzeichenfolgendefinition hat eigene Wertangaben:
+Jede Platzhalter-Zeichenfolgendefinition hat eine Reihe eigener Werte:
 
 ```json
 "url" : {
@@ -104,16 +104,16 @@ Jede Platzhalter-Teilzeichenfolgendefinition hat eigene Wertangaben:
 }
 ```
 
-#### placeholder name
+#### Platzhaltername
 
-Der Platzhaltername wird verwendet, um den Platzhalter in der Ersatzzeichenfolge zu repräsentieren (z.B. wird `"url"` zu `$url$`). Er ist nicht ohne Bezug auf Groß- oder Kleinschreibung und kann dieselben Zeichen wie ein Nachrichtenzeichenfolgenname [name](#name) enthalten.
+Der Platzhaltername wird verwendet, um den Platzhalter in der Ersatzzeichenfolge darzustellen (z.B. wird `"url"` zu `$url$`). Er ist nicht case-sensitiv und kann dieselben Zeichen enthalten wie ein Nachrichtenzeichenfolgenname [Name](#name).
 
-#### content
+#### Inhalt
 
-Der „content“-Eintrag definiert den Inhalt des Platzhalters. Dies kann eine fest kodierte Zeichenfolge sein, wie „My placeholder“, aber es kann auch Werte enthalten, die von einem {{WebExtAPIRef("i18n.getMessage()")}} Aufruf erhalten werden. Diese Eigenschaft ist erforderlich. Weitere Informationen finden Sie unter [Abrufen von Nachrichtenzeichenfolgen aus JavaScript](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#retrieving_message_strings_from_javascript).
+Der "content"-Eintrag definiert den Inhalt des Platzhalters. Dies kann eine fest codierte Zeichenkette sein, wie "Mein Platzhalter", es kann aber auch Werte einbeziehen, die von einem {{WebExtAPIRef("i18n.getMessage()")}}-Aufruf erhalten werden. Diese Eigenschaft ist erforderlich. Weitere Informationen finden Sie unter [Abrufen von Nachrichtenzeichenfolgen aus JavaScript](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#retrieving_message_strings_from_javascript).
 
-#### example
+#### Beispiel
 
 {{optional_inline}}
 
-Der optionale „example“-Eintrag ist wieder dazu gedacht, Übersetzern zu helfen, indem er ihnen ein Beispiel zeigt, wie der Platzhalter für Endbenutzer erscheinen würde, sodass sie die beste Wahl treffen können, wenn sie die Datei lokalisieren.
+Das optionale "example"-Element soll Übersetzern erneut helfen, indem es ihnen ein Beispiel zeigt, wie der Platzhalter für Endbenutzer erscheinen würde, und ihnen ermöglicht, die beste Wahl bei der Lokalisierung der Datei zu treffen.

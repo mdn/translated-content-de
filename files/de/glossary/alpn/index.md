@@ -7,17 +7,17 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Application-Layer Protocol Negotiation** (**ALPN**) ist eine {{Glossary("TLS")}}-Erweiterung (definiert in [RFC 7301](https://www.rfc-editor.org/rfc/rfc7301)) zur Identifizierung, welches Protokoll auf Anwendungsebene die verschlüsselte Verbindung aushandelt, ohne zusätzliche Übertragungsrunden dafür zu benötigen.
+**Application-Layer Protocol Negotiation** (**ALPN**) ist eine [TLS](/de/docs/Glossary/TLS)-Erweiterung (definiert in [RFC 7301](https://www.rfc-editor.org/rfc/rfc7301)), die es ermöglicht, das Anwendungsprotokoll zu identifizieren, das die verschlüsselte Verbindung ausführt, ohne dass zusätzliche Umläufe erforderlich sind.
 
-| Protokoll                                 | Identifikationssequenz                                 |
-| ----------------------------------------- | ------------------------------------------------------ |
-| {{Glossary("HTTP", "HTTP/1.1")}}          | `0x68 0x74 0x74 0x70 0x2F 0x31 0x2E 0x31` ("http/1.1") |
-| {{Glossary("HTTP 2", "HTTP/2")}}          | `0x68 0x32` ("h2")                                     |
-| HTTP/2 über Klartext-{{Glossary("TCP")}}  | `0x68 0x32 0x63` ("h2c")                               |
-| {{Glossary("HTTP 3", "HTTP/3")}}          | `0x68 0x33` ("h3")                                     |
+| Protokoll                                         | Identifikationssequenz                                 |
+| ------------------------------------------------- | ------------------------------------------------------ |
+| [HTTP/1.1](/de/docs/Glossary/HTTP)                | `0x68 0x74 0x74 0x70 0x2F 0x31 0x2E 0x31` ("http/1.1") |
+| [HTTP/2](/de/docs/Glossary/HTTP_2)                | `0x68 0x32` ("h2")                                     |
+| HTTP/2 über Klartext [TCP](/de/docs/Glossary/TCP) | `0x68 0x32 0x63` ("h2c")                               |
+| [HTTP/3](/de/docs/Glossary/HTTP_3)                | `0x68 0x33` ("h3")                                     |
 
 ## Siehe auch
 
-- [Property `nextHopProtocol` der Performance-Resource-Timing-API](/de/docs/Web/API/PerformanceResourceTiming/nextHopProtocol)
+- [`nextHopProtocol` Eigenschaft für Performance Resource Timing](/de/docs/Web/API/PerformanceResourceTiming/nextHopProtocol)
 - [PerformanceObserver API](/de/docs/Web/API/PerformanceObserver)
-- [IANA-registrierte ALPN-Identifiers](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids)
+- [Bei IANA registrierte ALPN-Identifikatoren](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids)

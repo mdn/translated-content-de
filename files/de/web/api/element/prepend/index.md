@@ -1,5 +1,5 @@
 ---
-title: "Element: prepend()-Methode"
+title: "Element: prepend() Methode"
 short-title: prepend()
 slug: Web/API/Element/prepend
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.prepend()`**-Methode fügt eine Reihe von
-{{domxref("Node")}}-Objekten oder Strings vor dem ersten Kind
-des {{domxref("Element")}} ein. Strings werden als
-äquivalente {{domxref("Text")}}-Knoten eingefügt.
+Die **`Element.prepend()`** Methode fügt eine Reihe von
+[`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen vor dem ersten Kind
+des [`Element`](/de/docs/Web/API/Element) ein. Zeichenfolgen werden als
+äquivalente [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ prepend(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Reihe von {{domxref("Node")}}-Objekten oder Strings zum Einfügen.
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -32,12 +32,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
 
 ## Beispiele
 
-### Ein Element einfügen
+### Ein Element voranstellen
 
 ```js
 let div = document.createElement("div");
@@ -49,7 +49,7 @@ div.prepend(span);
 console.log(div.childNodes); // NodeList [ <span>, <p> ]
 ```
 
-### Text einfügen
+### Text voranstellen
 
 ```js
 let div = document.createElement("div");
@@ -59,7 +59,7 @@ div.prepend("Headline: ");
 console.log(div.textContent); // "Headline: Some text"
 ```
 
-### Ein Element und Text einfügen
+### Ein Element und Text voranstellen
 
 ```js
 let div = document.createElement("div");
@@ -69,10 +69,10 @@ div.prepend("Some text", p);
 console.log(div.childNodes); // NodeList [ #text "Some text", <p> ]
 ```
 
-### Die prepend-Methode ist nicht in einem `with`-Konstrukt anwendbar
+### Die prepend-Methode ist nicht eingefasst
 
-Die `prepend()`-Methode wird nicht in das `with`-Statement eingebunden.
-Weitere Informationen finden Sie unter {{jsxref("Symbol.unscopables")}}.
+Die `prepend()` Methode wird nicht im `with`-Statement eingefasst.
+Siehe {{jsxref("Symbol.unscopables")}} für weitere Informationen.
 
 ```js
 let div = document.createElement("div");
@@ -93,9 +93,9 @@ with (div) {
 
 ## Siehe auch
 
-- {{domxref("Element.append()")}}
-- {{domxref("Node.appendChild()")}}
-- {{domxref("Node.insertBefore()")}}
-- {{domxref("Element.before()")}}
-- {{domxref("Element.insertAdjacentElement()")}}
-- {{domxref("NodeList")}}
+- [`Element.append()`](/de/docs/Web/API/Element/append)
+- [`Node.appendChild()`](/de/docs/Web/API/Node/appendChild)
+- [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore)
+- [`Element.before()`](/de/docs/Web/API/Element/before)
+- [`Element.insertAdjacentElement()`](/de/docs/Web/API/Element/insertAdjacentElement)
+- [`NodeList`](/de/docs/Web/API/NodeList)

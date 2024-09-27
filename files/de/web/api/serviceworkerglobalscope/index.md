@@ -9,84 +9,84 @@ l10n:
 
 Das **`ServiceWorkerGlobalScope`**-Interface der [Service Worker API](/de/docs/Web/API/Service_Worker_API) repräsentiert den globalen Ausführungskontext eines Service Workers.
 
-Entwickler sollten beachten, dass der Zustand des ServiceWorkers nicht über den Beendigungs-/Neustartzyklus hinweg gespeichert wird; daher sollte jeder Ereignishandler annehmen, dass er mit einem leeren, standardmäßigen globalen Zustand aufgerufen wird.
+Entwickler sollten beachten, dass der Zustand des ServiceWorkers nicht über den Terminations-/Neustart-Zyklus hinweg beibehalten wird. Daher sollte jeder Ereignishandler davon ausgehen, dass er mit einem leeren, standardmäßigen globalen Zustand aufgerufen wird.
 
-Ein erfolgreich registrierter Service Worker kann und wird bei Inaktivität beendet, um Speicher und Prozessorleistung zu sparen. Ein aktiver Service Worker wird automatisch neu gestartet, um auf Ereignisse wie {{domxref("ServiceWorkerGlobalScope.fetch_event", "fetch")}} oder {{domxref("ServiceWorkerGlobalScope.message_event", "message")}} zu reagieren.
+Nachdem ein Service Worker erfolgreich registriert wurde, kann und wird er beendet, wenn er im Leerlauf ist, um Speicher und Rechenleistung zu sparen. Ein aktiver Service Worker wird automatisch neu gestartet, um auf Ereignisse zu reagieren, wie z. B. [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event) oder [`message`](/de/docs/Web/API/ServiceWorkerGlobalScope/message_event).
 
-Zusätzlich sind synchrone Anfragen innerhalb eines Service Workers nicht erlaubt — es können nur asynchrone Anfragen, wie die über die {{domxref("WorkerGlobalScope/fetch", "fetch()")}}-Methode initiierten, verwendet werden.
+Darüber hinaus sind synchrone Anfragen innerhalb eines Service Workers nicht erlaubt – es können nur asynchrone Anfragen verwendet werden, wie z. B. solche, die über die [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)-Methode initiiert werden.
 
-Dieses Interface erbt vom {{domxref("WorkerGlobalScope")}}-Interface und dessen Eltern {{domxref("EventTarget")}}.
+Dieses Interface erbt vom [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interface und dessen Eltern [`EventTarget`](/de/docs/Web/API/EventTarget).
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Dieses Interface erbt Eigenschaften vom {{domxref("WorkerGlobalScope")}}-Interface und dessen Eltern {{domxref("EventTarget")}}._
+_Dieses Interface erbt Eigenschaften vom [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interface und dessen Eltern [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("ServiceWorkerGlobalScope.clients")}} {{ReadOnlyInline}}
-  - : Enthält das mit dem Service Worker verknüpfte {{domxref("Clients")}}-Objekt.
-- {{domxref("ServiceWorkerGlobalScope.cookieStore")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Referenz auf das mit dem Service Worker verknüpfte {{domxref("CookieStore")}}-Objekt zurück.
-- {{domxref("ServiceWorkerGlobalScope.registration")}} {{ReadOnlyInline}}
-  - : Enthält das {{domxref("ServiceWorkerRegistration")}}-Objekt, das die Registrierung des Service Workers darstellt.
-- {{domxref("ServiceWorkerGlobalScope.serviceWorker")}} {{ReadOnlyInline}}
-  - : Enthält das {{domxref("ServiceWorker")}}-Objekt, das den Service Worker darstellt.
+- [`ServiceWorkerGlobalScope.clients`](/de/docs/Web/API/ServiceWorkerGlobalScope/clients) {{ReadOnlyInline}}
+  - : Enthält das [`Clients`](/de/docs/Web/API/Clients)-Objekt, das mit dem Service Worker verbunden ist.
+- [`ServiceWorkerGlobalScope.cookieStore`](/de/docs/Web/API/ServiceWorkerGlobalScope/cookieStore) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt eine Referenz zum [`CookieStore`](/de/docs/Web/API/CookieStore)-Objekt zurück, das mit dem Service Worker verbunden ist.
+- [`ServiceWorkerGlobalScope.registration`](/de/docs/Web/API/ServiceWorkerGlobalScope/registration) {{ReadOnlyInline}}
+  - : Enthält das [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Objekt, das die Registrierung des Service Workers darstellt.
+- [`ServiceWorkerGlobalScope.serviceWorker`](/de/docs/Web/API/ServiceWorkerGlobalScope/serviceWorker) {{ReadOnlyInline}}
+  - : Enthält das [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt, das den Service Worker darstellt.
 
 ## Instanzmethoden
 
-_Dieses Interface erbt Methoden vom {{domxref("WorkerGlobalScope")}}-Interface und dessen Eltern {{domxref("EventTarget")}}._
+_Dieses Interface erbt Methoden vom [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interface und dessen Eltern [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("ServiceWorkerGlobalScope.skipWaiting()")}}
-  - : Ermöglicht es der aktuellen Service Worker-Registrierung, vom wartenden in den aktiven Zustand überzugehen, während Service Worker Clients sie verwenden.
+- [`ServiceWorkerGlobalScope.skipWaiting()`](/de/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting)
+  - : Ermöglicht der aktuellen Service Worker-Registrierung den Übergang vom wartenden in den aktiven Zustand, während Service Worker-Clients es verwenden.
 
 ## Ereignisse
 
-Hören Sie dieses Ereignis mit {{domxref("EventTarget/addEventListener()", "addEventListener()")}} oder durch Zuweisen eines Ereignislisteners zur `oneventname`-Eigenschaft dieses Interfaces an.
+Dieses Ereignis kann mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) überwacht werden oder indem ein Ereignislistener auf die Eigenschaft `oneventname` dieses Interface zugewiesen wird.
 
-- {{domxref("ServiceWorkerGlobalScope/activate_event", "activate")}}
-  - : Tritt auf, wenn eine {{domxref("ServiceWorkerRegistration")}} einen neuen {{domxref("ServiceWorkerRegistration.active")}}-Worker erhält.
-- {{domxref("ServiceWorkerGlobalScope/backgroundfetchabort_event", "backgroundfetchabort")}} {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn eine [Background Fetch](/de/docs/Web/API/Background_Fetch_API)-Operation vom Benutzer oder der App abgebrochen wurde.
-- {{domxref("ServiceWorkerGlobalScope/backgroundfetchclick_event", "backgroundfetchclick")}} {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn der Benutzer auf die Benutzeroberfläche für eine [Background Fetch](/de/docs/Web/API/Background_Fetch_API)-Operation klickt.
-- {{domxref("ServiceWorkerGlobalScope/backgroundfetchfail_event", "backgroundfetchfail")}} {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn mindestens eine der Anfragen in einer [Background Fetch](/de/docs/Web/API/Background_Fetch_API)-Operation fehlgeschlagen ist.
-- {{domxref("ServiceWorkerGlobalScope/backgroundfetchsuccess_event", "backgroundfetchsuccess")}} {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn alle Anfragen in einer [Background Fetch](/de/docs/Web/API/Background_Fetch_API)-Operation erfolgreich waren.
-- {{domxref("ServiceWorkerGlobalScope/canmakepayment_event", "canmakepayment")}} {{Experimental_Inline}}
-  - : Wird im Service Worker einer Zahlungs-App ausgelöst, um zu prüfen, ob sie bereit ist, eine Zahlung zu bearbeiten. Insbesondere wird es ausgelöst, wenn die Händlerwebsite den {{domxref("PaymentRequest.PaymentRequest", "PaymentRequest()")}}-Konstruktor aufruft.
-- {{domxref("ServiceWorkerGlobalScope/contentdelete_event", "contentdelete")}} {{Experimental_Inline}}
-  - : Tritt auf, wenn ein Element aus dem {{domxref("ContentIndex")}} entfernt wird.
-- {{domxref("ServiceWorkerGlobalScope/cookiechange_event", "cookiechange")}} {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn eine Cookie-Änderung stattgefunden hat, die mit der Cookie-Änderungsabonnementliste des Service Workers übereinstimmt.
-- {{domxref("ServiceWorkerGlobalScope/fetch_event", "fetch")}}
-  - : Tritt auf, wenn ein {{domxref("WorkerGlobalScope/fetch", "fetch()")}} aufgerufen wird.
-- {{domxref("ServiceWorkerGlobalScope/install_event", "install")}}
-  - : Tritt auf, wenn eine {{domxref("ServiceWorkerRegistration")}} einen neuen {{domxref("ServiceWorkerRegistration.installing")}}-Worker erhält.
-- {{domxref("ServiceWorkerGlobalScope/message_event", "message")}}
-  - : Tritt auf, wenn eingehende Nachrichten empfangen werden. Kontrollierte Seiten können die {{domxref("MessagePort.postMessage()")}}-Methode verwenden, um Nachrichten an Service Workers zu senden.
-- {{domxref("ServiceWorkerGlobalScope/messageerror_event", "messageerror")}}
+- [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event)
+  - : Tritt auf, wenn eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen neuen aktiven Worker [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) erwirbt.
+- [`backgroundfetchabort`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchabort_event) {{Experimental_Inline}}
+  - : Wird ausgelöst, wenn eine [Hintergrundabholung](/de/docs/Web/API/Background_Fetch_API) durch den Benutzer oder die App abgebrochen wurde.
+- [`backgroundfetchclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchclick_event) {{Experimental_Inline}}
+  - : Wird ausgelöst, wenn der Benutzer auf die Benutzeroberfläche für eine [Hintergrundabholung](/de/docs/Web/API/Background_Fetch_API) geklickt hat.
+- [`backgroundfetchfail`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchfail_event) {{Experimental_Inline}}
+  - : Wird ausgelöst, wenn mindestens eine der Anfragen in einer [Hintergrundabholung](/de/docs/Web/API/Background_Fetch_API) fehlgeschlagen ist.
+- [`backgroundfetchsuccess`](/de/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchsuccess_event) {{Experimental_Inline}}
+  - : Wird ausgelöst, wenn alle Anfragen in einer [Hintergrundabholung](/de/docs/Web/API/Background_Fetch_API) erfolgreich waren.
+- [`canmakepayment`](/de/docs/Web/API/ServiceWorkerGlobalScope/canmakepayment_event) {{Experimental_Inline}}
+  - : Wird auf dem Service Worker einer Zahlungs-App ausgelöst, um zu prüfen, ob dieser bereit ist, eine Zahlung abzuwickeln. Speziell wird es ausgelöst, wenn die Händler-Website den [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest)-Konstruktor aufruft.
+- [`contentdelete`](/de/docs/Web/API/ServiceWorkerGlobalScope/contentdelete_event) {{Experimental_Inline}}
+  - : Tritt auf, wenn ein Element aus dem [`ContentIndex`](/de/docs/Web/API/ContentIndex) entfernt wird.
+- [`cookiechange`](/de/docs/Web/API/ServiceWorkerGlobalScope/cookiechange_event) {{Experimental_Inline}}
+  - : Wird ausgelöst, wenn eine Änderung eines Cookies eingetreten ist, die mit der Cookie-Änderungs-Abonnementliste des Service Workers übereinstimmt.
+- [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)
+  - : Tritt auf, wenn ein [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch) aufgerufen wird.
+- [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event)
+  - : Tritt auf, wenn eine [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) einen neuen installierenden Worker [`ServiceWorkerRegistration.installing`](/de/docs/Web/API/ServiceWorkerRegistration/installing) erwirbt.
+- [`message`](/de/docs/Web/API/ServiceWorkerGlobalScope/message_event)
+  - : Tritt auf, wenn eingehende Nachrichten empfangen werden. Kontrollierte Seiten können die Methode [`MessagePort.postMessage()`](/de/docs/Web/API/MessagePort/postMessage) verwenden, um Nachrichten an Service Workers zu senden.
+- [`messageerror`](/de/docs/Web/API/ServiceWorkerGlobalScope/messageerror_event)
   - : Tritt auf, wenn eingehende Nachrichten nicht deserialisiert werden können.
-- {{domxref("ServiceWorkerGlobalScope/notificationclick_event", "notificationclick")}}
+- [`notificationclick`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event)
   - : Tritt auf, wenn ein Benutzer auf eine angezeigte Benachrichtigung klickt.
-- {{domxref("ServiceWorkerGlobalScope/notificationclose_event", "notificationclose")}}
+- [`notificationclose`](/de/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event)
   - : Tritt auf, wenn ein Benutzer eine angezeigte Benachrichtigung schließt.
-- {{domxref("ServiceWorkerGlobalScope/paymentrequest_event", "paymentrequest")}} {{Experimental_Inline}}
-  - : Wird in einer Zahlungs-App ausgelöst, wenn ein Zahlungsablauf auf der Händlerwebsite über die {{domxref("PaymentRequest.show()")}}-Methode initiiert wurde.
-- {{domxref("ServiceWorkerGlobalScope/sync_event", "sync")}}
-  - : Wird ausgelöst, wenn von einer Service Worker Client-Seite ein Aufruf an {{domxref("SyncManager.register")}} vorgenommen wird. Der Versuch zu synchronisieren wird entweder sofort durchgeführt, wenn das Netzwerk verfügbar ist, oder sobald das Netzwerk verfügbar wird.
-- {{domxref("ServiceWorkerGlobalScope/periodicsync_event", "periodicsync")}} {{Experimental_Inline}}
-  - : Tritt in periodischen Intervallen auf, die bei der Registrierung eines {{domxref("PeriodicSyncManager")}} angegeben wurden.
-- {{domxref("ServiceWorkerGlobalScope/push_event", "push")}}
+- [`paymentrequest`](/de/docs/Web/API/ServiceWorkerGlobalScope/paymentrequest_event) {{Experimental_Inline}}
+  - : Wird auf einer Zahlungs-App ausgelöst, wenn ein Zahlungsfluss auf der Händler-Website über die Methode [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) initiiert wurde.
+- [`sync`](/de/docs/Web/API/ServiceWorkerGlobalScope/sync_event)
+  - : Wird ausgelöst, wenn ein Aufruf an [`SyncManager.register`](/de/docs/Web/API/SyncManager/register) von einer Service Worker Client-Seite gemacht wird. Der Versuch zu synchronisieren erfolgt entweder sofort, wenn das Netzwerk verfügbar ist, oder sobald das Netzwerk verfügbar wird.
+- [`periodicsync`](/de/docs/Web/API/ServiceWorkerGlobalScope/periodicsync_event) {{Experimental_Inline}}
+  - : Tritt in regelmäßigen Abständen auf, die beim Registrieren eines [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager) angegeben wurden.
+- [`push`](/de/docs/Web/API/ServiceWorkerGlobalScope/push_event)
   - : Tritt auf, wenn eine Server-Push-Benachrichtigung empfangen wird.
-- {{domxref("ServiceWorkerGlobalScope/pushsubscriptionchange_event", "pushsubscriptionchange")}}
-  - : Tritt auf, wenn ein Push-Abonnement ungültig geworden ist oder kurz davor steht, ungültig zu werden (z.B. wenn ein Push-Dienst eine Ablaufzeit festlegt).
+- [`pushsubscriptionchange`](/de/docs/Web/API/ServiceWorkerGlobalScope/pushsubscriptionchange_event)
+  - : Tritt auf, wenn ein Push-Abonnement ungültig geworden ist oder ungültig zu werden droht (z. B. wenn ein Push-Dienst eine Ablaufzeit festlegt).
 
 ## Beispiele
 
-Dieses Code-Beispiel stammt aus dem [Service Worker Prefetch-Beispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/prefetch/service-worker.js) (siehe [Live-Prefetch-Beispiel](https://googlechrome.github.io/samples/service-worker/prefetch/).) Der {{domxref("ServiceWorkerGlobalScope.fetch_event", "onfetch")}}-Ereignishandler lauscht auf das `fetch`-Ereignis. Wenn es ausgelöst wird, gibt der Code ein Versprechen zurück, das sich in die erste passende Anfrage im {{domxref("Cache")}}-Objekt auflöst. Wenn keine Übereinstimmung gefunden wird, holt der Code eine Antwort aus dem Netzwerk.
+Dieses Code-Snippet stammt aus dem [Service Worker Prefetch-Beispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/prefetch/service-worker.js) (siehe [Prefetch-Beispiel live](https://googlechrome.github.io/samples/service-worker/prefetch/)). Der [`onfetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignishandler lauscht auf das `fetch`-Ereignis. Bei Auslösung gibt der Code ein Versprechen zurück, das zur ersten übereinstimmenden Anfrage im [`Cache`](/de/docs/Web/API/Cache)-Objekt auflöst. Wenn keine Übereinstimmung gefunden wird, wird eine Antwort aus dem Netzwerk abgefragt.
 
-Der Code behandelt auch Ausnahmen, die bei der {{domxref("WorkerGlobalScope/fetch", "fetch()")}}-Operation ausgelöst werden. Beachten Sie, dass eine HTTP-Fehlerantwort (z.B. 404) keine Ausnahme auslöst. Es wird ein normales Antwortobjekt zurückgegeben, das den entsprechenden Fehlercode enthält.
+Der Code behandelt auch Ausnahmen, die von der [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)-Operation ausgelöst werden. Beachten Sie, dass eine HTTP-Fehlerantwort (z. B. 404) keine Ausnahme auslöst. Es wird ein normales Antwortobjekt zurückgeben, das den entsprechenden Fehlercode gesetzt hat.
 
 ```js
 self.addEventListener("fetch", (event) => {
@@ -128,5 +128,5 @@ self.addEventListener("fetch", (event) => {
 
 ## Siehe auch
 
-- [Service Workers verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Beispielcode für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Code-Beispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)

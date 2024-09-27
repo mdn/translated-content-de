@@ -1,5 +1,5 @@
 ---
-title: "VisualViewport: Eigenschaft offsetLeft"
+title: "VisualViewport: offsetLeft-Eigenschaft"
 short-title: offsetLeft
 slug: Web/API/VisualViewport/offsetLeft
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Visual Viewport")}}
 
-Die schreibgeschützte Eigenschaft **`offsetLeft`** des {{domxref("VisualViewport")}}-Interfaces gibt den Versatz der linken Kante des visuellen Viewports von der linken Kante des Layout-Viewports in CSS-Pixeln zurück, oder `0`, wenn das aktuelle Dokument nicht vollständig aktiv ist.
+Die **`offsetLeft`**-Schreibgeschützte Eigenschaft der [`VisualViewport`](/de/docs/Web/API/VisualViewport)-Schnittstelle gibt den Versatz der linken Kante des visuellen Viewports von der linken Kante des Layout-Viewports in CSS-Pixeln zurück oder `0`, wenn das aktuelle Dokument nicht vollständig aktiv ist.
 
 ## Wert
 

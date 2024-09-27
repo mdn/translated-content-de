@@ -43,7 +43,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "200")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -72,12 +72,12 @@ svg {
 
   - : Dieser Wert enthält eine Media Query, die erfüllt sein muss, damit das Stylesheet angewendet wird.
 
-    Wenn nicht angegeben, wird das Stylesheet bedingungslos angewendet.
+    Falls nicht angegeben, wird das Stylesheet bedingungslos angewendet.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

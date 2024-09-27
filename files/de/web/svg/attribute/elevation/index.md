@@ -1,5 +1,5 @@
 ---
-title: Erhebung
+title: elevation
 slug: Web/SVG/Attribute/elevation
 l10n:
   sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`elevation`**-Attribut gibt den Richtungswinkel für die Lichtquelle vom XY-Ebene zur Z-Achse in Grad an. Beachten Sie, dass die positive Z-Achse zur Betrachterin oder zum Betrachter des Inhalts zeigt.
+Das **`elevation`**-Attribut gibt den Richtungswinkel für die Lichtquelle von der XY-Ebene zur Z-Achse an, in Grad. Beachten Sie, dass die positive Z-Achse zum Betrachter des Inhalts zeigt.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feDistantLight")}}
 

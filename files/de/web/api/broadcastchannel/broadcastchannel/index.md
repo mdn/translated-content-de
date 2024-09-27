@@ -9,7 +9,7 @@ l10n:
 {{APIRef("BroadCastChannel API")}} {{AvailableInWorkers}}
 
 Der **`BroadcastChannel()`** Konstruktor erstellt einen neuen
-{{domxref("BroadcastChannel")}} und verbindet ihn mit dem zugrunde liegenden Kanal.
+[`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) und verbindet ihn mit dem zugrundeliegenden Kanal.
 
 ## Syntax
 
@@ -20,15 +20,15 @@ new BroadcastChannel(channelName)
 ### Parameter
 
 - `channelName`
-  - : Ein String, der den Namen des Kanals repräsentiert; es gibt einen einzigen Kanal mit diesem Namen für alle {{glossary("browsing context", "Browsersitzungen")}} mit dem gleichen {{glossary("origin")}}.
+  - : Ein String, der den Namen des Kanals darstellt; es gibt einen einzigen Kanal mit diesem Namen für alle [Browsing-Kontexte](/de/docs/Glossary/browsing_context) mit dem gleichen [Origin](/de/docs/Glossary/origin).
 
 ## Beispiele
 
 ```js
-// Erstellen Sie einen neuen Kanal, der dem "internal_notification"-Kanal lauscht.
+// create a new channel listening to the "internal_notification" channel.
 
 const bc = new BroadcastChannel("internal_notification");
-bc.postMessage("Neuer Listener verbunden!");
+bc.postMessage("New listening connected!");
 ```
 
 ## Spezifikationen
@@ -41,4 +41,4 @@ bc.postMessage("Neuer Listener verbunden!");
 
 ## Siehe auch
 
-- {{domxref("BroadcastChannel")}}, die Schnittstelle, zu der er gehört.
+- [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel), die Schnittstelle, zu der er gehört.

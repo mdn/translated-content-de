@@ -8,19 +8,19 @@ l10n:
 
 {{ APIRef("Web Audio API") }}{{securecontext_header}}
 
-Die schreibgeschützte Eigenschaft `audioWorklet` der
-{{domxref("BaseAudioContext")}}-Schnittstelle gibt eine Instanz von
-{{domxref("AudioWorklet")}} zurück, die zum Hinzufügen von Klassen verwendet werden kann, die von
-{{domxref("AudioWorkletProcessor")}} abgeleitet sind und benutzerdefinierte Audiobearbeitung implementieren.
+Die schreibgeschützte `audioWorklet`-Eigenschaft der
+[`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle gibt eine Instanz von
+[`AudioWorklet`](/de/docs/Web/API/AudioWorklet) zurück, die zum Hinzufügen von
+[`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor)-abgeleiteten Klassen verwendet werden kann, die benutzerdefinierte Audioverarbeitung implementieren.
 
 ## Wert
 
-Eine Instanz von {{domxref("AudioWorklet")}}.
+Eine [`AudioWorklet`](/de/docs/Web/API/AudioWorklet)-Instanz.
 
 ## Beispiele
 
-_Für ein vollständiges Beispiel zur benutzerdefinierten Audiobearbeitung siehe die
-{{domxref("AudioWorkletNode")}}-Seite._
+_Für ein vollständiges Beispiel zur benutzerdefinierten Audioverarbeitung siehe die
+[`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)-Seite._
 
 ## Spezifikationen
 
@@ -33,4 +33,4 @@ _Für ein vollständiges Beispiel zur benutzerdefinierten Audiobearbeitung siehe
 ## Siehe auch
 
 - [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
-- {{domxref("AudioWorkletNode")}}
+- [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode)

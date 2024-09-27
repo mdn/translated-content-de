@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die Funktion `name` gibt einen String zurück, der den QName des ersten Knotens in einer angegebenen Knotenmenge darstellt.
+Die `name`-Funktion gibt einen String zurück, der den QName des ersten Knotens in einem gegebenen Knoten-Set repräsentiert.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ name( [node-set] )
 ### Parameter
 
 - `node-set` (optional)
-  - : Der QName des ersten Knotens in dieser Knotenmenge wird zurückgegeben. Wenn dieses Argument weggelassen wird, wird der aktuelle Kontextknoten verwendet.
+  - : Der QName des ersten Knotens in diesem Knoten-Set wird zurückgegeben. Wenn dieses Argument weggelassen wird, wird der aktuelle Kontextknoten verwendet.
 
 ### Rückgabewert
 
-Ein String, der den QName eines Knotens darstellt.
+Ein String, der den QName eines Knotens repräsentiert.
 
 ## Beschreibung
 

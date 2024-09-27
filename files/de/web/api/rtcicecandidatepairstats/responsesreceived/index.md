@@ -1,5 +1,5 @@
 ---
-title: "RTCIceCandidatePairStats: Eigenschaft responsesReceived"
+title: "RTCIceCandidatePairStats: responsesReceived-Eigenschaft"
 short-title: responsesReceived
 slug: Web/API/RTCIceCandidatePairStats/responsesReceived
 l10n:
@@ -8,13 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`responsesReceived`**-Eigenschaft
-im {{domxref("RTCIceCandidatePairStats")}} Wörterbuch gibt die Gesamtanzahl der
-{{Glossary("STUN")}}-Verbindungsüberprüfungsantworten an, die über die Verbindung dieses Kandidatenpaares empfangen wurden.
+Die **`responsesReceived`**-Eigenschaft im [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuch gibt die Gesamtzahl der [STUN](/de/docs/Glossary/STUN)-Konnektivitätsprüfungsantworten an, die auf der Verbindung empfangen wurden, die durch dieses Kandidatenpaar beschrieben wird.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der STUN-Konnektivitätsanforderungsantworten angibt, die bisher über die Verbindung dieses Kandidatenpaares empfangen wurden.
+Ein ganzzahliger Wert, der die Anzahl der STUN-Konnektivitätsanfrageantworten angibt, die bisher auf der Verbindung empfangen wurden, die durch dieses Kandidatenpaar beschrieben wird.
 
 ## Spezifikationen
 

@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das **`filterUnits`** Attribut definiert das Koordinatensystem für die Attribute {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}} und {{SVGAttr("height")}}.
+Das Attribut **`filterUnits`** definiert das Koordinatensystem für die Attribute {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}} und {{SVGAttr("height")}}.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Sie können dieses Attribut bei den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("filter")}}
 
-## Anwendungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -33,9 +33,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `userSpaceOnUse`
-  - : {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}} und {{SVGAttr("height")}} repräsentieren Werte im aktuellen Koordinatensystem, das sich ergibt, indem das aktuelle Benutzerkoordinatensystem zum Zeitpunkt der Verweisung auf das {{SVGElement("filter")}}-Element verwendet wird (d.h. das Benutzerkoordinatensystem für das Element, das auf das {{SVGElement("filter")}}-Element über ein {{SVGAttr("filter")}} Attribut verweist).
+  - : {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}} und {{SVGAttr("height")}} stellen Werte im aktuellen Koordinatensystem dar, das entsteht, wenn das aktuelle Benutzerkoordinatensystem zur Zeit des Referenzierens des {{SVGElement("filter")}}-Elements in Kraft ist (d. h. das Benutzerkoordinatensystem für das Element, das das {{SVGElement("filter")}}-Element über ein {{SVGAttr("filter")}}-Attribut referenziert).
 - `objectBoundingBox`
-  - : In diesem Fall repräsentieren {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}} und {{SVGAttr("height")}} Bruchteile oder Prozentsätze des Begrenzungsrahmens des verweisenden Elements.
+  - : In diesem Fall repräsentieren {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}} und {{SVGAttr("height")}} Bruchteile oder Prozentsätze des Begrenzungsrahmens des referenzierenden Elements.
 
 ## Spezifikationen
 

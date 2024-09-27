@@ -9,7 +9,7 @@ l10n:
 
 Navigieren Sie den Tab zu einer neuen URL oder ändern Sie andere Eigenschaften des Tabs.
 
-Um diese Funktion zu verwenden, übergeben Sie die ID des zu aktualisierenden Tabs und ein `updateProperties`-Objekt, das die Eigenschaften enthält, die Sie aktualisieren möchten. Eigenschaften, die nicht in `updateProperties` angegeben sind, werden nicht geändert.
+Um diese Funktion zu verwenden, übergeben Sie die ID des zu aktualisierenden Tabs und ein `updateProperties`-Objekt, das die zu ändernden Eigenschaften enthält. Eigenschaften, die nicht in `updateProperties` angegeben sind, werden nicht modifiziert.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -28,53 +28,53 @@ let updating = browser.tabs.update(
   - : `integer`. Standardmäßig der ausgewählte Tab des aktuellen Fensters.
 - `updateProperties`
 
-  - : `object`. Der Satz an Eigenschaften, die für diesen Tab aktualisiert werden sollen. Um mehr über diese Eigenschaften zu erfahren, siehe die {{WebExtAPIRef("tabs.Tab")}} Dokumentation.
+  - : `object`. Die Menge der Eigenschaften, die für diesen Tab aktualisiert werden sollen. Um mehr über diese Eigenschaften zu erfahren, siehe die {{WebExtAPIRef("tabs.Tab")}} Dokumentation.
 
     - `active` {{optional_inline}}
-      - : `boolean`. Ob der Tab aktiv werden soll. Beeinflusst nicht, ob das Fenster fokussiert ist (siehe {{WebExtAPIRef('windows.update')}}). Wenn `true`, verlieren nicht-aktive hervorgehobene Tabs die Hervorhebung. Wenn `false`, passiert nichts.
+      - : `boolean`. Ob der Tab aktiv werden soll. Beeinflusst nicht, ob das Fenster fokussiert ist (siehe {{WebExtAPIRef('windows.update')}}). Wenn `true`, werden nicht-aktive hervorgehobene Tabs nicht mehr hervorgehoben. Wenn `false`, passiert nichts.
     - `autoDiscardable` {{optional_inline}}
-      - : `boolean`. Ob der Tab vom Browser verworfen werden kann. Der Standardwert ist `true`. Wenn auf `false` gesetzt, kann der Browser den Tab nicht automatisch verwerfen. Der Tab kann jedoch durch {{WebExtAPIRef("tabs.discard")}} verworfen werden.
+      - : `boolean`. Ob der Tab vom Browser verworfen werden kann. Der Standardwert ist `true`. Wenn auf `false` gesetzt, kann der Browser den Tab nicht automatisch verwerfen. Dennoch kann der Tab durch {{WebExtAPIRef("tabs.discard")}} verworfen werden.
     - `highlighted` {{optional_inline}}
 
-      - : `boolean`. Fügt den Tab zur aktuellen Auswahl hinzu oder entfernt ihn daraus. Wenn `true` und der Tab nicht hervorgehoben ist, wird er standardmäßig aktiv.
+      - : `boolean`. Fügt den Tab zur aktuellen Auswahl hinzu oder entfernt ihn. Wenn `true` und der Tab nicht hervorgehoben ist, wird er standardmäßig aktiv.
 
-        Wenn Sie den Tab nur hervorheben möchten, ohne ihn zu aktivieren, akzeptiert Firefox das Setzen von `highlighted` auf `true` und `active` auf `false`. Andere Browser könnten den Tab auch in diesem Fall aktivieren.
+        Wenn Sie den Tab nur hervorheben möchten, ohne ihn zu aktivieren, akzeptiert Firefox die Einstellung von `highlighted` auf `true` und `active` auf `false`. Andere Browser könnten den Tab in diesem Fall dennoch aktivieren.
 
     - `loadReplace` {{optional_inline}}
 
       - : `boolean`. Ob die neue URL die alte URL in der Navigationshistorie des Tabs ersetzen soll, wie über die "Zurück"-Schaltfläche zugänglich.
 
-        Angenommen, der Benutzer erstellt einen neuen Tab mit Strg+T. Standardmäßig würde Firefox "about:newtab" laden. Wenn Ihre Erweiterung dann diese Seite mit `tabs.update` aktualisiert, wird ohne `loadReplace` die "Zurück"-Schaltfläche aktiviert sein und den Benutzer zurück zu "about:newtab" bringen. Wenn die Erweiterung `loadReplace` setzt, bleibt die "Zurück"-Schaltfläche deaktiviert und es wäre so, als ob die von der Erweiterung bereitgestellte URL die erste besuchte Seite in diesem Tab wäre.
+        Zum Beispiel, wenn der Benutzer einen neuen Tab mit Strg+T erstellt. Standardmäßig würde in Firefox "about:newtab" geladen. Wenn Ihre Erweiterung dann diese Seite mit `tabs.update` aktualisiert, wird ohne `loadReplace` die "Zurück"-Schaltfläche aktiviert sein und den Benutzer zurück zu "about:newtab" führen. Wenn die Erweiterung `loadReplace` setzt, wird die "Zurück"-Schaltfläche deaktiviert, und es wird so sein, als ob die vom Add-on angegebene URL die erste besuchte Seite in diesem Tab wäre.
 
-        Beachten Sie jedoch, dass die ursprüngliche URL weiterhin in der globalen Historie des Browsers erscheint.
+        Beachten Sie jedoch, dass die ursprüngliche URL weiterhin in der globalen Verlauf des Browsers erscheint.
 
     - `muted` {{optional_inline}}
       - : `boolean`. Ob der Tab stummgeschaltet werden soll.
     - `openerTabId` {{optional_inline}}
-      - : `integer`. Die ID des Tabs, der diesen Tab geöffnet hat. Wenn angegeben, muss der öffnende Tab im selben Fenster wie dieser Tab sein. Mit `-1` setzen, um die gesetzte `openerTabId` zu löschen.
+      - : `integer`. Die ID des Tabs, der diesen Tab geöffnet hat. Wenn angegeben, muss der eröffnende Tab im selben Fenster wie dieser Tab sein. Auf `-1` setzen, um die gesetzte `openerTabId` zu löschen.
     - `pinned` {{optional_inline}}
       - : `boolean`. Ob der Tab angeheftet werden soll.
     - `selected` {{deprecated_inline}} {{optional_inline}}
       - : `boolean`. Ob der Tab ausgewählt werden soll. Diese Eigenschaft wurde durch `active` und `highlighted` ersetzt.
     - `successorTabId` {{optional_inline}}
-      - : `integer`. Die ID des Nachfolgers des Tabs.
+      - : `integer`. Die ID des Nachfolgetabs.
     - `url` {{optional_inline}}
 
       - : `string`. Eine URL, zu der der Tab navigieren soll.
 
-        Aus Sicherheitsgründen kann dies in Firefox keine privilegierte URL sein. Das Übergeben einer der folgenden URLs schlägt fehl, wobei {{WebExtAPIRef("runtime.lastError")}} auf eine Fehlermeldung gesetzt wird:
+        Aus Sicherheitsgründen darf dies in Firefox keine privilegierte URL sein. Das Übergeben einer der folgenden URLs wird fehlschlagen, wobei {{WebExtAPIRef("runtime.lastError")}} mit einer Fehlermeldung gesetzt wird:
 
         - chrome: URLs
         - [javascript: URLs](/de/docs/Web/URI/Schemes/javascript)
         - [data: URLs](/de/docs/Web/URI/Schemes/data)
-        - file: URLs (d.h., Dateien im Dateisystem. Um jedoch eine innerhalb der Erweiterung verpackte Datei zu verwenden, siehe unten)
-        - privilegierte about: URLs (zum Beispiel `about:config`, `about:addons`, `about:debugging`, `about:newtab`). Nicht privilegierte URLs (z.B. `about:blank`) sind erlaubt.
+        - file: URLs (d. h. Dateien auf dem Dateisystem. Um jedoch eine im Add-on enthaltene Datei zu verwenden, siehe unten)
+        - privilegierte about: URLs (z.B. `about:config`, `about:addons`, `about:debugging`, `about:newtab`). Nicht-privilegierte URLs (z.B. `about:blank`) sind erlaubt.
 
-        Um eine Seite zu laden, die mit Ihrer Erweiterung verpackt ist, geben Sie eine absolute URL beginnend bei der manifest.json-Datei der Erweiterung an. Zum Beispiel: '/path/to/my-page.html'. Wenn Sie das führende '/' weglassen, wird die URL als relative URL behandelt, und verschiedene Browser könnten unterschiedliche absolute URLs erstellen.
+        Um eine Seite zu laden, die mit Ihrem Add-on gepackt ist, geben Sie eine absolute URL an, die bei der Datei manifest.json des Add-ons beginnt. Zum Beispiel: '/path/to/my-page.html'. Wenn Sie den führenden '/', weglassen, wird die URL als relative URL behandelt und verschiedene Browser könnten unterschiedliche absolute URLs konstruieren.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.Tab')}} Objekt erfüllt wird, das Details über den aktualisierten Tab enthält. Das {{WebExtAPIRef('tabs.Tab')}} Objekt enthält nicht `url`, `title` und `favIconUrl`, es sei denn, es wurden entsprechende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder die Berechtigung `"tabs"` angefordert. Wenn der Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem {{WebExtAPIRef('tabs.Tab')}}-Objekt erfüllt wird, das Details über den aktualisierten Tab enthält. Das {{WebExtAPIRef('tabs.Tab')}}-Objekt enthält keine `url`, `title` und `favIconUrl`, es sei denn, übereinstimmende [Host-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) oder die `"tabs"`-Berechtigung wurden angefordert. Wenn der Tab nicht gefunden werden konnte oder ein anderer Fehler auftritt, wird das Versprechen mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -123,7 +123,7 @@ querying.then(updateFirstTab, onError);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-update) API von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-update) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

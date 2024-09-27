@@ -1,5 +1,5 @@
 ---
-title: "Dokument: fullscreenEnabled Eigenschaft"
+title: "Document: fullscreenEnabled-Eigenschaft"
 short-title: fullscreenEnabled
 slug: Web/API/Document/fullscreenEnabled
 l10n:
@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("Fullscreen API")}}
 
-Die schreibgeschützte **`fullscreenEnabled`** Eigenschaft des {{domxref("Document")}} Interfaces zeigt an, ob der Vollbildmodus verfügbar ist oder nicht.
+Die schreibgeschützte **`fullscreenEnabled`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces zeigt an, ob der Vollbildmodus verfügbar ist oder nicht.
 
-Der Vollbildmodus ist nur für eine Seite verfügbar, die keine fenstergestützten Plug-ins in einem ihrer Dokumente hat und wenn alle {{HTMLElement("iframe")}} Elemente, die das Dokument enthalten, ihr [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen) Attribut gesetzt haben.
+Der Vollbildmodus ist nur für eine Seite verfügbar, die in keinem ihrer Dokumente fensterbasierte Plug-ins enthält, und wenn alle {{HTMLElement("iframe")}}-Elemente, die das Dokument enthalten, das [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen)-Attribut gesetzt haben.
 
-Obwohl diese Eigenschaft schreibgeschützt ist, wird sie keinen Fehler werfen, wenn sie modifiziert wird (selbst im strengen Modus); der Setter ist eine Nicht-Operation und wird ignoriert.
+Obwohl diese Eigenschaft schreibgeschützt ist, wird sie keinen Fehler auslösen, wenn sie modifiziert wird (selbst im Strict-Modus); der Setter hat keine Operation und wird ignoriert.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn das Dokument und die darin enthaltenen Elemente durch Aufruf von {{domxref("Element.requestFullscreen()")}} in den Vollbildmodus versetzt werden können. Wenn der Vollbildmodus nicht verfügbar ist, ist dieser Wert `false`.
+Ein boolescher Wert, der `true` ist, wenn das Dokument und die darin befindlichen Elemente in den Vollbildmodus versetzt werden können, indem [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) aufgerufen wird. Wenn der Vollbildmodus nicht verfügbar ist, ist dieser Wert `false`.
 
 ## Beispiele
 
-In diesem Beispiel wird der Wert von `fullscreenEnabled` überprüft, bevor versucht wird, den Vollbildmodus für ein {{htmlElement("video")}} Element anzufordern, um zu vermeiden, dass der Versuch unternommen wird, wenn er nicht verfügbar ist.
+In diesem Beispiel wird, bevor versucht wird, den Vollbildmodus für ein {{htmlElement("video")}}-Element anzufordern, der Wert von `fullscreenEnabled` überprüft, um zu vermeiden, den Versuch zu unternehmen, wenn er nicht verfügbar ist.
 
 ```js
 function requestFullscreen() {
   if (document.fullscreenEnabled) {
     videoElement.requestFullscreen();
   } else {
-    console.log("Ihr Browser kann derzeit den Vollbildmodus nicht verwenden");
+    console.log("Your browser cannot use fullscreen right now");
   }
 }
 ```
@@ -44,8 +44,8 @@ function requestFullscreen() {
 
 - [Fullscreen API](/de/docs/Web/API/Fullscreen_API)
 - [Leitfaden zur Fullscreen API](/de/docs/Web/API/Fullscreen_API/Guide)
-- {{domxref("Element.requestFullscreen()")}}
-- {{domxref("Document.exitFullscreen()")}}
-- {{domxref("Document.fullscreenElement")}}
+- [`Element.requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen)
+- [`Document.exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen)
+- [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement)
 - {{cssxref(":fullscreen") }} und {{cssxref("::backdrop")}}
-- Das {{HTMLElement("iframe")}} [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen) Attribut
+- Das {{HTMLElement("iframe")}} [`allowfullscreen`](/de/docs/Web/HTML/Element/iframe#allowfullscreen)-Attribut

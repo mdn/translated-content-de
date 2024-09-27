@@ -1,5 +1,5 @@
 ---
-title: EXT_disjoint_timer_query-Erweiterung
+title: EXT_disjoint_timer_query Erweiterung
 short-title: EXT_disjoint_timer_query
 slug: Web/API/EXT_disjoint_timer_query
 l10n:
@@ -8,62 +8,62 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **EXT_disjoint_timer_query**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und bietet eine Möglichkeit, die Dauer eines Satzes von GL-Befehlen zu messen, ohne die Rendering-Pipeline zu blockieren.
+Die **EXT_disjoint_timer_query** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und bietet eine Möglichkeit, die Dauer eines Satzes von GL-Befehlen zu messen, ohne die Rendering-Pipeline zu unterbrechen.
 
-WebGL-Erweiterungen sind verfügbar über die Methode {{domxref("WebGLRenderingContext.getExtension()")}}. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind verfügbar über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension). Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung sollte nur in {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}}-Kontexten verfügbar sein. {{domxref("EXT_disjoint_timer_query_webgl2")}} ist in {{domxref("WebGL2RenderingContext", "WebGL 2", "", 1)}}-Kontexten verfügbar.
+> Diese Erweiterung sollte nur in {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} Kontexten verfügbar sein. [`EXT_disjoint_timer_query_webgl2`](/de/docs/Web/API/EXT_disjoint_timer_query_webgl2) ist in {{domxref("WebGL2RenderingContext", "WebGL 2", "", 1)}} Kontexten verfügbar.
 >
-> In WebGL 2 wird die OpenGL-Methode `getQueryObject()` in {{domxref("WebGL2RenderingContext.getQueryParameter")}} umbenannt.
-> In WebGL 2 sind andere Abfragen (wie Okklusionsabfragen und Primitive-Abfragen) mit {{domxref("WebGLQuery")}}-Objekten möglich.
+> In WebGL 2 wird die OpenGL-Methode `getQueryObject()` in [`WebGL2RenderingContext.getQueryParameter`](/de/docs/Web/API/WebGL2RenderingContext/getQueryParameter) umbenannt.
+> In WebGL 2 können andere Abfragen (wie Occlusion-Abfragen und primitive Abfragen) mithilfe von [`WebGLQuery`](/de/docs/Web/API/WebGLQuery) Objekten durchgeführt werden.
 
 ## Typen
 
-Diese Erweiterung stellt einen neuen Typ bereit:
+Diese Erweiterung führt einen neuen Typ ein:
 
 - `GLuint64EXT`
-  - : Unsigned 64-Bit-Ganzzahl.
+  - : Unsigned 64-Bit Ganzzahl.
 
 ## Konstanten
 
-Diese Erweiterung stellt sieben neue Konstanten bereit.
+Diese Erweiterung führt sieben neue Konstanten ein.
 
 - `ext.QUERY_COUNTER_BITS_EXT`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der die Anzahl der Bits angibt, die zur Aufnahme des Abfrageergebnisses für das gegebene Ziel verwendet werden.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Bits angibt, die verwendet werden, um das Abfrageergebnis für das gegebene Ziel zu halten.
 - `ext.CURRENT_QUERY_EXT`
-  - : Ein {{domxref("WebGLQuery")}}-Objekt, das die derzeit aktive Abfrage für das gegebene Ziel ist.
+  - : Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery) Objekt, welches die derzeit aktive Abfrage für das gegebene Ziel ist.
 - `ext.QUERY_RESULT_EXT`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint64EXT")}}, das das Abfrageergebnis enthält.
+  - : Ein [`GLuint64EXT`](/de/docs/Web/API/WebGL_API/Types) enthält das Abfrageergebnis.
 - `ext.QUERY_RESULT_AVAILABLE_EXT`
-  - : Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob ein Abfrageergebnis verfügbar ist oder nicht.
+  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob ein Abfrageergebnis verfügbar ist oder nicht.
 - `ext.TIME_ELAPSED_EXT`
-  - : Verstrichene Zeit (in Nanosekunden).
+  - : Vergangene Zeit (in Nanosekunden).
 - `ext.TIMESTAMP_EXT`
   - : Die aktuelle Zeit.
 - `ext.GPU_DISJOINT_EXT`
-  - : Ein {{domxref("WebGL_API/Types", "GLboolean")}}, der angibt, ob die GPU eine nicht zusammenhängende Operation durchgeführt hat oder nicht.
+  - : Ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types), der angibt, ob die GPU eine unzusammenhängende Operation durchgeführt hat oder nicht.
 
 ## Instanzmethoden
 
-Diese Erweiterung stellt acht neue Methoden bereit.
+Diese Erweiterung führt acht neue Methoden ein.
 
-- {{domxref("EXT_disjoint_timer_query.createQueryEXT()", "ext.createQueryEXT()")}}
-  - : Erstellt eine neue {{domxref("WebGLQuery")}}.
-- {{domxref("EXT_disjoint_timer_query.deleteQueryEXT()", "ext.deleteQueryEXT()")}}
-  - : Löscht eine angegebene {{domxref("WebGLQuery")}}.
-- {{domxref("EXT_disjoint_timer_query.isQueryEXT()", "ext.isQueryEXT()")}}
-  - : Gibt `true` zurück, wenn ein angegebenes Objekt eine gültige {{domxref("WebGLQuery")}} ist.
-- {{domxref("EXT_disjoint_timer_query.beginQueryEXT()", "ext.beginQueryEXT()")}}
-  - : Der Timer startet, wenn alle vor `beginQueryEXT` ausgeführten Befehle vollständig ausgeführt wurden.
-- {{domxref("EXT_disjoint_timer_query.endQueryEXT()", "ext.endQueryEXT()")}}
-  - : Der Timer stoppt, wenn alle vor `endQueryEXT` ausgeführten Befehle vollständig ausgeführt wurden.
-- {{domxref("EXT_disjoint_timer_query.queryCounterEXT()", "ext.queryCounterEXT()")}}
+- [`ext.createQueryEXT()`](/de/docs/Web/API/EXT_disjoint_timer_query/createQueryEXT)
+  - : Erstellt eine neue [`WebGLQuery`](/de/docs/Web/API/WebGLQuery).
+- [`ext.deleteQueryEXT()`](/de/docs/Web/API/EXT_disjoint_timer_query/deleteQueryEXT)
+  - : Löscht eine gegebene [`WebGLQuery`](/de/docs/Web/API/WebGLQuery).
+- [`ext.isQueryEXT()`](/de/docs/Web/API/EXT_disjoint_timer_query/isQueryEXT)
+  - : Gibt `true` zurück, wenn ein gegebenes Objekt eine gültige [`WebGLQuery`](/de/docs/Web/API/WebGLQuery) ist.
+- [`ext.beginQueryEXT()`](/de/docs/Web/API/EXT_disjoint_timer_query/beginQueryEXT)
+  - : Der Timer startet, wenn alle Befehle vor `beginQueryEXT` vollständig ausgeführt wurden.
+- [`ext.endQueryEXT()`](/de/docs/Web/API/EXT_disjoint_timer_query/endQueryEXT)
+  - : Der Timer stoppt, wenn alle Befehle vor `endQueryEXT` vollständig ausgeführt wurden.
+- [`ext.queryCounterEXT()`](/de/docs/Web/API/EXT_disjoint_timer_query/queryCounterEXT)
   - : Zeichnet die aktuelle Zeit in das entsprechende Abfrageobjekt auf.
-- {{domxref("EXT_disjoint_timer_query.getQueryEXT()", "ext.getQueryEXT()")}}
-  - : Gibt Informationen über ein Abfrageziel zurück.
-- {{domxref("EXT_disjoint_timer_query.getQueryObjectEXT()", "ext.getQueryObjectEXT()")}}
-  - : Gibt den Status eines Abfrageobjekts zurück.
+- [`ext.getQueryEXT()`](/de/docs/Web/API/EXT_disjoint_timer_query/getQueryEXT)
+  - : Gibt Informationen zu einem Abfrageziel zurück.
+- [`ext.getQueryObjectEXT()`](/de/docs/Web/API/EXT_disjoint_timer_query/getQueryObjectEXT)
+  - : Gibt den Zustand eines Abfrageobjekts zurück.
 
 ## Beispiele
 
@@ -81,4 +81,4 @@ const ext = gl.getExtension("EXT_disjoint_timer_query");
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)

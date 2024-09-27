@@ -7,31 +7,31 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SeeCompatTable}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die `WebTransportReceiveStream`-Schnittstelle der {{domxref("WebTransport API", "WebTransport API", "", "nocode")}} ist ein {{domxref("ReadableStream")}}, der zum Lesen von einem eingehenden unidirektionalen oder bidirektionalen {{domxref("WebTransport")}}-Stream verwendet werden kann.
+Das `WebTransportReceiveStream` Interface der [WebTransport API](/de/docs/Web/API/WebTransport_API) ist ein [`ReadableStream`](/de/docs/Web/API/ReadableStream), das verwendet werden kann, um von einem eingehenden unidirektionalen oder bidirektionalen [`WebTransport`](/de/docs/Web/API/WebTransport) Stream zu lesen.
 
-Der Stream ist ein [lesbarer Bytestrom](/de/docs/Web/API/Streams_API/Using_readable_byte_streams) von [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) und kann entweder mit einem BYOB-Leser ([`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)) oder dem Standardleser ([`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)) konsumiert werden.
+Der Stream ist ein [lesbarer Bytestream](/de/docs/Web/API/Streams_API/Using_readable_byte_streams) von [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) und kann entweder mit einem BYOB-Reader ([`ReadableStreamBYOBReader`](/de/docs/Web/API/ReadableStreamBYOBReader)) oder dem Standard-Reader ([`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)) genutzt werden.
 
-Objekte dieses Typs werden nicht direkt erstellt.
+Objekte dieses Typs werden nicht direkt konstruiert.
 Stattdessen werden sie über die Eigenschaft [`WebTransport.incomingUnidirectionalStream`](/de/docs/Web/API/WebTransport/incomingUnidirectionalStreams) erhalten.
 
 `WebTransportReceiveStream` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seiner Elternschnittstelle, {{domxref("ReadableStream")}}._
+_Erbt Eigenschaften von seiner Elternschnittstelle, [`ReadableStream`](/de/docs/Web/API/ReadableStream)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Erbt auch Eigenschaften von seiner Elternschnittstelle, {{domxref("ReadableStream")}}._
+_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`ReadableStream`](/de/docs/Web/API/ReadableStream)._
 
-- {{domxref("WebTransportReceiveStream.getStats()")}} {{Experimental_Inline}}
+- [`WebTransportReceiveStream.getStats()`](/de/docs/Web/API/WebTransportReceiveStream/getStats) {{Experimental_Inline}}
   - : Gibt ein {{jsxref("Promise")}} zurück, das mit Statistiken zu diesem Stream aufgelöst wird.
 
 ## Beispiele
 
-Sehen Sie sich [`WebTransport.incomingUnidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingUnidirectionalStreams) an, um ein Beispiel dafür zu erhalten, wie man einen {{domxref("ReadableStream")}} von `WebTransportReceiveStream`-Objekten erhält.
+Sehen Sie unter [`WebTransport.incomingUnidirectionalStreams`](/de/docs/Web/API/WebTransport/incomingUnidirectionalStreams) ein Beispiel, wie Sie einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von `WebTransportReceiveStream` Objekten erhalten.
 
 ## Spezifikationen
 
@@ -44,5 +44,5 @@ Sehen Sie sich [`WebTransport.incomingUnidirectionalStreams`](/de/docs/Web/API/W
 ## Siehe auch
 
 - [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

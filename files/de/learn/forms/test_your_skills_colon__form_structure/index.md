@@ -7,20 +7,20 @@ l10n:
 
 {{learnsidebar}}
 
-Ziel dieses Fähigkeitstests ist es, zu bewerten, ob Sie unseren Artikel [Wie man ein Webformular strukturiert](/de/docs/Learn/Forms/How_to_structure_a_web_form) verstanden haben.
+Ziel dieses Fähigkeitentests ist es zu überprüfen, ob Sie unser [Anleitung zur Strukturierung eines Webformulars](/de/docs/Learn/Forms/How_to_structure_a_web_form) verstanden haben.
 
 > [!NOTE]
-> Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
+> Sie können die Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
 >
-> Wenn Sie steckenbleiben, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie stecken bleiben, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## Formularstruktur 1
 
-In dieser Aufgabe möchten wir, dass Sie die bereitgestellten Formularfunktionen strukturieren:
+In dieser Aufgabe möchten wir, dass Sie die bereitgestellten Formulareigenschaften strukturieren:
 
-1. Trennen Sie die ersten beiden und die zweiten beiden Formularfelder in zwei separate Container, jeder mit einer beschreibenden Legende (verwenden Sie "Persönliche Daten" für die ersten beiden und "Kommentarinformationen" für die zweiten beiden).
-2. Auszeichnen Sie jedes Textlabel mit einem geeigneten Element, sodass es semantisch mit dem entsprechenden Formularfeld verknüpft ist.
-3. Fügen Sie eine geeignete Menge von Strukturelementen um die Label-/Feld-Paare hinzu, um sie zu trennen.
+1. Trennen Sie die ersten beiden und die zweiten beiden Formularfelder in zwei separate Container, jeweils mit einer beschreibenden Legende (verwenden Sie "Persönliche Details" für die ersten beiden und "Kommentarinformationen" für die zweiten beiden).
+2. Markieren Sie jedes Textlabel mit einem geeigneten Element, damit es semantisch mit seinem jeweiligen Formularfeld verknüpft ist.
+3. Fügen Sie eine geeignete Reihe von strukturellen Elementen um die Label-/Feldpaare hinzu, um sie zu trennen.
 
 {{EmbedGHLiveSample("learning-area/html/forms/tasks/form-structure/form-structure1.html", '100%', 700)}}
 

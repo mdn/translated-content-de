@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSSOM")}}{{Deprecated_Header}}
 
-Die **`removeListener()`**-Methode der {{DOMxRef("MediaQueryList")}}-Schnittstelle entfernt einen Listener vom `MediaQueryListener`.
+Die **`removeListener()`**-Methode des [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Interfaces entfernt einen Listener aus dem `MediaQueryListener`.
 
-In älteren Browsern erbt `MediaQueryList` noch nicht von {{DOMxRef("EventTarget")}}, daher wurde diese Methode als Alias von {{DOMxRef("EventTarget.removeEventListener()")}} bereitgestellt. Verwenden Sie `removeEventListener()` anstelle von `removeListener()`, wenn es in den von Ihnen unterstützten Browsern verfügbar ist.
+In älteren Browsern erbte `MediaQueryList` noch nicht von [`EventTarget`](/de/docs/Web/API/EventTarget), daher wurde diese Methode als Alias von [`EventTarget.removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener) bereitgestellt. Verwenden Sie `removeEventListener()` anstelle von `removeListener()`, wenn es in den von Ihnen unterstützten Browsern verfügbar ist.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ removeListener(func)
 ### Parameter
 
 - `func`
-  - : Eine Funktion oder Funktionsreferenz, die die Rückruffunktion darstellt, die Sie entfernen möchten.
+  - : Eine Funktion oder Funktionsreferenz, die die Callback-Funktion darstellt, die Sie entfernen möchten.
 
 ### Rückgabewert
 
@@ -35,19 +35,19 @@ const mediaQueryList = window.matchMedia("(max-width: 600px)");
 
 function screenTest(e) {
   if (e.matches) {
-    /* der Viewport ist 600 Pixel breit oder weniger */
-    paragraph.textContent = "Dies ist ein schmaler Bildschirm — 600px breit oder weniger.";
+    /* the viewport is 600 pixels wide or less */
+    paragraph.textContent = "This is a narrow screen — 600px wide or less.";
     document.body.style.backgroundColor = "pink";
   } else {
-    /* der Viewport ist mehr als 600 Pixel breit */
-    paragraph.textContent = "Dies ist ein breiter Bildschirm — mehr als 600px breit.";
+    /* the viewport is more than 600 pixels wide */
+    paragraph.textContent = "This is a wide screen — more than 600px wide.";
     document.body.style.backgroundColor = "aquamarine";
   }
 }
 
 mediaQueryList.addListener(screenTest);
 
-// Später, wenn es nicht mehr benötigt wird
+// Later on, when it is no longer needed
 mediaQueryList.removeListener(screenTest);
 ```
 
@@ -61,8 +61,8 @@ mediaQueryList.removeListener(screenTest);
 
 ## Siehe auch
 
-- [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Media Queries aus Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
-- {{DOMxRef("window.matchMedia()")}}
-- {{DOMxRef("MediaQueryList")}}
-- {{DOMxRef("MediaQueryListEvent")}}
+- [Media-Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+- [Media-Queries im Code verwenden](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
+- [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
+- [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

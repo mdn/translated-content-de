@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Das `redraw`-Ereignis wird an das `XRQuadLayer`-Objekt gesendet, wenn die zugrunde liegenden Ressourcen der Ebene verloren gehen oder wenn der XR-Kompositor die Ebene nicht mehr reprojezieren kann. Wenn dieses Ereignis gesendet wird, sollten Autoren den Inhalt der Ebene im nächsten XR-Animationsframe neu zeichnen.
+Das `redraw`-Ereignis wird an das `XRQuadLayer`-Objekt gesendet, wenn die zugrunde liegenden Ressourcen der Ebene verloren gehen oder wenn der XR-Compositor die Ebene nicht mehr neu projizieren kann. Wenn dieses Ereignis gesendet wird, sollten Autoren den Inhalt der Ebene im nächsten XR-Animationsframe neu zeichnen.
 
-Siehe auch die {{domxref("XRCompositionLayer.needsRedraw")}}-Eigenschaft, die ebenfalls über Vererbung von {{domxref("XRCompositionLayer")}} für `XRQuadLayer`-Objekte verfügbar ist.
+Siehe auch die [`XRCompositionLayer.needsRedraw`](/de/docs/Web/API/XRCompositionLayer/needsRedraw)-Eigenschaft, die auch für `XRQuadLayer`-Objekte über die Vererbung von [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer) verfügbar ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlereigenschaft.
 
 ```js
 addEventListener("redraw", (event) => {});
@@ -24,20 +24,20 @@ onredraw = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("XRLayerEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`XRLayerEvent`](/de/docs/Web/API/XRLayerEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, {{domxref("Event")}}, verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref("XRLayerEvent.layer", "layer")}} {{ReadOnlyInline}}
-  - : Das {{domxref("XRLayer")}}, das das Ereignis generiert hat.
+- [`layer`](/de/docs/Web/API/XRLayerEvent/layer) {{ReadOnlyInline}}
+  - : Der [`XRLayer`](/de/docs/Web/API/XRLayer), der das Ereignis generiert hat.
 
 ## Beispiele
 
 ### Verwendung des `redraw`-Ereignisses
 
-Sie können `redraw` an {{domxref("EventTarget.addEventListener()", "addEventListener()")}} übergeben:
+Sie können `redraw` an [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) übergeben:
 
 ```js
 quadLayer.addEventListener("redraw", (event) => {
@@ -45,7 +45,7 @@ quadLayer.addEventListener("redraw", (event) => {
 });
 ```
 
-Alternativ können Sie die `onredraw` Ereignis-Handler-Eigenschaft verwenden, um einen Handler für das `redraw`-Ereignis festzulegen:
+Alternativ können Sie die `onredraw`-Ereignisbehandlereigenschaft verwenden, um einen Handler für das `redraw`-Ereignis festzulegen:
 
 ```js
 quadLayer.onredraw = (event) => {
@@ -63,4 +63,4 @@ quadLayer.onredraw = (event) => {
 
 ## Siehe auch
 
-- {{domxref("XRCompositionLayer.needsRedraw")}}
+- [`XRCompositionLayer.needsRedraw`](/de/docs/Web/API/XRCompositionLayer/needsRedraw)

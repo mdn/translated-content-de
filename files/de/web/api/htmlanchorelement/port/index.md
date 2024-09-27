@@ -1,5 +1,5 @@
 ---
-title: "HTMLAnchorElement: port Eigenschaft"
+title: "HTMLAnchorElement: port-Eigenschaft"
 short-title: port
 slug: Web/API/HTMLAnchorElement/port
 l10n:
@@ -9,8 +9,7 @@ l10n:
 {{ApiRef("HTML DOM")}}
 
 Die **`HTMLAnchorElement.port`**-Eigenschaft ist ein
-String, der die Portnummer der URL enthält. Falls die URL keine
-explizite Portnummer enthält, wird sie auf `''` gesetzt.
+String, der die Portnummer der URL enthält. Wenn die URL keine explizite Portnummer enthält, wird sie auf `''` gesetzt.
 
 ## Wert
 
@@ -18,12 +17,12 @@ Ein String.
 
 ## Beispiele
 
-### Abrufen des Ports von einem Anker-Link
+### Erhalten des Ports von einem Ankerlink
 
 ```js
-// Ein <a id="myAnchor" href="https://developer.mozilla.org:443/de/docs/HTMLAnchorElement"> Element ist im Dokument
+// An <a id="myAnchor" href="https://developer.mozilla.org:443/en-US/docs/HTMLAnchorElement"> element is in the document
 const anchor = document.getElementByID("myAnchor");
-anchor.port; // gibt '443' zurück
+anchor.port; // returns '443'
 ```
 
 ## Spezifikationen
@@ -36,4 +35,4 @@ anchor.port; // gibt '443' zurück
 
 ## Siehe auch
 
-- Das {{domxref("HTMLAnchorElement")}}-Interface, zu dem es gehört.
+- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement)-Interface, zu dem es gehört.

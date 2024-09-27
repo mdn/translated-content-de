@@ -9,13 +9,11 @@ l10n:
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die {{domxref("PerformanceNavigationTiming")}} Schnittstelle.
+> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Schnittstelle.
 
 Die veraltete
 **`PerformanceTiming.unloadEventStart`**
-nur-lesende Eigenschaft gibt ein `unsigned long long` zurück, das den Moment in Millisekunden seit der UNIX-Epoche darstellt, zu dem das {{domxref("Window/unload_event", "unload")}} Ereignis ausgelöst wurde. Wenn
-kein vorheriges Dokument vorhanden ist, oder wenn das vorherige Dokument oder eine der erforderlichen
-Weiterleitungen nicht vom selben Ursprung sind, wird der Wert `0` zurückgegeben.
+schreibgeschützte Eigenschaft gibt einen `unsigned long long`-Wert zurück, der den Zeitpunkt in Millisekunden seit der UNIX-Epoche darstellt, zu dem das [`unload`](/de/docs/Web/API/Window/unload_event)-Ereignis ausgelöst wurde. Wenn es kein vorheriges Dokument gibt oder wenn das vorherige Dokument oder einer der erforderlichen Umleitungen nicht von demselben Ursprung ist, wird der Wert `0` zurückgegeben.
 
 ## Wert
 
@@ -31,4 +29,4 @@ Ein `unsigned long long`.
 
 ## Siehe auch
 
-- Die {{domxref("PerformanceTiming")}} Schnittstelle, zu der es gehört.
+- Das [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Interface, zu dem es gehört.

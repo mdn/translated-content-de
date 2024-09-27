@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`@font-palette-values`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) ermöglicht es Ihnen, die Standardwerte von [font-palette](/de/docs/Web/CSS/font-palette), die vom Schriftgestalter erstellt wurden, anzupassen.
+Die **`@font-palette-values`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) ermöglicht es Ihnen, die Standardwerte der vom Schriftersteller erstellten [font-palette](/de/docs/Web/CSS/font-palette) anzupassen.
 
 ## Syntax
 
@@ -20,14 +20,14 @@ Die **`@font-palette-values`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/C
 }
 ```
 
-Das [&lt;dashed-ident&gt;](/de/docs/Web/CSS/dashed-ident) ist ein benutzerdefinierter Bezeichner, der zwar wie eine [CSS-Benutzerdefinierte Eigenschaft](/de/docs/Web/CSS/Using_CSS_custom_properties) aussieht, sich jedoch anders verhält und nicht in eine [CSS var() Funktion](/de/docs/Web/CSS/var) eingebunden ist.
+Der [&lt;dashed-ident&gt;](/de/docs/Web/CSS/dashed-ident) ist ein benutzerdefinierter Bezeichner, der, obwohl er wie eine [CSS-Custom-Property](/de/docs/Web/CSS/Using_CSS_custom_properties) aussieht, anders funktioniert und nicht in eine [CSS var() Funktion](/de/docs/Web/CSS/var) eingebunden ist.
 
 ### Deskriptoren
 
 - [font-family](/de/docs/Web/CSS/@font-palette-values/font-family)
   - : Gibt den Namen der Schriftfamilie an, auf die diese Palette angewendet werden kann.
 - [base-palette](/de/docs/Web/CSS/@font-palette-values/base-palette)
-  - : Gibt den Namen oder Index der vom Schriftgestalter erstellten Basis-Palette an, die verwendet werden soll.
+  - : Gibt den Namen oder Index der Basis-Palette an, die vom Schriftersteller erstellt wurde und verwendet werden soll.
 - [override-colors](/de/docs/Web/CSS/@font-palette-values/override-colors)
   - : Gibt die Farben in der Basis-Palette an, die überschrieben werden sollen.
 
@@ -69,7 +69,7 @@ p {
 
 #### Ergebnis
 
-Beim Überschreiben von Farben der normalen oder Basis-Palette am Index 0 müssen Sie nicht angeben, welche Basis-Palette verwendet werden soll. Dies sollte nur erfolgen, wenn eine andere Basis-Palette überschrieben wird. Wenn Sie alle Farben überschreiben, ist es ebenfalls nicht notwendig, die zu verwendende Basis-Palette anzugeben.
+Wenn Sie Farben der normalen oder Basis-Palette am Index 0 überschreiben, müssen Sie nicht angeben, welche Basis-Palette verwendet werden soll. Dies sollte nur dann getan werden, wenn eine andere Basis-Palette überschrieben wird. Wenn Sie alle Farben überschreiben, müssen Sie auch nicht angeben, welche Basis-Palette verwendet werden soll.
 
 {{EmbedLiveSample("Overriding colors in an existing palette")}}
 
@@ -87,4 +87,4 @@ Beim Überschreiben von Farben der normalen oder Basis-Palette am Index 0 müsse
 - {{cssxref("@font-palette-values/font-family", "font-family")}} Deskriptor
 - {{cssxref("@font-palette-values/base-palette", "base-palette")}} Deskriptor
 - {{cssxref("@font-palette-values/override-colors", "override-colors")}} Deskriptor
-- {{domxref("CSSFontPaletteValuesRule")}}
+- [`CSSFontPaletteValuesRule`](/de/docs/Web/API/CSSFontPaletteValuesRule)

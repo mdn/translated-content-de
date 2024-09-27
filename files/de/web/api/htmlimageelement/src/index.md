@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die Eigenschaft **`src`** des {{domxref("HTMLImageElement")}} spiegelt das HTML-Attribut [`src`](/de/docs/Web/HTML/Element/img#src) wider und gibt das Bild an, das im {{HTMLElement("img")}}-Element angezeigt werden soll.
+Die Eigenschaft **`src`** des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), die das HTML [`src`](/de/docs/Web/HTML/Element/img#src) Attribut widerspiegelt, gibt das Bild an, das im {{HTMLElement("img")}} Element angezeigt werden soll.
 
 ## Wert
 
-Wenn Sie nur ein einzelnes Bild bereitstellen, anstatt eines Satzes von Bildern, aus dem der Browser das am besten geeignete für die Viewport-Größe und Pixeldichte des Displays auswählt, ist das `src`-Attribut ein String, der die URL des gewünschten Bildes angibt. Dies kann entweder direkt im HTML mit dem [`src`](/de/docs/Web/HTML/Element/img#src)-Content-Attribut oder programmgesteuert durch Setzen der `src`-Eigenschaft des Elements geschehen.
+Wenn nur ein einzelnes Bild angegeben wird, anstatt einer Reihe von Bildern, aus denen der Browser das am besten geeignete für die Viewportgröße und Pixeldichte auswählt, ist das `src`-Attribut ein String, der die URL des gewünschten Bildes angibt. Dies kann entweder im HTML selbst mithilfe des [`src`](/de/docs/Web/HTML/Element/img#src) Inhaltsattributs festgelegt werden oder programmatisch durch Festlegen der `src`-Eigenschaft des Elements.
 
-Wenn Sie das [`srcset`](/de/docs/Web/HTML/Element/img#srcset)-Content-Attribut verwenden, um mehrere Bildoptionen für unterschiedliche Pixeldichten bereitzustellen, wird die durch das `src`-Attribut angegebene URL auf eine von zwei Weisen verwendet:
+Wenn Sie das [`srcset`](/de/docs/Web/HTML/Element/img#srcset) Inhaltsattribut verwenden, um mehrere Bildoptionen für unterschiedliche Pixeldichten bereitzustellen, wird die durch das `src`-Attribut angegebene URL auf eine von zwei Arten verwendet:
 
 - als Fallback für Browser, die `srcset` nicht unterstützen.
-- als Gegenstück zur Angabe eines Bildes in `srcset` mit dem Größtenmultiplikator `1x`; das bedeutet, dass das durch `src` angegebene Bild auf Bildschirmen mit niedriger Dichte verwendet wird (wie etwa bei typischen 72-DPI oder 96-DPI-Displays).
+- als Äquivalent zur Angabe eines Bildes in `srcset` mit dem Größenmultiplikator `1x`; das heißt, das durch `src` angegebene Bild wird auf Bildschirmen mit niedriger Dichte verwendet (wie typische 72 DPI oder 96 DPI Anzeigen).
 
-Darüber hinaus wird, wenn Sie `src` zusammen mit _beiden_ {{domxref("HTMLImageElement.sizes", "sizes")}} (oder dem entsprechenden [`sizes`](/de/docs/Web/HTML/Element/img#sizes)-Content-Attribut) _und_ `srcset` verwenden, um ein Bild basierend auf der Viewport-Größe auszuwählen, das `src`-Attribut nur als Fallback für Browser genutzt, die `sizes` und `srcset` nicht unterstützen; andernfalls wird es überhaupt nicht verwendet.
+Zusätzlich, wenn Sie `src` zusammen mit _sowohl_ [`sizes`](/de/docs/Web/API/HTMLImageElement/sizes) (oder dem entsprechenden [`sizes`](/de/docs/Web/HTML/Element/img#sizes) Inhaltsattribut) _als auch_ `srcset` verwenden, um ein Bild basierend auf der Viewportgröße auszuwählen, wird das `src`-Attribut nur als Fallback für Browser verwendet, die `sizes` und `srcset` nicht unterstützen; andernfalls wird es überhaupt nicht verwendet.
 
 ## Beispiele
 
-### Angabe eines einzelnen Bildes
+### Ein einzelnes Bild angeben
 
 #### HTML
 
@@ -38,17 +38,17 @@ Darüber hinaus wird, wenn Sie `src` zusammen mit _beiden_ {{domxref("HTMLImageE
 
 {{EmbedLiveSample("Specifying_a_single_image", 640,200)}}
 
-### Verwendung von src mit einem Bildsatz
+### Verwendung von src mit einem Bildersatz
 
-Bei Verwendung eines Bildsatzes mit der {{domxref("HTMLImageElement.srcset", "srcset")}}-Eigenschaft dient `src` entweder als Fallback für ältere Browser oder als `1x`-Größe des Bildes.
+Bei der Verwendung eines Bildersatzes mit der [`srcset`](/de/docs/Web/API/HTMLImageElement/srcset) Eigenschaft dient `src` entweder als Fallback für ältere Browser oder als `1x` Größe des Bildes.
 
 #### HTML
 
 #### Ergebnis
 
-### Angabe eines Fallbacks für Viewport-basierte Auswahl
+### Angeben eines Fallbacks für viewportbasierte Auswahl
 
-Bei der Verwendung der Viewport-basierten Auswahl eines Bildes aus einem `srcset` durch zusätzliche Angabe der {{domxref("HTMLImageElement.sizes", "sizes")}}-Eigenschaft dient die `src`-Eigenschaft als Fallback für Browser, die die Viewport-basierte Auswahl nicht unterstützen. Browser, die _sehr wohl_ die Viewport-basierte Auswahl unterstützen, werden `src` in diesem Fall ignorieren.
+Bei der viewportbasierten Auswahl eines Bildes aus einem `srcset` durch zusätzliche Angabe der [`sizes`](/de/docs/Web/API/HTMLImageElement/sizes) Eigenschaft dient die `src`-Eigenschaft als Fallback für Browser, die keine viewportbasierte Auswahl unterstützen. Browser, die viewportbasierte Auswahl _unterstützen_, ignorieren `src` in dieser Situation.
 
 #### HTML
 

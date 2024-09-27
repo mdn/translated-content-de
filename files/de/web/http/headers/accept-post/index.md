@@ -7,25 +7,25 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Accept-Post`** HTTP-Antwortheader gibt an, welche [Medientypen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) vom Server für HTTP-Post-Anfragen akzeptiert werden.
+Der **`Accept-Post`** Antwort-HTTP-Header gibt an, welche [Medientypen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) vom Server für HTTP-Post-Anfragen akzeptiert werden.
 
-**`Accept-Post`** als Antwort auf eine beliebige Methode bedeutet, dass `POST` auf die angeforderte Ressource erlaubt ist (jede Dokument-/Medienformatangabe im Header zeigt ferner an, dass das Dokumentenformat erlaubt ist).
+**`Accept-Post`** als Antwort auf eine beliebige Methode bedeutet, dass `POST` auf der angeforderten Ressource erlaubt ist (jedes Dokument-/Medienformat im Header zeigt weiter an, dass dieses Dokumentformat erlaubt ist).
 
-Zum Beispiel könnte ein Server, der eine `POST`-Anfrage mit einem nicht unterstützten Medientyp erhält, mit {{HTTPStatus("415")}} `Unsupported Media Type` antworten und einen **`Accept-Post`**-Header zurückgeben, der auf einen oder mehrere unterstützte Medientypen verweist.
+Beispielsweise könnte ein Server, der eine `POST`-Anfrage mit einem nicht unterstützten Medientyp erhält, mit {{HTTPStatus("415")}} `Unsupported Media Type` antworten und einen **`Accept-Post`**-Header referenzieren, der auf einen oder mehrere unterstützte Medientypen verweist.
 
 > [!NOTE]
 >
-> - Ein IANA-Register führt [eine Liste offizieller Inhaltscodierungen](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding).
-> - Die `bzip`- und `bzip2`-Codierungen sind nicht standardisiert, können jedoch in einigen Fällen verwendet werden, einschließlich Unterstützung für ältere Systeme.
+> - Ein IANA-Register führt [eine Liste offizieller Inhaltskodierungen](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding).
+> - Die Kodierungen `bzip` und `bzip2` sind nicht standardisiert, können aber in einigen Fällen verwendet werden, einschließlich der Unterstützung älterer Systeme.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response header")}}</td>
+      <td>[Response-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -40,7 +40,7 @@ Accept-Post: */*
 ```
 
 > [!NOTE]
-> Der `Accept-Post`-Header spezifiziert einen Medienbereich auf dieselbe Weise wie {{HTTPHeader("Accept")}}, mit der Ausnahme, dass er keinen Präferenzbegriff (d.h. keine `q`-Argumente) besitzt. Dies liegt daran, dass `Accept-Post` ein Antwortheader ist, während `Accept` ein Anforderungsheader ist.
+> Der `Accept-Post`-Header gibt einen Medientypbereich auf dieselbe Weise an wie {{HTTPHeader("Accept")}}, außer dass er kein Vorzugsmodell (d. h. keine `q`-Argumente) hat. Dies liegt daran, dass `Accept-Post` ein Antwort-Header ist, während `Accept` ein Anfrage-Header ist.
 
 ## Direktiven
 
@@ -60,9 +60,9 @@ Accept-Post: */*
 
 ## Browser-Kompatibilität
 
-Die Browser-Kompatibilität ist für diesen Header nicht relevant (der Header wird vom Server gesendet, und die Spezifikation definiert kein Verhalten auf der Clientseite).
+Browser-Kompatibilität ist für diesen Header nicht relevant (der Header wird vom Server gesendet, und die Spezifikation definiert kein Clientverhalten).
 
 ## Siehe auch
 
-- Http-Methode {{HTTPMethod("POST")}}
+- HTTP-Methode {{HTTPMethod("POST")}}
 - HTTP Semantik und Kontext {{RFC("7231", "POST", "4.3.3")}}

@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableRowElement: deleteCell()-Methode"
+title: "HTMLTableRowElement: deleteCell() Methode"
 short-title: deleteCell()
 slug: Web/API/HTMLTableRowElement/deleteCell
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`deleteCell()`** Methode der {{domxref("HTMLTableRowElement")}} Schnittstelle entfernt eine spezifische Tabellenzelle aus einem gegebenen {{htmlelement("tr")}}.
+Die **`deleteCell()`** Methode des [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement) Interfaces entfernt eine spezifische Tabellenzelle aus einem gegebenen {{htmlelement("tr")}}.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteCell(index)
 ### Parameter
 
 - `index`
-  - : Der Zellenindex der zu entfernenden Zelle. Wenn `index` `-1` oder gleich der Anzahl der Zellen ist, wird die letzte Zelle der Reihe entfernt.
+  - : Der Zellindex der zu entfernenden Zelle. Wenn `index` `-1` ist oder der Anzahl der Zellen entspricht, wird die letzte Zelle der Zeile entfernt.
 
 ### Rückgabewert
 
@@ -27,12 +27,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `index` größer ist als die Anzahl der Zellen oder kleiner als `-1`.
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn `index` größer ist als die Anzahl der Zellen oder kleiner als `-1`.
 
 ## Beispiele
 
-Dieses Beispiel verwendet {{domxref("HTMLTableRowElement.insertCell()")}}, um eine neue Zelle zu einer Zeile hinzuzufügen.
+Dieses Beispiel verwendet [`HTMLTableRowElement.insertCell()`](/de/docs/Web/API/HTMLTableRowElement/insertCell), um eine neue Zelle an eine Zeile anzufügen.
 
 ### HTML
 
@@ -49,15 +49,15 @@ Dieses Beispiel verwendet {{domxref("HTMLTableRowElement.insertCell()")}}, um ei
   </thead>
   <tbody>
     <tr>
-      <td>Zelle 1</td>
-      <td>Zelle 2</td>
+      <td>Cell 1</td>
+      <td>Cell 2</td>
     </tr>
   </tbody>
 </table>
 
-<button id="add">Fügen Sie eine Zelle hinzu</button>
-<button id="remove">Entfernen Sie die letzte Zelle</button>
-<div>Diese erste Zeile hat <output>2</output> Zelle(n).</div>
+<button id="add">Add a cell</button>
+<button id="remove">Remove last cell</button>
+<div>This first row has <output>2</output> cell(s).</div>
 ```
 
 ```css hidden
@@ -79,10 +79,10 @@ button {
 ### JavaScript
 
 ```js
-// Relevante Schnittstellenelemente abrufen
+// Obtain relevant interface elements
 const bodySection = document.querySelectorAll("tbody")[0];
-const row = bodySection.rows[0]; // Die erste Zeile des body-Bereichs auswählen
-const cells = row.cells; // Die Sammlung ist live und daher immer auf dem neuesten Stand
+const row = bodySection.rows[0]; // Select the first row of the body section
+const cells = row.cells; // The collection is live, therefore always up-to-date
 const cellNumberDisplay = document.querySelectorAll("output")[0];
 
 const addButton = document.getElementById("add");
@@ -93,19 +93,19 @@ function updateCellNumber() {
 }
 
 addButton.addEventListener("click", () => {
-  // Fügen Sie am Ende der ersten Zeile eine neue Zelle hinzu
+  // Add a new cell at the end of the first row
   const newCell = row.insertCell();
-  newCell.textContent = `Zelle ${cells.length}`;
+  newCell.textContent = `Cell ${cells.length}`;
 
-  // Aktualisieren Sie den Zellzähler
+  // Update the row counter
   updateCellNumber();
 });
 
 removeButton.addEventListener("click", () => {
-  // Löschen Sie die Zelle aus dem body
+  // Delete the row from the body
   row.deleteCell(-1);
 
-  // Aktualisieren Sie den Zellzähler
+  // Update the row counter
   updateCellNumber();
 });
 ```
@@ -124,5 +124,5 @@ removeButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("HTMLTableElement.insertRow()")}}
-- Das HTML-Element, das Zellen darstellt: {{domxref("HTMLTableCellElement")}}
+- [`HTMLTableElement.insertRow()`](/de/docs/Web/API/HTMLTableElement/insertRow)
+- Das HTML-Element, das Zellen darstellt: [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)

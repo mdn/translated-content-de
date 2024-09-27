@@ -7,24 +7,24 @@ l10n:
 
 {{CSSRef}}
 
-Die **`margin-right`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den [Randbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) auf der rechten Seite eines Elements fest. Ein positiver Wert platziert es weiter von seinen Nachbarn entfernt, während ein negativer Wert es näher platziert.
+Die **`margin-right`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den [Randbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) auf der rechten Seite eines Elements fest. Ein positiver Wert platziert es weiter von seinen Nachbarn entfernt, während ein negativer Wert es näher bringt.
 
 {{EmbedInteractiveExample("pages/css/margin-right.html")}}
 
-Die vertikalen Ränder von zwei angrenzenden Boxen können verschmelzen. Dies wird als [_Rand-Zusammenbruch_](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) bezeichnet.
+Die vertikalen Ränder zweier benachbarter Boxen können verschmelzen. Dies wird [_Margin Collapsing_](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing) genannt.
 
 ## Syntax
 
 ```css
-/* <length> Werte */
-margin-right: 20px; /* Eine absolute Länge */
-margin-right: 1em; /* relativ zur Textgröße */
-margin-right: 5%; /* relativ zur Breite des nächstgelegenen Blockcontainers */
+/* <length> values */
+margin-right: 20px; /* An absolute length */
+margin-right: 1em; /* relative to the text size */
+margin-right: 5%; /* relative to the nearest block container's width */
 
-/* Schlüsselwortwerte */
+/* Keyword values */
 margin-right: auto;
 
-/* Globale Werte */
+/* Global values */
 margin-right: inherit;
 margin-right: initial;
 margin-right: revert;
@@ -32,17 +32,17 @@ margin-right: revert-layer;
 margin-right: unset;
 ```
 
-Die `margin-right` Eigenschaft wird als das Schlüsselwort `auto`, oder eine `<length>`, oder eine `<percentage>` angegeben. Ihr Wert kann positiv, null oder negativ sein.
+Die `margin-right` Eigenschaft wird als das Schlüsselwort `auto`, eine `<length>` oder ein `<percentage>` angegeben. Ihr Wert kann positiv, null oder negativ sein.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Randes als fester Wert.
+  - : Die Größe des Rands als fester Wert.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Randes als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/Containing_block).
+  - : Die Größe des Rands als Prozentsatz, relativ zur Breite (_width_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Containing_block).
 - `auto`
 
-  - : Der rechte Rand erhält einen Anteil des ungenutzten horizontalen Raums, der hauptsächlich vom verwendeten Layoutmodus bestimmt wird. Wenn die Werte von `margin-left` und `margin-right` beide auf `auto` gesetzt sind, wird der berechnete Raum gleichmäßig verteilt. Diese Tabelle fasst die verschiedenen Fälle zusammen:
+  - : Der rechte Rand erhält einen Anteil des ungenutzten horizontalen Raums, der hauptsächlich durch den verwendeten Layoutmodus bestimmt wird. Wenn die Werte von `margin-left` und `margin-right` beide auf `auto` gesetzt sind, wird der berechnete Platz gleichmäßig verteilt. Diese Tabelle fasst die verschiedenen Fälle zusammen:
 
     <table class="standard-table">
       <thead>
@@ -60,10 +60,10 @@ Die `margin-right` Eigenschaft wird als das Schlüsselwort `auto`, oder eine `<l
             <code>inline</code>, <code>inline-block</code>,
             <code>inline-table</code>
           </th>
-          <th><em>beliebig</em></th>
+          <th><em>irgendein</em></th>
           <th><code>static</code> oder <code>relative</code></th>
           <td><code>0</code></td>
-          <td>Inline-Layoutmodus</td>
+          <td>Inline-Layout-Modus</td>
         </tr>
         <tr>
           <th>
@@ -71,15 +71,14 @@ Die `margin-right` Eigenschaft wird als das Schlüsselwort `auto`, oder eine `<l
             <code>block</code>, <code>table</code>, <code>inline-table</code>,
             <code>list-item</code>, <code>table-caption</code>
           </th>
-          <th><em>beliebig</em></th>
+          <th><em>irgendein</em></th>
           <th><code>static</code> oder <code>relative</code></th>
           <td>
             <code>0</code>, außer wenn sowohl <code>margin-left</code> als auch
             <code>margin-right</code> auf <code>auto</code> gesetzt sind. In diesem Fall
-            wird es auf den Wert gesetzt, der das Element innerhalb seines Elternteils
-            zentriert.
+            wird es auf den Wert gesetzt, der das Element innerhalb seines Elternteils zentriert.
           </td>
-          <td>Block-Layoutmodus</td>
+          <td>Block-Layout-Modus</td>
         </tr>
         <tr>
           <th>
@@ -90,27 +89,27 @@ Die `margin-right` Eigenschaft wird als das Schlüsselwort `auto`, oder eine `<l
           <th><code>left</code> oder <code>right</code></th>
           <th><code>static</code> oder <code>relative</code></th>
           <td><code>0</code></td>
-          <td>Block-Layoutmodus (fließendes Element)</td>
+          <td>Block-Layout-Modus (schwebendes Element)</td>
         </tr>
         <tr>
           <th>
-            <em>beliebig </em><code>table-*</code><em>, außer </em
+            <em>irgendein</em><code>table-*</code><em>, außer </em
             ><code>table-caption</code>
           </th>
-          <th><em>beliebig</em></th>
-          <th><em>beliebig</em></th>
+          <th><em>irgendein</em></th>
+          <th><em>irgendein</em></th>
           <td><code>0</code></td>
           <td>
             Interne <code>table-*</code> Elemente haben keine Ränder, verwenden Sie
-            stattdessen {{ cssxref("border-spacing") }}
+            {{ cssxref("border-spacing") }} stattdessen
           </td>
         </tr>
         <tr>
           <th>
-            <em>beliebig, außer <code>flex</code>,</em> <code>inline-flex</code
+            <em>irgendein, außer <code>flex</code>,</em> <code>inline-flex</code
             ><em>, oder </em><code>table-*</code>
           </th>
-          <th><em>beliebig</em></th>
+          <th><em>irgendein</em></th>
           <th>
             <em><code>fixed</code></em> oder <code>absolute</code>
           </th>
@@ -118,20 +117,20 @@ Die `margin-right` Eigenschaft wird als das Schlüsselwort `auto`, oder eine `<l
             <code>0</code>, außer wenn sowohl <code>margin-left</code> als auch
             <code>margin-right</code> auf <code>auto</code> gesetzt sind. In diesem Fall
             wird es auf den Wert gesetzt, der den Randbereich innerhalb der verfügbaren
-            <code>width</code> zentriert, wenn fest.
+            <code>width</code> zentriert, wenn fixiert.
           </td>
-          <td>Absolut positionierter Layoutmodus</td>
+          <td>Absolute positioniertes Layout-Modus</td>
         </tr>
         <tr>
           <th><code>flex</code>, <code>inline-flex</code></th>
-          <th><em>beliebig</em></th>
-          <th><em>beliebig</em></th>
+          <th><em>irgendein</em></th>
+          <th><em>irgendein</em></th>
           <td>
-            <code>0</code>, außer wenn es positiven horizontalen Freiraum gibt.
+            <code>0</code>, außer wenn es irgendeinen positiven horizontalen freien Raum gibt.
             In diesem Fall wird er gleichmäßig auf alle horizontalen
             <code>auto</code> Ränder verteilt.
           </td>
-          <td>Flexbox-Layoutmodus</td>
+          <td>Flexbox-Layout-Modus</td>
         </tr>
       </tbody>
     </table>
@@ -146,7 +145,7 @@ Die `margin-right` Eigenschaft wird als das Schlüsselwort `auto`, oder eine `<l
 
 ## Beispiele
 
-### Festlegung des rechten Randes mit Pixeln und Prozentsätzen
+### Rechten Rand mit Pixeln und Prozentsätzen festlegen
 
 ```css
 .content {

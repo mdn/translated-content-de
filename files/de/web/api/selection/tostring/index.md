@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.toString()`** Methode gibt einen String zurück, der aktuell durch das Selection-Objekt repräsentiert wird, d.h. den momentan ausgewählten Text.
+Die **`Selection.toString()`** Methode gibt einen String zurück, der aktuell durch das Auswahlobjekt dargestellt wird, d. h. den derzeit ausgewählten Text.
 
 ## Syntax
 
@@ -22,17 +22,17 @@ Keine.
 
 ### Rückgabewert
 
-Ein String, der die Selektion repräsentiert.
+Ein String, der die Auswahl darstellt.
 
 ## Beschreibung
 
-Diese Methode gibt den momentan ausgewählten Text zurück.
+Diese Methode gibt den aktuell ausgewählten Text zurück.
 
-In [JavaScript](/de/docs/Web/JavaScript) wird diese Methode automatisch aufgerufen, wenn eine Funktion, an die das Selection-Objekt übergeben wird, einen String erfordert:
+In [JavaScript](/de/docs/Web/JavaScript) wird diese Methode automatisch aufgerufen, wenn eine Funktion, an die das Auswahlobjekt übergeben wird, einen String benötigt:
 
 ```js
-alert(window.getSelection()); // Was aufgerufen wird
-alert(window.getSelection().toString()); // Was tatsächlich effektiv aufgerufen wird.
+alert(window.getSelection()); // What is called
+alert(window.getSelection().toString()); // What is actually being effectively called.
 ```
 
 ## Spezifikationen
@@ -45,4 +45,4 @@ alert(window.getSelection().toString()); // Was tatsächlich effektiv aufgerufen
 
 ## Siehe auch
 
-- {{domxref("Selection")}}, das Interface, zu dem es gehört.
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der sie gehört.

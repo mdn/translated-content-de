@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`actions`**-Eigenschaft des {{domxref("Notification")}}-Interfaces bietet die Aktionen, die Benutzern zur Auswahl für die Interaktion mit der Benachrichtigung zur Verfügung stehen.
+Die schreibgeschützte Eigenschaft **`actions`** des [`Notification`](/de/docs/Web/API/Notification)-Interfaces bietet die Aktionen, die den Benutzern zur Auswahl stehen, um mit der Benachrichtigung zu interagieren.
 
-Die Aktionen werden mit der `actions`-Option des zweiten Arguments der Methode {{DOMxref("ServiceWorkerRegistration.showNotification", "showNotification()")}} und des Konstruktors {{DOMxref("Notification/Notification", "Notification()")}} festgelegt.
+Die Aktionen werden mithilfe der `actions`-Option des zweiten Arguments der [`showNotification()`](/de/docs/Web/API/ServiceWorkerRegistration/showNotification)-Methode und des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors festgelegt.
 
 > [!NOTE]
-> Browser begrenzen typischerweise die maximale Anzahl von Aktionen, die sie für eine bestimmte Benachrichtigung anzeigen. Prüfen Sie die statische {{DOMxref("Notification.maxActions_static", "Notification.maxActions")}}-Eigenschaft, um das Limit zu bestimmen.
+> Browser begrenzen typischerweise die maximale Anzahl an Aktionen, die sie für eine bestimmte Benachrichtigung anzeigen. Überprüfen Sie die statische [`Notification.maxActions`](/de/docs/Web/API/Notification/maxActions_static)-Eigenschaft, um das Limit zu bestimmen.
 
 ## Wert
 
-Ein schreibgeschütztes Array von Aktionen. Jedes Element im Array ist ein Objekt mit den folgenden Mitgliedern:
+Ein schreibgeschütztes Array von Aktionen. Jedes Element im Array ist ein Objekt mit folgenden Mitgliedern:
 
 - `action`
   - : Ein String, der eine Benutzeraktion identifiziert, die auf der Benachrichtigung angezeigt werden soll.
 - `title`
-  - : Ein String, der den Aktionstext enthält, der dem Benutzer angezeigt werden soll.
+  - : Ein String, der den anzuzeigenden Aktionstext enthält.
 - `icon`
   - : Ein String, der die URL eines Symbols enthält, das mit der Aktion angezeigt werden soll.
 
@@ -36,5 +36,5 @@ Ein schreibgeschütztes Array von Aktionen. Jedes Element im Array ist ein Objek
 
 ## Siehe auch
 
-- [Die Notifications API verwenden](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
-- {{DOMxref("Notification.maxActions_static", "Notification.maxActions")}}
+- [Verwendung der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
+- [`Notification.maxActions`](/de/docs/Web/API/Notification/maxActions_static)

@@ -1,5 +1,5 @@
 ---
-title: Gründe für Nichtwiederherstellung Details
+title: NotRestoredReasonDetails
 slug: Web/API/NotRestoredReasonDetails
 l10n:
   sourceCommit: 3148591fa7280daf3e88a5cece3b60dfc9470330
@@ -7,23 +7,23 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`NotRestoredReasonDetails`**-Schnittstelle der {{domxref("Performance API", "Performance API", "", "nocode")}} repräsentiert einen einzelnen Grund, warum eine navigierte Seite daran gehindert wurde, den Vorwärts-/Rückwärts-Cache ({{Glossary("bfcache")}}) zu verwenden.
+Das **`NotRestoredReasonDetails`**-Interface der [Performance API](/de/docs/Web/API/Performance_API) repräsentiert einen einzelnen Grund, warum eine navigierte Seite daran gehindert wurde, den Back/Forward-Cache ([bfcache](/de/docs/Glossary/bfcache)) zu nutzen.
 
-Ein Array von `NotRestoredReasonDetails`-Objekten kann über die Eigenschaft {{domxref("NotRestoredReasons.reasons")}} zugegriffen werden.
+Ein Array von `NotRestoredReasonDetails`-Objekten kann über die [`NotRestoredReasons.reasons`](/de/docs/Web/API/NotRestoredReasons/reasons)-Eigenschaft zugegriffen werden.
 
 ## Instanzeigenschaften
 
-- {{domxref("NotRestoredReasonDetails.reason", "reason")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine Zeichenkette, die einen Grund beschreibt, warum die Seite daran gehindert wurde, den Vorwärts-/Rückwärts-Cache zu verwenden.
+- [`reason`](/de/docs/Web/API/NotRestoredReasonDetails/reason) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein String, der einen Grund beschreibt, warum die Seite daran gehindert wurde, den Back/Forward-Cache zu verwenden.
 
 ## Instanzmethoden
 
-- {{domxref("NotRestoredReasonDetails.toJSON", "toJSON()")}} {{Experimental_Inline}}
-  - : Ein {{Glossary("Serialization","Serializer")}}; gibt eine JSON-Darstellung des `NotRestoredReasonDetails`-Objekts zurück.
+- [`toJSON()`](/de/docs/Web/API/NotRestoredReasonDetails/toJSON) {{Experimental_Inline}}
+  - : Ein [Serializer](/de/docs/Glossary/Serialization); gibt eine JSON-Repräsentation des `NotRestoredReasonDetails`-Objekts zurück.
 
 ## Beispiele
 
-Siehe [Überwachung der bfcache-Sperrgründe](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) für Beispiele.
+Siehe [Überwachung von bfcache-Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) für Beispiele.
 
 ## Spezifikationen
 
@@ -35,5 +35,5 @@ Siehe [Überwachung der bfcache-Sperrgründe](/de/docs/Web/API/Performance_API/M
 
 ## Siehe auch
 
-- [Überwachung der bfcache-Sperrgründe](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
-- {{domxref("PerformanceNavigationTiming.notRestoredReasons")}}
+- [Überwachung von bfcache-Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
+- [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons)

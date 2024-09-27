@@ -7,52 +7,52 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn der Server einen `401`- oder `407`-Statuscode und einen `WWW-Authenticate`-Header mit dem `Basic`-Schema sendet (d. h., wenn der Server den Client auffordert, Authentifizierungsdaten wie einen Benutzernamen und ein Passwort bereitzustellen).
+Wird ausgelöst, wenn der Server einen `401` oder `407` Statuscode und einen `WWW-Authenticate` Header mit dem `Basic`-Schema sendet (das heißt, wenn der Server den Client auffordert, Authentifizierungsdaten, wie einen Benutzernamen und ein Passwort, bereitzustellen).
 
 Der Listener kann auf eine der folgenden vier Arten reagieren:
 
-- Keine Aktion durchführen
-  - : Der Listener kann nichts tun, sondern nur die Anfrage beobachten. Wenn dies geschieht, hat es keinen Einfluss auf die Bearbeitung der Anfrage, und der Browser fordert den Benutzer auf, sich anzumelden, falls zutreffend.
+- Keine Aktion ausführen
+  - : Der Listener kann nichts tun und die Anfrage nur beobachten. Wenn dies geschieht, hat es keine Auswirkung auf die Bearbeitung der Anfrage und der Browser fragt den Benutzer gegebenenfalls nach der Anmeldung.
 - Die Anfrage abbrechen
 
-  - : Der Listener kann die Anfrage abbrechen. Wenn er dies tut, schlägt die Authentifizierung fehl, und der Benutzer wird nicht zur Anmeldung aufgefordert. Erweiterungen können Anfragen wie folgt abbrechen:
+  - : Der Listener kann die Anfrage abbrechen. Wenn er dies tut, schlägt die Authentifizierung fehl, und der Benutzer wird nicht nach der Anmeldung gefragt. Erweiterungen können Anfragen wie folgt abbrechen:
 
-    - In addListener `"blocking"` im Parameter `extraInfoSpec` übergeben
-    - Im Listener ein Objekt mit einer `cancel`-Eigenschaft zurückgeben, die auf `true` gesetzt ist
+    - in addListener, übergeben Sie `"blocking"` im `extraInfoSpec` Parameter
+    - im Listener, geben Sie ein Objekt mit einer `cancel`-Eigenschaft zurück, die auf `true` gesetzt ist
 
 - Anmeldedaten synchron bereitstellen
 
   - : Wenn Anmeldedaten synchron verfügbar sind, kann die Erweiterung sie synchron bereitstellen. Wenn die Erweiterung dies tut, versucht der Browser, sich mit den Anmeldedaten anzumelden. Der Listener kann Anmeldedaten wie folgt synchron bereitstellen:
 
-    - In addListener `"blocking"` im Parameter `extraInfoSpec` übergeben
-    - Im Listener ein Objekt mit einer `authCredentials`-Eigenschaft zurückgeben, die auf die bereitzustellenden Anmeldedaten gesetzt ist
+    - in addListener, übergeben Sie `"blocking"` im `extraInfoSpec` Parameter
+    - im Listener, geben Sie ein Objekt mit einer `authCredentials`-Eigenschaft zurück, das die bereitzustellenden Anmeldedaten enthält
 
 - Anmeldedaten asynchron bereitstellen
 
-  - : Die Erweiterung muss möglicherweise Anmeldedaten asynchron abrufen. Zum Beispiel muss die Erweiterung vielleicht Anmeldedaten aus dem Speicher abrufen oder den Benutzer fragen. In diesem Fall kann der Listener Anmeldedaten wie folgt asynchron bereitstellen:
+  - : Die Erweiterung benötigt möglicherweise asynchron die Ermittlung von Anmeldedaten. Zum Beispiel könnte die Erweiterung Anmeldedaten aus einem Speicher abrufen oder den Benutzer fragen müssen. In diesem Fall kann der Listener Anmeldedaten asynchron wie folgt bereitstellen:
 
-    - In addListener `"asyncBlocking"` in Chrome und Firefox oder `"blocking"` in Firefox im Parameter `extraInfoSpec` übergeben
-    - Wenn `"blocking"` bereitgestellt wird, kann die Erweiterung ein `webRequest.BlockingResponse`-Objekt oder ein Promise zurückgeben, das zu einem `webRequest.BlockingResponse`-Objekt aufgelöst wird
-    - Wenn `"asyncBlocking"` bereitgestellt wird, erhält die Ereignis-Listener-Funktion eine `asyncCallback`-Funktion als zweiten Parameter. `asyncCallback` kann asynchron aufgerufen werden und erfordert ein `webRequest.BlockingResponse`-Objekt als einzigen Parameter
+    - in addListener, übergeben Sie `"asyncBlocking"` in Chrome und Firefox oder `"blocking"` in Firefox im `extraInfoSpec` Parameter
+    - Wenn `"blocking"` bereitgestellt wird, kann die Erweiterung ein `webRequest.BlockingResponse` Objekt oder ein Promise, das zu einem `webRequest.BlockingResponse` Objekt auflöst, zurückgeben
+    - Wenn `"asyncBlocking"` bereitgestellt wird, erhält die Event-Listener-Funktion eine `asyncCallback`-Funktion als zweiten Parameter. `asyncCallback` kann asynchron aufgerufen werden und nimmt ein `webRequest.BlockingResponse`-Objekt als einzigen Parameter entgegen
 
       > [!NOTE]
-      > Chrome unterstützt kein Promise als Rückgabewert ([Chromium Problem 1510405](https://crbug.com/1510405)). Siehe für Alternativen [den Rückgabewert des `listeners`](#listener).
+      > Chrome unterstützt kein Promise als Rückgabewert ([Chromium Issue 1510405](https://crbug.com/1510405)). Für Alternativen siehe [den Rückgabewert des `listener`](#listener).
 
 Siehe [Beispiele](#beispiele).
 
-Wenn Ihre Erweiterung falsche Anmeldedaten bereitstellt, wird der Listener erneut aufgerufen. Aus diesem Grund achten Sie darauf, keine Endlosschleife zu erzeugen, indem Sie wiederholt falsche Anmeldedaten bereitstellen.
+Wenn Ihre Erweiterung falsche Anmeldedaten bereitstellt, wird der Listener erneut aufgerufen. Aus diesem Grund sollten Sie darauf achten, nicht in eine Endlosschleife zu geraten, indem Sie wiederholt falsche Anmeldedaten bereitstellen.
 
 ## Berechtigungen
 
-In Firefox- und Chrome-Erweiterungen des Manifest V2 müssen Sie die [API-Berechtigungen `"webRequest"` und `"webRequestBlocking"`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) zu Ihrer `manifest.json` hinzufügen.
+In Firefox- und Chrome-Manifest-V2-Erweiterungen müssen Sie die [`"webRequest"` und `"webRequestBlocking"` API-Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) zu Ihrer `manifest.json` hinzufügen.
 
-Für Manifest V3-Erweiterungen unterstützt Chrome die Berechtigung `"webRequestBlocking"` nicht mehr (außer für politisch installierte Erweiterungen). Stattdessen ermöglichen die Berechtigungen `"webRequest"` und `"webRequestAuthProvider"` Ihnen, Anmeldedaten asynchron bereitzustellen. Firefox unterstützt weiterhin `"webRequestBlocking"` in Manifest V3 und bietet `"webRequestAuthProvider"` für plattformübergreifende Kompatibilität.
+Für Manifest-V3-Erweiterungen unterstützt Chrome das `"webRequestBlocking"`-Berechtigung nicht mehr (außer für policy-installierte Erweiterungen). Stattdessen ermöglichen die Berechtigungen `"webRequest"` und `"webRequestAuthProvider"` die asynchrone Bereitstellung von Anmeldedaten. Firefox unterstützt weiterhin `"webRequestBlocking"` in Manifest V3 und bietet `"webRequestAuthProvider"` für eine plattformübergreifende Kompatibilität an.
 
 ## Proxy-Authentifizierung
 
-Firefox löst im Allgemeinen keine `webRequest`-Ereignisse für Systemanfragen aus, wie z. B. Browser- oder Erweiterungs-Upgrades oder Suchanfragen. Um die Proxy-Authentifizierung für Systemanfragen reibungslos zu ermöglichen, unterstützt Firefox ab Version 57 eine Ausnahme.
+Firefox löst im Allgemeinen keine `webRequest`-Ereignisse für Systemanfragen aus, wie z. B. Browser- oder Erweiterungs-Updates oder Suchmaschinenanfragen. Um eine reibungslose Proxy-Authentifizierung für Systemanfragen zu ermöglichen, unterstützt Firefox seit Version 57 eine Ausnahme davon.
 
-Wenn eine Erweiterung die Berechtigungen `"webRequest"`, `"webRequestBlocking"`, `"proxy"` und `"<all_urls>"` hat, kann sie `onAuthRequired` verwenden, um Anmeldedaten für die Proxy-Authentifizierung bereitzustellen (aber nicht für die normale Web-Authentifizierung). Der Listener kann Systemanfragen nicht abbrechen oder anderweitig modifizieren.
+Wenn eine Erweiterung die Berechtigungen `"webRequest"`, `"webRequestBlocking"`, `"proxy"` und `"<all_urls>"` hat, kann sie `onAuthRequired` verwenden, um Anmeldedaten für die Proxy-Authentifizierung bereitzustellen (aber nicht für die normale Web-Authentifizierung). Der Listener kann Systemanfragen nicht abbrechen oder andere Änderungen an Systemanfragen vornehmen.
 
 ## Syntax
 
@@ -71,9 +71,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener, filter, extraInfoSpec)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Stoppt das Lauschen auf dieses Ereignis. Der `listener`-Parameter ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es registriert ist, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -81,29 +81,29 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis auftritt. Der Funktion werden diese Argumente übergeben:
+  - : Die Funktion wird aufgerufen, wenn dieses Ereignis auftritt. Die Funktion erhält folgende Argumente:
 
     - `details`
-      - : `object`. Details zur Anfrage. Siehe den [Abschnitt Details](#details_2) für mehr Informationen.
+      - : `object`. Details zur Anfrage. Siehe den Abschnitt [details](#details_2) für weitere Informationen.
     - `asyncCallback` {{optional_inline}}
 
-      - : Eine Funktion, die höchstens einmal aufgerufen wird, um das Anfrage-Objekt asynchron zu modifizieren.
-        Dieses Parameter ist nur vorhanden, wenn der Ereignis-Listener mit `"asyncBlocking"` im Array `extraInfoSpec` registriert ist. `asyncCallback` ist undefiniert, wenn `extraInfoSpec` nicht bereitgestellt wird oder `"blocking"` enthält.
+      - : Eine Funktion, die maximal einmal aufgerufen werden kann, um das Anforderungsobjekt asynchron zu ändern.
+        Dieser Parameter ist nur vorhanden, wenn der Event-Listener mit `"asyncBlocking"` im `extraInfoSpec`-Array registriert wird. `asyncCallback` ist undefiniert, wenn `extraInfoSpec` nicht bereitgestellt oder `"blocking"` enthalten ist.
 
-    Rückgabe: {{WebExtAPIRef('webRequest.BlockingResponse')}} oder ein {{jsxref("Promise")}} abhängig von den Einstellungen in `extraInfoSpec`.
+    Gibt zurück: {{WebExtAPIRef('webRequest.BlockingResponse')}} oder ein {{jsxref("Promise")}}, abhängig von den Einstellungen in `extraInfoSpec`.
 
 - `filter`
   - : {{WebExtAPIRef('webRequest.RequestFilter')}}. Ein Filter, der die an diesen Listener gesendeten Ereignisse einschränkt.
 - `extraInfoSpec` {{optional_inline}}
 
-  - : `array` von `string`. Zusätzliche Optionen für das Ereignis. Sie können einen der folgenden Werte übergeben:
+  - : `array` von `string`. Zusätzliche Optionen für das Ereignis. Sie können einen dieser Werte übergeben:
 
-    - `"blocking"`: die Anfrage blockieren, um sie abbrechen oder Authentifizierungsdaten bereitstellen zu können. Ein `BlockingResponse`-Objekt mit gesetzten `cancel`- oder `authCredentials`-Eigenschaften zurückgeben.
+    - `"blocking"`: blockieren Sie die Anfrage, damit Sie die Anfrage abbrechen oder Authentifizierungsdaten bereitstellen können. Geben Sie ein `BlockingResponse`-Objekt mit den Eigenschaften `cancel` oder `authCredentials` zurück.
 
-      - In Chrome muss der Ereignis-Listener synchron antworten.
-      - In Firefox kann der Ereignis-Listener synchron antworten oder ein Promise zurückgeben, das zu einem `BlockingResponse`-Objekt aufgelöst wird, um asynchron zu antworten.
+      - In Chrome muss der Event-Listener synchron antworten.
+      - In Firefox kann der Event-Listener synchron antworten oder ein Promise zurückgeben, das zu einem `BlockingResponse`-Objekt auflöst, um asynchron zu antworten.
 
-    - `"asyncBlocking"`: die Anfrage asynchron verarbeiten. Der Rückgabewert des Ereignis-Listeners wird ignoriert. Um das Ereignis zu lösen, übergeben Sie dem `asyncCallback`-Parameter ein `BlockingResponse`-Objekt.
+    - `"asyncBlocking"`: bearbeiten Sie die Anfrage asynchron. Der Rückgabewert des Event-Listeners wird ignoriert. Um das Ereignis aufzulösen, übergeben Sie dem `asyncCallback`-Parameter ein `BlockingResponse`-Objekt.
 
       - Unterstützt ab Chrome 120 und Firefox 128.
       - Nicht unterstützt in Safari.
@@ -122,21 +122,21 @@ Ereignisse haben drei Funktionen:
       - : `integer`. Die Portnummer des Servers.
 
 - `cookieStoreId`
-  - : `string`. Wenn die Anfrage von einem Tab stammt, das in einer kontextuellen Identität geöffnet ist, die Cookie-Store-ID der kontextuellen Identität. Siehe [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities) für weitere Informationen.
+  - : `string`. Wenn die Anfrage von einem Tab aus erfolgt, das in einer kontextuellen Identität geöffnet ist, die Cookie-Store-ID der kontextuellen Identität. Siehe [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities) für weitere Informationen.
 - `frameId`
-  - : `integer`. Dies ist `0`, wenn die Anfrage im Hauptframe stattfindet; ein positiver Wert ist die ID eines Unterrahmens, in dem die Anfrage stattfindet. Wenn das Dokument eines (Unter-)Rahmens geladen wird (`type` ist `main_frame` oder `sub_frame`), zeigt `frameId` die ID dieses Rahmens, nicht die ID des äußeren Rahmens. Frame-IDs sind innerhalb eines Tabs eindeutig.
+  - : `integer`. Dies ist `0`, wenn die Anfrage im Hauptframe erfolgt; ein positiver Wert ist die ID eines Unterrahmens, in dem die Anfrage erfolgt. Wenn das Dokument eines (Unter-)Rahmens geladen wird (`type` ist `main_frame` oder `sub_frame`), zeigt `frameId` die ID dieses Rahmens an, nicht die ID des äußeren Rahmens. Frame-IDs sind innerhalb eines Tabs eindeutig.
 - `incognito`
-  - : `boolean`. Gibt an, ob die Anfrage aus einem privaten Browserfenster stammt.
+  - : `boolean`. Ob die Anfrage aus einem privaten Browserfenster stammt.
 - `isProxy`
   - : `boolean`. `true` für `Proxy-Authenticate`, `false` für `WWW-Authenticate`.
-    > **Hinweis:** `webRequest.onAuthRequired` wird nur für HTTP- und HTTPS/TLS-Proxy-Server aufgerufen, die Authentifizierung erfordern, nicht für SOCKS-Proxy-Server, die Authentifizierung erfordern.
+    > **Note:** `webRequest.onAuthRequired` wird nur für HTTP- und HTTPS/TLS-Proxy-Server aufgerufen, die Authentifizierung erfordern, nicht für SOCKS-Proxy-Server, die Authentifizierung erfordern.
 - `method`
-  - : `string`. Standard-HTTP-Methode (z. B. `"GET"` oder `"POST"`).
+  - : `string`. Standard-HTTP-Methode (Zum Beispiel `"GET"` oder `"POST"`).
 - `parentFrameId`
-  - : `integer`. ID des Rahmens, der den Rahmen enthält, der die Anfrage gesendet hat. Auf `-1` gesetzt, wenn kein übergeordneter Rahmen vorhanden ist.
+  - : `integer`. ID des Rahmens, der den Rahmen enthält, der die Anfrage gesendet hat. Wird auf `-1` gesetzt, wenn kein übergeordneter Rahmen existiert.
 - `proxyInfo`
 
-  - : `object`. Dieses Objekt ist nur vorhanden, wenn die Anfrage über einen Proxy geleitet wird. Es enthält die folgenden Eigenschaften:
+  - : `object`. Diese Eigenschaft ist nur vorhanden, wenn die Anfrage weitergeleitet wird. Es enthält die folgenden Eigenschaften:
 
     - `host`
       - : `string`. Der Hostname des Proxy-Servers.
@@ -147,7 +147,7 @@ Ereignisse haben drei Funktionen:
       - : `string`. Der Typ des Proxy-Servers. Einer von:
 
         - `"http"`: HTTP-Proxy (oder SSL CONNECT für HTTPS)
-        - `"https"`: HTTP-Proxying über TLS-Verbindung zum Proxy
+        - `"https"`: HTTP-Proxy über TLS-Verbindung zum Proxy
         - `"socks"`: SOCKS v5 Proxy
         - `"socks4"`: SOCKS v4 Proxy
         - `"direct"`: kein Proxy
@@ -156,51 +156,51 @@ Ereignisse haben drei Funktionen:
     - `username`
       - : `string`. Benutzername für den Proxy-Dienst.
     - `proxyDNS`
-      - : `boolean`. Wahr, wenn der Proxy die Namensauflösung basierend auf dem bereitgestellten Hostnamen durchführt, was bedeutet, dass der Client keine eigene DNS-Suche durchführen sollte.
+      - : `boolean`. Wahr, wenn der Proxy die DNS-Auflösung basierend auf dem angegebenen Hostnamen durchführt, was bedeutet, dass der Client keine eigene DNS-Suche ausführen sollte.
     - `failoverTimeout`
-      - : `integer`. Ausfallzeitlimit in Sekunden. Wenn die Verbindung zum Proxy-Server nach dieser Anzahl von Sekunden fehlschlägt, wird der nächste Proxy-Server in der durch [FindProxyForURL()](</de/docs/Mozilla/Add-ons/WebExtensions/API/proxy#findproxyforurl()_return_value>) zurückgegebenen Liste verwendet.
+      - : `integer`. Ausweichzeit in Sekunden. Wenn die Verbindung zum Proxy-Server nach dieser Anzahl von Sekunden fehlschlägt, wird der nächste Proxy-Server im Array aus [FindProxyForURL()](</de/docs/Mozilla/Add-ons/WebExtensions/API/proxy#findproxyforurl()_return_value>) verwendet.
 
 - `realm` {{optional_inline}}
-  - : `string`. Das vom Server bereitgestellte Authentifizierungs-[Realm](https://datatracker.ietf.org/doc/html/rfc1945#section-11), falls vorhanden.
+  - : `string`. Der vom Server bereitgestellte Authentifizierungs-[Realm](https://datatracker.ietf.org/doc/html/rfc1945#section-11), falls vorhanden.
 - `requestId`
-  - : `string`. Die ID der Anfrage. Anfrage-IDs sind innerhalb einer Browsersitzung eindeutig, sodass Sie verschiedene Ereignisse, die mit derselben Anfrage verbunden sind, zuordnen können.
+  - : `string`. Die ID der Anfrage. Anfragen-IDs sind innerhalb einer Browsersitzung eindeutig, sodass Sie verschiedene mit derselben Anfrage verbundene Ereignisse in Beziehung setzen können.
 - `responseHeaders` {{optional_inline}}
-  - : {{WebExtAPIRef('webRequest.HttpHeaders')}}. Die HTTP-Antwort-Header, die mit dieser Antwort empfangen wurden.
+  - : {{WebExtAPIRef('webRequest.HttpHeaders')}}. Die mit dieser Antwort empfangenen HTTP-Header.
 - `scheme`
-  - : `string`. Das Authentifizierungsschema: `"basic"` oder `"digest"`.
+  - : `string`. Das Authentifizierungsschema: `"basic"` oder `"digest`".
 - `statusCode`
-  - : `integer`. Standard-HTTP-Statuscode, der vom Server zurückgegeben wird.
+  - : `integer`. Vom Server zurückgegebener Standard-HTTP-Statuscode.
 - `statusLine`
-  - : `string`. HTTP-Statuszeile der Antwort, der `'HTTP/0.9 200 OK'`-String für HTTP/0.9-Antworten (d. h. Antworten, denen eine Statuszeile fehlt) oder ein leerer String, wenn keine Header vorhanden sind.
+  - : `string`. HTTP-Statuszeile der Antwort, die `'HTTP/0.9 200 OK'`-Zeichenfolge für HTTP/0.9-Antworten (d. h. Antworten ohne Statuszeile) oder eine leere Zeichenfolge, wenn es keine Header gibt.
 - `tabId`
-  - : `integer`. ID des Tabs, in dem die Anfrage ausgeführt wird. Auf `-1` gesetzt, wenn die Anfrage nicht mit einem Tab verknüpft ist.
+  - : `integer`. ID des Tabs, in dem die Anfrage stattfindet. Wird auf `-1` gesetzt, wenn die Anfrage nicht mit einem Tab in Zusammenhang steht.
 - `thirdParty`
-  - : `boolean`. Gibt an, ob die Anfrage und ihre Inhaltsfensterhierarchie von Drittanbietern stammen.
+  - : `boolean`. Gibt an, ob die Anfrage und ihre Inhaltsfensterhierarchie von Dritten stammen.
 - `timeStamp`
-  - : `number`. Die Zeit, zu der dieses Ereignis ausgelöst wurde, in [Millisekunden seit der Epoche](https://de.wikipedia.org/wiki/Unixzeit).
+  - : `number`. Die Zeit, wann dieses Ereignis ausgelöst wurde, in [Millisekunden seit der Epoche](https://de.wikipedia.org/wiki/Unixzeit).
 - `type`
-  - : {{WebExtAPIRef('webRequest.ResourceType')}}. Der Typ der angeforderten Ressource: z. B. `"image"`, `"script"` oder `"stylesheet"`.
+  - : {{WebExtAPIRef('webRequest.ResourceType')}}. Der Typ der angeforderten Ressource: zum Beispiel `"image"`, `"script"` oder `"stylesheet"`.
 - `url`
   - : `string`. Ziel der Anfrage.
 - `urlClassification`
 
-  - : `object`. Die Art des Trackings, das mit der Anfrage verbunden ist, wenn die Anfrage durch den [Firefox-Tracking-Schutz](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) klassifiziert wird. Dies ist ein Objekt mit diesen Eigenschaften:
+  - : `object`. Die Art des Trackings, das mit der Anfrage verbunden ist, falls die Anfrage von [Firefox Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) klassifiziert wird. Dies ist ein Objekt mit diesen Eigenschaften:
 
     - `firstParty`
-      - : `array` von `strings`. Klassifikations-Flags für die First-Party der Anfrage.
+      - : `array` von `strings`. Klassifizierungsflags für die erste Partei der Anfrage.
     - `thirdParty`
-      - : `array` von `strings`. Klassifikations-Flags für die Drittanbieter der Anfrage oder ihrer Fensterhierarchie.
+      - : `array` von `strings`. Klassifizierungsflags für die Dritten oder deren Fensterhierarchie.
 
-    Die Klassifikations-Flags umfassen:
+    Die Klassifizierungsflags umfassen:
 
-    - `fingerprinting` und `fingerprinting_content`: gibt an, dass die Anfrage in Fingerprinting verwickelt ist ("eine Quelle, die Fingerprinting betreibt").
-      - `fingerprinting` gibt an, dass die Domäne in der Fingerprinting- und Tracking-Kategorie ist. Beispiele für diese Art von Domäne sind Werbetreibende, die ein Profil mit dem besuchenden Benutzer verknüpfen möchten.
-      - `fingerprinting_content` gibt an, dass die Domäne in der Fingerprinting-Kategorie, aber nicht in der Tracking-Kategorie ist. Beispiele für diese Art von Domäne sind Zahlungsdienste, die Fingerprinting-Techniken zur Identifizierung des besuchenden Benutzers zu Betrugsbekämpfungszwecken verwenden.
-    - `cryptomining` und `cryptomining_content`: ähnlich der Fingerprinting-Kategorie, jedoch für Kryptomining-Ressourcen.
-    - `tracking`, `tracking_ad`, `tracking_analytics`, `tracking_social` und `tracking_content`: gibt an, dass die Anfrage in Tracking involviert ist. `tracking` ist jede generische Tracking-Anfrage. Die Suffixe `ad`, `analytics`, `social` und `content` identifizieren den Typ des Trackers.
-    - `any_basic_tracking`: ein Meta-Flag, das Tracking- und Fingerprinting-Flags kombiniert, jedoch `tracking_content` und `fingerprinting_content` ausschließt.
-    - `any_strict_tracking`: ein Meta-Flag, das alle Tracking- und Fingerprinting-Flags kombiniert.
-    - `any_social_tracking`: ein Meta-Flag, das alle sozialen Tracking-Flags kombiniert.
+    - `fingerprinting` und `fingerprinting_content`: zeigt an, dass die Anfrage beim Fingerprinting beteiligt ist ("eine Quelle, die versucht zu identifizieren").
+      - `fingerprinting` zeigt an, dass die Domain in der Fingerprinting- und Tracking-Kategorie ist. Beispiele für diese Art von Domain sind Werbetreibende, die ein Profil mit dem besuchenden Benutzer verbinden wollen.
+      - `fingerprinting_content` zeigt an, dass die Domain in der Fingerprinting-Kategorie aber nicht in der Tracking-Kategorie ist. Beispiele für diese Art von Domain sind Zahlungsanbieter, die Fingerprinting-Techniken verwenden, um den besuchenden Benutzer zur Betrugsprävention zu identifizieren.
+    - `cryptomining` und `cryptomining_content`: ähnlich der Fingerprinting-Kategorie, aber für Kryptomining-Ressourcen.
+    - `tracking`, `tracking_ad`, `tracking_analytics`, `tracking_social`, und `tracking_content`: zeigt an, dass die Anfrage am Tracking beteiligt ist. `tracking` ist jede generische Tracking-Anfrage. Die `ad`, `analytics`, `social` und `content` Suffixe identifizieren die Art des Trackers.
+    - `any_basic_tracking`: ein Metaflag, das Tracking- und Fingerprinting-Flags kombiniert, außer `tracking_content` und `fingerprinting_content`.
+    - `any_strict_tracking`: ein Metaflag, das alle Tracking- und Fingerprinting-Flags kombiniert.
+    - `any_social_tracking`: ein Metaflag, das alle Social-Tracking-Flags kombiniert.
 
 ## Beispiele
 
@@ -210,7 +210,7 @@ Dieser Code beobachtet Authentifizierungsanfragen für die Ziel-URL:
 const target = "https://intranet.company.com/";
 
 function observe(requestDetails) {
-  console.log(`beobachten: ${requestDetails.requestId}`);
+  console.log(`observing: ${requestDetails.requestId}`);
 }
 
 browser.webRequest.onAuthRequired.addListener(observe, { urls: [target] });
@@ -222,7 +222,7 @@ Dieser Code bricht Authentifizierungsanfragen für die Ziel-URL ab:
 const target = "https://intranet.company.com/";
 
 function cancel(requestDetails) {
-  console.log(`abbrechen: ${requestDetails.requestId}`);
+  console.log(`canceling: ${requestDetails.requestId}`);
   return { cancel: true };
 }
 
@@ -231,7 +231,7 @@ browser.webRequest.onAuthRequired.addListener(cancel, { urls: [target] }, [
 ]);
 ```
 
-Dieser Code liefert Anmeldedaten synchron. Er verfolgt ausstehende Anfragen, um sicherzustellen, dass er nicht wiederholt versucht, falsche Anmeldedaten zu übermitteln:
+Dieser Code liefert Anmeldedaten synchron. Er hält ausstehende Anfragen im Blick, um sicherzustellen, dass nicht wiederholt versucht wird, falsche Anmeldedaten einzureichen:
 
 ```js
 const target = "https://intranet.company.com/";
@@ -243,10 +243,10 @@ const myCredentials = {
 
 const pendingRequests = [];
 
-// Eine Anfrage ist abgeschlossen.
-// Wir können aufhören, uns darum zu kümmern.
+// A request has completed.
+// We can stop worrying about it.
 function completed(requestDetails) {
-  console.log(`abgeschlossen: ${requestDetails.requestId}`);
+  console.log(`completed: ${requestDetails.requestId}`);
   let index = pendingRequests.indexOf(requestDetails.requestId);
   if (index > -1) {
     pendingRequests.splice(index, 1);
@@ -254,15 +254,14 @@ function completed(requestDetails) {
 }
 
 function provideCredentialsSync(requestDetails) {
-  // Wenn wir diese Anfrage bereits gesehen haben,
-  // dann gehen wir davon aus, dass unsere Anmeldedaten falsch waren,
-  // und geben auf.
+  // If we have seen this request before, then
+  // assume our credentials were bad, and give up.
   if (pendingRequests.includes(requestDetails.requestId)) {
-    console.log(`falsche Anmeldedaten für: ${requestDetails.requestId}`);
+    console.log(`bad credentials for: ${requestDetails.requestId}`);
     return { cancel: true };
   }
   pendingRequests.push(requestDetails.requestId);
-  console.log(`Anmeldedaten bereitstellen für: ${requestDetails.requestId}`);
+  console.log(`providing credentials for: ${requestDetails.requestId}`);
   return { authCredentials: myCredentials };
 }
 
@@ -277,7 +276,7 @@ browser.webRequest.onCompleted.addListener(completed, { urls: [target] });
 browser.webRequest.onErrorOccurred.addListener(completed, { urls: [target] });
 ```
 
-Dieser Code liefert Anmeldedaten asynchron, indem er sie aus dem Speicher abruft. Er verfolgt auch ausstehende Anfragen, um sicherzustellen, dass er nicht wiederholt versucht, falsche Anmeldedaten zu übermitteln:
+Dieser Code liefert Anmeldedaten asynchron, indem er sie aus einem Speicher abruft. Er hält auch ausstehende Anfragen im Blick, um sicherzustellen, dass nicht wiederholt versucht wird, falsche Anmeldedaten einzureichen:
 
 ```js
 const target = "https://httpbin.org/basic-auth/*";
@@ -285,10 +284,10 @@ const target = "https://httpbin.org/basic-auth/*";
 const pendingRequests = [];
 
 /*
- * Eine Anfrage ist abgeschlossen. Wir können aufhören, uns darum zu kümmern.
+ * A request has completed. We can stop worrying about it.
  */
 function completed(requestDetails) {
-  console.log(`abgeschlossen: ${requestDetails.requestId}`);
+  console.log(`completed: ${requestDetails.requestId}`);
   let index = pendingRequests.indexOf(requestDetails.requestId);
   if (index > -1) {
     pendingRequests.splice(index, 1);
@@ -296,16 +295,17 @@ function completed(requestDetails) {
 }
 
 function provideCredentialsAsync(requestDetails) {
-  // Wenn wir diese Anfrage bereits gesehen haben,
-  // dann gehen wir davon aus, dass unsere Anmeldedaten falsch waren,
-  // und geben auf.
+  // If we have seen this request before,
+  // then assume our credentials were bad,
+  // and give up.
   if (pendingRequests.includes(requestDetails.requestId)) {
-    console.log(`falsche Anmeldedaten für: ${requestDetails.requestId}`);
+    console.log(`bad credentials for: ${requestDetails.requestId}`);
     return { cancel: true };
   } else {
     pendingRequests.push(requestDetails.requestId);
-    console.log(`Anmeldedaten bereitstellen für: ${requestDetails.requestId}`);
-    // wir können ein Promise zurückgeben, das mit den gespeicherten Anmeldedaten aufgelöst wird
+    console.log(`providing credentials for: ${requestDetails.requestId}`);
+    // we can return a promise that will be resolved
+    // with the stored credentials
     return browser.storage.local.get(null);
   }
 }
@@ -323,12 +323,12 @@ browser.webRequest.onErrorOccurred.addListener(completed, { urls: [target] });
 
 {{WebExtExamples}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#event-onAuthRequired)-API von Chromium. Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#event-onAuthRequired) API. Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

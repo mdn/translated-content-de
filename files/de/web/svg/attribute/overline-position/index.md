@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut `overline-position` repräsentiert die ideale vertikale Position der Oberlinie. Die Position der Oberlinie wird im Koordinatensystem der Schriftart angegeben.
+Das `overline-position` Attribut repräsentiert die ideale vertikale Position der Überlinie. Die Überlinienposition wird im Koordinatensystem der Schrift ausgedrückt.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{ SVGElement("font-face") }}
 
-## Verwendungskontext
+## Nutzungskontext
 
 <table class="properties">
   <tbody>
@@ -35,7 +35,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
         <a
           href="https://www.w3.org/TR/SVG/fonts.html#FontFaceElementOverlinePositionAttribute"
           rel="external"
-          >SVG 1.1 (2nd Edition)</a
+          >SVG 1.1 (2. Auflage)</a
         >
       </td>
     </tr>

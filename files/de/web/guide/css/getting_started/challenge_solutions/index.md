@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 5f4dc8ee228442ddf6831f5f4b8ffe37e5f2beb3
 ---
 
-Diese Seite bietet Lösungen für die Herausforderungen, die im [CSS Getting Started](/de/docs/Learn/CSS/First_steps) Tutorial gestellt werden. Dies sind nicht die einzigen möglichen Lösungen. Die folgenden Abschnitte entsprechen den Titeln der Tutorial-Abschnitte.
+Diese Seite bietet Lösungen für die im Tutorial [CSS für Einsteiger](/de/docs/Learn/CSS/First_steps) gestellten Herausforderungen. Diese sind nicht die einzigen möglichen Lösungen. Die unten stehenden Abschnitte entsprechen den Titeln der Tutorialabschnitte.
 
 ## Warum CSS verwenden
 
@@ -14,9 +14,9 @@ Die Herausforderungen auf der Seite [Warum CSS verwenden](/de/docs/Learn/CSS/Fir
 ### Farben
 
 - Herausforderung
-  - : Finden Sie ohne Nachschlagen von Referenzen fünf weitere Farbnamen, die in Ihrem Stylesheet funktionieren.
+  - : Finden Sie, ohne nachzuschlagen, fünf weitere Farbnamen, die in Ihrem Stylesheet funktionieren.
 - Lösung
-  - : CSS unterstützt gebräuchliche Farbnamen wie `orange`, `yellow`, `blue`, `green` oder `black`. Es unterstützt auch einige exotischere Farbnamen wie `chartreuse`, `fuschia` oder `burlywood`. Eine vollständige Liste sowie andere Möglichkeiten zur Farbangabe finden Sie unter [CSS Color value](/de/docs/Web/CSS/color_value).
+  - : CSS unterstützt gängige Farbnamen wie `orange`, `yellow`, `blue`, `green` oder `black`. Es unterstützt auch einige exotischere Farbnamen wie `chartreuse`, `fuschia` oder `burlywood`. Siehe [CSS Farbwert](/de/docs/Web/CSS/color_value) für eine vollständige Liste sowie andere Möglichkeiten, Farben anzugeben.
 
 ## Wie CSS funktioniert
 
@@ -25,21 +25,21 @@ Die Herausforderungen auf der Seite [Wie CSS funktioniert](/de/docs/Learn/CSS/Fi
 ### DOM-Inspektor
 
 - Herausforderung
-  - : Klicken Sie im DOMi auf einen STRONG-Knoten. Verwenden Sie die rechte Seitenleiste von DOMi, um herauszufinden, wo die Farbe des Knotens auf Rot gesetzt ist und wo sein Erscheinungsbild fetter als normaler Text gemacht wird.
+  - : Klicken Sie in DOMi auf einen STRONG-Knoten. Verwenden Sie das rechte Fenster von DOMi, um herauszufinden, wo die Farbe des Knotens auf Rot gesetzt ist und wo sein Erscheinungsbild dicker als normaler Text gemacht wurde.
 - Lösung
-  - : Wählen Sie im Menü über der rechten Seitenleiste **CSS-Regeln**. Sie sehen zwei Einträge, einen, der auf eine interne Ressource verweist, und einen, der auf Ihre Stylesheet-Datei verweist. Die interne Ressource definiert die **font-weight** Eigenschaft als `bolder`; Ihr Stylesheet definiert die **color** Eigenschaft als `red`.
+  - : Wählen Sie im Menü über dem rechten Fenster **CSS-Regeln**. Sie sehen zwei Einträge, einer, der auf eine interne Ressource verweist, und einer, der auf Ihre Stylesheet-Datei verweist. Die interne Ressource definiert die Eigenschaft **font-weight** als `bolder`; Ihr Stylesheet definiert die Eigenschaft **color** als `red`.
 
 ## Kaskadierung und Vererbung
 
 Die Herausforderungen auf der Seite [Kaskadierung und Vererbung](/de/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance) sind:
 
-### Geerbte Stile
+### Vererbte Styles
 
 - Herausforderung
   - : Ändern Sie Ihr Stylesheet so, dass nur die roten Buchstaben unterstrichen sind.
 - Lösung
 
-  - : Verschieben Sie die Deklaration für das Unterstreichen von der Regel für {{ HTMLElement("p") }} zur Regel für {{ HTMLElement("strong") }}. Die resultierende Datei sieht so aus:
+  - : Verschieben Sie die Deklaration für das Unterstreichen von der Regel für {{ HTMLElement("p") }} zu der für {{ HTMLElement("strong") }}. Die resultierende Datei sieht folgendermaßen aus:
 
     ```css
     p {
@@ -51,7 +51,7 @@ Die Herausforderungen auf der Seite [Kaskadierung und Vererbung](/de/docs/Learn/
     }
     ```
 
-Spätere Abschnitte dieses Tutorials beschreiben Stilregeln und Deklarationen ausführlicher.
+Spätere Abschnitte dieses Tutorials beschreiben die Stilregeln und Deklarationen ausführlicher.
 
 ## Selektoren
 
@@ -60,10 +60,10 @@ Die Herausforderungen auf der Seite [Selektoren](/de/docs/Learn/CSS/Building_blo
 ### Zweiter Absatz blau
 
 - Herausforderung
-  - : Fügen Sie eine einzige Regel zu Ihrer CSS-Datei hinzu, ohne Ihre HTML-Datei zu ändern, die alle Anfangsbuchstaben in ihrer aktuellen Farbe belässt, aber den restlichen Text im zweiten Absatz blau macht.
+  - : Fügen Sie Ihrer CSS-Datei eine einzelne Regel hinzu, ohne Ihre HTML-Datei zu ändern, die alle Anfangsbuchstaben in derselben Farbe wie bisher lässt, aber den gesamten anderen Text im zweiten Absatz blau färbt.
 - Lösung
 
-  - : Fügen Sie eine Regel mit einem ID-Selektor von `#second` und einer Deklaration `color: blue;` hinzu, wie unten gezeigt:
+  - : Fügen Sie eine Regel mit einem ID-Selektor von `#second` und einer Deklaration `color: blue;` wie unten gezeigt hinzu:
 
     ```css
     #second {
@@ -71,15 +71,15 @@ Die Herausforderungen auf der Seite [Selektoren](/de/docs/Learn/CSS/Building_blo
     }
     ```
 
-    Ein spezifischerer Selektor, `p#second`, funktioniert ebenfalls.
+    Ein spezifischerer Selektor, `p#second` funktioniert ebenfalls.
 
 ### Beide Absätze blau
 
 - Herausforderung
-  - : Ändern Sie die gerade hinzugefügte Regel (ohne etwas anderes zu ändern), um auch den ersten Absatz blau zu machen.
+  - : Ändern Sie jetzt die Regel, die Sie gerade hinzugefügt haben (ohne sonst etwas zu ändern), damit auch der erste Absatz blau wird.
 - Lösung
 
-  - : Ändern Sie den Selektor der neuen Regel zu einem Tag-Selektor, der `p` verwendet:
+  - : Ändern Sie den Selektor der neuen Regel in einen Tag-Selektor, der `p` verwendet:
 
     ```css
     p {
@@ -87,14 +87,14 @@ Die Herausforderungen auf der Seite [Selektoren](/de/docs/Learn/CSS/Building_blo
     }
     ```
 
-Die Regeln für die anderen Farben haben alle spezifischere Selektoren, daher übersteuern sie das Blau des Absatzes.
+Die Regeln für die anderen Farben haben alle spezifischere Selektoren, sodass sie das Blau des Absatzes übersteuern.
 
 ## Lesbare CSS
 
 ### Eine Regel auskommentieren
 
 - Herausforderung
-  - : Kommentieren Sie einen Teil Ihres Stylesheets aus, ohne etwas anderes zu ändern, damit der allererste Buchstabe Ihres Dokuments rot ist.
+  - : Kommentieren Sie einen Teil Ihres Stylesheets aus, ohne sonst etwas zu ändern, um den allerersten Buchstaben Ihres Dokuments rot zu machen.
 - Lösung
 
   - : Eine Möglichkeit, dies zu tun, besteht darin, Kommentarbegrenzer um die Regel für `.carrot` zu setzen:
@@ -112,26 +112,26 @@ Die Regeln für die anderen Farben haben alle spezifischere Selektoren, daher ü
 ### Große Anfangsbuchstaben
 
 - Herausforderung
-  - : Machen Sie alle sechs Anfangsbuchstaben, ohne etwas anderes zu ändern, doppelt so groß im standardmäßig serifenlosen Schriftstil des Browsers.
+  - : Machen Sie, ohne sonst etwas zu ändern, alle sechs Anfangsbuchstaben doppelt so groß in der Standardschriftart des Browsers.
 - Lösung
 
-  - : Fügen Sie die folgende Stil-Deklaration zur `strong`-Regel hinzu:
+  - : Fügen Sie die folgende Stildeklaration zur `strong` Regel hinzu:
 
     ```css
     font: 200% serif;
     ```
 
-    Wenn Sie separate Deklarationen für `font-size` und `font-family` verwenden, dann wird die `font-style` Einstellung im ersten Absatz _nicht_ überschrieben.
+    Wenn Sie separate Deklarationen für `font-size` und `font-family` verwenden, dann wird die `font-style`-Einstellung des ersten Absatzes _nicht_ übersteuert.
 
 ## Farbe
 
-### Dreistellige Farbcode
+### Dreistellige Farb-Codes
 
 - Herausforderung
-  - : Ändern Sie in Ihrer CSS-Datei alle Farbnamen in dreistellige Farbcodes, ohne das Ergebnis zu beeinflussen.
+  - : Ändern Sie in Ihrer CSS-Datei alle Farbennamen in dreistellige Farb-Codes, ohne das Ergebnis zu beeinflussen.
 - Lösung
 
-  - : Die folgenden Werte sind vernünftige Annäherungen an die benannten Farben:
+  - : Die folgenden Werte sind angemessene Annäherungen an die benannten Farben:
 
     ```css
     strong {
@@ -157,10 +157,10 @@ Die Regeln für die anderen Farben haben alle spezifischere Selektoren, daher ü
 
 Die Herausforderungen auf der Seite sind:
 
-### Bild hinzufügen
+### Ein Bild hinzufügen
 
 - Herausforderung
-  - : Fügen Sie eine Regel zu Ihrem Stylesheet hinzu, sodass das Bild am Anfang jeder Zeile angezeigt wird.
+  - : Fügen Sie Ihrem Stylesheet eine Regel hinzu, damit es das Bild am Anfang jeder Zeile anzeigt.
 - Lösung
 
   - : Fügen Sie diese Regel zu Ihrem Stylesheet hinzu:
@@ -175,13 +175,13 @@ Die Herausforderungen auf der Seite sind:
 
 Die Herausforderungen auf der Seite [Listen](/de/docs/Learn/CSS/Styling_text/Styling_lists) sind:
 
-### Kleinere römische Ziffern
+### Römische Ziffern in Kleinbuchstaben
 
 - Herausforderung
-  - : Fügen Sie eine Regel zu Ihrem Stylesheet hinzu, um die Ozeane mit römischen Ziffern von i bis v zu nummerieren.
+  - : Fügen Sie Ihrem Stylesheet eine Regel hinzu, um die Ozeane mit römischen Zahlen von i bis v zu nummerieren.
 - Lösung
 
-  - : Definieren Sie eine Regel für Listenelemente, um den `lower-roman` Listenstil zu verwenden:
+  - : Definieren Sie eine Regel für Listenelemente, um den `lower-roman`-Listenstil zu verwenden:
 
     ```css
     li {
@@ -195,10 +195,10 @@ Die Herausforderungen auf der Seite [Listen](/de/docs/Learn/CSS/Styling_text/Sty
   - : Ändern Sie Ihr Stylesheet, um die Überschriften mit Großbuchstaben in Klammern zu kennzeichnen.
 - Lösung
 
-  - : Fügen Sie eine Regel zum Body-Element (Eltern der Überschriften) hinzu, um einen neuen Zähler zurückzusetzen, und eine, um den Zähler auf den Überschriften anzuzeigen und zu inkrementieren:
+  - : Fügen Sie dem Body-Element (Eltern der Überschriften) eine Regel hinzu, um einen neuen Zähler zurückzusetzen, und eine, um den Zähler auf den Überschriften anzuzeigen und zu inkrementieren:
 
     ```css
-    /* nummerierte Überschriften */
+    /* numbered headings */
     body {
       counter-reset: headnum;
     }
@@ -212,13 +212,13 @@ Die Herausforderungen auf der Seite [Listen](/de/docs/Learn/CSS/Styling_text/Sty
 
 Die Herausforderungen auf der Seite [Boxen](/de/docs/Learn/CSS/Building_blocks) sind:
 
-### Ozean-Rand
+### Ozeanrand
 
 - Herausforderung
-  - : Fügen Sie eine Regel zu Ihrem Stylesheet hinzu, die einen breiten Rand in einer Farbe, die Sie an das Meer erinnert, um die Ozeane legt.
+  - : Fügen Sie Ihrem Stylesheet eine Regel hinzu, die einen breiten Rand um die Ozeane in einer Farbe macht, die Sie an das Meer erinnert.
 - Lösung
 
-  - : Die folgende Regel erzielt diesen Effekt:
+  - : Die folgende Regel erreicht diesen Effekt:
 
     ```css
     ul {
@@ -231,20 +231,20 @@ Die Herausforderungen auf der Seite [Boxen](/de/docs/Learn/CSS/Building_blocks) 
 
 Die Herausforderungen auf der Seite [Layout](/de/docs/Learn/CSS/CSS_layout) sind:
 
-### Standard-Bildposition
+### Standardbildposition
 
 ### Feste Bildposition
 
 - Herausforderung
-  - : Ändern Sie Ihr Beispiel-Dokument, `doc2.html`, indem Sie diesen Tag am Ende, direkt vor `</BODY>` hinzufügen: `<IMG id="fixed-pin" src="Yellow-pin.png" alt="Yellow map pin">` Vorhersehen, wo das Bild in Ihrem Dokument erscheinen wird. Aktualisieren Sie anschließend Ihren Browser, um zu sehen, ob Sie richtig lagen.
+  - : Ändern Sie Ihr Beispieldokument, `doc2.html`, indem Sie diesen Tag am Ende hinzufügen, direkt vor `</BODY>`: `<IMG id="fixed-pin" src="Yellow-pin.png" alt="Yellow map pin">`. Prognostizieren Sie, wo das Bild in Ihrem Dokument erscheinen wird. Aktualisieren Sie dann Ihren Browser, um zu sehen, ob Sie richtig lagen.
 - Lösung
-  - : Das Bild erscheint rechts neben der zweiten Liste.
-    ![Eine Liste von fünf Platzhaltertexten ist mit Nummerierte Absätze betitelt. Ein gelber Pin ist rechts von einem blauen Kasten, der die Liste enthält, platziert.](pin_placement.png)
+  - : Das Bild erscheint rechts von der zweiten Liste.
+    ![Eine Liste von fünf Platzhaltertexten trägt den Titel Nummerierte Absätze. Eine gelbe Stecknadel befindet sich rechts von einem blauen Feld mit der Liste.](pin_placement.png)
 - Herausforderung
-  - : Fügen Sie eine Regel zu Ihrem Stylesheet hinzu, die das Bild oben rechts in Ihrem Dokument platziert.
+  - : Fügen Sie Ihrem Stylesheet eine Regel hinzu, die das Bild oben rechts in Ihrem Dokument platziert.
 - Lösung
 
-  - : Die folgende Regel erzielt das gewünschte Ergebnis:
+  - : Die folgende Regel erreicht das gewünschte Ergebnis:
 
     ```css
     #fixed-pin {
@@ -258,13 +258,13 @@ Die Herausforderungen auf der Seite [Layout](/de/docs/Learn/CSS/CSS_layout) sind
 
 Die Herausforderungen auf der Seite [Tabellen](/de/docs/Learn/CSS/Building_blocks/Styling_tables) sind:
 
-### Ränder nur auf Datenelemente
+### Rahmen nur auf Datenzellen
 
 - Herausforderung
-  - : Ändern Sie das Stylesheet so, dass die Tabelle nur grüne Ränder um die Datenelemente hat.
+  - : Ändern Sie das Stylesheet, damit die Tabelle nur einen grünen Rahmen um die Datenzellen hat.
 - Lösung
 
-  - : Die folgende Regel setzt Ränder nur um {{ HTMLElement("td") }} Elemente, die sich innerhalb des {{ HTMLElement("tbody") }} Elements der Tabelle mit `id=demo-table` befinden:
+  - : Die folgende Regel fügt Rahmen um nur {{ HTMLElement("td") }} Elemente, die sich im {{ HTMLElement("tbody") }} Element der Tabelle mit `id=demo-table` befinden:
 
     ```css
     #demo-table tbody td {
@@ -276,22 +276,22 @@ Die Herausforderungen auf der Seite [Tabellen](/de/docs/Learn/CSS/Building_block
 
 Die Herausforderungen auf der Seite [Medien](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) sind:
 
-### Separates Druckstil-Dokument
+### Separate Druckstil-Datei
 
 - Herausforderung
-  - : Bewegen Sie die druckspezifischen Stilregeln in eine separate CSS-Datei und importieren Sie sie in Ihr `style4.css` Stylesheet.
+  - : Verschieben Sie die druckspezifischen Stilregeln in eine separate CSS-Datei und importieren Sie sie in Ihr `style4.css` Stylesheet.
 - Lösung
 
-  - : Schneiden Sie die Zeilen zwischen `/* print only */` und `/* end print only */` aus und fügen Sie sie in eine Datei namens `style4_print.css`. In style4.css, fügen Sie die folgende Zeile am Anfang der Datei hinzu:
+  - : Schneiden Sie die Zeilen zwischen `/* nur Drucken */` und `/* Ende nur Drucken */` aus und fügen Sie sie in eine Datei namens `style4_print.css` ein. Fügen Sie in style4.css die folgende Zeile am Anfang der Datei hinzu:
 
     ```css
     @import url("style4_print.css") print;
     ```
 
-### Überschrift Hover-Farbe
+### Kopfzeilen-Farbe beim Hover
 
 - Herausforderung
-  - : Machen Sie die Überschriften blau, wenn der Mauszeiger darüber ist.
+  - : Machen Sie die Überschriften blau, wenn der Mauszeiger über ihnen schwebt.
 - Lösung
 
   - : Die folgende Regel erzielt das gewünschte Ergebnis:
@@ -307,10 +307,10 @@ Die Herausforderungen auf der Seite [Medien](/de/docs/Web/CSS/CSS_media_queries/
 ### Box nach rechts bewegen
 
 - Herausforderung
-  - : Ändern Sie das Skript so, dass das Quadrat um 20 em nach rechts springt, wenn sich dessen Farbe ändert, und danach wieder zurückspringt.
+  - : Ändern Sie das Skript so, dass das Quadrat nach rechts um 20 em springt, wenn sich seine Farbe ändert, und danach wieder zurückspringt.
 - Lösung
 
-  - : Fügen Sie Zeilen hinzu, um die `margin-left` Eigenschaft zu ändern. Achten Sie darauf, sie in JavaScript als `marginLeft` zu spezifizieren. Das folgende Skript erzielt das gewünschte Ergebnis:
+  - : Fügen Sie Zeilen hinzu, um die Eigenschaft `margin-left` zu ändern. Achten Sie darauf, sie in JavaScript als `marginLeft` anzugeben. Das folgende Skript erzielt das gewünschte Ergebnis:
 
     ```js
     // JavaScript demonstration
@@ -335,7 +335,7 @@ Die Herausforderungen auf der Seite [Medien](/de/docs/Web/CSS/CSS_media_queries/
 ### Farbe der inneren Blütenblätter ändern
 
 - Herausforderung
-  - : Ändern Sie das Stylesheet so, dass sich die inneren Blütenblätter alle rosa färben, wenn der Mauszeiger über einem von ihnen ist, ohne die Art und Weise zu ändern, wie die äußeren Blütenblätter funktionieren.
+  - : Ändern Sie das Stylesheet so, dass die inneren Blütenblätter alle rosa werden, wenn der Mauszeiger über eines von ihnen schwebt, ohne die Funktionsweise der äußeren Blütenblätter zu verändern.
 - Lösung
 
   - : Verschieben Sie die Position der :hover-Pseudoklasse von einem spezifischen Blütenblatt zu allen Blütenblättern

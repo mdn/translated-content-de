@@ -24,7 +24,7 @@ Keine.
 ### Optionale Attribute
 
 - `use-attribute-sets`
-  - : Listet Attributsätze auf, die auf den Ausgabeknoten angewendet werden sollen, wenn es sich um ein Element handelt. Die Namen der Sätze sollten durch Leerzeichen getrennt werden.
+  - : Listet Attributsätze auf, die auf den Ausgabeknoten angewendet werden sollen, falls es sich um ein Element handelt. Die Namen der Sätze sollten durch Leerzeichen getrennt sein.
 
 ### Typ
 

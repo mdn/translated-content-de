@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Der **`HIDConnectionEvent()`** Konstruktor erstellt ein neues {{domxref("HIDConnectionEvent")}} Objekt. Normalerweise wird dieser Konstruktor nicht verwendet, da Ereignisse erstellt werden, wenn sich der Verbindungsstatus eines Geräts ändert.
+Der **`HIDConnectionEvent()`** Konstruktor erstellt ein neues [`HIDConnectionEvent`](/de/docs/Web/API/HIDConnectionEvent) Objekt. Typischerweise wird dieser Konstruktor nicht verwendet, da Events erstellt werden, wenn sich der Verbindungszustand eines Geräts ändert.
 
 ## Syntax
 
@@ -19,16 +19,16 @@ new HIDConnectionEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses.
-    Er ist groß-/klein-schreibungssensitiv und wird von Browsern auf `connect` oder `disconnect` gesetzt.
+  - : Ein String mit dem Namen des Events.
+    Er ist case-sensitive und Browser setzen ihn auf `connect` oder `disconnect`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `device`
-      - : Die {{domxref("HIDDevice")}} Instanz, die das verbundene oder getrennte Gerät darstellt.
+      - : Die [`HIDDevice`](/de/docs/Web/API/HIDDevice) Instanz, die das angeschlossene oder getrennte Gerät darstellt.
 
 ### Rückgabewert
 
-Ein neues {{domxref("HIDConnectionEvent")}} Objekt.
+Ein neues [`HIDConnectionEvent`](/de/docs/Web/API/HIDConnectionEvent) Objekt.
 
 ## Spezifikationen
 

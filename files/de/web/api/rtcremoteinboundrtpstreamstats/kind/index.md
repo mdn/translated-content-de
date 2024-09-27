@@ -1,6 +1,6 @@
 ---
-title: "RTCRemoteInboundRtpStreamStats: Art-Eigenschaft"
-short-title: Art
+title: "RTCRemoteInboundRtpStreamStats: kind Eigenschaft"
+short-title: kind
 slug: Web/API/RTCRemoteInboundRtpStreamStats/kind
 l10n:
   sourceCommit: cd494150381c2588d5b2f4c3425bd772eee8f29d
@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`kind`**-Eigenschaft des {{domxref("RTCRemoteInboundRtpStreamStats")}}-Wörterbuchs ist ein String, der anzeigt, ob der beschriebene {{Glossary("RTP")}}-Stream Audio- oder Videomaterial enthält.
+Die **`kind`** Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats) Dictionary ist ein Zeichenfolge, die angibt, ob der beschriebene [RTP](/de/docs/Glossary/RTP)-Stream Audio- oder Videomedien enthält.
 
-Dieser String entspricht immer der {{domxref("MediaStreamTrack.kind", "kind")}} des {{domxref("MediaStreamTrack")}}-Objekts, das vom Stream übertragen wird. Er wird auch mit dem Medientyp des Codecs übereinstimmen, der mit diesem Statistikobjekt verbunden ist (d.h. dem MIME-Typ der {{domxref("RTCCodecStats.mimeType")}}-Eigenschaft des zugehörigen Codecs).
+Diese Zeichenfolge wird immer die gleiche sein wie das [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekts, das vom Stream übertragen wird. Sie stimmt auch mit dem Medientyp des Codecs überein, der mit diesem Statistikobjekt verbunden ist (d. h. der MIME-Typ der mit dem Codec verbundenen [`RTCCodecStats.mimeType`](/de/docs/Web/API/RTCCodecStats/mimeType) Eigenschaft).
 
 ## Wert
 
-Die Art ist immer eine der folgenden:
+Der Wert von kind ist immer einer von:
 
 - `"audio"`
-  - : Der Stream enthält Audio-Medien.
+  - : Der Stream enthält Audiomedien.
 - `"video"`
-  - : Der Stream enthält Video-Medien.
+  - : Der Stream enthält Videomedien.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

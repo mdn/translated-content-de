@@ -26,18 +26,18 @@ Ein neues {{jsxref("Array")}}.
 
 ## Beispiele
 
-In diesem Beispiel verwenden wir die `values()`-Methode, um auf die Werte in unserem [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) zugreifen zu können.
+In diesem Beispiel verwenden wir die `values()`-Methode, um die Werte innerhalb unseres [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) zugänglich zu machen.
 
 ```js
-// ein Button-Element abrufen
+// get a button element
 const buttonEl = document.querySelector("button");
 
-// wir können alle berechneten Styles mit `computedStyleMap` abrufen
+// we can retrieve all computed styles with `computedStyleMap`
 const allComputedStyles = buttonEl.computedStyleMap();
 
-// values gibt eine iterierbare Liste der CSS-Werte zurück
+// values returns an iterable list of the CSS values
 const vals = allComputedStyles.values();
-console.log(vals.next().value); // gibt ein CSSStyleValue zurück
+console.log(vals.next().value); // returns a CSSStyleValue
 ```
 
 ## Spezifikationen

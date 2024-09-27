@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Animations")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`source`**-Eigenschaft des {{domxref("ScrollTimeline")}}-Interfaces gibt eine Referenz auf das scrollbare Element (_Scroller_) zurück, dessen Scrollposition den Fortschritt der Zeitleiste und somit die Animation steuert.
+Die schreibgeschützte **`source`**-Eigenschaft der [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)-Schnittstelle gibt eine Referenz auf das scrollbare Element (_Scroller_) zurück, dessen Scrollposition den Fortschritt der Zeitleiste und damit die Animation steuert.
 
 ## Wert
 
-Ein {{domxref("Element")}}.
+Ein [`Element`](/de/docs/Web/API/Element).
 
 ## Beispiele
 
-Sehen Sie sich die Hauptseite von {{domxref("ScrollTimeline")}} für ein Beispiel an.
+Siehe die Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline) für ein Beispiel.
 
 ## Spezifikationen
 
@@ -29,6 +29,6 @@ Sehen Sie sich die Hauptseite von {{domxref("ScrollTimeline")}} für ein Beispie
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
-- {{domxref("ScrollTimeline")}}
-- {{domxref("AnimationTimeline")}}, {{domxref("ViewTimeline")}}
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)
+- [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)

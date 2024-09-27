@@ -7,16 +7,16 @@ l10n:
 
 {{JSRef}}
 
-Ein **`FinalizationRegistry`**-Objekt ermöglicht es Ihnen, einen Rückruf anzufordern, wenn ein Wert vom Garbage Collector aufgeräumt wird.
+Ein **`FinalizationRegistry`**-Objekt ermöglicht es Ihnen, einen Rückruf anzufordern, wenn ein Wert garbage-collected wird.
 
 ## Beschreibung
 
-`FinalizationRegistry` stellt eine Möglichkeit bereit, einen _Aufräum-Rückruf_ anzufordern, der zu einem bestimmten Zeitpunkt aufgerufen wird, wenn ein beim Registry registrierter Wert _zurückgefordert_ (vom Garbage Collector aufgeräumt) wurde. (Aufräum-Rückrufe werden manchmal auch _Finalizer_ genannt.)
+`FinalizationRegistry` bietet eine Möglichkeit, einen _Bereinigungsrückruf_ anzufordern, der irgendwann aufgerufen wird, wenn ein mit dem Register registrierter Wert _zurückgewonnen_ (garbage-collected) wurde. (Bereinigungsrückrufe werden manchmal auch _Finalizer_ genannt.)
 
 > [!NOTE]
-> Aufräum-Rückrufe sollten nicht für essentielle Programmlogik verwendet werden. Siehe [Hinweise zu Aufräum-Rückrufen](#hinweise_zu_aufräum-rückrufen) für Details.
+> Bereinigungsrückrufe sollten nicht für wesentliche Programmlogik verwendet werden. Siehe [Hinweise zu Bereinigungsrückrufen](#hinweise_zu_bereinigungsrückrufen) für Details.
 
-Sie erstellen die Registry, indem Sie den Rückruf übergeben:
+Sie erstellen das Register, indem Sie den Rückruf übergeben:
 
 ```js
 const registry = new FinalizationRegistry((heldValue) => {
@@ -24,63 +24,63 @@ const registry = new FinalizationRegistry((heldValue) => {
 });
 ```
 
-Dann registrieren Sie jeden Wert, für den Sie einen Aufräum-Rückruf wünschen, indem Sie die Methode `register` aufrufen und den Wert sowie einen dafür _gehaltenen Wert_ übergeben:
+Dann registrieren Sie jeden Wert, für den Sie einen Bereinigungsrückruf wünschen, indem Sie die `register`-Methode aufrufen und den Wert sowie einen _gehaltenen Wert_ dafür übergeben:
 
 ```js
 registry.register(target, "some value");
 ```
 
-Die Registry hält keine starke Referenz zum Wert, da dies den Zweck vereiteln würde (wenn die Registry ihn stark halten würde, würde der Wert niemals zurückgefordert werden). In JavaScript sind Objekte und [nicht registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sammelbar, sodass sie in einem `FinalizationRegistry`-Objekt als Ziel oder Token registriert werden können.
+Das Register hält keine starke Referenz auf den Wert, da dies den Zweck zunichtemachen würde (wenn das Register ihn stark hielte, würde der Wert niemals zurückgewonnen werden). In JavaScript sind Objekte und [nicht registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) garbage-collectable, sodass sie in einem `FinalizationRegistry`-Objekt als Ziel oder Token registriert werden können.
 
-Wenn `target` zurückgefordert wird, kann Ihr Aufräum-Rückruf zu einem gewissen Punkt mit dem von Ihnen dafür bereitgestellten _gehaltenen Wert_ aufgerufen werden ("some value" im obigen Beispiel). Der gehaltene Wert kann ein beliebiger Wert sein: ein primitiver Wert oder ein Objekt, sogar `undefined`. Wenn der gehaltene Wert ein Objekt ist, hält die Registry eine _starke_ Referenz dazu (damit sie es später Ihrem Aufräum-Rückruf übergeben kann).
+Wenn `target` zurückgewonnen wird, kann Ihr Bereinigungsrückruf möglicherweise irgendwann mit dem _gehaltenen Wert_ aufgerufen werden, den Sie dafür vorgesehen haben („some value“ oben). Der gehaltene Wert kann jeder beliebige Wert sein: ein primitiver Wert oder ein Objekt, sogar `undefined`. Wenn der gehaltene Wert ein Objekt ist, hält das Register eine _starke_ Referenz darauf (damit es ihn später an Ihren Bereinigungsrückruf übergeben kann).
 
-Wenn Sie möglicherweise einen registrierten Zielwert später abmelden möchten, übergeben Sie einen dritten Wert, der das _Abmelde-Token_ ist, das Sie später verwenden werden, wenn Sie die `unregister`-Funktion der Registry aufrufen, um den Wert abzumelden. Die Registry hält nur eine schwache Referenz zum Abmelde-Token.
+Wenn Sie möglicherweise später einen registrierten Zielwert abmelden möchten, geben Sie einen dritten Wert an, der das _Abmeldungstoken_ ist, das Sie später verwenden werden, wenn Sie die `unregister`-Funktion des Registers aufrufen, um den Wert abzumelden. Das Register hält nur eine schwache Referenz auf das Abmeldungstoken.
 
-Es ist üblich, den Zielwert selbst als Abmelde-Token zu verwenden, was völlig in Ordnung ist:
+Es ist üblich, den Zielwert selbst als Abmeldungstoken zu verwenden, was völlig in Ordnung ist:
 
 ```js
 registry.register(target, "some value", target);
 // …
 
-// einige Zeit später, wenn Sie sich nicht mehr um `target` kümmern, melden Sie es ab
+// some time later, if you don't care about `target` anymore, unregister it
 registry.unregister(target);
 ```
 
-Es muss jedoch nicht derselbe Wert sein; es kann ein anderer sein:
+Es muss jedoch nicht der gleiche Wert sein; es kann ein anderer sein:
 
 ```js
 registry.register(target, "some value", token);
 // …
 
-// einige Zeit später
+// some time later
 registry.unregister(token);
 ```
 
-### Vermeiden, wenn möglich
+### Wo möglich vermeiden
 
-Die korrekte Verwendung von `FinalizationRegistry` erfordert sorgfältiges Nachdenken und sollte wenn möglich vermieden werden. Es ist auch wichtig, sich nicht auf spezifisches Verhalten zu verlassen, das von der Spezifikation nicht garantiert wird. Wann, wie und ob die Speicherbereinigung erfolgt, liegt in der Verantwortung der Implementierung der jeweiligen JavaScript-Engine. Jedes beobachtete Verhalten in einer Engine kann in einer anderen Engine, in einer anderen Version derselben Engine oder sogar in einer leicht unterschiedlichen Situation mit derselben Version derselben Engine unterschiedlich sein. Speicherbereinigung ist ein schwieriges Problem, das Implementierer von JavaScript-Engines ständig verfeinern und verbessern.
+Die korrekte Verwendung von `FinalizationRegistry` erfordert sorgfältiges Nachdenken und sollte nach Möglichkeit vermieden werden. Es ist auch wichtig, sich nicht auf spezifische Verhaltensweisen zu verlassen, die nicht durch die Spezifikation garantiert sind. Wann, wie und ob Garbage Collection stattfindet, hängt von der Implementierung einer bestimmten JavaScript-Engine ab. Jedes beobachtete Verhalten in einer Engine kann in einer anderen Engine, in einer anderen Version der gleichen Engine oder sogar in einer leicht anderen Situation mit der gleichen Version der gleichen Engine anders sein. Garbage Collection ist ein schwieriges Problem, das JavaScript-Engine-Implementierer ständig verbessern und verfeinern.
 
 Hier sind einige spezifische Punkte, die von den Autoren im [Vorschlag](https://github.com/tc39/proposal-weakrefs) enthalten sind, der `FinalizationRegistry` eingeführt hat:
 
-> [Speicherbereinigung] (https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) ist kompliziert. Wenn eine Anwendung oder Bibliothek darauf angewiesen ist, dass der GC ein WeakRef bereinigt oder einen Finalizer \[Aufräum-Rückruf] in einer rechtzeitigen, vorhersehbaren Weise aufruft, wird sie wahrscheinlich enttäuscht sein: Die Bereinigung kann viel später als erwartet erfolgen oder gar nicht. Quellen der Variabilität umfassen:
+> [Garbage Collectors](<https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)>) sind kompliziert. Wenn eine Anwendung oder Bibliothek darauf angewiesen ist, dass der GC ein WeakRef aufräumt oder einen Finalizer \[Bereinigungsrückruf] rechtzeitig und vorhersehbar aufruft, wird sie wahrscheinlich enttäuscht sein: Die Bereinigung kann viel später als erwartet erfolgen oder überhaupt nicht. Quellen der Variabilität sind unter anderem:
 >
-> - Ein Objekt könnte viel eher als ein anderes Objekt gesammelt werden, selbst wenn sie gleichzeitig unerreichbar werden, z.B. wegen generationsbedingter Sammlung.
-> - Arbeiten der Speicherbereinigung können über die Zeit verteilt werden, indem inkrementelle und gleichzeitige Techniken verwendet werden.
-> - Verschiedene Laufzeit-Heuristiken können verwendet werden, um den Speicherverbrauch und die Reaktionsfähigkeit auszubalancieren.
-> - Die JavaScript-Engine kann Referenzen auf Dinge halten, die so aussehen, als wären sie unerreichbar (z.B. in Closures oder Inline-Caches).
-> - Verschiedene JavaScript-Engines können diese Dinge unterschiedlich tun, oder dieselbe Engine kann ihre Algorithmen über Versionen hinweg ändern.
-> - Komplexe Faktoren können dazu führen, dass Objekte für unerwartete Zeiträume am Leben gehalten werden, wie z.B. Verwendung mit bestimmten APIs.
+> - Ein Objekt kann viel früher garbage-collected werden als ein anderes, selbst wenn sie zur gleichen Zeit unerreichbar werden, z.B. aufgrund der stufenweisen Sammlung.
+> - Garbage Collection-Arbeit kann über die Zeit mit inkrementellen und parallelen Techniken aufgeteilt werden.
+> - Verschiedene Laufzeitheuristiken können verwendet werden, um Speicherverbrauch und Reaktionsfähigkeit auszugleichen.
+> - Die JavaScript-Engine kann Referenzen auf Dinge halten, die unerreichbar erscheinen (z.B. in Closures oder Inline-Caches).
+> - Verschiedene JavaScript-Engines können diese Dinge unterschiedlich handhaben, oder dieselbe Engine kann ihre Algorithmen über Versionen hinweg ändern.
+> - Komplexe Faktoren können dazu führen, dass Objekte für unerwartet lange Zeit erhalten bleiben, z.B. bei der Verwendung mit bestimmten APIs.
 
-### Hinweise zu Aufräum-Rückrufen
+### Hinweise zu Bereinigungsrückrufen
 
-- Entwickler sollten sich nicht auf Aufräum-Rückrufe für essentielle Programmlogik verlassen. Aufräum-Rückrufe können nützlich sein, um den Speicherverbrauch im Verlauf eines Programms zu reduzieren, sind jedoch wahrscheinlich sonst nicht nützlich.
-- Wenn Ihr Code gerade einen Wert in der Registry registriert hat, wird dieses Ziel nicht bis zum Ende des aktuellen JavaScript-[Jobs](https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#job) zurückgefordert. Siehe [Hinweise zu WeakRefs](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef#notes_on_weakrefs) für Details.
-- Eine konforme JavaScript-Implementierung, auch eine, die Speicherbereinigung durchführt, ist nicht verpflichtet, Aufräum-Rückrufe aufzurufen. Wann und ob dies geschieht, liegt vollständig in der Verantwortung der Implementierung der JavaScript-Engine. Wenn ein registriertes Objekt zurückgefordert wird, können Aufräum-Rückrufe dafür dann aufgerufen werden, später zu einem anderen Zeitpunkt oder gar nicht.
-- Es ist wahrscheinlich, dass große Implementierungen Aufräum-Rückrufe zu einem bestimmten Zeitpunkt während des Programmlaufs aufrufen werden, aber diese Aufrufe können erheblich nach dem Zeitpunkt erfolgen, zu dem das zugehörige Objekt zurückgefordert wurde. Darüber hinaus gibt es keine Garantie, dass bei Registrierung in zwei Registries die beiden Rückrufe direkt aufeinanderfolgend aufgerufen werden - einer kann aufgerufen werden und der andere nie oder der andere kann viel später aufgerufen werden.
-- Es gibt auch Situationen, in denen selbst Implementierungen, die normalerweise Aufräum-Rückrufe aufrufen, diese wahrscheinlich nicht aufrufen:
-  - Wenn das JavaScript-Programm vollständig heruntergefahren wird (zum Beispiel beim Schließen eines Tabs in einem Browser).
-  - Wenn die `FinalizationRegistry`-Instanz selbst für JavaScript-Code nicht mehr erreichbar ist.
-- Wenn das Ziel eines `WeakRef` sich auch in einem `FinalizationRegistry` befindet, wird das Ziel des `WeakRef` gleichzeitig oder bevor ein damit verbundener Aufräum-Rückruf der Registry aufgerufen wird, gelöscht; wenn Ihr Aufräum-Rückruf `deref` auf einem `WeakRef` für das Objekt aufruft, erhält es `undefined`.
+- Entwickler sollten sich nicht auf Bereinigungsrückrufe für wesentliche Programmlogik verlassen. Bereinigungsrückrufe können nützlich sein, um den Speicherverbrauch im Verlauf eines Programms zu reduzieren, sind jedoch ansonsten wahrscheinlich nicht nützlich.
+- Wenn Ihr Code gerade einen Wert im Register registriert hat, wird dieses Ziel nicht zurückgewonnen, bis das aktuelle JavaScript-[Job](https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#job) abgeschlossen ist. Siehe [Hinweise zu WeakRefs](/de/docs/Web/JavaScript/Reference/Global_Objects/WeakRef#notes_on_weakrefs) für Details.
+- Eine konforme JavaScript-Implementierung, selbst eine, die Garbage Collection durchführt, ist nicht verpflichtet, Bereinigungsrückrufe aufzurufen. Wann und ob dies geschieht, hängt vollständig von der Implementierung der JavaScript-Engine ab. Wenn ein registriertes Objekt zurückgewonnen wird, können alle Bereinigungsrückrufe dafür dann, später oder gar nicht aufgerufen werden.
+- Es ist wahrscheinlich, dass Hauptimplementierungen Bereinigungsrückrufe irgendwann während der Ausführung aufrufen werden, aber diese Anrufe können wesentlich nach dem Zeitpunkt erfolgen, zu dem das zugehörige Objekt zurückgewonnen wurde. Wenn ein Objekt in zwei Registern registriert ist, gibt es keine Garantie dafür, dass die beiden Rückrufe direkt hintereinander aufgerufen werden – einer kann aufgerufen werden und der andere nie, oder der andere kann viel später aufgerufen werden.
+- Es gibt auch Situationen, in denen selbst Implementierungen, die normalerweise Bereinigungsrückrufe ausführen, dies wahrscheinlich nicht tun:
+  - Wenn das JavaScript-Programm vollständig heruntergefahren wird (zum Beispiel beim Schließen eines Tabs im Browser).
+  - Wenn die Instanz von `FinalizationRegistry` selbst dem JavaScript-Code nicht mehr zugänglich ist.
+- Wenn das Ziel eines `WeakRef` sich auch in einem `FinalizationRegistry` befindet, wird das Ziel des `WeakRef` gleichzeitig oder vor jedem mit dem Register verbundenen Bereinigungsrückruf gelöscht; wenn Ihr Bereinigungsrückruf `deref` auf einem `WeakRef` für das Objekt aufruft, wird er `undefined` erhalten.
 
 ## Konstruktor
 
@@ -89,25 +89,25 @@ Hier sind einige spezifische Punkte, die von den Autoren im [Vorschlag](https://
 
 ## Instanz-Eigenschaften
 
-Diese Eigenschaften sind auf `FinalizationRegistry.prototype` definiert und werden von allen Instanzen der `FinalizationRegistry` geteilt.
+Diese Eigenschaften sind auf `FinalizationRegistry.prototype` definiert und werden von allen `FinalizationRegistry`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "FinalizationRegistry.prototype.constructor")}}
-  - : Die Konstrukturfunktion, die das Instanzobjekt erstellt hat. Für `FinalizationRegistry`-Instanzen ist der Anfangswert der {{jsxref("FinalizationRegistry/FinalizationRegistry", "FinalizationRegistry")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `FinalizationRegistry`-Instanzen ist der anfängliche Wert der {{jsxref("FinalizationRegistry/FinalizationRegistry", "FinalizationRegistry")}} Konstruktor.
 - `FinalizationRegistry.prototype[Symbol.toStringTag]`
   - : Der anfängliche Wert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"FinalizationRegistry"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
 ## Instanz-Methoden
 
 - {{jsxref("FinalizationRegistry.prototype.register()")}}
-  - : Registriert ein Objekt in der Registry, um einen Aufräum-Rückruf zu erhalten, wenn/das Objekt vom Garbage Collector aufgeräumt wird.
+  - : Registriert ein Objekt im Register, um einen Bereinigungsrückruf zu erhalten, wenn/wenn das Objekt garbage-collected wird.
 - {{jsxref("FinalizationRegistry.prototype.unregister()")}}
-  - : Meldet ein Objekt von der Registry ab.
+  - : Meldet ein Objekt vom Register ab.
 
 ## Beispiele
 
-### Erstellen einer neuen Registry
+### Ein neues Register erstellen
 
-Sie erstellen die Registry, indem Sie den Rückruf übergeben:
+Sie erstellen das Register, indem Sie den Rückruf übergeben:
 
 ```js
 const registry = new FinalizationRegistry((heldValue) => {
@@ -115,17 +115,17 @@ const registry = new FinalizationRegistry((heldValue) => {
 });
 ```
 
-### Registrieren von Objekten zum Aufräumen
+### Objekte zur Bereinigung registrieren
 
-Dann registrieren Sie alle Objekte, für die Sie einen Aufräum-Rückruf wünschen, indem Sie die Methode `register` aufrufen und das Objekt sowie einen dafür _gehaltenen Wert_ übergeben:
+Dann registrieren Sie alle Objekte, für die Sie einen Bereinigungsrückruf möchten, indem Sie die `register`-Methode aufrufen und das Objekt sowie einen _gehaltenen Wert_ dafür übergeben:
 
 ```js
 registry.register(theObject, "some value");
 ```
 
-### Rückrufe werden niemals synchron aufgerufen
+### Rückrufe werden nie synchron aufgerufen
 
-Egal wie viel Druck Sie auf den Garbage Collector ausüben, der Aufräum-Rückruf wird niemals synchron aufgerufen. Das Objekt kann synchron aufgeräumt werden, aber der Rückruf wird immer irgendwann nach Abschluss des aktuellen Jobs aufgerufen:
+Egal wie viel Druck Sie auf den Garbage Collector ausüben, der Bereinigungsrückruf wird niemals synchron aufgerufen. Das Objekt kann synchron zurückgewonnen werden, aber der Rückruf wird immer irgendwann nach Abschluss des aktuellen Jobs aufgerufen:
 
 ```js
 let counter = 0;
@@ -149,7 +149,7 @@ console.log("Main job ends");
 // Array gets garbage collected at 5001
 ```
 
-Wenn Sie jedoch eine kleine Pause zwischen jeder Zuweisung erlauben, kann der Rückruf früher aufgerufen werden:
+Jedoch, wenn Sie eine kleine Pause zwischen jeder Zuweisung erlauben, kann der Rückruf möglicherweise früher aufgerufen werden:
 
 ```js
 let arrayCollected = false;
@@ -173,7 +173,7 @@ registry.register(["foo"]);
 console.log("Main job ends");
 ```
 
-Es gibt keine Garantie, dass der Rückruf früher oder überhaupt aufgerufen wird, aber es besteht die Möglichkeit, dass die geloggte Nachricht einen Zählerwert kleiner als 5000 hat.
+Es gibt keine Garantie, dass der Rückruf früher aufgerufen wird oder ob er überhaupt aufgerufen wird, aber es besteht die Möglichkeit, dass die protokollierte Nachricht einen Zählerwert kleiner als 5000 hat.
 
 ## Spezifikationen
 

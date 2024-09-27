@@ -26,9 +26,9 @@ TypeError: String.prototype.replaceAll argument must not be a non-global regular
 
 ## Was ist schiefgelaufen?
 
-Die Methoden {{jsxref("String.prototype.matchAll()")}} und {{jsxref("String.prototype.replaceAll()")}} erfordern ein {{jsxref("RegExp")}}-Objekt mit dem {{jsxref("RegExp/global", "global")}}-Flag. Dieses Flag zeigt an, dass der reguläre Ausdruck alle Vorkommen der Eingabezeichenfolge finden kann, anstatt beim ersten Treffer zu stoppen. Obwohl das `g`-Flag redundant ist, wenn diese Methoden verwendet werden (da diese Methoden immer einen globalen Ersatz durchführen), werden sie dennoch benötigt, um die Absicht klar zu machen.
+Die Methoden {{jsxref("String.prototype.matchAll()")}} und {{jsxref("String.prototype.replaceAll()")}} erfordern ein {{jsxref("RegExp")}}-Objekt mit dem gesetzten {{jsxref("RegExp/global", "global")}}-Flag. Dieses Flag zeigt an, dass der reguläre Ausdruck alle Stellen der Eingabestrings finden kann, anstatt beim ersten Treffer zu stoppen. Obwohl das `g`-Flag bei der Verwendung dieser Methoden redundant ist (da diese Methoden immer eine globale Ersetzung durchführen), ist es dennoch erforderlich, um die Absicht klar zu machen.
 
-Es ist zu beachten, dass die `g`-Flag-Validierung in den Methoden `matchAll` und `replaceAll` durchgeführt wird. Wenn Sie die Methode [`[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll) von `RegExp` verwenden, tritt dieser Fehler nicht auf, aber es wird nur ein einzelner Treffer gefunden.
+Es ist wichtig zu beachten, dass die Überprüfung des `g`-Flags in den Methoden `matchAll` und `replaceAll` erfolgt. Wenn Sie stattdessen die Methode [`[Symbol.matchAll]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll) von `RegExp` verwenden, erhalten Sie diesen Fehler nicht, aber es wird nur ein einzelner Treffer erzielt.
 
 ## Beispiele
 
@@ -41,7 +41,7 @@ Es ist zu beachten, dass die `g`-Flag-Validierung in den Methoden `matchAll` und
 
 ### Gültige Fälle
 
-Wenn Sie beabsichtigen, globales Matching/Ersatz durchzuführen: Fügen Sie entweder das `g`-Flag hinzu oder erstellen Sie ein neues `RegExp`-Objekt mit dem `g`-Flag, wenn Sie den ursprünglichen Regex unverändert lassen möchten.
+Wenn Sie beabsichtigen, eine globale Übereinstimmung/Ersetzung durchzuführen: Fügen Sie entweder das `g`-Flag hinzu, oder konstruieren Sie ein neues `RegExp`-Objekt mit dem `g`-Flag, wenn Sie den ursprünglichen Regex unverändert lassen möchten.
 
 ```js example-good
 [..."abc".matchAll(/./g)]; // [[ "a" ], [ "b" ], [ "c" ]]
@@ -55,7 +55,7 @@ const newPattern = new RegExp(
 "abc".replaceAll(newPattern, "f"); // "fff"
 ```
 
-Wenn Sie nur ein einzelnes Matching/Ersatz beabsichtigen: Verwenden Sie stattdessen {{jsxref("String.prototype.match()")}} oder {{jsxref("String.prototype.replace()")}}. Sie können auch die Methode `[Symbol.matchAll]()` verwenden, wenn Sie einen Iterator wie `matchAll` haben möchten, der nur einen Treffer enthält, aber dabei wird es sehr verwirrend sein.
+Wenn Sie nur eine einzelne Übereinstimmung/Ersetzung durchführen möchten: verwenden Sie stattdessen {{jsxref("String.prototype.match()")}} oder {{jsxref("String.prototype.replace()")}}. Sie können auch die `[Symbol.matchAll]()`-Methode verwenden, wenn Sie einen Iterator wie `matchAll` wünschen, der nur einen Treffer enthält, aber dies wird sehr verwirrend sein.
 
 ```js example-good
 "abc".match(/./); // [ "a" ]

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("IndexedDB")}}
 
-Das `versionchange`-Ereignis wird ausgelöst, wenn eine Änderung der Datenbankstruktur (ein [`upgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event)-Ereignis, das auf ein [`IDBOpenDBRequest`](/de/docs/Web/API/IDBOpenDBRequest) oder [`IDBFactory.deleteDatabase`](/de/docs/Web/API/IDBFactory/deleteDatabase) gesendet wird) an anderer Stelle angefordert wurde (wahrscheinlich in einem anderen Fenster/Tab auf dem gleichen Computer).
+Das `versionchange`-Ereignis wird ausgelöst, wenn eine Änderung der Datenbankstruktur (ein [`upgradeneeded`](/de/docs/Web/API/IDBOpenDBRequest/upgradeneeded_event)-Ereignis gesendet auf ein [`IDBOpenDBRequest`](/de/docs/Web/API/IDBOpenDBRequest) oder [`IDBFactory.deleteDatabase`](/de/docs/Web/API/IDBFactory/deleteDatabase)) an anderer Stelle angefordert wurde (höchstwahrscheinlich in einem anderen Fenster/Tab auf dem gleichen Computer).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("versionchange", (event) => {});
@@ -21,24 +21,24 @@ onversionchange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel öffnet eine Datenbank und fügt bei Erfolg einen Listener für `versionchange` hinzu:
+In diesem Beispiel wird eine Datenbank geöffnet und bei Erfolg ein Listener für `versionchange` hinzugefügt:
 
 ```js
-// Öffnen der Datenbank
+// Open the database
 const dBOpenRequest = window.indexedDB.open("Nonexistent", 4);
 
 dBOpenRequest.onupgradeneeded = (event) => {
   const db = event.target.result;
-  // Erstellen eines objectStore für diese Datenbank
+  // Create an objectStore for this database
   const objectStore = db.createObjectStore("toDoList", {
     keyPath: "taskTitle",
   });
 
-  // Definieren, welche Datenobjekte der objectStore enthalten wird
+  // define what data items the objectStore will contain
   objectStore.createIndex("hours", "hours", { unique: false });
   objectStore.createIndex("minutes", "minutes", { unique: false });
   objectStore.createIndex("day", "day", { unique: false });
@@ -57,17 +57,17 @@ dBOpenRequest.addEventListener("success", (event) => {
 Dasselbe Beispiel, unter Verwendung der `onversionchange`-Ereignishandler-Eigenschaft:
 
 ```js
-// Öffnen der Datenbank
+// Open the database
 const dBOpenRequest = window.indexedDB.open("Nonexistent", 4);
 
 dBOpenRequest.onupgradeneeded = (event) => {
   const db = event.target.result;
-  // Erstellen eines objectStore für diese Datenbank
+  // Create an objectStore for this database
   const objectStore = db.createObjectStore("toDoList", {
     keyPath: "taskTitle",
   });
 
-  // Definieren, welche Datenobjekte der objectStore enthalten wird
+  // define what data items the objectStore will contain
   objectStore.createIndex("hours", "hours", { unique: false });
   objectStore.createIndex("minutes", "minutes", { unique: false });
   objectStore.createIndex("day", "day", { unique: false });
@@ -93,4 +93,4 @@ dBOpenRequest.onsuccess = (event) => {
 
 ## Siehe auch
 
-- [Using IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)

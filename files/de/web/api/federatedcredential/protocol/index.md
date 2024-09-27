@@ -1,5 +1,5 @@
 ---
-title: "FederatedCredential: Eigenschaft protocol"
+title: "FederatedCredential: protocol-Eigenschaft"
 short-title: protocol
 slug: Web/API/FederatedCredential/protocol
 l10n:
@@ -9,14 +9,14 @@ l10n:
 {{SeeCompatTable}}{{APIRef("Credential Management API")}}{{securecontext_header}}
 
 Die **`protocol`**-Eigenschaft des
-{{domxref("FederatedCredential")}}-Interfaces liefert einen schreibgeschützten
-String, der das föderierte Identitätsprotokoll eines Anmeldedatenobjekts enthält. Wenn diese
+[`FederatedCredential`](/de/docs/Web/API/FederatedCredential)-Interfaces gibt einen schreibgeschützten
+String zurück, der das föderierte Identitätsprotokoll eines Berechtigungsnachweises enthält. Wenn diese
 Eigenschaft [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist, kann das Protokoll aus der
-{{domxref("FederatedCredential.provider")}}-Eigenschaft abgeleitet werden.
+[`FederatedCredential.provider`](/de/docs/Web/API/FederatedCredential/provider)-Eigenschaft abgeleitet werden.
 
 ## Wert
 
-Ein String, der das föderierte Identitätsprotokoll eines Anmeldedatenobjekts enthält (z. B.
+Ein String, der das föderierte Identitätsprotokoll eines Berechtigungsnachweises enthält (z.B.
 `openidconnect`).
 
 ## Beispiele
@@ -29,6 +29,6 @@ Ein String, der das föderierte Identitätsprotokoll eines Anmeldedatenobjekts e
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -8,17 +8,15 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`maxActions`** schreibgeschützte statische Eigenschaft des
-{{domxref("Notification")}} Interfaces gibt die maximale Anzahl von Aktionen zurück, die vom Gerät und dem Benutzeragenten unterstützt werden. Tatsächlich ist dies die maximale Anzahl von Elementen im
-{{domxref("Notification.actions")}} Array, die vom Benutzeragenten berücksichtigt werden.
+Die schreibgeschützte statische Eigenschaft **`maxActions`** des [`Notification`](/de/docs/Web/API/Notification)-Interfaces gibt die maximale Anzahl von Aktionen zurück, die vom Gerät und dem User Agent unterstützt werden. Dies ist effektiv die maximale Anzahl von Elementen im [`Notification.actions`](/de/docs/Web/API/Notification/actions)-Array, die vom User Agent respektiert werden.
 
 ## Wert
 
-Eine ganze Zahl, die die größte Anzahl von Benachrichtigungsaktionen angibt, die dem Benutzer vom Benutzeragenten und dem Gerät präsentiert werden können.
+Eine ganze Zahl, die die größte Anzahl von Benachrichtigungsaktionen angibt, die dem Benutzer vom User Agent und dem Gerät präsentiert werden können.
 
 ## Beispiele
 
-Das folgende Beispiel protokolliert die maximale Anzahl unterstützter Aktionen.
+Der folgende Codeabschnitt protokolliert die maximale Anzahl unterstützter Aktionen.
 
 ```js
 const maxActions = Notification.maxActions;
@@ -38,4 +36,4 @@ console.log(
 ## Siehe auch
 
 - [Verwendung der Notifications API](/de/docs/Web/API/Notifications_API/Using_the_Notifications_API)
-- {{domxref("Notification.actions")}}
+- [`Notification.actions`](/de/docs/Web/API/Notification/actions)

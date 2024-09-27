@@ -2,14 +2,14 @@
 title: "SyntaxError: Unerwartetes Token"
 slug: Web/JavaScript/Reference/Errors/Unexpected_token
 l10n:
-  sourceCommit: bd401d0045851cd5c7c145c3acdeabe5062059f5
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahmen "unerwartetes Token" treten auf, wenn der Parser an der gegebenen Position ein Token sieht, das er nicht erkennt, sodass er die Struktur des Programms nicht verstehen kann. Dies könnte ein einfacher Tippfehler sein.
+Die JavaScript-Ausnahmen "unerwartetes Token" treten auf, wenn der Parser an der gegebenen Position ein Token sieht, das er nicht erkennt und daher die Struktur des Programms nicht versteht. Dies könnte ein einfacher Tippfehler sein.
 
-## Mitteilung
+## Meldung
 
 ```plain
 SyntaxError: Unexpected token ';' (V8-based)
@@ -40,7 +40,7 @@ Ein bestimmtes Sprachkonstrukt wurde erwartet, aber etwas anderes wurde bereitge
 
 ### Ausdruck erwartet
 
-Zum Beispiel sind gelegte Ausdrücke mit nachfolgenden Kommas nicht erlaubt.
+Zum Beispiel, wenn Ausdrücke verkettet werden, sind nachgestellte Kommas nicht erlaubt.
 
 ```js-nolint example-bad
 for (let i = 0; i < 5,; ++i) {
@@ -59,11 +59,11 @@ for (let i = 0; i < 5; ++i) {
 
 ### Nicht genug Klammern
 
-Manchmal werden Klammern um `if`-Anweisungen ausgelassen:
+Manchmal lässt man Klammern um `if`-Anweisungen weg:
 
 ```js-nolint example-bad
 function round(n, upperBound, lowerBound) {
-  if (n > upperBound) || (n < lowerBound) { // Nicht genug Klammern hier!
+if (n > upperBound) || (n < lowerBound) { // Missing parentheses here!
     throw new Error(`Number ${n} is more than ${upperBound} or less than ${lowerBound}`);
   } else if (n < (upperBound + lowerBound) / 2) {
     return lowerBound;
@@ -73,7 +73,7 @@ function round(n, upperBound, lowerBound) {
 } // SyntaxError: expected expression, got '||'
 ```
 
-Die Klammern können auf den ersten Blick korrekt erscheinen, aber beachten Sie, wie das `||` außerhalb der Klammern steht. Richtig wäre es, Klammern um das `||` zu setzen:
+Die Klammern mögen zuerst korrekt erscheinen, aber beachten Sie, dass das `||` außerhalb der Klammern steht. Richtig wäre es, Klammern um das `||` zu setzen:
 
 ```js-nolint example-good
 function round(n, upperBound, lowerBound) {

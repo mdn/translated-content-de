@@ -3,12 +3,12 @@ title: "GPUDevice: createPipelineLayout()-Methode"
 short-title: createPipelineLayout()
 slug: Web/API/GPUDevice/createPipelineLayout
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createPipelineLayout()`**-Methode des {{domxref("GPUDevice")}}-Interfaces erstellt ein {{domxref("GPUPipelineLayout")}}, das die im Rahmen der Pipeline verwendeten {{domxref("GPUBindGroupLayout")}} definiert. {{domxref("GPUBindGroup")}}-Objekte, die während der Befehlskodierung mit der Pipeline verwendet werden, müssen kompatible {{domxref("GPUBindGroupLayout")}}-Objekte besitzen.
+Die **`createPipelineLayout()`**-Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle erstellt ein [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout), das die [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s definiert, die von einer Pipeline verwendet werden. Die [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)s, die während der Befehlskodierung mit der Pipeline verwendet werden, müssen kompatible [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)s haben.
 
 ## Syntax
 
@@ -19,34 +19,34 @@ createPipelineLayout(descriptor)
 ### Parameter
 
 - `descriptor`
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `bindGroupLayouts`
-      - : Ein Array von {{domxref("GPUBindGroupLayout")}}-Objekten (die ihrerseits durch Aufrufe von {{domxref("GPUDevice.createBindGroupLayout()")}} erstellt werden). Jedes entspricht einem [`@group`](https://gpuweb.github.io/gpuweb/wgsl/#attribute-binding)-Attribut im Shader-Code, der in einem verwandten {{domxref("GPUShaderModule")}} enthalten ist.
+      - : Ein Array von [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekten (die wiederum durch Aufrufe von [`GPUDevice.createBindGroupLayout()`](/de/docs/Web/API/GPUDevice/createBindGroupLayout) erstellt werden). Jedes entspricht einem [`@group`](https://gpuweb.github.io/gpuweb/wgsl/#attribute-binding)-Attribut im Shader-Code, der im [`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule) verwendet wird, das in einer verwandten Pipeline enthalten ist.
     - `label` {{optional_inline}}
-      - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt beispielsweise in {{domxref("GPUError")}}-Nachrichten oder Konsolenwarnungen zu identifizieren.
+      - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen zu identifizieren.
 
 ### Rückgabewert
 
-Eine Instanz des {{domxref("GPUPipelineLayout")}}-Objekts.
+Eine [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Objektinstanz.
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`createPipelineLayout()`** aufgerufen wird, andernfalls wird ein {{domxref("GPUValidationError")}} erzeugt und ein ungültiges {{domxref("GPUPipelineLayout")}}-Objekt zurückgegeben:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`createPipelineLayout()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiges [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Objekt zurückgegeben:
 
-- Die {{domxref("GPUBindGroupLayout")}}-Objekte in `bindGroupLayouts` sind gültig.
-- Die Anzahl der {{domxref("GPUBindGroupLayout")}}-Objekte in `bindGroupLayouts` ist kleiner als das `maxBindGroups`-{{domxref("GPUSupportedLimits", "Limit", "", "nocode")}} des {{domxref("GPUDevice")}}.
+- Die [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekte in `bindGroupLayouts` sind gültig.
+- Die Anzahl der [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout)-Objekte in `bindGroupLayouts` ist kleiner als das `maxBindGroups`-Limit des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
 
 ## Beispiele
 
 > [!NOTE]
-> Die [WebGPU-Samples](https://webgpu.github.io/webgpu-samples/) bieten viele weitere Beispiele.
+> Die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/) bieten viele weitere Beispiele.
 
-### Mehrere Bind-Group-Layouts, Bind-Group und Pipeline-Layout
+### Mehrere Bindgruppenlayouts, Bindgruppe und Pipeline-Layout
 
-Der folgende Ausschnitt:
+Das folgende Snippet:
 
-- Erstellt ein {{domxref("GPUBindGroupLayout")}}, das eine Bindung mit einem Buffer, einer Textur und einem Sampler beschreibt.
-- Erstellt ein {{domxref("GPUPipelineLayout")}} basierend auf dem {{domxref("GPUBindGroupLayout")}}.
+- Erstellt ein [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout), das eine Bindung mit einem Puffer, einer Textur und einem Sampler beschreibt.
+- Erstellt ein [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout) basierend auf dem [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout).
 
 ```js
 // ...
@@ -88,4 +88,4 @@ const pipelineLayout = device.createPipelineLayout({
 
 ## Siehe auch
 
-- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein ISP (Internetdienstanbieter) verkauft den Internetzugang und manchmal auch E-Mail, Webhosting und Voice-over-IP-Dienste, entweder über eine Einwahlverbindung über eine Telefonleitung (früher häufiger) oder über eine Breitbandverbindung wie ein Kabelmodem oder DSL-Dienst.
+Ein ISP (Internet Service Provider) verkauft Internetzugang und manchmal auch E-Mail, Webhosting und Voice over IP, entweder über eine Einwahlverbindung über eine Telefonleitung (ehemals häufiger) oder über eine Breitbandverbindung wie ein Kabelmodem oder DSL-Dienst.
 
 ## Siehe auch
 

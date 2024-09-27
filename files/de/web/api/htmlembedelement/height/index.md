@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`height`**-Eigenschaft der {{domxref("HTMLEmbedElement")}}-Schnittstelle gibt einen String zurück, der das `height`-Attribut des {{HTMLElement("embed")}}-Elements widerspiegelt und die angezeigte Höhe der Ressource in CSS-Pixels angibt.
+Die **`height`**-Eigenschaft der [`HTMLEmbedElement`](/de/docs/Web/API/HTMLEmbedElement)-Schnittstelle gibt einen String zurück, der das `height`-Attribut des {{HTMLElement("embed")}}-Elements widerspiegelt und die angezeigte Höhe der Ressource in CSS-Pixeln angibt.
 
 ## Wert
 
-Ein String, der die angezeigte Höhe der Ressource in CSS-Pixels angibt.
+Ein String, der die angezeigte Höhe der Ressource in CSS-Pixeln angibt.
 
 ## Beispiele
 
@@ -22,22 +22,22 @@ Ein String, der die angezeigte Höhe der Ressource in CSS-Pixels angibt.
 
 ```js
 const el = document.getElementById("el");
-console.log(el.height); // Ausgabe: '600'
+console.log(el.height); // Output: '600'
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLCanvasElement.height")}}
-- {{domxref("HTMLIFrameElement.height")}}
-- {{domxref("HTMLImageElement.height")}}
-- {{domxref("HTMLObjectElement.height")}}
-- {{domxref("HTMLSourceElement.height")}}
-- {{domxref("HTMLVideoElement.height")}}
+- [`HTMLCanvasElement.height`](/de/docs/Web/API/HTMLCanvasElement/height)
+- [`HTMLIFrameElement.height`](/de/docs/Web/API/HTMLIFrameElement/height)
+- [`HTMLImageElement.height`](/de/docs/Web/API/HTMLImageElement/height)
+- [`HTMLObjectElement.height`](/de/docs/Web/API/HTMLObjectElement/height)
+- [`HTMLSourceElement.height`](/de/docs/Web/API/HTMLSourceElement/height)
+- [`HTMLVideoElement.height`](/de/docs/Web/API/HTMLVideoElement/height)

@@ -1,5 +1,5 @@
 ---
-title: Syntax
+title: syntax
 slug: Web/CSS/@property/syntax
 l10n:
   sourceCommit: 5178e1e7c9edf0c9c652275ae62f090042ce2422
@@ -7,25 +7,25 @@ l10n:
 
 {{CSSRef}}
 
-Der **`syntax`** [CSS](/de/docs/Web/CSS) Deskriptor ist erforderlich, wenn die {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/At-rule) verwendet wird und beschreibt die zulässige Syntax für die Eigenschaft.
+Der **`syntax`** [CSS](/de/docs/Web/CSS) Deskriptor ist erforderlich, wenn die {{cssxref("@property")}} [At-Regel](/de/docs/Web/CSS/At-rule) verwendet wird und beschreibt die erlaubte Syntax für die Eigenschaft.
 
 ## Syntax
 
 Die folgenden sind alle gültigen Syntax-Strings:
 
 ```css
-syntax: "<color>"; /* akzeptiert eine Farbe */
+syntax: "<color>"; /* accepts a color */
 
-syntax: "<length> | <percentage>"; /* akzeptiert Längen oder Prozentsätze, aber keine calc-Ausdrücke mit einer Kombination aus beiden */
+syntax: "<length> | <percentage>"; /* accepts lengths or percentages but not calc expressions with a combination of the two */
 
-syntax: "small | medium | large"; /* akzeptiert einen dieser Werte als benutzerdefinierte Identifikatoren. */
+syntax: "small | medium | large"; /* accepts one of these values set as custom idents. */
 
-syntax: "*"; /* jeder gültige Token */
+syntax: "*"; /* any valid token */
 ```
 
 ## Werte
 
-Ein String mit einer unterstützten Syntax, wie sie in der Spezifikation definiert ist. Unterstützte Syntaxen sind eine Teilmenge von [CSS-Typen](/de/docs/Web/CSS/CSS_Types). Diese können allein oder in Kombination mehrerer Typen verwendet werden.
+Ein String mit einer unterstützten Syntax, wie sie in der Spezifikation definiert ist. Unterstützte Syntaxen sind eine Untergruppe der [CSS-Typen](/de/docs/Web/CSS/CSS_Types). Diese können allein verwendet werden, oder es können mehrere Typen kombiniert werden.
 
 - `"<length>"`
   - : Alle gültigen {{cssxref("&lt;length&gt;")}} Werte.
@@ -54,7 +54,7 @@ Ein String mit einer unterstützten Syntax, wie sie in der Spezifikation definie
 - `"<custom-ident>"`
   - : Alle gültigen {{cssxref("&lt;custom-ident&gt;")}} Werte.
 - `"<transform-list>"`
-  - : Eine Liste gültiger {{cssxref("&lt;transform-function&gt;")}} Werte.
+  - : Eine Liste von gültigen {{cssxref("&lt;transform-function&gt;")}} Werten.
 
 ## Formale Definition
 
@@ -66,7 +66,7 @@ Ein String mit einer unterstützten Syntax, wie sie in der Spezifikation definie
 
 ## Beispiele
 
-Fügen Sie der `--my-color` [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*) eine Typprüfung hinzu, unter Verwendung der `<color>` Syntax:
+Typüberprüfung zur `--my-color` [benutzerdefinierten Eigenschaft](/de/docs/Web/CSS/--*) hinzufügen, unter Verwendung der `<color>` Syntax:
 
 Verwendung der [CSS](/de/docs/Web/CSS) {{cssxref('@property')}} [At-Regel](/de/docs/Web/CSS/At-rule):
 
@@ -78,7 +78,7 @@ Verwendung der [CSS](/de/docs/Web/CSS) {{cssxref('@property')}} [At-Regel](/de/d
 }
 ```
 
-Verwendung von [JavaScript](/de/docs/Web/JavaScript) {{domxref('CSS.registerProperty_static', 'CSS.registerProperty()')}}:
+Verwendung von [JavaScript](/de/docs/Web/JavaScript) [`CSS.registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static):
 
 ```js
 window.CSS.registerProperty({
@@ -93,7 +93,7 @@ window.CSS.registerProperty({
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

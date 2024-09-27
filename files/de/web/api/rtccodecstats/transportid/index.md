@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`transportId`**-Eigenschaft des {{domxref("RTCCodecStats")}}-Wörterbuchs ist ein String, der die eindeutige Kennung des entsprechenden Transports enthält, über den dieser Codec verwendet wird.
+Die **`transportId`**-Eigenschaft des [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) Wörterbuchs ist ein String, der die eindeutige Kennung des entsprechenden Transports enthält, auf dem dieses Codec verwendet wird.
 
-Sie können die Codec- und zugehörigen Transportstatistiken korrelieren, indem Sie die `RTCCodecStats.transportId` mit einem {{domxref("RTCTransportStats.id")}}-Wert abgleichen.
+Sie können die Codec- und zugehörigen Transportstatistiken korrelieren, indem Sie die `RTCCodecStats.transportId` mit einem [`RTCTransportStats.id`](/de/docs/Web/API/RTCTransportStats/id)-Wert abgleichen.
 
 ## Wert
 
-Ein String, der ein entsprechendes {{domxref("RTCTransportStats")}}-Objekt eindeutig durch seine `id` identifiziert.
+Ein String, der ein passendes [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats) Objekt eindeutig anhand ihrer `id` identifiziert.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

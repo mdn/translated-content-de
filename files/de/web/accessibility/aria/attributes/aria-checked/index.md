@@ -7,16 +7,16 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das `aria-checked` Attribut gibt den aktuellen "ausgewählten" Zustand von Kontrollkästchen, Optionsfeldern und anderen Widgets an.
+Das `aria-checked` Attribut gibt an, ob der aktuelle Zustand von Kontrollkästchen, Optionsfeldern und anderen Widgets "geprüft" ist.
 
 > [!NOTE]
-> Wo möglich, verwenden Sie ein HTML {{htmlelement("input")}} Element mit `type="checkbox"` und `type="radio"`, da diese eingebaute Semantik haben und keine ARIA-Attribute erfordern.
+> Wann immer möglich, verwenden Sie ein HTML-{{htmlelement("input")}}-Element mit `type="checkbox"` und `type="radio"`, da diese bereits eingebaute Semantik haben und keine ARIA-Attribute benötigen.
 
 ## Beschreibung
 
-Das `aria-checked` Attribut zeigt an, ob das Element ausgewählt (`true`), nicht ausgewählt (`false`) ist, oder ob der ausgewählte Status unbestimmt ist (`mixed`), was bedeutet, dass es weder ausgewählt noch nicht ausgewählt ist. Der `mixed` Wert wird von den Tri-State-Eingaberollen [`checkbox`](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role) und [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role) unterstützt.
+Das `aria-checked` Attribut gibt an, ob das Element geprüft (`true`), ungeprüft (`false`) oder ob der Prüfstatus unbestimmt (`mixed`) ist, was bedeutet, dass es weder geprüft noch ungeprüft ist. Der `mixed` Wert wird von den dreistufigen Eingaberollen [`checkbox`](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role) und [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role) unterstützt.
 
-Der `mixed` Wert wird bei [`radio`](/de/docs/Web/Accessibility/ARIA/Roles/radio_role), [`menuitemradio`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemradio_role) oder [`switch`](/de/docs/Web/Accessibility/ARIA/Roles/switch_role) und den von diesen abgeleiteten Elementen nicht unterstützt. Der Wert wird `false` sein, wenn `mixed` gesetzt wird, obwohl er nicht unterstützt wird.
+Der `mixed` Wert wird nicht von [`radio`](/de/docs/Web/Accessibility/ARIA/Roles/radio_role), [`menuitemradio`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemradio_role) oder [`switch`](/de/docs/Web/Accessibility/ARIA/Roles/switch_role) und den von diesen abgeleiteten Elementen unterstützt. Der Wert wird auf `false` gesetzt, wenn `mixed` aktiviert ist und nicht unterstützt wird.
 
 ```html
 <span
@@ -25,30 +25,30 @@ Der `mixed` Wert wird bei [`radio`](/de/docs/Web/Accessibility/ARIA/Roles/radio_
   aria-checked="false"
   tabindex="0"
   aria-labelledby="chk15-label"></span>
-<label id="chk15-label">Abonnieren Sie den Newsletter</label>
+<label id="chk15-label">Subscribe to the newsletter</label>
 ```
 
-Das `tabindex` Attribut ist erforderlich, um den Fokus zu ermöglichen. JavaScript wird benötigt, um den `aria-checked` Zustand zu wechseln. Und wenn dieses Kontrollkästchen Teil eines absendbaren Formulars ist, ist mehr JavaScript erforderlich, um einen Namen und einen Wert festzulegen.
+Das `tabindex` Attribut ist erforderlich, um den Fokus zu aktivieren. JavaScript ist erforderlich, um den `aria-checked` Zustand umzuschalten. Und, wenn dieses Kontrollkästchen Teil eines einreichbaren Formulars ist, ist weiteres JavaScript erforderlich, um einen Namen und einen Wert festzulegen.
 
-Das oben genannte hätte so geschrieben werden können:
+Das Obige hätte so geschrieben werden können:
 
 ```html
 <input type="checkbox" id="chk15-label" name="Subscribe" />
-<label for="chk15-label">Abonnieren Sie den Newsletter</label>
+<label for="chk15-label">Subscribe to the newsletter</label>
 ```
 
-Durch die Verwendung des {{htmlelement("input")}} Elements mit `type="checkbox"` anstelle von ARIA ist kein JavaScript erforderlich.
+Durch die Verwendung des {{htmlelement("input")}}-Elements mit `type="checkbox"` anstelle von ARIA ist kein JavaScript erforderlich.
 
 ## Werte
 
 - false
-  - : Das Element unterstützt das Auswählen, ist aber derzeit nicht ausgewählt.
+  - : Das Element unterstützt das Überprüfen, ist aber derzeit nicht überprüft.
 - true
-  - : Das Element ist ausgewählt.
+  - : Das Element ist überprüft.
 - mixed
-  - : Nur für [`checkbox`](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role) und [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role), entspricht `indeterminate` und zeigt einen gemischten Moduswert an, der weder ausgewählt noch nicht ausgewählt ist.
-- undefined (Standard)
-  - : Das Element unterstützt das Auswählen nicht.
+  - : Nur für [`checkbox`](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role) und [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role), entspricht `indeterminate` und zeigt einen gemischten Modus an, bei dem weder überprüft noch ungeprüft ist.
+- undefined (standardmäßig)
+  - : Das Element unterstützt das Überprüfen nicht.
 
 ## Zugehörige Rollen
 
@@ -63,10 +63,10 @@ Verwendet in Rollen:
 
 ## Zugehörige Schnittstellen
 
-- {{domxref("Element.ariaChecked")}}
-  - : Die [`ariaChecked`](/de/docs/Web/API/Element/ariaChecked) Eigenschaft, Teil der {{domxref("Element")}} Schnittstelle, spiegelt den Wert des `aria-checked` Attributs wider.
-- {{domxref("ElementInternals.ariaChecked")}}
-  - : Die [`ariaChecked`](/de/docs/Web/API/ElementInternals/ariaChecked) Eigenschaft, Teil der {{domxref("ElementInternals")}} Schnittstelle, spiegelt den Wert des `aria-checked` Attributs wider.
+- [`Element.ariaChecked`](/de/docs/Web/API/Element/ariaChecked)
+  - : Die [`ariaChecked`](/de/docs/Web/API/Element/ariaChecked)-Eigenschaft, Teil der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, spiegelt den Wert des `aria-checked` Attributs wider.
+- [`ElementInternals.ariaChecked`](/de/docs/Web/API/ElementInternals/ariaChecked)
+  - : Die [`ariaChecked`](/de/docs/Web/API/ElementInternals/ariaChecked)-Eigenschaft, Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle, spiegelt den Wert des `aria-checked` Attributs wider.
 
 ```js
 myHTMLElement.ariaChecked = true;
@@ -82,5 +82,5 @@ myHTMLElement.ariaChecked = true;
 - [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)
 - [`aria-pressed`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-pressed)
 - [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-selected)
-- [Zwei-Zustands-Kontrollkästchen-Beispiel](https://www.w3.org/WAI/ARIA/apg/example-index/checkbox/checkbox.html) - w3.org
-- [Mischzustand-Kontrollkästchen-Beispiel](https://www.w3.org/WAI/ARIA/apg/example-index/checkbox/checkbox-mixed.html) - w3.org
+- [Zwei-Zustand-Kontrollkästchen Beispiel](https://www.w3.org/WAI/ARIA/apg/example-index/checkbox/checkbox.html) - w3.org
+- [Gemischter Zustand-Kontrollkästchen Beispiel](https://www.w3.org/WAI/ARIA/apg/example-index/checkbox/checkbox-mixed.html) - w3.org

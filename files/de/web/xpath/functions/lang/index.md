@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die `lang`-Funktion bestimmt, ob der Kontextknoten mit der angegebenen Sprache übereinstimmt und gibt boolean true oder false zurück.
+Die Funktion `lang` bestimmt, ob der Kontextknoten mit der angegebenen Sprache übereinstimmt, und gibt booleanisch wahr oder falsch zurück.
 
 ## Syntax
 
@@ -22,15 +22,15 @@ lang(string )
 
 ### Rückgabewert
 
-`true`, wenn der Kontextknoten mit den angegebenen Sprachen übereinstimmt. Andernfalls `false`.
+`true`, wenn der Kontextknoten die angegebenen Sprachen erfüllt. Andernfalls `false`.
 
 ## Beschreibung
 
-- Die Sprache eines Knotens wird durch sein `xml:lang`-Attribut bestimmt. Wenn der aktuelle Knoten kein `xml:lang`-Attribut hat, bestimmt der Wert des `xml:lang`-Attributs des nächsten Vorfahren, der ein `xml:lang`-Attribut besitzt, die Sprache des aktuellen Knotens. Wenn die Sprache nicht bestimmt werden kann (kein Vorfahr hat ein `xml:lang`-Attribut), wird diese Funktion false zurückgeben.
+- Die Sprache eines Knotens wird durch sein `xml:lang`-Attribut bestimmt. Wenn der aktuelle Knoten kein `xml:lang`-Attribut hat, bestimmt der Wert des `xml:lang`-Attributs des nächstgelegenen Vorfahrenknotens, der ein solches Attribut hat, die Sprache des aktuellen Knotens. Wenn die Sprache nicht bestimmt werden kann (kein Vorfahr hat ein `xml:lang`-Attribut), gibt diese Funktion falsch zurück.
 
-- Wenn der angegebene `string` keinen Ländercode angibt, wird diese Funktion Knoten dieser Sprache mit beliebigem Ländercode abgleichen. Das Umgekehrte gilt nicht.
+- Wenn der angegebene `string` keinen Ländercode spezifiziert, wird diese Funktion Knoten mit dieser Sprache unabhängig vom Ländercode abgleichen. Umgekehrt gilt dies nicht.
 
-Angenommen, es gibt diesen XML-Ausschnitt:
+Angenommen, dieses Fragment von XML:
 
 ```xml
 <p xml:lang="en">I went up a floor.</p>
@@ -38,7 +38,7 @@ Angenommen, es gibt diesen XML-Ausschnitt:
 <p xml:lang="en-US">I rode the elevator.</p>
 ```
 
-Und diesen Teil eines XSL-Templates:
+Und dieser Teil einer XSL-Vorlage:
 
 ```xml
 <xsl:value-of select="count(//p[lang('en')])" />
@@ -60,6 +60,6 @@ Die Ausgabe könnte sein:
 
 [XPath 1.0 4.3](https://www.w3.org/TR/1999/REC-xpath-19991116/#function-lang)
 
-## Gecko Unterstützung
+## Gecko-Unterstützung
 
 Unterstützt.

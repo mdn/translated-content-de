@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`findLast()`**-Methode von {{jsxref("TypedArray")}} Instanzen durchläuft das typisierte Array in umgekehrter Reihenfolge und gibt den Wert des ersten Elements zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Element die Testfunktion erfüllt, wird {{jsxref("undefined")}} zurückgegeben. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.findLast()")}}.
+Die **`findLast()`**-Methode von {{jsxref("TypedArray")}}-Instanzen durchläuft das typisierte Array in umgekehrter Reihenfolge und gibt den Wert des ersten Elements zurück, das die bereitgestellte Testfunktion erfüllt. Wenn kein Element die Testfunktion erfüllt, wird {{jsxref("undefined")}} zurückgegeben. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.findLast()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-findlast.html")}}
 
@@ -21,29 +21,29 @@ findLast(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt werden soll. Sie sollte einen [truthy](/de/docs/Glossary/Truthy)-Wert zurückgeben, um anzuzeigen, dass ein passendes Element gefunden wurde, und einen [falsy](/de/docs/Glossary/Falsy)-Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im typisierten Array ausgeführt wird. Sie sollte einen [wahrheitsgemäßen](/de/docs/Glossary/Truthy) Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und einen [falschen](/de/docs/Glossary/Falsy) Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im typisierten Array verarbeitet wird.
     - `index`
       - : Der Index des aktuellen Elements, das im typisierten Array verarbeitet wird.
     - `array`
-      - : Das typisierte Array, auf welches `findLast()` aufgerufen wurde.
+      - : Das typisierte Array, auf dem `findLast()` aufgerufen wurde.
 - `thisArg` {{optional_inline}}
   - : Ein Wert, der als `this` beim Ausführen von `callbackFn` verwendet werden soll. Siehe [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods).
 
 ### Rückgabewert
 
-Das letzte (höchste Index) Element im typisierten Array, das die bereitgestellte Testfunktion erfüllt; {{jsxref("undefined")}}, wenn kein passendes Element gefunden wird.
+Das letzte (höchster Index) Element im typisierten Array, das die bereitgestellte Testfunktion erfüllt; {{jsxref("undefined")}}, wenn kein übereinstimmendes Element gefunden wird.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.findLast()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen eines typisierten Arrays aufgerufen werden.
+Siehe {{jsxref("Array.prototype.findLast()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf typisierten Array-Instanzen aufgerufen werden.
 
 ## Beispiele
 
-### Finden der letzten Primzahl in einem typisierten Array
+### Finden Sie die letzte Primzahl in einem typisierten Array
 
-Das folgende Beispiel gibt den Wert des letzten Elements im typisierten Array zurück, das eine Primzahl ist, oder {{jsxref("undefined")}}, wenn es keine Primzahl gibt.
+Im folgenden Beispiel wird der Wert des letzten Elements im typisierten Array zurückgegeben, das eine Primzahl ist, oder {{jsxref("undefined")}}, wenn keine Primzahl vorhanden ist.
 
 ```js
 function isPrime(element) {
@@ -59,51 +59,51 @@ function isPrime(element) {
 }
 
 let uint8 = new Uint8Array([4, 6, 8, 12]);
-console.log(uint8.findLast(isPrime)); // undefined (keine Primzahlen im Array)
+console.log(uint8.findLast(isPrime)); // undefined (no primes in array)
 uint8 = new Uint8Array([4, 5, 7, 8, 9, 11, 12]);
 console.log(uint8.findLast(isPrime)); // 11
 ```
 
-### Alle Elemente werden besucht und können durch den Callback modifiziert werden
+### Alle Elemente werden besucht und können vom Callback modifiziert werden
 
-Die folgenden Beispiele zeigen, dass alle Elemente _besucht_ werden und dass der an den Callback übergebene Wert ihr Wert beim Besuch ist:
+Die folgenden Beispiele zeigen, dass alle Elemente _besucht_ werden und dass der an den Callback übergebene Wert ihr Wert zum Zeitpunkt des Besuchs ist:
 
 ```js
-// Deklariere Array ohne Elemente an den Indizes 2, 3 und 4
-// Die fehlenden Elemente werden mit Null initialisiert.
+// Declare array with no elements at indexes 2, 3, and 4
+// The missing elements will be initialized to zero.
 const uint8 = new Uint8Array([0, 1, , , , 5, 6]);
 
-// Durchlaufe die Elemente in umgekehrter Reihenfolge.
-// Beachten Sie, dass alle Elemente besucht werden.
+// Iterate through the elements in reverse order.
+// Note that all elements are visited.
 uint8.findLast((value, index) => {
-  console.log(`Besuchter Index ${index} mit Wert ${value}`);
+  console.log(`Visited index ${index} with value ${value}`);
 });
 
-// Zeigt alle Indizes, einschließlich gelöschter
+// Shows all indexes, including deleted
 uint8.findLast((value, index) => {
-  // Modifiziere Element 3 bei der ersten Iteration
+  // Modify element 3 on first iteration
   if (index === 6) {
-    console.log("Setze uint8[3] auf 44");
+    console.log("Set uint8[3] to 44");
     uint8[3] = 44;
   }
-  // Element 3 wird immer noch besucht, aber es hat einen neuen Wert.
-  console.log(`Besuchter Index ${index} mit Wert ${value}`);
+  // Element 3 is still visited but will have a new value.
+  console.log(`Visited index ${index} with value ${value}`);
 });
-// Besuchter Index 6 mit Wert 6
-// Besuchter Index 5 mit Wert 5
-// Besuchter Index 4 mit Wert 0
-// Besuchter Index 3 mit Wert 0
-// Besuchter Index 2 mit Wert 0
-// Besuchter Index 1 mit Wert 1
-// Besuchter Index 0 mit Wert 0
-// Setze uint8[3] auf 44
-// Besuchter Index 6 mit Wert 6
-// Besuchter Index 5 mit Wert 5
-// Besuchter Index 4 mit Wert 0
-// Besuchter Index 3 mit Wert 44
-// Besuchter Index 2 mit Wert 0
-// Besuchter Index 1 mit Wert 1
-// Besuchter Index 0 mit Wert 0
+// Visited index 6 with value 6
+// Visited index 5 with value 5
+// Visited index 4 with value 0
+// Visited index 3 with value 0
+// Visited index 2 with value 0
+// Visited index 1 with value 1
+// Visited index 0 with value 0
+// Set uint8[3] to 44
+// Visited index 6 with value 6
+// Visited index 5 with value 5
+// Visited index 4 with value 0
+// Visited index 3 with value 44
+// Visited index 2 with value 0
+// Visited index 1 with value 1
+// Visited index 0 with value 0
 ```
 
 ## Spezifikationen
@@ -117,7 +117,7 @@ uint8.findLast((value, index) => {
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.findLast` in `core-js`](https://github.com/zloirock/core-js#array-find-from-last)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Anleitung
+- [Leitfaden zu JavaScript typisierten Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.find()")}}
 - {{jsxref("TypedArray.prototype.findIndex()")}}

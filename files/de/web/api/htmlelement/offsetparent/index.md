@@ -8,29 +8,32 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die schreibgeschützte **`HTMLElement.offsetParent`**-Eigenschaft gibt einen Verweis auf das Element zurück, das der nächste (nächste im enthaltenen Hierarchie) positionierte Vorfahre ist.
+Die schreibgeschützte Eigenschaft **`HTMLElement.offsetParent`** gibt eine Referenz auf das Element zurück, welches das nächste (im Darstellungsbaum nächstgelegene) positionierte Vorfahrenelement ist.
 
-Ein positionierter Vorfahre könnte sein:
+Ein positionierter Vorfahre kann sein:
 
 - ein [Containing Block](/de/docs/Web/CSS/Containing_block#identifying_the_containing_block) für absolut positionierte Elemente
-- ein Element mit einem anderen effektiven [Zoom](/de/docs/Web/CSS/zoom)-Wert (das heißt, das Produkt aller Zoom-Faktoren seiner Eltern) als dieses Element
-- `td`, `th`, `table`, falls das Element selbst statisch positioniert ist.
+- ein Element mit einem anderen effektiven [Zoom](/de/docs/Web/CSS/zoom)-Wert (das heißt, das Produkt aller Zoomskalen seiner Eltern) als dieses Element
+- `td`, `th`, `table` für den Fall, dass das Element selbst statisch positioniert ist.
 
-Wenn es kein positioniertes Vorfahrelement gibt, wird der `body` zurückgegeben.
+Wenn es kein positioniertes Vorfahrenelement gibt, wird `body` zurückgegeben.
 
-> **Note:** `offsetParent` gibt `null` in den folgenden Situationen zurück:
+> **Note:** `offsetParent` gibt `null` in den folgenden
+> Situationen zurück:
 >
-> - Das Element oder ein Vorfahre hat die `display`-Eigenschaft auf
+> - Das Element oder ein beliebiger Vorfahre hat die Eigenschaft `display` auf
 >   `none` gesetzt.
-> - Das Element hat die `position`-Eigenschaft auf `fixed` gesetzt
+> - Das Element hat die Eigenschaft `position` auf `fixed` gesetzt
 >   (Firefox gibt `<body>` zurück).
 > - Das Element ist `<body>` oder `<html>`.
 
-`offsetParent` ist nützlich, weil {{domxref("HTMLElement.offsetTop","offsetTop")}} und {{domxref("HTMLElement.offsetLeft","offsetLeft")}} relativ zu dessen Padding-Kante sind.
+`offsetParent` ist nützlich, da
+[`offsetTop`](/de/docs/Web/API/HTMLElement/offsetTop) und
+[`offsetLeft`](/de/docs/Web/API/HTMLElement/offsetLeft) relativ zu dessen Innenkante sind.
 
 ## Wert
 
-Ein Objektverweis auf das Element, in dem das aktuelle Element versetzt ist.
+Eine Objekt-Referenz auf das Element, in dem das aktuelle Element versetzt ist.
 
 ## Spezifikationen
 

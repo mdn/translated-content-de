@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "SyntaxError: arguments ist in Feldern nicht gültig" tritt auf, wenn der [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) Bezeichner in einem Klassenfeld-Initializer oder in einem statischen Initialisierungsblock außerhalb einer nicht-[Pfeilfunktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) gelesen wird.
+Die JavaScript-Ausnahme "SyntaxError: arguments ist in Feldern nicht gültig" tritt auf, wenn der Bezeichner [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) in einem Klassenfeld-Initializer oder in einem statischen Initialisierungsblock außerhalb einer nicht-[Arrow-Funktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) gelesen wird.
 
 ## Nachricht
 
@@ -23,10 +23,10 @@ SyntaxError: Unexpected identifier 'arguments'. Cannot reference 'arguments' in 
 
 ## Was ist schiefgelaufen?
 
-Ein Ausdruck zum Initialisieren eines Klassenfeldes oder ein statischer Initialisierungsblock einer Klasse hat `arguments` nicht in seinem Geltungsbereich. Der Versuch, darauf zuzugreifen, ist ein Syntaxfehler.
+Ein Klassenfeld-Initializer-Ausdruck oder ein statischer Initialisierungsblock einer Klasse haben `arguments` nicht in ihrem Geltungsbereich. Der Versuch, darauf zuzugreifen, führt zu einem Syntaxfehler.
 
-- Dies gilt auch dann, wenn `arguments` in einem übergeordneten Bereich gebunden ist (z.B. wenn die Klasse in einer nicht-Pfeilfunktion verschachtelt ist).
-- Eine innerhalb dieses Bereichs deklarierte nicht-Pfeilfunktion wird weiterhin ihre eigenen `arguments` binden und sie normal lesen.
+- Dies gilt auch, wenn `arguments` in einem übergeordneten Geltungsbereich gebunden ist (z. B. wenn die Klasse in einer nicht-Arrow-Funktion verschachtelt ist).
+- Eine innerhalb dieses Geltungsbereichs deklarierte nicht-Arrow-Funktion bindet weiterhin ihre eigenen `arguments` und liest sie normal.
 
 ## Beispiele
 
@@ -52,10 +52,10 @@ class C {
 class C {
   args = {};
   constructor() {
-    this.args = arguments; // Sie können "arguments" in Konstruktoren verwenden
+    this.args = arguments; // You can use arguments in constructors
   }
   myMethod() {
-    this.args = arguments; // Sie können es auch in Methoden verwenden
+    this.args = arguments; // You can also use it in methods
   }
 }
 ```
@@ -64,7 +64,7 @@ class C {
 function makeOne() {
   const _arguments = arguments;
   class C {
-    args = { ..._arguments }; // Nur der Bezeichner ist verboten
+    args = { ..._arguments }; // Only the identifier is forbidden
   }
   return new C();
 }

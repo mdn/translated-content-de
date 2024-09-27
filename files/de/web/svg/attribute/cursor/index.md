@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-[SVG-Attributreferenz Startseite](/de/docs/Web/SVG/Attribute)
+[SVG-Attribut-Referenz Startseite](/de/docs/Web/SVG/Attribute)
 
-Das `cursor`-Attribut gibt den Mauszeiger an, der angezeigt wird, wenn der Mauszeiger über ein Element bewegt wird.
+Das `cursor`-Attribut legt den Mauszeiger fest, der angezeigt wird, wenn der Mauszeiger über einem Element schwebt.
 
-Dieses Attribut verhält sich genau wie die CSS-Eigenschaft {{cssxref("cursor")}}, außer dass, wenn der Browser das {{ SVGElement("cursor") }}-Element unterstützt, es möglich sein sollte, es mit der [\<funciri>](/de/docs/Web/SVG/Content_type#funciri)-Notation zu verwenden.
+Dieses Attribut verhält sich genau wie die CSS-{{cssxref("cursor")}}-Eigenschaft, außer dass, wenn der Browser das {{ SVGElement("cursor") }}-Element unterstützt, Sie es mit der [\<funciri>](/de/docs/Web/SVG/Content_type#funciri)-Notation verwenden können sollten.
 
-Als Präsentationsattribut kann es auch direkt als Eigenschaft innerhalb eines CSS-Stylesheets verwendet werden. Weitere Informationen finden Sie unter CSS {{cssxref("cursor")}}.
+Als Präsentationsattribut kann es auch direkt innerhalb eines CSS-Stylesheets als Eigenschaft verwendet werden. Weitere Informationen finden Sie unter CSS {{cssxref("cursor")}}.
 
 ## Verwendungskontext
 
@@ -40,7 +40,7 @@ Als Präsentationsattribut kann es auch direkt als Eigenschaft innerhalb eines C
       <th scope="row">Normatives Dokument</th>
       <td>
         <a href="https://www.w3.org/TR/SVG11/interact.html#CursorProperty"
-          >SVG 1.1 (2. Ausgabe)</a
+          >SVG 1.1 (2nd Edition)</a
         >
       </td>
     </tr>
@@ -49,10 +49,10 @@ Als Präsentationsattribut kann es auch direkt als Eigenschaft innerhalb eines C
 
 ## Elemente
 
-Die folgenden Elemente können das `cursor`-Attribut verwenden:
+Die folgenden Elemente können das `cursor`-Attribut verwenden
 
 - [Container-Elemente](/de/docs/Web/SVG/Element#container_elements)
-- [Grafikelemente](/de/docs/Web/SVG/Element#graphics_elements)
+- [Grafik-Elemente](/de/docs/Web/SVG/Element#graphics_elements)
 
 ## Spezifikationen
 

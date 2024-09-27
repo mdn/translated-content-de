@@ -1,5 +1,5 @@
 ---
-title: "Node: contains()-Methode"
+title: "Node: contains() Methode"
 short-title: contains()
 slug: Web/API/Node/contains
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`contains()`**-Methode des {{domxref("Node")}}-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob ein Knoten ein Nachfahre eines bestimmten Knotens ist, also der Knoten selbst, eines seiner direkten Kinder ({{domxref("Node.childNodes", "childNodes")}}), eines der direkten Kinder der Kinder und so weiter.
+Die **`contains()`**-Methode des [`Node`](/de/docs/Web/API/Node)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob ein Knoten ein Nachfahre eines bestimmten Knotens ist, also der Knoten selbst, eines seiner direkten Kinder ([`childNodes`](/de/docs/Web/API/Node/childNodes)), eines der direkten Kinder der Kinder und so weiter.
 
 > [!NOTE]
 > Ein Knoten ist _in sich selbst enthalten_.
@@ -22,18 +22,18 @@ contains(otherNode)
 ### Parameter
 
 - `otherNode`
-  - : Der zu testende {{domxref("Node")}}.
+  - : Der [`Node`](/de/docs/Web/API/Node), mit dem getestet werden soll.
     > **Hinweis:** `otherNode` ist nicht optional, kann aber auf `null` gesetzt werden.
 
 ### Rückgabewert
 
 Ein boolescher Wert, der `true` ist, wenn `otherNode` im Knoten enthalten ist, andernfalls `false`.
 
-Wenn der `otherNode`-Parameter `null` ist, gibt `contains()` immer `false` zurück.
+Wenn der Parameter `otherNode` `null` ist, gibt `contains()` immer `false` zurück.
 
 ## Beispiel
 
-Diese Funktion prüft, ob ein Element im Body der Seite ist. Da `contains` inklusive ist und das Bestimmen, ob der Body sich selbst enthält, nicht die Absicht von `isInPage` ist, gibt dieser Fall ausdrücklich `false` zurück.
+Diese Funktion prüft, ob ein Element im Body der Seite ist. Da `contains` inklusiv ist und die Bestimmung, ob der Body sich selbst enthält, nicht die Absicht von `isInPage` ist, gibt dieser Fall explizit `false` zurück.
 
 ```js
 function isInPage(node) {
@@ -51,5 +51,5 @@ function isInPage(node) {
 
 ## Siehe auch
 
-- {{domxref("Node.compareDocumentPosition")}}
-- {{domxref("Node.hasChildNodes")}}
+- [`Node.compareDocumentPosition`](/de/docs/Web/API/Node/compareDocumentPosition)
+- [`Node.hasChildNodes`](/de/docs/Web/API/Node/hasChildNodes)

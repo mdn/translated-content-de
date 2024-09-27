@@ -1,5 +1,5 @@
 ---
-title: "ReportBody: toJSON()-Methode"
+title: "ReportBody: Methode toJSON()"
 short-title: toJSON()
 slug: Web/API/ReportBody/toJSON
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Die **`toJSON()`**-Methode der {{domxref("ReportBody")}}-Schnittstelle ist ein _Serializer_ und gibt eine JSON-Darstellung des `ReportBody`-Objekts zurück.
+Die **`toJSON()`**-Methode der [`ReportBody`](/de/docs/Web/API/ReportBody)-Schnittstelle ist ein _Serializer_ und gibt eine JSON-Repräsentation des `ReportBody`-Objekts zurück.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein JSON-Objekt, das die Serialisierung des {{domxref("ReportBody")}}-Objekts darstellt.
+Ein JSON-Objekt, das die Serialisierung des [`ReportBody`](/de/docs/Web/API/ReportBody)-Objekts darstellt.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen {{domxref("ReportingObserver")}}, um Eingriffsberichte zu beobachten, und geben dann eine JSON-Darstellung des ersten Eintrags zurück. Der Bericht und somit das zurückgegebene JSON-Objekt werden eine Instanz von {{domxref("InterventionReportBody")}} sein, die von `ReportBody` erbt.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Überwachungsberichte zu beobachten, und geben dann eine JSON-Repräsentation des ersten Eintrags zurück. Der Bericht und somit das zurückgegebene JSON-Objekt werden eine Instanz von [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody) sein, das von `ReportBody` erbt.
 
 ```js
 const options = {

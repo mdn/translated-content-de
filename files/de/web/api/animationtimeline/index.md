@@ -7,16 +7,16 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Das `AnimationTimeline`-Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert die Zeitleiste einer Animation. Dieses Interface existiert, um Zeitleistenmerkmale zu definieren, die von anderen Zeitleistentypen geerbt werden:
+Das `AnimationTimeline`-Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert die Zeitachse einer Animation. Dieses Interface existiert, um Zeitachsenmerkmale zu definieren, die von anderen Zeitachsenarten geerbt werden:
 
-- {{domxref("DocumentTimeline")}}
-- {{domxref("ScrollTimeline")}}
-- {{domxref("ViewTimeline")}}
+- [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline)
+- [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)
+- [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)
 
 ## Instanzeigenschaften
 
-- {{domxref("AnimationTimeline.currentTime", "currentTime")}} {{ReadOnlyInline}}
-  - : Gibt den Zeitwert in Millisekunden für diese Zeitleiste zurück oder `null`, wenn diese Zeitleiste inaktiv ist.
+- [`currentTime`](/de/docs/Web/API/AnimationTimeline/currentTime) {{ReadOnlyInline}}
+  - : Gibt den Zeitwert in Millisekunden für diese Zeitachse zurück oder `null`, wenn diese Zeitachse inaktiv ist.
 
 ## Spezifikationen
 
@@ -28,7 +28,7 @@ Das `AnimationTimeline`-Interface der [Web Animations API](/de/docs/Web/API/Web_
 
 ## Siehe auch
 
-- {{domxref("DocumentTimeline")}}, {{domxref("ScrollTimeline")}}, {{domxref("ViewTimeline")}}
-- {{domxref("Document.timeline")}}
+- [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline), [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline), [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)
+- [`Document.timeline`](/de/docs/Web/API/Document/timeline)
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
 - [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)

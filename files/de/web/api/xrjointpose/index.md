@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("WebXR Device API")}}
 
-Das **`XRJointPose`**-Interface ist ein {{domxref("XRPose")}} mit zusätzlichen Informationen über die Größe des repräsentierten Skelettgelenks.
+Die **`XRJointPose`**-Schnittstelle ist eine [`XRPose`](/de/docs/Web/API/XRPose) mit zusätzlichen Informationen über die Größe des Knochengelenks, das sie repräsentiert.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("XRJointPose.radius")}} {{ReadOnlyInline}}
+- [`XRJointPose.radius`](/de/docs/Web/API/XRJointPose/radius) {{ReadOnlyInline}}
   - : Der Radius (Abstand von der Haut) für ein Gelenk.
 
 ## Beispiele
 
-### Verwenden von `XRJointPose`-Objekten
+### Verwendung von `XRJointPose`-Objekten
 
-Rufen Sie {{domxref("XRFrame.getJointPose()")}} mit einem {{domxref("XRJointSpace")}} und einem {{domxref("XRReferenceSpace")}} auf, um ein `XRJointPose`-Objekt zu erhalten.
+Rufen Sie [`XRFrame.getJointPose()`](/de/docs/Web/API/XRFrame/getJointPose) mit einem [`XRJointSpace`](/de/docs/Web/API/XRJointSpace) und einem [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) auf, um ein `XRJointPose`-Objekt zu erhalten.
 
 ```js
 navigator.xr
@@ -49,7 +49,7 @@ function renderFrame(session, frame) {
 
 ## Siehe auch
 
-- {{domxref("XRHand")}}
-- {{domxref("XRReferenceSpace")}}
-- {{domxref("XRJointSpace")}}
-- {{domxref("XRFrame.getJointPose()")}}
+- [`XRHand`](/de/docs/Web/API/XRHand)
+- [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)
+- [`XRJointSpace`](/de/docs/Web/API/XRJointSpace)
+- [`XRFrame.getJointPose()`](/de/docs/Web/API/XRFrame/getJointPose)

@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.wait()`** überprüft, ob eine Adresse im gemeinsamen Speicher noch einen bestimmten Wert enthält, und schläft, falls ja, und wartet auf eine Weck-Benachrichtigung oder läuft ab. Sie gibt einen String zurück, der entweder `"ok"`, `"not-equal"` oder `"timed-out"` ist.
+Die statische Methode **`Atomics.wait()`** überprüft, ob eine geteilte Speicherstelle noch einen gegebenen Wert enthält und wartet, wenn dies der Fall ist, auf eine Aufwachbenachrichtigung oder läuft aus. Sie gibt einen String zurück, der entweder `"ok"`, `"not-equal"` oder `"timed-out"` ist.
 
 > [!NOTE]
-> Diese Operation funktioniert nur mit einem {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}}, das einen {{jsxref("SharedArrayBuffer")}} betrachtet, und darf möglicherweise nicht im Hauptthread erlaubt sein.
-> Für eine nicht-blockierende, asynchrone Version dieser Methode, siehe {{jsxref("Atomics.waitAsync()")}}.
+> Diese Operation funktioniert nur mit einem {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}}, das einen {{jsxref("SharedArrayBuffer")}} betrachtet, und sie darf möglicherweise nicht im Hauptthread erlaubt sein.
+> Für eine nicht-blockierende, asynchrone Version dieser Methode siehe {{jsxref("Atomics.waitAsync()")}}.
 
 ## Syntax
 
@@ -27,9 +27,9 @@ Atomics.wait(typedArray, index, value, timeout)
 - `index`
   - : Die Position im `typedArray`, auf die gewartet werden soll.
 - `value`
-  - : Der erwartete Wert, um zu prüfen.
+  - : Der erwartete Wert zum Testen.
 - `timeout` {{optional_inline}}
-  - : Wartezeit in Millisekunden. {{jsxref("NaN")}} (und Werte, die zu `NaN` konvertiert werden, wie `undefined`) wird zu {{jsxref("Infinity")}}. Negative Werte werden `0`.
+  - : Zeit in Millisekunden, die gewartet werden soll. {{jsxref("NaN")}} (und Werte, die in `NaN` umgewandelt werden, wie `undefined`) wird zu {{jsxref("Infinity")}}. Negative Werte werden zu `0`.
 
 ### Rückgabewert
 
@@ -39,10 +39,10 @@ Ein String, der entweder `"ok"`, `"not-equal"` oder `"timed-out"` ist.
 
 - {{jsxref("TypeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Wenn `typedArray` kein {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}} ist, das einen {{jsxref("SharedArrayBuffer")}} betrachtet.
-    - Wenn der aktuelle Thread nicht blockiert werden kann (zum Beispiel, weil es der Hauptthread ist).
+    - Wenn `typedArray` nicht ein {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}} ist, das einen {{jsxref("SharedArrayBuffer")}} betrachtet.
+    - Wenn der aktuelle Thread nicht blockiert werden kann (zum Beispiel, weil er der Hauptthread ist).
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen im `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
 
 ## Beispiele
 
@@ -55,7 +55,7 @@ const sab = new SharedArrayBuffer(1024);
 const int32 = new Int32Array(sab);
 ```
 
-Ein lesender Thread schläft und wartet an Adresse 0, die erwartet wird, 0 zu sein. Solange das wahr ist, wird er nicht weitermachen. Sobald jedoch der schreibende Thread einen neuen Wert gespeichert hat, wird er vom schreibenden Thread benachrichtigt und gibt den neuen Wert (123) zurück.
+Ein lesender Thread schläft und wartet an Position 0, welche erwartet wird 0 zu sein. Solange dies zutrifft, wird er nicht fortfahren. Sobald jedoch der schreibende Thread einen neuen Wert gespeichert hat, wird er vom schreibenden Thread benachrichtigt und gibt den neuen Wert (123) zurück.
 
 ```js
 Atomics.wait(int32, 0, 0);

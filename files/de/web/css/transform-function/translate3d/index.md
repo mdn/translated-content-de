@@ -7,11 +7,12 @@ l10n:
 
 {{CSSRef}}
 
-Die **`translate3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) positioniert ein Element im 3D-Raum neu. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`translate3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) positioniert ein Element im 3D-Raum neu. Das Ergebnis ist ein
+{{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-translate3d.html")}}
 
-Diese Transformation wird durch einen dreidimensionalen Vektor [tx, ty, tz] charakterisiert. Seine Koordinaten definieren, um wie viel sich das Element in jede Richtung bewegt.
+Diese Transformation wird durch einen dreidimensionalen Vektor [tx, ty, tz] charakterisiert. Seine Koordinaten definieren, wie viel sich das Element in jede Richtung bewegt.
 
 ## Syntax
 
@@ -22,11 +23,11 @@ translate3d(tx, ty, tz)
 ### Werte
 
 - `tx`
-  - : Ist eine {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die Abszisse (horizontale, x-Komponente) des Übersetzungvektors [tx, ty, tz] darstellt.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das die Abszisse (horizontal, x-Komponente) des Translationsvektors [tx, ty, tz] repräsentiert.
 - `ty`
-  - : Ist eine {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, die die Ordinate (vertikale, y-Komponente) des Übersetzungvektors [tx, ty, tz] darstellt.
+  - : Ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das die Ordinate (vertikal, y-Komponente) des Translationsvektors [tx, ty, tz] repräsentiert.
 - `tz`
-  - : Ist eine {{cssxref("&lt;length&gt;")}} die die z-Komponente des Übersetzungvektors darstellt. Es kann kein {{cssxref("&lt;percentage&gt;")}} Wert sein; in diesem Fall wird die Eigenschaft, die die Transformation enthält, als ungültig betrachtet [tx, ty, tz].
+  - : Ist ein {{cssxref("&lt;length&gt;")}}, das die z-Komponente des Translationsvektors repräsentiert. Es kann kein {{cssxref("&lt;percentage&gt;")}}-Wert sein; in diesem Fall wird die Eigenschaft, die die Transformation enthält, als ungültig betrachtet [tx, ty, tz].
 
 <table class="standard-table">
   <thead>
@@ -45,7 +46,7 @@ translate3d(tx, ty, tz)
         </p>
       </td>
       <td>
-        Eine Translation ist keine lineare Transformation in ℝ^3 und kann nicht mit einer Kartesischen-Koordinatenmatrix dargestellt werden.
+        Eine Translation ist keine lineare Transformation in ℝ^3 und kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden.
       </td>
       <td>
         <math display="block">
@@ -78,7 +79,7 @@ div {
 }
 
 .moved {
-  /* Entspricht perspective(500px) translateX(10px) */
+  /* Equivalent to perspective(500px) translateX(10px) */
   transform: perspective(500px) translate3d(10px, 0, 0px);
   background-color: pink;
 }

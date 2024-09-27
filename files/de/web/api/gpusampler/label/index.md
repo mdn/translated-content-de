@@ -1,20 +1,21 @@
 ---
-title: "GPUSampler: Eigenschaft label"
+title: "GPUSampler: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUSampler/label
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der {{domxref("GPUSampler")}}-Schnittstelle bietet ein Label, das zur Identifikation des Objekts verwendet werden kann, beispielsweise in {{domxref("GPUError")}}-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der
+[`GPUSampler`](/de/docs/Web/API/GPUSampler)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann durch Angabe einer `label`-Eigenschaft im Descriptor-Objekt gesetzt werden, das in den ursprünglichen {{domxref("GPUDevice.createSampler()")}}-Aufruf übergeben wird, oder Sie können es direkt auf dem `GPUSampler`-Objekt setzen und abrufen.
+Dies kann festgelegt werden, indem man eine `label`-Eigenschaft in dem Beschreibungsobjekt bereitstellt, das in den ursprünglichen [`GPUDevice.createSampler()`](/de/docs/Web/API/GPUDevice/createSampler)-Aufruf übergeben wird, oder Sie können es direkt am `GPUSampler`-Objekt festlegen und abrufen.
 
 ## Wert
 
-Ein String. Wenn dies wie oben beschrieben nicht vorher festgelegt wurde, wird es ein leerer String sein.
+Ein String. Wenn dies zuvor nicht wie oben beschrieben festgelegt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
@@ -32,7 +33,7 @@ sampler.label = "mysampler";
 console.log(sampler.label); // "mysampler"
 ```
 
-Festlegen eines Labels über den ursprünglichen {{domxref("GPUDevice.createSampler()")}}-Aufruf und dann Abrufen über `GPUSampler.label`:
+Festlegen eines Labels über den ursprünglichen [`GPUDevice.createSampler()`](/de/docs/Web/API/GPUDevice/createSampler)-Aufruf und anschließendes Abrufen über `GPUSampler.label`:
 
 ```js
 // ...

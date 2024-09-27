@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode createVertexArray()"
+title: "WebGL2RenderingContext: createVertexArray() Methode"
 short-title: createVertexArray()
 slug: Web/API/WebGL2RenderingContext/createVertexArray
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.createVertexArray()`**-Methode der
-[WebGL 2 API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein
-{{domxref("WebGLVertexArrayObject")}}-Objekt. Dieses Objekt repräsentiert ein Vertex Array Object (VAO),
-das auf Vertex-Array-Daten verweist und Namen für verschiedene Sätze von Vertex-Daten bereitstellt.
+Die **`WebGL2RenderingContext.createVertexArray()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject) Objekt, das ein Vertex-Array-Objekt (VAO) darstellt. Dieses zeigt auf Vertex-Array-Daten und bietet Bezeichnungen für verschiedene Sätze von Vertex-Daten.
 
 ## Syntax
 
@@ -25,8 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLVertexArrayObject")}}, das ein Vertex Array Object (VAO) darstellt und
-auf Vertex-Array-Daten verweist.
+Ein [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject), das ein Vertex-Array-Objekt (VAO) darstellt, welches auf Vertex-Array-Daten zeigt.
 
 ## Beispiele
 
@@ -36,8 +32,8 @@ gl.bindVertexArray(vao);
 
 // …
 
-// Aufrufe zu bindBuffer oder vertexAttribPointer
-// die im VAO "gespeichert" werden
+// calls to bindBuffer or vertexAttribPointer
+// which will be "recorded" in the VAO
 
 // …
 ```
@@ -52,4 +48,4 @@ gl.bindVertexArray(vao);
 
 ## Siehe auch
 
-- {{domxref("WebGLVertexArrayObject")}}
+- [`WebGLVertexArrayObject`](/de/docs/Web/API/WebGLVertexArrayObject)

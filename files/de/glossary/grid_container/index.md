@@ -1,5 +1,5 @@
 ---
-title: Raster-Container
+title: Grid Container
 slug: Glossary/Grid_Container
 l10n:
   sourceCommit: 3c5185e55298c2ca14e4e63913a50bb81e3c5609
@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Wenn ein Wert von `grid` oder `inline-grid` auf ein Element angewendet wird, wird es zu einem **Raster-Container** unter Verwendung des [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout), und alle direkten Kinder dieses Elements werden zu Rasterelementen.
+Die Verwendung des Werts `grid` oder `inline-grid` auf einem Element verwandelt es in einen **Grid-Container** mithilfe des [CSS-Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout), und alle direkten Kinder dieses Elements werden zu Grid-Elementen.
 
-Wenn ein Element zu einem Raster-Container wird, etabliert es einen **Raster-Formatierungskontext**. Die direkten Kinder können sich nun auf einem beliebigen expliziten Raster layouten, das mit {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} definiert ist, oder auf dem _impliziten Raster_, das entsteht, wenn ein Element außerhalb des _expliziten Rasters_ platziert wird.
+Wenn ein Element zu einem Grid-Container wird, etabliert es einen **Grid-Formatierungskontext**. Die direkten Kinder können sich nun auf jedem explizit definierten Grid anordnen, indem sie {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} verwenden, oder auf dem _impliziten Grid_, das erstellt wird, wenn ein Element außerhalb des _expliziten Grids_ platziert wird.
 
 ## Siehe auch
 
@@ -24,4 +24,4 @@ Wenn ein Element zu einem Raster-Container wird, etabliert es einen **Raster-For
 
 ### Weiterführende Literatur
 
-- [Grundkonzepte des Raster-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+- [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)

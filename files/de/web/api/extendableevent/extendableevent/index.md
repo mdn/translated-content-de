@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Der **`ExtendableEvent()`** Konstruktor erstellt ein neues {{domxref("ExtendableEvent")}} Objekt.
+Der **`ExtendableEvent()`** Konstruktor erstellt ein neues [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) Objekt.
 
 ## Syntax
 
@@ -20,16 +20,13 @@ new ExtendableEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Es ist case-sensitive.
+  - : Ein String mit dem Namen des Ereignisses. Es ist groß- und kleinschreibungssensitiv.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ beliebige benutzerdefinierte Einstellungen enthalten kann,
-    die Sie auf das Ereignisobjekt anwenden möchten.
-    Derzeit sind keine Optionen zwingend erforderlich,
-    aber dies wurde für die zukünftige Kompatibilität zwischen den verschiedenen abgeleiteten Ereignissen definiert.
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ alle benutzerdefinierten Einstellungen enthalten kann, die Sie auf das Ereignisobjekt anwenden möchten. Derzeit sind keine möglichen Optionen zwingend erforderlich, aber dies wurde für die zukunftssichere Kompatibilität zwischen den verschiedenen abgeleiteten Ereignissen definiert.
 
 ### Rückgabewert
 
-Ein neues {{domxref("ExtendableEvent")}} Objekt.
+Ein neues [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent) Objekt.
 
 ## Spezifikationen
 
@@ -41,6 +38,6 @@ Ein neues {{domxref("ExtendableEvent")}} Objekt.
 
 ## Siehe auch
 
-- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Codebeispiel für Service Workers](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Verwendung von Servicearbeitern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Grundlegendes Beispiel für Service Worker Code](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Verwendung von Webarbeitern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

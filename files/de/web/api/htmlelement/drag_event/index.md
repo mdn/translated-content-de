@@ -1,6 +1,6 @@
 ---
-title: "HTMLElement: Zieh-Ereignis"
-short-title: ziehen
+title: "HTMLElement: drag Ereignis"
+short-title: drag
 slug: Web/API/HTMLElement/drag_event
 l10n:
   sourceCommit: 689be3910aa020e10ca58a81a4c9190a5819f4f2
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das `drag`-Ereignis wird alle paar hundert Millisekunden ausgelöst, während ein Element oder eine Textauswahl vom Benutzer gezogen wird.
+Das `drag` Ereignis wird alle paar hundert Millisekunden ausgelöst, während ein Element oder eine Textauswahl vom Nutzer gezogen wird.
 
-Dieses Ereignis kann abgebrochen werden und kann bis zu den Objekten {{domxref("Document")}} und {{domxref("Window")}} durchreichen.
+Dieses Ereignis kann abgebrochen werden und kann bis zu den [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) Objekten hochblubbern.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js
 addEventListener("drag", (event) => {});
@@ -24,26 +24,26 @@ ondrag = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("DragEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("DragEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der Elternschnittstelle, {{domxref("Event")}}, verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref('DragEvent.dataTransfer')}} {{ReadOnlyInline}}
-  - : Die Daten, die während einer Ziehen-und-Ablegen-Interaktion übertragen werden.
+- [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
+  - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
 
 ## Beispiele
 
-### Ziehen und Ablegen Beispiel
+### Drag-and-Drop-Beispiel
 
 #### HTML
 
 ```html
 <div class="dropzone">
-  <div id="draggable" draggable="true">Dieses div ist ziehbar</div>
+  <div id="draggable" draggable="true">This div is draggable</div>
 </div>
 <div class="dropzone" id="droptarget"></div>
 ```
@@ -52,7 +52,7 @@ _Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der Elt
 
 ```css
 body {
-  /* Verhindern, dass der Benutzer im Beispiel Text markiert */
+  /* Prevent the user selecting text in the example */
   user-select: none;
 }
 
@@ -83,53 +83,53 @@ body {
 ```js
 let dragged;
 
-/* Ereignisse, die auf dem ziehbaren Ziel ausgelöst werden */
+/* events fired on the draggable target */
 const source = document.getElementById("draggable");
 source.addEventListener("drag", (event) => {
-  console.log("ziehen");
+  console.log("dragging");
 });
 
 source.addEventListener("dragstart", (event) => {
-  // speicher eine Referenz auf das gezogene Element
+  // store a ref. on the dragged elem
   dragged = event.target;
-  // mache es halb transparent
+  // make it half transparent
   event.target.classList.add("dragging");
 });
 
 source.addEventListener("dragend", (event) => {
-  // Transparenz zurücksetzen
+  // reset the transparency
   event.target.classList.remove("dragging");
 });
 
-/* Ereignisse, die auf den Ablegezielen ausgelöst werden */
+/* events fired on the drop targets */
 const target = document.getElementById("droptarget");
 target.addEventListener(
   "dragover",
   (event) => {
-    // Standardverhalten verhindern, um Ablegen zu ermöglichen
+    // prevent default to allow drop
     event.preventDefault();
   },
   false,
 );
 
 target.addEventListener("dragenter", (event) => {
-  // potentielles Ablegeziel hervorheben, wenn das ziehbare Element es betritt
+  // highlight potential drop target when the draggable element enters it
   if (event.target.classList.contains("dropzone")) {
     event.target.classList.add("dragover");
   }
 });
 
 target.addEventListener("dragleave", (event) => {
-  // Hintergrund des potentiellen Ablegeziels zurücksetzen, wenn das ziehbare Element es verlässt
+  // reset background of potential drop target when the draggable element leaves it
   if (event.target.classList.contains("dropzone")) {
     event.target.classList.remove("dragover");
   }
 });
 
 target.addEventListener("drop", (event) => {
-  // Standardaktion verhindern (als Link öffnen bei einigen Elementen)
+  // prevent default action (open as link for some elements)
   event.preventDefault();
-  // gezogenes Element zum ausgewählten Ablegeziel verschieben
+  // move dragged element to the selected drop target
   if (event.target.classList.contains("dropzone")) {
     event.target.classList.remove("dragover");
     event.target.appendChild(dragged);
@@ -151,9 +151,9 @@ target.addEventListener("drop", (event) => {
 
 ## Siehe auch
 
-- {{domxref("HTMLElement/dragstart_event", "dragstart")}}
-- {{domxref("HTMLElement/dragend_event", "dragend")}}
-- {{domxref("HTMLElement/dragover_event", "dragover")}}
-- {{domxref("HTMLElement/dragenter_event", "dragenter")}}
-- {{domxref("HTMLElement/dragleave_event", "dragleave")}}
-- {{domxref("HTMLElement/drop_event", "drop")}}
+- [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)
+- [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)
+- [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)
+- [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)
+- [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)
+- [`drop`](/de/docs/Web/API/HTMLElement/drop_event)

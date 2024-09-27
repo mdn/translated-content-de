@@ -7,35 +7,35 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`SpeechRecognitionResultList`** Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Liste von {{domxref("SpeechRecognitionResult")}} Objekten oder ein einzelnes Objekt, wenn Ergebnisse im {{domxref("SpeechRecognition.continuous","nicht-kontinuierlichen")}} Modus erfasst werden.
+Die **`SpeechRecognitionResultList`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) repräsentiert eine Liste von [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekten oder ein einzelnes Objekt, wenn Ergebnisse im [`non-continuous`](/de/docs/Web/API/SpeechRecognition/continuous) Modus erfasst werden.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("SpeechRecognitionResultList.length")}} {{ReadOnlyInline}}
-  - : Gibt die Länge des "Arrays" zurück - die Anzahl der {{domxref("SpeechRecognitionResult")}} Objekte in der Liste.
+- [`SpeechRecognitionResultList.length`](/de/docs/Web/API/SpeechRecognitionResultList/length) {{ReadOnlyInline}}
+  - : Gibt die Länge des "Arrays" zurück — die Anzahl der [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekte in der Liste.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("SpeechRecognitionResultList.item")}}
-  - : Ein Standard-Getter, der es ermöglicht, auf {{domxref("SpeechRecognitionResult")}} Objekte in der Liste über Array-Syntax zuzugreifen.
+- [`SpeechRecognitionResultList.item`](/de/docs/Web/API/SpeechRecognitionResultList/item)
+  - : Ein standardmäßiger Getter, der es erlaubt, auf [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Objekte in der Liste über die Array-Syntax zuzugreifen.
 
 ## Beispiele
 
-Dieser Code ist ein Auszug aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js) Beispiel.
+Dieser Code ist ein Auszug aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
 recognition.onresult = (event) => {
-  // Die SpeechRecognitionEvent-Ergebnisseigenschaft gibt ein SpeechRecognitionResultList-Objekt zurück
-  // Das SpeechRecognitionResultList-Objekt enthält SpeechRecognitionResult-Objekte.
-  // Es hat einen Getter, sodass es wie ein Array zugegriffen werden kann
-  // Das erste [0] gibt das SpeechRecognitionResult an Position 0 zurück.
-  // Jedes SpeechRecognitionResult-Objekt enthält SpeechRecognitionAlternative-Objekte,
-  // die einzelne Ergebnisse enthalten.
-  // Diese haben ebenfalls Getter, sodass sie wie Arrays zugegriffen werden können.
-  // Das zweite [0] gibt die SpeechRecognitionAlternative an Position 0 zurück.
-  // Wir geben dann die transcript-Eigenschaft des SpeechRecognitionAlternative-Objekts zurück
+  // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
+  // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
+  // It has a getter so it can be accessed like an array
+  // The first [0] returns the SpeechRecognitionResult at position 0.
+  // Each SpeechRecognitionResult object contains SpeechRecognitionAlternative objects
+  // that contain individual results.
+  // These also have getters so they can be accessed like arrays.
+  // The second [0] returns the SpeechRecognitionAlternative at position 0.
+  // We then return the transcript property of the SpeechRecognitionAlternative object
   const color = event.results[0][0].transcript;
-  diagnostic.textContent = `Ergebnis erhalten: ${color}.`;
+  diagnostic.textContent = `Result received: ${color}.`;
   bg.style.backgroundColor = color;
 };
 ```

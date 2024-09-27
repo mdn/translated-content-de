@@ -8,16 +8,19 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **{{domxref("RTCIceParameters")}}**-Wörterbuchs
-**`usernameFragment`**-Eigenschaft gibt das Benutzername-Fragment
-("ufrag") an, das die entsprechende ICE-Sitzung während der aktuellen ICE-Sitzung eindeutig identifiziert.
+Die **[`RTCIceParameters`](/de/docs/Web/API/RTCIceParameters)**-Diktionärs-
+**`usernameFragment`**-Eigenschaft gibt das Benutzernamenfragment
+("ufrag") an, das die entsprechende ICE-Sitzung während der Dauer der
+aktuellen ICE-Sitzung eindeutig identifiziert.
 
 ## Wert
 
-Ein String, der das Benutzername-Fragment enthält, das zusammen mit dem
-{{domxref("RTCIceParameters.password", "Passwort")}} die von dem Transport verwendete ICE-Sitzung eindeutig identifiziert. Der String kann bis zu 256 Zeichen lang sein.
+Ein String, der das Benutzernamenfragment enthält, das zusammen mit dem
+[`password`](/de/docs/Web/API/RTCIceParameters/password) die aktuell genutzte ICE-Sitzung
+des Transports eindeutig identifiziert. Der String kann bis zu 256 Zeichen lang sein.
 
-Siehe {{domxref("RTCIceCandidate.usernameFragment")}}, um mehr über Benutzername-Fragmente und deren Rolle in einer Verbindung zu erfahren.
+Siehe [`RTCIceCandidate.usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment), um mehr über Benutzernamenfragmente
+und ihre Rolle in einer Verbindung zu erfahren.
 
 ## Spezifikationen
 

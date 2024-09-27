@@ -1,5 +1,5 @@
 ---
-title: "XRLightProbe: probeSpace-Eigenschaft"
+title: "XRLightProbe: probeSpace Eigenschaft"
 short-title: probeSpace
 slug: Web/API/XRLightProbe/probeSpace
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`probeSpace`**-Eigenschaft des {{DOMxRef("XRLightProbe")}}-Interfaces gibt ein {{domxref("XRSpace")}} zurück, das die Position und Orientierung verfolgt, relativ zu der die Beleuchtungsschätzungen gemacht werden.
+Die _schreibgeschützte_ **`probeSpace`**-Eigenschaft des [`XRLightProbe`](/de/docs/Web/API/XRLightProbe)-Interfaces gibt ein [`XRSpace`](/de/docs/Web/API/XRSpace) zurück, welches die Position und Ausrichtung verfolgt, relativ zu der die Lichtschätzungen gemacht werden.
 
 ## Wert
 
-Ein {{domxref("XRSpace")}}-Objekt.
+Ein [`XRSpace`](/de/docs/Web/API/XRSpace)-Objekt.
 
 ## Beispiele
 
-Die `probeSpace`-Eigenschaft gibt die Position und Orientierung im Raum zurück, relativ zu der die Beleuchtungsschätzung gemacht wird. Sie kann sich im Laufe der Zeit aktualisieren, wenn sich der Benutzer bewegt. Verwenden Sie die Methode {{domxref("XRFrame.getPose()")}}, um den aktuellen Beleuchtungszustand mit jedem Frame zu erhalten.
+Die `probeSpace`-Eigenschaft gibt die Position und Ausrichtung im Raum zurück, relativ zu der die Lichtschätzung erfolgt. Diese kann sich im Laufe der Zeit aktualisieren, wenn sich der Benutzer bewegt. Verwenden Sie die Methode [`XRFrame.getPose()`](/de/docs/Web/API/XRFrame/getPose), um den aktuellen Lichtzustand mit jedem Frame abzurufen.
 
 ```js
 const lightProbe = await xrSession.requestLightProbe();
@@ -33,5 +33,5 @@ const probePose = xrFrame.getPose(lightProbe.probeSpace, xrReferenceSpace);
 
 ## Siehe auch
 
-- {{domxref("XRSpace()")}}
-- {{domxref("XRFrame.getPose()")}}
+- [`XRSpace()`](/de/docs/Web/API/XRSpace)
+- [`XRFrame.getPose()`](/de/docs/Web/API/XRFrame/getPose)

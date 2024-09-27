@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:only-child`** CSS [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element ohne Geschwister. Dies entspricht `:first-child:last-child` oder `:nth-child(1):nth-last-child(1)`, jedoch mit einer geringeren Spezifität.
+Die CSS-**`:only-child`**-[Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element ohne Geschwister. Dies entspricht `:first-child:last-child` oder `:nth-child(1):nth-last-child(1)`, jedoch mit einer geringeren Spezifität.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-only-child.html", "tabbed-shorter")}}
 
@@ -27,15 +27,15 @@ Die **`:only-child`** CSS [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) reprä
 
 ```html
 <div>
-  <div>Ich bin ein Einzelkind.</div>
+  <div>I am an only child.</div>
 </div>
 
 <div>
-  <div>Ich bin das 1. Geschwisterkind.</div>
-  <div>Ich bin das 2. Geschwisterkind.</div>
+  <div>I am the 1st sibling.</div>
+  <div>I am the 2nd sibling.</div>
   <div>
-    Ich bin das 3. Geschwisterkind,
-    <div>aber dies ist ein Einzelkind.</div>
+    I am the 3rd sibling,
+    <div>but this is an only child.</div>
   </div>
 </div>
 ```
@@ -65,17 +65,17 @@ div {
 ```html
 <ol>
   <li>
-    Erste
+    First
     <ul>
-      <li>Diese Liste hat nur ein Element.</li>
+      <li>This list has just one element.</li>
     </ul>
   </li>
   <li>
-    Zweite
+    Second
     <ul>
-      <li>Diese Liste hat drei Elemente.</li>
-      <li>Diese Liste hat drei Elemente.</li>
-      <li>Diese Liste hat drei Elemente.</li>
+      <li>This list has three elements.</li>
+      <li>This list has three elements.</li>
+      <li>This list has three elements.</li>
     </ul>
   </li>
 </ol>

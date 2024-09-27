@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`BluetoothRemoteGATTServer.connect()`**-Methode veranlasst die Skriptausführungsumgebung, sich mit `this.device` zu verbinden.
+Die **`BluetoothRemoteGATTServer.connect()`**-Methode veranlasst die Skriptausführungsumgebung, eine Verbindung zu `this.device` herzustellen.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der sich zu einem {{domxref("BluetoothRemoteGATTServer")}} auflöst.
+Ein {{jsxref("Promise")}}, das zu einem [`BluetoothRemoteGATTServer`](/de/docs/Web/API/BluetoothRemoteGATTServer) aufgelöst wird.
 
 ## Spezifikationen
 

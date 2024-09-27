@@ -1,5 +1,5 @@
 ---
-title: "DOMRectReadOnly: fromRect() statische Methode"
+title: "DOMRectReadOnly: fromRect() Static Methode"
 short-title: fromRect()
 slug: Web/API/DOMRectReadOnly/fromRect_static
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Die **`fromRect()`** statische Methode des Objekts {{domxref("DOMRectReadOnly")}} erstellt ein neues `DOMRectReadOnly`-Objekt mit einer gegebenen Position und Abmessungen.
+Die statische Methode **`fromRect()`** des [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly)-Objekts erstellt ein neues `DOMRectReadOnly`-Objekt mit einer angegebenen Position und Abmessungen.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ DOMRectReadOnly.fromRect(rectangle)
 
 ### Rückgabewert
 
-Eine Instanz von {{domxref("DOMRectReadOnly")}}.
+Eine Instanz von [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly).
 
 ## Spezifikationen
 

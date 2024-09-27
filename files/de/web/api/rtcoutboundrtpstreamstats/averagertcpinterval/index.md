@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`averageRtcpInterval`**-Eigenschaft des {{domxref("RTCOutboundRtpStreamStats")}}-Wörterbuchs ist ein Gleitkommawert, der die durchschnittliche Zeit angibt, die zwischen den Übertragungen von {{Glossary("RTCP")}}-Paketen auf diesem Stream vergehen sollte.
+Die **`averageRtcpInterval`** Eigenschaft des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats) Wörterbuchs ist ein Gleitkommawert, der die durchschnittliche Zeit angibt, die zwischen der Übertragung von [RTCP](/de/docs/Glossary/RTCP)-Paketen auf diesem Stream vergehen sollte.
 
 ## Wert
 
-Ein Gleitkommawert, der das durchschnittliche Intervall in Sekunden zwischen den Übertragungen von RTCP-Paketen angibt. Dieses Intervall wird gemäß der im {{RFC(1889, "A.7")}} beschriebenen Formel berechnet.
+Ein Gleitkommawert, der das durchschnittliche Intervall in Sekunden zwischen der Übertragung von RTCP-Paketen angibt. Dieses Intervall wird nach der im {{RFC(1889, "A.7")}} umrissenen Formel berechnet.
 
-Da der Wert des Intervalls teilweise von der Anzahl der aktiven Sender abhängt, wird er für jeden Benutzer eines Dienstes unterschiedlich sein. Da dieser Wert auch dazu verwendet wird, die Anzahl der Sekunden zu bestimmen, die vergehen müssen, bevor das erste RTCP-Paket gesendet werden sollte, nachdem ein Stream zu fließen beginnt, wird dadurch verhindert, dass der Server von RTCP-Paketen überschwemmt wird, wenn viele Benutzer gleichzeitig versuchen, den Dienst zu nutzen.
+Da der Wert des Intervalls teilweise von der Anzahl der aktiven Absender abhängt, wird er für jeden Nutzer eines Dienstes unterschiedlich sein. Da dieser Wert auch verwendet wird, um zu bestimmen, wie viele Sekunden nach dem Beginn eines Streams vergehen sollten, bevor das erste RTCP-Paket gesendet wird, ergibt sich, dass, wenn viele Nutzer gleichzeitig versuchen, den Dienst zu nutzen, der Server nicht durch RTCP-Pakete überflutet wird, die alle gleichzeitig eintreffen.
 
-Das sendende Endgerät berechnet diesen Wert beim Senden von zusammengesetzten RTCP-Paketen, die mindestens ein RTCP RR- oder SR-Paket und ein SDES-Paket mit dem CNAME-Element enthalten müssen.
+Der sendende Endpunkt berechnet diesen Wert beim Senden von zusammengesetzten RTCP-Paketen, die mindestens ein RTCP RR oder SR Paket und ein SDES Paket mit dem CNAME-Element enthalten müssen.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

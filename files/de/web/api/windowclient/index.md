@@ -7,29 +7,29 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Das `WindowClient`-Interface der [ServiceWorker-API](/de/docs/Web/API/Service_Worker_API) repräsentiert den Bereich eines Service-Worker-Clients, der ein Dokument in einem Browserkontext ist, das von einem aktiven Worker kontrolliert wird. Der Service-Worker-Client wählt unabhängig einen Service-Worker für sein eigenes Laden und seine Subressourcen aus und verwendet diesen.
+Das `WindowClient`-Interface der [ServiceWorker-API](/de/docs/Web/API/Service_Worker_API) repräsentiert den Umfang eines Service-Worker-Clients, der ein Dokument in einem Browser-Kontext ist und von einem aktiven Worker gesteuert wird. Der Service-Worker-Client wählt unabhängig einen Service-Worker aus und verwendet ihn für seine eigene Lade- und Unterressourcen.
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
-`WindowClient` erbt Methoden von seinem übergeordneten Interface, {{domxref("Client")}}.
+_`WindowClient` erbt Methoden von seinem Elterninterface, [`Client`](/de/docs/Web/API/Client)._
 
-- {{domxref("WindowClient.focus()")}}
-  - : Gibt dem aktuellen Client den Eingabefokus.
-- {{domxref("WindowClient.navigate()")}}
-  - : Lädt eine angegebene URL auf einer kontrollierten Client-Seite.
+- [`WindowClient.focus()`](/de/docs/Web/API/WindowClient/focus)
+  - : Gibt dem aktuellen Client den Fokus für Benutzereingaben.
+- [`WindowClient.navigate()`](/de/docs/Web/API/WindowClient/navigate)
+  - : Lädt eine angegebene URL in eine kontrollierte Client-Seite.
 
 ## Instanzeigenschaften
 
-`WindowClient` erbt Eigenschaften von seinem übergeordneten Interface, {{domxref("Client")}}.
+_`WindowClient` erbt Eigenschaften von seinem Elterninterface, [`Client`](/de/docs/Web/API/Client)._
 
-- {{domxref("WindowClient.ancestorOrigins")}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Ein Array von Zeichenfolgen, das die Vorfahrenursprünge des durch diesen `WindowClient` dargestellten Browserkontextes in umgekehrter Reihenfolge angibt.
-- {{domxref("WindowClient.focused")}} {{ReadOnlyInline}}
-  - : Ein Boolean, der angibt, ob der aktuelle Client den Fokus hat.
-- {{domxref("WindowClient.visibilityState")}} {{ReadOnlyInline}}
-  - : Gibt die Sichtbarkeit des aktuellen Clients an. Dieser Wert kann einer von `"hidden"`, `"visible"` oder `"prerender"` sein.
+- [`WindowClient.ancestorOrigins`](/de/docs/Web/API/WindowClient/ancestorOrigins) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Ein Array von Zeichenfolgen, das die Ursprünge der Vorfahren des durch dieses `WindowClient` repräsentierten Browser-Kontextes in umgekehrter Reihenfolge angibt.
+- [`WindowClient.focused`](/de/docs/Web/API/WindowClient/focused) {{ReadOnlyInline}}
+  - : Ein Boolean, das angibt, ob der aktuelle Client den Fokus hat.
+- [`WindowClient.visibilityState`](/de/docs/Web/API/WindowClient/visibilityState) {{ReadOnlyInline}}
+  - : Gibt die Sichtbarkeit des aktuellen Clients an. Dieser Wert kann `"hidden"`, `"visible"` oder `"prerender"` sein.
 
 ## Beispiel
 
@@ -38,8 +38,8 @@ self.addEventListener("notificationclick", (event) => {
   console.log("On notification click: ", event.notification.tag);
   event.notification.close();
 
-  // Dies überprüft, ob der aktuelle Client bereits geöffnet ist und
-  // fokussiert, falls dies der Fall ist
+  // This looks to see if the current is already open and
+  // focuses if it is
   event.waitUntil(
     clients
       .matchAll({
@@ -69,6 +69,6 @@ self.addEventListener("notificationclick", (event) => {
 ## Siehe auch
 
 - [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Einfaches Service-Worker-Codebeispiel](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Verwendung von Webworkern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Beispielcode für grundlegende Service-Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
 - [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API)

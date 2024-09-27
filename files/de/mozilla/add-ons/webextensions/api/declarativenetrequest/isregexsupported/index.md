@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Prüft, ob ein regulärer Ausdruck als {{WebExtAPIRef("declarativeNetRequest.RuleCondition")}}`.regexFilter`-Regelbedingung unterstützt wird.
+Prüft, ob ein regulärer Ausdruck als Bedingung einer {{WebExtAPIRef("declarativeNetRequest.RuleCondition")}}`.regexFilter` Regel unterstützt wird.
 
 ## Syntax
 
@@ -21,24 +21,24 @@ let count = browser.declarativeNetRequest.isRegexSupported(
 
 - `regexOptions`
 
-  - : Ein Objekt, das den zu prüfenden regulären Ausdruck enthält.
+  - : Ein Objekt, das den zu überprüfenden regulären Ausdruck enthält.
     - `isCaseSensitive` {{optional_inline}}
-      - : `boolean` Gibt an, ob der angegebene reguläre Ausdruck case-sensitive ist. Standard ist `true`.
+      - : `boolean` Ob der angegebene reguläre Ausdruck groß-/kleinsensitiv ist. Standard ist `true`.
     - `regex`
-      - : `string` Der zu prüfende reguläre Ausdruck.
+      - : `string` Der zu überprüfende reguläre Ausdruck.
     - `requireCapturing` {{optional_inline}}
-      - : `boolean` Gibt an, ob der angegebene reguläre Ausdruck das Capturing erfordert. Das Capturing ist nur für Umleitungsregeln erforderlich, die eine regexSubstitution-Aktion angeben. Der Standardwert ist false.
+      - : `boolean` Ob der angegebene reguläre Ausdruck das Erfassen erforderlich macht. Erfassen ist nur für Umleitungsregeln erforderlich, die eine regexSubstitution-Aktion angeben. Standard ist false.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das folgende Eigenschaften besitzt:
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem Objekt erfüllt wird, das diese Eigenschaften enthält:
 
 - `isSupported`
-  - : `boolean` Gibt an, ob der reguläre Ausdruck unterstützt wird.
+  - : `boolean` Ob der reguläre Ausdruck unterstützt wird.
 - `reason` {{optional_inline}}
-  - : `string` Gibt den Grund an, warum der reguläre Ausdruck nicht unterstützt wird. Mögliche Werte sind `"syntaxError"` und `"memoryLimitExceeded"`. Wird nur bereitgestellt, wenn `isSupported` false ist.
+  - : `string` Gibt den Grund an, warum der reguläre Ausdruck nicht unterstützt wird. Mögliche Werte sind `"syntaxError"` und `"memoryLimitExceeded"`. Nur angegeben, wenn `isSupported` false ist.
 
-Wenn der Anruf fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Scheitert die Anfrage, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -49,31 +49,38 @@ Wenn der Anruf fehlschlägt, wird das Promise mit einer Fehlermeldung abgelehnt.
 {{Compat}}
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Urheberrecht 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Redistribution und Nutzung in Quell- und binären Formen, mit oder ohne
+// Modifikation, sind unter der Bedingung erlaubt, dass die folgenden
+// Bedingungen erfüllt sind:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Redistribution von Quellcode muss obige Urheberrechtshinweise,
+// diesen Bedingungskatalog und den nachstehenden Haftungsausschluss
+// beinhalten.
+//    * Redistribution in binärer Form muss obige Urheberrechtshinweise,
+// diesen Bedingungskatalog und den nachstehenden Haftungsausschluss
+// in der Dokumentation und/oder anderen Materialien, die mit der
+// Verteilung geliefert werden, beinhalten.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen genutzt werden, um Produkte, die von dieser
+// Software abgeleitet sind, ohne spezifische vorherige schriftliche
+// Genehmigung zu unterstützen oder zu bewerben.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER
+// IMPLIZIERTE GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT
+// BESCHRÄNKT AUF DIE KONKLUDENTEN GEWÄHRLEISTUNGEN DER
+// MARKTGÄNGIGKEIT UND DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK
+// WERDEN ABGELEHNT. IN KEINEM FALL SIND DIE URHEBERRECHTSINHABER ODER
+// MITWIRKENDEN HAFTBAR FÜR JEGLICHE DIREKTEN, INDIREKTEN, ZUFÄLLIGEN,
+// BESONDEREN, EXEMPLARISCHEN ODER FOLGESCHÄDEN (EINSCHLIESSLICH,
+// ABER NICHT BESCHRÄNKT AUF, BESCHAFFUNG VON ERSATZWAREN ODER
+// -DIENSTLEISTUNGEN; NUTZUNGSAUSFALL, DATENVERLUST ODER
+// GEWINNVERLUST; ODER BETRIEBSUNTERBRECHUNG) JEDOCH VERURSACHT UND
+// AUF JEDER THEORIE DER HAFTUNG, OB IN VERTRAG, STRIKTER HAFTUNG,
+// ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER
+// ANDERWEITIG), AUF IRGENDEINE WEISE AUS DER NUTZUNG DIESER SOFTWARE
+// RESULTIEREND, AUCH WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN
+// HINGEWIESEN WURDE.
 -->

@@ -1,20 +1,20 @@
 ---
-title: Marker
+title: marker
 slug: Web/CSS/marker
 l10n:
-  sourceCommit: 5178e1e7c9edf0c9c652275ae62f090042ce2422
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{CSSRef}}
 
-Die **`marker`** [CSS](/de/docs/Web/CSS) Eigenschaft verweist auf einen Marker, der an den ersten, mittleren und letzten Scheitelpunkten des Pfades des Elements gezeichnet wird; das heißt, an allen seinen Scheitelpunkten. Der Marker muss mit einem SVG {{SVGElement('marker')}} Element definiert worden sein und kann nur mit einem {{cssxref('url()')}} Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte der `marker-start`, `marker` und `marker-end` Attribute im SVG.
+Die **`marker`** [CSS](/de/docs/Web/CSS)-Eigenschaft verweist auf einen Marker, der an den ersten, mittleren und letzten Scheitelpunkten des Pfads eines Elements gezeichnet wird; das heißt, an all seinen Scheitelpunkten. Der Marker muss mithilfe eines SVG-{{SVGElement('marker')}}-Elements definiert worden sein und kann nur mit einem {{cssxref('url()')}}-Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte der Attribute `marker-start`, `marker` und `marker-end` im SVG.
 
-Bei vielen Marker-unterstützenden Formen befinden sich die ersten und letzten Scheitelpunkte an der gleichen Stelle: zum Beispiel die obere linke Ecke eines {{SVGElement('rect')}}. In solchen Formen, wenn sowohl die ersten als auch die letzten Marker definiert sind, werden zwei Marker an diesem Punkt gezeichnet, obwohl sie möglicherweise nicht in die gleiche Richtung zeigen.
+Bei vielen markerunterstützenden Formen befinden sich die ersten und letzten Scheitelpunkte an derselben Stelle: beispielsweise die obere linke Ecke eines {{SVGElement('rect')}}. Bei solchen Formen werden, wenn sowohl der erste als auch der letzte Marker definiert sind, zwei Marker an diesem Punkt gezeichnet, auch wenn sie möglicherweise nicht in dieselbe Richtung zeigen.
 
-Für die mittleren Scheitelpunkte ist die Richtung, in die jeder Marker zeigt, als die Richtung definiert, die in der Mitte zwischen der Richtung am Ende des vorhergehenden Pfadsegments und der Richtung am Anfang des folgenden Pfadsegments liegt. Dies kann als das Kreuzprodukt der durch die beiden Pfadrichtungen definierten Vektoren betrachtet werden.
+Für die mittleren Scheitelpunkte wird die Richtung, in die jeder Marker zeigt, als die Richtung definiert, die sich halbwegs zwischen der Richtung am Ende des vorhergehenden Pfadsegments und der Richtung am Anfang des folgenden Pfadsegments befindet. Dies kann als Kreuzprodukt der von den beiden Pfadrichtungen definierten Vektoren betrachtet werden.
 
 > [!NOTE]
-> Die `marker` Eigenschaft hat nur eine Wirkung für Elemente, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-start")}} für eine Liste.
+> Die `marker`-Eigenschaft hat nur Auswirkungen auf Elemente, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-start")}} für eine Liste.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Für die mittleren Scheitelpunkte ist die Richtung, in die jeder Marker zeigt, a
 marker: none;
 marker: url(markers.svg#arrow);
 
-/* Globale Werte */
+/* Global values */
 marker: inherit;
 marker: initial;
 marker: revert;
@@ -34,11 +34,11 @@ marker: unset;
 
 - `none`
 
-  - : Dies bedeutet, dass kein Marker an jedem Scheitelpunkt des Elementpfades gezeichnet wird.
+  - : Dies bedeutet, dass an jedem Scheitelpunkt des Pfads des Elements kein Marker gezeichnet wird.
 
 - `<marker-ref>`
 
-  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, der auf einen durch ein SVG {{SVGElement('marker')}} Element definierten Marker verweist, der an jedem Scheitelpunkt des Elementpfades gezeichnet werden soll. Wenn die URL-Referenz ungültig ist, wird kein Marker an den Scheitelpunkten des Pfades gezeichnet.
+  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, der auf einen Marker verweist, der durch ein SVG-{{SVGElement('marker')}}-Element definiert ist, um an jedem Scheitelpunkt des Pfads des Elements gezeichnet zu werden. Wenn die URL-Referenz ungültig ist, wird kein Marker an den Scheitelpunkten des Pfads gezeichnet.
 
 ## Formale Definition
 
@@ -101,4 +101,4 @@ polyline#test {
 
 - {{cssxref("marker-start")}}
 - {{cssxref("marker-end")}}
-- SVG {{SVGAttr("marker")}} Attribut
+- SVG {{SVGAttr("marker")}}-Attribut

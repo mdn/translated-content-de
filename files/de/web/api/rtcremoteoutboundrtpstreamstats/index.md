@@ -7,63 +7,64 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCRemoteOutboundRtpStreamStats`**-Wörterbuch der [WebRTC-API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Statistiken von einem entfernten Endpunkt über dessen ausgehenden RTP-Stream zu berichten. Dies entspricht einem eingehenden Stream, der derzeit vom lokalen {{domxref("RTCPeerConnection")}}-Objekt empfangen wird.
+Das **`RTCRemoteOutboundRtpStreamStats`**-Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Statistiken von einem entfernten Endpunkt über seinen ausgehenden RTP-Stream zu melden. Dies entspricht einem eingehenden Stream, der derzeit vom lokalen [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt empfangen wird.
 
-Die Statistiken können erhalten werden, indem Sie den {{domxref("RTCStatsReport")}} durchlaufen, der von {{domxref("RTCPeerConnection.getStats()")}} zurückgegeben wird, bis Sie einen Bericht mit dem [`type`](#type) `remote-outbound-rtp` finden.
+Die Statistiken können erlangt werden, indem der [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) durchlaufen wird, der von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, bis Sie einen Bericht mit dem [`type`](#type) von `remote-outbound-rtp` finden.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 ### Spezifische Statistiken für entfernte ausgehende Streams
 
-- {{domxref("RTCRemoteOutboundRtpStreamStats.localId", "localId")}} {{optional_inline}}
-  - : Ein String, der verwendet wird, um das lokale {{domxref("RTCInboundRtpStreamStats")}}-Objekt zu finden, das dieselbe [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/ssrc) teilt.
-- {{domxref("RTCRemoteOutboundRtpStreamStats.remoteTimestamp", "remoteTimestamp")}} {{optional_inline}}
-  - : Ein {{domxref("DOMHighResTimeStamp")}}, das den Zeitstempel (auf dem entfernten Gerät) angibt, zu dem die Statistiken im `RTCRemoteOutboundRtpStreamStats`-Objekt vom entfernten Endpunkt gesendet wurden. Dies unterscheidet sich vom {{domxref("RTCRemoteOutboundRtpStreamStats.timestamp", "timestamp")}}; es repräsentiert die Zeit, zu der die Statistiken des Objekts vom lokalen Endpunkt empfangen oder erzeugt wurden.
+- [`localId`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/localId) {{optional_inline}}
+  - : Ein String, der verwendet wird, um das lokale [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Objekt zu finden, das dieselbe [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/ssrc) teilt.
+- [`remoteTimestamp`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/remoteTimestamp) {{optional_inline}}
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitstempel (auf dem entfernten Gerät) angibt, zu dem die Statistiken im `RTCRemoteOutboundRtpStreamStats`-Objekt vom entfernten Endpunkt gesendet wurden. Dies unterscheidet sich vom [`timestamp`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/timestamp); es repräsentiert den Zeitpunkt, zu dem die Statistiken des Objekts vom lokalen Endpunkt empfangen oder erzeugt wurden.
 - `reportsSent` {{optional_inline}} {{experimental_inline}}
-  - : Eine positive Ganzzahl, die die Gesamtanzahl der für diese [Synchronisationsquelle (SSRC)](#ssrc) gesendeten {{glossary("RTCP")}}-Senderberichtsblöcke (SR) angibt.
-- {{domxref("RTCRemoteOutboundRtpStreamStats.roundTripTimeMeasurements", "roundTripTimeMeasurements")}} {{optional_inline}} {{experimental_inline}}
-  - : Eine positive Zahl, die die Gesamtanzahl der für diese [Synchronisationsquelle (SSRC)](#ssrc) erhaltenen gültigen Rundlaufzeitsmessungen darstellt.
-- {{domxref("RTCRemoteOutboundRtpStreamStats.totalRoundTripTime", "totalRoundTripTime")}} {{optional_inline}} {{experimental_inline}}
-  - : Eine Zahl, die die kumulative Summe aller Rundlaufzeitsmessungen seit Beginn der Sitzung in Sekunden angibt. Die durchschnittliche Rundlaufzeit kann berechnet werden, indem `totalRoundTripTime` durch [`roundTripTimeMeasurements`](#roundtriptimemeasurements) geteilt wird.
+  - : Eine positive ganze Zahl, die die Gesamtzahl der [RTCP](/de/docs/Glossary/RTCP)-Senderberichte (SR) Blöcke angibt, die für diese [Synchronisationsquelle (SSRC)](#ssrc) gesendet wurden.
+- [`roundTripTimeMeasurements`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/roundTripTimeMeasurements) {{optional_inline}} {{experimental_inline}}
+  - : Eine positive Zahl, die die Gesamtzahl der gültigen Round-Trip-Time-Messungen angibt, die für diese [Synchronisationsquelle (SSRC)](#ssrc) empfangen wurden.
+- [`totalRoundTripTime`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/totalRoundTripTime) {{optional_inline}} {{experimental_inline}}
+  - : Eine Zahl, die die kumulative Summe aller Round-Trip-Time-Messungen seit Beginn der Sitzung in Sekunden angibt.
+    Die durchschnittliche Round-Trip-Time kann berechnet werden, indem `totalRoundTripTime` durch [`roundTripTimeMeasurements`](#roundtriptimemeasurements) geteilt wird.
 
-### Statistiken des gesendeten RTP-Streams
+### Gesendete RTP-Stream-Statistiken
 
 <!-- RTCSentRtpStreamStats -->
 
 - `bytesSent` {{optional_inline}}
-  - : Eine positive Ganzzahl, die die Gesamtanzahl der für dieses SSRC gesendeten Bytes einschließlich der Wiederholungen angibt. <!-- [RFC3550] section 6.4.1 -->
+  - : Eine positive ganze Zahl, die die Gesamtanzahl der übertragenen Bytes für diese SSRC einschließlich der erneuten Übertragungen angibt. <!-- [RFC3550] section 6.4.1 -->
 - `packetsSent` {{optional_inline}}
-  - : Eine positive Ganzzahl, die die Gesamtanzahl der für dieses SSRC gesendeten RTP-Pakete einschließlich der Wiederholungen angibt. <!-- [RFC3550] section 6.4.1 -->
+  - : Eine positive ganze Zahl, die die Gesamtzahl der übertragenen RTP-Pakete für diese SSRC einschließlich der erneuten Übertragungen angibt. <!-- [RFC3550] section 6.4.1 -->
 
 ### Gemeinsame RTP-Stream-Statistiken
 
 <!-- RTCRtpStreamStats -->
 
-- {{domxref("RTCRemoteOutboundRtpStreamStats.codecId", "codecId")}} {{optional_inline}}
-  - : Ein String, der das Objekt eindeutig identifiziert, das inspiziert wurde, um den {{domxref("RTCCodecStats")}}-Bericht zu erzeugen, der mit diesem {{Glossary("RTP")}}-Stream verbunden ist.
-- {{domxref("RTCRemoteOutboundRtpStreamStats.kind", "kind")}}
-  - : Ein String, der angibt, ob der mit dem Stream verbundene {{domxref("MediaStreamTrack")}} ein Audio- oder ein Videospur ist.
-- {{domxref("RTCRemoteOutboundRtpStreamStats.ssrc", "ssrc")}}
-  - : Eine positive Ganzzahl, die die Synchronisationsquelle (SSRC) der RTP-Pakete in diesem Stream identifiziert.
-- {{domxref("RTCRemoteOutboundRtpStreamStats.transportId", "transportId")}} {{optional_inline}}
-  - : Ein String, der das Objekt eindeutig identifiziert, das inspiziert wurde, um den {{domxref("RTCTransportStats")}}-Bericht zu erzeugen, der mit diesem RTP-Stream verbunden ist.
+- [`codecId`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/codecId) {{optional_inline}}
+  - : Ein String, der das Objekt eindeutig identifiziert, das inspiziert wurde, um den [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) Bericht für diesen [RTP](/de/docs/Glossary/RTP) Stream zu erstellen.
+- [`kind`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/kind)
+  - : Ein String, der angibt, ob der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der mit dem Stream verbunden ist, ein Audio- oder ein Videotrack ist.
+- [`ssrc`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/ssrc)
+  - : Eine positive ganze Zahl, die die Synchronisationsquelle (SSRC) der RTP-Pakete in diesem Stream identifiziert.
+- [`transportId`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/transportId) {{optional_inline}}
+  - : Ein String, der das Objekt eindeutig identifiziert, das inspiziert wurde, um den [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats) Bericht für diesen RTP-Stream zu erstellen.
 
-### Gemeinsame Instanz-Eigenschaften
+### Gemeinsame Instanzeigenschaften
 
 Die folgenden Eigenschaften sind allen WebRTC-Statistikobjekten gemeinsam.
 
 <!-- RTCStats -->
 
-- {{domxref("RTCRemoteOutboundRtpStreamStats.id", "id")}}
-  - : Ein String, der das Objekt, das überwacht wird, um diesen Satz von Statistiken zu erzeugen, eindeutig identifiziert.
-- {{domxref("RTCRemoteOutboundRtpStreamStats.timestamp", "timestamp")}}
-  - : Ein {{domxref("DOMHighResTimeStamp")}}-Objekt, das die Zeit angibt, zu der die Probe für dieses Statistikobjekt genommen wurde.
-- {{domxref("RTCRemoteOutboundRtpStreamStats.type", "type")}}
+- [`id`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/id)
+  - : Ein String, der das Objekt eindeutig identifiziert, das überwacht wird, um diesen Satz von Statistiken zu erzeugen.
+- [`timestamp`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/timestamp)
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) Objekt, das den Zeitpunkt angibt, zu dem die Probe für dieses Statistikobjekt entnommen wurde.
+- [`type`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/type)
   - : Ein String mit dem Wert `"remote-outbound-rtp"`, der den Typ der Statistiken angibt, die das Objekt enthält.
 
-## Nutzungshinweise
+## Benutzungshinweise
 
-Die Eigenschaft {{domxref("RTCRemoteOutboundRtpStreamStats.remoteTimestamp", "remoteTimestamp")}} des `RTCRemoteOutboundRtpStreamStats`-Objekts stellt Statistiken basierend auf dem empfangenen NTP-Zeitstempel aus einem {{Glossary("RTCP")}}-Senderberichtsblock (SR) zur Verfügung. Beachten Sie, dass die entfernte Uhr möglicherweise nicht mit der lokalen Uhr synchronisiert ist (weder in der aktuellen Zeit noch in der Geschwindigkeit, mit der die Zeit vergeht).
+Die [`remoteTimestamp`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/remoteTimestamp) Eigenschaft des `RTCRemoteOutboundRtpStreamStats`-Objekts liefert Statistiken basierend auf dem NTP-Zeitstempel der empfangenen Daten aus einem [RTCP](/de/docs/Glossary/RTCP) Senderbericht (SR) Block. Beachten Sie, dass die entfernte Uhr möglicherweise nicht mit der lokalen Uhr synchronisiert ist (weder in der aktuellen Zeit noch in der Geschwindigkeit, mit der die Zeit vergeht).
 
 ## Spezifikationen
 

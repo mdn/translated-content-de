@@ -10,7 +10,7 @@ l10n:
 > [!WARNING]
 > Diese Methode ist veraltet. Verwenden Sie stattdessen {{WebExtAPIRef("tabs.sendMessage()")}}.
 
-Sendet eine einzelne Anfrage an das/die Inhalts-Skript(e) im angegebenen Tab, mit einem optionalen Rückruf, der ausgelöst wird, wenn eine Antwort zurückgesendet wird. Das {{WebExtAPIRef('extension.onRequest')}}-Ereignis wird in jedem Inhalts-Skript ausgelöst, das im angegebenen Tab für die aktuelle Erweiterung ausgeführt wird.
+Sendet eine einzelne Anfrage an das/die Inhalts-Skript(e) im angegebenen Tab, mit einer optionalen Rückruffunktion, die ausgeführt wird, wenn eine Antwort zurückgesendet wird. Das {{WebExtAPIRef('extension.onRequest')}} Ereignis wird in jedem Inhalts-Skript ausgelöst, das im angegebenen Tab für die aktuelle Erweiterung läuft.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -32,14 +32,14 @@ let sending = browser.tabs.sendRequest(
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit dem JSON-Antwortobjekt erfüllt wird, das vom Handler der Nachricht im Inhalts-Skript gesendet wurde, oder ohne Argumente, wenn das Inhalts-Skript keine Antwort gesendet hat. Wenn ein Fehler beim Verbinden mit dem angegebenen Tab oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit dem JSON-Antwortobjekt erfüllt wird, das vom Handler der Nachricht im Inhalts-Skript gesendet wird, oder ohne Argumente, wenn das Inhalts-Skript keine Antwort gesendet hat. Wenn beim Verbinden mit dem angegebenen Tab oder ein anderer Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-sendRequest) API von Chromium. Diese Dokumentation stammt aus [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-sendRequest) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

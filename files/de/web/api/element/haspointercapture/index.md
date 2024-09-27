@@ -1,5 +1,5 @@
 ---
-title: "Element: hasPointerCapture() Methode"
+title: "Element: hasPointerCapture()-Methode"
 short-title: hasPointerCapture()
 slug: Web/API/Element/hasPointerCapture
 l10n:
@@ -8,8 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`hasPointerCapture()`** Methode der
-{{domxref("Element")}} Schnittstelle überprüft, ob das Element, auf dem sie aufgerufen wird, den [Pointer Capture](/de/docs/Web/API/Pointer_events#pointer_capture) für den durch die gegebene Pointer-ID identifizierten Zeiger besitzt.
+Die **`hasPointerCapture()`**-Methode der
+[`Element`](/de/docs/Web/API/Element)-Schnittstelle überprüft, ob das Element, auf dem sie aufgerufen wird,
+[pointer capture](/de/docs/Web/API/Pointer_events#pointer_capture) für den durch die gegebene Zeiger-ID identifizierten Zeiger hat.
 
 ## Syntax
 
@@ -20,12 +21,12 @@ hasPointerCapture(pointerId)
 ### Parameter
 
 - `pointerId`
-  - : Die {{domxref("PointerEvent.pointerId", "pointerId")}} eines
-    {{domxref("PointerEvent")}} Objekts.
+  - : Die [`pointerId`](/de/docs/Web/API/PointerEvent/pointerId) eines
+    [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Objekts.
 
 ### Rückgabewert
 
-Ein boolescher Wert — `true`, wenn das Element den Pointer Capture für den durch die gegebene Pointer-ID identifizierten Zeiger hat, `false`, wenn es nicht der Fall ist.
+Ein Boolean-Wert — `true`, wenn das Element tatsächlich über pointer capture für den durch die gegebene Zeiger-ID identifizierten Zeiger verfügt, `false`, wenn nicht.
 
 ## Beispiele
 
@@ -34,17 +35,17 @@ Ein boolescher Wert — `true`, wenn das Element den Pointer Capture für den du
   <script>
     function downHandler(ev) {
       const el = document.getElementById("target");
-      // Element 'target' wird weitere Ereignisse empfangen/erfassen
+      // Element 'target' will receive/capture further events
       el.setPointerCapture(ev.pointerId);
 
       // …
 
-      // Überprüfen, ob das Element noch den Pointer Capture hat
+      // Check whether element still has pointer capture
       let pointerCap = el.hasPointerCapture(ev.pointerId);
       if (pointerCap) {
-        // Wir haben immer noch den Pointer Capture
+        // We've still got pointer capture
       } else {
-        // oje, wir haben den Pointer Capture verloren!
+        // oops, we've lost pointer capture!
       }
     }
 
@@ -54,7 +55,7 @@ Ein boolescher Wert — `true`, wenn das Element den Pointer Capture für den du
     }
   </script>
   <body onload="init();">
-    <div id="target">Berühren Sie dieses Element mit einem Pointer.</div>
+    <div id="target">Touch this element with a pointer.</div>
   </body>
 </html>
 ```
@@ -69,6 +70,6 @@ Ein boolescher Wert — `true`, wenn das Element den Pointer Capture für den du
 
 ## Siehe auch
 
-- {{ domxref("Element.setPointerCapture()")}}
-- {{ domxref("Element.releasePointerCapture()")}}
+- [`Element.setPointerCapture()`](/de/docs/Web/API/Element/setPointerCapture)
+- [`Element.releasePointerCapture()`](/de/docs/Web/API/Element/releasePointerCapture)
 - {{ domxref("Pointer_events","Pointer Events", "", 1) }}

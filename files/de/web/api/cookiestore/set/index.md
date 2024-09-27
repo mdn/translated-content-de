@@ -1,5 +1,5 @@
 ---
-title: "CookieStore: set()-Methode"
+title: "CookieStore: set() Methode"
 short-title: set()
 slug: Web/API/CookieStore/set
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`set()`**-Methode des {{domxref("CookieStore")}}-Interfaces setzt ein Cookie mit dem angegebenen `name` und `value` oder einem `options`-Objekt.
+Die **`set()`**-Methode der [`CookieStore`](/de/docs/Web/API/CookieStore)-Schnittstelle setzt ein Cookie mit dem gegebenen `name` und `value` oder einem `options`-Objekt.
 
 ## Syntax
 
@@ -30,16 +30,16 @@ Oder
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das Folgendes enthält:
+  - : Ein Objekt, das enthält:
 
     - `domain` {{Optional_Inline}}
       - : Ein String, der die Domain des Cookies enthält. Standardmäßig `null`.
     - `expires` {{Optional_Inline}}
-      - : Ein Zeitstempel, angegeben als {{glossary("Unixzeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält. Standardmäßig `null`.
+      - : Ein Zeitstempel, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, der das Ablaufdatum des Cookies enthält. Standardmäßig `null`.
     - `name`
       - : Ein String mit dem Namen eines Cookies.
     - `partitioned` {{Optional_Inline}}
-      - : Ein boolescher Wert, der standardmäßig `false` ist. Wenn auf `true` gesetzt, wird das gesetzte Cookie ein partitioniertes Cookie sein. Weitere Informationen finden Sie unter [Cookies Having Independent Partitioned State (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies).
+      - : Ein boolescher Wert, der standardmäßig `false` ist. Wenn auf `true` gesetzt, wird das gesetzte Cookie ein partitioniertes Cookie sein. Siehe [Cookies mit unabhängigem partitioniertem Zustand (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies) für weitere Informationen.
     - `path` {{Optional_Inline}}
       - : Ein String, der den Pfad des Cookies enthält. Standardmäßig `/`.
     - `sameSite` {{Optional_Inline}}
@@ -47,9 +47,9 @@ Oder
       - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value) Werte:
 
         - `"strict"`
-          - : Cookies werden nur in einem First-Party-Kontext gesendet und nicht zusammen mit Anfragen, die von Drittanbieter-Websites initiiert wurden. Dies ist der Standard.
+          - : Cookies werden nur in einem First-Party-Kontext gesendet und nicht zusammen mit Anfragen von Drittanbieter-Websites. Dies ist die Standardeinstellung.
         - `"lax"`
-          - : Cookies werden bei normalen Cross-Site-Subrequests (zum Beispiel zum Laden von Bildern oder Frames auf einer Drittanbieterseite) nicht gesendet, wohl aber, wenn ein Benutzer zur Ursprungsseite navigiert (z. B. beim Folgen eines Links).
+          - : Cookies werden bei normalen Cross-Site-Subanfragen nicht gesendet (z.B. beim Laden von Bildern oder Frames in eine Drittanbieter-Website), aber sie werden gesendet, wenn ein Benutzer zur Ursprungsseite navigiert (d.h. beim Folgen eines Links).
         - `"none"`
           - : Cookies werden in allen Kontexten gesendet.
 
@@ -58,14 +58,14 @@ Oder
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich auf {{jsxref("undefined")}} auflöst, wenn das Setzen des Cookies abgeschlossen ist.
+Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird, wenn das Setzen des Cookies abgeschlossen ist.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Ursprung nicht zur URL {{glossary("Serialisierung", "serialisiert")}} werden kann.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Ursprung nicht in eine URL [serialisiert](/de/docs/Glossary/Serialization) werden kann.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das Setzen des Cookies mit dem angegebenen `name` und `value` oder den `options` fehlschlägt.
+  - : Wird ausgelöst, wenn das Setzen des Cookies mit dem gegebenen `name` und `value` oder `options` fehlschlägt.
 
 ## Beispiele
 

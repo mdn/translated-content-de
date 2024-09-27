@@ -7,30 +7,30 @@ l10n:
 
 {{AddonSidebar}}
 
-Führt JavaScript in dem Fenster aus, an das die Devtools angehängt sind.
+Führt JavaScript im Fenster aus, an das die DevTools angehängt sind.
 
-Dies ist etwas ähnlich wie die Verwendung von {{WebExtAPIRef("tabs.executeScript()")}}, um ein Inhalts-Skript anzuhängen, jedoch mit zwei Hauptunterschieden:
+Dies ist etwas ähnlich wie die Verwendung von {{WebExtAPIRef("tabs.executeScript()")}} zum Anhängen eines Inhaltsskripts, jedoch mit zwei wesentlichen Unterschieden:
 
-Erstens kann das JavaScript eine Reihe von [Spezialbefehlen verwenden, die Browser typischerweise in ihrer Devtools-Konsole bereitstellen](#helfer): Zum Beispiel die Verwendung von "$0" um auf das aktuell im Inspector ausgewählte Element zu verweisen.
+Erstens kann das JavaScript eine Reihe von [Spezialbefehlen verwenden, die Browser typischerweise in ihrer DevTools-Konsolenumsetzung bereitstellen](#helfer): zum Beispiel die Verwendung von "$0", um auf das im Inspector aktuell ausgewählte Element zu verweisen.
 
-Zweitens kann das von Ihnen ausgeführte JavaScript alle Änderungen sehen, die durch Skripte vorgenommen wurden, die die Seite geladen hat. Dies steht im Gegensatz zu Inhalts-Skripten, die die Seite [so sehen, wie sie existieren würde, wenn keine Seiten-Skripte geladen wären](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#dom_access). Beachten Sie jedoch, dass die durch Inhalts-Skripte bereitgestellte Isolierung ein bewusstes Sicherheitsmerkmal ist, das es böswilligen oder unkooperativen Webseiten erschweren soll, die WebExtensions-APIs durch Neudefinierung von DOM-Funktionen und -Eigenschaften zu verwirren oder zu manipulieren. Das bedeutet, dass Sie sehr vorsichtig sein müssen, wenn Sie diesen Schutz durch die Verwendung von `eval()` aufheben, und Inhalts-Skripte verwenden sollten, es sei denn, Sie müssen `eval()` verwenden.
+Zweitens kann das ausgeführte JavaScript alle Änderungen sehen, die an der Seite durch Skripte vorgenommen wurden, die von der Seite geladen wurden. Dies steht im Gegensatz zu Inhalts-Skripten, die die Seite [so sehen, wie sie existieren würde, wenn keine Seitenskripte geladen wären](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#dom_access). Beachten Sie jedoch, dass die von Inhalts-Skripten bereitgestellte Isolation ein bewusstes Sicherheitsmerkmal ist, das es erschwert, dass bösartige oder kooperative Webseiten die WebExtensions-APIs verwirren oder untergraben, indem sie DOM-Funktionen und -Eigenschaften neu definieren. Das bedeutet, Sie müssen sehr vorsichtig sein, wenn Sie diesen Schutz durch die Verwendung von `eval()` aufheben, und sollten Inhalts-Skripte verwenden, es sei denn, Sie müssen `eval()` verwenden.
 
-Das Skript wird standardmäßig im Hauptrahmen der Seite ausgewertet. Das Skript muss zu einem Wert ausgewertet werden, der als JSON dargestellt werden kann (was bedeutet, dass es beispielsweise nicht zu einer Funktion oder einem Objekt ausgewertet werden darf, das Funktionen enthält). Standardmäßig sieht das Skript keine an die Seite angehängten Inhalts-Skripte.
+Das Skript wird standardmäßig im Hauptframe der Seite ausgewertet. Das Skript muss zu einem Wert ausgewertet werden, der als JSON dargestellt werden kann (was bedeutet, dass es zum Beispiel sich nicht zu einer Funktion oder einem Objekt auswerten darf, das Funktionen enthält). Standardmäßig sieht das Skript keine an die Seite angehängten Inhalts-Skripte.
 
-Sie können `eval()` nicht für privilegierte Browserfenster wie "about:addons" aufrufen.
+Sie können `eval()` nicht auf privilegierten Browserfenstern wie "about:addons" aufrufen.
 
-Sie können optional einen `options`-Parameter angeben, der Optionen zum Auswerten des Skripts in einem anderen Rahmen oder im Kontext angehängter Inhalts-Skripte enthält. Beachten Sie, dass Firefox den `options`-Parameter noch nicht unterstützt.
+Sie können optional einen `options`-Parameter bereitstellen, der Optionen umfasst, um das Skript in einem anderen Frame oder im Kontext von angehängten Inhalts-Skripten zu evaluieren. Beachten Sie, dass Firefox den `options`-Parameter noch nicht unterstützt.
 
-Die `eval()`-Funktion gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das auf das ausgewertete Ergebnis des Skripts oder auf einen Fehler aufgelöst wird.
+Die Funktion `eval()` gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das sich zu dem ausgewerteten Ergebnis des Skripts oder zu einem Fehler auflöst.
 
 ## Helfer
 
-Das Skript erhält Zugriff auf eine Reihe von Objekten, die dem eingefügten Skript helfen, mit den Entwicklertools zu interagieren. Die folgenden Hilfsmittel werden derzeit unterstützt:
+Das Skript erhält Zugriff auf eine Reihe von Objekten, die dem injizierten Skript helfen, mit den Entwicklertools zu interagieren. Die folgenden Helfer werden derzeit unterstützt:
 
 - `$0`
-  - : Enthält eine Referenz zu dem Element, das aktuell im Devtools-Inspector ausgewählt ist.
+  - : Enthält eine Referenz auf das Element, das derzeit im DevTools Inspector ausgewählt ist.
 - `inspect()`
-  - : Wenn ein Objekt angegeben wird, das ein DOM-Element auf der Seite ist, wird es im Devtools-Inspector ausgewählt, ansonsten wird eine Objektvorschau in der Webkonsole erstellt.
+  - : Wenn ein DOM-Element auf der Seite vorliegt, wird es im DevTools Inspector ausgewählt, andernfalls wird eine Objektvorschau in der Webkonsole erstellt.
 
 [Siehe einige Beispiele.](#beispiele)
 
@@ -46,34 +46,34 @@ let evaluating = browser.devtools.inspectedWindow.eval(
 ### Parameter
 
 - `expression`
-  - : `string`. Der JavaScript-Ausdruck, der ausgewertet werden soll. Der String muss zu einem Objekt ausgewertet werden, das als JSON dargestellt werden kann, andernfalls wird eine Ausnahme ausgelöst. Zum Beispiel darf `expression` nicht zu einer Funktion ausgewertet werden.
+  - : `string`. Der JavaScript-Ausdruck zur Auswertung. Der String muss sich zu einem Objekt auswerten lassen, das als JSON dargestellt werden kann, andernfalls wird eine Ausnahme ausgelöst. Zum Beispiel darf `expression` sich nicht zu einer Funktion auswerten.
 - `options` {{optional_inline}}
 
-  - : `object`. Optionen für die Funktion (Beachten Sie, dass Firefox diese Optionen noch nicht unterstützt), wie folgt:
+  - : `object`. Optionen für die Funktion (beachten Sie, dass Firefox diese Optionen noch nicht unterstützt), wie folgt:
 
     - `frameURL` {{optional_inline}}
-      - : `string`. Die URL des Rahmens, in dem der Ausdruck ausgewertet werden soll. Wenn dies weggelassen wird, wird der Ausdruck im Hauptrahmen des Fensters ausgewertet.
+      - : `string`. Die URL des Frames, in dem der Ausdruck ausgewertet werden soll. Wenn dies weggelassen wird, wird der Ausdruck im Hauptframe des Fensters ausgewertet.
     - `useContentScriptContext` {{optional_inline}}
-      - : `boolean`. Wenn `true`, wird der Ausdruck im Kontext aller Inhalts-Skripte ausgewertet, die diese Erweiterung an die Seite angehängt hat. Wenn Sie diese Option setzen, müssen Sie tatsächlich einige Inhalts-Skripte an die Seite angehängt haben, sonst wird ein Devtools-Fehler ausgelöst.
+      - : `boolean`. Wenn `true`, wird der Ausdruck im Kontext aller Inhalts-Skripte ausgewertet, die diese Erweiterung an die Seite angehängt hat. Wenn Sie diese Option setzen, müssen Sie tatsächlich einige Inhalts-Skripte an die Seite anhängen, sonst wird ein DevTools-Fehler ausgelöst.
     - `contextSecurityOrigin` {{optional_inline}}
-      - : `string`. Bewerten Sie den Ausdruck im Kontext eines Inhalts-Skripts, das von einer anderen Erweiterung angehängt wurde und dessen Ursprung hier übereinstimmt. Dies überschreibt `useContentScriptContext`.
+      - : `string`. Evaluieren Sie den Ausdruck im Kontext eines durch eine andere Erweiterung angehängten Inhalts-Skripts, dessen Ursprung mit dem hier angegebenen Wert übereinstimmt. Dies überschreibt `useContentScriptContext`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `array` mit zwei Elementen erfüllt wird.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem `array` erfüllt wird, das zwei Elemente enthält.
 
-Falls kein Fehler aufgetreten ist, enthält Element 0 das Ergebnis der Auswertung des Ausdrucks und Element 1 wird `undefined` sein.
+Wenn kein Fehler aufgetreten ist, enthält Element 0 das Ergebnis der Auswertung des Ausdrucks und Element 1 wird `undefined` sein.
 
-Wenn ein Fehler aufgetreten ist, wird Element 0 `undefined` sein und Element 1 enthält ein Objekt mit Details über den Fehler. Es werden zwei verschiedene Fehlerarten unterschieden:
+Wenn ein Fehler aufgetreten ist, wird Element 0 `undefined` sein, und Element 1 wird ein Objekt enthalten, das Einzelheiten zum Fehler gibt. Zwei verschiedene Arten von Fehlern werden unterschieden:
 
-- Fehler, die bei der Auswertung des JavaScript aufgetreten sind (zum Beispiel Syntaxfehler im Ausdruck). In diesem Fall enthält Element 1:
+- Fehler, die bei der Auswertung des JavaScripts aufgetreten sind (zum Beispiel Syntaxfehler im Ausdruck). In diesem Fall wird Element 1 enthalten:
 
-  - eine boolesche Eigenschaft `isException`, gesetzt auf `true`
+  - eine boolesche Eigenschaft `isException`, die auf `true` gesetzt ist
   - eine String-Eigenschaft `value`, die weitere Details gibt.
 
-- andere Fehler (zum Beispiel ein Ausdruck, der zu einem Objekt ausgewertet wird, das nicht als JSON dargestellt werden kann). In diesem Fall enthält Element 1:
+- andere Fehler (zum Beispiel ein Ausdruck, der sich zu einem Objekt auswertet, das nicht als JSON darstellbar ist). In diesem Fall wird Element 1 enthalten:
 
-  - eine boolesche Eigenschaft `isError`, gesetzt auf `true`
+  - eine boolesche Eigenschaft `isError`, die auf `true` gesetzt ist
   - eine String-Eigenschaft `code`, die einen Fehlercode enthält.
 
 ## Browser-Kompatibilität
@@ -82,7 +82,7 @@ Wenn ein Fehler aufgetreten ist, wird Element 0 `undefined` sein und Element 1 e
 
 ## Beispiele
 
-Dies testet, ob jQuery im inspizierten Fenster definiert ist und protokolliert das Ergebnis. Beachten Sie, dass dies in einem Inhalts-Skript nicht funktionieren würde, weil selbst wenn jQuery definiert wäre, das Inhalts-Skript es nicht sehen würde.
+Dies prüft, ob jQuery im inspizierten Fenster definiert ist, und protokolliert das Ergebnis. Beachten Sie, dass dies in einem Inhalts-Skript nicht funktionieren würde, da selbst wenn jQuery definiert wäre, das Inhalts-Skript es nicht sehen würde.
 
 ```js
 function handleError(error) {
@@ -109,9 +109,9 @@ evalButton.addEventListener("click", () => {
 });
 ```
 
-### Helferbeispiele
+### Helfer-Beispiele
 
-Dies verwendet den `$0`-Helfer, um die Hintergrundfarbe des aktuell im Inspector ausgewählten Elements festzulegen:
+Dies verwendet den `$0` Helfer, um die Hintergrundfarbe des Elements zu setzen, das derzeit im Inspector ausgewählt ist:
 
 ```js
 const evalButton = document.querySelector("#reddinate");
@@ -136,7 +136,7 @@ evalButton.addEventListener("click", () => {
 });
 ```
 
-Dies verwendet den `inspect()`-Helfer, um das erste \<h1>-Element auf der Seite auszuwählen:
+Dies verwendet den `inspect()` Helfer, um das erste `<h1>`-Element auf der Seite auszuwählen:
 
 ```js
 const inspectButton = document.querySelector("#inspect");

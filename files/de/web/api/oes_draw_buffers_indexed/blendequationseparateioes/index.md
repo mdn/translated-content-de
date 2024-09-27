@@ -1,5 +1,5 @@
 ---
-title: "OES_draw_buffers_indexed: Methode blendEquationSeparateiOES()"
+title: "OES_draw_buffers_indexed: blendEquationSeparateiOES() Methode"
 short-title: blendEquationSeparateiOES()
 slug: Web/API/OES_draw_buffers_indexed/blendEquationSeparateiOES
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode `blendEquationSeparateiOES()` der {{DOMxRef("OES_draw_buffers_indexed")}} WebGL-Erweiterung legt die RGB- und Alpha-Blendgleichungen separat für einen bestimmten Zeichnungspuffer fest.
+Die `blendEquationSeparateiOES()`-Methode der [`OES_draw_buffers_indexed`](/de/docs/Web/API/OES_draw_buffers_indexed) WebGL-Erweiterung setzt die RGB- und Alpha-Blend-Gleichungen separat für einen bestimmten Zeichnungspuffer.
 
-Siehe {{DOMxRef("OES_draw_buffers_indexed.blendEquationiOES()")}} für das gemeinsame Setzen von RGB und Alpha und {{DOMxRef("WebGLRenderingContext.blendEquationSeparate()")}} für die WebGL-1-Version dieser Methode.
+Siehe [`OES_draw_buffers_indexed.blendEquationiOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/blendEquationiOES) für das Setzen von RGB und Alpha zusammen und [`WebGLRenderingContext.blendEquationSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendEquationSeparate) für die WebGL 1-Version dieser Methode.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ blendEquationSeparateiOES(buf, modeRGB, modeAlpha)
 ### Parameter
 
 - `buf`
-  - : Ein ganzzahliger Wert `i`, der den mit der Konstanten `gl.DRAW_BUFFERi` verbundenen Zeichnungspuffer angibt, siehe [WebGL-Zeichnungspuffer-Konstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers).
+  - : Eine ganze Zahl `i`, die den Zeichnungspuffer angibt, der mit der Konstante `gl.DRAW_BUFFERi` assoziiert ist, siehe [WebGL-Zeichnungspufferkonstanten](/de/docs/Web/API/WebGL_API/Constants#draw_buffers).
 - `modeRGB`
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das bestimmt, wie Quell- und Ziel-RGB-Farbkomponenten kombiniert werden. Akzeptiert die gleichen Enums wie der Parameter `modeRGB` in {{DOMxRef("WebGLRenderingContext.blendEquationSeparate()")}}.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, wie die Quellen- und Ziel-RGB-Farbkomponenten kombiniert werden. Akzeptiert die gleichen Enums wie der `modeRGB` Parameter in [`WebGLRenderingContext.blendEquationSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendEquationSeparate).
 - `modeAlpha`
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das bestimmt, wie Quell- und Ziel-Alpha-Farbkomponenten kombiniert werden. Akzeptiert die gleichen Enums wie der Parameter `modeAlpha` in {{DOMxRef("WebGLRenderingContext.blendEquationSeparate()")}}.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, wie die Quellen- und Ziel-Alpha-Farbkomponenten kombiniert werden. Akzeptiert die gleichen Enums wie der `modeAlpha` Parameter in [`WebGLRenderingContext.blendEquationSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendEquationSeparate).
 
 ### Rückgabewert
 
@@ -33,14 +33,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Wenn `buf` keinen gültigen Wert darstellt, wird ein Fehler `gl.INVALID_VALUE` ausgelöst.
-- Wenn `modeRGB` oder `modeAlpha` nicht auf einen der möglichen Werte gesetzt sind, wird ein Fehler `gl.INVALID_ENUM` ausgelöst.
+- Wenn `buf` keinen gültigen Wert hat, wird ein `gl.INVALID_VALUE` Fehler ausgelöst.
+- Wenn `modeRGB` oder `modeAlpha` nicht auf einen der möglichen Werte gesetzt sind, wird ein `gl.INVALID_ENUM` Fehler ausgelöst.
 
 ## Beispiele
 
-### Festlegen und Abfragen von Blendgleichungen
+### Setzen und Abfragen von Blend-Gleichungen
 
-Das folgende Beispiel setzt die Blendgleichungen für die Zeichnungspuffer `gl.DRAW_BUFFER0` (Aufruf, bei dem `buf` 0 ist) und `gl.DRAW_BUFFER1` (Aufruf, bei dem `buf` 1 ist).
+Das folgende Beispiel setzt die Blend-Gleichungen für die Zeichnungspuffer `gl.DRAW_BUFFER0` (Aufruf mit `buf` gleich 0) und `gl.DRAW_BUFFER1` (Aufruf mit `buf` gleich 1).
 
 ```js
 const ext = gl.getExtension("OES_draw_buffers_indexed");
@@ -49,14 +49,14 @@ ext.blendEquationSeparateiOES(0, gl.FUNC_ADD, gl.FUNC_SUBTRACT);
 ext.blendEquationSeparateiOES(1, gl.FUNC_ADD, gl.FUNC_SUBTRACT);
 ```
 
-Um die Blendgleichungen für `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1` abzufragen, verwenden Sie die Konstanten `BLEND_EQUATION_RGB` und `BLEND_EQUATION_ALPHA` mit {{domxref("WebGL2RenderingContext.getIndexedParameter()")}}:
+Um die Blend-Gleichungen für `gl.DRAW_BUFFER0` und `gl.DRAW_BUFFER1` abzurufen, fragen Sie die Konstanten `BLEND_EQUATION_RGB` und `BLEND_EQUATION_ALPHA` mit [`WebGL2RenderingContext.getIndexedParameter()`](/de/docs/Web/API/WebGL2RenderingContext/getIndexedParameter) ab:
 
 ```js
-// Für gl.DRAW_BUFFER0
+// For gl.DRAW_BUFFER0
 gl.getIndexedParameter(gl.BLEND_EQUATION_RGB, 0);
 gl.getIndexedParameter(gl.BLEND_EQUATION_ALPHA, 0);
 
-// Für gl.DRAW_BUFFER1
+// for gl.DRAW_BUFFER1
 gl.getIndexedParameter(gl.BLEND_EQUATION_RGB, 1);
 gl.getIndexedParameter(gl.BLEND_EQUATION_ALPHA, 1);
 ```
@@ -71,5 +71,5 @@ gl.getIndexedParameter(gl.BLEND_EQUATION_ALPHA, 1);
 
 ## Siehe auch
 
-- {{DOMxRef("OES_draw_buffers_indexed.blendEquationiOES()")}}
-- {{DOMxRef("WebGLRenderingContext.blendEquationSeparate()")}}
+- [`OES_draw_buffers_indexed.blendEquationiOES()`](/de/docs/Web/API/OES_draw_buffers_indexed/blendEquationiOES)
+- [`WebGLRenderingContext.blendEquationSeparate()`](/de/docs/Web/API/WebGLRenderingContext/blendEquationSeparate)

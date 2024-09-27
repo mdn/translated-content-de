@@ -8,29 +8,29 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`writable`** des {{domxref("WebTransportDatagramDuplexStream")}}-Interfaces gibt eine Instanz von {{domxref("WritableStream")}} zurück, die verwendet werden kann, um nicht zuverlässig ausgehende Datagramme in den Stream zu schreiben.
+Die schreibgeschützte Eigenschaft **`writable`** der Schnittstelle [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream) gibt eine [`WritableStream`](/de/docs/Web/API/WritableStream)-Instanz zurück, die verwendet werden kann, um ausgehende Datagramme unzuverlässig auf den Stream zu schreiben.
 
-"Nicht zuverlässig" bedeutet, dass die Übertragung von Daten nicht garantiert ist und dass Daten nicht in einer bestimmten Reihenfolge ankommen müssen. Dies ist in einigen Situationen in Ordnung und ermöglicht eine sehr schnelle Lieferung. Zum Beispiel könnten Sie regelmäßige Spielstatus-Updates übertragen wollen, bei denen jede Nachricht die letzte übertrifft, die ankommt, und die Reihenfolge keine Rolle spielt.
+"Unzuverlässig" bedeutet, dass die Übertragung der Daten nicht garantiert ist, noch die Ankunft in einer bestimmten Reihenfolge. Dies ist in manchen Situationen akzeptabel und bietet eine sehr schnelle Lieferung. Zum Beispiel möchten Sie möglicherweise regelmäßige Spielstatus-Updates übertragen, bei denen jede Nachricht die letzte ankommende überschreibt und die Reihenfolge unwichtig ist.
 
 ## Wert
 
-Ein {{domxref("WritableStream")}}.
+Ein [`WritableStream`](/de/docs/Web/API/WritableStream).
 
 ## Beispiele
 
-Siehe die Hauptseite des {{domxref("WebTransportDatagramDuplexStream")}}-Interfaces.
+Siehe die Hauptseite der [`WebTransportDatagramDuplexStream`](/de/docs/Web/API/WebTransportDatagramDuplexStream)-Schnittstelle.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [WebTransport verwenden](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

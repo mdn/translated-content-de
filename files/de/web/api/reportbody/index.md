@@ -7,24 +7,24 @@ l10n:
 
 {{APIRef("Reporting API")}}
 
-Das **`ReportBody`**-Interface der {{domxref('Reporting API','','',' ')}} repräsentiert den Körper eines Berichts. Einzelne Berichtstypen erben von diesem Interface und fügen spezifische Attribute hinzu, die für den jeweiligen Bericht relevant sind.
+Die **`ReportBody`**-Schnittstelle der [Reporting API](/de/docs/Web/API/Reporting_API) repräsentiert den Körper eines Berichts. Einzelne Berichtstypen erben von dieser Schnittstelle und fügen spezifische Attribute hinzu, die für den jeweiligen Bericht relevant sind.
 
 ### Berichte, die von `ReportBody` erben
 
-- {{domxref("CSPViolationReportBody")}}
-- {{domxref("DeprecationReportBody")}}
-- {{domxref("InterventionReportBody")}}
+- [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)
+- [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)
+- [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)
 
-Eine Instanz von `ReportBody` wird als Wert von {{domxref("Report.body")}} zurückgegeben. Das Interface hat keinen Konstruktor.
+Eine Instanz von `ReportBody` wird als Wert von [`Report.body`](/de/docs/Web/API/Report/body) zurückgegeben. Die Schnittstelle hat keinen Konstruktor.
 
 ## Instanzmethoden
 
-- {{domxref("ReportBody.toJSON()")}}
+- [`ReportBody.toJSON()`](/de/docs/Web/API/ReportBody/toJSON)
   - : Ein _Serializer_, der eine JSON-Darstellung des `ReportBody`-Objekts zurückgibt.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen {{domxref("ReportingObserver")}}, um Interventionsberichte zu beobachten. Das {{domxref("InterventionReportBody")}}-Interface erbt von `ReportBody`.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) zur Beobachtung von Interventionsberichten. Die [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Schnittstelle erbt von `ReportBody`.
 
 ```js
 const options = {

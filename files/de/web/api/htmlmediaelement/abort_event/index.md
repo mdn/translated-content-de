@@ -1,6 +1,6 @@
 ---
-title: "HTMLMediaElement: Abbruchereignis"
-short-title: Abbruch
+title: "HTMLMediaElement: abort-Ereignis"
+short-title: abort
 slug: Web/API/HTMLMediaElement/abort_event
 l10n:
   sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`abort`**-Ereignis wird ausgelöst, wenn die Ressource nicht vollständig geladen wurde, jedoch nicht aufgrund eines Fehlers.
+Das **`abort`**-Ereignis wird ausgelöst, wenn die Ressource nicht vollständig geladen wurde, aber nicht aufgrund eines Fehlers.
 
-Dieses Ereignis ist nicht abbrückbar und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("abort", (event) => {});
@@ -24,7 +24,7 @@ onabort = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -53,7 +53,7 @@ video.appendChild(source);
 
 ## Siehe auch
 
-- {{domxref("HTMLAudioElement")}}
-- {{domxref("HTMLVideoElement")}}
+- [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement)
+- [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)
 - {{HTMLElement("audio")}}
 - {{HTMLElement("video")}}

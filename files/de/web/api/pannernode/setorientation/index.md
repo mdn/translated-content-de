@@ -1,5 +1,5 @@
 ---
-title: "PannerNode: setOrientation()-Methode"
+title: "PannerNode: Methode setOrientation()"
 short-title: setOrientation()
 slug: Web/API/PannerNode/setOrientation
 l10n:
@@ -9,11 +9,11 @@ l10n:
 {{APIRef("Web Audio API")}}{{Deprecated_Header}}
 
 > [!NOTE]
-> Der empfohlene Ersatz für diese veraltete Methode besteht darin, stattdessen die Attribute [`orientationX`](/de/docs/Web/API/PannerNode/orientationX), [`orientationY`](/de/docs/Web/API/PannerNode/orientationY) und [`orientationZ`](/de/docs/Web/API/PannerNode/orientationZ) direkt zu setzen.
+> Der empfohlene Ersatz für diese veraltete Methode ist das direkte Setzen der Attribute [`orientationX`](/de/docs/Web/API/PannerNode/orientationX), [`orientationY`](/de/docs/Web/API/PannerNode/orientationY) und [`orientationZ`](/de/docs/Web/API/PannerNode/orientationZ).
 
-Die `setOrientation()`-Methode der {{ domxref("PannerNode") }}-Schnittstelle definiert die Richtung, in die die Audioquelle spielt.
+Die `setOrientation()`-Methode der [`PannerNode`](/de/docs/Web/API/PannerNode)-Schnittstelle definiert die Richtung, in der die Audioquelle abgespielt wird.
 
-Dies kann einen großen Einfluss haben, wenn der Klang sehr gerichtet ist – kontrolliert durch die drei kegelbezogenen Attribute {{domxref("PannerNode.coneInnerAngle")}}, {{domxref("PannerNode.coneOuterAngle")}} und {{domxref("PannerNode.coneOuterGain")}}. In einem solchen Fall kann ein Klang, der vom Zuhörer weg zeigt, sehr leise oder sogar stumm sein.
+Dies kann einen großen Effekt haben, wenn der Klang sehr gerichtet ist — kontrolliert durch die drei mit dem Kegel verbundenen Attribute [`PannerNode.coneInnerAngle`](/de/docs/Web/API/PannerNode/coneInnerAngle), [`PannerNode.coneOuterAngle`](/de/docs/Web/API/PannerNode/coneOuterAngle) und [`PannerNode.coneOuterGain`](/de/docs/Web/API/PannerNode/coneOuterGain). In einem solchen Fall kann ein Klang, der vom Hörer wegzeigt, sehr leise oder sogar still sein.
 
 Die drei Parameter `x`, `y` und `z` sind einheitslos und beschreiben einen Richtungsvektor im 3D-Raum unter Verwendung des rechtshändigen kartesischen Koordinatensystems. Der Standardwert des Richtungsvektors ist `(1, 0, 0)`.
 

@@ -1,5 +1,5 @@
 ---
-title: "XSLTProcessor: Methode transformToDocument()"
+title: "XSLTProcessor: transformToDocument()-Methode"
 short-title: transformToDocument()
 slug: Web/API/XSLTProcessor/transformToDocument
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XSLT")}}
 
-Die Methode `transformToDocument()` des {{domxref("XSLTProcessor")}}-Interfaces transformiert die bereitgestellte {{DOMxRef("Node")}}-Quelle in ein {{domxref("Document")}} unter Verwendung des mit `XSLTProcessor` verbundenen XSLT-Stylesheets.
+Die `transformToDocument()`-Methode des [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor)-Interfaces transformiert die bereitgestellte [`Node`](/de/docs/Web/API/Node)-Quelle in ein [`Document`](/de/docs/Web/API/Document) unter Verwendung des mit dem `XSLTProcessor` assoziierten XSLT-Stylesheets.
 
 ## Syntax
 
@@ -19,23 +19,23 @@ transformToDocument(source)
 ### Parameter
 
 - `source`
-  - : Die {{DOMxRef("Node")}}-Quelle, auf die das XSLT-Stylesheet angewendet wird.
+  - : Die [`Node`](/de/docs/Web/API/Node)-Quelle, auf die das XSLT-Stylesheet angewendet werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("Document")}}. Das tatsächliche Interface hängt von der [Ausgabemethode](https://www.w3.org/TR/1999/REC-xslt-19991116#output) des Stylesheets ab:
+Ein [`Document`](/de/docs/Web/API/Document). Das tatsächliche Interface hängt von der [Ausgabemethode](https://www.w3.org/TR/1999/REC-xslt-19991116#output) des Stylesheets ab:
 
-| Ausgabemethode | Ergebnis-Interface                                                                                   |
-| -------------- | ---------------------------------------------------------------------------------------------------- |
-| `html`         | {{domxref("HTMLDocument")}}                                                                          |
-| `xml`          | {{domxref("XMLDocument")}}                                                                           |
-| `text`         | {{domxref("XMLDocument")}} mit einem einzigen Wurzelelement `<transformiix:result>` mit dem Text als Kind |
+| Ausgabemethode | Ergebnis-Interface                                                                                                            |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `html`         | [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)                                                                               |
+| `xml`          | [`XMLDocument`](/de/docs/Web/API/XMLDocument)                                                                                 |
+| `text`         | [`XMLDocument`](/de/docs/Web/API/XMLDocument) mit einem einzelnen Wurzelelement `<transformiix:result>` mit dem Text als Kind |
 
 ## Beispiele
 
 ### Verwendung von transformToDocument()
 
-Dieses Beispiel demonstriert, wie `transformToDocument()` verwendet wird, um ein XML-Dokument mit XSLT zu transformieren, was zu einer neuen XML-Dokumentstruktur führt.
+Dieses Beispiel zeigt, wie `transformToDocument()` verwendet wird, um ein XML-Dokument mithilfe von XSLT zu transformieren, was zu einer neuen XML-Dokumentstruktur führt.
 
 #### HTML
 
@@ -82,14 +82,14 @@ const xsltDoc = parser.parseFromString(xsltString, "application/xml");
 const xsltProcessor = new XSLTProcessor();
 xsltProcessor.importStylesheet(xsltDoc);
 
-// Führen Sie die Transformation durch und geben Sie das Ergebnis als neues XML-Dokument zurück
+// Perform the transformation, returning the result as a new XML document
 const resultDoc = xsltProcessor.transformToDocument(xmlDoc);
 
-// Serialisieren Sie das Ergebnisdokument in einen String
+// Serialize the result document to a string
 const serializer = new XMLSerializer();
 const resultString = serializer.serializeToString(resultDoc);
 
-// Zeigen Sie das transformierte XML auf der Seite an
+// Display the transformed XML in the page
 document.getElementById("result").textContent = resultString;
 ```
 
@@ -101,10 +101,10 @@ document.getElementById("result").textContent = resultString;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("XSLTProcessor.transformToFragment()")}}
+- [`XSLTProcessor.transformToFragment()`](/de/docs/Web/API/XSLTProcessor/transformToFragment)

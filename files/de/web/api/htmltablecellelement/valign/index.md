@@ -8,29 +8,29 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`vAlign`**-Eigenschaft des {{domxref("HTMLTableCellElement")}}-Interfaces ist ein String, der angibt, wie Text vertikal in einer {{htmlelement("th")}}- oder {{htmlelement("td")}}-Tabellenzelle ausgerichtet werden soll.
+Die **`vAlign`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces ist eine Zeichenkette, die angibt, wie der Text vertikal in einer {{htmlelement("th")}}- oder {{htmlelement("td")}}-Tabellenzelle ausgerichtet wird.
 
 > [!NOTE]
-> Diese Eigenschaft ist veraltet. Verwenden Sie stattdessen die CSS-{{cssxref("vertical-align")}}-Eigenschaft, um Text in einer Zelle horizontal auszurichten.
+> Diese Eigenschaft ist veraltet. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("vertical-align")}}, um Text in einer Zelle horizontal auszurichten.
 
 ## Wert
 
-Die möglichen Werte sind: `"top"`, `"middle"`, `"bottom"` oder `"baseline"`
+Die möglichen Werte sind: `"top"`, `"middle"`, `"bottom"` oder `"baseline"`.
 
 - `top`
   - : Richten Sie den Text oben in der Zelle aus. Verwenden Sie stattdessen `vertical-align: top`.
 - `center`
-  - : Vertikale Zentrierung des Textes in der Zelle. Synonym für `middle`. Verwenden Sie stattdessen `vertical-align: middle`.
+  - : Zentriert den Text vertikal in der Zelle. Synonym für `middle`. Verwenden Sie stattdessen `vertical-align: middle`.
 - `middle`
-  - : Vertikale Zentrierung des Textes in der Zelle. Verwenden Sie stattdessen `vertical-align: middle`.
+  - : Zentriert den Text vertikal in der Zelle. Verwenden Sie stattdessen `vertical-align: middle`.
 - `bottom`
   - : Richten Sie den Text unten in der Zelle aus. Verwenden Sie stattdessen `vertical-align: bottom`.
 - `baseline`
-  - : Ähnlich wie `top`, aber richtet die Grundlinie des Textes so nah wie möglich an der Oberseite aus, sodass kein Teil des Zeichens außerhalb der Zelle liegt.
+  - : Ähnlich zu `top`, aber richtet die Basislinie des Textes so nah wie möglich am oberen Rand aus, sodass kein Teil des Zeichens außerhalb der Zelle bleibt.
 
 ## Beispiele
 
-Verwenden Sie stattdessen die CSS-{{cssxref("vertical-align")}}-Eigenschaft, die Vorrang hat, wie im [Beispiel zur vertikalen Ausrichtung von Tabellzellen](/de/docs/Web/CSS/vertical-align#vertical_alignment_in_a_table_cell) gezeigt.
+Verwenden Sie stattdessen CSS {{cssxref("vertical-align")}}, das den Vorrang hat, wie im Beispiel [vertikale Ausrichtung in Tabellenzellen](/de/docs/Web/CSS/vertical-align#vertical_alignment_in_a_table_cell) demonstriert wird.
 
 ## Spezifikationen
 
@@ -43,4 +43,4 @@ Verwenden Sie stattdessen die CSS-{{cssxref("vertical-align")}}-Eigenschaft, die
 ## Siehe auch
 
 - {{cssxref("vertical-align")}}
-- [Tabellenstile](/de/docs/Learn/CSS/Building_blocks/Styling_tables)
+- [Styling von Tabellen](/de/docs/Learn/CSS/Building_blocks/Styling_tables)

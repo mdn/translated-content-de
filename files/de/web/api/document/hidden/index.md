@@ -1,5 +1,5 @@
 ---
-title: "Dokument: hidden-Eigenschaft"
+title: "Document: hidden Eigenschaft"
 short-title: hidden
 slug: Web/API/Document/hidden
 l10n:
@@ -8,21 +8,20 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Document.hidden`** schreibgeschützte Eigenschaft gibt einen booleschen
-Wert zurück, der anzeigt, ob die Seite als verborgen betrachtet wird oder nicht.
+Die schreibgeschützte **`Document.hidden`**-Eigenschaft gibt einen Boolean-Wert zurück, der angibt, ob die Seite als verborgen betrachtet wird oder nicht.
 
-Die {{domxref("Document.visibilityState")}}-Eigenschaft bietet eine alternative Möglichkeit, um festzustellen, ob die Seite verborgen ist.
+Die [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState)-Eigenschaft bietet eine alternative Möglichkeit, um festzustellen, ob die Seite verborgen ist.
 
 ## Wert
 
-Ein boolescher Wert, `true`, wenn die Seite verborgen ist, und `false` andernfalls.
+Ein Boolean-Wert: `true`, wenn die Seite verborgen ist, und `false` andernfalls.
 
 ## Beispiele
 
 ```js
 document.addEventListener("visibilitychange", () => {
   console.log(document.hidden);
-  // Verhalten anpassen…
+  // Modify behavior…
 });
 ```
 
@@ -36,4 +35,4 @@ document.addEventListener("visibilitychange", () => {
 
 ## Siehe auch
 
-- {{domxref("Document.visibilityState")}}
+- [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState)

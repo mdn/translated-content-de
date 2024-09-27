@@ -1,5 +1,5 @@
 ---
-title: "RTCRemoteInboundRtpStreamStats: Eigenschaft totalRoundTripTime"
+title: "RTCRemoteInboundRtpStreamStats: totalRoundTripTime-Eigenschaft"
 short-title: totalRoundTripTime
 slug: Web/API/RTCRemoteInboundRtpStreamStats/totalRoundTripTime
 l10n:
@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`totalRoundTripTime`** des {{domxref("RTCRemoteInboundRtpStreamStats")}}-Wörterbuchs zeigt die kumulative Summe aller Rundlaufzeit-Messungen (RTT) seit Beginn der Sitzung in Sekunden an.
+Die **`totalRoundTripTime`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt die kumulative Summe aller `round trip time` (RTT) Messungen seit Beginn der Sitzung in Sekunden an.
 
-Die individuelle Rundlaufzeit wird basierend auf den RTCP-Zeitstempeln im RTCP-Empfängerbericht (Receiver Report, RR) berechnet und erfordert daher einen DLSR-Wert ungleich 0. Die durchschnittliche RTT kann berechnet werden, indem `totalRoundTripTime` durch {{domxref("RTCRemoteInboundRtpStreamStats.roundTripTimeMeasurements","roundTripTimeMeasurements")}} geteilt wird.
+Die individuelle `round trip time` wird basierend auf den RTCP-Zeitstempeln im RTCP Receiver Report (RR) berechnet, daher ist ein DLSR-Wert ungleich 0 erforderlich. Die durchschnittliche RTT kann berechnet werden, indem `totalRoundTripTime` durch [`roundTripTimeMeasurements`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/roundTripTimeMeasurements) dividiert wird.
 
 ## Wert
 
-Eine Zahl, die die gesamte Rundlaufzeit für die Sitzung in Sekunden angibt.
+Eine Zahl, die die gesamte `round trip time` für die Sitzung in Sekunden angibt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{rfc("3550","RR: RTCP-Empfängerberichtspaket", "6.4.2")}}
+- {{rfc("3550","RR: Receiver Report RTCP-Paket", "6.4.2")}}

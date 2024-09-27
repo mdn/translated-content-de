@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`needsRedraw`**-Eigenschaft des {{domxref("XRCompositionLayer")}}-Interfaces ist ein boolescher Wert, der signalisiert, dass die Ebene im nächsten Frame neu gerendert werden sollte.
+Die schreibgeschützte **`needsRedraw`**-Eigenschaft der [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)-Schnittstelle ist ein boolean, der signalisiert, dass die Ebene im nächsten Frame neu gerendert werden sollte.
 
-Der Bedarf für das Neuzeichnen kann auftreten, wenn die zugrunde liegenden Ressourcen einer Ebene verloren gehen, weil Texturen vom Kompositor im Hintergrund freigegeben wurden. Dies kann passieren, wenn das Gerät in den Ruhezustand wechselt oder wenn der Browser den Kontext wechselt (zu einem Betriebssystemdialog oder Ähnlichem) und dann zurückkehrt.
+Das Bedürfnis nach einem Neuzeichnen kann auftreten, wenn die zugrunde liegenden Ressourcen einer Ebene verloren gehen, weil Texturen möglicherweise im Verborgenen vom Kompositor freigegeben wurden. Dies könnte passieren, wenn das Gerät in den Ruhemodus wechselt oder wenn der Browser den Kontext wechselt (zu einem Betriebssystemdialog oder Ähnlichem) und dann zurückkehrt.
 
-Das Neuzeichnen ist kein Problem für Ebenen, die mit jedem Frame aktualisiert werden. Jedoch für Ebenen, die nur selten aktualisiert werden, oder für statische Ebenen (wo Sie nur einmal nach der Erstellung oder nach einem `redraw`-Ereignis zeichnen können), könnte der Inhalt der Ebene verloren gehen und muss neu gezeichnet werden. Wenn die Ressourcen der Ebene verloren gehen, wird die `needsRedraw`-Eigenschaft `true` sein und ein `redraw`-Ereignis wird auf der Ebene ausgelöst.
+Neuzeichnen ist kein Problem für Ebenen, die mit jedem Frame aktualisiert werden. Bei Ebenen, die nur selten aktualisiert werden, oder bei statischen Ebenen (bei denen Sie nur einmal nach der Erstellung oder nach einem `redraw`-Ereignis zeichnen können), könnte der Inhalt der Ebene verloren gehen und neu gezeichnet werden müssen. Wenn die Ressourcen der Ebene verloren gehen, wird die `needsRedraw`-Eigenschaft `true` sein und ein `redraw`-Ereignis wird auf der Ebene ausgelöst.
 
 ## Wert
 
-Ein boolescher Wert. `true` zeigt an, dass ein Neurendern im nächsten Frame erforderlich ist, `false` bedeutet, dass kein Neurendern erforderlich ist.
+Ein boolean. `true` bedeutet, dass ein Neurendern im nächsten Frame erforderlich ist, `false` bedeutet, dass kein Neurendern erforderlich ist.
 
 ## Beispiele
 
 ### Ebenen neu zeichnen
 
-Verwenden Sie die `needsRedraw`-Eigenschaft, um zu überprüfen, ob eine Ebene neu gezeichnet werden muss und zeichnen Sie sie dann neu.
+Verwenden Sie die `needsRedraw`-Eigenschaft, um zu überprüfen, ob eine Ebene neu gezeichnet werden muss, und zeichnen Sie sie dann neu.
 
 ```js
 function onXRFrame(time, frame) {
@@ -44,7 +44,7 @@ function onXRFrame(time, frame) {
 
 ## Siehe auch
 
-- {{domxref("XREquirectLayer")}}: {{domxref("XREquirectLayer.redraw_event", "redraw")}}-Ereignis
-- {{domxref("XRCubeLayer")}}: {{domxref("XRCubeLayer.redraw_event", "redraw")}}-Ereignis
-- {{domxref("XRCylinderLayer")}}: {{domxref("XRCylinderLayer.redraw_event", "redraw")}}-Ereignis
-- {{domxref("XRQuadLayer")}}: {{domxref("XRQuadLayer.redraw_event", "redraw")}}-Ereignis
+- [`XREquirectLayer`](/de/docs/Web/API/XREquirectLayer): [`redraw`](/de/docs/Web/API/XREquirectLayer/redraw_event)-Ereignis
+- [`XRCubeLayer`](/de/docs/Web/API/XRCubeLayer): [`redraw`](/de/docs/Web/API/XRCubeLayer/redraw_event)-Ereignis
+- [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer): [`redraw`](/de/docs/Web/API/XRCylinderLayer/redraw_event)-Ereignis
+- [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer): [`redraw`](/de/docs/Web/API/XRQuadLayer/redraw_event)-Ereignis

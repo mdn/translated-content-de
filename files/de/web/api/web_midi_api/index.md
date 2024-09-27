@@ -1,5 +1,5 @@
 ---
-title: Web-MIDI-API
+title: Web MIDI API
 slug: Web/API/Web_MIDI_API
 l10n:
   sourceCommit: b065c09b79d18abf0f04778c9307e1c312b8c6f9
@@ -7,82 +7,82 @@ l10n:
 
 {{DefaultAPISidebar("Web MIDI API")}}{{SecureContext_Header}}
 
-Die Web-MIDI-API verbindet und interagiert mit Musical Instrument Digital Interface (MIDI)-Geräten.
+Die Web MIDI API verbindet sich mit Musical Instrument Digital Interface (MIDI) Geräten und interagiert mit ihnen.
 
-Die Schnittstellen befassen sich mit den praktischen Aspekten des Sendens und Empfangens von MIDI-Nachrichten. Daher kann die API sowohl für musikalische als auch nicht-musikalische Zwecke genutzt werden, mit jedem MIDI-Gerät, das an Ihren Computer angeschlossen ist.
+Die Schnittstellen beschäftigen sich mit den praktischen Aspekten des Sendens und Empfangens von MIDI-Nachrichten. Daher kann die API für musikalische und nicht-musikalische Anwendungen mit jedem MIDI-Gerät, das an Ihren Computer angeschlossen ist, verwendet werden.
 
 ## Schnittstellen
 
-- {{domxref("MIDIInputMap")}}
-  - : Stellt alle verfügbaren MIDI-Eingangsports dar.
-- {{domxref("MIDIOutputMap")}}
-  - : Stellt alle verfügbaren MIDI-Ausgangsports dar.
-- {{domxref("MIDIAccess")}}
-  - : Bietet die Methoden, um Eingabe- und Ausgabegeräte aufzulisten und auf ein einzelnes Gerät zuzugreifen.
-- {{domxref("MIDIPort")}}
-  - : Stellt einen einzelnen MIDI-Port dar.
-- {{domxref("MIDIInput")}}
-  - : Bietet eine Methode zur Bearbeitung von MIDI-Nachrichten von einem Eingangsport.
-- {{domxref("MIDIOutput")}}
-  - : Stellt Nachrichten in die Warteschlange für den verbundenen MIDI-Port. Nachrichten können sofort oder nach einer angegebenen Verzögerung gesendet werden.
-- {{domxref("MIDIMessageEvent")}}
-  - : Das Ereignis, das an das `MIDIInput` {{domxref("MIDIInput.midimessage_event", "midimessage")}}-Ereignis übergeben wird.
-- {{domxref("MIDIConnectionEvent")}}
-  - : Das Ereignis, das an die `MIDIAccess` {{domxref("MIDIAccess.statechange_event", "statechange")}}- und `MIDIPort` {{domxref("MIDIPort.statechange_event", "statechange")}}-Ereignisse übergeben wird, wenn ein Port verfügbar oder nicht verfügbar wird.
+- [`MIDIInputMap`](/de/docs/Web/API/MIDIInputMap)
+  - : Repräsentiert alle verfügbaren MIDI-Eingangsanschlüsse.
+- [`MIDIOutputMap`](/de/docs/Web/API/MIDIOutputMap)
+  - : Repräsentiert alle verfügbaren MIDI-Ausgangsanschlüsse.
+- [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)
+  - : Bietet die Methoden zum Auflisten von Eingabe- und Ausgabegeräten sowie zum Zugriff auf ein einzelnes Gerät.
+- [`MIDIPort`](/de/docs/Web/API/MIDIPort)
+  - : Repräsentiert einen einzelnen MIDI-Anschluss.
+- [`MIDIInput`](/de/docs/Web/API/MIDIInput)
+  - : Bietet eine Methode zum Umgang mit MIDI-Nachrichten von einem Eingangsanschluss.
+- [`MIDIOutput`](/de/docs/Web/API/MIDIOutput)
+  - : Wartet Nachrichten in der verbundenen MIDI-Schnittstelle. Nachrichten können sofort oder nach einer bestimmten Verzögerung gesendet werden.
+- [`MIDIMessageEvent`](/de/docs/Web/API/MIDIMessageEvent)
+  - : Das Ereignis, das an das `MIDIInput` [`midimessage`](/de/docs/Web/API/MIDIInput/midimessage_event) Ereignis übergeben wird.
+- [`MIDIConnectionEvent`](/de/docs/Web/API/MIDIConnectionEvent)
+  - : Das Ereignis, das an die `MIDIAccess` [`statechange`](/de/docs/Web/API/MIDIAccess/statechange_event) und `MIDIPort` [`statechange`](/de/docs/Web/API/MIDIPort/statechange_event) Ereignisse übergeben wird, wenn ein Anschluss verfügbar oder nicht verfügbar wird.
 
 ## Sicherheitsanforderungen
 
-Auf die API wird mit der Methode {{domxref("navigator.requestMIDIAccess()")}} zugegriffen.
+Der Zugriff auf die API wird über die Methode [`navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) angefordert.
 
 - Die Methode muss in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) aufgerufen werden.
-- Der Zugriff kann durch die [`midi`](/de/docs/Web/HTTP/Headers/Permissions-Policy/midi) HTTP [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) eingeschränkt werden.
-- Der Benutzer muss die Erlaubnis zur Nutzung der API ausdrücklich über einen benutzerspezifischen Mechanismus erteilen oder zuvor erteilt haben. Beachten Sie, dass, wenn der Zugriff durch eine Berechtigungsrichtlinie verweigert wird, er nicht durch eine Benutzererlaubnis gewährt werden kann.
+- Der Zugriff kann durch die [`midi`](/de/docs/Web/HTTP/Headers/Permissions-Policy/midi) HTTP [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) beschränkt sein.
+- Der Benutzer muss die Verwendung der API explizit über einen benutzerspezifischen Mechanismus genehmigen oder zuvor die Erlaubnis erteilt haben. Beachten Sie, dass, wenn der Zugriff durch eine Berechtigungsrichtlinie verweigert wird, er nicht durch eine Benutzerberechtigung gewährt werden kann.
 
-Der Berechtigungsstatus kann mit der [Berechtigungs-API](/de/docs/Web/API/Permissions_API)-Methode [`navigator.permissions.query()`](/de/docs/Web/API/Permissions/query) abgefragt werden, indem ein Berechtigungsdeskriptor mit der `midi`-Berechtigung und optional der `sysex`-Eigenschaft übergeben wird:
+Der Berechtigungsstatus kann mit der [Permissions API](/de/docs/Web/API/Permissions_API) Methode [`navigator.permissions.query()`](/de/docs/Web/API/Permissions/query) abgefragt werden, wobei ein Berechtigungsdeskriptor mit der `midi` Berechtigung und (optional) der `sysex` Eigenschaft übergeben wird:
 
 ```js
 navigator.permissions.query({ name: "midi", sysex: true }).then((result) => {
   if (result.state === "granted") {
-    // Zugriff gewährt.
+    // Access granted.
   } else if (result.state === "prompt") {
-    // Die Verwendung der API wird eine Berechtigungsabfrage auslösen.
+    // Using API will prompt for permission
   }
-  // Berechtigung wurde durch Benutzerabfrage oder Berechtigungsrichtlinie verweigert
+  // Permission was denied by user prompt or permission policy
 });
 ```
 
 ## Beispiele
 
-### Zugang zum MIDI-Port erlangen
+### Zugriff auf den MIDI-Anschluss erlangen
 
-Die {{domxref("navigator.requestMIDIAccess()")}}-Methode gibt ein Promise zurück, das in ein {{domxref("MIDIAccess")}}-Objekt aufgelöst wird, das dann verwendet werden kann, um auf ein MIDI-Gerät zuzugreifen. Die Methode muss in einem sicheren Kontext aufgerufen werden.
+Die Methode [`navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) gibt ein Versprechen zurück, das zu einem [`MIDIAccess`](/de/docs/Web/API/MIDIAccess) Objekt aufgelöst wird, welches dann verwendet werden kann, um auf ein MIDI-Gerät zuzugreifen. Diese Methode muss in einem sicheren Kontext aufgerufen werden.
 
 ```js
-let midi = null; // globales MIDIAccess-Objekt
+let midi = null; // global MIDIAccess object
 function onMIDISuccess(midiAccess) {
-  console.log("MIDI bereit!");
-  midi = midiAccess; // in der globalen Variable speichern (in tatsächlicher Nutzung würde es wahrscheinlich in einer Objektinstanz gehalten)
+  console.log("MIDI ready!");
+  midi = midiAccess; // store in the global (in real usage, would probably keep in an object instance)
 }
 
 function onMIDIFailure(msg) {
-  console.error(`Fehler beim Erhalt des MIDI-Zugriffs - ${msg}`);
+  console.error(`Failed to get MIDI access - ${msg}`);
 }
 
 navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
 ```
 
-### Auflisten von Eingängen und Ausgängen
+### Eingaben und Ausgaben auflisten
 
-In diesem Beispiel werden die Listen der Eingangs- und Ausgangsports abgerufen und in die Konsole ausgegeben.
+In diesem Beispiel werden die Listen der Eingangs- und Ausgangsports abgerufen und in die Konsole gedruckt.
 
 ```js
 function listInputsAndOutputs(midiAccess) {
   for (const entry of midiAccess.inputs) {
     const input = entry[1];
     console.log(
-      `Eingangsport [type:'${input.type}']` +
+      `Input port [type:'${input.type}']` +
         ` id:'${input.id}'` +
-        ` hersteller:'${input.manufacturer}'` +
+        ` manufacturer:'${input.manufacturer}'` +
         ` name:'${input.name}'` +
         ` version:'${input.version}'`,
     );
@@ -91,19 +91,19 @@ function listInputsAndOutputs(midiAccess) {
   for (const entry of midiAccess.outputs) {
     const output = entry[1];
     console.log(
-      `Ausgangsport [type:'${output.type}'] id:'${output.id}' hersteller:'${output.manufacturer}' name:'${output.name}' version:'${output.version}'`,
+      `Output port [type:'${output.type}'] id:'${output.id}' manufacturer:'${output.manufacturer}' name:'${output.name}' version:'${output.version}'`,
     );
   }
 }
 ```
 
-### Handhabung von MIDI-Eingaben
+### MIDI-Eingang verarbeiten
 
-Dieses Beispiel gibt alle MIDI-Eingabenachrichten in die Konsole aus.
+Dieses Beispiel druckt alle MIDI-Eingangsnachrichten in die Konsole.
 
 ```js
 function onMIDIMessage(event) {
-  let str = `MIDI-Nachricht empfangen bei Zeitstempel ${event.timeStamp}[${event.data.length} bytes]: `;
+  let str = `MIDI message received at timestamp ${event.timeStamp}[${event.data.length} bytes]: `;
   for (const character of event.data) {
     str += `0x${character.toString(16)} `;
   }

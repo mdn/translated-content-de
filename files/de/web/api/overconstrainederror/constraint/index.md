@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die schreibgeschützte Eigenschaft **`constraint`** des {{domxref("OverconstrainedError")}}-Interfaces gibt die Einschränkung zurück, die im Konstruktor angegeben wurde, also die Einschränkung, die nicht erfüllt wurde.
+Die schreibgeschützte **`constraint`**-Eigenschaft der [`OverconstrainedError`](/de/docs/Web/API/OverconstrainedError)-Schnittstelle gibt die Einschränkung zurück, die im Konstruktor übergeben wurde, das heißt, die Einschränkung, die nicht erfüllt wurde.
 
 ## Wert
 

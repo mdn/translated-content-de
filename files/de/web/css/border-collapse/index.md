@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-collapse`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Zellen innerhalb eines {{htmlElement("table")}} gemeinsame oder separate Ränder haben.
+Die **`border-collapse`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Zellen innerhalb eines {{htmlElement("table")}} gemeinsame oder getrennte Rahmen haben.
 
 {{EmbedInteractiveExample("pages/css/border-collapse.html")}}
 
-Wenn Zellen zusammengeklappt sind, verhält sich der {{cssxref("border-style")}} Wert `inset` wie `ridge` und `outset` wie `groove`.
+Wenn Zellen zusammengeführt werden, verhält sich der {{cssxref("border-style")}} Wert von `inset` wie `ridge`, und `outset` verhält sich wie `groove`.
 
-Sind Zellen getrennt, wird der Abstand zwischen den Zellen durch die Eigenschaft {{cssxref("border-spacing")}} definiert.
+Wenn Zellen getrennt sind, wird der Abstand zwischen Zellen durch die {{cssxref("border-spacing")}} Eigenschaft definiert.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 border-collapse: collapse;
 border-collapse: separate;
 
-/* Globale Werte */
+/* Global values */
 border-collapse: inherit;
 border-collapse: initial;
 border-collapse: revert;
@@ -30,14 +30,14 @@ border-collapse: revert-layer;
 border-collapse: unset;
 ```
 
-Die Eigenschaft `border-collapse` wird als einzelnes Schlüsselwort angegeben, das aus der unten aufgeführten Liste ausgewählt werden kann.
+Die `border-collapse` Eigenschaft wird als ein einzelnes Schlüsselwort angegeben, das aus der untenstehenden Liste ausgewählt werden kann.
 
 ### Werte
 
 - `collapse`
-  - : Benachbarte Zellen haben gemeinsame Ränder (das Darstellungsmodell mit zusammengeklappten Rändern).
+  - : Angrenzende Zellen haben gemeinsame Rahmen (das Modell für zusammengeführte Rahmen der Tabelle).
 - `separate`
-  - : Benachbarte Zellen haben unterschiedliche Ränder (das Darstellungsmodell mit getrennten Rändern).
+  - : Angrenzende Zellen haben getrennte Rahmen (das Modell für getrennte Rahmen der Tabelle).
 
 ## Formale Definition
 
@@ -185,4 +185,4 @@ table td {
 
 - {{cssxref("border-spacing")}}, {{cssxref("border-style")}}
 - Die `border-collapse` Eigenschaft verändert das Erscheinungsbild des {{htmlelement("table")}} HTML-Elements.
-- [CSS-Tabelle](/de/docs/Web/CSS/CSS_table) Modul
+- [CSS table](/de/docs/Web/CSS/CSS_table) Modul

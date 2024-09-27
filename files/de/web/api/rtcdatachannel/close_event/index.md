@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannel: close-Ereignis"
+title: "RTCDataChannel: close-Event"
 short-title: close
 slug: Web/API/RTCDataChannel/close_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`close`**-Ereignis wird an den `onclose`-Ereignishandler einer {{domxref("RTCDataChannel")}}-Instanz gesendet, wenn der Datentransport für den Datenkanal geschlossen wurde. Bevor weitere Daten über `RTCDataChannel` übertragen werden können, muss eine neue 'RTCDataChannel'-Instanz erstellt werden.
+Das **`close`**-Ereignis wird an den `onclose`-Ereignishandler einer [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Instanz gesendet, wenn der Datentransport für den Datenkanal beendet wurde. Bevor weitere Daten mit `RTCDataChannel` übertragen werden können, muss eine neue 'RTCDataChannel'-Instanz erstellt werden.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und tritt nicht in einer Ereignisblase auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("close", (event) => {});
@@ -24,11 +24,11 @@ onclose = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel richtet einen Handler für das `close`-Ereignis für das {{domxref("RTCDataChannel")}} namens `dc` ein; seine Aufgabe in diesem Beispiel ist es, die Benutzeroberflächenelemente zu aktualisieren, um anzuzeigen, dass kein laufendes Gespräch mehr besteht, und es zu ermöglichen, ein neues Gespräch zu beginnen.
+Dieses Beispiel richtet einen Handler für das `close`-Ereignis des [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) namens `dc` ein; seine Aufgabe in diesem Beispiel besteht darin, Benutzeroberflächenelemente zu aktualisieren, um anzuzeigen, dass kein laufendes Gespräch mehr existiert, und um den Start eines neuen Gesprächs zu ermöglichen.
 
 ```js
 dc.addEventListener(
@@ -43,9 +43,9 @@ dc.addEventListener(
 );
 ```
 
-Alles, was dieser Code als Reaktion auf das `close`-Ereignis tut, ist, ein Eingabefeld und dessen "Senden"-Schaltfläche zu deaktivieren und die Schaltfläche zu aktivieren, die zum Starten eines Gesprächs verwendet wird (während die Schaltfläche, die das Gespräch beendet, deaktiviert wird).
+Alles, was dieser Code als Reaktion auf das `close`-Ereignis tut, ist es, ein Eingabefeld und die "Senden"-Schaltfläche zu deaktivieren und die Schaltfläche zum Starten eines Anrufs zu aktivieren (während die zum Beenden eines Anrufs deaktiviert wird).
 
-Sie können auch die `onclose` Ereignishandlereigenschaft verwenden, um einen Handler für `close`-Ereignisse festzulegen:
+Sie können auch die `onclose`-Ereignishandler-Eigenschaft verwenden, um einen Handler für `close`-Ereignisse einzurichten:
 
 ```js
 dc.onclose = (ev) => {
@@ -68,4 +68,4 @@ dc.onclose = (ev) => {
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
 - [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample)
-- Verwandte Ereignisse: {{domxref("RTCDataChannel.open_event", "open")}}, {{domxref("RTCDataChannel.message_event", "message")}}, und {{domxref("RTCDataChannel.error_event", "error")}}
+- Verwandte Ereignisse: [`open`](/de/docs/Web/API/RTCDataChannel/open_event), [`message`](/de/docs/Web/API/RTCDataChannel/message_event) und [`error`](/de/docs/Web/API/RTCDataChannel/error_event)

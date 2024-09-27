@@ -1,22 +1,22 @@
 ---
-title: "GPUCompilationInfo: Nachrichten-Eigenschaft"
-short-title: Nachrichten
+title: "GPUCompilationInfo: Eigenschaft messages"
+short-title: messages
 slug: Web/API/GPUCompilationInfo/messages
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`messages`**-Eigenschaft des {{domxref("GPUCompilationInfo")}}-Interfaces ist ein Array von {{domxref("GPUCompilationMessage")}}-Objekten. Jedes enthält die Details einer einzelnen Shader-Kompilierungsnachricht. Nachrichten können informativ sein, Warnungen oder Fehler.
+Die schreibgeschützte Eigenschaft **`messages`** der Schnittstelle [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo) ist ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten, von denen jedes die Details einer individuellen Shader-Kompilierungsnachricht enthält. Nachrichten können informativ, Warnungen oder Fehler sein.
 
 ## Wert
 
-Ein Array von {{domxref("GPUCompilationMessage")}}-Objekten.
+Ein Array von [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Objekten.
 
 ## Beispiele
 
-Sehen Sie sich die Hauptseite zu [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein Beispiel an.
+Siehe die Hauptseite von [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein Beispiel.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "HTMLFieldSetElement: Methode setCustomValidity()"
+title: "HTMLFieldSetElement: setCustomValidity() Methode"
 short-title: setCustomValidity()
 slug: Web/API/HTMLFieldSetElement/setCustomValidity
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`setCustomValidity()`** Methode der {{DOMxRef("HTMLFieldSetElement")}} Schnittstelle setzt die benutzerdefinierte Fehlermeldung für das {{htmlelement("fieldset")}}-Element. Verwenden Sie den leeren String, um anzuzeigen, dass das Element _keinen_ benutzerdefinierten Validitätsfehler hat.
+Die **`setCustomValidity()`**-Methode der [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Schnittstelle legt die benutzerdefinierte Fehlermeldung für das {{htmlelement("fieldset")}}-Element fest. Verwenden Sie den leeren String, um anzuzeigen, dass das Element keinen benutzerdefinierten Gültigkeitsfehler hat.
 
-Das `<fieldset>`-Element ist kein Kandidat für die Einschränkungsvalidierung. Die Methode {{DOMxRef("HTMLFieldSetElement.reportValidity()", "reportValidity()")}} wird nicht dazu führen, dass die benutzerdefinierte Fehlermeldung dem Benutzer angezeigt wird, setzt jedoch die {{DOMxRef("ValidityState.customError", "customError")}} Eigenschaft des {{DOMxRef("ValidityState")}}-Objekts des Elements auf `true` und die {{DOMxRef("ValidityState.valid", "valid")}} Eigenschaft auf `false`.
+Das `<fieldset>`-Element ist kein Kandidat für die Constraint-Validierung. Die [`reportValidity()`](/de/docs/Web/API/HTMLFieldSetElement/reportValidity)-Methode wird die benutzerdefinierte Fehlermeldung nicht dem Benutzer anzeigen, setzt jedoch die [`customError`](/de/docs/Web/API/ValidityState/customError)-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts des Elements auf `true` und die [`valid`](/de/docs/Web/API/ValidityState/valid)-Eigenschaft auf `false`.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ setCustomValidity(string)
 ### Parameter
 
 - `string`
-  - : Der String, der die Fehlermeldung enthält. Der leere String entfernt alle benutzerdefinierten Validitätsfehler.
+  - : Der String, der die Fehlermeldung enthält. Ein leerer String entfernt alle benutzerdefinierten Gültigkeitsfehler.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -50,11 +50,11 @@ if (errors) {
 ## Siehe auch
 
 - {{HTMLelement("fieldset")}}
-- {{domxref("HTMLFieldSetElement")}}
-- {{domxref("HTMLFieldSetElement.validity")}}
-- {{domxref("HTMLFieldSetElement.checkValidity()")}}
-- {{domxref("HTMLFieldSetElement.reportValidity()")}}
+- [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)
+- [`HTMLFieldSetElement.validity`](/de/docs/Web/API/HTMLFieldSetElement/validity)
+- [`HTMLFieldSetElement.checkValidity()`](/de/docs/Web/API/HTMLFieldSetElement/checkValidity)
+- [`HTMLFieldSetElement.reportValidity()`](/de/docs/Web/API/HTMLFieldSetElement/reportValidity)
 - [Formularvalidierung](/de/docs/Web/HTML/Constraint_validation).
-- [Lernen: Formularvalidierung auf der Client-Seite](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Leitfaden: Constraint-Validierung](/de/docs/Web/HTML/Constraint_validation)
 - CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

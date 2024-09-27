@@ -8,10 +8,10 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.empty()`**-Methode entfernt alle Bereiche aus der Auswahl, wodurch die Eigenschaften des {{domxref("Selection.anchorNode", "anchorNode")}} und {{domxref("Selection.focusNode","focusNode")}} auf `null` gesetzt werden und nichts mehr ausgewählt ist. Wenn diese Methode aufgerufen wird, wird ein {{domxref("Document/selectionchange_event", "selectionchange")}}-Ereignis im Dokument ausgelöst.
+Die **`Selection.empty()`** Methode entfernt alle Bereiche aus der Auswahl, sodass die Eigenschaften [`anchorNode`](/de/docs/Web/API/Selection/anchorNode) und [`focusNode`](/de/docs/Web/API/Selection/focusNode) gleich `null` sind und nichts ausgewählt ist. Wenn diese Methode aufgerufen wird, wird ein [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event) Ereignis im Dokument ausgelöst.
 
 > [!NOTE]
-> Diese Methode ist ein Alias für die {{domxref("Selection.removeAllRanges()")}}-Methode.
+> Diese Methode ist ein Alias für die [`Selection.removeAllRanges()`](/de/docs/Web/API/Selection/removeAllRanges) Methode.
 
 ## Syntax
 
@@ -29,29 +29,29 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt eine Nachricht an, ob etwas auf der Seite ausgewählt ist oder nicht. Es tut dies, indem es auf das {{domxref("Document/selectionchange_event", "selectionchange")}}-Ereignis im Dokument hört. Es gibt auch einen Button, der jegliche Auswahl löscht, indem er `Selection.empty()` aufruft. Wenn dies geschieht, wird die Auswahl geändert und die Nachricht aktualisiert.
+Dieses Beispiel zeigt eine Nachricht an, wenn etwas auf der Seite ausgewählt wird oder nicht. Dies geschieht durch das Abhören des [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event) Ereignisses im Dokument. Es gibt auch einen Button, der jede Auswahl löscht, indem er `Selection.empty()` aufruft. Wenn dies passiert, wird die Auswahl geändert und die Nachricht aktualisiert.
 
 ```html
 <p>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet
   urna eget sapien venenatis, eget facilisis diam mattis.
 </p>
-<button>Auswahl löschen</button>
+<button>Clear selection</button>
 <pre id="log"></pre>
 ```
 
 ```js
 const log = document.getElementById("log");
 
-// Das Selektionsobjekt ist ein Singleton, das mit dem Dokument assoziiert ist
+// The selection object is a singleton associated with the document
 const selection = document.getSelection();
 
-// Protokolliert, ob eine Auswahl vorhanden ist oder nicht
+// Logs if there is a selection or not
 function newSelectionHandler() {
   if (selection.rangeCount !== 0) {
-    log.textContent = "Einige Texte sind ausgewählt.";
+    log.textContent = "Some text is selected.";
   } else {
-    log.textContent = "Keine Auswahl in diesem Dokument.";
+    log.textContent = "No selection on this document.";
   }
 }
 
@@ -61,7 +61,7 @@ document.addEventListener("selectionchange", () => {
 
 newSelectionHandler();
 
-// Der Button löscht alle Auswahlbereiche
+// The button cancel all selection ranges
 const button = document.querySelector("button");
 button.addEventListener("click", () => {
   selection.empty();
@@ -80,5 +80,5 @@ button.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("Selection.removeAllRanges()")}}
-- {{domxref("Document/selectionchange_event", "selectionchange")}}
+- [`Selection.removeAllRanges()`](/de/docs/Web/API/Selection/removeAllRanges)
+- [`selectionchange`](/de/docs/Web/API/Document/selectionchange_event)

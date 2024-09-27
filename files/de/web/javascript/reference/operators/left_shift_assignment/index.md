@@ -19,7 +19,7 @@ x <<= y
 
 ## Beschreibung
 
-`x <<= y` entspricht `x = x << y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x <<= y` ist äquivalent zu `x = x << y`, mit der Ausnahme, dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 
@@ -46,5 +46,5 @@ b <<= 2n; // 20n
 
 ## Siehe auch
 
-- [Zuweisungsoperatoren im JS-Handbuch](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
+- [Zuweisungsoperatoren im JS-Leitfaden](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators)
 - [Linksverschiebung (`<<`)](/de/docs/Web/JavaScript/Reference/Operators/Left_shift)

@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-**`Proxy-Authorization`**-Anforderungsheader enthält die Anmeldedaten zur Authentifizierung eines User-Agents bei einem Proxy-Server, normalerweise nachdem der Server mit einem {{HTTPStatus("407")}} `Proxy Authentication Required`-Status und dem {{HTTPHeader("Proxy-Authenticate")}}-Header geantwortet hat.
+Der HTTP **`Proxy-Authorization`** Anforderungsheader enthält die Anmeldedaten, um einen User-Agent bei einem Proxy-Server zu authentifizieren, normalerweise nachdem der Server mit einem {{HTTPStatus("407")}} `Proxy Authentication Required`-Status und dem {{HTTPHeader("Proxy-Authenticate")}}-Header geantwortet hat.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request header")}}</td>
+      <td>[Request header](/de/docs/Glossary/Request_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -31,7 +31,7 @@ Proxy-Authorization: <type> <credentials>
 ## Direktiven
 
 - \<type>
-  - : [Authentifizierungstyp](/de/docs/Web/HTTP/Authentication#authentication_schemes). Ein häufig genutzter Typ ist ["Basic"](/de/docs/Web/HTTP/Authentication#basic_authentication_scheme).
+  - : [Authentifizierungstyp](/de/docs/Web/HTTP/Authentication#authentication_schemes). Ein häufiger Typ ist ["Basic"](/de/docs/Web/HTTP/Authentication#basic_authentication_scheme).
     Siehe auch das [IANA-Register der Authentifizierungsschemata](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml).
 - \<credentials>
 
@@ -43,10 +43,10 @@ Proxy-Authorization: <type> <credentials>
       kodiert (`YWxhZGRpbjpvcGVuc2VzYW1l`).
 
     > [!NOTE]
-    > Die Base64-Kodierung bedeutet keine Verschlüsselung oder Hashing! Diese
-    > Methode ist so sicher wie das Senden der Anmeldedaten im Klartext (Base64 ist eine
-    > umkehrbare Kodierung). Es ist vorzuziehen, HTTPS in Verbindung mit Basic
-    > Authentication zu verwenden.
+    > Base64-Kodierung bedeutet nicht Verschlüsselung oder Hashing! Diese
+    > Methode ist genauso sicher wie das Senden der Anmeldedaten im Klartext (base64 ist eine
+    > umkehrbare Kodierung). Es ist vorzuziehen, HTTPS in Verbindung mit der Basis-
+    > Authentifizierung zu verwenden.
 
 ## Beispiele
 

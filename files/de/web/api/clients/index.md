@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Das `Clients`-Interface bietet Zugriff auf {{domxref("Client")}}-Objekte. Sie können darauf über `{{domxref("ServiceWorkerGlobalScope", "self")}}.clients` innerhalb eines [Service Workers](/de/docs/Web/API/Service_Worker_API) zugreifen.
+Das `Clients`-Interface bietet Zugriff auf [`Client`](/de/docs/Web/API/Client)-Objekte. Greifen Sie über `[`self`](/de/docs/Web/API/ServiceWorkerGlobalScope).clients` innerhalb eines [Service-Workers](/de/docs/Web/API/Service_Worker_API) darauf zu.
 
 ## Instanzmethoden
 
-- {{domxref("Clients.get()")}}
-  - : Gibt ein {{jsxref("Promise")}} für ein {{domxref("Client")}} zurück, das mit einer gegebenen {{domxref("Client.id", "id")}} übereinstimmt.
-- {{domxref("Clients.matchAll()")}}
-  - : Gibt ein {{jsxref("Promise")}} für ein Array von {{domxref("Client")}}-Objekten zurück. Ein Optionsargument ermöglicht es Ihnen, die Arten von Clients zu steuern, die zurückgegeben werden.
-- {{domxref("Clients.openWindow()")}}
-  - : Öffnet ein neues Browserfenster für eine gegebene URL und gibt ein {{jsxref("Promise")}} für das neue {{domxref("WindowClient")}} zurück.
-- {{domxref("Clients.claim()")}}
-  - : Ermöglicht einem aktiven Service Worker, sich selbst als {{domxref("ServiceWorkerContainer.controller", "Controller")}} für alle Clients innerhalb seines {{domxref("ServiceWorkerRegistration.scope", "Bereichs")}} festzulegen.
+- [`Clients.get()`](/de/docs/Web/API/Clients/get)
+  - : Gibt ein {{jsxref("Promise")}} für einen [`Client`](/de/docs/Web/API/Client) zurück, der zu einer gegebenen [`id`](/de/docs/Web/API/Client/id) passt.
+- [`Clients.matchAll()`](/de/docs/Web/API/Clients/matchAll)
+  - : Gibt ein {{jsxref("Promise")}} für ein Array von [`Client`](/de/docs/Web/API/Client)-Objekten zurück. Ein Optionsargument ermöglicht es Ihnen, die zurückgegebenen Clienttypen zu steuern.
+- [`Clients.openWindow()`](/de/docs/Web/API/Clients/openWindow)
+  - : Öffnet ein neues Browserfenster für eine gegebene URL und gibt ein {{jsxref("Promise")}} für den neuen [`WindowClient`](/de/docs/Web/API/WindowClient) zurück.
+- [`Clients.claim()`](/de/docs/Web/API/Clients/claim)
+  - : Ermöglicht einem aktiven Service-Worker, sich selbst als [`controller`](/de/docs/Web/API/ServiceWorkerContainer/controller) für alle Clients innerhalb seines [`scope`](/de/docs/Web/API/ServiceWorkerRegistration/scope) festzulegen.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein vorhandenes Chatfenster oder erstellt ein neues, wenn der Benutzer auf eine Benachrichtigung klickt.
+Das folgende Beispiel zeigt ein bestehendes Chatfenster oder erstellt ein neues, wenn der Benutzer auf eine Benachrichtigung klickt.
 
 ```js
 addEventListener("notificationclick", (event) => {
@@ -69,4 +69,4 @@ addEventListener("notificationclick", (event) => {
 
 ## Siehe auch
 
-- [Verwendung von Service Workers](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)

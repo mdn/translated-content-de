@@ -7,26 +7,27 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSKeyframeRule`** Schnittstelle beschreibt ein Objekt, das eine Menge von Stilen für einen bestimmten Keyframe repräsentiert. Sie entspricht dem Inhalt eines einzelnen Keyframes einer {{cssxref("@keyframes")}} [At-Regel](/de/docs/Web/CSS/At-rule).
+Die **`CSSKeyframeRule`**-Schnittstelle beschreibt ein Objekt, das einen Satz von Stilen für einen gegebenen Keyframe darstellt. Es entspricht den Inhalten eines einzelnen Keyframes einer {{cssxref("@keyframes")}} [At-Regel](/de/docs/Web/CSS/At-rule).
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Vorfahren {{domxref("CSSRule")}}._
+_Erbt Eigenschaften von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- {{domxref("CSSKeyframeRule.keyText")}}
-  - : Repräsentiert den Schlüssel des Keyframes, wie zum Beispiel `'10%'`, `'75%'`. Das Schlüsselwort `from` wird zu `'0%'` und das Schlüsselwort `to` wird zu `'100%'`.
-- {{domxref("CSSKeyframeRule.style")}} {{ReadOnlyInline}}
-  - : Gibt eine {{domxref("CSSStyleDeclaration")}} des mit dem Keyframe verbundenen CSS-Stils zurück.
+- [`CSSKeyframeRule.keyText`](/de/docs/Web/API/CSSKeyframeRule/keyText)
+  - : Repräsentiert den Schlüssel des Keyframes, wie `'10%'`, `'75%'`. Das `from`-Schlüsselwort entspricht `'0%'` und das `to`-Schlüsselwort entspricht `'100%'`.
+- [`CSSKeyframeRule.style`](/de/docs/Web/API/CSSKeyframeRule/style) {{ReadOnlyInline}}
+  - : Gibt ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration) des CSS-Stils zurück, der dem Keyframe zugeordnet ist.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifischen Methoden; erbt Methoden von seinem Vorfahren {{domxref("CSSRule")}}._
+_Keine spezifischen Methoden; erbt Methoden von seinem Vorfahren [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-Das CSS enthält eine Keyframes-At-Regel. Dies wird die erste von `document.styleSheets[0].cssRules` zurückgegebene {{domxref("CSSRule")}} sein. `myRules[0]` gibt ein {{domxref("CSSKeyframesRule")}} Objekt zurück, das individuelle `CSSKeyFrameRule` Objekte für jeden Keyframe enthalten wird.
+Der CSS enthält eine Keyframes-At-Regel. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
+`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück, das individuelle `CSSKeyFrameRule`-Objekte für jeden Keyframe enthalten wird.
 
 ```css
 @keyframes slidein {
@@ -50,11 +51,11 @@ console.log(keyframes[0]); // a CSSKeyframeRule representing an individual keyfr
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - {{cssxref("@keyframes")}}
-- {{domxref("CSSKeyFramesRule")}}
+- [`CSSKeyFramesRule`](/de/docs/Web/API/CSSKeyFramesRule)

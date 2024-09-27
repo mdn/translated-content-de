@@ -1,6 +1,6 @@
 ---
 title: "XRWebGLLayer: framebufferWidth-Eigenschaft"
-short-title: framebufferBreite
+short-title: framebufferWidth
 slug: Web/API/XRWebGLLayer/framebufferWidth
 l10n:
   sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte {{domxref("XRWebGLLayer")}}-Eigenschaft **`framebufferWidth`** gibt die Breite des Framebuffers in Pixeln an.
+Die schreibgeschützte [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Eigenschaft **`framebufferWidth`** gibt die Breite des Framebuffers in Pixel an.
 
-Sie können die Höhe des Framebuffers mit der {{domxref("XRWebGLLayer.framebufferHeight", "framebufferHeight")}}-Eigenschaft abrufen.
+Sie können die Höhe des Framebuffers mit der [`framebufferHeight`](/de/docs/Web/API/XRWebGLLayer/framebufferHeight)-Eigenschaft abrufen.
 
 ## Wert
 
-Die Breite in Pixeln des Framebuffers des XR-Geräts. Jedes der Anhänge des Framebuffers (Pixel-, Tiefen-, Farb- und/oder Stencil-Puffer, zum Beispiel) ist so viele Pixel breit.
+Die Breite des Framebuffers des XR-Geräts in Pixel. Jede der Anhänge des Framebuffers (z. B. Pixel-, Tiefen-, Farb- und/oder Stencil-Puffer) ist so viele Pixel breit.
 
 ## Beispiele
 
-Dieses Codebeispiel ruft die Breite und Höhe des Framebuffers für die spätere Verwendung ab.
+Dieses Snippet ruft die Breite und Höhe des Framebuffers für eine spätere Verwendung ab.
 
 ```js
 let glLayer = xrSession.renderState.baseLayer;

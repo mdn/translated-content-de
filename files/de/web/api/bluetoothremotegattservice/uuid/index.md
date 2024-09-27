@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`BluetoothGATTService.uuid`** schreibgeschützte Eigenschaft gibt einen String zurück, der die UUID dieses Dienstes darstellt.
+Die schreibgeschützte Eigenschaft **`BluetoothGATTService.uuid`** gibt einen String zurück, der die UUID dieses Dienstes darstellt.
 
 ## Wert
 

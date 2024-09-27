@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte Eigenschaft **`MouseEvent.relatedTarget`** ist das sekundäre Ziel für das Mausereignis, falls eines vorhanden ist.
+Die schreibgeschützte Eigenschaft **`MouseEvent.relatedTarget`** ist das sekundäre Ziel für das Mausereignis, falls vorhanden.
 
 Das bedeutet:
 
@@ -22,73 +22,74 @@ Das bedeutet:
   </thead>
   <tbody>
     <tr>
-      <td>{{domxref("Element/mouseenter_event", "mouseenter")}}</td>
+      <td>[`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)</td>
       <td>
-        Das {{domxref("EventTarget")}}, das das Zeigegerät betreten hat
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
       </td>
       <td>
-        Das {{domxref("EventTarget")}}, das das Zeigegerät verlassen hat
-      </td>
-    </tr>
-    <tr>
-      <td>{{domxref("Element/mouseleave_event", "mouseleave")}}</td>
-      <td>
-        Das {{domxref("EventTarget")}}, das das Zeigegerät verlassen hat
-      </td>
-      <td>
-        Das {{domxref("EventTarget")}}, das das Zeigegerät betreten hat
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
       </td>
     </tr>
     <tr>
-      <td>{{domxref("Element/mouseout_event", "mouseout")}}</td>
+      <td>[`mouseleave`](/de/docs/Web/API/Element/mouseleave_event)</td>
       <td>
-        Das {{domxref("EventTarget")}}, das das Zeigegerät verlassen hat
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
       </td>
       <td>
-        Das {{domxref("EventTarget")}}, das das Zeigegerät betreten hat
-      </td>
-    </tr>
-    <tr>
-      <td>{{domxref("Element/mouseover_event", "mouseover")}}</td>
-      <td>
-        Das {{domxref("EventTarget")}}, das das Zeigegerät betreten hat
-      </td>
-      <td>
-        Das {{domxref("EventTarget")}}, das das Zeigegerät verlassen hat
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
       </td>
     </tr>
     <tr>
-      <td>{{domxref("HTMLElement/dragenter_event", "dragenter")}}</td>
+      <td>[`mouseout`](/de/docs/Web/API/Element/mouseout_event)</td>
       <td>
-        Das {{domxref("EventTarget")}}, das das Zeigegerät betreten hat
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
       </td>
       <td>
-        Das {{domxref("EventTarget")}}, das das Zeigegerät verlassen hat
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
       </td>
     </tr>
     <tr>
-      <td>{{domxref("HTMLElement/dragleave_event", "dragleave")}}</td>
+      <td>[`mouseover`](/de/docs/Web/API/Element/mouseover_event)</td>
       <td>
-        Das {{domxref("EventTarget")}}, das das Zeigegerät verlassen hat
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
       </td>
       <td>
-        Das {{domxref("EventTarget")}}, das das Zeigegerät betreten hat
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
+      </td>
+    </tr>
+    <tr>
+      <td>[`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event)</td>
+      <td>
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
+      </td>
+      <td>
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
+      </td>
+    </tr>
+    <tr>
+      <td>[`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)</td>
+      <td>
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), aus dem das Zeigegerät herausgegangen ist
+      </td>
+      <td>
+        Das [`EventTarget`](/de/docs/Web/API/EventTarget), in das das Zeigegerät eingetreten ist
       </td>
     </tr>
   </tbody>
 </table>
 
-Bei Ereignissen ohne sekundäres Ziel gibt `relatedTarget` `null` zurück.
+Für Ereignisse ohne sekundäres Ziel gibt `relatedTarget`
+`null` zurück.
 
-{{domxref("FocusEvent.relatedTarget")}} ist eine ähnliche Eigenschaft für Fokusereignisse.
+[`FocusEvent.relatedTarget`](/de/docs/Web/API/FocusEvent/relatedTarget) ist eine ähnliche Eigenschaft für Fokuserignisse.
 
 ## Wert
 
-Ein {{domxref("EventTarget")}}-Objekt oder `null`.
+Ein [`EventTarget`](/de/docs/Web/API/EventTarget)-Objekt oder `null`.
 
 ## Beispiele
 
-Versuchen Sie, den Mauszeiger in die roten und blauen Felder hinein und heraus zu bewegen.
+Versuchen Sie, den Mauszeiger in die roten und blauen Kästchen hinein und heraus zu bewegen.
 
 ### HTML
 
@@ -166,4 +167,4 @@ function overListener(event) {
 
 ## Siehe auch
 
-- {{ domxref("MouseEvent") }}
+- [`MouseEvent`](/de/docs/Web/API/MouseEvent)

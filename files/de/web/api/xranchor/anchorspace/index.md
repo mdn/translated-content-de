@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`anchorSpace`**-Eigenschaft der {{domxref("XRAnchor")}} Schnittstelle gibt ein {{domxref("XRSpace")}} Objekt zurück, um den Anker relativ zu anderen `XRSpace` Objekten zu lokalisieren. Es kann anschließend an {{domxref("XRFrame.getPose()")}} übergeben werden.
+Die schreibgeschützte **`anchorSpace`**-Eigenschaft des [`XRAnchor`](/de/docs/Web/API/XRAnchor)-Interfaces gibt ein [`XRSpace`](/de/docs/Web/API/XRSpace)-Objekt zurück, um den Anker relativ zu anderen `XRSpace`-Objekten zu lokalisieren. Es kann anschließend an [`XRFrame.getPose()`](/de/docs/Web/API/XRFrame/getPose) übergeben werden.
 
 ## Wert
 
-Ein {{domxref("XRSpace")}} Objekt.
+Ein [`XRSpace`](/de/docs/Web/API/XRSpace)-Objekt.
 
 ## Beispiele
 
-### Anker aktualisieren
+### Aktualisierung von Ankern
 
 ```js
 for (const anchor of frame.trackedAnchors) {

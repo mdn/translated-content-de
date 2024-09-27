@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`configure()`**-Methode der {{domxref("AudioEncoder")}}-Schnittstelle stellt eine Steuerungsnachricht in die Warteschlange, um den Audio-Encoder für das Kodieren von Chunks zu konfigurieren.
+Die **`configure()`**-Methode der [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Schnittstelle stellt eine Steuerungsnachricht in die Warteschlange, um den Audio-Encoder für das Codieren von Chunks zu konfigurieren.
 
 ## Syntax
 
@@ -23,9 +23,9 @@ configure(config)
   - : Ein Wörterbuchobjekt, das die folgenden Mitglieder enthält:
 
     - `codec`
-      - : Ein String, der eine [gültige Codec-Zeichenkette](https://www.w3.org/TR/webcodecs-codec-registry/#audio-codec-registry) enthält. Siehe ["codecs"-Parameter](/de/docs/Web/Media/Formats/codecs_parameter#codec_options_by_container) für Details zur Konstruktion von Codec-Zeichenketten.
+      - : Ein String, der einen [gültigen Codec-String](https://www.w3.org/TR/webcodecs-codec-registry/#audio-codec-registry) enthält. Siehe ["Codecs"-Parameter](/de/docs/Web/Media/Formats/codecs_parameter#codec_options_by_container) für Details zur Konstruktion des Codec-Strings.
     - `sampleRate`
-      - : Eine ganze Zahl, die die Anzahl der Samples pro Sekunde darstellt.
+      - : Eine ganze Zahl, die die Anzahl der Frame-Samples pro Sekunde darstellt.
     - `numberOfChannels`
       - : Eine ganze Zahl, die die Anzahl der Audiokanäle darstellt.
     - `bitrate` {{optional_inline}}
@@ -35,47 +35,47 @@ configure(config)
       - : Ein enumerierter Wert, der den Bitratenmodus definiert, den der Encoder verwenden soll. Mögliche Werte sind:
 
         - `"constant"`
-          - : Zwingt einen Audio-Encoder, dieselbe Bitrate beizubehalten, unabhängig vom Audioinhalt. Dies kann nützlich sein, wenn ein vorhersehbarer Bandbreitenverbrauch wünschenswert ist.
-        - `"variable"` (Standardeinstellung)
+          - : Erzwingt, dass ein Audio-Encoder die gleiche Bitrate beibehält, unabhängig vom Audioinhalt. Dies kann nützlich sein, wenn vorhersehbarer Bandbreitenverbrauch vorzuziehen ist.
+        - `"variable"` (Standard)
 
-          - : Ermöglicht einem Audio-Encoder, seine Bitrate gemäß dem Inhalt des Audios, das er kodiert, zu erhöhen oder zu senken, um Bandbreite/Binärgröße zu sparen, während ein Zielqualitätsniveau beibehalten wird. Beispielsweise könnte ein Encoder seine Bitrate reduzieren, wenn er Stille kodiert, und zu voller Bitrate zurückkehren, wenn er Sprache kodiert.
+          - : Ermöglicht es einem Audio-Encoder, seine Bitrate je nach Inhalt des zu codierenden Audios zu erhöhen oder zu senken, um Bandbreite/Dateigröße zu sparen, während dennoch eine Zielqualität beibehalten wird. Beispielsweise könnte ein Encoder seine Bitrate beim Codieren von Stille senken und beim Codieren von Sprache auf eine volle Bitrate zurücksetzen.
 
-        Spezifische Codec-Encoder-Implementierungen können leicht unterschiedliche Terminologien verwenden (zum Beispiel CBR vs VBR für Opus), aber alle sollten dem allgemeinen Konzept von "konstanter" gegenüber "variabler" Bitrate entsprechen.
+        Spezifische Implementierungen von Codec-Encodern können leicht unterschiedliche Terminologien verwenden (zum Beispiel CBR vs. VBR für Opus), aber sie sollten alle auf das allgemeine Konzept von "konstanter" versus "variabler" Bitrate verweisen.
 
     - `opus` {{optional_inline}}
-      - : Gibt Codec-Konfigurationsoptionen an, die speziell für den Opus-Codec sind. Sein Wert ist ein `OpusEncoderConfig`-Objekt, dessen mögliche Eigenschaften wie folgt sind:
+      - : Gibt codec-spezifische Konfigurationsoptionen für den Opus-Codec an. Sein Wert ist ein `OpusEncoderConfig`-Objekt, dessen mögliche Eigenschaften wie folgt sind:
         - `application` {{optional_inline}}
-          - : Ein enumerierter Wert, der den beabsichtigten Anwendungstyp des Encoders spezifiziert. Mögliche Werte sind:
-            - `audio` (Standardeinstellung)
-              - : Verarbeitet das Signal originalgetreu zum ursprünglichen Eingang.
+          - : Ein enumerierter Wert, der den beabsichtigten Anwendungstyp des Encoders angibt. Mögliche Werte sind:
+            - `audio` (Standard)
+              - : Verarbeitet das Signal getreu dem ursprünglichen Eingang.
             - `lowdelay`
-              - : Konfiguriert die minimale mögliche Kodierungsverzögerung, indem bestimmte Betriebsmodi deaktiviert werden, wenn das Signal verarbeitet wird.
+              - : Konfiguriert die minimale mögliche Codierungsverzögerung, indem bestimmte Betriebsmodi deaktiviert werden.
             - `voip`
-              - : Verarbeitet das Signal für eine verbesserte Sprachverständlichkeit.
+              - : Verarbeitet das Signal für verbesserte Sprachverständlichkeit.
         - `complexity` {{optional_inline}}
-          - : Eine Zahl, die die rechnerische Komplexität des Encoders definiert, basierend auf den in Abschnitt [RFC6716, 2.1.5. — Complexity](https://www.rfc-editor.org/rfc/rfc6716#section-2.1.5) beschriebenen Aspekten. Der gültige Bereich ist 0 bis 10, wobei 10 die höchste Komplexität darstellt. Wenn kein Wert angegeben ist, ist der Standardwert plattformspezifisch, wobei die Spezifikation 5 für mobile Plattformen und 9 für alle anderen Plattformen empfiehlt.
+          - : Eine Zahl, die die rechnerische Komplexität des Encoders definiert, basierend auf den in Abschnitt [RFC6716, 2.1.5. — Complexity](https://www.rfc-editor.org/rfc/rfc6716#section-2.1.5) beschriebenen Aspekten. Der gültige Bereich ist 0 bis 10, wobei 10 die höchste Komplexität darstellt. Wenn kein Wert angegeben ist, ist der Standardwert plattformabhängig, wobei die Spezifikation 5 für mobile Plattformen und 9 für alle anderen Plattformen empfiehlt.
         - `format` {{optional_inline}}
-          - : Ein enumerierter Wert, der das Format festlegt, in dem der Encoder {{domxref("EncodedAudioChunk")}}s ausgeben soll. Mögliche Werte sind:
-            - `opus` (Standardeinstellung)
-              - : Gibt `EncodedAudioChunk`s im Opus-Format aus. In diesem Fall sind keine Metadaten erforderlich, um den kodierten Audiostream zu dekodieren.
+          - : Ein enumerierter Wert, der das Format angibt, in dem der Encoder [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)s ausgeben soll. Mögliche Werte sind:
+            - `opus` (Standard)
+              - : Gibt `EncodedAudioChunk`s im Opus-Format aus. In diesem Fall sind keine Metadaten notwendig, um den codierten Audiostream zu dekodieren.
             - `ogg`
-              - : Gibt `EncodedAudioChunk`s im Ogg-Format aus. In diesem Fall sind keine Metadaten erforderlich, um den kodierten Audiostream zu dekodieren. In diesem Fall werden die Metadaten des kodierten Audiostreams in der Dekoderkonfiguration angegeben — über die [`description`](/de/docs/Web/API/AudioDecoder/configure#description)-Eigenschaft des in {{domxref("AudioDecoder.configure()")}} übergebenen Konfigurationsobjekts.
+              - : Gibt `EncodedAudioChunk`s im Ogg-Format aus. Auch hier sind keine Metadaten notwendig, um den codierten Audiostream zu dekodieren. Die Metadaten des codierten Audiostreams werden in der Decoder-Konfiguration bereitgestellt — über die [`description`](/de/docs/Web/API/AudioDecoder/configure#description)-Eigenschaft des Konfigurationsobjekts, das an [`AudioDecoder.configure()`](/de/docs/Web/API/AudioDecoder/configure) übergeben wird.
         - `frameDuration` {{optional_inline}}
-          - : Eine Zahl, die die Bilddauer in Mikrosekunden für `EncodedAudioChunk`s definiert, die vom Encoder ausgegeben werden. Falls nicht angegeben, beträgt der Standardwert für `frameDuration` `20000`.
+          - : Eine Zahl, die die Frame-Dauer in Mikrosekunden von `EncodedAudioChunk`s definiert, die vom Encoder ausgegeben werden. Wenn nicht angegeben, beträgt der Standardwert `frameDuration` `20000`.
         - `packetlossperc` {{optional_inline}}
-          - : Eine Zahl, die den erwarteten Paketverlustprozentsatz des Encoders definiert. Der gültige Bereich ist 0 bis 100. Falls nicht angegeben, beträgt der Standardwert für `packetlossperc` `0`.
+          - : Eine Zahl, die den erwarteten Paketverlustprozentsatz des Encoders definiert. Der gültige Bereich ist 0 bis 100. Wenn nicht angegeben, beträgt der Standardwert `packetlossperc` `0`.
         - `signal` {{optional_inline}}
-          - : Ein enumerierter Wert, der den Standardwert für den Typ des zu kodierenden Audiosignals spezifiziert. Mögliche Werte sind:
-            - `auto` (Standardeinstellung)
-              - : Das Audiosignal wird nicht als bestimmter Typ spezifiziert.
+          - : Ein enumerierter Wert, der den Standardwert für die Art des codierten Audiosignals angibt. Mögliche Werte sind:
+            - `auto` (Standard)
+              - : Das Audiosignal ist nicht als bestimmter Typ angegeben.
             - `music`
               - : Das Audiosignal ist Musik.
             - `voice`
               - : Das Audiosignal ist Stimme oder Sprache.
         - `usedtx` {{optional_inline}}
-          - : Ein boolescher Wert, der angibt, ob der Encoder Discontinous Transmission (DTX) verwendet, wodurch die Bitrate während der Stille oder Hintergrundgeräusche reduziert wird. Wenn DTX aktiviert ist, wird nur alle 400 Millisekunden ein Frame kodiert. Falls nicht angegeben, beträgt der Standardwert für `usedtx` `false`.
+          - : Ein boolescher Wert, der angibt, ob der Encoder die diskontinuierliche Übertragung (DTX) verwendet, welche die Bitrate während Stille oder Hintergrundgeräuschen reduziert. Wenn DTX aktiviert ist, wird nur alle 400 Millisekunden ein Frame codiert. Wenn nicht angegeben, ist der Standardwert `usedtx` `false`.
         - `useinbandfec` {{optional_inline}}
-          - : Ein boolescher Wert, der angibt, ob der Encoder Opus-in-band Forward Error Correction (FEC) bereitstellt. Dies führt dazu, dass Pakete, die als wahrnehmbar wichtige Sprachinformationen enthalten gelten — wie Anfänge oder Transienten — mit einer niedrigeren Bitrate neu kodiert und einem nachfolgenden Paket hinzugefügt werden. Falls nicht angegeben, beträgt der Standardwert für `useinbandfec` `false`.
+          - : Ein boolescher Wert, der angibt, ob der Encoder Opus-Inband-Fehlerkorrektur (FEC) bereitstellt. Dies führt dazu, dass Pakete, die als wahrnehmungstechnisch wichtige Sprachinformationen bestimmt sind — wie Einsätze oder Übergangsphasen — bei einer niedrigeren Bitrate neu codiert und einem nachfolgenden Paket hinzugefügt werden. Wenn nicht angegeben, beträgt der Standardwert `useinbandfec` `false`.
 
 ### Rückgabewert
 
@@ -84,17 +84,17 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das bereitgestellte `config` ungültig ist.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{domxref("AudioEncoder.state","state")}} `"closed"` ist.
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das bereitgestellte `config` gültig ist, der Benutzeragent jedoch keinen Codec bereitstellen kann, der dieses Profil dekodieren kann.
+  - : Wird ausgelöst, wenn die angegebene `config` ungültig ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der [`state`](/de/docs/Web/API/AudioEncoder/state) `"closed"` ist.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die angegebene `config` gültig ist, aber der Benutzeragent keinen Codec bereitstellen kann, der dieses Profil dekodieren kann.
 
 ## Beispiele
 
 ### Grundlegendes Konfigurationsbeispiel
 
-Das folgende Beispiel erstellt einen neuen {{domxref("AudioEncoder")}} und konfiguriert ihn mit einigen der verfügbaren Optionen.
+Das folgende Beispiel erstellt einen neuen [`AudioEncoder`](/de/docs/Web/API/AudioEncoder) und konfiguriert ihn mit einigen der verfügbaren Optionen.
 
 ```js
 const init = {
@@ -118,7 +118,7 @@ encoder.configure(config);
 
 ### Opus-spezifisches Konfigurationsbeispiel
 
-Das folgende Beispiel erstellt einen neuen {{domxref("AudioEncoder")}} und konfiguriert ihn mit Opus-spezifischen Optionen.
+Das folgende Beispiel erstellt einen neuen [`AudioEncoder`](/de/docs/Web/API/AudioEncoder) und konfiguriert ihn mit Opus-spezifischen Optionen.
 
 ```js
 const init = {

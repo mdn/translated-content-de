@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.readBuffer()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) wählt einen Farb-Buffer als Quelle für Pixel für nachfolgende Aufrufe von {{domxref("WebGLRenderingContext.copyTexImage2D", "copyTexImage2D")}}, {{domxref("WebGLRenderingContext.copyTexSubImage2D", "copyTexSubImage2D")}}, {{domxref("WebGL2RenderingContext.copyTexSubImage3D", "copyTexSubImage3D")}} oder {{domxref("WebGLRenderingContext.readPixels", "readPixels")}} aus.
+Die **`WebGL2RenderingContext.readBuffer()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) wählt einen Farb-Puffer als Quelle für Pixel für nachfolgende Aufrufe von [`copyTexImage2D`](/de/docs/Web/API/WebGLRenderingContext/copyTexImage2D), [`copyTexSubImage2D`](/de/docs/Web/API/WebGLRenderingContext/copyTexSubImage2D), [`copyTexSubImage3D`](/de/docs/Web/API/WebGL2RenderingContext/copyTexSubImage3D) oder [`readPixels`](/de/docs/Web/API/WebGLRenderingContext/readPixels) aus.
 
 ## Syntax
 
@@ -20,14 +20,14 @@ readBuffer(source)
 
 - `source`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der einen Farb-Buffer angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Farb-Puffer angibt. Mögliche Werte:
 
     - `gl.BACK`
-      - : Liest aus dem Back-Farb-Buffer.
+      - : Liest vom hinteren Farb-Puffer.
     - `gl.NONE`
-      - : Liest aus keinem Farb-Buffer.
+      - : Liest von keinem Farb-Puffer.
     - `gl.COLOR_ATTACHMENT{0-15}`
-      - : Liest aus einem der 16 Farb-Attachment-Buffer.
+      - : Liest von einem der 16 Farb-Anhangs-Puffer.
 
 ### Rückgabewert
 
@@ -43,13 +43,13 @@ gl.readBuffer(gl.COLOR_ATTACHMENT0);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.copyTexImage2D()")}}
-- {{domxref("WebGLRenderingContext.copyTexSubImage2D()")}}
-- {{domxref("WebGL2RenderingContext.copyTexSubImage3D()")}}
-- {{domxref("WebGLRenderingContext.readPixels()")}}
+- [`WebGLRenderingContext.copyTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/copyTexImage2D)
+- [`WebGLRenderingContext.copyTexSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/copyTexSubImage2D)
+- [`WebGL2RenderingContext.copyTexSubImage3D()`](/de/docs/Web/API/WebGL2RenderingContext/copyTexSubImage3D)
+- [`WebGLRenderingContext.readPixels()`](/de/docs/Web/API/WebGLRenderingContext/readPixels)

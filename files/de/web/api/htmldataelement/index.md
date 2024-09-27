@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLDataElement`**-Schnittstelle bietet spezielle Eigenschaften (über die reguläre {{domxref("HTMLElement")}}-Schnittstelle hinaus, die ihr ebenfalls durch Vererbung zur Verfügung steht) zur Manipulation von {{HTMLElement("data")}}-Elementen.
+Das **`HTMLDataElement`**-Interface bietet spezielle Eigenschaften (zusätzlich zu den regulären Eigenschaften des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces, die es durch Vererbung ebenfalls zur Verfügung hat) zur Manipulation von {{HTMLElement("data")}}-Elementen.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLDataElement.value")}}
-  - : Ein String, der das HTML-Attribut [`value`](/de/docs/Web/HTML/Element/data#value) widerspiegelt und eine maschinenlesbare Form des Werts des Elements enthält.
+- [`HTMLDataElement.value`](/de/docs/Web/API/HTMLDataElement/value)
+  - : Ein String, der das HTML-Attribut [`value`](/de/docs/Web/HTML/Element/data#value) widerspiegelt und eine maschinenlesbare Form des Wertes des Elements enthält.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 
@@ -32,4 +32,4 @@ _Keine spezifische Methode; erbt Methoden von seinem Elternteil, {{domxref("HTML
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("data")}}.
+- Das HTML-Element, das dieses Interface implementiert: {{HTMLElement("data")}}.

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}} {{Non-standard_header}}
 
-Die **`Window.scrollMaxX`**-Eigenschaft, die nur gelesen werden kann, gibt die maximale Anzahl von Pixeln zurück, um die das Dokument horizontal gescrollt werden kann.
+Die schreibgeschützte **`Window.scrollMaxX`**-Eigenschaft gibt die maximale Anzahl von Pixeln zurück, um die das Dokument horizontal gescrollt werden kann.
 
 ## Wert
 
@@ -17,7 +17,7 @@ Eine Zahl.
 ## Beispiele
 
 ```js
-// Zum rechten Rand der Seite scrollen
+// Scroll to right edge of the page
 let maxX = window.scrollMaxX;
 
 window.scrollTo(maxX, 0);
@@ -25,11 +25,11 @@ window.scrollTo(maxX, 0);
 
 ## Hinweise
 
-Verwenden Sie diese Eigenschaft nicht, um die gesamte Breite des Dokuments zu ermitteln, da diese nicht gleich [window.innerWidth](/de/docs/Web/API/Window/innerWidth) + window\.scrollMaxX ist, weil {{domxref("window.innerWidth")}} die Breite einer sichtbaren vertikalen Scrollleiste einschließt. Das Ergebnis würde daher die gesamte Breite des Dokuments um die Breite einer sichtbaren vertikalen Scrollleiste überschreiten. Verwenden Sie stattdessen {{domxref("element.scrollWidth","document.body.scrollWidth")}}. Siehe auch {{domxref("window.scrollMaxY")}}.
+Verwenden Sie diese Eigenschaft nicht, um die gesamte Dokumentbreite zu ermitteln. Diese ist nicht äquivalent zu [window.innerWidth](/de/docs/Web/API/Window/innerWidth) + window\.scrollMaxX, da [`window.innerWidth`](/de/docs/Web/API/Window/innerWidth) auch die Breite einer sichtbaren vertikalen Scrollleiste einschließt. Daher würde das Ergebnis die gesamte Dokumentbreite um die Breite einer sichtbaren vertikalen Scrollleiste überschreiten. Verwenden Sie stattdessen [`document.body.scrollWidth`](/de/docs/Web/API/Element/scrollWidth). Siehe auch [`window.scrollMaxY`](/de/docs/Web/API/Window/scrollMaxY).
 
 ## Spezifikationen
 
-Diese Eigenschaft ist nicht Teil einer Spezifikation.
+Dies ist Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 

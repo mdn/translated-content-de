@@ -1,6 +1,6 @@
 ---
-title: "XRFrame: Sitzungs-Eigenschaft"
-short-title: Sitzung
+title: "XRFrame: session-Eigenschaft"
+short-title: session
 slug: Web/API/XRFrame/session
 l10n:
   sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`session`**-Eigenschaft eines `XRFrame`-Objekts gibt das {{domxref("XRSession")}}-Objekt zurück, das den Frame erstellt hat.
+Die _schreibgeschützte_ **`session`**-Eigenschaft eines `XRFrame`-Objekts gibt das [`XRSession`](/de/docs/Web/API/XRSession)-Objekt zurück, das den Frame erzeugt hat.
 
 ## Wert
 
-Ein {{domxref("XRSession")}}-Objekt, das die WebXR-Sitzung darstellt, für die dieses `XRFrame` die Objektpositionen und -orientierungen beschreibt.
+Ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt, das die WebXR-Sitzung repräsentiert, für die dieses `XRFrame` die Objektpositionen und -orientierungen beschreibt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -1,5 +1,5 @@
 ---
-title: "ClipboardItem: types-Eigenschaft"
+title: "ClipboardItem: types Eigenschaft"
 short-title: types
 slug: Web/API/ClipboardItem/types
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Die schreibgeschützte **`types`**-Eigenschaft der {{domxref("ClipboardItem")}}-Schnittstelle gibt ein {{jsxref("Array")}} von im {{domxref("ClipboardItem")}} verfügbaren {{Glossary("MIME type", 'MIME-Typen')}} zurück.
+Die schreibgeschützte **`types`**-Eigenschaft der [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Schnittstelle gibt ein {{jsxref("Array")}} verfügbarer [MIME-Typen](/de/docs/Glossary/MIME_type) innerhalb des [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) zurück.
 
 ## Wert
 
-Ein {{jsxref("Array")}} von verfügbaren {{Glossary("MIME type", 'MIME-Typen')}}.
+Ein {{jsxref("Array")}} verfügbarer [MIME-Typen](/de/docs/Glossary/MIME_type).
 
 ## Beispiele
 
-Im folgenden Beispiel geben wir alle Elemente in der Zwischenablage über die Methode {{domxref("Clipboard.read()")}} zurück. Dann überprüfen wir die `types`-Eigenschaft auf verfügbare Typen, bevor wir die Methode {{domxref("ClipboardItem.getType()")}} nutzen, um das {{domxref("Blob")}}-Objekt zurückzugeben. Wenn keine Inhalte für den angegebenen Typ in der Zwischenablage gefunden werden, wird ein Fehler zurückgegeben.
+Im untenstehenden Beispiel geben wir alle Elemente in der Zwischenablage über die [`Clipboard.read()`](/de/docs/Web/API/Clipboard/read)-Methode zurück. Dann prüfen wir die `types`-Eigenschaft auf verfügbare Typen, bevor wir die [`ClipboardItem.getType()`](/de/docs/Web/API/ClipboardItem/getType)-Methode verwenden, um das [`Blob`](/de/docs/Web/API/Blob)-Objekt zurückzugeben. Wenn für den angegebenen Typ keine Inhalte in der Zwischenablage gefunden werden, wird ein Fehler zurückgegeben.
 
 ```js
 async function getClipboardContents() {
@@ -45,5 +45,5 @@ async function getClipboardContents() {
 
 ## Siehe auch
 
-- [Clipboard-API](/de/docs/Web/API/Clipboard_API)
-- [Artikel zur Bildunterstützung für die asynchrone Zwischenablage](https://web.dev/articles/async-clipboard)
+- [Clipboard API](/de/docs/Web/API/Clipboard_API)
+- [Artikel zu Bildunterstützung für das asynchrone Clipboard](https://web.dev/articles/async-clipboard)

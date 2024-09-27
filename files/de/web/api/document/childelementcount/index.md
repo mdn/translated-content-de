@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`Document.childElementCount`** gibt die Anzahl der Kindelemente des Dokuments zurück.
+Die **`Document.childElementCount`**-Eigenschaft ist schreibgeschützt und gibt die Anzahl der Kindelemente des Dokuments zurück.
 
-Um die Anzahl der Kinder eines bestimmten Elements zu erhalten, siehe {{domxref("Element.childElementCount")}}.
+Um die Anzahl der Kinder eines spezifischen Elements zu erhalten, siehe [`Element.childElementCount`](/de/docs/Web/API/Element/childElementCount).
 
 ## Wert
 
@@ -20,7 +20,7 @@ Eine Zahl.
 
 ```js
 document.children;
-// HTMLCollection, enthält normalerweise ein <html>-Element, das einzige Kindelement des Dokuments
+// HTMLCollection, usually containing an <html> element, the document's only child
 
 document.childElementCount;
 // 1
@@ -36,5 +36,5 @@ document.childElementCount;
 
 ## Siehe auch
 
-- {{domxref("Element.childElementCount")}}
-- {{domxref("DocumentFragment.childElementCount")}}
+- [`Element.childElementCount`](/de/docs/Web/API/Element/childElementCount)
+- [`DocumentFragment.childElementCount`](/de/docs/Web/API/DocumentFragment/childElementCount)

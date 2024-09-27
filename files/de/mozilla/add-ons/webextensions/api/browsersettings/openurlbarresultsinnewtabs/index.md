@@ -7,11 +7,11 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} Objekt, dessen zugrunde liegender Wert ein boolescher Wert ist.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, dessen zugrunde liegender Wert ein boolescher Wert ist.
 
-Wenn der Benutzer die Adressleiste fokussiert und zu tippen beginnt, bietet der Browser Autovervollständigungsvorschläge an: eine Dropdown-Liste von Webseiten basierend auf der unvollständigen Eingabe des Benutzers und seinem Browserverlauf.
+Wenn der Benutzer die Adressleiste fokussiert und zu tippen beginnt, bietet der Browser Autovervollständigungsvorschläge an: eine Dropdown-Liste von Webseiten basierend auf der unvollständigen Eingabe des Benutzers und dessen Browser-Verlauf.
 
-Wenn auf `true` gesetzt, wird beim Auswählen eines dieser Elemente das Element in einem neuen Tab geöffnet. Wenn auf `false` (standardmäßig) gesetzt, wird das Element im aktuellen Tab geöffnet.
+Ist der Wert auf `true` gesetzt, wird das ausgewählte Element in einem neuen Tab geöffnet. Wenn er auf `false` gesetzt ist (Standard), wird das Element im aktuellen Tab geöffnet.
 
 ## Browser-Kompatibilität
 
@@ -19,7 +19,7 @@ Wenn auf `true` gesetzt, wird beim Auswählen eines dieser Elemente das Element 
 
 ## Beispiele
 
-Die Einstellung auf `true` setzen:
+Einstellung auf `true` setzen:
 
 ```js
 function logResult(result) {

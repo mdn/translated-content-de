@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`name`**-Attribut gibt entweder den Namen eines Farbprofils oder eines Schriftschnitts an.
+Das **`name`** Attribut spezifiziert entweder den Namen eines Farbprofils oder eines Schriftschnitts.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{ SVGElement("font-face-name") }}
 
@@ -25,7 +25,7 @@ Für {{SVGElement("font-face-name")}} definiert `name` den Namen des Schriftschn
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Keine</em></td>
+      <td><em>Keiner</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
@@ -35,7 +35,7 @@ Für {{SVGElement("font-face-name")}} definiert `name` den Namen des Schriftschn
 </table>
 
 - `<name>`
-  - : Dieser Wert gibt den Namen einer lokalen Schriftart an. Im Gegensatz zur Syntax, die in den Klammern der `local(…)`-Klausel in einem [`@font-face`-Regel `src`](/de/docs/Web/CSS/@font-face/src) Deskriptor erlaubt ist, wird der im Attribut angegebene Schriftname nicht in einfachen oder doppelten Anführungszeichen eingeschlossen.
+  - : Dieser Wert gibt den Namen einer lokalen Schrift an. Im Gegensatz zur Syntax, die in den Klammern der `local(…)` Klausel in einem [`@font-face` Regel `src`](/de/docs/Web/CSS/@font-face/src) Deskriptor erlaubt ist, wird der Schriftname, der in diesem Attribut angegeben ist, nicht in einfachen oder doppelten Anführungszeichen umschlossen.
 
 ## Spezifikationen
 

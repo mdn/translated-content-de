@@ -1,5 +1,5 @@
 ---
-title: "AudioDecoder: AudioDecoder() Konstruktor"
+title: "AudioDecoder: AudioDecoder()-Konstruktor"
 short-title: AudioDecoder()
 slug: Web/API/AudioDecoder/AudioDecoder
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`AudioDecoder()`** Konstruktor erstellt ein neues {{domxref("AudioDecoder")}} Objekt mit dem bereitgestellten `init.output` Rückruf als zugewiesenem Ausgaberückruf, dem bereitgestellten `init.error` Rückruf als Fehler-Rückruf und dem {{domxref("AudioDecoder.state")}} auf `"unconfigured"` gesetzt.
+Der **`AudioDecoder()`**-Konstruktor erstellt ein neues [`AudioDecoder`](/de/docs/Web/API/AudioDecoder)-Objekt mit dem bereitgestellten `init.output`-Callback als Ausgabe-Callback, dem bereitgestellten `init.error`-Callback als Fehler-Callback und setzt den [`AudioDecoder.state`](/de/docs/Web/API/AudioDecoder/state) auf `"unconfigured"`.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ new AudioDecoder(init)
 ### Parameter
 
 - `init`
-  - : Ein Wörterbuchobjekt, das zwei erforderliche Rückrufe enthält.
+  - : Ein Wörterbuchobjekt, das zwei erforderliche Callbacks enthält.
     - `output`
-      - : Ein Rückruf, dem ein einzelnes Argument eines {{domxref("AudioData")}} Objekts übergeben wird.
+      - : Ein Callback, dem ein einzelnes Argument eines [`AudioData`](/de/docs/Web/API/AudioData)-Objekts übergeben wird.
     - `error`
-      - : Ein Rückruf, dem ein einzelnes Argument des aufgetretenen Fehlers übergeben wird.
+      - : Ein Callback, dem ein einzelnes Argument des ausgelösten Fehlers übergeben wird.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein `AudioDecoder` mit den zwei erforderlichen Rückruffunktionen erstellt, einer zur Verarbeitung des decodierten Abschnitts und einer zur Fehlerbehandlung.
+Im folgenden Beispiel wird ein `AudioDecoder` mit den zwei erforderlichen Callback-Funktionen erstellt: eine zum Verarbeiten des dekodierten Chunks und eine zum Bearbeiten von Fehlern.
 
 ```js
 const audioDecoder = new AudioDecoder({

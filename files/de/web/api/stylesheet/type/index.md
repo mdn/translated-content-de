@@ -1,5 +1,5 @@
 ---
-title: "StyleSheet: type Eigenschaft"
+title: "StyleSheet: type-Eigenschaft"
 short-title: type
 slug: Web/API/StyleSheet/type
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`type`**-Eigenschaft der {{domxref("StyleSheet")}}-Schnittstelle gibt die Stylesheet-Sprache für das jeweilige Stylesheet an.
+Die **`type`**-Eigenschaft der [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Schnittstelle gibt die Stylesheet-Sprache für das gegebene Stylesheet an.
 
 ## Wert
 

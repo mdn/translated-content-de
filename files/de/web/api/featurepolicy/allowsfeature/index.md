@@ -3,12 +3,12 @@ title: "FeaturePolicy: allowsFeature()-Methode"
 short-title: allowsFeature()
 slug: Web/API/FeaturePolicy/allowsFeature
 l10n:
-  sourceCommit: 6f8b8ed77b8926640d5d5c4d292489eeb2525460
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{APIRef("Feature Policy API")}}{{SeeCompatTable}}
 
-Die **`allowsFeature()`**-Methode des {{DOMxRef("FeaturePolicy")}}-Interfaces ermöglicht die Überprüfung einzelner Direktiven der [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy), auf der sie ausgeführt wird. Sie gibt ein {{JSxRef("Boolean")}} zurück, das `true` ist, wenn und nur wenn das angegebene Feature im angegebenen Kontext (oder im Standardkontext, wenn kein Kontext angegeben ist) erlaubt ist.
+Die **`allowsFeature()`**-Methode des [`FeaturePolicy`](/de/docs/Web/API/FeaturePolicy)-Interfaces ermöglicht die Überprüfung einzelner Direktiven der [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy), auf der sie ausgeführt wird. Sie gibt ein {{JSxRef("Boolean")}} zurück, das dann und nur dann `true` ist, wenn das angegebene Feature im angegebenen Kontext erlaubt ist (oder im Standardkontext, wenn kein Kontext angegeben ist).
 
 ## Syntax
 
@@ -20,29 +20,29 @@ allowsFeature(feature, origin)
 ### Parameter
 
 - `feature`
-  - : Der spezifische Feature-Name, um dessen Verfügbarkeit zu überprüfen.
+  - : Der spezifische Feature-Name, dessen Verfügbarkeit überprüft werden soll.
 - `origin` {{Optional_inline}}
-  - : Der spezifische Origin-Name, um dessen Verfügbarkeit zu überprüfen. Wenn nicht angegeben, wird der Standardorigin verwendet.
+  - : Der spezifische Ursprungsname, dessen Verfügbarkeit überprüft werden soll. Wenn nicht angegeben, wird der Standardursprung verwendet.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Boolean")}}, das `true` ist, wenn und nur wenn das Feature erlaubt ist.
+Ein {{JSxRef("Boolean")}}, das dann und nur dann `true` ist, wenn das Feature erlaubt ist.
 
 ## Beispiel
 
-Im folgenden Beispiel wird abgefragt, ob das Dokument die Kamera-API verwenden darf, gemäß der Permissions Policy. Bitte beachten Sie, dass die Kamera-API möglicherweise durch die Permissions API eingeschränkt ist, wenn dem Benutzer noch keine entsprechende Berechtigung erteilt wurde.
+Das folgende Beispiel fragt ab, ob das Dokument die Kamera-API gemäß der Permissions Policy verwenden darf. Bitte beachten Sie, dass die Kamera-API durch die Permissions-API eingeschränkt sein könnte, wenn der Benutzer die entsprechende Berechtigung noch nicht erteilt hat.
 
 ```js
-// Zuerst das Feature Policy-Objekt erhalten
+// First, get the Feature Policy object
 const featurePolicy = document.featurePolicy;
 
-// Dann das Feature für die Spezifität abfragen
+// Then query feature for specific
 const allowed = featurePolicy.allowsFeature("camera");
 
 if (allowed) {
-  console.log("FP erlaubt Kamera.");
+  console.log("FP allows camera.");
 } else {
-  console.log("FP erlaubt Kamera nicht.");
+  console.log("FP does not allows camera.");
 }
 ```
 

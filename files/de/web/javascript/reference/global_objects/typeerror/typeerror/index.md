@@ -25,17 +25,17 @@ TypeError(message, fileName)
 TypeError(message, fileName, lineNumber)
 ```
 
-> **Note:** `TypeError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Methoden erzeugen eine neue Instanz von `TypeError`.
+> **Hinweis:** `TypeError()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide Varianten erstellen eine neue `TypeError` Instanz.
 
 ### Parameter
 
 - `message` {{optional_inline}}
   - : Menschlich lesbare Beschreibung des Fehlers
 - `options` {{optional_inline}}
-  - : Ein Objekt, das folgende Eigenschaften hat:
+  - : Ein Objekt mit den folgenden Eigenschaften:
     - `cause` {{optional_inline}}
       - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
-        Diese Eigenschaft kann verwendet werden, um den ursprünglichen Fehler weiterzugeben, wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut geworfen wird.
+        Wenn ein Fehler abgefangen und mit einer spezifischeren oder nützlicheren Fehlermeldung erneut ausgelöst wird, kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übermitteln.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -43,7 +43,7 @@ TypeError(message, fileName, lineNumber)
 
 ## Beispiele
 
-### Abfangen eines TypeError
+### Einen TypeError fangen
 
 ```js
 try {
@@ -56,7 +56,7 @@ try {
 }
 ```
 
-### Erzeugen eines TypeError
+### Einen TypeError erstellen
 
 ```js
 try {

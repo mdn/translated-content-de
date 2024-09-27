@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`text`**-Eigenschaft des {{domxref("HTMLTitleElement")}}-Interfaces repräsentiert den Text des Titels eines Dokuments. Nur der Textteil ist enthalten; Tags innerhalb des Elements und deren Inhalt werden entfernt und ignoriert.
+Die **`text`**-Eigenschaft der [`HTMLTitleElement`](/de/docs/Web/API/HTMLTitleElement)-Schnittstelle repräsentiert den Text des Titels des Dokuments. Es wird nur der Textteil einbezogen; Tags innerhalb des Elements und deren Inhalt werden entfernt und ignoriert.
 
 ## Wert
 
@@ -32,10 +32,10 @@ Betrachten Sie das folgende Beispiel:
 
 ```js
 const title = document.querySelector("title");
-console.log(title.text); // Ergebnis: "Hello world!  really?"
+console.log(title.text); // yield: "Hello world!  really?"
 ```
 
-Wie Sie sehen können, wurden das `span`-Tag und dessen Inhalt übersprungen.
+Wie Sie sehen, wurden das `span`-Tag und sein Inhalt übersprungen.
 
 ## Spezifikationen
 

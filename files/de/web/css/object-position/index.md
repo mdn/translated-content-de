@@ -7,36 +7,36 @@ l10n:
 
 {{CSSRef}}
 
-Die **`object-position`** [CSS](/de/docs/Web/CSS)-Eigenschaft bestimmt die Ausrichtung des Inhalts des ausgewählten [ersetzten Elements](/de/docs/Web/CSS/Replaced_element) innerhalb des Rahmens des Elements. Bereiche des Rahmens, die nicht vom Objekt des ersetzten Elements abgedeckt sind, zeigen den Hintergrund des Elements an.
+Die **`object-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Ausrichtung der Inhalte des ausgewählten [ersetzten Elements](/de/docs/Web/CSS/Replaced_element) innerhalb des Rahmens des Elements fest. Bereiche des Rahmens, die nicht vom Objekt des ersetzten Elements abgedeckt werden, zeigen den Hintergrund des Elements.
 
-Sie können anpassen, wie die intrinsische Größe (d.h. die natürliche Größe) des Objekts des ersetzten Elements so angepasst wird, dass es innerhalb des Rahmens des Elements passt, indem Sie die {{cssxref("object-fit")}}-Eigenschaft verwenden.
+Sie können anpassen, wie die intrinsische Größe des Objekts des ersetzten Elements (d.h. seine natürliche Größe) angepasst wird, um in den Rahmen des Elements zu passen, indem Sie die {{cssxref("object-fit")}} Eigenschaft verwenden.
 
 {{EmbedInteractiveExample("pages/css/object-position.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 object-position: top;
 object-position: bottom;
 object-position: left;
 object-position: right;
 object-position: center;
 
-/* <percentage> Werte */
+/* <percentage> values */
 object-position: 25% 75%;
 
-/* <length> Werte */
+/* <length> values */
 object-position: 0 0;
 object-position: 1cm 2cm;
 object-position: 10ch 8em;
 
-/* Randversatzwerte */
+/* Edge offsets values */
 object-position: bottom 10px right 20px;
 object-position: right 3em bottom 10px;
 object-position: top 0 right 10px;
 
-/* Globale Werte */
+/* Global values */
 object-position: inherit;
 object-position: initial;
 object-position: revert;
@@ -47,7 +47,7 @@ object-position: unset;
 ### Werte
 
 - {{cssxref("&lt;position&gt;")}}
-  - : Von einem bis zu vier Werten, die die 2D-Position des Elements definieren. Relative oder absolute Versätze können verwendet werden.
+  - : Von einem bis vier Werte, die die 2D-Position des Elements definieren. Relative oder absolute Offsets können verwendet werden.
 
 > [!NOTE]
 > Die Position kann so eingestellt werden, dass das ersetzte Element außerhalb seines Rahmens gezeichnet wird.
@@ -66,7 +66,7 @@ object-position: unset;
 
 #### HTML
 
-Hier sehen wir HTML, das zwei {{HTMLElement("img")}}-Elemente enthält, die beide das MDN-Logo anzeigen.
+Hier sehen wir HTML, das zwei {{HTMLElement("img")}} Elemente enthält, die jeweils das MDN-Logo anzeigen.
 
 ```html
 <img id="object-position-1" src="mdn.svg" alt="MDN Logo" />
@@ -75,7 +75,7 @@ Hier sehen wir HTML, das zwei {{HTMLElement("img")}}-Elemente enthält, die beid
 
 #### CSS
 
-Das CSS beinhaltet Standardstile für das `<img>`-Element selbst sowie separate Stile für jedes der beiden Bilder.
+Das CSS enthält die Standard-Stilvorlage für das `<img>` Element selbst sowie separate Stile für jedes der beiden Bilder.
 
 ```css
 img {
@@ -96,7 +96,7 @@ img {
 }
 ```
 
-Das erste Bild ist so positioniert, dass sein linker Rand 10 Pixel vom linken Rand des Rahmens des Elements eingezogen ist. Das zweite Bild ist so positioniert, dass sein rechter Rand am rechten Rand des Rahmens des Elements flächenbündig anliegt und sich 10% in Richtung der Höhe des Rahmens des Elements befindet.
+Das erste Bild ist so positioniert, dass seine linke Kante 10 Pixel von der linken Kante des Rahmens des Elements entfernt ist. Das zweite Bild ist so positioniert, dass seine rechte Kante bündig an der rechten Kante des Rahmens des Elements liegt und 10% der Höhe des Rahmens des Elements nach unten positioniert ist.
 
 #### Ergebnis
 

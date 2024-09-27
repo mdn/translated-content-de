@@ -8,41 +8,41 @@ l10n:
 {{AddonSidebar}}
 
 > [!NOTE]
-> Obwohl die APIs auf den [Chrome devtools APIs](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools) basieren, gibt es noch viele Funktionen, die in Firefox noch nicht implementiert sind und daher hier nicht dokumentiert sind. Um zu sehen, welche Funktionen derzeit fehlen, lesen Sie bitte [Einschränkungen der devtools APIs](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools#limitations_of_the_devtools_apis).
+> Obwohl die APIs auf den [Chrome devtools APIs](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools) basieren, gibt es noch viele Funktionen, die in Firefox noch nicht implementiert sind und daher hier nicht dokumentiert werden. Um zu sehen, welche Funktionen derzeit fehlen, besuchen Sie bitte [Einschränkungen der devtools APIs](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools#limitations_of_the_devtools_apis).
 
-Die `devtools.panels` API ermöglicht es einer devtools-Erweiterung, ihre Benutzeroberfläche im devtools-Fenster zu definieren.
+Die `devtools.panels` API ermöglicht es einer Devtools-Erweiterung, ihre Benutzeroberfläche innerhalb des Devtools-Fensters zu definieren.
 
-Das devtools-Fenster beherbergt eine Reihe von separaten Werkzeugen – den JavaScript-Debugger, den Netzwerkmonitor und so weiter. Eine Reihe von Tabs oben ermöglicht es dem Benutzer, zwischen den verschiedenen Werkzeugen zu wechseln. Das Fenster, das die Benutzeroberfläche jedes Werkzeugs beherbergt, wird als "Panel" bezeichnet.
+Das Devtools-Fenster beherbergt eine Reihe von separaten Tools – den JavaScript-Debugger, den Netzwerkmonitor und so weiter. Eine Reihe von Tabs oben ermöglicht es dem Benutzer, zwischen den verschiedenen Tools zu wechseln. Das Fenster, das die Benutzeroberfläche jedes Tools hostet, wird als "Panel" bezeichnet.
 
-Mit der `devtools.panels` API können Sie neue Panels im devtools-Fenster erstellen.
+Mit der `devtools.panels` API können Sie neue Panels im Devtools-Fenster erstellen.
 
-Wie alle `devtools` APIs ist diese API nur für Code verfügbar, der im Dokument ausgeführt wird, das im Manifest.json-Schlüssel [devtools_page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) definiert ist, oder in anderen devtools-Dokumenten, die von der Erweiterung erstellt wurden (wie zum Beispiel das eigene Dokument des Panels). Siehe [Erweiterung der Entwicklerwerkzeuge](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools) für mehr Informationen.
+Wie alle `devtools` APIs ist diese API nur für Code verfügbar, der im Dokument ausgeführt wird, das im [devtools_page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) manifest.json-Schlüssel definiert ist, oder in anderen Devtools-Dokumenten, die von der Erweiterung erstellt wurden (wie zum Beispiel das eigene Dokument des Panels). Weitere Informationen finden Sie unter [Erweiterung der Entwicklerwerkzeuge](/de/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools).
 
 ## Typen
 
 - [`devtools.panels.ElementsPanel`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ElementsPanel)
-  - : Repräsentiert den HTML/CSS-Inspektor in den devtools des Browsers.
+  - : Repräsentiert den HTML/CSS-Inspektor in den Devtools des Browsers.
 - [`devtools.panels.ExtensionPanel`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionPanel)
-  - : Repräsentiert ein von der Erweiterung erstelltes devtools-Panel.
+  - : Repräsentiert ein von der Erweiterung erstelltes Devtools-Panel.
 - [`devtools.panels.ExtensionSidebarPane`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane)
-  - : Repräsentiert ein Paneel, das eine Erweiterung zum HTML/CSS-Inspektor in den devtools des Browsers hinzugefügt hat.
+  - : Repräsentiert einen Bereich, den eine Erweiterung dem HTML/CSS-Inspektor in den Devtools des Browsers hinzugefügt hat.
 
 ## Eigenschaften
 
 - [`devtools.panels.elements`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/elements)
-  - : Eine Referenz zu einem [`ElementsPanel`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ElementsPanel) Objekt.
+  - : Ein Verweis auf ein [`ElementsPanel`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ElementsPanel)-Objekt.
 - [`devtools.panels.themeName`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/themeName)
-  - : Der Name des aktuellen devtools-Themas.
+  - : Der Name des aktuellen Devtools-Themas.
 
 ## Funktionen
 
 - [`devtools.panels.create()`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/create)
-  - : Erstellt ein neues devtools-Panel.
+  - : Erstellt ein neues Devtools-Panel.
 
 ## Ereignisse
 
 - [`devtools.panels.onThemeChanged`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/onThemeChanged)
-  - : Wird ausgelöst, wenn sich das devtools-Thema ändert.
+  - : Wird ausgelöst, wenn sich das Devtools-Thema ändert.
 
 {{WebExtExamples("h2")}}
 
@@ -51,7 +51,7 @@ Wie alle `devtools` APIs ist diese API nur für Code verfügbar, der im Dokument
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API.
+> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

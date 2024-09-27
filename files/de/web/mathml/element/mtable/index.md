@@ -7,49 +7,50 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mtable>`** [MathML](/de/docs/Web/MathML)-Element ermöglicht die Erstellung von Tabellen oder Matrizen. Seine Kinder sind {{ MathMLElement("mtr") }}-Elemente (die Zeilen darstellen), von denen jedes {{ MathMLElement("mtd") }}-Elemente als Kinder hat (die Zellen darstellen). Diese Elemente sind den {{ HTMLElement("table") }}, {{ HTMLElement("tr") }} und {{ HTMLElement("td") }}-Elementen von [HTML](/de/docs/Web/HTML) ähnlich.
+Das **`<mtable>`** [MathML](/de/docs/Web/MathML)-Element ermöglicht es Ihnen, Tabellen oder Matrizen zu erstellen. Seine Kinder sind {{ MathMLElement("mtr") }}-Elemente (die Zeilen darstellen), wobei jedes von ihnen {{ MathMLElement("mtd") }}-Elemente als Kinder hat (die Zellen darstellen). Diese Elemente sind ähnlich den {{ HTMLElement("table") }}, {{ HTMLElement("tr") }} und {{ HTMLElement("td") }}-Elementen von [HTML](/de/docs/Web/HTML).
 
 ## Attribute
 
-Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes). Einige Browser unterstützen möglicherweise auch die folgenden Attribute:
+Die Attribute dieses Elements schließen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) ein. Einige Browser können auch die folgenden Attribute unterstützen:
 
 - `align` {{Non-standard_Inline}}
 
-  - : Gibt die **vertikale** Ausrichtung der Tabelle in Bezug auf ihre Umgebung an. Mögliche Werte sind:
+  - : Gibt die **vertikale** Ausrichtung der Tabelle im Verhältnis zu ihrer Umgebung an.
+    Mögliche Werte sind:
 
-    - `axis` (Standard): Das vertikale Zentrum der Tabelle richtet sich an der Achse der Umgebung aus (typischerweise das Minuszeichen).
+    - `axis` (Standard): Das vertikale Zentrum der Tabelle richtet sich an der Achse der Umgebung (typisch das Minuszeichen) aus.
     - `baseline`: Das vertikale Zentrum der Tabelle richtet sich an der Grundlinie der Umgebung aus.
-    - `bottom`: Der untere Rand der Tabelle richtet sich an der Grundlinie der Umgebung aus.
-    - `center`: Siehe baseline.
-    - `top`: Der obere Rand der Tabelle richtet sich an der Grundlinie der Umgebung aus.
+    - `bottom`: Der Boden der Tabelle richtet sich an der Grundlinie der Umgebung aus.
+    - `center`: Siehe Grundlinie.
+    - `top`: Die Spitze der Tabelle richtet sich an der Grundlinie der Umgebung aus.
 
-    Darüber hinaus können Werte des `align`-Attributs mit einer _Zeilennummer_ enden (z.B. `align="center 3"`). Dies ermöglicht das Ausrichten der angegebenen Zeile der Tabelle anstelle der gesamten Tabelle. Ein negativer Ganzzahlwert zählt Zeilen von unten in der Tabelle.
+    Zusätzlich können Werte des `align`-Attributs mit einer _Reihennummer_ enden (z.B. `align="center 3"`). Dies ermöglicht es Ihnen, die angegebene Reihe der Tabelle statt der ganzen Tabelle auszurichten. Ein negativer Ganzzahlenwert zählt Reihen vom unteren Ende der Tabelle.
 
 - `columnalign` {{Non-standard_Inline}}
-  - : Bestimmt die horizontale Ausrichtung der Zellen. Mehrere durch Leerzeichen getrennte Werte sind zulässig und gelten für die entsprechenden Spalten (z.B. `columnalign="left right center"`). Mögliche Werte sind: `left`, `center` (Standard) und `right`.
+  - : Gibt die horizontale Ausrichtung der Zellen an. Mehrere durch Leerzeichen getrennte Werte sind erlaubt und gelten für die entsprechenden Spalten (z.B. `columnalign="left right center"`). Mögliche Werte sind: `left`, `center` (Standard) und `right`.
 - `columnlines` {{Non-standard_Inline}}
-  - : Gibt Spaltenränder an. Mehrere durch Leerzeichen getrennte Werte sind zulässig und gelten für die entsprechenden Spalten (z.B. `columnlines="none none solid"`). Mögliche Werte sind: `none` (Standard), `solid` und `dashed`.
+  - : Gibt die Spaltengrenzen an. Mehrere durch Leerzeichen getrennte Werte sind erlaubt und gelten für die entsprechenden Spalten (z.B. `columnlines="none none solid"`). Mögliche Werte sind: `none` (Standard), `solid` und `dashed`.
 - `columnspacing` {{Non-standard_Inline}}
-  - : Bestimmt den Abstand zwischen den Tabellenspalten. Mehrere durch Leerzeichen getrennte Werte sind zulässig und gelten für die entsprechenden Spalten (z.B. `columnspacing="1em 2em"`). Mögliche Werte sind {{cssxref("length-percentage")}}.
+  - : Gibt den Abstand zwischen den Tabellenspalten an. Mehrere durch Leerzeichen getrennte Werte sind erlaubt und gelten für die entsprechenden Spalten (z.B. `columnspacing="1em 2em"`). Mögliche Werte sind {{cssxref("length-percentage")}}.
 - `frame` {{Non-standard_Inline}}
-  - : Gibt Rahmen der gesamten Tabelle an. Mögliche Werte sind: `none` (Standard), `solid` und `dashed`.
+  - : Gibt die Grenzen der gesamten Tabelle an. Mögliche Werte sind: `none` (Standard), `solid` und `dashed`.
 - `framespacing` {{Non-standard_Inline}}
-  - : Gibt zusätzlichen Abstand zwischen der Tabelle und dem Rahmen an. Der erste Wert gibt den Abstand rechts und links an; der zweite Wert oben und unten. Mögliche Werte sind {{cssxref("length-percentage")}}.
+  - : Gibt zusätzlichen Raum zwischen der Tabelle und dem Rahmen an. Der erste Wert gibt den Abstand rechts und links an; der zweite Wert gibt den Abstand oben und unten an. Mögliche Werte sind {{cssxref("length-percentage")}}.
 - `rowalign` {{Non-standard_Inline}}
-  - : Bestimmt die vertikale Ausrichtung der Zellen. Mehrere durch Leerzeichen getrennte Werte sind zulässig und gelten für die entsprechenden Zeilen (z.B. `rowalign="top bottom axis"`). Mögliche Werte sind: `axis`, `baseline` (Standard), `bottom`, `center` und `top`.
+  - : Gibt die vertikale Ausrichtung der Zellen an. Mehrere durch Leerzeichen getrennte Werte sind erlaubt und gelten für die entsprechenden Zeilen (z.B. `rowalign="top bottom axis"`). Mögliche Werte sind: `axis`, `baseline` (Standard), `bottom`, `center` und `top`.
 - `rowlines` {{Non-standard_Inline}}
-  - : Gibt Zeilenränder an. Mehrere durch Leerzeichen getrennte Werte sind zulässig und gelten für die entsprechenden Zeilen (z.B. `rowlines="none none solid"`). Mögliche Werte sind: `none` (Standard), `solid` und `dashed`.
+  - : Gibt die Zeilengrenzen an. Mehrere durch Leerzeichen getrennte Werte sind erlaubt und gelten für die entsprechenden Zeilen (z.B. `rowlines="none none solid"`). Mögliche Werte sind: `none` (Standard), `solid` und `dashed`.
 - `rowspacing` {{Non-standard_Inline}}
-  - : Bestimmt den Abstand zwischen den Tabellenzeilen. Mehrere durch Leerzeichen getrennte Werte sind zulässig und gelten für die entsprechenden Zeilen (z.B. `rowspacing="1em 2em"`). Mögliche Werte sind {{cssxref("length-percentage")}}.
+  - : Gibt den Abstand zwischen den Tabellenzeilen an. Mehrere durch Leerzeichen getrennte Werte sind erlaubt und gelten für die entsprechenden Zeilen (z.B. `rowspacing="1em 2em"`). Mögliche Werte sind {{cssxref("length-percentage")}}.
 - `width` {{Non-standard_Inline}}
-  - : Ein {{cssxref("length-percentage")}}, das die Breite der gesamten Tabelle angibt.
+  - : Eine {{cssxref("length-percentage")}}, die die Breite der gesamten Tabelle angibt.
 
 > [!NOTE]
-> Beim `width`-Attribut können einige Browser auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
+> Für das `width`-Attribut können einige Browser auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
 
 ## Beispiele
 
-### Ausrichtung mit Zeilennummer
+### Ausrichtung mit Reihennummer
 
 ```html
 <math display="block">

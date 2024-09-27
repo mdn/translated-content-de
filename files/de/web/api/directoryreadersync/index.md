@@ -7,32 +7,32 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}{{Non-standard_Header}}{{Deprecated_Header}}
 
-Das `DirectoryReaderSync` Interface ermöglicht das Lesen der Einträge in einem Verzeichnis.
+Das `DirectoryReaderSync`-Interface ermöglicht das Lesen der Einträge in einem Verzeichnis.
 
 > [!WARNING]
-> Dieses Interface ist veraltet und ist nicht mehr im Standard aufgenommen.
+> Diese Schnittstelle ist veraltet und ist nicht mehr auf dem Standardweg.
 > _Verwenden Sie es nicht mehr._ Nutzen Sie stattdessen die [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API).
 
 ## Grundkonzepte
 
-Bevor Sie die einzige Methode in diesem Interface aufrufen, [`readEntries()`](#readentries), erstellen Sie das [`DirectoryEntrySync`](/de/docs/Web/API/DirectoryEntrySync) Objekt. Aber DirectoryEntrySync (ebenso wie [`FileEntrySync`](/de/docs/Web/API/FileEntrySync)) ist kein Datentyp, den Sie zwischen einer aufrufenden App und einem Web Worker-Thread übergeben können. Es ist nicht weiter schlimm, da es nicht wirklich notwendig ist, dass die Hauptanwendung und der Worker-Thread das gleiche JavaScript-Objekt sehen; Sie müssen lediglich auf die gleichen Dateien zugreifen können. Dies können Sie erreichen, indem Sie eine Liste von `filesystem:` URLs — die einfach Zeichenfolgen sind — anstelle einer Liste von Einträgen übergeben. Sie können auch die `filesystem:` URL verwenden, um den Eintrag mit `resolveLocalFileSystemURL()` nachzuschlagen. Dadurch erhalten Sie wieder ein DirectoryEntrySync (sowie ein FileEntrySync) Objekt.
+Bevor Sie die einzige Methode in diesem Interface, [`readEntries()`](#readentries), aufrufen, erstellen Sie das [`DirectoryEntrySync`](/de/docs/Web/API/DirectoryEntrySync)-Objekt. Aber DirectoryEntrySync (ebenso wie [`FileEntrySync`](/de/docs/Web/API/FileEntrySync)) ist kein Datentyp, den Sie zwischen einer aufrufenden App und einem Web Worker-Thread übergeben können. Das ist kein großes Problem, da die Haupt-App und der Worker-Thread nicht dasselbe JavaScript-Objekt sehen müssen; sie müssen lediglich auf dieselben Dateien zugreifen können. Sie können dies erreichen, indem Sie anstelle einer Liste von Einträgen eine Liste von `filesystem:`-URLs – die einfach Zeichenfolgen sind – übergeben. Sie können auch die `filesystem:`-URL verwenden, um den Eintrag mit `resolveLocalFileSystemURL()` nachzuschlagen. Dadurch gelangen Sie zurück zu einem DirectoryEntrySync (sowie FileEntrySync)-Objekt.
 
 ### Beispiel
 
-Im folgenden Code-Snippet von [HTML5Rocks (web.dev)](https://web.dev/articles/filesystem-sync) erstellen wir Web Worker und übergeben Daten von ihnen an die Hauptanwendung.
+Im folgenden Code-Snippet von [HTML5Rocks (web.dev)](https://web.dev/articles/filesystem-sync) erstellen wir Web Worker und übergeben Daten von diesen an die Haupt-App.
 
 ```js
-// Berücksichtigung der browserspezifischen Präfixe.
+// Taking care of the browser-specific prefixes.
 window.resolveLocalFileSystemURL =
   window.resolveLocalFileSystemURL || window.webkitResolveLocalFileSystemURL;
 
-// Erstellen von Web Workern
+// Create web workers
 const worker = new Worker("worker.js");
 worker.onmessage = (e) => {
   const urls = e.data.entries;
   urls.forEach((url) => {
     window.resolveLocalFileSystemURL(url, (fileEntry) => {
-      // Den Namen der Datei ausgeben.
+      // Print out file's name.
       console.log(fileEntry.name);
     });
   });
@@ -41,33 +41,33 @@ worker.onmessage = (e) => {
 worker.postMessage({ cmd: "list" });
 ```
 
-Das Folgende ist der `worker.js` Code, der die Inhalte des Verzeichnisses abrufen kann.
+Das Folgende ist der `worker.js`-Code, der den Inhalt des Verzeichnisses abruft.
 
 ```js
 // worker.js
 
-// Berücksichtigung der browserspezifischen Präfixe.
+// Taking care of the browser-specific prefixes.
 self.requestFileSystemSync =
   self.webkitRequestFileSystemSync || self.requestFileSystemSync;
 
-// Global zum Speichern der Liste von Dateisystem-URLs.
+// Global for holding the list of entry file system URLs.
 const paths = [];
 
 function getAllEntries(dirReader) {
   const entries = dirReader.readEntries();
 
   for (const entry of entries) {
-    // Diese Dateisystem-URL des Eintrags speichern
+    // Stash this entry's filesystem in URL
     paths.push(entry.toURL());
 
-    // Wenn dies ein Verzeichnis ist, durchsuchen.
+    // If this is a directory, traverse.
     if (entry.isDirectory) {
       getAllEntries(entry.createReader());
     }
   }
 }
 
-// Fehler an die Hauptanwendung weiterleiten.
+// Forward the error to main app.
 function onError(e) {
   postMessage(`ERROR: ${e.toString()}`);
 }
@@ -75,7 +75,7 @@ function onError(e) {
 self.onmessage = (e) => {
   const cmd = e.data.cmd;
 
-  // Alles andere außer unserem 'list'-Befehl ignorieren.
+  // Ignore everything else except our 'list' command.
   if (!cmd || cmd !== "list") {
     return;
   }
@@ -114,17 +114,17 @@ Array, das [`FileEntrySync`](/de/docs/Web/API/FileEntrySync) und [`DirectoryEntr
 
 ##### Ausnahmen
 
-Diese Methode kann eine [DOMException](/de/docs/Web/API/DOMException) mit folgenden Codes auslösen:
+Diese Methode kann eine [DOMException](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
 
-| Ausnahme            | Beschreibung                                                                        |
-| ------------------- | ---------------------------------------------------------------------------------- |
+| Ausnahme            | Beschreibung                                                                          |
+| ------------------- | ------------------------------------------------------------------------------------- |
 | `NOT_FOUND_ERR`     | Das Verzeichnis existiert nicht.                                                      |
-| `INVALID_STATE_ERR` | Das Verzeichnis wurde seit dem ersten Aufruf von readEntries modifiziert. |
-| `SECURITY_ERR`      | Der Browser hat entschieden, dass es nicht sicher war, die Metadaten abzurufen.               |
+| `INVALID_STATE_ERR` | Das Verzeichnis wurde seit dem ersten Aufruf von readEntries geändert.                |
+| `SECURITY_ERR`      | Der Browser hat festgestellt, dass es nicht sicher war, die Metadaten nachzuschlagen. |
 
 ## Spezifikationen
 
-Dieses Feature ist nicht mehr Teil einer Spezifikation. Es wird nicht mehr als Standard verfolgt.
+Dieses Feature ist nicht mehr Teil einer Spezifikation. Es ist nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 

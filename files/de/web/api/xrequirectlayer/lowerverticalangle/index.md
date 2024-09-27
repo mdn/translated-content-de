@@ -1,5 +1,5 @@
 ---
-title: "XREquirectLayer: Eigenschaft lowerVerticalAngle"
+title: "XREquirectLayer: lowerVerticalAngle-Eigenschaft"
 short-title: lowerVerticalAngle
 slug: Web/API/XREquirectLayer/lowerVerticalAngle
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`lowerVerticalAngle`**-Eigenschaft der {{domxref("XREquirectLayer")}}-Schnittstelle repräsentiert den unteren vertikalen Winkel in Radiant für die Kugel.
+Die **`lowerVerticalAngle`**-Eigenschaft der [`XREquirectLayer`](/de/docs/Web/API/XREquirectLayer)-Schnittstelle repräsentiert den unteren vertikalen Winkel in Radiant für die Kugel.
 
 ## Wert
 
-Eine Zahl, die den unteren vertikalen Winkel in Radiant für die Kugel darstellt. Wenn `lowerVerticalAngle` auf einen Wert kleiner als -π/2 gesetzt wird, wird er auf -π/2 gesetzt. Wenn er auf einen Wert größer als π/2 gesetzt wird, wird er auf π/2 gesetzt.
+Eine Zahl, die den unteren vertikalen Winkel in Radiant für die Kugel darstellt. Wenn `lowerVerticalAngle` auf einen Wert kleiner als -π/2 gesetzt wird, wird er auf -π/2 gesetzt, und wenn er auf einen größeren Wert als π/2 gesetzt wird, wird er auf π/2 gesetzt.
 
 ## Beispiele
 
-### Den unteren vertikalen Winkel einer Schicht erhalten
+### Den unteren vertikalen Winkel einer Schicht abrufen
 
-Die {{domxref("XRWebGLBinding.createEquirectLayer()")}}-Methode erstellt eine equirect-Schicht und ermöglicht es, einen `lowerVerticalAngle` anzugeben. Die `XREquirectLayer.lowerVerticalAngle`-Eigenschaft kann nach der Erstellung der Schicht verwendet werden, um den verwendeten unteren vertikalen Winkel zu erhalten oder ihn auf einen neuen zu setzen.
+Die Methode [`XRWebGLBinding.createEquirectLayer()`](/de/docs/Web/API/XRWebGLBinding/createEquirectLayer) erstellt eine equirect Schicht und ermöglicht die Angabe eines `lowerVerticalAngle`. Die `XREquirectLayer.lowerVerticalAngle`-Eigenschaft kann nach der Schichterstellung verwendet werden, um den verwendeten unteren vertikalen Winkel zu erhalten oder um ihn auf einen neuen Wert zu setzen.
 
 ```js
 const equirectLayer = xrGlBinding.createEquirectLayer({
@@ -44,6 +44,6 @@ equirectLayer.lowerVerticalAngle; // -1.5707963267948966
 
 ## Siehe auch
 
-- {{domxref("XREquirectLayer.radius")}}
-- {{domxref("XREquirectLayer.centralHorizontalAngle")}}
-- {{domxref("XREquirectLayer.upperVerticalAngle")}}
+- [`XREquirectLayer.radius`](/de/docs/Web/API/XREquirectLayer/radius)
+- [`XREquirectLayer.centralHorizontalAngle`](/de/docs/Web/API/XREquirectLayer/centralHorizontalAngle)
+- [`XREquirectLayer.upperVerticalAngle`](/de/docs/Web/API/XREquirectLayer/upperVerticalAngle)

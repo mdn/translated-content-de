@@ -7,45 +7,45 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die `ReadableStreamBYOBReader`-Schnittstelle der [Streams-API](/de/docs/Web/API/Streams_API) definiert einen Leser für einen {{domxref("ReadableStream")}}, der Zero-Copy-Lesen aus einer zugrunde liegenden Bytequelle unterstützt. Sie wird für das effiziente Kopieren von zugrunde liegenden Quellen verwendet, bei denen die Daten als "anonyme" Bytefolge, wie z. B. Dateien, bereitgestellt werden.
+Das `ReadableStreamBYOBReader`-Interface der [Streams API](/de/docs/Web/API/Streams_API) definiert einen Leser für einen [`ReadableStream`](/de/docs/Web/API/ReadableStream), der Zero-Copy-Lesen aus einer zugrunde liegenden Byte-Quelle unterstützt. Es wird für effizientes Kopieren aus zugrunde liegenden Quellen verwendet, bei denen die Daten als "anonyme" Folge von Bytes geliefert werden, wie zum Beispiel Dateien.
 
-Eine Instanz dieses Leser-Typs wird in der Regel durch Aufrufen von {{domxref("ReadableStream.getReader()")}} auf dem Stream erstellt, wobei im Optionsparameter `mode: "byob"` angegeben wird. Der lesbare Stream muss eine _zugrunde liegende Bytequelle_ haben. Mit anderen Worten: Er muss [konstruiert](/de/docs/Web/API/ReadableStream/ReadableStream) worden sein, indem eine zugrunde liegende Quelle mit [`type: "bytes"`](/de/docs/Web/API/ReadableStream/ReadableStream#type)) angegeben wurde.
+Eine Instanz dieses Lesertyps sollte normalerweise durch Aufruf von [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) auf dem Stream erhalten werden, bei dem im Optionsparameter `mode: "byob"` angegeben wird. Der lesbare Stream muss über eine _zugrunde liegende Byte-Quelle_ verfügen. Mit anderen Worten, er muss [konstruiert](/de/docs/Web/API/ReadableStream/ReadableStream) worden sein, indem eine zugrunde liegende Quelle mit [`type: "bytes"`](/de/docs/Web/API/ReadableStream/ReadableStream#type) angegeben wurde.
 
-Mit diesem Lesertyp führt eine [`read()`](#readablestreambyobreader.read)-Anfrage, wenn die internen Warteschlangen des lesbaren Streams leer sind, zu einem Zero-Copy-Transfer von der zugrunde liegenden Quelle (wobei die internen Warteschlangen des Streams umgangen werden). Wenn die internen Warteschlangen nicht leer sind, wird eine `read()`-Anfrage durch die zwischengespeicherten Daten erfüllt.
+Wenn bei diesem Lesertyp eine [`read()`](#readablestreambyobreader.read)-Anfrage gestellt wird, während die internen Warteschlangen des lesbaren Streams leer sind, erfolgt ein Zero-Copy-Transfer von der zugrunde liegenden Quelle (umgehen der internen Warteschlangen des Streams). Wenn die internen Warteschlangen nicht leer sind, wird eine `read()`-Anfrage aus den gepufferten Daten erfüllt.
 
-Beachten Sie, dass die Methoden und Eigenschaften denjenigen des Standardlesers ({{domxref("ReadableStreamDefaultReader")}}) ähneln. Die `read()`-Methode unterscheidet sich darin, dass sie eine Ansicht bereitstellt, in die Daten geschrieben werden sollen.
+Beachten Sie, dass die Methoden und Eigenschaften ähnlich zu denen des Standardlesers ([`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)) sind. Die `read()`-Methode unterscheidet sich darin, dass sie eine Ansicht bereitstellt, in die Daten geschrieben werden sollen.
 
 ## Konstruktor
 
-- {{domxref("ReadableStreamBYOBReader.ReadableStreamBYOBReader", "ReadableStreamBYOBReader()")}}
-  - : Erstellt und gibt eine `ReadableStreamBYOBReader`-Objektinstanz zurück.
+- [`ReadableStreamBYOBReader()`](/de/docs/Web/API/ReadableStreamBYOBReader/ReadableStreamBYOBReader)
+  - : Erstellt und gibt eine Instanz eines `ReadableStreamBYOBReader`-Objekts zurück.
 
 ## Instanzeigenschaften
 
-- {{domxref("ReadableStreamBYOBReader.closed")}} {{ReadOnlyInline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream geschlossen wird, oder abgelehnt wird, wenn der Stream einen Fehler wirft oder die Sperre des Lesers freigegeben wird. Diese Eigenschaft ermöglicht es Ihnen, Code zu schreiben, der auf ein Ende des Streaming-Prozesses reagiert.
+- [`ReadableStreamBYOBReader.closed`](/de/docs/Web/API/ReadableStreamBYOBReader/closed) {{ReadOnlyInline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Stream geschlossen wird, oder abgelehnt wird, wenn der Stream einen Fehler wirft oder die Sperre des Lesers aufgehoben wird. Diese Eigenschaft ermöglicht es Ihnen, Code zu schreiben, der auf das Ende des Streaming-Prozesses reagiert.
 
 ## Instanzmethoden
 
-- {{domxref("ReadableStreamBYOBReader.cancel()")}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird. Das Aufrufen dieser Methode signalisiert ein Verlust des Interesses am Stream durch einen Verbraucher. Das angegebene `reason`-Argument wird der zugrunde liegenden Quelle übergeben, die es möglicherweise verwendet.
-- {{domxref("ReadableStreamBYOBReader.read()")}}
-  - : Übergibt eine Ansicht, in die Daten geschrieben werden müssen, und gibt ein {{jsxref("Promise")}} zurück, das mit dem nächsten Chunk im Stream aufgelöst wird oder mit einem Hinweis darauf abgelehnt wird, dass der Stream geschlossen oder fehlerhaft ist.
-- {{domxref("ReadableStreamBYOBReader.releaseLock()")}}
-  - : Gibt die Sperre des Lesers auf dem Stream frei.
+- [`ReadableStreamBYOBReader.cancel()`](/de/docs/Web/API/ReadableStreamBYOBReader/cancel)
+  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird. Der Aufruf dieser Methode signalisiert einen Verlust des Interesses an dem Stream durch einen Verbraucher. Das angegebene `reason`-Argument wird an die zugrunde liegende Quelle übergeben, die es möglicherweise verwendet oder ignoriert.
+- [`ReadableStreamBYOBReader.read()`](/de/docs/Web/API/ReadableStreamBYOBReader/read)
+  - : Übergibt eine Ansicht, in die Daten geschrieben werden müssen, und gibt ein {{jsxref("Promise")}} zurück, das mit dem nächsten Chunk im Stream aufgelöst wird oder mit einer Angabe abgelehnt wird, dass der Stream geschlossen ist oder einen Fehler aufweist.
+- [`ReadableStreamBYOBReader.releaseLock()`](/de/docs/Web/API/ReadableStreamBYOBReader/releaseLock)
+  - : Hebt die Sperre des Lesers auf den Stream auf.
 
 ## Beispiele
 
-Das folgende Beispiel stammt aus den Live-Beispielen unter [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#examples).
+Das unten stehende Beispiel stammt aus den Live-Beispielen in [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#examples).
 
-Erstellen Sie zunächst den Leser mit {{domxref("ReadableStream.getReader()")}} auf dem Stream, wobei im Optionsparameter `mode: "byob"` angegeben wird. Da dies ein "Bring Your Own Buffer"-Leser ist, müssen wir auch ein `ArrayBuffer` erstellen, in das gelesen werden soll.
+Zuerst erstellen Sie den Leser mit [`ReadableStream.getReader()`](/de/docs/Web/API/ReadableStream/getReader) auf dem Stream, wobei im Optionsparameter `mode: "byob"` angegeben wird. Da dies ein "Bring Your Own Buffer"-Leser ist, müssen wir auch ein `ArrayBuffer` erstellen, in das gelesen werden soll.
 
 ```js
 const reader = stream.getReader({ mode: "byob" });
 let buffer = new ArrayBuffer(200);
 ```
 
-Eine Funktion, die den Leser benutzt, wird unten gezeigt. Diese ruft die `read()`-Methode rekursiv auf, um Daten in den Puffer zu lesen. Die Methode nimmt eine [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) [Typed Array](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray), das eine Ansicht über den Teil des ursprünglichen Array-Puffers ist, der noch nicht beschrieben wurde. Die Parameter der Ansicht werden aus den in früheren Aufrufen empfangenen Daten berechnet, die einen Offset in den ursprünglichen Array-Puffer definieren.
+Unten wird eine Funktion gezeigt, die den Leser verwendet. Sie ruft die `read()`-Methode rekursiv auf, um Daten in den Puffer zu lesen. Die Methode nimmt ein [`Uint8Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) [typisiertes Array](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) entgegen, das eine Ansicht über den Teil des ursprünglichen Array-Buffers ist, der noch nicht geschrieben wurde. Die Parameter der Ansicht werden aus den Daten berechnet, die in vorherigen Aufrufen empfangen wurden und einen Offset in den ursprünglichen Array-Buffer definieren.
 
 ```js
 readStream(reader);
@@ -84,9 +84,9 @@ function readStream(reader) {
 }
 ```
 
-Wenn keine Daten mehr im Stream sind, wird die `read()`-Methode mit einem Objekt aufgelöst, dessen Attribut `done` auf `true` gesetzt ist, und die Funktion gibt zurück.
+Wenn keine Daten mehr im Stream sind, wird die `read()`-Methode mit einem Objekt aufgelöst, dessen Eigenschaft `done` auf `true` gesetzt ist, und die Funktion kehrt zurück.
 
-Die {{domxref("ReadableStreamBYOBReader.closed")}}-Eigenschaft gibt ein Promise zurück, das verwendet werden kann, um zu überwachen, ob der Stream geschlossen oder fehlerhaft ist oder ob die Lesersperre freigegeben wird.
+Die Eigenschaft [`ReadableStreamBYOBReader.closed`](/de/docs/Web/API/ReadableStreamBYOBReader/closed) gibt ein Promise zurück, das verwendet werden kann, um den geschlossenen oder fehlerhaften Stream oder die Freigabe der Lesersperre zu überwachen.
 
 ```js
 reader.closed
@@ -98,9 +98,9 @@ reader.closed
   });
 ```
 
-Um den Stream abzubrechen, rufen Sie {{domxref("ReadableStreamBYOBReader.cancel()")}} auf und geben optional einen _Grund_ an. Dies gibt ein Promise zurück, das aufgelöst wird, wenn der Stream abgebrochen wurde. Wenn der Stream abgebrochen wird, ruft der Controller wiederum `cancel()` auf der zugrunde liegenden Quelle auf und übergibt den optionalen Grund.
+Um den Stream abzubrechen, rufen Sie [`ReadableStreamBYOBReader.cancel()`](/de/docs/Web/API/ReadableStreamBYOBReader/cancel) auf und geben optional einen _Grund_ an. Dies gibt ein Promise zurück, das aufgelöst wird, wenn der Stream abgebrochen wurde. Wenn der Stream abgebrochen wird, wird der Controller seinerseits `cancel()` auf der zugrunde liegenden Quelle aufrufen und den optionalen Grund übergeben.
 
-Der Beispielcode in [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#examples) ruft die Abbruchmethode auf, wenn eine Schaltfläche gedrückt wird, wie gezeigt:
+Der Beispielcode in [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams#examples) ruft die Cancel-Methode auf, wenn eine Schaltfläche gedrückt wird, wie gezeigt:
 
 ```js
 button.addEventListener("click", () => {
@@ -108,7 +108,7 @@ button.addEventListener("click", () => {
 });
 ```
 
-Der Verbraucher kann auch `releaseLock()` aufrufen, um die Sperre des Lesers auf dem Stream freizugeben, jedoch nur, wenn kein Lesevorgang aussteht:
+Der Verbraucher kann auch `releaseLock()` aufrufen, um die Sperre des Lesers auf den Stream freizugeben, jedoch nur, wenn keine Leseanforderung aussteht:
 
 ```js
 reader.releaseLock();
@@ -124,8 +124,8 @@ reader.releaseLock();
 
 ## Siehe auch
 
-- [Konzepte der Streams-API](/de/docs/Web/API/Streams_API)
-- [Verwendung von lesbarem Byte-Stream](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
-- {{domxref("ReadableStream")}}
-- [WHATWG Stream Visualizer](https://whatwg-stream-visualizer.glitch.me/), für eine grundlegende Visualisierung von lesbaren, beschreibbaren und transformierenden Streams.
+- [Streams API Konzepte](/de/docs/Web/API/Streams_API)
+- [Verwendung von lesbaren Bytestreams](/de/docs/Web/API/Streams_API/Using_readable_byte_streams)
+- [`ReadableStream`](/de/docs/Web/API/ReadableStream)
+- [WHATWG Stream Visualizer](https://whatwg-stream-visualizer.glitch.me/) für eine grundlegende Visualisierung von lesbaren, beschreibbaren und Transform-Streams.
 - [Web-streams-polyfill](https://github.com/MattiasBuelens/web-streams-polyfill) oder [sd-streams](https://github.com/stardazed/sd-streams) - Polyfills

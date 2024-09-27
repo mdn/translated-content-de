@@ -7,15 +7,15 @@ l10n:
 
 {{JSRef}} {{Deprecated_Header}}
 
-Die **`setYear()`** Methode von {{jsxref("Date")}} Instanzen setzt das Jahr für ein angegebenes Datum entsprechend der lokalen Zeit.
+Die **`setYear()`**-Methode von {{jsxref("Date")}}-Instanzen setzt das Jahr für ein angegebenes Datum entsprechend der lokalen Zeit.
 
-Die Art und Weise, wie die veraltete `setYear()` Methode Jahreswerte festlegt, unterscheidet sich jedoch von der bevorzugten {{jsxref("Date/setFullYear", "setFullYear()")}} Methode — und in einigen Fällen auch davon, wie `new Date()` und {{jsxref("Date.parse()")}} Jahreswerte festlegen. Insbesondere bei zweistelligen Zahlen wie `22` und `61`:
+Die Weise, wie die veraltete `setYear()`-Methode Jahrwerte setzt, unterscheidet sich jedoch von der Art und Weise, wie die bevorzugte {{jsxref("Date/setFullYear", "setFullYear()")}}-Methode Jahrwerte setzt – und in einigen Fällen auch von der Art und Weise, wie `new Date()` und {{jsxref("Date.parse()")}} Jahrwerte setzen. Insbesondere bei zweistelligen Zahlen, wie `22` und `61`:
 
-- `setYear()` interpretiert jede zweistellige Zahl als einen Offset zu `1900`; daher wird bei `date.setYear(22)` der Jahreswert auf `1922` gesetzt und bei `date.setYear(61)` auf `1961`. (Im Gegensatz dazu wird bei `new Date(61, 1)` der Jahreswert auch auf `1961` gesetzt, während bei `new Date("2/1/22")` der Jahreswert auf `2022` gesetzt wird; und ähnlich verhält es sich bei {{jsxref("Date.parse()")}}).
+- `setYear()` interpretiert jede zweistellige Zahl als Offset zu `1900`; also wird bei `date.setYear(22)` der Jahrwert auf `1922` gesetzt und bei `date.setYear(61)` auf `1961`. (Im Gegensatz dazu wird bei `new Date(61, 1)` der Jahrwert ebenfalls auf `1961` gesetzt, während bei `new Date("2/1/22")` der Jahrwert auf `2022` gesetzt wird; Ähnliches gilt für {{jsxref("Date.parse()")}}).
 
-- {{jsxref("Date/setFullYear", "setFullYear()")}} hingegen nimmt keine spezielle Interpretation vor, sondern verwendet den wörtlichen zweistelligen Wert wie angegeben, um das Jahr festzulegen; so wird bei `date.setFullYear(61)` der Jahreswert auf `0061` gesetzt und bei `date.setFullYear(22)` auf `0022`.
+- {{jsxref("Date/setFullYear", "setFullYear()")}} interpretiert den Wert nicht auf besondere Weise, sondern verwendet den wörtlichen zweistelligen Wert, um das Jahr zu setzen; also ergibt `date.setFullYear(61)` den Jahrwert `0061`, und `date.setFullYear(22)` ergibt `0022`.
 
-Aufgrund dieser unterschiedlichen Verhaltensweisen sollten Sie die veraltete `setYear()` Methode nicht mehr verwenden, sondern stattdessen die bevorzugte {{jsxref("Date/setFullYear", "setFullYear()")}} Methode nutzen.
+Wegen dieser Unterschiede im Verhalten sollten Sie die veraltete `setYear()`-Methode nicht mehr verwenden, sondern stattdessen die bevorzugte {{jsxref("Date/setFullYear", "setFullYear()")}}-Methode nutzen.
 
 ## Syntax
 
@@ -30,11 +30,13 @@ setYear(yearValue)
 
 ### Rückgabewert
 
-Verändert das {{jsxref("Date")}} Objekt direkt und gibt seinen neuen [Timestamp](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn `yearValue` `NaN` ist (oder andere Werte, die zu `NaN` [erzwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Ungültiges Datum](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
+Verändert das {{jsxref("Date")}}-Objekt und gibt seinen neuen [Timestamp](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) zurück. Wenn `yearValue` `NaN` ist (oder andere Werte, die zu `NaN` [konvertiert](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion) werden, wie `undefined`), wird das Datum auf [Ungültiges Datum](/de/docs/Web/JavaScript/Reference/Global_Objects/Date#the_epoch_timestamps_and_invalid_date) gesetzt und `NaN` wird zurückgegeben.
 
 ## Beschreibung
 
-Ist `yearValue` eine Zahl zwischen 0 und 99 (einschließlich), dann wird für `dateObj` das Jahr auf `1900 + yearValue` gesetzt. Andernfalls wird für `dateObj` das Jahr auf `yearValue` gesetzt.
+Wenn `yearValue` eine Zahl zwischen 0 und 99 (einschließlich) ist, wird das Jahr für
+`dateObj` auf `1900 + yearValue` gesetzt. Andernfalls wird das Jahr für
+`dateObj` auf `yearValue` gesetzt.
 
 ## Beispiele
 

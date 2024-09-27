@@ -7,8 +7,8 @@ l10n:
 
 {{JSRef}}
 
-Die **`compare()`**-Methode von Instanzen des Objekts {{jsxref("Intl.Collator")}} vergleicht zwei
-Zeichenfolgen gemäß der Sortierreihenfolge dieses Collator-Objekts.
+Die **`compare()`** Methode von {{jsxref("Intl.Collator")}} Instanzen vergleicht zwei
+Zeichenfolgen entsprechend der Sortierreihenfolge dieses Collator-Objekts.
 
 {{EmbedInteractiveExample("pages/js/intl-collator-prototype-compare.html")}}
 
@@ -25,17 +25,17 @@ compare(string1, string2)
 
 ### Rückgabewert
 
-Eine Zahl, die angibt, wie `string1` und `string2` gemäß der Sortierreihenfolge dieses {{jsxref("Intl.Collator")}}-Objekts verglichen werden:
+Eine Zahl, die angibt, wie `string1` und `string2` gemäß der Sortierreihenfolge dieses {{jsxref("Intl.Collator")}} Objekts verglichen werden:
 
 - Ein negativer Wert, wenn `string1` vor `string2` kommt;
 - Ein positiver Wert, wenn `string1` nach `string2` kommt;
-- 0, wenn sie als gleich angesehen werden.
+- 0, wenn sie als gleich betrachtet werden.
 
 ## Beispiele
 
-### Vergleiche zur Arraysortierung verwenden
+### Verwenden von compare zum Sortieren von Arrays
 
-Verwenden Sie die `compare`-Funktion zum Sortieren von Arrays. Beachten Sie, dass die Funktion
+Verwenden Sie die `compare` Funktion zum Sortieren von Arrays. Beachten Sie, dass die Funktion
 an den Collator gebunden ist, von dem sie erhalten wurde, sodass sie direkt an
 {{jsxref("Array.prototype.sort()")}} übergeben werden kann.
 
@@ -46,9 +46,9 @@ a.sort(collator.compare);
 console.log(a.join(", ")); // "Odenwald, Österreich, Offenbach"
 ```
 
-### Vergleiche zur Arraysuche verwenden
+### Verwenden von compare zur Suche in Arrays
 
-Verwenden Sie die `compare`-Funktion, um übereinstimmende Zeichenfolgen in Arrays zu finden:
+Verwenden Sie die `compare` Funktion zum Suchen nach passenden Zeichenfolgen in Arrays:
 
 ```js
 const a = ["Congrès", "congres", "Assemblée", "poisson"];

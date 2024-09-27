@@ -1,5 +1,5 @@
 ---
-title: "HTMLButtonElement: reportValidity()-Methode"
+title: "HTMLButtonElement: reportValidity() Methode"
 short-title: reportValidity()
 slug: Web/API/HTMLButtonElement/reportValidity
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`**-Methode der {{domxref("HTMLButtonElement")}}-Schnittstelle führt dieselben Gültigkeitsprüfungs-Schritte durch wie die {{domxref("HTMLButtonElement.checkValidity", "checkValidity()")}}-Methode. Zusätzlich zeigt der Browser das Problem dem Benutzer an, wenn das {{domxref("HTMLElement/invalid_event", "invalid")}}-Ereignis nicht abgebrochen wird.
+Die **`reportValidity()`** Methode des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) Interfaces führt dieselben Schritte zur Gültigkeitsprüfung aus wie die [`checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity) Methode. Zusätzlich zeigt der Browser das Problem dem Benutzer an, wenn das [`invalid`](/de/docs/Web/API/HTMLElement/invalid_event) Ereignis nicht abgebrochen wird.
 
 ## Syntax
 
@@ -22,21 +22,21 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme hat; andernfalls wird `false` zurückgegeben.
+Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufweist; andernfalls wird `false` zurückgegeben.
 
 ### Beispiele
 
-Dieses weit hergeholte Beispiel zeigt, wie ein Button ungültig gemacht werden kann.
+Dieses weit hergeholte Beispiel demonstriert, wie ein Button ungültig gemacht werden kann.
 
 #### HTML
 
-Wir erstellen ein Formular, das nur ein paar Buttons enthält:
+Wir erstellen ein Formular, das nur einige wenige Buttons enthält:
 
 ```html
 <form action="#" id="form" method="post">
   <p>
     <input type="submit" value="Submit" />
-    <button id="example" type="submit" value="fixed">DIESER BUTTON</button>
+    <button id="example" type="submit" value="fixed">THIS BUTTON</button>
   </p>
   <p>
     <button type="button" id="report">reportValidity()</button>
@@ -48,7 +48,7 @@ Wir erstellen ein Formular, das nur ein paar Buttons enthält:
 
 #### CSS
 
-Wir fügen ein bisschen CSS hinzu, einschließlich `:valid` und `:invalid` Stile für unseren Button:
+Wir fügen ein wenig CSS hinzu, einschließlich `:valid` und `:invalid` Styles für unseren Button:
 
 ```css
 input[type="submit"],
@@ -69,7 +69,7 @@ button:valid {
 
 #### JavaScript
 
-Wir fügen eine Funktion hinzu, um den Wert, den Inhalt und die Validierungsnachricht des Beispielbuttons umzuschalten:
+Wir fügen eine Funktion hinzu, um den Wert, den Inhalt und die Fehlermeldung des Beispiel-Buttons umzuschalten:
 
 ```js
 const reportButton = document.querySelector("#report");
@@ -120,7 +120,7 @@ const toggleButton = () => {
 
 {{EmbedLiveSample("Custom error message", "100%", 220)}}
 
-Der Button ist standardmäßig gültig. Aktivieren Sie "DIESER BUTTON", um den Wert, den Inhalt zu ändern und eine benutzerdefinierte Fehlermeldung hinzuzufügen. Durch Aktivieren des "reportValidity()"-Buttons wird die Gültigkeit des Buttons überprüft, die benutzerdefinierte Fehlermeldung dem Benutzer gemeldet und ein `invalid`-Ereignis ausgelöst, wenn der Button aufgrund der Nachricht die Beschränkungsvalidierung nicht besteht.
+Der Button ist standardmäßig gültig. Aktivieren Sie "THIS BUTTON", um den Wert, den Inhalt zu ändern und eine benutzerdefinierte Fehlermeldung hinzuzufügen. Das Aktivieren des "reportValidity()" Buttons überprüft die Gültigkeit des Buttons, meldet die benutzerdefinierte Fehlermeldung an den Benutzer und löst ein `invalid` Ereignis aus, wenn der Button aufgrund der Nachricht die Konformitätsprüfung nicht besteht.
 
 ## Spezifikationen
 
@@ -132,9 +132,9 @@ Der Button ist standardmäßig gültig. Aktivieren Sie "DIESER BUTTON", um den W
 
 ## Siehe auch
 
-- {{domxref("HTMLButtonElement.checkValidity()")}}
+- [`HTMLButtonElement.checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity)
 - {{HTMLElement("button")}}
 - {{HTMLElement("form")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Überprüfungsbeschränkung](/de/docs/Web/HTML/Constraint_validation)
+- [Learn: Client-side form validation](/de/docs/Learn/Forms/Form_validation)
+- [Leitfaden: Constraint validation](/de/docs/Web/HTML/Constraint_validation)
 - CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

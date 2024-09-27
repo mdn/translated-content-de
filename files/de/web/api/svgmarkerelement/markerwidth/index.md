@@ -1,5 +1,5 @@
 ---
-title: "SVGMarkerElement: markerWidth Eigenschaft"
+title: "SVGMarkerElement: markerWidth-Eigenschaft"
 short-title: markerWidth
 slug: Web/API/SVGMarkerElement/markerWidth
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`markerWidth`** schreibgeschützte Eigenschaft des {{domxref("SVGMarkerElement")}} Interface gibt ein {{domxref("SVGAnimatedLength")}} Objekt zurück, das die Breite des Viewports des {{SVGElement("marker")}} enthält, wie durch das {{SVGattr("markerWidth")}} Attribut definiert.
+Die **`markerWidth`** Schreibgeschützte Eigenschaft des [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Interfaces gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das die Breite des {{SVGElement("marker")}} Ansichtsfensters enthält, wie es durch das {{SVGattr("markerWidth")}} Attribut definiert ist.
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedLength")}} Objekt. Die `baseVal` Eigenschaft dieses Objekts gibt ein {{domxref("SVGLength")}} zurück, dessen Wert die `Breite` zurückgibt.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGLength`](/de/docs/Web/API/SVGLength) zurück, dessen Wert die `Breite` ist.
 
 ## Beispiele
 
-Die `markerWidth` Eigenschaft gibt ein {{domxref("SVGAnimatedLength")}} zurück, das ein {{domxref("SVGLength")}} mit dem Wert des {{SVGattr("markerWidth")}} Attributs enthält.
+Die `markerWidth`-Eigenschaft gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength) zurück, das ein [`SVGLength`](/de/docs/Web/API/SVGLength) mit dem Wert des {{SVGattr("markerWidth")}}-Attributs enthält.
 
 ```html
 <svg id="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">

@@ -1,5 +1,5 @@
 ---
-title: "VideoFrame: Eigenschaft duration"
+title: "VideoFrame: duration-Eigenschaft"
 short-title: duration
 slug: Web/API/VideoFrame/duration
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Codecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`duration`** Eigenschaft des {{domxref("VideoFrame")}} Interfaces gibt einen ganzzahligen Wert zurück, der die Dauer des Videos in Mikrosekunden angibt.
+Die **`duration`**-Eigenschaft des [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Interfaces gibt eine Ganzzahl zurück, die die Dauer des Videos in Mikrosekunden angibt.
 
 ## Wert
 
-Ein ganzzahliger Wert.
+Eine Ganzzahl.
 
 ## Beispiele
 

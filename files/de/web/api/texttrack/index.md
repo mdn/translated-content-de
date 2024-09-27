@@ -7,58 +7,58 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`TextTrack`**-Schnittstelle der [WebVTT-API](/de/docs/Web/API/WebVTT_API) repräsentiert einen Text-Track, der mit einem Media-Element assoziiert ist.
+Das **`TextTrack`** Interface der [WebVTT API](/de/docs/Web/API/WebVTT_API) repräsentiert eine Textspur, die mit einem Medienelement verknüpft ist.
 
-Ein Objekt dieses Typs besitzt die Liste von {{domxref("VTTCue")}}-Objekten, die zu verschiedenen Zeitpunkten über das Video angezeigt werden.
+Ein Objekt dieses Typs besitzt die Liste der [`VTTCue`](/de/docs/Web/API/VTTCue)-Objekte, die zu verschiedenen Zeitpunkten über dem Video angezeigt werden.
 
-`TextTrack`-Objekte können einem {{domxref("HTMLVideoElement")}} oder {{domxref("HTMLAudioElement")}}-Element mithilfe der {{domxref("HTMLMediaElement.addTextTrack()")}}-Methode hinzugefügt werden, was den gleichen Effekt hat wie das deklarative Hinzufügen von Text-Tracks mit {{htmlelement("track")}}-Elementen innerhalb eines {{htmlelement("video")}}- oder {{htmlelement("audio")}}-Elements. Die `TextTrack`-Objekte werden in einer {{domxref("TextTrackList")}} gespeichert, die über die {{domxref("HTMLMediaElement.textTracks")}}-Eigenschaft abgerufen werden kann.
+`TextTrack`-Objekte können einem [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) oder [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement)-Element mit der Methode [`HTMLMediaElement.addTextTrack()`](/de/docs/Web/API/HTMLMediaElement/addTextTrack) hinzugefügt werden, was denselben Effekt hat wie das deklarative Hinzufügen von Textspuren mithilfe von {{htmlelement("track")}}-Elementen innerhalb eines {{htmlelement("video")}} oder {{htmlelement("audio")}}-Elements. Die `TextTrack`-Objekte werden in einer [`TextTrackList`](/de/docs/Web/API/TextTrackList) gespeichert, die über die Eigenschaft [`HTMLMediaElement.textTracks`](/de/docs/Web/API/HTMLMediaElement/textTracks) abgerufen werden kann.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von {{domxref("EventTarget")}}._
+_Dieses Interface erbt auch Eigenschaften von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("TextTrack.activeCues")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("TextTrackCueList")}}-Objekt, das die aktuell aktive Menge von Text-Track-Cues auflistet. Track-Cues sind aktiv, wenn die aktuelle Wiedergabeposition des Mediums zwischen den Start- und Endzeiten der Cues liegt. Bei angezeigten Cues wie Untertiteln oder Kommentaren werden die aktiven Cues derzeit angezeigt.
-- {{domxref("TextTrack.cues")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("TextTrackCueList")}}, das alle Cues des Tracks enthält.
-- {{domxref("TextTrack.id")}} {{ReadOnlyInline}}
-  - : Eine Zeichenkette, die den Track identifiziert, sofern er eine hat. Wenn er keine ID hat, ist dieser Wert eine leere Zeichenkette (`""`). Wenn der `TextTrack` mit einem {{HTMLElement("track")}}-Element verknüpft ist, stimmt die ID des Tracks mit der ID des Elements überein.
-- {{domxref("TextTrack.inBandMetadataTrackDispatchType")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die den In-Band-Metadaten-Track-Dispatch-Typ des Tracks angibt.
-- {{domxref("TextTrack.kind")}} {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die angibt, welche Art von Text-Track der `TextTrack` beschreibt. Es muss einer der erlaubten Werte sein.
-- {{domxref("TextTrack.label")}} {{ReadOnlyInline}}
-  - : Eine menschenlesbare Zeichenkette, die das Label des Text-Tracks enthält, falls vorhanden; andernfalls ist dies eine leere Zeichenkette (`""`), in welchem Fall ein benutzerdefiniertes Label durch Ihren Code mit Hilfe anderer Attribute des Tracks generiert werden muss, wenn das Label des Tracks dem Benutzer angezeigt werden soll.
-- {{domxref("TextTrack.language")}} {{ReadOnlyInline}}
-  - : Eine Zeichenkette, die die Textsprache angibt, in der der Inhalt des Text-Tracks geschrieben ist. Der Wert muss dem im {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} festgelegten Format folgen, genau wie das HTML-Attribut [`lang`](/de/docs/Web/HTML/Global_attributes#lang). Beispielweise kann dies `"en-US"` für US-amerikanisches Englisch oder `"pt-BR"` für brasilianisches Portugiesisch sein.
-- {{domxref("TextTrack.mode")}}
-  - : Eine Zeichenkette, die den aktuellen Modus des Tracks angibt, der einer der erlaubten Werte sein muss. Eine Änderung des Wertes dieser Eigenschaft ändert den aktuellen Modus des Tracks entsprechend. Der Standardwert ist `disabled`, es sei denn, das boolesche Attribut [`default`](/de/docs/Web/HTML/Element/track#default) des {{HTMLElement("track")}}-Elements ist auf `true` gesetzt — in diesem Fall ist der Standardmodus `showing`.
-- {{domxref("TextTrack.sourceBuffer", "sourceBuffer")}} {{ReadOnlyInline}}
-  - : Der {{domxref("SourceBuffer")}}, der den Track erstellt hat. Gibt null zurück, wenn der Track nicht von einem {{domxref("SourceBuffer")}} erstellt wurde oder der {{domxref("SourceBuffer")}} aus dem {{domxref("MediaSource.sourceBuffers")}}-Attribut der übergeordneten Media-Quelle entfernt wurde.
+- [`TextTrack.activeCues`](/de/docs/Web/API/TextTrack/activeCues) {{ReadOnlyInline}}
+  - : Ein [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList)-Objekt, das die derzeit aktive Menge von Text-Spur-Hinweisen auflistet. Spurhinweise sind aktiv, wenn die aktuelle Wiedergabeposition des Mediums zwischen den Start- und Endzeiten der Hinweise liegt. Somit werden bei angezeigten Hinweisen wie Untertiteln die aktiven Hinweise derzeit angezeigt.
+- [`TextTrack.cues`](/de/docs/Web/API/TextTrack/cues) {{ReadOnlyInline}}
+  - : Eine [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList), die alle Hinweise der Spur enthält.
+- [`TextTrack.id`](/de/docs/Web/API/TextTrack/id) {{ReadOnlyInline}}
+  - : Eine Zeichenfolge, die die Spur identifiziert, falls sie eine hat. Wenn sie keine ID hat, ist dieser Wert eine leere Zeichenfolge (`""`). Wenn das `TextTrack` mit einem {{HTMLElement("track")}}-Element verknüpft ist, stimmt die ID der Spur mit der ID des Elements überein.
+- [`TextTrack.inBandMetadataTrackDispatchType`](/de/docs/Web/API/TextTrack/inBandMetadataTrackDispatchType) {{ReadOnlyInline}}
+  - : Gibt eine Zeichenfolge zurück, die den In-Band-Metadatenspur-Dispatch-Typ der Spur angibt.
+- [`TextTrack.kind`](/de/docs/Web/API/TextTrack/kind) {{ReadOnlyInline}}
+  - : Gibt eine Zeichenfolge zurück, die angibt, um welche Art von Textspur es sich bei dem `TextTrack` handelt. Es muss einer der erlaubten Werte sein.
+- [`TextTrack.label`](/de/docs/Web/API/TextTrack/label) {{ReadOnlyInline}}
+  - : Eine lesbare Zeichenfolge, die das Label der Textspur enthält, sofern vorhanden; andernfalls ist dies eine leere Zeichenfolge (`""`). In diesem Fall muss möglicherweise ein benutzerdefiniertes Label vom Code generiert werden, indem andere Attribute der Spur verwendet werden, wenn das Label der Spur dem Benutzer angezeigt werden soll.
+- [`TextTrack.language`](/de/docs/Web/API/TextTrack/language) {{ReadOnlyInline}}
+  - : Eine Zeichenfolge, die die Textsprache angibt, in der der Inhalt der Textspur geschrieben ist. Der Wert muss dem in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} spezifizierten Format entsprechen, genau wie das HTML-Attribut [`lang`](/de/docs/Web/HTML/Global_attributes#lang). Zum Beispiel kann dies `"en-US"` für amerikanisches Englisch oder `"pt-BR"` für brasilianisches Portugiesisch sein.
+- [`TextTrack.mode`](/de/docs/Web/API/TextTrack/mode)
+  - : Eine Zeichenfolge, die den aktuellen Modus der Spur angibt, der einer der erlaubten Werte sein muss. Wenn der Wert dieser Eigenschaft geändert wird, ändert sich der aktuelle Modus der Spur entsprechend. Der Standardwert ist `disabled`, es sei denn, das [`default`](/de/docs/Web/HTML/Element/track#default)-Attribut des {{HTMLElement("track")}}-Elements ist auf `true` gesetzt – in diesem Fall ist der Standardmodus `showing`.
+- [`sourceBuffer`](/de/docs/Web/API/TextTrack/sourceBuffer) {{ReadOnlyInline}}
+  - : Der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer), der die Spur erstellt hat. Gibt null zurück, wenn die Spur nicht von einem [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) erstellt wurde oder der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) aus den [`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers)-Attributen der übergeordneten Medienelementquelle entfernt wurde.
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch Methoden von {{domxref("EventTarget")}}._
+_Dieses Interface erbt auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 > [!NOTE]
-> Die {{domxref("TextTrackCue")}}-Schnittstelle ist eine abstrakte Klasse, die als Elternklasse für andere Cue-Schnittstellen wie {{domxref("VTTCue")}} dient. Wenn Sie also einen Cue hinzufügen oder entfernen, übergeben Sie einen der Cue-Typen, die von `TextTrackCue` erben.
+> Das [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Interface ist eine abstrakte Klasse, die als Elternklasse für andere Cue-Interfaces wie [`VTTCue`](/de/docs/Web/API/VTTCue) dient. Daher wird beim Hinzufügen oder Entfernen eines Hinweis-Typs ein vererbter Typ von `TextTrackCue` übergeben.
 
-- {{domxref("TextTrack.addCue()")}}
-  - : Fügt dem Cue-Track eine Cue (spezifiziert als {{domxref("TextTrackCue")}}-Objekt) hinzu.
-- {{domxref("TextTrack.removeCue()")}}
-  - : Entfernt eine Cue (spezifiziert als {{domxref("TextTrackCue")}}-Objekt) aus der Liste der Cues des Tracks.
+- [`TextTrack.addCue()`](/de/docs/Web/API/TextTrack/addCue)
+  - : Fügt der Liste der Hinweise der Spur einen Hinweis hinzu (spezifiziert als ein [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Objekt).
+- [`TextTrack.removeCue()`](/de/docs/Web/API/TextTrack/removeCue)
+  - : Entfernt einen Hinweis (spezifiziert als ein [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Objekt) aus der Liste der Hinweise der Spur.
 
 ## Ereignisse
 
 - [`cuechange`](/de/docs/Web/API/TextTrack/cuechange_event)
-  - : Wird ausgelöst, wenn Cues ein- und ausgeblendet werden. Ein bestimmter Text-Cue erscheint, wenn der Cue aktiviert wird und verschwindet, wenn der Cue deaktiviert wird.
-    Wird auch über die `oncuechange`-Eigenschaft verfügbar gemacht.
+  - : Wird ausgelöst, wenn Hinweise betreten und verlassen werden. Ein bestimmter Text-Hinweis erscheint, wenn der Hinweis betreten wird, und verschwindet, wenn der Hinweis verlassen wird.
+    Ebenfalls verfügbar über die Eigenschaft `oncuechange`.
 
 ## Beispiel
 
-Das folgende Beispiel fügt einem Video einen neuen `TextTrack` hinzu und stellt dann die Darstellung mit {{domxref("TextTrack.mode")}} ein.
+Das folgende Beispiel fügt einem Video eine neue `TextTrack`-Spur hinzu und stellt sie dann mit [`TextTrack.mode`](/de/docs/Web/API/TextTrack/mode) auf Anzeige.
 
 ```js
 let video = document.querySelector("video");
@@ -77,7 +77,7 @@ track.mode = "showing";
 ## Siehe auch
 
 - [WebVTT](/de/docs/Web/API/WebVTT_API)
-- {{domxref("TextTrackCueList")}}
-- {{domxref("VTTCue")}}
+- [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList)
+- [`VTTCue`](/de/docs/Web/API/VTTCue)
 - {{HTMLElement("track")}}
-- {{domxref("HTMLTrackElement")}}
+- [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement)

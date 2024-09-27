@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`type`** schreibgeschützte Eigenschaft der {{domxref("HTMLFieldSetElement")}}-Schnittstelle gibt den String `"fieldset"` zurück.
+Die schreibgeschützte Eigenschaft **`type`** des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces gibt den String `"fieldset"` zurück.
 
 ## Wert
 
@@ -31,5 +31,5 @@ console.log(fs.type); // "fieldset"
 
 ## Siehe auch
 
-- {{domxref("HTMLFieldSetElement")}}
+- [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)
 - {{HTMLElement("fieldset")}}

@@ -1,5 +1,5 @@
 ---
-title: Ergebnis
+title: result
 slug: Web/SVG/Attribute/result
 l10n:
   sourceCommit: c2274293475b0a5b4febf85a49c1f91bf43ebac7
@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`result`**-Attribut definiert den zugewiesenen Namen für diese Filterprimitive. Wenn es angegeben ist, können Grafiken, die aus der Verarbeitung dieser Filterprimitive resultieren, durch ein {{SVGAttr("in")}}-Attribut an einer nachfolgenden Filterprimitive innerhalb desselben {{SVGElement("filter")}}-Elements referenziert werden. Wenn kein Wert angegeben wird, ist der Ausgang nur für eine Wiederverwendung als impliziter Eingang in die nächste Filterprimitive verfügbar, falls diese Filterprimitive keinen Wert für ihr `in`-Attribut bereitstellt.
+Das Attribut **`result`** definiert den zugewiesenen Namen für diese Filterprimitiv. Wenn es angegeben ist, können die Grafiken, die aus der Verarbeitung dieses Filterprimitivs resultieren, von einem nachfolgenden Filterprimitiv innerhalb desselben {{SVGElement("filter")}}-Elementes durch ein {{SVGAttr("in")}}-Attribut referenziert werden. Wenn kein Wert bereitgestellt wird, steht die Ausgabe nur für die Wiederverwendung als impliziter Eingang in das nächste Filterprimitiv zur Verfügung, sofern dieses Filterprimitiv keinen Wert für sein `in`-Attribut liefert.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -61,7 +61,7 @@ svg {
 
 {{EmbedLiveSample("Example", 220, 220)}}
 
-## Verwendungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -81,7 +81,7 @@ svg {
 </table>
 
 - `<filter-primitive-reference>`
-  - : Dieser Wert ist ein {{cssxref("custom-ident")}} und definiert den Namen für die Filterprimitive. Er ist nur innerhalb eines gegebenen {{SVGElement("filter")}}-Elements sinnvoll und hat daher nur einen lokalen Umfang. Es ist zulässig, dass derselbe `<filter-primitive-reference>` mehrmals innerhalb desselben `<filter>`-Elements auftaucht. Bei Referenzierung verwendet dieser Wert die nächstliegende vorhergehende Filterprimitive mit dem gegebenen Ergebnis.
+  - : Dieser Wert ist ein {{cssxref("custom-ident")}} und definiert den Namen für das Filterprimitiv. Er ist nur innerhalb eines gegebenen {{SVGElement("filter")}}-Elements von Bedeutung und hat daher nur lokalen Geltungsbereich. Es ist zulässig, dass dieselbe `<filter-primitive-reference>` mehrfach innerhalb desselben `<filter>`-Elements erscheint. Beim Referenzieren wird dieser Wert das nächste vorhergehende Filterprimitiv mit dem angegebenen Ergebnis verwenden.
 
 ## Spezifikationen
 

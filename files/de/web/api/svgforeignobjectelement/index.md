@@ -7,26 +7,26 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGForeignObjectElement`**-Schnittstelle bietet Zugriff auf die Eigenschaften von {{SVGElement("foreignObject")}}-Elementen sowie Methoden zu deren Manipulation.
+Die **`SVGForeignObjectElement`**-Schnittstelle ermöglicht den Zugriff auf die Eigenschaften von {{SVGElement("foreignObject")}}-Elementen sowie Methoden zu deren Manipulation.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, {{domxref("SVGGraphicsElement")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
-- {{domxref("SVGForeignObjectElement.x")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("x")}}-Attribut des gegebenen {{SVGElement("foreignObject")}}-Elements entspricht.
-- {{domxref("SVGForeignObjectElement.y")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("x")}}-Attribut des gegebenen {{SVGElement("foreignObject")}}-Elements entspricht.
-- {{domxref("SVGForeignObjectElement.width")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("width")}}-Attribut des gegebenen {{SVGElement("foreignObject")}}-Elements entspricht.
-- {{domxref("SVGForeignObjectElement.height")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("SVGAnimatedLength")}}, der dem {{SVGAttr("height")}}-Attribut des gegebenen {{SVGElement("foreignObject")}}-Elements entspricht.
+- [`SVGForeignObjectElement.x`](/de/docs/Web/API/SVGForeignObjectElement/x) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}}-Attribut des gegebenen {{SVGElement("foreignObject")}}-Elements entspricht.
+- [`SVGForeignObjectElement.y`](/de/docs/Web/API/SVGForeignObjectElement/y) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("x")}}-Attribut des gegebenen {{SVGElement("foreignObject")}}-Elements entspricht.
+- [`SVGForeignObjectElement.width`](/de/docs/Web/API/SVGForeignObjectElement/width) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("width")}}-Attribut des gegebenen {{SVGElement("foreignObject")}}-Elements entspricht.
+- [`SVGForeignObjectElement.height`](/de/docs/Web/API/SVGForeignObjectElement/height) {{ReadOnlyInline}}
+  - : Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength), das dem {{SVGAttr("height")}}-Attribut des gegebenen {{SVGElement("foreignObject")}}-Elements entspricht.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle hat keine Methoden, erbt jedoch Methoden von ihrem Elternteil, {{domxref("SVGGraphicsElement")}}._
+_Diese Schnittstelle hat keine Methoden, erbt jedoch Methoden von ihrem Elternteil, [`SVGGraphicsElement`](/de/docs/Web/API/SVGGraphicsElement)._
 
 ## Spezifikationen
 

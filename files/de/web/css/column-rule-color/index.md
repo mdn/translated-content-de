@@ -7,20 +7,20 @@ l10n:
 
 {{CSSRef}}
 
-Die **`column-rule-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Linie fest, die zwischen den Spalten in einem Mehrspalten-Layout gezeichnet wird.
+Die **`column-rule-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe der Linie fest, die zwischen Spalten in einem Multi-Spalten-Layout gezeichnet wird.
 
 {{EmbedInteractiveExample("pages/css/column-rule-color.html")}}
 
 ## Syntax
 
 ```css
-/* <color> Werte */
+/* <color> values */
 column-rule-color: red;
 column-rule-color: rgb(192 56 78);
 column-rule-color: transparent;
 column-rule-color: hsl(0 100% 50% / 60%);
 
-/* Globale Werte */
+/* Global values */
 column-rule-color: inherit;
 column-rule-color: initial;
 column-rule-color: revert;
@@ -28,12 +28,12 @@ column-rule-color: revert-layer;
 column-rule-color: unset;
 ```
 
-Die `column-rule-color` Eigenschaft wird als einzelner `<color>` Wert angegeben.
+Die Eigenschaft `column-rule-color` wird als einzelner `<color>` Wert angegeben.
 
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe der Linie, die Spalten trennt.
+  - : Die Farbe der Linie, die die Spalten trennt.
 
 ## Formale Definition
 
@@ -45,16 +45,15 @@ Die `column-rule-color` Eigenschaft wird als einzelner `<color>` Wert angegeben.
 
 ## Beispiele
 
-### Eine blaue Spaltenlinie setzen
+### Setzen einer blauen Spaltenlinie
 
 #### HTML
 
 ```html
 <p>
-  Dies ist eine Menge Text, der in drei Spalten aufgeteilt ist. Die
-  `column-rule-color` Eigenschaft wird verwendet, um die Farbe der Linie
-  zu ändern, die zwischen den Spalten gezeichnet wird. Finden Sie nicht
-  auch, dass das wunderbar ist?
+  This is a bunch of text split into three columns. The `column-rule-color`
+  property is used to change the color of the line that is drawn between
+  columns. Don't you think that's wonderful?
 </p>
 ```
 
@@ -83,4 +82,4 @@ p {
 ## Siehe auch
 
 - Der {{cssxref("&lt;color&gt;")}} Datentyp
-- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}} und {{cssxref("caret-color")}}
+- Andere farbbezogene Eigenschaften: {{cssxref("color")}}, {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}, und {{cssxref("caret-color")}}

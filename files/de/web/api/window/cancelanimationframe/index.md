@@ -1,5 +1,5 @@
 ---
-title: "Window: Methode cancelAnimationFrame()"
+title: "Window: cancelAnimationFrame() Methode"
 short-title: cancelAnimationFrame()
 slug: Web/API/Window/cancelAnimationFrame
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die **`window.cancelAnimationFrame()`** Methode storniert einen Animationsrahmenantrag, der zuvor durch einen Aufruf von {{domxref("window.requestAnimationFrame()")}} geplant wurde.
+Die **`window.cancelAnimationFrame()`** Methode storniert eine Animationsframe-Anforderung, die zuvor durch einen Aufruf von [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) geplant wurde.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ cancelAnimationFrame(requestID)
 ### Parameter
 
 - `requestID`
-  - : Der ID-Wert, der durch den Aufruf von {{domxref("window.requestAnimationFrame()")}} zurückgegeben wurde, der den Callback angefordert hat.
+  - : Der ID-Wert, der durch den Aufruf von [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) zurückgegeben wurde und der den Callback angefordert hat.
 
 ### Rückgabewert
 
@@ -36,12 +36,12 @@ function step(timestamp) {
   const progress = timestamp - start;
   d.style.left = `${Math.min(progress / 10, 200)}px`;
   if (progress < 2000) {
-    // Es ist wichtig, die requestId bei jedem Aufruf von requestAnimationFrame zu aktualisieren
+    // it's important to update the requestId each time you're calling requestAnimationFrame
     myReq = requestAnimationFrame(step);
   }
 }
 myReq = requestAnimationFrame(step);
-// Die Stornierung verwendet die letzte requestId
+// the cancellation uses the last requestId
 cancelAnimationFrame(myReq);
 ```
 
@@ -49,11 +49,11 @@ cancelAnimationFrame(myReq);
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Window.requestAnimationFrame()")}}
-- {{domxref("DedicatedWorkerGlobalScope.cancelAnimationFrame()")}}
+- [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)
+- [`DedicatedWorkerGlobalScope.cancelAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/cancelAnimationFrame)

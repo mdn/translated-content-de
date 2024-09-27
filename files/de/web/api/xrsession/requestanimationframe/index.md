@@ -1,5 +1,5 @@
 ---
-title: "XRSession: requestAnimationFrame()-Methode"
+title: "XRSession: requestAnimationFrame() Methode"
 short-title: requestAnimationFrame()
 slug: Web/API/XRSession/requestAnimationFrame
 l10n:
@@ -8,26 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die Methode **`requestAnimationFrame()`** von {{domxref("XRSession")}}, ähnlich der
-gleichnamigen Methode von {{domxref("Window")}}, plant einen Rückruf, der das nächste Mal
-ausgeführt wird, wenn der Browser bereit ist, die virtuelle Umgebung der Sitzung auf
-dem XR-Display darzustellen. Der angegebene Rückruf wird einmal vor der nächsten
-Neudarstellung ausgeführt; wenn Sie möchten, dass er bei der folgenden
-Neudarstellung erneut ausgeführt wird, müssen Sie `requestAnimationFrame()` erneut
-aufrufen. Dies kann innerhalb des Rückrufs selbst geschehen.
+Die Methode **`requestAnimationFrame()`** der [`XRSession`](/de/docs/Web/API/XRSession) ist ähnlich wie die
+gleichnamige Methode des [`Window`](/de/docs/Web/API/Window) und plant einen Rückruf, der das
+nächste Mal ausgeführt wird, wenn der Browser bereit ist, die virtuelle Umgebung der Sitzung auf das XR-Display zu rendern. Der angegebene Rückruf wird einmal vor dem nächsten Neuzeichnen ausgeführt; wenn Sie möchten, dass er beim nächsten Neuzeichnen erneut ausgeführt wird, müssen Sie `requestAnimationFrame()` erneut aufrufen. Dies kann innerhalb des Rückrufs selbst geschehen.
 
-Der Rückruf nimmt zwei Parameter als Eingaben: ein {{DOMxRef("XRFrame")}}, das den
-Zustand aller verfolgten Objekte für die Sitzung beschreibt, und einen Zeitstempel, den
-Sie verwenden können, um alle erforderlichen Animationsaktualisierungen zu berechnen.
+Der Rückruf nimmt zwei Parameter als Eingaben: ein [`XRFrame`](/de/docs/Web/API/XRFrame), das den Zustand aller verfolgten Objekte der Sitzung beschreibt, sowie einen Zeitstempel, den Sie zur Berechnung aller benötigten Animationsaktualisierungen verwenden können.
 
-Sie können eine zuvor geplante Animation abbrechen, indem Sie {{DOMxRef("XRSession.cancelAnimationFrame", "cancelAnimationFrame()")}} aufrufen.
+Sie können eine zuvor geplante Animation abbrechen, indem Sie [`cancelAnimationFrame()`](/de/docs/Web/API/XRSession/cancelAnimationFrame) aufrufen.
 
 > [!NOTE]
 > Trotz der offensichtlichen Ähnlichkeiten zwischen diesen Methoden und der
-> globalen {{domxref("Window.requestAnimationFrame", "requestAnimationFrame()")}}-Funktion,
-> die von der `Window`-Schnittstelle bereitgestellt wird, dürfen Sie diese nicht
-> als austauschbar betrachten. Es gibt keine Garantie, dass letztere überhaupt funktioniert,
-> während eine immersive XR-Sitzung im Gange ist.
+> globalen Funktion [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), die von der `Window`-Schnittstelle bereitgestellt wird, _dürfen_ Sie diese nicht als austauschbar behandeln. Es gibt _keine_ Garantie, dass letztere überhaupt funktioniert, während eine immersive XR-Sitzung aktiv ist.
 
 ## Syntax
 
@@ -39,41 +30,29 @@ requestAnimationFrame(animationFrameCallback)
 
 - `animationFrameCallback`
 
-  - : Eine Funktion, die vor der nächsten Neudarstellung aufgerufen wird, um Ihnen die
-    Möglichkeit zu geben, die XR-Szene basierend auf verstrichener Zeit, Animation,
-    Änderungen durch Benutzereingaben usw. zu aktualisieren und darzustellen. Der Rückruf
-    erhält als Eingabe zwei Parameter:
+  - : Eine Funktion, die vor dem nächsten Neuzeichnen aufgerufen wird, um Ihnen die Möglichkeit zu geben, die XR-Szene basierend auf verstrichener Zeit, Animation, Benutzeränderungen und so weiter zu aktualisieren und zu rendern. Der Rückruf erhält zwei Parameter als Eingabe:
 
     - `time`
-      - : Ein {{domxref("DOMHighResTimeStamp")}}, das den Zeitversatz angibt, zu dem
-        der aktualisierte Betrachterzustand vom WebXR-Gerät empfangen wurde.
+      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), das die Zeitverschiebung angibt, zu der der aktualisierte Betrachterstatus vom WebXR-Gerät empfangen wurde.
     - `xrFrame`
-      - : Ein {{domxref("XRFrame")}}-Objekt, das den Zustand der von der Sitzung verfolgten
-        Objekte beschreibt. Dies kann verwendet werden, um die Posen des Betrachters und der
-        Szene selbst sowie andere Informationen zu ermitteln, die erforderlich sind, um ein
-        Bild einer AR- oder VR-Szene zu rendern.
+      - : Ein [`XRFrame`](/de/docs/Web/API/XRFrame) Objekt, das den Zustand der von der Sitzung verfolgten Objekte beschreibt. Dies kann verwendet werden, um die Posen des Betrachters und der Szene selbst sowie andere Informationen, die zum Rendern eines AR- oder VR-Szenenrahmens benötigt werden, zu erhalten.
 
 ### Rückgabewert
 
-Ein ganzzahliger Wert, der als eindeutige, nicht-null-Nummer oder Handle dient, den Sie
-an {{domxref("XRSession.cancelAnimationFrame", "cancelAnimationFrame()")}} übergeben können,
-falls Sie die anstehende Animationsrahmenanforderung entfernen müssen.
+Ein ganzzahliger Wert, der als eindeutige, von null verschiedene ID oder Handle dient, die Sie an [`cancelAnimationFrame()`](/de/docs/Web/API/XRSession/cancelAnimationFrame) übergeben können, wenn Sie die ausstehende Animationsframe-Anfrage entfernen müssen.
 
 ## Beispiele
 
-Im folgenden Beispiel wird `XRSession` im "inline"-Modus angefordert, damit es in einem
-HTML-Element angezeigt werden kann (ohne ein separates AR- oder VR-Gerät zu benötigen).
+Das folgende Beispiel fordert `XRSession` im "inline"-Modus an, damit es in einem HTML-Element angezeigt werden kann (ohne dass ein separates AR- oder VR-Gerät benötigt wird).
 
 > [!NOTE]
-> Eine reale Anwendung sollte überprüfen, ob das Gerät und der
-> User-Agent die WebXR-API überhaupt unterstützen und dann, ob beide den gewünschten
-> Sitzungstyp über {{DOMxRef("XRSystem.isSessionSupported()")}} unterstützen.
+> Eine echte Anwendung sollte überprüfen, dass das Gerät und der Benutzeragent die WebXR-API überhaupt unterstützen und dann, dass beide den gewünschten Sitzungstyp über [`XRSystem.isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) unterstützen.
 
 ```js
-// XR-Objekt erhalten
+// Obtain XR object
 const XR = navigator.xr;
 
-// Eine neue XRSession anfordern
+// Request a new XRSession
 XR.requestSession("inline").then((xrSession) => {
   xrSession.requestAnimationFrame((time, xrFrame) => {
     const viewer = xrFrame.getViewerPose(xrReferenceSpace);
@@ -88,16 +67,13 @@ XR.requestSession("inline").then((xrSession) => {
         xrViewport.height,
       );
 
-      // WebGL-Zeichenaufrufe werden jetzt in das entsprechende Viewport gerendert.
+      // WebGL draw calls will now be rendered into the appropriate viewport.
     }
   });
 });
 ```
 
-Das folgende Beispiel wurde direkt aus dem Entwurf der Spezifikation übernommen. Dieses
-Beispiel zeigt ein Designmuster, das nahtlose Übergänge zwischen nicht-immersiven
-Animationen, die über {{DOMxRef("Window.requestAnimationFrame")}} erstellt wurden,
-und immersiven XR-Animationen sicherstellt.
+Das folgende Beispiel wurde direkt aus dem Spezifikationsentwurf entnommen. Dieses Beispiel demonstriert ein Designmuster, das nahtlose Übergänge zwischen nicht-immersiven Animationen, die über [`Window.requestAnimationFrame`](/de/docs/Web/API/Window/requestAnimationFrame) erstellt wurden, und immersiven XR-Animationen sicherstellt.
 
 ```js
 let xrSession = null;
@@ -105,16 +81,15 @@ let xrSession = null;
 function onWindowAnimationFrame(time) {
   window.requestAnimationFrame(onWindowAnimationFrame);
 
-  // Dies kann aufgerufen werden, während eine immersive Sitzung auf einigen Geräten
-  // läuft, wie z.B. einem Desktop mit einem verbundenen Headset. Um zu verhindern,
-  // dass zwei Schleifen parallel rendern, überspringen Sie das Zeichnen in dieser,
-  // bis die Sitzung endet.
+  // This may be called while an immersive session is running on some devices,
+  // such as a desktop with a tethered headset. To prevent two loops from
+  // rendering in parallel, skip drawing in this one until the session ends.
   if (!xrSession) {
     renderFrame(time, null);
   }
 }
 
-// Die Fensteranimationsschleife kann sofort beim Laden der Seite gestartet werden.
+// The window animation loop can be started immediately upon the page loading.
 window.requestAnimationFrame(onWindowAnimationFrame);
 
 function onXRAnimationFrame(time, xrFrame) {
@@ -123,16 +98,16 @@ function onXRAnimationFrame(time, xrFrame) {
 }
 
 function renderFrame(time, xrFrame) {
-  // Gemeinsame Rendering-Logik.
+  // Shared rendering logic.
 }
 
-// Angenommen, dies wird von einem Benutzerinteraktionsereignis an anderer Stelle im Code aufgerufen.
+// Assumed to be called by a user gesture event elsewhere in code.
 function startXRSession() {
   navigator.xr.requestSession("immersive-vr").then((session) => {
     xrSession = session;
     xrSession.addEventListener("end", onXRSessionEnded);
-    // Notwendige Sitzungseinrichtung hier durchführen.
-    // Die Animationsschleife der Sitzung beginnen.
+    // Do necessary session setup here.
+    // Begin the session's animation loop.
     xrSession.requestAnimationFrame(onXRAnimationFrame);
   });
 }
@@ -152,5 +127,5 @@ function onXRSessionEnded() {
 
 ## Siehe auch
 
-- {{DOMxRef("Window.requestAnimationFrame()")}}
-- {{domxref("XRSession.cancelAnimationFrame()")}}
+- [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)
+- [`XRSession.cancelAnimationFrame()`](/de/docs/Web/API/XRSession/cancelAnimationFrame)

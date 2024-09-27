@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die `includes()`-Methode der {{domxref("IDBKeyRange")}}-Schnittstelle gibt einen Boolean zurück, der anzeigt, ob ein bestimmter Schlüssel innerhalb des Schlüsselbereichs liegt.
+Die `includes()`-Methode des [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob ein bestimmter Schlüssel innerhalb des Schlüsselbereichs liegt.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ includes(key)
 
 ### Rückgabewert
 
-Ein Boolean-Wert.
+Ein boolescher Wert.
 
 ### Ausnahmen
 
-- `DataError` {{domxref("DOMException")}}
+- `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der angegebene Schlüssel kein gültiger Schlüssel war.
 
 ## Beispiele
@@ -36,10 +36,10 @@ Ein Boolean-Wert.
 const keyRangeValue = IDBKeyRange.bound("A", "K", false, false);
 
 keyRangeValue.includes("F");
-// Gibt true zurück
+// Returns true
 
 keyRangeValue.includes("W");
-// Gibt false zurück
+// Returns false
 ```
 
 ## Spezifikationen
@@ -53,9 +53,9 @@ keyRangeValue.includes("W");
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwenden von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Bereichs von Schlüsseln: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwenden von Cursoren: {{domxref("IDBCursor")}}
-- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern von Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [Aufgaben-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

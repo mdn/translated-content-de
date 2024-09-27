@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("Background Sync")}}{{AvailableInWorkers}}
 
-Die **`getTags()`**-Methode der
-{{domxref("SyncManager")}}-Schnittstelle gibt eine Liste von entwicklerdefinierten Bezeichnern für
-Registrierungen des `SyncManager` zurück.
+Die **`getTags()`**-Methode der [`SyncManager`](/de/docs/Web/API/SyncManager)-Schnittstelle gibt eine Liste von entwicklerdefinierten Bezeichnern für `SyncManager`-Registrierungen zurück.
 
 ## Syntax
 
@@ -24,13 +22,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem Array von Strings aufgelöst wird,
-das entwicklerdefinierte Bezeichner für Registrierungen des `SyncManager` enthält.
+Ein {{jsxref("Promise")}}, das in ein Array von Zeichenketten aufgelöst wird, die entwicklerdefinierte Bezeichner für `SyncManager`-Registrierungen enthalten.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

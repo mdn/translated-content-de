@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebVR API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die schreibgeschützte Eigenschaft **`rightViewMatrix`** des {{domxref("VRFrameData")}}-Interfaces gibt ein {{jsxref("Float32Array")}} zurück, das eine 4x4-Matrix darstellt, die die Transformationsansicht beschreibt, die für das Rendering des rechten Auges verwendet wird.
+Die schreibgeschützte Eigenschaft **`rightViewMatrix`** des [`VRFrameData`](/de/docs/Web/API/VRFrameData)-Interfaces gibt ein {{jsxref("Float32Array")}} zurück, das eine 4x4-Matrix darstellt, welche die Sichttransformation zur Darstellung für das rechte Auge beschreibt.
 
 > [!NOTE]
 > Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/). Sie wurde durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt.
 
-Dieser Wert kann direkt an die {{domxref("WebGLRenderingContext.uniformMatrix", "uniformMatrix4fv")}}-Funktion von WebGL übergeben werden.
+Dieser Wert kann direkt an die [`uniformMatrix4fv`](/de/docs/Web/API/WebGLRenderingContext/uniformMatrix)-Funktion von WebGL übergeben werden.
 
 > [!WARNING]
-> Es wird dringend empfohlen, dass Anwendungen diese Matrix beim Rendering verwenden.
+> Es wird dringend empfohlen, dass Anwendungen diese Matrix beim Rendern verwenden.
 
 ## Wert
 
@@ -30,7 +30,7 @@ Siehe [`VRDisplay.getFrameData()`](/de/docs/Web/API/VRDisplay/getFrameData#examp
 
 Diese Eigenschaft war Teil der alten [WebVR API](https://immersive-web.github.io/webvr/spec/1.1/), die durch die [WebXR Device API](https://immersive-web.github.io/webxr/) ersetzt wurde. Sie ist nicht mehr auf dem Weg, ein Standard zu werden.
 
-Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie die Anleitung [Porting from WebVR to WebXR von Meta](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
+Bis alle Browser die neuen [WebXR APIs](/de/docs/Web/API/WebXR_Device_API/Fundamentals) implementiert haben, wird empfohlen, auf Frameworks wie [A-Frame](https://aframe.io/), [Babylon.js](https://www.babylonjs.com/) oder [Three.js](https://threejs.org/) oder auf ein [Polyfill](https://github.com/immersive-web/webxr-polyfill) zurückzugreifen, um WebXR-Anwendungen zu entwickeln, die in allen Browsern funktionieren. Lesen Sie den Leitfaden [Meta's Porting from WebVR to WebXR](https://developers.meta.com/horizon/documentation/web/port-vr-xr/) für weitere Informationen.
 
 ## Browser-Kompatibilität
 

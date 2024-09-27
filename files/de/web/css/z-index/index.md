@@ -7,28 +7,28 @@ l10n:
 
 {{CSSRef}}
 
-Die **`z-index`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) legt die Stapelreihenfolge eines [positionierten](/de/docs/Web/CSS/position) Elements und seiner Nachkommen oder Flex- und Gitter-Elemente fest. Überlappende Elemente mit einem größeren `z-index` überdecken solche mit einem kleineren.
+Die **`z-index`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die z-Ordnung eines [positionierten](/de/docs/Web/CSS/position) Elements und seiner Nachfahren oder Flex- und Grid-Items fest. Sich überlappende Elemente mit einem größeren z-index überdecken diejenigen mit einem kleineren.
 
 {{EmbedInteractiveExample("pages/css/z-index.html")}}
 
-Für ein positioniertes Element (also eines mit einem anderen `position` als `static`) gibt die `z-index`-Eigenschaft Folgendes an:
+Für ein positioniertes Kästchen (d.h. eines mit jedem `position` außer `static`) gibt die `z-index`-Eigenschaft Folgendes an:
 
-1. Die Stapel-Ebene des Elements im aktuellen [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context).
-2. Ob das Element einen lokalen Stapelkontext erstellt.
+1. Das Stapel-Level des Kästchens im aktuellen [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context).
+2. Ob das Kästchen einen lokalen Stacking-Kontext erzeugt.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwert */
+/* Keyword value */
 z-index: auto;
 
-/* <integer>-Werte */
+/* <integer> values */
 z-index: 0;
 z-index: 3;
 z-index: 289;
-z-index: -1; /* Negative Werte zur Senkung der Priorität */
+z-index: -1; /* Negative values to lower the priority */
 
-/* Globale Werte */
+/* Global values */
 z-index: inherit;
 z-index: initial;
 z-index: revert;
@@ -41,9 +41,9 @@ Die `z-index`-Eigenschaft wird entweder als Schlüsselwort `auto` oder als `<int
 ### Werte
 
 - `auto`
-  - : Das Element erstellt keinen neuen lokalen Stapelkontext. Die Stapel-Ebene des generierten Elements im aktuellen Stapelkontext ist `0`.
+  - : Das Kästchen erzeugt keinen neuen lokalen Stacking-Kontext. Das Stapel-Level des generierten Kästchens im aktuellen Stacking-Kontext ist `0`.
 - `<integer>`
-  - : Dieses {{cssxref("&lt;integer&gt;")}} ist die Stapel-Ebene des generierten Elements im aktuellen Stapelkontext. Das Element erstellt auch einen lokalen Stapelkontext. Das bedeutet, dass die `z-index`-Werte der Nachkommen nicht mit den `z-index`-Werten von Elementen außerhalb dieses Elements verglichen werden.
+  - : Dieses {{cssxref("&lt;integer&gt;")}} ist das Stapel-Level des generierten Kästchens im aktuellen Stacking-Kontext. Das Kästchen erzeugt auch einen lokalen Stacking-Kontext. Das bedeutet, dass die z-indexes der Nachfahren nicht mit den z-indexes von Elementen außerhalb dieses Elements verglichen werden.
 
 ## Formale Definition
 
@@ -55,7 +55,7 @@ Die `z-index`-Eigenschaft wird entweder als Schlüsselwort `auto` oder als `<int
 
 ## Beispiele
 
-### Visuelle Schichtung von Elementen
+### Elemente visuell schichten
 
 #### HTML
 
@@ -116,5 +116,5 @@ Die `z-index`-Eigenschaft wird entweder als Schlüsselwort `auto` oder als `<int
 
 ## Siehe auch
 
-- CSS-Eigenschaft {{Cssxref("position")}}
-- [Verständnis von CSS z-indexes](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)
+- CSS {{Cssxref("position")}} Eigenschaft
+- [Verständnis der CSS z-indexes](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index)

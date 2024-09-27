@@ -1,5 +1,5 @@
 ---
-title: "Gyroscope: Gyroscope() Konstruktor"
+title: "Gyroscope: Gyroscope()-Konstruktor"
 short-title: Gyroscope()
 slug: Web/API/Gyroscope/Gyroscope
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Der **`Gyroscope()`** Konstruktor erstellt ein neues {{domxref("Gyroscope")}}-Objekt, das bei jeder Messung die Winkelschwindigkeit des Geräts entlang aller drei Achsen liefert.
+Der **`Gyroscope()`**-Konstruktor
+erstellt ein neues [`Gyroscope`](/de/docs/Web/API/Gyroscope)-Objekt, das bei jeder Messung die
+Winkelgeschwindigkeit des Geräts entlang aller drei Achsen bereitstellt.
 
 ## Syntax
 
@@ -24,23 +26,28 @@ new Gyroscope(options)
   - : Optionen sind wie folgt:
 
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl der Messungen pro Sekunde, d.h. die Anzahl der Male pro Sekunde, dass das {{domxref('sensor.reading_event', 'reading')}}-Ereignis aufgerufen wird. Es kann eine ganze Zahl oder Dezimalzahl verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Lesefrequenz hängt von der Hardware des Geräts ab und kann daher geringer als angefordert sein.
+      - : Die gewünschte Anzahl der Probenentnahmen pro Sekunde,
+        d. h. die Anzahl der Male pro Sekunde, dass das
+        [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Eine ganze Zahl oder Dezimalzahl kann
+        verwendet werden, letztere für Frequenzen von weniger als einer Sekunde. Die tatsächliche Messfrequenz
+        hängt von der Gerätehardware ab und kann daher weniger als die angeforderte betragen.
     - `referenceFrame` {{optional_inline}}
-      - : Entweder `'device'` oder `'screen'`. Der Standardwert ist `'device'`.
+      - : Entweder `'device'` oder
+        `'screen'`. Der Standardwert ist `'device'`.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref('sensor.reading_event', 'reading')}} Ereignis
+- [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis

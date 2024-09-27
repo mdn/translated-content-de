@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`v-ideographic`**-Attribut gibt die Ausrichtungskoordinate für {{Glossary("glyph", "Glyphen")}} an, um ideografische {{Glossary("baseline/typography", "Grundlinien")}}-Ausrichtung für vertikal ausgerichtete Glyphenlayouts zu erreichen. Der Wert ist ein Offset im Schriftkoordinatensystem relativ zum glyphenspezifischen {{SVGAttr("vert-origin-x")}}-Attribut.
+Das **`v-ideographic`**-Attribut gibt die Ausrichtungskoordinate für [Glyphen](/de/docs/Glossary/glyph) an, um eine ideographische [Grundlinie](/de/docs/Glossary/baseline/typography) für vertikal orientierte Glyphenlayouts zu erreichen. Der Wert ist ein Versatz im Schriftkoordinatensystem relativ zum glyphenspezifischen {{SVGAttr("vert-origin-x")}}-Attribut.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("font-face")}}
 
-## Hinweise zur Verwendung
+## Verwendungsnotizen
 
 <table class="properties">
   <tbody>

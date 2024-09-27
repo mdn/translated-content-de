@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die **`id`**-Eigenschaft der {{domxref("DeprecationReportBody")}}-Schnittstelle gibt eine Zeichenkette zurück, die das veraltete Feature oder die API darstellt. Dies kann verwendet werden, um verwandte Berichte zu gruppieren oder zu zählen.
+Die **`id`**-Eigenschaft, die schreibgeschützte Eigenschaft der [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Schnittstelle, gibt einen String zurück, der die Funktion oder API repräsentiert, die veraltet ist. Dies kann verwendet werden, um verwandte Berichte zu gruppieren oder zu zählen.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen {{domxref("ReportingObserver")}}, um Veraltungsberichte zu beobachten, und geben dann den Wert von `id` in der Konsole aus.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltungsberichte zu beobachten, und drucken dann den Wert von `id` in die Konsole.
 
 ```js
 let options = {

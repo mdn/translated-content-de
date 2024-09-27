@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`font-variant`** gibt an, ob der Text mit Variationen der {{Glossary("glyph", "Glyphen")}} der Schriftart dargestellt werden soll.
+Das **`font-variant`**-Attribut gibt an, ob der Text unter Verwendung von Variationen der [Glyphen](/de/docs/Glossary/glyph) der Schriftart gerendert werden soll.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `font-variant` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("font-variant")}}.
@@ -31,14 +31,14 @@ svg {
 
 ```html
 <svg viewBox="0 0 250 30" xmlns="http://www.w3.org/2000/svg">
-  <text y="20" font-variant="normal">Normaler Text</text>
-  <text x="100" y="20" font-variant="small-caps">Small-caps Text</text>
+  <text y="20" font-variant="normal">Normal text</text>
+  <text x="100" y="20" font-variant="small-caps">Small-caps text</text>
 </svg>
 ```
 
 {{EmbedLiveSample("Example", "250", "30")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -81,7 +81,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte sehen Sie bitte die [CSS `font-variant`](/de/docs/Web/CSS/font-variant#values) Eigenschaft.
+Für eine Beschreibung der Werte konsultieren Sie bitte die [CSS `font-variant`](/de/docs/Web/CSS/font-variant#values) Eigenschaft.
 
 ## Spezifikationen
 

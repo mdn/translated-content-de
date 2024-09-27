@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:attribute>`-Element erzeugt ein Attribut im Ausgabedokument, indem es alle Werte verwendet, die aus dem Stylesheet zugänglich sind. Das Element muss vor jedem anderen Element des Ausgabedokuments definiert werden, innerhalb dessen es Attributwerte festlegt. Es kann jedoch nach oder innerhalb von Elementen stehen, die nicht Teil der Ausgabe sein werden (wie `<xsl:choose>` oder `<xsl:apply-templates>` usw.).
+Das `<xsl:attribute>`-Element erzeugt ein Attribut im Ausgabedokument, unter Verwendung von Werten, die aus dem Stylesheet zugänglich sind. Das Element muss vor jedem anderen Ausgabedokumentelement definiert werden, innerhalb des Ausgabedokumentelements, für das es Attributwerte festlegt. Es kann jedoch nach oder innerhalb von Elementen stehen, die nicht Teil der Ausgabe sein werden (wie `<xsl:choose>` oder `<xsl:apply-templates>` usw.).
 
 ## Syntax
 
@@ -20,7 +20,7 @@ Das `<xsl:attribute>`-Element erzeugt ein Attribut im Ausgabedokument, indem es 
 ### Erforderliche Attribute
 
 - `name`
-  - : Gibt den Namen des Attributs an, das im Ausgabedokument erstellt wird. Der Name muss ein gültiger QName sein.
+  - : Gibt den Namen des Attributs an, das im Ausgabedokument erstellt werden soll. Der Name muss ein gültiger QName sein.
 
 ### Optionale Attribute
 
@@ -29,7 +29,7 @@ Das `<xsl:attribute>`-Element erzeugt ein Attribut im Ausgabedokument, indem es 
 
 ### Typ
 
-Anweisung, erscheint innerhalb eines Templates oder eines `<xsl:attribute-set>`-Elements.
+Instruktion, erscheint innerhalb eines Templates oder eines `<xsl:attribute-set>`-Elements.
 
 ## Spezifikationen
 

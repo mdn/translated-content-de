@@ -1,6 +1,6 @@
 ---
-title: "DOMRectReadOnly: Breite-Eigenschaft"
-short-title: Breite
+title: "DOMRectReadOnly: width-Eigenschaft"
+short-title: width
 slug: Web/API/DOMRectReadOnly/width
 l10n:
   sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Die schreibgeschützte **`width`**-Eigenschaft der **`DOMRectReadOnly`**-Schnittstelle repräsentiert die Breite des `DOMRect`.
+Die schreibgeschützte Eigenschaft **`width`** des **`DOMRectReadOnly`**-Interfaces stellt die Breite des `DOMRect` dar.
 
 ## Wert
 
-Ein Doppelwert.
+Ein Double.
 
 ## Spezifikationen
 
@@ -24,4 +24,4 @@ Ein Doppelwert.
 
 ## Siehe auch
 
-- {{domxref("DOMRect")}}
+- [`DOMRect`](/de/docs/Web/API/DOMRect)

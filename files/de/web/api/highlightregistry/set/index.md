@@ -1,5 +1,5 @@
 ---
-title: "HighlightRegistry: set() Methode"
+title: "HighlightRegistry: set()-Methode"
 short-title: set()
 slug: Web/API/HighlightRegistry/set
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`set()`** Methode der {{domxref("HighlightRegistry")}} Schnittstelle fügt ein {{domxref("Highlight")}} Objekt mit dem angegebenen Namen in das Register ein oder aktualisiert es.
+Die **`set()`**-Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle fügt ein [`Highlight`](/de/docs/Web/API/Highlight)-Objekt mit dem angegebenen Namen zum Registry hinzu oder aktualisiert dieses.
 
-`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Map.set()")}}.
+`HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies vergleichbar mit der Verwendung von {{jsxref("Map.set()")}}.
 
 ## Syntax
 
@@ -21,13 +21,13 @@ set(name, highlight)
 ### Parameter
 
 - `name`
-  - : Der Name des `Highlight` Objekts, das hinzugefügt oder aktualisiert werden soll. Der Name muss ein {{jsxref("String")}} sein.
+  - : Der Name des `Highlight`-Objekts, das hinzugefügt oder aktualisiert werden soll. Der Name muss ein {{jsxref("String")}} sein.
 - `highlight`
-  - : Das `Highlight` Objekt, das hinzugefügt oder aktualisiert werden soll. Dies muss eine Instanz der {{domxref("Highlight")}} Schnittstelle sein.
+  - : Das `Highlight`-Objekt, das hinzugefügt oder aktualisiert werden soll. Dies muss eine Instanz der [`Highlight`](/de/docs/Web/API/Highlight)-Schnittstelle sein.
 
 ### Rückgabewert
 
-Das `HighlightRegistry` Objekt.
+Das `HighlightRegistry`-Objekt.
 
 ## Beispiele
 
@@ -40,7 +40,7 @@ CSS.highlights.set("foo", fooHighlight);
 
 ### Verwendung von set() mit Verkettung
 
-Da die `set()` Methode das Register zurückgibt, können Sie den Methodenaufruf wie unten gezeigt verketten:
+Da die `set()`-Methode die Registry zurückgibt, können Sie den Methodenaufruf wie unten verkettet:
 
 ```js
 const fooHighlight = new Highlight();
@@ -63,5 +63,5 @@ CSS.highlights
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "Die CSS Custom Highlight API", "", "nocode")}}
-- [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
+- [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

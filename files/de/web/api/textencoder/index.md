@@ -2,33 +2,34 @@
 title: TextEncoder
 slug: Web/API/TextEncoder
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
 ---
 
-{{APIRef("Encoding API")}} {{AvailableInWorkers}}
+{{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Das **`TextEncoder`**-Interface nimmt einen Strom von Codepunkten als Eingabe und erzeugt einen Strom von UTF-8-Bytes.
+Die **`TextEncoder`**-Schnittstelle nimmt einen Strom von Codepunkten als Eingabe und gibt einen Strom von UTF-8 Bytes aus.
 
 ## Konstruktor
 
-- {{DOMxRef("TextEncoder.TextEncoder", "TextEncoder()")}}
-  - : Gibt einen neu konstruierten `TextEncoder` zurück, der einen Bytestrom mit UTF-8-Codierung erzeugt.
+- [`TextEncoder()`](/de/docs/Web/API/TextEncoder/TextEncoder)
+  - : Gibt einen neu konstruierten `TextEncoder` zurück, der einen Bytestrom mit UTF-8-Kodierung erzeugt.
 
 ## Instanzeigenschaften
 
-_Das `TextEncoder`-Interface erbt keine Eigenschaften._
+_Die `TextEncoder`-Schnittstelle erbt keine Eigenschaften._
 
-- {{DOMxRef("TextEncoder.encoding")}} {{ReadOnlyInline}}
+- [`TextEncoder.encoding`](/de/docs/Web/API/TextEncoder/encoding) {{ReadOnlyInline}}
   - : Gibt immer `utf-8` zurück.
 
 ## Instanzmethoden
 
-_Das `TextEncoder`-Interface erbt keine Methoden_.
+_Die `TextEncoder`-Schnittstelle erbt keine Methoden._
 
-- {{DOMxRef("TextEncoder.encode()")}}
+- [`TextEncoder.encode()`](/de/docs/Web/API/TextEncoder/encode)
   - : Nimmt einen String als Eingabe und gibt ein {{jsxref("Uint8Array")}} zurück, das den UTF-8-kodierten Text enthält.
-- {{DOMxRef("TextEncoder.encodeInto()")}}
-  - : Nimmt einen zu codierenden String und ein Ziel-{{jsxref("Uint8Array")}} zur Aufnahme des resultierenden UTF-8-kodierten Textes und gibt ein Objekt zurück, das den Fortschritt der Codierung anzeigt. Dies ist potenziell leistungsfähiger als die ältere `encode()`-Methode.
+- [`TextEncoder.encodeInto()`](/de/docs/Web/API/TextEncoder/encodeInto)
+  - : Nimmt einen zu kodierenden String und ein Ziel-{{jsxref("Uint8Array")}}, in das der resultierende UTF-8-kodierte Text eingefügt wird, und gibt ein Objekt zurück, das den Fortschritt der Kodierung anzeigt.
+    Dies kann potenziell leistungsfähiger sein als die ältere `encode()`-Methode.
 
 ## Beispiele
 
@@ -48,5 +49,5 @@ console.log(view); // Uint8Array(3) [226, 130, 172]
 
 ## Siehe auch
 
-- Das {{DOMxRef("TextDecoder")}}-Interface, das die inverse Operation beschreibt.
+- Die [`TextDecoder`](/de/docs/Web/API/TextDecoder)-Schnittstelle, die die inverse Operation beschreibt.
 - [Node.js unterstützt globalen Export ab v11.0.0](https://nodejs.org/api/util.html#util_class_util_textencoder)

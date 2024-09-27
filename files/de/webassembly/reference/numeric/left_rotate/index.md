@@ -1,5 +1,5 @@
 ---
-title: Linksrotation
+title: Left rotate
 slug: WebAssembly/Reference/Numeric/Left_rotate
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,21 +7,21 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`rotl`**-Anweisungen, kurz für _rotate-left_, werden zum Durchführen einer bitweisen Linksrotation verwendet.
+Die **`rotl`**-Anweisungen, kurz für _rotate-left_, werden zum Ausführen einer bitweisen Linksdrehung verwendet.
 
 {{EmbedInteractiveExample("pages/wat/rotl.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; laden Sie zwei Zahlen auf den Stapel
+;; load two numbers onto the stack
 i32.const 3758096384 ;; 11100000_00000000_00000000_00000000
-i32.const 1          ;; links um eine Stelle rotieren
+i32.const 1          ;; left rotate one spot
 
-;; führen Sie eine bitweise Linksrotation durch
+;; perform a bitwise left-rotate
 i32.rotl
 
-;; das oberste Element auf dem Stapel ist jetzt 3221225473
+;; the top item on the stack will now be 3221225473
 ;; (11000000_00000000_00000000_00000001)
 ```
 

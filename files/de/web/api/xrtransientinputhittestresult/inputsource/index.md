@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die _schreibgeschützte_ **`inputSource`** Eigenschaft der {{DOMxRef("XRTransientInputHitTestResult")}} Schnittstelle repräsentiert ein {{domxref("XRInputSource")}} Objekt, das verwendet wurde, um das {{domxref("XRTransientInputHitTestResult.results", "results")}} Array zu berechnen.
+Die _schreibgeschützte_ **`inputSource`**-Eigenschaft der [`XRTransientInputHitTestResult`](/de/docs/Web/API/XRTransientInputHitTestResult)-Schnittstelle repräsentiert ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt, das verwendet wurde, um das [`results`](/de/docs/Web/API/XRTransientInputHitTestResult/results)-Array zu berechnen.
 
 ## Wert
 
-Ein {{domxref("XRInputSource")}} Objekt.
+Ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt.
 
 ## Beispiele
 
-### Filtern nach Eingabequellen
+### Filtern von Eingabequellen
 
-Die `inputSource` Eigenschaft ermöglicht es Ihnen, Treffer-Testergebnisse nach Eingabequelle zu filtern.
+Die `inputSource`-Eigenschaft ermöglicht es Ihnen, Trefferergebnisse nach Eingabequelle zu filtern.
 
 ```js
-// Frame-Schleife
+// frame loop
 function onXRFrame(time, xrFrame) {
   let hitTestResults = xrFrame.getHitTestResultsForTransientInput(
     transientHitTestSource,
@@ -29,7 +29,7 @@ function onXRFrame(time, xrFrame) {
 
   hitTestResults.forEach((resultsPerInputSource) => {
     if (resultsPerInputSource.inputSource === myPreferredInputSource) {
-      // auf Treffer-Testergebnisse der bevorzugten Eingabequelle reagieren
+      // act on hit test results from the preferred input source
     }
   });
 }
@@ -45,4 +45,4 @@ function onXRFrame(time, xrFrame) {
 
 ## Siehe auch
 
-- {{domxref("XRInputSource")}}
+- [`XRInputSource`](/de/docs/Web/API/XRInputSource)

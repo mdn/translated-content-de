@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`illuminance`**-Eigenschaft der {{domxref("AmbientLightSensor")}}-Schnittstelle gibt den aktuellen Lichtpegel in [Lux](https://en.wikipedia.org/wiki/Lux) der Umgebungsbeleuchtung um das Hostgerät zurück.
+Die schreibgeschützte **`illuminance`**-Eigenschaft des [`AmbientLightSensor`](/de/docs/Web/API/AmbientLightSensor)-Interfaces gibt das aktuelle Lichtniveau in [Lux](https://en.wikipedia.org/wiki/Lux) der Umgebungsbeleuchtung um das Host-Gerät zurück.
 
 ## Wert
 
-Ein {{jsxref('Number')}} der den aktuellen Lichtpegel in Lux angibt.
+Eine {{jsxref('Number')}}, die das aktuelle Lichtniveau in Lux angibt.
 
 ## Beispiele
 

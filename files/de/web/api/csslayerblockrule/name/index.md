@@ -1,5 +1,5 @@
 ---
-title: "CSSLayerBlockRule: Eigenschaft name"
+title: "CSSLayerBlockRule: name-Eigenschaft"
 short-title: name
 slug: Web/API/CSSLayerBlockRule/name
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`name`**-Eigenschaft der {{domxref("CSSLayerBlockRule")}}-Schnittstelle repräsentiert den Namen der zugehörigen Kaskadenschicht.
+Die schreibgeschützte **`name`**-Eigenschaft der [`CSSLayerBlockRule`](/de/docs/Web/API/CSSLayerBlockRule)-Schnittstelle repräsentiert den Namen der zugehörigen Kaskadenebene.
 
 ## Wert
 
-Ein String, der den Namen der Schicht enthält, oder `""`, wenn die Schicht anonym ist.
+Ein String, der den Namen der Ebene enthält, oder `""`, wenn die Ebene anonym ist.
 
 ## Beispiele
 
@@ -48,14 +48,14 @@ output {
 const item1 = document.getElementsByTagName("output")[0];
 const item2 = document.getElementsByTagName("output")[1];
 const rules = document.styleSheets[1].cssRules;
-// Beachten Sie, dass Stylesheet #1 das für dieses eingebettete Beispiel zugeordnete Stylesheet ist,
-// während Stylesheet #0 das der gesamten MDN-Seite zugeordnete Stylesheet ist
+// Note that stylesheet #1 is the stylesheet associated with this embedded example,
+// while stylesheet #0 is the stylesheet associated with the whole MDN page
 
-const layer = rules[1]; // Eine CSSLayerBlockRule
-const anonymous = rules[2]; // Eine anonyme CSSLayerBlockRule
+const layer = rules[1]; // A CSSLayerBlockRule
+const anonymous = rules[2]; // An anonymous CSSLayerBlockRule
 
-item1.textContent = `Die erste CSSLayerBlockRule definiert die "${layer.name}" Schicht.`;
-item2.textContent = `Eine zweite CSSLayerBlockRule definiert eine Schicht mit folgendem Namen: "${anonymous.name}".`;
+item1.textContent = `The first CSSLayerBlockRule defines the "${layer.name}" layer.`;
+item2.textContent = `A second CSSLayerBlockRule defines a layer with the following name: "${anonymous.name}".`;
 ```
 
 ### Ergebnis
@@ -72,5 +72,5 @@ item2.textContent = `Eine zweite CSSLayerBlockRule definiert eine Schicht mit fo
 
 ## Siehe auch
 
-- Die Anweisungserklärung einer {{cssxref("@layer")}} wird durch eine {{domxref("CSSLayerStatementRule")}} dargestellt.
-- Wie man [benannte Kaskadenschichten erstellt](/de/docs/Learn/CSS/Building_blocks/Cascade_layers#creating_cascade_layers) in CSS.
+- Die Deklarationserklärung einer {{cssxref("@layer")}} wird durch eine [`CSSLayerStatementRule`](/de/docs/Web/API/CSSLayerStatementRule) dargestellt.
+- Anleitung zum [Erstellen benannter Kaskadenebenen](/de/docs/Learn/CSS/Building_blocks/Cascade_layers#creating_cascade_layers) in CSS.

@@ -8,23 +8,15 @@ l10n:
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`port1`**-Eigenschaft der
-{{domxref("MessageChannel")}}-Schnittstelle gibt den ersten Port des Nachrichtenkanals zurück —
-den Port, der mit dem Kontext verbunden ist, der den Kanal erstellt hat.
+Die **`port1`**-Eigenschaft der [`MessageChannel`](/de/docs/Web/API/MessageChannel)-Schnittstelle gibt den ersten Port des Nachrichtentkanals zurück — den Port, der an den Kontext angehängt ist, der den Kanal erstellt hat.
 
 ## Wert
 
-Ein {{domxref("MessagePort")}}-Objekt, der erste Port des Kanals, der an den Kontext angefügt ist, der den Kanal erstellt hat.
+Ein [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt, der erste Port des Kanals, das an den Kontext angehängt ist, der den Kanal erstellt hat.
 
 ## Beispiele
 
-Im folgenden Codeblock sehen Sie, wie ein neuer Kanal mithilfe des
-{{domxref("MessageChannel.MessageChannel", "MessageChannel()")}}-Konstruktors erstellt wird. Wenn der
-{{HTMLElement("iframe")}} geladen ist, übergeben wir {{domxref("MessageChannel.port2", "port2")}} an das
-{{HTMLElement("iframe")}} zusammen mit einer Nachricht, indem wir {{domxref("MessagePort.postMessage")}} verwenden. Der `handleMessage`-Handler reagiert dann auf eine Nachricht, die
-vom `<iframe>` zurückgesendet wird (mithilfe von {{domxref("MessagePort.message_event", "onmessage")}}),
-und zeigt sie in einem Absatz an. Die `handleMessage`-Methode ist mit dem
-`port1` verbunden, um zu hören, wann die Nachricht eintrifft.
+Im folgenden Codeblock sehen Sie, wie ein neuer Kanal mit dem [`MessageChannel()`](/de/docs/Web/API/MessageChannel/MessageChannel)-Konstruktor erstellt wird. Wenn das {{HTMLElement("iframe")}} geladen ist, übergeben wir [`port2`](/de/docs/Web/API/MessageChannel/port2) an das {{HTMLElement("iframe")}} zusammen mit einer Nachricht durch [`MessagePort.postMessage`](/de/docs/Web/API/MessagePort/postMessage). Der `handleMessage`-Handler reagiert dann auf eine Nachricht, die zurück aus dem `<iframe>` gesendet wird (unter Verwendung von [`onmessage`](/de/docs/Web/API/MessagePort/message_event)) und fügt sie in einen Absatz ein. Die `handleMessage`-Methode ist mit dem `port1` verbunden, um darauf zu hören, wann die Nachricht eintrifft.
 
 ```js
 const channel = new MessageChannel();
@@ -55,4 +47,4 @@ function handleMessage(e) {
 
 ## Siehe auch
 
-- [Verwendung von Nachrichtenkanälen](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwendung von Kanalmessaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

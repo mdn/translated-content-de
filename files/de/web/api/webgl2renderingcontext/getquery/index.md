@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: getQuery()-Methode"
+title: "WebGL2RenderingContext: Methode getQuery()"
 short-title: getQuery()
 slug: Web/API/WebGL2RenderingContext/getQuery
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.getQuery()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt die aktuell aktive
-{{domxref("WebGLQuery")}} für das `target` zurück, oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
+Die **`WebGL2RenderingContext.getQuery()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt die derzeit aktive
+[`WebGLQuery`](/de/docs/Web/API/WebGLQuery) für das `target` oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück.
 
 ## Syntax
 
@@ -21,26 +21,25 @@ getQuery(target, pname)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das das Ziel der Abfrage angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel der Abfrage angibt. Mögliche Werte:
 
     - `gl.ANY_SAMPLES_PASSED`
-      - : Gibt eine Occlusion-Abfrage an: Diese Abfragen
-        erkennen, ob ein Objekt sichtbar ist (ob die bestimmten Zeichenbefehle den
-        Tiefentest bestehen und wenn ja, wie viele Abtastungen bestehen).
+      - : Gibt eine Okklusionsabfrage an: Diese Abfragen
+        erkennen, ob ein Objekt sichtbar ist (ob die abgegrenzten Zeichnungsbefehle den
+        Tiefentest bestehen und falls ja, wie viele Abtastungen bestehen).
     - `gl.ANY_SAMPLES_PASSED_CONSERVATIVE`
-      - : Gleich wie oben, aber weniger
-        genau und schneller.
+      - : Wie oben, jedoch eine weniger
+        genaue und schnellere Version.
     - `gl.TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN`
-      - : Anzahl der Primitiven, die
-        in Transformations-Feedback-Puffer geschrieben werden.
+      - : Anzahl der Primitive, die in die Transform-Feedback-Puffer geschrieben werden.
 
 - `pname`
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das das Ziel des Abfrageobjekts angibt. Muss
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel des Abfrageobjekts angibt. Muss
     `gl.CURRENT_QUERY` sein.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGLQuery")}}-Objekt.
+Ein [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekt.
 
 ## Beispiele
 
@@ -58,4 +57,4 @@ const currentQuery = gl.getQuery(gl.ANY_SAMPLES_PASSED, gl.CURRENT_QUERY);
 
 ## Siehe auch
 
-- {{domxref("WebGLQuery")}}
+- [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)

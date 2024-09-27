@@ -1,5 +1,5 @@
 ---
-title: "MouseEvent: MouseEvent() Konstruktor"
+title: "MouseEvent: MouseEvent()-Konstruktor"
 short-title: MouseEvent()
 slug: Web/API/MouseEvent/MouseEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Der **`MouseEvent()`** Konstruktor erstellt ein neues {{domxref("MouseEvent")}} Objekt.
+Der **`MouseEvent()`**-Konstruktor erstellt ein neues [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Objekt.
 
 ## Syntax
 
@@ -21,62 +21,61 @@ new MouseEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist case-sensitive und Browser setzen ihn auf `click`, `dblclick`, `mousedown`, `mouseenter`, `mouseleave`, `mousemove`, `mouseout`, `mouseover` oder `mouseup`.
+    Er ist case-sensitiv und Browser setzen ihn auf `click`, `dblclick`, `mousedown`, `mouseenter`, `mouseleave`, `mousemove`, `mouseout`, `mouseover` oder `mouseup`.
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("UIEvent/UIEvent", "UIEvent()")}} definierten Eigenschaften_ folgende Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`UIEvent()`](/de/docs/Web/API/UIEvent/UIEvent) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
 
     - `screenX` {{optional_inline}}
-      - : Eine Zahl, standardmäßig `0`, die die horizontale Position des Mausereignisses auf dem Bildschirm des Benutzers angibt;
+      - : Eine Zahl, die standardmäßig `0` ist und die horizontale Position des Mausereignisses auf dem Bildschirm des Benutzers angibt;
         das Setzen dieses Wertes bewegt den Mauszeiger nicht.
     - `screenY` {{optional_inline}}
-      - : Eine Zahl, standardmäßig `0`, die die vertikale Position des Mausereignisses auf dem Bildschirm des Benutzers angibt;
+      - : Eine Zahl, die standardmäßig `0` ist und die vertikale Position des Mausereignisses auf dem Bildschirm des Benutzers angibt;
         das Setzen dieses Wertes bewegt den Mauszeiger nicht.
     - `clientX` {{optional_inline}}
-      - : Eine Zahl, standardmäßig `0`, die die horizontale Position des Mausereignisses im Client-Bereich des Bildschirms des Benutzers angibt;
+      - : Eine Zahl, die standardmäßig `0` ist und die horizontale Position des Mausereignisses im Client-Fenster des Bildschirms des Benutzers angibt;
         das Setzen dieses Wertes bewegt den Mauszeiger nicht.
     - `clientY` {{optional_inline}}
-      - : Eine Zahl, standardmäßig `0`, die die vertikale Position des Mausereignisses im Client-Bereich des Bildschirms des Benutzers angibt;
+      - : Eine Zahl, die standardmäßig `0` ist und die vertikale Position des Mausereignisses im Client-Fenster des Bildschirms des Benutzers angibt;
         das Setzen dieses Wertes bewegt den Mauszeiger nicht.
     - `ctrlKey` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob die <kbd>ctrl</kbd>-Taste gleichzeitig gedrückt wurde. Standardmäßig `false`.
+      - : Ein boolescher Wert, der angibt, ob die <kbd>ctrl</kbd>-Taste gleichzeitig gedrückt wurde. Er ist standardmäßig `false`.
     - `shiftKey` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob die <kbd>shift</kbd>-Taste gleichzeitig gedrückt wurde. Standardmäßig `false`.
+      - : Ein boolescher Wert, der angibt, ob die <kbd>shift</kbd>-Taste gleichzeitig gedrückt wurde. Er ist standardmäßig `false`.
     - `altKey` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob die <kbd>alt</kbd>-Taste gleichzeitig gedrückt wurde. Standardmäßig `false`.
+      - : Ein boolescher Wert, der angibt, ob die <kbd>alt</kbd>-Taste gleichzeitig gedrückt wurde. Er ist standardmäßig `false`.
     - `metaKey` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob die <kbd>meta</kbd>-Taste gleichzeitig gedrückt wurde. Standardmäßig `false`.
+      - : Ein boolescher Wert, der angibt, ob die <kbd>meta</kbd>-Taste gleichzeitig gedrückt wurde. Er ist standardmäßig `false`.
     - `button` {{optional_inline}}
 
-      - : Eine Zahl, standardmäßig `0`, die beschreibt, welche Taste während ereignisbezogener Ereignisse gedrückt wurde:
+      - : Eine Zahl, die standardmäßig `0` ist und beschreibt, welche Taste während Ereignissen im Zusammenhang mit dem Drücken oder Loslassen einer Taste gedrückt wird:
 
-        | Wert | Bedeutung                                                        |
-        | ---- | ---------------------------------------------------------------- |
+        | Wert | Bedeutung                                                                    |
+        | ---- | ---------------------------------------------------------------------------- |
         | `0`  | Haupttaste gedrückt (normalerweise die linke Taste) oder nicht initialisiert |
-        | `1`  | Hilfstaste gedrückt (normalerweise die mittlere Taste)           |
-        | `2`  | Sekundärtaste gedrückt (normalerweise die rechte Taste)          |
+        | `1`  | Zusatztaste gedrückt (normalerweise die mittlere Taste)                      |
+        | `2`  | Sekundärtaste gedrückt (normalerweise die rechte Taste)                      |
 
     - `buttons` {{optional_inline}}
 
-      - : Eine Zahl, standardmäßig `0`, die beschreibt, welche Tasten gedrückt sind, wenn das Ereignis ausgelöst wird:
+      - : Eine Zahl, die standardmäßig `0` ist und beschreibt, welche Tasten beim Auslösen des Ereignisses gedrückt werden:
 
-        | Bitfeld-Wert  | Bedeutung                                              |
-        | ------------- | ------------------------------------------------------ |
-        | `0`           | Keine Taste gedrückt                                   |
-        | `1`           | Haupttaste gedrückt (normalerweise die linke Taste)    |
-        | `2`           | Sekundärtaste gedrückt (normalerweise die rechte Taste)|
-        | `4`           | Hilfstaste gedrückt (normalerweise die mittlere Taste) |
+        | Bit-Feld-Wert | Bedeutung                                               |
+        | ------------- | ------------------------------------------------------- |
+        | `0`           | Keine Taste gedrückt                                    |
+        | `1`           | Haupttaste gedrückt (normalerweise die linke Taste)     |
+        | `2`           | Sekundärtaste gedrückt (normalerweise die rechte Taste) |
+        | `4`           | Zusatztaste gedrückt (normalerweise die mittlere Taste) |
 
     - `relatedTarget` {{optional_inline}}
-      - : Ein {{domxref("EventTarget")}}, standardmäßig `null`, das das Element ist, das gerade verlassen wird
-        (im Fall eines {{domxref("Element/mouseenter_event", "mouseenter")}} oder {{domxref("Element/mouseover_event", "mouseover")}})
-        oder betreten wird (im Fall eines {{domxref("Element/mouseout_event", "mouseout")}} oder {{domxref("Element/mouseleave_event", "mouseleave")}}).
+      - : Ein [`EventTarget`](/de/docs/Web/API/EventTarget), das standardmäßig `null` ist und das Element beschreibt, das gerade verlassen wird
+        (im Fall von [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event) oder [`mouseover`](/de/docs/Web/API/Element/mouseover_event))
+        oder betreten wird (im Fall von [`mouseout`](/de/docs/Web/API/Element/mouseout_event) oder [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event)).
     - `region` {{non-standard_inline}} {{optional_inline}}
-      - : Ein String, standardmäßig `null`, der die ID der von dem Ereignis betroffenen Trefferregion ist.
-        Das Fehlen einer betroffenen Trefferregion wird durch den Wert `null` dargestellt.
+      - : Ein String, der standardmäßig `null` ist und die ID des von dem Ereignis betroffenen Trefferbereichs angibt.
+        Das Fehlen eines betroffenen Trefferbereichs wird durch den `null`-Wert dargestellt.
 
-    In einigen Implementierungen wird das Übergeben von anderen Werten als Zahlen für die Bildschirm- und
-    Client-Felder einen {{jsxref("TypeError")}} auslösen.
+    In einigen Implementierungen wird das Übergeben von etwas anderem als einer Zahl für die Felder `screen` und `client` einen {{jsxref("TypeError")}} werfen.
 
 ## Spezifikationen
 
@@ -88,4 +87,4 @@ new MouseEvent(type, options)
 
 ## Siehe auch
 
-- {{domxref("MouseEvent")}}, die Schnittstelle der Objekte, die er konstruiert.
+- [`MouseEvent`](/de/docs/Web/API/MouseEvent), die Schnittstelle der Objekte, die es konstruiert.

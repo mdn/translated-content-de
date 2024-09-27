@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`relatedTarget`** schreibgeschützte Eigenschaft der {{domxref("FocusEvent")}}-Schnittstelle ist das sekundäre Ziel, je nach Typ des Ereignisses:
+Die **`relatedTarget`** Eigenschaft des [`FocusEvent`](/de/docs/Web/API/FocusEvent)-Interfaces ist das sekundäre Ziel, abhängig vom Ereignistyp:
 
 <table class="no-markdown">
   <thead>
@@ -20,35 +20,35 @@ Die **`relatedTarget`** schreibgeschützte Eigenschaft der {{domxref("FocusEvent
   </thead>
   <tbody>
     <tr>
-      <td>{{domxref("Element/blur_event", "blur")}}</td>
-      <td>Das {{domxref("EventTarget")}}, das den Fokus verliert</td>
-      <td>Das {{domxref("EventTarget")}}, das den Fokus erhält (falls vorhanden).</td>
+      <td>[`blur`](/de/docs/Web/API/Element/blur_event)</td>
+      <td>Das [`EventTarget`](/de/docs/Web/API/EventTarget), das den Fokus verliert</td>
+      <td>Das [`EventTarget`](/de/docs/Web/API/EventTarget), das den Fokus erhält (falls vorhanden).</td>
     </tr>
     <tr>
-      <td>{{domxref("Element/focus_event", "focus")}}</td>
-      <td>Das {{domxref("EventTarget")}}, das den Fokus erhält</td>
-      <td>Das {{domxref("EventTarget")}}, das den Fokus verliert (falls vorhanden)</td>
+      <td>[`focus`](/de/docs/Web/API/Element/focus_event)</td>
+      <td>Das [`EventTarget`](/de/docs/Web/API/EventTarget), das den Fokus erhält</td>
+      <td>Das [`EventTarget`](/de/docs/Web/API/EventTarget), das den Fokus verliert (falls vorhanden)</td>
     </tr>
     <tr>
-      <td>{{domxref("Element/focusin_event", "focusin")}}</td>
-      <td>Das {{domxref("EventTarget")}}, das den Fokus erhält</td>
-      <td>Das {{domxref("EventTarget")}}, das den Fokus verliert (falls vorhanden)</td>
+      <td>[`focusin`](/de/docs/Web/API/Element/focusin_event)</td>
+      <td>Das [`EventTarget`](/de/docs/Web/API/EventTarget), das den Fokus erhält</td>
+      <td>Das [`EventTarget`](/de/docs/Web/API/EventTarget), das den Fokus verliert (falls vorhanden)</td>
     </tr>
     <tr>
-      <td>{{domxref("Element/focusout_event", "focusout")}}</td>
-      <td>Das {{domxref("EventTarget")}}, das den Fokus verliert</td>
-      <td>Das {{domxref("EventTarget")}}, das den Fokus erhält (falls vorhanden)</td>
+      <td>[`focusout`](/de/docs/Web/API/Element/focusout_event)</td>
+      <td>Das [`EventTarget`](/de/docs/Web/API/EventTarget), das den Fokus verliert</td>
+      <td>Das [`EventTarget`](/de/docs/Web/API/EventTarget), das den Fokus erhält (falls vorhanden)</td>
     </tr>
   </tbody>
 </table>
 
-Beachten Sie, dass [viele Elemente keinen Fokus haben können](https://stackoverflow.com/questions/42764494/blur-event-relatedtarget-returns-null/42764495), was ein häufiger Grund dafür ist, dass `relatedTarget` `null` sein kann. `relatedTarget` kann auch aus Sicherheitsgründen auf `null` gesetzt sein, beispielsweise beim Wechseln in oder aus einer Seite.
+Beachten Sie, dass [viele Elemente keinen Fokus haben können](https://stackoverflow.com/questions/42764494/blur-event-relatedtarget-returns-null/42764495), was ein häufiger Grund dafür ist, dass `relatedTarget` `null` ist. `relatedTarget` kann auch aus Sicherheitsgründen auf `null` gesetzt werden, z.B. beim Navigieren mit der Tabulatortaste in oder aus einer Seite heraus.
 
-{{domxref("MouseEvent.relatedTarget")}} ist eine ähnliche Eigenschaft für Mausereignisse.
+[`MouseEvent.relatedTarget`](/de/docs/Web/API/MouseEvent/relatedTarget) ist eine ähnliche Eigenschaft für Mausereignisse.
 
 ## Wert
 
-Eine Instanz von {{domxref("EventTarget")}}.
+Eine Instanz von [`EventTarget`](/de/docs/Web/API/EventTarget).
 
 ## Spezifikationen
 
@@ -60,4 +60,4 @@ Eine Instanz von {{domxref("EventTarget")}}.
 
 ## Siehe auch
 
-- {{ domxref("FocusEvent") }}
+- [`FocusEvent`](/de/docs/Web/API/FocusEvent)

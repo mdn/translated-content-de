@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die schreibgeschützte **`is2D`**-Eigenschaft des {{domxref("CSSTransformValue")}}-Interfaces gibt zurück, ob die Transformation 2D oder 3D ist.
+Die schreibgeschützte **`is2D`**-Eigenschaft der [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue)-Schnittstelle gibt an, ob die Transformation 2D oder 3D ist.
 
-Im Fall von `CSSTransformValue` gibt diese Eigenschaft true zurück, es sei denn, eine der einzelnen Funktionen gibt für `Is2D` false zurück, dann wird false zurückgegeben.
+Im Fall von `CSSTransformValue` gibt diese Eigenschaft true zurück, es sei denn, eine der einzelnen Funktionen gibt false für `Is2D` zurück, in diesem Fall wird false zurückgegeben.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein Boolean. True zeigt an, dass die Transformation eine 2D-Transformation ist, 
 
 ## Beispiele
 
-Noch ausstehend
+To Do
 
 ## Spezifikationen
 

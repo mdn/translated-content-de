@@ -1,6 +1,6 @@
 ---
-title: "CSSMathMin: Werte-Eigenschaft"
-short-title: Werte
+title: "CSSMathMin: values-Eigenschaft"
+short-title: values
 slug: Web/API/CSSMathMin/values
 l10n:
   sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte Werte-Eigenschaft (`values`) der Schnittstelle {{domxref("CSSMathMin")}} gibt ein {{domxref('CSSNumericArray')}}-Objekt zurück, das eines oder mehrere {{domxref('CSSNumericValue')}}-Objekte enthält.
+Die schreibgeschützte `values`-Eigenschaft von der [`CSSMathMin`](/de/docs/Web/API/CSSMathMin) Schnittstelle gibt ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Objekt zurück, das ein oder mehrere [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte enthält.
 
 ## Wert
 
-Ein {{domxref('CSSNumericArray')}}.
+Ein [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray).
 
 ## Beispiele
 

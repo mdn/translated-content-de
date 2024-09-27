@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die schreibgeschützte **`XMLHttpRequest.responseURL`**-Eigenschaft gibt die serialisierte URL der Antwort zurück oder den leeren String, wenn die URL `null` ist. Falls die URL zurückgegeben wird, wird jegliches URL-Fragment entfernt. Der Wert von `responseURL` ist die endgültig erreichte URL nach allen Weiterleitungen.
+Die schreibgeschützte **`XMLHttpRequest.responseURL`**-Eigenschaft gibt die serialisierte URL der Antwort oder einen leeren String zurück, wenn die URL `null` ist. Wenn die URL zurückgegeben wird, wird ein vorhandenes URL-Fragment entfernt. Der Wert von `responseURL` wird die endgültige URL sein, die nach allen Weiterleitungen erhalten wird.
 
 ## Beispiel
 

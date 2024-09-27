@@ -3,16 +3,14 @@ title: "RTCPeerConnection: createOffer()-Methode"
 short-title: createOffer()
 slug: Web/API/RTCPeerConnection/createOffer
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: b913cece0d35b5a7d1b5d3f4c628dcbbddfc7435
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`createOffer()`**-Methode des {{domxref("RTCPeerConnection")}}-Interfaces initiiert die Erstellung eines {{Glossary("SDP")}}-Angebots, um eine neue WebRTC-Verbindung zu einem entfernten Peer zu starten.
+Die **`createOffer()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle initiiert die Erstellung eines [SDP](/de/docs/Glossary/SDP)-Angebots, um eine neue WebRTC-Verbindung zu einem entfernten Peer zu starten.
 
-Das SDP-Angebot enthält Informationen über alle {{domxref("MediaStreamTrack")}}-Objekte, die bereits an die WebRTC-Sitzung angehängt sind, die vom Browser unterstützten Codecs und Optionen sowie alle vom {{Glossary("ICE")}}-Agenten bereits gesammelten Kandidaten, um sie über den Signalisierungskanal an einen potenziellen Peer zu senden, der eine Verbindung anfordert oder die Konfiguration einer bestehenden Verbindung aktualisieren möchte.
-
-Der Rückgabewert ist ein {{jsxref("Promise")}}, das, wenn das Angebot erstellt wurde, mit einem [RTCSessionDescriptionInit](/de/docs/Web/API/RTCSessionDescription/RTCSessionDescription#options)-Wörterbuch aufgelöst wird, das das neu erstellte Angebot enthält.
+Das SDP-Angebot enthält Informationen über alle [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte, die bereits an die WebRTC-Sitzung angehängt sind, Codecs und Optionen, die vom Browser unterstützt werden, sowie alle Kandidaten, die bereits vom [ICE](/de/docs/Glossary/ICE)-Agenten gesammelt wurden, um über den Signalisierungskanal an einen potenziellen Peer gesendet zu werden, um eine Verbindung anzufordern oder die Konfiguration einer bestehenden Verbindung zu aktualisieren.
 
 ## Syntax
 
@@ -20,22 +18,22 @@ Der Rückgabewert ist ein {{jsxref("Promise")}}, das, wenn das Angebot erstellt 
 createOffer()
 createOffer(options)
 
-createOffer(successCallback, failureCallback) // veraltet
-createOffer(successCallback, failureCallback, options) // veraltet
+createOffer(successCallback, failureCallback) // deprecated
+createOffer(successCallback, failureCallback, options) // deprecated
 ```
 
 ### Parameter
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das die folgenden angeforderten Optionen für das Angebot angibt:
+  - : Ein Objekt, das die folgenden angeforderten Optionen für das Angebot bereitstellt:
 
     - `iceRestart` {{optional_inline}}
       - : Um ICE bei einer aktiven Verbindung neu zu starten, setzen Sie dies auf `true`.
-        Dies wird dazu führen, dass das zurückgegebene Angebot andere Anmeldedaten hat als die bereits vorhandenen.
+        Dies führt dazu, dass das zurückgegebene Angebot andere Anmeldeinformationen hat als die bereits vorhandenen.
         Wenn Sie dann das zurückgegebene Angebot anwenden, wird ICE neu gestartet.
-        Geben Sie `false` an, um dieselben Anmeldedaten beizubehalten und ICE nicht neu zu starten.
-        **Die Standardeinstellung ist `false`**.
+        Geben Sie `false` an, um die gleichen Anmeldeinformationen beizubehalten und somit ICE nicht neu zu starten.
+        **Der Standardwert ist `false`**.
     - `offerToReceiveAudio` {{optional_inline}} {{deprecated_inline}}
       - : Bietet zusätzliche Kontrolle über die Richtung des Audios. Zum Beispiel kann es verwendet werden, um sicherzustellen, dass Audio empfangen werden kann, unabhängig davon, ob Audio gesendet wird oder nicht.
     - `offerToReceiveVideo` {{optional_inline}} {{deprecated_inline}}
@@ -43,44 +41,48 @@ createOffer(successCallback, failureCallback, options) // veraltet
 
 ### Veraltete Parameter
 
-In älterem Code und Dokumentationen könnten Sie eine rückrufbasierte Version dieser Funktion sehen.
-Diese ist veraltet und ihre Verwendung wird **stark** abgeraten.
-Sie sollten vorhandenen Code aktualisieren, um die auf {{jsxref("Promise")}} basierende Version von `createOffer()` zu nutzen.
-Die Parameter für die ältere Form von `createOffer()` werden im Folgenden beschrieben, um bei der Aktualisierung vorhandenen Codes zu helfen.
+In älterem Code und Dokumentation kann eine auf Rückrufen basierende Version dieser Funktion zu sehen sein.
+Diese ist veraltet und ihre Verwendung wird **dringend** abgeraten.
+Sie sollten bestehenden Code aktualisieren, um die auf der {{jsxref("Promise")}}-basierten Version von `createOffer()` zu verwenden.
+Die Parameter der älteren Form von `createOffer()` sind unten beschrieben, um bei der Aktualisierung bestehenden Codes zu helfen.
 
 - `successCallback` {{deprecated_inline}}
-  - : Eine [Rückruffunktion](/de/docs/Glossary/Callback_function), die ein einzelnes {{domxref("RTCSessionDescription")}}-Objekt übergeben bekommt, das das neu erstellte Angebot beschreibt.
+  - : Eine [Rückruffunktion](/de/docs/Glossary/Callback_function), die ein einzelnes [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt erhält, das das neu erstellte Angebot beschreibt.
 - `errorCallback` {{deprecated_inline}}
-  - : Eine [Rückruffunktion](/de/docs/Glossary/Callback_function), die ein einzelnes {{domxref("DOMException")}}-Objekt übergeben bekommt, das erklärt, warum die Anfrage zur Erstellung eines Angebots fehlgeschlagen ist.
+  - : Eine [Rückruffunktion](/de/docs/Glossary/Callback_function), die ein einzelnes [`DOMException`](/de/docs/Web/API/DOMException)-Objekt erhält, das erklärt, warum die Anfrage zur Erstellung eines Angebots fehlgeschlagen ist.
 - `options` {{optional_inline}}
-  - : Ein optionales Objekt, das die angeforderten Optionen für das Angebot angibt.
+  - : Ein optionales Objekt, das die angeforderten Optionen für das Angebot bereitstellt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, dessen Erfüllungs-Handler ein Objekt erhält, das mit dem [RTCSessionDescriptionInit](/de/docs/Web/API/RTCSessionDescription/RTCSessionDescription#options)-Wörterbuch übereinstimmt und das SDP enthält, das das erzeugte Angebot beschreibt.
-Dieses empfangene Angebot sollte über den Signalisierungsserver an einen entfernten Peer übermittelt werden.
+Ein {{jsxref("Promise")}}, der mit einem Objekt erfüllt wird, das die gleichen Eigenschaften wie ein [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt enthält:
+
+- `type`
+  - : Ein String mit dem Wert `"offer"`.
+- `sdp`
+  - : Ein String, der das SDP enthält, das das erzeugte Angebot beschreibt und an den entfernten Peer geliefert werden soll.
 
 ### Ausnahmen
 
-Diese Ausnahmen werden durch Zurückweisen des zurückgegebenen Promise zurückgegeben.
-Ihr Ablehnungs-Handler sollte die erhaltene Ausnahme untersuchen, um zu bestimmen, welche aufgetreten ist.
+Diese Ausnahmen werden durch Ablehnung des zurückgegebenen Versprechens zurückgegeben.
+Ihr Ablehnungshandler sollte die empfangene Ausnahme prüfen, um festzustellen, welche aufgetreten ist.
 
-- `InvalidStateError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn die `RTCPeerConnection` geschlossen ist.
-- `NotReadableError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn kein Zertifikat oder Satz von Zertifikaten bereitgestellt wurde, um die Verbindung zu sichern, und `createOffer()` nicht in der Lage war, ein neues zu erstellen.
+- `NotReadableError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn kein Zertifikat oder kein Zertifikatsatz zur Sicherung der Verbindung bereitgestellt wurde, und `createOffer()` war nicht in der Lage, ein neues zu erstellen.
     Da alle WebRTC-Verbindungen gesichert sein müssen, führt dies zu einem Fehler.
-- `OperationError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn das Überprüfen des Systemzustands, um die Verfügbarkeit von Ressourcen zur Erstellung des Angebots zu bestimmen, aus irgendeinem Grund fehlgeschlagen ist.
+- `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn die Prüfung des Systemzustands, um die Verfügbarkeit von Ressourcen zur Erstellung des Angebots zu bestimmen, aus irgendeinem Grund fehlschlug.
 
 ## Beispiele
 
-Hier sehen wir einen Handler für das {{DOMxRef("RTCPeerConnection/negotiationneeded_event", "negotiationneeded")}}-Ereignis, der das Angebot erstellt und es über einen Signalisierungskanal an das entfernte System sendet.
+Hier sehen wir einen Handler für das [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis, der das Angebot erstellt und über einen Signalisierungskanal an das entfernte System sendet.
 
 > [!NOTE]
-> Bitte beachten Sie, dass dies Teil des Signalisierungsprozesses ist, dessen Transportschicht ein Implementierungsdetail ist, das ganz Ihnen überlassen bleibt.
-> In diesem Fall wird eine [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung verwendet, um eine {{Glossary("JSON")}}-Nachricht mit einem `type`-Feld und dem Wert "video-offer" an den anderen Peer zu senden.
-> Der Inhalt des Objekts, das an die `sendToServer()`-Funktion übergeben wird, sowie alles andere im Promise-Erfüllungs-Handler hängen vollständig von Ihrem Design ab.
+> Beachten Sie, dass dies Teil des Signalisierungsprozesses ist, dessen Transportschicht ein Implementierungsdetail ist, das vollständig Ihnen überlassen wird.
+> In diesem Fall wird eine [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung verwendet, um eine [JSON](/de/docs/Glossary/JSON)-Nachricht mit einem `type`-Feld und dem Wert "video-offer" an den anderen Peer zu senden.
+> Der Inhalt des Objekts, das an die Funktion `sendToServer()` übergeben wird, sowie alles andere im Versprechenserfüllungs-Handler hängt vollständig von Ihrem Design ab.
 
 ```js
 myPeerConnection
@@ -95,17 +97,17 @@ myPeerConnection
     });
   })
   .catch((reason) => {
-    // Ein Fehler trat auf, also handle das Scheitern der Verbindung
+    // An error occurred, so handle the failure to connect
   });
 ```
 
-In diesem Code wird das Angebot erstellt und, sobald es erfolgreich ist, wird das lokale Ende der {{domxref("RTCPeerConnection")}} konfiguriert, um übereinzustimmen, indem das Angebot (das durch ein Objekt repräsentiert wird, das mit [RTCSessionDescriptionInit](/de/docs/Web/API/RTCSessionDescription/RTCSessionDescription#options) übereinstimmt) in {{domxref("RTCPeerConnection.setLocalDescription", "setLocalDescription()")}} übergeben wird.
-Sobald das erledigt ist, wird das Angebot über den Signalisierungskanal an das entfernte System gesendet, in diesem Fall durch eine benutzerdefinierte Funktion namens `sendToServer()`.
-Die Implementierung des Signalisierungsservers ist unabhängig von der WebRTC-Spezifikation, daher spielt es keine Rolle, wie das Angebot gesendet wird, solange sowohl der Anrufer als auch der potenzielle Empfänger denselben verwenden.
+In diesem Code wird das Angebot erstellt, und sobald es erfolgreich ist, wird das lokale Ende der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zur Übereinstimmung konfiguriert, indem das Angebot (das durch ein Objekt in der gleichen Form wie [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription) dargestellt wird) in [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) übergeben wird.
+Sobald dies geschehen ist, wird das Angebot über den Signalisierungskanal an das entfernte System gesendet; in diesem Fall durch die Verwendung einer benutzerdefinierten Funktion namens `sendToServer()`.
+Die Implementierung des Signalisierungsservers ist unabhängig von der WebRTC-Spezifikation, daher spielt es keine Rolle, wie das Angebot gesendet wird, solange der Anrufer und der potenzielle Empfänger das gleiche verwenden.
 
-Nutzen Sie {{jsxref("Promise.catch()")}}, um Fehler abzufangen und zu behandeln.
+Verwenden Sie {{jsxref("Promise.catch()")}}, um Fehler abzufangen und zu behandeln.
 
-Siehe [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling) für das vollständige Beispiel, aus dem dieser Ausschnitt stammt; dies wird Ihnen helfen zu verstehen, wie der Signalisierungscode hier funktioniert.
+Sehen Sie [Signalisierung und Videoanrufe](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling) für das vollständige Beispiel, aus dem dieses Snippet stammt; dies wird Ihnen helfen, zu verstehen, wie der Signalisierungscode hier funktioniert.
 
 ## Spezifikationen
 

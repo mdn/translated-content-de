@@ -7,19 +7,19 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
-Die `USBIsochronousInTransferResult`-Schnittstelle der [WebUSB API](/de/docs/Web/API/WebUSB_API) liefert das Ergebnis eines Aufrufs der `isochronousTransferIn()`-Methode der `USBDevice`-Schnittstelle. Sie repräsentiert das Ergebnis einer Anfrage zur Übertragung von Daten vom USB-Gerät zum USB-Host.
+Das `USBIsochronousInTransferResult`-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) liefert das Ergebnis eines Aufrufs der Methode `isochronousTransferIn()` des `USBDevice`-Interfaces. Es repräsentiert das Ergebnis der Anforderung eines Datentransfers vom USB-Gerät zum USB-Host.
 
 ## Konstruktor
 
-- {{domxref("USBIsochronousInTransferResult.USBIsochronousInTransferResult", "USBIsochronousInTransferResult()")}} {{Experimental_Inline}}
-  - : Erstellt ein neues `USBIsochronousInTransferResult`-Objekt mit den bereitgestellten `packets`- und `data`-Feldern.
+- [`USBIsochronousInTransferResult()`](/de/docs/Web/API/USBIsochronousInTransferResult/USBIsochronousInTransferResult) {{Experimental_Inline}}
+  - : Erstellt ein neues `USBIsochronousInTransferResult`-Objekt mit den angegebenen Feldern `packets` und `data`.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("USBIsochronousInTransferResult.data")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein `DataView`-Objekt zurück, das die vom Gerät empfangenen Daten enthält. Dies sind die kombinierten Daten aus allen Paketen. Siehe die einzelnen `DataView`-Objekte im `packets`-Array für den Teil dieses Puffers, der Daten aus jedem Paket enthält.
-- {{domxref("USBIsochronousInTransferResult.packets")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein Array von `USBIsochronousInTransferPacket`-Objekten zurück, das das Ergebnis jeder Anfrage zum Empfang eines Pakets vom Gerät enthält.
+- [`USBIsochronousInTransferResult.data`](/de/docs/Web/API/USBIsochronousInTransferResult/data) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt ein `DataView`-Objekt zurück, das die vom Gerät empfangenen Daten enthält. Dies sind die kombinierten Daten aller Pakete. Siehe die individuellen `DataView`-Objekte im `packets`-Array für den Teil dieses Puffers, der Daten aus jedem Paket enthält.
+- [`USBIsochronousInTransferResult.packets`](/de/docs/Web/API/USBIsochronousInTransferResult/packets) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt ein Array von `USBIsochronousInTransferPacket`-Objekten zurück, das das Ergebnis jeder Anforderung zum Empfang eines Pakets vom Gerät enthält.
 
 ## Spezifikationen
 

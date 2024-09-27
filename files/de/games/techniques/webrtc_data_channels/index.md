@@ -7,17 +7,17 @@ l10n:
 
 {{GamesSidebar}}
 
-Die [WebRTC](/de/docs/Web/API/WebRTC_API) (Web Real-Time Communications) API ist hauptsächlich für ihre Unterstützung für Audio- und Video-Kommunikation bekannt; jedoch bietet sie auch Peer-to-Peer-Datenkanäle. Dieser Artikel erklärt mehr darüber und zeigt Ihnen, wie Sie Bibliotheken verwenden können, um Datenkanäle in Ihrem Spiel zu implementieren.
+Die [WebRTC](/de/docs/Web/API/WebRTC_API) (Web Real-Time Communications) API ist hauptsächlich für ihre Unterstützung von Audio- und Video-Kommunikation bekannt; jedoch bietet sie auch Peer-to-Peer-Datenkanäle. Dieser Artikel erklärt mehr darüber und zeigt Ihnen, wie Sie Bibliotheken verwenden können, um Datenkanäle in Ihrem Spiel zu implementieren.
 
 ## Was ist ein Datenkanal?
 
-Ein WebRTC-Datenkanal ermöglicht es Ihnen, Text- oder Binärdaten über eine aktive Verbindung an einen Peer zu senden. Im Kontext eines Spiels können Spieler so Daten austauschen, sei es ein Text-Chat oder Spielstatusinformationen. Datenkanäle kommen in zwei Varianten.
+Ein WebRTC-Datenkanal ermöglicht es Ihnen, Text- oder Binärdaten über eine aktive Verbindung zu einem Peer zu senden. Im Kontext eines Spiels können Spieler damit Daten aneinander senden, sei es für Text-Chat oder Spielstatusinformationen. Datenkanäle gibt es in zwei Varianten.
 
-**Zuverlässige Kanäle** gewährleisten, dass die von Ihnen gesendeten Nachrichten beim anderen Peer ankommen und zwar in der Reihenfolge, in der sie gesendet wurden. Dies ist vergleichbar mit einem TCP-Socket.
+**Zuverlässige Kanäle** garantieren, dass die von Ihnen gesendeten Nachrichten beim anderen Peer ankommen und zwar in der gleichen Reihenfolge, in der sie gesendet wurden. Dies ist analog zu einem TCP-Socket.
 
-**Unzuverlässige Kanäle** garantieren keinerlei solcher Zusicherungen; Nachrichten sind nicht garantiert in einer bestimmten Reihenfolge und sogar überhaupt anzukommen. Dies ist vergleichbar mit einem UDP-Socket.
+**Unzuverlässige Kanäle** machen keine derartigen Garantien; Nachrichten sind nicht garantiert in einer bestimmten Reihenfolge anzukommen und tatsächlich ist auch nicht garantiert, dass sie überhaupt ankommen. Dies ist analog zu einem UDP-Socket.
 
-Wir haben [Dokumentation zur Verwendung von WebRTC](/de/docs/Web/API/WebRTC_API). Dieser Artikel wird jedoch einige Bibliotheken nutzen, die die Arbeit erleichtern können, und wird Möglichkeiten aufzeigen, Abstraktion zu verwenden, um Implementierungsunterschiede zwischen Browsern zu umgehen. Hoffentlich werden diese Unterschiede natürlich mit der Zeit verblassen.
+Wir haben [Dokumentation zur Verwendung von WebRTC](/de/docs/Web/API/WebRTC_API). Dieser Artikel wird jedoch einige Bibliotheken nutzen, die die Arbeit vereinfachen können und wird Wege aufzeigen, Abstraktionen zu verwenden, um Implementierungsunterschiede zwischen Browsern zu überbrücken. Natürlich hoffen wir, dass diese Unterschiede mit der Zeit verschwinden.
 
 ## Originaldokumentinformationen
 

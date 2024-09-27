@@ -1,5 +1,5 @@
 ---
-title: "Fenster: scrollByLines()-Methode"
+title: "Window: scrollByLines()-Methode"
 short-title: scrollByLines()
 slug: Web/API/Window/scrollByLines
 l10n:
@@ -19,7 +19,7 @@ scrollByLines(lines)
 ### Parameter
 
 - `lines`
-  - : Die Anzahl der Zeilen, um die das Dokument gescrollt werden soll. Es kann sich um eine positive oder negative ganze Zahl handeln.
+  - : Die Anzahl der Zeilen, um die das Dokument gescrollt werden soll. Dies kann eine positive oder negative ganze Zahl sein.
 
 ### Rückgabewert
 
@@ -28,16 +28,16 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```html
-<!-- Scrollen Sie das Dokument um 5 Zeilen nach oben -->
-<button id="scroll-up" onclick="scrollByLines(-5);">5 Zeilen nach oben</button>
+<!-- Scroll up the document by 5 lines -->
+<button id="scroll-up" onclick="scrollByLines(-5);">Up 5 lines</button>
 
-<!-- Scrollen Sie das Dokument um 5 Zeilen nach unten -->
-<button id="scroll-down" onclick="scrollByLines(5);">5 Zeilen nach unten</button>
+<!-- Scroll down the document by 5 lines -->
+<button id="scroll-down" onclick="scrollByLines(5);">Down 5 lines</button>
 ```
 
 ## Spezifikationen
 
-Dies ist kein Bestandteil einer Spezifikation.
+Dies ist Teil keiner Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -45,7 +45,7 @@ Dies ist kein Bestandteil einer Spezifikation.
 
 ## Siehe auch
 
-- {{domxref("window.scroll()")}}
-- {{domxref("window.scrollBy()")}}
-- {{domxref("window.scrollByPages()")}}
-- {{domxref("window.scrollTo()")}}
+- [`window.scroll()`](/de/docs/Web/API/Window/scroll)
+- [`window.scrollBy()`](/de/docs/Web/API/Window/scrollBy)
+- [`window.scrollByPages()`](/de/docs/Web/API/Window/scrollByPages)
+- [`window.scrollTo()`](/de/docs/Web/API/Window/scrollTo)

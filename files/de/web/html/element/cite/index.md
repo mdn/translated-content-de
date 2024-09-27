@@ -1,5 +1,5 @@
 ---
-title: "<cite>: Das Zitationselement"
+title: "<cite>: Das Citation-Element"
 slug: Web/HTML/Element/cite
 l10n:
   sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<cite>`** [HTML](/de/docs/Web/HTML) Element wird verwendet, um den Titel eines zitierten kreativen Werks zu kennzeichnen. Die Referenz kann in einer nach kontextbezogenen Konventionen für Zitationsmetadaten geeigneten verkürzten Form sein.
+Das **`<cite>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um den Titel eines zitierten kreativen Werks zu markieren. Die Referenz kann in einer abgekürzten Form entsprechend kontextbezogener Konventionen in Bezug auf Zitations-Metadaten angegeben werden.
 
 {{EmbedInteractiveExample("pages/tabbed/cite.html", "tabbed-standard")}}
 
@@ -17,7 +17,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 ## Nutzungshinweise
 
-Im Kontext des `<cite>` Elements könnte ein zitiertes kreatives Werk zum Beispiel eines der folgenden sein:
+Im Kontext des `<cite>`-Elements könnte ein zitiertes kreatives Werk beispielsweise eines der folgenden sein:
 
 - Ein Buch
 - Ein Forschungspapier
@@ -32,11 +32,11 @@ Im Kontext des `<cite>` Elements könnte ein zitiertes kreatives Werk zum Beispi
 - Eine Skulptur
 - Ein Gemälde
 - Eine Theaterproduktion
-- Ein Drama
+- Ein Theaterstück
 - Eine Oper
 - Ein Musical
 - Eine Ausstellung
-- Ein Gerichtsbericht
+- Ein juristischer Fallbericht
 - Ein Computerprogramm
 - Eine Website
 - Eine Webseite
@@ -47,21 +47,21 @@ Im Kontext des `<cite>` Elements könnte ein zitiertes kreatives Werk zum Beispi
 - Eine schriftliche oder mündliche Aussage
 - Und so weiter.
 
-Um eine Referenz zur Quelle des zitierten Materials, das in einem {{HTMLElement("blockquote")}} oder {{HTMLElement("q")}} Element enthalten ist, einzuschließen, verwenden Sie das [`cite`](/de/docs/Web/HTML/Element/blockquote#cite) Attribut am Element.
+Um eine Referenz auf die Quelle des zitierten Materials einzufügen, das sich innerhalb eines {{HTMLElement("blockquote")}}- oder {{HTMLElement("q")}}-Elements befindet, verwenden Sie das [`cite`](/de/docs/Web/HTML/Element/blockquote#cite)-Attribut auf dem Element.
 
-Normalerweise formatieren Browser den Inhalt eines `<cite>` Elements standardmäßig in Kursivschrift. Um dies zu vermeiden, wenden Sie die CSS-Eigenschaft {{cssxref("font-style")}} auf das `<cite>` Element an.
+Normalerweise stellen Browser den Inhalt eines `<cite>`-Elements standardmäßig kursiv dar. Um dies zu vermeiden, wenden Sie die CSS-Eigenschaft {{cssxref("font-style")}} auf das `<cite>`-Element an.
 
 ## Beispiele
 
 ```html
-<p>Weitere Informationen finden Sie in <cite>[ISO-0000]</cite>.</p>
+<p>More information can be found in <cite>[ISO-0000]</cite>.</p>
 ```
 
 ### Ergebnis
 
 {{EmbedLiveSample("Example", 640, 80)}}
 
-## Technische Zusammenfassung
+## Technische Übersicht
 
 <table class="properties">
   <tbody>
@@ -73,36 +73,36 @@ Normalerweise formatieren Browser den Inhalt eines `<cite>` Elements standardmä
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließ-Inhalt</a
+          >Fließender Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungs-Inhalt</a
+          >Phrasierungsinhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zugelassener Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungs-Inhalt</a
+          >Phrasierungsinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungs-Inhalt</a
+          >Phrasierungsinhalt</a
         > akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
           >Keine entsprechende Rolle</a
@@ -110,15 +110,15 @@ Normalerweise formatieren Browser den Inhalt eines `<cite>` Elements standardmä
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        {{domxref("HTMLElement")}} Bis einschließlich Gecko 1.9.2 (Firefox 4)
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4),
         implementiert Firefox die
-        {{domxref("HTMLSpanElement")}} Schnittstelle für dieses Element.
+        [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)-Schnittstelle für dieses Element.
       </td>
     </tr>
   </tbody>
@@ -135,4 +135,4 @@ Normalerweise formatieren Browser den Inhalt eines `<cite>` Elements standardmä
 ## Siehe auch
 
 - Das Element {{HTMLElement("blockquote")}} für lange Zitate.
-- Das Element {{HTMLElement("q")}} für Inline-Zitate und das [`cite`](/de/docs/Web/HTML/Element/q#cite) Attribut.
+- Das Element {{HTMLElement("q")}} für Inline-Zitate und das [`cite`](/de/docs/Web/HTML/Element/q#cite)-Attribut.

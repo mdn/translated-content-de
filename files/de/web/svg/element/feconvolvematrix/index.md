@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Der **`<feConvolveMatrix>`** [SVG](/de/docs/Web/SVG) Filter-Primitiv wendet einen Matrix-Faltungsfiltereffekt an. Eine Faltung kombiniert Pixel im Eingabebild mit benachbarten Pixeln, um ein resultierendes Bild zu erzeugen. Eine Vielzahl von Bildoperationen kann durch Faltungen erreicht werden, einschließlich Unschärfe, Kantendetektion, Schärfung, Prägung und Abschrägung.
+Der **`<feConvolveMatrix>`** [SVG](/de/docs/Web/SVG) Filterprimitive wendet einen Matrixkonvolutions-Filtereffekt an. Eine Konvolution kombiniert Pixel im Eingangsbild mit benachbarten Pixeln, um ein resultierendes Bild zu erzeugen. Eine Vielzahl von Bildoperationen kann durch Konvolutionen erreicht werden, einschließlich Weichzeichnung, Kantenerkennung, Schärfung, Prägung und Abkantung.
 
-Eine Matrixfaltung basiert auf einer n-mal-m-Matrix (dem Faltungskern), die beschreibt, wie ein bestimmter Pixelwert im Eingabebild mit den benachbarten Pixelwerten kombiniert wird, um einen resultierenden Pixelwert zu erzeugen. Jeder resultierende Pixel wird bestimmt, indem die Kernmatrix auf das entsprechende Quellpixel und seine benachbarten Pixel angewendet wird. Die grundlegende Faltungsformel, die auf jeden Farbwert für einen gegebenen Pixel angewendet wird, lautet:
+Eine Matrixkonvolution basiert auf einer n-mal-m-Matrix (dem Konvolutionskern), die beschreibt, wie ein bestimmter Pixelwert im Eingangsbild mit seinen benachbarten Pixelwerten kombiniert wird, um einen resultierenden Pixelwert zu erzeugen. Jeder resultierende Pixel wird bestimmt, indem die Kernmatrix auf den entsprechenden Quellpixel und seine benachbarten Pixel angewendet wird. Die grundlegende Konvolutionsformel, die auf jeden Farbwert für einen gegebenen Pixel angewendet wird, lautet:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -17,11 +17,11 @@ Eine Matrixfaltung basiert auf einer n-mal-m-Matrix (dem Faltungskern), die besc
 </math>
 <!-- prettier-ignore-end -->
 
-wobei "orderX" und "orderY" die X- und Y-Werte für das [`order`](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementOrderAttribute) Attribut darstellen, "targetX" den Wert des [`targetX`](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetXAttribute) Attributs darstellt, "targetY" den Wert des [`targetY`](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetYAttribute) Attributs darstellt, "kernelMatrix" den Wert des [`kernelMatrix`](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementKernelMatrixAttribute) Attributs darstellt, "divisor" den Wert des [`divisor`](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementDivisorAttribute) Attributs darstellt, und "bias" den Wert des [`bias`](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementBiasAttribute) Attributs darstellt.
+wobei "orderX" und "orderY" die X- und Y-Werte für das [`order`](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementOrderAttribute) Attribut darstellen, "targetX" den Wert des [`targetX`](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetXAttribute) Attributs darstellt, "targetY" den Wert des [`targetY`](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetYAttribute) Attributs darstellt, "kernelMatrix" den Wert des [`kernelMatrix`](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementKernelMatrixAttribute) Attributs darstellt, "divisor" den Wert des [`divisor`](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementDivisorAttribute) Attributs darstellt und "bias" den Wert des [`bias`](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementBiasAttribute) Attributs darstellt.
 
-Beachten Sie in den obigen Formeln, dass die Werte in der Kernmatrix so angewendet werden, dass die Kernmatrix um 180 Grad relativ zum Quell- und Zielbild gedreht wird, um die Faltungstheorie, wie in vielen Computergraphik-Lehrbüchern beschrieben, zu erfüllen.
+Beachten Sie in den obigen Formeln, dass die Werte in der Kernmatrix so angewendet werden, dass die Kernmatrix relativ zu den Quell- und Zielbildern um 180 Grad gedreht ist, um der in vielen Computergraphik-Lehrbüchern beschriebenen Konvolutionstheorie zu entsprechen.
 
-Zur Veranschaulichung nehmen wir an, Sie haben ein Eingabebild, das 5 Pixel mal 5 Pixel groß ist, dessen Farbwerte für einen der Farbkanäle wie folgt sind:
+Um dies zu veranschaulichen, nehmen wir an, Sie haben ein Eingangsbild, das 5 Pixel mal 5 Pixel groß ist, dessen Farbwerte für einen der Farbkanäle wie folgt lauten:
 
 ```plain
 0    20  40 235 235
@@ -31,7 +31,7 @@ Zur Veranschaulichung nehmen wir an, Sie haben ein Eingabebild, das 5 Pixel mal 
 225 225 255 255 255
 ```
 
-und Sie definieren einen 3-mal-3 Faltungskern wie folgt:
+und Sie definieren einen 3-mal-3-Konvolutionskern wie folgt:
 
 ```plain
 1 2 3
@@ -39,7 +39,7 @@ und Sie definieren einen 3-mal-3 Faltungskern wie folgt:
 7 8 9
 ```
 
-Fokussieren wir uns auf den Farbwert in der zweiten Zeile und der zweiten Spalte des Bildes (Quellpixelwert ist 120). Angenommen der einfachste Fall (wo das Pixelraster des Eingabebildes perfekt mit dem Pixelraster des Kerns übereinstimmt) und die Standardwerte für die Attribute ['divisor'](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementDivisorAttribute), ['targetX'](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetXAttribute) und ['targetY'](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetYAttribute), dann wird der resultierende Farbwert sein:
+Konzentrieren wir uns auf den Farbwert in der zweiten Zeile und der zweiten Spalte des Bildes (Quellpixelwert ist 120). Bei Annahme des einfachsten Falls (bei dem das Pixelraster des Eingangsbildes perfekt mit dem Pixelraster des Kerns ausgerichtet ist) und Annahme der Standardwerte für die Attribute ['divisor'](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementDivisorAttribute), ['targetX'](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetXAttribute) und ['targetY'](https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetYAttribute), dann wird der resultierende Farbwert sein:
 
 ```plain
 (9*0   + 8*20  + 7*40 +
@@ -66,7 +66,7 @@ Fokussieren wir uns auf den Farbwert in der zweiten Zeile und der zweiten Spalte
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFEConvolveMatrixElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGFEConvolveMatrixElement`](/de/docs/Web/API/SVGFEConvolveMatrixElement) Schnittstelle.
 
 ## Beispiel
 
@@ -112,7 +112,7 @@ Dieses Element implementiert die {{domxref("SVGFEConvolveMatrixElement")}} Schni
 
 ## Siehe auch
 
-- [SVG-Filter-Primitiv-Attribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes)
+- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}
@@ -131,4 +131,4 @@ Dieses Element implementiert die {{domxref("SVGFEConvolveMatrixElement")}} Schni
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

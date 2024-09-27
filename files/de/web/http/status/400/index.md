@@ -1,5 +1,5 @@
 ---
-title: 400 Fehlende Anfrage
+title: 400 Bad Request
 slug: Web/HTTP/Status/400
 l10n:
   sourceCommit: ae86913908651e6008079242691e06b5e01d1c78
@@ -7,9 +7,10 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`400 Bad Request`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Server die Anfrage aufgrund eines vom Server als Fehler des Clients betrachteten Problems nicht verarbeiten konnte. Der Grund für eine `400` Antwort ist typischerweise fehlerhafte Anfrage-Syntax, ungültige Anfragenachrichtenstruktur oder irreführende Anfragerouting.
+Der HTTP-Statuscode **`400 Bad Request`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Server die Anfrage aufgrund eines vom Server als Clientfehler betrachteten Problems nicht verarbeiten konnte.
+Der Grund für eine `400`-Antwort liegt typischerweise in fehlerhafter Anfragesyntax, ungültiger Nachrichtenformulierung oder irreführender Anforderungsweiterleitung.
 
-Clients, die eine `400` Antwort erhalten, sollten erwarten, dass das Wiederholen der Anfrage ohne Modifikation mit dem gleichen Fehler fehlschlagen wird.
+Clients, die eine `400`-Antwort erhalten, sollten erwarten, dass das Wiederholen der Anfrage ohne Änderungen mit demselben Fehler scheitern wird.
 
 ## Status
 
@@ -19,9 +20,9 @@ Clients, die eine `400` Antwort erhalten, sollten erwarten, dass das Wiederholen
 
 ## Beispiele
 
-### Fehlerhafte Anfrage-Syntax
+### Fehlerhafte Anfragesyntax
 
-Angenommen, es existiert eine {{Glossary("REST")}} API mit einem Endpunkt zur Verwaltung von Benutzern unter `http://example.com/users`, und eine `POST`-Anfrage mit dem folgenden Inhalt versucht einen Benutzer zu erstellen, verwendet jedoch ungültiges JSON mit nicht entwichenen Zeilenumbrüchen:
+Angenommen, es existiert eine [REST](/de/docs/Glossary/REST) API mit einem Endpunkt zur Verwaltung von Benutzern unter `http://example.com/users`, und eine `POST`-Anfrage mit folgendem Inhalt versucht, einen Benutzer zu erstellen, verwendet jedoch ungültiges JSON mit unescapeierten Zeilenumbrüchen:
 
 ```http
 POST /users HTTP/1.1
@@ -36,7 +37,7 @@ Content-Length: 38
 }
 ```
 
-Wenn der {{Glossary("HTTP Content", "content")}} in einem gültigen Format vorliegt, würden wir eine {{HTTPStatus("201", "201 Created")}} Antwort oder eine andere Erfolgsmeldung erwarten, aber stattdessen antwortet der Server mit einem `400`, und der Antwortkörper enthält ein `message`-Feld mit etwas Kontext, damit der Client die Aktion mit einer korrekt formatierten Anfrage erneut versuchen kann:
+Wenn der [Inhalt](/de/docs/Glossary/HTTP_Content) in einem gültigen Format vorliegt, würden wir eine {{HTTPStatus("201", "201 Created")}}-Antwort oder eine andere Erfolgsmeldung erwarten, aber stattdessen antwortet der Server mit einem `400` und der Antworttext enthält ein `message`-Feld mit einigen Kontextinformationen, sodass der Client die Aktion mit einer korrekt formulierten Anfrage wiederholen kann:
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -56,4 +57,4 @@ Content-Length: 71
 ## Siehe auch
 
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
-- [HTTP Status Code Definitions](https://httpwg.org/specs/rfc9110.html#status.400)
+- [HTTP-Statuscodedefinitionen](https://httpwg.org/specs/rfc9110.html#status.400)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`copyTo()`**-Methode der {{domxref("EncodedAudioChunk")}}-Schnittstelle kopiert den kodierten Audio-Datenchunk.
+Die **`copyTo()`**-Methode der [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk)-Schnittstelle kopiert das kodierte Audio-Datenstück.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ copyTo(destination)
 ### Parameter
 
 - `destination`
-  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, in das die Daten kopiert werden können.
+  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, in den die Daten kopiert werden können.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein {{domxref("EncodedAudioChunk")}} erstellt und dann kopiert.
+Im folgenden Beispiel wird ein [`EncodedAudioChunk`](/de/docs/Web/API/EncodedAudioChunk) erstellt und dann kopiert.
 
 ```js
 const init = {

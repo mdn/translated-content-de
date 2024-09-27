@@ -1,5 +1,5 @@
 ---
-title: "PerformanceScriptTiming: sourceFunctionName-Eigenschaft"
+title: "PerformanceScriptTiming: sourceFunctionName Eigenschaft"
 short-title: sourceFunctionName
 slug: Web/API/PerformanceScriptTiming/sourceFunctionName
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`sourceFunctionName`** der {{domxref("PerformanceScriptTiming")}}-Schnittstelle gibt einen String zurück, der den Namen der Funktion darstellt, die zu dem langen Animationsframe (LoAF) beigetragen hat.
+Die **`sourceFunctionName`** schreibgeschützte Eigenschaft der [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Schnittstelle gibt einen String zurück, der den Namen der Funktion angibt, die zum langen Animationsrahmen (LoAF) beigetragen hat.
 
-Es ist wichtig zu beachten, dass der gemeldete Funktionsname der "Einstiegspunkt" des Skripts sein wird, also die oberste Ebene des Stacks, und nicht eine spezifische langsame Unterfunktion.
+Es ist wichtig zu beachten, dass der gemeldete Funktionsname der "Einstiegspunkt" des Skripts sein wird, also die oberste Ebene des Stacks, nicht eine spezifische langsame Unterfunktion.
 
-Zum Beispiel, wenn ein Ereignishandler eine Top-Level-Funktion aufruft, die dann eine langsame Unterfunktion aufruft, werden die Felder `source*` den Namen und die Position der Top-Level-Funktion melden, nicht die langsame Unterfunktion - die Funktion, die an die Plattform-API übergeben wurde, ist immer die, die gemeldet wird. Dies geschieht aus Leistungsgründen; ein vollständiger Stack-Trace ist kostspielig.
+Wenn zum Beispiel ein Ereignishandler eine Hauptfunktion aufruft, die dann eine langsame Unterfunktion aufruft, werden die `source*` Felder den Namen und Standort der Hauptfunktion melden, nicht die langsame Unterfunktion — die Funktion, die an die Plattform-API übergeben wurde, wird immer gemeldet. Das liegt aus Performancegründen daran, dass ein vollständiger Stack-Trace kostspielig ist.
 
-Im folgenden Beispiel:
+Im folgenden Code-Snippet:
 
 ```js
 setTimeout(function lib_func() {
@@ -22,7 +22,7 @@ setTimeout(function lib_func() {
 });
 ```
 
-würde `sourceFunctionName` `lib_func` melden, nicht `slow_function`.
+wird `sourceFunctionName` `lib_func` und nicht `slow_function` melden.
 
 ## Wert
 
@@ -30,7 +30,7 @@ Ein String. Gibt einen leeren String zurück, wenn der Funktionsname nicht gefun
 
 ## Beispiele
 
-Siehe [Langes Animationsframe-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele, die sich auf die Long Animation Frames API beziehen.
+Siehe [Zeitmessung langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
 
 ## Spezifikationen
 
@@ -42,5 +42,5 @@ Siehe [Langes Animationsframe-Timing](/de/docs/Web/API/Performance_API/Long_anim
 
 ## Siehe auch
 
-- [Langes Animationsframe-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
-- {{domxref("PerformanceLongAnimationFrameTiming")}}
+- [Zeitmessung langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)

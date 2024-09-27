@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_Header}}
 
-**`-webkit-text-security`** ist eine nicht standardisierte CSS-Eigenschaft, die Zeichen in einem {{HtmlElement("form")}}-Feld (wie {{HtmlElement("input")}} oder {{HtmlElement("textarea")}}) durch eine Form verschleiert. Sie betrifft nur Felder, die _nicht_ vom `type=password` sind.
+**`-webkit-text-security`** ist eine nicht standardmäßige CSS-Eigenschaft, die Zeichen in einem {{HtmlElement("form")}}-Feld (wie {{HtmlElement("input")}} oder {{HtmlElement("textarea")}}) durch die Ersetzung mit einer Form verschleiert. Sie wirkt sich nur auf Felder aus, die _nicht_ den `type=password` haben.
 
 ## Syntax
 
@@ -33,9 +33,9 @@ l10n:
 
 ## Beispiele
 
-### Verschleierung eines Texteingabefeldes
+### Verschleiern einer Texteingabe
 
-Versuchen Sie, in das untenstehende Feld zu tippen. Wenn Ihr Browser diese Eigenschaft unterstützt, sollten die Zeichen visuell durch Quadrate ersetzt werden.
+Versuchen Sie, in das unten stehende Feld zu tippen. Wenn Ihr Browser diese Eigenschaft unterstützt, sollten die Zeichen visuell durch Quadrate ersetzt werden.
 
 #### HTML
 

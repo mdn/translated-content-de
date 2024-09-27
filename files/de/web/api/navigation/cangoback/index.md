@@ -8,16 +8,11 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`canGoBack`** schreibgeschützte Eigenschaft des
-{{domxref("Navigation")}}-Interfaces gibt `true` zurück,
-wenn es möglich ist, in der Navigationshistorie rückwärts zu navigieren
-(d.h. der {{domxref("Navigation.currentEntry", "currentEntry")}} ist
-nicht der erste Eintrag in der Historienliste),
-und `false`, wenn dies nicht der Fall ist.
+Die schreibgeschützte Eigenschaft **`canGoBack`** des [`Navigation`](/de/docs/Web/API/Navigation)-Interfaces gibt `true` zurück, wenn es möglich ist, im Navigationsverlauf zurückzugehen (d. h. der [`currentEntry`](/de/docs/Web/API/Navigation/currentEntry) ist nicht der erste in der Verlaufslisteneinträge), und `false`, wenn dies nicht der Fall ist.
 
 ## Wert
 
-Ein boolescher Wert: `true`, wenn es möglich ist, in der Navigationshistorie rückwärts zu navigieren, `false` andernfalls.
+Ein boolescher Wert: `true`, wenn es möglich ist, im Navigationsverlauf zurückzugehen, andernfalls `false`.
 
 ## Beispiele
 
@@ -25,20 +20,20 @@ Ein boolescher Wert: `true`, wenn es möglich ist, in der Navigationshistorie r�
 async function backHandler() {
   if (navigation.canGoBack) {
     await navigation.back().finished;
-    // Bearbeiten Sie alle erforderlichen Bereinigungen,
-    // nachdem die Navigation abgeschlossen ist
+    // Handle any required clean-up after
+    // navigation has finished
   } else {
-    displayBanner("Sie sind auf der ersten Seite");
+    displayBanner("You are on the first page");
   }
 }
 
 async function forwardHandler() {
   if (navigation.canGoForward) {
     await navigation.forward().finished;
-    // Bearbeiten Sie alle erforderlichen Bereinigungen,
-    // nachdem die Navigation abgeschlossen ist
+    // Handle any required clean-up after
+    // navigation has finished
   } else {
-    displayBanner("Sie sind auf der letzten Seite");
+    displayBanner("You are on the last page");
   }
 }
 ```
@@ -53,6 +48,6 @@ async function forwardHandler() {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

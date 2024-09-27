@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: measureText()-Methode"
+title: "CanvasRenderingContext2D: measureText() Methode"
 short-title: measureText()
 slug: Web/API/CanvasRenderingContext2D/measureText
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die Methode
-`CanvasRenderingContext2D.measureText()`
-gibt ein {{domxref("TextMetrics")}}-Objekt zurück, das Informationen über den gemessenen Text enthält (zum Beispiel seine Breite).
+Die Methode `CanvasRenderingContext2D.measureText()` gibt ein [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Objekt zurück, das Informationen über den gemessenen Text enthält (zum Beispiel dessen Breite).
 
 ## Syntax
 
@@ -25,17 +23,17 @@ measureText(text)
 
 ### Rückgabewert
 
-Ein {{domxref("TextMetrics")}}-Objekt.
+Ein [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Objekt.
 
 ## Beispiele
 
-Angenommen, dieses {{HTMLElement("canvas")}}-Element:
+Unter Verwendung dieses {{HTMLElement("canvas")}}-Elements:
 
 ```html
 <canvas id="canvas"></canvas>
 ```
 
-… können Sie ein {{domxref("TextMetrics")}}-Objekt mit folgendem Code erhalten:
+… können Sie ein [`TextMetrics`](/de/docs/Web/API/TextMetrics)-Objekt mit folgendem Code erhalten:
 
 ```js
 const canvas = document.getElementById("canvas");
@@ -55,5 +53,5 @@ console.log(text.width); // 56;
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("TextMetrics")}}
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`TextMetrics`](/de/docs/Web/API/TextMetrics)

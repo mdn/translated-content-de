@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`name`**-Eigenschaft der {{domxref("Attr")}}-Schnittstelle gibt den _qualifizierten Namen_ eines Attributs zurück, das heißt den Namen des Attributs mit dem Namensraum-Präfix, falls vorhanden, davor. Zum Beispiel, wenn der lokale Name `lang` und das Namensraum-Präfix `xml` ist, ist der zurückgegebene qualifizierte Name `xml:lang`.
+Die schreibgeschützte **`name`**-Eigenschaft der [`Attr`](/de/docs/Web/API/Attr)-Schnittstelle gibt den _qualifizierten Namen_ eines Attributs zurück, also den Namen des Attributs, gegebenenfalls mit dem Namensraum-Präfix davor. Zum Beispiel, wenn der lokale Name `lang` und das Namensraum-Präfix `xml` ist, dann ist der zurückgegebene qualifizierte Name `xml:lang`.
 
-Der qualifizierte Name ist immer in Kleinbuchstaben, unabhängig von der Großschreibung bei der Erstellung des Attributs.
+Der qualifizierte Name ist immer klein geschrieben, unabhängig davon, in welchem Fall das Attribut erstellt wurde.
 
 ## Wert
 
@@ -23,17 +23,17 @@ Das folgende Beispiel zeigt den qualifizierten Namen des ersten Attributs der er
 ### HTML
 
 ```html
-<svg xml:lang="en-US" class="struct" height="1" width="1">Klicken Sie hier</svg>
+<svg xml:lang="en-US" class="struct" height="1" width="1">Click me</svg>
 <label xml:lang="en-US" class="struct"></label>
 
 <p>
-  <button>Wert für &lt;svg&gt; anzeigen</button>
-  <button>Wert für &lt;label&gt; anzeigen</button>
+  <button>Show value for &lt;svg&gt;</button>
+  <button>Show value for &lt;label&gt;</button>
 </p>
 
 <p>
-  Qualifizierter Name des Attributs <code>xml:lang</code>:
-  <output id="result">Keine.</output>
+  Qualified name of the attribute <code>xml:lang</code>:
+  <output id="result">None.</output>
 </p>
 ```
 
@@ -67,5 +67,5 @@ for (const button of buttons) {
 
 ## Siehe auch
 
-- Die Eigenschaften {{domxref("Attr.localName")}}, welche den lokalen Teil des qualifizierten Namens des Attributs zurückgibt, und {{domxref("Attr.prefix")}}, das Namensraum-Präfix.
-- Die {{domxref("Element.tagName()")}}-Eigenschaft, die den qualifizierten Namen eines {{domxref("Element")}} zurückgibt.
+- Die Eigenschaften [`Attr.localName`](/de/docs/Web/API/Attr/localName), die den lokalen Teil des qualifizierten Namens des Attributs zurückgibt, und [`Attr.prefix`](/de/docs/Web/API/Attr/prefix), das Namensraum-Präfix.
+- Die [`Element.tagName()`](/de/docs/Web/API/Element/tagName)-Eigenschaft, die den qualifizierten Namen eines [`Element`](/de/docs/Web/API/Element) zurückgibt.

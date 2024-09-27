@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesisUtterance: Eigenschaft volume"
+title: "SpeechSynthesisUtterance: volume-Eigenschaft"
 short-title: volume
 slug: Web/API/SpeechSynthesisUtterance/volume
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`volume`**-Eigenschaft des {{domxref("SpeechSynthesisUtterance")}}-Interfaces liest und setzt die Lautstärke, mit der die Äußerung gesprochen wird.
+Die **`volume`**-Eigenschaft des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces ruft die Lautstärke ab und setzt sie, mit der die Äußerung gesprochen wird.
 
-Wenn nicht gesetzt, wird der Standardwert 1 verwendet.
+Wenn sie nicht gesetzt ist, wird der Standardwert 1 verwendet.
 
 ## Wert
 
-Ein Fließkommawert, der den Lautstärkewert zwischen 0 (niedrigste) und 1 (höchste) darstellt.
+Ein `float`, der den Lautstärkewert darstellt, zwischen 0 (niedrigste) und 1 (höchste).
 
 Wenn [SSML](https://www.w3.org/TR/speech-synthesis/) verwendet wird, wird dieser Wert durch [Prosodie-Tags](https://www.w3.org/TR/speech-synthesis/#S3.2.4) im Markup überschrieben.
 

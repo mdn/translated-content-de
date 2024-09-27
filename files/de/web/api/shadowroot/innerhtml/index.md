@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Shadow DOM")}}
 
-Die **`innerHTML`**-Eigenschaft der {{domxref("ShadowRoot")}}-Schnittstelle setzt oder gibt eine Referenz auf den DOM-Baum innerhalb des `ShadowRoot` zurück.
+Die **`innerHTML`**-Eigenschaft des [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Interfaces setzt oder gibt eine Referenz auf den DOM-Baum innerhalb des `ShadowRoot` zurück.
 
 ## Wert
 
 Ein String.
 
-Wenn auf den Wert `null` gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, daher ist `sr.innerHTML = null` gleichbedeutend mit `sr.innerHTML = ""`.
+Wenn auf den Wert `null` gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, daher ist `sr.innerHTML = null` äquivalent zu `sr.innerHTML = ""`.
 
 ## Beispiele
 
@@ -29,6 +29,6 @@ shadow.innerHTML = "<strong>This element should be more important!</strong>";
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

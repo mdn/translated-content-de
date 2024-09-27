@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: isPointInPath()-Methode"
+title: "CanvasRenderingContext2D: isPointInPath() Methode"
 short-title: isPointInPath()
 slug: Web/API/CanvasRenderingContext2D/isPointInPath
 l10n:
@@ -10,7 +10,7 @@ l10n:
 
 Die
 **`CanvasRenderingContext2D.isPointInPath()`**
-Methode der Canvas 2D API gibt an, ob der angegebene Punkt im aktuellen Pfad enthalten ist oder nicht.
+Methode der Canvas 2D API gibt an, ob der angegebene Punkt sich im aktuellen Pfad befindet oder nicht.
 
 ## Syntax
 
@@ -24,40 +24,41 @@ isPointInPath(path, x, y, fillRule)
 ### Parameter
 
 - `x`
-  - : Die x-Koordinate des zu überprüfenden Punktes, unbeeinflusst von der aktuellen
-    Transformation des Kontexts.
+  - : Die x-Achsen-Koordinate des zu überprüfenden Punktes, unverändert von der aktuellen
+    Transformation des Kontextes.
 - `y`
-  - : Die y-Koordinate des zu überprüfenden Punktes, unbeeinflusst von der aktuellen
-    Transformation des Kontexts.
+  - : Die y-Achsen-Koordinate des zu überprüfenden Punktes, unverändert von der aktuellen
+    Transformation des Kontextes.
 - `fillRule`
 
-  - : Der Algorithmus, nach dem bestimmt wird, ob ein Punkt innerhalb oder außerhalb des Pfads liegt. Mögliche Werte:
+  - : Der Algorithmus, mit dem bestimmt wird, ob ein Punkt innerhalb oder außerhalb des Pfades liegt.
+    Mögliche Werte:
 
     - `nonzero`
-      - : Die [Non-Zero-Füllregel](https://en.wikipedia.org/wiki/Nonzero-rule).
+      - : Die [non-zero winding rule](https://en.wikipedia.org/wiki/Nonzero-rule).
         Standardregel.
     - `evenodd`
-      - : Die [Even-Odd-Füllregel](https://en.wikipedia.org/wiki/Even%E2%80%93odd_rule).
+      - : Die [even-odd winding rule](https://en.wikipedia.org/wiki/Even%E2%80%93odd_rule).
 
 - `path`
-  - : Ein {{domxref("Path2D")}}-Pfad, gegen den geprüft wird. Falls nicht angegeben, wird der aktuelle Pfad verwendet.
+  - : Ein [`Path2D`](/de/docs/Web/API/Path2D) Pfad, gegen den überprüft wird. Wenn nicht angegeben, wird der aktuelle Pfad verwendet.
 
 ### Rückgabewert
 
 - Ein boolescher Wert
-  - : Ein Boolean, der `true` ist, wenn der angegebene Punkt im aktuellen oder angegebenen Pfad enthalten ist, andernfalls `false`.
+  - : Ein Boolean, der `true` ist, wenn sich der angegebene Punkt im aktuellen oder angegebenen Pfad befindet, andernfalls `false`.
 
 ## Beispiele
 
 ### Überprüfung eines Punktes im aktuellen Pfad
 
-Dieses Beispiel verwendet die Methode `isPointInPath()`, um zu prüfen, ob ein Punkt im aktuellen Pfad liegt.
+In diesem Beispiel wird die `isPointInPath()` Methode verwendet, um zu überprüfen, ob sich ein Punkt im aktuellen Pfad befindet.
 
 #### HTML
 
 ```html
 <canvas id="canvas"></canvas>
-<p>Im Pfad: <code id="result">false</code></p>
+<p>In path: <code id="result">false</code></p>
 ```
 
 #### JavaScript
@@ -78,8 +79,8 @@ result.innerText = ctx.isPointInPath(30, 70);
 
 ### Überprüfung eines Punktes im angegebenen Pfad
 
-Wann immer Sie die Maus bewegen, überprüft dieses Beispiel, ob der Cursor in einem kreisförmigen
-`Path2D`-Pfad liegt. Wenn ja, wird der Kreis grün, andernfalls rot.
+Immer wenn Sie die Maus bewegen, überprüft dieses Beispiel, ob sich der Cursor in einem kreisförmigen
+`Path2D` Pfad befindet. Falls ja, wird der Kreis grün, andernfalls rot.
 
 #### HTML
 
@@ -93,19 +94,19 @@ Wann immer Sie die Maus bewegen, überprüft dieses Beispiel, ob der Cursor in e
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// Kreis erstellen
+// Create circle
 const circle = new Path2D();
 circle.arc(150, 75, 50, 0, 2 * Math.PI);
 ctx.fillStyle = "red";
 ctx.fill(circle);
 
-// Mausbewegungen beobachten
+// Listen for mouse moves
 canvas.addEventListener("mousemove", (event) => {
-  // Überprüfen, ob der Punkt im Kreis liegt
+  // Check whether point is inside circle
   const isPointInPath = ctx.isPointInPath(circle, event.offsetX, event.offsetY);
   ctx.fillStyle = isPointInPath ? "green" : "red";
 
-  // Kreis zeichnen
+  // Draw circle
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fill(circle);
 });
@@ -125,8 +126,8 @@ canvas.addEventListener("mousemove", (event) => {
 
 ### Gecko-spezifische Anmerkung
 
-- Vor Gecko 7.0 (Firefox 7.0 / Thunderbird 7.0 / SeaMonkey 2.4) hat diese Methode fälschlicherweise nicht die Koordinaten des angegebenen Punktes mit der aktuellen Transformationsmatrix multipliziert, bevor sie ihn mit dem Pfad verglich. Jetzt funktioniert diese Methode korrekt, auch wenn der Kontext gedreht, skaliert oder anderweitig transformiert wird.
+- Vor Gecko 7.0 (Firefox 7.0 / Thunderbird 7.0 / SeaMonkey 2.4) hat diese Methode die Koordinaten des angegebenen Punktes nicht korrekt mit der aktuellen Transformationsmatrix multipliziert, bevor sie mit dem Pfad verglichen wurden. Jetzt funktioniert diese Methode korrekt, selbst wenn der Kontext gedreht, skaliert oder anderweitig transformiert wird.
 
 ## Siehe auch
 
-- Das Interface, das diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)

@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-**QUIC** ist ein multiplexes Transportprotokoll, das auf UDP implementiert wird. Es wird anstelle von {{Glossary("TCP")}} als Transportschicht in HTTP/3 verwendet.
+**QUIC** ist ein multiplexes Transportprotokoll, das auf UDP implementiert ist. Es wird anstelle von [TCP](/de/docs/Glossary/TCP) als Transportschicht in HTTP/3 verwendet.
 
-QUIC wurde entwickelt, um schnellere Einrichtung und geringere Latenzzeiten für HTTP-Verbindungen bereitzustellen. Insbesondere:
+QUIC wurde entwickelt, um schnellere Verbindungen und geringere Latenzzeiten für HTTP-Verbindungen bereitzustellen. Insbesondere:
 
-- Bei TCP wird dem anfänglichen TCP-Handshake optional ein TLS-Handshake folgen, der abgeschlossen sein muss, bevor Daten übertragen werden können. Da TLS heutzutage fast überall verbreitet ist, integriert QUIC den TLS-Handshake in den initialen QUIC-Handshake, was die Anzahl der während der Einrichtung auszutauschenden Nachrichten verringert.
+- Bei TCP folgt auf das anfängliche TCP-Handshake optional ein TLS-Handshake, der abgeschlossen sein muss, bevor Daten übertragen werden können. Da TLS mittlerweile fast allgegenwärtig ist, integriert QUIC den TLS-Handshake in das anfängliche QUIC-Handshake, wodurch die Anzahl der Nachrichten, die während des Setups ausgetauscht werden müssen, reduziert wird.
 
-- HTTP/2 ist ein multiplexes Protokoll, das mehrere gleichzeitige HTTP-Transaktionen ermöglicht. Die Transaktionen werden jedoch über eine einzige TCP-Verbindung multiplexiert, was bedeutet, dass Paketverluste und anschließende Neuübertragungen auf der TCP-Ebene alle Transaktionen blockieren können. QUIC umgeht dies, indem es über UDP läuft und Paketverlusterkennung und -wiederübertragung separat für jeden Stream implementiert, was bedeutet, dass Paketverluste nur den besonderen Stream blockieren, dessen Pakete verloren gegangen sind.
+- HTTP/2 ist ein multiplexes Protokoll, das mehrere gleichzeitige HTTP-Transaktionen ermöglicht. Die Transaktionen werden jedoch über eine einzelne TCP-Verbindung multiplexiert, was bedeutet, dass Paketverluste und anschließende Neuübertragungen auf TCP-Ebene alle Transaktionen blockieren können. QUIC vermeidet dies, indem es über UDP läuft und Paketverlusterkennung und Neuübertragung für jeden Stream separat implementiert, was bedeutet, dass Paketverluste nur den jeweiligen Stream blockieren, dessen Pakete verloren gingen.
 
 ## Siehe auch
 

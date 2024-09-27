@@ -1,5 +1,5 @@
 ---
-title: "FontFace: family Eigenschaft"
+title: "FontFace: family-Eigenschaft"
 short-title: family
 slug: Web/API/FontFace/family
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`FontFace.family`**-Eigenschaft ermöglicht es dem Autor, die Schriftfamilie eines {{domxref("FontFace")}}-Objekts zu erhalten oder festzulegen.
+Die **`FontFace.family`**-Eigenschaft ermöglicht es dem Autor, die Schriftfamilie eines [`FontFace`](/de/docs/Web/API/FontFace)-Objekts abzurufen oder festzulegen.
 
-Der Wert wird für den Namenabgleich mit einem bestimmten Schriftschnitt verwendet, wenn Elemente mit der [`font-family`](/de/docs/Web/CSS/font-family)-Eigenschaft gestylt werden. Jeder Name kann verwendet werden, und dieser überschreibt jeden im zugrunde liegenden Font-Datensatz angegebenen Namen.
+Der Wert wird für die Namensübereinstimmung mit einem bestimmten Schriftschnitt verwendet, wenn Elemente mit der [`font-family`](/de/docs/Web/CSS/font-family)-Eigenschaft gestylt werden. Jeder beliebige Name kann verwendet werden, und dieser überschreibt jeglichen in den zugrunde liegenden Schriftartdaten angegebenen Namen.
 
 Diese Eigenschaft entspricht dem {{cssxref("@font-face/font-family", "font-family")}}-Deskriptor von {{cssxref("@font-face")}}.
 

@@ -1,5 +1,5 @@
 ---
-title: Ausnahme
+title: Exception
 slug: Glossary/Exception
 l10n:
   sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Ausnahme** ist eine Bedingung, die den normalen Codefluss unterbricht. In JavaScript sind {{glossary("syntax error", "Syntaxfehler")}} eine sehr häufige Quelle für Ausnahmen.
+Eine **Exception** ist eine Bedingung, die den normalen Programmablauf unterbricht. In JavaScript sind [Syntaxfehler](/de/docs/Glossary/syntax_error) eine sehr häufige Quelle für Exceptions.
 
 ## Siehe auch
 

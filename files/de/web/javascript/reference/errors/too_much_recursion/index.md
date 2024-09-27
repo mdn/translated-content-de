@@ -1,5 +1,5 @@
 ---
-title: "InternalError: zu viele Rekursionen"
+title: "InternalError: zu viel Rekursion"
 slug: Web/JavaScript/Reference/Errors/Too_much_recursion
 l10n:
   sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "zu viele Rekursionen" oder "Maximum call stack size exceeded" tritt auf, wenn es zu viele Funktionsaufrufe gibt oder einer Funktion ein Basisfall fehlt.
+Die JavaScript-Ausnahme "too much recursion" oder "Maximum call stack size exceeded" tritt auf, wenn es zu viele Funktionsaufrufe gibt oder einer Funktion ein Basisfall fehlt.
 
 ## Nachricht
 
@@ -17,7 +17,7 @@ InternalError: too much recursion (Firefox)
 RangeError: Maximum call stack size exceeded. (Safari)
 ```
 
-## Fehlerart
+## Fehlertyp
 
 {{jsxref("InternalError")}} in Firefox; {{jsxref("RangeError")}} in Chrome und Safari.
 
@@ -25,78 +25,78 @@ RangeError: Maximum call stack size exceeded. (Safari)
 
 Eine Funktion, die sich selbst aufruft, wird als _rekursive Funktion_ bezeichnet. Sobald eine Bedingung erfüllt ist, hört die Funktion auf, sich selbst aufzurufen. Dies wird als _Basisfall_ bezeichnet.
 
-In gewisser Weise ist Rekursion analog zu einer Schleife. Beide führen denselben Code mehrmals aus und beide erfordern eine Bedingung (um eine Endlosschleife oder in diesem Fall eine endlose Rekursion zu vermeiden). Wenn es zu viele Funktionsaufrufe gibt oder einer Funktion ein Basisfall fehlt, wird JavaScript diesen Fehler auslösen.
+In gewisser Weise ist Rekursion analog zu einer Schleife. Beide führen denselben Code mehrmals aus, und beide erfordern eine Bedingung (um eine Endlosschleife oder vielmehr eine unendliche Rekursion in diesem Fall zu vermeiden). Wenn es zu viele Funktionsaufrufe gibt oder einer Funktion ein Basisfall fehlt, wird JavaScript diesen Fehler auslösen.
 
 ## Beispiele
 
-Diese rekursive Funktion läuft 10 Mal, entsprechend der Ausstiegsbedingung.
+Diese rekursive Funktion läuft 10 Mal, entsprechend der Abbruchbedingung.
 
 ```js
 function loop(x) {
   if (x >= 10)
-    // "x >= 10" ist die Ausstiegsbedingung
+    // "x >= 10" is the exit condition
     return;
-  // mache etwas
-  loop(x + 1); // der rekursive Aufruf
+  // do stuff
+  loop(x + 1); // the recursive call
 }
 loop(0);
 ```
 
-Das Setzen dieser Bedingung auf einen extrem hohen Wert wird nicht funktionieren:
+Eine sehr hohe Einstellung dieser Bedingung wird nicht funktionieren:
 
 ```js example-bad
 function loop(x) {
   if (x >= 1000000000000) return;
-  // mache etwas
+  // do stuff
   loop(x + 1);
 }
 loop(0);
 
-// InternalError: zu viele Rekursionen
+// InternalError: too much recursion
 ```
 
-Diese rekursive Funktion fehlt ein Basisfall. Da es keine Ausstiegsbedingung gibt, wird die Funktion sich unendlich oft aufrufen.
+Diese rekursive Funktion fehlt ein Basisfall. Da es keine Abbruchbedingung gibt, wird die Funktion sich unendlich oft selbst aufrufen.
 
 ```js example-bad
 function loop(x) {
-  // Der Basisfall fehlt
-  loop(x + 1); // Rekursiver Aufruf
+  // The base case is missing
+  loop(x + 1); // Recursive call
 }
 
 loop(0);
 
-// InternalError: zu viele Rekursionen
+// InternalError: too much recursion
 ```
 
-### Klassenfehler: zu viele Rekursionen
+### Klassenfehler: zu viel Rekursion
 
 ```js example-bad
 class Person {
   constructor() {}
   set name(name) {
-    this.name = name; // Rekursiver Aufruf
+    this.name = name; // Recursive call
   }
 }
 
 const tony = new Person();
-tony.name = "Tonisha"; // InternalError: zu viele Rekursionen
+tony.name = "Tonisha"; // InternalError: too much recursion
 ```
 
-Wenn einem Wert die Eigenschaft name zugewiesen wird (this.name = name;), muss JavaScript diese Eigenschaft setzen. Wenn dies passiert, wird die Setzerfunktion ausgelöst.
+Wenn einem Eigenschaftsnamen ein Wert zugewiesen wird (this.name = name;), muss JavaScript diese Eigenschaft setzen. Wenn dies geschieht, wird die Setter-Funktion ausgelöst.
 
-In diesem Beispiel wird dem Setzer gesagt, er soll erneut dasselbe tun: _die gleiche Eigenschaft zu setzen, für die er zuständig ist_. Dies führt dazu, dass sich die Funktion immer wieder selbst aufruft, was sie unendlich rekursiv macht.
+In diesem Beispiel, wenn der Setter ausgelöst wird, wird ihm gesagt, dass er dasselbe wieder tun soll: _dieselbe Eigenschaft zu setzen, für die er zuständig ist._ Dies führt dazu, dass die Funktion sich immer wieder selbst aufruft und unendlich rekursiv wird.
 
 Dieses Problem tritt auch auf, wenn dieselbe Variable im Getter verwendet wird.
 
 ```js example-bad
 class Person {
   get name() {
-    return this.name; // Rekursiver Aufruf
+    return this.name; // Recursive call
   }
 }
 ```
 
-Um dieses Problem zu vermeiden, stellen Sie sicher, dass die Eigenschaft, der innerhalb der Setzerfunktion ein Wert zugewiesen wird, sich von der unterscheidet, die ursprünglich den Setzer ausgelöst hat. Das Gleiche gilt für den Getter.
+Um dieses Problem zu vermeiden, stellen Sie sicher, dass die Eigenschaft, die innerhalb der Setter-Funktion zugewiesen wird, sich von der unterscheidet, die den Setter ursprünglich ausgelöst hat. Dasselbe gilt für den Getter.
 
 ```js
 class Person {
@@ -115,5 +115,5 @@ console.log(tony);
 
 ## Siehe auch
 
-- {{Glossary("Recursion")}}
+- [Rekursion](/de/docs/Glossary/Recursion)
 - [Rekursive Funktionen](/de/docs/Web/JavaScript/Guide/Functions#recursion)

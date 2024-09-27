@@ -1,5 +1,5 @@
 ---
-title: "Fenster: showDirectoryPicker()-Methode"
+title: "Fenster: showDirectoryPicker() Methode"
 short-title: showDirectoryPicker()
 slug: Web/API/Window/showDirectoryPicker
 l10n:
@@ -8,9 +8,8 @@ l10n:
 
 {{APIRef("File System API")}}{{Securecontext_Header}}{{SeeCompatTable}}
 
-Die **`showDirectoryPicker()`**-Methode der
-{{domxref("Window")}}-Schnittstelle zeigt einen Verzeichnis-Auswahldialog an, der es dem Benutzer ermöglicht,
-ein Verzeichnis auszuwählen.
+Die **`showDirectoryPicker()`** Methode des
+[`Window`](/de/docs/Web/API/Window)-Interfaces zeigt einen Verzeichnisauswahldialog an, mit dem der Benutzer ein Verzeichnis auswählen kann.
 
 ## Syntax
 
@@ -22,31 +21,30 @@ showDirectoryPicker()
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das Optionen enthält, die wie folgt sind:
+  - : Ein Objekt, das Optionen enthält, wie folgt:
 
     - `id` {{optional_inline}}
-      - : Durch Angabe einer ID kann der Browser verschiedene Verzeichnisse für
-        verschiedene IDs speichern. Wenn dieselbe ID für einen anderen Dialog verwendet wird,
-        öffnet sich der Dialog im selben Verzeichnis.
+      - : Durch die Angabe einer ID kann der Browser verschiedene Verzeichnisse für verschiedene
+        IDs speichern. Wenn die gleiche ID für einen anderen Picker verwendet wird, öffnet sich der Picker im gleichen
+        Verzeichnis.
     - `mode` {{optional_inline}}
-      - : Ein String, der standardmäßig auf `"read"` für schreibgeschützten Zugriff oder
-        `"readwrite"` für Lese- und Schreibzugriff auf das Verzeichnis gesetzt ist.
+      - : Ein String, der standardmäßig auf `"read"` für schreibgeschützten Zugriff oder `"readwrite"` für Lese- und Schreibzugriff auf das Verzeichnis eingestellt ist.
     - `startIn` {{optional_inline}}
       - : Ein `FileSystemHandle` oder ein bekanntes Verzeichnis (`"desktop"`, `"documents"`,
-        `"downloads"`, `"music"`, `"pictures"` oder `"videos"`) in dem der Dialog geöffnet wird.
+        `"downloads"`, `"music"`, `"pictures"`, oder `"videos"`) in dem der Dialog geöffnet werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, dessen Erfüllungs-Handler ein {{domxref('FileSystemDirectoryHandle')}}-Objekt erhält.
+Ein {{jsxref("Promise")}}, dessen Fulfillment-Handler ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Objekt erhält.
 
 ### Ausnahmen
 
-- `AbortError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Benutzer die Eingabeaufforderung ohne Auswahl schließt,
-    oder wenn der Benutzer-Agent das ausgewählte Verzeichnis als zu sensibel oder gefährlich einstuft,
-    oder wenn der {{domxref('PermissionStatus.state')}} für das ausgewählte Verzeichnis im angegebenen `modus` nicht `"granted"` ist.
-- `SecurityError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) blockiert wurde oder nicht durch eine Benutzerinteraktion wie das Drücken einer Schaltfläche erfolgt ist.
+- `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Benutzer den Dialog abbricht, ohne eine Auswahl zu treffen,
+    oder wenn der Benutzeragent das ausgewählte Verzeichnis als zu sensibel oder gefährlich einstuft,
+    oder wenn der [`PermissionStatus.state`](/de/docs/Web/API/PermissionStatus/state) für das ausgewählte Verzeichnis nicht `"granted"` im angegebenen `mode` ist.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Aufruf durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) blockiert wurde oder er nicht durch eine Benutzerinteraktion wie das Drücken eines Buttons erfolgte.
 
 ## Sicherheit
 
@@ -54,14 +52,14 @@ Ein {{jsxref("Promise")}}, dessen Erfüllungs-Handler ein {{domxref('FileSystemD
 
 ## Beispiele
 
-Diese asynchrone Funktion zeigt einen Verzeichnis-Auswahldialog an und gibt ein
-{{domxref('FileSystemDirectoryHandle')}} zurück, sobald ein Verzeichnis ausgewählt wurde.
+Diese asynchrone Funktion zeigt einen Verzeichnisauswahldialog an und gibt ein
+[`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) zurück, sobald ein Verzeichnis ausgewählt wurde.
 
 ```js
 async function getDir() {
   const dirHandle = await window.showDirectoryPicker();
 
-  // code für dirHandle ausführen
+  // run code for dirHandle
 }
 ```
 

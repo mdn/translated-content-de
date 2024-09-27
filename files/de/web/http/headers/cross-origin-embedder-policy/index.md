@@ -7,17 +7,17 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP **`Cross-Origin-Embedder-Policy`** (COEP) Response-Header konfiguriert das Einbetten von Ressourcen aus verschiedenen Ursprüngen in das Dokument.
+Der HTTP **`Cross-Origin-Embedder-Policy`** (COEP) Antwort-Header konfiguriert das Einbetten von Cross-Origin-Ressourcen in das Dokument.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response header")}}</td>
+      <th scope="row">Headertyp</th>
+      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
-      <td>no</td>
+      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <td>nein</td>
     </tr>
   </tbody>
 </table>
@@ -31,18 +31,17 @@ Cross-Origin-Embedder-Policy: unsafe-none | require-corp | credentialless
 ### Direktiven
 
 - `unsafe-none`
-  - : Dies ist der Standardwert. Ermöglicht dem Dokument das Abrufen von Ressourcen aus verschiedenen Ursprüngen, ohne ausdrückliche Erlaubnis über das CORS-Protokoll oder den {{HTTPHeader("Cross-Origin-Resource-Policy")}} Header zu geben.
+  - : Dies ist der Standardwert. Erlaubt dem Dokument, Cross-Origin-Ressourcen zu laden, ohne dass eine ausdrückliche Erlaubnis über das CORS-Protokoll oder den {{HTTPHeader("Cross-Origin-Resource-Policy")}} Header erforderlich ist.
 - `require-corp`
-  - : Ein Dokument kann nur Ressourcen vom gleichen Ursprung laden oder Ressourcen, die ausdrücklich als ladbar von einem anderen Ursprung gekennzeichnet sind.
-    Wenn eine Ressource aus einem anderen Ursprung CORS unterstützt, muss das [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin) Attribut oder der {{HTTPHeader("Cross-Origin-Resource-Policy")}} Header verwendet werden, um sie ohne Blockierung durch COEP zu laden.
+  - : Ein Dokument kann nur Ressourcen von der gleichen Herkunft oder Ressourcen laden, die explizit als von einer anderen Herkunft ladbar markiert sind. Wenn eine Cross-Origin-Ressource CORS unterstützt, muss das [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin) Attribut oder der {{HTTPHeader("Cross-Origin-Resource-Policy")}} Header verwendet werden, um sie ohne Blockierung durch COEP zu laden.
 - `credentialless`
-  - : [no-cors](/de/docs/Web/API/Request/mode) Anfragen für fremde Ressourcen werden ohne Anmeldeinformationen gesendet. Insbesondere bedeutet das, dass Cookies von der Anfrage ausgeschlossen und von der Antwort ignoriert werden. Die Antworten sind **ohne** ausdrückliche Erlaubnis über den {{HTTPHeader("Cross-Origin-Resource-Policy")}} Header zulässig. [Navigate](/de/docs/Web/API/Request/mode) Antworten verhalten sich ähnlich wie der `require-corp` Modus: Sie benötigen den {{HTTPHeader("Cross-Origin-Resource-Policy")}} Response-Header.
+  - : [no-cors](/de/docs/Web/API/Request/mode) Cross-Origin-Anfragen werden ohne Anmeldedaten gesendet. Insbesondere bedeutet dies, dass Cookies von der Anfrage ausgeschlossen und von der Antwort ignoriert werden. Die Antworten sind **ohne** ausdrückliche Erlaubnis über den {{HTTPHeader("Cross-Origin-Resource-Policy")}} Header erlaubt. [Navigate](/de/docs/Web/API/Request/mode) Antworten verhalten sich ähnlich wie im `require-corp` Modus: Sie erfordern den {{HTTPHeader("Cross-Origin-Resource-Policy")}} Antwort-Header.
 
 ## Beispiele
 
-### Bestimmte Funktionen hängen von Cross-Origin-Isolation ab
+### Bestimmte Funktionen erfordern Cross-Origin-Isolation
 
-Sie können nur auf bestimmte Funktionen wie {{jsxref("SharedArrayBuffer")}} Objekte oder {{domxref("Performance.now()")}} mit ungebremsten Timern zugreifen, wenn Ihr Dokument einen COEP-Header mit dem Wert `require-corp` oder `credentialless` gesetzt hat.
+Sie können nur auf bestimmte Funktionen wie {{jsxref("SharedArrayBuffer")}} Objekte oder [`Performance.now()`](/de/docs/Web/API/Performance/now) mit nicht gedrosselten Timern zugreifen, wenn Ihr Dokument einen COEP-Header mit einem Wert von `require-corp` oder `credentialless` gesetzt hat.
 
 ```http
 Cross-Origin-Embedder-Policy: require-corp
@@ -51,7 +50,7 @@ Cross-Origin-Opener-Policy: same-origin
 
 Siehe auch den {{HTTPHeader("Cross-Origin-Opener-Policy")}} Header, den Sie ebenfalls setzen müssen.
 
-Um zu überprüfen, ob die Cross-Origin-Isolation erfolgreich war, können Sie die {{domxref("Window.crossOriginIsolated")}} Eigenschaft oder die {{domxref("WorkerGlobalScope.crossOriginIsolated")}} Eigenschaft in Fenster- und Worker-Kontexten testen:
+Um zu überprüfen, ob die Cross-Origin-Isolation erfolgreich war, können Sie gegen die [`Window.crossOriginIsolated`](/de/docs/Web/API/Window/crossOriginIsolated) Eigenschaft oder die [`WorkerGlobalScope.crossOriginIsolated`](/de/docs/Web/API/WorkerGlobalScope/crossOriginIsolated) Eigenschaft testen, die in Fenster- und Worker-Kontexten verfügbar sind:
 
 ```js
 const myWorker = new Worker("worker.js");
@@ -65,15 +64,15 @@ if (crossOriginIsolated) {
 }
 ```
 
-### Vermeidung von COEP-Blockierung mit CORS
+### COEP-Blockierung mit CORS vermeiden
 
-Wenn Sie COEP mithilfe von `require-corp` aktivieren und eine Ressource aus einem anderen Ursprung geladen werden muss, muss diese [CORS](/de/docs/Web/HTTP/CORS) unterstützen und Sie müssen die Ressource ausdrücklich als ladbar von einem anderen Ursprung kennzeichnen, um eine Blockierung durch COEP zu vermeiden. Zum Beispiel können Sie das [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin) Attribut für dieses Bild von einer Drittanbieter-Website verwenden:
+Wenn Sie COEP mit `require-corp` aktivieren und eine Cross-Origin-Ressource geladen werden muss, muss sie [CORS](/de/docs/Web/HTTP/CORS) unterstützen, und Sie müssen die Ressource ausdrücklich als von einer anderen Herkunft ladbar kennzeichnen, um eine Blockierung durch COEP zu vermeiden. Zum Beispiel können Sie das [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin) Attribut für dieses Bild von einer Drittanbieter-Website verwenden:
 
 ```html
 <img src="https://thirdparty.com/img.png" crossorigin />
 ```
 
-Wenn CORS für einige Bilder nicht unterstützt wird, kann als Alternative ein COEP-Wert von `credentialless` verwendet werden, um das Bild ohne ausdrückliches Einverständnis des fremden Servers zu laden, allerdings auf Kosten einer Anforderung ohne Cookies.
+Wenn für einige Bilder CORS nicht unterstützt wird, kann ein COEP-Wert von `credentialless` als Alternative verwendet werden, um das Bild ohne jegliches ausdrückliches Opt-in vom Cross-Origin-Server zu laden, allerdings auf Kosten einer Anfrage ohne Cookies.
 
 ## Spezifikationen
 

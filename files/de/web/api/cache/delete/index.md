@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`delete()`** Methode des {{domxref("Cache")}}-Interfaces findet den {{domxref("Cache")}}-Eintrag, dessen Schlüssel die Anfrage ist, und löscht den {{domxref("Cache")}}-Eintrag, falls er gefunden wird. Das Ergebnis ist ein {{jsxref("Promise")}}, das entweder mit `true` aufgelöst wird. Wenn kein {{domxref("Cache")}}-Eintrag gefunden wird, wird es mit `false` aufgelöst.
+Die **`delete()`**-Methode des [`Cache`](/de/docs/Web/API/Cache)-Interfaces sucht den [`Cache`](/de/docs/Web/API/Cache)-Eintrag, dessen Schlüssel die Anfrage ist, und löscht, falls gefunden, den [`Cache`](/de/docs/Web/API/Cache)-Eintrag. Sie gibt ein {{jsxref("Promise")}} zurück, das sich zu `true` auflöst. Wenn kein [`Cache`](/de/docs/Web/API/Cache)-Eintrag gefunden wird, löst es sich zu `false` auf.
 
 ## Syntax
 
@@ -20,29 +20,35 @@ delete(request, options)
 ### Parameter
 
 - `request`
-  - : Die {{domxref("Request")}}, die Sie löschen möchten.
+  - : Der [`Request`](/de/docs/Web/API/Request), den Sie löschen möchten.
     Dies kann ein `Request`-Objekt oder eine URL sein.
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, dessen Eigenschaften steuern, wie das Matching in der `delete`-Operation durchgeführt wird.
+  - : Ein Objekt, dessen Eigenschaften steuern, wie das Matching im `delete`-Vorgang durchgeführt wird.
     Die verfügbaren Optionen sind:
 
     - `ignoreSearch`
-      - : Ein boolescher Wert, der angibt, ob der Abgleichsprozess die Abfragezeichenfolge in der URL ignorieren soll.
-        Wenn auf `true` gesetzt, wird der Teil `?value=bar` von `http://foo.com/?value=bar` bei der Durchführung eines Abgleichs ignoriert.
-        Standardmäßig ist dies auf `false` gesetzt.
+      - : Ein boolescher Wert, der angibt, ob der Abgleichsprozess den Abfrage-String in der URL ignorieren soll.
+        Wenn auf `true` gesetzt, wird der Teil `?value=bar` von `http://foo.com/?value=bar` beim Abgleich ignoriert.
+        Standardmäßig ist es `false`.
     - `ignoreMethod`
-      - : Ein boolescher Wert, der, wenn auf `true` gesetzt, verhindert, dass Abgleichsoperationen die `HTTP`-Methode der
-        {{domxref("Request")}} validieren (normalerweise sind nur `GET` und `HEAD` erlaubt.) Standardmäßig ist dies auf `false` gesetzt.
+      - : Ein boolescher Wert, der, wenn auf
+        `true` gesetzt, verhindert, dass Abgleichsvorgänge die
+        [`Request`](/de/docs/Web/API/Request)-`HTTP`-Methode validieren (normalerweise sind nur `GET`
+        und `HEAD` erlaubt). Es ist standardmäßig `false`.
     - `ignoreVary`
-      - : Ein boolescher Wert, der, wenn auf `true` gesetzt ist, der Abgleichsoperation mitteilt, keine `VARY`-Header-Abgleiche durchzuführen.
-        Mit anderen Worten, wenn die URL übereinstimmt, erhalten Sie eine Übereinstimmung, unabhängig davon, ob das {{domxref("Response")}}-Objekt einen `VARY`-Header hat. Standardmäßig ist dies auf `false` gesetzt.
+      - : Ein boolescher Wert, der, wenn auf
+        `true` gesetzt, dem Abgleichsvorgang sagt, dass er nicht das `VARY`-
+        Header-Matching durchführen soll. Mit anderen Worten, wenn die URL übereinstimmt, erhalten Sie eine Übereinstimmung
+        unabhängig davon, ob das [`Response`](/de/docs/Web/API/Response)-Objekt einen `VARY`-
+        Header hat. Es ist standardmäßig `false`.
     - `cacheName`
-      - : Ein String, der einen spezifischen Cache repräsentiert, in dem gesucht werden soll. Beachten Sie, dass diese Option von `Cache.delete()` ignoriert wird.
+      - : Ein String, der einen bestimmten Cache repräsentiert, innerhalb dessen gesucht werden soll. Beachten Sie, dass diese Option von `Cache.delete()` ignoriert wird.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das entweder mit `true` aufgelöst wird, wenn der Cache-Eintrag gelöscht wird, oder mit `false` in anderen Fällen.
+ein {{jsxref("Promise")}}, das sich zu `true` auflöst, wenn der Cache-Eintrag
+gelöscht wird, oder `false` andernfalls.
 
 ## Beispiele
 
@@ -64,6 +70,6 @@ caches.open("v1").then((cache) => {
 
 ## Siehe auch
 
-- [Service Worker verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- {{domxref("Cache")}}
-- {{domxref("Window.caches")}} und {{domxref("WorkerGlobalScope.caches")}}
+- [Einsatz von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [`Cache`](/de/docs/Web/API/Cache)
+- [`Window.caches`](/de/docs/Web/API/Window/caches) und [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches)

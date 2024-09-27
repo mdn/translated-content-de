@@ -1,5 +1,5 @@
 ---
-title: "!wichtig"
+title: "!important"
 slug: Web/CSS/important
 l10n:
   sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
@@ -7,32 +7,32 @@ l10n:
 
 {{CSSRef}}
 
-Ein `!`-Begrenzer, gefolgt vom Schlüsselwort `important`, kennzeichnet die Deklaration als wichtig. Das `!important`-Flag ändert die Regeln, die Deklarationen innerhalb der [Kaskade](/de/docs/Web/CSS/Cascade) auswählen. Eine nicht _wichtige_ Deklaration wird als _normal_ bezeichnet.
+Ein `!`-Trennzeichen gefolgt vom Schlüsselwort `important` kennzeichnet die Deklaration als wichtig. Das `!important`-Flag verändert die Regeln, die Deklarationen innerhalb des [Kaskadenprinzips](/de/docs/Web/CSS/Cascade) auswählen. Eine Deklaration, die nicht _wichtig_ ist, wird als _normal_ bezeichnet.
 
-Um eine Deklaration als wichtig zu markieren, fügen Sie das _wichtig-Flag_ (`!important`) nach dem Wert in der Deklaration hinzu. Während Leerzeichen zwischen dem Begrenzer und dem Schlüsselwort erlaubt sind, wird das Flag allgemein als `!important` ohne Leerzeichen geschrieben.
+Um eine Deklaration als wichtig zu markieren, fügen Sie das _important flag_ (`!important`) nach dem Wert in der Deklaration hinzu. Während Leerzeichen zwischen dem Trennzeichen und dem Schlüsselwort erlaubt sind, wird das Flag generell als `!important` ohne Leerzeichen geschrieben.
 
 ```css-nolint
 selector {
-  property: value; /* normale Deklaration */
-  property: value !important; /* wichtige Deklaration (bevorzugt) */
-  property: value ! important; /* wichtige Deklaration (nicht bevorzugt) */
+  property: value; /* normal declaration */
+  property: value !important; /* important declaration (preferred) */
+  property: value ! important; /* important declaration (not preferred) */
 }
 ```
 
-Das `!important` steht nach dem Wert des Eigenschafts-Wert-Paar-Deklaration, gefolgt von mindestens einem Leerzeichen. Das wichtig-Flag muss das letzte Token in der Deklaration sein. Mit anderen Worten, es können Leerzeichen und Kommentare zwischen dem Flag und dem abschließenden Semikolon der Deklaration stehen, aber sonst nichts.
+Das `!important` folgt nach dem Wert des Eigenschaftswertpaar-Deklaration, vorausgesetzt von mindestens einem Leerzeichen. Das wichtige Flag muss das letzte Token in der Deklaration sein. Mit anderen Worten, es können Leerzeichen und Kommentare zwischen dem Flag und dem abschließenden Semikolon der Deklaration stehen, aber nichts anderes.
 
-## Auswirkung auf die Kaskade
+## Auswirkungen auf die Kaskade
 
-Bei wichtigen Deklarationen werden die [Kaskadenherkunfts- und -schichtreihenfolgen](/de/docs/Web/CSS/Cascade) umgekehrt. Ohne das wichtig-Flag überschreiben Deklarationen in den Stylesheets des Autors die Deklarationen eines Benutzer-Stylesheets, das wiederum die Deklarationen im Standard-Stylesheet des User-Agents überschreibt.
+Wenn es um wichtige Deklarationen geht, werden die [Kaskadenursprungs- und Schichtenreihenfolgen](/de/docs/Web/CSS/Cascade) umgekehrt. Ohne das wichtige Flag überschreiben Deklarationen in den Autoren-Stylesheets Deklarationen in einem Benutzer-Stylesheet, das wiederum Deklarationen im Standard-Stylesheet des User-Agents überschreibt.
 
-Wenn eine Deklaration wichtig ist, wird die Reihenfolge des Vorrangs umgekehrt. Deklarationen, die in den Stylesheets des User-Agents als wichtig markiert sind, überschreiben alle wichtigen Deklarationen in den Benutzer-Stylesheets. Ebenso überschreiben alle wichtigen Deklarationen in den Benutzer-Stylesheets alle wichtigen Deklarationen in den Autor-Stylesheets. Schließlich haben alle wichtigen Deklarationen Vorrang vor allen Animationen.
+Wenn eine Deklaration wichtig ist, wird die Reihenfolge der Priorität umgekehrt. Deklarationen, die im User-Agent-Stylesheet als wichtig markiert sind, überschreiben alle wichtigen Deklarationen in den Benutzer-Stylesheets. Ebenso überschreiben alle wichtigen Deklarationen in den Benutzer-Stylesheets alle wichtigen Deklarationen in den Autoren-Stylesheets. Schließlich haben alle wichtigen Deklarationen Vorrang vor allen Animationen.
 
 > [!NOTE]
-> Alle wichtigen Deklarationen haben Vorrang vor allen Animationen. `!important` ist innerhalb von [@keyframes Animationen](/de/docs/Web/CSS/@keyframes) nicht gültig.
+> Alle wichtigen Deklarationen haben Vorrang vor allen Animationen. `!important` ist nicht in [@keyframes-Animationen](/de/docs/Web/CSS/@keyframes) gültig.
 
-Das Umkehren der Vorrangsordnung für wichtige Deklarationen stellt sicher, dass Benutzer mit speziellen Bedürfnissen, wie personalisierte Farbschemata oder große Schriften, die Autorstile überschreiben können, wenn nötig, indem sie einige Deklarationen in ihrem Benutzer-Stylesheet als wichtig markieren. Es garantiert auch, dass schädliche Erweiterungen wichtige User-Agent-Styles nicht überschreiben können, was die Funktionalität beeinträchtigen oder die Sicherheit negativ beeinflussen könnte.
+Das Umkehren der Prioritätsreihenfolge für wichtige Deklarationen stellt sicher, dass Benutzer mit besonderen Bedürfnissen, wie z. B. personalisierte Farbschemata oder große Schriftarten, Autorenstile überschreiben können, indem sie einige Deklarationen in ihrem Benutzer-Stylesheet als wichtig markieren. Es garantiert auch, dass bösartige Erweiterungen wichtige User-Agent-Styles nicht überschreiben können, was die Funktionalität beeinträchtigen oder die Sicherheit negativ beeinflussen könnte.
 
-Hat irgendetwas Vorrang vor wichtigen Deklarationen? Ja, [Transitionen](/de/docs/Web/CSS/CSS_transitions). CSS-Transitionen sind eine Möglichkeit, die Geschwindigkeit zu steuern, mit der sich eine Eigenschaft von einem Wert zum anderen ändert. Während der Übergang von einem Wert zum anderen erfolgt, wird eine Eigenschaft keine spezifische wichtige Deklaration erfüllen.
+Hat etwas Vorrang vor wichtigen Deklarationen? Ja, [Transitionen](/de/docs/Web/CSS/CSS_transitions). CSS-Transitionen sind eine Möglichkeit, die Geschwindigkeit zu kontrollieren, mit der die Eigenschaft von einem Wert zu einem anderen wechselt. Während des Übergangs von einem Wert zu einem anderen entspricht eine Eigenschaft nicht einer bestimmten wichtigen Deklaration.
 
 ```css
 a {
@@ -46,19 +46,19 @@ a:hover {
 }
 ```
 
-In diesem Beispiel werden die `color`- und `background-color`-Eigenschaften in den Hover-Zustand über zwei Sekunden hinweg übergehen. Auch wenn der Standardzustand normale Deklarationen sind und die Hover-Zustände `!important`-Deklarationen sind, findet die Transition statt.
+In diesem Beispiel wechseln die Eigenschaften `color` und `background-color` über zwei Sekunden in den Hover-Zustand. Auch wenn die Standardzustände normale Deklarationen und die Hover-Zustände `!important`-Deklarationen sind, findet die Transition statt.
 
 ### Kaskadenschichten
 
-Innerhalb jeder der drei Ursprünge für Stylesheets – Autor, Benutzer und User-Agent – überschreiben normale Deklarationen in ungeschichteten Stilen geschichtete Stil-Deklarationen, wobei die zuletzt deklarierten Vorrang vor den zuvor deklarierten Schichten haben. Wichtige Deklarationen kehren die Vorrangsordnung um: Wichtige Deklarationen in der ersten Schicht haben Vorrang vor wichtigen Deklarationen in der nächsten Schicht und so weiter. Auch haben alle wichtigen Deklarationen Vorrang vor wichtigen Deklarationen außerhalb einer Schicht.
+Innerhalb der drei Ursprünge für Stylesheets – Autor, Benutzer und User-Agent – überschreiben normale Deklarationen in nicht geschichteten Stilen geschichtete Stil-Deklarationen, wobei die zuletzt deklarierte Vorrang vor den zuvor deklarierten Schichten hat. Wichtige Deklarationen kehren die Reihenfolge der Priorität um: Wichtige Deklarationen in der ersten Schicht haben Vorrang vor wichtigen Deklarationen in der nächsten Schicht und so weiter. Außerdem haben alle wichtigen Deklarationen Vorrang vor wichtigen Deklarationen, die außerhalb einer Schicht gemacht wurden.
 
-### Inline-Styles
+### Inline-Stile
 
-Inline-Styles sind Stile, die mithilfe der [`style`](/de/docs/Web/HTML/Global_attributes/style)-Attribute definiert sind. Sie können sowohl normal als auch wichtig sein. Inline _normale_ Styles haben Vorrang vor allen _normalen_ Deklarationen, egal welcher Herkunft. Inline _wichtige_ Styles haben Vorrang vor allen anderen _wichtigen_ Styles des Autos, egal welcher Schicht, aber wichtige Styles aus Benutzer- oder User-Agent-Stylesheets und Transitionen überschreiben sie.
+Inline-Stile sind Stile, die mit den [`style`](/de/docs/Web/HTML/Global_attributes/style)-Attributen definiert sind. Sie können auch normal oder wichtig sein. Inline-_normale_ Stile haben Vorrang vor allen _normalen_ Deklarationen, unabhängig vom Ursprung. Inline-_wichtige_ Stile haben Vorrang vor allen anderen _wichtigen_ Autorenstilen, unabhängig von der Schicht, aber wichtige Stile aus Stylesheets des Benutzers oder des User-Agents und Transitionen überschreiben diese.
 
 ### !important und Spezifität
 
-Obwohl `!important` nicht Teil der Bestimmung der Spezifität ist, steht es damit in Beziehung. Wichtige Deklarationen überschreiben alle anderen Deklarationen aus demselben [Ursprung und Kaskadenschicht](/de/docs/Web/CSS/Cascade).
+Obwohl `!important` nicht Teil der Bestimmung von Spezifität ist, steht es damit in Zusammenhang. Wichtige Deklarationen überschreiben alle anderen Deklarationen derselben [Herkunft und Kaskadenschicht](/de/docs/Web/CSS/Cascade).
 
 ```css
 #myElement#myElement#myElement .myClass.myClass p:hover {
@@ -70,9 +70,9 @@ p {
 }
 ```
 
-Dieses Beispiel zeigt einen Fall der Über-Spezifizierung eines Selektors. Egal, wie hoch die [Spezifität](/de/docs/Web/CSS/Specificity) eines Selektors mit einer normalen Deklaration übereinstimmt, eine wichtige Deklaration aus derselben Quelle und Kaskadenschicht wird immer Vorrang haben. In diesem Fall wird der Absatz immer rot sein.
+Dieses Beispiel zeigt einen Fall von übermäßiger Spezifizierung eines Selektors. Unabhängig davon, wie hoch die Selektorspezifizität eine normale Deklaration trifft, wird eine wichtige Deklaration derselben Quelle und Kaskadenschicht immer Vorrang haben. In diesem Fall wird der Absatz immer rot sein.
 
-Wenn zwei wichtige Deklarationen aus demselben Ursprung und derselben Schicht auf dasselbe Element angewendet werden, wählen und verwenden Browser die Deklaration mit der höchsten Spezifität.
+Wenn zwei wichtige Deklarationen derselben Herkunft und Schicht auf dasselbe Element angewendet werden, wählen Browser die Deklaration mit der höchsten Spezifität aus und verwenden sie.
 
 ```css
 #myElement p {
@@ -84,11 +84,11 @@ p {
 }
 ```
 
-In diesem Fall zählt die Selektor-Spezifität. Nur wenn die Selektoren die gleiche Spezifität haben, würde die Quellreihenfolge zählen.
+In diesem Fall spielt die Selektorspezifität eine Rolle. Nur wenn die Selektoren die gleiche Spezifität hätten, würde die Quellreihenfolge eine Rolle spielen.
 
-## Auswirkung auf Kurzschreibweise-Eigenschaften
+## Auswirkungen auf Kurzform-Eigenschaften
 
-Die Deklaration einer Kurzschreibweise-Eigenschaft mit `!important` setzt alle Untereigenschaften als wichtig. Die beiden folgenden Selektor-Stilblöcke sind gleichwertig:
+Deklarieren einer Kurzform-Eigenschaft mit `!important` setzt alle Untereigenschaften als wichtig. Die beiden folgenden Selektorstile-Blöcke sind gleichwertig:
 
 ```css
 p {
@@ -107,11 +107,11 @@ p {
 }
 ```
 
-Dieses Beispiel zeigt einen der vielen Gründe, warum das Vermeiden des Wichtigkeits-Flags allgemein empfohlen wird.
+Dieses Beispiel zeigt einen der mehreren Gründe, warum das Vermeiden des wichtigen Flags generell empfohlen wird.
 
-## Auswirkung auf benutzerdefinierte Eigenschaften
+## Auswirkungen auf benutzerdefinierte Eigenschaften
 
-Wenn das `!important`-Flag zu einer Wertedeklaration einer benutzerdefinierten Eigenschaft hinzugefügt wird, macht es die Wertzuweisung wichtig. Das `!important`-Flag wird dann aus dem Wert der benutzerdefinierten Eigenschaft entfernt. Das `!important`-Flag wird nicht als Teil des Werts der benutzerdefinierten Eigenschaft an die [`var()`](/de/docs/Web/CSS/var)-Funktion weitergegeben.
+Wenn das `!important`-Flag zu einer Wertzuweisung einer benutzerdefinierten Eigenschaft hinzugefügt wird, macht es die Wertzuweisung wichtig. Das `!important`-Flag wird dann aus dem Wert der benutzerdefinierten Eigenschaft entfernt. Das `!important`-Flag wird nicht als Teil des Benutzereigenschaftswertes an die [`var()`](/de/docs/Web/CSS/var)-Funktion übergeben.
 
 ```css
 :root {
@@ -128,25 +128,25 @@ blockquote {
 ```
 
 ```html hidden
-<p>Dies ist ein Absatz</p>
-<blockquote>Dies ist ein Zitatblock</blockquote>
+<p>This is a paragraph</p>
+<blockquote>This is a blockquote</blockquote>
 ```
 
-In diesem Beispiel wird der Absatz rot und nicht blau sein, da die Wertzuweisung der benutzerdefinierten Eigenschaft wichtig ist. Das Zitat wird lila sein, weil die lila normale Deklaration nach der normalen roten Deklaration kommt.
+In diesem Beispiel wird der Absatz rot und nicht blau, da die Zuweisung des benutzerdefinierten Eigenschaftswertes wichtig ist. Das Blockzitat wird lila, weil die lila normale Deklaration nach der normalen roten Deklaration kommt.
 
 {{ EmbedLiveSample('Impact_on_custom_properties', '500', '250') }}
 
-## Beste Praktiken
+## Best Practices
 
-Vermeiden Sie die Verwendung von `!important`, um Spezifität zu überschreiben. Wenn absichtlich wichtige Deklarationen für UI-Anforderungen erstellt werden, kommentieren Sie in Ihrem CSS-Code, um den Wartenden zu erklären, warum sie dieses Feature nicht überschreiben sollten.
+Vermeiden Sie die Verwendung von `!important`, um die Spezifität zu überschreiben. Wenn absichtlich wichtige Deklarationen für UI-Anforderungen erstellt werden, kommentieren Sie in Ihrem CSS-Code, um den Wartenden zu erklären, warum sie dieses Merkmal nicht überschreiben sollten.
 
-Auch wenn Sie daran arbeiten, hochspezifische Stile zu überschreiben, die nicht unter Ihrer Kontrolle stehen, wie z.B. Stile in einem 3rd-Party-Plugin, das mit einem [ID-Selektor](/de/docs/Web/CSS/ID_selectors) deklariert ist, müssen Sie `!important` nicht verwenden. Erwägen Sie stattdessen, das 3rd-Party-Stylesheet-Skript in eine [benannte oder anonyme Schicht](/de/docs/Web/CSS/@layer) als Ihre erste Kaskadenschicht zu importieren, anstatt `!important` zu verwenden. Solange die externen Stile keine wichtigen Deklarationen enthalten, werden Ihre Stile Vorrang vor den Widget-Stilen haben, egal wie spezifisch sie sind.
+Auch wenn Sie daran arbeiten, hoch spezifizierte Stile zu überschreiben, die nicht unter Ihrer Kontrolle stehen, wie z. B. Stile in einem Drittanbieter-Plugin, das mit einem [ID-Selektor](/de/docs/Web/CSS/ID_selectors) deklariert ist, müssen Sie `!important` nicht verwenden. Erwägen Sie stattdessen, das Skript des Drittanbieter-Stylesheets in eine [benannte oder anonyme Schicht](/de/docs/Web/CSS/@layer) als Ihre erste Kaskadenschicht zu importieren, anstatt `!important` zu verwenden. Solange die externen Stile keine wichtigen Deklarationen beinhalten, haben Ihre Styles Vorrang vor den Widget-Stilen, unabhängig von der Spezifität.
 
-Wenn Sie ein externes Stylesheet überschreiben müssen, das wichtige Deklarationen enthält, erstellen Sie eine Kaskadenschicht, die die erforderlichen Überschreibungen enthält, und deklarieren Sie diese Schicht zuerst.
+Wenn Sie ein externes Stylesheet mit wichtigen Deklarationen überschreiben müssen, erstellen Sie eine Kaskadenschicht, die die erforderlichen Überschreibungen enthält, und deklarieren Sie diese Schicht zuerst.
 
-### Barrierefreiheitsfragen
+### Barrierefreiheitsüberlegungen
 
-Wichtige Stile aus einem Benutzer-Stylesheet haben Vorrang vor den wichtigen Deklarationen des Autoren-Stylesheets, was bedeutet, dass das Hinzufügen eines `!important`-Flags zu den Stilvorlagen einer Website einzelne Benutzer mit speziellen Anforderungen, wie z.B. große Schriften, nicht daran hindert, Ihre Stile durch das Hinzufügen wichtiger Stile in ihrem eigenen Benutzer-Stylesheet zu überschreiben.
+Wichtige Stile aus einem Benutzer-Stylesheet haben Vorrang vor den wichtigen Deklarationen des Autoren-Stylesheets, was bedeutet, dass das Hinzufügen eines `!important`-Flags zu den Stilen einer Seite nicht verhindert, dass einzelne Benutzer mit besonderen Anforderungen, wie z. B. große Schriftarten, Ihre Stile durch das Hinzufügen von wichtigen Stilen in ihrem eigenen Benutzer-Stylesheet überschreiben können.
 
 ## Browser-Kompatibilität
 
@@ -154,5 +154,5 @@ Diese Funktion wird in allen Browsern unterstützt.
 
 ## Siehe auch
 
-- [CSS-Spezifität](/de/docs/Web/CSS/Specificity)
-- [CSS-Kaskade](/de/docs/Web/CSS/Cascade)
+- [CSS Spezifität](/de/docs/Web/CSS/Specificity)
+- [CSS Kaskade](/de/docs/Web/CSS/Cascade)

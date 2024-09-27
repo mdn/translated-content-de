@@ -7,34 +7,34 @@ l10n:
 
 {{APIRef("Image Capture API")}}{{SeeCompatTable}}
 
-Die **`ImageCapture`** Schnittstelle der [MediaStream Image Capture API](/de/docs/Web/API/MediaStream_Image_Capture_API) stellt Methoden bereit, um die Aufnahme von Bildern oder Fotos von einer Kamera oder einem anderen fotografischen Gerät zu ermöglichen. Sie bietet eine Schnittstelle zur Erfassung von Bildern eines fotografischen Geräts, das durch einen gültigen {{domxref("MediaStreamTrack")}} referenziert wird.
+Das **`ImageCapture`**-Interface der [MediaStream Image Capture API](/de/docs/Web/API/MediaStream_Image_Capture_API) bietet Methoden zum Erfassen von Bildern oder Fotos von einer Kamera oder einem anderen fotografischen Gerät. Es stellt eine Schnittstelle zum Erfassen von Bildern von einem fotografischen Gerät bereit, das durch ein gültiges [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) referenziert wird.
 
 ## Konstruktor
 
-- {{domxref("ImageCapture.ImageCapture()", "ImageCapture()")}} {{Experimental_Inline}}
-  - : Erstellt ein neues `ImageCapture` Objekt, das zur Erfassung von Standbildern (Fotos) von einem angegebenen {{domxref("MediaStreamTrack")}}, der einen Videostream darstellt, verwendet werden kann.
+- [`ImageCapture()`](/de/docs/Web/API/ImageCapture/ImageCapture) {{Experimental_Inline}}
+  - : Erstellt ein neues `ImageCapture`-Objekt, das verwendet werden kann, um Standbilder (Fotos) von einem gegebenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der einen Videostream darstellt, zu erfassen.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("ImageCapture.track")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Referenz zu dem {{domxref("MediaStreamTrack")}} zurück, der dem Konstruktor übergeben wurde.
+- [`ImageCapture.track`](/de/docs/Web/API/ImageCapture/track) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt eine Referenz zu dem an den Konstruktor übergebenen [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{domxref("ImageCapture.takePhoto()")}} {{Experimental_Inline}}
-  - : Nimmt eine einzelne Belichtung mit dem Videogerät auf, das einen {{domxref("MediaStreamTrack")}} bereitstellt, und gibt ein {{jsxref("Promise")}} zurück, das mit einem {{domxref("Blob")}} aufgelöst wird, das die Daten enthält.
-- {{domxref("ImageCapture.getPhotoCapabilities()")}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, das die Bereiche der verfügbaren Konfigurationsoptionen enthält.
-- {{domxref("ImageCapture.getPhotoSettings()")}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, das die aktuellen Fotoeinstellungen enthält.
-- {{domxref("ImageCapture.grabFrame()")}} {{Experimental_Inline}}
-  - : Nimmt einen Schnappschuss des Live-Videos in einem {{domxref("MediaStreamTrack")}} auf und gibt, falls erfolgreich, ein {{domxref("ImageBitmap")}} zurück.
+- [`ImageCapture.takePhoto()`](/de/docs/Web/API/ImageCapture/takePhoto) {{Experimental_Inline}}
+  - : Macht eine einzelne Aufnahme mit dem Videoaufnahmegerät, das eine [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) nutzt, und gibt ein {{jsxref("Promise")}} zurück, das sich mit einem [`Blob`](/de/docs/Web/API/Blob) mit den Daten auflöst.
+- [`ImageCapture.getPhotoCapabilities()`](/de/docs/Web/API/ImageCapture/getPhotoCapabilities) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das sich mit einem Objekt auflöst, das die Bereiche der verfügbaren Konfigurationsoptionen enthält.
+- [`ImageCapture.getPhotoSettings()`](/de/docs/Web/API/ImageCapture/getPhotoSettings) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das sich mit einem Objekt auflöst, das die aktuellen Fotokonfigurationseinstellungen enthält.
+- [`ImageCapture.grabFrame()`](/de/docs/Web/API/ImageCapture/grabFrame) {{Experimental_Inline}}
+  - : Nimmt einen Schnappschuss des Live-Videos in einem [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), zurückgebend ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap), sofern erfolgreich.
 
 ## Beispiel
 
-Der folgende Code ist aus [Chrome's Grab Frame - Take Photo Sample](https://googlechrome.github.io/samples/image-capture/grab-frame-take-photo.html) entnommen. Da `ImageCapture` einen Ort erfordert, von dem ein Bild aufgenommen werden kann, beginnt das untenstehende Beispiel mit einem Mediengerät eines Geräts (anders gesagt, einer Kamera).
+Der folgende Code ist aus [Chrome's Grab Frame - Take Photo Sample](https://googlechrome.github.io/samples/image-capture/grab-frame-take-photo.html) entnommen. Da `ImageCapture` einen Ort zum Aufnehmen eines Bildes erfordert, beginnt das Beispiel unten mit einem Mediengerät des Geräts (also einer Kamera).
 
-Dieses Beispiel zeigt grob einen {{domxref("MediaStreamTrack")}}, der aus einem {{domxref("MediaStream")}} eines Geräts extrahiert wird. Der Track wird dann verwendet, um ein `ImageCapture` Objekt zu erstellen, damit `takePhoto()` und `grabFrame()` aufgerufen werden können. Schließlich wird gezeigt, wie man die Ergebnisse dieser Aufrufe auf ein Canvas-Objekt anwendet.
+Dieses Beispiel zeigt grob ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), das aus einem [`MediaStream`](/de/docs/Web/API/MediaStream) eines Geräts extrahiert wird. Der Track wird dann verwendet, um ein `ImageCapture`-Objekt zu erstellen, sodass `takePhoto()` und `grabFrame()` aufgerufen werden können. Schließlich wird gezeigt, wie die Ergebnisse dieser Aufrufe auf ein Canvas-Objekt angewendet werden.
 
 ```js
 let imageCapture;

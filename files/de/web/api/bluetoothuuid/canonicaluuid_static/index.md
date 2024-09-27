@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}
 
-Die **`canonicalUUID()`** statische Methode des {{domxref("BluetoothUUID")}} Schnittstelle gibt die 128-Bit-UUID zurück, wenn eine 16- oder 32-Bit-UUID-Alias übergeben wird.
+Die **`canonicalUUID()`** statische Methode der [`BluetoothUUID`](/de/docs/Web/API/BluetoothUUID) Schnittstelle gibt die 128-Bit UUID zurück, wenn ihr ein 16- oder 32-Bit UUID Alias übergeben wird.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ BluetoothUUID.canonicalUUID(alias)
 ### Parameter
 
 - `alias`
-  - : Ein String, der einen 16-Bit- oder 32-Bit-UUID-Alias enthält.
+  - : Ein String, der ein 16-Bit oder 32-Bit UUID Alias enthält.
 
 ### Rückgabewert
 
-Eine 128-Bit-UUID.
+Eine 128-Bit UUID.
 
 ## Beispiele
 
-Im folgenden Beispiel wird die von dem Alias `0x110A` repräsentierte UUID zurückgegeben und in der Konsole ausgegeben.
+Im folgenden Beispiel wird die UUID dargestellt, die durch den Alias `0x110A` repräsentiert wird und in die Konsole ausgegeben.
 
 ```js
 let result = BluetoothUUID.canonicalUUID("0x110A");

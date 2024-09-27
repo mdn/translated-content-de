@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`baseVal`**-Eigenschaft der {{domxref("SVGAnimatedEnumeration")}}-Schnittstelle enthält den anfänglichen Wert einer SVG-Aufzählung.
+Die **`baseVal`**-Eigenschaft der [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Schnittstelle enthält den Anfangswert einer SVG-Aufzählung.
 
 ## Wert
 
-Ein Integer, der den anfänglichen Wert der Aufzählung enthält.
+Ein Integer, der den Anfangswert der Aufzählung enthält.
 
 ## Beispiele
 
-Betrachten Sie diesen Ausschnitt mit einem {{SVGElement("clipPath")}}-Element: Sein {{SVGAttr("clipPathUnits")}} ist mit einem {{domxref("SVGAnimatedEnumeration")}}-Objekt verknüpft.
+Betrachten Sie dieses Code-Snippet mit einem {{SVGElement("clipPath")}}-Element: Sein {{SVGAttr("clipPathUnits")}} ist mit einem [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt verbunden.
 
 ```html
 <svg viewBox="0 0 100 100" width="200" height="200">
@@ -29,11 +29,11 @@ Betrachten Sie diesen Ausschnitt mit einem {{SVGElement("clipPath")}}-Element: S
 </svg>
 ```
 
-Dieses Snippet holt das Element und gibt den `baseVal` der {{domxref("SVGClipPathElement.clipPathUnits")}}-Eigenschaft aus.
+Dieses Snippet erhält das Element und protokolliert den `baseVal` der [`SVGClipPathElement.clipPathUnits`](/de/docs/Web/API/SVGClipPathElement/clipPathUnits)-Eigenschaft.
 
 ```js
 const clipPathElt = document.getElementById("clip1");
-console.log(clipPathElt.clipPathUnits.baseVal); // Gibt 1 aus, was "userSpaceOnUse" entspricht
+console.log(clipPathElt.clipPathUnits.baseVal); // Logs 1 that correspond to userSpaceOnUse
 ```
 
 ## Spezifikationen
@@ -46,4 +46,4 @@ console.log(clipPathElt.clipPathUnits.baseVal); // Gibt 1 aus, was "userSpaceOnU
 
 ## Siehe auch
 
-- {{domxref("SVGAnimatedEnumeration.animVal")}}
+- [`SVGAnimatedEnumeration.animVal`](/de/docs/Web/API/SVGAnimatedEnumeration/animVal)

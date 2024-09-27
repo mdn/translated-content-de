@@ -7,26 +7,26 @@ l10n:
 
 {{securecontext_header}}{{APIRef("FedCM API")}}{{SeeCompatTable}}
 
-Die **`NavigatorLogin`**-Schnittstelle der [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) definiert die Login-Funktionalität für föderierte Identitätsanbieter (IdPs). Insbesondere ermöglicht sie einem föderierten Identitätsanbieter (IdP), den Login-Status zu setzen, wenn sich ein Benutzer beim IdP ein- oder ausloggt.
+Die **`NavigatorLogin`**-Schnittstelle der [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) definiert die Anmeldefunktionalität für föderierte Identitätsanbieter (IdPs). Insbesondere ermöglicht sie es einem föderierten Identitätsanbieter (IdP), seinen Anmeldestatus festzulegen, wenn sich ein Benutzer beim IdP an- oder abmeldet.
 
-Weitere Details zur Nutzung finden Sie unter [Login-Status mit der Login Status API aktualisieren](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api).
+Weitere Details zur Verwendung finden Sie unter [Anmeldestatus mit der Login Status API aktualisieren](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api).
 
-Auf `NavigatorLogin` wird über die {{domxref("Navigator.login")}}-Eigenschaft zugegriffen.
+Auf `NavigatorLogin` wird über die [`Navigator.login`](/de/docs/Web/API/Navigator/login)-Eigenschaft zugegriffen.
 
 {{InheritanceDiagram}}
 
 ## Instanzmethoden
 
-- {{domxref("NavigatorLogin.setStatus", "setStatus()")}} {{Experimental_Inline}}
-  - : Setzt den Login-Status eines föderierten Identitätsanbieters (IdP), wenn sie vom Ursprung des IdP aufgerufen wird. Mit "Login-Status" ist gemeint, "ob derzeit Benutzer im aktuellen Browser beim IdP angemeldet sind oder nicht".
+- [`setStatus()`](/de/docs/Web/API/NavigatorLogin/setStatus) {{Experimental_Inline}}
+  - : Setzt den Anmeldestatus eines föderierten Identitätsanbieters (IdP), wenn es vom Ursprung des IdP aufgerufen wird. Mit "Anmeldestatus" meinen wir "ob irgendein Benutzer im aktuellen Browser beim IdP angemeldet ist oder nicht".
 
 ## Beispiele
 
 ```js
-/* Setzt Anmeldestatus auf eingeloggt */
+/* Set logged-in status */
 navigator.login.setStatus("logged-in");
 
-/* Setzt Anmeldestatus auf ausgeloggt */
+/* Set logged-out status */
 navigator.login.setStatus("logged-out");
 ```
 

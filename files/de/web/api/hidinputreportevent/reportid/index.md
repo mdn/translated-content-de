@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`reportId`**-Eigenschaft der {{domxref("HIDInputReportEvent")}}-Schnittstelle gibt das Ein-Byte-Identifikationspräfix für diesen Bericht zurück, oder 0, wenn die HID-Schnittstelle keine Bericht-IDs verwendet.
+Die **`reportId`**-Eigenschaft der [`HIDInputReportEvent`](/de/docs/Web/API/HIDInputReportEvent)-Schnittstelle gibt das Ein-Byte-Identifikationspräfix für diesen Bericht zurück, oder 0, wenn die HID-Schnittstelle keine Bericht-IDs verwendet.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein Ein-Byte-Identifikationspräfix.
 
 ## Beispiele
 
-Im folgenden Beispiel wird die `reportId` eines eingehenden Eingabereports in der Konsole protokolliert.
+Im folgenden Beispiel wird die `reportId` eines eingehenden Eingangsberichts in der Konsole protokolliert.
 
 ```js
 device.addEventListener("inputreport", (event) => {

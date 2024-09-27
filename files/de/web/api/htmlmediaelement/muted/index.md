@@ -1,6 +1,6 @@
 ---
-title: "HTMLMediaElement: muted-Eigenschaft"
-short-title: stummgeschaltet
+title: "HTMLMediaElement: muted Eigenschaft"
+short-title: muted
 slug: Web/API/HTMLMediaElement/muted
 l10n:
   sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
@@ -25,12 +25,12 @@ console.log(obj.muted); // false
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement")}}: Schnittstelle, die verwendet wird, um die `HTMLMediaElement.muted`-Eigenschaft zu definieren
-- {{domxref("HTMLMediaElement.defaultMuted")}}
-- {{domxref("HTMLMediaElement.volume")}}
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die verwendet wird, um die `HTMLMediaElement.muted`-Eigenschaft zu definieren
+- [`HTMLMediaElement.defaultMuted`](/de/docs/Web/API/HTMLMediaElement/defaultMuted)
+- [`HTMLMediaElement.volume`](/de/docs/Web/API/HTMLMediaElement/volume)

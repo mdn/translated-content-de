@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`EncodedVideoChunk`**-Schnittstelle der {{domxref('WebCodecs API','','',' ')}} repräsentiert einen Abschnitt kodierter Videodaten.
+Die **`EncodedVideoChunk`**-Schnittstelle des [WebCodecs API](/de/docs/Web/API/WebCodecs_API) repräsentiert einen Abschnitt von kodierten Videodaten.
 
 ## Konstruktor
 
-- {{domxref("EncodedVideoChunk.EncodedVideoChunk", "EncodedVideoChunk()")}}
+- [`EncodedVideoChunk()`](/de/docs/Web/API/EncodedVideoChunk/EncodedVideoChunk)
   - : Erstellt ein neues `EncodedVideoChunk`-Objekt.
 
-## Instanz Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("EncodedVideoChunk.type")}} {{ReadOnlyInline}}
+- [`EncodedVideoChunk.type`](/de/docs/Web/API/EncodedVideoChunk/type) {{ReadOnlyInline}}
   - : Gibt einen String zurück, der angibt, ob dieser Datenabschnitt ein Schlüsselabschnitt ist.
-- {{domxref("EncodedVideoChunk.timestamp")}} {{ReadOnlyInline}}
-  - : Gibt eine ganze Zahl zurück, die den Zeitstempel des Videos in Mikrosekunden darstellt.
-- {{domxref("EncodedVideoChunk.duration")}} {{ReadOnlyInline}}
-  - : Gibt eine ganze Zahl zurück, die die Dauer des Videos in Mikrosekunden darstellt.
-- {{domxref("EncodedVideoChunk.byteLength")}} {{ReadOnlyInline}}
-  - : Gibt eine ganze Zahl zurück, die die Länge des Videos in Bytes darstellt.
+- [`EncodedVideoChunk.timestamp`](/de/docs/Web/API/EncodedVideoChunk/timestamp) {{ReadOnlyInline}}
+  - : Gibt eine Ganzzahl zurück, die den Zeitstempel des Videos in Mikrosekunden darstellt.
+- [`EncodedVideoChunk.duration`](/de/docs/Web/API/EncodedVideoChunk/duration) {{ReadOnlyInline}}
+  - : Gibt eine Ganzzahl zurück, die die Dauer des Videos in Mikrosekunden darstellt.
+- [`EncodedVideoChunk.byteLength`](/de/docs/Web/API/EncodedVideoChunk/byteLength) {{ReadOnlyInline}}
+  - : Gibt eine Ganzzahl zurück, die die Länge des Videos in Bytes darstellt.
 
 ## Instanzmethoden
 
-- {{domxref("EncodedVideoChunk.copyTo()")}}
+- [`EncodedVideoChunk.copyTo()`](/de/docs/Web/API/EncodedVideoChunk/copyTo)
   - : Kopiert die kodierten Videodaten.
 
 ## Spezifikationen

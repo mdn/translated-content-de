@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`skewY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element in der vertikalen Richtung auf der 2D-Ebene schräg darstellt. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`skewY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element in vertikaler Richtung auf der 2D-Ebene schief stellt. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-skewY.html")}}
 
-Diese Transformation ist eine Scherung ([Transvektion](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt innerhalb eines Elements durch einen bestimmten Winkel in vertikaler Richtung verzerrt. Die Ordinate (vertikal, y-Koordinate) jedes Punktes wird durch einen Wert geändert, der proportional zum angegebenen Winkel und der Entfernung zum Ursprung ist; je weiter ein Punkt vom Ursprung entfernt ist, desto größer ist der Wert, der hinzugefügt wird.
+Diese Transformation ist eine Scherabbildung ([Transvektion](https://en.wikipedia.org/wiki/Shear_mapping)), die jeden Punkt innerhalb eines Elements um einen bestimmten Winkel in der vertikalen Richtung verzerrt. Die Ordinate (vertikal, y-Koordinate) jedes Punktes wird durch einen Wert verändert, der proportional zum angegebenen Winkel und der Entfernung zum Ursprung ist; je weiter ein Punkt vom Ursprung entfernt ist, desto größer ist der hinzugefügte Wert.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ skewY(a)
 ### Werte
 
 - `a`
-  - : Ist ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, der zur Verzerrung des Elements entlang der Ordinate (vertikal, y-Koordinate) verwendet werden soll.
+  - : Ist ein {{cssxref("&lt;angle&gt;")}}, der den Winkel darstellt, mit dem das Element entlang der Ordinate (vertikal, y-Koordinate) verzerrt wird.
 
 <table class="standard-table">
   <thead>
@@ -106,4 +106,4 @@ div {
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}
-  - Hinweis: Es gibt keine `skew`-Eigenschaft.
+  - Hinweis: Es gibt keine `skew`-Eigenschaft

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.load()`** gibt einen Wert an einer bestimmten Position im Array zurück.
+Die statische Methode **`Atomics.load()`** gibt einen Wert an einer angegebenen Position im Array zurück.
 
 {{EmbedInteractiveExample("pages/js/atomics-load.html")}}
 
@@ -20,9 +20,9 @@ Atomics.load(typedArray, index)
 ### Parameter
 
 - `typedArray`
-  - : Ein Integer-Typed-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
+  - : Ein Integer-Typ-Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
     {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
-    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder
+    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}}, oder
     {{jsxref("BigUint64Array")}}.
 - `index`
   - : Die Position im `typedArray`, von der geladen werden soll.

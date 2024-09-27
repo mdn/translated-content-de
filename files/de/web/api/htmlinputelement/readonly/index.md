@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: readOnly Eigenschaft"
+title: "HTMLInputElement: readOnly-Eigenschaft"
 short-title: readOnly
 slug: Web/API/HTMLInputElement/readOnly
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`readOnly`**-Eigenschaft des {{DOMxRef("HTMLInputElement")}}-Interfaces zeigt an, dass der Benutzer den Wert des {{htmlelement("input")}}-Elements nicht ändern kann. Sie spiegelt das boolean Attribut [`readonly`](/de/docs/Web/HTML/Element/input#readonly) des {{htmlelement("input")}}-Elements wider; sie gibt `true` zurück, wenn das Attribut vorhanden ist, und `false`, wenn es fehlt.
+Die **`readOnly`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle zeigt an, dass der Benutzer den Wert des {{htmlelement("input")}} nicht ändern kann. Sie spiegelt das boolesche Attribut [`readonly`](/de/docs/Web/HTML/Element/input#readonly) des {{htmlelement("input")}}-Elements wider; gibt `true` zurück, wenn das Attribut vorhanden ist, und `false`, wenn es weggelassen wird.
 
-Im Gegensatz zu einem Steuerelement mit einer auf wahr gesetzten {{domxref("HTMLInputElement.disabled", "disabled")}}-Eigenschaft verhindert ein wahrer `readOnly`-Eigenschaftswert nicht, dass der Benutzer im Steuerelement klickt oder auswählt.
+Im Gegensatz zu einem Formularsteuerungs-Element mit einer `true`-[`disabled`](/de/docs/Web/API/HTMLInputElement/disabled)-Eigenschaft verhindert ein `true`-Wert der `readOnly`-Eigenschaft nicht, dass der Benutzer im Steuerungs-Element klickt oder eine Auswahl trifft.
 
-Während das HTML `readonly`-Attribut ignoriert wird, wenn der Typ `hidden`, `range`, `color`, `checkbox`, `radio`, `file`, `submit`, `reset`, `button` und `image` ist, ist die `readOnly`-Eigenschaft bei diesen Eingabetypen `true`, wenn das Attribut vorhanden ist, andernfalls `false`.
+Während das HTML `readonly`-Attribut ignoriert wird, wenn der Typ `hidden`, `range`, `color`, `checkbox`, `radio`, `file`, `submit`, `reset`, `button` und `image` ist, ist die `readOnly`-Eigenschaft für diese Eingabetypen `true`, wenn das Attribut vorhanden ist, ansonsten `false`.
 
 ## Wert
 
-Ein Boolean.
+Ein boolescher Wert.
 
 ## Beispiele
 
@@ -37,5 +37,5 @@ inputElement.readOnly = true;
 ## Siehe auch
 
 - {{HTMLElement("input")}}
-- {{DOMXref("HTMLInputElement.disabled")}}
+- [`HTMLInputElement.disabled`](/de/docs/Web/API/HTMLInputElement/disabled)
 - {{cssxref(":read-only")}} Pseudo-Klasse

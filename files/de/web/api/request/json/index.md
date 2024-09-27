@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`json()`** Methode der {{domxref("Request")}} Schnittstelle
-liest den Anfragekörper und gibt ihn als ein Promise zurück, das mit dem Ergebnis der Analyse des Körpertextes als {{JSxRef("JSON")}} aufgelöst wird.
+Die **`json()`**-Methode des [`Request`](/de/docs/Web/API/Request)-Interfaces liest den Anfragetext und gibt ihn als ein Promise zurück, das mit dem Ergebnis des Parsens des Textes als {{JSxRef("JSON")}} aufgelöst wird.
 
-Beachten Sie, dass das Ergebnis trotz der Bezeichnung der Methode `json()` nicht JSON ist, sondern das Ergebnis der Interpretation von JSON als Eingabe ist, um ein JavaScript-Objekt zu erstellen.
+Beachten Sie, dass das Ergebnis trotz der Bezeichnung `json()` nicht JSON ist, sondern das Ergebnis der Eingabe von JSON und deren Parsen zu einem JavaScript-Objekt.
 
 ## Syntax
 
@@ -25,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das in ein JavaScript-Objekt aufgelöst wird. Dieses Objekt könnte alles sein, was durch JSON dargestellt werden kann — ein Objekt, ein Array, ein String, eine Zahl…
+Ein {{jsxref("Promise")}}, das in ein JavaScript-Objekt aufgelöst wird. Dieses Objekt kann alles sein, was durch JSON dargestellt werden kann — ein Objekt, ein Array, ein String, eine Zahl…
 
 ## Beispiele
 
@@ -52,4 +51,4 @@ request.json().then((data) => {
 
 ## Siehe auch
 
-- {{domxref("Response.json()")}}
+- [`Response.json()`](/de/docs/Web/API/Response/json)

@@ -1,5 +1,5 @@
 ---
-title: "Request: Request()-Konstruktor"
+title: "Request: Request() Konstruktor"
 short-title: Request()
 slug: Web/API/Request/Request
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Der **`Request()`**-Konstruktor erstellt ein neues {{domxref("Request")}}-Objekt.
+Der **`Request()`** Konstruktor erstellt ein neues
+[`Request`](/de/docs/Web/API/Request)-Objekt.
 
 ## Syntax
 
@@ -21,19 +22,19 @@ new Request(input, options)
 
 - `input`
 
-  - : Bestimmt die Ressource, die Sie abrufen möchten. Dies kann entweder sein:
+  - : Definiert die Ressource, die Sie abrufen möchten. Dies kann entweder sein:
 
-    - Ein String, der die URL der Ressource enthält, die Sie abrufen möchten. Die URL kann relativ zur Basis-URL sein, die im Fensterkontext die {{domxref("Node.baseURI", "baseURI")}} des Dokuments oder {{domxref("WorkerGlobalScope.location")}} im Worker-Kontext ist.
-    - Ein {{domxref("Request")}}-Objekt, das effektiv eine Kopie erstellt. Beachten Sie die folgenden Verhaltensänderungen, um die Sicherheit beizubehalten, während es weniger wahrscheinlich ist, dass der Konstruktor Ausnahmen auslöst:
+    - Ein String, der die URL der Ressource enthält, die Sie abrufen möchten. Die URL kann relativ zur Basis-URL sein, die im Fensterkontext das [`baseURI`](/de/docs/Web/API/Node/baseURI) des Dokuments oder im Worker-Kontext [`WorkerGlobalScope.location`](/de/docs/Web/API/WorkerGlobalScope/location) ist.
+    - Ein [`Request`](/de/docs/Web/API/Request)-Objekt, das effektiv eine Kopie erstellt. Beachten Sie die folgenden Verhaltensänderungen, um die Sicherheit zu erhalten, während der Konstruktor weniger wahrscheinlich Ausnahmen auslöst:
 
-      - Wenn dieses Objekt von einem anderen Ursprung als der Konstruktoraufruf stammt, wird der {{domxref("Request.referrer")}} entfernt.
-      - Wenn dieses Objekt einen {{domxref("Request.mode")}} von `navigate` hat, wird der `mode`-Wert in `same-origin` umgewandelt.
+      - Wenn dieses Objekt auf einem anderen Ursprung als dem des Konstruktorrufs existiert, wird der [`Request.referrer`](/de/docs/Web/API/Request/referrer) entfernt.
+      - Wenn dieses Objekt einen [`Request.mode`](/de/docs/Web/API/Request/mode) von `navigate` hat, wird der `mode`-Wert in `same-origin` umgewandelt.
 
 - `options` {{optional_inline}}
 
-  - : Ein {{domxref("RequestInit")}}-Objekt, das benutzerdefinierte Einstellungen enthält, die Sie auf die Anfrage anwenden möchten.
+  - : Ein [`RequestInit`](/de/docs/Web/API/RequestInit)-Objekt, das benutzerdefinierte Einstellungen enthält, die Sie auf die Anfrage anwenden möchten.
 
-    Wenn Sie einen neuen `Request` aus einem bestehenden `Request` erstellen, ersetzen alle Optionen, die Sie in einem _options_-Argument für den neuen Request festlegen, alle entsprechenden Optionen, die im ursprünglichen `Request` festgelegt wurden. Zum Beispiel:
+    Wenn Sie einen neuen `Request` aus einem bestehenden `Request` konstruieren, ersetzen alle Optionen, die Sie in einem _options_-Argument für die neue Anfrage festlegen, alle entsprechenden Optionen, die im ursprünglichen `Request` festgelegt wurden. Zum Beispiel:
 
     ```js
     const oldRequest = new Request(
@@ -61,7 +62,8 @@ new Request(input, options)
       <td><code>TypeError</code></td>
       <td>
         Seit <a href="/de/docs/Mozilla/Firefox/Releases/43">Firefox 43</a>
-        wirft <code>Request()</code> einen TypeError, wenn die URL Anmeldedaten enthält, wie z.B. http://user:password@example.com.
+        wird ein <code>Request()</code> einen TypeError auslösen, wenn die URL
+        Anmeldedaten enthält, wie z.B. http://user:password@example.com.
       </td>
     </tr>
   </tbody>
@@ -69,7 +71,7 @@ new Request(input, options)
 
 ## Beispiele
 
-In unserem [Fetch Request-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-request) (siehe [Fetch Request live](https://mdn.github.io/dom-examples/fetch/fetch-request/)) erstellen wir ein neues `Request`-Objekt mit dem Konstruktor und rufen es dann mit einem {{domxref("Window/fetch", "fetch()")}}-Aufruf ab. Da wir ein Bild abrufen, führen wir {{domxref("Response.blob")}} für die Antwort aus, um ihr den richtigen MIME-Typ zu geben, damit sie ordnungsgemäß behandelt wird, erstellen dann eine Objekt-URL davon und zeigen sie in einem {{htmlelement("img")}}-Element an.
+In unserem [Fetch Request Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-request) (siehe [Fetch Request live](https://mdn.github.io/dom-examples/fetch/fetch-request/)) erstellen wir ein neues `Request`-Objekt mit dem Konstruktor und rufen es dann mit einem [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf ab. Da wir ein Bild abrufen, verwenden wir [`Response.blob`](/de/docs/Web/API/Response/blob) auf der Antwort, um ihr den richtigen MIME-Typ zu geben, damit es korrekt behandelt wird, dann erstellen wir eine Objekt-URL und zeigen es in einem {{htmlelement("img")}}-Element an.
 
 ```js
 const myImage = document.querySelector("img");
@@ -83,20 +85,20 @@ fetch(myRequest)
   });
 ```
 
-In unserem [Fetch Request mit Init-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-request-with-init) (siehe [Fetch Request init live](https://mdn.github.io/dom-examples/fetch/fetch-request-with-init/)) tun wir dasselbe, außer dass wir ein _options_-Objekt übergeben, wenn wir `fetch()` aufrufen. In diesem Fall können wir einen {{httpheader("Cache-Control")}}-Wert festlegen, um anzugeben, welche Art von zwischengespeicherten Antworten für uns akzeptabel sind:
+In unserem [Fetch Request mit init Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-request-with-init) (siehe [Fetch Request init live](https://mdn.github.io/dom-examples/fetch/fetch-request-with-init/)) tun wir dasselbe, außer dass wir ein _options_-Objekt übergeben, wenn wir `fetch()` aufrufen. In diesem Fall können wir einen {{httpheader("Cache-Control")}}-Wert setzen, um anzugeben, welche Art von zwischengespeicherten Antworten wir akzeptieren:
 
 ```js
 const myImage = document.querySelector("img");
 const reqHeaders = new Headers();
 
-// Eine zwischengespeicherte Antwort ist in Ordnung, es sei denn, sie ist älter als eine Woche.
+// A cached response is okay unless it's more than a week old.
 reqHeaders.set("Cache-Control", "max-age=604800");
 
 const options = {
   headers: reqHeaders,
 };
 
-// übergeben Sie init als "options"-Objekt mit unseren Headern
+// pass init as an "options" object with our headers
 const req = new Request("flowers.jpg", options);
 
 fetch(req).then((response) => {
@@ -104,7 +106,7 @@ fetch(req).then((response) => {
 });
 ```
 
-Beachten Sie, dass Sie `options` auch in den `fetch`-Aufruf eingeben könnten, um denselben Effekt zu erzielen, zum Beispiel:
+Beachten Sie, dass Sie `options` auch in den `fetch`-Aufruf einfügen könnten, um den gleichen Effekt zu erzielen, z.B.:
 
 ```js
 fetch(req, options).then((response) => {
@@ -112,7 +114,7 @@ fetch(req, options).then((response) => {
 });
 ```
 
-Sie können auch ein Objekt-Literal als `headers` in `options` verwenden.
+Sie können auch ein Objektliteral als `headers` in `options` verwenden.
 
 ```js
 const options = {
@@ -124,20 +126,20 @@ const options = {
 const req = new Request("flowers.jpg", options);
 ```
 
-Sie können auch ein {{domxref("Request")}}-Objekt an den `Request()`-Konstruktor übergeben, um eine Kopie der Anforderung zu erstellen (Dies ist ähnlich dem Aufruf der {{domxref("Request.clone","clone()")}}-Methode.)
+Sie können auch ein [`Request`](/de/docs/Web/API/Request)-Objekt an den `Request()`-Konstruktor übergeben, um eine Kopie des Request zu erstellen (Dies ähnelt dem Aufruf der [`clone()`](/de/docs/Web/API/Request/clone)-Methode).
 
 ```js
 const copy = new Request(req);
 ```
 
 > [!NOTE]
-> Diese letzte Verwendung ist wahrscheinlich nur in [ServiceWorkers](/de/docs/Web/API/Service_Worker_API) nützlich.
+> Diese letzte Verwendung ist wahrscheinlich nur in [ServiceWorkern](/de/docs/Web/API/Service_Worker_API) nützlich.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

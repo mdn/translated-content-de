@@ -1,5 +1,5 @@
 ---
-title: "Blob: size Eigenschaft"
+title: "Blob: size-Eigenschaft"
 short-title: size
 slug: Web/API/Blob/size
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`size`** schreibgeschützte Eigenschaft des {{domxref("Blob")}}-Interfaces gibt die Größe des {{domxref("Blob")}} oder {{domxref("File")}} in Bytes zurück.
+Die schreibgeschützte **`size`**-Eigenschaft des [`Blob`](/de/docs/Web/API/Blob)-Interfaces gibt die Größe des [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File) in Bytes zurück.
 
 ## Wert
 
-Die Anzahl der Bytes der Daten, die innerhalb des `Blob` (oder eines auf `Blob` basierenden Objekts, wie z.B. einer {{domxref("File")}}) enthalten sind.
+Die Anzahl der Bytes der Daten, die im `Blob` (oder in einem auf `Blob` basierten Objekt wie einer [`File`](/de/docs/Web/API/File)) enthalten sind.
 
 ## Beispiele
 
-Dieses Beispiel verwendet ein {{HTMLElement("input")}} Element vom Typ `file`, um den Benutzer nach einer Gruppe von Dateien zu fragen, und iteriert dann über diese Dateien, indem es ihre Namen und Längen in Bytes ausgibt.
+Dieses Beispiel verwendet ein {{HTMLElement("input")}}-Element vom Typ `file`, um den Benutzer nach einer Gruppe von Dateien zu fragen. Anschließend iteriert es über diese Dateien und gibt ihre Namen und Längen in Bytes aus.
 
 ### HTML
 
@@ -61,5 +61,5 @@ input.addEventListener("change", (event) => {
 
 ## Siehe auch
 
-- {{domxref("Blob")}}
-- [Verwenden von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)
+- [`Blob`](/de/docs/Web/API/Blob)
+- [Verwenden von Dateien aus Web-Anwendungen](/de/docs/Web/API/File_API/Using_files_from_web_applications)

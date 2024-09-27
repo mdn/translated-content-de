@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Wenn das iframe und das übergeordnete Dokument des iframes [Same Origin](/de/docs/Web/Security/Same-origin_policy) sind, wird ein [`Document`](/de/docs/Web/API/Document) zurückgegeben (also das aktive Dokument im eingebetteten Browsing-Kontext des Inline-Frames), andernfalls wird `null` zurückgegeben.
+Wenn das `iframe`-Element und das übergeordnete Dokument des `iframe` [Same Origin](/de/docs/Web/Security/Same-origin_policy) sind, wird ein [`Document`](/de/docs/Web/API/Document) zurückgegeben (das heißt, das aktive Dokument im verschachtelten Browsing-Kontext des Inline-Frames), andernfalls wird `null` zurückgegeben.
 
 ## Beispiel für contentDocument
 
@@ -16,7 +16,7 @@ Wenn das iframe und das übergeordnete Dokument des iframes [Same Origin](/de/do
 const iframeDocument = document.querySelector("iframe").contentDocument;
 
 iframeDocument.body.style.backgroundColor = "blue";
-// Dies würde das iframe blau färben.
+// This would turn the iframe blue.
 ```
 
 ## Spezifikationen

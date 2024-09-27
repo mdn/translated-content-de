@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Verbirgt die Page-Action für einen gegebenen Tab.
+Blendet die Page-Action für einen bestimmten Tab aus.
 
-`hide()` überschreibt die Mustererkennung, sodass die Page-Action im angegebenen Tab nicht angezeigt wird, selbst wenn die URL durch [`show_matches`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) übereinstimmt.
+`hide()` überschreibt das Musterabgleich-Verhalten, sodass die Page-Action im angegebenen Tab nicht angezeigt wird, selbst wenn seine URL mit [`show_matches`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) übereinstimmt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ browser.pageAction.hide(
 ### Parameter
 
 - `tabId`
-  - : `integer`. Die ID des Tabs, für den Sie die Page-Action verbergen möchten.
+  - : `Integer`. Die ID des Tabs, für den Sie die Page-Action ausblenden möchten.
 
 ## Browser-Kompatibilität
 
@@ -30,7 +30,7 @@ browser.pageAction.hide(
 
 ## Beispiele
 
-Verbergen Sie die Page-Action für den aktuellen Tab, wenn der Benutzer darauf klickt:
+Blenden Sie die Page-Action für den aktuellen Tab aus, wenn der Benutzer darauf klickt:
 
 ```js
 browser.pageAction.onClicked.addListener((tab) => {
@@ -41,7 +41,7 @@ browser.pageAction.onClicked.addListener((tab) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-hide) API von Chromium. Diese Dokumentation leitet sich von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.pageAction`](https://developer.chrome.com/docs/extensions/mv2/reference/pageAction#method-hide) API von Chromium. Diese Dokumentation ist abgeleitet von [`page_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/page_action.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

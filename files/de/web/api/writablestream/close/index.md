@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`close()`**-Methode der {{domxref("WritableStream")}}-Schnittstelle schließt den zugehörigen Stream. Alle Datenblöcke, die vor dem Aufruf dieser Methode geschrieben wurden, werden gesendet, bevor das zurückgegebene Promise erfüllt wird.
+Die **`close()`**-Methode des [`WritableStream`](/de/docs/Web/API/WritableStream)-Interfaces schließt den zugehörigen Stream. Alle vor dem Aufruf dieser Methode geschriebenen Chunks werden gesendet, bevor das zurückgegebene Promise erfüllt wird.
 
-Dies entspricht dem Abrufen eines {{domxref("WritableStreamDefaultWriter")}} mit {{domxref("WritableStream.getWriter()", "getWriter()")}} und dem Aufruf von {{domxref("WritableStreamDefaultWriter.close()", "close()")}} darauf.
+Dies ist gleichbedeutend mit dem Abrufen eines [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) mit [`getWriter()`](/de/docs/Web/API/WritableStream/getWriter) und dem Aufruf von [`close()`](/de/docs/Web/API/WritableStreamDefaultWriter/close) darauf.
 
 ## Syntax
 
@@ -24,16 +24,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird, wenn alle verbleibenden Datenblöcke erfolgreich vor dem Schließen geschrieben wurden, oder mit einem Fehler abgelehnt wird, wenn während des Prozesses ein Problem auftrat.
+Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird, wenn alle verbleibenden Chunks erfolgreich vor dem Schließen geschrieben wurden, oder mit einem Fehler abgelehnt wird, wenn während des Prozesses ein Problem aufgetreten ist.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Der Stream, den Sie schließen möchten, ist gesperrt.
+  - : Der Stream, den Sie zu schließen versuchen, ist gesperrt.
 
 ## Beispiele
 
-Das folgende Beispiel veranschaulicht mehrere Funktionen des `WritableStream`. Es zeigt die Erstellung des `WritableStream` mit einem benutzerdefinierten Sink und einer API-bereitgestellten Warteschlangenstrategie. Anschließend wird eine Funktion namens `sendMessage()` aufgerufen, die den neu erstellten Stream und einen String übergibt. Innerhalb dieser Funktion wird die `getWriter()`-Methode des Streams aufgerufen, die eine Instanz von {{domxref("WritableStreamDefaultWriter")}} zurückgibt. Ein `forEach()`-Aufruf wird verwendet, um jeden Datenblock des Strings in den Stream zu schreiben. Schließlich geben `write()` und `close()` Promises zurück, die verarbeitet werden, um den Erfolg oder das Scheitern von Datenblöcken und Streams zu behandeln. Beachten Sie, dass der Writer abgekoppelt werden muss, bevor `close()` direkt am Stream aufgerufen werden kann, indem `defaultWriter.releaseLock();` verwendet wird.
+Das folgende Beispiel veranschaulicht mehrere Merkmale des `WritableStream`. Es zeigt die Erstellung des `WritableStream` mit einer benutzerdefinierten Senke und einer von der API bereitgestellten Warteschlangenstrategie. Dann wird eine Funktion namens `sendMessage()` aufgerufen, die den neu erstellten Stream und einen String übergibt. Innerhalb dieser Funktion wird die `getWriter()`-Methode des Streams aufgerufen, die eine Instanz von [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter) zurückgibt. Ein `forEach()`-Aufruf wird verwendet, um jeden Chunk des Strings an den Stream zu schreiben. Schließlich geben `write()` und `close()` Promises zurück, die verarbeitet werden, um mit Erfolg oder Misserfolg von Chunks und Streams umzugehen. Beachten Sie, dass der Writer getrennt werden muss, um `close()` direkt für den Stream aufrufen zu können, mit `defaultWriter.releaseLock();`.
 
 ```html hidden
 <ul id="log"></ul>
@@ -50,7 +50,7 @@ function log(message) {
 
 ```js
 function sendMessage(message, writableStream) {
-  // defaultWriter ist vom Typ WritableStreamDefaultWriter
+  // defaultWriter is of type WritableStreamDefaultWriter
   const defaultWriter = writableStream.getWriter();
   const encoder = new TextEncoder();
   const encoded = encoder.encode(message, { stream: true });

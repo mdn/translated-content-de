@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Für einen Computer, der mit einem Netzwerk verbunden und mit einer {{Glossary("IP address")}} ausgestattet ist, ist ein **Port** ein Kommunikationsendpunkt. Ports werden durch Nummern bezeichnet, und unterhalb von 1024 ist jedem Port standardmäßig ein spezifisches {{Glossary("protocol")}} zugeordnet.
+Für einen Computer, der mit einem Netzwerk mit einer [IP-Adresse](/de/docs/Glossary/IP_address) verbunden ist, ist ein **Port** ein Kommunikationsendpunkt. Ports werden durch Nummern bezeichnet, und unterhalb von 1024 ist jeder Port standardmäßig mit einem bestimmten [Protokoll](/de/docs/Glossary/protocol) verbunden.
 
-Zum Beispiel ist der Standardport für das {{Glossary("HTTP")}}-Protokoll 80 und der Standardport für das HTTPS-Protokoll 443, sodass ein {{Glossary("HTTP")}}-Server auf diesen Ports auf Anfragen wartet. Jedem Internetprotokoll ist ein Standardport zugeordnet: {{Glossary("SMTP")}} (25), {{Glossary("POP")}} (110), {{Glossary("IMAP")}} (143), {{Glossary("IRC")}} (194) und so weiter.
+Zum Beispiel ist der Standard-Port für das [HTTP](/de/docs/Glossary/HTTP)-Protokoll 80 und der Standard-Port für das HTTPS-Protokoll 443, sodass ein [HTTP](/de/docs/Glossary/HTTP)-Server auf diesen Ports auf Anfragen wartet. Jedes Internetprotokoll ist mit einem Standard-Port verbunden: [SMTP](/de/docs/Glossary/SMTP) (25), [POP](/de/docs/Glossary/POP) (110), [IMAP](/de/docs/Glossary/IMAP) (143), [IRC](/de/docs/Glossary/IRC) (194), und so weiter.
 
 ## Siehe auch
 

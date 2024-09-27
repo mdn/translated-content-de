@@ -8,27 +8,27 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die **`target`**-Eigenschaft der {{domxref("KeyframeEffect")}}-Schnittstelle repräsentiert das Element oder Pseudo-Element, das animiert wird. Sie kann `null` sein für Animationen, die sich nicht auf ein spezifisches Element beziehen. Sie fungiert sowohl als Getter als auch als Setter, mit Ausnahme von Animationen und Übergängen, die durch CSS generiert werden.
+Die **`target`**-Eigenschaft der [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Schnittstelle repräsentiert das Element oder Pseudo-Element, das animiert wird. Sie kann `null` für Animationen sein, die kein spezifisches Element ansprechen. Sie funktioniert sowohl als Getter als auch als Setter, außer bei Animationen und Übergängen, die durch CSS erzeugt werden.
 
 ## Wert
 
-Ein {{domxref("Element")}} oder `null`.
+Ein [`Element`](/de/docs/Web/API/Element) oder `null`.
 
 ## Beispiele
 
 Im folgenden Beispiel wurde `emoji` als `target`-Element festgelegt, das animiert werden soll:
 
 ```js
-const emoji = document.querySelector("div"); // Element zum Animieren
+const emoji = document.querySelector("div"); // element to animate
 
 const rollingKeyframes = new KeyframeEffect(
   emoji,
   [
-    { transform: "translateX(0) rotate(0)" }, // Keyframe
-    { transform: "translateX(200px) rotate(1.3turn)" }, // Keyframe
+    { transform: "translateX(0) rotate(0)" }, // keyframe
+    { transform: "translateX(200px) rotate(1.3turn)" }, // keyframe
   ],
   {
-    // Keyframe-Optionen
+    // keyframe options
     duration: 2000,
     direction: "alternate",
     easing: "ease-in-out",
@@ -39,7 +39,7 @@ const rollingKeyframes = new KeyframeEffect(
 const rollingAnimation = new Animation(rollingKeyframes, document.timeline);
 rollingAnimation.play();
 
-// gibt "<div>🤣</div>" aus
+// logs "<div>🤣</div>"
 console.log(rollingKeyframes.target);
 ```
 
@@ -74,4 +74,4 @@ div {
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- Eigenschaft von {{domxref("KeyframeEffect")}}-Objekten.
+- Eigenschaft von [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Objekten.

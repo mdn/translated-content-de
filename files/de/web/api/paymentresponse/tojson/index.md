@@ -8,7 +8,7 @@ l10n:
 
 {{SecureContext_Header}}{{APIRef("Payment Request API")}}
 
-Die **`toJSON()`**-Methode der {{domxref("PaymentResponse")}}-Schnittstelle ist ein {{Glossary("Serialization","Serializer")}}; sie gibt eine JSON-Darstellung des {{domxref("PaymentResponse")}}-Objekts zurück.
+Die **`toJSON()`**-Methode des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Interfaces ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekts zurück.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des {{domxref("PaymentResponse")}}-Objekts darstellt.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekts darstellt.
 
 ## Beispiele
 
@@ -37,7 +37,7 @@ payment.show().then((paymentResponse) => {
 });
 ```
 
-Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(paymentResponse)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; dies wird `toJSON()` automatisch aufrufen.
+Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(paymentResponse)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; dies ruft `toJSON()` automatisch auf.
 
 ## Spezifikationen
 

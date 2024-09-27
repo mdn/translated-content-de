@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**NAT** (Network Address Translation) ist eine Technik, die es mehreren Computern ermöglicht, eine IP-Adresse zu teilen. NAT weist jedem Computer im lokalen Netzwerk eindeutige Adressen zu und passt den ein- und ausgehenden Netzwerkverkehr an, um die Daten an den richtigen Ort zu senden.
+**NAT** (Network Address Translation) ist eine Technik, die es ermöglicht, dass mehrere Computer eine IP-Adresse teilen. NAT weist jedem Computer im lokalen Netzwerk eindeutige Adressen zu und passt den eingehenden/ausgehenden Netzwerkverkehr an, um Daten an den richtigen Ort zu senden.
 
 ## Siehe auch
 
 - [WebRTC-Protokolle](/de/docs/Web/API/WebRTC_API/Protocols)
-- [Network Address Translation](https://en.wikipedia.org/wiki/Network_address_translation) auf Wikipedia
+- [Network address translation](https://en.wikipedia.org/wiki/Network_address_translation) auf Wikipedia

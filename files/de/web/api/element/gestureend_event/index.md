@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}{{Non-standard_header}}
 
-Das **`gestureend`**-Ereignis wird ausgelöst, wenn keine mehreren Finger mehr die Touch-Oberfläche berühren und die Geste somit endet.
+Das **`gestureend`**-Ereignis wird ausgelöst, wenn keine mehreren Finger mehr die Touch-Oberfläche berühren und somit die Geste beendet wird.
 
-Es handelt sich um ein proprietäres Ereignis, das spezifisch für WebKit ist.
+Es ist ein proprietäres Ereignis, das spezifisch für WebKit ist.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("gestureend", (event) => {});
@@ -24,24 +24,24 @@ ongestureend = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("GestureEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`GestureEvent`](/de/docs/Web/API/GestureEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("GestureEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, {{domxref("UIEvent")}} und {{domxref("Event")}}._
+_Dieses Interface erbt auch Eigenschaften seiner Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("GestureEvent.rotation")}} {{ReadOnlyInline}}
-  - : Änderung der Drehung (in Grad) seit Beginn des Ereignisses. Positive Werte weisen auf eine Drehung im Uhrzeigersinn hin; negative Werte auf eine Drehung gegen den Uhrzeigersinn. Anfangswert: `0.0`.
-- {{domxref("GestureEvent.scale")}} {{ReadOnlyInline}}
-  - : Entfernung zwischen zwei Fingern seit Beginn des Ereignisses. Ausgedrückt als Gleitkomma-Vielfaches der anfänglichen Entfernung zwischen den Fingern zu Beginn der Geste. Werte unter 1,0 deuten auf ein Kneifen nach innen (Herauszoomen) hin. Werte über 1,0 deuten auf ein Auseinanderziehen (Hineinzoomen) hin. Anfangswert: `1.0`.
+- [`GestureEvent.rotation`](/de/docs/Web/API/GestureEvent/rotation) {{ReadOnlyInline}}
+  - : Änderung in der Rotation (in Grad) seit Beginn des Ereignisses. Positive Werte zeigen eine Drehung im Uhrzeigersinn an; negative Werte zeigen eine Drehung gegen den Uhrzeigersinn an. Anfangswert: `0.0`.
+- [`GestureEvent.scale`](/de/docs/Web/API/GestureEvent/scale) {{ReadOnlyInline}}
+  - : Abstand zwischen zwei Fingern seit dem Beginn des Ereignisses. Ausgedrückt als Gleitkommazahl, die das Vielfache des ursprünglichen Abstands zwischen den Fingern zu Beginn der Geste angibt. Werte unter 1.0 zeigen ein Heranzoomen (Verkleinern) an. Werte über 1.0 zeigen ein Herauszoomen (Vergrößern) an. Anfangswert: `1.0`.
 
 ## Spezifikationen
 
-Kein Bestandteil einer Spezifikation.
+Nicht Teil einer Spezifikation.
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

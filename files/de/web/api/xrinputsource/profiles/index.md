@@ -1,6 +1,6 @@
 ---
 title: "XRInputSource: profiles-Eigenschaft"
-short-title: Profile
+short-title: profiles
 slug: Web/API/XRInputSource/profiles
 l10n:
   sourceCommit: e561fa67af347b9770b359ba93e8579d2a540682
@@ -8,29 +8,29 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte {{domxref("XRInputSource")}} Eigenschaft **`profiles`** gibt ein Array von Zeichenfolgen zurück, die jeweils ein Konfigurationsprofil für die Eingabequelle beschreiben. Die Profilzeichenfolgen sind in der Reihenfolge der Spezifität aufgelistet, wobei das spezifischste Profil zuerst aufgeführt wird.
+Die schreibgeschützte [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Eigenschaft **`profiles`** gibt ein Array von Zeichenfolgen zurück, die jeweils ein Konfigurationsprofil für die Eingabequelle beschreiben. Die Profilzeichenfolgen sind in der Reihenfolge der Spezifität aufgelistet, wobei das spezifischste Profil zuerst aufgeführt ist.
 
 > [!NOTE]
 > Die `profiles`-Liste ist immer leer, wenn die WebXR-Sitzung im Inline-Modus ist.
 
 ## Wert
 
-Ein Array von Zeichenfolgen, die jeweils ein Konfigurationsprofil für das durch das `XRInputSource`-Objekt dargestellte Eingabegerät beschreiben. Jedes Eingabeprofil gibt die bevorzugte visuelle Darstellung und das Verhalten der Eingabequelle an.
+Ein Array von Zeichenfolgen, die jeweils ein Konfigurationsprofil für das durch das `XRInputSource`-Objekt repräsentierte Eingabegerät beschreiben. Jedes Eingabeprofil spezifiziert die bevorzugte visuelle Darstellung und das Verhalten der Eingabequelle.
 
-### Namen der Eingabeprofile
+### Eingabeprofilnamen
 
-Ein Eingabeprofilname ist eine Zeichenfolge, die eine visuelle Darstellung und das Verhalten beschreibt, die die Eingabequelle möglicherweise verwendet. Jede Zeichenfolge:
+Ein Eingabeprofilname ist eine Zeichenfolge, die eine visuelle Darstellung und das Verhalten beschreibt, die die Eingabequelle verwenden könnte. Jede Zeichenfolge:
 
-- Hat keine Leerzeichen; stattdessen werden Wörter durch Bindestriche ("-") getrennt
-- Falls verfügbar, können die USB-Hersteller- und Produkt-ID bereitgestellt werden, jedoch kann nicht darauf vertraut werden
-- Identifiziert nicht eindeutig ein bestimmtes Gerät; vielmehr identifiziert es eine Konfiguration, die das Produkt nutzen kann
-- Bietet keine Informationen über die Händigkeit des Geräts, falls zutreffend
+- Hat keine Leerzeichen; stattdessen sind Wörter durch Bindestrich ("-") Zeichen getrennt
+- Falls die Plattform es verfügbar macht, können die USB-Vendor- und Produkt-IDs bereitgestellt werden, können jedoch nicht darauf vertraut werden
+- Identifiziert kein spezifisches Gerät eindeutig; vielmehr identifiziert es eine Konfiguration, die das Produkt verwenden kann
+- Liefert keine Informationen über die Händigkeit des Geräts, falls zutreffend
 
-Das [WebXR Input Profiles Registry](https://github.com/immersive-web/webxr-input-profiles/tree/main/packages/registry) wird von Geräteentwicklern und Browserentwicklern verwendet, um sicherzustellen, dass ein bestimmtes Gerät die gleichen Profilzeichenfolgen meldet, unabhängig davon, welchen Browser oder anderen {{Glossary("user agent")}} Sie verwenden.
+Das [WebXR Input Profiles Registry](https://github.com/immersive-web/webxr-input-profiles/tree/main/packages/registry) wird von Geräteentwicklern und Browser-Entwicklern verwendet, um zu versuchen sicherzustellen, dass ein bestimmtes Gerät, unabhängig davon, welcher Browser oder welcher [Benutzeragent](/de/docs/Glossary/user_agent) verwendet wird, dieselben Profilzeichenfolgen meldet.
 
-### Generische Namen von Eingabeprofilen
+### Generische Eingabeprofilnamen
 
-Die folgenden Eingabeprofilnamen sind generisch und können als Rückfallebenen dienen, die die Geräte auf grobe Weise beschreiben.
+Die folgenden Eingabeprofilnamen sind generisch und können als Ersatz dienen, die die Geräte in groben Zügen beschreiben.
 
 - generic-button
 - generic-hand-select-grasp
@@ -49,9 +49,9 @@ Die folgenden Eingabeprofilnamen sind generisch und können als Rückfallebenen 
 
 ## Beispiele
 
-Die Liste in `profiles` ist in umgekehrter Spezifität geordnet; das heißt, die präziseste Beschreibung steht an erster Stelle, und die am wenigsten präzise Beschreibung steht an letzter Stelle. Der erste Eintrag in der Liste weist typischerweise auf das genaue Modell des Controllers hin oder auf ein kompatibles Modell.
+Die Liste in `profiles` ist in absteigender Spezifität geordnet; das heißt, die genaueste Beschreibung steht zuerst und die am wenigsten präzise Beschreibung zuletzt. Der erste Eintrag in der Liste ist typischerweise indikativ für das genaue Modell des Controllers oder eines Modells, mit dem der Controller kompatibel ist.
 
-Ein Beispiel: Eintrag 0 in `profiles` für einen Oculus Touch Controller ist `oculus-touch`. Der nächste Eintrag ist `generic-trigger-squeeze-thumbstick`, was auf ein generisches Gerät mit einem Abzug, einer Squeeze-Steuerung und einem Daumenstick hinweist. Obwohl der Oculus Touch Controller tatsächlich ein Daumenpad anstelle eines Daumensticks hat, ist die Gesamtdarstellung "ausreichend genau", sodass die Details innerhalb des zugehörigen Profils es dem Controller ermöglichen, nützlich interpretiert zu werden.
+Beispielsweise ist Eintrag 0 in `profiles` für einen Oculus Touch Controller `oculus-touch`. Der nächste Eintrag ist `generic-trigger-squeeze-thumbstick`, was ein generisches Gerät mit einem Abzug, einer Drücksteuerung und einem Thumbstick darstellt. Obwohl der Oculus Touch Controller tatsächlich ein Thumbpad anstelle eines Thumbsticks hat, ist die Gesamtbeschreibung "nahe genug", dass die Details innerhalb des Profils, das den Namen übereinstimmt, dem Controller eine nützliche Interpretation ermöglichen.
 
 ```js
 inputSource.profiles;

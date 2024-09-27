@@ -1,5 +1,5 @@
 ---
-title: "Element: scrollIntoView()-Methode"
+title: "Element: scrollIntoView() Methode"
 short-title: scrollIntoView()
 slug: Web/API/Element/scrollIntoView
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`scrollIntoView()`**-Methode des {{domxref("Element")}}-Interfaces scrollt die Vorfahren-Container des Elements so, dass das Element, auf dem `scrollIntoView()` aufgerufen wird, für den Benutzer sichtbar ist.
+Die **`scrollIntoView()`** Methode der [`Element`](/de/docs/Web/API/Element) Schnittstelle scrollt die Vorfahren-Container des Elements, sodass das Element, auf dem `scrollIntoView()` aufgerufen wird, für den Benutzer sichtbar ist.
 
 ## Syntax
 
@@ -33,18 +33,16 @@ scrollIntoView(scrollIntoViewOptions)
   - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `behavior` {{optional_inline}}
-      - : Bestimmt, ob das Scrollen sofort erfolgt oder sanft animiert wird. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
-        - `smooth`: Das Scrollen sollte sanft animiert werden
-        - `instant`: Das Scrollen sollte sofort in einem Sprung erfolgen
+      - : Bestimmt, ob das Scrollen sofort oder mit einem sanften Übergang erfolgt. Diese Option ist ein String, der einen der folgenden Werte annehmen muss:
+        - `smooth`: Scrollen soll sanft animieren
+        - `instant`: Scrollen soll sofort in einem einzigen Sprung erfolgen
         - `auto`: Das Scrollverhalten wird durch den berechneten Wert von {{cssxref("scroll-behavior")}} bestimmt
     - `block` {{optional_inline}}
       - : Definiert die vertikale Ausrichtung.
-        Eine von `start`, `center`, `end` oder
-        `nearest`. Standardmäßig `start`.
+        Eine von `start`, `center`, `end` oder `nearest`. Standard ist `start`.
     - `inline` {{optional_inline}}
       - : Definiert die horizontale Ausrichtung.
-        Eine von `start`, `center`, `end` oder
-        `nearest`. Standardmäßig `nearest`.
+        Eine von `start`, `center`, `end` oder `nearest`. Standard ist `nearest`.
 
 ### Rückgabewert
 
@@ -63,9 +61,9 @@ element.scrollIntoView({ block: "end" });
 element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 ```
 
-### Steuerung der oberen/untenen Ausrichtung
+### Steuerung der oberen/unteren Ausrichtung
 
-Standardmäßig wird das Element an der oberen (oder unteren) Kante des scrollbaren Vorfahren ausgerichtet. Um einen individuellen Abstand zu definieren, verwenden Sie {{cssxref("scroll-margin-top")}} oder {{cssxref("scroll-margin-bottom")}}. Dies ist oft nützlich, wenn es eine feste Kopfzeile auf der Seite gibt.
+Standardmäßig wird das Element am oberen (oder unteren) Rand des scrollbaren Vorfahren ausgerichtet. Um einen benutzerdefinierten Abstand zu definieren, verwenden Sie {{cssxref("scroll-margin-top")}} oder {{cssxref("scroll-margin-bottom")}}. Dies ist oft nützlich, wenn es eine feste Kopfzeile auf der Seite gibt.
 
 #### HTML
 
@@ -73,8 +71,8 @@ Standardmäßig wird das Element an der oberen (oder unteren) Kante des scrollba
 <body>
   <header class="navbar">Navbar</header>
   <main class="content">
-    <button id="go-to-bottom">Zum Ende gehen</button>
-    <button id="go-to-top">Zum Anfang gehen</button>
+    <button id="go-to-bottom">Go to bottom</button>
+    <button id="go-to-top">Go to top</button>
   </main>
 </body>
 ```
@@ -98,8 +96,8 @@ Standardmäßig wird das Element an der oberen (oder unteren) Kante des scrollba
 #go-to-bottom {
   position: absolute;
   top: 10px;
-  /* Ohne dies wird der Button an der oberen Seite der Seite
-  statt am unteren Rand der Navbar beim Scrollen ausgerichtet */
+  /* Without this, the button will be aligned to the top of the page
+  instead of bottom of navbar when scrolled */
   scroll-margin-top: 60px;
 }
 #go-to-top {
@@ -136,4 +134,4 @@ goToTop.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("Element.scrollIntoViewIfNeeded()")}} {{non-standard_inline}}
+- [`Element.scrollIntoViewIfNeeded()`](/de/docs/Web/API/Element/scrollIntoViewIfNeeded) {{non-standard_inline}}

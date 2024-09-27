@@ -1,6 +1,6 @@
 ---
-title: "SpeechSynthesisUtterance: Fehlerereignis"
-short-title: Fehler
+title: "SpeechSynthesisUtterance: error-Ereignis"
+short-title: error
 slug: Web/API/SpeechSynthesisUtterance/error_event
 l10n:
   sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`error`**-Ereignis des [Web Speech API](/de/docs/Web/API/Web_Speech_API) {{domxref("SpeechSynthesisUtterance")}}-Objekts wird ausgelöst, wenn ein Fehler auftritt, der das erfolgreiche Aussprechen des Satzes verhindert.
+Das **`error`**-Ereignis des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekts der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn ein Fehler auftritt, der das erfolgreiche Sprechen der Äußerung verhindert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -22,24 +22,24 @@ onerror = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("SpeechSynthesisErrorEvent")}}. Erbt von {{domxref("SpeechSynthesisEvent")}} und {{domxref("Event")}}.
+Ein [`SpeechSynthesisErrorEvent`](/de/docs/Web/API/SpeechSynthesisErrorEvent). Erbt von [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("SpeechSynthesisErrorEvent")}}
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgelisteten Eigenschaften stehen auch die Eigenschaften der übergeordneten Schnittstelle, {{domxref("Event")}}, zur Verfügung._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref("SpeechSynthesisEvent.charIndex", "charIndex")}} {{ReadOnlyInline}}
-  - : Gibt die Indexposition des Zeichens in der {{domxref("SpeechSynthesisUtterance.text")}} zurück, das gesprochen wurde, als das Ereignis ausgelöst wurde.
-- {{domxref("SpeechSynthesisEvent.elapsedTime", "elapsedTime")}} {{ReadOnlyInline}}
-  - : Gibt die Zeitspanne in Sekunden zurück, die seit dem Beginn des Sprechens der {{domxref("SpeechSynthesisUtterance.text")}} vergangen ist, als das Ereignis ausgelöst wurde.
-- {{domxref("SpeechSynthesisErrorEvent.error", "error")}} {{ReadOnlyInline}}
-  - : Gibt einen Fehlercode zurück, der angibt, was bei einem Sprachsyntheseversuch schiefgelaufen ist.
-- {{domxref("SpeechSynthesisEvent.name", "name")}} {{ReadOnlyInline}}
-  - : Gibt den Namen zurück, der mit bestimmten Arten von Ereignissen verbunden ist, die während des Sprechens der {{domxref("SpeechSynthesisUtterance.text")}} auftreten: den Namen des [SSML](https://www.w3.org/TR/speech-synthesis/#S3.3.2)-Markers, der im Falle eines {{domxref("SpeechSynthesisUtterance.mark_event", "mark")}}-Ereignisses erreicht wurde, oder die Art der Grenze, die im Falle eines {{domxref("SpeechSynthesisUtterance.boundary_event", "boundary")}}-Ereignisses erreicht wurde.
-- {{domxref("SpeechSynthesisEvent.utterance", "utterance")}} {{ReadOnlyInline}}
-  - : Gibt die {{domxref("SpeechSynthesisUtterance")}}-Instanz zurück, auf der das Ereignis ausgelöst wurde.
+- [`charIndex`](/de/docs/Web/API/SpeechSynthesisEvent/charIndex) {{ReadOnlyInline}}
+  - : Gibt die Indexposition des Zeichens in [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zurück, das gesprochen wurde, als das Ereignis ausgelöst wurde.
+- [`elapsedTime`](/de/docs/Web/API/SpeechSynthesisEvent/elapsedTime) {{ReadOnlyInline}}
+  - : Gibt die vergangene Zeit in Sekunden zurück, nachdem [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) zu sprechen begonnen wurde, als das Ereignis ausgelöst wurde.
+- [`error`](/de/docs/Web/API/SpeechSynthesisErrorEvent/error) {{ReadOnlyInline}}
+  - : Gibt einen Fehlercode zurück, der angibt, was bei einem Sprachsyntheseversuch schiefgegangen ist.
+- [`name`](/de/docs/Web/API/SpeechSynthesisEvent/name) {{ReadOnlyInline}}
+  - : Gibt den Namen zurück, der mit bestimmten Arten von Ereignissen verbunden ist, die auftreten, während [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) gesprochen wird: den Namen des [SSML](https://www.w3.org/TR/speech-synthesis/#S3.3.2)-Markers, der im Falle eines [`mark`](/de/docs/Web/API/SpeechSynthesisUtterance/mark_event)-Ereignisses erreicht wurde, oder die Art der Grenze, die im Falle eines [`boundary`](/de/docs/Web/API/SpeechSynthesisUtterance/boundary_event)-Ereignisses erreicht wurde.
+- [`utterance`](/de/docs/Web/API/SpeechSynthesisEvent/utterance) {{ReadOnlyInline}}
+  - : Gibt die [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Instanz zurück, bei der das Ereignis ausgelöst wurde.
 
 ## Beispiele
 
@@ -53,7 +53,7 @@ utterThis.addEventListener("error", (event) => {
 });
 ```
 
-Oder Sie verwenden die `onerror`-Ereignishandler-Eigenschaft:
+Oder die `onerror`-Ereignishandler-Eigenschaft verwenden:
 
 ```js
 utterThis.onerror = (event) => {

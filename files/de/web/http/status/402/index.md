@@ -1,5 +1,5 @@
 ---
-title: 402 Zahlung erforderlich
+title: 402 Payment Required
 slug: Web/HTTP/Status/402
 l10n:
   sourceCommit: ba53fe04589c36a2210d7549c003f3016093ef8e
@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`402 Payment Required`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) ist ein **nicht standardmäßiger** Antwortstatuscode, der für zukünftige Verwendung reserviert ist.
+Der HTTP-Statuscode **`402 Payment Required`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) ist ein **nichtstandardmäßiger** Antwortstatuscode, der für die zukünftige Verwendung reserviert ist.
 
-Dieser Statuscode wurde erstellt, um digitale Geld- oder (Mikro-) Zahlungssysteme zu ermöglichen. Er würde anzeigen, dass der angeforderte Inhalt erst verfügbar ist, wenn der Client eine Zahlung durchgeführt hat. Es gibt keine standardmäßige Nutzungsvereinbarung, und verschiedene Systeme verwenden ihn in unterschiedlichen Kontexten.
+Dieser Statuscode wurde erstellt, um digitale Zahlungsmittel oder (Mikro-) Zahlungssysteme zu ermöglichen und würde anzeigen, dass angeforderte Inhalte erst nach einer Zahlung des Clients verfügbar sind. Es gibt keine standardmäßige Verwendungskonvention, und verschiedene Systeme verwenden ihn in unterschiedlichen Kontexten.
 
 ## Status
 
@@ -19,9 +19,10 @@ Dieser Statuscode wurde erstellt, um digitale Geld- oder (Mikro-) Zahlungssystem
 
 ## Beispiele
 
-### Fehler bei der Zahlungsschnittstelle
+### Fehler bei der Payment-API
 
-Einige Zahlungsschnittstellen verwenden die 402-Antwort als allgemeinen Auffangmechanismus für fehlgeschlagene Zahlungsanforderungen. Das folgende Beispiel versucht, einen Aufruf einer Zahlungsschnittstelle mit einer POST-Anfrage zur Einleitung einer Transaktion zu machen:
+Einige Payment-APIs verwenden die 402-Antwort als generische Auffanglösung für fehlgeschlagene Zahlungsanfragen.
+Im folgenden Beispiel wird versucht, über eine POST-Anfrage einen Aufruf an eine Payment-API zu machen, um eine Transaktion zu initiieren:
 
 ```http
 POST /merchant/transfers/payment HTTP/1.1
@@ -51,7 +52,7 @@ Content-Length: 402
 }
 ```
 
-Der Server antwortet auf die Anfrage mit einem 402, wenn es ein Problem mit der Transaktion gibt, in diesem Fall ist die Karte abgelaufen:
+Der Server antwortet auf die Anfrage mit einer 402, wenn es ein Problem mit der Transaktion gibt, in diesem Fall ist die Karte abgelaufen:
 
 ```http
 HTTP/1.1 402 Payment Required
@@ -72,11 +73,11 @@ Content-Length: 175
 
 {{Specifications}}
 
-## Kompatibilitätshinweise
+## Kompatibilitätsnotizen
 
-Dieser Statuscode ist _reserviert_, aber nicht definiert. Tatsächliche Implementierungen variieren im Format und Inhalt der Antwort. Kein Browser unterstützt einen 402, und der Fehler wird als generischer `4xx` Statuscode angezeigt.
+Dieser Statuscode ist _reserviert_, aber nicht definiert. Tatsächliche Implementierungen variieren im Format und Inhalt der Antwort. Kein Browser unterstützt eine 402, und ein Fehler wird als generischer `4xx`-Statuscode angezeigt.
 
 ## Siehe auch
 
-- [HTTP-Statuscodes](/de/docs/Web/HTTP/Status)
+- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
 - [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication)

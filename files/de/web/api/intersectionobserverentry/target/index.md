@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die schreibgeschützte **`target`**-Eigenschaft des {{domxref("IntersectionObserverEntry")}}-Interfaces gibt an, welches gezielte {{domxref("Element")}} seinen Grad der Überschneidung mit der Überschneidungswurzel geändert hat.
+Die schreibgeschützte **`target`**-Eigenschaft des [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Interfaces gibt an, welches angezielte [`Element`](/de/docs/Web/API/Element) seine Menge der Schnittmenge mit der Beobachtungswurzel geändert hat.
 
 ## Wert
 
-Die `target`-Eigenschaft des `IntersectionObserverEntry` spezifiziert, welches {{domxref("Element")}}, das zuvor durch Aufruf von {{domxref("IntersectionObserver.observe()")}} anvisiert wurde, eine Änderung in der Überschneidung mit der Wurzel erfahren hat.
+Die `target`-Eigenschaft des `IntersectionObserverEntry` gibt an, welches [`Element`](/de/docs/Web/API/Element), das zuvor durch den Aufruf von [`IntersectionObserver.observe()`](/de/docs/Web/API/IntersectionObserver/observe) anvisiert wurde, eine Änderung in der Schnittmenge mit der Wurzel erfahren hat.
 
 ## Beispiele
 
-In diesem einfachen Beispiel wird die {{cssxref("opacity")}} jedes anvisierten Elements auf sein {{domxref("IntersectionObserverEntry.intersectionRatio", "intersectionRatio")}} gesetzt.
+In diesem einfachen Beispiel wird die {{cssxref("opacity")}} jedes angezielten Elements auf sein [`intersectionRatio`](/de/docs/Web/API/IntersectionObserverEntry/intersectionRatio) gesetzt.
 
 ```js
 function intersectionCallback(entries) {
@@ -26,12 +26,12 @@ function intersectionCallback(entries) {
 }
 ```
 
-Um ein konkreteres Beispiel zu sehen, schauen Sie sich den Abschnitt [Umgang mit Überschneidungsänderungen](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility#handling_intersection_changes) an.
+Um ein konkreteres Beispiel zu sehen, werfen Sie einen Blick auf [Umgang mit Schnittmengenänderungen](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility#handling_intersection_changes).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

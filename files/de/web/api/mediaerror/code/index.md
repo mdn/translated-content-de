@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`MediaError.code`** gibt einen numerischen Wert zurück, der die Art des Fehlers repräsentiert, der bei einem Mediaelement aufgetreten ist. Um eine Textzeichenfolge mit spezifischen Diagnoseinformationen zu erhalten, siehe {{domxref("MediaError.message")}}.
+Die schreibgeschützte Eigenschaft **`MediaError.code`** gibt einen numerischen Wert zurück, der die Art des Fehlers angibt, der bei einem Medien-Element aufgetreten ist. Um einen Textstring mit spezifischen Diagnoseinformationen zu erhalten, siehe [`MediaError.message`](/de/docs/Web/API/MediaError/message).
 
 ## Wert
 
-Ein numerischer Wert, der den allgemeinen Fehlertyp angibt, der aufgetreten ist. Die möglichen Werte sind unten beschrieben, in [Medien-Fehlercode-Konstanten](#medien-fehlercode-konstanten).
+Ein numerischer Wert, der den allgemeinen Fehlertyp angibt, der aufgetreten ist. Die möglichen Werte werden unten in den [Medienfehler-Codekonstanten](#medienfehler-codekonstanten) beschrieben.
 
-### Medien-Fehlercode-Konstanten
+### Medienfehler-Codekonstanten
 
 <table class="no-markdown">
   <thead>
@@ -29,34 +29,30 @@ Ein numerischer Wert, der den allgemeinen Fehlertyp angibt, der aufgetreten ist.
       <td><code>MEDIA_ERR_ABORTED</code></td>
       <td><code>1</code></td>
       <td>
-        Das Abrufen der zugehörigen Ressource wurde durch den Wunsch des
-        Benutzers abgebrochen.
+        Das Abrufen der zugehörigen Ressource wurde auf Wunsch des Nutzers
+        abgebrochen.
       </td>
     </tr>
     <tr>
       <td><code>MEDIA_ERR_NETWORK</code></td>
       <td><code>2</code></td>
       <td>
-        Es ist eine Art von Netzwerkfehler aufgetreten, der verhinderte, dass
-        die Medien erfolgreich abgerufen wurden, obwohl sie zuvor verfügbar
-        waren.
+        Eine Art von Netzwerkfehler trat auf, der das erfolgreiche Abrufen der Medien verhinderte, obwohl sie zuvor verfügbar waren.
       </td>
     </tr>
     <tr>
       <td><code>MEDIA_ERR_DECODE</code></td>
       <td><code>3</code></td>
       <td>
-        Obwohl zuvor festgestellt wurde, dass die Ressource nutzbar ist, trat
-        ein Fehler beim Versuch auf, die Medienressource zu dekodieren, was
-        zu einem Fehler führte.
+        Obwohl zuvor festgestellt wurde, dass sie nutzbar sind, trat beim Versuch, die Medienressource zu dekodieren, ein Fehler auf.
       </td>
     </tr>
     <tr>
       <td><code>MEDIA_ERR_SRC_NOT_SUPPORTED</code></td>
       <td><code>4</code></td>
       <td>
-        Die zugehörige Ressource oder das Medienanbieterobjekt (wie ein
-        {{domxref("MediaStream")}}) wurde als ungeeignet befunden.
+        Die zugehörige Ressource oder das Medienanbieter-Objekt (wie z.B. ein
+        [`MediaStream`](/de/docs/Web/API/MediaStream)) wurde als ungeeignet befunden.
       </td>
     </tr>
   </tbody>
@@ -64,24 +60,16 @@ Ein numerischer Wert, der den allgemeinen Fehlertyp angibt, der aufgetreten ist.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein {{HTMLElement("video")}}-Element, richtet einen Fehlerbehandler dafür ein und legt dann das [`src`](/de/docs/Web/HTML/Element/video#src)-Attribut des Elements auf die Videoressource fest, die im Element angezeigt werden soll. Der Fehlerbehandler gibt eine Nachricht aus
-
-```js
-const obj = document.createElement("video");
-obj.onerror = () => {
-  console.error(`Error with media: ${obj.error.code}`);
-};
-obj.src = "https://example.com/blahblah.mp4";
-```
+Dieses Beispiel erstellt ein {{HTMLElement("video")}}-Element, richtet einen Fehlerbehandler dafür ein und setzt dann das [`src`](/de/docs/Web/HTML/Element/video#src)-Attribut des Elements auf die Videoressource, die im Element angezeigt werden soll. Der Fehlerbehandler gibt eine Nachricht aus.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("MediaError")}}: Schnittstelle zur Definition der `MediaError.code`-Eigenschaft
+- [`MediaError`](/de/docs/Web/API/MediaError): Schnittstelle, die verwendet wird, um die `MediaError.code`-Eigenschaft zu definieren

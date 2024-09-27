@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("Location")}}
 
-Die **`toString()`**-{{Glossary("stringifier")}}-Methode der
-{{domxref("Location")}}-Schnittstelle gibt einen String zurück, der die
-gesamte URL enthält. Sie ist eine schreibgeschützte Version von {{domxref("Location.href")}}.
+Die **`toString()`** [Stringifizierer](/de/docs/Glossary/stringifier) Methode des
+[`Location`](/de/docs/Web/API/Location) Interfaces gibt einen String zurück, der die
+komplette URL enthält. Es ist eine schreibgeschützte Version von [`Location.href`](/de/docs/Web/API/Location/href).
 
 ## Syntax
 
@@ -29,8 +29,8 @@ Ein String, der die URL des Objekts darstellt.
 ## Beispiele
 
 ```js
-// Stellen Sie sich vor, dieser Code wird auf https://example.com/path?search#hash ausgeführt
-const result = window.location.toString(); // Gibt zurück: 'https://example.com/path?search#hash'
+// Let's imagine this code is executed on https://example.com/path?search#hash
+const result = window.location.toString(); // Returns: 'https://example.com/path?search#hash'
 ```
 
 ## Spezifikationen

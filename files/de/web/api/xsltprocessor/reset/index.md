@@ -1,5 +1,5 @@
 ---
-title: "XSLTProcessor: reset()-Methode"
+title: "XSLTProcessor: reset() Methode"
 short-title: reset()
 slug: Web/API/XSLTProcessor/reset
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XSLT")}}
 
-Die `reset()`-Methode der {{domxref("XSLTProcessor")}}-Schnittstelle entfernt alle Parameter (`<xsl:param>`) und das XSLT-Stylesheet aus dem Prozessor. Der `XSLTProcessor` befindet sich anschließend in seinem Ursprungszustand, in dem er erstellt wurde.
+Die `reset()` Methode der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor) Schnittstelle entfernt alle Parameter (`<xsl:param>`) und das XSLT-Stylesheet aus dem Prozessor. Der `XSLTProcessor` befindet sich dann wieder in seinem ursprünglichen Zustand, wie er bei der Erstellung war.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ### Verwendung von reset()
 
-Dieses Beispiel zeigt, wie die `reset()`-Methode es ermöglicht, dieselbe `XSLTProcessor`-Instanz für mehrere Transformationen mit unterschiedlichen Stylesheets wiederzuverwenden.
+Dieses Beispiel demonstriert, wie die `reset()` Methode es ermöglicht, dieselbe Instanz des `XSLTProcessor` für mehrere Transformationen mit unterschiedlichen Stylesheets wiederzuverwenden.
 
 #### HTML
 
@@ -85,15 +85,15 @@ const xsltDoc2 = parser.parseFromString(xsltString2, "application/xml");
 
 const xsltProcessor = new XSLTProcessor();
 
-// Importieren des ersten XSLT-Stylesheets und Transformieren des ersten XML
+// Import the first XSLT stylesheet and transform the first XML
 xsltProcessor.importStylesheet(xsltDoc1);
 let resultFragment = xsltProcessor.transformToFragment(xmlDoc1, document);
 document.getElementById("result").appendChild(resultFragment);
 
-// Zurücksetzen der XSLTProcessor-Instanz
+// Reset the XSLTProcessor instance
 xsltProcessor.reset();
 
-// Importieren des zweiten XSLT-Stylesheets und Transformieren des zweiten XML
+// Import the second XSLT stylesheet and transform the second XML
 xsltProcessor.importStylesheet(xsltDoc2);
 resultFragment = xsltProcessor.transformToFragment(xmlDoc2, document);
 document.getElementById("result").appendChild(document.createElement("hr"));
@@ -114,7 +114,7 @@ document.getElementById("result").appendChild(resultFragment);
 
 ## Siehe auch
 
-- {{domxref("XSLTProcessor.getParameter()")}}
-- {{domxref("XSLTProcessor.setParameter()")}}
-- {{domxref("XSLTProcessor.removeParameter()")}}
-- {{domxref("XSLTProcessor.clearParameters()")}}
+- [`XSLTProcessor.getParameter()`](/de/docs/Web/API/XSLTProcessor/getParameter)
+- [`XSLTProcessor.setParameter()`](/de/docs/Web/API/XSLTProcessor/setParameter)
+- [`XSLTProcessor.removeParameter()`](/de/docs/Web/API/XSLTProcessor/removeParameter)
+- [`XSLTProcessor.clearParameters()`](/de/docs/Web/API/XSLTProcessor/clearParameters)

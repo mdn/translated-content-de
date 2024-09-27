@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaHidden`**-Eigenschaft der {{domxref("ElementInternals")}}-Schnittstelle spiegelt den Wert des [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-hidden)-Attributs wider, welches angibt, ob das Element für eine Zugänglichkeits-API zugänglich ist.
+Die **`ariaHidden`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-hidden`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-hidden)-Attributs wider, welches anzeigt, ob das Element für eine Accessibility-API zugänglich ist.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken für ein benutzerdefiniertes Element zu definieren. Diese können von autorendefinierten Attributen überschrieben werden, aber es wird sichergestellt, dass die Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch vom Autor festgelegte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken beibehalten werden, sollte der Autor diese Attribute löschen oder sie gar nicht erst hinzufügen. Weitere Informationen finden Sie im [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"true"`
-  - : Das Element ist vor der Zugänglichkeits-API verborgen.
+  - : Das Element ist vor der Accessibility-API verborgen.
 - `"false"`
-  - : Das Element ist der Zugänglichkeits-API so ausgesetzt, als ob es gerendert würde.
+  - : Das Element ist der Accessibility-API so zugänglich, als ob es gerendert wäre.
 - `"undefined"`
-  - : Der verborgene Zustand des Elements wird vom User Agent basierend darauf bestimmt, ob es gerendert wird.
+  - : Der verborgene Zustand des Elements wird vom User Agent bestimmt, basierend darauf, ob es gerendert wird.
 
 ## Beispiele
 
@@ -36,6 +36,6 @@ this.internals_.ariaHidden = "true";
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

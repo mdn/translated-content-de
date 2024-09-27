@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`viewport`**-Eigenschaft der Schnittstelle {{domxref("XRSubImage")}} repräsentiert den {{domxref("XRViewport")}}, der beim Rendern des Teilbildes verwendet wird.
+Die schreibgeschützte **`viewport`**-Eigenschaft der [`XRSubImage`](/de/docs/Web/API/XRSubImage)-Schnittstelle repräsentiert den [`XRViewport`](/de/docs/Web/API/XRViewport), der beim Rendern des Teilbilds verwendet wird.
 
 ## Wert
 
-Ein {{domxref("XRViewport")}}.
+Ein [`XRViewport`](/de/docs/Web/API/XRViewport).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("XRViewport")}}
+- [`XRViewport`](/de/docs/Web/API/XRViewport)

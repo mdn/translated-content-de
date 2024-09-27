@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das **`flood-color`**-Attribut gibt an, welche Farbe verwendet werden soll, um die aktuelle Filter-Primitive-Subregion zu fluten.
+Das **`flood-color`** Attribut gibt an, welche Farbe verwendet werden soll, um die aktuelle Subregion der Filterprimitive zu fluten.
 
 > [!NOTE]
-> Als ein Präsentationsattribut kann `flood-color` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut kann `flood-color` als CSS-Eigenschaft verwendet werden.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -48,7 +48,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Verwendungsnotizen
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>

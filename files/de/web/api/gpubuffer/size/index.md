@@ -3,14 +3,14 @@ title: "GPUBuffer: size-Eigenschaft"
 short-title: size
 slug: Web/API/GPUBuffer/size
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`size`** des {{domxref("GPUBuffer")}}-Interfaces gibt die Länge der Speicherzuweisung des `GPUBuffer` in Bytes an.
+Die schreibgeschützte **`size`**-Eigenschaft der [`GPUBuffer`](/de/docs/Web/API/GPUBuffer)-Schnittstelle repräsentiert die Länge der Speicherzuweisung des `GPUBuffer` in Bytes.
 
-`size` wird über die `size`-Eigenschaft im Deskriptorobjekt festgelegt, das in den Ursprungsaufruf von {{domxref("GPUDevice.createBuffer()")}} übergeben wird.
+`size` wird über die `size`-Eigenschaft im Beschreibungsobjekt festgelegt, das beim ursprünglichen Aufruf von [`GPUDevice.createBuffer()`](/de/docs/Web/API/GPUDevice/createBuffer) übergeben wird.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Eine Zahl.
 ## Beispiele
 
 ```js
-// Definieren Sie die globale Puffergröße
+// Define global buffer size
 const BUFFER_SIZE = 1000;
 
 // ...

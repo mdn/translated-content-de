@@ -1,5 +1,5 @@
 ---
-title: Dateisystem-API
+title: File System API
 slug: Web/API/File_System_API
 l10n:
   sourceCommit: 0c3f18aca2c8a93d3982183f64bf7762c2c310b0
@@ -7,88 +7,88 @@ l10n:
 
 {{securecontext_header}}{{DefaultAPISidebar("File System API")}}{{AvailableInWorkers}}
 
-Die **Dateisystem-API** — mit Erweiterungen über die [**File System Access API**](https://wicg.github.io/file-system-access/) zum Zugriff auf Dateien im Dateisystem des Geräts — ermöglicht Lese-, Schreib- und Dateiverwaltungsfunktionen.
+Die **File System API** — mit Erweiterungen, die über die [**File System Access API**](https://wicg.github.io/file-system-access/) bereitgestellt werden, um auf Dateien im Dateisystem des Geräts zuzugreifen — ermöglicht Lesen, Schreiben und Dateiverwaltung.
 
 ## Konzepte und Nutzung
 
-Diese API ermöglicht die Interaktion mit Dateien auf einem lokalen Gerät des Nutzers oder auf einem vom Nutzer zugänglichen Netzwerk-Dateisystem. Die Kernfunktionen dieser API umfassen das Lesen von Dateien, das Schreiben oder Speichern von Dateien und den Zugriff auf die Verzeichnisstruktur.
+Diese API ermöglicht die Interaktion mit Dateien auf dem lokalen Gerät eines Benutzers oder auf einem für den Benutzer zugänglichen Netzwerkdateisystem. Die Kernfunktionalität dieser API umfasst das Lesen von Dateien, Schreiben oder Speichern von Dateien und den Zugriff auf die Verzeichnisstruktur.
 
-Die meiste Interaktion mit Dateien und Verzeichnissen erfolgt über Handles. Eine übergeordnete {{domxref('FileSystemHandle')}}-Klasse hilft dabei, zwei untergeordnete Klassen zu definieren: {{domxref('FileSystemFileHandle')}} und {{domxref('FileSystemDirectoryHandle')}}, für Dateien bzw. Verzeichnisse.
+Die meisten Interaktionen mit Dateien und Verzeichnissen erfolgen über Handles. Eine übergeordnete Klasse [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle) hilft dabei, zwei untergeordnete Klassen zu definieren: [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) und [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle) für Dateien bzw. Verzeichnisse.
 
-Die Handles repräsentieren eine Datei oder ein Verzeichnis auf dem System des Nutzers. Sie können zuerst auf sie zugreifen, indem Sie dem Nutzer einen Datei- oder Verzeichnisauswähler mit Methoden wie {{domxref('window.showOpenFilePicker()')}} und {{domxref('window.showDirectoryPicker()')}} zeigen. Sobald diese aufgerufen werden, erscheint der Dateiauswähler, und der Nutzer wählt entweder eine Datei oder ein Verzeichnis aus. Sobald dies erfolgreich geschieht, wird ein Handle zurückgegeben.
+Die Handles stellen eine Datei oder ein Verzeichnis auf dem System des Benutzers dar. Der Zugriff auf diese kann zunächst erreicht werden, indem dem Benutzer ein Datei- oder Verzeichnisauswahl-Dialog gezeigt wird, wobei Methoden wie [`window.showOpenFilePicker()`](/de/docs/Web/API/Window/showOpenFilePicker) und [`window.showDirectoryPicker()`](/de/docs/Web/API/Window/showDirectoryPicker) verwendet werden. Sobald diese aufgerufen werden, wird der Dateiauswahldialog angezeigt und der Benutzer wählt eine Datei oder ein Verzeichnis aus. Wenn dies erfolgreich geschieht, wird ein Handle zurückgegeben.
 
-Sie können auch über folgende Wege auf Datei-Handles zugreifen:
+Sie können auch auf Dateihandles über folgende Methoden zugreifen:
 
-- Die Methode {{domxref('DataTransferItem.getAsFileSystemHandle()')}} der {{domxref('HTML Drag and Drop API', '', '', 'nocode')}}.
+- Die Methode [`DataTransferItem.getAsFileSystemHandle()`](/de/docs/Web/API/DataTransferItem/getAsFileSystemHandle) der [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API).
 - Die [File Handling API](https://developer.chrome.com/docs/capabilities/web-apis/file-handling).
 
-Jedes Handle bietet seine eigene Funktionalität, und es gibt einige Unterschiede je nachdem, welches Sie verwenden (siehe den Abschnitt [Interfaces](#schnittstellen) für spezifische Details). Sie können dann auf die Dateidaten oder Informationen (einschließlich Unterelementen) des ausgewählten Verzeichnisses zugreifen. Diese API eröffnet neue Funktionalitäten, die dem Web bisher gefehlt haben. Dennoch wurde bei der Gestaltung der API höchstes Augenmerk auf die Sicherheit gelegt, und der Zugriff auf Datei-/Verzeichnisdaten ist nicht gestattet, es sei denn, der Nutzer erlaubt dies ausdrücklich (beachten Sie, dass dies nicht der Fall ist beim [origin-internen Dateisystem](#origin-internes_dateisystem), da dieses für den Nutzer nicht sichtbar ist).
+Jedes Handle bietet seine eigene Funktionalität und es gibt einige Unterschiede, je nachdem, welches Sie verwenden (Details finden Sie im Abschnitt [Interfaces](#schnittstellen)). Sie können dann auf Dateidaten oder Informationen (einschließlich untergeordneter Elemente) des ausgewählten Verzeichnisses zugreifen. Diese API eröffnet potenzielle Funktionen, die dem Web gefehlt haben. Trotzdem hatte das Sicherheitsdesign der API höchste Priorität, und der Zugriff auf Datei-/Verzeichnisedaten ist verboten, es sei denn der Benutzer erlaubt es ausdrücklich (beachten Sie, dass dies nicht für das [Origin private file system](#origin_privates_dateisystem) gilt, da es für den Benutzer nicht sichtbar ist).
 
 > [!NOTE]
-> Die verschiedenen Ausnahmen, die beim Verwenden der Features dieser API auftreten können, sind auf den relevanten Seiten aufgelistet, wie in der Spezifikation definiert. Die Situation wird jedoch durch die Interaktion der API mit dem zugrunde liegenden Betriebssystem komplexer. Es wurde ein Vorschlag gemacht, die [Fehlerzuordnungen in der Spezifikation aufzulisten](https://github.com/whatwg/fs/issues/57), welcher nützliche verwandte Informationen enthält.
+> Die verschiedenen Ausnahmen, die beim Verwenden der Funktionen dieser API ausgelöst werden können, werden auf den relevanten Seiten aufgelistet, wie in der Spezifikation definiert. Die Situation wird jedoch komplizierter durch die Interaktion der API mit dem zugrunde liegenden Betriebssystem. Ein Vorschlag wurde gemacht, um [die Fehlermapping in der Spezifikation aufzulisten](https://github.com/whatwg/fs/issues/57), was nützliche verwandte Informationen enthält.
 
 > [!NOTE]
-> Objekte, die auf {{domxref("FileSystemHandle")}} basieren, können auch in eine Instanz der {{domxref("IndexedDB API", "IndexedDB", "", "nocode")}} Datenbank serialisiert oder über {{domxref("window.postMessage", "postMessage()")}} übertragen werden.
+> Objekte basierend auf [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle) können auch in einer [IndexedDB](/de/docs/Web/API/IndexedDB_API) Datenbankinstanz serialisiert oder über [`postMessage()`](/de/docs/Web/API/Window/postMessage) übertragen werden.
 
-### Origin-internes Dateisystem
+### Origin privates Dateisystem
 
-Das origin-interne Dateisystem (OPFS) ist ein Speicherschnittpunkt, der als Teil der Dateisystem-API bereitgestellt wird und der Origin der Seite privat ist und nicht wie das reguläre Dateisystem für den Nutzer sichtbar ist. Es bietet Zugriff auf eine spezielle Art von Datei, die hochgradig für Leistung optimiert ist und direkten Schreibzugriff auf ihren Inhalt bietet.
+Das origin private file system (OPFS) ist ein Speicherelement, das im Rahmen der File System API bereitgestellt wird, welches der Herkunft der Seite zugeordnet ist und für den Benutzer nicht sichtbar ist wie das reguläre Dateisystem. Es bietet Zugriff auf eine spezielle Art von Datei, die hochgradig für Leistung optimiert ist und einen direkten Schreibzugriff auf deren Inhalt bietet.
 
-Lesen Sie unseren Artikel über das [origin-interne Dateisystem](/de/docs/Web/API/File_System_API/Origin_private_file_system) für Anleitungen zu seiner Verwendung.
+Lesen Sie unsere [Origin private file system](/de/docs/Web/API/File_System_API/Origin_private_file_system) für Anweisungen zur Nutzung.
 
 ### Dateien speichern
 
-- Im Falle der asynchronen Handles verwenden Sie die {{domxref('FileSystemWritableFileStream')}}-Schnittstelle. Sobald die Daten, die Sie speichern möchten, im Format eines {{domxref('Blob')}}, {{jsxref("String")}}-Objektes, String-Literals oder {{jsxref('ArrayBuffer', 'buffer')}} vorliegen, können Sie einen Stream öffnen und die Daten in eine Datei speichern. Dies kann die bestehende Datei oder eine neue Datei sein.
-- Im Fall des synchronen {{domxref('FileSystemSyncAccessHandle')}} schreiben Sie Änderungen an einer Datei mithilfe der {{domxref('FileSystemSyncAccessHandle.write', 'write()')}}-Methode. Optional können Sie auch {{domxref('FileSystemSyncAccessHandle.flush', 'flush()')}} aufrufen, wenn Sie die Änderungen zu einem bestimmten Zeitpunkt auf die Festplatte schreiben müssen (ansonsten überlassen Sie dies dem zugrunde liegenden Betriebssystem, welches dies nach eigenem Ermessen handhabt, was in den meisten Fällen in Ordnung sein sollte).
+- Im Fall von asynchronen Handles verwenden Sie das Interface [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream). Sobald die Daten, die Sie speichern möchten, im Format von [`Blob`](/de/docs/Web/API/Blob), {{jsxref("String")}}-Objekt, String-Literal oder {{jsxref('ArrayBuffer', 'buffer')}} vorliegen, können Sie einen Stream öffnen und die Daten in einer Datei speichern. Dies kann die bestehende Datei oder eine neue Datei sein.
+- Im Fall des synchronen [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) schreiben Sie Änderungen an einer Datei mit der Methode [`write()`](/de/docs/Web/API/FileSystemSyncAccessHandle/write). Sie können optional auch [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush) aufrufen, wenn die Änderungen zu einem bestimmten Zeitpunkt auf die Festplatte gespeichert werden sollen (ansonsten können Sie das zugrunde liegende Betriebssystem dies regeln lassen, was in den meisten Fällen akzeptabel sein sollte).
 
 ## Schnittstellen
 
-- {{domxref("FileSystemHandle")}}
-  - : Ein Objekt, das einen Datei- oder Verzeichniseintrag repräsentiert. Mehrere Handles können denselben Eintrag repräsentieren. Meistens arbeitet man nicht direkt mit `FileSystemHandle`, sondern mit seinen untergeordneten Schnittstellen {{domxref('FileSystemFileHandle')}} und {{domxref('FileSystemDirectoryHandle')}}.
-- {{domxref("FileSystemFileHandle")}}
-  - : Bietet ein Handle zu einem Dateisystemeintrag.
-- {{domxref("FileSystemDirectoryHandle")}}
-  - : Bietet ein Handle zu einem Verzeichniseintrag des Dateisystems.
-- {{domxref("FileSystemSyncAccessHandle")}}
-  - : Bietet ein synchrones Handle zu einem Dateisystemeintrag, das direkt auf einer einzigen Datei auf der Festplatte arbeitet. Die synchrone Natur der Datei-Lese- und Schreibvorgänge ermöglicht eine höhere Leistung für kritische Methoden in Kontexten, in denen asynchrone Operationen mit hohem Overhead verbunden sind, z.B. [WebAssembly](/de/docs/WebAssembly). Diese Klasse ist nur innerhalb dedizierter [Web Worker](/de/docs/Web/API/Web_Workers_API) für Dateien im [origin-internen Dateisystem](#origin-internes_dateisystem) zugänglich.
-- {{domxref("FileSystemWritableFileStream")}}
-  - : Ein {{domxref('WritableStream')}}-Objekt mit zusätzlichen Komfortmethoden, das auf einer einzigen Datei auf der Festplatte arbeitet.
+- [`FileSystemHandle`](/de/docs/Web/API/FileSystemHandle)
+  - : Ein Objekt, das einen Datei- oder Verzeichniseintrag repräsentiert. Mehrere Handles können denselben Eintrag darstellen. Meistens arbeiten Sie nicht direkt mit `FileSystemHandle`, sondern vielmehr mit seinen untergeordneten Schnittstellen [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) und [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle).
+- [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle)
+  - : Bietet einen Handle auf einen Dateisystemeintrag.
+- [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)
+  - : Bietet einen Handle auf ein Dateisystemverzeichnis.
+- [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle)
+  - : Bietet einen synchronen Handle zu einem Dateisystemeintrag, der direkt auf eine einzelne Datei auf der Festplatte wirkt. Die synchrone Natur der Datei-Lese- und Schreibvorgänge ermöglicht eine höhere Performance für kritische Methoden in Kontexten, in denen asynchrone Operationen mit hohem Overhead einhergehen, z.B. [WebAssembly](/de/docs/WebAssembly). Diese Klasse ist nur innerhalb dedizierter [Web Workers](/de/docs/Web/API/Web_Workers_API) für Dateien im [origin private file system](#origin_privates_dateisystem) zugänglich.
+- [`FileSystemWritableFileStream`](/de/docs/Web/API/FileSystemWritableFileStream)
+  - : Ein [`WritableStream`](/de/docs/Web/API/WritableStream)-Objekt mit zusätzlichen Komfortmethoden, das auf eine einzelne Datei auf der Festplatte wirkt.
 
-### Erweiterungen zu anderen Schnittstellen
+### Erweiterungen für andere Schnittstellen
 
-- {{domxref("Window.showDirectoryPicker()")}}
-  - : Zeigt einen Verzeichnisauswähler an, der es dem Nutzer ermöglicht, ein Verzeichnis auszuwählen.
-- {{domxref("Window.showOpenFilePicker()")}}
-  - : Zeigt einen Dateiauswähler an, der es einem Nutzer ermöglicht, eine Datei oder mehrere Dateien auszuwählen.
-- {{domxref("Window.showSaveFilePicker()")}}
-  - : Zeigt einen Dateiauswähler an, der es einem Nutzer ermöglicht, eine Datei zu speichern.
-- {{domxref("DataTransferItem.getAsFileSystemHandle()")}}
-  - : Gibt ein {{domxref('FileSystemFileHandle')}} zurück, wenn das gezogene Element eine Datei ist, oder ein {{domxref('FileSystemDirectoryHandle')}} zurück, wenn das gezogene Element ein Verzeichnis ist.
-- {{domxref("StorageManager.getDirectory()")}}
-  - : Wird verwendet, um eine Referenz zu einem {{domxref("FileSystemDirectoryHandle")}}-Objekt zu erhalten, das den Zugriff auf ein Verzeichnis und dessen Inhalt ermöglicht, das im [origin-internen Dateisystem](/de/docs/Web/API/File_System_API/Origin_private_file_system) gespeichert ist. Gibt ein {{jsxref('Promise')}} zurück, das mit einem {{domxref("FileSystemDirectoryHandle")}}-Objekt erfüllt wird.
+- [`Window.showDirectoryPicker()`](/de/docs/Web/API/Window/showDirectoryPicker)
+  - : Zeigt einen Verzeichniswähler an, der es dem Benutzer ermöglicht, ein Verzeichnis auszuwählen.
+- [`Window.showOpenFilePicker()`](/de/docs/Web/API/Window/showOpenFilePicker)
+  - : Zeigt einen Datei-Auswahldialog, der es einem Benutzer ermöglicht, eine oder mehrere Dateien auszuwählen.
+- [`Window.showSaveFilePicker()`](/de/docs/Web/API/Window/showSaveFilePicker)
+  - : Zeigt einen Datei-Auswahldialog, der es einem Benutzer ermöglicht, eine Datei zu speichern.
+- [`DataTransferItem.getAsFileSystemHandle()`](/de/docs/Web/API/DataTransferItem/getAsFileSystemHandle)
+  - : Gibt einen [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) zurück, wenn das gezogene Element eine Datei ist, oder einen [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle), wenn das gezogene Element ein Verzeichnis ist.
+- [`StorageManager.getDirectory()`](/de/docs/Web/API/StorageManager/getDirectory)
+  - : Wird verwendet, um eine Referenz auf ein [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Objekt zu erhalten, das den Zugriff auf ein Verzeichnis und dessen Inhalte im [origin private file system](/de/docs/Web/API/File_System_API/Origin_private_file_system) ermöglicht. Gibt ein {{jsxref('Promise')}} zurück, das mit einem [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Objekt erfüllt wird.
 
 ## Beispiele
 
 ### Zugriff auf Dateien
 
-Der folgende Code ermöglicht es dem Benutzer, eine Datei aus dem Dateiauswähler auszuwählen.
+Der untenstehende Code ermöglicht es dem Benutzer, eine Datei über den Dateiauswahldialog auszuwählen.
 
 ```js
 async function getFile() {
-  // Öffnen Sie den Dateiauswähler und zerstören Sie das Ergebnis für das erste Handle
+  // Open file picker and destructure the result the first handle
   const [fileHandle] = await window.showOpenFilePicker();
   const file = await fileHandle.getFile();
   return file;
 }
 ```
 
-Die folgende asynchrone Funktion präsentiert einen Dateiauswähler und verwendet die Methode `getFile()`, um den Inhalt abzurufen, sobald eine Datei ausgewählt wurde.
+Die folgende asynchrone Funktion zeigt einen Dateiauswahldialog an und verwendet dann die Methode `getFile()`, um die Inhalte abzurufen, sobald eine Datei ausgewählt wurde.
 
 ```js
 const pickerOpts = {
   types: [
     {
-      description: "Bilder",
+      description: "Images",
       accept: {
         "image/*": [".png", ".gif", ".jpeg", ".jpg"],
       },
@@ -99,22 +99,22 @@ const pickerOpts = {
 };
 
 async function getTheFile() {
-  // Öffnen Sie den Dateiauswähler und zerstören Sie das Ergebnis für das erste Handle
+  // Open file picker and destructure the result the first handle
   const [fileHandle] = await window.showOpenFilePicker(pickerOpts);
 
-  // Dateiinhalt abrufen
+  // get file contents
   const fileData = await fileHandle.getFile();
 }
 ```
 
-### Zugang zu Verzeichnissen
+### Zugriff auf Verzeichnisse
 
-Das folgende Beispiel gibt ein Verzeichnishandle mit dem angegebenen Namen zurück. Falls das Verzeichnis nicht existiert, wird es erstellt.
+Das folgende Beispiel gibt einen Verzeichnishandle mit dem angegebenen Namen zurück. Wenn das Verzeichnis nicht existiert, wird es erstellt.
 
 ```js
 const dirName = "directoryToGetName";
 
-// vorausgesetzt, wir haben ein Verzeichnishandle: 'currentDirHandle'
+// assuming we have a directory handle: 'currentDirHandle'
 const subDir = currentDirHandle.getDirectoryHandle(dirName, { create: true });
 ```
 
@@ -122,111 +122,111 @@ Die folgende asynchrone Funktion verwendet `resolve()`, um den Pfad zu einer aus
 
 ```js
 async function returnPathDirectories(directoryHandle) {
-  // Ein Dateihandle erhalten, indem ein Dateiauswähler angezeigt wird:
+  // Get a file handle by showing a file picker:
   const [handle] = await self.showOpenFilePicker();
   if (!handle) {
-    // Benutzer hat abgebrochen oder es gelang nicht, eine Datei zu öffnen.
+    // User cancelled, or otherwise failed to open a file.
     return;
   }
 
-  // Überprüfen Sie, ob das Handle sich innerhalb unseres Verzeichnishandles befindet
+  // Check if handle exists inside our directory handle
   const relativePaths = await directoryHandle.resolve(handle);
 
   if (relativePaths === null) {
-    // Nicht innerhalb des Verzeichnishandles
+    // Not inside directory handle
   } else {
-    // relativePaths ist ein Array von Namen, das den relativen Pfad angibt
+    // relativePaths is an array of names, giving the relative path
 
     for (const name of relativePaths) {
-      // jede Eingabe protokollieren
+      // log each entry
       console.log(name);
     }
   }
 }
 ```
 
-### Schreiben in Dateien
+### In Dateien schreiben
 
-Die folgende asynchrone Funktion öffnet den Dateiauswahl-Dialog zum Speichern, der ein {{domxref('FileSystemFileHandle')}} zurückgibt, sobald eine Datei ausgewählt ist. Ein beschreibbarer Stream wird dann mittels der Methode {{domxref('FileSystemFileHandle.createWritable()')}} erstellt.
+Die folgende asynchrone Funktion öffnet den Speicherauswahldialog, der einen [`FileSystemFileHandle`](/de/docs/Web/API/FileSystemFileHandle) zurückgibt, sobald eine Datei ausgewählt wurde. Ein schreibbarer Stream wird dann unter Verwendung der Methode [`FileSystemFileHandle.createWritable()`](/de/docs/Web/API/FileSystemFileHandle/createWritable) erstellt.
 
-Ein benutzerdefinierter {{domxref('Blob')}} wird dann in den Stream geschrieben, der anschließend geschlossen wird.
+Ein benutzerdefinierter [`Blob`](/de/docs/Web/API/Blob) wird dann in den Stream geschrieben, der anschließend geschlossen wird.
 
 ```js
 async function saveFile() {
-  // Erstellen Sie ein neues Handle
+  // create a new handle
   const newHandle = await window.showSaveFilePicker();
 
-  // Erstellen Sie einen FileSystemWritableFileStream, in den geschrieben werden kann
+  // create a FileSystemWritableFileStream to write to
   const writableStream = await newHandle.createWritable();
 
-  // Unsere Datei schreiben
+  // write our file
   await writableStream.write(imgBlob);
 
-  // Die Datei schließen und den Inhalt auf die Festplatte schreiben.
+  // close the file and write the contents to disk.
   await writableStream.close();
 }
 ```
 
-Das Folgende zeigt verschiedene Beispiele von Optionen, die in die `write()`-Methode übergeben werden können.
+Die folgenden zeigen verschiedene Beispiele von Optionen, die in die `write()`-Methode übergeben werden können.
 
 ```js
-// verwenden Sie einfach die Daten (ohne Optionen)
+// just pass in the data (no options)
 writableStream.write(data);
 
-// schreibt die Daten ab der angegebenen Position in den Stream
+// writes the data to the stream from the determined position
 writableStream.write({ type: "write", position, data });
 
-// aktualisiert den aktuellen Datei-Cursor-Offset auf die angegebene Position
+// updates the current file cursor offset to the position specified
 writableStream.write({ type: "seek", position });
 
-// ändert die Dateigröße auf eine neue Länge
+// resizes the file to be size bytes long
 writableStream.write({ type: "truncate", size });
 ```
 
 ### Synchrones Lesen und Schreiben von Dateien im OPFS
 
-Dieses Beispiel liest und schreibt synchron eine Datei in das [origin-interne Dateisystem](#origin-internes_dateisystem).
+Dieses Beispiel liest und schreibt synchron eine Datei in das [origin private file system](#origin_privates_dateisystem).
 
-Die folgende asynchrone Ereignis-Handler-Funktion wird innerhalb eines Web Workers aufgerufen. Beim Empfang einer Nachricht vom Hauptthread:
+Der folgende asynchrone Ereignishandler ist in einem Web Worker enthalten. Beim Empfang einer Nachricht vom Haupt-Thread führt er:
 
-- Erstellt einen synchronen Datei-Zugriffs-Handle.
-- Ermittelt die Größe der Datei und erstellt einen {{jsxref("ArrayBuffer")}} dafür.
-- Liest den Dateiinhaltt in den Puffer.
-- Kodiert die Nachricht und schreibt sie ans Ende der Datei.
-- Speichert die Änderungen auf die Festplatte und schließt den Zugriffs-Handle.
+- Erstellt einen synchronen Dateizugriffshandle.
+- Ruft die Größe der Datei ab und erstellt einen {{jsxref("ArrayBuffer")}}, um sie zu enthalten.
+- Liest den Dateiinhalt in den Puffer.
+- Kodiert die Nachricht und schreibt sie am Ende der Datei.
+- Sichert die Änderungen auf der Festplatte und schließt den Zugriffshandle.
 
 ```js
 onmessage = async (e) => {
-  // Nachricht abrufen, die aus dem Hauptskript an die Arbeit gesendet wurde
+  // retrieve message sent to work from main script
   const message = e.data;
 
-  // Handle für Entwurfsdatei im OPFS erhalten
+  // Get handle to draft file in OPFS
   const root = await navigator.storage.getDirectory();
   const draftHandle = await root.getFileHandle("draft.txt", { create: true });
-  // Erstellen Sie einen synchronen Zugriffs-Handle
+  // Get sync access handle
   const accessHandle = await draftHandle.createSyncAccessHandle();
 
-  // Größe der Datei ermitteln.
+  // Get size of the file.
   const fileSize = accessHandle.getSize();
-  // Dateiinhalte in einen Puffer einlesen.
+  // Read file content to a buffer.
   const buffer = new DataView(new ArrayBuffer(fileSize));
   const readBuffer = accessHandle.read(buffer, { at: 0 });
 
-  // Schreiben Sie die Nachricht ans Ende der Datei.
+  // Write the message to the end of the file.
   const encoder = new TextEncoder();
   const encodedMessage = encoder.encode(message);
   const writeBuffer = accessHandle.write(encodedMessage, { at: readBuffer });
 
-  // Änderungen auf die Festplatte speichern.
+  // Persist changes to disk.
   accessHandle.flush();
 
-  // FileSystemSyncAccessHandle immer schließen, wenn fertig.
+  // Always close FileSystemSyncAccessHandle if done.
   accessHandle.close();
 };
 ```
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation wurden {{domxref("FileSystemSyncAccessHandle.close()", "close()")}}, {{domxref("FileSystemSyncAccessHandle.flush()", "flush()")}}, {{domxref("FileSystemSyncAccessHandle.getSize()", "getSize()")}} und {{domxref("FileSystemSyncAccessHandle.truncate()", "truncate()")}} unvorteilhaft als asynchrone Methoden spezifiziert. Dies wurde nun [geändert](https://github.com/whatwg/fs/issues/7), aber einige Browser unterstützen noch die asynchronen Versionen.
+> In früheren Versionen der Spezifikation waren [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und [`truncate()`](/de/docs/Web/API/FileSystemSyncAccessHandle/truncate) unergonomisch als asynchrone Methoden spezifiziert. Dies wurde nun [angepasst](https://github.com/whatwg/fs/issues/7), aber einige Browser unterstützen noch die asynchronen Versionen.
 
 ## Spezifikationen
 
@@ -238,5 +238,5 @@ onmessage = async (e) => {
 
 ## Siehe auch
 
-- [Die File System Access API: Vereinfachung des Zugriffs auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
-- [Das origin-interne Dateisystem](https://web.dev/articles/origin-private-file-system)
+- [Die File System Access API: Vereinfachter Zugriff auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [Das origin private file system](https://web.dev/articles/origin-private-file-system)

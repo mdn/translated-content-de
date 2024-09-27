@@ -8,11 +8,9 @@ l10n:
 
 {{APIRef("Payment Handler API")}}{{deprecated_header}}{{non-standard_header}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte Eigenschaft **`instrumentKey`** des
-{{domxref("PaymentRequestEvent")}}-Interfaces gibt ein
-`PaymentInstrument`-Objekt zurück, das das vom Benutzer gewählte Zahlungsmittel
-reflektiert, oder einen leeren String, wenn der Benutzer kein Zahlungsmittel
-registriert oder ausgewählt hat.
+Die **`instrumentKey`**-Eigenschaft ist eine schreibgeschützte Eigenschaft des
+[`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Interfaces und gibt ein
+`PaymentInstrument`-Objekt zurück, das das vom Benutzer ausgewählte Zahlungsinstrument widerspiegelt oder einen leeren String, wenn der Benutzer kein Zahlungsinstrument registriert oder ausgewählt hat.
 
 ## Wert
 
@@ -20,7 +18,7 @@ Ein `PaymentInstrument`-Objekt.
 
 ## Spezifikationen
 
-Dieses Merkmal ist nicht mehr Teil einer Spezifikation.
+Dieses Feature ist nicht mehr Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 

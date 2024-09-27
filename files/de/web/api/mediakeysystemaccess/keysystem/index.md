@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`keySystem`** der Schnittstelle {{domxref("MediaKeySystemAccess")}} gibt einen String zurück, der das verwendete Schlüsselsystem identifiziert.
+Die schreibgeschützte **`keySystem`**-Eigenschaft der [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess)-Schnittstelle gibt einen String zurück, der das verwendete Schlüsselsystem identifiziert.
 
-Dies ist der Wert, der an {{domxref("Navigator.requestMediaKeySystemAccess()")}} übergeben wurde, als der Systemzugriff angefordert wurde.
+Dies ist der Wert, der an [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess) übergeben wurde, wenn Systemzugriff angefordert wird.
 
 ## Wert
 

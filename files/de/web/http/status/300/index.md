@@ -1,5 +1,5 @@
 ---
-title: 300 Mehrere Auswahlmöglichkeiten
+title: 300 Multiple Choices
 slug: Web/HTTP/Status/300
 l10n:
   sourceCommit: fcb01c3c48499529a7e846d1887a091433add073
@@ -7,16 +7,14 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`300 Mehrere Auswahlmöglichkeiten`** [Redirection Response](/de/docs/Web/HTTP/Status#redirection_messages) zeigt an, dass die Anfrage mehr als eine mögliche Antwort hat. Der Benutzer-Agent oder der Benutzer sollte eine davon auswählen.
+Der HTTP-Statuscode **`300 Multiple Choices`** ([Redirection Response](/de/docs/Web/HTTP/Status#redirection_messages)) zeigt an, dass die Anfrage mehr als eine mögliche Antwort hat. Der User-Agent oder der Benutzer sollte eine davon auswählen.
 
 > [!NOTE]
-> Bei der transparenten Inhaltsverhandlung (Transparent Content Negotiation, TCN) entscheiden ein Client und ein Server gemeinsam über die beste Variante einer Ressource, wenn der Server mehrere Varianten hat.
-> Die meisten modernen Browser bieten aufgrund der Komplexität in der Implementierung, des Mangels an Standardisierung, wie Clients automatisch aus Antworten wählen, und der zusätzlichen Round-Trips, die die Client-Server-Interaktion verlangsamen, eine schlechte Unterstützung hierfür.
-> [Servergesteuerte Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation#server-driven_content_negotiation) ist wesentlich häufiger, wobei der Server basierend auf den Anfrage-Headern ({{HTTPHeader("Accept-Language")}}, {{HTTPHeader("Accept")}} usw.) die passendste Ressource für den Client auswählt.
+> Bei der transparenten Inhaltsverhandlung (TCN) entscheiden ein Client und ein Server gemeinsam über die beste Variante einer Ressource, wenn der Server mehrere Varianten hat. Die meisten modernen Browser haben aufgrund der Komplexität der Implementierungen, des Mangels an Standardisierung, wie Clients automatisch aus Antworten wählen, und der zusätzlichen Roundtrips, die die Interaktion zwischen Client und Server verlangsamen, eine schlechte Unterstützung. [Serverseitige Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation#server-driven_content_negotiation) ist weitaus häufiger, wobei ein Server die am besten geeignete Ressource für den Client basierend auf den Anfrage-Headern ({{HTTPHeader("Accept-Language")}}, {{HTTPHeader("Accept")}} usw.) auswählt.
 
-Der Server sollte der Antwort Inhalte hinzufügen, die eine Liste von Metadaten und URIs der Ressourcen enthält, aus denen der Benutzer oder Benutzer-Agent wählen kann. Das Format des Inhalts ist implementierungsspezifisch, sollte aber vom Benutzer-Agenten leicht geparst werden können (z.B. HTML oder JSON).
+Der Server sollte Inhalte in der Antwort einschließen, die eine Liste von Metadaten der Ressourcen und URIs enthalten, aus denen der Benutzer oder der User-Agent auswählen kann. Das Format des Inhalts ist implementierungsspezifisch, sollte jedoch vom User-Agent problemlos analysiert werden können (z. B. HTML oder JSON).
 
-Wenn der Server eine bevorzugte Wahl hat, die der Client anfordern sollte, kann er sie in einem {{HTTPHeader("Location")}}-Header angeben.
+Wenn der Server eine bevorzugte Wahl hat, die der Client anfordern sollte, kann er diese in einem {{HTTPHeader("Location")}}-Header einschließen.
 
 ## Status
 
@@ -26,9 +24,9 @@ Wenn der Server eine bevorzugte Wahl hat, die der Client anfordern sollte, kann 
 
 ## Beispiele
 
-### 300 Antwort mit Ressourcenliste
+### 300 Antwort mit Liste von Ressourcen
 
-Das folgende Beispiel zeigt einen Anfrage-Antwort-Austausch bei der transparenten Inhaltsverhandlung. Ein Apache-Server bietet mehrere Varianten einer Ressource an, die in einer [Typkarte](https://httpd.apache.org/docs/trunk/mod/mod_negotiation.html#typemaps) definiert sind; `index.html.en` für eine Ressource in Englisch und `index.html.fr` für eine französische Version:
+Das folgende Beispiel zeigt einen Anfrage-Antwort-Austausch bei der transparenten Inhaltsverhandlung. Ein Apache-Server bietet mehrere Varianten einer Ressource an, die in einer [Typenkarte](https://httpd.apache.org/docs/trunk/mod/mod_negotiation.html#typemaps) definiert sind; `index.html.en` für eine Ressource in Englisch und `index.html.fr` für eine französische Version:
 
 ```plain
 URI: index.html.en
@@ -38,13 +36,13 @@ URI: index.html.fr
 Content-Language: fr
 ```
 
-Ein `Negotiate: trans` Anfrage-Header zeigt an, dass der Client TCN verwenden möchte, um eine Ressource auszuwählen. Die schlechte Unterstützung durch Browser für diesen Mechanismus bedeutet, dass ein Benutzer-Agent wie curl stattdessen verwendet werden muss:
+Ein `Negotiate: trans` Anfrage-Header zeigt an, dass der Client TCN verwenden möchte, um eine Ressource auszuwählen. Eine schlechte Unterstützung durch Browser für diesen Mechanismus bedeutet, dass stattdessen ein User-Agent wie curl verwendet werden muss:
 
 ```bash
  curl -v -H "Negotiate: trans" http://localhost/index
 ```
 
-Dies führt zu der folgenden Anfrage:
+Dies erzeugt die folgende Anfrage:
 
 ```http
 GET /index HTTP/1.1
@@ -69,11 +67,11 @@ Content-Type: text/html; charset=iso-8859-1
 <html><head>
 <title>300 Multiple Choices</title>
 </head><body>
-<h1>Mehrere Auswahlmöglichkeiten</h1>
-Verfügbare Varianten:
+<h1>Multiple Choices</h1>
+Available variants:
 <ul>
-<li><a href="index.html.en">index.html.en</a> , Typ text/html, Sprache en</li>
-<li><a href="index.html.fr">index.html.fr</a> , Typ text/html, Sprache fr</li>
+<li><a href="index.html.en">index.html.en</a> , type text/html, language en</li>
+<li><a href="index.html.fr">index.html.fr</a> , type text/html, language fr</li>
 </ul>
 </body></html>
 ```
@@ -85,10 +83,10 @@ Verfügbare Varianten:
 ## Siehe auch
 
 - [Weiterleitungen in HTTP](/de/docs/Web/HTTP/Redirections)
-- [HTTP-Statuscodes](/de/docs/Web/HTTP/Status)
+- [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
 - {{HTTPStatus("301", "301 Moved Permanently")}}
 - {{HTTPStatus("302", "302 Found")}} temporäre Weiterleitung
 - {{HTTPStatus("308", "308 Permanent Redirect")}}
 - {{HTTPStatus("506", "506 Variant Also Negotiates")}}
-- [Apache Server Negotiation Algorithm](https://httpd.apache.org/docs/current/en/content-negotiation.html#algorithm)
+- [Apache Server-Verhandlungsalgorithmus](https://httpd.apache.org/docs/current/en/content-negotiation.html#algorithm)
 - {{RFC("2295", "Transparent Content Negotiation in HTTP")}}

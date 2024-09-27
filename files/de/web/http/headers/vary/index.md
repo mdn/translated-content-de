@@ -7,18 +7,18 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Vary`** HTTP-Antwortheader beschreibt die Teile der Anfragenachricht, abgesehen von der Methode und der URL, die den Inhalt der Antwort beeinflusst haben. Am häufigsten wird dieser verwendet, um einen Cache-Schlüssel zu erstellen, wenn [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation) im Einsatz ist.
+Der **`Vary`** HTTP-Antwort-Header beschreibt die Teile der Anfragenachricht, abgesehen von der Methode und der URL, die den Inhalt der Antwort beeinflusst haben, in der er auftritt. Meist wird dies verwendet, um einen Cache-Schlüssel zu erstellen, wenn die [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation) genutzt wird.
 
-Für alle Antworten auf eine gegebene URL sollte derselbe `Vary`-Headerwert verwendet werden, einschließlich {{HTTPStatus("304")}} `Not Modified`-Antworten und der "Standard"-Antwort.
+Der gleiche `Vary`-Header-Wert sollte für alle Antworten für eine gegebene URL verwendet werden, einschließlich {{HTTPStatus("304")}} `Not Modified`-Antworten und der "Standard"-Antwort.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response header")}}</td>
+      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -34,9 +34,9 @@ Vary: <header-name>, <header-name>, ...
 ## Direktiven
 
 - \*
-  - : Gibt an, dass Faktoren, die nicht zu den Anforderungsheadern gehören, die Erstellung dieser Antwort beeinflusst haben. Impliziert, dass die Antwort nicht zwischenspeicherbar ist.
+  - : Gibt an, dass Faktoren abseits von Anfrage-Headern die Erstellung dieser Antwort beeinflusst haben. Impliziert, dass die Antwort nicht zwischengespeichert werden kann.
 - \<header-name>
-  - : Eine durch Kommas getrennte Liste von Namen von Anforderungsheadern, die die Erstellung dieser Antwort beeinflusst haben könnten.
+  - : Eine durch Kommas getrennte Liste von Anfrage-Header-Namen, die möglicherweise die Erstellung dieser Antwort beeinflusst haben.
 
 ## Spezifikationen
 
@@ -46,12 +46,12 @@ Vary: <header-name>, <header-name>, ...
 
 {{Compat}}
 
-### Kompatibilitätshinweise
+### Kompatibilitätsnotizen
 
 - [Vary with care – Vary header problems in IE6-9](https://learn.microsoft.com/en-us/archive/blogs/ieinternals/vary-with-care)
 
 ## Siehe auch
 
-- [Understanding The Vary Header - Smashing Magazine](https://www.smashingmagazine.com/2017/11/understanding-vary-header/)
-- [Best Practices for Using the Vary Header – fastly.com](https://www.fastly.com/blog/best-practices-using-vary-header)
-- [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation)
+- [Verständnis des Vary-Headers - Smashing Magazine](https://www.smashingmagazine.com/2017/11/understanding-vary-header/)
+- [Best Practices für die Verwendung des Vary-Headers – fastly.com](https://www.fastly.com/blog/best-practices-using-vary-header)
+- [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation)

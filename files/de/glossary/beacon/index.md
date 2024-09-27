@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein Web-**Beacon** ist ein kleines Objekt, wie z.B. ein 1-Pixel-GIF, das in Markup eingebettet ist und verwendet wird, um Informationen an den Webserver oder an Drittanbieter-Server zu übermitteln. Beacons werden in der Regel eingebunden, um Informationen über den Benutzer für statistische Zwecke bereitzustellen. Beacons sind oft in Drittanbieter-Skripten enthalten, um Benutzerdaten, Leistungskennzahlen und Fehlerberichte zu sammeln.
+Ein Web-**beacon** ist ein kleines Objekt, wie ein 1x1 Pixel großes GIF, das in Markup eingebettet ist und dazu verwendet wird, Informationen zurück an den Webserver oder an Drittanbieter-Server zu übermitteln. Beacons werden in der Regel eingesetzt, um Informationen über den Benutzer zu statistischen Zwecken bereitzustellen. Oft werden Beacons innerhalb von Drittanbieter-Skripten verwendet, um Benutzerdaten, Leistungsmetriken und Fehlermeldungen zu sammeln.
 
-Es gibt eine [W3C-Entwurfs-Beacon-Spezifikation](https://w3c.github.io/beacon/), um das Beacon als eine Schnittstelle zu standardisieren, die HTTP-Daten asynchron vom User Agent an einen Webserver vor dem Laden der Seite ohne negative Leistungsauswirkungen überträgt.
+Es gibt eine [W3C Draft Beacon Specification](https://w3c.github.io/beacon/), die den Beacon als Schnittstelle standardisieren soll, um HTTP-Daten asynchron vom User Agent zu einem Webserver vor dem Laden der Seite zu übertragen, ohne seine Leistung negativ zu beeinflussen.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{glossary("Real User Monitoring")}} (RUM)
+  - [Real User Monitoring](/de/docs/Glossary/Real_User_Monitoring) (RUM)

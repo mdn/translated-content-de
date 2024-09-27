@@ -11,15 +11,15 @@ l10n:
 
 [Ein Überblick](/de/docs/Web/XSLT/Transforming_XML_with_XSLT/An_Overview)
 
-Die Trennung von Inhalt und Darstellung ist ein wesentliches Designelement von [XML](/de/docs/Web/XML). Die Struktur eines XML-Dokuments ist so gestaltet, dass sie wichtige Beziehungen zwischen den einzelnen Aspekten des Inhalts selbst widerspiegelt und verdeutlicht, ohne dass ein Hinweis darauf gegeben wird, wie diese Daten letztendlich dargestellt werden sollen. Diese intelligente Strukturierung ist besonders wichtig, da immer mehr Datentransfers automatisiert werden und zwischen stark heterogenen Maschinen stattfinden, die durch ein Netzwerk verbunden sind.
+Die Trennung von Inhalt und Präsentation ist ein wesentliches Gestaltungsmerkmal von [XML](/de/docs/Web/XML). Die Struktur eines XML-Dokuments soll wichtige Beziehungen zwischen den einzelnen Aspekten des Inhalts selbst widerspiegeln und verdeutlichen, ohne durch die Notwendigkeit eingeschränkt zu sein, wie diese Daten letztendlich präsentiert werden sollen. Diese intelligente Strukturierung gewinnt besonders an Bedeutung, da immer mehr Datenübertragungen automatisiert ablaufen und zwischen sehr heterogenen Maschinen im Netzwerk stattfinden.
 
-Dennoch muss der Großteil der Inhalte, die in XML-Dokumenten gespeichert sind, letztendlich menschlichen Lesern präsentiert werden. Da ein Browser eine vertraute und hochgradig flexible Benutzeroberfläche bietet, ist er ein ideales Mittel, um solche Präsentationsversionen von XML-Inhalten bereitzustellen. Firefox, von Grund auf unter Verwendung einer Vielzahl von XML-Technologien gebaut, integriert alle Mechanismen zur Verarbeitung sowohl von Original-XML-Dokumenten als auch der spezialisierten Stylesheets, die verwendet werden, um sie für die HTML-Anzeige zu stylen und darzustellen, und reduziert die Serverlast durch Client-seitige Verarbeitung.
+Letztendlich müssen jedoch viele der in XML-Dokumenten gespeicherten Inhalte den menschlichen Lesern präsentiert werden. Da ein Browser eine vertraute und hochflexible Schnittstelle bietet, ist er ein ideales Mittel, um solche Präsentationsversionen von XML-Inhalten bereitzustellen. Firefox, das von Grund auf eine Vielzahl von XML-Technologien nutzt, integriert alle Mechanismen, die zum Verarbeiten der ursprünglichen XML-Dokumente und der spezialisierten Stylesheets erforderlich sind, um sie für die HTML-Anzeige zu stylen und aufzubereiten und so die Serverlast durch Client-seitige Verarbeitung zu reduzieren.
 
-Derzeit unterstützt Gecko (die Layout-Engine hinter Firefox) zwei Formen von XML-Stylesheets. Für die grundlegende Kontrolle des Erscheinungsbilds – Schriftarten, Farben, Positionen usw. – verwendet Gecko [CSS](/de/docs/Web/CSS).
+Derzeit unterstützt Gecko (die Layout-Engine hinter Firefox) zwei Formen von XML-Stylesheets. Für die grundlegende Kontrolle des Erscheinungsbildes — Schriftarten, Farben, Position usw. — verwendet Gecko [CSS](/de/docs/Web/CSS).
 
-Unser Fokus liegt hier auf der zweiten Art von Stylesheet, die Gecko unterstützt: das XSLT-Stylesheet. XSLT steht für eXtensible Stylesheet Language/Transform, und der Name ist passend. XSLT erlaubt es einem Stylesheet-Autor, ein primäres XML-Dokument auf zwei wesentliche Arten zu transformieren: Manipulation und Sortierung des Inhalts, einschließlich einer vollständigen Neuanordnung, falls gewünscht, und Transformation des Inhalts in ein anderes Format (im Fall von Firefox liegt der Fokus darauf, es sofort in HTML umzuwandeln, das dann vom Browser angezeigt werden kann).
+Unser Fokus liegt hier auf der zweiten Art von Stylesheet, die Gecko unterstützt: das XSLT-Stylesheet. XSLT steht für eXtensible Stylesheet Language/Transform, und der Name ist treffend. XSLT ermöglicht einem Stylesheet-Autor, ein primäres XML-Dokument auf zwei wesentliche Arten zu transformieren: Manipulation und Sortierung des Inhalts, einschließlich einer vollständigen Neuordnung, falls gewünscht, und Umwandlung des Inhalts in ein anderes Format (im Fall von Firefox liegt der Fokus auf der dynamischen Umwandlung in HTML, das dann vom Browser angezeigt werden kann).
 
-## XSLT/XPath-Referenz
+## XSLT/XPath Referenz
 
 ### Elemente
 
@@ -39,7 +39,7 @@ Unser Fokus liegt hier auf der zweiten Art von Stylesheet, die Gecko unterstütz
 - [xsl:fallback](/de/docs/Web/XSLT/Element/fallback) _(nicht unterstützt)_
 - [xsl:for-each](/de/docs/Web/XSLT/Element/for-each) _(unterstützt)_
 - [xsl:if](/de/docs/Web/XSLT/Element/if) _(unterstützt)_
-- [xsl:import](/de/docs/Web/XSLT/Element/import) _(weitestgehend unterstützt)_
+- [xsl:import](/de/docs/Web/XSLT/Element/import) _(größtenteils unterstützt)_
 - [xsl:include](/de/docs/Web/XSLT/Element/include) _(unterstützt)_
 - [xsl:key](/de/docs/Web/XSLT/Element/key) _(unterstützt)_
 - [xsl:message](/de/docs/Web/XSLT/Element/message) _(unterstützt)_
@@ -120,9 +120,9 @@ Unser Fokus liegt hier auf der zweiten Art von Stylesheet, die Gecko unterstütz
 - [true()](/de/docs/Web/XPath/Functions/true) _(unterstützt)_
 - [unparsed-entity-url()](/de/docs/Web/XPath/Functions/unparsed-entity-url) _(nicht unterstützt)_
 
-## Weiterführende Literatur
+## Weitere Lektüre
 
-[Weiterführende Literatur](/de/docs/Web/XSLT/Transforming_XML_with_XSLT/For_Further_Reading)
+[Weitere Lektüre](/de/docs/Web/XSLT/Transforming_XML_with_XSLT/For_Further_Reading)
 
 - [Bücher](/de/docs/Web/XSLT/Transforming_XML_with_XSLT/For_Further_Reading#books)
 - [Digital](/de/docs/Web/XSLT/Transforming_XML_with_XSLT/For_Further_Reading#digital)
@@ -134,5 +134,5 @@ Unser Fokus liegt hier auf der zweiten Art von Stylesheet, die Gecko unterstütz
 
 ## Informationen zum Originaldokument
 
-- Urheberrechtliche Informationen: Urheberrecht © 2001-2003 Netscape. Alle Rechte vorbehalten.
+- Urheberrechtshinweise: Urheberrecht © 2001-2003 Netscape. Alle Rechte vorbehalten.
 - Hinweis: Dieser nachgedruckte Artikel war ursprünglich Teil der DevEdge-Website.

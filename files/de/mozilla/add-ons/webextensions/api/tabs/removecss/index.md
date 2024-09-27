@@ -7,10 +7,10 @@ l10n:
 
 {{AddonSidebar}}
 
-Entfernt von einer Seite CSS, das zuvor durch einen Aufruf von {{WebExtAPIRef("tabs.insertCSS()")}} injiziert wurde.
+Entfernt CSS von einer Seite, das zuvor durch einen Aufruf von {{WebExtAPIRef("tabs.insertCSS()")}} eingefügt wurde.
 
 > [!NOTE]
-> Bei Verwendung von Manifest V3 oder höher verwenden Sie {{WebExtAPIRef("scripting.insertCSS()")}} und {{WebExtAPIRef("scripting.removeCSS()")}}, um CSS einzufügen und zu entfernen.
+> Bei der Verwendung von Manifest V3 oder höher verwenden Sie {{WebExtAPIRef("scripting.insertCSS()")}} und {{WebExtAPIRef("scripting.removeCSS()")}} um CSS einzufügen und zu entfernen.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -26,27 +26,27 @@ let removing = browser.tabs.removeCSS(
 ### Parameter
 
 - `tabId` {{optional_inline}}
-  - : `integer`. Die ID des Tabs, aus dem das CSS entfernt werden soll. Standardmäßig der aktive Tab des aktuellen Fensters.
+  - : `integer`. Die ID des Tabs, aus dem das CSS entfernt werden soll. Standardmäßig wird der aktive Tab des aktuellen Fensters verwendet.
 - `details`
 
   - : Ein Objekt, das das zu entfernende CSS beschreibt. Es enthält die folgenden Eigenschaften:
 
     - `allFrames` {{optional_inline}}
-      - : `boolean`. Wenn `true`, wird der Code aus allen Frames der aktuellen Seite entfernt. Wenn `false`, wird der Code nur aus dem obersten Frame entfernt. Standardwert ist `false`.
+      - : `boolean`. Wenn `true`, wird der Code aus allen Frames der aktuellen Seite entfernt. Wenn es `false` ist, wird der Code nur aus dem Top-Frame entfernt. Standardmäßig `false`.
     - `code` {{optional_inline}}
-      - : `string`. Zu entfernendes CSS als Textzeichenkette. Dies muss exakt mit einer CSS-Zeichenkette übereinstimmen, die zuvor mit {{WebExtAPIRef("tabs.insertCSS()")}} in die Seite eingefügt wurde.
+      - : `string`. Zu entfernendes CSS als Textzeichenfolge. Dies muss genau einer CSS-Zeichenfolge entsprechen, die zuvor mit {{WebExtAPIRef("tabs.insertCSS()")}} in die Seite eingefügt wurde.
     - `cssOrigin` {{optional_inline}}
-      - : `string`. Dies kann einen von zwei Werten annehmen: "user" für CSS, das als Benutzer-Stile eingefügt wurde, oder "author" für CSS, das als Autoren-Stile eingefügt wurde. Wenn diese Option zuvor mit {{WebExtAPIRef("tabs.insertCSS()")}} gesetzt wurde, muss sie exakt übereinstimmen.
+      - : `string`. Dies kann einen von zwei Werten annehmen: "user", für CSS als Benutzer-Stilvorlage hinzugefügt, oder "author" für CSS als Autoren-Stilvorlage hinzugefügt. Wenn diese Option zuvor durch {{WebExtAPIRef("tabs.insertCSS()")}} festgelegt wurde, muss sie genau übereinstimmen.
     - `file` {{optional_inline}}
-      - : `string`. Pfad zu einer Datei, die das zu entfernende CSS enthält. Dies muss exakt mit einer CSS-Datei übereinstimmen, die zuvor mit {{WebExtAPIRef("tabs.insertCSS()")}} in die Seite eingefügt wurde.
+      - : `string`. Pfad zu einer Datei, die das zu entfernende CSS enthält. Dies muss genau einer CSS-Datei entsprechen, die zuvor mit {{WebExtAPIRef("tabs.insertCSS()")}} in die Seite eingefügt wurde.
     - `frameId` {{optional_inline}}
-      - : `integer`. Der Frame, aus dem das CSS entfernt werden soll. Standardwert ist `0` (der oberste Frame).
+      - : `integer`. Der Frame, aus dem das CSS entfernt werden soll. Standardmäßig `0` (der oberste Frame).
     - `matchAboutBlank` {{optional_inline}}
-      - : `boolean`. Wenn `true`, wird das CSS aus eingebetteten "about:blank"- und "about:srcdoc"-Frames entfernt, wenn Ihre Erweiterung Zugriff auf deren übergeordnetes Dokument hat. Standardwert ist `false`.
+      - : `boolean`. Wenn `true`, wird das CSS aus eingebetteten "about:blank" und "about:srcdoc" Frames entfernt, wenn Ihre Erweiterung Zugriff auf das übergeordnete Dokument hat. Standardmäßig `false`.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das gesamte CSS entfernt wurde. Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das gesamte CSS entfernt wurde. Sollte ein Fehler auftreten, wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Beispiele
 
@@ -75,7 +75,7 @@ browser.browserAction.onClicked.addListener(() => {
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-insertCSS)-API von Chromium. Diese Dokumentation ist von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-insertCSS) API von Chromium. Diese Dokumentation leitet sich von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code ab.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -1,5 +1,5 @@
 ---
-title: "IDBDatabase: close()-Methode"
+title: "IDBDatabase: close() Methode"
 short-title: close()
 slug: Web/API/IDBDatabase/close
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`close()`**-Methode der {{domxref("IDBDatabase")}}
-Schnittstelle gibt sofort zurück und schließt die Verbindung in einem separaten Thread.
+Die **`close()`** Methode der [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+Schnittstelle kehrt sofort zurück und schließt die Verbindung in einem separaten Thread.
 
-Die Verbindung wird tatsächlich erst geschlossen, wenn alle Transaktionen, die mithilfe dieser Verbindung erstellt wurden, abgeschlossen sind. Es können keine neuen Transaktionen für diese Verbindung erstellt werden, sobald diese Methode aufgerufen wird. Methoden, die Transaktionen erstellen, werfen eine Ausnahme, wenn ein Schließvorgang aussteht.
+Die Verbindung wird allerdings erst tatsächlich geschlossen, wenn alle Transaktionen, die mit dieser Verbindung erstellt wurden, abgeschlossen sind. Es können keine neuen Transaktionen mehr für diese Verbindung erstellt werden, sobald diese Methode aufgerufen wird. Methoden, die Transaktionen erstellen, werfen eine Ausnahme, wenn ein Schließvorgang im Gange ist.
 
 ## Syntax
 
@@ -25,28 +25,28 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ```js
-// Lassen Sie uns unsere Datenbank öffnen
-const DBOpenRequest = window.indexedDB.open("toDoList", 4); // Öffnen einer Datenbank.
+// Let us open our database
+const DBOpenRequest = window.indexedDB.open("toDoList", 4); // opening a database.
 
-// Erstellen von Ereignishandlern sowohl für den Erfolg als auch das Scheitern
+// Create event handlers for both success and failure of
 DBOpenRequest.onerror = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Fehler beim Laden der Datenbank.";
+    "Error loading database.";
 };
 
 DBOpenRequest.onsuccess = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Datenbank initialisiert.";
+    "Database initialized.";
 
-  // Speichern Sie das Ergebnis des Öffnens der Datenbank in der db-Variable.
+  // store the result of opening the database in the db variable.
   db = DBOpenRequest.result;
 
-  // Schließen wir jetzt die Datenbank wieder!
+  // now let's close the database again!
   db.close();
 };
 ```
@@ -62,9 +62,9 @@ DBOpenRequest.onsuccess = (event) => {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Starten von Transaktionen: {{domxref("IDBDatabase")}}
-- Verwenden von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Bereichs von Schlüsseln: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursoren: {{domxref("IDBCursor")}}
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselspektrums: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

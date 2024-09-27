@@ -1,5 +1,5 @@
 ---
-title: "Document: characterSet-Eigenschaft"
+title: "Document: `characterSet` Eigenschaft"
 short-title: characterSet
 slug: Web/API/Document/characterSet
 l10n:
@@ -8,22 +8,22 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Document.characterSet`**-Schreibgeschützte Eigenschaft gibt die [Zeichenkodierung](/de/docs/Glossary/Character_encoding) des Dokuments zurück, mit der es derzeit gerendert wird.
+Die **`Document.characterSet`**-Eigenschaft, die nur lesbar ist, gibt die [Zeichenkodierung](/de/docs/Glossary/Character_encoding) des Dokuments zurück, mit der es derzeit gerendert wird.
 
 > [!NOTE]
-> Ein "Zeichensatz" und eine "Zeichenkodierung" sind verwandt, aber unterschiedlich. Trotz des Namens dieser Eigenschaft gibt sie die _Kodierung_ zurück.
+> Ein "Zeichensatz" und eine "Zeichenkodierung" sind verwandt, aber unterschiedlich. Trotz des Namens dieser Eigenschaft gibt sie tatsächlich die _Kodierung_ zurück.
 
 ## Wert
 
-Ein Zeichenfolgenwert.
+Ein String.
 
 ## Beispiele
 
 ```html
 <button onclick="console.log(document.characterSet);">
-  Zeichencodierung protokollieren
+  Log character encoding
 </button>
-<!-- zeigt die Zeichencodierung des Dokuments in der Entwicklerkonsole an, z.B. "ISO-8859-1" oder "UTF-8" -->
+<!-- displays document's character encoding in the dev console, such as "ISO-8859-1" or "UTF-8" -->
 ```
 
 ## Spezifikationen

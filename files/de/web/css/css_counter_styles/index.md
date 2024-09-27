@@ -1,5 +1,5 @@
 ---
-title: CSS-Zählerstile
+title: CSS-Counter-Stile
 slug: Web/CSS/CSS_counter_styles
 l10n:
   sourceCommit: f75fd658f627b5730a14ada901120cfa4ee01bda
@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Das Modul **CSS-Zählerstile** ermöglicht es Ihnen, eigene Zählerstile zu definieren, um das Erscheinungsbild von [Markierungen](/de/docs/Web/CSS/::marker) in Listen und Zählern in [generierten Inhalten](/de/docs/Web/CSS/CSS_generated_content) zu verwalten. Es ermöglicht Ihnen auch, native Listenstile des Browsers mit eigenen Anpassungen zu erweitern.
+Das **CSS-Counter-Stile**-Modul ermöglicht es Ihnen, eigene Zählerstile zu definieren, um das Erscheinungsbild von [Markierungen](/de/docs/Web/CSS/::marker) in Listen und Zählern in [generierten Inhalten](/de/docs/Web/CSS/CSS_generated_content) zu verwalten. Es ermöglicht Ihnen auch, native Browser-Listenstile mit eigenen Anpassungen zu erweitern.
 
-Obwohl wir bei Zählern an Zahlen denken, sind sie eigentlich Zeichenketten mit Komponenten, die inkrementiert werden können. Das Modul Zählerstile definiert die `@counter-style`-Regel mit zehn Deskriptoren, die es Entwicklern ermöglichen, genau zu definieren, wie Zähler in Zeichenketten umgewandelt werden. Dieses Modul ermöglicht es, festzulegen, welche Zeichen für die Zähler-Punkte verwendet werden, das Präfix, das vor dem Zähler steht, und das Suffix, das danach kommt, sowie, wie negative Werte gehandhabt werden sollen. Die Deskriptoren können auch einen Bereich festlegen, um die Werte zu begrenzen, die ein Zählerstil verarbeiten kann, und bieten gleichzeitig Ersatzstile für den Fall, dass der Zählerwert außerhalb des definierten Bereichs liegt oder der Zählerwert anderweitig nicht gerendert werden kann. Das Modul ermöglicht auch die Definition, wie der Zähler von Sprachsynthesizern laut vorgelesen wird.
+Obwohl wir Zähler als Zahlen betrachten, sind sie tatsächlich Zeichenfolgen mit Komponenten, die inkrementiert werden können. Das Counter-Stile-Modul definiert die `@counter-style`-Regel mit zehn Deskriptoren, die Entwicklern ermöglichen, genau zu definieren, wie Zähler in Zeichenfolgen umgewandelt werden. Dieses Modul ermöglicht es Ihnen, festzulegen, welche Zeichen für die Zählerpunkte verwendet werden sollen, das Präfix, das dem Zähler vorangestellt wird, und das Suffix, das danach kommt, sowie den Umgang mit negativen Werten. Die Deskriptoren können auch einen Bereich festlegen, um die Werte zu begrenzen, die ein Zählerstil handhaben kann, und bieten gleichzeitig Fallback-Stile, wenn der Zählerwert außerhalb des definierten Bereichs liegt oder der Zählerwert anderweitig nicht gerendert werden kann. Das Modul ermöglicht auch die Definition, wie der Zähler von Sprachausgaben ausgesprochen wird.
 
 ## Referenz
 
@@ -44,17 +44,17 @@ In diesem Modul sind keine Eigenschaften definiert.
 
 ### Schnittstellen und APIs
 
-- [CSS-Zählerstile](/de/docs/Web/API/CSS_Counter_Styles) API
-- {{domxref("CSSCounterStyleRule")}} Schnittstelle
+- [CSS-Counter-Stile](/de/docs/Web/API/CSS_Counter_Styles) API
+- [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule) Schnittstelle
 
 ## Leitfäden
 
 - [Verwendung von CSS-Zählern](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters)
-  - : Beschreibt, wie Zähler verwendet werden, um beliebige HTML-Elemente zu nummerieren oder komplexe Zählvorgänge durchzuführen.
+  - : Beschreibt, wie man Zähler verwendet, um jedes HTML-Element zu nummerieren oder komplexe Zählungen durchzuführen.
 
 ## Verwandte Konzepte
 
-Modul [CSS-Listen und -Zähler](/de/docs/Web/CSS/CSS_lists):
+[CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul:
 
 - {{cssxref("counter-increment")}} Eigenschaft
 - {{cssxref("counter-reset")}} Eigenschaft
@@ -64,7 +64,7 @@ Modul [CSS-Listen und -Zähler](/de/docs/Web/CSS/CSS_lists):
 - {{cssxref("counter", "counter()")}} Funktion
 - {{cssxref("counters", "counters()")}} Funktion
 
-Modul [CSS Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements):
+[CSS-Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul:
 
 - {{cssxref("::after")}} Pseudoelement
 - {{cssxref("::before")}} Pseudoelement
@@ -80,8 +80,8 @@ Modul [CSS Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements):
 
 ## Siehe auch
 
-- [CSS-Zählerstile](/de/docs/Web/API/CSS_Counter_Styles) API
-- [CSS-Listen und -Zähler](/de/docs/Web/CSS/CSS_lists) Modul
-- [CSS Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
+- [CSS-Counter-Stile](/de/docs/Web/API/CSS_Counter_Styles) API
+- [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
+- [CSS-Pseudoelemente](/de/docs/Web/CSS/CSS_pseudo-elements) Modul
 - [CSS generierte Inhalte](/de/docs/Web/CSS/CSS_generated_content) Modul
-- [Vorgefertigte Zählerstile](https://w3c.github.io/predefined-counter-styles/#builtins) über W3C (2023)
+- [Fertige Zählerstile](https://w3c.github.io/predefined-counter-styles/#builtins) über W3C (2023)

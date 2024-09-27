@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesis: Eigenschaft speaking"
+title: "SpeechSynthesis: speaking Eigenschaft"
 short-title: speaking
 slug: Web/API/SpeechSynthesis/speaking
 l10n:
@@ -8,11 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`speaking`** schreibgeschützte Eigenschaft des
-{{domxref("SpeechSynthesis")}} Interfaces ist ein boolescher Wert, der
-`true` zurückgibt, wenn eine Äußerung aktuell gesprochen wird — selbst
-wenn `SpeechSynthesis` sich in einem
-{{domxref("SpeechSynthesis/pause()","pausierten")}} Zustand befindet.
+Die schreibgeschützte Eigenschaft **`speaking`** des [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Interfaces ist ein boolescher Wert, der `true` zurückgibt, wenn eine Äußerung gerade gesprochen wird – selbst wenn `SpeechSynthesis` sich in einem [`paused`](/de/docs/Web/API/SpeechSynthesis/pause)-Zustand befindet.
 
 ## Wert
 
@@ -33,7 +29,7 @@ const utterance2 = new SpeechSynthesisUtterance(
 synth.speak(utterance1);
 synth.speak(utterance2);
 
-const amISpeaking = synth.speaking; // wird true zurückgeben, wenn Äußerung 1 oder Äußerung 2 gerade gesprochen wird
+const amISpeaking = synth.speaking; // will return true if utterance 1 or utterance 2 are currently being spoken
 ```
 
 ## Spezifikationen

@@ -1,5 +1,5 @@
 ---
-title: "TreeWalker: previousNode() Methode"
+title: "TreeWalker: previousNode()-Methode"
 short-title: previousNode()
 slug: Web/API/TreeWalker/previousNode
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`TreeWalker.previousNode()`** Methode verschiebt den aktuellen
-{{domxref("Node")}} zum vorhergehenden _sichtbaren_ Knoten in der Dokumentenreihenfolge und
-gibt den gefundenen Knoten zurück. Wenn ein solcher Knoten
-nicht existiert oder sich vor dem _Wurzelknoten_ befindet, der beim Erstellen des Objekts definiert wurde, gibt es `null` zurück und der aktuelle Knoten wird nicht geändert.
+Die **`TreeWalker.previousNode()`**-Methode bewegt den aktuellen [`Node`](/de/docs/Web/API/Node) zum vorhergehenden _sichtbaren_ Knoten in der Dokumentenreihenfolge und gibt den gefundenen Knoten zurück. Wenn ein solcher Knoten nicht existiert oder er vor dem _Root-Knoten_ liegt, der bei der Objekterstellung definiert wurde, gibt sie `null` zurück und der aktuelle Knoten wird nicht geändert.
 
 ## Syntax
 
@@ -25,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("Node")}} Objekt oder `null`.
+Ein [`Node`](/de/docs/Web/API/Node)-Objekt oder `null`.
 
 ## Beispiele
 
@@ -40,7 +37,7 @@ const treeWalker = document.createTreeWalker(
   },
   false,
 );
-const node = treeWalker.previousNode(); // gibt null zurück, da es keinen übergeordneten Knoten gibt
+const node = treeWalker.previousNode(); // returns null as there is no parent
 ```
 
 ## Spezifikationen
@@ -53,4 +50,4 @@ const node = treeWalker.previousNode(); // gibt null zurück, da es keinen über
 
 ## Siehe auch
 
-- Das {{domxref("TreeWalker")}} Interface, zu dem es gehört.
+- Das [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Interface, zu dem es gehört.

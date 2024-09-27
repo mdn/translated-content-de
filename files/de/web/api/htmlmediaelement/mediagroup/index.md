@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`HTMLMediaElement.mediaGroup`**-Eigenschaft spiegelt das HTML-Attribut `mediagroup` wider, welches den Namen der Gruppe von Elementen angibt, zu der es gehört. Eine Gruppe von Medienelementen teilt sich einen gemeinsamen `controller`.
+Die **`HTMLMediaElement.mediaGroup`**-Eigenschaft reflektiert das `mediagroup` HTML-Attribut, das den Namen der Gruppe anzeigt, zu der die Elemente gehören. Eine Gruppe von Media-Elementen teilt einen gemeinsamen `controller`.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Spezifikationen
 
-Im Jahr 2016 wurde das gesamte Media Controller-Feature [aus der HTML-Spezifikation entfernt](https://github.com/w3c/html/issues/246). Es ist nicht mehr auf dem Weg, ein Standard zu werden.
+Im Jahr 2016 wurde das ganze Media Controller-Feature [aus der HTML-Spezifikation entfernt](https://github.com/w3c/html/issues/246). Es ist nicht mehr auf dem Weg, ein Standard zu werden.
 
 ## Browser-Kompatibilität
 
@@ -24,4 +24,4 @@ Im Jahr 2016 wurde das gesamte Media Controller-Feature [aus der HTML-Spezifikat
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement")}}: Schnittstelle zur Definition der `HTMLMediaElement.mediaGroup`-Eigenschaft
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle zur Definition der `HTMLMediaElement.mediaGroup`-Eigenschaft

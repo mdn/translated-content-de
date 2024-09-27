@@ -1,5 +1,5 @@
 ---
-title: "NDEFRecord: toRecords()-Methode"
+title: "NDEFRecord: Methode toRecords()"
 short-title: toRecords()
 slug: Web/API/NDEFRecord/toRecords
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die **`toRecords()`**-Methode des {{DOMxRef("NDEFRecord")}}-Interfaces konvertiert {{DOMxRef("NDEFRecord.data")}} in eine Sequenz von Datensätzen basierend auf {{DOMxRef("NDEFRecord.recordType")}} und gibt das Ergebnis zurück. Dies ermöglicht das Parsen der Nutzdaten von Datensatztypen, die verschachtelte Datensätze enthalten können, wie z.B. Smart-Poster- und Extern-Typ-Datensätze.
+Die **`toRecords()`** Methode der [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Schnittstelle konvertiert [`NDEFRecord.data`](/de/docs/Web/API/NDEFRecord/data) in eine Sequenz von Datensätzen basierend auf [`NDEFRecord.recordType`](/de/docs/Web/API/NDEFRecord/recordType) und gibt das Ergebnis zurück. Dies ermöglicht das Parsen von Nutzlasten von Datensatztypen, die möglicherweise verschachtelte Datensätze enthalten, wie etwa Smart-Poster und externe Typ-Datensätze.
 
 ## Syntax
 
@@ -22,22 +22,22 @@ Keine.
 
 ### Rückgabewert
 
-Eine Liste von {{DOMxRef("NDEFRecord")}}-Objekten.
+Eine Liste von [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)s.
 
 ### Ausnahmen
 
-- `NotSupported` {{domxref("DOMException")}}
-  - : Gibt an, dass der {{Glossary("User Agent")}} nicht weiß, wie diese Kombination von {{DOMxRef("NDEFRecord.data")}} und {{DOMxRef("NDEFRecord.recordType")}} zu parsen ist.
+- `NotSupported` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Gibt an, dass der [User Agent](/de/docs/Glossary/User_Agent) nicht weiß, wie diese Kombination von [`NDEFRecord.data`](/de/docs/Web/API/NDEFRecord/data) und [`NDEFRecord.recordType`](/de/docs/Web/API/NDEFRecord/recordType) zu parsen ist.
 
 ## Beispiele
 
 Ein externes Datensatz mit einer NDEF-Nachricht als Nutzlast lesen
 
-Das Beispiel verwendet Extern-Typ-Datensätze, um anwendungsspezifische Datensätze zu erstellen. Diese Datensätze können eine {{domxref("NDEFMessage")}} als Nutzlast enthalten, die eigene {{domxref("NDEFRecord")}}-Objekte hat, einschließlich lokaler Typen, die im Kontext der Anwendung benutzt werden. Beachten Sie, dass der Smart-Poster-Datensatztyp ebenfalls eine NDEF-Nachricht als Nutzlast enthält.
+Das Beispiel verwendet externe Typ-Datensätze, um anwendungsdefinierte Datensätze zu erstellen. Diese Datensätze können eine [`NDEFMessage`](/de/docs/Web/API/NDEFMessage) als Nutzlast enthalten, mit ihren eigenen [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Objekten, einschließlich lokaler Typen, die im Kontext der Anwendung verwendet werden. Beachten Sie, dass der Smart-Poster-Datensatztyp ebenfalls eine NDEF-Nachricht als Nutzlast enthält.
 
-Da NDEF keine Garantie für die Reihenfolge von Datensätzen bietet, kann die Verwendung eines Extern-Typs-Datensatzes mit einer NDEF-Nachricht als Nutzlast nützlich sein, um zusammengehörige Daten zu kapseln.
+Da NDEF keine Garantie für die Reihenfolge von Datensätzen gibt, kann die Verwendung eines externen Typ-Datensatzes mit einer NDEF-Nachricht als Nutzlast nützlich sein, um verwandte Daten zu kapseln.
 
-Dieses Beispiel zeigt, wie ein externer Datensatz für soziale Beiträge gelesen wird, der eine {{domxref("NDEFMessage")}} enthält, die einen Textdatensatz und einen Datensatz mit dem lokalen Typ "act" (Aktion), mit einer Definition von Smart-Poster ausgeliehen, aber im lokalen Anwendungskontext verwendet, enthält.
+Dieses Beispiel zeigt, wie man einen externen Datensatz für soziale Beiträge liest, der eine [`NDEFMessage`](/de/docs/Web/API/NDEFMessage) enthält, die einen Textdatensatz und einen Datensatz mit dem lokalen Typ "act" (Aktion) enthält, mit einer Definition, die aus dem Smart-Poster entlehnt ist, aber im lokalen Anwendungskontext verwendet wird.
 
 ```js
 const ndefReader = new NDEFReader();

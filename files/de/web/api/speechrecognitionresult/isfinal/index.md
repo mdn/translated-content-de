@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognitionResult: isFinal-Eigenschaft"
+title: "SpeechRecognitionResult: isFinal Eigenschaft"
 short-title: isFinal
 slug: Web/API/SpeechRecognitionResult/isFinal
 l10n:
@@ -8,11 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`isFinal`**-Eigenschaft des schreibgeschützten
-{{domxref("SpeechRecognitionResult")}}-Interfaces ist ein boolescher Wert, der angibt,
-ob dieses Ergebnis endgültig (`true`) oder nicht (`false`) ist — ist dies der Fall,
-dann wird dieses Ergebnis zum letzten Mal zurückgegeben; wenn nicht, dann ist dieses Ergebnis ein
-vorläufiges Ergebnis und kann später noch aktualisiert werden.
+Die **`isFinal`** Nur-Lese-Eigenschaft der [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) Schnittstelle ist ein boolescher Wert, der angibt, ob dieses Ergebnis final (`true`) ist oder nicht (`false`) — wenn ja, dann wird dieses Ergebnis zum letzten Mal zurückgegeben; wenn nicht, dann ist dieses Ergebnis ein Zwischenergebnis und kann später aktualisiert werden.
 
 ## Wert
 
@@ -22,15 +18,15 @@ Ein boolescher Wert.
 
 ```js
 recognition.onresult = (event) => {
-  // Die SpeechRecognitionEvent results-Eigenschaft gibt ein SpeechRecognitionResultList-Objekt zurück
-  // Das SpeechRecognitionResultList-Objekt enthält SpeechRecognitionResult-Objekte.
-  // Es hat einen Getter, sodass es wie ein Array angesprochen werden kann
-  // Das erste [0] gibt das SpeechRecognitionResult an Position 0 zurück.
-  // Jedes SpeechRecognitionResult-Objekt enthält SpeechRecognitionAlternative-Objekte
-  // die einzelne Ergebnisse enthalten.
-  // Diese haben ebenfalls Getter, sodass sie wie Arrays angesprochen werden können.
-  // Das zweite [0] gibt die SpeechRecognitionAlternative an Position 0 zurück.
-  // Danach geben wir die transcript-Eigenschaft des SpeechRecognitionAlternative-Objekts zurück
+  // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
+  // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
+  // It has a getter so it can be accessed like an array
+  // The first [0] returns the SpeechRecognitionResult at position 0.
+  // Each SpeechRecognitionResult object contains SpeechRecognitionAlternative objects
+  // that contain individual results.
+  // These also have getters so they can be accessed like arrays.
+  // The second [0] returns the SpeechRecognitionAlternative at position 0.
+  // We then return the transcript property of the SpeechRecognitionAlternative object
   const color = event.results[0][0].transcript;
   diagnostic.textContent = `Result received: ${color}.`;
   bg.style.backgroundColor = color;

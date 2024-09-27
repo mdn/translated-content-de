@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**SCTP** (Stream Control Transmission {{glossary("Protocol")}}) ist ein {{Glossary("IETF")}}-Standard für ein Transportprotokoll, das die zuverlässige und in der richtigen Reihenfolge erfolgende Übertragung von Nachrichten ermöglicht, während es gleichzeitig Staukontrolle, Multi-Homing und andere Funktionen bietet, um die Zuverlässigkeit und Stabilität der Verbindung zu verbessern. Es wird für die Übertragung traditioneller Telefongespräche über das Internet verwendet, findet aber auch Anwendung bei {{Glossary("WebRTC")}}-Daten.
+**SCTP** (Stream Control Transmission [Protocol](/de/docs/Glossary/Protocol)) ist ein [IETF](/de/docs/Glossary/IETF)-Standard für ein Transportprotokoll, das die zuverlässige, geordnete Übertragung von Nachrichten ermöglicht, während es Überlaststeuerung, Multi-Homing und weitere Funktionen bietet, um die Zuverlässigkeit und Stabilität der Verbindung zu verbessern. Es wird verwendet, um herkömmliche Telefonanrufe über das Internet zu senden, aber auch für [WebRTC](/de/docs/Glossary/WebRTC)-Daten genutzt.
 
 ## Siehe auch
 

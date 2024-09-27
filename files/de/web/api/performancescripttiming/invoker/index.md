@@ -8,22 +8,22 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`invoker`** der {{domxref("PerformanceScriptTiming")}}-Schnittstelle gibt einen Zeichenfolgenwert zurück, der die Identität der Funktion angibt, die beim Aufrufen das Skript ausgeführt hat.
+Die **`invoker`**-Eigenschaft des [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Interfaces gibt einen String-Wert zurück, der die Identität der Funktion angibt, die beim Aufruf das Skript ausgeführt hat.
 
 ## Wert
 
-Eine Zeichenkette, deren Struktur vom Wert von {{domxref("PerformanceScriptTiming.invokerType")}} des Skripts abhängt:
+Ein String, dessen Struktur von dem Wert des Skripts [`PerformanceScriptTiming.invokerType`](/de/docs/Web/API/PerformanceScriptTiming/invokerType) abhängt:
 
-| `invokerType`                             | Struktur der `invoker`-Zeichenkette                                                                                                                                                                                                                                     | Beispiel(e)                                                                                           |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `"user-callback"`                         | Die Klassenbezeichnung des Objekts, auf dem die enthaltene Funktion definiert ist, gefolgt von einem Punkt, gefolgt vom Funktionsnamen.                                                                                                                                  | `"Window.requestAnimationFrame"`, `"Window.setTimeout"`                                               |
-| `"event-listener"`                        | Der {{domxref("Element.tagName", "tagName")}} des Elements, gefolgt von einem Hash und seiner `id` (`#id`) oder `src=` und seinem `src`-Wert in eckigen Klammern (`[src=url]`), wenn keine `id` vorhanden ist, gefolgt von einem Punkt und der Ereignishandler-Eigenschaft. | `"IMG#hero.onload"`, `"IMG[src=https://example.com/img.jpg].onload"`, `"BUTTON#updateCart.onclick"`    |
-| `"resolve-promise"` oder `"reject-promise"` | Das Objekt und die Methode, die das Promise ausgelöst haben, gefolgt von einem Punkt, gefolgt von `"then"` für `"resolve-promise"` und `"catch"` für `"reject-promise"`.                                                                                                 | `"Response.json.then"`, `"Response.json.catch"`                                                       |
-| `"classic-script"` oder `"module-script"`   | Die Quell-URL des aufrufenden Skripts.                                                                                                                                                                                                                                   | `"https://example.com/scripts/myscript.js"`                                                            |
+| `invokerType`                               | Struktur des `invoker`-Strings                                                                                                                                                                                                                                                     | Beispiel(e)                                                                                         |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `"user-callback"`                           | Die Klassen des Objekts, auf dem die enthaltene Funktion definiert ist, gefolgt von einem Punkt, gefolgt vom Funktionsnamen.                                                                                                                                                       | `"Window.requestAnimationFrame"`, `"Window.setTimeout"`                                             |
+| `"event-listener"`                          | Der [`tagName`](/de/docs/Web/API/Element/tagName) des Elements, gefolgt von einem Hash und seiner `id` (`#id`) oder von `src=` und seinem `src`-Wert in eckigen Klammern (`[src=url]`), falls keine `id` vorhanden ist, gefolgt von einem Punkt und der Event-Handler-Eigenschaft. | `"IMG#hero.onload"`, `"IMG[src=https://example.com/img.jpg].onload"`, `"BUTTON#updateCart.onclick"` |
+| `"resolve-promise"` oder `"reject-promise"` | Das Objekt und die Methode, die das Promise aufgerufen haben, gefolgt von einem Punkt, gefolgt von `"then"` für `"resolve-promise"` und `"catch"` für `"reject-promise"`.                                                                                                          | `"Response.json.then"`, `"Response.json.catch"`                                                     |
+| `"classic-script"` oder `"module-script"`   | Die Quell-URL des aufrufenden Skripts.                                                                                                                                                                                                                                             | `"https://example.com/scripts/myscript.js"`                                                         |
 
 ## Beispiele
 
-Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele, die mit der Long Animation Frames API zusammenhängen.
 
 ## Spezifikationen
 
@@ -36,4 +36,4 @@ Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animat
 ## Siehe auch
 
 - [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
-- {{domxref("PerformanceLongAnimationFrameTiming")}}
+- [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)

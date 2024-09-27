@@ -1,5 +1,5 @@
 ---
-title: Stapelung ohne die z-index-Eigenschaft
+title: Stapeln ohne die z-index Eigenschaft
 slug: Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_without_z-index
 l10n:
   sourceCommit: e1b6d7d2d02a07f7e86268c81678713fad4d9a5d
@@ -7,15 +7,15 @@ l10n:
 
 {{CSSRef}}
 
-Wenn die {{cssxref("z-index")}}-Eigenschaft bei keinem Element festgelegt ist, werden die Elemente in der folgenden Reihenfolge gestapelt (von unten nach oben):
+Wenn die {{cssxref("z-index")}} Eigenschaft bei keinem Element angegeben ist, werden Elemente in folgender Reihenfolge gestapelt (von unten nach oben):
 
 1. Der Hintergrund und die Ränder des Wurzelelements.
-2. Nachkommende nicht positionierte Elemente in der Reihenfolge ihres Erscheinens im HTML.
-3. Nachkommende positionierte Elemente in der Reihenfolge ihres Erscheinens im HTML.
+2. Nachkommende nicht positionierte Elemente, in der Reihenfolge ihres Erscheinens im HTML.
+3. Nachkommende positionierte Elemente, in der Reihenfolge ihres Erscheinens im HTML.
 
-Siehe [Arten der Positionierung](/de/docs/Web/CSS/position#types_of_positioning) für eine Erklärung von positionierten und nicht positionierten Elementen.
+Siehe [Arten der Positionierung](/de/docs/Web/CSS/position#types_of_positioning) für eine Erklärung zu positionierten und nicht positionierten Elementen.
 
-Beachten Sie, dass wenn die {{cssxref("order")}}-Eigenschaft die Darstellung in {{cssxref("flex")}}-Containern von der _Reihenfolge des Erscheinens im HTML_ verändert, sie ähnlich die Reihenfolge für den Stapelkontext beeinflusst.
+Beachten Sie, dass wenn die {{cssxref("order")}} Eigenschaft die Darstellung von der _Reihenfolge des Erscheinens im HTML_ innerhalb von {{cssxref("flex")}}-Containern ändert, es die Reihenfolge für den Stapelkontext ähnlich beeinflusst.
 
 ## Beispiel
 
@@ -111,9 +111,9 @@ div {
 
 ## Siehe auch
 
-- [Stapelung schwebender Elemente](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_floating_elements): Wie schwebende Elemente bei der Stapelung behandelt werden.
-- [Verwendung von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Using_z-index): Wie `z-index` verwendet wird, um die Standardstapelung zu ändern.
-- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context): Hinweise zum Stapelkontext.
-- [Beispiel für Stapelkontext 1](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_1): 2-stufige HTML-Hierarchie, z-index auf der letzten Stufe
-- [Beispiel für Stapelkontext 2](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_2): 2-stufige HTML-Hierarchie, z-index auf allen Stufen
-- [Beispiel für Stapelkontext 3](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_3): 3-stufige HTML-Hierarchie, z-index auf der zweiten Stufe
+- [Stapeln von schwebenden Elementen](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_floating_elements): Wie schwebende Elemente im Stapel behandelt werden.
+- [Verwendung von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Using_z-index): Wie man `z-index` verwendet, um das Standard-Stapeln zu ändern.
+- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context): Anmerkungen zum Stapelkontext.
+- [Stapelkontext Beispiel 1](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_1): 2-Ebenen HTML-Hierarchie, z-index auf der letzten Ebene
+- [Stapelkontext Beispiel 2](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_2): 2-Ebenen HTML-Hierarchie, z-index auf allen Ebenen
+- [Stapelkontext Beispiel 3](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_3): 3-Ebenen HTML-Hierarchie, z-index auf der zweiten Ebene

@@ -8,29 +8,29 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`pendingRemoteDescription`** schreibgeschützte Eigenschaft der {{domxref("RTCPeerConnection")}}-Schnittstelle gibt ein {{domxref("RTCSessionDescription")}}-Objekt zurück, das eine geplante Konfigurationsänderung für das entfernte Ende der Verbindung beschreibt.
+Die schreibgeschützte Eigenschaft **`pendingRemoteDescription`** der Schnittstelle [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gibt ein [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt zurück, das eine ausstehende Konfigurationsänderung für das entfernte Ende der Verbindung beschreibt.
 
-Dies beschreibt nicht die Verbindung in ihrem jetzigen Zustand, sondern wie sie in naher Zukunft existieren könnte.
-Verwenden Sie {{domxref("RTCPeerConnection.currentRemoteDescription")}} oder {{domxref("RTCPeerConnection.remoteDescription")}}, um die aktuelle Sitzungsbeschreibung für den entfernten Endpunkt zu erhalten.
+Dies beschreibt nicht die Verbindung, wie sie derzeit besteht, sondern wie sie in naher Zukunft existieren könnte.
+Verwenden Sie [`RTCPeerConnection.currentRemoteDescription`](/de/docs/Web/API/RTCPeerConnection/currentRemoteDescription) oder [`RTCPeerConnection.remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription), um die aktuelle Sitzungsbeschreibung für den entfernten Endpunkt zu erhalten.
 Einzelheiten zu den Unterschieden finden Sie unter [Pending and current descriptions](/de/docs/Web/API/WebRTC_API/Connectivity#pending_and_current_descriptions) auf der WebRTC-Konnektivitätsseite.
 
 ## Wert
 
-Wenn eine Änderung der Remote-Beschreibung in Bearbeitung ist, handelt es sich um eine {{domxref("RTCSessionDescription")}}, die die vorgeschlagene Konfiguration beschreibt.
+Wenn eine Änderung der entfernten Beschreibung im Gange ist, handelt es sich um eine [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription), die die vorgeschlagene Konfiguration beschreibt.
 Andernfalls wird `null` zurückgegeben.
 
 ## Beispiele
 
-Dieses Beispiel prüft `pendingRemoteDescription`, um festzustellen, ob eine Beschreibungsänderung verarbeitet wird.
+In diesem Beispiel wird `pendingRemoteDescription` untersucht, um festzustellen, ob eine Änderungsbeschreibung verarbeitet wird.
 
 ```js
 const pc = new RTCPeerConnection();
 // ...
 const sd = pc.pendingRemoteDescription;
 if (sd) {
-  // Es gibt eine laufende Beschreibungsänderung!
+  // There's a description change underway!
 } else {
-  // Keine ausstehende Beschreibungsänderung
+  // No description change pending
 }
 ```
 
@@ -43,16 +43,16 @@ if (sd) {
 {{Compat}}
 
 > [!NOTE]
-> Die Hinzufügung von `pendingRemoteDescription` und {{domxref("RTCPeerConnection.currentRemoteDescription", "currentRemoteDescription")}} zur WebRTC-Spezifikation ist relativ neu.
-> In Browsern, die sie nicht unterstützen, ist nur {{domxref("RTCPeerConnection.remoteDescription", "remoteDescription")}} verfügbar.
+> Die Hinzufügung von `pendingRemoteDescription` und [`currentRemoteDescription`](/de/docs/Web/API/RTCPeerConnection/currentRemoteDescription) zur WebRTC-Spezifikation ist relativ neu.
+> In Browsern, die diese nicht unterstützen, ist nur [`remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription) verfügbar.
 
 ## Siehe auch
 
-- {{domxref("RTCPeerConnection.setRemoteDescription()")}},
-  {{domxref("RTCPeerConnection.currentRemoteDescription")}},
-  {{domxref("RTCPeerConnection.remoteDescription")}}
-- {{domxref("RTCPeerConnection.setLocalDescription()")}},
-  {{domxref("RTCPeerConnection.localDescription")}},
-  {{domxref("RTCPeerConnection.pendingLocalDescription")}},
-  {{domxref("RTCPeerConnection.currentLocalDescription")}}
+- [`RTCPeerConnection.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription),
+  [`RTCPeerConnection.currentRemoteDescription`](/de/docs/Web/API/RTCPeerConnection/currentRemoteDescription),
+  [`RTCPeerConnection.remoteDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription)
+- [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription),
+  [`RTCPeerConnection.localDescription`](/de/docs/Web/API/RTCPeerConnection/localDescription),
+  [`RTCPeerConnection.pendingLocalDescription`](/de/docs/Web/API/RTCPeerConnection/pendingLocalDescription),
+  [`RTCPeerConnection.currentLocalDescription`](/de/docs/Web/API/RTCPeerConnection/currentLocalDescription)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

@@ -17,36 +17,36 @@ Die schreibgeschützte **`Animation.playState`**-Eigenschaft der [Web Animations
 - `running`
   - : Die Animation läuft.
 - `paused`
-  - : Die Animation wurde angehalten und die {{domxref("Animation.currentTime")}}-Eigenschaft wird nicht aktualisiert.
+  - : Die Animation wurde angehalten und die [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime)-Eigenschaft wird nicht aktualisiert.
 - `finished`
-  - : Die Animation hat eine ihrer Grenzen erreicht und die {{domxref("Animation.currentTime")}}-Eigenschaft wird nicht aktualisiert.
+  - : Die Animation hat einen ihrer Grenzen erreicht und die [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime)-Eigenschaft wird nicht aktualisiert.
 
-Früher definierte Web Animations einen **`pending`**-Wert, um anzuzeigen, dass einige asynchrone Operationen wie das Starten der Wiedergabe noch nicht abgeschlossen waren. Dies wird nun durch die separate {{domxref("Animation.pending")}}-Eigenschaft angezeigt.
+Früher definierte Web Animations einen **`pending`**-Wert, um anzuzeigen, dass ein asynchroner Vorgang wie das Starten der Wiedergabe noch nicht abgeschlossen war. Dies wird nun durch die separate [`Animation.pending`](/de/docs/Web/API/Animation/pending)-Eigenschaft angezeigt.
 
 ## Beispiele
 
-Im [Growing/Shrinking Alice Game](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010)-Beispiel können Spieler ein Ende erreichen, bei dem [Alice in einen Tränensee weint](https://codepen.io/rachelnabors/pen/EPJdJx?editors=0010). Im Spiel sollten aus Leistungsgründen die Tränen nur animiert werden, wenn sie sichtbar sind. Daher müssen sie wie folgt angehalten werden, sobald sie animiert werden:
+Im Beispiel [Growing/Shrinking Alice Game](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) können Spieler ein Ende erreichen, bei dem [Alice in einen Tränenpool weint](https://codepen.io/rachelnabors/pen/EPJdJx?editors=0010). Im Spiel sollten aus Leistungsgründen die Tränen nur dann animiert werden, wenn sie sichtbar sind. Sie müssen daher wie folgt pausiert werden, sobald sie animiert sind:
 
 ```js
-// Einrichten der Tränenanimationen
+// Setting up the tear animations
 
 tears.forEach((el) => {
   el.animate(tearsFalling, {
-    delay: getRandomMsRange(-1000, 1000), // für jede Träne zufällig
-    duration: getRandomMsRange(2000, 6000), // für jede Träne zufällig
+    delay: getRandomMsRange(-1000, 1000), // randomized for each tear
+    duration: getRandomMsRange(2000, 6000), // randomized for each tear
     iterations: Infinity,
     easing: "cubic-bezier(0.6, 0.04, 0.98, 0.335)",
   });
   el.pause();
 });
 
-// Lässt die Tränen fallen, wenn das Ende gezeigt werden soll.
+// Play the tears falling when the ending needs to be shown.
 
 tears.forEach((el) => {
   el.play();
 });
 
-// Setzt die weinenden Tränenanimationen zurück und pausiert sie.
+// Reset the crying tears animations and pause them.
 
 tears.forEach((el) => {
   el.pause();
@@ -65,4 +65,4 @@ tears.forEach((el) => {
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("Animation")}} für andere Methoden und Eigenschaften, die Sie zur Steuerung von Webseitenanimationen verwenden können.
+- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, die Sie zur Steuerung der Animation auf Webseiten verwenden können.

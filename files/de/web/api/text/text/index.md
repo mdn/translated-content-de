@@ -1,5 +1,5 @@
 ---
-title: "Text: Text() Konstruktor"
+title: "Text: Text()-Konstruktor"
 short-title: Text()
 slug: Web/API/Text/Text
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{ APIRef("DOM")}}
 
-Der **`Text()`** Konstruktor gibt ein neues {{domxref("Text")}} Objekt zurück,
-mit dem als Parameter übergebenen optionalen String als dessen Textinhalt.
+Der **`Text()`**-Konstruktor gibt ein neues [`Text`](/de/docs/Web/API/Text)-Objekt zurück mit dem optionalen im Parameter angegebenen String als dessen Textinhalt.
 
 ## Syntax
 
@@ -25,7 +24,7 @@ new Text(string)
 
 ### Rückgabewert
 
-Ein neues {{domxref("Text")}} Objekt mit dem Inhalt des `string` Parameters oder dem leeren String, falls kein Parameter übergeben wurde.
+Ein neues [`Text`](/de/docs/Web/API/Text)-Objekt mit dem Inhalt des `string`-Parameters oder der leere String, wenn kein Parameter angegeben wurde.
 
 ## Beispiel
 

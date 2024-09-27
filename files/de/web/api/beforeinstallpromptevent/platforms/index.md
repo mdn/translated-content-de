@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}{{SeeCompatTable}}{{Non-standard_header}}
 
-Die **`platforms`**-Eigenschaft der {{domxref("BeforeInstallPromptEvent")}}-Schnittstelle listet die Plattformen auf, auf denen das Ereignis ausgelöst wurde. Dies wird für Benutzeragenten bereitgestellt, die dem Benutzer eine Auswahl an Versionen präsentieren möchten, wie beispielsweise "web" oder "play", was dem Benutzer die Wahl zwischen einer Web- oder einer Android-Version ermöglichen würde.
+Die **`platforms`**-Eigenschaft der [`BeforeInstallPromptEvent`](/de/docs/Web/API/BeforeInstallPromptEvent)-Schnittstelle listet die Plattformen auf, auf denen das Ereignis ausgelöst wurde. Dies wird für Benutzeragenten bereitgestellt, die eine Auswahl an Versionen präsentieren möchten, wie beispielsweise "web" oder "play", die es dem Benutzer ermöglichen, zwischen einer Webversion oder einer Android-Version zu wählen.
 
 ## Wert
 
@@ -20,5 +20,5 @@ Ein Array von Zeichenfolgen, in dem jede Zeichenfolge eine Zielplattform für di
 
 ## Siehe auch
 
-- [PWA-Installierbarkeit erhöhen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
-- [Wie Sie Ihr eigenes Installations-Erlebnis in der App bereitstellen können](https://web.dev/articles/customize-install) auf web.dev (2021)
+- [Installierbare PWAs erstellen](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
+- [Anleitung, um Ihre eigene In-App-Installationserfahrung bereitzustellen](https://web.dev/articles/customize-install) auf web.dev (2021)

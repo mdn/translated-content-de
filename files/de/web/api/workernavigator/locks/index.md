@@ -1,5 +1,5 @@
 ---
-title: "WorkerNavigator: locks Eigenschaft"
+title: "WorkerNavigator: locks-Eigenschaft"
 short-title: locks
 slug: Web/API/WorkerNavigator/locks
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Locks API")}}{{securecontext_header}}{{AvailableInWorkers("worker")}}
 
-Die **`locks`** schreibgeschützte Eigenschaft des {{domxref("WorkerNavigator")}} Schnittstelle gibt ein {{domxref("LockManager")}} Objekt zurück, das Methoden zum Anfordern eines neuen {{domxref('Lock')}} Objekts und zum Abfragen eines bestehenden `Lock` Objekts bereitstellt.
+Die schreibgeschützte **`locks`**-Eigenschaft des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces gibt ein [`LockManager`](/de/docs/Web/API/LockManager)-Objekt zurück, das Methoden zum Anfordern eines neuen [`Lock`](/de/docs/Web/API/Lock)-Objekts und zum Abfragen eines vorhandenen `Lock`-Objekts bereitstellt.
 
 ## Wert
 
-Ein {{domxref("LockManager")}} Objekt.
+Ein [`LockManager`](/de/docs/Web/API/LockManager)-Objekt.
 
 ## Spezifikationen
 

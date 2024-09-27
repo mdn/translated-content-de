@@ -1,5 +1,5 @@
 ---
-title: "Anforderung: signal Eigenschaft"
+title: "Request: signal-Eigenschaft"
 short-title: signal
 slug: Web/API/Request/signal
 l10n:
@@ -8,40 +8,40 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte **`signal`**-Eigenschaft der {{DOMxRef("Request")}}-Schnittstelle gibt das mit der Anforderung verknüpfte {{domxref("AbortSignal")}} zurück.
+Die schreibgeschützte **`signal`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle gibt das [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück, das mit der Anfrage verknüpft ist.
 
 ## Wert
 
-Ein {{DOMxRef("AbortSignal")}} Objekt.
+Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal)-Objekt.
 
 ## Beispiele
 
 ```js
-// Erstellen Sie einen neuen AbortController
+// Create a new abort controller
 const controller = new AbortController();
 
-// Erstellen Sie eine Anforderung mit dem AbortSignal-Objekt dieses Controllers
+// Create a request with this controller's AbortSignal object
 const req = new Request("/", { signal: controller.signal });
 
-// Fügen Sie einen Ereignishandler hinzu, der im Falle eines Abbruchs eine Nachricht protokolliert
+// Add an event handler logging a message in case of abort
 req.signal.addEventListener("abort", () => {
   console.log("abort");
 });
 
-// Im Falle eines Abbruchs das AbortSignal-Derivat, falls vorhanden, protokollieren
+// In case of abort, log the AbortSignal reason, if any
 fetch(req).catch(() => {
   if (signal.aborted) {
     if (signal.reason) {
-      console.log(`Anforderung mit Grund abgebrochen: ${signal.reason}`);
+      console.log(`Request aborted with reason: ${signal.reason}`);
     } else {
-      console.log("Anforderung abgebrochen, aber kein Grund angegeben.");
+      console.log("Request aborted but no reason was given.");
     }
   } else {
-    console.log("Anforderung nicht abgebrochen, aber abnormal beendet.");
+    console.log("Request not aborted, but terminated abnormally.");
   }
 });
 
-// Tatsächlich die Anforderung abbrechen
+// Actually abort the request
 controller.abort();
 ```
 

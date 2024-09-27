@@ -1,5 +1,5 @@
 ---
-title: "Element: Methode closest()"
+title: "Element: closest()-Methode"
 short-title: closest()
 slug: Web/API/Element/closest
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef('DOM')}}
 
-Die **`closest()`**-Methode der {{domxref("Element")}}-Schnittstelle durchläuft das Element und seine Eltern (in Richtung des Dokumentenwurzels), bis sie einen Knoten findet, der dem angegebenen [CSS-Selektor](/de/docs/Learn/CSS/Building_blocks/Selectors) entspricht.
+Die **`closest()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle durchläuft das Element und seine Eltern (Richtung Dokumentwurzel), bis ein Knoten gefunden wird, der mit dem angegebenen [CSS-Selektor](/de/docs/Learn/CSS/Building_blocks/Selectors) übereinstimmt.
 
 ## Syntax
 
@@ -19,15 +19,15 @@ closest(selectors)
 ### Parameter
 
 - `selectors`
-  - : Ein String eines gültigen [CSS-Selektors](/de/docs/Learn/CSS/Building_blocks/Selectors), um das {{domxref("Element")}} und seine Vorfahren zu vergleichen.
+  - : Ein String eines gültigen [CSS-Selektors](/de/docs/Learn/CSS/Building_blocks/Selectors), um das [`Element`](/de/docs/Web/API/Element) und seine Vorfahren zu überprüfen.
 
 ### Rückgabewert
 
-Das nächste übergeordnete {{domxref("Element")}} oder das Element selbst, das den `selectors` entspricht. Wenn es kein solches Element gibt, `null`.
+Das nächste Vorfahren-`Element` oder sich selbst, das mit den `selectors` übereinstimmt. Wenn es kein solches Element gibt, `null`.
 
 ### Ausnahmen
 
-- `SyntaxError` {{domxref("DOMException")}}
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die `selectors` kein gültiger CSS-Selektor sind.
 
 ## Beispiele
@@ -37,10 +37,10 @@ Das nächste übergeordnete {{domxref("Element")}} oder das Element selbst, das 
 ```html
 <article>
   <div id="div-01">
-    Hier ist div-01
+    Here is div-01
     <div id="div-02">
-      Hier ist div-02
-      <div id="div-03">Hier ist div-03</div>
+      Here is div-02
+      <div id="div-03">Here is div-03</div>
     </div>
   </div>
 </article>
@@ -51,16 +51,16 @@ Das nächste übergeordnete {{domxref("Element")}} oder das Element selbst, das 
 ```js
 const el = document.getElementById("div-03");
 
-// der nächste Vorfahre mit der ID "div-02"
+// the closest ancestor with the id of "div-02"
 console.log(el.closest("#div-02")); // <div id="div-02">
 
-// der nächste Vorfahre, der ein div in einem div ist
+// the closest ancestor which is a div in a div
 console.log(el.closest("div div")); // <div id="div-03">
 
-// der nächste Vorfahre, der ein div ist und ein Eltern-Artikel hat
+// the closest ancestor which is a div and has a parent article
 console.log(el.closest("article > div")); // <div id="div-01">
 
-// der nächste Vorfahre, der kein div ist
+// the closest ancestor which is not a div
 console.log(el.closest(":not(div)")); // <article>
 ```
 
@@ -74,12 +74,9 @@ console.log(el.closest(":not(div)")); // <article>
 
 ### Kompatibilitätsnotizen
 
-- In Edge 15-18 wird `document.createElement(tagName).closest(tagName)`
-  `null` zurückgeben, wenn das Element nicht zuerst (direkt oder
-  indirekt) mit dem Kontextobjekt verbunden ist, zum Beispiel dem {{domxref("Document")}}-Objekt im
-  Fall des normalen DOM.
+- In Edge 15-18 wird `document.createElement(tagName).closest(tagName)` `null` zurückgeben, wenn das Element nicht zuerst (direkt oder indirekt) mit dem Kontextobjekt verbunden ist, beispielsweise dem [`Document`](/de/docs/Web/API/Document)-Objekt im Fall des normalen DOM.
 
 ## Siehe auch
 
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
-- Weitere {{domxref("Element")}}-Methoden, die Selektoren verwenden: {{domxref("Element.querySelector()")}}, {{domxref("Element.querySelectorAll()")}} und {{domxref("Element.matches()")}}.
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)-Modul
+- Andere Methoden der [`Element`](/de/docs/Web/API/Element)-Schnittstelle, die Selektoren verwenden: [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector), [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll) und [`Element.matches()`](/de/docs/Web/API/Element/matches).

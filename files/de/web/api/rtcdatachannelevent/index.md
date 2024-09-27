@@ -8,25 +8,25 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die **`RTCDataChannelEvent`**-Schnittstelle
-repräsentiert ein Ereignis, das mit einem bestimmten {{DOMxRef("RTCDataChannel")}} verbunden ist.
+repräsentiert ein Ereignis, das mit einem bestimmten [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) verknüpft ist.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{DOMxRef("RTCDataChannelEvent.RTCDataChannelEvent", "RTCDataChannelEvent()")}}
+- [`RTCDataChannelEvent()`](/de/docs/Web/API/RTCDataChannelEvent/RTCDataChannelEvent)
   - : Erstellt ein neues `RTCDataChannelEvent`.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt auch Eigenschaften von {{DOMxRef("Event")}}._
+_Erbt auch Eigenschaften von [`Event`](/de/docs/Web/API/Event)._
 
-- {{DOMxRef("RTCDataChannelEvent.channel", "channel")}} {{ReadOnlyInline}}
-  - : Gibt das {{domxref("RTCDataChannel")}} zurück, das mit dem Ereignis verbunden ist.
+- [`channel`](/de/docs/Web/API/RTCDataChannelEvent/channel) {{ReadOnlyInline}}
+  - : Gibt den [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zurück, der mit dem Ereignis verknüpft ist.
 
 ## Beispiele
 
-In diesem Beispiel wird der `datachannel`-Ereignishandler eingerichtet, um die Datenkanalreferenz zu speichern und Handler für die Ereignisse, die überwacht werden müssen, einzurichten. Die Eigenschaft {{domxref("RTCDataChannelEvent.channel", "channel")}} bietet das {{domxref("RTCDataChannel")}}, das die Verbindung zum anderen Peer darstellt.
+In diesem Beispiel wird der `datachannel`-Ereignishandler eingerichtet, um die Datenkanalreferenz zu speichern und Handler für die zu überwachenden Ereignisse einzurichten. Die [`channel`](/de/docs/Web/API/RTCDataChannelEvent/channel)-Eigenschaft bietet den [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), der die Verbindung zum anderen Peer darstellt.
 
 ```js
 pc.ondatachannel = (event) => {
@@ -37,7 +37,7 @@ pc.ondatachannel = (event) => {
 };
 ```
 
-Sehen Sie sich [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample) für ein weiteres, vollständigeres Beispiel an, wie Datenkanäle verwendet werden.
+Siehe [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample) für ein weiteres, vollständigeres Beispiel, wie Datenkanäle verwendet werden.
 
 ## Spezifikationen
 
@@ -50,6 +50,6 @@ Sehen Sie sich [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_A
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCDataChannel")}}
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
 - [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample)
-- {{domxref("RTCPeerConnection")}} (die Ziel-Schnittstelle für {{DOMxRef("RTCPeerConnection.datachannel_event", "datachannel")}}-Ereignisse)
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) (die Zielschnittstelle für [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignisse)

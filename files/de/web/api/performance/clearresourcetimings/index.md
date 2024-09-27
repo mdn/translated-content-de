@@ -1,19 +1,19 @@
 ---
-title: "Performance: clearResourceTimings()-Methode"
+title: "Performance: clearResourceTimings() Methode"
 short-title: clearResourceTimings()
 slug: Web/API/Performance/clearResourceTimings
 l10n:
-  sourceCommit: 312081aabba3885b35a81107b3c2fc53428896c5
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("Performance API")}}
 
-Die **`clearResourceTimings()`**-Methode entfernt alle Performance-Einträge mit einem {{domxref("PerformanceEntry.entryType","entryType")}} von "`resource`" aus der Performance-Timeline des Browsers und setzt die Größe des Performance-Ressourcen-Datenpuffers auf null.
+Die **`clearResourceTimings()`** Methode entfernt alle Performance-Einträge mit einem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"resource"` aus der Performance-Zeitleiste des Browsers und setzt die Größe des Performance-Ressourcendatenpuffers auf null.
 
-Um die Größe des Ressourcen-Datenpuffers des Browsers festzulegen, verwenden Sie die
-{{domxref("Performance.setResourceTimingBufferSize()")}}-Methode.
+Um die Größe des Performance-Ressourcendatenpuffers des Browsers festzulegen, verwenden Sie die
+[`Performance.setResourceTimingBufferSize()`](/de/docs/Web/API/Performance/setResourceTimingBufferSize) Methode.
 
-Um benachrichtigt zu werden, wenn der Ressourcen-Timing-Puffer des Browsers voll ist, überwachen Sie das {{domxref("Performance.resourcetimingbufferfull_event", "resourcetimingbufferfull")}}-Ereignis.
+Um benachrichtigt zu werden, wenn der Ressourcentiming-Puffer des Browsers voll ist, hören Sie auf das [`resourcetimingbufferfull`](/de/docs/Web/API/Performance/resourcetimingbufferfull_event) Ereignis.
 
 ## Syntax
 
@@ -31,29 +31,29 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Löschen des Ressourcen-Datenpuffers
+### Den Performance-Ressourcendatenpuffer löschen
 
-Um alle Ressourcenleistungs-Einträge aus dem Puffer zu entfernen, rufen Sie `clearResourceTimings()` zu einem geeigneten Zeitpunkt in Ihrem Code auf oder fügen Sie es in die Konsole ein.
+Um alle Ressourcen-Performance-Einträge aus dem Puffer zu entfernen, rufen Sie `clearResourceTimings()` zu einem passenden Zeitpunkt in Ihrem Code auf oder fügen Sie ihn in die Konsole ein.
 
 ```js
 performance.clearResourceTimings();
 performance.getEntriesByType("resource").length; // 0
 ```
 
-### Aufzeichnen und Leeren von Performance-Observern
+### Aufzeichnungen machen und Performance-Observer leeren
 
-Bei der Verwendung von {{domxref("PerformanceObserver")}}-Objekten (insbesondere mit dem `buffered`-Flag auf `true` gesetzt) kann der Performance-Ressourcenpuffer schnell voll werden. Anstatt den Puffer zu löschen, können Sie die aktuelle Liste der Performance-Einträge speichern und den Performance-Observer mit der {{domxref("PerformanceObserver.takeRecords()")}}-Methode leeren. Dies funktioniert mit allen Arten von Performance-Eintragstypen, nicht nur mit "`resource`"-Einträgen.
+Bei der Verwendung von [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) Objekten (insbesondere mit dem `buffered` Flag auf `true` gesetzt), kann der Performance-Ressourcenpuffer schnell voll werden. Anstatt jedoch den Puffer zu löschen, können Sie auch die aktuelle Liste der Performance-Einträge speichern und den Performance-Observer mit der Methode [`PerformanceObserver.takeRecords()`](/de/docs/Web/API/PerformanceObserver/takeRecords) leeren. Dies funktioniert mit allen Arten von Performance-Eintragstypen, nicht nur mit `"resource"` Einträgen.
 
 ```js
 function perfObserver(list, observer) {
   list.getEntries().forEach((entry) => {
-    // Do something with the entries
+    // do something with the entries
   });
 }
 const observer = new PerformanceObserver(perfObserver);
 observer.observe({ type: "resource", buffered: true });
 
-// Einträge speichern und Performance-Observer leeren
+// Store entries and empty performance observer
 const records = observer.takeRecords();
 ```
 
@@ -67,5 +67,5 @@ const records = observer.takeRecords();
 
 ## Siehe auch
 
-- {{domxref("Performance.setResourceTimingBufferSize()")}}
-- {{domxref("Performance.resourcetimingbufferfull_event", "resourcetimingbufferfull")}}
+- [`Performance.setResourceTimingBufferSize()`](/de/docs/Web/API/Performance/setResourceTimingBufferSize)
+- [`resourcetimingbufferfull`](/de/docs/Web/API/Performance/resourcetimingbufferfull_event)

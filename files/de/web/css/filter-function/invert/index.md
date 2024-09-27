@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`invert()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) invertiert die Farbproben im Eingabebild. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
+Die **`invert()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) invertiert die Farbwerte im Eingabebild. Das Ergebnis ist eine {{cssxref("&lt;filter-function&gt;")}}.
 
 {{EmbedInteractiveExample("pages/css/function-invert.html")}}
 
@@ -20,16 +20,16 @@ invert(amount)
 ### Parameter
 
 - `amount`
-  - : Der Betrag der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `100%` ist vollständig invertiert, während ein Wert von `0%` den Eingang unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren für den Effekt. Der Anfangswert für die {{Glossary("interpolation")}} ist `0`.
+  - : Die Menge der Umkehrung, angegeben als {{cssxref("&lt;number&gt;")}} oder als {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `100%` ist vollständig invertiert, während ein Wert von `0%` das Eingangssignal unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren für den Effekt. Der Anfangswert für [Interpolation](/de/docs/Glossary/interpolation) ist `0`.
 
 ## Beispiele
 
-### Beispiele für korrekte Werte von invert()
+### Beispiele für korrekte Werte für invert()
 
 ```css
-invert(0)     /* Kein Effekt */
-invert(.6)    /* 60% Inversion */
-invert(100%)  /* Vollständig invertiert */
+invert(0)     /* No effect */
+invert(.6)    /* 60% inversion */
+invert(100%)  /* Completely inverted */
 ```
 
 ## Spezifikationen
@@ -42,7 +42,7 @@ invert(100%)  /* Vollständig invertiert */
 
 ## Siehe auch
 
-Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, umfassen:
+Die anderen {{cssxref("&lt;filter-function&gt;")}} Funktionen, die in den Werten der {{cssxref("filter")}} und {{cssxref("backdrop-filter")}} Eigenschaften verwendet werden können, sind:
 
 - {{cssxref("filter-function/blur", "blur()")}}
 - {{cssxref("filter-function/brightness", "brightness()")}}

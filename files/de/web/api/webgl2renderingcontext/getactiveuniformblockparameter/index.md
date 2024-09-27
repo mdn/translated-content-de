@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode getActiveUniformBlockParameter()"
+title: "WebGL2RenderingContext: getActiveUniformBlockParameter()-Methode"
 short-title: getActiveUniformBlockParameter()
 slug: Web/API/WebGL2RenderingContext/getActiveUniformBlockParameter
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode
-**`WebGL2RenderingContext.getActiveUniformBlockParameter()`**
-des [WebGL 2 API](/de/docs/Web/API/WebGL_API) ruft Informationen über einen aktiven Uniform-Block innerhalb eines {{domxref("WebGLProgram")}} ab.
+Die Methode **`WebGL2RenderingContext.getActiveUniformBlockParameter()`** der [WebGL 2 API](/de/docs/Web/API/WebGL_API) ruft Informationen über einen aktiven Uniform-Block innerhalb eines [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) ab.
 
 ## Syntax
 
@@ -21,39 +19,29 @@ getActiveUniformBlockParameter(program, uniformBlockIndex, pname)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}, das den aktiven Uniform-Block enthält.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das den aktiven Uniform-Block enthält.
 - `uniformBlockIndex`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, das den Index des aktiven Uniform-Blocks innerhalb des
-    Programms angibt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des aktiven Uniform-Blocks innerhalb des Programms angibt.
 - `pname`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das angibt, welche Information abgefragt werden soll. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welche Informationen abgefragt werden sollen. Mögliche Werte:
 
     - `gl.UNIFORM_BLOCK_BINDING`
-      - : Gibt ein {{domxref("WebGL_API/Types", "GLuint")}} zurück,
-        das den Uniform-Puffer-Bindungspunkt angibt.
+      - : Gibt ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types) zurück, das den Bindungspunkt des Uniform-Puffers angibt.
     - `gl.UNIFORM_BLOCK_DATA_SIZE`
-      - : Gibt ein {{domxref("WebGL_API/Types", "GLuint")}} zurück,
-        das die minimale Gesamtgröße des Pufferobjekts angibt.
+      - : Gibt ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die minimale Gesamtgröße des Pufferobjekts angibt.
     - `gl.UNIFORM_BLOCK_ACTIVE_UNIFORMS`
-      - : Gibt ein {{domxref("WebGL_API/Types", "GLuint")}} zurück,
-        das die Anzahl der aktiven Uniforms im Uniform-Block angibt.
+      - : Gibt ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Anzahl der aktiven Uniforms im Uniform-Block angibt.
     - `gl.UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES`
-      - : Gibt ein
-        {{jsxref("Uint32Array")}} zurück, das die Liste der aktiven Uniforms im Uniform-Block angibt.
+      - : Gibt eine {{jsxref("Uint32Array")}} zurück, die die Liste der aktiven Uniforms im Uniform-Block angibt.
     - `gl.UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER`
-      - : Gibt ein
-        {{domxref("WebGL_API/Types", "GLboolean")}} zurück, das angibt, ob der Uniform-Block vom
-        Vertex-Shader referenziert wird.
+      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das angibt, ob der Uniform-Block vom Vertex-Shader referenziert wird.
     - `gl.UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER`
-      - : Gibt ein
-        {{domxref("WebGL_API/Types", "GLboolean")}} zurück, das angibt, ob der Uniform-Block vom
-        Fragment-Shader referenziert wird.
+      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das angibt, ob der Uniform-Block vom Fragment-Shader referenziert wird.
 
 ### Rückgabewert
 
-Hängt davon ab, welche Information mit dem Parameter `pname` angefordert wird. Wenn ein
-Fehler auftritt, wird [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurückgegeben.
+Hängt davon ab, welche Informationen mit dem Parameter `pname` angefordert werden. Wenn ein Fehler auftritt, wird [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurückgegeben.
 
 ## Beispiele
 
@@ -69,10 +57,10 @@ const blockSize = gl.getActiveUniformBlockParameter(
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.getActiveUniforms()")}}
+- [`WebGL2RenderingContext.getActiveUniforms()`](/de/docs/Web/API/WebGL2RenderingContext/getActiveUniforms)

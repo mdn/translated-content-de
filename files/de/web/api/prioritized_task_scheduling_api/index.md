@@ -1,35 +1,51 @@
 ---
-title: API zur priorisierten Aufgabenplanung
+title: Prioritized Task Scheduling API
 slug: Web/API/Prioritized_Task_Scheduling_API
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: 2503df3c1d544137d75ed8d5d986bd120de06783
 ---
 
-{{DefaultAPISidebar("Prioritized Task Scheduling API")}} {{AvailableInWorkers}}
+{{DefaultAPISidebar("Prioritized Task Scheduling API")}}{{AvailableInWorkers}}
 
-Die **API zur priorisierten Aufgabenplanung** bietet eine standardisierte Möglichkeit, alle Aufgaben einer Anwendung zu priorisieren, unabhängig davon, ob sie im Code eines Website-Entwicklers oder in Drittanbieter-Bibliotheken und Frameworks definiert sind.
+Die **Prioritized Task Scheduling API** bietet eine standardisierte Methode, um alle Aufgaben einer Anwendung zu priorisieren, egal ob sie im Code eines Website-Entwicklers oder in Bibliotheken und Frameworks von Drittanbietern definiert sind.
 
-Die [Aufgabenprioritäten](#aufgabenprioritäten) sind sehr grob und basieren darauf, ob Aufgaben die Benutzerinteraktion blockieren oder anderweitig die Benutzererfahrung beeinflussen oder im Hintergrund ausgeführt werden können. Entwickler und Frameworks können innerhalb der durch die API definierten breiten Kategorien feinere Prioritätsschemata implementieren.
+Die [Aufgabenprioritäten](#aufgabenprioritäten) sind sehr grob definiert und basieren darauf, ob Aufgaben die Benutzerinteraktion blockieren oder anderweitig die Benutzererfahrung beeinflussen oder im Hintergrund ausgeführt werden können. Entwickler und Frameworks können innerhalb der von der API definierten breiten Kategorien feinere Priorisierungsschemata implementieren.
 
-Die API basiert auf Promises und unterstützt das Setzen und Ändern von Aufgabenprioritäten, das Verzögern von Aufgaben, die dem Scheduler hinzugefügt werden, das Abbrechen von Aufgaben und das Überwachen von Prioritätsänderungs- und Abbruchereignissen.
+Die API basiert auf `Promises` und unterstützt die Fähigkeit, Aufgabenprioritäten festzulegen und zu ändern, Aufgaben hinzuzufügen und zu verzögern, Aufgaben abzubrechen und Ereignisse zur Prioritätsänderung und zum Abbruch zu überwachen.
 
-Auf dieser Seite finden Sie auch Informationen zur Methode {{domxref("Scheduling.isInputPending", "navigator.scheduling.isInputPending()")}}, die in einer anderen API-Spezifikation definiert wurde, aber in engem Zusammenhang mit der Aufgabenplanung steht. Diese Methode ermöglicht es Ihnen, zu überprüfen, ob Eingabeveranstaltungen in der Ereigniswarteschlange ausstehen, und somit Aufgabenwarteschlangen effizient zu handhaben, indem Sie nur dann zum Hauptthread zurückkehren, wenn es notwendig ist.
+## Konzepte und Nutzung
 
-## Konzepte und Verwendung
+Die Prioritized Task Scheduling API ist sowohl im Fenster als auch in Worker-Threads über die `scheduler` Eigenschaft auf dem globalen Objekt verfügbar.
 
-### Priorisierte Aufgabenplanung
+Die Hauptmethoden der API sind [`scheduler.postTask()`](/de/docs/Web/API/Scheduler/postTask) und [`scheduler.yield()`](/de/docs/Web/API/Scheduler/yield). `scheduler.postTask()` nimmt eine Callback-Funktion (die Aufgabe) entgegen und gibt ein `Promise` zurück, das mit dem Rückgabewert der Funktion erfüllt oder mit einem Fehler abgelehnt wird. `scheduler.yield()` transformiert jede [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function) Funktion in eine Aufgabe, indem der Hauptthread dem Browser für andere Arbeiten überlassen wird, wobei die Ausführung fortgesetzt wird, wenn das zurückgegebene `Promise` erfüllt ist.
 
-Die API zur priorisierten Aufgabenplanung ist sowohl in Fenster- als auch in Worker-Threads über die `scheduler`-Eigenschaft des globalen Objekts verfügbar.
+Die beiden Methoden haben ähnliche Funktionen, jedoch unterschiedliche Steuerungslevel. `scheduler.postTask()` ist konfigurierbarer – zum Beispiel ermöglicht es das explizite Setzen von Aufgabenpriorität und Aufgabenabbruch über ein [`AbortSignal`](/de/docs/Web/API/AbortSignal). Andererseits ist `scheduler.yield()` einfacher und kann in jeder `async` Funktion abgewartet werden, ohne dass eine nachfolgende Aufgabe in einer anderen Funktion bereitgestellt werden muss.
 
-Die Hauptmethode der API ist {{domxref('Scheduler.postTask()')}}, die eine Callback-Funktion ("die Aufgabe") annimmt und ein Versprechen zurückgibt, das sich mit dem Rückgabewert der Funktion auflöst oder mit einem Fehler ablehnt.
+### `scheduler.yield()`
 
-Die einfachste Form der API wird unten gezeigt. Dies erstellt eine Aufgabe mit der Standardpriorität [`user-visible`](#user-visible), die eine feste Priorität hat und nicht abgebrochen werden kann.
+Um langlaufende JavaScript-Aufgaben zu unterbrechen, damit sie den Hauptthread nicht blockieren, fügen Sie einen `scheduler.yield()`-Aufruf ein, um den Hauptthread vorübergehend an den Browser zurückzugeben, wodurch eine Aufgabe erstellt wird, um die Ausführung an dem Punkt fortzusetzen, an dem sie unterbrochen wurde.
+
+```js
+async function slowTask() {
+  firstHalfOfWork();
+  await scheduler.yield();
+  secondHalfOfWork();
+}
+```
+
+`scheduler.yield()` gibt ein `Promise` zurück, das abgewartet werden kann, um die Ausführung fortzusetzen. Dies ermöglicht es, Arbeit, die zu derselben Funktion gehört, dort einzuschließen, ohne den Hauptthread zu blockieren, wenn die Funktion ausgeführt wird.
+
+`scheduler.yield()` nimmt keine Argumente. Die Aufgabe, die ihre Fortsetzung auslöst, hat eine Standardpriorität von [`user-visible`](#user-visible); falls jedoch `scheduler.yield()` innerhalb eines `scheduler.postTask()`-Callbacks aufgerufen wird, wird sie die [Priorität der umgebenden Aufgabe erben](/de/docs/Web/API/Scheduler/yield#inheriting_task_priorities).
+
+### `scheduler.postTask()`
+
+Wenn `scheduler.postTask()` ohne Argumente aufgerufen wird, erstellt es eine Aufgabe mit einer Standardpriorität von [`user-visible`](#user-visible), die nicht abgebrochen werden kann oder deren Priorität nicht geändert werden kann.
 
 ```js
 const promise = scheduler.postTask(myTask);
 ```
 
-Da die Methode ein Promise zurückgibt, können Sie bei dessen Auflösung asynchron darauf warten, indem Sie `then` verwenden, und Fehler abfangen, die von der Aufgaben-Callback-Funktion (oder wenn die Aufgabe abgebrochen wird) ausgelöst werden, indem Sie `catch` verwenden. Die Callback-Funktion kann jede Art von Funktion sein (unten demonstrieren wir eine Pfeilfunktion).
+Da die Methode ein `Promise` zurückgibt, können Sie asynchron auf dessen Erfüllung warten, indem Sie [`then()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) verwenden, und Fehler, die von der Aufgaben-Callback-Funktion geworfen werden (oder wenn die Aufgabe abgebrochen wird), mit [`catch`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) abfangen. Die Callback-Funktion kann jede Art von Funktion sein (unten demonstrieren wir eine Pfeilfunktion).
 
 ```js
 scheduler
@@ -40,7 +56,7 @@ scheduler
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-Auf dieselbe Aufgabe kann auch mit `await`/`async` gewartet werden, wie unten gezeigt (beachten Sie, dass dies in einem {{Glossary("IIFE", "Sofortige-funktionale-Ausdruck (IIFE)")}} ausgeführt wird):
+Auf dieselbe Aufgabe könnte auch mit `await`/`async` gewartet werden, wie unten gezeigt (beachten Sie, dass dies in einem [sofort ausgeführten Funktionsausdruck (IIFE)](/de/docs/Glossary/IIFE) ausgeführt wird):
 
 ```js
 (async () => {
@@ -54,13 +70,13 @@ Auf dieselbe Aufgabe kann auch mit `await`/`async` gewartet werden, wie unten ge
 })();
 ```
 
-Sie können der `postTask()`-Methode auch ein Optionsobjekt übergeben, wenn Sie das Standardverhalten ändern möchten. Die Optionen sind:
+Sie können auch ein options-Objekt an die `postTask()`-Methode übergeben, wenn Sie das Standardverhalten ändern möchten. Die Optionen sind:
 
-- `priority` Damit können Sie eine bestimmte unveränderliche Priorität festlegen. Sobald festgelegt, kann die Priorität nicht mehr geändert werden.
-- `signal` Damit können Sie ein Signal spezifizieren, das entweder ein {{domxref("TaskSignal")}} oder ein {{domxref("AbortSignal")}} sein kann. Das Signal ist mit einem Controller verbunden, der zum Abbrechen der Aufgabe verwendet werden kann. Ein {{domxref("TaskSignal")}} kann auch verwendet werden, um die Aufgabenpriorität festzulegen und zu ändern, wenn die [Aufgabe veränderlich](#veränderliche_und_unveränderliche_aufgabenpriorität) ist.
-- `delay` Damit können Sie die Verzögerung angeben, bevor die Aufgabe zur Planung hinzugefügt wird, in Millisekunden.
+- `priority` Dies ermöglicht es Ihnen, eine bestimmte unveränderliche Priorität anzugeben. Einmal gesetzt, kann die Priorität nicht geändert werden.
+- `signal` Dies ermöglicht es Ihnen, ein Signal anzugeben, das entweder ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) oder ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) sein kann. Das Signal ist mit einem Controller verknüpft, der verwendet werden kann, um die Aufgabe abzubrechen. Ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) kann auch verwendet werden, um die Aufgabenpriorität festzulegen und zu ändern, wenn die [Aufgabe veränderlich ist](#veränderliche_und_unveränderliche_aufgabenpriorität).
+- `delay` Dies ermöglicht es Ihnen, die Verzögerung anzugeben, bevor die Aufgabe zur Planung hinzugefügt wird, in Millisekunden.
 
-Dasselbe Beispiel wie oben mit einer Prioritätsoption würde so aussehen:
+Dasselbe Beispiel wie oben mit einer Prioritätenoption würde folgendermaßen aussehen:
 
 ```js
 scheduler
@@ -69,51 +85,40 @@ scheduler
   .catch((error) => console.error(`Error: ${error}`)); // Log any errors
 ```
 
-#### Aufgabenprioritäten
+### Aufgabenprioritäten
 
-Geplante Aufgaben werden in Prioritätsreihenfolge ausgeführt, gefolgt von der Reihenfolge, in der sie zur Scheduler-Warteschlange hinzugefügt wurden.
+Geplante Aufgaben werden in der Reihenfolge der Priorität ausgeführt, gefolgt von der Reihenfolge, in der sie der Planungswarteschlange hinzugefügt wurden.
 
 Es gibt nur drei Prioritäten, die unten aufgeführt sind (geordnet von höchster zu niedrigster):
 
 - `user-blocking`
 
-  - : Aufgaben, die Benutzer daran hindern, mit der Seite zu interagieren.
-    Dies umfasst das Rendern der Seite bis zu dem Punkt, an dem sie verwendet werden kann, oder das Reagieren auf Benutzereingaben.
+  - : Aufgaben, die Benutzer davon abhalten, mit der Seite zu interagieren. Dies umfasst das Rendern der Seite bis zu dem Punkt, an dem sie verwendet werden kann, oder das Reagieren auf Benutzereingaben.
 
 - `user-visible`
 
-  - : Aufgaben, die für den Benutzer sichtbar sind, aber nicht unbedingt Benutzereingaben blockieren.
-    Dies könnte das Rendern von nicht wesentlichen Teilen der Seite umfassen, wie nicht wesentliche Bilder oder Animationen.
+  - : Aufgaben, die für den Benutzer sichtbar sind, aber nicht unbedingt Aktionen blockieren. Dies könnte das Rendern von nicht wesentlichen Teilen der Seite umfassen, wie nicht wesentliche Bilder oder Animationen.
 
-    Dies ist die Standardpriorität.
+    Dies ist die Standardpriorität für `scheduler.postTask()` und `scheduler.yield()`.
 
 - `background`
-  - : Aufgaben, die nicht zeitkritisch sind.
-    Dies könnte das Verarbeiten von Protokollen oder das Initialisieren von Drittanbieter-Libraries umfassen, die nicht für das Rendern erforderlich sind.
+  - : Aufgaben, die nicht zeitkritisch sind. Dies könnte die Protokollverarbeitung oder die Initialisierung von Drittanbieter-Bibliotheken umfassen, die nicht zum Rendern erforderlich sind.
 
-#### Veränderliche und unveränderliche Aufgabenpriorität
+### Veränderliche und unveränderliche Aufgabenpriorität
 
-Es gibt viele Anwendungsfälle, bei denen sich die Aufgabenpriorität niemals ändern muss, während sie sich bei anderen ändert.
-Zum Beispiel kann das Abrufen eines Bildes von einer `background` Aufgabe zu `user-visible` wechseln, wenn ein Karussell in den sichtbaren Bereich gescrollt wird.
+Es gibt viele Anwendungsfälle, bei denen sich die Aufgabenpriorität nie ändern muss, während sie sich in anderen Fällen ändert. Beispielsweise kann das Abrufen eines Bildes von einer `background` Aufgabe zu `user-visible` wechseln, wenn ein Karussell in den sichtbaren Bereich gescrollt wird.
 
-Aufgabenprioritäten können als statisch (unveränderlich) oder dynamisch (änderbar) eingestellt werden, je nach den an {{domxref('Scheduler.postTask()')}} übergebenen Argumenten.
+Aufgabenprioritäten können als statisch (unveränderlich) oder dynamisch (veränderlich) festgelegt werden, je nachdem, welche Argumente an [`Scheduler.postTask()`](/de/docs/Web/API/Scheduler/postTask) übergeben werden.
 
-Die Aufgabenpriorität ist unveränderlich, wenn im `options.priority`-Argument ein Wert angegeben ist.
-Der angegebene Wert wird für die Aufgabenpriorität verwendet und kann nicht geändert werden.
+Die Aufgabenpriorität ist unveränderlich, wenn ein Wert im `options.priority`-Argument angegeben wird. Der angegebene Wert wird für die Aufgabenpriorität verwendet und kann nicht geändert werden.
 
-Die Priorität ist nur änderbar, wenn ein {{domxref("TaskSignal")}} an das `options.signal`-Argument übergeben wird **und** `options.priority` **nicht gesetzt** ist.
-In diesem Fall nimmt die Aufgabe ihre anfängliche Priorität von der Signalpriorität an, und die Priorität kann anschließend durch Aufrufen von {{domxref("TaskController.setPriority()")}} auf dem mit dem Signal verbundenen Controller geändert werden.
+Die Priorität ist nur veränderlich, wenn ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) an das `options.signal`-Argument übergeben wird **und** `options.priority` **nicht gesetzt** ist. In diesem Fall nimmt die Aufgabe ihre anfängliche Priorität von der `signal`-Priorität, und die Priorität kann anschließend durch Aufrufen von [`TaskController.setPriority()`](/de/docs/Web/API/TaskController/setPriority) auf dem mit dem Signal verknüpften Controller geändert werden.
 
-Wenn die Priorität nicht mit `options.priority` oder durch Übermittlung eines {{domxref("TaskSignal")}} an `options.signal` festgelegt wird, ist sie standardmäßig `user-visible` (und per Definition unveränderlich).
+Wenn die Priorität nicht mit `options.priority` oder durch Übergeben eines [`TaskSignal`](/de/docs/Web/API/TaskSignal) an `options.signal` gesetzt wird, dann ist die Standardpriorität `user-visible` (und ist per Definition unveränderlich).
 
-Beachten Sie, dass eine Aufgabe, die abgebrochen werden muss, `options.signal` entweder auf {{domxref("TaskSignal")}} oder {{domxref("AbortSignal")}} setzen muss.
-Jedoch zeigt ein {{domxref("AbortSignal")}} bei einer Aufgabe mit unveränderlicher Priorität deutlicher an, dass die Aufgabenpriorität nicht mit dem Signal geändert werden kann.
+Beachten Sie, dass eine Aufgabe, die abgebrochen werden muss, `options.signal` entweder auf [`TaskSignal`](/de/docs/Web/API/TaskSignal) oder [`AbortSignal`](/de/docs/Web/API/AbortSignal) setzen muss. Für eine Aufgabe mit unveränderlicher Priorität zeigt [`AbortSignal`](/de/docs/Web/API/AbortSignal) jedoch klarer an, dass die Aufgabenpriorität mithilfe des Signals nicht geändert werden kann.
 
-### isInputPending()
-
-Die {{domxref("Scheduling.isInputPending", "isInputPending()")}} API soll bei der Aufgabenausführung helfen, indem sie Ihnen ermöglicht, Aufgabenläufer effizienter zu gestalten, indem sie dem Hauptthread nur dann weichen, wenn der Benutzer versucht, mit Ihrer Anwendung zu interagieren, anstatt dies in zufälligen Intervallen tun zu müssen.
-
-Lassen Sie uns ein Beispiel durchgehen, um zu demonstrieren, was wir damit meinen. Wenn Sie mehrere Aufgaben haben, die ungefähr die gleiche Priorität haben, macht es Sinn, sie in separate Funktionen zu zerlegen, um die Wartung und das Debugging zu erleichtern und aus vielen anderen Gründen.
+Lassen Sie uns ein Beispiel durchgehen, um zu demonstrieren, was wir damit meinen. Wenn Sie mehrere Aufgaben haben, die ungefähr die gleiche Priorität haben, macht es Sinn, sie in separate Funktionen zu unterteilen, um die Wartung, das Debuggen und viele andere Gründe zu erleichtern.
 
 Zum Beispiel:
 
@@ -127,9 +132,9 @@ function main() {
 }
 ```
 
-Strukturen dieser Art helfen jedoch nicht bei der Blockierung des Hauptthreads. Da alle fünf Aufgaben in einer Hauptfunktion ausgeführt werden, behandelt der Browser sie alle als eine einzige Aufgabe.
+Diese Art von Struktur hilft jedoch nicht beim Blockieren des Hauptthreads. Da alle fünf Aufgaben in einer Hauptfunktion ausgeführt werden, behandelt der Browser sie alle als eine einzige Aufgabe.
 
-Um dies zu handhaben, neigen wir dazu, regelmäßig eine Funktion auszuführen, um den Code _zum Hauptthread "weichen" zu lassen_. Dies bedeutet, dass unser Code in mehrere Aufgaben unterteilt wird, zwischen deren Ausführung der Browser Gelegenheit erhält, hochpriorisierte Aufgaben wie das Aktualisieren der Benutzeroberfläche zu behandeln. Ein häufiges Muster für diese Funktion verwendet {{domxref("setTimeout()")}}, um die Ausführung in eine separate Aufgabe zu verschieben:
+Um dies zu handhaben, neigen wir dazu, eine Funktion periodisch auszuführen, um den Code _dem Hauptthread zu überlassen_. Das bedeutet, dass unser Code in mehrere Aufgaben aufgeteilt wird, zwischen deren Ausführung der Browser die Möglichkeit erhält, hochpriorisierte Aufgaben wie das Aktualisieren der Benutzeroberfläche zu bearbeiten. Ein gängiges Muster für diese Funktion verwendet [`setTimeout()`](/de/docs/Web/API/SetTimeout), um die Ausführung in eine separate Aufgabe zu verschieben:
 
 ```js
 function yield() {
@@ -139,11 +144,11 @@ function yield() {
 }
 ```
 
-Dies kann in einem Aufgabenläufermuster wie folgt verwendet werden, um den Hauptthread nach jeder ausgeführten Aufgabe zu entlasten:
+Dies kann in einem Aufgabenmanager-Muster verwendet werden, um nach jeder erledigten Aufgabe dem Hauptthread die Kontrolle zu übergeben:
 
 ```js
 async function main() {
-  // An array of functions to run
+  // Create an array of functions to run
   const tasks = [a, b, c, d, e];
 
   // Loop over the tasks
@@ -160,58 +165,45 @@ async function main() {
 }
 ```
 
-Dies hilft bei dem Problem der Blockierung des Hauptthreads, könnte aber verbessert werden — wir können {{domxref("Scheduling.isInputPending", "navigator.scheduling.isInputPending()")}} verwenden, um die `yield()`-Funktion nur dann auszuführen, wenn der Benutzer versucht, mit der Seite zu interagieren:
+Um dies weiter zu verbessern, können wir [`Scheduler.yield`](/de/docs/Web/API/Scheduler/yield) verwenden, wenn verfügbar, um diesem Code zu erlauben, vor anderen weniger kritischen Aufgaben in der Warteschlange weiter ausgeführt zu werden:
 
 ```js
-async function main() {
-  // An array of functions to run
-  const tasks = [a, b, c, d, e];
-
-  while (tasks.length > 0) {
-    // Yield to a pending user input
-    if (navigator.scheduling.isInputPending()) {
-      await yield();
-    } else {
-      // Shift the first task off the tasks array
-      const task = tasks.shift();
-
-      // Run the task
-      task();
-    }
+function yield() {
+  // Use scheduler.yield if it exists:
+  if ("scheduler" in window && "yield" in scheduler) {
+    return scheduler.yield();
   }
+
+  // Fall back to setTimeout:
+  return new Promise((resolve) => {
+    setTimeout(resolve, 0);
+  });
 }
 ```
 
-Dies ermöglicht es Ihnen, die Blockierung des Hauptthreads zu vermeiden, wenn der Benutzer aktiv mit der Seite interagiert, was möglicherweise eine reibungslosere Benutzererfahrung bietet. Indem Sie jedoch nur dann nachgeben, wenn es notwendig ist, können Sie die aktuelle Aufgabe fortsetzen, wenn keine Benutzereingaben verarbeitet werden müssen. Dies verhindert auch, dass Aufgaben hinter anderen, weniger wichtigen, vom Browser initiierten Aufgaben eingereiht werden, die nach der aktuellen Aufgabe geplant wurden.
-
 ## Schnittstellen
 
-- {{domxref("Scheduler")}}
-  - : Enthält die Methode {{domxref('Scheduler.postTask', 'postTask()')}}, mit der priorisierte Aufgaben zur Planung hinzugefügt werden können.
-    Eine Instanz dieser Schnittstelle ist auf den globalen Objekten {{domxref("Window")}} oder {{domxref("WorkerGlobalScope")}} verfügbar (`this.scheduler`).
-- {{domxref("Scheduling")}}
-  - : Enthält die Methode {{domxref('Scheduling.isInputPending', 'isInputPending()')}}, mit der geprüft werden kann, ob Eingabeveranstaltungen in der Ereigniswarteschlange ausstehen.
-- {{domxref("TaskController")}}
-  - : Unterstützt sowohl das Abbrechen einer Aufgabe als auch das Ändern ihrer Priorität.
-- {{domxref("TaskSignal")}}
-  - : Ein Signalobjekt, das es Ihnen ermöglicht, eine Aufgabe abzubrechen und ihre Priorität bei Bedarf mit einem {{domxref("TaskController")}}-Objekt zu ändern.
-- {{domxref("TaskPriorityChangeEvent")}}
-  - : Die Schnittstelle für das Event {{domxref("TaskSignal/prioritychange_event","prioritychange")}}, das gesendet wird, wenn die Priorität einer Aufgabe geändert wird.
+- [`Scheduler`](/de/docs/Web/API/Scheduler)
+  - : Enthält die Methoden [`postTask()`](/de/docs/Web/API/Scheduler/postTask) und [`yield()`](/de/docs/Web/API/Scheduler/yield) zum Hinzufügen priorisierter Aufgaben zur Planung.
+    Eine Instanz dieser Schnittstelle ist auf den globalen Objekten [`Window`](/de/docs/Web/API/Window) oder [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) verfügbar (`globalThis.scheduler`).
+- [`TaskController`](/de/docs/Web/API/TaskController)
+  - : Unterstützt sowohl das Abbrechen einer Aufgabe als auch die Änderung ihrer Priorität.
+- [`TaskSignal`](/de/docs/Web/API/TaskSignal)
+  - : Ein Signalobjekt, das es Ihnen ermöglicht, eine Aufgabe abzubrechen und ihre Priorität zu ändern, falls erforderlich, unter Verwendung eines [`TaskController`](/de/docs/Web/API/TaskController)-Objekts.
+- [`TaskPriorityChangeEvent`](/de/docs/Web/API/TaskPriorityChangeEvent)
+  - : Die Schnittstelle für das [`prioritychange`](/de/docs/Web/API/TaskSignal/prioritychange_event)-Ereignis, das gesendet wird, wenn die Priorität einer Aufgabe geändert wird.
 
 > [!NOTE]
-> Wenn die [Aufgabenpriorität](#aufgabenprioritäten) niemals geändert werden muss, können Sie einen {{domxref("AbortController")}} und seinen zugehörigen {{domxref("AbortSignal")}} anstelle eines {{domxref("TaskController")}} und {{domxref("TaskSignal")}} verwenden.
+> Wenn die [Aufgabenpriorität](#aufgabenprioritäten) nie geändert werden muss, können Sie einen [`AbortController`](/de/docs/Web/API/AbortController) und das zugehörige [`AbortSignal`](/de/docs/Web/API/AbortSignal) anstelle von [`TaskController`](/de/docs/Web/API/TaskController) und [`TaskSignal`](/de/docs/Web/API/TaskSignal) verwenden.
 
 ### Erweiterungen zu anderen Schnittstellen
 
-- {{domxref("Navigator.scheduling")}}
-  - : Diese Eigenschaft ist der Einstiegspunkt zur Verwendung der Methode `Scheduling.isInputPending()`.
-- {{domxref("Window.scheduler")}} und {{domxref("WorkerGlobalScope.scheduler")}}
-  - : Diese Eigenschaften sind die Einstiegspunkte zur Nutzung der Methode `Scheduler.postTask()` in einem Fenster- oder Worker-Bereich.
+- [`Window.scheduler`](/de/docs/Web/API/Window/scheduler) und [`WorkerGlobalScope.scheduler`](/de/docs/Web/API/WorkerGlobalScope/scheduler)
+  - : Diese Eigenschaften sind die Einstiegspunkte zur Verwendung der `Scheduler.postTask()`-Methode in einem Fenster- oder Worker-Bereich.
 
 ## Beispiele
 
-Beachten Sie, dass die folgenden Beispiele `mylog()` verwenden, um in ein Textfeld zu schreiben.
-Der Code für den Logbereich und die Methode wird im Allgemeinen verborgen, um nicht von relevanterem Code abzulenken.
+Beachten Sie, dass die folgenden Beispiele `mylog()` verwenden, um in ein Textfeld zu schreiben. Der Code für das Protokollfeld und die Methode ist in der Regel verborgen, um nicht von relevanterem Code abzulenken.
 
 ```html hidden
 <textarea id="log" style="min-height: 20px; width: 95%"></textarea>
@@ -225,11 +217,11 @@ function mylog(text) {
 }
 ```
 
-### Funktionen prüfen
+### Funktionserkennung
 
-Überprüfen Sie, ob die priorisierte Aufgabenplanung durch Testen der `scheduler`-Eigenschaft im globalen "`this`", das dem aktuellen Bereich ausgesetzt ist, unterstützt wird.
+Überprüfen Sie, ob priorisierte Aufgabenplanung unterstützt wird, indem Sie nach der `scheduler`-Eigenschaft im globalen Bereich suchen.
 
-Der folgende Code druckt "Feature: Supported", wenn die API in diesem Browser unterstützt wird.
+Der untenstehende Code druckt "Feature: Supported" aus, wenn die API in diesem Browser unterstützt wird.
 
 ```html hidden
 <textarea id="log" style="min-height: 20px; width: 95%"></textarea>
@@ -245,7 +237,7 @@ function mylog(text) {
 
 ```js
 // Check that feature is supported
-if ("scheduler" in this) {
+if ("scheduler" in globalThis) {
   mylog("Feature: Supported");
 } else {
   mylog("Feature: NOT Supported");
@@ -254,10 +246,9 @@ if ("scheduler" in this) {
 
 {{EmbedLiveSample('Feature checking','400px','70px')}}
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
-Aufgaben werden mit {{domxref('Scheduler.postTask()')}} eingestellt, wobei eine Callback-Funktion (Aufgabe) im ersten Argument angegeben wird, und ein optionales zweites Argument, das zur Angabe einer Aufgabenpriorität, eines Signals und/oder einer Verzögerung verwendet werden kann.
-Die Methode gibt ein {{jsxref("Promise")}} zurück, das sich mit dem Rückgabewert der Callback-Funktion auflöst oder entweder mit einem Abbruchfehler oder einem in der Funktion ausgelösten Fehler abgelehnt wird.
+Aufgaben werden unter Verwendung von [`Scheduler.postTask()`](/de/docs/Web/API/Scheduler/postTask) gepostet, wobei eine Callback-Funktion (Aufgabe) im ersten Argument angegeben wird und ein optionales zweites Argument verwendet werden kann, um eine Aufgabenpriorität, Signal und/oder Verzögerung anzugeben. Die Methode gibt ein {{jsxref("Promise")}} zurück, das mit dem Rückgabewert der Callback-Funktion erfüllt wird oder mit entweder einem Abbruchfehler oder einem Fehler, der in der Funktion geworfen wird, abgelehnt wird.
 
 ```html hidden
 <textarea id="log" style="min-height: 100px; width: 95%"></textarea>
@@ -270,9 +261,7 @@ function mylog(text) {
 }
 ```
 
-Da es ein Promise zurückgibt, kann {{domxref('Scheduler.postTask()')}} [mit anderen Promises verkettet](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#chained_promises) werden.
-Unten zeigen wir, wie man mit [`then`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) auf die Auflösung des Versprechens wartet.
-Dies verwendet die Standardpriorität (`user-visible`).
+Weil sie ein `Promise` zurückgibt, kann [`Scheduler.postTask()`](/de/docs/Web/API/Scheduler/postTask) [mit anderen Promises verkettet werden](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#chained_promises). Unten zeigen wir, wie man darauf wartet, dass das `Promise` mit [`then`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) erfüllt wird. Dies verwendet die Standardpriorität (`user-visible`).
 
 ```js
 // A function that defines a task
@@ -287,8 +276,7 @@ if ("scheduler" in this) {
 }
 ```
 
-Die Methode kann auch mit [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) in einer [async function](/de/docs/Web/JavaScript/Reference/Statements/async_function) verwendet werden.
-Der untenstehende Code zeigt, wie Sie diesen Ansatz möglicherweise verwenden könnten, um auf eine `user-blocking` Aufgabe zu warten.
+Die Methode kann auch mit [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) innerhalb einer [async-Funktion](/de/docs/Web/JavaScript/Reference/Statements/async_function) verwendet werden. Der untenstehende Code zeigt, wie Sie diesen Ansatz verwenden könnten, um auf eine `user-blocking`-Aufgabe zu warten.
 
 ```js
 function myTask2() {
@@ -304,8 +292,7 @@ async function runTask2() {
 runTask2();
 ```
 
-In einigen Fällen müssen Sie möglicherweise gar nicht auf die Ausführung warten.
-Zur Einfachheit loggen viele der hier gezeigten Beispiele das Ergebnis einfach während der Aufgabe ausgeführt wird.
+In einigen Fällen müssen Sie möglicherweise überhaupt nicht auf den Abschluss warten. Aus Gründen der Einfachheit protokollieren viele der Beispiele hier einfach das Ergebnis, während die Aufgabe ausgeführt wird.
 
 ```js
 // A function that defines a task
@@ -319,19 +306,15 @@ if ("scheduler" in this) {
 }
 ```
 
-Das Protokoll unten zeigt die Ausgabe der drei oben genannten Aufgaben.
-Beachten Sie, dass die Reihenfolge ihrer Ausführung zuerst von der Priorität und dann von der Deklarationsreihenfolge abhängt.
+Das Protokoll unten zeigt die Ausgabe der drei obigen Aufgaben. Beachten Sie, dass die Reihenfolge, in der sie ausgeführt werden, zuerst von der Priorität und dann von der Deklarationsreihenfolge abhängt.
 
 {{EmbedLiveSample('Basic usage','400px','170px')}}
 
 ### Permanente Prioritäten
 
-[Aufgabenprioritäten](#aufgabenprioritäten) können mit dem `priority`-Parameter im optionalen zweiten Argument festgelegt werden.
-Prioritäten, die auf diese Weise festgelegt werden, sind [unveränderlich](#veränderliche_und_unveränderliche_aufgabenpriorität) (können nicht geändert werden).
+[Aufgabenprioritäten](#aufgabenprioritäten) können unter Verwendung des `priority`-Parameters im optionalen zweiten Argument gesetzt werden. Prioritäten, die auf diese Weise gesetzt werden, sind [unveränderlich](#veränderliche_und_unveränderliche_aufgabenpriorität) (können nicht geändert werden).
 
-Im Folgenden posten wir zwei Gruppen mit jeweils drei Aufgaben, wobei jedes Mitglied in umgekehrter Prioritätsreihenfolge steht.
-Die letzte Aufgabe hat die Standardpriorität.
-Beim Ausführen loggt jede Aufgabe einfach ihre erwartete Reihenfolge (wir warten nicht auf das Ergebnis, weil wir das zur Darstellung der Ausführungsreihenfolge nicht benötigen).
+Unten posten wir zwei Gruppen von drei Aufgaben, jede in umgekehrter Reihenfolge der Priorität. Die letzte Aufgabe hat die Standardpriorität. Wenn ausgeführt, protokolliert jede Aufgabe einfach ihre erwartete Reihenfolge (wir warten nicht auf das Ergebnis, da dies nicht erforderlich ist, um die Ausführungsreihenfolge zu zeigen).
 
 ```js hidden
 let log = document.getElementById("log");
@@ -342,17 +325,17 @@ function mylog(text) {
 
 ```js
 if ("scheduler" in this) {
-  // drei Aufgaben in umgekehrter Prioritätsreihenfolge
+  // three tasks, in reverse order of priority
   scheduler.postTask(() => mylog("bckg 1"), { priority: "background" });
   scheduler.postTask(() => mylog("usr-vis 1"), { priority: "user-visible" });
   scheduler.postTask(() => mylog("usr-blk 1"), { priority: "user-blocking" });
 
-  // drei weitere Aufgaben in umgekehrter Prioritätsreihenfolge
+  // three more tasks, in reverse order of priority
   scheduler.postTask(() => mylog("bckg 2"), { priority: "background" });
   scheduler.postTask(() => mylog("usr-vis 2"), { priority: "user-visible" });
   scheduler.postTask(() => mylog("usr-blk 2"), { priority: "user-blocking" });
 
-  // Aufgabe mit Standardpriorität: user-visible
+  // Task with default priority: user-visible
   scheduler.postTask(() => mylog("usr-vis 3 (default)"));
 }
 ```
@@ -361,24 +344,22 @@ if ("scheduler" in this) {
 <textarea id="log" style="min-height: 120px; width: 95%"></textarea>
 ```
 
-Die Ausgabe unten zeigt, dass die Aufgaben in Prioritätsreihenfolge und dann in Deklarationsreihenfolge ausgeführt werden.
+Die untenstehende Ausgabe zeigt, dass die Aufgaben in der Reihenfolge der Priorität und dann in der Deklarationsreihenfolge ausgeführt werden.
 
 {{EmbedLiveSample("Permanent priorities",'400px','170px')}}
 
-### Ändern von Aufgabenprioritäten
+### Aufgabenprioritäten ändern
 
-[Aufgabenprioritäten](#aufgabenprioritäten) können auch ihren Anfangswert von einem {{domxref("TaskSignal")}}, das im optionalen zweiten Argument an `postTask()` übergeben wird, übernehmen.
-Wenn die Priorität auf diese Weise festgelegt wird, kann die Priorität der Aufgabe [dann geändert](#veränderliche_und_unveränderliche_aufgabenpriorität) werden, indem der mit dem Signal verbundene Controller verwendet wird.
+[Aufgabenprioritäten](#aufgabenprioritäten) können auch ihren Anfangswert von einem [`TaskSignal`](/de/docs/Web/API/TaskSignal) übernehmen, das im optionalen zweiten Argument an `postTask()` übergeben wird. Wenn auf diese Weise gesetzt, kann die Priorität der Aufgabe [dann geändert werden](#veränderliche_und_unveränderliche_aufgabenpriorität) durch den mit dem Signal verbundenen Controller.
 
 > [!NOTE]
-> Das Festlegen und Ändern von Aufgabenprioritäten mit einem Signal funktioniert nur, wenn das `options.priority`-Argument von `postTask()` nicht festgelegt ist und wenn `options.signal` ein {{domxref("TaskSignal")}} ist (und kein {{domxref("AbortSignal")}}).
+> Das Setzen und Ändern von Aufgabenprioritäten unter Verwendung eines Signals funktioniert nur, wenn das Argument `options.priority` für `postTask()` nicht gesetzt ist und wenn das `options.signal` ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) (und kein [`AbortSignal`](/de/docs/Web/API/AbortSignal)) ist.
 
-Der untenstehende Code zeigt zunächst, wie man einen {{domxref("TaskController")}} erstellt und die anfängliche Priorität seines Signals im {{domxref("TaskController.TaskController", "TaskController()")}}-Konstruktor auf `user-blocking` setzt.
+Der untenstehende Code zeigt zuerst, wie ein [`TaskController`](/de/docs/Web/API/TaskController) erstellt wird, indem die anfängliche Priorität seines Signals im [`TaskController()`](/de/docs/Web/API/TaskController/TaskController)-Konstruktor auf `user-blocking` gesetzt wird.
 
-Der Code verwendet dann `addEventListener()`, um einen Ereignis-Listener für das Signal des Controllers hinzuzufügen (alternativ könnten wir die Eigenschaft `TaskSignal.onprioritychange` verwenden, um einen Ereignis-Handler hinzuzufügen).
-Der Ereignis-Handler verwendet {{domxref('TaskPriorityChangeEvent.previousPriority', 'previousPriority')}} des Ereignisses, um die ursprüngliche Priorität zu erhalten, und {{domxref("TaskSignal.priority")}} des Ereignis-Ziels, um die neue/aktuelle Priorität zu erhalten.
+Der Code verwendet dann `addEventListener()`, um einen Ereignis-Listener zu dem Signal des Controllers hinzuzufügen (wir könnten alternativ die `TaskSignal.onprioritychange`-Eigenschaft verwenden, um einen Ereignis-Handler hinzuzufügen). Der Ereignis-Handler verwendet [`previousPriority`](/de/docs/Web/API/TaskPriorityChangeEvent/previousPriority) im Ereignis, um die ursprüngliche Priorität zu erhalten, und [`TaskSignal.priority`](/de/docs/Web/API/TaskSignal/priority) im Ereignisziel, um die neue/aktuelle Priorität zu erhalten.
 
-Die Aufgabe wird dann gepostet, indem das Signal übergeben wird, und wir ändern sofort die Priorität auf `background`, indem wir {{domxref("TaskController.setPriority()")}} auf dem Controller aufrufen.
+Die Aufgabe wird dann gepostet, indem das Signal übergeben wird, und dann ändern wir sofort die Priorität zu `background`, indem wir [`TaskController.setPriority()`](/de/docs/Web/API/TaskController/setPriority) am Controller aufrufen.
 
 ```html hidden
 <textarea id="log" style="min-height: 70px; width: 95%"></textarea>
@@ -393,34 +374,32 @@ function mylog(text) {
 
 ```js
 if ("scheduler" in this) {
-  // Einen TaskController erstellen und die Priorität seines Signals auf 'user-blocking' setzen
+  // Create a TaskController, setting its signal priority to 'user-blocking'
   const controller = new TaskController({ priority: "user-blocking" });
 
-  // 'prioritychange' Ereignisse für das Signal des Controllers abhören.
+  // Listen for 'prioritychange' events on the controller's signal.
   controller.signal.addEventListener("prioritychange", (event) => {
     const previousPriority = event.previousPriority;
     const newPriority = event.target.priority;
     mylog(`Priority changed from ${previousPriority} to ${newPriority}.`);
   });
 
-  // Aufgabe unter Verwendung des Signals des Controllers posten.
-  // Die Signalpriorität setzt die anfängliche Priorität der Aufgabe
+  // Post task using the controller's signal.
+  // The signal priority sets the initial priority of the task
   scheduler.postTask(() => mylog("Task 1"), { signal: controller.signal });
 
-  // Die Priorität mit dem Controller auf 'background' ändern
+  // Change the priority to 'background' using the controller
   controller.setPriority("background");
 }
 ```
 
-Die Ausgabe unten zeigt, dass die Priorität erfolgreich von `user-blocking` zu `background` geändert wurde.
-Beachten Sie, dass in diesem Fall die Priorität geändert wird, bevor die Aufgabe ausgeführt wird, aber sie hätte auch während der Ausführung der Aufgabe geändert werden können.
+Die untenstehende Ausgabe zeigt, dass die Priorität erfolgreich von `user-blocking` auf `background` geändert wurde. Beachten Sie, dass in diesem Fall die Priorität geändert wird, bevor die Aufgabe ausgeführt wird, sie könnte jedoch ebenso gut während der Aufgabenlaufzeit geändert werden.
 
 {{EmbedLiveSample("Changing task priorities",'400px','130px')}}
 
 ### Aufgaben abbrechen
 
-Aufgaben können sowohl mit einem {{domxref("TaskController")}} als auch einem {{domxref("AbortController")}} auf genau die gleiche Weise abgebrochen werden.
-Der einzige Unterschied besteht darin, dass Sie einen {{domxref("TaskController")}} verwenden müssen, wenn Sie auch die Aufgabenpriorität festlegen möchten.
+Aufgaben können unter Verwendung von entweder [`TaskController`](/de/docs/Web/API/TaskController) und [`AbortController`](/de/docs/Web/API/AbortController) auf genau dieselbe Weise abgebrochen werden. Der einzige Unterschied besteht darin, dass Sie [`TaskController`](/de/docs/Web/API/TaskController) verwenden müssen, wenn Sie auch die Aufgabenpriorität setzen möchten.
 
 ```html hidden
 <textarea id="log" style="min-height: 50px; width: 95%"></textarea>
@@ -433,24 +412,21 @@ function mylog(text) {
 }
 ```
 
-Der untenstehende Code erstellt einen Controller und übergibt dessen Signal an die Aufgabe.
-Die Aufgabe wird dann sofort abgebrochen.
-Dies führt dazu, dass das Promise mit einem `AbortError` abgelehnt wird, der im `catch`-Block abgefangen und protokolliert wird.
-Beachten Sie, dass wir auch das {{domxref("AbortSignal/abort_event", "abort")}}-Ereignis abhören könnten, das auf dem {{domxref("TaskSignal")}} oder {{domxref("AbortSignal")}} ausgelöst wird und den Abbruch dort protokollieren.
+Der untenstehende Code erstellt einen Controller und übergibt dessen Signal an die Aufgabe. Die Aufgabe wird dann sofort abgebrochen. Dies führt dazu, dass das `Promise` mit einem `AbortError` abgelehnt wird, der im `catch`-Block abgefangen und protokolliert wird. Beachten Sie, dass wir auch auf das [`abort`](/de/docs/Web/API/AbortSignal/abort_event)-Ereignis lauschen könnten, das auf dem [`TaskSignal`](/de/docs/Web/API/TaskSignal) oder [`AbortSignal`](/de/docs/Web/API/AbortSignal) ausgelöst wird, und den Abbruch dort protokollieren.
 
 ```js
 if ("scheduler" in this) {
-  // Einen TaskController mit Standardpriorität deklarieren
+  // Declare a TaskController with default priority
   const abortTaskController = new TaskController();
-  // Aufgabe unter Verwendung des Signals des Controllers posten
+  // Post task passing the controller's signal
   scheduler
     .postTask(() => mylog("Task executing"), {
       signal: abortTaskController.signal,
     })
-    .then((taskResult) => mylog(`${taskResult}`)) // Dies wird nicht abgerufen!
-    .catch((error) => mylog(`Error: ${error}`)); // Den Fehler protokollieren
+    .then((taskResult) => mylog(`${taskResult}`)) // This won't run!
+    .catch((error) => mylog(`Error: ${error}`)); // Log the error
 
-  // Die Aufgabe abbrechen
+  // Abort the task
   abortTaskController.abort();
 }
 ```
@@ -461,9 +437,7 @@ Das Protokoll unten zeigt die abgebrochene Aufgabe.
 
 ### Aufgaben verzögern
 
-Aufgaben können verzögert werden, indem Sie eine ganze Zahl in Millisekunden im Parameter `options.delay` für `postTask()` angeben.
-Dies fügt die Aufgabe effektiv zur priorisierten Warteschlange mit einem Timeout hinzu, wie es mit {{domxref("setTimeout()")}} erstellt werden könnte.
-Die `delay` ist die minimale Zeit, bevor die Aufgabe dem Scheduler hinzugefügt wird; sie kann länger sein.
+Aufgaben können verzögert werden, indem ein Ganzzahliger Wert für Millisekunden im `options.delay`-Parameter an `postTask()` angegeben wird. Dies fügt die Aufgabe effektiv in einen priorisierten Queue nach einem Timeout hinzu, wie es durch die Verwendung von [`setTimeout()`](/de/docs/Web/API/SetTimeout) erstellt werden könnte. Die `delay` ist die Mindestzeit, bevor die Aufgabe dem Scheduler hinzugefügt wird; es kann länger dauern.
 
 ```html hidden
 <textarea id="log" style="min-height: 50px; width: 95%"></textarea>
@@ -476,11 +450,11 @@ function mylog(text) {
 }
 ```
 
-Der untenstehende Code zeigt zwei Aufgaben (als Pfeilfunktionen) mit Verzögerung.
+Der untenstehende Code zeigt zwei Aufgaben (als Pfeilfunktionen) mit einer Verzögerung hinzugefügt.
 
 ```js
 if ("scheduler" in this) {
-  // Aufgabe als Pfeilfunktion mit Verzögerung von 2 Sekunden posten
+  // Post task as arrow function with delay of 2 seconds
   scheduler
     .postTask(() => "Task delayed by 2000ms", { delay: 2000 })
     .then((taskResult) => mylog(`${taskResult}`));
@@ -490,8 +464,7 @@ if ("scheduler" in this) {
 }
 ```
 
-Aktualisieren Sie die Seite.
-Beachten Sie, dass die zweite Zeichenfolge nach etwa 2 Sekunden im Protokoll erscheint.
+Aktualisieren Sie die Seite. Beachten Sie, dass die zweite Zeichenfolge nach etwa 2 Sekunden im Protokoll erscheint.
 
 {{EmbedLiveSample("Delaying tasks",'400px','100px')}}
 
@@ -505,5 +478,5 @@ Beachten Sie, dass die zweite Zeichenfolge nach etwa 2 Sekunden im Protokoll ers
 
 ## Siehe auch
 
-- [Building a Faster Web Experience with the postTask Scheduler](https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91) auf dem Airbnb-Blog (2021)
-- [Optimizing long tasks](https://web.dev/articles/optimize-long-tasks#yield_only_when_necessary) auf web.dev (2022)
+- [Building a Faster Web Experience with the postTask Scheduler](https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91) im Airbnb-Blog (2021)
+- [Optimizing long tasks](https://web.dev/articles/optimize-long-tasks) auf web.dev (2022)

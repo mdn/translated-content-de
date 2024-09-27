@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: dragenter-Ereignis"
+title: "HTMLElement: dragenter Ereignis"
 short-title: dragenter
 slug: Web/API/HTMLElement/dragenter_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das `dragenter`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl einen gültigen Zielbereich betritt. Das Zielobjekt ist die _unmittelbare Benutzerauswahl_ (das vom Benutzer direkt als Zielbereich angegebene Element) oder das {{HTMLElement("body")}}-Element.
+Das `dragenter`-Ereignis wird ausgelöst, wenn ein gezogenes Element oder eine Textauswahl ein gültiges Ziel zum Ablegen betritt. Das Zielobjekt ist die _unmittelbare Benutzerauswahl_ (das Element, das direkt vom Benutzer als Ziel zum Ablegen angegeben wird) oder das {{HTMLElement("body")}}-Element.
 
-Dieses Ereignis ist abbrechbar und kann bis zum {{domxref("Document")}}- und {{domxref("Window")}}-Objekt durchbubbeln.
+Dieses Ereignis ist abbrechbar und kann weiter zum [`Document`](/de/docs/Web/API/Document)- und [`Window`](/de/docs/Web/API/Window)-Objekt propagiert werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignishandler-Eigenschaft fest.
 
 ```js
 addEventListener("dragenter", (event) => {});
@@ -24,26 +24,26 @@ ondragenter = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("DragEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("DragEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle {{domxref("Event")}} verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref('DragEvent.dataTransfer')}} {{ReadOnlyInline}}
+- [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
   - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
 
 ## Beispiele
 
-### Stilgestaltung von Zielbereichen bei dragenter
+### Stilisieren von Ablagebereichen beim Dragenter
 
-In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und es loszulassen.
+In diesem Beispiel haben wir ein verschiebbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und es loszulassen.
 
-Wir lauschen auf das `dragenter`-Ereignis, um dem anderen Container einen lila Hintergrund zu geben, während das ziehbare Element darüber ist, um anzuzeigen, dass das Element auf den Container fallen gelassen werden könnte.
+Wir hören auf das `dragenter`-Ereignis, um dem anderen Container einen lila Hintergrund zu geben, während sich das verschiebbare Element darüber befindet, um anzuzeigen, dass das Element in den Container abgelegt werden könnte.
 
-In diesem teilweisen Beispiel haben wir jedoch das Absenken nicht implementiert: Für ein vollständiges Beispiel von Drag-and-Drop siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
+In diesem unvollständigen Beispiel haben wir das Ablegen jedoch nicht implementiert: Ein vollständiges Beispiel für Drag and Drop finden Sie auf der Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
 #### HTML
 
@@ -58,7 +58,7 @@ In diesem teilweisen Beispiel haben wir jedoch das Absenken nicht implementiert:
 
 ```css
 body {
-  /* Verhindert, dass der Benutzer im Beispiel Text auswählt */
+  /* Prevent the user from selecting text in the example */
   user-select: none;
 }
 
@@ -85,14 +85,14 @@ body {
 ```js
 const target = document.getElementById("droptarget");
 target.addEventListener("dragenter", (event) => {
-  // Potenzielles Ziel beim Eintritt des ziehbaren Elements hervorheben
+  // highlight potential drop target when the draggable element enters it
   if (event.target.classList.contains("dropzone")) {
     event.target.classList.add("dragover");
   }
 });
 
 target.addEventListener("dragleave", (event) => {
-  // Hintergrund des potenziellen Ziels zurücksetzen, wenn das ziehbare Element es verlässt
+  // reset background of potential drop target when the draggable element leaves it
   if (event.target.classList.contains("dropzone")) {
     event.target.classList.remove("dragover");
   }
@@ -113,11 +113,11 @@ target.addEventListener("dragleave", (event) => {
 
 ## Siehe auch
 
-- Andere Drag-and-Drop-Ereignisse:
+- Weitere Drag-and-Drop-Ereignisse:
 
-  - {{domxref("HTMLElement/drag_event", "drag")}}
-  - {{domxref("HTMLElement/dragstart_event", "dragstart")}}
-  - {{domxref("HTMLElement/dragend_event", "dragend")}}
-  - {{domxref("HTMLElement/dragover_event", "dragover")}}
-  - {{domxref("HTMLElement/dragleave_event", "dragleave")}}
-  - {{domxref("HTMLElement/drop_event", "drop")}}
+  - [`drag`](/de/docs/Web/API/HTMLElement/drag_event)
+  - [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)
+  - [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)
+  - [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)
+  - [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event)
+  - [`drop`](/de/docs/Web/API/HTMLElement/drop_event)

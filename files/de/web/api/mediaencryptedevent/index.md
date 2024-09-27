@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}
 
-Die **`MediaEncryptedEvent`**-Schnittstelle der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) enthält die Informationen, die mit einem {{domxref("HTMLMediaElement/encrypted_event", "encrypted")}}-Ereignis verbunden sind, das an ein {{domxref("HTMLMediaElement")}} gesendet wird, wenn einige Initialisierungsdaten im Medium gefunden werden.
+Die **`MediaEncryptedEvent`**-Schnittstelle der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) enthält die Informationen, die mit einem [`encrypted`](/de/docs/Web/API/HTMLMediaElement/encrypted_event)-Ereignis verbunden sind, das an ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) gesendet wird, wenn einige Initialisierungsdaten im Medium gefunden werden.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("MediaEncryptedEvent.MediaEncryptedEvent", "MediaEncryptedEvent()")}}
+- [`MediaEncryptedEvent()`](/de/docs/Web/API/MediaEncryptedEvent/MediaEncryptedEvent)
   - : Erstellt eine neue Instanz eines `MediaEncryptedEvent`-Objekts.
 
 ## Instanzeigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten Element, {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("MediaEncryptedEvent.initDataType")}} {{ReadOnlyInline}}
-  - : Gibt eine die Groß- und Kleinschreibung berücksichtigende Zeichenkette mit dem _Typ_ des gefundene Formats der Initialisierungsdaten zurück.
-- {{domxref("MediaEncryptedEvent.initData")}} {{ReadOnlyInline}}
+- [`MediaEncryptedEvent.initDataType`](/de/docs/Web/API/MediaEncryptedEvent/initDataType) {{ReadOnlyInline}}
+  - : Gibt einen groß-/kleinschreibungsempfindlichen String mit dem _Typ_ des gefundenen Initialisierungsdatenformats zurück.
+- [`MediaEncryptedEvent.initData`](/de/docs/Web/API/MediaEncryptedEvent/initData) {{ReadOnlyInline}}
   - : Gibt einen {{jsxref("ArrayBuffer")}} zurück, der die gefundenen Initialisierungsdaten enthält. Wenn keine Initialisierungsdaten mit dem Format verbunden sind, wird `null` zurückgegeben.
 
 ## Instanzmethoden
 
-_Diese Schnittstelle bietet keine spezifischen Methoden, erbt jedoch Methoden von ihrem übergeordneten Element, {{domxref("Event")}}._
+_Diese Schnittstelle bietet keine spezifischen Methoden, erbt jedoch Methoden von ihrem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 ## Spezifikationen
 

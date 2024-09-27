@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:when>` Element erscheint immer innerhalb eines `<xsl:choose>` Elements und fungiert ähnlich wie eine Case-Anweisung.
+Das `<xsl:when>`-Element erscheint immer innerhalb eines `<xsl:choose>`-Elements und fungiert wie eine Fallunterscheidung.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ Das `<xsl:when>` Element erscheint immer innerhalb eines `<xsl:choose>` Elements
 ### Erforderliche Attribute
 
 - `test`
-  - : Legt einen booleschen Ausdruck fest, der ausgewertet wird. Wenn der Ausdruck wahr ist, wird der Inhalt des Elements verarbeitet; wenn er falsch ist, wird er ignoriert.
+  - : Gibt einen booleschen Ausdruck an, der ausgewertet wird. Wenn er wahr ist, wird der Inhalt des Elements verarbeitet; wenn er falsch ist, wird er ignoriert.
 
 ### Optionale Attribute
 
@@ -28,7 +28,7 @@ Keine.
 
 ### Typ
 
-Subanweisung, erscheint immer innerhalb eines `<xsl:choose>` Elements.
+Unteranweisung, erscheint immer innerhalb eines `<xsl:choose>`-Elements.
 
 ## Spezifikationen
 

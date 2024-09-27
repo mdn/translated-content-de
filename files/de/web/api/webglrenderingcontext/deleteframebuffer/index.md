@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode deleteFramebuffer()"
+title: "WebGLRenderingContext: deleteFramebuffer() Methode"
 short-title: deleteFramebuffer()
 slug: Web/API/WebGLRenderingContext/deleteFramebuffer
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode **`WebGLRenderingContext.deleteFramebuffer()`** der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes {{domxref("WebGLFramebuffer")}}-Objekt. Diese Methode hat keine Auswirkung, wenn der Framebuffer bereits gelöscht wurde.
+Die **`WebGLRenderingContext.deleteFramebuffer()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)-Objekt. Diese Methode hat keine Auswirkung, wenn der Framebuffer bereits gelöscht wurde.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteFramebuffer(framebuffer)
 ### Parameter
 
 - `framebuffer`
-  - : Ein {{domxref("WebGLFramebuffer")}}-Objekt, das gelöscht werden soll.
+  - : Ein zu löschendes [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)-Objekt.
 
 ### Rückgabewert
 
@@ -49,7 +49,7 @@ gl.deleteFramebuffer(framebuffer);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.createFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.isFramebuffer()")}}
-- Andere Buffer: {{domxref("WebGLBuffer")}}, {{domxref("WebGLRenderbuffer")}}
+- [`WebGLRenderingContext.bindFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFramebuffer)
+- [`WebGLRenderingContext.createFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/createFramebuffer)
+- [`WebGLRenderingContext.isFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/isFramebuffer)
+- Andere Buffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)

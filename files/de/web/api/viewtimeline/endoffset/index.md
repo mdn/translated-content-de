@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Animations")}}{{SeeCompatTable}}
 
-Die **`endOffset`** schreibgeschützte Eigenschaft des {{domxref("ViewTimeline")}}-Interfaces gibt einen {{domxref("CSSNumericValue")}} zurück, der die Endposition (100% Fortschritt) des Scrollens der Zeitleiste als einen Offset vom Beginn des überlaufenden Abschnitts der Inhalte im Scroller darstellt.
+Die schreibgeschützte **`endOffset`**-Eigenschaft der [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)-Schnittstelle gibt einen [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) zurück, der die Endposition (100 % Fortschritt) der Scroll-Position der Zeitleiste als Versatz ab dem Beginn des überlaufenden Inhaltsbereichs im Scroller darstellt.
 
 ## Wert
 
-Ein {{domxref("CSSNumericValue")}}.
+Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-Siehe die Hauptseite von {{domxref("ScrollTimeline")}} für ein Beispiel.
+Siehe die Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline) für ein Beispiel.
 
 ## Spezifikationen
 
@@ -29,6 +29,6 @@ Siehe die Hauptseite von {{domxref("ScrollTimeline")}} für ein Beispiel.
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS scroll-getriebene Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
-- {{domxref("ViewTimeline")}}
-- {{domxref("AnimationTimeline")}}, {{domxref("ScrollTimeline")}}
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)
+- [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)

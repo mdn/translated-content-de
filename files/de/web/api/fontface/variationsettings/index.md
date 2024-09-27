@@ -1,5 +1,5 @@
 ---
-title: "FontFace: variationSettings-Eigenschaft"
+title: "FontFace: variationSettings Eigenschaft"
 short-title: variationSettings
 slug: Web/API/FontFace/variationSettings
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}{{SeeCompatTable}}
 
-Die **`variationSettings`**-Eigenschaft der {{domxref("FontFace")}}-Schnittstelle ruft OpenType- oder TrueType-Schriftvariationen auf niedrigem Level ab oder setzt diese.
+Die **`variationSettings`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces ruft OpenType- oder TrueType-Schriftartvariationen auf niedriger Ebene ab oder legt sie fest.
 
-Diese Eigenschaft ist äquivalent zum {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}}-Deskriptor.
+Diese Eigenschaft entspricht dem {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}} Deskriptor.
 
 ## Wert
 

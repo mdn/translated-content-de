@@ -7,10 +7,10 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Dieser Artikel bietet praktische Ratschläge, wie Sie Ihre Webinhalte so gestalten können, dass sie den Erfolgskriterien entsprechen, die im **Robust**-Prinzip der Richtlinien zur Barrierefreiheit von Webinhalten (WCAG) 2.0 und 2.1 festgelegt sind. Das Prinzip Robust besagt, dass Inhalte so robust sein müssen, dass sie von einer Vielzahl von Benutzeragenten, einschließlich unterstützender Technologien, zuverlässig interpretiert werden können. Dies kann im Allgemeinen erreicht werden, indem Webstandards befolgt und [gründlich getestet](/de/docs/Learn/Tools_and_testing/Cross_browser_testing) wird.
+Dieser Artikel bietet praktische Ratschläge, wie Sie Ihre Webinhalte so verfassen, dass sie den Erfolgskriterien entsprechen, die im Prinzip **Robust** der Web Content Accessibility Guidelines (WCAG) 2.0 und 2.1 festgelegt sind. Robust besagt, dass Inhalte robust genug sein müssen, um von einer Vielzahl von Benutzeragenten, einschließlich unterstützender Technologien, zuverlässig interpretiert werden zu können. Dies kann in der Regel durch das Befolgen von Webstandards und [rigoroses Testen](/de/docs/Learn/Tools_and_testing/Cross_browser_testing) erreicht werden.
 
 > [!NOTE]
-> Um die W3C-Definitionen für Robust und seine Richtlinien und Erfolgskriterien zu lesen, siehe [Prinzip 4: Robust — Inhalte müssen robust genug sein, dass sie von einer Vielzahl von Benutzeragenten, einschließlich unterstützender Technologien, zuverlässig interpretiert werden können.](https://www.w3.org/TR/WCAG21/#robust)
+> Um die W3C-Definitionen für Robust und seine Richtlinien und Erfolgskriterien zu lesen, siehe [Prinzip 4: Robust — Inhalte müssen robust genug sein, damit sie von einer Vielzahl von Benutzeragenten, einschließlich unterstützender Technologien, zuverlässig interpretiert werden können.](https://www.w3.org/TR/WCAG21/#robust)
 
 ## Richtlinie 4.1 — Kompatibel: Maximieren Sie die Kompatibilität mit aktuellen und zukünftigen Benutzeragenten, einschließlich unterstützender Technologien
 
@@ -20,7 +20,7 @@ Diese Richtlinie konzentriert sich darauf, Inhalte so kompatibel wie möglich zu
   <thead>
     <tr>
       <th scope="col">Erfolgskriterien</th>
-      <th scope="col">Wie man den Kriterien entspricht</th>
+      <th scope="col">Wie man die Kriterien erfüllt</th>
       <th scope="col">Praktische Ressource</th>
     </tr>
   </thead>
@@ -29,7 +29,7 @@ Diese Richtlinie konzentriert sich darauf, Inhalte so kompatibel wie möglich zu
       <td>4.1.1 Parsing (A)</td>
       <td>
         <p>
-          Inhalte sollten gut strukturiert sein, damit sie von Browsern und anderen Benutzeragenten wie Bildschirmlesegeräten erfolgreich geparst werden können.
+          Inhalte sollten wohlgeformt sein, damit sie von Browsern und anderen Benutzeragenten wie Bildschirmlesegeräten erfolgreich geparst werden können.
         </p>
         <p>
           Um dieses Kriterium zu erfüllen, stellen Sie sicher, dass Ihr HTML so valide wie möglich ist. Verwenden Sie den
@@ -39,7 +39,7 @@ Diese Richtlinie konzentriert sich darauf, Inhalte so kompatibel wie möglich zu
       <td>
         Siehe
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML/Debugging_HTML"
-          >Fehlerbehebung in HTML</a
+          >Debugging HTML</a
         >
         für einen praktischen Leitfaden.
       </td>
@@ -48,10 +48,10 @@ Diese Richtlinie konzentriert sich darauf, Inhalte so kompatibel wie möglich zu
       <td>4.1.2 Name, Rolle, Wert (A)</td>
       <td>
         <p>
-          Der Name und die Rolle von Benutzerschnittstellenkomponenten (z. B. Formulareingaben, Buttons, Links usw.) sollten programmatisch bestimmbar sein.
+          Der Name und die Rolle von Benutzeroberflächenkomponenten (z. B. Formulareingaben, Schaltflächen, Links usw.) sollten programmatisch bestimmbar sein.
         </p>
         <p>
-          Wenn Sie semantische Elemente korrekt für ihren vorgesehenen Zweck verwenden, sollte dieses Kriterium automatisch erfüllt werden. Bei der Skripterstellung von benutzerdefinierten Komponenten müssen Sie WAI-ARIA-Rollen und andere Funktionen verwenden, um sicherzustellen, dass Ihre Steuerelemente wie beabsichtigt interpretiert und genutzt werden können, z. B. nicht nur von seheingeschränkten Mausbenutzern, sondern auch von Bildschirmleseprogrammnutzern, Tastatur-nur-Nutzern usw.
+          Bei korrekter Verwendung semantischer Elemente zu ihrem vorgesehenen Zweck sollte dieses Kriterium automatisch erfüllt werden. Bei der Skripterstellung benutzerdefinierter Komponenten müssen Sie WAI-ARIA-Rollen und andere Funktionen verwenden, um sicherzustellen, dass Ihre Steuerungen so interpretiert werden, wie es beabsichtigt ist, und verwendet werden können, z. B. nicht nur von sehenden Mausbenutzern, sondern auch von Bildschirmlesegerätenutzern, Tastaturnutzern usw.
         </p>
       </td>
       <td>
@@ -61,7 +61,7 @@ Diese Richtlinie konzentriert sich darauf, Inhalte so kompatibel wie möglich zu
         >
         und
         <a href="/de/docs/Learn/Accessibility/WAI-ARIA_basics"
-          >WAI-ARIA-Grundlagen</a
+          >WAI-ARIA Grundlagen</a
         >.
       </td>
     </tr>
@@ -77,13 +77,13 @@ Diese Richtlinie konzentriert sich darauf, Inhalte so kompatibel wie möglich zu
       </td>
       <td>
         <p>
-          Nutzer unterstützender Technologien werden über neue Statusmeldungen informiert, die der Seite hinzugefügt wurden.
+          Benutzer von unterstützenden Technologien werden auf neue Statusmeldungen auf der Seite aufmerksam gemacht.
         </p>
       </td>
       <td>
         <a
           href="https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html"
-          >Verständnis von Statusmeldungen</a
+          >Verstehen von Statusmeldungen</a
         >
       </td>
     </tr>

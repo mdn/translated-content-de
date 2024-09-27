@@ -1,5 +1,5 @@
 ---
-title: "HTMLVideoElement: width-Eigenschaft"
+title: "HTMLVideoElement: width Eigenschaft"
 short-title: width
 slug: Web/API/HTMLVideoElement/width
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`**-Eigenschaft des {{domxref("HTMLVideoElement")}}-Interfaces gibt eine Ganzzahl zurück, die das `width`-Attribut des {{HTMLElement("video")}}-Elements widerspiegelt. Sie gibt die angezeigte Breite der Ressource in CSS-Pixel an.
+Die **`width`** Eigenschaft des [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) Interfaces gibt eine ganze Zahl zurück, die das `width` Attribut des {{HTMLElement("video")}} Elements widerspiegelt und die angezeigte Breite der Ressource in CSS-Pixeln angibt.
 
 ## Wert
 
-Eine positive Ganzzahl oder 0.
+Eine positive ganze Zahl oder 0.
 
 ## Beispiele
 
@@ -22,7 +22,7 @@ Eine positive Ganzzahl oder 0.
 
 ```js
 const el = document.getElementById("media");
-console.log(el.width); // Ausgabe: 800
+console.log(el.width); // Output: 800
 ```
 
 ## Spezifikationen
@@ -35,9 +35,9 @@ console.log(el.width); // Ausgabe: 800
 
 ## Siehe auch
 
-- {{domxref("HTMLCanvasElement.width")}}
-- {{domxref("HTMLEmbedElement.width")}}
-- {{domxref("HTMLIFrameElement.width")}}
-- {{domxref("HTMLImageElement.width")}}
-- {{domxref("HTMLObjectElement.width")}}
-- {{domxref("HTMLSourceElement.width")}}
+- [`HTMLCanvasElement.width`](/de/docs/Web/API/HTMLCanvasElement/width)
+- [`HTMLEmbedElement.width`](/de/docs/Web/API/HTMLEmbedElement/width)
+- [`HTMLIFrameElement.width`](/de/docs/Web/API/HTMLIFrameElement/width)
+- [`HTMLImageElement.width`](/de/docs/Web/API/HTMLImageElement/width)
+- [`HTMLObjectElement.width`](/de/docs/Web/API/HTMLObjectElement/width)
+- [`HTMLSourceElement.width`](/de/docs/Web/API/HTMLSourceElement/width)

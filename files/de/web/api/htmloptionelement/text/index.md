@@ -8,10 +8,10 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`text`**-Eigenschaft des {{domxref("HTMLOptionElement")}} repräsentiert den Text innerhalb des {{htmlelement("option")}}-Elements. Diese Eigenschaft stellt die gleiche Information dar wie {{domxref("Node.textContent")}}.
+Die **`text`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) stellt den Text innerhalb des {{htmlelement("option")}}-Elements dar. Diese Eigenschaft repräsentiert die gleiche Information wie [`Node.textContent`](/de/docs/Web/API/Node/textContent).
 
 > [!NOTE]
-> Wenn das Element ein `label` hat, wird der Text innerhalb des {{htmlelement("option")}}-Elements nicht visuell dargestellt. In diesem Fall kann die `text`-Eigenschaft zwar verwendet werden, um den Inhalt festzulegen, aber es wird keine sichtbare Wirkung haben.
+> Wenn das Element ein `label` hat, wird der Text innerhalb des {{htmlelement("option")}} nicht visuell dargestellt. In diesem Fall kann die `text`-Eigenschaft weiterhin verwendet werden, um den Inhalt festzulegen, aber dies wird keine sichtbare Wirkung haben.
 
 ## Wert
 
@@ -38,7 +38,7 @@ optionElement.text = "Updated text";
 - {{HTMLElement("select")}}
 - {{HTMLElement("datalist")}}
 - {{HTMLElement("optgroup")}}
-- {{domxref("HTMLOptionElement.value")}}
-- {{domxref("HTMLOptionElement.label")}}
-- {{domxref("HTMLScriptElement.text")}}
-- {{domxref("HTMLAnchorElement.text")}}
+- [`HTMLOptionElement.value`](/de/docs/Web/API/HTMLOptionElement/value)
+- [`HTMLOptionElement.label`](/de/docs/Web/API/HTMLOptionElement/label)
+- [`HTMLScriptElement.text`](/de/docs/Web/API/HTMLScriptElement/text)
+- [`HTMLAnchorElement.text`](/de/docs/Web/API/HTMLAnchorElement/text)

@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`errorDetail`**-Eigenschaft des {{domxref("RTCError")}}-Interfaces ist ein String, der den WebRTC-spezifischen Fehlercode angibt, der aufgetreten ist.
+Die schreibgeschützte Eigenschaft **`errorDetail`** des [`RTCError`](/de/docs/Web/API/RTCError)-Interfaces ist eine Zeichenkette, die den [WebRTC](/de/docs/Web/API/WebRTC_API)-spezifischen Fehlercode angibt, der aufgetreten ist.
 
 ## Wert
 
-Ein schreibgeschützter String, dessen Wert den Typ des WebRTC-spezifischen Fehlers angibt, der bei einer {{domxref("RTCPeerConnection")}} aufgetreten ist. Die möglichen Werte sind:
+Eine schreibgeschützte Zeichenkette, deren Wert den Typ des WebRTC-spezifischen Fehlers angibt, der auf einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) aufgetreten ist. Die möglichen Werte sind:
 
 - `data-channel-failure`
-  - : Der {{domxref("RTCDataChannel")}} der Verbindung ist fehlgeschlagen.
+  - : Der [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) der Verbindung ist ausgefallen.
 - `dtls-failure`
-  - : Die Aushandlung der {{Glossary("DTLS")}}-Verbindung ist fehlgeschlagen oder die Verbindung wurde mit einem fatalen Fehler beendet. Die {{domxref("DOMException.message", "message")}} des Fehlers enthält Details zur Art des Fehlers. Wenn ein fataler Fehler _empfangen_ wird, wird die Eigenschaft {{domxref("RTCError.receivedAlert", "receivedAlert")}} des Fehlerobjekts auf den Wert des empfangenen DTLSL-Alarms gesetzt. Wenn hingegen ein fataler Fehler _gesendet_ wurde, wird die {{domxref("RTCError.sentAlert", "sentAlert")}} auf den Wert des Alarms gesetzt.
+  - : Die Aushandlung der [DTLS](/de/docs/Glossary/DTLS)-Verbindung ist fehlgeschlagen oder die Verbindung wurde mit einem schwerwiegenden Fehler beendet. Die [`message`](/de/docs/Web/API/DOMException/message) des Fehlers enthält Details zur Art des Fehlers. Wenn ein schwerwiegender Fehler _empfangen_ wird, ist die Eigenschaft [`receivedAlert`](/de/docs/Web/API/RTCError/receivedAlert) des Fehlerobjekts auf den Wert des empfangenen DTLS-Alarms gesetzt. Wenn hingegen ein schwerwiegender Fehler _gesendet_ wurde, ist [`sentAlert`](/de/docs/Web/API/RTCError/sentAlert) auf den Wert des Alarms gesetzt.
 - `fingerprint-failure`
-  - : Das entfernte Zertifikat für den {{domxref("RTCDtlsTransport")}} stimmt mit keinem der im SDP aufgeführten Fingerabdrücke überein. Wenn das entfernte Gegenüber das lokale Zertifikat nicht mit den bereitgestellten Fingerabdrücken abgleichen kann, tritt dieser Fehler nicht auf, obwohl dies stattdessen zu einem `dtls-failure` Fehler führen kann.
+  - : Das entfernte Zertifikat für den [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) stimmt mit keinem der im SDP aufgelisteten Fingerprints überein. Wenn der entfernte Peer das lokale Zertifikat nicht mit den bereitgestellten Fingerprints abgleichen kann, tritt dieser Fehler nicht auf, obwohl diese Situation stattdessen zu einem `dtls-failure`-Fehler führen kann.
 - `hardware-encoder-error`
-  - : Der Hardware-Encoder unterstützt die angegebenen Konfigurationsparameter nicht.
+  - : Der Hardware-Encoder unterstützt die gegebenen Konfigurationsparameter nicht.
 - `hardware-encoder-not-available`
-  - : Die für den angeforderten Vorgang erforderlichen Ressourcen des Hardware-Encoders sind nicht verfügbar.
+  - : Die für die Durchführung des angeforderten Vorgangs erforderlichen Ressourcen des Hardware-Encoders sind nicht verfügbar.
 - `sctp-failure`
-  - : Die Aushandlung von {{Glossary("SCTP")}} ist fehlgeschlagen oder die Verbindung wurde mit einem fatalen Fehler beendet. Der SCTP-Ursachencode kann im `RTCError`-Objekt in der {{domxref("RTCError.sctpCauseCode", "sctpCauseCode")}} gefunden werden. SCTP-Fehlerursachencodes 1-13 sind in der SCTP-Spezifikation definiert: {{RFC(4960, "", "3.3.10")}}.
+  - : Die [SCTP](/de/docs/Glossary/SCTP)-Aushandlung ist fehlgeschlagen, oder die Verbindung wurde mit einem schwerwiegenden Fehler beendet. Der SCTP-Ursachencode kann im `RTCError`-Objekt in der Eigenschaft [`sctpCauseCode`](/de/docs/Web/API/RTCError/sctpCauseCode) gefunden werden. SCTP-Fehlerursachencodes 1-13 sind in der SCTP-Spezifikation definiert: {{RFC(4960, "", "3.3.10")}}.
 - `sdp-syntax-error`
-  - : Die SDP-Syntax ist ungültig. Die Eigenschaft {{domxref("RTCError.sdpLineNumber", "sdpLineNumber")}} des Fehlers gibt die Zeilennummer innerhalb des SDP an, bei der der Fehler erkannt wurde.
+  - : Die SDP-Syntax ist ungültig. Die [`sdpLineNumber`](/de/docs/Web/API/RTCError/sdpLineNumber)-Eigenschaft des Fehlers gibt die Zeilennummer innerhalb des SDP an, bei der der Fehler erkannt wurde.
 
 ## Beispiele
 

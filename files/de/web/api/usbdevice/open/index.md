@@ -1,5 +1,5 @@
 ---
-title: "USBDevice: open()-Methode"
+title: "USBDevice: open() Methode"
 short-title: open()
 slug: Web/API/USBDevice/open
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`open()`**-Methode des {{domxref("USBDevice")}}-Interfaces gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn eine Gerätesitzung gestartet wurde.
+Die **`open()`**-Methode des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interface gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn eine Gerätesitzung gestartet wurde.
 
 ## Syntax
 
@@ -28,6 +28,6 @@ Ein {{jsxref("promise")}}.
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

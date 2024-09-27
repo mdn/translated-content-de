@@ -7,19 +7,19 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Via`**-Allgemeine Header wird von Proxys hinzugefügt, sowohl vorwärts als auch rückwärts, und kann in den Anforderungs- oder Antwort-Headern erscheinen. Er wird verwendet, um Nachrichtenweiterleitungen zu verfolgen, Anfrage-Schleifen zu vermeiden und die Protokollfähigkeiten der Absender entlang der Anfrage-/Antwortkette zu identifizieren.
+Der allgemeine Header **`Via`** wird von Proxys hinzugefügt, sowohl vorwärts- als auch rückwärtsgerichtet, und kann in den Anfrage- oder Antwortheaders erscheinen. Er wird verwendet, um Nachrichtenweiterleitungen zu verfolgen, Anfrageschleifen zu vermeiden und die Protokollfähigkeiten der Absender entlang der Anfrage-/Antwortkette zu identifizieren.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request header")}},
-        {{Glossary("Response header")}}
+        [Anfrage-Header](/de/docs/Glossary/Request_header),
+        [Antwort-Header](/de/docs/Glossary/Response_header)
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -32,13 +32,13 @@ Via: [ <protocol-name> "/" ] <protocol-version> <host> [ ":" <port> ]
 Via: [ <protocol-name> "/" ] <protocol-version> <pseudonym>
 ```
 
-## Anweisungen
+## Direktiven
 
 - \<protocol-name>
-  - : Optional. Der Name des verwendeten Protokolls, z.B. "HTTP".
+  - : Optional. Der Name des verwendeten Protokolls, wie z. B. "HTTP".
 - \<protocol-version>
-  - : Die Version des verwendeten Protokolls, z.B. "1.1".
-- \<host> und \<port>
+  - : Die Version des verwendeten Protokolls, wie z. B. "1.1".
+- \<host> and \<port>
   - : Öffentliche Proxy-URL und Port.
 - \<pseudonym>
   - : Name/Alias eines internen Proxys.

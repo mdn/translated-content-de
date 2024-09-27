@@ -12,12 +12,12 @@ Ein `RegisteredContentScript` wird durch einen Aufruf von {{WebExtAPIRef("conten
 Es definiert eine einzige Funktion {{WebExtAPIRef("contentScripts.RegisteredContentScript.unregister", "unregister()")}}, die verwendet werden kann, um die Inhalts-Skripte abzumelden.
 
 > [!NOTE]
-> Wenn dieses Objekt zerstört wird (zum Beispiel, weil es aus dem Gültigkeitsbereich fällt), werden die Inhalts-Skripte automatisch abgemeldet. Sie sollten daher eine Referenz auf dieses Objekt behalten, solange Sie möchten, dass die Inhalts-Skripte registriert bleiben.
+> Wenn dieses Objekt zerstört wird (zum Beispiel, weil es nicht mehr im Gültigkeitsbereich ist), werden die Inhalts-Skripte automatisch abgemeldet. Sie sollten daher eine Referenz auf dieses Objekt behalten, solange Sie die Inhalts-Skripte registriert halten möchten.
 
 ## Methoden
 
 - {{WebExtAPIRef("contentScripts.RegisteredContentScript.unregister","unregister()")}}
-  - : Meldet die durch dieses Objekt repräsentierten Inhalts-Skripte ab.
+  - : Meldet die durch dieses Objekt dargestellten Inhalts-Skripte ab.
 
 ## Browser-Kompatibilität
 
@@ -25,7 +25,7 @@ Es definiert eine einzige Funktion {{WebExtAPIRef("contentScripts.RegisteredCont
 
 ## Beispiele
 
-Dieser Code schaltet ein registriertes Inhalts-Skript bei einem Klick auf die Browser-Aktion um:
+Dieser Code schaltet ein registriertes Inhalts-Skript beim Klicken auf eine Browser-Aktion um:
 
 ```js
 let registered = null;

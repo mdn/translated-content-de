@@ -8,21 +8,15 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte {{domxref("HTMLTableElement")}}
-Eigenschaft **`rows`** gibt eine dynamische
-{{domxref("HTMLCollection")}} aller Zeilen in der Tabelle zurück, einschließlich der Zeilen
-in den {{HTMLElement("thead")}}, {{HTMLElement("tfoot")}} und
-{{HTMLElement("tbody")}}-Elementen enthaltenen Zeilen.
+Die schreibgeschützte [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Eigenschaft **`rows`** gibt eine "Live"
+[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) von allen Zeilen in der Tabelle zurück. Dies schließt die Zeilen ein, die sich in den {{HTMLElement("thead")}}, {{HTMLElement("tfoot")}} und {{HTMLElement("tbody")}} Elementen befinden.
 
-Obwohl die Eigenschaft selbst schreibgeschützt ist, ist das zurückgegebene Objekt dynamisch und ermöglicht die
-Änderung seines Inhalts.
+Obwohl die Eigenschaft selbst schreibgeschützt ist, ist das zurückgegebene Objekt live und ermöglicht die Modifikation seines Inhalts.
 
 ## Wert
 
-Eine {{domxref("HTMLCollection")}}, die eine dynamische Liste der
-{{domxref("HTMLTableRowElement")}}-Objekte bietet, die alle in der Tabelle enthaltenen {{HTMLElement("tr")}}
-Elemente repräsentieren. Dies ermöglicht einen schnellen Zugriff auf alle Tabellenzeilen,
-ohne diese manuell suchen zu müssen.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die eine live-aktualisierte Liste der
+[`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Objekte bereitstellt, welche alle {{HTMLElement("tr")}}-Elemente der Tabelle repräsentieren. Dies bietet einen schnellen Zugriff auf alle Tabellenzeilen, ohne dass Sie manuell nach ihnen suchen müssen.
 
 ## Beispiele
 
@@ -32,9 +26,7 @@ firstRow = mytable.rows[0];
 lastRow = mytable.rows.item(mytable.rows.length - 1);
 ```
 
-Dies zeigt, wie sowohl der Indexzugriff als auch die
-{{domxref("HTMLCollection.item()")}}-Methode verwendet werden können, um einzelne Zeilen in der
-Tabelle zu erhalten.
+Dies demonstriert, wie Sie sowohl den indizierten Zugriff als auch die Methode [`HTMLCollection.item()`](/de/docs/Web/API/HTMLCollection/item) verwenden können, um einzelne Zeilen in der Tabelle zu erhalten.
 
 ## Spezifikationen
 

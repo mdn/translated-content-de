@@ -1,5 +1,5 @@
 ---
-title: "RTCCodecStats: clockRate-Eigenschaft"
+title: "RTCCodecStats: clockRate Eigenschaft"
 short-title: clockRate
 slug: Web/API/RTCCodecStats/clockRate
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`clockRate`**-Eigenschaft des {{domxref("RTCCodecStats")}} Wörterbuchs ist eine positive Zahl, die die Medienabtastrate in Hertz (Hz) enthält.
+Die **`clockRate`** Eigenschaft des [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) Wörterbuchs ist eine positive Zahl, die die Medienabtastrate in Hertz (Hz) enthält.
 
 ## Werte
 
-Eine positive Zahl, die die Medienabtastrate angibt.
+Eine positive Zahl, die die Medienabtastrate anzeigt.
 
 ## Spezifikationen
 
@@ -24,5 +24,5 @@ Eine positive Zahl, die die Medienabtastrate angibt.
 
 ## Siehe auch
 
-- Die `codecs.clockRate`-Option in einem Parameter, der an [`RTCRtpTransceiver.setCodecPreferences()`](/de/docs/Web/API/RTCRtpTransceiver/setCodecPreferences#clockrate) und [`RTCRtpSender.setParameters()`](/de/docs/Web/API/RTCRtpSender/setParameters#clockrate) übergeben wird.
-- `codecs.clockRate` in dem Objekt, das von [`RTCRtpSender.getParameters()`](/de/docs/Web/API/RTCRtpSender/getParameters#clockrate) und [`RTCRtpReceiver.getParameters()`](/de/docs/Web/API/RTCRtpReceiver/getParameters#clockrate) zurückgegeben wird.
+- `codecs.clockRate` Option im Parameter, der an [`RTCRtpTransceiver.setCodecPreferences()`](/de/docs/Web/API/RTCRtpTransceiver/setCodecPreferences#clockrate) und [`RTCRtpSender.setParameters()`](/de/docs/Web/API/RTCRtpSender/setParameters#clockrate) übergeben wird.
+- `codecs.clockRate` im Objekt, das von [`RTCRtpSender.getParameters()`](/de/docs/Web/API/RTCRtpSender/getParameters#clockrate) und [`RTCRtpReceiver.getParameters()`](/de/docs/Web/API/RTCRtpReceiver/getParameters#clockrate) zurückgegeben wird.

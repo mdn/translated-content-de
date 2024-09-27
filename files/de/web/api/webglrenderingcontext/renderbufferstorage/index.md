@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: renderbufferStorage()-Methode"
+title: "WebGLRenderingContext: renderbufferStorage() Methode"
 short-title: renderbufferStorage()
 slug: Web/API/WebGLRenderingContext/renderbufferStorage
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.renderbufferStorage()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert einen Datenspeicher für ein Renderbuffer-Objekt.
+Die **`WebGLRenderingContext.renderbufferStorage()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) erstellt und initialisiert den Datenspeicher eines Renderbuffer-Objekts.
 
 ## Syntax
 
@@ -20,25 +20,23 @@ renderbufferStorage(target, internalFormat, width, height)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das das Ziel-Renderbuffer-Objekt angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel-Renderbuffer-Objekt angibt. Mögliche Werte:
 
     - `gl.RENDERBUFFER`
-      - : Datenspeicher im Puffer für einzelne Bilder in einem renderbaren internen Format.
+      - : Speicherstruktur für Pufferdaten für Einzelbilder in einem renderbaren internen Format.
 
 - `internalFormat`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das das interne Format des Renderbuffers angibt. Mögliche
-    Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das interne Format des Renderbuffers spezifiziert. Mögliche Werte sind:
 
-    - `gl.RGBA4`: 4 Rot-Bits, 4 Grün-Bits, 4 Blau-Bits, 4 Alpha-Bits.
-    - `gl.RGB565`: 5 Rot-Bits, 6 Grün-Bits, 5 Blau-Bits.
-    - `gl.RGB5_A1`: 5 Rot-Bits, 5 Grün-Bits, 5 Blau-Bits, 1 Alpha-Bit.
+    - `gl.RGBA4`: 4 rote Bits, 4 grüne Bits, 4 blaue Bits, 4 Alpha-Bits.
+    - `gl.RGB565`: 5 rote Bits, 6 grüne Bits, 5 blaue Bits.
+    - `gl.RGB5_A1`: 5 rote Bits, 5 grüne Bits, 5 blaue Bits, 1 Alpha-Bit.
     - `gl.DEPTH_COMPONENT16`: 16 Tiefen-Bits.
-    - `gl.STENCIL_INDEX8`: 8 Stencil-Bits.
+    - `gl.STENCIL_INDEX8`: 8 Schablonen-Bits.
     - `gl.DEPTH_STENCIL`
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}}
-    stehen zusätzlich folgende Werte zur Verfügung:
+    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 context", "", 1)}} sind zusätzlich folgende Werte verfügbar:
 
     - `gl.R8`
     - `gl.R8UI`
@@ -70,17 +68,16 @@ renderbufferStorage(target, internalFormat, width, height)
     - `gl.DEPTH24_STENCIL8`
     - `gl.DEPTH32F_STENCIL8`
 
-    Bei Verwendung der {{domxref("WEBGL_color_buffer_float")}}-Erweiterung:
+    Bei Verwendung der [`WEBGL_color_buffer_float`](/de/docs/Web/API/WEBGL_color_buffer_float) Erweiterung:
 
-    - `ext.RGBA32F_EXT`: RGBA 32-Bit-Gleitkommertyp.
-    - `ext.RGB32F_EXT`: RGB 32-Bit-Gleitkommertyp.
+    - `ext.RGBA32F_EXT`: RGBA 32-Bit Gleitkomma-Typ.
+    - `ext.RGB32F_EXT`: RGB 32-Bit Gleitkomma-Typ.
 
-    Bei Verwendung der {{domxref("EXT_sRGB")}}-Erweiterung:
+    Bei Verwendung der [`EXT_sRGB`](/de/docs/Web/API/EXT_sRGB) Erweiterung:
 
     - `ext.SRGB8_ALPHA8_EXT`: 8-Bit sRGB und Alpha.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}} und
-    der {{domxref("EXT_color_buffer_float")}}-Erweiterung:
+    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 context", "", 1)}} und der [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float) Erweiterung:
 
     - `gl.R16F`
     - `gl.RG16F`
@@ -91,9 +88,9 @@ renderbufferStorage(target, internalFormat, width, height)
     - `gl.R11F_G11F_B10F`
 
 - `width`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, das die Breite des Renderbuffers in Pixel angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite des Renderbuffers in Pixeln angibt.
 - `height`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, das die Höhe des Renderbuffers in Pixel angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe des Renderbuffers in Pixeln angibt.
 
 ### Rückgabewert
 
@@ -115,11 +112,11 @@ gl.renderbufferStorage(gl.RENDERBUFFER, gl.RGBA4, 256, 256);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.createRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteRenderbuffer()")}}
-- {{domxref("WebGLRenderingContext.getRenderbufferParameter()")}}
-- {{domxref("WEBGL_color_buffer_float")}}
-- {{domxref("EXT_sRGB")}}
-- {{domxref("EXT_color_buffer_float")}}
-- {{domxref("EXT_texture_norm16")}}
+- [`WebGLRenderingContext.bindRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindRenderbuffer)
+- [`WebGLRenderingContext.createRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/createRenderbuffer)
+- [`WebGLRenderingContext.deleteRenderbuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteRenderbuffer)
+- [`WebGLRenderingContext.getRenderbufferParameter()`](/de/docs/Web/API/WebGLRenderingContext/getRenderbufferParameter)
+- [`WEBGL_color_buffer_float`](/de/docs/Web/API/WEBGL_color_buffer_float)
+- [`EXT_sRGB`](/de/docs/Web/API/EXT_sRGB)
+- [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float)
+- [`EXT_texture_norm16`](/de/docs/Web/API/EXT_texture_norm16)

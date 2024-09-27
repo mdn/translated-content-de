@@ -8,27 +8,32 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.lineCap`**-Eigenschaft der Canvas 2D API bestimmt die Form, die zum Zeichnen der Endpunkte von Linien verwendet wird.
+Die
+**`CanvasRenderingContext2D.lineCap`**
+Eigenschaft des Canvas 2D API bestimmt die Form, die verwendet wird, um die Endpunkte von Linien zu zeichnen.
 
 > [!NOTE]
-> Linien können mit den Methoden {{domxref("CanvasRenderingContext2D.stroke()", "stroke()")}}, {{domxref("CanvasRenderingContext2D.strokeRect()", "strokeRect()")}} und {{domxref("CanvasRenderingContext2D.strokeText()", "strokeText()")}} gezeichnet werden.
+> Linien können mit den Methoden
+> [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke), [`strokeRect()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeRect),
+> und [`strokeText()`](/de/docs/Web/API/CanvasRenderingContext2D/strokeText) gezeichnet werden.
 
 ## Wert
 
-Einer der folgenden Werte:
+Einer der folgenden:
 
 - `"butt"`
-  - : Die Enden von Linien sind an den Endpunkten abgeflacht. Standardwert.
+  - : Die Enden der Linien sind an den Endpunkten abgeflacht. Standardwert.
 - `"round"`
-  - : Die Enden von Linien sind abgerundet.
+  - : Die Enden der Linien sind abgerundet.
 - `"square"`
-  - : Die Enden von Linien sind abgeflacht, indem ein Kästchen mit einer gleichen Breite und der halben Höhe der Liniendicke hinzugefügt wird.
+  - : Die Enden der Linien sind abgeflacht, indem ein Kasten mit gleicher Breite und halber
+    Höhe der Dicke der Linie hinzugefügt wird.
 
 ## Beispiele
 
-### Ändern der Form von Linienenden
+### Ändern der Form der Linienenden
 
-Dieses Beispiel rundet die Enden einer geraden Linie ab.
+Dieses Beispiel rundet die Endkappen einer geraden Linie ab.
 
 #### HTML
 
@@ -54,11 +59,15 @@ ctx.stroke();
 
 {{ EmbedLiveSample('Changing_the_shape_of_line_caps', 700, 180) }}
 
-### Vergleich von Linienenden
+### Vergleich der Linienenden
 
-In diesem Beispiel werden drei Linien gezeichnet, jede mit einem anderen Wert für die `lineCap`-Eigenschaft. Zwei Hilfslinien werden hinzugefügt, um die genauen Unterschiede zwischen den drei Linien zu sehen. Jede dieser Linien beginnt und endet genau auf diesen Hilfslinien.
+In diesem Beispiel werden drei Linien gezeichnet, jede mit einem anderen Wert für die
+`lineCap`-Eigenschaft. Zwei Leitlinien werden hinzugefügt, um die genauen Unterschiede zwischen den drei zu sehen. Jede dieser Linien beginnt und endet genau auf diesen Leitlinien.
 
-Die Linie links verwendet die Standardeinstellung `"butt"`. Sie ist genau bündig mit den Hilfslinien gezeichnet. Die zweite Linie ist auf die Option `"round"` gesetzt. Diese fügt ein Halbrund an das Ende hinzu, das einen Radius hat, der halb so breit wie die Linie ist. Die Linie rechts verwendet die `"square"`-Option. Diese fügt ein Kästchen hinzu, das die gleiche Breite und die halbe Höhe der Liniendicke hat.
+Die Linie auf der linken Seite verwendet die Standardeinstellung `"butt"`. Sie wird komplett bündig mit den Leitlinien gezeichnet. Die zweite ist so eingestellt, dass sie die Option `"round"` verwendet. Dies
+fügt am Ende einen Halbkreis hinzu, der einen Radius hat, der halb so breit ist wie die Linie. Die Linie auf
+der rechten Seite verwendet die Option `"square"`. Dies fügt ein Kasten mit gleicher Breite und
+halber Höhe der Liniendicke hinzu.
 
 ```html hidden
 <canvas id="canvas" width="150" height="150"></canvas>
@@ -68,7 +77,7 @@ Die Linie links verwendet die Standardeinstellung `"butt"`. Sie ist genau bündi
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// Hilfslinien zeichnen
+// Draw guides
 ctx.strokeStyle = "#09f";
 ctx.beginPath();
 ctx.moveTo(10, 10);
@@ -77,7 +86,7 @@ ctx.moveTo(10, 140);
 ctx.lineTo(140, 140);
 ctx.stroke();
 
-// Linien zeichnen
+// Draw lines
 ctx.strokeStyle = "black";
 ["butt", "round", "square"].forEach((lineCap, i) => {
   ctx.lineWidth = 15;
@@ -99,13 +108,13 @@ ctx.strokeStyle = "black";
 
 {{Compat}}
 
-### WebKit/Blink-spezifische Anmerkungen
+### WebKit/Blink-spezifische Hinweise
 
-- In WebKit- und Blink-basierten Browsern ist eine nicht standardisierte und veraltete Methode `ctx.setLineCap()` zusätzlich zu dieser Eigenschaft implementiert.
+- In auf WebKit- und Blink-basierenden Browsern ist zusätzlich zu dieser Eigenschaft eine nicht standardisierte und veraltete Methode `ctx.setLineCap()` implementiert.
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Eigenschaft definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasRenderingContext2D.lineWidth")}}
-- {{domxref("CanvasRenderingContext2D.lineJoin")}}
+- Das Interface, das diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasRenderingContext2D.lineWidth`](/de/docs/Web/API/CanvasRenderingContext2D/lineWidth)
+- [`CanvasRenderingContext2D.lineJoin`](/de/docs/Web/API/CanvasRenderingContext2D/lineJoin)
 - [Anwenden von Stilen und Farben](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors)

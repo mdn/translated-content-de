@@ -1,14 +1,14 @@
 ---
-title: "GPUDevice: createTexture() Methode"
+title: "GPUDevice: createTexture()-Methode"
 short-title: createTexture()
 slug: Web/API/GPUDevice/createTexture
 l10n:
-  sourceCommit: 0c3f18aca2c8a93d3982183f64bf7762c2c310b0
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createTexture()`**-Methode der {{domxref("GPUDevice")}}-Schnittstelle erstellt eine {{domxref("GPUTexture")}}, um 1D-, 2D- oder 3D-Datenarrays, wie z.B. Bilder, zu speichern und in GPU-Rendering-Operationen zu verwenden.
+Die **`createTexture()`**-Methode des [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Interfaces erstellt eine [`GPUTexture`](/de/docs/Web/API/GPUTexture), um 1D-, 2D- oder 3D-Datenarrays, wie beispielsweise Bilder, zu speichern, die in GPU-Rendering-Operationen verwendet werden.
 
 ## Syntax
 
@@ -27,30 +27,30 @@ createTexture(descriptor)
       - : Ein enumerierter Wert, der die Dimensionsebene der Textur angibt. Mögliche Werte sind:
 
         - `"1d"`: Die Textur ist eindimensional.
-        - `"2d"`: Die Textur ist zweidimensional oder ein Array von zweidimensionalen Schichten.
+        - `"2d"`: Die Textur ist zweidimensional oder ein Array aus zweidimensionalen Schichten.
         - `"3d"`: Die Textur ist dreidimensional.
 
-        `dimension` standardmäßig `"2d"`, wenn der Wert ausgelassen wird.
+        `dimension` hat den Standardwert `"2d"`, wenn der Wert ausgelassen wird.
 
     - `format`
-      - : Ein enumerierter Wert, der das Format der Textur angibt. Siehe den Abschnitt [Texture formats](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) der Spezifikation für alle möglichen Werte.
+      - : Ein enumerierter Wert, der das Format der Textur angibt. Siehe den Abschnitt [Texturformate](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) der Spezifikation für alle möglichen Werte.
     - `label` {{optional_inline}}
-      - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in {{domxref("GPUError")}}-Nachrichten oder Konsolenwarnungen.
+      - : Eine Zeichenkette, die ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
     - `mipLevelCount` {{optional_inline}}
-      - : Eine Zahl, die die Anzahl der Mip-Ebenen angibt, welche die Textur enthalten wird. Wenn ausgelassen, ist der Standardwert 1.
+      - : Eine Zahl, die die Anzahl der Mip-Ebenen angibt, die die Textur enthalten wird. Wenn ausgelassen, ist der Standardwert 1.
     - `sampleCount` {{optional_inline}}
-      - : Eine Zahl, die die Sample-Anzahl der Textur angibt. Um gültig zu sein, muss der Wert 1 oder 4 sein. Wenn ausgelassen, ist der Standardwert 1. Ein Wert größer als 1 deutet auf eine multi-sampled Textur hin.
+      - : Eine Zahl, die die Abtastanzahl der Textur angibt. Um gültig zu sein, muss der Wert 1 oder 4 sein. Wenn ausgelassen, ist der Standardwert 1. Ein Wert größer als 1 weist auf eine multi-abgetastete Textur hin.
     - `size`
 
-      - : Ein Objekt oder Array, das die Breite, Höhe und Tiefe/Array-Schichtebene der Textur angibt. Der Breitenwert muss immer angegeben werden, während die Höhe und die Tiefe/Array-Schichtebene optional sind und standardmäßig 1, wenn ausgelassen.
+      - : Ein Objekt oder Array, das die Breite, Höhe und Tiefe/Array-Schichtanzahl der Textur angibt. Der Breitenwert muss immer angegeben werden, während die Höhe und die Tiefe/Array-Schichtanzahl optional sind und auf 1 standardisiert werden, wenn sie ausgelassen werden.
 
-        Ein Beispiel für ein `size`-Array:
+        Folgendes ist ein Beispiel für ein `size`-Array:
 
         ```js
         size: [16, 16, 2];
         ```
 
-        Das entsprechende Objekt würde so aussehen:
+        Das objektäquivalente würde folgendermaßen aussehen:
 
         ```js
         size: {
@@ -62,64 +62,64 @@ createTexture(descriptor)
 
     - `usage`
 
-      - : Die {{glossary("Bitwise_flags", "Bitflags")}}, die die erlaubten Nutzungen für die `GPUTexture` darstellen. Die möglichen Werte befinden sich in der [`GPUTexture.usage`-Wertetabelle](/de/docs/Web/API/GPUTexture/usage#value).
+      - : Die [bitweisen Flags](/de/docs/Glossary/Bitwise_flags), die die erlaubten Verwendungen für die `GPUTexture` darstellen. Die möglichen Werte stehen in der [`GPUTexture.usage`-Wertetabelle](/de/docs/Web/API/GPUTexture/usage#value).
 
-        Beachten Sie, dass mehrere mögliche Nutzungen angegeben werden können, indem Werte mit Rohrsymbolen getrennt werden, zum Beispiel:
+        Beachten Sie, dass mehrere mögliche Verwendungen durch Trennzeichen mit Rohrsymbolen angegeben werden können, zum Beispiel:
 
         ```js
         usage: GPUTextureUsage.COPY_DST | GPUTextureUsage.RENDER_ATTACHMENT;
         ```
 
     - `viewFormats` {{optional_inline}}
-      - : Ein Array von enumerierten Werten, das andere [Texture formats](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) angibt, die bei Aufruf von {{domxref("GPUTexture.createView()")}} auf dieser Textur zusätzlich zum in ihrem `format`-Wert angegebenen Texturformat erlaubt sind.
+      - : Ein Array aus enumerierten Werten, die andere [Texturformate](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) angeben, die beim Aufruf von [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) auf dieser Textur zusätzlich zu dem im `format`-Wert angegebenen Texturformat zulässig sind.
 
 ### Rückgabewert
 
-Eine Instanz des {{domxref("GPUTexture")}}-Objekts.
+Eine [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objektinstanz.
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`createTexture()`** aufgerufen wird. Andernfalls wird ein {{domxref("GPUValidationError")}} erzeugt und ein ungültiges {{domxref("GPUTexture")}}-Objekt zurückgegeben:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`createTexture()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiges [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objekt zurückgegeben:
 
-- Ein gültiger `usage` ist angegeben.
-- Die in `size` angegebenen Werte (Breite, Höhe oder Tiefe/Array-Ebene) sind größer als 0.
+- Ein gültiges `usage` ist angegeben.
+- Die im `size` angegebenen Werte (Breite, Höhe oder Tiefe/Array-Schichtanzahl) sind größer als 0.
 - `mipLevelCount` ist größer als 0.
 - `sampleCount` ist gleich 1 oder 4.
 - Wenn `dimension` auf `"1d"` gesetzt ist:
-  - Der `size`-Breitenwert ist kleiner oder gleich dem `maxTextureDimension1D`-{{domxref("GPUSupportedLimits", "Limit", "", "nocode")}} des {{domxref("GPUDevice")}}.
-  - Die `size`-Höhe und die Tiefe/Array-Ebene sind gleich 1.
+  - Der `size`-Breitenwert ist kleiner oder gleich dem `maxTextureDimension1D`-Limit des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+  - Die `size`-Höhe und -Tiefe/Array-Schichtanzahl sind gleich 1.
   - Der `sampleCount` ist gleich 1.
-  - Das `format` ist ungleich einem [komprimierten Format](https://gpuweb.github.io/gpuweb/#compressed-format) oder einem [depth-or-stencil format](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format).
+  - Das `format` ist nicht gleich einem [komprimierten Format](https://gpuweb.github.io/gpuweb/#compressed-format) oder einem [Tiefen- oder Stencil-Format](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format).
 - Wenn `dimension` auf `"2d"` gesetzt ist:
-  - Die `size`-Breite und Höhe sind kleiner oder gleich dem `maxTextureDimension2D`-{{domxref("GPUSupportedLimits", "limit", "", "nocode")}} des {{domxref("GPUDevice")}}.
-  - Der `size`-Wert der Tiefe/Array-Ebene ist kleiner oder gleich den `maxTextureArrayLayers`-{{domxref("GPUSupportedLimits", "limit", "", "nocode")}}.
+  - Die `size`-Breite und -Höhe sind kleiner oder gleich dem `maxTextureDimension2D`-Limit des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+  - Die `size`-Tiefe/Array-Schichtanzahl ist kleiner oder gleich dem `maxTextureArrayLayers`-Limit des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
 - Wenn `dimension` auf `"3d"` gesetzt ist:
-  - Die `size`-Werte für Breite, Höhe und Tiefe/Array-Ebene sind kleiner oder gleich dem `maxTextureDimension3D`-{{domxref("GPUSupportedLimits", "limit", "", "nocode")}} des {{domxref("GPUDevice")}}.
-  - Der `sampleCount` ist gleich 1.
-  - Das `format` ist ungleich einem [komprimierten Format](https://gpuweb.github.io/gpuweb/#compressed-format) oder einem [depth-or-stencil format](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format).
-- Die `size`-Breite ist ein Vielfaches der [Texel-Block-Breite](https://gpuweb.github.io/gpuweb/#texel-block-width).
-- Die `size`-Höhe ist ein Vielfaches der [Texel-Block-Höhe](https://gpuweb.github.io/gpuweb/#texel-block-height).
+  - Die `size`-Breite, -Höhe und -Tiefe/Array-Schichtanzahl sind kleiner oder gleich dem `maxTextureDimension3D`-Limit des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+  - Der `sampleCount`-Wert ist gleich 1.
+  - Das `format` ist nicht gleich einem [komprimierten Format](https://gpuweb.github.io/gpuweb/#compressed-format) oder einem [Tiefen- oder Stencil-Format](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format).
+- Der `size`-Breitenwert ist ein Vielfaches der [Texelblock-Breite](https://gpuweb.github.io/gpuweb/#texel-block-width).
+- Der `size`-Höhenwert ist ein Vielfaches der [Texelblock-Höhe](https://gpuweb.github.io/gpuweb/#texel-block-height).
 - Wenn `sampleCount` größer als 1 ist:
-  - Der `mipLevelCount` ist gleich 1.
-  - Der Wert der `size`-Tiefe/Array-Ebene ist gleich 1.
+  - `mipLevelCount` ist gleich 1.
+  - Die `size`-Tiefe/Array-Schichtanzahl ist gleich 1.
   - `usage` enthält das `GPUTextureUsage.RENDER_ATTACHMENT`-Flag.
   - `usage` enthält nicht das `GPUTextureUsage.STORAGE_BINDING`-Flag.
-  - Das angegebene Format unterstützt Multi-Sampling.
-- Der `mipLevelCount` ist kleiner oder gleich dem [maximalen Miplevel-Wert](https://gpuweb.github.io/gpuweb/#abstract-opdef-maximum-miplevel-count).
+  - Das angegebene Format unterstützt Multisampling.
+- Der `mipLevelCount`-Wert ist kleiner oder gleich der [maximalen MipLevel-Anzahl](https://gpuweb.github.io/gpuweb/#abstract-opdef-maximum-miplevel-count).
 - Die in `format` und `viewFormats` angegebenen Formate sind [kompatibel](https://gpuweb.github.io/gpuweb/#texture-view-format-compatible) miteinander.
 - Wenn `usage` das `GPUTextureUsage.RENDER_ATTACHMENT`-Flag enthält:
-  - `format` ist ein renderbares Format (bedeutet ein farb-rendares Format oder ein [depth-or-stencil format](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format)).
+  - `format` ist ein renderfähiges Format (bedeutet ein farbrenderfähiges Format oder ein [Tiefen- oder Stencil-Format](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format)).
   - `dimension` ist auf `"2d"` gesetzt.
 - Wenn `usage` das `GPUTextureUsage.STORAGE_BINDING`-Flag enthält:
-  - Das angegebene `format` enthält die Fähigkeit `STORAGE_BINDING` (siehe die Tabelle [Plain color formats](https://gpuweb.github.io/gpuweb/#plain-color-formats) als Referenz).
+  - Das angegebene `format` schließt die `STORAGE_BINDING`-Fähigkeit ein (siehe die Tabelle der [einfachen Farbformate](https://gpuweb.github.io/gpuweb/#plain-color-formats) als Referenz).
 
 ## Beispiele
 
-Im WebGPU-Beispiel [Textured Cube sample](https://webgpu.github.io/webgpu-samples/samples/texturedCube/) wird eine Textur zum Nutzen auf den Flächen eines Würfels erstellt durch:
+Im WebGPU-Beispiel [Textured Cube sample](https://webgpu.github.io/webgpu-samples/samples/texturedCube/) wird eine Textur, die auf den Flächen eines Würfels verwendet werden soll, erstellt durch:
 
-- Laden des Bildes in ein {{domxref("HTMLImageElement")}} und Erstellen eines Image Bitmaps mit {{domxref("createImageBitmap()")}}.
+- Laden des Bildes in ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) und Erstellen eines Bildbitmaps mit [`createImageBitmap()`](/de/docs/Web/API/CreateImageBitmap).
 - Erstellen einer neuen Textur mit `createTexture()`.
-- Kopieren des Image Bitmaps in die Textur mittels {{domxref("GPUQueue.copyExternalImageToTexture()")}}.
+- Kopieren des Bildbitmaps in die Textur mit [`GPUQueue.copyExternalImageToTexture()`](/de/docs/Web/API/GPUQueue/copyExternalImageToTexture).
 
 ```js
 //...

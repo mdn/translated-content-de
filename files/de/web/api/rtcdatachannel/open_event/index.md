@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das WebRTC **`open`**-Ereignis wird an den `onopen`-Ereignis-Handler eines {{domxref("RTCDataChannel")}}-Objekts gesendet, wenn der zugrunde liegende Transport geöffnet oder wieder geöffnet wird, der zum Senden und Empfangen von Nachrichten des Datenkanals verwendet wird.
+Das WebRTC **`open`**-Ereignis wird an den `onopen`-Ereignis-Handler eines [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekts gesendet, wenn das zugrunde liegende Transportprotokoll, das verwendet wird, um die Nachrichten des Datenkanals zu senden und zu empfangen, geöffnet oder wieder geöffnet wird.
 
-Dieses Ereignis ist nicht stornierbar und löst keine Bubbling aus.
+Dieses Ereignis ist nicht abbruchsicher und wird nicht weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("open", (event) => {});
@@ -24,20 +24,20 @@ onopen = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("RTCDataChannelEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("RTCDataChannelEvent")}}
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seiner Elternschnittstelle, {{DOMxRef("Event")}}._
+_Erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event)._
 
-- {{DOMxRef("RTCDataChannelEvent.channel", "channel")}} {{ReadOnlyInline}}
-  - : Gibt den mit dem Ereignis verknüpften {{domxref("RTCDataChannel")}} zurück.
+- [`channel`](/de/docs/Web/API/RTCDataChannelEvent/channel) {{ReadOnlyInline}}
+  - : Gibt das [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zurück, das mit dem Ereignis verknüpft ist.
 
 ## Beispiele
 
-Dieses Beispiel fügt dem {{domxref("RTCDataChannel")}} `dc` einen Handler für das `open`-Ereignis hinzu, der die Benutzeroberfläche anpasst, um anzuzeigen, dass ein Chat-Fenster bereit ist, verwendet zu werden, nachdem eine Verbindung hergestellt wurde. Es aktiviert das Nachrichten-Eingabefeld und die Senden-Schaltfläche sowie die Trennen-Schaltfläche und deaktiviert die Verbinden-Schaltfläche. Schließlich wird das Nachrichten-Eingabefeld fokussiert, sodass der Benutzer sofort mit dem Tippen beginnen kann.
+Dieses Beispiel fügt dem [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) `dc` einen Handler für das `open`-Ereignis hinzu, der die Benutzeroberfläche anpasst, um anzuzeigen, dass ein Chatfenster bereit zur Nutzung ist, nachdem eine Verbindung hergestellt wurde. Es aktiviert das Nachrichten-Eingabefeld und den Senden-Button und aktiviert den Trennen-Button, während der Verbinden-Button deaktiviert wird. Schließlich wird das Nachrichten-Eingabefeld fokussiert, damit der Benutzer sofort mit dem Tippen beginnen kann.
 
 ```js
 dc.addEventListener(
@@ -54,7 +54,7 @@ dc.addEventListener(
 );
 ```
 
-Dies kann auch durch direktes Setzen des Werts der `onopen`-Ereignis-Handler-Eigenschaft des Kanals erfolgen.
+Dies kann auch erledigt werden, indem direkt der Wert der `onopen`-Ereignis-Handler-Eigenschaft des Kanals gesetzt wird.
 
 ```js
 dc.onopen = (ev) => {
@@ -77,6 +77,6 @@ dc.onopen = (ev) => {
 
 ## Siehe auch
 
-- [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample)
-- Verwandte Ereignisse: {{domxref("RTCDataChannel.message_event", "message")}}, {{domxref("RTCDataChannel.close_event", "close")}}, und {{domxref("RTCDataChannel.error_event", "error")}}
+- [WebRTC-API](/de/docs/Web/API/WebRTC_API)
+- [Ein einfaches Beispiel für RTCDataChannel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample)
+- Verwandte Ereignisse: [`message`](/de/docs/Web/API/RTCDataChannel/message_event), [`close`](/de/docs/Web/API/RTCDataChannel/close_event) und [`error`](/de/docs/Web/API/RTCDataChannel/error_event)

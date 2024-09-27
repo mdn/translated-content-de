@@ -1,15 +1,14 @@
 ---
-title: "GPURenderPassEncoder: end()-Methode"
+title: "GPURenderPassEncoder: end() Methode"
 short-title: end()
 slug: Web/API/GPURenderPassEncoder/end
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`end()`**-Methode der
-{{domxref("GPURenderPassEncoder")}}-Schnittstelle beendet die Aufzeichnung der aktuellen Renderpass-Kommando-Sequenz.
+Die **`end()`**-Methode der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)-Schnittstelle beendet die Aufzeichnung der aktuellen Renderpass-Befehlssequenz.
 
 ## Syntax
 
@@ -27,27 +26,27 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`end()`** aufgerufen wird, andernfalls wird ein {{domxref("GPUValidationError")}} erzeugt und der {{domxref("GPURenderPassEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`end()`** aufgerufen wird. Andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) wird ungültig:
 
-- Der {{domxref("GPURenderPassEncoder")}} ist offen (d.h. nicht bereits durch einen `end()`-Aufruf beendet).
-- Es gibt keine aktive Okklusionsabfrage (d.h. begonnen über {{domxref("GPURenderPassEncoder.beginOcclusionQuery", "beginOcclusionQuery()")}}) im aktuellen Renderpass.
-- Der Debug-Stack für den aktuellen Renderpass ist leer (d.h. keine Renderpass-Debuggruppe ist derzeit geöffnet, wie geöffnet durch {{domxref("GPURenderPassEncoder.pushDebugGroup", "pushDebugGroup()")}}).
-- Die Anzahl der in diesem Renderpass kodierten Zeichenbefehle ist kleiner oder gleich der `maxDrawCount`-Eigenschaft, die im {{domxref("GPUCommandEncoder.beginRenderPass()")}}-Deskriptor festgelegt ist.
+- Der [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) ist offen (d. h. nicht bereits durch einen `end()`-Aufruf beendet).
+- Es ist keine Okklusionsabfrage aktiv (d. h. gestartet durch [`beginOcclusionQuery()`](/de/docs/Web/API/GPURenderPassEncoder/beginOcclusionQuery)) im aktuellen Renderpass.
+- Der Debug-Stack für den aktuellen Renderpass ist leer (d. h. keine Renderpass-Debug-Gruppe ist aktuell geöffnet, wie durch [`pushDebugGroup()`](/de/docs/Web/API/GPURenderPassEncoder/pushDebugGroup) geöffnet).
+- Die Anzahl der in diesem Renderpass codierten Zeichenbefehle ist kleiner oder gleich der im [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass)-Descriptor gesetzten Eigenschaft `maxDrawCount`.
 
 ## Beispiele
 
-In unserem [grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen {{domxref("GPUCommandEncoder")}} aufgezeichnet. Die meisten dieser Befehle stammen vom `GPURenderPassEncoder`, der über {{domxref("GPUCommandEncoder.beginRenderPass()")}} erstellt wurde. `end()` wird an einer geeigneten Stelle aufgerufen, um den Renderpass zu beenden.
+In unserem [einfachen Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden mehrere Befehle über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Die meisten dieser Befehle stammen vom `GPURenderPassEncoder`, der über [`GPUCommandEncoder.beginRenderPass()`](/de/docs/Web/API/GPUCommandEncoder/beginRenderPass) erstellt wurde. `end()` wird an einer geeigneten Stelle aufgerufen, um den Renderpass zu beenden.
 
 ```js
 // ...
 
 const renderPipeline = device.createRenderPipeline(pipelineDescriptor);
 
-// Erstellen Sie GPUCommandEncoder, um Befehle an die GPU zu senden
-// Hinweis: Renderpass-Deskriptor, Befehlsencoder usw. werden nach Gebrauch zerstört, ein frischer wird für jeden Frame benötigt.
+// Create GPUCommandEncoder to issue commands to the GPU
+// Note: render pass descriptor, command encoder, etc. are destroyed after use, fresh one needed for each frame.
 const commandEncoder = device.createCommandEncoder();
 
-// Erstellen Sie GPURenderPassDescriptor, um WebGPU mitzuteilen, in welche Textur gezeichnet werden soll, und initiieren Sie dann den Renderpass
+// Create GPURenderPassDescriptor to tell WebGPU which texture to draw into, then initiate render pass
 const renderPassDescriptor = {
   colorAttachments: [
     {
@@ -61,15 +60,15 @@ const renderPassDescriptor = {
 
 const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
 
-// Zeichnen Sie das Dreieck
+// Draw the triangle
 passEncoder.setPipeline(renderPipeline);
 passEncoder.setVertexBuffer(0, vertexBuffer);
 passEncoder.draw(3);
 
-// Beenden Sie den Renderpass
+// End the render pass
 passEncoder.end();
 
-// Beenden Sie den Frame, indem Sie ein Array von Kommandobuffern zur Ausführung in die Befehlswarteschlange übergeben
+// End frame by passing array of command buffers to command queue for execution
 device.queue.submit([commandEncoder.finish()]);
 
 // ...

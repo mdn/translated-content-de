@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Image Capture API")}}{{SeeCompatTable}}
 
-Die **`getPhotoCapabilities()`**-Methode des {{domxref("ImageCapture")}}-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, das die Bereiche der verfügbaren Konfigurationsoptionen enthält.
+Die **`getPhotoCapabilities()`**-Methode der [`ImageCapture`](/de/docs/Web/API/ImageCapture) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Objekt aufgelöst wird, das die Bereiche der verfügbaren Konfigurationsoptionen enthält.
 
 ## Syntax
 
@@ -25,24 +25,24 @@ Keine.
 Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das die folgenden Eigenschaften enthält:
 
 - `redEyeReduction`
-  - : Gibt einen Wert von `"never"`, `"always"` oder `"controllable"` zurück. Der Wert `"controllable"` bedeutet, dass die Reduzierung des Rote-Augen-Effekts des Geräts vom Benutzer kontrolliert werden kann.
+  - : Gibt einen der Werte `"never"`, `"always"` oder `"controllable"` zurück. Der Wert `"controllable"` bedeutet, dass die Reduzierung des Rote-Augen-Effekts des Geräts durch den Benutzer steuerbar ist.
 - `imageHeight`
-  - : Gibt ein Objekt zurück, das den von der Benutzeragentur unterstützten Bereich der Bildhöhe angibt.
+  - : Gibt ein Objekt zurück, das den vom Benutzeragenten unterstützten Bereich der Bildhöhe angibt.
 - `imageWidth`
-  - : Gibt ein Objekt zurück, das den von der Benutzeragentur unterstützten Bereich der Bildbreite angibt.
+  - : Gibt ein Objekt zurück, das den vom Benutzeragenten unterstützten Bereich der Bildbreite angibt.
 - `fillLightMode`
-  - : Gibt ein Array mit den verfügbaren Fülllichtoptionen zurück. Optionen umfassen `auto`, `off` oder `flash`.
+  - : Gibt ein Array der verfügbaren Optionen für das Fülllicht zurück. Zu den Optionen gehören `auto`, `off` oder `flash`.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Eigenschaft `readyState` des `MediaStreamTrack`, der im Konstruktor übergeben wird, nicht `live` ist.
-- `OperationError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die `readyState`-Eigenschaft des `MediaStreamTrack`, das im Konstruktor übergeben wird, nicht `live` ist.
+- `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Vorgang aus irgendeinem Grund nicht abgeschlossen werden kann.
 
 ## Beispiele
 
-Das folgende Beispiel, entnommen aus [Chrome's Image Capture / Photo Resolution Sample](https://googlechrome.github.io/samples/image-capture/photo-resolution.html), verwendet die Ergebnisse von `getPhotoCapabilities()`, um die Größe eines Eingabebereichs anzupassen. Dieses Beispiel zeigt auch, wie das {{domxref("ImageCapture")}}-Objekt erstellt wird, indem ein {{domxref("MediaStreamTrack")}} verwendet wird, das von einem Gerät über einen {{domxref("MediaStream")}} abgerufen wird.
+Das folgende Beispiel, das aus [Chrome's Image Capture / Photo Resolution Sample](https://googlechrome.github.io/samples/image-capture/photo-resolution.html) entnommen ist, verwendet die Ergebnisse von `getPhotoCapabilities()`, um die Größe eines Eingabebereichs zu ändern. Dieses Beispiel zeigt auch, wie das [`ImageCapture`](/de/docs/Web/API/ImageCapture)-Objekt mit einem [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) erstellt wird, das von einem Gerät über einen [`MediaStream`](/de/docs/Web/API/MediaStream) abgerufen wird.
 
 ```js
 const input = document.querySelector('input[type="range"]');

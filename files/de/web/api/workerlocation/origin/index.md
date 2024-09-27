@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`origin`**-Eigenschaft eines {{domxref("WorkerLocation")}}-Objekts gibt den {{domxref("URL.origin", "Origin")}} des Workers zurück.
+Die **`origin`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) Objekts gibt den [`origin`](/de/docs/Web/API/URL/origin) des Workers zurück.
 
 ## Wert
 
@@ -17,8 +17,8 @@ Ein String.
 ## Beispiele
 
 ```js
-// Auf dieser Seite wird der Ursprungsort zurückgegeben
-const result = self.location.origin; // Gibt zurück: 'https://developer.mozilla.org:443'
+// On this page, returns the origin
+const result = self.location.origin; // Returns:'https://developer.mozilla.org:443'
 ```
 
 ## Spezifikationen
@@ -31,4 +31,4 @@ const result = self.location.origin; // Gibt zurück: 'https://developer.mozilla
 
 ## Siehe auch
 
-- Das {{domxref("WorkerLocation")}}-Interface, zu dem es gehört.
+- Das [`WorkerLocation`](/de/docs/Web/API/WorkerLocation) Interface, zu dem es gehört.

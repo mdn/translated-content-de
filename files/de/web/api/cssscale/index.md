@@ -7,27 +7,27 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSScale`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die [scale()](/de/docs/Web/CSS/transform-function/scale) und [scale3d()](/de/docs/Web/CSS/transform-function/scale3d) Werte der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS. Sie erbt Eigenschaften und Methoden von ihrem übergeordneten {{domxref('CSSTransformValue')}}.
+Die **`CSSScale`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model) repräsentiert die [scale()](/de/docs/Web/CSS/transform-function/scale)- und [scale3d()](/de/docs/Web/CSS/transform-function/scale3d)-Werte der individuellen {{CSSXRef('transform')}}-Eigenschaft in CSS. Sie erbt Eigenschaften und Methoden von ihrem Elternteil [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("CSSScale.CSSScale", "CSSScale()")}}
+- [`CSSScale()`](/de/docs/Web/API/CSSScale/CSSScale)
   - : Erstellt ein neues `CSSScale`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref('CSSScale.x','x')}}
+- [`x`](/de/docs/Web/API/CSSScale/x)
   - : Gibt den Wert der x-Achse zurück oder setzt ihn.
-- {{domxref('CSSScale.y','y')}}
+- [`y`](/de/docs/Web/API/CSSScale/y)
   - : Gibt den Wert der y-Achse zurück oder setzt ihn.
-- {{domxref('CSSScale.z','z')}}
+- [`z`](/de/docs/Web/API/CSSScale/z)
   - : Gibt den Wert der z-Achse zurück oder setzt ihn.
 
 ## Beispiele
 
-Noch zu erledigen.
+In Bearbeitung.
 
 ## Spezifikationen
 

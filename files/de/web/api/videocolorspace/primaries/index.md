@@ -1,5 +1,5 @@
 ---
-title: "VideoColorSpace: primaries-Eigenschaft"
+title: "VideoColorSpace: primaries Eigenschaft"
 short-title: primaries
 slug: Web/API/VideoColorSpace/primaries
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`primaries`** der {{domxref("VideoColorSpace")}}-Schnittstelle gibt den Farb-{{glossary("gamut")}} des Videos zurück.
+Die **`primaries`** schreibgeschützte Eigenschaft des [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Interfaces gibt den Farbraum ([Gamut](/de/docs/Glossary/gamut)) des Videos zurück.
 
 ## Wert
 
@@ -23,7 +23,7 @@ Ein String, der einen der folgenden Werte enthält:
 
 ## Beispiele
 
-Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von {{domxref("VideoFrame")}} zurückgegeben wird. Der Wert von `primaries` wird in der Konsole ausgegeben.
+Im folgenden Beispiel ist `colorSpace` ein `VideoColorSpace`-Objekt, das von [`VideoFrame`](/de/docs/Web/API/VideoFrame) zurückgegeben wird. Der Wert von `primaries` wird in der Konsole ausgegeben.
 
 ```js
 let colorSpace = VideoFrame.colorSpace;
@@ -34,6 +34,6 @@ console.log(colorSpace.primaries);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

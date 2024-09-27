@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{Deprecated_Header}}
 
-Die **`HTMLTableElement.width`**-Eigenschaft steht für die gewünschte Breite der Tabelle.
+Die **`HTMLTableElement.width`**-Eigenschaft repräsentiert die gewünschte Breite der Tabelle.
 
 ## Wert
 

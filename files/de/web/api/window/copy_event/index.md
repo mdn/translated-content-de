@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`copy`**-Ereignis wird ausgelöst, wenn der Benutzer durch die Benutzeroberfläche des Browsers eine Kopieraktion initiiert.
+Das **`copy`**-Ereignis wird ausgelöst, wenn der Benutzer eine Kopieraktion über die Benutzeroberfläche des Browsers initiiert.
 
-Das ursprüngliche Ziel für dieses Ereignis ist das {{domxref("Element")}}, das das beabsichtigte Ziel der Kopieraktion war. Sie können auf dieses Ereignis in der {{domxref("Window")}}-Schnittstelle hören, um es in den Phasen der Erfassung oder des Bubblings zu behandeln. Für vollständige Details zu diesem Ereignis siehe die Seite über das [Element: copy-Ereignis](/de/docs/Web/API/Element/copy_event).
+Das ursprüngliche Ziel dieses Ereignisses ist das [`Element`](/de/docs/Web/API/Element), das das beabsichtigte Ziel der Kopieraktion war. Sie können auf dieses Ereignis auf der [`Window`](/de/docs/Web/API/Window)-Schnittstelle hören, um es in den Capture- oder Bubbling-Phasen zu behandeln. Für vollständige Details zu diesem Ereignis sehen Sie bitte die Seite über das [Element: copy-Ereignis](/de/docs/Web/API/Element/copy_event).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("copy", (event) => {});
@@ -24,7 +24,7 @@ oncopy = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ClipboardEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ClipboardEvent")}}
 
@@ -46,6 +46,6 @@ window.addEventListener("copy", (event) => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("Window/cut_event", "cut")}}, {{domxref("Window/paste_event", "paste")}}
-- Dieses Ereignis bei {{domxref("Element")}}-Zielen: {{domxref("Element/copy_event", "copy")}}
-- Dieses Ereignis bei {{domxref("Document")}}-Zielen: {{domxref("Document/copy_event", "copy")}}
+- Verwandte Ereignisse: [`cut`](/de/docs/Web/API/Window/cut_event), [`paste`](/de/docs/Web/API/Window/paste_event)
+- Dieses Ereignis auf [`Element`](/de/docs/Web/API/Element) zielt ab: [`copy`](/de/docs/Web/API/Element/copy_event)
+- Dieses Ereignis auf [`Document`](/de/docs/Web/API/Document) zielt ab: [`copy`](/de/docs/Web/API/Document/copy_event)

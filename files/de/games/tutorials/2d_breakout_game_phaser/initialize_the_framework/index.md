@@ -9,13 +9,13 @@ l10n:
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser", "Games/Workflows/2D_Breakout_game_Phaser/Scaling")}}
 
-Dies ist das erste von 16 Tutorials, um zu lernen, wie man [Gamedev Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) verwendet. Nach Abschluss dieses Tutorials finden Sie den Quellcode für diesen Abschnitt unter [Gamedev-Phaser-Content-Kit/demos/lesson01.html](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/lesson01.html).
+Dies ist das erste von 16 Tutorials, um zu lernen, wie man [Gamedev Phaser](/de/docs/Games/Tutorials/2D_breakout_game_Phaser) verwendet. Nachdem Sie dieses Tutorial abgeschlossen haben, finden Sie den Quellcode für diesen Abschnitt unter [Gamedev-Phaser-Content-Kit/demos/lesson01.html](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/lesson01.html).
 
-Bevor wir mit dem Schreiben der Spielfunktionalität beginnen können, müssen wir eine grundlegende Struktur erstellen, um das Spiel darin darzustellen. Dies kann mit HTML erfolgen — das Phaser-Framework wird das benötigte {{htmlelement("canvas")}}-Element generieren.
+Bevor wir mit der Erstellung der Spiel-Logik beginnen können, müssen wir eine grundlegende Struktur erstellen, um das Spiel darin darzustellen. Dies kann mit HTML erfolgen — das Phaser-Framework wird das erforderliche {{htmlelement("canvas")}}-Element generieren.
 
 ## Das HTML des Spiels
 
-Die HTML-Dokumentstruktur ist recht einfach, da das Spiel vollständig auf dem vom Framework generierten {{htmlelement("canvas")}}-Element gerendert wird. Erstellen Sie mit Ihrem bevorzugten Texteditor ein neues HTML-Dokument, speichern Sie es als `index.html` an einem sinnvollen Ort und fügen Sie den folgenden Code hinzu:
+Die Struktur des HTML-Dokuments ist ziemlich einfach, da das Spiel vollständig auf dem vom Framework generierten {{htmlelement("canvas")}}-Element gerendert wird. Erstellen Sie mit Ihrem bevorzugten Texteditor ein neues HTML-Dokument, speichern Sie es als `index.html` an einem sinnvollen Ort und fügen Sie den folgenden Code hinzu:
 
 ```html
 <!doctype html>
@@ -48,36 +48,36 @@ Die HTML-Dokumentstruktur ist recht einfach, da das Spiel vollständig auf dem v
 
 ## Herunterladen des Phaser-Codes
 
-Als Nächstes müssen wir den Prozess des Herunterladens des Phaser-Quellcodes durchlaufen und ihn auf unser HTML-Dokument anwenden. Dieses Tutorial verwendet Phaser V2 — es wird nicht mit der aktuellen Version von Phaser (V3) funktionieren. Die V2-Bibliothek ist immer noch auf der Phaser-Downloadseite verfügbar, unter den Links zum V3-Download.
+Als nächstes müssen wir den Prozess des Herunterladens des Phaser-Quellcodes durchlaufen und ihn auf unser HTML-Dokument anwenden. Dieses Tutorial verwendet Phaser V2 — es wird mit der aktuellen Version von Phaser (V3) nicht funktionieren. Die V2-Bibliothek ist weiterhin auf der Phaser-Download-Seite verfügbar, unterhalb der Links für den V3-Download.
 
-1. Gehen Sie zur [Phaser-Downloadseite](https://phaser.io/download/stable).
-2. Wählen Sie eine Option, die Ihnen am besten passt — wir empfehlen die _min.js_-Option, da sie den Quellcode kleiner hält und es unwahrscheinlich ist, dass Sie den Quellcode überhaupt überprüfen. **Bitte stellen Sie sicher, dass Sie Phaser Version 2 verwenden, da dieses Tutorial dafür geschrieben wurde.**
-3. Speichern Sie den Phaser-Code in einem `/js`-Verzeichnis an demselben Ort wie Ihre `index.html`-Datei.
+1. Gehen Sie zur [Phaser-Download-Seite](https://phaser.io/download/stable).
+2. Wählen Sie eine Option, die am besten zu Ihnen passt — wir empfehlen die _min.js_-Option, da sie den Quellcode kleiner hält, und es ist unwahrscheinlich, dass Sie den Quellcode überhaupt durchgehen. **Bitte stellen Sie sicher, dass Sie Phaser Version 2 verwenden, da dieses Tutorial darauf ausgelegt ist.**
+3. Speichern Sie den Phaser-Code in einem `/js` Verzeichnis am gleichen Ort wie Ihre `index.html` Datei.
 4. Aktualisieren Sie den `src`-Wert des ersten {{htmlelement("script")}}-Elements wie oben gezeigt.
 
-## Durchgehen, was wir bisher haben
+## Was wir bisher haben
 
-An diesem Punkt haben wir einen definierten `charset`, {{htmlelement("title")}} und einige grundlegende CSS im Header, um das Standard-`margin` und `padding` zurückzusetzen. Wir haben auch ein {{htmlelement("script")}}-Element, um den Phaser-Quellcode auf die Seite anzuwenden. Der Body enthält ein zweites {{htmlelement("script")}}-Element, in dem wir den JavaScript-Code schreiben, um das Spiel darzustellen und zu steuern.
+An diesem Punkt haben wir ein `charset` definiert, einen {{htmlelement("title")}} und einige grundlegende CSS im Header, um den Standard-`margin` und `padding` zurückzusetzen. Wir haben auch ein {{htmlelement("script")}}-Element, um den Phaser-Quellcode auf die Seite anzuwenden. Der Body enthält ein zweites {{htmlelement("script")}}-Element, in dem wir den JavaScript-Code schreiben werden, um das Spiel zu rendern und zu steuern.
 
-Das {{htmlelement("canvas")}}-Element wird automatisch vom Framework generiert. Wir initialisieren es, indem wir ein neues `Phaser.Game`-Objekt erstellen und es der Spielvariable zuweisen. Die Parameter sind:
+Das {{htmlelement("canvas")}}-Element wird automatisch vom Framework generiert. Wir initialisieren es, indem wir ein neues `Phaser.Game`-Objekt erstellen und es der game-Variablen zuweisen. Die Parameter sind:
 
 - Die Breite und Höhe, um das {{htmlelement("canvas")}} festzulegen.
-- Die Render-Methode. Die drei Optionen sind `AUTO`, `CANVAS` und `WEBGL`. Wir können eine der letzten beiden explizit setzen oder `AUTO` verwenden, damit Phaser entscheidet, welche zu verwenden ist. Es nutzt normalerweise WebGL, wenn im Browser verfügbar, und fällt zurück auf Canvas 2D, wenn nicht.
-- Die `id` des {{htmlelement("canvas")}}, das verwendet wird, um zu rendern, falls bereits eines auf der Seite existiert (wir haben null angegeben, weil wir möchten, dass Phaser ein eigenes erstellt).
-- Die Namen, die für Phasers drei Hauptfunktionen verwendet werden, die das Spiel laden und starten und den Spielzyklus bei jedem Frame aktualisieren; wir verwenden dieselben Namen, um es übersichtlich zu halten.
+- Die Methode zum Rendern. Die drei Optionen sind `AUTO`, `CANVAS` und `WEBGL`. Wir können eine der beiden letzteren explizit festlegen oder `AUTO` verwenden, damit Phaser entscheidet, welche verwendet werden soll. Es nutzt in der Regel WebGL, wenn im Browser verfügbar, und wechselt zurück zu Canvas 2D, wenn nicht.
+- Die `id` des {{htmlelement("canvas")}}, das für das Rendering verwendet werden soll, wenn bereits eines auf der Seite existiert (wir haben null angegeben, weil wir wollen, dass Phaser sein eigenes erstellt).
+- Die Namen, die für die drei Hauptfunktionen von Phaser verwendet werden, die das Spiel laden, starten und die Spielschleife bei jedem Frame aktualisieren; wir werden die gleichen Namen verwenden, um es übersichtlich zu halten.
 
-  - `preload` kümmert sich um das Vorladen der Ressourcen
+  - `preload` kümmert sich um das Vorladen der Assets
   - `create` wird einmal ausgeführt, wenn alles geladen und bereit ist
-  - `update` wird in jedem Frame ausgeführt.
+  - `update` wird bei jedem Frame ausgeführt.
 
 ## Vergleichen Sie Ihren Code
 
-Hier ist der vollständige Quellcode der ersten Lektion, die live in einem JSFiddle läuft:
+Hier ist der vollständige Quellcode der ersten Lektion, live in einem JSFiddle ausführbar:
 
 {{JSFiddleEmbed("https://jsfiddle.net/end3r/h6cwzv2b/","","400")}}
 
 ## Nächste Schritte
 
-Jetzt, da wir das grundlegende HTML eingerichtet und ein wenig über die Phaser-Initialisierung gelernt haben, lassen Sie uns mit der zweiten Lektion fortfahren und mehr über [Skalierung](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Scaling) lernen.
+Jetzt, da wir das grundlegende HTML eingerichtet und etwas über die Phaser-Initialisierung gelernt haben, lassen Sie uns zur zweiten Lektion übergehen und etwas über [Scaling](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Scaling) lernen.
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser", "Games/Workflows/2D_Breakout_game_Phaser/Scaling")}}

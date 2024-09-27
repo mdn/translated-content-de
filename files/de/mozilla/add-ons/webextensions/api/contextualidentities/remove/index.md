@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Entfernt eine kontextuelle Identität unter Angabe ihrer Cookie-Store-ID.
+Entfernt eine kontextbezogene Identität, basierend auf ihrer Cookie-Store-ID.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -22,19 +22,19 @@ let removeContext = browser.contextualIdentities.remove(
 ### Parameter
 
 - `cookieStoreId`
-  - : `string`. Die ID des Cookie-Stores der kontextuellen Identität. Da kontextuelle Identitäten jeweils ihren eigenen Cookie-Store haben, dient dies als Identifikator für die kontextuelle Identität selbst.
+  - : `string`. Die ID des Cookie-Stores der kontextbezogenen Identität. Da kontextbezogene Identitäten jeweils ihren eigenen Cookie-Store haben, dient diese als Identifikator für die kontextbezogene Identität selbst.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} erfüllt wird, die die entfernte Identität beschreibt. Wenn die Identität nicht gefunden werden konnte oder das Feature für kontextuelle Identitäten nicht aktiviert ist, wird das Promise abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einer {{WebExtAPIRef('contextualIdentities.ContextualIdentity', 'ContextualIdentity')}} erfüllt wird, die die entfernte Identität beschreibt. Wenn die Identität nicht gefunden werden konnte oder die Funktion für kontextbezogene Identitäten nicht aktiviert ist, wird das Promise abgelehnt.
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Beispiele
 
-Dieses Beispiel versucht, die kontextuelle Identität zu entfernen, deren ID "firefox-container-1" ist:
+Dieses Beispiel versucht, die kontextbezogene Identität zu entfernen, deren ID "firefox-container-1" ist:
 
 ```js
 function onRemoved(context) {

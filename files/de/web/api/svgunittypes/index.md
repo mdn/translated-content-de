@@ -7,14 +7,14 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`SVGUnitTypes`** Schnittstelle definiert eine häufig verwendete Menge von Konstanten, die zur Darstellung von {{SVGAttr("gradientUnits")}}, {{SVGAttr("patternContentUnits")}} und anderen ähnlichen Attributen verwendet werden.
+Die **`SVGUnitTypes`**-Schnittstelle definiert eine häufig verwendete Menge von Konstanten, die zur Darstellung von {{SVGAttr("gradientUnits")}}, {{SVGAttr("patternContentUnits")}} und ähnlichen Attributen verwendet werden.
 
 {{InheritanceDiagram}}
 
 ## Konstanten
 
 - `SVG_UNIT_TYPE_UNKNOWN` (0)
-  - : Der Typ ist nicht einer der vordefinierten Typen. Es ist nicht zulässig, einen neuen Wert dieses Typs zu definieren oder einen bestehenden Wert in diesen Typ zu ändern.
+  - : Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig, einen neuen Wert dieses Typs zu definieren oder zu versuchen, einen bestehenden Wert auf diesen Typ umzustellen.
 - `SVG_UNIT_TYPE_USERSPACEONUSE` (1)
   - : Entspricht dem Wert `userSpaceOnUse`.
 - `SVG_UNIT_TYPE_OBJECTBOUNDINGBOX` (2)

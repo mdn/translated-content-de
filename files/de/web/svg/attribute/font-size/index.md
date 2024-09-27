@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das **`font-size`** Attribut bezieht sich auf die Größe der Schrift vom {{Glossary("baseline/typography", "Baseline")}} zur Baseline, wenn mehrere Textzeilen in einem mehrzeiligen Layout-Umfeld festgelegt werden.
+Das **`font-size`**-Attribut bezieht sich auf die Größe der Schrift von der [Grundlinie](/de/docs/Glossary/baseline/typography) zu Grundlinie, wenn mehrere Textzeilen in einem mehrzeiligen Layout-Umfeld durchgängig gesetzt sind.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `font-size` als CSS-Eigenschaft verwendet werden. Siehe die CSS-Eigenschaft {{cssxref("font-size")}} für weitere Informationen.
+> Als Präsentationsattribut kann `font-size` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("font-size")}}.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -38,7 +38,7 @@ svg {
 
 {{EmbedLiveSample("Example", "200", "30")}}
 
-## Anwendungshinweise
+## Hinweise zur Nutzung
 
 <table class="properties">
   <tbody>
@@ -60,7 +60,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte, lesen Sie bitte die [CSS `font-size`](/de/docs/Web/CSS/font-size#values) Eigenschaft.
+Eine Beschreibung der Werte finden Sie in der [CSS `font-size`](/de/docs/Web/CSS/font-size#values) Eigenschaft.
 
 ## Spezifikationen
 

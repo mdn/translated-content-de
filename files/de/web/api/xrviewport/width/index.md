@@ -1,6 +1,6 @@
 ---
-title: "XRViewport: Breite Eigenschaft"
-short-title: Breite
+title: "XRViewport: width-Eigenschaft"
+short-title: width
 slug: Web/API/XRViewport/width
 l10n:
   sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte {{domxref("XRViewport")}}-Eigenschaft **`width`** gibt die Breite des Ansichtsfensters in Pixel an, auf die Zeichenfläche, in die die 3D-Szene gerendert werden soll. Dies wird mit dieser Eigenschaft zusammen mit der {{domxref("XRViewport.height", "Höhe")}} des Ansichtsfensters und dessen Ursprung, der durch seine Eigenschaften {{domxref("XRViewport.x", "x")}} und {{domxref("XRViewport.y", "y")}} gegeben ist, definiert.
+Die schreibgeschützte [`XRViewport`](/de/docs/Web/API/XRViewport)-Eigenschaft **`width`** gibt die Breite des Viewports in Pixeln an, auf die Zeichenfläche, auf der die 3D-Szene gerendert werden soll. Diese wird durch diese Eigenschaft zusammen mit der [`height`](/de/docs/Web/API/XRViewport/height) des Viewports und dessen Ursprung, der durch die Eigenschaften [`x`](/de/docs/Web/API/XRViewport/x) und [`y`](/de/docs/Web/API/XRViewport/y) gegeben ist, definiert.
 
 ## Wert
 
-Die Breite des Ansichtsfensters in Pixel.
+Die Breite des Viewports in Pixeln.
 
 ## Beispiele
 
-Siehe die Hauptseite {{domxref("XRViewport")}} für Beispiele.
+Siehe die Hauptseite von [`XRViewport`](/de/docs/Web/API/XRViewport) für Beispiele.
 
 ## Spezifikationen
 

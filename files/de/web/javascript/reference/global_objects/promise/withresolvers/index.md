@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Promise.withResolvers()`** gibt ein Objekt zurück, das ein neues {{jsxref("Promise")}}-Objekt und zwei Funktionen enthält, um es zu lösen oder abzulehnen, entsprechend der beiden Parameter, die an den Executor des {{jsxref("Promise/Promise", "Promise()")}}-Konstruktors übergeben werden.
+Die statische Methode **`Promise.withResolvers()`** gibt ein Objekt zurück, das ein neues {{jsxref("Promise")}}-Objekt und zwei Funktionen zum Auflösen oder Ablehnen des Versprechens enthält, die den beiden Parametern entsprechen, die dem Executor des {{jsxref("Promise/Promise", "Promise()")}}-Konstruktors übergeben wurden.
 
 ## Syntax
 
@@ -26,9 +26,9 @@ Ein einfaches Objekt mit den folgenden Eigenschaften:
 - `promise`
   - : Ein {{jsxref("Promise")}}-Objekt.
 - `resolve`
-  - : Eine Funktion, die das Versprechen löst. Für die Semantik siehe die Referenz des {{jsxref("Promise/Promise", "Promise()")}}-Konstruktors.
+  - : Eine Funktion, die das Versprechen auflöst. Für deren Semantik siehe die {{jsxref("Promise/Promise", "Promise()")}}-Konstruktorreferenz.
 - `reject`
-  - : Eine Funktion, die das Versprechen ablehnt. Für die Semantik siehe die Referenz des {{jsxref("Promise/Promise", "Promise()")}}-Konstruktors.
+  - : Eine Funktion, die das Versprechen ablehnt. Für deren Semantik siehe die {{jsxref("Promise/Promise", "Promise()")}}-Konstruktorreferenz.
 
 ## Beschreibung
 
@@ -42,17 +42,17 @@ const promise = new Promise((res, rej) => {
 });
 ```
 
-Abgesehen davon, dass es kürzer ist und nicht den Einsatz von {{jsxref("Statements/let", "let")}} erfordert.
+Der Unterschied besteht darin, dass sie kürzer ist und nicht die Verwendung von {{jsxref("Statements/let", "let")}} erfordert.
 
-Der Hauptunterschied bei der Verwendung von `Promise.withResolvers()` besteht darin, dass die Auflösungs- und Ablehnungsfunktionen nun im selben Geltungsbereich wie das Versprechen selbst leben, anstatt innerhalb des Executors erstellt und einmal verwendet zu werden. Dies kann einige fortgeschrittene Anwendungsfälle ermöglichen, wie zum Beispiel deren Wiederverwendung für wiederkehrende Ereignisse, insbesondere bei Streams und Warteschlangen. Dies führt außerdem im Allgemeinen zu weniger Verschachtelung als das Einbetten vieler Logik innerhalb des Executors.
+Der wesentliche Unterschied bei der Verwendung von `Promise.withResolvers()` besteht darin, dass die Auflösungs- und Ablehnungsfunktionen sich nun im selben Gültigkeitsbereich wie das Versprechen selbst befinden, anstatt einmal innerhalb des Executors erstellt und verwendet zu werden. Dies kann einige fortgeschrittenere Anwendungsfälle ermöglichen, z. B. wenn sie für wiederkehrende Ereignisse wiederverwendet werden, insbesondere bei Streams und Queues. Dies führt auch in der Regel zu weniger Verschachtelung als das Einwickeln von viel Logik innerhalb des Executors.
 
-`Promise.withResolvers()` ist generisch und unterstützt Subclassing, was bedeutet, dass es auf Unterklassen von `Promise` aufgerufen werden kann und das Ergebnis ein Versprechen des Unterklassentyps enthält. Dazu muss der Konstruktor der Unterklasse dieselbe Signatur wie der [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) Konstruktor implementieren – also eine einzelne `executor` Funktion akzeptieren, die mit den `resolve` und `reject` Rückrufen als Parameter aufgerufen werden kann.
+`Promise.withResolvers()` ist generisch und unterstützt Subclassing, was bedeutet, dass es auf Subklassen von `Promise` aufgerufen werden kann und das Ergebnis ein Versprechen des Subklassen-Typs enthalten wird. Dazu muss der Konstruktor der Subklasse die gleiche Signatur wie der [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)-Konstruktor implementieren — mit einer einzigen `executor`-Funktion, die mit den `resolve`- und `reject`-Rückrufen als Parameter aufgerufen werden kann.
 
 ## Beispiele
 
-### Umwandlung eines Streams in ein asynchrones Iterable
+### Einen Stream in ein asynchrones Iterable transformieren
 
-Ein Anwendungsfall von `Promise.withResolvers()` ist, wenn Sie ein Versprechen haben, das durch einen Ereignislistener gelöst oder abgelehnt werden soll, der nicht in den Executor des Versprechens eingebettet werden kann. Das folgende Beispiel wandelt einen Node.js [readable stream](https://nodejs.org/api/stream.html#class-streamreadable) in ein [asynchrones Iterable](/de/docs/Web/JavaScript/Reference/Statements/async_function*) um. Jedes `promise` hier repräsentiert ein einzelnes Datenpaket, das verfügbar ist, und jedes Mal, wenn das aktuelle Paket gelesen wird, wird ein neues Versprechen für das nächste Paket erstellt. Beachten Sie, wie die Ereignislistener nur einmal angehängt werden, aber tatsächlich jedes Mal eine andere Version der `resolve` und `reject` Funktionen aufrufen.
+Der Anwendungsfall von `Promise.withResolvers()` besteht darin, wenn Sie ein Versprechen haben, das durch einen Ereignis-Listener aufgelöst oder abgelehnt werden soll, der nicht innerhalb des Promise-Executors erfasst werden kann. Das folgende Beispiel transformiert einen Node.js-[lesbaren Stream](https://nodejs.org/api/stream.html#class-streamreadable) in ein [asynchrones Iterable](/de/docs/Web/JavaScript/Reference/Statements/async_function*). Jedes `promise` hier repräsentiert eine einzelne Charge von verfügbaren Daten, und jedes Mal, wenn die aktuelle Charge gelesen wird, wird ein neues Versprechen für die nächste Charge erstellt. Beachten Sie, wie die Ereignis-Listener nur einmal angehängt werden, aber tatsächlich jedes Mal eine andere Version der `resolve`- und `reject`-Funktionen aufrufen.
 
 ```js
 async function* readableToAsyncIterable(stream) {
@@ -72,15 +72,15 @@ async function* readableToAsyncIterable(stream) {
 }
 ```
 
-### Aufruf von withResolvers() auf einem Nicht-Versprechen-Konstruktor
+### Aufrufen von withResolvers() auf einem Nicht-Promise-Konstruktor
 
-`Promise.withResolvers()` ist eine generische Methode. Sie kann auf jedem Konstruktor aufgerufen werden, der dieselbe Signatur wie der `Promise()`-Konstruktor implementiert. Zum Beispiel können wir sie auf einem Konstruktor aufrufen, der `console.log` als die `resolve` und `reject` Funktionen an den `executor` übergibt:
+`Promise.withResolvers()` ist eine generische Methode. Sie kann auf jedem Konstruktor aufgerufen werden, der die gleiche Signatur wie der `Promise()`-Konstruktor implementiert. Zum Beispiel können wir sie auf einem Konstruktor aufrufen, der `console.log` als `resolve`- und `reject`-Funktionen an `executor` übergibt:
 
 ```js
 class NotPromise {
   constructor(executor) {
-    // Die Funktionen "resolve" und "reject" verhalten sich nicht wie die nativen
-    // des Versprechens, aber Promise.withResolvers() gibt sie genau so zurück, wie sie sind.
+    // The "resolve" and "reject" functions behave nothing like the native
+    // promise's, but Promise.withResolvers() just returns them, as is.
     executor(
       (value) => console.log("Resolved", value),
       (reason) => console.log("Rejected", reason),
@@ -90,7 +90,7 @@ class NotPromise {
 
 const { promise, resolve, reject } = Promise.withResolvers.call(NotPromise);
 resolve("hello");
-// Protrokolliert: Resolved hello
+// Logs: Resolved hello
 ```
 
 ## Spezifikationen
@@ -106,4 +106,4 @@ resolve("hello");
 - [Polyfill von `Promise.withResolvers` in `core-js`](https://github.com/zloirock/core-js#promisewithresolvers)
 - [Verwendung von Promises](/de/docs/Web/JavaScript/Guide/Using_promises) Leitfaden
 - {{jsxref("Promise")}}
-- [`Promise()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)
+- [`Promise()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)

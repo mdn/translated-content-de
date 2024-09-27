@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Die **`postMessage()`**-Methode des
-{{domxref("MessagePort")}}-Interfaces sendet eine Nachricht vom Port und überträgt optional das Eigentum an Objekten auf andere Browsing-Kontexte.
+Die **`postMessage()`**-Methode der [`MessagePort`](/de/docs/Web/API/MessagePort)-Schnittstelle sendet eine Nachricht über den Port und kann optional die Eigentümerschaft von Objekten an andere Browsing-Kontexte übertragen.
 
 ## Syntax
 
@@ -22,28 +21,21 @@ postMessage(message, options)
 ### Parameter
 
 - `message`
-  - : Die Nachricht, die Sie durch den Kanal senden möchten. Dies kann ein beliebiger elementarer Datentyp sein. Mehrere Datenobjekte können als Array gesendet werden.
+  - : Die Nachricht, die Sie über den Kanal senden möchten. Diese kann jeden einfachen Datentyp enthalten. Mehrere Datenobjekte können als Array gesendet werden.
 - `transfer` {{optional_inline}}
-  - : Ein optionales [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), um deren Eigentum zu übertragen. Das Eigentum an diesen Objekten wird auf die Zielseite übertragen und sie sind auf der sendenden Seite nicht mehr nutzbar. Diese übertragbaren Objekte sollten an die Nachricht angehängt werden; andernfalls würden sie übertragen, aber auf der Empfangsseite nicht tatsächlich zugänglich sein.
+  - : Ein optionales [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), deren Eigentümerschaft übertragen werden soll. Das Eigentum dieser Objekte wird an die Zielseite gegeben und sie sind auf der sendenden Seite nicht mehr nutzbar. Diese übertragbaren Objekte sollten an die Nachricht angehängt werden; andernfalls würden sie zwar verschoben, wären aber auf der Empfangsseite nicht tatsächlich zugänglich.
 - `options` {{optional_inline}}
-  - : Ein optionales Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein optionales Objekt mit den folgenden Eigenschaften:
     - `transfer` {{optional_inline}}
-      - : Hat die gleiche Bedeutung wie der `transfer`-Parameter.
+      - : Hat dieselbe Bedeutung wie der `transfer`-Parameter.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Im folgenden Codeblock sehen Sie, wie ein neuer Kanal mit dem
-{{domxref("MessageChannel.MessageChannel", "MessageChannel()")}}-Konstruktor erstellt wird. Wenn das
-IFrame geladen ist, übergeben wir {{domxref("MessageChannel.port2")}} an das IFrame mit
-{{domxref("window.postMessage")}} zusammen mit einer Nachricht. Das IFrame empfängt die Nachricht
-und sendet eine Nachricht über den `MessageChannel` mit `postMessage()` zurück.
-Der `handleMessage`-Handler reagiert dann auf eine Nachricht, die vom IFrame mit
-`onmessage` gesendet wird, und gibt sie in einem Absatz aus —
-{{domxref("MessageChannel.port1")}} wird abgehört, um zu prüfen, wann die Nachricht ankommt.
+Im folgenden Codeblock sehen Sie, wie ein neuer Kanal mit dem [`MessageChannel()`](/de/docs/Web/API/MessageChannel/MessageChannel)-Konstruktor erstellt wird. Wenn das IFrame geladen ist, übergeben wir [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) an das IFrame mit [`window.postMessage`](/de/docs/Web/API/Window/postMessage) zusammen mit einer Nachricht. Das IFrame empfängt die Nachricht und sendet eine Nachricht über den `MessageChannel` mit `postMessage()` zurück. Der `handleMessage`-Handler reagiert dann auf eine Nachricht, die vom IFrame mit `onmessage` zurückgesendet wird, und fügt sie in einen Absatz ein — [`MessageChannel.port1`](/de/docs/Web/API/MessageChannel/port1) wird abgehört, um zu überprüfen, wann die Nachricht ankommt.
 
 ```js
 const channel = new MessageChannel();
@@ -63,7 +55,7 @@ function handleMessage(e) {
   para.innerHTML = e.data;
 }
 
-// im IFrame…
+// in the iframe…
 
 window.addEventListener("message", (event) => {
   const messagePort = event.ports?.[0];
@@ -71,7 +63,7 @@ window.addEventListener("message", (event) => {
 });
 ```
 
-Für ein vollständiges funktionierendes Beispiel, siehe unser [Channel Messaging Basic Demo](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub ([führen Sie es auch live aus](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
+Für ein vollständig funktionierendes Beispiel, siehe unser [basis Kanal-Messaging-Demo](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub ([führen Sie es auch live aus](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
 
 ## Spezifikationen
 
@@ -83,4 +75,4 @@ Für ein vollständiges funktionierendes Beispiel, siehe unser [Channel Messagin
 
 ## Siehe auch
 
-- [Verwendung von Channel Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwendung von Kanal-Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

@@ -7,44 +7,44 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`WindowSharedStorage`**-Schnittstelle der {{domxref("Shared Storage API", "Shared Storage API", "", "nocode")}} repräsentiert den gemeinsamen Speicher für einen bestimmten Ursprung innerhalb eines standardmäßigen Browserkontexts.
+Die **`WindowSharedStorage`**-Schnittstelle der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den gemeinsamen Speicher für einen bestimmten Origin innerhalb eines Standard-Browsing-Kontexts.
 
-`WindowSharedStorage` wird über {{domxref("Window.sharedStorage")}} aufgerufen.
+Auf `WindowSharedStorage` wird über [`Window.sharedStorage`](/de/docs/Web/API/Window/sharedStorage) zugegriffen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-- {{domxref("WindowSharedStorage.worklet", "worklet")}} {{Experimental_Inline}}
-  - : Enthält die {{domxref("SharedStorageWorklet")}}-Instanz, die den gemeinsamen Speicherarbeitsprozess für den aktuellen Ursprung repräsentiert. `SharedStorageWorklet` beinhaltet die Methode {{domxref("Worklet.addModule", "addModule()")}}, die verwendet wird, um ein Modul zum gemeinsamen Speicherarbeitsprozess hinzuzufügen.
+- [`worklet`](/de/docs/Web/API/WindowSharedStorage/worklet) {{Experimental_Inline}}
+  - : Enthält die [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)-Instanz, die den gemeinsamen Speicher-Worklet für den aktuellen Origin darstellt. `SharedStorageWorklet` beinhaltet die Methode [`addModule()`](/de/docs/Web/API/Worklet/addModule), die verwendet wird, um ein Modul zum gemeinsamen Speicher-Worklet hinzuzufügen.
 
 ## Instanz-Methoden
 
-_`WindowSharedStorage` erbt Eigenschaften von seiner Elternschnittstelle, {{domxref("SharedStorage")}}._
+_`WindowSharedStorage` erbt Eigenschaften von seiner Elternschnittstelle, [`SharedStorage`](/de/docs/Web/API/SharedStorage)._
 
-- {{domxref("WindowSharedStorage.run", "run()")}} {{Experimental_Inline}}
-  - : Führt eine [Run output gate](/de/docs/Web/API/Shared_Storage_API#run)-Operation aus, die in einem zum {{domxref("SharedStorageWorklet")}} des aktuellen Ursprungs hinzugefügten Modul registriert wurde.
-- {{domxref("WindowSharedStorage.selectURL", "selectURL()")}} {{Experimental_Inline}}
-  - : Führt eine [URL Selection output gate](/de/docs/Web/API/Shared_Storage_API#url_selection)-Operation aus, die in einem zum {{domxref("SharedStorageWorklet")}} des aktuellen Ursprungs hinzugefügten Modul registriert wurde.
+- [`run()`](/de/docs/Web/API/WindowSharedStorage/run) {{Experimental_Inline}}
+  - : Führt eine [Run-Ausgabesperre](/de/docs/Web/API/Shared_Storage_API#run)-Operation aus, die in einem hinzugefügten Modul des [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet) des aktuellen Origin registriert wurde.
+- [`selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL) {{Experimental_Inline}}
+  - : Führt eine [URL-Auswahl-Ausgabesperre](/de/docs/Web/API/Shared_Storage_API#url_selection)-Operation aus, die in einem hinzugefügten Modul des [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet) des aktuellen Origin registriert wurde.
 
 ## Beispiele
 
 ```js
-// Weist einem Benutzer zufällig eine Gruppe 0 oder 1 zu
+// Randomly assigns a user to a group 0 or 1
 function getExperimentGroup() {
   return Math.round(Math.random());
 }
 
 async function injectContent() {
-  // Fügen Sie das Modul zum gemeinsamen Speicherarbeitsprozess hinzu
+  // Add the module to the shared storage worklet
   await window.sharedStorage.worklet.addModule("ab-testing-worklet.js");
 
-  // Weisen Sie den Benutzer einer zufälligen Gruppe (0 oder 1) zu und speichern Sie diese im gemeinsamen Speicher
+  // Assign user to a random group (0 or 1) and store it in shared storage
   window.sharedStorage.set("ab-testing-group", getExperimentGroup(), {
     ignoreIfPresent: true,
   });
 
-  // Führen Sie die URL-Auswahloperation aus
+  // Run the URL selection operation
   const fencedFrameConfig = await window.sharedStorage.selectURL(
     "ab-testing",
     [
@@ -56,14 +56,14 @@ async function injectContent() {
     },
   );
 
-  // Rendern Sie die gewählte URL in einem umgrenzten Frame
+  // Render the chosen URL into a fenced frame
   document.getElementById("content-slot").config = fencedFrameConfig;
 }
 
 injectContent();
 ```
 
-Sehen Sie sich die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Startseite für eine Anleitung zu diesem Beispiel und Links zu weiteren Beispielen an.
+Siehe die Einstiegsseite der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) für eine Schritt-für-Schritt-Anleitung zu diesem Beispiel und Links zu weiteren Beispielen.
 
 ## Spezifikationen
 

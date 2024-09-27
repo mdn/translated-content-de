@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`interactionId`**-Eigenschaft gibt eine ID zurück, die eine Benutzerinteraktion eindeutig identifiziert, welche eine Reihe zugehöriger Ereignisse ausgelöst hat.
+Die schreibgeschützte **`interactionId`**-Eigenschaft gibt eine ID zurück, die eine Benutzerinteraktion, welche eine Reihe von zugehörigen Ereignissen ausgelöst hat, eindeutig identifiziert.
 
 ## Beschreibung
 
 Wenn ein Benutzer mit einer Webseite interagiert, löst eine Benutzerinteraktion (zum Beispiel ein Klick) normalerweise eine Sequenz von Ereignissen aus, wie `pointerdown`-, `pointerup`- und `click`-Ereignisse. Um die Latenz dieser Ereignisreihe zu messen, teilen die Ereignisse die gleiche `interactionId`.
 
-Eine `interactionId` wird nur für die folgenden Ereignistypen berechnet, die zu einer Benutzerinteraktion gehören. Ansonsten ist sie `0`.
+Eine `interactionId` wird nur für die folgenden Ereignistypen berechnet, die zu einer Benutzerinteraktion gehören. Andernfalls ist sie `0`.
 
-| Ereignistypen                                                                                                                                               | Benutzerinteraktion |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| {{domxref("Element/pointerdown_event", "pointerdown")}}, {{domxref("Element/pointerup_event", "pointerup")}}, {{domxref("Element/click_event", "click")}}   | Klick / Tap / Ziehen |
-| {{domxref("Element/keydown_event", "keydown")}}, {{domxref("Element/keyup_event", "keyup")}}                                                                | Tastendruck         |
+| Ereignistypen                                                                                                                                                         | Benutzerinteraktion   |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event), [`pointerup`](/de/docs/Web/API/Element/pointerup_event), [`click`](/de/docs/Web/API/Element/click_event) | Klick / Tipp / Ziehen |
+| [`keydown`](/de/docs/Web/API/Element/keydown_event), [`keyup`](/de/docs/Web/API/Element/keyup_event)                                                                  | Tastendruck           |
 
 ## Wert
 
@@ -29,10 +29,10 @@ Eine Zahl.
 
 ### Verwendung von interactionId
 
-Das folgende Beispiel sammelt die Ereignisdauer für alle Ereignisse, die einer Interaktion entsprechen. Die `eventLatencies`-Map kann dann verwendet werden, um beispielsweise Ereignisse mit der maximalen Dauer für eine Benutzerinteraktion zu finden.
+Das folgende Beispiel sammelt die Ereignisdauer für alle Ereignisse, die zu einer Interaktion gehören. Die `eventLatencies`-Map kann dann verwendet werden, um Ereignisse mit maximaler Dauer für eine Benutzerinteraktion zu finden, zum Beispiel.
 
 ```js
-// Der Schlüssel ist die Interaktions-ID.
+// The key is the interaction ID.
 let eventLatencies = {};
 
 const observer = new PerformanceObserver((list) => {
@@ -49,7 +49,7 @@ const observer = new PerformanceObserver((list) => {
 
 observer.observe({ type: "event", buffered: true });
 
-// Ereignisse mit der maximalen Ereignisdauer für eine Benutzerinteraktion protokollieren
+// Log events with maximum event duration for a user interaction
 Object.entries(eventLatencies).forEach(([k, v]) => {
   console.log(Math.max(...v));
 });

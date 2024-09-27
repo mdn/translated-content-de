@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}}
 
-Das **`AsyncGenerator`** Objekt wird von einer {{jsxref("Statements/async_function*", "asynchronen Generatorfunktion", "", 1)}} zurückgegeben und es entspricht sowohl dem [asynchronen iterierbaren Protokoll als auch dem asynchronen Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols).
+Das **`AsyncGenerator`**-Objekt wird von einer {{jsxref("Statements/async_function*", "asynchronen Generatorfunktion", "", 1)}} zurückgegeben und es entspricht sowohl dem [asynchronen Iterable-Protokoll als auch dem asynchronen Iterator-Protokoll](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_async_iterator_and_async_iterable_protocols).
 
-Asynchrone Generatormethoden geben immer {{jsxref("Promise")}} Objekte zurück.
+Asynchrone Generator-Methoden geben immer {{jsxref("Promise")}} Objekte zurück.
 
-`AsyncGenerator` ist eine Unterklasse der verborgenen {{jsxref("AsyncIterator")}} Klasse.
+`AsyncGenerator` ist eine Unterklasse der versteckten {{jsxref("AsyncIterator")}} Klasse.
 
 {{EmbedInteractiveExample("pages/js/expressions-async-function-asterisk.html", "taller")}}
 
@@ -31,40 +31,41 @@ asyncGen.next().then((res) => console.log(res.value)); // 2
 asyncGen.next().then((res) => console.log(res.value)); // 3
 ```
 
-Es gibt nur ein verborgenes Objekt, das das Prototypenobjekt ist, das von allen Objekten geteilt wird, die von asynchronen Generatorfunktionen erstellt wurden. Dieses Objekt wird oft als `AsyncGenerator.prototype` stilisiert, um es wie eine Klasse aussehen zu lassen, es sollte jedoch richtigerweise {{jsxref("AsyncGeneratorFunction.prototype.prototype")}} genannt werden, da `AsyncGeneratorFunction` eine tatsächliche JavaScript-Entität ist. Um die Prototypenkette von `AsyncGenerator`-Instanzen zu verstehen, sehen Sie sich {{jsxref("AsyncGeneratorFunction.prototype.prototype")}} an.
+Es gibt nur ein verstecktes Objekt, welches das Prototypobjekt ist, das von allen Objekten geteilt wird, die durch asynchrone Generatorfunktionen erstellt wurden. Dieses Objekt wird oft als `AsyncGenerator.prototype` stilisiert, um es wie eine Klasse aussehen zu lassen, sollte jedoch treffender {{jsxref("AsyncGeneratorFunction.prototype.prototype")}} genannt werden, da `AsyncGeneratorFunction` eine tatsächliche JavaScript-Entität ist. Um die Prototyp-Kette von `AsyncGenerator` Instanzen zu verstehen, siehe {{jsxref("AsyncGeneratorFunction.prototype.prototype")}}.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-Diese Eigenschaften sind auf `AsyncGenerator.prototype` definiert und werden von allen `AsyncGenerator`-Instanzen geteilt.
+Diese Eigenschaften sind auf `AsyncGenerator.prototype` definiert und werden von allen `AsyncGenerator` Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "AsyncGenerator.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `AsyncGenerator`-Instanzen ist der Anfangswert [`AsyncGeneratorFunction.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncGeneratorFunction).
 
-    > **Hinweis:** `AsyncGenerator` Objekte speichern keinen Verweis auf die asynchrone Generatorfunktion, die sie erstellt hat.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `AsyncGenerator` Instanzen ist der Anfangswert [`AsyncGeneratorFunction.prototype`](/de/docs/Web/JavaScript/Reference/Global_Objects/AsyncGeneratorFunction).
+
+    > **Note:** `AsyncGenerator` Objekte speichern keinen Verweis auf die asynchrone Generatorfunktion, die sie erstellt hat.
 
 - `AsyncGenerator.prototype[Symbol.toStringTag]`
   - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist der String `"AsyncGenerator"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Erbt auch Instanzmethoden von seinem Elternteil {{jsxref("AsyncIterator")}}_.
 
 - {{jsxref("AsyncGenerator.prototype.next()")}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit dem angegebenen Wert, der durch den {{jsxref("Operators/yield", "yield")}} Ausdruck geliefert wird, aufgelöst wird.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit dem durch den {{jsxref("Operators/yield", "yield")}} Ausdruck gelieferten Wert aufgelöst wird.
 - {{jsxref("AsyncGenerator.prototype.return()")}}
-  - : Funktioniert, als ob eine `return`-Anweisung an der aktuellen angehaltenen Position im Körper des Generators eingefügt wird, was den Generator beendet und es ihm ermöglicht, Aufräumarbeiten durchzuführen, wenn er mit einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block) Block kombiniert wird.
+  - : Wirkt so, als ob eine `return`-Anweisung an der aktuellen angehaltenen Position im Körper des Generators eingefügt wird, was den Generator beendet und es dem Generator ermöglicht, alle Aufräumaufgaben durchzuführen, wenn es mit einem [`try...finally`](/de/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block) Block kombiniert wird.
 - {{jsxref("AsyncGenerator.prototype.throw()")}}
-  - : Funktioniert, als ob eine `throw`-Anweisung an der aktuellen angehaltenen Position im Körper des Generators eingefügt wird, was den Generator über eine Fehlersituation informiert und es ihm ermöglicht, den Fehler zu behandeln oder Aufräumarbeiten durchzuführen und sich selbst zu schließen.
+  - : Wirkt so, als ob eine `throw`-Anweisung an der aktuellen angehaltenen Position im Körper des Generators eingefügt wird, was den Generator von einer Fehlerbedingung informiert und es ihm ermöglicht, den Fehler zu behandeln oder aufzuräumen und sich zu schließen.
 
 ## Beispiele
 
 ### Asynchrone Generatoriteration
 
-Das folgende Beispiel iteriert über einen asynchronen Generator und protokolliert die Werte 1–6 in die Konsole bei abnehmenden Zeitintervallen. Beachten Sie, dass jedes Mal ein Promise geliefert wird, aber es wird automatisch innerhalb der `for await...of` Schleife aufgelöst.
+Das folgende Beispiel iteriert über einen asynchronen Generator und protokolliert die Werte 1–6 in die Konsole bei abnehmenden Zeitabständen. Beachten Sie, wie jedes Mal ein Promise geliefert wird, das jedoch innerhalb der `for await...of`-Schleife automatisch aufgelöst wird.
 
 ```js
-// Eine asynchrone Aufgabe. Stellen Sie sich vor, dass sie
-// in der Praxis etwas Nützlicheres tut.
+// An async task. Pretend it's doing something more useful
+// in practice.
 function delayedValue(time, value) {
   return new Promise((resolve /*, reject*/) => {
     setTimeout(() => resolve(value), time);
@@ -103,6 +104,6 @@ main().catch((e) => console.error(e));
 - {{jsxref("Statements/function*", "function*", "", 1)}}
 - {{jsxref("Statements/async_function*", "async function*", "", 1)}}
 - [`function*` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function*)
-- {{jsxref("GeneratorFunction", "Generator Funktion", "", 1)}}
-- {{jsxref("AsyncGeneratorFunction", "Asynchrone Generator Funktion", "", 1)}}
+- {{jsxref("GeneratorFunction", "Generatorfunktion", "", 1)}}
+- {{jsxref("AsyncGeneratorFunction", "Asynchrone Generatorfunktion", "", 1)}}
 - [Iteratoren und Generatoren](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden

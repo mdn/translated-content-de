@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Math.min()`** statische Methode gibt die kleinste der eingegebenen Zahlen als Parameter zurück oder {{jsxref("Infinity")}}, wenn keine Parameter übergeben werden.
+Die statische Methode **`Math.min()`** gibt die kleinste der als Eingabeparameter angegebenen Zahlen zurück oder {{jsxref("Infinity")}}, wenn keine Parameter verfügbar sind.
 
 {{EmbedInteractiveExample("pages/js/math-min.html")}}
 
@@ -27,13 +27,13 @@ Math.min(value1, value2, /* …, */ valueN)
 
 ### Rückgabewert
 
-Die kleinste der gegebenen Zahlen. Gibt {{jsxref("NaN")}} zurück, wenn einer der Parameter ist oder in `NaN` umgewandelt wird. Gibt {{jsxref("Infinity")}} zurück, wenn keine Parameter bereitgestellt werden.
+Die kleinste der angegebenen Zahlen. Gibt {{jsxref("NaN")}} zurück, wenn einer der Parameter `NaN` ist oder in `NaN` umgewandelt wird. Gibt {{jsxref("Infinity")}} zurück, wenn keine Parameter bereitgestellt werden.
 
 ## Beschreibung
 
-Da `min()` eine statische Methode von `Math` ist, wird sie immer als `Math.min()` verwendet und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `min()` eine statische Methode von `Math` ist, verwenden Sie diese immer als `Math.min()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
-[`Math.min.length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length) ist 2, was schwach signalisiert, dass sie für mindestens zwei Parameter ausgelegt ist.
+[`Math.min.length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length) ist 2, was schwach darauf hinweist, dass es darauf ausgelegt ist, mindestens zwei Parameter zu verarbeiten.
 
 ## Beispiele
 
@@ -49,8 +49,7 @@ const z = Math.min(x, y); // -20
 
 ### Begrenzen eines Wertes mit Math.min()
 
-`Math.min()` wird oft verwendet, um einen Wert zu begrenzen, sodass er immer kleiner oder
-gleich einer Grenze ist. Zum Beispiel kann dies
+`Math.min()` wird häufig verwendet, um einen Wert zu begrenzen, sodass er immer kleiner oder gleich einem Grenzwert ist. Zum Beispiel, dies
 
 ```js
 let x = f(foo);
@@ -60,7 +59,7 @@ if (x > boundary) {
 }
 ```
 
-so geschrieben werden
+kann so geschrieben werden
 
 ```js
 const x = Math.min(f(foo), boundary);

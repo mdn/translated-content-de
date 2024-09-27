@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Das **`message`**-Ereignis wird auf einem {{domxref('MessagePort')}}-Objekt ausgelöst, wenn eine Nachricht auf diesem Kanal ankommt.
+Das **`message`**-Ereignis wird auf einem [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekt ausgelöst, wenn eine Nachricht auf diesem Kanal eintrifft.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht propagiert.
+Dieses Ereignis ist nicht abbrechbar und wird nicht gebubblt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("message", (event) => {});
@@ -24,28 +24,28 @@ onmessage = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("MessageEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MessageEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil, {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten Objekt, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("MessageEvent.data")}} {{ReadOnlyInline}}
-  - : Die vom Nachrichtenabsender gesendeten Daten.
-- {{domxref("MessageEvent.origin")}} {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtenabsenders darstellt.
-- {{domxref("MessageEvent.lastEventId")}} {{ReadOnlyInline}}
+- [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
+  - : Die von dem Nachrichtensender gesendeten Daten.
+- [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
+  - : Ein String, der den Ursprung des Nachrichtensenders darstellt.
+- [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
-- {{domxref("MessageEvent.source")}} {{ReadOnlyInline}}
-  - : Eine `MessageEventSource` (die ein {{glossary("WindowProxy")}}, {{domxref("MessagePort")}} oder {{domxref("ServiceWorker")}}-Objekt sein kann), die den Nachrichtenabsender darstellt.
-- {{domxref("MessageEvent.ports")}} {{ReadOnlyInline}}
-  - : Ein Array von {{domxref("MessagePort")}}-Objekten, die die mit dem Kanal verbundenen Ports repräsentieren, durch den die Nachricht gesendet wird (wo zutreffend, z. B. bei der Kanalkommunikation oder beim Senden einer Nachricht an einen Shared Worker).
+- [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
+  - : Ein `MessageEventSource` (dies kann ein [WindowProxy](/de/docs/Glossary/WindowProxy), [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein), das den Nachrichtensender repräsentiert.
+- [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die mit dem Kanal assoziierten Ports darstellen, über den die Nachricht gesendet wird (wo zutreffend, z.B. im Kanal-Messaging oder beim Senden einer Nachricht an einen Shared Worker).
 
 ## Beispiele
 
-Angenommen, ein Skript erstellt einen [`MessageChannel`](/de/docs/Web/API/MessageChannel) und sendet einen der Ports an einen anderen Browsing-Kontext, wie ein anderes [`<iframe>`](/de/docs/Web/HTML/Element/iframe), mit solchem Code:
+Angenommen, ein Skript erstellt einen [`MessageChannel`](/de/docs/Web/API/MessageChannel) und sendet einen der Ports an einen anderen Browsing-Kontext, wie z.B. ein anderes [`<iframe>`](/de/docs/Web/HTML/Element/iframe), mit folgendem Code:
 
 ```js
 const channel = new MessageChannel();
@@ -63,7 +63,7 @@ channelMessageButton.addEventListener("click", () => {
 targetFrame.postMessage("init", targetOrigin, [channel.port2]);
 ```
 
-Das Ziel kann den Port empfangen und beginnen, Nachrichten darauf zu hören, mit einem Code wie diesem:
+Das Ziel kann den Port empfangen und damit beginnen, Nachrichten darauf zu empfangen, indem es folgenden Code verwendet:
 
 ```js
 window.addEventListener("message", (event) => {
@@ -77,7 +77,7 @@ window.addEventListener("message", (event) => {
 });
 ```
 
-Beachten Sie, dass der Listener [`MessagePort.start()`](/de/docs/Web/API/MessagePort/start) aufrufen muss, bevor Nachrichten an diesen Port geliefert werden. Dies ist nur erforderlich, wenn die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwendet wird: Wenn der Empfänger stattdessen `onmessage` verwendet, wird `start()` implizit aufgerufen:
+Beachten Sie, dass der Listener [`MessagePort.start()`](/de/docs/Web/API/MessagePort/start) aufrufen muss, bevor Nachrichten an diesen Port gesendet werden. Dies ist nur erforderlich, wenn die [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwendet wird: Wenn der Empfänger stattdessen `onmessage` verwendet, wird `start()` implizit aufgerufen:
 
 ```js
 window.addEventListener("message", (event) => {
@@ -100,4 +100,4 @@ window.addEventListener("message", (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`messageerror`](/de/docs/Web/API/MessagePort/messageerror_event).
-- [Verwendung der Kanalnachrichtenübertragung](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwendung von Kanal-Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

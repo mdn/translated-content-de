@@ -1,5 +1,5 @@
 ---
-title: "BaseAudioContext: Eigenschaft destination"
+title: "BaseAudioContext: destination-Eigenschaft"
 short-title: destination
 slug: Web/API/BaseAudioContext/destination
 l10n:
@@ -8,20 +8,20 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `destination`-Eigenschaft der {{ domxref("BaseAudioContext") }}-Schnittstelle gibt ein {{ domxref("AudioDestinationNode") }} zurück, das das endgültige Ziel aller Audiodaten im Kontext darstellt. Es repräsentiert oft ein tatsächliches Audio-Ausgabegerät, wie zum Beispiel die Lautsprecher Ihres Geräts.
+Die `destination`-Eigenschaft der Schnittstelle [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) liefert ein [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode), das das endgültige Ziel aller Audiodaten im Kontext darstellt. Diese repräsentiert häufig ein tatsächliches Audiowiedergabegerät, wie beispielsweise die Lautsprecher Ihres Geräts.
 
 ## Wert
 
-Ein {{ domxref("AudioDestinationNode") }}.
+Ein [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode).
 
 ## Beispiele
 
 > [!NOTE]
-> Für umfassendere Beispiele und Informationen sehen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
+> Für vollständigere angewandte Beispiele/Informationen schauen Sie sich unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic)-Demo an (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für den relevanten Code).
 
 ```js
 const audioCtx = new AudioContext();
-// Ältere Webkit/Blink Browser benötigen ein Präfix
+// Older webkit/blink browsers require a prefix
 
 const oscillatorNode = audioCtx.createOscillator();
 const gainNode = audioCtx.createGain();
@@ -40,4 +40,4 @@ gainNode.connect(audioCtx.destination);
 
 ## Siehe auch
 
-- [Using the Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

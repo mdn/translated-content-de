@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: checkFramebufferStatus()-Methode"
+title: "WebGLRenderingContext: Methode checkFramebufferStatus()"
 short-title: checkFramebufferStatus()
 slug: Web/API/WebGLRenderingContext/checkFramebufferStatus
 l10n:
@@ -9,7 +9,8 @@ l10n:
 {{APIRef("WebGL")}}
 
 Die **`WebGLRenderingContext.checkFramebufferStatus()`**-Methode
-der [WebGL-API](/de/docs/Web/API/WebGL_API) gibt den Vollständigkeitsstatus des {{domxref("WebGLFramebuffer")}}-Objekts zurück.
+der [WebGL API](/de/docs/Web/API/WebGL_API) gibt den Vollständigkeitsstatus
+des [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer)-Objekts zurück.
 
 ## Syntax
 
@@ -21,43 +22,44 @@ checkFramebufferStatus(target)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Bindungspunkt (Target) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Bindungspunkt (Ziel) spezifiziert. Mögliche Werte:
 
     - `gl.FRAMEBUFFER`
 
-      - : Sammlung von Buffer-Daten zur Speicherung von Farbe, Alpha,
-        Tiefe und Stencil-Buffern, die zur Darstellung eines Bildes verwendet werden.
+      - : Sammlung von Pufferdatenspeichern für Farbe, Alpha,
+        Tiefe und Stencil-Puffer, die zur Bilddarstellung verwendet werden.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontextes", "", 1)}}
-    sind zusätzlich folgende Werte verfügbar:
+    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}},
+    sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.DRAW_FRAMEBUFFER`
       - : Entspricht `gl.FRAMEBUFFER`.
         Wird als Ziel für Zeichen-, Render-, Lösch- und Schreiboperationen verwendet.
     - `gl.READ_FRAMEBUFFER`
-      - : Wird als Quelle für Lesevorgänge verwendet.
+      - : Wird als Quelle für Leseoperationen verwendet.
 
 ### Rückgabewert
 
-Ein {{domxref("WebGL_API/Types", "GLenum")}}, das den Vollständigkeitsstatus des Framebuffers angibt, oder
-`0`, wenn ein Fehler auftritt. Mögliche Enum-Rückgabewerte:
+Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Vollständigkeitsstatus des Framebuffers angibt, oder
+`0`, wenn ein Fehler auftritt. Mögliche Rückgabewerte für Aufzählungen:
 
-- `gl.FRAMEBUFFER_COMPLETE`: Der Framebuffer ist bereit für die Anzeige.
-- `gl.FRAMEBUFFER_INCOMPLETE_ATTACHMENT`: Die Anhangstypen stimmen
-  nicht überein oder nicht alle Framebuffer-Anhangspunkte sind Framebuffer-Anhang
-  komplett.
+- `gl.FRAMEBUFFER_COMPLETE`: Der Framebuffer ist bereit zur Anzeige.
+- `gl.FRAMEBUFFER_INCOMPLETE_ATTACHMENT`: Die Typen der Anhänge sind
+  nicht übereinstimmend oder nicht alle Framebuffer-Anhangspunkte sind Framebuffer-Anhang
+  vollständig.
 - `gl.FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT`: Es gibt keinen Anhang.
 - `gl.FRAMEBUFFER_INCOMPLETE_DIMENSIONS`: Höhe und Breite des
-  Anhangs sind nicht gleich.
+  Anhangs sind nicht identisch.
 - `gl.FRAMEBUFFER_UNSUPPORTED`: Das Format des Anhangs wird nicht
-  unterstützt oder wenn die Tiefen- und Stencil-Anhänge nicht derselbe Renderbuffer sind.
-- Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontextes", "", 1)}}, können zusätzlich folgende Werte zurückgegeben werden:
+  unterstützt oder wenn Tiefen- und Stencil-Anhänge nicht derselbe Renderbuffer sind.
+- Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}} können zusätzlich die
+  folgenden Werte zurückgegeben werden:
 
   - `gl.FRAMEBUFFER_INCOMPLETE_MULTISAMPLE`: Die Werte von
-    `gl.RENDERBUFFER_SAMPLES` sind unter den angehängten Renderbuffers unterschiedlich,
-    oder sind ungleich null, wenn die angehängten Bilder eine Mischung aus Renderbuffers und Texturen sind.
+    `gl.RENDERBUFFER_SAMPLES` sind unterschiedlich zwischen angehängten Renderbuffern,
+    oder sind ungleich null, wenn die angehängten Bilder eine Mischung aus Renderbuffern und Texturen sind.
 
-- Bei Verwendung der {{domxref("OVR_multiview2")}}-Erweiterung kann zusätzlich folgender Wert zurückgegeben werden:
+- Bei Verwendung der [`OVR_multiview2`](/de/docs/Web/API/OVR_multiview2)-Erweiterung kann zusätzlich der folgende Wert zurückgegeben werden:
 
   - `ext.FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR`: Wenn
     `baseViewIndex` nicht für alle Framebuffer-Anhangspunkte gleich ist,
@@ -86,7 +88,7 @@ gl.checkFramebufferStatus(gl.FRAMEBUFFER);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.createFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteFramebuffer()")}}
-- {{domxref("WebGLRenderingContext.isFramebuffer()")}}
-- Andere Buffer: {{domxref("WebGLBuffer")}}, {{domxref("WebGLRenderbuffer")}}
+- [`WebGLRenderingContext.createFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/createFramebuffer)
+- [`WebGLRenderingContext.deleteFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteFramebuffer)
+- [`WebGLRenderingContext.isFramebuffer()`](/de/docs/Web/API/WebGLRenderingContext/isFramebuffer)
+- Andere Puffer: [`WebGLBuffer`](/de/docs/Web/API/WebGLBuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)

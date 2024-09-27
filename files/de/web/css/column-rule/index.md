@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die **`column-rule`** [Kurzform](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite, den Stil und die Farbe der Linie fest, die in einem Mehrspalten-Layout zwischen den Spalten gezogen wird.
+Die **`column-rule`** [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite, den Stil und die Farbe der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezogen wird.
 
 {{EmbedInteractiveExample("pages/css/column-rule.html")}}
 
-## Bestandteil-Eigenschaften
+## Zu den Bestandteilen gehörende Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - {{Cssxref("column-rule-color")}}
 - {{Cssxref("column-rule-style")}}
@@ -27,7 +27,7 @@ column-rule: solid 8px;
 column-rule: solid blue;
 column-rule: thick inset blue;
 
-/* Globale Werte */
+/* Global values */
 column-rule: inherit;
 column-rule: initial;
 column-rule: revert;
@@ -37,10 +37,10 @@ column-rule: unset;
 
 ### Werte
 
-Die `column-rule` Eigenschaft wird als einer, zwei oder drei der unten aufgeführten Werte in beliebiger Reihenfolge angegeben.
+Die Eigenschaft `column-rule` wird als eine, zwei oder drei der unten aufgeführten Werte in beliebiger Reihenfolge angegeben.
 
 - `<'column-rule-width'>`
-  - : Ist eine {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter, `thin`, `medium`, oder `thick`. Siehe {{cssxref("border-width")}} für Details.
+  - : Ist entweder ein {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter `thin`, `medium` oder `thick`. Siehe {{cssxref("border-width")}} für Details.
 - `<'column-rule-style'>`
   - : Siehe {{cssxref("border-style")}} für mögliche Werte und Details.
 - `<'column-rule-color'>`
@@ -59,17 +59,17 @@ Die `column-rule` Eigenschaft wird als einer, zwei oder drei der unten aufgefüh
 ### Beispiel 1
 
 ```css
-/* Entspricht "medium dotted currentcolor" */
+/* Same as "medium dotted currentcolor" */
 p.foo {
   column-rule: dotted;
 }
 
-/* Entspricht "medium solid blue" */
+/* Same as "medium solid blue" */
 p.bar {
   column-rule: solid blue;
 }
 
-/* Entspricht "8px solid currentcolor" */
+/* Same as "8px solid currentcolor" */
 p.baz {
   column-rule: solid 8px;
 }
@@ -116,7 +116,7 @@ p.abc {
 
 ## Siehe auch
 
-- [Mehrspaltiges Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout)
+- [Mehrspalten-Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout)
 - {{CSSXref("column-rule-style")}}
 - {{CSSXref("column-rule-width")}}
 - {{CSSXref("column-rule-color")}}

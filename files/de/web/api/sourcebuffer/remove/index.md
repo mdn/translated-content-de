@@ -1,14 +1,14 @@
 ---
-title: "SourceBuffer: remove()-Methode"
+title: "SourceBuffer: remove() Methode"
 short-title: remove()
 slug: Web/API/SourceBuffer/remove
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
 ---
 
-{{APIRef("Media Source Extensions")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`remove()`**-Methode des {{domxref("SourceBuffer")}}-Interfaces entfernt Mediensegmente innerhalb eines spezifischen Zeitbereichs aus dem `SourceBuffer`. Diese Methode kann nur aufgerufen werden, wenn {{domxref("SourceBuffer.updating")}} gleich `false` ist. Falls `SourceBuffer.updating` nicht `false` ist, rufen Sie {{domxref("SourceBuffer.abort()")}} auf.
+Die **`remove()`** Methode der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Schnittstelle entfernt Mediensegmente innerhalb eines bestimmten Zeitbereichs aus dem `SourceBuffer`. Diese Methode kann nur aufgerufen werden, wenn [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating) gleich `false` ist. Wenn `SourceBuffer.updating` nicht gleich `false` ist, rufen Sie [`SourceBuffer.abort()`](/de/docs/Web/API/SourceBuffer/abort) auf.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ remove(start, end)
 ### Parameter
 
 - `start`
-  - : Ein Double, das den Anfang des Zeitbereichs in Sekunden darstellt.
+  - : Ein Double, das den Beginn des Zeitbereichs in Sekunden darstellt.
 - `end`
   - : Ein Double, das das Ende des Zeitbereichs in Sekunden darstellt.
 
@@ -29,12 +29,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidAccessError` {{domxref("DOMException")}}
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird ausgelöst, wenn entweder die {{domxref("MediaSource.duration")}}-Eigenschaft `NaN` ist, der `start`-Parameter negativ oder größer als {{domxref("MediaSource.duration")}} ist, oder der `end`-Parameter kleiner oder gleich `start` oder gleich `NaN` ist.
+  - : Wird ausgelöst, wenn entweder die Eigenschaft [`MediaSource.duration`](/de/docs/Web/API/MediaSource/duration) gleich `NaN` ist, der `start`-Parameter negativ oder größer als [`MediaSource.duration`](/de/docs/Web/API/MediaSource/duration) ist, oder der `end`-Parameter kleiner oder gleich `start` oder gleich `NaN` ist.
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die {{domxref("SourceBuffer.updating")}}-Eigenschaft gleich `true` ist oder dieser `SourceBuffer` aus der {{domxref("MediaSource")}} entfernt wurde.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Eigenschaft [`SourceBuffer.updating`](/de/docs/Web/API/SourceBuffer/updating) gleich `true` ist oder dieser `SourceBuffer` aus [`MediaSource`](/de/docs/Web/API/MediaSource) entfernt wurde.
 
 ## Beispiele
 
@@ -50,5 +50,5 @@ TBD.
 
 ## Siehe auch
 
-- {{domxref("MediaSource")}}
-- {{domxref("SourceBufferList")}}
+- [`MediaSource`](/de/docs/Web/API/MediaSource)
+- [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)

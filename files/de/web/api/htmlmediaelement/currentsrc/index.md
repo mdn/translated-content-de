@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: currentSrc Eigenschaft"
+title: "HTMLMediaElement: currentSrc-Eigenschaft"
 short-title: currentSrc
 slug: Web/API/HTMLMediaElement/currentSrc
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.currentSrc`** Eigenschaft enthält die absolute URL der ausgewählten Medienressource. Dies kann beispielsweise der Fall sein, wenn der Webserver eine Mediendatei basierend auf der Auflösung des Displays des Benutzers auswählt. Der Wert ist ein leerer String, wenn die `networkState`-Eigenschaft `EMPTY` ist.
+Die **`HTMLMediaElement.currentSrc`**-Eigenschaft enthält die absolute URL der ausgewählten Medienressource. Dies könnte beispielsweise der Fall sein, wenn der Webserver eine Mediendatei basierend auf der Auflösung des Benutzerbildschirms auswählt. Der Wert ist ein leerer String, wenn die Eigenschaft `networkState` `EMPTY` ist.
 
 ## Wert
 
-Ein String, der die absolute URL der ausgewählten Medienquelle enthält; dieser kann ein leerer String sein, wenn `networkState` `EMPTY` ist; andernfalls wird es eine der Ressourcen sein, die durch das innerhalb des Medienelements enthaltene {{domxref("HTMLSourceElement")}} aufgelistet sind, oder der Wert von src, wenn kein {{HTMLElement("source")}}-Element bereitgestellt wird.
+Ein String, der die absolute URL der ausgewählten Medienquelle enthält; dies kann ein leerer String sein, wenn `networkState` `EMPTY` ist; andernfalls wird es eine der von dem innerhalb des Medienelements enthaltenen [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement) gelisteten Ressourcen sein, oder der Wert von src, wenn kein {{HTMLElement("source")}}-Element bereitgestellt wird.
 
 ## Beispiele
 
@@ -31,4 +31,4 @@ console.log(obj.currentSrc); // ""
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement")}}: Schnittstelle zur Definition der `HTMLMediaElement.currentSrc` Eigenschaft
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle zur Definition der `HTMLMediaElement.currentSrc`-Eigenschaft

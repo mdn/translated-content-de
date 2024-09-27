@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die **`console.count()`** statische Methode protokolliert die Anzahl der Male, die dieser spezielle Aufruf von `count()` aufgerufen wurde.
+Die statische Methode **`console.count()`** protokolliert die Anzahl der Aufrufe dieser speziellen `count()`-Methode.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ count(label)
 ### Parameter
 
 - `label` {{Optional_Inline}}
-  - : Ein String. Wenn angegeben, gibt `count()` die Anzahl der Male aus, wie oft es mit diesem Label aufgerufen wurde. Wenn es weggelassen wird, verhält sich `count()`, als ob es mit dem Label "default" aufgerufen wurde.
+  - : Ein String. Wenn angegeben, gibt `count()` die Anzahl der Aufrufe mit diesem Label aus. Wenn weggelassen, verhält sich `count()`, als ob es mit dem Label "default" aufgerufen worden wäre.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Zum Beispiel, bei folgendem Code:
+Zum Beispiel, gegebenenfalls Code wie dieser:
 
 ```js
 function greet(user) {
@@ -53,7 +53,7 @@ Die Konsolenausgabe wird ungefähr so aussehen:
 
 Das Label wird als `default` angezeigt, da kein explizites Label angegeben wurde.
 
-Wenn wir die Variable `user` als das `label` Argument an den ersten Aufruf von `console.count()` übergeben und die Zeichenkette "alice" an den zweiten:
+Wenn wir die `user`-Variable als `label`-Argument beim ersten Aufruf von `console.count()` übergeben und den String "alice" beim zweiten:
 
 ```js
 function greet(user) {
@@ -67,7 +67,7 @@ greet("alice");
 console.count("alice");
 ```
 
-Wir werden eine Ausgabe wie diese sehen:
+erhalten wir eine Ausgabe wie diese:
 
 ```plain
 "bob: 1"
@@ -76,7 +76,7 @@ Wir werden eine Ausgabe wie diese sehen:
 "alice: 3"
 ```
 
-Wir behalten nun separate Zählungen basierend nur auf dem Wert von `label` bei.
+Wir führen jetzt separate Zählungen basierend nur auf dem Wert von `label`.
 
 ## Spezifikationen
 
@@ -88,6 +88,6 @@ Wir behalten nun separate Zählungen basierend nur auf dem Wert von `label` bei.
 
 ## Siehe auch
 
-- [Microsoft Edges Dokumentation für `console.count()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#count)
-- [Node.JS Dokumentation für `console.count()`](https://nodejs.org/docs/latest/api/console.html#consolecountlabel)
-- [Google Chromes Dokumentation für `console.count()`](https://developer.chrome.com/docs/devtools/console/api/#count)
+- [Dokumentation von Microsoft Edge für `console.count()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#count)
+- [Node.JS-Dokumentation für `console.count()`](https://nodejs.org/docs/latest/api/console.html#consolecountlabel)
+- [Dokumentation von Google Chrome für `console.count()`](https://developer.chrome.com/docs/devtools/console/api/#count)

@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "doppeltes formales Argument x" oder "doppelte Argumentnamen sind in diesem Kontext nicht erlaubt" tritt auf, wenn eine Funktion zwei oder mehr Parameter {{Glossary("binding", "Bindungen")}} mit demselben Namen erstellt, und die Funktion ist keine [nicht-strikte](/de/docs/Web/JavaScript/Reference/Strict_mode) Funktion mit nur einfachen Parametern.
+Die JavaScript-Ausnahme "duplicate formal argument x" oder "duplicate argument names not allowed in this context" tritt auf, wenn eine Funktion zwei oder mehr Parameter[bindings](/de/docs/Glossary/binding) mit demselben Namen erstellt und die Funktion keine [non-strict](/de/docs/Web/JavaScript/Reference/Strict_mode) Funktion mit nur einfachen Parametern ist.
 
-## Nachricht
+## Meldung
 
 ```plain
 SyntaxError: Duplicate parameter name not allowed in this context (V8-based)
@@ -21,13 +21,13 @@ SyntaxError: Duplicate parameter 'x' not allowed in function with a rest paramet
 SyntaxError: Duplicate parameter 'x' not allowed in function with destructuring parameters. (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Zwei formale Parameter mit demselben Namen zu haben, ist wahrscheinlich ein Fehler — das zweite Vorkommen würde dazu führen, dass das erste Vorkommen über den Parameternamen nicht erreichbar ist. In altem JavaScript war dies erlaubt. Daher ist dies nur dann ein Fehler, wenn der Code garantiert nicht älteren Ursprungs ist — entweder weil er im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) ist oder moderne Parametersyntax verwendet ([rest](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [default](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) oder [destructured](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) Parameter).
+Zwei formale Parameter mit demselben Namen zu haben, ist wahrscheinlich ein Fehler - das zweite Vorkommen würde das erste Vorkommen über den Parameternamen unzugänglich machen. In älterem JavaScript war dies erlaubt. Um bestehenden Code nicht zu brechen, ist dies nur ein Fehler, wenn der Code garantiert nicht alt ist - entweder weil er sich im [strict mode](/de/docs/Web/JavaScript/Reference/Strict_mode) befindet oder moderne Parametersyntax verwendet ([rest](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters), [default](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters) oder [destructured](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) Parameter).
 
 ## Beispiele
 
@@ -37,14 +37,14 @@ Zwei formale Parameter mit demselben Namen zu haben, ist wahrscheinlich ein Fehl
 "use strict";
 
 function add(x, x) {
-  // Wie können Sie auf beide "x"-Parameter zugreifen?
+  // How can you access both "x" parameters?
   // SyntaxError: duplicate formal argument x
 }
 ```
 
 ```js-nolint example-bad
 function doSomething(name, { name }) {
-  // Wie können Sie auf beide "name"-Parameter zugreifen?
+  // How can you access both "name" parameters?
   // SyntaxError: duplicate argument names not allowed in this context
 }
 ```
@@ -53,11 +53,11 @@ function doSomething(name, { name }) {
 
 ```js example-good
 function doSomething(operationName, { name: userName }) {
-  // Sie können sowohl auf "operationName" als auch auf "userName"-Parameter zugreifen.
+  // You can access both "operationName" and "userName" parameters.
 }
 
 function doSomething(name, user) {
-  // Sie können sowohl auf "name" als auch auf "user.name"-Parameter zugreifen.
+  // You can access both "name" and "user.name" parameters.
 }
 ```
 

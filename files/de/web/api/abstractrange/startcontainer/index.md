@@ -1,5 +1,5 @@
 ---
-title: "AbstractRange: startContainer-Eigenschaft"
+title: "AbstractRange: Eigenschaft startContainer"
 short-title: startContainer
 slug: Web/API/AbstractRange/startContainer
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`startContainer`**-Eigenschaft der {{domxref("AbstractRange")}}-Schnittstelle gibt den Start-{{domxref("Node")}} für den Bereich zurück.
+Die schreibgeschützte Eigenschaft **`startContainer`** der [`AbstractRange`](/de/docs/Web/API/AbstractRange)-Schnittstelle gibt das Start-[`Node`](/de/docs/Web/API/Node) für den Bereich zurück.
 
 ## Wert
 
-Der {{domxref("Node")}}, in dem sich die Startposition des Bereichs befindet.
+Das [`Node`](/de/docs/Web/API/Node), in dem sich die Startposition des Bereichs befindet.
 
 ## Beispiel
 

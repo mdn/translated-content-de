@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`setBigInt64()`** Methode von {{jsxref("DataView")}} Instanzen nimmt ein BigInt und speichert es als 64-Bit-Ganzzahl in den 8 Bytes, beginnend bei dem angegebenen Byte-Offset dieses `DataView`. Es gibt keine Ausrichtungsbeschränkung; Mehrbyte-Werte können an jedem innerhalb der Grenzen liegenden Offset gespeichert werden.
+Die Methode **`setBigInt64()`** von {{jsxref("DataView")}} Instanzen nimmt ein BigInt und speichert es als 64-Bit-Ganzzahl mit Vorzeichen in den 8 Bytes, beginnend am angegebenen Byte-Offset dieser `DataView`. Es gibt keine Ausrichtungsbeschränkung; mehrbyteige Werte können an jedem Offset innerhalb der Grenzen gespeichert werden.
 
 {{EmbedInteractiveExample("pages/js/dataview-setbigint64.html")}}
 
@@ -21,11 +21,11 @@ setBigInt64(byteOffset, value, littleEndian)
 ### Parameter
 
 - `byteOffset`
-  - : Der Offset in Bytes vom Beginn der Ansicht, um die Daten zu speichern.
+  - : Der Offset in Bytes vom Beginn der Ansicht, um die Daten darin zu speichern.
 - `value`
-  - : Der Wert, der als {{jsxref("BigInt")}} gesetzt werden soll. Informationen zur Kodierung des Werts in Bytes finden Sie unter [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
+  - : Der Wert, der als {{jsxref("BigInt")}} gesetzt werden soll. Wie der Wert in Bytes kodiert wird, finden Sie unter [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness) Format gespeichert werden. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
+  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness) Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
 
 ### Rückgabewert
 
@@ -34,7 +34,7 @@ setBigInt64(byteOffset, value, littleEndian)
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt wird, dass er über das Ende der Ansicht hinaus speichert.
+  - : Wird ausgelöst, wenn der `byteOffset` so gesetzt ist, dass er über das Ende der Ansicht hinaus speichern würde.
 
 ## Beispiele
 

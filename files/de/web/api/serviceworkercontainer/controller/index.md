@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`controller`** Schreibgeschützte Eigenschaft des {{domxref("ServiceWorkerContainer")}}-Interfaces gibt ein {{domxref("ServiceWorker")}}-Objekt zurück, wenn dessen Zustand `activating` oder `activated` ist (das gleiche Objekt, das von {{domxref("ServiceWorkerRegistration.active")}} zurückgegeben wird). Diese Eigenschaft gibt `null` zurück, wenn die Anfrage ein erzwungener Refresh (_Shift_ + Refresh) ist oder wenn kein aktiver Worker vorhanden ist.
+Die schreibgeschützte **`controller`**-Eigenschaft des [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer)-Interfaces gibt ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt zurück, wenn dessen Status `activating` oder `activated` ist (dasselbe Objekt, das von [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) zurückgegeben wird). Diese Eigenschaft gibt `null` zurück, wenn die Anfrage eine erzwungene Aktualisierung ist (_Shift_ + Aktualisieren) oder wenn kein aktiver Worker vorhanden ist.
 
 ## Wert
 
-Ein {{domxref("ServiceWorker")}}-Objekt.
+Ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt.
 
 ## Beispiele
 
 ```js
 if ("serviceWorker" in navigator) {
-  // Führen Sie eine einmalige Überprüfung durch, um festzustellen, ob ein Service Worker die Kontrolle hat.
+  // Do a one-off check to see if a service worker's in control.
   if (navigator.serviceWorker.controller) {
     console.log(
-      `Diese Seite wird derzeit kontrolliert von: ${navigator.serviceWorker.controller}`,
+      `This page is currently controlled by: ${navigator.serviceWorker.controller}`,
     );
   } else {
-    console.log("Diese Seite wird derzeit nicht von einem Service Worker kontrolliert.");
+    console.log("This page is not currently controlled by a service worker.");
   }
 } else {
-  console.log("Service Worker werden nicht unterstützt.");
+  console.log("Service workers are not supported.");
 }
 ```
 

@@ -7,29 +7,29 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`TrustedTypePolicy`**-Schnittstelle der {{domxref("Trusted Types API", "", "", "nocode")}} definiert eine Gruppe von Funktionen, die `TrustedType`-Objekte erstellen.
+Die **`TrustedTypePolicy`**-Schnittstelle der [Trusted Types API](/de/docs/Web/API/Trusted_Types_API) definiert eine Gruppe von Funktionen, die `TrustedType`-Objekte erstellen.
 
-Ein `TrustedTypePolicy`-Objekt wird durch {{domxref("TrustedTypePolicyFactory.createPolicy","TrustedTypePolicyFactory.createPolicy()")}} erstellt, um eine Richtlinie zur Durchsetzung von Sicherheitsregeln für Eingaben zu definieren. Daher hat `TrustedTypePolicy` keinen Konstruktor.
+Ein `TrustedTypePolicy`-Objekt wird von [`TrustedTypePolicyFactory.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) erstellt, um eine Richtlinie zur Durchsetzung von Sicherheitsregeln für Eingaben zu definieren. Daher hat `TrustedTypePolicy` keinen Konstruktor.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("TrustedTypePolicy.name")}} {{ReadOnlyInline}}
+- [`TrustedTypePolicy.name`](/de/docs/Web/API/TrustedTypePolicy/name) {{ReadOnlyInline}}
   - : Ein String, der den Namen der Richtlinie enthält.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{domxref("TrustedTypePolicy.createHTML","TrustedTypePolicy.createHTML()")}}
-  - : Erstellt ein {{domxref("TrustedHTML")}}-Objekt.
-- {{domxref("TrustedTypePolicy.createScript","TrustedTypePolicy.createScript()")}}
-  - : Erstellt ein {{domxref("TrustedScript")}}-Objekt.
-- {{domxref("TrustedTypePolicy.createScriptURL","TrustedTypePolicy.createScriptURL()")}}
-  - : Erstellt ein {{domxref("TrustedScriptURL")}}-Objekt.
+- [`TrustedTypePolicy.createHTML()`](/de/docs/Web/API/TrustedTypePolicy/createHTML)
+  - : Erstellt ein [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekt.
+- [`TrustedTypePolicy.createScript()`](/de/docs/Web/API/TrustedTypePolicy/createScript)
+  - : Erstellt ein [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Objekt.
+- [`TrustedTypePolicy.createScriptURL()`](/de/docs/Web/API/TrustedTypePolicy/createScriptURL)
+  - : Erstellt ein [`TrustedScriptURL`](/de/docs/Web/API/TrustedScriptURL)-Objekt.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine Richtlinie, die {{domxref("TrustedHTML")}}-Objekte mithilfe von {{domxref("TrustedTypePolicyFactory.createPolicy()")}} erstellt. Wir können dann {{domxref("TrustedTypePolicy.createHTML")}} verwenden, um einen bereinigten HTML-String zu erstellen, der in das Dokument eingefügt werden soll.
+Im folgenden Beispiel erstellen wir eine Richtlinie, die [`TrustedHTML`](/de/docs/Web/API/TrustedHTML)-Objekte mithilfe von [`TrustedTypePolicyFactory.createPolicy()`](/de/docs/Web/API/TrustedTypePolicyFactory/createPolicy) erstellt. Wir können dann [`TrustedTypePolicy.createHTML`](/de/docs/Web/API/TrustedTypePolicy/createHTML) verwenden, um einen bereinigten HTML-String zu erstellen, der in das Dokument eingefügt wird.
 
-Der bereinigte Wert kann dann mit {{domxref("Element.innerHTML")}} verwendet werden, um sicherzustellen, dass keine neuen HTML-Elemente eingefügt werden können.
+Der bereinigte Wert kann dann mit [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) verwendet werden, um sicherzustellen, dass keine neuen HTML-Elemente eingefügt werden können.
 
 ```html
 <div id="myDiv"></div>

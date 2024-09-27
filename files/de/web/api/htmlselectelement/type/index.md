@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLSelectElement.type`** Leseeigenschaft gibt den `type` des Formularsteuerungselements zurück.
+Die **`HTMLSelectElement.type`** schreibgeschützte Eigenschaft gibt den `type` des Formularsteuerelements zurück.
 
 ## Wert
 
@@ -22,13 +22,13 @@ Einer der folgenden:
 ```js
 switch (select.type) {
   case "select-multiple":
-    // Mehrere Werte können ausgewählt werden
+    // Multiple values may be selected
     break;
   case "select-one":
-    // Nur ein Wert kann ausgewählt werden
+    // Only one value may be selected
     break;
   default:
-  // Nicht-standardmäßiger Wert (oder dies ist kein SELECT-Element)
+  // Non-standard value (or this isn't a SELECT element)
 }
 ```
 

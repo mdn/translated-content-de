@@ -8,12 +8,12 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`getElementById()`** Methode des {{domxref("Document")}}-Interfaces gibt ein {{domxref("Element")}}-Objekt zurück, das das Element repräsentiert, dessen {{domxref("Element.id", "id")}}-Eigenschaft mit dem angegebenen String übereinstimmt. Da Element-IDs, wenn sie angegeben sind, eindeutig sein müssen, sind sie eine nützliche Möglichkeit, schnell Zugriff auf ein bestimmtes Element zu erhalten.
+Die **`getElementById()`** Methode der [`Document`](/de/docs/Web/API/Document) Schnittstelle gibt ein [`Element`](/de/docs/Web/API/Element) Objekt zurück, das das Element repräsentiert, dessen [`id`](/de/docs/Web/API/Element/id) Eigenschaft mit dem angegebenen String übereinstimmt. Da Element-IDs einzigartig sein müssen, sofern sie angegeben sind, sind sie ein nützliches Mittel, um schnell auf ein spezifisches Element zuzugreifen.
 
-Wenn Sie auf ein Element zugreifen müssen, das keine ID hat, können Sie {{domxref("Document.querySelector", "querySelector()")}} verwenden, um das Element mit einem beliebigen {{Glossary("CSS selector", "Selector")}} zu finden.
+Wenn Sie auf ein Element zugreifen müssen, das keine ID hat, können Sie [`querySelector()`](/de/docs/Web/API/Document/querySelector) verwenden, um das Element mithilfe eines beliebigen [Selectors](/de/docs/Glossary/CSS_selector) zu finden.
 
 > [!NOTE]
-> IDs sollten innerhalb eines Dokuments eindeutig sein. Wenn zwei oder mehr Elemente in einem Dokument dieselbe ID haben, gibt diese Methode das erste gefundene Element zurück.
+> IDs sollten innerhalb eines Dokuments einzigartig sein. Wenn zwei oder mehr Elemente in einem Dokument dieselbe ID haben, gibt diese Methode das erste gefundene Element zurück.
 
 ## Syntax
 
@@ -22,16 +22,16 @@ getElementById(id)
 ```
 
 > [!NOTE]
-> Die Groß- und Kleinschreibung von `"Id"` im Namen dieser Methode _muss_ korrekt sein, damit der Code funktioniert; `getElementByID()` ist _nicht_ gültig und wird nicht funktionieren, egal wie natürlich es erscheinen mag.
+> Die Großschreibung von `"Id"` im Namen dieser Methode _muss_ korrekt sein, damit der Code funktioniert; `getElementByID()` ist _nicht_ gültig und wird nicht funktionieren, so natürlich es auch erscheinen mag.
 
 ### Parameter
 
 - `id`
-  - : Die ID des zu lokalisierenden Elements. Die ID ist ein groß- und kleinsensitiver String, der innerhalb des Dokuments einzigartig ist; nur ein Element sollte eine gegebene ID haben.
+  - : Die ID des zu lokalisierenden Elements. Die ID ist ein unterscheidungssensitiver String, der innerhalb des Dokuments einzigartig ist; nur ein Element sollte eine gegebene ID haben.
 
 ### Rückgabewert
 
-Ein {{domxref("Element")}}-Objekt, das das DOM-Elementobjekt beschreibt, das mit der angegebenen ID übereinstimmt, oder `null`, wenn kein übereinstimmendes Element im Dokument gefunden wurde.
+Ein [`Element`](/de/docs/Web/API/Element) Objekt, das das DOM-Elementobjekt beschreibt, das mit der angegebenen ID übereinstimmt, oder `null`, wenn kein passendes Element im Dokument gefunden wurde.
 
 ## Beispiele
 
@@ -63,9 +63,9 @@ function changeColor(newColor) {
 
 {{ EmbedLiveSample('Examples', 250, 120) }}
 
-## Hinweise zur Verwendung
+## Nutzungshinweise
 
-Im Gegensatz zu einigen anderen Methoden zur Suche nach Elementen wie {{domxref("Document.querySelector()")}} und {{domxref("Document.querySelectorAll()")}} ist `getElementById()` nur als Methode des globalen `document`-Objekts verfügbar und _nicht_ als Methode auf allen Elementobjekten im DOM verfügbar. Da ID-Werte im gesamten Dokument einzigartig sein müssen, gibt es keinen Bedarf für "lokale" Versionen der Funktion.
+Im Gegensatz zu einigen anderen Methoden zur Element-Suche, wie [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) und [`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll), ist `getElementById()` nur als Methode des globalen `document` Objekts verfügbar und _nicht_ als Methode auf allen Element-Objekten im DOM verfügbar. Da ID-Werte im gesamten Dokument einzigartig sein müssen, besteht keine Notwendigkeit für "lokale" Versionen der Funktion.
 
 ### Beispiel
 
@@ -93,28 +93,28 @@ Im Gegensatz zu einigen anderen Methoden zur Suche nach Elementen wie {{domxref(
 </html>
 ```
 
-Wenn es kein Element mit der angegebenen `id` gibt, gibt diese Funktion `null` zurück. Beachten Sie, dass der `id`-Parameter groß- und kleinsensitiv ist, sodass `document.getElementById("Main")` `null` zurückgeben wird, statt das Element `<div id="main">`, weil "M" und "m" für die Zwecke dieser Methode unterschiedlich sind.
+Wenn kein Element mit der gegebenen `id` vorhanden ist, gibt diese Funktion `null` zurück. Beachten Sie, dass der `id`-Parameter unterscheidungssensitiv ist, sodass `document.getElementById("Main")` `null` zurückgeben wird, anstatt das Element `<div id="main">`, da "M" und "m" für die Zwecke dieser Methode verschieden sind.
 
-Elemente, die sich nicht im Dokument befinden, werden von `getElementById()` nicht durchsucht. Beim Erstellen eines Elements und Zuweisen einer ID müssen Sie das Element mit {{domxref("Node.insertBefore()")}} oder einer ähnlichen Methode in den Dokumentbaum einfügen, bevor Sie mit `getElementById()` darauf zugreifen können:
+Elemente, die sich nicht im Dokument befinden, werden von `getElementById()` nicht durchsucht. Wenn Sie ein Element erstellen und ihm eine ID zuweisen, müssen Sie das Element mit [`Node.insertBefore()`](/de/docs/Web/API/Node/insertBefore) oder einer ähnlichen Methode in den Dokumentenbaum einfügen, bevor Sie über `getElementById()` darauf zugreifen können:
 
 ```js
 const element = document.createElement("div");
 element.id = "testqq";
-const el = document.getElementById("testqq"); // el wird null sein!
+const el = document.getElementById("testqq"); // el will be null!
 ```
 
-In Nicht-HTML-Dokumenten muss die DOM-Implementierung Informationen darüber haben, welche Attribute vom Typ ID sind. Attribute mit dem Namen "id" sind nicht vom Typ ID, es sei denn, sie sind im DTD des Dokuments so definiert. Das `id`-Attribut ist in den üblichen Fällen von [XHTML](/de/docs/Glossary/XHTML), XUL und anderen als ID-Typ definiert. Implementierungen, die nicht wissen, ob Attribute vom Typ ID sind oder nicht, sollten `null` zurückgeben.
+In Nicht-HTML-Dokumenten muss die DOM-Implementierung Informationen darüber haben, welche Attribute vom Typ ID sind. Attribute mit dem Namen "id" sind nicht vom Typ ID, es sei denn, sie sind in der DTD des Dokuments so definiert. Das `id`-Attribut ist in den üblichen Fällen von [XHTML](/de/docs/Glossary/XHTML), XUL und anderen als ID-Typ definiert. Implementierungen, die nicht wissen, ob Attribute vom Typ ID sind oder nicht, sollten `null` zurückgeben.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Document")}} Referenz für andere Methoden und Eigenschaften, die Sie verwenden können, um Referenzen zu Elementen im Dokument zu erhalten.
-- {{domxref("Document.querySelector()")}} für Selektoren über Abfragen wie `'div.myclass'`
-- {{domxref("Document.evaluate()")}} - hat eine Hilfsmethode zur Auswahl nach `xml:id` in {{glossary("XML")}} Dokumenten
+- [`Document`](/de/docs/Web/API/Document) Referenz für andere Methoden und Eigenschaften, die Sie verwenden können, um Referenzen auf Elemente im Dokument zu erhalten.
+- [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) für Selektoren über Abfragen wie `'div.myclass'`
+- [`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) - hat eine Hilfsmethode zum Auswählen nach `xml:id` in [XML](/de/docs/Glossary/XML) Dokumenten

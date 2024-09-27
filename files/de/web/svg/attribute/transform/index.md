@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das **`transform`** Attribut definiert eine Liste von Transformationsdefinitionen, die auf ein Element und die Kinder des Elements angewendet werden.
+Das Attribut **`transform`** definiert eine Liste von Transformationsdefinitionen, die auf ein Element und dessen Kinder angewendet werden.
 
 > [!NOTE]
-> Seit SVG2 ist `transform` ein Präsentationsattribut, was bedeutet, dass es als CSS-Eigenschaft verwendet werden kann. Beachten Sie jedoch, dass es einige Unterschiede in der Syntax zwischen der CSS-Eigenschaft und dem Attribut gibt. Sehen Sie die Dokumentation für die CSS-Eigenschaft {{cssxref('transform')}} für die spezifische Syntax, die in diesem Fall zu verwenden ist.
+> Ab SVG2 ist `transform` ein Präsentationsattribut, das bedeutet, es kann als CSS-Eigenschaft verwendet werden. Beachten Sie jedoch, dass es einige Unterschiede in der Syntax zwischen der CSS-Eigenschaft und dem Attribut gibt. Siehe die Dokumentation zur CSS-Eigenschaft {{cssxref('transform')}} für die spezifische Syntax in diesem Fall.
 
 Sie können dieses Attribut mit jedem SVG-Element verwenden.
 
@@ -46,9 +46,9 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 200)}}
 
-In SVG 1.1 durften nur diese 16 Elemente es verwenden: {{SVGElement('a')}}, {{SVGElement('circle')}}, {{SVGElement('clipPath')}}, {{SVGElement('defs')}}, {{SVGElement('ellipse')}}, {{SVGElement('foreignObject')}}, {{SVGElement('g')}}, {{SVGElement('image')}}, {{SVGElement('line')}}, {{SVGElement('path')}}, {{SVGElement('polygon')}}, {{SVGElement('polyline')}}, {{SVGElement('rect')}}, {{SVGElement('switch')}}, {{SVGElement('text')}} und {{SVGElement('use')}}.
+In SVG 1.1 durften nur diese 16 Elemente es verwenden: {{SVGElement('a')}}, {{SVGElement('circle')}}, {{SVGElement('clipPath')}}, {{SVGElement('defs')}}, {{SVGElement('ellipse')}}, {{SVGElement('foreignObject')}}, {{SVGElement('g')}}, {{SVGElement('image')}}, {{SVGElement('line')}}, {{SVGElement('path')}}, {{SVGElement('polygon')}}, {{SVGElement('polyline')}}, {{SVGElement('rect')}}, {{SVGElement('switch')}}, {{SVGElement('text')}}, und {{SVGElement('use')}}.
 
-Auch als ein Erbe von SVG 1.1 unterstützen {{SVGElement('linearGradient')}} und {{SVGElement('radialGradient')}} das `gradientTransform` Attribut, und {{SVGElement('pattern')}} unterstützt das `patternTransform` Attribut, die beide genauso wie das `transform` Attribut wirken.
+Auch als ein Erbe von SVG 1.1 unterstützen {{SVGElement('linearGradient')}} und {{SVGElement('radialGradient')}} das Attribut `gradientTransform`, und {{SVGElement('pattern')}} unterstützt das Attribut `patternTransform`, die beide genau wie das Attribut `transform` wirken.
 
 <table class="properties">
   <tbody>
@@ -75,14 +75,14 @@ Auch als ein Erbe von SVG 1.1 unterstützen {{SVGElement('linearGradient')}} und
 
 ## Transformationsfunktionen
 
-Die folgenden Transformationsfunktionen können vom `transform` Attribut `<transform-list>` verwendet werden.
+Die folgenden Transformationsfunktionen können durch das `transform`-Attribut `<transform-list>` verwendet werden.
 
 > [!WARNING]
-> Laut der Spezifikation sollten Sie auch CSS [Transformationsfunktionen](/de/docs/Web/CSS/transform-function) verwenden können. Die Kompatibilität ist jedoch nicht garantiert.
+> Laut Spezifikation sollten Sie auch CSS [transform-Funktionen](/de/docs/Web/CSS/transform-function) verwenden können. Die Kompatibilität ist jedoch nicht garantiert.
 
 ### Matrix
 
-Die `matrix(<a> <b> <c> <d> <e> <f>)` Transformationsfunktion spezifiziert eine Transformation in Form einer Transformationsmatrix von sechs Werten. `matrix(a,b,c,d,e,f)` entspricht der Anwendung der Transformationsmatrix:
+Die Funktion `matrix(<a> <b> <c> <d> <e> <f>)` spezifiziert eine Transformation in Form einer Transformationsmatrix von sechs Werten. `matrix(a,b,c,d,e,f)` entspricht der Anwendung der Transformationsmatrix:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -90,7 +90,7 @@ Die `matrix(<a> <b> <c> <d> <e> <f>)` Transformationsfunktion spezifiziert eine 
 </math>
 <!-- prettier-ignore-end -->
 
-Diese ordnet Koordinaten von einem vorherigen Koordinatensystem in ein neues Koordinatensystem durch folgende Matrixgleichungen:
+Die Koordinaten werden von einem vorherigen Koordinatensystem in ein neues Koordinatensystem anhand der folgenden Matrixgleichungen überführt:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -113,26 +113,26 @@ svg {
   <rect x="10" y="10" width="30" height="20" fill="green" />
 
   <!--
-  Im folgenden Beispiel wenden wir die Matrix an:
+  In the following example we are applying the matrix:
   [a c e]    [3 -1 30]
   [b d f] => [1  3 40]
   [0 0 1]    [0  0  1]
 
-  die das Rechteck wie folgt transformiert:
+  which transform the rectangle as such:
 
-  obere linke Ecke: oldX=10 oldY=10
+  top left corner: oldX=10 oldY=10
   newX = a * oldX + c * oldY + e = 3 * 10 - 1 * 10 + 30 = 50
   newY = b * oldX + d * oldY + f = 1 * 10 + 3 * 10 + 40 = 80
 
-  obere rechte Ecke: oldX=40 oldY=10
+  top right corner: oldX=40 oldY=10
   newX = a * oldX + c * oldY + e = 3 * 40 - 1 * 10 + 30 = 140
   newY = b * oldX + d * oldY + f = 1 * 40 + 3 * 10 + 40 = 110
 
-  untere linke Ecke: oldX=10 oldY=30
+  bottom left corner: oldX=10 oldY=30
   newX = a * oldX + c * oldY + e = 3 * 10 - 1 * 30 + 30 = 30
   newY = b * oldX + d * oldY + f = 1 * 10 + 3 * 30 + 40 = 140
 
-  untere rechte Ecke: oldX=40 oldY=30
+  bottom right corner: oldX=40 oldY=30
   newX = a * oldX + c * oldY + e = 3 * 40 - 1 * 30 + 30 = 120
   newY = b * oldX + d * oldY + f = 1 * 40 + 3 * 30 + 40 = 170
   -->
@@ -150,13 +150,13 @@ svg {
 
 ### Translate
 
-Die `translate(<x> [<y>])` Transformationsfunktion verschiebt das Objekt um `x` und `y`. Wenn `y` nicht angegeben wird, wird angenommen, dass es `0` ist.
+Die Funktion `translate(<x> [<y>])` bewegt das Objekt um `x` und `y`. Wenn `y` nicht angegeben wird, wird angenommen, dass es `0` ist.
 
-Anders ausgedrückt:
+Anders gesagt:
 
 ```plain
-xneu = xalt + <x>
-yneu = yalt + <y>
+xnew = xold + <x>
+ynew = yold + <y>
 ```
 
 #### Beispiel
@@ -171,10 +171,10 @@ svg {
 
 ```html
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Keine Translation -->
+  <!-- No translation -->
   <rect x="5" y="5" width="40" height="40" fill="green" />
 
-  <!-- Horizontale Translation -->
+  <!-- Horizontal translation -->
   <rect
     x="5"
     y="5"
@@ -183,7 +183,7 @@ svg {
     fill="blue"
     transform="translate(50)" />
 
-  <!-- Vertikale Translation -->
+  <!-- Vertical translation -->
   <rect
     x="5"
     y="5"
@@ -192,7 +192,7 @@ svg {
     fill="red"
     transform="translate(0 50)" />
 
-  <!-- Sowohl horizontale als auch vertikale Translation -->
+  <!-- Both horizontal and vertical translation -->
   <rect
     x="5"
     y="5"
@@ -207,7 +207,7 @@ svg {
 
 ### Scale
 
-Die `scale(<x> [<y>])` Transformationsfunktion spezifiziert eine Skalierungsoperation um `x` und `y`. Wenn `y` nicht angegeben wird, wird angenommen, dass es gleich `x` ist.
+Die Funktion `scale(<x> [<y>])` spezifiziert eine Skalierungsoperation um `x` und `y`. Wenn `y` nicht angegeben wird, wird angenommen, dass es gleich `x` ist.
 
 #### Beispiel
 
@@ -221,16 +221,16 @@ svg {
 
 ```html
 <svg viewBox="-50 -50 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- uniforme Skalierung -->
+  <!-- uniform scale -->
   <circle cx="0" cy="0" r="10" fill="red" transform="scale(4)" />
 
-  <!-- vertikale Skalierung -->
+  <!-- vertical scale -->
   <circle cx="0" cy="0" r="10" fill="yellow" transform="scale(1, 4)" />
 
-  <!-- horizontale Skalierung -->
+  <!-- horizontal scale -->
   <circle cx="0" cy="0" r="10" fill="pink" transform="scale(4, 1)" />
 
-  <!-- Keine Skalierung -->
+  <!-- No scale -->
   <circle cx="0" cy="0" r="10" fill="black" />
 </svg>
 ```
@@ -239,7 +239,7 @@ svg {
 
 ### Rotate
 
-Die `rotate(<a> [<x> <y>])` Transformationsfunktion spezifiziert eine Rotation um `a` Grad um einen gegebenen Punkt. Falls keine optionalen Parameter `x` und `y` angegeben werden, erfolgt die Rotation um den Ursprung des aktuellen Benutzerkoordinatensystems. Wenn optionale Parameter `x` und `y` angegeben werden, erfolgt die Rotation um den Punkt `(x, y)`.
+Die Funktion `rotate(<a> [<x> <y>])` spezifiziert eine Rotation um `a` Grad um einen gegebenen Punkt. Wenn die optionalen Parameter `x` und `y` nicht angegeben werden, erfolgt die Rotation um den Ursprung des aktuellen Benutzerkoordinatensystems. Wenn die optionalen Parameter `x` und `y` angegeben werden, erfolgt die Rotation um den Punkt `(x, y)`.
 
 #### Beispiel
 
@@ -255,10 +255,10 @@ svg {
 <svg viewBox="-12 -2 34 14" xmlns="http://www.w3.org/2000/svg">
   <rect x="0" y="0" width="10" height="10" />
 
-  <!-- Die Rotation wird um den Punkt 0,0 durchgeführt -->
+  <!-- rotation is done around the point 0,0 -->
   <rect x="0" y="0" width="10" height="10" fill="red" transform="rotate(100)" />
 
-  <!-- Die Rotation wird um den Punkt 10,10 durchgeführt -->
+  <!-- rotation is done around the point 10,10 -->
   <rect
     x="0"
     y="0"
@@ -273,7 +273,7 @@ svg {
 
 ### SkewX
 
-Die `skewX(<a>)` Transformationsfunktion spezifiziert eine Scherungstransformation entlang der x-Achse um `a` Grad.
+Die Funktion `skewX(<a>)` spezifiziert eine Schertransformation entlang der x-Achse um `a` Grad.
 
 #### Beispiel
 
@@ -297,7 +297,7 @@ svg {
 
 ### SkewY
 
-Die `skewY(<a>)` Transformationsfunktion spezifiziert eine Scherungstransformation entlang der y-Achse um `a` Grad.
+Die Funktion `skewY(<a>)` spezifiziert eine Schertransformation entlang der y-Achse um `a` Grad.
 
 #### Beispiel
 

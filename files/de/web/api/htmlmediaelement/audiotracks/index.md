@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: audioTracks-Eigenschaft"
+title: "HTMLMediaElement: audioTracks Eigenschaft"
 short-title: audioTracks
 slug: Web/API/HTMLMediaElement/audioTracks
 l10n:
@@ -8,26 +8,25 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`audioTracks`**
-Eigenschaft von {{domxref("HTMLMediaElement")}}-Objekten gibt ein {{domxref("AudioTrackList")}}-Objekt zurück, das alle {{domxref("AudioTrack")}}-Objekte auflistet, die die Audiotracks des Medienelements repräsentieren.
+Die schreibgeschützte **`audioTracks`**-Eigenschaft von [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekten gibt ein [`AudioTrackList`](/de/docs/Web/API/AudioTrackList)-Objekt zurück, das alle [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekte auflistet, die die Audio-Spuren des Media-Elements darstellen.
 
-Das Medienelement kann entweder ein {{HTMLElement("audio")}}-Element oder ein {{HTMLElement("video")}}-Element sein.
+Das Media-Element kann entweder ein {{HTMLElement("audio")}}-Element oder ein {{HTMLElement("video")}}-Element sein.
 
-Die zurückgegebene Liste ist _live_; das bedeutet, dass sich die Inhalte der Liste dynamisch ändern, wenn Tracks zu dem Medienelement hinzugefügt oder daraus entfernt werden. Sobald Sie eine Referenz zur Liste haben, können Sie diese überwachen, um Änderungen zu erkennen, wenn neue Audiotracks hinzugefügt oder bestehende entfernt werden. Siehe [AudioTrackList-Ereignisse](/de/docs/Web/API/AudioTrackList#events), um mehr darüber zu erfahren, wie Sie Änderungen an der Trackliste eines Medienelements überwachen können.
+Die zurückgegebene Liste ist _live_; das bedeutet, dass sich der Inhalt der Liste dynamisch ändert, sobald Spuren zum Media-Element hinzugefügt oder daraus entfernt werden. Sobald Sie eine Referenz zur Liste haben, können Sie sie überwachen, um festzustellen, wann neue Audio-Spuren hinzugefügt oder bestehende entfernt werden. Siehe [AudioTrackList Ereignisse](/de/docs/Web/API/AudioTrackList#events), um mehr darüber zu erfahren, wie man Änderungen an der Spur-Liste eines Media-Elements beobachtet.
 
 ## Wert
 
-Ein {{domxref("AudioTrackList")}}-Objekt, das die Liste der im Medienelement enthaltenen Audiotracks darstellt. Die Liste der Tracks kann mit Array-Notation oder mit der Methode {{domxref("AudioTrackList.getTrackById", "getTrackById()")}} des Objekts abgerufen werden.
+Ein [`AudioTrackList`](/de/docs/Web/API/AudioTrackList)-Objekt, das die Liste der im Media-Element enthaltenen Audio-Spuren darstellt. Die Liste der Spuren kann mit Array-Notation oder mit der [`getTrackById()`](/de/docs/Web/API/AudioTrackList/getTrackById)-Methode des Objekts abgerufen werden.
 
-Jeder Track wird durch ein {{domxref("AudioTrack")}}-Objekt dargestellt, das Informationen über den Track liefert.
+Jede Spur wird durch ein [`AudioTrack`](/de/docs/Web/API/AudioTrack)-Objekt dargestellt, das Informationen über die Spur bereitstellt.
 
 ## Beispiele
 
-In diesem Beispiel werden alle Audiotracks eines gegebenen Elements stummgeschaltet.
+In diesem Beispiel werden alle Audio-Spuren eines bestimmten Elements stummgeschaltet.
 
 ### HTML
 
-Das HTML stellt das Element selbst dar.
+Das HTML legt das Element selbst fest.
 
 ```html
 <video id="video" src="somevideo.mp4"></video>
@@ -35,7 +34,7 @@ Das HTML stellt das Element selbst dar.
 
 ### JavaScript
 
-Der JavaScript-Code kümmert sich um das Stummschalten der Audiotracks des Video-Elements.
+Der JavaScript-Code behandelt das Stummschalten der Audio-Spuren des Video-Elements.
 
 ```js
 const video = document.getElementById("video");
@@ -55,6 +54,6 @@ for (let i = 0; i < video.audioTracks.length; i += 1) {
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement")}}: Schnittstelle, die die `HTMLMediaElement.audioTracks`-Eigenschaft definiert
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle zur Definition der `HTMLMediaElement.audioTracks`-Eigenschaft
 - {{HTMLElement("audio")}}, {{HTMLElement("video")}}
-- {{domxref("AudioTrack")}}, {{domxref("AudioTrackList")}}
+- [`AudioTrack`](/de/docs/Web/API/AudioTrack), [`AudioTrackList`](/de/docs/Web/API/AudioTrackList)

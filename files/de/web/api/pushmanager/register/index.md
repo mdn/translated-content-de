@@ -1,5 +1,5 @@
 ---
-title: "PushManager: Methode register()"
+title: "PushManager: register()-Methode"
 short-title: register()
 slug: Web/API/PushManager/register
 l10n:
@@ -11,7 +11,7 @@ l10n:
 Die **`register`**-Methode wird verwendet, um das System zu bitten, einen neuen Endpunkt für Benachrichtigungen anzufordern.
 
 > [!NOTE]
-> Diese Methode wurde durch {{domxref("PushManager.subscribe()")}} ersetzt.
+> Diese Methode wurde durch [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe) ersetzt.
 
 ## Syntax
 
@@ -25,13 +25,12 @@ Keine.
 
 ### Rückgabewert
 
-Ein `DOMRequest`-Objekt zur Behandlung des Erfolgs oder Misserfolgs des Methodenaufrufs.
+Ein `DOMRequest`-Objekt zur Handhabung des Erfolgs oder Misserfolgs des Methodenaufrufs.
 
-Wenn der Methodenaufruf erfolgreich ist, wird das `result` der Anfrage ein String sein, der die Endpunkt-URL darstellt.
+Wenn der Methodenaufruf erfolgreich ist, wird das `result` der Anfrage eine Zeichenkette sein, die die Endpunkt-URL ist.
 
 > [!NOTE]
-> Wenn Sie die URL nicht mehr benötigen, nutzen Sie bitte
-> {{domxref("PushManager.unregister()")}} zur Bereinigung.
+> Wenn Sie die URL nicht mehr benötigen, verwenden Sie bitte [`PushManager.unregister()`](/de/docs/Web/API/PushManager/unregister), um aufzuräumen.
 
 ## Beispiele
 
@@ -58,4 +57,4 @@ Dieses Feature ist Teil keiner Spezifikation. Es ist nicht mehr auf dem Weg, ein
 
 ## Siehe auch
 
-- {{domxref("PushManager")}}
+- [`PushManager`](/de/docs/Web/API/PushManager)

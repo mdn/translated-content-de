@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`throw()`** Methode von Instanzen des {{jsxref("AsyncGenerator")}} agiert so, als ob an der aktuellen angehaltenen Position im Körper des Generators eine `throw`-Anweisung eingefügt wird. Dies informiert den Generator über eine Fehlersituation und ermöglicht es ihm, den Fehler zu behandeln oder eine Bereinigung durchzuführen und sich selbst zu schließen.
+Die **`throw()`** Methode von {{jsxref("AsyncGenerator")}} Instanzen wirkt, als ob eine `throw` Anweisung an der aktuellen angehaltenen Position im Körper des Generators eingefügt wird. Dies informiert den Generator über einen Fehlerzustand und ermöglicht es ihm, den Fehler zu behandeln oder Bereinigungen durchzuführen und sich selbst zu beenden.
 
 ## Syntax
 
@@ -18,30 +18,30 @@ asyncGeneratorInstance.throw(exception)
 ### Parameter
 
 - `exception`
-  - : Die zu werfende Ausnahme. Aus Debugging-Zwecken ist es nützlich, sie als `instanceof` von {{jsxref("Error")}} zu gestalten.
+  - : Die zu werfende Ausnahme. Aus Debugging-Zwecken ist es nützlich, wenn diese ein `instanceof` {{jsxref("Error")}} ist.
 
 ### Rückgabewert
 
-Wenn der geworfene Fehler nicht abgefangen wird, wird ein {{jsxref("Promise")}} zurückgegeben, welches mit der übergebenen Ausnahme ablehnt.
+Falls der geworfene Fehler nicht abgefangen wird, wird ein {{jsxref("Promise")}} zurückgegeben, das mit der übergebenen Ausnahme abgelehnt wird.
 
-Wenn die Ausnahme durch ein [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) abgefangen wird und der Generator fortfährt, um weitere Werte zu liefern, wird ein {{jsxref("Promise")}} zurückgegeben, das mit einem {{jsxref("Object")}} mit zwei Eigenschaften aufgelöst wird:
+Wenn die Ausnahme von einem [`try...catch`](/de/docs/Web/JavaScript/Reference/Statements/try...catch) abgefangen wird und der Generator fortfährt, um weitere Werte zu liefern, wird ein {{jsxref("Promise")}} zurückgegeben, das mit einem {{jsxref("Object")}} mit zwei Eigenschaften erfüllt wird:
 
 - `done`
   - : Ein boolescher Wert:
     - `true`, wenn der Kontrollfluss der Generatorfunktion das Ende erreicht hat.
     - `false`, wenn die Generatorfunktion in der Lage ist, weitere Werte zu erzeugen.
 - `value`
-  - : Der Wert, der aus dem nächsten `yield` Ausdruck gewonnen wird.
+  - : Der Wert, der vom nächsten `yield` Ausdruck geliefert wird.
 
 ## Beispiele
 
 ### Verwendung von throw()
 
-Das folgende Beispiel zeigt einen einfachen Generator und einen Fehler, der mit der `throw` Methode geworfen wird. Ein Fehler kann wie gewohnt von einem {{jsxref("Statements/try...catch", "try...catch")}} Block abgefangen werden.
+Das folgende Beispiel zeigt einen einfachen Generator und einen Fehler, der mit der `throw` Methode ausgelöst wird. Ein Fehler kann wie üblich von einem {{jsxref("Statements/try...catch", "try...catch")}} Block abgefangen werden.
 
 ```js
-// Eine asynchrone Aufgabe. Tun Sie so, als würde es in der Praxis
-// etwas Nützlicheres tun.
+// An async task. Pretend it's doing something more useful
+// in practice.
 function sleep(time) {
   return new Promise((resolve, reject) => {
     setTimeout(resolve, time);
@@ -77,4 +77,4 @@ asyncGen
 ## Siehe auch
 
 - {{jsxref("Statements/async_function*", "async function*")}}
-- [Iterators and generators](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Anleitung
+- [Iterators und Generators](/de/docs/Web/JavaScript/Guide/Iterators_and_generators) Leitfaden

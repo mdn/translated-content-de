@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`defer`**-Eigenschaft der {{domxref("HTMLScriptElement")}}-Schnittstelle ist ein boolescher Wert, der steuert, wie das Skript ausgeführt werden soll. Bei klassischen Skripten wird das externe Skript, wenn die `defer`-Eigenschaft auf `true` gesetzt ist, nach dem Parsen des Dokuments, aber vor dem Auslösen des {{domxref("Document/DOMContentLoaded_event", "DOMContentLoaded")}}-Ereignisses, ausgeführt. Für [Modul-Skripte](/de/docs/Web/JavaScript/Guide/Modules) hat die `defer`-Eigenschaft keine Auswirkung.
+Die **`defer`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces ist ein boolescher Wert, der steuert, wie das Skript ausgeführt werden soll. Bei klassischen Skripten wird, wenn die `defer`-Eigenschaft auf `true` gesetzt ist, das externe Skript nach dem Parsen des Dokuments, aber vor dem Auslösen des [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Events ausgeführt. Für [Modulskripte](/de/docs/Web/JavaScript/Guide/Modules) hat die `defer`-Eigenschaft keine Wirkung.
 
 Sie spiegelt das `defer`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
@@ -24,7 +24,7 @@ Ein boolescher Wert.
 
 ```js
 const el = document.getElementById("el");
-console.log(el.defer); // Ausgabe: true
+console.log(el.defer); // Output: true
 ```
 
 ## Spezifikationen
@@ -37,4 +37,4 @@ console.log(el.defer); // Ausgabe: true
 
 ## Siehe auch
 
-- {{domxref("HTMLScriptElement.async")}}
+- [`HTMLScriptElement.async`](/de/docs/Web/API/HTMLScriptElement/async)

@@ -1,18 +1,19 @@
 ---
-title: "DocumentFragment: Methode querySelector()"
+title: "DocumentFragment: querySelector()-Methode"
 short-title: querySelector()
 slug: Web/API/DocumentFragment/querySelector
 l10n:
-  sourceCommit: b85bf9fcc2c0062a765d104799d7d45d9e9b13bb
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{ApiRef("DOM")}}
 
-Die Methode **`DocumentFragment.querySelector()`** gibt das erste Element zurück, oder `null`, falls keine Übereinstimmungen gefunden werden, innerhalb des {{domxref("DocumentFragment")}} (unter Verwendung einer tiefensuche-vorbestellten Traversierung der Knoten des Dokuments), das mit der angegebenen Gruppe von Selektoren übereinstimmt.
+Die **`DocumentFragment.querySelector()`**-Methode gibt das erste
+Element oder `null` zurück, falls keine Übereinstimmungen gefunden werden. Dies erfolgt innerhalb des [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) (unter Verwendung einer Tiefensuche in der Vorordnung der Knoten des Dokuments), das mit der angegebenen Gruppe von Selektoren übereinstimmt.
 
-Wenn der Selektor eine ID abgleicht und diese ID irrtümlich mehrmals im Dokument verwendet wird, gibt er das erste sich übereinstimmende Element zurück.
+Wenn der Selektor eine ID anspricht und diese ID fälschlicherweise mehrmals im Dokument verwendet wird, wird das erste übereinstimmende Element zurückgegeben.
 
-Wenn die im Parameter angegebenen Selektoren ungültig sind, wird eine {{domxref("DOMException")}} mit einem `SYNTAX_ERR` Wert ausgelöst.
+Falls die im Parameter angegebenen Selektoren ungültig sind, wird eine [`DOMException`](/de/docs/Web/API/DOMException) mit dem Wert `SYNTAX_ERR` ausgelöst.
 
 ## Syntax
 
@@ -23,17 +24,17 @@ querySelector(selectors)
 ### Parameter
 
 - `selectors`
-  - : Ein String, der einen oder mehrere durch Kommas getrennte CSS-Selektoren enthält.
+  - : Ein String, der einen oder mehrere CSS-Selektoren enthält, getrennt durch Kommas.
 
 ### Rückgabewert
 
-Ein {{domxref("Element")}}-Objekt, das das erste Element im Dokument darstellt, das mit dem angegebenen Satz von [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) übereinstimmt, oder `null`, wenn keine Übereinstimmungen vorhanden sind.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt, das das erste Element im Dokument repräsentiert, das mit dem angegebenen Satz von [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) übereinstimmt, oder `null`, falls keine Übereinstimmungen vorliegen.
 
 ## Beispiele
 
 ### Einfaches Beispiel
 
-In diesem einfachen Beispiel wird das erste Element im {{domxref("DocumentFragment")}} mit der Klasse "`myclass`" zurückgegeben:
+In diesem einfachen Beispiel wird das erste Element im [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) mit der Klasse `myclass` zurückgegeben:
 
 ```js
 const el = documentfragment.querySelector(".myclass");
@@ -41,17 +42,17 @@ const el = documentfragment.querySelector(".myclass");
 
 ### CSS-Syntax und das Argument der Methode
 
-Das String-Argument, das an `querySelector` übergeben wird, muss der CSS-Syntax entsprechen. Um IDs oder Selektoren abzugleichen, die nicht der CSS-Syntax folgen (indem beispielsweise falsch ein Semikolon oder Leerzeichen verwendet wird), ist es notwendig, das fehlerhafte Zeichen mit einem doppelten Backslash zu maskieren:
+Das String-Argument, das an `querySelector` übergeben wird, muss der CSS-Syntax folgen. Um IDs oder Selektoren anzusprechen, die der CSS-Syntax nicht folgen (zum Beispiel durch unangemessene Verwendung von Semikolon oder Leerzeichen), ist es zwingend erforderlich, das falsche Zeichen mit einem doppelten Backslash zu maskieren:
 
 ```html
 <div id="foo\bar"></div>
 <div id="foo:bar"></div>
 
 <script>
-  document.querySelector("#foo\bar"); // Stimmt mit nichts überein
-  document.querySelector("#foo\\\\bar"); // Entspricht dem ersten div
-  document.querySelector("#foo:bar"); // Stimmt mit nichts überein
-  document.querySelector("#foo\\:bar"); // Entspricht dem zweiten div
+  document.querySelector("#foo\bar"); // Does not match anything
+  document.querySelector("#foo\\\\bar"); // Match the first div
+  document.querySelector("#foo:bar"); // Does not match anything
+  document.querySelector("#foo\\:bar"); // Match the second div
 </script>
 ```
 
@@ -59,10 +60,10 @@ Das String-Argument, das an `querySelector` übergeben wird, muss der CSS-Syntax
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Das {{domxref("DocumentFragment")}}-Interface, zu dem es gehört.
+- Das [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Interface, zu dem es gehört.

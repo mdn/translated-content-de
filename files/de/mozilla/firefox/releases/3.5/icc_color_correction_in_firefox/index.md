@@ -7,17 +7,17 @@ l10n:
 
 {{FirefoxSidebar}}
 
-Obwohl die Unterstützung für die Farbkorrektur in Firefox 3 eingeführt wurde, war sie standardmäßig deaktiviert, sodass sie im Fenster "about:config" erst aktiviert werden musste. Firefox 3.5 behebt die Probleme, die dazu führten, dass sie in der vorherigen Version standardmäßig deaktiviert war, und nun werden Bilder mit [International Color Consortium](https://www.color.org/index.xalter) (ICC)-Markierungen standardmäßig farbkorrigiert.
+Obwohl die Unterstützung für Farbkorrektur in Firefox 3 eingeführt wurde, war sie standardmäßig deaktiviert, was einige Änderungen im about:config-Fenster erforderte, um sie zu aktivieren. Firefox 3.5 behebt die Probleme, die dazu führten, dass sie in der vorherigen Version standardmäßig deaktiviert war, und jetzt werden Bilder mit [International Color Consortium](https://www.color.org/index.xalter) (ICC)-Tags standardmäßig farbkorrigiert.
 
-Das unten abgebildete Bild ist in drei Abschnitte unterteilt. Die obere linke Ecke zeigt das Bild, wie es von Firefox 2 gerendert wird. Die obere rechte Ecke zeigt, wie das Bild in Firefox 3 gerendert wird. Unten zeigt das Bild, wie es in Photoshop gerendert wird.
+Das untenstehende Bild ist in drei Abschnitte unterteilt. Die obere linke Ecke zeigt das Bild, wie es von Firefox 2 dargestellt wird. Die obere rechte Ecke zeigt, wie das Bild in Firefox 3 gerendert wird. Unten wird das Bild in Photoshop gerendert.
 
-![Eine lila Blume, gerendert von Firefox 2, Firefox 3 und Photoshop.](iccsample.jpg)
+![Eine lila Blume, dargestellt in Firefox 2, Firefox 3 und Photoshop.](iccsample.jpg)
 
-Wie Sie sehen, rendern Firefox 3 und Photoshop das Bild identisch, da beide das eingebettete Farbkorrekturprofil unterstützen. Firefox 2 ignoriert das Profil, was zu einer nicht übereinstimmenden Farbe führt.
+Wie Sie sehen können, rendern Firefox 3 und Photoshop das Bild identisch, da beide das eingebettete Farbkorrekturprofil unterstützen. Firefox 2 ignoriert das Profil, was zu nicht übereinstimmenden Farben führt.
 
-## Farbkorrektur konfigurieren
+## Konfiguration der Farbkorrektur
 
-Die Farbkorrektur kann gesteuert werden, indem Sie den Wert der Einstellung `gfx.color_management.mode` wie folgt festlegen:
+Die Farbkorrektur kann durch Festlegen des Wertes der Einstellung `gfx.color_management.mode` gesteuert werden, wie folgt:
 
 <table>
   <tbody>
@@ -33,7 +33,7 @@ Die Farbkorrektur kann gesteuert werden, indem Sie den Wert der Einstellung `gfx
     </tr>
     <tr>
       <td>1</td>
-      <td>Vollständiges Farbmanagement.</td>
+      <td>Volles Farbmanagement.</td>
     </tr>
     <tr>
       <td>2</td>
@@ -47,15 +47,15 @@ Die Farbkorrektur kann gesteuert werden, indem Sie den Wert der Einstellung `gfx
 
 Vollständiges Farbmanagement bedeutet, dass alles, was von Firefox gerendert wird, mit Ausnahme von Plugins, farbkorrigiert wird.
 
-### Ein Farbprofil angeben
+### Spezifizieren eines Farbprofils
 
-Sie können auch ein spezifisches Farbprofil für Ihre Hardware angeben, indem Sie den Wert der Einstellung `gfx.color_management.display_profile` auf den Pfad zu einem Farbprofil setzen, das verwendet werden soll.
+Sie können auch ein bestimmtes Farbprofil für Ihre Hardware angeben, indem Sie den Wert der Einstellung `gfx.color_management.display_profile` auf den Pfad zu einem Farbprofil setzen, das verwendet werden soll.
 
-Wenn kein Pfad für das Farbprofil angegeben wird, fragt Firefox das Betriebssystem ab und verwendet dessen konfiguriertes Farbprofil.
+Wenn kein Pfad für das Farbprofil angegeben ist, fragt Firefox das Betriebssystem ab und verwendet das konfigurierte Farbprofil.
 
-### Eine Standard-Wiedergabeabsicht angeben
+### Spezifizieren eines Standard-Rendereintents
 
-Zusätzlich können Sie den Wert der Einstellung `gfx.color_management.rendering_intent` festlegen, um eine Standard-Wiedergabeabsicht anzugeben. Standardmäßig wird die von Bildern angegebene Absicht ignoriert, es sei denn, Sie geben -1 für diesen Wert an.
+Zusätzlich können Sie den Wert der Einstellung `gfx.color_management.rendering_intent` festlegen, um einen Standard-Rendereintent anzugeben. Standardmäßig wird der von Bildern angegebene Intent ignoriert, es sei denn, Sie geben -1 für diesen Wert an.
 
 Die folgende Tabelle listet die möglichen Werte auf.
 
@@ -68,58 +68,45 @@ Die folgende Tabelle listet die möglichen Werte auf.
     <tr>
       <td>-1</td>
       <td>
-        Eingebettete Absicht verwenden. Standardmäßig wird die eingebettete
-        Absicht auf Bildern ignoriert.
+        Eingebetteten Intent verwenden. Standardmäßig wird der eingebettete Intent auf Bildern ignoriert.
       </td>
     </tr>
     <tr>
       <td>0</td>
       <td>
-        Perzeptiv. Weist Firefox an, das Bild so zu rendern, dass Details über
-        den gesamten Tonwertbereich des Bildes erhalten bleiben. Nützlich für
-        die allgemeine Anzeige von Bildern in typischen Fällen, insbesondere für
-        Fotografien und andere Bilder.
+        Wahrnehmungsbezogen. Veranlasst Firefox, das Bild so zu rendern, dass die Details im gesamten Tonwertbereich des Bildes erhalten bleiben. Nützlich für die allgemeine Darstellung von Bildern, insbesondere für Fotografien und andere Bilder.
       </td>
     </tr>
     <tr>
       <td>1</td>
       <td>
-        Medienrelativ kolorimetrisch. Dies skaliert das Farbspektrum neu, sodass
-        der Weißpunkt des Wiedergabemediums (wie der Bildschirm) auf den
-        Weißpunkt des Referenzmediums abgebildet wird. Dies ist am nützlichsten
-        für Farben, die auf ein Medium mit einem kleineren Farbraum als das
-        Referenzmedium abgebildet wurden.
+        Medienrelativ-colorimetrisch. Dies skaliert das Farbspektrum so um, dass der Weißpunkt des Wiedergabemediums (wie z.B. des Bildschirms) dem Weißpunkt des Referenzmediums zugeordnet wird. Dies ist besonders nützlich für Farben, die auf ein Medium mit einem kleineren Farbumfang als das Referenzmedium abgebildet wurden.
       </td>
     </tr>
     <tr>
       <td>2</td>
       <td>
-        Sättigung. Diese erhält die Lebendigkeit der Farben auf Kosten der
-        Präzision der Farbnuance. Dies ist besonders nützlich für Diagramme und
-        andere Medien, deren Farben "leuchten" sollen, während die präzise
-        Duplikation der Farbnuance weniger wichtig ist.
+        Sättigung. Dies bewahrt die Lebendigkeit der Farbe auf Kosten der Genauigkeit des Farbtons. Dies ist besonders nützlich für Diagramme und andere Medien, deren Farben hervorstechen sollen, während eine präzise Farbtonreproduktion weniger wichtig ist.
       </td>
     </tr>
     <tr>
       <td>3</td>
       <td>
-        ICC-Absolute kolorimetrisch. Dies ist am nützlichsten für Sonderfarben
-        und wenn ein Medium auf einem anderen simuliert wird, da es die Farben
-        im gültigen Bereich nicht ändert.
+        ICC-Absolute colorimetrisch. Dies ist besonders nützlich für Sonderfarben und bei der Simulation eines Mediums auf einem anderen, da es eingebaute Farben nicht verändert.
       </td>
     </tr>
   </tbody>
 </table>
 
 > [!NOTE]
-> In Firefox 3.5 rendern perzeptive, medienrelative und Sättigungs-Absichten alle auf die gleiche Weise.
+> In Firefox 3.5 rendern die Intents wahrnehmungsbezogen, medienrelativ und sättigend alle auf die gleiche Weise.
 
-### Einschränkungen
+### Vorbehalte
 
-Das neue QCMS-Farbmanagementsystem, das in Firefox 3.5 eingeführt wurde, unterstützt derzeit nur ICC-Version-2-Farbprofile, nicht Version 4. Dies kann dazu führen, dass Bilder zu dunkel dargestellt werden. Siehe [Bug 488800](https://bugzil.la/488800) und den [ICC Version 4 Profiltest](https://www.color.org/version4html.xalter).
+Das neue QCMS-Farbmanagementsystem, das in Firefox 3.5 eingeführt wurde, unterstützt derzeit nur ICC-Version-2-Farbprofile, nicht Version 4. Dies kann dazu führen, dass Bilder zu dunkel erscheinen. Siehe [Bug 488800](https://bugzil.la/488800) und den [ICC-Version-4-Profiltest](https://www.color.org/version4html.xalter).
 
 ## Siehe auch
 
-- [So Many Colors](https://bholley.wordpress.com/2008/09/12/so-many-colors/) (Blogpost)
-- [Color Profiles in Firefox 3](https://johnresig.com/blog/color-profiles/) (Blogpost)
+- [So Many Colors](https://bholley.wordpress.com/2008/09/12/so-many-colors/) (Blog-Beitrag)
+- [Color Profiles in Firefox 3](https://johnresig.com/blog/color-profiles/) (Blog-Beitrag)
 - [International Color Consortium](https://www.color.org/index.xalter)

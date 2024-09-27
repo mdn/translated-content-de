@@ -9,13 +9,13 @@ l10n:
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Game_over", "Games/Workflows/2D_Breakout_game_Phaser/Collision_detection")}}
 
-Dies ist der **9. Schritt** von 16 des [Gamedev Phaser Tutorials](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, finden Sie auf [Gamedev-Phaser-Content-Kit/demos/lesson09.html](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/lesson09.html).
+Dies ist der **9. Schritt** von 16 des [Gamedev Phaser Tutorials](/de/docs/Games/Tutorials/2D_breakout_game_Phaser). Den Quellcode, wie er nach Abschluss dieser Lektion aussehen sollte, finden Sie unter [Gamedev-Phaser-Content-Kit/demos/lesson09.html](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/lesson09.html).
 
-Das Erstellen des Ziegelspielfelds ist etwas komplizierter als das Hinzufügen eines einzelnen Objekts auf den Bildschirm, obwohl es mit Phaser immer noch einfacher ist als mit reinem JavaScript. Lassen Sie uns erkunden, wie man eine Gruppe von Ziegeln erstellt und sie mit einer Schleife auf dem Bildschirm anzeigt.
+Das Erstellen des Ziegelspielfelds ist ein wenig komplizierter als das Hinzufügen eines einzelnen Objekts auf dem Bildschirm, obwohl es mit Phaser dennoch einfacher ist als mit purem JavaScript. Lassen Sie uns erkunden, wie man eine Gruppe von Ziegeln erzeugt und sie mit einer Schleife auf dem Bildschirm darstellt.
 
 ## Definieren neuer Variablen
 
-Zuerst definieren wir die benötigten Variablen — fügen Sie die folgenden Zeilen unter Ihren bisherigen Variablendefinitionen hinzu:
+Zuerst definieren wir die benötigten Variablen — fügen Sie die folgenden Zeilen unterhalb Ihrer vorherigen Variablendefinitionen hinzu:
 
 ```js
 let bricks;
@@ -23,11 +23,11 @@ let newBrick;
 let brickInfo;
 ```
 
-Die Variable `bricks` wird verwendet, um eine Gruppe zu erstellen, `newBrick` wird bei jeder Iteration der Schleife ein neues Objekt sein, das zur Gruppe hinzugefügt wird, und `brickInfo` wird alle benötigten Daten speichern.
+Die Variable `bricks` wird zur Erstellung einer Gruppe verwendet, `newBrick` wird in jeder Iteration der Schleife als neues Objekt zur Gruppe hinzugefügt, und `brickInfo` speichert alle notwendigen Daten.
 
-## Rendering des Ziegelbilds
+## Darstellung des Ziegelbildes
 
-Laden Sie als Nächstes das Bild des Ziegels — fügen Sie den folgenden `load.image()`-Aufruf direkt unter den anderen hinzu:
+Als nächstes laden wir das Bild des Ziegels — fügen Sie den folgenden `load.image()` Aufruf direkt unter den anderen hinzu:
 
 ```js
 function preload() {
@@ -36,11 +36,11 @@ function preload() {
 }
 ```
 
-Sie müssen auch das [Ziegelbild von GitHub herunterladen](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/img/brick.png) und in Ihrem `/img` Verzeichnis speichern.
+Sie müssen auch [das Ziegelbild von GitHub herunterladen](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/img/brick.png) und es in Ihrem `/img` Verzeichnis speichern.
 
 ## Zeichnen der Ziegel
 
-Wir werden den gesamten Code zum Zeichnen der Ziegel in eine `initBricks`-Funktion einfügen, um ihn vom Rest des Codes zu trennen. Fügen Sie einen Aufruf zu `initBricks` am Ende der `create()`-Funktion hinzu:
+Wir platzieren den gesamten Code zum Zeichnen der Ziegel in einer `initBricks` Funktion, um ihn vom restlichen Code zu trennen. Fügen Sie einen Aufruf zu `initBricks` am Ende der `create()` Funktion hinzu:
 
 ```js
 function create() {
@@ -49,7 +49,7 @@ function create() {
 }
 ```
 
-Nun zur Funktion selbst. Fügen Sie die `initBricks()`-Funktion am Ende unseres Spielcodes hinzu, direkt vor dem schließenden \</script>-Tag, wie unten gezeigt. Zuerst haben wir das `brickInfo`-Objekt aufgenommen, da dies bald nützlich sein wird:
+Nun zur Funktion selbst. Fügen Sie die `initBricks()` Funktion am Ende Ihres Spielcodes ein, direkt vor dem schließenden `</script>` Tag, wie unten gezeigt. Zunächst haben wir das `brickInfo` Objekt eingefügt, da dies sehr bald nützlich sein wird:
 
 ```js
 function initBricks() {
@@ -69,25 +69,25 @@ function initBricks() {
 }
 ```
 
-Dieses `brickInfo`-Objekt enthält alle benötigten Informationen: die Breite und Höhe eines einzelnen Ziegels, die Anzahl der Ziegelreihen und -spalten, die Sie auf dem Bildschirm sehen werden, den oberen und linken Versatz (die Position auf dem Canvas, an der wir beginnen, die Ziegel zu zeichnen) und den Abstand zwischen jeder Ziegelreihe und -spalte.
+Dieses `brickInfo` Objekt wird alle Informationen enthalten, die wir benötigen: die Breite und Höhe eines einzelnen Ziegels, die Anzahl der Reihen und Spalten von Ziegeln, die wir auf dem Bildschirm sehen werden, den oberen und linken Versatz (die Position auf der Leinwand, wo wir beginnen, die Ziegel zu zeichnen), und den Abstand zwischen jeder Reihe und Spalte von Ziegeln.
 
-Nun, lassen Sie uns beginnen, die Ziegel selbst zu erstellen — fügen Sie zunächst eine leere Gruppe hinzu, um die Ziegel zu enthalten, indem Sie die folgende Zeile am unteren Ende der `initBricks()`-Funktion hinzufügen:
+Nun, lassen Sie uns beginnen, die Ziegel selbst zu erstellen — fügen Sie zuerst eine leere Gruppe hinzu, um die Ziegel zu enthalten, indem Sie die folgende Zeile am Ende der `initBricks()` Funktion hinzufügen:
 
 ```js
 bricks = game.add.group();
 ```
 
-Wir können durch die Reihen und Spalten iterieren, um bei jeder Iteration neue Ziegel zu erstellen — fügen Sie die folgende verschachtelte Schleife unter der vorherigen Zeile Code hinzu:
+Wir können durch die Reihen und Spalten iterieren, um in jeder Iteration neue Ziegel zu erstellen — fügen Sie die folgende verschachtelte Schleife unterhalb der vorherigen Codezeile hinzu:
 
 ```js
 for (let c = 0; c < brickInfo.count.col; c++) {
   for (let r = 0; r < brickInfo.count.row; r++) {
-    // neuen Ziegel erstellen und der Gruppe hinzufügen
+    // create new brick and add it to the group
   }
 }
 ```
 
-Auf diese Weise erstellen wir die exakt benötigte Anzahl an Ziegeln und haben sie alle in einer Gruppe. Nun müssen wir etwas Code in die verschachtelte Schleifenstruktur einfügen, um jeden Ziegel zu zeichnen. Füllen Sie den Inhalt wie unten gezeigt:
+Auf diese Weise erstellen wir genau die Anzahl der Ziegel, die wir benötigen, und fügen sie alle in eine Gruppe ein. Nun müssen wir etwas Code innerhalb der verschachtelten Schleifenstruktur hinzufügen, um jeden Ziegel zu zeichnen. Füllen Sie den Inhalt wie unten gezeigt aus:
 
 ```js
 for (let c = 0; c < brickInfo.count.col; c++) {
@@ -103,9 +103,9 @@ for (let c = 0; c < brickInfo.count.col; c++) {
 }
 ```
 
-Hier durchlaufen wir die Reihen und Spalten, um die neuen Ziegel zu erstellen und auf dem Bildschirm zu platzieren. Der neu erstellte Ziegel wird für die Arcade-Physik-Engine aktiviert, sein Körper wird als unbeweglich festgelegt (damit er sich nicht bewegt, wenn er vom Ball getroffen wird), und wir setzen auch den Anker in die Mitte und fügen den Ziegel der Gruppe hinzu.
+Hier durchlaufen wir die Reihen und Spalten, um die neuen Ziegel zu erstellen und sie auf dem Bildschirm zu platzieren. Der neu erstellte Ziegel ist für die Arcade-Physik-Engine aktiviert, sein Körper ist unbeweglich eingestellt (sodass er sich nicht bewegt, wenn er vom Ball getroffen wird), und wir setzen den Anker in die Mitte und fügen den Ziegel zur Gruppe hinzu.
 
-Das Problem ist derzeit, dass wir alle Ziegel an einem Ort, bei den Koordinaten (0,0) malen. Wir müssen jeden Ziegel an seiner eigenen x- und y-Position zeichnen. Aktualisieren Sie die `brickX` und `brickY` Zeilen wie folgt:
+Das Problem ist derzeit, dass wir alle Ziegel an einem Ort malen, bei den Koordinaten (0,0). Was wir tun müssen, ist jeden Ziegel an seiner eigenen x- und y-Position zu zeichnen. Aktualisieren Sie die `brickX` und `brickY` Zeilen wie folgt:
 
 ```js
 const brickX =
@@ -114,11 +114,11 @@ const brickY =
   r * (brickInfo.height + brickInfo.padding) + brickInfo.offset.top;
 ```
 
-Jede `brickX`-Position wird als `brickInfo.width` plus `brickInfo.padding`, multipliziert mit der Spaltennummer, `c`, plus dem `brickInfo.offset.left` berechnet; die Logik für das `brickY` ist identisch, verwendet jedoch die Werte für die Zeilennummer, `r`, `brickInfo.height` und `brickInfo.offset.top`. Nun kann jeder einzelne Ziegel an seiner richtigen Stelle mit Abständen zwischen jedem Ziegel platziert und versetzt von den linken und oberen Canvasrändern gezeichnet werden.
+Jede `brickX` Position wird berechnet als `brickInfo.width` plus `brickInfo.padding`, multipliziert mit der Spaltennummer `c`, plus dem `brickInfo.offset.left`; die Logik für das `brickY` ist identisch, verwendet jedoch die Werte für die Zeilennummer `r`, `brickInfo.height` und `brickInfo.offset.top`. Jetzt kann jeder einzelne Ziegel an seiner richtigen Stelle platziert werden, mit Abstand zwischen jedem Ziegel, und mit einem Versatz von den linken und oberen Kanvas-Kanten gezeichnet werden.
 
-## Überprüfen des `initBricks()`-Codes
+## Überprüfung des initBricks() Codes
 
-Hier ist der komplette Code für die `initBricks()`-Funktion:
+Hier ist der vollständige Code für die `initBricks()` Funktion:
 
 ```js
 function initBricks() {
@@ -152,16 +152,16 @@ function initBricks() {
 }
 ```
 
-Wenn Sie `index.html` an diesem Punkt neu laden, sollten Sie die Ziegel gleichmäßig voneinander auf dem Bildschirm sehen.
+Wenn Sie `index.html` zu diesem Zeitpunkt neu laden, sollten Sie die Ziegel gleichmäßig im Abstand voneinander auf dem Bildschirm sehen.
 
 ## Vergleichen Sie Ihren Code
 
-Sie können den fertiggestellten Code für diese Lektion im folgenden Live-Demo prüfen und damit spielen, um besser zu verstehen, wie es funktioniert:
+Sie können den fertigen Code für diese Lektion im unten stehenden Live-Demo überprüfen und damit spielen, um besser zu verstehen, wie es funktioniert:
 
 {{JSFiddleEmbed("https://jsfiddle.net/end3r/cck2b9e8/","","400")}}
 
 ## Nächste Schritte
 
-Etwas fehlt allerdings. Der Ball geht durch die Ziegel, ohne zu stoppen — wir brauchen eine richtige [Kollisionsdetektion](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Collision_detection).
+Allerdings fehlt noch etwas. Der Ball geht durch die Ziegel hindurch, ohne anzuhalten — wir benötigen eine ordnungsgemäße [Kollisionserkennung](/de/docs/Games/Tutorials/2D_breakout_game_Phaser/Collision_detection).
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Game_over", "Games/Workflows/2D_Breakout_game_Phaser/Collision_detection")}}

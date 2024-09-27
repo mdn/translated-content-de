@@ -1,5 +1,5 @@
 ---
-title: "DecompressionStream: writable Eigenschaft"
+title: "DecompressionStream: writable-Eigenschaft"
 short-title: writable
 slug: Web/API/DecompressionStream/writable
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Die **`writable`** schreibgeschützte Eigenschaft der {{domxref("DecompressionStream")}}-Schnittstelle gibt einen {{domxref("WritableStream")}} zurück.
+Die schreibgeschützte Eigenschaft **`writable`** des [`DecompressionStream`](/de/docs/Web/API/DecompressionStream)-Interfaces gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) zurück.
 
 ## Wert
 
-Ein {{domxref("WritableStream")}}.
+Ein [`WritableStream`](/de/docs/Web/API/WritableStream).
 
 ## Beispiele
 
-Das folgende Beispiel gibt einen {{domxref("WritableStream")}} von einem `DecompressionStream` zurück.
+Das folgende Beispiel gibt einen [`WritableStream`](/de/docs/Web/API/WritableStream) aus einem `DecompressionStream` zurück.
 
 ```js
 let stream = new DecompressionStream("gzip");

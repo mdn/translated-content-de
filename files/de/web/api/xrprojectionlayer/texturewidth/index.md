@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`textureWidth`**-Eigenschaft der {{domxref("XRProjectionLayer")}}-Schnittstelle gibt die Breite in Pixeln der Farbtexturen dieser Ebene an.
+Die schreibgeschützte **`textureWidth`**-Eigenschaft des [`XRProjectionLayer`](/de/docs/Web/API/XRProjectionLayer)-Interfaces gibt die Breite in Pixeln der Farbtexturen dieser Ebene an.
 
-Die Texturbreite der Projektionsebene wird vom Benutzeragenten oder dem Gerät bestimmt. Sie wird in der {{domxref("XRSubImage")}} gemeldet, die nur innerhalb der Frame-Schleife zugänglich ist. Wenn Sie Ihre eigenen Tiefenpuffer verwalten möchten und nicht auf den ersten Frame nach der Erstellung der Ebene warten möchten, um die erforderlichen Abmessungen für diese Puffer zu ermitteln, ermöglicht die `textureWidth`-Eigenschaft den Zugriff auf die Texturbreite der Ebene außerhalb der Frame-Schleife. Die Zuordnung dieser Puffer kann direkt nach der Erstellung der Ebene erfolgen.
+Die Texturbreite der Projektionsebene wird durch den Benutzeragenten oder das Gerät bestimmt. Sie wird in der [`XRSubImage`](/de/docs/Web/API/XRSubImage) gemeldet, die nur innerhalb der Rahmen-Schleife zugänglich ist. Wenn Sie Ihre eigenen Tiefenpuffer verwalten möchten und nicht auf den ersten Rahmen nach der Erstellung der Ebene warten möchten, um die erforderlichen Abmessungen für diese Puffer zu bestimmen, ermöglicht die `textureWidth`-Eigenschaft den Zugriff auf die Texturbreite der Ebene außerhalb der Rahmen-Schleife. Die Zuordnung dieser Puffer kann direkt nach der Erstellung der Ebene erfolgen.
 
 ## Wert
 
@@ -20,7 +20,7 @@ Eine Zahl, die die Breite in Pixeln angibt.
 
 ### Verwendung von `textureWidth`
 
-Die `textureWidth` einer Ebene ist nützlich beim Erstellen von Renderpuffern für eine Ebene. Siehe auch {{domxref("WebGL2RenderingContext.renderbufferStorageMultisample()")}}.
+Die `textureWidth` einer Ebene ist nützlich bei der Erstellung von Renderpuffern für eine Ebene. Siehe auch [`WebGL2RenderingContext.renderbufferStorageMultisample()`](/de/docs/Web/API/WebGL2RenderingContext/renderbufferStorageMultisample).
 
 ```js
 let glLayer = xrGLBinding.createProjectionLayer();
@@ -46,6 +46,6 @@ gl.renderbufferStorageMultisample(
 
 ## Siehe auch
 
-- {{domxref("XRWebGLBinding.createProjectionLayer()")}}
-- {{domxref("WebGL2RenderingContext.renderbufferStorageMultisample()")}}
-- {{domxref("XRSubImage")}}
+- [`XRWebGLBinding.createProjectionLayer()`](/de/docs/Web/API/XRWebGLBinding/createProjectionLayer)
+- [`WebGL2RenderingContext.renderbufferStorageMultisample()`](/de/docs/Web/API/WebGL2RenderingContext/renderbufferStorageMultisample)
+- [`XRSubImage`](/de/docs/Web/API/XRSubImage)

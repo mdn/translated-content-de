@@ -1,6 +1,6 @@
 ---
-title: "HTMLLegendElement: Formulareigenschaft"
-short-title: Formular
+title: "HTMLLegendElement: form-Eigenschaft"
+short-title: form
 slug: Web/API/HTMLLegendElement/form
 l10n:
   sourceCommit: 650feba1ed52078fe6c9342f7a76bafc8ab43891
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`form`** schreibgeschützte Eigenschaft der {{domxref("HTMLLegendElement")}}-Schnittstelle gibt ein {{domxref("HTMLFormElement")}}-Objekt zurück, das das mit dieser {{htmlelement("legend")}} verbundene {{domxref("HTMLFieldSetElement")}} besitzt, oder `null`, wenn diese Legende nicht mit einem von einem Formular besessenen {{htmlelement("fieldset")}} verbunden ist.
+Die schreibgeschützte **`form`**-Eigenschaft der Schnittstelle [`HTMLLegendElement`](/de/docs/Web/API/HTMLLegendElement) gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das das [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement) besitzt, das mit diesem {{htmlelement("legend")}} verbunden ist, oder `null`, wenn diese Legende nicht mit einem von einem Formular besessenen {{htmlelement("fieldset")}} verbunden ist.
 
 ## Wert
 
-Ein {{domxref("HTMLFormElement")}} oder `null`.
+Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 
 ## Spezifikationen
 
@@ -24,8 +24,8 @@ Ein {{domxref("HTMLFormElement")}} oder `null`.
 
 ## Siehe auch
 
-- {{domxref("HTMLLegendElement")}}
-- {{domxref("HTMLFieldSetElement.form")}}
-- {{domxref("HTMLFormElement")}}
+- [`HTMLLegendElement`](/de/docs/Web/API/HTMLLegendElement)
+- [`HTMLFieldSetElement.form`](/de/docs/Web/API/HTMLFieldSetElement/form)
+- [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("legend")}}
-- [HTML-Formulare Leitfaden](/de/docs/Learn/Forms)
+- [Leitfaden zu HTML-Formularen](/de/docs/Learn/Forms)

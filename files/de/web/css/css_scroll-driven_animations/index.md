@@ -7,29 +7,29 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS scroll-gesteuerte Animationen Modul** bietet Funktionalitäten, die auf dem [CSS-Animationsmodul](/de/docs/Web/CSS/CSS_animations) und der [Web Animations API](/de/docs/Web/API/Web_Animations_API) aufbauen. Es ermöglicht, Eigenschaftswerte basierend auf einem Fortschritt entlang einer scrollbasierten Zeitleiste, anstatt der standardmäßigen zeitbasierten Dokumentzeitleiste, zu animieren. Dies bedeutet, dass Sie ein Element durch Scrollen eines scrollbaren Elements anstelle des bloßen Zeitablaufs animieren können.
+Das **CSS scroll-gesteuerte Animationen**-Modul bietet Funktionalität, die auf dem [CSS Animations-Modul](/de/docs/Web/CSS/CSS_animations) und dem [Web Animations API](/de/docs/Web/API/Web_Animations_API) aufbaut. Es ermöglicht Ihnen, Eigenschaftswerte basierend auf einem Fortschritt entlang einer scrollbasierten Zeitleiste zu animieren, anstatt der standardmäßigen zeitbasierten Dokumentzeitleiste. Dies bedeutet, dass Sie ein Element durch das Scrollen eines scrollbaren Elements animieren können, anstatt nur durch den Verlauf der Zeit.
 
 Es gibt zwei Arten von scrollbasierten Zeitleisten:
 
-- _Scroll-Fortschrittszeitleiste_: Diese Zeitleiste wird fortschreitet, indem ein scrollbares Element (_Scroller_) von oben nach unten (oder von links nach rechts) und zurück gescrollt wird. Die Position im Scrollbereich wird in einen Fortschritts-Prozentsatz umgewandelt – 0% am Anfang und 100% am Ende.
-- _Ansichts-Fortschrittszeitleiste_: Diese Zeitleiste wird basierend auf der Änderung der Sichtbarkeit eines Elements (bekannt als das _Subjekt_) innerhalb eines Scrollers fortgeschreitet. Die Sichtbarkeit des Subjekts im Scroller wird als Fortschritts-Prozentsatz verfolgt – standardmäßig ist die Zeitleiste bei 0%, wenn das Subjekt zum ersten Mal an einem Rand des Scrollers sichtbar ist, und bei 100%, wenn es den gegenüberliegenden Rand erreicht.
+- _Scroll-Fortschrittszeitleiste_: Sie bewegen diese Zeitleiste, indem Sie ein scrollbares Element (_Scroller_) von oben nach unten (oder von links nach rechts) und wieder zurück scrollen. Die Position im Scrollbereich wird in einen Fortschrittsprozentsatz umgewandelt — 0% am Anfang und 100% am Ende.
+- _Sichtbarkeits-Fortschrittszeitleiste_: Sie bewegen diese Zeitleiste basierend auf der Veränderung der Sichtbarkeit eines Elements (bekannt als _Subjekt_) innerhalb eines Scrollers. Die Sichtbarkeit des Subjekts im Scroller wird als Prozentsatz des Fortschritts verfolgt — standardmäßig befindet sich die Zeitleiste bei 0%, wenn das Subjekt zum ersten Mal an einem Rand des Scrollers sichtbar ist, und bei 100%, wenn es den gegenüberliegenden Rand erreicht.
 
-Wenn eine dieser beiden Zeitleisten auf ein animiertes Element angewendet wird, schreitet die Animation entlang dieser Zeitleiste voran, anstatt der standardmäßigen zeitbasierten Zeitleiste zu folgen.
+Wenn eine dieser beiden Zeitleisten auf ein animiertes Element angewendet wird, schreitet die Animation entlang dieser Zeitleiste fort, anstatt der standardmäßigen zeitbasierten Zeitleiste zu folgen.
 
-Es ist möglich, die effektive Platzierung der Animation entlang der Scroll- und Ansichts-Fortschrittszeitleisten anzupassen, d.h., Sie können die Position definieren, an der die Animation beginnt und endet. Dies kann auf verschiedene Weise geschehen:
+Es ist möglich, die effektive Platzierung der Animation entlang der Scroll-Fortschritts- und Sichtbarkeits-Fortschrittszeitleisten anzupassen, d. h. Sie können die Position definieren, an der die Animation startet und endet. Dies kann auf verschiedene Weise erfolgen:
 
-- Start- und End-Animationsbereichswerte können auf die Animation angewendet werden, um die Position des Beginns und Endes der Animation entlang der Zeitleiste einzustellen.
-- Ansichts-Fortschrittszeitleisten können einen Start- und/oder Endeinzug (oder -auszug) zugeordnet bekommen, um die Position des Scrollports (siehe {{glossary("Scroll container")}} für mehr Details) anzupassen, in dem das Subjektelement sichtbar sein soll. Anders ausgedrückt, dies ermöglicht Ihnen, Start- und/oder Endeinzugswerte festzulegen, die die Position der Zeitleiste selbst kompensieren.
+- Start- und Endwerte des Animationsbereichs können auf die Animation angewendet werden, um die Position des Start- und Endpunktes der Animation entlang der Zeitleiste anzupassen.
+- Sichtbarkeits-Fortschrittszeitleisten können einen Start- und/oder End-Inset (oder Outset) aufweisen, der auf sie angewendet wird, um die Position des Scrollports anzupassen (siehe [Scroll-Container](/de/docs/Glossary/Scroll_container) für weitere Details), in dem das Subjektelement als sichtbar angesehen wird. Anders ausgedrückt, erlaubt dies Ihnen, Start- und/oder End-Inset- (oder Outset-) Werte zu spezifizieren, die die Position der Zeitleiste selbst versetzen.
 
 ## Scroll-gesteuerte Animationen in Aktion
 
-Sie finden mehrere Werkzeuge und Demos, die scroll-gesteuerte Animationen in Aktion zeigen, unter [Scroll-driven Animations tools and demos](https://scroll-driven-animations.style/).
+Sie finden verschiedene Werkzeuge und Demos, die scroll-gesteuerte Animationen in Aktion zeigen, unter [Scroll-driven Animations tools and demos](https://scroll-driven-animations.style/).
 
 ## Referenz
 
 ### Eigenschaften
 
-Stellen Sie die Zeitleiste ein, die den Fortschritt einer Animation steuert, und legen Sie deren Anwendungsbereich entlang dieser Zeitleiste fest:
+Setzen Sie die Zeitleiste, die den Fortschritt einer Animation steuert, und bestimmen Sie ihren Anwendungsbereich entlang dieser Zeitleiste:
 
 - {{cssxref("animation-timeline")}}
 - {{cssxref("animation-range")}}
@@ -42,34 +42,34 @@ Definieren Sie _benannte Scroll-Fortschrittszeitleisten_:
 - {{cssxref("scroll-timeline-axis")}}
 - {{cssxref("scroll-timeline-name")}}
 
-Definieren Sie _benannte Ansichts-Fortschrittszeitleisten_:
+Definieren Sie _benannte Sichtbarkeits-Fortschrittszeitleisten_:
 
 - {{cssxref("view-timeline")}}
 - {{cssxref("view-timeline-axis")}}
 - {{cssxref("view-timeline-inset")}}
 - {{cssxref("view-timeline-name")}}
 
-Modifizieren Sie den Geltungsbereich der Zeitleiste:
+Ändern Sie den Zeitleistenbereich:
 
 - {{cssxref("timeline-scope")}}
 
-### At-rules
+### At-Rules
 
-CSS scroll-gesteuerte Animationen fügen die Fähigkeit hinzu, `<timeline-range-name>`s in {{cssxref("@keyframes")}} Blöcken einzuschließen, um Schlüsselbilder an bestimmten Positionen innerhalb benannter Zeitleistenbereiche zu platzieren.
+CSS scroll-gesteuerte Animationen fügen die Möglichkeit hinzu, `<timeline-range-name>`s in {{cssxref("@keyframes")}}-Blöcken einzuschließen, um Keyframes an spezifischen Positionen innerhalb benannter Zeitleistenbereiche zu platzieren.
 
 ### Funktionen
 
-Mögliche Werte der {{cssxref("animation-timeline")}} Eigenschaft zum Definieren _anonymer Scroll-Fortschrittszeitleisten_ und _anonymer Ansichts-Fortschrittszeitleisten_ (d.h. implizit vom Browser definiert, anstatt explizit benannt und unter Verwendung der `scroll-timeline-*` und `view-timeline-*` Eigenschaften definiert):
+Mögliche Werte der {{cssxref("animation-timeline")}}-Eigenschaft zur Definition _anonymer Scroll-Fortschrittszeitleisten_ und _anonymer Sichtbarkeits-Fortschrittszeitleisten_ (d. h., implizit vom Browser definiert, anstatt explizit benannt und mithilfe der `scroll-timeline-*` und `view-timeline-*` Eigenschaften definiert):
 
 - [`scroll()`](/de/docs/Web/CSS/animation-timeline/scroll)
 - [`view()`](/de/docs/Web/CSS/animation-timeline/view)
 
-### JavaScript Features
+### JavaScript-Funktionen
 
-- {{domxref("Element.animate()")}}
-- {{domxref("AnimationTimeline")}}
-- {{domxref("ScrollTimeline")}}
-- {{domxref("ViewTimeline")}}
+- [`Element.animate()`](/de/docs/Web/API/Element/animate)
+- [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)
+- [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)
+- [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)
 
 ## Spezifikationen
 
@@ -77,6 +77,6 @@ Mögliche Werte der {{cssxref("animation-timeline")}} Eigenschaft zum Definieren
 
 ## Siehe auch
 
-- [Animate elements on scroll with Scroll-driven animations](https://developer.chrome.com/docs/css-ui/scroll-driven-animations) auf developer.chrome.com
+- [Animieren von Elementen beim Scrollen mit scroll-gesteuerten Animationen](https://developer.chrome.com/docs/css-ui/scroll-driven-animations) auf developer.chrome.com
 - [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)

@@ -1,5 +1,5 @@
 ---
-title: "MouseEvent: screenY-Eigenschaft"
+title: "MouseEvent: screenY Eigenschaft"
 short-title: screenY
 slug: Web/API/MouseEvent/screenY
 l10n:
@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die **`screenY`** ist eine schreibgeschützte Eigenschaft des {{domxref("MouseEvent")}}-Interfaces, die die vertikale Koordinate (Offset) des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen) angibt.
+Die **`screenY`** schreibgeschützte Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces liefert die vertikale Koordinate (Offset) des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
 
 ## Wert
 
-Ein `double`-Gleitkommawert in Pixeln.
+Ein `double` Gleitkommawert in Pixeln.
 
-Frühere Versionen der Spezifikation definierten dies als eine Ganzzahl, die sich auf die Anzahl der Pixel bezieht.
+Frühere Versionen der Spezifikation definierten dies als Ganzzahl, die sich auf die Anzahl der Pixel bezieht.
 
 ## Beispiele
 
-Dieses Beispiel zeigt die Koordinaten Ihrer Maus an, wann immer Sie das {{domxref("Element/mousemove_event", "mousemove")}}-Ereignis auslösen.
+Dieses Beispiel zeigt die Koordinaten Ihrer Maus an, wenn Sie das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis auslösen.
 
 ### HTML
 
 ```html
-<p>Bewegen Sie die Maus, um ihre Position zu sehen.</p>
+<p>Move your mouse to see its position.</p>
 <p id="screen-log"></p>
 ```
 
@@ -54,7 +54,7 @@ function logKey(e) {
 
 ## Siehe auch
 
-- {{ domxref("MouseEvent") }}
-- {{ domxref("MouseEvent.screenX","screenX") }}
-- {{ domxref("MouseEvent.clientX","clientX") }} / {{ domxref("MouseEvent.clientY", "clientY") }}
+- [`MouseEvent`](/de/docs/Web/API/MouseEvent)
+- [`screenX`](/de/docs/Web/API/MouseEvent/screenX)
+- [`clientX`](/de/docs/Web/API/MouseEvent/clientX) / [`clientY`](/de/docs/Web/API/MouseEvent/clientY)
 - [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)

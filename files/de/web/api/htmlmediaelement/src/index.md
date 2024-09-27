@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLMediaElement.src`**-Eigenschaft spiegelt den Wert des `src`-Attributs eines HTML-Medienelements wider, das die URL einer Medienressource angibt, die im Element verwendet werden soll.
+Die **`HTMLMediaElement.src`**-Eigenschaft spiegelt den Wert des `src`-Attributs des HTML-Medienelements wider, das die URL einer Medienressource angibt, die im Element verwendet werden soll.
 
 > [!NOTE]
-> Der beste Weg, um die URL der Medienressource zu erfahren, die derzeit in diesem Element aktiv verwendet wird, besteht darin, den Wert des {{domxref("HTMLMediaElement.currentSrc", "currentSrc")}}-Attributs zu betrachten. Dieses Attribut berücksichtigt auch die Auswahl einer besten oder bevorzugten Medienressource aus einer Liste, die in einem {{domxref("HTMLSourceElement")}} (das ein {{HTMLElement("source")}}-Element repräsentiert) bereitgestellt wird.
+> Der beste Weg, um die URL der Medienressource zu ermitteln, die derzeit in diesem Element aktiv verwendet wird, besteht darin, den Wert des [`currentSrc`](/de/docs/Web/API/HTMLMediaElement/currentSrc)-Attributs zu betrachten. Dieses berücksichtigt auch die Auswahl einer besten oder bevorzugten Medienressource aus einer Liste, die in einem [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement) bereitgestellt wird (welches ein {{HTMLElement("source")}}-Element repräsentiert).
 
 ## Wert
 
@@ -34,4 +34,4 @@ console.log(obj.src); // ""
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement")}}: Schnittstelle zur Definition der `HTMLMediaElement.src`-Eigenschaft
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die verwendet wird, um die `HTMLMediaElement.src`-Eigenschaft zu definieren

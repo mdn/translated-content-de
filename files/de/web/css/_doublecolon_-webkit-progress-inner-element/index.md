@@ -7,10 +7,10 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-webkit-progress-inner-element`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert das äußerste Container-Element des {{HTMLElement("progress")}} Elements. Es ist das Elternelement des Pseudo-Elements {{cssxref("::-webkit-progress-bar")}}.
+Das **`::-webkit-progress-inner-element`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert das äußerste Container-Element des {{HTMLElement("progress")}}-Elements. Es ist das Elternelement des {{cssxref("::-webkit-progress-bar")}}-Pseudoelements.
 
 > [!NOTE]
-> Damit `::-webkit-progress-value` wirksam wird, muss {{cssxref("appearance")}} auf `none` für das `<progress>` Element gesetzt werden.
+> Damit `::-webkit-progress-value` wirksam wird, muss {{cssxref("appearance")}} auf `none` für das `<progress>`-Element gesetzt werden.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Das **`::-webkit-progress-inner-element`** [CSS](/de/docs/Web/CSS) [Pseudo-Eleme
 
 ## Beispiele
 
-Diese Beispiele funktionieren nur in Blink- und WebKit-Browsern.
+Diese Beispiele funktionieren nur in Blink und WebKit.
 
-### Einen schwarzen Rand um die Fortschrittsanzeige hinzufügen
+### Einen schwarzen Rahmen um die Fortschrittsleiste hinzufügen
 
-In diesem Beispiel wird ein 2px schwarzer Rand um die Fortschrittsanzeige hinzugefügt.
+In diesem Beispiel wird ein 2px breiter schwarzer Rahmen um die Fortschrittsleiste hinzugefügt.
 
 #### HTML
 
@@ -50,15 +50,15 @@ progress {
 
 {{EmbedLiveSample("Adding_a_black_border_around_the_progress_bar", 200, 50)}}
 
-#### Ergebnisbildschirmfoto
+#### Ergebnis-Screenshot
 
-Wenn Sie keinen Blink- oder WebKit-Browser verwenden, sieht die obige Codierung wie folgt aus:
+Wenn Sie keinen Blink- oder WebKit-Browser verwenden, sieht die Fortschrittsleiste im obigen Code so aus:
 
-![Progressbar ist ein langer grüner und grauer Kasten mit einem schwarzen Rahmen. Die linken 20% des Kastens sind grün. Die rechten 80% sind grau.](-webkit-progress-inner-element_example.png)
+![Progressbar ist eine lange grüne und graue Box mit einem schwarzen Rahmen. Die linken 20% der Box sind grün. Die rechten 80% sind grau.](-webkit-progress-inner-element_example.png)
 
 ## Spezifikationen
 
-Kein Bestandteil eines Standards.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -66,7 +66,7 @@ Kein Bestandteil eines Standards.
 
 ## Siehe auch
 
-- Die von WebKit/Blink verwendeten Pseudo-Elemente, um andere Teile eines {{HTMLElement("progress")}} Elements zu stylen:
+- Die Pseudoelemente, die von WebKit/Blink verwendet werden, um andere Teile eines {{HTMLElement("progress")}}-Elements zu stylen:
 
   - {{cssxref("::-webkit-progress-bar")}}
   - {{cssxref("::-webkit-progress-value")}}

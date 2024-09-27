@@ -7,55 +7,56 @@ l10n:
 
 {{learnsidebar}}{{PreviousMenuNext("Learn/CSS/CSS_layout/Responsive_Design", "Learn/CSS/CSS_layout/Legacy_Layout_Methods", "Learn/CSS/CSS_layout")}}
 
-Die **CSS Media Query** gibt Ihnen die Möglichkeit, CSS nur dann anzuwenden, wenn die Browser- und Geräteumgebung einer von Ihnen festgelegten Regel entspricht, beispielsweise "Viewport ist breiter als 480 Pixel". Media Queries sind ein wesentlicher Bestandteil von Responsive Web Design, da sie es ermöglichen, unterschiedliche Layouts abhängig von der Größe des Viewports zu erstellen. Sie können aber auch verwendet werden, um andere Aspekte der Umgebung zu erkennen, auf der Ihre Website läuft, zum Beispiel, ob der Benutzer einen Touchscreen anstelle einer Maus verwendet. In dieser Lektion lernen Sie zunächst die in Media Queries verwendete Syntax kennen und verwenden sie dann in einem Arbeitsbeispiel, das zeigt, wie ein einfaches Design responsiv gestaltet werden kann.
+Die **CSS Media Query** bietet Ihnen eine Möglichkeit, CSS nur dann anzuwenden, wenn der Browser und das Geräteumfeld einer von Ihnen festgelegten Regel entsprechen, zum Beispiel "Viewport ist breiter als 480 Pixel". Media Queries sind ein wesentlicher Bestandteil des responsiven Webdesigns, da sie es Ihnen ermöglichen, je nach Größe des Viewports unterschiedliche Layouts zu erstellen. Sie können jedoch auch verwendet werden, um andere Aspekte des Umfeldes zu erkennen, in dem Ihre Website läuft, zum Beispiel, ob der Benutzer einen Touchscreen anstelle einer Maus verwendet. In dieser Lektion lernen Sie zunächst die in Media Queries verwendete Syntax kennen und dann, wie Sie sie in einem praktischen Beispiel einsetzen können, das zeigt, wie ein einfaches Design responsive gemacht werden kann.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlagen von HTML (studieren Sie
+        Grundlagen von HTML (siehe
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
           >Einführung in HTML</a
-        >) und eine Vorstellung davon, wie CSS funktioniert (studieren Sie
-        <a href="/de/docs/Learn/CSS/First_steps">CSS erste Schritte</a> und
-        <a href="/de/docs/Learn/CSS/Building_blocks">CSS Bausteine</a>.)
+        >) und eine Vorstellung davon, wie CSS funktioniert (siehe
+        <a href="/de/docs/Learn/CSS/First_steps">CSS Erste Schritte</a> und
+        <a href="/de/docs/Learn/CSS/Building_blocks">CSS Bausteine</a
+        >.)
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Verstehen, wie Media Queries verwendet werden und der häufigste Ansatz, um damit responsive Designs zu erstellen.
+        Verstehen, wie man Media Queries verwendet und den häufigsten Ansatz dafür, um responsive Designs zu erstellen.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Grundlagen von Media Queries
+## Grundlagen der Media Query
 
-Die einfachste Syntax für eine Media Query sieht wie folgt aus:
+Die einfachste Syntax einer Media Query sieht so aus:
 
 ```css
 @media media-type and (media-feature-rule) {
-  /* CSS-Regeln hier */
+  /* CSS rules go here */
 }
 ```
 
 Sie besteht aus:
 
-- Einem Medientyp, der dem Browser mitteilt, für welche Art von Medien dieser Code gedacht ist (z.B. Druck oder Bildschirm).
-- Einer Mediensprache, die eine Regel oder Test ist, der bestanden werden muss, damit das enthaltene CSS angewendet wird.
-- Einem Satz von CSS-Regeln, die angewendet werden, wenn der Test bestanden wird und der Medientyp korrekt ist.
+- Einem Medientyp, der dem Browser mitteilt, für welche Art von Medien dieser Code gedacht ist (z. B. Druck oder Bildschirm).
+- Einer Media-Expression, die eine Regel oder ein Test ist, der erfüllt sein muss, damit das enthaltene CSS angewendet wird.
+- Einer Reihe von CSS-Regeln, die angewendet werden, wenn der Test bestanden wird und der Medientyp korrekt ist.
 
 ### Medientypen
 
-Die möglichen Arten von Medien, die Sie angeben können, sind:
+Die möglichen Medientypen, die Sie angeben können, sind:
 
 - `all`
 - `print`
 - `screen`
 
-Die folgende Media Query setzt den Textkörper nur dann auf 12pt, wenn die Seite gedruckt wird. Sie wird nicht angewendet, wenn die Seite in einem Browser geladen wird.
+Die folgende Media Query setzt den Textkörper nur auf 12pt, wenn die Seite gedruckt wird. Sie wird nicht angewendet, wenn die Seite in einem Browser geladen ist.
 
 ```css
 @media print {
@@ -66,23 +67,23 @@ Die folgende Media Query setzt den Textkörper nur dann auf 12pt, wenn die Seite
 ```
 
 > [!NOTE]
-> Der Medientyp hier ist anders als der sogenannte {{glossary("MIME type")}}.
+> Der hier verwendete Medientyp unterscheidet sich von dem sogenannten [MIME-Typ](/de/docs/Glossary/MIME_type).
 
 > [!NOTE]
-> Es gab in der Spezifikation der Media Queries Level 3 eine Reihe weiterer definierter Medientypen; diese wurden veraltet und sollten vermieden werden.
+> In der Spezifikation der Media Queries Level 3 waren eine Reihe weiterer Medientypen definiert; diese wurden jedoch verworfen und sollten vermieden werden.
 
 > [!NOTE]
 > Medientypen sind optional; wenn Sie in Ihrer Media Query keinen Medientyp angeben, wird die Media Query standardmäßig für alle Medientypen gelten.
 
-### Regeln für Media Features
+### Regeln für Media-Features
 
-Nach der Angabe des Typs können Sie dann ein Media Feature mit einer Regel anvisieren.
+Nach der Angabe des Typs können Sie dann mit einer Regel ein Media-Feature anvisieren.
 
 #### Breite und Höhe
 
-Das Feature, das wir am häufigsten erkennen, um responsive Designs zu erstellen (und das weit verbreitete Browserunterstützung hat), ist die Viewport-Breite. Wir können CSS anwenden, wenn der Viewport über oder unter einer bestimmten Breite liegt — oder genau einer Breite entspricht —, indem wir die Media Features `min-width`, `max-width` und `width` verwenden.
+Das Feature, das wir am häufigsten zur Erstellung responsiver Designs erkennen (und das breit unterstützte Browserunterstützung hat), ist die Viewport-Breite. Wir können CSS anwenden, wenn der Viewport über oder unter einer bestimmten Breite — oder genau auf einer Breite — liegt, indem wir die Media-Features `min-width`, `max-width` und `width` verwenden.
 
-Diese Features werden verwendet, um Layouts zu erstellen, die auf verschiedene Bildschirmgrößen reagieren. Zum Beispiel, um die Textfarbe des Körpers auf Rot zu ändern, wenn der Viewport genau 600 Pixel breit ist, würden Sie die folgende Media Query verwenden.
+Diese Features werden verwendet, um Layouts zu erstellen, die auf verschiedene Bildschirmgrößen reagieren. Um beispielsweise die Textfarbe des Körpers in rot zu ändern, wenn der Viewport genau 600 Pixel beträgt, würden Sie die folgende Media Query verwenden.
 
 ```css
 @media screen and (width: 600px) {
@@ -92,9 +93,9 @@ Diese Features werden verwendet, um Layouts zu erstellen, die auf verschiedene B
 }
 ```
 
-[Öffnen Sie dieses Beispiel](https://mdn.github.io/css-examples/learn/media-queries/width.html) im Browser oder [sehen Sie den Quellcode](https://github.com/mdn/css-examples/blob/main/learn/media-queries/width.html).
+[Öffnen Sie dieses Beispiel](https://mdn.github.io/css-examples/learn/media-queries/width.html) im Browser oder [sehen Sie sich den Quellcode an](https://github.com/mdn/css-examples/blob/main/learn/media-queries/width.html).
 
-Die `width` (und `height`) Media Features können als Bereiche verwendet werden und daher mit `min-` oder `max-` vorangestellt werden, um anzugeben, dass der angegebene Wert ein Minimum oder Maximum ist. Zum Beispiel, um die Farbe auf Blau zu ändern, wenn der Viewport 600 Pixel oder schmaler ist, verwenden Sie `max-width`:
+Die Media-Features `width` (und `height`) können als Bereiche verwendet werden und können daher mit `min-` oder `max-` vorangestellt werden, um anzugeben, dass der angegebene Wert ein Mindestwert oder ein Höchstwert ist. Um beispielsweise die Farbe blau zu machen, wenn der Viewport 600 Pixel oder schmaler ist, verwenden Sie `max-width`:
 
 ```css
 @media screen and (max-width: 600px) {
@@ -104,15 +105,15 @@ Die `width` (und `height`) Media Features können als Bereiche verwendet werden 
 }
 ```
 
-[Öffnen Sie dieses Beispiel](https://mdn.github.io/css-examples/learn/media-queries/max-width.html) im Browser oder [sehen Sie den Quellcode](https://github.com/mdn/css-examples/blob/main/learn/media-queries/max-width.html).
+[Öffnen Sie dieses Beispiel](https://mdn.github.io/css-examples/learn/media-queries/max-width.html) im Browser oder [sehen Sie sich den Quellcode an](https://github.com/mdn/css-examples/blob/main/learn/media-queries/max-width.html).
 
-In der Praxis ist die Verwendung von Mindest- oder Höchstwerten viel nützlicher für responsives Design, sodass Sie `width` oder `height` selten allein verwenden werden.
+In der Praxis ist die Verwendung von Mindest- oder Höchstwerten für responsives Design viel nützlicher, daher werden Sie selten `width` oder `height` alleine verwenden.
 
-Es gibt viele andere Media Features, für die Sie testen können, obwohl einige der neueren Features, die in den Levels 4 und 5 der Spezifikation für Media Queries eingeführt wurden, nur begrenzte Browserunterstützung haben. Jedes Feature ist auf MDN zusammen mit Informationen zur Browserunterstützung dokumentiert, und Sie können eine vollständige Liste unter [Verwendung von Media Queries: Syntax](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#syntax) finden.
+Es gibt viele andere Media-Features, auf die Sie testen können, obwohl einige der neueren Features, die in den Stufen 4 und 5 der Media Query-Spezifikation eingeführt wurden, begrenzte Browserunterstützung haben. Jedes Feature ist auf MDN dokumentiert, zusammen mit Informationen zur Browserunterstützung. Eine vollständige Liste finden Sie unter [Verwendung von Media Queries: Syntax](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries#syntax).
 
 #### Orientierung
 
-Ein gut unterstütztes Media Feature ist `orientation`, das es uns ermöglicht, den Hochformat- oder Querformatmodus zu testen. Um die Körpertextfarbe zu ändern, wenn das Gerät sich im Querformat befindet, verwenden Sie die folgende Media Query.
+Ein gut unterstütztes Media-Feature ist `orientation`, mit dem wir im Hoch- oder Querformat testen können. Um die Textfarbe des Körpers zu ändern, wenn sich das Gerät im Querformat befindet, verwenden Sie die folgende Media Query.
 
 ```css
 @media (orientation: landscape) {
@@ -122,13 +123,13 @@ Ein gut unterstütztes Media Feature ist `orientation`, das es uns ermöglicht, 
 }
 ```
 
-[Öffnen Sie dieses Beispiel](https://mdn.github.io/css-examples/learn/media-queries/orientation.html) im Browser oder [sehen Sie den Quellcode](https://github.com/mdn/css-examples/blob/main/learn/media-queries/orientation.html).
+[Öffnen Sie dieses Beispiel](https://mdn.github.io/css-examples/learn/media-queries/orientation.html) im Browser oder [sehen Sie sich den Quellcode an](https://github.com/mdn/css-examples/blob/main/learn/media-queries/orientation.html).
 
-Eine Standard-Desktopansicht hat ein Querformat und ein Design, das in diesem Format gut funktioniert, funktioniert möglicherweise nicht so gut, wenn es auf einem Telefon oder Tablet im Hochformat angezeigt wird. Das Testen der Orientierung kann Ihnen helfen, ein Layout zu erstellen, das für Geräte im Hochformat optimiert ist.
+Eine Standard-Desktopansicht hat eine Querformat, und ein Design, das in dieser Orientierung gut funktioniert, funktioniert möglicherweise nicht so gut, wenn es auf einem Telefon oder Tablet im Hochformat angesehen wird. Das Testen der Orientierung kann Ihnen helfen, ein Layout zu erstellen, das für Geräte im Hochformat optimiert ist.
 
-#### Verwendung von Eingabegeräten
+#### Verwendung von Zeigegeräten
 
-Als Teil der Spezifikation Level 4 wurde das Media Feature `hover` eingeführt. Dieses Feature bedeutet, dass Sie testen können, ob der Benutzer die Fähigkeit hat, über ein Element zu schweben, was im Wesentlichen bedeutet, dass er ein Zeigegerät verwendet; Touchscreen- und Tastaturnavigation schweben nicht.
+Im Rahmen der Level 4-Spezifikation wurde das Media-Feature `hover` eingeführt. Dieses Feature bedeutet, dass Sie testen können, ob der Benutzer in der Lage ist, über ein Element zu schweben, was im Wesentlichen bedeutet, dass er irgendein Zeigegerät verwendet; Touchscreen und Tastaturnavigation schweben nicht.
 
 ```css
 @media (hover: hover) {
@@ -138,17 +139,17 @@ Als Teil der Spezifikation Level 4 wurde das Media Feature `hover` eingeführt. 
 }
 ```
 
-[Öffnen Sie dieses Beispiel](https://mdn.github.io/css-examples/learn/media-queries/hover.html) im Browser oder [sehen Sie den Quellcode](https://github.com/mdn/css-examples/blob/main/learn/media-queries/hover.html).
+[Öffnen Sie dieses Beispiel](https://mdn.github.io/css-examples/learn/media-queries/hover.html) im Browser oder [sehen Sie sich den Quellcode an](https://github.com/mdn/css-examples/blob/main/learn/media-queries/hover.html).
 
-Wenn wir wissen, dass der Benutzer nicht schweben kann, könnten wir einige interaktive Features standardmäßig anzeigen. Für Benutzer, die schweben können, könnten wir wählen, sie verfügbar zu machen, wenn über einen Link geschwebt wird.
+Wenn wir wissen, dass der Benutzer nicht schweben kann, könnten wir einige interaktive Funktionen standardmäßig anzeigen. Für Benutzer, die schweben können, könnten wir sie beim Überfahren eines Links verfügbar machen.
 
-Ebenfalls in Level 4 ist das Media Feature `pointer`. Es nimmt drei mögliche Werte an, `none`, `fine` und `coarse`. Ein `fine`-Zeiger ist etwas wie eine Maus oder ein Trackpad. Er ermöglicht es dem Benutzer, ein kleines Gebiet präzise anzusteuern. Ein `coarse`-Zeiger ist Ihr Finger auf einem Touchscreen. Der Wert `none` bedeutet, dass der Benutzer kein Zeigegerät hat; vielleicht navigiert er nur mit der Tastatur oder mit Sprachbefehlen.
+Auch in Level 4 ist das Media-Feature `pointer`. Es nimmt drei mögliche Werte an: `none`, `fine` und `coarse`. Ein `fine` Zeiger ist etwas wie eine Maus oder ein Trackpad. Er ermöglicht es dem Benutzer, ein kleines Gebiet präzise anzuzielen. Ein `coarse` Zeiger ist Ihr Finger auf einem Touchscreen. Der Wert `none` bedeutet, dass der Benutzer kein Zeigegerät hat; vielleicht navigiert er nur mit der Tastatur oder mit Sprachbefehlen.
 
-Die Verwendung von `pointer` kann Ihnen helfen, bessere Schnittstellen zu entwerfen, die auf die Art der Interaktion reagieren, die ein Benutzer mit einem Bildschirm hat. Zum Beispiel könnten Sie größere Trefferbereiche erstellen, wenn Sie wissen, dass der Benutzer das Gerät als Touchscreen verwendet.
+Die Verwendung von `pointer` kann Ihnen helfen, bessere Schnittstellen zu entwerfen, die auf die Art der Interaktion reagieren, die ein Benutzer mit einem Bildschirm hat. Beispielsweise könnten Sie größere Trefferbereiche erstellen, wenn Sie wissen, dass der Benutzer mit dem Gerät als Touchscreen interagiert.
 
 #### Verwendung von Bereichssyntax
 
-Ein häufiger Fall ist zu prüfen, ob die Viewport-Breite zwischen zwei Werten liegt:
+Ein häufiger Fall ist zu überprüfen, ob die Viewport-Breite zwischen zwei Werten liegt:
 
 ```css
 @media (min-width: 30em) and (max-width: 50em) {
@@ -164,15 +165,15 @@ Wenn Sie die Lesbarkeit verbessern möchten, können Sie die "Bereichs"-Syntax v
 }
 ```
 
-In diesem Fall werden also Stile angewendet, wenn die Viewport-Breite zwischen `30em` und `50em` liegt.
+In diesem Fall werden die Stile angewendet, wenn die Viewport-Breite zwischen `30em` und `50em` liegt.
 
 ## Komplexere Media Queries
 
-Mit all den verschiedenen möglichen Media Queries möchten Sie vielleicht diese kombinieren oder Listen von Abfragen erstellen — jede von ihnen könnte zutreffen.
+Mit all den verschiedenen möglichen Media Queries möchten Sie diese möglicherweise kombinieren oder Listen von Abfragen erstellen – von denen jede übereinstimmen könnte.
 
-### "and"-Logik in Media Queries
+### "und"-Logik in Media Queries
 
-Um Media Features zu kombinieren, können Sie `and` in ähnlicher Weise verwenden, wie wir oben `and` verwendet haben, um einen Medientyp und ein Feature zu kombinieren. Zum Beispiel möchten wir vielleicht `min-width` und `orientation` testen. Der Textkörper wird nur dann blau, wenn der Viewport mindestens 600 Pixel breit ist und das Gerät sich im Querformat befindet.
+Um Media-Features zu kombinieren, können Sie `and` verwenden, ähnlich wie wir `and` oben verwendet haben, um einen Medientyp und ein Feature zu kombinieren. Beispielsweise möchten wir möglicherweise eine `min-width` und `orientation` testen. Der Textkörper wird nur blau, wenn der Viewport mindestens 600 Pixel breit ist und sich das Gerät im Querformat befindet.
 
 ```css
 @media screen and (min-width: 600px) and (orientation: landscape) {
@@ -182,11 +183,11 @@ Um Media Features zu kombinieren, können Sie `and` in ähnlicher Weise verwende
 }
 ```
 
-[Öffnen Sie dieses Beispiel](https://mdn.github.io/css-examples/learn/media-queries/and.html) im Browser oder [sehen Sie den Quellcode](https://github.com/mdn/css-examples/blob/main/learn/media-queries/and.html).
+[Öffnen Sie dieses Beispiel](https://mdn.github.io/css-examples/learn/media-queries/and.html) im Browser oder [sehen Sie sich den Quellcode an](https://github.com/mdn/css-examples/blob/main/learn/media-queries/and.html).
 
-### "or"-Logik in Media Queries
+### "oder"-Logik in Media Queries
 
-Wenn Sie eine Reihe von Abfragen haben, von denen jede zutreffen könnte, können Sie diese Abfragen durch Kommas trennen. Im folgenden Beispiel wird der Text blau, wenn der Viewport mindestens 600 Pixel breit ist ODER das Gerät sich im Querformat befindet. Wenn eine dieser Bedingungen zutrifft, entspricht die Abfrage.
+Wenn Sie eine Reihe von Abfragen haben, von denen jede übereinstimmen könnte, können Sie diese Abfragen durch Kommas trennen. Im folgenden Beispiel wird der Text blau, wenn der Viewport mindestens 600 Pixel breit ist ODER das Gerät im Querformat ist. Wenn eines dieser Dinge wahr ist, stimmt die Abfrage überein.
 
 ```css
 @media screen and (min-width: 600px), screen and (orientation: landscape) {
@@ -196,11 +197,11 @@ Wenn Sie eine Reihe von Abfragen haben, von denen jede zutreffen könnte, könne
 }
 ```
 
-[Öffnen Sie dieses Beispiel](https://mdn.github.io/css-examples/learn/media-queries/or.html) im Browser oder [sehen Sie den Quellcode](https://github.com/mdn/css-examples/blob/main/learn/media-queries/or.html).
+[Öffnen Sie dieses Beispiel](https://mdn.github.io/css-examples/learn/media-queries/or.html) im Browser oder [sehen Sie sich den Quellcode an](https://github.com/mdn/css-examples/blob/main/learn/media-queries/or.html).
 
-### "not"-Logik in Media Queries
+### "nicht"-Logik in Media Queries
 
-Sie können eine gesamte Media Query negieren, indem Sie den `not`-Operator verwenden. Dies kehrt die Bedeutung der gesamten Media Query um. Im nächsten Beispiel wird der Text nur blau, wenn die Orientierung Hochformat ist.
+Sie können eine gesamte Media Query negieren, indem Sie den `not`-Operator verwenden. Dies kehrt die Bedeutung der gesamten Media Query um. Daher wird im nächsten Beispiel der Text nur dann blau, wenn die Orientierung Hochformat ist.
 
 ```css
 @media not (orientation: landscape) {
@@ -210,9 +211,9 @@ Sie können eine gesamte Media Query negieren, indem Sie den `not`-Operator verw
 }
 ```
 
-[Öffnen Sie dieses Beispiel](https://mdn.github.io/css-examples/learn/media-queries/not.html) im Browser oder [sehen Sie den Quellcode](https://github.com/mdn/css-examples/blob/main/learn/media-queries/not.html).
+[Öffnen Sie dieses Beispiel](https://mdn.github.io/css-examples/learn/media-queries/not.html) im Browser oder [sehen Sie sich den Quellcode an](https://github.com/mdn/css-examples/blob/main/learn/media-queries/not.html).
 
-Sie können `not` auch verwenden, um spezifische Ausdrücke zu negieren.
+Sie können auch `not` verwenden, um bestimmte Ausdrücke zu negieren.
 
 ```css
 @media (not (width < 600px)) and (not (width > 1000px)) {
@@ -222,29 +223,29 @@ Sie können `not` auch verwenden, um spezifische Ausdrücke zu negieren.
 }
 ```
 
-Dies gilt für die Stile, wenn die Viewport-Breite zwischen 600 und 1000 Pixeln liegt. Dies entspricht `(600px <= width <= 1000px)`.
+Dies wendet die Stile an, wenn die Viewport-Breite zwischen 600 und 1000 Pixel liegt. Dies ist gleichwertig mit `(600px <= width <= 1000px)`.
 
-## Wie man Breakpoints auswählt
+## Wie man Breakpoints wählt
 
-In den frühen Tagen des Responsive Designs versuchten viele Designer, sehr spezifische Bildschirmgrößen anzuvisieren. Listen der Größen der Bildschirme von beliebten Handys und Tablets wurden veröffentlicht, damit Designs passend zu diesen Viewports erstellt werden konnten.
+In den frühen Tagen des responsiven Designs versuchten viele Designer, sehr spezifische Bildschirmgrößen anzusprechen. Listen der Größen der Bildschirme beliebter Telefone und Tablets wurden veröffentlicht, damit Designs erstellt werden konnten, die genau zu diesen Viewports passen.
 
-Es gibt jetzt viel zu viele Geräte mit einer großen Vielfalt an Größen, um dies praktikabel zu machen. Das bedeutet, dass anstelle von bestimmten Größen für alle Designs, ein besserer Ansatz darin besteht, das Design an dem Punkt zu ändern, an dem der Inhalt in irgendeiner Weise bricht. Vielleicht werden die Zeilenlängen viel zu lang, oder eine anders platzierte Sidebar wird eingequetscht und schwer zu lesen. Dies ist der Punkt, an dem Sie eine Media Query verwenden möchten, um das Design zu ändern, um es für den verfügbaren Raum besser zu machen. Dieser Ansatz bedeutet, dass es keine Rolle spielt, welche genauen Abmessungen das verwendete Gerät hat, jedes Intervall wird abgedeckt. Die Punkte, an denen eine Media Query eingeführt wird, werden als **Breakpoints** bezeichnet.
+Es gibt jetzt viel zu viele Geräte mit einer großen Auswahl an Größen, um das realisierbar zu machen. Das bedeutet, dass anstatt spezifische Größen für alle Designs anzupassen, ein besserer Ansatz darin besteht, das Design an der Stelle zu ändern, an der der Inhalt in irgendeiner Weise bricht. Vielleicht werden die Zeilenlängen viel zu lang, oder eine ausdrücklich gestaltete Seitenleiste wird zerdrückt und schwer zu lesen. Das ist der Punkt, an dem Sie eine Media Query verwenden möchten, um das Design an ein besseres für den verfügbaren Raum anzupassen. Dieser Ansatz bedeutet, dass es egal ist, welche genauen Abmessungen das verwendete Gerät hat, jede Reichweite wird abgedeckt. Die Punkte, an denen eine Media Query eingeführt wird, werden als **Breakpoints** bezeichnet.
 
-Der [Responsive Design-Modus](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/index.html) in den Firefox DevTools ist sehr nützlich, um herauszufinden, wo diese Breakpoints gesetzt werden sollten. Sie können einfach den Viewport kleiner und größer machen, um zu sehen, wo der Inhalt durch Hinzufügen einer Media Query und Anpassen des Designs verbessert werden könnte.
+Der [Responsive Design Modus](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/index.html) in den Firefox DevTools ist sehr nützlich, um herauszufinden, wo diese Breakpoints platziert werden sollten. Sie können den Viewport leicht verkleinern und vergrößern, um zu sehen, wo der Inhalt durch Hinzufügen einer Media Query und Optimierung des Designs verbessert werden könnte.
 
-![Ein Screenshot eines Layouts in der mobilen Ansicht in den Firefox DevTools.](rwd-mode.png)
+![Ein Screenshot eines Layouts in einer mobilen Ansicht in Firefox DevTools.](rwd-mode.png)
 
-## Aktives Lernen: Mobile-First Responsive Design
+## Aktives Lernen: Mobile First Responsive Design
 
-Im Allgemeinen können Sie zwei Ansätze für ein Responsive Design verfolgen. Sie können mit Ihrer Desktop- oder Breitbildansicht beginnen und dann Breakpoints hinzufügen, um die Elemente zu verschieben, wenn der Viewport kleiner wird, oder Sie können mit der kleinsten Ansicht beginnen und Layouts hinzufügen, wenn der Viewport größer wird. Dieser zweite Ansatz wird als **Mobile-First** Responsive Design beschrieben und ist oft der beste Ansatz.
+Im Großen und Ganzen können Sie zwei Ansätze für ein responsives Design verfolgen. Sie können mit Ihrer Desktop- oder breitesten Ansicht beginnen und dann Breakpoints hinzufügen, um Dinge zu ändern, während der Viewport kleiner wird, oder Sie können mit der kleinsten Ansicht beginnen und Layout hinzufügen, während der Viewport größer wird. Diese zweite Methode wird als **Mobile First** responsives Design beschrieben und ist oft der beste Ansatz.
 
-Die Ansicht für die kleinsten Geräte ist oft eine einfache einspaltige Inhaltsspalte, wie sie im normalen Fluss erscheint. Das bedeutet, dass Sie wahrscheinlich nicht viel Layouts für kleine Geräte benötigen – ordnen Sie Ihre Quelle gut und Sie haben standardmäßig ein lesbares Layout.
+Die Ansicht für die kleinsten Geräte ist oft eine einfache einspaltige Darstellung des Inhalts, wie sie im normalen Fluss erscheint. Das bedeutet, dass Sie wahrscheinlich nicht viel Layout für kleine Geräte durchführen müssen — ordnen Sie Ihre Quelle gut und Sie werden standardmäßig ein lesbares Layout haben.
 
-Die folgende Anleitung führt Sie durch diesen Ansatz mit einem sehr einfachen Layout. In einer Produktionsseite haben Sie wahrscheinlich mehr Dinge zu ändern innerhalb Ihrer Media Queries, jedoch wäre der Ansatz genau derselbe.
+Der folgende Rundgang bringt Sie durch diesen Ansatz mit einem sehr einfachen Layout. Auf einer Produktionsseite werden Sie wahrscheinlich mehr Dinge haben, die innerhalb Ihrer Media Queries angepasst werden müssen, aber der Ansatz wäre genau derselbe.
 
-### Anleitung: Ein einfaches Mobile-First-Layout
+### Schritt-für-Schritt-Anleitung: Ein einfaches Mobile-First-Layout
 
-Unser Ausgangspunkt ist ein HTML-Dokument mit etwas CSS, um den verschiedenen Teilen des Layouts Hintergrundfarben hinzuzufügen.
+Unser Ausgangspunkt ist ein HTML-Dokument mit etwas CSS, das angewendet wird, um den verschiedenen Teilen des Layouts Hintergrundfarben hinzuzufügen.
 
 ```css
 * {
@@ -302,7 +303,7 @@ article {
 }
 ```
 
-Wir haben keine Layoutänderungen vorgenommen, aber die Quelle des Dokuments so angeordnet, dass der Inhalt lesbar ist. Dies ist ein wichtiger erster Schritt und stellt sicher, dass der Inhalt, wenn er von einem Bildschirmlesegerät vorgelesen würde, verständlich wäre.
+Wir haben keine Layoutänderungen vorgenommen, aber die Quelle des Dokuments ist so geordnet, dass der Inhalt lesbar ist. Dies ist ein wichtiger erster Schritt, der sicherstellt, dass, wenn der Inhalt von einem Screenreader vorgelesen würde, er verständlich wäre.
 
 ```html
 <body>
@@ -310,9 +311,9 @@ Wir haben keine Layoutänderungen vorgenommen, aber die Quelle des Dokuments so 
     <header>
       <nav>
         <ul>
-          <li><a href="">Über</a></li>
-          <li><a href="">Kontakt</a></li>
-          <li><a href="">Das Team</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact</a></li>
+          <li><a href="">Meet the team</a></li>
           <li><a href="">Blog</a></li>
         </ul>
       </nav>
@@ -320,7 +321,7 @@ Wir haben keine Layoutänderungen vorgenommen, aber die Quelle des Dokuments so 
     <main>
       <article>
         <div class="content">
-          <h1>Gemüse!</h1>
+          <h1>Veggies!</h1>
           <p>…</p>
         </div>
         <aside class="related">
@@ -329,7 +330,7 @@ Wir haben keine Layoutänderungen vorgenommen, aber die Quelle des Dokuments so 
       </article>
 
       <aside class="sidebar">
-        <h2>Externe Gemüse-basierte Links</h2>
+        <h2>External vegetable-based links</h2>
         <ul>
           <li>…</li>
         </ul>
@@ -341,15 +342,15 @@ Wir haben keine Layoutänderungen vorgenommen, aber die Quelle des Dokuments so 
 </body>
 ```
 
-Dieses einfache Layout funktioniert auch gut auf Mobilgeräten. Wenn wir das Layout im Responsive Design-Modus in den DevTools betrachten, sehen wir, dass es als einfache mobile Ansicht der Seite ziemlich gut funktioniert.
+Dieses einfache Layout funktioniert auch gut auf mobilen Geräten. Wenn wir das Layout im Responsive Design Modus in den DevTools ansehen, sehen wir, dass es als einfache mobile Ansicht der Site ziemlich gut funktioniert.
 
-[Öffnen Sie Schritt 1](https://mdn.github.io/css-examples/learn/media-queries/step1.html) im Browser oder [sehen Sie den Quellcode](https://github.com/mdn/css-examples/blob/main/learn/media-queries/step1.html).
+[Öffnen Sie Schritt 1](https://mdn.github.io/css-examples/learn/media-queries/step1.html) im Browser, oder [sehen Sie sich den Quellcode an](https://github.com/mdn/css-examples/blob/main/learn/media-queries/step1.html).
 
-**Wenn Sie dieses Beispiel weiterverfolgen und implementieren möchten, machen Sie eine lokale Kopie von [step1.html](https://github.com/mdn/css-examples/blob/main/learn/media-queries/step1.html) auf Ihrem Computer.**
+**Wenn Sie diesem Beispiel folgen und es selbst implementieren möchten, machen Sie eine lokale Kopie von [step1.html](https://github.com/mdn/css-examples/blob/main/learn/media-queries/step1.html) auf Ihrem Computer.**
 
-Von diesem Punkt aus beginnen Sie, die Ansicht im Responsive Design-Modus breiter zu ziehen, bis Sie sehen, dass die Zeilenlängen ziemlich lang werden und wir Platz für die Navigation haben, um in einer horizontalen Linie angezeigt zu werden. Hier werden wir unsere erste Media Query hinzufügen. Wir werden `em`s verwenden, da dies bedeutet, dass, wenn der Benutzer seine Textgröße vergrößert hat, der Breakpoint bei einer ähnlichen Zeilenlänge, aber breiterem Viewport erfolgt, als jemand mit einer kleineren Textgröße.
+Von diesem Punkt aus beginnen Sie, die Ansicht des Responsive Design Modus zu erweitern, bis Sie sehen können, dass die Zeilenlängen recht lang werden und wir Platz haben, die Navigation in einer horizontalen Linie anzuzeigen. Hier werden wir unsere erste Media Query hinzufügen. Wir verwenden `em`, da dies bedeutet, dass, wenn der Benutzer seine Textgröße erhöht hat, der Breakpoint bei einer ähnlichen Zeilenlänge aber einem breiteren Viewport geschieht, als bei jemandem mit einer kleineren Textgröße.
 
-**Fügen Sie den unten stehenden Code am Ende Ihres CSS in step1.html hinzu.**
+**Fügen Sie den folgenden Code in das Ende Ihres CSS für step1.html ein.**
 
 ```css
 @media screen and (min-width: 40em) {
@@ -369,13 +370,13 @@ Von diesem Punkt aus beginnen Sie, die Ansicht im Responsive Design-Modus breite
 }
 ```
 
-Dieses CSS gibt uns ein zweispaltiges Layout innerhalb des Artikels, mit dem Artikelauszug und den verwandten Informationen im `aside`-Element. Wir haben auch Flexbox verwendet, um die Navigation in eine Zeile zu setzen.
+Dieses CSS gibt uns ein zweispaltiges Layout innerhalb des Artikels, des artikulierten Inhalts und der verwandten Informationen im Aside-Element. Wir haben auch Flexbox verwendet, um die Navigation in eine Reihe zu setzen.
 
-[Öffnen Sie Schritt 2](https://mdn.github.io/css-examples/learn/media-queries/step2.html) im Browser oder [sehen Sie den Quellcode](https://github.com/mdn/css-examples/blob/main/learn/media-queries/step2.html).
+[Öffnen Sie Schritt 2](https://mdn.github.io/css-examples/learn/media-queries/step2.html) im Browser, oder [sehen Sie sich den Quellcode an](https://github.com/mdn/css-examples/blob/main/learn/media-queries/step2.html).
 
-Lassen Sie uns die Breite weiter vergrößern, bis wir fühlen, dass genug Platz für die Sidebar ist, um ebenfalls eine neue Spalte zu bilden. Innerhalb einer Media Query machen wir das `main`-Element zu einem zweispaltigen Grid. Wir müssen dann den {{cssxref("margin-bottom")}} des Artikels entfernen, damit sich die beiden Sidebars miteinander ausrichten, und wir werden einen {{cssxref("border")}} an den oberen Rand der Fußzeile hinzufügen. Typischerweise sind diese kleinen Anpassungen die Art von Dingen, die Sie tun, um das Design an jedem Breakpoint gut aussehen zu lassen.
+Fahren wir fort, die Breite zu erweitern, bis wir denken, dass genug Platz für die Seitenleiste vorhanden ist, um ebenfalls eine neue Spalte zu bilden. Innerhalb einer Media Query machen wir das main-Element zu einem zweispaltigen Gitter. Dann müssen wir den {{cssxref("margin-bottom")}} auf dem Artikel entfernen, damit die beiden Seitenleisten miteinander ausgerichtet sind, und wir werden eine {{cssxref("border")}} auf die Oberseite der Fußzeile hinzufügen. Typischerweise sind diese kleinen Anpassungen die Art von Dingen, die Sie tun werden, um das Design an jedem Breakpoint gut aussehen zu lassen.
 
-**Fügen Sie erneut den unten stehenden Code am Ende Ihres CSS in step1.html hinzu.**
+**Fügen Sie wieder den folgenden Code in das Ende Ihres CSS für step1.html ein.**
 
 ```css
 @media screen and (min-width: 70em) {
@@ -396,52 +397,52 @@ Lassen Sie uns die Breite weiter vergrößern, bis wir fühlen, dass genug Platz
 }
 ```
 
-[Öffnen Sie Schritt 3](https://mdn.github.io/css-examples/learn/media-queries/step3.html) im Browser oder [sehen Sie den Quellcode](https://github.com/mdn/css-examples/blob/main/learn/media-queries/step3.html).
+[Öffnen Sie Schritt 3](https://mdn.github.io/css-examples/learn/media-queries/step3.html) im Browser, oder [sehen Sie sich den Quellcode an](https://github.com/mdn/css-examples/blob/main/learn/media-queries/step3.html).
 
-Wenn Sie sich das letzte Beispiel in verschiedenen Breiten ansehen, können Sie sehen, wie das Design als einzelne Spalte, zwei Spalten oder drei Spalten je nach verfügbarer Breite reagiert und funktioniert. Dies ist ein sehr einfaches Beispiel für ein Mobile-First-Responsive-Design.
+Wenn Sie sich das endgültige Beispiel in verschiedenen Breiten ansehen, können Sie sehen, wie das Design als Einzelspalte, zweispaltig oder dreispaltig funktioniert, je nach verfügbarer Breite. Dies ist ein sehr einfaches Beispiel für ein Mobile First Responsive Design.
 
 ## Das Viewport-Meta-Tag
 
-Wenn Sie sich den HTML-Quellcode in den obigen Beispielen ansehen, sehen Sie das folgende Element im Kopf des Dokuments:
+Wenn Sie sich den HTML-Quellcode im obigen Beispiel ansehen, sehen Sie das folgende Element im Kopf des Dokuments:
 
 ```html
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 ```
 
-Dies ist das [Viewport-Meta-Tag](/de/docs/Web/HTML/Viewport_meta_tag) – es existiert als Möglichkeit, zu steuern, wie mobile Browser Inhalte rendern. Dies ist nötig, weil die meisten mobilen Browser standardmäßig über ihre Viewport-Breite lügen. Nicht-responsive Websites sehen beim Rendern in einem schmalen Viewport allgemein wirklich schlecht aus, deshalb rendern mobile Browser die Seite in der Regel standardmäßig mit einer Viewport-Breite, die breiter ist als die tatsächliche Gerätebreite (normalerweise 980 Pixel), und verkleinern dann das gerenderte Ergebnis, damit es in die Anzeige passt.
+Dies ist das [Viewport-Meta-Tag](/de/docs/Web/HTML/Viewport_meta_tag) — es existiert, um zu kontrollieren, wie mobile Browser Inhalte rendern. Dies ist erforderlich, da die meisten mobilen Browser standardmäßig über ihre Viewport-Breite lügen. Nicht-responsive Seiten sehen auf einem schmalen Viewport allgemein wirklich schlecht aus. Deshalb rendern mobile Browser die Website in der Regel standardmäßig mit einer Viewport-Breite, die breiter ist als die tatsächliche Gerätebreite (normalerweise 980 Pixel), und verkleinern dann das gerenderte Ergebnis, sodass es in die Anzeige passt.
 
-Das ist alles gut und recht, aber es bedeutet, dass responsive Websites nicht wie erwartet funktionieren werden. Wenn die Viewport-Breite als 980 Pixel gemeldet wird, werden mobile Layouts (zum Beispiel erstellt mit einer Media Query von `@media screen and (max-width: 600px) { }`) nicht wie erwartet dargestellt.
+Das ist alles gut und schön, bedeutet jedoch, dass responsive Seiten nicht wie erwartet funktionieren. Wenn die Viewport-Breite als 980 Pixel gemeldet wird, werden mobile Layouts (beispielsweise erstellt mit einer Media Query von `@media screen and (max-width: 600px) { }`) nicht wie erwartet gerendert.
 
-Um diesem Problem abzuhelfen, beinhaltet ein Viewport-Meta-Tag wie das oben auf Ihrer Seite den Browser, die Inhalte statt mit einem 980 Pixel Viewport mit der tatsächlichen Gerätebreite zu rendern, und eine Standard-Initialskala für mehr Konsistenz einzustellen. Die Media Queries greifen dann wie erwartet.
+Um dies zu beheben, gibt das Hinzufügen eines Viewport-Meta-Tags wie dem oben auf Ihrer Seite dem Browser an: "Rendere nicht den Inhalt mit einem 980-Pixel-Viewport — rendere ihn stattdessen mit der realen Gerätebreite und setze eine standardmäßige Anfangsmaßstabsebene für bessere Konsistenz." Die Media Queries kommen dann wie erwartet zum Einsatz.
 
-Es gibt eine Reihe weiterer Optionen, die Sie innerhalb des `content`-Attributs des Viewport-Meta-Tags angeben können – siehe [Verwenden des Viewport-Meta-Tags zur Steuerung des Layouts auf mobilen Browsern](/de/docs/Web/HTML/Viewport_meta_tag) für weitere Details.
+Es gibt eine Reihe anderer Optionen, die Sie im `content`-Attribut des Viewport-Meta-Tags angeben können — siehe [Verwendung des Viewport-Meta-Tags zur Steuerung des Layouts in mobilen Browsern](/de/docs/Web/HTML/Viewport_meta_tag) für mehr Details.
 
 ## Brauchen Sie wirklich eine Media Query?
 
-Flexbox, Grid und Multi-Column-Layout bieten Ihnen Möglichkeiten, flexible und sogar responsive Komponenten zu erstellen, ohne eine Media Query zu benötigen. Es lohnt sich immer zu überlegen, ob diese Layoutmethoden erreichen können, was Sie wollen, ohne Media Queries hinzuzufügen. Zum Beispiel möchten Sie vielleicht eine Gruppe von Karten, die mindestens 200 Pixel breit sind, mit so vielen dieser 200 Pixel, wie in den Hauptartikel passen. Das kann mit einem Grid-Layout erreicht werden, ganz ohne Media Queries.
+Flexbox, Grid und Multi-Column-Layout bieten Ihnen Möglichkeiten, flexible und sogar responsive Komponenten zu erstellen, ohne eine Media Query zu benötigen. Es lohnt sich immer, zu überlegen, ob diese Layoutmethoden das erreichen könnten, was Sie wollen, ohne Media Queries hinzuzufügen. Beispielsweise möchten Sie vielleicht eine Reihe von Karten, die mindestens 200 Pixel breit sind, mit so vielen dieser 200 Pixel, wie in den Hauptartikel passen. Dies kann mit Grid-Layout erreicht werden, ganz ohne Media Queries.
 
 Dies könnte durch Folgendes erreicht werden:
 
 ```html
 <ul class="grid">
   <li>
-    <h2>Karte 1</h2>
+    <h2>Card 1</h2>
     <p>…</p>
   </li>
   <li>
-    <h2>Karte 2</h2>
+    <h2>Card 2</h2>
     <p>…</p>
   </li>
   <li>
-    <h2>Karte 3</h2>
+    <h2>Card 3</h2>
     <p>…</p>
   </li>
   <li>
-    <h2>Karte 4</h2>
+    <h2>Card 4</h2>
     <p>…</p>
   </li>
   <li>
-    <h2>Karte 5</h2>
+    <h2>Card 5</h2>
     <p>…</p>
   </li>
 </ul>
@@ -463,20 +464,20 @@ Dies könnte durch Folgendes erreicht werden:
 }
 ```
 
-[Öffnen Sie das Grid-Layout-Beispiel](https://mdn.github.io/css-examples/learn/media-queries/grid.html) im Browser oder [sehen Sie den Quellcode](https://github.com/mdn/css-examples/blob/main/learn/media-queries/grid.html).
+[Öffnen Sie das Grid-Layout-Beispiel](https://mdn.github.io/css-examples/learn/media-queries/grid.html) im Browser, oder [sehen Sie sich den Quellcode an](https://github.com/mdn/css-examples/blob/main/learn/media-queries/grid.html).
 
-Mit dem geöffneten Beispiel in Ihrem Browser machen Sie den Bildschirm breiter und schmaler, um zu sehen, wie sich die Anzahl der Spalten-Tracks ändert. Das Schöne an dieser Methode ist, dass Grid nicht die Viewport-Breite betrachtet, sondern die Breite, die es für diesen Bestandteil zur Verfügung hat. Es mag seltsam erscheinen, einen Abschnitt über Media Queries abzuschließen mit dem Vorschlag, dass Sie vielleicht gar keine benötigen! In der Praxis werden Sie jedoch feststellen, dass eine gute Nutzung moderner Layoutmethoden, verbessert durch Media Queries, die besten Ergebnisse liefert.
+Mit dem geöffneten Beispiel in Ihrem Browser, machen Sie den Bildschirm breiter und schmaler, um zu sehen, wie sich die Anzahl der Spaltenfelder ändert. Das schöne an dieser Methode ist, dass Grid nicht auf die Viewport-Breite schaut, sondern die Breite betrachtet, die ihm für diese Komponente zur Verfügung steht. Es mag seltsam erscheinen, einen Abschnitt über Media Queries damit zu beenden, dass man vorschlägt, dass man vielleicht gar keine braucht! In der Praxis werden Sie jedoch feststellen, dass eine gute Nutzung moderner Layoutmethoden, angereichert mit Media Queries, die besten Ergebnisse erzielt.
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie finden einen Test, um zu überprüfen, ob Sie diese Informationen vor dem Weitermachen behalten haben — siehe [Testen Sie Ihre Fähigkeiten: Responsives Webdesign und Media Queries](/de/docs/Learn/CSS/CSS_layout/rwd_skills).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie können einen Test finden, der überprüft, ob Sie diese Informationen behalten haben, bevor Sie zum nächsten Punkt übergehen — siehe [Testen Sie Ihre Fähigkeiten: Responsives Webdesign und Media Queries](/de/docs/Learn/CSS/CSS_layout/rwd_skills).
 
 ## Zusammenfassung
 
-In dieser Lektion haben Sie etwas über Media Queries gelernt und auch entdeckt, wie man sie in der Praxis verwendet, um ein Mobile-First-Responsive-Design zu erstellen.
+In dieser Lektion haben Sie über Media Queries gelernt und auch entdeckt, wie man sie in der Praxis verwendet, um ein Mobile First Responsive Design zu erstellen.
 
-Sie könnten den Ausgangspunkt, den wir geschaffen haben, nutzen, um mehr Media Queries zu testen. Zum Beispiel könnten Sie die Größe der Navigation ändern, wenn Sie feststellen, dass der Besucher einen groben Zeiger benutzt, indem Sie das `pointer`-Media-Feature verwenden.
+Sie könnten den von uns erstellten Ausgangspunkt verwenden, um mehr Media Queries zu testen. Zum Beispiel könnten Sie die Größe der Navigation ändern, wenn Sie feststellen, dass der Besucher einen groben Zeiger hat, indem Sie das Media-Feature `pointer` verwenden.
 
-Sie könnten auch experimentieren, indem Sie verschiedene Komponenten hinzufügen und sehen, ob die Hinzufügung einer Media Query oder die Nutzung einer Layoutmethode wie Flexbox oder Grid der geeignetste Weg ist, um die Komponenten responsiv zu gestalten. Sehr oft gibt es kein Richtig oder Falsch – Sie sollten experimentieren und sehen, was am besten für Ihr Design und Ihre Inhalte funktioniert.
+Sie könnten auch mit dem Hinzufügen verschiedener Komponenten experimentieren und sehen, ob die Hinzufügung einer Media Query oder die Verwendung einer Layoutmethode wie Flexbox oder Grid der geeignetste Weg ist, um die Komponenten responsive zu machen. Sehr oft gibt es keinen richtigen oder falschen Weg — Sie sollten experimentieren und sehen, was am besten für Ihr Design und Ihren Inhalt funktioniert.
 
 {{PreviousMenuNext("Learn/CSS/CSS_layout/Responsive_Design", "Learn/CSS/CSS_layout/Legacy_Layout_Methods", "Learn/CSS/CSS_layout")}}

@@ -8,28 +8,40 @@ l10n:
 
 {{APIRef}}
 
-Die **`HTMLAreaElement.referrerPolicy`**-Eigenschaft spiegelt das HTML-Attribut [`referrerpolicy`](/de/docs/Web/HTML/Element/area#referrerpolicy) des {{HTMLElement("area")}}-Elements wider und definiert, welche Referrer-Informationen gesendet werden, wenn die Ressource abgerufen wird.
+Die Eigenschaft
+**`HTMLAreaElement.referrerPolicy`**
+spiegelt das HTML-Attribut [`referrerpolicy`](/de/docs/Web/HTML/Element/area#referrerpolicy) des
+{{HTMLElement("area")}}-Elements wider, welches definiert, welcher Referrer gesendet wird, wenn die Ressource abgerufen wird.
 
 ## Wert
 
 Ein String; einer der folgenden:
 
 - `no-referrer`
-  - : Der {{HTTPHeader("Referer")}}-Header wird vollständig weggelassen. Es werden keine Referrer-Informationen mit den Anfragen gesendet.
+  - : Der {{HTTPHeader("Referer")}}-Header wird vollständig weggelassen. Es werden keine
+    Referrer-Informationen zusammen mit Anfragen gesendet.
 - `no-referrer-when-downgrade`
-  - : Die URL wird als Referrer gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (z.B. HTTP→HTTP, HTTPS→HTTPS), aber nicht zu einem weniger sicheren Ziel (z.B. HTTPS→HTTP) gesendet.
+  - : Die URL wird als Referrer gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (z. B. HTTP→HTTP,
+    HTTPS→HTTPS), aber nicht zu einem weniger sicheren Ziel gesendet wird (z. B. HTTPS→HTTP).
 - `origin`
-  - : Nur der Ursprung des Dokuments wird in allen Fällen als Referrer gesendet. Das Dokument `https://example.com/page.html` sendet den Referrer `https://example.com/`.
+  - : Nur der Ursprung des Dokuments wird in allen Fällen als Referrer gesendet.
+    Das Dokument `https://example.com/page.html` wird den Referrer
+    `https://example.com/` senden.
 - `origin-when-cross-origin`
-  - : Eine vollständige URL wird bei einer Same-Origin-Anfrage gesendet, aber nur der Ursprung des Dokuments für andere Fälle.
+  - : Eine vollständige URL wird bei einer Anfrage gleichen Ursprungs gesendet, aber nur der Ursprung des Dokuments für andere Fälle.
 - `same-origin`
-  - : Ein Referrer wird für [Same-Site-Ursprünge](/de/docs/Web/Security/Same-origin_policy) gesendet, aber bei Cross-Origin-Anfragen werden keine Referrer-Informationen gesendet.
+  - : Ein Referrer wird für [gleichseitige Ursprünge](/de/docs/Web/Security/Same-origin_policy) gesendet, aber bei
+    Cross-Origin-Anfragen werden keine Referrer-Informationen enthalten.
 - `strict-origin`
-  - : Nur der Ursprung des Dokuments wird als Referrer gesendet, wenn das Sicherheitsniveau des Protokolls gleich bleibt (z.B. HTTPS→HTTPS), aber nicht zu einem weniger sicheren Ziel (z.B. HTTPS→HTTP) gesendet.
+  - : Nur den Ursprung des Dokuments als Referrer senden, wenn das Sicherheitsniveau des Protokolls gleich bleibt
+    (z. B. HTTPS→HTTPS), aber nicht zu einem weniger sicheren Ziel senden (z. B. HTTPS→HTTP).
 - `strict-origin-when-cross-origin` (Standard)
-  - : Dies ist das Standardverhalten des User-Agents, wenn keine Richtlinie festgelegt ist. Eine vollständige URL wird bei einer Same-Origin-Anfrage gesendet, der Ursprung nur, wenn das Sicherheitsniveau des Protokolls gleich bleibt (z.B. HTTPS→HTTPS), und kein Header wird zu einem weniger sicheren Ziel (z.B. HTTPS→HTTP) gesendet.
+  - : Dies ist das Standardverhalten des Benutzeragenten, wenn keine Richtlinie angegeben ist. Eine vollständige URL wird bei einer Anfrage gleichen Ursprungs gesendet, nur den Ursprung senden, wenn das
+    Sicherheitsniveau des Protokolls gleich bleibt (z. B. HTTPS→HTTPS), und keinen Header zu einem
+    weniger sicheren Ziel senden (z. B. HTTPS→HTTP).
 - `unsafe-url`
-  - : Eine vollständige URL wird bei einer Same-Origin- oder Cross-Origin-Anfrage gesendet. Diese Richtlinie kann Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge weitergeben. Berücksichtigen Sie die Auswirkungen dieser Einstellung sorgfältig.
+  - : Eine vollständige URL wird bei einer Anfrage gleichen Ursprungs oder Cross-Origin gesendet. Diese Richtlinie
+    wird Ursprünge und Pfade von TLS-geschützten Ressourcen zu unsicheren Ursprüngen leaken. Berücksichtigen Sie sorgfältig die Auswirkungen dieser Einstellung.
 
 ## Beispiele
 
@@ -47,7 +59,7 @@ elt.coords = "0,0,100,100";
 const map = document.getElementById("myMap");
 
 map.appendChild(elt);
-// Beim Klicken wird die Link des area-Elementes keinen Referrer-Header senden.
+// When clicked, the area's link will not send a referrer header.
 ```
 
 ## Spezifikationen
@@ -60,6 +72,6 @@ map.appendChild(elt);
 
 ## Siehe auch
 
-- {{domxref("HTMLImageElement.referrerPolicy")}},
-  {{domxref("HTMLAnchorElement.referrerPolicy")}} und
-  {{domxref("HTMLIFrameElement.referrerPolicy")}}.
+- [`HTMLImageElement.referrerPolicy`](/de/docs/Web/API/HTMLImageElement/referrerPolicy),
+  [`HTMLAnchorElement.referrerPolicy`](/de/docs/Web/API/HTMLAnchorElement/referrerPolicy) und
+  [`HTMLIFrameElement.referrerPolicy`](/de/docs/Web/API/HTMLIFrameElement/referrerPolicy).

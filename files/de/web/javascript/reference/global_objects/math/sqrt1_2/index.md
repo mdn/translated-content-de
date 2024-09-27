@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Math.SQRT1_2`** repräsentiert die Quadratwurzel von 1/2, die ungefähr 0.707 beträgt.
+Die statische Dateneigenschaft **`Math.SQRT1_2`** repräsentiert die Quadratwurzel von 1/2, was ungefähr 0,707 entspricht.
 
 {{EmbedInteractiveExample("pages/js/math-sqrt1_2.html", "shorter")}}
 
@@ -23,9 +23,9 @@ Die statische Dateneigenschaft **`Math.SQRT1_2`** repräsentiert die Quadratwurz
 
 ## Beschreibung
 
-`Math.SQRT1_2` ist eine Konstante und eine leistungsfähigere Entsprechung zu [`Math.sqrt(0.5)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt).
+`Math.SQRT1_2` ist eine Konstante und eine performantere Entsprechung zu [`Math.sqrt(0.5)`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt).
 
-Da `SQRT1_2` eine statische Eigenschaft von `Math` ist, wird sie immer als `Math.SQRT1_2` verwendet und nicht als Eigenschaft eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `SQRT1_2` eine statische Eigenschaft von `Math` ist, verwenden Sie es immer als `Math.SQRT1_2`, anstatt es als Eigenschaft eines erstellten `Math`-Objekts zu verwenden (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

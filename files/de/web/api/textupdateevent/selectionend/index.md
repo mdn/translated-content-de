@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`TextUpdateEvent.selectionEnd`** gibt die Position des Endes der Auswahl (oder des Cursors) innerhalb des Textinhalts des bearbeitbaren Bereichs an, der dem {{domxref("EditContext")}}-Objekt zugeordnet ist.
+Die schreibgeschützte Eigenschaft **`TextUpdateEvent.selectionEnd`** gibt die Position des Endes der Auswahl (oder des Cursors) innerhalb des Textinhalts des mit dem [`EditContext`](/de/docs/Web/API/EditContext) Objekt verbundenen editierbaren Bereichs an.
 
 ## Wert
 
@@ -16,9 +16,9 @@ Eine {{jsxref("Number")}}.
 
 ## Beispiele
 
-### Verwendung von `textupdate`, um den bearbeiteten Text und die Benutzerauswahl darzustellen
+### Verwendung von `textupdate` zum Rendern des bearbeiteten Textes und der Benutzerauswahl
 
-Dieses Beispiel zeigt, wie die Eigenschaft `selectionEnd` verwendet wird, um den ausgewählten Text innerhalb eines {{domxref("EditContext/textupdate_event", "textupdate")}}-Ereignishandlers darzustellen.
+Dieses Beispiel zeigt, wie die Eigenschaft `selectionEnd` verwendet wird, um den ausgewählten Text innerhalb eines [`textupdate`](/de/docs/Web/API/EditContext/textupdate_event) Ereignishandlers zu rendern.
 
 ```css
 #editor {

@@ -8,55 +8,55 @@ l10n:
 {{CSSRef}}{{Non-standard_header}}{{Deprecated_Header}}
 
 > [!WARNING]
-> Dies ist eine Eigenschaft des ursprünglichen Entwurfs des CSS Flexible Box Layout Moduls und wurde durch einen neueren Standard ersetzt.
+> Dies ist eine Eigenschaft des ursprünglichen CSS Flexible Box Layout Moduls und wurde durch einen neueren Standard ersetzt.
 
-Die **`box-align`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt an, wie ein Element seinen Inhalt in einer senkrechten Richtung innerhalb seines Layouts ausrichtet. Der Effekt dieser Eigenschaft ist nur sichtbar, wenn im Container zusätzlicher Platz vorhanden ist.
+Die **`box-align`**-[CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie ein Element seine Inhalte quer zu seinem Layout ausrichtet. Die Wirkung der Eigenschaft ist nur sichtbar, wenn zusätzlicher Raum in der Box vorhanden ist.
 
-Siehe [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox) für Informationen über den aktuellen Standard.
+Weitere Informationen zum aktuellen Standard finden Sie unter [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
 
-Die Ausrichtungsrichtung hängt von der Orientierung des Elements ab: horizontal oder vertikal.
+Die Ausrichtung des Layouts hängt von der Orientierung des Elements ab: horizontal oder vertikal.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 box-align: start;
 box-align: center;
 box-align: end;
 box-align: baseline;
 box-align: stretch;
 
-/* Globale Werte */
+/* Global values */
 box-lines: inherit;
 box-lines: initial;
 box-lines: unset;
 ```
 
-Die `box-align` Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `box-align`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `start`
-  - : Der Box richtet den Inhalt am Anfang aus und lässt zusätzlichen Platz am Ende.
+  - : Die Box richtet Inhalte am Anfang aus und lässt zusätzlichen Raum am Ende.
 - `center`
-  - : Der Box richtet den Inhalt in der Mitte aus und teilt den zusätzlichen Platz gleichmäßig zwischen Anfang und Ende.
+  - : Die Box richtet Inhalte in der Mitte aus und verteilt den zusätzlichen Raum gleichmäßig zwischen Anfang und Ende.
 - `end`
-  - : Der Box richtet den Inhalt am Ende aus und lässt zusätzlichen Platz am Anfang.
+  - : Die Box richtet Inhalte am Ende aus und lässt zusätzlichen Raum am Anfang.
 - `baseline`
-  - : Der Box richtet die Baselines des Inhalts aus (Textausrichtung). Dies gilt nur, wenn die Orientierung des Box horizontal ist.
+  - : Die Box richtet die Baselines der Inhalte aus (Texte ausrichten). Dies gilt nur, wenn die Orientierung der Box horizontal ist.
 - `stretch`
-  - : Der Box dehnt den Inhalt so, dass im Container kein zusätzlicher Platz bleibt.
+  - : Die Box streckt die Inhalte so, dass kein zusätzlicher Raum in der Box bleibt.
 
 ## Hinweise
 
-Die Kante der Box, die für Ausrichtungszwecke den _Anfang_ darstellt, hängt von der Orientierung der Box ab:
+Die Kante der Box, die für Ausrichtungszwecke als _Anfang_ bezeichnet wird, hängt von der Orientierung der Box ab:
 
-- Für horizontale Elemente ist der _Anfang_ die obere Kante.
-- Für vertikale Elemente ist der _Anfang_ die linke Kante.
+- Bei horizontalen Elementen ist der _Anfang_ die obere Kante.
+- Bei vertikalen Elementen ist der _Anfang_ die linke Kante.
 
-Die Kante gegenüber dem Anfang wird als _Ende_ bezeichnet.
+Die gegenüberliegende Kante zum Anfang wird als _Ende_ bezeichnet.
 
-Wenn die Ausrichtung durch das `align` Attribut des Elements festgelegt wird, wird der Stil ignoriert.
+Wenn die Ausrichtung über das `align`-Attribut des Elements festgelegt wird, wird der Stil ignoriert.
 
 ## Formale Definition
 
@@ -71,7 +71,7 @@ box-align =
 
 ## Beispiele
 
-### Festlegen der Box-Ausrichtung
+### Box-Ausrichtung festlegen
 
 ```html
 <!doctype html>
@@ -85,33 +85,33 @@ box-align =
         display: -moz-box; /* Mozilla */
         display: -webkit-box; /* WebKit */
 
-        /* Machen Sie diese Box höher als die Kinder,
-     so dass Platz für das Box-Pack ist */
+        /* Make this box taller than the children,
+     so there is room for the box-pack */
         height: 400px;
 
-        /* Machen Sie diese Box breiter als die Kinder,
-     so dass Platz für das Box-Align ist */
+        /* Make this box wider than the children
+     so there is room for the box-align */
         width: 300px;
 
-        /* Kinder sollten vertikal orientiert sein */
+        /* Children should be oriented vertically */
         box-orient: vertical; /* As specified */
         -moz-box-orient: vertical; /* Mozilla */
         -webkit-box-orient: vertical; /* WebKit */
 
-        /* Kinder horizontal in der Mitte dieser Box ausrichten */
+        /* Align children to the horizontal center of this box */
         box-align: center; /* As specified */
         -moz-box-align: center; /* Mozilla */
         -webkit-box-align: center; /* WebKit */
 
-        /* Kinder am unteren Rand dieser Box anordnen */
+        /* Pack children to the bottom of this box */
         box-pack: end; /* As specified */
         -moz-box-pack: end; /* Mozilla */
         -webkit-box-pack: end; /* WebKit */
       }
 
       div.example > p {
-        /* Machen Sie die Kinder schmaler als ihre Eltern,
-     so dass Platz für das Box-Align ist */
+        /* Make children narrower than their parent,
+     so there is room for the box-align */
         width: 200px;
       }
     </style>
@@ -119,9 +119,9 @@ box-align =
   <body>
     <div class="example">
       <p>
-        Ich werde als zweites vom Boden von div.example aus horizontal zentriert sein.
+        I will be second from the bottom of div.example, centered horizontally.
       </p>
-      <p>Ich werde am Boden von div.example horizontal zentriert sein.</p>
+      <p>I will be on the bottom of div.example, centered horizontally.</p>
     </div>
   </body>
 </html>

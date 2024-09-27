@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`device-cmyk()`** Funktionsschreibweise wird verwendet, um CMYK-Farben auf eine geräteabhängige Weise auszudrücken, indem die Komponenten Cyan, Magenta, Gelb und Schwarz angegeben werden.
+Die **`device-cmyk()`** Funktionsnotation wird verwendet, um CMYK-Farben auf eine geräteabhängige Weise auszudrücken, indem die Komponenten Cyan, Magenta, Gelb und Schwarz spezifiziert werden.
 
-Dieser Ansatz für Farben ist nützlich, wenn Material erstellt wird, das auf einem bestimmten Drucker ausgegeben werden soll, und das Ergebnis für bestimmte Tintenmischungen bekannt ist. CSS-Prozessoren können versuchen, die Farbe zu approximieren, jedoch wird das Endergebnis wahrscheinlich vom gedruckten Ergebnis abweichen.
+Dieser Ansatz für Farben ist nützlich, wenn Material erstellt wird, das auf einem bestimmten Drucker ausgegeben werden soll, wenn die Ausgabe für bestimmte Tintenkombinationen bekannt ist. CSS-Prozessoren können versuchen, die Farbe zu approximieren. Das Endergebnis ist jedoch wahrscheinlich anders als das gedruckte Ergebnis.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ device-cmyk(0 81% 81% 30% / .5, rgb(178 34 34));
 
 ### Werte
 
-Funktionsschreibweise: `device-cmyk(C M Y K[ / A][, color])`
+Funktionsnotation: `device-cmyk(C M Y K[ / A][, color])`
 
 - `C`, `M`, `Y`, `K`
 
-  - : {{CSSXref("number")}} oder {{CSSXref("percentage")}} Werte, die die Cyan-, Magenta-, Gelb- und Schwarzkomponenten der CMYK-Farbe angeben.
+  - : {{CSSXref("number")}} oder {{CSSXref("percentage")}} Werte, die die Komponenten Cyan, Magenta, Gelb und Schwarz der CMYK-Farbe bereitstellen.
 
 - `A` {{optional_inline}}
 
@@ -33,7 +33,7 @@ Funktionsschreibweise: `device-cmyk(C M Y K[ / A][, color])`
 
 - `color` {{optional_inline}}
 
-  - : Eine optionale Fallback-{{CSSXref("&lt;color&gt;")}}, die verwendet wird, wenn der Benutzeragent nicht weiß, wie die CMYK-Farbe in RGB umgewandelt werden kann.
+  - : Ein optionales Fallback-{{CSSXref("&lt;color&gt;")}}, das verwendet wird, wenn der Benutzeragent nicht weiß, wie die Umwandlung der CMYK-Farbe in RGB zu übersetzen ist.
 
 ### Formale Syntax
 
@@ -49,5 +49,5 @@ Es gibt keinen Browser, der dieses Feature implementiert.
 
 ## Siehe auch
 
-- [CSS Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
 - {{cssxref("@page")}}

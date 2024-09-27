@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Die HTTP-Directive {{HTTPHeader('Permissions-Policy')}} `accelerometer` steuert, ob das aktuelle Dokument berechtigt ist, Informationen über die Beschleunigung des Geräts durch das {{domxref('Accelerometer')}}-Interface zu sammeln.
+Die HTTP {{HTTPHeader('Permissions-Policy')}} Header-Direktive `accelerometer` kontrolliert, ob das aktuelle Dokument Informationen über die Beschleunigung des Geräts durch die [`Accelerometer`](/de/docs/Web/API/Accelerometer) Schnittstelle sammeln darf.
 
-Insbesondere gilt: Wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, wird der Aufruf des Konstruktors {{domxref("Accelerometer.Accelerometer", "Accelerometer()")}} eine {{domxref("DOMException")}} vom Typ `SecurityError` auslösen.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, werfen Aufrufe des [`Accelerometer()`](/de/docs/Web/API/Accelerometer/Accelerometer) Konstruktors eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError`.
 
 ## Syntax
 
@@ -18,21 +18,21 @@ Permissions-Policy: accelerometer=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen (`origins`), für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Weitere Einzelheiten finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Positivliste (`allowlist`) für `accelerometer` ist: `self`.
+Die Standard-`allowlist` für `accelerometer` ist: `self`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{HTTPHeader('Permissions-Policy')}}-Header
+- {{HTTPHeader('Permissions-Policy')}} Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

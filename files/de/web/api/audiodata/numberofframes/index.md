@@ -1,5 +1,5 @@
 ---
-title: "AudioData: Eigenschaft numberOfFrames"
+title: "AudioData: numberOfFrames-Eigenschaft"
 short-title: numberOfFrames
 slug: Web/API/AudioData/numberOfFrames
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`numberOfFrames`** des {{domxref("AudioData")}} Schnittstelle gibt die Anzahl der Frames im `AudioData` Objekt zurück.
+Die schreibgeschützte Eigenschaft **`numberOfFrames`** des [`AudioData`](/de/docs/Web/API/AudioData)-Interfaces gibt die Anzahl der Frames im `AudioData`-Objekt zurück.
 
 ## Wert
 
-Ein ganzzahliger Wert.
+Eine ganze Zahl.
 
 ## Beispiele
 
-Das folgende Beispiel gibt den Wert von `numberOfFrames` in der Konsole aus.
+Im folgenden Beispiel wird der Wert von `numberOfFrames` in der Konsole ausgegeben.
 
 ```js
 console.log(AudioData.numberOfFrames);
@@ -26,6 +26,6 @@ console.log(AudioData.numberOfFrames);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

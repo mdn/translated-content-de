@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: fehlende } nach Funktionskörper"
+title: "SyntaxError: Missing } nach Funktionskörper"
 slug: Web/JavaScript/Reference/Errors/Missing_curly_after_function_body
 l10n:
   sourceCommit: e3faa375b0179de77a5eff00074e3d168a0a904c
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "fehlende } nach Funktionskörper" tritt auf, wenn es irgendwo einen Syntaxfehler beim Erstellen einer Funktion gibt. Überprüfen Sie, ob alle schließenden geschweiften Klammern oder Klammern in der richtigen Reihenfolge sind.
+Die JavaScript-Ausnahme "missing } nach Funktionskörper" tritt auf, wenn beim Erstellen einer Funktion irgendwo ein Syntaxfehler auftritt. Überprüfen Sie, ob alle schließenden geschweiften Klammern oder Klammern in der richtigen Reihenfolge stehen.
 
 ## Nachricht
 
@@ -21,13 +21,13 @@ SyntaxError: missing } after function body (Firefox)
 
 ## Was ist schiefgelaufen?
 
-Es gibt einen Syntaxfehler beim Erstellen einer Funktion. Überprüfen Sie auch, ob alle schließenden geschweiften Klammern oder Klammern in der richtigen Reihenfolge sind. Eine etwas bessere Einrückung oder Formatierung des Codes kann ebenfalls helfen, den Überblick im „Syntax-Dschungel“ zu behalten.
+Es gibt einen Syntaxfehler beim Erstellen einer Funktion. Überprüfen Sie auch, ob alle schließenden geschweiften Klammern oder Klammern in der richtigen Reihenfolge stehen. Eine bessere Einrückung oder Formatierung des Codes kann ebenfalls helfen, den Überblick zu behalten.
 
 ## Beispiele
 
 ### Vergessene schließende geschweifte Klammer
 
-Oft fehlt eine geschweifte Klammer in Ihrem Funktionscode:
+Häufig fehlt eine geschweifte Klammer in Ihrem Funktionscode:
 
 ```js-nolint example-bad
 function charge() {
@@ -38,7 +38,7 @@ function charge() {
 }
 ```
 
-Korrekt wäre:
+Richtig wäre:
 
 ```js example-good
 function charge() {
@@ -50,7 +50,7 @@ function charge() {
 }
 ```
 
-Es kann weniger offensichtlich sein, wenn Sie [IIFEs](/de/docs/Glossary/IIFE) oder andere Konstrukte verwenden, die viele verschiedene Klammern und geschweifte Klammern verwenden, zum Beispiel.
+Es kann weniger offensichtlich sein, wenn Sie [IIFEs](/de/docs/Glossary/IIFE) oder andere Konstrukte verwenden, die viele verschiedene Klammern und geschweifte Klammern nutzen.
 
 ```js-nolint example-bad
 (function () {
@@ -60,7 +60,7 @@ Es kann weniger offensichtlich sein, wenn Sie [IIFEs](/de/docs/Glossary/IIFE) od
 )();
 ```
 
-Oft hilft es, unterschiedlich einzurücken oder die Einrückung doppelt zu überprüfen, um diese Fehler zu erkennen.
+Oft hilft es, die Einrückung anders vorzunehmen oder die Einrückung doppelt zu überprüfen, um diese Fehler zu erkennen.
 
 ```js example-good
 (function () {

@@ -1,5 +1,5 @@
 ---
-title: "TreeWalker: Methode nextSibling()"
+title: "TreeWalker: nextSibling()-Methode"
 short-title: nextSibling()
 slug: Web/API/TreeWalker/nextSibling
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`TreeWalker.nextSibling()`**-Methode verschiebt das aktuelle
-{{domxref("Node")}} zu seinem nächsten Geschwisterknoten, falls vorhanden, und gibt das gefundene Geschwisterknoten zurück. Wenn kein solcher Knoten existiert, gibt sie `null` zurück und der aktuelle Knoten bleibt unverändert.
+Die **`TreeWalker.nextSibling()`**-Methode bewegt den aktuellen
+[`Node`](/de/docs/Web/API/Node) zu seinem nächsten Geschwisterknoten, falls vorhanden, und gibt das gefundene Geschwister zurück. Wenn es keinen solchen Knoten gibt, wird `null` zurückgegeben und der aktuelle Knoten bleibt unverändert.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("Node")}}-Objekt oder `null`.
+Ein [`Node`](/de/docs/Web/API/Node)-Objekt oder `null`.
 
 ## Beispiele
 
@@ -39,7 +39,7 @@ const treeWalker = document.createTreeWalker(
   false,
 );
 treeWalker.firstChild();
-const node = treeWalker.nextSibling(); // gibt null zurück, wenn das erste Kind des Wurzelelements kein Geschwister hat
+const node = treeWalker.nextSibling(); // returns null if the first child of the root element has no sibling
 ```
 
 ## Spezifikationen
@@ -52,4 +52,4 @@ const node = treeWalker.nextSibling(); // gibt null zurück, wenn das erste Kind
 
 ## Siehe auch
 
-- Das {{domxref("TreeWalker")}}-Interface, zu dem es gehört.
+- Die [`TreeWalker`](/de/docs/Web/API/TreeWalker)-Schnittstelle, zu der es gehört.

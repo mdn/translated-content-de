@@ -9,7 +9,7 @@ l10n:
 
 Schließt die Seitenleiste im aktiven Fenster, wenn es sich um die eigene Seitenleiste der Erweiterung handelt.
 
-Sie können diese Funktion nur aus dem Handler für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen.
+Diese Funktion kann nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufgerufen werden.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 

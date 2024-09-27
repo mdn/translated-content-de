@@ -1,24 +1,24 @@
 ---
-title: Tastenwerte für Tastaturereignisse
+title: Schlüsselwerte für Keyboard-Events
 slug: Web/API/UI_Events/Keyboard_event_key_values
 l10n:
-  sourceCommit: 583d48191a7a8605d831aff357bef6cc63aef2e3
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{DefaultAPISidebar("UI Events")}}
 
-Die unten stehenden Tabellen listen die standardisierten Werte für die [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) Eigenschaft auf und erläutern, wofür die jeweilige Taste typischerweise verwendet wird. Entsprechende virtuelle Tasten-Codes für gängige Plattformen sind, sofern verfügbar, eingeschlossen.
+Die folgenden Tabellen listen die Standardwerte für die [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) Eigenschaft auf, mit einer Erklärung, wofür die Taste typischerweise verwendet wird. Entsprechende virtuelle Tasten-Codes für gängige Plattformen sind dort enthalten, wo verfügbar.
 
 ## Besondere Werte
 
-Werte von `key`, die andere Bedeutungen als die Identifizierung einer bestimmten Taste oder eines Zeichens haben.
+Werte von `key`, die spezielle Bedeutungen haben, jenseits der Identifizierung einer bestimmten Taste oder eines Zeichens.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Value</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtuelle Tasten-Codes</th>
+      <th colspan="4" scope="col">Virtuelle Tastencodes</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -32,12 +32,12 @@ Werte von `key`, die andere Bedeutungen als die Identifizierung einer bestimmten
       <td><code>"Unidentified"</code></td>
       <td>
         <p>
-          Der Benutzeragent konnte den virtuellen Tasten-Code des Ereignisses keinem
+          Der User-Agent konnte den virtuellen Tastencode des Events nicht auf einen
           spezifischen Tastenwert zuordnen.
         </p>
         <p>
-          Dies kann aufgrund von Hardware- oder Softwarebeschränkungen oder aufgrund
-          von Einschränkungen der Plattform auftreten, auf der der Benutzeragent läuft.
+          Das kann aufgrund von Hardware- oder Softwarebeschränkungen passieren, oder wegen
+          Einschränkungen der Plattform, auf der der User-Agent ausgeführt wird.
         </p>
       </td>
       <td><em>variiert</em></td>
@@ -48,16 +48,16 @@ Werte von `key`, die andere Bedeutungen als die Identifizierung einer bestimmten
   </tbody>
 </table>
 
-## Modifikatortasten
+## Modifikationstasten
 
-_Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu erzeugen oder spezielle Aktionen auszulösen, wenn sie in Kombination mit anderen Tasten verwendet werden. Beispiele sind die <kbd>Shift</kbd> und <kbd>Control</kbd>-Tasten sowie Sperrtasten wie <kbd>Caps Lock</kbd> und <kbd>NumLock</kbd>.
+_Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu erzeugen oder spezielle Aktionen auszulösen, wenn sie in Kombination mit anderen Tasten verwendet werden. Beispiele sind die <kbd>Shift</kbd> und <kbd>Control</kbd> Tasten sowie Sperrtasten wie <kbd>Caps Lock</kbd> und <kbd>NumLock</kbd>.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Value</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtuelle Tasten-Codes</th>
+      <th colspan="4" scope="col">Virtuelle Tastencodes</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -91,9 +91,9 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"AltGraph"</code> [4]</td>
       <td>
-        Die <kbd>AltGr</kbd> oder <kbd>AltGraph</kbd> (Alternate Graphics)
-        Taste. Aktiviert den ISO Level 3 Shift-Modifikator (wobei
-        <kbd>Shift</kbd> der Level 2 Modifikator ist).
+        Die <kbd>AltGr</kbd> oder <kbd>AltGraph</kbd> (Alternative Grafik) Taste.
+        Aktiviert den ISO Level 3 Shift Modifier (wobei <kbd>Shift</kbd> der
+        Level 2 Modifier ist).
       </td>
       <td></td>
       <td></td>
@@ -117,8 +117,8 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"CapsLock"</code></td>
       <td>
-        Die <kbd>Caps Lock</kbd> Taste. Aktiviert oder deaktiviert die
-        Großschreibtasten-Sperre für nachfolgende Eingaben.
+        Die <kbd>Caps Lock</kbd> Taste. Schaltet die Großschreibungssperre für
+        die folgende Eingabe ein und aus.
       </td>
       <td><code>VK_CAPITAL</code> (0x14)</td>
       <td><code>kVK_CapsLock</code> (0x39)</td>
@@ -134,7 +134,7 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
       <td><code>"Control"</code></td>
       <td>
         Die <kbd>Control</kbd>, <kbd>Ctrl</kbd>, oder <kbd>Ctl</kbd> Taste.
-        Ermöglicht das Tippen von Steuerzeichen.
+        Ermöglicht die Eingabe von Steuerzeichen.
       </td>
       <td>
         <code>VK_CONTROL</code> (0x11)<br /><code>VK_LCONTROL</code>
@@ -160,11 +160,10 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Fn"</code></td>
       <td>
-        Die <kbd>Fn</kbd> (Function modifier) Taste. Wird verwendet, um die
-        Eingabe von Funktionstasten-Zeichen (z.B. <kbd>F1</kbd>–<kbd>F15</kbd>)
-        auf Tastaturen, die keinen dedizierten Funktionstastenbereich haben, zu
-        ermöglichen. Wird oft in der Hardware behandelt, so dass keine
-        Ereignisse für diese Taste erzeugt werden.
+        Die <kbd>Fn</kbd> (Funktionsmodifikator) Taste. Wird verwendet, um
+        Funktionen (<kbd>F1</kbd>–<kbd>F15</kbd>, zum Beispiel) zu erzeugen, auf
+        Tastaturen ohne speziellen Funktionsbereich. Oft in der Hardware
+        verarbeitet, sodass keine Events für diese Taste erzeugt werden.
       </td>
       <td></td>
       <td><code>kVK_Function</code> (0x3F)</td>
@@ -174,10 +173,10 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"FnLock"</code></td>
       <td>
-        Die <kbd>FnLock</kbd> oder <kbd>F-Lock</kbd> (Function Lock) Taste.
-        Aktiviert oder deaktiviert den Modus der Funktionstasten, der durch
-        <code>"Fn"</code> beschrieben wird. Wird oft in der Hardware behandelt,
-        so dass keine Ereignisse für diese Taste erzeugt werden.
+        Die <kbd>FnLock</kbd> oder <kbd>F-Lock</kbd> (Funktionssperre) Taste. Schaltet
+        den durch <code>"Fn"</code> beschriebenen Funktionsmodus ein und aus.
+        Oft in der Hardware verarbeitet, sodass keine Events für diese Taste
+        erzeugt werden.
       </td>
       <td></td>
       <td></td>
@@ -201,9 +200,9 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Meta"</code> [1]</td>
       <td>
-        Die <kbd>Meta</kbd> Taste. Ermöglicht die Eingabe spezieller Befehle.
-        Dies ist die <kbd>Windows</kbd>-Logo-Taste oder die <kbd>Command</kbd>
-        oder <kbd>⌘</kbd> Taste auf Mac-Tastaturen.
+        Die <kbd>Meta</kbd> Taste. Ermöglicht die Ausgabe spezieller Befehle.
+        Dies ist die <kbd>Windows</kbd> Logo Taste oder die <kbd>Command</kbd>
+        bzw. <kbd>⌘</kbd> Taste auf Mac-Tastaturen.
       </td>
       <td><code>VK_LWIN</code> (0x5B)<br /><code>VK_RWIN</code> (0x5C)</td>
       <td>
@@ -224,8 +223,9 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"NumLock"</code></td>
       <td>
-        Die <kbd>NumLock</kbd> (Zahlenblock) Taste. Wechselt den Zahleneingabemodus
-        des numerischen Tastenfelds in einen anderen Modus (oft Pfeiltasten).
+        Die <kbd>NumLock</kbd> (Num Lock) Taste. Wechselt den numerischen
+        Tastenblock zwischen Zifferneingabe und einem anderen Modus (oft
+        Richtungsbefehle).
       </td>
       <td><code>VK_NUMLOCK</code> (0x90)</td>
       <td></td>
@@ -238,7 +238,7 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"ScrollLock"</code> [2]</td>
       <td>
-        Die <kbd>Scroll Lock</kbd> Taste. Wechselt zwischen Scroll- und
+        Die <kbd>Scroll Lock</kbd> Taste. Wechselt zwischen Scrollen und
         Cursorbewegungsmodi.
       </td>
       <td><code>VK_SCROLL</code> (0x91)</td>
@@ -254,9 +254,9 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Shift"</code></td>
       <td>
-        Die <kbd>Shift</kbd> Taste. Ändert Tastenanschläge, um Großbuchstaben
-        (oder andere) zu schreiben, und unterstützt das Tippen von
-        Satzzeichen und anderen Sonderzeichen.
+        Die <kbd>Shift</kbd> Taste. Modifiziert Tastenanschläge, um Großbuchstaben
+        (oder andere) zu erlauben und um Satzzeichen und andere Sonderzeichen zu
+        tippen.
       </td>
       <td>
         <code>VK_SHIFT</code> (0x10)<br /><code>VK_LSHIFT</code>
@@ -293,8 +293,8 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Symbol"</code></td>
       <td>
-        Die <kbd>Symbol</kbd> Modifikatortaste (auf bestimmten virtuellen
-        Tastaturen zu finden).
+        Die <kbd>Symbol</kbd> Modifikatortaste (zu finden auf bestimmten
+        virtuellen Tastaturen).
       </td>
       <td></td>
       <td></td>
@@ -312,22 +312,22 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
   </tbody>
 </table>
 
-\[1] In Firefox wird die <kbd>Windows</kbd>-Taste als `"OS"` und nicht als `"Meta"` gemeldet. Dies wird in Firefox gemäß [Firefox-Bug 1232918](https://bugzil.la/1232918) geändert. Bis das behoben ist, werden diese Tasten von Firefox als `"OS"` zurückgegeben: `VK_LWIN` (0x5B) und `VK_RWIN` (0x5C) unter Windows sowie `GDK_KEY_Super_L` (0xFFEB), `GDK_KEY_Super_R` (0xFFEC), `GDK_KEY_Hyper_L` (0xFFED) und `GDK_KEY_Hyper_R` (0xFFEE) unter Linux.
+\[1] In Firefox wird die <kbd>Windows</kbd> Taste als `"OS"` anstelle von `"Meta"` gemeldet. Dies wird in Firefox entsprechend [Firefox Bug 1232918](https://bugzil.la/1232918) geändert. Bis dies behoben ist, sind diese Tasten als `"OS"` in Firefox zurückgegeben: `VK_LWIN` (0x5B) und `VK_RWIN` (0x5C) unter Windows sowie `GDK_KEY_Super_L` (0xFFEB), `GDK_KEY_Super_R` (0xFFEC), `GDK_KEY_Hyper_L` (0xFFED) und `GDK_KEY_Hyper_R` (0xFFEE) unter Linux.
 
-\[2] Firefox fügte erst ab Firefox 37 Unterstützung für die <kbd>Symbol</kbd>-Taste hinzu.
+\[2] Firefox hat erst ab Version 37 Unterstützung für die <kbd>Symbol</kbd> Taste hinzugefügt.
 
-\[3] Firefox generiert den Tastenwert `"OS"` für die <kbd>Super</kbd>- und <kbd>Hyper</kbd>-Tasten, anstelle von `"Super"` und `"Hyper"`.
+\[3] Firefox generiert den Tastencodewert `"OS"` für die <kbd>Super</kbd> und <kbd>Hyper</kbd> Tasten, anstelle von `"Super"` und `"Hyper"`.
 
-\[4] Chrome 67 und Firefox 63 interpretieren nun die rechte <kbd>Alt</kbd>-Taste korrekt für Tastaturlayouts, die diese Taste auf <kbd>AltGr</kbd> abbilden. Siehe Firefox-Bug [Firefox-Bug 900750](https://bugzil.la/900750) und [Chrome-Bug 25503](https://crbug.com/25503) für weitere Details.
+\[4] Chrome 67 und Firefox 63 interpretieren jetzt die rechte <kbd>Alt</kbd> Taste korrekt für Tastaturlayouts, die diese Taste <kbd>AltGr</kbd> zuordnen. Weitere Details finden Sie in [Firefox Bug 900750](https://bugzil.la/900750) und [Chrome Bug 25503](https://crbug.com/25503).
 
 ## Leerzeichentasten
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Value</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtuelle Tasten-Codes</th>
+      <th colspan="4" scope="col">Virtuelle Tastencodes</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -340,8 +340,8 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Enter"</code></td>
       <td>
-        Die <kbd>Enter</kbd> oder <kbd>↵</kbd> Taste (manchmal als
-        <kbd>Return</kbd> gekennzeichnet).
+        Die <kbd>Enter</kbd> oder <kbd>↵</kbd> Taste (manchmal auch als
+        <kbd>Return</kbd> bezeichnet).
       </td>
       <td><code>VK_RETURN</code> (0x0D)</td>
       <td>
@@ -400,9 +400,9 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Value</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtuelle Tasten-Codes</th>
+      <th colspan="4" scope="col">Virtuelle Tastencodes</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -497,8 +497,8 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"PageUp"</code></td>
       <td>
-        Die <kbd>Page Up</kbd> (oder <kbd>PgUp</kbd>) Taste. Scrollt nach
-        oben oder zeigt die vorherige Seite des Inhalts an.
+        Die <kbd>Page Up</kbd> (oder <kbd>PgUp</kbd>) Taste. Scrollt nach oben
+        oder zeigt die vorherige Seite des Inhalts an.
       </td>
       <td><code>VK_PRIOR</code> (0x21)</td>
       <td><code>kVK_PageUp</code> (0x74)</td>
@@ -513,16 +513,16 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
   </tbody>
 </table>
 
-\[1] Edge (16 und früher) und Firefox (36 und früher) verwenden `"Left"`, `"Right"`, `"Up"` und `"Down"` anstelle von `"ArrowLeft"`, `"ArrowRight"`, `"ArrowUp"` und `"ArrowDown"`.
+\[1] Edge (16 und früher) und Firefox (36 und früher) verwenden `"Left"`, `"Right"`, `"Up"`, und `"Down"` anstelle von `"ArrowLeft"`, `"ArrowRight"`, `"ArrowUp"`, und `"ArrowDown"`.
 
 ## Bearbeitungstasten
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Value</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtuelle Tasten-Codes</th>
+      <th colspan="4" scope="col">Virtuelle Tastencodes</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -563,7 +563,7 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     </tr>
     <tr>
       <td><code>"Copy"</code></td>
-      <td>Die <kbd>Copy</kbd> Taste (auf bestimmten erweiterten Tastaturen).</td>
+      <td>Die <kbd>Copy</kbd> Taste (bei bestimmten erweiterten Tastaturen).</td>
       <td><code>APPCOMMAND_COPY</code></td>
       <td></td>
       <td>
@@ -574,7 +574,7 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     </tr>
     <tr>
       <td><code>"CrSel"</code> [3]</td>
-      <td>Die Cursorauswahl-Taste, <kbd>CrSel</kbd>.</td>
+      <td>Die Cursor Select Taste, <kbd>CrSel</kbd>.</td>
       <td><code>VK_CRSEL</code> (0xF7)</td>
       <td></td>
       <td><code>GDK_KEY_3270_CursorSelect</code> (0xFD1C)</td>
@@ -582,7 +582,7 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     </tr>
     <tr>
       <td><code>"Cut"</code></td>
-      <td>Die <kbd>Cut</kbd> Taste (auf bestimmten erweiterten Tastaturen).</td>
+      <td>Die <kbd>Cut</kbd> Taste (bei bestimmten erweiterten Tastaturen).</td>
       <td><code>APPCOMMAND_CUT</code></td>
       <td></td>
       <td>
@@ -593,7 +593,7 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     </tr>
     <tr>
       <td><code>"Delete"</code> [2]</td>
-      <td>Die Löschtaste, <kbd>Del</kbd>.</td>
+      <td>Die Delete Taste, <kbd>Del</kbd>.</td>
       <td><code>VK_DELETE</code> (0x2E)</td>
       <td><code>kVK_ForwardDelete</code> (0x75) [1]</td>
       <td>
@@ -605,8 +605,8 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"EraseEof"</code></td>
       <td>
-        Löscht bis zum Ende des Feldes. Löscht alle Zeichen von der aktuellen
-        Cursor-Position bis zum Ende des aktuellen Feldes.
+        Erase to End of Field. Löscht alle Zeichen von der aktuellen Cursorposition bis zum
+        Ende des aktuellen Feldes.
       </td>
       <td><code>VK_EREOF</code> (0xF9)</td>
       <td></td>
@@ -615,7 +615,7 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     </tr>
     <tr>
       <td><code>"ExSel"</code> [4]</td>
-      <td>Die <kbd>ExSel</kbd> (Erweiterte Auswahl) Taste.</td>
+      <td>Die <kbd>ExSel</kbd> (Extend Selection) Taste.</td>
       <td><code>VK_EXSEL</code> (0xF8)</td>
       <td></td>
       <td><code>GDK_KEY_3270_ExSelect</code> (0xFD1B)</td>
@@ -624,8 +624,8 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Insert"</code></td>
       <td>
-        Die Einfüge-Taste, <kbd>Ins</kbd>. Wechselt zwischen Einfügen und
-        Überschreiben von Text.
+        Die Insert Taste, <kbd>Ins</kbd>. Wechselt zwischen Einfüge- und
+        Überschreibmodus für Text.
       </td>
       <td><code>VK_INSERT</code> (0x2D)</td>
       <td></td>
@@ -637,7 +637,7 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     </tr>
     <tr>
       <td><code>"Paste"</code></td>
-      <td>Einfügen aus der Zwischenablage.</td>
+      <td>Aus der Zwischenablage einfügen.</td>
       <td><code>APPCOMMAND_PASTE</code></td>
       <td></td>
       <td>
@@ -648,7 +648,7 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     </tr>
     <tr>
       <td><code>"Redo"</code></td>
-      <td>Wiederholt die letzte Aktion.</td>
+      <td>Die letzte Aktion wiederholen.</td>
       <td><code>APPCOMMAND_REDO</code></td>
       <td></td>
       <td><code>GDK_KEY_Redo</code> (0xFF66)</td>
@@ -656,7 +656,7 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     </tr>
     <tr>
       <td><code>"Undo"</code></td>
-      <td>Macht die letzte Aktion rückgängig.</td>
+      <td>Die letzte Aktion rückgängig machen.</td>
       <td><code>APPCOMMAND_UNDO</code></td>
       <td></td>
       <td><code>GDK_KEY_Undo</code> (0xFF65)</td>
@@ -665,22 +665,23 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
   </tbody>
 </table>
 
-\[1] Auf Tastaturen ohne dedizierte <kbd>Del</kbd>-Taste generiert der Mac den Wert `"Delete"`, wenn <kbd>Fn</kbd> in Kombination mit <kbd>Delete</kbd> (welches die <kbd>Rücktaste</kbd> auf anderen Plattformen ist) gedrückt wird.
+\[1] Auf Tastaturen ohne dedizierte <kbd>Del</kbd> Taste generiert der Mac den Wert `"Delete"` wenn
+\highlight{\kbd>Fn</highlight>}tandem mit\\highlight{\kbd>Delete</highlight>} (was auf anderen\\highlight{\kbd>Backspace</highlight>}der Plattformen).
 
-\[2] Firefox 36 und früher verwendet `"Del"` anstelle von `"Delete"` für die <kbd>Del</kbd>-Taste.
+\[2] Firefox 36 und früher verwenden `"Del"` anstelle von `"Delete"` für die <kbd>Del</kbd> Taste.
 
-\[3] Firefox 36 und früher generiert den Wert `"Crsel"` anstelle von `"CrSel"`, wenn die <kbd>CrSel</kbd>-Taste gedrückt wird.
+\[3] Firefox 36 und früher generiert den Wert `"Crsel"` anstelle von `"CrSel"` wenn die <kbd>CrSel</kbd> Taste gedrückt wird.
 
-\[4] Firefox 36 und früher generiert den Wert `"Exsel"` anstelle von `"ExSel"`, wenn die <kbd>ExSel</kbd>-Taste gedrückt wird.
+\[4] Firefox 36 und früher generiert den Wert `"Exsel"` anstelle von `"ExSel"` wenn die <kbd>ExSel</kbd> Taste gedrückt wird.
 
-## UI-Tasten
+## UI Tasten
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Value</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtuelle Tasten-Codes</th>
+      <th colspan="4" scope="col">Virtuelle Tastencodes</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -693,9 +694,9 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Accept"</code></td>
       <td>
-        Die <kbd>Accept</kbd>, <kbd>Commit</kbd>, oder <kbd>OK</kbd> Taste oder
-        Schaltfläche. Akzeptiert die derzeit ausgewählte Option oder
-        Eingabemethoden-Sequenzkonvertierung.
+        Die <kbd>Accept</kbd>, <kbd>Commit</kbd> oder <kbd>OK</kbd> Taste oder der
+        Knopf. Akzeptiert die derzeit ausgewählte Option oder
+        Eingabemethoden-Sequenzumwandlung.
       </td>
       <td><code>VK_ACCEPT</code> (0x1E)</td>
       <td></td>
@@ -704,7 +705,7 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     </tr>
     <tr>
       <td><code>"Again"</code></td>
-      <td>Die <kbd>Again</kbd> Taste. Wiederholt oder wiederholt eine vorherige Aktion.</td>
+      <td>Die <kbd>Again</kbd> Taste. Wiederholt oder dupliziert eine vorangegangene Aktion.</td>
       <td></td>
       <td></td>
       <td><code>GDK_KEY_Redo</code> (0xFF66)</td>
@@ -729,9 +730,9 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"ContextMenu"</code> [3]</td>
       <td>
-        Zeigt das Kontextmenü an. Typischerweise befindet sich diese zwischen
-        der <kbd>Windows</kbd> (oder <kbd>OS</kbd>) Taste und der
-        <kbd>Control</kbd> Taste auf der rechten Seite der Tastatur.
+        Zeigt das Kontextmenü an. Befindet sich normalerweise zwischen der
+        <kbd>Windows</kbd> (oder <kbd>OS</kbd>) Taste und der <kbd>Control</kbd> Taste
+        auf der rechten Seite der Tastatur.
       </td>
       <td><code>VK_APPS</code> (0x5D)</td>
       <td><code>kVK_PC_ContextMenu</code> (0x6E)</td>
@@ -744,11 +745,10 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Escape"</code> [2]</td>
       <td>
-        Die <kbd>Esc</kbd> (Escape) Taste. Typischerweise verwendet als eine
-        Abbruch-, Abbrechen- oder "Abreise von diesem Vorgang" Taste.
-        Historisch wurde das Escape-Zeichen verwendet, um den Beginn einer
-        speziellen Steuersequenz von Zeichen, genannt "Escape-Sequenz" zu
-        signalisieren.
+        Die <kbd>Esc</kbd> (Escape) Taste. Wird typischerweise als Exit-, Abbruch- oder
+        "Escape this operation"-Taste verwendet. Historisch wurde das
+        Escape-Zeichen genutzt, um den Beginn einer speziellen Steuerbefehlssequenz
+        von Zeichen anzuzeigen, die als "Escape-Sequenz" bezeichnet wird.
       </td>
       <td><code>VK_ESCAPE</code> (0x1B)</td>
       <td><code>kVK_Escape</code> (0x35)</td>
@@ -769,8 +769,8 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Find"</code></td>
       <td>
-        Die <kbd>Find</kbd> Taste. Öffnet eine Schnittstelle (typischerweise
-        ein Dialogfeld) für die Durchführung einer Suchoperation.
+        Die <kbd>Find</kbd> Taste. Öffnet eine Schnittstelle (normalerweise ein
+        Dialogfeld) für die Durchführung einer Such-/Suchoperation.
       </td>
       <td><code>APPCOMMAND_FIND</code></td>
       <td></td>
@@ -788,8 +788,8 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Help"</code></td>
       <td>
-        Die <kbd>Help</kbd> Taste. Öffnet oder wechselt die Anzeige von
-        Hilfeinformationen.
+        Die <kbd>Help</kbd> Taste. Öffnet oder wechselt zur Anzeige von
+        Hilfsinformationen.
       </td>
       <td><code>VK_HELP</code> (0x2F)<br /><code>APPCOMMAND_HELP</code></td>
       <td><code>kVK_Help</code> (0x72)</td>
@@ -802,14 +802,13 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Pause"</code></td>
       <td>
-        Die <kbd>Pause</kbd> Taste. Pausiert die aktuelle Anwendung oder den
+        Die <kbd>Pause</kbd> Taste. Pausiert die aktuelle Anwendung oder den aktuellen
         Zustand, falls zutreffend.
         <div class="note">
           <p>
-            <strong>Hinweis:</strong> Dies sollte nicht mit der
-            <code>"MediaPause"</code> Taste verwechselt werden, die für
-            Mediensteuerungen, nicht jedoch zur Steuerung von Anwendungen und
-            Prozessen verwendet wird.
+            <strong>Hinweis:</strong> Dies sollte nicht mit dem Wert
+            <code>"MediaPause"</code> verwechselt werden, der für Mediencontroller
+            verwendet wird, anstatt Anwendungen und Prozesse zu steuern.
           </p>
         </div>
       </td>
@@ -824,14 +823,13 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Play"</code></td>
       <td>
-        Die <kbd>Play</kbd> Taste. Setzt eine zuvor pausierte Anwendung fort,
-        falls zutreffend.
+        Die <kbd>Play</kbd> Taste. Setzt eine zuvor pausierte Anwendung fort, falls
+        zutreffend.
         <div class="note">
           <p>
-            <strong>Hinweis:</strong> Dies sollte nicht mit der
-            <code>"MediaPlay"</code> Taste verwechselt werden, die für
-            Mediensteuerungen, nicht jedoch zur Steuerung von Anwendungen und
-            Prozessen verwendet wird.
+            <strong>Hinweis:</strong> Dies sollte nicht mit dem Wert
+            <code>"MediaPlay"</code> verwechselt werden, der für Mediencontroller
+            verwendet wird, anstatt Anwendungen und Prozesse zu steuern.
           </p>
         </div>
       </td>
@@ -845,7 +843,7 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     </tr>
     <tr>
       <td><code>"Props"</code></td>
-      <td>Die <kbd>Props</kbd> (Eigenschaften) Taste.</td>
+      <td>Die <kbd>Props</kbd> (Properties) Taste.</td>
       <td></td>
       <td></td>
       <td></td>
@@ -888,26 +886,26 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
   </tbody>
 </table>
 
-\[1] In Google Chrome 52 gibt die <kbd>Cancel</kbd>-Taste fälschlicherweise den Tasten-Code `"Pause"` zurück. Dies ist in Chrome 53 behoben (siehe [Chrome Bug 612749](https://crbug.com/612749) für Details).
+\[1] In Google Chrome 52 gibt die <kbd>Cancel</kbd> Taste fälschlicherweise den Tastencode `"Pause"` zurück. Dies wurde in Chrome 53 behoben. (Siehe [Chrome Bug 612749](https://crbug.com/612749) für Details.)
 
-\[2] In Firefox 36 und früher gibt die <kbd>Esc</kbd>-Taste `"Esc"` anstelle von `"Escape"` zurück.
+\[2] In Firefox 36 und früher gibt die <kbd>Esc</kbd> Taste `"Esc"` anstelle von `"Escape"` zurück.
 
-\[3] Firefox 36 und früher meldet `"Apps"` anstelle von `"ContextMenu"` für die Kontextmenü-Taste.
+\[3] Firefox 36 und früher meldet `"Apps"` anstelle von `"ContextMenu"` für die Kontextmenütaste.
 
-\[4] Die <kbd>Attn</kbd>-Taste generiert den Tasten-Code `"Unidentified"` in Firefox und Google Chrome, es sei denn, das japanische Tastaturlayout ist aktiv, in welchem Fall sie stattdessen `"KanaMode"` generiert.
+\[4] Die <kbd>Attn</kbd> Taste generiert den Tastencode `"Unidentified"` in Firefox und Google Chrome, es sei denn das japanische Tastaturlayout ist aktiv, in diesem Fall wird `"KanaMode"` generiert.
 
-\[5] Die <kbd>Finish</kbd>-Taste generiert den Tasten-Code `"Unidentified"` in Firefox, es sei denn, das japanische Tastaturlayout ist aktiv, in welchem Fall sie statt dessen `"Katakana"` generiert.
+\[5] Die <kbd>Finish</kbd> Taste generiert den Tastencode `"Unidentified"` in Firefox, es sei denn das japanische Tastaturlayout ist aktiv, in diesem Fall wird `"Katakana"` generiert.
 
-\[6] Firefox unterstützte die `"ZoomIn"` und `"ZoomOut"` Tasten bis Firefox 37 nicht.
+\[6] Firefox unterstützte die Tasten `"ZoomIn"` und `"ZoomOut"` erst ab Firefox 37.
 
 ## Gerätetasten
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Value</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtuelle Tasten-Codes</th>
+      <th colspan="4" scope="col">Virtuelle Tastencodes</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -920,8 +918,8 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"BrightnessDown"</code></td>
       <td>
-        Die Helligkeitssenkungstaste. Wird typischerweise verwendet, um die
-        Helligkeit des Bildschirms zu reduzieren.
+        Die Helligkeitsreduzierungstaste. Typischerweise verwendet, um die
+        Helligkeit des Displays zu reduzieren.
       </td>
       <td></td>
       <td></td>
@@ -936,8 +934,8 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"BrightnessUp"</code></td>
       <td>
-        Die Helligkeitssteigerungstaste. Erhöht typischerweise die Helligkeit
-        des Bildschirms.
+        Die Helligkeitssteigerungstaste. Typischerweise wird die Helligkeit des
+        Displays erhöht.
       </td>
       <td></td>
       <td></td>
@@ -952,8 +950,8 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Eject"</code></td>
       <td>
-        Die <kbd>Eject</kbd> Taste. Wirft entnehmbare Medien aus (oder schaltet
-        ein optisches Laufwerk auf und zu).
+        Die <kbd>Eject</kbd> Taste. Wirft Wechselmedien aus (oder öffnet/schließt das
+        optische Laufwerk).
       </td>
       <td></td>
       <td></td>
@@ -979,12 +977,11 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Power"</code></td>
       <td>
-        Die <kbd>Power</kbd> Taste oder Taste, um die Stromzufuhr ein- und
-        auszuschalten.
+        Die <kbd>Power</kbd> Taste, um das Gerät ein- und auszuschalten.
         <div class="note">
           <p>
-            <strong>Hinweis:</strong> Nicht alle Systeme übertragen diese Taste an
-            den Benutzeragenten.
+            <strong>Hinweis:</strong> Nicht alle Systeme leiten diese Taste an den
+            User-Agent weiter.
           </p>
         </div>
       </td>
@@ -1015,9 +1012,9 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"PrintScreen"</code></td>
       <td>
-        Die <kbd>PrintScreen</kbd> oder <kbd>PrtScr</kbd> Taste. Manchmal
-        <kbd>SnapShot</kbd>. Erfasst den Bildschirm und druckt ihn aus oder
-        speichert ihn auf die Festplatte.
+        Die <kbd>PrintScreen</kbd> oder <kbd>PrtScr</kbd> Taste. Manchmal auch
+        <kbd>SnapShot</kbd>. Nimmt einen Screenshot auf und druckt ihn oder
+        speichert ihn auf der Festplatte.
       </td>
       <td><code>VK_SNAPSHOT</code> (0x2C)</td>
       <td></td>
@@ -1035,10 +1032,10 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Hibernate"</code> [2]</td>
       <td>
-        Die <kbd>Hibernate</kbd> Taste. Speichert den aktuellen Zustand des
-        Computers auf die Festplatte und schaltet ihn dann aus; der Computer
-        kann durch Wiederherstellen der gespeicherten Zustandsinformationen in
-        seinen vorherigen Zustand zurückversetzt werden.
+        Die <kbd>Hibernate</kbd> Taste. Speichert den Zustand des Computers auf
+        der Festplatte und fährt ihn anschließend herunter; der Computer kann in
+        seinen vorigen Zustand versetzt werden, indem die gespeicherten
+        Zustandsinformationen wiederhergestellt werden.
       </td>
       <td></td>
       <td></td>
@@ -1053,10 +1050,9 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"Standby"</code> [1]</td>
       <td>
-        Die <kbd>Standby</kbd> Taste. (Auch als <kbd>Suspend</kbd> oder
-        <kbd>Sleep</kbd> bekannt.) Diese schaltet den Bildschirm
-        aus und versetzt den Computer in einen niedrigen
-        Stromverbrauchsmodus, ohne ihn vollständig auszuschalten.
+        Die <kbd>Standby</kbd> Taste. (Auch bekannt als <kbd>Suspend</kbd> oder
+        <kbd>Sleep</kbd>.) Schaltet das Display aus und versetzt den Computer in
+        einen Energiesparmodus, ohne ihn komplett auszuschalten.
       </td>
       <td><code>VK_SLEEP</code> (0x5F)</td>
       <td></td>
@@ -1077,8 +1073,8 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
     <tr>
       <td><code>"WakeUp"</code> [2]</td>
       <td>
-        Die <kbd>WakeUp</kbd> Taste. Wird verwendet, um den Computer aus dem
-        Ruhezustand oder Standby-Modus aufzuwecken.
+        Die <kbd>WakeUp</kbd> Taste. Wird verwendet, um den Computer aus den
+        Standby- oder Ruhezustand zu wecken.
       </td>
       <td></td>
       <td></td>
@@ -1093,24 +1089,24 @@ _Modifikatoren_ sind spezielle Tasten, die verwendet werden, um Sonderzeichen zu
   </tbody>
 </table>
 
-\[1] Die <kbd>Standby</kbd>-Taste wird von Firefox 36 und früher nicht unterstützt, so dass als `"Unidentified"` gemeldet wird.
+\[1] Die <kbd>Standby</kbd> Taste wird von Firefox 36 und früher nicht unterstützt, sodass sie als `"Unidentified"` gemeldet wird.
 
 \[2] Vor Firefox 37 erzeugte diese Taste den Wert `"Unidentified"`.
 
-## IME und Kompositionstasten
+## Tasten für IME und Komposition
 
-Tasten, die verwendet werden, wenn eine {{glossary("Input Method Editor")}} (IME) zum Eingeben von Text verwendet wird, der nicht durch einfache Tastenanschläge eingegeben werden kann, wie z. B. Text in Sprachen, die mehr Grapheme haben, als es Zeichen auf der Tastatur gibt. Häufige Beispiele sind Chinesisch, Japanisch, Koreanisch und Hindi.
+Tasten, die verwendet werden, wenn eine [Eingabemethoden-Editor](/de/docs/Glossary/Input_Method_Editor) (IME) zur Texteingabe benutzt wird, der nicht einfach durch Tastendrücke eingegeben werden kann, wie Texte in Sprachen, die mehr Grapheme als Tasten auf der Tastatur zur Zeichen-Eingabe haben. Häufige Beispiele sind Chinesisch, Japanisch, Koreanisch und Hindi.
 
-Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastaturen existieren, die auf bestimmte Sprachen ausgerichtet sind. Darüber hinaus haben nicht alle Tastaturen alle diese Tasten.
+Einige Tasten sind über mehrere Sprachen hinweg verbreitet, während andere nur auf Tastaturen vorkommen, die auf bestimmte Sprachen abzielen. Zudem sind nicht alle Tastaturen mit all diesen Tasten ausgestattet.
 
 ### Häufige IME-Tasten
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Value</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtuelle Tasten-Codes</th>
+      <th colspan="4" scope="col">Virtuelle Tastencodes</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -1123,9 +1119,8 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
     <tr>
       <td><code>"AllCandidates"</code></td>
       <td>
-        Die <kbd>All Candidates</kbd> Taste, die den Mehrfachkandidatenmodus
-        startet, in dem mehrere Kandidaten für die laufende Eingabe angezeigt
-        werden.
+        Die <kbd>All Candidates</kbd> Taste, die den Multi-Kandidaten-Modus
+        startet, in dem mehrere Kandidaten für die laufende Eingabe angezeigt werden.
       </td>
       <td></td>
       <td></td>
@@ -1156,9 +1151,9 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
     <tr>
       <td><code>"CodeInput"</code></td>
       <td>
-        Die <kbd>Code Input</kbd> Taste, die den Codeeingabemodus aktiviert,
-        der es dem Benutzer ermöglicht, Zeichen einzugeben, indem er ihre
-        Codepunkte (normalerweise ihre Unicode-Zeichennummern) eingibt.
+        Die <kbd>Code Input</kbd> Taste, die den Code-Eingabe-Modus aktiviert, damit
+        der Benutzer Zeichen durch Eingabe ihrer Codepunkte (üblicherweise ihrer
+        Unicode-Zeichennummern) eingeben kann.
       </td>
       <td></td>
       <td></td>
@@ -1186,8 +1181,8 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
     <tr>
       <td><code>"Convert"</code> [4]</td>
       <td>
-        Die <kbd>Convert</kbd> Taste, die das IME anweist, die aktuelle
-        Eingabemethoden-Sequenz in das resultierende Zeichen zu konvertieren.
+        Die <kbd>Convert</kbd> Taste, welche die IME anweist, die aktuelle
+        Eingabemethodensequenz in das resultierende Zeichen umzuwandeln.
       </td>
       <td><code>VK_CONVERT</code> (0x1C)</td>
       <td></td>
@@ -1201,31 +1196,30 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
       <td><code>"Dead"</code></td>
       <td>
         <p>
-          Eine "tote" Kombinationstaste; das heißt, eine Taste, die in
-          Kombination mit anderen Tasten verwendet wird, um Akzent- und andere
-          veränderte Zeichen zu erzeugen. Wenn sie allein gedrückt wird, wird
-          kein Zeichen erzeugt.
+          Eine tote "kombinierende" Taste; das heißt eine Taste, die in
+          Verbindung mit anderen Tasten benutzt wird, um Buchstaben mit Akzenten
+          oder anderen Modifikationen zu erzeugen. Wenn sie alleine gedrückt
+          wird, erzeugt sie kein Zeichen.
         </p>
         <p>
-          Wenn Sie identifizieren möchten, welche spezifische tote Taste
-          gedrückt wurde (in Fällen, in denen mehr als eine existiert), können
-          Sie dies tun, indem Sie die
-          {{domxref("KeyboardEvent")}} des zugehörigen
-          {{domxref("Element/compositionupdate_event", "compositionupdate")}}
-          Ereignisses
-          {{domxref("CompositionEvent.data", "data")}} Eigenschaft überprüfen.
+          Wenn Sie identifizieren möchten, welche spezifische tote Taste gedrückt
+          wurde (in Fällen, in denen mehr als eine vorhanden ist), können Sie
+          dies tun, indem Sie die [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)'s
+          zugeordnete [`compositionupdate`](/de/docs/Web/API/Element/compositionupdate_event)
+          Event's [`data`](/de/docs/Web/API/CompositionEvent/data) Eigenschaft
+          untersuchen.
         </p>
       </td>
       <td></td>
       <td></td>
-      <td>Siehe <a href="#dead_keycodes_for_linux">Tote-Tasten-Codes für Linux</a> unten</td>
+      <td>Siehe <a href="#dead_keycodes_for_linux">Tote Tastencodes für Linux</a> unten</td>
       <td></td>
     </tr>
     <tr>
       <td><code>"FinalMode"</code></td>
       <td>
-        Die <kbd>Final</kbd> (Finalmodus) Taste wird auf einigen asiatischen
-        Tastaturen verwendet, um den Finalmodus beim Verwenden von IMEs einzugeben.
+        Die <kbd>Final</kbd> (Final Mode) Taste wird auf einigen asiatischen
+        Tastaturen verwendet, um den finalen Modus bei Verwendung von IMEs einzuschalten.
       </td>
       <td><code>VK_FINAL</code> (0x18)</td>
       <td></td>
@@ -1238,10 +1232,9 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
         Wechselt zur ersten Zeichengruppe auf einer
         <a href="https://en.wikipedia.org/wiki/ISO/IEC_9995"
           >ISO/IEC 9995 Tastatur</a
-        >. Jede Taste kann mehrere Gruppen von Zeichen haben, jede in ihrer
-        eigenen Spalte. Das Drücken dieser Taste weist das Gerät an, Tastenanschläge
-        als kommende aus der ersten Spalte bei nachfolgenden Tastenanschlägen
-        zu interpretieren.
+        >. Jede Taste kann mehrere Zeichen in Gruppen haben, jeweils in ihrer eigenen
+        Spalte. Diese Taste weist das Gerät an, die Tastendrücke als aus der
+        ersten Spalte stammend zu interpretieren, bis weitere Tastenanschläge erfolgen.
       </td>
       <td></td>
       <td></td>
@@ -1251,7 +1244,7 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
     <tr>
       <td><code>"GroupLast"</code></td>
       <td>
-        Wechselt zur letzten Zeichengruppe auf einer
+        Wechselt zur letzten Zeichengruppe einer
         <a href="https://en.wikipedia.org/wiki/ISO/IEC_9995"
           >ISO/IEC 9995 Tastatur</a
         >.
@@ -1264,7 +1257,7 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
     <tr>
       <td><code>"GroupNext"</code> [4]</td>
       <td>
-        Wechselt zur nächsten Zeichengruppe auf einer
+        Wechselt zur nächsten Zeichengruppe einer
         <a href="https://en.wikipedia.org/wiki/ISO/IEC_9995"
           >ISO/IEC 9995 Tastatur</a
         >.
@@ -1277,7 +1270,7 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
     <tr>
       <td><code>"GroupPrevious"</code></td>
       <td>
-        Wechselt zur vorherigen Zeichengruppe auf einer
+        Wechselt zur vorherigen Zeichengruppe einer
         <a href="https://en.wikipedia.org/wiki/ISO/IEC_9995"
           >ISO/IEC 9995 Tastatur</a
         >.
@@ -1289,7 +1282,7 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
     </tr>
     <tr>
       <td><code>"ModeChange"</code> [5]</td>
-      <td>Die Modus-Wechseltaste. Wechselt oder schaltet zwischen Eingabemodi von IMEs um.</td>
+      <td>Die Mode Change Taste. Wechselt oder durchläuft Eingabemodi der IMEs.</td>
       <td><code>VK_MODECHANGE</code> (0x1F)</td>
       <td></td>
       <td>
@@ -1303,7 +1296,7 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
     <tr>
       <td><code>"NextCandidate"</code></td>
       <td>
-        Die Nächster-Kandidat-Funktionstaste. Wählt den nächsten möglichen Treffer
+        Die Funktionstaste Nächster Kandidat. Wählt den nächsten möglichen Treffer
         für die laufende Eingabe aus.
       </td>
       <td></td>
@@ -1314,9 +1307,9 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
     <tr>
       <td><code>"NonConvert"</code> [2]</td>
       <td>
-        Die <kbd>NonConvert</kbd> ("Nicht konvertieren") Taste. Diese akzeptiert
-        die aktuelle Eingabemethoden-Sequenz ohne Konvertierung bei Verwendung
-        eines IMEs.
+        Die <kbd>NonConvert</kbd> ("Nicht umwandeln") Taste. Diese nimmt die
+        aktuelle Eingabemethodensequenz an, ohne eine Umwandlung durchzuführen,
+        wenn eine IME verwendet wird.
       </td>
       <td><code>VK_NONCONVERT</code> (0x1D)</td>
       <td></td>
@@ -1331,8 +1324,8 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
     <tr>
       <td><code>"PreviousCandidate"</code></td>
       <td>
-        Die Vorherige-Kandidat-Taste. Wählt den vorherigen möglichen Treffer für
-        die laufende Eingabe aus.
+        Die vorherige Kandidaten-Taste. Wählt den vorherigen möglichen Treffer
+        für die laufende Eingabe aus.
       </td>
       <td></td>
       <td></td>
@@ -1347,7 +1340,8 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
     <tr>
       <td><code>"Process"</code> [3]</td>
       <td>
-        Die <kbd>Process</kbd> Taste. Instructs the IME to process the conversion.
+        Die <kbd>Process</kbd> Taste. Weist die IME an, die Umwandlung
+        zu verarbeiten.
       </td>
       <td><code>VK_PROCESSKEY</code> (0xE5)</td>
       <td></td>
@@ -1357,8 +1351,8 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
     <tr>
       <td><code>"SingleCandidate"</code> [4]</td>
       <td>
-        Die Einzel-Kandidat-Taste. Aktiviert den Einzelkandidaten-Modus (im
-        Gegensatz zum Mehrfachkandidaten-Modus); in diesem Modus wird jeweils
+        Die Single Candidate Taste. Aktiviert den Einzelkandidatenmodus (im
+        Gegensatz zum Multikandidatenmodus); in diesem Modus wird jeweils
         nur ein Kandidat angezeigt.
       </td>
       <td></td>
@@ -1374,26 +1368,26 @@ Einige Tasten sind bei mehreren Sprachen üblich, während andere nur auf Tastat
   </tbody>
 </table>
 
-\[1] Im _X Window System_ wird die <kbd>Compose</kbd>-Taste die <kbd>Multi</kbd>-Taste genannt.
+\[1] Im _X Window System_ wird die <kbd>Compose</kbd> Taste als <kbd>Multi</kbd> Taste bezeichnet.
 
-\[2] Die <kbd>NonConvert</kbd>-Taste wird in Firefox Versionen 36 und früher als `"Nonconvert"` anstelle von `"NonConvert"` gemeldet.
+\[2] Die <kbd>NonConvert</kbd> Taste wird von Firefox Versionen 36 und früher als `"Nonconvert"` anstelle des korrekten `"NonConvert"` gemeldet.
 
-\[3] Die <kbd>Process</kbd>-Taste gibt derzeit `"Unidentified"` in Firefox zurück. Google Chrome gibt den Wert der Taste zurück, als ob IME nicht in Gebrauch wäre.
+\[3] Die <kbd>Process</kbd> Taste generiert derzeit den Wert `"Unidentified"` in Firefox. Google Chrome gibt den Wert der Taste so zurück, als wäre keine IME in Verwendung.
 
-\[4] Vor Firefox 37 waren diese Tasten `"Unidentified"`.
+\[4] Vor Firefox 37 waren diese Tasten als `"Unidentified"` gemeldet.
 
-\[5] Firefox generiert den Tastenwert `"AltGraph"` anstelle von `"ModeChange"`.
+\[5] Firefox generiert den Tastencodewert `"AltGraph"` anstelle von `"ModeChange"`.
 
-### Nur koreanische Tastaturen
+### Nur für koreanische Tastaturen
 
-Diese Tasten sind nur auf koreanischen Tastaturen verfügbar. Es gibt andere von verschiedenen Plattformen definierte Tasten für koreanische Tastaturen, aber diese sind die häufigsten und die, die durch die UI-Events-Spezifikation identifiziert werden.
+Diese Tasten sind nur auf koreanischen Tastaturen verfügbar. Es gibt andere Tasten, die von verschiedenen Plattformen für koreanische Tastaturen definiert sind, aber dies sind die am häufigsten vorkommenden und die, die in der UI Events-Spezifikation identifiziert sind.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Value</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtuelle Tasten-Codes</th>
+      <th colspan="4" scope="col">Virtuelle Tastencodes</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -1406,8 +1400,8 @@ Diese Tasten sind nur auf koreanischen Tastaturen verfügbar. Es gibt andere von
     <tr>
       <td><code>"HangulMode"</code></td>
       <td>
-        Die <kbd>Hangul</kbd> (Koreanisches Zeichensatz) Modus-Taste, die
-        zwischen Hangul- und englischen Eingabemodi umschaltet.
+        Die <kbd>Hangul</kbd> (koreanische Zeichensatz) Modustaste, die zwischen
+        Hangul und englischem Eingabemodus umschaltet.
       </td>
       <td><code>VK_HANGUL</code> (0x15) [1]</td>
       <td></td>
@@ -1420,7 +1414,7 @@ Diese Tasten sind nur auf koreanischen Tastaturen verfügbar. Es gibt andere von
     <tr>
       <td><code>"HanjaMode"</code></td>
       <td>
-        Wählt den Hanja-Modus aus, um Hangul-Zeichen in die spezifischeren
+        Wählt den Hanja-Modus, um Hangul-Zeichen in die spezifischeren
         Hanja-Zeichen umzuwandeln.
       </td>
       <td><code>VK_HANJA</code> (0x19) [1]</td>
@@ -1436,8 +1430,8 @@ Diese Tasten sind nur auf koreanischen Tastaturen verfügbar. Es gibt andere von
     <tr>
       <td><code>"JunjaMode"</code></td>
       <td>
-        Wählt den Junja-Modus, in dem Koreanisch mit einbytigen lateinischen
-        Zeichen dargestellt wird.
+        Wählt den Junja-Modus, in dem Koreanisch mittels
+        einzelbyte-lateinischer Zeichen dargestellt wird.
       </td>
       <td><code>VK_JUNJA</code> (0x17)</td>
       <td></td>
@@ -1452,18 +1446,18 @@ Diese Tasten sind nur auf koreanischen Tastaturen verfügbar. Es gibt andere von
   </tbody>
 </table>
 
-\[1] `VK_HANGUL` und `VK_KANA` teilen sich denselben numerischen Tastenwert auf Windows, ebenso wie `VK_HANJA` und `VK_KANJI`.
+\[1] `VK_HANGUL` und `VK_KANA` teilen auf Windows denselben numerischen Tastencode, ebenso wie `VK_HANJA` und `VK_KANJI`.
 
-### Nur japanische Tastaturen
+### Nur für japanische Tastaturen
 
 Diese Tasten sind nur auf japanischen Tastaturen verfügbar.
 
 <table class="no-markdown">
   <thead>
     <tr>
-      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Value</th>
+      <th rowspan="2" scope="col"><code>KeyboardEvent.key</code> Wert</th>
       <th rowspan="2" scope="col">Beschreibung</th>
-      <th colspan="4" scope="col">Virtuelle Tasten-Codes</th>
+      <th colspan="4" scope="col">Virtuelle Tastencodes</th>
     </tr>
     <tr>
       <th scope="col">Windows</th>
@@ -1476,8 +1470,8 @@ Diese Tasten sind nur auf japanischen Tastaturen verfügbar.
     <tr>
       <td><code>"Eisu"</code> [1]</td>
       <td>
-        Die <kbd>Eisu</kbd> Taste. Der Zweck dieser Taste wird durch das IME
-        definiert, kann jedoch zum Schließen des IME verwendet werden.
+        Die <kbd>Eisu</kbd> Taste. Der Zweck dieser Taste wird von der IME
+        definiert, kann jedoch verwendet werden, um die IME zu schließen.
       </td>
       <td></td>
       <td><code>kVK_JIS_Eisu</code> (0x66)</td>
@@ -1491,7 +1485,7 @@ Diese Tasten sind nur auf japanischen Tastaturen verfügbar.
     </tr>
     <tr>
       <td><code>"Hankaku"</code> [3]</td>
-      <td>Die <kbd>Hankaku</kbd> (Halbbreite-Zeichen) Taste.</td>
+      <td>Die <kbd>Hankaku</kbd> (halbe Breite Zeichen) Taste.</td>
       <td><code>VK_OEM_AUTO</code> (0xF3)</td>
       <td></td>
       <td>
@@ -1502,4 +1496,11 @@ Diese Tasten sind nur auf japanischen Tastaturen verfügbar.
     </tr>
     <tr>
       <td><code>"Hiragana"</code></td>
-      <td>Die <kbd>Hiragana</kbd> Taste; wählt den Kana-Zeichensatzmodus aus.</td>
+      <td>Die <kbd>Hiragana</kbd> Taste; Wählt den Kana-Zeichenmodus.</td>
+      <td><code>VK_OEM_COPY</code> (0xF2)</td>
+      <td></td>
+      <td>
+        <code>GDK_KEY_Hiragana</code> (0xFF25)<br /><code
+          >Qt::Key_Hiragana</code
+        >
+        (0x01001125

@@ -1,5 +1,5 @@
 ---
-title: Abrufen der Mikrofonberechtigung im Browser
+title: Erhalten der Browser-Mikrofonberechtigung
 slug: Web/API/WebRTC_API/Build_a_phone_with_peerjs/Connect_peers/Get_microphone_permission
 l10n:
   sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
@@ -9,7 +9,7 @@ l10n:
 
 {{PreviousMenuNext("Web/API/WebRTC_API/Build_a_phone_with_peerjs/Connect_peers", "Web/API/WebRTC_API/Build_a_phone_with_peerjs/Connect_peers/Show_hide_html")}}
 
-Nachdem Sie den Peer erstellt haben, möchten Sie die Erlaubnis des Browsers einholen, auf das Mikrofon zuzugreifen. Wir verwenden die Methode [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) auf dem Objekt [`navigator.mediaDevices`](/de/docs/Web/API/Navigator/mediaDevices). Der Endpunkt `getUserMedia()` akzeptiert ein `constraints`-Objekt, das angibt, welche Berechtigungen benötigt werden. `getUserMedia()` ist ein Promise, der bei erfolgreicher Auflösung ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt zurückgibt. In unserem Fall wird dies den Ton unseres Streams enthalten. Wenn das Promise nicht erfolgreich aufgelöst wird, sollten Sie den Fehler abfangen und anzeigen.
+Nachdem Sie den Peer erstellt haben, möchten Sie die Erlaubnis des Browsers einholen, auf das Mikrofon zuzugreifen. Wir werden dafür die [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia)-Methode des [`navigator.mediaDevices`](/de/docs/Web/API/Navigator/mediaDevices)-Objekts verwenden. Der `getUserMedia()`-Endpunkt benötigt ein `constraints`-Objekt, das angibt, welche Berechtigungen erforderlich sind. `getUserMedia()` ist ein Promise, das, wenn es erfolgreich aufgelöst wird, ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt zurückgibt. In unserem Fall wird dies den Audioinhalt unseres Streams enthalten. Wenn das Promise nicht erfolgreich aufgelöst wird, sollten Sie den Fehler abfangen und anzeigen.
 
 1. Fügen Sie den folgenden Code am Ende Ihrer `script.js`-Datei hinzu:
 
@@ -30,12 +30,12 @@ Nachdem Sie den Peer erstellt haben, möchten Sie die Erlaubnis des Browsers ein
 
    Lassen Sie uns die wichtigsten Zeilen erklären:
 
-   - `window.localStream = stream` hängt das `MediaStream`-Objekt (das wir in der vorherigen Zeile `stream` zugewiesen haben) an das Fenster als `localStream` an.
-   - `window.localAudio.srcObject = stream` setzt das [`<audio>`-Element](/de/docs/Web/HTML/Element/audio) mit der ID `localAudio` so, dass das `src`-Attribut der vom Promise zurückgegebenen `MediaStream` ist, damit unser Stream abgespielt wird.
-   - `window.localAudio.autoplay = true` setzt das `autoplay`-Attribut des `<audio>`-Elements auf true, damit der Ton automatisch abgespielt wird.
+   - `window.localStream = stream` hängt das `MediaStream`-Objekt (das wir in der vorherigen Zeile `stream` zugewiesen haben) als `localStream` an das Fenster an.
+   - `window.localAudio.srcObject = stream` setzt das `src`-Attribut des [`<audio>` Elements](/de/docs/Web/HTML/Element/audio) mit der ID `localAudio` auf das von dem Promise zurückgegebene `MediaStream`, sodass es unseren Stream abspielt.
+   - `window.localAudio.autoplay = true` setzt das `autoplay`-Attribut des `<audio>`-Elements auf true, so dass das Audio automatisch abgespielt wird.
 
    > [!WARNING]
-   > Falls Sie online recherchiert haben, sind Sie möglicherweise auf [`navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia) gestoßen und haben angenommen, dass Sie das anstelle von `navigator.mediaDevices.getUserMedia` verwenden können. Das wäre falsch. Ersteres ist eine veraltete Methode, die neben den Einschränkungen auch Rückrufe als Argumente erfordert. Letzteres verwendet ein Promise, sodass Sie keine Rückrufe verwenden müssen.
+   > Wenn Sie online recherchiert haben, sind Sie möglicherweise auf [`navigator.getUserMedia`](/de/docs/Web/API/Navigator/getUserMedia) gestoßen und haben angenommen, dass Sie dies anstelle von `navigator.mediaDevices.getUserMedia` verwenden können. Das wäre falsch. Ersteres ist eine veraltete Methode, die neben Constraints auch Rückruffunktionen als Argumente erfordert. Letzteres verwendet ein Promise, sodass Sie keine Rückruffunktionen verwenden müssen.
 
 2. Versuchen Sie, Ihre `getLocalStream`-Funktion aufzurufen, indem Sie die folgende Zeile am Ende Ihres Codes hinzufügen:
 
@@ -43,20 +43,20 @@ Nachdem Sie den Peer erstellt haben, möchten Sie die Erlaubnis des Browsers ein
    getLocalStream();
    ```
 
-3. Aktualisieren Sie Ihre App, die weiterhin unter `localhost:8000` laufen sollte; Sie sollten das folgende Erlaubnis-Popup sehen:
+3. Aktualisieren Sie Ihre App, die immer noch unter `localhost:8000` laufen sollte; Sie sollten das folgende Berechtigungsfenster sehen:
 
-   ![Ein Browser-Berechtigungsdialogfeld, das besagt "http://localhost:8000 möchte Ihr Mikrofon verwenden" mit zwei Optionen: "blockieren" und "zulassen"](use_microphone_dialogue_box.png)
+   ![Ein Browser-Berechtigungsdialogfenster, das sagt "http://localhost:8000 möchte Ihr Mikrofon verwenden" mit zwei Optionen: "Blockieren" und "Erlauben"](use_microphone_dialogue_box.png)
 
-4. Stecken Sie Kopfhörer ein, bevor Sie die Mikrofonverwendung zulassen, damit Sie, wenn Sie sich später entstummschalten, keine Rückkopplung erhalten. Falls Sie die Erlaubnisaufforderung nicht gesehen haben, öffnen Sie den Inspektor, um zu sehen, ob Sie Fehler haben. Stellen Sie sicher, dass Ihre JavaScript-Datei korrekt mit Ihrer `index.html` verknüpft ist.
+4. Stecken Sie ein Headset ein, bevor Sie die Mikrofonverwendung erlauben, damit Sie später beim Entstummen keine Rückkopplung erhalten. Wenn Sie die Berechtigungsaufforderung nicht gesehen haben, öffnen Sie den Inspektor, um nach Fehlern zu suchen. Stellen Sie auch sicher, dass Ihre JavaScript-Datei korrekt mit Ihrem `index.html` verlinkt ist.
 
-So sollte das Ganze aussehen:
+So sollte alles zusammen aussehen:
 
 ```js
 /* global Peer */
 
 /**
- * Holt den lokalen Audiostream des aktuellen Anrufers
- * @param callbacks - ein Objekt, um das Verhalten bei Erfolg/Fehler festzulegen
+ * Gets the local audio stream of the current caller
+ * @param callbacks - an object to set the success/error behavior
  * @returns {void}
  */
 

@@ -1,5 +1,5 @@
 ---
-title: "DOMPointReadOnly: y Eigenschaft"
+title: "DOMPointReadOnly: y-Eigenschaft"
 short-title: "y"
 slug: Web/API/DOMPointReadOnly/y
 l10n:
@@ -8,15 +8,19 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DOMPointReadOnly`**-Schnittstelle hat die Eigenschaft **`y`**, die die vertikale Koordinate, y, für einen unveränderlichen Punkt im Raum hält.
+Die **`DOMPointReadOnly`**-Schnittstelle hat die
+Eigenschaft **`y`**, die die vertikale Koordinate, y, für einen
+schreibgeschützten Punkt im Raum enthält.
 
-Wenn Ihr Skript in der Lage sein muss, den Wert dieser Eigenschaft zu ändern, sollten Sie stattdessen das {{domxref("DOMPoint")}}-Objekt verwenden.
+Wenn Ihr Skript in der Lage sein muss, den Wert dieser Eigenschaft zu ändern, sollten Sie stattdessen das [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt verwenden.
 
-Im Allgemeinen bedeuten positive Werte von `y` nach unten, und negative Werte von `y` bedeuten nach oben, vorausgesetzt, dass keine Transformationen zu einer Umkehrung geführt haben.
+Im Allgemeinen bedeuten positive Werte von `y` nach unten und negative Werte von
+`y` nach oben, vorausgesetzt, es wurden keine Transformationen durchgeführt, die eine Umkehrung zur Folge haben.
 
 ## Wert
 
-Ein Gleitkommawert mit doppelter Genauigkeit, der den Wert der y-Koordinate für den Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich oder ungültig sein darf (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
+Ein Gleitkommawert mit doppelter Genauigkeit, der den Wert der y-Koordinate für den
+Punkt angibt. Dieser Wert ist **unrestricted**, was bedeutet, dass er unendlich oder ungültig sein darf (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
 
 ## Spezifikationen
 
@@ -28,4 +32,6 @@ Ein Gleitkommawert mit doppelter Genauigkeit, der den Wert der y-Koordinate für
 
 ## Siehe auch
 
-- Die anderen Koordinateneigenschaften: {{domxref("DOMPointReadOnly.x", "x")}}, {{domxref("DOMPointReadOnly.z", "z")}} und der Perspektivenwert, {{domxref("DOMPointReadOnly.w", "w")}}.
+- Die anderen Koordinateneigenschaften: [`x`](/de/docs/Web/API/DOMPointReadOnly/x),
+  [`z`](/de/docs/Web/API/DOMPointReadOnly/z) und der Perspektivwert,
+  [`w`](/de/docs/Web/API/DOMPointReadOnly/w).

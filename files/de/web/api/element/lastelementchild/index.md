@@ -1,5 +1,5 @@
 ---
-title: "Element: lastElementChild Eigenschaft"
+title: "Element: lastElementChild-Eigenschaft"
 short-title: lastElementChild
 slug: Web/API/Element/lastElementChild
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`Element.lastElementChild`**-Eigenschaft ist schreibgeschützt und gibt das letzte Kind-{{domxref("Element")}} eines Elements zurück oder `null`, wenn keine Kindelemente vorhanden sind.
+Die schreibgeschützte Eigenschaft **`Element.lastElementChild`** gibt das letzte Kindelement eines [`Element`](/de/docs/Web/API/Element) zurück oder `null`, wenn keine Kindelemente vorhanden sind.
 
-`Element.lastElementChild` umfasst nur Elementknoten. Um alle Kindknoten einzuschließen, einschließlich Nicht-Element-Knoten wie Text- und Kommentarknoten, verwenden Sie {{domxref("Node.lastChild")}}.
+`Element.lastElementChild` umfasst nur Elementknoten. Um alle Kindknoten zu erhalten, einschließlich Nicht-Elementknoten wie Text- und Kommentarknoten, verwenden Sie [`Node.lastChild`](/de/docs/Web/API/Node/lastChild).
 
 ## Wert
 
-Ein {{domxref("Element")}}-Objekt oder `null`.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt oder `null`.
 
 ## Beispiele
 
@@ -42,5 +42,5 @@ Ein {{domxref("Element")}}-Objekt oder `null`.
 
 ## Siehe auch
 
-- {{domxref("Element.previousElementSibling")}}
-- {{domxref("Element.firstElementChild")}}
+- [`Element.previousElementSibling`](/de/docs/Web/API/Element/previousElementSibling)
+- [`Element.firstElementChild`](/de/docs/Web/API/Element/firstElementChild)

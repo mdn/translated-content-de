@@ -1,5 +1,5 @@
 ---
-title: "Dokument: pointerlockerror-Ereignis"
+title: "Document: pointerlockerror Ereignis"
 short-title: pointerlockerror
 slug: Web/API/Document/pointerlockerror_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Pointer Lock API")}}
 
-Das **`pointerlockerror`**-Ereignis wird ausgelöst, wenn das Sperren des Zeigers (aus technischen Gründen oder weil die Erlaubnis verweigert wurde) fehlgeschlagen ist.
+Das **`pointerlockerror`** Ereignis wird ausgelöst, wenn das Sperren des Zeigers aus technischen Gründen oder aufgrund verweigerter Berechtigung fehlgeschlagen ist.
 
-Dieses Ereignis ist nicht abbruchfähig und wird nicht weitergeleitet.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("pointerlockerror", (event) => {});
@@ -24,7 +24,7 @@ onpointerlockerror = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -38,7 +38,7 @@ document.addEventListener("pointerlockerror", (event) => {
 });
 ```
 
-Verwendung der `onpointerlockerror`-Ereignisbehandlungs-Eigenschaft:
+Verwendung der `onpointerlockerror` Ereignis-Handler-Eigenschaft:
 
 ```js
 document.onpointerlockerror = (event) => {

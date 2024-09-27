@@ -1,5 +1,5 @@
 ---
-title: "ShadowRoot: PointerLockElement-Eigenschaft"
+title: "ShadowRoot: pointerLockElement-Eigenschaft"
 short-title: pointerLockElement
 slug: Web/API/ShadowRoot/pointerLockElement
 l10n:
@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("Pointer Lock API")}}
 
-Die **`pointerLockElement`**-Eigenschaft des {{domxref("ShadowRoot")}}-Interfaces ist eine schreibgeschützte Eigenschaft, die das Element bereitstellt, das als Ziel für Mausereignisse festgelegt wird, während der Zeiger gesperrt ist.
-Es ist `null`, wenn die Sperre aussteht, der Zeiger entsperrt ist oder das Ziel in einem anderen Baum sich befindet.
+Die **`pointerLockElement`** schreibgeschützte Eigenschaft der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle gibt das Element an, das als Ziel für Mausereignisse festgelegt ist, während der Zeiger gesperrt ist. Es ist `null`, wenn die Sperre aussteht, der Zeiger entsperrt ist oder das Ziel sich in einem anderen Baum befindet.
 
 ## Wert
 
-Ein {{domxref("Element")}} oder `null`.
+Ein [`Element`](/de/docs/Web/API/Element) oder `null`.
 
 ## Beispiele
 
@@ -33,6 +32,6 @@ let pleElem = shadow.pointerLockElement;
 
 ## Siehe auch
 
-- {{ domxref("Document.exitPointerLock()") }}
-- {{ domxref("Element.requestPointerLock()") }}
-- [Zeiger-Sperre](/de/docs/Web/API/Pointer_Lock_API)
+- [`Document.exitPointerLock()`](/de/docs/Web/API/Document/exitPointerLock)
+- [`Element.requestPointerLock()`](/de/docs/Web/API/Element/requestPointerLock)
+- [Pointer Lock](/de/docs/Web/API/Pointer_Lock_API)

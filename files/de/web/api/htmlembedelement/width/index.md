@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`**-Eigenschaft der {{domxref("HTMLEmbedElement")}}-Schnittstelle gibt eine Zeichenkette zurück, die das `width`-Attribut des {{HTMLElement("embed")}}-Elements widerspiegelt und die angezeigte Breite der Ressource in CSS-Pixeln angibt.
+Die **`width`**-Eigenschaft der [`HTMLEmbedElement`](/de/docs/Web/API/HTMLEmbedElement) Schnittstelle gibt einen String zurück, der das `width`-Attribut des {{HTMLElement("embed")}} Elements widerspiegelt und die angezeigte Breite der Ressource in CSS-Pixeln angibt.
 
 ## Wert
 
-Eine Zeichenkette, die die angezeigte Breite der Ressource in CSS-Pixeln angibt.
+Ein String, der die angezeigte Breite der Ressource in CSS-Pixeln angibt.
 
 ## Beispiele
 
@@ -22,7 +22,7 @@ Eine Zeichenkette, die die angezeigte Breite der Ressource in CSS-Pixeln angibt.
 
 ```js
 const el = document.getElementById("el");
-console.log(el.width); // Ausgabe: '800'
+console.log(el.width); // Output: '800'
 ```
 
 ## Spezifikationen
@@ -35,9 +35,9 @@ console.log(el.width); // Ausgabe: '800'
 
 ## Siehe auch
 
-- {{domxref("HTMLCanvasElement.width")}}
-- {{domxref("HTMLIFrameElement.width")}}
-- {{domxref("HTMLImageElement.width")}}
-- {{domxref("HTMLObjectElement.width")}}
-- {{domxref("HTMLSourceElement.width")}}
-- {{domxref("HTMLVideoElement.width")}}
+- [`HTMLCanvasElement.width`](/de/docs/Web/API/HTMLCanvasElement/width)
+- [`HTMLIFrameElement.width`](/de/docs/Web/API/HTMLIFrameElement/width)
+- [`HTMLImageElement.width`](/de/docs/Web/API/HTMLImageElement/width)
+- [`HTMLObjectElement.width`](/de/docs/Web/API/HTMLObjectElement/width)
+- [`HTMLSourceElement.width`](/de/docs/Web/API/HTMLSourceElement/width)
+- [`HTMLVideoElement.width`](/de/docs/Web/API/HTMLVideoElement/width)

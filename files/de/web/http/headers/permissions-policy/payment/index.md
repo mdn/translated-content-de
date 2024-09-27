@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Das HTTP-{{HTTPHeader("Permissions-Policy")}} Header-Feld `payment` steuert, ob das aktuelle Dokument die [Payment Request API](/de/docs/Web/API/Payment_Request_API) verwenden darf.
+Das HTTP-Headerfeld {{HTTPHeader("Permissions-Policy")}} mit dem `payment`-Direktive steuert, ob das aktuelle Dokument die [Payment Request API](/de/docs/Web/API/Payment_Request_API) verwenden darf.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe des {{DOMxRef("PaymentRequest.PaymentRequest", "PaymentRequest()")}}-Konstruktors eine {{domxref("DOMException")}} vom Typ `SecurityError` auslösen.
+Speziell in dem Fall, in dem eine definierte Richtlinie die Nutzung dieses Features blockiert, werden Aufrufe des Konstruktors [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest) eine [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` auslösen.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: payment=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprungen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die standardmäßige Erlaubnisliste für `payment` ist `self`.
+Die Standard-Whitelist für `payment` ist `self`.
 
 ## Spezifikationen
 
@@ -34,5 +34,5 @@ Die standardmäßige Erlaubnisliste für `payment` ist `self`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}} Header-Feld
-- [Berechtigungsrichtlinie (Permissions Policy)](/de/docs/Web/HTTP/Permissions_Policy)
+- {{HTTPHeader("Permissions-Policy")}} Headerfeld
+- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

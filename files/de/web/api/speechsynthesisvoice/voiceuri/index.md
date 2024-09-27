@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`voiceURI`** schreibgeschützte Eigenschaft des {{domxref("SpeechSynthesisVoice")}}-Interfaces gibt den URI-Typ und die Position des Sprachsynthese-Dienstes für diese Stimme zurück.
+Die **`voiceURI`**-Eigenschaft des nur-lesbaren [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Interfaces gibt den URI-Typ und die Position des Sprachsynthesedienstes für diese Stimme zurück.
 
 ## Wert
 
-Ein String, der den URI der Stimme darstellt. Dies ist ein generischer URI und kann auf lokale oder entfernte Dienste verweisen, z.B. könnte es sich um eine proprietäre System-URN oder eine URL zu einem entfernten Dienst handeln.
+Ein String, der den URI der Stimme darstellt. Dies ist ein generischer URI und kann auf lokale oder entfernte Dienste verweisen, z.B. könnte es ein spezifisches System-URN oder eine URL zu einem entfernten Dienst sein.
 
 ## Beispiele
 
@@ -26,7 +26,7 @@ for (let i = 0; i < voices.length; i++) {
   }
 
   console.log(voices[i].voiceURI);
-  // Auf Mac gibt dies URNs zurück, zum Beispiel 'urn:moz-tts:osx:com.apple.speech.synthesis.voice.daniel'
+  // On Mac, this returns URNs, for example 'urn:moz-tts:osx:com.apple.speech.synthesis.voice.daniel'
 
   option.setAttribute("data-lang", voices[i].lang);
   option.setAttribute("data-name", voices[i].name);

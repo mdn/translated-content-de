@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`url`** schreibgeschützte Eigenschaft des {{domxref("PerformanceElementTiming")}}-Interfaces gibt die ursprüngliche URL der Ressourcenanfrage zurück, wenn das Element ein Bild ist.
+Die **`url`**-Eigenschaft des schreibgeschützten [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces gibt die ursprüngliche URL der Ressourcenanforderung zurück, wenn das Element ein Bild ist.
 
 ## Wert
 
-Ein String, der die ursprüngliche URL der Ressourcenanfrage für Bilder darstellt, oder `0` für Text.
+Ein String, der die ursprüngliche URL der Ressourcenanforderung für Bilder oder `0` für Text darstellt.
 
 ## Beispiele
 
-### Protokollierung von `url`
+### `url` protokollieren
 
-In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein {{domxref("PerformanceObserver")}} wird registriert, um alle Leistungsdaten vom Typ `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten zuzugreifen, die vor der Erstellung des Observers erfasst wurden. Der Aufruf von `entry.url` gibt `https://example.com/image.jpg` zurück.
+In diesem Beispiel wird ein {{HTMLElement("img")}}-Element beobachtet, indem das [`elementtiming`](/de/docs/Web/HTML/Attributes/elementtiming)-Attribut hinzugefügt wird. Ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) wird registriert, um alle Leistungs-Einträge des Typs `"element"` zu erhalten, und das `buffered`-Flag wird verwendet, um auf Daten zuzugreifen, die vor der Erstellung des Beobachters entstanden sind. Der Aufruf von `entry.url` gibt `https://example.com/image.jpg` zurück.
 
 ```html
 <img

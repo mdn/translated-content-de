@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("CSS Typed Object Model API")}}
 
-Der **`CSSMathMax()`** Konstruktor erstellt ein neues {{domxref("CSSMathMax")}} Objekt, das die CSS {{CSSXref('max', 'max()')}} Funktion repräsentiert.
+Der **`CSSMathMax()`** Konstruktor erstellt ein neues [`CSSMathMax`](/de/docs/Web/API/CSSMathMax) Objekt, welches die CSS {{CSSXref('max', 'max()')}} Funktion repräsentiert.
 
 ## Syntax
 
@@ -19,16 +19,17 @@ new CSSMathMax(args)
 ### Parameter
 
 - `args`
-  - : Eine Liste von Werten für das {{domxref('CSSMathProduct')}} Objekt, die entweder eine doppelte Ganzzahl oder ein {{domxref('CSSNumericValue')}} sein können.
+  - : Eine Liste von Werten für das [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct) Objekt, die entweder eine doppelte
+    Ganzzahl oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue) sein können.
 
 ### Ausnahmen
 
 - [`TypeError`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
-  - : Wird ausgelöst, wenn ein _Fehler_ beim Hinzufügen aller Werte in args auftritt.
+  - : Wird ausgelöst, wenn beim Hinzufügen aller Werte in args ein _Fehler_ auftritt.
 
 ## Beispiele
 
-Zu erledigen
+To do
 
 ## Spezifikationen
 

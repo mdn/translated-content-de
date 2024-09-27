@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}
 
-Die **`image-rendering`**-[CSS](/de/docs/Web/CSS)-Eigenschaft setzt einen Algorithmus zur Bildskalierung. Die Eigenschaft gilt für ein Element selbst, für alle Bilder, die in seinen anderen Eigenschaften festgelegt sind, und für seine Nachkommen.
+Die **`image-rendering`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) legt einen Bildskalierungsalgorithmus fest. Die Eigenschaft gilt für das Element selbst, für alle Bilder, die in seinen anderen Eigenschaften festgelegt sind, und für seine Nachkommen.
 
 {{EmbedInteractiveExample("pages/css/image-rendering.html")}}
 
-Der {{Glossary("user agent")}} wird ein Bild skalieren, wenn der Seitenautor Dimensionen angibt, die von seiner natürlichen Größe abweichen. Skalierung kann auch durch Benutzerinteraktion (Zoomen) auftreten. Beispielsweise, wenn die natürliche Größe eines Bildes `100×100px` beträgt, aber seine tatsächlichen Abmessungen `200×200px` (oder `50×50px`) sind, dann wird das Bild mit dem durch `image-rendering` angegebenen Algorithmus hoch- (oder herunter-)skaliert. Diese Eigenschaft hat keine Wirkung auf nicht skalierte Bilder.
+Der [User-Agent](/de/docs/Glossary/user_agent) skaliert ein Bild, wenn der Seitenautor andere Dimensionen als seine natürliche Größe angibt. Eine Skalierung kann auch durch Benutzerinteraktionen (Zoom) auftreten. Wenn zum Beispiel die natürliche Größe eines Bildes `100×100px` beträgt, aber seine tatsächlichen Abmessungen `200×200px` (oder `50×50px`) sind, wird das Bild mit dem durch `image-rendering` festgelegten Algorithmus hoch- oder herunterskaliert. Diese Eigenschaft hat keinen Einfluss auf nicht skalierte Bilder.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 image-rendering: auto;
 image-rendering: crisp-edges;
 image-rendering: pixelated;
 
-/* Globale Werte */
+/* Global values */
 image-rendering: inherit;
 image-rendering: initial;
 image-rendering: revert;
@@ -34,16 +34,16 @@ image-rendering: unset;
 - `auto`
   - : Der Skalierungsalgorithmus ist UA-abhängig. Seit Version 1.9 (Firefox 3.0) verwendet Gecko _bilineare_ Resampling (hohe Qualität).
 - `smooth`
-  - : Das Bild sollte mit einem Algorithmus skaliert werden, der die Erscheinung des Bildes maximiert. Insbesondere sind Skalierungsalgorithmen, die Farben "glätten," akzeptabel, wie z.B. bilineare Interpolation. Dies ist für Bilder wie Fotos gedacht.
+  - : Das Bild sollte mit einem Algorithmus skaliert werden, der das Erscheinungsbild des Bildes maximiert. Insbesondere sind Skalierungsalgorithmen, die Farben "glätten" akzeptabel, wie die bilineare Interpolation. Dies ist für Bilder wie Fotos vorgesehen.
 - `high-quality`
-  - : Identisch mit `smooth`, aber mit einer Präferenz für eine qualitativ hochwertigere Skalierung. Wenn Systemressourcen knapp sind, sollten Bilder mit `high-quality` gegenüber denen mit jedem anderen Wert priorisiert werden, wenn es darum geht, welche Bilder in ihrer Qualität herabgesetzt und in welchem Maße dies erfolgt.
+  - : Identisch mit `smooth`, jedoch mit einer Präferenz für eine qualitativ hochwertigere Skalierung. Wenn Systemressourcen begrenzt sind, sollten Bilder mit `high-quality` Vorrang haben gegenüber solchen mit anderen Werten, wenn in Betracht gezogen wird, welche Bilder in der Qualität herabgesetzt werden sollen und in welchem Ausmaß.
 - `crisp-edges`
-  - : Das Bild wird mit einem Algorithmus wie „nächster Nachbar“ skaliert, der Kontrast und Kanten im Bild bewahrt. Generell gedacht für Bilder wie Pixelgrafiken oder Linienzeichnungen, tritt keine Unschärfe oder Farbabstufung auf.
+  - : Das Bild wird mit einem Algorithmus wie "nächster Nachbar" skaliert, der Kontrast und Kanten im Bild bewahrt. Allgemein für Bilder wie Pixelkunst oder Strichzeichnungen vorgesehen, tritt keine Unschärfe oder Farbglättung auf.
 - `pixelated`
-  - : Das Bild wird mit dem „nächster Nachbar“ oder einem ähnlichen Algorithmus auf das nächste ganzzahlige Vielfache der ursprünglichen Bildgröße skaliert und dann mit glatter Interpolation auf die endgültige gewünschte Größe gebracht. Dies ist gedacht, um ein "pixeliges" Aussehen ohne Skalierungsartefakte zu bewahren, wenn die hochskalierte Auflösung kein ganzzahliges Vielfaches der ursprünglichen ist.
+  - : Das Bild wird mit dem Algorithmus "nächster Nachbar" oder einem ähnlichen Algorithmus auf das nächste ganzzahlige Vielfache der ursprünglichen Bildgröße skaliert und verwendet dann eine glatte Interpolation, um das Bild auf die endgültige gewünschte Größe zu bringen. Dies soll ein "pixeliertes" Aussehen bewahren, ohne Skalierungsartefakte einzuführen, wenn die hochskalierte Auflösung kein ganzzahliges Vielfaches der ursprünglichen ist.
 
 > [!NOTE]
-> Die Werte `optimizeQuality` und `optimizeSpeed`, die in einem frühen Entwurf vorhanden sind (und aus ihrem SVG-Pendant {{SVGAttr("image-rendering")}} stammen), sind als Synonyme für die Werte `smooth` bzw. `pixelated` definiert.
+> Die Werte `optimizeQuality` und `optimizeSpeed`, die in einem frühen Entwurf vorkommen (und vom SVG-Gegenstück {{SVGAttr("image-rendering")}} stammen), sind als Synonyme für die `smooth`- und `pixelated`-Werte definiert.
 
 ## Formale Definition
 
@@ -55,23 +55,23 @@ image-rendering: unset;
 
 ## Beispiele
 
-### Einstellung von Bildskalierungsalgorithmen
+### Festlegen von Bildskalierungsalgorithmen
 
-In diesem Beispiel wird ein Bild dreimal wiederholt, wobei jedes Mal ein anderer `image-rendering`-Wert angewendet wird.
+In diesem Beispiel wird ein Bild dreimal wiederholt, wobei jeweils ein anderer `image-rendering`-Wert angewendet wird.
 
 ```html hidden
 <div>
   <img
     class="auto"
-    alt="Ein kleines Foto von einigen weißen und gelben Blumen vor einem blättrigen grünen Hintergrund. Das Bild ist etwa 33 % kleiner als die Größe, in der es angezeigt wird. Diese Hochskalierung lässt das Bild verschwommen erscheinen, mit bemerkenswert weichen Kanten zwischen den Objekten."
+    alt="A small photo of some white and yellow flower against a leafy green background. The image is about 33% smaller than the size it is being displayed at. This upscaling causes the image to appear blurry, with notable soft edges between objects."
     src="blumen.jpg" />
   <img
     class="pixelated"
-    alt="Dasselbe Foto wie das vorherige Bild, das ebenfalls in gleichem Maße hochskaliert ist. Browser, die den pixelated-Wert für die image-rendering-Eigenschaft unterstützen, zeigen das Bild als sehr pixelig an. Einzelne Pixel sind deutlich sichtbar und Kanten erscheinen viel schärfer."
+    alt="The same photo as the previous image, which is also being upscaled the same amount. Browsers that support the pixelated value for the image-rendering property display the image as very pixelated. Individual pixels are clearly visible and edges appear much sharper."
     src="blumen.jpg" />
   <img
     class="crisp-edges"
-    alt="Dasselbe Foto wie die vorherigen Bilder, das ebenfalls in gleichem Maße hochskaliert ist. Browser, die den crisp-edges-Wert für die image-rendering-Eigenschaft unterstützen, zeigen das Bild als sehr pixelig an. In diesen Beispielen gibt es praktisch keinen wahrnehmbaren Unterschied zwischen den pixelated- und crisp-edges-Versionen."
+    alt="The same photo as the previous images, which is also being upscaled the same amount. Browsers that support the crisp-edges value for the image-rendering property display the image as very pixelated. In these examples, there is virtually no perceivable difference between the pixelated and crisp-edges versions."
     src="blumen.jpg" />
 </div>
 ```
@@ -116,5 +116,5 @@ img {
 - {{cssxref("object-position")}}
 - {{cssxref("image-orientation")}}
 - {{cssxref("image-resolution")}}
-- [CSS Bilder](/de/docs/Web/CSS/CSS_images) Modul
+- [CSS images](/de/docs/Web/CSS/CSS_images) Modul
 - SVG {{SVGAttr("image-rendering")}} Attribut

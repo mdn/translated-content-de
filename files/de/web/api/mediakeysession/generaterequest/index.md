@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die Methode `generateRequest()` der {{domxref('MediaKeySession')}}-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, nachdem eine Medienanforderung basierend auf den Initialisierungsdaten generiert wurde.
+Die Methode `generateRequest()` der [`MediaKeySession`](/de/docs/Web/API/MediaKeySession)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, nachdem eine Medienanfrage basierend auf Initialisierungsdaten generiert wurde.
 
 ## Syntax
 

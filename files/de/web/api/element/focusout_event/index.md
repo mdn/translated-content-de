@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef}}
 
-Das **`focusout`**-Ereignis wird ausgelöst, wenn ein Element den Fokus verloren hat, nach dem {{domxref("Element/blur_event", "blur")}}-Ereignis. Die beiden Ereignisse unterscheiden sich darin, dass `focusout` bubblet, während `blur` dies nicht tut.
+Das **`focusout`**-Ereignis wird ausgelöst, wenn ein Element den Fokus verloren hat, nach dem [`blur`](/de/docs/Web/API/Element/blur_event)-Ereignis. Der Unterschied zwischen den beiden Ereignissen liegt darin, dass `focusout` weitergegeben wird, während `blur` dies nicht tut.
 
-Das Gegenteil von `focusout` ist das {{domxref("Element/focusin_event", "focusin")}}-Ereignis, das ausgelöst wird, wenn das Element den Fokus erhalten hat.
+Das Gegenteil von `focusout` ist das [`focusin`](/de/docs/Web/API/Element/focusin_event)-Ereignis, das ausgelöst wird, wenn das Element den Fokus erhält.
 
 Das `focusout`-Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener).
 
 ```js
 addEventListener("focusout", (event) => {});
@@ -24,15 +24,15 @@ addEventListener("focusout", (event) => {});
 
 ## Ereignistyp
 
-Ein {{domxref("FocusEvent")}}. Erbt von {{domxref("UIEvent")}} und {{domxref("Event")}}.
+Ein [`FocusEvent`](/de/docs/Web/API/FocusEvent). Erbt von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("FocusEvent")}}
 
-## Ereigniseigenschaften
+## Ereignis-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Eltern-{{domxref("UIEvent")}}, und indirekt von {{domxref("Event")}}_.
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten [`UIEvent`](/de/docs/Web/API/UIEvent) und indirekt von [`Event`](/de/docs/Web/API/Event)_.
 
-- {{domxref("FocusEvent.relatedTarget")}}
+- [`FocusEvent.relatedTarget`](/de/docs/Web/API/FocusEvent/relatedTarget)
   - : Das Element, das den Fokus erhält, falls vorhanden.
 
 ## Beispiele
@@ -77,7 +77,7 @@ form.addEventListener("focusout", (event) => {
 {{Specifications}}
 
 > [!NOTE]
-> Die _UI Events_-Spezifikation beschreibt eine [Reihenfolge von Fokus-Ereignissen](/de/docs/Web/API/FocusEvent#order_of_events), die sich von der derzeitigen Implementierung in Browsern unterscheidet.
+> Die _UI Events_-Spezifikation beschreibt eine [Reihenfolge der Fokusevents](/de/docs/Web/API/FocusEvent#order_of_events), die von den aktuellen Browsern unterschiedlich implementiert wird.
 
 ## Browser-Kompatibilität
 
@@ -85,5 +85,5 @@ form.addEventListener("focusout", (event) => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("Element/blur_event", "blur")}}, {{domxref("Element/focus_event", "focus")}}, {{domxref("Element/focusin_event", "focusin")}}
+- Verwandte Ereignisse: [`blur`](/de/docs/Web/API/Element/blur_event), [`focus`](/de/docs/Web/API/Element/focus_event), [`focusin`](/de/docs/Web/API/Element/focusin_event)
 - [Fokussieren: focus/blur](https://javascript.info/focus-blur)

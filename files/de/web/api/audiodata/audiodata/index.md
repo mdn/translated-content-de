@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`AudioData()`**-Konstruktor erstellt ein neues {{domxref("AudioData")}}-Objekt, das eine einzelne Audio-Probe darstellt.
+Der **`AudioData()`**-Konstruktor erstellt ein neues [`AudioData`](/de/docs/Web/API/AudioData)-Objekt, das eine einzelne Audioprobe darstellt.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ new AudioData(init)
 ### Parameter
 
 - `init`
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das Folgendes enthält:
     - `format`
-      - : Eines von:
+      - : Einer von:
         - "u8"
         - "s16"
         - "s32"
@@ -31,17 +31,17 @@ new AudioData(init)
         - "s32-planar"
         - "f32-planar"
     - `sampleRate`
-      - : Ein Dezimalwert, der die Abtastrate in Hz enthält.
+      - : Eine Dezimalzahl, die die Abtastrate in Hz enthält.
     - `numberOfFrames`
-      - : Eine ganze Zahl, die die Anzahl von Frames in dieser Probe enthält.
+      - : Eine Ganzzahl, die die Anzahl der Frames in dieser Probe enthält.
     - `numberOfChannels`
-      - : Eine ganze Zahl, die die Anzahl der Kanäle in dieser Probe enthält.
+      - : Eine Ganzzahl, die die Anzahl der Kanäle in dieser Probe enthält.
     - `timestamp`
-      - : Eine ganze Zahl, die die Zeit der Daten in Mikrosekunden angibt.
+      - : Eine Ganzzahl, die die Zeit der Daten in Mikrosekunden angibt.
     - `data`
       - : Ein typisiertes Array der Audiodaten für diese Probe.
     - `transfer`
-      - : Ein Array von {{jsxref("ArrayBuffer")}}s, die `AudioData` abnimmt und in Besitz nimmt. Wenn das Array den {{jsxref("ArrayBuffer")}} enthält, der `data` unterstützt, wird `AudioData` diesen Puffer direkt verwenden, anstatt ihn zu kopieren.
+      - : Ein Array von {{jsxref("ArrayBuffer")}}s, die `AudioData` abkoppeln und übernehmen wird. Wenn das Array den das `data` unterstützende {{jsxref("ArrayBuffer")}} enthält, wird `AudioData` diesen Puffer direkt verwenden, anstatt daraus zu kopieren.
 
 ### Ausnahmen
 

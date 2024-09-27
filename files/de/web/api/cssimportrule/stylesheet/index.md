@@ -8,20 +8,17 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`styleSheet`**-Eigenschaft der
-{{domxref("CSSImportRule")}}-Schnittstelle gibt das von der
-{{cssxref("@import")}} [At-Regel](/de/docs/Web/CSS/At-rule) spezifizierte CSS-Stylesheet zurück. Dies wird in Form eines {{domxref("CSSStyleSheet")}}-Objekts vorliegen.
+Die schreibgeschützte **`styleSheet`**-Eigenschaft der [`CSSImportRule`](/de/docs/Web/API/CSSImportRule)-Schnittstelle gibt das durch die {{cssxref("@import")}} [At-Regel](/de/docs/Web/CSS/At-rule) spezifizierte CSS-Stylesheet zurück. Dies erfolgt in Form eines [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekts.
 
 Eine {{cssxref("@import")}} [At-Regel](/de/docs/Web/CSS/At-rule) hat immer ein zugeordnetes Stylesheet.
 
 ## Wert
 
-Ein {{domxref("CSSStyleSheet")}}.
+Ein [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet).
 
 ## Beispiele
 
-Das folgende Stylesheet enthält eine einzelne {{cssxref("@import")}}-Regel. Daher wird das erste Element in der Liste der CSS-Regeln ein `CSSImportRule` sein. Die
-`styleSheet`-Eigenschaft gibt das importierte Stylesheet zurück.
+Das folgende Stylesheet enthält eine einzelne {{cssxref("@import")}}-Regel. Daher wird das erste Element in der Liste der CSS-Regeln eine `CSSImportRule` sein. Die `styleSheet`-Eigenschaft gibt das importierte Stylesheet zurück.
 
 ```css
 @import url("style.css") screen;
@@ -29,7 +26,7 @@ Das folgende Stylesheet enthält eine einzelne {{cssxref("@import")}}-Regel. Dah
 
 ```js
 let myRules = document.styleSheets[0].cssRules;
-console.log(myRules[0].styleSheet); //gibt ein CSSStyleSheet-Objekt zurück
+console.log(myRules[0].styleSheet); //returns a CSSStyleSheet object
 ```
 
 ## Spezifikationen

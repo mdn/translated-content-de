@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das WebXR **`reflectionchange`**-Ereignis wird jedes Mal ausgelöst, wenn sich die geschätzte Reflexions-Würfelkarte ändert. Dies geschieht in Reaktion auf Bewegungen durch verschiedene Lichtverhältnisse oder direkte Änderungen der Beleuchtung selbst. Dieses Ereignis kann nicht abgebrochen werden.
+Das WebXR-**`reflectionchange`**-Ereignis wird jedes Mal ausgelöst, wenn sich die geschätzte Reflexions-Cube-Map ändert. Dies geschieht als Reaktion auf Benutzerbewegungen durch unterschiedliche Lichtverhältnisse oder auf direkte Änderungen der Beleuchtung selbst. Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("reflectionchange", (event) => {});
@@ -22,13 +22,13 @@ onreflectionchange = (event) => {};
 
 ## Ereignistyp
 
-{{domxref("Event")}}.
+[`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
 ### Verwendung des `reflectionchange`-Ereignisses
 
-Jedes Mal, wenn das `reflectionchange`-Ereignis bei einer Lichtsonde ausgelöst wird, können Sie eine aktualisierte Würfelkarte abrufen, indem Sie {{domxref("XRWebGLBinding.getReflectionCubeMap()")}} aufrufen. Dies ist weniger aufwendig, als Beleuchtungsinformationen mit jedem {{domxref("XRFrame")}} abzurufen.
+Wann immer das `reflectionchange`-Ereignis bei einer Lichtsonde ausgelöst wird, können Sie eine aktualisierte Cube-Map abrufen, indem Sie [`XRWebGLBinding.getReflectionCubeMap()`](/de/docs/Web/API/XRWebGLBinding/getReflectionCubeMap) aufrufen. Dies ist weniger ressourcenintensiv als das Abrufen von Beleuchtungsinformationen bei jedem [`XRFrame`](/de/docs/Web/API/XRFrame).
 
 ```js
 const glBinding = new XRWebGLBinding(xrSession, gl);
@@ -60,4 +60,4 @@ lightProbe.onreflectionchange = (event) => {
 
 ## Siehe auch
 
-- {{domxref("EventTarget.addEventListener", "addEventListener()")}}
+- [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`**-Eigenschaft des {{domxref("HTMLObjectElement")}}-Interfaces gibt einen String zurück, der das [`width`](/de/docs/Web/HTML/Element/object#width)-HTML-Attribut widerspiegelt und die angezeigte Breite der Ressource in CSS-Pixeln angibt.
+Die **`width`**-Eigenschaft des [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement) Interface gibt einen String zurück, der das HTML-Attribut [`width`](/de/docs/Web/HTML/Element/object#width) widerspiegelt und die angezeigte Breite der Ressource in CSS-Pixeln angibt.
 
 ## Wert
 
@@ -18,15 +18,15 @@ Ein String.
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLCanvasElement.width")}}
-- {{domxref("HTMLEmbedElement.width")}}
-- {{domxref("HTMLIFrameElement.width")}}
-- {{domxref("HTMLImageElement.width")}}
-- {{domxref("HTMLSourceElement.width")}}
-- {{domxref("HTMLVideoElement.width")}}
+- [`HTMLCanvasElement.width`](/de/docs/Web/API/HTMLCanvasElement/width)
+- [`HTMLEmbedElement.width`](/de/docs/Web/API/HTMLEmbedElement/width)
+- [`HTMLIFrameElement.width`](/de/docs/Web/API/HTMLIFrameElement/width)
+- [`HTMLImageElement.width`](/de/docs/Web/API/HTMLImageElement/width)
+- [`HTMLSourceElement.width`](/de/docs/Web/API/HTMLSourceElement/width)
+- [`HTMLVideoElement.width`](/de/docs/Web/API/HTMLVideoElement/width)

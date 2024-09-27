@@ -1,5 +1,5 @@
 ---
-title: "<mark>: Das Mark-Text-Element"
+title: "<mark>: Das Markierungstext-Element"
 slug: Web/HTML/Element/mark
 l10n:
   sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
@@ -7,28 +7,28 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<mark>`** [HTML](/de/docs/Web/HTML)-Element stellt Text dar, der aus Referenz- oder Notationsgründen **markiert** oder **hervorgehoben** ist, aufgrund der Relevanz der markierten Passage im umgebenden Kontext.
+Das **`<mark>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert Text, der aus Referenz- oder Notationsgründen als **markiert** oder **hervorgehoben** dargestellt wird, aufgrund der Relevanz des markierten Abschnitts im umgebenden Kontext.
 
 {{EmbedInteractiveExample("pages/tabbed/mark.html", "tabbed-shorter")}}
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Verwendungshinweise
 
 Typische Anwendungsfälle für `<mark>` umfassen:
 
-- Bei Verwendung in einem Zitat ({{HTMLElement("q")}}) oder Blockzitat ({{HTMLElement("blockquote")}}) weist es in der Regel auf Text hin, der von besonderem Interesse ist, aber im Originalmaterial nicht markiert ist, oder Material, das besondere Aufmerksamkeit erfordert, obwohl der ursprüngliche Autor es nicht für besonders wichtig hielt. Dies ist vergleichbar mit dem Verwenden eines Textmarkers, um Passagen in einem Buch zu markieren, die Sie interessant finden.
-- Andernfalls kennzeichnet `<mark>` einen Teil des Dokumenteninhalts, der wahrscheinlich für die aktuelle Aktivität des Benutzers relevant ist. Dies könnte zum Beispiel verwendet werden, um die Wörter zu kennzeichnen, die bei einer Suchoperation übereinstimmen.
-- Verwenden Sie `<mark>` nicht zu Syntax-Hervorhebungszwecken; verwenden Sie stattdessen das {{HTMLElement("span")}}-Element mit entsprechend angewendetem CSS.
+- Wenn es in einem Zitat ({{HTMLElement("q")}}) oder Blockzitat ({{HTMLElement("blockquote")}}) verwendet wird, deutet es im Allgemeinen auf Text hin, der von besonderem Interesse ist, aber nicht im Originalmaterial markiert ist, oder Material, das besondere Aufmerksamkeit erfordert, auch wenn der ursprüngliche Autor es nicht als besonders wichtig erachtete. Dies ist vergleichbar mit der Verwendung eines Textmarkers in einem Buch, um Passagen zu markieren, die für Sie von Interesse sind.
+- Ansonsten kennzeichnet `<mark>` einen Teil des Inhalts der Seite, der wahrscheinlich für die aktuelle Aktivität des Nutzers relevant ist. Dies könnte zum Beispiel verwendet werden, um die Wörter zu kennzeichnen, die mit einer Suchoperation übereinstimmen.
+- Verwenden Sie `<mark>` nicht für Syntaxhervorhebungszwecke; verwenden Sie stattdessen das {{HTMLElement("span")}}-Element mit entsprechend angewendetem CSS.
 
 > [!NOTE]
-> Verwechseln Sie `<mark>` nicht mit dem {{HTMLElement("strong")}}-Element; `<mark>` wird verwendet, um Inhalte zu kennzeichnen, die eine gewisse _Relevanz_ haben, während `<strong>` Textstellen von _Bedeutung_ hervorhebt.
+> Verwechseln Sie `<mark>` nicht mit dem {{HTMLElement("strong")}}-Element; `<mark>` wird verwendet, um Inhalte zu kennzeichnen, die eine gewisse _Relevanz_ haben, während `<strong>` Textbereiche von _Bedeutung_ hervorhebt.
 
 ## Barrierefreiheit
 
-Das Vorhandensein des `mark`-Elements wird von den meisten Screenreader-Technologien in ihrer Standardkonfiguration nicht angekündigt. Es kann jedoch durch die Verwendung der CSS-Eigenschaft {{cssxref("content")}} sowie der Pseudoelemente {{cssxref("::before")}} und {{cssxref("::after")}} angekündigt werden.
+Das Vorhandensein des `mark`-Elements wird von den meisten Screenreader-Technologien in ihrer Standardkonfiguration nicht angesagt. Es kann allerdings angekündigt werden, indem die CSS-Eigenschaft {{cssxref("content")}} zusammen mit den Pseudoelementen {{cssxref("::before")}} und {{cssxref("::after")}} verwendet wird.
 
 ```css
 mark::before,
@@ -51,25 +51,24 @@ mark::after {
 }
 ```
 
-Einige Personen, die Screenreader verwenden, deaktivieren absichtlich die Ankündigung von Inhalten, die zu weiterer Wortfülle führen. Aufgrund dessen ist es wichtig, diese Technik nicht zu missbrauchen und sie nur in Situationen anzuwenden, in denen das Nichtwissen, dass Inhalte hervorgehoben wurden, das Verständnis beeinträchtigen würde.
+Einige Personen, die Screenreader benutzen, deaktivieren bewusst das Ankündigen von Inhalten, die zusätzliche Geschwätzigkeit erzeugen. Deshalb ist es wichtig, diese Technik nicht übermäßig zu verwenden und sie nur in Situationen anzuwenden, in denen das Nichtwissen, dass Inhalte hervorgehoben wurden, das Verständnis negativ beeinflussen würde.
 
-- [Short note on making your mark (more accessible) | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
-- [Tweaking Text Level Styles | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
+- [Kurze Anmerkung zum barrierefreieren Hervorheben | The Paciello Group](https://www.tpgi.com/short-note-on-making-your-mark-more-accessible/)
+- [Feinabstimmung von Textstil-Ebenen | Adrian Roselli](https://adrianroselli.com/2017/12/tweaking-text-level-styles.html)
 
 ## Beispiele
 
-### Markieren von interessantem Text
+### Markierung interessanter Texte
 
-Im ersten Beispiel wird ein `<mark>`-Element verwendet, um einen Text in einem Zitat zu markieren, der für den Benutzer von besonderem Interesse ist.
+Im ersten Beispiel wird ein `<mark>`-Element verwendet, um einen Text innerhalb eines Zitats zu markieren, der für den Benutzer von besonderem Interesse ist.
 
 ```html
 <blockquote>
-  Es ist eine Zeit des Bürgerkriegs. Rebellenraumschiffe, die von einer
-  versteckten Basis aus zuschlagen, haben ihren ersten Sieg gegen das böse
-  Galaktische Imperium errungen. Während der Schlacht ist es
-  <mark>Rebellen-Spionen gelungen, geheime Pläne</mark> der ultimativen Waffe des
-  Imperiums zu stehlen, des TODESSTERN, einer gepanzerten Raumstation mit genug
-  Kraft, um einen ganzen Planeten zu zerstören.
+  It is a period of civil war. Rebel spaceships, striking from a hidden base,
+  have won their first victory against the evil Galactic Empire. During the
+  battle, <mark>Rebel spies managed to steal secret plans</mark> to the Empire's
+  ultimate weapon, the DEATH STAR, an armored space station with enough power to
+  destroy an entire planet.
 </blockquote>
 ```
 
@@ -77,25 +76,25 @@ Im ersten Beispiel wird ein `<mark>`-Element verwendet, um einen Text in einem Z
 
 {{EmbedLiveSample("Marking_text_of_interest", 650, 130)}}
 
-### Identifizieren kontextsensitiver Passagen
+### Kennzeichnung kontextsensitiver Passagen
 
-Dieses Beispiel zeigt die Verwendung von `<mark>`, um Suchergebnisse innerhalb eines Abschnitts zu markieren.
+Dieses Beispiel zeigt, wie `<mark>` verwendet wird, um Suchergebnisse innerhalb eines Abschnitts zu kennzeichnen.
 
 ```html
 <p>
-  Es ist eine dunkle Zeit für die Rebellion. Obwohl der Todesstern zerstört
-  wurde, haben <mark class="match">imperiale</mark> Truppen die Rebellenkräfte
-  von ihrer versteckten Basis vertrieben und quer durch die Galaxie verfolgt.
+  It is a dark time for the Rebellion. Although the Death Star has been
+  destroyed, <mark class="match">Imperial</mark> troops have driven the Rebel
+  forces from their hidden base and pursued them across the galaxy.
 </p>
 
 <p>
-  Durch die gefürchtete <mark class="match">imperiale</mark> Sternenflotte
-  ausweichend, haben Freiheitskämpfer unter der Führung von Luke Skywalker eine
-  neue geheime Basis auf dem abgelegenen Eisplaneten Hoth errichtet.
+  Evading the dreaded <mark class="match">Imperial</mark> Starfleet, a group of
+  freedom fighters led by Luke Skywalker has established a new secret base on
+  the remote ice world of Hoth.
 </p>
 ```
 
-Um die Verwendung von `<mark>` für Suchergebnisse von anderen potenziellen Verwendungen zu unterscheiden, wendet dieses Beispiel die benutzerdefinierte Klasse `"match"` auf jede Übereinstimmung an.
+Um die Verwendung von `<mark>` für Suchergebnisse von anderen potenziellen Verwendungen zu unterscheiden, wird in diesem Beispiel die benutzerdefinierte Klasse `"match"` auf jede Übereinstimmung angewandt.
 
 #### Ergebnis
 
@@ -113,10 +112,10 @@ Um die Verwendung von `<mark>` für Suchergebnisse von anderen potenziellen Verw
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Flow-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >formulierender Inhalt</a
+          >Phrasing-Inhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -124,20 +123,20 @@ Um die Verwendung von `<mark>` für Suchergebnisse von anderen potenziellen Verw
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Formulierender Inhalt</a
+          >Phrasing-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das Endtag sind obligatorisch.</td>
+      <th scope="row">Tag-Weglassung</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Elternteile</th>
+      <th scope="row">Erlaubte Elternelemente</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >formulierenden Inhalt</a
+          >Phrasing-Inhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -155,7 +154,7 @@ Um die Verwendung von `<mark>` für Suchergebnisse von anderen potenziellen Verw
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLElement")}}</td>
+      <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
 </table>
@@ -164,6 +163,6 @@ Um die Verwendung von `<mark>` für Suchergebnisse von anderen potenziellen Verw
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

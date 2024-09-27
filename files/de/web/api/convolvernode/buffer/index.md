@@ -1,6 +1,6 @@
 ---
-title: "ConvolverNode: Puffer-Eigenschaft"
-short-title: Puffer
+title: "ConvolverNode: buffer Eigenschaft"
+short-title: buffer
 slug: Web/API/ConvolverNode/buffer
 l10n:
   sourceCommit: 4ad4343b502692739f0f28e557155797d9cc3a66
@@ -8,23 +8,23 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`buffer`**-Eigenschaft des {{ domxref("ConvolverNode") }}-Interfaces repräsentiert einen mono-, stereo- oder 4-Kanal-{{domxref("AudioBuffer")}}, der die (möglicherweise mehrkanalige) Impulsantwort enthält, die vom `ConvolverNode` verwendet wird, um den Halleffekt zu erzeugen.
+Die **`buffer`** Eigenschaft des [`ConvolverNode`](/de/docs/Web/API/ConvolverNode) Schnittstelle repräsentiert ein mono, stereo oder 4-Kanal [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), das die (möglicherweise mehrkanalige) Impulsantwort enthält, die vom `ConvolverNode` zur Erzeugung des Halleffekts verwendet wird.
 
-Dies ist normalerweise eine einfache Aufnahme eines so nah wie möglich an einen Impuls herangekommenen Geräusches in dem Raum, den Sie modellieren möchten. Wenn Sie beispielsweise den Hall in Ihrem Badezimmer modellieren möchten, könnten Sie ein Mikrofon in der Nähe der Tür aufstellen, um das Geräusch eines platzenden Ballons oder eines synthetisierten Impulses vom Waschbecken aufzunehmen. Diese Audioaufnahme könnte dann als Puffer verwendet werden.
+Normalerweise handelt es sich hierbei um eine einfache Aufnahme eines so-nahe-wie-möglichen Impulses, der in dem Raum zu finden ist, den Sie modellieren möchten. Zum Beispiel, wenn Sie den Hall in Ihrem Badezimmer modellieren möchten, könnten Sie ein Mikrofon in der Nähe der Tür platzieren, um das Geräusch eines platzenden Ballons oder eines synthetisierten Impulses vom Waschbecken aufzunehmen. Diese Tonaufnahme könnte dann als Buffer verwendet werden.
 
-Dieser Audiopuffer muss die gleiche Abtastrate wie der `AudioContext` haben, da sonst eine Ausnahme ausgelöst wird. Zu dem Zeitpunkt, an dem dieses Attribut gesetzt wird, wird der Puffer und der Zustand des Attributs verwendet, um den `ConvolverNode` mit dieser Impulsantwort und der gegebenen Normalisierung zu konfigurieren. Der anfängliche Wert dieses Attributs ist `null`.
+Dieser Audiopuffer muss die gleiche Abtastrate wie der `AudioContext` haben, andernfalls wird eine Ausnahme ausgelöst. Wenn dieses Attribut gesetzt wird, werden der Buffer und der Zustand des Attributs verwendet, um den `ConvolverNode` mit dieser Impulsantwort mit der gegebenen Normalisierung zu konfigurieren. Der anfängliche Wert dieses Attributs ist `null`.
 
 ## Wert
 
-Ein {{domxref("AudioBuffer")}}.
+Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer).
 
 ## Beispiele
 
-### Zuweisen eines Audiopuffers
+### Zuordnung eines Audiopuffers
 
-Im folgenden Beispiel wird ein Convolver-Knoten erstellt und ihm ein {{domxref("AudioBuffer")}} zugewiesen.
+Das folgende Beispiel erstellt einen Convolver-Node und weist ihm ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) zu.
 
-Für vollständigere angewandte Beispiele/Informationen schauen Sie sich unser [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) Demo an (siehe [app.js](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js) für den unten aufgeführten Codeauszug).
+Für vollständigere angewandte Beispiele/Informationen schauen Sie sich unser [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) Demo an (siehe [app.js](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js) für den unten auszugsweise verwendeten Code).
 
 ```js
 const audioCtx = new AudioContext();
@@ -33,7 +33,7 @@ const audioCtx = new AudioContext();
 const convolver = audioCtx.createConvolver();
 // ...
 
-// Audio-Track über fetch() für den Convolver-Knoten abrufen
+// Grab audio track via fetch() for convolver node
 try {
   const response = await fetch(
     "https://mdn.github.io/voice-change-o-matic/audio/concert-crowd.ogg",

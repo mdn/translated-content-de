@@ -7,22 +7,22 @@ l10n:
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-padding-left` definiert Versätze für die linke Seite des _optimalen Anzeigebereichs_ des Scrollportals: der Bereich, der als Zielregion verwendet wird, um Dinge im Blickfeld des Benutzers zu platzieren. Dies ermöglicht dem Autor, Bereiche des Scrollportals auszuschließen, die durch andere Inhalte verdeckt werden (wie z.B. fest positionierte Werkzeugleisten oder Seitenleisten) oder mehr Freiraum zwischen einem anvisierten Element und den Rändern des Scrollportals zu schaffen.
+Die `scroll-padding-left`-Eigenschaft definiert Versätze für die linke Seite des optimalen Anzeigebereichs des Scrollports: den Bereich, der als Zielregion zum Platzieren von Elementen im Sichtfeld des Benutzers verwendet wird. Dies ermöglicht es dem Autor, Bereiche des Scrollports auszuschließen, die durch andere Inhalte (wie feststehende Werkzeugleisten oder Seitenleisten) verdeckt werden, oder mehr Abstand zwischen einem anvisierten Element und den Rändern des Scrollports zu schaffen.
 
 {{EmbedInteractiveExample("pages/css/scroll-padding-left.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 scroll-padding-left: auto;
 
-/* <Längenwerte> */
+/* <length> values */
 scroll-padding-left: 10px;
 scroll-padding-left: 1em;
 scroll-padding-left: 10%;
 
-/* Globale Werte */
+/* Global values */
 scroll-padding-left: inherit;
 scroll-padding-left: initial;
 scroll-padding-left: revert;
@@ -33,9 +33,9 @@ scroll-padding-left: unset;
 ### Werte
 
 - `<length-percentage>`
-  - : Ein interner Versatz von der linken Kante des Scrollportals, als gültige Länge oder Prozentsatz.
+  - : Ein nach innen gerichteter Versatz von der linken Kante des Scrollports, als gültige Länge oder Prozentangabe.
 - `auto`
-  - : Der Versatz wird durch den Benutzeragenten bestimmt. Dies wird allgemein 0px sein, aber ein Benutzeragent kann erkennen und etwas anderes tun, wenn ein Nicht-Null-Wert geeigneter ist.
+  - : Der Versatz wird durch den Benutzeragenten bestimmt. Dies ist im Allgemeinen 0px, aber ein Benutzeragent ist in der Lage zu erkennen und etwas anderes zu tun, wenn ein ungleich Null-Wert angemessener ist.
 
 ## Formale Definition
 

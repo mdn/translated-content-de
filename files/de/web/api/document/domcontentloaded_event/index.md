@@ -1,5 +1,5 @@
 ---
-title: "Dokument: DOMContentLoaded-Ereignis"
+title: "Document: DOMContentLoaded-Ereignis"
 short-title: DOMContentLoaded
 slug: Web/API/Document/DOMContentLoaded_event
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef}}
 
-Das **`DOMContentLoaded`**-Ereignis wird ausgelöst, wenn das HTML-Dokument vollständig analysiert wurde und alle Deferred-Skripte ([`<script defer src="…">`](/de/docs/Web/HTML/Element/script#defer) und [`<script type="module">`](/de/docs/Web/HTML/Element/script#module)) heruntergeladen und ausgeführt wurden. Es wartet nicht auf andere Elemente wie Bilder, Unter-Frames und asynchrone Skripte, um das Laden zu beenden.
+Das **`DOMContentLoaded`**-Ereignis wird ausgelöst, wenn das HTML-Dokument vollständig geparst wurde und alle verzögerten Skripte ([`<script defer src="…">`](/de/docs/Web/HTML/Element/script#defer) und [`<script type="module">`](/de/docs/Web/HTML/Element/script#module)) heruntergeladen und ausgeführt wurden. Es wartet nicht darauf, dass andere Dinge wie Bilder, Subframes und asynchrone Skripte das Laden abgeschlossen haben.
 
-`DOMContentLoaded` wartet nicht darauf, dass Stylesheets geladen werden, allerdings warten Deferred-Skripte _auf_ Stylesheets, und das `DOMContentLoaded`-Ereignis wird nach den Deferred-Skripten in die Warteschlange gestellt. Auch Skripte, die weder deferred noch async sind (z. B. `<script>`), warten darauf, dass bereits analysierte Stylesheets geladen werden.
+`DOMContentLoaded` wartet nicht darauf, dass Stylesheets geladen werden, jedoch warten verzögerte Skripte _schon_ auf Stylesheets, und das `DOMContentLoaded`-Ereignis wird in die Warteschlange gestellt, nachdem verzögerte Skripte ausgeführt wurden. Ebenfalls warten Skripte, die weder verzögert noch asynchron sind (z. B. `<script>`), darauf, dass bereits geparste Stylesheets geladen werden.
 
-Ein anderes Ereignis, {{domxref("Window/load_event", "load")}}, sollte nur verwendet werden, um eine vollständig geladene Seite zu erkennen. Es ist ein häufiger Fehler, `load` zu verwenden, wo `DOMContentLoaded` angemessener wäre.
+Ein anderes Ereignis, [`load`](/de/docs/Web/API/Window/load_event), sollte nur verwendet werden, um eine vollständig geladene Seite zu erkennen. Es ist ein häufiger Fehler, `load` zu verwenden, wo `DOMContentLoaded` angemessener wäre.
 
 Dieses Ereignis kann nicht abgebrochen werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("DOMContentLoaded", (event) => {});
@@ -26,52 +26,52 @@ addEventListener("DOMContentLoaded", (event) => {});
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### Grundlegende Verwendung
+### Grundlegende Nutzung
 
 ```js
 document.addEventListener("DOMContentLoaded", (event) => {
-  console.log("DOM vollständig geladen und analysiert");
+  console.log("DOM fully loaded and parsed");
 });
 ```
 
-### Verzögertes DOMContentLoaded
+### Verzögerung von DOMContentLoaded
 
 ```html
 <script>
   document.addEventListener("DOMContentLoaded", (event) => {
-    console.log("DOM vollständig geladen und analysiert");
+    console.log("DOM fully loaded and parsed");
   });
 
   for (let i = 0; i < 1_000_000_000; i++);
-  // Dieses synchrone Skript verzögert das Parsen des DOM,
-  // sodass das DOMContentLoaded-Ereignis später ausgelöst wird.
+  // This synchronous script is going to delay parsing of the DOM,
+  // so the DOMContentLoaded event is going to launch later.
 </script>
 ```
 
 ### Überprüfung, ob das Laden bereits abgeschlossen ist
 
-`DOMContentLoaded` könnte ausgelöst werden, bevor Ihr Skript die Möglichkeit hat, zu laufen, daher ist es ratsam, vor dem Hinzufügen eines Listeners zu überprüfen.
+`DOMContentLoaded` kann ausgelöst werden, bevor Ihr Skript die Möglichkeit hat, ausgeführt zu werden. Daher ist es klug, dies zu überprüfen, bevor Sie einen Listener hinzufügen.
 
 ```js
 function doSomething() {
-  console.info("DOM geladen");
+  console.info("DOM loaded");
 }
 
 if (document.readyState === "loading") {
-  // Laden ist noch nicht abgeschlossen
+  // Loading hasn't finished yet
   document.addEventListener("DOMContentLoaded", doSomething);
 } else {
-  // `DOMContentLoaded` wurde bereits ausgelöst
+  // `DOMContentLoaded` has already fired
   doSomething();
 }
 ```
 
 > [!NOTE]
-> Es gibt kein Race Condition hier – es ist nicht möglich, dass das Dokument zwischen der `if`-Überprüfung und dem `addEventListener()`-Aufruf geladen wird. JavaScript hat die Semantik des Durchgangs zur Fertigstellung, was bedeutet, dass wenn das Dokument zu einem bestimmten Tick der Ereignisschleife geladen wird, es nicht bis zum nächsten Zyklus geladen werden kann, zu welchem Zeitpunkt der `doSomething`-Handler bereits angehängt ist und ausgelöst wird.
+> Es gibt hier keine Race-Condition — es ist nicht möglich, dass das Dokument zwischen der `if`-Überprüfung und dem `addEventListener()`-Aufruf geladen wird. JavaScript hat Ausführungssemantik bis zum Abschluss, was bedeutet, dass, wenn das Dokument bei einem bestimmten Tick der Ereignisschleife geladen wird, es erst im nächsten Zyklus geladen sein kann, zu welchem Zeitpunkt der `doSomething`-Handler bereits angefügt ist und ausgelöst wird.
 
 ### Live-Beispiel
 
@@ -79,11 +79,11 @@ if (document.readyState === "loading") {
 
 ```html
 <div class="controls">
-  <button id="reload" type="button">Neu laden</button>
+  <button id="reload" type="button">Reload</button>
 </div>
 
 <div class="event-log">
-  <label for="eventLog">Ereignisprotokoll:</label>
+  <label for="eventLog">Event log:</label>
   <textarea
     readonly
     class="event-log-contents"
@@ -164,4 +164,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("Window/load_event", "load")}}, {{domxref("Document/readystatechange_event", "readystatechange")}}, {{domxref("Window/beforeunload_event", "beforeunload")}}, {{domxref("Window/unload_event", "unload")}}
+- Verwandte Ereignisse: [`load`](/de/docs/Web/API/Window/load_event), [`readystatechange`](/de/docs/Web/API/Document/readystatechange_event), [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event), [`unload`](/de/docs/Web/API/Window/unload_event)

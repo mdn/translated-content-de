@@ -2,7 +2,7 @@
 title: patternContentUnits
 slug: Web/SVG/Attribute/patternContentUnits
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
 ---
 
 {{SVGRef}}
@@ -10,9 +10,9 @@ l10n:
 Das Attribut **`patternContentUnits`** gibt an, welches Koordinatensystem für den Inhalt des {{ SVGElement("pattern") }}-Elements verwendet werden soll.
 
 > [!NOTE]
-> Dieses Attribut hat keine Wirkung, wenn das Attribut {{ SVGAttr("viewBox") }} auf dem {{ SVGElement("pattern") }}-Element angegeben ist.
+> Dieses Attribut hat keine Wirkung, wenn das Attribut {{ SVGAttr("viewBox") }} auf dem {{ SVGElement("pattern") }}-Element spezifiziert ist.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement('pattern')}}
 
@@ -29,10 +29,10 @@ svg {
 ```html
 <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
   <!--
-  Ein Kachelmuster, dessen Inhaltskoordinaten und Werte
-  im aktuellen Benutzerkoordinatenraum berechnet werden.
-  Beachten Sie, dass die Größe der Kachel im Verhältnis
-  zum Begrenzungsrahmen des Zielelements berechnet wird.
+  A pattern tile that content coordinates and values are
+  computed against the current coordinate user space.
+  Note that the size of the tile is computed against
+  the bounding box of the target element
   -->
   <pattern
     id="p1"
@@ -43,10 +43,10 @@ svg {
   </pattern>
 
   <!--
-  Ein Kachelmuster, dessen Inhaltskoordinaten und Werte
-  im Verhältnis zum Begrenzungsrahmen des Zielelements berechnet werden.
-  Beachten Sie, dass die Größe der Kachel ebenfalls im Verhältnis
-  zum Begrenzungsrahmen des Zielelements berechnet wird.
+  A pattern tile that content coordinates and values are
+  computed against the bounding box of the target element.
+  Note that the size of the tile is also computed against
+  the bounding box of the target element
   -->
   <pattern
     id="p2"
@@ -56,19 +56,19 @@ svg {
     <circle cx=".1" cy=".1" r=".1" />
   </pattern>
 
-  <!-- Linkes Quadrat mit Kacheln im Benutzerkoordinatenraum -->
+  <!-- Left square with user space tiles -->
   <rect x="10" y="10" width="80" height="80" fill="url(#p1)" />
 
-  <!-- Rechtes Quadrat mit Kacheln im Begrenzungsrahmen -->
+  <!-- Right square with bounding box tiles -->
   <rect x="110" y="10" width="80" height="80" fill="url(#p2)" />
 </svg>
 ```
 
-{{EmbedLiveSample('Beispiel', 150, '100%')}}
+{{EmbedLiveSample('Example', 150, '100%')}}
 
 ## pattern
 
-Für {{SVGElement('pattern')}} definiert `patternContentUnits` das verwendete Koordinatensystem für den Inhalt des Elements.
+Für {{SVGElement('pattern')}} definiert `patternContentUnits` das Koordinatensystem, das für den Inhalt des Elements verwendet wird.
 
 <table class="properties">
   <tbody>
@@ -88,9 +88,9 @@ Für {{SVGElement('pattern')}} definiert `patternContentUnits` das verwendete Ko
 </table>
 
 - `userSpaceOnUse`
-  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('pattern')}}-Elements sich auf das Benutzerkoordinatensystem beziehen, wie es definiert war, als die Kachel erstellt wurde.
+  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('pattern')}}-Elements sich auf das Benutzerkoordinatensystem beziehen, das definiert wurde, als die Kachel des Musters erstellt wurde.
 - `objectBoundingBox`
-  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('pattern')}}-Elements relativ zum Begrenzungsrahmen des Elements sind, auf das das Muster angewendet wird. Ein Begrenzungsrahmen könnte als dasselbe betrachtet werden, als ob der Inhalt des {{ SVGElement("pattern") }} dasselbe wie ein "`0 0 1 1`" {{ SVGAttr("viewBox") }} für ein Musterkachel von 100% Breite und Höhe gebunden wäre.
+  - : Dieser Wert gibt an, dass alle Koordinaten innerhalb des {{SVGElement('pattern')}}-Elements relativ zum Begrenzungsrahmen des Elements sind, auf das das Muster angewendet wird. Ein Begrenzungsrahmen könnte als dasselbe angesehen werden, als ob der Inhalt des {{ SVGElement("pattern") }} an ein `"0 0 1 1"` {{ SVGAttr("viewBox") }} für eine Mustekachel mit einer Breite und Höhe von 100% gebunden wäre.
 
 ## Spezifikationen
 

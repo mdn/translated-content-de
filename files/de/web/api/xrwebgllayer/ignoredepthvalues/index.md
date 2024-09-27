@@ -1,5 +1,5 @@
 ---
-title: "XRWebGLLayer: ignoreDepthValues Eigenschaft"
+title: "XRWebGLLayer: ignoreDepthValues-Eigenschaft"
 short-title: ignoreDepthValues
 slug: Web/API/XRWebGLLayer/ignoreDepthValues
 l10n:
@@ -8,35 +8,27 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte {{domxref("XRWebGLLayer")}}-Eigenschaft **`ignoreDepthValues`** ist ein boolescher Wert, der `true` ist, wenn die Sitzung so konfiguriert wurde, dass die Werte im Tiefenpuffer beim Rendern der Szene ignoriert werden. Wenn der Tiefenpuffer verwendet wird, um die Position von Vertices zu bestimmen, ist diese Eigenschaft `false`.
+Die schreibgeschützte [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Eigenschaft **`ignoreDepthValues`** ist ein boolescher Wert, der `true` ist, wenn die Sitzung so konfiguriert wurde, dass die Werte im Tiefenpuffer beim Rendern der Szene ignoriert werden. Wenn der Tiefenpuffer verwendet wird, um die Position von Vertices zu bestimmen, ist diese Eigenschaft `false`.
 
-Der Wert von `ignoreDepthValues` kann nur gesetzt werden, wenn die {{domxref("XRWebGLLayer")}} instanziiert wird, indem der entsprechende Wert im [Konstruktor](/de/docs/Web/API/XRWebGLLayer/XRWebGLLayer) `options` Parameter gesetzt wird.
+Der Wert von `ignoreDepthValues` kann nur gesetzt werden, wenn die [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) instanziiert wird, indem der entsprechende Wert im `options` Parameter des [Konstruktors](/de/docs/Web/API/XRWebGLLayer/XRWebGLLayer) festgelegt wird.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn der Tiefenpuffer des WebGL-Kontexts verwendet wird, um die Positionen von Punkten in der 3D-Welt zu berechnen. Andernfalls, wenn dies `true` ist, werden die Werte des Tiefenpuffers verwendet, um Objekte in der Szene zu positionieren. Da der [XR-Compositor](/de/docs/Web/API/WebXR_Device_API/Fundamentals#the_webxr_compositor) standardmäßig den Tiefenpuffer verwendet, ist dieser Wert `false`, es sei denn, er wird beim Erstellen der {{domxref("XRWebGLLayer")}} unter Verwendung ihres Konstruktors, {{domxref("XRWebGLLayer.XRWebGLLayer", "XRWebGLLayer()")}}, explizit anders gesetzt.
+Ein boolescher Wert, der `true` ist, wenn der Tiefenpuffer des WebGL-Kontextes verwendet wird, um die Positionen von Punkten in der 3D-Welt zu berechnen. Ansonsten, wenn dies `true` ist, werden die Werte des Tiefenpuffers verwendet, um Objekte in der Szene zu platzieren. Da der [XR-Compositor](/de/docs/Web/API/WebXR_Device_API/Fundamentals#the_webxr_compositor) standardmäßig den Tiefenpuffer verwendet, ist dieser Wert `false`, es sei denn, er wird ausdrücklich anders festgelegt, wenn die [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) unter Verwendung ihres Konstruktors, [`XRWebGLLayer()`](/de/docs/Web/API/XRWebGLLayer/XRWebGLLayer), erstellt wird.
 
-## Anwendungshinweise
+## Verwendungshinweise
 
-Wenn die `ignoreDepthValues`-Eigenschaft `false` ist, verwendet der XR-Compositor die im Tiefenpuffer gefundenen Werte, die für die Szene genau sein sollten, um potenziell die Qualität oder die Ausgabe sowie das Komfortniveau für den Betrachter zu verbessern.
+Wenn die Eigenschaft `ignoreDepthValues` `false` ist, verwendet der XR-Compositor die im Tiefenpuffer gefundenen Werte, die für die Szene genau sein sollten, um die Qualität oder das Ausgabeergebnis sowie das Komfortniveau für den Betrachter potenziell zu verbessern.
 
-Der Tiefenpuffer ist {{domxref("XRWebGLLayer.framebufferWidth", "framebufferWidth")}} Einträge breit und {{domxref("XRWebGLLayer.framebufferHeight", "framebufferHeight")}} Einträge hoch. Jeder Eintrag im Puffer spezifiziert die Tiefe, bei der sich das entsprechende Pixel befindet, und hat einen Wert zwischen 0,0 und 1,0.
+Der Tiefenpuffer ist so breit wie die [`framebufferWidth`](/de/docs/Web/API/XRWebGLLayer/framebufferWidth) Einträge und so hoch wie die [`framebufferHeight`](/de/docs/Web/API/XRWebGLLayer/framebufferHeight) Einträge. Jeder Eintrag im Puffer gibt die Tiefe an, bei der sich das entsprechende Pixel befindet, und hat einen Wert zwischen 0,0 und 1,0.
 
-Ein Tiefenpuffer-Pixelwert von 0,0 entspricht der Tiefe, die durch die Sitzung {{domxref("XRRenderState.depthNear", "depthNear")}} gegeben ist, und ein Wert von 1,0 entspricht der Tiefe, die durch {{domxref("XRRenderState.depthFar", "depthFar")}} gegeben ist.
+Ein Tiefenpuffer-Pixelwert von 0,0 entspricht der Tiefe, die durch [`depthNear`](/de/docs/Web/API/XRRenderState/depthNear) der Sitzung gegeben ist, und ein Wert von 1,0 entspricht der Tiefe, die durch [`depthFar`](/de/docs/Web/API/XRRenderState/depthFar) gegeben ist.
 
-Die Tiefe macht es, zusammen mit den Koordinaten jedes gerenderten Punktes, möglich, die Szene im 3D-Raum genauer darzustellen.
+Die Tiefe, zusammen mit den Koordinaten jedes gerenderten Punktes, macht es möglich, die Szene im 3D-Raum genauer darzustellen.
 
 ## Beispiele
 
-Wenn die Web-Anwendung, die WeXR verwendet, ihren Inhalt ohne einen Tiefenpuffer rendert—oder wenn die Inhalte des Tiefenpuffers ungültig sind—sollten Sie die Verwendung des Tiefenpuffers für WebXR-Rendering deaktivieren, indem Sie `ignoreDepthValues` auf true setzen, wenn Sie die {{domxref("XRWebGLLayer")}} erstellen. Dies wird im folgenden Code-Snippet demonstriert:
-
-```js
-const glLayerOptions = {
-  ignoreDepthValues: true,
-};
-
-let glLayer = new XRWebGLLayer(xrSession, gl, glLayerOptions);
-```
+Wenn die Webanwendung, die WeXR verwendet, ihren Inhalt ohne Verwendung eines Tiefenpuffers rendert — oder wenn der Inhalt des Tiefenpuffers ungültig ist — sollten Sie die Verwendung des Tiefenpuffers für das WebXR-Rendering deaktivieren, indem Sie `ignoreDepthValues` auf `true` setzen, wenn Sie die [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) erstellen. Dies wird im untenstehenden Code-Snippet demonstriert:
 
 ## Spezifikationen
 
@@ -49,4 +41,4 @@ let glLayer = new XRWebGLLayer(xrSession, gl, glLayerOptions);
 ## Siehe auch
 
 - [WebXR Device API](/de/docs/Web/API/WebXR_Device_API)
-- WebGL-Tiefenpuffer bezogene Methoden: {{domxref("WebGLRenderingContext.depthFunc", "depthFunc()")}}, {{domxref("WebGLRenderingContext.clearDepth", "clearDepth()")}}
+- WebGL-Tiefenpuffer-bezogene Methoden: [`depthFunc()`](/de/docs/Web/API/WebGLRenderingContext/depthFunc), [`clearDepth()`](/de/docs/Web/API/WebGLRenderingContext/clearDepth)

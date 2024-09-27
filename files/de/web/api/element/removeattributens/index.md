@@ -1,5 +1,5 @@
 ---
-title: "Element: removeAttributeNS() Methode"
+title: "Element: removeAttributeNS()-Methode"
 short-title: removeAttributeNS()
 slug: Web/API/Element/removeAttributeNS
 l10n:
@@ -8,10 +8,9 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`removeAttributeNS()`** Methode der
-{{domxref("Element")}} Schnittstelle entfernt das angegebene Attribut mit dem angegebenen Namespace von einem Element.
+Die **`removeAttributeNS()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces entfernt das angegebene Attribut mit dem angegebenen Namensraum von einem Element.
 
-Wenn Sie mit HTML arbeiten und das angeforderte Attribut nicht als Teil eines bestimmten Namespace spezifizieren müssen, verwenden Sie stattdessen die {{domxref("Element.removeAttribute()", "removeAttribute()")}} Methode.
+Wenn Sie mit HTML arbeiten und das angeforderte Attribut nicht als Teil eines bestimmten Namensraums angeben müssen, verwenden Sie stattdessen die [`removeAttribute()`](/de/docs/Web/API/Element/removeAttribute)-Methode.
 
 ## Syntax
 
@@ -22,10 +21,9 @@ removeAttributeNS(namespace, attrName)
 ### Parameter
 
 - `namespace`
-  - : Ein String, der den Namespace des Attributs enthält.
+  - : Ein String, der den Namensraum des Attributs enthält.
 - `attrName`
-  - : Ein String, der den Namen des Attributs angibt, das aus dem
-    aktuellen Knoten entfernt werden soll.
+  - : Ein String, der den Namen des Attributs angibt, das vom aktuellen Knoten entfernt werden soll.
 
 ### Rückgabewert
 
@@ -34,12 +32,12 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```js
-// Gegeben:
+// Given:
 //   <div id="div1" xmlns:special="http://www.mozilla.org/ns/specialspace"
 //     special:specialAlign="utterleft" width="200px" />
 d = document.getElementById("div1");
 d.removeAttributeNS("http://www.mozilla.org/ns/specialspace", "specialAlign");
-// Jetzt: <div id="div1" width="200px" />
+// Now: <div id="div1" width="200px" />
 ```
 
 ## Spezifikationen
@@ -52,6 +50,6 @@ d.removeAttributeNS("http://www.mozilla.org/ns/specialspace", "specialAlign");
 
 ## Siehe auch
 
-- {{domxref("Element.hasAttributeNS()")}}
-- {{domxref("Element.getAttributeNS()")}}
-- {{domxref("Element.setAttributeNS()")}}
+- [`Element.hasAttributeNS()`](/de/docs/Web/API/Element/hasAttributeNS)
+- [`Element.getAttributeNS()`](/de/docs/Web/API/Element/getAttributeNS)
+- [`Element.setAttributeNS()`](/de/docs/Web/API/Element/setAttributeNS)

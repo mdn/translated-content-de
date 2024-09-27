@@ -12,12 +12,12 @@ Die **`-webkit-text-fill-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die F
 ## Syntax
 
 ```css
-/* <color> Werte */
+/* <color> values */
 -webkit-text-fill-color: red;
 -webkit-text-fill-color: #000000;
 -webkit-text-fill-color: rgb(100 200 0);
 
-/* Globale Werte */
+/* Global values */
 -webkit-text-fill-color: inherit;
 -webkit-text-fill-color: initial;
 -webkit-text-fill-color: revert;
@@ -28,7 +28,7 @@ Die **`-webkit-text-fill-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die F
 ### Werte
 
 - `<color>`
-  - : Die Füllfarbe des Vordergrunds des Textinhalts eines Elements.
+  - : Die Vordergrundfüllfarbe des Textinhalts des Elements.
 
 ## Formale Definition
 
@@ -40,7 +40,7 @@ Die **`-webkit-text-fill-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die F
 
 ## Beispiele
 
-### Änderung der Füllfarbe
+### Ändern der Füllfarbe
 
 #### CSS
 
@@ -55,7 +55,7 @@ p {
 #### HTML
 
 ```html
-<p>Dieser Text ist grün.</p>
+<p>This text is green.</p>
 ```
 
 #### Ergebnisse
@@ -72,7 +72,7 @@ p {
 
 ## Siehe auch
 
-- [Surfin' Safari Blogbeitrag, der dieses Feature ankündigt](https://webkit.org/blog/85/introducing-text-stroke/)
+- [Surfin' Safari Blogbeitrag zur Ankündigung dieses Features](https://webkit.org/blog/85/introducing-text-stroke/)
 - [CSS-Tricks Artikel, der dieses Feature erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-stroke-width")}}

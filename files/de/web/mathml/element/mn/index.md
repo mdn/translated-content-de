@@ -7,13 +7,13 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mn>`** [MathML](/de/docs/Web/MathML) Element repräsentiert ein **numerisches** Literal, das normalerweise eine Folge von Ziffern mit einem möglichen Trennzeichen (einem Punkt oder einem Komma) ist. Es ist jedoch auch erlaubt, beliebigen Text darin zu haben, der tatsächlich eine numerische Größe darstellt, zum Beispiel "elf".
+Das **`<mn>`** [MathML](/de/docs/Web/MathML)-Element repräsentiert ein **numerisches** Literal, das normalerweise eine Folge von Ziffern mit einem möglichen Separator (ein Punkt oder ein Komma) ist. Es ist jedoch auch erlaubt, beliebigen Text zu enthalten, der tatsächlich eine numerische Menge darstellt, zum Beispiel "eleven".
 
-## Attributes
+## Attribute
 
 Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes).
 
-## Examples
+## Beispiele
 
 ```html
 <math display="block">
@@ -39,10 +39,10 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Gl
 
 {{ EmbedLiveSample('mi_example', 700, 200, "", "") }}
 
-## Specifications
+## Spezifikationen
 
 {{Specifications}}
 
-## Browser compatibility
+## Browser-Kompatibilität
 
 {{Compat}}

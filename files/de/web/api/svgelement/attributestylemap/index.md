@@ -1,5 +1,5 @@
 ---
-title: "SVGElement: Eigenschaft attributeStyleMap"
+title: "SVGElement: attributeStyleMap-Eigenschaft"
 short-title: attributeStyleMap
 slug: Web/API/SVGElement/attributeStyleMap
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte Eigenschaft **`attributeStyleMap`** des {{domxref("SVGElement")}}-Interfaces gibt ein live {{domxref("StylePropertyMap")}}-Objekt zurück, das eine Liste von Stileigenschaften des Elements enthält, die im Inline-`style`-Attribut des Elements definiert sind oder über das {{domxref("SVGElement.style", "style")}}-Eigenschaft des {{domxref("SVGElement")}}-Interfaces mittels Skripting zugewiesen wurden.
+Die **`attributeStyleMap`** schreibgeschützte Eigenschaft des [`SVGElement`](/de/docs/Web/API/SVGElement)-Interfaces gibt ein lebendes [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt zurück, das eine Liste von Stileigenschaften des Elements enthält, die im Inline-`style`-Attribut des Elements definiert sind oder über das [`style`](/de/docs/Web/API/SVGElement/style)-Eigenschaft des [`SVGElement`](/de/docs/Web/API/SVGElement)-Interfaces per Skript zugewiesen wurden.
 
-Kurzschreibweise-Eigenschaften werden erweitert. Wenn Sie `border-top: 1px solid black` setzen, werden stattdessen die Langschreibweise-Eigenschaften ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}} und {{cssxref("border-top-width")}}) gesetzt.
+Kurzschlüsse werden erweitert. Wenn Sie `border-top: 1px solid black` setzen, werden die Langformen ({{cssxref("border-top-color")}}, {{cssxref("border-top-style")}}, und {{cssxref("border-top-width")}}) stattdessen gesetzt.
 
-Der Hauptunterschied zwischen der {{domxref("SVGElement.style", "style")}}-Eigenschaft und der `attributeStyleMap`-Eigenschaft besteht darin, dass die `style`-Eigenschaft ein {{domxref("CSSStyleDeclaration")}}-Objekt zurückgibt, während die `attributeStyleMap`-Eigenschaft ein {{domxref("StylePropertyMap")}}-Objekt zurückgibt.
+Der Hauptunterschied zwischen der [`style`](/de/docs/Web/API/SVGElement/style)-Eigenschaft und der `attributeStyleMap`-Eigenschaft ist, dass die `style`-Eigenschaft ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt zurückgibt, während die `attributeStyleMap`-Eigenschaft ein [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt zurückgibt.
 
-Obwohl die Eigenschaft selbst nicht beschreibbar ist, können Sie Inline-Stile über das {{domxref("StylePropertyMap")}}-Objekt, das sie zurückgibt, lesen und schreiben, ähnlich wie über das {{domxref("CSSStyleDeclaration")}}-Objekt, das über die `style`-Eigenschaft zurückgegeben wird.
+Obwohl die Eigenschaft selbst nicht beschreibbar ist, können Sie Inline-Stile über das [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt, das sie zurückgibt, lesen und schreiben, genau wie über das [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt, das über die `style`-Eigenschaft zurückgegeben wird.
 
 ## Wert
 
-Ein live {{domxref("StylePropertyMap")}}-Objekt.
+Ein lebendes [`StylePropertyMap`](/de/docs/Web/API/StylePropertyMap)-Objekt.
 
 ## Beispiele
 
@@ -72,6 +72,6 @@ for (const property of element.attributeStyleMap) {
 
 ## Siehe auch
 
-- {{domxref("SVGElement.style")}}
-- {{domxref("HTMLElement.attributeStyleMap")}}
-- {{domxref("MathMLElement.attributeStyleMap")}}
+- [`SVGElement.style`](/de/docs/Web/API/SVGElement/style)
+- [`HTMLElement.attributeStyleMap`](/de/docs/Web/API/HTMLElement/attributeStyleMap)
+- [`MathMLElement.attributeStyleMap`](/de/docs/Web/API/MathMLElement/attributeStyleMap)

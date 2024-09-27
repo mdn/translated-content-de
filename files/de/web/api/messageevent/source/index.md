@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`source`** der {{domxref("MessageEvent")}}-Schnittstelle ist ein `MessageEventSource` (das ein {{glossary("WindowProxy")}}, {{domxref("MessagePort")}} oder {{domxref("ServiceWorker")}}-Objekt sein kann), das den Nachrichtensender darstellt.
+Die schreibgeschützte **`source`**-Eigenschaft der [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Schnittstelle ist ein `MessageEventSource` (welches ein [WindowProxy](/de/docs/Glossary/WindowProxy), ein [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), das den Nachrichtenabsender darstellt.
 
 ## Wert
 
-ein `MessageEventSource` (das ein {{glossary("WindowProxy")}}, {{domxref("MessagePort")}} oder {{domxref("ServiceWorker")}}-Objekt sein kann), das den Nachrichtensender darstellt.
+Ein `MessageEventSource` (welches ein [WindowProxy](/de/docs/Glossary/WindowProxy), ein [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), das den Nachrichtenabsender darstellt.
 
 ## Beispiele
 
@@ -34,4 +34,4 @@ myWorker.onmessage = (e) => {
 
 ## Siehe auch
 
-- {{domxref("ExtendableMessageEvent")}} — ähnlich wie diese Schnittstelle, wird jedoch in Schnittstellen verwendet, die den Autoren mehr Flexibilität bieten müssen.
+- [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent) — ähnlich dieser Schnittstelle, wird jedoch in Schnittstellen verwendet, die den Autoren mehr Flexibilität bieten müssen.

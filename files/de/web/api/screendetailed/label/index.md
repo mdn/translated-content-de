@@ -1,5 +1,5 @@
 ---
-title: "ScreenDetailed: label-Eigenschaft"
+title: "ScreenDetailed: Label-Eigenschaft"
 short-title: label
 slug: Web/API/ScreenDetailed/label
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`label`** schreibgeschützte Eigenschaft des {{domxref("ScreenDetailed")}}-Interfaces ist ein String, der eine beschreibende Bezeichnung für den Bildschirm bereitstellt, zum Beispiel "Eingebautes Retina-Display".
+Die **`label`**-Eigenschaft des schreibgeschützten [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Interfaces ist ein String, der ein beschreibendes Label für den Bildschirm bereitstellt, zum Beispiel "Built-in Retina Display".
 
-Dies ist nützlich für die Erstellung einer Liste von Optionen, die dem Benutzer angezeigt werden soll, wenn Sie ihn auffordern möchten, einen Bildschirm zur Anzeige von Inhalten auszuwählen.
+Dies ist nützlich, um eine Liste von Optionen zu erstellen, die dem Benutzer angezeigt werden, wenn er einen Bildschirm zum Anzeigen von Inhalten auswählen soll.
 
 ## Wert
 
@@ -21,7 +21,7 @@ Ein String.
 ```js
 const screenDetails = await window.getScreenDetails();
 
-// Gibt das Label des ersten Bildschirms zurück
+// Return the label of the first screen
 const screen1Label = screenDetails.screens[0].label;
 ```
 

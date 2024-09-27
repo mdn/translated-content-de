@@ -7,28 +7,28 @@ l10n:
 
 {{CSSRef}}
 
-Die **`min-inline-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die minimale horizontale oder vertikale Größe eines Blockelements, abhängig von dessen Schreibmodus. Sie entspricht entweder der {{cssxref("min-width")}}- oder der {{cssxref("min-height")}}-Eigenschaft, je nachdem, welcher Wert für {{cssxref("writing-mode")}} eingestellt ist.
+Die **`min-inline-size`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die minimale horizontale oder vertikale Größe eines Blockelements, abhängig vom Schreibmodus. Sie entspricht entweder der Eigenschaft {{cssxref("min-width")}} oder der Eigenschaft {{cssxref("min-height")}}, abhängig vom Wert von {{cssxref("writing-mode")}}.
 
 {{EmbedInteractiveExample("pages/css/min-inline-size.html")}}
 
 ## Syntax
 
 ```css
-/* <length> Werte */
+/* <length> values */
 min-inline-size: 100px;
 min-inline-size: 5em;
 min-inline-size: anchor-size(width);
 
-/* <percentage> Werte */
+/* <percentage> values */
 min-inline-size: 10%;
 
-/* Schlüsselwort-Werte */
+/* Keyword values */
 min-inline-size: max-content;
 min-inline-size: min-content;
 min-inline-size: fit-content;
 min-inline-size: fit-content(20em);
 
-/* Globale Werte */
+/* Global values */
 min-inline-size: inherit;
 min-inline-size: initial;
 min-inline-size: revert;
@@ -36,11 +36,11 @@ min-inline-size: revert-layer;
 min-inline-size: unset;
 ```
 
-Wenn der Schreibmodus vertikal orientiert ist, bezieht sich der Wert von `min-inline-size` auf die minimale Höhe des Elements; andernfalls bezieht er sich auf die minimale Breite. Eine verwandte Eigenschaft ist {{cssxref("min-block-size")}}, die die andere Dimension des Elements definiert.
+Wenn der Schreibmodus vertikal ausgerichtet ist, bezieht sich der Wert von `min-inline-size` auf die minimale Höhe des Elements; andernfalls bezieht er sich auf die minimale Breite des Elements. Eine verwandte Eigenschaft ist {{cssxref("min-block-size")}}, die die andere Dimension des Elements definiert.
 
 ### Werte
 
-Die `min-inline-size`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("min-width")}}- und {{cssxref("min-height")}}-Eigenschaften an.
+Die Eigenschaft `min-inline-size` nimmt die gleichen Werte an wie die Eigenschaften {{cssxref("min-width")}} und {{cssxref("min-height")}}.
 
 ## Formale Definition
 
@@ -52,12 +52,12 @@ Die `min-inline-size`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("mi
 
 ## Beispiele
 
-### Minimale Inline-Größe für vertikalen Text festlegen
+### Mindestgröße für vertikalen Text festlegen
 
 #### HTML
 
 ```html
-<p class="exampleText">Beispieltext</p>
+<p class="exampleText">Example text</p>
 ```
 
 #### CSS

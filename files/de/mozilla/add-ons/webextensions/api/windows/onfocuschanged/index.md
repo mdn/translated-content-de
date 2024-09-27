@@ -7,10 +7,10 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn sich das aktuell fokussierte Fenster ändert. Ein Wert von {{WebExtAPIRef('windows.WINDOW_ID_NONE')}} wird übergeben, wenn alle Browserfenster den Fokus verloren haben.
+Wird ausgelöst, wenn sich das derzeit fokussierte Fenster ändert. Es wird {{WebExtAPIRef('windows.WINDOW_ID_NONE')}} sein, wenn alle Browserfenster den Fokus verloren haben.
 
 > [!NOTE]
-> Unter Windows und einigen Linux-Fenster-Managern wird WINDOW_ID_NONE immer unmittelbar vor einem Wechsel von einem Browserfenster zu einem anderen übermittelt.
+> In Windows und einigen Linux-Fenstermanagern wird WINDOW_ID_NONE immer unmittelbar vor einem Wechsel von einem Browserfenster zu einem anderen gesendet.
 
 ## Syntax
 
@@ -25,9 +25,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, sonst `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, `false` sonst.
 
 ## addListener-Syntax
 
@@ -57,7 +57,7 @@ browser.windows.onFocusChanged.addListener((windowId) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#event-onFocusChanged). Diese Dokumentation stammt aus [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#event-onFocusChanged) API von Chromium. Diese Dokumentation basiert auf [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

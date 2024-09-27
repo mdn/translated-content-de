@@ -7,80 +7,78 @@ l10n:
 
 {{DefaultAPISidebar("Page Visibility API")}}
 
-Die Page Visibility API bietet Ereignisse, die verwendet werden können, um zu erfahren, wann ein Dokument sichtbar oder verborgen wird, sowie Funktionen, um den aktuellen Sichtbarkeitsstatus der Seite zu überprüfen.
+Die Page Visibility API bietet Ereignisse, die Sie überwachen können, um zu wissen, wann ein Dokument sichtbar oder verborgen wird, sowie Funktionen, um den aktuellen Sichtbarkeitsstatus der Seite zu überprüfen.
 
-Dies ist besonders nützlich, um Ressourcen zu sparen und die Leistung zu verbessern, indem die Seite unnötige Aufgaben vermeidet, wenn das Dokument nicht sichtbar ist.
+Dies ist besonders nützlich, um Ressourcen zu sparen und die Leistung zu verbessern, indem eine Seite unnötige Aufgaben vermeidet, wenn das Dokument nicht sichtbar ist.
 
 ## Konzepte und Nutzung
 
-Wenn der Benutzer das Fenster minimiert, zu einem anderen Tab wechselt oder das Dokument vollständig von einem anderen Fenster verdeckt wird, sendet die API ein {{domxref("document.visibilitychange_event", "visibilitychange")}}-Ereignis, um den Zuhörern mitzuteilen, dass sich der Status der Seite geändert hat. Sie können das Ereignis erkennen und einige Aktionen ausführen oder sich anders verhalten. Zum Beispiel kann eine Web-App, die ein Video abspielt, das Video pausieren, wenn der Benutzer den Tab in den Hintergrund stellt, und die Wiedergabe fortsetzen, wenn der Benutzer zum Tab zurückkehrt. Der Benutzer verliert nicht seinen Platz im Video, der Soundtrack des Videos stört nicht die Audioausgabe im neuen Vordergrund-Tab, und der Benutzer verpasst nichts vom Video in der Zwischenzeit.
+Wenn der Benutzer das Fenster minimiert, zu einem anderen Tab wechselt oder das Dokument vollständig von einem anderen Fenster verdeckt wird, sendet die API ein [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event) Ereignis, um die Listener darüber zu informieren, dass sich der Status der Seite geändert hat. Sie können das Ereignis erkennen und einige Aktionen ausführen oder anders verhalten. Zum Beispiel, wenn Ihre Webanwendung ein Video abspielt, kann sie das Video pausieren, wenn der Benutzer den Tab in den Hintergrund verschiebt, und die Wiedergabe fortsetzen, wenn der Benutzer zum Tab zurückkehrt. Der Benutzer verliert nicht seine Position im Video, der Soundtrack des Videos stört nicht den Ton im neuen Vordergrund-Tab, und der Benutzer verpasst in der Zwischenzeit nichts vom Video.
 
-Die Sichtbarkeitszustände eines {{HTMLElement("iframe")}} sind die gleichen wie beim übergeordneten Dokument. Das Verbergen eines `<iframe>` mit CSS-Eigenschaften (wie {{cssxref("display", "display: none;")}}) löst keine Sichtbarkeitsereignisse aus oder ändert den Status des Dokuments im Frame.
+Die Sichtbarkeitszustände eines {{HTMLElement("iframe")}} sind die gleichen wie die des übergeordneten Dokuments. Das Verbergen eines `<iframe>` mithilfe von CSS-Eigenschaften (wie {{cssxref("display", "display: none;")}}) löst keine Sichtbarkeitsereignisse aus und verändert nicht den Status des im Frame enthaltenen Dokuments.
 
 ### Anwendungsfälle
 
 Betrachten wir einige Anwendungsfälle für die Page Visibility API.
 
-- Eine Seite hat ein Bildkarussell, das nicht zur nächsten Folie wechseln sollte, es sei denn, der Benutzer betrachtet die Seite.
-- Eine Anwendung, die ein Informations-Dashboard anzeigt, möchte den Server nicht nach Updates abfragen, wenn die Seite nicht sichtbar ist.
-- Eine Seite möchte Klänge ausschalten, wenn ein Gerät im Standby-Modus ist (Benutzer drückt den Netzschalter, um den Bildschirm auszuschalten).
+- Eine Seite hat ein Bilderkarussell, das nicht zum nächsten Slide wechseln sollte, es sei denn, der Benutzer betrachtet die Seite.
+- Eine Anwendung, die ein Dashboard mit Informationen anzeigt, möchte den Server nicht nach Updates abfragen, wenn die Seite nicht sichtbar ist.
+- Eine Seite möchte Töne ausschalten, wenn ein Gerät im Standby-Modus ist (Benutzer drückt die Power-Taste, um den Bildschirm auszuschalten).
 
-Entwickler haben historisch gesehen unvollkommene Stellvertreter verwendet, um dies zu erkennen. Zum Beispiel hilft das Überwachen von {{domxref("Window/blur_event", "blur")}}- und {{domxref("Window/focus_event", "focus")}}-Ereignissen auf dem Fenster zu wissen, wann Ihre Seite nicht die aktive Seite ist, aber es sagt Ihnen nicht, dass Ihre Seite tatsächlich für den Benutzer verborgen ist. Die Page Visibility API behebt dies.
+Entwickler haben historisch gesehen unvollkommene Proxies verwendet, um dies zu erkennen. Zum Beispiel das Überwachen von [`blur`](/de/docs/Web/API/Window/blur_event) und [`focus`](/de/docs/Web/API/Window/focus_event) Ereignissen auf dem Fenster hilft Ihnen zu wissen, wann Ihre Seite nicht die aktive Seite ist, aber es sagt Ihnen nicht, dass Ihre Seite dem Benutzer tatsächlich verborgen ist. Die Page Visibility API behandelt dies.
 
 > [!NOTE]
-> Obwohl {{domxref("Window.blur_event", "onblur")}} und {{domxref("Window.focus_event", "onfocus")}} Ihnen mitteilen, ob der Benutzer Fenster wechselt, bedeutet dies nicht unbedingt, dass es verborgen ist. Seiten werden nur verborgen, wenn der Benutzer Tabs wechselt oder das Browserfenster mit dem Tab minimiert.
+> Während [`onblur`](/de/docs/Web/API/Window/blur_event) und [`onfocus`](/de/docs/Web/API/Window/focus_event) Ihnen sagen, ob der Benutzer Fenster wechselt, bedeutet das nicht unbedingt, dass es ausgeblendet ist. Seiten werden nur verborgen, wenn der Benutzer Tabs wechselt oder das Browserfenster mit dem Tab minimiert.
 
 ### Richtlinien zur Unterstützung der Leistung von Hintergrundseiten
 
-Unabhängig von der Page Visibility API haben Benutzeragenten in der Regel eine Reihe von Richtlinien, um die Leistungsbelastung von Hintergrund- oder versteckten Tabs zu mindern. Diese können umfassen:
+Unabhängig von der Page Visibility API haben User Agents in der Regel eine Reihe von Richtlinien implementiert, um die Leistungsbelastung durch Hintergrund- oder ausgeblendete Tabs zu mindern. Diese können umfassen:
 
-- Die meisten Browser hören auf, {{domxref("Window.requestAnimationFrame", "requestAnimationFrame()")}}-Rückrufe an Hintergrund-Tabs oder versteckte {{HTMLElement("iframe")}}s zu senden, um die Leistung und Akkulaufzeit zu verbessern.
-- Timer wie {{domxref("setTimeout()")}} werden in Hintergrund-/inaktiven Tabs gedrosselt, um die Leistung zu verbessern. Siehe [Gründe für längere Verzögerungen als angegeben](/de/docs/Web/API/setTimeout#reasons_for_delays_longer_than_specified) für weitere Details.
-- Browser implementieren eine budgetbasierte Hintergrund-Zeitlimitdrosselung. Diese funktioniert in modernen Browsern ähnlich, mit folgenden Details:
+- Die meisten Browser senden keine [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) Rückrufe an Hintergrund-Tabs oder ausgeblendete {{HTMLElement("iframe")}}, um die Leistung und die Akkulaufzeit zu verbessern.
+- Timer wie [`setTimeout()`](/de/docs/Web/API/SetTimeout) werden in Hintergrund-/inaktiven Tabs gedrosselt, um die Leistung zu verbessern. Siehe [Gründe für längere Verzögerungen als angegeben](/de/docs/Web/API/setTimeout#reasons_for_delays_longer_than_specified) für mehr Details.
+- Browser implementieren eine auf Budget basierende Hintergrund-Timeout-Drosselung. Diese funktioniert auf ähnliche Weise über moderne Browser hinweg, mit folgenden Details:
 
-  - In Firefox haben Fenster in Hintergrund-Tabs jeweils ihr eigenes Zeitbudget in Millisekunden — ein Maximum und Minimum von +50 ms bzw. -150 ms. Chrome ist sehr ähnlich, außer dass das Budget in Sekunden angegeben ist.
-  - Fenster werden nach 30 Sekunden einer Drosselung unterzogen, mit denselben Verzögerungsregeln wie für Fenster-Timer (siehe erneut [Gründe für längere Verzögerungen als angegeben](/de/docs/Web/API/setTimeout#reasons_for_delays_longer_than_specified)). In Chrome beträgt dieser Wert 10 Sekunden.
+  - In Firefox haben Fenster in Hintergrund-Tabs jeweils ihr eigenes Zeitbudget in Millisekunden – ein Maximum und ein Minimum von +50 ms und -150 ms. Chrome ist sehr ähnlich, außer dass das Budget in Sekunden angegeben wird.
+  - Fenster werden nach 30 Sekunden gedrosselt, mit denselben Drosselungsverzögerungsregeln wie für Fenstertimer (siehe erneut [Gründe für längere Verzögerungen als angegeben](/de/docs/Web/API/setTimeout#reasons_for_delays_longer_than_specified)). In Chrome beträgt dieser Wert 10 Sekunden.
   - Timer-Aufgaben sind nur zulässig, wenn das Budget nicht negativ ist.
-  - Sobald der Code eines Timers ausgeführt wurde, wird die dafür benötigte Zeit von seinem Fenster-Zeitlimitbudget abgezogen.
+  - Sobald der Code eines Timers ausgeführt wurde, wird die Dauer der Ausführung von seinem Fenstertimeout-Budget subtrahiert.
   - Das Budget regeneriert sich mit einer Rate von 10 ms pro Sekunde, sowohl in Firefox als auch in Chrome.
 
-Einige Prozesse sind von diesem Drosselverhalten ausgenommen. In diesen Fällen können Sie die Page Visibility API verwenden, um die Leistungsbelastung der Tabs zu reduzieren, während sie verborgen sind.
+Einige Prozesse sind von diesem Drosselungsverhalten ausgeschlossen. In diesen Fällen können Sie die Page Visibility API verwenden, um die Leistungsbelastung der Tabs zu reduzieren, während sie verborgen sind.
 
 - Tabs, die Audio abspielen, werden als Vordergrund betrachtet und nicht gedrosselt.
-- Tabs, die Code ausführen, der Echtzeit-Netzwerkverbindungen nutzt ([WebSockets](/de/docs/Web/API/WebSockets_API) und [WebRTC](/de/docs/Web/API/WebRTC_API)), werden nicht gedrosselt, um zu verhindern, dass diese Verbindungen aufgrund von Zeitüberschreitungen unerwartet geschlossen werden.
-- [IndexedDB](/de/docs/Web/API/IndexedDB_API)-Prozesse sind ebenfalls nicht gedrosselt, um Zeitüberschreitungen zu vermeiden.
+- Tabs, die Code ausführen, der Echtzeit-Netzwerkverbindungen verwendet ([WebSockets](/de/docs/Web/API/WebSockets_API) und [WebRTC](/de/docs/Web/API/WebRTC_API)) bleiben undrosselt, um zu vermeiden, dass diese Verbindungen bei Zeitüberschreitungen unerwartet geschlossen werden.
+- [IndexedDB](/de/docs/Web/API/IndexedDB_API) Prozesse werden ebenfalls nicht gedrosselt, um Zeitüberschreitungen zu vermeiden.
 
-## Erweiterungen auf andere Schnittstellen
+## Erweiterungen zu anderen Schnittstellen
 
 ### Instanz-Eigenschaften
 
-Die Page Visibility API fügt der {{domxref("Document")}}-Schnittstelle die folgenden Eigenschaften hinzu:
+Die Page Visibility API fügt die folgenden Eigenschaften zur [`Document`](/de/docs/Web/API/Document) Schnittstelle hinzu:
 
-- {{domxref("Document.hidden")}} {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn die Seite in einem als verborgen erachteten Zustand ist, und `false` andernfalls.
-- {{domxref("Document.visibilityState")}} {{ReadOnlyInline}}
+- [`Document.hidden`](/de/docs/Web/API/Document/hidden) {{ReadOnlyInline}}
+  - : Gibt `true` zurück, wenn die Seite in einem Zustand ist, der als dem Benutzer verborgen angesehen wird, und `false` sonst.
+- [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState) {{ReadOnlyInline}}
 
-  - : Ein String, der den aktuellen Sichtbarkeitsstatus des Dokuments angibt. Mögliche Werte sind:
+  - : Ein String, der den aktuellen Sichtbarkeitszustand des Dokuments angibt. Mögliche Werte sind:
 
     - `visible`
       - : Der Seiteninhalt kann zumindest teilweise sichtbar sein. In der Praxis bedeutet dies, dass die Seite der Vordergrund-Tab eines nicht minimierten Fensters ist.
     - `hidden`
-      - : Der Inhalt der Seite ist für den Benutzer nicht sichtbar, entweder weil der Tab des Dokuments im Hintergrund oder Teil eines minimierten Fensters ist oder weil der Bildschirm des Geräts ausgeschaltet ist.
+      - : Der Inhalt der Seite ist für den Benutzer nicht sichtbar, entweder weil der Tab des Dokuments im Hintergrund ist oder Teil eines minimierten Fensters oder weil der Bildschirm des Geräts ausgeschaltet ist.
 
 ### Ereignisse
 
-Die Page Visibility API fügt der {{domxref("Document")}}-Schnittstelle die folgenden Ereignisse hinzu:
+Die Page Visibility API fügt die folgenden Ereignisse zur [`Document`](/de/docs/Web/API/Document) Schnittstelle hinzu:
 
-- {{domxref("Document.visibilitychange_event", "visibilitychange")}}
-  - : Wird ausgelöst, wenn der Inhalt eines Tabs sichtbar geworden ist oder versteckt wurde.
+- [`visibilitychange`](/de/docs/Web/API/Document/visibilitychange_event)
+  - : Wird ausgelöst, wenn der Inhalt eines Tabs sichtbar geworden ist oder verborgen wurde.
 
 ## Beispiele
 
-### Audio pausieren, wenn die Seite versteckt ist
+### Audio pausieren bei Seitenverbergen
 
-Dieses Beispiel pausiert den abgespielten Audio, wenn die Seite versteckt ist, und setzt das Abspielen fort, wenn die Seite wieder sichtbar wird.
-Die `<audio>`-Elementsteuerungen ermöglichen es dem Benutzer, zwischen dem Abspielen und Pausieren des Audios zu wechseln.
-Das boolesche `playingOnHide` wird verwendet, um zu verhindern, dass Audio abgespielt wird, falls die Seite in einen `visible`-Zustand wechselt, das Medium jedoch beim Verstecken der Seite nicht abgespielt wurde.
+Dieses Beispiel pausiert die Audio-Wiedergabe, wenn die Seite verborgen ist, und setzt die Wiedergabe fort, wenn die Seite wieder sichtbar wird. Die `<audio>`-Element-Steuerungen ermöglichen es dem Benutzer, zwischen Wiedergabe und Pause zu wechseln. Das boolesche `playingOnHide` wird verwendet, um zu verhindern, dass Audio spielt, wenn die Seite in einen `visible`-Status wechselt, aber das Medium nicht bei Seitenverbergen gespielt wurde.
 
 ```css hidden
 audio {
@@ -108,7 +106,7 @@ document.addEventListener("visibilitychange", () => {
     playingOnHide = !audio.paused;
     audio.pause();
   } else {
-    // Seite wurde sichtbar! Wiedergabe fortsetzen, wenn Audio "beim Verstecken gespielt" wurde
+    // Page became visible! Resume playing if audio was "playing on hide"
     if (playingOnHide) {
       audio.play();
     }
@@ -130,7 +128,7 @@ document.addEventListener("visibilitychange", () => {
 
 ## Siehe auch
 
-- {{domxref("Document.visibilityState")}}
-- {{domxref("Document.hidden")}}
+- [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState)
+- [`Document.hidden`](/de/docs/Web/API/Document/hidden)
 - [PerformanceEventTiming: Reporting the First Input Delay (FID)](/de/docs/Web/API/PerformanceEventTiming#reporting_the_first_input_delay_fid)
-- [Sichtbarkeit von Elementen mit der Intersection Observer API zeitlich erfassen](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility)
+- [Timing element visibility with the Intersection Observer API](/de/docs/Web/API/Intersection_Observer_API/Timing_element_visibility)

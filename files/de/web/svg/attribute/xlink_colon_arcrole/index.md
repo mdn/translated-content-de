@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`xlink:arcrole`** Attribut gibt eine kontextuelle Rolle für das Element an und entspricht dem Begriff einer Eigenschaft im [RDF Primer](https://www.w3.org/TR/rdf-primer/).
+Das **`xlink:arcrole`** Attribut spezifiziert eine kontextuelle Rolle für das Element und entspricht der Vorstellung einer Eigenschaft im [RDF Primer](https://www.w3.org/TR/rdf-primer/).
 
-Diese kontextuelle Rolle kann sich von der Bedeutung der Ressource unterscheiden, wenn sie außerhalb des Kontexts dieses bestimmten Bogens betrachtet wird. Zum Beispiel könnte eine Ressource allgemein eine "Person" darstellen, aber im Kontext eines bestimmten Bogens die Rolle der "Mutter" und im Kontext eines anderen Bogens die Rolle der "Tochter" haben.
+Diese kontextuelle Rolle kann sich von der Bedeutung der Ressource unterscheiden, wenn sie außerhalb des Kontextes dieses bestimmten Bogens betrachtet wird. Beispielsweise könnte eine Ressource generell eine "Person" darstellen, aber im Kontext eines bestimmten Bogens die Rolle der "Mutter" und im Kontext eines anderen Bogens die Rolle der "Tochter" haben.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
@@ -33,7 +33,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 - {{SVGElement("tref")}}
 - {{SVGElement("use")}}
 
-## Hinweise zur Nutzung
+## Verwendungsnotizen
 
 <table class="properties">
   <tbody>
@@ -47,17 +47,17 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
-      <td><em>Keiner</em></td>
+      <td><em>None</em></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Nein</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
 
 - `<iri>`
-  - : Dieser Wert gibt eine [IRI](/de/docs/Web/SVG/Content_type#iri)-Referenz an, die eine Ressource identifiziert, welche das beabsichtigte Attribut beschreibt.
+  - : Dieser Wert spezifiziert eine [IRI](/de/docs/Web/SVG/Content_type#iri)-Referenz, die eine Ressource identifiziert, die die beabsichtigte Eigenschaft beschreibt.
 
 ## Spezifikationen
 

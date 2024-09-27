@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: change-Ereignis"
+title: "HTMLElement: change Ereignis"
 short-title: change
 slug: Web/API/HTMLElement/change_event
 l10n:
@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef}}
 
-Das `change`-Ereignis wird für {{HTMLElement("input")}}, {{HTMLElement("select")}} und {{HTMLElement("textarea")}} Elemente ausgelöst, wenn der Benutzer den Wert des Elements ändert. Im Gegensatz zum {{domxref("Element/input_event", "input")}}-Ereignis wird das `change`-Ereignis nicht unbedingt bei jeder Änderung des `value`-Attributs eines Elements ausgelöst.
+Das `change` Ereignis wird für {{HTMLElement("input")}}, {{HTMLElement("select")}} und {{HTMLElement("textarea")}} Elemente ausgelöst, wenn der Benutzer den Wert des Elements ändert. Im Gegensatz zum [`input`](/de/docs/Web/API/Element/input_event) Ereignis wird das `change` Ereignis nicht unbedingt bei jeder Änderung des `value` eines Elements ausgelöst.
 
-Abhängig von der Art des geänderten Elements und der Art, wie der Benutzer mit dem Element interagiert, wird das `change`-Ereignis zu einem anderen Zeitpunkt ausgelöst:
+Je nach Art des geänderten Elements und der Art und Weise, wie der Benutzer mit dem Element interagiert, wird das `change` Ereignis zum unterschiedlichen Zeitpunkt ausgelöst:
 
-- Wenn ein `{{HTMLElement('input/checkbox', '&lt;input type="checkbox"&gt;')}}` Element aktiviert oder deaktiviert wird (durch Klicken oder Verwenden der Tastatur);
+- Wenn ein `{{HTMLElement('input/checkbox', '&lt;input type="checkbox"&gt;')}}` Element aktiviert oder deaktiviert wird (durch Klicken oder mit der Tastatur);
 - Wenn ein `{{HTMLElement('input/radio', '&lt;input type="radio"&gt;')}}` Element aktiviert wird (aber nicht, wenn es deaktiviert wird);
-- Wenn der Benutzer die Änderung explizit vornimmt (z.B. durch Auswahl eines Wertes aus einem {{HTMLElement("select")}}-Dropdown mit einem Mausklick, durch Auswahl eines Datums in einem Datumswähler für `{{HTMLElement('input/date', '&lt;input type="date"&gt;')}}`, durch Auswahl einer Datei im Dateiwähler für `{{HTMLElement('input/file', '&lt;input type="file"&gt;')}}`, etc.);
-- Wenn das Element den Fokus verliert, nachdem sein Wert geändert wurde: für Elemente, bei denen die Benutzerinteraktion eher Tippen als Auswahl ist, wie bei einem {{HTMLElement("textarea")}} oder den `{{HTMLElement('input/text', 'text')}}`, `{{HTMLElement('input/search', 'search')}}`, `{{HTMLElement('input/url', 'url')}}`, `{{HTMLElement('input/tel', 'tel')}}`, `{{HTMLElement('input/email', 'email')}}` oder `{{HTMLElement('input/password', 'password')}}` Typen des {{HTMLElement('input')}} Elements.
+- Wenn der Benutzer die Änderung explizit bestätigt (z. B. durch Auswählen eines Wertes aus einem Dropdown-Menü eines {{HTMLElement("select")}} mit einem Mausklick, durch Auswählen eines Datums in einem Datumswähler für `{{HTMLElement('input/date', '&lt;input type="date"&gt;')}}`, durch Auswählen einer Datei im Dateiwähler für `{{HTMLElement('input/file', '&lt;input type="file"&gt;')}}`, etc.);
+- Wenn das Element den Fokus verliert, nachdem sein Wert geändert wurde: für Elemente, bei denen die Interaktion des Benutzers durch Tippen und nicht durch Auswahl erfolgt, wie ein {{HTMLElement("textarea")}} oder die Typen `{{HTMLElement('input/text', 'text')}}`, `{{HTMLElement('input/search', 'search')}}`, `{{HTMLElement('input/url', 'url')}}`, `{{HTMLElement('input/tel', 'tel')}}`, `{{HTMLElement('input/email', 'email')}}` oder `{{HTMLElement('input/password', 'password')}}` des {{HTMLElement('input')}} Elements.
 
-Die HTML-Spezifikation listet [die `<input>`-Typen auf, die das `change`-Ereignis auslösen sollten](https://html.spec.whatwg.org/multipage/forms.html#concept-input-apply).
+Die HTML-Spezifikation listet [die `<input>` Typen auf, die das `change` Ereignis auslösen sollten](https://html.spec.whatwg.org/multipage/forms.html#concept-input-apply).
 
 ## Syntax
 
-Verwenden Sie den ereignisnahmen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("change", (event) => {});
@@ -31,7 +31,7 @@ onchange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
@@ -41,12 +41,12 @@ Ein generisches {{domxref("Event")}}.
 
 ```html
 <label>
-  Wählen Sie eine Eissorte:
+  Choose an ice cream flavor:
   <select class="ice-cream" name="ice-cream">
-    <option value="">Eine wählen …</option>
-    <option value="chocolate">Schokolade</option>
+    <option value="">Select One …</option>
+    <option value="chocolate">Chocolate</option>
     <option value="sardine">Sardine</option>
-    <option value="vanilla">Vanille</option>
+    <option value="vanilla">Vanilla</option>
   </select>
 </label>
 
@@ -83,14 +83,14 @@ selectElement.addEventListener("change", (event) => {
 
 {{ EmbedLiveSample('select_element', '100%', '75px') }}
 
-### Texteingabe-Element
+### Text-Eingabefeld
 
-Bei einigen Elementen, einschließlich `<input type="text">`, wird das `change`-Ereignis erst ausgelöst, wenn das Steuerelement den Fokus verliert. Versuchen Sie, etwas in das untenstehende Feld einzugeben, und klicken Sie dann woanders hin, um das Ereignis auszulösen.
+Für einige Elemente, einschließlich `<input type="text">`, wird das `change` Ereignis erst ausgelöst, wenn das Steuerelement den Fokus verliert. Versuchen Sie, etwas in das untenstehende Feld einzugeben, und klicken Sie dann woanders hin, um das Ereignis auszulösen.
 
 #### HTML
 
 ```html
-<input placeholder="Geben Sie etwas Text ein" name="name" />
+<input placeholder="Enter some text" name="name" />
 <p id="log"></p>
 ```
 
@@ -119,4 +119,4 @@ function updateValue(e) {
 
 {{Compat}}
 
-Unterschiedliche Browser sind sich nicht immer einig, ob ein `change`-Ereignis für bestimmte Arten von Interaktionen ausgelöst werden sollte. Zum Beispiel hat die Tastaturnavigation in {{HTMLElement("select")}}-Elementen in Gecko früher nie ein `change`-Ereignis ausgelöst, bis der Benutzer Enter drückte oder den Fokus von dem `<select>` wegwechselte (siehe [Firefox Bug 126379](https://bugzil.la/126379)). Seit Firefox 63 (Quantum) ist dieses Verhalten jedoch bei allen großen Browsern konsistent.
+Unterschiedliche Browser sind sich nicht immer einig, ob ein `change` Ereignis für bestimmte Arten von Interaktionen ausgelöst werden sollte. Zum Beispiel wurde in {{HTMLElement("select")}} Elementen bei Tastaturnavigation in Gecko früher nie ein `change` Ereignis ausgelöst, bis der Benutzer Enter drückte oder den Fokus vom `<select>` änderte (siehe [Firefox-Bug 126379](https://bugzil.la/126379)). Seit Firefox 63 (Quantum) ist dieses Verhalten jedoch konsistent zwischen allen großen Browsern.

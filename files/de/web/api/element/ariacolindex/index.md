@@ -1,5 +1,5 @@
 ---
-title: "Element: ariaColIndex Eigenschaft"
+title: "Element: ariaColIndex-Eigenschaft"
 short-title: ariaColIndex
 slug: Web/API/Element/ariaColIndex
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaColIndex`** Eigenschaft der {{domxref("Element")}}-Schnittstelle spiegelt den Wert des [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colindex) Attributs wider, welches den Spaltenindex oder die Position eines Elements in Bezug auf die Gesamtanzahl der Spalten innerhalb einer Tabelle, eines Rasters oder eines Baumrasters definiert.
+Die **`ariaColIndex`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-colindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colindex)-Attributs wider, das den Spaltenindex oder die Position eines Elements in Bezug auf die Gesamtanzahl der Spalten innerhalb einer Tabelle, eines Rasters oder eines Baumrasters definiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der eine Ganzzahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel ist das `aria-colindex` Attribut des Elements mit der ID `role-heading` auf "1" gesetzt. Mit `ariaColIndex` aktualisieren wir den Wert auf "2".
+In diesem Beispiel wird das `aria-colindex`-Attribut des Elements mit der ID `role-heading` auf "1" gesetzt. Mit `ariaColIndex` aktualisieren wir den Wert auf "2".
 
 ```html
 <table
@@ -85,4 +85,4 @@ console.log(el.ariaColIndex); // 2
 
 ## Siehe auch
 
-- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+- [ARIA: Rollenattribut "table"](/de/docs/Web/Accessibility/ARIA/Roles/table_role)

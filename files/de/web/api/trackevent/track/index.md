@@ -1,5 +1,5 @@
 ---
-title: "TrackEvent: track Eigenschaft"
+title: "TrackEvent: track-Eigenschaft"
 short-title: track
 slug: Web/API/TrackEvent/track
 l10n:
@@ -8,23 +8,18 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`track`**-Eigenschaft der
-{{domxref("TrackEvent")}}-Schnittstelle gibt an, auf welches Medientrack-Objekt sich das
-Ereignis bezieht.
+Die schreibgeschützte **`track`**-Eigenschaft des [`TrackEvent`](/de/docs/Web/API/TrackEvent)-Interfaces gibt das Medientrack-Objekt an, auf das sich das Ereignis bezieht.
 
-Das Medientrack ist ein {{domxref("AudioTrack")}},
-{{domxref("VideoTrack")}} oder {{domxref("TextTrack")}} Objekt.
+Das Medientrack wird ein [`AudioTrack`](/de/docs/Web/API/AudioTrack), [`VideoTrack`](/de/docs/Web/API/VideoTrack) oder [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt sein.
 
 ## Wert
 
-Ein Objekt, das eine der Typen {{domxref("AudioTrack")}},
-{{domxref("VideoTrack")}} oder {{domxref("TextTrack")}} ist, abhängig von der Art der
-Medien, die durch das Track dargestellt werden. Dies identifiziert das Track, auf das sich das Ereignis bezieht.
+Ein Objekt, das je nach Art des durch das Track dargestellten Mediums von Typ [`AudioTrack`](/de/docs/Web/API/AudioTrack), [`VideoTrack`](/de/docs/Web/API/VideoTrack) oder [`TextTrack`](/de/docs/Web/API/TextTrack) ist. Dies identifiziert das Track, auf das sich das Ereignis bezieht.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

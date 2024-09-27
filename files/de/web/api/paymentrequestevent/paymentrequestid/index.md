@@ -8,9 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Payment Handler API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`paymentRequestId`**-Eigenschaft der
-{{domxref("PaymentRequestEvent")}}-Schnittstelle gibt die ID des
-{{domxref("PaymentRequest")}}-Objekts zurück.
+Die schreibgeschützte **`paymentRequestId`**-Eigenschaft des [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Interfaces gibt die ID des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)-Objekts zurück.
 
 ## Wert
 
@@ -36,6 +34,6 @@ self.addEventListener("paymentrequest", (e) => {
 
 - [Übersicht über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
 - [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Der Verlauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

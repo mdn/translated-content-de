@@ -1,5 +1,5 @@
 ---
-title: "XRSession: visibilitychange Ereignis"
+title: "XRSession: visibilitychange-Ereignis"
 short-title: visibilitychange
 slug: Web/API/XRSession/visibilitychange_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das **`visibilitychange`** Ereignis wird an eine {{domxref("XRSession")}} gesendet, um sie darüber zu informieren, wenn sie sichtbar oder versteckt wird, oder wenn sie sichtbar, aber derzeit nicht fokussiert ist. Nach Erhalt des Ereignisses können Sie den Wert der {{domxref("XRSession.visibilityState", "visibilityState")}}-Eigenschaft der Sitzung abfragen, um den neuen Sichtbarkeitsstatus zu bestimmen.
+Das **`visibilitychange`**-Ereignis wird an eine [`XRSession`](/de/docs/Web/API/XRSession) gesendet, um sie darüber zu informieren, wenn sie sichtbar oder verborgen wird, oder wenn sie sichtbar, aber derzeit nicht fokussiert ist. Nach Erhalt des Ereignisses können Sie den Wert der [`visibilityState`](/de/docs/Web/API/XRSession/visibilityState)-Eigenschaft der Sitzung überprüfen, um den neuen Sichtbarkeitszustand zu bestimmen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("visibilitychange", (event) => {});
@@ -22,32 +22,32 @@ onvisibilitychange = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("XRSessionEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("XRSessionEvent")}}
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind Eigenschaften der Elternschnittstelle, {{domxref("Event")}}, verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref("XRSessionEvent.session", "session")}} {{ReadOnlyInline}}
-  - : Die {{domxref("XRSession")}}, auf die sich das Ereignis bezieht.
+- [`session`](/de/docs/Web/API/XRSessionEvent/session) {{ReadOnlyInline}}
+  - : Die [`XRSession`](/de/docs/Web/API/XRSession), auf die sich das Ereignis bezieht.
 
 ## Beschreibung
 
 ### Auslöser
 
-Wird ausgelöst, wenn eine {{domxref("XRSession")}} sichtbar oder versteckt wird, oder wenn sie sichtbar, aber nicht fokussiert ist.
+Ausgelöst, wenn eine [`XRSession`](/de/docs/Web/API/XRSession) sichtbar oder verborgen wird, oder wenn sie sichtbar, aber derzeit nicht fokussiert ist.
 
-Wenn die `XRSession` dieses Ereignis empfängt, wurde der Sichtbarkeitsstatus bereits geändert.
+Wenn die `XRSession` dieses Ereignis empfängt, wurde der Sichtbarkeitszustand bereits geändert.
 
 ### Anwendungsfälle
 
-Nach Erhalt des Ereignisses können Sie den Wert der {{domxref("XRSession.visibilityState", "visibilityState")}}-Eigenschaft der Sitzung abfragen, um den neuen Sichtbarkeitsstatus zu bestimmen.
+Nach Erhalt des Ereignisses können Sie den Wert der [`visibilityState`](/de/docs/Web/API/XRSession/visibilityState)-Eigenschaft der Sitzung überprüfen, um den neuen Sichtbarkeitszustand zu bestimmen.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie man ein `visibilitychange`-Ereignis in einer WebXR-Sitzung abhört, indem {{domxref("EventTarget.addEventListener", "addEventListener()")}} verwendet wird, um mit dem Abhören des Ereignisses zu beginnen:
+Dieses Beispiel zeigt, wie Sie ein `visibilitychange`-Ereignis auf einer WebXR-Sitzung mithilfe von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) abhören, um damit zu beginnen, auf das Ereignis zu lauschen:
 
 ```js
 navigator.xr.requestSession("inline").then((xrSession) => {
@@ -65,9 +65,9 @@ navigator.xr.requestSession("inline").then((xrSession) => {
 });
 ```
 
-Wenn eine Änderung des Sichtbarkeitsstatus eintritt, wird das Ereignis empfangen und an eine Funktion `mySessionVisible()` weitergegeben, mit einem booleschen Parameter, der angibt, ob die Sitzung derzeit dem Benutzer angezeigt wird.
+Wenn eine Änderung des Sichtbarkeitszustands auftritt, wird das Ereignis empfangen und an eine Funktion `mySessionVisible()` weitergeleitet, mit einem Booleschen Parameter, der angibt, ob die Sitzung derzeit dem Benutzer angezeigt wird oder nicht.
 
-Sie können den Ereignishandler auch erstellen, indem Sie ihn der `onvisibilitychange`-Ereignishandler-Eigenschaft der {{domxref("XRSession")}} zuweisen, wie folgt:
+Sie können den Ereignishandler auch erstellen, indem Sie ihn der `onvisibilitychange`-Ereignishandlereigenschaft der [`XRSession`](/de/docs/Web/API/XRSession) zuweisen, wie folgt:
 
 ```js
 xrSession.onvisibilitychange = (e) => {

@@ -1,5 +1,5 @@
 ---
-title: "HTMLOutputElement: Eigenschaft willValidate"
+title: "HTMLOutputElement: willValidate Eigenschaft"
 short-title: willValidate
 slug: Web/API/HTMLOutputElement/willValidate
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`willValidate`** schreibgeschützte Eigenschaft des {{domxref("HTMLOutputElement")}}-Interfaces gibt `false` zurück, da {{HTMLElement("output")}}-Elemente keine Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
+Die **`willValidate`** schreibgeschützte Eigenschaft des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Interfaces gibt `false` zurück, weil {{HTMLElement("output")}}-Elemente keine Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
 
 ## Wert
 
@@ -24,8 +24,8 @@ Der boolesche Wert `false`.
 
 ## Siehe auch
 
-- {{domxref("HTMLOutputElement.checkValidity()")}}
+- [`HTMLOutputElement.checkValidity()`](/de/docs/Web/API/HTMLOutputElement/checkValidity)
 - {{HTMLElement("output")}}
 - {{HTMLElement("form")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Erfahren Sie mehr: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

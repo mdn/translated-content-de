@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die schreibgeschützte **`states`**-Eigenschaft der {{domxref("ElementInternals")}}-Schnittstelle gibt ein {{domxref("CustomStateSet")}} zurück, das die möglichen Zustände des benutzerdefinierten Elements darstellt.
+Die schreibgeschützte Eigenschaft **`states`** der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle gibt ein [`CustomStateSet`](/de/docs/Web/API/CustomStateSet) zurück, das die möglichen Zustände des benutzerdefinierten Elements repräsentiert.
 
 ## Wert
 
-Ein {{domxref("CustomStateSet")}}, das ein {{jsxref("Set")}} von Zeichenfolgen ist.
+Ein [`CustomStateSet`](/de/docs/Web/API/CustomStateSet), welches ein {{jsxref("Set")}} von Zeichenketten ist.
 
 ## Beispiele
 
-Die folgende Funktion fügt dem `CustomStateSet` den Zustand `--checked` hinzu und entfernt ihn, dann wird in der Konsole `true` oder `false` ausgegeben, je nachdem ob das benutzerdefinierte Kontrollkästchen aktiviert oder deaktiviert ist.
+Die folgende Funktion fügt den Zustand `--checked` zu einem `CustomStateSet` hinzu und entfernt ihn, und gibt dann `true` oder `false` in der Konsole aus, je nachdem, ob das benutzerdefinierte Kontrollkästchen aktiviert oder deaktiviert ist.
 
 ```js
 set checked(flag) {

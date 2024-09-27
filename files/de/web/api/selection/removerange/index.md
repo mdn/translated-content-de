@@ -1,5 +1,5 @@
 ---
-title: "Selection: die removeRange()-Methode"
+title: "Selection: removeRange() Methode"
 short-title: removeRange()
 slug: Web/API/Selection/removeRange
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.removeRange()`**-Methode entfernt einen Bereich aus einer Selektion.
+Die **`Selection.removeRange()`** Methode entfernt einen Bereich aus einer Auswahl.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ removeRange(range)
 ### Parameter
 
 - `range`
-  - : Ein Bereichsobjekt, das aus der Selektion entfernt wird.
+  - : Ein Bereichsobjekt, das aus der Auswahl entfernt wird.
 
 ### Rückgabewert
 
@@ -28,8 +28,8 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```js
-/* Programmatisch können mehr als ein Bereich ausgewählt werden.
- * Dies wird alle Bereiche außer dem ersten entfernen. */
+/* Programmatically, more than one range can be selected.
+ * This will remove all ranges except the first. */
 const s = window.getSelection();
 if (s.rangeCount > 1) {
   for (let i = 1; i < s.rangeCount; i++) {
@@ -48,4 +48,4 @@ if (s.rangeCount > 1) {
 
 ## Siehe auch
 
-- {{domxref("Selection")}}, das Interface, zu dem sie gehört.
+- [`Selection`](/de/docs/Web/API/Selection), das Interface, zu dem sie gehört.

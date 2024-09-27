@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`handler.getOwnPropertyDescriptor()`** Methode ist eine Falle für die `[[GetOwnProperty]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.getOwnPropertyDescriptor()")}} verwendet wird.
+Die Methode **`handler.getOwnPropertyDescriptor()`** ist eine Falle für die `[[GetOwnProperty]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.getOwnPropertyDescriptor()")}} verwendet wird.
 
 {{EmbedInteractiveExample("pages/js/proxyhandler-getownpropertydescriptor.html", "taller")}}
 
@@ -22,7 +22,7 @@ new Proxy(target, {
 
 ### Parameter
 
-Die folgenden Parameter werden an die `getOwnPropertyDescriptor()` Methode übergeben. `this` ist an den Handler gebunden.
+Die folgenden Parameter werden an die Methode `getOwnPropertyDescriptor()` übergeben. `this` ist an den Handler gebunden.
 
 - `target`
   - : Das Zielobjekt.
@@ -31,11 +31,11 @@ Die folgenden Parameter werden an die `getOwnPropertyDescriptor()` Methode über
 
 ### Rückgabewert
 
-Die `getOwnPropertyDescriptor()` Methode muss ein Objekt oder `undefined` zurückgeben, das den Eigenschaftsdescriptor darstellt. Fehlende Attribute werden in der gleichen Weise wie bei {{jsxref("Object.defineProperty()")}} normalisiert.
+Die Methode `getOwnPropertyDescriptor()` muss ein Objekt oder `undefined` zurückgeben, das den Eigenschaftsdescriptor darstellt. Fehlende Attribute werden in derselben Weise normalisiert wie in {{jsxref("Object.defineProperty()")}}.
 
 ## Beschreibung
 
-### Abfangvorgänge
+### Abfangen
 
 Diese Falle kann folgende Operationen abfangen:
 
@@ -46,18 +46,18 @@ Oder jede andere Operation, die die `[[GetOwnProperty]]` [interne Methode](/de/d
 
 ### Invarianten
 
-Die `[[GetOwnProperty]]` Interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handlervorschrift eine der folgenden Invarianten verletzt:
+Die `[[GetOwnProperty]]`-Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
 - Das Ergebnis muss entweder ein {{jsxref("Object")}} oder `undefined` sein.
-- Eine Eigenschaft kann nicht als nicht existent gemeldet werden, wenn sie als nicht konfigurierbare eigene Eigenschaft des Zielobjekts existiert. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false` für die Eigenschaft am `target` zurückgibt, darf die Falle nicht `undefined` zurückgeben.
-- Eine Eigenschaft kann nicht als nicht existent gemeldet werden, wenn sie als eigene Eigenschaft eines nicht erweiterbaren Zielobjekts existiert. Das heißt, wenn {{jsxref("Reflect.isExtensible()")}} `false` für das Zielobjekt zurückgibt, darf die Falle nicht `undefined` zurückgeben.
-- Eine Eigenschaft kann nicht als existent gemeldet werden, wenn sie nicht als eigene Eigenschaft des Zielobjekts existiert und das Zielobjekt nicht erweiterbar ist. Das heißt, wenn {{jsxref("Reflect.isExtensible()")}} `false` für das Zielobjekt zurückgibt, und {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `undefined` für die Eigenschaft am `target` zurückgibt, muss die Falle `undefined` zurückgeben.
-- Eine Eigenschaft kann nicht als nicht konfigurierbar gemeldet werden, es sei denn, sie existiert als nicht konfigurierbare eigene Eigenschaft des Zielobjekts. Das heißt, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `undefined` oder `configurable: true` für die Eigenschaft am `target` zurückgibt, darf die Falle nicht `configurable: false` zurückgeben.
-- Eine Eigenschaft kann nicht sowohl als nicht konfigurierbar als auch nicht beschreibbar gemeldet werden, es sei denn, sie existiert als nicht konfigurierbare, nicht beschreibbare eigene Eigenschaft des Zielobjekts. Das heißt, zusätzlich zur vorherigen Invariante, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} `configurable: false, writable: true` für die Eigenschaft am `target` zurückgibt, darf die Falle nicht `configurable: false, writable: false` zurückgeben.
-- Wenn eine Eigenschaft eine entsprechende Eigenschaft am Zielobjekt hat, muss der Descriptor der Zielobjekteigenschaft mit `descriptor` kompatibel sein. Das heißt, angenommen `target` ist ein gewöhnliches Objekt, dann darf {{jsxref("Object/defineProperty", "Object.defineProperty(target, property, resultObject)")}} keinen Fehler werfen. Der Verweis auf `Object.defineProperty()` enthält weitere Informationen, aber zusammengefasst muss, wenn die Zieleigenschaft nicht konfigurierbar ist, folgendes gelten:
-  - `configurable`, `enumerable`, `get` und `set` müssen wie das Original sein. `writable` muss aufgrund der vorherigen Invariante ebenfalls das Original sein.
-  - die Eigenschaft muss als Daten- oder Accessor-Eigenschaft beibehalten werden
-  - das `value` Attribut kann nur geändert werden, wenn `writable` `true` ist
+- Eine Eigenschaft kann nicht als nicht existent gemeldet werden, wenn sie als nicht konfigurierbare eigene Eigenschaft des Zielobjekts existiert. Das bedeutet, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} für die Eigenschaft auf `target` `configurable: false` zurückgibt, darf die Falle nicht `undefined` zurückgeben.
+- Eine Eigenschaft kann nicht als nicht existent gemeldet werden, wenn sie als eigene Eigenschaft eines nicht erweiterbaren Zielobjekts existiert. Das bedeutet, wenn {{jsxref("Reflect.isExtensible()")}} für das Zielobjekt `false` zurückgibt, darf die Falle nicht `undefined` zurückgeben.
+- Eine Eigenschaft kann nicht als existent gemeldet werden, wenn sie nicht als eigene Eigenschaft des Zielobjekts existiert und das Zielobjekt nicht erweiterbar ist. Das bedeutet, wenn {{jsxref("Reflect.isExtensible()")}} für das Zielobjekt `false` zurückgibt und {{jsxref("Reflect.getOwnPropertyDescriptor()")}} für die Eigenschaft auf `target` `undefined` zurückgibt, muss die Falle `undefined` zurückgeben.
+- Eine Eigenschaft kann nicht als nicht konfigurierbar gemeldet werden, es sei denn, sie existiert als nicht konfigurierbare eigene Eigenschaft des Zielobjekts. Das bedeutet, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} für die Eigenschaft auf `target` `undefined` oder `configurable: true` zurückgibt, darf die Falle nicht `configurable: false` zurückgeben.
+- Eine Eigenschaft kann nicht als sowohl nicht konfigurierbar als auch nicht beschreibbar gemeldet werden, es sei denn, sie existiert als nicht konfigurierbare, nicht beschreibbare eigene Eigenschaft des Zielobjekts. Das bedeutet, zusätzlich zur vorherigen Invariante, wenn {{jsxref("Reflect.getOwnPropertyDescriptor()")}} für die Eigenschaft auf `target` `configurable: false, writable: true` zurückgibt, darf die Falle nicht `configurable: false, writable: false` zurückgeben.
+- Wenn eine Eigenschaft eine entsprechende Eigenschaft auf dem Zielobjekt hat, muss der Descriptor der Zielobjekteigenschaft mit `descriptor` kompatibel sein. Das bedeutet, dass das Pretendieren von `target` ein gewöhnliches Objekt ist, dann {{jsxref("Object/defineProperty", "Object.defineProperty(target, property, resultObject)")}} keinen Fehler werfen darf. Der `Object.defineProperty()`-Referenz enthält mehr Informationen, aber zusammengefasst, wenn die Zieleigenschaft nicht konfigurierbar ist, muss folgendes gelten:
+  - `configurable`, `enumerable`, `get` und `set` müssen dieselben wie das Original sein. `writable` muss ebenfalls das Original sein, aufgrund der vorherigen Invariante.
+  - die Eigenschaft muss als Daten- oder Zugriffseigenschaft verbleiben
+  - das `value`-Attribut kann nur geändert werden, wenn `writable` `true` ist
 
 ## Beispiele
 
@@ -92,7 +92,7 @@ const p = new Proxy(obj, {
   },
 });
 
-Object.getOwnPropertyDescriptor(p, "a"); // TypeError wird ausgelöst
+Object.getOwnPropertyDescriptor(p, "a"); // TypeError is thrown
 ```
 
 ## Spezifikationen

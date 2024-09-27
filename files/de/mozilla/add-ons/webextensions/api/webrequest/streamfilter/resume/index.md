@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Setzt eine zuvor durch einen Aufruf von {{WebExtAPIRef("webRequest.StreamFilter.suspend()", "suspend()")}} angehaltene Anfrage fort.
+Setzt eine Anfrage fort, die zuvor durch einen Aufruf von {{WebExtAPIRef("webRequest.StreamFilter.suspend()", "suspend()")}} angehalten wurde.
 
 Sie können diese Funktion erst aufrufen, nachdem das Ereignis {{WebExtAPIRef("webRequest.StreamFilter.onstart", "onstart")}} ausgelöst wurde.
 

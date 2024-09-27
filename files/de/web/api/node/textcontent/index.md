@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`textContent`**-Eigenschaft des {{domxref("Node")}}-Interfaces repräsentiert den Textinhalt des Knotens und seiner Nachkommen.
+Die **`textContent`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle repräsentiert den Textinhalt des Knotens und seiner Nachkommen.
 
-> **Hinweis:** `textContent` und {{domxref("HTMLElement.innerText")}} werden leicht verwechselt,
-> jedoch sind die beiden Eigenschaften [in wichtigen Punkten unterschiedlich](#unterschiede_zu_innertext).
+> **Note:** `textContent` und [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText) werden leicht verwechselt,
+> aber die beiden Eigenschaften sind [in wesentlichen Punkten unterschiedlich](#unterschiede_zu_innertext).
 
 ## Wert
 
-Ein String oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null). Sein Wert hängt von der Situation ab:
+Ein String oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null). Der Wert hängt von der Situation ab:
 
-- Wenn der Knoten ein {{domxref("document")}} oder ein {{glossary("doctype")}} ist,
+- Wenn der Knoten ein [`document`](/de/docs/Web/API/Document) oder ein [doctype](/de/docs/Glossary/doctype) ist,
   gibt `textContent` [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück.
 
   > [!NOTE]
@@ -25,42 +25,39 @@ Ein String oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null). Sein
   > Dokument zu erhalten, verwenden Sie `document.documentElement.textContent`.
 
 - Wenn der Knoten ein [CDATA-Abschnitt](/de/docs/Web/API/CDATASection),
-  ein Kommentar, eine [Verarbeitungsanweisung](/de/docs/Web/API/ProcessingInstruction) oder ein [Textknoten](/de/docs/Web/API/Text) ist,
-  gibt `textContent` den Text innerhalb des Knotens zurück oder setzt diesen,
-  d. h. den {{domxref("Node.nodeValue")}}.
+  ein Kommentar, eine [Verarbeitungsanweisung](/de/docs/Web/API/ProcessingInstruction),
+  oder ein [Textknoten](/de/docs/Web/API/Text) ist,
+  gibt `textContent` den Text innerhalb des Knotens zurück oder setzt ihn,
+  d.h. den [`Node.nodeValue`](/de/docs/Web/API/Node/nodeValue).
 - Für andere Knotentypen gibt `textContent` die Verkettung des
-  `textContent` jedes Kindknotens zurück, ohne Kommentare und Verarbeitungsanweisungen. (Dies ist ein leerer String, wenn der Knoten keine Kinder hat.)
+  `textContent` jedes Kindknotens zurück, ausgenommen Kommentare und Verarbeitungsanweisungen. (Dies ist ein leerer String, wenn der Knoten keine Kinder hat.)
 
 > [!WARNING]
-> Das Setzen von `textContent` auf einem Knoten entfernt _alle_ Kinder des Knotens
-> und ersetzt sie durch einen einzigen Textknoten mit dem angegebenen String-Wert.
+> Das Setzen von `textContent` auf einem Knoten entfernt _alle_ Kinder des Knotens und ersetzt sie durch einen einzigen Textknoten mit dem angegebenen String-Wert.
 
 ### Unterschiede zu innerText
 
-Lassen Sie sich nicht von den Unterschieden zwischen `Node.textContent` und
-{{domxref("HTMLElement.innerText")}} verwirren. Obwohl die Namen ähnlich erscheinen, gibt es
+Verwechseln Sie nicht die Unterschiede zwischen `Node.textContent` und
+[`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText). Obwohl die Namen ähnlich erscheinen, gibt es
 wichtige Unterschiede:
 
-- `textContent` erhält den Inhalt von _allen_ Elementen, einschließlich
-  {{HTMLElement("script")}} und {{HTMLElement("style")}}-Elementen. Im Gegensatz dazu
-  zeigt `innerText` nur "menschlich lesbare" Elemente.
+- `textContent` erhält den Inhalt _aller_ Elemente, einschließlich
+  {{HTMLElement("script")}}- und {{HTMLElement("style")}}-Elementen. Im Gegensatz dazu zeigt
+  `innerText` nur "menschlich lesbare" Elemente.
 - `textContent` gibt jedes Element im Knoten zurück. Im Gegensatz dazu
-  berücksichtigt `innerText` Styles und gibt den Text von "versteckten"
+  berücksichtigt `innerText` das Styling und gibt den Text von "versteckten"
   Elementen nicht zurück.
 
-  - Da `innerText` CSS-Stile berücksichtigt,
-    löst das Lesen des Wertes von `innerText` ein
-    {{glossary("reflow")}} aus, um sicherzustellen, dass die berechneten Stile aktuell sind. (Reflows können
-    rechnerisch aufwendig sein und sollten daher nach Möglichkeit vermieden werden.)
+  - Darüber hinaus, da `innerText` CSS-Stile berücksichtigt,
+    löst das Lesen des Wertes von `innerText` eine
+    [Reflow](/de/docs/Glossary/reflow) aus, um sicherzustellen, dass die berechneten Stile aktuell sind. (Reflows können
+    rechentechnisch aufwendig sein und sollten daher nach Möglichkeit vermieden werden.)
 
 ### Unterschiede zu innerHTML
 
-{{domxref("Element.innerHTML")}} gibt HTML zurück, wie der Name schon andeutet. Manchmal verwenden Menschen
-`innerHTML`, um Text innerhalb eines Elements zu lesen oder zu schreiben, aber
-`textContent` bietet eine bessere Leistung, da sein Wert nicht als
-HTML geparst wird.
+[`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML) gibt HTML zurück, wie der Name es andeutet. Manchmal wird `innerHTML` verwendet, um Text innerhalb eines Elements abzurufen oder zu schreiben, aber `textContent` bietet bessere Leistung, da der Wert nicht als HTML geparst wird.
 
-Zudem kann die Verwendung von `textContent` {{glossary("Cross-site_scripting", "XSS-Angriffe")}} verhindern.
+Darüber hinaus kann die Nutzung von `textContent` [XSS-Angriffe](/de/docs/Glossary/Cross-site_scripting) verhindern.
 
 ## Beispiele
 
@@ -95,7 +92,7 @@ document.getElementById("divA").textContent = "This text is different!";
 
 ## Siehe auch
 
-- {{domxref("HTMLElement.innerText")}}
-- {{domxref("Element.innerHTML")}}
-- [Mehr über die Unterschiede zwischen `innerText` und `textContent`](http://perfectionkills.com/the-poor-misunderstood-innerText/)
+- [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText)
+- [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML)
+- [Mehr über Unterschiede zwischen `innerText` und `textContent`](http://perfectionkills.com/the-poor-misunderstood-innerText/)
   (Blog-Beitrag)

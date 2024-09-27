@@ -7,16 +7,16 @@ l10n:
 
 {{SVGRef}}
 
-Das **`end`**-Attribut definiert einen Endwert für die Animation, der die aktive Dauer begrenzen kann.
+Das **`end`** Attribut definiert einen Endwert für die Animation, der die aktive Dauer einschränken kann.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateMotion")}}
 - {{SVGElement("animateTransform")}}
 - {{SVGElement("set")}}
 
-## Verwendungshinweise
+## Nutzungsnotizen
 
 <table class="properties">
   <tbody>
@@ -35,78 +35,78 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
   </tbody>
 </table>
 
-Die `<end-value-list>` ist eine durch Semikolon getrennte Liste von Werten. Jeder Wert kann einer der folgenden sein:
+Die `<end-value-list>` ist eine durch Semikolons getrennte Liste von Werten. Jeder Wert kann einer der folgenden sein:
 
 - `<offset-value>`
-  - : Dieser Wert definiert einen [clock-value](/de/docs/Web/SVG/Content_type#clock-value), der einen Zeitpunkt relativ zum Beginn des SVG-Dokuments darstellt (normalerweise das {{domxref("SVGElement/load_event", "load")}}- oder {{domxref("Document/DOMContentLoaded_event", "DOMContentLoaded")}}-Ereignis). Negative Werte sind gültig.
+  - : Dieser Wert definiert einen [clock-value](/de/docs/Web/SVG/Content_type#clock-value), der einen Zeitpunkt relativ zum Beginn des SVG-Dokuments (normalerweise das [`load`](/de/docs/Web/API/SVGElement/load_event) oder [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event) Event) darstellt. Negative Werte sind gültig.
 - `<syncbase-value>`
 
-  - : Dieser Wert definiert eine _syncbase_ und einen optionalen Offset von dieser _syncbase_. Die Animationseendzeit des Elements wird relativ zum Beginn oder aktiven Ende einer anderen Animation definiert.
+  - : Dieser Wert definiert eine _syncbase_ und einen optionalen Offset von dieser _syncbase_. Die Endzeit der Elementanimation wird relativ zum Beginn oder aktiven Ende einer anderen Animation definiert.
 
-    Ein gültiger syncbase-Wert besteht aus einer ID-Referenz zu einem anderen Animationselement, gefolgt von einem Punkt und entweder `begin` oder `end`, um zu identifizieren, ob mit dem Beginn oder aktiven Ende des referenzierten Animationselements synchronisiert werden soll. Ein optionaler Offset-Wert wie im `<offset-value>` kann angehängt werden.
+    Ein gültiger syncbase-value besteht aus einem ID-Verweis auf ein anderes Animationselement, gefolgt von einem Punkt und entweder `begin` oder `end`, um festzulegen, ob mit dem Anfang oder aktiven Ende des referenzierten Animationselements synchronisiert werden soll. Ein optionaler Offset-Wert wie in `<offset-value>` kann angehängt werden.
 
 - `<event-value>`
 
-  - : Dieser Wert definiert ein Ereignis und einen optionalen Offset, der bestimmt, wann die Animation des Elements enden soll. Die Animationseendzeit wird relativ zu dem Zeitpunkt definiert, an dem das angegebene Ereignis ausgelöst wird.
+  - : Dieser Wert definiert ein Ereignis und einen optionalen Offset, der bestimmt, wann die Animation des Elements enden soll. Die Endzeit der Animation wird relativ zu dem Zeitpunkt definiert, an dem das spezifizierte Ereignis ausgelöst wird.
 
-    Ein gültiger event-Wert besteht aus einer Element-ID, gefolgt von einem Punkt und einem der unterstützten Ereignisse für dieses Element. Alle gültigen Ereignisse (nicht notwendigerweise von allen Elementen unterstützt) sind durch die DOM- und HTML-Spezifikationen definiert. Diese sind:
+    Ein gültiger event-value besteht aus einer Element-ID, gefolgt von einem Punkt und einem der für dieses Element unterstützten Ereignisse. Alle gültigen Ereignisse (nicht unbedingt von allen Elementen unterstützt) sind durch die DOM- und HTML-Spezifikationen definiert. Diese sind:
 
-    - {{domxref("Element/focus_event", "focus")}}
-    - {{domxref("Element/blur_event", "blur")}}
-    - {{domxref("Element/focusin_event", "focusin")}}
-    - {{domxref("Element/focusout_event", "focusout")}}
-    - {{domxref("Element/DOMActivate_event", "activate")}}
-    - {{domxref("Element/auxclick_event", "auxclick")}}
-    - {{domxref("Element/click_event", "click")}}
-    - {{domxref("Element/dblclick_event", "dblclick")}}
-    - {{domxref("Element/mousedown_event", "mousedown")}}
-    - {{domxref("Element/mouseenter_event", "mouseenter")}}
-    - {{domxref("Element/mouseleave_event", "mouseleave")}}
-    - {{domxref("Element/mousemove_event", "mousemove")}}
-    - {{domxref("Element/mouseout_event", "mouseout")}}
-    - {{domxref("Element/mouseover_event", "mouseover")}}
-    - {{domxref("Element/mouseup_event", "mouseup")}}
-    - {{domxref("Element/wheel_event", "wheel")}}
-    - {{domxref("Element/beforeinput_event", "beforeinput")}}
-    - {{domxref("Element/input_event", "input")}}
-    - {{domxref("Element/keydown_event", "keydown")}}
-    - {{domxref("Element/keyup_event", "keyup")}}
-    - {{domxref("Element/compositionstart_event", "compositionstart")}}
-    - {{domxref("Element/compositionupdate_event", "compositionupdate")}}
-    - {{domxref("Element/compositionend_event", "compositionend")}}
-    - {{domxref("SVGElement/load_event", "load")}}
-    - {{domxref("SVGElement/unload_event", "unload")}}
-    - {{domxref("SVGElement/abort_event", "abort")}}
-    - {{domxref("HTMLElement/error_event", "error")}}
-    - {{domxref("HTMLInputElement/select_event", "select")}}
-    - {{domxref("Window/resize_event", "resize")}}
-    - {{domxref("Element/scroll_event", "scroll")}}
-    - {{domxref("SVGAnimationElement/beginEvent_event", "beginEvent")}}
-    - {{domxref("SVGAnimationElement/endEvent_event", "endEvent")}}
-    - {{domxref("SVGAnimationElement/repeatEvent_event", "repeatEvent")}}
+    - [`focus`](/de/docs/Web/API/Element/focus_event)
+    - [`blur`](/de/docs/Web/API/Element/blur_event)
+    - [`focusin`](/de/docs/Web/API/Element/focusin_event)
+    - [`focusout`](/de/docs/Web/API/Element/focusout_event)
+    - [`activate`](/de/docs/Web/API/Element/DOMActivate_event)
+    - [`auxclick`](/de/docs/Web/API/Element/auxclick_event)
+    - [`click`](/de/docs/Web/API/Element/click_event)
+    - [`dblclick`](/de/docs/Web/API/Element/dblclick_event)
+    - [`mousedown`](/de/docs/Web/API/Element/mousedown_event)
+    - [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)
+    - [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event)
+    - [`mousemove`](/de/docs/Web/API/Element/mousemove_event)
+    - [`mouseout`](/de/docs/Web/API/Element/mouseout_event)
+    - [`mouseover`](/de/docs/Web/API/Element/mouseover_event)
+    - [`mouseup`](/de/docs/Web/API/Element/mouseup_event)
+    - [`wheel`](/de/docs/Web/API/Element/wheel_event)
+    - [`beforeinput`](/de/docs/Web/API/Element/beforeinput_event)
+    - [`input`](/de/docs/Web/API/Element/input_event)
+    - [`keydown`](/de/docs/Web/API/Element/keydown_event)
+    - [`keyup`](/de/docs/Web/API/Element/keyup_event)
+    - [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event)
+    - [`compositionupdate`](/de/docs/Web/API/Element/compositionupdate_event)
+    - [`compositionend`](/de/docs/Web/API/Element/compositionend_event)
+    - [`load`](/de/docs/Web/API/SVGElement/load_event)
+    - [`unload`](/de/docs/Web/API/SVGElement/unload_event)
+    - [`abort`](/de/docs/Web/API/SVGElement/abort_event)
+    - [`error`](/de/docs/Web/API/HTMLElement/error_event)
+    - [`select`](/de/docs/Web/API/HTMLInputElement/select_event)
+    - [`resize`](/de/docs/Web/API/Window/resize_event)
+    - [`scroll`](/de/docs/Web/API/Element/scroll_event)
+    - [`beginEvent`](/de/docs/Web/API/SVGAnimationElement/beginEvent_event)
+    - [`endEvent`](/de/docs/Web/API/SVGAnimationElement/endEvent_event)
+    - [`repeatEvent`](/de/docs/Web/API/SVGAnimationElement/repeatEvent_event)
 
-    Ein optionaler Offset-Wert wie im `<offset-value>` kann angehängt werden.
+    Ein optionaler Offset-Wert wie in `<offset-value>` kann angehängt werden.
 
 - `<repeat-value>`
 
-  - : Dieser Wert definiert ein qualifiziertes Wiederholungsereignis. Die Animationseendzeit des Elements wird relativ zu dem Zeitpunkt definiert, zu dem das Wiederholungsereignis mit dem angegebenen Iterationswert ausgelöst wird.
+  - : Dieser Wert definiert ein qualifiziertes Wiederholungsereignis. Die Endzeit der Elementanimation wird relativ zu dem Zeitpunkt definiert, an dem das Wiederholungsereignis mit dem angegebenen Wiederholungswert ausgelöst wird.
 
-    Ein gültiger Wiederholungswert besteht aus einer Element-ID, gefolgt von einem Punkt und der Funktion `repeat()` mit einem ganzzahligen Wert, der die Anzahl der Wiederholungen als Parameter angibt. Ein optionaler Offset-Wert wie im `<offset-value>` kann angehängt werden.
+    Ein gültiger repeat-value besteht aus einer Element-ID, gefolgt von einem Punkt und der Funktion `repeat()` mit einem ganzzahligen Wert, der die Anzahl der Wiederholungen als Parameter angibt. Ein optionaler Offset-Wert wie in `<offset-value>` kann angehängt werden.
 
 - `<accessKey-value>`
 
-  - : Dieser Wert definiert einen Accesskey, der das Ende der Animation auslösen soll. Die Animation des Elements endet, wenn der Benutzer die angegebene Taste drückt.
+  - : Dieser Wert definiert eine Zugriffstaste, die das Ende der Animation auslösen soll. Die Animation des Elements endet, wenn der Benutzer die angegebene Taste drückt.
 
-    Ein gültiger accessKey-Wert besteht aus der Funktion `accessKey()` mit dem einzugebenden Zeichen als Parameter. Ein optionaler Offset-Wert wie im `<offset-value>` kann angehängt werden.
+    Ein gültiger accessKey-value besteht aus der Funktion `accessKey()` mit dem einzugebenden Zeichen als Parameter. Ein optionaler Offset-Wert wie in `<offset-value>` kann angehängt werden.
 
 - `<wallclock-sync-value>`
 
-  - : Dieser Wert definiert die Animationseendzeit als reale Uhrzeit.
+  - : Dieser Wert definiert die Endzeit der Animation als Uhrzeit in der realen Welt.
 
-    Ein gültiger wallclock-sync-Wert besteht aus der Funktion `wallclock()` mit einem Zeitwert als Parameter. Die Zeitsyntax basiert auf der im [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) definierten Syntax.
+    Ein gültiger wallclock-sync-value besteht aus der Funktion `wallclock()` mit einem Zeitwert als Parameter. Die Zeit-Syntax basiert auf der in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) definierten Syntax.
 
 - `indefinite`
-  - : Das Ende der Animation wird durch einen Aufruf der Methode {{domxref("SVGAnimationElement.endElement()")}} bestimmt.
+  - : Das Ende der Animation wird durch einen Methodenaufruf von [`SVGAnimationElement.endElement()`](/de/docs/Web/API/SVGAnimationElement/endElement) bestimmt.
 
 ## Beispiele
 

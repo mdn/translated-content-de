@@ -8,19 +8,15 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die schreibgeschützte **`filesystem`**
-Eigenschaft des {{domxref("FileSystemEntry")}}-Interfaces enthält ein
-{{domxref("FileSystem")}}-Objekt, das das Dateisystem darstellt, auf dem sich der Eintrag
-befindet.
+Die schreibgeschützte **`filesystem`**-Eigenschaft des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)-Interfaces enthält ein [`FileSystem`](/de/docs/Web/API/FileSystem)-Objekt, das das Dateisystem repräsentiert, auf dem sich der Eintrag befindet.
 
 ## Wert
 
-Ein {{domxref("FileSystem")}}, das das Dateisystem darstellt, auf dem sich die durch das `FileSystemEntry` beschriebene Datei oder das Verzeichnis befindet.
+Ein [`FileSystem`](/de/docs/Web/API/FileSystem), das das Dateisystem repräsentiert, auf dem sich die durch das `FileSystemEntry` beschriebene Datei oder das Verzeichnis befindet.
 
 ## Beispiele
 
-Dieses Beispiel erhält ein {{domxref("FileSystemDirectoryEntry")}} für das Stammverzeichnis
-des Dateisystems, das eine Datei enthält.
+Dieses Beispiel erhält ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) für das Stammverzeichnis des Dateisystems, das eine Datei enthält.
 
 ```js
 let rootDirEntry = fileEntry.filesystem.root;
@@ -30,7 +26,7 @@ let rootDirEntry = fileEntry.filesystem.root;
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -38,5 +34,5 @@ let rootDirEntry = fileEntry.filesystem.root;
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
 - [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
-- {{domxref("FileSystemEntry")}}
-- {{domxref("FileSystem")}}
+- [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry)
+- [`FileSystem`](/de/docs/Web/API/FileSystem)

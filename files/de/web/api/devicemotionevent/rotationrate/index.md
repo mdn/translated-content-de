@@ -8,21 +8,22 @@ l10n:
 
 {{APIRef("Device Orientation Events")}}{{securecontext_header}}
 
-Die **`rotationRate`**-Eigenschaft der {{domxref("DeviceMotionEvent")}}-Schnittstelle gibt die Rate zurück, mit der das Gerät um jede seiner Achsen in Grad pro Sekunde rotiert.
+Die schreibgeschützte **`rotationRate`**-Eigenschaft des [`DeviceMotionEvent`](/de/docs/Web/API/DeviceMotionEvent)-Interfaces gibt die Geschwindigkeit an, mit der sich das Gerät in Grad pro Sekunde um jede seiner Achsen dreht.
 
 > [!NOTE]
-> Wenn die Hardware nicht in der Lage ist, diese Information bereitzustellen, gibt diese Eigenschaft `null` zurück.
+> Wenn die Hardware nicht in der Lage ist, diese
+> Informationen bereitzustellen, gibt diese Eigenschaft `null` zurück.
 
 ## Wert
 
-Die `rotationRate`-Eigenschaft ist ein schreibgeschütztes Objekt, das die Rotationsraten des Geräts um jede seiner Achsen beschreibt:
+Die `rotationRate`-Eigenschaft ist ein schreibgeschütztes Objekt, das die Rotationsgeschwindigkeiten des Geräts um jede seiner Achsen beschreibt:
 
 - `alpha`
-  - : Die Rate, mit der das Gerät um seine Z-Achse rotiert; also eine Verdrehung um eine Linie senkrecht zum Bildschirm.
+  - : Die Geschwindigkeit, mit der sich das Gerät um seine Z-Achse dreht; das heißt, es wird um eine Linie gedreht, die senkrecht zum Bildschirm steht.
 - `beta`
-  - : Die Rate, mit der das Gerät um seine X-Achse rotiert; das heißt, von vorne nach hinten.
+  - : Die Geschwindigkeit, mit der sich das Gerät um seine X-Achse dreht; das heißt, von vorne nach hinten.
 - `gamma`
-  - : Die Rate, mit der das Gerät um seine Y-Achse rotiert; das heißt, von Seite zu Seite.
+  - : Die Geschwindigkeit, mit der sich das Gerät um seine Y-Achse dreht; das heißt, von Seite zu Seite.
 
 ## Spezifikationen
 
@@ -34,6 +35,6 @@ Die `rotationRate`-Eigenschaft ist ein schreibgeschütztes Objekt, das die Rotat
 
 ## Siehe auch
 
-- {{domxref("Device orientation events/Detecting device orientation", "Erkennung der Geräteausrichtung", "", "nocode")}}
-- {{domxref("Device orientation events/Orientation and motion data explained", "Orientierungs- und Bewegungsdaten erklärt", "", "nocode")}}
-- {{DOMxRef("Window/devicemotion_event", "devicemotion")}}-Event
+- [Erkennung der Geräteausrichtung](/de/docs/Web/API/Device_orientation_events/Detecting_device_orientation)
+- [Erläuterung von Orientierungs- und Bewegungsdaten](/de/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)
+- [`devicemotion`](/de/docs/Web/API/Window/devicemotion_event) Ereignis

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Remote Playback API")}}
 
-Das **`disconnect`**-Ereignis des {{domxref("RemotePlayback")}}-Interfaces wird ausgelöst, wenn der Benutzeragent die Verbindung zum Remote-Gerät trennt.
+Das **`disconnect`**-Ereignis der [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Schnittstelle wird ausgelöst, wenn der Benutzeragent die Verbindung zum entfernten Gerät trennt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}} oder setzen Sie eine Ereignishandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("disconnect", (event) => {});
@@ -22,11 +22,11 @@ ondisconnect = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Im folgenden Beispiel wird der Wert von {{domxref("RemotePlayback.state")}} in die Konsole ausgegeben, wenn der Benutzeragent die Verbindung zum Remote-Gerät trennt.
+Im folgenden Beispiel wird der Wert von [`RemotePlayback.state`](/de/docs/Web/API/RemotePlayback/state) in die Konsole ausgegeben, wenn der Benutzeragent die Verbindung zum entfernten Gerät trennt.
 
 ```js
 RemotePlayback.ondisconnect = () => {

@@ -9,25 +9,23 @@ l10n:
 {{APIRef("WebGL")}}
 
 Die **`WEBGL_multi_draw`** Erweiterung ist Teil der
-[WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht das Rendern von mehr
-als einem Primitive mit einem einzigen Funktionsaufruf. Dies kann die Leistung einer WebGL-Anwendung verbessern,
-da es die Bindungskosten im Renderer reduziert und die GPU-Thread-Zeit mit einheitlichen Daten beschleunigt.
+[WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht das Rendern von mehr als einem Primitive mit einem einzigen Funktionsaufruf. Dies kann die Leistung einer WebGL-Anwendung verbessern, da es Bindungskosten im Renderer reduziert und die GPU-Thread-Zeit mit einheitlichen Daten beschleunigt.
 
 Wenn diese Erweiterung aktiviert ist:
 
 - Neue Methoden, die mehrere Argumentlisten in einem Aufruf verarbeiten, werden hinzugefügt
   (siehe Methodenliste unten).
-- Die integrierte Funktion `gl_DrawID` wird zur Shading-Sprache hinzugefügt.
+- Das eingebaute `gl_DrawID` wird zur Shading-Sprache hinzugefügt.
 
 > [!NOTE]
-> Diese Erweiterung ist sowohl für
-> {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}} als auch für
-> {{domxref("WebGL2RenderingContext", "WebGL 2", "", 1)}} Kontexte verfügbar.
+> Diese Erweiterung ist sowohl in
+> {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}} als auch in
+> {{domxref("WebGL2RenderingContext", "WebGL 2", "", 1)}} Kontexten verfügbar.
 >
 > Im Shader-Code muss die Direktive `#extension GL_ANGLE_multi_draw`
 > aufgerufen werden, um die Erweiterung zu aktivieren.
 >
-> Diese Erweiterung aktiviert implizit die {{domxref("ANGLE_instanced_arrays")}} Erweiterung.
+> Diese Erweiterung aktiviert implizit die [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays) Erweiterung.
 
 ## Instanzmethoden
 
@@ -48,11 +46,10 @@ Wenn diese Erweiterung aktiviert ist:
 
 Hinweis: Obwohl der Erweiterungsname `WEBGL_multi_draw` lautet,
 muss die Erweiterung mit der Direktive `#extension GL_ANGLE_multi_draw`
-aktiviert werden, um die Erweiterung in einem Shader zu verwenden.
+aktiviert werden, um im Shader verwendet werden zu können.
 
-Wenn diese Erweiterung aktiviert ist, kann die integrierte Funktion `gl_DrawID`
-im Shader-Code verwendet werden. Bei jedem `multi*`-Zeichenaufruf-Variante,
-kann der Index des Draws `i` vom Vertex-Shader als `gl_DrawID` gelesen werden. Für nicht-`multi*`-Aufrufe ist der Wert von
+Wenn diese Erweiterung aktiviert ist, kann das eingebaute `gl_DrawID` im Shader-Code verwendet werden. Für jede `multi*`-Draw-Aufrufvariante
+kann der Index des Draws `i` vom Vertex-Shader als `gl_DrawID` gelesen werden. Für nicht-`multi*`-Aufrufe beträgt der Wert von
 `gl_DrawID` `0`.
 
 ```html
@@ -66,9 +63,9 @@ kann der Index des Draws `i` vom Vertex-Shader als `gl_DrawID` gelesen werden. F
 
 ## Beispiele
 
-### Aktivieren der Erweiterung
+### Aktivierung der Erweiterung
 
-WebGL-Erweiterungen sind über die Methode {{domxref("WebGLRenderingContext.getExtension()")}} verfügbar.
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar.
 Weitere Informationen finden Sie unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions)
 im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
 
@@ -82,14 +79,14 @@ Beispielaufrufe für [`ext.multiDrawArraysWEBGL()`](/de/docs/Web/API/WEBGL_multi
 und [`ext.multiDrawArraysInstancedWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawArraysInstancedWEBGL):
 
 ```js
-// multiDrawArrays Variante
+// multiDrawArrays variant
 const firsts = new Int32Array(/* … */);
 const counts = new Int32Array(/* … */);
 ext.multiDrawArraysWEBGL(gl.TRIANGLES, firsts, 0, counts, 0, firsts.length);
 ```
 
 ```js
-// multiDrawArraysInstanced Variante
+// multiDrawArraysInstanced variant
 const firsts = new Int32Array(/* … */);
 const counts = new Int32Array(/* … */);
 const instanceCounts = new Int32Array(/* … */);
@@ -110,11 +107,11 @@ ext.multiDrawArraysInstancedWEBGL(
 Beispielaufrufe für [`ext.multiDrawElementsWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawElementsWEBGL)
 und [`ext.multiDrawElementsInstancedWEBGL()`](/de/docs/Web/API/WEBGL_multi_draw/multiDrawElementsInstancedWEBGL).
 
-Es wird davon ausgegangen, dass die Indizes, die zuvor in den
-`ELEMENT_ARRAY_BUFFER` hochgeladen wurden, als `UNSIGNED_SHORT` zu behandeln sind.
+Es wird angenommen, dass die zuvor in den
+`ELEMENT_ARRAY_BUFFER` hochgeladenen Indizes als `UNSIGNED_SHORT` behandelt werden sollen.
 
 ```js
-// multiDrawElements Variante
+// multiDrawElements variant
 const counts = new Int32Array(/* … */);
 const offsets = new Int32Array(/* … */);
 ext.multiDrawElementsWEBGL(
@@ -129,7 +126,7 @@ ext.multiDrawElementsWEBGL(
 ```
 
 ```js
-// multiDrawElementsInstanced Variante
+// multiDrawElementsInstanced variant
 const counts = new Int32Array(/* … */);
 const offsets = new Int32Array(/* … */);
 const instanceCounts = new Int32Array(/* … */);
@@ -156,9 +153,9 @@ ext.multiDrawElementsInstancedWEBGL(
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.drawArrays()")}}
-- {{domxref("WebGLRenderingContext.drawElements()")}}
-- {{domxref("ANGLE_instanced_arrays.drawArraysInstancedANGLE()")}} oder
-  in WebGL 2: {{domxref("WebGL2RenderingContext.drawArraysInstanced()")}}
-- {{domxref("ANGLE_instanced_arrays.drawElementsInstancedANGLE()")}} oder
-  in WebGL 2: {{domxref("WebGL2RenderingContext.drawElementsInstanced()")}}
+- [`WebGLRenderingContext.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays)
+- [`WebGLRenderingContext.drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements)
+- [`ANGLE_instanced_arrays.drawArraysInstancedANGLE()`](/de/docs/Web/API/ANGLE_instanced_arrays/drawArraysInstancedANGLE) oder
+  in WebGL 2: [`WebGL2RenderingContext.drawArraysInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced)
+- [`ANGLE_instanced_arrays.drawElementsInstancedANGLE()`](/de/docs/Web/API/ANGLE_instanced_arrays/drawElementsInstancedANGLE) oder
+  in WebGL 2: [`WebGL2RenderingContext.drawElementsInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced)

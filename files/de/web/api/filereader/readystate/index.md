@@ -8,31 +8,30 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`readyState`**-Eigenschaft der {{domxref("FileReader")}}-Schnittstelle gibt den aktuellen Status des Lesevorgangs an.
-Dies wird einer der folgenden Zustände sein: `EMPTY`, `LOADING` oder `DONE`.
+Die schreibgeschützte **`readyState`**-Eigenschaft des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces gibt den aktuellen Zustand des Lesevorgangs an. Dies wird einer der Zustände sein: `EMPTY`, `LOADING` oder `DONE`.
 
 ## Wert
 
-Eine Zahl, die einer der drei möglichen Zustandskonstanten ist, die auf der {{domxref("FileReader")}}-Schnittstelle definiert sind:
+Eine Zahl, die einer der drei möglichen Zustandskonstanten ist, die im [`FileReader`](/de/docs/Web/API/FileReader)-Interface definiert sind:
 
 - `FileReader.EMPTY` (0)
-  - : Der Reader wurde erstellt, aber keine der Lesemethoden wurde bisher aufgerufen.
+  - : Der Reader wurde erstellt, aber keiner der Lesemethoden wurde bisher aufgerufen.
 - `FileReader.LOADING` (1)
-  - : Eine Lesemethode wurde aufgerufen. Eine {{domxref("File")}} oder ein {{domxref("Blob")}} wird gelesen, und es ist noch kein Fehler aufgetreten.
+  - : Eine Lesemethode wurde aufgerufen. Eine [`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob) wird gelesen, und es ist noch kein Fehler aufgetreten.
 - `FileReader.DONE` (2)
-  - : Der Lesevorgang ist abgeschlossen. Dies könnte bedeuten, dass: die gesamte {{domxref("File")}} oder der gesamte {{domxref("Blob")}} in den Speicher gelesen wurde, ein Lesefehler aufgetreten ist, oder {{domxref("FileReader.abort()", "abort()")}} aufgerufen wurde und der Lesevorgang abgebrochen wurde.
+  - : Der Lesevorgang ist abgeschlossen. Dies könnte bedeuten: die gesamte [`File`](/de/docs/Web/API/File) oder [`Blob`](/de/docs/Web/API/Blob) wurde in den Speicher gelesen, ein Fehler beim Lesen der Datei ist aufgetreten, oder [`abort()`](/de/docs/Web/API/FileReader/abort) wurde aufgerufen und das Lesen wurde abgebrochen.
 
 ## Beispiele
 
 ```js
 const reader = new FileReader();
-console.log("EMPTY", reader.readyState); // readyState wird 0 sein
+console.log("EMPTY", reader.readyState); // readyState will be 0
 
 reader.readAsText(blob);
-console.log("LOADING", reader.readyState); // readyState wird 1 sein
+console.log("LOADING", reader.readyState); // readyState will be 1
 
 reader.onloadend = () => {
-  console.log("DONE", reader.readyState); // readyState wird 2 sein
+  console.log("DONE", reader.readyState); // readyState will be 2
 };
 ```
 
@@ -46,4 +45,4 @@ reader.onloadend = () => {
 
 ## Siehe auch
 
-- {{domxref("Blob")}}
+- [`Blob`](/de/docs/Web/API/Blob)

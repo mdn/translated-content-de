@@ -7,19 +7,19 @@ l10n:
 
 {{CSSRef}}
 
-Der **`::first-line`**-[CSS](/de/docs/Web/CSS)-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf die erste Zeile eines [Blockcontainers](/de/docs/Web/CSS/Visual_formatting_model#block_containers) an.
+Das **`::first-line`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) wendet Stile auf die erste Zeile eines [Block-Containers](/de/docs/Web/CSS/Visual_formatting_model#block_containers) an.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-element-first-line.html", "tabbed-shorter")}}
 
-Die Auswirkungen von `::first-line` sind beschränkt auf die Länge und den Inhalt der ersten Textzeile im Element. Die Länge der ersten Zeile hängt von vielen Faktoren ab, einschließlich der Breite des Elements, der Breite des Dokuments und der Schriftgröße. `::first-line` hat keine Wirkung, wenn das erste Kind des Elements, das der erste Teil der ersten Zeile wäre, ein inline-Blockelement ist, wie z.B. eine inline-Tabelle.
+Die Effekte von `::first-line` sind durch die Länge und den Inhalt der ersten Textzeile im Element begrenzt. Die Länge der ersten Zeile hängt von vielen Faktoren ab, darunter die Breite des Elements, die Breite des Dokuments und die Schriftgröße des Textes. `::first-line` hat keine Wirkung, wenn das erste Kindelement des Elements, das der erste Teil der ersten Zeile wäre, ein Inline-Blockelement ist, wie z.B. eine Inline-Tabelle.
 
-> **Note:** [Selectors Level 3](https://drafts.csswg.org/selectors-3/#first-line) führte die Doppelpunkt-Notation (`::`) ein, um [Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements) von den einfachen Pseudoklassen (`:`) zu unterscheiden. Browser akzeptieren sowohl `::first-line` als auch `:first-line`, welches in CSS2 eingeführt wurde.
+> **Note:** [Selectors Level 3](https://drafts.csswg.org/selectors-3/#first-line) führte die Doppelpunkt-Notation (`::`) ein, um [Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements) von den einfach-doppelpunkt-([pseudo-classes](/de/docs/Web/CSS/Pseudo-classes)) zu unterscheiden. Browser akzeptieren sowohl `::first-line` als auch `:first-line`, welches in CSS2 eingeführt wurde.
 
-Für die Zwecke von CSS {{CSSXref("background")}} ist das `::first-line`-Pseudoelement wie ein inline-level Element, was bedeutet, dass bei einer linksbündigen ersten Zeile der Hintergrund möglicherweise nicht bis zum rechten Rand reicht.
+Für die Zwecke von CSS {{CSSXref("background")}} ist das `::first-line`-Pseudo-Element wie ein Inline-Level-Element, was bedeutet, dass bei einer linksbündigen ersten Zeile der Hintergrund möglicherweise nicht bis zum rechten Rand reicht.
 
 ## Zulässige Eigenschaften
 
-Nur eine kleine Untermenge von CSS-Eigenschaften kann mit dem `::first-line`-Pseudoelement verwendet werden:
+Nur eine kleine Untermenge von CSS-Eigenschaften kann mit dem `::first-line`-Pseudo-Element verwendet werden:
 
 - Alle schriftbezogenen Eigenschaften: {{Cssxref("font")}}, {{cssxref("font-kerning")}}, {{Cssxref("font-style")}}, {{Cssxref("font-variant")}}, {{cssxref("font-variant-numeric")}}, {{cssxref("font-variant-position")}}, {{cssxref("font-variant-east-asian")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-variant-alternates")}}, {{cssxref("font-variant-ligatures")}}, {{cssxref("font-synthesis")}}, {{cssxref("font-feature-settings")}}, {{cssxref("font-language-override")}}, {{Cssxref("font-weight")}}, {{Cssxref("font-size")}}, {{cssxref("font-size-adjust")}}, {{cssxref("font-stretch")}}, und {{Cssxref("font-family")}}
 - Alle hintergrundbezogenen Eigenschaften: {{Cssxref("background-color")}}, {{cssxref("background-clip")}}, {{Cssxref("background-image")}}, {{cssxref("background-origin")}}, {{Cssxref("background-position")}}, {{Cssxref("background-repeat")}}, {{cssxref("background-size")}}, {{cssxref("background-attachment")}}, und {{cssxref("background-blend-mode")}}
@@ -37,7 +37,7 @@ Nur eine kleine Untermenge von CSS-Eigenschaften kann mit dem `::first-line`-Pse
 
 ## Beispiele
 
-### Stil der ersten Zeile eines Absatzes
+### Stilierung der ersten Zeile eines Absatzes
 
 #### HTML
 
@@ -78,12 +78,12 @@ Nur eine kleine Untermenge von CSS-Eigenschaften kann mit dem `::first-line`-Pse
 
 {{EmbedLiveSample('styling_first_line_of_a_paragraph', 350, 130)}}
 
-### Stil der ersten Zeile eines SVG-Text-Elements
+### Stilierung der ersten Zeile eines SVG-Text-Elements
 
-In diesem Beispiel stylen wir die erste Zeile eines SVG-{{SVGElement("text")}}-Elements unter Verwendung des `::first-line`-Pseudoelements.
+In diesem Beispiel gestalten wir die erste Zeile eines SVG-{{SVGElement("text")}}-Elements mit dem `::first-line`-Pseudo-Element.
 
 > [!NOTE]
-> Zum Zeitpunkt der Erstellung dieses Features hat es [eingeschränkte Unterstützung](#browser-kompatibilität).
+> Zum Zeitpunkt der Erstellung dieses Dokuments hat diese Funktion [begrenzte Unterstützung](#browser-kompatibilität).
 
 #### HTML
 
@@ -100,7 +100,7 @@ in a text editor.
 
 #### CSS
 
-Um das SVG-`<text>`-Element in mehrere Zeilen umzubrechen, verwenden wir die {{cssxref("white-space", "", "#multiple_lines_in_svg_text_element")}}-CSS-Eigenschaft. Wir wählen dann die erste Zeile mit dem `::first-line`-Pseudoelement aus.
+Um das SVG-`<text>`-Element auf mehrere Zeilen umzubrechen, verwenden wir die {{cssxref("white-space", "", "#multiple_lines_in_svg_text_element")}}-CSS-Eigenschaft. Wir wählen dann die erste Zeile mit dem `::first-line`-Pseudo-Element aus.
 
 ```css hidden
 text {

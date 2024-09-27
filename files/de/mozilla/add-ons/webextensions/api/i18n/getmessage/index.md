@@ -9,7 +9,7 @@ l10n:
 
 Ruft den lokalisierten String für die angegebene Nachricht ab.
 
-Sehen Sie die [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization) Seite für eine Anleitung zur Verwendung dieser Funktion.
+Siehe die Seite [Internationalisierung](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization) für einen Leitfaden zur Verwendung dieser Funktion.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ browser.i18n.getMessage(
 
 - `messageName`
 
-  - : `string`. Der Name der Nachricht, wie im messages.json-File angegeben. Wenn die Nachricht in messages.json nicht gefunden werden kann:
+  - : `string`. Der Name der Nachricht, wie in der messages.json-Datei angegeben. Wenn die Nachricht in messages.json nicht gefunden werden kann:
 
     - Firefox gibt "" zurück und protokolliert einen Fehler.
     - Chrome gibt "" zurück und protokolliert keinen Fehler.
@@ -33,11 +33,11 @@ browser.i18n.getMessage(
 
   - : `string` oder `array` von `string`. Ein einzelner Ersetzungsstring oder ein Array von Ersetzungsstrings.
 
-    In Chrome, wenn Sie mehr als 9 Ersetzungsstrings übergeben, wird `getMessage()` `undefined` zurückgeben.
+    In Chrome, wenn mehr als 9 Ersetzungsstrings angegeben werden, wird `getMessage()` `undefined` zurückgeben.
 
 ### Rückgabewert
 
-`string`. Nachricht, die für die aktuelle Locale lokalisiert ist.
+`string`. Nachricht lokalisiert für das aktuelle Gebietsschema.
 
 ## Browser-Kompatibilität
 
@@ -45,14 +45,14 @@ browser.i18n.getMessage(
 
 ## Beispiele
 
-Rufen Sie den lokalisierten String für `"messageContent"` ab, mit `target.url` ersetzt:
+Holen Sie sich den lokalisierten String für `"messageContent"`, mit `target.url` substituiert:
 
 ```js
 let message = browser.i18n.getMessage("messageContent", target.url);
 console.log(message);
 ```
 
-Dies würde mit einer \_locales/en/messages.json Datei funktionieren, die Folgendes enthält:
+Dies würde mit einer \_locales/en/messages.json-Datei funktionieren, die enthält:
 
 ```json
 {
@@ -69,7 +69,7 @@ Dies würde mit einer \_locales/en/messages.json Datei funktionieren, die Folgen
 }
 ```
 
-Wenn `target.url` "https\://developer.mozilla.org" ist, dann wäre der Wert der Nachricht, in der "en" Locale:
+Wenn `target.url` "https\://developer.mozilla.org" ist, dann wäre der Wert der Nachricht im "en"-Gebietsschema:
 
 ```plain
 "You clicked https://developer.mozilla.org."
@@ -78,7 +78,7 @@ Wenn `target.url` "https\://developer.mozilla.org" ist, dann wäre der Wert der 
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#method-getMessage) API. Diese Dokumentation wurde von [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.i18n`](https://developer.chrome.com/docs/extensions/reference/api/i18n#method-getMessage) API von Chromium. Diese Dokumentation ist abgeleitet von [`i18n.json`](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/extensions/common/api/i18n.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

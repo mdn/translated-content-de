@@ -7,11 +7,11 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Capabilities")}}
 
-Die **`acceptInsecureCerts` Fähigkeit** gibt an, ob abgelaufene oder ungültige [TLS-Zertifikate](/de/docs/Glossary/TLS) überprüft werden, wenn beim [Navigieren](/de/docs/Web/WebDriver/Commands/NavigateTo) darauf gestoßen wird. Wenn diese Fähigkeit auf false gesetzt ist, wird ein Fehler wegen eines [unsicheren Zertifikats](/de/docs/Web/WebDriver/Errors/InsecureCertificate) zurückgegeben, wenn bei der Navigation auf Domains mit Zertifikatsproblemen gestoßen wird. Andernfalls werden selbstsignierte oder anderweitig ungültige Zertifikate vom Browser bei der Navigation implizit vertraut. Die Fähigkeit gilt für die gesamte Dauer der Sitzung.
+Die **`acceptInsecureCerts`-Eigenschaft** gibt an, ob abgelaufene oder ungültige [TLS-Zertifikate](/de/docs/Glossary/TLS) beim [Navigieren](/de/docs/Web/WebDriver/Commands/NavigateTo) überprüft werden. Wenn die Eigenschaft auf false gesetzt ist, wird ein Fehler bezüglich eines [unsicheren Zertifikats](/de/docs/Web/WebDriver/Errors/InsecureCertificate) zurückgegeben, wenn bei der Navigation auf Domänen mit Zertifikatsproblemen gestoßen wird. Andernfalls werden selbstsignierte oder anderweitig ungültige Zertifikate bei der Navigation vom Browser implizit vertraut. Die Eigenschaft hat Auswirkungen für die gesamte Lebensdauer der Sitzung.
 
 ## Beispiel
 
-Mit der Fähigkeit `acceptInsecureCerts` können Sie TLS-Zertifikate, die vom Zertifikatsdienst im Browser nicht vertraut werden, umgehen oder implizit vertrauen:
+Mit der `acceptInsecureCerts`-Eigenschaft können Sie TLS-Zertifikate umgehen oder diesen implizit vertrauen, wenn der Zertifikatsservice im Browser ihnen nicht vertraut:
 
 ```python
 from selenium import webdriver
@@ -30,6 +30,6 @@ https://self-signed.badssl.com/
 
 ## Siehe auch
 
-- [Liste der WebDriver-Fähigkeiten](/de/docs/Web/WebDriver/Capabilities)
-- [Navigate To](/de/docs/Web/WebDriver/Commands/NavigateTo) Befehl
-- [New Session](/de/docs/Web/WebDriver/Commands/NewSession) Befehl
+- [Liste der WebDriver-Eigenschaften](/de/docs/Web/WebDriver/Capabilities)
+- Befehl [Navigate To](/de/docs/Web/WebDriver/Commands/NavigateTo)
+- Befehl [New Session](/de/docs/Web/WebDriver/Commands/NewSession)

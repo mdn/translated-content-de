@@ -7,85 +7,85 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLSelectElement`** Schnittstelle repräsentiert ein {{HTMLElement("select")}} HTML Element. Diese Elemente teilen auch alle Eigenschaften und Methoden anderer HTML-Elemente über die {{domxref("HTMLElement")}} Schnittstelle.
+Die **`HTMLSelectElement`**-Schnittstelle repräsentiert ein {{HTMLElement("select")}} HTML-Element. Diese Elemente teilen auch alle Eigenschaften und Methoden anderer HTML-Elemente über die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Diese Schnittstelle erbt die Eigenschaften von {{domxref("HTMLElement")}}, sowie von {{domxref("Element")}} und {{domxref("Node")}}._
+_Diese Schnittstelle erbt die Eigenschaften von [`HTMLElement`](/de/docs/Web/API/HTMLElement), und von [`Element`](/de/docs/Web/API/Element) und [`Node`](/de/docs/Web/API/Node)._
 
-- {{domxref("HTMLSelectElement.disabled")}}
-  - : Ein boolescher Wert, der das [`disabled`](/de/docs/Web/HTML/Element/select#disabled) HTML-Attribut widerspiegelt, welches anzeigt, ob das Steuerelement deaktiviert ist. Wenn es deaktiviert ist, akzeptiert es keine Klicks.
-- {{domxref("HTMLSelectElement.form")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("HTMLFormElement")}}, das das Formular referenziert, mit dem dieses Element verknüpft ist. Wenn das Element nicht mit einem {{HTMLElement("form")}} verknüpft ist, gibt es `null` zurück.
-- {{domxref("HTMLSelectElement.labels")}} {{ReadOnlyInline}}
-  - : Eine {{domxref("NodeList")}} von {{HTMLElement("label")}} Elementen, die dem Element zugeordnet sind.
-- {{domxref("HTMLSelectElement.length")}}
-  - : Ein `unsigned long`. Die Anzahl der {{HTMLElement("option")}} Elemente in diesem `select` Element.
-- {{domxref("HTMLSelectElement.multiple")}}
-  - : Ein boolescher Wert, der das [`multiple`](/de/docs/Web/HTML/Element/select#multiple) HTML-Attribut widerspiegelt, welches angibt, ob mehrere Elemente ausgewählt werden können.
-- {{domxref("HTMLSelectElement.name")}}
-  - : Ein String, der das [`name`](/de/docs/Web/HTML/Element/select#name) HTML-Attribut widerspiegelt und den Namen dieses Steuerelements enthält, der von Servern und DOM-Suchfunktionen verwendet wird.
-- {{domxref("HTMLSelectElement.options")}} {{ReadOnlyInline}}
-  - : Eine {{domxref("HTMLOptionsCollection")}} die die Menge der in diesem Element enthaltenen {{HTMLElement("option")}} ({{domxref("HTMLOptionElement")}}) Elemente repräsentiert.
-- {{domxref("HTMLSelectElement.required")}}
-  - : Ein boolescher Wert, der das [`required`](/de/docs/Web/HTML/Element/select#required) HTML-Attribut widerspiegelt, welches angibt, ob der Benutzer vor dem Absenden des Formulars einen Wert auswählen muss.
-- {{domxref("HTMLSelectElement.selectedIndex")}}
-  - : Ein `long`, der den Index des ersten ausgewählten {{HTMLElement("option")}} Elements widerspiegelt. Der Wert `-1` zeigt an, dass kein Element ausgewählt ist.
-- {{domxref("HTMLSelectElement.selectedOptions")}} {{ReadOnlyInline}}
-  - : Eine {{domxref("HTMLCollection")}} die die Menge der ausgewählten {{HTMLElement("option")}} Elemente repräsentiert.
-- {{domxref("HTMLSelectElement.size")}}
-  - : Ein `long`, der das [`size`](/de/docs/Web/HTML/Element/select#size) HTML-Attribut widerspiegelt, das die Anzahl der sichtbaren Elemente im Steuerelement enthält. Der Standardwert ist 1, es sei denn, `multiple` ist `true`, in diesem Fall ist es 4.
-- {{domxref("HTMLSelectElement.type")}} {{ReadOnlyInline}}
-  - : Ein String, der den Typ des Formularsteuerelements repräsentiert. Wenn `multiple` `true` ist, gibt es `"select-multiple"` zurück, andernfalls `"select-one"`.
-- {{domxref("HTMLSelectElement.validationMessage")}} {{ReadOnlyInline}}
-  - : Ein String, der eine lokalisierte Nachricht repräsentiert, die die Validierungseinschränkungen beschreibt, die das Steuerelement nicht erfüllt (falls solche bestehen). Dieser Attribut ist der leere String, wenn das Steuerelement kein Kandidat für die Validierungsbeschränkung ist (`willValidate` ist false), oder wenn es seine Einschränkungen erfüllt.
-- {{domxref("HTMLSelectElement.validity")}} {{ReadOnlyInline}}
-  - : Ein {{domxref("ValidityState")}}, der den Gültigkeitszustand widerspiegelt, in dem sich dieses Steuerelement befindet.
-- {{domxref("HTMLSelectElement.value")}}
-  - : Ein String, der den Wert des Formularsteuerelements widerspiegelt. Gibt die `value` Eigenschaft des ersten ausgewählten Optionselements zurück, wenn es eines gibt, andernfalls den leeren String.
-- {{domxref("HTMLSelectElement.willValidate")}} {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der angibt, ob der Button ein Kandidat für die Validierungsbeschränkung ist. Es ist `false`, wenn keine Bedingungen die Validierungsbeschränkung verhindern.
+- [`HTMLSelectElement.disabled`](/de/docs/Web/API/HTMLSelectElement/disabled)
+  - : Ein Boolescher Wert, der das [`disabled`](/de/docs/Web/HTML/Element/select#disabled)-HTML-Attribut widerspiegelt und angibt, ob das Steuerelement deaktiviert ist. Wenn es deaktiviert ist, akzeptiert es keine Klicks.
+- [`HTMLSelectElement.form`](/de/docs/Web/API/HTMLSelectElement/form) {{ReadOnlyInline}}
+  - : Ein [`HTMLFormElement`], das das Formular referenziert, mit dem dieses Element verbunden ist. Wenn das Element nicht mit einem {{HTMLElement("form")}}-Element verknüpft ist, gibt es `null` zurück.
+- [`HTMLSelectElement.labels`](/de/docs/Web/API/HTMLSelectElement/labels) {{ReadOnlyInline}}
+  - : Eine [`NodeList`] von {{HTMLElement("label")}}-Elementen, die mit dem Element verbunden sind.
+- [`HTMLSelectElement.length`](/de/docs/Web/API/HTMLSelectElement/length)
+  - : Ein `unsigned long`, das die Anzahl der {{HTMLElement("option")}}-Elemente in diesem `select`-Element angibt.
+- [`HTMLSelectElement.multiple`](/de/docs/Web/API/HTMLSelectElement/multiple)
+  - : Ein Boolescher Wert, der das [`multiple`](/de/docs/Web/HTML/Element/select#multiple)-HTML-Attribut widerspiegelt und angibt, ob mehrere Elemente ausgewählt werden können.
+- [`HTMLSelectElement.name`](/de/docs/Web/API/HTMLSelectElement/name)
+  - : Ein String, der das [`name`](/de/docs/Web/HTML/Element/select#name)-HTML-Attribut widerspiegelt und den Namen dieses Steuerelements enthält, der von Servern und DOM-Suchfunktionen verwendet wird.
+- [`HTMLSelectElement.options`](/de/docs/Web/API/HTMLSelectElement/options) {{ReadOnlyInline}}
+  - : Eine [`HTMLOptionsCollection`], die die Menge von {{HTMLElement("option")}} ([`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement))-Elementen darstellt, die dieses Element enthält.
+- [`HTMLSelectElement.required`](/de/docs/Web/API/HTMLSelectElement/required)
+  - : Ein Boolescher Wert, der das [`required`](/de/docs/Web/HTML/Element/select#required)-HTML-Attribut widerspiegelt und angibt, ob der Benutzer einen Wert auswählen muss, bevor das Formular übermittelt wird.
+- [`HTMLSelectElement.selectedIndex`](/de/docs/Web/API/HTMLSelectElement/selectedIndex)
+  - : Ein `long`, der den Index des ersten ausgewählten {{HTMLElement("option")}}-Elements widerspiegelt. Der Wert `-1` gibt an, dass kein Element ausgewählt ist.
+- [`HTMLSelectElement.selectedOptions`](/de/docs/Web/API/HTMLSelectElement/selectedOptions) {{ReadOnlyInline}}
+  - : Eine [`HTMLCollection`], die die Menge der ausgewählten {{HTMLElement("option")}}-Elemente darstellt.
+- [`HTMLSelectElement.size`](/de/docs/Web/API/HTMLSelectElement/size)
+  - : Ein `long`, der das [`size`](/de/docs/Web/HTML/Element/select#size)-HTML-Attribut widerspiegelt und die Anzahl der sichtbaren Elemente im Steuerelement angibt. Der Standardwert ist 1, es sei denn, `multiple` ist `true`, in diesem Fall beträgt er 4.
+- [`HTMLSelectElement.type`](/de/docs/Web/API/HTMLSelectElement/type) {{ReadOnlyInline}}
+  - : Ein String, der den Typ des Formularsteuerelements darstellt. Wenn `multiple` `true` ist, gibt es `"select-multiple"` zurück; andernfalls `"select-one"`.
+- [`HTMLSelectElement.validationMessage`](/de/docs/Web/API/HTMLSelectElement/validationMessage) {{ReadOnlyInline}}
+  - : Ein String, der eine lokalisierte Nachricht darstellt, die die Validierungsbeschränkungen beschreibt, die das Steuerelement nicht erfüllt (falls vorhanden). Dieses Attribut ist der leere String, wenn das Steuerelement kein Kandidat für die Beschränkungsvalidierung ist (`willValidate` ist false) oder seine Einschränkungen erfüllt.
+- [`HTMLSelectElement.validity`](/de/docs/Web/API/HTMLSelectElement/validity) {{ReadOnlyInline}}
+  - : Ein [`ValidityState`], der den Gültigkeitszustand widerspiegelt, in dem sich dieses Steuerelement befindet.
+- [`HTMLSelectElement.value`](/de/docs/Web/API/HTMLSelectElement/value)
+  - : Ein String, der den Wert des Formularsteuerelements widerspiegelt. Gibt die `value`-Eigenschaft des ersten ausgewählten Options-Elements zurück, falls vorhanden, ansonsten den leeren String.
+- [`HTMLSelectElement.willValidate`](/de/docs/Web/API/HTMLSelectElement/willValidate) {{ReadOnlyInline}}
+  - : Ein Boolescher Wert, der angibt, ob das Steuerelement für die Beschränkungsvalidierung in Frage kommt. Es ist `false`, wenn Bedingungen die Beschränkungsvalidierung verhindern.
 
 ## Instanzmethoden
 
-_Diese Schnittstelle erbt die Methoden von {{domxref("HTMLElement")}}, sowie von {{domxref("Element")}} und {{domxref("Node")}}._
+_Diese Schnittstelle erbt die Methoden von [`HTMLElement`](/de/docs/Web/API/HTMLElement), und von [`Element`](/de/docs/Web/API/Element) und [`Node`](/de/docs/Web/API/Node)._
 
-- {{domxref("HTMLSelectElement.add()")}}
-  - : Fügt ein Element zur Sammlung der `option` Elemente für dieses `select` Element hinzu.
-- {{domxref("HTMLSelectElement.checkValidity()")}}
-  - : Überprüft, ob das Element irgendwelche Einschränkungen hat und ob es diese erfüllt. Wenn das Element seine Einschränkungen nicht erfüllt, löst der Browser ein stornierbares {{domxref("HTMLInputElement/invalid_event", "invalid")}} Ereignis am Element aus (und gibt `false` zurück).
-- {{domxref("HTMLSelectElement.item()")}}
-  - : Holt ein Element aus der Optionssammlung für dieses {{HTMLElement("select")}} Element. Sie können auch auf ein Element zugreifen, indem Sie den Index in eckigen Klammern oder Klammern angeben, ohne diese Methode explizit aufzurufen.
-- {{domxref("HTMLSelectElement.namedItem()")}}
-  - : Holt das Element in der Optionssammlung mit dem angegebenen Namen. Der Namensstring kann entweder der `id` oder dem `name` Attribut eines Optionsknotens entsprechen. Sie können auch auf ein Element zugreifen, indem Sie den Namen in eckigen Klammern oder Klammern angeben, ohne diese Methode explizit aufzurufen.
-- {{domxref("HTMLSelectElement.remove()")}}
-  - : Entfernt das Element am angegebenen Index aus der Optionssammlung für dieses `select` Element.
-- {{domxref("HTMLSelectElement.reportValidity()")}}
-  - : Diese Methode berichtet die Probleme mit den Einschränkungen auf dem Element, falls vorhanden, dem Benutzer. Wenn es Probleme gibt, löst es ein stornierbares {{domxref("HTMLInputElement/invalid_event", "invalid")}} Ereignis am Element aus und gibt `false` zurück; wenn keine Probleme vorhanden sind, gibt es `true` zurück.
-- {{domxref("HTMLSelectElement.setCustomValidity()")}}
-  - : Setzt die benutzerdefinierte Validierungsnachricht für das Auswahlfeld auf die angegebene Nachricht. Verwenden Sie den leeren String, um anzuzeigen, dass das Element _keinen_ benutzerdefinierten Validierungsfehler hat.
-- {{domxref("HTMLSelectElement.showPicker()", "showPicker()")}}
-  - : Zeigt das Optionsauswahlelement an.
+- [`HTMLSelectElement.add()`](/de/docs/Web/API/HTMLSelectElement/add)
+  - : Fügt der Sammlung der `option`-Elemente dieses `select`-Elements ein Element hinzu.
+- [`HTMLSelectElement.checkValidity()`](/de/docs/Web/API/HTMLSelectElement/checkValidity)
+  - : Überprüft, ob das Element Einschränkungen aufweist und ob es diese erfüllt. Wenn das Element seinen Einschränkungen nicht genügt, löst der Browser ein abbrechbares [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis am Element aus (und gibt `false` zurück).
+- [`HTMLSelectElement.item()`](/de/docs/Web/API/HTMLSelectElement/item)
+  - : Ruft ein Element aus der Optionssammlung für dieses {{HTMLElement("select")}}-Element ab. Sie können auch ein Element abrufen, indem Sie den Index in eckigen Klammern oder Klammern angeben, ohne diese Methode explizit aufzurufen.
+- [`HTMLSelectElement.namedItem()`](/de/docs/Web/API/HTMLSelectElement/namedItem)
+  - : Ruft das Element in der Optionssammlung mit dem angegebenen Namen ab. Der Namens-String kann entweder mit dem `id`- oder dem `name`-Attribut eines Optionsknotens übereinstimmen. Sie können auch ein Element abrufen, indem Sie den Namen in eckigen Klammern oder Klammern angeben, ohne diese Methode explizit aufzurufen.
+- [`HTMLSelectElement.remove()`](/de/docs/Web/API/HTMLSelectElement/remove)
+  - : Entfernt das Element am angegebenen Index aus der Optionssammlung für dieses `select`-Element.
+- [`HTMLSelectElement.reportValidity()`](/de/docs/Web/API/HTMLSelectElement/reportValidity)
+  - : Diese Methode berichtet dem Benutzer über Probleme mit den Beschränkungen auf dem Element, falls vorhanden. Wenn es Probleme gibt, löst es ein abbrechbares [`invalid`](/de/docs/Web/API/HTMLInputElement/invalid_event)-Ereignis am Element aus und gibt `false` zurück; wenn keine Probleme vorliegen, gibt es `true` zurück.
+- [`HTMLSelectElement.setCustomValidity()`](/de/docs/Web/API/HTMLSelectElement/setCustomValidity)
+  - : Setzt die benutzerdefinierte Fehlermeldung für das Auswahl-Element auf die angegebene Nachricht. Verwenden Sie den leeren String, um anzugeben, dass das Element _keinen_ benutzerdefinierten Gültigkeitsfehler hat.
+- [`showPicker()`](/de/docs/Web/API/HTMLSelectElement/showPicker)
+  - : Zeigt den Optionswahlschalter an.
 
-## Events
+## Ereignisse
 
-_Diese Schnittstelle erbt die Events von {{domxref("HTMLElement")}}, sowie von {{domxref("Element")}} und {{domxref("Node")}}._
+_Diese Schnittstelle erbt die Ereignisse von [`HTMLElement`](/de/docs/Web/API/HTMLElement), und von [`Element`](/de/docs/Web/API/Element) und [`Node`](/de/docs/Web/API/Node)._
 
-Diese Events können Sie mit {{domxref("EventTarget/addEventListener", "addEventListener()")}} beachten oder indem Sie einen Event-Listener der `oneventname` Eigenschaft dieser Schnittstelle zuweisen:
+Hören Sie diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder indem Sie einen Ereignis-Listener der `oneventname`-Eigenschaft dieser Schnittstelle zuweisen:
 
-- {{domxref("HTMLElement/change_event", "change")}} Event
-  - : Wird gefeuert, wenn der Benutzer eine Option auswählt.
-- {{domxref("Element/input_event", "input")}} Event
-  - : Wird gefeuert, wenn der `value` eines {{HTMLElement("input")}}, {{HTMLElement("select")}}, oder {{HTMLElement("textarea")}} Elements geändert wurde.
+- [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis
+  - : Wird ausgelöst, wenn der Benutzer eine Option auswählt.
+- [`input`](/de/docs/Web/API/Element/input_event)-Ereignis
+  - : Wird ausgelöst, wenn der `value` eines {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}}-Elements geändert wurde.
 
 ## Beispiel
 
-### Informationen zur ausgewählten Option abrufen
+### Informationen über die ausgewählte Option abrufen
 
 ```js
-/* angenommen, wir haben folgendes HTML
+/* assuming we have the following HTML
 <select id='s'>
     <option>First</option>
     <option selected>Second</option>
@@ -95,14 +95,14 @@ Diese Events können Sie mit {{domxref("EventTarget/addEventListener", "addEvent
 
 const select = document.getElementById("s");
 
-// gibt den Index der ausgewählten Option zurück
+// return the index of the selected option
 console.log(select.selectedIndex); // 1
 
-// gibt den Wert der ausgewählten Option zurück
+// return the value of the selected option
 console.log(select.options[select.selectedIndex].value); // Second
 ```
 
-Eine bessere Möglichkeit, Änderungen an der Auswahl des Benutzers zu verfolgen, besteht darin, das Auftreten des {{domxref("HTMLElement/change_event", "change")}} Ereignisses auf dem `<select>` zu beobachten. Dies wird Ihnen mitteilen, wenn sich der Wert ändert, und Sie können dann alles aktualisieren, was Sie benötigen. Siehe [das bereitgestellte Beispiel](/de/docs/Web/API/HTMLElement/change_event#select_element) in der Dokumentation für das `change`-Ereignis für Details.
+Eine bessere Möglichkeit, Änderungen an der Auswahl des Benutzers zu verfolgen, besteht darin, auf das [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis auf dem `<select>` zu achten. Dies informiert Sie, wenn sich der Wert ändert, sodass Sie alles aktualisieren können, was Sie benötigen. Weitere Informationen finden Sie in [dem bereitgestellten Beispiel](/de/docs/Web/API/HTMLElement/change_event#select_element) in der Dokumentation für das `change`-Ereignis.
 
 ## Spezifikationen
 
@@ -114,4 +114,4 @@ Eine bessere Möglichkeit, Änderungen an der Auswahl des Benutzers zu verfolgen
 
 ## Siehe auch
 
-- Das {{HTMLElement("select")}} HTML-Element, welches diese Schnittstelle implementiert.
+- Das {{HTMLElement("select")}} HTML-Element, das diese Schnittstelle implementiert.

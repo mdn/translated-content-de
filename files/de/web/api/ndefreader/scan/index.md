@@ -8,7 +8,7 @@ l10n:
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die `scan()`-Methode der {{DOMxRef("NDEFReader")}}-Schnittstelle aktiviert ein Lesegerät und gibt ein {{jsxref("Promise")}} zurück, das entweder aufgelöst wird, wenn eine NFC-Tag-Leseoperation geplant ist, oder abgelehnt wird, wenn ein Hardware- oder Berechtigungsfehler auftritt. Diese Methode löst eine Berechtigungsabfrage aus, wenn die "nfc"-Berechtigung nicht zuvor erteilt wurde.
+Die `scan()`-Methode des [`NDEFReader`](/de/docs/Web/API/NDEFReader)-Interfaces aktiviert ein Lesegerät und gibt ein {{jsxref("Promise")}} zurück, das entweder aufgelöst wird, wenn ein NFC-Tag-Lesevorgang geplant ist, oder abgelehnt wird, wenn ein Hardware- oder Berechtigungsfehler auftritt. Diese Methode löst eine Berechtigungsanfrage aus, wenn die Berechtigung "nfc" nicht zuvor erteilt wurde.
 
 ## Syntax
 
@@ -23,28 +23,30 @@ scan(options)
   - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `signal`
-      - : Ein {{DOMxRef("AbortSignal")}}, das das Abbrechen dieser `scan()`-Operation ermöglicht.
+      - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), das das Abbrechen dieses `scan()`-Vorgangs ermöglicht.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das sofort nach Planung der Leseoperationen für den NFC-Adapter aufgelöst wird.
+Ein {{JSxRef("Promise")}}, das unmittelbar nach
+der Planung von Lesevorgängen für den NFC-Adapter aufgelöst wird.
 
 ### Ausnahmen
 
-Diese Methode wirft keine Ausnahmen; stattdessen wird das zurückgegebene Promise abgelehnt und eine {{domxref("DOMException")}} übergeben, deren `name` einer der folgenden ist:
+Diese Methode wirft keine Ausnahmen; stattdessen wird das zurückgegebene Promise abgelehnt,
+wobei ein [`DOMException`](/de/docs/Web/API/DOMException) übergeben wird, dessen `name` einer der folgenden ist:
 
-- `AbortError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn die Scan-Operation mit dem im `options`-Argument übergebenen {{DOMxRef("AbortSignal")}} abgebrochen wurde.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn bereits ein Scan läuft.
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn die Berechtigung für diese Operation verweigert wurde.
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn kein kompatibler NFC-Adapter für Web NFC vorhanden ist oder keine Verbindung hergestellt werden kann.
+- `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn der Scanvorgang mit dem im `options`-Argument übergebenen [`AbortSignal`](/de/docs/Web/API/AbortSignal) abgebrochen wurde.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn bereits ein laufender Scan vorhanden ist.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn die Berechtigung für diesen Vorgang abgelehnt wurde.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn kein NFC-Adapter kompatibel mit Web NFC vorhanden ist oder keine Verbindung hergestellt werden kann.
 
 ## Beispiele
 
-### Behandeln von Scan-Fehlern
+### Scannen von Fehlern behandeln
 
 Dieses Beispiel zeigt, was passiert, wenn ein Scan-Promise abgelehnt wird und `readingerror` ausgelöst wird.
 
@@ -53,18 +55,18 @@ const ndef = new NDEFReader();
 ndef
   .scan()
   .then(() => {
-    console.log("Scan erfolgreich gestartet.");
+    console.log("Scan started successfully.");
     ndef.onreadingerror = (event) => {
       console.log(
-        "Fehler! Daten vom NFC-Tag können nicht gelesen werden. Anderes Tag ausprobieren?",
+        "Error! Cannot read data from the NFC tag. Try a different one?",
       );
     };
     ndef.onreading = (event) => {
-      console.log("NDEF-Nachricht gelesen.");
+      console.log("NDEF message read.");
     };
   })
   .catch((error) => {
-    console.log(`Fehler! Scan konnte nicht gestartet werden: ${error}.`);
+    console.log(`Error! Scan failed to start: ${error}.`);
   });
 ```
 

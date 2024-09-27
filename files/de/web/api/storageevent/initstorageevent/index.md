@@ -1,5 +1,5 @@
 ---
-title: "StorageEvent: Methode initStorageEvent()"
+title: "StorageEvent: initStorageEvent() Methode"
 short-title: initStorageEvent()
 slug: Web/API/StorageEvent/initStorageEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("Web Storage API")}}{{deprecated_header}}
 
-Die Methode **`StorageEvent.initStorageEvent()`** wird verwendet, um den Wert eines {{ domxref("StorageEvent") }} zu initialisieren.
+Die **`StorageEvent.initStorageEvent()`** Methode wird verwendet, um den Wert eines [`StorageEvent`](/de/docs/Web/API/StorageEvent) zu initialisieren.
 
 ## Syntax
 
@@ -26,13 +26,13 @@ initStorageEvent(type, canBubble, cancelable, key, oldValue, newValue, url, stor
 ### Parameter
 
 - `typeArg`
-  - : Der Name des Events.
+  - : Der Name des Ereignisses.
 - `canBubble` {{optional_inline}}
-  - : Ein Boolean, der angibt, ob das Event im DOM aufsteigt oder nicht.
+  - : Ein boolescher Wert, der angibt, ob das Ereignis durch den DOM aufsteigt oder nicht.
 - `cancelable` {{optional_inline}}
-  - : Ein Boolean, der angibt, ob das Event abgebrochen werden kann.
+  - : Ein boolescher Wert, der angibt, ob das Ereignis abgebrochen werden kann.
 - `key` {{optional_inline}}
-  - : Der Schlüssel, dessen Wert sich infolge dieses Events ändert.
+  - : Der Schlüssel, dessen Wert sich als Ergebnis dieses Ereignisses ändert.
 - `oldValue` {{optional_inline}}
   - : Der alte Wert des Schlüssels.
 - `newValue` {{optional_inline}}
@@ -40,11 +40,11 @@ initStorageEvent(type, canBubble, cancelable, key, oldValue, newValue, url, stor
 - `url` {{optional_inline}}
   - : Die URL des Dokuments, das die Änderung initiiert.
 - `storageArea` {{optional_inline}}
-  - : Das {{DOMxRef("Storage")}}-Objekt, das den Speicherbereich darstellt, in dem dieses Event aufgetreten ist.
+  - : Das [`Storage`](/de/docs/Web/API/Storage)-Objekt, das den Speicherbereich darstellt, in dem dieses Ereignis aufgetreten ist.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
@@ -56,5 +56,5 @@ Keine ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- {{domxref("Web Storage API", "", "", "nocode")}}
-- Der Konstruktor, der anstelle dieser veralteten Methode verwendet werden sollte: {{domxref("StorageEvent.StorageEvent", "StorageEvent()")}}.
+- [Web Storage API](/de/docs/Web/API/Web_Storage_API)
+- Der Konstruktor, der anstelle dieser veralteten Methode verwendet werden sollte: [`StorageEvent()`](/de/docs/Web/API/StorageEvent/StorageEvent).

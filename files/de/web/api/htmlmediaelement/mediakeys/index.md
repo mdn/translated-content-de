@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`HTMLMediaElement.mediaKeys`**-Eigenschaft gibt ein {{domxref("MediaKeys")}}-Objekt zurück, das einen Satz von Schlüsseln darstellt, den das Element zur Entschlüsselung von Mediendaten während der Wiedergabe verwenden kann.
+Die schreibgeschützte **`HTMLMediaElement.mediaKeys`**-Eigenschaft gibt ein [`MediaKeys`](/de/docs/Web/API/MediaKeys)-Objekt zurück, das ein Satz von Schlüsseln ist, den das Element zur Entschlüsselung von Mediendaten während der Wiedergabe verwenden kann.
 
 ## Wert
 
-Ein {{domxref("MediaKeys")}}-Objekt oder `null`, wenn kein Schlüssel verfügbar ist.
+Ein [`MediaKeys`](/de/docs/Web/API/MediaKeys)-Objekt oder `null`, wenn kein Schlüssel verfügbar ist.
 
 ## Spezifikationen
 
@@ -24,4 +24,4 @@ Ein {{domxref("MediaKeys")}}-Objekt oder `null`, wenn kein Schlüssel verfügbar
 
 ## Siehe auch
 
-- {{domxref("MediaKeys")}}
+- [`MediaKeys`](/de/docs/Web/API/MediaKeys)

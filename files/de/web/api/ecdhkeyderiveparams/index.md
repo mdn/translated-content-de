@@ -7,23 +7,23 @@ l10n:
 
 {{ APIRef("Web Crypto API") }}
 
-Das **`EcdhKeyDeriveParams`**-Wörterbuch der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert das Objekt, das als `algorithm`-Parameter in {{domxref("SubtleCrypto.deriveKey()")}} und {{domxref("SubtleCrypto.deriveBits()")}} übergeben werden sollte, wenn die [ECDH](/de/docs/Web/API/SubtleCrypto/deriveKey#ecdh)- oder [X25519](/de/docs/Web/API/SubtleCrypto/deriveKey#x25519)-Algorithmen verwendet werden.
+Das **`EcdhKeyDeriveParams`** Dictionary des [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert das Objekt, das als `algorithm` Parameter an [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) und [`SubtleCrypto.deriveBits()`](/de/docs/Web/API/SubtleCrypto/deriveBits) übergeben werden sollte, wenn die [ECDH](/de/docs/Web/API/SubtleCrypto/deriveKey#ecdh) oder [X25519](/de/docs/Web/API/SubtleCrypto/deriveKey#x25519) Algorithmen verwendet werden.
 
-ECDH ermöglicht es zwei Personen, die jeweils ein Schlüsselpaar aus einem öffentlichen und einem privaten Schlüssel haben, ein gemeinsames Geheimnis abzuleiten. Sie tauschen öffentliche Schlüssel aus und verwenden die Kombination ihres privaten Schlüssels mit dem öffentlichen Schlüssel der anderen Partei, um einen geheimen Schlüssel abzuleiten, den nur sie — und niemand sonst — teilen.
+ECDH ermöglicht es zwei Personen, die jeweils ein Schlüsselpaar aus einem öffentlichen und einem privaten Schlüssel besitzen, ein gemeinsames Geheimnis abzuleiten. Sie tauschen öffentliche Schlüssel aus und verwenden die Kombination aus ihrem privaten Schlüssel und dem öffentlichen Schlüssel der anderen Entität, um einen geheimen Schlüssel abzuleiten, den nur sie teilen.
 
-Die Parameter für ECDH `deriveKey()` beinhalten daher den öffentlichen Schlüssel der anderen Partei, der mit diesem privaten Schlüssel kombiniert wird, um das gemeinsame Geheimnis abzuleiten.
+Die Parameter für ECDH `deriveKey()` beinhalten daher den öffentlichen Schlüssel der anderen Entität, der mit dem privaten Schlüssel dieser Entität kombiniert wird, um das gemeinsame Geheimnis abzuleiten.
 
 ## Instanz-Eigenschaften
 
 - `name`
   - : Ein String.
-    Dieser sollte auf `ECDH` oder `X25519` gesetzt werden, abhängig von dem verwendeten Algorithmus.
+    Dieser sollte auf `ECDH` oder `X25519` gesetzt werden, abhängig vom verwendeten Algorithmus.
 - `public`
-  - : Ein {{domxref("CryptoKey")}}-Objekt, das den öffentlichen Schlüssel der anderen Partei repräsentiert.
+  - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey) Objekt, das den öffentlichen Schlüssel der anderen Entität repräsentiert.
 
 ## Beispiele
 
-Siehe die Beispiele für {{domxref("SubtleCrypto.deriveKey()")}} und {{domxref("SubtleCrypto.deriveBits()")}}.
+Siehe die Beispiele für [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) und [`SubtleCrypto.deriveBits()`](/de/docs/Web/API/SubtleCrypto/deriveBits).
 
 ## Spezifikationen
 
@@ -31,9 +31,9 @@ Siehe die Beispiele für {{domxref("SubtleCrypto.deriveKey()")}} und {{domxref("
 
 ## Browser-Kompatibilität
 
-Browser, die den "ECDH" oder "X25519"-Algorithmus für die Methode {{domxref("SubtleCrypto.deriveKey()")}} unterstützen, werden diesen Typ unterstützen.
+Browser, die den "ECDH" oder "X25519" Algorithmus für die [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey) Methode unterstützen, werden diesen Typ unterstützen.
 
 ## Siehe auch
 
-- {{domxref("SubtleCrypto.deriveKey()")}}.
-- {{domxref("SubtleCrypto.deriveBits()")}}.
+- [`SubtleCrypto.deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey).
+- [`SubtleCrypto.deriveBits()`](/de/docs/Web/API/SubtleCrypto/deriveBits)

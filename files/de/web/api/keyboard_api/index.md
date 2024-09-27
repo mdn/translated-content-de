@@ -1,5 +1,5 @@
 ---
-title: Tastatur-API
+title: Keyboard API
 slug: Web/API/Keyboard_API
 l10n:
   sourceCommit: 722a5edf794b8fb7a379cdf79729fd913b0b264f
@@ -7,19 +7,19 @@ l10n:
 
 {{SeeCompatTable}}{{DefaultAPISidebar("Keyboard API")}}
 
-Die Tastatur-API bietet Methoden zur Arbeit mit einer physikalischen Tastatur, die an ein Gerät angeschlossen ist, auf dem ein Browser läuft.
+Die Keyboard API bietet Methoden zur Arbeit mit einer physischen Tastatur, die an ein Gerät mit einem Browser angeschlossen ist.
 
-Sie bietet mehrere Funktionen. _Tastaturzuordnung_ bietet eine Schnittstelle zum Abrufen der Zeichenkette, die durch eine bestimmte physische Taste auf einer Tastatur generiert wird, um diese Taste korrekt einem Benutzer zu identifizieren. _Tastatursperre_ ermöglicht es einer Webseite, Tasten zu erfassen, die normalerweise durch den Benutzeragenten oder das zugrunde liegende Betriebssystem reserviert sind. Der beabsichtigte Nutzen der Tastatur-API ist für Webanwendungen wie Spiele oder Fernzugriffs-Apps, die ein immersives Vollbild-Erlebnis bieten.
+Sie bietet mehrere Funktionen. _Keyboard mapping_ stellt eine Schnittstelle zum Abrufen des durch eine bestimmte physische Taste auf einer Tastatur erzeugten Strings bereit, um diese Taste korrekt für den Benutzer zu identifizieren. _Keyboard locking_ ermöglicht es einer Webseite, Tasten zu erfassen, die normalerweise vom User-Agent oder dem zugrundeliegenden Betriebssystem reserviert sind. Die beabsichtigte Nutzung der Keyboard API ist für Webanwendungen wie Spiele oder Remote-Zugriffsanwendungen, die ein immersives Fullscreen-Erlebnis bieten.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-### Tastaturzuordnung
+### Tastatur-Zuordnung
 
-Auf physischen Tastaturen enthält das `code`-Attribut den physischen Standort der gedrückten Taste, und das `key`-Attribut enthält die Zeichenkette, die durch das Drücken der Taste an diesem physischen Standort auf der Tastatur generiert wird. Der `key`-Wert berücksichtigt die Ländereinstellung der Tastatur (z.B. 'en-US'), das Layout (z.B. 'QWERTY') und den Zustand der Modifikatortasten (<kbd>Shift</kbd>, <kbd>Control</kbd>, usw.). Historisch gab es keine Möglichkeit, diese Informationen abzurufen.
+Bei physischen Tastaturen enthält das `code`-Attribut die physische Position der gedrückten Taste, und das `key`-Attribut enthält den String, der durch das Drücken der Taste an dieser physischen Position auf der Tastatur erzeugt wird. Der `key`-Wert berücksichtigt die Spracheinstellung der Tastatur (zum Beispiel 'en-US'), das Layout (zum Beispiel 'QWERTY') und den Status der Modifikatortaste (<kbd>Shift</kbd>, <kbd>Control</kbd> usw.). Historisch gab es keine Möglichkeit, diese Informationen abzurufen.
 
-Die Tastatur-Map-API bietet eine Möglichkeit, die Zeichenkette abzurufen, die durch einen bestimmten Tastendruck erzeugt wird, durch die {{domxref('Keyboard')}}-Schnittstelle und die {{domxref('KeyboardLayoutMap')}}-Schnittstelle. Auf die {{domxref('Keyboard')}}-Schnittstelle wird über {{domxref('navigator.keyboard')}} zugegriffen. {{domxref('Keyboard')}} bietet die Methode {{domxref('Keyboard.getLayoutMap')}}, die ein Versprechen zurückgibt, das mit einem {{domxref('KeyboardLayoutMap')}}-Objekt aufgelöst wird, das Mitglieder enthält, um Codes in Tasten zu konvertieren. Eine Liste gültiger Code-Werte finden Sie im Abschnitt [Writing System Keys](https://w3c.github.io/uievents-code/#key-alphanumeric-writing-system) der Spezifikation [UI Events KeyboardEvent code Values](https://w3c.github.io/uievents-code/).
+Die Keyboard Map API bietet eine Möglichkeit, den durch einen bestimmten Tastendruck erzeugten String abzurufen, über die [`Keyboard`](/de/docs/Web/API/Keyboard)-Schnittstelle und die [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap)-Schnittstelle. Die [`Keyboard`](/de/docs/Web/API/Keyboard)-Schnittstelle wird über [`navigator.keyboard`](/de/docs/Web/API/Navigator/keyboard) aufgerufen. [`Keyboard`](/de/docs/Web/API/Keyboard) bietet die Methode [`Keyboard.getLayoutMap`](/de/docs/Web/API/Keyboard/getLayoutMap), die ein Versprechen zurückgibt, das mit einem [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap)-Objekt aufgelöst wird, das Mitglieder zum Umwandeln von Codes zu Tasten enthält. Eine Liste der gültigen Code-Werte findet sich im Abschnitt [Writing System Keys](https://w3c.github.io/uievents-code/#key-alphanumeric-writing-system) der [UI Events KeyboardEvent code Values](https://w3c.github.io/uievents-code/)-Spezifikation.
 
-Das folgende Beispiel zeigt, wie Sie die standort- oder layoutspezifische Zeichenfolge abrufen, die der mit <kbd>W</kbd> beschrifteten Taste auf einer englischen QWERTY-Tastatur zugeordnet ist.
+Das folgende Beispiel zeigt, wie man den standortspezifischen oder layoutspezifischen String abruft, der mit der auf einer englischen QWERTY-Tastatur beschrifteten Taste <kbd>W</kbd> verbunden ist.
 
 ```js
 if (navigator.keyboard) {
@@ -33,9 +33,9 @@ if (navigator.keyboard) {
 }
 ```
 
-### Tastatursperre
+### Tastatursperrung
 
-Interaktiv reichhaltige Webseiten, Spiele und Ferngeschenkerlebnisse erfordern häufig Zugriff auf spezielle Tasten und Tastenkombinationen im Vollbildmodus. Beispiele für solche Tasten/Tastenkombinationen sind <kbd>Escape</kbd>, <kbd>Alt+Tab</kbd> und <kbd>Ctrl+N</kbd>. Diese Tasten und Tastenkombinationen werden typischerweise vom Benutzeragenten oder dem zugrunde liegenden Betriebssystem erfasst, wie im folgenden Beispiel veranschaulicht.
+Interaktive Webseiten, Spiele und Remote-Streaming-Erlebnisse erfordern oft den Zugriff auf spezielle Tasten und Tastaturkürzel im Vollbildmodus. Beispiele für solche Tasten bzw. Tastenkombinationen sind <kbd>Escape</kbd>, <kbd>Alt+Tab</kbd> und <kbd>Ctrl+N</kbd>. Diese Tasten und Tastenkombinationen werden typischerweise vom User-Agent oder dem zugrundeliegenden Betriebssystem erfasst, wie im folgenden Beispiel illustriert.
 
 Um die Tasten <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd> und <kbd>D</kbd> zu erfassen, rufen Sie `lock()` mit einer Liste auf, die den Attributwert des Tastencodes für jede dieser Tasten enthält:
 
@@ -43,27 +43,27 @@ Um die Tasten <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd> und <kbd>D</kbd> zu erfas
 navigator.keyboard.lock(["KeyW", "KeyA", "KeyS", "KeyD"]);
 ```
 
-Dies erfasst diese Tasten unabhängig davon, welche Modifikatoren mit dem Tastendruck verwendet werden. Bei einem standardmäßigen US-QWERTY-Layout stellt das Registrieren von `KeyW` sicher, dass <kbd>W</kbd>, <kbd>Shift+W</kbd>, <kbd>Control+W</kbd>, <kbd>Control+Shift+W</kbd> und alle anderen Tastenkombinationen mit <kbd>W</kbd> an die App gesendet werden. Dasselbe gilt für `KeyA`, `KeyS` und `KeyD`.
+Dies erfasst diese Tasten unabhängig davon, welche Modifikatoren mit dem Tastendruck verwendet werden. Bei einem standardmäßigen QWERTY-Layout der Vereinigten Staaten stellt die Registrierung von `KeyW` sicher, dass <kbd>W</kbd>, <kbd>Shift+W</kbd>, <kbd>Control+W</kbd>, <kbd>Control+Shift+W</kbd> und alle anderen Tastenkombinationen mit <kbd>W</kbd> an die App gesendet werden. Das Gleiche gilt für `KeyA`, `KeyS` und `KeyD`.
 
-### Schreibsystemtasten
+### Schreibsystem-Tasten
 
-Die Codes, die {{domxref('Keyboard.lock')}} übergeben werden und die verschiedenen Methoden der {{domxref('KeyboardLayoutMap')}}-Schnittstelle werden "Schreibsystemtasten" genannt.
+Die an [`Keyboard.lock`](/de/docs/Web/API/Keyboard/lock) und die verschiedenen Methoden der [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap)-Schnittstelle übergebenen Codes werden als "Schreibsystem-Tasten" bezeichnet.
 
-"Schreibsystemtasten" sind im Abschnitt [Writing System Keys](https://w3c.github.io/uievents-code/#key-alphanumeric-writing-system) der Spezifikation [UI Events KeyboardEvent code Values](https://w3c.github.io/uievents-code/) definiert, da sich die Bedeutung der physischen Tasten basierend auf dem aktuellen Gebietsschema und der Tastaturbelegung ändert. Diese Tasten werden unten gezeigt. Blaue Tasten sind auf allen Standardtastaturen vorhanden, während grüne Tasten nur auf einigen Tastaturen verfügbar sind.
+"Schreibsystem-Tasten" sind im Abschnitt [Writing System Keys](https://w3c.github.io/uievents-code/#key-alphanumeric-writing-system) der [UI Events KeyboardEvent code Values](https://w3c.github.io/uievents-code/)-Spezifikation definiert, da die physischen Tasten ihre Bedeutung je nach aktueller Spracheinstellung und Tastaturlayout ändern. Diese Tasten sind unten aufgeführt. Blaue Tasten sind auf allen Standardtastaturen vorhanden, während grüne Tasten nur auf einigen Tastaturen verfügbar sind.
 
-![Schreibsystemtasten, wie sie in der Spezifikation der UI-Events KeyboardEvent-Code-Werte definiert sind.](writing-system-keys.png)
+![Schreibsystem-Tasten wie in der UI Events KeyboardEvent code Values Spezifikation definiert.](writing-system-keys.png)
 
 ## Schnittstellen
 
-- {{domxref('Keyboard')}} {{experimental_inline}}
-  - : Bietet Funktionen, die Tastatur-Layout-Karten abrufen und das Erfassen von Tastendrücken von der physischen Tastatur umschalten.
-- {{domxref('KeyboardLayoutMap')}} {{experimental_inline}}
-  - : Ein kartenähnliches Objekt mit Funktionen, um die mit bestimmten physischen Tasten verknüpfte Zeichenkette abzurufen.
+- [`Keyboard`](/de/docs/Web/API/Keyboard) {{experimental_inline}}
+  - : Bietet Funktionen zum Abrufen von Tastatur-Layoutkarten und zum Umschalten des Erfassens von Tastendrücken von der physischen Tastatur.
+- [`KeyboardLayoutMap`](/de/docs/Web/API/KeyboardLayoutMap) {{experimental_inline}}
+  - : Ein objektähnliches Objekt mit Funktionen zum Abrufen des Strings, der mit spezifischen physikalischen Tasten verbunden ist.
 
-### Erweiterungen anderer Schnittstellen
+### Erweiterungen zu anderen Schnittstellen
 
-- {{domxref('navigator.keyboard')}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Gibt ein {{domxref('Keyboard')}}-Objekt zurück, das Zugriff auf Funktionen bietet, die Tastatur-Layout-Karten abrufen und das Erfassen von Tastendrücken von der physischen Tastatur umschalten.
+- [`navigator.keyboard`](/de/docs/Web/API/Navigator/keyboard) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Gibt ein [`Keyboard`](/de/docs/Web/API/Keyboard)-Objekt zurück, das Zugang zu Funktionen bietet, die Tastatur-Layoutkarten abrufen und das Erfassen von Tastendrücken von der physischen Tastatur umschalten.
 
 ## Spezifikationen
 

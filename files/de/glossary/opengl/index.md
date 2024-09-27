@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**OpenGL** (**Open Graphics Library**) ist eine plattformübergreifende, mehrsprachige Anwendungsprogrammierschnittstelle (API) zur Darstellung von 2D- und 3D-Vektorgrafiken. Die API wird typischerweise verwendet, um mit einer Grafikeinheit (GPU) zu interagieren, um hardwarebeschleunigtes Rendern zu erreichen.
+**OpenGL** (**Open Graphics Library**) ist eine plattformübergreifende Schnittstelle zur Programmierung von Anwendungen (API) für die Darstellung von 2D- und 3D-Vektorgrafiken. Die API wird typischerweise verwendet, um mit einer Grafikkarte (GPU) zu kommunizieren, um hardwarebeschleunigtes Rendering zu erzielen.
 
 ## Siehe auch
 

@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Das **`navigateerror`** Ereignis der {{domxref("Navigation")}} Schnittstelle wird ausgelöst, wenn eine Navigation fehlschlägt.
+Das **`navigateerror`** Ereignis der [`Navigation`](/de/docs/Web/API/Navigation) Schnittstelle wird ausgelöst, wenn eine Navigation fehlschlägt.
 
-Zum Beispiel, wenn das Netzwerk ausgefallen ist, wird jede durch eine Navigation ausgelöste {{domxref("Window/fetch", "fetch()")}} Methode fehlschlagen, und der Fehler wird an `navigateerror` weitergeleitet.
+Zum Beispiel, wenn das Netzwerk nicht verfügbar ist, schlägt jede Methode [`fetch()`](/de/docs/Web/API/Window/fetch) fehl, die aufgerufen wird, um eine Navigation zu handhaben, und der Fehler wird an `navigateerror` weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("navigateerror", (event) => {});
@@ -24,13 +24,13 @@ onnavigateerror = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ErrorEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ErrorEvent`](/de/docs/Web/API/ErrorEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ErrorEvent")}}
 
 ## Beispiele
 
-Sie könnten mit einer erfolgreichen Navigation umgehen, indem Sie einen zuvor angezeigten Fortschrittsindikator ausblenden, so:
+Sie könnten mit einer erfolgreichen Navigation umgehen, indem Sie einen zuvor angezeigten Fortschrittindikator ausblenden, wie hier:
 
 ```js
 navigation.addEventListener("navigatesuccess", (event) => {
@@ -42,8 +42,8 @@ Oder Sie könnten bei einem Fehler eine Fehlermeldung anzeigen:
 
 ```js
 navigation.addEventListener("navigateerror", (event) => {
-  loadingIndicator.hidden = true; // auch den Indikator ausblenden
-  showMessage(`Fehler beim Laden der Seite: ${event.message}`);
+  loadingIndicator.hidden = true; // also hide indicator
+  showMessage(`Failed to load page: ${event.message}`);
 });
 ```
 
@@ -57,6 +57,6 @@ navigation.addEventListener("navigateerror", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

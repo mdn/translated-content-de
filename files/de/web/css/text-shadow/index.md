@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`text-shadow`** [CSS](/de/docs/Web/CSS)-Eigenschaft fügt Text Schatten hinzu. Sie akzeptiert eine kommaseparierte Liste von Schatten, die auf den Text und seine [`Dekorationen`](/de/docs/Web/CSS/text-decoration) angewendet werden. Jeder Schatten wird durch eine Kombination aus X- und Y-Versatz vom Element, Weichzeichnungsradius und Farbe beschrieben.
+Die **`text-shadow`** [CSS](/de/docs/Web/CSS) Eigenschaft fügt Text Schatten hinzu. Sie akzeptiert eine durch Kommata getrennte Liste von Schatten, die auf den Text und alle seine [`Dekorationen`](/de/docs/Web/CSS/text-decoration) angewendet werden. Jeder Schatten wird durch eine Kombination von X- und Y-Versatz vom Element, Weichzeichnungsradius und Farbe beschrieben.
 
 {{EmbedInteractiveExample("pages/css/text-shadow.html")}}
 
@@ -38,22 +38,22 @@ text-shadow: revert-layer;
 text-shadow: unset;
 ```
 
-Diese Eigenschaft wird als eine kommaseparierte Liste von Schatten angegeben.
+Diese Eigenschaft wird als eine durch Kommata getrennte Liste von Schatten angegeben.
 
-Jeder Schatten wird als zwei oder drei `<length>`-Werte angegeben, gefolgt von einem optionalen `<color>`-Wert. Die ersten beiden `<length>`-Werte sind die `<offset-x>` und `<offset-y>`-Werte. Der dritte, optionale, `<length>`-Wert ist der `<blur-radius>`. Der `<color>`-Wert ist die Farbe des Schattens.
+Jeder Schatten wird als zwei oder drei `<length>` Werte spezifiziert, gefolgt von einem optionalen `<color>` Wert. Die ersten beiden `<length>` Werte sind die `<offset-x>` und `<offset-y>` Werte. Der dritte optionale `<length>` Wert ist der `<blur-radius>`. Der `<color>` Wert ist die Farbe des Schattens.
 
-Wenn mehr als ein Schatten angegeben ist, werden die Schatten von vorne nach hinten angewendet, wobei der zuerst angegebene Schatten oben liegt.
+Wenn mehr als ein Schatten angegeben wird, werden die Schatten von vorne nach hinten angewendet, wobei der zuerst angegebene Schatten oben liegt.
 
 Diese Eigenschaft gilt sowohl für {{cssxref("::first-line")}} als auch für {{cssxref("::first-letter")}} [Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements).
 
 ### Werte
 
 - {{cssxref("&lt;color&gt;")}}
-  - : Optional. Die Farbe des Schattens. Sie kann entweder vor oder nach den Versatzwerten angegeben werden. Wenn nicht angegeben, bleibt der Wert der Farbe dem User-Agent überlassen; daher sollten Sie sie explizit definieren, wenn Konsistenz über verschiedene Browser hinweg gewünscht ist.
+  - : Optional. Die Farbe des Schattens. Sie kann entweder vor oder nach den Versatzwerten angegeben werden. Wenn nicht angegeben, bleibt der Wert der Farbe dem Benutzeragenten überlassen. Daher sollten Sie diese explizit definieren, wenn Konsistenz über mehrere Browser hinweg gewünscht ist.
 - `<offset-x> <offset-y>`
-  - : Erforderlich. Diese {{cssxref("&lt;length&gt;")}}-Werte geben den Abstand des Schattens vom Text an. `<offset-x>` gibt die horizontale Entfernung an; ein negativer Wert platziert den Schatten links vom Text. `<offset-y>` gibt die vertikale Entfernung an; ein negativer Wert platziert den Schatten über dem Text. Wenn beide Werte `0` sind, wird der Schatten direkt hinter dem Text platziert, obwohl er durch die Wirkung des `<blur-radius>` teilweise sichtbar sein kann.
+  - : Erforderlich. Diese {{cssxref("&lt;length&gt;")}} Werte spezifizieren den Abstand des Schattens vom Text. `<offset-x>` gibt den horizontalen Abstand an; ein negativer Wert platziert den Schatten links vom Text. `<offset-y>` gibt den vertikalen Abstand an; ein negativer Wert platziert den Schatten über dem Text. Wenn beide Werte `0` sind, wird der Schatten direkt hinter dem Text platziert, obwohl er aufgrund des Effekts von `<blur-radius>` teilweise sichtbar sein kann.
 - `<blur-radius>`
-  - : Optional. Dies ist ein {{cssxref("&lt;length&gt;")}}-Wert. Je höher der Wert, desto größer ist der Weichzeichner; der Schatten wird breiter und heller. Wenn nicht angegeben, wird standardmäßig `0` verwendet.
+  - : Optional. Dies ist ein {{cssxref("&lt;length&gt;")}} Wert. Je höher der Wert, desto größer der Weichzeichner; der Schatten wird breiter und heller. Wenn nicht angegeben, ist der Standardwert `0`.
 
 ## Formale Definition
 
@@ -65,7 +65,7 @@ Diese Eigenschaft gilt sowohl für {{cssxref("::first-line")}} als auch für {{c
 
 ## Beispiele
 
-### Einfache Schatten
+### Einfacher Schatten
 
 ```css
 .red-text-shadow {

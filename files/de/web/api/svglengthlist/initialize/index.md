@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`initialize()`**-Methode der {{domxref("SVGLengthList")}}-Schnittstelle löscht alle vorhandenen Elemente aus der Liste und initialisiert die Liste neu, um das einzelne Element zu halten, das durch den Parameter angegeben wird. Wenn das eingefügte Element bereits in einer Liste enthalten ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Der Rückgabewert ist das in die Liste eingefügte Element.
+Die **`initialize()`**-Methode der [`SVGLengthList`](/de/docs/Web/API/SVGLengthList)-Schnittstelle entfernt alle vorhandenen Elemente aus der Liste und initialisiert die Liste neu, um das im Parameter angegebene einzelne Element aufzunehmen. Wenn das einzufügende Element bereits in einer Liste enthalten ist, wird es aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine Kopie. Der Rückgabewert ist das in die Liste eingefügte Element.
 
 ## Syntax
 
@@ -19,20 +19,20 @@ initialize(newItem)
 ### Parameter
 
 - `newItem`
-  - : Das {{domxref("SVGLength")}}, das zur Liste hinzugefügt werden soll.
+  - : Der [`SVGLength`](/de/docs/Web/API/SVGLength), der der Liste hinzugefügt werden soll.
 
 ### Rückgabewert
 
-Das {{domxref("SVGLength")}}, das zur Liste hinzugefügt wurde.
+Der [`SVGLength`](/de/docs/Web/API/SVGLength), der der Liste hinzugefügt wurde.
 
 ### Ausnahmen
 
-- {{domxref("DOMException")}} `NoModificationAllowedError`
+- [`DOMException`](/de/docs/Web/API/DOMException) `NoModificationAllowedError`
   - : Wird ausgelöst, wenn die Liste schreibgeschützt ist.
 
 ## Beispiele
 
-Siehe {{domxref("SVGLengthList")}} für ein vollständiges Beispiel.
+Siehe [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) für ein komplettes Beispiel.
 
 ## Spezifikationen
 

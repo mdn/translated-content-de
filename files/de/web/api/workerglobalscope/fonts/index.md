@@ -8,23 +8,22 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers("worker")}}
 
-Die **`fonts`**-Eigenschaft des {{domxref("WorkerGlobalScope")}}-Interfaces gibt das {{domxref("FontFaceSet")}}-Interface des Workers zurück.
+Die **`fonts`**-Eigenschaft des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt das [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Interface des Workers zurück.
 
 Diese Eigenschaft ist Teil der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API).
 
 ## Wert
 
-Der zurückgegebene Wert ist das {{domxref("FontFaceSet")}}-Interface des Workers.
-Das `FontFaceSet`-Interface ist nützlich zum Laden neuer Schriftarten, Überprüfen des Status zuvor geladener Schriftarten usw.
+Der zurückgegebene Wert ist das [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Interface des Workers. Das `FontFaceSet`-Interface ist nützlich zum Laden neuer Schriftarten, Überprüfen des Status bereits geladener Schriftarten usw.
 
 ## Beispiele
 
-### Ausführen von Operationen, nachdem alle Schriftarten geladen sind
+### Operation nach dem Laden aller Schriftarten durchführen
 
 ```js
 fonts.ready.then(() => {
-  // Jede Operation, die nur nach dem vollständigen Laden aller Schriftarten
-  // ausgeführt werden muss, kann hier erfolgen.
+  // Any operation that needs to be done only after all the fonts
+  // have finished loading can go here.
 });
 ```
 
@@ -38,5 +37,5 @@ fonts.ready.then(() => {
 
 ## Siehe auch
 
-- {{domxref("FontFaceSet")}}-Interface
-- {{domxref("FontFace")}}
+- [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Interface
+- [`FontFace`](/de/docs/Web/API/FontFace)

@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Das **`remove`**-Ereignis der {{domxref("Animation")}}-Schnittstelle wird ausgelöst, wenn die Animation vom Browser [automatisch entfernt](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations) wird.
+Das **`remove`**-Ereignis der [`Animation`](/de/docs/Web/API/Animation)-Schnittstelle tritt auf, wenn die Animation vom Browser [automatisch entfernt](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations) wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener('remove', (event) => { })
@@ -21,40 +21,41 @@ onremove = (event) => { }
 
 ## Ereignistyp
 
-Ein {{domxref("AnimationPlaybackEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("AnimationPlaybackEvent")}}
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind auch Eigenschaften der übergeordneten Schnittstelle {{domxref("Event")}} verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
-- {{domxref("AnimationPlaybackEvent.currentTime")}} {{ReadOnlyInline}}
-  - : Die aktuelle Zeit der Animation, die das Ereignis ausgelöst hat.
-- {{domxref("AnimationPlaybackEvent.timelineTime")}} {{ReadOnlyInline}}
-  - : Der Zeitwert der Zeitleiste der Animation, die das Ereignis ausgelöst hat.
+- [`AnimationPlaybackEvent.currentTime`](/de/docs/Web/API/AnimationPlaybackEvent/currentTime) {{ReadOnlyInline}}
+  - : Die aktuelle Zeit der Animation, die das Ereignis erzeugt hat.
+- [`AnimationPlaybackEvent.timelineTime`](/de/docs/Web/API/AnimationPlaybackEvent/timelineTime) {{ReadOnlyInline}}
+  - : Der Zeitwert der Zeitachse der Animation, die das Ereignis erzeugt hat.
 
 ## Beispiele
 
-### Entfernen von überschriebenen Animationen
+### Entfernen von ersetzten Animationen
 
-In diesem Beispiel haben wir ein `<button id="start">`-Element und einen Ereignis-Listener, der jedes Mal läuft, wenn die Maus bewegt wird. Der {{domxref("Element.mousemove_event","mousemove")}}-Ereignis-Handler richtet eine Animation ein, die das `<button>`-Element zur Position des Mauszeigers animiert. Dies könnte zu einer großen Liste von Animationen führen, was eine Speicherleckgefahr darstellen könnte. Aus diesem Grund entfernen moderne Browser automatisch vorwärtsfüllende Animationen, die von anderen Animationen überschrieben werden.
+In diesem Beispiel haben wir ein `<button id="start">`-Element und einen Ereignislistener, der immer dann ausgeführt wird, wenn die Maus bewegt wird. Der [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignishandler richtet eine Animation ein, die das `<button>` zur Position des Mauszeigers animiert. Dies könnte zu einer großen Liste von Animationen führen, was ein Speicherleck verursachen könnte. Aus diesem Grund entfernen moderne Browser automatisch weiterlaufende Animationen, die durch andere Animationen überschrieben werden.
 
-Die Anzahl der erstellten Animationen wird angezeigt. Ein `remove`-Ereignis-Listener wird verwendet, um die Anzahl der entfernten Animationen zu zählen und anzuzeigen.
+Die Anzahl der erstellten Animationen wird angezeigt. Ein `remove`-Ereignislistener wird verwendet, um die Anzahl der entfernten Animationen zu zählen und anzuzeigen.
 
 Alle bis auf eine der Animationen sollten schließlich entfernt werden.
 
 #### HTML
 
 ```html
-<button id="start">Klicken, um zu ziehen</button>
+<button id="start">Click to drag</button>
 <br />
-<button id="reset">Beispiel zurücksetzen</button>
+<button id="reset">Reset example</button>
 <p>
-  Klicken Sie auf die Schaltfläche, um die Animation zu starten (standaardmäßig deaktiviert, um Personen zu schützen, die bei solchen Animationen Migräne bekommen).
+  Click the button to start the animation (disabled by default to protect those
+  who suffer migraines when experiencing such animations).
 </p>
-<p>Erstellte Animationen: <span id="count-created">0</span></p>
-<p>Entfernte Animationen: <span id="count-removed">0</span></p>
+<p>Animations created: <span id="count-created">0</span></p>
+<p>Animations removed: <span id="count-removed">0</span></p>
 ```
 
 #### CSS
@@ -90,7 +91,7 @@ button.addEventListener(
       created++;
       showCounts();
 
-      // das remove-Ereignis wird ausgelöst, nachdem die Animation entfernt wurde
+      // the remove event fires after the animation is removed
       animation.addEventListener("remove", () => {
         removed++;
         showCounts();
@@ -126,6 +127,6 @@ reset.addEventListener("click", () => {
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("Animation")}}, {{domxref("AnimationPlaybackEvent")}}
-- {{domxref("Animation.replaceState")}}, um zu überprüfen, ob eine Animation entfernt wurde
-- {{domxref("Animation.persist()")}}, um das Entfernen einer Animation zu verhindern
+- [`Animation`](/de/docs/Web/API/Animation), [`AnimationPlaybackEvent`](/de/docs/Web/API/AnimationPlaybackEvent)
+- [`Animation.replaceState`](/de/docs/Web/API/Animation/replaceState), um zu überprüfen, ob eine Animation entfernt wurde
+- [`Animation.persist()`](/de/docs/Web/API/Animation/persist), um die Entfernung einer Animation zu verhindern

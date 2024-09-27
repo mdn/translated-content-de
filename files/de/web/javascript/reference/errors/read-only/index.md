@@ -1,5 +1,5 @@
 ---
-title: "TypeError: \"x\" ist schreibgeschützt"
+title: 'TypeError: "x" ist schreibgeschützt'
 slug: Web/JavaScript/Reference/Errors/Read-only
 l10n:
   sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e
@@ -7,36 +7,31 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-[Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-only Ausnahme
-"ist schreibgeschützt" tritt auf, wenn eine globale Variable oder ein Objekt
-Eigenschaft, die zugewiesen wurde, eine schreibgeschützte Eigenschaft ist.
+Die JavaScript-Ausnahme im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) "ist schreibgeschützt" tritt auf, wenn einer globalen Variable oder einem Objekt, das zugewiesen wurde, eine schreibgeschützte Eigenschaft ist.
 
 ## Meldung
 
 ```plain
 TypeError: Cannot assign to read only property 'x' of #<Object> (V8-based)
-TypeError: "x" ist schreibgeschützt (Firefox)
+TypeError: "x" is read-only (Firefox)
 TypeError: Attempted to assign to readonly property. (Safari)
 ```
 
 ## Fehlertyp
 
-{{jsxref("TypeError")}} nur im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode).
+{{jsxref("TypeError")}} nur im [Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode).
 
 ## Was ist schiefgelaufen?
 
-Die globale Variable oder die Objekteigenschaft, der der Wert zugewiesen wurde, ist eine schreibgeschützte Eigenschaft.
-(Technisch gesehen handelt es sich um eine [nicht beschreibbare Dateneigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#writable_attribute).)
+Die zugewiesene globale Variable oder Objekteigenschaft ist eine schreibgeschützte Eigenschaft. (Technisch gesehen ist es eine [nicht beschreibbare Dateneigenschaft](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#writable_attribute).)
 
-Dieser Fehler tritt nur in [Strict Mode Code](/de/docs/Web/JavaScript/Reference/Strict_mode) auf. In
-Nicht-Strict Code wird die Zuweisung stillschweigend ignoriert.
+Dieser Fehler tritt nur im [Strict-Mode-Code](/de/docs/Web/JavaScript/Reference/Strict_mode) auf. In nicht strikten Code wird die Zuweisung stillschweigend ignoriert.
 
 ## Beispiele
 
 ### Ungültige Fälle
 
-Schreibgeschützte Eigenschaften sind nicht sehr verbreitet, können jedoch mit
-{{jsxref("Object.defineProperty()")}} oder {{jsxref("Object.freeze()")}} erstellt werden.
+Schreibgeschützte Eigenschaften sind nicht sehr häufig, können aber mit {{jsxref("Object.defineProperty()")}} oder {{jsxref("Object.freeze()")}} erstellt werden.
 
 ```js example-bad
 "use strict";
@@ -52,20 +47,20 @@ const frozenArray = Object.freeze([0, 1, 2]);
 frozenArray[0]++; // TypeError
 ```
 
-Es gibt auch einige wenige schreibgeschützte Eigenschaften, die in JavaScript integriert sind. Vielleicht haben Sie versucht, eine mathematische Konstante neu zu definieren.
+Es gibt auch einige schreibgeschützte Eigenschaften, die in JavaScript eingebaut sind. Vielleicht haben Sie versucht, eine mathematische Konstante neu zu definieren.
 
 ```js example-bad
 "use strict";
 Math.PI = 4; // TypeError
 ```
 
-Entschuldigung, das können Sie nicht tun.
+Leider können Sie das nicht tun.
 
-Die globale Variable `undefined` ist ebenfalls schreibgeschützt, sodass Sie den berüchtigten Fehler "undefined is not a function" nicht dadurch unterdrücken können, dass Sie dies tun:
+Die globale Variable `undefined` ist ebenfalls schreibgeschützt, sodass Sie den berüchtigten Fehler "undefined is not a function" nicht durch Folgendes zum Schweigen bringen können:
 
 ```js example-bad
 "use strict";
-undefined = function () {}; // TypeError: "undefined" ist schreibgeschützt
+undefined = function () {}; // TypeError: "undefined" is read-only
 ```
 
 ### Gültige Fälle
@@ -73,7 +68,7 @@ undefined = function () {}; // TypeError: "undefined" ist schreibgeschützt
 ```js example-good
 "use strict";
 let obj = Object.freeze({ name: "Score", points: 157 });
-obj = { name: obj.name, points: 0 }; // ersetzen mit einem neuen Objekt funktioniert
+obj = { name: obj.name, points: 0 }; // replacing it with a new object works
 ```
 
 ## Siehe auch

@@ -1,5 +1,5 @@
 ---
-title: "PerformanceEventTiming: Eigenschaft target"
+title: "PerformanceEventTiming: target-Eigenschaft"
 short-title: target
 slug: Web/API/PerformanceEventTiming/target
 l10n:
@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`target`**-Eigenschaft gibt das zuletzt mit dem zugehörigen Ereignis verknüpfte [`target`](/de/docs/Web/API/Event/target) zurück, das der Knoten ist, auf den das Ereignis zuletzt ausgelöst wurde.
+Die schreibgeschützte **`target`**-Eigenschaft gibt das letzte zugehörige [`target`](/de/docs/Web/API/Event/target) des Ereignisses zurück. Dabei handelt es sich um den Knoten, auf den das Ereignis zuletzt gesendet wurde.
 
 ## Wert
 
-Ein {{domxref("Node")}}, auf den das Ereignis zuletzt ausgelöst wurde.
+Ein [`Node`](/de/docs/Web/API/Node), auf den das Ereignis zuletzt gesendet wurde.
 
-Oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn der `Node` von der DOM-Dokumentenstruktur getrennt ist oder im [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) ist.
+Oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null), wenn der `Node` vom DOM-Dokument getrennt ist oder sich im [shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) befindet.
 
 ## Beispiele
 
-### Beobachtung von Ereignissen mit einem bestimmten letzten Ziel
+### Beobachtung von Ereignissen mit einem spezifischen letzten Ziel
 
-Die `target`-Eigenschaft kann verwendet werden, um Event-Timing-Einträge ({{domxref("PerformanceEventTiming")}}) zu beobachten. Zum Beispiel, um Ereignisse für ein bestimmtes letztes Ziel zu protokollieren und zu messen.
+Die `target`-Eigenschaft kann verwendet werden, wenn Sie Ereigniszeit-Einträge ([`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)) beobachten. Zum Beispiel, um Ereignisse für ein bestimmtes letztes Ziel zu protokollieren und zu messen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -32,7 +32,7 @@ const observer = new PerformanceObserver((list) => {
   });
 });
 
-// Registrieren Sie den Observer für Ereignisse
+// Register the observer for events
 observer.observe({ type: "event", buffered: true });
 ```
 

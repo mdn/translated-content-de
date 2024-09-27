@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-Java ist eine {{glossary("Compile", "kompilierte")}}, {{glossary("OOP", "objektorientierte")}}, hoch portierbare {{Glossary("computer programming", "Programmiersprache")}}.
+Java ist eine [kompilierte](/de/docs/Glossary/Compile), [objektorientierte](/de/docs/Glossary/OOP), hochgradig portable [Programmier-](/de/docs/Glossary/computer_programming) sprache.
 
-Java ist statisch typisiert und weist eine ähnliche Syntax wie C auf. Es kommt mit einer großen Bibliothek von sofort verwendbaren Funktionen, dem Java Software Development Kit (SDK).
+Java ist statisch typisiert und bietet eine ähnliche Syntax wie C. Es kommt mit einer großen Bibliothek von sofort nutzbaren Funktionen, dem Java Software Development Kit (SDK).
 
-Programme werden nur einmal im Voraus in einen proprietären Bytecode und ein Paketformat kompiliert, das innerhalb der Java Virtual Machine (JVM) läuft. Die JVM ist auf vielen Plattformen verfügbar, was es Java-Programmen ermöglicht, nahezu überall ohne erneutes Kompilieren oder Verpacken zu laufen. Dies macht es zu einer bevorzugten Sprache in vielen großen Unternehmen mit heterogenen Landschaften, kann aber als "schwer" empfunden werden.
+Programme werden einmal im Voraus in ein proprietäres Bytecode- und Paketformat [kompiliert](/de/docs/Glossary/Compile), das innerhalb der Java Virtual Machine (JVM) läuft. Die JVM ist auf vielen Plattformen verfügbar, was es Java-Programmen ermöglicht, nahezu überall lauffähig zu sein, ohne erneut kompiliert oder gepackt werden zu müssen. Dies macht es zu einer bevorzugten Sprache in vielen großen Unternehmen mit heterogenen Umgebungen, kann aber als "schwer" wahrgenommen werden.
 
 ## Siehe auch
 

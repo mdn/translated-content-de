@@ -25,11 +25,11 @@ let removing = browser.sessions.removeTabValue(
 - `tabId`
   - : `integer`. ID des Tabs, dessen Daten Sie entfernen möchten. Ein Fehler wird ausgelöst, wenn die ID ungültig ist.
 - `key`
-  - : `string`. Schlüssel, der den spezifischen Wert identifiziert, der entfernt werden soll. Dieser muss dem zuvor bei {{WebExtAPIRef("sessions.setTabValue")}} angegebenen Schlüssel entsprechen.
+  - : `string`. Schlüssel, der den bestimmten Wert identifiziert, der entfernt werden soll. Dieser muss mit dem Schlüssel übereinstimmen, der zuvor in {{WebExtAPIRef("sessions.setTabValue")}} angegeben wurde.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn das Element erfolgreich entfernt wurde. Wenn der Aufruf fehlschlägt (zum Beispiel, weil die Tab-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente aufgelöst wird, wenn das Element erfolgreich entfernt wurde. Wenn der Aufruf fehlschlug (zum Beispiel, weil die Tab-ID nicht gefunden werden konnte), wird das Promise mit einer Fehlermeldung abgelehnt.
 
 ## Browser-Kompatibilität
 
@@ -37,7 +37,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Dieser Code fügt zwei Kontextmenüelemente hinzu: eines speichert einen Wert, der mit dem aktuellen Tab verknüpft ist, das andere entfernt ihn:
+Dieser Code fügt zwei Kontextmenüeinträge hinzu: Einer speichert einen Wert, der dem aktuellen Tab zugeordnet ist, der andere entfernt ihn:
 
 ```js
 async function setOnActiveTab() {

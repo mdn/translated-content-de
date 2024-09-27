@@ -9,15 +9,15 @@ l10n:
 {{APIRef("CSS Typed OM")}}
 
 Die **`x`**-Eigenschaft der
-{{domxref("CSSRotate")}}-Schnittstelle ermittelt und setzt die Abszisse oder x-Achse des Translationsvektors.
+[`CSSRotate`](/de/docs/Web/API/CSSRotate)-Schnittstelle erhält und setzt die Abszisse oder x-Achse des Übersetzungsvektors.
 
 ## Wert
 
-Ein ganzzahliger Wert oder ein {{domxref("CSSNumericValue")}}
+Ein Gleitkommawert oder ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)
 
 ## Beispiele
 
-In Arbeit
+Noch zu tun
 
 ## Spezifikationen
 

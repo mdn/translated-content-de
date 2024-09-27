@@ -7,8 +7,8 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Object.getPrototypeOf()`** gibt das Prototypobjekt
-(z. B. den Wert der internen `[[Prototype]]`-Eigenschaft) des angegebenen
+Die **`Object.getPrototypeOf()`** statische Methode gibt das Prototyp-Objekt
+(z.B. den Wert der internen `[[Prototype]]`-Eigenschaft) des angegebenen
 Objekts zurück.
 
 {{EmbedInteractiveExample("pages/js/object-getprototypeof.html", "shorter")}}
@@ -26,7 +26,7 @@ Object.getPrototypeOf(obj)
 
 ### Rückgabewert
 
-Der Prototyp des angegebenen Objekts, der [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein kann.
+Der Prototyp des gegebenen Objekts, welcher [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) sein kann.
 
 ## Beispiele
 
@@ -38,10 +38,10 @@ const obj = Object.create(proto);
 Object.getPrototypeOf(obj) === proto; // true
 ```
 
-### Nicht-Objekt-Koerzierung
+### Nicht-Objekt-Umwandlung
 
 In ES5 wird eine {{jsxref("TypeError")}}-Ausnahme ausgelöst, wenn der `obj`
-Parameter kein Objekt ist. In ES2015 wird der Parameter zu einem
+Parameter kein Objekt ist. In ES2015 wird der Parameter in ein
 {{jsxref("Object")}} umgewandelt.
 
 ```js

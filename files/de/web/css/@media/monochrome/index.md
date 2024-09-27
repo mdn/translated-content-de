@@ -1,5 +1,5 @@
 ---
-title: monochrom
+title: monochrome
 slug: Web/CSS/@media/monochrome
 l10n:
   sourceCommit: 0fd3414a0e35e6e30a2cd34977de607a23000bef
@@ -7,19 +7,19 @@ l10n:
 
 {{CSSRef}}
 
-Das **`monochrome`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Anzahl der Bits pro Pixel im monochromen Frame-Buffer des Ausgabegeräts zu testen.
+Das **`monochrome`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Anzahl der Bits pro Pixel im monochromen Framebuffer des Ausgabegeräts zu testen.
 
 ## Syntax
 
-Das `monochrome`-Merkmal wird als ein {{cssxref("&lt;integer&gt;")}} angegeben, das die Anzahl der Bits pro Pixel im monochromen Frame-Buffer darstellt. Wenn das Gerät kein monochromes Gerät ist, beträgt der Wert null. Es handelt sich um ein Bereichsmerkmal, was bedeutet, dass Sie auch die Varianten **`min-monochrome`** und **`max-monochrome`** verwenden können, um minimale und maximale Werte abzufragen.
+Das `monochrome`-Feature wird als {{cssxref("&lt;integer&gt;")}} spezifiziert, das die Anzahl der Bits pro Pixel im monochromen Framebuffer darstellt. Wenn das Gerät kein monochromes Gerät ist, beträgt der Wert Null. Es ist ein Bereichs-Feature, was bedeutet, dass Sie auch die präfixierten Varianten **`min-monochrome`** und **`max-monochrome`** verwenden können, um minimale und maximale Werte abzufragen.
 
 ## Beispiele
 
 ### HTML
 
 ```html
-<p class="mono">Ihr Gerät unterstützt monochrome Pixel!</p>
-<p class="no-mono">Ihr Gerät unterstützt keine monochromen Pixel.</p>
+<p class="mono">Your device supports monochrome pixels!</p>
+<p class="no-mono">Your device doesn't support monochrome pixels.</p>
 ```
 
 ### CSS
@@ -29,7 +29,7 @@ p {
   display: none;
 }
 
-/* Jedes monochrome Gerät */
+/* Any monochrome device */
 @media (monochrome) {
   p.mono {
     display: block;
@@ -37,7 +37,7 @@ p {
   }
 }
 
-/* Jedes nicht-monochrome Gerät */
+/* Any non-monochrome device */
 @media (monochrome: 0) {
   p.no-mono {
     display: block;

@@ -7,7 +7,7 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Das **`WebAssembly.RuntimeError`**-Objekt ist der Fehlertyp, der ausgelöst wird, wann immer WebAssembly eine [trap](https://webassembly.github.io/spec/core/intro/overview.html#trap) spezifiziert.
+Das **`WebAssembly.RuntimeError`**-Objekt ist der Fehlertyp, der immer dann ausgelöst wird, wenn WebAssembly einen [Trap](https://webassembly.github.io/spec/core/intro/overview.html#trap) spezifiziert.
 
 ## Konstruktor
 
@@ -17,30 +17,30 @@ Das **`WebAssembly.RuntimeError`**-Objekt ist der Fehlertyp, der ausgelöst wird
 ## Instanz-Eigenschaften
 
 - {{jsxref("Error.prototype.message", "WebAssembly.RuntimeError.prototype.message")}}
-  - : Fehlermeldung. Geerbt von {{jsxref("Error")}}.
+  - : Fehlermeldung. Übernommen von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.name", "WebAssembly.RuntimeError.prototype.name")}}
-  - : Fehlername. Geerbt von {{jsxref("Error")}}.
+  - : Fehlername. Übernommen von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.cause", "WebAssembly.RuntimeError.prototype.cause")}}
-  - : Fehlerursache. Geerbt von {{jsxref("Error")}}.
+  - : Fehlerursache. Übernommen von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.fileName", "WebAssembly.RuntimeError.prototype.fileName")}} {{non-standard_inline}}
-  - : Pfad zur Datei, die diesen Fehler verursacht hat. Geerbt von {{jsxref("Error")}}.
+  - : Pfad zur Datei, die diesen Fehler verursacht hat. Übernommen von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.lineNumber", "WebAssembly.RuntimeError.prototype.lineNumber")}} {{non-standard_inline}}
-  - : Zeilennummer in der Datei, die diesen Fehler verursacht hat. Geerbt von {{jsxref("Error")}}.
+  - : Zeilennummer in der Datei, die diesen Fehler verursacht hat. Übernommen von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.columnNumber", "WebAssembly.RuntimeError.prototype.columnNumber")}} {{non-standard_inline}}
-  - : Spaltennummer in der Zeile, die diesen Fehler verursacht hat. Geerbt von {{jsxref("Error")}}.
+  - : Spaltennummer in der Zeile, die diesen Fehler verursacht hat. Übernommen von {{jsxref("Error")}}.
 - {{jsxref("Error.prototype.stack", "WebAssembly.RuntimeError.prototype.stack")}} {{non-standard_inline}}
-  - : Stack-Trace. Geerbt von {{jsxref("Error")}}.
+  - : Stack-Trace. Übernommen von {{jsxref("Error")}}.
 
 ## Instanz-Methoden
 
 - {{jsxref("Error.prototype.toString", "WebAssembly.RuntimeError.prototype.toString()")}}
-  - : Gibt einen String zurück, der das spezifizierte `Error`-Objekt darstellt. Geerbt von {{jsxref("Error")}}.
+  - : Gibt eine Zeichenfolge zurück, die das angegebene `Error`-Objekt repräsentiert. Übernommen von {{jsxref("Error")}}.
 
 ## Beispiele
 
-### Eine neue RuntimeError-Instanz erstellen
+### Erstellen einer neuen RuntimeError-Instanz
 
-Der folgende Codeausschnitt erstellt eine neue `RuntimeError`-Instanz und protokolliert deren Details in der Konsole:
+Der folgende Codeausschnitt erstellt eine neue `RuntimeError`-Instanz und gibt deren Details in der Konsole aus:
 
 ```js
 try {
@@ -66,6 +66,6 @@ try {
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
+- Überblicksseite [WebAssembly](/de/docs/WebAssembly)
 - [WebAssembly Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwendung der WebAssembly JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)

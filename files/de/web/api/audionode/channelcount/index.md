@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die **`channelCount`**-Eigenschaft der {{ domxref("AudioNode") }}-Schnittstelle repräsentiert eine ganze Zahl, die verwendet wird, um zu bestimmen, wie viele Kanäle bei der [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu Eingängen des Nodes verwendet werden.
+Die **`channelCount`**-Eigenschaft der [`AudioNode`](/de/docs/Web/API/AudioNode)-Schnittstelle repräsentiert eine ganze Zahl, die verwendet wird, um festzulegen, wie viele Kanäle beim [Up-Mixing und Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) von Verbindungen zu allen Eingängen des Knotens verwendet werden.
 
-Die Verwendung und genaue Definition von `channelCount` hängen vom Wert von {{domxref("AudioNode.channelCountMode")}} ab:
+Die Verwendung und genaue Definition von `channelCount` hängen vom Wert von [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) ab:
 
 - Sie wird ignoriert, wenn der Wert von `channelCountMode` `max` ist.
 - Sie wird als Maximalwert verwendet, wenn der Wert von `channelCountMode` `clamped-max` ist.

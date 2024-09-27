@@ -1,5 +1,5 @@
 ---
-title: "WebTransport: createUnidirectionalStream() Methode"
+title: "WebTransport: createUnidirectionalStream()-Methode"
 short-title: createUnidirectionalStream()
 slug: Web/API/WebTransport/createUnidirectionalStream
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`createUnidirectionalStream()`** Methode des {{domxref("WebTransport")}} Interfaces öffnet asynchron einen unidirektionalen Stream.
+Die **`createUnidirectionalStream()`**-Methode der [`WebTransport`](/de/docs/Web/API/WebTransport)-Schnittstelle öffnet asynchron einen unidirektionalen Stream.
 
-Die Methode gibt ein {{jsxref("Promise")}} zurück, das sich zu einem {{domxref("WritableStream")}} Objekt auflöst, das verwendet werden kann, um zuverlässig Daten zum Server zu schreiben.
+Die Methode gibt ein {{jsxref("Promise")}} zurück, das zu einem [`WritableStream`](/de/docs/Web/API/WritableStream)-Objekt aufgelöst wird, welches genutzt werden kann, um Daten zuverlässig zum Server zu schreiben.
 
-<!-- Note, returns a `WebTransportSendStream` according to spec, but not yet implemented -->
+<!-- Hinweis: Gibt gemäß Spezifikation einen `WebTransportSendStream` zurück, aber noch nicht implementiert -->
 
-"Zuverlässig" bedeutet, dass Übertragung und Reihenfolge der Daten garantiert sind. Dies ermöglicht eine langsamere Zustellung (wenn auch schneller als mit WebSockets) als {{domxref("WebTransport.datagrams", "Datagrams")}}, ist aber in Situationen erforderlich, in denen Zuverlässigkeit und Reihenfolge wichtig sind, wie beispielsweise in Chat-Anwendungen.
+"Zuverlässig" bedeutet, dass Übertragung und Reihenfolge der Daten garantiert sind. Dies bietet eine langsamere Übermittlung (wenn auch schneller als mit `WebSockets`) als [`datagrams`](/de/docs/Web/API/WebTransport/datagrams), ist aber in Situationen erforderlich, in denen Zuverlässigkeit und Reihenfolge wichtig sind, wie bei Chat-Anwendungen.
 
-Die relative Reihenfolge, in der die in Warteschlange stehenden Bytes aus den erstellten Streams geleert werden, kann mit der `sendOrder`-Option festgelegt werden. Wenn gesetzt, werden die Bytes in der Warteschlange in Streams mit einer höheren Sendepriorität garantiert vor denen für Streams mit einer niedrigeren Sendepriorität gesendet. Wenn die Ordnungsnummer nicht festgelegt ist, hängt die Reihenfolge, in der Bytes gesendet werden, von der Implementierung ab. Beachten Sie jedoch, dass selbst wenn Bytes aus Streams mit höherer Sendeordnung zuerst gesendet werden, sie möglicherweise nicht zuerst ankommen.
+Die relative Reihenfolge, in der aus erstellten Streams gequeued Bytes geleert werden, kann mit der `sendOrder`-Option angegeben werden. Falls gesetzt, werden gequeued Bytes in Streams mit höherem Sendevorrang garantiert vor gequeued Bytes in Streams mit niedrigerem Sendevorrang gesendet. Falls die Ordnungszahl nicht gesetzt ist, hängt die Reihenfolge, in der Bytes gesendet werden, von der Implementierung ab. Beachten Sie jedoch, dass auch wenn Bytes aus Streams mit höherem Sendevorrang zuerst gesendet werden, sie möglicherweise nicht zuerst ankommen.
 
 ## Syntax
 
@@ -32,22 +32,22 @@ createUnidirectionalStream(options)
   - : Ein Objekt, das die folgenden Eigenschaften haben kann:
 
     - `sendOrder` {{optional_inline}}
-      - : Ein ganzzahliger Wert, der die Sendepriorität dieses Streams relativ zu anderen Streams festlegt, für die der Wert gesetzt wurde. Bytes in der Warteschlange werden zuerst für Streams gesendet, die einen höheren Wert haben. Wenn nicht gesetzt, hängt die Sendeordnung von der Implementierung ab.
+      - : Ein Integer-Wert, der die Sendepriorität dieses Streams relativ zu anderen Streams angibt, für die der Wert gesetzt wurde. Gequeued Bytes werden zuerst für Streams gesendet, die einen höheren Wert haben. Falls nicht gesetzt, hängt die Sendeordnung von der Implementierung ab.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich zu einem `WebTransportSendStream` Objekt auflöst (dies ist ein {{domxref("WritableStream")}}).
+Ein {{jsxref("Promise")}}, das zu einem `WebTransportSendStream`-Objekt aufgelöst wird (dies ist ein [`WritableStream`](/de/docs/Web/API/WritableStream)).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `createUnidirectionalStream()` aufgerufen wird, während der WebTransport geschlossen oder fehlgeschlagen ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `createUnidirectionalStream()` aufgerufen wird, während das `WebTransport` geschlossen oder fehlerhaft ist.
 
 ## Beispiele
 
-Verwenden Sie die `createUnidirectionalStream()` Methode, um eine Referenz zu einem {{domxref("WritableStream")}} zu erhalten. Aus diesem können Sie {{domxref("WritableStream.getWriter", "einen Writer erhalten", "", "nocode")}}, um zu ermöglichen, dass Daten in den Stream geschrieben und an den Server gesendet werden.
+Verwenden Sie die Methode `createUnidirectionalStream()`, um eine Referenz zu einem [`WritableStream`](/de/docs/Web/API/WritableStream) zu erhalten. Von dort können Sie einen [Writer erhalten](/de/docs/Web/API/WritableStream/getWriter), um Daten in den Stream zu schreiben und an den Server zu senden.
 
-Verwenden Sie die {{domxref("WritableStreamDefaultWriter.close", "close()")}} Methode des resultierenden {{domxref("WritableStreamDefaultWriter")}}, um die zugehörige HTTP/3-Verbindung zu schließen. Der Browser versucht, alle ausstehenden Daten zu senden, bevor die zugehörige Verbindung tatsächlich geschlossen wird.
+Verwenden Sie die [`close()`](/de/docs/Web/API/WritableStreamDefaultWriter/close)-Methode des resultierenden [`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter), um die zugehörige HTTP/3-Verbindung zu schließen. Der Browser versucht, alle ausstehenden Daten zu senden, bevor er die zugehörige Verbindung tatsächlich schließt.
 
 ```js
 async function writeData() {
@@ -62,14 +62,14 @@ async function writeData() {
 
   try {
     await writer.close();
-    console.log("Alle Daten wurden gesendet.");
+    console.log("All data has been sent.");
   } catch (error) {
-    console.error(`Ein Fehler ist aufgetreten: ${error}`);
+    console.error(`An error occurred: ${error}`);
   }
 }
 ```
 
-Sie können auch {{domxref("WritableStreamDefaultWriter.abort()")}} verwenden, um den Stream abrupt zu beenden. Bei der Verwendung von `abort()` kann der Browser alle ausstehenden Daten verwerfen, die noch nicht gesendet wurden.
+Sie können auch [`WritableStreamDefaultWriter.abort()`](/de/docs/Web/API/WritableStreamDefaultWriter/abort) verwenden, um den Stream abrupt zu beenden. Wenn Sie `abort()` verwenden, kann der Browser anstehende Daten verwerfen, die noch nicht gesendet wurden.
 
 ```js
 // ...
@@ -82,7 +82,7 @@ const writer = ws.getWriter();
 writer.write(...);
 writer.write(...);
 await writer.abort();
-// Möglicherweise wurden nicht alle Daten geschrieben.
+// Not all the data may have been written.
 ```
 
 ## Spezifikationen
@@ -96,7 +96,7 @@ await writer.abort();
 ## Siehe auch
 
 - [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebTransport.createBidirectionalStream()")}}
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [`WebTransport.createBidirectionalStream()`](/de/docs/Web/API/WebTransport/createBidirectionalStream)
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

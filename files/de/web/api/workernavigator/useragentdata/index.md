@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("User-Agent Client Hints API")}}{{SeeCompatTable}}{{securecontext_header}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte Eigenschaft **`userAgentData`** des {{domxref("WorkerNavigator")}}-Interfaces gibt ein {{domxref("NavigatorUAData")}}-Objekt zurück, welches verwendet werden kann, um auf die {{domxref("User-Agent Client Hints API", "", "", "nocode")}} zuzugreifen.
+Die **`userAgentData`**-Eigenschaft, die nur lesbar ist, des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces gibt ein [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData)-Objekt zurück, das genutzt werden kann, um auf die [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API) zuzugreifen.
 
 ## Wert
 
-Ein {{domxref("NavigatorUAData")}}-Objekt.
+Ein [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel gibt den Wert von {{domxref("NavigatorUAData.brands")}} in der Konsole aus.
+Das folgende Beispiel gibt den Wert von [`NavigatorUAData.brands`](/de/docs/Web/API/NavigatorUAData/brands) in der Konsole aus.
 
 ```js
 console.log(navigator.userAgentData.brands);
@@ -26,7 +26,7 @@ console.log(navigator.userAgentData.brands);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

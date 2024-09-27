@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toString()`** Methode von {{jsxref("Error")}} Instanzen gibt eine Zeichenkette zurück, die diesen Fehler darstellt.
+Die **`toString()`** Methode von {{jsxref("Error")}} Instanzen gibt einen String zurück, der diesen Fehler darstellt.
 
 ## Syntax
 
@@ -21,12 +21,11 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die das angegebene {{jsxref("Error")}}-Objekt darstellt.
+Ein String, der das angegebene {{jsxref("Error")}}-Objekt darstellt.
 
 ## Beschreibung
 
-Das {{jsxref("Error")}}-Objekt überschreibt die {{jsxref("Object.prototype.toString()")}}
-Methode, die von allen Objekten geerbt wird. Ihr Verhalten ist wie folgt:
+Das {{jsxref("Error")}}-Objekt überschreibt die {{jsxref("Object.prototype.toString()")}} Methode, die von allen Objekten geerbt wird. Die Semantik ist wie folgt:
 
 ```js
 Error.prototype.toString = function () {
@@ -87,4 +86,4 @@ console.log(e5.toString()); // "hello"
 
 ## Siehe auch
 
-- [Polyfill von `Error.prototype.toString` mit vielen Fehlerbehebungen in `core-js`](https://github.com/zloirock/core-js#ecmascript-error)
+- [Polyfill von `Error.prototype.toString` mit vielen Bugfixes in `core-js`](https://github.com/zloirock/core-js#ecmascript-error)

@@ -40,7 +40,7 @@ svg {
 
 ## ellipse
 
-Für {{SVGElement('ellipse')}} definiert `ry` den y-Radius der Form. Bei einem Wert kleiner oder gleich null wird die Ellipse überhaupt nicht gezeichnet.
+Für {{SVGElement('ellipse')}} definiert `ry` den y-Radius der Form. Bei einem Wert, der kleiner oder gleich null ist, wird die Ellipse überhaupt nicht gezeichnet.
 
 <table class="properties">
   <tbody>
@@ -73,17 +73,17 @@ Für {{SVGElement('ellipse')}} definiert `ry` den y-Radius der Form. Bei einem W
 </table>
 
 > [!NOTE]
-> Der y-Radius der `<ellipse>` kann auch mit der {{cssxref("ry")}} _Geometrieeigenschaft_ definiert werden. Wenn in CSS gesetzt, überschreibt der Wert der `ry`-Eigenschaft den Wert des `ry`-Attributs.
+> Der y-Radius der `<ellipse>` kann auch mit der {{cssxref("ry")}} _Geometrieeigenschaft_ definiert werden. Wenn er in CSS festgelegt ist, überschreibt der `ry`-Eigenschaftswert den `ry`-Attributwert.
 
 ## rect
 
-Für {{SVGElement('rect')}} definiert `ry` den y-Achsen-Radius der Ellipse, die zum Abrunden der Ecken des Rechtecks verwendet wird.
+Für {{SVGElement('rect')}} definiert `ry` den y-Achsen-Radius der Ellipse, die verwendet wird, um die Ecken des Rechtecks abzurunden.
 
-Die Interpretation des Wertes des `ry`-Attributs hängt sowohl vom {{SVGAttr("rx")}}-Attribut als auch von der Breite des Rechtecks ab:
+Die Art und Weise, wie der Wert des `ry`-Attributs interpretiert wird, hängt sowohl vom {{SVGAttr("rx")}}-Attribut als auch von der Breite des Rechtecks ab:
 
-- Wenn ein ordnungsgemäß angegebener Wert für `ry` bereitgestellt wird, aber nicht für {{SVGAttr("rx")}} (oder umgekehrt), betrachtet der Browser den fehlenden Wert als gleich dem definierten Wert.
-- Wenn weder `ry` noch {{SVGAttr("rx")}} einen ordnungsgemäß angegebenen Wert haben, zeichnet der Browser ein Rechteck mit rechten Winkeln.
-- Wenn `ry` größer als die Hälfte der Breite des Rechtecks ist, betrachtet der Browser den Wert für `ry` als die Hälfte der Breite des Rechtecks.
+- Wenn ein ordnungsgemäß spezifizierter Wert für `ry`, aber nicht für {{SVGAttr("rx")}} (oder umgekehrt) angegeben wird, dann betrachtet der Browser den fehlenden Wert als gleich dem definierten.
+- Wenn weder `ry` noch {{SVGAttr("rx")}} einen ordnungsgemäß spezifizierten Wert haben, dann zeichnet der Browser ein Rechteck mit rechtwinkligen Ecken.
+- Wenn `ry` größer als die Hälfte der Breite des Rechtecks ist, dann betrachtet der Browser den Wert für `ry` als die Hälfte der Breite des Rechtecks.
 
 <table class="properties">
   <tbody>
@@ -116,7 +116,7 @@ Die Interpretation des Wertes des `ry`-Attributs hängt sowohl vom {{SVGAttr("rx
 </table>
 
 > [!NOTE]
-> Die vertikale Kurve der Ecken des `<rect>` kann auch mit der {{cssxref("ry")}} _Geometrieeigenschaft_ definiert werden. Wenn in CSS gesetzt, überschreibt der Wert der `ry`-Eigenschaft den Wert des `ry`-Attributs.
+> Die vertikale Kurve der Ecken des `<rect>` kann auch mit der {{cssxref("ry")}} _Geometrieeigenschaft_ definiert werden. Wenn er in CSS festgelegt ist, überschreibt der `ry`-Eigenschaftswert den `ry`-Attributwert.
 
 ## Spezifikationen
 

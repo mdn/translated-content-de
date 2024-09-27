@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **ANGLE_instanced_arrays.vertexAttribDivisorANGLE()** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) ändert die Rate, mit der generische Vertex-Attribute voranschreiten, wenn mehrere Instanzen von Primitiven mit {{domxref("ANGLE_instanced_arrays.drawArraysInstancedANGLE()", "ext.drawArraysInstancedANGLE()")}} und {{domxref("ANGLE_instanced_arrays.drawElementsInstancedANGLE()", "ext.drawElementsInstancedANGLE()")}} gerendert werden.
+Die **ANGLE_instanced_arrays.vertexAttribDivisorANGLE()** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) modifiziert die Rate, mit der generische Vertex-Attribute fortschreiten, wenn mehrere Instanzen von Primitiven mit [`ext.drawArraysInstancedANGLE()`](/de/docs/Web/API/ANGLE_instanced_arrays/drawArraysInstancedANGLE) und [`ext.drawElementsInstancedANGLE()`](/de/docs/Web/API/ANGLE_instanced_arrays/drawElementsInstancedANGLE) gerendert werden.
 
 > [!NOTE]
-> Bei Verwendung von {{domxref("WebGL2RenderingContext", "WebGL2")}} ist diese Methode standardmäßig als {{domxref("WebGL2RenderingContext.vertexAttribDivisor()", "gl.vertexAttribDivisor()")}} verfügbar.
+> Bei Verwendung von [`WebGL2`](/de/docs/Web/API/WebGL2RenderingContext) ist diese Methode standardmäßig als [`gl.vertexAttribDivisor()`](/de/docs/Web/API/WebGL2RenderingContext/vertexAttribDivisor) verfügbar.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ vertexAttribDivisorANGLE(index, divisor)
 ### Parameter
 
 - `index`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der den Index der generischen Vertex-Attribute angibt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index der generischen Vertex-Attribute angibt.
 - `divisor`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der die Anzahl der Instanzen angibt, die zwischen den Aktualisierungen des generischen Attributs vergehen.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Instanzen angibt, die zwischen den Updates des generischen Attributs verstreichen.
 
 ### Rückgabewert
 
@@ -47,10 +47,10 @@ ext.vertexAttribDivisorANGLE(0, 2);
 
 ## Siehe auch
 
-- {{domxref("ANGLE_instanced_arrays.drawArraysInstancedANGLE()", "ext.drawArraysInstancedANGLE()")}}
-- {{domxref("ANGLE_instanced_arrays.drawElementsInstancedANGLE()", "ext.drawElementsInstancedANGLE()")}}
-- {{domxref("WebGLRenderingContext.drawArrays()")}}
-- {{domxref("WebGLRenderingContext.drawElements()")}}
-- {{domxref("WebGL2RenderingContext.drawArraysInstanced()")}}
-- {{domxref("WebGL2RenderingContext.drawElementsInstanced()")}}
-- {{domxref("WebGL2RenderingContext.vertexAttribDivisor()")}}
+- [`ext.drawArraysInstancedANGLE()`](/de/docs/Web/API/ANGLE_instanced_arrays/drawArraysInstancedANGLE)
+- [`ext.drawElementsInstancedANGLE()`](/de/docs/Web/API/ANGLE_instanced_arrays/drawElementsInstancedANGLE)
+- [`WebGLRenderingContext.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays)
+- [`WebGLRenderingContext.drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements)
+- [`WebGL2RenderingContext.drawArraysInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced)
+- [`WebGL2RenderingContext.drawElementsInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced)
+- [`WebGL2RenderingContext.vertexAttribDivisor()`](/de/docs/Web/API/WebGL2RenderingContext/vertexAttribDivisor)

@@ -1,5 +1,5 @@
 ---
-title: Dokumenten-Zeitleiste
+title: DocumentTimeline
 slug: Web/API/DocumentTimeline
 l10n:
   sourceCommit: f45409ba2169ff05e433d21aa4ee0424079916b8
@@ -7,21 +7,21 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Das **`DocumentTimeline`**-Interface der [Web-Animationen-API](/de/docs/Web/API/Web_Animations_API) repräsentiert Animationszeitleisten, einschließlich der standardmäßigen Dokumenten-Zeitleiste (zugreifbar über {{domxref("Document.timeline")}}).
+Die **`DocumentTimeline`**-Schnittstelle der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert Animationstimeline, einschließlich der Standard-Dokument-Timeline (zugänglich über [`Document.timeline`](/de/docs/Web/API/Document/timeline)).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("DocumentTimeline.DocumentTimeline", "DocumentTimeline()")}}
-  - : Erstellt ein neues `DocumentTimeline`-Objekt, das dem aktiven Dokument des aktuellen Browsing-Kontexts zugeordnet ist.
+- [`DocumentTimeline()`](/de/docs/Web/API/DocumentTimeline/DocumentTimeline)
+  - : Erstellt ein neues `DocumentTimeline`-Objekt, das mit dem aktiven Dokument des aktuellen Browsing-Kontextes verbunden ist.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Dieses Interface erbt seine Eigenschaften von seinem Elternteil, {{domxref("AnimationTimeline")}}._
+_Diese Schnittstelle erbt ihre Eigenschaft von ihrem übergeordneten Element, [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)._
 
-- {{domxref("AnimationTimeline.currentTime")}}
-  - : Gibt den Zeitwert in Millisekunden für diese Zeitleiste zurück oder `null`, wenn sie inaktiv ist.
+- [`AnimationTimeline.currentTime`](/de/docs/Web/API/AnimationTimeline/currentTime)
+  - : Gibt den Zeitwert in Millisekunden für diese Timeline zurück oder `null`, wenn sie inaktiv ist.
 
 ## Spezifikationen
 
@@ -34,7 +34,7 @@ _Dieses Interface erbt seine Eigenschaften von seinem Elternteil, {{domxref("Ani
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("AnimationTimeline")}}
-- {{domxref("AnimationTimeline.currentTime")}}
-- {{domxref("Document.timeline")}}
-- {{domxref("DocumentTimeline.DocumentTimeline", "DocumentTimeline()")}}
+- [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)
+- [`AnimationTimeline.currentTime`](/de/docs/Web/API/AnimationTimeline/currentTime)
+- [`Document.timeline`](/de/docs/Web/API/Document/timeline)
+- [`DocumentTimeline()`](/de/docs/Web/API/DocumentTimeline/DocumentTimeline)

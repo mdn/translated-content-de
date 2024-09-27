@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaColCount`**-Eigenschaft des {{domxref("Element")}}-Interfaces spiegelt den Wert des [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colcount)-Attributs wider, das die Anzahl der Spalten in einer Tabelle, einem Raster oder einem Baumraster definiert.
+Die **`ariaColCount`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colcount)-Attributs wider, welches die Anzahl der Spalten in einer Tabelle, einem Raster oder einem Baumraster definiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-colcount`-Attribut des Elements mit der ID `semantic-table` auf "2" festgelegt. Mit `ariaColCount` aktualisieren wir den Wert auf "3".
+In diesem Beispiel ist das `aria-colcount`-Attribut des Elements mit der ID `semantic-table` auf "2" gesetzt. Mithilfe von `ariaColCount` aktualisieren wir den Wert auf "3".
 
 ```html
 <table
@@ -73,4 +73,4 @@ console.log(el.ariaColCount); // 3
 
 {{Compat}}
 
-- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+- [ARIA: Tabellenrolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)

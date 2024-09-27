@@ -1,5 +1,5 @@
 ---
-title: "SVGMarkerElement: Eigenschaft viewBox"
+title: "SVGMarkerElement: viewBox-Eigenschaft"
 short-title: viewBox
 slug: Web/API/SVGMarkerElement/viewBox
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`viewBox`** schreibgeschützte Eigenschaft der {{domxref("SVGMarkerElement")}}-Schnittstelle gibt ein {{domxref("SVGAnimatedRect")}}-Objekt zurück, das die Werte enthält, die durch das {{SVGattr("viewBox")}}-Attribut auf dem {{SVGElement("marker")}} gesetzt wurden.
+Die **`viewBox`**-Eigenschaft des [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Interfaces ist eine schreibgeschützte Eigenschaft, die ein [`SVGAnimatedRect`](/de/docs/Web/API/SVGAnimatedRect)-Objekt zurückgibt, welches die durch das {{SVGattr("viewBox")}}-Attribut auf dem {{SVGElement("marker")}} gesetzten Werte enthält.
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedRect")}}-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein {{domxref("SVGRect")}}-Objekt zurück, von dem die `x`- und `y`-Koordinaten sowie die `width`- und `height`-Werte des {{SVGElement("marker")}}-{{SVGattr("viewBox")}}-Attributs abgerufen werden können.
+Ein [`SVGAnimatedRect`](/de/docs/Web/API/SVGAnimatedRect)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGRect`](/de/docs/Web/API/SVGRect)-Objekt zurück, von dem die `x`- und `y`-Koordinaten sowie die `width` und `height` des {{SVGElement("marker")}}-{{SVGattr("viewBox")}}-Attributs abgerufen werden können.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie der für das {{SVGattr("viewBox")}}-Attribut des {{SVGElement("marker")}} gesetzte `width`-Wert abgefragt werden kann.
+Dieses Beispiel zeigt, wie der für das {{SVGattr("viewBox")}}-Attribut des {{SVGElement("marker")}} gesetzte `width`-Wert zurückgegeben wird.
 
 ```html
 <svg id="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">

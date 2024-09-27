@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`formData`** der {{domxref("NavigateEvent")}}-Schnittstelle gibt das {{domxref("FormData")}}-Objekt zurück, das die übermittelten Daten im Falle einer [POST](/de/docs/Web/HTTP/Methods/POST)-Formularübermittlung darstellt, oder `null` andernfalls.
+Die **`formData`** schreibgeschützte Eigenschaft des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt das [`FormData`](/de/docs/Web/API/FormData)-Objekt zurück, das die übermittelten Daten im Fall einer [`POST`](/de/docs/Web/HTTP/Methods/POST)-Formularübermittlung darstellt oder andernfalls `null`.
 
 ## Wert
 
-Ein {{domxref("FormData")}}-Objekt oder `null`.
+Ein [`FormData`](/de/docs/Web/API/FormData)-Objekt oder `null`.
 
 ## Beispiele
 
 ```js
 navigation.addEventListener("navigate", (event) => {
-  // Manche Navigationsereignisse, z.B. Cross-Origin-Navigations, können wir
-  // nicht abfangen. Lassen Sie den Browser diese normal behandeln.
+  // Some navigations, e.g. cross-origin navigations, we
+  // cannot intercept. Let the browser handle those normally.
   if (!event.canIntercept) {
     return;
   }
 
-  // Keine Fragmentnavigationen oder Downloads abfangen.
+  // Don't intercept fragment navigations or downloads.
   if (event.hashChange || event.downloadRequest !== null) {
     return;
   }
@@ -51,6 +51,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Modernes clientseitiges Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärungsdokument](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Livedemo](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne client-seitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erläuterung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)

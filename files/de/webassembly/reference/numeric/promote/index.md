@@ -1,5 +1,5 @@
 ---
-title: Fördern
+title: Promote
 slug: WebAssembly/Reference/Numeric/Promote
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -7,20 +7,20 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`promote`**-Anweisung wird verwendet, um Zahlen vom Typ `f32` in den Typ `f64` zu konvertieren (fördern).
+Die Anweisung **`promote`** wird verwendet, um Zahlen vom Typ `f32` in den Typ `f64` umzuwandeln (zu "promoten").
 
 {{EmbedInteractiveExample("pages/wat/promote.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; Ein f32 auf den Stapel schieben
+;; push an f32 onto the stack
 f32.const 10.5
 
-;; Von f32 zu f64 fördern
+;; promote from f32 to f64
 f64.promote_f32
 
-;; Das oberste Element auf dem Stapel ist jetzt der Wert 10.5 vom Typ f64
+;; the top item on the stack will now be the value 10.5 of type f64
 ```
 
 | Anweisung         | Binärer Opcode |

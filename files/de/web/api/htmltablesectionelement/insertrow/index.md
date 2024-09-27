@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableSectionElement: Methode insertRow()"
+title: "HTMLTableSectionElement: insertRow()-Methode"
 short-title: insertRow()
 slug: Web/API/HTMLTableSectionElement/insertRow
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`insertRow()`** Methode des {{domxref("HTMLTableSectionElement")}}-Interfaces fügt eine neue Zeile
-({{HtmlElement("tr")}}) in das angegebene Tabellenabschnittelement ein ({{HTMLElement("thead")}}, {{HTMLElement("tfoot")}}, oder
-{{HTMLElement("tbody")}}) und gibt dann eine Referenz auf diese neue Zeile zurück.
+Die **`insertRow()`**-Methode des [`HTMLTableSectionElement`](/de/docs/Web/API/HTMLTableSectionElement)-Interfaces fügt eine neue Zeile
+({{HtmlElement("tr")}}) in das angegebene Tabellenabschnittselement ({{HTMLElement("thead")}}, {{HTMLElement("tfoot")}} oder
+{{HTMLElement("tbody")}}) ein und gibt dann eine Referenz auf diese neue Zeile zurück.
 
 > **Note:** `insertRow()` fügt die Zeile direkt in den
-> Abschnitt ein. Die Zeile muss nicht separat hinzugefügt werden, wie es der Fall wäre, wenn
-> {{domxref("Document.createElement()")}} verwendet worden wäre, um das neue
+> Abschnitt ein. Die Zeile muss nicht separat angefügt werden, wie es der Fall wäre, wenn
+> [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet worden wäre, um das neue
 > `<tr>`-Element zu erstellen.
 
 ## Syntax
@@ -27,30 +27,31 @@ insertRow(index)
 ### Parameter
 
 - `index` {{optional_inline}}
-  - : Der Zeilenindex der neuen Zeile. Wenn `index` `-1` oder gleich der Anzahl der Zeilen ist, wird die Zeile als letzte Zeile hinzugefügt.
+  - : Der Zeilenindex der neuen Zeile. Wenn `index` `-1` oder gleich der
+    Anzahl der Zeilen ist, wird die Zeile als letzte Zeile angehängt.
     Wenn `index` weggelassen wird, ist der Standardwert `-1`.
 
 ### Rückgabewert
 
-Ein {{domxref("HTMLTableRowElement")}}, das die neue Zeile referenziert.
+Ein [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement), das auf die neue Zeile verweist.
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `index` größer als die Anzahl der Zeilen oder kleiner als `-1` ist.
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `index` größer ist als die Anzahl der Zeilen oder kleiner als `-1`.
 
 ## Beispiele
 
-In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen im Tabellenkörperabschnitt; es aktualisiert auch ein {{HTMLElement("output")}}-Element mit der aktuellen Anzahl der Zeilen in der Tabelle.
+In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entfernen von Zeilen aus dem Tabellenkörperabschnitt; zudem wird ein {{HTMLElement("output")}}-Element mit der aktuellen Anzahl der Reihen in der Tabelle aktualisiert.
 
 ### HTML
 
 ```html
 <table>
   <thead>
-    <th>Spalte 1</th>
-    <th>Spalte 2</th>
-    <th>Spalte 3</th>
+    <th>Col 1</th>
+    <th>Col 2</th>
+    <th>Col 3</th>
   </thead>
   <tbody>
     <tr>
@@ -60,9 +61,9 @@ In diesem Beispiel ermöglichen zwei Schaltflächen das Hinzufügen und Entferne
     </tr>
   </tbody>
 </table>
-<button id="add">Eine Zeile hinzufügen</button>
-<button id="remove">Letzte Zeile entfernen</button>
-<div>Dieser Tabellenteil hat <output>1</output> Zeile(n).</div>
+<button id="add">Add a row</button>
+<button id="remove">Remove last row</button>
+<div>This table's body has <output>1</output> row(s).</div>
 ```
 
 ```css hidden
@@ -83,9 +84,9 @@ button {
 ### JavaScript
 
 ```js
-// Relevante Interface-Elemente abrufen
+// Obtain relevant interface elements
 const bodySection = document.querySelectorAll("tbody")[0];
-const rows = bodySection.rows; // Die Sammlung ist live und daher immer aktuell
+const rows = bodySection.rows; // The collection is live, therefore always up-to-date
 const rowNumberDisplay = document.querySelectorAll("output")[0];
 
 const addButton = document.getElementById("add");
@@ -96,23 +97,23 @@ function updateRowNumber() {
 }
 
 addButton.addEventListener("click", () => {
-  // Eine neue Zeile am Ende des Körpers hinzufügen
+  // Add a new row at the end of the body
   const newRow = bodySection.insertRow();
 
-  // Zellen innerhalb der neuen Zeile hinzufügen
+  // Add cells inside the new row
   ["A", "B", "C"].forEach(
     (elt) => (newRow.insertCell().textContent = `${elt}${rows.length}`),
   );
 
-  // Den Zeilenzähler aktualisieren
+  // Update the row counter
   updateRowNumber();
 });
 
 removeButton.addEventListener("click", () => {
-  // Die Zeile aus dem Körper löschen
+  // Delete the row from the body
   bodySection.deleteRow(-1);
 
-  // Den Zeilenzähler aktualisieren
+  // Update the row counter
   updateRowNumber();
 });
 ```
@@ -131,5 +132,5 @@ removeButton.addEventListener("click", () => {
 
 ## Siehe auch
 
-- {{domxref("HTMLTableRowElement.insertCell()")}}
-- {{domxref("HTMLTableElement.insertRow()")}}
+- [`HTMLTableRowElement.insertCell()`](/de/docs/Web/API/HTMLTableRowElement/insertCell)
+- [`HTMLTableElement.insertRow()`](/de/docs/Web/API/HTMLTableElement/insertRow)

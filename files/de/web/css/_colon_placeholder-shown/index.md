@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Element, das gerade [Platzhaltertext](/de/docs/Web/HTML/Element/input#placeholder) anzeigt.
+Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Element, das aktuell [Platzhaltertext](/de/docs/Web/HTML/Element/input#placeholder) anzeigt.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-placeholder-shown.html", "tabbed-shorter")}}
 
@@ -52,7 +52,7 @@ input:placeholder-shown {
 
 ### Überlaufender Text
 
-Wenn Formularelemente zu klein sind, kann der Platzhaltertext unerwünscht abgeschnitten werden. Sie können die {{cssxref("text-overflow")}}-Eigenschaft verwenden, um die Anzeige von überlaufendem Text zu ändern.
+Wenn Formularfelder zu klein sind, kann der Platzhaltertext auf unerwünschte Weise abgeschnitten werden. Sie können die Eigenschaft {{cssxref("text-overflow")}} verwenden, um die Anzeige von überlaufendem Text zu ändern.
 
 #### HTML
 
@@ -75,7 +75,7 @@ Wenn Formularelemente zu klein sind, kann der Platzhaltertext unerwünscht abges
 
 ### Anpassungsfähiges Eingabefeld
 
-Das folgende Beispiel hebt das Feld "Studentenausweis" mit einem benutzerdefinierten Stil hervor.
+Das folgende Beispiel hebt das Feld für die Studenten-ID mit einem benutzerdefinierten Stil hervor.
 
 #### HTML
 
@@ -132,6 +132,6 @@ input.studentid:placeholder-shown {
 
 ## Siehe auch
 
-- Das {{CSSxRef("::placeholder")}} Pseudoelement stylt den Platzhalter _selbst_.
+- Das {{CSSxRef("::placeholder")}}-Pseudoelement stylt den Platzhalter selbst.
 - Verwandte HTML-Elemente: {{HTMLElement("input")}}, {{HTMLElement("textarea")}}
 - [HTML-Formulare](/de/docs/Learn/Forms)

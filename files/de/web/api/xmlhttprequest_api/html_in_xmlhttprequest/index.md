@@ -7,17 +7,17 @@ l10n:
 
 {{DefaultAPISidebar("XMLHttpRequest API")}}
 
-Die W3C-Spezifikation {{domxref("XMLHttpRequest")}} fügt Unterstützung für das Parsen von [HTML](/de/docs/Web/HTML) zu {{domxref("XMLHttpRequest")}} hinzu, das ursprünglich nur das Parsen von {{Glossary("XML")}} unterstützte. Dieses Feature ermöglicht es Web-Anwendungen, eine HTML-Ressource als geparstes {{Glossary("DOM")}} mit `XMLHttpRequest` zu erhalten.
+Die W3C-Spezifikation [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) fügt Parsing-Unterstützung für [HTML](/de/docs/Web/HTML) zu [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) hinzu, das ursprünglich nur Parsing für [XML](/de/docs/Glossary/XML) unterstützte. Diese Funktion ermöglicht es Webanwendungen, eine HTML-Ressource als geparstes [DOM](/de/docs/Glossary/DOM) mit `XMLHttpRequest` zu erhalten.
 
-Für einen Überblick darüber, wie `XMLHttpRequest` im Allgemeinen verwendet wird, siehe [Using XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest).
+Um einen Überblick darüber zu erhalten, wie Sie `XMLHttpRequest` im Allgemeinen verwenden, siehe [Using XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest).
 
 ## Einschränkungen
 
-Um die synchrone Nutzung von `XMLHttpRequest` zu entmutigen, ist HTML-Unterstützung im synchronen Modus nicht verfügbar. Außerdem ist HTML-Unterstützung nur verfügbar, wenn die Eigenschaft {{domxref("XMLHttpRequest.responseType", "responseType")}} auf `"document"` gesetzt wurde. Diese Einschränkung verhindert das unnötige Parsen von HTML, wenn Legacy-Code `XMLHttpRequest` im Standardmodus verwendet, um {{domxref("XMLHttpRequest.responseText", "responseText")}} für `text/html`-Ressourcen abzurufen. Außerdem vermeidet diese Einschränkung Probleme mit Legacy-Code, der davon ausgeht, dass {{domxref("XMLHttpRequest.responseXML", "responseXML")}} für HTTP-Fehlerseiten `null` ist (die oft einen `text/html`-Antwortkörper haben).
+Um die synchrone Verwendung von `XMLHttpRequest` zu entmutigen, ist HTML-Unterstützung im synchronen Modus nicht verfügbar. Außerdem ist HTML-Unterstützung nur verfügbar, wenn die Eigenschaft [`responseType`](/de/docs/Web/API/XMLHttpRequest/responseType) auf `"document"` gesetzt wurde. Diese Einschränkung vermeidet, dass unnötig Zeit mit dem Parsen von HTML verschwendet wird, wenn Legacy-Code `XMLHttpRequest` im Standardmodus verwendet, um [`responseText`](/de/docs/Web/API/XMLHttpRequest/responseText) für `text/html` Ressourcen abzurufen. Außerdem werden Probleme mit Legacy-Code vermieden, der davon ausgeht, dass [`responseXML`](/de/docs/Web/API/XMLHttpRequest/responseXML) `null` für HTTP-Fehlerseiten ist (die oft einen `text/html` Antwortinhalt haben).
 
 ## Verwendung
 
-Das Abrufen einer HTML-Ressource als DOM über {{domxref("XMLHttpRequest")}} funktioniert genauso wie das Abrufen einer XML-Ressource als DOM mit `XMLHttpRequest`, außer dass Sie den synchronen Modus nicht verwenden können und Sie ein Dokument explizit anfordern müssen, indem Sie die Zeichenkette `"document"` der Eigenschaft {{domxref("XMLHttpRequest.responseType", "responseType")}} des `XMLHttpRequest`-Objekts zuweisen, nachdem Sie {{domxref("XMLHttpRequest.open", "open()")}} aufgerufen haben, aber bevor Sie {{domxref("XMLHttpRequest.send", "send()")}} aufrufen.
+Das Abrufen einer HTML-Ressource als DOM mit [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) funktioniert genauso wie das Abrufen einer XML-Ressource als DOM mit `XMLHttpRequest`, außer dass Sie den synchronen Modus nicht verwenden können und explizit ein Dokument anfordern müssen, indem Sie den String `"document"` der Eigenschaft [`responseType`](/de/docs/Web/API/XMLHttpRequest/responseType) des `XMLHttpRequest`-Objekts zuweisen, nachdem Sie [`open()`](/de/docs/Web/API/XMLHttpRequest/open) aufgerufen haben, aber bevor Sie [`send()`](/de/docs/Web/API/XMLHttpRequest/send) aufrufen.
 
 ```js
 const xhr = new XMLHttpRequest();
@@ -33,7 +33,7 @@ xhr.send();
 
 ### Methode 1
 
-Diese Methode basiert auf der "force async"-Natur des Features. Wenn Sie versuchen, `responseType` eines `XMLHttpRequest`-Objekts zu setzen, nachdem es als "sync" geöffnet wurde, führt dies in den Browsern, die das Feature implementieren, zu einem Fehler und funktioniert bei anderen.
+Diese Methode basiert auf der "erzwungenen asynchronen" Natur der Funktion. Wenn Sie versuchen, `responseType` eines `XMLHttpRequest`-Objekts zu setzen, nachdem es als "sync" geöffnet wurde. Dies wirft in den Browsern, die die Funktion implementieren, einen Fehler und funktioniert in anderen.
 
 ```js
 function HTMLinXHR() {
@@ -51,21 +51,21 @@ function HTMLinXHR() {
 }
 ```
 
-[View on JSFiddle](https://jsfiddle.net/HTcKP/1/)
+[Auf JSFiddle ansehen](https://jsfiddle.net/HTcKP/1/)
 
-Diese Methode ist synchron, sie beruht nicht auf externen Assets, obwohl sie möglicherweise nicht so zuverlässig ist wie Methode 2, die unten beschrieben wird, da sie nicht das tatsächliche Feature überprüft, sondern einen Hinweis auf dieses Feature.
+Diese Methode ist synchron, verlässt sich nicht auf externe Assets, obwohl sie möglicherweise nicht so zuverlässig ist wie Methode 2, die unten beschrieben wird, da sie nicht die tatsächliche Funktion, sondern einen Hinweis auf diese Funktion überprüft.
 
 ### Methode 2
 
-Es gibt zwei Herausforderungen bei der genauen Erkennung, ob ein Browser HTML-Parsen in {{domxref("XMLHttpRequest")}} unterstützt. Erstens wird das Erkennungsergebnis asynchron gewonnen, da HTML-Unterstützung nur im asynchronen Modus verfügbar ist. Zweitens müssen Sie tatsächlich ein Testdokument über HTTP abrufen, da ein Test mit einer `data:`-URL gleichzeitig die Unterstützung von `data:`-URLs testen würde.
+Es gibt zwei Herausforderungen bei der genauen Feststellung, ob ein Browser HTML-Parsing in [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) unterstützt. Erstens wird das Erkennungsergebnis asynchron erhalten, da HTML-Unterstützung nur im asynchronen Modus verfügbar ist. Zweitens müssen Sie tatsächlich ein Testdokument über HTTP abrufen, da das Testen mit einer `data:` URL dazu führen würde, dass gleichzeitig `data:` URL-Unterstützung getestet wird.
 
-Um die HTML-Unterstützung zu erkennen, wird eine kleine Test-HTML-Datei auf dem Server benötigt, die kein gut geformtes XML ist:
+Um also HTML-Unterstützung zu erkennen, wird eine Test-HTML-Datei auf dem Server benötigt. Diese Testdatei ist klein und kein wohlgeformtes XML:
 
 ```html
 <title>&amp;&<</title>
 ```
 
-Wenn die Datei `detect.html` genannt wird, kann die folgende Funktion zur Erkennung der HTML-Parsing-Unterstützung verwendet werden:
+Wenn die Datei `detect.html` genannt wird, kann die folgende Funktion verwendet werden, um HTML-Parsing-Unterstützung zu erkennen:
 
 ```js
 function detectHtmlInXhr(callback) {
@@ -111,13 +111,13 @@ function detectHtmlInXhr(callback) {
 }
 ```
 
-Das Argument `callback` ist eine Funktion, die asynchron mit `true` als einzigem Argument aufgerufen wird, wenn HTML-Parsen unterstützt wird, und mit `false` als einzigem Argument, wenn nicht.
+Das Argument `callback` ist eine Funktion, die asynchron mit `true` als einzigem Argument aufgerufen wird, wenn HTML-Parsing unterstützt wird, und mit `false` als einzigem Argument, wenn HTML-Parsing nicht unterstützt wird.
 
-[View on JSFiddle](https://jsfiddle.net/xfvXR/1/)
+[Auf JSFiddle ansehen](https://jsfiddle.net/xfvXR/1/)
 
 ## Zeichenkodierung
 
-Wenn die Zeichenkodierung im HTTP-{{HTTPHeader("Content-Type")}}-Header deklariert ist, wird diese Zeichenkodierung verwendet. Andernfalls, wenn ein Byte-Order-Mark vorhanden ist, wird die durch den Byte-Order-Mark angezeigte Kodierung verwendet. Wenn auch das nicht der Fall ist und es ein {{HTMLElement("meta")}}-Element gibt, das die Kodierung innerhalb der ersten 1024 Bytes der Datei deklariert, wird diese Kodierung verwendet. Andernfalls wird die Datei als UTF-8 dekodiert.
+Wenn die Zeichenkodierung im HTTP {{HTTPHeader("Content-Type")}}-Header deklariert ist, wird diese Zeichenkodierung verwendet. Wenn dies fehlschlägt und ein Byte-Order-Mark vorhanden ist, wird die durch das Byte-Order-Mark angegebene Kodierung verwendet. Scheitert auch dies und es gibt ein {{HTMLElement("meta")}}-Element, das die Kodierung innerhalb der ersten 1024 Bytes der Datei deklariert, wird diese Kodierung verwendet. Andernfalls wird die Datei als UTF-8 dekodiert.
 
 ## Spezifikationen
 
@@ -129,5 +129,5 @@ Wenn die Zeichenkodierung im HTTP-{{HTTPHeader("Content-Type")}}-Header deklarie
 
 ## Siehe auch
 
-- {{domxref("XMLHttpRequest")}}
+- [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
 - [Using XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)

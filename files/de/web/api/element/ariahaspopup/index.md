@@ -3,38 +3,38 @@ title: "Element: ariaHasPopup-Eigenschaft"
 short-title: ariaHasPopup
 slug: Web/API/Element/ariaHasPopup
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaHasPopup`**-Eigenschaft der {{domxref("Element")}}-Schnittstelle spiegelt den Wert des [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup)-Attributs wider, welches die Verfügbarkeit und den Typ eines interaktiven Pop-up-Elements, wie Menü oder Dialog, angibt, das durch ein Element ausgelöst werden kann.
+Die **`ariaHasPopup`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-haspopup`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup)-Attributs wider, das die Verfügbarkeit und den Typ eines interaktiven Popup-Elements anzeigt, z. B. ein Menü oder Dialog, das durch ein Element ausgelöst werden kann.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"false"`
-  - : Das Element hat kein Pop-up.
+  - : Das Element hat kein Popup.
 - `"true"`
-  - : Das Element hat ein Pop-up, das ein Menü ist.
+  - : Das Element hat ein Popup, das ein Menü ist.
 - `"menu"`
-  - : Das Element hat ein Pop-up, das ein Menü ist.
+  - : Das Element hat ein Popup, das ein Menü ist.
 - `"listbox"`
-  - : Das Element hat ein Pop-up, das eine Liste ist.
+  - : Das Element hat ein Popup, das eine Listbox ist.
 - `"tree"`
-  - : Das Element hat ein Pop-up, das ein Baum ist.
+  - : Das Element hat ein Popup, das ein Baum ist.
 - `"grid"`
-  - : Das Element hat ein Pop-up, das ein Raster ist.
+  - : Das Element hat ein Popup, das ein Raster ist.
 - `"dialog"`
-  - : Das Element hat ein Pop-up, das ein Dialog ist.
+  - : Das Element hat ein Popup, das ein Dialog ist.
 
 > [!WARNING]
-> Beachten Sie, dass die Unterstützung für die verschiedenen `aria-haspopup`-Werte je nach Element, für das das Attribut angegeben ist, variieren kann. Stellen Sie sicher, dass beim Verwenden von `aria-haspopup` die Verwendung in Übereinstimmung mit der ARIA-Spezifikation erfolgt und es wie erwartet funktioniert, wenn es mit den notwendigen Browsern und unterstützenden Technologien getestet wird.
+> Beachten Sie, dass die Unterstützung für die verschiedenen `aria-haspopup`-Werte je nach Element, für das das Attribut angegeben ist, variieren kann. Stellen Sie sicher, dass `aria-haspopup` gemäß der ARIA-Spezifikation verwendet wird und dass es ordnungsgemäß funktioniert, wenn Sie es mit den erforderlichen Browsern und unterstützenden Technologien testen.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-haspopup`-Attribut auf dem Element mit der ID `animal` auf "`true`" gesetzt. Mithilfe von `ariaHasPopup` aktualisieren wir den Wert auf "`listbox`", was der erwartete Wert für eine Kombinationsbox ist, die ein `listbox`-Pop-up aufruft.
+In diesem Beispiel wird das `aria-haspopup`-Attribut des Elements mit der ID `animal` auf `"true"` gesetzt. Mit `ariaHasPopup` aktualisieren wir den Wert auf `"listbox"`, was der erwartete Wert für ein Kombinationsfeld ist, das ein `listbox`-Popup aufruft.
 
 ```html
 <div class="animals-combobox">

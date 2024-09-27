@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Das **`statechange`**-Ereignis des {{domxref("MIDIPort")}}-Interfaces wird ausgelöst, wenn ein Port von offen zu geschlossen wechselt oder umgekehrt.
+Das **`statechange`** Ereignis der [`MIDIPort`](/de/docs/Web/API/MIDIPort) Schnittstelle wird ausgelöst, wenn sich ein Port von geöffnet zu geschlossen oder von geschlossen zu geöffnet ändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("statechange", (event) => {});
@@ -22,18 +22,18 @@ onstatechange = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("MIDIConnectionEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MIDIConnectionEvent`](/de/docs/Web/API/MIDIConnectionEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MIDIConnectionEvent")}}
 
 ## Ereigniseigenschaften
 
-- {{domxref("MIDIConnectionEvent.port")}} {{ReadOnlyInline}}
-  - : Gibt eine Referenz zu einer {{domxref("MIDIPort")}}-Instanz für einen Port zurück, der verbunden oder getrennt wurde.
+- [`MIDIConnectionEvent.port`](/de/docs/Web/API/MIDIConnectionEvent/port) {{ReadOnlyInline}}
+  - : Gibt eine Referenz zu einer [`MIDIPort`](/de/docs/Web/API/MIDIPort) Instanz für einen Port zurück, der verbunden oder getrennt wurde.
 
 ## Beispiel
 
-Im folgenden Beispiel wird der aktuelle {{domxref("MIDIPort.state")}} jedes Mal protokolliert, wenn er sich ändert.
+Im folgenden Beispiel wird der aktuelle [`MIDIPort.state`](/de/docs/Web/API/MIDIPort/state) jedes Mal protokolliert, wenn er sich ändert.
 
 ```js
 port.onstatechange = (event) => {

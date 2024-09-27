@@ -7,33 +7,33 @@ l10n:
 
 {{SecureContext_Header}}{{APIRef("WebXR Device API")}}
 
-Das **`XRSpace`** Interface der [WebXR-Geräte-API](/de/docs/Web/API/WebXR_Device_API) ist ein abstraktes Interface, das eine gemeinsame Basis für jede Klasse darstellt, die ein virtuelles Koordinatensystem innerhalb der virtuellen Welt repräsentiert, in dem der Ursprung einem physischen Standort entspricht. Räumliche Daten in WebXR werden immer relativ zu einem Objekt ausgedrückt, das auf einer der abgeleiteten Schnittstellen von `XRSpace` basiert, zu dem Zeitpunkt, an dem ein bestimmtes {{domxref("XRFrame")}} stattfindet.
+Die **`XRSpace`**-Schnittstelle der [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) ist eine abstrakte Schnittstelle, die eine gemeinsame Grundlage für jede Klasse bildet, die ein virtuelles Koordinatensystem innerhalb der virtuellen Welt repräsentiert, wobei ihr Ursprung einem physischen Ort entspricht. Räumliche Daten in WebXR werden immer relativ zu einem Objekt ausgedrückt, das auf einer der abgeleiteten Schnittstellen von `XRSpace` basiert, zu dem Zeitpunkt, an dem ein gegebenes [`XRFrame`](/de/docs/Web/API/XRFrame) stattfindet.
 
-Numerische Werte wie etwa Posentransformationen sind somit Koordinaten im entsprechenden `XRSpace`, relativ zum Ursprung dieses Raumes.
+Numerische Werte wie Positionsposen sind somit Koordinaten im entsprechenden `XRSpace`, relativ zum Ursprung dieses Raums.
 
 > [!NOTE]
-> Das `XRSpace`-Interface wird nie direkt verwendet; stattdessen werden alle Räume mit einem der auf `XRSpace` basierenden Interfaces erstellt. Zum aktuellen Zeitpunkt sind dies {{domxref("XRReferenceSpace")}}, {{domxref("XRBoundedReferenceSpace")}} und {{domxref("XRJointSpace")}}.
+> Die `XRSpace`-Schnittstelle wird nie direkt verwendet; stattdessen werden alle Räume mit einer der auf `XRSpace` basierenden Schnittstellen erstellt. Derzeit sind dies [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace), [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace) und [`XRJointSpace`](/de/docs/Web/API/XRJointSpace).
 
 {{InheritanceDiagram}}
 
 ## Schnittstellen basierend auf XRSpace
 
-Unten ist eine Liste von Schnittstellen, die auf dem `XRSpace`-Interface basieren.
+Nachfolgend finden Sie eine Liste von Schnittstellen, die auf der `XRSpace`-Schnittstelle basieren.
 
-- {{domxref("XRBoundedReferenceSpace")}}
-  - : Representiert einen Referenzraum, der sich innerhalb eines Raumbereichs bewegen kann, dessen Grenzen durch ein Array von Punkten definiert werden, die im Uhrzeigersinn entlang des Bodens verlaufen, um den passierbaren Bereich des Raums zu definieren. Der Ursprung eines `XRBoundedReferenceSpace` befindet sich immer auf Bodenhöhe, wobei seine X- und Z-Koordinaten typischerweise standardmäßig in der Nähe der Raummitte liegen.
-- {{domxref("XRReferenceSpace")}}
-  - : Representiert einen Referenzraum, der typischerweise für die Dauer der {{domxref("XRSession")}} statisch bleiben soll. Während sich Objekte innerhalb des Raums bewegen können, bleibt der Raum selbst fixiert. Es gibt Ausnahmen von dieser statischen Natur; am häufigsten kann sich ein `XRReferenceSpace` bewegen, um sich basierend auf der Neukonfiguration des Headsets des Benutzers oder eines anderen bewegungsempfindlichen Geräts anzupassen.
-- {{domxref("XRJointSpace")}}
-  - : Representiert den Raum eines {{domxref("XRHand")}}-Gelenks.
+- [`XRBoundedReferenceSpace`](/de/docs/Web/API/XRBoundedReferenceSpace)
+  - : Repräsentiert einen Referenzraum, der sich innerhalb eines Raumbereichs bewegen kann, dessen Grenzen durch ein Array von Punkten im Uhrzeigersinn entlang des Bodens festgelegt sind, um den begehbaren Bereich des Raums zu definieren. Der Ursprung eines `XRBoundedReferenceSpace` befindet sich immer auf Bodenniveau, wobei seine X- und Z-Koordinaten typischerweise standardmäßig an einem Ort in der Nähe der Raummitte liegen.
+- [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)
+  - : Repräsentiert einen Referenzraum, der in der Regel erwartet wird, während der gesamten Dauer der [`XRSession`](/de/docs/Web/API/XRSession) statisch zu bleiben. Während sich Objekte innerhalb des Raums bewegen können, bleibt der Raum selbst fixiert. Es gibt Ausnahmen von dieser statischen Natur; am häufigsten kann sich ein `XRReferenceSpace` bewegen, um sich basierend auf einer Neukonfiguration des Benutzer-Headsets oder eines anderen bewegungsempfindlichen Geräts anzupassen.
+- [`XRJointSpace`](/de/docs/Web/API/XRJointSpace)
+  - : Repräsentiert den Raum eines Gelenks einer [`XRHand`](/de/docs/Web/API/XRHand).
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Das `XRSpace`-Interface definiert keine eigenen Eigenschaften; es erbt jedoch die Eigenschaften seines übergeordneten Interfaces, {{domxref("EventTarget")}}._
+_Die `XRSpace`-Schnittstelle definiert keine eigenen Eigenschaften, erbt jedoch die Eigenschaften ihrer Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Das `XRSpace`-Interface stellt keine eigenen Methoden bereit. Es erbt jedoch die Methoden von {{domxref("EventTarget")}}, seinem übergeordneten Interface._
+_Die `XRSpace`-Schnittstelle bietet keine eigenen Methoden. Sie erbt jedoch die Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget), ihrer Elternschnittstelle._
 
 ## Spezifikationen
 

@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das SVG-Element `script` ermöglicht das Hinzufügen von Skripten zu einem SVG-Dokument.
+Das SVG-`script`-Element ermöglicht das Hinzufügen von Skripten zu einem SVG-Dokument.
 
 > [!NOTE]
-> Während das SVG-Element `script` dem HTML {{HTMLElement('script')}}-Element entspricht, gibt es einige Unterschiede, wie die Verwendung des {{SVGAttr('href')}}-Attributs anstelle von [`src`](/de/docs/Web/HTML/Element/script#src) und es unterstützt bisher keine ECMAScript-Module (siehe unten die Browser-Kompatibilität für Details).
+> Während das SVG-`script`-Element dem HTML-{{HTMLElement('script')}}-Element entspricht, gibt es einige Unterschiede. Zum Beispiel verwendet es das {{SVGAttr('href')}}-Attribut anstelle von [`src`](/de/docs/Web/HTML/Element/script#src) und es unterstützt bisher keine ECMAScript-Module (siehe Browser-Kompatibilität unten für Details).
 
 ## Beispiel
 
@@ -54,19 +54,19 @@ Click the circle to change colors.
 ## Attribute
 
 - [`crossorigin`](/de/docs/Web/HTML/Element/script#crossorigin)
-  - : Dieses Attribut definiert die [CORS-Einstellungen](/de/docs/Web/HTML/Attributes/crossorigin) wie beim HTML {{HTMLElement('script')}}-Element.
+  - : Dieses Attribut definiert die [CORS-Einstellungen](/de/docs/Web/HTML/Attributes/crossorigin) wie beim HTML-{{HTMLElement('script')}}-Element.
     _Wertetyp_: [**\<string>**](/de/docs/Web/CSS/string); _Standardwert_: `?`; _Animierbar_: **ja**
 - {{SVGAttr("href")}}
-  - : Die {{Glossary("URL")}} zum zu ladenden Skript.
-    _Wertetyp_: **[\<URL>](/de/docs/Web/SVG/Content_type#url)** ; _Standardwert_: _keiner_; _Animierbar_: **nein**
+  - : Die [URL](/de/docs/Glossary/URL) zum Skript, das geladen werden soll.
+    _Wertetyp_: **[\<URL>](/de/docs/Web/SVG/Content_type#url)** ; _Standardwert_: _none_; _Animierbar_: **nein**
 - {{SVGAttr("type")}}
-  - : Dieses Attribut definiert den Typ der zu verwendenden Skriptsprache.
+  - : Dieses Attribut definiert den Skriptsprachtyp, der verwendet werden soll.
     _Wertetyp_: [**\<string>**](/de/docs/Web/CSS/string); _Standardwert_: `application/ecmascript`; _Animierbar_: **nein**
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
-  - : Die {{Glossary("URL")}} zum zu ladenden Skript.
-    _Wertetyp_: **[\<URL>](/de/docs/Web/SVG/Content_type#url)** ; _Standardwert_: _keiner_; _Animierbar_: **nein**
+  - : Die [URL](/de/docs/Glossary/URL) zum Skript, das geladen werden soll.
+    _Wertetyp_: **[\<URL>](/de/docs/Web/SVG/Content_type#url)** ; _Standardwert_: _none_; _Animierbar_: **nein**
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -80,4 +80,4 @@ Click the circle to change colors.
 
 ## Siehe auch
 
-- [`script` Element in HTML](/de/docs/Web/HTML/Element/script)
+- [`script`-Element in HTML](/de/docs/Web/HTML/Element/script)

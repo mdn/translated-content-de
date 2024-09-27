@@ -7,20 +7,20 @@ l10n:
 
 {{CSSRef}}
 
-Die **`overflow-block`** [CSS](/de/docs/Web/CSS) [Media-Abfragefunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, wie das Ausgabegerät mit Inhalten umgeht, die den anfänglichen [enthüllenden Block](/de/docs/Web/CSS/Containing_block) entlang der Blockachse überfließen.
+Die **`overflow-block`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um zu testen, wie das Ausgabegerät Inhalte behandelt, die den anfänglichen [Containing Block](/de/docs/Web/CSS/Containing_block) entlang der Blockachse überlaufen.
 
 ## Syntax
 
-Die `overflow-block`-Funktion wird als ein Schlüsselwortwert angegeben, der aus der folgenden Liste ausgewählt wird.
+Das `overflow-block`-Feature wird als ein Schlüsselwortwert angegeben, der aus der folgenden Liste ausgewählt wird.
 
 - `none`
-  - : Inhalt, der die Blockachse überfließt, wird nicht angezeigt.
+  - : Inhalte, die die Blockachse überlaufen, werden nicht angezeigt.
 - `scroll`
-  - : Inhalt, der die Blockachse überfließt, kann durch Scrollen angezeigt werden.
+  - : Inhalte, die die Blockachse überlaufen, können durch Scrollen sichtbar gemacht werden.
 - `optional-paged`
-  - : Inhalt, der die Blockachse überfließt, kann durch Scrollen angezeigt werden, aber Seitenumbrüche können manuell ausgelöst werden (wie zum Beispiel über {{cssxref("break-inside")}}, etc.), sodass der folgende Inhalt auf der nächsten Seite angezeigt wird.
+  - : Inhalte, die die Blockachse überlaufen, können durch Scrollen sichtbar gemacht werden, aber Seitenumbrüche können manuell ausgelöst werden (zum Beispiel über {{cssxref("break-inside")}}, etc.), um den folgenden Inhalt auf der nächsten Seite anzuzeigen.
 - `paged`
-  - : Inhalt wird in einzelne Seiten aufgeteilt; Inhalt, der auf einer Seite entlang der Blockachse überfließt, wird auf der folgenden Seite angezeigt.
+  - : Inhalte werden in separate Seiten aufgeteilt; Inhalte, die eine Seite in der Blockachse überlaufen, werden auf der folgenden Seite angezeigt.
 
 ## Beispiele
 

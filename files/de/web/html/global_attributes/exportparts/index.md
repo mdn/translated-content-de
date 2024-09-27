@@ -2,18 +2,18 @@
 title: exportparts
 slug: Web/HTML/Global_attributes/exportparts
 l10n:
-  sourceCommit: 77146ac016972df7bcfc3b0a2aa3b3c85eecc3df
+  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`exportparts`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ermöglicht es Ihnen, Elemente in verschachtelten {{Glossary("shadow tree", "shadow trees")}} auszuwählen und zu stylen, indem Sie ihre `part`-Namen exportieren.
+Das **`exportparts`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ermöglicht es Ihnen, Elemente in geschachtelten [Shadow Trees](/de/docs/Glossary/shadow_tree) auszuwählen und zu stylen, indem deren `part`-Namen exportiert werden.
 
-Der Shadow Tree ist eine isolierte Struktur, in der Bezeichner, Klassen und Stile nicht von Selektoren oder Abfragen des regulären DOMs erreicht werden können. Es gibt zwei HTML-Attribute, die auf Elemente des Shadow Trees angewendet werden können, um CSS-Stile von außen auf den Shadow Tree zu zielen: `part` und `exportparts`.
+Der Shadow Tree ist eine isolierte Struktur, in der Identifikatoren, Klassen und Styles nicht durch Selektoren oder Abfragen eines regulären DOM erreicht werden können. Es gibt zwei HTML-Attribute, die auf Shadow Tree-Elemente angewendet werden können, um das Zielen auf CSS-Stile von außen zum Shadow Tree zu ermöglichen: `part` und `exportparts`.
 
-Das globale [`part`](/de/docs/Web/HTML/Global_attributes#part)-Attribut macht ein Element des Shadow Trees für sein übergeordnetes DOM sichtbar. Ein `part`-Name wird als Parameter des {{CSSxRef("::part", "::part()")}} Pseudo-Elements verwendet. Auf diese Weise können Sie CSS-Stile auf Elemente im Shadow Tree von außerhalb anwenden. Das `::part()` Pseudo-Element ist jedoch nur für das übergeordnete DOM sichtbar. Dies bedeutet, dass Teile bei einem verschachtelten Shadow Tree für keine anderen Vorfahren als den direkten Eltern sichtbar sind. Das `exportparts`-Attribut löst diese Einschränkung.
+Das globale [`part`](/de/docs/Web/HTML/Global_attributes#part) Attribut macht ein Shadow Tree-Element für sein übergeordnetes DOM sichtbar. Ein `part`-Name wird als Parameter des {{CSSxRef("::part", "::part()")}} Pseudoelements verwendet. Auf diese Weise können Sie CSS-Stile auf Elemente im Shadow Tree von außerhalb anwenden. Allerdings ist das `::part()` Pseudoelement nur für das übergeordnete DOM sichtbar. Das bedeutet, dass wenn ein Shadow Tree geschachtelt ist, die Teile für keine anderen Vorfahren außer dem direkten Elternteil sichtbar sind. Das `exportparts`-Attribut löst dieses Limit.
 
-Das `exportparts`-Attribut ermöglicht es, dass Teile des Shadow Trees außerhalb des Shadow DOM sichtbar sind. Dieses Konzept wird als "Exportieren" bezeichnet. Das `exportparts`-Attribut befindet sich am _Shadow-Host_ des Elements, das Element, an dem der _Shadow Tree_ angehängt ist. Der Wert dieses Attributs ist eine durch Kommata getrennte Liste von im Shadow Tree vorhandenen `part`-Namen. Diese Namen werden den DOMs außerhalb der aktuellen Struktur zugänglich gemacht.
+Das `exportparts`-Attribut ermöglicht es, dass Shadow Tree-Teile außerhalb des Shadow DOMs sichtbar sind. Dieses Konzept wird als "Exportieren" bezeichnet. Das `exportparts`-Attribut wird auf dem _Shadow Host_ des Elements platziert, welches das Element ist, an das der _Shadow Tree_ angehängt ist. Der Wert dieses Attributs ist eine durch Kommas getrennte Liste von `part`-Namen, die im Shadow Tree vorhanden sind. Diese Namen werden den DOMs außerhalb der aktuellen Struktur zugänglich gemacht.
 
 ```html
 <template id="ancestor-component">
@@ -21,7 +21,7 @@ Das `exportparts`-Attribut ermöglicht es, dass Teile des Shadow Trees außerhal
 </template>
 ```
 
-Beim Exportieren eines `part` haben Sie die Möglichkeit, dem Teil einen anderen Namen zuzuweisen, wie im folgenden Beispiel gezeigt. Der Wert des `exportparts`-Attributs ist wirklich eine durch Kommata getrennte Liste von Part-Name-Zuordnungen. Daher ist das `exportparts`-Attribut im obigen Code-Schnipsel gleichbedeutend mit `exportparts="part1:part1, part2:part2, part5:part5`, was bedeutet, dass jeder `part` mit demselben Namen exportiert wird. In jeder Zuordnung gibt der erste String den Namen des Teils innerhalb des Shadow Trees an, und der zweite String gibt den Namen an, mit dem der Teil extern exponiert wird.
+Beim Exportieren eines `part` haben Sie die Möglichkeit, dem Teil einen anderen Namen zuzuweisen, wie im unten stehenden Beispiel gezeigt. Der Wert des `exportparts`-Attributs ist tatsächlich eine durch Kommas getrennte Liste von Part-Namen-Zuordnungen. So entspricht das `exportparts`-Attribut im obigen Codebeispiel `exportparts="part1:part1, part2:part2, part5:part5"`, was anzeigt, dass jeder `part` mit demselben Namen exportiert wird. In jeder Zuordnung gibt die erste Zeichenkette den Namen des Teils innerhalb des Shadow Trees an, und die zweite Zeichenkette gibt den Namen an, mit dem der Teil extern sichtbar gemacht wird.
 
 ```html
 <template id="ancestor-component">
@@ -32,13 +32,13 @@ Beim Exportieren eines `part` haben Sie die Möglichkeit, dem Teil einen anderen
 
 ## Beispiele
 
-### Einfaches Komponent
+### Einfaches Komponente
 
-Um zu demonstrieren, wie `exportparts` verwendet wird, um Teile in verschachtelten Komponenten anzusprechen, erstellen wir eine Komponente und verschachteln sie dann in eine andere Komponente.
+Um zu demonstrieren, wie `exportparts` verwendet wird, um Teile in verschachtelten Komponenten anzuvisieren, erstellen wir eine Komponente, und dann schachteln wir sie innerhalb einer anderen Komponente.
 
 #### HTML
 
-Erstellen wir zuerst eine Kartenkomponente, die wir dann in eine andere Komponente einbetten. Wir verwenden auch das neue Element, das wir erstellt haben, und füllen die Slots mit einfachem Text als Inhalt aus.
+Zuerst erstellen wir eine Kartenkomponente, die wir dann mit einer anderen Komponente umwickeln. Wir verwenden auch das neue Element, das wir erstellt haben, und füllen die Slots mit einfachem Text als Inhalt.
 
 ```html
 <template id="card-component-template">
@@ -63,14 +63,14 @@ Erstellen wir zuerst eine Kartenkomponente, die wir dann in eine andere Komponen
 
 #### JavaScript
 
-Wir verwenden JavaScript, um unsere im obigen HTML definierte Webkomponente zu definieren:
+Wir verwenden JavaScript, um unsere im obigen HTML definierte Web-Komponente zu definieren:
 
 ```js
 customElements.define(
   "card-component",
   class extends HTMLElement {
     constructor() {
-      super(); // Immer zuerst super im Konstruktor aufrufen
+      super(); // Always call super first in constructor
       const cardComponent = document.getElementById(
         "card-component-template",
       ).content;
@@ -85,7 +85,7 @@ customElements.define(
 
 #### CSS
 
-Wir stylen Teile des `<card-component>` Shadow Trees mit dem {{cssxref("::part")}} Pseudo-Element:
+Wir stylen Teile des `<card-component>` Shadow Trees mit dem {{cssxref("::part")}} Pseudoelement:
 
 ```css
 ::part(body) {
@@ -100,7 +100,7 @@ Wir stylen Teile des `<card-component>` Shadow Trees mit dem {{cssxref("::part")
 
 ### Verschachtelte Komponente
 
-Weitergehend mit dem obigen `<card-component>`-Beispiel erstellen wir eine verschachtelte Komponente, indem wir die `<card-component>` innerhalb einer anderen Komponente umwickeln; in diesem Fall die `<card-wrapper>` Komponente. Wir exportieren dann die Teile von der verschachtelten Komponente, die wir mit dem `exportparts`-Attribut von außerhalb des Shadow Trees der Komponente stilisierbar machen möchten.
+Im obigen `<card-component>`-Beispiel erstellen wir eine verschachtelte Komponente, indem wir das `<card-component>` innerhalb einer anderen Komponente einfügen; in diesem Fall die `<card-wrapper>`-Komponente. Dann exportieren wir die Teile der verschachtelten Komponente, die wir vom äußeren Shadow Tree der Komponente stilisierbar machen möchten, mit dem `exportparts`-Attribut.
 
 #### HTML
 
@@ -134,7 +134,7 @@ Weitergehend mit dem obigen `<card-component>`-Beispiel erstellen wir eine versc
 </template>
 ```
 
-Wir fügen ein `<card-wrapper>` benutzerdefiniertes Element und ein `<card-component>` zum Vergleich hinzu:
+Wir fügen ein benutzerdefiniertes `<card-wrapper>`-Element und ein `<card-component>` zum Vergleich ein:
 
 ```html
 <h2>Card wrapper</h2>
@@ -161,7 +161,7 @@ customElements.define(
   "card-component",
   class extends HTMLElement {
     constructor() {
-      super(); // Immer zuerst super im Konstruktor aufrufen
+      super(); // Always call super first in constructor
       const cardComponent = document.getElementById(
         "card-component-template",
       ).content;
@@ -179,7 +179,7 @@ customElements.define(
   "card-wrapper",
   class extends HTMLElement {
     constructor() {
-      super(); // Immer zuerst super im Konstruktor aufrufen
+      super(); // Always call super first in constructor
       const cardWrapper = document.getElementById("card-wrapper").content;
       const shadowRoot = this.attachShadow({
         mode: "open",
@@ -192,7 +192,7 @@ customElements.define(
 
 #### CSS
 
-Nun können wir Teile des `<card-component>` direkt und innerhalb eines `<card-wrapper>` auf folgende Weise ansprechen:
+Nun können wir Teile des `<card-component>` direkt und wenn es in einem `<card-wrapper>` geschachtelt ist, wie folgt anvisieren:
 
 ```css
 h2 {
@@ -220,15 +220,15 @@ card-component {
 
 {{ EmbedLiveSample('Nested_component', '100%', '400') }}
 
-Beachten Sie, dass `footer` nicht fett ist, wenn es verschachtelt ist, da wir es nicht in `exportparts` aufgenommen haben.
+Beachten Sie, dass `footer` im verschachtelten Fall nicht fett ist, da wir es nicht in `exportparts` aufgenommen haben.
 
-### Mapped Parts exponieren
+### Mapped Parts freilegen
 
-Um exportierte Teile umzubenennen, fügen wir eine Komma-getrennte Liste von gemappten Teilen hinzu, wobei jeder gemappte Part den Originalnamen und den exportierten Namen, getrennt durch einen Doppelpunkt (`:`), beinhaltet:
+Um exportierte Teile umzubenennen, fügen wir eine durch Kommas getrennte Liste von gemappten Teilen ein, wobei jedes gemappte Teil den Originalnamen und den exportierten Namen durch einen Doppelpunkt (`:`) getrennt enthält:
 
 #### HTML
 
-Wir aktualisieren das vorherige `<card-wrapper>` benutzerdefinierte Element mit der Remapping-Syntax (indem wir `body` aus der Liste der exportierten Teile auslassen):
+Wir aktualisieren das vorherige benutzerdefinierte `<card-wrapper>`-Element mit der Remapping-Syntax (indem wir `body` von der Liste der exportierten Teile weglassen):
 
 ```html hidden
 <template id="card-component-template">
@@ -268,7 +268,7 @@ customElements.define(
   "card-component",
   class extends HTMLElement {
     constructor() {
-      super(); // Immer zuerst super im Konstruktor aufrufen
+      super(); // Always call super first in constructor
       const cardComponent = document.getElementById(
         "card-component-template",
       ).content;
@@ -286,7 +286,7 @@ customElements.define(
   "card-wrapper",
   class extends HTMLElement {
     constructor() {
-      super(); // Immer zuerst super im Konstruktor aufrufen
+      super(); // Always call super first in constructor
       const cardWrapper = document.getElementById("card-wrapper").content;
       const shadowRoot = this.attachShadow({
         mode: "open",
@@ -299,14 +299,14 @@ customElements.define(
 
 #### CSS
 
-Beim Ansprechen der Teile des `<card-component>` von innerhalb des `<card-wrapper>` können wir nur die exportierten Teile über ihre freigelegten Teilnamen stylen:
+Beim Anvisieren der Teile des `<card-component>` aus dem `<card-wrapper>`, können wir nur die exportierten Teile über ihre freigelegten Teilnamen stylen:
 
 ```css
-/* Wählt den Namen der exportierten Teile */
+/* selects the exported parts name */
 ::part(card__header) {
   font-weight: bold;
 }
-/* Wählt nichts: Diese Teilnamen wurden nicht exportiert */
+/* selects nothing: these part names were not exported */
 ::part(footer),
 ::part(body) {
   font-weight: bold;
@@ -329,9 +329,9 @@ Beim Ansprechen der Teile des `<card-component>` von innerhalb des `<card-wrappe
 
 - [`part`](/de/docs/Web/HTML/Global_attributes/part) HTML-Attribut
 - {{HTMLElement("template")}} und {{HTMLElement("slot")}} HTML-Elemente
-- {{CSSXref("::part")}} und {{CSSXref("::slotted")}} Pseudo-Elemente
-- {{CSSXref(":host")}} Pseudo-Klasse
+- {{CSSXref("::part")}} und {{CSSXref("::slotted")}} Pseudoelemente
+- {{CSSXref(":host")}} Pseudoklasse
 - [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Schnittstelle
-- {{DOMxRef("Element.part")}} Eigenschaft
+- [`Element.part`](/de/docs/Web/API/Element/part) Eigenschaft
 - [Verwendung von Vorlagen und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots)
 - [CSS Scoping](/de/docs/Web/CSS/CSS_scoping) Modul

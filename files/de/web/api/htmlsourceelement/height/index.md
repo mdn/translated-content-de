@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`height`**-Eigenschaft der {{domxref("HTMLSourceElement")}}-Schnittstelle ist eine nicht-negative Zahl, die die Höhe der Bildressource in CSS-Pixeln angibt.
+Die **`height`**-Eigenschaft der [`HTMLSourceElement`](/de/docs/Web/API/HTMLSourceElement)-Schnittstelle ist eine nicht-negative Zahl, die die Höhe der Bildressource in CSS-Pixeln angibt.
 
 Die Eigenschaft hat nur dann eine Wirkung, wenn das übergeordnete Element des aktuellen {{HTMLElement("source")}}-Elements ein {{HTMLElement("picture")}}-Element ist.
 
@@ -61,9 +61,9 @@ console.log(Array.from(sources).map((el) => el.height)); // Output: [400, 800, 8
 
 ## Siehe auch
 
-- {{domxref("HTMLCanvasElement.height")}}
-- {{domxref("HTMLEmbedElement.height")}}
-- {{domxref("HTMLIFrameElement.height")}}
-- {{domxref("HTMLImageElement.height")}}
-- {{domxref("HTMLObjectElement.height")}}
-- {{domxref("HTMLVideoElement.height")}}
+- [`HTMLCanvasElement.height`](/de/docs/Web/API/HTMLCanvasElement/height)
+- [`HTMLEmbedElement.height`](/de/docs/Web/API/HTMLEmbedElement/height)
+- [`HTMLIFrameElement.height`](/de/docs/Web/API/HTMLIFrameElement/height)
+- [`HTMLImageElement.height`](/de/docs/Web/API/HTMLImageElement/height)
+- [`HTMLObjectElement.height`](/de/docs/Web/API/HTMLObjectElement/height)
+- [`HTMLVideoElement.height`](/de/docs/Web/API/HTMLVideoElement/height)

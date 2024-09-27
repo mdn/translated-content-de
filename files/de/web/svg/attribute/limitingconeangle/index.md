@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`limitingConeAngle`** Attribut repräsentiert den Winkel in Grad zwischen der Achse des Spotlights (d.h. der Achse zwischen der Lichtquelle und dem Punkt, auf den sie zeigt) und dem Kegel des Spotlights. Es definiert somit einen begrenzenden Kegel, der den Bereich einschränkt, in dem das Licht projiziert wird. Außerhalb des Kegels wird kein Licht projiziert.
+Das Attribut **`limitingConeAngle`** gibt den Winkel in Grad zwischen der Achse des Scheinwerfers (d. h. die Achse zwischen der Lichtquelle und dem Punkt, auf den sie zeigt) und dem Lichtkegel an. Es definiert einen begrenzenden Kegel, der den Bereich einschränkt, in dem das Licht projiziert wird. Außerhalb des Kegels wird kein Licht projiziert.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 

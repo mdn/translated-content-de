@@ -8,7 +8,10 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.pathname`**-Eigenschaft ist ein String, der einen anfänglichen `'/'` gefolgt vom Pfad der URL enthält, wobei die Abfragezeichenfolge oder das Fragment nicht eingeschlossen sind (oder der leere String, wenn kein Pfad vorhanden ist).
+Die **`HTMLAreaElement.pathname`**-Eigenschaft ist ein
+String, der ein anfängliches `'/'` enthält, gefolgt von dem Pfad der
+URL ohne die Abfragezeichenfolge oder das Fragment (oder der leere String, falls kein
+Pfad vorhanden ist).
 
 ## Wert
 
@@ -17,9 +20,9 @@ Ein String.
 ## Beispiele
 
 ```js
-// Ein <area id="myArea" href="/de/docs/HTMLAreaElement"> Element befindet sich im Dokument
+// An <area id="myArea" href="/en-US/docs/HTMLAreaElement"> element is in the document
 const area = document.getElementById("myArea");
-area.pathname; // gibt '/de/docs/HTMLAreaElement' zurück
+area.pathname; // returns '/en-US/docs/HTMLAreaElement'
 ```
 
 ## Spezifikationen
@@ -32,4 +35,4 @@ area.pathname; // gibt '/de/docs/HTMLAreaElement' zurück
 
 ## Siehe auch
 
-- Das {{domxref("HTMLAreaElement")}}-Interface, zu dem es gehört.
+- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Schnittstelle, zu der es gehört.

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **`::file-selector-button`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die Schaltfläche eines {{HTMLElement("input")}} mit [`type="file"`](/de/docs/Web/HTML/Element/input/file).
+Der **`::file-selector-button`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die Schaltfläche eines {{HTMLElement("input") }} mit [`type="file"`](/de/docs/Web/HTML/Element/input/file).
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-element-file-selector-button.html", "tabbed-shorter")}}
 
@@ -25,7 +25,7 @@ selector::file-selector-button
 
 ```html
 <form>
-  <label for="fileUpload">Datei hochladen</label>
+  <label for="fileUpload">Upload file</label>
   <input type="file" id="fileUpload" />
 </form>
 ```
@@ -59,7 +59,7 @@ input[type="file"]::file-selector-button:hover {
 
 {{EmbedLiveSample("Basic_example", "100%", 150)}}
 
-Beachten Sie, dass `::file-selector-button` ein ganzes Element ist und somit den Regeln des UA-Stylesheets entspricht. Insbesondere Schriften und Farben erben nicht unbedingt vom `input`-Element.
+Beachten Sie, dass `::file-selector-button` ein ganzes Element ist und somit den Regeln des UA-Stylesheets folgt. Insbesondere Schriften und Farben werden nicht unbedingt vom `input`-Element geerbt.
 
 ### Fallback-Beispiel
 
@@ -67,7 +67,7 @@ Beachten Sie, dass `::file-selector-button` ein ganzes Element ist und somit den
 
 ```html
 <form>
-  <label for="fileUpload">Datei hochladen</label>
+  <label for="fileUpload">Upload file</label>
   <input type="file" id="fileUpload" />
 </form>
 ```
@@ -122,6 +122,6 @@ input[type="file"]::file-selector-button:hover {
 ## Siehe auch
 
 - [WebKit CSS-Erweiterungen](/de/docs/Web/CSS/WebKit_Extensions)
-- [Datei- und Verzeichniseinträge-API](/de/docs/Web/API/File_and_Directory_Entries_API)
-- [Unterstützung der Datei- und Verzeichniseinträge-API in Firefox](/de/docs/Web/API/File_and_Directory_Entries_API/Firefox_support)
+- [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
+- [Unterstützung der File and Directory Entries API in Firefox](/de/docs/Web/API/File_and_Directory_Entries_API/Firefox_support)
 - [`<input type="file">`](/de/docs/Web/HTML/Element/input/file)

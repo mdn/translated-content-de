@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Der **`BlobEvent()`**-Konstruktor gibt ein neu erstelltes {{domxref("BlobEvent")}}-Objekt mit einem zugehörigen {{domxref("Blob")}} zurück.
+Der **`BlobEvent()`**-Konstruktor gibt ein neu erstelltes [`BlobEvent`](/de/docs/Web/API/BlobEvent)-Objekt mit einem zugehörigen [`Blob`](/de/docs/Web/API/Blob) zurück.
 
 ## Syntax
 
@@ -19,18 +19,18 @@ new BlobEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein Zeichenfolge mit dem Namen des Ereignisses.
-    Es ist Groß- und Kleinschreibung beachten und Browser setzen es immer auf `dataavailable`.
+  - : Ein String mit dem Namen des Events.
+    Er ist case-sensitive, und Browser setzen ihn immer auf `dataavailable`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _neben den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ folgende Eigenschaften haben kann:
     - `data`
-      - : Das mit dem Ereignis verknüpfte {{domxref("Blob")}}.
+      - : Das [`Blob`](/de/docs/Web/API/Blob), das mit dem Event verknüpft ist.
     - `timecode` {{optional_inline}}
-      - : Ein {{domxref("DOMHighResTimeStamp")}}, der zur Initialisierung des Blob-Ereignisses verwendet wird.
+      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der zur Initialisierung des Blob-Events verwendet wird.
 
 ### Rückgabewert
 
-Ein neues {{domxref("BlobEvent")}}-Objekt.
+Ein neues [`BlobEvent`](/de/docs/Web/API/BlobEvent)-Objekt.
 
 ## Spezifikationen
 
@@ -42,4 +42,4 @@ Ein neues {{domxref("BlobEvent")}}-Objekt.
 
 ## Siehe auch
 
-- Das {{domxref("BlobEvent")}}-Interface, zu dem es gehört.
+- Das [`BlobEvent`](/de/docs/Web/API/BlobEvent)-Interface, zu dem es gehört.

@@ -8,27 +8,26 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Payment Handler API")}}{{AvailableInWorkers("service")}}
 
-Die **`modifiers`** schreibgeschützte Eigenschaft der
-{{domxref("PaymentRequestEvent")}}-Schnittstelle gibt ein {{jsxref("Array")}} von `PaymentDetailsModifier`-Objekten zurück, die Modifikatoren für Zahlungsdetails enthalten.
+Die **`modifiers`** schreibgeschützte Eigenschaft des [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent) Interfaces gibt ein {{jsxref("Array")}} von `PaymentDetailsModifier` Objekten zurück, die Modifikatoren für Zahlungsdetails enthalten.
 
 ## Wert
 
 Ein Array von Objekten, das Modifikatoren für Zahlungsdetails enthält. Diese Objekte enthalten die folgenden Eigenschaften:
 
 - `supportedMethods`
-  - : Ein Zahlungsidentifikator. Die Mitglieder des Objekts gelten nur für die Zahlung, wenn der Benutzer diese Zahlungsmethode auswählt.
+  - : Ein Bezeichner für die Zahlungsmethode. Die Mitglieder des Objekts gelten nur für die Zahlung, wenn der Nutzer diese Zahlungsmethode auswählt.
 - `total`
-  - : Ein `PaymentItem`-Objekt, das die folgenden Eigenschaften enthält:
+  - : Ein `PaymentItem` Objekt, das die folgenden Eigenschaften enthält:
     - `label`
-      - : Ein String, der eine lesbare Beschreibung des Artikels enthält, die dem Benutzer angezeigt werden kann.
+      - : Ein String, der eine menschenlesbare Beschreibung des Artikels enthält, die dem Nutzer angezeigt werden kann.
     - `amount`
-      - : Ein `PaymentCurrencyAmount`-Objekt (siehe [`total` > Wert](/de/docs/Web/API/PaymentRequestEvent/total#value)).
+      - : Ein `PaymentCurrencyAmount` Objekt (siehe [`total` > Value](/de/docs/Web/API/PaymentRequestEvent/total#value)).
     - `pending`
-      - : Ein boolescher Wert. Wenn dieser auf true gesetzt ist, bedeutet das, dass das `amount`-Mitglied nicht endgültig ist. Dies wird häufig verwendet, um Artikel wie Versand- oder Steuerbeträge anzuzeigen, die von der Auswahl der Versandadresse oder der Versandoption abhängen.
+      - : Ein Boolean. Wenn auf true gesetzt, bedeutet dies, dass das `amount` Mitglied nicht endgültig ist. Dies wird häufig verwendet, um Positionen wie Versand- oder Steuerbeträge anzuzeigen, die von der Auswahl der Versandadresse oder Versandoption abhängen.
 - `additionalDisplayItems`
-  - : Ein Array von `PaymentItem`-Objekten, die zusätzliche Anzeigeelemente bereitstellen, die in die Zahlungsdetails aufgenommen werden sollen. Dieses Mitglied wird häufig verwendet, um einen Rabatt oder Zuschlagsposten hinzuzufügen, der den Grund für den abweichenden Gesamtbetrag für die ausgewählte Zahlungsmethode angibt, den der Benutzeragent anzeigen KANN.
+  - : Ein Array von `PaymentItem` Objekten, das zusätzliche Display-Items bereitstellt, die in die Zahlungsdetails aufgenommen werden sollen. Dieses Mitglied wird häufig verwendet, um eine Rabatt- oder Zuschlagsposition hinzuzufügen, die den Grund für den unterschiedlichen Gesamtbetrag für die ausgewählte Zahlungsmethode angibt, den der User Agent anzeigen KANN.
 - `data`
-  - : Ein Objekt, das optionale Informationen bereitstellt, die möglicherweise von den unterstützten Zahlungsmethoden benötigt werden. Wenn übergeben, wird es JSON-serialisiert.
+  - : Ein Objekt, das optionale Informationen bereitstellt, die von den unterstützten Zahlungsmethoden benötigt werden könnten. Falls bereitgestellt, wird es JSON-serialisiert.
 
 ## Beispiele
 
@@ -48,8 +47,8 @@ self.addEventListener("paymentrequest", (e) => {
 
 ## Siehe auch
 
-- [Übersicht über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Überblick zu webbasierten Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
+- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Der Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- [Zahlungsverarbeitungskonzepte](/de/docs/Web/API/Payment_Request_API/Concepts)
+- [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableElement: cellSpacing-Eigenschaft"
+title: "HTMLTableElement: cellSpacing Eigenschaft"
 short-title: cellSpacing
 slug: Web/API/HTMLTableElement/cellSpacing
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Obwohl stattdessen die CSS-{{cssxref("border-spacing")}}-Eigenschaft verwendet werden sollte, stellt die veraltete {{domxref("HTMLTableElement")}}-Schnittstelle die Eigenschaft **`cellSpacing`** dar, die den Abstand um die einzelnen {{HTMLElement("th")}} und {{HTMLElement("td")}}-Elemente einer Tabelle beschreibt. Zwei Zellen sind durch die Summe des `cellSpacing` jeder der beiden Zellen getrennt.
+Stattdessen sollten Sie die CSS-Eigenschaft {{cssxref("border-spacing")}} verwenden. Die veraltete Schnittstelle [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) hat die **`cellSpacing`** Eigenschaft, die den Abstand um die einzelnen {{HTMLElement("th")}} und {{HTMLElement("td")}} Elemente, die die Zellen einer Tabelle darstellen, repräsentiert. Zwei Zellen sind durch die Summe des `cellSpacing` jeder der beiden Zellen getrennt.
 
 ## Wert
 
-Ein String, der entweder eine Pixelanzahl (wie `"10"`) oder ein Prozentwert (wie `"10%"`) ist.
+Ein String, der entweder eine Anzahl von Pixeln (wie `"10"`) oder ein prozentualer Wert (wie `"10%"`) ist.
 
-Wenn auf den `null`-Wert gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, so dass `elt.cellSpacing = null` gleichbedeutend ist mit `elt.cellSpacing = ""`.
+Wenn er auf den `null` Wert gesetzt wird, wird dieser `null` Wert in den leeren String (`""`) konvertiert, sodass `elt.cellSpacing = null` gleichwertig zu `elt.cellSpacing = ""` ist.
 
 ## Beispiele
 

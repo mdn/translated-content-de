@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`xlink:type`** Attribut identifiziert den Typ des verwendeten {{Glossary("XLink")}}. In SVG sind nur einfache Links verfügbar.
+Das **`xlink:type`**-Attribut identifiziert den Typ des verwendeten [XLink](/de/docs/Glossary/XLink). In SVG sind nur einfache Links verfügbar.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -63,4 +63,4 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 ## Siehe auch
 
-- [Definition des `xlink:type` Attributs in der XLink-Spezifikation](https://www.w3.org/TR/xlink/#link-types)
+- [Definition des `xlink:type`-Attributs in der XLink-Spezifikation](https://www.w3.org/TR/xlink/#link-types)

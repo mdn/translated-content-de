@@ -1,5 +1,5 @@
 ---
-title: Verwendung von CSS-Verläufen
+title: Verwenden von CSS-Verläufen
 slug: Web/CSS/CSS_images/Using_CSS_gradients
 l10n:
   sourceCommit: 9c8c461dc350668ad326fa9aad604ce9da800df2
@@ -7,19 +7,19 @@ l10n:
 
 {{CSSRef}}
 
-**CSS-Verläufe** werden durch den {{cssxref("&lt;gradient&gt;")}}-Datentyp dargestellt, eine spezielle Art von {{cssxref("&lt;image&gt;")}}, die aus einem progressiven Übergang zwischen zwei oder mehr Farben besteht. Sie können zwischen drei Arten von Verläufen wählen: _linear_ (erstellt mit der {{cssxref("gradient/linear-gradient", "linear-gradient()")}}-Funktion), _radial_ (erstellt mit der {{cssxref("gradient/radial-gradient", "radial-gradient()")}}-Funktion) und _konisch_ (erstellt mit der {{cssxref("gradient/conic-gradient", "conic-gradient()")}}-Funktion). Sie können auch wiederholende Verläufe mit den Funktionen {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}} und {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}} erstellen.
+**CSS-Verläufe** werden durch den {{cssxref("&lt;gradient&gt;")}} Datentyp repräsentiert, eine spezielle Art von {{cssxref("&lt;image&gt;")}}, die einen fließenden Übergang zwischen zwei oder mehr Farben darstellt. Sie können zwischen drei Arten von Verläufen wählen: _linear_ (erstellt mit der Funktion {{cssxref("gradient/linear-gradient", "linear-gradient()")}}), _radial_ (erstellt mit der Funktion {{cssxref("gradient/radial-gradient", "radial-gradient()")}}) und _kegelförmig_ (erstellt mit der Funktion {{cssxref("gradient/conic-gradient", "conic-gradient()")}}). Sie können auch wiederholende Verläufe mit den Funktionen {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}} und {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}} erstellen.
 
-Verläufe können überall verwendet werden, wo Sie ein `<image>` verwenden würden, zum Beispiel in Hintergründen. Da Verläufe dynamisch generiert werden, können sie die Notwendigkeit für Rasterbilddateien negieren, die traditionell verwendet wurden, um ähnliche Effekte zu erzielen. Darüber hinaus sehen von der Browser generierte Verläufe bei Vergrößerung besser aus als Rasterbilder und können dynamisch in der Größe verändert werden.
+Verläufe können überall dort verwendet werden, wo Sie ein `<image>` verwenden würden, zum Beispiel in Hintergründen. Da Verläufe dynamisch generiert werden, können Sie auf die Rasterbilder verzichten, die traditionell für ähnliche Effekte verwendet wurden. Darüber hinaus sehen Verläufe, die vom Browser generiert werden, besser aus als Rasterbilder, wenn sie vergrößert werden, und können flexibel skaliert werden.
 
-Wir beginnen mit der Einführung von linearen Verläufen, stellen dann Funktionen vor, die in allen Verlaufstypen unterstützt werden, wobei wir lineare Verläufe als Beispiel verwenden, und gehen dann zu radialen, konischen und wiederholenden Verläufen über.
+Wir beginnen mit der Einführung linearer Verläufe, erläutern dann Funktionen, die in allen Verlaufstypen unterstützt werden, anhand linearer Verläufe und gehen anschließend auf radiale, kegelförmige und wiederholende Verläufe ein.
 
-## Verwendung von linearen Verläufen
+## Verwenden von linearen Verläufen
 
-Ein linearer Verlauf erzeugt ein Farbband, das sich in einer geraden Linie erstreckt.
+Ein linearer Verlauf schafft ein Farbband, das sich in einer geraden Linie entwickelt.
 
 ### Ein einfacher linearer Verlauf
 
-Um die einfachste Art von Verlauf zu erstellen, müssen Sie lediglich zwei Farben angeben. Diese werden _Farbstopps_ genannt. Sie müssen mindestens zwei haben, aber Sie können so viele haben, wie Sie möchten.
+Um die einfachste Art von Verlauf zu erstellen, müssen Sie lediglich zwei Farben angeben. Diese werden als _Farbstopps_ bezeichnet. Sie müssen mindestens zwei haben, können aber beliebig viele hinzufügen.
 
 ```html hidden
 <div class="simple-linear"></div>
@@ -40,9 +40,9 @@ div {
 
 {{ EmbedLiveSample('A_basic_linear_gradient', 120, 120) }}
 
-### Die Richtung ändern
+### Ändern der Richtung
 
-Standardmäßig verlaufen lineare Verläufe von oben nach unten. Sie können ihre Rotation ändern, indem Sie eine Richtung angeben.
+Standardmäßig verlaufen lineare Verläufe von oben nach unten. Sie können ihre Drehung ändern, indem Sie eine Richtung angeben.
 
 ```html hidden
 <div class="horizontal-gradient"></div>
@@ -65,7 +65,7 @@ div {
 
 ### Diagonale Verläufe
 
-Sie können den Verlauf sogar diagonal von Ecke zu Ecke verlaufen lassen.
+Sie können den Verlauf sogar diagonal verlaufen lassen, von Ecke zu Ecke.
 
 ```html hidden
 <div class="diagonal-gradient"></div>
@@ -86,9 +86,9 @@ div {
 
 {{ EmbedLiveSample('Diagonal_gradients', 200, 100) }}
 
-### Winkel verwenden
+### Verwenden von Winkeln
 
-Wenn Sie mehr Kontrolle über die Richtung haben möchten, können Sie dem Verlauf einen bestimmten Winkel geben.
+Wenn Sie mehr Kontrolle über seine Richtung wünschen, können Sie dem Verlauf einen bestimmten Winkel geben.
 
 ```html hidden
 <div class="angled-gradient"></div>
@@ -109,17 +109,17 @@ div {
 
 {{ EmbedLiveSample('Using_angles', 120, 120) }}
 
-Bei Verwendung eines Winkels erzeugt `0deg` einen vertikalen Verlauf, der von unten nach oben verläuft, `90deg` erzeugt einen horizontalen Verlauf, der von links nach rechts verläuft, und so weiter im Uhrzeigersinn. Negative Winkel verlaufen gegen den Uhrzeigersinn.
+Beim Verwenden eines Winkels erstellt `0deg` einen vertikalen Verlauf, der von unten nach oben verläuft, `90deg` einen horizontalen Verlauf, der von links nach rechts verläuft, und so weiter im Uhrzeigersinn. Negative Winkel verlaufen in die entgegengesetzte Richtung.
 
-![Vier Kästchen mit der Angabe des Winkels und der Darstellung des zugehörigen Verlaufs von rot zu weiß. 0deg beginnt unten und geht nach oben. 90deg beginnt links und geht nach rechts. 180deg beginnt oben und geht nach unten. -90deg beginnt rechts und geht nach links.](linear_red_angles.png)
+![Vier Kästchen, die den Winkel anzeigen und den zugehörigen Verlauf von rot nach weiß darstellen. 0deg beginnt unten und geht nach oben. 90deg beginnt links und geht nach rechts. 180deg beginnt oben und geht nach unten. -90deg beginnt rechts und geht nach links.](linear_red_angles.png)
 
-## Farben deklarieren & Effekte erzeugen
+## Farben deklarieren & Effekte erstellen
 
-Alle CSS-Verlaufstypen sind ein Bereich von positionsabhängigen Farben. Die von CSS-Verläufen erzeugten Farben können sich kontinuierlich mit der Position ändern und dabei sanfte Farbverläufe erzeugen. Es ist auch möglich, Bereiche fester Farben und harte Übergänge zwischen zwei Farben zu schaffen. Folgendes gilt für alle Verlauffunktionen:
+Alle CSS-Verlaufsarten sind ein Bereich von positionsabhängigen Farben. Die durch CSS-Verläufe erzeugten Farben können sich kontinuierlich mit der Position ändern und sanfte Farbübergänge erzeugen. Es ist auch möglich, Bänder aus Vollfarben und harte Übergänge zwischen zwei Farben zu erstellen. Die Folgenden sind für alle Verlaufsfunktionen gültig:
 
 ### Mehr als zwei Farben verwenden
 
-Sie müssen sich nicht auf zwei Farben beschränken — Sie können so viele verwenden, wie Sie möchten! Standardmäßig sind die Farben gleichmäßig über den Verlauf verteilt.
+Sie müssen sich nicht auf zwei Farben beschränken – Sie können so viele verwenden, wie Sie möchten! Standardmäßig sind die Farben gleichmäßig entlang des Verlaufs verteilt.
 
 ```html hidden
 <div class="auto-spaced-linear-gradient"></div>
@@ -140,9 +140,9 @@ div {
 
 {{ EmbedLiveSample('Using_more_than_two_colors', 120, 120) }}
 
-### Farbstopps positionieren
+### Positionieren von Farbstopps
 
-Sie müssen Ihre Farbstopps nicht an ihren Standardpositionen belassen. Um ihre Positionen zu optimieren, können Sie jedem Null, einen oder zwei Prozentwerte oder, für radiale und lineare Verläufe, absolute Längenwerte geben. Wenn Sie die Position als Prozentsatz angeben, stellt `0%` den Startpunkt dar, während `100%` den Endpunkt repräsentiert; Sie können jedoch auch Werte außerhalb dieses Bereichs verwenden, um den gewünschten Effekt zu erzielen. Wenn Sie eine Position nicht angeben, wird die Position dieses bestimmten Farbstopps automatisch für Sie berechnet, wobei der erste Farbstopp bei `0%` und der letzte Farbstopp bei `100%` liegt. Alle weiteren Farbstopps befinden sich auf halbem Weg zwischen ihren angrenzenden Farbstopps.
+Sie müssen Ihre Farbstopps nicht an ihren Standardpositionen belassen. Um ihre Position fein abzustimmen, können Sie jedem eine, zwei oder drei Prozent- oder, für radiale und lineare Verläufe, absolute Längenwerte geben. Wenn Sie den Standort als Prozentsatz angeben, steht `0%` für den Anfangspunkt, während `100%` für den Endpunkt steht; Sie können jedoch Werte außerhalb dieses Bereichs verwenden, wenn es nötig ist, um den gewünschten Effekt zu erzielen. Wenn Sie keinen Standort angeben, wird die Position des jeweiligen Farbstopps automatisch für Sie berechnet, wobei der erste Farbstopp bei `0%` und der letzte Farbstopp bei `100%` liegt und alle weiteren Farbstopps zwischen ihren benachbarten Farbstopps halbiert werden.
 
 ```html hidden
 <div class="multicolor-linear"></div>
@@ -163,9 +163,9 @@ div {
 
 {{ EmbedLiveSample('Positioning_color_stops', 120, 120) }}
 
-### Harte Linien erzeugen
+### Harte Linien erstellen
 
-Um eine harte Linie zwischen zwei Farben zu erzeugen und einen Streifen statt eines allmählichen Übergangs zu schaffen, können benachbarte Farbstopps auf dieselbe Position gesetzt werden. In diesem Beispiel teilen sich die Farben einen Farbstopp bei der `50%`-Marke, in der Mitte des Verlaufs:
+Um eine harte Linie zwischen zwei Farben zu erstellen und einen Streifen anstelle eines langsamen Übergangs zu erzeugen, können benachbarte Farbstopps auf dieselbe Position gesetzt werden. In diesem Beispiel teilen die Farben einen Farbstopp bei der `50%`-Markierung, die sich auf halbem Weg durch den Verlauf befindet:
 
 ```html hidden
 <div class="striped"></div>
@@ -188,7 +188,7 @@ div {
 
 ### Verlaufshinweise
 
-Standardmäßig erfolgt der Übergang im Verlauf gleichmäßig von einer Farbe zur nächsten. Sie können einen Farbe-Hinweis einschließen, um den Mittelpunkt des Übergangs an einem bestimmten Punkt entlang des Verlaufs zu verschieben. In diesem Beispiel haben wir den Mittelpunkt des Übergangs von der 50%-, Marke zur 10%-Marke verschoben.
+Standardmäßig verlaufen die Übergänge im Verlauf gleichmäßig von einer Farbe zur nächsten. Sie können einen Farbhinweis hinzufügen, um den Mittelpunkt des Übergangswerts an einen bestimmten Punkt entlang des Verlaufs zu verschieben. In diesem Beispiel wurde der Mittelpunkt des Übergangs von der 50%-Markierung auf die 10%-Markierung verschoben.
 
 ```html hidden
 <div class="color-hint"></div>
@@ -215,9 +215,9 @@ div {
 
 {{ EmbedLiveSample('Gradient_hints', 120, 120) }}
 
-### Farbbänder & Streifen erstellen
+### Farb- & Streifenbänder erstellen
 
-Um einen festen, nicht übergehenden Farbbereich innerhalb eines Verlaufs einzuschließen, geben Sie zwei Positionen für den Farbstopp an. Farbstops können zwei Positionen haben, was äquivalent zu zwei aufeinander folgenden Farbstops mit derselben Farbe an verschiedenen Positionen ist. Die Farbe erreicht die volle Sättigung am ersten Farbstopp, behält diese Sättigung bis zum zweiten Farbstopp bei und wechselt zur Farbe des angrenzenden Farbstopps über die erste Position des angrenzenden Farbstopps.
+Um einen festen, nicht übergehenden Farbbereich innerhalb eines Verlaufs aufzunehmen, fügen Sie zwei Positionen für den Farbstopp hinzu. Farbstopps können zwei Positionen haben, was zwei aufeinander folgenden Farbstopps mit derselben Farbe an verschiedenen Positionen entspricht. Die Farbe erreicht beim ersten Farbstopp ihre volle Sättigung, behält diese Sättigung bis zum zweiten Farbstopp bei und geht in die Farbe des angrenzenden Farbstopps beim ersten Bereich des angrenzenden Farbstopps über.
 
 ```html hidden
 <div class="multiposition-stops"></div>
@@ -275,15 +275,15 @@ div {
 
 {{ EmbedLiveSample('Creating_color_bands_stripes', 120, 120) }}
 
-Im ersten Beispiel oben geht das Limetten-Grün von der 0%-Marke, die implizit ist, zur 20%-Marke, wechselt über die nächsten 10% der Breite des Verlaufs von Limette zu Rot, erreicht ein festes Rot bei der 30%-Marke, und bleibt fest Rot bis zu 45% des Verlaufs, wo es bis zu Cyan verblasst, 15% des Verlaufs vollständig Cyan ist, und so weiter.
+Im ersten oben gezeigten Beispiel geht das Lime von der 0%-Markierung, die impliziert ist, zur 20%-Markierung, wechselt über die nächsten 10% der Breite des Verlaufs von Lime zu Rot, erreicht beim 30%-Punkt ein leuchtendes Rot und bleibt durch den Verlauf an der 45%-Markierung bis es zu Cyan verblasst, wobei es 15% des Verlaufs vollständig Cyan bleibt und so weiter.
 
-Im zweiten Beispiel befindet sich der zweite Farbstopp für jede Farbe an derselben Stelle wie der erste Farbstopp für die angrenzende Farbe, wodurch ein Streifeneffekt entsteht.
+Im zweiten Beispiel liegt der zweite Farbstopp für jede Farbe an derselben Stelle wie der erste Farbstopp für die benachbarte Farbe, wodurch ein Streifeneffekt entsteht.
 
-In beiden Beispielen wird der Verlauf zweimal geschrieben: Das erste ist die CSS Images Level 3-Methode, um die Farbe für jeden Stopp zu wiederholen und das zweite Beispiel ist die CSS Images Level 4-Methode mit mehreren Farbstopp-Längen in einer linearen Farbstopp-Deklaration.
+In beiden Beispielen wird der Verlauf zweimal geschrieben: Der erste ist die CSS-Images-Level-3-Methode, um die Farbe für jeden Stopp zu wiederholen, und das zweite Beispiel ist die CSS-Images-Level-4-Methode mit mehreren Farbstopp-Längen in einer linear-color-stop-Deklaration.
 
-### Den Verlauf fortschreiten kontrollieren
+### Kontrolle der Progression eines Verlaufs
 
-Standardmäßig verläuft ein Verlauf gleichmäßig zwischen den Farben von zwei angrenzenden Farbstops, wobei sich der Mittelwert zwischen diesen beiden Farbstops als der Mittelwert-Farbwert ergibt. Sie können die {{Glossary("Interpolation")}}, oder den Fortschritt, zwischen zwei Farbstops kontrollieren, indem Sie einen Farbe-Hinweis-Standort hinzufügen. In diesem Beispiel erreicht die Farbe den Mittelwert zwischen Limetten-Grün und Cyan 20% des Verlaufs statt 50% des Weges. Das zweite Beispiel enthält nicht den Hinweis, um den Unterschied, den der Farbhintergrund ausmachen kann, zu verdeutlichen:
+Standardmäßig verläuft ein Verlauf gleichmäßig zwischen den Farben zweier benachbarter Farbstopps, wobei der Mittelpunkt zwischen diesen beiden Farbstopps der Farbe des Mittelpunkts entspricht. Sie können die [Interpolation](/de/docs/Glossary/interpolation), oder Progression, zwischen zwei Farbstopps steuern, indem Sie eine Farbhinweisposition hinzufügen. In diesem Beispiel erreicht die Farbe den Mittelpunkt zwischen Lime und Cyan 20% des Weges durch den Verlauf anstelle von 50% des Weges. Das zweite Beispiel enthält keinen Hinweis, um den Unterschied zu betonen, den der Farbhinweis bewirken kann:
 
 ```html hidden
 <div class="colorhint-gradient"></div>
@@ -311,9 +311,9 @@ div {
 
 {{ EmbedLiveSample('Controlling_the_progression_of_a_gradient', 120, 120) }}
 
-### Verläufe überlagern
+### Überlagern von Verläufen
 
-Verläufe unterstützen Transparenz, sodass Sie mehrere Hintergründe stapeln können, um einige ziemlich ausgefallene Effekte zu erzielen. Die Hintergründe sind von oben nach unten gestapelt, wobei der zuerst angegebene oben liegt.
+Verläufe unterstützen Transparenz, sodass Sie mehrere Hintergründe stapeln können, um einige ziemlich ausgefallene Effekte zu erzielen. Die Hintergründe werden von oben nach unten gestapelt, wobei der zuerst angegebene ganz oben liegt.
 
 ```html hidden
 <div class="layered-image"></div>
@@ -337,7 +337,7 @@ div {
 
 ### Gestapelte Verläufe
 
-Sie können sogar Verläufe mit anderen Verläufen stapeln. Solange die oberen Verläufe nicht vollständig undurchsichtig sind, sind die darunter liegenden Verläufe weiterhin sichtbar.
+Sie können sogar Verläufe mit anderen Verläufen stapeln. Solange die oberen Verläufe nicht vollständig deckend sind, werden die darunter liegenden Verläufe weiterhin sichtbar sein.
 
 ```html hidden
 <div class="stacked-linear"></div>
@@ -364,9 +364,9 @@ div {
 
 {{ EmbedLiveSample('Stacked_gradients', 200, 200) }}
 
-### Verläufe mischen
+### Mischen von Verläufen
 
-Zusätzlich zur Transparenz können mehrere halbtransparente Verläufe gestapelt und Verläufe über Rasterhintergrundbilder gestapelt werden. Verläufe können mit anderen CSS-Effekten verwendet werden. In diesem Beispiel haben die vier {{htmlelement("div")}}-Elemente dieselben zwei vollständig deckenden Verläufe als Hintergrundbilder. Wir wenden unterschiedliche Werte der CSS-Eigenschaft {{cssxref("background-blend-mode")}} auf die letzten drei an, die die beiden Hintergrundbilder mischen und unterschiedliche Effekte erzeugen.
+Neben Transparenz können gestapelte halbtransparente Verläufe und gestapelte Verläufe über Rasterhintergrundbildern zusammen mit anderen CSS-Effekten verwendet werden. In diesem Beispiel haben die vier {{htmlelement("div")}} Elemente dieselben zwei vollständig deckenden Verläufe als Hintergrundbilder. Wir wenden verschiedene Werte der CSS-Eigenschaft {{cssxref("background-blend-mode")}} auf die letzten drei an, die die beiden Hintergrundbilder mischen und unterschiedliche Effekte erzeugen.
 
 ```html hidden
 <div class="original"></div>
@@ -406,13 +406,13 @@ div {
 
 {{ EmbedLiveSample('Blending_gradients', 120, 120) }}
 
-## Verwendung von radialen Verläufen
+## Verwenden von radialen Verläufen
 
-Radiale Verläufe sind den linearen Verläufen ähnlich, mit dem Unterschied, dass sie von einem zentralen Punkt ausstrahlen. Sie können diktieren, wo sich dieser zentrale Punkt befindet. Sie können sie auch rund oder elliptisch gestalten.
+Radiale Verläufe ähneln linearen Verläufen, außer dass sie von einem zentralen Punkt aus strahlen. Sie können bestimmen, wo sich dieser zentrale Punkt befindet. Sie können sie auch kreisförmig oder elliptisch gestalten.
 
 ### Ein einfacher radialer Verlauf
 
-Wie bei linearen Verläufen benötigen Sie zur Erstellung eines radialen Verlaufs zwei Farben. Standardmäßig befindet sich das Zentrum des Verlaufs bei der 50% 50%-Marke, und der Verlauf ist elliptisch, entsprechend dem {{glossary("aspect ratio", "Seitenverhältnis")}} seines Rahmens:
+Wie bei linearen Verläufen benötigen Sie auch nur zwei Farben, um einen radialen Verlauf zu erstellen. Standardmäßig befindet sich der Mittelpunkt des Verlaufs bei der 50% 50%-Markierung, und der Verlauf ist elliptisch und entspricht dem [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) seines Kastens:
 
 ```html hidden
 <div class="simple-radial"></div>
@@ -433,9 +433,9 @@ div {
 
 {{ EmbedLiveSample('A_basic_radial_gradient', 120, 120) }}
 
-### Positionierung radialer Farbstopps
+### Positionieren radialer Farbstopps
 
-Wie bei linearen Verläufen können Sie auch bei radialen Farbstopps mit einem Prozentsatz oder einer absoluten Länge positionieren.
+Ähnlich wie bei linearen Verläufen können Sie jeden radialen Farbstopp mit einem Prozent oder einer absoluten Länge positionieren.
 
 ```html hidden
 <div class="radial-gradient"></div>
@@ -456,9 +456,9 @@ div {
 
 {{ EmbedLiveSample('Positioning_radial_color_stops', 120, 120) }}
 
-### Das Zentrum des Verlaufs positionieren
+### Positionieren des Zentrums des Verlaufs
 
-Sie können das Zentrum des Verlaufs mit Schlüsselwörtern, Prozentsätzen oder absoluten Längen positionieren, wobei die Längen- und Prozentwerte wiederholt werden, wenn nur einer vorhanden ist, andernfalls in der Reihenfolge der Position von links und der Position von oben.
+Sie können das Zentrum des Verlaufs mit Schlüsselbegriffen, Prozentsätzen oder absoluten Längen positionieren, wobei Werte für Länge und Prozentsatz wiederholt werden, wenn nur eine vorhanden ist, andernfalls in der Reihenfolge von der linken Position und der oberen Position.
 
 ```html hidden
 <div class="radial-gradient"></div>
@@ -479,13 +479,13 @@ div {
 
 {{ EmbedLiveSample('Positioning_the_center_of_the_gradient', 120, 120) }}
 
-### Radiale Verläufe dimensionieren
+### Größenanpassung radialer Verläufe
 
-Im Gegensatz zu linearen Verläufen können Sie die Größe von radialen Verläufen angeben. Mögliche Werte sind `closest-corner`, `closest-side`, `farthest-corner` und `farthest-side`, wobei `farthest-corner` der Standardwert ist. Kreise können auch mit einer Länge dimensioniert werden, und Ellipsen mit einer Länge oder einem Prozentsatz.
+Im Gegensatz zu linearen Verläufen können Sie die Größe von radialen Verläufen angeben. Mögliche Werte sind `closest-corner`, `closest-side`, `farthest-corner` und `farthest-side`, wobei `farthest-corner` der Standardwert ist. Kreise können auch mit einer Länge und Ellipsen mit einer Länge oder einem Prozentsatz dimensioniert werden.
 
 #### Beispiel: `closest-side` für Ellipsen
 
-Dieses Beispiel verwendet den Größenwert `closest-side`, der bedeutet, dass die Größe durch den Abstand vom Ausgangspunkt (dem Zentrum) zur nächsten Seite des umschließenden Kastens festgelegt wird.
+Dieses Beispiel verwendet den Wert `closest-side`, was bedeutet, dass die Größe durch den Abstand vom Ausgangspunkt (dem Zentrum) zur nächstgelegenen Seite des umschließenden Kastens festgelegt wird.
 
 ```html hidden
 <div class="radial-ellipse-side"></div>
@@ -514,7 +514,7 @@ div {
 
 #### Beispiel: `farthest-corner` für Ellipsen
 
-Dieses Beispiel ist ähnlich wie das vorherige, außer dass seine Größe als `farthest-corner` angegeben ist, was die Größe des Verlaufs durch den Abstand von der Ausgangsstelle zur am weitesten entfernten Ecke des umschließenden Kastens von der Ausgangsstelle festlegt.
+Dieses Beispiel ist dem vorherigen ähnlich, außer dass seine Größe als `farthest-corner` angegeben ist, was die Größe des Verlaufs durch den Abstand zum am weitesten vom Ausgangspunkt entfernten Eckpunkt des umschließenden Kastens festlegt.
 
 ```html hidden
 <div class="radial-ellipse-far"></div>
@@ -543,7 +543,7 @@ div {
 
 #### Beispiel: `closest-side` für Kreise
 
-Dieses Beispiel verwendet `closest-side`, wodurch der Radius des Kreises die Entfernung zwischen dem Zentrum des Verlaufs und der nächstgelegenen Seite beträgt. In diesem Fall ist der Radius die Entfernung zwischen dem Zentrum und der unteren Kante, da der Verlauf 25% von links und 25% vom Boden platziert ist und die Höhe des Div-Elements kleiner ist als die Breite.
+Dieses Beispiel verwendet `closest-side`, was dazu führt, dass der Radius des Kreises der Abstand zwischen dem Mittelpunkt des Verlaufs und der nächstgelegenen Seite ist. In diesem Fall ist der Radius der Abstand zwischen dem Zentrum und der unteren Kante, da der Verlauf 25% von der linken und 25% von der unteren Seite entfernt ist und die Höhe des div-Elements kleiner als die Breite ist.
 
 ```html hidden
 <div class="radial-circle-close"></div>
@@ -572,7 +572,7 @@ div {
 
 #### Beispiel: Länge oder Prozentsatz für Ellipsen
 
-Nur für Ellipsen können Sie die Größe der Ellipse mit einer Länge oder einem Prozentsatz angeben. Der erste Wert repräsentiert den horizontalen Radius, der zweite den vertikalen Radius, bei dem Sie einen Prozentsatz verwenden, der der Größe des Kastens in dieser Dimension entspricht. Im unten stehenden Beispiel habe ich einen Prozentsatz für den horizontalen Radius verwendet.
+Nur für Ellipsen können Sie die Ellipse mit einer Länge oder einem Prozentsatz dimensionieren. Der erste Wert repräsentiert den horizontalen Radius, der zweite den vertikalen Radius, wobei ein Prozentsatz der Größe des Kastens in dieser Dimension entspricht. Im untenstehenden Beispiel habe ich einen Prozentsatz für den horizontalen Radius verwendet.
 
 ```html hidden
 <div class="radial-ellipse-size"></div>
@@ -601,7 +601,7 @@ div {
 
 #### Beispiel: Länge für Kreise
 
-Für Kreise kann die Größe als {{cssxref("length")}} angegeben werden, die die Größe des Kreises darstellt.
+Für Kreise kann die Größe als {{cssxref("length")}} angegeben werden, die die Größe des Kreises ist.
 
 ```html hidden
 <div class="radial-circle-size"></div>
@@ -624,7 +624,7 @@ div {
 
 ### Gestapelte radiale Verläufe
 
-Genau wie lineare Verläufe können Sie auch radiale Verläufe stapeln. Der zuerst angegebene ist oben, der zuletzt ist unten.
+Genau wie lineare Verläufe können Sie auch radiale Verläufe stapeln. Der zuerst angegebene befindet sich oben, der letzte unten.
 
 ```html hidden
 <div class="stacked-radial"></div>
@@ -662,17 +662,17 @@ div {
 
 {{ EmbedLiveSample('Stacked_radial_gradients', 200, 200) }}
 
-## Verwendung von konischen Verläufen
+## Verwenden von kegelförmigen Verläufen
 
-Die **`conic-gradient()`** [CSS](/de/docs/Web/CSS)-Funktion erstellt ein Bild, das aus einem Verlauf mit Farbübergängen besteht, die um einen Mittelpunkt gedreht anstatt vom Mittelpunkt abstrahlen. Beispielhafte konische Verläufe umfassen Tortengrafiken und {{glossary("Farbkreis", "Farbräder")}}, aber sie können auch zur Erstellung von Schachbrettmustern und anderen interessanten Effekten verwendet werden.
+Die **`conic-gradient()`** [CSS](/de/docs/Web/CSS)-Funktion erstellt ein Bild, das aus einem Verlauf besteht, bei dem Farbübergänge um einen Mittelpunkt rotieren (anstatt vom Zentrum aus zu strahlen). Beispiele für kegelförmige Verläufe sind Kreis- und Farbkreise, aber sie können auch zur Erstellung von Schachbrettern und anderen interessanten Effekten verwendet werden.
 
-Die Syntax der konischen Verläufe ist ähnlich wie die der radialen Verläufe, aber die Farbübergänge sind um einen Verlauf-Bogen, den Umfang eines Kreises, herum platziert und die Farbstops sind Prozentsätze oder Winkel: absolute Längen sind nicht gültig.
+Die Syntax des kegelförmigen Verlaufs ähnelt der eines radial-gradients, aber die Farbstopps werden um einen Bogen eines Kreises platziert, anstelle entlang einer Linie, die aus dem Zentrum des Verlaufs hervorgeht, und die Farbstopps sind prozentual oder in Gradzahlen angegeben: absolute Längen sind nicht gültig.
 
-In einem radialen Verlauf verlaufen die Farben vom Zentrum einer Ellipse aus in alle Richtungen nach außen. Bei konischen Verläufen verlaufen die Farben, als ob sie um den Mittelpunkt eines Kreises gedreht würden, beginnend oben und im Uhrzeigersinn verlaufend. Ähnlich wie bei radialen Verläufen können Sie den Mittelpunkt des Verlaufs positionieren. Ähnlich wie bei linearen Verläufen können Sie den Verlaufswinkel ändern.
+Bei einem radialen Verlauf gehen die Farben vom Mittelpunkt einer Ellipse aus nach außen in alle Richtungen. Bei kegelförmigen Verläufen verläuft der Farbverlauf, als ob er sich um den Mittelpunkt eines Kreises dreht, beginnt am oberen Ende und dreht sich im Uhrzeigersinn. Ähnlich wie bei radialen Verläufen können Sie das Zentrum des Verlaufs positionieren. Ähnlich wie bei linearen Verläufen können Sie den Winkel des Verlaufs ändern.
 
-### Ein einfacher konischer Verlauf
+### Ein einfacher kegelförmiger Verlauf
 
-Wie bei linearen und radialen Verläufen benötigen Sie bei konischen Verläufen nur zwei Farben. Standardmäßig ist das Zentrum des Verlaufs an der 50% 50%-Marke, wobei der Beginn des Verlaufs nach oben zeigt:
+Wie bei linearen und radialen Verläufen benötigen Sie auch zwei Farben, um einen kegelförmigen Verlauf zu erstellen. Standardmäßig befindet sich der Mittelpunkt des Verlaufs bei der 50% 50%-Markierung, wobei der Beginn des Verlaufs nach oben zeigt:
 
 ```html hidden
 <div class="simple-conic"></div>
@@ -693,9 +693,9 @@ div {
 
 {{ EmbedLiveSample('A_basic_conic_gradient', 120, 120) }}
 
-### Die Mitte des konischen Verlaufes positionieren
+### Positionieren des kegelförmigen Zentrums
 
-Wie bei radialen Verläufen können Sie die Mitte des konischen Verlaufs mit Schlüsselwörtern, Prozentsätzen oder absoluten Längen positionieren, mit dem Schlüsselwort "at"
+Wie bei radialen Verläufen können Sie das Zentrum des kegelförmigen Verlaufs mit Schlüsselbegriffen, Prozentsätzen oder absoluten Längen positionieren, mit dem Schlüsselwort "at".
 
 ```html hidden
 <div class="conic-gradient"></div>
@@ -716,9 +716,9 @@ div {
 
 {{ EmbedLiveSample('Positioning_the_conic_center', 120, 120) }}
 
-### Den Winkel ändern
+### Ändern des Winkels
 
-Standardmäßig sind die verschiedenen von Ihnen angegebenen Farbstops gleichmäßig um den Kreis herum verteilt. Sie können den Startwinkel des konischen Verlaufs mit dem Wort "from" am Anfang festlegen, gefolgt von einem Winkel oder einer Länge, und Sie können verschiedene Positionen für die Farbstops angeben, indem Sie ihn um einen Winkel oder eine Länge verschieben.
+Standardmäßig sind die verschiedenen angegebenen Farbstopps im gleichen Abstand um den Kreis verteilt. Sie können den Anfangswinkel des kegelförmigen Verlaufs mit dem Schlüsselwort "from" am Anfang gefolgt von einem Winkel oder einer Länge positionieren, und Sie können für die Farbstopps unterschiedliche Positionen angeben, indem Sie nach ihnen einen Winkel oder eine Länge angeben.
 
 ```html hidden
 <div class="conic-gradient"></div>
@@ -739,15 +739,15 @@ div {
 
 {{ EmbedLiveSample('Changing_the_angle', 120, 120) }}
 
-## Verwendung wiederholender Verläufe
+## Verwenden von wiederholenden Verläufen
 
-Die Funktionen {{cssxref("gradient/linear-gradient", "linear-gradient()")}}, {{cssxref("gradient/radial-gradient", "radial-gradient()")}}, und {{cssxref("gradient/conic-gradient", "conic-gradient()")}} unterstützen nicht automatisch wiederholte Farbstops. Allerdings sind die Funktionen {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}, und {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}} verfügbar, um diese Funktionalität zu bieten.
+Die Funktionen {{cssxref("gradient/linear-gradient", "linear-gradient()")}}, {{cssxref("gradient/radial-gradient", "radial-gradient()")}} und {{cssxref("gradient/conic-gradient", "conic-gradient()")}} unterstützen keine automatisch wiederholten Farbstopps. Die Funktionen {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}} und {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}} sind jedoch verfügbar, um diese Funktionalität anzubieten.
 
-Die Größe der sich wiederholenden Verlaufslinie oder des Kreisbogens ist der Abstand zwischen dem ersten Farbstoppwert und dem letzten Farbstopplängenwert. Wenn der erste Farbstopp nur eine Farbe hat und keine Farbstopplänge, beträgt der Wert standardmäßig 0. Wenn der letzte Farbstopp nur eine Farbe hat und keine Farbstopplänge, beträgt der Wert standardmäßig 100%. Wenn beide nicht deklariert sind, ist die Verlaufslinie 100%, was bedeutet, dass lineare und konische Verläufe sich nicht wiederholen und der radiale Verlauf sich nur dann wiederholt, wenn der Radius des Verlaufs kleiner ist als die Entfernung zwischen dem Zentrum des Verlaufs und der am weitesten entfernten Ecke. Wenn der erste Farbstopp deklariert ist und der Wert größer als 0 ist, wiederholt sich der Verlauf, da die Größe der Linie oder des Kreisbogens der Unterschied zwischen dem ersten Farbstopp und dem letzten Farbstopp kleiner als 100% oder 360 Grad ist.
+Die Größe der sich wiederholenden Verlaufsbahn oder des Bogens ist die Länge zwischen dem ersten Farbstoppswert und dem letzten Farbstoppslängenwert. Wenn der erste Farbstopp nur eine Farbe und keinen Farbstoppslängenwert hat, wird der Wert auf 0 gesetzt. Wenn der letzte Farbstopp nur eine Farbe und keinen Farbstoppslängenwert hat, wird der Wert auf 100% gesetzt. Wenn keiner deklariert ist, beträgt die Verlaufsbahn 100%, was bedeutet, dass die linearen und kegelförmigen Verläufe nicht wiederholt werden und der radiale Verlauf sich nur wiederholt, wenn der Radius des Verlaufs kleiner ist als die Länge zwischen dem Zentrum des Verlaufs und der am weitesten entfernten Ecke. Wenn der erste Farbstopp deklariert ist, und der Wert größer als 0 ist, wird sich der Verlauf wiederholen, da die Länge der Bahn oder des Bogens der Unterschied zwischen dem ersten Farbstopp und dem letzten Farbstopp kleiner als 100% oder 360 Grad ist.
 
 ### Wiederholende lineare Verläufe
 
-Dieses Beispiel verwendet {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, um einen Verlauf zu erstellen, der sich wiederholt in einer geraden Linie fortführt. Die Farben wiederholen sich neu, da sich der Verlauf wiederholt. In diesem Fall ist die Verlaufslinie 10 px lang.
+Dieses Beispiel verwendet {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, um einen Verlauf zu erstellen, der sich wiederholt in einer geraden Linie entwickelt. Die Farben werden erneut durchlaufen, während der Verlauf sich wiederholt. In diesem Fall ist die Verlaufsbahn 10px lang.
 
 ```html hidden
 <div class="repeating-linear"></div>
@@ -774,11 +774,11 @@ div {
 
 {{ EmbedLiveSample('Repeating_linear_gradients', 120, 120) }}
 
-### Mehrere wiederholende lineare Verläufe
+### Mehrfache wiederholende lineare Verläufe
 
-Ähnlich wie bei regulären linearen und radialen Verläufen können Sie mehrere Verläufe einbeziehen, einen über den anderen. Dies ergibt nur dann Sinn, wenn die Verläufe teilweise transparent sind, sodass nachfolgende Verläufe durch die transparenten Bereiche sichtbar werden, oder wenn Sie für jedes Hintergrundbild unterschiedliche [background-sizes](/de/docs/Web/CSS/background-size), optional mit unterschiedlichen [background-position](/de/docs/Web/CSS/background-position)-Eigenschaftswerten einbeziehen. Wir verwenden Transparenz.
+Ähnlich wie bei normalen linearen und radialen Verläufen können Sie mehrere Verläufe übereinander legen. Dies macht nur Sinn, wenn die Verläufe teilweise transparent sind, sodass die nachfolgenden Verläufe durch die transparenten Bereiche hindurch sichtbar werden, oder wenn Sie für jedes Verlaufbild unterschiedliche [Hintergrundgrößen](/de/docs/Web/CSS/background-size) optional mit unterschiedlichen [Hintergrundposition](/de/docs/Web/CSS/background-position) Eigenschaftswerten festlegen. Wir verwenden Transparenz.
 
-In diesem Fall sind die Verlaufslinien 300px, 230px und 300px lang.
+In diesem Fall sind die Verlaufsbahnen 300px, 230px und 300px lang.
 
 ```html hidden
 <div class="multi-repeating-linear"></div>
@@ -831,9 +831,9 @@ div {
 
 {{ EmbedLiveSample('Multiple_repeating_linear_gradients', 600, 400) }}
 
-### Karo-Verlauf
+### Karierter Verlauf
 
-Um ein Karo-Muster zu erstellen, umfassen wir mehrere überlappende Verläufe mit Transparenz. In der ersten Hintergrunddeklaration haben wir jeden Farbstopp einzeln aufgeführt. Die zweite Hintergrunddeklaration verwendet die Syntax für mehrere Farbstopppositionen:
+Um kariert zu erstellen, fügen wir mehrere überlappende Verläufe mit Transparenz ein. In der ersten Hintergrunddeklaration haben wir jeden Farbstopp separat aufgeführt. Die zweite Hintergrunddeklaration verwendet die Syntax mit mehreren Positionen für Farbstopps:
 
 ```html hidden
 <div class="plaid-gradient"></div>
@@ -928,7 +928,7 @@ div {
 
 ### Wiederholende radiale Verläufe
 
-Dieses Beispiel verwendet {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}, um einen Verlauf zu erzeugen, der sich wiederholt von einem zentralen Punkt aus ausstrahlt. Die Farben werden immer wieder neu zyklisch genutzt, wenn sich der Verlauf wiederholt.
+Dieses Beispiel verwendet {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}, um einen Verlauf zu erstellen, der sich wiederholt von einem zentralen Punkt aus strahlt. Die Farben werden immer wieder durchlaufen, während der Verlauf sich wiederholt.
 
 ```html hidden
 <div class="repeating-radial"></div>
@@ -994,9 +994,9 @@ div {
 
 {{ EmbedLiveSample('Multiple_repeating_radial_gradients', 250, 150) }}
 
-### Wiederholende konische Verläufe
+### Wiederholende kegelförmige Verläufe
 
-Dieses Beispiel verwendet {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}, um einen Verlauf zu erzeugen, der wiederholt um einen Mittelpunkt rotiert. In diesem Fall werden die deklarierten Farbstops viermal wiederholt.
+Dieses Beispiel verwendet {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}, um einen Verlauf zu erstellen, der wiederholt um einen Mittelpunkt rotiert. In diesem Fall werden die angegebenen Farbstopps viermal wiederholt.
 
 ```html hidden
 <div class="repeating-conic"></div>
@@ -1021,9 +1021,9 @@ div {
 
 {{ EmbedLiveSample('Repeating_conic_gradients', 120, 120) }}
 
-### Mehrfache wiederholende konische Verläufe
+### Mehrfache wiederholende kegelförmige Verläufe
 
-Genau wie lineare und radiale wiederholende Verläufe können Sie mehrere konische Verläufe übereinander stapeln, indem Sie interessante Effekte erzielen, indem Sie verschiedene `at <position>`-Werte verwenden, sodass die konischen Verläufe sich nicht in ihren Zentren überlappen, und verschiedene `from <angle>`-Werte verwenden, sodass sich die wiederholenden Effekte nicht ausrichten. Dieses Beispiel überlappt drei halbtransparente, sich wiederholende radiale Verläufe, die jeweils ihr Farbschema viermal wiederholen. Um sich überlappende Verläufe sichtbar zu machen, müssen Sie sicherstellen, dass entweder die Farben der Verläufe, die oben auf dem Stapel sind, teilweise transparent sind oder die CSS-Eigenschaft {{cssxref("background-blend-mode")}} verwenden.
+Wie bei linearen und radialen Wiederholungsverläufen können Sie mehrere kegelförmige Verläufe übereinander stapeln und interessante Effekte erzeugen, indem Sie unterschiedliche `at <position>` Werte verwenden, sodass die kegelförmigen Verläufe sich nicht an ihren Zentren überlappen, und unterschiedliche `from <angle>` Werte, sodass sich die Wiederholungseffekte nicht ausrichten. Dieses Beispiel überlappt drei halbtransparente wiederholende radiale Verläufe, die jeweils ihr Farbschema viermal wiederholen. Um überlappende Verläufe sichtbar zu machen, müssen Sie entweder sicherstellen, dass die Farben der Verläufe an der Spitze des Stacks teilweise transparent sind, oder die CSS-Eigenschaft {{cssxref("background-blend-mode")}} verwenden.
 
 ```html hidden
 <div class="multi-repeating-conic"></div>
@@ -1063,10 +1063,10 @@ div {
 
 ## Siehe auch
 
-- Verlaufsfunktionen: {{cssxref("gradient/linear-gradient", "linear-gradient()")}}, {{cssxref("gradient/radial-gradient", "radial-gradient()")}}, {{cssxref("gradient/conic-gradient", "conic-gradient()")}}, {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}, {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
-- Verlauf-bezogene CSS-Datentypen: {{cssxref("&lt;gradient&gt;")}}, {{cssxref("&lt;image&gt;")}}
-- Verlauf-bezogene CSS-Eigenschaften: {{cssxref("background")}}, {{cssxref("background-image")}}
-- [CSS-Verlaufsmuster-Galerie von Lea Verou](https://projects.verou.me/css3patterns/)
-- [CSS-Verlauf-Bibliothek von Estelle Weyl](https://standardista.com/cssgradients/)
-- [Verlaufs-CSS-Generator](https://cssgenerator.org/gradient-css-generator.html)
-- [Erweiterter CSS-Verlaufs-Generator](https://colorbeta.com/)
+- Verlauffunktionen: {{cssxref("gradient/linear-gradient", "linear-gradient()")}}, {{cssxref("gradient/radial-gradient", "radial-gradient()")}}, {{cssxref("gradient/conic-gradient", "conic-gradient()")}}, {{cssxref("gradient/repeating-linear-gradient", "repeating-linear-gradient()")}}, {{cssxref("gradient/repeating-radial-gradient", "repeating-radial-gradient()")}}, {{cssxref("gradient/repeating-conic-gradient", "repeating-conic-gradient()")}}
+- Mit Verläufen in Verbindung stehende CSS-Datentypen: {{cssxref("&lt;gradient&gt;")}}, {{cssxref("&lt;image&gt;")}}
+- Mit Verläufen in Verbindung stehende CSS-Eigenschaften: {{cssxref("background")}}, {{cssxref("background-image")}}
+- [CSS-Gradienten-Muster-Galerie von Lea Verou](https://projects.verou.me/css3patterns/)
+- [CSS-Gradienten-Bibliothek von Estelle Weyl](https://standardista.com/cssgradients/)
+- [Gradient CSS Generator](https://cssgenerator.org/gradient-css-generator.html)
+- [Erweiterter CSS Gradient Generator](https://colorbeta.com/)

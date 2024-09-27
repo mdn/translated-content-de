@@ -1,5 +1,5 @@
 ---
-title: "Fenster: storage Ereignis"
+title: "Window: storage Ereignis"
 short-title: storage
 slug: Web/API/Window/storage_event
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef}}
 
-Das **`storage`**-Ereignis der {{domxref("Window")}}-Schnittstelle wird ausgelöst, wenn ein Speicherbereich (`localStorage` oder `sessionStorage`) im Kontext eines anderen Dokuments geändert wurde.
+Das **`storage`**-Ereignis der [`Window`](/de/docs/Web/API/Window)-Schnittstelle wird ausgelöst, wenn ein Speicherbereich (`localStorage` oder `sessionStorage`) im Kontext eines anderen Dokuments geändert wurde.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbrechbar und propagiert nicht.
 
 > [!NOTE]
-> Dies funktioniert nicht im selben {{Glossary("browsing context")}}, der die Änderungen vornimmt – es ist tatsächlich eine Möglichkeit für andere Browsing-Kontexte auf der Domain, die den Speicher verwenden, jede Änderung zu synchronisieren, die vorgenommen wird. Browsing-Kontexte auf anderen Domains können nicht auf dieselben Speicherobjekte zugreifen.
+> Dies funktioniert nicht im gleichen [Browsing-Kontext](/de/docs/Glossary/browsing_context), der die Änderungen vornimmt — es ist vielmehr ein Weg, dass andere Browsing-Kontexte in der Domain, die den Speicher verwenden, alle vorgenommenen Änderungen synchronisieren können. Browsing-Kontexte auf anderen Domains können nicht auf dieselben Speicherobjekte zugreifen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("storage", (event) => {});
@@ -26,35 +26,35 @@ onstorage = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("StorageEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`StorageEvent`](/de/docs/Web/API/StorageEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("StorageEvent")}}
 
 ## Ereigniseigenschaften
 
-- {{domxref("StorageEvent.key", "key")}} {{ReadOnlyInline}}
-  - : Gibt einen String mit dem Schlüssel für das geänderte Speicherelement zurück.
-    Das `key`-Attribut ist `null`, wenn die Änderung durch die Storage-`clear()`-Methode verursacht wurde.
-- {{domxref("StorageEvent.newValue", "newValue")}} {{ReadOnlyInline}}
-  - : Gibt einen String mit dem neuen Wert des geänderten Speicherelements zurück.
-    Dieser Wert ist `null`, wenn die Änderung durch die Storage-`clear()`-Methode veranlasst wurde
-    oder das Speicherelement aus dem Speicher entfernt wurde.
-- {{domxref("StorageEvent.oldValue", "oldValue")}} {{ReadOnlyInline}}
-  - : Gibt einen String mit dem ursprünglichen Wert des geänderten Speicherelements zurück.
-    Dieser Wert ist `null`, wenn das Speicherelement neu hinzugefügt wurde
+- [`key`](/de/docs/Web/API/StorageEvent/key) {{ReadOnlyInline}}
+  - : Gibt einen String mit dem Schlüssel des geänderten Speicheritems zurück.
+    Das `key`-Attribut ist `null`, wenn die Änderung durch die `clear()`-Methode des Speichers verursacht wird.
+- [`newValue`](/de/docs/Web/API/StorageEvent/newValue) {{ReadOnlyInline}}
+  - : Gibt einen String mit dem neuen Wert des geänderten Speicheritems zurück.
+    Dieser Wert ist `null`, wenn die Änderung durch die `clear()`-Methode des Speichers aufgerufen wurde
+    oder das Speicheritem aus dem Speicher entfernt wurde.
+- [`oldValue`](/de/docs/Web/API/StorageEvent/oldValue) {{ReadOnlyInline}}
+  - : Gibt einen String mit dem ursprünglichen Wert des geänderten Speicheritems zurück.
+    Dieser Wert ist `null`, wenn das Speicheritem neu hinzugefügt wurde
     und daher keinen vorherigen Wert hat.
-- {{domxref("StorageEvent.storageArea", "storageArea")}} {{ReadOnlyInline}}
-  - : Gibt ein {{DOMxRef("Storage")}}-Objekt zurück, das das betroffene Speicherobjekt darstellt.
-- {{domxref("StorageEvent.url", "url")}} {{ReadOnlyInline}}
+- [`storageArea`](/de/docs/Web/API/StorageEvent/storageArea) {{ReadOnlyInline}}
+  - : Gibt ein [`Storage`](/de/docs/Web/API/Storage)-Objekt zurück, das das betroffene Speicherobjekt darstellt.
+- [`url`](/de/docs/Web/API/StorageEvent/url) {{ReadOnlyInline}}
   - : Gibt einen String mit der URL des Dokuments zurück, dessen Speicher geändert wurde.
 
-## Event-Handler-Aliase
+## Ereignishandler-Aliasse
 
-Zusätzlich zur `Window`-Schnittstelle ist die Ereignishandler-Eigenschaft `onstorage` auch auf folgenden Zielen verfügbar:
+Zusätzlich zur `Window`-Schnittstelle ist die Ereignis-Handler-Eigenschaft `onstorage` auch auf den folgenden Zielen verfügbar:
 
-- {{domxref("HTMLBodyElement")}}
-- {{domxref("HTMLFrameSetElement")}}
-- {{domxref("SVGSVGElement")}}
+- [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)
+- [`HTMLFrameSetElement`](/de/docs/Web/API/HTMLFrameSetElement)
+- [`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement)
 
 ## Beispiele
 
@@ -62,18 +62,18 @@ Protokollieren Sie das `sampleList`-Element in der Konsole, wenn das `storage`-E
 
 ```js
 window.addEventListener("storage", () => {
-  // Wenn sich der lokale Speicher ändert, geben Sie die Liste
-  // in der Konsole aus.
+  // When local storage changes, dump the list to
+  // the console.
   console.log(JSON.parse(window.localStorage.getItem("sampleList")));
 });
 ```
 
-Die gleiche Aktion kann mit der `onstorage`-Ereignishandler-Eigenschaft erreicht werden:
+Die gleiche Aktion kann mit der Ereignis-Handler-Eigenschaft `onstorage` erreicht werden:
 
 ```js
 window.onstorage = () => {
-  // Wenn sich der lokale Speicher ändert, geben Sie die Liste
-  // in der Konsole aus.
+  // When local storage changes, dump the list to
+  // the console.
   console.log(JSON.parse(window.localStorage.getItem("sampleList")));
 };
 ```
@@ -88,6 +88,6 @@ window.onstorage = () => {
 
 ## Siehe auch
 
-- {{domxref("Web Storage API", "", "", "nocode")}}
+- [Web Storage API](/de/docs/Web/API/Web_Storage_API)
 - [Verwendung der Web Storage API](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
-- [Reagieren auf Speicheränderungen mit dem StorageEvent](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#responding_to_storage_changes_with_the_storageevent)
+- [Reaktion auf Speicheränderungen mit dem StorageEvent](/de/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#responding_to_storage_changes_with_the_storageevent)

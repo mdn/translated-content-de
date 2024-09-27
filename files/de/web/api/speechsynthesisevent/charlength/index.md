@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesisEvent: charLength Eigenschaft"
+title: "SpeechSynthesisEvent: charLength-Eigenschaft"
 short-title: charLength
 slug: Web/API/SpeechSynthesisEvent/charLength
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte **`charLength`**-Eigenschaft der {{DOMxRef("SpeechSynthesisEvent")}}-Schnittstelle gibt die Anzahl der Zeichen zurück, die noch gesprochen werden müssen, nachdem das Zeichen an der {{DOMxRef("SpeechSynthesisEvent.charIndex", "charIndex")}}-Position gesprochen wurde.
+Die schreibgeschützte **`charLength`**-Eigenschaft der [`SpeechSynthesisEvent`](/de/docs/Web/API/SpeechSynthesisEvent)-Schnittstelle gibt die Anzahl der Zeichen zurück, die nach dem Zeichen an der [`charIndex`](/de/docs/Web/API/SpeechSynthesisEvent/charIndex)-Position noch gesprochen werden sollen.
 
-Wenn die Sprachausgabe-Engine dies nicht bestimmen kann, wird 0 zurückgegeben.
+Wenn die Sprach-Engine dies nicht bestimmen kann, gibt sie 0 zurück.
 
 ## Wert
 
-Ein ganzzahliger Wert.
+Ein Ganzzahlwert.
 
 ## Beispiele
 

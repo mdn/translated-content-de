@@ -1,5 +1,5 @@
 ---
-title: 406 Nicht Akzeptabel
+title: 406 Not Acceptable
 slug: Web/HTTP/Status/406
 l10n:
   sourceCommit: ba53fe04589c36a2210d7549c003f3016093ef8e
@@ -7,17 +7,17 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`406 Nicht Akzeptabel`** [Clientfehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Server keine Antwort erzeugen konnte, die mit der Liste der im Request definierten akzeptablen Werte durch die [proaktive Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation#server-driven_content_negotiation) -Header übereinstimmt und dass der Server nicht bereit war, eine Standarddarstellung bereitzustellen.
+Der HTTP-Statuscode **`406 Not Acceptable`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Server keine Antwort erzeugen konnte, die mit der im Antrag definierten Liste akzeptabler Werte in den [proaktiven Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation#server-driven_content_negotiation)-Headern übereinstimmt, und dass der Server nicht bereit war, eine Standarddarstellung zu liefern.
 
-Proaktive Inhaltsaushandlungs-Header umfassen:
+Zu den Headern der proaktiven Inhaltsverhandlung gehören:
 
 - {{HTTPHeader("Accept")}}
 - {{HTTPHeader("Accept-Encoding")}}
 - {{HTTPHeader("Accept-Language")}}
 
-Ein Server kann Antworten zurückgeben, die von den Akzeptanz-Headern des Requests abweichen. In solchen Fällen kann eine {{HTTPStatus("200")}}-Antwort mit einer Standardressource, die nicht mit der Liste der akzeptablen Inhaltsaushandlungswerte des Clients übereinstimmt, vorzuziehen sein, anstatt eine 406-Antwort zu senden.
+Ein Server kann Antworten zurückgeben, die von den Accept-Headern des Antrags abweichen. In solchen Fällen kann eine {{HTTPStatus("200")}}-Antwort mit einer Standardressource, die nicht mit der Liste der akzeptablen Werte der Inhaltsverhandlung des Clients übereinstimmt, vorzuziehen sein gegenüber der Sendung einer 406-Antwort.
 
-Wenn ein Server eine 406 zurückgibt, sollte der Nachrichtenkörper die Liste der verfügbaren Darstellungen für die Ressource enthalten, sodass der Benutzer wählen kann, obwohl hierfür keine standardisierte Methode definiert ist.
+Wenn ein Server eine 406 zurückgibt, sollte der Nachrichtentext die Liste der verfügbaren Darstellungen für die Ressource enthalten, damit der Benutzer wählen kann, obwohl dafür keine standardisierte Methode definiert ist.
 
 ## Status
 
@@ -37,7 +37,7 @@ Host: example.com
 Accept: application/rtf;
 ```
 
-In diesem Beispiel fällt die Serverimplementierung nicht auf einen Standardinhaltstyp wie `text/html` oder `application/json` zurück, sondern gibt stattdessen eine 406 zurück:
+In diesem Beispiel fällt die Serverimplementierung nicht auf einen Standardinhaltstyp wie `text/html` oder `application/json` zurück, sondern gibt stattdessen eine 406 aus:
 
 ```http
 HTTP/1.1 406 Not Acceptable
@@ -61,4 +61,4 @@ Content-Type: application/json
 - {{HTTPHeader("Accept")}}
 - {{HTTPHeader("Accept-Encoding")}}
 - {{HTTPHeader("Accept-Language")}}
-- HTTP [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation)
+- HTTP [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation)

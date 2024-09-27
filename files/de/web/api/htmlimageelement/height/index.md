@@ -1,5 +1,5 @@
 ---
-title: "HTMLImageElement: height Eigenschaft"
+title: "HTMLImageElement: height-Eigenschaft"
 short-title: height
 slug: Web/API/HTMLImageElement/height
 l10n:
@@ -8,38 +8,41 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`height`** Eigenschaft des {{domxref("HTMLImageElement")}} Interfaces gibt die Höhe an, in der das Bild gezeichnet wird, in {{Glossary("CSS pixel", "CSS-Pixel")}}, wenn das Bild auf ein visuelles Medium wie den Bildschirm oder einen Drucker gezeichnet oder gerendert wird; andernfalls entspricht sie der natürlichen, pixelartdichtenkorrigierten Höhe des Bildes.
+Die **`height`**-Eigenschaft des
+[`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt die Höhe an, in der das Bild gezeichnet wird, in [CSS-Pixel](/de/docs/Glossary/CSS_pixel), wenn das Bild auf ein visuelles Medium wie den Bildschirm oder einen Drucker gezeichnet oder gerendert wird; andernfalls ist es die natürliche, an die Pixeldichte angepasste Höhe des Bildes.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Höhe des Bildes angibt. Die Begriffe, in denen die Höhe definiert ist, hängen davon ab, ob das Bild auf ein visuelles Medium gerendert wird oder nicht.
+Ein ganzzahliger Wert, der die Höhe des Bildes angibt. Die Art und Weise, in der die Höhe definiert ist, hängt davon ab, ob das Bild auf ein visuelles Medium gerendert wird oder nicht.
 
-- Wenn das Bild auf ein visuelles Medium wie einen Bildschirm oder Drucker gerendert wird, wird die Höhe in {{Glossary("CSS pixel", "CSS-Pixel")}} ausgedrückt.
-- Andernfalls wird die Höhe des Bildes mit seiner natürlichen (intrinsischen) Höhe dargestellt, die an die Darstellungsdichte angepasst ist, wie durch {{domxref("HTMLImageElement.naturalHeight", "naturalHeight")}} angegeben.
+- Wenn das Bild auf ein visuelles Medium wie einen Bildschirm oder Drucker gerendert wird, wird die Höhe in [CSS-Pixel](/de/docs/Glossary/CSS_pixel) ausgedrückt.
+- Andernfalls wird die Höhe des Bildes unter Verwendung seiner natürlichen (intrinsischen) Höhe dargestellt, korrigiert für die Darstellungsdichte, wie durch
+  [`naturalHeight`](/de/docs/Web/API/HTMLImageElement/naturalHeight) angegeben.
 
 ## Beispiele
 
-In diesem Beispiel werden zwei verschiedene Größen für ein Bild einer Uhr unter Verwendung des [`srcset`](/de/docs/Web/HTML/Element/img#srcset) Attributs bereitgestellt. Eine ist 200px breit und die andere ist 400px breit. Außerdem wird das [`sizes`](/de/docs/Web/HTML/Element/img#sizes) Attribut verwendet, um die Breite anzugeben, auf der das Bild abhängig von der Breite des Ansichtsfeldes gezeichnet werden soll.
+In diesem Beispiel werden zwei verschiedene Größen für ein Bild einer Uhr mit dem
+[`srcset`](/de/docs/Web/HTML/Element/img#srcset)-Attribut angegeben. Eine ist 200 Pixel breit und die andere ist 400 Pixel breit. Weiterhin wird das [`sizes`](/de/docs/Web/HTML/Element/img#sizes)-Attribut angegeben, um die Breite festzulegen, mit welcher das Bild gezeichnet werden soll, abhängig von der Breite des Ansichtsfensters.
 
 ### HTML
 
-Speziell für Ansichtsfenster bis 400px Breite wird das Bild mit einer Breite von 200px gezeichnet; andernfalls wird es mit 300px gezeichnet.
+Insbesondere für Ansichtsfenster bis zu 400 Pixel Breite wird das Bild mit einer Breite von 200 Pixel gezeichnet; andernfalls wird es mit 300 Pixel gezeichnet.
 
 ```html
-<p>Bildhöhe: <span class="size">?</span>px (Größe ändern, um zu aktualisieren)</p>
+<p>Image height: <span class="size">?</span>px (resize to update)</p>
 <img
-  src="/de/docs/Web/HTML/Element/img/clock-demo-200px.png"
+  src="/en-US/docs/Web/HTML/Element/img/clock-demo-200px.png"
   alt="Clock"
   srcset="
-    /de/docs/Web/HTML/Element/img/clock-demo-200px.png 200w,
-    /de/docs/Web/HTML/Element/img/clock-demo-400px.png 400w
+    /en-US/docs/Web/HTML/Element/img/clock-demo-200px.png 200w,
+    /en-US/docs/Web/HTML/Element/img/clock-demo-400px.png 400w
   "
   sizes="(max-width: 400px) 200px, 300px" />
 ```
 
 ### JavaScript
 
-Der JavaScript-Code prüft die `height`, um die Höhe des Bildes basierend auf der Breite, in der es derzeit gezeichnet wird, zu bestimmen.
+Der JavaScript-Code betrachtet die `height`, um die Höhe des Bildes zu bestimmen, abhängig von der Breite, mit der es derzeit gezeichnet wird.
 
 ```js
 const clockImage = document.querySelector("img");
@@ -57,7 +60,7 @@ window.addEventListener("resize", updateHeight);
 
 {{EmbedLiveSample("Examples", 640, 450)}}
 
-Dieses Beispiel lässt sich möglicherweise einfacher {{LiveSampleLink('Examples', 'in einem eigenen Fenster')}} ausprobieren.
+Dieses Beispiel kann einfacher ausprobiert werden {{LiveSampleLink('Examples', 'in its own window')}}.
 
 ## Spezifikationen
 
@@ -69,9 +72,9 @@ Dieses Beispiel lässt sich möglicherweise einfacher {{LiveSampleLink('Examples
 
 ## Siehe auch
 
-- {{domxref("HTMLCanvasElement.height")}}
-- {{domxref("HTMLEmbedElement.height")}}
-- {{domxref("HTMLIFrameElement.height")}}
-- {{domxref("HTMLObjectElement.height")}}
-- {{domxref("HTMLSourceElement.height")}}
-- {{domxref("HTMLVideoElement.height")}}
+- [`HTMLCanvasElement.height`](/de/docs/Web/API/HTMLCanvasElement/height)
+- [`HTMLEmbedElement.height`](/de/docs/Web/API/HTMLEmbedElement/height)
+- [`HTMLIFrameElement.height`](/de/docs/Web/API/HTMLIFrameElement/height)
+- [`HTMLObjectElement.height`](/de/docs/Web/API/HTMLObjectElement/height)
+- [`HTMLSourceElement.height`](/de/docs/Web/API/HTMLSourceElement/height)
+- [`HTMLVideoElement.height`](/de/docs/Web/API/HTMLVideoElement/height)

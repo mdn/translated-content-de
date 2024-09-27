@@ -9,42 +9,19 @@ l10n:
 
 Der CSS-**Typselektor** wählt Elemente anhand des Knotennamens aus. Mit anderen Worten, er wählt alle Elemente des angegebenen Typs innerhalb eines Dokuments aus.
 
-```css
-/* Alle <a>-Elemente. */
-a {
-  color: red;
-}
-```
-
-Typselektoren können namespaced werden, wenn {{CSSXref("@namespace")}} verwendet wird. Dies ist nützlich, wenn Sie mit Dokumenten arbeiten, die mehrere Namespaces wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt, enthalten.
+Type-Selektoren können Namespaces verwenden, wenn {{CSSXref("@namespace")}} benutzt wird. Dies ist nützlich, wenn mit Dokumenten gearbeitet wird, die mehrere Namespaces enthalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
 
 - `ns|h1` - entspricht `<h1>`-Elementen im Namespace _ns_
 - `*|h1` - entspricht allen `<h1>`-Elementen
-- `|h1` - entspricht allen `<h1>`-Elementen ohne deklarierte Namespace
+- `|h1` - entspricht allen `<h1>`-Elementen ohne einen deklarierten Namespace
 
 ## Syntax
-
-```css
-element { style properties }
-```
 
 ## Beispiele
 
 ### CSS
 
-```css
-span {
-  background-color: skyblue;
-}
-```
-
 ### HTML
-
-```html
-<span>Hier ist ein Span mit etwas Text.</span>
-<p>Hier ist ein p mit etwas Text.</p>
-<span>Hier ist ein Span mit mehr Text.</span>
-```
 
 ### Ergebnis
 
@@ -52,14 +29,7 @@ span {
 
 ### Namespaces
 
-In diesem Beispiel wird der Selektor nur `<h1>`-Elemente im Beispiel-Namespace auswählen.
-
-```css
-@namespace example url(http://www.example.com/);
-example|h1 {
-  color: blue;
-}
-```
+In diesem Beispiel wird der Selektor nur `<h1>`-Elemente im Beispiel-Namensraum auswählen.
 
 ## Spezifikationen
 
@@ -72,4 +42,4 @@ example|h1 {
 ## Siehe auch
 
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [Lernen Sie CSS: Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors)
+- [CSS lernen: Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors)

@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`ready`**-Eigenschaft der {{domxref("WritableStreamDefaultWriter")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück. Dieses Promise wird aufgelöst, wenn die gewünschte Größe der internen Warteschlange des Streams von nicht-positiv zu positiv wechselt, was signalisiert, dass kein Backpressure mehr angewendet wird.
+Die schreibgeschützte **`ready`**-Eigenschaft der
+[`WritableStreamDefaultWriter`](/de/docs/Web/API/WritableStreamDefaultWriter)-Schnittstelle gibt ein {{jsxref("Promise")}}
+zurück, das aufgelöst wird, wenn sich die gewünschte Größe der internen Warteschlange des Streams von
+nicht-positiv zu positiv ändert. Dies signalisiert, dass der Stream keinen Rückstau mehr anwendet.
 
 ## Wert
 
@@ -16,34 +19,37 @@ Ein {{jsxref("Promise")}}.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt zwei Anwendungsfälle der `ready`-Eigenschaft. Das erste Beispiel nutzt `ready`, um sicherzustellen, dass der `WritableStream` mit dem Schreiben fertig ist und somit in der Lage ist, Daten zu empfangen, bevor ein binärer Block gesendet wird. Das zweite Beispiel überprüft ebenfalls, ob der `WritableStream` mit dem Schreiben fertig ist, jedoch dieses Mal, weil das Schreiben abgeschlossen sein muss, bevor der Schreiber geschlossen werden kann.
+Das folgende Beispiel zeigt zwei Verwendungen der `ready`-Eigenschaft. Die erste Verwendung nutzt
+`ready`, um sicherzustellen, dass der `WritableStream` mit dem Schreiben fertig ist und
+somit in der Lage ist, Daten zu empfangen, bevor ein binäres Chunk gesendet wird. Die zweite Überprüfung stellt ebenfalls fest, ob
+der `WritableStream` mit dem Schreiben fertig ist, dieses Mal jedoch, weil das Schreiben abgeschlossen sein muss, bevor der Schreiber geschlossen werden kann.
 
 ```js
 function sendMessage(message, writableStream) {
-  // defaultWriter ist vom Typ WritableStreamDefaultWriter
+  // defaultWriter is of type WritableStreamDefaultWriter
   const defaultWriter = writableStream.getWriter();
   const encoder = new TextEncoder();
   const encoded = encoder.encode(message);
   encoded.forEach((chunk) => {
-    // Stellen Sie sicher, dass der Stream und sein Schreiber
-    //   Daten empfangen können.
+    // Make sure the stream and its writer are able to
+    //   receive data.
     defaultWriter.ready
       .then(() => defaultWriter.write(chunk))
       .then(() => {
-        console.log("Chunk wurde in das Ziel geschrieben.");
+        console.log("Chunk written to sink.");
       })
       .catch((err) => {
-        console.error(`Chunk-Fehler: ${err}`);
+        console.error(`Chunk error: ${err}`);
       });
-    // Rufen Sie ready erneut auf, um sicherzustellen, dass alle Chunks geschrieben sind,
-    //   bevor der Schreiber geschlossen wird.
+    // Call ready again to ensure that all chunks are written
+    //   before closing the writer.
     defaultWriter.ready
       .then(() => defaultWriter.close())
       .then(() => {
-        console.log("Alle Chunks wurden geschrieben");
+        console.log("All chunks written");
       })
       .catch((err) => {
-        console.error(`Stream-Fehler: ${err}`);
+        console.error(`Stream error: ${err}`);
       });
   });
 }

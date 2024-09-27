@@ -7,12 +7,12 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<title>`**-Element bietet eine zugängliche, kurze Textbeschreibung für ein beliebiges SVG-[Container-Element](/de/docs/Web/SVG/Element#container_elements) oder [Grafikelement](/de/docs/Web/SVG/Element#graphics_elements).
+Das **`<title>`**-Element bietet eine zugängliche Kurzbeschreibung für jedes SVG-[Container-Element](/de/docs/Web/SVG/Element#container_elements) oder [Grafik-Element](/de/docs/Web/SVG/Element#graphics_elements).
 
-Der Text in einem `<title>`-Element wird nicht als Teil der Grafik gerendert, aber Browser zeigen ihn normalerweise als Tooltip an. Wenn ein Element durch sichtbaren Text beschrieben werden kann, wird empfohlen, diesen Text mit einem [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)-Attribut zu referenzieren, anstatt das `<title>`-Element zu verwenden.
+Text in einem `<title>`-Element wird nicht als Teil der Grafik gerendert, aber Browser zeigen ihn normalerweise als Tooltip an. Wenn ein Element durch sichtbaren Text beschrieben werden kann, wird empfohlen, diesen Text mit einem [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)-Attribut zu referenzieren, anstatt das `<title>`-Element zu verwenden.
 
 > [!NOTE]
-> Für die Abwärtskompatibilität mit SVG 1.1 sollten `<title>`-Elemente das erste Kindelement ihres Elternteils sein.
+> Zur Abwärtskompatibilität mit SVG 1.1 sollten `<title>`-Elemente das erste Kindelement ihres Elternteils sein.
 
 ## Beispiel
 
@@ -40,7 +40,7 @@ svg {
 
 ## Attribute
 
-Dieses Element beinhaltet nur globale Attribute.
+Dieses Element enthält nur globale Attribute
 
 ## Verwendungskontext
 

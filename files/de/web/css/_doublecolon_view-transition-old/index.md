@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Das **`::view-transition-old`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den "alten" Ansichtsstatus eines Ansichtsübergangs — einen statischen Schnappschuss der alten Ansicht vor dem Übergang.
+Das **`::view-transition-old`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den "alten" Ansichtsstatus einer Ansichtstransition — eine statische Momentaufnahme der alten Ansicht vor der Transition.
 
-Während eines Ansichtsübergangs ist `::view-transition-old` im zugehörigen Pseudo-Element-Baum enthalten, wie in [Der Pseudo-Element-Baum des Ansichtsübergangs](/de/docs/Web/API/View_Transitions_API/Using#the_view_transition_pseudo-element_tree) erklärt wird, sofern ein "alter" Ansichtsstatus zu repräsentieren ist. Es ist immer nur ein Kind eines {{cssxref("::view-transition-image-pair")}} und hat niemals Kinder.
+Während einer Ansichtstransition wird `::view-transition-old` im zugehörigen Pseudo-Element-Baum einbezogen, wie unter [Der Pseudo-Element-Baum der Ansichtstransition](/de/docs/Web/API/View_Transitions_API/Using#the_view_transition_pseudo-element_tree) erläutert ist, vorausgesetzt, es gibt einen "alten" Ansichtsstatus zu repräsentieren. Es ist immer nur ein Kind eines {{cssxref("::view-transition-image-pair")}} und hat niemals eigene Kinder.
 
-Es ist ein ersetztes Element und kann daher mit Eigenschaften wie {{cssxref("object-fit")}} und {{cssxref("object-position")}} manipuliert werden. Es hat natürliche Dimensionen, die der Größe des Inhalts entsprechen.
+Es handelt sich um ein ersetztes Element und kann daher mit Eigenschaften wie {{cssxref("object-fit")}} und {{cssxref("object-position")}} manipuliert werden. Es hat natürliche Abmessungen, die der Größe des Inhalts entsprechen.
 
-Die folgende Standardstilierung ist im UA-Stilblatt enthalten:
+Das folgende Standard-Styling ist im UA-Stylesheet enthalten:
 
 ```css
 :root::view-transition-old(*),
@@ -28,7 +28,7 @@ Die folgende Standardstilierung ist im UA-Stilblatt enthalten:
   animation-delay: inherit;
 }
 
-/* Keyframes zum Mischen bei 2 Bildern */
+/* Keyframes for blending when there are 2 images */
 @keyframes -ua-mix-blend-mode-plus-lighter {
   from {
     mix-blend-mode: plus-lighter;
@@ -46,7 +46,7 @@ Die folgende Standardstilierung ist im UA-Stilblatt enthalten:
 ```
 
 > [!NOTE]
-> Zusätzliche Stilvorlagen für Ansichtsübergänge werden ebenfalls eingerichtet, um `::view-transition-old` zu animieren. Diese werden während des Ansichtsübergangs dynamisch generiert; siehe die Spezifikation [Einrichtung von Übergangs-Pseudo-Elementen](https://drafts.csswg.org/css-view-transitions-1/#setup-transition-pseudo-elements) und [Aktualisierung der Pseudo-Element-Stile](https://drafts.csswg.org/css-view-transitions-1/#update-pseudo-element-styles) für weitere Details.
+> Zusätzliche Stile für Ansichtstransitionen sind auch eingerichtet, um `::view-transition-old` zu animieren. Diese werden während der Ansichtstransition dynamisch generiert; siehe die Spezifikationsbereiche [Übergangspseudo-Elemente einrichten](https://drafts.csswg.org/css-view-transitions-1/#setup-transition-pseudo-elements) und [Pseudo-Element-Stile aktualisieren](https://drafts.csswg.org/css-view-transitions-1/#update-pseudo-element-styles) für weitere Details.
 
 ## Syntax
 
@@ -56,14 +56,14 @@ Die folgende Standardstilierung ist im UA-Stilblatt enthalten:
 }
 ```
 
-`<pt-name-selector>` kann einen der folgenden Werte annehmen:
+`<pt-name-selector>` kann einer der folgenden Werte sein:
 
 - `*`
-  - : Verursacht, dass das Pseudo-Element alle Ansichtsübergangsgruppen matcht.
+  - : Verursacht, dass das Pseudo-Element mit allen Ansichtstransitionsgruppen übereinstimmt.
 - `root`
-  - : Verursacht, dass das Pseudo-Element die Standard-`root`-Ansichtsübergangs-Schnappschussgruppe matcht, die vom User Agent erstellt wurde, um den Ansichtsübergang für die gesamte Seite zu enthalten. Diese Gruppe umfasst jedes Element, das nicht über die {{cssxref("view-transition-name")}}-Eigenschaft seiner eigenen spezifischen Ansichtsübergangs-Schnappschussgruppe zugeordnet ist.
+  - : Verursacht, dass das Pseudo-Element mit der standardmäßigen `root`-Ansichtstransitions-Snapshot-Gruppe übereinstimmt, die vom User-Agent erstellt wurde, um die Ansichtstransition für die gesamte Seite aufzunehmen. Diese Gruppe umfasst jedes Element, das nicht über die Eigenschaft {{cssxref("view-transition-name")}} einer eigenen spezifischen Ansichtstransitions-Snapshot-Gruppe zugewiesen wurde.
 - {{cssxref("custom-ident")}}
-  - : Verursacht, dass das Pseudo-Element eine spezifische Ansichtsübergangs-Schnappschussgruppe matcht, die durch Zuweisung des angegebenen {{cssxref("custom-ident")}} zu einem Element über die {{cssxref("view-transition-name")}}-Eigenschaft erstellt wurde.
+  - : Verursacht, dass das Pseudo-Element mit einer bestimmten Ansichtstransitions-Snapshot-Gruppe übereinstimmt, die erstellt wurde, indem dem Element der gegebene {{cssxref("custom-ident")}} über die Eigenschaft {{cssxref("view-transition-name")}} zugewiesen wurde.
 
 ## Beispiele
 

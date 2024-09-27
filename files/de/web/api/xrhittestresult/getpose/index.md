@@ -1,5 +1,5 @@
 ---
-title: "XRHitTestResult: Methode getPose()"
+title: "XRHitTestResult: getPose()-Methode"
 short-title: getPose()
 slug: Web/API/XRHitTestResult/getPose
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`getPose()`** Methode der Schnittstelle {{domxref("XRHitTestResult")}} gibt die {{domxref("XRPose")}} des Treffer-Testergebnisses relativ zu dem angegebenen Basisraum zurück.
+Die **`getPose()`**-Methode des [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Interfaces gibt die [`XRPose`](/de/docs/Web/API/XRPose) des Trefferergebnisses relativ zum angegebenen Basisspace zurück.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ getPose(baseSpace)
 ### Parameter
 
 - `baseSpace`
-  - : Ein {{domxref("XRSpace")}}, der als Basis oder Ursprung zur Berechnung der relativen Position und Orientierung der Treffer-Testergebnisse verwendet wird.
+  - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace), das als Basis oder Ursprung zur Berechnung der relativen Position und Orientierung der Trefferergebnisse verwendet wird.
 
 ### Rückgabewert
 
-Gibt ein {{domxref("XRPose")}} Objekt zurück.
+Gibt ein [`XRPose`](/de/docs/Web/API/XRPose)-Objekt zurück.
 
 ## Beispiele
 
-### Abrufen der Pose des Treffer-Testergebnisses
+### Erhalten der Pose des Trefferergebnisses
 
-Das folgende Beispiel verwendet `getPose()`, um die Pose eines einzelnen Treffer-Testergebnisses abzufragen.
+Im folgenden Beispiel wird `getPose()` verwendet, um die Pose eines einzelnen Trefferergebnisses abzufragen.
 
 ```js
 let hitTestResults = xrFrame.getHitTestResults(hitTestSource);
@@ -49,4 +49,4 @@ if (hitTestResults.length > 0) {
 
 ## Siehe auch
 
-- {{domxref("XRFrame.getPose()")}}
+- [`XRFrame.getPose()`](/de/docs/Web/API/XRFrame/getPose)

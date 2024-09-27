@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognitionAlternative: Eigenschaft confidence"
+title: "SpeechRecognitionAlternative: confidence-Eigenschaft"
 short-title: confidence
 slug: Web/API/SpeechRecognitionAlternative/confidence
 l10n:
@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`confidence`**-Schreibgeschützte Eigenschaft der
-{{domxref("SpeechRecognitionResult")}}-Schnittstelle gibt eine numerische Schätzung zurück, wie sicher das Spracherkennungssystem ist, dass die Erkennung korrekt ist.
+Die **`confidence`** schreibgeschützte Eigenschaft des
+[`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult)-Interfaces gibt eine numerische Schätzung zurück, wie sicher das Spracherkennungssystem ist, dass die Erkennung korrekt ist.
 
 > [!NOTE]
-> Mozillas Implementierung von `confidence` wird noch
-> bearbeitet – im Moment scheint sie immer 1 zurückzugeben.
+> An der Implementierung von `confidence` in Mozilla wird noch gearbeitet — derzeit scheint sie immer 1 zurückzugeben.
 
 ## Wert
 
@@ -21,20 +20,20 @@ Eine Zahl zwischen 0 und 1.
 
 ## Beispiele
 
-Dieser Code ist ein Auszug aus unserem
-[Beispiel: Sprachgesteuerte Farbumschaltung](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
+Dieser Code ist ein Ausschnitt aus unserem
+[Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js)-Beispiel.
 
 ```js
 recognition.onresult = (event) => {
-  // Die results-Eigenschaft des SpeechRecognitionEvent gibt ein SpeechRecognitionResultList-Objekt zurück
-  // Das SpeechRecognitionResultList-Objekt enthält SpeechRecognitionResult-Objekte.
-  // Es verfügt über einen Getter, sodass es wie ein Array angesprochen werden kann
-  // Das erste [0] gibt das SpeechRecognitionResult an Position 0 zurück.
-  // Jedes SpeechRecognitionResult-Objekt enthält SpeechRecognitionAlternative-Objekte,
-  // die individuelle Ergebnisse enthalten.
-  // Auch diese verfügen über Getter, sodass sie wie Arrays angesprochen werden können.
-  // Das zweite [0] gibt die SpeechRecognitionAlternative an Position 0 zurück.
-  // Wir geben dann die transcript-Eigenschaft des SpeechRecognitionAlternative-Objekts zurück
+  // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
+  // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
+  // It has a getter so it can be accessed like an array
+  // The first [0] returns the SpeechRecognitionResult at position 0.
+  // Each SpeechRecognitionResult object contains SpeechRecognitionAlternative objects
+  // that contain individual results.
+  // These also have getters so they can be accessed like arrays.
+  // The second [0] returns the SpeechRecognitionAlternative at position 0.
+  // We then return the transcript property of the SpeechRecognitionAlternative object
   const color = event.results[0][0].transcript;
   diagnostic.textContent = `Result received: ${color}.`;
   bg.style.backgroundColor = color;

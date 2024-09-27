@@ -7,20 +7,20 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die Schnittstelle **`HTMLDataListElement`** bietet spezielle Eigenschaften (zusätzlich zur {{domxref("HTMLElement")}}-Objektschnittstelle, die sie auch durch Vererbung zur Verfügung hat), um {{ HTMLElement("datalist") }}-Elemente und deren Inhalt zu manipulieren.
+Die Schnittstelle **`HTMLDataListElement`** bietet spezielle Eigenschaften (über die Schnittstelle [`HTMLElement`](/de/docs/Web/API/HTMLElement) hinaus, die sie durch Vererbung ebenfalls zur Verfügung hat), um {{ HTMLElement("datalist") }}-Elemente und deren Inhalt zu manipulieren.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, {{domxref("HTMLElement")}}_.
+_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)_.
 
-- {{domxref("HTMLDataListElement.options")}} {{ReadOnlyInline}}
-  - : Eine {{domxref("HTMLCollection")}}, die eine Sammlung der enthaltenen option-Elemente darstellt.
+- [`HTMLDataListElement.options`](/de/docs/Web/API/HTMLDataListElement/options) {{ReadOnlyInline}}
+  - : Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die eine Sammlung der enthaltenen Optionselemente darstellt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, {{domxref("HTMLElement")}}._
+_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 

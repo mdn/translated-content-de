@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Entfernt einen mit {{WebExtAPIRef("events.Event.addListener()")}} beim Ereignis registrierten Ereignis-Listener.
+Entfernt einen Ereignis-Listener, der mit {{WebExtAPIRef("events.Event.addListener()")}} beim Ereignis registriert wurde.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ events.Event.removeListener(listener)
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-removeListener) API. Diese Dokumentation leitet sich von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code ab.
+> Diese API basiert auf der [`chrome.events`](https://developer.chrome.com/docs/extensions/reference/api/events#method-Event-removeListener) API von Chromium. Diese Dokumentation ist abgeleitet von [`events.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/events.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

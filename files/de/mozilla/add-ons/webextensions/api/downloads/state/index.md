@@ -7,13 +7,13 @@ l10n:
 
 {{AddonSidebar}}
 
-Der `State`-Typ der {{WebExtAPIRef("downloads")}} API definiert verschiedene Zustände, in denen ein aktueller Download sein kann.
+Der `State`-Typ der {{WebExtAPIRef("downloads")}} API definiert verschiedene Zustände, in denen sich ein aktueller Download befinden kann.
 
-Die `state`-Eigenschaft eines {{WebExtAPIRef('downloads.DownloadItem')}} enthält einen Zeichenfolgenwert, der aus den in diesem Typ definierten Werten stammt.
+Die `state`-Eigenschaft eines {{WebExtAPIRef('downloads.DownloadItem')}} enthält einen String, der aus den in diesem Typ definierten Werten stammt.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Werte dieses Typs sind Strings. Mögliche Werte sind:
 
 - `in_progress`
   - : Der Browser empfängt derzeit Download-Daten vom Server.
@@ -32,4 +32,4 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-State) API.
+> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-State) API von Chromium.

@@ -1,5 +1,5 @@
 ---
-title: "Navigator: wakeLock-Eigenschaft"
+title: "Navigator: wakeLock Eigenschaft"
 short-title: wakeLock
 slug: Web/API/Navigator/wakeLock
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{ApiRef("Screen Wake Lock API")}}{{securecontext_header}}
 
-Die **`wakeLock`**-Schreibgeschützte Eigenschaft des {{domxref("Navigator")}}-Interfaces gibt ein {{DOMxRef("WakeLock")}}-Interface zurück, das es einem Dokument ermöglicht, eine Bildschirmsperre zu erwerben.
-Während eine Bildschirmsperre aktiv ist, versucht der Benutzeragent zu verhindern, dass das Gerät den Bildschirm verdunkelt, vollständig ausschaltet oder einen Bildschirmschoner anzeigt.
+Die **`wakeLock`** schreibgeschützte Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt ein [`WakeLock`](/de/docs/Web/API/WakeLock)-Interface zurück, das es einem Dokument ermöglicht, einen Bildschirm-Wachsamkeitssperre zu erwerben. Solange eine Bildschirm-Wachsamkeitssperre aktiv ist, wird der Benutzeragent versuchen, das Gerät daran zu hindern, den Bildschirm zu dimmen, vollständig auszuschalten oder einen Bildschirmschoner anzuzeigen.
 
 ## Syntax
 
@@ -21,12 +20,12 @@ navigator.wakeLock
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{DOMxRef("WakeLock.request()")}}
+- [`WakeLock.request()`](/de/docs/Web/API/WakeLock/request)
 - [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API)
 - [Bleiben Sie wach mit der Screen Wake Lock API](https://developer.chrome.com/docs/capabilities/web-apis/wake-lock/)

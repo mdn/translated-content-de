@@ -1,5 +1,5 @@
 ---
-title: "HTMLInputElement: defaultValue-Eigenschaft"
+title: "HTMLInputElement: Eigenschaft defaultValue"
 short-title: defaultValue
 slug: Web/API/HTMLInputElement/defaultValue
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`defaultValue`**-Eigenschaft der {{domxref("HTMLInputElement")}}-Schnittstelle gibt den ursprünglichen (oder Standard-)Wert des {{HTMLElement("input")}}-Elements an. Sie spiegelt das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut des Elements wider.
+Die **`defaultValue`**-Eigenschaft der Schnittstelle [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) gibt den ursprünglichen (oder Standard-)Wert des {{HTMLElement("input")}}-Elements an. Sie spiegelt das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut des Elements wider.
 
 ## Wert
 
@@ -16,10 +16,10 @@ Ein String, der den Standard- oder ursprünglichen Wert des `<input>`-Elements d
 
 ## Beispiel
 
-Gegeben ist das folgende HTML:
+Gegebenenfalls folgende HTML:
 
 ```html
-<label for="planet">Auf welchem Planeten sind Sie geboren?</label>
+<label for="planet">Which planet were you born on?</label>
 <input id="planet" type="text" value="Azarath" />
 ```
 
@@ -40,5 +40,5 @@ console.log(`Original value: ${inputElement.defaultValue}`); // "Original value:
 
 ## Siehe auch
 
-- {{domxref("HTMLInputElement.value")}}
-- {{domxref("HTMLInputElement.type")}}
+- [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value)
+- [`HTMLInputElement.type`](/de/docs/Web/API/HTMLInputElement/type)

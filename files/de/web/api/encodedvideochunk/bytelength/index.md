@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`byteLength`** schreibgeschützte Eigenschaft des {{domxref("EncodedVideoChunk")}}-Interfaces gibt die Länge der kodierten Videodaten in Bytes zurück.
+Die **`byteLength`** schreibgeschützte Eigenschaft des [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Interfaces gibt die Länge der kodierten Videodaten in Bytes zurück.
 
 ## Wert
 
-Ein ganzzahliger Wert.
+Ein Ganzzahlwert.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der `byteLength` in der Konsole ausgegeben.
+Im folgenden Beispiel wird `byteLength` in der Konsole ausgegeben.
 
 ```js
 const init = {
@@ -34,6 +34,6 @@ console.log(chunk.byteLength); //352800
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

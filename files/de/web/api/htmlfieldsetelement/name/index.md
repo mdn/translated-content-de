@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`name`**-Eigenschaft der {{domxref("HTMLFieldSetElement")}}-Schnittstelle gibt den Namen des {{HTMLElement("fieldset")}}-Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/fieldset#name) Attribut des Elements wider.
+Die **`name`**-Eigenschaft des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces gibt den Namen des {{HTMLElement("fieldset")}}-Elements an. Sie spiegelt das [`name`](/de/docs/Web/HTML/Element/fieldset#name)-Attribut des Elements wider.
 
 ## Wert
 
-Ein String, der den Namen des Elements darstellt.
+Ein String, der den Namen des Elements repräsentiert.
 
 ## Beispiel
 
@@ -32,10 +32,10 @@ fs.name = "billing"; // sets or updates the element's name
 
 ## Siehe auch
 
-- {{domxref("HTMLFieldSetElement.elements")}}
-- {{domxref("HTMLFieldSetElement.disabled")}}
-- {{domxref("HTMLLegendElement")}}
-- {{domxref("HTMLFormElement")}}
+- [`HTMLFieldSetElement.elements`](/de/docs/Web/API/HTMLFieldSetElement/elements)
+- [`HTMLFieldSetElement.disabled`](/de/docs/Web/API/HTMLFieldSetElement/disabled)
+- [`HTMLLegendElement`](/de/docs/Web/API/HTMLLegendElement)
+- [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("fieldset")}}
 - {{HTMLElement("legend")}}
 - {{HTMLElement("form")}}

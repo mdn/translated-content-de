@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toLocaleString()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt einen String zurück, der die Elemente des typisierten Arrays repräsentiert. Die Elemente werden unter Verwendung ihrer `toLocaleString`-Methoden in Strings umgewandelt, und diese Strings werden durch einen lokal-spezifischen String getrennt (wie z.B. ein Komma ","). Diese Methode folgt dem gleichen Algorithmus wie {{jsxref("Array.prototype.toLocaleString()")}}.
+Die **`toLocaleString()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt einen String zurück, der die Elemente des typisierten Arrays repräsentiert. Die Elemente werden mithilfe ihrer `toLocaleString`-Methoden in Strings umgewandelt, und diese Strings werden durch einen länderspezifischen String (wie ein Komma ",") getrennt. Diese Methode hat denselben Algorithmus wie {{jsxref("Array.prototype.toLocaleString()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-tolocalestring.html")}}
 
@@ -32,7 +32,7 @@ Ein String, der die Elemente des typisierten Arrays repräsentiert.
 
 ## Beschreibung
 
-Siehe {{jsxref("Array.prototype.toLocaleString()")}} für mehr Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Weitere Details finden Sie unter {{jsxref("Array.prototype.toLocaleString()")}}. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays angewendet werden.
 
 ## Beispiele
 
@@ -42,7 +42,7 @@ Siehe {{jsxref("Array.prototype.toLocaleString()")}} für mehr Details. Diese Me
 const uint = new Uint32Array([2000, 500, 8123, 12, 4212]);
 
 uint.toLocaleString();
-// wenn in einem de-DE Locale ausgeführt
+// if run in a de-DE locale
 // "2.000,500,8.123,12,4.212"
 
 uint.toLocaleString("en-US");
@@ -62,7 +62,7 @@ uint.toLocaleString("ja-JP", { style: "currency", currency: "JPY" });
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Anleitung
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.toString()")}}
 - {{jsxref("Array.prototype.toLocaleString()")}}

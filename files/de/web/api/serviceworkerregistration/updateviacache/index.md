@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`updateViaCache`**-Eigenschaft des {{domxref("ServiceWorkerRegistration")}}-Interfaces gibt den Wert der Einstellung zurück, die verwendet wird, um zu bestimmen, unter welchen Umständen der Browser den HTTP-Cache konsultiert, wenn er versucht, den Service Worker oder Skripte zu aktualisieren, die über {{domxref("WorkerGlobalScope.importScripts", "importScripts()")}} importiert werden.
+Die **`updateViaCache`** schreibgeschützte Eigenschaft der [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration)-Schnittstelle gibt den Wert der Einstellung zurück, die bestimmt, unter welchen Umständen der Browser den HTTP-Cache konsultiert, wenn er versucht, den Service Worker oder importierte Skripte über [`importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) zu aktualisieren.
 
 ## Wert
 
 Gibt einen der folgenden Werte zurück:
 
-- `imports`, was bedeutet, dass der HTTP-Cache nicht für Updates des Service Worker-Skripts konsultiert wird, aber für Skripte, die mit {{domxref("WorkerGlobalScope.importScripts", "importScripts()")}} importiert werden. Dies ist der Standardwert.
-- `all`, was bedeutet, dass der HTTP-Cache sowohl für Updates des Service Worker-Skripts als auch für importierte Skripte konsultiert wird.
-- `none`, was bedeutet, dass der HTTP-Cache nie konsultiert wird.
+- `imports`, bedeutet, dass der HTTP-Cache nicht für Updates des Service-Worker-Skripts konsultiert wird, aber für Skripte, die mit [`importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) importiert werden. Dies ist der Standardwert.
+- `all`, bedeutet, dass der HTTP-Cache für Updates des Service-Worker-Skripts und für Skripte, die mit [`importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) importiert werden, konsultiert wird.
+- `none`, bedeutet, dass der HTTP-Cache niemals konsultiert wird.
 
 ## Beispiele
 
@@ -52,5 +52,5 @@ if ("serviceWorker" in navigator) {
 ## Siehe auch
 
 - [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Beispielcode zu Service Workern](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Basisbeispiel für Service Worker Code](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Verwendung von Webarbeitern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

@@ -8,17 +8,16 @@ l10n:
 
 {{APIRef("Performance API")}}{{deprecated_header}}
 
-Die veraltete, schreibgeschützte Eigenschaft
-**`Performance.timing`** gibt ein {{domxref("PerformanceTiming")}}-Objekt zurück, das Leistungen im Zusammenhang mit Latenz enthält.
+Die veraltete, schreibgeschützte Eigenschaft **`Performance.timing`** gibt ein [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Objekt zurück, das latenzbezogene Leistungsinformationen enthält.
 
 Diese Eigenschaft ist in Workern nicht verfügbar.
 
 > [!WARNING]
-> Diese Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die {{domxref("PerformanceNavigationTiming")}}-Schnittstelle.
+> Diese Eigenschaft ist in der [Navigation Timing Level 2-Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen das [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Interface.
 
 ## Wert
 
-Ein {{domxref("PerformanceTiming")}}-Objekt.
+Ein [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Objekt.
 
 ## Spezifikationen
 
@@ -30,4 +29,4 @@ Ein {{domxref("PerformanceTiming")}}-Objekt.
 
 ## Siehe auch
 
-- Das zugehörige {{domxref("Performance")}}-Interface.
+- Das [`Performance`](/de/docs/Web/API/Performance) Interface, zu dem es gehört.

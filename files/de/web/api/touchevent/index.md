@@ -7,90 +7,108 @@ l10n:
 
 {{APIRef("Touch Events")}}
 
-Die **`TouchEvent`** Schnittstelle stellt ein {{domxref("UIEvent")}} dar, das gesendet wird, wenn sich der Zustand von Berührungspunkten auf einer berührungsempfindlichen Oberfläche ändert. Diese Oberfläche kann beispielsweise ein Touchscreen oder ein Trackpad sein. Das Ereignis kann einen oder mehrere Berührungspunkte mit dem Bildschirm beschreiben und unterstützt die Erkennung von Bewegungen, das Hinzufügen und Entfernen von Berührungspunkten und so weiter.
+Die **`TouchEvent`**-Schnittstelle repräsentiert ein [`UIEvent`](/de/docs/Web/API/UIEvent), das gesendet wird, wenn sich der Zustand von Kontakten mit einer berührungsempfindlichen Oberfläche ändert. Diese Oberfläche kann beispielsweise ein Touchscreen oder ein Trackpad sein. Das Ereignis kann einen oder mehrere Berührungspunkte auf dem Bildschirm beschreiben und unterstützt die Erkennung von Bewegung, Hinzufügen und Entfernen von Berührungspunkten usw.
 
-Berührungen werden durch das {{domxref("Touch")}} Objekt dargestellt; jede Berührung wird durch eine Position, Größe und Form, Druckmenge und Ziel-Element beschrieben. Listen von Berührungen werden durch {{domxref("TouchList")}} Objekte dargestellt.
+Berührungen werden durch das [`Touch`](/de/docs/Web/API/Touch)-Objekt dargestellt; jede Berührung wird durch eine Position, Größe und Form, den Druck und das Zielelement beschrieben. Listen von Berührungen werden durch [`TouchList`](/de/docs/Web/API/TouchList)-Objekte repräsentiert.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("TouchEvent.TouchEvent", "TouchEvent()")}}
-  - : Erstellt ein `TouchEvent` Objekt.
+- [`TouchEvent()`](/de/docs/Web/API/TouchEvent/TouchEvent)
+  - : Erstellt ein `TouchEvent`-Objekt.
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem übergeordneten Objekt, {{domxref("UIEvent")}} und {{domxref("Event")}}._
+_Diese Schnittstelle erbt Eigenschaften von ihren Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("TouchEvent.altKey")}} {{ReadOnlyInline}}
-  - : Ein Boolescher Wert, der angibt, ob die Alt-Taste gedrückt war, als das Touch-Ereignis ausgelöst wurde.
-- {{domxref("TouchEvent.changedTouches")}} {{ReadOnlyInline}}
-  - : Eine {{domxref("TouchList")}} von allen {{domxref("Touch")}} Objekten, die einzelne Berührungspunkte repräsentieren, deren Zustände sich zwischen dem vorherigen und diesem Touch-Ereignis geändert haben.
-- {{domxref("TouchEvent.ctrlKey")}} {{ReadOnlyInline}}
-  - : Ein Boolescher Wert, der angibt, ob die Strg-Taste gedrückt war, als das Touch-Ereignis ausgelöst wurde.
-- {{domxref("TouchEvent.metaKey")}} {{ReadOnlyInline}}
-  - : Ein Boolescher Wert, der angibt, ob die Meta-Taste gedrückt war, als das Touch-Ereignis ausgelöst wurde.
-- {{domxref("TouchEvent.shiftKey")}} {{ReadOnlyInline}}
-  - : Ein Boolescher Wert, der angibt, ob die Shift-Taste gedrückt war, als das Touch-Ereignis ausgelöst wurde.
-- {{domxref("TouchEvent.targetTouches")}} {{ReadOnlyInline}}
-  - : Eine {{domxref("TouchList")}} von allen {{domxref("Touch")}} Objekten, die sich derzeit sowohl in Kontakt mit der Berührungsoberfläche befinden **als auch** auf dem gleichen Element begonnen wurden, das das Ziel des Ereignisses ist.
-- {{domxref("TouchEvent.touches")}} {{ReadOnlyInline}}
-  - : Eine {{domxref("TouchList")}} von allen {{domxref("Touch")}} Objekten, die alle aktuellen Berührungspunkte mit der Oberfläche repräsentieren, unabhängig von Ziel oder geändertem Status.
-- {{domxref("TouchEvent.rotation")}} {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Änderung der Rotation (in Grad) seit Beginn des Ereignisses. Positive Werte geben eine Drehung im Uhrzeigersinn an; negative Werte eine Drehung gegen den Uhrzeigersinn. Anfangswert: `0.0`.
-- {{domxref("TouchEvent.scale")}} {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Abstand zwischen zwei Berührungspunkten seit Beginn des Ereignisses. Angegeben als Gleitkomma-Multiplikator des ursprünglichen Abstands zwischen den Berührungspunkten zu Beginn des Ereignisses. Werte unter 1.0 geben ein Einklemmen nach innen (Herauszoomen) an. Werte über 1.0 geben ein Auseinanderziehen (Hineinzoomen) an. Anfangswert: `1.0`.
+- [`TouchEvent.altKey`](/de/docs/Web/API/TouchEvent/altKey) {{ReadOnlyInline}}
+  - : Ein boolescher Wert, der angibt, ob die Alt-Taste gedrückt war, als das Touch-Event ausgelöst wurde.
+- [`TouchEvent.changedTouches`](/de/docs/Web/API/TouchEvent/changedTouches) {{ReadOnlyInline}}
+  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch)-Objekte, die einzelne Berührungspunkte repräsentieren, deren Zustände sich zwischen dem vorherigen Touch-Event und diesem geändert haben.
+- [`TouchEvent.ctrlKey`](/de/docs/Web/API/TouchEvent/ctrlKey) {{ReadOnlyInline}}
+  - : Ein boolescher Wert, der angibt, ob die Strg-Taste gedrückt war, als das Touch-Event ausgelöst wurde.
+- [`TouchEvent.metaKey`](/de/docs/Web/API/TouchEvent/metaKey) {{ReadOnlyInline}}
+  - : Ein boolescher Wert, der angibt, ob die Meta-Taste gedrückt war, als das Touch-Event ausgelöst wurde.
+- [`TouchEvent.shiftKey`](/de/docs/Web/API/TouchEvent/shiftKey) {{ReadOnlyInline}}
+  - : Ein boolescher Wert, der angibt, ob die Umschalttaste gedrückt war, als das Touch-Event ausgelöst wurde.
+- [`TouchEvent.targetTouches`](/de/docs/Web/API/TouchEvent/targetTouches) {{ReadOnlyInline}}
+  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch)-Objekte, die sich derzeit in Kontakt mit der Berührungsoberfläche befinden **und** auch auf demselben Element begonnen haben, das das Ziel des Ereignisses ist.
+- [`TouchEvent.touches`](/de/docs/Web/API/TouchEvent/touches) {{ReadOnlyInline}}
+  - : Eine [`TouchList`](/de/docs/Web/API/TouchList) aller [`Touch`](/de/docs/Web/API/Touch)-Objekte, die alle aktuellen Berührungspunkte mit der Oberfläche, unabhängig von Ziel oder geändertem Status, repräsentieren.
+- [`TouchEvent.rotation`](/de/docs/Web/API/TouchEvent/rotation) {{non-standard_inline()}} {{ReadOnlyInline}}
+  - : Änderung der Rotation (in Grad) seit Beginn des Ereignisses. Positive Werte zeigen eine Drehung im Uhrzeigersinn an; negative Werte zeigen eine Drehung gegen den Uhrzeigersinn an. Anfangswert: `0.0`.
+- [`TouchEvent.scale`](/de/docs/Web/API/TouchEvent/scale) {{non-standard_inline()}} {{ReadOnlyInline}}
+  - : Abstand zwischen zwei Berührungspunkten seit Beginn des Ereignisses. Ausgedrückt als Gleitkomma-Multiplikator des Anfangsabstands zwischen den Berührungspunkten zu Beginn des Ereignisses. Werte unter 1.0 deuten auf ein Zusammenziehen (Herauszoomen) hin. Werte über 1.0 deuten auf ein Auseinanderziehen (Hineinzoomen) hin. Anfangswert: `1.0`.
 
-## Touch-Ereignistypen
+## Arten von Touch-Ereignissen
 
-Es gibt verschiedene Arten von Ereignissen, die ausgelöst werden können, um anzuzeigen, dass touch-bezogene Änderungen stattgefunden haben. Sie können feststellen, welches davon passiert ist, indem Sie die Eigenschaft {{domxref("event.type", "TouchEvent.type")}} des Ereignisses betrachten.
+Es gibt mehrere Arten von Ereignissen, die ausgelöst werden können, um anzuzeigen, dass touch-bezogene Änderungen aufgetreten sind. Sie können feststellen, welches davon aufgetreten ist, indem Sie die [`TouchEvent.type`](/de/docs/Web/API/Event/type)-Eigenschaft des Ereignisses überprüfen.
 
-- {{domxref("Element/touchstart_event", "touchstart")}}
-  - : Wird gesendet, wenn der Benutzer einen Berührungspunkt auf der Berührungsoberfläche platziert. Das Ziel des Ereignisses ist das {{domxref("element")}}, in dem die Berührung stattgefunden hat.
-- {{domxref("Element/touchend_event", "touchend")}}
+- [`touchstart`](/de/docs/Web/API/Element/touchstart_event)
+  - : Wird gesendet, wenn der Benutzer einen Berührungspunkt auf die Berührungsoberfläche legt.
+    Das Ziel des Ereignisses ist das [`Element`](/de/docs/Web/API/Element), in dem die Berührung aufgetreten ist.
+- [`touchend`](/de/docs/Web/API/Element/touchend_event)
 
-  - : Wird gesendet, wenn der Benutzer einen Berührungspunkt von der Oberfläche entfernt; das heißt, wenn er einen Finger oder Stift von der Oberfläche hebt. Dies wird auch gesendet, wenn der Berührungspunkt vom Rand der Oberfläche wegbewegt wird; zum Beispiel, wenn der Finger des Benutzers vom Rand des Bildschirms gleitet.
+  - : Wird gesendet, wenn der Benutzer einen Berührungspunkt von der Oberfläche entfernt;
+    also, wenn er einen Finger oder Stift von der Oberfläche hebt.
+    Dies wird auch gesendet,
+    wenn der Berührungspunkt den Rand der Oberfläche verlässt;
+    zum Beispiel, wenn der Finger des Benutzers vom Rand des Bildschirms rutscht.
 
-    Das Ziel des Ereignisses ist das gleiche {{domxref("element")}}, das das `touchstart`-Ereignis für diesen Berührungspunkt erhalten hat, selbst wenn der Berührungspunkt sich außerhalb dieses Elements bewegt hat.
+    Das Ziel des Ereignisses ist dasselbe [`Element`](/de/docs/Web/API/Element),
+    das das `touchstart`-Ereignis
+    erhalten hat, das dem Berührungspunkt entspricht,
+    auch wenn sich der Berührungspunkt außerhalb dieses Elements bewegt hat.
 
-    Die Berührungspunkte, die von der Oberfläche entfernt wurden, können in der {{domxref("TouchList")}} gefunden werden, die durch das `changedTouches`-Attribut spezifiziert wird.
+    Der (oder die) Berührungspunkt(e),
+    die von der Oberfläche entfernt wurden,
+    finden sich in der [`TouchList`](/de/docs/Web/API/TouchList),
+    die durch das `changedTouches`-Attribut angegeben ist.
 
-- {{domxref("Element/touchmove_event", "touchmove")}}
+- [`touchmove`](/de/docs/Web/API/Element/touchmove_event)
 
-  - : Wird gesendet, wenn der Benutzer einen Berührungspunkt entlang der Oberfläche bewegt. Das Ziel des Ereignisses ist das gleiche {{domxref("element")}}, das das `touchstart`-Ereignis für diesen Berührungspunkt erhalten hat, selbst wenn der Berührungspunkt sich außerhalb dieses Elements bewegt hat.
+  - : Wird gesendet, wenn der Benutzer einen Berührungspunkt über die Oberfläche bewegt.
+    Das Ziel des Ereignisses ist dasselbe [`Element`](/de/docs/Web/API/Element),
+    das das `touchstart`-Ereignis empfing,
+    das dem Berührungspunkt entspricht,
+    auch wenn sich der Berührungspunkt außerhalb dieses Elements bewegt hat.
 
-    Dieses Ereignis wird auch gesendet, wenn sich die Werte der Radius-, Rotationswinkel- oder Kraftattribute eines Berührungspunktes ändern.
+    Dieses Ereignis wird auch gesendet,
+    wenn sich die Werte des Radius, des Rotationswinkels oder der Kraftattribute eines Berührungspunktes ändern.
 
     > [!NOTE]
-    > Die Häufigkeit, mit der `touchmove`-Ereignisse gesendet werden, ist browser-spezifisch und kann auch je nach den Fähigkeiten der Hardware des Benutzers variieren. Sie dürfen sich nicht auf eine bestimmte Granularität dieser Ereignisse verlassen.
+    > Die Häufigkeit, mit der `touchmove`-Ereignisse gesendet werden, ist browserspezifisch und kann auch je nach Leistungsfähigkeit der Hardware des Benutzers variieren. Sie dürfen sich nicht auf eine spezifische Granularität dieser Ereignisse verlassen.
 
-- {{domxref("Element/touchcancel_event", "touchcancel")}}
+- [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event)
 
-  - : Wird gesendet, wenn ein Berührungspunkt auf irgendeine Weise gestört wurde. Es gibt mehrere mögliche Gründe, warum dies passieren könnte (und die genauen Gründe variieren von Gerät zu Gerät sowie von Browser zu Browser):
+  - : Wird gesendet, wenn ein Berührungspunkt auf irgendeine Weise gestört wurde.
+    Es gibt mehrere mögliche Gründe, warum dies geschehen könnte
+    (und die genauen Gründe variieren von Gerät zu Gerät sowie von Browser zu Browser):
 
-    - Ein Ereignis irgendeiner Art ist aufgetreten, das die Berührung abgebrochen hat; dies könnte passieren, wenn beispielsweise während der Interaktion ein modaler Hinweis angezeigt wird.
-    - Der Berührungspunkt hat das Fenster des Dokuments verlassen und ist in den UI-Bereich des Browsers, ein Plug-in oder andere externe Inhalte gewechselt.
-    - Der Benutzer hat mehr Berührungspunkte auf dem Bildschirm als unterstützt werden, platziert, wobei der früheste {{domxref("Touch")}} in der {{domxref("TouchList")}} abgebrochen wird.
+    - Ein Ereignis einer Art trat auf, das die Berührung abbricht; dies könnte passieren, wenn während der Interaktion ein modaler Alarm erscheint.
+    - Der Berührungspunkt hat das Dokumentfenster verlassen und ist in den UI-Bereich des Browsers, ein Plug-in oder andere externe Inhalte gewechselt.
+    - Der Benutzer hat mehr Berührungspunkte auf den Bildschirm gesetzt, als unterstützt werden können, in welchem Fall der früheste [`Touch`](/de/docs/Web/API/Touch) in der [`TouchList`](/de/docs/Web/API/TouchList) abgebrochen wird.
 
 ### Verwendung mit addEventListener() und preventDefault()
 
-Es ist wichtig zu beachten, dass in vielen Fällen sowohl Touch- als auch Mausevents gesendet werden (um es nicht-touch-spezifischem Code zu ermöglichen, dennoch mit dem Benutzer zu interagieren). Wenn Sie Touch-Ereignisse verwenden, sollten Sie {{domxref("Event.preventDefault","preventDefault()")}} aufrufen, um das Senden des Mausevents zu verhindern.
+Es ist wichtig zu beachten, dass in vielen Fällen sowohl Berührungs- als auch Mausereignisse gesendet werden (um nicht berührungsspezifischem Code weiterhin die Interaktion mit dem Benutzer zu ermöglichen). Wenn Sie Berührungsereignisse verwenden, sollten Sie [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufrufen, um zu verhindern, dass das Mausereignis ebenfalls gesendet wird.
 
-Die Ausnahme davon ist Chrome ab Version 56 (Desktop, Chrome für Android und Android-Webview), wo der Standardwert für die `passive`-Option für {{domxref("Element/touchstart_event", "touchstart")}} und {{domxref("Element/touchmove_event", "touchmove")}} `true` ist und Aufrufe von {{domxref("Event.preventDefault","preventDefault()")}} keine Wirkung haben. Um dieses Verhalten zu überschreiben, müssen Sie die `passive`-Option auf `false` setzen, wonach Aufrufe von {{domxref("Event.preventDefault","preventDefault()")}} wie erwartet funktionieren. Die Änderung, Listeners standardmäßig als `passive` zu behandeln, verhindert, dass der Listener das Rendern der Seite während des Scrollens eines Benutzers blockiert. Eine Demo ist auf der [Chrome Developer](https://developer.chrome.com/blog/passive-event-listeners/) Webseite verfügbar.
+Die Ausnahme dazu ist Chrome ab Version 56 (Desktop, Chrome für Android und Android Webview), wo der Standardwert für die `passive`-Option für [`touchstart`](/de/docs/Web/API/Element/touchstart_event) und [`touchmove`](/de/docs/Web/API/Element/touchmove_event) `true` ist und Aufrufe von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) keine Wirkung haben. Um dieses Verhalten zu überschreiben, müssen Sie die `passive`-Option auf `false` setzen, danach wird der Aufruf von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) wie spezifiziert funktionieren. Die Änderung, Listeners standardmäßig als `passive` zu behandeln, verhindert, dass der Listener das Seitenrendering blockiert, während ein Benutzer scrollt. Eine Demo ist auf der [Chrome Developer](https://developer.chrome.com/blog/passive-event-listeners/) Seite verfügbar.
 
 ## Beispiel
 
-Siehe das [Beispiel im Hauptartikel über Berührungsevents](/de/docs/Web/API/Touch_events#example).
+Siehe das [Beispiel im Hauptartikel zu Berührungsereignissen](/de/docs/Web/API/Touch_events#example).
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Touch-Ereignisse](/de/docs/Web/API/Touch_events)
-- {{domxref("GestureEvent")}}
+- [Berührungsereignisse](/de/docs/Web/API/Touch_events)
+- [`GestureEvent`](/de/docs/Web/API/GestureEvent)

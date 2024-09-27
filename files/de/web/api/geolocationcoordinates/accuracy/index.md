@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die schreibgeschützte **`accuracy`**-Eigenschaft des {{domxref("GeolocationCoordinates")}}-Interfaces ist ein strikt positiver `double`, der die Genauigkeit mit einem 95%igen Konfidenzintervall der in Metern ausgedrückten Eigenschaften {{domxref("GeolocationCoordinates.latitude")}} und {{domxref("GeolocationCoordinates.longitude")}} darstellt.
+Die schreibgeschützte Eigenschaft **`accuracy`** des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Interfaces ist ein streng positives `double`, das die Genauigkeit der Eigenschaften [`GeolocationCoordinates.latitude`](/de/docs/Web/API/GeolocationCoordinates/latitude) und [`GeolocationCoordinates.longitude`](/de/docs/Web/API/GeolocationCoordinates/longitude) mit einem Konfidenzniveau von 95% in Metern ausgedrückt darstellt.
 
 ## Wert
 
-Ein positiver `double`, der die Genauigkeit mit einem 95%igen Konfidenzintervall der in Metern ausgedrückten Eigenschaften {{domxref("GeolocationCoordinates.latitude")}} und {{domxref("GeolocationCoordinates.longitude")}} darstellt.
+Ein positives `double`, das die Genauigkeit der Eigenschaften [`GeolocationCoordinates.latitude`](/de/docs/Web/API/GeolocationCoordinates/latitude) und [`GeolocationCoordinates.longitude`](/de/docs/Web/API/GeolocationCoordinates/longitude) mit einem Konfidenzniveau von 95% in Metern ausgedrückt darstellt.
 
 ## Spezifikationen
 
@@ -25,4 +25,4 @@ Ein positiver `double`, der die Genauigkeit mit einem 95%igen Konfidenzintervall
 ## Siehe auch
 
 - [Verwendung der Geolocation-API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- {{domxref("GeolocationCoordinates")}}
+- [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)

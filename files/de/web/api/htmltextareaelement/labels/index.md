@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`HTMLTextAreaElement.labels`** gibt ein {{domxref("NodeList")}} der {{HTMLElement("label")}}-Elemente zurück, die mit dem {{HTMLElement("textArea")}}-Element verknüpft sind.
+Die **`HTMLTextAreaElement.labels`** schreibgeschützte Eigenschaft gibt ein [`NodeList`](/de/docs/Web/API/NodeList) der {{HTMLElement("label")}}-Elemente zurück, die mit dem {{HTMLElement("textArea")}}-Element verknüpft sind.
 
 ## Wert
 
-Ein {{domxref("NodeList")}} mit den `<label>`-Elementen, die mit dem `<textArea>`-Element verknüpft sind.
+Ein [`NodeList`](/de/docs/Web/API/NodeList), das die `<label>`-Elemente enthält, die mit dem `<textArea>`-Element verknüpft sind.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ Ein {{domxref("NodeList")}} mit den `<label>`-Elementen, die mit dem `<textArea>
 window.addEventListener("DOMContentLoaded", () => {
   const textArea = document.getElementById("test");
   for (const label of textArea.labels) {
-    console.log(label.textContent); // "Label 1" und "Label 2"
+    console.log(label.textContent); // "Label 1" and "Label 2"
   }
 });
 ```

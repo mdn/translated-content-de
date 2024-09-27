@@ -7,11 +7,11 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Math.sqrt()`** gibt die Quadratwurzel einer Zahl zurück. Das heißt
+Die statische Methode **`Math.sqrt()`** gibt die Quadratwurzel einer Zahl zurück. Das heißt,
 
 <!-- prettier-ignore-start -->
 <math display="block">
-  <semantics><mrow><mo>∀</mo><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="0.2777777777777778em"></mspace><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚜𝚚𝚛𝚝</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><msqrt><mi>x</mi></msqrt><mo>=</mo><mtext>diese eindeutige&nbsp;</mtext><mi>y</mi><mo>≥</mo><mn>0</mn><mtext>&nbsp;, sodass&nbsp;</mtext><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mi>x</mi></mrow><annotation encoding="TeX">\forall x \geq 0,\;\mathtt{\operatorname{Math.sqrt}(x)} = \sqrt{x} = \text{diese eindeutige } y \geq 0 \text{ sodass } y^2 = x</annotation></semantics>
+  <semantics><mrow><mo>∀</mo><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mspace width="0.2777777777777778em"></mspace><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚜𝚚𝚛𝚝</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><msqrt><mi>x</mi></msqrt><mo>=</mo><mtext>die eindeutige&nbsp;</mtext><mi>y</mi><mo>≥</mo><mn>0</mn><mtext>&nbsp;solche, dass&nbsp;</mtext><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mi>x</mi></mrow><annotation encoding="TeX">\forall x \geq 0,\;\mathtt{\operatorname{Math.sqrt}(x)} = \sqrt{x} = \text{die eindeutige } y \geq 0 \text{ solche, dass } y^2 = x</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
@@ -30,11 +30,11 @@ Math.sqrt(x)
 
 ### Rückgabewert
 
-Die Quadratwurzel von `x`, eine nicht negative Zahl. Wenn `x < 0`, wird {{jsxref("NaN")}} zurückgegeben.
+Die Quadratwurzel von `x`, eine nichtnegative Zahl. Wenn `x < 0`, wird {{jsxref("NaN")}} zurückgegeben.
 
 ## Beschreibung
 
-Da `sqrt()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sqrt()`, und nicht als Methode eines `Math`-Objekts, das Sie erstellt haben (`Math` ist kein Konstruktor).
+Da `sqrt()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.sqrt()` und nicht als Methode eines erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 

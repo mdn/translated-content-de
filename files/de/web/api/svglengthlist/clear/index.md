@@ -1,5 +1,5 @@
 ---
-title: "SVGLengthList: clear()-Methode"
+title: "SVGLengthList: clear() Methode"
 short-title: clear()
 slug: Web/API/SVGLengthList/clear
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`clear()`**-Methode der {{domxref("SVGLengthList")}}-Schnittstelle entfernt alle vorhandenen Elemente aus der Liste, sodass das Ergebnis eine leere Liste ist.
+Die **`clear()`**-Methode der [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) Schnittstelle löscht alle vorhandenen Elemente aus der Liste, sodass das Ergebnis eine leere Liste ist.
 
 ## Syntax
 
@@ -22,16 +22,16 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- {{domxref("DOMException")}} `NoModificationAllowedError`
+- [`DOMException`](/de/docs/Web/API/DOMException) `NoModificationAllowedError`
   - : Wird ausgelöst, wenn die Liste schreibgeschützt ist.
 
 ## Beispiele
 
-Siehe {{domxref("SVGLengthList")}} für ein vollständiges Beispiel.
+Siehe [`SVGLengthList`](/de/docs/Web/API/SVGLengthList) für ein vollständiges Beispiel.
 
 ## Spezifikationen
 

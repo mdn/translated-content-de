@@ -1,5 +1,5 @@
 ---
-title: "CSSStyleDeclaration: getPropertyValue()-Methode"
+title: "CSSStyleDeclaration: Methode getPropertyValue()"
 short-title: getPropertyValue()
 slug: Web/API/CSSStyleDeclaration/getPropertyValue
 l10n:
@@ -8,8 +8,7 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **CSSStyleDeclaration.getPropertyValue()**-Methoden-Schnittstelle gibt einen
-String zurück, der den Wert einer angegebenen CSS-Eigenschaft enthält.
+Die **CSSStyleDeclaration.getPropertyValue()** Methoden-Schnittstelle gibt einen String zurück, der den Wert einer bestimmten CSS-Eigenschaft enthält.
 
 ## Syntax
 
@@ -20,16 +19,15 @@ getPropertyValue(property)
 ### Parameter
 
 - `property`
-  - : Ein String, der den Eigenschaftsnamen (im Bindestrich-Format) darstellt, der überprüft werden soll.
+  - : Ein String, der den Eigenschaftsnamen (in Bindestrich-Schreibweise) darstellt, der überprüft werden soll.
 
 ### Rückgabewert
 
-Ein String, der den Wert der Eigenschaft enthält. Wenn nicht gesetzt, wird der leere String zurückgegeben.
+Ein String, der den Wert der Eigenschaft enthält. Wenn nicht festgelegt, wird der leere String zurückgegeben.
 
 ## Beispiele
 
-Der folgende JavaScript-Code ermittelt den Wert der `margin`-Eigenschaft in
-einer CSS-Selektorregel:
+Der folgende JavaScript-Code fragt den Wert der `margin`-Eigenschaft in einer CSS-Selektorregel ab:
 
 ```js
 const declaration = document.styleSheets[0].cssRules[0].style;

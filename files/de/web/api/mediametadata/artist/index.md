@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Media Session API")}}
 
 Die **`artist`**-Eigenschaft des
-{{domxref("MediaMetadata")}}-Interfaces gibt den Namen des Künstlers, der Gruppe, des Schöpfers usw. des abzuspielenden Mediums zurück oder legt ihn fest.
+[`MediaMetadata`](/de/docs/Web/API/MediaMetadata)-Interfaces gibt den Namen des Künstlers, der Gruppe, des Erstellers usw. des abzuspielenden Mediums zurück oder setzt diesen.
 
 ## Wert
 
@@ -17,8 +17,8 @@ Ein {{jsxref("String")}}, der den Namen des Künstlers enthält.
 
 ## Beispiele
 
-Das folgende Beispiel überprüft die Kompatibilität des Browsers und setzt die aktuellen Metadaten
-für die Mediensitzung.
+Das folgende Beispiel überprüft die Browser-Kompatibilität und setzt die aktuellen Metadaten
+für die Media Session.
 
 ```js
 if ("mediaSession" in navigator) {

@@ -7,17 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`connect-src`**-Direktive beschränkt die URLs, die mit Skript-Schnittstellen geladen werden können. Die eingeschränkten APIs sind:
+Das HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`connect-src`**-Direktive beschränkt die URLs, die über Skriptschnittstellen geladen werden können. Die eingeschränkten APIs sind:
 
 - {{HTMLElement("a")}} [`ping`](/de/docs/Web/HTML/Element/a#ping),
-- {{domxref("Window/fetch", "fetch()")}},
-- {{domxref("XMLHttpRequest")}},
-- {{domxref("WebSocket")}},
-- {{domxref("EventSource")}}, und
-- {{domxref("Navigator.sendBeacon()")}}.
+- [`fetch()`](/de/docs/Web/API/Window/fetch),
+- [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest),
+- [`WebSocket`](/de/docs/Web/API/WebSocket),
+- [`EventSource`](/de/docs/Web/API/EventSource), und
+- [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon).
 
-> **Note:** `connect-src 'self'` wird in allen Browsern nicht in Websocket-Schemata aufgelöst, mehr Informationen in diesem [Issue](https://github.com/w3c/webappsec-csp/issues/7).
+> **Note:** `connect-src 'self'` wird nicht in allen Browsern auf Websocket-Schemata aufgelöst, weitere Informationen in diesem [Issue](https://github.com/w3c/webappsec-csp/issues/7).
 
 <table class="properties">
   <tbody>
@@ -26,13 +25,13 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Direktiventyp</th>
-      <td>{{Glossary("Fetch directive")}}</td>
+      <th scope="row">Direktivtyp</th>
+      <td>[Fetch-Direktive](/de/docs/Glossary/Fetch_directive)</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, sucht der User-Agent nach der
+        Ja. Wenn diese Direktive fehlt, sucht der User Agent nach der
         <code>default-src</code>-Direktive.
       </td>
     </tr>
@@ -41,7 +40,7 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
 
 ## Syntax
 
-Eine oder mehrere Quellen können für die connect-src-Policy erlaubt werden:
+Eine oder mehrere Quellen können für die connect-src-Richtlinie zugelassen werden:
 
 ```http
 Content-Security-Policy: connect-src <source>;
@@ -50,9 +49,9 @@ Content-Security-Policy: connect-src <source> <source>;
 
 ### Quellen
 
-`<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgelistet sind.
+`<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführt sind.
 
-Beachten Sie, dass dieses gleiche Set von Werten in allen {{Glossary("fetch directive", "fetch directives")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass dieser gleiche Satz von Werten in allen [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 
@@ -98,7 +97,7 @@ Die folgenden Verbindungen werden blockiert und nicht geladen:
 
 - {{HTTPHeader("Content-Security-Policy")}}
 - {{HTMLElement("a")}} [`ping`](/de/docs/Web/HTML/Element/a#ping)
-- {{domxref("Window/fetch", "fetch()")}}
-- {{domxref("XMLHttpRequest")}}
-- {{domxref("WebSocket")}}
-- {{domxref("EventSource")}}
+- [`fetch()`](/de/docs/Web/API/Window/fetch)
+- [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
+- [`WebSocket`](/de/docs/Web/API/WebSocket)
+- [`EventSource`](/de/docs/Web/API/EventSource)

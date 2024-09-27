@@ -7,31 +7,31 @@ l10n:
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Das **`DataTransferItemList`**-Objekt ist eine Liste von {{domxref("DataTransferItem")}}-Objekten, die Elemente repräsentieren, die gezogen werden. Während eines _Zieh- und Ablege-Vorgangs_ hat jedes {{domxref("DragEvent")}} eine {{domxref("DragEvent.dataTransfer","dataTransfer")}}-Eigenschaft, und diese Eigenschaft ist eine `DataTransferItemList`.
+Das **`DataTransferItemList`**-Objekt ist eine Liste von [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekten, die Elemente repräsentieren, die gezogen werden. Während eines _Drag-Vorgangs_ hat jedes [`DragEvent`](/de/docs/Web/API/DragEvent) eine [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer)-Eigenschaft, und diese Eigenschaft ist eine `DataTransferItemList`.
 
 Die einzelnen Elemente können mit der [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) `[]` zugegriffen werden.
 
-`DataTransferItemList` wurde ursprünglich für die [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) entworfen und wird immer noch im HTML-Zieh-und-Ablege-Abschnitt spezifiziert. Es wird jedoch inzwischen auch von anderen APIs wie {{domxref("ClipboardEvent.clipboardData")}} und {{domxref("InputEvent.dataTransfer")}} verwendet. Die Dokumentation von `DataTransferItemList` behandelt hauptsächlich die Verwendung bei Drag-and-Drop-Operationen. Für die Verwendung von `DataTransferItemList` in anderen Kontexten sollten Sie die Dokumentation der jeweiligen APIs konsultieren.
+`DataTransferItemList` wurde in erster Linie für die [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) entwickelt und wird weiterhin im HTML-Bereich für Drag-and-Drop spezifiziert. Es wird jedoch auch von anderen APIs verwendet, wie z.B. [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) und [`InputEvent.dataTransfer`](/de/docs/Web/API/InputEvent/dataTransfer). Die Dokumentation von `DataTransferItemList` wird hauptsächlich ihre Verwendung in Drag-and-Drop-Vorgängen besprechen, und Sie sollten die Dokumentation der anderen APIs konsultieren, um die Verwendung von `DataTransferItemList` in diesen Kontexten zu verstehen.
 
 Diese Schnittstelle hat keinen Konstruktor.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("DataTransferItemList.length")}} {{ReadOnlyInline}}
-  - : Ein `unsigned long`, das die Anzahl der Zieh-Elemente in der Liste darstellt.
+- [`DataTransferItemList.length`](/de/docs/Web/API/DataTransferItemList/length) {{ReadOnlyInline}}
+  - : Ein `unsigned long`, das die Anzahl der Drag-Elemente in der Liste ist.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{domxref("DataTransferItemList.add()")}}
-  - : Fügt ein Element (entweder ein {{domxref("File")}}-Objekt oder einen String) zur Ziehelementliste hinzu und gibt ein {{domxref("DataTransferItem")}}-Objekt für das neue Element zurück.
-- {{domxref("DataTransferItemList.remove()")}}
-  - : Entfernt das Zieh-Element aus der Liste am angegebenen Index.
-- {{domxref("DataTransferItemList.clear()")}}
-  - : Entfernt alle Zieh-Elemente aus der Liste.
+- [`DataTransferItemList.add()`](/de/docs/Web/API/DataTransferItemList/add)
+  - : Fügt ein Element (entweder ein [`File`](/de/docs/Web/API/File)-Objekt oder einen String) zur Drag-Elementliste hinzu und gibt ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekt für das neue Element zurück.
+- [`DataTransferItemList.remove()`](/de/docs/Web/API/DataTransferItemList/remove)
+  - : Entfernt das Drag-Element an der angegebenen Position aus der Liste.
+- [`DataTransferItemList.clear()`](/de/docs/Web/API/DataTransferItemList/clear)
+  - : Entfernt alle Drag-Elemente aus der Liste.
 
 ## Beispiel
 
-Dieses Beispiel zeigt, wie man Drag and Drop verwendet.
+Dieses Beispiel zeigt, wie man Drag and Drop benutzt.
 
 ### JavaScript
 

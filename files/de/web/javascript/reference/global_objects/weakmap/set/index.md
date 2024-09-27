@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`set()`**-Methode von {{jsxref("WeakMap")}}-Instanzen fügt ein neues Element mit einem angegebenen Schlüssel und Wert zu diesem `WeakMap` hinzu.
+Die **`set()`** Methode von {{jsxref("WeakMap")}} Instanzen fügt ein neues Element mit einem angegebenen Schlüssel und Wert zu diesem `WeakMap` hinzu.
 
 {{EmbedInteractiveExample("pages/js/weakmap-prototype-set.html")}}
 
@@ -20,13 +20,13 @@ set(key, value)
 ### Parameter
 
 - `key`
-  - : Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Der Schlüssel des Eintrags, der dem `WeakMap`-Objekt hinzugefügt werden soll.
+  - : Muss entweder ein Objekt oder ein [nicht registriertes Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) sein. Der Schlüssel des Eintrags, der dem `WeakMap` Objekt hinzugefügt werden soll.
 - `value`
-  - : Ein beliebiger Wert, der den Wert des Eintrags darstellt, der dem `WeakMap`-Objekt hinzugefügt werden soll.
+  - : Jeder Wert, der den Wert des Eintrags darstellt, der dem `WeakMap` Objekt hinzugefügt werden soll.
 
 ### Rückgabewert
 
-Das `WeakMap`-Objekt.
+Das `WeakMap` Objekt.
 
 ### Ausnahmen
 
@@ -41,13 +41,13 @@ Das `WeakMap`-Objekt.
 const wm = new WeakMap();
 const obj = {};
 
-// Neue Elemente zum WeakMap hinzufügen
-wm.set(obj, "foo").set(window, "bar"); // verkettbar
+// Add new elements to the WeakMap
+wm.set(obj, "foo").set(window, "bar"); // chainable
 
-// Ein Element im WeakMap aktualisieren
+// Update an element in the WeakMap
 wm.set(obj, "baz");
 
-// Verwenden eines nicht registrierten Symbols als Schlüssel
+// Using a non-registered symbol as key
 const sym = Symbol("foo");
 wm.set(sym, "baz");
 wm.set(Symbol.iterator, "qux");

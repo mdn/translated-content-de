@@ -1,5 +1,5 @@
 ---
-title: "NavigationDestination: Eigenschaft sameDocument"
+title: "NavigationDestination: sameDocument-Eigenschaft"
 short-title: sameDocument
 slug: Web/API/NavigationDestination/sameDocument
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`sameDocument`** der {{domxref("NavigationDestination")}}-Schnittstelle gibt `true` zurück, wenn die Navigation zum gleichen `document` wie der aktuelle Wert des {{domxref("Document")}} erfolgt, oder `false` andernfalls.
+Die **`sameDocument`**-Eigenschaft der schreibgeschützten [`NavigationDestination`](/de/docs/Web/API/NavigationDestination)-Schnittstelle gibt `true` zurück, wenn die Navigation zum gleichen `document` wie der aktuelle [`Document`](/de/docs/Web/API/Document)-Wert erfolgt, oder `false` andernfalls.
 
-Dies ist nützlich, um zu überprüfen, ob die Navigation innerhalb desselben Dokuments oder dokumentübergreifend erfolgen wird.
+Dies ist nützlich, um zu überprüfen, ob die Navigation im selben Dokument oder dokumentübergreifend erfolgt.
 
 ## Wert
 
@@ -28,12 +28,12 @@ navigation.addEventListener("navigate", (event) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Moderne clientseitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärt](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne clientseitige Navigation: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte **`KeyboardEvent.ctrlKey`**-Eigenschaft gibt einen booleschen Wert zurück, der angibt, ob die <kbd>Steuerung</kbd> (CTRL)-Taste beim Auftreten des Ereignisses gedrückt wurde (`true`) oder nicht (`false`).
+Die schreibgeschützte Eigenschaft **`KeyboardEvent.ctrlKey`** gibt einen booleschen Wert zurück, der angibt, ob die <kbd>control</kbd>-Taste gedrückt war (`true`) oder nicht (`false`), als das Ereignis auftrat.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein boolescher Wert.
 ```html
 <html lang="en">
   <head>
-    <title>ctrlKey-Beispiel</title>
+    <title>ctrlKey example</title>
     <script>
       function showChar(e) {
         alert(`Key Pressed: ${e.key}\nCTRL key pressed: ${e.ctrlKey}\n`);
@@ -28,8 +28,8 @@ Ein boolescher Wert.
   </head>
   <body onkeypress="showChar(event);">
     <p>
-      Drücken Sie eine beliebige Zeichentaste, mit oder ohne die STRG-Taste zu halten.<br />
-      Sie können auch die UMSCHALT-Taste zusammen mit der STRG-Taste verwenden.
+      Press any character key, with or without holding down the CTRL key.<br />
+      You can also use the SHIFT key together with the CTRL key.
     </p>
   </body>
 </html>
@@ -45,4 +45,4 @@ Ein boolescher Wert.
 
 ## Siehe auch
 
-- {{ domxref("KeyboardEvent") }}
+- [`KeyboardEvent`](/de/docs/Web/API/KeyboardEvent)

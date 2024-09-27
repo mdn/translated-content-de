@@ -11,11 +11,11 @@ Time To Live (TTL) kann sich entweder auf die Lebensdauer eines Pakets in einem 
 
 ## Netzwerke
 
-Im Bereich der Netzwerke ist die TTL, die im Paket eingebettet ist, normalerweise als Anzahl von Hops oder als Ablaufzeitstempel definiert, nach der das Paket verworfen wird. Dies bietet eine Möglichkeit, Netzwerküberlastungen zu vermeiden, indem Pakete freigegeben werden, die zu lange im Netzwerk unterwegs waren.
+Im Netzwerkbereich ist der TTL-Wert, der im Paket eingebettet ist, üblicherweise als eine Anzahl von Sprüngen oder als ein Ablaufzeitstempel definiert, nach dem das Paket verworfen wird. Es bietet eine Möglichkeit, Netzwerkkongestion zu vermeiden, indem Pakete freigegeben werden, nachdem sie zu lange im Netzwerk unterwegs waren.
 
-## Zwischenspeicherung
+## Caching
 
-Im Kontext der Zwischenspeicherung zeigt TTL (als vorzeichenloser 32-Bit-Integer), als Teil des {{Glossary("Response header", "HTTP-Response-Headers")}} oder der {{Glossary("DNS")}}-Abfrage, die Zeitspanne in Sekunden an, während derer die Ressource vom Anforderer zwischengespeichert werden kann.
+Im Kontext des Cachings gibt der TTL-Wert (als unsignierte 32-Bit-Ganzzahl), der Teil des [HTTP-Antwort-Headers](/de/docs/Glossary/Response_header) oder der [DNS](/de/docs/Glossary/DNS)-Abfrage ist, an, wie lange in Sekunden die Ressource vom Anforderer zwischengespeichert werden kann.
 
 ## Siehe auch
 

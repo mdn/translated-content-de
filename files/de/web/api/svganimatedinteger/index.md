@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("SVG")}}
 
-## Schnittstelle für animierte SVG-Ganzzahlen
+## SVG animierte Ganzzahl-Schnittstelle
 
-Die `SVGAnimatedInteger`-Schnittstelle wird für Attribute des Basistyps [\<integer>](/de/docs/Web/SVG/Content_type#integer), die animiert werden können, verwendet.
+Die `SVGAnimatedInteger`-Schnittstelle wird für Attribute des Basistyps [\<integer>](/de/docs/Web/SVG/Content_type#integer) verwendet, die animiert werden können.
 
-### Übersicht der Schnittstelle
+### Schnittstellenübersicht
 
 <table class="no-markdown">
   <tbody>
     <tr>
-      <th scope="row">Implementiert auch</th>
+      <th scope="row">Auch implementieren</th>
       <td><em>Keine</em></td>
     </tr>
     <tr>
@@ -44,7 +44,7 @@ Die `SVGAnimatedInteger`-Schnittstelle wird für Attribute des Basistyps [\<inte
   </tbody>
 </table>
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 <table class="no-markdown">
   <thead>
@@ -59,20 +59,23 @@ Die `SVGAnimatedInteger`-Schnittstelle wird für Attribute des Basistyps [\<inte
       <td><code>baseVal</code></td>
       <td>long</td>
       <td>
-        Der Basiswert des gegebenen Attributs, bevor irgendwelche Animationen angewendet werden.
+        Der Basiswert des angegebenen Attributs vor der Anwendung von Animationen.
       </td>
     </tr>
     <tr>
       <td><code>animVal</code></td>
       <td>long</td>
       <td>
-        Wenn das gegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es denselben Wert wie <code>baseVal</code>.
+        Wenn das angegebene Attribut oder die Eigenschaft animiert wird, enthält
+        es den aktuellen animierten Wert des Attributs oder der Eigenschaft.
+        Wenn das angegebene Attribut oder die Eigenschaft derzeit nicht animiert
+        wird, enthält es denselben Wert wie <code>baseVal</code>.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Instanzmethoden
+## Instanz-Methoden
 
 Die `SVGAnimatedInteger`-Schnittstelle bietet keine spezifischen Methoden.
 

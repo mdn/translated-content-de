@@ -1,5 +1,5 @@
 ---
-title: Puffer
+title: Buffer
 slug: Glossary/Buffer
 l10n:
   sourceCommit: 7a551aaa034fbada3eb99e6fc924a0313b78307f
@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Puffer** ist ein Speicher im physischen Speicher, der verwendet wird, um Daten vorübergehend zu speichern, während sie von einem Ort zum anderen übertragen werden.
+Ein **Puffer** ist ein Speicher im physischen Speicher, der dazu verwendet wird, Daten vorübergehend zu speichern, während sie von einem Ort zum anderen übertragen werden.
 
 ## Siehe auch
 

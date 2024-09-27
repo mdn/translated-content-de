@@ -8,16 +8,17 @@ l10n:
 
 {{APIRef("Push API")}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`options`**-Eigenschaft der {{domxref("PushSubscription")}}-Schnittstelle ist ein schreibgeschütztes Objekt, das die Optionen enthält, die zum Erstellen des Abonnements verwendet wurden.
+Die **`options`** schreibgeschützte Eigenschaft
+des [`PushSubscription`](/de/docs/Web/API/PushSubscription)-Interfaces ist ein Objekt, das die zum Erstellen des Abonnements verwendeten Optionen enthält.
 
 ## Wert
 
-Ein schreibgeschütztes {{domxref("PushSubscriptionOptions")}}-Objekt mit den folgenden Werten:
+Ein schreibgeschütztes [`PushSubscriptionOptions`](/de/docs/Web/API/PushSubscriptionOptions)-Objekt, das die folgenden Werte enthält:
 
 - `userVisibleOnly`
-  - : Ein boolescher Wert, der anzeigt, dass das zurückgegebene Push-Abonnement nur für Nachrichten verwendet wird, deren Wirkung dem Benutzer sichtbar gemacht wird.
+  - : Ein Boolean, der angibt, dass das zurückgegebene Push-Abonnement nur für Nachrichten verwendet wird, deren Wirkung dem Benutzer sichtbar gemacht wird.
 - `applicationServerKey`
-  - : Ein öffentlicher Schlüssel, den Ihr Push-Server verwenden wird, um Nachrichten über einen Push-Server an Client-Apps zu senden. Dieser Wert ist Teil eines signierenden Schlüsselpaares, das von Ihrem Anwendungserver generiert wird und mit elliptischen Kurven-Digitalsignaturen (ECDSA) über die P-256-Kurve genutzt werden kann.
+  - : Ein öffentlicher Schlüssel, den Ihr Push-Server verwenden wird, um Nachrichten über einen Push-Server an Client-Anwendungen zu senden. Dieser Wert ist Teil eines Schlüsselpaares zur Signierung, das von Ihrem Anwendungsserver generiert wird und mit elliptischen Kurven-Digitalsignaturen (ECDSA) über die P-256-Kurve verwendet werden kann.
 
 ## Spezifikationen
 

@@ -7,9 +7,9 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`localeCompare()`** von {{jsxref("String")}}-Werten gibt eine Zahl zurück, die angibt, ob diese Zeichenkette in der Sortierreihenfolge vor, nach oder gleich der angegebenen Zeichenkette kommt. In Implementierungen mit Unterstützung der [`Intl.Collator`-API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator) ruft diese Methode einfach `Intl.Collator` auf.
+Die **`localeCompare()`** Methode von {{jsxref("String")}} Werten gibt eine Zahl zurück, die angibt, ob dieser String im Sortierwert vor, nach oder gleich dem angegebenen String kommt. In Implementierungen mit Unterstützung der [`Intl.Collator` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator) ruft diese Methode einfach `Intl.Collator` auf.
 
-Beim Vergleich einer großen Anzahl von Zeichenketten, wie z. B. beim Sortieren großer Arrays, ist es besser, ein {{jsxref("Intl.Collator")}}-Objekt zu erstellen und die Funktion zu verwenden, die von dessen {{jsxref("Intl/Collator/compare", "compare()")}}-Methode bereitgestellt wird.
+Wenn Sie eine große Anzahl von Strings vergleichen, wie z.B. beim Sortieren großer Arrays, ist es besser, ein {{jsxref("Intl.Collator")}} Objekt zu erstellen und die Funktion zu verwenden, die von seiner {{jsxref("Intl/Collator/compare", "compare()")}} Methode bereitgestellt wird.
 
 {{EmbedInteractiveExample("pages/js/string-localecompare.html")}}
 
@@ -23,63 +23,69 @@ localeCompare(compareString, locales, options)
 
 ### Parameter
 
-Die Parameter `locales` und `options` passen das Verhalten der Funktion an und erlauben es Anwendungen, die Sprache anzugeben, deren Formatierungskonventionen verwendet werden sollen.
+Die Parameter `locales` und `options` passen das Verhalten der Funktion an und ermöglichen es Anwendungen, die Sprache anzugeben, deren Formatierungskonventionen verwendet werden sollen.
 
-In Implementierungen, die die [`Intl.Collator`-API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator) unterstützen, entsprechen diese Parameter genau den Parametern des Konstruktors [`Intl.Collator()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator). Implementierungen ohne `Intl.Collator`-Unterstützung sollen beide Parameter ignorieren, was das zurückgegebene Vergleichsergebnis vollständig implementierungsabhängig macht — es muss nur _konsistent_ sein.
+In Implementierungen, die die [`Intl.Collator` API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator) unterstützen, entsprechen diese Parameter genau den Parametern des [`Intl.Collator()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator) Konstruktors. Implementierungen ohne `Intl.Collator` Unterstützung werden gebeten, beide Parameter zu ignorieren, wodurch das zurückgegebene Vergleichsergebnis vollständig implementationsabhängig ist — es muss nur _konsistent_ sein.
 
 - `compareString`
-  - : Die Zeichenkette, gegen die `referenceStr` verglichen wird. Alle Werte werden [in Zeichenketten umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Weglassen oder Übergeben von `undefined` dazu, dass `localeCompare()` den Vergleich gegen die Zeichenkette `"undefined"` vornimmt, was selten gewünscht ist.
+  - : Der String, mit dem der `referenceStr` verglichen wird. Alle Werte werden [zu Strings umgeformt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), sodass das Auslassen oder Übergeben von `undefined` dazu führt, dass `localeCompare()` mit dem String `"undefined"` verglichen wird, was selten das Gewünschte ist.
 - `locales` {{optional_inline}}
 
-  - : Eine Zeichenkette mit einem BCP-47-Sprach-Tag oder ein Array solcher Zeichenketten. Entspricht dem `locales`-Parameter des `Intl.Collator()`-Konstruktors.
+  - : Ein String mit einem BCP 47 Sprach-Tag oder ein Array solcher Strings. Entspricht dem [`locales`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#locales) Parameter des `Intl.Collator()` Konstruktors.
 
-    In Implementierungen ohne `Intl.Collator`-Unterstützung wird dieser Parameter ignoriert und normalerweise die Lokalisierung des Hosts verwendet.
+    In Implementierungen ohne `Intl.Collator` Unterstützung wird dieser Parameter ignoriert und die lokale Standardeinstellung des Hosts wird normalerweise verwendet.
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt zur Anpassung des Ausgabeformats. Entspricht dem `options`-Parameter des `Intl.Collator()`-Konstruktors.
+  - : Ein Objekt, das das Ausgabeformat anpasst. Entspricht dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#options) Parameter des `Intl.Collator()` Konstruktors.
 
-    In Implementierungen ohne `Intl.Collator`-Unterstützung wird dieser Parameter ignoriert.
+    In Implementierungen ohne `Intl.Collator` Unterstützung wird dieser Parameter ignoriert.
 
-Siehe den [`Intl.Collator()`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator) für Details zu den `locales`- und `options`-Parametern und deren Verwendung.
+Einzelheiten zu den Parametern `locales` und `options` und zu ihrer Verwendung finden Sie im [`Intl.Collator()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator).
 
 ### Rückgabewert
 
-Eine **negative** Zahl, wenn `referenceStr` vor `compareString` vorkommt; **positiv** wenn `referenceStr` nach `compareString` vorkommt; `0`, wenn sie gleichwertig sind.
+Eine **negative** Zahl, wenn `referenceStr` vor `compareString` liegt; **positiv**, wenn `referenceStr` nach `compareString` liegt; `0`, wenn sie identisch sind.
 
-In Implementierungen mit `Intl.Collator` entspricht dies `new Intl.Collator(locales, options).compare(referenceStr, compareString)`.
+In Implementierungen mit `Intl.Collator` ist dies gleichbedeutend mit `new Intl.Collator(locales, options).compare(referenceStr, compareString)`.
 
 ## Beschreibung
 
-Gibt eine ganze Zahl zurück, die angibt, ob `referenceStr` vor, nach oder gleichwertig zu `compareString` kommt.
+Gibt eine ganze Zahl zurück, die angibt, ob der `referenceStr`
+vor, nach oder gleich dem `compareString` kommt.
 
-- Negativ, wenn `referenceStr` vor `compareString` vorkommt
-- Positiv, wenn `referenceStr` nach `compareString` vorkommt
-- Gibt `0` zurück, wenn sie gleichwertig sind
+- Negativ, wenn der `referenceStr` vor
+  `compareString` auftritt
+- Positiv, wenn der `referenceStr` nach
+  `compareString` auftritt
+- Gibt `0` zurück, wenn sie identisch sind
 
 > [!WARNING]
-> Verlassen Sie sich nicht auf die genauen Rückgabewerte `-1` oder `1`!
+> Verlassen Sie sich nicht auf exakte Rückgabewerte von `-1` oder `1`!
 >
-> Negative und positive ganzzahlige Ergebnisse variieren zwischen Browsern (sowie zwischen Browser-Versionen), da die ECMAScript-Spezifikation nur negative und positive Werte vorschreibt. Einige Browser können `-2` oder `2` oder sogar einen anderen negativen oder positiven Wert zurückgeben.
+> Die negativen und positiven Ganzzahlergebnisse variieren zwischen Browsern (sowie zwischen
+> Browserversionen), da die ECMAScript-Spezifikation nur negative und positive
+> Werte vorschreibt. Einige Browser können `-2` oder `2` oder sogar einen anderen
+> negativen oder positiven Wert zurückgeben.
 
 ## Beispiele
 
 ### Verwendung von localeCompare()
 
 ```js
-// Der Buchstabe "a" steht vor "c" und ergibt einen negativen Wert
-"a".localeCompare("c"); // -2 oder -1 (oder ein anderer negativer Wert)
+// The letter "a" is before "c" yielding a negative value
+"a".localeCompare("c"); // -2 or -1 (or some other negative value)
 
-// Alphabetisch steht das Wort "check" nach "against" und ergibt einen positiven Wert
-"check".localeCompare("against"); // 2 oder 1 (oder ein anderer positiver Wert)
+// Alphabetically the word "check" comes after "against" yielding a positive value
+"check".localeCompare("against"); // 2 or 1 (or some other positive value)
 
-// "a" und "a" sind gleichwertig und ergeben einen neutralen Wert von null
+// "a" and "a" are equivalent yielding a neutral value of zero
 "a".localeCompare("a"); // 0
 ```
 
-### Sortieren eines Arrays
+### Ein Array sortieren
 
-`localeCompare()` ermöglicht eine Groß-/Kleinschreibung-unabhängige Sortierung eines Arrays.
+`localeCompare()` ermöglicht eine groß-/kleinschreibungsunabhängige Sortierung eines Arrays.
 
 ```js
 const items = ["réservé", "Premier", "Cliché", "communiqué", "café", "Adieu"];
@@ -87,14 +93,13 @@ items.sort((a, b) => a.localeCompare(b, "fr", { ignorePunctuation: true }));
 // ['Adieu', 'café', 'Cliché', 'communiqué', 'Premier', 'réservé']
 ```
 
-### Überprüfen der Browserunterstützung für erweiterte Argumente
+### Unterstützung erweiterter Argumente in Browsern prüfen
 
 Die Argumente `locales` und `options` werden
 noch nicht in allen Browsern unterstützt.
 
-Um zu überprüfen, ob eine Implementierung sie unterstützt, verwenden Sie das `"i"`-Argument (eine
-Anforderung, dass ungültige Sprach-Tags abgelehnt werden) und suchen Sie nach einer
-{{jsxref("RangeError")}}-Ausnahme:
+Um zu prüfen, ob eine Implementierung sie unterstützt, verwenden Sie das `"i"` Argument (eine Anforderung, dass ungültige Sprach-Tags abgelehnt werden) und suchen Sie nach einer
+{{jsxref("RangeError")}} Ausnahme:
 
 ```js
 function localeCompareSupportsLocales() {
@@ -109,36 +114,38 @@ function localeCompareSupportsLocales() {
 
 ### Verwendung von locales
 
-Die von `localeCompare()` bereitgestellten Ergebnisse variieren je nach Sprache. Um die Sortierreihenfolge der in der Benutzeroberfläche Ihrer Anwendung verwendeten Sprache zu erhalten, geben Sie diese Sprache (und möglicherweise einige Fallback-Sprachen) mit dem `locales`-Argument an:
+Die von `localeCompare()` bereitgestellten Ergebnisse variieren zwischen den Sprachen. Um die Sortierreihenfolge der in der Benutzeroberfläche Ihrer Anwendung verwendeten Sprache zu erhalten,
+geben Sie sicher diese Sprache (und möglicherweise einige Ersatzsprachen) mit dem
+`locales` Argument an:
 
 ```js
-console.log("ä".localeCompare("z", "de")); // ein negativer Wert: im Deutschen sortiert ä vor z
-console.log("ä".localeCompare("z", "sv")); // ein positiver Wert: im Schwedischen sortiert ä nach z
+console.log("ä".localeCompare("z", "de")); // a negative value: in German, ä sorts before z
+console.log("ä".localeCompare("z", "sv")); // a positive value: in Swedish, ä sorts after z
 ```
 
-### Verwendung von options
+### Verwendung von Optionen
 
 Die von `localeCompare()` bereitgestellten Ergebnisse können mit dem
-`options`-Argument angepasst werden:
+`options` Argument angepasst werden:
 
 ```js
-// im Deutschen hat ä a als Basisbuchstaben
+// in German, ä has a as the base letter
 console.log("ä".localeCompare("a", "de", { sensitivity: "base" })); // 0
 
-// im Schwedischen sind ä und a separate Basisbuchstaben
-console.log("ä".localeCompare("a", "sv", { sensitivity: "base" })); // ein positiver Wert
+// in Swedish, ä and a are separate base letters
+console.log("ä".localeCompare("a", "sv", { sensitivity: "base" })); // a positive value
 ```
 
 ### Numerische Sortierung
 
 ```js
-// standardmäßig ist "2" > "10"
+// by default, "2" > "10"
 console.log("2".localeCompare("10")); // 1
 
-// numerisch mit Optionen:
+// numeric using options:
 console.log("2".localeCompare("10", undefined, { numeric: true })); // -1
 
-// numerisch unter Verwendung des locales-Tags:
+// numeric using locales tag:
 console.log("2".localeCompare("10", "en-u-kn-true")); // -1
 ```
 

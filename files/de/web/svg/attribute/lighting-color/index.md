@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`lighting-color`** definiert die Farbe der Lichtquelle für Beleuchtungsfilter-Primitiven.
+Das **`lighting-color`** Attribut definiert die Farbe der Lichtquelle für Lichtfilter-Primitiven.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("feDiffuseLighting")}}
 - {{SVGElement("feSpecularLighting")}}
@@ -54,7 +54,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -83,4 +83,4 @@ svg {
 
 ## Siehe auch
 
-- [Beschreibung des Phong-Reflexionsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)
+- [Beschreibung des Phong-Reflektionsmodells auf Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)

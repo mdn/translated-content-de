@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`getAudioTracks()`** Methode des {{domxref("MediaStream")}}-Interfaces gibt eine Sequenz zurück, die alle {{domxref("MediaStreamTrack")}}-Objekte in diesem [Track-Set](https://www.w3.org/TR/mediacapture-streams/#track-set) des Streams darstellt, bei denen {{domxref("MediaStreamTrack.kind")}} `audio` ist.
+Die **`getAudioTracks()`**-Methode der [`MediaStream`](/de/docs/Web/API/MediaStream)-Schnittstelle gibt eine Sequenz zurück, die alle [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte im [Track-Set](https://www.w3.org/TR/mediacapture-streams/#track-set) dieses Streams repräsentiert, bei denen [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `audio` ist.
 
 ## Syntax
 
@@ -22,23 +22,23 @@ Keine.
 
 ### Rückgabewert
 
-Ein Array von {{domxref("MediaStreamTrack")}}-Objekten, eines für jeden Audio-Track, der im Stream enthalten ist. Audio-Tracks sind diejenigen Tracks, deren {{domxref("MediaStreamTrack.kind", "kind")}}-Eigenschaft `audio` ist. Das Array ist leer, wenn der Stream keine Audio-Tracks enthält.
+Ein Array von [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekten, eines für jeden Audiotrack im Stream. Audiotracks sind diejenigen, deren [`kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Eigenschaft `audio` ist. Das Array ist leer, wenn der Stream keine Audiotracks enthält.
 
 > [!NOTE]
-> Die Reihenfolge der zurückgegebenen Tracks ist nicht durch die Spezifikation definiert und kann sich tatsächlich von einem Aufruf von `getAudioTracks()` zum nächsten ändern.
+> Die Reihenfolge der zurückgegebenen Tracks ist durch die Spezifikation nicht definiert und kann sich tatsächlich von einem Aufruf von `getAudioTracks()` zum nächsten ändern.
 
-Frühere Versionen dieser API beinhalteten ein spezielles `AudioStreamTrack`-Interface, das als Typ für jeden Eintrag in der Liste der Audio-Streams verwendet wurde; dies wurde jedoch inzwischen in das Haupt-{{domxref("MediaStreamTrack")}}-Interface integriert.
+Frühere Versionen dieser API beinhalteten ein spezielles `AudioStreamTrack`-Interface, das als Typ für jeden Eintrag in der Liste der Audiostreams verwendet wurde; dies wurde jedoch inzwischen in die Hauptschnittstelle [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) integriert.
 
 ## Beispiele
 
-Dieses Beispiel holt Audio und Video einer Webcam in einem Stream mit {{domxref("MediaDevices.getUserMedia", "getUserMedia()")}}, verbindet den Stream mit einem {{HTMLElement("video")}}-Element und stellt dann einen Timer ein, der nach Ablauf den ersten im Stream gefundenen Audio-Track stoppt.
+Dieses Beispiel bezieht den Audio- und Videostream einer Webcam mithilfe von [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia), verbindet den Stream mit einem {{HTMLElement("video")}}-Element und setzt dann einen Timer, der beim Ablauf den ersten auf dem Stream gefundenen Audiotrack stoppt.
 
 ```js
 navigator.mediaDevices
   .getUserMedia({ audio: true, video: true })
   .then((mediaStream) => {
     document.querySelector("video").srcObject = mediaStream;
-    // Stoppen Sie den Audiostream nach 5 Sekunden
+    // Stop the audio stream after 5 seconds
     setTimeout(() => {
       const tracks = mediaStream.getAudioTracks();
       tracks[0].stop();

@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Filterprimitive **`<feDistantLight>`** definiert eine entfernte Lichtquelle, die innerhalb eines Beleuchtungsfilter-Primitivs verwendet werden kann: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
+Das **`<feDistantLight>`** Filter-Primitive definiert eine entfernte Lichtquelle, die innerhalb eines Beleuchtungsfilter-Primitives verwendet werden kann: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
 
 ## Verwendungskontext
 
@@ -18,9 +18,9 @@ Das Filterprimitive **`<feDistantLight>`** definiert eine entfernte Lichtquelle,
 - {{SVGAttr("azimuth")}}
 - {{SVGAttr("elevation")}}
 
-## DOM-Interface
+## DOM-Schnittstelle
 
-Dieses Element implementiert das {{domxref("SVGFEDistantLightElement")}} Interface.
+Dieses Element implementiert die [`SVGFEDistantLightElement`](/de/docs/Web/API/SVGFEDistantLightElement)-Schnittstelle.
 
 ## Spezifikationen
 
@@ -39,4 +39,4 @@ Dieses Element implementiert das {{domxref("SVGFEDistantLightElement")}} Interfa
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("fePointLight")}}
 - {{SVGElement("feSpotLight")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Leitfaden: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

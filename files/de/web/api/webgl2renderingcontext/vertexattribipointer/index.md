@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: Methode vertexAttribIPointer()"
+title: "WebGL2RenderingContext: vertexAttribIPointer() Methode"
 short-title: vertexAttribIPointer()
 slug: Web/API/WebGL2RenderingContext/vertexAttribIPointer
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.vertexAttribIPointer()`** Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt die Integer-Datenformate und Positionen von Vertex-Attributen in einem Vertex-Attribut-Array an.
+Die **`WebGL2RenderingContext.vertexAttribIPointer()`**-Methode
+der [WebGL 2 API](/de/docs/Web/API/WebGL_API) legt die Ganzzahldatenformate und Positionen der Vertex-Attribute in einem Vertex-Attribut-Array fest.
 
 ## Syntax
 
@@ -19,41 +20,45 @@ vertexAttribIPointer(index, size, type, stride, offset)
 ### Parameter
 
 - `index`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der den Index des zu modifizierenden Vertex-Attributs angibt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des zu ändernden Vertex-Attributs angibt.
 - `size`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der die Anzahl der Komponenten pro Vertex-Attribut angibt. Muss 1, 2, 3 oder 4 sein.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Komponenten pro Vertex-Attribut angibt.
+    Muss 1, 2, 3 oder 4 sein.
 - `type`
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Datentyp jeder Komponente im Array angibt. Muss einer der folgenden sein: `gl.BYTE`, `gl.UNSIGNED_BYTE`, `gl.SHORT`, `gl.UNSIGNED_SHORT`, `gl.INT` oder `gl.UNSIGNED_INT`.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Datentyp jeder Komponente im Array angibt.
+    Muss einer der folgenden sein: `gl.BYTE`, `gl.UNSIGNED_BYTE`,
+    `gl.SHORT`, `gl.UNSIGNED_SHORT`, `gl.INT` oder
+    `gl.UNSIGNED_INT`.
 - `stride`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, der den Offset in Bytes zwischen dem Anfang aufeinanderfolgender Vertex-Attribute angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der den Versatz in Bytes zwischen dem Beginn aufeinanderfolgender Vertex-Attribute angibt.
 - `offset`
-  - : Ein {{domxref("WebGL_API/Types", "GLintptr")}}, der einen Offset in Bytes der ersten Komponente im Vertex-Attribut-Array angibt. Muss ein Vielfaches von `type` sein.
+  - : Ein [`GLintptr`](/de/docs/Web/API/WebGL_API/Types), der einen Versatz in Bytes der ersten Komponente im Vertex-Attribut-Array angibt. Muss ein Vielfaches von `type` sein.
 
 ### Rückgabewert
 
-Kein Wert ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Sehr ähnlich zu {{domxref("WebGLRenderingContext.vertexAttribPointer()")}}. Der Hauptunterschied ist, dass während die durch `vertexAttribPointer` angegebenen Werte im Shader immer als Gleitkommawerte interpretiert werden (auch wenn sie ursprünglich als Integer im Puffer angegeben wurden), diese Methode es ermöglicht, Werte anzugeben, die im Shader als Integer interpretiert werden.
+Sehr ähnlich [`WebGLRenderingContext.vertexAttribPointer()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer). Der Hauptunterschied besteht darin, dass Werte, die von `vertexAttribPointer` angegeben werden, im Shader immer als Gleitkommawerte interpretiert werden (auch wenn sie ursprünglich als Ganzzahlen im Puffer angegeben wurden). Diese Methode erlaubt es jedoch, Werte anzugeben, die im Shader als Ganzzahlen interpretiert werden.
 
 ## Beispiele
 
-### Lineares Mischhaut-Skinning
+### Lineares Skinning mittels Blend
 
 ```js
-// Beschreiben Sie das Layout des Puffers:
-// 1. Position
+//Describe the layout of the buffer:
+//1. position
 gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 20, 0);
 gl.enableVertexAttribArray(0);
-// 2. Knochengewichte, normalisiert auf [0, 1]
+//2. bone weights, normalized to [0, 1]
 gl.vertexAttribPointer(1, 4, gl.UNSIGNED_BYTE, true, 20, 12);
 gl.enableVertexAttribArray(1);
-// 3. Knochenindizes, als Integer interpretiert
+//3. bone indices, interpreted as integer
 gl.vertexAttribIPointer(2, 4, gl.UNSIGNED_BYTE, 20, 16);
 gl.enableVertexAttribArray(2);
 
-// Verbinden zu Attributen aus dem Vertex-Shader
+//Connect to attributes from the vertex shader
 gl.bindAttribLocation(shaderProgram, 0, "position");
 gl.bindAttribLocation(shaderProgram, 1, "boneWeights");
 gl.bindAttribLocation(shaderProgram, 2, "boneIndices");
@@ -68,7 +73,7 @@ gl.bindAttribLocation(shaderProgram, 2, "boneIndices");
 
   in vec3 position;
   in vec4 boneWeights;
-  in uvec4 boneIndices;//als 4-Komponenten-unsigned-Integer gelesen
+  in uvec4 boneIndices;//read as 4-component unsigned integer
 
   void main() {
       vec4 skinnedPosition =
@@ -91,4 +96,4 @@ gl.bindAttribLocation(shaderProgram, 2, "boneIndices");
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.vertexAttribPointer()")}}
+- [`WebGLRenderingContext.vertexAttribPointer()`](/de/docs/Web/API/WebGLRenderingContext/vertexAttribPointer)

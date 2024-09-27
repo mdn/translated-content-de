@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Periodic Background Sync")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`PeriodicSyncManager`**-Schnittstelle der {{domxref('Web Periodic Background Synchronization API', '', '', 'nocode')}} bietet eine Möglichkeit, Aufgaben zu registrieren, die in einem Service Worker in regelmäßigen Abständen mit Netzwerkverbindung ausgeführt werden. Diese Aufgaben werden als Anfragen für periodische Hintergrundsynchronisierung bezeichnet. Sie greifen auf `PeriodicSyncManager` durch {{domxref('ServiceWorkerRegistration.periodicSync')}} zu.
+Die **`PeriodicSyncManager`**-Schnittstelle der [Web Periodic Background Synchronization API](/de/docs/Web/API/Web_Periodic_Background_Synchronization_API) ermöglicht es, Aufgaben zu registrieren, die in einem Service Worker in regelmäßigen Abständen bei Netzwerkverbindung ausgeführt werden. Diese Aufgaben werden als periodische Hintergrundsynchronisierungsanfragen bezeichnet. Greifen Sie auf `PeriodicSyncManager` über [`ServiceWorkerRegistration.periodicSync`](/de/docs/Web/API/ServiceWorkerRegistration/periodicSync) zu.
 
 ## Instanzeigenschaften
 
@@ -15,20 +15,20 @@ Keine.
 
 ## Instanzmethoden
 
-- {{domxref('PeriodicSyncManager.register()')}} {{Experimental_Inline}}
-  - : Registriert eine Anfrage für periodische Synchronisierung mit dem Browser mit dem angegebenen Tag und Optionen. Gibt ein {{jsxref('Promise')}} zurück, das sich auflöst, wenn die Registrierung abgeschlossen ist.
-- {{domxref('PeriodicSyncManager.getTags()')}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das sich mit einer Liste von {{jsxref('String','strings')}} auflöst, die die Tags darstellt, die derzeit für die periodische Synchronisierung registriert sind.
-- {{domxref('PeriodicSyncManager.unregister()')}} {{Experimental_Inline}}
-  - : Hebt die Registrierung der periodischen Synchronisierungsanfrage auf, die dem angegebenen Tag entspricht, und gibt ein {{jsxref('Promise')}} zurück, das sich auflöst, wenn die Deregistrierung abgeschlossen ist.
+- [`PeriodicSyncManager.register()`](/de/docs/Web/API/PeriodicSyncManager/register) {{Experimental_Inline}}
+  - : Registriert eine periodische Synchronisierungsanfrage im Browser mit dem angegebenen Tag und Optionen. Gibt ein {{jsxref('Promise')}} zurück, das aufgelöst wird, wenn die Registrierung abgeschlossen ist.
+- [`PeriodicSyncManager.getTags()`](/de/docs/Web/API/PeriodicSyncManager/getTags) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einer Liste von {{jsxref('String','strings')}} aufgelöst wird, die die Tags darstellen, die derzeit für die periodische Synchronisierung registriert sind.
+- [`PeriodicSyncManager.unregister()`](/de/docs/Web/API/PeriodicSyncManager/unregister) {{Experimental_Inline}}
+  - : Hebt die Registrierung der periodischen Synchronisierungsanfrage für das angegebene Tag auf und gibt ein {{jsxref('Promise')}} zurück, das aufgelöst wird, wenn die Registrierung aufgehoben wurde.
 
 ## Beispiele
 
 Die folgenden Beispiele zeigen, wie die Schnittstelle verwendet wird.
 
-### Anfordern einer periodischen Hintergrundsynchronisierung
+### Anfordern einer Periodischen Hintergrundsynchronisierung
 
-Die folgende asynchrone Funktion registriert eine periodische Hintergrundsynchronisierung in einem Mindestintervall von einem Tag aus einem Browserkontext:
+Die folgende asynchrone Funktion registriert eine periodische Hintergrundsynchronisierung mit einem minimalen Intervall von einem Tag aus einem Browsing-Kontext:
 
 ```js
 async function registerPeriodicNewsCheck() {
@@ -43,9 +43,9 @@ async function registerPeriodicNewsCheck() {
 }
 ```
 
-### Überprüfen einer periodischen Hintergrundsynchronisierung nach Tag
+### Überprüfen einer Periodischen Hintergrundsynchronisierung nach Tag
 
-Dieser Code prüft, ob eine Aufgabe für die periodische Hintergrundsynchronisierung mit einem bestimmten Tag registriert ist.
+Dieser Code überprüft, ob eine Aufgabe zur Periodischen Hintergrundsynchronisierung mit einem gegebenen Tag registriert ist.
 
 ```js
 navigator.serviceWorker.ready.then((registration) => {
@@ -55,9 +55,9 @@ navigator.serviceWorker.ready.then((registration) => {
 });
 ```
 
-### Entfernen einer Aufgabe für die periodische Hintergrundsynchronisierung
+### Entfernen einer Periodischen Hintergrundsynchronisierungsaufgabe
 
-Der folgende Code entfernt eine Aufgabe für die periodische Hintergrundsynchronisierung, um das Synchronisieren von Artikeln im Hintergrund zu stoppen.
+Der folgende Code entfernt eine Aufgabe zur Periodischen Hintergrundsynchronisierung, um das Synchronisieren von Artikeln im Hintergrund zu stoppen.
 
 ```js
 navigator.serviceWorker.ready.then((registration) => {
@@ -75,5 +75,5 @@ navigator.serviceWorker.ready.then((registration) => {
 
 ## Siehe auch
 
-- [Reichhaltigere Offline-Erfahrungen mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
-- [Eine Demo-App für die Periodische Hintergrundsynchronisierung](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)
+- [Richer offline experiences with the Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
+- [A Periodic Background Sync demo app](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)

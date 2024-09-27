@@ -1,5 +1,5 @@
 ---
-title: "BroadcastChannel: messageerror-Ereignis"
+title: "BroadcastChannel: messageerror Ereignis"
 short-title: messageerror
 slug: Web/API/BroadcastChannel/messageerror_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("BroadCastChannel API")}}{{AvailableInWorkers}}
 
-Das **`messageerror`**-Ereignis der {{domxref("BroadcastChannel")}}-Schnittstelle wird ausgelöst, wenn eine Nachricht, die nicht deserialisiert werden kann, auf dem Kanal ankommt.
+Das **`messageerror`** Ereignis der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Schnittstelle wird ausgelöst, wenn eine Nachricht, die nicht deserialisiert werden kann, auf dem Kanal ankommt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignisbehandlereigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("messageerror", (event) => { })
@@ -21,28 +21,28 @@ onmessageerror = (event) => { }
 
 ## Ereignistyp
 
-Ein {{domxref("MessageEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MessageEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgelisteten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle {{domxref("Event")}} verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind die Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref("MessageEvent.data", "data")}} {{ReadOnlyInline}}
-  - : Die von dem Nachrichtensender gesendeten Daten.
-- {{domxref("MessageEvent.origin", "origin")}} {{ReadOnlyInline}}
-  - : Ein String, der den Ursprung des Nachrichtensenders darstellt.
-- {{domxref("MessageEvent.lastEventId", "lastEventId")}} {{ReadOnlyInline}}
+- [`data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
+  - : Die vom Nachrichtensender gesendeten Daten.
+- [`origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
+  - : Ein String, der den Ursprung des Nachrichtensenders repräsentiert.
+- [`lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
-- {{domxref("MessageEvent.source", "source")}} {{ReadOnlyInline}}
-  - : Eine _Nachrichtenquellen_, die entweder ein {{glossary("WindowProxy")}}, ein {{domxref("MessagePort")}} oder ein {{domxref("ServiceWorker")}}-Objekt ist, das den Nachrichtensender darstellt.
-- {{domxref("MessageEvent.ports", "ports")}} {{ReadOnlyInline}}
-  - : Ein Array von {{domxref("MessagePort")}}-Objekten, die die mit dem Kanal assoziierten Ports darstellen, durch den die Nachricht gesendet wird (wo es zutrifft, z.B. bei der Kanalnachrichtenübertragung oder beim Senden einer Nachricht an einen Shared Worker).
+- [`source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
+  - : Eine _message event source_, die entweder ein [WindowProxy](/de/docs/Glossary/WindowProxy), ein [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) Objekt darstellt, welches der Nachrichtensender ist.
+- [`ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die mit dem Kanal verbundenen Ports darstellen, durch den die Nachricht gesendet wird (wo zutreffend, z.B. im Channel-Messaging oder beim Senden einer Nachricht an einen Shared Worker).
 
 ## Beispiele
 
-Dieser Code verwendet {{domxref("EventTarget.addEventListener", "addEventListener()")}}, um Nachrichten und Fehler zu überwachen:
+Dieser Code verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um Nachrichten und Fehler zu überwachen:
 
 ```js
 const channel = new BroadcastChannel("example-channel");
@@ -56,7 +56,7 @@ channel.addEventListener("messageerror", (event) => {
 });
 ```
 
-Dasselbe, aber mit den Ereignisbehandlereigenschaften `onmessage` und `onmessageerror`:
+Dasselbe, aber unter Verwendung der `onmessage` und `onmessageerror` Ereignishandler-Eigenschaften:
 
 ```js
 const channel = new BroadcastChannel("example-channel");
@@ -80,4 +80,4 @@ channel.onmessageerror = (event) => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("BroadcastChannel/message_event", "message")}}.
+- Verwandte Ereignisse: [`message`](/de/docs/Web/API/BroadcastChannel/message_event).

@@ -1,5 +1,5 @@
 ---
-title: Global setzen
+title: Global set
 slug: WebAssembly/Reference/Variables/Global_set
 l10n:
   sourceCommit: c681ed89305afd56d54ba6671673680bea041670
@@ -14,10 +14,10 @@ Die **`global.set`**-Anweisung setzt die Werte einer globalen Variablen.
 ## Syntax
 
 ```wasm
-;; die Zahl 2 auf den Stapel laden
+;; load the number 2 onto the stack
 i32.const 2
 
-;; die Zahl 2 in der Variablen $val speichern
+;; store the number 2 in the variable $val
 global.set $val
 ```
 

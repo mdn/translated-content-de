@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`TextUpdateEvent.updateRangeStart`** gibt die Startposition des Textrahmens an, der im {{domxref("EditContext")}}-Objekt ersetzt wird.
+Die schreibgeschützte Eigenschaft **`TextUpdateEvent.updateRangeStart`** gibt die Anfangsposition des Textbereichs an, der im [`EditContext`](/de/docs/Web/API/EditContext)-Objekt ersetzt wird.
 
 ## Wert
 

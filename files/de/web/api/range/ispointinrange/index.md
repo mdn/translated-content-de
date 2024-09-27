@@ -1,5 +1,5 @@
 ---
-title: "Range: Methode isPointInRange()"
+title: "Range: isPointInRange()-Methode"
 short-title: isPointInRange()
 slug: Web/API/Range/isPointInRange
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die Methode **`Range.isPointInRange()`** gibt einen Boolean zurück, der anzeigt, ob der gegebene Punkt im {{domxref("Range")}} liegt. Sie gibt `true` zurück, wenn der Punkt (Cursorposition) bei `offset` innerhalb von `ReferenceNode` in diesem Bereich liegt.
+Die **`Range.isPointInRange()`**-Methode gibt einen booleschen Wert zurück, der angibt, ob der angegebene Punkt im [`Range`](/de/docs/Web/API/Range) liegt. Sie gibt `true` zurück, wenn der Punkt (Cursorposition) bei `offset` innerhalb von `ReferenceNode` in diesem Bereich liegt.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ isPointInRange(referenceNode, offset)
 ### Parameter
 
 - `referenceNode`
-  - : Der {{domxref("Node")}}, der mit dem {{domxref("Range")}} verglichen werden soll.
+  - : Der [`Node`](/de/docs/Web/API/Node), der mit dem [`Range`](/de/docs/Web/API/Range) verglichen wird.
 - `offset`
-  - : Der Offset innerhalb des {{domxref("Node")}}, um den Punkt mit dem {{domxref("Range")}} zu vergleichen.
+  - : Der Versatz in [`Node`](/de/docs/Web/API/Node) des zu vergleichenden Punktes mit dem [`Range`](/de/docs/Web/API/Range).
 
 ### Rückgabewert
 
-Ein Boolean.
+Ein boolescher Wert.
 
 ## Beispiele
 
@@ -39,10 +39,10 @@ bool = range.isPointInRange(document.getElementsByTagName("p").item(0), 1);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)

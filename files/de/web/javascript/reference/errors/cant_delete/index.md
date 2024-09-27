@@ -1,5 +1,5 @@
 ---
-title: "TypeError: Eigenschaft \"x\" ist nicht konfigurierbar und kann nicht gelöscht werden"
+title: 'TypeError: Eigenschaft "x" ist nicht konfigurierbar und kann nicht gelöscht werden'
 slug: Web/JavaScript/Reference/Errors/Cant_delete
 l10n:
   sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "Eigenschaft ist nicht konfigurierbar und kann nicht gelöscht werden" tritt auf, wenn versucht wurde, eine Eigenschaft zu löschen, diese jedoch [nicht konfigurierbar](/de/docs/Web/JavaScript/Data_structures#properties) ist.
+Die JavaScript-Ausnahme "property is non-configurable and can't be deleted" tritt auf, wenn versucht wurde, eine Eigenschaft zu löschen, die [nicht konfigurierbar](/de/docs/Web/JavaScript/Data_structures#properties) ist.
 
-## Meldung
+## Nachricht
 
 ```plain
 TypeError: Cannot delete property 'x' of #<Object> (V8-based)
@@ -19,23 +19,19 @@ TypeError: Unable to delete property. (Safari)
 
 ## Fehlertyp
 
-{{jsxref("TypeError")}} nur im Strict-Modus.
+{{jsxref("TypeError")}} nur im strikten Modus.
 
 ## Was ist schiefgelaufen?
 
-Es wurde versucht, eine Eigenschaft zu löschen, aber diese Eigenschaft ist [nicht konfigurierbar](/de/docs/Web/JavaScript/Data_structures#properties). Das
-`configurable` Attribut steuert, ob die Eigenschaft vom
-Objekt gelöscht werden kann und ob ihre Attribute (außer `writable`) geändert werden können.
+Es wurde versucht, eine Eigenschaft zu löschen, die [nicht konfigurierbar](/de/docs/Web/JavaScript/Data_structures#properties) ist. Das `configurable`-Attribut steuert, ob die Eigenschaft aus dem Objekt gelöscht werden kann und ob ihre Attribute (außer `writable`) geändert werden können.
 
-Dieser Fehler tritt nur in [Strict-Modus Code](/de/docs/Web/JavaScript/Reference/Strict_mode) auf. Im
-Nicht-Strict-Code gibt die Operation `false` zurück.
+Dieser Fehler tritt nur im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) auf. In nicht-striktem Code gibt die Operation `false` zurück.
 
 ## Beispiele
 
 ### Versuch, nicht konfigurierbare Eigenschaften zu löschen
 
-Nicht konfigurierbare Eigenschaften sind nicht sehr häufig, können aber mit
-{{jsxref("Object.defineProperty()")}} oder {{jsxref("Object.freeze()")}} erstellt werden.
+Nicht konfigurierbare Eigenschaften sind nicht sehr häufig, können aber mit {{jsxref("Object.defineProperty()")}} oder {{jsxref("Object.freeze()")}} erstellt werden.
 
 ```js example-bad
 "use strict";
@@ -56,7 +52,7 @@ const frozenArray = Object.freeze([0, 1, 2]);
 frozenArray.pop(); // TypeError
 ```
 
-Es gibt auch einige nicht konfigurierbare Eigenschaften, die in JavaScript eingebaut sind. Vielleicht haben Sie versucht, eine mathematische Konstante zu löschen.
+Es gibt auch einige nicht konfigurierbare Eigenschaften, die in JavaScript integriert sind. Vielleicht haben Sie versucht, eine mathematische Konstante zu löschen.
 
 ```js example-bad
 "use strict";

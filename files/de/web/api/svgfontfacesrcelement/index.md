@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("SVG")}}{{deprecated_header}}
 
-Die **`SVGFontFaceSrcElement`**-Schnittstelle entspricht den {{SVGElement("font-face-src")}}-Elementen.
+Die Schnittstelle **`SVGFontFaceSrcElement`** entspricht den {{SVGElement("font-face-src")}}-Elementen.
 
-Ein objektorientierter Zugriff auf die Attribute des {{SVGElement("font-face-src")}}-Elements über das SVG DOM ist nicht möglich.
+Ein objektorientierter Zugriff auf die Attribute des {{SVGElement("font-face-src")}}-Elements über das SVG-DOM ist nicht möglich.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von ihrem übergeordneten Element, {{domxref("SVGElement")}}._
+_Diese Schnittstelle hat keine eigenen Eigenschaften, sondern erbt Eigenschaften von ihrem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch Methoden von ihrem übergeordneten Element, {{domxref("SVGElement")}}._
+_Diese Schnittstelle hat keine eigenen Methoden, sondern erbt Methoden von ihrem Elternteil, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

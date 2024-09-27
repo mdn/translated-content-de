@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`kernelMatrix`**-Attribut definiert die Liste von Zahlen, die die Kernel-Matrix für das {{SVGElement("feConvolveMatrix")}}-Element bildet.
+Das **`kernelMatrix`**-Attribut definiert die Liste von Zahlen, die die Kernelmatrix für das {{SVGElement("feConvolveMatrix")}}-Element bilden.
 
-Werte werden durch Leerzeichen und/oder Kommas getrennt. Die Anzahl der Einträge in der Liste muss gleich `<orderX>` mal `<orderY>` sein, wie im {{SVGAttr("order")}}-Attribut definiert.
+Die Werte sind durch Leerzeichen und/oder ein Komma getrennt. Die Anzahl der Einträge in der Liste muss gleich `<orderX>` mal `<orderY>` sein, wie im {{SVGAttr("order")}}-Attribut definiert.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -76,9 +76,9 @@ svg {
 
 - `<list of numbers>`
 
-  - : Die Liste der {{cssxref("number")}}s, die die Kernel-Matrix für die Faltung bilden. Werte werden durch Leerzeichen und/oder Kommas getrennt. Die Anzahl der Einträge in der Liste muss gleich `<orderX>` mal `<orderY>` sein.
+  - : Die Liste von {{cssxref("number")}}s, die die Kernelmatrix für die Faltung bilden. Die Werte sind durch Leerzeichen und/oder ein Komma getrennt. Die Anzahl der Einträge in der Liste muss `<orderX>` mal `<orderY>` ergeben.
 
-    Wenn das Ergebnis von `orderX` \* `orderY` nicht der Anzahl der Einträge in der Werteliste entspricht, wirkt das Filter-Primitive als Durchgangsfilter.
+    Wenn das Ergebnis von `orderX` \* `orderY` nicht der Anzahl der Einträge in der Werteliste entspricht, wirkt das Filterprimitiv als Durchleitungsfilter.
 
 ## Spezifikationen
 

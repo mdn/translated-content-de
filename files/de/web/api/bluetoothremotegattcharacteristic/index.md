@@ -7,44 +7,44 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Das `BluetoothRemoteGattCharacteristic`-Interface der [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API) repräsentiert eine GATT-Charakteristik, die ein grundlegendes Datenelement ist und weitere Informationen über den Dienst eines Peripheriegeräts bereitstellt.
+Das `BluetoothRemoteGattCharacteristic` Interface der [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API) repräsentiert ein GATT Characteristic, welches ein grundlegendes Datenelement darstellt, das weitere Informationen über einen Dienst eines Peripheriegeräts liefert.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{DOMxRef("BluetoothRemoteGATTCharacteristic.service")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den {{DOMxRef("BluetoothRemoteGATTService")}} zurück, zu dem diese Charakteristik gehört.
-- {{DOMxRef("BluetoothRemoteGATTCharacteristic.uuid")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine Zeichenkette zurück, die die UUID der Charakteristik enthält, zum Beispiel `'00002a37-0000-1000-8000-00805f9b34fb'` für die Herzfrequenzmessung-Charakteristik.
-- {{DOMxRef("BluetoothRemoteGATTCharacteristic.properties")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die Eigenschaften dieser Charakteristik zurück.
-- {{DOMxRef("BluetoothRemoteGATTCharacteristic.value")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Der aktuell zwischengespeicherte Charakteristik-Wert. Dieser Wert wird aktualisiert, wenn der Wert der Charakteristik durch eine Benachrichtigung oder Anzeige gelesen oder aktualisiert wird.
+- [`BluetoothRemoteGATTCharacteristic.service`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/service) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt den [`BluetoothRemoteGATTService`](/de/docs/Web/API/BluetoothRemoteGATTService) zurück, zu dem dieses Merkmal gehört.
+- [`BluetoothRemoteGATTCharacteristic.uuid`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/uuid) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen String zurück, der die UUID des Merkmals enthält, zum Beispiel `'00002a37-0000-1000-8000-00805f9b34fb'` für das Merkmal der Herzfrequenzmessung.
+- [`BluetoothRemoteGATTCharacteristic.properties`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/properties) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt die Eigenschaften dieses Merkmals zurück.
+- [`BluetoothRemoteGATTCharacteristic.value`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/value) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Der aktuell zwischengespeicherte Wert des Merkmals. Dieser Wert wird aktualisiert, wenn der Wert des Merkmals gelesen oder über eine Benachrichtigung oder Indikation aktualisiert wird.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{DOMxRef("BluetoothRemoteGATTCharacteristic.getDescriptor()")}} {{Experimental_Inline}}
-  - : Gibt ein {{JSxRef("Promise")}} zurück, das zum ersten {{DOMxRef("BluetoothRemoteGATTDescriptor")}} für eine gegebene Deskriptor-UUID führt.
-- {{DOMxRef("BluetoothRemoteGATTCharacteristic.getDescriptors()")}} {{Experimental_Inline}}
-  - : Gibt ein {{JSxRef("Promise")}} zurück, das zu einem {{JSxRef("Array")}} aller {{DOMxRef("BluetoothRemoteGATTDescriptor")}}-Objekte für eine gegebene Deskriptor-UUID führt.
-- {{DOMxRef("BluetoothRemoteGATTCharacteristic.readValue()")}} {{Experimental_Inline}}
-  - : Gibt ein {{JSxRef("Promise")}} zurück, das zu einem {{JSxRef("DataView")}} führt, der eine Kopie der `value`-Eigenschaft enthält, sofern sie verfügbar und unterstützbar ist. Andernfalls wird ein Fehler ausgelöst.
-- {{DOMxRef("BluetoothRemoteGATTCharacteristic.writeValue()")}} {{Deprecated_Inline}} {{experimental_inline}}
-  - : Setzt die `value`-Eigenschaft auf die Bytes eines gegebenen {{JSxRef("ArrayBuffer")}}, [schreibt den Charakteristik-Wert mit optionaler Rückmeldung](https://webbluetoothcg.github.io/web-bluetooth/#writecharacteristicvalue), und gibt das resultierende {{JSxRef("Promise")}} zurück.
-- {{DOMxRef("BluetoothRemoteGATTCharacteristic.writeValueWithResponse()")}} {{Experimental_Inline}}
-  - : Setzt die `value`-Eigenschaft auf die Bytes eines gegebenen {{JSxRef("ArrayBuffer")}}, [schreibt den Charakteristik-Wert mit erforderlicher Rückmeldung](https://webbluetoothcg.github.io/web-bluetooth/#writecharacteristicvalue), und gibt das resultierende {{JSxRef("Promise")}} zurück.
-- {{DOMxRef("BluetoothRemoteGATTCharacteristic.writeValueWithoutResponse()")}} {{Experimental_Inline}}
-  - : Setzt die `value`-Eigenschaft auf die Bytes eines gegebenen {{JSxRef("ArrayBuffer")}}, [schreibt den Charakteristik-Wert ohne Rückmeldung](https://webbluetoothcg.github.io/web-bluetooth/#writecharacteristicvalue), und gibt das resultierende {{JSxRef("Promise")}} zurück.
-- {{DOMxRef("BluetoothRemoteGATTCharacteristic.startNotifications()")}} {{Experimental_Inline}}
-  - : Gibt ein {{JSxRef("Promise")}} zurück, das ausgeführt wird, wenn `navigator.bluetooth` dem aktiven Benachrichtigungskontext hinzugefügt wird.
-- {{DOMxRef("BluetoothRemoteGATTCharacteristic.stopNotifications()")}} {{Experimental_Inline}}
-  - : Gibt ein {{JSxRef("Promise")}} zurück, das ausgeführt wird, wenn `navigator.bluetooth` aus dem aktiven Benachrichtigungskontext entfernt wird.
+- [`BluetoothRemoteGATTCharacteristic.getDescriptor()`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/getDescriptor) {{Experimental_Inline}}
+  - : Gibt ein {{JSxRef("Promise")}} zurück, das zum ersten [`BluetoothRemoteGATTDescriptor`](/de/docs/Web/API/BluetoothRemoteGATTDescriptor) für eine gegebene Descriptor-UUID aufgelöst wird.
+- [`BluetoothRemoteGATTCharacteristic.getDescriptors()`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/getDescriptors) {{Experimental_Inline}}
+  - : Gibt ein {{JSxRef("Promise")}} zurück, welches zu einem {{JSxRef("Array")}} aller [`BluetoothRemoteGATTDescriptor`](/de/docs/Web/API/BluetoothRemoteGATTDescriptor) Objekte für eine gegebene Descriptor-UUID aufgelöst wird.
+- [`BluetoothRemoteGATTCharacteristic.readValue()`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/readValue) {{Experimental_Inline}}
+  - : Gibt ein {{JSxRef("Promise")}} zurück, das zu einem {{JSxRef("DataView")}} aufgelöst wird, der eine Kopie der `value`-Eigenschaft enthält, falls verfügbar und unterstützbar. Andernfalls wird ein Fehler ausgelöst.
+- [`BluetoothRemoteGATTCharacteristic.writeValue()`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/writeValue) {{Deprecated_Inline}} {{experimental_inline}}
+  - : Setzt die `value`-Eigenschaft auf die Bytes, die in einem gegebenen {{JSxRef("ArrayBuffer")}} enthalten sind, [schreibt den Wert des Merkmals mit optionaler Antwort](https://webbluetoothcg.github.io/web-bluetooth/#writecharacteristicvalue) und gibt das resultierende {{JSxRef("Promise")}} zurück.
+- [`BluetoothRemoteGATTCharacteristic.writeValueWithResponse()`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/writeValueWithResponse) {{Experimental_Inline}}
+  - : Setzt die `value`-Eigenschaft auf die Bytes, die in einem gegebenen {{JSxRef("ArrayBuffer")}} enthalten sind, [schreibt den Wert des Merkmals mit erforderlicher Antwort](https://webbluetoothcg.github.io/web-bluetooth/#writecharacteristicvalue) und gibt das resultierende {{JSxRef("Promise")}} zurück.
+- [`BluetoothRemoteGATTCharacteristic.writeValueWithoutResponse()`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/writeValueWithoutResponse) {{Experimental_Inline}}
+  - : Setzt die `value`-Eigenschaft auf die Bytes, die in einem gegebenen {{JSxRef("ArrayBuffer")}} enthalten sind, [schreibt den Wert des Merkmals ohne Antwort](https://webbluetoothcg.github.io/web-bluetooth/#writecharacteristicvalue) und gibt das resultierende {{JSxRef("Promise")}} zurück.
+- [`BluetoothRemoteGATTCharacteristic.startNotifications()`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/startNotifications) {{Experimental_Inline}}
+  - : Gibt ein {{JSxRef("Promise")}} zurück, das aufgelöst wird, wenn `navigator.bluetooth` zum aktiven Benachrichtigungskontext hinzugefügt wird.
+- [`BluetoothRemoteGATTCharacteristic.stopNotifications()`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/stopNotifications) {{Experimental_Inline}}
+  - : Gibt ein {{JSxRef("Promise")}} zurück, das aufgelöst wird, wenn `navigator.bluetooth` aus dem aktiven Benachrichtigungskontext entfernt wird.
 
 ## Ereignisse
 
-- {{DOMxRef("BluetoothRemoteGATTCharacteristic/characteristicvaluechanged_event", "characteristicvaluechanged")}} {{Experimental_Inline}}
-  - : Wird bei einer `BluetoothRemoteGATTCharacteristic` ausgelöst, wenn sich ihr Wert ändert.
+- [`characteristicvaluechanged`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic/characteristicvaluechanged_event) {{Experimental_Inline}}
+  - : Wird bei einem `BluetoothRemoteGATTCharacteristic` ausgelöst, wenn sich dessen Wert ändert.
 
 ## Spezifikationen
 

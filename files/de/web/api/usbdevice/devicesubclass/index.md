@@ -8,7 +8,7 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die **`deviceSubclass`** Eigenschaft der {{domxref("USBDevice")}} Schnittstelle ist eine von drei Eigenschaften, die USB-Geräte identifizieren, um einen passenden USB-Treiber zu laden, der mit diesem Gerät funktioniert. Die anderen beiden Eigenschaften sind USBDevice.deviceClass und USBDevice.deviceProtocol.
+Die **`deviceSubclass`**-Schreibgeschützte Eigenschaft der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle ist eine von drei Eigenschaften, die USB-Geräte identifizieren, um einen USB-Treiber zu laden, der mit diesem Gerät funktioniert. Die anderen beiden Eigenschaften sind USBDevice.deviceClass und USBDevice.deviceProtocol.
 
 ## Wert
 

@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die Methode **`WebGL2RenderingContext.deleteSampler()`** der
-[WebGL 2 API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes
-{{domxref("WebGLSampler")}}-Objekt.
+Die Methode **`WebGL2RenderingContext.deleteSampler()`** der [WebGL 2 API](/de/docs/Web/API/WebGL_API) löscht ein gegebenes [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt.
 
 ## Syntax
 
@@ -21,7 +19,7 @@ deleteSampler(sampler)
 ### Parameter
 
 - `sampler`
-  - : Ein {{domxref("WebGLSampler")}}-Objekt, das gelöscht werden soll.
+  - : Ein zu löschendes [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)-Objekt.
 
 ### Rückgabewert
 
@@ -29,8 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-`gl` muss ein {{domxref("WebGL2RenderingContext")}} sein.
-`WebGLSampler`-Objekte sind in WebGL 1 nicht verfügbar.
+`gl` muss ein [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) sein. `WebGLSampler`-Objekte sind in WebGL 1 nicht verfügbar.
 
 ```js
 const sampler = gl.createSampler();
@@ -50,4 +47,4 @@ gl.deleteSampler(sampler);
 
 ## Siehe auch
 
-- {{domxref("WebGLSampler")}}
+- [`WebGLSampler`](/de/docs/Web/API/WebGLSampler)

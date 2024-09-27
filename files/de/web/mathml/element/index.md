@@ -1,5 +1,5 @@
 ---
-title: MathML-Elementreferenz
+title: MathML-Element-Referenz
 slug: Web/MathML/Element
 l10n:
   sourceCommit: 34c43aca36f776c824e698dfd07e3ece34cc6f00
@@ -7,20 +7,20 @@ l10n:
 
 {{MathMLRef}}
 
-Dies ist eine alphabetische Liste von MathML-Elementen. Alle davon implementieren die {{domxref("MathMLElement")}}-Klasse.
+Dies ist eine alphabetische Liste von MathML-Elementen. Alle von ihnen implementieren die [`MathMLElement`](/de/docs/Web/API/MathMLElement) Klasse.
 
 > [!NOTE]
-> Wie auf der Hauptseite von [MathML](/de/docs/Web/MathML) erklärt, verwendet MDN [MathML Core](https://w3c.github.io/mathml-core/) als Referenzspezifikation. Allerdings werden auch veraltete Funktionen dokumentiert, die in einigen Browsern noch implementiert sind. Weitere Details zu diesen und anderen Funktionen finden Sie in [MathML 4](https://w3c.github.io/mathml/).
+> Wie auf der Hauptseite von [MathML](/de/docs/Web/MathML) erklärt, verwendet MDN [MathML Core](https://w3c.github.io/mathml-core/) als Referenzspezifikation. Dennoch sind auch veraltete Funktionen dokumentiert, die noch von einigen Browsern implementiert werden. Weitere Details zu diesen und anderen Funktionen finden Sie in [MathML 4](https://w3c.github.io/mathml/).
 
 ## MathML-Elemente von A bis Z
 
 ### math
 
-- {{MathMLElement("math")}} (Top-Level-Element)
+- {{MathMLElement("math")}} (Oberstes Element)
 
 ### A
 
-- {{MathMLElement("maction")}} {{deprecated_inline}} (Gekoppelte Aktionen an Sub-Ausdrücke)
+- {{MathMLElement("maction")}} {{deprecated_inline}} (Aktionen für Unterausdrücke)
 - {{MathMLElement("annotation")}} (Datenanmerkungen)
 - {{MathMLElement("annotation-xml")}} (XML-Anmerkungen)
 
@@ -36,11 +36,11 @@ Dies ist eine alphabetische Liste von MathML-Elementen. Alle davon implementiere
 
 ### I
 
-- {{MathMLElement("mi")}} (Identifikator)
+- {{MathMLElement("mi")}} (Bezeichner)
 
 ### M
 
-- {{MathMLElement("mmultiscripts")}} (Vorskripte und Tensorindices)
+- {{MathMLElement("mmultiscripts")}} (Vorskripte und Tensorindizes)
 
 ### N
 
@@ -49,55 +49,55 @@ Dies ist eine alphabetische Liste von MathML-Elementen. Alle davon implementiere
 ### O
 
 - {{MathMLElement("mo")}} (Operator)
-- {{MathMLElement("mover")}} (Oberskript)
+- {{MathMLElement("mover")}} (Überschrift)
 
 ### P
 
-- {{MathMLElement("mpadded")}} (Platz um Inhalt)
+- {{MathMLElement("mpadded")}} (Abstand um den Inhalt herum)
 - {{MathMLElement("mphantom")}} (Unsichtbarer Inhalt mit reserviertem Raum)
-- {{MathMLElement("mprescripts")}} (Delimiter für Vorskripte)
+- {{MathMLElement("mprescripts")}} (Trennzeichen für Vorskripte)
 
 ### R
 
-- {{MathMLElement("mroot")}} (Radikand mit spezifiziertem Index)
-- {{MathMLElement("mrow")}} (Gruppierte Sub-Ausdrücke)
+- {{MathMLElement("mroot")}} (Radikal mit angegebenem Index)
+- {{MathMLElement("mrow")}} (Gruppierte Unterausdrücke)
 
 ### S
 
-- {{MathMLElement("ms")}} (Stringliteral)
+- {{MathMLElement("ms")}} (Zeichenfolgenliteral)
 - {{MathMLElement("semantics")}} (Container für semantische Anmerkungen)
-- {{MathMLElement("mspace")}} (Leerraum)
-- {{MathMLElement("msqrt")}} (Wurzel ohne Index)
+- {{MathMLElement("mspace")}} (Raum)
+- {{MathMLElement("msqrt")}} (Quadratwurzel ohne Index)
 - {{MathMLElement("mstyle")}} (Stiländerung)
-- {{MathMLElement("msub")}} (Subskript)
-- {{MathMLElement("msup")}} (Superskript)
-- {{MathMLElement("msubsup")}} (Subskript-Superskript-Paar)
+- {{MathMLElement("msub")}} (Index)
+- {{MathMLElement("msup")}} (Hochzahl)
+- {{MathMLElement("msubsup")}} (Index-Hochzahl-Paar)
 
 ### T
 
 - {{MathMLElement("mtable")}} (Tabelle oder Matrix)
 - {{MathMLElement("mtd")}} (Zelle in einer Tabelle oder Matrix)
 - {{MathMLElement("mtext")}} (Text)
-- {{MathMLElement("mtr")}} (Zeile in einer Tabelle oder Matrix)
+- {{MathMLElement("mtr")}} (Reihe in einer Tabelle oder Matrix)
 
 ### U
 
-- {{MathMLElement("munder")}} (Unterskript)
-- {{MathMLElement("munderover")}} (Unterskript-Oberskript-Paar)
+- {{MathMLElement("munder")}} (Unterschrift)
+- {{MathMLElement("munderover")}} (Unterschrift-Überschrift-Paar)
 
 ## MathML-Elemente nach Kategorie
 
-### Top-Level-Elemente
+### Oberste Elemente
 
-- {{MathMLElement("math")}} (Top-Level-Element)
+- {{MathMLElement("math")}} (Oberstes Element)
 
-### Token-Elemente
+### Zeichen-Elemente
 
-- {{MathMLElement("mi")}} (Identifikator)
+- {{MathMLElement("mi")}} (Bezeichner)
 - {{MathMLElement("mn")}} (Zahl)
 - {{MathMLElement("mo")}} (Operator)
-- {{MathMLElement("ms")}} (Stringliteral)
-- {{MathMLElement("mspace")}} (Leerraum)
+- {{MathMLElement("ms")}} (Zeichenfolgenliteral)
+- {{MathMLElement("mspace")}} (Raum)
 - {{MathMLElement("mtext")}} (Text)
 
 ### Allgemeines Layout
@@ -106,33 +106,33 @@ Dies ist eine alphabetische Liste von MathML-Elementen. Alle davon implementiere
 - {{MathMLElement("merror")}} (Eingeschlossene Syntaxfehlermeldungen)
 - {{MathMLElement("mfenced")}} {{non-standard_inline}} {{deprecated_inline}} (Klammern)
 - {{MathMLElement("mfrac")}} (Bruch)
-- {{MathMLElement("mpadded")}} (Platz um Inhalt)
+- {{MathMLElement("mpadded")}} (Abstand um den Inhalt herum)
 - {{MathMLElement("mphantom")}} (Unsichtbarer Inhalt mit reserviertem Raum)
-- {{MathMLElement("mroot")}} (Radikand mit spezifiziertem Index)
-- {{MathMLElement("mrow")}} (Gruppierte Sub-Ausdrücke)
-- {{MathMLElement("msqrt")}} (Wurzel ohne Index)
+- {{MathMLElement("mroot")}} (Radikal mit angegebenem Index)
+- {{MathMLElement("mrow")}} (Gruppierte Unterausdrücke)
+- {{MathMLElement("msqrt")}} (Quadratwurzel ohne Index)
 - {{MathMLElement("mstyle")}} (Stiländerung)
 
-### Skript- und Limitelemente
+### Skript- und Grenzwertelemente
 
-- {{MathMLElement("mmultiscripts")}} (Vorskripte und Tensorindices)
-- {{MathMLElement("mover")}} (Oberskript)
-- {{MathMLElement("mprescripts")}} (Delimiter für Vorskripte)
-- {{MathMLElement("msub")}} (Subskript)
-- {{MathMLElement("msubsup")}} (Subskript-Superskript-Paar)
-- {{MathMLElement("msup")}} (Superskript)
-- {{MathMLElement("munder")}} (Unterskript)
-- {{MathMLElement("munderover")}} (Unterskript-Oberskript-Paar)
+- {{MathMLElement("mmultiscripts")}} (Vorskripte und Tensorindizes)
+- {{MathMLElement("mover")}} (Überschrift)
+- {{MathMLElement("mprescripts")}} (Trennzeichen für Vorskripte)
+- {{MathMLElement("msub")}} (Index)
+- {{MathMLElement("msubsup")}} (Index-Hochzahl-Paar)
+- {{MathMLElement("msup")}} (Hochzahl)
+- {{MathMLElement("munder")}} (Unterschrift)
+- {{MathMLElement("munderover")}} (Unterschrift-Überschrift-Paar)
 
 ### Tabellarische Mathematik
 
 - {{MathMLElement("mtable")}} (Tabelle oder Matrix)
 - {{MathMLElement("mtd")}} (Zelle in einer Tabelle oder Matrix)
-- {{MathMLElement("mtr")}} (Zeile in einer Tabelle oder Matrix)
+- {{MathMLElement("mtr")}} (Reihe in einer Tabelle oder Matrix)
 
-### Unkategorisierte Elemente
+### Nicht kategorisierte Elemente
 
-- {{MathMLElement("maction")}} {{deprecated_inline}} (Gekoppelte Aktionen an Sub-Ausdrücke)
+- {{MathMLElement("maction")}} {{deprecated_inline}} (Aktionen für Unterausdrücke)
 
 ## Semantische Anmerkungen
 

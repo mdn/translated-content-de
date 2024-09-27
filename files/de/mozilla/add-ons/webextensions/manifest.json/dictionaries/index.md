@@ -14,7 +14,7 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Erforderlich</th>
+      <th scope="row">Verpflichtend</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -34,9 +34,9 @@ l10n:
   </tbody>
 </table>
 
-Der Schlüssel `dictionaries` gibt den `locale_code` an, für den Ihre Erweiterung ein Wörterbuch bereitstellt. Obwohl das Wörterbuch aus zwei Dateien besteht, einer mit der Endung `.dic` und einer mit der Endung `.aff`, wird im manifest.json nur die Datei mit der Endung `.dic` referenziert.
+Der `dictionaries` Schlüssel gibt den `locale_code` an, für den Ihre Erweiterung ein Wörterbuch bereitstellt. Obwohl das Wörterbuch aus zwei Dateien besteht, einer mit der Erweiterung `.dic` und einer mit der Erweiterung `.aff`, wird im manifest.json nur die mit der Erweiterung `.dic` referenziert.
 
-Wenn Sie den Schlüssel `dictionaries` verwenden, müssen Sie auch eine ID für Ihre Erweiterung festlegen, indem Sie den [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) manifest.json Key benutzen.
+Wenn Sie den `dictionaries` Schlüssel verwenden, müssen Sie auch eine ID für Ihre Erweiterung mit dem [`browser_specific_settings`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) manifest.json Schlüssel festlegen.
 
 ## Beispiel
 

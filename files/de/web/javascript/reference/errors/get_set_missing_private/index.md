@@ -1,5 +1,5 @@
 ---
-title: "TypeError: Zugriff/Setzen auf privates Feld oder Methode nicht möglich: Objekt gehört nicht zur richtigen Klasse"
+title: "TypeError: kann auf privates Feld oder Methode nicht zugreifen/festlegen: Objekt ist nicht die richtige Klasse"
 slug: Web/JavaScript/Reference/Errors/Get_set_missing_private
 l10n:
   sourceCommit: 3e180a7de9aaeaa061c17b5abc52426fc2d34b4c
@@ -7,9 +7,9 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "can't access private field or method: object is not the right class" oder "can't set private field: object is not the right class" tritt auf, wenn ein privates Feld oder eine Methode auf einem Objekt abgerufen oder gesetzt wird, das diese [private Eigenschaft](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) nicht definiert hat.
+Der JavaScript-Fehler "kann auf privates Feld oder Methode nicht zugreifen: Objekt ist nicht die richtige Klasse" oder "kann privates Feld nicht festlegen: Objekt ist nicht die richtige Klasse" tritt auf, wenn ein privates Feld oder eine Methode auf einem Objekt abgefragt oder gesetzt wird, das diese [private Eigenschaft](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) nicht definiert hat.
 
-## Nachricht
+## Meldung
 
 ```plain
 TypeError: Cannot read private member #x from an object whose class did not declare it (V8-based)
@@ -25,15 +25,15 @@ TypeError: Cannot access invalid private field (evaluating 'this.#x') (Safari)
 
 ## Was ist schiefgelaufen?
 
-Sie versuchen, ein privates Feld oder eine Methode auf einem Objekt zu erlangen oder zu setzen, aber dieses Objekt enthält diese private Eigenschaft nicht. Private Instanz-Eigenschaften können nur auf Instanzen der Klasse (einschließlich ihrer Unterklassen) abgerufen werden, die sie deklarieren; private statische Eigenschaften können nur auf der Klasse selbst abgerufen werden, die sie deklariert, und nicht auf Unterklassen.
+Sie versuchen, auf ein privates Feld oder eine Methode eines Objekts zuzugreifen oder es zu setzen, bei dem diese private Eigenschaft nicht vorhanden ist. Private Instanzeigenschaften können nur auf Instanzen der Klasse (einschließlich ihrer Unterklassen) zugegriffen werden, die sie deklariert; private statische Eigenschaften können nur auf der Klasse selbst zugegriffen werden, die sie deklariert, und nicht auf Unterklassen.
 
-Dieser Fehler tritt auf, wenn der private Name im Klassenkontext existiert, aber das Objekt, auf dem es zugegriffen wird, ungültig ist. Wenn der private Name nicht existiert, erhalten Sie stattdessen einen [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Undeclared_private_field_or_method).
+Dieser Fehler tritt auf, wenn der private Name im Bereich der Klasse existiert, das Objekt, auf das zugegriffen wird, jedoch ungültig ist. Wenn der private Name nicht existiert, erhalten Sie stattdessen einen [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Undeclared_private_field_or_method).
 
 ## Beispiele
 
-### Nicht übereinstimmende statische/Instanz-Felder
+### Nicht übereinstimmende statische/Instanzfelder
 
-Möglicherweise haben Sie das Feld als statisches Feld deklariert, versuchen jedoch, darauf auf einer Instanz zuzugreifen, oder umgekehrt.
+Es kann sein, dass Sie das Feld als statisches Feld deklariert haben, aber versuchen, darauf auf einer Instanz zuzugreifen, oder umgekehrt.
 
 ```js example-bad
 class MyClass {
@@ -48,7 +48,7 @@ obj.doSomething();
 // TypeError: can't access private field: object is not the right class
 ```
 
-Um dies zu beheben, ändern Sie entweder das Feld zu einem Instanz-Feld oder greifen Sie auf das Feld auf der Klasse selbst zu oder deklarieren Sie ein weiteres Feld auf der Instanz. Beachten Sie, dass der private Namensraum zwischen statischen und Instanz-Eigenschaften geteilt wird, sodass Sie nicht eine statische und eine Instanz-private Eigenschaft mit demselben Namen haben können.
+Um dies zu beheben, ändern Sie entweder das Feld zu einem Instanzfeld, oder greifen Sie auf das Feld in der Klasse selbst zu, oder deklarieren Sie ein anderes Feld auf der Instanz. Beachten Sie, dass der private Namensraum zwischen statischen und Instanzeigenschaften geteilt wird, sodass Sie kein statisches und Instanz-Privatfeld mit demselben Namen haben können.
 
 ```js example-good
 class MyClass {
@@ -68,7 +68,7 @@ class MyClass2 {
 
 ### Falsches Objekt verwendet
 
-Vielleicht haben Sie eine Methode, die auf `this.#x` zugreift, aber sie wird mit einem anderen `this`-Wert aufgerufen.
+Vielleicht haben Sie eine Methode, die auf `this.#x` zugreift, aber mit einem anderen `this`-Wert aufgerufen wird.
 
 ```js example-bad
 class JSONReplacer {
@@ -85,7 +85,7 @@ JSON.stringify({ a: 1, b: { c: 2 } }, new JSONReplacer().func);
 // TypeError: can't access private field: object is not the right class
 ```
 
-Dies liegt daran, dass {{jsxref("JSON.stringify()")}} die Ersetzerfunktion mit dem Objekt, das `value` enthält, als `this` aufruft, sodass das private Feld nicht zugänglich ist. Um dies zu beheben, können Sie die Methode an das Objekt binden oder eine Pfeilfunktion verwenden, um sicherzustellen, dass `replacer.func` mit dem richtigen `this`-Wert aufgerufen wird.
+Dies liegt daran, dass {{jsxref("JSON.stringify()")}} die Ersetzungsfunktion mit dem Objekt aufruft, das `value` als `this` enthält, sodass das private Feld nicht zugänglich ist. Um dies zu beheben, können Sie die Methode an das Objekt binden oder eine Pfeilfunktion verwenden, um sicherzustellen, dass `replacer.func` mit dem korrekten `this`-Wert aufgerufen wird.
 
 ```js example-good
 const replacer = new JSONReplacer();
@@ -93,20 +93,20 @@ JSON.stringify({ a: 1, b: { c: 2 } }, replacer.func.bind(replacer));
 JSON.stringify({ a: 1, b: { c: 2 } }, (...args) => replacer.func(...args));
 ```
 
-Meistens, wenn Sie versehentlich eine Methode entbunden haben, würde die Methode mit `undefined` als `this`-Wert aufgerufen, was zu einem anderen Fehler führen würde (TypeError: can't convert undefined to object). Dieser Fehler tritt nur auf, wenn die Methode mit einem anderen Objekt als `this` aufgerufen wird, entweder durch die Verwendung von {{jsxref("Function/call", "call()")}} oder {{jsxref("Function/apply", "apply()")}}, oder indem die Methode als Callback an eine Funktion übergeben wird, die sie mit einem anderen `this`-Wert aufruft.
+Meistens, wenn Sie versehentlich eine Methode ungebunden haben, würde die Methode mit `undefined` als `this` aufgerufen, was zu einem anderen Fehler führen würde (TypeError: kann `undefined` nicht in ein Objekt umwandeln). Dieser Fehler tritt nur auf, wenn die Methode mit einem anderen Objekt als `this` aufgerufen wird, entweder durch Verwendung von {{jsxref("Function/call", "call()")}} oder {{jsxref("Function/apply", "apply()")}}, oder indem die Methode als Callback an eine Funktion übergeben wird, die sie mit einem anderen `this`-Wert aufruft.
 
-Wenn Sie nicht sicher sind, dass das Objekt die private Eigenschaft enthält, wie im folgenden Code:
+Wenn Sie nicht sicher wissen, dass das Objekt die private Eigenschaft enthalten wird, wie im folgenden Code:
 
 ```js
 class MyClass {
   #x = 0;
   static doSomething(obj) {
-    console.log(obj.#x); // Löst aus, wenn obj keine Instanz von MyClass ist
+    console.log(obj.#x); // Throws if obj is not an instance of MyClass
   }
 }
 ```
 
-Sie können den {{jsxref("Operators/in", "in")}} Operator verwenden, um zunächst eine _Markenprüfung_ durchzuführen.
+Können Sie den {{jsxref("Operators/in", "in")}} Operator verwenden, um zuerst eine _branded check_ durchzuführen.
 
 ```js
 class MyClass {
@@ -120,9 +120,9 @@ class MyClass {
 }
 ```
 
-### Zugriff auf statische Eigenschaften von Unterklassen
+### Zugriff auf statische Eigenschaften in Unterklassen
 
-Wenn Sie eine [private statische Eigenschaft](/de/docs/Web/JavaScript/Reference/Classes/Private_properties#private_static_fields) haben, können Sie nur auf die Klasse zugreifen, die diese deklariert, nicht auf Unterklassen.
+Wenn Sie eine [private statische Eigenschaft](/de/docs/Web/JavaScript/Reference/Classes/Private_properties#private_static_fields) haben, können Sie nur in der Klasse darauf zugreifen, die sie deklariert, nicht in Unterklassen.
 
 ```js example-bad
 class MyClass {
@@ -138,7 +138,7 @@ MySubClass.doSomething();
 // TypeError: can't access private field: object is not the right class
 ```
 
-Um dies zu beheben, greifen Sie niemals über `this` auf private statische Eigenschaften zu. Geben Sie stattdessen immer explizit den Klassennamen an.
+Um dies zu beheben, greifen Sie niemals über `this` auf private statische Eigenschaften zu. Geben Sie stattdessen immer explizit den Namen der Klasse an.
 
 ```js example-good
 class MyClass {
@@ -151,7 +151,7 @@ class MyClass {
 
 ### Zugriff auf gleichnamige private Eigenschaften in einer anderen Klasse
 
-Im Gegensatz zu normalen Zeichenketten- oder Symbol-Eigenschaften werden private Namen nicht zwischen Klassen geteilt. Wenn Sie eine private Eigenschaft mit demselben Namen in zwei Klassen haben, sind sie immer noch nicht dieselbe Eigenschaft, und Sie können nicht auf eine private Eigenschaft einer Klasse aus einer anderen Klasse zugreifen.
+Im Gegensatz zu normalen String- oder Symbol-Eigenschaften werden private Namen nicht zwischen Klassen geteilt. Wenn Sie eine private Eigenschaft mit demselben Namen in zwei Klassen haben, sind sie immer noch nicht dieselbe Eigenschaft, und Sie können nicht auf eine private Eigenschaft einer Klasse aus einer anderen Klasse zugreifen.
 
 ```js example-bad
 class MyClass {
@@ -172,7 +172,7 @@ new MyOtherClass().doSomething(obj);
 
 ### Hinzufügen privater Eigenschaften zu nicht verwandten Objekten
 
-Sie können private Eigenschaften nicht dynamisch zu nicht verwandten Objekten hinzufügen.
+Sie können private Eigenschaften nicht dynamisch zu nicht verwandten Objekten _hinzufügen_.
 
 ```js example-bad
 class MyClass {
@@ -186,7 +186,7 @@ MyClass.stamp({});
 // TypeError: can't set private field: object is not the right class
 ```
 
-Wenn Sie dies wirklich tun möchten, erwägen Sie den [Return-Override](/de/docs/Web/JavaScript/Reference/Classes/Private_properties#returning_overriding_object) Trick. In der Regel möchten Sie jedoch wahrscheinlich einen {{jsxref("WeakMap")}} verwenden.
+Wenn Sie dies wirklich tun möchten, ziehen Sie den [Rückgabe-Override](/de/docs/Web/JavaScript/Reference/Classes/Private_properties#returning_overriding_object) Trick in Betracht. Im Allgemeinen würden Sie jedoch wahrscheinlich eher ein {{jsxref("WeakMap")}} verwenden.
 
 ```js example-good
 class MyClass {

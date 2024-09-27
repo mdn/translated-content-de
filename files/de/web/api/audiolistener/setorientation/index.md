@@ -1,5 +1,5 @@
 ---
-title: "AudioListener: setOrientation()-Methode"
+title: "AudioListener: Methode setOrientation()"
 short-title: setOrientation()
 slug: Web/API/AudioListener/setOrientation
 l10n:
@@ -8,14 +8,14 @@ l10n:
 
 {{ APIRef("Web Audio API") }}{{deprecated_header}}
 
-Die `setOrientation()`-Methode des {{ domxref("AudioListener") }}-Interfaces definiert die Orientierung des Hörers.
+Die `setOrientation()`-Methode des [`AudioListener`](/de/docs/Web/API/AudioListener)-Interfaces definiert die Orientierung des Hörers.
 
 Sie besteht aus zwei Richtungsvektoren:
 
-- Der _vordere Vektor_, definiert durch die drei einheitslosen Parameter `x`, `y` und `z`, beschreibt die Blickrichtung des Hörers, also die Richtung, in die die Nase der Person zeigt. Der Standardwert des vorderen Vektors ist `(0, 0, -1)`.
-- Der _obere Vektor_, definiert durch die drei einheitslosen Parameter `xUp`, `yUp` und `zUp`, beschreibt die Richtung des oberen Teils des Kopfs des Hörers. Der Standardwert des oberen Vektors ist `(0, 1, 0)`.
+- Der _Frontvektor_, definiert durch die drei einheitslosen Parameter `x`, `y` und `z`, beschreibt die Richtung des Gesichts des Hörers, das heißt, die Richtung, in die die Nase einer Person zeigt. Der Standardwert des Frontvektors ist `(0, 0, -1)`.
+- Der _Aufwärtsvektor_, definiert durch die drei einheitslosen Parameter `xUp`, `yUp` und `zUp`, beschreibt die Richtung der Oberseite des Kopfes des Hörers. Der Standardwert des Aufwärtsvektors ist `(0, 1, 0)`.
 
-Die beiden Vektoren müssen in einem Winkel von 90° zueinander stehen - in linearer Analyseterminologie müssen sie senkrecht zueinander sein.
+Die beiden Vektoren müssen durch einen Winkel von 90° getrennt sein — in der linearen Analyse müssen sie senkrecht zueinander stehen.
 
 ## Syntax
 
@@ -26,17 +26,17 @@ setOrientation(x, y, z, xUp, yUp, zUp)
 ### Parameter
 
 - `x`
-  - : Der x-Wert des vorderen Vektors des Hörers.
+  - : Der x-Wert des Frontvektors des Hörers.
 - `y`
-  - : Der y-Wert des vorderen Vektors des Hörers.
+  - : Der y-Wert des Frontvektors des Hörers.
 - `z`
-  - : Der z-Wert des vorderen Vektors des Hörers.
+  - : Der z-Wert des Frontvektors des Hörers.
 - `xUp`
-  - : Der x-Wert des oberen Vektors des Hörers.
+  - : Der x-Wert des Aufwärtsvektors des Hörers.
 - `yUp`
-  - : Der y-Wert des oberen Vektors des Hörers.
+  - : Der y-Wert des Aufwärtsvektors des Hörers.
 - `zUp`
-  - : Der z-Wert des oberen Vektors des Hörers.
+  - : Der z-Wert des Aufwärtsvektors des Hörers.
 
 ### Rückgabewert
 

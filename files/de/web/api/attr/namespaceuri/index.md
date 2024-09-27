@@ -1,5 +1,5 @@
 ---
-title: "Eigenschaft: namespaceURI von Attr"
+title: "Attr: namespaceURI-Eigenschaft"
 short-title: namespaceURI
 slug: Web/API/Attr/namespaceURI
 l10n:
@@ -8,37 +8,37 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`namespaceURI`**-Eigenschaft der {{domxref("Attr")}}-Schnittstelle gibt die Namespace-URI des Attributs zurück oder `null`, wenn das Element nicht in einem Namespace ist.
+Die schreibgeschützte **`namespaceURI`**-Eigenschaft der [`Attr`](/de/docs/Web/API/Attr)-Schnittstelle gibt die Namespace-URI des Attributs zurück oder `null`, wenn das Element sich nicht in einem Namespace befindet.
 
-Die Namespace-URI wird bei der Erstellung des {{domxref("Attr")}} festgelegt und kann nicht geändert werden. Ein Attribut mit einem Namespace kann mithilfe von {{domxref("Element.setAttributeNS()")}} erstellt werden.
+Die Namespace-URI wird bei der Erstellung des [`Attr`](/de/docs/Web/API/Attr) festgelegt und kann nicht geändert werden. Ein Attribut mit einem Namespace kann mit [`Element.setAttributeNS()`](/de/docs/Web/API/Element/setAttributeNS) erstellt werden.
 
 > [!NOTE]
-> Ein Attribut erbt seinen Namespace nicht von dem Element, an dem es angefügt ist. Wenn einem Attribut kein Namespace explizit zugewiesen wird, hat es keinen Namespace.
+> Ein Attribut erbt seinen Namespace nicht von dem Element, an das es gebunden ist. Wenn einem Attribut nicht ausdrücklich ein Namespace zugewiesen wird, hat es keinen Namespace.
 
-Der Browser führt keine Namespace-Validierung durch. Es liegt am JavaScript-Anwendungscode, die notwendigen Überprüfungen vorzunehmen. Beachten Sie auch, dass das Namespace-Präfix, sobald es einem bestimmten Attributknoten zugeordnet ist, nicht geändert werden kann.
+Der Browser übernimmt nicht die Kontrolle oder Validierung der Namespaces an sich. Es obliegt der JavaScript-Anwendung, bei Bedarf eine Validierung durchzuführen. Beachten Sie auch, dass das Namespace-Präfix, sobald es mit einem bestimmten Attributknoten verknüpft ist, nicht geändert werden kann.
 
 ## Wert
 
-Ein String, der die URI des Namespaces enthält, oder `null`, wenn das Attribut nicht in einem Namespace ist.
+Ein String, der die URI des Namespace enthält, oder `null`, wenn das Attribut sich nicht in einem Namespace befindet.
 
 ## Beispiel
 
-Das folgende Beispiel zeigt die Ergebnisse für ein Attribut mit Präfix im Fall eines HTML-Elements und eines SVG-Elements. Da HTML keine Namespaces behandelt, wird in diesem Fall immer `null` zurückgegeben. Im Fall des SVG-Elements wird die URI des XML-Namespaces zurückgegeben, `http://www.w3.org/XML/1998/namespace`.
+Das folgende Beispiel zeigt die Ergebnisse für ein Attribut mit Präfix in einem HTML-Element und einem SVG-Element. Da HTML keine Namespaces verarbeitet, wird in diesem Fall immer `null` zurückgegeben. Im Fall des SVG-Elements wird die URI des XML-Namespaces zurückgegeben, `http://www.w3.org/XML/1998/namespace`.
 
 ### HTML
 
 ```html
-<svg xml:lang="en-US" class="struct" height="1" width="1">Klicken Sie mich</svg>
+<svg xml:lang="en-US" class="struct" height="1" width="1">Click me</svg>
 <label xml:lang="en-US" class="struct"></label>
 
 <p>
-  <button>Wert für &lt;svg&gt; anzeigen</button>
-  <button>Wert für &lt;label&gt; anzeigen</button>
+  <button>Show value for &lt;svg&gt;</button>
+  <button>Show value for &lt;label&gt;</button>
 </p>
 
 <p>
-  Namespace-URI des Attributs <code>xml:lang</code>:
-  <output id="result">Keine.</output>
+  Namespace URI of the attribute <code>xml:lang</code>:
+  <output id="result">None.</output>
 </p>
 ```
 
@@ -72,6 +72,6 @@ for (const button of buttons) {
 
 ## Siehe auch
 
-- Die Eigenschaften {{domxref("Attr.name")}}, die den qualifizierten Namen des Attributs zurückgeben, {{domxref("Attr.localName")}}, den lokalen Teil des Namens, und {{domxref("Attr.prefix")}}, das Namespace-Präfix.
-- Die {{domxref("Element.namespaceURI")}}-Eigenschaft, die äquivalent zu dieser ist, aber für ein {{domxref("Element")}}.
-- Die Methode {{domxref("Element.setAttributeNS()")}}, die ein Attribut mit einem gegebenen Namespace erstellt.
+- Die Eigenschaften [`Attr.name`](/de/docs/Web/API/Attr/name), die den qualifizierten Namen des Attributs zurückgibt, [`Attr.localName`](/de/docs/Web/API/Attr/localName), den lokalen Teil des Namens, und [`Attr.prefix`](/de/docs/Web/API/Attr/prefix), das Namespace-Präfix.
+- Die [`Element.namespaceURI`](/de/docs/Web/API/Element/namespaceURI)-Eigenschaft, die gleichwertig mit dieser, aber für ein [`Element`](/de/docs/Web/API/Element) ist.
+- Die Methode [`Element.setAttributeNS()`](/de/docs/Web/API/Element/setAttributeNS), die ein Attribut mit einem gegebenen Namespace erstellt.

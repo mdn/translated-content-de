@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`add()`** Methode der {{domxref("IDBObjectStore")}} Schnittstelle gibt ein {{domxref("IDBRequest")}} Objekt zurück und erstellt in einem separaten Thread einen [strukturierten Klon](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#structured-clone) des Werts und speichert den geklonten Wert im Objekt-Store. Diese Methode dient zum Hinzufügen neuer Datensätze zu einem Objekt-Store.
+Die **`add()`**-Methode der [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Schnittstelle gibt ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt zurück und erstellt in einem separaten Thread einen [strukturierten Klon](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#structured-clone) des Werts und speichert den geklonten Wert im Object Store. Dies dient dem Hinzufügen neuer Datensätze in einen Object Store.
 
-Um festzustellen, ob die Hinzufügungsoperation erfolgreich abgeschlossen wurde, sollten Sie sowohl auf das `complete` Ereignis der Transaktion als auch auf das `success` Ereignis des `IDBObjectStore.add` Requests hören, da die Transaktion auch nach dem Auslösen des Success-Ereignisses noch fehlschlagen kann. Mit anderen Worten, das Success-Ereignis wird nur ausgelöst, wenn die Transaktion erfolgreich in die Warteschlange gestellt wurde.
+Um festzustellen, ob der Hinzufügungsvorgang erfolgreich abgeschlossen wurde, hören Sie auf das `complete`-Ereignis der Transaktion sowie auf das `success`-Ereignis der `IDBObjectStore.add`-Anfrage, da die Transaktion nach dem Auslösen des Erfolgsevents immer noch fehlschlagen kann. Mit anderen Worten, das Erfolgsevent wird nur ausgelöst, wenn die Transaktion erfolgreich in die Warteschlange gestellt wurde.
 
-Die Add-Methode ist eine _Nur-Einfüge_-Methode. Wenn bereits ein Datensatz im Objekt-Store mit dem `key` Parameter als Schlüssel existiert, wird ein `ConstraintError` Fehlerereignis auf dem zurückgegebenen Anfrageobjekt ausgelöst. Um bestehende Datensätze zu aktualisieren, sollten Sie stattdessen die {{domxref("IDBObjectStore.put")}} Methode verwenden.
+Die Add-Methode ist eine _nur Einfügen_-Methode. Wenn ein Datensatz bereits im Object Store mit dem `key`-Parameter als Schlüssel existiert, wird ein `ConstraintError`-Ereignis auf dem zurückgegebenen Anfrageobjekt ausgelöst. Zum Aktualisieren bestehender Datensätze sollten Sie stattdessen die [`IDBObjectStore.put`](/de/docs/Web/API/IDBObjectStore/put)-Methode verwenden.
 
 ## Syntax
 
@@ -24,95 +24,95 @@ add(value, key)
 ### Parameter
 
 - `value`
-  - : Der Wert, der gespeichert werden soll.
+  - : Der zu speichernde Wert.
 - `key` {{optional_inline}}
-  - : Der Schlüssel, der zur Identifikation des Datensatzes verwendet wird. Wenn nicht angegeben, ist er null.
+  - : Der Schlüssel, der verwendet wird, um den Datensatz zu identifizieren. Wenn nicht angegeben, ist der Wert null.
 
 ### Rückgabewert
 
-Ein {{domxref("IDBRequest")}} Objekt, auf dem nachfolgende Ereignisse in Bezug auf diese Operation ausgelöst werden.
+Ein [`IDBRequest`](/de/docs/Web/API/IDBRequest)-Objekt, bei dem nachfolgende Ereignisse im Zusammenhang mit dieser Operation ausgelöst werden.
 
-Wenn die Operation erfolgreich ist, ist der Wert der {{domxref("IDBRequest.result", "result")}} Eigenschaft der Anfrage der Schlüssel für den neuen Eintrag.
+Wenn die Operation erfolgreich ist, ist der Wert der [`result`](/de/docs/Web/API/IDBRequest/result)-Eigenschaft der Anfrage der Schlüssel für den neuen Datensatz.
 
 ### Ausnahmen
 
-Diese Methode kann eine {{domxref("DOMException")}} der folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
 
-- `ReadOnlyError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die mit dieser Operation verbundene Transaktion im Lese-<a href="/de/docs/Web/API/IDBTransaction#mode_constants">Modus</a> ist.
-- `TransactionInactiveError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die Transaktion dieses {{domxref("IDBObjectStore")}} inaktiv ist.
-- `DataError` {{domxref("DOMException")}}
+- `ReadOnlyError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die mit dieser Operation verbundene Transaktion im schreibgeschützten <a href="/de/docs/Web/API/IDBTransaction#mode_constants">Modus</a> ist.
+- `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die Transaktion dieses [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) inaktiv ist.
+- `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn eine der folgenden Bedingungen zutrifft:
-    - Der Objekt-Store verwendet In-Line-Schlüssel oder hat einen Schlüsselgenerator, und es wurde ein Schlüsselparameter angegeben.
-    - Der Objekt-Store verwendet Out-of-Line-Schlüssel und hat keinen Schlüsselgenerator, und es wurde kein Schlüsselparameter angegeben.
-    - Der Objekt-Store verwendet In-Line-Schlüssel, aber keinen Schlüsselgenerator, und der Schlüsselpfad des Objekt-Stores ergibt keinen gültigen Schlüssel.
-    - Der Schlüsselparameter wurde angegeben, enthält jedoch keinen gültigen Schlüssel.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das {{domxref("IDBObjectStore")}} gelöscht oder entfernt wurde.
-- `DataCloneError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die zu speichernden Daten nicht durch den internen strukturierten Klon-Algorithmus geklont werden konnten.
-- `ConstraintError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn ein Einfügevorgang fehlschlägt, weil die Primärschlüsselbedingung verletzt wurde (aufgrund eines bereits existierenden Eintrags mit demselben Primärschlüsselwert).
+    - Der Objekt-Store verwendet Inline-Schlüssel oder hat einen Schlüsselgenerator, und ein Schlüsselparameter wurde bereitgestellt.
+    - Der Objekt-Store verwendet Out-of-line-Schlüssel und hat keinen Schlüsselgenerator, und es wurde kein Schlüsselparameter bereitgestellt.
+    - Der Objekt-Store verwendet Inline-Schlüssel, aber keinen Schlüsselgenerator, und der Schlüsselpfad des Objekt-Stores ergibt keinen gültigen Schlüssel.
+    - Der Schlüsselparameter wurde bereitgestellt, enthält jedoch keinen gültigen Schlüssel.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore) gelöscht oder entfernt wurde.
+- `DataCloneError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die zu speichernden Daten nicht durch den internen strukturierten Klonalgorithmus geklont werden konnten.
+- `ConstraintError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn ein Einfügevorgang fehlgeschlagen ist, weil die Primärschlüsselbeschränkung verletzt wurde (aufgrund eines bereits vorhandenen Datensatzes mit demselben Primärschlüsselwert).
 
 ## Beispiele
 
-Im folgenden Code-Snippet öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen einige Daten zu einem Objekt-Store mit `add()` hinzu. Beachten Sie auch die Funktionen, die an die Transaktions-Event-Handler angehängt sind, um über den Ausgang der Transaktionsöffnung im Falle eines Erfolgs oder Misserfolgs zu berichten. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Code-Snippet öffnen wir eine Lese-/Schreib-Transaktion in unserer Datenbank und fügen mit `add()` einige Daten in einen Object Store ein. Beachten Sie auch die Funktionen, die den Ereignis-Handlern der Transaktion beigefügt sind, um über das Ergebnis der Transaktionsöffnung im Falle eines Erfolgs oder Fehlschlags zu berichten. Für ein vollständiges, funktionierendes Beispiel sehen Sie sich unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) App an ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
-// Lassen Sie uns unsere Datenbank öffnen
+// Let us open our database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
 DBOpenRequest.onsuccess = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Datenbank initialisiert.";
+    "Database initialized.";
 
-  // Speichern Sie das Ergebnis des Öffnens der Datenbank in der db-Variable.
-  // Diese wird weiter unten häufig verwendet
+  // store the result of opening the database in the db variable.
+  // This is used a lot below
   db = DBOpenRequest.result;
 
-  // Führen Sie die addData() Funktion aus, um die Daten zur Datenbank hinzuzufügen
+  // Run the addData() function to add the data to the database
   addData();
 };
 
 function addData() {
-  // Erstellen Sie ein neues Objekt, das in die IDB eingefügt werden soll
+  // Create a new object ready to insert into the IDB
   const newItem = [
     {
-      taskTitle: "Hund ausführen",
+      taskTitle: "Walk dog",
       hours: 19,
       minutes: 30,
       day: 24,
-      month: "Dezember",
+      month: "December",
       year: 2013,
-      notified: "nein",
+      notified: "no",
     },
   ];
 
-  // Öffnen Sie eine Lese-/Schreib-DB-Transaktion, bereit zum Hinzufügen der Daten
+  // open a read/write db transaction, ready for adding the data
   const transaction = db.transaction(["toDoList"], "readwrite");
 
-  // Berichten Sie über den Erfolg des Abschlusses der Transaktion, wenn alles erledigt ist
+  // report on the success of the transaction completing, when everything is done
   transaction.oncomplete = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion abgeschlossen.";
+      "Transaction completed.";
   };
 
   transaction.onerror = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion aufgrund eines Fehlers nicht geöffnet. Doppelte Einträge sind nicht erlaubt.";
+      "Transaction not opened due to error. Duplicate items not allowed.";
   };
 
-  // Erstellen Sie einen Objekt-Store in der Transaktion
+  // create an object store on the transaction
   const objectStore = transaction.objectStore("toDoList");
 
-  // Stellen Sie eine Anfrage, um unser newItem-Objekt dem Objekt-Store hinzuzufügen 
+  // Make a request to add our newItem object to the object store
   const objectStoreRequest = objectStore.add(newItem[0]);
 
   objectStoreRequest.onsuccess = (event) => {
-    // Berichten Sie über den Erfolg unserer Anfrage
+    // report the success of our request
     note.appendChild(document.createElement("li")).textContent =
-      "Anfrage erfolgreich.";
+      "Request successful.";
   };
 }
 ```
@@ -128,9 +128,9 @@ function addData() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Einen Bereich von Schlüsseln festlegen: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursoren: {{domxref("IDBCursor")}}
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

@@ -1,5 +1,5 @@
 ---
-title: "IDBTransaction: complete-Event"
+title: "IDBTransaction: complete-Ereignis"
 short-title: complete
 slug: Web/API/IDBTransaction/complete_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("IndexedDB")}}
 
-Das **`complete`**-Ereignis der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) wird ausgelöst, wenn die Transaktion erfolgreich abgeschlossen wurde, entweder nachdem Sie explizit {{domxref("IDBTransaction.commit()")}} aufrufen oder wenn alle Anfragen erfolgreich bearbeitet wurden und nach der Verarbeitung ihrer Ergebnisse keine neuen Anfragen gestellt wurden. Weitere Informationen finden Sie unter {{domxref("IDBTransaction")}}.
+Das **`complete`**-Ereignis der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) wird ausgelöst, wenn die Transaktion erfolgreich abgeschlossen wurde, entweder nachdem Sie explizit [`IDBTransaction.commit()`](/de/docs/Web/API/IDBTransaction/commit) aufgerufen haben oder wenn alle Anfragen erfolgreich abgeschlossen wurden und nach der Bearbeitung ihrer Ergebnisse keine neuen Anfragen platziert wurden. Weitere Informationen finden Sie unter [`IDBTransaction`](/de/docs/Web/API/IDBTransaction).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("complete", (event) => {});
@@ -21,29 +21,29 @@ oncomplete = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Verwendung von {{DOMxRef("EventTarget.addEventListener", "addEventListener()")}}:
+Verwendung von [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener):
 
 ```js
-// Öffnen der Datenbank
+// Open the database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
 DBOpenRequest.onupgradeneeded = (event) => {
   const db = event.target.result;
 
   db.onerror = () => {
-    console.log("Fehler beim Erstellen der Datenbank");
+    console.log("Error creating database");
   };
 
-  // Erstellen eines objectStore für diese Datenbank
+  // Create an objectStore for this database
   const objectStore = db.createObjectStore("toDoList", {
     keyPath: "taskTitle",
   });
 
-  // Definieren, welche Datenelemente der objectStore enthalten wird
+  // define what data items the objectStore will contain
   objectStore.createIndex("hours", "hours", { unique: false });
   objectStore.createIndex("minutes", "minutes", { unique: false });
   objectStore.createIndex("day", "day", { unique: false });
@@ -54,12 +54,12 @@ DBOpenRequest.onupgradeneeded = (event) => {
 DBOpenRequest.onsuccess = (event) => {
   const db = DBOpenRequest.result;
 
-  // Starten einer Lese-/Schreib-Datenbanktransaktion, bereit zum Hinzufügen der Daten
+  // open a read/write db transaction, ready for adding the data
   const transaction = db.transaction(["toDoList"], "readwrite");
 
-  // Listener für `complete` hinzufügen
+  // add a listener for `complete`
   transaction.addEventListener("complete", (event) => {
-    console.log("Transaktion wurde abgeschlossen");
+    console.log("Transaction was completed");
   });
 
   const objectStore = transaction.objectStore("toDoList");
@@ -74,13 +74,13 @@ DBOpenRequest.onsuccess = (event) => {
   const objectStoreRequest = objectStore.add(newItem);
 
   objectStoreRequest.onsuccess = () => {
-    // Einen zweiten Antrag im onsuccess-Handler stellen,
-    // damit wir diesen Antrag nach dem Abschluss des ersten Antrags ausführen können,
-    // während wir dieselbe Transaktion weiterverwenden
+    // Issue a second request in the onsuccess handler,
+    // so we can run this request after the first one completes,
+    // while still reusing the same transaction
     const getAllRequest = objectStore.getAll();
 
     getAllRequest.onsuccess = () => {
-      // Keine weiteren Anfragen, die Transaktion wird nach Ausführen dieses Handlers abgeschlossen
+      // No more requests, so the transaction completes after running this handler
       console.log(getAllRequest.result);
     };
   };

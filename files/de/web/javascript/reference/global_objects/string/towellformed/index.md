@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toWellFormed()`** Methode von {{jsxref("String")}}-Werten gibt einen String zurück, bei dem alle [einsamen Surrogate](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) dieses Strings durch das Unicode-Ersatzzeichen U+FFFD ersetzt werden.
+Die **`toWellFormed()`**-Methode von {{jsxref("String")}}-Werten gibt einen String zurück, bei dem alle [einsamen Surrogate](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) dieses Strings durch das Unicode-Ersatzzeichen U+FFFD ersetzt werden.
 
 ## Syntax
 
@@ -21,15 +21,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein neuer String, der eine Kopie dieses Strings ist, bei dem alle einsamen Surrogate durch das Unicode-Ersatzzeichen U+FFFD ersetzt werden. Wenn `str` [gut formuliert ist](/de/docs/Web/JavaScript/Reference/Global_Objects/String/isWellFormed), wird trotzdem ein neuer String zurückgegeben (im Wesentlichen eine Kopie von `str`).
+Ein neuer String, der eine Kopie dieses Strings ist, wobei alle einsamen Surrogate durch das Unicode-Ersatzzeichen U+FFFD ersetzt werden. Wenn `str` [wohlgeformt ist](/de/docs/Web/JavaScript/Reference/Global_Objects/String/isWellFormed), wird trotzdem ein neuer String zurückgegeben (im Wesentlichen eine Kopie von `str`).
 
 ## Beschreibung
 
-Strings in JavaScript sind mit UTF-16 codiert. Die UTF-16-Codierung hat das Konzept der _Surrogatpaare_, das detailliert im Abschnitt [UTF-16-Zeichen, Unicode-Codepunkte und Graphemcluster](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) eingeführt wird.
+Strings in JavaScript sind UTF-16-codiert. Die UTF-16-Codierung hat das Konzept der _Surrogatpaare_, das im Abschnitt [UTF-16-Zeichen, Unicode-Codes und Graphem-Cluster](/de/docs/Web/JavaScript/Reference/Global_Objects/String#utf-16_characters_unicode_code_points_and_grapheme_clusters) ausführlich erläutert wird.
 
-`toWellFormed()` durchläuft die Codeeinheiten dieses Strings und ersetzt alle einsamen Surrogate durch das [Unicode-Ersatzzeichen](<https://en.wikipedia.org/wiki/Specials_(Unicode_block)#Replacement_character>) U+FFFD `�`. Dies stellt sicher, dass der zurückgegebene String gut formuliert ist und in Funktionen verwendet werden kann, die gut formulierte Strings erwarten, wie {{jsxref("encodeURI")}}. Im Vergleich zu einer benutzerdefinierten Implementierung ist `toWellFormed()` effizienter, da Engines direkt auf die interne Darstellung von Strings zugreifen können.
+`toWellFormed()` durchläuft die Code-Einheiten dieses Strings und ersetzt alle einsamen Surrogate durch das [Unicode-Ersatzzeichen](<https://en.wikipedia.org/wiki/Specials_(Unicode_block)#Replacement_character>) U+FFFD `�`. Dies stellt sicher, dass der zurückgegebene String wohlgeformt ist und in Funktionen verwendet werden kann, die wohlgeformte Strings erwarten, wie z.B. {{jsxref("encodeURI")}}. Im Vergleich zu einer benutzerdefinierten Implementierung ist `toWellFormed()` effizienter, da Engines direkt auf die interne Darstellung von Strings zugreifen können.
 
-Wenn in bestimmten Kontexten, wie {{domxref("TextEncoder")}}, schlecht formulierte Strings verwendet werden, werden sie automatisch in gut formulierte Strings konvertiert, indem das gleiche Ersatzzeichen verwendet wird. Wenn einsame Surrogate gerendert werden, werden sie ebenfalls als Ersatzzeichen angezeigt (ein Diamant mit einem Fragezeichen darin).
+Wenn fehlerhaft geformte Strings in bestimmten Kontexten verwendet werden, wie z.B. beim [`TextEncoder`](/de/docs/Web/API/TextEncoder), werden sie automatisch in wohlgeformte Strings umgewandelt, indem dasselbe Ersatzzeichen verwendet wird. Wenn einsame Surrogate gerendert werden, werden sie ebenfalls als Ersatzzeichen dargestellt (ein Diamant mit einem Fragezeichen darin).
 
 ## Beispiele
 
@@ -37,13 +37,13 @@ Wenn in bestimmten Kontexten, wie {{domxref("TextEncoder")}}, schlecht formulier
 
 ```js
 const strings = [
-  // Einsames führendes Surrogat
+  // Lone leading surrogate
   "ab\uD800",
   "ab\uD800c",
-  // Einsames abschließendes Surrogat
+  // Lone trailing surrogate
   "\uDFFFab",
   "c\uDFFFab",
-  // Gut formuliert
+  // Well-formed
   "abc",
   "ab\uD83D\uDE04c",
 ];
@@ -51,7 +51,7 @@ const strings = [
 for (const str of strings) {
   console.log(str.toWellFormed());
 }
-// Protokolliert:
+// Logs:
 // "ab�"
 // "ab�c"
 // "�ab"
@@ -62,7 +62,7 @@ for (const str of strings) {
 
 ### Vermeidung von Fehlern in encodeURI()
 
-{{jsxref("encodeURI")}} löst einen Fehler aus, wenn der übergebene String nicht gut formuliert ist. Dies kann vermieden werden, indem `toWellFormed()` verwendet wird, um den String zuerst in einen gut formulierten String zu konvertieren.
+{{jsxref("encodeURI")}} wirft einen Fehler, wenn der übergebene String nicht wohlgeformt ist. Dies kann vermieden werden, indem `toWellFormed()` verwendet wird, um den String zuerst in einen wohlgeformten String zu konvertieren.
 
 ```js
 const illFormed = "https://example.com/search?q=\uD800";

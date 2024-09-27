@@ -1,5 +1,5 @@
 ---
-title: "BaseAudioContext: createConvolver() Methode"
+title: "BaseAudioContext: createConvolver()-Methode"
 short-title: createConvolver()
 slug: Web/API/BaseAudioContext/createConvolver
 l10n:
@@ -8,11 +8,10 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `createConvolver()`-Methode der {{ domxref("BaseAudioContext") }}-Schnittstelle erstellt einen {{ domxref("ConvolverNode") }}, der üblicherweise verwendet wird, um Halleffekte auf Ihre Audioinhalte anzuwenden. Weitere Informationen finden Sie in der [Spezifikationsdefinition der Faltung](https://webaudio.github.io/web-audio-api/#background-3).
+Die `createConvolver()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle erstellt einen [`ConvolverNode`](/de/docs/Web/API/ConvolverNode), der häufig verwendet wird, um Halleffekte auf Ihr Audio anzuwenden. Weitere Informationen finden Sie in der [Spezifikationsdefinition der Faltung](https://webaudio.github.io/web-audio-api/#background-3).
 
 > [!NOTE]
-> Der {{domxref("ConvolverNode.ConvolverNode", "ConvolverNode()")}}-Konstruktor ist die empfohlene Methode, um einen {{domxref("ConvolverNode")}} zu erstellen; siehe
-> [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`ConvolverNode()`](/de/docs/Web/API/ConvolverNode/ConvolverNode)-Konstruktor ist die empfohlene Methode, um einen [`ConvolverNode`](/de/docs/Web/API/ConvolverNode) zu erstellen; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -26,15 +25,15 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("ConvolverNode")}}.
+Ein [`ConvolverNode`](/de/docs/Web/API/ConvolverNode).
 
 ## Beispiele
 
 ### Erstellen eines Convolver-Knotens
 
-Das folgende Beispiel zeigt, wie man einen AudioContext verwendet, um einen Convolver-Knoten zu erstellen. Sie erstellen einen {{domxref("AudioBuffer")}}, der ein Klangbeispiel enthält, das als Umgebung zur Formgebung der Faltung (als _Impulsantwort_ bezeichnet) verwendet wird und wenden dies auf den Convolver an. Das untenstehende Beispiel verwendet ein kurzes Beispiel eines Konzertsaalpublikums, sodass der angewendete Halleffekt wirklich tief und echoartig ist.
+Das folgende Beispiel zeigt, wie Sie einen `AudioContext` verwenden, um einen Convolver-Knoten zu erstellen. Sie erstellen einen [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der ein Klangbeispiel enthält, das als Umgebung zur Formung der Faltung verwendet wird (genannt das _Impulsantwort_), und wenden dieses auf den Convolver an. Im untenstehenden Beispiel wird ein kurzer Ausschnitt einer Konzertsaalmenge verwendet, sodass der angewendete Halleffekt wirklich tief und echoartig ist.
 
-Für vollständigere angewandte Beispiele/Informationen schauen Sie sich unser [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) Demo an (siehe [app.js](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js) für den unten dargestellten Codeauszug).
+Für vollständigere angewandte Beispiele/Informationen sehen Sie sich unsere [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/)-Demo an (siehe [app.js](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js) für den untenstehenden Codeausschnitt).
 
 ```js
 const audioCtx = new AudioContext();
@@ -43,7 +42,7 @@ const audioCtx = new AudioContext();
 const convolver = audioCtx.createConvolver();
 // ...
 
-// Audiotrack über fetch() für Convolver-Knoten abrufen
+// Grab audio track via fetch() for convolver node
 try {
   const response = await fetch(
     "https://mdn.github.io/voice-change-o-matic/audio/concert-crowd.ogg",
@@ -62,7 +61,7 @@ try {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

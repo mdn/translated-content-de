@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`setValidity()`** Methode der {{domxref("ElementInternals")}} Schnittstelle setzt die Gültigkeit des Elements.
+Die **`setValidity()`**-Methode der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle legt die Gültigkeit des Elements fest.
 
 ## Syntax
 
@@ -22,36 +22,36 @@ setValidity(flags, message, anchor)
 
 - `flags` {{Optional_Inline}}
 
-  - : Ein Wörterbuchobjekt, das ein oder mehrere Flags enthält, die den Gültigkeitszustand des Elements angeben:
+  - : Ein Wörterbuchobjekt, das ein oder mehrere Flags enthält, die den Gültigkeitszustand des Elements anzeigen:
 
     - `valueMissing`
-      - : Ein boolescher Wert, der `true` ist, wenn das Element ein [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut hat, aber keinen Wert, oder `false` sonst. Wenn `true`, entspricht das Element der {{cssxref(":invalid")}} CSS-Pseudoklasse.
+      - : Ein boolescher Wert, der `true` ist, wenn das Element ein [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut besitzt, aber keinen Wert, oder `false` ansonsten. Wenn `true`, passt das Element zur {{cssxref(":invalid")}} CSS-Pseudoklasse.
     - `typeMismatch`
-      - : Ein boolescher Wert, der `true` ist, wenn der Wert nicht im erforderlichen Syntaxformat (wenn [`type`](/de/docs/Web/HTML/Element/input#type) `email` oder `url` ist) vorliegt, oder `false`, wenn das Syntaxformat korrekt ist. Wenn `true`, entspricht das Element der {{cssxref(":invalid")}} CSS-Pseudoklasse.
+      - : Ein boolescher Wert, der `true` ist, wenn der Wert nicht dem erforderlichen Syntaxformat entspricht (wenn [`type`](/de/docs/Web/HTML/Element/input#type) `email` oder `url` ist), oder `false`, wenn die Syntax korrekt ist. Wenn `true`, passt das Element zur {{cssxref(":invalid")}} CSS-Pseudoklasse.
     - `patternMismatch`
-      - : Ein boolescher Wert, der `true` ist, wenn der Wert nicht dem angegebenen [`pattern`](/de/docs/Web/HTML/Element/input#pattern) entspricht, und `false`, wenn er übereinstimmt. Wenn `true`, entspricht das Element der {{cssxref(":invalid")}} CSS-Pseudoklasse.
+      - : Ein boolescher Wert, der `true` ist, wenn der Wert nicht dem angegebenen [`pattern`](/de/docs/Web/HTML/Element/input#pattern) entspricht, und `false`, wenn er es tut. Wenn `true`, passt das Element zur {{cssxref(":invalid")}} CSS-Pseudoklasse.
     - `tooLong`
-      - : Ein boolescher Wert, der `true` ist, wenn der Wert die angegebene `maxlength` für {{domxref("HTMLInputElement")}} oder {{domxref("HTMLTextAreaElement")}} Objekte überschreitet, oder `false`, wenn seine Länge kleiner oder gleich der maximalen Länge ist. Wenn `true`, entspricht das Element den {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} CSS-Pseudoklassen.
+      - : Ein boolescher Wert, der `true` ist, wenn der Wert die angegebene `maxlength` für [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) oder [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) Objekte überschreitet, oder `false`, wenn seine Länge kleiner oder gleich der maximalen Länge ist. Wenn `true`, passt das Element zur {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} CSS-Pseudoklassen.
     - `tooShort`
-      - : Ein boolescher Wert, der `true` ist, wenn der Wert die angegebene `minlength` für {{domxref("HTMLInputElement")}} oder {{domxref("HTMLTextAreaElement")}} Objekte nicht erfüllt, oder `false`, wenn seine Länge größer oder gleich der minimalen Länge ist. Wenn `true`, entspricht das Element den {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} CSS-Pseudoklassen.
+      - : Ein boolescher Wert, der `true` ist, wenn der Wert die angegebene `minlength` für [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) oder [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) Objekte nicht erfüllt, oder `false`, wenn seine Länge größer oder gleich der minimalen Länge ist. Wenn `true`, passt das Element zur {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} CSS-Pseudoklassen.
     - `rangeUnderflow`
-      - : Ein boolescher Wert, der `true` ist, wenn der Wert kleiner ist als das Minimum, das durch das [`min`](/de/docs/Web/HTML/Element/input#min) Attribut angegeben ist, oder `false`, wenn er größer oder gleich dem Minimum ist. Wenn `true`, entspricht das Element den {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} CSS-Pseudoklassen.
+      - : Ein boolescher Wert, der `true` ist, wenn der Wert kleiner ist als das Minimum, das durch das [`min`](/de/docs/Web/HTML/Element/input#min)-Attribut festgelegt wurde, oder `false`, wenn er größer oder gleich dem Minimum ist. Wenn `true`, passt das Element zur {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} CSS-Pseudoklassen.
     - `rangeOverflow`
-      - : Ein boolescher Wert, der `true` ist, wenn der Wert größer ist als das Maximum, das durch das [`max`](/de/docs/Web/HTML/Element/input#max)-Attribut angegeben ist, oder `false`, wenn er kleiner oder gleich dem Maximum ist. Wenn `true`, entspricht das Element den {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} CSS-Pseudoklassen.
+      - : Ein boolescher Wert, der `true` ist, wenn der Wert größer ist als das Maximum, das durch das [`max`](/de/docs/Web/HTML/Element/input#max)-Attribut festgelegt wurde, oder `false`, wenn er kleiner oder gleich dem Maximum ist. Wenn `true`, passt das Element zur {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} CSS-Pseudoklassen.
     - `stepMismatch`
-      - : Ein boolescher Wert, der `true` ist, wenn der Wert nicht zu den durch das [`step`](/de/docs/Web/HTML/Element/input#step) Attribut bestimmten Regeln passt (das heißt, er ist nicht gleichmäßig durch den Schrittwert teilbar), oder `false`, wenn er der Schrittregel entspricht. Wenn `true`, entspricht das Element den {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} CSS-Pseudoklassen.
+      - : Ein boolescher Wert, der `true` ist, wenn der Wert nicht den vom [`step`](/de/docs/Web/HTML/Element/input#step)-Attribut festgelegten Regeln entspricht (das heißt, er ist nicht gleichmäßig durch den Schrittwert teilbar), oder `false`, wenn er der Regel entspricht. Wenn `true`, passt das Element zur {{cssxref(":invalid")}} und {{cssxref(":out-of-range")}} CSS-Pseudoklassen.
     - `badInput`
-      - : Ein boolescher Wert, der `true` ist, wenn der Benutzer eine Eingabe gemacht hat, die der Browser nicht konvertieren kann.
+      - : Ein boolescher Wert, der `true` ist, wenn der Benutzer eine Eingabe geliefert hat, die der Browser nicht konvertieren kann.
     - `customError`
-      - : Ein boolescher Wert, der anzeigt, ob die benutzerdefinierte Gültigkeitsmeldung des Elements durch Aufrufen der {{domxref('HTMLObjectElement.setCustomValidity', 'setCustomValidity()')}} Methode auf einen nicht leeren String gesetzt wurde.
+      - : Ein boolescher Wert, der angibt, ob die benutzerdefinierte Gültigkeitsmeldung des Elements auf eine nicht-leere Zeichenkette gesetzt wurde, indem die Methode [`setCustomValidity()`](/de/docs/Web/API/HTMLObjectElement/setCustomValidity) des Elements aufgerufen wurde.
 
     > [!NOTE]
-    > Um alle Flags auf `false` zu setzen, was anzeigt, dass dieses Element alle Validierungsbedingungen entspricht, übergeben Sie ein leeres Objekt `{}`. In diesem Fall ist es nicht erforderlich, auch eine `message` zu übergeben.
+    > Um alle Flags auf `false` zu setzen, was bedeutet, dass dieses Element alle Gültigkeitsprüfungen besteht, übergeben Sie ein leeres Objekt `{}`. In diesem Fall müssen Sie keine `message` übergeben.
 
 - `message` {{Optional_Inline}}
-  - : Ein String, der eine Nachricht enthält, die gesetzt wird, wenn eines der `flags` `true` ist. Dieser Parameter ist nur optional, wenn alle `flags` `false` sind.
+  - : Eine Zeichenkette, die eine Nachricht enthält, die gesetzt wird, wenn irgendeine der `flags` `true` ist. Dieser Parameter ist nur optional, wenn alle `flags` `false` sind.
 - `anchor` {{Optional_Inline}}
-  - : Ein {{domxref("HTMLElement")}}, das vom Benutzeragenten verwendet werden kann, um Probleme mit dieser Formularübermittlung zu melden.
+  - : Ein [`HTMLElement`](/de/docs/Web/API/HTMLElement), das vom User-Agent verwendet werden kann, um Probleme mit dieser Formularübermittlung zu melden.
 
 ### Rückgabewert
 
@@ -59,25 +59,25 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Element seine `formAssociated` Eigenschaft nicht auf `true` gesetzt hat.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn eines oder mehrere der `flags` `true` sind.
-- `NotFoundError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `anchor` gegeben ist, aber der Anker kein Schatten-inbegriffener Nachkomme des Elements ist.
+  - : Wird ausgelöst, wenn eines oder mehrere `flags` `true` sind.
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `anchor` angegeben ist, aber der Anker kein Shadow-umfassender Nachfolger des Elements ist.
 
 ## Beispiele
 
-Im folgenden Beispiel wird `setValidity` mit einem leeren `flags` Parameter aufgerufen, um anzuzeigen, dass das Element den Validierungsregeln entspricht.
+Im folgenden Beispiel wird `setValidity` mit einem leeren `flags`-Parameter aufgerufen, um anzuzeigen, dass das Element die Gültigkeitsprüfungsregeln erfüllt.
 
 ```js
 this.internals_.setValidity({});
 ```
 
-Im folgenden Beispiel wird `setValidity` mit dem Flag `valueMissing` aufgerufen, das auf `true` gesetzt ist. Ein `message` Parameter muss dann ebenfalls übergeben werden, der eine Nachricht enthält.
+Im folgenden Beispiel wird `setValidity` mit dem Flag `valueMissing` auf `true` gesetzt. Ein `message`-Parameter muss dann auch übergeben werden und eine Nachricht enthalten.
 
 ```js
-this.internals_.setValidity({ valueMissing: true }, "meine Nachricht");
+this.internals_.setValidity({ valueMissing: true }, "my message");
 ```
 
 ## Spezifikationen

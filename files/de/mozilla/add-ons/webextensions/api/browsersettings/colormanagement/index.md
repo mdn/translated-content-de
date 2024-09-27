@@ -7,18 +7,18 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet wird, um die Abfragen und Einstellungen der Farbverwaltungsfunktionen des Browsers vorzunehmen.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet wird, um die Farbmanagementfunktionen des Browsers abzufragen und festzulegen.
 
-Standardmäßig wendet Firefox Farbmanagement auf getaggte Medien an und verwendet sRGB für ungetaggte Medien. Dieses Verhalten kann bedeuten, dass bei einigen ungetaggten Medien, wie sie in der Animation und Filmproduktion genutzt werden, unerwünschte Farbkorrekturen vorgenommen werden. Verwenden Sie diese Einstellungen, um dies zu verhindern.
+Standardmäßig wendet Firefox Farbmanagement auf getaggte Medien an und verwendet sRGB für nicht getaggte Medien. Dieses Verhalten bedeutet, dass einige nicht getaggte Medien, wie sie in der Animation und Filmproduktion verwendet werden, unerwünschte Farbkorrekturen erfahren können. Verwenden Sie diese Einstellungen, um dies zu verhindern.
 
 Das Objekt hat folgende Eigenschaften:
 
 - `mode`
-  - : Ein String, der den Modus repräsentiert, der für das Farbmanagement verwendet wird. Gültige Werte sind `off`, `full` und `tagged_only`.
+  - : Ein String, der den Modus darstellt, der für das Farbmanagement verwendet wird. Gültige Werte sind `off`, `full` und `tagged_only`.
 - `useNativeSRGB`
-  - : Ein Boolean, der angibt, ob die eingebaute sRGB-Farbverwaltung verwendet wird.
+  - : Ein Boolean, der angibt, ob das eingebaute sRGB-Farbmanagement verwendet wird oder nicht.
 - `useWebRenderCompositor`
-  - : Ein Boolean, der angibt, ob der WebRender-Compositor verwendet wird.
+  - : Ein Boolean, der angibt, ob der WebRender-Compositor verwendet wird oder nicht.
 
 ## Browser-Kompatibilität
 
@@ -38,7 +38,7 @@ browser.browserSettings.colorManagement.mode
   .then(logResult);
 ```
 
-Den nativen sRGB-Farbverwaltungsmodus erhalten:
+Den nativen sRGB-Farbmanagementmodus abrufen:
 
 ```js
 function logResult(result) {

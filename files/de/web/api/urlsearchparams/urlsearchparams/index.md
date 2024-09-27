@@ -1,5 +1,5 @@
 ---
-title: "URLSearchParams: URLSearchParams()-Konstruktor"
+title: "URLSearchParams: URLSearchParams() Konstruktor"
 short-title: URLSearchParams()
 slug: Web/API/URLSearchParams/URLSearchParams
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Der **`URLSearchParams()`**-Konstruktor erstellt und gibt ein neues {{domxref("URLSearchParams")}}-Objekt zurück.
+Der **`URLSearchParams()`** Konstruktor erstellt und gibt ein neues [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Objekt zurück.
 
 ## Syntax
 
@@ -21,41 +21,41 @@ new URLSearchParams(options)
 
 - `options` {{optional_inline}}
   - : Eine der folgenden Möglichkeiten:
-    - Ein String, der aus dem `application/x-www-form-urlencoded`-Format geparst wird. Ein führendes `'?'`-Zeichen wird ignoriert.
-    - Eine literale Sequenz von Namens-Wert-Paaren als Strings oder ein beliebiges Objekt — wie zum Beispiel ein {{domxref("FormData")}}-Objekt — mit einem [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators#iterators), das eine Sequenz von String-Paaren produziert. Beachten Sie, dass {{domxref("File")}}-Einträge als `[object File]` serialisiert werden, anstatt als ihren Dateinamen (wie sie in einem `application/x-www-form-urlencoded`-Formular erscheinen würden).
-    - Ein Record von String-Schlüsseln und String-Werten. Beachten Sie, dass Verschachtelung nicht unterstützt wird.
+    - Ein String, der aus dem `application/x-www-form-urlencoded` Format geparst wird. Ein führendes `'?'` Zeichen wird ignoriert.
+    - Eine literale Sequenz von Namens-Wert-Paaren als String oder ein beliebiges Objekt — wie ein [`FormData`](/de/docs/Web/API/FormData) Objekt — mit einem [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators#iterators), der eine Sequenz von String-Paaren erzeugt. Beachten Sie, dass [`File`](/de/docs/Web/API/File) Einträge als `[object File]` serialisiert werden, anstatt als ihr Dateiname (wie sie es in einem `application/x-www-form-urlencoded` Formular wären).
+    - Ein Register von String-Schlüsseln und String-Werten. Beachten Sie, dass Verschachtelung nicht unterstützt wird.
 
 ### Rückgabewert
 
-Eine Instanz eines {{domxref("URLSearchParams")}}-Objekts.
+Eine Instanz des [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Objekts.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein {{domxref("URLSearchParams")}}-Objekt aus verschiedenen Eingaben erstellt wird.
+Das folgende Beispiel zeigt, wie man ein [`URLSearchParams`](/de/docs/Web/API/URLSearchParams) Objekt aus verschiedenen Eingaben erstellt.
 
 ```js
-// Abrufen von Parametern über url.search, die an den Konstruktor übergeben werden
+// Retrieve params via url.search, passed into constructor
 const url = new URL("https://example.com?foo=1&bar=2");
 const params1 = new URLSearchParams(url.search);
 
-// Erhalten des URLSearchParams-Objekts direkt aus einem URL-Objekt
+// Get the URLSearchParams object directly from a URL object
 const params1a = url.searchParams;
 
-// Übergabe eines String-Literals
+// Pass in a string literal
 const params2 = new URLSearchParams("foo=1&bar=2");
 const params2a = new URLSearchParams("?foo=1&bar=2");
 
-// Übergabe einer Sequenz von Paaren
+// Pass in a sequence of pairs
 const params3 = new URLSearchParams([
   ["foo", "1"],
   ["bar", "2"],
 ]);
 
-// Übergabe eines Records
+// Pass in a record
 const params4 = new URLSearchParams({ foo: "1", bar: "2" });
 ```
 
-Dieses Beispiel zeigt, wie eine neue URL mit einem Objekt von Suchparametern aus einer vorhandenen URL erstellt wird, die Suchparameter enthält.
+Dieses Beispiel zeigt, wie man eine neue URL mit einem Objekt von Suchparametern aus einer bestehenden URL, die Suchparameter enthält, erstellt.
 
 ```js
 const url = new URL("https://example.com/?a=hello&b=world");
@@ -84,7 +84,7 @@ const new_url = new URL(`${url.origin}${url.pathname}?${new_params}`);
 console.log(new_url.href);
 // https://example.com/?a=hello&b=world&c=a&d=2&e=false
 
-// Hier ist es als Funktion, die (URL, Record<string, string>) akzeptiert
+// Here it is as a function that accepts (URL, Record<string, string>)
 const addSearchParams = (url, params = {}) =>
   new URL(
     `${url.origin}${url.pathname}?${new URLSearchParams([

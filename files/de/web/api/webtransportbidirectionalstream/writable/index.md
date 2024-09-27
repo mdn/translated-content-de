@@ -1,5 +1,5 @@
 ---
-title: "WebTransportBidirectionalStream: writable-Eigenschaft"
+title: "WebTransportBidirectionalStream: schreibbare Eigenschaft"
 short-title: writable
 slug: Web/API/WebTransportBidirectionalStream/writable
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`writable`** des {{domxref("WebTransportBidirectionalStream")}}-Interfaces gibt eine Instanz von {{domxref("WebTransportSendStream")}} zurück, die verwendet werden kann, um ausgehende Daten zu schreiben.
+Die **`writable`** schreibgeschützte Eigenschaft des [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Interfaces gibt eine [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream)-Instanz zurück, die zum Schreiben von ausgehenden Daten verwendet werden kann.
 
 ## Wert
 
-Ein {{domxref("WebTransportSendStream")}}.
+Ein [`WebTransportSendStream`](/de/docs/Web/API/WebTransportSendStream).
 
 ## Beispiele
 
-Siehe die Hauptseite des {{domxref("WebTransportBidirectionalStream")}}-Interfaces.
+Siehe die Hauptseite des [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Interfaces.
 
 ## Spezifikationen
 
@@ -28,7 +28,7 @@ Siehe die Hauptseite des {{domxref("WebTransportBidirectionalStream")}}-Interfac
 
 ## Siehe auch
 
-- [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
-- [WebTransport over HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)
+- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
+- [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

@@ -7,27 +7,27 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Clearing_with_colors","Learn/WebGL/By_example/Simple_color_animation")}}
 
-Dieses Beispiel zeigt, wie Sie Benutzerinteraktionen mit WebGL-Grafikoperationen kombinieren können, indem der Rendering-Kontext beim Klick des Benutzers mit einer zufälligen Farbe gelöscht wird.
+Dieses Beispiel zeigt, wie Benutzerinteraktionen mit WebGL-Grafikoperationen kombiniert werden können, indem der Rendering-Kontext beim Klicken des Benutzers mit einer zufälligen Farbe gelöscht wird.
 
-## Löschen des Rendering-Kontextes mit zufälligen Farben
+## Löschen des Rendering-Kontexts mit zufälligen Farben
 
 {{EmbedLiveSample("Clearing_the_rendering_context_with_random_colors",660,425)}}
 
-Dieses Beispiel bietet eine einfache Darstellung der Kombination von {{Glossary("WebGL")}} und Benutzerinteraktion. Jedes Mal, wenn der Benutzer auf die Leinwand oder den Button klickt, wird die Leinwand mit einer neu zufällig gewählten Farbe gelöscht.
+Dieses Beispiel bietet eine einfache Darstellung, wie [WebGL](/de/docs/Glossary/WebGL) mit Benutzerinteraktionen kombiniert werden kann. Jedes Mal, wenn der Benutzer auf die Leinwand oder den Button klickt, wird die Leinwand mit einer neu zufällig gewählten Farbe gelöscht.
 
-Beachten Sie, wie wir die {{Glossary("WebGL")}}-Funktionsaufrufe in die Event-Handler-Funktion einbetten.
+Beachten Sie, wie wir die [WebGL](/de/docs/Glossary/WebGL)-Funktionsaufrufe innerhalb der Ereignis-Handler-Funktion einbetten.
 
 ```html
 <p>
-  Ein sehr einfaches WebGL-Programm, das dennoch einige Farbe und Benutzerinteraktion zeigt.
+  A very simple WebGL program that still shows some color and user interaction.
 </p>
 <p>
-  Sie können wiederholt auf die leere Leinwand oder den Button unten klicken, um die Farbe zu ändern.
+  You can repeatedly click the empty canvas or the button below to change color.
 </p>
 <canvas id="canvas-view">
-  Ihr Browser scheint HTML-Canvas nicht zu unterstützen.
+  Your browser does not seem to support HTML canvas.
 </canvas>
-<button id="color-switcher">Klicken Sie hier, um die Farbe zu wechseln</button>
+<button id="color-switcher">Press here to switch color</button>
 ```
 
 ```css
@@ -57,47 +57,48 @@ window.addEventListener(
   function setupWebGL(evt) {
     "use strict";
 
-    // Reinigung nach uns selbst. Der Event-Handler entfernt
-    // sich selbst, weil er nur einmal ausgeführt werden muss.
+    // Cleaning after ourselves. The event handler removes
+    // itself, because it only needs to run once.
     window.removeEventListener(evt.type, setupWebGL, false);
 
-    // Hinzufügen desselben Klick-Event-Handlers sowohl zur Leinwand als auch zum Button.
+    // Adding the same click event handler to both canvas and
+    // button.
     const canvas = document.querySelector("#canvas-view");
     const button = document.querySelector("#color-switcher");
     canvas.addEventListener("click", switchColor, false);
     button.addEventListener("click", switchColor, false);
 
-    // Eine Variable, um den WebGLRenderingContext zu halten.
+    // A variable to hold the WebGLRenderingContext.
     let gl;
 
-    // Der Klick-Event-Handler.
+    // The click event handler.
     function switchColor() {
-      // Bezugnahme auf die extern definierte gl-Variable.
-      // Wenn undefiniert, versuchen, den WebGLRenderingContext zu erhalten.
-      // Wenn fehlgeschlagen, den Benutzer über den Fehler informieren.
-      // Andernfalls den Zeichenpuffer (die Viewport) initialisieren.
+      // Referring to the externally defined gl variable.
+      // If undefined, try to obtain the WebGLRenderingContext.
+      // If failed, alert user of failure.
+      // Otherwise, initialize the drawing buffer (the viewport).
       if (!gl) {
         gl =
           canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
         if (!gl) {
           alert(
-            "Fehler beim Abrufen des WebGL-Kontextes.\n" +
-              "Ihr Browser oder Gerät unterstützt möglicherweise kein WebGL.",
+            "Failed to get WebGL context.\n" +
+              "Your browser or device may not support WebGL.",
           );
           return;
         }
         gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
       }
-      // Einen zufälligen Farbwert mit einer Hilfsfunktion erhalten.
+      // Get a random color value using a helper function.
       const color = getRandomColor();
-      // Setzen der Löschfarbe auf die zufällige Farbe.
+      // Set the clear color to the random color.
       gl.clearColor(color[0], color[1], color[2], 1.0);
-      // Löschen des Kontextes mit der neu gesetzten Farbe. Dies ist
-      // der Funktionsaufruf, der tatsächlich das Zeichnen durchführt.
+      // Clear the context with the newly set color. This is
+      // the function call that actually does the drawing.
       gl.clear(gl.COLOR_BUFFER_BIT);
     }
 
-    // Hilfsfunktion für zufällige Farben.
+    // Random color helper function.
     function getRandomColor() {
       return [Math.random(), Math.random(), Math.random()];
     }
@@ -106,6 +107,6 @@ window.addEventListener(
 );
 ```
 
-Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/clearing-by-clicking) verfügbar.
+Der Quellcode dieses Beispiels ist ebenfalls auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/clearing-by-clicking) verfügbar.
 
 {{PreviousNext("Learn/WebGL/By_example/Clearing_with_colors","Learn/WebGL/By_example/Simple_color_animation")}}

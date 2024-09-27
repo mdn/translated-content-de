@@ -1,5 +1,5 @@
 ---
-title: "copy: Wasm Textinstruktion"
+title: "copy: Wasm-Textanweisung"
 short-title: copy
 slug: WebAssembly/Reference/Memory/Copy
 l10n:
@@ -8,47 +8,47 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`copy`** [Speicherinstruktion](/de/docs/WebAssembly/Reference/Memory) kopiert Daten von einem Speicherbereich in einen anderen.
+Die **`copy`** [Speicheranweisung](/de/docs/WebAssembly/Reference/Memory) kopiert Daten von einem Bereich eines Speichers in einen anderen.
 
-Die Instruktion gibt keinen Wert zurück. Wenn entweder der Quell- oder Zielbereich außerhalb des gültigen Bereichs liegt, löst die Instruktion eine Ausnahme aus.
+Die Anweisung gibt keinen Wert zurück. Wenn entweder der Quell- oder der Zielbereich außerhalb der Grenzen liegt, wird die Anweisung abgefangen.
 
 ## Syntax
 
 Kopieren innerhalb des Standardspeichers
 
 ```wasm
-;; Daten im Standardspeicher von [100, 125] nach [50, 75] kopieren
-i32.const 50 ;; Zieladresse zum Kopieren
-i32.const 100 ;; Quelladresse zum Kopieren
-i32.const 25 ;; Anzahl der Bytes zu kopieren
-memory.copy  ;; Speicher kopieren
+;; Copy data in default memory from [100, 125] to [50, 75]
+i32.const 50 ;; Destination address to copy to
+i32.const 100 ;; Source address to copy from
+i32.const 25 ;; Number of bytes to copy
+memory.copy  ;; Copy memory
 
-;; Kopieren im Standardspeicher mit einer S-Funktion
+;; Copy in default memory using an S-function
 (memory.copy (i32.const 50) (i32.const 100) (i32.const 25))
 ```
 
-Kopieren in einem bestimmten Speicher (falls multi-memory unterstützt wird)
+Kopieren des angegebenen Speichers (wenn Mehrfachspeicher unterstützt wird)
 
 ```wasm
-;; Daten in einem speziellen Speicher von [100, 125] nach [50, 75] kopieren
-i32.const 50 ;; Zieladresse zum Kopieren
-i32.const 100 ;; Quelladresse zum Kopieren
-i32.const 25 ;; Anzahl der Bytes zu kopieren
-memory.copy (memory 2)  ;; Speicher innerhalb des Speichers mit Index 2 kopieren
+;; Copy data in specific memory  [100, 125] to [50, 75]
+i32.const 50 ;; Destination address to copy to
+i32.const 100 ;; Source address to copy from
+i32.const 25 ;; Number of bytes to copy
+memory.copy (memory 2)  ;; Copy memory within memory with index 2
 
-;; Kopieren innerhalb eines Speichers, der durch seinen Namen referenziert wird
-i32.const 50 ;; Zieladresse zum Kopieren
-i32.const 100 ;; Quelladresse zum Kopieren
-i32.const 25 ;; Anzahl der Bytes zu kopieren
-memory.copy (memory $memoryName) ;; Speicher kopieren mit Speicher namens "$memoryName"
+;; Copy within memory referenced by its name
+i32.const 50 ;; Destination address to copy to
+i32.const 100 ;; Source address to copy from
+i32.const 25 ;; Number of bytes to copy
+memory.copy (memory $memoryName) ;; Copy memory with memory named "$memoryName"
 
-;; Gleichen Speicher mit einer S-Funktion kopieren
+;; Copy same memory using an S function
 (memory.copy (memory $memoryName) (i32.const 50) (i32.const 100) (i32.const 25))
 ```
 
-### Instruktionen und Opcodes
+### Anweisungen und Opcodes
 
-| Instruktion   | Binäroperation |
+| Anweisung     | Binärer Opcode |
 | ------------- | -------------- |
 | `memory.copy` | `0xFC 0x0a`    |
 
@@ -56,10 +56,10 @@ memory.copy (memory $memoryName) ;; Speicher kopieren mit Speicher namens "$memo
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 > [!NOTE]
-> Die Speicherunterstützung in Wasm-Modulen entspricht der [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory) JavaScript-API.
-> Der [multiMemory](#webassembly.multimemory) Schlüssel zeigt die Versionen an, in denen `copy` mit einem angegebenen Speicher verwendet werden kann.
+> Die Speicherunterstützung in Wasm-Modulen entspricht der JavaScript API [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory).
+> Der Schlüssel [multiMemory](#webassembly.multimemory) gibt an, in welchen Versionen `copy` mit einem angegebenen Speicher verwendet werden kann.
 
 {{Compat}}

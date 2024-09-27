@@ -1,5 +1,5 @@
 ---
-title: "FormData: getAll() Methode"
+title: "FormData: getAll()-Methode"
 short-title: getAll()
 slug: Web/API/FormData/getAll
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers}}
 
-Die **`getAll()`** Methode der {{domxref("FormData")}} Schnittstelle gibt alle Werte zurück, die mit einem bestimmten Schlüssel innerhalb eines `FormData`-Objekts verknüpft sind.
+Die **`getAll()`**-Methode des [`FormData`](/de/docs/Web/API/FormData)-Interfaces gibt alle Werte zurück, die mit einem bestimmten Schlüssel aus einem `FormData`-Objekt verknüpft sind.
 
 ## Syntax
 
@@ -23,21 +23,21 @@ getAll(name)
 
 ### Rückgabewert
 
-Ein Array von Werten, dessen Schlüssel dem angegebenen `name` entspricht. Andernfalls eine leere Liste.
+Ein Array von Werten, dessen Schlüssel mit dem angegebenen `name` übereinstimmt. Andernfalls eine leere Liste.
 
 ## Beispiele
 
-Wenn wir zwei `username`-Werte zu einer {{domxref("FormData")}} mittels {{domxref("FormData.append", "append()")}} hinzufügen:
+Falls wir zwei `username`-Werte zu einer [`FormData`](/de/docs/Web/API/FormData) mit der Methode [`append()`](/de/docs/Web/API/FormData/append) hinzufügen:
 
 ```js
 formData.append("username", "Chris");
 formData.append("username", "Bob");
 ```
 
-Wird die folgende `getAll()` Methode beide `username`-Werte in einem Array zurückgeben:
+Die folgende `getAll()`-Methode gibt beide `username`-Werte in einem Array zurück:
 
 ```js
-formData.getAll("username"); // Gibt ["Chris", "Bob"] zurück
+formData.getAll("username"); // Returns ["Chris", "Bob"]
 ```
 
 ## Spezifikationen

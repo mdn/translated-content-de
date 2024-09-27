@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Local Font Access API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`style`**-Eigenschaft der {{domxref("FontData")}}-Schnittstelle gibt den Stil des Schriftschnitts zurück.
+Die **`style`** schreibgeschützte Eigenschaft der [`FontData`](/de/docs/Web/API/FontData)-Schnittstelle gibt den Stil des Schriftsatzes zurück.
 
-Dies ist der Wert, der verwendet wird, um den Stil der Schriftart auszuwählen, die Sie verwenden möchten, beispielsweise innerhalb der {{cssxref("font-style")}}-Eigenschaft.
+Dies ist der Wert, der verwendet wird, um den Stil der Schriftart auszuwählen, die Sie verwenden möchten, zum Beispiel innerhalb der {{cssxref("font-style")}}-Eigenschaft.
 
-Beispiele umfassen:
+Beispiele sind:
 
 - UltraLight
 - Regular
@@ -26,7 +26,7 @@ Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel wird alle verfügbaren Schriftarten abfragen und Metadaten protokollieren. Dies könnte zum Beispiel verwendet werden, um eine Schriftart-Auswahlsteuerung zu füllen.
+Der folgende Ausschnitt sucht nach allen verfügbaren Schriftarten und protokolliert Metadaten. Dies könnte beispielsweise verwendet werden, um eine Schriftart-Auswahlsteuerung zu füllen.
 
 ```js
 async function logFontData() {
@@ -54,5 +54,5 @@ async function logFontData() {
 
 ## Siehe auch
 
-- [Verwenden Sie erweiterte Typografie mit lokalen Schriften](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
+- [Verwenden Sie erweiterte Typografie mit lokalen Schriftarten](https://developer.chrome.com/docs/capabilities/web-apis/local-fonts)
 - {{cssxref("@font-face")}}

@@ -1,5 +1,5 @@
 ---
-title: "DOMTokenList: keys()-Methode"
+title: "DOMTokenList: keys() Methode"
 short-title: keys()
 slug: Web/API/DOMTokenList/keys
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`keys()`**-Methode der {{domxref("DOMTokenList")}}-Schnittstelle gibt einen {{jsxref("Iteration_protocols",'iterator',"",1)}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Schlüssel zu durchlaufen. Die Schlüssel sind positive ganze Zahlen.
+Die **`keys()`** Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) Schnittstelle
+gibt einen {{jsxref("Iteration_protocols",'iterator',"",1)}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Schlüssel zu durchlaufen.
+Die Schlüssel sind ungesignierte Ganzzahlen.
 
 ## Syntax
 
@@ -26,7 +28,10 @@ Gibt einen {{jsxref("Iteration_protocols","iterator","",1)}} zurück.
 
 ## Beispiele
 
-Im folgenden Beispiel rufen wir die Liste der auf einem {{htmlelement("span")}}-Element festgelegten Klassen als `DOMTokenList` mit {{domxref("Element.classList")}} ab. Dann holen wir einen Iterator, der die Schlüssel enthält, mit `keys()` und iterieren durch diese Schlüssel mit einer [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife, um jeden einzelnen in den {{domxref("Node.textContent")}} des `<span>` zu schreiben.
+Im folgenden Beispiel rufen wir die Liste der auf einem
+{{htmlelement("span")}} Element gesetzten Klassen als `DOMTokenList` ab, indem wir [`Element.classList`](/de/docs/Web/API/Element/classList) verwenden. Anschließend holen wir einen Iterator, der die Schlüssel enthält, mit `keys()`,
+und durchlaufen diese Schlüssel mit einer [for...of](/de/docs/Web/JavaScript/Reference/Statements/for...of) Schleife,
+wobei jeder in den [`Node.textContent`](/de/docs/Web/API/Node/textContent) des `<span>` Elements geschrieben wird.
 
 Zuerst das HTML:
 
@@ -34,7 +39,7 @@ Zuerst das HTML:
 <span class="a b c"></span>
 ```
 
-Jetzt das JavaScript:
+Nun das JavaScript:
 
 ```js
 const span = document.querySelector("span");
@@ -60,4 +65,4 @@ Die Ausgabe sieht folgendermaßen aus:
 
 ## Siehe auch
 
-- {{domxref("DOMTokenList.entries()")}}, {{domxref("DOMTokenList.forEach()")}} und {{domxref("DOMTokenList.values")}}.
+- [`DOMTokenList.entries()`](/de/docs/Web/API/DOMTokenList/entries), [`DOMTokenList.forEach()`](/de/docs/Web/API/DOMTokenList/forEach) und [`DOMTokenList.values`](/de/docs/Web/API/DOMTokenList/values).

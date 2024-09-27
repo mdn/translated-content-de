@@ -1,5 +1,5 @@
 ---
-title: "NodeList: keys()-Methode"
+title: "NodeList: keys() Methode"
 short-title: keys()
 slug: Web/API/NodeList/keys
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`NodeList.keys()`**-Methode gibt einen
-{{jsxref("Iteration_protocols",'iterator')}} zurück, der es ermöglicht, alle Schlüssel in diesem Objekt zu durchlaufen. Die Schlüssel sind `unsigned integer`.
+Die **`NodeList.keys()`** Methode gibt einen
+{{jsxref("Iteration_protocols", 'Iterator')}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Schlüssel zu durchlaufen. Die Schlüssel sind `unsigned integer`.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ keys()
 
 ### Rückgabewert
 
-Gibt einen {{jsxref("Iteration_protocols","iterator")}} zurück.
+Gibt einen {{jsxref("Iteration_protocols", "Iterator")}} zurück.
 
 ## Beispiel
 
@@ -35,7 +35,7 @@ node.appendChild(kid3);
 
 let list = node.childNodes;
 
-// Verwenden von for...of
+// Using for...of
 for (const key of list.keys()) {
   console.log(key);
 }
@@ -49,12 +49,12 @@ Das Ergebnis ist:
 2
 ```
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [Polyfill von `NodeList.prototype.keys` in `core-js`](https://github.com/zloirock/core-js#iterable-dom-collections)
-- {{domxref("Node")}}
-- {{domxref("NodeList")}}
+- [`Node`](/de/docs/Web/API/Node)
+- [`NodeList`](/de/docs/Web/API/NodeList)

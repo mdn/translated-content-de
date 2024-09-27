@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Die **`SharedStorageOperation`** Schnittstelle der {{domxref("Shared Storage API", "Shared Storage API", "", "nocode")}} stellt die Basisklasse für alle Ausgabegate-Operationstypen dar.
+Das **`SharedStorageOperation`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) stellt die Basisklasse für alle Arten von Ausgabegate-Operationen dar.
 
-Die Ausgabegatetypen sind unten aufgeführt:
+Die Ausgabegate-Typen sind nachfolgend aufgeführt:
 
 <table class="no-markdown">
   <thead>
@@ -23,43 +23,43 @@ Die Ausgabegatetypen sind unten aufgeführt:
   <tbody>
     <tr>
       <td>URL-Auswahl</td>
-      <td>Wird verwendet, um eine URL auszuwählen, die dem Benutzer basierend auf den geteilten Speicherdaten angezeigt wird.</td>
-      <td>{{domxref("SharedStorageSelectURLOperation")}}</td>
-      <td>{{domxref("WindowSharedStorage.selectURL()", "selectURL()")}}</td>
+      <td>Wird verwendet, um eine URL auszuwählen, die dem Benutzer basierend auf Shared Storage-Daten angezeigt wird.</td>
+      <td>[`SharedStorageSelectURLOperation`](/de/docs/Web/API/SharedStorageSelectURLOperation)</td>
+      <td>[`selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL)</td>
     </tr>
     <tr>
       <td>Ausführen</td>
-      <td>Eine generische Methode, um einige geteilte Speicherdaten zu verarbeiten. Wird beispielsweise von der <a href="https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation">Private Aggregation API</a> verwendet, um geteilte Speicherdaten zu verarbeiten und aggregierte Berichte zu erstellen.</td>
-      <td>{{domxref("SharedStorageRunOperation")}}</td>
-      <td>{{domxref("WindowSharedStorage.run()", "run()")}}</td>
+      <td>Eine generelle Methode zur Verarbeitung von Shared Storage-Daten. Wird zum Beispiel von der <a href="https://developers.google.com/privacy-sandbox/private-advertising/private-aggregation">Private Aggregation API</a> verwendet, um Shared Storage-Daten zu verarbeiten und aggregierte Berichte zu erzeugen.</td>
+      <td>[`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation)</td>
+      <td>[`run()`](/de/docs/Web/API/WindowSharedStorage/run)</td>
     </tr>
   </tbody>
 </table>
 
 ## Beispiele
 
-### Definition individueller Operationen
+### Definieren einzelner Operationen
 
-Viele Skripte von Shared-Storage-Worklet-Modulen definieren und registrieren nur eine einzige Operation; Beispiele finden Sie auf den Seiten {{domxref("SharedStorageSelectURLOperation")}} und {{domxref("SharedStorageRunOperation")}}.
+Viele Shared Storage-Worklet-Modulscripte definieren und registrieren nur eine einzelne Operation; Sie können Beispiele auf den Seiten [`SharedStorageSelectURLOperation`](/de/docs/Web/API/SharedStorageSelectURLOperation) und [`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation) sehen.
 
-### Definition mehrerer Operationen
+### Definieren mehrerer Operationen
 
-In fortgeschritteneren Fällen ist es möglich, mehrere Operationen mit unterschiedlichen Namen im selben Shared-Storage-Worklet-Modulskript zu definieren und zu registrieren. Im folgenden Worklet-Modulskript definieren wir eine URL-Auswahloperation namens `SelectURLOperation`, die eine URL für A/B-Tests auswählt, und eine Ausführungsoperation namens `ExperimentGroupReportingOperation`, die einen Histogrammbericht basierend auf der A/B-Testgruppe des Benutzers erstellt:
+In fortgeschritteneren Fällen ist es möglich, mehrere Operationen im selben Shared Storage-Worklet-Modulscript mit verschiedenen Namen zu definieren und zu registrieren. Im folgenden Worklet-Modulscript definieren wir eine URL-Auswahloperation namens `SelectURLOperation`, die eine URL für A/B-Tests auswählt, und eine Ausführen-Operation namens `ExperimentGroupReportingOperation`, die einen Histogrammbericht basierend auf der A/B-Testgruppe des Benutzers erstellt:
 
 ```js
 // ab-testing-worklet.js
 
 class SelectURLOperation {
   async run(urls, data) {
-    // Die Benutzergruppe aus dem geteilten Speicher lesen
+    // Read the user's group from shared storage
     const experimentGroup = await sharedStorage.get("ab-testing-group");
 
-    // Zur Demo in die Konsole loggen
+    // Log to console for the demo
     console.log(`urls = ${JSON.stringify(urls)}`);
     console.log(`data = ${JSON.stringify(data)}`);
-    console.log(`ab-testing-group im geteilten Speicher ist ${experimentGroup}`);
+    console.log(`ab-testing-group in shared storage is ${experimentGroup}`);
 
-    // Den Index der Gruppe zurückgeben
+    // Return the index of the group
     return data.indexOf(experimentGroup);
   }
 }
@@ -84,19 +84,19 @@ class ExperimentGroupReportingOperation {
   }
 }
 
-// Die Operationen registrieren
+// Register the operations
 register("ab-testing", SelectURLOperation);
 register("experiment-group-reporting", ExperimentGroupReportingOperation);
 ```
 
-Im Haupt-Browsing-Kontext werden diese Operationen von {{domxref("WindowSharedStorage.selectURL()", "selectURL()")}} und {{domxref("WindowSharedStorage.run()", "run()")}}, jeweils aufgerufen. Die über diese Methoden aufzurufenden Operationen werden anhand der Namen ausgewählt, mit denen sie registriert wurden, und sie müssen auch den Strukturen entsprechen, die von den Klassen {{domxref("SharedStorageSelectURLOperation")}} und {{domxref("SharedStorageRunOperation")}} und deren `run()`-Methoden definiert werden.
+Im Hauptbrowsing-Kontext werden diese Operationen durch [`selectURL()`](/de/docs/Web/API/WindowSharedStorage/selectURL) bzw. [`run()`](/de/docs/Web/API/WindowSharedStorage/run) aufgerufen. Die Operationen, die über diese Methoden aufgerufen werden sollen, werden anhand der Namen ausgewählt, mit denen sie registriert wurden, und müssen außerdem den Strukturen entsprechen, die von den Klassen [`SharedStorageSelectURLOperation`](/de/docs/Web/API/SharedStorageSelectURLOperation) und [`SharedStorageRunOperation`](/de/docs/Web/API/SharedStorageRunOperation) und deren `run()`-Methoden definiert sind.
 
 ```js
-// Für Demozwecke. Der Hostname wird verwendet, um die Nutzung der
-// Entwicklungs-Localhost-URL vs Produktions-URL zu bestimmen
+// For demo purposes. The hostname is used to determine the usage of
+// development localhost URL vs production URL
 const contentProducerUrl = window.location.host;
 
-// Die Experimentgruppen mit den URLs zuordnen
+// Map the experiment groups to the URLs
 const EXPERIMENT_MAP = [
   {
     group: "control",
@@ -112,17 +112,17 @@ const EXPERIMENT_MAP = [
   },
 ];
 
-// Eine zufällige Gruppe für das erste Experiment wählen
+// Choose a random group for the initial experiment
 function getRandomExperiment() {
   const randomIndex = Math.floor(Math.random() * EXPERIMENT_MAP.length);
   return EXPERIMENT_MAP[randomIndex].group;
 }
 
 async function injectAd() {
-  // Das Worklet-Modul laden
+  // Load the worklet module
   await window.sharedStorage.worklet.addModule("ab-testing-worklet.js");
 
-  // Den Anfangswert im Speicher auf eine zufällige Experimentgruppe setzen
+  // Set the initial value in the storage to a random experiment group
   window.sharedStorage.set("ab-testing-group", getRandomExperiment(), {
     ignoreIfPresent: true,
   });
@@ -130,10 +130,10 @@ async function injectAd() {
   const urls = EXPERIMENT_MAP.map(({ url }) => ({ url }));
   const groups = EXPERIMENT_MAP.map(({ group }) => group);
 
-  // Die selectURL-Aufruf auf eine Fenced-Frame-Konfiguration auflösen, nur wenn diese auf der Seite vorhanden ist
+  // Resolve the selectURL call to a fenced frame config only when it exists on the page
   const resolveToConfig = typeof window.FencedFrameConfig !== "undefined";
 
-  // Die URL-Auswahloperation ausführen, um eine Anzeige basierend auf der Experimentgruppe im geteilten Speicher auszuwählen
+  // Run the URL selection operation to select an ad based on the experiment group in shared storage
   const selectedUrl = await window.sharedStorage.selectURL("ab-testing", urls, {
     data: groups,
     resolveToConfig,
@@ -148,7 +148,7 @@ async function injectAd() {
     adSlot.src = selectedUrl;
   }
 
-  // Die Berichtsoperation ausführen
+  // Run the reporting operation
   await window.sharedStorage.run("experiment-group-reporting");
 }
 
@@ -163,6 +163,6 @@ injectAd();
 
 {{Compat}}
 
-## Siehe auch
+## Weitere Informationen
 
 - [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)

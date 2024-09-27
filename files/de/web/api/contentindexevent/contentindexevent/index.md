@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Content Index API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Der **`ContentIndexEvent()`** Konstruktor erstellt ein neues {{domxref("ContentIndexEvent")}}-Objekt,
+Der **`ContentIndexEvent()`** Konstruktor erstellt ein neues [`ContentIndexEvent`](/de/docs/Web/API/ContentIndexEvent) Objekt,
 dessen Typ und andere Optionen wie angegeben konfiguriert sind.
 
 ## Syntax
@@ -21,19 +21,19 @@ new ContentIndexEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist groß- und kleinschreibungssensitiv und Browser setzen ihn immer auf `contentdelete`.
+    Es ist Groß-/Kleinschreibung-empfindlich und Browser setzen es immer auf `contentdelete`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("ExtendableEvent/ExtendableEvent", "ExtendableEvent()")}} definierten Eigenschaften_ die folgenden Eigenschaften hat:
+  - : Ein Objekt, das _zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften_ die folgenden Eigenschaften hat:
     - `id`
-      - : Die ID des indizierten Inhalts, den Sie aus dem {{domxref("ContentIndex")}}-Objekt entfernen möchten.
+      - : Die ID des indexierten Inhalts, den Sie vom [`ContentIndex`](/de/docs/Web/API/ContentIndex) Objekt entfernen möchten.
 
 ### Rückgabewert
 
-Ein neues {{domxref("ContentIndexEvent")}}-Objekt, das mit den angegebenen Optionen konfiguriert wurde.
+Ein neues [`ContentIndexEvent`](/de/docs/Web/API/ContentIndexEvent) Objekt, das mit den angegebenen Optionen konfiguriert ist.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein neues {{domxref('ContentIndexEvent')}} mit der relevanten ID.
+Dieses Beispiel erstellt ein neues [`ContentIndexEvent`](/de/docs/Web/API/ContentIndexEvent) mit der relevanten ID.
 
 ```js
 const removeData = {
@@ -42,7 +42,7 @@ const removeData = {
 
 const ciEvent = new ContentIndexEvent("contentdelete", removeData);
 
-ciEvent.id; // sollte 'unique-content-id' zurückgeben
+ciEvent.id; // should return 'unique-content-id'
 ```
 
 ## Spezifikationen

@@ -1,5 +1,5 @@
 ---
-title: "Range: detach()-Methode"
+title: "Range: detach() Methode"
 short-title: detach()
 slug: Web/API/Range/detach
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.detach()`**-Methode tut nichts. Sie wurde früher verwendet, um das {{domxref("Range")}}-Objekt zu deaktivieren und dem Browser das Freigeben der zugehörigen Ressourcen zu ermöglichen. Die Methode wurde aus Kompatibilitätsgründen beibehalten.
+Die **`Range.detach()`**-Methode tut nichts. Sie wurde früher verwendet, um das [`Range`](/de/docs/Web/API/Range)-Objekt zu deaktivieren und dem Browser zu ermöglichen, die zugehörigen Ressourcen freizugeben. Die Methode wurde zur Kompatibilität beibehalten.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -43,4 +43,4 @@ range.detach();
 
 ## Siehe auch
 
-- [Das DOM-Schnittstellen-Index](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)

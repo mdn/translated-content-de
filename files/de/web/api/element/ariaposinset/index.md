@@ -1,5 +1,5 @@
 ---
-title: "Element: ariaPosInSet-Eigenschaft"
+title: "Element: ariaPosInSet Eigenschaft"
 short-title: ariaPosInSet
 slug: Web/API/Element/ariaPosInSet
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaPosInSet`**-Eigenschaft des {{domxref("Element")}}-Interfaces spiegelt den Wert des [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-posinset)-Attributs wider, der die Nummer oder Position eines Elements im aktuellen Satz von `listitems` oder `treeitems` definiert.
+Die **`ariaPosInSet`** Eigenschaft des [`Element`](/de/docs/Web/API/Element) Schnittstelle spiegelt den Wert des [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-posinset) Attributs wider, welches die Nummer oder Position eines Elements in der aktuellen Menge von Listenelementen oder Baumelementen definiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der eine ganze Zahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel ist das `aria-posinset`-Attribut des Elements mit der ID `article2` auf "2" gesetzt. Mit `ariaPosInSet` aktualisieren wir den Wert auf "3".
+In diesem Beispiel wird das `aria-posinset` Attribut des Elements mit der ID `article2` auf "2" gesetzt. Mit `ariaPosInSet` aktualisieren wir den Wert auf "3".
 
 ```html
 <article id="article1" aria-posinset="1">…</article>

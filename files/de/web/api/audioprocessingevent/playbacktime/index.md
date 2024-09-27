@@ -1,5 +1,5 @@
 ---
-title: "AudioProcessingEvent: playbackTime-Eigenschaft"
+title: "AudioProcessingEvent: `playbackTime`-Eigenschaft"
 short-title: playbackTime
 slug: Web/API/AudioProcessingEvent/playbackTime
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}{{Deprecated_header}}
 
-Die schreibgeschützte Eigenschaft **`playbackTime`** des {{domxref("AudioProcessingEvent")}}-Interfaces repräsentiert die Zeit, zu der das Audio abgespielt wird. Sie befindet sich im selben Koordinatensystem wie die Zeit, die vom {{domxref("AudioContext")}} verwendet wird.
+Die schreibgeschützte **`playbackTime`**-Eigenschaft der [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent)-Schnittstelle repräsentiert den Zeitpunkt, zu dem das Audio abgespielt wird. Sie befindet sich im selben Koordinatensystem wie die Zeit, die vom [`AudioContext`](/de/docs/Web/API/AudioContext) verwendet wird.
 
 ## Wert
 
-Eine Zahl, die keine ganze Zahl sein muss.
+Eine Zahl, die kein ganzzahliger Wert sein muss.
 
 ## Beispiele
 
@@ -51,5 +51,5 @@ processor.connect(audioContext.destination);
 
 ## Siehe auch
 
-- {{domxref("AudioProcessingEvent")}}
-- {{domxref("ScriptProcessorNode")}}
+- [`AudioProcessingEvent`](/de/docs/Web/API/AudioProcessingEvent)
+- [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode)

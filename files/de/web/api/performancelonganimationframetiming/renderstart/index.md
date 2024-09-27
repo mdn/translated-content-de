@@ -8,15 +8,15 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte Eigenschaft **`renderStart`** des {{domxref("PerformanceLongAnimationFrameTiming")}}-Interfaces gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die Startzeit des Rendering-Zyklus anzeigt. Dieser umfasst Rückrufe von {{domxref("Window.requestAnimationFrame()")}}, die Berechnung von Stil und Layout, Rückrufe von {{domxref("ResizeObserver")}} und von {{domxref("IntersectionObserver")}}.
+Die schreibgeschützte Eigenschaft **`renderStart`** der Schnittstelle [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming) gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Startzeit des Renderzyklus angibt. Dieser umfasst Rückrufe von [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), die Berechnung von Stil und Layout, Rückrufe von [`ResizeObserver`](/de/docs/Web/API/ResizeObserver) und Rückrufe von [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver).
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 
 ## Beispiele
 
-Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
+Siehe [Langzeit-Animations-Frame-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele, die mit der Long Animation Frames API zusammenhängen.
 
 ## Spezifikationen
 
@@ -28,5 +28,5 @@ Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animat
 
 ## Siehe auch
 
-- [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
-- {{domxref("PerformanceScriptTiming")}}
+- [Langzeit-Animations-Frame-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)

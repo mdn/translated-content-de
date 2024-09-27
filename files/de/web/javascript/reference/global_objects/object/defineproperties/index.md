@@ -26,52 +26,52 @@ Object.defineProperties(obj, props)
 
   - : Ein Objekt, dessen Schlüssel die Namen der zu definierenden oder zu modifizierenden Eigenschaften darstellen und
     dessen Werte Objekte sind, die diese Eigenschaften beschreiben. Jeder Wert in `props`
-    muss entweder ein Datendeskriptor oder ein Accessor-Deskriptor sein; es kann nicht beides sein (siehe
+    muss entweder ein Daten- oder ein Accessor-Deskriptor sein; es kann nicht beides sein (siehe
     {{jsxref("Object.defineProperty()")}} für weitere Details).
 
-    Daten- und Accessor-Deskriptoren können optional folgende Schlüssel enthalten:
+    Daten- und Accessor-Deskriptoren können optional die folgenden Schlüssel enthalten:
 
     - `configurable`
-      - : `true`, wenn und nur wenn dieser Eigenschaftsdeskriptor geändert werden darf
-        und die Eigenschaft vom entsprechenden Objekt gelöscht werden darf.
-        **Voreingestellt ist `false`.**
+      - : `true`, wenn und nur wenn der Typ dieses Eigenschaftsdeskriptors geändert werden darf
+        und wenn die Eigenschaft aus dem entsprechenden Objekt gelöscht werden kann.
+        **Standard ist `false`.**
     - `enumerable`
-      - : `true`, wenn und nur wenn diese Eigenschaft bei der Aufzählung der
+      - : `true`, wenn und nur wenn diese Eigenschaft bei der Auflistung der
         Eigenschaften des entsprechenden Objekts angezeigt wird.
-        **Voreingestellt ist `false`.**
+        **Standard ist `false`.**
 
-    Ein Datendeskriptor hat zusätzlich folgende optionale Schlüssel:
+    Ein Daten-Deskriptor enthält außerdem die folgenden optionalen Schlüssel:
 
     - `value`
-      - : Der Wert, der mit der Eigenschaft verknüpft ist. Kann jeder gültige JavaScript-Wert sein
+      - : Der Wert, der der Eigenschaft zugeordnet ist. Kann jeder gültige JavaScript-Wert sein
         (Zahl, Objekt, Funktion, etc.).
-        **Voreingestellt ist {{jsxref("undefined")}}.**
+        **Standard ist {{jsxref("undefined")}}.**
     - `writable`
-      - : `true`, wenn und nur wenn der Wert, der mit der Eigenschaft verknüpft ist,
-        mit einem {{jsxref("Operators", "Zuweisungsoperator", "assignment_operators", 1)}} geändert werden darf.
-        **Voreingestellt ist `false`.**
+      - : `true`, wenn und nur wenn der der Eigenschaft zugeordnete Wert mit einem
+        {{jsxref("Operators", "Zuweisungsoperator", "assignment_operators", 1)}} geändert werden darf.
+        **Standard ist `false`.**
 
-    Ein Accessor-Deskriptor hat außerdem folgende optionale Schlüssel:
+    Ein Accessor-Deskriptor enthält außerdem die folgenden optionalen Schlüssel:
 
     - `get`
-      - : Eine Funktion, die als Getter für die Eigenschaft dient oder {{jsxref("undefined")}}
+      - : Eine Funktion, die als Getter für die Eigenschaft dient, oder {{jsxref("undefined")}}
         wenn es keinen Getter gibt. Der Rückgabewert der Funktion wird als Wert der
         Eigenschaft verwendet.
-        **Voreingestellt ist {{jsxref("undefined")}}.**
+        **Standard ist {{jsxref("undefined")}}.**
     - `set`
-      - : Eine Funktion, die als Setter für die Eigenschaft dient oder {{jsxref("undefined")}}
+      - : Eine Funktion, die als Setter für die Eigenschaft dient, oder {{jsxref("undefined")}}
         wenn es keinen Setter gibt. Die Funktion erhält als einziges Argument den neuen
-        Wert, der der Eigenschaft zugewiesen wird.
-        **Voreingestellt ist {{jsxref("undefined")}}.**
+        zugewiesenen Wert der Eigenschaft.
+        **Standard ist {{jsxref("undefined")}}.**
 
     Wenn ein Deskriptor weder `value`, `writable`,
-    `get` noch `set` Schlüssel hat, wird er als Datendeskriptor behandelt. Wenn ein
+    `get` noch `set` Schlüssel hat, wird er als Daten-Deskriptor behandelt. Wenn ein
     Deskriptor sowohl `value` oder `writable` als auch `get`
     oder `set` Schlüssel hat, wird eine Ausnahme ausgelöst.
 
 ### Rückgabewert
 
-Das Objekt, das an die Funktion übergeben wurde.
+Das an die Funktion übergebene Objekt.
 
 ## Beispiele
 
@@ -105,4 +105,4 @@ Object.defineProperties(obj, {
 - [Polyfill von `Object.defineProperties` in `core-js`](https://github.com/zloirock/core-js#ecmascript-object)
 - {{jsxref("Object.defineProperty()")}}
 - {{jsxref("Object.keys()")}}
-- [Aufzählbarkeit und Eigentum von Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)
+- [Aufzählbarkeit und Besitz von Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)

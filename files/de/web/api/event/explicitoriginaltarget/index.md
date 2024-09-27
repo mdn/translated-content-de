@@ -1,5 +1,5 @@
 ---
-title: "Event: explicitOriginalTarget Eigenschaft"
+title: "Event: explicitOriginalTarget-Eigenschaft"
 short-title: explicitOriginalTarget
 slug: Web/API/Event/explicitOriginalTarget
 l10n:
@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("DOM")}}{{Non-standard_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`explicitOriginalTarget`**-Eigenschaft des {{domxref("Event")}}-Interfaces gibt das nicht-anonyme ursprüngliche Ziel des Ereignisses zurück.
+Die schreibgeschützte **`explicitOriginalTarget`**-Eigenschaft des [`Event`](/de/docs/Web/API/Event)-Interfaces gibt das nicht-anonyme Originalziel des Ereignisses zurück.
 
-Wenn das Ereignis aus einem anderen Grund als dem Überqueren einer anonymen Grenze umgeleitet wurde, wird dies auf das Ziel gesetzt, bevor die Umleitung erfolgt.
+Wenn das Ereignis aus einem anderen Grund als einem anonymen Grenzübergang umgeleitet wurde, wird dies auf das Ziel gesetzt, bevor die Umleitung erfolgt.
 
-Zum Beispiel werden Mausereignisse auf ihren übergeordneten Knoten umgeleitet, wenn sie über Textknoten auftreten (siehe [Firefox-Fehler 185889](https://bugzil.la/185889)), und in diesem Fall zeigt [`currentTarget`](/de/docs/Web/API/Event/currentTarget) das übergeordnete Element, während diese Eigenschaft den Textknoten zeigt.
+Zum Beispiel werden Mausklickereignisse zu ihrem übergeordneten Knoten umgeleitet, wenn sie über Textknoten auftreten (siehe [Firefox-Bug 185889](https://bugzil.la/185889)). In diesem Fall zeigt [`currentTarget`](/de/docs/Web/API/Event/currentTarget) den übergeordneten Knoten an, während diese Eigenschaft den Textknoten anzeigt.
 
-Diese Eigenschaft unterscheidet sich auch von [`originalTarget`](/de/docs/Web/API/Event/originalTarget) darin, dass sie niemals anonyme Inhalte enthalten wird.
+Diese Eigenschaft unterscheidet sich auch von [`originalTarget`](/de/docs/Web/API/Event/originalTarget) darin, dass sie niemals anonymen Inhalt enthalten wird.
 
 ## Wert
 
-Gibt das {{domxref("EventTarget")}}-Objekt zurück oder null, wenn keines vorhanden ist.
+Gibt das [`EventTarget`](/de/docs/Web/API/EventTarget)-Objekt zurück oder null, wenn keines vorhanden ist.
 
 ## Beispiel
 
-Diese Eigenschaft kann mit `<command>` verwendet werden, um die Ereignisdetails des ursprünglichen Objekts abzurufen, das den Befehl aufruft.
+Diese Eigenschaft kann mit `<command>` verwendet werden, um die Ereignisdetails des ursprünglichen Objekts zu erhalten, das den Befehl aufruft.
 
 ```js
 function myCommand(ev) {
-  alert(ev.explicitOriginalTarget.nodeName); // gibt 'menuitem' zurück
+  alert(ev.explicitOriginalTarget.nodeName); // returns 'menuitem'
 }
 ```
 
@@ -42,8 +42,8 @@ function myCommand(ev) {
 
 ## Spezifikationen
 
-_Dies ist eine Mozilla-spezifische Eigenschaft und ist Teil keiner aktuellen Spezifikation. Es ist nicht geplant, sie zu einem Standard zu machen._
+_Dies ist eine Mozilla-spezifische Eigenschaft und ist nicht Teil irgendeiner aktuellen Spezifikation. Sie ist nicht auf dem Weg, ein Standard zu werden._
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

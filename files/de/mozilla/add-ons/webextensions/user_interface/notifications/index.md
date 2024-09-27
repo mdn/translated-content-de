@@ -7,15 +7,15 @@ l10n:
 
 {{AddonSidebar}}
 
-Benachrichtigungen ermöglichen es Ihnen, Informationen über Ihre Erweiterung oder deren Inhalt mithilfe des Benachrichtigungsdienstes des zugrunde liegenden Betriebssystems zu kommunizieren.
+Benachrichtigungen ermöglichen es Ihnen, Informationen über Ihre Erweiterung oder deren Inhalte mithilfe des Benachrichtigungsdienstes des zugrunde liegenden Betriebssystems zu kommunizieren.
 
-![Beispiel einer Benachrichtigung auf macOS, die sich unterhalb der Systemuhr befindet, mit einem fett gedruckten Titel "Click notification" gefolgt von normalem Text "You clicked https://developer.mozilla.org/de/docs/MDN". Die Benachrichtigung hat das Firefox Nightly-Logo auf der linken Seite und ein Link-Symbol auf der rechten Seite.](notify-shadowed.png)
+![Beispiel einer Benachrichtigung auf macOS, unterhalb der Systemuhr mit dem fettgedruckten Titel "Click notification" und normalem Text "You clicked https://developer.mozilla.org/de/docs/MDN". Die Benachrichtigung zeigt links das Firefox Nightly Logo und rechts ein Link-Symbol.](notify-shadowed.png)
 
-Benachrichtigungen können einen Handlungsaufruf für den Benutzer enthalten, und Ihr Add-on kann darauf lauschen, ob der Benutzer auf die Benachrichtigung klickt oder diese schließt.
+Benachrichtigungen können eine Handlungsaufforderung für den Benutzer beinhalten, und Ihr Add-on kann darauf hören, ob der Benutzer die Benachrichtigung anklickt oder sie schließt.
 
-## Benachrichtigungen festlegen
+## Festlegung von Benachrichtigungen
 
-Sie verwalten Benachrichtigungen programmgesteuert, indem Sie die {{WebExtAPIRef("notifications")}} API verwenden. Um diese API zu nutzen, müssen Sie die Berechtigung `notifications` in Ihrer manifest.json anfordern:
+Sie verwalten Benachrichtigungen programmgesteuert über die {{WebExtAPIRef("notifications")}} API. Um diese API nutzen zu können, müssen Sie die Berechtigung `notifications` in Ihrer manifest.json anfordern:
 
 ```json
 "permissions": ["notifications"]
@@ -36,18 +36,18 @@ browser.notifications.create({
 
 Dieser Code erstellt eine Benachrichtigung mit einem Symbol, einem Titel und einer Nachricht.
 
-Wenn die Benachrichtigung einen Handlungsaufruf enthält, können Sie darauf lauschen, dass der Benutzer auf die Benachrichtigung klickt, um die Funktion aufzurufen, die die Aktion behandelt:
+Wenn die Benachrichtigung eine Handlungsaufforderung beinhaltet, können Sie darauf hören, ob der Benutzer die Benachrichtigung anklickt, um die Funktion zur Handhabung der Aktion aufzurufen:
 
 ```js
 browser.notifications.onClicked.addListener(handleClick);
 ```
 
-Wenn Sie Handlungsaufrufe über Benachrichtigungen ausgeben, möchten Sie auch die optionale Benachrichtigung `id` definieren, damit Sie herausfinden können, welche Handlungsaufforderung der Benutzer ausgewählt hat.
+Wenn Sie Handlungsaufforderungen über Benachrichtigungen ausgeben, sollten Sie auch die optionale Benachrichtigungs-`id` definieren, um herauszufinden, welche Handlungsaufforderung der Benutzer ausgewählt hat.
 
 ## Symbole
 
-Für Details, wie Sie Symbole erstellen, die Sie mit Ihrer Benachrichtigung verwenden können, siehe [Ikonographie](https://acorn.firefox.com/latest/styles/iconography-q7JqGl5H) in der [Acorn Design System](https://acorn.firefox.com/latest) Dokumentation.
+Für Details, wie Sie Symbole für Ihre Benachrichtigung erstellen können, siehe [Iconography](https://acorn.firefox.com/latest/styles/iconography-q7JqGl5H) in der Dokumentation des [Acorn Design Systems](https://acorn.firefox.com/latest).
 
 ## Beispiele
 
-Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das [notify-link-clicks-i18n](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n) Beispiel, das Benachrichtigungen implementiert.
+Das [webextensions-examples](https://github.com/mdn/webextensions-examples) Repository auf GitHub enthält das Beispiel [notify-link-clicks-i18n](https://github.com/mdn/webextensions-examples/tree/main/notify-link-clicks-i18n), welches Benachrichtigungen implementiert.

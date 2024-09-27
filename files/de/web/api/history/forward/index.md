@@ -1,5 +1,5 @@
 ---
-title: "History: forward()-Methode"
+title: "History: forward() Methode"
 short-title: forward()
 slug: Web/API/History/forward
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("History API")}}
 
-Die **`forward()`**-Methode der {{domxref("History")}}-Schnittstelle veranlasst den Browser, eine Seite in der Sitzungsverlauf nach vorne zu gehen. Sie hat den gleichen Effekt wie der Aufruf von {{domxref("History.go", "history.go(1)")}}.
+Die **`forward()`**-Methode der [`History`](/de/docs/Web/API/History)-Schnittstelle bewirkt, dass der Browser um eine Seite in der Sitzungs-Historie vorwärts bewegt wird. Sie hat den gleichen Effekt wie der Aufruf von [`history.go(1)`](/de/docs/Web/API/History/go).
 
-Diese Methode ist {{glossary("asynchronous")}}. Fügen Sie einen Listener für das {{domxref("Window/popstate_event", "popstate")}}-Ereignis hinzu, um festzustellen, wann die Navigation abgeschlossen ist.
+Diese Methode ist [asynchron](/de/docs/Glossary/asynchronous). Fügen Sie einen Listener für das [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis hinzu, um festzustellen, wann die Navigation abgeschlossen ist.
 
 ## Syntax
 
@@ -28,12 +28,12 @@ Keine ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Ausgelöst, wenn das zugehörige Dokument nicht vollständig aktiv ist. Browser drosseln auch die Navigationen und können diesen Fehler auslösen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig aufgerufen wird.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Tritt auf, wenn das zugeordnete Dokument nicht vollständig aktiv ist. Browser drosseln auch Navigationsvorgänge und können diesen Fehler auslösen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig ausgeführt wird.
 
 ## Beispiele
 
-Die folgenden Beispiele erstellen einen Button, der einen Schritt im Sitzungsverlauf nach vorne geht.
+Die folgenden Beispiele erstellen einen Button, der einen Schritt in der Sitzungs-Historie vorwärts bewegt.
 
 ### HTML
 
@@ -59,6 +59,6 @@ document.getElementById("go-forward").addEventListener("click", (e) => {
 
 ## Siehe auch
 
-- {{domxref("History")}}
-- {{domxref("Window/popstate_event", "popstate")}}
+- [`History`](/de/docs/Web/API/History)
+- [`popstate`](/de/docs/Web/API/Window/popstate_event)
 - [Arbeiten mit der History API](/de/docs/Web/API/History_API/Working_with_the_History_API)

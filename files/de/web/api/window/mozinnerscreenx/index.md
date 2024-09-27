@@ -1,5 +1,5 @@
 ---
-title: "Fenster: mozInnerScreenX-Eigenschaft"
+title: "Window: mozInnerScreenX-Eigenschaft"
 short-title: mozInnerScreenX
 slug: Web/API/Window/mozInnerScreenX
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef}}{{Non-standard_Header}}
 
-Ruft die X-Koordinate der oberen linken Ecke des Viewports des Fensters in Bildschirmkoordinaten ab.
+Ruft die X-Koordinate der oberen linken Ecke des Ansichtsfensters des Fensters in Bildschirmkoordinaten ab.
 
 > [!NOTE]
-> Diese Koordinate wird in CSS-Pixeln angegeben, nicht in Hardware-Pixeln. Das bedeutet, dass sie von der Zoomstufe beeinflusst werden kann; um die tatsächliche Anzahl physischer Bildschirm-Pixel zu berechnen, sollten Sie die Eigenschaft `nsIDOMWindowUtils.screenPixelsPerCSSPixel` verwenden.
+> Diese Koordinate wird in CSS-Pixeln und nicht in Hardware-Pixeln angegeben. Das bedeutet, dass sie vom Zoomfaktor beeinflusst werden kann; um die tatsächliche Anzahl der physischen Bildschirm-Pixel zu berechnen, sollten Sie die `nsIDOMWindowUtils.screenPixelsPerCSSPixel`-Eigenschaft verwenden.
 
 ## Wert
 
-Die `window.mozInnerScreenX`-Eigenschaft ist ein Gleitkommawert, der nur gelesen werden kann; sie hat keinen Standardwert.
+Die `window.mozInnerScreenX`-Eigenschaft ist ein Gleitkommawert und schreibgeschützt; sie hat keinen Standardwert.
 
 ## Spezifikationen
 
-Kein Teil einer technischen Spezifikation oder Empfehlung des W3C.
+Teil keiner technischen Spezifikation oder Empfehlung des W3C.
 
 ## Browser-Kompatibilität
 
@@ -27,5 +27,5 @@ Kein Teil einer technischen Spezifikation oder Empfehlung des W3C.
 
 ## Siehe auch
 
-- {{domxref("window.mozInnerScreenY")}}
+- [`window.mozInnerScreenY`](/de/docs/Web/API/Window/mozInnerScreenY)
 - `nsIDOMWindowUtils.screenPixelsPerCSSPixel`

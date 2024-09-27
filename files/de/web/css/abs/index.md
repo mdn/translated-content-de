@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`abs()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) gibt den absoluten Wert des Arguments zurück, und zwar im gleichen Typ wie der Eingabetyp.
+Die **`abs()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) gibt den absoluten Wert des Arguments zurück, mit demselben Typ wie die Eingabe.
 
 ## Syntax
 
@@ -38,7 +38,7 @@ Der absolute Wert von `x`.
 
 ### Positive Variablen
 
-Die `abs()`-Funktion kann verwendet werden, um sicherzustellen, dass ein Wert immer positiv ist. Im folgenden Beispiel wird eine CSS-Custom-Property `--font-size` als Wert für {{CSSxRef("font-size")}} verwendet. Durch das Umschließen dieser Custom-Property mit `abs()` wird ein negativer Wert in einen positiven umgewandelt.
+Die `abs()` Funktion kann verwendet werden, um sicherzustellen, dass ein Wert immer positiv ist. Im folgenden Beispiel wird eine CSS-Custom-Property `--font-size` als Wert von {{CSSxRef("font-size")}} verwendet. Durch das Einwickeln dieser Custom-Property in `abs()` wird ein negativer Wert in einen positiven umgewandelt.
 
 ```css
 h1 {
@@ -46,9 +46,9 @@ h1 {
 }
 ```
 
-### Steuerung des Verlaufswinkels der Richtung
+### Steuerung des Verlaufswinkels
 
-Sie können auch die Verlaufsrichtung mit der `abs()`-Funktion steuern. Im folgenden Beispiel würde der Verlauf bei einem Winkel von -45 Grad mit Rot beginnen und zu Blau übergehen. Durch die Verwendung von `abs()`, um den Wert positiv zu machen, beginnt der Verlauf mit Blau und wechselt zu Rot.
+Sie können auch die Verlaufsrichtung mit der `abs()` Funktion steuern. Im folgenden Beispiel würde bei einem Winkel von -45deg der Verlauf rot beginnen und in blau übergehen. Durch die Verwendung von `abs()`, um den Wert positiv zu machen, beginnt der Verlauf blau und endet rot.
 
 ```css
 div {
@@ -57,9 +57,9 @@ div {
 }
 ```
 
-### Abwärtskompatibler Fallback
+### Abwärtskompatible Rückfalllösungen
 
-In älteren Browsern, die die Unterstützung für die CSS-`abs()`-Funktion nicht haben, können Sie die CSS-{{CSSxRef("max")}}-Funktion verwenden, um dasselbe Ergebnis zu erzielen, wie im Folgenden gezeigt:
+In älteren Browsern, die die CSS `abs()` Funktion nicht unterstützen, können Sie die CSS {{CSSxRef("max")}} Funktion verwenden, um dasselbe Ergebnis zu erzielen, wie unten gezeigt:
 
 ```css
 p {
@@ -67,7 +67,7 @@ p {
 }
 ```
 
-Wir verwenden die {{CSSxRef("max")}}-Funktion, um den größten (positivsten) Wert aus einer Liste von zwei Werten zurückzugeben: `var(--lh)` oder `-1 * var(--lh)`. Unabhängig davon, ob `--lh` positiv oder negativ ist, wird der berechnete Rückgabewert immer positiv sein, also eine absolute Zahl.
+Wir verwenden die {{CSSxRef("max")}} Funktion, um den größten (positivsten) Wert aus einer Liste von zwei Werten zurückzugeben: `var(--lh)` oder `-1 * var(--lh)`. Unabhängig davon, ob `--lh` positiv oder negativ ist, wird der berechnete Rückgabewert immer positiv sein, das heißt, eine absolute Zahl.
 
 ## Spezifikationen
 

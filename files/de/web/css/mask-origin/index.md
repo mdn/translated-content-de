@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mask-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprungsort einer Maske fest.
+Die **`mask-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung einer Maske fest.
 
-Für Elemente, die als Einzelbox dargestellt werden, gibt diese Eigenschaft den Bereich zur Maskenpositionierung an. Mit anderen Worten, diese Eigenschaft spezifiziert die Ursprungsposition eines Bildes, das durch die {{cssxref("mask-image")}} CSS-Eigenschaft angegeben wird. Bei Elementen, die als mehrere Boxen dargestellt werden, wie beispielsweise Inline-Boxen auf mehreren Zeilen oder Boxen auf mehreren Seiten, gibt sie an, auf welche Boxen {{cssxref("box-decoration-break")}} wirkt, um den Bereich zur Maskenpositionierung zu bestimmen.
+Für Elemente, die als ein einzelnes Feld gerendert werden, gibt diese Eigenschaft den Maskierungspositionierungsbereich an. Mit anderen Worten spezifiziert diese Eigenschaft die Ursprungsposition eines Bildes, das durch die {{cssxref("mask-image")}} CSS-Eigenschaft angegeben ist. Für Elemente, die als mehrere Felder gerendert werden, wie Inline-Felder auf mehreren Zeilen oder Felder auf mehreren Seiten, spezifiziert sie, auf welche Felder {{cssxref("box-decoration-break")}} anwendbar ist, um den Maskierungspositionierungsbereich zu bestimmen.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 mask-origin: content-box;
 mask-origin: padding-box;
 mask-origin: border-box;
@@ -22,16 +22,16 @@ mask-origin: fill-box;
 mask-origin: stroke-box;
 mask-origin: view-box;
 
-/* Mehrere Werte */
+/* Multiple values */
 mask-origin: padding-box, content-box;
 mask-origin: view-box, fill-box, border-box;
 
-/* Nicht-standardmäßige Schlüsselwortwerte */
+/* Non-standard keyword values */
 -webkit-mask-origin: content;
 -webkit-mask-origin: padding;
 -webkit-mask-origin: border;
 
-/* Globale Werte */
+/* Global values */
 mask-origin: inherit;
 mask-origin: initial;
 mask-origin: revert;
@@ -39,28 +39,28 @@ mask-origin: revert-layer;
 mask-origin: unset;
 ```
 
-Eins oder mehrere der unten aufgeführten Schlüsselwortwerte, durch Kommata getrennt.
+Eines oder mehrere der unten aufgeführten Schlüsselwortwerte, getrennt durch Kommata.
 
 ### Werte
 
 - `content-box`
-  - : Die Position ist relativ zur Inhaltsbox.
+  - : Die Position ist relativ zur Content-Box.
 - `padding-box`
-  - : Die Position ist relativ zur Polsterbox. Für Einzelboxen ist `0 0` die obere linke Ecke der Polsterkante, `100% 100%` ist die untere rechte Ecke.
+  - : Die Position ist relativ zur Padding-Box. Für einzelne Felder ist `0 0` die obere linke Ecke des Padding-Randes, `100% 100%` ist die untere rechte Ecke.
 - `border-box`
-  - : Die Position ist relativ zur Rahmenbox.
+  - : Die Position ist relativ zur Border-Box.
 - `fill-box`
-  - : Die Position ist relativ zur Objektbegrenzungsbox.
+  - : Die Position ist relativ zur Begrenzungsbox des Objekts.
 - `stroke-box`
-  - : Die Position ist relativ zur Strichbegrenzungsbox.
+  - : Die Position ist relativ zur Begrenzungsbox des Strichs.
 - `view-box`
-  - : Verwendet den nächstgelegenen SVG-Ansichtsbereich als Referenzbox. Wenn ein {{svgattr("viewBox")}} Attribut für das Element, das den SVG-Ansichtsbereich erstellt, angegeben ist, wird die Referenzbox an der Ursprungsposition des durch das `viewBox` Attribut festgelegten Koordinatensystems positioniert und die Dimension der Referenzbox wird auf die Breiten- und Höhenwerte des `viewBox` Attributs festgelegt.
+  - : Verwendet den nächstgelegenen SVG-Viewport als Referenzbox. Wenn ein {{svgattr("viewBox")}}-Attribut für das Element, das den SVG-Viewport erstellt, angegeben ist, wird die Referenzbox am Ursprung des durch das `viewBox`-Attribut festgelegten Koordinatensystems positioniert und die Dimension der Referenzbox wird auf die Breiten- und Höhenwerte des `viewBox`-Attributs gesetzt.
 - `content`
-  - : Entspricht `content-box`.
+  - : Identisch mit `content-box`.
 - `padding`
-  - : Entspricht `padding-box`.
+  - : Identisch mit `padding-box`.
 - `border`
-  - : Entspricht `border-box`.
+  - : Identisch mit `border-box`.
 
 ## Formale Definition
 
@@ -74,7 +74,7 @@ Eins oder mehrere der unten aufgeführten Schlüsselwortwerte, durch Kommata get
 
 ### Maskenursprung auf border-box setzen
 
-Versuchen Sie einige der anderen möglichen Werte, indem Sie das CSS in der Box unten aktualisieren.
+Versuchen Sie einige der anderen möglichen Werte, indem Sie das CSS im folgenden Feld aktualisieren.
 
 {{EmbedGHLiveSample("css-examples/masking/mask-origin.html", '100%', 600)}}
 
@@ -88,4 +88,4 @@ Versuchen Sie einige der anderen möglichen Werte, indem Sie das CSS in der Box 
 
 ## Siehe auch
 
-- [Clipping und Masking in CSS](https://css-tricks.com/clipping-masking-css/)
+- [Ausschnitt und Maskierung in CSS](https://css-tricks.com/clipping-masking-css/)

@@ -1,5 +1,5 @@
 ---
-title: "URL: host Eigenschaft"
+title: "URL: host-Eigenschaft"
 short-title: host
 slug: Web/API/URL/host
 l10n:
@@ -8,23 +8,25 @@ l10n:
 
 {{ApiRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`host`**-Eigenschaft der {{domxref("URL")}} Schnittstelle enthält eine Zeichenkette, die den Host darstellt, also das {{domxref("URL.hostname", "hostname")}}, und dann, falls der {{glossary("port")}} der URL nicht leer ist, ein `':'`, gefolgt vom {{domxref("URL.port", "port")}} der URL.
+Die **`host`**-Eigenschaft der [`URL`](/de/docs/Web/API/URL)-Schnittstelle ist ein
+String, der den Host enthält, also den [`hostname`](/de/docs/Web/API/URL/hostname), und dann, wenn der [port](/de/docs/Glossary/port) der URL nicht leer ist, einen
+`':'`, gefolgt vom [`port`](/de/docs/Web/API/URL/port) der URL.
 
 ## Wert
 
-Eine Zeichenkette.
+Ein String.
 
 ## Beispiele
 
 ```js
-let url = new URL("https://developer.mozilla.org/de/docs/Web/API/URL/host");
+let url = new URL("https://developer.mozilla.org/en-US/docs/Web/API/URL/host");
 console.log(url.host); // "developer.mozilla.org"
 
-url = new URL("https://developer.mozilla.org:443/de/docs/Web/API/URL/host");
+url = new URL("https://developer.mozilla.org:443/en-US/docs/Web/API/URL/host");
 console.log(url.host); // "developer.mozilla.org"
-// Die Portnummer wird nicht einbezogen, da 443 der Standardport des Schemas ist
+// The port number is not included because 443 is the scheme's default port
 
-url = new URL("https://developer.mozilla.org:4097/de/docs/Web/API/URL/host");
+url = new URL("https://developer.mozilla.org:4097/en-US/docs/Web/API/URL/host");
 console.log(url.host); // "developer.mozilla.org:4097"
 ```
 
@@ -38,4 +40,4 @@ console.log(url.host); // "developer.mozilla.org:4097"
 
 ## Siehe auch
 
-- Die {{domxref("URL")}} Schnittstelle, zu der es gehört.
+- Die [`URL`](/de/docs/Web/API/URL)-Schnittstelle, zu der sie gehört.

@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Der **`CSSStyleSheet()`** Konstruktor erstellt ein neues {{domxref("CSSStyleSheet")}}-Objekt, das ein einzelnes [Stylesheet](/de/docs/Glossary/Stylesheet) repräsentiert.
+Der **`CSSStyleSheet()`** Konstruktor erstellt ein neues [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt, das ein einzelnes [Stylesheet](/de/docs/Glossary/Stylesheet) repräsentiert.
 
-Nach der Erstellung eines Stylesheets können die Methoden {{domxref("CSSStyleSheet.replace()")}}, {{domxref("CSSStyleSheet.replaceSync()")}}, {{domxref("CSSStyleSheet.insertRule()")}} und {{domxref("CSSStyleSheet.deleteRule()")}} verwendet werden, um die Regeln des neuen Stylesheets zu ändern.
+Nach der Erstellung eines Stylesheets können die Methoden [`CSSStyleSheet.replace()`](/de/docs/Web/API/CSSStyleSheet/replace), [`CSSStyleSheet.replaceSync()`](/de/docs/Web/API/CSSStyleSheet/replaceSync), [`CSSStyleSheet.insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule) und [`CSSStyleSheet.deleteRule()`](/de/docs/Web/API/CSSStyleSheet/deleteRule) verwendet werden, um die Regeln des neuen Stylesheets zu ändern.
 
-Ein mit dieser Methode erstelltes Stylesheet wird als "konstruiertes Stylesheet" bezeichnet.
-Ein konstruiertes Stylesheet kann zwischen einem Dokument und seinen Shadow-DOM-Unterbäumen mit {{domxref("ShadowRoot.adoptedStyleSheets")}} und {{domxref("Document.adoptedStyleSheets")}} geteilt werden.
+Ein mit dieser Methode erstelltes Stylesheet wird als "konstruiertes Stylesheet" bezeichnet. Ein konstruiertes Stylesheet kann zwischen einem Dokument und seinen Shadow DOM-Unterbäumen mithilfe von [`ShadowRoot.adoptedStyleSheets`](/de/docs/Web/API/ShadowRoot/adoptedStyleSheets) und [`Document.adoptedStyleSheets`](/de/docs/Web/API/Document/adoptedStyleSheets) geteilt werden.
 
 ## Syntax
 
@@ -26,19 +25,18 @@ new CSSStyleSheet(options)
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das Folgendes enthält:
+  - : Ein Objekt, das folgendes enthält:
 
     - `baseURL` {{optional_inline}}
-      - : Ein String, der die `baseURL` enthält, die zum Auflösen relativer URLs im Stylesheet verwendet wird.
+      - : Ein String, der die `baseURL` enthält, die verwendet wird, um relative URLs im Stylesheet aufzulösen.
     - `media` {{optional_inline}}
-      - : Ein {{domxref("MediaList")}}, das eine Liste von Medientypen enthält, oder ein String, der eine einzelne Regel enthält.
+      - : Eine [`MediaList`](/de/docs/Web/API/MediaList), die eine Liste von Medientypen enthält, oder ein String, der einen einzelnen Medientyp enthält.
     - `disabled` {{optional_inline}}
-      - : Ein {{jsxref("Boolean")}}, der angibt, ob das Stylesheet deaktiviert ist. Standardmäßig falsch.
+      - : Ein {{jsxref("Boolean")}}, der angibt, ob das Stylesheet deaktiviert ist. Standardmäßig `false`.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues {{domxref("CSSStyleSheet")}} mit einer Medienregel von `"print"` erstellt.
-Das Ausdrucken von {{domxref("StyleSheet.media")}} in die Konsole gibt eine {{domxref("MediaList")}} mit einem einzigen Eintrag für diese Druckregel zurück.
+Im folgenden Beispiel wird ein neues [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet) mit einer Medientyp-Regel `"print"` erstellt. Das Ausgeben von [`StyleSheet.media`](/de/docs/Web/API/StyleSheet/media) in der Konsole gibt eine [`MediaList`](/de/docs/Web/API/MediaList) mit einem Eintrag für diese Druckregel zurück.
 
 ```js
 let stylesheet = new CSSStyleSheet({ media: "print" });
@@ -47,36 +45,34 @@ console.log(stylesheet.media);
 
 ### Stylesheets mit einem Shadow DOM teilen
 
-Der folgende Code zeigt, dass das Stylesheet erstellt wird und dann {{domxref("CSSStyleSheet.replaceSync()")}} aufgerufen wird, um eine Regel zum Stylesheet hinzuzufügen.
+Der untenstehende Code zeigt, wie das Stylesheet erstellt wird und anschließend mit [`CSSStyleSheet.replaceSync()`](/de/docs/Web/API/CSSStyleSheet/replaceSync) eine Regel hinzugefügt wird.
 
 ```js
-// Erstellen Sie ein leeres "konstruiertes" Stylesheet
+// Create an empty "constructed" stylesheet
 const sheet = new CSSStyleSheet();
-// Fügen Sie eine Regel zum Stylesheet hinzu
+// Apply a rule to the sheet
 sheet.replaceSync("a { color: red; }");
 ```
 
-Wir erstellen dann ein {{domxref("ShadowRoot")}} und übergeben das Stylesheet-Objekt der Eigenschaft {{domxref("ShadowRoot.adoptedStyleSheets")}} innerhalb eines Arrays.
+Wir erstellen dann ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) und übergeben das Stylesheet-Objekt in einem Array an die Eigenschaft [`ShadowRoot.adoptedStyleSheets`](/de/docs/Web/API/ShadowRoot/adoptedStyleSheets).
 
 ```js
-// Erstellen Sie ein Element im Dokument und dann einen Shadow Root:
+// Create an element in the document and then create a shadow root:
 const node = document.createElement("div");
 const shadow = node.attachShadow({ mode: "open" });
 
-// Adoptiere das Stylesheet in den Shadow DOM
+//Adopt the sheet into the shadow DOM
 shadow.adoptedStyleSheets = [sheet];
 ```
 
-Wir können die Stylesheets ändern, nachdem sie zum Array hinzugefügt wurden.
-Unten fügen wir mit {{domxref("CSSStyleSheet.insertRule()")}} eine neue Regel zum selben Stylesheet hinzu.
+Wir können die Stylesheets ändern, nachdem sie dem Array hinzugefügt wurden. Unten fügen wir demselben Stylesheet mit [`CSSStyleSheet.insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule) eine neue Regel hinzu.
 
 ```js
 sheet.insertRule("* { background-color: blue; }");
-// Das Dokument hat jetzt einen blauen Hintergrund.
+// The document will now have blue background.
 ```
 
-Dasselbe Stylesheet kann mit mehreren Shadow-Unterbäumen im gleichen Dokument geteilt werden.
-Für weitere Beispiele sehen Sie {{domxref("ShadowRoot.adoptedStyleSheets")}}.
+Dasselbe Stylesheet kann mit mehreren Shadow-Unterbäumen im selben Dokument geteilt werden. Für weitere Beispiele siehe [`ShadowRoot.adoptedStyleSheets`](/de/docs/Web/API/ShadowRoot/adoptedStyleSheets).
 
 ## Spezifikationen
 
@@ -88,6 +84,6 @@ Für weitere Beispiele sehen Sie {{domxref("ShadowRoot.adoptedStyleSheets")}}.
 
 ## Siehe auch
 
-- [Konstruktionsfähige Stylesheets](https://web.dev/articles/constructable-stylesheets) (web.dev)
+- [Konstruktible Stylesheets](https://web.dev/articles/constructable-stylesheets) (web.dev)
 - [Verwendung des Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)
 - [construct-style-sheets-polyfill](https://www.npmjs.com/package/construct-style-sheets-polyfill)

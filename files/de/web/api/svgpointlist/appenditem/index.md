@@ -1,5 +1,5 @@
 ---
-title: "SVGPointList: appendItem()-Methode"
+title: "SVGPointList: Methode appendItem()"
 short-title: appendItem()
 slug: Web/API/SVGPointList/appendItem
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`appendItem()`**-Methode der {{domxref("SVGPointList")}}-Schnittstelle fügt einen {{domxref("SVGPoint","Punkt")}} am Ende der Liste hinzu.
+Die **`appendItem()`**-Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle fügt einen [`point`](/de/docs/Web/API/SVGPoint) am Ende der Liste hinzu.
 
 ## Syntax
 
@@ -19,20 +19,20 @@ appendItem(obj)
 ### Parameter
 
 - `obj`
-  - : Ein {{domxref("SVGPoint")}}-Objekt, das die Koordinaten des anzufügenden Punkts enthält.
+  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, das die Koordinaten des hinzuzufügenden Punktes enthält.
 
 ### Rückgabewert
 
-Das {{domxref("SVGPoint")}}-Objekt, das hinzugefügt wurde.
+Das [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, das hinzugefügt wurde.
 
 ### Ausnahmen
 
-- `NoModificationAllowedError` {{domxref("DOMException")}}
+- `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Liste schreibgeschützt ist.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein SVG, das eine {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Ein neues {{domxref("SVGPoint")}} wird erstellt und der Liste hinzugefügt.
+Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Ein neuer [`SVGPoint`](/de/docs/Web/API/SVGPoint) wird erstellt und der Liste hinzugefügt.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">

@@ -8,10 +8,10 @@ l10n:
 
 {{deprecated_header}}{{APIRef("UI Events")}}
 
-Die **`initCompositionEvent()`**-Methode der {{domxref("CompositionEvent")}}-Schnittstelle initialisiert die Attribute eines `CompositionEvent`-Objektinstanz.
+Die **`initCompositionEvent()`** Methode der [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) Schnittstelle initialisiert die Attribute eines `CompositionEvent`-Objektinstanz.
 
 > [!NOTE]
-> Der korrekte Weg, ein {{domxref("CompositionEvent")}} zu erstellen, ist die Verwendung des Konstruktors {{domxref("CompositionEvent.CompositionEvent", "CompositionEvent()")}}.
+> Der korrekte Weg, ein [`CompositionEvent`](/de/docs/Web/API/CompositionEvent) zu erstellen, ist die Verwendung des Konstruktors [`CompositionEvent()`](/de/docs/Web/API/CompositionEvent/CompositionEvent).
 
 ## Syntax
 
@@ -22,17 +22,17 @@ initCompositionEvent(type, canBubble, cancelable, view, data, locale)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des Textkompositionsereignisses darstellt; dies wird einer der folgenden sein: `compositionstart`, `compositionupdate` oder `compositionend`.
+  - : Ein String, der den Typ des Zusammensetzungsereignisses darstellt; dies wird eines von `compositionstart`, `compositionupdate` oder `compositionend` sein.
 - `canBubble`
-  - : Ein boolescher Wert, der angibt, ob das Ereignis blubbern kann oder nicht.
+  - : Ein boolescher Wert, der angibt, ob das Ereignis aufsteigen kann oder nicht.
 - `cancelable`
   - : Ein boolescher Wert, der angibt, ob das Ereignis abgebrochen werden kann oder nicht.
 - `view`
-  - : Das {{domxref("Window")}}-Objekt, von dem das Ereignis generiert wurde.
+  - : Das [`Window`](/de/docs/Web/API/Window) Objekt, von dem das Ereignis generiert wurde.
 - `data`
-  - : Ein String, der den Wert des `data`-Attributs repräsentiert.
+  - : Ein String, der den Wert des `data`-Attributs darstellt.
 - `locale`
-  - : Ein String, der den Wert des `locale`-Attributs repräsentiert.
+  - : Ein String, der den Wert des `locale`-Attributs darstellt.
 
 ### Rückgabewert
 
@@ -42,10 +42,10 @@ Keiner ({{jsxref("undefined")}}).
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("CompositionEvent")}}
+- [`CompositionEvent`](/de/docs/Web/API/CompositionEvent)

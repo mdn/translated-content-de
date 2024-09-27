@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird aufgerufen, wenn das Seitenleistenfenster ausgeblendet wird, weil der Benutzer auf eine andere Ansicht wechselt.
+Wird aufgerufen, wenn das Seitenleistenfeld ausgeblendet wird, weil der Benutzer zu einem anderen Fenster wechselt.
 
 ## Syntax
 
@@ -20,18 +20,18 @@ browser.devtools.panels.onHidden.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Zuhören auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, und `false` andernfalls.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es hört, und `false` andernfalls.
 
-## addListener-Syntax
+## Syntax von addListener
 
 ### Parameter
 
 - `listener`
-  - : Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Diese Funktion erhält keine Argumente.
+  - : Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Dieser Funktion werden keine Argumente übergeben.
 
 ## Browser-Kompatibilität
 
@@ -39,7 +39,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Erstellen Sie ein Seitenleistenfenster und protokollieren Sie Anzeige- und Ausblendereignisse.
+Erstellen Sie ein Seitenleistenfeld und protokollieren Sie Ereignisse beim Anzeigen und Ausblenden.
 
 ```js
 function onCreated(sidebarPane) {
@@ -58,4 +58,4 @@ browser.devtools.panels.elements.createSidebarPane("My pane").then(onCreated);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels)-API von Chromium.
+> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API von Chromium.

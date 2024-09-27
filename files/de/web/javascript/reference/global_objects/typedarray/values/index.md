@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`values()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt ein neues _[Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das den Wert jedes Elements im typisierten Array durchläuft. Diese Methode folgt demselben Algorithmus wie {{jsxref("Array.prototype.values()")}}.
+Die **`values()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt ein neues _[Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das über den Wert jedes Elements im typisierten Array iteriert. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.values()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-values.html")}}
 
@@ -27,11 +27,11 @@ Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Globa
 
 ## Beschreibung
 
-Weitere Details finden Sie unter {{jsxref("Array.prototype.values()")}}. Diese Methode ist nicht generisch und kann nur auf typisierte Array-Instanzen angewendet werden.
+Siehe {{jsxref("Array.prototype.values()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
 
 ## Beispiele
 
-### Iteration mit der for...of Schleife
+### Iteration mit einer for...of-Schleife
 
 ```js
 const arr = new Uint8Array([10, 20, 30, 40, 50]);
@@ -64,7 +64,7 @@ console.log(values.next().value); // 50
 ## Siehe auch
 
 - [Polyfill von `TypedArray.prototype.values` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
+- Leitfaden zu [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.entries()")}}
 - {{jsxref("TypedArray.prototype.keys()")}}

@@ -3,15 +3,15 @@ title: "GPURenderBundleEncoder: setIndexBuffer()-Methode"
 short-title: setIndexBuffer()
 slug: Web/API/GPURenderBundleEncoder/setIndexBuffer
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`setIndexBuffer()`**-Methode der {{domxref("GPURenderBundleEncoder")}}-Schnittstelle legt den aktuellen {{domxref("GPUBuffer")}} fest, der die Indexdaten für nachfolgende Zeichenbefehle bereitstellt.
+Die **`setIndexBuffer()`**-Methode der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder)-Schnittstelle legt den aktuellen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) fest, der Indizes für nachfolgende Zeichnungsbefehle bereitstellt.
 
 > [!NOTE]
-> Diese Methode ist funktional identisch mit ihrem Äquivalent auf {{domxref("GPURenderPassEncoder")}} — {{domxref("GPURenderPassEncoder.setIndexBuffer", "setIndexBuffer()")}}.
+> Diese Methode ist funktional identisch mit ihrem Äquivalent auf [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) — [`setIndexBuffer()`](/de/docs/Web/API/GPURenderPassEncoder/setIndexBuffer).
 
 ## Syntax
 
@@ -22,19 +22,19 @@ setIndexBuffer(buffer, indexFormat, offset, size)
 ### Parameter
 
 - `buffer`
-  - : Ein {{domxref("GPUBuffer")}}, der den Puffer darstellt, der die zu verwendenden Indexdaten für nachfolgende Zeichenbefehle enthält.
+  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der den Puffer darstellt und die zu verwendenden Indizes für nachfolgende Zeichnungsbefehle enthält.
 - `indexFormat`
-  - : Ein enumerierter Wert, der das Format der in `buffer` enthaltenen Indexdaten definiert. Mögliche Werte sind:
+  - : Ein enumerierter Wert, der das Format der im `buffer` enthaltenen Indizes definiert. Mögliche Werte sind:
     - `"uint16"`
     - `"uint32"`
 - `offset` {{optional_inline}}
-  - : Eine Zahl, die den Offset in Bytes in `buffer` angibt, ab dem die Indexdaten beginnen. Wird es weggelassen, so ist der Standardwert von `offset` 0.
+  - : Eine Zahl, die den Offset in Bytes in den `buffer` darstellt, an dem die Indizes beginnen. Wenn weggelassen, ist der Standardwert für `offset` 0.
 - `size` {{optional_inline}}
-  - : Eine Zahl, die die Größe in Bytes der in `buffer` enthaltenen Indexdaten angibt. Wird es weggelassen, so ist der Standardwert von `size` die {{domxref("GPUBuffer.size")}} von `buffer` minus `offset`.
+  - : Eine Zahl, die die Größe in Bytes der im `buffer` enthaltenen Indizes darstellt. Wenn weggelassen, ist der Standardwert für `size` die Differenz zwischen der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) des `buffer` und `offset`.
 
-#### Hinweis zum indexFormat
+#### Hinweis zum `indexFormat`
 
-`indexFormat` bestimmt sowohl den Datentyp der Indexwerte in einem Puffer als auch, wenn es mit einer Pipeline verwendet wird, die eine Streifen-Primitiv-Topologie (`"line-strip"` oder `"triangle-strip"`) spezifiziert, den Primitiv-Wiederholungswert. Der Primitiv-Wiederholungswert ist ein Indexwert, der angibt, dass ein neues Primitiv gestartet werden soll, anstatt den Streifen mit den zuvor indexierten Scheitelpunkten fortzusetzen. Der Wert ist `0xFFFF` für `"uint16"` oder `0xFFFFFFFF` für `"uint32"`.
+`indexFormat` bestimmt sowohl den Datentyp der Indexwerte in einem Puffer als auch, wenn sie mit einer Pipeline verwendet wird, die eine Strip-Primitiv-Topologie (`"line-strip"` oder `"triangle-strip"`) spezifiziert, den Restart-Wert des Primitivs. Der Restart-Wert des Primitivs ist ein Indexwert, der angibt, dass ein neues Primiv begonnen werden soll, anstatt den Strip mit den vorherigen indizierten Vertices fortzusetzen. Der Wert ist `0xFFFF` für `"uint16"` oder `0xFFFFFFFF` für `"uint32"`.
 
 ### Rückgabewert
 
@@ -42,10 +42,10 @@ Keiner ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Folgende Kriterien müssen erfüllt sein, wenn **`setIndexBuffer()`** aufgerufen wird, andernfalls wird ein {{domxref("GPUValidationError")}} erzeugt und der {{domxref("GPURenderBundleEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen beim Aufruf von **`setIndexBuffer()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) wird ungültig:
 
-- `buffer`'s {{domxref("GPUBuffer.usage")}} enthält das `GPUBufferUsage.INDEX`-Flag.
-- `offset` + `size` ist kleiner oder gleich der {{domxref("GPUBuffer.size")}} von `buffer`.
+- Der [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) von `buffer` enthält das `GPUBufferUsage.INDEX`-Flag.
+- `offset` + `size` ist kleiner oder gleich der [`GPUBuffer.size`](/de/docs/Web/API/GPUBuffer/size) von `buffer`.
 - `offset` ist ein Vielfaches der Bytegröße von `indexFormat` (2 für `"uint16"`, 4 für `"uint32"`).
 
 ## Beispiele

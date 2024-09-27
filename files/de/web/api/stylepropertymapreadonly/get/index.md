@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`get()`**-Methode der {{domxref("StylePropertyMapReadOnly")}}-Schnittstelle gibt ein {{domxref("CSSStyleValue")}}-Objekt für den ersten Wert der angegebenen Eigenschaft zurück.
+Die **`get()`**-Methode der [`StylePropertyMapReadOnly`](/de/docs/Web/API/StylePropertyMapReadOnly)-Schnittstelle gibt ein [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekt für den ersten Wert der angegebenen Eigenschaft zurück.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ get(property)
 
 ### Rückgabewert
 
-Ein {{domxref("CSSStyleValue")}}-Objekt.
+Ein [`CSSStyleValue`](/de/docs/Web/API/CSSStyleValue)-Objekt.
 
 ## Beispiele
 
-Lassen Sie uns einige Eigenschaften und Werte abrufen. Wir beginnen mit dem Erstellen eines Links innerhalb eines Absatzes in unserem HTML und fügen eine Definitionsliste hinzu, die wir mit JavaScript füllen werden:
+Lassen Sie uns nur ein paar Eigenschaften und Werte abrufen. Beginnen wir damit, einen Link innerhalb eines Absatzes in unserem HTML zu erstellen und eine Definitionsliste hinzuzufügen, die wir mit JavaScript füllen werden:
 
 ```html
 <p>
@@ -36,7 +36,7 @@ Lassen Sie uns einige Eigenschaften und Werte abrufen. Wir beginnen mit dem Erst
 <dl id="results"></dl>
 ```
 
-Wir fügen etwas CSS hinzu, einschließlich einer benutzerdefinierten Eigenschaft und einer vererbbaren Eigenschaft:
+Wir fügen ein wenig CSS hinzu, einschließlich einer benutzerdefinierten Eigenschaft und einer vererbbaren Eigenschaft:
 
 ```css
 p {
@@ -48,31 +48,31 @@ a {
 }
 ```
 
-Wir verwenden die `computedStyleMap()`-Methode des Elements, um ein _StylePropertyMapReadOnly_-Objekt zurückzugeben. Wir erstellen ein Array von interessanten Eigenschaften und verwenden die `get()`-Methode von StylePropertyMapReadOnly, um nur diese Werte abzurufen.
+Wir verwenden die [`computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) des Elements, um ein _StylePropertyMapReadOnly_-Objekt zurückzugeben. Wir erstellen ein Array von interessierenden Eigenschaften und verwenden die `get()`-Methode von StylePropertyMapReadOnly, um nur diese Werte abzurufen.
 
 ```js
-// Element abrufen
+// get the element
 const myElement = document.querySelector("a");
 
-// Alle berechneten Stile mit computedStyleMap() abrufen
+// Retrieve all computed styles with computedStyleMap()
 const styleMap = myElement.computedStyleMap();
 
-// das <dl> abrufen, das wir ausfüllen werden
+// get the <dl> we'll be populating
 const stylesList = document.querySelector("#results");
 
-// Array der interessanten Eigenschaften
+// array of properties we're interested in
 const ofInterest = ["font-weight", "border-left-color", "color", "--color"];
 
-// über unsere interessanten Eigenschaften iterieren
+// iterate over our properties of interest
 for (const property of ofInterest) {
-  // Eigenschaften
+  // properties
   const cssProperty = document.createElement("dt");
   cssProperty.innerText = property;
   stylesList.appendChild(cssProperty);
 
-  // Werte
+  // values
   const cssValue = document.createElement("dd");
-  // get() verwenden, um den Wert zu finden
+  // use get() to find the value
   cssValue.innerText = styleMap.get(property);
   stylesList.appendChild(cssValue);
 }
@@ -91,4 +91,4 @@ for (const property of ofInterest) {
 ## Siehe auch
 
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)
-- [Learning Houdini: the CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
+- [Lernen Sie Houdini: das CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API/Guide)

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`repetitionCount`**-Eigenschaft der {{domxref("ImageTrack")}}-Schnittstelle gibt die Anzahl der Wiederholungen dieses Tracks zurück.
+Die **`repetitionCount`**-Eigenschaft des [`ImageTrack`](/de/docs/Web/API/ImageTrack)-Interfaces gibt die Anzahl der Wiederholungen dieses Tracks zurück.
 
 ## Wert
 
-Ein Ganzzahl-Wert.
+Eine ganze Zahl.
 
 ## Beispiele
 

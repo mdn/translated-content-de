@@ -10,18 +10,18 @@ l10n:
 Der [CSS](/de/docs/Web/CSS) **Klassenselektor** wählt Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Global_attributes#class)-Attributs aus.
 
 ```css
-/* Alle Elemente mit class="spacious" */
+/* All elements with class="spacious" */
 .spacious {
   margin: 2em;
 }
 
-/* Alle <li>-Elemente mit class="spacious" */
+/* All <li> elements with class="spacious" */
 li.spacious {
   margin: 2em;
 }
 
-/* Alle <li>-Elemente mit einer Klassenliste, die sowohl "spacious" als auch "elegant" umfasst */
-/* Zum Beispiel, class="elegant retro spacious" */
+/* All <li> elements with a class list that includes both "spacious" and "elegant" */
+/* For example, class="elegant retro spacious" */
 li.spacious.elegant {
   margin: 2em;
 }
@@ -39,7 +39,7 @@ Beachten Sie, dass dies dem folgenden [Attributselektor](/de/docs/Web/CSS/Attrib
 [class~=class_name] { style properties }
 ```
 
-Der Wert `class_name` muss ein gültiger [CSS-Identifier](/de/docs/Web/CSS/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Identifier sind, müssen [escaped](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
+Der `class_name`-Wert muss ein gültiger [CSS-Identifier](/de/docs/Web/CSS/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Identifier sind, müssen [escapet](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
 
 ## Beispiele
 
@@ -48,20 +48,20 @@ Der Wert `class_name` muss ein gültiger [CSS-Identifier](/de/docs/Web/CSS/ident
 #### HTML
 
 ```html
-<p class="red">Dieser Absatz hat roten Text.</p>
+<p class="red">This paragraph has red text.</p>
 <p class="red yellow-bg">
-  Dieser Absatz hat roten Text und einen gelben Hintergrund.
+  This paragraph has red text and a yellow background.
 </p>
-<p class="red fancy">Dieser Absatz hat roten Text und "fancy"-Styling.</p>
-<p>Dies ist nur ein normaler Absatz.</p>
+<p class="red fancy">This paragraph has red text and "fancy" styling.</p>
+<p>This is just a regular paragraph.</p>
 ```
 
 ```html
-<!-- Die nächsten zwei Absätze haben class-Attribute,
-die Zeichen enthalten, die in CSS escaped werden müssen -->
+<!-- The next two paragraphs have class attributes
+that contain characters which must be escaped in CSS -->
 
-<p class="item?one">Dieser Absatz hat einen rosa Hintergrund.</p>
-<p class="123item">Dieser Absatz hat einen gelben Hintergrund.</p>
+<p class="item?one">This paragraph has a pink background.</p>
+<p class="123item">This paragraph has a yellow background.</p>
 ```
 
 #### CSS
@@ -82,7 +82,7 @@ die Zeichen enthalten, die in CSS escaped werden müssen -->
 ```
 
 ```css
-/* In den nächsten zwei Regeln müssen die class-Attribute escaped werden */
+/* In the next two rules, the class attributes must be escaped */
 
 .item\?one {
   background-color: pink;

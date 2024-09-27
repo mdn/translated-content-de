@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.waitSync()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) kehrt sofort zurück, wartet jedoch auf dem GL-Server, bis das angegebene {{domxref("WebGLSync")}}-Objekt ein Signal empfängt.
+Die **`WebGL2RenderingContext.waitSync()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) kehrt sofort zurück, wartet jedoch auf dem GL-Server, bis das angegebene [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt signalisiert wird.
 
-Die Methode hat keine Wirkung, wenn eine Synchronisierung zwischen mehreren GL-Kontexten nicht möglich ist.
+Die Methode bewirkt nichts, wenn es keine Möglichkeit gibt, zwischen mehreren GL-Kontexten zu synchronisieren.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ waitSync(sync, flags, timeout)
 ### Parameter
 
 - `sync`
-  - : Ein {{domxref("WebGLSync")}}-Objekt, auf das gewartet werden soll.
+  - : Ein [`WebGLSync`](/de/docs/Web/API/WebGLSync)-Objekt, auf das gewartet werden soll.
 - `flags`
-  - : Ein {{domxref("WebGL_API/Types", "GLbitfield")}}, das eine bitweise Kombination von Flags spezifiziert, die das Flushing-Verhalten steuern. Muss `0` sein (existiert nur für Erweiterungen).
+  - : Ein [`GLbitfield`](/de/docs/Web/API/WebGL_API/Types), das eine bitweise Kombination von Flags angibt, die das Flush-Verhalten steuern. Muss `0` sein (existiert nur für Erweiterungen).
 - `timeout`
-  - : Ein {{domxref("WebGL_API/Types", "GLint64")}}, der ein Timeout angibt, das der Server warten soll, bevor er fortfährt. Muss `gl.TIMEOUT_IGNORED` sein.
+  - : Ein [`GLint64`](/de/docs/Web/API/WebGL_API/Types), das ein Timeout angibt, das der Server abwarten soll, bevor er fortfährt. Muss `gl.TIMEOUT_IGNORED` sein.
 
 ### Rückgabewert
 
@@ -48,4 +48,4 @@ gl.waitSync(sync, 0, gl.TIMEOUT_IGNORED);
 
 ## Siehe auch
 
-- {{domxref("WebGLSync")}}
+- [`WebGLSync`](/de/docs/Web/API/WebGLSync)

@@ -8,18 +8,16 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`tabIndex`**-Eigenschaft des
-{{DOMxRef("HTMLElement")}}-Interfaces repräsentiert die Tabulatorreihenfolge des aktuellen Elements.
+Die **`tabIndex`**-Eigenschaft der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle repräsentiert die Tabulatorreihenfolge des aktuellen Elements.
 
-Die Tabulatorreihenfolge ist wie folgt:
+Die Tabulatorreihenfolge lautet wie folgt:
 
-1. Elemente mit einem positiven `tabIndex`. Elemente mit identischen
-   `tabIndex`-Werten sollten in der Reihenfolge navigiert werden, in der sie erscheinen. Die Navigation erfolgt vom niedrigsten `tabIndex` zum höchsten `tabIndex`.
-2. Elemente, die das `tabIndex`-Attribut nicht unterstützen oder es unterstützen und `tabIndex` auf `0` setzen, in der Reihenfolge ihres Erscheinens.
+1. Elemente mit einem positiven `tabIndex`. Elemente mit identischen `tabIndex`-Werten sollten in der Reihenfolge, in der sie erscheinen, navigiert werden. Die Navigation erfolgt vom niedrigsten `tabIndex` zum höchsten `tabIndex`.
+2. Elemente, die das `tabIndex`-Attribut nicht unterstützen oder es unterstützen und `tabIndex` auf `0` setzen, in der Reihenfolge, in der sie erscheinen.
 
 Elemente, die deaktiviert sind, nehmen nicht an der Tabulatorreihenfolge teil.
 
-Die Werte müssen nicht sequentiell sein, noch müssen sie mit einem bestimmten Wert beginnen. Sie können sogar negativ sein, obwohl jeder Browser sehr große Werte beschneidet.
+Die Werte müssen nicht sequentiell sein, noch müssen sie mit einem bestimmten Wert beginnen. Sie dürfen sogar negativ sein, obwohl jeder Browser sehr große Werte kürzt.
 
 ## Wert
 

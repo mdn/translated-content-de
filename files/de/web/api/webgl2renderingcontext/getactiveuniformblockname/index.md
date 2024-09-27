@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: getActiveUniformBlockName()-Methode"
+title: "WebGL2RenderingContext: Methode getActiveUniformBlockName()"
 short-title: getActiveUniformBlockName()
 slug: Web/API/WebGL2RenderingContext/getActiveUniformBlockName
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.getActiveUniformBlockName()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) ruft den Namen des aktiven Uniform-Blocks an einem angegebenen Index innerhalb eines {{domxref("WebGLProgram")}} ab.
+Die Methode **`WebGL2RenderingContext.getActiveUniformBlockName()`** des [WebGL 2 API](/de/docs/Web/API/WebGL_API) ruft den Namen des aktiven Uniform-Blocks an einem bestimmten Index innerhalb eines [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) ab.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ getActiveUniformBlockName(program, uniformBlockIndex)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}, das den Uniform-Block enthält.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das den Uniform-Block enthält.
 - `uniformBlockIndex`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der den Index des Uniform-Blocks angibt, dessen Name abgerufen werden soll.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des Uniform-Blocks angibt, dessen Name abgerufen werden soll.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die den Namen des aktiven Uniform-Blocks angibt.
+Ein String, der den Namen des aktiven Uniform-Blocks angibt.
 
 ## Beispiele
 
@@ -43,4 +43,4 @@ const blockName = gl.getActiveUniformBlockName(program, 0);
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.getUniformBlockIndex()")}}
+- [`WebGL2RenderingContext.getUniformBlockIndex()`](/de/docs/Web/API/WebGL2RenderingContext/getUniformBlockIndex)

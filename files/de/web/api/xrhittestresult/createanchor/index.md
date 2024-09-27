@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`createAnchor()`**-Methode der {{domxref("XRHitTestResult")}} Schnittstelle erstellt ein {{domxref("XRAnchor")}} aus einem Trefferergebnis, das an ein reales Objekt angehängt ist.
+Die **`createAnchor()`**-Methode des [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult)-Interfaces erstellt einen [`XRAnchor`](/de/docs/Web/API/XRAnchor) aus einem Treffertest-Ergebnis, das an ein reales Objekt angehängt ist.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem {{domxref("XRAnchor")}}-Objekt aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit einem [`XRAnchor`](/de/docs/Web/API/XRAnchor)-Objekt aufgelöst wird.
 
 ## Beispiele
 
-### Erstellen eines Ankers aus einem Trefferergebnis
+### Erstellen eines Ankers aus einem Treffertest-Ergebnis
 
-Das folgende Beispiel beginnt mit einem {{domxref("XRHitTestResult")}}, das durch Aufrufen von {{domxref("XRFrame.getHitTestResults()")}} abgerufen wurde. Nach dem Aufruf von `createAnchor()` wird das Promise mit einem {{domxref("XRAnchor")}} aufgelöst, um ein virtuelles Objekt an dieser Position zu befestigen.
+Das folgende Beispiel beginnt mit einem [`XRHitTestResult`](/de/docs/Web/API/XRHitTestResult), das durch Aufrufen von [`XRFrame.getHitTestResults()`](/de/docs/Web/API/XRFrame/getHitTestResults) erhalten wurde. Nach dem Aufruf von `createAnchor()` wird das Promise mit einem [`XRAnchor`](/de/docs/Web/API/XRAnchor) aufgelöst, um ein virtuelles Objekt an diesem Ort zu befestigen.
 
 ```js
 hitTestResult.createAnchor().then(
@@ -51,5 +51,5 @@ hitTestResult.createAnchor().then(
 
 ## Siehe auch
 
-- {{domxref("XRAnchor")}}
-- {{domxref("XRFrame.createAnchor()")}}
+- [`XRAnchor`](/de/docs/Web/API/XRAnchor)
+- [`XRFrame.createAnchor()`](/de/docs/Web/API/XRFrame/createAnchor)

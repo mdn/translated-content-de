@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaRowIndex`**-Eigenschaft des {{domxref("ElementInternals")}}-Interfaces spiegelt den Wert des [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindex)-Attributs wider, welches die Zeilenindex oder Position eines Elements in Bezug auf die Gesamtzahl der Zeilen innerhalb einer Tabelle, eines Rasters oder eines Baum-Rasters definiert.
+Die **`ariaRowIndex`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-rowindex`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindex)-Attributs wider, welches den Zeilenindex oder die Position eines Elements in Bezug auf die Gesamtanzahl der Zeilen in einer Tabelle, einem Raster oder einem Treegrid definiert.
 
 > [!NOTE]
-> Das Setzen von Aria-Attributen auf `ElementInternals` ermöglicht die Definition von Standardsemantiken auf einem benutzerdefinierten Element. Diese können durch vom Autor definierte Attribute überschrieben werden, aber stellen Sie sicher, dass die Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Festlegen von ARIA-Attributen auf `ElementInternals` ermöglicht es, Standard-Semantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standard-Semantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
-Ein String, der eine Ganzzahl enthält.
+Ein String, der eine ganze Zahl enthält.
 
 ## Beispiele
 
@@ -35,4 +35,4 @@ this.internals_.ariaRowIndex = "1";
 
 ## Siehe auch
 
-- [ARIA: Tabellen-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+- [ARIA: table-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)

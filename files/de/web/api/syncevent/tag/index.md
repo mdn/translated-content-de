@@ -1,5 +1,5 @@
 ---
-title: "SyncEvent: tag-Eigenschaft"
+title: "SyncEvent: Tag-Eigenschaft"
 short-title: tag
 slug: Web/API/SyncEvent/tag
 l10n:
@@ -8,19 +8,16 @@ l10n:
 
 {{APIRef("Background Sync")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`tag`**-Eigenschaft der
-{{domxref("SyncEvent")}}-Schnittstelle gibt den vom Entwickler definierten Bezeichner für
-diese `SyncEvent` zurück. Dies ist der Wert, der im `tag`-Parameter
-des {{domxref("SyncEvent.SyncEvent","SyncEvent()")}}-Konstruktors übergeben wird.
+Die schreibgeschützte Eigenschaft **`tag`** der [`SyncEvent`](/de/docs/Web/API/SyncEvent)-Schnittstelle gibt die vom Entwickler definierte Kennung für dieses `SyncEvent` zurück. Dies ist der Wert, der im `tag`-Parameter des Konstruktors [`SyncEvent()`](/de/docs/Web/API/SyncEvent/SyncEvent) übergeben wird.
 
 ## Wert
 
-Der vom Entwickler definierte Bezeichner für dieses `SyncEvent`.
+Die vom Entwickler definierte Kennung für dieses `SyncEvent`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -1,6 +1,6 @@
 ---
-title: "SVGMaskElement: width-Eigenschaft"
-short-title: Breite
+title: "SVGMaskElement: Breite-Eigenschaft"
+short-title: width
 slug: Web/API/SVGMaskElement/width
 l10n:
   sourceCommit: 22080a7cc403f7f45c8e85065b182c9f0d4d383c
@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die schreibgeschützte **`width`**-Eigenschaft der {{domxref("SVGMaskElement")}}-Schnittstelle gibt ein {{domxref("SVGAnimatedLength")}}-Objekt zurück, das den Wert des {{SVGattr("width")}}-Attributs des {{SVGElement("marker")}} enthält.
+Die schreibgeschützte **`width`**-Eigenschaft des [`SVGMaskElement`](/de/docs/Web/API/SVGMaskElement)-Interfaces gibt ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt zurück, das den Wert des {{SVGattr("width")}}-Attributs des {{SVGElement("marker")}} enthält.
 
 > [!NOTE]
-> Obwohl diese Eigenschaft schreibgeschützt ist, handelt es sich lediglich um einen Container für zwei Werte, die Sie ändern können: {{domxref("SVGAnimatedLength.baseVal", "baseVal")}} und {{domxref("SVGAnimatedLength.animVal", "animVal")}}.
+> Obwohl diese Eigenschaft schreibgeschützt ist, ist sie lediglich ein Container für zwei Werte, die Sie ändern können: [`baseVal`](/de/docs/Web/API/SVGAnimatedLength/baseVal) und [`animVal`](/de/docs/Web/API/SVGAnimatedLength/animVal).
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedLength")}}-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein {{domxref("SVGLength")}} zurück, dessen Wert den `width`-Wert zurückgibt.
+Ein [`SVGAnimatedLength`](/de/docs/Web/API/SVGAnimatedLength)-Objekt. Die `baseVal`-Eigenschaft dieses Objekts gibt ein [`SVGLength`](/de/docs/Web/API/SVGLength) zurück, dessen Wert den `width`-Wert zurückgibt.
 
 ## Beispiele
 
@@ -31,10 +31,10 @@ svg {
 <div>
   <svg viewBox="-10 -10 120 120" width="100" height="100">
     <mask id="mask" x="0" maskUnits="objectBoundingBox">
-      <!-- Alles unter einem weißen Pixel wird sichtbar sein -->
+      <!-- Everything under a white pixel will be visible -->
       <rect x="0" y="0" width="100" height="100" fill="white" />
 
-      <!-- Alles unter einem schwarzen Pixel wird unsichtbar sein -->
+      <!-- Everything under a black pixel will be invisible -->
       <path
         d="M10,35 A20,20,0,0,1,50,35 A20,20,0,0,1,90,35 Q90,65,50,95 Q10,65,10,35 Z"
         fill="black" />
@@ -47,7 +47,7 @@ svg {
 
     <polygon points="-10,110 110,110 110,-10" fill="orange" />
 
-    <!-- Mit dieser Maske wird ein herzförmiges Loch in den Kreis gestanzt -->
+    <!-- with this mask applied, we "punch" a heart shape hole into the circle -->
     <circle cx="50" cy="50" r="50" mask="url(#mask)" />
   </svg>
 </div>

@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<feDisplacementMap>`** [SVG](/de/docs/Web/SVG) Filter-Primitive verwendet die Pixelwerte aus dem Bild von {{SVGAttr("in2")}}, um das Bild aus {{SVGAttr("in")}} räumlich zu verschieben.
+Das **`<feDisplacementMap>`**-[SVG](/de/docs/Web/SVG) Filter-Primitive verwendet die Pixelwerte aus dem Bild von {{SVGAttr("in2")}}, um das Bild von {{SVGAttr("in")}} räumlich zu verschieben.
 
-Die Formel für die Transformation sieht wie folgt aus:
+Die Formel für die Transformation sieht so aus:
 
 `P'(x,y) ← P(x + scale * (XC(x,y) - 0.5), y + scale * (YC(x,y) - 0.5))`
 
-wobei `P(x,y)` das Eingabebild, {{SVGAttr("in")}}, und `P'(x,y)` das Zielbild ist. `XC(x,y)` und `YC(x,y)` sind die Komponentenwerte des Kanals, der durch {{SVGAttr("xChannelSelector")}} und {{SVGAttr("yChannelSelector")}} angegeben wird.
+wobei `P(x,y)` das Eingabebild, {{SVGAttr("in")}}, ist und `P'(x,y)` das Ziel ist. `XC(x,y)` und `YC(x,y)` sind die Komponentenwerte des Kanals, der von {{SVGAttr("xChannelSelector")}} und {{SVGAttr("yChannelSelector")}} angegeben wird.
 
 ## Verwendungskontext
 
@@ -29,7 +29,7 @@ wobei `P(x,y)` das Eingabebild, {{SVGAttr("in")}}, und `P'(x,y)` das Zielbild is
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFEDisplacementMapElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGFEDisplacementMapElement`](/de/docs/Web/API/SVGFEDisplacementMapElement)-Schnittstelle.
 
 ## Beispiel
 
@@ -69,7 +69,7 @@ Dieses Element implementiert die {{domxref("SVGFEDisplacementMapElement")}} Schn
 
 ## Siehe auch
 
-- [SVG-Filter-Primitivattribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes)
+- [SVG-Filter-Primitive-Attribute](/de/docs/Web/SVG/Attribute#filter_primitive_attributes)
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}

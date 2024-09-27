@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`isUserVerifyingPlatformAuthenticatorAvailable()`** statische Methode des {{domxref("PublicKeyCredential")}} Interfaces gibt ein {{jsxref("Promise")}} zurück, das zu `true` aufgelöst wird, wenn ein benutzerverifizierender Plattform-Authenticator vorhanden ist.
+Die **`isUserVerifyingPlatformAuthenticatorAvailable()`** statische Methode des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) Interfaces gibt ein {{jsxref("Promise")}} zurück, das sich zu `true` auflöst, wenn ein benutzerverifizierender Plattform-Authenticator vorhanden ist.
 
-Ein benutzerverifizierender Plattform-Authenticator ist eine Art von Mehrfaktor-Authenticator, der Teil des Clientgeräts ist (in der Regel nicht entfernbar) und der eine Handlung des Benutzers erfordert, um ihn zu identifizieren. Zu den üblichen benutzerverifizierenden Plattform-Authenticators gehören:
+Ein benutzerverifizierender Plattform-Authenticator ist eine Art von Multi-Faktor-Authenticator, der Teil des Clientgeräts ist (in der Regel nicht entfernbar) und eine Aktion des Benutzers erfordert, um ihn zu identifizieren. Häufige benutzerverifizierende Plattform-Authenticatoren sind:
 
 - Touch ID oder Face ID (macOS und iOS)
 - Windows Hello (Windows)
-- Geräteentsperrung (Fingerabdruck, Gesicht, PIN, etc.) auf Android
+- Gerätesperre (Fingerabdruck, Gesicht, PIN, usw.) auf Android
 
 > [!NOTE]
-> Diese Methode kann nur in Top-Level-Kontexten verwendet werden und steht beispielsweise nicht in einem {{HTMLElement("iframe")}} zur Verfügung.
+> Diese Methode kann nur in Top-Level-Kontexten verwendet werden und wird beispielsweise in einem {{HTMLElement("iframe")}} nicht verfügbar sein.
 
 ## Syntax
 
@@ -31,10 +31,10 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das in einen boolean Wert aufgelöst wird, der angibt, ob ein benutzerverifizierender Plattform-Authenticator verfügbar ist.
+Ein {{jsxref("Promise")}}, das sich zu einem booleschen Wert auflöst und anzeigt, ob ein benutzerverifizierender Plattform-Authenticator verfügbar ist oder nicht.
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation gab der boolean auch die Zustimmung des Benutzers zur Offenlegung des Existierens eines solchen Authenticators wieder.
+> In früheren Versionen der Spezifikation übermittelte der boolesche Wert auch die Zustimmung des Benutzers, dass ein solcher Authenticator existierte.
 
 ## Beispiele
 
@@ -42,15 +42,15 @@ Ein {{jsxref("Promise")}}, das in einen boolean Wert aufgelöst wird, der angibt
 PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()
   .then((available) => {
     if (available) {
-      // Wir können mit der Erstellung eines PublicKeyCredential
-      // mit diesem Authenticator fortfahren
+      // We can proceed with the creation of a PublicKeyCredential
+      // with this authenticator
     } else {
-      // Einen anderen Authenticator oder einen klassischen
-      // Login-/Passwort-Workflow verwenden
+      // Use another kind of authenticator or a classical login/password
+      // workflow
     }
   })
   .catch((err) => {
-    // Etwas ist schiefgelaufen
+    // Something went wrong
     console.error(err);
   });
 ```
@@ -66,4 +66,4 @@ PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()
 ## Siehe auch
 
 - [Windows Hello](https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/windows-hello)
-- [Web Authentication und Windows Hello - MSDN Guide](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/) und besonders die [besonderen Überlegungen, die `isUserVerifyingPlatformAuthenticator()` erwähnen](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/#special-considerations-for-windows-hello)
+- [Web Authentication und Windows Hello - MSDN Leitfaden](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/) und insbesondere die [besonderen Überlegungen, die `isUserVerifyingPlatformAuthenticator()` erwähnen](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/#special-considerations-for-windows-hello)

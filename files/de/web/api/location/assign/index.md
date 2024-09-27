@@ -1,5 +1,5 @@
 ---
-title: "Location: assign()-Methode"
+title: "Location: assign() Methode"
 short-title: assign()
 slug: Web/API/Location/assign
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`assign()`**-Methode des {{DOMXref("Location")}} Interfaces veranlasst das Fenster, das Dokument an der angegebenen URL zu laden und anzuzeigen. Nach der Navigation kann der Benutzer zur Seite, die `Location.assign()` aufgerufen hat, zurückkehren, indem er die "Zurück"-Taste drückt.
+Die **`assign()`** Methode der [`Location`](/de/docs/Web/API/Location)
+Schnittstelle veranlasst das Fenster, das Dokument an der angegebenen URL zu laden
+und anzuzeigen. Nach der Navigation kann der Benutzer zur Seite zurückkehren, die `Location.assign()` aufgerufen hat, indem er die "Zurück"-Taste drückt.
 
 ## Syntax
 
@@ -19,14 +21,14 @@ assign(url)
 ### Parameter
 
 - `url`
-  - : Ein String, der die URL der Seite enthält, zu der navigiert werden soll; zum Beispiel eine absolute URL wie `https://developer.mozilla.org/de/docs/Web/API/Location/reload` oder eine relative URL — wie `/Web` (nur ein Pfad, um zu einem anderen Dokument am selben Ursprung zu navigieren) oder `#specifications` (nur ein Fragment-String, um zu einem Teil derselben Seite zu navigieren), und so weiter.
+  - : Ein String, der die URL der Seite enthält, zu der navigiert werden soll; zum Beispiel eine absolute URL wie `https://developer.mozilla.org/de/docs/Web/API/Location/reload`, oder eine relative URL — wie `/Web` (nur ein Pfad, um zu einem anderen Dokument am gleichen Ursprung zu navigieren) oder `#specifications` (nur ein Fragment-String, um zu einem Teil derselben Seite zu navigieren), und so weiter.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{Glossary("origin")}} des Skripts, das die Methode aufruft, nicht der {{Glossary("Same-origin policy", "gleiche Ursprung")}} der ursprünglich durch das {{domxref("Location")}}-Objekt beschriebenen Seite ist, hauptsächlich wenn das Skript auf einer anderen Domain gehostet wird. Browser drosseln auch Navigationen und können diesen Fehler auslösen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig aufgerufen wird.
-- `SyntaxError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der bereitgestellte `url`-Parameter keine gültige URL ist.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der [Ursprung](/de/docs/Glossary/origin) des Skripts, das die Methode aufruft, nicht der [gleich Ursprung](/de/docs/Glossary/Same-origin_policy) der Seite ist, die ursprünglich durch das [`Location`](/de/docs/Web/API/Location) Objekt beschrieben wird, hauptsächlich wenn das Skript auf einer anderen Domain gehostet wird. Browser drosseln auch Navigationen und können diesen Fehler werfen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig aufgerufen wird.
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der angegebene `url` Parameter keine gültige URL ist.
 
 ### Rückgabewert
 
@@ -35,15 +37,15 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```js
-// Zur Location.reload-Artikel navigieren
+// Navigate to the Location.reload article
 window.location.assign(
-  "https://developer.mozilla.org/de/docs/Web/API/Location/reload",
+  "https://developer.mozilla.org/en-US/docs/Web/API/Location/reload",
 );
 
-// Dann zur Spezifikationssektion navigieren
+// Then navigate to its Specifications section
 window.location.assign("#specifications");
 
-// Schließlich zu https://developer.mozilla.org/de/docs/Web navigieren
+// Eventually navigate to https://developer.mozilla.org/en-US/docs/Web
 window.location.assign("/Web");
 ```
 
@@ -51,12 +53,12 @@ window.location.assign("/Web");
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Das {{domxref("Location")}} Interface, zu dem es gehört.
-- Ähnliche Methoden: {{domxref("Location.replace()")}} und
-  {{domxref("Location.reload()")}}.
+- Die [`Location`](/de/docs/Web/API/Location) Schnittstelle, zu der sie gehört.
+- Ähnliche Methoden: [`Location.replace()`](/de/docs/Web/API/Location/replace) und
+  [`Location.reload()`](/de/docs/Web/API/Location/reload).

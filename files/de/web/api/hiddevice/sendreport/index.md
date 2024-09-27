@@ -8,9 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`sendReport()`**-Methode der {{domxref("HIDDevice")}}-Schnittstelle sendet einen Ausgabereport an das HID-Gerät.
+Die **`sendReport()`**-Methode der Schnittstelle [`HIDDevice`](/de/docs/Web/API/HIDDevice) sendet einen Ausgabereport an das HID-Gerät.
 
-Die `reportId` für jedes der Reportformate, die dieses Gerät unterstützt, kann aus {{domxref("HIDDevice.collections")}} abgerufen werden.
+Der `reportId` für jedes der von diesem Gerät unterstützten Berichtsformate kann aus [`HIDDevice.collections`](/de/docs/Web/API/HIDDevice/collections) abgerufen werden.
 
 ## Syntax
 
@@ -21,31 +21,31 @@ sendReport(reportId, data)
 ### Parameter
 
 - `reportId`
-  - : Eine 8-Bit-Report-ID. Falls das HID-Gerät keine Report-IDs verwendet, senden Sie `0`.
+  - : Eine 8-Bit-Report-ID. Wenn das HID-Gerät keine Report-IDs verwendet, senden Sie `0`.
 - `data`
-  - : Bytes als {{jsxref("ArrayBuffer")}}, {{jsxref("TypedArray")}} oder {{jsxref("DataView")}}.
+  - : Bytes als {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}}.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald der Report gesendet wurde.
+Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald der Bericht gesendet wurde.
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das Senden des Reports aus irgendeinem Grund fehlschlägt.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das Senden des Berichts aus irgendeinem Grund fehlschlägt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein Joy-Con-Gerät mit Ausgabereports zum Vibrieren gebracht wird. Weitere Beispiele und Live-Demos finden Sie im Artikel [Verbinden mit ungewöhnlichen HID-Geräten](https://developer.chrome.com/docs/capabilities/hid).
+Das folgende Beispiel zeigt, wie Sie ein Joy-Con-Gerät mithilfe von Ausgabereports vibrieren lassen können. Weitere Beispiele und Live-Demos finden Sie in dem Artikel [Verbindung zu ungewöhnlichen HID-Geräten herstellen](https://developer.chrome.com/docs/capabilities/hid).
 
 ```js
-// Zuerst einen Befehl senden, um die Vibration zu aktivieren.
-// Magische Bytes stammen von https://github.com/mzyy94/joycon-toolweb
+// First, send a command to enable vibration.
+// Magical bytes come from https://github.com/mzyy94/joycon-toolweb
 const enableVibrationData = [1, 0, 1, 64, 64, 0, 1, 64, 64, 0x48, 0x01];
 await device.sendReport(0x01, new Uint8Array(enableVibrationData));
 
-// Dann einen Befehl senden, um das Joy-Con-Gerät vibrieren zu lassen.
-// Tatsächliche Bytes sind im Beispiel verfügbar.
+// Then, send a command to make the Joy-Con device rumble.
+// Actual bytes are available in the sample.
 const rumbleData = [
   /* … */
 ];

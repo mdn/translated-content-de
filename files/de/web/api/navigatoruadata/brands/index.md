@@ -1,5 +1,5 @@
 ---
-title: "NavigatorUAData: Brands-Eigenschaft"
+title: "NavigatorUAData: brands-Eigenschaft"
 short-title: brands
 slug: Web/API/NavigatorUAData/brands
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("User-Agent Client Hints API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`brands`** schreibgeschützte Eigenschaft des {{domxref("NavigatorUAData")}}-Interfaces gibt ein Array von Markeninformationen zurück.
+Die **`brands`** schreibgeschützte Eigenschaft des [`NavigatorUAData`](/de/docs/Web/API/NavigatorUAData)-Interfaces gibt ein Array von Markeninformationen zurück.
 
 ## Wert
 
@@ -21,7 +21,7 @@ Ein Array, das die folgenden Informationen für jede Marke enthält:
 
 ## Beispiele
 
-Das folgende Beispiel gibt den Wert von `brands` auf der Konsole aus.
+Das folgende Beispiel gibt den Wert von `brands` in der Konsole aus.
 
 ```js
 console.log(navigator.userAgentData.brands);
@@ -37,4 +37,4 @@ console.log(navigator.userAgentData.brands);
 
 ## Siehe auch
 
-- {{HTTPHeader("Sec-CH-UA")}} (ein [niedriger-Entropie-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#low_entropy_hints)) enthält die gleichen Informationen.
+- {{HTTPHeader("Sec-CH-UA")}} (ein [niedrig-entropischer Client-Hinweis](/de/docs/Web/HTTP/Client_hints#low_entropy_hints)) enthält die gleichen Informationen.

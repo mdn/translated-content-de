@@ -9,17 +9,17 @@ l10n:
 
 WebAssembly-Variablenanweisungen.
 
-- [Lokale deklarieren](/de/docs/WebAssembly/Reference/Variables/Local)
+- [Lokal deklarieren](/de/docs/WebAssembly/Reference/Variables/Local)
   - : Eine neue lokale Variable deklarieren.
 - [Lokal abrufen](/de/docs/WebAssembly/Reference/Variables/Local_get)
-  - : Den Wert einer lokalen Variable auf den Stack laden.
+  - : Den Wert einer lokalen Variable auf den Stapel laden.
 - [Lokal setzen](/de/docs/WebAssembly/Reference/Variables/Local_set)
   - : Den Wert einer lokalen Variable setzen.
-- [Lokal tee](/de/docs/WebAssembly/Reference/Variables/Local_tee)
-  - : Den Wert einer lokalen Variable setzen und den Wert auf dem Stack behalten.
+- [Lokal "Tee"](/de/docs/WebAssembly/Reference/Variables/Local_tee)
+  - : Den Wert einer lokalen Variable setzen und den Wert auf dem Stapel behalten.
 - [Global deklarieren](/de/docs/WebAssembly/Reference/Variables/Global)
   - : Eine neue globale Variable deklarieren.
 - [Global abrufen](/de/docs/WebAssembly/Reference/Variables/Global_get)
-  - : Den Wert einer globalen Variable auf den Stack laden.
+  - : Den Wert einer globalen Variable auf den Stapel laden.
 - [Global setzen](/de/docs/WebAssembly/Reference/Variables/Global_set)
   - : Den Wert einer globalen Variable setzen.

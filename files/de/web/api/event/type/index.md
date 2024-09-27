@@ -1,5 +1,5 @@
 ---
-title: "Event: type Eigenschaft"
+title: "Event: Eigenschaft type"
 short-title: type
 slug: Web/API/Event/type
 l10n:
@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`type`** Eigenschaft der {{domxref("Event")}}-Schnittstelle ist eine schreibgeschützte Eigenschaft, die einen Zeichenfolgenwert zurückgibt, der den Typ des Ereignisses enthält. Sie wird beim Erstellen des Ereignisses festgelegt und ist der Name, der üblicherweise verwendet wird, um auf das spezifische Ereignis zu verweisen, wie `click`, `load` oder `error`.
+Die schreibgeschützte **`type`**-Eigenschaft der [`Event`](/de/docs/Web/API/Event)-Schnittstelle gibt einen Zeichenfolgenwert zurück, der den Typ des Ereignisses enthält. Sie wird festgelegt, wenn das Ereignis erstellt wird, und ist der Name, der üblicherweise verwendet wird, um auf das spezifische Ereignis zu verweisen, wie zum Beispiel `click`, `load` oder `error`.
 
 ## Wert
 
-Eine Zeichenfolge, die den Typ des {{domxref("Event")}} enthält.
+Ein Zeichenfolge, die den Typ des [`Event`](/de/docs/Web/API/Event) enthält.
 
 ## Beispiel
 
-Dieses Beispiel protokolliert den Ereignistyp, wann immer Sie eine Taste auf der Tastatur drücken oder eine Maustaste klicken.
+Dieses Beispiel protokolliert den Ereignistyp, wann immer Sie eine Tastaturtaste drücken oder eine Maustaste klicken.
 
 ### HTML
 
 ```html
-<p>Drücken Sie eine beliebige Taste oder klicken Sie mit der Maus, um den Ereignistyp zu erhalten.</p>
+<p>Press any key or click the mouse to get the event type.</p>
 <p id="log"></p>
 ```
 
@@ -58,5 +58,5 @@ document.addEventListener("click", getEventType, false); // third
 
 ## Siehe auch
 
-- {{ domxref("EventTarget.addEventListener()") }}
-- {{ domxref("EventTarget.removeEventListener()") }}
+- [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)
+- [`EventTarget.removeEventListener()`](/de/docs/Web/API/EventTarget/removeEventListener)

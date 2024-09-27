@@ -3,12 +3,12 @@ title: "GPUCommandEncoder: Methode resolveQuerySet()"
 short-title: resolveQuerySet()
 slug: Web/API/GPUCommandEncoder/resolveQuerySet
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`resolveQuerySet()`**-Methode der {{domxref("GPUCommandEncoder")}}-Schnittstelle kodiert einen Befehl, der ein {{domxref("GPUQuerySet")}} auflöst und die Ergebnisse in einen angegebenen {{domxref("GPUBuffer")}} kopiert.
+Die **`resolveQuerySet()`**-Methode der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle codiert einen Befehl, der ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) auflöst und die Ergebnisse in einen angegebenen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) kopiert.
 
 ## Syntax
 
@@ -19,27 +19,27 @@ resolveQuerySet(querySet, firstQuery, queryCount, destination, destinationOffset
 ### Parameter
 
 - `querySet`
-  - : Ein {{domxref("GPUQuerySet")}}-Objekt, das das zu lösende Abfrageset darstellt.
+  - : Ein [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Objekt, das das aufzulösende Abfrageset darstellt.
 - `firstQuery`
-  - : Die Indexnummer des ersten Abfragewerts, der in den Puffer kopiert werden soll.
+  - : Die Indexnummer der ersten Abfrage, die in den Buffer kopiert werden soll.
 - `queryCount`
-  - : Die Anzahl der Abfragen, die ab `firstQuery` in den Puffer kopiert werden sollen.
+  - : Die Anzahl der Abfragen, die in den Buffer kopiert werden sollen, beginnend mit `firstQuery`.
 - `destination`
-  - : Ein {{domxref("GPUBuffer")}}, das den Puffer darstellt, in den die Abfragewerte kopiert werden.
+  - : Ein [`GPUBuffer`](/de/docs/Web/API/GPUBuffer), der den Buffer darstellt, in den die Abfragen kopiert werden.
 - `destinationOffset`
-  - : Eine Zahl, die den Versatz in Bytes vom Beginn des Puffers angibt, wo die Abfragewerte geschrieben werden sollen.
+  - : Eine Zahl, die den Offset in Bytes vom Anfang des Buffers darstellt, ab dem die Abfragewerte geschrieben werden sollen.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("Undefined")}}).
+Keine ({{jsxref("Undefined")}}).
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`resolveQuerySet()`** aufgerufen wird, andernfalls wird ein {{domxref("GPUValidationError")}} erzeugt und der {{domxref("GPUCommandEncoder")}} wird ungültig:
+Die folgenden Kriterien müssen beim Aufrufen von **`resolveQuerySet()`** erfüllt sein, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) wird ungültig:
 
-- Die {{domxref("GPUBuffer.usage")}} des `destination.buffer` enthält das `GPUBufferUsage.QUERY_RESOLVE`-Flag.
-- `firstQuery` ist kleiner als die Anzahl der Abfragen in `querySet`.
-- `firstQuery` + `queryCount` ist kleiner oder gleich der Anzahl der Abfragen in `querySet`.
+- Die [`GPUBuffer.usage`](/de/docs/Web/API/GPUBuffer/usage) des `destination.buffer` beinhaltet das `GPUBufferUsage.QUERY_RESOLVE`-Flag.
+- `firstQuery` ist kleiner als die Anzahl der Abfragen im `querySet`.
+- `firstQuery` + `queryCount` ist kleiner oder gleich der Anzahl der Abfragen im `querySet`.
 - `destinationOffset` ist ein Vielfaches von 256.
 - `destinationOffset` + 8 × `queryCount` ist kleiner oder gleich `destination.size`.
 
@@ -62,20 +62,20 @@ const querySet = device.createQuerySet({
 
 const commandEncoder = device.createCommandEncoder();
 
-// Timestamps in querySet schreiben
+// Write timestamps to querySet
 commandEncoder.writeTimestamp(querySet, 0);
 // ...
 commandEncoder.writeTimestamp(querySet, 1);
-// usw.
+// etc.
 
 // ...
 
 commandEncoder.resolveQuerySet(
   querySet,
-  0, // Erste Abfrage zum Schreiben
-  16, // Anzahl der Abfragen
+  0, // First query to write
+  16, // Number of queries to count
   queryBuffer,
-  0, // Puffer-Versatz
+  0, // Buffer offset
 );
 
 // ...
@@ -91,4 +91,4 @@ commandEncoder.resolveQuerySet(
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

@@ -8,11 +8,11 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.endContainer`** Eigenschaft ist eine schreibgeschützte Eigenschaft, die den {{domxref("Node")}} zurückgibt, in dem die {{domxref("Range")}} endet. Um die Endposition eines Knotens zu ändern, verwenden Sie die Methode {{domxref("Range.setEnd()")}} oder eine ähnliche.
+Die schreibgeschützte **`Range.endContainer`**-Eigenschaft gibt das [`Node`](/de/docs/Web/API/Node) zurück, innerhalb dessen der [`Range`](/de/docs/Web/API/Range) endet. Um die Endposition eines Knotens zu ändern, verwenden Sie die Methode [`Range.setEnd()`](/de/docs/Web/API/Range/setEnd) oder eine ähnliche.
 
 ## Wert
 
-Ein {{domxref("Node")}}-Objekt.
+Ein [`Node`](/de/docs/Web/API/Node)-Objekt.
 
 ## Beispiele
 
@@ -34,4 +34,4 @@ endRangeNode = range.endContainer;
 
 ## Siehe auch
 
-- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)

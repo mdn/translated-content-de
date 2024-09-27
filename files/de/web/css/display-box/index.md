@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Diese Schlüsselwörter definieren, ob ein Element überhaupt Darstellungsboxen erzeugt.
+Diese Schlüsselwörter definieren, ob ein Element überhaupt Anzeige-Boxen erzeugt.
 
 ## Syntax
 
@@ -15,20 +15,20 @@ Gültige `<display-box>` Werte:
 
 - `contents`
 
-  - : Diese Elemente erzeugen selbst keine spezifische Box. Sie werden durch ihre Pseudo-Box und die Boxen ihrer Kinder ersetzt. Beachten Sie, dass die CSS Display Level 3 Spezifikation definiert, wie sich der Wert `contents` auf „ungewöhnliche Elemente“ auswirken soll – Elemente, die nicht rein durch CSS-Box-Konzepte gerendert werden, wie zum Beispiel ersetzte Elemente. Sehen Sie sich [Anhang B: Auswirkungen von display: contents auf ungewöhnliche Elemente](https://drafts.csswg.org/css-display/#unbox) für weitere Details an.
+  - : Diese Elemente erzeugen von sich aus keine spezifische Box. Sie werden durch ihre Pseudo-Box und ihre Kind-Boxen ersetzt. Beachten Sie, dass die CSS Display Level 3 Spezifikation definiert, wie der Wert `contents` "ungewöhnliche Elemente" beeinflussen sollte — Elemente, die nicht rein durch CSS-Box-Konzepte gerendert werden, wie ersetzte Elemente. Siehe [Anhang B: Auswirkungen von display: contents auf ungewöhnliche Elemente](https://drafts.csswg.org/css-display/#unbox) für weitere Details.
 
-    _Aufgrund eines Fehlers in Browsern wird das Element derzeit aus dem Barrierefreiheit-Baum entfernt — Bildschirmlesegeräte betrachten nicht, was sich darin befindet. Siehe den Abschnitt [Barrierefreiheit](#barrierefreiheit) unten für weitere Details._
+    _Aufgrund eines Bugs in Browsern wird dieses Element derzeit aus dem Zugänglichkeitsbaum entfernt — Screenreader betrachten den Inhalt nicht. Siehe den Abschnitt [Barrierefreiheit](#barrierefreiheit) unten für weitere Details._
 
 - `none`
-  - : Schaltet die Anzeige eines Elements aus, sodass es sich nicht auf das Layout auswirkt (das Dokument wird gerendert, als ob das Element nicht existierte). Auch alle nachfolgenden Elemente werden ausgeschaltet.
-    Um ein Element den Raum einnehmen zu lassen, den es normalerweise einnehmen würde, ohne tatsächlich etwas zu rendern, verwenden Sie stattdessen die {{CSSxRef("visibility")}} Eigenschaft.
+  - : Schaltet die Anzeige eines Elements aus, sodass es keinen Effekt auf das Layout hat (das Dokument wird gerendert, als ob das Element nicht existieren würde). Alle Nachkommen-Elemente haben ebenfalls ihre Anzeige ausgeschaltet.
+    Um ein Element den Raum einnehmen zu lassen, den es normalerweise einnehmen würde, jedoch ohne tatsächlich etwas zu rendern, verwenden Sie stattdessen die Eigenschaft {{CSSxRef("visibility")}}.
 
 ## Barrierefreiheit
 
-Aktuelle Implementierungen in den meisten Browsern entfernen jedes Element mit einem `display` Wert von `contents` aus dem [Barrierefreiheit-Baum](/de/docs/Learn/Accessibility/What_is_accessibility#accessibility_apis). Dies führt dazu, dass das Element – und in einigen Browserversionen auch seine nachfolgenden Elemente – nicht mehr von Bildschirmlesetechnologien angesagt werden. Dies ist ein fehlerhaftes Verhalten laut der [CSSWG-Spezifikation](https://drafts.csswg.org/css-display/#the-display-properties).
+Aktuelle Implementierungen in den meisten Browsern entfernen aus dem [Zugänglichkeitsbaum](/de/docs/Learn/Accessibility/What_is_accessibility#accessibility_apis) jedes Element mit einem `display`-Wert von `contents`. Dies wird dazu führen, dass das Element — und in einigen Browserversionen auch dessen Nachkommenelemente — nicht mehr von Screenreader-Technologie angekündigt werden. Dies ist ein inkorrektes Verhalten gemäß der [CSSWG-Spezifikation](https://drafts.csswg.org/css-display/#the-display-properties).
 
 - [Mehr zugängliches Markup mit display: contents | Hidde de Vries](https://hidde.blog/more-accessible-markup-with-display-contents/)
-- [Display: Contents ist kein CSS-Reset | Adrian Roselli](https://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html)
+- [Display: Contents Is Not a CSS Reset | Adrian Roselli](https://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html)
 
 ## Formale Syntax
 
@@ -36,7 +36,7 @@ Aktuelle Implementierungen in den meisten Browsern entfernen jedes Element mit e
 
 ## Beispiele
 
-Im ersten Beispiel wird der Absatz mit einer Klasse von secret auf `display: none` gesetzt; die Box und alle Inhalte werden jetzt nicht gerendert.
+In diesem ersten Beispiel wird der Absatz mit der Klasse `secret` auf `display: none` gesetzt; die Box und jeglicher Inhalt werden nun nicht gerendert.
 
 ### display: none
 
@@ -61,7 +61,7 @@ p.secret {
 
 ### display: contents
 
-In diesem Beispiel hat das äußere {{htmlelement("div")}} einen 2-Pixel roten Rahmen und eine Breite von 300px. Es hat jedoch auch `display: contents` angegeben, daher wird dieses `<div>` nicht gerendert, der Rahmen und die Breite gelten nicht mehr, und das Kindelement wird angezeigt, als hätte der Elternteil nie existiert.
+In diesem Beispiel hat das äußere {{htmlelement("div")}} einen 2-Pixel roten Rand und eine Breite von 300px. Es hat jedoch auch `display: contents` spezifiziert, daher wird dieses `<div>` nicht gerendert, der Rand und die Breite werden nicht mehr angewendet, und das Kindelement wird angezeigt, als ob das Elternteil nie existiert hätte.
 
 #### HTML
 
@@ -107,5 +107,5 @@ In diesem Beispiel hat das äußere {{htmlelement("div")}} einen 2-Pixel roten R
   - {{CSSxRef("&lt;display-internal&gt;")}}
   - {{CSSxRef("&lt;display-legacy&gt;")}}
 
-- [Display: Contents Ist Kein CSS-Reset | Adrian Roselli](https://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html)
+- [Display: Contents Is Not a CSS Reset | Adrian Roselli](https://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html)
 - [Mehr zugängliches Markup mit display: contents — hiddedevries.nl](https://hidde.blog/more-accessible-markup-with-display-contents/)

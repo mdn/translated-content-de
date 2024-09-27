@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-String, das den inaktiven Zustand des Geräts beschreibt.
+String, die den Leerlaufzustand des Geräts beschreibt.
 
 ## Typ
 
@@ -20,4 +20,4 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind: `"active"`, `"idle"`
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromium's [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#type-IdleState) API. Diese Dokumentation ist abgeleitet von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.idle`](https://developer.chrome.com/docs/extensions/reference/api/idle#type-IdleState)-API von Chromium. Diese Dokumentation ist abgeleitet von [`idle.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/idle.json) im Chromium-Code.

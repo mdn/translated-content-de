@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Siehe {{domxref("BroadcastChannel.BroadcastChannel", "BroadcastChannel()")}}, um die Verwendung zu verstehen.
+> Siehe [`BroadcastChannel()`](/de/docs/Web/API/BroadcastChannel/BroadcastChannel), um die Nutzung zu verstehen.
 
 ## Syntax
 
@@ -20,35 +20,35 @@ handle.BroadcastChannel(channelName)
 ### Parameter
 
 - `channelName`
-  - : Siehe {{domxref("BroadcastChannel.BroadcastChannel", "BroadcastChannel()")}}.
+  - : Siehe [`BroadcastChannel()`](/de/docs/Web/API/BroadcastChannel/BroadcastChannel).
 
 ### Rückgabewert
 
-Ein nicht partitioniertes {{domxref("BroadcastChannel")}}-Objekt.
+Ein nicht partitioniertes [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Objekt.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DomException")}}
+- `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
   - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
-Siehe {{domxref("BroadcastChannel.BroadcastChannel", "BroadcastChannel()")}}
+Siehe [`BroadcastChannel()`](/de/docs/Web/API/BroadcastChannel/BroadcastChannel)
 
 ## Beispiele
 
 ```js
 document.requestStorageAccess({ BroadcastChannel: true }).then(
   (handle) => {
-    console.log("BroadcastChannel-Zugriff gewährt");
+    console.log("BroadcastChannel access granted");
     handle.BroadcastChannel(channel_name);
   },
   () => {
-    console.log("BroadcastChannel-Zugriff verweigert");
+    console.log("BroadcastChannel access denied");
   },
 );
 ```
 
 > [!NOTE]
-> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein umfassenderes Beispiel.
+> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
 
 ## Spezifikationen
 
@@ -60,5 +60,5 @@ document.requestStorageAccess({ BroadcastChannel: true }).then(
 
 ## Siehe auch
 
-- {{domxref("Document.requestStorageAccess()")}}
+- [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
 - [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)

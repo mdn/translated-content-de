@@ -1,5 +1,5 @@
 ---
-title: "CSSFontFeatureValuesRule: fontFamily Eigenschaft"
+title: "CSSFontFeatureValuesRule: fontFamily-Eigenschaft"
 short-title: fontFamily
 slug: Web/API/CSSFontFeatureValuesRule/fontFamily
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die **`fontFamily`**-Eigenschaft der {{domxref("CSSConditionRule")}}-Schnittstelle repräsentiert den Namen der Schriftfamilie, auf die sie angewendet wird.
+Die **`fontFamily`**-Eigenschaft der [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule)-Schnittstelle repräsentiert den Namen der Schriftfamilie, auf die sie angewendet wird.
 
 ## Wert
 
-Ein String.
+Ein Zeichenfolgenwert.
 
 ## Beispiele
 
-### Schriftfamilie lesen
+### Schriftfamilie auslesen
 
-In diesem Beispiel deklarieren wir zwei {{cssxref("@font-feature-values")}}, eine für die Schriftfamilie _Font One_ und die andere für _Font Two_. Wir verwenden dann das CSSOM, um diese Schriftfamilien zu lesen und sie im Protokoll anzuzeigen.
+In diesem Beispiel deklarieren wir zwei {{cssxref("@font-feature-values")}}, eine für die Schriftfamilie _Font One_ und die andere für _Font Two_. Wir verwenden dann die CSSOM, um diese Schriftfamilien auszulesen und sie im Log anzuzeigen.
 
 ```html
 <pre id="log"></pre>
@@ -27,21 +27,21 @@ In diesem Beispiel deklarieren wir zwei {{cssxref("@font-feature-values")}}, ein
 #### CSS
 
 ```css
-/* At-Regel für "nice-style" in Font One */
+/* At-rule for "nice-style" in Font One */
 @font-feature-values Font One {
   @styleset {
     nice-style: 12;
   }
 }
 
-/* At-Regel für "nice-style" in Font Two */
+/* At-rule for "nice-style" in Font Two */
 @font-feature-values Font Two {
   @styleset {
     nice-style: 4;
   }
 }
 
-/* Anwenden der At-Regeln mit einer einzigen Deklaration */
+/* Apply the at-rules with a single declaration */
 .nice-look {
   font-variant-alternates: styleset(nice-style);
 }

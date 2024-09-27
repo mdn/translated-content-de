@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`name`**-Schreibgeschützte Eigenschaft des {{domxref("SpeechSynthesisUtterance")}}-Interfaces gibt den Namen zurück, der mit bestimmten Arten von Ereignissen verbunden ist, die auftreten, während der {{domxref("SpeechSynthesisUtterance.text")}} gesprochen wird: den Namen des [SSML](https://www.w3.org/TR/speech-synthesis/#S3.3.2)-Markers im Falle eines {{domxref("SpeechSynthesisUtterance.mark_event", "mark")}}-Ereignisses, oder die Art der Grenze im Falle eines {{domxref("SpeechSynthesisUtterance.boundary_event", "boundary")}}-Ereignisses.
+Die schreibgeschützte **`name`**-Eigenschaft des [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Interfaces gibt den Namen zurück, der mit bestimmten Arten von Ereignissen verbunden ist, die auftreten, während der [`SpeechSynthesisUtterance.text`](/de/docs/Web/API/SpeechSynthesisUtterance/text) gesprochen wird:
+der Name des [SSML](https://www.w3.org/TR/speech-synthesis/#S3.3.2)-Markers, der im Fall eines [`mark`](/de/docs/Web/API/SpeechSynthesisUtterance/mark_event)-Ereignisses erreicht wurde, oder die Art der Grenze, die im Fall eines [`boundary`](/de/docs/Web/API/SpeechSynthesisUtterance/boundary_event)-Ereignisses erreicht wurde.
 
 ## Wert
 

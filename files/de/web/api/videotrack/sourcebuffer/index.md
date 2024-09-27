@@ -8,16 +8,15 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}
 
-Die schreibgeschützte **{{domxref("VideoTrack")}}**
+Die schreibgeschützte **[`VideoTrack`](/de/docs/Web/API/VideoTrack)**
 Eigenschaft **`sourceBuffer`** gibt den
-{{domxref("SourceBuffer")}} zurück, der die Spur erstellt hat, oder null, wenn die Spur nicht
-durch einen {{domxref("SourceBuffer")}} erstellt wurde oder der {{domxref("SourceBuffer")}} wurde
-aus dem {{domxref("MediaSource.sourceBuffers")}} Attribut seiner übergeordneten
-Medienquelle entfernt.
+[`SourceBuffer`](/de/docs/Web/API/SourceBuffer) zurück, der den Track erstellt hat, oder null, wenn der Track nicht
+von einem [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) erstellt wurde oder wenn der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) aus dem
+[`MediaSource.sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) Attribut der übergeordneten Medienquelle entfernt wurde.
 
 ## Wert
 
-Ein {{domxref("SourceBuffer")}} oder null.
+Ein [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) oder null.
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "AmbientLightSensor: AmbientLightSensor() Konstruktor"
+title: "AmbientLightSensor: AmbientLightSensor()-Konstruktor"
 short-title: AmbientLightSensor()
 slug: Web/API/AmbientLightSensor/AmbientLightSensor
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}{{SeeCompatTable}}
 
-Der **`AmbientLightSensor()`** Konstruktor erstellt ein neues {{domxref("AmbientLightSensor")}} Objekt, das den aktuellen Lichtpegel oder die Beleuchtungsstärke des Umgebungslichts um das hostende Gerät herum zurückgibt.
+Der **`AmbientLightSensor()`**-Konstruktor erstellt ein neues [`AmbientLightSensor`](/de/docs/Web/API/AmbientLightSensor)-Objekt, das den aktuellen Lichtpegel oder die Beleuchtungsstärke des Umgebungslichts um das Hostgerät herum zurückgibt.
 
 ## Syntax
 
@@ -24,11 +24,11 @@ new AmbientLightSensor(options)
   - : Derzeit wird nur eine Option unterstützt:
 
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl der Abtastungen pro Sekunde, was bedeutet, wie oft pro Sekunde das {{domxref('sensor.reading_event', 'reading')}}-Ereignis aufgerufen wird. Eine ganze Zahl oder Dezimalzahl kann verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Abtastfrequenz hängt von der Gerätehardware ab und kann daher geringer sein als gewünscht.
+      - : Die gewünschte Anzahl der Proben pro Sekunde, d.h. die Anzahl der Male pro Sekunde, dass das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Es kann eine ganze Zahl oder ein Dezimalwert verwendet werden, Letzteres für Frequenzen von weniger als einer Sekunde. Die tatsächliche Abtastfrequenz hängt von der Gerätehardware ab und kann folglich geringer sein als angefordert.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Die Nutzung dieser Funktion wurde durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
 
 ## Spezifikationen
@@ -41,4 +41,4 @@ new AmbientLightSensor(options)
 
 ## Siehe auch
 
-- {{domxref('sensor.reading_event', 'reading')}} Ereignis
+- [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis

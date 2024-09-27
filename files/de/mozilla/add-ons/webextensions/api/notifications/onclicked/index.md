@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ausgelöst, wenn der Benutzer auf eine Benachrichtigung klickt, jedoch nicht auf einen der Buttons der Benachrichtigung (siehe dafür {{WebExtAPIRef("notifications.onButtonClicked")}}).
+Wird ausgelöst, wenn der Benutzer auf eine Benachrichtigung klickt, jedoch nicht auf eine der Schaltflächen der Benachrichtigung (siehe hierzu {{WebExtAPIRef("notifications.onButtonClicked")}}).
 
 ## Syntax
 
@@ -17,16 +17,16 @@ browser.notifications.onClicked.removeListener(listener)
 browser.notifications.onClicked.hasListener(listener)
 ```
 
-Ereignisse haben drei Funktionen:
+Events haben drei Funktionen:
 
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## Syntax von addListener
+## addListener Syntax
 
 ### Parameter
 
@@ -43,7 +43,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-In diesem einfachen Beispiel fügen wir einen Listener für das `notifications.onClicked` Ereignis hinzu, um auf das Klicken von Systembenachrichtigungen zu hören. Wenn dies eintritt, wird eine entsprechende Nachricht in die Konsole protokolliert.
+In diesem einfachen Beispiel fügen wir einen Listener zum Ereignis `notifications.onClicked` hinzu, um zu überwachen, wann auf Systembenachrichtigungen geklickt wird. Wenn dies geschieht, loggen wir eine entsprechende Nachricht in die Konsole.
 
 ```js
 browser.notifications.onClicked.addListener((notificationId) => {
@@ -54,4 +54,4 @@ browser.notifications.onClicked.addListener((notificationId) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API von Chromium.
+> Diese API basiert auf Chromium's [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API.

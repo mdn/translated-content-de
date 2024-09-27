@@ -1,5 +1,5 @@
 ---
-title: "VideoDecoder: close()-Methode"
+title: "VideoDecoder: close() Methode"
 short-title: close()
 slug: Web/API/VideoDecoder/close
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`close()`**-Methode der {{domxref("VideoDecoder")}}-Schnittstelle beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
+Die **`close()`** Methode des [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Interfaces beendet alle anstehenden Arbeiten und gibt Systemressourcen frei.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keine ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 

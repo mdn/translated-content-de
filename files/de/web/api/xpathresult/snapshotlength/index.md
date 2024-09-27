@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("DOM XPath")}} {{AvailableInWorkers}}
 
-Die schreibgeschützte **`snapshotLength`**-Eigenschaft des
-{{domxref("XPathResult")}}-Interfaces stellt die Anzahl der Knoten im Ergebnis-Snapshot dar.
+Die schreibgeschützte **`snapshotLength`**-Eigenschaft des [`XPathResult`](/de/docs/Web/API/XPathResult)-Interfaces repräsentiert die Anzahl der Knoten im Ergebnis-Snapshot.
 
 ## Wert
 
@@ -19,9 +18,7 @@ Ein ganzzahliger Wert, der die Anzahl der Knoten im Ergebnis-Snapshot darstellt.
 
 #### TYPE_ERR
 
-Falls {{domxref("XPathResult.resultType")}} nicht
-`UNORDERED_NODE_SNAPSHOT_TYPE` oder `ORDERED_NODE_SNAPSHOT_TYPE` ist, wird eine
-{{domxref("XPathException")}} vom Typ `TYPE_ERR` ausgelöst.
+Falls [`XPathResult.resultType`](/de/docs/Web/API/XPathResult/resultType) nicht `UNORDERED_NODE_SNAPSHOT_TYPE` oder `ORDERED_NODE_SNAPSHOT_TYPE` ist, wird eine [`XPathException`](/de/docs/Web/API/XPathException) vom Typ `TYPE_ERR` ausgelöst.
 
 ## Beispiele
 
@@ -30,8 +27,8 @@ Das folgende Beispiel zeigt die Verwendung der `snapshotLength`-Eigenschaft.
 ### HTML
 
 ```html
-<div>XPath-Beispiel</div>
-<div>Anzahl der übereinstimmenden Knoten: <output></output></div>
+<div>XPath example</div>
+<div>Number of matched nodes: <output></output></div>
 ```
 
 ### JavaScript

@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Reporting API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`lineNumber`** der {{domxref("InterventionReportBody")}}-Schnittstelle gibt die Zeile in der Quelldatei zurück, in der die Intervention aufgetreten ist.
+Die schreibgeschützte Eigenschaft **`lineNumber`** des [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Interfaces gibt die Zeile in der Quelldatei zurück, in der die Intervention aufgetreten ist.
 
 > [!NOTE]
-> Diese Eigenschaft ist besonders nützlich in Verbindung mit {{domxref("InterventionReportBody.sourceFile")}}, da sie die Lokalisierung der Zeile in dieser Datei, in der die Funktion verwendet wird, ermöglicht.
+> Diese Eigenschaft ist besonders nützlich in Verbindung mit [`InterventionReportBody.sourceFile`](/de/docs/Web/API/InterventionReportBody/sourceFile), da sie es ermöglicht, die Zeile in dieser Datei zu lokalisieren, in der die Funktion verwendet wird.
 
 ## Wert
 
-Ein Integer oder `null`, wenn die Zeile nicht bekannt ist.
+Ein Ganzzahlwert oder `null`, wenn die Zeile unbekannt ist.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen {{domxref("ReportingObserver")}}, um Interventionsberichte zu beobachten, und geben dann den Wert von `lineNumber` auf der Konsole aus.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Interventionsberichte zu beobachten, und geben dann den Wert von `lineNumber` in der Konsole aus.
 
 ```js
 const options = {
@@ -30,8 +30,8 @@ const options = {
 const observer = new ReportingObserver((reports, observer) => {
   const firstReport = reports[0];
   console.log(firstReport.type); // intervention
-  console.log(firstReport.body.sourceFile); // die Quelldatei
-  console.log(firstReport.body.lineNumber); // die Zeile in dieser Datei
+  console.log(firstReport.body.sourceFile); // the source file
+  console.log(firstReport.body.lineNumber); // the line in that file
 }, options);
 ```
 

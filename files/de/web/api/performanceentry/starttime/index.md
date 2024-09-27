@@ -8,41 +8,40 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die schreibgeschützte **`startTime`**-Eigenschaft gibt den ersten {{domxref("DOMHighResTimeStamp", "Zeitstempel", "", "no-code")}} zurück, der für diesen {{domxref("PerformanceEntry")}} aufgezeichnet wurde. Die Bedeutung dieser Eigenschaft hängt vom Wert des {{domxref("PerformanceEntry.entryType", "entryType")}} dieser Eintragung ab.
+Die schreibgeschützte **`startTime`**-Eigenschaft gibt den ersten [Zeitstempel](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der für diesen [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) aufgezeichnet wurde. Die Bedeutung dieser Eigenschaft hängt vom Wert des [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) dieses Eintrags ab.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}}, der den ersten Zeitpunkt darstellt, zu dem der
-{{domxref("PerformanceEntry")}} erstellt wurde.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den ersten Zeitstempel darstellt, als der [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) erstellt wurde.
 
-Die Bedeutung dieser Eigenschaft hängt vom Wert des {{domxref("PerformanceEntry.entryType", "entryType")}} dieser Leistungseintragung ab:
+Die Bedeutung dieser Eigenschaft hängt vom Wert des [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) dieses Performance-Entries ab:
 
 - `element`
-  - : Entweder der Wert von {{domxref("PerformanceElementTiming.renderTime", "renderTime")}} dieser Eintragung, wenn er nicht `0` ist. Andernfalls der Wert von {{domxref("PerformanceElementTiming.loadTime", "loadTime")}} dieser Eintragung.
+  - : Entweder der Wert des [`renderTime`](/de/docs/Web/API/PerformanceElementTiming/renderTime) dieses Eintrags, wenn er nicht `0` ist, andernfalls der Wert des [`loadTime`](/de/docs/Web/API/PerformanceElementTiming/loadTime) dieses Eintrags.
 - `event`
-  - : Der Zeitpunkt, zu dem das Ereignis erstellt wurde, also die [`timeStamp`](/de/docs/Web/API/Event/timeStamp)-Eigenschaft des Ereignisses.
+  - : Die Zeit, zu der das Ereignis erstellt wurde, d.h. die [`timeStamp`](/de/docs/Web/API/Event/timeStamp)-Eigenschaft des Ereignisses.
 - `first-input`
-  - : Der Zeitpunkt der Erstellung des ersten Eingabeereignisses, also die [`timeStamp`](/de/docs/Web/API/Event/timeStamp) dieses Ereignisses.
+  - : Die Zeit, zu der das erste Eingabeereignis erstellt wurde, d.h. die [`timeStamp`](/de/docs/Web/API/Event/timeStamp)-Eigenschaft dieses Ereignisses.
 - `largest-contentful-paint`
-  - : Der Wert von {{domxref("LargestContentfulPaint.renderTime", "renderTime")}} dieser Eintragung, wenn er nicht `0` ist. Andernfalls der Wert von {{domxref("LargestContentfulPaint.loadTime", "loadTime")}} dieser Eintragung.
+  - : Der Wert des [`renderTime`](/de/docs/Web/API/LargestContentfulPaint/renderTime) dieses Eintrags, wenn er nicht `0` ist, andernfalls der Wert des [`loadTime`](/de/docs/Web/API/LargestContentfulPaint/loadTime) dieses Eintrags.
 - `layout-shift`
-  - : Der Zeitpunkt, zu dem die Layout-Verschiebung begann.
+  - : Die Zeit, zu der die Layoutverschiebung begann.
 - `longtask`
-  - : Der Zeitpunkt, zu dem die Aufgabe begann.
+  - : Die Zeit, zu der die Aufgabe begann.
 - `mark`
-  - : Der Zeitpunkt, zu dem die Markierung durch einen Aufruf von {{domxref("Performance.mark", "performance.mark()")}} erstellt wurde.
+  - : Die Zeit, zu der das Markierung durch einen Aufruf von [`performance.mark()`](/de/docs/Web/API/Performance/mark) erstellt wurde.
 - `measure`
-  - : Der Zeitpunkt, zu dem die Messung durch einen Aufruf von {{domxref("Performance.measure", "performance.measure()")}} erstellt wurde.
+  - : Die Zeit, zu der das Maß durch einen Aufruf von [`performance.measure()`](/de/docs/Web/API/Performance/measure) erstellt wurde.
 - `navigation`
   - : Immer `0`.
 - `paint`
-  - : Der Zeitpunkt, zu dem das Malen auftrat.
+  - : Die Zeit, zu der das Paint-Ereignis auftrat.
 - `resource`
-  - : Der Wert der {{domxref("PerformanceResourceTiming.fetchStart", "fetchStart")}}-Eigenschaft dieser Eintragung.
+  - : Der Wert der [`fetchStart`](/de/docs/Web/API/PerformanceResourceTiming/fetchStart)-Eigenschaft dieses Eintrags.
 - `taskattribution`
   - : Immer `0`.
 - `visibility-state`
-  - : Der Zeitpunkt, zu dem der Sichtbarkeitsstatus geändert wurde.
+  - : Die Zeit, zu der die Änderung des Sichtbarkeitsstatus stattfand.
 
 ## Beispiele
 
@@ -50,29 +49,8 @@ Die Bedeutung dieser Eigenschaft hängt vom Wert des {{domxref("PerformanceEntry
 
 Das folgende Beispiel zeigt die Verwendung der `startTime`-Eigenschaft, die Sie während der Leistungsbeobachtung protokollieren können.
 
-Hinweis: Die Methode {{domxref("performance.mark()")}} erlaubt es Ihnen, Ihre eigene `startTime` festzulegen, und die Methode {{domxref("performance.measure()")}} erlaubt es, den Beginn der Messung festzulegen.
-
-```js
-performance.mark("my-mark");
-performance.mark("my-other-mark", { startTime: 12.5 });
-
-loginButton.addEventListener("click", (clickEvent) => {
-  performance.measure("login-click", { start: clickEvent.timeStamp });
-});
-
-function perfObserver(list, observer) {
-  list.getEntries().forEach((entry) => {
-    if (entry.entryType === "mark") {
-      console.log(`${entry.name}'s startTime: ${entry.startTime}`);
-    }
-    if (entry.entryType === "measure") {
-      console.log(`${entry.name}'s duration: ${entry.duration}`);
-    }
-  });
-}
-const observer = new PerformanceObserver(perfObserver);
-observer.observe({ entryTypes: ["measure", "mark"] });
-```
+> [!NOTE]
+> Die Methode [`performance.mark()`](/de/docs/Web/API/Performance/mark) erlaubt es Ihnen, Ihre eigene `startTime` festzulegen, und die Methode [`performance.measure()`](/de/docs/Web/API/Performance/measure) ermöglicht die Festlegung des Anfangs des Maßes.
 
 ## Spezifikationen
 

@@ -7,13 +7,13 @@ l10n:
 
 {{SVGRef}}
 
-Das **`xChannelSelector`** Attribut gibt an, welcher Farbkanal von {{SVGAttr("in2")}} verwendet wird, um die Pixel in {{SVGAttr("in")}} entlang der x-Achse zu verschieben.
+Das **`xChannelSelector`**-Attribut gibt an, welcher Farbkanal von {{SVGAttr("in2")}} verwendet werden soll, um die Pixel in {{SVGAttr("in")}} entlang der x-Achse zu verschieben.
 
 ## Elemente
 
-Sie können dieses Attribut mit dem {{SVGElement("feDisplacementMap")}} SVG-Element verwenden.
+Sie können dieses Attribut mit dem SVG-Element {{SVGElement("feDisplacementMap")}} verwenden.
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -33,13 +33,13 @@ Sie können dieses Attribut mit dem {{SVGElement("feDisplacementMap")}} SVG-Elem
 </table>
 
 - `R`
-  - : Dieses Schlüsselwort gibt an, dass der Rotkanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der x-Achse zu verschieben.
+  - : Dieses Schlüsselwort gibt an, dass der rote Farbkanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der x-Achse zu verschieben.
 - `G`
-  - : Dieses Schlüsselwort gibt an, dass der Grünkanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der x-Achse zu verschieben.
+  - : Dieses Schlüsselwort gibt an, dass der grüne Farbkanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der x-Achse zu verschieben.
 - `B`
-  - : Dieses Schlüsselwort gibt an, dass der Blaukanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der x-Achse zu verschieben.
+  - : Dieses Schlüsselwort gibt an, dass der blaue Farbkanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der x-Achse zu verschieben.
 - `A`
-  - : Dieses Schlüsselwort gibt an, dass der Alphakanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der x-Achse zu verschieben.
+  - : Dieses Schlüsselwort gibt an, dass der Alpha-Kanal des Eingabebildes, das in {{SVGAttr("in2")}} definiert ist, verwendet wird, um die Pixel des Eingabebildes, das in {{SVGAttr("in")}} definiert ist, entlang der x-Achse zu verschieben.
 
 ## Beispiele
 

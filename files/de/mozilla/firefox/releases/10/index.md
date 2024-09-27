@@ -7,128 +7,128 @@ l10n:
 
 {{FirefoxSidebar}}
 
-Firefox 10 wurde am 31. Januar 2012 veröffentlicht. Dieser Artikel bietet Informationen über die neuen Funktionen und behobenen Hauptfehler in dieser Version sowie Links zu detaillierteren Dokumentationen für Webentwickler und Add-on-Entwickler.
+Firefox 10 wurde am 31. Januar 2012 veröffentlicht. Dieser Artikel bietet Informationen über die neuen Funktionen und die wichtigsten behobenen Fehler dieser Version sowie Links zu ausführlicheren Dokumentationen für Web-Entwickler und Add-on-Entwickler.
 
 > [!NOTE]
-> Firefox 10 ist die erste Version dieses Browsers mit zwei Ziffern. Dies kann zu Problemen mit einigen UA-Sniffing-Skripten führen. Überprüfen Sie diese sowie solche, die in eingebetteter Drittanbietersoftware enthalten sind, die Sie auf Ihren Seiten verwenden, wie Bibliotheken. Für mehr Informationen darüber, sehen Sie sich den [Artikel über Firefox mit zwei Ziffern auf hack.mozilla.org](https://hacks.mozilla.org/2012/01/firefox-goes-2-digit-time-to-check-your-ua-sniffing-scripts/) an.
+> Firefox 10 ist die erste Version dieses Browsers mit zwei Ziffern. Dies kann zu Problemen mit einigen UA-Sniffing-Skripten führen. Überprüfen Sie diese, sowie solche in Software von Drittanbietern, die Sie in Ihre Seiten einbinden, wie Bibliotheken. Weitere Informationen dazu finden Sie im [Artikel Firefox geht 2-stellig auf hacks.mozilla.org](https://hacks.mozilla.org/2012/01/firefox-goes-2-digit-time-to-check-your-ua-sniffing-scripts/).
 
-## Änderungen für Webentwickler
+## Änderungen für Web-Entwickler
 
 ### HTML
 
-- Das neue HTML5-Element {{ HTMLElement("bdi") }} zur bidirektionalen Isolierung, welches die Isolierung von Textteilen mit unterschiedlicher Richtung ermöglicht, wurde implementiert. Dies ist besonders nützlich, wenn Texte mit unbekannter Richtung präsentiert werden müssen, beispielsweise aus einer Datenbank, inmitten von Texten mit bekannter und potenziell unterschiedlicher Richtung.
-- Sie können jetzt ein Fragment von "oben" für das [`href`](/de/docs/Web/HTML/Element/a#href)-Attribut angeben, um einen Link zum Anfang der Seite zu erstellen. Dies funktionierte früher, verschwand dann für eine Weile und ist jetzt wieder da, um mit der HTML5-Spezifikation kompatibel zu sein. Beispiel: `<a href="#top">Zurück zum Anfang der Seite</a>`.
+- Das neue HTML5-Element {{ HTMLElement("bdi") }}, bi-direktionale Isolation, das die Isolation von Textteilen mit unterschiedlicher Richtung ermöglicht, wurde implementiert. Dies ist besonders nützlich, wenn Texte mit unbekannter Richtung, beispielsweise aus einer Datenbank, inmitten eines bekannten und möglicherweise abweichenden Textes angezeigt werden.
+- Sie können jetzt ein Fragment von "top" für das [`href`](/de/docs/Web/HTML/Element/a#href)-Attribut angeben, um einen Link zum oberen Rand der Seite zu erstellen. Dies funktionierte früher, verschwand eine Zeit lang und ist nun zurück, um mit der HTML5-Spezifikation kompatibel zu sein. Beispiel: `<a href="#top">Zurück zum Seitenanfang</a>`.
 
 ### JavaScript
 
 - Die Methode `WeakMap.set()` gibt jetzt `undefined` zurück, anstatt sich selbst.
-- Ein Fehler in der Behandlung regulärer Ausdrücke in Firefox 7 wurde behoben. Siehe [Firefox-Bug 683838](https://bugzil.la/683838) für Details.
-- Sie können die veraltete EcmaScript für XML (E4X)-Syntax im [ECMAScript 5 strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) (d. h. nach `"use strict;"`) nicht mehr verwenden.
+- Ein Fehler bei der Behandlung von regulären Ausdrücken, der in Firefox 7 eingeführt wurde, wurde behoben. Siehe [Firefox Fehler 683838](https://bugzil.la/683838) für genaue Details.
+- Sie können die veraltete EcmaScript for XML (E4X) Syntax nicht mehr im [ECMAScript 5 Strict-Modus](/de/docs/Web/JavaScript/Reference/Strict_mode) verwenden (also nach `"use strict;"`).
 
 ### DOM
 
 #### DOM3 Events
 
-- Die DOM-Ereignismethode [`event.stopImmediatePropagation`](/de/docs/Web/API/Event/stopImmediatePropagation) wurde implementiert.
+- Die DOM-Event-Methode [`event.stopImmediatePropagation`](/de/docs/Web/API/Event/stopImmediatePropagation) wurde implementiert.
 - Die Mausereignisse `mouseenter` und `mouseleave` wurden implementiert.
 
 #### DOM4
 
-- Das Attribut {{ domxref("document.xmlVersion") }} (welches nur lesbar, aber nicht änderbar war) wurde entfernt, da es in der DOM4-Spezifikation veraltet ist. Der Artikel zu {{ domxref("document.xmlVersion") }} schlägt jetzt eine Möglichkeit vor, zu erkennen, ob das Dokument HTML oder XML ist, ohne diese Eigenschaft zu verwenden.
-- Das Attribut `document.xmlStandalone` wurde entfernt, da es in der DOM4-Spezifikation veraltet ist.
-- Das Attribut {{ domxref("document.xmlEncoding") }} wurde entfernt, da es in der DOM4-Spezifikation veraltet ist.
-- Das Attribut `text.isElementContentWhiteSpace` wurde entfernt, da es in der DOM4-Spezifikation veraltet ist.
-- Die Methode `text.replaceWholeText` wurde entfernt, da sie in der DOM4-Spezifikation veraltet ist.
-- Die Methode {{ domxref("node.isSameNode") }} wurde entfernt, da sie in der DOM4-Spezifikation veraltet ist. Statt `node1.isSameNode(node2)` können Sie den `===` Operator verwenden, wie folgt: `node1 === node2`.
+- Das Attribut [`document.xmlVersion`](/de/docs/Web/API/Document/xmlVersion) (welches nur lesbar und nicht setzbar war) wurde entfernt, da es in der DOM4-Spezifikation als veraltet gilt. Der Artikel für [`document.xmlVersion`](/de/docs/Web/API/Document/xmlVersion) schlägt nun eine Methode vor, um zu erkennen, ob das Dokument HTML oder XML ist, ohne diese Eigenschaft zu verwenden.
+- Das Attribut `document.xmlStandalone` wurde entfernt, da es in der DOM4-Spezifikation als veraltet gilt.
+- Das Attribut [`document.xmlEncoding`](/de/docs/Web/API/Document/xmlEncoding) wurde entfernt, da es in der DOM4-Spezifikation als veraltet gilt.
+- Das Attribut `text.isElementContentWhiteSpace` wurde entfernt, da es in der DOM4-Spezifikation als veraltet gilt.
+- Die Methode `text.replaceWholeText` wurde entfernt, da sie in der DOM4-Spezifikation als veraltet gilt.
+- Die Methode [`node.isSameNode`](/de/docs/Web/API/Node/isSameNode) wurde entfernt, da sie in der DOM4-Spezifikation als veraltet gilt. Statt `node1.isSameNode(node2)` können Sie den `===` Operator verwenden, so: `node1 === node2`.
 
 #### Page Visibility API
 
-- Die [Page Visibility API](/de/docs/Web/API/Page_Visibility_API) wurde implementiert (mit Präfix): `document.mozHidden`, `document.mozVisibilityState` sind verfügbar und das Ereignis `mozvisibilitychanged` wird gesendet, wenn der Zustand geändert wird.
+- Die [Page Visibility API](/de/docs/Web/API/Page_Visibility_API) wurde implementiert (mit Präfix): `document.mozHidden`, `document.mozVisibilityState` sind verfügbar und das Ereignis `mozvisibilitychanged` wird ausgelöst, wenn sich der Status ändert.
 
-#### Vollbild-API
+#### Full Screen API
 
-- Unterstützung für {{ domxref("Document/fullscreenEnabled") }} wurde hinzugefügt.
-- Die neue {{ cssxref(":-moz-full-screen-ancestor") }} Eigenschaft wurde hinzugefügt. Damit können Sie Elemente abgleichen, die Vorfahren eines Elements im Vollbildmodus sind.
+- Unterstützung für [`Document/fullscreenEnabled`](/de/docs/Web/API/Document/fullscreenEnabled) wurde hinzugefügt.
+- Die neue Eigenschaft {{ cssxref(":-moz-full-screen-ancestor") }} wurde hinzugefügt. Diese ermöglicht es Ihnen, Elemente zu vergleichen, die Vorfahren eines Elements im Vollbildmodus sind.
 
-#### Batterie-API
+#### Battery API
 
-- Experimentelle Unterstützung für {{ domxref("window.navigator.mozBattery") }} wurde hinzugefügt (kann aktiviert werden, indem die Präferenz `dom.battery.enabled` auf `true` gesetzt wird und wird ab Firefox 11 standardmäßig aktiviert).
+- Experimentelle Unterstützung für [`window.navigator.mozBattery`](/de/docs/Web/API/Window/navigator/mozBattery) wurde hinzugefügt (kann aktiviert werden, indem die Einstellung `dom.battery.enabled` auf `true` gesetzt wird und wird ab Firefox 11 standardmäßig aktiviert).
 
 #### Canvas
 
-- Die Methode [`createPattern()`](/de/docs/Web/API/CanvasRenderingContext2D#createpattern%28%29) wirft jetzt eine Ausnahme, wenn eine Quelle mit Nullgröße angegeben wird.
-- Wenn Sie einen nicht-endlichen Wert für einen der numerischen Parameter von [`putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D#putimagedata%28%29) verwenden, wird der Aufruf jetzt still ignoriert, anstatt eine Ausnahme zu werfen, gemäß der Spezifikation.
+- Die Methode [`createPattern()`](/de/docs/Web/API/CanvasRenderingContext2D#createpattern%28%29) wirft jetzt eine Ausnahme, wenn eine Canvas-Quelle mit der Größe Null angegeben wird.
+- Wenn Sie einen nicht-finiteren Wert für einen der numerischen Parameter zu [`putImageData()`](/de/docs/Web/API/CanvasRenderingContext2D#putimagedata%28%29) verwenden, wird der Aufruf nun stillschweigend ignoriert, anstatt eine Ausnahme zu werfen, gemäß der Spezifikation.
 
 #### WebGL
 
 - Firefox 10 unterstützt jetzt die [`OES_standard_derivatives`](https://registry.khronos.org/webgl/extensions/OES_standard_derivatives/) Erweiterung.
-- [Neue Präferenzen wurden hinzugefügt](/de/docs/Web/API/WebGL_API#webgl_debugging_and_testing), um zu helfen, WebGL-Code für die Kompatibilität mit minimal fähigen Geräten auf Ihrer vollen Entwicklungsplattform zu testen.
+- [Neue Einstellungen wurden hinzugefügt](/de/docs/Web/API/WebGL_API#webgl_debugging_and_testing), um WebGL-Code auf Kompatibilität mit minimal ausgestatteten Geräten auf Ihrer vollständigen Entwicklungsplattform zu testen.
 
 #### Web Workers
 
-- Das Attribut `XMLHttpRequest.responseType` und `XMLHttpRequest.response` stehen jetzt innerhalb von [Workers](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers#section_2) zur Verfügung.
-- Der [`Worker()`](/de/docs/Web/API/Worker#worker)-Konstruktor akzeptiert jetzt [Data-URLs](/de/docs/Web/URI/Schemes/data).
+- Das Attribut `XMLHttpRequest.responseType` und `XMLHttpRequest.response` sind jetzt innerhalb von [Workers](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers#section_2) verfügbar.
+- Der Konstruktor [`Worker()`](/de/docs/Web/API/Worker#worker) akzeptiert jetzt [Data-URLs](/de/docs/Web/URI/Schemes/data).
 
 #### IndexedDB
 
-Große Fortschritte wurden gemacht, um IndexedDB auf den neuesten Entwurf der Spezifikation zu aktualisieren. Diese Bemühungen werden in Firefox 11 fortgesetzt.
+Große Fortschritte wurden gemacht, um IndexedDB mit dem neuesten Entwurfsstandard zu aktualisieren. Diese Bemühungen werden in Firefox 11 fortgesetzt.
 
 - Die Methoden [`IDBIndex.count()`](/de/docs/Web/API/IDBIndex#count) und [`IDBObjectStore.count()`](/de/docs/Web/API/IDBObjectStore#count) wurden hinzugefügt.
 - Die Methode [`IDBCursor.advance()`](/de/docs/Web/API/IDBCursor#advance) wurde hinzugefügt.
-- Wenn ein unbekannter optionaler Parameter in [`IDBObjectStore.createIndex()`](/de/docs/Web/API/IDBObjectStore#createindex) oder [`IDBDatabase.createObjectStore()`](/de/docs/Web/API/IDBDatabase#createobjectstore) auftritt, wird von Gecko keine Ausnahme mehr ausgelöst, sondern er ignoriert ihn.
-- Bei Aufruf von [`IDBTransaction.abort()`](/de/docs/Web/API/IDBTransaction#abort%28%29) haben alle ausstehenden [`IDBRequest`](/de/docs/Web/API/IDBRequest) ihren `errorCode` auf `ABORT_ERROR` gesetzt.
-- Die Methoden [`IDBObjectStore.delete()`](/de/docs/Web/API/IDBObjectStore/delete) und [`IDBCursor.delete()`](/de/docs/Web/API/IDBCursor/delete) setzen jetzt das `result`-Attribut des zurückgegebenen [`IDBRequest`](/de/docs/Web/API/IDBRequest) auf `undefined`.
-- Die Methode `IDBDatabase.setVersion()` wurde entfernt, da sie aus der neuesten Spezifikation entfernt wurde. Die Version der Datenbank wird durch die Methode [`IDBFactory.open()`](/de/docs/Web/API/IDBFactory#open) angegeben, die aktualisiert wurde, und der `onupgradeneeded`-Callback ermöglicht das Upgrade des Datenbankschemas. Die Version selbst wurde von einem `DOMString` in ein `unsigned long long` geändert. Das `IDBVersionChangeRequest`-Interface wurde entfernt und durch das neue [`IDBOpenDBRequest`](/de/docs/Web/API/IDBOpenDBRequest)-Interface ersetzt.
-- Beim Öffnen einer Datenbank mit {{domxref("IDBFactory.open()")}}: Wenn der `version`-Parameter nicht angegeben ist und die Datenbank nicht existiert, wird sie mit einer Version von `1` erstellt.
+- Beim Auftreten eines unbekannten optionalen Parameters in [`IDBObjectStore.createIndex()`](/de/docs/Web/API/IDBObjectStore#createindex) oder [`IDBDatabase.createObjectStore()`](/de/docs/Web/API/IDBDatabase#createobjectstore) wirft Gecko keine Ausnahme mehr, sondern ignoriert ihn.
+- Wenn [`IDBTransaction.abort()`](/de/docs/Web/API/IDBTransaction#abort%28%29) aufgerufen wird, haben alle ausstehenden [`IDBRequest`](/de/docs/Web/API/IDBRequest) ihre `errorCode` auf `ABORT_ERROR` gesetzt.
+- Die Methoden [`IDBObjectStore.delete()`](/de/docs/Web/API/IDBObjectStore/delete) und [`IDBCursor.delete()`](/de/docs/Web/API/IDBCursor/delete) setzen jetzt das `result` Attribut des zurückgegebenen [`IDBRequest`](/de/docs/Web/API/IDBRequest) auf `undefined`.
+- Die Methode `IDBDatabase.setVersion()` wurde entfernt, da sie aus den neuesten Spezifikationen entfernt wurde. Die Version der Datenbank wird durch die Methode [`IDBFactory.open()`](/de/docs/Web/API/IDBFactory#open) festgelegt, welche aktualisiert wurde und der `onupgradeneeded` Rückruf ermöglicht die Aktualisierung des Schemas der Datenbank. Die Version selbst wurde von einem `DOMString` zu einem `unsigned long long` geändert. Das `IDBVersionChangeRequest` Interface wurde entfernt und durch das neue [`IDBOpenDBRequest`](/de/docs/Web/API/IDBOpenDBRequest) Interface ersetzt.
+- Beim Öffnen einer Datenbank mit [`IDBFactory.open()`](/de/docs/Web/API/IDBFactory/open), wenn der `version` Parameter nicht angegeben ist und die Datenbank nicht existiert, wird sie mit einer Version von `1` erstellt.
 - Die Methode [`IDBFactory.deleteDatabase()`](/de/docs/Web/API/IDBFactory#deletedatabase%28%29) wurde hinzugefügt.
-- Methoden, die über einen {{domxref("IDBKeyRange")}} suchen (wie {{domxref("IDBObjectStore.openCursor")}} und {{domxref("IDBIndex.getKey")}}), können entweder einen einzelnen Schlüssel oder einen Schlüsselbereich akzeptieren.
+- Methoden, die nach einem [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange) suchen (wie zum Beispiel [`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor) und [`IDBIndex.getKey`](/de/docs/Web/API/IDBIndex/getKey)), können entweder einen einzelnen Schlüssel oder einen Schlüsselbereich akzeptieren.
 
 #### Sonstiges
 
-- Wenn der richtige MIME-Typ übergeben wird, `image/svg+xml`, [erstellt der `DOMParser` jetzt ein `SVGDocument`](/de/docs/Web/API/DOMParser#parsing_a_svg_document), wenn er einen String mit SVG erhält.
-- In der Vergangenheit, wenn {{ domxref("element.setAttribute()") }} Ganzzahlen parste, meldete es einen Fehler, wenn die Ganzzahl nicht-numerische Zeichen enthielt (zum Beispiel "42foo"). Jetzt wird dies korrekt als die Zahl 42 abgeschnitten, in Übereinstimmung mit der Spezifikation.
-- Die ESC-Taste führt nicht mehr fälschlicherweise dazu, dass der {{ domxref("Element.keydown_event", "onkeydown") }} Handler fälschlicherweise aufgerufen wird.
-- Das `NameList`-Interface wird nicht mehr implementiert; es hatte zuvor eine Implementierung ohne Möglichkeit, tatsächlich darauf zuzugreifen.
-- Die Methode {{ domxref("document.createProcessingInstruction()") }} funktioniert jetzt sowohl bei HTML-Dokumenten als auch bei XML-Dokumenten. {{ domxref("ProcessingInstruction") }}-Knoten werden weiterhin nur in XML-Dokumenten unterstützt, aber da Knoten zwischen Dokumenten bewegt werden können, ist es hilfreich, sie auch in HTML-Dokumenten erstellen zu können.
-- Der `XMLHttpRequest` `responseType` "`moz-json`" [eingeführt in Firefox 9](/de/docs/Mozilla/Firefox/Releases/9#dom) wurde auf den neuesten Entwurf der Spezifikation aktualisiert und ist nicht mehr mit Präfix versehen. Siehe Hinweis in [Firefox-Bug 707142](https://bugzil.la/707142#c13).
+- Wenn der richtige MIME-Typ `image/svg+xml` übergeben wird, [erstellt der `DOMParser` jetzt ein `SVGDocument`](/de/docs/Web/API/DOMParser#parsing_a_svg_document) wenn ein String mit SVG angegeben wird.
+- Früher meldete [`element.setAttribute()`](/de/docs/Web/API/Element/setAttribute) einen Fehler, wenn Ganzzahlen geparst wurden, die nicht-numerische Zeichen enthalten (zum Beispiel "42foo"). Jetzt wird dies korrekt als die Zahl 42 gekürzt, gemäß der Spezifikation.
+- Die ESC-Taste führt nicht länger dazu, dass der [`onkeydown`](/de/docs/Web/API/Element/keydown_event) Handler fälschlicherweise aufgerufen wird.
+- Das `NameList` Interface wird nicht mehr implementiert; es hatte zuvor eine Implementierung ohne die Möglichkeit, tatsächlich auf eines zuzugreifen.
+- Die Methode [`document.createProcessingInstruction()`](/de/docs/Web/API/Document/createProcessingInstruction) funktioniert jetzt sowohl für HTML- als auch XML-Dokumente. [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Knoten werden weiterhin nur auf XML-Dokumenten unterstützt, aber da Knoten zwischen Dokumenten bewegt werden können, ist es hilfreich, sie auch auf HTML-Dokumenten erstellen zu können.
+- Der `XMLHttpRequest` `responseType` "`moz-json`" [eingeführt in Firefox 9](/de/docs/Mozilla/Firefox/Releases/9#dom) wurde auf den neuesten Entwurf der Spezifikation aktualisiert und das Präfix wurde entfernt. Siehe die Anmerkung in [Firefox Fehler 707142](https://bugzil.la/707142#c13).
 
 ### CSS
 
-- CSS 3D-Transformationen werden jetzt unterstützt. Dies umfasst Unterstützung für die {{ cssxref("transform-style") }}, {{ cssxref("perspective") }}, {{ cssxref("perspective-origin") }} und {{ cssxref("backface-visibility") }} Eigenschaften sowie für 3D-Transformationsfunktionen in den {{ cssxref("transform") }} und {{ cssxref("transform-function") }} Eigenschaften. Siehe [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms#3d_specific_css_properties) für Details.
-- Zwei neue Werte für die CSS-Eigenschaft {{ cssxref("unicode-bidi") }} wurden hinzugefügt: `-moz-isolation` und `-moz-plaintext`. Der Wert `-moz-isolation` isoliert, aus einer Perspektive der Richtung, das Element von seiner Umgebung, sodass es eine andere Richtung haben kann. Ein Element mit `unicode-bidi:-moz-isolation` verhält sich wie ein {{ HTMLElement("bdi") }} Element. Der `-moz-plaintext` weist den Browser darauf hin, die Unicode-Browser-Heuristik zu verwenden, um die Richtung zu bestimmen und nicht die CSS-{{ cssxref("direction") }}-Eigenschaft.
-- Die CSS {{ cssxref("gradient/linear-gradient") }} und {{ cssxref("gradient/repeating-linear-gradient") }} Eigenschaften wurden aktualisiert, um die neue `to`-Syntax und den _magic corner_ Algorithmus zu unterstützen. Dadurch kann eine präzise Farbe auf der Ecke eines gradientengefüllten Kästchens gegeben werden.
-- Die Behandlung der Eigenschaft {{ cssxref("text-overflow") }}, wenn das Kästchen auf beiden Seiten überläuft, während die Eigenschaft `text-overflow` nur auf ein Überlaufverhalten eingestellt ist, [wurde korrigiert](/de/docs/Web/CSS/text-overflow#gecko_notes).
-- Die Behandlung der Eigenschaft {{ cssxref("position") }} bei Elementen innerhalb positionierter {{ HTMLElement("table") }} Elemente [wurde behoben](/de/docs/Web/CSS/position#gecko_notes). **Diese Änderung wird das Layout von Seiten beeinflussen; jedoch entsprechen wir nun der CSS-Spezifikation und anderen Browsern, sodass dies leicht zu beheben sein sollte.**
-- Die Rand-Kollapsierung rund um {{ HTMLElement("table") }} Elemente wurde korrigiert, um der CSS-Spezifikation zu entsprechen. Zuvor wurden die Ränder der Tabellenelemente nicht mit anderen angrenzenden Elementen kollabiert, was zu einem falschen Layout führte. **Diese Änderung wird das Layout von Seiten beeinflussen; jedoch entsprechen wir nun der CSS-Spezifikation und anderen Browsern, sodass dies leicht zu beheben sein sollte.**
+- CSS 3D-Transformationen werden jetzt unterstützt. Dies beinhaltet Unterstützung für die Eigenschaften {{ cssxref("transform-style") }}, {{ cssxref("perspective") }}, {{ cssxref("perspective-origin") }} und {{ cssxref("backface-visibility") }}, sowie für 3D-Transformationsfunktionen in den Eigenschaften {{ cssxref("transform") }} und {{ cssxref("transform-function") }}. Siehe [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms#3d_specific_css_properties) für Details.
+- Zwei neue Werte für die CSS-Eigenschaft {{ cssxref("unicode-bidi") }} wurden hinzugefügt: `-moz-isolation` und `-moz-plaintext`. Der `-moz-isolation` Wert isoliert, aus Sicht der Richtung, das Element von seiner Umgebung und ermöglicht ihm eine andere Richtung zu haben. Ein Element mit `unicode-bidi:-moz-isolation` verhält sich wie ein {{ HTMLElement("bdi") }}-Element. Das `-moz-plaintext` gibt an, dass der Browser die Unicode-Browserheuristik verwenden soll, um die Richtung zu bestimmen und nicht die CSS-Eigenschaft {{ cssxref("direction") }}.
+- Die CSS-Eigenschaften {{ cssxref("gradient/linear-gradient") }} und {{ cssxref("gradient/repeating-linear-gradient") }} wurden aktualisiert, um die neue `to`-Syntax und den _magic corner_ Algorithmus zu unterstützen. Dies ermöglicht es, eine präzise Farbe auf der Ecke eines mit einem Verlaufsgefüllten Kastens zu geben.
+- Die Behandlung der {{ cssxref("text-overflow") }} Eigenschaft in Fällen, in denen der Kasten auf beiden Seiten überläuft, während die `text-overflow` Eigenschaft nur auf eine Seite eingestellt ist [wurde korrigiert](/de/docs/Web/CSS/text-overflow#gecko_notes).
+- Die Behandlung der {{ cssxref("position") }} Eigenschaft auf Elementen in positionierten {{ HTMLElement("table") }} Elementen [wurde behoben](/de/docs/Web/CSS/position#gecko_notes). **Diese Änderung wird das Layout von Seiten beeinflussen; wir halten uns jedoch jetzt an die CSS-Spezifikation und an andere Browser, daher sollte dies leicht zu beheben sein.**
+- Die Margenkollabierung um {{ HTMLElement("table") }} Elemente wurde behoben, um der CSS-Spezifikation zu entsprechen. Zuvor wurden Tabellenränder nicht mitbenachbarten kollabierten Rändern zusammengefasst, was zu inkorrektem Layout führte. **Diese Änderung wird das Layout von Seiten beeinflussen; wir halten uns jedoch jetzt an die CSS-Spezifikation und an andere Browser, daher sollte dies leicht zu beheben sein.**
 
 ### SVG
 
-- Das {{ SVGElement("mask") }} Element wurde aktualisiert, um sowohl sRGB als auch linearRGB zu unterstützen, und es ist nun standardmäßig auf sRGB gemäß der neuesten Überarbeitung der SVG 1.1-Spezifikation eingestellt.
+- Das {{ SVGElement("mask") }} Element wurde aktualisiert, um sowohl sRGB als auch linearRGB zu unterstützen und standardmäßig auf sRGB eingestellt zu sein, in Übereinstimmung mit der neuesten Überarbeitung der SVG 1.1 Spezifikation.
 
-### Netzwerk
+### Netzwerke
 
-- Der HTTP-`Accept-Charset`-Header wird in HTTP-Anfragen nicht mehr gesendet. In seiner Abwesenheit sollten Server mit der Sendung von UTF-8 antworten.
+- Der HTTP `Accept-Charset`-Header wird in HTTP-Anfragen nicht mehr gesendet. In seiner Abwesenheit sollten Server antworten, indem sie UTF-8 senden.
 
-### Entwicklertools
+### Entwickler-Tools
 
-- Das {{ domxref("console") }} Objekt hat zwei neue Methoden, {{ domxref("console/time_static", "console.time()") }} und {{ domxref("console/timeEnd_static", "console.timeEnd()") }}, die verwendet werden können, um Timer auf einer Seite zu setzen.
-- Der neue [Page Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) wurde hinzugefügt, der eine exzellente Möglichkeit bietet, das HTML und CSS hinter Ihrem Inhalt zu untersuchen und zu manipulieren.
+- Das [`console`](/de/docs/Web/API/Console) Objekt hat zwei neue Methoden, [`console.time()`](/de/docs/Web/API/Console/time_static) und [`console.timeEnd()`](/de/docs/Web/API/Console/timeEnd_static), die zum Einstellen von Timern auf einer Seite verwendet werden können.
+- Der neue [Page Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) wurde hinzugefügt und bietet eine hervorragende Möglichkeit, das HTML und CSS hinter Ihrem Inhalt zu untersuchen und zu manipulieren.
 
 ## Änderungen für Mozilla- und Add-on-Entwickler
 
-Für einen Überblick über wahrscheinliche Probleme, die beim Aktualisieren Ihrer Add-ons zur Unterstützung von Firefox 10 auftreten können, siehe [Aktualisierung von Add-ons für Firefox 10](/de/docs/Mozilla/Firefox/Updating_add-ons_for_Firefox_10).
+Eine Übersicht über mögliche Probleme, die bei der Aktualisierung Ihrer Add-ons zur Unterstützung von Firefox 10 auftreten können, finden Sie unter [Aktualisierung von Add-ons für Firefox 10](/de/docs/Mozilla/Firefox/Updating_add-ons_for_Firefox_10).
 
 > [!NOTE]
-> Der alte [`PRBool`](/de/docs/PRBool) Datentyp ist zurückgezogen worden! Überall in der Dokumentation, wo darauf verwiesen wird, wird jetzt der Standard-C++-Datentyp `bool` verwendet. Die Dokumentation wird in Zukunft aktualisiert, aber denken Sie vorerst daran.
+> Der alte [`PRBool`](/de/docs/PRBool) Datentyp wurde entfernt! In der gesamten Dokumentation wird jetzt der standardmäßige C++ `bool` Typ verwendet. Die Dokumentation wird in Zukunft aktualisiert, aber für den Moment sollten Sie dies im Hinterkopf behalten.
 
 ### Manifeste
 
-- Unterstützung für [`<em:strictCompatibility>`](/de/docs/Install_Manifests#strictcompatibility) wurde dem Installationsmanifest hinzugefügt. Es ermöglicht Add-on-Autoren, zu wählen, ob die maximale Version ihrer Erweiterung überprüft wird. Wenn auf `true` gesetzt, wird das Add-on deaktiviert, wenn die Anwendungs-Version größer als `<em:maxVersion>` ist. Firefox 10 geht davon aus, dass Add-ons kompatibel sind, unabhängig von ihrer angegebenen maximalen Version. Diese Flagge überschreibt diese Präferenz. Sie sollten dies einstellen, wenn Ihr Add-on Dinge tut, die durch Firefox-Updates wahrscheinlich gebrochen werden, **aber nicht**, wenn Ihr Add-on eine Binärkomponente hat, da solche Add-ons immer streng überprüft werden (denken Sie daran, dass Binärkomponenten immer für jede Hauptversion von Firefox neu kompiliert werden müssen).
-- Wenn Sie zum alten Verhalten zurückkehren möchten - das heißt, zur strikten Kompatibilitätsüberprüfung für alle Add-ons, unabhängig vom Wert des `strictCompatibility`-Flags in ihren Manifesten, können Sie die Präferenz `extensions.strictCompatibility` auf `true` setzen.
+- Unterstützung für [`<em:strictCompatibility>`](/de/docs/Install_Manifests#strictcompatibility) wurde dem Installationsmanifest hinzugefügt. Es ermöglicht Add-on-Autoren, die maximale Version ihrer Erweiterung zu überprüfen. Wenn auf `true` gesetzt, wird das Add-on deaktiviert, wenn die Anwendungsversion größer als `<em:maxVersion>` ist. Firefox 10 hat standardmäßig Add-ons als kompatibel eingestellt, unabhängig von ihrer angegebenen maximalen Version. Diese Flag überschreibt diese Voreinstellung. Sie sollten dies setzten, wenn Ihr Add-on Dinge tut, die wahrscheinlich durch Firefox-Updates gebrochen werden, **aber nicht**, wenn Ihr Add-on eine binäre Komponente hat, da solche Add-ons immer streng geprüft werden (denken Sie daran, dass binäre Komponenten immer für jede Hauptversion von Firefox neu kompiliert werden müssen).
+- Wenn Sie zum alten Verhalten zurückkehren möchten — das heißt, zu einer strikten Kompatibilitätsprüfung für alle Add-ons, unabhängig vom Wert des `strictCompatibility`-Flags in ihren Manifesten — können Sie die `extensions.strictCompatibility`-Präferenz auf `true` setzen.
 
 ### XUL
 
-- Bootstrap-Add-ons, die eine `chrome.manifest`-Datei verwenden, haben jetzt die Manifestdatei automatisch registriert. Details finden Sie im Abschnitt [Hinzufügen einer Benutzeroberfläche mit einer chrome.manifest](/de/docs/Extensions/Bootstrapped_extensions#Adding_user_interface_with_a_chrome.manifest).
+- Bootstrapped-Add-ons, die eine `chrome.manifest` Datei verwenden, haben nun die Manifestdatei automatisch registriert. Siehe den Abschnitt [Hinzufügen einer Benutzeroberfläche mit einer chrome.manifest](/de/docs/Extensions/Bootstrapped_extensions#Adding_user_interface_with_a_chrome.manifest) für Details.
 
 ### XPConnect
 
@@ -136,19 +136,19 @@ Für einen Überblick über wahrscheinliche Probleme, die beim Aktualisieren Ihr
 
 ### Schnittstellenänderungen
 
-- Die Schnittstellen `mozISpellCheckingEngine` und `nsIEditorSpellCheck` wurden aktualisiert, um es neustartlosen Add-ons zu ermöglichen, Wörterbücher zum Rechtschreibprüfer hinzuzufügen.
+- Die Schnittstellen `mozISpellCheckingEngine` und `nsIEditorSpellCheck` wurden aktualisiert, sodass neustartlose Add-ons Wörterbücher zum Rechtschreibprüfer hinzufügen können.
 - Das Attribut `nsIBrowserHistory.lastPageVisited` wurde entfernt.
 - Die Schnittstelle `nsIDocumentViewer` wurde in `nsIContentViewer` zusammengeführt.
-- Die Schnittstelle `nsIURIFixup` hat ein neues Flag, `FIXUP_FLAG_USE_UTF8`, welches es Ihnen ermöglicht, zu sagen, dass UTF-8 anstelle des Plattform-Zeichensatzes bei Konvertierungen verwendet werden soll.
+- Die Schnittstelle `nsIURIFixup` hat eine neue Flag, `FIXUP_FLAG_USE_UTF8`, die es Ihnen ermöglicht, UTF-8 anstelle des Plattformzeichensatzes bei der Konvertierung zu verwenden.
 
-### Plug-in-Änderungen
+### Änderungen bei Plug-ins
 
-- Die neue Variable `NPNVdocumentOrigin` wurde hinzugefügt; diese gibt den Dokumentursprung zurück und ist sicherer als {{ domxref("window.location") }}.
+- Die neue Variable `NPNVdocumentOrigin` wurde hinzugefügt; diese gibt den Dokumentursprung zurück und ist sicherer als [`window.location`](/de/docs/Web/API/Window/location).
 
 ### Änderungen am Build-System
 
-- Die Build-Option `--disable-rdf`, die es tatsächlich unmöglich machte, erfolgreich zu bauen, wurde entfernt. Es wird weiterhin daran gearbeitet, RDF-Unterstützung vollständig entfernen zu können, aber derzeit benötigt XUL es noch für die Funktion. Siehe [Firefox-Bug 559505](https://bugzil.la/559505) für Fortschritte beim Entfernen der letzten Überreste von RDF-Anforderungen.
-- Die Build-Option `--disable-smil` wurde entfernt.
+- Die `--disable-rdf` Build-Option, die es tatsächlich unmöglich machte zu bauen, wurde entfernt. Die Arbeit, die RDF-Unterstützung vollständig zu entfernen, ist im Gange, aber derzeit erfordert XUL es noch, um zu funktionieren. Siehe [Firefox Fehler 559505](https://bugzil.la/559505) für Fortschritte bei der Entfernung der letzten Überbleibsel von RDF.
+- Die `--disable-smil` Build-Option wurde entfernt.
 
 ### Siehe auch
 

@@ -7,23 +7,23 @@ l10n:
 
 {{APIRef("WebRTC")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`MediaStreamEvent`**-Schnittstelle repräsentiert Ereignisse, die in Bezug auf einen {{domxref("MediaStream")}} auftreten. Zwei Ereignisse dieses Typs können ausgelöst werden: {{domxref("RTCPeerConnection.addstream_event", "addstream")}} und {{domxref("RTCPeerConnection.removestream_event", "removestream")}}.
+Die **`MediaStreamEvent`** Schnittstelle repräsentiert Ereignisse, die in Bezug auf einen [`MediaStream`](/de/docs/Web/API/MediaStream) auftreten. Zwei Ereignisse dieses Typs können ausgelöst werden: [`addstream`](/de/docs/Web/API/RTCPeerConnection/addstream_event) und [`removestream`](/de/docs/Web/API/RTCPeerConnection/removestream_event).
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Ein `MediaStreamEvent` ist ein {{domxref("Event")}}, dieses Ereignis implementiert auch diese Eigenschaften_.
+_Ein `MediaStreamEvent` ist ein [`Event`](/de/docs/Web/API/Event), dieses Ereignis implementiert daher auch diese Eigenschaften_.
 
-- {{domxref("MediaStreamEvent.stream")}} {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Enthält den {{domxref("MediaStream")}}, der den mit dem Ereignis verbundenen Stream enthält.
+- [`MediaStreamEvent.stream`](/de/docs/Web/API/MediaStreamEvent/stream) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
+  - : Enthält den [`MediaStream`](/de/docs/Web/API/MediaStream), der den mit dem Ereignis verbundenen Stream enthält.
 
 ## Konstruktoren
 
-- {{domxref("MediaStreamEvent.MediaStreamEvent()", "MediaStreamEvent()")}} {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Gibt ein neues `MediaStreamEvent` zurück. Es nimmt zwei Parameter entgegen, wobei der erste ein String ist, der den Typ des Ereignisses repräsentiert, und der zweite ein Wörterbuch ist, das den betreffenden {{domxref("MediaStream")}} enthält.
+- [`MediaStreamEvent()`](/de/docs/Web/API/MediaStreamEvent/MediaStreamEvent) {{Deprecated_Inline}} {{Non-standard_Inline}}
+  - : Gibt ein neues `MediaStreamEvent` zurück. Es nimmt zwei Parameter entgegen, wobei der erste eine Zeichenkette ist, die den Typ des Ereignisses repräsentiert; der zweite ist ein Wörterbuch, das den [`MediaStream`](/de/docs/Web/API/MediaStream) enthält, auf den es sich bezieht.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-Ein `MediaStreamEvent` ist ein {{domxref("Event")}}, dieses Ereignis implementiert auch diese Eigenschaften. Es gibt keine spezifische `MediaStreamEvent`-Methode.
+Ein `MediaStreamEvent` ist ein [`Event`](/de/docs/Web/API/Event), dieses Ereignis implementiert daher auch diese Eigenschaften. Es gibt keine spezifische `MediaStreamEvent`-Methode.
 
 ## Beispiele
 
@@ -40,4 +40,4 @@ pc.onaddstream = (ev) => {
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- Sein üblicheres Ziel: {{domxref("RTCPeerConnection")}}.
+- Sein üblicher Ziel: [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).

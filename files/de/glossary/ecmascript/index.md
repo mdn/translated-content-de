@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**ECMAScript** ist eine Skriptsprache-Spezifikation, auf der {{glossary("JavaScript")}} basiert. [Ecma International](https://ecma-international.org/) ist für die Standardisierung von ECMAScript verantwortlich.
+**ECMAScript** ist eine Skriptsprache-Spezifikation, auf der [JavaScript](/de/docs/Glossary/JavaScript) basiert. [Ecma International](https://ecma-international.org/) ist für die Standardisierung von ECMAScript verantwortlich.
 
 ## Siehe auch
 

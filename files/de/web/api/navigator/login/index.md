@@ -8,21 +8,21 @@ l10n:
 
 {{securecontext_header}}{{APIRef("FedCM API")}}{{SeeCompatTable}}
 
-Die **`login`** schreibgeschützte Eigenschaft der {{domxref("Navigator")}}-Schnittstelle bietet Zugriff auf das {{domxref("NavigatorLogin")}}-Objekt des Browsers, welches von einem föderierten Identitätsanbieter (IdP) genutzt werden kann, um den Anmeldestatus festzulegen, wenn sich ein Benutzer beim IdP anmeldet oder abmeldet.
+Die **`login`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces, die nur lesbar ist, bietet Zugriff auf das [`NavigatorLogin`](/de/docs/Web/API/NavigatorLogin)-Objekt des Browsers. Ein föderierter Identitätsanbieter (IdP) kann dieses verwenden, um seinen Anmeldestatus zu setzen, wenn ein Benutzer sich beim IdP ein- oder ausloggt.
 
-Siehe [Aktualisieren des Anmeldestatus mit der Login Status API](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) für weitere Details zur Verwendung.
+Weitere Details zur Nutzung finden Sie unter [Anmeldestatus mit der Login-Status-API aktualisieren](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api).
 
 ## Wert
 
-Ein {{domxref("NavigatorLogin")}}-Objekt.
+Ein [`NavigatorLogin`](/de/docs/Web/API/NavigatorLogin)-Objekt.
 
 ## Beispiele
 
 ```js
-/* Anmeldestatus setzen */
+/* Set logged-in status */
 navigator.login.setStatus("logged-in");
 
-/* Abmeldestatus setzen */
+/* Set logged-out status */
 navigator.login.setStatus("logged-out");
 ```
 

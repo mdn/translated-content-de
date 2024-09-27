@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn das Seitenleistenfenster sichtbar wird, weil der Benutzer zu ihm wechselt.
+Wird ausgelöst, wenn das Seitenleistenfeld sichtbar wird, weil der Benutzer zu ihm wechselt.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das `listener`-Argument ist der zu entfernende Listener.
+  - : Beendet das Abhören dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
   - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener Syntax
+## Syntax von addListener
 
 ### Parameter
 
@@ -35,7 +35,7 @@ Ereignisse haben drei Funktionen:
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `window`
-      - : `object`. Das {{DOMxRef("window")}}-Objekt der Seitenleistenseite, wenn eine Seite mit {{WebExtAPIRef("devtools.panels.ExtensionSidebarPane.setPage()","setPage()")}} festgelegt wurde.
+      - : `object`. Das [`window`](/de/docs/Web/API/Window)-Objekt der Seitenleiste, wenn eine Seite mit {{WebExtAPIRef("devtools.panels.ExtensionSidebarPane.setPage()","setPage()")}} gesetzt wurde.
 
 ## Browser-Kompatibilität
 
@@ -43,7 +43,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Erstellen Sie ein Seitenleistenfenster und protokollieren Sie Ereignisse für das Anzeigen und Verstecken.
+Erstellen Sie ein Seitenleistenfeld und protokollieren Sie Show- und Hide-Ereignisse.
 
 ```js
 function onCreated(sidebarPane) {
@@ -62,4 +62,4 @@ browser.devtools.panels.elements.createSidebarPane("My pane").then(onCreated);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.devtools.panels`](https://developer.chrome.com/docs/extensions/reference/api/devtools/panels) API.

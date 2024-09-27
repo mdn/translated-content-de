@@ -1,5 +1,5 @@
 ---
-title: "RemotePlayback: cancelWatchAvailability()-Methode"
+title: "RemotePlayback: Methode cancelWatchAvailability()"
 short-title: cancelWatchAvailability()
 slug: Web/API/RemotePlayback/cancelWatchAvailability
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Remote Playback API")}}
 
-Die **`cancelWatchAvailability()`** Methode der {{domxref("RemotePlayback")}} Schnittstelle storniert die Anforderung zur Überwachung für ein oder alle verfügbaren Geräte.
+Die **`cancelWatchAvailability()`**-Methode des [`RemotePlayback`](/de/docs/Web/API/RemotePlayback)-Interfaces stoppt die Anforderung zur Überwachung für eines oder alle verfügbaren Geräte.
 
 ## Syntax
 
@@ -23,17 +23,17 @@ cancelWatchAvailability(id)
 
   - : Die `callbackId` eines bestimmten Remote-Wiedergabegeräts.
 
-    Wenn eine `callbackId` eines bestimmten Geräts übergeben wird, wird dieses Gerät aus der Liste der überwachten Geräte entfernt. Andernfalls wird die gesamte Liste gelöscht.
+    Wenn eine spezifische `callbackId` eines Geräts übergeben wird, wird dieses Gerät aus der Liste der überwachten Geräte entfernt. Andernfalls wird die gesamte Liste geleert.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird.
+Ein {{jsxref("Promise")}}, das mit `undefined` auflöst.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn {{domxref("HTMLMediaElement.disableRemotePlayback","disableRemotePlayback")}} für das Medien-Element `true` ist.
-- `NotFoundError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn [`disableRemotePlayback`](/de/docs/Web/API/HTMLMediaElement/disableRemotePlayback) für das Medienelement `true` ist.
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn eine `id` übergeben wird, die keiner verfügbaren `callbackId` entspricht.
 
 ## Beispiele
@@ -42,11 +42,11 @@ Sobald ein Remote-Wiedergabegerät identifiziert und verbunden wurde, kann die �
 
 ```js
 function switchToRemoteUI() {
-  // Geben Sie dem Benutzer an, dass der Status 'connecting' oder 'connected' ist.
-  // Zum Beispiel das Videoelement ausblenden, da nur Steuerungen benötigt werden.
+  // Indicate that the state is 'connecting' or 'connected' to the user.
+  // For example, hide the video element as only controls are needed.
   videoElem.style.display = "none";
 
-  // Überwachung der Verfügbarkeit von Remote-Wiedergabegeräten stoppen.
+  // Stop monitoring the availability of remote playback devices.
   videoElem.remote.cancelWatchAvailability();
 }
 ```

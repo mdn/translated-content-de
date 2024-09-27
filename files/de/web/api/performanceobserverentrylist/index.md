@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`PerformanceObserverEntryList`**-Schnittstelle ist eine Liste von {{domxref("PerformanceEntry","Performance-Ereignissen", '', 'true')}}, die explizit über die {{domxref("PerformanceObserver.observe","observe()")}}-Methode beobachtet wurden.
+Das **`PerformanceObserverEntryList`** Interface ist eine Liste von [Performance-Ereignissen](/de/docs/Web/API/PerformanceEntry), die explizit über die [`observe()`](/de/docs/Web/API/PerformanceObserver/observe) Methode beobachtet wurden.
 
 ## Instanzmethoden
 
-- {{domxref("PerformanceObserverEntryList.getEntries","PerformanceObserverEntryList.getEntries()")}}
-  - : Gibt eine Liste aller explizit beobachteten {{domxref("PerformanceEntry")}}-Objekte zurück.
-- {{domxref("PerformanceObserverEntryList.getEntriesByType","PerformanceObserverEntryList.getEntriesByType()")}}
-  - : Gibt eine Liste aller explizit beobachteten {{domxref("PerformanceEntry")}}-Objekte des angegebenen Entry-Typs zurück.
-- {{domxref("PerformanceObserverEntryList.getEntriesByName","PerformanceObserverEntryList.getEntriesByName()")}}
-  - : Gibt eine Liste aller explizit beobachteten {{domxref("PerformanceEntry")}}-Objekte basierend auf dem angegebenen Namen und dem Entry-Typ zurück.
+- [`PerformanceObserverEntryList.getEntries()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntries)
+  - : Gibt eine Liste aller explizit beobachteten [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) Objekte zurück.
+- [`PerformanceObserverEntryList.getEntriesByType()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByType)
+  - : Gibt eine Liste aller explizit beobachteten [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) Objekte des angegebenen Eintrags-Typs zurück.
+- [`PerformanceObserverEntryList.getEntriesByName()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByName)
+  - : Gibt eine Liste aller explizit beobachteten [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) Objekte basierend auf dem angegebenen Namen und Eintrags-Typ zurück.
 
 ## Beispiel
 
 ### Verwendung von PerformanceObserverEntryList
 
-Im folgenden Beispiel ist `list` das `PerformanceObserverEntryList`-Objekt. Die Methode {{domxref("PerformanceObserverEntryList.getEntries","getEntries()")}} wird aufgerufen, um alle explizit beobachteten {{domxref("PerformanceEntry")}}-Objekte zu erhalten, die in diesem Fall "measure" und "mark" sind.
+Im folgenden Beispiel ist `list` das `PerformanceObserverEntryList` Objekt. Die Methode [`getEntries()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntries) wird aufgerufen, um alle explizit beobachteten [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) Objekte zu erhalten, die in diesem Fall "measure" und "mark" sind.
 
 ```js
 function perfObserver(list, observer) {
@@ -43,6 +43,6 @@ observer.observe({ entryTypes: ["measure", "mark"] });
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

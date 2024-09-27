@@ -1,5 +1,5 @@
 ---
-title: "AudioContext: Methode createMediaElementSource()"
+title: "AudioContext: createMediaElementSource()-Methode"
 short-title: createMediaElementSource()
 slug: Web/API/AudioContext/createMediaElementSource
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die Methode `createMediaElementSource()` der {{ domxref("AudioContext") }}-Schnittstelle wird verwendet, um ein neues {{ domxref("MediaElementAudioSourceNode") }}-Objekt zu erstellen. Dazu wird ein vorhandenes HTML-{{htmlelement("audio")}}- oder {{htmlelement("video")}}-Element verwendet, dessen Audio dann abgespielt und manipuliert werden kann.
+Die `createMediaElementSource()`-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle wird verwendet, um ein neues [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode)-Objekt zu erstellen, ausgehend von einem bestehenden HTML-{{htmlelement("audio")}}- oder {{htmlelement("video")}}-Element, wobei der Ton abgespielt und manipuliert werden kann.
 
-Weitere Details zu Media Element Audio Source Nodes finden Sie auf der Referenzseite des {{ domxref("MediaElementAudioSourceNode") }}.
+Für weitere Details über Media Element Audio Source Nodes sehen Sie sich die [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode)-Referenzseite an.
 
 ## Syntax
 
@@ -21,18 +21,18 @@ createMediaElementSource(myMediaElement)
 ### Parameter
 
 - `myMediaElement`
-  - : Ein {{domxref("HTMLMediaElement")}}-Objekt, das Sie in ein Audioverarbeitungsdiagramm einspeisen möchten, um es zu manipulieren.
+  - : Ein [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Objekt, das Sie in einen Audioverarbeitungsgraphen einspeisen möchten, um es zu manipulieren.
 
 ### Rückgabewert
 
-Ein {{domxref("MediaElementAudioSourceNode")}}.
+Ein [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode).
 
 ## Beispiele
 
-Dieses einfache Beispiel erstellt eine Quelle aus einem {{htmlelement("audio")}}-Element mit `createMediaElementSource()` und leitet dann das Audio durch einen {{ domxref("GainNode") }}, bevor es zur Wiedergabe in den {{ domxref("AudioDestinationNode") }} eingespeist wird. Wenn der Mauszeiger bewegt wird, wird die Funktion `updatePage()` aufgerufen, die den aktuellen Verstärkungswert als Verhältnis der Maus-Y-Position zur Gesamthöhe des Fensters berechnet. Sie können daher die Lautstärke der abgespielten Musik erhöhen und verringern, indem Sie den Mauszeiger nach oben und unten bewegen.
+Dieses einfache Beispiel erstellt eine Quelle aus einem {{htmlelement("audio")}}-Element mithilfe von `createMediaElementSource()`, leitet dann den Ton durch einen [`GainNode`](/de/docs/Web/API/GainNode), bevor er in den [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) zur Wiedergabe eingespeist wird. Wenn der Mauszeiger bewegt wird, wird die Funktion `updatePage()` aufgerufen, die den aktuellen Gain als Verhältnis des Maus-Y-Position zur gesamten Fensterhöhe berechnet. Dadurch können Sie die Lautstärke der laufenden Musik durch Bewegen des Mauszeigers nach oben oder unten erhöhen oder verringern.
 
 > [!NOTE]
-> Sie können dieses [Beispiel live ansehen](https://mdn.github.io/webaudio-examples/media-source-buffer/), oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/media-source-buffer).
+> Sie können sich dieses Beispiel auch [live ansehen](https://mdn.github.io/webaudio-examples/media-source-buffer/) oder [den Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/media-source-buffer).
 
 ```js
 const audioCtx = new AudioContext();
@@ -67,7 +67,7 @@ gainNode.connect(audioCtx.destination);
 ```
 
 > [!NOTE]
-> Als Folge des Aufrufs von `createMediaElementSource()` wird die Audio-Wiedergabe des {{domxref("HTMLMediaElement")}} in das Verarbeitungsdiagramm des AudioContext umgeleitet. Das Abspielen/Pausieren des Mediums kann jedoch weiterhin über die Media-Element-API und die Steuerelemente des Players erfolgen.
+> Durch den Aufruf von `createMediaElementSource()` wird die Audiowiedergabe von dem [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) in den Verarbeitungsgrafen des AudioContext umgeleitet. Das Abspielen/Pausieren der Medien kann jedoch weiterhin über die Media-Element-API und die Player-Steuerelemente erfolgen.
 
 ## Spezifikationen
 

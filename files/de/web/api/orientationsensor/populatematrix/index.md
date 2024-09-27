@@ -8,11 +8,10 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`populateMatrix()`**-Methode des
-{{domxref("OrientationSensor")}}-Interfaces befüllt die gegebene Zieldatenmatrix mit der
-Rotationsmatrix basierend auf der neuesten Sensorablesung. Die Rotationsmatrix ist unten gezeigt.
+Die **`populateMatrix()`**-Methode der
+[`OrientationSensor`](/de/docs/Web/API/OrientationSensor)-Schnittstelle füllt die gegebene Zielmatrix mit der Rotationsmatrix basierend auf der neuesten Sensorablesung. Die Rotationsmatrix ist unten gezeigt.
 
-![Die Formeln zur Umwandlung des Sensor-Quaternions in die bereitgestellte Matrix.](quaternion_to_rotation_matrix.png)
+![Die Formeln zur Umwandlung des Quaternions des Sensors in die bereitgestellte Matrix.](quaternion_to_rotation_matrix.png)
 
 wobei:
 
@@ -27,8 +26,8 @@ wobei:
 populateMatrix(targetMatrix)
 ```
 
-Da {{domxref('OrientationSensor')}} eine Basisklasse ist, kann `populateMatrix`
-nur von einer ihrer abgeleiteten Klassen gelesen werden.
+Da [`OrientationSensor`](/de/docs/Web/API/OrientationSensor) eine Basisklasse ist, kann `populateMatrix`
+nur aus einer ihrer abgeleiteten Klassen gelesen werden.
 
 ### Parameter
 

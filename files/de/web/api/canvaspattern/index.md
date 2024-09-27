@@ -7,30 +7,30 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`CanvasPattern`**-Schnittstelle repräsentiert ein [opakes Objekt](https://en.wikipedia.org/wiki/Opaque_data_type), das ein Muster beschreibt, basierend auf einem Bild, einer Leinwand oder einem Video, erstellt durch die Methode {{domxref("CanvasRenderingContext2D.createPattern()")}}.
+Die **`CanvasPattern`**-Schnittstelle repräsentiert ein [undurchsichtiges Objekt](https://en.wikipedia.org/wiki/Opaque_data_type), das ein Muster beschreibt, basierend auf einem Bild, einer Leinwand oder einem Video, erstellt durch die Methode [`CanvasRenderingContext2D.createPattern()`](/de/docs/Web/API/CanvasRenderingContext2D/createPattern).
 
-Es kann als {{domxref("CanvasRenderingContext2D.fillStyle", "fillStyle")}} oder {{domxref("CanvasRenderingContext2D.strokeStyle", "strokeStyle")}} verwendet werden.
+Es kann als [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) verwendet werden.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Da es sich um ein opakes Objekt handelt, gibt es keine sichtbaren Eigenschaften._
+_Als undurchsichtiges Objekt hat dies keine sichtbare Eigenschaft._
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Es gibt keine geerbte Methode._
+_Es gibt keine geerbten Methoden._
 
-- {{domxref("CanvasPattern.setTransform()")}}
-  - : Wendet eine {{domxref("DOMMatrix")}} an, die eine lineare Transformation auf das Muster darstellt.
+- [`CanvasPattern.setTransform()`](/de/docs/Web/API/CanvasPattern/setTransform)
+  - : Wendet eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix), die eine lineare Transformation repräsentiert, auf das Muster an.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("CanvasRenderingContext2D.createPattern()")}}
-- Das {{HTMLElement("canvas")}}-Element und seine zugehörige Schnittstelle, {{domxref("HTMLCanvasElement")}}
+- [`CanvasRenderingContext2D.createPattern()`](/de/docs/Web/API/CanvasRenderingContext2D/createPattern)
+- Das {{HTMLElement("canvas")}}-Element und seine zugehörige Schnittstelle, [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)

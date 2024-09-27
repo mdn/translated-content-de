@@ -8,33 +8,33 @@ l10n:
 
 {{APIRef}}
 
-Die schreibgeschützte Eigenschaft `Window.history` gibt eine Referenz auf das {{domxref("History")}}-Objekt zurück, das eine Schnittstelle zum Manipulieren des _Session-Verlaufs_ des Browsers bietet (besuchte Seiten im Tab oder Frame, in dem die aktuelle Seite geladen ist).
+Die schreibgeschützte Eigenschaft `Window.history` gibt eine Referenz auf das [`History`](/de/docs/Web/API/History)-Objekt zurück, das eine Schnittstelle zum Manipulieren des Browser-Sitzungsverlaufs (besuchte Seiten in dem Tab oder Frame, in dem die aktuelle Seite geladen ist) bietet.
 
-Siehe [Manipulieren des Browserverlaufs](/de/docs/Web/API/History_API) für Beispiele und Details. Insbesondere erklärt dieser Artikel Sicherheitsmerkmale der {{domxref("History.pushState", "pushState()")}}- und {{domxref("History.replaceState", "replaceState()")}}-Methoden, über die Sie sich vor deren Nutzung im Klaren sein sollten.
+Siehe [Manipulieren des Browser-Verlaufs](/de/docs/Web/API/History_API) für Beispiele und Details. Besonders dieser Artikel erklärt die Sicherheitsmerkmale der Methoden [`pushState()`](/de/docs/Web/API/History/pushState) und [`replaceState()`](/de/docs/Web/API/History/replaceState), die Sie kennen sollten, bevor Sie diese verwenden.
 
 ## Wert
 
-Eine Referenz auf das {{domxref("History")}}-Objekt.
+Eine Referenz auf das [`History`](/de/docs/Web/API/History)-Objekt.
 
 ## Beispiele
 
 ```js
-history.back(); // entspricht dem Klicken auf die Zurück-Schaltfläche
-history.go(-1); // entspricht history.back();
+history.back(); // equivalent to clicking back button
+history.go(-1); // equivalent to history.back();
 ```
 
-## Hinweise
+## Anmerkungen
 
-Bei Seiten auf oberster Ebene können Sie die Liste der Seiten im Session-Verlauf sehen, die über das `History`-Objekt zugänglich ist, in den Dropdown-Menüs des Browsers neben den Zurück- und Vorwärts-Schaltflächen.
+Für Top-Level-Seiten können Sie die Liste der Seiten im Sitzungsverlauf sehen, die über das `History`-Objekt in den Dropdown-Menüs des Browsers neben den Zurück- und Vorwärts-Tasten zugänglich sind.
 
-Aus Sicherheitsgründen erlaubt das `History`-Objekt dem nicht privilegierten Code nicht, auf die {{glossary("URL", "URLs")}} anderer Seiten im Session-Verlauf zuzugreifen, aber es erlaubt, den Session-Verlauf zu navigieren.
+Aus Sicherheitsgründen erlaubt das `History`-Objekt nicht privilegierten Code nicht, auf die [URLs](/de/docs/Glossary/URL) anderer Seiten im Sitzungsverlauf zuzugreifen. Es erlaubt jedoch die Navigation im Sitzungsverlauf.
 
-Es gibt keine Möglichkeit, den Session-Verlauf zu löschen oder die Navigation zurück/vor zu deaktivieren durch nicht privilegierten Code. Die nächstliegende verfügbare Lösung ist die {{domxref("Location.replace", "location.replace()")}}-Methode, die das aktuelle Element des Session-Verlaufs durch die angegebene URL ersetzt.
+Es gibt keine Möglichkeit, den Sitzungsverlauf zu löschen oder die Zurück-/Vorwärts-Navigation aus nicht privilegiertem Code zu deaktivieren. Die am nächsten verfügbare Lösung ist die Methode [`location.replace()`](/de/docs/Web/API/Location/replace), die das aktuelle Element des Sitzungsverlaufs mit der bereitgestellten URL ersetzt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -8,40 +8,40 @@ l10n:
 
 {{APIRef}}
 
-Die schreibgeschützte **`Window.self`**-Eigenschaft gibt das Fenster selbst als ein {{glossary("WindowProxy")}} zurück. Sie kann mit der Punktnotation auf einem `window`-Objekt (also `window.self`) oder alleinstehend (`self`) verwendet werden. Der Vorteil der alleinstehenden Notation besteht darin, dass eine ähnliche Notation für Nicht-Fenster-Kontexte existiert, wie in {{domxref("Worker", "Web Workers", "", 1)}}. Durch die Verwendung von `self` können Sie auf den globalen Gültigkeitsbereich in einer Weise verweisen, die nicht nur in einem Fensterkontext funktioniert (`self` wird dann als `window.self` aufgelöst), sondern auch in einem Worker-Kontext (`self` wird dann als {{domxref("WorkerGlobalScope.self")}} aufgelöst).
+Die schreibgeschützte **`Window.self`**-Eigenschaft gibt das Fenster selbst zurück, als ein [WindowProxy](/de/docs/Glossary/WindowProxy). Sie kann mit der Punktnotation auf einem `window`-Objekt verwendet werden (also `window.self`) oder eigenständig (`self`). Der Vorteil der eigenständigen Notation ist, dass eine ähnliche Notation für nicht-Fenster-Kontexte existiert, wie zum Beispiel in {{domxref("Worker", "Web Workers", "", 1)}}. Durch die Verwendung von `self` können Sie auf den globalen Umfang so verweisen, dass es nicht nur im Fensterkontext funktioniert (dann wird `self` zu `window.self`), sondern auch im Worker-Kontext (dann wird `self` zu [`WorkerGlobalScope.self`](/de/docs/Web/API/WorkerGlobalScope/self)).
 
 ## Wert
 
-Ein {{glossary("WindowProxy")}}-Objekt.
+Ein [WindowProxy](/de/docs/Glossary/WindowProxy)-Objekt.
 
 ## Beispiele
 
-Nutzungen von `window.self` wie das folgende könnten genauso gut durch `window` ersetzt werden.
+Verwendungen von `window.self` wie die folgenden könnten genauso gut durch `window` ersetzt werden.
 
 ```js
 if (window.parent.frames[0] !== window.self) {
-  // Dieses Fenster ist nicht der erste Frame in der Liste
+  // this window is not the first frame in the list
 }
 ```
 
-Darüber hinaus, wenn im aktiven Dokument eines Browsing-Kontexts ausgeführt, ist `window` ein Verweis auf das aktuelle globale Objekt, und somit sind alle folgenden Äquivalente:
+Darüber hinaus, wenn die Ausführung im aktiven Dokument eines Browsing-Kontextes erfolgt, ist `window` eine Referenz auf das aktuelle globale Objekt und somit sind alle folgenden Angaben gleichwertig:
 
 ```js
 const w1 = window;
 const w2 = self;
 const w3 = window.window;
 const w4 = window.self;
-// w1, w2, w3, w4 sind alle strikt gleich, aber nur w2 funktioniert in Workern
+// w1, w2, w3, w4 all strictly equal, but only w2 will function in workers
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Das `Worker`-Äquivalent, {{domxref("WorkerGlobalScope.self")}}.
+- Das Äquivalent im `Worker`-Kontext, [`WorkerGlobalScope.self`](/de/docs/Web/API/WorkerGlobalScope/self).

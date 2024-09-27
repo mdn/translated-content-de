@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`stop()`**-Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) stoppt den Spracherkennungsdienst, sodass er nicht mehr auf eingehendes Audio lauscht, und versucht, ein {{domxref("SpeechRecognitionResult")}} mit dem bisher erfassten Audio zurückzugeben.
+Die **`stop()`**-Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) stoppt den Sprach­erkennungs­dienst vom Hören auf eingehende Audio­daten und versucht, ein [`SpeechRecognitionResult`](/de/docs/Web/API/SpeechRecognitionResult) mithilfe des bisher erfassten Audios zurückzugeben.
 
 ## Syntax
 

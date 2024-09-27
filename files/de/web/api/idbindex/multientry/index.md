@@ -8,37 +8,30 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`multiEntry`** der
-{{domxref("IDBIndex")}} Schnittstelle gibt einen booleschen Wert zurück, der beeinflusst, wie der Index
-sich verhält, wenn das Ergebnis der Auswertung des Schlüsselpfads des Index ein Array ergibt.
+Die **`multiEntry`** schreibgeschützte Eigenschaft der
+[`IDBIndex`](/de/docs/Web/API/IDBIndex)-Schnittstelle gibt einen booleschen Wert zurück, der beeinflusst, wie sich der Index verhält, wenn die Auswertung des Schlüsselpfads des Index ein Array ergibt.
 
-Dies wird festgelegt, wenn der Index erstellt wird, unter Verwendung der
-{{domxref("IDBObjectStore.createIndex")}} Methode. Diese Methode nimmt einen optionalen
-`options` Parameter an, dessen `multiEntry` Eigenschaft auf `true`/`false` gesetzt wird.
+Dies wird entschieden, wenn der Index erstellt wird, mit der Methode
+[`IDBObjectStore.createIndex`](/de/docs/Web/API/IDBObjectStore/createIndex). Diese Methode nimmt ein optionales
+`options`-Parameter entgegen, dessen `multiEntry`-Eigenschaft auf `true`/`false` gesetzt wird.
 
 ## Wert
 
 Ein boolescher Wert:
 
-| Wert  | Effekt                                                               |
-| ----- | -------------------------------------------------------------------- |
-| true  | Es gibt einen Eintrag im Index für jedes Element in einem Array von Schlüsseln. |
-| false | Es gibt einen Eintrag für jeden Schlüssel, der ein Array ist.        |
+| Wert  | Wirkung                                                                    |
+| ----- | -------------------------------------------------------------------------- |
+| true  | Es gibt einen Eintrag im Index für jedes Element in einem Schlüssel-Array. |
+| false | Es gibt einen Eintrag für jeden Schlüssel, der ein Array ist.              |
 
 ## Beispiele
 
-Im folgenden Beispiel öffnen wir eine Transaktion und einen Objektspeicher und holen den
-Index `lName` aus einer einfachen Kontaktdatenbank. Wir öffnen dann einen einfachen Cursor auf
-dem Index mit {{domxref("IDBIndex.openCursor")}} — dies funktioniert genauso wie das Öffnen eines
-Cursors direkt auf einem `ObjectStore` mit
-{{domxref("IDBObjectStore.openCursor")}}, außer dass die zurückgegebenen Datensätze basierend
-auf dem Index und nicht auf dem Primärschlüssel sortiert werden.
+Im folgenden Beispiel öffnen wir eine Transaktion und einen Objekt-Store und holen dann den Index `lName` aus einer einfachen Kontaktdatenbank. Anschließend öffnen wir einen grundlegenden Cursor auf dem Index mit [`IDBIndex.openCursor`](/de/docs/Web/API/IDBIndex/openCursor) — dies funktioniert genauso wie das Öffnen eines Cursors direkt auf einem `ObjectStore` mithilfe von
+[`IDBObjectStore.openCursor`](/de/docs/Web/API/IDBObjectStore/openCursor), außer dass die zurückgegebenen Einträge basierend auf dem Index sortiert sind, nicht dem Primärschlüssel.
 
-Der Multi-Entry-Status des Index wird in der Konsole protokolliert: Er sollte als `false` zurückgegeben
-werden.
+Der Multi-Entry-Status des Indexes wird in der Konsole protokolliert: Er sollte als `false` zurückgegeben werden.
 
-Schließlich iterieren wir durch jeden Datensatz und fügen die Daten in eine HTML-Tabelle ein. Für ein
-vollständig funktionierendes Beispiel, siehe unser [IndexedDB-Beispiel-Demo-Repo](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbindex) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbindex/)).
+Schließlich iterieren wir durch jeden Eintrag und fügen die Daten in eine HTML-Tabelle ein. Für ein vollständiges funktionierendes Beispiel siehe unser [IndexedDB-Beispiele-Demo-Repo](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbindex) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbindex/)).
 
 ```js
 function displayDataByIndex() {
@@ -71,7 +64,7 @@ function displayDataByIndex() {
 
       cursor.continue();
     } else {
-      console.log("Einträge sind alle angezeigt.");
+      console.log("Entries all displayed.");
     }
   };
 }
@@ -88,9 +81,9 @@ function displayDataByIndex() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegen eines Schlüsselspektrums: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursors: {{domxref("IDBCursor")}}
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegung eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

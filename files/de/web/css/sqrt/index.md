@@ -14,7 +14,7 @@ Die Funktion `pow(x, 0.5)` ist äquivalent zu `sqrt(x)`.
 ## Syntax
 
 ```css
-/* Ein <number>-Wert */
+/* A <number> value */
 width: calc(100px * sqrt(9)); /*  300px */
 width: calc(100px * sqrt(25)); /*  500px */
 width: calc(100px * sqrt(100)); /* 1000px */
@@ -22,14 +22,14 @@ width: calc(100px * sqrt(100)); /* 1000px */
 
 ### Parameter
 
-Die `sqrt(x)`-Funktion akzeptiert nur einen Wert als Parameter.
+Die Funktion `sqrt(x)` akzeptiert nur einen Wert als Parameter.
 
 - `x`
-  - : Eine Berechnung, die sich auf ein {{cssxref("&lt;number&gt;")}} größer oder gleich 0 auflöst.
+  - : Eine Berechnung, die zu einer {{cssxref("&lt;number&gt;")}} größer oder gleich 0 auflöst.
 
 ### Rückgabewert
 
-Gibt ein {{cssxref("&lt;number&gt;")}} zurück, welches die Quadratwurzel von `x` ist.
+Gibt eine {{cssxref("&lt;number&gt;")}} zurück, die die Quadratwurzel von `x` ist.
 
 - Wenn `x` `+∞` ist, ist das Ergebnis `+∞`.
 - Wenn `x` `0⁻` ist, ist das Ergebnis `0⁻`.
@@ -41,7 +41,7 @@ Gibt ein {{cssxref("&lt;number&gt;")}} zurück, welches die Quadratwurzel von `x
 
 ## Beispiele
 
-### Größen basierend auf Quadratwurzel skalieren
+### Größen basierend auf der Quadratwurzel skalieren
 
 Dieses Beispiel zeigt, wie Sie die `sqrt()`-Funktion verwenden können, um Größen zu berechnen.
 
@@ -60,9 +60,9 @@ Dieses Beispiel zeigt, wie Sie die `sqrt()`-Funktion verwenden können, um Grö�
 
 Hier verwenden wir [CSS Custom Properties](/de/docs/Web/CSS/Using_CSS_custom_properties), um die zu verwendenden Größen zu definieren. Zuerst deklarieren wir die erste Größe (`--size-0`), die dann zur Berechnung der anderen Größen verwendet wird.
 
-- `--size-1` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 4 (2) multipliziert wird, was zu 100px führt.
-- `--size-2` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 9 (3) multipliziert wird, was zu 150px führt.
-- `--size-3` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 16 (4) multipliziert wird, was zu 200px führt.
+- `--size-1` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 4 (2) multipliziert wird, was 100px ergibt.
+- `--size-2` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 9 (3) multipliziert wird, was 150px ergibt.
+- `--size-3` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 16 (4) multipliziert wird, was 200px ergibt.
 
 ```css
 :root {

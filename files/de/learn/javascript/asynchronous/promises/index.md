@@ -1,5 +1,5 @@
 ---
-title: So verwenden Sie Promises
+title: Anleitung zur Nutzung von Promises
 slug: Learn/JavaScript/Asynchronous/Promises
 l10n:
   sourceCommit: bc0d0d1ef796435e969f6d65c7e5d3c08f4023aa
@@ -7,31 +7,31 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/JavaScript/Asynchronous/Introducing", "Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API", "Learn/JavaScript/Asynchronous")}}
 
-**Promises** sind die Grundlage der asynchronen Programmierung in modernem JavaScript. Ein Promise ist ein Objekt, das von einer asynchronen Funktion zurückgegeben wird und den aktuellen Status der Operation darstellt. Zu dem Zeitpunkt, an dem das Promise dem Aufrufer zurückgegeben wird, ist die Operation häufig noch nicht abgeschlossen, aber das Promise-Objekt bietet Methoden, um den späteren Erfolg oder Misserfolg der Operation zu behandeln.
+**Promises** sind das Fundament der asynchronen Programmierung in modernem JavaScript. Ein Promise ist ein Objekt, das von einer asynchronen Funktion zurückgegeben wird und den aktuellen Status der Operation darstellt. Zu dem Zeitpunkt, zu dem das Promise dem Aufrufer zurückgegeben wird, ist die Operation oft noch nicht abgeschlossen, aber das Promise-Objekt bietet Methoden, um den eventuellen Erfolg oder Misserfolg der Operation zu handhaben.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Ein angemessenes Verständnis der Grundlagen von JavaScript, einschließlich der Ereignisbehandlung.
+        Ein vernünftiges Verständnis der JavaScript-Grundlagen, einschließlich der Ereignisbehandlung.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Verstehen, wie Promises in JavaScript verwendet werden.</td>
+      <td>Verstehen, wie man Promises in JavaScript verwendet.</td>
     </tr>
   </tbody>
 </table>
 
-Im [vorherigen Artikel](/de/docs/Learn/JavaScript/Asynchronous/Introducing) haben wir die Verwendung von Callbacks zur Implementierung asynchroner Funktionen besprochen. Mit diesem Design rufen Sie die asynchrone Funktion auf und übergeben dabei Ihre Callback-Funktion. Die Funktion gibt sofort zurück und ruft Ihren Callback auf, wenn die Operation abgeschlossen ist.
+Im [vorherigen Artikel](/de/docs/Learn/JavaScript/Asynchronous/Introducing) haben wir über die Verwendung von Callbacks zur Implementierung asynchroner Funktionen gesprochen. Mit diesem Design rufen Sie die asynchrone Funktion auf, indem Sie Ihre Callback-Funktion übergeben. Die Funktion gibt sofort zurück und ruft Ihr Callback auf, wenn die Operation abgeschlossen ist.
 
-Bei einer Promise-basierten API startet die asynchrone Funktion die Operation und gibt ein {{jsxref("Promise")}}-Objekt zurück. Sie können dann Handler an dieses Promise-Objekt anhängen, und diese Handler werden ausgeführt, wenn die Operation erfolgreich oder fehlgeschlagen ist.
+Mit einer auf Promises basierenden API startet die asynchrone Funktion die Operation und gibt ein {{jsxref("Promise")}}-Objekt zurück. Sie können dann Handler an dieses Promise-Objekt anhängen, die ausgeführt werden, wenn die Operation erfolgreich war oder fehlgeschlagen ist.
 
 ## Verwendung der fetch()-API
 
 > [!NOTE]
-> In diesem Artikel werden wir Promises erkunden, indem wir Code-Beispiele von der Seite in die JavaScript-Konsole Ihres Browsers kopieren. Um dies einzurichten:
+> In diesem Artikel werden wir Promises untersuchen, indem wir Codebeispiele von der Seite in die JavaScript-Konsole Ihres Browsers kopieren. Um dies einzurichten:
 >
 > 1. Öffnen Sie einen Browser-Tab und besuchen Sie <https://example.org>
 > 2. Öffnen Sie in diesem Tab die JavaScript-Konsole in den [Entwicklerwerkzeugen Ihres Browsers](/de/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools)
@@ -39,7 +39,7 @@ Bei einer Promise-basierten API startet die asynchrone Funktion die Operation un
 
 In diesem Beispiel laden wir die JSON-Datei von <https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json> herunter und protokollieren einige Informationen darüber.
 
-Dazu werden wir eine **HTTP-Anfrage** an den Server senden. Bei einer HTTP-Anfrage senden wir eine Anfrage-Nachricht an einen Remote-Server, und er sendet uns eine Antwort zurück. In diesem Fall senden wir eine Anfrage, um eine JSON-Datei vom Server zu erhalten. Erinnern Sie sich an den letzten Artikel, in dem wir HTTP-Anfragen mit der {{domxref("XMLHttpRequest")}}-API gestartet haben? Nun, in diesem Artikel verwenden wir die {{domxref("Window/fetch", "fetch()")}}-API, die die moderne, Promise-basierte Alternative zu `XMLHttpRequest` ist.
+Dazu senden wir eine **HTTP-Anfrage** an den Server. In einer HTTP-Anfrage senden wir eine Anforderungsnachricht an einen entfernten Server, und dieser schickt uns eine Antwort zurück. In diesem Fall senden wir eine Anfrage, um eine JSON-Datei vom Server abzurufen. Denken Sie an den letzten Artikel zurück, in dem wir HTTP-Anfragen mit der [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-API durchgeführt haben? Nun, in diesem Artikel verwenden wir die [`fetch()`](/de/docs/Web/API/Window/fetch)-API, die moderne, auf Promises basierende Ersatzlösung für `XMLHttpRequest`.
 
 Kopieren Sie dies in die JavaScript-Konsole Ihres Browsers:
 
@@ -59,12 +59,12 @@ console.log("Started request…");
 
 Hier sind wir:
 
-1. Wir rufen die `fetch()`-API auf und weisen den Rückgabewert der Variable `fetchPromise` zu.
-2. Unmittelbar danach protokollieren wir die Variable `fetchPromise`. Dies sollte etwas wie `Promise { <state>: "pending" }` ausgeben, was uns sagt, dass wir ein `Promise`-Objekt haben und es einen `state` hat, dessen Wert `"pending"` ist. Der Status `"pending"` bedeutet, dass die Fetch-Operation noch läuft.
-3. Wir übergeben eine Handler-Funktion in die **`then()`**-Methode des Promise. Wenn (und falls) die Fetch-Operation erfolgreich ist, ruft das Promise unseren Handler auf und übergibt ein {{domxref("Response")}}-Objekt, das die Antwort des Servers enthält.
-4. Wir protokollieren eine Nachricht, dass wir die Anfrage gestartet haben.
+1. Rufen die `fetch()`-API auf und weisen den Rückgabewert der Variable `fetchPromise` zu
+2. Protokollieren unmittelbar danach die Variable `fetchPromise`. Dies sollte etwa so ausgegeben werden: `Promise { <state>: "pending" }`, was bedeutet, dass wir ein `Promise`-Objekt haben, und es einen `state` hat, dessen Wert `"pending"` ist. Der `"pending"` Status bedeutet, dass die Fetch-Operation noch läuft.
+3. Übergeben eine Handlerfunktion an die **`then()`**-Methode des Promises. Wenn (und falls) die Fetch-Operation erfolgreich ist, ruft das Promise unseren Handler auf, indem es ein [`Response`](/de/docs/Web/API/Response)-Objekt übergibt, das die Serverantwort enthält.
+4. Melden eine Nachricht, dass wir die Anfrage gestartet haben.
 
-Die vollständige Ausgabe sollte etwa so aussehen:
+Die vollständige Ausgabe sollte in etwa wie folgt aussehen:
 
 ```plain
 Promise { <state>: "pending" }
@@ -72,15 +72,15 @@ Started request…
 Received response: 200
 ```
 
-Beachten Sie, dass `Started request…` protokolliert wird, bevor wir die Antwort erhalten. Im Gegensatz zu einer synchronen Funktion gibt `fetch()` zurück, während die Anfrage noch läuft, wodurch unser Programm reaktionsfähig bleibt. Die Antwort zeigt den `200` (OK)-[Statuscode](/de/docs/Web/HTTP/Status), was bedeutet, dass unsere Anfrage erfolgreich war.
+Beachten Sie, dass `Started request…` protokolliert wird, bevor wir die Antwort erhalten. Im Gegensatz zu einer synchronen Funktion gibt `fetch()` zurück, während die Anfrage noch läuft, und ermöglicht es unserem Programm, reaktionsfähig zu bleiben. Die Antwort zeigt den `200` (OK) [Statuscode](/de/docs/Web/HTTP/Status), was bedeutet, dass unsere Anfrage erfolgreich war.
 
-Dies erscheint wahrscheinlich sehr ähnlich dem Beispiel im letzten Artikel, in dem wir Event-Handler zum {{domxref("XMLHttpRequest")}}-Objekt hinzugefügt haben. Stattdessen übergeben wir einen Handler in die `then()`-Methode des zurückgegebenen Promise.
+Dies scheint wahrscheinlich dem Beispiel im letzten Artikel sehr ähnlich, in dem wir Ereignishandler zum [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekt hinzugefügt haben. Stattdessen übergeben wir jetzt jedoch einen Handler an die `then()`-Methode des zurückgegebene Promises.
 
 ## Verkettung von Promises
 
-Mit der `fetch()`-API müssen Sie, sobald Sie ein `Response`-Objekt erhalten, eine weitere Funktion aufrufen, um die Antwortdaten zu erhalten. In diesem Fall möchten wir die Antwortdaten als JSON erhalten, also würden wir die {{domxref("Response/json", "json()")}}-Methode des `Response`-Objekts aufrufen. Es stellt sich heraus, dass `json()` ebenfalls asynchron ist. Dies ist also ein Fall, in dem wir zwei aufeinanderfolgende asynchrone Funktionen aufrufen müssen.
+Mit der `fetch()`-API müssen Sie, sobald Sie ein `Response`-Objekt erhalten, eine weitere Funktion aufrufen, um die Antwortdaten zu erhalten. In diesem Fall möchten wir die Antwortdaten als JSON erhalten, also würden wir die [`json()`](/de/docs/Web/API/Response/json)-Methode des `Response`-Objekts aufrufen. Es stellt sich heraus, dass `json()` ebenfalls asynchron ist. Dies ist also ein Fall, in dem wir zwei aufeinanderfolgende asynchrone Funktionen aufrufen müssen.
 
-Probieren Sie dies:
+Versuchen Sie dies:
 
 ```js
 const fetchPromise = fetch(
@@ -95,13 +95,13 @@ fetchPromise.then((response) => {
 });
 ```
 
-In diesem Beispiel fügen wir wie zuvor einen `then()`-Handler zum von `fetch()` zurückgegebenen Promise hinzu. Aber diesmal ruft unser Handler `response.json()` auf und übergibt dann einen neuen `then()`-Handler in das Promise, das von `response.json()` zurückgegeben wird.
+In diesem Beispiel fügen wir, wie zuvor, einen `then()`-Handler zu dem von `fetch()` zurückgegebenen Promise hinzu. Aber dieses Mal ruft unser Handler `response.json()` auf und übergibt dann einen neuen `then()`-Handler an das von `response.json()` zurückgegebene Promise.
 
-Dies sollte "baked beans" (den Namen des ersten Produkts in "products.json") protokollieren.
+Dies sollte "baked beans" (den Namen des ersten in "products.json" aufgeführten Produkts) protokollieren.
 
-Aber warten Sie! Erinnern Sie sich an den letzten Artikel, in dem wir sagten, dass wir durch das Aufrufen eines Callbacks innerhalb eines anderen Callbacks immer mehr geschachtelte Code-Ebenen erhielten? Und wir sagten, dass dieser "Callback-Hell" unseren Code schwer verständlich macht? Ist dies nicht dasselbe, nur mit `then()`-Aufrufen?
+Aber Moment mal! Erinnern Sie sich an den letzten Artikel, in dem wir sagten, dass wir durch das Aufrufen eines Callbacks innerhalb eines anderen Callbacks sukzessive verschachtelte Ebenen von Code erhalten? Und wir sagten, dass dieser "Callback Hell" unseren Code schwer verständlich machte? Ist das nicht dasselbe, nur mit `then()`-Aufrufen?
 
-Das ist es natürlich. Aber das elegante Merkmal von Promises ist, dass _`then()` selbst ein Promise zurückgibt, das mit dem Ergebnis der Funktion abgeschlossen wird, die ihm übergeben wurde_. Das bedeutet, dass wir (und sollten) den obigen Code so umschreiben können:
+In der Tat. Aber das elegante Merkmal von Promises ist, dass _`then()` selbst ein Promise zurückgibt, das mit dem Ergebnis der Funktion vervollständigt wird, die ihm übergeben wird_. Das bedeutet, dass wir (und sollten) den obigen Code so umschreiben können:
 
 ```js
 const fetchPromise = fetch(
@@ -115,9 +115,9 @@ fetchPromise
   });
 ```
 
-Anstatt das zweite `then()` im Handler des ersten `then()` aufzurufen, können wir das von `json()` zurückgegebene Promise _zurückgeben_ und das zweite `then()` auf diesen Rückgabewert aufrufen. Dies wird **Promise-Verkettung** genannt und bedeutet, dass wir immer tiefer werdende Ebenen der Einrückung vermeiden können, wenn wir aufeinanderfolgende asynchrone Funktionsaufrufe benötigen.
+Anstelle der zweiten `then()`-Aufruf innerhalb des Handlers für das erste `then()` können wir das von `json()` zurückgegebene Promise _zurückgeben_ und die zweite `then()`-Methode für diesen Rückgabewert aufrufen. Dies nennt man **Promise Chaining** und bedeutet, dass wir zunehmend mehr Einrückungen vermeiden können, wenn wir aufeinanderfolgende asynchrone Funktionsaufrufe vornehmen müssen.
 
-Bevor wir zum nächsten Schritt übergehen, gibt es noch ein Stück hinzuzufügen. Wir müssen überprüfen, ob der Server die Anfrage akzeptiert und bearbeitet hat, bevor wir versuchen, sie zu lesen. Wir werden dies tun, indem wir den Statuscode in der Antwort überprüfen und einen Fehler werfen, wenn er nicht "OK" war:
+Bevor wir zum nächsten Schritt übergehen, gibt es noch ein Element hinzuzufügen. Wir müssen überprüfen, ob der Server die Anfrage angenommen hat und in der Lage war, sie zu bearbeiten, bevor wir versuchen, sie zu lesen. Wir tun dies, indem wir den Statuscode in der Antwort überprüfen und einen Fehler auslösen, wenn er nicht "OK" war:
 
 ```js
 const fetchPromise = fetch(
@@ -136,17 +136,17 @@ fetchPromise
   });
 ```
 
-## Fehler abfangen
+## Fehler erfassen
 
-Dies bringt uns zum letzten Punkt: Wie gehen wir mit Fehlern um? Die `fetch()`-API kann aus vielen Gründen einen Fehler auslösen (z. B. weil keine Netzwerkverbindung bestand oder die URL in irgendeiner Weise fehlerhaft war) und wir werfen selbst einen Fehler, wenn der Server einen Fehler zurückgibt.
+Dies bringt uns zum letzten Teil: Wie gehen wir mit Fehlern um? Die `fetch()`-API kann aus vielen Gründen einen Fehler auslösen (zum Beispiel, weil keine Netzwerkverbindung vorhanden war oder die URL auf irgendeine Weise fehlerhaft war), und wir werfen selbst einen Fehler aus, wenn der Server einen Fehler zurückgegeben hat.
 
-Im letzten Artikel haben wir gesehen, dass die Fehlerbehandlung mit verschachtelten Callbacks sehr schwierig werden kann, da wir Fehler auf jeder Verschachtelungsebene behandeln müssen.
+Im letzten Artikel haben wir festgestellt, dass die Fehlerbehandlung bei verschachtelten Callback-Funktionen sehr schwierig werden kann, da wir auf jeder Verschachtelungsebene Fehler behandeln müssen.
 
-Zur Unterstützung der Fehlerbehandlung bieten `Promise`-Objekte eine {{jsxref("Promise/catch", "catch()")}}-Methode. Diese ist sehr ähnlich wie `then()`: Sie rufen sie auf und übergeben eine Handler-Funktion. Während der Handler, der an `then()` übergeben wird, jedoch aufgerufen wird, wenn die asynchrone Operation _erfolgreich_ ist, wird der Handler, der an `catch()` übergeben wird, aufgerufen, wenn die asynchrone Operation _fehlschlägt_.
+Um die Fehlerbehandlung zu unterstützen, bieten `Promise`-Objekte eine {{jsxref("Promise/catch", "catch()")}}-Methode. Diese ist ähnlich wie `then()`: Sie rufen sie auf und übergeben eine Handlerfunktion. Der Unterschied besteht darin, dass während der Handler, der an `then()` übergeben wurde, aufgerufen wird, wenn der asynchrone Vorgang _Erfolg_ hat, der an `catch()` übergebene Handler aufgerufen wird, wenn der asynchrone Vorgang _fehlschlägt_.
 
-Wenn Sie `catch()` am Ende einer Promise-Kette hinzufügen, wird es aufgerufen, wenn einer der asynchronen Funktionsaufrufe fehlschlägt. Auf diese Weise können Sie eine Operation als mehrere aufeinanderfolgende asynchrone Funktionsaufrufe implementieren und alle Fehler an einem Ort behandeln.
+Wenn Sie `catch()` an das Ende einer Promise-Kette anhängen, wird es aufgerufen, wenn einer der asynchronen Funktionsaufrufe fehlschlägt. So können Sie einen Vorgang als mehrere aufeinanderfolgende asynchrone Funktionsaufrufe implementieren und haben einen einzigen Ort, um alle Fehler zu behandeln.
 
-Probieren Sie diese Version unseres `fetch()`-Codes. Wir haben einen Fehlerbehandler mit `catch()` hinzugefügt und auch die URL so angepasst, dass die Anfrage fehlschlägt.
+Versuchen Sie diese Version unseres `fetch()`-Codes. Wir haben einen Fehlerhandler mit `catch()` hinzugefügt und die URL so modifiziert, dass die Anfrage fehlschlägt.
 
 ```js
 const fetchPromise = fetch(
@@ -170,34 +170,34 @@ fetchPromise
 
 Versuchen Sie, diese Version auszuführen: Sie sollten den Fehler sehen, der von unserem `catch()`-Handler protokolliert wird.
 
-## Promise-Terminologie
+## Terminologie von Promises
 
-Promises kommen mit einigen recht spezifischen Begriffen, die es wert sind, klargestellt zu werden.
+Promises bringen einige ziemlich spezifische Terminologien mit sich, die es wert sind, dass man sich damit vertraut macht.
 
 Erstens kann ein Promise in einem von drei Zuständen sein:
 
-- **pending**: Das Promise wurde erstellt, und die asynchrone Funktion, mit der es verbunden ist, war noch nicht erfolgreich oder fehlgeschlagen. Dies ist der Zustand, in dem sich Ihr Promise befindet, wenn es von einem Aufruf von `fetch()` zurückgegeben wird und die Anfrage noch gestellt wird.
-- **fulfilled**: Die asynchrone Funktion war erfolgreich. Wenn ein Promise erfüllt wird, wird sein `then()`-Handler aufgerufen.
-- **rejected**: Die asynchrone Funktion ist fehlgeschlagen. Wenn ein Promise zurückgewiesen wird, wird sein `catch()`-Handler aufgerufen.
+- **pending**: Das Promise wurde erstellt, und die asynchrone Funktion, mit der es verbunden ist, war noch nicht erfolgreich oder fehlgeschlagen. Dies ist der Zustand, in dem sich Ihr Promise befindet, wenn es von einem Aufruf von `fetch()` zurückgegeben wird und die Anfrage noch ausgeführt wird.
+- **fulfilled**: Die asynchrone Funktion war erfolgreich. Wenn ein Promise erfüllt ist, wird der `then()`-Handler aufgerufen.
+- **rejected**: Die asynchrone Funktion ist fehlgeschlagen. Wenn ein Promise abgelehnt wird, wird der `catch()`-Handler aufgerufen.
 
-Beachten Sie, dass das, was hier als "erfolgreich" oder "fehlgeschlagen" bezeichnet wird, von der jeweiligen API abhängt. Beispielsweise lehnt `fetch()` das zurückgegebene Promise ab, wenn (unter anderem) ein Netzwerkfehler das Senden der Anfrage verhindert hat, erfüllt aber das Promise, wenn der Server eine Antwort gesendet hat, selbst wenn es eine Fehlerantwort wie [404 Nicht gefunden](/de/docs/Web/HTTP/Status/404) war.
+Beachten Sie, dass hier, was "erfolgreich" oder "fehlgeschlagen" bedeutet, von der betreffenden API abhängt. Zum Beispiel lehnt `fetch()` das zurückgegebene Promise ab, wenn (unter anderem) ein Netzwerkfehler verhindert hat, dass die Anfrage gesendet werden kann, erfüllt das Promise jedoch, wenn der Server eine Antwort gesendet hat, auch wenn die Antwort ein Fehler wie [404 Not Found](/de/docs/Web/HTTP/Status/404) war.
 
-Manchmal verwenden wir den Begriff **settled** (eingelöst), um sowohl **fulfilled** (erfüllt) als auch **rejected** (zurückgewiesen) zu umfassen.
+Manchmal verwenden wir den Begriff **settled**, um sowohl **fulfilled** als auch **rejected** abzudecken.
 
-Ein Promise ist **resolved** (aufgelöst), wenn es eingelöst ist oder wenn es "festgelegt" wurde, dem Zustand eines anderen Promises zu folgen.
+Ein Promise ist **resolved**, wenn es abgeschlossen ist oder wenn es "fixiert" ist, um dem Zustand eines anderen Promises zu folgen.
 
-Der Artikel [Let's talk about how to talk about promises](https://thenewtoys.dev/blog/2021/02/08/lets-talk-about-how-to-talk-about-promises/) gibt eine großartige Erklärung der Details dieser Terminologie.
+Der Artikel [Let's talk about how to talk about promises](https://thenewtoys.dev/blog/2021/02/08/lets-talk-about-how-to-talk-about-promises/) bietet eine großartige Erklärung der Details dieser Terminologie.
 
-## Kombinieren mehrerer Promises
+## Kombination mehrerer Promises
 
-Die Promise-Kette ist das, was Sie benötigen, wenn Ihre Operation aus mehreren asynchronen Funktionen besteht und Sie jede abgeschlossen haben müssen, bevor Sie die nächste starten. Aber es gibt auch andere Möglichkeiten, wie Sie asynchrone Funktionsaufrufe kombinieren müssen, und die `Promise`-API bietet einige Helfer dafür.
+Die Promise-Kette ist das, was Sie benötigen, wenn Ihr Vorgang aus mehreren asynchronen Funktionen besteht und jede abgeschlossen sein muss, bevor die nächste beginnt. Aber es gibt andere Möglichkeiten, wie Sie asynchrone Funktionsaufrufe kombinieren müssen, und die `Promise`-API bietet einige Hilfsmittel dafür.
 
-Manchmal benötigen Sie alle Promises, um erfüllt zu werden, aber sie hängen nicht voneinander ab. In einem solchen Fall ist es viel effizienter, sie alle zusammen zu starten und dann benachrichtigt zu werden, wenn sie alle erfüllt sind. Die {{jsxref("Promise/all", "Promise.all()")}}-Methode ist das, was Sie hier benötigen. Sie akzeptiert ein Array von Promises und gibt ein einzelnes Promise zurück.
+Manchmal müssen alle Promises erfüllt werden, aber sie hängen nicht voneinander ab. In einem solchen Fall ist es viel effizienter, sie alle zusammen zu starten und dann benachrichtigt zu werden, wenn sie alle erfüllt sind. Die Methode {{jsxref("Promise/all", "Promise.all()")}} ist hier das, was Sie brauchen. Sie nimmt ein Array von Promises und gibt ein einzelnes Promise zurück.
 
 Das von `Promise.all()` zurückgegebene Promise ist:
 
-- erfüllt, wenn und falls _alle_ Promises im Array erfüllt sind. In diesem Fall wird der `then()`-Handler mit einem Array aller Antworten aufgerufen, in derselben Reihenfolge, in der die Promises in `all()` übergeben wurden.
-- zurückgewiesen, wenn und falls _eines_ der Promises im Array abgelehnt wird. In diesem Fall wird der `catch()`-Handler mit dem Fehler aufgerufen, der vom Promise ausgelöst wurde, das abgelehnt wurde.
+- erfüllt, wenn und nur wenn _alle_ Promises im Array erfüllt sind. In diesem Fall wird der `then()`-Handler mit einem Array aller Antworten aufgerufen, in der gleichen Reihenfolge, in der die Promises `all()` übergeben wurden.
+- abgelehnt, wenn und nur wenn _irgendeines_ der Promises im Array abgelehnt wird. In diesem Fall wird der `catch()`-Handler mit dem Fehler aufgerufen, der von dem Promise geworfen wurde, das abgelehnt wurde.
 
 Zum Beispiel:
 
@@ -223,9 +223,9 @@ Promise.all([fetchPromise1, fetchPromise2, fetchPromise3])
   });
 ```
 
-Hier führen wir drei `fetch()`-Anfragen an drei verschiedene URLs aus. Wenn alle erfolgreich sind, protokollieren wir den Antwortstatus jedes einzelnen. Wenn eine von ihnen fehlschlägt, protokollieren wir den Fehler.
+Hier machen wir drei `fetch()`-Anfragen an drei verschiedene URLs. Wenn sie alle erfolgreich sind, werden wir den Antwortstatus jeder Anfrage protokollieren. Wenn eine von ihnen fehlschlägt, dann protokollieren wir den Misserfolg.
 
-Mit den angegebenen URLs sollten alle Anfragen erfüllt werden, obwohl der Server für die zweite `404` (Nicht gefunden) statt `200` (OK) zurückgibt, da die angeforderte Datei nicht existiert. Die Ausgabe sollte daher so aussehen:
+Mit den von uns bereitgestellten URLs sollten alle Anfragen erfüllt werden, obwohl der zweite Server `404` (Not Found) statt `200` (OK) zurückgeben wird, weil die angeforderte Datei nicht existiert. Daher sollte die Ausgabe so aussehen:
 
 ```plain
 https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json: 200
@@ -233,7 +233,7 @@ https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/not-
 https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json: 200
 ```
 
-Wenn wir denselben Code mit einer schlecht formatierten URL ausprobieren, wie folgt:
+Versuchen wir denselben Code mit einer schlecht geformten URL, wie dieser:
 
 ```js
 const fetchPromise1 = fetch(
@@ -257,13 +257,13 @@ Promise.all([fetchPromise1, fetchPromise2, fetchPromise3])
   });
 ```
 
-Dann können wir erwarten, dass der `catch()`-Handler ausgeführt wird, und wir sollten so etwas sehen:
+Dann können wir erwarten, dass der `catch()`-Handler ausgeführt wird, und wir sollten Folgendes sehen:
 
 ```plain
 Failed to fetch: TypeError: Failed to fetch
 ```
 
-Manchmal benötigen Sie möglicherweise irgendein Promise, das erfüllt wird, und es ist Ihnen egal, welches. In diesem Fall möchten Sie {{jsxref("Promise/any", "Promise.any()")}}. Dies ist ähnlich wie `Promise.all()`, mit der Ausnahme, dass es erfüllt wird, sobald eines der Promises im Array erfüllt ist, oder abgelehnt wird, wenn alle von ihnen abgelehnt werden:
+Manchmal benötigen Sie, dass ein beliebiges Promise aus einer Menge von Promises erfüllt wird, und es ist Ihnen egal, welches. In diesem Fall verwenden Sie {{jsxref("Promise/any", "Promise.any()")}}. Dies ist wie `Promise.all()`, außer dass es erfüllt wird, sobald eines der Promises in dem Array erfüllt ist, oder abgelehnt wird, wenn alle abgelehnt wurden:
 
 ```js
 const fetchPromise1 = fetch(
@@ -287,35 +287,35 @@ Promise.any([fetchPromise1, fetchPromise2, fetchPromise3])
 
 Beachten Sie, dass wir in diesem Fall nicht vorhersagen können, welche Fetch-Anfrage zuerst abgeschlossen wird.
 
-Dies sind nur zwei der zusätzlichen `Promise`-Funktionen zum Kombinieren mehrerer Promises. Um mehr über den Rest zu erfahren, sehen Sie in der {{jsxref("Promise")}}-Referenzdokumentation nach.
+Dies sind nur zwei der zusätzlichen `Promise`-Funktionen zur Kombination mehrerer Promises. Um mehr über die restlichen Funktionen zu erfahren, lesen Sie die {{jsxref("Promise")}} Referenzdokumentation.
 
 ## async und await
 
-Das Schlüsselwort {{jsxref("Statements/async_function", "async")}} bietet Ihnen eine einfachere Möglichkeit, mit asynchronem Promise-basiertem Code zu arbeiten. Wenn Sie `async` am Anfang einer Funktion hinzufügen, wird diese zu einer asynchronen Funktion:
+Das Schlüsselwort {{jsxref("Statements/async_function", "async")}} bietet eine einfachere Möglichkeit, mit asynchronem, auf Promises basierendem Code zu arbeiten. Das Hinzufügen von `async` am Anfang einer Funktion macht sie zu einer asynchronen Funktion:
 
 ```js
 async function myFunction() {
-  // Dies ist eine asynchrone Funktion
+  // This is an async function
 }
 ```
 
-Innerhalb einer asynchronen Funktion können Sie das Schlüsselwort `await` vor einem Aufruf einer Funktion verwenden, die ein Promise zurückgibt. Dies bewirkt, dass der Code an diesem Punkt wartet, bis das Promise eingelöst ist, in welchem Fall der erfüllte Wert des Promise als Rückgabewert behandelt wird, oder der abgelehnte Wert ausgelöst wird.
+Innerhalb einer asynchronen Funktion können Sie das Schlüsselwort `await` vor einem Aufruf einer Funktion verwenden, die ein Promise zurückgibt. Dies sorgt dafür, dass der Code an dieser Stelle wartet, bis das Promise abgeschlossen ist, wobei der erfüllte Wert des Promises als Rückgabewert behandelt wird, oder der abgelehnte Wert wird geworfen.
 
-Dies ermöglicht es Ihnen, Code zu schreiben, der asynchrone Funktionen verwendet, aber wie synchroner Code aussieht. Zum Beispiel könnten wir unseren Fetch-Beispielcode so umschreiben:
+Dies ermöglicht es Ihnen, Code zu schreiben, der asynchrone Funktionen verwendet, aber wie eine synchrone Code aussieht. Zum Beispiel könnten wir damit unser Fetch-Beispiel umschreiben:
 
 ```js
 async function fetchProducts() {
   try {
-    // nach dieser Zeile wird unsere Funktion warten, bis der `fetch()`-Aufruf abgeschlossen ist
-    // der `fetch()`-Aufruf wird entweder eine Response zurückgeben oder einen Fehler auslösen
+    // after this line, our function will wait for the `fetch()` call to be settled
+    // the `fetch()` call will either return a Response or throw an error
     const response = await fetch(
       "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json",
     );
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
-    // nach dieser Zeile wird unsere Funktion warten, bis der `response.json()`-Aufruf abgeschlossen ist
-    // der `response.json()`-Aufruf wird entweder das geparste JSON-Objekt zurückgeben oder einen Fehler auslösen
+    // after this line, our function will wait for the `response.json()` call to be settled
+    // the `response.json()` call will either return the parsed JSON object or throw an error
     const data = await response.json();
     console.log(data[0].name);
   } catch (error) {
@@ -326,11 +326,11 @@ async function fetchProducts() {
 fetchProducts();
 ```
 
-Hier rufen wir `await fetch()` auf, und anstatt ein `Promise` zu erhalten, bekommt unser Aufrufer ein vollständig abgeschlossenes `Response`-Objekt zurück, als ob `fetch()` eine synchrone Funktion wäre!
+Hier rufen wir `await fetch()` auf, und anstatt ein `Promise` zu erhalten, bekommt unser Aufrufer ein vollständiges `Response`-Objekt zurück, so als wäre `fetch()` eine synchrone Funktion!
 
 Wir können sogar einen `try...catch`-Block zur Fehlerbehandlung verwenden, genau wie wir es tun würden, wenn der Code synchron wäre.
 
-Beachten Sie jedoch, dass asynchrone Funktionen immer ein Promise zurückgeben, sodass Sie nicht so etwas tun können:
+Beachten Sie jedoch, dass asynchrone Funktionen immer ein Promise zurückgeben, und Sie können so etwas nicht tun:
 
 ```js example-bad
 async function fetchProducts() {
@@ -349,10 +349,10 @@ async function fetchProducts() {
 }
 
 const promise = fetchProducts();
-console.log(promise[0].name); // "promise" ist ein Promise-Objekt, daher wird dies nicht funktionieren
+console.log(promise[0].name); // "promise" is a Promise object, so this will not work
 ```
 
-Stattdessen müssten Sie Folgendes tun:
+Stattdessen müssten Sie so etwas tun:
 
 ```js
 async function fetchProducts() {
@@ -376,47 +376,32 @@ promise
   });
 ```
 
-Hier haben wir das `try...catch` zurück in den `catch`-Handler am zurückgegebenen Promise verschoben. Das bedeutet, dass unser `then`-Handler nicht den Fall behandeln muss, in dem ein Fehler innerhalb der `fetchProducts`-Funktion abgefangen wurde, was dazu führt, dass `data` `undefined` ist. Behandeln Sie Fehler als letzten Schritt Ihrer Promise-Kette.
+Hier haben wir den `try...catch`-Block zurück in den `catch`-Handler des zurückgegebenen Promises verschoben. Das bedeutet, dass unser `then`-Handler nicht den Fall behandeln muss, in dem ein Fehler innerhalb der `fetchProducts`-Funktion abgefangen wurde und `data` dadurch `undefined` wurde. Behandeln Sie Fehler als letzten Schritt Ihrer Promise-Kette.
 
-Beachten Sie auch, dass Sie `await` nur innerhalb einer asynchronen Funktion verwenden können, es sei denn, Ihr Code befindet sich in einem [JavaScript-Modul](/de/docs/Web/JavaScript/Guide/Modules). Das bedeutet, dass Sie dies in einem normalen Skript nicht tun können:
+Beachten Sie auch, dass Sie `await` nur innerhalb einer `async`-Funktion verwenden können, es sei denn, Ihr Code befindet sich in einem [JavaScript-Modul](/de/docs/Web/JavaScript/Guide/Modules). Das bedeutet, dass Sie dies nicht in einem normalen Skript tun können:
 
-```js
-try {
-  // Die Verwendung von await außerhalb einer asynchronen Funktion ist nur in einem Modul zulässig
-  const response = await fetch(
-    "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json",
-  );
-  if (!response.ok) {
-    throw new Error(`HTTP error: ${response.status}`);
-  }
-  const data = await response.json();
-  console.log(data[0].name);
-} catch (error) {
-  console.error(`Could not get products: ${error}`);
-  throw error;
-}
-```
+![](15-9e5e4f3.md)
 
-Sie werden wahrscheinlich oft `async`-Funktionen verwenden, wo Sie ansonsten Promise-Ketten verwenden könnten, und sie machen das Arbeiten mit Promises erheblich intuitiver.
+Sie werden wahrscheinlich `async`-Funktionen oft verwenden, wo Sie sonst Promise-Ketten verwenden könnten, da sie die Arbeit mit Promises viel intuitiver machen.
 
-Denken Sie daran, dass `await` wie eine Promise-Kette asynchrone Operationen zwingt, in Serie abgeschlossen zu werden. Dies ist erforderlich, wenn das Ergebnis der nächsten Operation vom Ergebnis der vorherigen abhängt, aber wenn dies nicht der Fall ist, wird etwas wie `Promise.all()` leistungsfähiger sein.
+Denken Sie daran, dass genau wie eine Promise-Kette, `await` asynchrone Operationen zwingt, in einer Serie abgeschlossen zu werden. Dies ist notwendig, wenn das Ergebnis der nächsten Operation vom Ergebnis der letzten abhängt, aber wenn das nicht der Fall ist, wird etwas wie `Promise.all()` leistungsfähiger sein.
 
 ## Fazit
 
-Promises sind die Grundlage der asynchronen Programmierung in modernem JavaScript. Sie erleichtern es, Sequenzen asynchroner Operationen ohne tief verschachtelte Callbacks auszudrücken und zu verstehen, und sie unterstützen einen Stil der Fehlerbehandlung, der dem synchronen `try...catch`-Statement ähnelt.
+Promises sind das Fundament der asynchronen Programmierung in modernem JavaScript. Sie erleichtern es, Abfolgen von asynchronen Operationen auszudrücken und zu verstehen, ohne tief verschachtelte Callbacks, und sie unterstützen einen Stil der Fehlerbehandlung, der dem synchronen `try...catch`-Statement ähnlich ist.
 
-Die Schlüsselwörter `async` und `await` erleichtern den Aufbau einer Operation aus einer Reihe aufeinanderfolgender asynchroner Funktionsaufrufe, indem sie die Notwendigkeit vermeiden, explizite Promise-Ketten zu erstellen, und es Ihnen ermöglichen, Code zu schreiben, der genau wie synchroner Code aussieht.
+Die `async`- und `await`-Schlüsselwörter erleichtern den Aufbau einer Operation aus einer Reihe aufeinanderfolgender asynchroner Funktionsaufrufe und ersparen die Notwendigkeit, explizite Promise-Ketten zu erstellen. Sie ermöglichen es Ihnen, Code zu schreiben, der genauso aussieht wie synchroner Code.
 
-Promises funktionieren in den neuesten Versionen aller modernen Browser; der einzige Ort, an dem die Unterstützung von Promises ein Problem darstellen wird, ist in Opera Mini und IE11 und früheren Versionen.
+Promises funktionieren in den neuesten Versionen aller modernen Browser; der einzige Ort, an dem die Promise-Unterstützung ein Problem sein wird, ist in Opera Mini und IE11 und früheren Versionen.
 
-Wir haben in diesem Artikel nicht alle Funktionen von Promises behandelt, nur die interessantesten und nützlichsten. Wenn Sie anfangen, mehr über Promises zu lernen, werden Sie auf weitere Funktionen und Techniken stoßen.
+Wir haben in diesem Artikel nicht alle Funktionen von Promises behandelt, sondern nur die interessantesten und nützlichsten. Wenn Sie anfangen, mehr über Promises zu lernen, werden Sie auf weitere Funktionen und Techniken stoßen.
 
 Viele moderne Web-APIs sind Promise-basiert, einschließlich [WebRTC](/de/docs/Web/API/WebRTC_API), [Web Audio API](/de/docs/Web/API/Web_Audio_API), [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) und viele mehr.
 
 ## Siehe auch
 
 - [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-- [Using promises](/de/docs/Web/JavaScript/Guide/Using_promises)
+- [Verwendung von Promises](/de/docs/Web/JavaScript/Guide/Using_promises)
 - [We have a problem with promises](https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html) von Nolan Lawson
 - [Let's talk about how to talk about promises](https://thenewtoys.dev/blog/2021/02/08/lets-talk-about-how-to-talk-about-promises/)
 

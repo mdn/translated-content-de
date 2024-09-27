@@ -3,18 +3,18 @@ title: "GPUBindGroup: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUBindGroup/label
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der {{domxref("GPUBindGroup")}}-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in {{domxref("GPUError")}}-Nachrichten oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen.
 
-Dies kann durch Bereitstellung einer `label`-Eigenschaft im Deskriptor-Objekt festgelegt werden, das bei dem ursprünglichen {{domxref("GPUDevice.createBindGroup()")}}-Aufruf übergeben wird, oder Sie können es direkt am `GPUBindGroup`-Objekt setzen und abrufen.
+Dies kann festgelegt werden, indem Sie eine `label`-Eigenschaft im Descriptor-Objekt bereitstellen, das beim ursprünglichen Aufruf von [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup) übergeben wird, oder Sie können es direkt auf dem `GPUBindGroup`-Objekt festlegen und abrufen.
 
 ## Wert
 
-Ein String. Wenn dies zuvor nicht wie oben beschrieben gesetzt wurde, ist es ein leerer String.
+Ein String. Wenn dies nicht wie oben beschrieben zuvor festgelegt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
@@ -40,7 +40,7 @@ bindGroup.label = "mybindgroup";
 console.log(bindGroup.label); // "mybindgroup";
 ```
 
-Festlegen eines Labels über den ursprünglichen {{domxref("GPUDevice.createBindGroup()")}}-Aufruf und anschließend Abrufen über `GPUBindGroup.label`:
+Festlegen eines Labels über den ursprünglichen [`GPUDevice.createBindGroup()`](/de/docs/Web/API/GPUDevice/createBindGroup)-Aufruf und anschließendes Abrufen über `GPUBindGroup.label`:
 
 ```js
 // ...

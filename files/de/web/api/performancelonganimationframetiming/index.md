@@ -7,57 +7,57 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die **`PerformanceLongAnimationFrameTiming`**-Schnittstelle ist im Long Animation Frames API spezifiziert und liefert Metriken zu langen Animationsrahmen (LoAFs), die das Rendern beanspruchen und andere Aufgaben blockieren.
+Die **`PerformanceLongAnimationFrameTiming`** Schnittstelle ist in der Long Animation Frames API spezifiziert und liefert Metriken zu langen Animationsframes (LoAFs), die das Rendering beanspruchen und andere Aufgaben blockieren.
 
 ## Beschreibung
 
-Lange Animationsrahmen (LoAFs) sind Rendering-Updates, die um mehr als 50 ms verzögert sind. LoAFs können dazu führen, dass Benutzeroberflächen (UIs) langsam aktualisiert werden, wodurch Steuerelemente unempfindlich erscheinen und [ruckelige](/de/docs/Glossary/Jank) (nicht geschmeidige) animierte Effekte und das Scrollen entstehen. Dies führt oft zu Benutzerfrustration.
+Lange Animationsframes (LoAFs) sind Render-Updates, die über 50 ms hinaus verzögert werden. LoAFs können zu langsamen Benutzeroberflächen-Updates führen, was die Steuerung unresponsiv erscheinen lässt und [ruckelige](/de/docs/Glossary/Jank) (nicht flüssige) Animationseffekte und das Scrollen verursacht. Dies führt oft zu Benutzerfrustration.
 
-Die `PerformanceLongAnimationFrameTiming`-Schnittstelle bietet den folgenden detaillierten Satz von Informationen zu LoAFs und ermöglicht Entwicklern, deren Ursachen zu erkennen:
+Die `PerformanceLongAnimationFrameTiming` Schnittstelle bietet die folgende detaillierte Informationsmenge über LoAFs, die Entwicklern hilft, ihre Ursachen zu identifizieren:
 
 - Ein detaillierter Satz von Zeitstempeln für jedes LoAF.
-- Detaillierte Informationen zu jedem Skript, das zur Entstehung des LoAF beigetragen hat, über die Eigenschaft {{domxref("PerformanceLongAnimationFrameTiming.scripts")}}. Diese gibt ein Array von {{domxref("PerformanceScriptTiming")}}-Objekten zurück, eines für jedes Skript.
+- Detaillierte Informationen zu jedem Skript, das zur Erstellung des LoAF beigetragen hat, über die [`PerformanceLongAnimationFrameTiming.scripts`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/scripts) Eigenschaft. Dies gibt ein Array von [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming) Objekten zurück, eines für jedes Skript.
 
 ## Vererbung
 
-`PerformanceLongAnimationFrameTiming` erbt von {{domxref("PerformanceEntry")}}.
+`PerformanceLongAnimationFrameTiming` erbt von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry).
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-Diese Schnittstelle erweitert die folgenden {{domxref("PerformanceEntry")}}-Eigenschaften für Leistungsdaten von langen Animationsrahmen:
+Diese Schnittstelle erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) Eigenschaften für Leistungseinträge bei langen Animationsframes:
 
-- {{domxref("PerformanceEntry.duration")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die Zeit in Millisekunden darstellt, die zur vollständigen Verarbeitung des LoAF benötigt wurde.
-- {{domxref("PerformanceEntry.entryType")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit in Millisekunden darstellt, die benötigt wird, um das LoAF vollständig zu verarbeiten.
+- [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt den Eintragstyp zurück, der immer `"long-animation-frame"` ist.
-- {{domxref("PerformanceEntry.name")}} {{ReadOnlyInline}} {{Experimental_Inline}}
+- [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Gibt den Eintragsnamen zurück, der immer `"long-animation-frame"` ist.
-- {{domxref("PerformanceEntry.startTime")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die Zeit darstellt, zu der der Animationsrahmen gestartet wurde.
+- [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit angibt, zu der der Animationsframe begann.
 
 Diese Schnittstelle unterstützt auch die folgenden Eigenschaften:
 
-- {{domxref("PerformanceLongAnimationFrameTiming.blockingDuration")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die Gesamtzeit in Millisekunden angibt, während der der Hauptthread daran gehindert war, auf hochpriorisierte Aufgaben wie Benutzereingaben zu reagieren. Dies wird berechnet, indem alle [langen Aufgaben](/de/docs/Web/API/PerformanceLongTaskTiming#description) innerhalb des LoAF berücksichtigt werden, deren `duration` mehr als `50ms` beträgt, von jedem 50 ms subtrahiert wird, die Renderzeit zur längsten Aufgabendauer hinzugefügt und die Ergebnisse summiert werden.
-- {{domxref("PerformanceLongAnimationFrameTiming.firstUIEventTimestamp")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die Zeit des ersten UI-Ereignisses — wie ein Maus- oder Tastatureingabe-Ereignis — angibt, das während des aktuellen Animationsrahmens in die Warteschlange gestellt wird.
-- {{domxref("PerformanceLongAnimationFrameTiming.renderStart")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der den Startzeitpunkt des Renderzyklus angibt, der {{domxref("Window.requestAnimationFrame()")}}-Rückrufe, Stil- und Layoutberechnung, {{domxref("ResizeObserver")}}-Rückrufe und {{domxref("IntersectionObserver")}}-Rückrufe umfasst.
-- {{domxref("PerformanceLongAnimationFrameTiming.scripts")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein Array von {{domxref("PerformanceScriptTiming")}}-Instanzen zurück.
-- {{domxref("PerformanceLongAnimationFrameTiming.styleAndLayoutStart")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der den Beginn des Zeitraums angibt, der für den Stil- und Layoutberechnungen für den aktuellen Animationsrahmen aufgewendet wurde.
+- [`PerformanceLongAnimationFrameTiming.blockingDuration`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/blockingDuration) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die gesamte Zeit in Millisekunden angibt, die der Hauptthread daran gehindert wurde, auf Aufgaben mit hoher Priorität, wie Benutzereingaben, zu reagieren. Dies wird berechnet, indem alle [langen Aufgaben](/de/docs/Web/API/PerformanceLongTaskTiming#description) innerhalb des LoAFs, die eine `duration` von mehr als `50ms` haben, um `50ms` vermindert, die Rendering-Zeit zur längsten Aufgabenzeit hinzugefügt und die Ergebnisse summiert werden.
+- [`PerformanceLongAnimationFrameTiming.firstUIEventTimestamp`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/firstUIEventTimestamp) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit des ersten UI-Events — wie eines Maus- oder Tastatur-Events — angibt, das in der aktuellen Animationsframe-Warteschlange erfasst wurde.
+- [`PerformanceLongAnimationFrameTiming.renderStart`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/renderStart) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Startzeit des Rendering-Zyklus anzeigt, der Callbacks von [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), Stil- und Layoutberechnungen, [`ResizeObserver`](/de/docs/Web/API/ResizeObserver) Callbacks und [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver) Callbacks umfasst.
+- [`PerformanceLongAnimationFrameTiming.scripts`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/scripts) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt ein Array von [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming) Instanzen zurück.
+- [`PerformanceLongAnimationFrameTiming.styleAndLayoutStart`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/styleAndLayoutStart) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der den Beginn der Zeitspanne für Stil- und Layoutberechnungen für den aktuellen Animationsframe angibt.
 
 ## Instanz-Methoden
 
-- {{domxref("PerformanceLongAnimationFrameTiming.toJSON()")}} {{Experimental_Inline}}
-  - : Gibt eine JSON-Darstellung des `PerformanceLongAnimationFrameTiming`-Objekts zurück.
+- [`PerformanceLongAnimationFrameTiming.toJSON()`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/toJSON) {{Experimental_Inline}}
+  - : Gibt eine JSON-Darstellung des `PerformanceLongAnimationFrameTiming` Objekts zurück.
 
 ## Beispiele
 
-Siehe [Lange Animationsrahmen-Zeitmessung](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit dem Long Animation Frames API.
+Siehe [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
 
 ## Spezifikationen
 
@@ -69,5 +69,5 @@ Siehe [Lange Animationsrahmen-Zeitmessung](/de/docs/Web/API/Performance_API/Long
 
 ## Siehe auch
 
-- [Lange Animationsrahmen-Zeitmessung](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
-- {{domxref("PerformanceScriptTiming")}}
+- [Long animation frame timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)

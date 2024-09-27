@@ -1,5 +1,5 @@
 ---
-title: "Ereignis: isTrusted-Eigenschaft"
+title: "Event: isTrusted Eigenschaft"
 short-title: isTrusted
 slug: Web/API/Event/isTrusted
 l10n:
@@ -9,12 +9,10 @@ l10n:
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
 Die schreibgeschützte Eigenschaft **`isTrusted`** der
-{{domxref("Event")}}-Schnittstelle ist ein boolescher Wert, der auf `true`
-gesetzt ist, wenn das Ereignis vom User-Agent erstellt wurde (einschließlich durch Benutzeraktionen und programmatische Methoden wie {{domxref("HTMLElement.focus()")}}),
-und auf `false`, wenn das Ereignis über
-{{domxref("EventTarget.dispatchEvent()")}} ausgelöst wurde.
-Die einzige Ausnahme ist das `click`-Ereignis, das die `isTrusted`-Eigenschaft
-in User-Agents auf `false` initialisiert.
+[`Event`](/de/docs/Web/API/Event)-Schnittstelle ist ein boolescher Wert, der `true` ist, wenn das Event vom User-Agent generiert wurde (einschließlich durch Benutzeraktionen und programmatische Methoden wie [`HTMLElement.focus()`](/de/docs/Web/API/HTMLElement/focus)),
+und `false`, wenn das Event über
+[`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ausgelöst wurde.
+Die einzige Ausnahme ist das `click`-Event, das die `isTrusted`-Eigenschaft in User-Agents auf `false` initialisiert.
 
 ## Wert
 
@@ -24,9 +22,9 @@ Ein boolescher Wert.
 
 ```js
 if (e.isTrusted) {
-  /* Das Ereignis ist vertrauenswürdig */
+  /* The event is trusted */
 } else {
-  /* Das Ereignis ist nicht vertrauenswürdig */
+  /* The event is not trusted */
 }
 ```
 
@@ -34,6 +32,6 @@ if (e.isTrusted) {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

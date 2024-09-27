@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLVertexArrayObject`** Schnittstelle ist Teil der [WebGL 2 API](/de/docs/Web/API/WebGL_API), repräsentiert Vertex-Array-Objekte (VAOs), die auf Vertex-Array-Daten verweisen, und bietet Namen für verschiedene Sätze von Vertex-Daten.
+Die **`WebGLVertexArrayObject`**-Schnittstelle ist Teil der [WebGL 2 API](/de/docs/Web/API/WebGL_API), repräsentiert Vertex-Array-Objekte (VAOs), die auf Vertex-Array-Daten verweisen, und stellt Namen für verschiedene Sätze von Vertex-Daten bereit.
 
 {{InheritanceDiagram}}
 
-Bei der Arbeit mit `WebGLVertexArrayObject`-Objekten sind die folgenden Methoden nützlich:
+Beim Arbeiten mit `WebGLVertexArrayObject`-Objekten sind die folgenden Methoden nützlich:
 
-- {{domxref("WebGL2RenderingContext.createVertexArray()")}}
-- {{domxref("WebGL2RenderingContext.deleteVertexArray()")}}
-- {{domxref("WebGL2RenderingContext.isVertexArray()")}}
-- {{domxref("WebGL2RenderingContext.bindVertexArray()")}}
+- [`WebGL2RenderingContext.createVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/createVertexArray)
+- [`WebGL2RenderingContext.deleteVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/deleteVertexArray)
+- [`WebGL2RenderingContext.isVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/isVertexArray)
+- [`WebGL2RenderingContext.bindVertexArray()`](/de/docs/Web/API/WebGL2RenderingContext/bindVertexArray)
 
 > [!NOTE]
-> Die {{domxref("OES_vertex_array_object")}} Erweiterung ermöglicht die Verwendung von Vertex-Array-Objekten in einem WebGL 1 Kontext.
+> Die Erweiterung [`OES_vertex_array_object`](/de/docs/Web/API/OES_vertex_array_object) ermöglicht die Verwendung von Vertex-Array-Objekten in einem WebGL-1-Kontext.
 
 ## Beispiele
 
@@ -39,10 +39,10 @@ gl.bindVertexArray(vao);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("OES_vertex_array_object")}}
+- [`OES_vertex_array_object`](/de/docs/Web/API/OES_vertex_array_object)

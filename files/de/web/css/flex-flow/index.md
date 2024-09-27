@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die **`flex-flow`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt die Richtung eines Flex-Containers sowie sein Umschaltverhalten fest.
+Die **`flex-flow`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt die Richtung eines Flex-Containers sowie dessen Umbruchverhalten fest.
 
 {{EmbedInteractiveExample("pages/css/flex-flow.html")}}
 
-## Bestimmende Eigenschaften
+## Bestandteil-Eigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - [`flex-direction`](/de/docs/Web/CSS/flex-direction)
 - [`flex-wrap`](/de/docs/Web/CSS/flex-wrap)
@@ -32,12 +32,12 @@ flex-flow: nowrap;
 flex-flow: wrap;
 flex-flow: wrap-reverse;
 
-/* flex-flow: <'flex-direction'> und <'flex-wrap'> */
+/* flex-flow: <'flex-direction'> and <'flex-wrap'> */
 flex-flow: row nowrap;
 flex-flow: column wrap;
 flex-flow: column-reverse wrap-reverse;
 
-/* Globale Werte */
+/* Global values */
 flex-flow: inherit;
 flex-flow: initial;
 flex-flow: revert;
@@ -59,9 +59,9 @@ Siehe {{cssxref("flex-direction")}} und {{cssxref("flex-wrap")}} für Details zu
 
 ## Beispiele
 
-### column-reverse und wrap einstellen
+### Einstellung von column-reverse und wrap
 
-In diesem Beispiel ist die Hauptachse die Blockrichtung mit einem umgekehrten Hauptstart und Hauptende. Die Flex-Elemente dürfen sich umbrechen und bei Bedarf neue Zeilen erstellen.
+In diesem Beispiel ist die Hauptachse die Blockrichtung mit einem umgekehrten Hauptanfang und Hauptende. Die Flex-Elemente dürfen umbrechen und bei Bedarf neue Zeilen erstellen.
 
 ```css
 element {
@@ -79,5 +79,5 @@ element {
 
 ## Siehe auch
 
-- [Grundlegende Konzepte des Flexbox-Layouts](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
 - [Reihenfolge von Flex-Elementen](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)

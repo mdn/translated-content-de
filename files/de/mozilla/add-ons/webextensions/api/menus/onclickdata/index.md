@@ -7,57 +7,57 @@ l10n:
 
 {{AddonSidebar}}
 
-Informationen, die an den {{WebExtAPIRef("menus.onClicked")}} Ereignis-Listener übergeben werden, wenn auf ein Menüelement geklickt wird.
+Informationen, die an den Ereignislistener {{WebExtAPIRef("menus.onClicked")}} übergeben werden, wenn ein Menüpunkt angeklickt wird.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `bookmarkId` {{optional_inline}}
-  - : `string`. Die ID des Lesezeichens, bei dem das Kontextmenü aktiviert wurde.
+  - : `string`. Die ID des Lesezeichens, bei dem das Kontextmenü angeklickt wurde.
 - `button` {{optional_inline}}
-  - : `integer`. Welche Maustaste gedrückt wurde. Die Werte entsprechen denen von [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button).
+  - : `integer`. Welche Maustaste gedrückt wurde. Die Werte sind dieselben wie für [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button).
 - `checked` {{optional_inline}}
-  - : `boolean`. Ein Kennzeichen, das anzeigt, ob ein Kontrollkästchen oder Radio-Element nach dem Klicken aktiviert war.
+  - : `boolean`. Ein Indikator, ob ein Kontrollkästchen oder ein Optionsfeld nach dem Klick aktiviert war.
 - `editable`
-  - : `boolean`. Ein Kennzeichen, das anzeigt, ob das Element bearbeitbar ist: beispielsweise, wenn es sich um ein [textarea](/de/docs/Web/HTML/Element/textarea) handelt.
+  - : `boolean`. Ein Indikator, ob das Element editierbar ist: zum Beispiel, wenn es sich um ein [textarea](/de/docs/Web/HTML/Element/textarea) handelt.
 - `frameId` {{optional_inline}}
-  - : `integer`. Die ID des Rahmens, in dem auf das Element geklickt wurde. Die Rahmen-ID kann in anderen APIs verwendet werden, die Rahmen-IDs akzeptieren, wie zum Beispiel {{WebExtAPIRef("tabs.sendMessage()")}}. Wenn im obersten Dokumentrahmen geklickt wurde, ist `frameId` null. Wenn außerhalb der Seite geklickt wurde (zum Beispiel im `tools_menu` oder `tab` Kontext), dann ist `frameId` `undefined`.
+  - : `integer`. Die ID des Frames, in dem der Punkt angeklickt wurde. Die Frame-ID kann in anderen APIs verwendet werden, die Frame-IDs akzeptieren, wie z.B. {{WebExtAPIRef("tabs.sendMessage()")}}. Wenn der Punkt im Hauptdokument angeklickt wurde, ist `frameId` null. Wenn der Punkt vollständig außerhalb der Seite angeklickt wurde (zum Beispiel im `tools_menu` oder im `tab` Kontext), dann ist `frameId` `undefined`.
 - `frameUrl` {{optional_inline}}
-  - : `string`. Die URL des Rahmens des Elements, bei dem das Kontextmenü aktiviert wurde, falls es sich in einem Rahmen befand.
+  - : `string`. Die URL des Frames des Elements, bei dem das Kontextmenü angeklickt wurde, falls es sich in einem Frame befand.
 - `linkText` {{optional_inline}}
-  - : `string`. Wenn das Element ein Link ist, der Text des Links. Falls der Link keinen Text enthält, wird hier die URL angegeben.
+  - : `string`. Wenn das Element ein Link ist, der Text für den Link. Wenn der Link keinen Text enthält, wird hier die URL angegeben.
 - `linkUrl` {{optional_inline}}
   - : `string`. Wenn das Element ein Link ist, die URL, auf die er verweist.
 - `mediaType` {{optional_inline}}
-  - : `string`. Einer von "image", "video" oder "audio", wenn das Kontextmenü auf einem dieser Elementtypen aktiviert wurde.
+  - : `string`. Eines von "image", "video" oder "audio", wenn das Kontextmenü auf einem dieser Elementtypen aktiviert wurde.
 - `menuItemId`
-  - : `integer` oder `string`. Die ID des Menüelements, auf das geklickt wurde.
+  - : `integer` oder `string`. Die ID des Menüelements, das angeklickt wurde.
 - `modifiers`
-  - : `array` von `string`. Ein Array, das alle Modifikatortasten enthält, die gedrückt wurden, als auf das Element geklickt wurde. Mögliche Werte sind: "Alt", "Command", "Ctrl", "MacCtrl" und "Shift". Auf einem Mac werden sowohl "Ctrl" als auch "MacCtrl" einbezogen, wenn die Steuerungstaste gehalten wird.
+  - : `array` von `string`. Ein Array, das alle Modifikatortasten enthält, die beim Klicken auf das Element gedrückt wurden. Mögliche Werte sind: "Alt", "Command", "Ctrl", "MacCtrl" und "Shift". Auf einem Mac, wenn der Benutzer die Control-Taste gedrückt hält, sind sowohl "Ctrl" als auch "MacCtrl" enthalten.
 - `pageUrl` {{optional_inline}}
-  - : `string`. Die URL der Seite, auf der das Menüelement angeklickt wurde. Diese Eigenschaft ist nicht vorhanden, wenn der Klick in einem Kontext erfolgte, in dem es keine aktuelle Seite gibt, wie bei einer Browser-Aktion.
+  - : `string`. Die URL der Seite, auf der das Menüelement angeklickt wurde. Diese Eigenschaft ist nicht vorhanden, wenn der Klick in einem Kontext erfolgt, in dem es keine aktuelle Seite gibt, wie bei einer Browseraktion.
 - `parentMenuItemId` {{optional_inline}}
   - : `integer` oder `string`. Die übergeordnete ID, falls vorhanden, für das angeklickte Element.
 - `selectionText` {{optional_inline}}
-  - : `string`. Wenn Text auf der Seite ausgewählt wurde, enthält dies den ausgewählten Text.
+  - : `string`. Wenn auf der Seite Text ausgewählt war, enthält dies den ausgewählten Text.
 - `srcUrl` {{optional_inline}}
-  - : `string`. Falls vorhanden, der `src` Wert für das Medium im angeklickten Element.
+  - : `string`. Falls vorhanden, der `src`-Wert für das Medium im angeklickten Element.
 - `targetElementId` {{optional_inline}}
-  - : `integer`. Ein Bezeichner des Elements, über dem das Kontextmenü erstellt wurde, falls vorhanden. Verwenden Sie {{WebExtAPIRef("menus.getTargetElement()")}} im Inhalts-Skript, um das Element zu lokalisieren. Beachten Sie, dass dies nicht das [id](/de/docs/Web/HTML/Global_attributes/id) Attribut des Seitenelements ist.
+  - : `integer`. Ein Identifikator für das Element, falls vorhanden, über dem das Kontextmenü erstellt wurde. Verwenden Sie {{WebExtAPIRef("menus.getTargetElement()")}} im Inhalts-Skript, um das Element zu lokalisieren. Beachten Sie, dass dies nicht das [id](/de/docs/Web/HTML/Global_attributes/id) Attribut des Seitenelements ist.
 - `viewType` {{optional_inline}}
   - : {{WebExtAPIRef("extension.ViewType", "ViewType")}}. Der Typ der Erweiterungsansicht.
 - `wasChecked` {{optional_inline}}
-  - : `boolean`. Ein Kennzeichen, das anzeigt, ob ein Kontrollkästchen oder Radio-Element vor dem Klicken aktiviert war.
+  - : `boolean`. Ein Indikator, ob ein Kontrollkästchen oder ein Optionsfeld vor dem Klicken aktiviert war.
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#type-OnClickData) API von Chromium. Diese Dokumentation ist abgeleitet von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#type-OnClickData) API. Diese Dokumentation stammt von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers("worker")}}
 
-Die **`isSecureContext`** schreibgeschützte Eigenschaft des {{domxref("WorkerGlobalScope")}} Interface gibt einen booleschen Wert zurück, der angibt, ob der aktuelle [Kontext sicher ist](/de/docs/Web/Security/Secure_Contexts) (`true`) oder nicht (`false`).
+Die schreibgeschützte Eigenschaft **`isSecureContext`** des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Interfaces gibt einen boolean zurück, der anzeigt, ob der aktuelle [Kontext sicher ist](/de/docs/Web/Security/Secure_Contexts) (`true`) oder nicht (`false`).
 
 ## Wert
 
-Ein boolescher Wert.
+Ein boolean.
 
 ## Spezifikationen
 

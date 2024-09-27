@@ -7,30 +7,30 @@ l10n:
 
 {{CSSRef}}
 
-Die **`mask-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die anfängliche Position fest, relativ zur durch {{cssxref("mask-origin")}} festgelegten Maskenpositionsschicht, für jedes definierte Maskenbild.
+Die **`mask-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Anfangsposition fest, relativ zur Maskenpositionsebene, die durch {{cssxref("mask-origin")}} definiert ist, für jedes definierte Maskenbild.
 
 ## Syntax
 
 ```css
-/* Schlüsselwort-Werte */
+/* Keyword values */
 mask-position: top;
 mask-position: bottom;
 mask-position: left;
 mask-position: right;
 mask-position: center;
 
-/* <position>-Werte */
+/* <position> values */
 mask-position: 25% 75%;
 mask-position: 0px 0px;
 mask-position: 10% 8em;
 
-/* Mehrere Werte */
+/* Multiple values */
 mask-position: top right;
 mask-position:
   1rem 1rem,
   center;
 
-/* Globale Werte */
+/* Global values */
 mask-position: inherit;
 mask-position: initial;
 mask-position: revert;
@@ -38,12 +38,12 @@ mask-position: revert-layer;
 mask-position: unset;
 ```
 
-Ein oder mehrere `<position>`-Werte, durch Kommas getrennt.
+Ein oder mehrere `<position>` Werte, getrennt durch Kommas.
 
 ### Werte
 
 - {{cssxref("&lt;position&gt;")}}
-  - : Ein bis vier Werte, die eine 2D-Position in Bezug auf die Kanten des Box-Elements darstellen. Relative oder absolute Versätze können angegeben werden. Beachten Sie, dass die Position außerhalb der Box des Elements festgelegt werden kann.
+  - : Ein bis vier Werte, die eine 2D-Position in Bezug auf die Kanten des Box-Elements darstellen. Es können relative oder absolute Verschiebungen angegeben werden. Beachten Sie, dass die Position auch außerhalb des Box-Elements festgelegt werden kann.
 
 ## Formale Definition
 
@@ -55,9 +55,9 @@ Ein oder mehrere `<position>`-Werte, durch Kommas getrennt.
 
 ## Beispiele
 
-### Festlegen der Maskenposition
+### Maskenposition einstellen
 
-Ändern Sie den `mask-position`-Wert auf einen der oben angegebenen zulässigen Werte.
+Ändern Sie den `mask-position` Wert auf einen der oben beschriebenen zulässigen Werte.
 Wenn Sie das Beispiel in einem auf Chromium basierenden Browser ansehen, ändern Sie den Wert von `-webkit-mask-position`.
 
 {{EmbedGHLiveSample("css-examples/masking/mask-position.html", '100%', 760)}}
@@ -72,4 +72,4 @@ Wenn Sie das Beispiel in einem auf Chromium basierenden Browser ansehen, ändern
 
 ## Siehe auch
 
-- [Clipping und Masking in CSS](https://css-tricks.com/clipping-masking-css/)
+- [Clipping und Maskierung in CSS](https://css-tricks.com/clipping-masking-css/)

@@ -1,5 +1,5 @@
 ---
-title: "Dokument: getElementsByName()-Methode"
+title: "Document: Methode getElementsByName()"
 short-title: getElementsByName()
 slug: Web/API/Document/getElementsByName
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getElementsByName()`**-Methode
-des {{domxref("Document")}}-Objekts gibt eine {{domxref("NodeList")}}-Sammlung von
-Elementen mit einem bestimmten `name`-Attribut im Dokument zurück.
+Die **`getElementsByName()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Objekts gibt eine [`NodeList`](/de/docs/Web/API/NodeList)-Sammlung von Elementen mit einem gegebenen `name`-Attribut im Dokument zurück.
 
 ## Syntax
 
@@ -21,11 +19,11 @@ getElementsByName(name)
 ### Parameter
 
 - `name`
-  - : Der Wert des `name`-Attributs der gesuchten Elemente.
+  - : Der Wert des `name`-Attributs des Elements bzw. der Elemente, die wir suchen.
 
 ### Rückgabewert
 
-Eine dynamische {{domxref("NodeList")}}-Sammlung, was bedeutet, dass sie automatisch aktualisiert wird, wenn neue Elemente mit demselben `name` dem Dokument hinzugefügt oder daraus entfernt werden.
+Eine dynamische [`NodeList`](/de/docs/Web/API/NodeList)-Sammlung, die sich automatisch aktualisiert, wenn neue Elemente mit demselben `name`-Attribut zum Dokument hinzugefügt oder daraus entfernt werden.
 
 ## Beispiele
 
@@ -33,7 +31,7 @@ Eine dynamische {{domxref("NodeList")}}-Sammlung, was bedeutet, dass sie automat
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Beispiel: Verwendung von document.getElementsByName</title>
+    <title>Example: using document.getElementsByName</title>
   </head>
   <body>
     <input type="hidden" name="up" />
@@ -44,16 +42,14 @@ Eine dynamische {{domxref("NodeList")}}-Sammlung, was bedeutet, dass sie automat
 
 ```js
 const up_names = document.getElementsByName("up");
-console.log(up_names[0].tagName); // zeigt "INPUT" an
+console.log(up_names[0].tagName); // displays "INPUT"
 ```
 
-## Anmerkungen
+## Hinweise
 
 Das `name`-Attribut kann nur in (X)HTML-Dokumenten angewendet werden.
 
-Die zurückgegebene {{domxref("NodeList")}}-Sammlung enthält _alle_ Elemente mit dem
-angegebenen `name`, wie {{htmlelement("meta")}}, {{htmlelement("object")}} und
-sogar Elemente, die das `name`-Attribut überhaupt nicht unterstützen.
+Die zurückgegebene [`NodeList`](/de/docs/Web/API/NodeList)-Sammlung enthält _alle_ Elemente mit dem angegebenen `name`, wie {{htmlelement("meta")}}, {{htmlelement("object")}} und sogar Elemente, die das `name`-Attribut überhaupt nicht unterstützen.
 
 ## Spezifikationen
 
@@ -65,9 +61,6 @@ sogar Elemente, die das `name`-Attribut überhaupt nicht unterstützen.
 
 ## Siehe auch
 
-- {{domxref("document.getElementById()")}} um eine Referenz zu einem Element anhand seiner
-  eindeutigen `id` zurückzugeben
-- {{domxref("document.getElementsByTagName()")}} um Referenzen zu Elementen mit
-  demselben [Tag-Namen](/de/docs/Web/API/Element/tagName) zurückzugeben
-- {{domxref("document.querySelector()")}} um Referenzen zu Elementen über CSS
-  Selektoren wie `'div.myclass'` zurückzugeben
+- [`document.getElementById()`](/de/docs/Web/API/Document/getElementById), um eine Referenz zu einem Element mit einer eindeutigen `id` zurückzugeben
+- [`document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName), um Referenzen zu Elementen mit demselben [Tag-Namen](/de/docs/Web/API/Element/tagName) zurückzugeben
+- [`document.querySelector()`](/de/docs/Web/API/Document/querySelector), um Referenzen zu Elementen über CSS-Selektoren wie `'div.myclass'` zurückzugeben

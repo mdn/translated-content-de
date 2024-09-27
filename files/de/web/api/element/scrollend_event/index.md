@@ -1,5 +1,5 @@
 ---
-title: "Element: scrollend-Ereignis"
+title: "Element: scrollend Event"
 short-title: scrollend
 slug: Web/API/Element/scrollend_event
 l10n:
@@ -8,15 +8,18 @@ l10n:
 
 {{APIRef}}
 
-Das **`scrollend`**-Ereignis wird ausgelöst, wenn das Scrollen eines Elements abgeschlossen ist. Das Scrollen gilt als abgeschlossen, wenn die Scrollposition keine ausstehenden Aktualisierungen mehr aufweist und der Benutzer seine Geste beendet hat.
+Das **`scrollend`**-Ereignis wird ausgelöst, wenn das Scrollen eines Elements abgeschlossen ist.
+Ein Scrollvorgang gilt als abgeschlossen, wenn die Scrollposition keine weiteren ausstehenden Aktualisierungen mehr hat und der Benutzer seine Geste beendet hat.
 
-Aktualisierungen der Scrollposition umfassen sanftes oder sofortiges Scrollen mit dem Mausrad, Scrollen mit der Tastatur, Scroll-Snap-Ereignisse oder andere APIs und Gesten, die dazu führen, dass die Scrollposition aktualisiert wird. Benutzeraktionen wie Touch-Panning oder Scrollen mit dem Trackpad sind erst abgeschlossen, wenn Zeiger oder Tasten losgelassen wurden. Wenn sich die Scrollposition nicht geändert hat, wird kein scrollend-Ereignis ausgelöst.
+Scrollpositionsaktualisierungen umfassen sanftes oder sofortiges Scrollen mit dem Mausrad, Scrollen über Tastatur, Scrollschnapp-Ereignisse oder andere APIs und Gesten, die die Scrollposition aktualisieren.
+Benutzergesten wie Wischbewegungen oder Scrollen mit dem Trackpad sind erst abgeschlossen, wenn Zeiger oder Tasten losgelassen werden.
+Wenn sich die Scrollposition nicht ändert, wird kein `scrollend`-Ereignis ausgelöst.
 
-Um zu erkennen, wann das Scrollen innerhalb eines Dokuments abgeschlossen ist, siehe das {{domxref("Document/scrollend_event", "scrollend")}}-Ereignis von `Document`.
+Um zu erkennen, wann das Scrollen innerhalb eines Dokuments abgeschlossen ist, siehe das [`scrollend`](/de/docs/Web/API/Document/scrollend_event)-Ereignis des `Document`.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignisbehandlungseigenschaft.
 
 ```js
 addEventListener("scrollend", (event) => {});
@@ -26,13 +29,13 @@ onscrollend = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-### Verwendung von `scrollend` mit einem Event Listener
+### Verwendung von `scrollend` mit einem Ereignislistener
 
-Das folgende Beispiel zeigt, wie das `scrollend`-Ereignis verwendet wird, um zu erkennen, wann der Benutzer das Scrollen beendet hat:
+Das folgende Beispiel zeigt, wie das `scrollend`-Ereignis verwendet wird, um zu erkennen, wann der Benutzer das Scrollen gestoppt hat:
 
 ```css hidden
 #scroll-box {
@@ -84,9 +87,9 @@ element.addEventListener("scrollend", (event) => {
 
 {{EmbedLiveSample("Using_scrollend_with_an_event_listener", "100%", 130)}}
 
-### Verwendung der `onscrollend`-Ereignis-Handler-Eigenschaft
+### Verwendung der `onscrollend`-Ereignisbehandlungseigenschaft
 
-Das folgende Beispiel zeigt, wie die `onscrollend`-Ereignis-Handler-Eigenschaft verwendet wird, um zu erkennen, wann der Benutzer das Scrollen beendet hat:
+Das folgende Beispiel zeigt, wie die `onscrollend`-Ereignisbehandlungseigenschaft verwendet wird, um zu erkennen, wann der Benutzer das Scrollen gestoppt hat:
 
 ```css hidden
 #scroll-box {
@@ -148,6 +151,6 @@ element.onscrollend = (event) => {
 
 ## Siehe auch
 
-- [Element `scroll`-Ereignis](/de/docs/Web/API/Element/scroll_event)
-- [Document `scrollend`-Ereignis](/de/docs/Web/API/Document/scrollend_event)
-- [Document `scroll`-Ereignis](/de/docs/Web/API/Document/scroll_event)
+- [Element `scroll` Ereignis](/de/docs/Web/API/Element/scroll_event)
+- [Document `scrollend` Ereignis](/de/docs/Web/API/Document/scrollend_event)
+- [Document `scroll` Ereignis](/de/docs/Web/API/Document/scroll_event)

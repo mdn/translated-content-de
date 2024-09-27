@@ -7,9 +7,9 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<mmultiscripts>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um eine beliebige Anzahl von Tief- und Hochstellungen gleichzeitig an einen Ausdruck anzuhängen, wodurch das {{ MathMLElement("msubsup") }} Element verallgemeinert wird. Skripte können entweder Prescripts (vor dem Ausdruck platziert) oder Postscripts (nach dem Ausdruck platziert) sein.
+Das **`<mmultiscripts>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um einer Ausdruck auf einmal eine beliebige Anzahl von Tief- und Hochstellungen zuzuordnen und generalisiert das {{ MathMLElement("msubsup") }} Element. Skripte können entweder Präskripte (vor dem Ausdruck platziert) oder Postscripte (nach dem Ausdruck platziert) sein.
 
-MathML verwendet die folgende Syntax: ein Basisausdruck, gefolgt von einer beliebigen Anzahl von Postsubscript-Postsuperscript-Paaren (in der angegebenen Reihenfolge angehängt), optional gefolgt von einem `<mprescripts>` und einer beliebigen Anzahl von Presubscript-Presuperscript-Paaren (in der angegebenen Reihenfolge angehängt). Darüber hinaus können leere `<mrow>` Elemente verwendet werden, um fehlende Skripte darzustellen.
+MathML verwendet die folgende Syntax: ein Basisausdruck, gefolgt von einer beliebigen Anzahl von Postsubskript-Postsuperskript Paaren (in der angegebenen Reihenfolge angefügt), optional gefolgt von einem `<mprescripts>` und einer beliebigen Anzahl von Präsubskript-Präsuperskript Paaren (in der angegebenen Reihenfolge angefügt). Zusätzlich können leere `<mrow>` Elemente verwendet werden, um fehlende Skripte darzustellen.
 
 ```html-nolint
 <mmultiscripts>
@@ -33,28 +33,28 @@ MathML verwendet die folgende Syntax: ein Basisausdruck, gefolgt von einer belie
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden veralteten Attribute:
 
 - `subscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Eine {{cssxref("length-percentage")}} Angabe, die die minimale Verschiebung der Basislinie des Tiefscripts nach unten angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die Mindestmenge angibt, um die Grundlinie des Tiefstells nach unten zu verschieben.
 - `superscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Eine {{cssxref("length-percentage")}} Angabe, die die minimale Verschiebung der Basislinie des Hochscripts nach oben angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die Mindestmenge angibt, um die Grundlinie des Hochstells nach oben zu verschieben.
 
 > [!NOTE]
-> Für die Attribute `subscriptshift` und `superscriptshift` können einige Browser auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
+> Für die Attribute `subscriptshift` und `superscriptshift` können einige Browser auch [Legacy MathML Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
 
 ## Beispiele
 
 ### Verwendung von `<mprescripts/>`
 
-Kinder nach dem `<mprescripts/>` Element werden als Prescripts platziert (vor dem Basisausdruck):
+Kinder nach dem `<mprescripts/>` Element werden als Präskripte (vor dem Basisausdruck) platziert:
 
 ```html-nolint
 <math display="block">
   <mmultiscripts>
-    <mi>X</mi>      <!-- Basisausdruck -->
-    <mi>d</mi>      <!-- Postsubscript -->
-    <mi>c</mi>      <!-- Postsuperscript -->
+    <mi>X</mi>      <!-- base expression -->
+    <mi>d</mi>      <!-- postsubscript -->
+    <mi>c</mi>      <!-- postsuperscript -->
     <mprescripts />
-    <mi>b</mi>      <!-- Presubscript -->
-    <mi>a</mi>      <!-- Presuperscript -->
+    <mi>b</mi>      <!-- presubscript -->
+    <mi>a</mi>      <!-- presuperscript -->
   </mmultiscripts>
 </math>
 ```
@@ -68,12 +68,12 @@ Leere `<mrow>` Elemente können verwendet werden, um fehlende Skripte darzustell
 ```html-nolint
 <math display="block">
   <mmultiscripts>
-    <mi>X</mi>      <!-- Basisausdruck -->
-    <mrow></mrow>   <!-- Postsubscript -->
-    <mi>c</mi>      <!-- Postsuperscript -->
+    <mi>X</mi>      <!-- base expression -->
+    <mrow></mrow>   <!-- postsubscript -->
+    <mi>c</mi>      <!-- postsuperscript -->
     <mprescripts />
-    <mi>b</mi>      <!-- Presubscript -->
-    <mrow></mrow>   <!-- Presuperscript -->
+    <mi>b</mi>      <!-- presubscript -->
+    <mrow></mrow>   <!-- presuperscript -->
   </mmultiscripts>
 </math>
 ```
@@ -82,7 +82,7 @@ Leere `<mrow>` Elemente können verwendet werden, um fehlende Skripte darzustell
 
 ### Reihenfolge der Skripte
 
-Hier ist ein komplexeres Beispiel mit vielen Skripten, damit Sie sehen können, in welcher Reihenfolge sie an den Basis angebracht werden:
+Hier ist ein komplexeres Beispiel mit vielen Skripten, damit Sie sehen können, in welcher Reihenfolge sie an den Basis ausdruck angehängt werden:
 
 ```html
 <math display="block">

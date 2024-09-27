@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die schreibgeschützte **`activeCues`**-Eigenschaft der {{domxref("TextTrack")}}-Schnittstelle gibt ein {{domxref("TextTrackCueList")}}-Objekt zurück, das die derzeit aktiven Cues auflistet.
+Die schreibgeschützte Eigenschaft **`activeCues`** des [`TextTrack`](/de/docs/Web/API/TextTrack)-Interfaces gibt ein [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList)-Objekt zurück, das die derzeit aktiven Cues auflistet.
 
 ## Wert
 
-Ein {{domxref("TextTrackCueList")}}-Objekt.
+Ein [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel fügt einem Video einen neuen `TextTrack` hinzu. Die `activeCues` werden in der Konsole ausgegeben.
+Das folgende Beispiel fügt einem Video einen neuen `TextTrack` hinzu. Die `activeCues` werden in die Konsole ausgegeben.
 
 ```js
 let video = document.querySelector("video");

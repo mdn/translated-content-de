@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: copyTexSubImage3D()-Methode"
+title: "WebGL2RenderingContext: copyTexSubImage3D() Methode"
 short-title: copyTexSubImage3D()
 slug: Web/API/WebGL2RenderingContext/copyTexSubImage3D
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.copyTexSubImage3D()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) kopiert Pixel vom aktuellen {{domxref("WebGLFramebuffer")}} in ein bestehendes 3D-Textur-Sub-Bild.
+Die **`WebGL2RenderingContext.copyTexSubImage3D()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) kopiert Pixel vom aktuellen [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) in ein existierendes 3D-Textur-Sub-Image.
 
 ## Syntax
 
@@ -20,28 +20,28 @@ copyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der den Anknüpfungspunkt (Ziel) der aktiven Textur angibt.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) der aktiven Textur angibt.
     Mögliche Werte:
 
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.
     - `gl.TEXTURE_2D_ARRAY`: Eine zweidimensionale Array-Textur.
 
 - `level`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der das Detailniveau angibt. Level 0 ist die Basisbildebene und Level _n_ ist das n-te Mipmap-Reduktionsniveau.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Detailebene angibt. Ebene 0 ist die Basisbildebene und Ebene _n_ ist die n-te Mipmap-Reduktionsstufe.
 - `xoffset`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der den x-Versatz innerhalb des Texturbildes angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den x-Offset innerhalb des Texturbildes angibt.
 - `yoffset`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der den y-Versatz innerhalb des Texturbildes angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den y-Offset innerhalb des Texturbildes angibt.
 - `zoffset`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der den z-Versatz innerhalb des Texturbildes angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der den z-Offset innerhalb des Texturbildes angibt.
 - `x`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der die x-Koordinate der linken unteren Ecke angibt, an der das Kopieren begonnen wird.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die x-Koordinate der unteren linken Ecke angibt, an der das Kopieren beginnen soll.
 - `y`
-  - : Ein {{domxref("WebGL_API/Types", "GLint")}}, der die y-Koordinate der linken unteren Ecke angibt, an der das Kopieren begonnen wird.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die y-Koordinate der unteren linken Ecke angibt, an der das Kopieren beginnen soll.
 - `width`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, der die Breite der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Breite der Textur angibt.
 - `height`
-  - : Ein {{domxref("WebGL_API/Types", "GLsizei")}}, der die Höhe der Textur angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), der die Höhe der Textur angibt.
 
 ### Rückgabewert
 
@@ -63,7 +63,7 @@ gl.copyTexSubImage3D(gl.TEXTURE_3D, 0, 0, 0, 0, 0, 0, 16, 16);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.copyTexImage2D()")}}
-- {{domxref("WebGLRenderingContext.texImage2D()")}}
-- {{domxref("WebGLRenderingContext.texSubImage2D()")}}
-- {{domxref("WebGLRenderingContext.compressedTexImage2D()")}}
+- [`WebGLRenderingContext.copyTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/copyTexImage2D)
+- [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D)
+- [`WebGLRenderingContext.texSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texSubImage2D)
+- [`WebGLRenderingContext.compressedTexImage2D()`](/de/docs/Web/API/WebGLRenderingContext/compressedTexImage2D)

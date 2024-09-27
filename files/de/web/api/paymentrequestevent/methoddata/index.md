@@ -8,16 +8,20 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Payment Handler API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`methodData`**-Eigenschaft der {{domxref("PaymentRequestEvent")}}-Schnittstelle gibt ein Array von `PaymentMethodData`-Objekten zurück, das Zahlungsverkehrsmethoden-Identifikatoren für die von der Website akzeptierten Zahlungsmethoden sowie alle zugehörigen zahlungsmethoden-spezifischen Daten enthält.
+Die **`methodData`** schreibgeschützte Eigenschaft des
+[`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Interfaces gibt ein Array von
+`PaymentMethodData`-Objekten zurück, das Bezahlmethoden-Identifikatoren für die
+vom Händler akzeptierten Bezahlmethoden sowie alle damit verbundenen, zahlungsmethodenspezifischen
+Daten enthält.
 
 ## Wert
 
 Ein Array von `PaymentMethodData`-Objekten. Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `supportedMethods`
-  - : Ein Zahlungsverkehrsmethoden-Identifikator für eine Zahlungsmethode, die die Händler-Website akzeptiert.
+  - : Ein Bezahlmethoden-Identifikator für eine Bezahlmethode, die die Händler-Website akzeptiert.
 - `data`
-  - : Ein Objekt, das optionale Informationen bereitstellt, die von den unterstützten Zahlungsmethoden benötigt werden könnten. Falls angegeben, wird es als JSON-seriellisiert.
+  - : Ein Objekt, das optionale Informationen bereitstellt, die von den unterstützten Bezahlmethoden benötigt werden könnten. Falls vorhanden, wird es JSON-serialisiert.
 
 ## Beispiele
 
@@ -37,8 +41,8 @@ self.addEventListener("paymentrequest", (e) => {
 
 ## Siehe auch
 
-- [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
+- [Übersicht über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
 - [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Der Verlauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Der Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)
+- [Konzepte für die Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

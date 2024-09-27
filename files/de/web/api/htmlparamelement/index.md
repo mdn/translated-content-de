@@ -7,26 +7,26 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}
 
-Die **`HTMLParamElement`**-Schnittstelle bietet spezielle Eigenschaften (über die des regulären {{domxref("HTMLElement")}}-Objektinterfaces hinaus), um {{HTMLElement("param")}}-Elemente zu manipulieren. Diese repräsentieren ein Paar aus Schlüssel und Wert, das als Parameter für ein {{HTMLElement("object")}}-Element fungiert.
+Das **`HTMLParamElement`**-Interface bietet spezielle Eigenschaften (zusätzlich zu denen des regulären [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Objekt-Interfaces, das es erbt) zur Manipulation von {{HTMLElement("param")}}-Elementen. Diese Elemente repräsentieren ein Paar aus Schlüssel und Wert, das als Parameter für ein {{HTMLElement("object")}}-Element fungiert.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLParamElement.name")}} {{Deprecated_Inline}}
-  - : Ein String, der den Namen des Parameters darstellt. Es spiegelt das [`name`](/de/docs/Web/HTML/Element/param#name)-Attribut wider.
-- {{domxref("HTMLParamElement.value")}} {{Deprecated_Inline}}
-  - : Ein String, der den dem Parameter zugeordneten Wert darstellt. Es spiegelt das [`value`](/de/docs/Web/HTML/Element/param#value)-Attribut wider.
-- {{domxref("HTMLParamElement.type")}} {{Deprecated_Inline}}
-  - : Ein String, der den Typ des Parameters enthält, wenn `valueType` den `"ref"`-Wert hat. Es spiegelt das [`type`](/de/docs/Web/HTML/Element/param#type)-Attribut wider.
-- {{domxref("HTMLParamElement.valueType")}} {{Deprecated_Inline}}
-  - : Ein String, der den Typ des `value` enthält. Es spiegelt das [valuetype](/de/docs/Web/HTML/Element/param#valuetype)-Attribut wider und hat einen der Werte: `"data"`, `"ref"` oder `"object"`.
+- [`HTMLParamElement.name`](/de/docs/Web/API/HTMLParamElement/name) {{Deprecated_Inline}}
+  - : Ein String, der den Namen des Parameters darstellt. Er spiegelt das [`name`](/de/docs/Web/HTML/Element/param#name)-Attribut wider.
+- [`HTMLParamElement.value`](/de/docs/Web/API/HTMLParamElement/value) {{Deprecated_Inline}}
+  - : Ein String, der den mit dem Parameter assoziierten Wert darstellt. Er spiegelt das [`value`](/de/docs/Web/HTML/Element/param#value)-Attribut wider.
+- [`HTMLParamElement.type`](/de/docs/Web/API/HTMLParamElement/type) {{Deprecated_Inline}}
+  - : Ein String, der den Typ des Parameters enthält, wenn `valueType` den `"ref"`-Wert hat. Er spiegelt das [`type`](/de/docs/Web/HTML/Element/param#type)-Attribut wider.
+- [`HTMLParamElement.valueType`](/de/docs/Web/API/HTMLParamElement/valueType) {{Deprecated_Inline}}
+  - : Ein String, der den Typ des `value` enthält. Er spiegelt das [valuetype](/de/docs/Web/HTML/Element/param#valuetype)-Attribut wider und hat einen der Werte: `"data"`, `"ref"` oder `"object"`.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Keine spezifischen Methoden, erbt Methoden von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Keine speziellen Methoden, erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 
@@ -38,4 +38,4 @@ _Keine spezifischen Methoden, erbt Methoden von seinem Elternteil, {{domxref("HT
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{ HTMLElement("param") }}.
+- Das HTML-Element, das dieses Interface implementiert: {{ HTMLElement("param") }}.

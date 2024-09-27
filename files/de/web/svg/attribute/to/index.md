@@ -1,5 +1,5 @@
 ---
-title: bis
+title: to
 slug: Web/SVG/Attribute/To
 l10n:
   sourceCommit: 54eb3a678b4d4cbc94588d2234103e74dfa063a0
@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`to`**-Attribut gibt den Endwert des Attributs an, das während der Animation verändert wird.
+Das **`to`** Attribut gibt den Endwert des Attributs an, das während der Animation modifiziert wird.
 
-Der Wert des Attributs ändert sich zwischen dem Wert des {{SVGAttr("from")}}-Attributs und diesem Wert.
+Der Wert des Attributs ändert sich zwischen dem Wert des {{SVGAttr("from")}} Attributs und diesem Wert.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -65,13 +65,13 @@ Für {{SVGElement("animate")}}, {{SVGElement("animateMotion")}} und {{SVGElement
   </tbody>
 </table>
 
-Der genaue Werttyp für dieses Attribut hängt vom Wert des Attributs ab, das animiert wird.
+Der genaue Wertetyp für dieses Attribut hängt vom Wert des zu animierenden Attributs ab.
 
-Wenn eine Liste von Werten über das {{SVGAttr("values")}}-Attribut definiert ist, wird das `to`-Attribut ignoriert.
+Wenn eine Liste von Werten über das {{SVGAttr("values")}} Attribut definiert wird, wird das `to` Attribut ignoriert.
 
 ## set
 
-Für das {{SVGElement("set")}}-Element gibt `to` den Wert für das Attribut während der Dauer des Elements an.
+Für das {{SVGElement("set")}} Element gibt `to` den Wert für das Attribut während der Dauer des Elements an.
 
 <table class="properties">
   <tbody>
@@ -90,7 +90,7 @@ Für das {{SVGElement("set")}}-Element gibt `to` den Wert für das Attribut wäh
   </tbody>
 </table>
 
-Der genaue Werttyp für dieses Attribut hängt vom Wert des Attributs ab, das animiert wird.
+Der genaue Wertetyp für dieses Attribut hängt vom Wert des zu animierenden Attributs ab.
 
 ## Spezifikationen
 

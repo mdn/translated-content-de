@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte **`pageY`**-Eigenschaft der {{domxref("MouseEvent")}}-Schnittstelle gibt die Y- (vertikale) Koordinate (in Pixeln) zurück, an der die Maus relativ zum oberen Rand des gesamten Dokuments geklickt wurde. Dies schließt jeden Teil des Dokuments ein, der derzeit nicht sichtbar ist.
+Die **`pageY`**-Eigenschaft des [`MouseEvent`](/de/docs/Web/API/MouseEvent)-Interfaces gibt die Y- (vertikale) Koordinate (in Pixeln) zurück, an der die Maus geklickt wurde, relativ zur oberen Kante des gesamten Dokuments.
+Dies umfasst auch Teile des Dokuments, die derzeit nicht sichtbar sind.
 
-Siehe {{domxref("MouseEvent.pageX")}} für weitere Informationen.
+Weitere Informationen finden Sie unter [`MouseEvent.pageX`](/de/docs/Web/API/MouseEvent/pageX).
 
 ## Wert
 
@@ -20,11 +21,11 @@ Ein `double`-Gleitkommawert in Pixeln.
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("MouseEvent.pageX")}}
+- [`MouseEvent.pageX`](/de/docs/Web/API/MouseEvent/pageX)
 - [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)

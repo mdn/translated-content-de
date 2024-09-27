@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaSort`**-Eigenschaft des {{domxref("Element")}}-Interfaces spiegelt den Wert des [`aria-sort`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-sort)-Attributs wider, welches angibt, ob Elemente in einer Tabelle oder einem Raster in aufsteigender oder absteigender Reihenfolge sortiert sind.
+Die **`ariaSort`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-sort`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-sort)-Attributs wider, das angibt, ob Elemente in einer Tabelle oder einem Raster in aufsteigender oder absteigender Reihenfolge sortiert sind.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"ascending"`
-  - : Die Elemente sind in aufsteigender Reihenfolge nach dieser Spalte sortiert.
+  - : Elemente sind in diesem Spalte aufsteigend sortiert.
 - `"descending"`
-  - : Die Elemente sind in absteigender Reihenfolge nach dieser Spalte sortiert.
+  - : Elemente sind in diesem Spalte absteigend sortiert.
 - `"none"`
   - : Es ist keine definierte Sortierung auf die Spalte angewendet.
 - `"other"`
@@ -25,7 +25,7 @@ Ein String mit einem der folgenden Werte:
 
 ## Beispiele
 
-In diesem Beispiel ist das `aria-sort`-Attribut des Elements mit der ID `role-heading` auf "none" gesetzt. Mit `ariaSort` aktualisieren wir den Wert auf "ascending".
+In diesem Beispiel ist das `aria-sort`-Attribut auf dem Element mit der ID `role-heading` auf "none" gesetzt. Mit `ariaSort` aktualisieren wir den Wert auf "ascending".
 
 ```html
 <table
@@ -94,4 +94,4 @@ console.log(el.ariaSort); // ascending
 
 ## Siehe auch
 
-- [ARIA: Tischrolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+- [ARIA: table-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)

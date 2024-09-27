@@ -7,20 +7,20 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Contact Picker API")}}{{SeeCompatTable}}
 
-Das **`ContactsManager`**-Interface der [Contact Picker API](/de/docs/Web/API/Contact_Picker_API) ermöglicht es Benutzern, Einträge aus ihrer Kontaktliste auszuwählen und begrenzte Details der ausgewählten Einträge mit einer Website oder Anwendung zu teilen.
+Das **`ContactsManager`**-Interface der [Contact Picker API](/de/docs/Web/API/Contact_Picker_API) ermöglicht es Nutzern, Einträge aus ihrer Kontaktliste auszuwählen und begrenzte Details der ausgewählten Einträge mit einer Website oder Anwendung zu teilen.
 
-Der `ContactsManager` ist über die globale {{domxref('navigator.contacts')}}-Eigenschaft verfügbar.
+Das `ContactsManager` steht über die globale [`navigator.contacts`](/de/docs/Web/API/Navigator/contacts) Eigenschaft zur Verfügung.
 
 ## Instanzmethoden
 
-- {{domxref('ContactsManager.select','select()')}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das, wenn es aufgelöst wird, dem Benutzer einen Kontaktpicker präsentiert, der es ihm ermöglicht, Kontakte auszuwählen, die er teilen möchte.
-- {{domxref('ContactsManager.getProperties()','getProperties()')}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von {{jsxref('String','strings')}} aufgelöst wird, welche angeben, welche Kontakteigenschaften verfügbar sind.
+- [`select()`](/de/docs/Web/API/ContactsManager/select) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref('Promise')}} zurück, das, wenn es aufgelöst wird, dem Nutzer einen Kontaktpicker präsentiert, der es ihnen erlaubt, die Kontakte auszuwählen, die sie teilen möchten.
+- [`getProperties()`](/de/docs/Web/API/ContactsManager/getProperties) {{Experimental_Inline}}
+  - : Gibt ein {{jsxref('Promise')}} zurück, das mit einem {{jsxref('Array')}} von {{jsxref('String','strings')}} aufgelöst wird, die angeben, welche Kontakteigenschaften verfügbar sind.
 
 ## Beispiele
 
-### Feature-Erkennung
+### Funktionsüberprüfung
 
 Der folgende Code prüft, ob die Contact Picker API unterstützt wird.
 
@@ -30,34 +30,34 @@ const supported = "contacts" in navigator && "ContactsManager" in window;
 
 ### Überprüfung auf unterstützte Eigenschaften
 
-Die folgende asynchrone Funktion verwendet die Methode `getProperties`, um unterstützte Eigenschaften zu überprüfen.
+Die folgende asynchrone Funktion verwendet die `getProperties`-Methode, um die unterstützten Eigenschaften zu überprüfen.
 
 ```js
 async function checkProperties() {
   const supportedProperties = await navigator.contacts.getProperties();
   if (supportedProperties.includes("name")) {
-    // Code für Namensunterstützung ausführen
+    // run code for name support
   }
   if (supportedProperties.includes("email")) {
-    // Code für E-Mail-Unterstützung ausführen
+    // run code for email support
   }
   if (supportedProperties.includes("tel")) {
-    // Code für Telefonnummernunterstützung ausführen
+    // run code for telephone number support
   }
   if (supportedProperties.includes("address")) {
-    // Code für Adressunterstützung ausführen
+    // run code for address support
   }
   if (supportedProperties.includes("icon")) {
-    // Code für Avatar-Unterstützung ausführen
+    // run code for avatar support
   }
 }
 ```
 
-### Kontakte auswählen
+### Auswahl von Kontakten
 
-Das folgende Beispiel legt ein Array von Eigenschaften fest, die für jeden Kontakt abgerufen werden sollen, sowie ein Optionsobjekt, um die Auswahl mehrerer Kontakte zu ermöglichen.
+Das folgende Beispiel legt ein Array von Eigenschaften fest, die für jeden Kontakt abgerufen werden sollen, und ein Optionsobjekt, das die Auswahl mehrerer Kontakte erlaubt.
 
-Eine asynchrone Funktion wird dann definiert, die die Methode `select()` verwendet, um dem Benutzer eine Kontaktpicker-Oberfläche zu präsentieren und die ausgewählten Ergebnisse zu bearbeiten.
+Dann wird eine asynchrone Funktion definiert, die die `select()`-Methode verwendet, um dem Nutzer eine Kontaktpickerschnittstelle zu präsentieren und die ausgewählten Ergebnisse zu bearbeiten.
 
 ```js
 const props = ["name", "email", "tel", "address", "icon"];
@@ -68,7 +68,7 @@ async function getContacts() {
     const contacts = await navigator.contacts.select(props, opts);
     handleResults(contacts);
   } catch (ex) {
-    // Fehler hier behandeln.
+    // Handle any errors here.
   }
 }
 ```
@@ -85,5 +85,5 @@ async function getContacts() {
 
 ## Siehe auch
 
-- [A Contact Picker for the Web](https://developer.chrome.com/docs/capabilities/web-apis/contact-picker)
-- [A Contact Picker demo on glitch](https://contact-picker.glitch.me/)
+- [Ein Kontaktpicker für das Web](https://developer.chrome.com/docs/capabilities/web-apis/contact-picker)
+- [Eine Contact Picker-Demo auf Glitch](https://contact-picker.glitch.me/)

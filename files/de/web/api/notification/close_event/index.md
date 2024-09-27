@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Das **`close`**-Ereignis der {{domxref("Notification")}}-Schnittstelle wird ausgelöst, wenn eine {{domxref("Notification")}} geschlossen wird.
+Das **`close`**-Ereignis des [`Notification`](/de/docs/Web/API/Notification)-Interfaces tritt auf, wenn eine [`Notification`](/de/docs/Web/API/Notification) geschlossen wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder legen Sie eine Ereignishandler-Eigenschaft fest.
 
 ```js
 addEventListener("close", (event) => {});
@@ -20,9 +20,9 @@ addEventListener("close", (event) => {});
 onclose = (event) => {};
 ```
 
-## Ereingnistyp
+## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Spezifikationen
 

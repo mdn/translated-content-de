@@ -7,7 +7,7 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-`set:has-same-node()` bestimmt, ob zwei Knoten-Sets gemeinsame Knoten haben.
+`set:has-same-node()` bestimmt, ob zwei Knotenmengen gemeinsame Knoten haben.
 
 ## Syntax
 
@@ -18,13 +18,13 @@ set:has-same-node(nodeSet1, nodeSet2)
 ### Parameter
 
 - `nodeSet1`
-  - : Das erste Knoten-Set, das überprüft werden soll.
+  - : Die erste Knotenmenge, die überprüft werden soll.
 - `nodeSet2`
-  - : Das zweite Knoten-Set, das überprüft werden soll.
+  - : Die zweite Knotenmenge, die überprüft werden soll.
 
 ### Rückgabewert
 
-`true`, wenn die beiden Knoten-Sets gemeinsame Knoten haben; andernfalls `false`.
+`true`, wenn die beiden Knotenmengen gemeinsame Knoten haben; ansonsten `false`.
 
 ## Spezifikationen
 

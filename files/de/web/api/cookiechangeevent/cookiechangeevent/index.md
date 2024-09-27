@@ -8,11 +8,12 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}
 
-Der **`CookieChangeEvent()`** Konstruktor erstellt ein neues {{domxref("CookieChangeEvent")}}-Objekt, welches der Ereignistyp des {{domxref("CookieStore/change_event", "change")}}-Ereignisses ist, das bei einem {{domxref("CookieStore")}} ausgelöst wird, wenn Änderungen an einem Cookie auftreten.
-Dieser Konstruktor wird von dem Browser aufgerufen, wenn ein Änderungsereignis eintritt.
+Der **`CookieChangeEvent()`** Konstruktor erstellt ein neues [`CookieChangeEvent`](/de/docs/Web/API/CookieChangeEvent) Objekt,
+welches der Ereignistyp des [`change`](/de/docs/Web/API/CookieStore/change_event) Ereignisses ist, das bei einer [`CookieStore`](/de/docs/Web/API/CookieStore) ausgelöst wird, wenn sich ein Cookie ändert.
+Dieser Konstruktor wird vom Browser aufgerufen, wenn ein Veränderungsereignis auftritt.
 
 > [!NOTE]
-> Dieser Ereignis-Konstruktor wird im Allgemeinen nicht für Produktionswebsites benötigt. Sein primärer Einsatz liegt in Tests, die eine Instanz dieses Ereignisses erfordern.
+> Dieser Ereignis-Konstruktor wird in der Regel nicht für Produktionswebsites benötigt. Sein Hauptzweck liegt in Tests, die eine Instanz dieses Ereignisses erfordern.
 
 ## Syntax
 
@@ -24,9 +25,9 @@ new CookieChangeEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Es ist case-sensitive und Browser setzen ihn immer auf `change`.
+  - : Ein String mit dem Namen des Ereignisses. Er ist groß-/kleinschreibungssensitiv und wird von Browsern immer auf `change` gesetzt.
 - `options` {{Optional_Inline}}
-  - : Ein Objekt, das, _zusätzlich zu den Eigenschaften, die in {{domxref("Event/Event", "Event()")}} definiert sind_, die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `changed` {{Optional_Inline}}
       - : Ein Array, das die geänderten Cookies enthält.
     - `deleted` {{Optional_Inline}}
@@ -34,7 +35,7 @@ new CookieChangeEvent(type, options)
 
 ### Rückgabewert
 
-Ein neues {{domxref("CookieChangeEvent")}}-Objekt.
+Ein neues [`CookieChangeEvent`](/de/docs/Web/API/CookieChangeEvent) Objekt.
 
 ## Spezifikationen
 

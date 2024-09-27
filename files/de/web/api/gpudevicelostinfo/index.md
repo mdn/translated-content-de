@@ -2,23 +2,23 @@
 title: GPUDeviceLostInfo
 slug: Web/API/GPUDeviceLostInfo
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die Schnittstelle **`GPUDeviceLostInfo`** der {{domxref("WebGPU API", "WebGPU API", "", "nocode")}} repräsentiert das Objekt, das zurückgegeben wird, wenn das {{domxref("GPUDevice.lost")}} {{jsxref("Promise")}} aufgelöst wird. Dies liefert Informationen darüber, warum ein Gerät verloren gegangen ist.
+Die **`GPUDeviceLostInfo`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) repräsentiert das Objekt, das zurückgegeben wird, wenn das [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost) {{jsxref("Promise")}} aufgelöst wird. Es liefert Informationen darüber, warum ein Gerät verloren gegangen ist.
 
-Besuchen Sie die Seite {{domxref("GPUDevice.lost")}}, um mehr über den "verlorenen" Status zu erfahren.
+Weitere Informationen zum "verlorenen" Zustand finden Sie auf der Seite [`GPUDevice.lost`](/de/docs/Web/API/GPUDevice/lost).
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("GPUDeviceLostInfo.message", "message")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein String, der eine menschenlesbare Nachricht bereitstellt, die erklärt, warum das Gerät verloren gegangen ist.
-- {{domxref("GPUDeviceLostInfo.reason", "reason")}} {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Ein enumerierter Wert, der den Grund, warum das Gerät verloren gegangen ist, auf eine maschinenlesbare Weise definiert.
+- [`message`](/de/docs/Web/API/GPUDeviceLostInfo/message) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Ein String, der eine lesbare Nachricht bereitstellt, die erklärt, warum das Gerät verloren gegangen ist.
+- [`reason`](/de/docs/Web/API/GPUDeviceLostInfo/reason) {{Experimental_Inline}} {{ReadOnlyInline}}
+  - : Ein enumerierter Wert, der den Grund angibt, warum das Gerät in einer maschinenlesbaren Weise verloren gegangen ist.
 
 ## Beispiele
 
@@ -51,7 +51,7 @@ async function init() {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

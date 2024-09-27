@@ -1,5 +1,5 @@
 ---
-title: "Window: alert()-Methode"
+title: "Window: alert() Methode"
 short-title: alert()
 slug: Web/API/Window/alert
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef }}
 
-Die `window.alert()`-Methode veranlasst den Browser, ein Dialogfenster mit einer optionalen Nachricht anzuzeigen und darauf zu warten, dass der Benutzer das Dialogfenster schließt.
+`window.alert()` weist den Browser an, einen Dialog mit einer optionalen Nachricht anzuzeigen und zu warten, bis der Benutzer den Dialog schließt.
 
-Unter bestimmten Bedingungen — zum Beispiel, wenn der Benutzer die Tabs wechselt — könnte der Browser tatsächlich keinen Dialog anzeigen oder nicht auf die Bestätigung des Benutzers warten.
+Unter bestimmten Bedingungen – zum Beispiel, wenn der Benutzer die Tabs wechselt – kann es vorkommen, dass der Browser tatsächlich keinen Dialog anzeigt oder nicht darauf wartet, dass der Benutzer den Dialog schließt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ alert(message)
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Ein String, den Sie im Dialogfenster anzeigen möchten, oder alternativ ein Objekt, das in einen String konvertiert und angezeigt wird.
+  - : Ein String, den Sie im Alert-Dialog anzeigen möchten, oder alternativ ein Objekt, das in einen String umgewandelt und angezeigt wird.
 
 ### Rückgabewert
 
@@ -37,15 +37,15 @@ alert("Hello world!");
 
 Beide erzeugen:
 
-![Schwarzes Dialogfenster. Oben links ein kleines Kreissymbol, gefolgt von weißen offenen und geschlossenen eckigen Klammern mit folgendem weißen Text: JavaScript-Anwendung. Links unten ein weißer Text: Hello world!. Und unten rechts ein kleiner blauer Knopf. Der Text des Knopfes ist: ok in schwarz.](alerthelloworld.png)
+![Schwarzes Alarmdialogfeld. Oben links ein kleines Kreissymbol, gefolgt von weißen offenen und geschlossenen eckigen Klammern, die diesen weißen Text enthalten: JavaScript-Anwendung. Darunter links ein "Hello world!"-Text in Weiß. Und unten rechts ein kleiner blauer Knopf. Der Text des Knopfs ist: ok in Schwarz.](alerthelloworld.png)
 
-## Anmerkungen
+## Hinweise
 
-Das Alert-Dialogfenster sollte für Nachrichten verwendet werden, die keine weitere Reaktion vom Benutzer erfordern, außer der Bestätigung der Nachricht.
+Der Alert-Dialog sollte für Nachrichten verwendet werden, die keine Antwort des Benutzers erfordern, abgesehen von der Bestätigung der Nachricht.
 
-Dialogfelder sind modale Fenster - sie verhindern, dass der Benutzer auf die restliche Benutzeroberfläche des Programms zugreift, bis das Dialogfeld geschlossen wird. Aus diesem Grund sollten Sie keine Funktion übermäßig benutzen, die ein Dialogfeld (oder modales Fenster) erstellt.
+Dialogboxen sind modale Fenster - sie verhindern, dass der Benutzer auf den Rest der Programmoberfläche zugreift, bis die Dialogbox geschlossen wird. Aus diesem Grund sollten Sie eine Funktion, die eine Dialogbox (oder ein modales Fenster) erzeugt, nicht übermäßig verwenden.
 
-Alternativ kann das {{HTMLElement("dialog")}}-Element verwendet werden, um Warnungen anzuzeigen.
+Alternativ kann das {{HTMLElement("dialog")}} Element verwendet werden, um Alarme anzuzeigen.
 
 ## Spezifikationen
 
@@ -57,6 +57,6 @@ Alternativ kann das {{HTMLElement("dialog")}}-Element verwendet werden, um Warnu
 
 ## Siehe auch
 
-- {{HTMLElement("dialog")}}-Element
-- {{domxref("window.confirm","confirm")}}
-- {{domxref("window.prompt","prompt")}}
+- {{HTMLElement("dialog")}} element
+- [`confirm`](/de/docs/Web/API/Window/confirm)
+- [`prompt`](/de/docs/Web/API/Window/prompt)

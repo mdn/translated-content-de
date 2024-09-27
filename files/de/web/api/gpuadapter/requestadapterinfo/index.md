@@ -1,19 +1,19 @@
 ---
-title: "GPUAdapter: requestAdapterInfo()-Methode"
+title: "GPUAdapter: requestAdapterInfo() Methode"
 short-title: requestAdapterInfo()
 slug: Web/API/GPUAdapter/requestAdapterInfo
 l10n:
-  sourceCommit: c28529c0cc75eb5d2de857c923f0a1ebd5145313
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{deprecated_header}}{{non-standard_header}}
+{{APIRef("WebGPU API")}}{{SecureContext_Header}}{{deprecated_header}}{{non-standard_header}}{{AvailableInWorkers}}
 
-Die **`requestAdapterInfo()`**-Methode der {{domxref("GPUAdapter")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das bei Erfüllung ein {{domxref("GPUAdapterInfo")}}-Objekt enthält, das identifizierende Informationen über einen Adapter umfasst.
+Die **`requestAdapterInfo()`** Methode der [`GPUAdapter`](/de/docs/Web/API/GPUAdapter) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo) Objekt erfüllt wird, das identifizierende Informationen zu einem Adapter enthält.
 
-Der Zweck dieser Methode besteht darin, Entwicklern zu ermöglichen, spezifische Details über die GPU des Benutzers anzufordern, damit sie präventiv Workarounds für GPU-spezifische Bugs anwenden oder unterschiedliche Codepfade anbieten können, um besser auf verschiedene GPU-Architekturen einzugehen. Die Bereitstellung solcher Informationen stellt jedoch ein Sicherheitsrisiko dar — sie könnte zum Fingerprinting verwendet werden — daher sollen die gemeinsam genutzten Informationen auf das Minimum beschränkt werden, und verschiedene Browseranbieter werden voraussichtlich unterschiedliche Informationsarten und -granularitäten bereitstellen.
+Die Absicht hinter dieser Methode ist es, Entwicklern die Möglichkeit zu geben, spezifische Details über die GPU des Nutzers abzufragen, damit sie proaktiv Umgehungslösungen für GPU-spezifische Fehler anwenden oder unterschiedliche Codepfade bereitstellen können, um besser zu verschiedenen GPU-Architekturen zu passen. Diese Informationen bereitzustellen, stellt jedoch ein Sicherheitsrisiko dar — sie könnten für das Fingerprinting verwendet werden — daher sollten die geteilten Informationen auf ein Minimum beschränkt werden, und verschiedene Browseranbieter werden wahrscheinlich unterschiedliche Arten und Granularitäten von Informationen teilen.
 
 > [!NOTE]
-> Die Spezifikation enthält einen `unmaskHints`-Parameter für `requestAdapterInfo()`, der dazu gedacht ist, das oben erwähnte Sicherheitsrisiko zu mindern. Sobald er unterstützt wird, können Entwickler die Werte angeben, die sie wirklich wissen müssen, und die Benutzer erhalten eine Berechtigungsaufforderung, in der sie gefragt werden, ob sie mit der Weitergabe dieser Informationen einverstanden sind, wenn die Methode aufgerufen wird. Browseranbieter werden voraussichtlich nützlichere Informationen teilen, wenn sie durch eine Berechtigungsaufforderung geschützt sind, da dies die Methode als Ziel für Fingerprinting weniger attraktiv macht.
+> Die Spezifikation beinhaltet einen `unmaskHints` Parameter für `requestAdapterInfo()`, der das oben genannte Sicherheitsrisiko mindern soll. Sobald er unterstützt wird, können Entwickler angeben, welche Werte sie wirklich wissen müssen, und Nutzer erhalten eine Berechtigungsaufforderung, die sie fragt, ob sie bereit sind, diese Informationen zu teilen, wenn die Methode aufgerufen wird. Browseranbieter werden wahrscheinlich nützlichere Informationen teilen, wenn diese durch eine Berechtigungsaufforderung geschützt sind, da dies die Methode zu einem weniger geeigneten Ziel für das Fingerprinting macht.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich mit einer Instanz eines {{domxref("GPUAdapterInfo")}}-Objekts erfüllt.
+Ein {{jsxref("Promise")}}, das mit einer [`GPUAdapterInfo`](/de/docs/Web/API/GPUAdapterInfo) Objektinstanz erfüllt wird.
 
 ## Beispiele
 

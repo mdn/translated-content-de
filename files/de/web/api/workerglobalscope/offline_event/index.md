@@ -1,5 +1,5 @@
 ---
-title: "WorkerGlobalScope: offline-Ereignis"
+title: "WorkerGlobalScope: offline Ereignis"
 short-title: offline
 slug: Web/API/WorkerGlobalScope/offline_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Das **`offline`**-Ereignis des {{domxref("WorkerGlobalScope")}} wird ausgelöst, wenn das Gerät die Verbindung zum Internet verliert.
+Das **`offline`** Ereignis des [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) wird ausgelöst, wenn das Gerät die Verbindung zum Internet verliert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder legen Sie eine Ereignisbehandlungs-Eigenschaft fest.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("offline", (event) => {});
@@ -22,11 +22,11 @@ onoffline = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiel
 
-Das folgende Codebeispiel zeigt einen `onoffline`-Handler, der innerhalb eines Workers festgelegt ist:
+Der folgende Code-Schnipsel zeigt einen `onoffline`-Handler, der innerhalb eines Workers gesetzt wird:
 
 ```js
 self.onoffline = () => {
@@ -34,7 +34,7 @@ self.onoffline = () => {
 };
 ```
 
-Das gleiche Beispiel, aber mit `addEventListener()`:
+Dasselbe Snippet, aber unter Verwendung von `addEventListener()`:
 
 ```js
 self.addEventListener("offline", () => {
@@ -52,4 +52,4 @@ self.addEventListener("offline", () => {
 
 ## Siehe auch
 
-Das {{domxref("WorkerGlobalScope")}}-Interface, zu dem es gehört.
+Das [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) Interface, zu dem es gehört.

@@ -7,8 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toExponential()`** Methode von {{jsxref("Number")}} Werten gibt eine Zeichenkette zurück, die
-diese Zahl in Exponentialschreibweise darstellt.
+Die **`toExponential()`** Methode von {{jsxref("Number")}} Werten gibt einen String zurück, der diese Zahl in der Exponentialschreibweise darstellt.
 
 {{EmbedInteractiveExample("pages/js/number-toexponential.html")}}
 
@@ -22,36 +21,26 @@ toExponential(fractionDigits)
 ### Parameter
 
 - `fractionDigits` {{optional_inline}}
-  - : Optional. Ein ganzzahliger Wert, der die Anzahl der Nachkommastellen angibt.
-    Standardmäßig wird die Anzahl an Ziffern verwendet, die notwendig ist, um die Zahl darzustellen.
+  - : Optional. Eine Ganzzahl, die die Anzahl der Ziffern nach dem Dezimalpunkt angibt. Standardmäßig sind so viele Ziffern erforderlich, um die Zahl zu spezifizieren.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die das gegebene {{jsxref("Number")}} Objekt in Exponentialschreibweise darstellt,
-mit einer Ziffer vor dem Dezimalpunkt, gerundet auf
-`fractionDigits` Nachkommastellen.
+Ein String, der das gegebene {{jsxref("Number")}} Objekt in Exponentialschreibweise darstellt, mit einer Ziffer vor dem Dezimalpunkt, gerundet auf `fractionDigits` Ziffern nach dem Dezimalpunkt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `fractionDigits` nicht zwischen `0` und `100` (einschließlich) liegt.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn diese Methode auf einem Objekt aufgerufen wird, das keine {{jsxref("Number")}} ist.
+  - : Wird ausgelöst, wenn diese Methode auf einem Objekt aufgerufen wird, das kein {{jsxref("Number")}} ist.
 
 ## Beschreibung
 
-Wenn das `fractionDigits` Argument weggelassen wird, wird die Anzahl der Ziffern
-nach dem Dezimalpunkt standardmäßig auf die Anzahl der Ziffern gesetzt, die benötigt wird, um den
-Wert eindeutig darzustellen.
+Wenn das Argument `fractionDigits` weggelassen wird, ist die Anzahl der Ziffern nach dem Dezimalpunkt standardmäßig die Anzahl der Ziffern, die erforderlich sind, um den Wert eindeutig darzustellen.
 
-Wenn Sie die `toExponential()` Methode für eine numerische Literalzahl verwenden und die
-numerische Literalzahl keinen Exponenten und keinen Dezimalpunkt hat, lassen Sie Leerzeichen vor dem Punkt
-stehen, der den Methodenaufruf einleitet, um zu verhindern, dass der Punkt als Dezimalpunkt interpretiert wird.
+Wenn Sie die `toExponential()` Methode für ein numerisches Literal verwenden und das numerische Literal keinen Exponenten und keinen Dezimalpunkt hat, lassen Sie Leerzeichen vor dem Punkt, der dem Methodenaufruf vorangeht, um zu verhindern, dass der Punkt als Dezimalpunkt interpretiert wird.
 
-Wenn eine Zahl mehr Ziffern hat als durch den
-`fractionDigits` Parameter angefordert, wird die Zahl auf die nächste Zahl
-gerundet, die durch `fractionDigits` Ziffern dargestellt wird. Siehe die Diskussion
-über das Runden in der Beschreibung der {{jsxref("Number/toFixed", "toFixed()")}} Methode, die auch für `toExponential()` gilt.
+Wenn eine Zahl mehr Ziffern hat, als durch den Parameter `fractionDigits` angefordert, wird die Zahl auf die nächste durch `fractionDigits` Ziffern dargestellte Zahl gerundet. Siehe die Diskussion zur Rundung in der Beschreibung der {{jsxref("Number/toFixed", "toFixed()")}} Methode, die auch für `toExponential()` gilt.
 
 ## Beispiele
 
@@ -77,7 +66,7 @@ console.log((77).toExponential()); // 7.7e+1
 
 ## Siehe auch
 
-- [Polyfill von `Number.prototype.toExponential` mit vielen Fehlerbehebungen in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
+- [Polyfill von `Number.prototype.toExponential` mit vielen Bugfixes in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
 - {{jsxref("Number.prototype.toFixed()")}}
 - {{jsxref("Number.prototype.toPrecision()")}}
 - {{jsxref("Number.prototype.toString()")}}

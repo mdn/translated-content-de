@@ -8,13 +8,13 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.rangeCount`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die die Anzahl der Bereiche in der Auswahl zurückgibt.
+Die schreibgeschützte **`Selection.rangeCount`**-Eigenschaft gibt die Anzahl der Bereiche in der Auswahl zurück.
 
-Bevor ein Benutzer auf eine neu geladene Seite geklickt hat, ist der `rangeCount` `0`. Nachdem der Benutzer auf die Seite geklickt hat, ist der `rangeCount` `1`, selbst wenn keine Auswahl sichtbar ist.
+Bevor der Benutzer auf eine neu geladene Seite geklickt hat, ist der `rangeCount` `0`. Nachdem der Benutzer auf die Seite geklickt hat, ist der `rangeCount` `1`, auch wenn keine Auswahl sichtbar ist.
 
-Ein Benutzer kann normalerweise nur einen Bereich gleichzeitig auswählen, daher wird der `rangeCount` in der Regel `1` sein. Skripte können verwendet werden, um die Auswahl mehr als einen Bereich enthalten zu lassen.
+Ein Benutzer kann normalerweise nur einen Bereich auf einmal auswählen, daher ist der `rangeCount` in der Regel `1`. Skripte können verwendet werden, um die Auswahl mehr als einen Bereich enthalten zu lassen.
 
-Gecko-Browser erlauben Mehrfachauswahlen über Tabellenzellen hinweg. Firefox erlaubt das Auswählen mehrerer Bereiche im Dokument durch Strg+Klick (es sei denn, der Klick erfolgt innerhalb eines Elements, dem die CSS-Eigenschaft `display: table-cell` zugewiesen ist).
+Gecko-Browser erlauben mehrere Auswahlen über Tabellenzellen hinweg. Firefox ermöglicht die Auswahl mehrerer Bereiche im Dokument durch Drücken von Strg+Klick (es sei denn, der Klick erfolgt innerhalb eines Elements, dem die CSS-Eigenschaft `display: table-cell` zugewiesen ist).
 
 ## Wert
 
@@ -22,7 +22,7 @@ Eine Zahl.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt den `rangeCount` jede Sekunde. Wählen Sie Text im Browser aus, um die Änderung zu sehen.
+Das folgende Beispiel zeigt jede Sekunde den `rangeCount` an. Wählen Sie Text im Browser aus, um zu sehen, wie er sich ändert.
 
 ### HTML
 
@@ -67,4 +67,4 @@ setInterval(() => {
 
 ## Siehe auch
 
-- {{domxref("Selection")}}, das Interface, zu dem es gehört.
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der es gehört.

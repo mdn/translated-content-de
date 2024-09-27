@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`toString()`**-Methode von {{jsxref("TypedArray")}}-Instanzen gibt einen String zurück, der das angegebene typisierte Array und seine Elemente darstellt. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.toString()")}}.
+Die **`toString()`** Methode von {{jsxref("TypedArray")}} Instanzen gibt einen String zurück, der das spezifizierte typisierte Array und seine Elemente darstellt. Diese Methode verwendet denselben Algorithmus wie {{jsxref("Array.prototype.toString()")}}.
 
 {{EmbedInteractiveExample("pages/js/typedarray-tostring.html", "shorter")}}
 
@@ -27,17 +27,17 @@ Ein String, der die Elemente des typisierten Arrays darstellt.
 
 ## Beschreibung
 
-Für weitere Details siehe {{jsxref("Array.prototype.toString()")}}. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays aufgerufen werden.
+Siehe {{jsxref("Array.prototype.toString()")}} für weitere Details. Diese Methode ist nicht generisch und kann nur auf Instanzen von typisierten Arrays angewendet werden.
 
 ## Beispiele
 
-### Konvertierung eines typisierten Arrays in einen String
+### Konvertieren eines typisierten Arrays in einen String
 
 ```js
 const uint8 = new Uint8Array([1, 2, 3]);
-// Explizite Konvertierung
+// Explicit conversion
 console.log(uint8.toString()); // 1,2,3
-// Implizite Konvertierung
+// Implicit conversion
 console.log(`${uint8}`); // 1,2,3
 ```
 
@@ -51,7 +51,7 @@ console.log(`${uint8}`); // 1,2,3
 
 ## Siehe auch
 
-- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Anleitung
+- [JavaScript typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.join()")}}
 - {{jsxref("TypedArray.prototype.toLocaleString()")}}

@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Permissions API")}}{{AvailableInWorkers}}
 
-Die **`state`**-Schreibgeschützte Eigenschaft des {{domxref("PermissionStatus")}} Interfaces gibt den Status einer angeforderten Berechtigung zurück. Diese Eigenschaft gibt einen der folgenden Werte zurück: `'granted'`, `'denied'` oder `'prompt'`.
+Die schreibgeschützte **`state`**-Eigenschaft der [`PermissionStatus`](/de/docs/Web/API/PermissionStatus)-Schnittstelle gibt den Status einer angeforderten Berechtigung zurück. Diese Eigenschaft gibt einen der folgenden Werte zurück: `'granted'`, `'denied'` oder `'prompt'`.
 
 ## Wert
 
 Einer der folgenden:
 
 - `'granted'`
-  - : Der Benutzer oder der Benutzeragent im Namen des Benutzers hat die ausdrückliche Erlaubnis zur Nutzung einer [leistungsstarken Funktion](https://w3c.github.io/permissions/#dfn-powerful-feature) erteilt. Der Aufrufer kann die Funktion möglicherweise verwenden, ohne dass der Benutzeragent die Erlaubnis des Benutzers einholt.
+  - : Der Nutzer oder die Benutzer-Agent im Namen des Nutzers hat die ausdrückliche Erlaubnis gegeben, ein [mächtiges Feature](https://w3c.github.io/permissions/#dfn-powerful-feature) zu verwenden. Der Anrufer kann das Feature möglicherweise verwenden, ohne dass der Benutzer-Agent die Erlaubnis des Nutzers einholt.
 - `'denied'`
-  - : Der Benutzer oder der Benutzeragent im Namen des Benutzers hat den Zugriff auf diese [leistungsstarke Funktion](https://w3c.github.io/permissions/#dfn-powerful-feature) verweigert. Der Aufrufer kann die Funktion nicht verwenden.
+  - : Der Nutzer oder die Benutzer-Agent im Namen des Nutzers hat den Zugriff auf dieses [mächtige Feature](https://w3c.github.io/permissions/#dfn-powerful-feature) verweigert. Der Anrufer kann das Feature nicht nutzen.
 - `'prompt'`
-  - : Der Benutzer hat keine ausdrückliche Erlaubnis zur Nutzung der Funktion gegeben (_bedeutet, es ist dasselbe wie verweigert_). Dies bedeutet auch, dass, wenn ein Aufrufer versucht, die Funktion zu verwenden, der Benutzeragent entweder den Benutzer um Erlaubnis bitten wird oder der Zugriff auf die Funktion verweigert wird.
+  - : Der Nutzer hat keine ausdrückliche Erlaubnis zur Nutzung des Features gegeben (_d. h., es ist das Gleiche wie abgelehnt_). Es bedeutet auch, dass, wenn ein Anrufer versucht, das Feature zu nutzen, der Benutzer-Agent entweder die Erlaubnis des Nutzers erfragt oder der Zugang zum Feature verweigert wird.
 
 ## Beispiele
 

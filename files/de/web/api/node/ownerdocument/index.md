@@ -8,21 +8,21 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`ownerDocument`**-Eigenschaft der {{domxref("Node")}}-Schnittstelle
+Die schreibgeschützte **`ownerDocument`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle
 gibt das oberste Dokumentobjekt des Knotens zurück.
 
 ## Wert
 
-Ein {{domxref("Document")}}, das das oberste Objekt ist, in dem alle
+Ein [`Document`](/de/docs/Web/API/Document), das das oberste Objekt ist, in dem alle
 untergeordneten Knoten erstellt werden.
 
-Wenn diese Eigenschaft bei einem Knoten verwendet wird, der selbst ein Dokument ist, ist der Wert `null`.
+Wenn diese Eigenschaft auf einem Knoten verwendet wird, der selbst ein Dokument ist, ist der Wert `null`.
 
 ## Beispiel
 
 ```js
-// Gegeben ein Knoten "p", erhalten Sie das oberste HTML-Element
-// des Dokumentobjekts
+// Given a node "p", get the top-level HTML
+// child of the document object
 
 const d = p.ownerDocument;
 const html = d.documentElement;

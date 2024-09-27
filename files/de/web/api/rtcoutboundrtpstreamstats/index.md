@@ -7,58 +7,62 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCOutboundRtpStreamStats`**-Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Metriken und Statistiken zu einem ausgehenden {{Glossary("RTP")}}-Stream zu berichten, der von einem {{domxref("RTCRtpSender")}} gesendet wird.
+Das **`RTCOutboundRtpStreamStats`** Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Metriken und Statistiken in Bezug auf einen ausgehenden [RTP](/de/docs/Glossary/RTP)-Stream zu berichten, der von einem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) gesendet wird.
 
-Die Statistiken können ermittelt werden, indem Sie durch den {{domxref("RTCStatsReport")}} iterieren, der von {{domxref("RTCPeerConnection.getStats()")}} oder {{domxref("RTCRtpSender.getStats()")}} zurückgegeben wird, bis Sie einen Bericht mit dem [`type`](#type) von `outbound-rtp` finden.
+Die Statistiken können abgerufen werden, indem der [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) iteriert wird, der von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) oder [`RTCRtpSender.getStats()`](/de/docs/Web/API/RTCRtpSender/getStats) zurückgegeben wird, bis Sie einen Bericht mit dem [`type`](#type) `outbound-rtp` finden.
 
 ## Instanzeigenschaften
 
-- {{domxref("RTCOutboundRtpStreamStats.averageRtcpInterval", "averageRtcpInterval")}}
-  - : Ein Gleitkommawert, der das durchschnittliche {{Glossary("RTCP")}}-Intervall zwischen zwei aufeinanderfolgenden zusammengesetzten RTCP-Paketen angibt.
-- {{domxref("RTCOutboundRtpStreamStats.firCount", "firCount")}}
-  - : Ein ganzzahliger Wert, der die Gesamtanzahl der Full Intra Request (FIR)-Pakete angibt, die dieser {{domxref("RTCRtpSender")}} an den entfernten {{domxref("RTCRtpReceiver")}} gesendet hat. Dies ist ein Indikator dafür, wie oft der Stream verzögert wurde, sodass Frames übersprungen werden mussten, um sich wieder zu synchronisieren. _Nur gültig für Videostreams._
-- {{domxref("RTCOutboundRtpStreamStats.framesEncoded", "framesEncoded")}}
-  - : Die Anzahl der Frames, die bisher erfolgreich codiert wurden, um sie auf diesem RTP-Stream zu senden. _Nur gültig für Videostreams._
-- {{domxref("RTCOutboundRtpStreamStats.nackCount", "nackCount")}}
-  - : Ein ganzzahliger Wert, der die Gesamtanzahl der negativen Bestätigungspakete (NACK) angibt, die dieser `RTCRtpSender` vom entfernten {{domxref("RTCRtpReceiver")}} erhalten hat.
-- {{domxref("RTCOutboundRtpStreamStats.perDscpPacketsSent", "perDscpPacketsSent")}}
-  - : Ein Datensatz von Schlüssel-Wert-Paaren mit Zeichenfolgen als Schlüssel, die 32-Bit-Ganzzahlwerte zugeordnet sind. Jeder Wert gibt die Gesamtanzahl der Pakete an, die dieser `RTCRtpSender` für diese Quelle für jeden Differentiated Services Code Point (DSCP) übertragen hat.
-- {{domxref("RTCOutboundRtpStreamStats.pliCount", "pliCount")}}
-  - : Eine ganze Zahl, die angibt, wie oft der entfernte Empfänger diesem `RTCRtpSender` mithilfe von Picture Loss Indication (PLI)-Paketen mitgeteilt hat, dass eine Menge von kodierten Videodaten für einen oder mehrere Frames verloren gegangen ist. _Nur verfügbar für Videostreams._
-- {{domxref("RTCOutboundRtpStreamStats.qpSum", "qpSum")}}
-  - : Ein 64-Bit-Wert, der die Summe der QP-Werte für jeden von diesem {{domxref("RTCRtpSender")}} codierten Frame enthält. _Nur gültig für Videostreams._
-- {{domxref("RTCOutboundRtpStreamStats.qualityLimitationDurations", "qualityLimitationDurations")}} {{experimental_inline}}
-  - : Ein Datensatz, der jeden der Gründe für Qualitätsbeschränkungen in der {{domxref("RTCRemoteInboundRtpStreamStats")}}-Aufzählung einem Gleitkommawert zuordnet, der angibt, wie viele Sekunden der Stream aufgrund dieses Grundes mit begrenzter Qualität verbracht hat.
-- {{domxref("RTCOutboundRtpStreamStats.qualityLimitationReason", "qualityLimitationReason")}} {{experimental_inline}}
-  - : Einer der Zeichenfolgen `none`, `cpu`, `bandwidth` oder `other`, der erklärt, warum die Auflösung und/oder Bildrate für diesen RTP-Stream begrenzt ist. _Nur gültig für Videostreams_.
-- {{domxref("RTCOutboundRtpStreamStats.remoteId", "remoteId")}}
-  - : Eine Zeichenfolge, die das {{domxref("RTCRemoteInboundRtpStreamStats")}}-Objekt identifiziert, das Statistiken für die entfernte Gegenstelle für dieselbe SSRC bereitstellt. Diese ID bleibt über mehrere Aufrufe von `getStats()` hinweg stabil.
-- {{domxref("RTCOutboundRtpStreamStats.retransmittedBytesSent", "retransmittedBytesSent")}}
-  - : Die Gesamtanzahl der Bytes, die für diese Quelle zu dem Zeitpunkt, an dem die Statistiken erfasst wurden, erneut übertragen wurden. Diese erneut übertragenen Bytes umfassen die Pakete, die im Wert von {{domxref("RTCInboundRtpStreamStats.retransmittedPacketsSent", "retransmittedPacketsSent")}} enthalten sind.
-- {{domxref("RTCOutboundRtpStreamStats.retransmittedPacketsSent", "retransmittedPacketsSent")}}
-  - : Die Gesamtanzahl der Pakete, die für diese Quelle zum Zeitpunkt der Erfassung der Statistiken erneut übertragen werden mussten. Diese erneut übertragenen Pakete sind im Wert von {{domxref("RTCInboundRtpStreamStats.packetsSent", "packetsSent")}} enthalten.
-- {{domxref("RTCOutboundRtpStreamStats.senderId", "senderId")}}
-  - : Die {{domxref("RTCOutboundRtpStreamStats.id", "id")}} des {{domxref("RTCAudioSenderStats")}}- oder {{domxref("RTCVideoSenderStats")}}-Objekts, das Statistiken über diesen Stream enthält's {{domxref("RTCRtpSender")}}.
-- {{domxref("RTCOutboundRtpStreamStats.sliCount", "sliCount")}}
-  - : Eine Ganzzahl, die angibt, wie oft dieser Sender eine Slice Loss Indication (SLI) von der entfernten Gegenstelle erhalten hat, die darauf hinweist, dass ein oder mehrere aufeinanderfolgende Video-Makroblöcke verloren gegangen oder beschädigt sind. Nur verfügbar für Videostreams.
-- {{domxref("RTCOutboundRtpStreamStats.targetBitrate", "targetBitrate")}}
-  - : Ein Wert, der die Bitrate angibt, die der Encoder des `RTCRtpSender` erreichen soll, in seinen Ausgabemedien.
-- {{domxref("RTCOutboundRtpStreamStats.totalEncodedBytesTarget", "totalEncodedBytesTarget")}} {{experimental_inline}}
-  - : Eine kumulative Summe der _Ziel_-Frame-Größen (die zielgerichtete maximale Größe des Frames in Bytes, wenn der Codec gebeten wird, ihn zu komprimieren) aller bisher codierten Frames. Dies wird wahrscheinlich von der Summe der _tatsächlichen_ Frame-Größen abweichen.
-- {{domxref("RTCOutboundRtpStreamStats.totalEncodeTime", "totalEncodeTime")}}
-  - : Ein Gleitkommawert, der die Gesamtzahl der Sekunden angibt, die mit dem Codieren der bisher von diesem {{domxref("RTCRtpSender")}} codierten Frames verbracht wurden.
-- {{domxref("RTCOutboundRtpStreamStats.trackId", "trackId")}}
-  - : Die {{domxref("RTCOutboundRtpStreamStats.id", "id")}} des {{domxref("RTCSenderAudioTrackAttachmentStats")}}- oder {{domxref("RTCSenderVideoTrackAttachmentStats")}}-Objekts, das die aktuelle Track-Anbindung an den {{domxref("RTCRtpSender")}} enthält, der für diesen Stream verantwortlich ist.
+<!-- Das `RTCOutboundRtpStreamStats`-Wörterbuch enthält die folgenden Eigenschaften zusätzlich zu denen, die es von [`RTCSentRtpStreamStats`](/de/docs/Web/API/RTCSentRtpStreamStats), [`RTCRtpStreamStats`](/de/docs/Web/API/RTCRtpStreamStats) erbt. -->
 
-### Allgemeine Instanzeigenschaften
+- [`averageRtcpInterval`](/de/docs/Web/API/RTCOutboundRtpStreamStats/averageRtcpInterval)
+  - : Ein Gleitkommawert, der das durchschnittliche [RTCP](/de/docs/Glossary/RTCP)-Intervall zwischen zwei aufeinanderfolgenden zusammengesetzten RTCP-Paketen angibt.
+- [`firCount`](/de/docs/Web/API/RTCOutboundRtpStreamStats/firCount)
+  - : Ein ganzzahliger Wert, der die Gesamtanzahl an Full Intra Request (FIR) Paketen angibt, die dieser [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) an den entfernten [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) gesendet hat. Dies ist ein Indikator dafür, wie oft der Stream verzögert war, sodass Frames übersprungen werden mussten, um aufzuholen. _Nur gültig für Videostreams._
+- [`framesEncoded`](/de/docs/Web/API/RTCOutboundRtpStreamStats/framesEncoded)
+  - : Die Anzahl der Frames, die bisher erfolgreich kodiert wurden, um sie in diesem RTP-Stream zu senden. _Nur gültig für Videostreams._
+- [`nackCount`](/de/docs/Web/API/RTCOutboundRtpStreamStats/nackCount)
+  - : Ein ganzzahliger Wert, der die Gesamtzahl der Negative Acknowledgement (NACK) Pakete angibt, die dieser `RTCRtpSender` von dem entfernten [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) erhalten hat.
+- [`perDscpPacketsSent`](/de/docs/Web/API/RTCOutboundRtpStreamStats/perDscpPacketsSent)
+  - : Ein Datensatz von Schlüssel-Wert-Paaren mit Zeichenfolgen als Schlüssel, die auf 32-Bit-Ganzzahlen abgebildet sind, wobei jede den gesamten Betrag der Pakete angibt, die dieser `RTCRtpSender` für diese Quelle für jeden Differentiated Services Code Point (DSCP) übertragen hat.
+- [`pliCount`](/de/docs/Web/API/RTCOutboundRtpStreamStats/pliCount)
+  - : Eine ganze Zahl, die angibt, wie oft der entfernte Empfänger diesen `RTCRtpSender` unterrichtet hat, dass eine gewisse Menge an kodierten Videodaten für einen oder mehrere Frames verloren gegangen ist, unter Verwendung von Picture Loss Indication (PLI) Paketen. _Nur verfügbar für Videostreams._
+- [`qpSum`](/de/docs/Web/API/RTCOutboundRtpStreamStats/qpSum)
+  - : Ein 64-Bit-Wert, der die Summe der QP-Werte für jeden Frame enthält, der von diesem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) kodiert wurde. _Nur gültig für Videostreams._
+- [`qualityLimitationDurations`](/de/docs/Web/API/RTCOutboundRtpStreamStats/qualityLimitationDurations) {{experimental_inline}}
+  - : Ein Datensatz, der jede der Gründe für Qualitätseinschränkungen in der [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats) Enumerationen auf einen Gleitkommawert abbildet, der die Anzahl der Sekunden angibt, die der Stream mit eingeschränkter Qualität aus diesem Grund verbracht hat.
+- [`qualityLimitationReason`](/de/docs/Web/API/RTCOutboundRtpStreamStats/qualityLimitationReason) {{experimental_inline}}
+  - : Einer der Zeichenfolgen `none`, `cpu`, `bandwidth` oder `other`, der erklärt, warum die Auflösung und/oder Bildrate für diesen RTP-Stream begrenzt wird. _Nur gültig für Videostreams_.
+- [`remoteId`](/de/docs/Web/API/RTCOutboundRtpStreamStats/remoteId)
+  - : Eine Zeichenfolge, die das [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Objekt identifiziert, das Statistiken für den entfernten Peer für dieses gleiche SSRC bietet. Diese ID bleibt über mehrere Aufrufe von `getStats()` stabil.
+- [`retransmittedBytesSent`](/de/docs/Web/API/RTCOutboundRtpStreamStats/retransmittedBytesSent)
+  - : Die Gesamtanzahl der Bytes, die zu diesem Zeitpunkt für diese Quelle erneut übertragen wurden, als die Statistiken erfasst wurden. Diese erneut gesendeten Bytes umfassen die Pakete, die im Wert zurückgegeben von [`retransmittedPacketsSent`](/de/docs/Web/API/RTCInboundRtpStreamStats/retransmittedPacketsSent) enthalten sind.
+- [`retransmittedPacketsSent`](/de/docs/Web/API/RTCOutboundRtpStreamStats/retransmittedPacketsSent)
+  - : Die Gesamtanzahl der Pakete, die zu diesem Zeitpunkt für diese Quelle erneut gesendet werden mussten, als die Statistiken erfasst wurden. Diese erneut gesendeten Pakete sind im Wert zurückgegeben von [`packetsSent`](/de/docs/Web/API/RTCInboundRtpStreamStats/packetsSent) enthalten.
+- [`senderId`](/de/docs/Web/API/RTCOutboundRtpStreamStats/senderId)
+  - : Die [`id`](/de/docs/Web/API/RTCOutboundRtpStreamStats/id) des [`RTCAudioSenderStats`](/de/docs/Web/API/RTCAudioSenderStats)- oder [`RTCVideoSenderStats`](/de/docs/Web/API/RTCVideoSenderStats)-Objekts, das Statistiken über den `RTCRtpSender` dieses Streams enthält.
+- [`sliCount`](/de/docs/Web/API/RTCOutboundRtpStreamStats/sliCount)
+  - : Eine ganze Zahl, die angibt, wie oft dieser Sender eine Slice Loss Indication (SLI) Frame vom entfernten Peer erhalten hat, was darauf hinweist, dass ein oder mehrere aufeinanderfolgende Video-Makroblöcke verloren gegangen oder beschädigt wurden. Nur verfügbar für Videostreams.
+- [`targetBitrate`](/de/docs/Web/API/RTCOutboundRtpStreamStats/targetBitrate)
+  - : Ein Wert, der angibt, welche Bitrate der Codec des `RTCRtpSender` zu versuchen, in seinem Ausgabemedium zu erreichen, konfiguriert ist.
+- [`totalEncodedBytesTarget`](/de/docs/Web/API/RTCOutboundRtpStreamStats/totalEncodedBytesTarget) {{experimental_inline}}
+  - : Eine kumulative Summe der _Ziel_-Framegrößen (die angestrebte maximale Größe des Frames in Bytes, wenn der Codec gebeten wird, ihn zu komprimieren) für alle bisher kodierten Frames. Dies wird wahrscheinlich von der Summe der _tatsächlichen_ Framegrößen abweichen.
+- [`totalEncodeTime`](/de/docs/Web/API/RTCOutboundRtpStreamStats/totalEncodeTime)
+  - : Ein Gleitkommawert, der angibt, wie viele Sekunden insgesamt mit der Kodierung der bisher von diesem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) kodierten Frames verbracht wurden.
+- [`trackId`](/de/docs/Web/API/RTCOutboundRtpStreamStats/trackId)
+  - : Die [`id`](/de/docs/Web/API/RTCOutboundRtpStreamStats/id) des [`RTCSenderAudioTrackAttachmentStats`](/de/docs/Web/API/RTCSenderAudioTrackAttachmentStats)- oder [`RTCSenderVideoTrackAttachmentStats`](/de/docs/Web/API/RTCSenderVideoTrackAttachmentStats)-Objekts, das den aktuellen Track-Anschluss an den [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) enthält, der für diesen Stream verantwortlich ist.
+
+### Gemeinsame Instanzeigenschaften
 
 Die folgenden Eigenschaften sind allen WebRTC-Statistikobjekten gemeinsam.
 
-- {{domxref("RTCOutboundRtpStreamStats.id", "id")}}
-  - : Eine Zeichenfolge, die das Objekt, das überwacht wird, um diesen Satz von Statistiken zu erzeugen, eindeutig identifiziert.
-- {{domxref("RTCOutboundRtpStreamStats.timestamp", "timestamp")}}
-  - : Ein {{domxref("DOMHighResTimeStamp")}}-Objekt, das den Zeitpunkt angibt, zu dem die Probe für dieses Statistikobjekt entnommen wurde.
-- {{domxref("RTCOutboundRtpStreamStats.type", "type")}}
+<!-- RTCStats -->
+
+- [`id`](/de/docs/Web/API/RTCOutboundRtpStreamStats/id)
+  - : Eine Zeichenfolge, die das Objekt, das überwacht wird, um diesen Satz von Statistiken zu erstellen, eindeutig identifiziert.
+- [`timestamp`](/de/docs/Web/API/RTCOutboundRtpStreamStats/timestamp)
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das den Zeitpunkt angibt, zu dem die Probe für dieses Statistikobjekt entnommen wurde.
+- [`type`](/de/docs/Web/API/RTCOutboundRtpStreamStats/type)
   - : Eine Zeichenfolge mit dem Wert `"outbound-rtp"`, die den Typ der Statistiken angibt, die das Objekt enthält.
 
 ## Beispiele
@@ -73,4 +77,4 @@ Die folgenden Eigenschaften sind allen WebRTC-Statistikobjekten gemeinsam.
 
 ## Siehe auch
 
-- {{domxref("RTCStatsReport")}}
+- [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)

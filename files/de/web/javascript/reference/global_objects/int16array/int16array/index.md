@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`Int16Array()`** Konstruktor erstellt {{jsxref("Int16Array")}} Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`Int16Array()`** Konstruktor erstellt {{jsxref("Int16Array")}} Objekte. Der Inhalt wird mit `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ new Int16Array(buffer, byteOffset)
 new Int16Array(buffer, byteOffset, length)
 ```
 
-> **Note:** `Int16Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> **Note:** `Int16Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Der Versuch, es ohne `new` aufzurufen, führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -34,30 +34,30 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Möglichkeiten, eine Int16Array zu erstellen
+### Verschiedene Möglichkeiten, ein Int16Array zu erstellen
 
 ```js
-// Aus einer Länge
+// From a length
 const int16 = new Int16Array(2);
 int16[0] = 42;
 console.log(int16[0]); // 42
 console.log(int16.length); // 2
 console.log(int16.BYTES_PER_ELEMENT); // 2
 
-// Aus einem Array
+// From an array
 const x = new Int16Array([21, 31]);
 console.log(x[1]); // 31
 
-// Aus einem anderen TypedArray
+// From another TypedArray
 const y = new Int16Array(x);
 console.log(y[0]); // 21
 
-// Aus einem ArrayBuffer
+// From an ArrayBuffer
 const buffer = new ArrayBuffer(16);
 const z = new Int16Array(buffer, 2, 4);
 console.log(z.byteOffset); // 2
 
-// Aus einem iterierbaren Objekt
+// From an iterable
 const iterable = (function* () {
   yield* [1, 2, 3];
 })();

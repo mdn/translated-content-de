@@ -1,20 +1,20 @@
 ---
-title: "GPUDevice: destroy()-Methode"
+title: "GPUDevice: destroy() Methode"
 short-title: destroy()
 slug: Web/API/GPUDevice/destroy
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`destroy()`**-Methode der {{domxref("GPUDevice")}}-Schnittstelle zerstört das Gerät und verhindert weitere Operationen darauf.
+Die **`destroy()`** Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle zerstört das Gerät und verhindert weitere Operationen darauf.
 
-Beachten Sie:
+Beachten Sie, dass:
 
-- Alle derzeit im Gerätspeicher {{domxref("GPUQueue")}} eingereihten Befehle werden ausgeführt, bevor das Gerät zerstört wird.
-- Alle mit dem Gerät erstellten WebGPU-Ressourcen (Puffer, Texturen usw.) werden ebenfalls zerstört.
-- Alle mit dem Gerät erstellten gemappten Puffer werden deaktiviert.
+- Alle aktuell für die [`GPUQueue`](/de/docs/Web/API/GPUQueue) des Geräts anstehenden Befehle ausgeführt werden, bevor das Gerät zerstört wird.
+- Alle mit dem Gerät erstellten WebGPU-Ressourcen (Buffern, Texturen usw.) ebenfalls zerstört werden.
+- Alle mit dem Gerät erstellten gemappten Buffer ungemappt werden.
 
 ## Syntax
 
@@ -28,24 +28,24 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ```js
 async function init() {
   if (!navigator.gpu) {
-    throw Error("WebGPU nicht unterstützt.");
+    throw Error("WebGPU not supported.");
   }
 
   const adapter = await navigator.gpu.requestAdapter();
   if (!adapter) {
-    throw Error("Konnte keinen WebGPU-Adapter anfordern.");
+    throw Error("Couldn't request WebGPU adapter.");
   }
 
   let device = await adapter.requestDevice();
 
-  // Einige Zeit später
+  // Some time later
 
   device.destroy();
 }
@@ -61,4 +61,4 @@ async function init() {
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

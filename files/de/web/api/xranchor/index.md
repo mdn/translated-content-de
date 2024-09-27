@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-Das **`XRAnchor`**-Interface erstellt Anker, die eine Pose verfolgen, die relativ zur realen Welt fest bleibt. Mit Ankern können Sie Posen in der Welt angeben, die aktualisiert werden müssen, um das sich entwickelnde Verständnis der Welt korrekt widerzuspiegeln, sodass die Posen mit derselben Stelle in der physischen Welt übereinstimmen. Das hilft, die Illusion zu schaffen, dass die platzierten Objekte wirklich in der Umgebung des Benutzers vorhanden sind.
+Das **`XRAnchor`**-Interface erstellt Anker, die die Pose verfolgen, die relativ zur realen Welt fixiert ist. Mit Ankern können Sie Posen in der Welt angeben, die aktualisiert werden müssen, um das sich entwickelnde Verständnis der Welt korrekt widerzuspiegeln, sodass die Posen mit dem gleichen Ort in der physischen Welt ausgerichtet bleiben. Das hilft, die Illusion zu erzeugen, dass die platzierten Objekte wirklich in der Umgebung des Benutzers vorhanden sind.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{domxref("XRAnchor.anchorSpace")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein {{domxref("XRSpace")}}-Objekt zurück, um den Anker relativ zu anderen `XRSpace`-Objekten zu lokalisieren.
+- [`XRAnchor.anchorSpace`](/de/docs/Web/API/XRAnchor/anchorSpace) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt ein [`XRSpace`](/de/docs/Web/API/XRSpace)-Objekt zurück, um den Anker relativ zu anderen `XRSpace`-Objekten zu lokalisieren.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("XRAnchor.delete()")}} {{Experimental_Inline}}
+- [`XRAnchor.delete()`](/de/docs/Web/API/XRAnchor/delete) {{Experimental_Inline}}
   - : Entfernt den Anker.
 
 ## Beispiele
@@ -31,12 +31,12 @@ navigator.xr.requestSession("immersive-ar", {
 
 ### Hinzufügen von Ankern
 
-Sie können {{domxref("XRFrame.createAnchor()")}} verwenden, um einen Anker zu erstellen.
+Sie können [`XRFrame.createAnchor()`](/de/docs/Web/API/XRFrame/createAnchor) verwenden, um einen Anker zu erstellen.
 
 ```js
 frame.createAnchor(anchorPose, referenceSpace).then(
   (anchor) => {
-    // Arbeiten Sie mit dem Anker (Weisen Sie Objekte zu, die relativ zu diesem Anker sein werden)
+    // Do stuff with the anchor (assign objects that will be relative to this anchor)
   },
   (error) => {
     console.error(`Could not create anchor: ${error}`);
@@ -48,13 +48,13 @@ frame.createAnchor(anchorPose, referenceSpace).then(
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("XRAnchorSet")}}
-- {{domxref("XRFrame.createAnchor()")}}
-- {{domxref("XRFrame.trackedAnchors")}}
-- {{domxref("XRHitTestResult.createAnchor()")}}
+- [`XRAnchorSet`](/de/docs/Web/API/XRAnchorSet)
+- [`XRFrame.createAnchor()`](/de/docs/Web/API/XRFrame/createAnchor)
+- [`XRFrame.trackedAnchors`](/de/docs/Web/API/XRFrame/trackedAnchors)
+- [`XRHitTestResult.createAnchor()`](/de/docs/Web/API/XRHitTestResult/createAnchor)

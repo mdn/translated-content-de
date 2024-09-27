@@ -7,23 +7,23 @@ l10n:
 
 {{CSSRef}}
 
-Die **`border-image-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quellbild fest, das verwendet wird, um das [Rahmenbild](/de/docs/Web/CSS/border-image) eines Elements zu erstellen.
+Die **`border-image-source`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Quellbild fest, das verwendet wird, um das [Border Image](/de/docs/Web/CSS/border-image) eines Elements zu erstellen.
 
 {{EmbedInteractiveExample("pages/css/border-image-source.html")}}
 
-Die {{cssxref("border-image-slice")}} Eigenschaft wird verwendet, um das Quellbild in Bereiche zu unterteilen, die dann dynamisch auf das endgültige Rahmenbild angewendet werden.
+Die {{cssxref("border-image-slice")}} Eigenschaft wird verwendet, um das Quellbild in Regionen zu unterteilen, die dann dynamisch auf das endgültige Border Image angewendet werden.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwert */
+/* Keyword value */
 border-image-source: none;
 
-/* <image> Werte */
+/* <image> values */
 border-image-source: url(image.jpg);
 border-image-source: linear-gradient(to top, red, yellow);
 
-/* Globale Werte */
+/* Global values */
 border-image-source: inherit;
 border-image-source: initial;
 border-image-source: revert;
@@ -34,9 +34,9 @@ border-image-source: unset;
 ### Werte
 
 - `none`
-  - : Es wird kein Rahmenbild verwendet. Stattdessen wird das durch {{cssxref("border-style")}} definierte Aussehen angezeigt.
+  - : Es wird kein Border Image verwendet. Stattdessen wird das durch {{cssxref("border-style")}} definierte Aussehen angezeigt.
 - {{cssxref("&lt;image&gt;")}}
-  - : Bildreferenz, die für den Rahmen verwendet werden soll.
+  - : Bildreferenz, die für den Rand verwendet werden soll.
 
 ## Formale Definition
 
@@ -60,7 +60,7 @@ border-image-source: unset;
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -71,4 +71,4 @@ border-image-source: unset;
 - {{cssxref("box-shadow")}}
 - {{cssxref("background-image")}}
 - {{cssxref("url_value", "&lt;url&gt;")}} Typ
-- [Rahmenbilder in CSS: Ein Schwerpunktthema für Interop 2023](/en-US/blog/border-images-interop-2023/) auf dem MDN-Blog (2023)
+- [Border Images in CSS: Ein Schlüsselbereich für Interop 2023](/en-US/blog/border-images-interop-2023/) im MDN-Blog (2023)

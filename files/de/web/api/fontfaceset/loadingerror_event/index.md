@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Das `loadingerror`-Ereignis wird ausgelöst, wenn Schriften fertig geladen sind, jedoch einige oder alle Schriften nicht geladen werden konnten.
+Das `loadingerror`-Ereignis wird ausgelöst, wenn Schriften fertig geladen wurden, aber einige oder alle Schriften nicht geladen werden konnten.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("loadingerror", (event) => {});
@@ -22,7 +22,7 @@ onloadingerror = (event) => {};
 
 ## Beispiel
 
-Im folgenden Beispiel wird "Font loading error" in die Konsole gedruckt, wenn die Schriftart `Ephesis` nicht geladen werden kann.
+Im folgenden Beispiel, wenn die Schriftart `Ephesis` nicht geladen werden kann, wird "Font loading error" in die Konsole ausgegeben.
 
 ```js
 document.fonts.onloadingerror = () => {

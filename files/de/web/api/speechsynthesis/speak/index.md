@@ -1,5 +1,5 @@
 ---
-title: "SpeechSynthesis: speak()-Methode"
+title: "SpeechSynthesis: speak() Methode"
 short-title: speak()
 slug: Web/API/SpeechSynthesis/speak
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`speak()`**-Methode der {{domxref("SpeechSynthesis")}}-Schnittstelle fügt eine {{domxref("SpeechSynthesisUtterance", "Äußerung")}} zur Äußerungsschlange hinzu; sie wird gesprochen, wenn alle anderen zuvor in die Schlange eingereihten Äußerungen ausgesprochen wurden.
+Die **`speak()`** Methode der [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Schnittstelle fügt eine [`utterance`](/de/docs/Web/API/SpeechSynthesisUtterance) zur `utterance`-Warteschlange hinzu; sie wird gesprochen, wenn alle anderen vorher in der Warteschlange befindlichen Äußerungen gesprochen worden sind.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ speak(utterance)
 ### Parameter
 
 - `utterance`
-  - : Ein {{domxref("SpeechSynthesisUtterance")}}-Objekt.
+  - : Ein [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance)-Objekt.
 
 ### Rückgabewert
 
@@ -27,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieser Ausschnitt stammt aus unserem [Sprachsynthesizer-Demo](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speak-easy-synthesis/script.js) ([live ansehen](https://mdn.github.io/dom-examples/web-speech-api/speak-easy-synthesis/)). Wenn ein Formular, das den zu sprechenden Text enthält, übermittelt wird, erstellen wir (unter anderem) eine neue Äußerung, die diesen Text enthält, und sprechen sie, indem wir sie als Parameter in `speak()` übergeben.
+Dieses Snippet stammt aus unserem [Sprachsynthesizer-Demo](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speak-easy-synthesis/script.js) ([live ansehen](https://mdn.github.io/dom-examples/web-speech-api/speak-easy-synthesis/)). Wenn ein Formular, das den zu sprechenden Text enthält, abgeschickt wird, erstellen wir (unter anderem) eine neue Äußerung mit diesem Text und sprechen sie, indem wir sie als Parameter in `speak()` übergeben.
 
 ```js
 const synth = window.speechSynthesis;

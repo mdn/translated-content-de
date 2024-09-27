@@ -1,5 +1,5 @@
 ---
-title: "BluetoothRemoteGATTCharacteristic: getDescriptors() Methode"
+title: "BluetoothRemoteGATTCharacteristic: getDescriptors()-Methode"
 short-title: getDescriptors()
 slug: Web/API/BluetoothRemoteGATTCharacteristic/getDescriptors
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`BluetoothRemoteGATTCharacteristic.getDescriptors()`** Methode
-gibt ein {{jsxref("Promise")}} zurück, das zu einem {{jsxref("Array")}} aller
-{{domxref("BluetoothRemoteGATTDescriptor")}} Objekte für eine gegebene Descriptor-UUID aufgelöst wird.
+Die **`BluetoothRemoteGATTCharacteristic.getDescriptors()`**-Methode
+gibt ein {{jsxref("Promise")}} zurück, das zu einem {{jsxref("Array")}} von
+[`BluetoothRemoteGATTDescriptor`](/de/docs/Web/API/BluetoothRemoteGATTDescriptor)-Objekten für eine gegebene Deskriptor-UUID aufgelöst wird.
 
 ## Syntax
 
@@ -24,7 +24,8 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einem {{jsxref("Array")}} von {{domxref("BluetoothRemoteGATTDescriptor")}} Objekten aufgelöst wird.
+Ein {{jsxref("Promise")}}, das zu einem {{jsxref("Array")}}
+von [`BluetoothRemoteGATTDescriptor`](/de/docs/Web/API/BluetoothRemoteGATTDescriptor)-Objekten aufgelöst wird.
 
 ## Spezifikationen
 

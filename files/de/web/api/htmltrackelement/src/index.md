@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLTrackElement.src`**-Eigenschaft spiegelt den Wert des `src`-Attributs des {{HTMLElement("track")}}-Elements wider, welches die URL der Textspur-Daten angibt.
+Die **`HTMLTrackElement.src`**-Eigenschaft spiegelt den Wert des [`src`](/de/docs/Web/HTML/Element/track#src)-Attributs des {{HTMLElement("track")}}-Elements wider, das die URL der Textspur-Daten angibt.
 
 ## Wert
 
@@ -30,5 +30,5 @@ Ein String, der die URL der Textspur-Daten enthält.
 
 ## Siehe auch
 
-- {{domxref("HTMLTrackElement")}}: Schnittstelle zur Definition der `HTMLTrackElement.src`-Eigenschaft
+- [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement): Schnittstelle, die verwendet wird, um die `HTMLTrackElement.src`-Eigenschaft zu definieren
 - {{HTMLElement("track")}}

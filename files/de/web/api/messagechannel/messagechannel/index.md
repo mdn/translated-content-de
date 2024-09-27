@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Der **`MessageChannel()`** Konstruktor des {{domxref("MessageChannel")}} Interfaces gibt ein neues {{domxref("MessageChannel")}} Objekt mit zwei neuen {{domxref("MessagePort")}} Objekten zurück.
+Der **`MessageChannel()`** Konstruktor der [`MessageChannel`](/de/docs/Web/API/MessageChannel)-Schnittstelle gibt ein neues [`MessageChannel`](/de/docs/Web/API/MessageChannel)-Objekt mit zwei neuen [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten zurück.
 
 ## Syntax
 
@@ -22,15 +22,11 @@ Keine ({{jsxref("undefined")}}).
 
 ### Rückgabewert
 
-Ein neues {{domxref("MessageChannel")}} Objekt.
+Ein neues [`MessageChannel`](/de/docs/Web/API/MessageChannel)-Objekt.
 
 ## Beispiele
 
-Im folgenden Codeblock sehen Sie, wie ein neuer Kanal mit dem `MessageChannel()` Konstruktor erstellt wird.
-Wenn das {{HTMLElement("iframe")}} geladen ist,
-übergeben wir {{domxref("MessageChannel.port2", "port2")}} an das `<iframe>` mit {{domxref("MessagePort.postMessage")}} zusammen mit einer Nachricht.
-Der `handleMessage` Handler reagiert dann auf eine Nachricht, die vom `<iframe>` zurückgesendet wird (unter Verwendung von {{domxref("MessagePort.message_event", "onmessage")}}) und platziert sie in einem Absatz.
-Es wird auf {{domxref("MessageChannel.port1", "port1")}} gehört, um zu prüfen, wann die Nachricht ankommt.
+Im folgenden Codeblock sehen Sie, wie ein neuer Kanal mit dem `MessageChannel()` Konstruktor erstellt wird. Wenn das {{HTMLElement("iframe")}} geladen ist, übergeben wir [`port2`](/de/docs/Web/API/MessageChannel/port2) an das `<iframe>` mit [`MessagePort.postMessage`](/de/docs/Web/API/MessagePort/postMessage) zusammen mit einer Nachricht. Der `handleMessage`-Handler antwortet dann auf eine Nachricht, die vom `<iframe>` zurückgesendet wird (unter Verwendung von [`onmessage`](/de/docs/Web/API/MessagePort/message_event)), indem er sie in einen Absatz einfügt. [`port1`](/de/docs/Web/API/MessageChannel/port1) wird überwacht, um zu prüfen, wann die Nachricht eintrifft.
 
 ```js
 const channel = new MessageChannel();
@@ -51,9 +47,7 @@ function handleMessage(e) {
 }
 ```
 
-Für ein vollständiges funktionierendes Beispiel,
-sehen Sie sich unser [Grundlegendes Demoprojekt zur Kanalübermittlung](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic)
-auf GitHub an ([auch live ausführen](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
+Für ein vollständiges funktionierendes Beispiel, sehen Sie sich unser [Channel Messaging Basis Demo](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub an ([führen Sie es auch live aus](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
 
 ## Spezifikationen
 
@@ -65,4 +59,4 @@ auf GitHub an ([auch live ausführen](https://mdn.github.io/dom-examples/channel
 
 ## Siehe auch
 
-- [Verwendung der Kanalübermittlung](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwendung von Channel Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

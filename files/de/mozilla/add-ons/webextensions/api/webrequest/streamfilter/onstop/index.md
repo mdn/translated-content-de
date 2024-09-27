@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein Event-Handler, der aufgerufen wird, wenn der Stream keine Daten mehr zur Verfügung hat. Im Event-Handler können Sie weiterhin Filterfunktionen wie {{WebExtAPIRef("webRequest.StreamFilter.write()", "write()")}}, {{WebExtAPIRef("webRequest.StreamFilter.disconnect()", "disconnect()")}} oder {{WebExtAPIRef("webRequest.StreamFilter.close()", "close()")}} verwenden.
+Ein Event-Handler, der aufgerufen wird, wenn der Stream keine Daten mehr zum Liefern hat. Im Event-Handler können Sie weiterhin Filterfunktionen wie {{WebExtAPIRef("webRequest.StreamFilter.write()", "write()")}}, {{WebExtAPIRef("webRequest.StreamFilter.disconnect()", "disconnect()")}} oder {{WebExtAPIRef("webRequest.StreamFilter.close()", "close()")}} aufrufen.
 
 ## Browser-Kompatibilität
 
@@ -15,7 +15,7 @@ Ein Event-Handler, der aufgerufen wird, wenn der Stream keine Daten mehr zur Ver
 
 ## Beispiele
 
-Dieses Beispiel fügt der Antwort "extra stuff" hinzu:
+Dieses Beispiel wird "extra stuff" an die Antwort anhängen:
 
 ```js
 function listener(details) {
@@ -40,7 +40,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Hier ist eine andere Version des obigen Beispiels:
+Hier ist eine weitere Version des obigen Beispiels:
 
 ```js
 function listener(details) {

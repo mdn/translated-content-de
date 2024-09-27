@@ -3,12 +3,13 @@ title: "WebSocketStream: url-Eigenschaft"
 short-title: url
 slug: Web/API/WebSocketStream/url
 l10n:
-  sourceCommit: bd8dbe863a306cf7114752bd936d012524b13517
+  sourceCommit: fb311d7305937497570966f015d8cc0eb1a0c29c
 ---
 
-{{APIRef("WebSockets API")}}{{SeeCompatTable}}
+{{APIRef("WebSockets API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`url`**-Eigenschaft der {{domxref("WebSocketStream")}}-Schnittstelle gibt die URL des WebSocket-Servers zurück, mit dem die `WebSocketStream`-Instanz erstellt wurde.
+Die **`url`** schreibgeschützte Eigenschaft der
+[`WebSocketStream`](/de/docs/Web/API/WebSocketStream)-Schnittstelle gibt die URL des WebSocket-Servers zurück, mit dem die `WebSocketStream`-Instanz erstellt wurde.
 
 ## Wert
 
@@ -19,13 +20,13 @@ Ein String.
 ```js
 const wss = new WebSocketStream("wss://example.com/wss");
 
-// Gibt "example.com/wss" in der Konsole aus
+// Logs "example.com/wss" to the console
 console.log(wss.url);
 ```
 
 ## Spezifikationen
 
-Derzeit nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/websockets/pull/48 für den Standardisierungsfortschritt.
+Gegenwärtig nicht Teil einer Spezifikation. Siehe https://github.com/whatwg/websockets/pull/48 für den Standardisierungsfortschritt.
 
 ## Browser-Kompatibilität
 

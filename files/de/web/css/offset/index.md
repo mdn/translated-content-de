@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`offset`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt alle erforderlichen Eigenschaften fest, um ein Element entlang eines definierten Pfads zu animieren. Die Offset-Eigenschaften helfen zusammen, eine _Offset-Transformation_ zu definieren, eine [Transformierung](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms), die einen Punkt in einem Element ([offset-anchor](/de/docs/Web/CSS/offset-anchor)) zu einer _Offset-Position_ ([offset-position](/de/docs/Web/CSS/offset-position)) auf einem Pfad ([offset-path](/de/docs/Web/CSS/offset-path)) an verschiedenen Punkten entlang des Pfads ([offset-distance](/de/docs/Web/CSS/offset-distance)) ausrichtet und optional das Element dreht ([offset-rotate](/de/docs/Web/CSS/offset-rotate)), um der Richtung des Pfads zu folgen.
+Die **`offset`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt alle Eigenschaften fest, die zur Animation eines Elements entlang eines definierten Pfads erforderlich sind. Die Offset-Eigenschaften tragen zusammen dazu bei, eine _Offset-Transformation_ zu definieren, eine [Transformations](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms), die einen Punkt in einem Element ([offset-anchor](/de/docs/Web/CSS/offset-anchor)) an eine _Offset-Position_ ([offset-position](/de/docs/Web/CSS/offset-position)) auf einem Pfad ([offset-path](/de/docs/Web/CSS/offset-path)) an verschiedenen Stellen entlang des Pfads ([offset-distance](/de/docs/Web/CSS/offset-distance)) ausrichtet und optional das Element ([offset-rotate](/de/docs/Web/CSS/offset-rotate)) dreht, um der Richtung des Pfads zu folgen.
 
 > [!NOTE]
-> Frühe Versionen der Spezifikation nannten diese Eigenschaft `motion`.
+> Frühere Versionen der Spezifikation nannten diese Eigenschaft `motion`.
 
 {{EmbedInteractiveExample("pages/css/offset.html")}}
 
-## Zusammenhängende Eigenschaften
+## Bestandteile
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -27,28 +27,28 @@ Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften
 ## Syntax
 
 ```css
-/* Offset-Position */
+/* Offset position */
 offset: auto;
 offset: 10px 30px;
 offset: none;
 
-/* Offset-Pfad */
+/* Offset path */
 offset: ray(45deg closest-side);
 offset: path("M 100 100 L 300 100 L 200 300 z");
 offset: url(arc.svg);
 
-/* Offset-Pfad mit Abstand und/oder Rotation */
+/* Offset path with distance and/or rotation */
 offset: url(circle.svg) 100px;
 offset: url(circle.svg) 40%;
 offset: url(circle.svg) 30deg;
 offset: url(circle.svg) 50px 20deg;
 
-/* Einschließlich Offset-Anker */
+/* Including offset anchor */
 offset: ray(45deg closest-side) / 40px 20px;
 offset: url(arc.svg) 2cm / 0.5cm 3cm;
 offset: url(arc.svg) 30deg / 50px 100px;
 
-/* Globale Werte */
+/* Global values */
 offset: inherit;
 offset: initial;
 offset: revert;

@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Der **`:buffering`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) Selektor repräsentiert ein Element, das abspielbar ist, wie z.B. ein {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn das abspielbare Element eine Medienressource puffert.
+Der **`:buffering`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein Element, das abspielbar ist, wie beispielsweise {{htmlelement("audio")}} oder {{htmlelement("video")}}, wenn das abspielbare Element eine Medienressource puffert.
 
-Ein Element wird als puffernd betrachtet, wenn es nicht weiterspielen kann, weil es versucht, Medieninhalte zu laden, aber noch nicht genügend Daten hat, um die Wiedergabe zu beginnen oder fortzusetzen. Für weitere Informationen siehe den Leitfaden zu [Medienpufferung, -suche und Zeitbereiche](/de/docs/Web/Media/Audio_and_video_delivery/buffering_seeking_time_ranges#seekable).
+Ein Element wird als puffern angesehen, wenn es nicht weiter abgespielt werden kann, weil es versucht, Mediendaten zu laden, aber noch nicht genügend Daten hat, um die Wiedergabe zu beginnen oder fortzusetzen. Für weitere Informationen siehe den [Leitfaden zu Media-Buffering, Suchen und Zeitbereichen](/de/docs/Web/Media/Audio_and_video_delivery/buffering_seeking_time_ranges#seekable).
 
 > [!NOTE]
-> Ein Element wird weiterhin als {{cssxref(":playing")}} betrachtet, wenn es "puffert".
-> Wenn `:buffering` einem Element entspricht, wird `:playing` ebenfalls diesem Element entsprechen.
+> Ein Element wird immer noch als {{cssxref(":playing")}} angesehen, wenn es „puffert“.
+> Wenn `:buffering` zu einem Element passt, wird `:playing` auch zu diesem Element passen.
 
 ## Syntax
 
@@ -41,7 +41,7 @@ video:buffering {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -53,4 +53,4 @@ video:buffering {
 - {{cssxref(":seeking")}}
 - {{cssxref(":stalled")}}
 - {{cssxref(":volume-locked")}}
-- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors)
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)

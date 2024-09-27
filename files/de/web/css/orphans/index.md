@@ -1,5 +1,5 @@
 ---
-title: Orphans
+title: orphans
 slug: Web/CSS/orphans
 l10n:
   sourceCommit: c77cfcd17e85db6c1b93160c70668f2ff6c2809c
@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`orphans`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Mindestanzahl von Zeilen in einem Blockcontainer fest, die am _unteren_ Rand einer [Seite](/de/docs/Web/CSS/CSS_paged_media), einer Region oder einer [Spalte](/de/docs/Web/CSS/CSS_multicol_layout) angezeigt werden müssen.
+Die **`orphans`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt die minimale Anzahl von Zeilen in einem Block-Container fest, die am _unteren_ Ende einer [Seite](/de/docs/Web/CSS/CSS_paged_media), eines Bereichs oder einer [Spalte](/de/docs/Web/CSS/CSS_multicol_layout) angezeigt werden müssen.
 
-In der Typografie ist eine _Waise_ die erste Zeile eines Absatzes, die allein am unteren Rand einer Seite erscheint. (Der Absatz wird auf der nächsten Seite fortgesetzt.)
+In der Typografie ist eine _Waise_ die erste Zeile eines Absatzes, die allein am unteren Ende einer Seite erscheint. (Der Absatz wird auf der folgenden Seite fortgesetzt.)
 
 ## Syntax
 
 ```css
-/* <integer> Werte */
+/* <integer> values */
 orphans: 2;
 orphans: 3;
 
-/* Globale Werte */
+/* Global values */
 orphans: inherit;
 orphans: initial;
 orphans: revert;
@@ -29,7 +29,7 @@ orphans: unset;
 ### Werte
 
 - {{cssxref("&lt;integer&gt;")}}
-  - : Die Mindestanzahl von Zeilen, die am unteren Rand eines Fragments ohne Unterbrechung verbleiben können. Der Wert muss positiv sein.
+  - : Die minimale Anzahl von Zeilen, die am unteren Ende eines Fragments allein stehen bleiben können, bevor ein Fragmentierungsbruch erfolgt. Der Wert muss positiv sein.
 
 ## Formale Definition
 
@@ -41,7 +41,7 @@ orphans: unset;
 
 ## Beispiele
 
-### Festlegen einer Mindestanzahl von drei Zeilen für Waisen
+### Festlegen einer minimalen Waisengröße von drei Zeilen
 
 #### HTML
 
@@ -93,4 +93,4 @@ p:first-child {
 ## Siehe auch
 
 - {{cssxref("widows")}}
-- [Seitenbezogene Medien](/de/docs/Web/CSS/CSS_paged_media)
+- [Paginierte Medien](/de/docs/Web/CSS/CSS_paged_media)

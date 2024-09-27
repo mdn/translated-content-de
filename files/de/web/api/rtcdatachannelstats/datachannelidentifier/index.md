@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`dataChannelIdentifier`**-Eigenschaft des {{domxref("RTCDataChannelStats")}}-Wörterbuchs enthält die {{domxref("RTCDataChannel.id", "id")}} des zugehörigen `RTCDataChannel`, das diese Statistiken bereitstellt.
+Die **`dataChannelIdentifier`**-Eigenschaft des [`RTCDataChannelStats`](/de/docs/Web/API/RTCDataChannelStats)-Wörterbuchs enthält die [`id`](/de/docs/Web/API/RTCDataChannel/id) des zugehörigen `RTCDataChannel`, das diese Statistik bereitstellt.
 
-Mit dem `dataChannelIdentifier` können Sie dieses Statistikobjekt mit einem bestimmten {{domxref("RTCDataChannel")}} in Verbindung bringen.
+Mit dem `dataChannelIdentifier` können Sie dieses Statistikobjekt einem bestimmten [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zuordnen.
 
 ## Wert
 
-Ein String, der denselben Wert wie die {{domxref("RTCDataChannel.id")}}-Eigenschaft des zugehörigen Datenkanals enthält.
+Ein String, der den gleichen Wert wie die [`RTCDataChannel.id`](/de/docs/Web/API/RTCDataChannel/id)-Eigenschaft des zugehörigen Datenkanals enthält.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

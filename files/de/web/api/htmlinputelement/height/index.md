@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`height`**-Eigenschaft des {{DOMxRef("HTMLInputElement")}}-Interfaces legt die Höhe eines Steuerelements fest. Sie spiegelt das [`height`](/de/docs/Web/HTML/Element/input#height)-Attribut des {{htmlelement("input")}}-Elements wider.
+Die **`height`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt die Höhe eines Steuerelements an. Sie spiegelt das [`height`](/de/docs/Web/HTML/Element/input#height)-Attribut des {{htmlelement("input")}}-Elements wider.
 
-Die `height`-Eigenschaft ist nur für den Typ [`image`](/de/docs/Web/HTML/Element/input/image) gültig. Sie definiert die vertikale Dimension des Bildbuttons in Pixeln. Wenn CSS-Größenangaben auf das Steuerelement angewendet werden, ist der Wert die Höhe des Inhaltsbereichs des gerenderten Steuerelements und nicht der Wert des `height`-Attributs. Wenn keine `height` festgelegt ist und CSS die Größe des Steuerelements nicht beeinflusst, entspricht die `height` der intrinsischen Höhe des Bildes. Wenn das Bild nicht geladen wurde, entspricht der Wert der Höhe des `alt`-Textes. Die `height` wird `0` sein, wenn die Höhe nicht bekannt ist; wenn keine `height` gesetzt ist, CSS die Höhe nicht beeinflusst, das Bild nicht geladen wurde und entweder der Wert von {{DOMxRef("HTMLInputElement.alt", "alt")}} der leere String ist oder kein `src` gesetzt ist.
+Die `height`-Eigenschaft ist nur für den Typ [`image`](/de/docs/Web/HTML/Element/input/image) gültig. Sie definiert die vertikale Dimension des Bildbuttons in Pixeln. Wenn CSS-Größeneigenschaften auf das Steuerelement angewendet werden, ist der Wert die Höhe des Inhaltsbereichs des gerenderten Steuerelements, nicht der Wert des `height`-Attributs. Wenn keine `height` festgelegt ist und CSS die Größe des Steuerelements nicht beeinflusst, wird die `height` die intrinsische Höhe des Bildes sein. Wenn das Bild nicht geladen wurde, wird der Wert die Höhe des `alt`-Texts sein. Die `height` wird `0` sein, wenn die Höhe nicht bekannt ist; wenn keine `height` festgelegt wurde, CSS die Höhe nicht beeinflusst, das Bild nicht geladen wurde und entweder der Wert des [`alt`](/de/docs/Web/API/HTMLInputElement/alt) leer ist oder kein `src` gesetzt ist.
 
 ## Wert
 
@@ -33,14 +33,14 @@ console.log(inputElement.height);
 
 ## Siehe auch
 
-- {{DOMxRef("HTMLInputElement.width")}}
-- {{DOMxRef("HTMLInputElement.src")}}
-- {{DOMxRef("HTMLInputElement.alt")}}
-- {{DOMXref("HTMLButtonElement")}}
+- [`HTMLInputElement.width`](/de/docs/Web/API/HTMLInputElement/width)
+- [`HTMLInputElement.src`](/de/docs/Web/API/HTMLInputElement/src)
+- [`HTMLInputElement.alt`](/de/docs/Web/API/HTMLInputElement/alt)
+- [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)
 - {{HTMLElement("button")}}
 - {{HTMLElement("input")}}
 - {{HTMLElement("img")}}
-- CSS-{{CSSXRef("inline-size")}}-Eigenschaft
-- CSS-{{CSSXRef("height")}}-Eigenschaft
-- CSS-{{CSSXRef("aspect-ratio")}}-Eigenschaft
-- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_sizing) Modul
+- CSS {{CSSXRef("inline-size")}}-Eigenschaft
+- CSS {{CSSXRef("height")}}-Eigenschaft
+- CSS {{CSSXRef("aspect-ratio")}}-Eigenschaft
+- [CSS Boxmodell](/de/docs/Web/CSS/CSS_box_sizing)-Modul

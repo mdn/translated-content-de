@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Trust On First Use** **(TOFU)** ist ein Sicherheitsmodell, bei dem ein Client eine Vertrauensbeziehung mit einem unbekannten Server aufbauen muss. Dazu wird der Client nach Identifikatoren (zum Beispiel öffentliche Schlüssel) suchen, die lokal gespeichert sind. Wenn ein Identifikator gefunden wird, kann der Client die Verbindung herstellen. Wird kein Identifikator gefunden, kann der Client den Benutzer auffordern zu entscheiden, ob der Client dem Identifikator vertrauen soll.
+**Trust On First Use** **(TOFU**) ist ein Sicherheitsmodell, bei dem ein Client eine Vertrauensbeziehung zu einem unbekannten Server aufbauen muss. Dazu sucht der Client nach Identifikatoren (zum Beispiel öffentliche Schlüssel), die lokal gespeichert sind. Wenn ein Identifikator gefunden wird, kann der Client die Verbindung herstellen. Wird kein Identifikator gefunden, kann der Client den Benutzer auffordern zu entscheiden, ob der Client dem Identifikator vertrauen soll.
 
-TOFU wird im SSH-Protokoll verwendet, im {{HTTPHeader("Strict-Transport-Security")}} ({{Glossary("HSTS")}}), wo ein Browser der Umleitungsregel folgen wird.
+TOFU wird im SSH-Protokoll verwendet, in {{HTTPHeader("Strict-Transport-Security")}} ([HSTS](/de/docs/Glossary/HSTS)), wo ein Browser die Umleitungsregel befolgen wird.
 
 ## Siehe auch
 

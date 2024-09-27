@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Das **`::view-transition-image-pair`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) stellt einen Container für die "alten" und "neuen" Ansichten eines [Ansichtsübergangs](/de/docs/Web/API/View_Transitions_API) dar – vor und nach dem Übergang.
+Der **`::view-transition-image-pair`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) stellt einen Container für die "alte" und "neue" Ansichtszustände eines [Ansichtsübergangs](/de/docs/Web/API/View_Transitions_API) dar — vor und nach dem Übergang.
 
-Während eines Ansichtsübergangs wird `::view-transition-image-pair` in den zugehörigen Pseudoelement-Baum eingeschlossen, wie in [The view transition pseudo-element tree](/de/docs/Web/API/View_Transitions_API/Using#the_view_transition_pseudo-element_tree) erklärt. Es ist immer nur ein Kind von {{cssxref("::view-transition-group")}}. In Bezug auf Kinder kann es ein {{cssxref("::view-transition-new")}} oder ein {{cssxref("::view-transition-old")}} oder beides haben.
+Während eines Ansichtsübergangs ist `::view-transition-image-pair` in dem zugehörigen Pseudoelement-Baum enthalten, wie in [Der Pseudoelement-Baum des Ansichtsübergangs](/de/docs/Web/API/View_Transitions_API/Using#the_view_transition_pseudo-element_tree) erklärt. Es ist immer ein Kind von einem {{cssxref("::view-transition-group")}}. In Bezug auf Kinder kann es ein {{cssxref("::view-transition-new")}} oder ein {{cssxref("::view-transition-old")}}, oder beides, haben.
 
-`::view-transition-image-pair` erhält die folgende Standard-Stilgebung im UA-Stylesheet:
+`::view-transition-image-pair` erhält die folgende Standardstilgebung im UA-Stylesheet:
 
 ```css
 :root::view-transition-image-pair(*) {
@@ -24,7 +24,7 @@ Während eines Ansichtsübergangs wird `::view-transition-image-pair` in den zug
 }
 ```
 
-Während eines Ansichtsübergangs ist für `::view-transition-image-pair` {{cssxref("isolation", "isolation: isolate")}} in der Stilgebung des Ansichtsübergangs festgelegt, sodass seine Kinder mit nicht-normalen Mischmodi gemischt werden können, ohne andere visuelle Ausgaben zu beeinflussen.
+Während eines Ansichtsübergangs hat `::view-transition-image-pair` {{cssxref("isolation", "isolation: isolate")}}, damit seine Kinder mit nicht-normalen Mischmodi ohne Beeinträchtigung anderer visueller Ausgaben gemischt werden können.
 
 ## Syntax
 
@@ -39,9 +39,9 @@ Während eines Ansichtsübergangs ist für `::view-transition-image-pair` {{cssx
 - `*`
   - : Bewirkt, dass das Pseudoelement mit allen Ansichtsübergangsgruppen übereinstimmt.
 - `root`
-  - : Bewirkt, dass das Pseudoelement mit der Standardgruppe `root` übereinstimmt, die vom Benutzeragenten erstellt wurde, um den Ansichtsübergang für die gesamte Seite zu enthalten. Diese Gruppe umfasst jedes Element, das nicht über die Eigenschaft {{cssxref("view-transition-name")}} einer eigenen spezifischen Ansichtsübergangsgruppe zugewiesen wurde.
+  - : Bewirkt, dass das Pseudoelement mit der standardmäßigen `root`-Ansichtsübergangsgruppe übereinstimmt, die vom User-Agent erstellt wurde, um den Ansichtsübergang für die gesamte Seite zu enthalten. Diese Gruppe umfasst alle Elemente, die nicht über die {{cssxref("view-transition-name")}} Eigenschaft einer eigenen spezifischen Ansichtsübergangsgruppe zugewiesen wurden.
 - {{cssxref("custom-ident")}}
-  - : Bewirkt, dass das Pseudoelement mit einer bestimmten Ansichtsübergangsgruppe übereinstimmt, die durch Zuordnung des gegebenen {{cssxref("custom-ident")}} zu einem Element über die Eigenschaft {{cssxref("view-transition-name")}} erstellt wurde.
+  - : Bewirkt, dass das Pseudoelement mit einer spezifischen Ansichtsübergangsgruppe übereinstimmt, die durch die Zuweisung des gegebenen {{cssxref("custom-ident")}} zu einem Element über die {{cssxref("view-transition-name")}} Eigenschaft erstellt wurde.
 
 ## Beispiele
 
@@ -55,7 +55,7 @@ Während eines Ansichtsübergangs ist für `::view-transition-image-pair` {{cssx
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

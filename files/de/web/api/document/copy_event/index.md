@@ -1,6 +1,6 @@
 ---
-title: "Dokument: Kopiervorgang Ereignis"
-short-title: kopieren
+title: "Dokument: copy Ereignis"
+short-title: copy
 slug: Web/API/Document/copy_event
 l10n:
   sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
@@ -8,43 +8,25 @@ l10n:
 
 {{APIRef}}
 
-Das **`copy`** Ereignis wird ausgelöst, wenn der Benutzer über die Benutzeroberfläche des Browsers einen Kopiervorgang initiiert.
+Das **`copy`** Ereignis wird ausgelöst, wenn der Benutzer eine Kopieraktion über die Benutzeroberfläche des Browsers initiiert.
 
-Das ursprüngliche Ziel dieses Ereignisses ist das {{domxref("Element")}}, das das beabsichtigte Ziel der Kopieraktion war. Sie können auf dieses Ereignis in der {{domxref("Document")}}-Schnittstelle hören, um es in den Erfassungs- oder Bubbling-Phasen zu behandeln. Für vollständige Details zu diesem Ereignis lesen Sie bitte die Seite zum [Element: Kopiervorgang Ereignis](/de/docs/Web/API/Element/copy_event).
+Das ursprüngliche Ziel für dieses Ereignis ist das [`Element`](/de/docs/Web/API/Element), das das beabsichtigte Ziel der Kopieraktion war. Sie können dieses Ereignis auf der [`Document`](/de/docs/Web/API/Document) Schnittstelle abhören, um es in den Capture- oder Bubbling-Phasen zu behandeln. Für vollständige Details zu diesem Ereignis siehe die Seite über das [Element: copy Ereignis](/de/docs/Web/API/Element/copy_event).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
-
-```js
-addEventListener("copy", (event) => {});
-
-oncopy = (event) => {};
-```
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ## Ereignistyp
 
-Ein {{domxref("ClipboardEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ClipboardEvent`](/de/docs/Web/API/ClipboardEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ClipboardEvent")}}
 
 ## Beispiele
 
-Um informiert zu werden, wenn ein Benutzer Daten von der Webseite in seine Zwischenablage kopiert, können Sie Ihrem {{domxref("Document")}}-Instanz einen Handler hinzufügen, indem Sie {{domxref("EventTarget.addEventListener", "addEventListener()")}} verwenden, wie folgt:
+Um informiert zu werden, wenn ein Benutzer Daten von der Webseite in die Zwischenablage kopiert, können Sie einen Handler zu Ihrer [`Document`](/de/docs/Web/API/Document) Instanz mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzufügen, wie folgt:
 
-```js
-document.addEventListener("copy", (event) => {
-  /* the session has shut down */
-});
-```
-
-Alternativ können Sie die `Document.oncopy` Ereignishandler-Eigenschaft verwenden, um einen Handler für das `copy` Ereignis festzulegen:
-
-```js
-document.oncopy = (event) => {
-  /* the session has shut down */
-};
-```
+Alternativ können Sie die `Document.oncopy` Ereignishandler-Eigenschaft verwenden, um einen Handler für das `copy` Ereignis zu etablieren:
 
 ## Spezifikationen
 
@@ -56,6 +38,6 @@ document.oncopy = (event) => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("Document/cut_event", "cut")}}, {{domxref("Document/paste_event", "paste")}}
-- Dieses Ereignis auf {{domxref("Element")}}-Zielen: {{domxref("Element/copy_event", "copy")}}
-- Dieses Ereignis auf {{domxref("Window")}}-Zielen: {{domxref("Window/copy_event", "copy")}}
+- Verwandte Ereignisse: [`cut`](/de/docs/Web/API/Document/cut_event), [`paste`](/de/docs/Web/API/Document/paste_event)
+- Dieses Ereignis auf [`Element`](/de/docs/Web/API/Element) Zielen: [`copy`](/de/docs/Web/API/Element/copy_event)
+- Dieses Ereignis auf [`Window`](/de/docs/Web/API/Window) Zielen: [`copy`](/de/docs/Web/API/Window/copy_event)

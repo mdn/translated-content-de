@@ -1,5 +1,5 @@
 ---
-title: "<figcaption>: Das Figure Caption Element"
+title: "<figcaption>: Das Figure Caption-Element"
 slug: Web/HTML/Element/figcaption
 l10n:
   sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
@@ -7,17 +7,17 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<figcaption>`** [HTML](/de/docs/Web/HTML) Element repräsentiert eine Bildunterschrift oder Legende, die den Rest des Inhalts des übergeordneten {{HTMLElement("figure")}} Elements beschreibt und dem `<figure>` eine {{glossary("zugängliche Beschreibung")}} bietet.
+Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element stellt eine Beschriftung oder Legende dar, die den Rest des Inhalts seines übergeordneten {{HTMLElement("figure")}}-Elements beschreibt, und bietet dem `<figure>` eine [zugängliche Beschreibung](/de/docs/Glossary/accessible_description).
 
 {{EmbedInteractiveExample("pages/tabbed/figcaption.html","tabbed-shorter")}}
 
 ## Attribute
 
-Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Beispiele
 
-Bitte sehen Sie sich die Seite {{HTMLElement("figure")}} für Beispiele zu `<figcaption>` an.
+Bitte beachten Sie die {{HTMLElement("figure")}}-Seite für Beispiele zu `<figcaption>`.
 
 ## Technische Zusammenfassung
 
@@ -32,22 +32,22 @@ Bitte sehen Sie sich die Seite {{HTMLElement("figure")}} für Beispiele zu `<fig
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Ein {{HTMLElement("figure")}} Element; das
-        <code>&#x3C;figcaption></code> Element muss entweder das erste oder letzte Kind sein.
+        Ein {{HTMLElement("figure")}}-Element; das
+        <code>&#x3C;figcaption></code>-Element muss dessen erstes oder letztes Kind sein.
       </td>
     </tr>
     <tr>
@@ -67,7 +67,7 @@ Bitte sehen Sie sich die Seite {{HTMLElement("figure")}} für Beispiele zu `<fig
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLElement")}}</td>
+      <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
 </table>
@@ -82,4 +82,4 @@ Bitte sehen Sie sich die Seite {{HTMLElement("figure")}} für Beispiele zu `<fig
 
 ## Siehe auch
 
-- Das {{HTMLElement("figure")}} Element.
+- Das {{HTMLElement("figure")}}-Element.

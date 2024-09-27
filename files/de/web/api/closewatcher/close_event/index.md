@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}} {{SeeCompatTable}}
 
-Ein `close` Ereignis wird bei einem {{domxref("CloseWatcher")}} Objekt ausgelöst, wenn eine Schließe-Anforderung empfangen wurde und wird nur ausgelöst, wenn das vorhergehende {{domxref("CloseWatcher.cancel_event", "cancel")}} Ereignis nicht abgebrochen wurde.
+Ein `close` Ereignis wird an einem [`CloseWatcher`](/de/docs/Web/API/CloseWatcher) Objekt ausgelöst, wenn eine Schließanforderung empfangen wurde und nur ausgelöst, wenn das der `close` Anforderung vorausgehende [`cancel`](/de/docs/Web/API/CloseWatcher/cancel_event) Ereignis nicht abgebrochen wurde.
 
-Der `close` Ereignishandler ist der Ort, an dem der Code zum Schließen der UI-Komponente aufgerufen werden sollte: Dies stellt sicher, dass die Komponente ordnungsgemäß geschlossen wird, entweder durch das plattform-spezifische Schließsignal oder durch einen Aufruf von {{domxref("CloseWatcher.requestClose()")}}.
+Der `close` Ereignishandler ist der Ort, an dem der Code zum Schließen der UI-Komponente aufgerufen werden sollte: Dies stellt sicher, dass die Komponente ordnungsgemäß geschlossen wird, entweder durch das plattformspezifische Schließsignal oder durch einen Aufruf von [`CloseWatcher.requestClose()`](/de/docs/Web/API/CloseWatcher/requestClose).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener("close", (event) => { })
@@ -24,17 +24,17 @@ onclose = (event) => { }
 
 ## Ereignistyp
 
-Ein {{domxref("Event")}}.
+Ein [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
 ### Verwendung des `close` Ereignisses
 
-Verwenden Sie `close`, um auf Schließe-Anforderungen zu hören.
+Verwenden Sie `close`, um auf Schließanforderungen zu hören.
 
 ```js
 watcher.addEventListener("close", () => {
-  // Schließen Sie Ihre UI-Komponente
+  // Close your UI component
   sidebar.hide();
 };
 ```

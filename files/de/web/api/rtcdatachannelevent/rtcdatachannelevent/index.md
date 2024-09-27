@@ -1,5 +1,5 @@
 ---
-title: "RTCDataChannelEvent: RTCDataChannelEvent()-Konstruktor"
+title: "RTCDataChannelEvent: RTCDataChannelEvent() Konstruktor"
 short-title: RTCDataChannelEvent()
 slug: Web/API/RTCDataChannelEvent/RTCDataChannelEvent
 l10n:
@@ -8,10 +8,12 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Der **`RTCDataChannelEvent()`**-Konstruktor erstellt ein neues {{domxref("RTCDataChannelEvent")}}-Objekt.
+Der **`RTCDataChannelEvent()`** Konstruktor
+erstellt ein neues [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent) Objekt.
 
 > [!NOTE]
-> Sie werden selten, wenn überhaupt, ein `RTCDataChannelEvent` manuell konstruieren; diese Ereignisse werden normalerweise von der WebRTC-Schicht selbst erstellt und gesendet.
+> Sie werden nur selten, wenn überhaupt, ein `RTCDataChannelEvent` manuell konstruieren; diese
+> Ereignisse werden normalerweise von der WebRTC-Schicht selbst erstellt und gesendet.
 
 ## Syntax
 
@@ -22,19 +24,21 @@ new RTCDataChannelEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. Es ist case-sensitive und Browser setzen es immer auf `datachannel`.
+  - : Ein String mit dem Namen des Ereignisses.
+    Er ist groß- und kleinschreibungssensitiv und Browser setzen ihn immer auf `datachannel`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_ folgende Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `channel`
-      - : Ein {{domxref("RTCDataChannel")}}, der den mit dem Ereignis verbundenen Datenkanal darstellt.
+      - : Ein [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), das den mit dem Ereignis verbundenen Datenkanal darstellt.
 
 ### Rückgabewert
 
-Ein neues {{domxref("RTCDataChannelEvent")}}-Objekt, wie angegeben konfiguriert.
+Ein neues [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent) Objekt, konfiguriert wie angegeben.
 
 ## Beispiel
 
-In diesem Beispiel wird ein neues {{DOMxRef("RTCPeerConnection.datachannel_event", "datachannel")}}-Ereignis erstellt. `dc` ist ein bereits existierender Datenkanal.
+In diesem Beispiel wird ein neues [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event) Ereignis erstellt. `dc` ist ein
+Datenkanal, der bereits existiert.
 
 ```js
 const event = new RTCDataChannelEvent("datachannel", { channel: dc });
@@ -51,6 +55,6 @@ const event = new RTCDataChannelEvent("datachannel", { channel: dc });
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCDataChannel")}}
-- {{domxref("RTCPeerConnection")}}
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)
 - [Ein einfaches RTCDataChannel-Beispiel](/de/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample)

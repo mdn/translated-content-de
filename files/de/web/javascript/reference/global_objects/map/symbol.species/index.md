@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Zugriffs-Eigenschaft **`Map[Symbol.species]`** ist eine ungenutzte Eigenschaft, die bestimmt, wie `Map`-Objekte kopiert werden.
+Die statische Accessor-Eigenschaft **`Map[Symbol.species]`** ist eine unbenutzte Accessor-Eigenschaft, die festlegt, wie `Map`-Objekte kopiert werden.
 
 ## Syntax
 
@@ -17,20 +17,20 @@ Map[Symbol.species]
 
 ### Rückgabewert
 
-Der Wert des Konstruktors (`this`), bei dem `get [Symbol.species]` aufgerufen wurde. Der Rückgabewert wird verwendet, um kopierte `Map`-Instanzen zu konstruieren.
+Der Wert des Konstruktors (`this`), auf dem `get [Symbol.species]` aufgerufen wurde. Der Rückgabewert wird verwendet, um kopierte `Map`-Instanzen zu erstellen.
 
 ## Beschreibung
 
-Die Zugriffs-Eigenschaft `[Symbol.species]` gibt den Standardkonstruktor für `Map`-Objekte zurück. Konstruktoren von Unterklassen können diese überschreiben, um die Zuweisung des Konstruktors zu ändern.
+Die `[Symbol.species]` Accessor-Eigenschaft gibt den Standardkonstruktor für `Map`-Objekte zurück. Unterklassenkonstruktoren können sie überschreiben, um die Zuweisung des Konstruktors zu ändern.
 
 > [!NOTE]
-> Diese Eigenschaft wird derzeit von allen `Map`-Methoden nicht genutzt.
+> Diese Eigenschaft wird derzeit von allen `Map`-Methoden nicht verwendet.
 
 ## Beispiele
 
-### Species in regulären Objekten
+### Species in gewöhnlichen Objekten
 
-Die Eigenschaft `[Symbol.species]` gibt die Standard-Konstruktorfunktion zurück, welche der `Map` Konstruktor für `Map` ist.
+Die `[Symbol.species]`-Eigenschaft gibt die Standardkonstruktorfunktion zurück, die der `Map`-Konstruktor für `Map` ist.
 
 ```js
 Map[Symbol.species]; // function Map()
@@ -38,11 +38,11 @@ Map[Symbol.species]; // function Map()
 
 ### Species in abgeleiteten Objekten
 
-In einer Instanz einer benutzerdefinierten `Map`-Unterklasse, wie `MyMap`, ist der `MyMap`-Species der `MyMap`-Konstruktor. Möglicherweise möchten Sie dies jedoch überschreiben, um in Ihren abgeleiteten Klassenmethoden übergeordnete `Map`-Objekte zurückzugeben:
+In einer Instanz einer benutzerdefinierten `Map`-Unterklasse, wie z.B. `MyMap`, ist die `MyMap`-Spezies der `MyMap`-Konstruktor. Sie möchten dies jedoch möglicherweise überschreiben, um Eltern-`Map`-Objekte in Ihren abgeleiteten Klassenmethoden zurückzugeben:
 
 ```js
 class MyMap extends Map {
-  // Überschreibt MyMap Species zum übergeordneten Map-Konstruktor
+  // Overwrite MyMap species to the parent Map constructor
   static get [Symbol.species]() {
     return Map;
   }
@@ -53,7 +53,7 @@ class MyMap extends Map {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 

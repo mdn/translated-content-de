@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Credential Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`FederatedCredential()`**
-Konstruktor erstellt ein neues {{domxref("FederatedCredential")}} Objekt. In unterstützenden Browsern kann eine Instanz dieser Klasse das `credential` erhalten, das aus dem `init`-Objekt für globales {{domxref("Window/fetch", "fetch()")}} übergeben wird.
+Der **`FederatedCredential()`** Konstruktor erstellt ein neues [`FederatedCredential`](/de/docs/Web/API/FederatedCredential)-Objekt. In unterstützenden Browsern kann eine Instanz dieser Klasse das `credential`, das aus dem `init`-Objekt für das globale [`fetch()`](/de/docs/Web/API/Window/fetch) erhalten wird, übergeben bekommen.
 
 ## Syntax
 
@@ -24,7 +23,7 @@ new FederatedCredential(init)
   - : Optionen sind:
 
     - `provider`
-      - : Ein String; der den Credential-Provider identifiziert.
+      - : Ein String, der den Anmeldeinformationsanbieter identifiziert.
 
 ## Spezifikationen
 

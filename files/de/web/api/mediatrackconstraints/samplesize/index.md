@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`sampleSize`**-Eigenschaft des {{domxref("MediaTrackConstraints")}}-Dictionaries ist ein [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong), das die angeforderten oder zwingenden Einschränkungen beschreibt, die auf den Wert der {{domxref("MediaTrackSettings.sampleSize", "sampleSize")}}-beschränkbaren Eigenschaft angewendet werden.
+Das **`sampleSize`**-Eigenschaft des [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)-Wörterbuchs ist ein [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong), der die gewünschten oder obligatorischen Einschränkungen beschreibt, die auf den Wert der beschränkbaren Eigenschaft [`sampleSize`](/de/docs/Web/API/MediaTrackSettings/sampleSize) angewendet werden.
 
-Falls erforderlich, können Sie überprüfen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von {{domxref("MediaTrackSupportedConstraints.sampleSize")}} prüfen, der durch einen Aufruf von {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
+Bei Bedarf können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.sampleSize`](/de/docs/Web/API/MediaTrackSupportedConstraints/sampleSize) überprüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle Einschränkungen ignorieren, die ihnen unbekannt sind.
 
 ## Wert
 
-Wenn dieser Wert eine Zahl ist, wird der User-Agent versuchen, Medien zu erhalten, deren Samplegröße (in Bits pro linearem Sample) so nahe wie möglich an dieser Zahl liegt, basierend auf den Fähigkeiten der Hardware und den anderen angegebenen Einschränkungen. Andernfalls wird der Wert dieses [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong) den User-Agent bei seinen Bemühungen leiten, eine genaue Übereinstimmung mit der erforderlichen Samplegröße zu erzielen (wenn `exact` angegeben ist oder sowohl `min` als auch `max` angegeben sind und denselben Wert haben) oder einen bestmöglichen Wert.
+Wenn dieser Wert eine Zahl ist, wird der Benutzeragent versuchen, Medien zu erhalten, deren Sample-Größe (in Bits pro linearem Sample) so nahe wie möglich an dieser Zahl liegt, gegeben die Fähigkeiten der Hardware und die anderen angegebenen Einschränkungen. Andernfalls wird der Wert dieses [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong) den Benutzeragenten dabei unterstützen, eine exakte Übereinstimmung mit der erforderlichen Sample-Größe bereitzustellen (wenn `exact` angegeben ist oder sowohl `min` als auch `max` bereitgestellt werden und denselben Wert haben) oder einen bestmöglichen Wert.
 
 > [!NOTE]
-> Da diese Eigenschaft nur lineare Samplegrößen darstellen kann, kann diese Einschränkung nur von Geräten erfüllt werden, die Audio mit linearen Samples produzieren können.
+> Da diese Eigenschaft nur lineare Sample-Größen darstellen kann, kann diese Einschränkung nur von Geräten erfüllt werden, die Audio mit linearen Samples erzeugen können.
 
 ## Beispiele
 
-Sehen Sie sich das [Constraint-Übungstool](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) Beispiel an.
+Siehe das [Constraint Exerciser](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints#example_constraint_exerciser) Beispiel.
 
 ## Spezifikationen
 
@@ -35,7 +35,7 @@ Sehen Sie sich das [Constraint-Übungstool](/de/docs/Web/API/Media_Capture_and_S
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
 - [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints)
-- {{domxref("MediaTrackConstraints")}}
-- {{domxref("MediaDevices.getSupportedConstraints()")}}
-- {{domxref("MediaTrackSupportedConstraints")}}
-- {{domxref("MediaStreamTrack")}}
+- [`MediaTrackConstraints`](/de/docs/Web/API/MediaTrackConstraints)
+- [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
+- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
+- [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

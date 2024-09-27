@@ -1,5 +1,5 @@
 ---
-title: "CanvasRenderingContext2D: beginPath()-Methode"
+title: "CanvasRenderingContext2D: beginPath() Methode"
 short-title: beginPath()
 slug: Web/API/CanvasRenderingContext2D/beginPath
 l10n:
@@ -8,10 +8,14 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.beginPath()`**-Methode der Canvas 2D API startet einen neuen Pfad, indem die Liste der Unterpfade geleert wird. Rufen Sie diese Methode auf, wenn Sie einen neuen Pfad erstellen möchten.
+Die
+**`CanvasRenderingContext2D.beginPath()`**
+Methode der Canvas 2D API beginnt einen neuen Pfad, indem sie die Liste der Unterpfade leert. Rufen
+Sie diese Methode auf, wenn Sie einen neuen Pfad erstellen möchten.
 
 > [!NOTE]
-> Um einen neuen Unterpfad zu erstellen, d.h. einen, der dem aktuellen Canvas-Zustand entspricht, können Sie {{domxref("CanvasRenderingContext2D.moveTo()")}} verwenden.
+> Um einen neuen Unterpfad zu erstellen, der dem aktuellen
+> Canvas-Zustand entspricht, können Sie [`CanvasRenderingContext2D.moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) verwenden.
 
 ## Syntax
 
@@ -25,11 +29,11 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Erstellen von unterschiedlichen Pfaden
+### Erstellen von getrennten Pfaden
 
 Dieses Beispiel erstellt zwei Pfade, von denen jeder eine einzelne Linie enthält.
 
@@ -41,20 +45,21 @@ Dieses Beispiel erstellt zwei Pfade, von denen jeder eine einzelne Linie enthäl
 
 #### JavaScript
 
-Die `beginPath()`-Methode wird vor dem Beginn jeder Linie aufgerufen, damit sie mit unterschiedlichen Farben gezeichnet werden können.
+Die `beginPath()` Methode wird vor Beginn jeder Linie aufgerufen, damit sie
+mit unterschiedlichen Farben gezeichnet werden können.
 
 ```js
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// Erster Pfad
+// First path
 ctx.beginPath();
 ctx.strokeStyle = "blue";
 ctx.moveTo(20, 20);
 ctx.lineTo(200, 20);
 ctx.stroke();
 
-// Zweiter Pfad
+// Second path
 ctx.beginPath();
 ctx.strokeStyle = "green";
 ctx.moveTo(20, 20);
@@ -76,5 +81,5 @@ ctx.stroke();
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasRenderingContext2D.closePath()")}}
+- Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasRenderingContext2D.closePath()`](/de/docs/Web/API/CanvasRenderingContext2D/closePath)

@@ -1,5 +1,5 @@
 ---
-title: "OVR_multiview2: framebufferTextureMultiviewOVR() Methode"
+title: "OVR_multiview2: framebufferTextureMultiviewOVR()-Methode"
 short-title: framebufferTextureMultiviewOVR()
 slug: Web/API/OVR_multiview2/framebufferTextureMultiviewOVR
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`OVR_multiview2.framebufferTextureMultiviewOVR()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) fügt eine Multiview-Textur an ein {{domxref("WebGLFramebuffer")}} an.
+Die **`OVR_multiview2.framebufferTextureMultiviewOVR()`**-Methode der [WebGL-API](/de/docs/Web/API/WebGL_API) bindet eine Multiview-Textur an ein [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer) an.
 
 ## Syntax
 
@@ -20,43 +20,45 @@ framebufferTextureMultiviewOVR(target, attachment, texture, level, baseViewIndex
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API.Types", "GLenum")}}, der den Bindepunkt (target) angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Bindungspunkt (Ziel) angibt. Mögliche Werte:
 
     - `gl.FRAMEBUFFER`
-      - : Sammlung von Buffer-Datenspeichern für Farb-, Alpha-, Tiefen- und Stencil-Puffer, die verwendet werden, um ein Bild zu rendern.
+      - : Sammlung von Pufferdatenspeichern für Farb-, Alpha-,
+        Tiefen- und Schablonenpuffer, die zum Rendern eines Bildes verwendet werden.
     - `gl.DRAW_FRAMEBUFFER`
       - : Entspricht `gl.FRAMEBUFFER`.
-        Wird als Ziel für Zeichen-, Rendering-, Lösch- und Schreiboperationen verwendet.
+        Wird als Ziel für Zeichen-, Render-, Lösch- und Schreiboperationen verwendet.
     - `gl.READ_FRAMEBUFFER`
       - : Wird als Quelle für Leseoperationen verwendet.
 
 - `attachment`
 
-  - : Ein {{domxref("WebGL_API.Types", "GLenum")}}, der den Anhangspunkt für die `texture` angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Anhangspunkt für die
+    `texture` angibt. Mögliche Werte:
 
-    - `gl.COLOR_ATTACHMENT0`: Hängt die Textur an den Framebuffer-Farbpuffer an.
-    - `gl.DEPTH_ATTACHMENT`: Hängt die Textur an den Framebuffer-Tiefenpuffer an.
-    - `gl.STENCIL_ATTACHMENT`: Hängt die Textur an den Framebuffer-Stencilpuffer an.
-    - `gl.DEPTH_STENCIL_ATTACHMENT`: Tiefen- und Stencilpuffer.
+    - `gl.COLOR_ATTACHMENT0`: Befestigt die Textur am Farbpuffer des Framebuffers.
+    - `gl.DEPTH_ATTACHMENT`: Befestigt die Textur am Tiefenpuffer des Framebuffers.
+    - `gl.STENCIL_ATTACHMENT`: Befestigt die Textur am Schablonenpuffer des Framebuffers.
+    - `gl.DEPTH_STENCIL_ATTACHMENT`: Tiefen- und Schablonenpuffer.
     - `gl.COLOR_ATTACHMENT1 gl.COLOR_ATTACHMENT2 gl.COLOR_ATTACHMENT3 gl.COLOR_ATTACHMENT4 gl.COLOR_ATTACHMENT5 gl.COLOR_ATTACHMENT6 gl.COLOR_ATTACHMENT7 gl.COLOR_ATTACHMENT8 gl.COLOR_ATTACHMENT9 gl.COLOR_ATTACHMENT10 gl.COLOR_ATTACHMENT11 gl.COLOR_ATTACHMENT12 gl.COLOR_ATTACHMENT13 gl.COLOR_ATTACHMENT14 gl.COLOR_ATTACHMENT15`
-      Bei Verwendung der {{domxref("WEBGL_draw_buffers")}} Erweiterung:
+      Bei Verwendung der [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers)-Erweiterung:
 
       - `ext.COLOR_ATTACHMENT0_WEBGL` (gleich wie
         `gl.COLOR_ATTACHMENT0`)
         `ext.COLOR_ATTACHMENT1_WEBGL ext.COLOR_ATTACHMENT2_WEBGL ext.COLOR_ATTACHMENT3_WEBGL ext.COLOR_ATTACHMENT4_WEBGL ext.COLOR_ATTACHMENT5_WEBGL ext.COLOR_ATTACHMENT6_WEBGL ext.COLOR_ATTACHMENT7_WEBGL ext.COLOR_ATTACHMENT8_WEBGL ext.COLOR_ATTACHMENT9_WEBGL ext.COLOR_ATTACHMENT10_WEBGL ext.COLOR_ATTACHMENT11_WEBGL ext.COLOR_ATTACHMENT12_WEBGL ext.COLOR_ATTACHMENT13_WEBGL ext.COLOR_ATTACHMENT14_WEBGL ext.COLOR_ATTACHMENT15_WEBGL`
 
-    Bei Verwendung der {{domxref("WEBGL_depth_texture")}} Erweiterung:
+    Bei Verwendung der [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture)-Erweiterung:
 
-    - `ext.DEPTH_STENCIL_ATTACHMENT`: Speicher für Tiefen- und Stencilpuffer-Daten.
+    - `ext.DEPTH_STENCIL_ATTACHMENT`: Speicherdaten für Tiefen- und Schablonenpuffer.
 
 - `texture`
-  - : Ein {{domxref("WebGLTexture")}} Objekt, dessen Bild angehängt werden soll.
+  - : Ein [`WebGLTexture`](/de/docs/Web/API/WebGLTexture)-Objekt, dessen Bild angehängt werden soll.
 - `level`
-  - : Ein {{domxref("WebGL_API.Types", "GLint")}}, der das Mipmap-Level des anzuhängenden Texturbildes angibt. Muss 0 sein.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das die Mipmap-Ebene des anzuhängenden Texturbildes angibt. Muss 0 sein.
 - `baseViewIndex`
-  - : Ein {{domxref("WebGL_API.Types", "GLint")}}, der den Basis-View-Index der Framebuffer-Objekt-Anlage angibt.
+  - : Ein [`GLint`](/de/docs/Web/API/WebGL_API/Types), das den Basisansichtsindex des Framebuffer-Objekt-Anhangs angibt.
 - `numViews`
-  - : Ein {{domxref("WebGL_API.Types", "GLsizei")}}, der die Anzahl der Ansichten der Framebuffer-Objekt-Anlage angibt.
+  - : Ein [`GLsizei`](/de/docs/Web/API/WebGL_API/Types), das die Anzahl der Ansichten des Framebuffer-Objekt-Anhangs angibt.
 
 ### Rückgabewert
 
@@ -64,17 +66,19 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Ein `gl.INVALID_ENUM` Fehler wird ausgelöst, wenn
+- Ein `gl.INVALID_ENUM`-Fehler wird ausgelöst, wenn
 
   - `target` nicht `gl.FRAMEBUFFER` ist.
   - `attachment` nicht einer der akzeptierten Anhangspunkte ist.
 
-- Ein `gl.INVALID_VALUE` Fehler wird ausgelöst, wenn
+- Ein `gl.INVALID_VALUE`-Fehler wird ausgelöst, wenn
 
   - `level` nicht 0 ist.
-  - wenn `numViews` weniger als eins oder mehr als `MAX_VIEWS_OVR` ist.
+  - wenn `numViews` weniger als eins oder mehr als
+    `MAX_VIEWS_OVR` ist.
 
-- Ein `gl.INVALID_OPERATION` Fehler wird ausgelöst, wenn `texture` nicht 0 oder der Name eines existierenden Texture-Objekts ist.
+- Ein `gl.INVALID_OPERATION`-Fehler wird ausgelöst, wenn `texture` nicht 0 ist
+  oder der Name eines vorhandenen Texturobjekts.
 
 ## Beispiele
 
@@ -99,6 +103,6 @@ ext.framebufferTextureMultiviewOVR(
 
 ## Siehe auch
 
-- {{domxref("OVR_multiview2")}}
-- {{domxref("WEBGL_depth_texture")}}
-- {{domxref("WEBGL_draw_buffers")}}
+- [`OVR_multiview2`](/de/docs/Web/API/OVR_multiview2)
+- [`WEBGL_depth_texture`](/de/docs/Web/API/WEBGL_depth_texture)
+- [`WEBGL_draw_buffers`](/de/docs/Web/API/WEBGL_draw_buffers)

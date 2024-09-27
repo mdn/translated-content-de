@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaColIndexText`**-Eigenschaft der {{domxref("Element")}}-Schnittstelle spiegelt den Wert des [`aria-colindextext`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colindextext)-Attributs wider, das eine für Menschen lesbare Textalternative zu aria-colindex definiert.
+Die **`ariaColIndexText`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-colindextext`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colindextext)-Attributs wider, welches einen für Menschen lesbaren Text als Alternative zu `aria-colindex` definiert.
 
 ## Wert
 
@@ -15,7 +15,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-colindex`-Attribut an dem Element mit der ID `role-heading` auf "Aria Role column" gesetzt. Mit `ariaColIndexText` aktualisieren wir den Wert auf den String "New column name".
+In diesem Beispiel wird das `aria-colindex`-Attribut des Elements mit der ID `role-heading` auf "Aria Role column" gesetzt. Mit `ariaColIndexText` aktualisieren wir den Wert auf den String "New column name".
 
 ```html
 <table

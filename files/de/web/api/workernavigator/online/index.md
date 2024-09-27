@@ -8,19 +8,19 @@ l10n:
 
 {{ApiRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Gibt den Online-Status des Browsers zurück. Die Eigenschaft liefert einen booleschen Wert, wobei `true` online bedeutet und `false` offline. Die Eigenschaft sendet Aktualisierungen, wenn sich die Fähigkeit des Browsers, eine Netzwerkverbindung herzustellen, ändert. Diese Aktualisierung erfolgt, wenn der Benutzer Links folgt oder wenn ein Skript eine entfernte Seite anfordert.
+Gibt den Online-Status des Browsers zurück. Die Eigenschaft gibt einen booleschen Wert zurück, wobei `true` für online und `false` für offline steht. Die Eigenschaft sendet Aktualisierungen, wenn sich die Fähigkeit des Browsers, eine Verbindung zum Netzwerk herzustellen, ändert. Die Aktualisierung erfolgt, wenn der Benutzer Links folgt oder ein Skript eine entfernte Seite anfordert.
 
-Zum Beispiel sollte die Eigenschaft `false` zurückgeben, wenn Benutzer kurz nach dem Verlust der Internetverbindung auf Links klicken.
+Zum Beispiel sollte die Eigenschaft `false` zurückgeben, wenn Benutzer Links anklicken, kurz nachdem sie die Internetverbindung verloren haben.
 
 Browser implementieren diese Eigenschaft unterschiedlich.
 
-In Chrome und Safari ist der Browser offline, wenn er nicht in der Lage ist, eine Verbindung zu einem lokalen Netzwerk (LAN) oder einem Router herzustellen; alle anderen Bedingungen geben `true` zurück. Während Sie also annehmen können, dass der Browser offline ist, wenn er einen `false`-Wert zurückgibt, können Sie nicht sicher sein, dass ein `true`-Wert unbedingt bedeutet, dass der Browser auf das Internet zugreifen kann. Es könnten falsch-positive Ergebnisse wie in den Fällen auftreten, in denen der Computer eine Virtualisierungssoftware ausführt, die virtuelle Ethernet-Adapter hat, die immer "verbunden" sind. Wenn Sie also den Online-Status des Browsers wirklich bestimmen möchten, sollten Sie zusätzliche Mittel zur Überprüfung entwickeln. Um mehr zu erfahren, lesen Sie den Artikel von 2011, [Working Off the Grid](https://developer.chrome.com/docs/workbox/service-worker-overview/).
+In Chrome und Safari ist der Browser offline, wenn er keine Verbindung zu einem lokalen Netzwerk (LAN) oder einem Router herstellen kann; alle anderen Bedingungen geben `true` zurück. Während Sie also davon ausgehen können, dass der Browser offline ist, wenn er einen `false`-Wert zurückgibt, können Sie nicht davon ausgehen, dass ein true-Wert notwendigerweise bedeutet, dass der Browser auf das Internet zugreifen kann. Es könnte zu Fehlalarmen kommen, wie in Fällen, in denen der Computer eine Virtualisierungssoftware ausführt, die virtuelle Ethernet-Adapter hat, die immer "verbunden" sind. Daher sollten Sie, wenn Sie wirklich den Online-Status des Browsers bestimmen möchten, zusätzliche Mittel zur Überprüfung entwickeln. Um mehr zu erfahren, lesen Sie den Artikel von 2011, [Working Off the Grid](https://developer.chrome.com/docs/workbox/service-worker-overview/).
 
 In Firefox sendet das Umschalten des Browsers in den Offline-Modus einen `false`-Wert.
 
 ## Wert
 
-`online` ist ein boolescher Wert `true` oder `false`.
+`online` ist ein boolescher `true` oder `false`.
 
 ## Beispiele
 
@@ -36,11 +36,11 @@ if (navigator.onLine) {
 }
 ```
 
-Wenn der Browser `navigator.onLine` nicht unterstützt, ergibt das obige Beispiel immer `false`/`undefined`.
+Wenn der Browser `navigator.onLine` nicht unterstützt, wird das obige Beispiel immer als `false`/`undefined` ausgegeben.
 
-### Änderungen im Netzwerkstatus beobachten
+### Änderungen im Netzwerkstatus überwachen
 
-Um Änderungen im Netzwerkstatus zu sehen, verwenden Sie [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener), um die Ereignisse `online` und `offline` zu überwachen, wie im folgenden Beispiel:
+Um Änderungen im Netzwerkstatus zu sehen, verwenden Sie [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener), um auf die Ereignisse `online` und `offline` zu hören, wie im folgenden Beispiel:
 
 ```js
 addEventListener("offline", (e) => {

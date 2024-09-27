@@ -1,5 +1,5 @@
 ---
-title: "NamedNodeMap: Methode getNamedItemNS()"
+title: "NamedNodeMap: getNamedItemNS()-Methode"
 short-title: getNamedItemNS()
 slug: Web/API/NamedNodeMap/getNamedItemNS
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getNamedItemNS()`**-Methode des {{domxref("NamedNodeMap")}}-Interfaces gibt das {{domxref("Attr")}} zurück, das dem angegebenen lokalen Namen im angegebenen Namensraum entspricht, oder `null`, wenn es kein entsprechendes Attribut gibt.
+Die **`getNamedItemNS()`**-Methode der [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)-Schnittstelle gibt das [`Attr`](/de/docs/Web/API/Attr) zurück, das dem gegebenen lokalen Namen im angegebenen Namensraum entspricht, oder `null`, wenn kein entsprechendes Attribut vorhanden ist.
 
 ## Syntax
 
@@ -19,14 +19,14 @@ getNamedItemNS(namespace, localName)
 ### Parameter
 
 - `namespace`
-  - : Ein String, der den URI des Namensraums des gewünschten Attributs enthält.
+  - : Ein String mit dem Namensraum-URI des gewünschten Attributs.
     > **Warning:** `namespace` ist der URI des Namensraums, nicht das Präfix.
 - `localName`
-  - : Ein String, der den localName des gewünschten Attributs enthält.
+  - : Ein String mit dem lokalen Namen (`localName`) des gewünschten Attributs.
 
 ### Rückgabewert
 
-Ein {{domxref("Attr")}}, das dem Namensraum und dem lokalen Namen entspricht, die in den Parametern angegeben sind, oder `null`, wenn keines gefunden wurde.
+Ein [`Attr`](/de/docs/Web/API/Attr), das dem Namensraum und dem lokalen Namen in den Parametern entspricht, oder `null`, wenn keines gefunden wurde.
 
 ## Beispiel
 

@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`x`**-Eigenschaft der {{domxref("XRViewport")}}-Schnittstelle gibt den Versatz von der linken Kante der Zieloberfläche (typischerweise eine {{domxref("XRWebGLLayer")}}) zur linken Kante des Ansichtsbereichs innerhalb der Oberfläche an, in die WebXR-Inhalte gerendert werden sollen. Die {{domxref("XRViewport.y", "y")}}-Eigenschaft des Ansichtsbereichs identifiziert die `y`-Komponente des Ursprungs, und der Ursprung wird durch die {{domxref("XRViewPort.width", "width")}}- und {{domxref("XRViewport.height", "height")}}-Eigenschaften gegeben.
+Die schreibgeschützte Schnittstelle [`XRViewport`](/de/docs/Web/API/XRViewport) hat eine **`x`**-Eigenschaft, die den Versatz vom linken Rand der Zieloberfläche (typischerweise ein [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)) bis zum linken Rand des Viewports angibt, in den WebXR-Inhalte gerendert werden sollen. Die [`y`](/de/docs/Web/API/XRViewport/y)-Eigenschaft des Viewports identifiziert die `y`-Komponente des Ursprungs, und sie wird durch die [`width`](/de/docs/Web/API/XRViewPort/width)- und [`height`](/de/docs/Web/API/XRViewport/height)-Eigenschaften angegeben.
 
 ## Wert
 
-Der Versatz von der linken Kante der Rendering-Oberfläche zur linken Kante des Ansichtsbereichs, in Pixeln.
+Der Versatz vom linken Rand der Rendering-Oberfläche zum linken Rand des Viewports, in Pixeln.
 
 ## Beispiele
 
-Siehe die Hauptseite von {{domxref("XRViewport")}} für Beispiele.
+Siehe die Hauptseite [`XRViewport`](/de/docs/Web/API/XRViewport) für Beispiele.
 
 ## Spezifikationen
 

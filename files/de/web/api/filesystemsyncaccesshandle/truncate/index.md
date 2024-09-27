@@ -1,5 +1,5 @@
 ---
-title: "FileSystemSyncAccessHandle: truncate()-Methode"
+title: "FileSystemSyncAccessHandle: truncate() Methode"
 short-title: truncate()
 slug: Web/API/FileSystemSyncAccessHandle/truncate
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{securecontext_header}}{{APIRef("File System API")}}{{AvailableInWorkers("dedicated")}}
 
-Die **`truncate()`**-Methode der {{domxref("FileSystemSyncAccessHandle")}}-Schnittstelle ändert die Größe der mit dem Handle verbundenen Datei auf eine angegebene Anzahl von Bytes.
+Die **`truncate()`** Methode des [`FileSystemSyncAccessHandle`](/de/docs/Web/API/FileSystemSyncAccessHandle) Interfaces ändert die Größe der Datei, die mit dem Handle assoziiert ist, auf eine angegebene Anzahl von Bytes.
 
 > [!NOTE]
-> In früheren Versionen der Spezifikation wurden {{domxref("FileSystemSyncAccessHandle.close()", "close()")}}, {{domxref("FileSystemSyncAccessHandle.flush()", "flush()")}}, {{domxref("FileSystemSyncAccessHandle.getSize()", "getSize()")}} und `truncate()` fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Allerdings implementieren alle aktuellen Browser, die diese Methoden unterstützen, sie als synchrone Methoden.
+> In früheren Versionen der Spezifikation wurden [`close()`](/de/docs/Web/API/FileSystemSyncAccessHandle/close), [`flush()`](/de/docs/Web/API/FileSystemSyncAccessHandle/flush), [`getSize()`](/de/docs/Web/API/FileSystemSyncAccessHandle/getSize) und `truncate()` fälschlicherweise als asynchrone Methoden spezifiziert, und ältere Versionen einiger Browser implementieren sie auf diese Weise. Allerdings implementieren alle aktuellen Browser, die diese Methoden unterstützen, sie als synchrone Methoden.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ truncate(newSize)
 ### Parameter
 
 - `newSize`
-  - : Die Anzahl der Bytes, auf die die Datei umgestellt werden soll.
+  - : Die Anzahl an Bytes, auf die die Datei verkleinert werden soll.
 
 ### Rückgabewert
 
@@ -30,30 +30,30 @@ Keiner ({{jsxref('undefined')}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das zugehörige Zugriffshandle bereits geschlossen ist oder wenn die Änderung der Binärdaten der Datei anderweitig fehlschlägt.
-- `QuotaExceededError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `newSize` größer als die ursprüngliche Größe der Datei ist und das Speicherkontingent des Browsers überschreitet. [storage quota](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria).
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn das zugehörige Zugriffshandle bereits geschlossen ist oder wenn die Änderung der Binärdaten der Datei anderweitig fehlschlägt.
+- `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn `newSize` größer ist als die ursprüngliche Größe der Datei und das Speicherkontingent des Browsers [storage quota](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria) überschreitet.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das zugrunde liegende Dateisystem die Einstellung der Dateigröße auf die neue Größe nicht unterstützt.
+  - : Ausgelöst, wenn das zugrunde liegende Dateisystem das Ändern der Dateigröße auf die neue Größe nicht unterstützt.
 
 ## Beispiele
 
 ```js
 async function truncateFile() {
-  // Handle für Entwurfsdatei abrufen
+  // Get handle to draft file
   const root = await navigator.storage.getDirectory();
   const draftHandle = await root.getFileHandle("draft.txt", { create: true });
-  // Sync-Zugriffshandle abrufen
+  // Get sync access handle
   const accessHandle = await draftHandle.createSyncAccessHandle();
 
-  // Datei auf 0 Bytes kürzen
+  // Truncate the file to 0 bytes
   accessHandle.truncate(0);
 
-  // Änderungen auf Festplatte speichern.
+  // Persist changes to disk.
   accessHandle.flush();
 
-  // FileSystemSyncAccessHandle immer schließen, wenn fertig.
+  // Always close FileSystemSyncAccessHandle if done.
   accessHandle.close();
 }
 ```
@@ -62,11 +62,11 @@ async function truncateFile() {
 
 {{Specifications}}
 
-## Browser-Unterstützung
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [File System API](/de/docs/Web/API/File_System_API)
-- [Die File System Access API: Vereinfachter Zugriff auf lokale Dateien](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)

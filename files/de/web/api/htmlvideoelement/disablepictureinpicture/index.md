@@ -1,5 +1,5 @@
 ---
-title: "HTMLVideoElement: Eigenschaft disablePictureInPicture"
+title: "HTMLVideoElement: disablePictureInPicture-Eigenschaft"
 short-title: disablePictureInPicture
 slug: Web/API/HTMLVideoElement/disablePictureInPicture
 l10n:
@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Picture-in-Picture API")}}
 
-Die {{domxref("HTMLVideoElement")}}-Eigenschaft **`disablePictureInPicture`** spiegelt das HTML-Attribut wider, das angibt, ob die Bild-im-Bild-Funktion für das aktuelle Element deaktiviert ist.
+Die **`disablePictureInPicture`**-Eigenschaft des [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) spiegelt das HTML-Attribut wider, das angibt, ob die Picture-in-Picture-Funktion für das aktuelle Element deaktiviert ist.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn die Bild-im-Bild-Funktion für dieses Element deaktiviert ist. Dies bedeutet, dass der Benutzeragent diese Funktion den Nutzern nicht vorschlagen oder sie automatisch anfordern sollte.
+Ein boolescher Wert, der `true` ist, wenn die Picture-in-Picture-Funktion für dieses Element deaktiviert ist. Dies bedeutet, dass der User-Agent diese Funktion nicht Nutzern vorschlagen oder sie automatisch anfordern sollte.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

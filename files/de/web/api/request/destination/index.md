@@ -8,40 +8,40 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die **`destination`** schreibgeschützte Eigenschaft des **{{domxref("Request")}}**-Interfaces gibt einen String zurück, der den Typ des angeforderten Inhalts beschreibt.
+Die schreibgeschützte **`destination`**-Eigenschaft des **[`Request`](/de/docs/Web/API/Request)**-Interfaces gibt einen String zurück, der den Typ des angeforderten Inhalts beschreibt.
 
-Der String muss einer der folgenden sein: `audio`, `audioworklet`, `document`, `embed`, `fencedframe`, `font`, `frame`, `iframe`, `image`, `json`, `manifest`, `object`, `paintworklet`, `report`, `script`, `sharedworker`, `style`, `track`, `video`, `worker` oder `xslt`-Strings, oder der leere String, der den Standardwert darstellt.
+Der String muss einer der folgenden sein: `audio`, `audioworklet`, `document`, `embed`, `fencedframe`, `font`, `frame`, `iframe`, `image`, `json`, `manifest`, `object`, `paintworklet`, `report`, `script`, `sharedworker`, `style`, `track`, `video`, `worker` oder `xslt`, oder der leere String, der der Standardwert ist.
 
-Die `destination` wird vom {{Glossary("user agent")}} verwendet, um z.B. zu helfen, die zu befolgenden Regeln für CORS-Zwecke zu bestimmen oder wie komplexe Codepfade navigiert werden, die beeinflussen, wie bestimmte Typen von Anfragen behandelt werden.
+Das `destination` wird vom [User-Agent](/de/docs/Glossary/user_agent) genutzt, um beispielsweise zu helfen, welche Regelmenge für CORS-Zwecke zu befolgen ist oder wie komplexe Codepfade navigiert werden, die beeinflussen, wie bestimmte Arten von Anfragen gehandhabt werden.
 
-Diese Destinationen unterscheiden sich erheblich in ihrer Funktionsweise. Einige sind Datenbehälter, in denen die empfangenen Daten zur späteren Verarbeitung gespeichert werden. Andere basieren auf Skripts, bei denen die empfangenen Daten an ein Skript geliefert werden, indem es aufgerufen wird und die Daten übergeben werden. Skriptbasierte Destinationen umfassen {{HTMLElement("script")}}-Elemente sowie alle auf {{domxref("Worklet")}}-basierenden Destinationen (einschließlich Unterklassen wie {{domxref("AudioWorklet")}}) und die auf {{domxref("Worker")}}-basierenden Destinationen, einschließlich {{domxref("ServiceWorker")}} und {{domxref("SharedWorker")}}.
+Diese Zielsetzungen unterscheiden sich erheblich in ihrer Funktionsweise. Einige sind Datenempfänger, bei denen die empfangenen Daten zur späteren Verarbeitung gespeichert werden. Andere sind skriptbasiert, in welchem Fall die empfangenen Daten einem Skript übergeben werden, indem es aufgerufen und die Daten weitergeleitet werden. Skriptbasierte Zielsetzungen umfassen {{HTMLElement("script")}}-Elemente sowie alle [`Worklet`](/de/docs/Web/API/Worklet)-basierten Zielsetzungen (einschließlich Unterklassen wie [`AudioWorklet`](/de/docs/Web/API/AudioWorklet)) und die [`Worker`](/de/docs/Web/API/Worker)-basierten Zielsetzungen, einschließlich [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) und [`SharedWorker`](/de/docs/Web/API/SharedWorker).
 
 ## Wert
 
-Ein String, der den Inhaltstyp angibt, nach dem die Anfrage fragt. Dieser Typ ist viel breiter als die üblichen Dokumenttypwerte (wie `"document"` oder `"manifest"`) und kann kontextuelle Hinweise wie `"image"`, `"worker"` oder `"audioworklet"` beinhalten.
+Ein String, der angibt, welcher Inhaltstyp mit der Anfrage angefordert wird. Dieser Typ ist viel breiter als die üblichen Dokumenttyp-Werte (wie `"document"` oder `"manifest"`) und kann kontextbezogene Hinweise wie `"image"` oder `"worker"` oder `"audioworklet"` enthalten.
 
 Mögliche Werte sind:
 
 - `""`
 
-  - : Der leere String ist der Standardwert und wird für Destinationen verwendet, die keinen eigenen Wert haben. Das ist der Wert, wenn Anfragen mit den folgenden APIs (unter anderem) gemacht werden:
+  - : Der leere String ist der Standardwert und wird für Zielsetzungen verwendet, die keinen eigenen Wert haben. Dies ist der Wert, wenn Anfragen unter anderem über die folgenden APIs gestellt werden:
     - [`<a ping>`](/de/docs/Web/HTML/Element/a#ping)
     - [`<area ping>`](/de/docs/Web/HTML/Element/area#ping)
-    - {{domxref("Cache")}}
-    - {{domxref("EventSource")}}
-    - {{domxref("Window/fetch", "fetch()")}}
-    - {{domxref("navigator.sendBeacon()")}}
-    - {{domxref("WebSocket")}}
-    - {{domxref("XMLHttpRequest")}}
+    - [`Cache`](/de/docs/Web/API/Cache)
+    - [`EventSource`](/de/docs/Web/API/EventSource)
+    - [`fetch()`](/de/docs/Web/API/Window/fetch)
+    - [`navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon)
+    - [`WebSocket`](/de/docs/Web/API/WebSocket)
+    - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
 
 - `"audio"`
-  - : Das Ziel sind Audiodaten.
+  - : Das Ziel ist Audiodaten.
 - `"audioworklet"`
-  - : Das Ziel sind Daten, die für die Nutzung durch einen Audio-Worklet abgerufen werden.
+  - : Das Ziel sind Daten, die für die Verwendung durch einen Audioworklet abgerufen werden.
 - `"document"`
   - : Das Ziel ist ein Dokument (HTML oder XML).
 - `"embed"`
-  - : Das Ziel ist eingebetteter Inhalt.
+  - : Das Ziel sind eingebettete Inhalte.
 - `"fencedframe"`
   - : Das Ziel ist ein [fenced frame](/de/docs/Web/API/Fenced_frame_API).
 - `"font"`
@@ -55,7 +55,7 @@ Mögliche Werte sind:
 - `"object"`
   - : Das Ziel ist ein Objekt.
 - `"paintworklet"`
-  - : Das Ziel ist ein Paint-Worklet.
+  - : Das Ziel ist ein Paintworklet.
 - `"report"`
   - : Das Ziel ist ein Bericht.
 - `"script"`
@@ -77,7 +77,7 @@ Mögliche Werte sind:
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem {{domxref("Request.Request", "Request()")}}-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern dann die Destination der Anfrage:
+Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und speichern dann das Ziel der Anfrage:
 
 ```js
 const myRequest = new Request("flowers.jpg");

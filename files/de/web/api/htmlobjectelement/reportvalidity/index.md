@@ -1,5 +1,5 @@
 ---
-title: "HTMLObjectElement: Methode reportValidity()"
+title: "HTMLObjectElement: reportValidity()-Methode"
 short-title: reportValidity()
 slug: Web/API/HTMLObjectElement/reportValidity
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`** Methode des {{domxref("HTMLObjectElement")}} Interfaces führt dieselben Gültigkeitsüberprüfungen wie die Methode {{domxref("HTMLObjectElement.checkValidity", "checkValidity()")}} durch. Sie gibt immer `true` zurück, da {{HTMLElement("object")}} Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
+Die **`reportValidity()`**-Methode des [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Interfaces führt die gleichen Schritte zur Überprüfung der Gültigkeit durch wie die [`checkValidity()`](/de/docs/Web/API/HTMLObjectElement/checkValidity)-Methode. Sie gibt immer `true` zurück, da {{HTMLElement("object")}}-Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
 
 ## Syntax
 
@@ -34,7 +34,7 @@ Ein boolescher Wert, `true`.
 
 ## Siehe auch
 
-- {{domxref("HTMLObjectElement.checkValidity()")}}
+- [`HTMLObjectElement.checkValidity()`](/de/docs/Web/API/HTMLObjectElement/checkValidity)
 - {{HTMLElement("object")}}
 - {{HTMLElement("form")}}
 - [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)

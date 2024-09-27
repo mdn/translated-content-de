@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:include>`-Element verbindet den Inhalt eines Stylesheets mit einem anderen. Im Gegensatz zum Fall von `<xsl:import>` haben die Inhalte eines eingeschlossenen Stylesheets genau die gleiche Priorität wie die Inhalte des einbindenden Stylesheets.
+Das `<xsl:include>`-Element fügt den Inhalt eines Stylesheets mit einem anderen zusammen. Im Gegensatz zum Fall von `<xsl:import>` haben die Inhalte eines eingeschlossenen Stylesheets genau die gleiche Priorität wie die Inhalte des einbeziehenden Stylesheets.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ Das `<xsl:include>`-Element verbindet den Inhalt eines Stylesheets mit einem and
 ### Erforderliche Attribute
 
 - `href`
-  - : Gibt den URI des einzuschließenden Stylesheets an.
+  - : Gibt die URI des einzuschließenden Stylesheets an.
 
 ### Optionale Attribute
 
@@ -26,7 +26,7 @@ Keine.
 
 ### Typ
 
-Top-Level, kann in beliebiger Reihenfolge als Kind von `<xsl:stylesheet>` oder `<xsl:transform>` auftreten.
+Top-Level, kann in beliebiger Reihenfolge als Kind von `<xsl:stylesheet>` oder `<xsl:transform>` erscheinen.
 
 ## Spezifikationen
 

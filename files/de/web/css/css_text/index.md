@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS Text**-Modul definiert, wie Textmanipulationen durchgeführt werden, wie Zeilenumbrüche, Ausrichtung und Justierung, Leerzeichenhandhabung und Texttransformation.
+Das **CSS-Text** Modul definiert, wie Textmanipulationen durchgeführt werden, wie Zeilenumbrüche, Ausrichtung und Justierung, Umgang mit Leerzeichen und Texttransformation.
 
 ## Referenz
 

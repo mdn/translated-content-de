@@ -1,5 +1,5 @@
 ---
-title: "CSSTransformValue: entries()-Methode"
+title: "CSSTransformValue: entries() Methode"
 short-title: entries()
 slug: Web/API/CSSTransformValue/entries
 l10n:
@@ -9,7 +9,10 @@ l10n:
 {{APIRef("CSS Typed OM")}}
 
 Die **`CSSTransformValue.entries()`**-Methode
-gibt ein Array von `[key, value]`-Paaren der eigenen aufzählbaren Eigenschaften eines gegebenen Objekts zurück, in der gleichen Reihenfolge wie bei einer [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife (der Unterschied besteht darin, dass eine for-in-Schleife auch Eigenschaften in der Prototypkette aufzählt).
+gibt ein Array der eigenen aufzählbaren
+Eigenschafts-[`key, value`]-Paare eines Objekts im gleichen Reihenfolge zurück, wie sie auch von einer
+[`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in)-Schleife bereitgestellt werden (mit dem Unterschied, dass eine for-in-Schleife
+Eigenschaften in der Prototypenkette ebenfalls aufzählt).
 
 ## Syntax
 
@@ -20,20 +23,21 @@ entries(obj)
 ### Parameter
 
 - `obj`
-  - : Der {{domxref('CSSTransformValue')}}, dessen aufzählbare eigene `[key, value]`-Paare zurückgegeben werden sollen.
+  - : Der [`CSSTransformValue`](/de/docs/Web/API/CSSTransformValue), dessen aufzählbare eigene
+    Eigenschafts-[`key, value`]-Paare zurückgegeben werden sollen.
 
 ### Rückgabewert
 
-Ein Array von `[key, value]`-Paaren der eigenen aufzählbaren Eigenschaften des gegebenen `CSSTransformValue`-Objekts.
+Ein Array der eigenen aufzählbaren Eigenschafts-[`key, value`]-Paare des gegebenen `CSSTransformValue`-Objekts.
 
 ## Beispiele
 
-In Arbeit
+To Do
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

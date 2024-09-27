@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`difference()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt eine Menge und gibt eine neue Menge zurück, die Elemente aus dieser Menge, aber nicht aus der angegebenen Menge enthält.
+Die **`difference()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt eine Menge und gibt eine neue Menge zurück, die Elemente in dieser Menge, aber nicht in der angegebenen Menge enthält.
 
 ## Syntax
 
@@ -18,15 +18,15 @@ difference(other)
 ### Parameter
 
 - `other`
-  - : Ein {{jsxref("Set")}}-Objekt oder ein [set-ähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekt.
+  - : Ein {{jsxref("Set")}}-Objekt oder ein [set-ähnliches Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects).
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Set")}}-Objekt, das Elemente aus dieser Menge, aber nicht aus der `other`-Menge enthält.
+Ein neues {{jsxref("Set")}}-Objekt, das Elemente in dieser Menge, aber nicht in der `other`-Menge enthält.
 
 ## Beschreibung
 
-In mathematischer Notation wird _difference_ definiert als:
+In der mathematischen Notation wird _Differenz_ definiert als:
 
 <!-- Note: the {} need to be double-escaped, once for Yari -->
 <!-- prettier-ignore-start -->
@@ -35,14 +35,14 @@ In mathematischer Notation wird _difference_ definiert als:
 </math>
 <!-- prettier-ignore-end -->
 
-Und mit einem Venn-Diagramm:
+Und mithilfe eines Venn-Diagramms:
 
-![Ein Venn-Diagramm, bei dem sich zwei Kreise überschneiden. Die Differenz von A und B ist der Teil von A, der sich nicht mit B überschneidet.](diagram.svg)
+![Ein Venn-Diagramm, in dem sich zwei Kreise überschneiden. Die Differenz von A und B ist der Teil von A, der sich nicht mit B überschneidet.](diagram.svg)
 
-`difference()` akzeptiert [set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es direkt die zugrunde liegenden Daten abruft, die in `this` gespeichert sind, ohne benutzerdefinierten Code aufzurufen. Dann hängt das Verhalten von den Größen von `this` und `other` ab:
+`difference()` akzeptiert [set-ähnliche Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es direkt auf die zugrunde liegenden Daten in `this` zugreift, ohne Benutzercode aufzurufen. Dann hängt das Verhalten von der Größe von `this` und `other` ab:
 
-- Wenn es in `this` mehr Elemente gibt als `other.size`, dann wird über `other` durch Aufruf der `keys()`-Methode iteriert und eine neue Menge mit allen Elementen in `this` erstellt, die in `other` nicht vorhanden sind.
-- Andernfalls wird über die Elemente in `this` iteriert und eine neue Menge mit allen Elementen `e` in `this` erstellt, die dazu führen, dass `other.has(e)` einen [falsy](/de/docs/Glossary/Falsy)-Wert zurückgibt.
+- Wenn es mehr Elemente in `this` gibt als `other.size`, wird in `other` durch Aufrufen seiner `keys()`-Methode iteriert und eine neue Menge mit allen Elementen in `this` erstellt, die in `other` nicht gesehen werden.
+- Andernfalls wird über die Elemente in `this` iteriert und eine neue Menge mit allen Elementen `e` in `this` erstellt, die `other.has(e)` eine [falsy](/de/docs/Glossary/Falsy) Rückgabe liefert.
 
 Die Reihenfolge der Elemente in der zurückgegebenen Menge ist dieselbe wie in `this`.
 
@@ -50,7 +50,7 @@ Die Reihenfolge der Elemente in der zurückgegebenen Menge ist dieselbe wie in `
 
 ### Verwendung von difference()
 
-Im folgenden Beispiel wird die Differenz zwischen der Menge der ungeraden Zahlen (<10) und der Menge der perfekten Quadrate (<10) berechnet. Das Ergebnis ist die Menge der ungeraden Zahlen, die keine perfekten Quadrate sind.
+Im folgenden Beispiel wird die Differenz zwischen der Menge von ungeraden Zahlen (<10) und der Menge von perfekten Quadraten (<10) berechnet. Das Ergebnis ist die Menge von ungeraden Zahlen, die keine perfekten Quadrate sind.
 
 ```js
 const odds = new Set([1, 3, 5, 7, 9]);

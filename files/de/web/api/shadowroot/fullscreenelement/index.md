@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("Shadow DOM")}}
 
-Die schreibgeschützte **`fullscreenElement`**-Eigenschaft des {{domxref("ShadowRoot")}}-Interfaces gibt das Element innerhalb des Shadow-Baums zurück, das aktuell im Vollbildmodus angezeigt wird.
+Die **`fullscreenElement`** schreibgeschützte Eigenschaft der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle gibt das Element innerhalb des Schattenbaums zurück, das derzeit im Vollbildmodus angezeigt wird.
 
 ## Wert
 
-Das {{domxref('Element')}}, das derzeit im Vollbildmodus angezeigt wird,
-oder `null`, wenn es kein Vollbildelement gibt.
+Das [`Element`](/de/docs/Web/API/Element), das derzeit im Vollbildmodus angezeigt wird, oder `null`, wenn es kein Vollbildelement gibt.
 
 ## Beispiele
 
@@ -27,10 +26,10 @@ let fullscreenElem = shadow.fullscreenElement;
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Document.fullscreenElement")}}
+- [`Document.fullscreenElement`](/de/docs/Web/API/Document/fullscreenElement)

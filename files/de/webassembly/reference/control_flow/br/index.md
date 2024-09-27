@@ -7,27 +7,27 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`br`**-Anweisung verzweigt zu einer Schleife, einem Block oder einem if.
+Der **`br`**-Befehl verzweigt zu einer Schleife, einem Block oder einer `if`-Anweisung.
 
-Andere Varianten von `br` sind `br_if` zum Verzweigen bei einer Bedingung und `br_table` für das Verzweigen zu verschiedenen Blöcken basierend auf einem Argument.
+Andere Varianten von `br` sind `br_if` für bedingtes Verzweigen und `br_table` für das Verzweigen zu verschiedenen Blöcken basierend auf einem Argument.
 
 {{EmbedInteractiveExample("pages/wat/br.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; kennzeichne die Schleife, damit sie verzweigt werden kann
+;; label the loop so that it can be branched to
 (loop $my_loop
 
-  ;; verzweige zu der Schleife.
-  ;; meistens möchten Sie dies in eine if-Anweisung setzen und nur bei Bedingung verzweigen,
-  ;; andernfalls haben Sie eine Endlosschleife.
+  ;; branch to the loop.
+  ;; most of the time you'll want to put this in an if statement and only branch on condition,
+  ;; otherwise you have an infinite loop.
   br $my_loop
 
 )
 ```
 
-| Anweisung  | Binärer Opcode |
+| Befehl     | Binärer Opcode |
 | ---------- | -------------- |
 | `br`       | `0x0c`         |
 | `br_if`    | `0x0d`         |

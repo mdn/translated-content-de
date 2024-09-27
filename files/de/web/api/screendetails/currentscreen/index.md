@@ -8,25 +8,24 @@ l10n:
 
 {{APIRef("Window Management API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`currentScreen`** schreibgeschützte Eigenschaft der
-{{domxref("ScreenDetails")}}-Schnittstelle enthält ein einzelnes {{domxref("ScreenDetailed")}}-Objekt, das detaillierte Informationen über den Bildschirm repräsentiert, auf dem das aktuelle Browserfenster angezeigt wird.
+Die schreibgeschützte **`currentScreen`**-Eigenschaft des [`ScreenDetails`](/de/docs/Web/API/ScreenDetails)-Interfaces enthält ein einzelnes [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekt, das detaillierte Informationen über den Bildschirm darstellt, auf dem das aktuelle Browserfenster angezeigt wird.
 
 ## Wert
 
-Ein {{domxref("ScreenDetailed")}}-Objekt.
+Ein [`ScreenDetailed`](/de/docs/Web/API/ScreenDetailed)-Objekt.
 
 ## Beispiele
 
 ```js
-// Hilfsfunktion zum Öffnen neuer Fenster
+// Utility function for opening new windows
 function openWindow(left, top, width, height, url) {
   const windowFeatures = `left=${left},top=${top},width=${width},height=${height}`;
   return window.open(url, "_blank", windowFeatures);
 }
 
-// Öffnen Sie ein neues Fenster, das den verfügbaren Bereich des aktuellen Bildschirms ausfüllt.
+// Open a new window that fills the available area of the current screen.
 const currentScreen = (await window.getScreenDetails()).currentScreen;
-console.log(`Öffne ein Fenster, um Bildschirm ${currentScreen.label} auszufüllen`);
+console.log(`Opening a window to fill screen ${currentScreen.label}`);
 const windowRef = openWindow(
   currentScreen.availLeft,
   currentScreen.availTop,

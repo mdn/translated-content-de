@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{deprecated_header}}
 
-Das **`<font-face-src>`** [SVG](/de/docs/Web/SVG) Element entspricht dem {{cssxref("@font-face/src", "src")}} Deskriptor in CSS {{cssxref("@font-face")}} Regeln. Es dient als Container für {{SVGElement("font-face-name")}}, der auf lokal installierte Kopien dieser Schriftart verweist, und {{SVGElement("font-face-uri")}}, welcher remote definierte Schriften nutzt.
+Das **`<font-face-src>`** [SVG](/de/docs/Web/SVG)-Element entspricht dem {{cssxref("@font-face/src", "src")}} Descriptor in CSS {{cssxref("@font-face")}} Regeln. Es dient als Container für {{SVGElement("font-face-name")}}, das auf lokal installierte Kopien dieser Schriftart verweist, und {{SVGElement("font-face-uri")}}, das entfernte Schriften nutzt.
 
 ## Verwendungskontext
 
@@ -15,7 +15,7 @@ Das **`<font-face-src>`** [SVG](/de/docs/Web/SVG) Element entspricht dem {{cssxr
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFontFaceSrcElement")}} Schnittstelle.
+Dieses Element implementiert die [`SVGFontFaceSrcElement`](/de/docs/Web/API/SVGFontFaceSrcElement) Schnittstelle.
 
 ## Spezifikationen
 
@@ -30,4 +30,4 @@ Dieses Element implementiert die {{domxref("SVGFontFaceSrcElement")}} Schnittste
 - {{SVGElement("font-face")}}
 - {{SVGElement("font-face-name")}}
 - {{SVGElement("font-face-uri")}}
-- [SVG-Tutorial: SVG-Schriften](/de/docs/Web/SVG/Tutorial/SVG_fonts)
+- [SVG-Leitfaden: SVG-Schriften](/de/docs/Web/SVG/Tutorial/SVG_fonts)

@@ -1,5 +1,5 @@
 ---
-title: Veränderlich
+title: Mutable
 slug: Glossary/Mutable
 l10n:
   sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **veränderlicher** Wert ist ein solcher, der geändert werden kann, ohne dass ein vollständig neuer Wert erstellt wird, im Vergleich zu {{Glossary("immutable", "unveränderlichen Werten")}}.
+Ein **veränderbarer** Wert ist einer, der geändert werden kann, ohne einen völlig neuen Wert zu erstellen, im Vergleich zu [unveränderlichen Werten](/de/docs/Glossary/immutable).
 
-In {{glossary("JavaScript")}} sind {{Glossary("Object", "Objekte")}} und {{Glossary("Array", "Arrays")}} standardmäßig veränderlich – ihre Eigenschaften und Elemente können geändert werden, ohne dass ein neues Objekt oder Array erstellt wird. Im Gegensatz dazu sind {{Glossary("primitive", "primitive Werte")}} unveränderlich – sobald ein primitiver Wert erstellt wurde, kann er nicht mehr geändert werden, obwohl die Variable, die ihn hält, einen anderen Wert zugewiesen bekommen kann.
+In [JavaScript](/de/docs/Glossary/JavaScript) sind [Objekte](/de/docs/Glossary/Object) und [Arrays](/de/docs/Glossary/Array) standardmäßig veränderbar — ihre Eigenschaften und Elemente können geändert werden, ohne dass ein neues Objekt oder Array erstellt wird. Im Gegensatz dazu sind [primitive Werte](/de/docs/Glossary/primitive) unveränderlich — sobald ein primitiver Wert erstellt ist, kann er nicht mehr geändert werden, obwohl die Variable, die ihn hält, einem anderen Wert zugewiesen werden kann.
 
 ## Siehe auch
 
-- [Unveränderliches Objekt](https://en.wikipedia.org/wiki/Immutable_object) auf Wikipedia
+- [Immutable object](https://en.wikipedia.org/wiki/Immutable_object) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - {{glossary("Immutable")}}
+  - [Immutable](/de/docs/Glossary/Immutable)

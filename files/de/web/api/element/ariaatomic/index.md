@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaAtomic`**-Eigenschaft des {{domxref("Element")}}-Interfaces spiegelt den Wert des [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-atomic)-Attributs wider, das angibt, ob unterstützende Technologien den gesamten oder nur Teile des geänderten Bereichs präsentieren werden, basierend auf den durch das [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-relevant)-Attribut definierten Änderungsbenachrichtigungen.
+Die **`ariaAtomic`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-atomic`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-atomic)-Attributs wider. Dieses Attribut gibt an, ob unterstützende Technologien entweder alle oder nur Teile des geänderten Bereichs präsentieren werden, basierend auf den Änderungsbenachrichtigungen, die durch das [`aria-relevant`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-relevant)-Attribut definiert sind.
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `"false"`
-  - : Unterstützende Technologien präsentieren nur den oder die geänderten Knoten.
+  - : Unterstützende Technologien werden nur die geänderten Knoten präsentieren.
 - `"true"`
-  - : Unterstützende Technologien präsentieren den gesamten geänderten Bereich als Ganzes, einschließlich des vom Autor definierten Labels, falls vorhanden.
+  - : Unterstützende Technologien werden den gesamten geänderten Bereich als Ganzes präsentieren, einschließlich des vom Autor festgelegten Labels, falls vorhanden.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-atomic`-Attribut auf dem Element mit der ID `"clock"` auf "true" gesetzt. Mithilfe von `ariaAtomic` aktualisieren wir den Wert auf "false".
+In diesem Beispiel wird das `aria-atomic`-Attribut des Elements mit der ID `"clock"` auf "true" gesetzt. Mit `ariaAtomic` aktualisieren wir den Wert auf "false".
 
 ```html
 <div id="clock" role="timer" aria-live="polite" aria-atomic="true"></div>

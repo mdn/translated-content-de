@@ -28,7 +28,7 @@ Die größte ganze Zahl, die kleiner oder gleich `x` ist. Es ist derselbe Wert w
 
 ## Beschreibung
 
-Da `floor()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.floor()` und nicht als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `floor()` eine statische Methode von `Math` ist, verwenden Sie sie immer als `Math.floor()` und nicht als eine Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
@@ -48,24 +48,24 @@ Math.floor(Infinity); // Infinity
 
 ### Dezimalanpassung
 
-In diesem Beispiel implementieren wir eine Methode namens `decimalAdjust()`, die eine Erweiterungsmethode von `Math.floor()`, {{jsxref("Math.ceil()")}} und {{jsxref("Math.round()")}} ist. Während die drei `Math`-Funktionen die Eingabe immer auf die Einheitsziffer anpassen, akzeptiert `decimalAdjust` einen `exp`-Parameter, der die Anzahl der Stellen links vom Dezimalpunkt angibt, auf die die Zahl angepasst werden soll. Zum Beispiel bedeutet `-1`, dass eine Stelle nach dem Dezimalpunkt verbleiben würde (wie in "× 10<sup>-1</sup>"). Darüber hinaus können Sie durch den `type`-Parameter die Art der Anpassung auswählen — `round`, `floor` oder `ceil`.
+In diesem Beispiel implementieren wir eine Methode namens `decimalAdjust()`, die eine Erweiterungsmethode von `Math.floor()`, {{jsxref("Math.ceil()")}} und {{jsxref("Math.round()")}} ist. Während die drei `Math`-Funktionen die Eingabe immer auf die Einheitsstelle anpassen, akzeptiert `decimalAdjust` einen `exp`-Parameter, der die Anzahl der Stellen links vom Dezimalpunkt angibt, auf die die Zahl angepasst werden soll. Zum Beispiel bedeutet `-1`, dass eine Stelle nach dem Dezimalpunkt übrig bleibt (wie "× 10<sup>-1</sup>"). Zusätzlich ermöglicht es Ihnen, die Art der Anpassung — `round`, `floor` oder `ceil` — über den `type`-Parameter auszuwählen.
 
-Dies geschieht, indem die Zahl mit einer Zehnerpotenz multipliziert, dann das Ergebnis auf die nächste ganze Zahl gerundet und anschließend durch die Zehnerpotenz geteilt wird. Um die Präzision besser zu erhalten, wird die `toString()`-Methode von Number genutzt, die große oder kleine Zahlen in wissenschaftlicher Notation darstellt (wie `6.02e23`).
+Dies geschieht, indem die Zahl mit einer Potenz von 10 multipliziert wird, dann das Ergebnis auf die nächste ganze Zahl gerundet und schließlich durch die Potenz von 10 geteilt wird. Um die Genauigkeit besser zu bewahren, nutzt es die [`toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)-Methode von Number, die große oder kleine Zahlen in wissenschaftlicher Notation darstellt (wie `6.02e23`).
 
 ```js
 /**
- * Passt eine Zahl auf die angegebene Stelle an.
+ * Adjusts a number to the specified digit.
  *
- * @param {"round" | "floor" | "ceil"} type Die Art der Anpassung.
- * @param {number} value Die Zahl.
- * @param {number} exp Der Exponent (der 10er-Logarithmus der Anpassungsbasis).
- * @returns {number} Der angepasste Wert.
+ * @param {"round" | "floor" | "ceil"} type The type of adjustment.
+ * @param {number} value The number.
+ * @param {number} exp The exponent (the 10 logarithm of the adjustment base).
+ * @returns {number} The adjusted value.
  */
 function decimalAdjust(type, value, exp) {
   type = String(type);
   if (!["round", "floor", "ceil"].includes(type)) {
     throw new TypeError(
-      "Der Typ der Dezimalanpassung muss 'round', 'floor' oder 'ceil' sein.",
+      "The type of decimal adjustment must be one of 'round', 'floor', or 'ceil'.",
     );
   }
   exp = Number(exp);
@@ -77,19 +77,19 @@ function decimalAdjust(type, value, exp) {
   }
   const [magnitude, exponent = 0] = value.toString().split("e");
   const adjustedValue = Math[type](`${magnitude}e${exponent - exp}`);
-  // Zurückverschiebung
+  // Shift back
   const [newMagnitude, newExponent = 0] = adjustedValue.toString().split("e");
   return Number(`${newMagnitude}e${+newExponent + exp}`);
 }
 
-// Dezimal rund
+// Decimal round
 const round10 = (value, exp) => decimalAdjust("round", value, exp);
-// Dezimal ab
+// Decimal floor
 const floor10 = (value, exp) => decimalAdjust("floor", value, exp);
-// Dezimal auf
+// Decimal ceil
 const ceil10 = (value, exp) => decimalAdjust("ceil", value, exp);
 
-// Rund
+// Round
 round10(55.55, -1); // 55.6
 round10(55.549, -1); // 55.5
 round10(55, 1); // 60
@@ -98,12 +98,12 @@ round10(-55.55, -1); // -55.5
 round10(-55.551, -1); // -55.6
 round10(-55, 1); // -50
 round10(-55.1, 1); // -60
-// Ab
+// Floor
 floor10(55.59, -1); // 55.5
 floor10(59, 1); // 50
 floor10(-55.51, -1); // -55.6
 floor10(-51, 1); // -60
-// Auf
+// Ceil
 ceil10(55.51, -1); // 55.6
 ceil10(51, 1); // 60
 ceil10(-55.59, -1); // -55.5

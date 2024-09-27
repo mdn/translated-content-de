@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("Window")}}
 
-Die Methode `window.confirm()` weist den Browser an, einen Dialog mit einer optionalen Nachricht anzuzeigen und zu warten, bis der Benutzer den Dialog entweder bestätigt oder abbricht.
+`window.confirm()` weist den Browser an, einen Dialog mit einer optionalen Nachricht anzuzeigen und zu warten, bis der Benutzer entweder den Dialog bestätigt oder abbricht.
 
-Unter bestimmten Bedingungen – zum Beispiel, wenn der Benutzer die Tabs wechselt – kann es vorkommen, dass der Browser keinen Dialog anzeigt oder nicht auf die Bestätigung oder den Abbruch des Dialogs durch den Benutzer wartet.
+Unter bestimmten Bedingungen – zum Beispiel, wenn der Benutzer die Registerkarten wechselt – zeigt der Browser möglicherweise keinen Dialog an oder wartet nicht, bis der Benutzer den Dialog bestätigt oder abbricht.
 
 ## Syntax
 
@@ -26,9 +26,7 @@ confirm(message)
 
 ### Rückgabewert
 
-Ein Boolean, der anzeigt, ob OK (`true`) oder Abbrechen (`false`)
-ausgewählt wurde. Falls ein Browser In-Page-Dialoge ignoriert, ist der zurückgegebene Wert immer
-`false`.
+Ein boolescher Wert, der anzeigt, ob OK (`true`) oder Abbrechen (`false`) ausgewählt wurde. Wenn ein Browser Dialoge auf der Seite ignoriert, ist der zurückgegebene Wert immer `false`.
 
 ## Beispiele
 
@@ -42,11 +40,11 @@ Erzeugt:
 
 ![Firefox confirm](firefox_confirm_dialog.png)
 
-## Anmerkungen
+## Hinweise
 
-Dialogfelder sind modale Fenster – sie verhindern, dass der Benutzer auf den Rest der Benutzeroberfläche des Programms zugreifen kann, bis das Dialogfeld geschlossen wird. Aus diesem Grund sollten Funktionen, die ein Dialogfeld (oder modales Fenster) erzeugen, nicht übermäßig verwendet werden. Unabhängig davon gibt es gute Gründe, [die Verwendung von Dialogfeldern zur Bestätigung zu vermeiden](https://alistapart.com/article/neveruseawarning/).
+Dialogfelder sind modale Fenster – sie verhindern, dass der Benutzer auf den Rest der Programmschnittstelle zugreift, bis das Dialogfeld geschlossen wird. Aus diesem Grund sollten Sie keine Funktion übermäßig verwenden, die ein Dialogfeld (oder modales Fenster) erzeugt. Unabhängig davon gibt es gute Gründe, [die Verwendung von Dialogfeldern zur Bestätigung zu vermeiden](https://alistapart.com/article/neveruseawarning/).
 
-Alternativ kann das {{HTMLElement("dialog")}} Element für Bestätigungen verwendet werden.
+Alternativ kann das {{HTMLElement("dialog")}}-Element für Bestätigungen verwendet werden.
 
 ## Spezifikationen
 
@@ -58,6 +56,6 @@ Alternativ kann das {{HTMLElement("dialog")}} Element für Bestätigungen verwen
 
 ## Siehe auch
 
-- {{HTMLElement("dialog")}} Element
-- {{domxref("window.alert()")}}
-- {{domxref("window.prompt()")}}
+- {{HTMLElement("dialog")}}-Element
+- [`window.alert()`](/de/docs/Web/API/Window/alert)
+- [`window.prompt()`](/de/docs/Web/API/Window/prompt)

@@ -8,31 +8,32 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`nextElementSibling`**-Eigenschaft der {{domxref("CharacterData")}}-Schnittstelle gibt das erste {{domxref("Element")}}-Knoten zurück, das dem angegebenen Knoten in der Kindliste seines Elternteils folgt, oder `null`, wenn das angegebene Element das letzte in der Liste ist.
+Die schreibgeschützte **`nextElementSibling`**-Eigenschaft der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle
+gibt das erste [`Element`](/de/docs/Web/API/Element)-Knoten zurück, das dem angegebenen in der Kindliste seines Elternteils folgt, oder `null`, wenn das angegebene Element das letzte in der Liste ist.
 
 ## Wert
 
-Ein {{domxref("Element")}}-Objekt oder `null`, wenn kein Geschwisterknoten gefunden wurde.
+Ein [`Element`](/de/docs/Web/API/Element)-Objekt oder `null`, wenn kein Geschwisterknoten gefunden wurde.
 
 ## Beispiel
 
 ```html
 TEXT
-<div id="div-01">Hier ist div-01</div>
+<div id="div-01">Here is div-01</div>
 TEXT2
-<div id="div-02">Hier ist div-02</div>
-<pre>Hier ist der Ergebnisbereich</pre>
+<div id="div-02">Here is div-02</div>
+<pre>Here is the result area</pre>
 ```
 
 ```js
-// Zunächst das Knoten auf den Textknoten mit `TEXT` setzen
+// Initially, set node to the Text node with `TEXT`
 let node = document.getElementById("div-01").previousSibling;
 
-let result = "Nächste Element-Geschwister von TEXT:\n";
+let result = "Next element siblings of TEXT:\n";
 
 while (node) {
   result += `${node.nodeName}\n`;
-  node = node.nextElementSibling; // Der erste Knoten ist ein CharacterData, die anderen Element-Objekte
+  node = node.nextElementSibling; // The first node is a CharacterData, the others Element objects
 }
 
 document.querySelector("pre").textContent = result;
@@ -50,4 +51,4 @@ document.querySelector("pre").textContent = result;
 
 ## Siehe auch
 
-- {{domxref("CharacterData.previousElementSibling")}}
+- [`CharacterData.previousElementSibling`](/de/docs/Web/API/CharacterData/previousElementSibling)

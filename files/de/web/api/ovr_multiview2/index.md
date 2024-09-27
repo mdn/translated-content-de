@@ -8,36 +8,36 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die `OVR_multiview2`-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und ermöglicht das gleichzeitige Rendern in mehrere Ansichten. Dies ist besonders nützlich für Virtual Reality (VR) und WebXR.
+Die `OVR_multiview2`-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und fügt Unterstützung für das gleichzeitige Rendern in mehrere Ansichten hinzu. Dies ist besonders nützlich für Virtual Reality (VR) und WebXR.
 
-Für weitere Informationen siehe auch:
+Weitere Informationen finden Sie unter:
 
-- [Multiview auf WebXR](https://error.ghost.org/)
+- [Multiview bei WebXR](https://error.ghost.org/)
 - [Multiview in babylon.js](https://doc.babylonjs.com/features/featuresDeepDive/cameras/multiViewsPart1)
-- [Optimierung der virtuellen Realität: Verständnis von Multiview](https://community.arm.com/arm-community-blogs/b/graphics-gaming-and-vr-blog/posts/optimizing-virtual-reality-understanding-multiview)
-- [Multiview WebGL Rendering für Meta Quest](https://developers.meta.com/horizon/documentation/web/web-multiview/)
+- [Optimierung von Virtual Reality: Verständnis von Multiview](https://community.arm.com/arm-community-blogs/b/graphics-gaming-and-vr-blog/posts/optimizing-virtual-reality-understanding-multiview)
+- [Multiview-WebGL-Rendering für Meta Quest](https://developers.meta.com/horizon/documentation/web/web-multiview/)
 
-WebGL-Erweiterungen sind mit der Methode {{domxref("WebGLRenderingContext.getExtension()")}} verfügbar. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind mit der Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Die Unterstützung hängt vom Grafiktreiber des Systems ab (Windows+ANGLE und Android werden unterstützt; Windows+GL, Mac, Linux werden nicht unterstützt).
+> Die Unterstützung hängt vom Grafikkartentreiber des Systems ab (Windows+ANGLE und Android werden unterstützt; Windows+GL, Mac, Linux werden nicht unterstützt).
 >
-> Diese Erweiterung ist nur für {{domxref("WebGL2RenderingContext", "WebGL 2", "", 1)}}-Kontexte verfügbar, da sie GLSL 3.00 und Texturarrays benötigt.
+> Diese Erweiterung ist nur für {{domxref("WebGL2RenderingContext", "WebGL 2", "", 1)}}-Kontexten verfügbar, da sie GLSL 3.00 und Texturarrays benötigt.
 >
-> Derzeit gibt es keine Möglichkeit, Multiview zu verwenden, um in einen multisample backbuffer zu rendern. Daher sollten Sie Kontexte mit `antialias: false` erstellen. Der Oculus-Browser (6+) unterstützt jedoch auch Multisampling mit der [`OCULUS_multiview`](https://developers.meta.com/horizon/documentation/web/web-multiview/#using-oculus_multiview-in-webgl-20) Erweiterung. Siehe auch [dieses WebGL-Problem](https://github.com/KhronosGroup/WebGL/issues/2912).
+> Derzeit gibt es keine Möglichkeit, mit Multiview in einen multisampelnden Backbuffer zu rendern, daher sollten Sie Kontexte mit `antialias: false` erstellen. Der Oculus-Browser (6+) unterstützt jedoch auch Multisampling mit der [`OCULUS_multiview`](https://developers.meta.com/horizon/documentation/web/web-multiview/#using-oculus_multiview-in-webgl-20)-Erweiterung. Siehe auch dieses [WebGL-Problem](https://github.com/KhronosGroup/WebGL/issues/2912).
 
 ## Konstanten
 
-Diese Erweiterung stellt 4 Konstanten zur Verfügung, die in [`getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) oder [`getFramebufferAttachmentParameter()`](/de/docs/Web/API/WebGLRenderingContext/getFramebufferAttachmentParameter) verwendet werden können.
+Diese Erweiterung stellt 4 Konstanten bereit, die in [`getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter) oder [`getFramebufferAttachmentParameter()`](/de/docs/Web/API/WebGLRenderingContext/getFramebufferAttachmentParameter) verwendet werden können.
 
 - `FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR`
   - : Anzahl der Ansichten des Framebuffer-Objektanhangs.
 - `FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR`
-  - : Basisansichtindex des Framebuffer-Objektanhangs.
+  - : Basis-Ansichtsindex des Framebuffer-Objektanhangs.
 - `MAX_VIEWS_OVR`
-  - : Die maximale Anzahl von Ansichten. Die meisten VR-Headsets haben zwei Ansichten, aber es gibt Prototypen von Headsets mit einem ultraweiten sichtbaren Bereich, die 4 Ansichten verwenden, was derzeit die maximale Anzahl von Ansichten ist, die von Multiview unterstützt wird.
+  - : Die maximale Anzahl der Ansichten. Die meisten VR-Headsets haben zwei Ansichten, aber es gibt Prototypen von Headsets mit ultraweitem Sichtfeld, die 4 Ansichten verwenden, was die derzeit maximale Anzahl von Ansichten ist, die Multiview unterstützt.
 - `FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR`
-  - : Wenn der baseViewIndex nicht für alle Framebuffer-Anhangspunkte gleich ist, bei denen der Wert von `FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE` nicht `NONE` ist, wird der Framebuffer als unvollständig betrachtet. Der Aufruf von [`checkFramebufferStatus`](/de/docs/Web/API/WebGLRenderingContext/checkFramebufferStatus) für einen Framebuffer in diesem Zustand gibt `FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR` zurück.
+  - : Wenn `baseViewIndex` nicht für alle Framebuffer-Anhangspunkte gleich ist, bei denen der Wert von `FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE` nicht `NONE` ist, wird der Framebuffer als unvollständig betrachtet. Ein Aufruf von [`checkFramebufferStatus`](/de/docs/Web/API/WebGLRenderingContext/checkFramebufferStatus) für einen Framebuffer in diesem Zustand gibt `FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR` zurück.
 
 ## Instanzmethoden
 
@@ -83,7 +83,7 @@ ext.framebufferTextureMultiviewOVR(
 gl.drawElements(/* … */); // draw will be broadcasted to the layers of colorTex and depthStencilTex.
 ```
 
-Shadercode
+Shader-Code
 
 ```cpp
 #version 300 es
@@ -109,6 +109,6 @@ Sehen Sie sich auch dieses [three.js](https://threejs.org/examples/?q=mult#webgl
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLRenderingContext.getParameter()")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLRenderingContext.getParameter()`](/de/docs/Web/API/WebGLRenderingContext/getParameter)
 - [WebXR](/de/docs/Web/API/WebXR_Device_API)

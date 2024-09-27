@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}} {{SeeCompatTable}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `gamepad`-Direktive steuert, ob das aktuelle Dokument die [Gamepad-API](/de/docs/Web/API/Gamepad_API) verwenden darf.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `gamepad` steuert, ob das aktuelle Dokument die [Gamepad API](/de/docs/Web/API/Gamepad_API) verwenden darf.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von {{domxref('Navigator.getGamepads()')}} einen `SecurityError` {{domxref('DOMException')}} auslösen. Darüber hinaus werden die Ereignisse {{domxref("Window.gamepadconnected_event", "gamepadconnected")}} und {{domxref("Window.gamepaddisconnected_event", "gamepaddisconnected")}} nicht ausgelöst.
+Speziell in Fällen, in denen eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe an [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) einen `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException) auslösen. Außerdem werden die Ereignisse [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) und [`gamepaddisconnected`](/de/docs/Web/API/Window/gamepaddisconnected_event) nicht ausgelöst.
 
 ## Syntax
 
@@ -18,39 +18,39 @@ Permissions-Policy: gamepad=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion gewährt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wird, die Funktion zu nutzen. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Whitelist für `gamepad` ist `self`.
+Die standardmäßige erlaubte Liste für `gamepad` ist `self`.
 
 ## Beispiele
 
 ### Allgemeines Beispiel
 
-SecureCorp Inc. möchte die Gamepad-API in allen Browsing-Kontexten außer ihrem eigenen Ursprung und denen, deren Ursprung `https://example.com` ist, deaktivieren.
-Dies kann durch die Lieferung des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungspolitik erreicht werden:
+SecureCorp Inc. möchte die Gamepad API in allen Browsing-Kontexten deaktivieren, außer für ihren eigenen Ursprung und die, deren Ursprung `https://example.com` ist.
+Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers geschehen, um eine Berechtigungsrichtlinie zu definieren:
 
 ```http
 Permissions-Policy: gamepad=(self "https://example.com")
 ```
 
-### Mit einem \<iframe>-Element
+### Mit einem `<iframe>`-Element
 
-FastCorp Inc. möchte `gamepad` für alle kinderübergreifenden Rahmen deaktivieren, außer für ein spezifisches `<iframe>`.
-Dies kann durch die Lieferung des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungspolitik erreicht werden:
+FastCorp Inc. möchte `gamepad` für alle Cross-Origin-Kind-Frames deaktivieren, außer für ein bestimmtes `<iframe>`.
+Dies kann durch die Bereitstellung des folgenden HTTP-Antwort-Headers geschehen, um eine Berechtigungsrichtlinie zu definieren:
 
 ```http
 Permissions-Policy: gamepad=(self)
 ```
 
-Fügen Sie dann ein {{HTMLElement('iframe','allow','#Attributes')}}-Attribut am `<iframe>`-Element ein:
+Dann fügen Sie ein Attribut {{HTMLElement('iframe','allow','#Attributes')}} zu dem `<iframe>`-Element hinzu:
 
 ```html
 <iframe src="https://other.com/game" allow="gamepad"></iframe>
 ```
 
-Iframe-Attribute können Funktionen in bestimmten Rahmen selektiv aktivieren und in anderen nicht, auch wenn diese Rahmen Dokumente aus demselben Ursprung enthalten.
+Iframe-Attribute können Funktionen selektiv in bestimmten Frames aktivieren, in anderen jedoch nicht, selbst wenn diese Frames Dokumente vom gleichen Ursprung enthalten.
 
 ## Spezifikationen
 
@@ -62,5 +62,5 @@ Iframe-Attribute können Funktionen in bestimmten Rahmen selektiv aktivieren und
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}}-Header
-- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)
+- {{HTTPHeader("Permissions-Policy")}} Header
+- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)

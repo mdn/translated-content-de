@@ -7,16 +7,16 @@ l10n:
 
 {{LearnSidebar}}
 
-Die standardmäßige Darstellung von Daten aus unseren Modellen ist sehr unansehnlich: _Mon Apr 10 2020 15:49:58 GMT+1100 (AUS Eastern Daylight Time)_. In diesem Abschnitt zeigen wir, wie Sie die _BookInstance List_ Seite aus dem vorherigen Abschnitt aktualisieren können, um das Feld `due_date` in einem freundlicheren Format anzuzeigen: Apr 10th, 2023.
+Die standardmäßige Darstellung von Datumsangaben aus unseren Modellen ist sehr unschön: _Mon Apr 10 2020 15:49:58 GMT+1100 (AUS Eastern Daylight Time)_. In diesem Abschnitt zeigen wir, wie Sie die _BookInstance List_-Seite aus dem vorherigen Abschnitt aktualisieren können, um das `due_date`-Feld in einem ansprechenderen Format darzustellen: Apr 10th, 2023.
 
-Der Ansatz, den wir verwenden werden, besteht darin, eine virtuelle Eigenschaft in unserem `BookInstance` Modell zu erstellen, die das formatierte Datum zurückgibt. Wir werden die tatsächliche Formatierung mit [luxon](https://www.npmjs.com/package/luxon) durchführen, einer leistungsstarken, modernen und benutzerfreundlichen Bibliothek zum Parsen, Validieren, Bearbeiten, Formatieren und Lokalisieren von Daten.
+Der Ansatz, den wir verwenden, besteht darin, eine virtuelle Eigenschaft in unserem `BookInstance`-Modell zu erstellen, die das formatierte Datum zurückgibt. Wir werden die eigentliche Formatierung mit [luxon](https://www.npmjs.com/package/luxon) durchführen, einer leistungsstarken, modernen und benutzerfreundlichen Bibliothek zum Parsen, Validieren, Manipulieren, Formatieren und Lokalisieren von Datumsangaben.
 
 > [!NOTE]
-> Es ist möglich, _luxon_ zu verwenden, um die Zeichenfolgen direkt in unseren Pug-Vorlagen zu formatieren, oder wir könnten die Zeichenfolge an verschiedenen anderen Stellen formatieren. Die Verwendung einer virtuellen Eigenschaft ermöglicht es uns, das formatierte Datum genau auf die gleiche Weise abzurufen, wie wir derzeit das `due_date` abrufen.
+> Es ist möglich, _luxon_ zu verwenden, um die Zeichenfolgen direkt in unseren Pug-Vorlagen zu formatieren, oder wir könnten die Zeichenfolge an mehreren anderen Stellen formatieren. Die Verwendung einer virtuellen Eigenschaft ermöglicht es uns, das formatierte Datum auf genau die gleiche Weise zu erhalten, wie wir derzeit das `due_date` erhalten.
 
 ## Luxon installieren
 
-Geben Sie den folgenden Befehl im Projekt-Stammverzeichnis ein:
+Geben Sie den folgenden Befehl im Stammverzeichnis des Projekts ein:
 
 ```bash
 npm install luxon
@@ -25,7 +25,7 @@ npm install luxon
 ## Die virtuelle Eigenschaft erstellen
 
 1. Öffnen Sie **./models/bookinstance.js**.
-2. Importieren Sie _luxon_ am Anfang der Seite.
+2. Importieren Sie _luxon_ am Anfang der Datei.
 
    ```js
    const { DateTime } = require("luxon");
@@ -40,8 +40,8 @@ BookInstanceSchema.virtual("due_back_formatted").get(function () {
 ```
 
 > [!NOTE]
-> Luxon kann Zeichenfolgen in vielen Formaten importieren und sowohl in vordefinierte als auch in frei definierte Formate exportieren. In diesem Fall verwenden wir `fromJSDate()`, um eine JavaScript-Datumzeichenfolge zu importieren, und `toLocaleString()`, um das Datum im `DATE_MED` Format auf Englisch auszugeben: Apr 10th, 2023.
-> Für Informationen über andere Formate und die Internationalisierung von Datumzeichenfolgen siehe die Luxon-Dokumentation zum [Formatieren](https://github.com/moment/luxon/blob/master/docs/formatting.md#formatting).
+> Luxon kann Zeichenfolgen in vielen Formaten importieren und sowohl in vordefinierte als auch in frei definierbare Formate exportieren. In diesem Fall verwenden wir `fromJSDate()`, um eine JavaScript-Datumzeichenfolge zu importieren und `toLocaleString()`, um das Datum im `DATE_MED`-Format in Englisch auszugeben: Apr 10th, 2023.
+> Informationen zu anderen Formaten und zur Internationalisierung von Datumzeichenfolgen finden Sie in der Luxon-Dokumentation zum [Formatieren](https://github.com/moment/luxon/blob/master/docs/formatting.md#formatting).
 
 ## Die Ansicht aktualisieren
 
@@ -53,9 +53,9 @@ BookInstanceSchema.virtual("due_back_formatted").get(function () {
         span  (Due: #{val.due_back_formatted} )
 ```
 
-Das war's. Wenn Sie im Seitenmenü zu _Alle Buchinstanzen_ gehen, sollten Sie jetzt sehen, dass alle Fälligkeitsdaten viel ansprechender sind!
+Das war's. Wenn Sie in der Seitenleiste zu _All book-instances_ gehen, sollten Sie jetzt sehen, dass alle Fälligkeitsdaten viel attraktiver sind!
 
 ## Nächste Schritte
 
-- Kehren Sie zurück zum [Express Tutorial Teil 5: Anzeigung von Bibliotheksdaten](/de/docs/Learn/Server-side/Express_Nodejs/Displaying_data).
-- Fahren Sie fort mit dem nächsten Unterartikel von Teil 5: [Autorenlisten-Seite und Genrelisten-Seite Herausforderung](/de/docs/Learn/Server-side/Express_Nodejs/Displaying_data/Author_list_page).
+- Kehren Sie zurück zu [Express Tutorial Teil 5: Darstellung von Bibliotheksdaten](/de/docs/Learn/Server-side/Express_Nodejs/Displaying_data).
+- Fahren Sie mit dem nächsten Unterartikel von Teil 5 fort: [Autorenliste und Genre-Liste herausfordern](/de/docs/Learn/Server-side/Express_Nodejs/Displaying_data/Author_list_page).

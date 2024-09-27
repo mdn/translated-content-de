@@ -7,39 +7,39 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Das **`MutationRecord`** ist ein schreibgeschütztes Interface, das eine einzelne DOM-Änderung darstellt, die von einem {{domxref("MutationObserver")}} beobachtet wird. Es ist das Objekt im Array, das an den Callback eines {{domxref("MutationObserver")}} übergeben wird.
+Die **`MutationRecord`**-Schnittstelle ist eine schreibgeschützte Schnittstelle, die eine einzelne DOM-Änderung darstellt, die von einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wurde. Sie ist das Objekt in dem Array, das an den Rückruf eines [`MutationObserver`](/de/docs/Web/API/MutationObserver) übergeben wird.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("MutationRecord.addedNodes")}} {{ReadOnlyInline}}
-  - : Die durch eine Mutation hinzugefügten Knoten. Wird eine leere {{domxref("NodeList")}} sein, wenn keine Knoten hinzugefügt wurden.
-- {{domxref("MutationRecord.attributeName")}} {{ReadOnlyInline}}
+- [`MutationRecord.addedNodes`](/de/docs/Web/API/MutationRecord/addedNodes) {{ReadOnlyInline}}
+  - : Die durch eine Mutation hinzugefügten Knoten. Wird eine leere [`NodeList`](/de/docs/Web/API/NodeList) sein, wenn keine Knoten hinzugefügt wurden.
+- [`MutationRecord.attributeName`](/de/docs/Web/API/MutationRecord/attributeName) {{ReadOnlyInline}}
   - : Der Name des geänderten Attributs als Zeichenkette oder `null`.
-- {{domxref("MutationRecord.attributeNamespace")}} {{ReadOnlyInline}}
+- [`MutationRecord.attributeNamespace`](/de/docs/Web/API/MutationRecord/attributeNamespace) {{ReadOnlyInline}}
   - : Der Namensraum des geänderten Attributs als Zeichenkette oder `null`.
-- {{domxref("MutationRecord.nextSibling")}} {{ReadOnlyInline}}
-  - : Das nächste Geschwister der hinzugefügten oder entfernten Knoten oder `null`.
-- {{domxref("MutationRecord.oldValue")}} {{ReadOnlyInline}}
-  - : Der Wert hängt vom {{domxref("MutationRecord.type")}} ab:
+- [`MutationRecord.nextSibling`](/de/docs/Web/API/MutationRecord/nextSibling) {{ReadOnlyInline}}
+  - : Das nächste Geschwisterelement der hinzugefügten oder entfernten Knoten oder `null`.
+- [`MutationRecord.oldValue`](/de/docs/Web/API/MutationRecord/oldValue) {{ReadOnlyInline}}
+  - : Der Wert hängt von [`MutationRecord.type`](/de/docs/Web/API/MutationRecord/type) ab:
     - Für `attributes` ist es der Wert des geänderten Attributs vor der Änderung.
     - Für `characterData` ist es die Daten des geänderten Knotens vor der Änderung.
     - Für `childList` ist es `null`.
-- {{domxref("MutationRecord.previousSibling")}} {{ReadOnlyInline}}
-  - : Das vorherige Geschwister der hinzugefügten oder entfernten Knoten oder `null`.
-- {{domxref("MutationRecord.removedNodes")}} {{ReadOnlyInline}}
-  - : Die durch eine Mutation entfernten Knoten. Wird eine leere {{domxref("NodeList")}} sein, wenn keine Knoten entfernt wurden.
-- {{domxref("MutationRecord.target")}} {{ReadOnlyInline}}
-  - : Der Knoten, der von der Mutation betroffen ist, abhängig vom `MutationRecord.type`.
-    - Für `attributes` ist es das Element, dessen Attribut geändert wurde.
+- [`MutationRecord.previousSibling`](/de/docs/Web/API/MutationRecord/previousSibling) {{ReadOnlyInline}}
+  - : Das vorherige Geschwisterelement der hinzugefügten oder entfernten Knoten oder `null`.
+- [`MutationRecord.removedNodes`](/de/docs/Web/API/MutationRecord/removedNodes) {{ReadOnlyInline}}
+  - : Die durch eine Mutation entfernten Knoten. Wird eine leere [`NodeList`](/de/docs/Web/API/NodeList) sein, wenn keine Knoten entfernt wurden.
+- [`MutationRecord.target`](/de/docs/Web/API/MutationRecord/target) {{ReadOnlyInline}}
+  - : Der Knoten, der von der Mutation betroffen ist, abhängig von `MutationRecord.type`.
+    - Für `attributes` ist es das Element, dessen Attribut sich geändert hat.
     - Für `characterData` ist es der `CharacterData`-Knoten.
-    - Für `childList` ist es der Knoten, dessen Kinder geändert wurden.
-- {{domxref("MutationRecord.type")}} {{ReadOnlyInline}}
-  - : Eine Zeichenkette, die den Typ der Mutation angibt: `attributes`, wenn es sich um eine Attribut-Mutation handelt, `characterData`, wenn es sich um eine Mutation eines `CharacterData`-Knotens handelt, und `childList`, wenn es sich um eine Mutation des Knotensbaums handelt.
+    - Für `childList` ist es der Knoten, dessen Kinder sich geändert haben.
+- [`MutationRecord.type`](/de/docs/Web/API/MutationRecord/type) {{ReadOnlyInline}}
+  - : Eine Zeichenkette, die den Mutationstyp darstellt: `attributes`, wenn es sich um eine Attributmutation handelt, `characterData`, wenn es eine Mutation eines `CharacterData`-Knotens war, und `childList`, wenn es eine Mutation im Baum von Knoten war.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

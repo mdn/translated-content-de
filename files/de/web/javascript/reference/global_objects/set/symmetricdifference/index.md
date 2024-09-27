@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`symmetricDifference()`**-Methode von {{jsxref("Set")}}-Instanzen nimmt ein Set und gibt ein neues Set zurück, das Elemente enthält, die entweder in diesem Set oder im angegebenen Set, aber nicht in beiden sind.
+Die **`symmetricDifference()`** Methode von {{jsxref("Set")}} Instanzen nimmt ein Set und gibt ein neues Set zurück, das Elemente enthält, die entweder in diesem Set oder im angegebenen Set enthalten sind, aber nicht in beiden.
 
 ## Syntax
 
@@ -18,15 +18,15 @@ symmetricDifference(other)
 ### Parameter
 
 - `other`
-  - : Ein {{jsxref("Set")}}-Objekt oder ein [set-ähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekt.
+  - : Ein {{jsxref("Set")}} Objekt oder ein [set-ähnliches](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekt.
 
 ### Rückgabewert
 
-Ein neues {{jsxref("Set")}}-Objekt, das Elemente enthält, die entweder in diesem Set oder im `other`-Set, aber nicht in beiden sind.
+Ein neues {{jsxref("Set")}} Objekt, das Elemente enthält, die entweder in diesem Set oder im `other` Set enthalten sind, aber nicht in beiden.
 
 ## Beschreibung
 
-In der mathematischen Notation wird der _symmetrische Unterschied_ definiert als:
+In mathematischer Notation wird _symmetrische Differenz_ wie folgt definiert:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -36,9 +36,9 @@ In der mathematischen Notation wird der _symmetrische Unterschied_ definiert als
 
 Und mit einem Venn-Diagramm:
 
-![Ein Venn-Diagramm mit zwei sich überschneidenden Kreisen. Der symmetrische Unterschied von A und B ist der Bereich, der entweder im einen oder im anderen Kreis enthalten ist, aber nicht in beiden.](diagram.svg)
+![Ein Venn-Diagramm, in dem sich zwei Kreise überlappen. Die symmetrische Differenz von A und B ist der Bereich, der entweder in einem Kreis, aber nicht in beiden enthalten ist.](diagram.svg)
 
-`symmetricDifference()` akzeptiert [set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es direkt auf die zugrunde liegenden Daten in `this` zugreift, ohne Benutzercode aufzurufen. Anschließend wird `other` durch Aufruf der `keys()`-Methode iteriert, und es wird ein neues Set mit allen Elementen in `this` erstellt, die in `other` nicht vorhanden sind, sowie allen Elementen in `other`, die in `this` nicht vorhanden sind.
+`symmetricDifference()` akzeptiert [set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als `other` Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}} Instanz ist, da es direkt die zugrunde liegenden Daten in `this` abruft, ohne Benutzer-Code aufzurufen. Dann iteriert es über `other`, indem es dessen `keys()` Methode aufruft, und erstellt ein neues Set mit allen Elementen in `this`, die nicht in `other` zu sehen sind, sowie allen Elementen in `other`, die nicht in `this` zu sehen sind.
 
 Die Reihenfolge der Elemente im zurückgegebenen Set ist zuerst die in `this`, gefolgt von denen in `other`.
 
@@ -46,7 +46,7 @@ Die Reihenfolge der Elemente im zurückgegebenen Set ist zuerst die in `this`, g
 
 ### Verwendung von symmetricDifference()
 
-Das folgende Beispiel berechnet den symmetrischen Unterschied zwischen dem Set der geraden Zahlen (<10) und dem Set der perfekten Quadrate (<10). Das Ergebnis ist das Set von Zahlen, die entweder gerade oder ein perfektes Quadrat sind, aber nicht beides.
+Im folgenden Beispiel wird die symmetrische Differenz zwischen der Menge der geraden Zahlen (<10) und der Menge der perfekten Quadrate (<10) berechnet. Das Ergebnis ist die Menge der Zahlen, die entweder gerade oder ein perfektes Quadrat sind, aber nicht beides.
 
 ```js
 const evens = new Set([2, 4, 6, 8]);

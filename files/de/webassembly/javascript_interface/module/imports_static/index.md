@@ -31,12 +31,12 @@ Wenn das Modul keine Instanz eines [`WebAssembly.Module`](/de/docs/WebAssembly/J
 
 ## Beispiele
 
-### Verwendung von Imports
+### Verwenden von Imports
 
 Das folgende Beispiel kompiliert ein geladenes Wasm-Modul und fragt die Importe des Moduls ab.
 
-Siehe imports.html [Quellcode](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/imports.html) und
-[live Version](https://mdn.github.io/webassembly-examples/js-api-examples/imports.html).
+Siehe den Quellcode von imports.html [source code](https://github.com/mdn/webassembly-examples/blob/main/js-api-examples/imports.html) und
+[live version](https://mdn.github.io/webassembly-examples/js-api-examples/imports.html).
 
 ```js
 WebAssembly.compileStreaming(fetch("simple.wasm")).then((mod) => {
@@ -45,7 +45,7 @@ WebAssembly.compileStreaming(fetch("simple.wasm")).then((mod) => {
 });
 ```
 
-Das Konsolenprotokoll zeigt die folgende Beschreibung für das importierte Modul an:
+Der Konsolen-Log zeigt die folgende Beschreibung für das importierte Modul:
 
 ```js
 { module: "my_namespace", name: "imported_func", kind: "function" }
@@ -61,6 +61,6 @@ Das Konsolenprotokoll zeigt die folgende Beschreibung für das importierte Modul
 
 ## Siehe auch
 
-- Überblick über [WebAssembly](/de/docs/WebAssembly)
+- [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
-- [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)
+- [Verwenden der WebAssembly JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)

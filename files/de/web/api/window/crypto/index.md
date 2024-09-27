@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Web Crypto API")}}
 
-Die **`crypto`** Eigenschaft des {{domxref("Window")}}-Interfaces gibt das {{domxref("Crypto")}}-Objekt für den Bereich dieses Fensters zurück. Dieses Objekt gibt Webseiten Zugang zu bestimmten kryptographischen Diensten.
+Die **`crypto`**-Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die das [`Crypto`](/de/docs/Web/API/Crypto)-Objekt für diesen Fensterbereich zurückgibt. Dieses Objekt bietet Webseiten Zugriff auf bestimmte kryptografische Dienste.
 
-Obwohl die Eigenschaft selbst schreibgeschützt ist, sind alle ihre Methoden (und die Methoden des Kindobjekts {{domxref("SubtleCrypto")}}) nicht schreibgeschützt und daher anfällig für Angriffe durch {{glossary("polyfill")}}.
+Obwohl die Eigenschaft selbst schreibgeschützt ist, sind alle ihre Methoden (und die Methoden ihres Kindobjekts, [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)) nicht schreibgeschützt und daher anfällig für Angriffe durch [Polyfills](/de/docs/Glossary/polyfill).
 
-Obwohl `crypto` in allen Fenstern verfügbar ist, hat das zurückgegebene `Crypto`-Objekt nur eine brauchbare Funktion in unsicheren Kontexten: die {{domxref("Crypto.getRandomValues", "getRandomValues()")}}-Methode. Im Allgemeinen sollten Sie diese API nur in sicheren Kontexten verwenden.
+Obwohl `crypto` in allen Fenstern verfügbar ist, hat das zurückgegebene `Crypto`-Objekt in unsicheren Kontexten nur eine nutzbare Funktion: die Methode [`getRandomValues()`](/de/docs/Web/API/Crypto/getRandomValues). Im Allgemeinen sollten Sie diese API nur in sicheren Kontexten verwenden.
 
 ## Wert
 
-Eine Instanz des {{domxref("Crypto")}}-Interfaces, die Zugang zu allgemeiner Kryptographie und einem starken Zufallszahlengenerator bietet.
+Eine Instanz der [`Crypto`](/de/docs/Web/API/Crypto)-Schnittstelle, die Zugriff auf allgemeine Kryptographie und einen starken Zufallszahlengenerator bietet.
 
 ## Beispiele
 
-Dieses Beispiel verwendet die `crypto`-Eigenschaft, um auf die {{domxref("Crypto.getRandomValues", "getRandomValues()")}}-Methode zuzugreifen.
+Dieses Beispiel nutzt die `crypto`-Eigenschaft, um auf die Methode [`getRandomValues()`](/de/docs/Web/API/Crypto/getRandomValues) zuzugreifen.
 
 ### JavaScript
 
@@ -51,11 +51,11 @@ globalThis.genRandomNumbers = () => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Das {{domxref("Crypto")}}-Interface
-- {{domxref("WorkerGlobalScope.crypto")}}
+- Die [`Crypto`](/de/docs/Web/API/Crypto)-Schnittstelle
+- [`WorkerGlobalScope.crypto`](/de/docs/Web/API/WorkerGlobalScope/crypto)

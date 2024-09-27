@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`dataChannelsOpened`**-Eigenschaft des {{domxref("RTCPeerConnectionStats")}}-Wörterbuchs gibt die Anzahl der eindeutigen {{domxref("RTCDataChannel")}}-Objekte an, die während ihrer Lebensdauer in den [`open`](/de/docs/Web/API/RTCDataChannel/readyState#open)-Zustand übergegangen sind.
+Die **`dataChannelsOpened`**-Eigenschaft des [`RTCPeerConnectionStats`](/de/docs/Web/API/RTCPeerConnectionStats)-Wörterbuchs gibt an, wie viele eindeutige [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekte während ihrer Lebensdauer den Zustand [`open`](/de/docs/Web/API/RTCDataChannel/readyState#open) erreicht haben.
 
 ## Wert
 
-Eine positive ganze Zahl, die die Anzahl der eindeutigen {{domxref("RTCDataChannel")}}-Objekte angibt, die während ihrer Lebensdauer in den [`open`](/de/docs/Web/API/RTCDataChannel/readyState#open)-Zustand übergegangen sind.
+Eine positive ganze Zahl, die angibt, wie viele eindeutige [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-Objekte während ihrer Lebensdauer den Zustand [`open`](/de/docs/Web/API/RTCDataChannel/readyState#open) erreicht haben.
 
 ## Spezifikationen
 

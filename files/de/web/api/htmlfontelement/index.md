@@ -7,24 +7,24 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}
 
-Implementiert die Document Object Model (DOM) Darstellung des Schriftart-Elements. Das HTML-Schriftart-Element {{HTMLElement("font")}} definiert die Schriftgröße, die Schriftart und die Farbe des Textes.
+Implementiert die Document Object Model (DOM) Repräsentation des `font` Elements. Das HTML Font Element {{HTMLElement("font")}} definiert die Schriftgröße, den Schriftschnitt und die Farbe von Text.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLFontElement.color")}} {{Deprecated_Inline}}
-  - : Ein String, der das [`color`](/de/docs/Web/HTML/Element/font#color) HTML-Attribut widerspiegelt und entweder eine benannte Farbe oder eine Farbe im hexadezimalen Format #RRGGBB enthält.
-- {{domxref("HTMLFontElement.face")}} {{Deprecated_Inline}}
-  - : Ein String, der das [`face`](/de/docs/Web/HTML/Element/font#face) HTML-Attribut widerspiegelt und eine durch Kommas getrennte Liste von einem oder mehreren Schriftartnamen enthält.
-- {{domxref("HTMLFontElement.size")}} {{Deprecated_Inline}}
-  - : Ein String, der das [`size`](/de/docs/Web/HTML/Element/font#size) HTML-Attribut widerspiegelt und entweder eine Schriftgröße von 1 bis 7 oder eine relative Zahl zum Standardwert 3 enthält, zum Beispiel -2 oder +1.
+- [`HTMLFontElement.color`](/de/docs/Web/API/HTMLFontElement/color) {{Deprecated_Inline}}
+  - : Ein String, der das HTML-Attribut [`color`](/de/docs/Web/HTML/Element/font#color) widerspiegelt, entweder eine benannte Farbe oder eine Farbe im hexadezimalen #RRGGBB-Format.
+- [`HTMLFontElement.face`](/de/docs/Web/API/HTMLFontElement/face) {{Deprecated_Inline}}
+  - : Ein String, der das HTML-Attribut [`face`](/de/docs/Web/HTML/Element/font#face) widerspiegelt, welcher eine durch Kommas getrennte Liste von einem oder mehreren Schriftarten enthält.
+- [`HTMLFontElement.size`](/de/docs/Web/API/HTMLFontElement/size) {{Deprecated_Inline}}
+  - : Ein String, der das HTML-Attribut [`size`](/de/docs/Web/HTML/Element/font#size) widerspiegelt, der entweder eine Schriftgröße von 1 bis 7 oder eine Zahl relativ zum Standardwert 3 enthält, zum Beispiel -2 oder +1.
 
 ## Instanzmethoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, {{domxref("HTMLElement")}}._
+_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Spezifikationen
 

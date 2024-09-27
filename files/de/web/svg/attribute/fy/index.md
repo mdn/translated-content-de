@@ -1,5 +1,5 @@
 ---
-title: fy-Attribut
+title: fy
 slug: Web/SVG/Attribute/fy
 l10n:
   sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
@@ -9,7 +9,7 @@ l10n:
 
 Das **`fy`**-Attribut definiert die y-Achsen-Koordinate des Brennpunkts für einen radialen Verlauf.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("radialGradient")}}
 
@@ -117,7 +117,7 @@ svg {
 
 {{EmbedLiveSample("Beispiel 2", "200", "250")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -128,13 +128,13 @@ svg {
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        Entspricht dem Darstellungswert von {{SVGAttr("cy")}} für das
-        Element, unabhängig davon, ob der Wert für <code>cy</code> geerbt wurde oder nicht.
+        Entspricht dem präsentationalen Wert von {{SVGAttr("cy")}} für
+        das Element, unabhängig davon, ob der Wert für <code>cy</code> geerbt wurde oder nicht.
       </td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Keines</td>
+      <td>Keine</td>
     </tr>
   </tbody>
 </table>

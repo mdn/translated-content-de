@@ -1,5 +1,5 @@
 ---
-title: "DocumentFragment: Methode replaceChildren()"
+title: "DocumentFragment: replaceChildren() Methode"
 short-title: replaceChildren()
 slug: Web/API/DocumentFragment/replaceChildren
 l10n:
@@ -8,9 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DocumentFragment.replaceChildren()`** Methode ersetzt die
-vorhandenen Kinder eines `DocumentFragment` mit einem angegebenen neuen Satz von Kindern. Diese
-können Zeichenfolgen oder {{domxref("Node")}} Objekte sein.
+Die **`DocumentFragment.replaceChildren()`**-Methode ersetzt die
+vorhandenen Kinder eines `DocumentFragment` mit einem angegebenen neuen Satz von Kindern. Diese können entweder Zeichenfolgen oder [`Node`](/de/docs/Web/API/Node)-Objekte sein.
 
 ## Syntax
 
@@ -23,9 +22,7 @@ replaceChildren(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Ein Satz von {{domxref("Node")}} Objekten oder Zeichenfolgen, mit denen die
-    vorhandenen Kinder des `DocumentFragment` ersetzt werden. Wenn keine Ersetzungsobjekte angegeben sind,
-    wird das `DocumentFragment` von allen untergeordneten Knoten geleert.
+  - : Ein Satz von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen, die die bestehenden Kinder des `DocumentFragment` ersetzen. Wenn keine Ersetzungsobjekte angegeben sind, wird das `DocumentFragment` von allen Kindknoten geleert.
 
 ### Rückgabewert
 
@@ -33,14 +30,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
-  - : Ausgelöst, wenn die [Einschränkungen des Knotenbaums](https://dom.spec.whatwg.org/#concept-node-tree) verletzt werden.
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn die [Einschränkungen des Knoteninhaltsbaums](https://dom.spec.whatwg.org/#concept-node-tree) verletzt werden.
 
 ## Beispiele
 
-### Leeren eines Dokumentfragments
+### Leeren eines Document Fragments
 
-`replaceChildren()` bietet einen sehr praktischen Mechanismus, um ein Dokumentfragment von all seinen Kindern zu leeren. Sie rufen es auf dem Dokumentfragment ohne angegebenes Argument auf:
+`replaceChildren()` bietet einen sehr bequemen Mechanismus zum Leeren eines Document Fragments von allen seinen Kindern. Sie rufen die Methode auf dem Document Fragment auf, ohne ein Argument anzugeben:
 
 ```js
 let fragment = new DocumentFragment();
@@ -66,5 +63,5 @@ fragment.children; // HTMLCollection []
 
 ## Siehe auch
 
-- {{domxref("DocumentFragment.prepend()")}}
-- {{domxref("DocumentFragment.append()")}}
+- [`DocumentFragment.prepend()`](/de/docs/Web/API/DocumentFragment/prepend)
+- [`DocumentFragment.append()`](/de/docs/Web/API/DocumentFragment/append)

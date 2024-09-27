@@ -1,5 +1,5 @@
 ---
-title: "ScrollTimeline: ScrollTimeline()-Konstruktor"
+title: "ScrollTimeline: ScrollTimeline() Konstruktor"
 short-title: ScrollTimeline()
 slug: Web/API/ScrollTimeline/ScrollTimeline
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("History API")}}{{SeeCompatTable}}
 
-Der **`ScrollTimeline()`**-Konstruktor erstellt eine neue Instanz des {{domxref("ScrollTimeline")}}-Objekts.
+Der **`ScrollTimeline()`** Konstruktor erstellt eine neue [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline) Objektinstanz.
 
 ## Syntax
 
@@ -23,25 +23,25 @@ new ScrollTimeline(options)
   - : Ein Objekt, das die folgenden Eigenschaften enthalten kann:
 
     - `source`
-      - : Ein Verweis auf ein {{domxref("Element")}}, das das scrollbare Element (_scroller_) darstellt, dessen Scrollposition den Fortschritt der Timeline steuern wird.
+      - : Ein Verweis auf ein [`Element`](/de/docs/Web/API/Element), das das scrollbare Element (_Scroller_) darstellt, dessen Scrollposition den Fortschritt der Timeline steuern wird.
     - `axis` {{optional_inline}}
 
       - : Ein enumerierter Wert, der die Scrollachse darstellt, die den Fortschritt der Timeline steuern wird. Mögliche Werte sind:
 
-        - `"block"`: Der Scrollbalken auf der Blockachse des Scrollcontainers, welche die Achse in der Richtung senkrecht zum Textfluss innerhalb einer Zeile ist. Für horizontale Schreibrichtungen, wie beispielsweise standardmäßiges Englisch, ist dies dasselbe wie `"y"`, während es für vertikale Schreibrichtungen dasselbe wie `"x"` ist.
-        - `"inline"`: Der Scrollbalken auf der Inline-Achse des Scrollcontainers, welche die Achse in der Richtung parallel zum Textfluss in einer Zeile ist. Für horizontale Schreibrichtungen ist dies dasselbe wie `"x"`, während es für vertikale Schreibrichtungen dasselbe wie `"y"` ist.
-        - `"y"`: Der Scrollbalken auf der vertikalen Achse des Scrollcontainers.
-        - `"x"`: Der Scrollbalken auf der horizontalen Achse des Scrollcontainers.
+        - `"block"`: Der Scrollbalken auf der Blockachse des Scrollcontainers, welche die Achse in der Richtung senkrecht zum Textfluss innerhalb einer Zeile ist. Für horizontale Schreibrichtungen, wie standardmäßiges Englisch, ist dies dasselbe wie `"y"`, während es für vertikale Schreibrichtungen dasselbe wie `"x"` ist.
+        - `"inline"`: Der Scrollbalken auf der Inlineachse des Scrollcontainers, welche die Achse in der Richtung parallel zum Textfluss in einer Zeile ist. Für horizontale Schreibrichtungen ist dies dasselbe wie `"x"`, während es für vertikale Schreibrichtungen dasselbe wie `"y"` ist.
+        - `"y"`: Der Scrollbalken auf der Vertikalachse des Scrollcontainers.
+        - `"x"`: Der Scrollbalken auf der Horizontalachse des Scrollcontainers.
 
-        Wenn weggelassen, wird `axis` standardmäßig auf `"block"` gesetzt.
+        Wenn `axis` weggelassen wird, ist der Standardwert `"block"`.
 
 ### Rückgabewert
 
-Eine neue Instanz des {{domxref("ScrollTimeline")}}-Objekts.
+Eine neue [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline) Objektinstanz.
 
 ## Beispiele
 
-Sehen Sie sich die Hauptseite von {{domxref("ScrollTimeline")}} für ein Beispiel an.
+Für ein Beispiel siehe die Hauptseite von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline).
 
 ## Spezifikationen
 
@@ -54,6 +54,6 @@ Sehen Sie sich die Hauptseite von {{domxref("ScrollTimeline")}} für ein Beispie
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
-- {{domxref("ScrollTimeline")}}
-- {{domxref("AnimationTimeline")}}, {{domxref("ViewTimeline")}}
+- [CSS-Scroll-Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline)
+- [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline), [`ViewTimeline`](/de/docs/Web/API/ViewTimeline)

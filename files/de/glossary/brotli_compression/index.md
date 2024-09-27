@@ -7,19 +7,19 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Brotli** ist ein universeller verlustfreier Komprimierungsalgorithmus. Er komprimiert Daten unter Verwendung einer modernen Variante des [Lempel-Ziv-Kodierung](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) LZ77-Algorithmus, [Huffman-Kodierung](https://rosettacode.org/wiki/Huffman_coding) und der Kontextmodellierung zweiter Ordnung und bietet ein Kompressionsverhältnis, das mit den besten derzeit verfügbaren universellen Komprimierungsmethoden vergleichbar ist.
+**Brotli** ist ein universeller verlustfreier Komprimierungsalgorithmus. Er komprimiert Daten mittels einer Kombination aus einer modernen Variante des [Lempel-Ziv-Codings](https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77) LZ77-Algorithmus, [Huffman-Codierung](https://rosettacode.org/wiki/Huffman_coding) und Modellierung mit zweiter Ordnung, wodurch ein Komprimierungsverhältnis erzielt wird, das mit den besten derzeit verfügbaren universellen Komprimierungsmethoden vergleichbar ist.
 
-Brotli bietet bessere Kompressionsverhältnisse als {{glossary("GZip_compression", "gzip")}} und Geschwindigkeiten, die mit [deflate](https://en.wikipedia.org/wiki/Deflate) vergleichbar sind. Allerdings ist die Brotli-Komprimierung langsamer als die Gzip-Komprimierung, daher kann gzip die bessere Option sein, wenn nicht zwischenzuspeichernde Inhalte komprimiert werden.
+Brotli bietet bessere Komprimierungsverhältnisse als [gzip](/de/docs/Glossary/GZip_compression) und Geschwindigkeiten, die mit [deflate](https://en.wikipedia.org/wiki/Deflate) vergleichbar sind. Jedoch ist die Brotli-Komprimierung langsamer als die Gzip-Komprimierung, daher könnte Gzip die bessere Wahl sein, wenn es um die Komprimierung von [nicht-cachefähigen](/de/docs/Glossary/Cache) Inhalten geht.
 
-Brotli ist mit den meisten modernen Browsern kompatibel, aber Sie sollten eventuell eine Rückfalloption in Betracht ziehen.
+Brotli ist mit den meisten modernen Browsern kompatibel, aber es könnte sinnvoll sein, eine Rückfallebene in Betracht zu ziehen.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{glossary("Lossless compression")}}
-  - {{glossary("Lossy compression")}}
-  - {{Glossary("Gzip compression")}}
-  - {{Glossary("Zstandard compression")}}
+  - [Verlustfreie Komprimierung](/de/docs/Glossary/Lossless_compression)
+  - [Verlustbehaftete Komprimierung](/de/docs/Glossary/Lossy_compression)
+  - [Gzip-Komprimierung](/de/docs/Glossary/Gzip_compression)
+  - [Zstandard-Komprimierung](/de/docs/Glossary/Zstandard_compression)
 - [brotli.org](https://brotli.org/)
 - [Brotli GitHub Repository](https://github.com/google/brotli)
 - [RFC 7932: Brotli Compressed Data Format](https://datatracker.ietf.org/doc/html/rfc7932)

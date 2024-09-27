@@ -7,19 +7,18 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Content-Location`**-Header gibt einen alternativen Ort für die zurückgegebenen Daten an. Der Hauptzweck besteht darin, die URL einer Ressource anzugeben, die als Ergebnis der [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation) übertragen wird.
+Der **`Content-Location`** Header gibt einen alternativen Speicherort für die zurückgegebenen Daten an. Der Hauptzweck besteht darin, die URL einer Ressource anzugeben, die als Ergebnis der [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation) übertragen wurde.
 
-{{HTTPHeader("Location")}} und `Content-Location` sind unterschiedlich.
-`Location` gibt die URL einer Umleitung an, während `Content-Location` die direkte URL angibt, die verwendet werden soll, um auf die Ressource zuzugreifen, ohne in Zukunft eine weitere Inhaltsverhandlung durchzuführen. `Location` ist ein Header, der mit der Antwort verbunden ist, während `Content-Location` mit den zurückgegebenen Daten verknüpft ist. Diese Unterscheidung mag ohne [Beispiele](#beispiele) abstrakt erscheinen.
+{{HTTPHeader("Location")}} und `Content-Location` sind verschieden. `Location` zeigt die URL einer Weiterleitung an, während `Content-Location` die direkte URL angibt, die verwendet werden soll, um zukünftig ohne weitere Inhaltsaushandlung auf die Ressource zuzugreifen. `Location` ist ein Header, der mit der Antwort verbunden ist, während `Content-Location` mit den zurückgegebenen Daten verknüpft ist. Diese Unterscheidung mag ohne [Beispiele](#beispiele) abstrakt erscheinen.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Representation header")}}</td>
+      <td>[Repräsentations-Header](/de/docs/Glossary/Representation_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -34,79 +33,78 @@ Content-Location: <url>
 ## Direktiven
 
 - \<url>
-  - : Eine [relative](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#absolute_urls_vs._relative_urls)
-    (zur Anforderungs-URL) oder [absolute](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#absolute_urls_vs._relative_urls)
-    URL.
+  - : Eine [relative](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#absolute_urls_vs._relative_urls) (zur Anfrage-URL) oder [absolute](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#absolute_urls_vs._relative_urls) URL.
 
 ## Beispiele
 
-### Daten vom Server in verschiedenen Formaten anfordern
+### Anfordern von Daten vom Server in verschiedenen Formaten
 
-Angenommen, die API einer Seite kann Daten in {{glossary("JSON")}}, {{glossary("XML")}} oder [CSV](<https://de.wikipedia.org/wiki/CSV_(Dateiformat)>) Formaten zurückgeben. Wenn die URL für ein bestimmtes Dokument unter `https://example.com/documents/foo` liegt, kann die Seite je nach `Accept`-Header der Anforderung unterschiedliche URLs für `Content-Location` zurückgeben:
+Angenommen, die API einer Website kann Daten in den Formaten [JSON](/de/docs/Glossary/JSON), [XML](/de/docs/Glossary/XML) oder [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) zurückgeben. Wenn die URL für ein bestimmtes Dokument `https://example.com/documents/foo` ist, könnte die Website je nach dem `{{HTTPHeader("Accept")}}` Header der Anfrage unterschiedliche URLs für `Content-Location` zurückgeben:
 
-| Request-Header                        | Response-Header                         |
+| Anfrage-Header                        | Antwort-Header                          |
 | ------------------------------------- | --------------------------------------- |
 | `Accept: application/json, text/json` | `Content-Location: /documents/foo.json` |
 | `Accept: application/xml, text/xml`   | `Content-Location: /documents/foo.xml`  |
 | `Accept: text/plain, text/*`          | `Content-Location: /documents/foo.txt`  |
 
-Diese URLs sind Beispiele — die Seite kann die verschiedenen Dateitypen mit beliebigen URL-Mustern bereitstellen, z. B. mit einem [Abfragezeichenfolgen-Parameter](/de/docs/Web/API/HTMLAnchorElement/search): `/documents/foo?format=json`, `/documents/foo?format=xml` usw.
+Diese URLs sind Beispiele — die Website könnte die verschiedenen Dateitypen mit beliebigen URL-Mustern bedienen, wie etwa einem [Query-String-Parameter](/de/docs/Web/API/HTMLAnchorElement/search): `/documents/foo?format=json`, `/documents/foo?format=xml`, usw.
 
-Dann könnte der Client sich merken, dass die JSON-Version unter dieser bestimmten URL verfügbar ist und die Inhaltsverhandlung beim nächsten Anfordern dieses Dokuments überspringen.
+Der Client könnte sich dann merken, dass die JSON-Version unter dieser bestimmten URL verfügbar ist und die Inhaltsaushandlung beim nächsten Anfordern des Dokuments überspringen.
 
-Der Server könnte auch andere Header der [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation) in Betracht ziehen, wie z. B. {{HTTPHeader("Accept-Language")}}.
+Der Server könnte auch andere [Inhaltsaushandlungs-Header](/de/docs/Web/HTTP/Content_negotiation) berücksichtigen, wie z.B. {{HTTPHeader("Accept-Language")}}.
 
-### Verweis auf ein neues Dokument (HTTP 201 Created)
+### Verweisen auf ein neues Dokument (HTTP 201 Created)
 
-Angenommen, Sie erstellen einen neuen Blogbeitrag über die API einer Seite:
+Angenommen, Sie erstellen einen neuen Blog-Beitrag über die API einer Website:
 
 ```http
 POST /new/post
 Host: example.com
 Content-Type: text/markdown
 
-# Mein erster Blogbeitrag!
+# My first blog post!
 
-Ich habe dies über die API von `example.com` erstellt. Ich hoffe, es hat geklappt.
+I made this through `example.com`'s API. I hope it worked.
 ```
 
-Die Seite gibt den veröffentlichten Beitrag im Antwortkörper zurück. Der Server gibt mit dem `Content-Location`-Header an, _wo_ sich der neue Beitrag befindet, wobei dieser Ort auf den Inhalt (den Körper) dieser Antwort verweist:
+Die Website gibt den veröffentlichten Beitrag im Antwortkörper zurück. Der Server gibt an, _wo_ sich der neue Beitrag mit dem `Content-Location` Header befindet, was bedeutet, dass sich dieser Ort auf den Inhalt (den Körper) dieser Antwort bezieht:
 
 ```http
 HTTP/1.1 201 Created
 Content-Type: text/markdown
 Content-Location: /my-first-blog-post
 
-# Mein erster Blogbeitrag
+# My first blog post
 
-Ich habe dies über die API von `example.com` erstellt. Ich hoffe, es hat geklappt.
+I made this through `example.com`'s API. I hope it worked.
 ```
 
-### Angabe der URL des Ergebnisses einer Transaktion
+### Angabe der URL eines Transaktionsergebnisses
 
-Angenommen, Sie haben ein [`<form>`](/de/docs/Web/HTML/Element/form) zum Senden von Geld an einen anderen Benutzer einer Seite.
+Angenommen, Sie haben ein
+[`<form>`](/de/docs/Web/HTML/Element/form) um Geld an einen anderen Nutzer einer Website zu senden.
 
 ```html
 <form action="/send-payment" method="post">
   <p>
     <label
-      >Wem möchten Sie das Geld senden?
+      >Who do you want to send the money to?
       <input type="text" name="recipient" />
     </label>
   </p>
 
   <p>
     <label
-      >Wieviel?
+      >How much?
       <input type="number" name="amount" />
     </label>
   </p>
 
-  <button type="submit">Geld senden</button>
+  <button type="submit">Send Money</button>
 </form>
 ```
 
-Wenn das Formular übermittelt wird, generiert die Seite eine Quittung für die Transaktion. Der Server könnte `Content-Location` verwenden, um die URL dieser Quittung für zukünftigen Zugriff anzugeben.
+Wenn das Formular abgeschickt wird, erzeugt die Website eine Quittung für die Transaktion. Der Server könnte `Content-Location` verwenden, um die URL dieser Quittung für zukünftigen Zugriff anzugeben.
 
 ```http
 HTTP/1.1 200 OK
@@ -114,11 +112,11 @@ Content-Type: text/html; charset=utf-8
 Content-Location: /my-receipts/38
 
 <!doctype html>
-(Viel HTML…)
+(Lots of HTML…)
 
-<p>Sie haben $38.00 an ExampleUser gesendet.</p>
+<p>You sent $38.00 to ExampleUser.</p>
 
-(Noch mehr HTML…)
+(Lots more HTML…)
 ```
 
 ## Spezifikationen

@@ -7,12 +7,12 @@ l10n:
 
 {{APIRef("File and Directory Entries API")}}
 
-Die `FileSystemDirectoryReader`-Schnittstelle der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API) ermöglicht Ihnen den Zugriff auf die auf {{domxref("FileSystemFileEntry")}} basierenden Objekte (in der Regel {{domxref("FileSystemFileEntry")}} oder {{domxref("FileSystemDirectoryEntry")}}), die jeweils einen Eintrag in einem Verzeichnis darstellen.
+Das `FileSystemDirectoryReader`-Interface der [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API) ermöglicht den Zugriff auf die auf [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) basierenden Objekte (in der Regel [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) oder [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)), die jeden Eintrag in einem Verzeichnis darstellen.
 
 ## Instanzmethoden
 
-- {{domxref("FileSystemDirectoryReader.readEntries", "readEntries()")}}
-  - : Gibt ein Array zurück, das eine Anzahl von Einträgen des Verzeichnisses enthält. Jedes Element im Array ist ein auf {{domxref("FileSystemEntry")}} basierendes Objekt – typischerweise entweder {{domxref("FileSystemFileEntry")}} oder {{domxref("FileSystemDirectoryEntry")}}.
+- [`readEntries()`](/de/docs/Web/API/FileSystemDirectoryReader/readEntries)
+  - : Gibt ein Array zurück, das eine bestimmte Anzahl von Einträgen des Verzeichnisses enthält. Jedes Element im Array ist ein Objekt, das auf [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) basiert—typischerweise entweder [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) oder [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry).
 
 ## Spezifikationen
 
@@ -26,5 +26,5 @@ Die `FileSystemDirectoryReader`-Schnittstelle der [File and Directory Entries AP
 
 - [File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API)
 - [Einführung in die File and Directory Entries API](/de/docs/Web/API/File_and_Directory_Entries_API/Introduction)
-- {{domxref("FileSystemDirectoryEntry")}}
-- {{domxref("FileSystem")}}
+- [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry)
+- [`FileSystem`](/de/docs/Web/API/FileSystem)

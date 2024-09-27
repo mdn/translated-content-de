@@ -9,9 +9,9 @@ l10n:
 {{APIRef("HTML DOM")}}
 
 Die **`HTMLFormElement.method`**-Eigenschaft repräsentiert die
-{{Glossary("HTTP")}}-Methode, die zum Senden des {{HtmlElement("form")}} verwendet wird.
+[HTTP](/de/docs/Glossary/HTTP)-Methode, die zum Absenden des {{HtmlElement("form")}} verwendet wird.
 
-Sofern nicht ausdrücklich angegeben, ist die Standardmethode 'get'.
+Falls nicht ausdrücklich angegeben, ist die Standardmethode 'get'.
 
 ## Wert
 
@@ -31,6 +31,6 @@ console.log(formElement.method); // 'get'
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

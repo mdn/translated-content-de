@@ -8,25 +8,25 @@ l10n:
 
 {{ APIRef("CSSOM") }}
 
-Die schreibgeschützte **`CSSKeyframeRule.style`** Eigenschaft ist das {{ domxref("CSSStyleDeclaration") }} Interface für den [Deklarationsblock](https://www.w3.org/TR/1998/REC-CSS2-19980512/syndata.html#block) der {{ domxref("CSSKeyframeRule") }}.
+Die schreibgeschützte **`CSSKeyframeRule.style`**-Eigenschaft ist das [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Interface für den [Deklarationsblock](https://www.w3.org/TR/1998/REC-CSS2-19980512/syndata.html#block) der [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule).
 
 ## Wert
 
-Ein {{domxref("CSSStyleDeclaration")}} Objekt mit den folgenden Eigenschaften:
+Ein [`CSSStyleDeclaration`](/de/docs/Web/API/CSSStyleDeclaration)-Objekt, mit den folgenden Eigenschaften:
 
 - computed flag
   - : Nicht gesetzt.
 - declarations
-  - : Die erklärten Deklarationen in der Regel, in der Reihenfolge, in der sie angegeben wurden, Kurzform-Eigenschaften erweitert zu Langformen.
+  - : Die in der Regel deklarierten Deklarationen, in der Reihenfolge, in der sie angegeben wurden, abgekürzte Eigenschaften auf Langformen erweitert.
 - parent CSS rule
-  - : Das Kontextobjekt, das ein Alias für [this](https://heycam.github.io/webidl/#this) ist.
+  - : Das Kontextobjekt, welches ein Alias für [dies](https://heycam.github.io/webidl/#this) ist.
 - owner node
   - : Null.
 
 ## Beispiele
 
-Das CSS enthält eine {{cssxref("@keyframes")}} At-Regel. Dies wird die erste {{domxref("CSSRule")}} sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
-`myRules[0]` gibt ein {{domxref("CSSKeyframesRule")}} Objekt zurück, welches einzelne {{domxref("CSSKeyFrameRule")}} Objekte für jedes Keyframe enthalten wird.
+Das CSS enthält eine {{cssxref("@keyframes")}}-At-Regel. Diese wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die durch `document.styleSheets[0].cssRules` zurückgegeben wird.
+`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück, welches einzelne [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyFrameRule)-Objekte für jedes Keyframe enthalten wird.
 
 ```css
 @keyframes slidein {

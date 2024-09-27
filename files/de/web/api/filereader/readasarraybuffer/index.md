@@ -1,5 +1,5 @@
 ---
-title: "FileReader: Methode readAsArrayBuffer()"
+title: "FileReader: readAsArrayBuffer() Methode"
 short-title: readAsArrayBuffer()
 slug: Web/API/FileReader/readAsArrayBuffer
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die **`readAsArrayBuffer()`**-Methode der {{domxref("FileReader")}}-Schnittstelle wird verwendet, um mit dem Lesen des Inhalts eines angegebenen {{domxref("Blob")}} oder {{domxref("File")}} zu beginnen. Wenn der Lesevorgang abgeschlossen ist, wird die Eigenschaft {{domxref("FileReader.readyState","readyState")}} auf `DONE` gesetzt und das {{domxref("FileReader/loadend_event", "loadend")}}-Ereignis wird ausgelöst. Zu diesem Zeitpunkt enthält die Eigenschaft {{domxref("FileReader.result","result")}} ein {{jsxref("ArrayBuffer")}}, das die Daten der Datei darstellt.
+Die **`readAsArrayBuffer()`** Methode des [`FileReader`](/de/docs/Web/API/FileReader)-Interfaces wird verwendet, um das Lesen der Inhalte eines angegebenen [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File) zu starten. Wenn der Lesevorgang abgeschlossen ist, wird die [`readyState`](/de/docs/Web/API/FileReader/readyState)-Eigenschaft auf `DONE` gesetzt und das [`loadend`](/de/docs/Web/API/FileReader/loadend_event)-Ereignis ausgelöst. Zu diesem Zeitpunkt enthält die [`result`](/de/docs/Web/API/FileReader/result)-Eigenschaft einen {{jsxref("ArrayBuffer")}}, der die Daten der Datei darstellt.
 
 > [!NOTE]
-> Die Methode {{domxref("Blob.arrayBuffer()")}} ist eine neuere, auf Versprechen basierende API, um eine Datei als ArrayBuffer zu lesen.
+> Die [`Blob.arrayBuffer()`](/de/docs/Web/API/Blob/arrayBuffer)-Methode ist eine neuere, auf Versprechen basierende API, um eine Datei als ArrayBuffer zu lesen.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ readAsArrayBuffer(blob)
 ### Parameter
 
 - `blob`
-  - : Das {{domxref("Blob")}} oder {{domxref("File")}}, aus dem gelesen werden soll.
+  - : Der [`Blob`](/de/docs/Web/API/Blob) oder die [`File`](/de/docs/Web/API/File), von der gelesen werden soll.
 
 ### Rückgabewert
 
@@ -38,4 +38,4 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- {{domxref("FileReader")}}
+- [`FileReader`](/de/docs/Web/API/FileReader)

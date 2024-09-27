@@ -1,5 +1,5 @@
 ---
-title: "MediaDevices: selectAudioOutput() Methode"
+title: "MediaDevices: selectAudioOutput()-Methode"
 short-title: selectAudioOutput()
 slug: Web/API/MediaDevices/selectAudioOutput
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Audio Output Devices API")}}{{securecontext_header}}{{SeeCompatTable}}
 
-Die **`selectAudioOutput()`** Methode der {{domxref("MediaDevices")}}-Schnittstelle fordert den Benutzer auf, ein Audioausgabegerät auszuwählen, wie z.B. einen Lautsprecher oder ein Headset. Wenn der Benutzer ein Gerät auswählt, erteilt die Methode die Benutzererlaubnis, das ausgewählte Gerät als Audioausgabesenke zu verwenden.
+Die **`selectAudioOutput()`**-Methode der [`MediaDevices`](/de/docs/Web/API/MediaDevices)-Schnittstelle fordert den Benutzer auf, ein Audioausgabegerät wie einen Lautsprecher oder ein Headset auszuwählen. Wenn der Benutzer ein Gerät auswählt, erteilt die Methode die Benutzererlaubnis, das ausgewählte Gerät als Audioausgabesenke zu verwenden.
 
-Nach der Auswahl, wenn das Gerät verfügbar ist, kann es mit {{domxref("MediaDevices.enumerateDevices()")}} aufgelistet und mit {{domxref("HTMLMediaElement.setSinkId()")}} als Audioausgabesenke gesetzt werden.
+Nach der Auswahl kann das Gerät, sofern verfügbar, mit [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices) aufgelistet und als Audioausgabesenke mit [`HTMLMediaElement.setSinkId()`](/de/docs/Web/API/HTMLMediaElement/setSinkId) festgelegt werden.
 
-Bei Erfolg wird das zurückgegebene {{jsxref("Promise")}} mit einem {{domxref("MediaDeviceInfo")}} erfüllt, das das ausgewählte Gerät beschreibt.
+Bei Erfolg wird das zurückgegebene {{jsxref("Promise")}} mit einem [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo) aufgelöst, das das ausgewählte Gerät beschreibt.
 
 ## Syntax
 
@@ -25,57 +25,58 @@ selectAudioOutput(options)
 
 - `options` {{Optional_Inline}}
 
-  - : Ein Objekt, das konfiguriert, welche Geräte im Benutzer-Prompt angeboten werden dürfen.
+  - : Ein Objekt, das konfiguriert, welche Geräte im Benutzeraufforderung angeboten werden können.
 
     - `deviceId` {{Optional_Inline}}
 
-      - : Ein String, der die ID eines einzelnen, zuvor offenbarten/erlaubten Geräts darstellt.
-        Wenn nicht gesetzt, wird ein Prompt mit allen verfügbaren Audioausgabegeräten angezeigt.
+      - : Ein String, der die ID eines einzelnen zuvor bekannten/zugelassenen Gerätes repräsentiert.
+        Wenn diese nicht gesetzt ist, wird eine Aufforderung mit allen verfügbaren Audioausgabegeräten angezeigt.
 
-        Die Option ist für Anwendungen gedacht, die eine Geräte-ID speichern möchten, sodass dasselbe Gerät in zukünftigen Sitzungen standardmäßig verwendet werden kann.
-        Beachten Sie, dass die Methode möglicherweise eine neue ID für dasselbe Gerät zurückgibt und dass gespeicherte IDs _durch_ `selectAudioOutput()` erfolgreich übergeben werden müssen, bevor sie mit {{domxref("HTMLMediaElement.setSinkId","setSinkId()")}} funktionieren.
+        Die Option ist für Anwendungen gedacht, die eine Geräte-ID speichern möchten, damit dasselbe Gerät in zukünftigen Sitzungen standardmäßig verwendet werden kann.
+        Beachten Sie, dass die Methode möglicherweise eine neue ID für dasselbe Gerät zurückgibt und dass gespeicherte IDs _erfolgreich über_ `selectAudioOutput()` weitergegeben werden müssen, bevor sie mit [`setSinkId()`](/de/docs/Web/API/HTMLMediaElement/setSinkId) funktionieren.
 
         > [!NOTE]
-        > Ein Nutzeragent kann sich entscheiden, darauf zu verzichten, den Benutzer zu befragen, wenn eine bestimmte nicht-leere ID zuvor dem Benutzer durch `selectAudioOutput()` in einer früheren Sitzung offengelegt wurde.
-        > In diesem Fall kann der Nutzeragent einfach mit dieser Geräte-ID auflösen oder eine neue ID für dasselbe Gerät bereitstellen, falls sie sich geändert hat.
-        > Wenn die Erlaubnis für das angegebene Gerät zuvor erteilt, aber seitdem widerrufen wurde, könnte der Nutzeragent alle erlaubten Geräte anzeigen und das mit der angegebenen ID hervorheben.
+        > Ein User-Agent kann sich entscheiden, die Aufforderung zu überspringen, wenn eine angegebene, nicht-null ID dem Benutzer zuvor in einer früheren Sitzung durch `selectAudioOutput()` bekannt gemacht wurde.
+        > In diesem Fall kann der User-Agent einfach mit dieser Geräte-ID oder einer neuen ID für dasselbe Gerät auflösen, wenn sich diese geändert hat.
+        > Wenn die Erlaubnis für das angegebene Gerät zuvor erteilt wurde, aber inzwischen widerrufen wurde, könnte der User-Agent alle erlaubten Geräte anzeigen, indem das mit der angegebenen ID hervorgehoben wird.
 
 ### Rückgabewert
 
-Ein {{ jsxref("Promise") }}, das mit einem {{domxref("MediaDeviceInfo")}}-Objekt erfüllt wird, das das vom Benutzer gewählte Audioausgabegerät beschreibt.
+Ein {{ jsxref("Promise") }}, das mit einem [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Objekt aufgelöst wird, das das vom Benutzer ausgewählte Audioausgabegerät beschreibt.
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn eine [`speaker-selection`](/de/docs/Web/HTTP/Headers/Permissions-Policy/speaker-selection) [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) verwendet wird, um die Nutzung von Audioausgaben zu blockieren (zudem wird das Popup zur Auswahl eines Audioausgabegeräts nicht angezeigt), oder der Benutzer den Auswahldialog schließt, ohne ein Gerät zu wählen.
-- `NotFoundError` {{domxref("DOMException")}}
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn eine [`speaker-selection`](/de/docs/Web/HTTP/Headers/Permissions-Policy/speaker-selection) [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) verwendet wird, um die Verwendung von Audioausgaben zu blockieren (zusätzlich wird das Popup zur Auswahl eines Audioausgabegeräts nicht angezeigt), oder der Benutzer das Auswahlfenster ohne Geräteauswahl geschlossen hat.
+- `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn keine verfügbaren Audioausgabegeräte vorhanden sind.
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn keine {{Glossary("transient activation")}} stattgefunden hat (es muss durch irgendein UI-Event ausgelöst werden).
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn keine [vorübergehende Aktivierung](/de/docs/Glossary/transient_activation) vorhanden war (es muss durch eine Art UI-Ereignis ausgelöst werden).
 
 ## Sicherheitsanforderungen
 
-Der Zugriff auf die API unterliegt den folgenden Einschränkungen:
+Der Zugang zur API unterliegt den folgenden Einschränkungen:
 
 - Die Methode muss in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) aufgerufen werden.
-- [Transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich.
+- [Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich.
   Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
-- Der Zugriff kann durch die [`speaker-selection`](/de/docs/Web/HTTP/Headers/Permissions-Policy/speaker-selection) HTTP [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) eingeschränkt werden.
+- Der Zugriff kann durch die [`speaker-selection`](/de/docs/Web/HTTP/Headers/Permissions-Policy/speaker-selection) HTTP [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) eingeschränkt sein.
 
-Der Berechtigungsstatus kann mit der Methode [Permissions API](/de/docs/Web/API/Permissions_API) {{domxref("Permissions.query", "navigator.permissions.query()")}} abgefragt werden, indem ein Berechtigungsdeskriptor mit der `speaker-selection`-Berechtigung übergeben wird.
+Der Berechtigungsstatus kann mit der Methode [`navigator.permissions.query()`](/de/docs/Web/API/Permissions/query) der [Berechtigungs-API](/de/docs/Web/API/Permissions_API) abgefragt werden, wobei ein Berechtigungsdeskriptor mit der Berechtigung `speaker-selection` übergeben wird.
 
 ## Beispiele
 
-Hier ist ein Beispiel für die Verwendung von `selectAudioOutput()`, innerhalb einer Funktion, die durch einen Button-Klick ausgelöst wird. Es gibt die ausgewählten {{domxref("MediaDeviceInfo.deviceId", "Geräte-IDs", "", "nocode")}} und Beschriftungen (falls verfügbar) oder eine Fehlermeldung aus.
+Hier ist ein Beispiel für die Verwendung von `selectAudioOutput()`, in einer Funktion, die durch einen Button-Klick ausgelöst wird.
+Es gibt die ausgewählten [Geräte-IDs](/de/docs/Web/API/MediaDeviceInfo/deviceId) und Bezeichnungen (falls vorhanden) oder eine Fehlermeldung aus.
 
 ```js
 document.querySelector("#myButton").addEventListener("click", () => {
   if (!navigator.mediaDevices.selectAudioOutput) {
-    console.log("selectAudioOutput() nicht unterstützt.");
+    console.log("selectAudioOutput() not supported.");
     return;
   }
 
-  // Anzeige der Eingabeaufforderung und Protokollierung des ausgewählten Geräts oder Fehlers
+  // Display prompt and log selected device or error
   navigator.mediaDevices
     .selectAudioOutput()
     .then((device) => {
@@ -87,7 +88,7 @@ document.querySelector("#myButton").addEventListener("click", () => {
 });
 ```
 
-Bei Auswahl einer Ausgabe könnte dies folgendes ergeben:
+Bei der Auswahl einer Ausgabe könnte dies ergeben:
 
 ```bash
 audiooutput: Realtek Digital Output (Realtek(R) Audio) id = 0wE6fURSZ20H0N2NbxqgowQJLWbwo+5ablCVVJwRM3k=
@@ -103,6 +104,6 @@ audiooutput: Realtek Digital Output (Realtek(R) Audio) id = 0wE6fURSZ20H0N2Nbxqg
 
 ## Siehe auch
 
-- {{domxref("HTMLMediaElement.setSinkId()")}}
-- {{domxref("HTMLMediaElement.sinkId")}}
-- [WebRTC](/de/docs/Web/API/WebRTC_API) - die einführende Seite zur API
+- [`HTMLMediaElement.setSinkId()`](/de/docs/Web/API/HTMLMediaElement/setSinkId)
+- [`HTMLMediaElement.sinkId`](/de/docs/Web/API/HTMLMediaElement/sinkId)
+- [WebRTC](/de/docs/Web/API/WebRTC_API) - die Einführungsseite zur API

@@ -1,5 +1,5 @@
 ---
-title: "RTCIceTransport: gatheringstatechange-Ereignis"
+title: "RTCIceTransport: gatheringstatechange Ereignis"
 short-title: gatheringstatechange
 slug: Web/API/RTCIceTransport/gatheringstatechange_event
 l10n:
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Ein **`gatheringstatechange`**-Ereignis wird an ein {{domxref("RTCIceTransport")}} gesendet, wenn sich der Kandidatensammlungsstatus von {{Glossary("ICE")}} ändert.
+Ein **`gatheringstatechange`**-Ereignis wird an ein [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) gesendet, wenn sich der Zustand des [ICE](/de/docs/Glossary/ICE) Kandidatensammlungsstatus ändert.
 
-Der Sammlungsstatus, dessen aktueller Status in der {{domxref("RTCIceTransport.gatheringState", "gatheringState")}}-Eigenschaft des Transportobjekts gefunden werden kann, zeigt an, ob der ICE-Agent begonnen hat, Kandidaten auf diesem Transport zu sammeln, und wenn ja, ob er damit fertig ist.
+Der Sammlungstatus, dessen aktueller Status in der [`gatheringState`](/de/docs/Web/API/RTCIceTransport/gatheringState) Eigenschaft des Transportobjekts gefunden werden kann, gibt an, ob der ICE-Agent begonnen hat, Kandidaten auf diesem Transport zu sammeln, und falls ja, ob er dies abgeschlossen hat.
 
-Dieses Ereignis kann nicht abgebrochen werden und verbreitet sich nicht.
+Dieses Ereignis kann nicht abgebrochen werden und ist nicht vererbbar.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("gatheringstatechange", (event) => {});
@@ -26,11 +26,11 @@ ongatheringstatechange = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen Handler für `gatheringstatechange`-Ereignisse auf jedem {{domxref("RTCRtpSender")}}, der mit einem gegebenen {{domxref("RTCPeerConnection")}} verbunden ist. Hier wird die Methode {{domxref("EventTarget.addEventListener", "addEventListener()")}} aufgerufen, um einen Listener für `gatheringstatechange`-Ereignisse hinzuzufügen:
+Dieses Beispiel erstellt einen Handler für `gatheringstatechange` Ereignisse auf jedem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender), der mit einer bestimmten [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden ist. Hier wird die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufgerufen, um einen Listener für `gatheringstatechange` Ereignisse hinzuzufügen:
 
 ```js
 pc.getSenders().forEach((sender) => {
@@ -40,8 +40,8 @@ pc.getSenders().forEach((sender) => {
       let transport = ev.target;
 
       if (transport.gatheringState === "complete") {
-        /* dieser Transport hat die Sammlung von Kandidaten abgeschlossen,
-        aber andere arbeiten möglicherweise noch daran */
+        /* this transport has finished gathering candidates,
+        but others may still be working on it */
       }
     },
     false,
@@ -49,7 +49,7 @@ pc.getSenders().forEach((sender) => {
 });
 ```
 
-Ebenso können Sie die `ongatheringstatechange`-Ereignishandler-Eigenschaft verwenden:
+Ebenso können Sie die `ongatheringstatechange` Ereignishandler-Eigenschaft verwenden:
 
 ```js
 pc.getSenders().forEach((sender) => {
@@ -57,8 +57,8 @@ pc.getSenders().forEach((sender) => {
     let transport = ev.target;
 
     if (transport.gatheringState === "complete") {
-      /* dieser Transport hat die Sammlung von Kandidaten abgeschlossen,
-         aber andere arbeiten möglicherweise noch daran */
+      /* this transport has finished gathering candidates,
+         but others may still be working on it */
     }
   };
 });
@@ -75,17 +75,17 @@ pc.getSenders().forEach((sender) => {
 ## Siehe auch
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- [WebRTC Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity)
+- [WebRTC-Konnektivität](/de/docs/Web/API/WebRTC_API/Connectivity)
 
 ### Verwandte RTCIceTransport-Ereignisse
 
-- {{domxref("RTCIceTransport/statechange_event", "statechange")}}
-- {{domxref("RTCIceTransport.selectedcandidatepairchange_event", "selectedcandidatepairchange")}}
+- [`statechange`](/de/docs/Web/API/RTCIceTransport/statechange_event)
+- [`selectedcandidatepairchange`](/de/docs/Web/API/RTCIceTransport/selectedcandidatepairchange_event)
 
 ### Verwandte RTCPeerConnection-Ereignisse
 
-- {{domxref("RTCPeerConnection.negotiationneeded_event", "negotiationneeded")}}
-- {{domxref("RTCPeerConnection.signalingstatechange_event", "signalingstatechange")}}
-- {{domxref("RTCPeerConnection.iceconnectionstatechange_event", "iceconnectionstatechange")}}
-- {{domxref("RTCPeerConnection.icegatheringstatechange_event", "icegatheringstatechange")}}
-- {{domxref("RTCPeerConnection.connectionstatechange_event", "connectionstatechange")}}
+- [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)
+- [`signalingstatechange`](/de/docs/Web/API/RTCPeerConnection/signalingstatechange_event)
+- [`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event)
+- [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event)
+- [`connectionstatechange`](/de/docs/Web/API/RTCPeerConnection/connectionstatechange_event)

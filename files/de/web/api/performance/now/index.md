@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die Methode **`performance.now()`** gibt einen hochauflösenden Zeitstempel in Millisekunden zurück. Sie repräsentiert die verstrichene Zeit seit {{domxref("Performance.timeOrigin")}} (die Zeit, als die Navigation in Fensterkontexten gestartet wurde oder die Zeit, als der Worker in {{domxref("Worker")}} und {{domxref("ServiceWorker")}} Kontexten gestartet wurde).
+Die **`performance.now()`**-Methode gibt einen hochauflösenden Zeitstempel in Millisekunden zurück. Sie repräsentiert die Zeit, die seit [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) vergangen ist (die Zeit, als die Navigation in Fensterkontexten gestartet wurde oder die Zeit, als der Worker im [`Worker`](/de/docs/Web/API/Worker)- und [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Kontext gestartet wurde).
 
 ## Syntax
 
@@ -22,50 +22,50 @@ Keine.
 
 ### Rückgabewert
 
-Gibt einen {{domxref("DOMHighResTimeStamp")}} in Millisekunden zurück.
+Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der in Millisekunden gemessen wird.
 
 ## Beschreibung
 
 ### `Performance.now` vs. `Date.now`
 
-Im Gegensatz zu [`Date.now`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/now) sind die von `performance.now()` zurückgegebenen Zeitstempel nicht auf eine Auflösung von einer Millisekunde beschränkt. Stattdessen repräsentieren sie Zeiten als Fließkommazahlen mit einer Präzision von bis zu Mikrosekunden.
+Im Gegensatz zu [`Date.now`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/now) sind die von `performance.now()` zurückgegebenen Zeitstempel nicht auf eine Millisekundenauflösung beschränkt. Stattdessen repräsentieren sie Zeiten als Fließkommazahlen mit bis zu Mikrosekunden-Präzision.
 
-Außerdem kann `Date.now()` von System- und Benutzeruhrenanpassungen, Uhrenabweichungen usw. beeinflusst worden sein, da es sich auf die Unix-Epoche (1970-01-01T00:00:00Z) bezieht und von der Systemuhr abhängig ist. Die Methode `performance.now()` hingegen bezieht sich auf die `timeOrigin`-Eigenschaft, die eine [monotone Uhr](https://w3c.github.io/hr-time/#dfn-monotonic-clock) ist: Ihre aktuelle Zeit nimmt niemals ab und ist nicht anpassungsfähig.
+Außerdem kann `Date.now()` durch System- und Benutzereinstellungen der Uhr, Uhrzeitabweichungen usw. beeinflusst werden, da es relativ zur Unix-Epoche (1970-01-01T00:00:00Z) und abhängig von der Systemuhr ist. Die `performance.now()`-Methode hingegen ist relativ zur `timeOrigin`-Eigenschaft, welche eine [monotone Uhr](https://w3c.github.io/hr-time/#dfn-monotonic-clock) ist: Ihre aktuelle Zeit nimmt nie ab und unterliegt keinen Anpassungen.
 
-### Änderungen der Spezifikation von `performance.now`
+### Änderungen der `performance.now` Spezifikation
 
-Die Semantik der `performance.now()` Methode hat sich zwischen High Resolution Time Level 1 und Level 2 geändert.
+Die Semantik der `performance.now()`-Methode hat sich zwischen High Resolution Time Level 1 und Level 2 verändert.
 
-| Änderungen            | Level 1                                                                                       | Level 2                                                                                                                                                     |
-| --------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Relativ zu            | [`performance.timing.navigationStart`](/de/docs/Web/API/PerformanceTiming/navigationStart) | {{domxref("Performance.timeOrigin")}}                                                                                                                       |
-| Auslösebedingungen    | Dokumentabruf oder Entladen-Aufforderung (falls vorhanden).                                   | Erstellung des Browsing-Kontexts (wenn kein vorheriges Dokument), Entladen-Aufforderung (falls vorhanden) oder Start der Navigation (wie in HTML definiert, ein paar Schritte vor dem Abruf). |
+| Änderungen         | Level 1                                                                                    | Level 2                                                                                                                                                                                      |
+| ------------------ | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Relativ zu         | [`performance.timing.navigationStart`](/de/docs/Web/API/PerformanceTiming/navigationStart) | [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin)                                                                                                                          |
+| Auslösebedingungen | Dokumentabruf oder Entladeaufforderung (falls vorhanden).                                  | Erstellung des Browsing-Kontexts (falls kein vorheriges Dokument), Entladeaufforderung (falls vorhanden) oder Start der Navigation (wie im HTML definiert, einige Schritte vor Abrufbeginn). |
 
-Die `performance.now()` Methode war früher relativ zur Eigenschaft [`performance.timing.navigationStart`](/de/docs/Web/API/PerformanceTiming/navigationStart) aus der Navigation Timing Spezifikation. Dies hat sich geändert, und `performance.now()` ist nun relativ zu {{domxref("Performance.timeOrigin")}}, was Risiken einer Uhrenänderung beim Vergleich von Zeitstempeln über Webseiten hinweg vermeidet.
+Die `performance.now()`-Methode war früher relativ zur [`performance.timing.navigationStart`](/de/docs/Web/API/PerformanceTiming/navigationStart)-Eigenschaft aus der Navigation Timing-Spezifikation. Dies hat sich geändert und `performance.now()` ist nun relativ zu [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin), was Risiken durch Uhrenänderungen bei der Zeitstempelvergleichung über Webseiten hinweg vermeidet.
 
 ```js
-// Level 1 (Risiken durch Uhrenänderungen)
+// Level 1 (clock change risks)
 currentTime = performance.timing.navigationStart + performance.now();
 
-// Level 2 (keine Risiken durch Uhrenänderungen)
+// Level 2 (no clock change risks)
 currentTime = performance.timeOrigin + performance.now();
 ```
 
-### Tick während des Schlafmodus
+### Ticken im Ruhezustand
 
-Die Spezifikation (Level 2) erfordert, dass `performance.now()` während des Schlafmodus tickt. Es scheint, dass nur Firefox unter Windows und Chromiums unter Windows während des Schlafmodus weiter tickt. Relevante Browser-Bugs für andere Betriebssysteme:
+Die Spezifikation (Level 2) fordert, dass `performance.now()` im Ruhezustand tickt. Es scheint, dass nur Firefox unter Windows und Chromium-Browser unter Windows im Ruhezustand weiter ticken. Relevante Browser-Bugs für andere Betriebssysteme:
 
-- Chrome/Chromium ([Fehler](https://bugs.chromium.org/p/chromium/issues/detail?id=1206450))
-- Firefox ([Fehler](https://bugzilla.mozilla.org/show_bug.cgi?id=1709767))
-- Safari/WebKit ([Fehler](https://bugs.webkit.org/show_bug.cgi?id=225610))
+- Chrome/Chromium ([Bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1206450))
+- Firefox ([Bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1709767))
+- Safari/WebKit ([Bug](https://bugs.webkit.org/show_bug.cgi?id=225610))
 
-Weitere Einzelheiten finden Sie auch im Spezifikationsproblem [hr-time#115](https://github.com/w3c/hr-time/issues/115#issuecomment-1172985601).
+Weitere Details finden Sie auch im Spezifikationsproblem [hr-time#115](https://github.com/w3c/hr-time/issues/115#issuecomment-1172985601).
 
 ## Beispiele
 
-### Verwendung von `performance.now()`
+### Nutzung von `performance.now()`
 
-Um zu bestimmen, wie viel Zeit seit einem bestimmten Punkt in Ihrem Code verstrichen ist, können Sie Folgendes tun:
+Um zu bestimmen, wie viel Zeit seit einem bestimmten Punkt in Ihrem Code vergangen ist, können Sie so etwas tun:
 
 ```js
 const t0 = performance.now();
@@ -76,10 +76,10 @@ console.log(`Call to doSomething took ${t1 - t0} milliseconds.`);
 
 ## Sicherheitsanforderungen
 
-Um Schutz vor Timing-Angriffen und [Fingerabdrucknahme](/de/docs/Glossary/Fingerprinting) zu bieten, wird `performance.now()` basierend auf dem Status der Site-Isolation grob eingestellt.
+Um Schutz gegen Timing-Angriffe und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, wird `performance.now()` basierend auf dem Status der Site-Isolation grob abgestimmt.
 
 - Auflösung in isolierten Kontexten: 5 Mikrosekunden
-- Auflösung in nicht isolierten Kontexten: 100 Mikrosekunden
+- Auflösung in nicht-isolierten Kontexten: 100 Mikrosekunden
 
 Isolieren Sie Ihre Website über die {{HTTPHeader("Cross-Origin-Opener-Policy")}} und
 {{HTTPHeader("Cross-Origin-Embedder-Policy")}} Header:
@@ -89,7 +89,10 @@ Cross-Origin-Opener-Policy: same-origin
 Cross-Origin-Embedder-Policy: require-corp
 ```
 
-Diese Header stellen sicher, dass ein Top-Level-Dokument keinen Browsing-Kontextgruppe mit cross-origin Dokumenten teilt. COOP isoliert Ihr Dokument prozessmäßig, und potenzielle Angreifer können nicht auf Ihr globales Objekt zugreifen, wenn sie es in einem Popup-Fenster öffnen würden, wodurch eine Reihe von Cross-Origin-Angriffen namens [XS-Leaks](https://github.com/xsleaks/xsleaks) verhindert werden.
+Diese Header stellen sicher, dass ein oberstes Dokument keine Browsing-Kontextgruppe mit
+fremden Dokumenten teilt. COOP isoliert Ihren Prozess und potenzielle Angreifer
+haben keinen Zugriff auf Ihr globales Objekt, wenn sie es in einem Popup öffnen würden, was eine Reihe
+von Cross-Origin-Angriffen verhindert, die als [XS-Leaks](https://github.com/xsleaks/xsleaks) bekannt sind.
 
 ## Spezifikationen
 
@@ -101,4 +104,4 @@ Diese Header stellen sicher, dass ein Top-Level-Dokument keinen Browsing-Kontext
 
 ## Siehe auch
 
-- {{domxref("Performance.timeOrigin")}}
+- [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin)

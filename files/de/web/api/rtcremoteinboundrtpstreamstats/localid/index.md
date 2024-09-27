@@ -1,5 +1,5 @@
 ---
-title: "RTCRemoteInboundRtpStreamStats: Eigenschaft localId"
+title: "RTCRemoteInboundRtpStreamStats: localId-Eigenschaft"
 short-title: localId
 slug: Web/API/RTCRemoteInboundRtpStreamStats/localId
 l10n:
@@ -8,30 +8,33 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`localId`** Eigenschaft des {{domxref("RTCRemoteInboundRtpStreamStats")}} Dictionaries ist ein String, der verwendet werden kann, um das {{domxref("RTCOutboundRtpStreamStats")}} Objekt zu identifizieren, dessen {{domxref("RTCOutboundRtpStreamStats.remoteId", "remoteId")}} mit diesem Wert übereinstimmt.
+Die **`localId`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs ist eine Zeichenfolge, die dazu verwendet werden kann, das [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Objekt zu identifizieren, dessen [`remoteId`](/de/docs/Web/API/RTCOutboundRtpStreamStats/remoteId) mit diesem Wert übereinstimmt.
 
-Zusammen bieten diese beiden Objekte Statistiken über die eingehende und ausgehende Seite der gleichen [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc).
+Zusammen liefern diese beiden Objekte Statistiken über die eingehende und ausgehende Seite derselben [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc).
 
 ## Wert
 
-Ein String, der mit dem Wert der {{domxref("RTCOutboundRtpStreamStats")}} Eigenschaft {{domxref("RTCOutboundRtpStreamStats.remoteId", "remoteId")}} verglichen werden kann, um zu sehen, ob beide Statistiken für jede der beiden Seiten des gleichen Satzes von Daten, die vom lokalen Teilnehmer gesendet werden, darstellen.
+Eine Zeichenfolge, die mit dem Wert der [`remoteId`](/de/docs/Web/API/RTCOutboundRtpStreamStats/remoteId)-Eigenschaft eines [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Objekts verglichen werden kann, um zu sehen, ob die beiden Statistiken für beide Seiten desselben Datensatzes darstellen, der vom lokalen Teilnehmer gesendet wird.
 
-## Hinweise zur Nutzung
+## Anwendungshinweise
 
-Sie können sich die lokalen und entfernten Ansichten des gleichen RTP-Streams als Paare vorstellen, von denen jedes eine Referenz zurück zu dem anderen hat. Daher sollte, wenn ein {{domxref("RTCStatsReport")}} ein `remote-inbound-rtp` Statistikobjekt (vom Typ `RTCRemoteInboundRtpStreamStats`) enthält, es auch ein entsprechendes `outbound-rtp` Objekt haben.
+Man kann sich vorstellen, dass die lokalen und entfernten Ansichten desselben RTP-Streams als Paare fungieren, von denen jedes einen Verweis zurück auf das andere hat.
+Daher sollte ein [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport), das ein `remote-inbound-rtp`-Statistikobjekt (vom Typ `RTCRemoteInboundRtpStreamStats`) enthält, ein entsprechendes `outbound-rtp`-Objekt haben.
 
-Beide bieten Informationen über die gleiche Reihe von Paketen, die vom lokalen Gerät an den entfernten Teilnehmer gesendet werden. Der Unterschied besteht darin, dass `outbound-rtp` Statistiken über die ausgehenden Daten aus der Sicht des lokalen Teilnehmers bietet, während `remote-inbound-rtp` Statistiken über die gleichen Daten aus der Sicht des entfernten Teilnehmers bereitstellt, wie sie empfangen werden.
+Beide bieten Informationen über denselben Datensatz von Paketen, die von der lokalen Einheit an den entfernten Teilnehmer gesendet werden.
+Der Unterschied besteht darin, dass `outbound-rtp` Statistiken über die ausgehenden Daten aus der Sicht des lokalen Teilnehmers bietet, während `remote-inbound-rtp` Statistiken über dieselben Daten aus der Sicht des entfernten Teilnehmers bereitstellt, wie sie empfangen werden.
 
 ## Beispiele
 
-Sehen Sie sich das Beispiel in {{domxref("RTCRemoteOutboundRtpStreamStats.localId")}} an. Dieses zeigt, wie man Statistiken über Daten, die vom entfernten Teilnehmer gesendet werden (aus der Sicht des entfernten Teilnehmers), mit den eingehenden Daten aus der Sicht des lokalen Teilnehmers korreliert.
+Siehe das Beispiel in [`RTCRemoteOutboundRtpStreamStats.localId`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats/localId).
+Dies zeigt, wie man Statistiken über die vom entfernten Teilnehmer gesendeten Daten (aus der Perspektive des entfernten Teilnehmers) mit den eingehenden Daten aus der Perspektive des lokalen Teilnehmers korreliert.
 
-Der Code, um gesendete Daten aus der Sicht des lokalen Teilnehmers und empfangene Daten aus der Sicht des entfernten Teilnehmers zu korrelieren, wäre fast derselbe und kann aus diesem Beispiel abgeleitet werden.
+Der Code, um gesendete Daten aus dem Blickwinkel des lokalen Teilnehmers und empfangene Daten aus der Sicht des entfernten Teilnehmers zu korrelieren, wäre fast derselbe und kann aus diesem Beispiel abgeleitet werden.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

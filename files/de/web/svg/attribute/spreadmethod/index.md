@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`spreadMethod`** Attribut bestimmt, wie eine Form über die definierten Ränder eines Verlaufs hinaus gefüllt wird.
+Das **`spreadMethod`**-Attribut bestimmt, wie eine Form über die definierten Ränder eines Gradienten hinaus gefüllt wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -34,19 +34,19 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `pad`
-  - : Dieser Wert zeigt an, dass die Endfarbe des Verlaufs die Form über die Ränder des Verlaufs hinaus füllt.
+  - : Dieser Wert gibt an, dass die letzte Farbe des Gradienten die Form über seine Ränder hinaus füllt.
 - `reflect`
-  - : Dieser Wert zeigt an, dass der Verlauf in umgekehrter Richtung über seine Ränder hinaus wiederholt wird.
+  - : Dieser Wert gibt an, dass der Gradient über seine Ränder hinaus in umgekehrter Reihenfolge wiederholt wird.
 - `repeat`
-  - : Dieser Wert gibt an, dass der Verlauf in der ursprünglichen Reihenfolge über seine Ränder hinaus wiederholt wird.
+  - : Dieser Wert spezifiziert, dass der Gradient in der ursprünglichen Reihenfolge über seine Ränder hinaus wiederholt wird.
 
-### Definition der Ränder eines Verlaufs
+### Definition der Ränder eines Gradienten
 
-Standardmäßig erreicht ein Verlauf die Ränder der zu füllenden Form. Um die Effekte dieses Attributs zu sehen, müssen Sie die Größe des Verlaufs kleiner als die Form einstellen.
+Standardmäßig reicht ein Gradient bis zu den Rändern der zu füllenden Form. Um die Effekte dieses Attributs zu sehen, müssen Sie die Größe des Gradienten kleiner als die Form einstellen.
 
-Im Fall eines linearen Verlaufs können die Ränder als Rechteck durch die Attribute `x1`, `x2`, `y1` und `y2` definiert werden. Im Fall eines radialen Verlaufs können die Ränder durch äußere und innere Kreise durch die Attribute `cx`, `cy` und `r` (äußere) sowie `fx`, `fy` und `fr` (innere) definiert werden.
+Im Falle eines linearen Gradienten können die Ränder als Rechteck durch die `x1`, `x2`, `y1` und `y2` Attribute definiert werden. Im Falle eines radialen Gradienten können die Ränder als äußere und innere Kreise durch die `cx`, `cy` und `r` (außen) sowie die `fx`, `fy` und `fr` (innen) Attribute definiert werden.
 
-## Beispiele von spreadMethod mit linearen Verläufen
+## Beispiele für spreadMethod mit linearen Gradienten
 
 ### SVG
 
@@ -81,9 +81,9 @@ Im Fall eines linearen Verlaufs können die Ränder als Rechteck durch die Attri
 
 {{EmbedLiveSample('Examples_of_spreadMethod_with_linear_gradients')}}
 
-Beachten Sie, dass das mittlere Drittel jedes Verlaufs gleich ist. Die äußeren Drittel zeigen den Unterschied zwischen den drei Verteilmethoden.
+Beachten Sie, dass das mittlere Drittel jedes Gradienten gleich ist. Die äußeren Drittel zeigen den Unterschied zwischen den drei Ausbreitungsmethoden.
 
-## Beispiele von spreadMethod mit radialen Verläufen
+## Beispiele für spreadMethod mit radialen Gradienten
 
 ### SVG
 
@@ -151,6 +151,6 @@ Beachten Sie, dass das mittlere Drittel jedes Verlaufs gleich ist. Die äußeren
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

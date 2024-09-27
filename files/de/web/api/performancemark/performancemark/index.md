@@ -1,5 +1,5 @@
 ---
-title: "PerformanceMark: PerformanceMark() Konstruktor"
+title: "PerformanceMark: PerformanceMark()-Konstruktor"
 short-title: PerformanceMark()
 slug: Web/API/PerformanceMark/PerformanceMark
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Der **`PerformanceMark()`** Konstruktor erstellt einen {{domxref("DOMHighResTimeStamp","Zeitstempel")}} mit dem angegebenen Namen.
+Der **`PerformanceMark()`**-Konstruktor erstellt einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) mit dem angegebenen Namen.
 
-Im Gegensatz zu {{domxref("Performance.mark","performance.mark()")}} werden Leistungsmarkierungen, die durch den Konstruktor erstellt werden, nicht zur Leistungstimeline des Browsers hinzugefügt. Dies bedeutet, dass Aufrufe der `getEntries*()`-Methoden der {{domxref("Performance")}}-Schnittstelle ({{domxref("Performance.getEntries","getEntries()")}}, {{domxref("Performance.getEntriesByName","getEntriesByName()")}} oder {{domxref("Performance.getEntriesByType","getEntriesByType()")}}) keine Einträge für diese Markierungen anzeigen.
+Im Gegensatz zu [`performance.mark()`](/de/docs/Web/API/Performance/mark) werden Performance-Marken, die durch den Konstruktor erstellt werden, nicht zur Performance-Zeitachse des Browsers hinzugefügt. Dies bedeutet, dass Aufrufe der `getEntries*()`-Methoden ([`getEntries()`](/de/docs/Web/API/Performance/getEntries), [`getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName) oder [`getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType)) der [`Performance`](/de/docs/Web/API/Performance)-Schnittstelle keine Einträge für diese Marken anzeigen.
 
 ## Syntax
 
@@ -22,26 +22,26 @@ new PerformanceMark(name, markOptions)
 ### Parameter
 
 - `name`
-  - : Ein String, der den Namen der Markierung darstellt.
+  - : Ein String, der den Namen der Marke darstellt.
 - `markOptions` {{optional_inline}}
-  - : Ein Objekt zum Spezifizieren eines Zeitstempels und zusätzlicher Metadaten für die Markierung.
+  - : Ein Objekt zur Spezifizierung eines Zeitstempels und zusätzlicher Metadaten für die Marke.
     - `detail` {{optional_inline}}
-      - : Beliebige Metadaten, die in die Markierung aufgenommen werden sollen. Standard ist `null`.
+      - : Beliebige Metadaten, die in die Marke aufgenommen werden sollen. Standard ist `null`.
     - `startTime` {{optional_inline}}
-      - : {{domxref("DOMHighResTimeStamp")}}, der als Markierungszeit verwendet werden soll. Standard ist {{domxref("performance.now()")}}.
+      - : [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der als Markenzeit verwendet wird. Standard ist [`performance.now()`](/de/docs/Web/API/Performance/now).
 
 ### Rückgabewert
 
-Ein {{domxref("PerformanceMark")}} Objekt.
+Ein [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekt.
 
 ### Ausnahmen
 
-- {{jsxref("SyntaxError")}}: Wird ausgelöst, wenn der angegebene `name` bereits in der {{domxref("PerformanceTiming")}}-Schnittstelle existiert.
+- {{jsxref("SyntaxError")}}: Wird ausgelöst, wenn der `name`, der dieser Methode gegeben wurde, bereits in der [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle existiert.
 - {{jsxref("TypeError")}}: Wird ausgelöst, wenn `startTime` negativ ist.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie {{domxref("PerformanceMark")}}-Einträge konstruiert werden und dann nicht Teil der Leistungstimeline des Browsers sind.
+Das folgende Beispiel zeigt, wie [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Einträge konstruiert werden und dann nicht Teil der Performance-Zeitachse des Browsers sind.
 
 ```js
 new PerformanceMark("squirrel");
@@ -63,4 +63,4 @@ console.log(allEntries.length);
 
 ## Siehe auch
 
-- {{domxref("Performance.mark","performance.mark()")}}
+- [`performance.mark()`](/de/docs/Web/API/Performance/mark)

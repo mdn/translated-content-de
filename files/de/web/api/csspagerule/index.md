@@ -7,28 +7,28 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-**`CSSPageRule`** repräsentiert eine einzelne CSS {{cssxref("@page")}} Regel.
+**`CSSPageRule`** repräsentiert eine einzelne CSS-{{cssxref("@page")}}-Regel.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinen Vorfahren {{domxref("CSSGroupingRule")}} und {{domxref("CSSRule")}}._
+_Erbt Eigenschaften von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
-- {{domxref("CSSPageRule.selectorText")}}
-  - : Repräsentiert den Text des mit der Regel verbundenen Seiten-Selektors.
-- {{domxref("CSSPageRule.style")}} {{ReadOnlyInline}}
-  - : Gibt den [Deklarationsblock](/de/docs/Web/API/CSS_Object_Model/CSS_Declaration_Block) zurück, der mit der Regel verbunden ist.
+- [`CSSPageRule.selectorText`](/de/docs/Web/API/CSSPageRule/selectorText)
+  - : Stellt den Text des Seitenselectors dar, der mit der At-Regel verknüpft ist.
+- [`CSSPageRule.style`](/de/docs/Web/API/CSSPageRule/style) {{ReadOnlyInline}}
+  - : Gibt den [Deklarationsblock](/de/docs/Web/API/CSS_Object_Model/CSS_Declaration_Block) zurück, der mit der At-Regel verknüpft ist.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von seinen Vorfahren {{domxref("CSSGroupingRule")}} und {{domxref("CSSRule")}}._
+_Erbt Methoden von seinen Vorfahren [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
 ### Filtern nach Seitenregeln
 
-Dieses Beispiel zeigt, wie Sie `CSSPageRule` Objekte für {{cssxref("@page")}} Regeln finden können, die durch das Dokument geladen wurden.
+Dieses Beispiel zeigt, wie Sie `CSSPageRule`-Objekte für {{cssxref("@page")}}-Regeln finden können, die von dem Dokument geladen wurden.
 
 ```html hidden
 <pre id="log"></pre>
@@ -53,7 +53,7 @@ function log(text) {
 
 #### CSS
 
-Unten definieren wir Stile für die Seite unter Verwendung einer {{cssxref("@page")}} Regel.
+Unten definieren wir Stile für die Seite unter Verwendung einer {{cssxref("@page")}}-Regel.
 
 ```css
 @page {
@@ -63,8 +63,7 @@ Unten definieren wir Stile für die Seite unter Verwendung einer {{cssxref("@pag
 
 #### JavaScript
 
-Der Code iteriert durch alle Stylesheets im Dokument und durch alle `cssRules` in jedem Sheet. Dabei wird der Index des Stylesheets, die Anzahl der Regeln und der Typ jedes Regelobjekts protokolliert.
-Wir erkennen dann `CSSPageRule` Objekte anhand ihres Typs (ohne die Informationen weiter zu verwenden).
+Der Code durchläuft alle Sheets im Dokument und alle `cssRules` in jedem Sheet und protokolliert den Sheet-Index, die Anzahl der Regeln und den Typ jedes Regelobjekts. Danach erkennen wir `CSSPageRule`-Objekte anhand ihres Typs (und tun nichts mit der Information).
 
 ```js
 for (
@@ -88,8 +87,7 @@ for (
 
 #### Ergebnisse
 
-Die Ergebnisse werden unten angezeigt.
-Wie Sie sehen können, gibt es zwei Stylesheets, die dem Hauptdokument und dem Beispielcode-Frame entsprechen, und jedes hat eine Anzahl von Regeln, von denen nur eine unsere `CSSPageRule` ist.
+Die Ergebnisse sind unten gezeigt. Wie Sie sehen können, gibt es zwei Sheets, die diesem Hauptdokument und dem Beispiel-Code-Rahmen entsprechen, und jedes hat eine Anzahl von Regeln, von denen nur eine unsere `CSSPageRule` ist.
 
 {{EmbedLiveSample("Filtering for page rules", "100%", "300px")}}
 

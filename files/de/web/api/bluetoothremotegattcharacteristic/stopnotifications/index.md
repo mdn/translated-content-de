@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
 Die **`BluetoothRemoteGATTCharacteristic.stopNotifications()`**-Methode
-gibt ein {{jsxref("Promise")}} an die BluetoothRemoteGATTCharacteristic-Instanz zurück, wenn keine aktive Benachrichtigung mehr vorliegt.
+gibt ein {{jsxref("Promise")}} auf die BluetoothRemoteGATTCharacteristic-Instanz zurück, wenn keine aktive Benachrichtigung mehr darauf vorhanden ist.
 
 ## Syntax
 

@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`style`**-Eigenschaft der {{domxref("FontFace")}}-Schnittstelle ruft den Stil der Schriftart ab oder legt ihn fest.
+Die **`style`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interface ruft den Stil der Schriftart ab oder setzt ihn.
 
-Diese Eigenschaft entspricht dem {{cssxref("@font-face/font-style", "font-style")}} Deskriptor.
+Diese Eigenschaft entspricht dem {{cssxref("@font-face/font-style", "font-style")}}-Deskriptor.
 
 ## Wert
 
-Ein String, der die in der `@font-face`-Regel des Stylesheets definierten Deskriptoren enthält.
+Ein String, der die Deskriptoren enthält, die in der `@font-face`-Regel des Stylesheets definiert sind.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

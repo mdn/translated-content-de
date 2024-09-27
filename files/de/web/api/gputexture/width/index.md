@@ -1,16 +1,16 @@
 ---
-title: "GPUTexture: width Eigenschaft"
-short-title: Breite
+title: "GPUTexture: width-Eigenschaft"
+short-title: width
 slug: Web/API/GPUTexture/width
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`width`** schreibgeschützte Eigenschaft des {{domxref("GPUTexture")}}-Interfaces repräsentiert die Breite der `GPUTexture`.
+Die schreibgeschützte **`width`**-Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces stellt die Breite der `GPUTexture` dar.
 
-Diese wird basierend auf dem Wert der `size`-Eigenschaft im Deskriptor-Objekt gesetzt, das an den Ursprung der {{domxref("GPUDevice.createTexture()")}}-Aufruf übergeben wird.
+Diese wird basierend auf dem Wert der `size`-Eigenschaft im Deskriptorobjekt festgelegt, das beim anfänglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wurde.
 
 ## Wert
 
@@ -40,4 +40,4 @@ console.log(depthTexture.width); // 640
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

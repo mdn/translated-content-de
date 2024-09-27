@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Der **`AbsoluteOrientationSensor()`** Konstruktor erstellt ein neues {{domxref("AbsoluteOrientationSensor")}} Objekt, das die physische Ausrichtung des Geräts in Bezug auf das Erdkoordinatensystem beschreibt.
+Der **`AbsoluteOrientationSensor()`** Konstruktor erstellt ein neues [`AbsoluteOrientationSensor`](/de/docs/Web/API/AbsoluteOrientationSensor) Objekt, das die physische Ausrichtung des Geräts in Bezug auf das Referenzkoordinatensystem der Erde beschreibt.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ new AbsoluteOrientationSensor(options)
   - : Optionen sind wie folgt:
 
     - `frequency` {{optional_inline}}
-      - : Die gewünschte Anzahl von Messungen pro Sekunde, also die Anzahl der Male pro Sekunde, dass das {{domxref('sensor.reading_event', 'reading')}}-Ereignis aufgerufen wird. Eine Ganzzahl oder Dezimalzahl kann verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Messfrequenz hängt von der Gerätetechnik ab und kann daher geringer sein als die angeforderte.
+      - : Die gewünschte Anzahl von Proben pro Sekunde, die genommen werden sollen, was bedeutet, wie oft pro Sekunde das [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis aufgerufen wird. Es kann eine ganze Zahl oder eine Dezimalzahl verwendet werden, letztere für Frequenzen unter einer Sekunde. Die tatsächliche Abtastfrequenz hängt von der Gerätehardware ab und kann daher geringer sein als angefordert.
     - `referenceFrame` {{optional_inline}}
       - : Entweder `'device'` oder `'screen'`. Der Standardwert ist `'device'`.
 
@@ -38,4 +38,4 @@ new AbsoluteOrientationSensor(options)
 
 ## Siehe auch
 
-- {{domxref('sensor.reading_event', 'reading')}}-Ereignis
+- [`reading`](/de/docs/Web/API/Sensor/reading_event) Ereignis

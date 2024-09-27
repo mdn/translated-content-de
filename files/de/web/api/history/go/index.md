@@ -1,5 +1,5 @@
 ---
-title: "History: go()-Methode"
+title: "History: go() Methode"
 short-title: go()
 slug: Web/API/History/go
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("History API")}}
 
-Die **`go()`**-Methode der {{domxref("History")}}-Schnittstelle lädt eine bestimmte Seite aus der Sitzungsverlauf. Sie können diese Methode verwenden, um je nach Wert eines Parameters vorwärts und rückwärts durch die Historie zu navigieren.
+Die **`go()`** Methode der [`History`](/de/docs/Web/API/History) Schnittstelle lädt eine spezifische Seite aus der Sitzungshistorie. Sie können sie verwenden, um vorwärts und rückwärts durch die Historie zu navigieren, abhängig vom Wert eines Parameters.
 
-Diese Methode ist {{glossary("asynchronous")}}. Fügen Sie einen Listener für das {{domxref("Window/popstate_event", "popstate")}}-Ereignis hinzu, um festzustellen, wann die Navigation abgeschlossen ist.
+Diese Methode ist [asynchron](/de/docs/Glossary/asynchronous). Fügen Sie einen Listener für das [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignis hinzu, um festzustellen, wann die Navigation abgeschlossen ist.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ go(delta)
 ### Parameter
 
 - `delta` {{optional_inline}}
-  - : Die Position im Verlauf, zu der Sie relativ zur aktuellen Seite wechseln möchten. Ein negativer Wert bewegt sich rückwärts, ein positiver Wert bewegt sich vorwärts. Zum Beispiel bewegt `history.go(2)` zwei Seiten vorwärts und `history.go(-2)` zwei Seiten zurück. Wenn kein Wert übergeben wird oder wenn `delta` gleich 0 ist, hat es das gleiche Ergebnis wie ein Aufruf von `location.reload()`.
+  - : Die Position in der Historie, zu der Sie relativ zur aktuellen Seite navigieren möchten. Ein negativer Wert bewegt sich rückwärts, ein positiver Wert vorwärts. Zum Beispiel bewegt `history.go(2)` zwei Seiten vorwärts und `history.go(-2)` bewegt zwei Seiten zurück. Wenn kein Wert übergeben wird oder `delta` gleich 0 ist, hat dies das gleiche Ergebnis wie ein Aufruf von `location.reload()`.
 
 ### Rückgabewert
 
@@ -30,24 +30,24 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
-  - : Ausgelöst, wenn das zugehörige Dokument nicht vollständig aktiv ist. Browser drosseln auch die Navigationen und können diesen Fehler auslösen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig aufgerufen wird.
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das zugehörige Dokument nicht vollständig aktiv ist. Browser drosseln auch Navigationen und können diesen Fehler auslösen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig erfolgt.
 
 ## Beispiele
 
-Um eine Seite zurückzugehen (entspricht dem Aufruf von {{domxref("History.back", "back()")}}):
+Um eine Seite zurückzugehen (entspricht dem Aufruf von [`back()`](/de/docs/Web/API/History/back)):
 
 ```js
 history.go(-1);
 ```
 
-Um eine Seite vorwärts zu gehen, wie beim Aufruf von {{domxref("History.forward", "forward()")}}:
+Um eine Seite voranzugehen, ähnlich wie beim Aufruf von [`forward()`](/de/docs/Web/API/History/forward):
 
 ```js
 history.go(1);
 ```
 
-Um zwei Seiten vorwärts zu gehen:
+Um zwei Seiten voranzugehen:
 
 ```js
 history.go(2);
@@ -76,8 +76,8 @@ history.go(0);
 
 ## Siehe auch
 
-- {{domxref("History")}}
-- {{DOMxRef("History.back","back()")}}
-- {{DOMxRef("History.forward","forward()")}}
-- {{domxref("Window/popstate_event", "popstate")}}-Ereignis
+- [`History`](/de/docs/Web/API/History)
+- [`back()`](/de/docs/Web/API/History/back)
+- [`forward()`](/de/docs/Web/API/History/forward)
+- [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignis
 - [Arbeiten mit der History API](/de/docs/Web/API/History_API/Working_with_the_History_API)

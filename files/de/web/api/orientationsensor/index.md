@@ -1,5 +1,5 @@
 ---
-title: Orientierungssensor
+title: OrientationSensor
 slug: Web/API/OrientationSensor
 l10n:
   sourceCommit: 4ea748e5f025c2a00a8ca8babd7c505e73ad9def
@@ -7,54 +7,54 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`OrientationSensor`**-Schnittstelle der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) ist die Basisklasse für Orientierungssensoren. Diese Schnittstelle kann nicht direkt verwendet werden. Stattdessen bietet sie Eigenschaften und Methoden, auf die über Schnittstellen zugegriffen wird, die von ihr erben.
+Die **`OrientationSensor`**-Schnittstelle der [Sensor APIs](/de/docs/Web/API/Sensor_APIs) ist die Basisklasse für Orientierungssensoren. Diese Schnittstelle kann nicht direkt verwendet werden. Stattdessen bietet sie Eigenschaften und Methoden, die von Schnittstellen, die von ihr erben, genutzt werden.
 
-Dieses Feature kann durch eine auf Ihrem Server gesetzte [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
+Diese Funktion kann durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy), die auf Ihrem Server festgelegt ist, blockiert werden.
 
 {{InheritanceDiagram}}
 
-## Schnittstellen, die auf OrientationSensor basieren
+## Schnittstellen basierend auf OrientationSensor
 
-Im Folgenden finden Sie eine Liste der Schnittstellen, die auf der OrientationSensor-Schnittstelle basieren.
+Unten finden Sie eine Liste der Schnittstellen, die auf der OrientationSensor-Schnittstelle basieren.
 
-- {{domxref('AbsoluteOrientationSensor')}}
-- {{domxref('RelativeOrientationSensor')}}
+- [`AbsoluteOrientationSensor`](/de/docs/Web/API/AbsoluteOrientationSensor)
+- [`RelativeOrientationSensor`](/de/docs/Web/API/RelativeOrientationSensor)
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("OrientationSensor.quaternion")}} {{ReadOnlyInline}}
-  - : Gibt ein vier Elemente umfassendes {{jsxref('Array')}} zurück, dessen Elemente die Komponenten des Einheitsquaternions enthalten, das die Orientierung des Geräts darstellt.
+- [`OrientationSensor.quaternion`](/de/docs/Web/API/OrientationSensor/quaternion) {{ReadOnlyInline}}
+  - : Gibt ein vier Element-{{jsxref('Array')}} zurück, dessen Elemente die Komponenten des Einheits-Quaternions enthalten, das die Orientierung des Geräts darstellt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{domxref("OrientationSensor.populateMatrix()")}}
-  - : Füllt das gegebene Objekt mit der Rotationsmatrix basierend auf der neuesten Sensorlesung.
+- [`OrientationSensor.populateMatrix()`](/de/docs/Web/API/OrientationSensor/populateMatrix)
+  - : Füllt das gegebene Objekt mit der Rotationsmatrix basierend auf der neuesten Sensorablesung.
 
 ## Beispiele
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
-Im folgenden Beispiel, das lose auf [Intels Orientation Phone-Demo](https://intel.github.io/generic-sensor-demos/orientation-phone/) basiert, wird ein `AbsoluteOrientationSensor` mit einer Frequenz von 60 Mal pro Sekunde instanziiert. Bei jeder Messung wird {{domxref('OrientationSensor.quaternion')}} verwendet, um ein visuelles Modell eines Telefons zu drehen.
+Das folgende Beispiel, das lose auf [Intels Orientation Phone-Demo](https://intel.github.io/generic-sensor-demos/orientation-phone/) basiert, instanziiert einen `AbsoluteOrientationSensor` mit einer Frequenz von 60 Mal pro Sekunde. Bei jeder Ablesung wird [`OrientationSensor.quaternion`](/de/docs/Web/API/OrientationSensor/quaternion) verwendet, um ein visuelles Modell eines Telefons zu drehen.
 
 ```js
 const options = { frequency: 60, referenceFrame: "device" };
 const sensor = new AbsoluteOrientationSensor(options);
 
 sensor.addEventListener("reading", () => {
-  // model ist ein Three.js-Objekt, das anderswo instanziiert wurde.
+  // model is a Three.js object instantiated elsewhere.
   model.quaternion.fromArray(sensor.quaternion).inverse();
 });
 sensor.addEventListener("error", (error) => {
   if (event.error.name === "NotReadableError") {
-    console.log("Sensor ist nicht verfügbar.");
+    console.log("Sensor is not available.");
   }
 });
 sensor.start();
 ```
 
-### Berechtigungsbeispiel
+### Berechtigungen Beispiel
 
-Die Verwendung von Orientierungssensoren erfordert das Anfordern von Berechtigungen für mehrere Gerätesensoren. Da die {{domxref('Permissions')}}-Schnittstelle Versprechen verwendet, ist eine gute Möglichkeit, Berechtigungen anzufordern, die Verwendung von {{jsxref('Promise.all')}}.
+Die Verwendung von Orientierungssensoren erfordert das Anfordern von Berechtigungen für mehrere Gerätesensoren. Da die [`Permissions`](/de/docs/Web/API/Permissions)-Schnittstelle Versprechen (`promises`) verwendet, ist ein guter Weg, um Berechtigungen anzufordern, {{jsxref('Promise.all')}} zu verwenden.
 
 ```js
 const sensor = new AbsoluteOrientationSensor();
@@ -67,7 +67,7 @@ Promise.all([
     sensor.start();
     // …
   } else {
-    console.log("Keine Berechtigung zur Nutzung des AbsoluteOrientationSensor.");
+    console.log("No permissions to use AbsoluteOrientationSensor.");
   }
 });
 ```

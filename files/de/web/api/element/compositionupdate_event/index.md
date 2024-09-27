@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`compositionupdate`**-Ereignis wird ausgelöst, wenn ein neues Zeichen im Kontext einer Textzusammensetzungssitzung empfangen wird, die von einem Textzusammensetzungssystem wie einem {{glossary("input method editor", "Eingabemethoden-Editor")}} gesteuert wird.
+Das **`compositionupdate`**-Ereignis wird ausgelöst, wenn ein neues Zeichen im Kontext einer Textzusammensetzungs-Sitzung empfangen wird, die von einem Textzusammensetzungssystem wie einem [Eingabemethoden-Editor](/de/docs/Glossary/input_method_editor) gesteuert wird.
 
-Zum Beispiel könnte dieses Ereignis ausgelöst werden, während ein Benutzer ein chinesisches Zeichen mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) {{glossary("IME")}} eingibt.
+Zum Beispiel könnte dieses Ereignis ausgelöst werden, während ein Benutzer ein chinesisches Zeichen mithilfe eines [Pinyin](https://en.wikipedia.org/wiki/Pinyin)-[IME](/de/docs/Glossary/IME) eingibt.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("compositionupdate", (event) => {});
@@ -24,18 +24,18 @@ oncompositionupdate = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("CompositionEvent")}}. Erbt von {{domxref("UIEvent")}} und {{domxref("Event")}}.
+Ein [`CompositionEvent`](/de/docs/Web/API/CompositionEvent). Erbt von [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("CompositionEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten Element, {{domxref("UIEvent")}}, und ihrem Vorfahren — {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften ihrer Elternklasse, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihrer Vorfahrenklasse — [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("CompositionEvent.data")}} {{ReadOnlyInline}}
-  - : Gibt die Zeichen zurück, die von der Eingabemethode generiert wurden, die das Ereignis ausgelöst hat; sie variieren je nach Art des Ereignisses, das das `CompositionEvent`-Objekt erzeugt hat.
-- {{domxref("CompositionEvent.locale")}} {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt das Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Komposition mit IME verbunden ist).
+- [`CompositionEvent.data`](/de/docs/Web/API/CompositionEvent/data) {{ReadOnlyInline}}
+  - : Gibt die Zeichen zurück, die von der Eingabemethode erzeugt wurden, die das Ereignis ausgelöst hat; variiert je nach Art des Ereignisses, das das `CompositionEvent`-Objekt generierte.
+- [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale) {{ReadOnlyInline}} {{deprecated_inline}}
+  - : Gibt das Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Zusammensetzung mit einer IME verbunden ist).
 
 ## Beispiele
 
@@ -54,24 +54,24 @@ inputElement.addEventListener("compositionupdate", (event) => {
 ```html
 <div class="control">
   <label for="example">
-    Zuerst Textfeld auswählen, dann um IME zu öffnen:
+    First select textbox, then to open IME:
     <ul>
-      <li>auf macOS <kbd>option</kbd> + <kbd>`</kbd> eingeben</li>
-      <li>auf Windows <kbd>windows</kbd> + <kbd>.</kbd> eingeben</li>
+      <li>on macOS type <kbd>option</kbd> + <kbd>`</kbd></li>
+      <li>on Windows type <kbd>windows</kbd> + <kbd>.</kbd></li>
     </ul>
   </label>
   <input type="text" id="example" name="example" />
 </div>
 
 <div class="event-log">
-  <label for="eventLog">Ereignisprotokoll:</label>
+  <label for="eventLog">Event log:</label>
   <textarea
     readonly
     class="event-log-contents"
     rows="8"
     cols="25"
     id="eventLog"></textarea>
-  <button class="clear-log">Löschen</button>
+  <button class="clear-log">Clear</button>
 </div>
 ```
 
@@ -138,10 +138,10 @@ inputElement.addEventListener("compositionend", handleEvent);
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("Element/compositionstart_event", "compositionstart")}}, {{domxref("Element/compositionend_event", "compositionend")}}.
+- Verwandte Ereignisse: [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event), [`compositionend`](/de/docs/Web/API/Element/compositionend_event).

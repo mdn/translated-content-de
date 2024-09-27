@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Der **`PressureObserver()`**-Konstruktor erstellt ein neues {{domxref("PressureObserver")}}-Objekt, um Änderungen des Drucks von Systemressourcen wie der CPU zu beobachten.
+Der **`PressureObserver()`** Konstruktor erzeugt ein neues [`PressureObserver`](/de/docs/Web/API/PressureObserver) Objekt, um Änderungen des Drucks auf Systemressourcen wie die CPU zu überwachen.
 
 ## Syntax
 
@@ -19,26 +19,26 @@ new PressureObserver(callback)
 ### Parameter
 
 - `callback`
-  - : Ein Callback, das aufgerufen wird, wenn Druckaufzeichnungen beobachtet werden. Wenn das Callback aufgerufen wird, stehen die folgenden Parameter zur Verfügung:
+  - : Ein Callback, das aufgerufen wird, wenn Druckaufzeichnungen beobachtet werden. Wenn das Callback aufgerufen wird, sind die folgenden Parameter verfügbar:
     - `changes`
-      - : Ein Array, das alle seit dem letzten Aufruf des Callback oder der letzten Ausführung der Methode {{domxref("PressureObserver.takeRecords", "takeRecords()")}} des Observers aufgezeichneten {{domxref("PressureRecord")}}-Objekte enthält.
+      - : Ein Array, das alle [`PressureRecord`](/de/docs/Web/API/PressureRecord) Objekte enthält, die seit dem letzten Aufruf des Callbacks oder dem letzten Aufruf der [`takeRecords()`](/de/docs/Web/API/PressureObserver/takeRecords) Methode des Observers aufgezeichnet wurden.
     - `observer`
-      - : Das {{domxref("PressureObserver","observer")}}-Objekt, das die oben genannten Aufzeichnungen empfängt.
+      - : Das [`observer`](/de/docs/Web/API/PressureObserver) Objekt, das die oben genannten Aufzeichnungen erhält.
 
 ### Rückgabewert
 
-Ein neues {{domxref("PressureObserver")}}-Objekt mit der angegebenen `callback`-Funktion, die aufgerufen wird, wenn {{domxref("PressureObserver.observe()")}} verwendet wurde, um Druckänderungen zu überwachen.
+Ein neues [`PressureObserver`](/de/docs/Web/API/PressureObserver) Objekt mit der angegebenen `callback` Funktion, die aufgerufen wird, wenn [`PressureObserver.observe()`](/de/docs/Web/API/PressureObserver/observe) aufgerufen wurde, um Druckänderungen zu überwachen.
 
 ### Ausnahmen
 
-- `NotAllowedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API) durch eine {{httpheader('Permissions-Policy/compute-pressure','compute-pressure')}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) nicht erlaubt ist.
+- `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst, wenn die [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API) durch eine {{httpheader('Permissions-Policy/compute-pressure','compute-pressure')}} [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) nicht erlaubt ist.
 
 ## Beispiele
 
 ### Aktuellen Druck protokollieren
 
-Dieses Beispiel erstellt einen {{domxref("PressureObserver")}} und führt eine Aktion aus, wenn sich der Druck ändert. Das Abtastintervall ist auf 1000ms eingestellt, was bedeutet, dass es höchstens einmal pro Sekunde Updates geben wird.
+Dieses Beispiel erstellt einen [`PressureObserver`](/de/docs/Web/API/PressureObserver) und reagiert, wann immer es eine Druckänderung gibt. Das Abtastintervall ist auf 1000ms gesetzt, was bedeutet, dass es höchstens einmal pro Sekunde Updates geben wird.
 
 ```js
 function callback(records) {

@@ -7,22 +7,22 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein Objekt, das Filter beschreibt, die auf webRequest-Ereignisse angewendet werden.
+Ein Objekt, das Filter beschreibt, die auf `webRequest`-Ereignisse angewendet werden sollen.
 
 ## Typ
 
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `urls`
-  - : `array` von `string`. Ein Array von [Mustervergleiche](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns). Der Listener wird nur für Anforderungen aufgerufen, deren Ziele mit einem der angegebenen Muster übereinstimmen. Nur Anfragen über HTTP oder HTTPS lösen Ereignisse aus, andere Protokolle (wie data: und file:), die durch Mustervergleich unterstützt werden, lösen keine Ereignisse aus. `view-source:`-Anfragen können basierend auf der inneren URL übereinstimmen.
+  - : `array` von `string`. Ein Array von [Musterabgleichen](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns). Der Listener wird nur für Anfragen aufgerufen, deren Ziele mit einem der gegebenen Muster übereinstimmen. Nur Anfragen, die über HTTP oder HTTPS gestellt werden, lösen Ereignisse aus; andere Protokolle (wie data: und file:), die von der Mustererkennung unterstützt werden, lösen keine Ereignisse aus. `view-source:`-Anfragen können basierend auf ihrer inneren URL abgeglichen werden.
 - `types` {{optional_inline}}
-  - : `array` von `{{WebExtAPIRef('webRequest.ResourceType')}}`. Eine Liste von Ressourcentypen (zum Beispiel Stylesheets, Bilder, Skripte). Der Listener wird nur für Anfragen zu Ressourcen aufgerufen, die einer der angegebenen Typen sind.
+  - : `array` von `{{WebExtAPIRef('webRequest.ResourceType')}}`. Eine Liste von Ressourcentypen (zum Beispiel Stylesheets, Bilder, Skripte). Der Listener wird nur für Anfragen zu Ressourcen aufgerufen, die einem der gegebenen Typen entsprechen.
 - `tabId` {{optional_inline}}
-  - : `integer`. Der Listener wird nur für Anfragen aus dem {{WebExtAPIRef("tabs.Tab", "Tab")}} aufgerufen, der durch diese ID identifiziert wird.
+  - : `integer`. Der Listener wird nur für Anfragen von dem durch diese ID identifizierten {{WebExtAPIRef("tabs.Tab", "Tab")}} aufgerufen.
 - `windowId` {{optional_inline}}
-  - : `integer`. Der Listener wird nur für Anfragen aus dem {{WebExtAPIRef("windows.Window", "Fenster")}} aufgerufen, der durch diese ID identifiziert wird.
+  - : `integer`. Der Listener wird nur für Anfragen von dem durch diese ID identifizierten {{WebExtAPIRef("windows.Window", "Fenster")}} aufgerufen.
 - `incognito` {{optional_inline}}
-  - : `boolean`. Wenn angegeben, werden Anfragen, die nicht dem Inkognito-Status (`true` oder `false`) entsprechen, herausgefiltert.
+  - : `boolean`. Falls angegeben, werden Anfragen, die nicht mit dem Inkognito-Status (`true` oder `false`) übereinstimmen, ausgefiltert.
 
 ## Browser-Kompatibilität
 
@@ -31,7 +31,7 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-RequestFilter) API von Chromium. Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf der Chromium-API [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#type-RequestFilter). Diese Dokumentation ist abgeleitet von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

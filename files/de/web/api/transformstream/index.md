@@ -7,46 +7,46 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`TransformStream`**-Schnittstelle der [Streams API](/de/docs/Web/API/Streams_API) stellt eine konkrete Implementierung des Konzeptes eines [Pipe Chains](/de/docs/Web/API/Streams_API/Concepts#pipe_chains) für _Transform Streams_ dar.
+Die **`TransformStream`**-Schnittstelle der [Streams-API](/de/docs/Web/API/Streams_API) stellt eine konkrete Implementierung des _Transform-Stream_-Konzepts in einer [pipe chain](/de/docs/Web/API/Streams_API/Concepts#pipe_chains) dar.
 
-Es kann an die Methode {{domxref("ReadableStream.pipeThrough()")}} übergeben werden, um einen Datenstrom von einem Format in ein anderes zu transformieren.
-Zum Beispiel könnte es verwendet werden, um Videoframes zu decodieren (oder zu encodieren), Daten zu dekomprimieren oder den Stream von XML in JSON zu konvertieren.
+Sie kann an die Methode [`ReadableStream.pipeThrough()`](/de/docs/Web/API/ReadableStream/pipeThrough) übergeben werden, um einen Datenstrom von einem Format in ein anderes zu transformieren.
+Beispielsweise könnte sie zum Dekodieren (oder Kodieren) von Videoframes, zum Dekomprimieren von Daten oder zum Konvertieren des Streams von XML zu JSON verwendet werden.
 
-Ein Transformationsalgorithmus kann als optionales Argument an den Objektkonstruktor übergeben werden.
-Wenn keiner angegeben wird, werden die Daten beim Durchlaufen des Streams nicht verändert.
+Ein Transformationsalgorithmus kann optional als Argument beim Objektkonstruktor übergeben werden.
+Wird dieser nicht bereitgestellt, werden die Daten beim Durchleiten durch den Stream nicht verändert.
 
-`TransformStream` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
+`TransformStream` ist ein [transferierbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
 ## Konstruktor
 
-- {{domxref("TransformStream.TransformStream", "TransformStream()")}}
-  - : Erstellt und gibt ein Transform Stream-Objekt zurück und spezifiziert optional ein Transformationsobjekt und Warteschlangenstrategien für die Streams.
+- [`TransformStream()`](/de/docs/Web/API/TransformStream/TransformStream)
+  - : Erstellt und gibt ein Transform-Stream-Objekt zurück, wobei optional ein Transformationsobjekt und Queue-Strategien für die Streams angegeben werden können.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("TransformStream.readable")}} {{ReadOnlyInline}}
-  - : Die `readable`-Ende eines `TransformStream`.
-- {{domxref("TransformStream.writable")}} {{ReadOnlyInline}}
-  - : Die `writable`-Ende eines `TransformStream`.
+- [`TransformStream.readable`](/de/docs/Web/API/TransformStream/readable) {{ReadOnlyInline}}
+  - : Das `readable` Ende eines `TransformStream`.
+- [`TransformStream.writable`](/de/docs/Web/API/TransformStream/writable) {{ReadOnlyInline}}
+  - : Das `writable` Ende eines `TransformStream`.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 Keine
 
 ## Beispiele
 
-### Alles-zu-uint8array-Stream
+### Anything-to-uint8array stream
 
-Im folgenden Beispiel überträgt ein Transform Stream alle empfangenen Chunks als {{jsxref("Uint8Array")}}-Werte.
+Im folgenden Beispiel leitet ein Transform-Stream alle empfangenen Chunks als {{jsxref("Uint8Array")}}-Werte weiter.
 
 ```js
 const transformContent = {
-  start() {}, // erforderlich.
+  start() {}, // required.
   async transform(chunk, controller) {
     chunk = await chunk;
     switch (typeof chunk) {
       case "object":
-        // Ich denke, der Stream ist hier fertig
+        // just say the stream is done I guess
         if (chunk === null) {
           controller.terminate();
         } else if (ArrayBuffer.isView(chunk)) {
@@ -62,16 +62,16 @@ const transformContent = {
           typeof chunk.valueOf === "function" &&
           chunk.valueOf() !== chunk
         ) {
-          this.transform(chunk.valueOf(), controller); // Hack
+          this.transform(chunk.valueOf(), controller); // hack
         } else if ("toJSON" in chunk) {
           this.transform(JSON.stringify(chunk), controller);
         }
         break;
       case "symbol":
-        controller.error("Kann ein Symbol nicht als Chunk senden");
+        controller.error("Cannot send a symbol as a chunk part");
         break;
       case "undefined":
-        controller.error("Kann undefined nicht als Chunk senden");
+        controller.error("Cannot send undefined as a chunk part");
         break;
       default:
         controller.enqueue(this.textencoder.encode(String(chunk)));
@@ -79,7 +79,7 @@ const transformContent = {
     }
   },
   flush() {
-    /* hier Bereinigungsvorgänge durchführen */
+    /* do any destructor work here */
   },
 };
 
@@ -90,9 +90,9 @@ class AnyToU8Stream extends TransformStream {
 }
 ```
 
-### Polyfill für TextEncoderStream und TextDecoderStream
+### Polyfilling von TextEncoderStream und TextDecoderStream
 
-Beachten Sie, dass dies durch die nativen Konstruktoren veraltet ist. Dies ist als Polyfill für nicht unterstützte Plattformen gedacht.
+Beachten Sie, dass dies von den nativen Konstruktoren als veraltet gilt. Dies ist als Polyfill für nicht unterstützte Plattformen gedacht.
 
 ```js
 const tes = {
@@ -104,7 +104,7 @@ const tes = {
   },
 };
 
-let _jstes_wm = new WeakMap(); /* Informationsspeicher */
+let _jstes_wm = new WeakMap(); /* info holder */
 class JSTextEncoderStream extends TransformStream {
   constructor() {
     let t = { ...tes };
@@ -118,7 +118,7 @@ class JSTextEncoderStream extends TransformStream {
 }
 ```
 
-Ähnlich kann `TextDecoderStream` so geschrieben werden:
+Ähnlich kann `TextDecoderStream` wie folgt geschrieben werden:
 
 ```js
 const tds = {
@@ -130,7 +130,7 @@ const tds = {
   },
 };
 
-let _jstds_wm = new WeakMap(); /* Informationsspeicher */
+let _jstds_wm = new WeakMap(); /* info holder */
 class JSTextDecoderStream extends TransformStream {
   constructor(encoding = "utf-8", { ...options } = {}) {
     let t = { ...tds, encoding, options };
@@ -152,11 +152,11 @@ class JSTextDecoderStream extends TransformStream {
 
 ### Verkettung mehrerer ReadableStreams
 
-Dies ist ein nützliches Beispiel, in dem mehrere Streams verbunden werden können. Beispiele umfassen den Aufbau einer PWA mit progressive_loading und progressivem Streaming.
+Dies ist ein nützliches Beispiel, bei dem mehrere Streams verbunden werden können. Beispiele hierfür sind der Aufbau einer PWA mit progressivem Laden und progressivem Streaming.
 
 ```js
 let responses = [
-  /* verbundener Antwortbaum */
+  /* conjoined response tree */
 ];
 let { readable, writable } = new TransformStream();
 
@@ -167,7 +167,7 @@ responses.reduce(
 );
 ```
 
-Beachten Sie, dass dies nicht gegen andere Einflüsse resistent ist.
+Beachten Sie, dass dies nicht gegen andere Einflüsse widerstandsfähig ist.
 
 ## Spezifikationen
 
@@ -179,5 +179,5 @@ Beachten Sie, dass dies nicht gegen andere Einflüsse resistent ist.
 
 ## Siehe auch
 
-- [WHATWG Stream Visualizer](https://whatwg-stream-visualizer.glitch.me/), für eine grundlegende Visualisierung von Readable, Writable und Transform Streams.
-- [Streams—Der definitive Leitfaden](https://web.dev/articles/streams)
+- [WHATWG Stream Visualizer](https://whatwg-stream-visualizer.glitch.me/), für eine grundlegende Visualisierung von lesbaren, schreibbaren und Transform-Streams.
+- [Streams—The Definitive Guide](https://web.dev/articles/streams)

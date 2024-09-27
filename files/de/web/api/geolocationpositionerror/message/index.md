@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die schreibgeschützte **`message`**-Eigenschaft der {{domxref("GeolocationPositionError")}}-Schnittstelle gibt einen menschenlesbaren String zurück, der die Details des Fehlers beschreibt.
+Die schreibgeschützte **`message`**-Eigenschaft der [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)-Schnittstelle gibt eine für Menschen lesbare Zeichenkette zurück, die die Details des Fehlers beschreibt.
 
 ## Wert
 
-Ein menschenlesbarer String, der die Details des Fehlers beschreibt.
+Eine für Menschen lesbare Zeichenkette, die die Details des Fehlers beschreibt.
 
 ## Spezifikationen
 
@@ -24,5 +24,5 @@ Ein menschenlesbarer String, der die Details des Fehlers beschreibt.
 
 ## Siehe auch
 
-- [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- {{domxref("GeolocationPositionError")}}
+- [Die Geolocation API verwenden](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
+- [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)

@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Um Text entlang der Form eines {{SVGElement("path")}} darzustellen, umschließen Sie den Text in einem **`<textPath>`**-Element, das ein {{SVGAttr("href")}}-Attribut mit einem Verweis auf das {{SVGElement("path")}}-Element hat.
+Um Text entlang der Form eines {{SVGElement("path")}} darzustellen, schließen Sie den Text in ein **`<textPath>`**-Element ein, das ein {{SVGAttr("href")}}-Attribut mit einem Verweis auf das {{SVGElement("path")}}-Element hat.
 
 ## Beispiel
 
@@ -21,7 +21,7 @@ svg {
 
 ```html
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Um den Pfad zu verbergen, wird er üblicherweise in einem <defs>-Element eingeschlossen -->
+  <!-- to hide the path, it is usually wrapped in a <defs> element -->
   <!-- <defs> -->
   <path
     id="MyPath"
@@ -41,29 +41,29 @@ svg {
 ## Attribute
 
 - {{SVGAttr("href")}}
-  - : Die URL zum Pfad oder zur Grundform, auf der der Text dargestellt werden soll. Wenn das `path`-Attribut gesetzt ist, hat `href` keine Wirkung.
-    _Wertetyp_: [**\<URL>**](/de/docs/Web/SVG/Content_type#url); _Standardwert_: keiner; _Animierbar_: **ja**
+  - : Die URL zu dem Pfad oder der grundlegenden Form, auf der der Text dargestellt werden soll. Wenn das `path`-Attribut gesetzt ist, hat `href` keine Wirkung.
+    _Wertetyp_: [**\<URL>**](/de/docs/Web/SVG/Content_type#url) ; _Standardwert_: keiner; _Animierbar_: **ja**
 - {{SVGAttr("lengthAdjust")}}
-  - : Wo die Längenanpassung auf den Text angewendet werden soll: Der Abstand zwischen Glyphen oder sowohl der Abstand als auch die Glyphen selbst.
+  - : Wo die Längenanpassung auf den Text angewendet werden soll: der Zwischenraum zwischen den Glyphen oder sowohl der Zwischenraum als auch die Glyphen selbst.
     _Wertetyp_: `spacing`|`spacingAndGlyphs`; _Standardwert_: `spacing`; _Animierbar_: **ja**
 - {{SVGAttr("method")}}
-  - : Welche Methode verwendet werden soll, um einzelne Glyphen entlang des Pfades zu rendern.
-    _Wertetyp_: `align`|`stretch`; _Standardwert_: `align`; _Animierbar_: **ja**
+  - : Welches Verfahren verwendet werden soll, um einzelne Glyphen entlang des Pfades darzustellen.
+    _Wertetyp_: `align`|`stretch` ; _Standardwert_: `align`; _Animierbar_: **ja**
 - {{SVGAttr("path")}} {{Experimental_Inline}}
   - : Der Pfad, auf dem der Text dargestellt werden soll.
-    _Wertetyp_: [**\<path_data>**](/de/docs/Web/SVG/Attribute/path#path-data); _Standardwert_: keiner; _Animierbar_: **ja**
+    _Wertetyp_: [**\<path_data>**](/de/docs/Web/SVG/Attribute/path#path-data) ; _Standardwert_: keiner; _Animierbar_: **ja**
 - {{SVGAttr("side")}} {{Experimental_Inline}}
-  - : Welche Seite des Pfades der Text darstellen soll.
-    _Wertetyp_: `left`|`right`; _Standardwert_: `left`; _Animierbar_: **ja**
+  - : Welche Seite des Pfades der Text dargestellt werden soll.
+    _Wertetyp_: `left`|`right` ; _Standardwert_: `left`; _Animierbar_: **ja**
 - {{SVGAttr("spacing")}}
-  - : Wie der Abstand zwischen den Glyphen gehandhabt werden soll.
-    _Wertetyp_: `auto`|`exact`; _Standardwert_: `exact`; _Animierbar_: **ja**
+  - : Wie der Zwischenraum zwischen Glyphen gehandhabt werden soll.
+    _Wertetyp_: `auto`|`exact` ; _Standardwert_: `exact`; _Animierbar_: **ja**
 - {{SVGAttr("startOffset")}}
-  - : Wie weit der Beginn des Textes vom Beginn des Pfades versetzt sein soll.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)|[**\<number>**](/de/docs/Web/SVG/Content_type#number); _Standardwert_: `0`; _Animierbar_: **ja**
+  - : Wie weit der Anfang des Textes vom Anfang des Pfades entfernt sein soll.
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)|[**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("textLength")}}
-  - : Die Breite des Raumes, in den der Text gerendert wird.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)|[**\<number>**](/de/docs/Web/SVG/Content_type#number); _Standardwert_: _auto_; _Animierbar_: **ja**
+  - : Die Breite des Bereichs, in dem der Text dargestellt wird.
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)|[**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _auto_; _Animierbar_: **ja**
 
 ## Verwendungskontext
 

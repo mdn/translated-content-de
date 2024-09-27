@@ -1,5 +1,5 @@
 ---
-title: "NotRestoredReasons: toJSON()-Methode"
+title: "NotRestoredReasons: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/NotRestoredReasons/toJSON
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der {{domxref("NotRestoredReasons")}}-Schnittstelle ist ein {{Glossary("Serialization","Serializer")}}; sie gibt eine JSON-Darstellung des {{domxref("NotRestoredReasons")}}-Objekts zurück.
+Die **`toJSON()`** Methode der [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons) Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons) Objekts zurück.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des {{domxref("NotRestoredReasons")}}-Objekts darstellt.
+Ein {{jsxref("JSON")}} Objekt, das die Serialisierung des [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons) Objekts darstellt.
 
 ## Beispiele
 
-Die folgende Funktion gibt eine JSON-Darstellung des `NotRestoredReasons`-Objekts des ersten `PerformanceNavigationTiming`-Objekts zurück, das sich derzeit in der Performance-Timeline befindet:
+Die folgende Funktion wird eine JSON-Darstellung des `NotRestoredReasons` Objekts des ersten `PerformanceNavigationTiming` Objekts zurückgeben, das derzeit in der Performance-Zeitleiste vorhanden ist:
 
 ```js
 function returnNRR() {
@@ -48,4 +48,4 @@ function returnNRR() {
 
 - {{jsxref("JSON")}}
 - [Überwachung von bfcache-Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
-- {{domxref("PerformanceNavigationTiming.notRestoredReasons")}}
+- [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons)

@@ -7,6 +7,6 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `none`-Rolle ist ein Synonym für die [`presentation`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role); beide entfernen die impliziten ARIA-Semantiken eines Elements, damit sie nicht im Accessibility-Tree angezeigt werden.
+Die `none`-Rolle ist ein Synonym für die [`presentation`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role)-Rolle; beide entfernen die impliziten ARIA-Semantiken eines Elements aus dem Zugänglichkeitsbaum.
 
-Weitere Informationen finden Sie in der [`presentation`-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role).
+Siehe die [`presentation`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role)-Rolle für weitere Informationen.

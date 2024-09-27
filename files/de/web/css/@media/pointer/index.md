@@ -7,21 +7,21 @@ l10n:
 
 {{CSSRef}}
 
-Die **`pointer`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) prüft, ob der Benutzer ein Zeigegerät (wie eine Maus) hat und, falls ja, wie genau das _primäre_ Zeigegerät ist.
+Die **`pointer`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) überprüft, ob der Benutzer ein Zeigegerät (wie eine Maus) hat und, falls ja, wie genau das _primäre_ Zeigegerät ist.
 
 > [!NOTE]
-> Wenn Sie die Genauigkeit _eines beliebigen_ Zeigegeräts testen möchten, verwenden Sie stattdessen [`any-pointer`](/de/docs/Web/CSS/@media/any-pointer).
+> Wenn Sie die Genauigkeit _irgendeines_ Zeigegeräts testen möchten, verwenden Sie stattdessen [`any-pointer`](/de/docs/Web/CSS/@media/any-pointer).
 
 ## Syntax
 
-Das `pointer`-Feature wird als Schlüsselwort aus der folgenden Liste angegeben.
+Das `pointer`-Feature wird als ein Schlüsselwortwert spezifiziert, der aus der unten stehenden Liste ausgewählt wird.
 
 - `none`
-  - : Das primäre Eingabegerät enthält kein Zeigegerät.
+  - : Das primäre Eingabemechanismus umfasst kein Zeigegerät.
 - `coarse`
-  - : Das primäre Eingabegerät enthält ein Zeigegerät mit begrenzter Genauigkeit, wie z.B. einen Finger auf einem Touchscreen.
+  - : Das primäre Eingabemechanismus umfasst ein Zeigegerät mit begrenzter Genauigkeit, wie beispielsweise einen Finger auf einem Touchscreen.
 - `fine`
-  - : Das primäre Eingabegerät enthält ein genaues Zeigegerät, wie z.B. eine Maus.
+  - : Das primäre Eingabemechanismus umfasst ein genaues Zeigegerät, wie beispielsweise eine Maus.
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: blendFuncSeparate()-Methode"
+title: "WebGLRenderingContext: Methode blendFuncSeparate()"
 short-title: blendFuncSeparate()
 slug: Web/API/WebGLRenderingContext/blendFuncSeparate
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.blendFuncSeparate()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) definiert, welche Funktion für die Mischung der RGB- und Alphakomponenten beim Pixel-Arithmetik verwendet wird.
+Die **`WebGLRenderingContext.blendFuncSeparate()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) definiert, welche Funktion für die Vermischung von Pixelarithmetik für die RGB- und Alphakomponenten separat verwendet wird.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ blendFuncSeparate(srcRGB, dstRGB, srcAlpha, dstAlpha)
 ### Parameter
 
 - `srcRGB`
-  - : Ein {{domxref("WebGL_API.Types", "GLenum")}}, der einen Multiplikator für die Rot-, Grün- und Blau- (RGB) Quellmischfaktoren spezifiziert. Der Standardwert ist `gl.ONE`. Mögliche Werte siehe unten.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Multiplikator für die roten, grünen und blauen (RGB) Quell-Vermischungsfaktoren angibt. Der Standardwert ist `gl.ONE`. Für mögliche Werte siehe unten.
 - `dstRGB`
-  - : Ein {{domxref("WebGL_API.Types", "GLenum")}}, der einen Multiplikator für die Rot-, Grün- und Blau- (RGB) Zielmischfaktoren spezifiziert. Der Standardwert ist `gl.ZERO`. Mögliche Werte siehe unten.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Multiplikator für die roten, grünen und blauen (RGB) Ziel-Vermischungsfaktoren angibt. Der Standardwert ist `gl.ZERO`. Für mögliche Werte siehe unten.
 - `srcAlpha`
-  - : Ein {{domxref("WebGL_API.Types", "GLenum")}}, der einen Multiplikator für den Alpha-Quellmischfaktor spezifiziert. Der Standardwert ist `gl.ONE`. Mögliche Werte siehe unten.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Multiplikator für den Alpha-Quell-Vermischungsfaktor angibt. Der Standardwert ist `gl.ONE`. Für mögliche Werte siehe unten.
 - `dstAlpha`
-  - : Ein {{domxref("WebGL_API.Types", "GLenum")}}, der einen Multiplikator für den Alpha-Zielmischfaktor spezifiziert. Der Standardwert ist `gl.ZERO`. Mögliche Werte siehe unten.
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der einen Multiplikator für den Alpha-Ziel-Vermischungsfaktor angibt. Der Standardwert ist `gl.ZERO`. Für mögliche Werte siehe unten.
 
 ### Rückgabewert
 
@@ -33,19 +33,19 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Wenn _srcRGB_, _dstRGB_, _srcAlpha_ oder _dstAlpha_ nicht einer der aufgelisteten möglichen Werte ist, wird ein `gl.INVALID_ENUM` Fehler ausgelöst.
-- Wenn eine konstante Farbe und ein konstanter Alphawert zusammen als Quell- (`srcRGB`) und Zielfaktoren (`dstRGB`) verwendet werden, wird ein `gl.INVALID_ENUM` Fehler ausgelöst.
+- Wenn _srcRGB_, _dstRGB_, _srcAlpha_ oder _dstAlpha_ nicht einer der aufgeführten möglichen Werte ist, wird ein `gl.INVALID_ENUM` Fehler ausgelöst.
+- Wenn eine konstante Farbe und ein konstanter Alphawert zusammen als Quelle (`srcRGB`) und Ziel (`dstRGB`) Faktoren verwendet werden, wird ein `gl.INVALID_ENUM` Fehler ausgelöst.
 
 ## Konstanten
 
 Die folgenden Konstanten können für _srcRGB_, _dstRGB_, _srcAlpha_ und _dstAlpha_ verwendet werden.
 
-Die Formeln für die Mischfaktoren können folgendermaßen beschrieben werden (alle RGBA-Werte liegen zwischen 0 und 1):
+Die Formeln für die Vermischungsfaktoren können folgendermaßen beschrieben werden (alle RGBA-Werte liegen zwischen 0 und 1):
 
-- color(RGB) = (sourceColor \* _srcRGB_) + (destinationColor \* _dstRGB_)
-- color(A) = (sourceAlpha \* _srcAlpha_) + (destinationAlpha \* _dstAlpha_)
+- Farbe(RGB) = (sourceColor \* _srcRGB_) + (destinationColor \* _dstRGB_)
+- Farbe(A) = (sourceAlpha \* _srcAlpha_) + (destinationAlpha \* _dstAlpha_)
 
-In der folgenden Tabelle repräsentieren R<sub>S</sub>, G<sub>S</sub>, B<sub>S</sub>, A<sub>S</sub> jeweils die _rote_, _grüne_, _blaue_ und _alpha_ Komponente der Quelle, während R<sub>D</sub>, G<sub>D</sub>, B<sub>D</sub>, A<sub>D</sub> die _rote_, _grüne_, _blaue_ und _alpha_ Komponente des Ziels repräsentieren. Ebenso repräsentieren R<sub>C</sub>, G<sub>C</sub>, B<sub>C</sub>, A<sub>C</sub> die _rote_, _grüne_, _blaue_ und _alpha_ Komponente einer konstanten Farbe. Sie sind alle Werte zwischen 0 und 1, eingeschlossen.
+In der folgenden Tabelle stehen R<sub>S</sub>, G<sub>S</sub>, B<sub>S</sub>, A<sub>S</sub> jeweils für die _rot_, _grün_, _blau_ und _alpha_ Komponente der Quelle, während R<sub>D</sub>, G<sub>D</sub>, B<sub>D</sub>, A<sub>D</sub> jeweils für die _rot_, _grün_, _blau_ und _alpha_ Komponente des Ziels stehen. Ebenso stehen R<sub>C</sub>, G<sub>C</sub>, B<sub>C</sub>, A<sub>C</sub> jeweils für die _rot_, _grün_, _blau_ und _alpha_ Komponente einer konstanten Farbe. Sie sind alle Werte zwischen 0 und 1, eingeschlossen.
 
 <table class="no-markdown">
   <thead>
@@ -97,25 +97,25 @@ In der folgenden Tabelle repräsentieren R<sub>S</sub>, G<sub>S</sub>, B<sub>S</
       <td><code>gl.SRC_ALPHA</code></td>
       <td>A<sub>S</sub>, A<sub>S</sub>, A<sub>S</sub></td>
       <td>A<sub>S</sub></td>
-      <td>Multipliziert alle Farben mit der Quellalpha-Farbe.</td>
+      <td>Multipliziert alle Farben mit der Quellalphafarbe.</td>
     </tr>
     <tr>
       <td><code>gl.ONE_MINUS_SRC_ALPHA</code></td>
       <td>1-A<sub>S</sub>, 1-A<sub>S</sub>, 1-A<sub>S</sub></td>
       <td>1-A<sub>S</sub></td>
-      <td>Multipliziert alle Farben mit 1 minus der Quellalpha-Farbe.</td>
+      <td>Multipliziert alle Farben mit 1 minus der Quellalphafarbe.</td>
     </tr>
     <tr>
       <td><code>gl.DST_ALPHA</code></td>
       <td>A<sub>D</sub>, A<sub>D</sub>, A<sub>D</sub></td>
       <td>A<sub>D</sub></td>
-      <td>Multipliziert alle Farben mit der Zielalpha-Farbe.</td>
+      <td>Multipliziert alle Farben mit der Zielalphafarbe.</td>
     </tr>
     <tr>
       <td><code>gl.ONE_MINUS_DST_ALPHA</code></td>
       <td>1-A<sub>D</sub>, 1-A<sub>D</sub>, 1-A<sub>D</sub></td>
       <td>1-A<sub>D</sub></td>
-      <td>Multipliziert alle Farben mit 1 minus der Zielalpha-Farbe.</td>
+      <td>Multipliziert alle Farben mit 1 minus der Zielalphafarbe.</td>
     </tr>
     <tr>
       <td><code>gl.CONSTANT_COLOR</code></td>
@@ -149,7 +149,7 @@ In der folgenden Tabelle repräsentieren R<sub>S</sub>, G<sub>S</sub>, B<sub>S</
       </td>
       <td>1</td>
       <td>
-        Multipliziert die RGB-Farben mit dem kleineren Wert entweder der Quellalpha-Farbe oder dem Wert von 1 minus der Zielalpha-Farbe. Der Alphawert wird mit 1 multipliziert.
+        Multipliziert die RGB-Farben mit dem kleineren der beiden, entweder der Quellalphafarbe oder dem Wert von 1 minus der Zielalphafarbe. Der Alphawert wird mit 1 multipliziert.
       </td>
     </tr>
   </tbody>
@@ -157,14 +157,14 @@ In der folgenden Tabelle repräsentieren R<sub>S</sub>, G<sub>S</sub>, B<sub>S</
 
 ## Beispiele
 
-Um die Mischfunktion zu verwenden, müssen Sie zuerst Blending mit {{domxref("WebGLRenderingContext.enable()")}} mit dem Argument `gl.BLEND` aktivieren.
+Um die Vermischungsfunktion zu verwenden, müssen Sie zunächst die Vermischung mit [`WebGLRenderingContext.enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) mit dem Argument `gl.BLEND` aktivieren.
 
 ```js
 gl.enable(gl.BLEND);
 gl.blendFuncSeparate(gl.SRC_COLOR, gl.DST_COLOR, gl.ONE, gl.ZERO);
 ```
 
-Um die aktuelle Mischfunktion abzurufen, rufen Sie die Konstanten `BLEND_SRC_RGB`, `BLEND_SRC_ALPHA`, `BLEND_DST_RGB` und `BLEND_DST_ALPHA` ab, die einen der Mischfunktionskonstanten zurückgeben.
+Um die aktuelle Vermischungsfunktion zu erhalten, fragen Sie die Konstanten `BLEND_SRC_RGB`, `BLEND_SRC_ALPHA`, `BLEND_DST_RGB` und `BLEND_DST_ALPHA` ab, die eine der Vermischungsfunktionskonstanten zurückgeben.
 
 ```js
 gl.enable(gl.BLEND);
@@ -183,5 +183,5 @@ gl.getParameter(gl.BLEND_SRC_RGB) === gl.SRC_COLOR;
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.blendColor()")}}
-- {{domxref("WebGLRenderingContext.blendEquation()")}}
+- [`WebGLRenderingContext.blendColor()`](/de/docs/Web/API/WebGLRenderingContext/blendColor)
+- [`WebGLRenderingContext.blendEquation()`](/de/docs/Web/API/WebGLRenderingContext/blendEquation)

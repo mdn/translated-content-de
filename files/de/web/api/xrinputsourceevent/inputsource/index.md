@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte **`inputSource`**-Eigenschaft der {{domxref("XRInputSourceEvent")}}-Schnittstelle gibt die {{domxref("XRInputSource")}} an, die das Eingabeereignis generiert hat. Diese Information ermöglicht es Ihnen, das Ereignis entsprechend den Besonderheiten des verwendeten Benutzereingabegeräts zu verarbeiten.
+Die schreibgeschützte **`inputSource`**-Eigenschaft des [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent)-Interfaces gibt die [`XRInputSource`](/de/docs/Web/API/XRInputSource) an, die das Eingabeereignis erzeugt hat. Diese Information ermöglicht es, das Ereignis angemessen in Bezug auf die Einzelheiten des benutzten Eingabegeräts zu behandeln.
 
 ## Wert
 
-Ein {{domxref("XRInputSource")}}-Objekt, das die Quelle des Benutzereingabeereignisses identifiziert. Dieses Ereignis weist auf eine Aktion hin, die der Benutzer mithilfe eines WebXR-Eingabesteuergeräts unternommen hat, wie z.B. eines Handcontrollers, Bewegungssteuerungsgeräts oder anderer Eingabevorrichtungen.
+Ein [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekt, das die Quelle des Benutzereingabereignisses identifiziert. Dieses Ereignis zeigt eine Aktion an, die der Benutzer mit einem WebXR-Eingabesteuergerät, wie einem Hand-Controller, Bewegungsmelder oder einem anderen Eingabegerät, durchgeführt hat.
 
 ## Beispiele
 
-Der folgende Codeausschnitt zeigt einen Handler für das {{domxref("XRSession.select_event", "select")}}-Ereignis, der speziell nach Ereignissen sucht, die auf `gaze`-Eingabegeräten auftreten. Der Gerätetyp wird durch das Überprüfen der {{domxref("XRInputSource")}} in `inputSource` und deren Eigenschaft {{domxref("XRInputSource.targetRayMode", "targetRayMode")}} identifiziert.
+Das folgende Beispiel zeigt einen Handler für das [`select`](/de/docs/Web/API/XRSession/select_event)-Ereignis, welcher speziell nach Ereignissen sucht, die auf `gaze`-Eingabegeräten geschehen. Der Gerätetyp wird identifiziert, indem man die [`XRInputSource`](/de/docs/Web/API/XRInputSource) in `inputSource` und deren [`targetRayMode`](/de/docs/Web/API/XRInputSource/targetRayMode)-Eigenschaft betrachtet.
 
 ```js
 xrSession.onselect = (event) => {

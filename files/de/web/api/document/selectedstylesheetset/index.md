@@ -1,5 +1,5 @@
 ---
-title: "Dokument: selectedStyleSheetSet-Eigenschaft"
+title: "Document: selectedStyleSheetSet Eigenschaft"
 short-title: selectedStyleSheetSet
 slug: Web/API/Document/selectedStyleSheetSet
 l10n:
@@ -12,17 +12,17 @@ Die **`selectedStyleSheetSet`**-Eigenschaft gibt den Namen des aktuell verwendet
 
 ## Wert
 
-Der Name des derzeit verwendeten Stylesheet-Sets. Sie können dieses Stylesheet-Set auch über diese Eigenschaft einstellen.
+Der Name des aktuell verwendeten Stylesheet-Sets. Sie können dieses Eigenschaft auch verwenden, um das aktuelle Stylesheet-Set zu setzen.
 
 Das Setzen des Wertes dieser Eigenschaft entspricht dem Aufruf von
-{{domxref("document.enableStyleSheetsForSet()")}} mit dem Wert von
-`currentStyleSheetSet`. Anschließend wird der Wert von
-`lastStyleSheetSet` ebenfalls auf diesen Wert gesetzt.
+[`document.enableStyleSheetsForSet()`](/de/docs/Web/API/Document/enableStyleSheetsForSet) mit dem Wert von
+`currentStyleSheetSet`, gefolgt vom Setzen des Wertes von
+`lastStyleSheetSet` auf diesen Wert.
 
 > [!NOTE]
-> Der Wert dieses Attributs ist dynamisch; eine direkte Änderung des
-> `disabled`-Attributs an Stylesheets wirkt sich auf den Wert dieses Attributs
-> aus.
+> Der Wert dieses Attributs ist live; das direkte Ändern des
+> `disabled`-Attributs auf Stylesheets beeinflusst den Wert dieses
+> Attributs.
 
 ## Beispiele
 
@@ -38,7 +38,7 @@ document.selectedStyleSheetSet = "Some other style sheet";
 
 ## Siehe auch
 
-- {{domxref("document.lastStyleSheetSet")}}
-- {{domxref("document.preferredStyleSheetSet")}}
-- {{domxref("document.styleSheetSets")}}
-- {{domxref("document.enableStyleSheetsForSet()")}}
+- [`document.lastStyleSheetSet`](/de/docs/Web/API/Document/lastStyleSheetSet)
+- [`document.preferredStyleSheetSet`](/de/docs/Web/API/Document/preferredStyleSheetSet)
+- [`document.styleSheetSets`](/de/docs/Web/API/Document/styleSheetSets)
+- [`document.enableStyleSheetsForSet()`](/de/docs/Web/API/Document/enableStyleSheetsForSet)

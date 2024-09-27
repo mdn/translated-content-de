@@ -8,7 +8,9 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
 
-Der **`USBConfiguration()`** Konstruktor erstellt ein neues {{domxref("USBConfiguration")}}-Objekt, das Informationen über die Konfiguration des angegebenen USB-Geräts mit dem angegebenen Konfigurationswert enthält.
+Der **`USBConfiguration()`** Konstruktor
+erstellt ein neues [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Objekt, das Informationen über
+die Konfiguration auf dem angegebenen USBDevice mit dem gegebenen Konfigurationswert enthält.
 
 ## Syntax
 
@@ -19,9 +21,9 @@ new USBConfiguration(device, configurationValue)
 ### Parameter
 
 - `device`
-  - : Gibt das {{domxref('USBDevice')}} an, das Sie konfigurieren möchten.
+  - : Gibt das [`USBDevice`](/de/docs/Web/API/USBDevice) an, das Sie konfigurieren möchten.
 - `configurationValue`
-  - : Gibt den [Konfigurationsdeskriptor](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors) an, den Sie lesen möchten. Dies ist eine nicht signierte Ganzzahl im Bereich von 0 bis 255.
+  - : Gibt den [Konfigurationsdeskriptor](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors) an, den Sie lesen möchten. Dies ist eine vorzeichenlose Ganzzahl im Bereich von 0 bis 255.
 
 ## Spezifikationen
 

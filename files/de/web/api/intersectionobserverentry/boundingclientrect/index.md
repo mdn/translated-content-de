@@ -1,5 +1,5 @@
 ---
-title: "IntersectionObserverEntry: boundingClientRect Eigenschaft"
+title: "IntersectionObserverEntry: boundingClientRect-Eigenschaft"
 short-title: boundingClientRect
 slug: Web/API/IntersectionObserverEntry/boundingClientRect
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die schreibgeschützte Eigenschaft **`boundingClientRect`** der {{domxref("IntersectionObserverEntry")}}-Schnittstelle gibt eine {{domxref("DOMRectReadOnly")}} zurück, die im Wesentlichen ein Rechteck beschreibt, das das kleinste Rechteck darstellt, das das gesamte Ziel-Element umfasst.
+Die schreibgeschützte **`boundingClientRect`**-Eigenschaft des [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)-Interfaces gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) zurück, das im Wesentlichen ein Rechteck beschreibt, das das kleinste Rechteck darstellt, das das gesamte Ziel-Element enthält.
 
 ## Wert
 
-Eine {{domxref("DOMRectReadOnly")}}, welche das kleinste Rechteck beschreibt, das jeden Teil des Ziel-Elements enthält, dessen Schnittpunktänderung beschrieben wird. Dieser Wert wird mit demselben Algorithmus wie {{domxref("Element.getBoundingClientRect()")}} ermittelt. Lesen Sie daher den entsprechenden Artikel für Details dazu, was genau getan wird, um dieses Rechteck zu ermitteln und was innerhalb seiner Begrenzungen enthalten ist und was nicht.
+Ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly), das das kleinste Rechteck beschreibt, das jedes Teil des Ziel-Elements enthält, dessen Schnittänderung beschrieben wird. Dieser Wert wird mit demselben Algorithmus wie [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect) ermittelt. Bitte lesen Sie diesen Artikel für Details darüber, was genau getan wird, um dieses Rechteck zu erhalten und was innerhalb seiner Grenzen einbezogen oder ausgeschlossen ist.
 
-Im Allgemeinen ist es jedoch sicher, dies als das Begrenzungsrechteck des Ziel-Elements zu betrachten.
+Im Allgemeinen kann man jedoch sicher davon ausgehen, dass es sich um das Begrenzungsrechteck des Ziel-Elements handelt.
 
 ## Spezifikationen
 

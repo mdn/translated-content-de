@@ -7,25 +7,25 @@ l10n:
 
 {{APIRef("Channel Messaging API")}} {{AvailableInWorkers}}
 
-Das **`MessageChannel`**-Interface der [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API) ermöglicht es uns, einen neuen Nachrichtenkanal zu erstellen und Daten über diesen mit seinen beiden {{domxref("MessagePort")}}-Eigenschaften zu senden.
+Das **`MessageChannel`**-Interface der [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API) ermöglicht es, einen neuen Nachrichtenkanal zu erstellen und Daten über diesen mithilfe seiner beiden [`MessagePort`](/de/docs/Web/API/MessagePort)-Eigenschaften zu senden.
 
 ## Konstruktor
 
-- {{domxref("MessageChannel.MessageChannel", "MessageChannel()")}}
-  - : Gibt ein neues `MessageChannel`-Objekt mit zwei neuen {{domxref("MessagePort")}}-Objekten zurück.
+- [`MessageChannel()`](/de/docs/Web/API/MessageChannel/MessageChannel)
+  - : Gibt ein neues `MessageChannel`-Objekt mit zwei neuen [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten zurück.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("MessageChannel.port1")}} {{ReadOnlyInline}}
-  - : Gibt port1 des Kanals zurück.
-- {{domxref("MessageChannel.port2")}} {{ReadOnlyInline}}
-  - : Gibt port2 des Kanals zurück.
+- [`MessageChannel.port1`](/de/docs/Web/API/MessageChannel/port1) {{ReadOnlyInline}}
+  - : Gibt den port1 des Kanals zurück.
+- [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) {{ReadOnlyInline}}
+  - : Gibt den port2 des Kanals zurück.
 
 ## Beispiel
 
-Im folgenden Beispiel sehen Sie, wie ein neuer Kanal mit dem {{domxref("MessageChannel.MessageChannel", "MessageChannel()")}}-Konstruktor erstellt wird.
+Im folgenden Beispiel sehen Sie, wie ein neuer Kanal mithilfe des [`MessageChannel()`](/de/docs/Web/API/MessageChannel/MessageChannel)-Konstruktors erstellt wird.
 
-Wenn das IFrame geladen wurde, registrieren wir einen {{domxref("MessagePort/message_event","onmessage")}}-Handler für {{domxref("MessageChannel.port1")}} und übertragen {{domxref("MessageChannel.port2")}} an das IFrame mithilfe der {{domxref("window.postMessage")}}-Methode zusammen mit einer Nachricht.
+Wenn das IFrame geladen ist, registrieren wir einen [`onmessage`](/de/docs/Web/API/MessagePort/message_event)-Handler für [`MessageChannel.port1`](/de/docs/Web/API/MessageChannel/port1) und übertragen [`MessageChannel.port2`](/de/docs/Web/API/MessageChannel/port2) an das IFrame mithilfe der [`window.postMessage`](/de/docs/Web/API/Window/postMessage)-Methode zusammen mit einer Nachricht.
 
 Wenn eine Nachricht vom IFrame zurückempfangen wird, gibt die `onMessage`-Funktion die Nachricht in einem Absatz aus.
 
@@ -34,26 +34,26 @@ const channel = new MessageChannel();
 const output = document.querySelector(".output");
 const iframe = document.querySelector("iframe");
 
-// Warten, bis das IFrame geladen ist
+// Wait for the iframe to load
 iframe.addEventListener("load", onLoad);
 
 function onLoad() {
-  // Nachrichten auf port1 empfangen
+  // Listen for messages on port1
   channel.port1.onmessage = onMessage;
 
-  // Übertrag port2 zum IFrame
+  // Transfer port2 to the iframe
   iframe.contentWindow.postMessage("Hello from the main page!", "*", [
     channel.port2,
   ]);
 }
 
-// Verarbeiten von Nachrichten, die auf port1 empfangen werden
+// Handle messages received on port1
 function onMessage(e) {
   output.innerHTML = e.data;
 }
 ```
 
-Für ein vollständiges Arbeitsbeispiel sehen Sie sich unser [Grundlegendes Demo zur Kanalnachrichtübermittlung](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub an ([führen Sie es auch live aus](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
+Für ein vollständiges funktionierendes Beispiel sehen Sie sich unser [Channel Messaging Basic Demo](https://github.com/mdn/dom-examples/tree/main/channel-messaging-basic) auf GitHub an ([auch live ausführen](https://mdn.github.io/dom-examples/channel-messaging-basic/)).
 
 ## Spezifikationen
 
@@ -65,4 +65,4 @@ Für ein vollständiges Arbeitsbeispiel sehen Sie sich unser [Grundlegendes Demo
 
 ## Siehe auch
 
-- [Verwendung der Kanalnachrichtübermittlung](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwenden von Channel Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

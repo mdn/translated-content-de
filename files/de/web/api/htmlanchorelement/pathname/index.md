@@ -9,8 +9,8 @@ l10n:
 {{ApiRef("HTML DOM")}}
 
 Die **`HTMLAnchorElement.pathname`**-Eigenschaft ist ein
-String, der einen anfänglichen `'/'` enthält, gefolgt vom Pfad der
-URL ohne die Abfragezeichenkette oder das Fragment (oder der leere String, wenn kein
+String, der ein anfängliches `'/'` gefolgt vom Pfad der
+URL enthält, ohne den Abfrage-String oder das Fragment (oder der leere String, wenn kein
 Pfad vorhanden ist).
 
 ## Wert
@@ -20,9 +20,9 @@ Ein String.
 ## Beispiele
 
 ```js
-// Ein <a id="myAnchor" href="/de/docs/HTMLAnchorElement"> Element befindet sich im Dokument
+// An <a id="myAnchor" href="/en-US/docs/HTMLAnchorElement"> element is in the document
 const anchor = document.getElementById("myAnchor");
-anchor.pathname; // gibt '/de/docs/HTMLAnchorElement' zurück
+anchor.pathname; // returns '/en-US/docs/HTMLAnchorElement'
 ```
 
 ## Spezifikationen
@@ -35,4 +35,4 @@ anchor.pathname; // gibt '/de/docs/HTMLAnchorElement' zurück
 
 ## Siehe auch
 
-- Das {{domxref("HTMLAnchorElement")}}-Interface, zu dem es gehört.
+- Das [`HTMLAnchorElement`](/de/docs/Web/API/HTMLAnchorElement) Interface, zu dem es gehört.

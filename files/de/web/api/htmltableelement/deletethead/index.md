@@ -27,7 +27,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-In diesem Beispiel wird JavaScript verwendet, um den Tabellenkopf zu löschen.
+Dieses Beispiel verwendet JavaScript, um den Tabellenkopf zu löschen.
 
 ### HTML
 

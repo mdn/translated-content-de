@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`form`**-Schreibgeschützte Eigenschaft der {{domxref("HTMLOutputElement")}}-Schnittstelle gibt ein {{domxref("HTMLFormElement")}}-Objekt zurück, das dieses {{htmlelement("output")}} besitzt, oder `null`, wenn dieses output zu keinem Formular gehört.
+Die schreibgeschützte **`form`**-Eigenschaft des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("output")}} besitzt, oder `null`, wenn dieses Output-Element zu keinem Formular gehört.
 
 ## Wert
 
-Ein {{domxref("HTMLFormElement")}} oder `null`.
+Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("HTMLOutputElement")}}
-- {{domxref("HTMLFormElement")}}
+- [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)
+- [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("output")}}
 - HTML [`form`](/de/docs/Web/HTML/Element/output#form)-Attribut
 - [HTML-Formulare Leitfaden](/de/docs/Learn/Forms)

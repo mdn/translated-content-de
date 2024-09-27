@@ -1,5 +1,5 @@
 ---
-title: Mengen (set)
+title: Sets (set)
 slug: Web/EXSLT/set
 l10n:
   sourceCommit: 0a3720b9932de57cf876cc59745b1e98e031e521
@@ -7,6 +7,6 @@ l10n:
 
 {{XSLTRef}}{{QuickLinksWithSubpages("/de/docs/Web/EXSLT")}}
 
-Das EXSLT Mengenpaket bietet Funktionen, mit denen Sie Mengenmanipulation durchführen können. Der Namensraum für diese Funktionen ist `http://exslt.org/sets`.
+Das EXSLT Sets-Paket bietet Funktionen, die es Ihnen ermöglichen, Mengenoperationen durchzuführen. Der Namespace für diese Funktionen ist `http://exslt.org/sets`.
 
 {{SubpagesWithSummaries}}

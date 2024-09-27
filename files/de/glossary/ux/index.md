@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**UX** ist ein Akronym für User eXperience. Es ist das Studium der Interaktion zwischen Benutzern und einem System. Ziel ist es, ein System aus der Sicht des Benutzers einfach bedienbar zu machen.
+**UX** ist ein Akronym für User eXperience. Es ist das Studium der Interaktion zwischen Nutzern und einem System. Das Ziel ist, ein System aus der Sicht des Nutzers leicht interagierbar zu gestalten.
 
-Das System kann jedes Produkt oder jede Anwendung sein, mit der ein Endbenutzer interagieren soll. UX-Studien, die beispielsweise auf einer Webseite durchgeführt werden, können zeigen, ob es für Benutzer einfach ist, die Seite zu verstehen, zu verschiedenen Bereichen zu navigieren und häufige Aufgaben zu erledigen, und wo solche Prozesse weniger Reibung verursachen könnten.
+Das System kann jede Art von Produkt oder Anwendung sein, mit dem ein Endbenutzer interagieren soll. UX-Studien, die zum Beispiel auf einer Webseite durchgeführt werden, können aufzeigen, ob es für Benutzer einfach ist, die Seite zu verstehen, zu verschiedenen Bereichen zu navigieren, häufige Aufgaben zu erledigen und wo diese Prozesse weniger Reibung haben könnten.
 
 ## Siehe auch
 

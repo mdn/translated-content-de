@@ -7,13 +7,13 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP {{HTTPHeader("Permissions-Policy")}} Header `xr-spatial-tracking` Direktive steuert, ob das aktuelle Dokument die [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) verwenden darf.
+Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Headerdirektive `xr-spatial-tracking` steuert, ob das aktuelle Dokument die [WebXR Device API](/de/docs/Web/API/WebXR_Device_API) verwenden darf.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert:
+Konkret, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert:
 
-- {{DOMxRef("XRSystem/isSessionSupported","navigator.xr.isSessionSupported()")}} und {{DOMxRef("XRSystem/requestSession","navigator.xr.requestSession()")}} Aufrufe geben ein {{jsxref("Promise")}} zurück, das mit einer {{domxref("DOMException")}} vom Typ `SecurityError` ablehnt.
+- Rückgaben von [`navigator.xr.isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) und [`navigator.xr.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) rufen ein {{jsxref("Promise")}} auf, das mit einer [`DOMException`](/de/docs/Web/API/DOMException) vom Typ `SecurityError` abgelehnt wird.
 
-- {{domxref("XRSystem/devicechange_event", "devicechange")}} Ereignisse werden auf dem {{DOMxRef("Navigator.xr","navigator.xr")}} Objekt nicht ausgelöst.
+- [`devicechange`](/de/docs/Web/API/XRSystem/devicechange_event)-Ereignisse werden nicht auf dem [`navigator.xr`](/de/docs/Web/API/Navigator/xr)-Objekt ausgelöst.
 
 ## Syntax
 
@@ -22,23 +22,23 @@ Permissions-Policy: xr-spatial-tracking=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung des Features gewährt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standard-Listenberechtigung für `xr-spatial-tracking` ist `self`.
+Die Standard-Whitelist für `xr-spatial-tracking` ist `self`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - [WebXR Device API](/de/docs/Web/API/WebXR_Device_API)
-- {{DOMxRef("XRSystem/requestSession","navigator.xr.requestSession()")}}, und {{DOMxRef("XRSystem/isSessionSupported","navigator.xr.isSessionSupported()")}} und {{domxref("XRSystem/devicechange_event", "devicechange")}} Ereignis auf {{DOMxRef("Navigator.xr","navigator.xr")}}
-- {{HTTPHeader("Permissions-Policy")}} Header
+- [`navigator.xr.requestSession()`](/de/docs/Web/API/XRSystem/requestSession), und [`navigator.xr.isSessionSupported()`](/de/docs/Web/API/XRSystem/isSessionSupported) und [`devicechange`](/de/docs/Web/API/XRSystem/devicechange_event)-Ereignis auf [`navigator.xr`](/de/docs/Web/API/Navigator/xr)
+- {{HTTPHeader("Permissions-Policy")}}-Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

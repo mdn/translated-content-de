@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Das **`Intl.DisplayNames`** Objekt ermöglicht die konsistente Übersetzung von Sprache-, Region- und Skriptnamen.
+Das **`Intl.DisplayNames`** Objekt ermöglicht die konsistente Übersetzung von Sprach-, Regions- und Skriptnamen.
 
 {{EmbedInteractiveExample("pages/js/intl-displaynames.html")}}
 
@@ -19,7 +19,7 @@ Das **`Intl.DisplayNames`** Objekt ermöglicht die konsistente Übersetzung von 
 ## Statische Methoden
 
 - {{jsxref("Intl/DisplayNames/supportedLocalesOf", "Intl.DisplayNames.supportedLocalesOf()")}}
-  - : Gibt ein Array zurück, das die der bereitgestellten Lokalisierungen enthält, die unterstützt werden, ohne dass auf die Standard-Lokalisierung der Laufzeitumgebung zurückgegriffen werden muss.
+  - : Gibt ein Array zurück, das jene der angegebenen `locales` enthält, die unterstützt werden, ohne auf die Standard-Locale der Laufzeitumgebung zurückgreifen zu müssen.
 
 ## Instanz-Eigenschaften
 
@@ -33,18 +33,18 @@ Diese Eigenschaften sind auf `Intl.DisplayNames.prototype` definiert und werden 
 ## Instanz-Methoden
 
 - {{jsxref("Intl/DisplayNames/of", "Intl.DisplayNames.prototype.of()")}}
-  - : Diese Methode erhält einen `code` und gibt einen String basierend auf der Lokalisierung und den Optionen zurück, die beim Erstellen von `Intl.DisplayNames` angegeben wurden.
+  - : Diese Methode erhält einen `code` und gibt einen String basierend auf der Locale und den Optionen zurück, die bei der Instanziierung von `Intl.DisplayNames` angegeben wurden.
 - {{jsxref("Intl/DisplayNames/resolvedOptions", "Intl.DisplayNames.prototype.resolvedOptions()")}}
-  - : Gibt ein neues Objekt mit Eigenschaften zurück, die die bei der Initialisierung des Objekts berechneten Lokalisierungs- und Formatierungsoptionen widerspiegeln.
+  - : Gibt ein neues Objekt mit Eigenschaften zurück, die die Locale und die Formatierungsoptionen widerspiegeln, die während der Initialisierung des Objekts berechnet wurden.
 
 ## Beispiele
 
-### Anzeigenamen für Regionscodes
+### Regionscode-Anzeigenamen
 
-Um ein `Intl.DisplayNames` für eine Lokalisierung zu erstellen und den Anzeigenamen für einen Regionscode zu erhalten.
+Um eine `Intl.DisplayNames` für eine Locale zu erstellen und den Anzeigenamen für einen Regionscode zu erhalten.
 
 ```js
-// Erhalten von Anzeigennamen der Region auf Englisch
+// Get display names of region in English
 let regionNames = new Intl.DisplayNames(["en"], { type: "region" });
 regionNames.of("419"); // "Latin America"
 regionNames.of("BZ"); // "Belize"
@@ -52,7 +52,7 @@ regionNames.of("US"); // "United States"
 regionNames.of("BA"); // "Bosnia & Herzegovina"
 regionNames.of("MM"); // "Myanmar (Burma)"
 
-// Erhalten von Anzeigennamen der Region auf Traditionellem Chinesisch
+// Get display names of region in Traditional Chinese
 regionNames = new Intl.DisplayNames(["zh-Hant"], { type: "region" });
 regionNames.of("419"); // "拉丁美洲"
 regionNames.of("BZ"); // "貝里斯"
@@ -61,12 +61,12 @@ regionNames.of("BA"); // "波士尼亞與赫塞哥維納"
 regionNames.of("MM"); // "緬甸"
 ```
 
-### Anzeigenamen für Sprachen
+### Sprach-Anzeigenamen
 
-Um ein `Intl.DisplayNames` für eine Lokalisierung zu erstellen und den Anzeigenamen für eine Sprach-Skript-Region-Sequenz zu erhalten.
+Um eine `Intl.DisplayNames` für eine Locale zu erstellen und den Anzeigenamen für eine Sprach-Skript-Regions-Sequenz zu erhalten.
 
 ```js
-// Erhalten von Anzeigennamen der Sprache auf Englisch
+// Get display names of language in English
 let languageNames = new Intl.DisplayNames(["en"], { type: "language" });
 languageNames.of("fr"); // "French"
 languageNames.of("de"); // "German"
@@ -75,46 +75,46 @@ languageNames.of("zh-Hant"); // "Traditional Chinese"
 languageNames.of("en-US"); // "American English"
 languageNames.of("zh-TW"); // "Chinese (Taiwan)"]
 
-// Erhalten von Anzeigennamen der Sprache auf Traditionellem Chinesisch
+// Get display names of language in Traditional Chinese
 languageNames = new Intl.DisplayNames(["zh-Hant"], { type: "language" });
 languageNames.of("fr"); // "法文"
 languageNames.of("zh"); // "中文"
 languageNames.of("de"); // "德文"
 ```
 
-### Anzeigenamen für Skriptcodes
+### Skriptcode-Anzeigenamen
 
-Um ein `Intl.DisplayNames` für eine Lokalisierung zu erstellen und den Anzeigenamen für einen Skriptcode zu erhalten.
+Um eine `Intl.DisplayNames` für eine Locale zu erstellen und den Anzeigenamen für einen Skriptcode zu erhalten.
 
 ```js
-// Erhalten von Anzeigennamen der Skripts auf Englisch
+// Get display names of script in English
 let scriptNames = new Intl.DisplayNames(["en"], { type: "script" });
-// Erhalten von Skriptnamen
+// Get script names
 scriptNames.of("Latn"); // "Latin"
 scriptNames.of("Arab"); // "Arabic"
 scriptNames.of("Kana"); // "Katakana"
 
-// Erhalten von Anzeigennamen der Skripts auf Traditionellem Chinesisch
+// Get display names of script in Traditional Chinese
 scriptNames = new Intl.DisplayNames(["zh-Hant"], { type: "script" });
 scriptNames.of("Latn"); // "拉丁文"
 scriptNames.of("Arab"); // "阿拉伯文"
 scriptNames.of("Kana"); // "片假名"
 ```
 
-### Anzeigenamen für Währungscodes
+### Währungscode-Anzeigenamen
 
-Um ein `Intl.DisplayNames` für eine Lokalisierung zu erstellen und den Anzeigenamen für einen Währungscode zu erhalten.
+Um eine `Intl.DisplayNames` für eine Locale zu erstellen und den Anzeigenamen für einen Währungscode zu erhalten.
 
 ```js
-// Erhalten von Anzeigennamen der Währungscodes auf Englisch
+// Get display names of currency code in English
 let currencyNames = new Intl.DisplayNames(["en"], { type: "currency" });
-// Erhalten von Währungsnamen
+// Get currency names
 currencyNames.of("USD"); // "US Dollar"
 currencyNames.of("EUR"); // "Euro"
 currencyNames.of("TWD"); // "New Taiwan Dollar"
 currencyNames.of("CNY"); // "Chinese Yuan"
 
-// Erhalten von Anzeigennamen der Währungscodes auf Traditionellem Chinesisch
+// Get display names of currency code in Traditional Chinese
 currencyNames = new Intl.DisplayNames(["zh-Hant"], { type: "currency" });
 currencyNames.of("USD"); // "美元"
 currencyNames.of("EUR"); // "歐元"

@@ -1,6 +1,6 @@
 ---
 title: "TextTrackCueList: Länge Eigenschaft"
-short-title: Länge
+short-title: length
 slug: Web/API/TextTrackCueList/length
 l10n:
   sourceCommit: 592f6ec42e54981b6573b58ec0343c9aa8cbbda8
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("WebVTT")}}
 
-Die **`length`** schreibgeschützte Eigenschaft des {{domxref("TextTrackCueList")}}-Interfaces gibt die Anzahl der Cues in der Liste zurück.
+Die **`length`** schreibgeschützte Eigenschaft des [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList) Schnittstelle gibt die Anzahl der Cues in der Liste zurück.
 
 ## Wert
 
-Ein `unsigned long`, der die Anzahl der Cues in der Liste angibt.
+Ein `unsigned long`, welches die Anzahl der Cues in der Liste ist.
 
 ## Beispiele
 
-Die {{domxref("TextTrack.cues")}}-Eigenschaft gibt eine {{domxref("TextTrackCueList")}} zurück, die die aktuellen Cues für diesen bestimmten Track enthält. Der Aufruf von `cues.length` gibt die Anzahl der Cues in der Liste zurück. Bei Verwendung des unten stehenden WebVTT-Tracks beträgt der Wert von `length` 5.
+Die [`TextTrack.cues`](/de/docs/Web/API/TextTrack/cues) Eigenschaft gibt eine [`TextTrackCueList`](/de/docs/Web/API/TextTrackCueList) zurück, die die aktuellen Cues für diesen bestimmten Track enthält. Der Aufruf von `cues.length` gibt die Anzahl der Cues in der Liste zurück. Beim Verwenden des untenstehenden WebVTT-Tracks beträgt der Wert von `length` 5.
 
 ```plain
 WEBVTT

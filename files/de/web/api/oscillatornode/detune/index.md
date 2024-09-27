@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `detune`-Eigenschaft der {{ domxref("OscillatorNode") }}-Schnittstelle ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) {{domxref("AudioParam")}}, das die Verstimmung der Oszillation in [Cents](https://en.wikipedia.org/wiki/Cent_%28music%29) darstellt.
+Die `detune`-Eigenschaft der [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)-Schnittstelle ist ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Verstimmung der Oszillation in [Cent](https://en.wikipedia.org/wiki/Cent_%28music%29) darstellt.
 
 > [!NOTE]
-> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es repräsentiert, nicht.
+> Obwohl das zurückgegebene `AudioParam` schreibgeschützt ist, ist der Wert, den es darstellt, dies nicht.
 
 ## Wert
 
-Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) {{domxref("AudioParam")}}.
+Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines {{ domxref("AudioContext") }}, um einen Oszillator-Knoten zu erstellen. Für angewandte Beispiele/Informationen sehen Sie sich unser [Violent Theremin-Demo](https://mdn.github.io/webaudio-examples/violent-theremin/) an ([siehe app.js](https://github.com/mdn/webaudio-examples/blob/main/violent-theremin/scripts/app.js) für den relevanten Code).
+Das folgende Beispiel zeigt die Grundverwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen Oszillator-Knoten zu erstellen. Für angewandte Beispiele/Informationen sehen Sie sich unser [Violent Theremin-Demo](https://mdn.github.io/webaudio-examples/violent-theremin/) an ([siehe app.js](https://github.com/mdn/webaudio-examples/blob/main/violent-theremin/scripts/app.js) für den relevanten Code).
 
 ```js
 // create web audio api context

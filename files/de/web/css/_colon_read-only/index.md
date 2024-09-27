@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:read-only`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) selektiert Elemente (wie bestimmte {{htmlelement("input")}}-Typen und {{htmlelement("textarea")}}), die vom Benutzer nicht bearbeitet werden können. Elemente, bei denen das HTML-Attribut [`readonly`](/de/docs/Web/HTML/Attributes/readonly) keine Wirkung hat (wie [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio), [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox) und alle anderen Nicht-Formularelemente), werden ebenfalls von der `:read-only` Pseudoklasse ausgewählt. Tatsächlich entspricht `:read-only` allem, was {{cssxref(":read-write")}} nicht umfasst, wodurch es gleichbedeutend mit `:not(:read-write)` ist.
+Die **`:read-only`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente aus (wie bestimmte {{htmlelement("input")}}-Typen und {{htmlelement("textarea")}}), die vom Benutzer nicht bearbeitet werden können. Elemente, bei denen das HTML-Attribut [`readonly`](/de/docs/Web/HTML/Attributes/readonly) keine Wirkung hat (wie [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio), [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox) und alle anderen Nicht-Formularelemente), werden ebenfalls durch die `:read-only` Pseudoklasse ausgewählt. Tatsächlich passt `:read-only` auf alles, worauf {{cssxref(":read-write")}} nicht passt, und ist somit äquivalent zu `:not(:read-write)`.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-read-only.html", "tabbed-shorter")}}
 
@@ -21,22 +21,22 @@ Die **`:read-only`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pse
 
 ## Beispiele
 
-### Bestätigen von Formularinformationen mithilfe von schreibgeschützten oder beschreibbaren Steuerelementen
+### Bestätigung von Formularinformationen mit schreibgeschützten oder schreibbaren Steuerelementen
 
-Eine Verwendung von schreibgeschützten Formularsteuerungen besteht darin, dem Benutzer zu erlauben, Informationen zu überprüfen und zu bestätigen, die er möglicherweise in einem früheren Formular eingegeben hat (zum Beispiel Versanddetails), während er dennoch in der Lage ist, die Informationen zusammen mit dem Rest des Formulars zu senden. Genau das tun wir im folgenden Beispiel.
+Ein Anwendungsfall für schreibgeschützte Formularsteuerelemente besteht darin, dem Benutzer die Überprüfung und Verifizierung von Informationen zu ermöglichen, die er möglicherweise in einem früheren Formular eingegeben hat (zum Beispiel Versanddetails), während er dennoch in der Lage ist, die Informationen zusammen mit dem Rest des Formulars abzuschicken. Wir tun genau dies im folgenden Beispiel.
 
-Die `:read-only` Pseudoklasse wird verwendet, um alle Stile zu entfernen, die die Eingaben wie anklickbare Felder aussehen lassen, sodass sie mehr wie schreibgeschützte Absätze aussehen. Die `:read-write` Pseudoklasse hingegen wird verwendet, um dem editierbaren `<textarea>` ein schöneres Styling zu geben.
+Die `:read-only` Pseudoklasse wird verwendet, um das gesamte Styling zu entfernen, das die Eingabefelder wie anklickbare Felder aussehen lässt, sodass sie eher wie schreibgeschützte Absätze wirken. Im Gegensatz dazu wird die `:read-write` Pseudoklasse verwendet, um dem editierbaren `<textarea>` ein ansprechenderes Styling zu verleihen.
 
 ```html hidden
 <form>
   <fieldset>
-    <legend>Versanddetails überprüfen</legend>
+    <legend>Check shipping details</legend>
     <div>
       <label for="name">Name: </label>
-      <input id="name" name="name" type="text" value="Herr Soft" readonly />
+      <input id="name" name="name" type="text" value="Mr Soft" readonly />
     </div>
     <div>
-      <label for="address">Adresse: </label>
+      <label for="address">Address: </label>
       <textarea id="address" name="address" readonly>
 23 Elastic Way,
 Viscous,
@@ -46,24 +46,24 @@ CA
       >
     </div>
     <div>
-      <label for="pcode">PLZ/Postleitzahl: </label>
+      <label for="pcode">Zip/postal code: </label>
       <input id="pcode" name="pcode" type="text" value="94708" readonly />
     </div>
   </fieldset>
 
   <fieldset>
-    <legend>Letzte Anweisungen</legend>
+    <legend>Final instructions</legend>
     <div>
-      <label for="sms-confirm">Bestätigung per SMS senden?</label>
+      <label for="sms-confirm">Send confirmation by SMS?</label>
       <input id="sms-confirm" name="sms-confirm" type="checkbox" />
     </div>
     <div>
-      <label for="instructions">Besondere Anweisungen?</label>
+      <label for="instructions">Any special instructions?</label>
       <textarea id="instructions" name="instructions"></textarea>
     </div>
   </fieldset>
 
-  <div><button type="submit">Details bearbeiten und senden</button></div>
+  <div><button type="submit">Amend details and submit</button></div>
 </form>
 ```
 
@@ -147,16 +147,16 @@ textarea:read-write {
 }
 ```
 
-{{EmbedLiveSample("Confirming form information using read-only or read-write controls", "100%", 620)}}
+{{EmbedLiveSample("Bestätigung von Formularinformationen mit schreibgeschützten oder schreibbaren Steuerelementen", "100%", 620)}}
 
-### Styling schreibgeschützter Nicht-Formularsteuerelemente
+### Styling von schreibgeschützten Nicht-Formularsteuerelementen
 
 Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}}-Elemente aus — er wählt _jedes_ Element aus, das vom Benutzer nicht bearbeitet werden kann.
 
 ```html
-<p contenteditable>Dieser Absatz ist editierbar; er ist schreibbar.</p>
+<p contenteditable>This paragraph is editable; it is read-write.</p>
 
-<p>Dieser Absatz ist nicht editierbar; er ist schreibgeschützt.</p>
+<p>This paragraph is not editable; it is read-only.</p>
 ```
 
 ```css
@@ -176,7 +176,7 @@ p:read-write {
 }
 ```
 
-{{EmbedLiveSample('Styling_read-only_non-form_controls', '100%', 200)}}
+{{EmbedLiveSample('Styling_von_schreibgeschützten_Nicht-Formularsteuerelementen', '100%', 200)}}
 
 ## Spezifikationen
 
@@ -189,4 +189,4 @@ p:read-write {
 ## Siehe auch
 
 - {{cssxref(":read-write")}}
-- HTML [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable) Attribut
+- HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable)

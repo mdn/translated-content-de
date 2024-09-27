@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die **`focus()`**-Methode der {{domxref("WindowClient")}}-Schnittstelle gibt dem aktuellen Client den Benutzerfokus und gibt ein {{jsxref("Promise")}} zurück, das auf das bestehende {{domxref("WindowClient")}} aufgelöst wird.
+Die **`focus()`**-Methode der [`WindowClient`](/de/docs/Web/API/WindowClient)-Schnittstelle gibt dem aktuellen Client den Benutzereingabefokus und gibt ein {{jsxref("Promise")}} zurück, das auf den bestehenden [`WindowClient`](/de/docs/Web/API/WindowClient) aufgelöst wird.
 
 ## Syntax
 
@@ -22,26 +22,26 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf das bestehende {{domxref("WindowClient")}} aufgelöst wird.
+Ein {{jsxref("Promise")}}, das auf den bestehenden [`WindowClient`](/de/docs/Web/API/WindowClient) aufgelöst wird.
 
 ### Ausnahmen
 
-- `InvalidAccessError` {{domxref("DOMException")}}
-  - : Das Promise wird mit dieser Ausnahme abgelehnt, wenn keines der Fenster im Ursprungsbereich der App [flüchtige Aktivierung](/de/docs/Web/Security/User_activation) hat.
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Das Promise wird mit dieser Ausnahme abgelehnt, wenn keines der Fenster im Ursprung der App eine [transiente Aktivierung](/de/docs/Web/Security/User_activation) hat.
 
 ## Sicherheitsanforderungen
 
-- Mindestens ein Fenster im Ursprungsbereich der App muss [flüchtige Aktivierung](/de/docs/Web/Security/User_activation) haben.
+- Mindestens ein Fenster im Ursprung der App muss eine [transiente Aktivierung](/de/docs/Web/Security/User_activation) haben.
 
 ## Beispiele
 
 ```js
 self.addEventListener("notificationclick", (event) => {
-  console.log("Bei Klick auf Benachrichtigung: ", event.notification.tag);
+  console.log("On notification click: ", event.notification.tag);
   event.notification.close();
 
-  // Dies prüft, ob das aktuelle Fenster bereits geöffnet ist und
-  // fokussiert es, wenn dies der Fall ist.
+  // This looks to see if the current is already open and
+  // focuses if it is
   event.waitUntil(
     clients
       .matchAll({

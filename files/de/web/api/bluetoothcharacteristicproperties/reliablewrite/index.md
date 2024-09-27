@@ -1,5 +1,5 @@
 ---
-title: "BluetoothCharacteristicProperties: Eigenschaft reliableWrite"
+title: "BluetoothCharacteristicProperties: reliableWrite-Eigenschaft"
 short-title: reliableWrite
 slug: Web/API/BluetoothCharacteristicProperties/reliableWrite
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Bluetooth API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`reliableWrite`** der Schnittstelle {{domxref("BluetoothCharacteristicProperties")}} gibt einen `boolean` zurück, der `true` ist, wenn zuverlässiges Schreiben in die Eigenschaft erlaubt ist.
+Die schreibgeschützte **`reliableWrite`**-Eigenschaft der [`BluetoothCharacteristicProperties`](/de/docs/Web/API/BluetoothCharacteristicProperties)-Schnittstelle gibt einen `boolean` zurück, der `true` ist, wenn zuverlässige Schreiboperationen an das Merkmal erlaubt sind.
 
 ## Wert
 
-Ein boolescher Wert.
+Ein boolean-Wert.
 
 ## Spezifikationen
 

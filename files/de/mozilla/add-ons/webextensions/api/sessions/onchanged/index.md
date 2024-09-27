@@ -1,5 +1,5 @@
 ---
-title: Sitzungen.onChanged
+title: sessions.onChanged
 slug: Mozilla/Add-ons/WebExtensions/API/sessions/onChanged
 l10n:
   sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ausgelöst, wenn sich die Liste der geschlossenen Tabs oder Fenster ändert.
+Wird ausgelöst, wenn sich die Liste der geschlossenen Tabs oder Fenster ändert.
 
 ## Syntax
 
@@ -20,13 +20,13 @@ browser.sessions.onChanged.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
+  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, `false` sonst.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, sonst `false`.
 
-## addListener-Syntax
+## Syntax von addListener
 
 ### Parameter
 
@@ -39,7 +39,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Diese sehr nervige Erweiterung lauscht auf `onChanged` und stellt dann sofort die zuletzt geschlossene Sitzung wieder her, was es unmöglich macht, Fenster oder Tabs zu schließen:
+Diese sehr lästige Erweiterung lauscht auf `onChanged` und stellt dann sofort die zuletzt geschlossene Sitzung wieder her, wodurch es unmöglich wird, Fenster oder Tabs zu schließen:
 
 ```js
 function restoreSession(sessionInfos) {

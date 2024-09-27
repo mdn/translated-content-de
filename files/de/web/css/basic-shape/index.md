@@ -13,57 +13,57 @@ Der **`<basic-shape>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_
 
 ## Syntax
 
-Der `<basic-shape>` Datentyp wird verwendet, um grundlegende Formen zu erstellen, einschließlich Rechtecke durch [Behälterinnenversatz](#syntax_für_rechtecke_durch_behälterinnenversatz), durch [Koordinatendistanz](#syntax_für_rechtecke_durch_distanz) oder durch [festgelegte Dimensionen](#syntax_für_rechtecke_mit_dimensionen), [Kreise](#syntax_für_kreise), [Ellipsen](#syntax_für_ellipsen), [Polygone](#syntax_für_polygone), [Pfade](#syntax_für_pfade) und [vom Autor erstellte Formen](#syntax_für_formen). Diese grundlegenden Formen werden unter Verwendung einer `<basic_shape>` CSS-Funktion definiert, wobei jeder Wert einen Parameter erfordert, der der funktionsspezifischen Syntax der Form folgt.
+Der `<basic-shape>`-Datentyp wird verwendet, um Grundformen einschließlich Rechtecke mit [Einsatz im Container](#syntax_für_rechtecke_durch_containereinsatz), durch [Abstand der Koordinaten](#syntax_für_rechtecke_durch_abstand) oder durch [festgelegte Abmessungen](#syntax_für_rechtecke_mit_abmessungen), [Kreise](#syntax_für_kreise), [Ellipsen](#syntax_für_ellipsen), [Polygone](#syntax_für_polygone), [Pfade](#syntax_für_pfade) und [vom Autor erstellte Formen](#syntax_für_formen) zu erstellen. Diese Grundformen werden unter Verwendung einer `<basic_shape>`-CSS-Funktion definiert, wobei jeder Wert einen Parameter erfordert, der der funktionsspezifischen Syntax der Form folgt.
 
-### Allgemeine Parameter
+### Gemeinsame Parameter
 
-Die Parameter, die in der Syntax einiger grundlegender Formfunktionen gemeinsam sind, umfassen:
+Die gemeinsamen Parameter in der Syntax einiger Grundform-Funktionen umfassen:
 
 - `round <'border-radius'>`
 
-  - : Definiert abgerundete Ecken für [Rechtecke durch Behälterinnenversatz](#syntax_für_rechtecke_durch_behälterinnenversatz), [Rechtecke durch Distanz](#syntax_für_rechtecke_durch_distanz) und [Rechtecke mit Dimensionen](#syntax_für_rechtecke_mit_dimensionen) unter Verwendung derselben Syntax wie die CSS [`border-radius`](/de/docs/Web/CSS/border-radius) Kurzschreibweise.
+  - : Definiert abgerundete Ecken für [Rechtecke durch Containereinsatz](#syntax_für_rechtecke_durch_containereinsatz), [Rechtecke durch Abstand](#syntax_für_rechtecke_durch_abstand) und [Rechtecke mit Abmessungen](#syntax_für_rechtecke_mit_abmessungen) mit der gleichen Syntax wie für die CSS-Kurzschreibweise [`border-radius`](/de/docs/Web/CSS/border-radius).
 
 - `<shape-radius>`
 
-  - : Definiert den Radius für einen [Kreis](#syntax_für_kreise) oder eine [Ellipse](#syntax_für_ellipsen). Gültige Werte umfassen {{cssxref("length")}}, {{cssxref("percentage")}}, `closest-side` (standardmäßig) und `farthest-side`. Negative Werte sind ungültig.
+  - : Definiert den Radius für einen [Kreis](#syntax_für_kreise) oder eine [Ellipse](#syntax_für_ellipsen). Gültige Werte umfassen {{cssxref("length")}}, {{cssxref("percentage")}}, `closest-side` (Standard) und `farthest-side`. Negative Werte sind ungültig.
 
-    Der `closest-side` Schlüsselwortwert verwendet die Länge vom Zentrum der Form zur nächstgelegenen Seite des Referenzkastens, um die Radiuslänge zu erstellen. Der `farthest-side` Schlüsselwortwert verwendet die Länge vom Zentrum der Form zur entferntesten Seite des Referenzkastens.
+    Der Schlüsselwortwert `closest-side` verwendet die Länge vom Mittelpunkt der Form zur nächsten Seite des Referenzkastens, um die Radienlänge zu erstellen. Der Schlüsselwortwert `farthest-side` verwendet die Länge vom Mittelpunkt der Form zur entferntesten Seite des Referenzkastens.
 
 - `<position>`
 
-  - : Definiert die Zentrum-[`<position>`](/de/docs/Web/CSS/position_value) eines [Kreises](#syntax_für_kreise) oder einer [Ellipse](#syntax_für_ellipsen). Sie ist standardmäßig `center`, wenn sie weggelassen wird.
+  - : Definiert die Mitte [`<position>`](/de/docs/Web/CSS/position_value) eines [Kreises](#syntax_für_kreise) oder einer [Ellipse](#syntax_für_ellipsen). Wenn er weggelassen wird, ist der Standardwert `center`.
 
 - `<fill-rule>`
 
-  - : Setzt die {{SVGAttr("fill-rule")}}, die verwendet wird, um zu bestimmen, wie das Innere der durch die grundlegenden Formen definierte Form ausgefüllt werden soll: [Polygon](#syntax_für_polygone), [Pfad](#syntax_für_pfade) und [Form](#syntax_für_formen). Mögliche Werte sind `nonzero` (standardmäßig) und `evenodd`.
+  - : Legt das {{SVGAttr("fill-rule")}} fest, das verwendet wird, um zu bestimmen, wie das Innere der durch die Grundformen [Polygon](#syntax_für_polygone), [Pfad](#syntax_für_pfade) und [Form](#syntax_für_formen) definierten Form gefüllt wird. Mögliche Werte sind `nonzero` (Standard) und `evenodd`.
 
-    > **Note:** `<fill-rule>` wird nicht in {{cssxref("offset-path")}} unterstützt und seine Verwendung macht die Eigenschaft ungültig.
+    > **Note:** `<fill-rule>` wird in {{cssxref("offset-path")}} nicht unterstützt und macht die Eigenschaft ungültig, wenn es verwendet wird.
 
-### Syntax für Rechtecke durch Behälterinnenversatz
+### Syntax für Rechtecke durch Containereinsatz
 
-Die {{cssxref("basic-shape/inset","inset()")}} Funktion erstellt ein eingebettetes Rechteck, dessen Größe durch den Versatzabstand jeder der vier Seiten seines Containers und optional abgerundete Ecken definiert wird.
+Die Funktion {{cssxref("basic-shape/inset","inset()")}} erstellt ein Einsatzrechteck, dessen Größe durch den Versatzabstand jeder der vier Seiten seines Containers und optional abgerundete Ecken definiert wird.
 
 ```plain
 inset( <length-percentage>{1,4} [ round <`border-radius`> ]? )
 ```
 
-Wenn alle der ersten vier Argumente angegeben sind, repräsentieren sie die oberen, rechten, unteren und linken Versätze vom Referenzkasten nach innen, die die Position der Kanten des eingebetteten Rechtecks definieren. Diese Argumente folgen der Syntax der {{cssxref("margin")}} Kurzschreibweise, die es erlaubt, alle vier Einfügungen mit einem, zwei, drei oder vier Werten festzulegen.
+Wenn alle der ersten vier Argumente geliefert werden, stellen sie die oberen, rechten, unteren und linken Versätze vom Referenzkasten nach innen dar, die die Position der Kanten des Einsatzrechtecks definieren. Diese Argumente folgen der Syntax der Kurzschreibweise {{cssxref("margin")}}, mit der Sie alle vier Einsätze mit einem, zwei, drei oder vier Werten festlegen können.
 
-Wenn ein Paar von Einfügungen für eine Dimension mehr als 100 % dieser Dimension ausmacht, werden beide Werte proportional reduziert, so dass ihre Summe 100 % ergibt. Zum Beispiel hat der Wert `inset(90% 10% 60% 10%)` eine obere Einfügung von `90%` und eine untere Einfügung von `60%`. Diese Werte werden proportional zu `inset(60% 10% 40% 10%)` reduziert. Formen wie diese, die keinen Bereich einschließen und keine {{cssxref("shape-margin")}} haben, beeinflussen das Umfließen nicht.
+Wenn ein Paar von Einsätzen für eine Dimension mehr als 100 % dieser Dimension addieren, werden beide Werte proportional verkleinert, sodass ihre Summe 100 % beträgt. Beispielsweise hat der Wert `inset(90% 10% 60% 10%)` einen obersten Einsatz von `90%` und einen untersten Einsatz von `60%`. Diese Werte werden proportional auf `inset(60% 10% 40% 10%)` reduziert. Solche Formen, die keine Fläche einschließen und keine {{cssxref("shape-margin")}} haben, beeinflussen das Umfließen nicht.
 
-### Syntax für Rechtecke durch Distanz
+### Syntax für Rechtecke durch Abstand
 
-Die {{cssxref("basic-shape/rect","rect()")}} Funktion definiert ein Rechteck unter Verwendung der angegebenen Distanzen von den oberen und linken Kanten des Referenzkastens, mit optional abgerundeten Ecken.
+Die Funktion {{cssxref("basic-shape/rect","rect()")}} definiert ein Rechteck unter Verwendung der angegebenen Abstände von den oberen und linken Rändern des Referenzkastens, mit optional abgerundeten Ecken.
 
 ```plain
 rect( [ <length-percentage> | auto ]{4} [ round <`border-radius`> ]? )
 ```
 
-Bei der Verwendung der `rect()` Funktion definieren Sie nicht die Breite und Höhe des Rechtecks. Stattdessen geben Sie vier Werte an, um das Rechteck zu erstellen, wobei seine Dimensionen durch die Größe des Referenzkastens und die vier Versatzwerte bestimmt werden. Jeder Wert kann entweder eine {{cssxref("length")}}, ein {{cssxref("percentage")}} oder das Schlüsselwort `auto` sein. Das `auto`-Schlüsselwort wird für die oberen und linken Werte als `0%` und für die unteren und rechten Werte als `100%` interpretiert.
+Wenn Sie die Funktion `rect()` verwenden, definieren Sie nicht die Breite und Höhe des Rechtecks. Stattdessen geben Sie vier Werte an, um das Rechteck zu erstellen, wobei seine Abmessungen durch die Größe des Referenzkastens und die vier Versatzwerte bestimmt werden. Jeder Wert kann entweder eine {{cssxref("length")}}, ein {{cssxref("percentage")}} oder das Schlüsselwort `auto` sein. Das Schlüsselwort `auto` wird als `0%` für die oberen und linken Werte und als `100%` für die unteren und rechten Werte interpretiert.
 
-### Syntax für Rechtecke mit Dimensionen
+### Syntax für Rechtecke mit Abmessungen
 
-Die {{cssxref("basic-shape/xywh","xywh()")}} Funktion definiert ein Rechteck, das an den angegebenen Distanzen von den linken (`x`) und oberen (`y`) Kanten des Referenzkastens liegt und durch die angegebene Breite (`w`) und Höhe (`h`) des Rechtecks in dieser Reihenfolge dimensioniert ist, mit optional abgerundeten Ecken.
+Die Funktion {{cssxref("basic-shape/xywh","xywh()")}} definiert ein Rechteck, das sich bei den angegebenen Abständen von den linken (`x`) und oberen (`y`) Kanten des Referenzkastens befindet und in dieser Reihenfolge durch die angegebene Breite (`w`) und Höhe (`h`) des Rechtecks dimensioniert ist, mit optional abgerundeten Ecken.
 
 ```plain
 xywh( <length-percentage>{2} <length-percentage [0,∞]>{2} [ round <`border-radius`> ]? )
@@ -71,93 +71,92 @@ xywh( <length-percentage>{2} <length-percentage [0,∞]>{2} [ round <`border-rad
 
 ### Syntax für Kreise
 
-Die {{cssxref("basic-shape/circle","circle()")}} Funktion definiert einen Kreis unter Verwendung eines Radius und einer Position.
+Die Funktion {{cssxref("basic-shape/circle","circle()")}} definiert einen Kreis unter Verwendung eines Radius und einer Position.
 
 ```plain
 circle( <shape-radius>? [ at <position> ]? )
 ```
 
-Das `<shape-radius>` Argument repräsentiert den Radius des Kreises, der entweder als {{cssxref("length")}} oder als {{cssxref("percentage")}} definiert ist. Ein Prozentwert wird hier aus der verwendeten Breite und Höhe des Referenzkastens als `sqrt(width^2+height^2)/sqrt(2)` aufgelöst. Wenn er weggelassen wird, wird der Radius durch `closest-side` definiert.
+Das `<shape-radius>`-Argument stellt den Radius des Kreises dar, der entweder als {{cssxref("length")}} oder als {{cssxref("percentage")}} definiert wird. Ein Prozentwert wird hier aktiviert, indem die Breite und Höhe des Referenzkastens als `sqrt(width^2+height^2)/sqrt(2)` verwendet werden. Wenn weggelassen, wird der Radius durch `closest-side` definiert.
 
 ### Syntax für Ellipsen
 
-Die {{cssxref("basic-shape/ellipse","ellipse()")}} Funktion definiert eine Ellipse unter Verwendung zweier Radien und einer Position.
+Die Funktion {{cssxref("basic-shape/ellipse","ellipse()")}} definiert eine Ellipse unter Verwendung von zwei Radien und einer Position.
 
 ```plain
 ellipse( [ <shape-radius>{2} ]? [ at <position> ]? )
 ```
 
-Die `<shape-radius>` Argumente stellen _rx_ und _ry_, die x-Achsen- und y-Achsen-Radien der Ellipse, in dieser Reihenfolge dar. Diese Werte werden entweder als {{cssxref("length")}} oder als {{cssxref("percentage")}} angegeben. Prozentwerte hier werden gegen die verwendete Breite (für den rx-Wert) und die verwendete Höhe (für den ry-Wert) des Referenzkastens aufgelöst. Wenn nur ein Radiuswert angegeben wird, ist die `ellipse()` Formfunktion ungültig. Wenn kein Wert angegeben wird, wird `50% 50%` verwendet.
+Die `<shape-radius>`-Argumente repräsentieren _rx_ und _ry_, die x-Achsen- und y-Achsenradien der Ellipse, in dieser Reihenfolge. Diese Werte werden entweder als {{cssxref("length")}} oder als {{cssxref("percentage")}} angegeben. Prozentwerte werden hier relativ zur verwendeten Breite (für den rx-Wert) und der verwendeten Höhe (für den ry-Wert) des Referenzkastens aufgelöst. Wenn nur ein Radiuswert angegeben wird, ist die `ellipse()`-Formfunktion ungültig. Wenn kein Wert angegeben wird, wird `50% 50%` verwendet.
 
 ### Syntax für Polygone
 
-Die {{cssxref("basic-shape/polygon","polygon()")}} Funktion definiert ein Polygon unter Verwendung einer SVG {{SVGAttr("fill-rule")}} und einer Menge von Koordinaten.
+Die Funktion {{cssxref("basic-shape/polygon","polygon()")}} definiert ein Polygon unter Verwendung eines SVG {{SVGAttr("fill-rule")}} und einer Menge von Koordinaten.
 
 ```plain
 polygon( <`fill-rule`>?, [ <length-percentage> <length-percentage> ]# )
 ```
 
-Die Funktion nimmt eine Liste von durch Kommas getrennten Koordinatenpaaren auf, die jeweils aus zwei durch Leerzeichen getrennten `<length-percentage>` Werten als _xi_ und _yi_ Paar bestehen. Diese Werte repräsentieren die x- und y-Achsen-Koordinaten des Polygons an Position _i_ (der Scheitelpunkt, an dem sich zwei Linien treffen).
+Die Funktion nimmt eine Liste von kommagetrennten Koordinatenpaaren an, von denen jedes aus zwei leerzeichengetrennten `<length-percentage>`-Werten als das _xi_ und _yi_ Paar besteht. Diese Werte repräsentieren die x- und y-Achsen-Koordinaten des Polygons an Position _i_ (der Scheitelpunkt, an dem zwei Linien aufeinander treffen).
 
 ### Syntax für Pfade
 
-Die {{cssxref("basic-shape/path","path()")}} Funktion definiert eine Form unter Verwendung einer SVG {{SVGAttr("fill-rule")}} und einer SVG [Pfaddefinition](/de/docs/Web/SVG/Attribute/d).
+Die Funktion {{cssxref("basic-shape/path","path()")}} definiert eine Form unter Verwendung eines SVG {{SVGAttr("fill-rule")}} und einer SVG [Pfaddefinition](/de/docs/Web/SVG/Attribute/d).
 
 ```plain
 path( <`fill-rule`>?, ]? <string> )
 ```
 
-Der erforderliche `<string>` ist ein [SVG-Pfad](/de/docs/Web/SVG/Attribute/d) als zitierte Zeichenfolge. Die `path()` Funktion ist kein gültiger Wert für die {{cssxref("shape-outside")}} Eigenschaft.
+Das erforderliche `<string>` ist ein [SVG-Pfad](/de/docs/Web/SVG/Attribute/d) als Anführungszeichen verschlossene Zeichenkette. Die Funktion `path()` ist kein gültiger Wert für die Eigenschaft {{cssxref("shape-outside")}}.
 
 ### Syntax für Formen
 
-Die {{cssxref("basic-shape/shape","shape()")}} Funktion definiert eine Form unter Verwendung eines anfänglichen Startpunkts und einer Reihe von Formbefehlen.
+Die Funktion {{cssxref("basic-shape/shape","shape()")}} definiert eine Form unter Verwendung eines Anfangspunktes und einer Serie von Formbefehlen.
 
 ```plain
 shape( <fill-rule>? from <coordinate-pair>, <shape-command># )
 ```
 
-Der `from <coordinate-pair>` Parameter repräsentiert den Startpunkt für den ersten Formbefehl, und `<shape-command>` definiert einen oder mehrere Formbefehle, die den [SVG-Pfadbefehlen](/de/docs/Web/SVG/Attribute/d#path_commands) ähneln. Die `shape()` Funktion ist kein gültiger Wert für die {{cssxref("shape-outside")}} Eigenschaft.
+Der Parameter `from <coordinate-pair>` repräsentiert den Ausgangspunkt für den ersten Formbefehl, und `<shape-command>` definiert einen oder mehrere Formbefehle, die den [SVG-Pfadbefehlen](/de/docs/Web/SVG/Attribute/d#path_commands) ähneln. Die Funktion `shape()` ist kein gültiger Wert für die Eigenschaft {{cssxref("shape-outside")}}.
 
 ## Beschreibung
 
-Beim Erstellen einer Form wird der Referenzkasten durch die Eigenschaft definiert, die `<basic-shape>` Werte verwendet. Das Koordinatensystem für die Form hat seinen Ursprung standardmäßig in der oberen linken Ecke des Margin-Kastens des Elements, wobei die x-Achse nach rechts und die y-Achse nach unten verläuft. Alle in Prozent ausgedrückten Längen werden aus den Dimensionen des Referenzkastens aufgelöst.
+Beim Erstellen einer Form wird der Referenzkasten durch die Eigenschaft definiert, die `<basic-shape>`-Werte verwendet. Das Koordinatensystem für die Form hat seinen Ursprung standardmäßig in der oberen linken Ecke des Randkastens des Elements, wobei die x-Achse nach rechts und die y-Achse nach unten verläuft. Alle in Prozent ausgedrückten Längen werden aus den Abmessungen des Referenzkastens aufgelöst.
 
-Der Standardreferenzkasten ist der [`margin-box`](/de/docs/Web/CSS/box-edge#margin-box), wie im untenstehenden Bild gezeigt. Das Bild zeigt einen Kreis, der unter Verwendung von `shape-outside: circle(50%)` erstellt wurde und die verschiedenen Teile des Box-Modells zeigt, wie sie in den Entwicklertools eines Browsers zu sehen sind. Die Form hier ist in Bezug auf den margin-box definiert.
+Der Standardreferenzkasten ist das [`margin-box`](/de/docs/Web/CSS/box-edge#margin-box), wie im folgenden Bild gezeigt. Das Bild zeigt einen Kreis, der mit `shape-outside: circle(50%)` erstellt wurde, und hebt die verschiedenen Teile des Box-Modells hervor, wie sie in den Entwicklertools eines Browsers zu sehen sind. Die Form wird hier mit Bezug auf die margin-box definiert.
 
-![Ein Bild, das einen Kreis zeigt, der mit dem Firefox DevTools Shape Inspector inspiziert wird. Die verschiedenen Teile des Box-Modells sind hervorgehoben.](shapes-reference-box.png)
+![Ein Bild, das einen Kreis zeigt, der mit dem Formeninspektor von Firefox DevTools inspiziert wurde. Die verschiedenen Teile des Box-Modells sind hervorgehoben.](shapes-reference-box.png)
 
 ### Berechnete Werte von Grundformen
 
-Die Werte in einer `<basic-shape>` Funktion werden wie angegeben berechnet, mit den folgenden zusätzlichen Überlegungen:
+Die Werte in einer `<basic-shape>`-Funktion werden wie angegeben berechnet, mit den folgenden zusätzlichen Überlegungen:
 
-- Für alle weggelassenen Werte werden ihre Standardeinstellungen verwendet.
-- Ein {{cssxref("position_value", "&lt;position&gt;")}} Wert in `circle()` oder `ellipse()` wird als Paar Versätze von der oberen linken Ecke des Referenzkastens berechnet: der erste Versatz ist horizontal, der zweite vertikal. Jeder Versatz wird als {{cssxref("length-percentage")}} Wert angegeben.
-- Ein [`<border-radius>`](/de/docs/Web/CSS/border-radius) Wert in `inset()` wird in eine Liste von acht Werten, die jeweils entweder eine {{cssxref("length")}} oder ein {{cssxref("percentage")}} sind, erweitert.
-- {{cssxref("basic-shape/inset","inset()")}}, {{cssxref("basic-shape/rect","rect()")}}, und {{cssxref("basic-shape/xywh","xywh()")}} Funktionen berechnen sich zu der äquivalenten `inset()` Funktion.
+- Für alle ausgelassenen Werte werden die Standardeinstellungen verwendet.
+- Ein {{cssxref("position_value", "&lt;position&gt;")}}-Wert in `circle()` oder `ellipse()` wird als Paar von Versätzen von der oberen linken Ecke des Referenzkastens berechnet: der erste Versatz ist horizontal, der zweite ist vertikal. Jeder Versatz wird als {{cssxref("length-percentage")}}-Wert angegeben.
+- Ein [`<border-radius>`](/de/docs/Web/CSS/border-radius)-Wert in `inset()` wird in eine Liste von acht Werten erweitert, die jeweils entweder eine {{cssxref("length")}} oder ein {{cssxref("percentage")}} sind.
+- Die Funktionen {{cssxref("basic-shape/inset","inset()")}}, {{cssxref("basic-shape/rect","rect()")}} und {{cssxref("basic-shape/xywh","xywh()")}} werden in die äquivalente `inset()`-Funktion berechnet.
 
 ### Interpolation von Grundformen
 
-Beim Animieren zwischen zwei `<basic-shape>` Funktionen werden die {{Glossary("Interpolation")}} Regeln unten befolgt. Die Parameterwerte jeder `<basic-shape>` Funktion bilden eine Liste. Damit eine Interpolation zwischen zwei Formen erfolgen kann, müssen beide Formen den gleichen Referenzkasten verwenden und die Anzahl und Art der Werte in beiden `<basic-shape>` Listen müssen übereinstimmen.
+Beim Animieren zwischen zwei `<basic-shape>`-Funktionen werden die unten aufgeführten [Interpolationsregeln](/de/docs/Glossary/interpolation) befolgt. Die Parameterwerte jeder `<basic-shape>`-Funktion bilden eine Liste. Für die Interpolation zwischen zwei Formen müssen beide Formen denselben Referenzkasten verwenden und die Anzahl und der Typ der Werte in beiden `<basic-shape>`-Listen müssen übereinstimmen.
 
-Jeder Wert in den Listen der beiden `<basic-shape>` Funktionen wird basierend auf seinem berechneten Wert als {{cssxref("number")}}, {{cssxref("length")}}, {{cssxref("percentage")}}, {{cssxref("angle")}}, oder {{cssxref("calc", "calc()")}} interpoliert, wo möglich. Eine Interpolation kann dennoch erfolgen, wenn die Werte nicht einer dieser Datentypen sind, jedoch zwischen den beiden interpolierenden Grundformfunktionen identisch sind, wie z. B. `nonzero`.
+Jeder Wert in den Listen der zwei `<basic-shape>`-Funktionen wird basierend auf seinem berechneten Wert als ein {{cssxref("number")}}, {{cssxref("length")}}, {{cssxref("percentage")}}, {{cssxref("angle")}} oder {{cssxref("calc", "calc()")}} interpoliert, wo möglich. Eine Interpolation kann dennoch erfolgen, wenn die Werte keine dieser Datentypen sind, aber zwischen den beiden interpolierenden Grundformfunktionen identisch sind, wie z.B. `nonzero`.
 
-- **Beide Formen sind vom Typ `ellipse()` oder Typ `circle()`**: Die Interpolation wird zwischen jedem entsprechenden Wert angewendet, wenn ihre Radien entweder als {{cssxref("length")}} oder als {{cssxref("percentage")}} angegeben sind (anstelle von Schlüsselwörtern wie `closest-side` oder `farthest-side`).
+- **Beide Formen sind vom Typ `ellipse()` oder `circle()`**: Interpolation wird zwischen jedem entsprechenden Wert angewendet, wenn ihre Radien entweder als {{cssxref("length")}} oder als {{cssxref("percentage")}} angegeben sind (anstatt Schlüsselwörter wie `closest-side` oder `farthest-side`).
 
-- **Beide Formen sind vom Typ `inset()`**: Die Interpolation wird zwischen jedem entsprechenden Wert angewendet.
+- **Beide Formen sind vom Typ `inset()`**: Interpolation wird zwischen jedem entsprechenden Wert angewendet.
 
-- **Beide Formen sind vom Typ `polygon()`**: Die Interpolation wird zwischen jedem entsprechenden Wert angewendet, wenn sie dieselbe `<fill-rule>` verwenden und die gleiche Anzahl von durch Kommas getrennten Koordinatenpaaren haben.
+- **Beide Formen sind vom Typ `polygon()`**: Interpolation wird zwischen jedem entsprechenden Wert angewendet, wenn sie denselben `<fill-rule>` verwenden und die gleiche Anzahl von kommagetrennten Koordinatenpaaren haben.
 
-- **Beide Formen sind vom Typ `path()`**: Die Interpolation wird auf jeden Parameter als {{cssxref("&lt;number&gt;")}} angewendet, wenn die Pfadzeichenfolgen in beiden Formen die gleiche Anzahl, Typ und Sequenz von [Pfaddatenbefehlen](/de/docs/Web/SVG/Attribute/d#path_commands) haben.
+- **Beide Formen sind vom Typ `path()`**: Interpolation wird auf jeden Parameter als ein {{cssxref("&lt;number&gt;")}} angewendet, wenn die Pfadzeichenfolgen in beiden Formen die gleiche Anzahl, den gleichen Typ und die gleiche Reihenfolge von [Pfaddatenbefehlen](/de/docs/Web/SVG/Attribute/d#path_commands) haben.
 
-- **Beide Formen sind vom Typ `shape()`**: Die Interpolation wird zwischen jedem entsprechenden Wert angewendet, wenn sie dieselben Befehlschlüsselwörter und dasselbe `<by-to>` Schlüsselwort verwenden. Wenn `shape()` in der {{cssxref("clip-path")}} Eigenschaft verwendet wird, inter
-polieren die beiden Formen, wenn sie ebenfalls derselben `<fill-rule>` folgen.
+- **Beide Formen sind vom Typ `shape()`**: Interpolation wird zwischen jedem entsprechenden Wert angewendet, wenn sie das identische Befehls-Schlüsselwort haben und dasselbe `<by-to>`-Schlüsselwort verwenden. Wenn `shape()` in der Eigenschaft {{cssxref("clip-path")}} verwendet wird, interpolieren die beiden Formen, wenn sie auch dasselbe `<fill-rule>` haben.
 
-  - Wenn sie den `<curve-command>` oder den `<smooth-command>` verwenden, muss die Anzahl der Kontrollpunkte für die Interpolation übereinstimmen.
+  - Wenn sie den `<curve-command>` oder den `<smooth-command>` verwenden, muss die Anzahl der Steuerpunkte für die Interpolation übereinstimmen.
 
-  - Wenn sie den `<arc-command>` mit unterschiedlichen `<arc-sweep>` Richtungen verwenden, resultiert das interpolierte Ergebnis im Uhrzeigersinn (`cw`). Wenn sie unterschiedliche `<arc-size>` Schlüsselwörter verwenden, wird die Größe unter Verwendung des `large` Wertes interpoliert.
+  - Wenn sie den `<arc-command>` mit unterschiedlichen `<arc-sweep>`-Richtungen verwenden, geht das interpolierte Ergebnis im Uhrzeigersinn (`cw`). Wenn sie unterschiedliche `<arc-size>`-Schlüsselwörter verwenden, wird die Größe unter Verwendung des `large`-Werts interpoliert.
 
-- **Eine Form ist vom Typ `path()` und die andere ist vom Typ `shape()`**: Die Interpolation wird zwischen jedem entsprechenden Wert angewendet, wenn die Liste der Pfaddatenbefehle identisch in Anzahl und Sequenz ist. Die interpolierte Form ist eine `shape()` Funktion, die dieselbe Liste von Pfaddatenbefehlen beibehält.
+- **Eine Form ist vom Typ `path()` und die andere vom Typ `shape()`**: Interpolation wird zwischen jedem entsprechenden Wert angewendet, wenn die Liste der Pfaddatenbefehle in Anzahl und Reihenfolge identisch ist. Die interpolierte Form ist eine `shape()`-Funktion, die die gleiche Liste von Pfaddatenbefehlen beibehält.
 
 In allen anderen Fällen erfolgt keine Interpolation und die Animation ist diskret.
 
@@ -165,7 +164,7 @@ In allen anderen Fällen erfolgt keine Interpolation und die Animation ist diskr
 
 ### Animiertes Polygon
 
-In diesem Beispiel verwenden wir die [@keyframes](/de/docs/Web/CSS/@keyframes) At-Regel, um einen Clip-Pfad zwischen zwei Polygonen zu animieren. Beachten Sie, dass beide Polygone die gleiche Anzahl von Eckpunkten haben, was für diese Art der Animation notwendig ist.
+In diesem Beispiel verwenden wir die [@keyframes](/de/docs/Web/CSS/@keyframes)-Regel, um einen Clipping-Pfad zwischen zwei Polygonen zu animieren. Beachten Sie, dass beide Polygone die gleiche Anzahl von Eckpunkten haben müssen, damit diese Art von Animation funktioniert.
 
 #### HTML
 
@@ -238,6 +237,6 @@ div {
 ## Siehe auch
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("clip-path")}}, {{cssxref("offset-path")}}, {{cssxref("shape-outside")}},
-- [CSS Formen](/de/docs/Web/CSS/CSS_shapes) Modul
-- [Überblick über CSS Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
+- [CSS-Formen](/de/docs/Web/CSS/CSS_shapes)-Modul
+- [Übersicht über CSS-Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
 - [Bearbeiten von Formpfaden in CSS — Firefox Developer Tools](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_css_shapes/index.html)

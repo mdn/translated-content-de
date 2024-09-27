@@ -8,10 +8,10 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `createGain()`-Methode der {{ domxref("BaseAudioContext") }}-Schnittstelle erstellt einen {{ domxref("GainNode") }}, der verwendet werden kann, um die gesamte Verstärkung (oder Lautstärke) des Audiografen zu steuern.
+Die `createGain()`-Methode des [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Interfaces erstellt einen [`GainNode`](/de/docs/Web/API/GainNode), der verwendet werden kann, um die Gesamtverstärkung (oder Lautstärke) des Audiographen zu steuern.
 
 > [!NOTE]
-> Der {{domxref("GainNode.GainNode", "GainNode()")}}-Konstruktor ist die empfohlene Methode zur Erstellung eines {{domxref("GainNode")}}; siehe [Erstellung eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`GainNode()`](/de/docs/Web/API/GainNode/GainNode)-Konstruktor ist die empfohlene Methode zur Erstellung eines [`GainNode`](/de/docs/Web/API/GainNode); siehe [Creating an AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -25,17 +25,17 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref("GainNode")}}, der als Eingang eine oder mehrere Audioquellen annimmt und Audio ausgibt, dessen Lautstärke in Verstärkung (Lautstärke) auf ein durch den {{domxref("GainNode.gain")}}-Parameter auf [a-rate](/de/docs/Web/API/AudioParam#a-rate) festgelegtes Niveau angepasst wurde.
+Ein [`GainNode`](/de/docs/Web/API/GainNode), der als Eingabequellen ein oder mehrere Audiosignale akzeptiert und Audio ausgibt, dessen Lautstärke in der Verstärkung (Lautstärke) auf ein durch den [`GainNode.gain`](/de/docs/Web/API/GainNode/gain) [a-rate](/de/docs/Web/API/AudioParam#a-rate)-Parameter des Knotens spezifiziertes Niveau angepasst wurde.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die grundlegende Verwendung eines {{domxref("AudioContext")}}, um einen `GainNode` zu erstellen, der dann verwendet wird, um das Audio stummzuschalten und wieder hörbar zu machen, wenn eine Stummschalttaste angeklickt wird, indem der Wert der `gain`-Eigenschaft geändert wird.
+Das folgende Beispiel zeigt die grundlegende Verwendung eines [`AudioContext`](/de/docs/Web/API/AudioContext), um einen `GainNode` zu erstellen, der dann verwendet wird, um das Audio stummzuschalten und die Stummschaltung aufzuheben, wenn eine Stummschalttaste durch Ändern des `gain`-Eigenschaftswerts angeklickt wird.
 
-Der untenstehende Ausschnitt würde so nicht funktionieren — für ein komplettes funktionierendes Beispiel schauen Sie sich unser [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) Demo an ([Quellcode anzeigen](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js).)
+Der unten stehende Codeausschnitt funktioniert nicht wie angegeben - für ein vollständiges funktionierendes Beispiel schauen Sie sich unser [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) Demo ([Quellcode anzeigen](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js).)
 
 ```html
 <div>
-  <button class="mute">Stummschalttaste</button>
+  <button class="mute">Mute button</button>
 </div>
 ```
 
@@ -63,7 +63,7 @@ if (navigator.mediaDevices.getUserMedia) {
     },
   );
 } else {
-  console.error("getUserMedia wird von Ihrem Browser nicht unterstützt!");
+  console.error("getUserMedia not supported on your browser!");
 }
 
 source.connect(gainNode);
@@ -73,15 +73,15 @@ gainNode.connect(audioCtx.destination);
 
 mute.onclick = () => {
   if (mute.id === "") {
-    // 0 bedeutet stumm. Wenn Sie noch etwas hören, stellen Sie sicher, dass
-    // Sie Ihre Quelle nicht zusätzlich zur Verwendung des GainNode mit dem Ausgang verbunden haben.
+    // 0 means mute. If you still hear something, make sure you haven't
+    // connected your source into the output in addition to using the GainNode.
     gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
     mute.id = "activated";
-    mute.textContent = "Wiederherstellen";
+    mute.textContent = "Unmute";
   } else {
     gainNode.gain.setValueAtTime(1, audioCtx.currentTime);
     mute.id = "";
-    mute.textContent = "Stummschalten";
+    mute.textContent = "Mute";
   }
 };
 ```

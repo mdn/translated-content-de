@@ -1,5 +1,5 @@
 ---
-title: "VideoDecoder: flush()-Methode"
+title: "VideoDecoder: flush() Methode"
 short-title: flush()
 slug: Web/API/VideoDecoder/flush
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`flush()`**-Methode der Schnittstelle {{domxref("VideoDecoder")}} gibt ein Promise zurück, das aufgelöst wird, sobald alle ausstehenden Nachrichten in der Warteschlange abgeschlossen sind.
+Die **`flush()`**-Methode des [`VideoDecoder`](/de/docs/Web/API/VideoDecoder)-Interfaces gibt ein Promise zurück, das aufgelöst wird, sobald alle ausstehenden Nachrichten in der Warteschlange bearbeitet wurden.
 
 ## Syntax
 
@@ -26,8 +26,8 @@ Ein {{jsxref("Promise")}}, das mit undefined aufgelöst wird.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird zurückgegeben, wenn das Promise abgelehnt wird, weil der {{domxref("VideoDecoder.state","state")}} nicht `configured` ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird zurückgegeben, wenn das Promise abgelehnt wird, weil der [`state`](/de/docs/Web/API/VideoDecoder/state) nicht `configured` ist.
 
 ## Beispiele
 

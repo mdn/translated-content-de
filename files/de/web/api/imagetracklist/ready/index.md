@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`ready`**-Eigenschaft der {{domxref("ImageTrackList")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn die `ImageTrackList` mit {{domxref("ImageTrack","tracks")}} gefüllt ist.
+Die **`ready`**-Eigenschaft des [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn die `ImageTrackList` mit [`tracks`](/de/docs/Web/API/ImageTrack) gefüllt ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird.
 
 ## Beispiele
 
-Das folgende Beispiel gibt den Wert von `ready` in der Konsole aus. Dieser wird `undefined` sein, sobald das Promise aufgelöst wird.
+Das folgende Beispiel gibt den Wert von `ready` in der Konsole aus. Dieser Wert wird `undefined` sein, sobald das Promise aufgelöst wird.
 
 ```js
 let tracks = imageDecoder.tracks;
@@ -28,6 +28,6 @@ console.log(ready);
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

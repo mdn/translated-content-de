@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`selectedTrack`**-Eigenschaft der {{domxref("ImageTrackList")}}-Schnittstelle gibt ein {{domxref("ImageTrack")}}-Objekt zurück, das den aktuell ausgewählten Track darstellt.
+Die **`selectedTrack`**-Eigenschaft des [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Interfaces gibt ein [`ImageTrack`](/de/docs/Web/API/ImageTrack)-Objekt zurück, das den derzeit ausgewählten Track repräsentiert.
 
 ## Wert
 
-Ein {{domxref("ImageTrack")}}-Objekt.
+Ein [`ImageTrack`](/de/docs/Web/API/ImageTrack)-Objekt.
 
 ## Beispiele
 

@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef}}{{SeeCompatTable}}
 
-Die **`serialNumber`**-Eigenschaft des {{domxref("NDEFReadingEvent")}}-Interfaces gibt die Seriennummer des Geräts zurück, die zur Vermeidung von Kollisionen und zur Identifizierung verwendet wird, oder einen leeren String, wenn keine Seriennummer verfügbar ist.
+Die **`serialNumber`**-Eigenschaft der [`NDEFReadingEvent`](/de/docs/Web/API/NDEFReadingEvent)-Schnittstelle gibt die Seriennummer des Geräts zurück, die zur Kollisionserkennung und Identifikation verwendet wird, oder einen leeren String, wenn keine Seriennummer verfügbar ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der die Seriennummer des Geräts enthält.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie eine praktische Funktion erstellt wird, die ein einzelnes Tag liest und dann das Abfragen stoppt, um die Batterie zu schonen, indem unnötige Arbeiten vermieden werden. Das Beispiel könnte leicht erweitert werden, um nach einer bestimmten Anzahl von Millisekunden abzulaufen.
+Dieses Beispiel zeigt, wie man eine praktische Funktion erstellt, die ein einzelnes Tag liest und dann das Abfragen stoppt, um die Batterielebensdauer zu verlängern, indem unnötige Arbeit vermieden wird. Das Beispiel könnte leicht erweitert werden, um nach einer bestimmten Anzahl von Millisekunden zu stoppen.
 
 ```js
 const ndefReader = new NDEFReader();

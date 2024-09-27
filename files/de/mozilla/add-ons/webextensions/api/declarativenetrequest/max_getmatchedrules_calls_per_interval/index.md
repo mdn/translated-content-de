@@ -13,7 +13,7 @@ Der Wert ist `20`.
 
 {{WebExtExamples("h2")}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -7,23 +7,23 @@ l10n:
 
 {{CSSRef}}
 
-Der [vorherige Leitfaden](/de/docs/Web/CSS/CSS_flow_layout/Block_and_inline_layout_in_normal_flow) erklärte Block- und Inline-Layouts im normalen Fluss. Alle Elemente, die im Fluss sind, werden mit dieser Methode angeordnet.
+Der [vorherige Leitfaden](/de/docs/Web/CSS/CSS_flow_layout/Block_and_inline_layout_in_normal_flow) erklärte die Block- und Inline-Layout im normalen Fluss. Alle Elemente, die im Fluss sind, werden mit dieser Methode angeordnet.
 
-Das folgende Beispiel enthält eine Überschrift, einen Absatz, eine Liste und einen abschließenden Absatz, der ein `strong`-Element enthält. Die Überschrift und die Absätze sind Blocklevel-Elemente, das `strong`-Element ist inline. Die Liste wird mit Flexbox angezeigt, um die Elemente in einer Reihe anzuordnen, aber auch sie nimmt am Block- und Inline-Layout teil - der Container hat einen äußeren `display`-Typ von `block`.
+Das folgende Beispiel enthält eine Überschrift, einen Absatz, eine Liste und einen abschließenden Absatz, der ein `strong`-Element enthält. Die Überschrift und die Absätze sind Block-Level-Elemente, das `strong`-Element ist inline. Die Liste wird mit Flexbox angezeigt, um die Elemente in einer Reihe anzuordnen, jedoch nimmt sie auch am Block- und Inline-Layout teil - der Container hat einen äußeren `display`-Typ von `block`.
 
 {{EmbedGHLiveSample("css-examples/flow/in-flow/in-flow.html", '100%', 800)}}
 
-Alle Elemente können als im Fluss betrachtet werden. Sie erscheinen auf der Seite in der Reihenfolge, in der sie im Quelltext stehen.
+Alle diese Elemente kann man als im Fluss betrachten. Sie erscheinen auf der Seite in der Reihenfolge, wie sie im Quelltext stehen.
 
 ## Ein Element aus dem Fluss nehmen
 
-Alle Elemente sind im Fluss, außer:
+Alle Elemente sind im Fluss außer:
 
 - gefloatete Elemente
-- Elemente mit `position: absolute` (einschließlich `position: fixed`, das auf die gleiche Weise wirkt)
+- Elemente mit `position: absolute` (einschließlich `position: fixed`, das auf die gleiche Weise funktioniert)
 - das Wurzelelement (`html`)
 
-Elemente, die aus dem Fluss sind, erzeugen einen neuen Block Formatting Context (BFC) und daher kann alles innerhalb von ihnen als ein Mini-Layout betrachtet werden, das vom Rest der Seite getrennt ist. Das Wurzelelement ist deshalb aus dem Fluss, da es der Container für alles in unserem Dokument ist und den Block Formatting Context für das Dokument etabliert.
+Elemente außerhalb des Flusses erzeugen einen neuen Block-Formatierungskontext (BFC) und alles, was sich innerhalb von ihnen befindet, kann als ein Mini-Layout angesehen werden, getrennt vom Rest der Seite. Das Wurzelelement ist daher außerhalb des Flusses, da es der Container für alles in unserem Dokument ist und den Block-Formatierungskontext für das Dokument festlegt.
 
 ### Gefloatete Elemente
 
@@ -33,30 +33,30 @@ Als Float wird es zuerst gemäß seiner Position im normalen Fluss angeordnet, d
 
 {{EmbedGHLiveSample("css-examples/flow/in-flow/float.html", '100%', 800)}}
 
-Sie können die Hintergrundfarbe des folgenden Absatzes darunter sehen. Es sind nur die Zeilenboxen dieses Absatzes, die verkürzt wurden, um den Effekt des Umflussens des Inhalts um den Float zu erzielen. Die Box unseres Absatzes wird immer noch gemäß den Regeln des normalen Flusses angezeigt. Aus diesem Grund müssen Sie, um Platz um ein gefloatetes Element zu schaffen, dem Element einen Rand hinzufügen, um die Zeilenboxen weg davon zu drücken. Sie können nichts auf den folgenden im Fluss befindlichen Inhalt anwenden, um das zu erreichen.
+Sie sehen die Hintergrundfarbe des folgenden Absatzes darunter verlaufen, nur die Linienboxen dieses Absatzes wurden verkürzt, um den Effekt des Umfließens des Inhalts um den Float herum zu erzeugen. Die Box unseres Absatzes wird immer noch gemäß den Regeln des normalen Flusses angezeigt. Deshalb müssen Sie, um Platz um ein gefloatetes Element zu schaffen, dem Element einen Rand hinzufügen, um die Linienboxen von ihm wegzudrücken. Sie können nichts auf den nachfolgenden im Fluss befindlichen Inhalt anwenden, um dies zu erreichen.
 
 ### Absolute Positionierung
 
-Einem Element `position: absolute` oder `position: fixed` zuzuweisen, entfernt es aus dem Fluss, und jeder Platz, den es eingenommen hätte, wird entfernt. Im nächsten Beispiel habe ich drei Absatzelemente, das zweite Element hat `position: absolute` mit den Offset-Werten `top: 30px` und `right: 30px`. Es wurde aus dem Dokumentfluss entfernt.
+Wenn ein Element `position: absolute` oder `position: fixed` erhält, wird es aus dem Fluss entfernt, und der Platz, den es eingenommen hätte, wird entfernt. Im nächsten Beispiel habe ich drei Absatz-Elemente, das zweite Element hat `position: absolute`, mit Versatzwerten von `top: 30px` und `right: 30px`. Es wurde aus dem Dokumentenfluss entfernt.
 
 {{EmbedGHLiveSample("css-examples/flow/in-flow/abspos.html", '100%', 700)}}
 
-Die Verwendung von `position: fixed` entfernt das Element ebenfalls aus dem Fluss, jedoch basieren die Offsets auf dem Viewport anstatt auf dem enthaltenen Block.
+Die Verwendung von `position: fixed` entfernt das Element ebenfalls aus dem Fluss, jedoch basieren die Versätze auf dem Ansichtsfenster statt auf dem beinhaltenden Block.
 
-Wenn Sie ein Element mit Positionierung aus dem Fluss nehmen, müssen Sie die Möglichkeit des Überlappens von Inhalten verwalten. Aus dem Fluss zu sein bedeutet im Wesentlichen, dass die anderen Elemente auf Ihrer Seite nicht mehr wissen, dass dieses Element existiert und nicht darauf reagieren werden.
+Wenn Sie ein Element mit Positionierung aus dem Fluss nehmen, müssen Sie die Möglichkeit des Überlappens von Inhalten verwalten. Aus dem Fluss bedeutet im Wesentlichen, dass die anderen Elemente auf Ihrer Seite nicht mehr wissen, dass dieses Element existiert, und daher nicht darauf reagieren.
 
 ### Relative Positionierung und Fluss
 
-Wenn Sie einem Element mit `position: relative` relative Positionierung zuweisen, bleibt es im Fluss. Sie können jedoch die Offset-Werte verwenden, um es zu verschieben. Der Platz, den es im normalen Fluss eingenommen hätte, wird jedoch reserviert, wie Sie im folgenden Beispiel sehen können.
+Wenn Sie einem Element relative Positionierung mit `position: relative` geben, bleibt es im Fluss. Sie können dann jedoch die Versatzwerte verwenden, um es zu verschieben. Der Platz, den es in normalem Fluss eingenommen hätte, wird jedoch reserviert, wie Sie im folgenden Beispiel sehen können.
 
 {{EmbedGHLiveSample("css-examples/flow/in-flow/relative.html", '100%', 800)}}
 
-Wenn Sie etwas tun, um ein Element von seinem Platz im normalen Fluss zu entfernen oder zu verschieben, können Sie erwarten, dass Sie einige Vorkehrungen treffen müssen, um die Inhalte und die Inhalte darum herum zu verwalten, um Überlappungen zu verhindern. Ob das das Klären von Floats oder das Sicherstellen, dass ein Element mit `position: absolute` nicht auf anderen Inhalten liegt, beinhaltet. Aus diesem Grund sollten Methoden, die Elemente aus dem Fluss entfernen, mit Verständnis der Wirkung verwendet werden, die sie haben.
+Wenn Sie etwas tun, um ein Element von seinem Platz zu entfernen oder zu verschieben, an dem es im normalen Fluss platziert wäre, müssen Sie mit der Verwaltung des Inhalts und des Inhaltsumfelds rechnen, um Überlappungen zu vermeiden. Ob das das Löschen von Floats umfasst oder sicherzustellen, dass ein Element mit `position: absolute` nicht über anderem Inhalt liegt. Aus diesem Grund sollten Methoden, die Elemente aus dem Fluss entfernen, mit einem Verständnis der Auswirkungen eingesetzt werden, die sie haben.
 
 ## Zusammenfassung
 
-In diesem Leitfaden haben wir die Methoden behandelt, um ein Element aus dem Fluss zu nehmen, um sehr spezielle Arten von Positionierungen zu erreichen. Im nächsten Leitfaden werden wir uns mit einem verwandten Thema befassen, der Erstellung eines [Block Formatting Context](/de/docs/Web/CSS/CSS_display/Block_formatting_context), in [Formatting Contexts Explained](/de/docs/Web/CSS/CSS_flow_layout/Introduction_to_formatting_contexts).
+In diesem Leitfaden haben wir die Möglichkeiten behandelt, ein Element aus dem Fluss zu nehmen, um einige sehr spezifische Arten der Positionierung zu erreichen. Im nächsten Leitfaden werden wir ein verwandtes Thema untersuchen, die Erstellung eines [Block-Formatierungskontexts](/de/docs/Web/CSS/CSS_display/Block_formatting_context), in [Formatierungskontexte erklärt](/de/docs/Web/CSS/CSS_flow_layout/Introduction_to_formatting_contexts).
 
 ## Siehe auch
 
-- [Positioning](/de/docs/Learn/CSS/CSS_layout/Positioning) im CSS Layout Lernbereich
+- [Positioning](/de/docs/Learn/CSS/CSS_layout/Positioning) im Bereich CSS-Layout lernen

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Diese Funktion wird ausgelöst, wenn eine Verbindung mit einem Erweiterungsprozess oder einem Inhalts-Skript hergestellt wird.
+Wird ausgelöst, wenn eine Verbindung entweder mit einem Erweiterungsprozess oder einem Inhaltsskript hergestellt wird.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er lauscht, andernfalls `false`.
+  - : Überprüft, ob ein `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn gelauscht wird, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -32,10 +32,10 @@ Ereignisse haben drei Funktionen:
 
 - `function`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `port`
-      - : Ein {{WebExtAPIRef('runtime.Port')}} Objekt, das das aktuelle Skript mit dem anderen Kontext verbindet, zu dem es verbunden wird.
+      - : Ein {{WebExtAPIRef('runtime.Port')}}-Objekt, das das aktuelle Skript mit dem anderen Kontext verbindet, zu dem es sich verbindet.
 
 ## Browser-Kompatibilität
 
@@ -43,11 +43,11 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Dieses Inhalts-Skript:
+Dieses Inhaltsskript:
 
-- verbindet sich mit dem Hintergrund-Skript und speichert den `Port` in einer Variablen `myPort`
-- lauscht auf Nachrichten auf `myPort` und protokolliert sie
-- sendet Nachrichten an das Hintergrund-Skript, mittels `myPort`, wenn der Benutzer auf das Dokument klickt
+- stellt eine Verbindung zum Hintergrundskript her und speichert den `Port` in einer Variablen `myPort`
+- hört auf Nachrichten auf `myPort` und protokolliert diese
+- sendet Nachrichten an das Hintergrundskript, indem `myPort` verwendet wird, wenn der Benutzer auf das Dokument klickt
 
 ```js
 // content-script.js
@@ -65,16 +65,16 @@ document.body.addEventListener("click", () => {
 });
 ```
 
-Das entsprechende Hintergrund-Skript:
+Das entsprechende Hintergrundskript:
 
-- lauscht auf Verbindungsversuche vom Inhalts-Skript
-- Bei Erhalt eines Verbindungsversuchs:
+- hört auf Verbindungsversuche des Inhaltsskripts
+- wenn es einen Verbindungsversuch erhält:
 
-  - speichert den Port in einer Variablen namens `portFromCS`
-  - sendet dem Inhalts-Skript eine Nachricht über den Port
-  - beginnt, auf Nachrichten zu lauschen, die über den Port empfangen werden, und protokolliert diese
+  - speichert es den Port in einer Variablen namens `portFromCS`
+  - sendet dem Inhaltsskript eine Nachricht über den Port
+  - beginnt, auf Nachrichten, die über den Port empfangen werden, zu hören und protokolliert diese
 
-- sendet Nachrichten an das Inhalts-Skript, mittels `portFromCS`, wenn der Benutzer auf die Browser-Aktion der Erweiterung klickt
+- sendet Nachrichten an das Inhaltsskript, indem `portFromCS` verwendet wird, wenn der Benutzer auf die Browser-Aktion der Erweiterung klickt
 
 ```js
 // background-script.js
@@ -100,4 +100,34 @@ browser.browserAction.onClicked.addListener(() => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onConnect) API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#event-onConnect)-API von Chromium. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+
+<!--
+// Copyright 2015 The Chromium Authors. All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->

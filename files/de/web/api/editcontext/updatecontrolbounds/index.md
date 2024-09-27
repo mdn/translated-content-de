@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`EditContext.updateControlBounds()`**-Methode der {{domxref("EditContext")}}-Schnittstelle wird verwendet, um das Betriebssystem über die Position und Größe des bearbeitbaren Textbereichs des `EditContext`-Objekts zu informieren.
+Die **`EditContext.updateControlBounds()`**-Methode der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird verwendet, um das Betriebssystem über die Position und Größe des editierbaren Textbereichs des `EditContext`-Objekts zu informieren.
 
-Sie sollten diese Methode aufrufen, um dem Betriebssystem die Grenzen des aktuellen bearbeitbaren Bereichs mitzuteilen. Dies sollte sowohl beim Initialisieren des EditContext als auch jedes Mal erfolgen, wenn sich die Grenzen des bearbeitbaren Bereichs ändern, zum Beispiel wenn die Webseite in der Größe angepasst wird. Diese Grenzen werden genutzt, um plattformspezifische, bearbeitungsbezogene Benutzeroberflächen wie ein {{glossary("Input Method Editor")}}-Fenster (IME) zu positionieren.
+Rufen Sie diese Methode auf, um dem Betriebssystem die Grenzen des aktuellen editierbaren Bereichs mitzuteilen. Sie sollten sie beim Initialisieren des EditContext sowie immer dann, wenn sich die Grenzen des editierbaren Bereichs ändern, wie z.B. bei der Größenänderung der Webseite, aufrufen. Diese Grenzen werden verwendet, um plattformspezifische, bearbeitungsbezogene Benutzeroberflächen wie ein [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster zu positionieren.
 
 ## Syntax
 
@@ -21,18 +21,18 @@ updateControlBounds(controlBounds)
 ### Parameter
 
 - `controlBounds`
-  - : Ein {{domxref("DOMRect")}}-Objekt, das die neuen Kontrollgrenzen darstellt.
+  - : Ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt, das die neuen Steuergrenzen darstellt.
 
 ### Ausnahmen
 
-- Wenn kein Argument angegeben wird, wird ein `TypeError` {{domxref("DOMException")}} ausgelöst.
-- Wenn das angegebene Argument kein {{domxref("DOMRect")}} ist, wird ein `TypeError` {{domxref("DOMException")}} ausgelöst.
+- Wird kein Argument bereitgestellt, wird ein `TypeError`-[`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+- Wenn das bereitgestellte Argument kein [`DOMRect`](/de/docs/Web/API/DOMRect) ist, wird ein `TypeError`-[`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
 ## Beispiele
 
-### Aktualisieren der Kontrollgrenzen beim Initialisieren des Editors und bei Fenstergrößenänderung
+### Aktualisierung der Steuergrenzen bei der Initialisierung des Editors und beim Fenster-Resize
 
-Dieses Beispiel zeigt, wie Sie die `updateControlBounds()`-Methode verwenden, um der Plattform jederzeit mitzuteilen, wo sich der bearbeitbare Bereich befindet.
+Dieses Beispiel zeigt, wie die `updateControlBounds()`-Methode verwendet wird, um der Plattform jederzeit mitzuteilen, wo sich der editierbare Bereich befindet.
 
 ```css
 #editor {
@@ -59,9 +59,9 @@ function updateControlBounds() {
   );
 }
 
-// Aktualisieren Sie jetzt die Kontrollgrenzen.
+// Update the control bounds now.
 updateControlBounds();
-// Und wenn die Seite in der Größe verändert wird.
+// And when the page is resized.
 window.addEventListener("resize", updateControlBounds);
 ```
 
@@ -75,4 +75,4 @@ window.addEventListener("resize", updateControlBounds);
 
 ## Siehe auch
 
-- Die {{DOMxRef("EditContext")}}-Schnittstelle, zu der sie gehört.
+- Die [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle, zu der sie gehört.

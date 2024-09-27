@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das SVG **`<style>`**-Element ermöglicht das Einbetten von Stylesheets direkt innerhalb von SVG-Inhalten.
+Das SVG-Element **`<style>`** ermöglicht es, Stylesheets direkt im SVG-Inhalt einzubetten.
 
 > [!NOTE]
-> Das `style`-Element von SVG hat die gleichen Attribute wie das entsprechende Element in HTML (siehe das {{HTMLElement("style")}}-Element von HTML).
+> Das `style`-Element in SVG hat dieselben Attribute wie das entsprechende Element in HTML (siehe HTML-Element {{HTMLElement("style")}}).
 
 ## Beispiel
 
@@ -41,14 +41,14 @@ svg {
 ## Attribute
 
 - {{SVGAttr("type")}}
-  - : Dieses Attribut definiert den Typ der zu verwendenden Stylesheet-Sprache als Media-Type-String.
-    _Wertetyp_: [**\<string>**](/de/docs/Web/CSS/string); _Standardwert_: `text/css`; _Animierbar_: **nein**
+  - : Dieses Attribut definiert den Typ der zu verwendenden Stylesheet-Sprache als Medientyp-String.
+    _Werttyp_: [**\<string>**](/de/docs/Web/CSS/string); _Standardwert_: `text/css`; _Animierbar_: **nein**
 - {{SVGAttr("media")}}
-  - : Dieses Attribut definiert, auf welches {{cssxref('@media', 'Medium')}} der Stil angewendet wird.
-    _Wertetyp_: [**`<string>`**](/de/docs/Web/CSS/string); _Standardwert_: `all`; _Animierbar_: **nein**
+  - : Dieses Attribut definiert, auf welches {{cssxref('@media', 'Media')}} sich das Style bezieht.
+    _Werttyp_: [**`<string>`**](/de/docs/Web/CSS/string); _Standardwert_: `all`; _Animierbar_: **nein**
 - {{SVGAttr("title")}}
-  - : Dieses Attribut ist der Titel des Stylesheets, der verwendet werden kann, um zwischen [alternativen Stylesheets](/de/docs/Web/CSS/Alternative_style_sheets) zu wechseln.
-    _Wertetyp_: [**`<string>`**](/de/docs/Web/CSS/string); _Standardwert_: _keiner_; _Animierbar_: **nein**
+  - : Dieses Attribut ist der Titel des Stylesheets, welcher verwendet werden kann, um zwischen [alternativen Stylesheets](/de/docs/Web/CSS/Alternative_style_sheets) zu wechseln.
+    _Werttyp_: [**`<string>`**](/de/docs/Web/CSS/string); _Standardwert_: _none_; _Animierbar_: **nein**
 
 ## Nutzungskontext
 
@@ -58,7 +58,7 @@ svg {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die schreibgeschützte Eigenschaft **`status`** der {{domxref("FontFace")}}-Schnittstelle gibt einen enumerierten Wert zurück, der den Status der Schriftart angibt: einer von `"unloaded"`, `"loading"`, `"loaded"` oder `"error"`.
+Die **`status`**-Eigenschaft des schreibgeschützten [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces gibt einen enumerierten Wert zurück, der den Status der Schriftart angibt. Dieser kann `"unloaded"`, `"loading"`, `"loaded"` oder `"error"` sein.
 
 ## Wert
 
-Einer von `"unloaded"`, `"loading"`, `"loaded"` oder `"error"`.
+Einer der Werte `"unloaded"`, `"loading"`, `"loaded"` oder `"error"`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

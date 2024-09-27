@@ -1,5 +1,5 @@
 ---
-title: "<bdo>: Das Element zur bidirektionalen Textüberschreibung"
+title: "<bdo>: Das Element zur Übersteuerung von Bidirektionalem Text"
 slug: Web/HTML/Element/bdo
 l10n:
   sourceCommit: fdd3ac5598c3ddceb71e59949b003936ae99f647
@@ -7,11 +7,11 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<bdo>`** [HTML](/de/docs/Web/HTML)-Element überschreibt die aktuelle Textausrichtung, sodass der Text innerhalb des Elements in einer anderen Richtung gerendert wird.
+Das **`<bdo>`** [HTML](/de/docs/Web/HTML) Element übersteuert die aktuelle Textausrichtung, sodass der Text innerhalb des Elements in einer anderen Richtung dargestellt wird.
 
 {{EmbedInteractiveExample("pages/tabbed/bdo.html", "tabbed-standard")}}
 
-Die Zeichen des Textes werden vom Startpunkt in die angegebene Richtung gezeichnet; die Orientierung der einzelnen Zeichen wird nicht beeinflusst (Zeichen werden also beispielsweise nicht rückwärts gezeichnet).
+Die Zeichen des Textes werden von dem Startpunkt in der angegebenen Richtung gezeichnet; die Orientierung der einzelnen Zeichen wird nicht beeinflusst (Zeichen werden beispielsweise nicht rückwärts gezeichnet).
 
 ## Attribute
 
@@ -19,26 +19,26 @@ Die Attribute dieses Elements beinhalten die [globalen Attribute](/de/docs/Web/H
 
 - `dir`
 
-  - : Die Richtung, in die der Text in den Inhalten dieses Elements gerendert werden soll. Mögliche Werte sind:
+  - : Die Richtung, in der der Text im Inhalt dieses Elements gerendert werden soll. Mögliche Werte sind:
 
-    - `ltr`: Gibt an, dass der Text von links nach rechts gehen soll.
-    - `rtl`: Gibt an, dass der Text von rechts nach links gehen soll.
+    - `ltr`: Gibt an, dass der Text in einer Links-nach-Rechts-Richtung verlaufen soll.
+    - `rtl`: Gibt an, dass der Text in einer Rechts-nach-Links-Richtung verlaufen soll.
 
 ## Beispiele
 
 ```html
-<!-- Textausrichtung umschalten -->
-<p>Dieser Text wird von links nach rechts gehen.</p>
-<p><bdo dir="rtl">Dieser Text wird von rechts nach links gehen.</bdo></p>
+<!-- Switch text direction -->
+<p>This text will go left to right.</p>
+<p><bdo dir="rtl">This text will go right to left.</bdo></p>
 ```
 
 ### Ergebnis
 
 {{EmbedLiveSample('Examples')}}
 
-## Anmerkungen
+## Hinweise
 
-In der HTML-4-Spezifikation wurden für dieses Element keine Ereignisse spezifiziert; sie wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versehen.
+Die HTML 4 Spezifikation spezifizierte keine Ereignisse für dieses Element; sie wurden in XHTML hinzugefügt. Dies ist höchstwahrscheinlich ein Versehen.
 
 ## Technische Zusammenfassung
 
@@ -52,33 +52,32 @@ In der HTML-4-Spezifikation wurden für dieses Element keine Ereignisse spezifiz
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließinhalt</a
+          >Flussinhalte</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Textinhalt</a
-        >, fühlbarer Inhalt.
+          >Phrasinhalte</a
+        >, greifbare Inhalte.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Textinhalt</a
+          >Phrasinhalte</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der End-Tag sind zwingend erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind notwendig.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Textinhalt</a
-        >
-        akzeptiert.
+          >Phrasinhalte</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
@@ -86,19 +85,19 @@ In der HTML-4-Spezifikation wurden für dieses Element keine Ereignisse spezifiz
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
-            >generisch</a
+            >generic</a
           ></code
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
       <td>
-        {{domxref("HTMLElement")}} Bis einschließlich Gecko 1.9.2 (Firefox 4)
+        [`HTMLElement`](/de/docs/Web/API/HTMLElement) Bis einschließlich Gecko 1.9.2 (Firefox 4)
         implementiert Firefox die
         <code
           ><a href="/de/docs/Web/API/HTMLSpanElement"

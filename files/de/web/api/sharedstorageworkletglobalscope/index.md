@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("Shared Storage API")}}{{SeeCompatTable}}
 
-Das **`SharedStorageWorkletGlobalScope`**-Interface der {{domxref("Shared Storage API", "Shared Storage API", "", "nocode")}} repräsentiert den globalen Gültigkeitsbereich eines {{domxref("SharedStorageWorklet")}}-Moduls.
+Das **`SharedStorageWorkletGlobalScope`**-Interface der [Shared Storage API](/de/docs/Web/API/Shared_Storage_API) repräsentiert den globalen Geltungsbereich eines [`SharedStorageWorklet`](/de/docs/Web/API/SharedStorageWorklet)-Moduls.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-- {{domxref("SharedStorageWorkletGlobalScope.sharedStorage", "sharedStorage")}} {{Experimental_Inline}}
-  - : Enthält eine Instanz des {{domxref("WorkletSharedStorage")}}-Objekts, das den gemeinsamen Speicher für einen bestimmten Ursprung darstellt, wie er in einem Worklet-Kontext bereitgestellt wird.
+- [`sharedStorage`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/sharedStorage) {{Experimental_Inline}}
+  - : Enthält eine Instanz des [`WorkletSharedStorage`](/de/docs/Web/API/WorkletSharedStorage)-Objekts, das den gemeinsamen Speicher für einen bestimmten Ursprung im Kontext eines Worklets darstellt.
 
 ## Instanzmethoden
 
-- {{domxref("SharedStorageWorkletGlobalScope.register", "register()")}} {{Experimental_Inline}}
-  - : Registriert eine innerhalb des aktuellen Worklet-Moduls definierte {{domxref("SharedStorageOperation", "operation", "", "nocode")}}.
+- [`register()`](/de/docs/Web/API/SharedStorageWorkletGlobalScope/register) {{Experimental_Inline}}
+  - : Registriert eine [Operation](/de/docs/Web/API/SharedStorageOperation), die innerhalb des aktuellen Worklet-Moduls definiert ist.
 
 ## Beispiele
 
@@ -38,7 +38,7 @@ class SelectURLOperation {
 register("ab-testing", SelectURLOperation);
 ```
 
-Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Startseite für eine Anleitung zu diesem Beispiel und Links zu weiteren Beispielen.
+Siehe die [Shared Storage API](/de/docs/Web/API/Shared_Storage_API)-Hauptseite für eine Schritt-für-Schritt-Anleitung zu diesem Beispiel und Links zu anderen Beispielen.
 
 ## Spezifikationen
 

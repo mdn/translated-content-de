@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`:future`** [CSS](/de/docs/Web/CSS) [Pseudoklassen-Selektor](/de/docs/Web/CSS/Pseudo-classes) ist eine zeitdimensionale Pseudoklasse, die für jedes Element gilt, das vollständig nach einem Element erscheint, das mit {{cssxref(":current")}} übereinstimmt. Zum Beispiel in einem Video mit Untertiteln, die mit [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt werden.
+Die **`:future`** [CSS](/de/docs/Web/CSS) [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) Selektor ist eine zeitdimensionale Pseudoklasse, die für jedes Element übereinstimmt, das vollständig nach einem Element erscheint, das mit {{cssxref(":current")}} übereinstimmt. Dies ist zum Beispiel bei einem Video mit Untertiteln relevant, die durch [WebVTT](/de/docs/Web/API/WebVTT_API) angezeigt werden.
 
 ```css
 :future(p, span) {

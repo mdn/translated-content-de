@@ -1,5 +1,5 @@
 ---
-title: "MediaSession: Methode setMicrophoneActive()"
+title: "MediaSession: setMicrophoneActive() Methode"
 short-title: setMicrophoneActive()
 slug: Web/API/MediaSession/setMicrophoneActive
 l10n:
@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("Media Session API")}}{{SeeCompatTable}}
 
-Die **`setMicrophoneActive()`**-Methode der {{domxref("MediaSession")}}-Schnittstelle wird verwendet, um dem Benutzeragenten anzuzeigen, ob das Mikrofon des Nutzers derzeit als stummgeschaltet betrachtet wird.
+Die **`setMicrophoneActive()`** Methode des [`MediaSession`](/de/docs/Web/API/MediaSession) Interfaces wird verwendet, um dem User-Agent mitzuteilen, ob das Mikrofon des Benutzers aktuell als stummgeschaltet betrachtet wird.
 
-Rufen Sie diese Methode auf dem `navigator`-Objekt
-{{domxref("navigator.mediaSession", "mediaSession")}} auf.
+Rufen Sie diese Methode am `navigator`-Objekt des [`mediaSession`](/de/docs/Web/API/Navigator/mediaSession) Objekts auf.
 
-Beachten Sie, dass der Status des Mikrofons nicht im {{domxref("MediaSession")}} selbst verfolgt wird, sondern separat verfolgt werden muss.
+Beachten Sie, dass der Status des Mikrofons nicht in der [`MediaSession`](/de/docs/Web/API/MediaSession) selbst verfolgt wird, sondern separat erfasst werden muss.
 
 ## Syntax
 
@@ -32,8 +31,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Unten finden Sie ein Beispiel zur Aktualisierung des Mikrofonschaltezustands der aktuellen
-{{domxref('MediaSession')}} sowie zum Hören von Anfragen zur Änderung des Stummschaltstatus mit {{domxref("MediaSession.setActionHandler", "setActionHandler()")}}.
+Unten finden Sie ein Beispiel zum Aktualisieren des Mikrofon-Stummschaltungsstatus der aktuellen [`MediaSession`](/de/docs/Web/API/MediaSession) sowie zum Anhören von Anfragen zur Änderung des Stummschaltungsstatus mit [`setActionHandler()`](/de/docs/Web/API/MediaSession/setActionHandler).
 
 ```js
 let microphoneActive = false;

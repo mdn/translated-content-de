@@ -1,5 +1,5 @@
 ---
-title: "Headers: entries()-Methode"
+title: "Headers: entries() Methode"
 short-title: entries()
 slug: Web/API/Headers/entries
 l10n:
@@ -9,7 +9,8 @@ l10n:
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
 
 Die **`Headers.entries()`**-Methode gibt einen
-{{jsxref("Iteration_protocols",'Iterator')}} zurück, der es ermöglicht, alle in diesem Objekt enthaltenen Schlüssel/Wert-Paare zu durchlaufen. Sowohl der Schlüssel als auch der Wert jedes Paars sind {{jsxref("String")}}-Objekte.
+{{jsxref("Iteration_protocols",'Iterator')}} zurück, der es ermöglicht, alle Schlüssel/Wert-Paare, die in diesem Objekt enthalten sind, zu durchlaufen. Sowohl der Schlüssel als auch der Wert jedes Paares sind
+{{jsxref("String")}}-Objekte.
 
 ## Syntax
 
@@ -28,12 +29,12 @@ Gibt einen {{jsxref("Iteration_protocols","Iterator")}} zurück.
 ## Beispiele
 
 ```js
-// Erstellen Sie ein Test-Headers-Objekt
+// Create a test Headers object
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "text/xml");
 myHeaders.append("Vary", "Accept-Language");
 
-// Anzeigen der Schlüssel/Wert-Paare
+// Display the key/value pairs
 for (const pair of myHeaders.entries()) {
   console.log(`${pair[0]}: ${pair[1]}`);
 }

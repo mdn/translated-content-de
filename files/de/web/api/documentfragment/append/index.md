@@ -1,5 +1,5 @@
 ---
-title: "DocumentFragment: Methode append()"
+title: "DocumentFragment: append() Methode"
 short-title: append()
 slug: Web/API/DocumentFragment/append
 l10n:
@@ -8,9 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DocumentFragment.append()`**-Methode fügt eine Reihe von {{domxref("Node")}}-Objekten oder Zeichenfolgen nach dem letzten Kind des Dokumentfragments ein. Zeichenfolgen werden als gleichwertige {{domxref("Text")}}-Knoten eingefügt.
+Die **`DocumentFragment.append()`** Methode
+fügt eine Reihe von [`Node`](/de/docs/Web/API/Node) Objekten oder Zeichenfolgen nach dem letzten Kind des Dokumentfragments ein. Zeichenfolgen werden als äquivalente [`Text`](/de/docs/Web/API/Text) Knoten eingefügt.
 
-Diese Methode hängt ein Kind an ein `DocumentFragment` an. Um an ein beliebiges Element im Baum anzufügen, siehe {{domxref("Element.append()")}}.
+Diese Methode hängt ein Kind an ein `DocumentFragment` an. Um zu einem beliebigen Element im Baum hinzuzufügen, siehe [`Element.append()`](/de/docs/Web/API/Element/append).
 
 ## Syntax
 
@@ -23,7 +24,7 @@ append(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Menge von {{domxref("Node")}}-Objekten oder Zeichenfolgen, die eingefügt werden sollen.
+  - : Eine Reihe von [`Node`](/de/docs/Web/API/Node) Objekten oder Zeichenfolgen, die eingefügt werden sollen.
 
 ### Rückgabewert
 
@@ -31,12 +32,12 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Knoten an der angegebenen Stelle in der Hierarchie nicht eingefügt werden kann.
 
 ## Beispiele
 
-### Ein Element an ein Dokumentfragment anhängen
+### Ein Element zu einem Dokumentfragment hinzufügen
 
 ```js
 let fragment = new DocumentFragment();
@@ -56,5 +57,5 @@ fragment.children; // HTMLCollection [<div>]
 
 ## Siehe auch
 
-- {{domxref("DocumentFragment.prepend()")}}
-- {{domxref("Element.append()")}}
+- [`DocumentFragment.prepend()`](/de/docs/Web/API/DocumentFragment/prepend)
+- [`Element.append()`](/de/docs/Web/API/Element/append)

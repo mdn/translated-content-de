@@ -8,19 +8,16 @@ l10n:
 
 {{APIRef("Web Locks API")}}{{securecontext_header}}
 
-Die **`locks`** schreibgeschützte Eigenschaft des
-{{domxref("Navigator")}}-Interfaces gibt ein {{domxref("LockManager")}}-Objekt zurück,
-welches Methoden bereitstellt, um ein neues {{domxref('Lock')}}-Objekt anzufordern und nach
-einem bestehenden `Lock`-Objekt zu suchen.
+Die **`locks`** schreibgeschützte Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt ein [`LockManager`](/de/docs/Web/API/LockManager)-Objekt zurück, das Methoden zum Anfordern eines neuen [`Lock`](/de/docs/Web/API/Lock)-Objekts und zur Abfrage eines vorhandenen `Lock`-Objekts bereitstellt.
 
 ## Wert
 
-Ein {{domxref("LockManager")}}-Objekt.
+Ein [`LockManager`](/de/docs/Web/API/LockManager)-Objekt.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

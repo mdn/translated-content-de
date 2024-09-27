@@ -1,5 +1,5 @@
 ---
-title: "VideoEncoder: reset()-Methode"
+title: "VideoEncoder: reset() Methode"
 short-title: reset()
 slug: Web/API/VideoEncoder/reset
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`reset()`**-Methode der {{domxref("VideoEncoder")}}-Schnittstelle storniert synchron alle anstehenden Kodierungen und Rückrufe, gibt alle zugrundeliegenden Ressourcen frei und setzt den {{domxref("VideoEncoder.state", "Zustand")}} auf "unconfigured". Nach dem Aufruf von `reset()` muss {{domxref("VideoEncoder.configure()", "configure()")}} aufgerufen werden, bevor mit {{domxref("VideoEncoder.encode()", "encode()")}}-Aufrufen fortgefahren werden kann.
+Die **`reset()`**-Methode der [`VideoEncoder`](/de/docs/Web/API/VideoEncoder)-Schnittstelle storniert synchron alle ausstehenden Kodierungen und Rückrufe, gibt alle zugrunde liegenden Ressourcen frei und setzt den [`state`](/de/docs/Web/API/VideoEncoder/state) auf "unconfigured". Nach dem Aufruf von `reset()` muss [`configure()`](/de/docs/Web/API/VideoEncoder/configure) aufgerufen werden, bevor `encode()`-Aufrufe wieder fortgesetzt werden können.
 
 > [!NOTE]
-> Um zu vermeiden, dass Rahmen, die über {{domxref("VideoEncoder.encode()", "encode()")}} in die Warteschlange gestellt wurden, verworfen werden, sollte {{domxref("VideoEncoder.flush()", "flush()")}} aufgerufen und abgeschlossen werden, bevor `reset()` aufgerufen wird.
+> Um zu vermeiden, dass über [`encode()`](/de/docs/Web/API/VideoEncoder/encode) eingereihtes Frames verworfen werden, sollte [`flush()`](/de/docs/Web/API/VideoEncoder/flush) aufgerufen und abgeschlossen werden, bevor `reset()` aufgerufen wird.
 
 ## Syntax
 
@@ -29,8 +29,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der {{domxref("VideoEncoder.state","Zustand")}} `"closed"` ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der [`state`](/de/docs/Web/API/VideoEncoder/state) `"closed"` ist.
 
 ## Beispiele
 
@@ -44,6 +44,6 @@ VideoEncoder.reset();
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

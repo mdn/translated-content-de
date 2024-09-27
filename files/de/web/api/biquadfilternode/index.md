@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die `BiquadFilterNode`-Schnittstelle repräsentiert einen einfachen Filter niedriger Ordnung und wird mit der Methode {{ domxref("BaseAudioContext/createBiquadFilter") }} erstellt. Es handelt sich um einen {{domxref("AudioNode")}}, der verschiedene Arten von Filtern, Klangregelungsgeräten und grafischen Equalizern darstellen kann. Ein `BiquadFilterNode` hat immer genau einen Eingang und einen Ausgang.
+Die `BiquadFilterNode`-Schnittstelle repräsentiert einen einfachen Filter niedriger Ordnung und wird mittels der Methode [`BaseAudioContext/createBiquadFilter`](/de/docs/Web/API/BaseAudioContext/createBiquadFilter) erstellt. Es handelt sich um einen [`AudioNode`](/de/docs/Web/API/AudioNode), der verschiedene Arten von Filtern, Tonkontrollgeräten und grafischen Equalizern darstellen kann. Ein `BiquadFilterNode` hat immer genau einen Eingang und einen Ausgang.
 
 {{InheritanceDiagram}}
 
@@ -22,15 +22,15 @@ Die `BiquadFilterNode`-Schnittstelle repräsentiert einen einfachen Filter niedr
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Channel Count Mode</th>
+      <th scope="row">Kanalzählmodus</th>
       <td><code>"max"</code></td>
     </tr>
     <tr>
-      <th scope="row">Channel Count</th>
-      <td><code>2</code> (im Standardzählmodus nicht verwendet)</td>
+      <th scope="row">Kanalanzahl</th>
+      <td><code>2</code> (wird im Standardzählmodus nicht verwendet)</td>
     </tr>
     <tr>
-      <th scope="row">Channel Interpretation</th>
+      <th scope="row">Kanainterpretation</th>
       <td><code>"speakers"</code></td>
     </tr>
   </tbody>
@@ -38,32 +38,32 @@ Die `BiquadFilterNode`-Schnittstelle repräsentiert einen einfachen Filter niedr
 
 ## Konstruktor
 
-- {{domxref("BiquadFilterNode.BiquadFilterNode", "BiquadFilterNode()")}}
+- [`BiquadFilterNode()`](/de/docs/Web/API/BiquadFilterNode/BiquadFilterNode)
   - : Erstellt eine neue Instanz eines `BiquadFilterNode`-Objekts.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("AudioNode")}}_.
+_Erbt Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 > [!NOTE]
-> Obwohl die zurückgegebenen `AudioParam`-Objekte schreibgeschützt sind, sind die von ihnen dargestellten Werte es nicht.
+> Obwohl die zurückgegebenen `AudioParam`-Objekte schreibgeschützt sind, sind die Werte, die sie repräsentieren, es nicht.
 
-- {{domxref("BiquadFilterNode.frequency")}} {{ReadOnlyInline}}
-  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) {{domxref("AudioParam")}}, ein Double, das eine Frequenz im aktuellen Filteralgorithmus in Hertz (Hz) darstellt.
-- {{domxref("BiquadFilterNode.detune")}} {{ReadOnlyInline}}
-  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) {{domxref("AudioParam")}}, das eine Verstimmung der Frequenz in [Cents](https://en.wikipedia.org/wiki/Cent_%28music%29) darstellt.
-- {{domxref("BiquadFilterNode.Q")}} {{ReadOnlyInline}}
-  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) {{domxref("AudioParam")}}, ein Double, das einen [Q-Faktor](https://en.wikipedia.org/wiki/Q_factor) oder _Qualitätsfaktor_ darstellt.
-- {{domxref("BiquadFilterNode.gain")}} {{ReadOnlyInline}}
-  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) {{domxref("AudioParam")}}, ein Double, das die im aktuellen Filteralgorithmus verwendete [Verstärkung](https://en.wikipedia.org/wiki/Gain) darstellt.
-- {{domxref("BiquadFilterNode.type")}}
+- [`BiquadFilterNode.frequency`](/de/docs/Web/API/BiquadFilterNode/frequency) {{ReadOnlyInline}}
+  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), ein Doppelwert, der eine Frequenz im aktuellen Filteralgorithmus darstellt, gemessen in Hertz (Hz).
+- [`BiquadFilterNode.detune`](/de/docs/Web/API/BiquadFilterNode/detune) {{ReadOnlyInline}}
+  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), der die Verstimmung der Frequenz in [Cents](https://en.wikipedia.org/wiki/Cent_%28music%29) darstellt.
+- [`BiquadFilterNode.Q`](/de/docs/Web/API/BiquadFilterNode/Q) {{ReadOnlyInline}}
+  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), ein Doppelwert, der einen [Q-Faktor](https://en.wikipedia.org/wiki/Q_factor) oder _Qualitätsfaktor_ darstellt.
+- [`BiquadFilterNode.gain`](/de/docs/Web/API/BiquadFilterNode/gain) {{ReadOnlyInline}}
+  - : Ein [a-rate](/de/docs/Web/API/AudioParam#a-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), ein Doppelwert, der die [Verstärkung](https://en.wikipedia.org/wiki/Gain) im aktuellen Filteralgorithmus darstellt.
+- [`BiquadFilterNode.type`](/de/docs/Web/API/BiquadFilterNode/type)
 
-  - : Ein Zeichenfolgenwert, der die Art des vom Knoten implementierten Filteralgorithmus definiert.
+  - : Ein String-Wert, der die Art des Filteralgorithmus definiert, den der Knoten implementiert.
 
     <table class="standard-table">
       <caption>
-        Die Bedeutung der verschiedenen Parameter abhängig vom Filtertyp
-        (Detune hat überall die gleiche Bedeutung und wird daher nicht aufgeführt)
+        Die Bedeutung der verschiedenen Parameter, abhängig vom Typ des Filters
+        (detune hat immer dieselbe Bedeutung und wird daher nicht aufgeführt)
       </caption>
       <thead>
         <tr>
@@ -78,139 +78,151 @@ _Erbt Eigenschaften von seinem Elternteil, {{domxref("AudioNode")}}_.
         <tr>
           <th scope="row"><code>lowpass</code></th>
           <td>
-            Standard-Resonanz-Tiefpassfilter zweiter Ordnung mit 12 dB/Oktave Abroll. Frequenzen unterhalb des Grenzwerts passieren; Frequenzen darüber werden abgeschwächt.
+            Standardmäßiger Resonanz-Tiefpassfilter zweiter Ordnung mit einem Abfall von 12dB/Oktave.
+            Frequenzen unterhalb der Grenzfrequenz passieren; Frequenzen darüber werden
+            abgeschwächt.
           </td>
           <td>Die Grenzfrequenz.</td>
           <td>
-            Gibt an, wie stark die Frequenz um den Grenzwert herum hervortritt. Je größer der Wert ist, desto größer ist die Spitze.
+            Zeigt an, wie stark die Frequenz um die Grenzfrequenz hervorgehoben ist. Je größer der
+            Wert, desto stärker die Hervorhebung.
           </td>
           <td><em>Nicht verwendet</em></td>
         </tr>
         <tr>
           <th scope="row"><code>highpass</code></th>
           <td>
-            Standard-Resonanz-Hochpassfilter zweiter Ordnung mit 12 dB/Oktave Abroll. Frequenzen unterhalb des Grenzwerts werden abgeschwächt; Frequenzen darüber passieren.
+            Standardmäßiger Resonanz-Hochpassfilter zweiter Ordnung mit einem Abfall von 12dB/Oktave.
+            Frequenzen unterhalb der Grenzfrequenz werden abgeschwächt; Frequenzen darüber passieren.
           </td>
           <td>Die Grenzfrequenz.</td>
           <td>
-            Gibt an, wie stark die Frequenz um den Grenzwert herum hervortritt. Je größer der Wert, desto größer die Spitze.
+            Zeigt an, wie stark die Frequenz um die Grenzfrequenz hervorgehoben ist. Je größer der
+            Wert, desto stärker die Hervorhebung.
           </td>
           <td><em>Nicht verwendet</em></td>
         </tr>
         <tr>
           <th scope="row"><code>bandpass</code></th>
           <td>
-            Standard-Bandpassfilter zweiter Ordnung. Frequenzen außerhalb des angegebenen Frequenzbereichs werden abgeschwächt; die Frequenzen innerhalb passieren.
+            Standardmäßiger Bandpassfilter zweiter Ordnung. Frequenzen außerhalb des angegebenen
+            Frequenzbereichs werden abgeschwächt; die Frequenzen innerhalb passieren.
           </td>
           <td>Das Zentrum des Frequenzbereichs.</td>
           <td>
-            Kontrolliert die Breite des Frequenzbands. Je größer der
-            <code>Q</code>-Wert ist, desto kleiner ist das Frequenzband.
+            Bestimmt die Breite des Frequenzbands. Je größer der
+            <code>Q</code>-Wert, desto schmaler das Frequenzband.
           </td>
           <td><em>Nicht verwendet</em></td>
         </tr>
         <tr>
           <th scope="row"><code>lowshelf</code></th>
           <td>
-            Standard-Tiefenreglerfilter zweiter Ordnung. Frequenzen unterhalb dieser Frequenz werden angehoben oder abgeschwächt; Frequenzen darüber bleiben unverändert.
+            Standardmäßiger Lowshelf-Filter zweiter Ordnung. Frequenzen unterhalb der
+            Frequenz erfahren eine Verstärkung oder Abschwächung; Frequenzen darüber bleiben
+            unverändert.
           </td>
           <td>
-            Die obere Grenze der Frequenzen, die angehoben oder abgeschwächt werden.
+            Das obere Limit der Frequenzen, die eine Verstärkung oder Abschwächung erfahren.
           </td>
           <td><em>Nicht verwendet</em></td>
           <td>
-            Die Anhebung in dB, die angewendet wird; ist sie negativ, wird sie abgeschwächt.
+            Die in dB anzuwendende Verstärkung; bei negativen Werten erfolgt eine Abschwächung.
           </td>
         </tr>
         <tr>
           <th scope="row"><code>highshelf</code></th>
           <td>
-            Standard-Höhenreglerfilter zweiter Ordnung. Frequenzen oberhalb der Frequenz werden angehoben oder abgeschwächt; Frequenzen unterhalb bleiben unverändert.
+            Standardmäßiger Highshelf-Filter zweiter Ordnung. Frequenzen oberhalb der
+            Frequenz erfahren eine Verstärkung oder Abschwächung; Frequenzen darunter bleiben
+            unverändert.
           </td>
           <td>
-            Die untere Grenze der Frequenzen, die angehoben oder abgeschwächt werden.
+            Das untere Limit der Frequenzen, die eine Verstärkung oder Abschwächung erfahren.
           </td>
           <td><em>Nicht verwendet</em></td>
           <td>
-            Die Anhebung in dB, die angewendet wird; ist sie negativ, wird sie abgeschwächt.
+            Die in dB anzuwendende Verstärkung; bei negativen Werten erfolgt eine Abschwächung.
           </td>
         </tr>
         <tr>
           <th scope="row"><code>peaking</code></th>
           <td>
-            Frequenzen innerhalb des Bereichs werden angehoben oder abgeschwächt; Frequenzen außerhalb bleiben unverändert.
+            Frequenzen innerhalb des Bereichs erfahren eine Verstärkung oder Abschwächung; Frequenzen
+            außerhalb bleiben unverändert.
           </td>
           <td>
-            Die Mitte des Frequenzbereichs, der angehoben oder abgeschwächt wird.
+            Der Mittelpunkt des Frequenzbereichs, der eine Verstärkung oder Abschwächung erfährt.
           </td>
           <td>
-            Kontrolliert die Breite des Frequenzbands. Je größer der
-            <code>Q</code>-Wert ist, desto kleiner ist das Frequenzband.
+            Bestimmt die Breite des Frequenzbands. Je größer der
+            <code>Q</code>-Wert, desto schmaler das Frequenzband.
           </td>
           <td>
-            Die Anhebung in dB, die angewendet wird; ist sie negativ, wird sie abgeschwächt.
+            Die in dB anzuwendende Verstärkung; bei negativen Werten erfolgt eine Abschwächung.
           </td>
         </tr>
         <tr>
           <th scope="row"><code>notch</code></th>
           <td>
-            Standard
-            <a href="https://en.wikipedia.org/wiki/Band-stop_filter">Notch</a>
-            Filter, auch als <em>Band-Stop</em> oder
-            <em>Band-Rejection</em> Filter bekannt. Es ist das Gegenteil eines Bandpassfilters: Frequenzen außerhalb des angegebenen Frequenzbereichs passieren; Frequenzen innerhalb werden abgeschwächt.
+            Standardmäßiger
+            <a href="https://en.wikipedia.org/wiki/Band-stop_filter">Kerbfilter</a>,
+            auch als <em>Band-Stop</em> oder <em>Band-Rejection</em> Filter bekannt. Es ist das
+            Gegenteil eines Bandpassfilters: Frequenzen außerhalb des gegebenen Bereichs passieren;
+            Frequenzen innerhalb werden abgeschwächt.
           </td>
           <td>Das Zentrum des Frequenzbereichs.</td>
           <td>
-            Kontrolliert die Breite des Frequenzbands. Je größer der
-            <code>Q</code>-Wert ist, desto kleiner ist das Frequenzband.
+            Bestimmt die Breite des Frequenzbands. Je größer der
+            <code>Q</code>-Wert, desto schmaler das Frequenzband.
           </td>
           <td><em>Nicht verwendet</em></td>
         </tr>
         <tr>
           <th scope="row"><code>allpass</code></th>
           <td>
-            Standard-Zweites-Ordnung
-            <a
-              href="https://en.wikipedia.org/wiki/All-pass_filter#Digital_Implementation"
+            Standardmäßiger
+            <a href="https://en.wikipedia.org/wiki/All-pass_filter#Digital_Implementation"
               >Allpass</a
             >
-            Filter. Es lässt alle Frequenzen durch, ändert jedoch die
+            Filter zweiter Ordnung. Er lässt alle Frequenzen durch, ändert jedoch die
             Phasenbeziehung zwischen den verschiedenen Frequenzen.
           </td>
           <td>
             Die Frequenz mit der maximalen
             <a href="https://en.wikipedia.org/wiki/Group_delay_and_phase_delay"
               >Gruppenlaufzeit</a
-            >, das heißt, die Frequenz, bei der das Zentrum der Phasenübergänge
+            >, das heißt, die Frequenz, bei der das Zentrum des Phasenübergangs
             auftritt.
           </td>
           <td>
-            Kontrolliert, wie scharf der Übergang bei der mittleren Frequenz ist. Je größer dieser Parameter ist, desto schärfer und größer wird der Übergang.
+            Bestimmt, wie scharf der Übergang bei der mittleren Frequenz ist. Je größer
+            dieser Parameter, desto schärfer und größer wird der Übergang sein.
           </td>
           <td><em>Nicht verwendet</em></td>
         </tr>
       </tbody>
     </table>
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Erbt Methoden von seinem Elternteil, {{domxref("AudioNode")}}_.
+_Erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
-- {{domxref("BiquadFilterNode.getFrequencyResponse()")}}
-  - : Diese Methode berechnet aus den aktuellen Filterparameter-Einstellungen die Frequenzgang für die im angegebenen Frequenzarray angegebenen Frequenzen.
+- [`BiquadFilterNode.getFrequencyResponse()`](/de/docs/Web/API/BiquadFilterNode/getFrequencyResponse)
+  - : Diese Methode berechnet aus den aktuellen Filterparametereinstellungen die Frequenzantwort für Frequenzen, die im bereitgestellten Array von Frequenzen angegeben sind.
 
 ## Beispiel
 
-Siehe [`AudioContext.createBiquadFilter`](/de/docs/Web/API/BaseAudioContext/createBiquadFilter#examples) für Beispielcode, der zeigt, wie ein `AudioContext` verwendet wird, um einen Biquad-Filterknoten zu erstellen.
+Siehe [`AudioContext.createBiquadFilter`](/de/docs/Web/API/BaseAudioContext/createBiquadFilter#examples) für Beispielcode, der zeigt, wie man einen `AudioContext` verwendet, um einen Biquad-Filterknoten zu erstellen.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Verwendung der Web-Audio-API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`values()`**-Methode von {{jsxref("Array")}}-Instanzen gibt ein neues [Array-Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das den Wert jedes Elements im Array durchläuft.
+Die **`values()`**-Methode von {{jsxref("Array")}} Instanzen gibt ein neues _[Array-Iteratorenobjekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ zurück, das über den Wert jedes Elements des Arrays iteriert.
 
 {{EmbedInteractiveExample("pages/js/array-values.html")}}
 
@@ -33,15 +33,15 @@ Ein neues [iterierbares Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Globa
 Array.prototype.values === Array.prototype[Symbol.iterator]; // true
 ```
 
-Bei Verwendung auf [dünn besetzten Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) durchläuft die `values()`-Methode die leeren Slots, als ob sie den Wert `undefined` hätten.
+Wenn auf [lückenhafte Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) angewendet, iteriert die `values()`-Methode leere Slots, als hätten sie den Wert `undefined`.
 
-Die `values()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this`-Wert eine `length`-Eigenschaft und integerindizierte Eigenschaften hat.
+Die `values()`-Methode ist [generisch](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). Sie erwartet lediglich, dass der `this`-Wert eine `length`-Eigenschaft und integerbasierte Schlüsselwerteigenschaften hat.
 
 ## Beispiele
 
-### Iteration mit for...of Schleife
+### Iteration mit einer for...of-Schleife
 
-Da `values()` einen iterierbaren Iterator zurückgibt, können Sie eine [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife verwenden, um ihn zu durchlaufen.
+Da `values()` einen iterierbaren Iterator zurückgibt, können Sie eine [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife verwenden, um darüber zu iterieren.
 
 ```js
 const arr = ["a", "b", "c", "d", "e"];
@@ -54,7 +54,7 @@ for (const letter of iterator) {
 
 ### Iteration mit next()
 
-Da der Rückgabewert auch ein Iterator ist, können Sie seine `next()`-Methode direkt aufrufen.
+Da der Rückgabewert auch ein Iterator ist, können Sie dessen `next()`-Methode direkt aufrufen.
 
 ```js
 const arr = ["a", "b", "c", "d", "e"];
@@ -68,12 +68,12 @@ iterator.next(); // { value: undefined, done: true }
 console.log(iterator.next().value); // undefined
 ```
 
-### Wiederverwendung des Iterierbaren
+### Wiederverwendung des Iterierbares
 
 > [!WARNING]
-> Das Array-Iterator-Objekt sollte ein Einwegobjekt sein. Verwenden Sie es nicht erneut.
+> Das Array-Iterator-Objekt sollte einmalig verwendet werden. Verwenden Sie es nicht erneut.
 
-Das von `values()` zurückgegebene Iterierbare ist nicht wiederverwendbar. Wenn `next().done = true` oder `currentIndex > length`, [endet die `for...of`-Schleife](/de/docs/Web/JavaScript/Reference/Iteration_protocols#interactions_between_the_language_and_iteration_protocols), und weiteres Durchlaufen hat keine Wirkung.
+Das von `values()` zurückgegebene Iterierbare ist nicht wiederverwendbar. Wenn `next().done = true` oder `currentIndex > length` ist, [endet die `for...of`-Schleife](/de/docs/Web/JavaScript/Reference/Iteration_protocols#interactions_between_the_language_and_iteration_protocols), und weiteres Iterieren hat keinen Effekt.
 
 ```js
 const arr = ["a", "b", "c", "d", "e"];
@@ -88,7 +88,7 @@ for (const letter of values) {
 // undefined
 ```
 
-Wenn Sie eine [`break`](/de/docs/Web/JavaScript/Reference/Statements/break)-Anweisung verwenden, um die Iteration frühzeitig zu beenden, kann der Iterator seine Position beibehalten und beim Fortsetzen der Iteration dort fortfahren.
+Wenn Sie eine [`break`](/de/docs/Web/JavaScript/Reference/Statements/break)-Anweisung verwenden, um die Iteration vorzeitig zu beenden, kann der Iterator die Iteration von der aktuellen Position aus fortsetzen.
 
 ```js
 const arr = ["a", "b", "c", "d", "e"];
@@ -109,7 +109,7 @@ for (const letter of values) {
 
 ### Änderungen während der Iteration
 
-Im Array-Iterator-Objekt, das von `values()` zurückgegeben wird, sind keine Werte gespeichert; stattdessen speichert es die Adresse des Arrays, das bei seiner Erstellung verwendet wurde, und liest bei jeder Iteration den aktuell besuchten Index. Daher hängt die Ausgabe der Iteration vom Wert ab, der in diesem Index zum Zeitpunkt des Schritts gespeichert ist. Wenn sich die Werte im Array ändern, ändern sich auch die Werte des Array-Iterator-Objekts.
+Es werden keine Werte im Array-Iterator-Objekt gespeichert, das von `values()` zurückgegeben wird; stattdessen speichert es die Adresse des Arrays, das bei seiner Erstellung verwendet wurde, und liest den aktuell besuchten Index bei jeder Iteration. Daher hängt die Ausgabe der Iteration von dem Wert ab, der zu diesem Zeitpunkt in diesem Index gespeichert ist. Wenn sich die Werte im Array ändern, ändern sich die Werte des Array-Iterator-Objekts ebenfalls.
 
 ```js
 const arr = ["a", "b", "c", "d", "e"];
@@ -120,19 +120,19 @@ arr[1] = "n";
 console.log(iterator.next().value); // "n"
 ```
 
-Anders als [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods), speichert das Array-Iterator-Objekt nicht die Länge des Arrays zum Zeitpunkt seiner Erstellung, sondern liest sie einmal bei jeder Iteration. Wenn das Array während der Iteration wächst, besucht der Iterator auch die neuen Elemente. Dies kann zu Endlosschleifen führen.
+Im Gegensatz zu [iterativen Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) speichert das Array-Iterator-Objekt nicht die Länge des Arrays zum Zeitpunkt seiner Erstellung, sondern liest sie bei jeder Iteration erneut. Daher, wenn das Array während der Iteration wächst, wird der Iterator auch die neuen Elemente besuchen. Dies kann zu Endlosschleifen führen.
 
 ```js
 const arr = [1, 2, 3];
 for (const e of arr) {
   arr.push(e * 10);
 }
-// RangeError: ungültige Arraylänge
+// RangeError: invalid array length
 ```
 
-### Iterieren durch dünn besetzte Arrays
+### Iteration über lückenhafte Arrays
 
-`values()` wird leere Slots besuchen, als ob sie `undefined` sind.
+`values()` wird leere Slots besuchen, als wären sie `undefined`.
 
 ```js
 for (const element of [, "a"].values()) {
@@ -142,9 +142,9 @@ for (const element of [, "a"].values()) {
 // 'a'
 ```
 
-### Aufrufen von values() bei Objekten, die keine Arrays sind
+### Aufrufen von values() bei Nicht-Array-Objekten
 
-Die `values()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel eine nicht negative Ganzzahl kleiner als `length` ist.
+Die `values()`-Methode liest die `length`-Eigenschaft von `this` und greift dann auf jede Eigenschaft zu, deren Schlüssel ein nichtnegativer Integer kleiner als `length` ist.
 
 ```js
 const arrayLike = {
@@ -152,7 +152,7 @@ const arrayLike = {
   0: "a",
   1: "b",
   2: "c",
-  3: "d", // von values() ignoriert, da Länge 3 ist
+  3: "d", // ignored by values() since length is 3
 };
 for (const entry of Array.prototype.values.call(arrayLike)) {
   console.log(entry);

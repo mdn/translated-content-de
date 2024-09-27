@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die **`getCurrentPosition()`**-Methode der {{domxref("Geolocation")}}-Schnittstelle wird verwendet, um die aktuelle Position des Geräts zu ermitteln.
+Die **`getCurrentPosition()`**-Methode des [`Geolocation`](/de/docs/Web/API/Geolocation) Interface wird verwendet, um die aktuelle Position des Geräts zu erhalten.
 
-Beachten Sie, dass diese Funktion neben der Anforderung eines sicheren Kontexts auch durch die [`geolocation`](/de/docs/Web/HTTP/Headers/Permissions-Policy/geolocation) `Permissions-Policy` blockiert werden kann und dass die explizite Erlaubnis des Benutzers erforderlich ist.
+Beachten Sie, dass diese Funktion zusätzlich zu einem sicheren Kontext durch die [`geolocation`](/de/docs/Web/HTTP/Headers/Permissions-Policy/geolocation) `Permissions-Policy` blockiert werden kann und außerdem eine ausdrückliche Erlaubnis des Benutzers erfordert.
 Falls erforderlich, wird der Benutzer aufgefordert, wenn diese Methode aufgerufen wird.
-Der Berechtigungsstatus kann mit der `geolocation`-Benutzerberechtigung in der [Permissions API](/de/docs/Web/API/Permissions_API) abgefragt werden.
+Der Berechtigungsstatus kann mit der `geolocation` Benutzerberechtigung in der [Permissions API](/de/docs/Web/API/Permissions_API) abgefragt werden.
 
 ## Syntax
 
@@ -25,21 +25,22 @@ getCurrentPosition(success, error, options)
 ### Parameter
 
 - `success`
-  - : Eine Callback-Funktion, die ein {{domxref("GeolocationPosition")}}-Objekt als einzigen Eingabewert verwendet.
+  - : Eine Callback-Funktion, die ein [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition) Objekt als einziges Eingabeparameter akzeptiert.
 - `error` {{optional_inline}}
-  - : Eine optionale Callback-Funktion, die ein {{domxref("GeolocationPositionError")}}-Objekt als einzigen Eingabewert verwendet.
+  - : Eine optionale Callback-Funktion, die ein [`GeolocationPositionError`](/de/docs/Web/API/GeolocationPositionError)
+    Objekt als einziges Eingabeparameter akzeptiert.
 - `options` {{optional_inline}}
-  - : Ein optionales Objekt, das folgende Parameter enthält:
+  - : Ein optionales Objekt, das die folgenden Parameter beinhaltet:
     - `maximumAge` {{optional_inline}}
-      - : Ein positiver `long`-Wert, der das maximale Alter in Millisekunden angibt, das eine potenzielle zwischengespeicherte Position haben darf, um akzeptabel zu sein. Wenn auf `0` gesetzt, bedeutet dies, dass das Gerät keine zwischengespeicherte Position verwenden darf und versuchen muss, die aktuelle Position zu ermitteln. Wenn auf {{jsxref("Infinity")}} gesetzt, muss das Gerät eine zwischengespeicherte Position unabhängig von ihrem Alter zurückgeben. Standard: `0`.
+      - : Ein positiver `long` Wert, der das maximale Alter in Millisekunden eines möglichen zwischengespeicherten Standorts angibt, der akzeptabel ist, zurückgegeben zu werden. Wenn auf `0` gesetzt, bedeutet dies, dass das Gerät keinen zwischengespeicherten Standort verwenden kann und versuchen muss, die tatsächliche aktuelle Position abzurufen. Wenn auf {{jsxref("Infinity")}} gesetzt, muss das Gerät einen zwischengespeicherten Standort zurückgeben, unabhängig von dessen Alter. Standard: `0`.
     - `timeout` {{optional_inline}}
-      - : Ein positiver `long`-Wert, der die maximale Zeitdauer in Millisekunden darstellt, die dem Gerät zur Verfügung steht, um eine Position zurückzugeben. Der Standardwert ist {{jsxref("Infinity")}}, was bedeutet, dass `getCurrentPosition()` nicht zurückkehrt, bis die Position verfügbar ist.
+      - : Ein positiver `long` Wert, der die maximale Zeitdauer (in Millisekunden) darstellt, die das Gerät benötigt, um einen Standort zurückzugeben. Der Standardwert ist {{jsxref("Infinity")}}, was bedeutet, dass `getCurrentPosition()` erst zurückkehrt, wenn der Standort verfügbar ist.
     - `enableHighAccuracy` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, dass die Anwendung die bestmöglichen Ergebnisse erhalten möchte. Wenn `true` und das Gerät in der Lage ist, eine genauere Position bereitzustellen, wird es dies tun. Beachten Sie, dass dies zu längeren Antwortzeiten oder erhöhtem Stromverbrauch führen kann (beispielsweise mit einem GPS-Chip in einem mobilen Gerät). Andererseits, wenn `false`, kann das Gerät Ressourcen schonen, indem es schneller reagiert und/oder weniger Strom verbraucht. Standard: `false`.
+      - : Ein boolescher Wert, der anzeigt, dass die Anwendung die bestmöglichen Ergebnisse erhalten möchte. Wenn `true` und wenn das Gerät in der Lage ist, eine genauere Position zu liefern, wird es dies tun. Beachten Sie, dass dies zu längeren Antwortzeiten oder erhöhtem Stromverbrauch führen kann (zum Beispiel mit einem GPS-Chip auf einem mobilen Gerät). Andererseits, wenn `false`, kann das Gerät die Freiheit haben, Ressourcen zu schonen, indem es schneller antwortet und/oder weniger Strom verbraucht. Standard: `false`.
 
 ### Rückgabewert
 
-Kein ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -76,5 +77,5 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 
 ## Siehe auch
 
-- [Verwendung der Geolocation-API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- {{domxref("Navigator.geolocation")}}
+- [Verwendung der Geolocation API](/de/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
+- [`Navigator.geolocation`](/de/docs/Web/API/Navigator/geolocation)

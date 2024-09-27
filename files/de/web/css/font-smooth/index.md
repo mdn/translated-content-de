@@ -7,20 +7,20 @@ l10n:
 
 {{CSSRef}} {{ Non-standard_header }}
 
-Die **`font-smooth`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert die Anwendung von Anti-Aliasing, wenn Schriften gerendert werden.
+Die **`font-smooth`**-[CSS](/de/docs/Web/CSS)-Eigenschaft kontrolliert die Anwendung von Anti-Aliasing beim Rendern von Schriftarten.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 font-smooth: auto;
 font-smooth: never;
 font-smooth: always;
 
-/* <length> Wert */
+/* <length> value */
 font-smooth: 2em;
 
-/* Globale Werte */
+/* Global values */
 font-smooth: inherit;
 font-smooth: initial;
 font-smooth: revert;
@@ -29,18 +29,18 @@ font-smooth: unset;
 ```
 
 > [!NOTE]
-> WebKit implementiert eine ähnliche Eigenschaft, jedoch mit unterschiedlichen Werten: **`-webkit-font-smoothing`**. Sie funktioniert nur auf macOS.
+> WebKit implementiert eine ähnliche Eigenschaft, jedoch mit unterschiedlichen Werten: **`-webkit-font-smoothing`**. Sie funktioniert nur unter macOS.
 >
-> - `auto` - Überlassen Sie dem Browser die Entscheidung (Verwendet Subpixel-Anti-Aliasing, wenn verfügbar; dies ist der Standard)
-> - `none` - Schalten Sie die Schriftglättung aus; anzeigen des Textes mit gezackten scharfen Kanten.
-> - `antialiased` - Glätten Sie die Schrift auf Pixelebene, im Gegensatz zur Subpixelebene. Der Wechsel von Subpixel-Rendering zu Anti-Aliasing bei hellem Text auf dunklem Hintergrund lässt ihn leichter erscheinen.
+> - `auto` - Der Browser entscheidet (Verwendet Subpixel-Anti-Aliasing, wenn verfügbar; dies ist der Standard)
+> - `none` - Schaltet die Schriftglättung aus; Text wird mit scharfen Kanten angezeigt.
+> - `antialiased` - Glättet die Schrift auf Pixelebene, im Gegensatz zur Subpixel. Der Wechsel von Subpixel-Rendering zu Anti-Aliasing für hellen Text auf dunklen Hintergründen lässt ihn leichter erscheinen.
 > - `subpixel-antialiased` - Auf den meisten Nicht-Retina-Displays ergibt dies den schärfsten Text.
 
 > [!NOTE]
-> Firefox implementiert eine ähnliche Eigenschaft, jedoch mit unterschiedlichen Werten: **`-moz-osx-font-smoothing`**. Sie funktioniert nur auf macOS.
+> Firefox implementiert eine ähnliche Eigenschaft, jedoch mit unterschiedlichen Werten: **`-moz-osx-font-smoothing`**. Sie funktioniert nur unter macOS.
 >
-> - `auto` - Lassen Sie den Browser eine Optimierung für die Schriftglättung auswählen, typischerweise `grayscale`.
-> - `grayscale` - Rendern Sie Text mit Graustufen-Anti-Aliasing, im Gegensatz zur Subpixelebene. Der Wechsel von Subpixel-Rendering zu Anti-Aliasing bei hellem Text auf dunklem Hintergrund lässt ihn leichter erscheinen.
+> - `auto` - Ermöglicht dem Browser, eine Optimierung für die Schriftglättung zu wählen, typischerweise `grayscale`.
+> - `grayscale` - Rendert Text mit Graustufen-Anti-Aliasing, im Gegensatz zur Subpixel. Der Wechsel von Subpixel-Rendering zu Anti-Aliasing für hellen Text auf dunklen Hintergründen lässt ihn leichter erscheinen.
 
 ## Formale Definition
 
@@ -57,18 +57,18 @@ font-smooth =
 
 ### Grundlegendes Anwendungsbeispiel
 
-Das folgende Beispiel zeigt die Safari/Chromium und Firefox-Äquivalente, die die Schriftglättung auf macOS aktivieren. In beiden Fällen sollte die geglättete Schrift etwas leichter im Gewicht erscheinen.
+Das folgende Beispiel zeigt die Äquivalente in Safari/Chromium und Firefox, die die Schriftglättung unter macOS aktivieren. In beiden Fällen sollte die geglättete Schrift etwas leichter im Gewicht aussehen.
 
-Für diejenigen, die nicht auf einem macOS-System sind, hier ein Screenshot (die Live-Version erscheint später):
+Für diejenigen, die kein macOS-System nutzen, hier ein Screenshot (die Live-Version erscheint weiter unten):
 
-![Zwei Textbeispiele: eines mit der font-smooth Eigenschaft und eines ohne](smoothing.png)
+![Zwei Textbeispiele, eins mit der font-smooth-Eigenschaft und ein anderes ohne](smoothing.png)
 
 #### HTML
 
 ```html
-<p>Ohne Schriftglättung</p>
+<p>Without font smoothing</p>
 
-<p class="smoothed">Mit Schriftglättung</p>
+<p class="smoothed">With font smoothing</p>
 ```
 
 #### CSS
@@ -96,7 +96,7 @@ p {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 

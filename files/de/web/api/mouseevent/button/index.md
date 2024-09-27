@@ -8,26 +8,30 @@ l10n:
 
 {{APIRef("UI Events")}}
 
-Die schreibgeschützte **`MouseEvent.button`**-Eigenschaft gibt an, welche Taste der Maus gedrückt wurde, um das Ereignis auszulösen.
+Die schreibgeschützte Eigenschaft **`MouseEvent.button`** zeigt an, welcher Knopf auf der Maus gedrückt wurde, um das Ereignis auszulösen.
 
-Diese Eigenschaft garantiert nur, anzugeben, welche Tasten während Ereignissen das Drücken oder Loslassen einer oder mehrerer Tasten verursacht wurden. Daher ist sie für Ereignisse wie {{domxref("Element/mouseenter_event", "mouseenter")}}, {{domxref("Element/mouseleave_event", "mouseleave")}}, {{domxref("Element/mouseover_event", "mouseover")}}, {{domxref("Element/mouseout_event", "mouseout")}} oder {{domxref("Element/mousemove_event", "mousemove")}} nicht zuverlässig.
+Diese Eigenschaft garantiert nur, anzugeben, welche Tasten während der Ereignisse gedrückt sind, die durch das Drücken oder Loslassen einer oder mehrerer Tasten verursacht werden.
+Daher ist sie nicht zuverlässig für Ereignisse wie [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event), [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event), [`mouseover`](/de/docs/Web/API/Element/mouseover_event), [`mouseout`](/de/docs/Web/API/Element/mouseout_event) oder [`mousemove`](/de/docs/Web/API/Element/mousemove_event).
 
-Benutzer können die Konfiguration der Tasten an ihrem Zeigegerät ändern, sodass, wenn die button-Eigenschaft eines Ereignisses null ist, dies möglicherweise nicht durch die physisch am weitesten links gelegene Taste auf dem Zeigegerät verursacht wurde; sie sollte jedoch so funktionieren, als wäre in der Standardtastenbelegung die linke Taste gedrückt worden.
+Benutzer können die Konfiguration der Tasten auf ihrem Zeigegerät ändern, sodass, wenn die button-Eigenschaft eines Ereignisses Null ist, dies möglicherweise nicht von der physisch am weitesten links befindlichen Taste auf dem Zeigegerät verursacht wurde; jedoch sollte es sich verhalten, als ob die linke Taste im Standardtastenlayout geklickt wurde.
 
 > [!NOTE]
-> Verwechseln Sie diese Eigenschaft nicht mit der {{domxref("MouseEvent.buttons")}}-Eigenschaft, die angibt, welche Tasten für alle Maustypereignisse gedrückt sind.
+> Verwechseln Sie diese Eigenschaft nicht mit der Eigenschaft [`MouseEvent.buttons`](/de/docs/Web/API/MouseEvent/buttons), die angibt, welche Tasten für alle Mausereignistypen gedrückt sind.
 
 ## Wert
 
-Eine Zahl, die eine bestimmte Taste repräsentiert:
+Eine Zahl, die einen bestimmten Knopf darstellt:
 
 - `0`: Haupttaste gedrückt, normalerweise die linke Taste oder der nicht initialisierte Zustand
 - `1`: Hilfstaste gedrückt, normalerweise die Radtaste oder die mittlere Taste (falls vorhanden)
 - `2`: Sekundärtaste gedrückt, normalerweise die rechte Taste
-- `3`: Vierte Taste, typischerweise die _Browser zurück_-Taste
-- `4`: Fünfte Taste, typischerweise die _Browser vor_-Taste
+- `3`: Vierte Taste, typischerweise die _Browser Zurück_-Taste
+- `4`: Fünfte Taste, typischerweise die _Browser Vorwärts_-Taste
 
-Wie oben erwähnt, können Tasten anders konfiguriert sein als in der standardmäßigen "linke zu rechte"-Anordnung. Eine für Linkshänder konfigurierte Maus kann umgekehrte Tastenaktionen haben. Einige Zeigegeräte haben nur eine Taste und verwenden Tastaturen oder andere Eingabemechanismen, um Haupt-, Sekundär-, Hilfsfunktionen usw. anzuzeigen. Andere haben möglicherweise viele Tasten, die verschiedenen Funktionen und Tastenwerten zugeordnet sind.
+Wie oben erwähnt, können Tasten anders als im Standardlayout "von links nach rechts" konfiguriert werden.
+Eine für Linkshänder konfigurierte Maus kann die Tastenfunktionen umkehren.
+Einige Zeigegeräte haben nur eine Taste und verwenden Tastatur oder andere Eingabemechanismen, um die Haupt-, Sekundär-, Hilfstaste usw. anzuzeigen.
+Andere können viele Tasten haben, die verschiedenen Funktionen und Tastenwerten zugeordnet sind.
 
 ## Beispiele
 
@@ -76,4 +80,4 @@ button.addEventListener("mouseup", (e) => {
 
 ## Siehe auch
 
-- {{domxref("MouseEvent")}}
+- [`MouseEvent`](/de/docs/Web/API/MouseEvent)

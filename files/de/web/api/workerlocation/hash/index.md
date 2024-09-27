@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`hash`**-Eigenschaft eines {{domxref("WorkerLocation")}}-Objekts gibt den {{domxref("URL.hash", "Hash")}}-Teil des Worker-Standorts zurück.
+Die **`hash`**-Eigenschaft eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt den [`hash`](/de/docs/Web/API/URL/hash)-Teil des Standorts des Workers zurück.
 
 ## Wert
 
@@ -17,8 +17,8 @@ Ein String.
 ## Beispiele
 
 ```js
-// In einem Webworker, auf der Seite https://developer.mozilla.org/de/docs/Web/API/WorkerLocation/hash#examples
-const result = location.hash; // Gibt '#examples' zurück
+// In a Web worker, on the page https://developer.mozilla.org/en-US/docs/Web/API/WorkerLocation/hash#examples
+const result = location.hash; // Returns '#examples'
 ```
 
 ## Spezifikationen
@@ -31,4 +31,4 @@ const result = location.hash; // Gibt '#examples' zurück
 
 ## Siehe auch
 
-- Das {{domxref("WorkerLocation")}}-Interface, zu dem es gehört.
+- Das [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Interface, zu dem es gehört.

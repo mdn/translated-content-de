@@ -1,5 +1,5 @@
 ---
-title: "Element: getClientRects()-Methode"
+title: "Element: getClientRects() Methode"
 short-title: getClientRects()
 slug: Web/API/Element/getClientRects
 l10n:
@@ -8,12 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`getClientRects()`**-Methode der {{domxref("Element")}}
-Schnittstelle gibt eine Sammlung von {{DOMxRef("DOMRect")}}-Objekten zurück, die die
-begrenzenden Rechtecke für jedes [CSS-Rahmen-Box](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) in einem Client angeben.
+Die **`getClientRects()`** Methode der [`Element`](/de/docs/Web/API/Element)
+Schnittstelle gibt eine Sammlung von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten zurück, die die Begrenzungsrechtecke für jede [CSS-Rahmenbox](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) in einem Client anzeigen.
 
-Die meisten Elemente haben jeweils nur eine Rahmen-Box, aber ein mehrzeiliges [Inline-Element](/de/docs/Glossary/Inline-level_content) (wie z.B. ein mehrzeiliges
-{{HTMLElement("span")}}-Element, standardmäßig) hat eine Rahmen-Box um jede Zeile.
+Die meisten Elemente haben jeweils nur eine Rahmenbox, aber ein mehrzeiliges [Inline-Level-Element](/de/docs/Glossary/Inline-level_content) (wie ein mehrzeiliges
+{{HTMLElement("span")}}-Element, standardmäßig) hat eine Rahmenbox um jede Zeile.
 
 ## Syntax
 
@@ -27,68 +26,70 @@ Keine.
 
 ### Rückgabewert
 
-Der zurückgegebene Wert ist eine Sammlung von {{DOMxRef("DOMRect")}}-Objekten, jeweils eines für jede CSS-Rahmen-Box, die mit dem Element verknüpft ist. Jedes {{DOMxRef("DOMRect")}}-Objekt beschreibt die Rahmen-Box in Pixeln, wobei die linke obere Ecke relativ zur linken oberen Ecke des Viewports ist. Bei Tabellen mit Beschriftungen ist die Beschriftung enthalten, auch wenn sie außerhalb der Rahmen-Box der Tabelle liegt. Wenn diese Methode auf SVG-Elemente angewendet wird, die nicht das äußere `<svg>` sind, ist der "Viewport", relativ zu dem die resultierenden Rechtecke sind, der Viewport, den das äußere `<svg>`-Element festlegt (und um klar zu sein, die Rechtecke werden auch durch die `viewBox`-Transformation des äußeren `<svg>` transformiert, falls vorhanden).
+Der zurückgegebene Wert ist eine Sammlung von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten, jeweils eines für jede mit dem Element verbundene CSS-Rahmenbox. Jedes [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt beschreibt die Rahmenbox in Pixeln, mit der oberen linken Ecke relativ zur oberen linken Ecke des Viewports. Bei Tabellen mit Überschriften wird die Überschrift einbezogen, auch wenn sie außerhalb der Rahmenbox der Tabelle liegt. Wenn die Methode auf SVG-Elemente angewendet wird, die keine äußeren `<svg>` sind, bezieht sich der "Viewport", auf den sich die resultierenden Rechtecke beziehen, auf den Viewport, den das äußere `<svg>`-Element festlegt (und um klarzustellen, die Rechtecke werden auch durch die `viewBox`-Transformation des äußeren `<svg>`, falls vorhanden, transformiert).
 
-Die Scrollmenge, die im Viewport-Bereich (oder einem anderen scrollbaren Element) durchgeführt wurde, wird bei der Berechnung der Rechtecke berücksichtigt.
+Die Menge des Scrollens, das im Bereich des Viewports (oder eines anderen scrollbaren Elements) vorgenommen wurde, wird bei der Berechnung der Rechtecke berücksichtigt.
 
-Die zurückgegebenen Rechtecke schließen die Begrenzungen von untergeordneten Elementen, die möglicherweise überlaufen, nicht ein.
+Die zurückgegebenen Rechtecke schließen die Begrenzungen etwaiger Kindelemente, die möglicherweise überlaufen, nicht ein.
 
-Für HTML-{{HtmlElement("area")}}-Elemente, SVG-Elemente, die selbst nichts rendern, `display:none`-Elemente und allgemein alle Elemente, die nicht direkt gerendert werden, wird eine leere Liste zurückgegeben.
+Für HTML {{HtmlElement("area")}}-Elemente, SVG-Elemente, die selbst nichts rendern, `display:none`-Elemente und allgemein alle Elemente, die nicht direkt gerendert werden, wird eine leere Liste zurückgegeben.
 
-Rechtecke werden auch für CSS-Boxen zurückgegeben, die leere Rahmen-Boxen haben. Die `left`, `top`, `right` und `bottom` Koordinaten können dennoch sinnvoll sein.
+Rechtecke werden selbst für CSS-Boxen zurückgegeben, die leere Rahmenboxen haben. Die `left`-, `top`-, `right`-, und `bottom`-Koordinaten können dennoch aussagekräftig sein.
 
-Bruchteile von Pixel-Offsets sind möglich.
+Fraktionale Pixelversätze sind möglich.
 
 ## Beispiele
 
-Diese Beispiele zeichnen Client-Rechtecke in verschiedenen Farben. Beachten Sie, dass die JavaScript-Funktion, die die Client-Rechtecke malt, über die Klasse `withClientRectsOverlay` mit dem Markup verbunden ist.
+Diese Beispiele zeichnen Client-Rects in verschiedenen Farben. Beachten Sie, dass die JavaScript-Funktion, die die Client-Rects zeichnet, über die Klasse `withClientRectsOverlay` mit dem Markup verbunden ist.
 
 ### HTML
 
-Beispiel 1: Dieses HTML erzeugt drei Absätze mit einem `<span>` darin, jeweils eingebettet in einen `<div>`-Block. Client-Rechtecke werden für den
+Beispiel 1: Dieses HTML erstellt drei Absätze mit einem `<span>` darin,
+jeweils eingebettet in einen `<div>`-Block. Client-Rects werden für den
 Absatz im zweiten Block und für das `<span>`-Element im
 dritten Block gemalt.
 
 ```html
-<h3>Ein Absatz mit einem Span darin</h3>
+<h3>A paragraph with a span inside</h3>
 <p>
-  Sowohl der Span als auch der Absatz haben eine eingestellte Grenze. Die Client-Rechtecke sind in
-  rot. Beachten Sie, dass das p nur eine Rahmen-Box hat, während der Span mehrere
-  Rahmen-Boxen hat.
+  Both the span and the paragraph have a border set. The client rects are in
+  red. Note that the p has only one border box, while the span has multiple
+  border boxes.
 </p>
 
 <div>
   <strong>Original</strong>
   <p>
-    <span>Absatz, der sich über mehrere Zeilen erstreckt</span>
+    <span>Paragraph that spans multiple lines</span>
   </p>
 </div>
 
 <div>
-  <strong>p's Rechteck</strong>
+  <strong>p's rect</strong>
   <p class="withClientRectsOverlay">
-    <span>Absatz, der sich über mehrere Zeilen erstreckt</span>
+    <span>Paragraph that spans multiple lines</span>
   </p>
 </div>
 
 <div>
-  <strong>span's Rechteck</strong>
+  <strong>span's rect</strong>
   <p>
     <span class="withClientRectsOverlay"
-      >Absatz, der sich über mehrere Zeilen erstreckt</span
+      >Paragraph that spans multiple lines</span
     >
   </p>
 </div>
 ```
 
-Beispiel 2: Dieses HTML erstellt drei geordnete Listen. Client-Rechtecke werden für das
-`<ol>` im zweiten Block und für jedes `<li>`-
+Beispiel 2: Dieses HTML erstellt drei geordnete Listen. Client-Rects werden für das
+`<ol>` im zweiten Block und für jedes `<li>`
 Element im dritten Block gemalt.
 
 ```html
-<h3>Eine Liste</h3>
+<h3>A list</h3>
 <p>
-  Beachten Sie, dass die Rahmen-Box die Nummer nicht enthält, also enthalten die Client-Rechtecke diese auch nicht.
+  Note that the border box doesn't include the number, so neither do the client
+  rects.
 </p>
 
 <div>
@@ -100,7 +101,7 @@ Element im dritten Block gemalt.
 </div>
 
 <div>
-  <strong>ol's Rechteck</strong>
+  <strong>ol's rect</strong>
   <ol class="withClientRectsOverlay">
     <li>Item 1</li>
     <li>Item 2</li>
@@ -108,7 +109,7 @@ Element im dritten Block gemalt.
 </div>
 
 <div>
-  <strong>jedes li's Rechteck</strong>
+  <strong>each li's rect</strong>
   <ol>
     <li class="withClientRectsOverlay">Item 1</li>
     <li class="withClientRectsOverlay">Item 2</li>
@@ -116,19 +117,21 @@ Element im dritten Block gemalt.
 </div>
 ```
 
-Beispiel 3: Dieses HTML erstellt zwei Tabellen mit Beschriftungen. Client-Rechtecke werden für die `<table>` im zweiten Block gemalt.
+Beispiel 3: Dieses HTML erstellt zwei Tabellen mit Überschriften. Client-Rects werden für die
+`<table>` im zweiten Block gemalt.
 
 ```html
-<h3>Eine Tabelle mit einer Beschriftung</h3>
+<h3>A table with a caption</h3>
 <p>
-  Obwohl die Rahmen-Box der Tabelle die Beschriftung nicht enthält, enthalten die Client-Rechtecke die Beschriftung.
+  Although the table's border box doesn't include the caption, the client rects
+  do include the caption.
 </p>
 
 <div>
   <strong>Original</strong>
   <table>
     <caption>
-      Beschriftung
+      caption
     </caption>
     <thead>
       <tr>
@@ -144,10 +147,10 @@ Beispiel 3: Dieses HTML erstellt zwei Tabellen mit Beschriftungen. Client-Rechte
 </div>
 
 <div>
-  <strong>table's Rechteck</strong>
+  <strong>table's rect</strong>
   <table class="withClientRectsOverlay">
     <caption>
-      Beschriftung
+      caption
     </caption>
     <thead>
       <tr>
@@ -165,10 +168,10 @@ Beispiel 3: Dieses HTML erstellt zwei Tabellen mit Beschriftungen. Client-Rechte
 
 ### CSS
 
-Das CSS zeichnet Rahmen um den Absatz und das `<span>` innerhalb
-jedes `<div>`-Blocks für das erste Beispiel, um das
-`<ol>` und `<li>` für das zweite Beispiel, und um
-`<table>`, `<th>`, und `<td>`
+Das CSS zeichnet Rahmen um den Absatz und das `<span>`-Element darin
+jedem `<div>`-Block für das erste Beispiel, um das
+`<ol>` und `<li>` für das zweite Beispiel und um
+`<table>`, `<th>` und `<td>`
 Elemente für das dritte Beispiel.
 
 ```css
@@ -194,14 +197,14 @@ td {
 
 ### JavaScript
 
-Der JavaScript-Code zeichnet die Client-Rechtecke für alle HTML-Elemente, denen die CSS-Klasse
+Der JavaScript-Code zeichnet die Client-Rects für alle HTML-Elemente, denen die CSS-Klasse
 `withClientRectsOverlay` zugewiesen ist.
 
 ```js
 function addClientRectsOverlay(elt) {
-  /* Absolut positionieren Sie ein div über jedem Client-Rechteck, sodass die Breite des Rahmens
-     dieselbe ist wie die Breite des Rechtecks.
-     Hinweis: Die Overlays sind verschoben, wenn der Benutzer die Größe ändert oder zoomt. */
+  /* Absolutely position a div over each client rect so that its border width
+     is the same as the rectangle's width.
+     Note: the overlays will be out of place if the user resizes or zooms. */
   const rects = elt.getClientRects();
   for (const rect of rects) {
     const tableRectDiv = document.createElement("div");
@@ -214,7 +217,7 @@ function addClientRectsOverlay(elt) {
     tableRectDiv.style.margin = tableRectDiv.style.padding = "0";
     tableRectDiv.style.top = `${rect.top + scrollTop}px`;
     tableRectDiv.style.left = `${rect.left + scrollLeft}px`;
-    // Wir möchten, dass rect.width die Breite des Rahmens ist, daher ist die Inhaltsbreite 2px weniger.
+    // We want rect.width to be the border width, so content width is 2px less.
     tableRectDiv.style.width = `${rect.width - 2}px`;
     tableRectDiv.style.height = `${rect.height - 2}px`;
     document.body.appendChild(tableRectDiv);
@@ -222,8 +225,8 @@ function addClientRectsOverlay(elt) {
 }
 
 (() => {
-  /* Funktion addClientRectsOverlay(elt) für alle Elemente mit zugewiesener Klasse
-     "withClientRectsOverlay" aufrufen */
+  /* Call function addClientRectsOverlay(elt) for all elements with
+     assigned class "withClientRectsOverlay" */
   const elts = document.getElementsByClassName("withClientRectsOverlay");
   for (const elt of elts) {
     addClientRectsOverlay(elt);
@@ -245,4 +248,4 @@ function addClientRectsOverlay(elt) {
 
 ## Siehe auch
 
-- {{DOMxRef("Element.getBoundingClientRect()")}}
+- [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect)

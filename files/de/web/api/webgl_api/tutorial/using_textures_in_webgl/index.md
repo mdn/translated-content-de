@@ -1,5 +1,5 @@
 ---
-title: Verwenden von Texturen in WebGL
+title: Texturen in WebGL verwenden
 slug: Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL
 l10n:
   sourceCommit: 44c4ec928281dc2d7c5ea42b7d2c74a2013f16ac
@@ -7,17 +7,17 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}} {{PreviousNext("Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL", "Web/API/WebGL_API/Tutorial/Lighting_in_WebGL")}}
 
-Nun, da unser Beispielprogramm einen rotierenden 3D-Würfel hat, lassen Sie uns eine Textur darauf abbilden, anstatt seine Flächen in Vollfarben darzustellen.
+Nun, da unser Beispielprogramm einen rotierenden 3D-Würfel hat, lassen Sie uns eine Textur darauf abbilden, anstatt dessen Flächen einfarbig zu gestalten.
 
 ## Laden von Texturen
 
-Das Erste, was zu tun ist, ist das Hinzufügen von Code zum Laden der Texturen. In unserem Fall werden wir eine einzige Textur verwenden, die auf alle sechs Seiten unseres rotierenden Würfels abgebildet wird, aber dieselbe Technik kann für jede Anzahl von Texturen verwendet werden.
+Das Erste, was zu tun ist, ist das Hinzufügen von Code zum Laden der Texturen. In unserem Fall werden wir eine einzige Textur verwenden, die auf alle sechs Seiten unseres rotierenden Würfels abgebildet wird, aber die gleiche Technik kann für jede Anzahl von Texturen verwendet werden.
 
 > [!NOTE]
-> Es ist wichtig zu beachten, dass das Laden von Texturen den [CORS-Richtlinien](/de/docs/Web/HTTP/CORS) folgt; das heißt, Sie können nur Texturen von Websites laden, für die Ihr Inhalt CORS-Zulassung hat. Details finden Sie unter [Cross-domain Textures unten](#cross-domain-texturen).
+> Es ist wichtig zu beachten, dass das Laden von Texturen den [Cross-Domain-Regeln](/de/docs/Web/HTTP/CORS) folgt; das heißt, Sie können nur Texturen von Websites laden, für die Ihr Inhalt CORS-Genehmigung hat. Weitere Details finden Sie unter [Cross-Domain-Texturen unten](#cross-domain-texturen).
 
 > [!NOTE]
-> Fügen Sie diese beiden Funktionen zu Ihrem "webgl-demo.js"-Skript hinzu:
+> Fügen Sie diese beiden Funktionen zu Ihrem Skript "webgl-demo.js" hinzu:
 
 ```js
 //
@@ -89,15 +89,15 @@ function isPowerOf2(value) {
 }
 ```
 
-Die `loadTexture()`-Routine beginnt mit der Erstellung eines WebGL-Texturobjekts `texture` durch Aufruf der WebGL-{{domxref("WebGLRenderingContext.createTexture()", "createTexture()")}}-Funktion. Danach wird ein einzelner blauer Pixel mit {{domxref("WebGLRenderingContext.texImage2D()", "texImage2D()")}} hochgeladen. Dies macht die Textur sofort als einheitlich blaue Farbe verwendbar, obwohl es einige Momente dauern kann, bis unser Bild heruntergeladen ist.
+Die `loadTexture()` Routine beginnt damit, ein WebGL-Texturobjekt `texture` zu erstellen, indem die WebGL-Funktion [`createTexture()`](/de/docs/Web/API/WebGLRenderingContext/createTexture) aufgerufen wird. Dann lädt sie ein einzelnes blaues Pixel hoch, indem [`texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D) verwendet wird. Dies macht die Textur sofort als einfarbiges Blau nutzbar, auch wenn es ein paar Momente dauern kann, bis unser Bild heruntergeladen ist.
 
-Um die Textur aus der Bilddatei zu laden, wird dann ein `Image`-Objekt erstellt und die `src` auf die URL des Bildes gesetzt, das wir als Textur verwenden möchten. Die Funktion, die wir `image.onload` zuweisen, wird aufgerufen, sobald das Bild heruntergeladen ist. An diesem Punkt rufen wir erneut {{domxref("WebGLRenderingContext.texImage2D()", "texImage2D()")}} auf, diesmal mit dem Bild als Quelle für die Textur. Danach richten wir das Filtern und Wrapping für die Textur ein, basierend darauf, ob das heruntergeladene Bild in beiden Dimensionen eine Zweierpotenz war oder nicht.
+Um die Textur aus der Bilddatei zu laden, wird dann ein `Image`-Objekt erstellt und die `src` auf die URL für unser Bild gesetzt, das wir als Textur verwenden möchten. Die Funktion, die wir `image.onload` zuweisen, wird aufgerufen, sobald das Bild heruntergeladen wurde. Zu diesem Zeitpunkt rufen wir erneut [`texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D) auf, dieses Mal unter Verwendung des Bildes als Quelle für die Textur. Danach richten wir das Filtern und das Wrapping für die Textur ein, basierend darauf, ob das heruntergeladene Bild eine Zweierpotenz in beiden Dimensionen ist oder nicht.
 
-WebGL1 kann nicht Zweierpotenz-Texturen nur mit Filtern `NEAREST` oder `LINEAR` verwenden und es kann kein Mipmap für sie erzeugen. Ihr Wrapping-Modus muss ebenfalls auf `CLAMP_TO_EDGE` eingestellt sein. Andererseits, wenn die Textur in beiden Dimensionen eine Zweierpotenz ist, kann WebGL hochwertigere Filterungen verwenden, es kann Mipmap verwenden und es kann den Wrapping-Modus auf `REPEAT` oder `MIRRORED_REPEAT` setzen.
+WebGL1 kann nur Nicht-Zweierpotenz-Texturen verwenden, wenn die Filterung auf `NEAREST` oder `LINEAR` gesetzt ist, und es kann für diese keine Mipmap generieren. Ihr Wrapping-Modus muss auch auf `CLAMP_TO_EDGE` gesetzt sein. Wenn hingegen die Textur eine Zweierpotenz in beiden Dimensionen ist, kann WebGL eine qualitativ hochwertigere Filterung durchführen, Mipmap verwenden und den Wrapping-Modus auf `REPEAT` oder `MIRRORED_REPEAT` einstellen.
 
-Ein Beispiel für eine wiederholte Textur ist das Kacheln eines Bildes von einigen Ziegeln, um eine Ziegelwand zu bedecken.
+Ein Beispiel für eine wiederholte Textur ist das Kacheln eines Bildes mit ein paar Ziegeln, um eine Ziegelwand zu bedecken.
 
-Mipmapping und UV-Wiederholungen können mit {{domxref("WebGLRenderingContext.texParameter()", "texParameteri()")}} deaktiviert werden. Dadurch werden nicht Zweierpotenz-Texturen unterstützt, allerdings auf Kosten von Mipmapping, UV-Wrapping, UV-Kachelung und Ihrer Kontrolle darüber, wie das Gerät Ihre Textur behandelt.
+Mipmapping und UV-Wiederholung können mit [`texParameteri()`](/de/docs/Web/API/WebGLRenderingContext/texParameter) deaktiviert werden. Dies ermöglicht Nicht-Zweierpotenz-Texturen auf Kosten von Mipmapping, UV-Wrapping, UV-Kacheln und Ihrer Kontrolle über die Handhabung Ihrer Textur durch das Gerät.
 
 ```js
 // gl.NEAREST is also allowed, instead of gl.LINEAR, as neither mipmap.
@@ -108,16 +108,16 @@ gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
 ```
 
-Mit diesen Parametern werden kompatible WebGL-Geräte automatisch jede Auflösung für diese Textur akzeptieren (bis zu ihren maximalen Dimensionen). Ohne die oben genannten Einstellungen fordert WebGL, dass alle Muster von nicht Zweierpotenz-Texturen fehlschlagen und durch transparentes Schwarz zurückgegeben werden: `rgb(0 0 0 / 0%)`.
+Erneut, mit diesen Parametern akzeptieren kompatible WebGL-Geräte automatisch jede Auflösung für diese Textur (bis zu ihren maximalen Dimensionen). Ohne die oben genannte Konfiguration fordert WebGL alle Muster von Nicht-Zweierpotenz-Texturen dazu auf, transparentes Schwarz zurückzugeben: `rgb(0 0 0 / 0%)`.
 
-Um das Bild zu laden, fügen Sie einen Aufruf unserer `loadTexture()`-Funktion in Ihrer `main()`-Funktion hinzu. Dies kann nach dem Aufruf von `initBuffers(gl)` hinzugefügt werden.
+Um das Bild zu laden, fügen Sie einen Aufruf zu unserer `loadTexture()` Funktion innerhalb unserer `main()` Funktion hinzu. Dies kann nach dem Aufruf von `initBuffers(gl)` hinzugefügt werden.
 
-Beachten Sie auch: Browser kopieren Pixel aus dem geladenen Bild in Top-to-Bottom-Reihenfolge — aus der oberen linken Ecke; aber WebGL möchte, dass die Pixel in Bottom-to-Top-Reihenfolge — von der unteren linken Ecke — vorliegen. (Für mehr Details siehe [Warum ist meine WebGL-Textur auf dem Kopf?](https://jameshfisher.com/2020/10/22/why-is-my-webgl-texture-upside-down/).)
+Beachten Sie jedoch auch: Browser kopieren Pixel aus dem geladenen Bild in der Reihenfolge von oben nach unten – aus der oberen linken Ecke; aber WebGL möchte die Pixel in der Reihenfolge von unten nach oben – beginnend von der unteren linken Ecke. (Für weitere Details siehe [Warum ist meine WebGL-Textur verkehrt herum?](https://jameshfisher.com/2020/10/22/why-is-my-webgl-texture-upside-down/).)
 
-Um also zu verhindern, dass die resultierende Bildtextur beim Rendern die falsche Orientierung hat, müssen wir auch [`pixelStorei()`](/de/docs/Web/API/WebGLRenderingContext/pixelStorei) mit dem Parameter `gl.UNPACK_FLIP_Y_WEBGL` auf `true` setzen — um die Pixel in die von WebGL erwartete Bottom-to-Top-Reihenfolge umzukehren.
+Um zu verhindern, dass die resultierende Bildtextur beim Rendern die falsche Ausrichtung hat, müssen wir auch [`pixelStorei()`](/de/docs/Web/API/WebGLRenderingContext/pixelStorei) mit dem Parameter `gl.UNPACK_FLIP_Y_WEBGL` auf `true` setzen – um die Pixel in die von WebGL erwartete Reihenfolge von unten nach oben zu kippen.
 
 > [!NOTE]
-> Fügen Sie den folgenden Code in Ihre `main()`-Funktion direkt nach dem Aufruf von `initBuffers()` ein:
+> Fügen Sie Ihrer `main()` Funktion den folgenden Code hinzu, direkt nach dem Aufruf von `initBuffers()`:
 
 ```js
 // Load texture
@@ -129,9 +129,9 @@ gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
 > [!NOTE]
 > Laden Sie schließlich die Datei [cubetexture.png](https://raw.githubusercontent.com/mdn/dom-examples/main/webgl-examples/tutorial/sample6/cubetexture.png) in dasselbe lokale Verzeichnis wie Ihre JavaScript-Dateien herunter.
 
-## Abbilden der Textur auf die Flächen
+## Die Textur auf die Flächen abbilden
 
-An diesem Punkt ist die Textur geladen und einsatzbereit. Aber bevor wir sie verwenden können, müssen wir die Zuordnung der Texturkoordinaten zu den Scheitelpunkten der Flächen unseres Würfels festlegen. Dies ersetzt den gesamten bisher vorhandenen Code zur Konfiguration der Farben für jede der Würfelflächen in `initBuffers()`.
+An diesem Punkt ist die Textur geladen und einsatzbereit. Aber bevor wir sie verwenden können, müssen wir die Zuordnung der Texturkoordinaten zu den Vertices der Flächen unseres Würfels festlegen. Dies ersetzt den gesamten zuvor bestehenden Code zur Konfiguration der Farben für jede der Würfelflächen in `initBuffers()`.
 
 > [!NOTE]
 > Fügen Sie diese Funktion zu Ihrem Modul "init-buffer.js" hinzu:
@@ -166,25 +166,25 @@ function initTextureBuffer(gl) {
 }
 ```
 
-Zuerst erstellt dieser Code einen WebGL-Puffer, in den wir die Texturkoordinaten für jede Fläche speichern werden, dann binden wir diesen Puffer als das Array, in das wir schreiben werden.
+Zuerst erstellt dieser Code einen WebGL-Puffer, in den wir die Texturkoordinaten für jede Fläche speichern, dann binden wir diesen Puffer als das Array, in das wir schreiben werden.
 
-Das `textureCoordinates`-Array definiert die Texturkoordinaten, die mit jedem Eckpunkt jeder Fläche korrespondieren. Beachten Sie, dass die Texturkoordinaten von 0,0 bis 1,0 reichen; die Dimensionen von Texturen werden für den Zweck der Texturabbildung auf einen Bereich von 0,0 bis 1,0 normalisiert, unabhängig von ihrer tatsächlichen Größe.
+Das `textureCoordinates` Array definiert die Texturkoordinaten, die jedem Vertex jeder Fläche entsprechen. Beachten Sie, dass die Texturkoordinaten von 0,0 bis 1,0 reichen; die Dimensionen der Texturen sind aus Gründen der Texturabbildung auf einen Bereich von 0,0 bis 1,0 normalisiert, unabhängig von ihrer tatsächlichen Größe.
 
-Sobald wir das Texturabbildungsarray eingerichtet haben, geben wir das Array in den Puffer ein, sodass WebGL diese Daten zur Verwendung bereit hat.
+Sobald wir das Texturabbildungs-Array eingerichtet haben, übergeben wir das Array in den Puffer, sodass WebGL diese Daten für seine Verwendung bereit hat.
 
 Dann geben wir den neuen Puffer zurück.
 
-Als nächstes müssen wir `initBuffers()` aktualisieren, um den Texturkoordinatenpuffer anstelle des Farbpuffers zu erstellen und zurückzugeben.
+Als Nächstes müssen wir `initBuffers()` aktualisieren, um den Texturkoordinatenpuffer anstelle des Farbgepuffers zu erstellen und zurückzugeben.
 
 > [!NOTE]
-> Ersetzen Sie den Aufruf von `initColorBuffer()` in der Funktion `initBuffers()` Ihres Moduls "init-buffers.js" mit der folgenden Zeile:
+> Ersetzen Sie im `initBuffers()`-Funktion Ihres Moduls "init-buffers.js" den Aufruf von `initColorBuffer()` durch die folgende Zeile:
 
 ```js
 const textureCoordBuffer = initTextureBuffer(gl);
 ```
 
 > [!NOTE]
-> Ersetzen Sie die `return`-Anweisung in der Funktion `initBuffers()` Ihres Moduls "init-buffers.js" mit dem folgenden:
+> Ersetzen Sie im `initBuffers()`-Funktion Ihres Moduls "init-buffers.js" die `return`-Anweisung durch die folgende:
 
 ```js
 return {
@@ -196,14 +196,14 @@ return {
 
 ## Aktualisieren der Shader
 
-Das Shader-Programm muss ebenfalls aktualisiert werden, um die Texturen anstelle von Vollfarben zu verwenden.
+Auch das Shader-Programm muss aktualisiert werden, um die Texturen anstelle von einfarbigen zu verwenden.
 
 ### Der Vertex-Shader
 
-Wir müssen den Vertex-Shader ersetzen, damit er anstatt der Farbdaten die Texturkoordinatendaten abrufen kann.
+Wir müssen den Vertex-Shader ersetzen, sodass er anstelle der Farbdatensätze die Texturkoordinatendaten abruft.
 
 > [!NOTE]
-> Aktualisieren Sie die `vsSource`-Deklaration in Ihrer `main()`-Funktion wie folgt:
+> Aktualisieren Sie die `vsSource`-Deklaration in Ihrer `main()` Funktion wie folgt:
 
 ```js
 const vsSource = `
@@ -222,14 +222,14 @@ const vsSource = `
   `;
 ```
 
-Die wichtigste Änderung hier ist, dass anstatt die Eckpunktfarbe abzurufen, die Texturkoordinaten abgerufen und zum Vertex-Shader weitergegeben werden; dies wird den Ort innerhalb der Textur angeben, der dem Eckpunkt entspricht.
+Die wichtigste Änderung hier ist, dass wir anstelle der Vertexfarbe die Texturkoordinaten abrufen und an den Vertex-Shader übergeben; dies zeigt die Texturposition an, die dem Vertex entspricht.
 
 ### Der Fragment-Shader
 
-Der Fragment-Shader muss ebenfalls aktualisiert werden.
+Auch der Fragment-Shader muss aktualisiert werden.
 
 > [!NOTE]
-> Aktualisieren Sie die `fsSource`-Deklaration in Ihrer `main()`-Funktion wie folgt:
+> Aktualisieren Sie die `fsSource`-Deklaration in Ihrer `main()` Funktion wie folgt:
 
 ```js
 const fsSource = `
@@ -244,14 +244,14 @@ const fsSource = `
   `;
 ```
 
-Anstatt einen Farbwert der Fragmentfarbe zuzuweisen, wird die Fragmentfarbe durch Abrufen des {{Glossary("texel")}} (also des Pixels innerhalb der Textur) basierend auf dem Wert von `vTextureCoord` berechnet, der wie die Farben zwischen den Eckpunkten interpoliert wird.
+Anstatt einen Farbwert der Fragmentfarbe zuzuweisen, wird die Fragmentfarbe durch Abrufen des [Texels](/de/docs/Glossary/texel) (also des Pixels innerhalb der Textur) basierend auf dem Wert von `vTextureCoord` berechnet, der wie die Farben zwischen den Vertices interpoliert wird.
 
-### Attribut- und Uniform-Lokationen
+### Attribut- und Uniform-Positionen
 
-Da wir ein Attribut geändert und ein Uniform hinzugefügt haben, müssen wir deren Standorte abfragen.
+Da wir ein Attribut geändert und ein Uniform hinzugefügt haben, müssen wir deren Positionen ermitteln.
 
 > [!NOTE]
-> Aktualisieren Sie die `programInfo`-Deklaration in Ihrer `main()`-Funktion wie folgt:
+> Aktualisieren Sie die `programInfo`-Deklaration in Ihrer `main()` Funktion wie folgt:
 
 ```js
 const programInfo = {
@@ -273,7 +273,7 @@ const programInfo = {
 Die Änderungen an der `drawScene()`-Funktion sind einfach.
 
 > [!NOTE]
-> Fügen Sie die folgende Funktion zu Ihrer "draw-scene.js"-Modul in der `drawScene()`-Funktion hinzu:
+> Fügen Sie in der `drawScene()`-Funktion Ihres Moduls "draw-scene.js" die folgende Funktion hinzu:
 
 ```js
 // tell webgl how to pull out the texture coordinates from buffer
@@ -297,16 +297,16 @@ function setTextureAttribute(gl, buffers, programInfo) {
 ```
 
 > [!NOTE]
-> Ersetzen Sie den Aufruf von `setColorAttribute()` in der `drawScene()`-Funktion Ihres "draw-scene.js"-Moduls mit der folgenden Zeile:
+> Ersetzen Sie in der `drawScene()`-Funktion Ihres Moduls "draw-scene.js" den Aufruf von `setColorAttribute()` durch die folgende Zeile:
 
 ```js
 setTextureAttribute(gl, buffers, programInfo);
 ```
 
-Fügen Sie dann Code hinzu, um die Textur an die Flächen abzubilden.
+Fügen Sie dann Code hinzu, um die Textur anzugeben, die auf die Flächen abgebildet werden soll.
 
 > [!NOTE]
-> Fügen Sie in Ihrer `drawScene()`-Funktion direkt nach den beiden Aufrufen von `gl.uniformMatrix4fv()` den folgenden Code hinzu:
+> Fügen Sie in Ihrer `drawScene()`-Funktion, unmittelbar nach den beiden Aufrufen von `gl.uniformMatrix4fv()`, den folgenden Code hinzu:
 
 ```js
 // Tell WebGL we want to affect texture unit 0
@@ -319,9 +319,9 @@ gl.bindTexture(gl.TEXTURE_2D, texture);
 gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 ```
 
-WebGL bietet mindestens 8 Textureinheiten; die erste davon ist `gl.TEXTURE0`. Wir teilen WebGL mit, dass wir die Einheit 0 beeinflussen wollen. Dann rufen wir {{domxref("WebGLRenderingContext.bindTexture()", "bindTexture()")}} auf, welches die Textur an den `TEXTURE_2D`-Bindepunkt der Textureinheit 0 bindet. Dann teilen wir dem Shader mit, dass für den `uSampler` die Textureinheit 0 verwendet werden soll.
+WebGL bietet mindestens 8 Textureinheiten; die erste davon ist `gl.TEXTURE0`. Wir sagen WebGL, dass wir Einheit 0 beeinflussen wollen. Wir rufen dann [`bindTexture()`](/de/docs/Web/API/WebGLRenderingContext/bindTexture) auf, das die Textur an den `TEXTURE_2D`-Bindungspunkt der Textureinheit 0 bindet. Wir sagen dann dem Shader, dass für den `uSampler` Textureinheit 0 verwendet werden soll.
 
-Zuletzt fügen Sie `texture` als Parameter zur `drawScene()`-Funktion hinzu, sowohl dort, wo sie definiert ist, als auch dort, wo sie aufgerufen wird.
+Schließlich fügen Sie `texture` als Parameter zur `drawScene()`-Funktion hinzu, sowohl dort, wo sie definiert ist, als auch dort, wo sie aufgerufen wird.
 
 > [!NOTE]
 > Aktualisieren Sie die Deklaration Ihrer `drawScene()`-Funktion, um den neuen Parameter hinzuzufügen:
@@ -337,20 +337,20 @@ function drawScene(gl, programInfo, buffers, texture, cubeRotation) {
 drawScene(gl, programInfo, buffers, texture, cubeRotation);
 ```
 
-An diesem Punkt sollte der rotierende Würfel einsatzbereit sein.
+An diesem Punkt sollte der rotierende Würfel bereit sein.
 
 {{EmbedGHLiveSample('dom-examples/webgl-examples/tutorial/sample6/index.html', 670, 510) }}
 
-[Sehen Sie sich den vollständigen Code an](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample6) | [Öffnen Sie dieses Demo auf einer neuen Seite](https://mdn.github.io/dom-examples/webgl-examples/tutorial/sample6/)
+[Vollständigen Code ansehen](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample6) | [Dieses Demo auf einer neuen Seite öffnen](https://mdn.github.io/dom-examples/webgl-examples/tutorial/sample6/)
 
 ## Cross-Domain-Texturen
 
-Das Laden von WebGL-Texturen unterliegt den Zugriffssteuerungen für Cross-Domain. Damit Ihr Inhalt eine Textur von einer anderen Domain laden kann, muss eine CORS-Zulassung eingeholt werden. Details dazu finden Sie unter [HTTP-Zugriffskontrolle](/de/docs/Web/HTTP/CORS).
+Das Laden von WebGL-Texturen unterliegt den Zugangskontrollen für Cross-Domain. Damit Ihr Inhalt eine Textur von einer anderen Domain laden kann, muss eine CORS-Genehmigung eingeholt werden. Lesen Sie [HTTP-Zugriffskontrolle](/de/docs/Web/HTTP/CORS) für Details zu CORS.
 
-Da WebGL jetzt erfordert, dass Texturen aus sicheren Kontexten geladen werden, können Sie in WebGL keine Texturen verwenden, die von `file:///`-URLs geladen werden. Das bedeutet, dass Sie einen sicheren Webserver benötigen, um Ihren Code zu testen und bereitzustellen. Für lokale Tests siehe auch unseren Leitfaden [Wie richten Sie einen lokalen Testserver ein?](/de/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server) für Unterstützung.
+Da WebGL jetzt erfordert, dass Texturen aus sicheren Kontexten geladen werden, können Sie keine Texturen verwenden, die von `file:///` URLs in WebGL geladen wurden. Das bedeutet, dass Sie einen sicheren Webserver benötigen, um Ihren Code zu testen und bereitzustellen. Für lokale Tests finden Sie in unserem Leitfaden [Wie richtet man einen lokalen Testserver ein?](/de/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server) Hilfe.
 
-Siehe diesen [Artikel auf hacks.mozilla.org](https://hacks.mozilla.org/2011/11/using-cors-to-load-webgl-textures-from-cross-domain-images/), um zu erfahren, wie man CORS-zugelassene Bilder als WebGL-Texturen verwendet.
+Lesen Sie diesen [hacks.mozilla.org-Artikel](https://hacks.mozilla.org/2011/11/using-cors-to-load-webgl-textures-from-cross-domain-images/) für eine Erklärung, wie Sie CORS-genehmigte Bilder als WebGL-Texturen verwenden können.
 
-Beschädigte (write-only) 2D-Canvases können nicht als WebGL-Texturen verwendet werden. Ein 2D-{{ HTMLElement("canvas") }} wird z.B. beschädigt, wenn ein Cross-Domain-Bild darauf gezeichnet wird.
+Geteinige (nur schreibgeschützte) 2D-Canvases können nicht als WebGL-Texturen verwendet werden. Ein 2D-{{ HTMLElement("canvas") }} wird beispielsweise getainted, wenn ein Cross-Domain-Bild darauf gezeichnet wird.
 
 {{PreviousNext("Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL", "Web/API/WebGL_API/Tutorial/Lighting_in_WebGL")}}

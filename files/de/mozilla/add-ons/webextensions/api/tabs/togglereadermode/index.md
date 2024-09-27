@@ -7,25 +7,25 @@ l10n:
 
 {{AddonSidebar}}
 
-Wechselt den Lesemodus für den gegebenen Tab.
+Wechselt den Lesemodus für den angegebenen Tab.
 
-Diese Funktion wechselt den Lesemodus für den gegebenen Tab. Sie nimmt eine Tab-ID als Parameter entgegen; falls diese weggelassen wird, wird der aktuell aktive Tab umgeschaltet.
+Diese Funktion aktiviert oder deaktiviert den Lesemodus für den angegebenen Tab. Sie nimmt eine Tab-ID als Parameter: Wenn dieser weggelassen wird, wird der derzeit aktive Tab umgeschaltet.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
-Der Lesemodus, auch bekannt als Leseansicht, ist eine Browser-Funktion, die es den Benutzer erleichtert, sich auf einen Artikel zu konzentrieren, indem sie:
+Der Lesemodus, auch als Leseransicht bekannt, ist eine Browserfunktion, die es dem Benutzer erleichtert, sich auf einen Artikel zu konzentrieren, indem sie:
 
-- nicht wesentliche Seitenelemente wie Seitenleisten, Fußzeilen und Werbung ausblendet
-- die Textgröße, den Kontrast und das Layout der Seite für bessere Lesbarkeit anpasst.
+- nicht wesentliche Seitenelemente wie Seitenleisten, Fußzeilen und Anzeigen ausblendet
+- die Textgröße, den Kontrast und das Layout der Seite für eine bessere Lesbarkeit ändert.
 
-Der Lesemodus ist speziell für Artikel nützlich: Das bedeutet, Seiten, die einen Textkörper als Hauptmerkmal haben. Seiten, die keinen erkennbaren Artikel haben, sind nicht für die Anzeige im Lesemodus geeignet. Um festzustellen, ob eine Seite ein Artikel ist, überprüfen Sie die Eigenschaft `isArticle` von {{WebExtAPIRef("tabs.Tab")}}.
+Der Lesemodus ist speziell für Artikel nützlich, das heißt, Seiten, deren Hauptmerkmal ein Textkörper ist. Seiten, die keinen erkennbaren Artikel haben, sind nicht für die Anzeige im Lesemodus geeignet. Um herauszufinden, ob eine Seite ein Artikel ist, überprüfen Sie die `isArticle`-Eigenschaft von {{WebExtAPIRef("tabs.Tab")}}.
 
-Um festzustellen, ob sich ein Tab bereits im Lesemodus befindet, überprüfen Sie die Eigenschaft `isInReaderMode` von {{WebExtAPIRef("tabs.Tab")}}. Um zu verfolgen, wie Tabs in den oder aus dem Lesemodus wechseln, müssen Sie den aktuellen Zustand aller Tabs im Auge behalten und überprüfen, wann sich `isInReaderMode` ändert:
+Um herauszufinden, ob ein Tab bereits im Lesemodus ist, überprüfen Sie die `isInReaderMode`-Eigenschaft von {{WebExtAPIRef("tabs.Tab")}}. Um Tabs zu verfolgen, die in den oder aus dem Lesemodus wechseln, müssen Sie den aktuellen Zustand aller Tabs verfolgen und überprüfen, wann sich `isInReaderMode` ändert:
 
 ```js
 function handleUpdated(tabId, changeInfo, tabInfo) {
   if (changeInfo.status === "complete") {
-    console.log(`Tab ${tabId} Lesemodus: ${tabInfo.isInReaderMode}`);
+    console.log(`Tab ${tabId} reader mode: ${tabInfo.isInReaderMode}`);
   }
 }
 
@@ -51,7 +51,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Dieser Code schaltet jede neue Seite in den Lesemodus um, wenn die Seite dafür geeignet ist:
+Dieser Code wechselt jede neue Seite in den Lesemodus, wenn diese Seite dafür geeignet ist:
 
 ```js
 function switchToReaderMode(tabId, changeInfo, tabInfo) {

@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`flush()`**-Methode des {{domxref("AudioEncoder")}}-Interfaces gibt ein Promise zurück, das aufgelöst wird, sobald alle ausstehenden Nachrichten in der Warteschlange abgeschlossen sind.
+Die **`flush()`**-Methode des [`AudioEncoder`](/de/docs/Web/API/AudioEncoder)-Interfaces gibt ein Promise zurück, das aufgelöst wird, sobald alle ausstehenden Nachrichten in der Warteschlange abgeschlossen sind.
 
 ## Syntax
 
@@ -26,12 +26,12 @@ Ein {{jsxref("Promise")}}, das mit undefined aufgelöst wird.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn das Promise abgelehnt wird, weil der {{domxref("AudioEncoder.state","state")}} nicht `"configured"` ist.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn das Promise abgelehnt wird, weil der [`state`](/de/docs/Web/API/AudioEncoder/state) nicht `"configured"` ist.
 
 ## Beispiele
 
-Im folgenden Beispiel wird der `AudioEncoder` geleert.
+Das folgende Beispiel leert den `AudioEncoder`.
 
 ```js
 AudioEncoder.flush();

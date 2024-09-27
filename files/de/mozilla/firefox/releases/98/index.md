@@ -13,11 +13,11 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 98, die Ent
 
 ### HTML
 
-- Das HTML-{{HTMLElement("dialog")}}-Element ist jetzt standardmäßig verfügbar. Dieses Element und seine zugehörigen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) unterstützen HTML-basierte modale Dialogfelder ([Firefox-Bug 1733536](https://bugzil.la/1733536)).
+- Das HTML-Element {{HTMLElement("dialog")}} ist jetzt standardmäßig verfügbar. Dieses Element und die zugehörigen [DOM-APIs](/de/docs/Web/API/Document_Object_Model) bieten Unterstützung für HTML-basierte modale Dialogboxen ([Firefox Fehler 1733536](https://bugzil.la/1733536)).
 
 ### CSS
 
-- Die {{cssxref("hyphenate-character")}}-Eigenschaft setzt eine Zeichenkette, die anstelle eines Bindestrichs-Zeichens (`-`) am Ende eines Silbentrennungsumbruchs verwendet wird ([Firefox-Bug 1751024](https://bugzil.la/1751024)).
+- Die Eigenschaft {{cssxref("hyphenate-character")}} setzt einen String, der anstelle eines Bindestrichs (`-`) am Ende eines Trennstrich-Zeilenumbruchs verwendet wird ([Firefox Fehler 1751024](https://bugzil.la/1751024)).
 
 ### JavaScript
 
@@ -25,25 +25,26 @@ Keine bemerkenswerten Änderungen
 
 ### APIs
 
-- {{domxref("navigator.registerProtocolHandler()")}} kann nun Protokoll-Handler für die Schemata `ftp`, `sftp` und `ftps` registrieren ([Firefox-Bug 1705202](https://bugzil.la/1705202)).
+- [`navigator.registerProtocolHandler()`](/de/docs/Web/API/Navigator/registerProtocolHandler) kann jetzt Protokoll-Handler für die Schemen `ftp`, `sftp` und `ftps` registrieren ([Firefox Fehler 1705202](https://bugzil.la/1705202)).
 
 #### DOM
 
-- {{domxref("HTMLElement.outerText")}} wird jetzt unterstützt ([Firefox-Bug 1709790](https://bugzil.la/1709790)).
-- Die Eigenschaften `colorSpaceConversion`, `resizeWidth` und `resizeHeight` können mit dem `options`-Objekt an die Methode {{domxref("createImageBitmap()")}} übergeben werden ([Firefox-Bug 1748868](https://bugzil.la/1748868) und [Firefox-Bug 1733559](https://bugzil.la/1733559)).
+- [`HTMLElement.outerText`](/de/docs/Web/API/HTMLElement/outerText) wird jetzt unterstützt ([Firefox Fehler 1709790](https://bugzil.la/1709790)).
+- Die Eigenschaften `colorSpaceConversion`, `resizeWidth` und `resizeHeight` können an die Methode [`createImageBitmap()`](/de/docs/Web/API/CreateImageBitmap) über das `options` Objekt übergeben werden ([Firefox Fehler 1748868](https://bugzil.la/1748868) und [Firefox Fehler 1733559](https://bugzil.la/1733559)).
 
 #### Entfernungen
 
-- Die veraltete [WebVR API](/de/docs/Web/API/WebVR_API) ist jetzt standardmäßig in allen Builds deaktiviert (zuvor war sie auf Windows, macOS und in allen Nightly-/Dev-Builds aktiviert). Sie kann in `about:config` durch Setzen von `dom.vr.enabled` auf `true` wieder aktiviert werden ([Firefox-Bug 1750902](https://bugzil.la/1750902)).
+- Die veraltete [WebVR API](/de/docs/Web/API/WebVR_API) ist jetzt standardmäßig in allen Builds deaktiviert (zuvor war sie unter Windows, macOS und in allen Nightly/Dev-Builds aktiviert).
+  Sie kann in `about:config` wieder aktiviert werden, indem `dom.vr.enabled` auf `true` gesetzt wird ([Firefox Fehler 1750902](https://bugzil.la/1750902)).
 
 ### WebDriver-Konformität (Marionette)
 
-- Verbesserte anfängliche Seitenladeüberprüfungen für neu geöffnete Tabs ([Firefox-Bug 1747359](https://bugzil.la/1747359)).
+- Verbesserte Überprüfung des ersten Seitenladens für neu geöffnete Tabs ([Firefox Fehler 1747359](https://bugzil.la/1747359)).
 
 ## Änderungen für Add-on-Entwickler
 
-- Web-Erweiterungen, die {{WebExtAPIRef("webRequest")}} verwenden, wurden früh während des Firefox-Starts gestartet. Dies wurde geändert, um den frühen Start nur für Erweiterungen auszulösen, die blockierende {{WebExtAPIRef("webRequest")}}-Aufrufe verwenden. Nicht blockierende Aufrufe verursachen nicht mehr den frühen Start einer Erweiterung. ([Firefox-Bug 1749871](https://bugzil.la/1749871))
-- `cookieStoreId` wurde zu {{WebExtAPIRef("userScripts.register")}} hinzugefügt. Dies ermöglicht es Erweiterungen, container-spezifische Benutzerskripte zu registrieren ([Firefox-Bug 1738567](https://bugzil.la/1738567)).
+- Web-Erweiterungen, die {{WebExtAPIRef("webRequest")}} verwenden, wurden beim Firefox-Start frühzeitig gestartet. Dies wurde dahingehend geändert, dass ein früher Start nur für Erweiterungen ausgelöst wird, die blockierende Aufrufe von {{WebExtAPIRef("webRequest")}} verwenden. Nicht blockierende Aufrufe führen nicht mehr zum frühen Start einer Erweiterung. ([Firefox Fehler 1749871](https://bugzil.la/1749871))
+- `cookieStoreId` wurde zu {{WebExtAPIRef("userScripts.register")}} hinzugefügt. Dies ermöglicht es Erweiterungen, container-spezifische Benutzerskripte zu registrieren ([Firefox Fehler 1738567](https://bugzil.la/1738567)).
 
 ## Ältere Versionen
 

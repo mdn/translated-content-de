@@ -8,11 +8,11 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Das **`statechange`**-Ereignis der {{domxref("MIDIAccess")}}-Schnittstelle wird ausgelöst, wenn ein neuer MIDI-Port hinzugefügt oder ein bestehender Port den Status ändert.
+Das **`statechange`**-Ereignis der [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)-Schnittstelle wird ausgelöst, wenn ein neuer MIDI-Port hinzugefügt wird oder wenn sich der Status eines vorhandenen Ports ändert.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("statechange", (event) => {});
@@ -22,18 +22,18 @@ onstatechange = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("MIDIConnectionEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MIDIConnectionEvent`](/de/docs/Web/API/MIDIConnectionEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MIDIConnectionEvent")}}
 
 ## Ereigniseigenschaften
 
-- {{domxref("MIDIConnectionEvent.port")}} {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf eine {{domxref("MIDIPort")}}-Instanz für einen Port zurück, der verbunden oder getrennt wurde.
+- [`MIDIConnectionEvent.port`](/de/docs/Web/API/MIDIConnectionEvent/port) {{ReadOnlyInline}}
+  - : Gibt eine Referenz zu einer [`MIDIPort`](/de/docs/Web/API/MIDIPort)-Instanz für einen Port zurück, der verbunden oder getrennt wurde.
 
 ## Beispiel
 
-Die Methode {{domxref("Navigator.requestMIDIAccess()")}} gibt ein Versprechen zurück, das mit einem {{domxref("MIDIAccess")}}-Objekt aufgelöst wird. Wenn ein Port seinen Zustand ändert, werden Informationen über diesen Port in die Konsole ausgegeben.
+Die Methode [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) gibt ein Promise zurück, das mit einem [`MIDIAccess`](/de/docs/Web/API/MIDIAccess)-Objekt erfüllt wird. Wenn sich der Zustand eines Ports ändert, werden Informationen über diesen Port in der Konsole ausgegeben.
 
 ```js
 navigator.requestMIDIAccess().then((access) => {

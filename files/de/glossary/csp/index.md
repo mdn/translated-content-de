@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **CSP** ([Content Security Policy](/de/docs/Web/HTTP/CSP)) wird verwendet, um bestimmte Arten von webbasierten Angriffen wie {{Glossary("Cross-site_scripting")}}, {{Glossary("clickjacking")}} und Dateninjektionen zu erkennen und abzumildern.
+Ein **CSP** ([Content Security Policy](/de/docs/Web/HTTP/CSP)) wird verwendet, um bestimmte Arten von websitebezogenen Angriffen wie [Cross-site Scripting](/de/docs/Glossary/Cross-site_scripting), [Clickjacking](/de/docs/Glossary/clickjacking) und Dateninjektionen zu erkennen und zu mindern.
 
-Die Implementierung basiert auf einem {{Glossary("HTTP")}}-Header namens {{HTTPHeader("Content-Security-Policy")}}.
+Die Implementierung basiert auf einem [HTTP](/de/docs/Glossary/HTTP)-Header namens {{HTTPHeader("Content-Security-Policy")}}.
 
 ## Siehe auch
 

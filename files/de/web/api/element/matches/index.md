@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`matches()`**-Methode der {{domxref("Element")}}-Schnittstelle prüft, ob das Element durch den angegebenen [CSS-Selektor](/de/docs/Learn/CSS/Building_blocks/Selectors) ausgewählt werden würde.
+Die **`matches()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces prüft, ob das Element durch den angegebenen [CSS-Selektor](/de/docs/Learn/CSS/Building_blocks/Selectors) ausgewählt werden würde.
 
 ## Syntax
 
@@ -19,16 +19,16 @@ matches(selectors)
 ### Parameter
 
 - `selectors`
-  - : Ein String, der gültige [CSS-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors) enthält, gegen die das {{domxref("Element")}} getestet wird.
+  - : Ein String, der gültige [CSS-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors) enthält, gegen die das [`Element`](/de/docs/Web/API/Element) getestet wird.
 
 ### Rückgabewert
 
-`true`, wenn das {{domxref("Element")}} den `selectors` entspricht. Andernfalls `false`.
+`true`, wenn das [`Element`](/de/docs/Web/API/Element) mit den `selectors` übereinstimmt. Andernfalls `false`.
 
 ### Ausnahmen
 
-- `SyntaxError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn `selectors` nicht als CSS-Selektorenliste geparst werden können.
+- `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn `selectors` nicht als CSS-Selektorliste geparst werden kann.
 
 ## Beispiele
 
@@ -66,5 +66,5 @@ Dies wird "The Philippine eagle is endangered!" in die Konsole ausgeben, da das 
 
 ## Siehe auch
 
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
-- Andere Methoden der {{domxref("Element")}}, die Selektoren akzeptieren: {{domxref("Element.querySelector()")}}, {{domxref("Element.querySelectorAll()")}} und {{domxref("element.closest()")}}.
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)-Modul
+- Andere [`Element`](/de/docs/Web/API/Element)-Methoden, die Selektoren verwenden: [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector), [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll) und [`element.closest()`](/de/docs/Web/API/Element/closest).

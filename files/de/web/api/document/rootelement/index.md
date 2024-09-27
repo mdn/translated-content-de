@@ -8,23 +8,23 @@ l10n:
 
 {{ApiRef("DOM")}}{{Deprecated_header}}
 
-**`Document.rootElement`** gibt das {{domxref("Element")}} zurück,
-das das Wurzelelement des {{domxref("document")}} ist, wenn es sich um ein
-{{SVGElement("svg")}}-Element handelt, andernfalls `null`. Es ist veraltet und sollte durch
-{{domxref("Document.documentElement")}} ersetzt werden, welches das Wurzelelement für alle
+**`Document.rootElement`** gibt das [`Element`](/de/docs/Web/API/Element)
+zurück, das das Wurzelelement des [`Dokuments`](/de/docs/Web/API/Document) ist, falls es ein
+{{SVGElement("svg")}}-Element ist; ansonsten `null`. Es ist veraltet zugunsten von
+[`Document.documentElement`](/de/docs/Web/API/Document/documentElement), welches das Wurzelelement für alle
 Dokumente zurückgibt.
 
 ## Wert
 
-Für SVG-Elemente das {{domxref("Element")}}, das das Wurzelelement des {{domxref("document")}} ist; andernfalls `null`.
+Für SVG-Elemente das [`Element`](/de/docs/Web/API/Element), das das Wurzelelement des [`Dokuments`](/de/docs/Web/API/Document) ist; ansonsten `null`.
 
-Wenn das Dokument ein nicht leeres SVG-Dokument ist, dann wird `rootElement` ein
-{{domxref("SVGSVGElement")}} sein, identisch mit dem `documentElement`.
+Wenn das Dokument ein nicht-leeres SVG-Dokument ist, wird das `rootElement` ein
+[`SVGSVGElement`](/de/docs/Web/API/SVGSVGElement) sein, identisch mit dem `documentElement`.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}

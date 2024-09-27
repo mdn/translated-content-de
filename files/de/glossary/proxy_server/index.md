@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Proxy-Server** ist ein Zwischenprogramm oder -computer, der bei der Navigation durch verschiedene Netzwerke des Internets verwendet wird. Sie erleichtern den Zugriff auf Inhalte im World Wide Web. Ein Proxy fängt Anfragen ab und liefert Antworten zurück; er kann die Anfragen weiterleiten, oder auch nicht (z. B. im Fall eines Caches), und er kann sie modifizieren (z. B. durch Ändern seiner Header an der Grenze zwischen zwei Netzwerken).
+Ein **Proxy-Server** ist ein Zwischenprogramm oder Computer, der beim Navigieren durch verschiedene Netzwerke des Internets verwendet wird. Sie erleichtern den Zugriff auf Inhalte im World Wide Web. Ein Proxy fängt Anfragen ab und gibt Antworten zurück; er kann die Anfragen weiterleiten oder nicht (zum Beispiel im Fall eines Caches) und er kann sie verändern (zum Beispiel indem er seine Header ändert, an der Grenze zwischen zwei Netzwerken).
 
-Ein Proxy kann sich auf dem lokalen Computer des Benutzers befinden oder irgendwo zwischen dem Computer des Benutzers und einem Zielserver im Internet. Im Allgemeinen gibt es zwei Haupttypen von Proxy-Servern:
+Ein Proxy kann sich auf dem lokalen Computer des Benutzers befinden oder irgendwo zwischen dem Computer des Benutzers und einem Zielserver im Internet. Allgemein gibt es zwei Haupttypen von Proxy-Servern:
 
-- Ein **Forward Proxy**, der Anfragen von und zu beliebigen Zielen im Internet bearbeitet.
-- Ein **Reverse Proxy**, der Anfragen aus dem Internet entgegennimmt und sie an Server in einem internen Netzwerk weiterleitet.
+- Ein **Forward-Proxy**, der Anfragen von und zu beliebigen Zielen im Internet bearbeitet.
+- Ein **Reverse-Proxy**, der Anfragen aus dem Internet entgegennimmt und an Server in einem internen Netzwerk weiterleitet.
 
 ## Siehe auch
 

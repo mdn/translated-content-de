@@ -9,100 +9,100 @@ l10n:
 
 ## 1. Zweck und Ziele
 
-Der Hauptzweck des PAB besteht darin, Ratschläge, Anregungen und Feedback zur Inhaltsstrategie, zur Priorisierung von Inhalten, zur strategischen Ausrichtung sowie zu Plattform- und Website-Funktionen an den Produktmanager und den Content-Leiter von MDN zu geben. Mozilla wird die Eingaben und Ratschläge des PAB berücksichtigen; die Vorschläge und Empfehlungen des PAB sind jedoch nicht bindend. Die Hauptziele des PAB sind:
+Der Hauptzweck des Produktbeirats (PAB) ist die Beratung, Mitwirkung und Rückmeldung zur Content-Strategie, Content-Priorisierung, strategischen Ausrichtung und Funktionen der Plattform/Website an den Produktmanager und den Content-Leiter von MDN. Mozilla wird die Eingaben und Empfehlungen des PAB berücksichtigen; die Empfehlungen des PAB sind jedoch nicht verbindlich. Die Hauptziele des PAB sind:
 
-- Feedback zur Inhaltsstrategie und Priorisierung der Standarddokumentation geben
-- Unterstützung bei der Definition von Produktstrategie, Fahrplan und Prioritäten, einschließlich:
+- Feedback zur Content-Strategie und Priorisierung der Standarddokumentation geben.
+- Hilfe bei der Definition von Produktstrategie, Roadmap und Prioritäten, einschließlich:
 
-  - Vorschläge und Kommentare zu Objectives and Key Results (OKRs)
-  - Vorschläge und Kommentare zu jährlichen und vierteljährlichen Inhaltsfahrplänen
+  - Vorschläge und Kommentare zu Zielen und Schlüsselergebnissen (OKRs) geben
+  - Vorschläge und Kommentare zu jährlichen und vierteljährlichen Content-Roadmaps geben
 
-- Organisatorische und individuelle Verpflichtungen zum Beitrag zu MDN auf der Grundlage der definierten Strategien, Fahrpläne und Prioritäten eingehen
-- Benutzeranforderungen vertreten und fördern, um sicherzustellen, dass MDN sich kontinuierlich entwickelt und den Bedürfnissen und Herausforderungen der Benutzer gerecht wird
-- Neue Möglichkeiten vorschlagen und Feedback geben
-- Feedback zur Rekrutierung und Bindung von Mitwirkenden (sowohl unternehmensbezogen als auch individuell) geben
-- Erfahrungen und bewährte Praktiken teilen
+- Organisations- und individuelle Zusagen zur Unterstützung von MDN gemäß den definierten Strategien, Roadmaps und Prioritäten machen.
+- Nutzeranforderungen vertreten und fördern, um sicherzustellen, dass sich MDN kontinuierlich weiterentwickelt und die Bedürfnisse und Herausforderungen der Nutzer erfüllt.
+- Vorschläge zu neuen Möglichkeiten machen und Feedback dazu geben.
+- Feedback zum Recruiting und zur Bindung von Mitwirkenden (sowohl Unternehmens- als auch individuelle) geben.
+- Erfahrungen und Best Practices teilen.
 
-## 2. Mitgliederauswahl und Beendigung
+## 2. Auswahl und Beendigung der Mitgliedschaft
 
-a. Das PAB besteht aus 10 bis 12 Mitgliedern (wie im MDN Product Advisory Board Agreement definiert und einschließlich derjenigen Personen, die eine Mitgliedsorganisation vertreten), die von Mozilla ausgewählt werden.
+a. Der PAB besteht aus 10 bis 12 Mitgliedern (wie im MDN Product Advisory Board Agreement definiert und einschließlich derjenigen, die eine Mitgliedsorganisation vertreten), die von Mozilla ausgewählt werden.
 
-b. Es gibt zwei Arten der Mitgliedschaft: organisatorisch und individuell. Organisationen, die die Mitgliedskriterien erfüllen und als Mitgliedsorganisationen akzeptiert werden, können bis zu 2 Personen nominieren, um als ihre Vertreter ("Mitgliedervertreter" wie im MDN Product Advisory Board Agreement definiert) im PAB zu dienen.
+b. Es gibt zwei Arten der Mitgliedschaft: organisatorisch und individuell. Organisationen, die die Mitgliedskriterien erfüllen und als Mitgliedsorganisation akzeptiert werden, können bis zu 2 Personen als ihre Vertreter ("Mitgliedervertreter", wie im MDN Product Advisory Board Agreement definiert) im PAB nominieren.
 
-c. Organisationen/Personen, die Mitglieder des PAB werden möchten, müssen ein MDN Product Advisory Board Interest Form einreichen. Die Mitgliedschaft unterliegt einer Überprüfung und Genehmigung durch Mozilla, und der Antragsteller erhält innerhalb von 30 Tagen nach Antragstellung eine Benachrichtigung.
+c. Organisationen/Individuen, die Mitglieder des PAB werden möchten, müssen ein Interesseformular für den MDN Product Advisory Board einreichen. Die Mitgliedschaft unterliegt der Überprüfung und Genehmigung durch Mozilla, und der Bewerber wird innerhalb von 30 Tagen nach Antragstellung benachrichtigt.
 
-d. Beginn der Mitgliedschaften wird basierend auf den Zeitplänen der Überprüfungssitzungen festgelegt; neue Mitglieder beginnen ihre Amtszeit im PAB zum nächsten geplanten Überprüfungstermin.
+d. Die Mitgliedschaft beginnt auf Basis der Zeitpläne für Überprüfungssitzungen; neue Mitglieder beginnen ihre Amtszeit im PAB bei der nächsten geplanten Überprüfungssitzung.
 
-e. Mitglieder des PAB haben eine Amtszeit von 1 Jahr, die automatisch um bis zu 3 Jahre verlängert werden kann (es sei denn, sie wird von einer der Parteien beendet). Am Ende der 1-jährigen Amtszeit werden das PAB-Mitglied und Mozilla die Mitgliedschaft überprüfen und entscheiden, ob die Mitgliedsbeteiligung fortgesetzt wird.
+e. Mitglieder des PAB dienen für einen Zeitraum von 1 Jahr, der automatisch bis zu 3 Jahre verlängert wird (es sei denn, er wird von einer der beiden Parteien gekündigt). Am Ende der 1-jährigen Amtszeit werden das PAB-Mitglied und Mozilla die Mitgliedschaft überprüfen und entscheiden, ob die Mitgliedschaft fortgesetzt wird.
 
-f. Mitglieder können schriftlich per E-Mail an die PAB-Mailingliste zurücktreten. Mitgliedsorganisationen können vor dem Beginn der nächsten Überprüfungssitzung Ersatz für zurückgetretene Mitglieder nominieren.
+f. Mitglieder können schriftlich, per E-Mail an die Mailingliste des PAB, zurücktreten. Mitgliedsorganisationen können vor Beginn der nächsten Überprüfungssitzung Ersatznominierungen für zurückgetretene Mitglieder vornehmen.
 
-g. Mozilla kann ein Mitglied im Falle eines Verstoßes gegen das MDN Advisory Board Agreement, eines Verstoßes gegen den MDN PAB Code of Conduct, eines Verstoßes gegen die Antitrust-Politik oder wenn das Mitglied ohne Ankündigung an zwei aufeinanderfolgenden Überprüfungssitzungen nicht teilnimmt, abberufen. Zu diesem Zeitpunkt wird eine Benachrichtigung an die Hauptkontaktperson gesendet, dass sie als Mitglied entfernt wurden.
+g. Mozilla kann ein Mitglied aus dem PAB ausschließen bei einem Verstoß gegen das MDN Advisory Board Agreement, den Code of Conduct des MDN PAB, die Antitrust-Regeln oder wenn das Mitglied ohne Vorankündigung an zwei aufeinanderfolgenden Überprüfungssitzungen nicht teilnimmt. Zu diesem Zeitpunkt wird eine Mitteilung an den Hauptansprechpartner gesendet, dass er als Mitglied entfernt wurde.
 
 ## 3. Qualifikationen für die PAB-Mitgliedschaft
 
-a. PAB-Mitglieder verfügen über fundiertes Branchenwissen und Fachkenntnisse. Mitglieder werden mit Webstandards vertraut sein und die Fähigkeit und Erfahrung besitzen, die Gesamtstrategie und Inhaltspläne von MDN mit der Weiterentwicklung von Webstandards, der Richtung der Branche und den Bedürfnissen der Entwickler, die die Dokumentation von MDN nutzen, in Einklang zu bringen.
+a. PAB-Mitglieder haben fundiertes Branchenwissen und Expertise. Mitglieder sind mit Webstandards vertraut und haben die Fähigkeit und Erfahrung, die strategischen Gesamtziele und Content-Pläne von MDN mit der Weiterentwicklung von Webstandards, der Branchenrichtung und den Bedürfnissen der Entwickler, die die MDN-Dokumentation nutzen, in Einklang zu bringen.
 
-b. Die Mitgliedschaft im PAB ist auf Organisationen und Einzelpersonen beschränkt, die einen bedeutenden Beitrag zu MDN und/oder dem Fortschritt, der Entwicklung und der Implementierung von Webstandards leisten.
+b. Die Mitgliedschaft im PAB ist auf Organisationen und Einzelpersonen beschränkt, die signifikante Beiträge zu MDN und/oder dem Fortschritt, der Entwicklung und Implementierung von Webstandards leisten.
 
-c. Mitgliedsorganisationen müssen eine bedeutende Rolle bei der Erstellung, Implementierung oder Einführung von Webstandards und Richtlinien spielen. Es wird auch bevorzugt, dass PAB-Mitgliedsorganisationen Mitglieder einer etablierten Webstandards-Gruppe, wie zum Beispiel der W3C, sind. Mitgliedsorganisationen können bis zu 2 individuelle Vertreter nominieren, um im Vorstand zu dienen.
+c. Mitgliedsorganisationen müssen eine bedeutende Rolle bei der Erstellung, Implementierung oder Adoption von Webstandards und -richtlinien spielen. Es wird auch bevorzugt, dass PAB-Mitgliedsorganisationen Mitglieder einer etablierten Webstandard-Organisation wie dem W3C sind. Mitgliedsorganisationen können bis zu 2 individuelle Vertreter nominieren, die im Vorstand tätig sind.
 
-d. Einzelmitglieder des PAB müssen mindestens eine der folgenden Qualifikationen besitzen:
+d. Einzelne Mitglieder des PAB müssen mindestens eine der folgenden Qualifikationen haben:
 
-- Spielt eine bedeutende Rolle bei der Erstellung, Implementierung oder Einführung von Webstandards;
-- Nimmt an einer Webstandards-Gruppe teil, die sich der Entwicklung von Spezifikationen für Merkmale widmet, die in einem Webbrowser implementiert oder in Webinhalten verwendet werden, die an Browser gesendet werden. Eine Teilnahme an der W3C oder einer ähnlichen Standardisierungsgruppe ist bevorzugt, aber nicht zwingend erforderlich. Einzelmitglieder können diese Qualifikation auch erfüllen, indem sie in einer Arbeitsgruppe für Standards oder als eingeladener Experte in einer etablierten Webstandards-Arbeitsgruppe tätig waren;
-- Ist Mitglied eines Entwicklerteams, das sich auf das Web konzentriert;
-- Arbeitet als Teil einer Gruppe, die technische Dokumentation über Webstandards erstellt; oder
-- Leistet erhebliche, nachhaltige Beiträge zur MDN-Webstandards-Dokumentation als Freiwilliger.
+- Spielt eine bedeutende Rolle bei der Erstellung, Implementierung oder Adoption von Webstandards;
+- Nimmt an einer Webstandard-Gruppe teil, die sich der Entwicklung von Spezifikationen für Merkmale widmet, die in einem Webbrowser implementiert oder in Webinhalten verwendet werden, die an Browser gesendet werden. Die Teilnahme an W3C oder einer ähnlichen Standardgruppe ist vorzuziehen, aber nicht erforderlich. Einzelne Mitglieder können diese Qualifikation auch erfüllen, indem sie in einer Standardarbeitsgruppe oder als eingeladener Experte in einer etablierten Webstandard-Arbeitsgruppe tätig waren;
+- Ist Mitglied eines webzentrierten Developer-Relations-Teams;
+- Arbeitet im Rahmen einer Gruppe, die sich mit der technischen Dokumentation von Webstandards befasst; oder
+- Leistet signifikante, kontinuierliche Beiträge zur MDN-Webstandard-Dokumentation als Freiwilliger.
 
 ## 4. Verantwortlichkeiten und Verpflichtungen der Mitglieder
 
-a. Von den Mitgliedern wird erwartet, dass sie rechtzeitig Feedback und Antworten geben und an einer Mindestanzahl von Überprüfungssitzungen teilnehmen. Teilnahme ist weltweit willkommen. Zu den Erwartungen an die Mitglieder gehören:
+a. Es wird erwartet, dass Mitglieder Feedback und Antworten zeitnah bereitstellen und an einer Mindestanzahl von Überprüfungssitzungen teilnehmen. Die Teilnahme steht Vertretern aus der ganzen Welt offen. Zu den Erwartungen der Mitglieder gehören:
 
-Feedback zur Planung der jährlichen und vierteljährlichen Sitzungen geben;
+Feedback zur Planung von jährlichen und vierteljährlichen Sitzungen geben;
 
-- Teilnahme an der Jahressitzung;
+- Teilnahme an der jährlichen Sitzung;
 - Teilnahme an mindestens 2 vierteljährlichen Überprüfungen pro Jahr;
-- Vorschläge überprüfen und Feedback geben;
-- Der PAB-Mailingliste beitreten; und
-- Zustimmen, keine spezifischen Unternehmens- oder persönlichen Agenden zu fördern, insbesondere bei der Erstellung oder Bearbeitung von Inhalten auf MDN.
+- Überprüfung von Vorschlägen und Rückmeldungen geben;
+- Teilnahme an der PAB-Mailingliste;
+- und sich verpflichten, keine spezifische Unternehmens- oder individuelle Agenda zu fördern, insbesondere bei der Erstellung oder Bearbeitung von Inhalten auf MDN.
 
-b. Mitglieder können aufgefordert werden, persönliche Informationen und Materialien (Biografien usw.) für Analysten, Presse und/oder Fachpublikationen und Pressemitteilungen bereitzustellen.
+b. Mitglieder können aufgefordert werden, persönliche Informationen und Materialien (Biografien usw.) für Analysten, Presse und/oder Fachveröffentlichungen und Pressemitteilungen bereitzustellen.
 
-c. Alle Mitglieder müssen das MDN Product Advisory Board Agreement unterzeichnen und dem MDN PAB [Code of Conduct](https://www.mozilla.org/en-US/about/governance/policies/participation/) und der Antitrust-Politik zustimmen.
+c. Alle Mitglieder müssen das MDN Product Advisory Board Agreement unterzeichnen und dem [Code of Conduct](https://www.mozilla.org/en-US/about/governance/policies/participation/) des MDN PAB und den Antitrust-Richtlinien zustimmen.
 
-## 5. Vorteile der PAB-Mitgliedschaft
+## 5. Vorteile der Mitgliedschaft im MDN PAB
 
-Es wird erwartet, dass die PAB-Mitgliedschaft folgende Vorteile bietet:
+Es wird erwartet, dass die Mitgliedschaft im PAB folgende Vorteile hat:
 
-- Beeinflussung der Inhaltsstrategie und Prioritäten für MDN;
-- Einfluss auf die strategische Ausrichtung von MDN; Vorwissen über MDN-Pläne und Entwicklungen haben;
-- Vorschläge für Funktionen und Plattformverbesserungen machen, um die MDN-Zielgruppe und die Beiträge zu erweitern; und
-- Feedback und technische Überprüfungen der Inhalte geben.
+- Einfluss auf die Content-Strategie und Prioritäten von MDN nehmen;
+- Die strategische Ausrichtung von MDN beeinflussen; Vorauswissen über MDN-Pläne und -Entwicklung haben;
+- Vorschläge für Funktionen und Plattformverbesserungen machen, um die MDN-Nutzerzahl und -Beiträge zu steigern; und
+- Feedback und technische Überprüfungen von Inhalten geben.
 
-## 6. Geplante und Ad-hoc-Meetings
+## 6. Geplante und Ad-hoc-Sitzungen
 
-a. Mitglieder werden zu folgenden Meetings eingeladen:
+a. Mitglieder werden zu folgenden Sitzungen eingeladen:
 
 - Jährliche Produktstrategie-Überprüfungssitzungen, die zwischen Oktober und Dezember eines jeden Kalenderjahres stattfinden;
-- Vierteljährliche Überprüfungssitzungen zur Inhaltsstrategie und Priorisierung ("Quarterly Reviews"); und
-- Ad-hoc-Produktüberprüfungs-/Check-in-Sitzungen, die bei Bedarf von Mozilla oder einem beliebigen Mitglied initiiert werden können ("Ad Hoc Meetings").
+- Vierteljährliche Sitzungen zur Content-Strategie und Priorisierung ("Vierteljährliche Überprüfungen");
+- und Ad-hoc-Produktüberprüfungs-/Check-in-Sitzungen, die bei Bedarf von Mozilla oder einem Mitglied initiiert werden können ("Ad-hoc-Sitzungen").
 
-b. Jährliche Produktstrategie-Überprüfungssitzungen bewerten den Fortschritt des Vorjahres und geben Empfehlungen für die Strategie und Ziele von MDN im folgenden Jahr ab.
+b. Jährliche Produktstrategie-Überprüfungssitzungen werden die Fortschritte des Vorjahres überprüfen und Empfehlungen für die Strategie und Ziele von MDN für das folgende Jahr geben.
 
-c. Jährliche Produktstrategie-Überprüfungssitzungen können in der Mozilla-Zentrale oder einem weltweiten Büro, den Büros eines Mitglieds oder externen Standorten stattfinden, wie durch Abstimmung des PAB bestimmt. Virtuelle Teilnahme wird für Mitglieder, die nicht persönlich teilnehmen können, ermöglicht.
+c. Jährliche Produktstrategie-Überprüfungssitzungen können im Hauptquartier von Mozilla oder in weltweiten Büros, in den Büros eines Mitglieds oder an externen Standorten stattfinden, wie es durch Abstimmung des PAB bestimmt wird. Virtuelle Teilnahme wird für Mitglieder, die persönlich nicht teilnehmen können, ermöglicht.
 
-d. Vierteljährliche Überprüfungen und Ad Hoc Meetings werden hauptsächlich über Video-/Telefonkonferenz abgehalten, obwohl persönliche Teilnahme nach Ermessen der Mitglieder möglich ist.
+d. Vierteljährliche Überprüfungen und Ad-hoc-Sitzungen werden hauptsächlich per Video-/Telefonkonferenz abgehalten, obwohl eine persönliche Teilnahme nach Ermessen der Mitglieder möglich ist.
 
-e. Ad-hoc-Meeting-Termine hängen von der in Entwicklung befindlichen Arbeit ab. Überprüfungspunkte werden einen spezifischen Schwerpunkt haben, wie die Koordination um Produktveröffentlichungstermine und wichtige Funktionen oder neue Spezifikationen und Standards, die eine breite Veröffentlichung erreichen und eine intensivere Koordination und Planung über die vierteljährliche Überprüfung hinaus erfordern.
+e. Die Termine für Ad-hoc-Sitzungen hängen von der in Entwicklung befindlichen Arbeit ab. Überprüfungspunkte werden einen spezifischen Schwerpunkt haben, z.B. Koordination rund um Produktveröffentlichungstermine und größere Funktionen oder neue Spezifikationen und Standards, die eine breite Veröffentlichung erreichen und eine intensivere Koordination und Planung über die vierteljährlichen Überprüfungen hinaus erfordern.
 
 ## 7. Zeitaufwand und Kosten
 
-a. Von den Mitgliedern wird erwartet, dass sie sich für mindestens 12 Monate dem PAB verpflichten.
+a. Mitglieder werden gebeten, sich für mindestens 12 Monate dem PAB zu verpflichten.
 
-b. Mitglieder werden gebeten, die Zeit aufzubringen, um sich auf die regelmäßig geplanten und ad-hoc-PAB-Meetings vorzubereiten, daran teilzunehmen (manchmal persönlich) und sich aktiv zu beteiligen.
+b. Mitglieder werden gebeten, die Zeit zu investieren, um sich auf regelmäßige und ad-hoc PAB-Sitzungen vorzubereiten, daran teilzunehmen (manchmal persönlich) und mitzuwirken.
 
-c. Kosten für Reisekosten und Lebenshaltungskosten der Teilnehmer oder andere Beteiligungen werden vom einzelnen Vorstandsmitglied oder der unterstützenden Organisation getragen.
+c. Kosten für Reisen und Lebenshaltungskosten der Teilnehmer oder andere Beteiligungen sind vom einzelnen Vorstandsmitglied oder der unterstützenden Organisation zu tragen.
 
 ## Siehe auch
 

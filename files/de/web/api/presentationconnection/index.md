@@ -2,45 +2,45 @@
 title: PresentationConnection
 slug: Web/API/PresentationConnection
 l10n:
-  sourceCommit: 24740b45b9a6a7e7f4d7d81e5f5e9c515173b439
+  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
 ---
 
 {{SeeCompatTable}}{{securecontext_header}}{{APIRef("Presentation API")}}
 
-Das **`PresentationConnection`** Interface der [Presentation API](/de/docs/Web/API/Presentation_API) bietet Methoden und Eigenschaften zur Verwaltung einer einzelnen Präsentation. Jede [Präsentationsverbindung](https://www.w3.org/TR/presentation-api/#dfn-presentation-connection) wird durch ein `PresentationConnection` Objekt repräsentiert. Sowohl der [steuernde Benutzeragent](https://www.w3.org/TR/presentation-api/#dfn-controlling-user-agent) als auch der [empfangende Benutzeragent](https://www.w3.org/TR/presentation-api/#dfn-receiving-user-agent) _MUSS_ `PresentationConnection` implementieren.
+Das **`PresentationConnection`**-Interface der [Presentation API](/de/docs/Web/API/Presentation_API) bietet Methoden und Eigenschaften zur Verwaltung einer einzelnen Präsentation. Jede [Präsentationsverbindung](https://www.w3.org/TR/presentation-api/#dfn-presentation-connection) wird durch ein `PresentationConnection`-Objekt repräsentiert. Sowohl der [steuernde Benutzeragent](https://www.w3.org/TR/presentation-api/#dfn-controlling-user-agent) als auch der [empfangende Benutzeragent](https://www.w3.org/TR/presentation-api/#dfn-receiving-user-agent) _MUSS_ `PresentationConnection` implementieren.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("PresentationConnection.binaryType")}} {{Experimental_Inline}}
-  - : Gibt entweder blob oder arrayBuffer zurück. Wenn ein `PresentationConnection` Objekt erstellt wird, _MUSS_ sein [`binaryType`](https://www.w3.org/TR/presentation-api/#idl-def-presentationconnection-binarytype) IDL-Attribut auf den String " [`arraybuffer`](https://www.w3.org/TR/presentation-api/#dom-binarytype-arraybuffer)" gesetzt werden.
-- {{domxref("PresentationConnection.id")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Bietet die Kennung der Präsentationsverbindung.
-- {{domxref("PresentationConnection.state")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt den aktuellen Status der [Präsentationsverbindung](https://www.w3.org/TR/presentation-api/#dfn-presentation-connection) zurück.
-- {{domxref("PresentationConnection.url")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die URL zurück, die zur Erstellung oder zum erneuten Verbinden der Präsentation verwendet wird.
+- [`PresentationConnection.binaryType`](/de/docs/Web/API/PresentationConnection/binaryType) {{Experimental_Inline}}
+  - : Gibt entweder `blob` oder `arrayBuffer` zurück. Wenn ein `PresentationConnection`-Objekt erstellt wird, muss sein [`binaryType`](https://www.w3.org/TR/presentation-api/#idl-def-presentationconnection-binarytype) IDL-Attribut auf den String [`"arraybuffer"`](https://www.w3.org/TR/presentation-api/#dom-binarytype-arraybuffer) gesetzt werden.
+- [`PresentationConnection.id`](/de/docs/Web/API/PresentationConnection/id) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Stellt die Präsentationsverbindungskennung bereit.
+- [`PresentationConnection.state`](/de/docs/Web/API/PresentationConnection/state) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt den aktuellen Zustand der [Präsentationsverbindung](https://www.w3.org/TR/presentation-api/#dfn-presentation-connection) zurück.
+- [`PresentationConnection.url`](/de/docs/Web/API/PresentationConnection/url) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt die URL zurück, die zur Erstellung oder Wiederverbindung zur Präsentation verwendet wurde.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- {{domxref("PresentationConnection.close()")}} {{Experimental_Inline}}
-  - : Schließt die aktuelle Verbindung und sendet ein {{domxref("PresentationConnectionCloseEvent")}} an das {{DOMxRef("PresentationConnection/close", "close")}} Ereignis.
-- {{domxref("PresentationConnection.send()")}} {{Experimental_Inline}}
-  - : Sendet entweder binäre oder Textdaten zwischen einer steuernden und einer präsentierenden Browsing-Kontext.
-- {{domxref("PresentationConnection.terminate()")}} {{Experimental_Inline}}
-  - : Beendet die aktuelle Verbindung und löst das {{domxref("PresentationConnection/terminate_event", "terminate")}} Ereignis aus.
+- [`PresentationConnection.close()`](/de/docs/Web/API/PresentationConnection/close) {{Experimental_Inline}}
+  - : Schließt die aktuelle Verbindung und sendet ein [`PresentationConnectionCloseEvent`](/de/docs/Web/API/PresentationConnectionCloseEvent) an das [`close`](/de/docs/Web/API/PresentationConnection/close)-Ereignis.
+- [`PresentationConnection.send()`](/de/docs/Web/API/PresentationConnection/send) {{Experimental_Inline}}
+  - : Sendet entweder binäre oder Textdaten zwischen einem steuernden Browsing-Kontext und einem präsentierenden Browsing-Kontext.
+- [`PresentationConnection.terminate()`](/de/docs/Web/API/PresentationConnection/terminate) {{Experimental_Inline}}
+  - : Beendet die aktuelle Verbindung und löst das [`terminate`](/de/docs/Web/API/PresentationConnection/terminate_event)-Ereignis aus.
 
 ## Ereignisse
 
-- {{domxref("PresentationConnection/close_event", "close")}} {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn ein Aufruf von {{DOMxRef("PresentationConnection.close", "PresentationConnection.close()")}} erfolgt.
-- {{domxref("PresentationConnection/connect_event", "connect")}} {{Experimental_Inline}}
+- [`close`](/de/docs/Web/API/PresentationConnection/close_event) {{Experimental_Inline}}
+  - : Wird ausgelöst, wenn ein Aufruf zu [`PresentationConnection.close()`](/de/docs/Web/API/PresentationConnection/close) erfolgt.
+- [`connect`](/de/docs/Web/API/PresentationConnection/connect_event) {{Experimental_Inline}}
   - : Wird ausgelöst, wenn eine Präsentationsverbindung hergestellt wird.
-- {{domxref("PresentationConnection/message_event", "message")}} {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn ein Aufruf von {{DOMxRef("PresentationConnection.send", "PresentationConnection.send()")}} erfolgt.
-- {{domxref("PresentationConnection/terminate_event", "terminate")}} {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn ein Aufruf von {{DOMxRef("PresentationConnection.terminate", "PresentationConnection.terminate()")}} erfolgt.
+- [`message`](/de/docs/Web/API/PresentationConnection/message_event) {{Experimental_Inline}}
+  - : Wird ausgelöst, wenn ein Aufruf zu [`PresentationConnection.send()`](/de/docs/Web/API/PresentationConnection/send) erfolgt.
+- [`terminate`](/de/docs/Web/API/PresentationConnection/terminate_event) {{Experimental_Inline}}
+  - : Wird ausgelöst, wenn ein Aufruf zu [`PresentationConnection.terminate()`](/de/docs/Web/API/PresentationConnection/terminate) erfolgt.
 
 ## Spezifikationen
 

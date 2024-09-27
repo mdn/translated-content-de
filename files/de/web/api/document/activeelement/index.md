@@ -1,5 +1,5 @@
 ---
-title: "Dokument: activeElement-Eigenschaft"
+title: "Document: activeElement-Eigenschaft"
 short-title: activeElement
 slug: Web/API/Document/activeElement
 l10n:
@@ -8,25 +8,34 @@ l10n:
 
 {{APIRef("Shadow DOM")}}
 
-Die schreibgeschützte Eigenschaft **`activeElement`** der {{domxref("Document")}}-Schnittstelle gibt das {{domxref("Element")}} im DOM zurück, das derzeit den Fokus hat.
+Die **`activeElement`**-Eigenschaft
+der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt das [`Element`](/de/docs/Web/API/Element) innerhalb des DOM zurück, das derzeit den Fokus hat.
 
-Oft wird `activeElement` ein {{domxref("HTMLInputElement")}}- oder {{domxref("HTMLTextAreaElement")}}-Objekt zurückgeben, wenn es zu dieser Zeit die Textauswahl hat. In diesem Fall können Sie mit den Eigenschaften `selectionStart` und `selectionEnd` des Objekts detailliertere Informationen erhalten. Andere Male könnte das fokussierte Element ein {{HTMLElement("select")}}-Element (Menü) oder ein {{HTMLElement("input")}}-Element sein.
+Oft gibt `activeElement` ein [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) oder
+[`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Objekt zurück, wenn es zurzeit die Textauswahl enthält. In diesem Fall können Sie nähere Informationen durch die Verwendung der `selectionStart`- und `selectionEnd`-Eigenschaften des Objekts erhalten.
+Zu anderen Zeiten könnte das fokussierte Element ein {{HTMLElement("select")}}-Element (Menü) oder
+ein {{HTMLElement("input")}}-Element sein.
 
-Typischerweise kann ein Benutzer die Tabulatortaste verwenden, um den Fokus auf der Seite zwischen fokussierbaren Elementen zu wechseln, und die Leertaste, um eines zu aktivieren (das heißt, eine Schaltfläche zu drücken oder ein Optionsfeld umzuschalten). Welche Elemente fokussierbar sind, variiert je nach Plattform und der aktuellen Konfiguration des Browsers. Zum Beispiel sind auf macOS-Systemen Elemente, die keine Texteingabeelemente sind, standardmäßig nicht fokussierbar.
+Typischerweise kann ein Benutzer die Tabulatortaste drücken, um den Fokus auf der Seite zwischen
+fokussierbaren Elementen zu bewegen und die Leertaste verwenden, um eines zu aktivieren (das heißt, um eine Schaltfläche zu drücken oder einen Radiobutton umzuschalten). Welche Elemente fokussierbar sind, variiert je nach Plattform
+und aktueller Konfiguration des Browsers. Zum Beispiel sind auf macOS-Systemen Elemente, die keine Texteingabeelemente sind, standardmäßig oft nicht fokussierbar.
 
 > [!NOTE]
-> Fokus (welches Element Benutzereingabeereignisse empfängt) ist nicht dasselbe wie Auswahl (der aktuell hervor gehobene Teil des Dokuments). Sie können die aktuelle Auswahl mit {{domxref("window.getSelection()")}} abrufen.
+> Fokus (welches Element Benutzereingabeereignisse empfängt) ist nicht
+> dasselbe wie Auswahl (der aktuell hervorgehobene Teil des Dokuments). Sie können
+> die aktuelle Auswahl mit [`window.getSelection()`](/de/docs/Web/API/Window/getSelection) erhalten.
 
 ## Wert
 
-Das {{domxref('Element')}} welches derzeit den Fokus hat, {{HTMLElement("body")}} oder `null`, wenn es kein fokussiertes Element gibt.
+Das [`Element`](/de/docs/Web/API/Element), das derzeit den Fokus hat, {{HTMLElement("body")}} oder
+`null`, wenn es kein fokussiertes Element gibt.
 
 ## Beispiele
 
 ### HTML
 
 ```html
-<p>Markieren Sie einen Text aus einem der folgenden Textbereiche:</p>
+<p>Select some text from one of the text areas below:</p>
 
 <form>
   <textarea name="ta-example-one" id="ta-example-one" rows="7" cols="40">
@@ -37,8 +46,8 @@ This is Text Area Two. Fusce ullamcorper, nisl ac porttitor adipiscing, urna orc
   >
 </form>
 
-<p>Aktives Element-ID: <em id="output-element"></em></p>
-<p>Ausgewählter Text: <em id="output-text"></em></p>
+<p>Active element ID: <em id="output-element"></em></p>
+<p>Selected text: <em id="output-text"></em></p>
 ```
 
 ### JavaScript
@@ -71,10 +80,10 @@ textarea2.addEventListener("mouseup", onMouseUp, false);
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("Document.hasFocus")}}
+- [`Document.hasFocus`](/de/docs/Web/API/Document/hasFocus)

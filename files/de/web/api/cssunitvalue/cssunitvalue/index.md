@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Der **`CSSUnitValue()`** Konstruktor erstellt ein neues {{domxref("CSSUnitValue")}} Objekt, das ein neues {{domxref('CSSUnitValue')}} Objekt zurückgibt, welches Werte darstellt, die einen einzelnen Einheitstyp enthalten. Zum Beispiel würde "42px" durch einen `CSSNumericValue` dargestellt werden.
+Der **`CSSUnitValue()`** Konstruktor erstellt ein neues [`CSSUnitValue`](/de/docs/Web/API/CSSUnitValue)-Objekt, das Werte darstellt, die einen einzelnen Einheitstyp enthalten. Zum Beispiel würde "42px" von einem `CSSNumericValue` repräsentiert werden.
 
 ## Syntax
 
@@ -21,11 +21,11 @@ new CSSUnitValue(value, unit)
 - `value`
   - : Ein Double, das die Anzahl der Einheiten angibt.
 - `unit`
-  - : Ein String, der den Typ der Einheit angibt.
+  - : Ein String, der den Einheitstyp angibt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine Methode, um einen {{domxref('CSSPositionValue')}} aus einzelnen `CSSUnitValue` Konstruktoren zu erstellen.
+Das Folgende zeigt eine Methode zur Erstellung eines [`CSSPositionValue`](/de/docs/Web/API/CSSPositionValue) aus einzelnen `CSSUnitValue` Konstruktoren.
 
 ```js
 let pos = new CSSPositionValue(
@@ -44,7 +44,7 @@ let pos = new CSSPositionValue(
 
 ## Siehe auch
 
-- {{domxref('CSSUnitValue.unit')}}
-- {{domxref('CSSUnitValue.value')}}
+- [`CSSUnitValue.unit`](/de/docs/Web/API/CSSUnitValue/unit)
+- [`CSSUnitValue.value`](/de/docs/Web/API/CSSUnitValue/value)
 - [Verwendung des CSS Typed OM](/de/docs/Web/API/CSS_Typed_OM_API/Guide)
 - [CSS Typed Object Model API](/de/docs/Web/API/CSS_Typed_OM_API)

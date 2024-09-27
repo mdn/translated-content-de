@@ -7,23 +7,23 @@ l10n:
 
 {{DefaultAPISidebar("WebXR Device API")}}
 
-Da [WebXR](/de/docs/Web/API/WebXR_Device_API) [WebGL](/de/docs/Web/API/WebGL_API) verwendet, um die Ansichten zu rendern, die die 3D-Umgebung bilden, die mit der XR-Hardware angezeigt wird, liegt es nahe zu denken, dass die perspektivenbezogenen Angelegenheiten mit denen in jedem WebGL-Projekt identisch sind. Das ist größtenteils korrekt, aber es gibt einige spezifische Themen, die erneut betrachtet werden müssen und einige zusätzliche Richtlinien, die berücksichtigt werden sollten, um sicherzustellen, dass Ihre App korrekt aussieht und, was noch wichtiger ist, dass Ihre 3D-Welt keine Menschen durch Schwindel oder andere Effekte krank macht, die entstehen können, wenn das Gesehene nicht mit dem übereinstimmt, was das Gehirn von der Realität erwartet.
+Da [WebXR](/de/docs/Web/API/WebXR_Device_API) [WebGL](/de/docs/Web/API/WebGL_API) verwendet, um die Ansichten zu rendern, die die 3D-Umgebung bilden, die mithilfe der XR-Hardware angezeigt wird, ist es leicht zu denken, dass die perspektivenbezogenen Angelegenheiten identisch mit denen eines jeden WebGL-Projekts sind. Dies ist weitgehend zutreffend, es gibt jedoch ein paar spezifische Themen, die überdacht werden müssen, und einige kleinere zusätzliche Richtlinien, die berücksichtigt werden sollten, um sicherzustellen, dass Ihre App korrekt aussieht und vor allem, dass Ihre 3D-Welt keine Übelkeit durch Schwindel oder andere Effekte verursacht, die auftreten können, wenn das Gesehene nicht mit dem übereinstimmt, was das Gehirn von der Realität erwartet.
 
-In diesem Artikel untersuchen wir Szenarien, in denen sich die Art und Weise, wie Ihr Projekt Perspektiven berechnet, anwendet und darüber nachdenkt, von Code unterscheiden kann, der für nicht-XR-Anwendungen geschrieben wurde.
+In diesem Artikel untersuchen wir Szenarien, in denen sich die Berechnung, Anwendung und Betrachtung der Perspektive in Ihrem Projekt von Code unterscheiden kann, der für Nicht-XR-Anwendungen geschrieben wurde.
 
-## Frustrationen mit dem Sichtkegel
+## Betrachtungsfrustum-Frustrationen
 
-Jede WebXR-Sitzung, die durch ein {{domxref("XRSession")}}-Objekt dargestellt wird, bietet eine Reihe von Optionen, die konfiguriert werden können, indem ein neues {{domxref("XRRenderState")}}-Objekt erstellt und der aktualisierte Zustand aktiviert wird, indem Sie die Methode {{domxref("XRSession.updateRenderState", "updateRenderState()")}} der Sitzung aufrufen, um die aktuelle Konfiguration zu ersetzen.
+Jede WebXR-Sitzung, die durch ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt repräsentiert wird, bietet eine Reihe von Optionen, die konfiguriert werden können, indem ein neues [`XRRenderState`](/de/docs/Web/API/XRRenderState)-Objekt erstellt und der aktualisierte Zustand durch Aufruf der Methode [`updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) der Sitzung aktiviert wird, um die aktuelle Konfiguration zu ersetzen.
 
-Die meisten dieser Werte definieren den [Sichtkegel](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection#the_viewing_frustum) des XR-Geräts, das heißt, den Teil des visuellen Feldes des Geräts, der gerendert werden soll. Der Sichtkegel kann durch vier Schlüsseldatenpunkte dargestellt werden: den Sichtfeldwinkel, das {{glossary("aspect ratio", "Seitenverhältnis")}} des gerenderten Bildes und die Entfernungen zu den nahen und fernen Clipping-Ebenen.
+Die Mehrheit dieser Werte definiert das [Betrachtungsfrustum](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection#the_viewing_frustum) des XR-Geräts; das heißt, den Teil des Sichtfeldes des Geräts, der gerendert werden soll. Das Betrachtungsfrustum kann anhand von vier entscheidenden Datenpunkten dargestellt werden: dem Sichtfeldwinkel, dem [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des gerenderten Bildes und den Abständen zu den nahen und fernen Clipping-Ebenen.
 
-### Willkommen in der Projektionsmatrix
+### Willkommen bei der Projektionsmatrix
 
-Meistens wird das Perspektivprojektionsmodell verwendet, daher wird seine Projektionsmatrix als **[Perspektivprojektionsmatrix](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection#perspective_projection_matrix)** bezeichnet. Diese Matrix wird verwendet, um jedes Pixel aus der 3D-Virtualwelt auf einen Punkt im 2D-Backbuffer für die gerenderte Ansicht zu kartieren.
+In den meisten Fällen verwenden Sie das Perspektivprojektionsmodell, daher wird seine Projektionsmatrix als **[perspektivische Projektionsmatrix](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection#perspective_projection_matrix)** bezeichnet. Diese Matrix wird verwendet, um jeden Pixel aus der virtuellen 3D-Welt auf einen Punkt im 2D-Backbuffer für die gerenderte Ansicht abzubilden.
 
-Unter normalen Umständen können und sollten Sie die Perspektivprojektionsmatrix direkt von der Ansicht, die Sie rendern, erhalten. Die {{domxref("XRView")}}-Eigenschaft {{domxref("XRView.projectionMatrix", "projectionMatrix")}} des Objekts enthält die Projektionsmatrix, die die Perspektive der Ansicht darstellt und sollte fast immer unverändert verwendet werden. Änderungen an der von `XRView` bereitgestellten Projektionsmatrix führen wahrscheinlich zu Verzerrungen oder schlechter Ausrichtung der gerenderten Inhalte im Vergleich zu den realen Szenen; dies könnte signifikant genug sein, um bei mindestens einigen Ihrer Benutzer [Virtual Reality Sickness](https://en.wikipedia.org/wiki/Virtual_reality_sickness) zu verursachen.
+Unter normalen Umständen sollten Sie die perspektivische Projektionsmatrix direkt von der Ansicht verwenden, die Sie rendern. Die `projectionMatrix`-Eigenschaft des [`XRView`](/de/docs/Web/API/XRView)-Objekts enthält die Projektionsmatrix, die die Perspektive der Ansicht darstellt, und sollte fast immer unverändert verwendet werden. Änderungen an der von `XRView` bereitgestellten Projektionsmatrix führen wahrscheinlich zu Verzerrungen oder einer schlechten Ausrichtung des gerenderten Inhalts im Verhältnis zur realen Szenerie; dies könnte erheblich genug sein, um bei mindestens einigen Ihrer Benutzer [VR-Übelkeit](https://en.wikipedia.org/wiki/Virtual_reality_sickness) zu verursachen.
 
-Zum Beispiel, wenn Ihre App einen WebGL-Uniform namens `uProjectionMatrix` verwendet, um die Projektionsmatrix an Ihre Shader weiterzugeben, könnten Sie Code wie diesen verwenden, um die Projektionsmatrix für die aktuell gerenderte `view` zu übergeben:
+Beispielsweise, wenn Ihre App ein WebGL-Uniform mit dem Namen `uProjectionMatrix` verwendet, um die Projektionsmatrix an Ihre Shader zu übergeben, könnten Sie Code wie diesen verwenden, um die Projektionsmatrix für die derzeit gerenderte `view` zu übergeben:
 
 ```js
 gl.uniformMatrix4fv(uProjectionMatrix, false, view.projectionMatrix);
@@ -31,15 +31,15 @@ gl.uniformMatrix4fv(uProjectionMatrix, false, view.projectionMatrix);
 
 ### Anpassung der Projektionsmatrix
 
-Obwohl Sie normalerweise vermeiden sollten, die von der Ansicht bereitgestellte Projektionsmatrix manuell zu erstellen oder zu ändern, können Sie dies unter bestimmten Umständen tun. Der häufigste Grund, warum es sinnvoll sein könnte, dies zu tun, ist die Änderung der Entfernungen zu den nahen und fernen Clipping-Ebenen, um die Anzahl der zu rendernden Polygone aus Leistungsgründen zu erhöhen oder zu reduzieren. Wenn Spiele Präferenzen bieten, um die Sichtweite anzupassen, wird dies durch Ändern dieser Ebendistanzwerte erreicht.
+Obwohl Sie normalerweise vermeiden sollten, die von der Ansicht bereitgestellte Projektionsmatrix manuell zu erstellen oder zu ändern, können Sie dies in einigen Situationen tun. Der häufigste Grund, aus dem dies sinnvoll sein könnte, ist die Anpassung der Distanzen der nahen und fernen Clipping-Ebene, um die Anzahl der zu rendernden Polygone aus Leistungsgründen zu erhöhen oder zu verringern. Wenn Spiele Einstellungen für die Anpassung der Sichtweite anbieten, geschieht dies durch Ändern dieser Flächenabstands-Werte.
 
-Im immersiven Modus bezieht das WebXR-System den Standard-[Sichtkegel](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection#the_viewing_frustum) aus der von den Hardwareanbietern bereitgestellten Software. Dieser Sichtkegel basiert auf einer Kombination aus den Linsen des Geräts, der Display-Hardware und den Kameras. Alles, von der Größe des Bildsensors bis zur Brennweite der Linse, ist in diese Berechnung einbezogen.
+Im Immersive-Modus bezieht das WebXR-System das Standard-[Betrachtungsfrustum](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection#the_viewing_frustum) von der vom Hardwareanbieter bereitgestellten Software. Dieses Betrachtungsfrustum basiert auf einer Kombination aus den Linsen des Geräts, der Anzeigetechnologie und den Kameras. Alles von der Größe des Bildsensors bis zur Brennweite der Linse spielt bei dieser Berechnung eine Rolle.
 
-Immersive Erfahrungen verwenden hardwaredefinierte Sichtfelder, Brennweiten usw., sodass Sie beim Verwenden einer immersiven Sitzung nur die Entfernungen für die nahen und fernen Clipping-Ebenen ändern können. Dies wird durch Setzen der Werte der `XRRenderState`-Eigenschaften {{domxref("XRRenderState.depthNear", "depthNear")}} und {{domxref("XRRenderState.depthFar", "depthFar")}} erreicht.
+Immersive Erlebnisse verwenden hardwaredefinierte Sichtfelder, Brennweiten und dergleichen, daher können Sie bei der Verwendung einer immersiven Sitzung nur die nahen und fernen Clipping-Distanzen ändern. Dies wird durch Einstellen der Werte der `XRRenderState`-Eigenschaften [`depthNear`](/de/docs/Web/API/XRRenderState/depthNear) und [`depthFar`](/de/docs/Web/API/XRRenderState/depthFar) erreicht.
 
-Im Inline-Modus können Sie das Sichtfeld auch direkt ändern, indem Sie den Wert der Eigenschaft {{domxref("XRSession.renderState", "renderState")}}'s {{domxref("XRRenderState.inlineVerticalFieldOfView", "inlineVerticalFieldOfView")}} setzen. Diese Eigenschaft muss für jede immersive Sitzung auf `null` gesetzt werden.
+Im Inline-Modus können Sie das Sichtfeld auch direkt ändern, indem Sie den Wert der [`renderState`](/de/docs/Web/API/XRSession/renderState)'s [`inlineVerticalFieldOfView`](/de/docs/Web/API/XRRenderState/inlineVerticalFieldOfView)-Eigenschaft einstellen. Diese Eigenschaft muss für jede immersive Sitzung auf `null` gesetzt werden.
 
-Sobald Sie den Sichtkegel haben, können Sie die Perspektivprojektionsmatrix berechnen, die WebGL beim Rendern der Szene verwendet, indem Sie eine Funktion wie diese verwenden:
+Sobald Sie das Betrachtungsfrustum haben, können Sie die perspektivische Projektionsmatrix berechnen, die WebGL verwendet, um die Szene mit einer Funktion wie dieser zu rendern:
 
 ```js
 function makePerspectiveMatrix(fieldOfViewInRadians, aspectRatio, near, far) {
@@ -67,21 +67,21 @@ function makePerspectiveMatrix(fieldOfViewInRadians, aspectRatio, near, far) {
 }
 ```
 
-Die Werte von `near` und `far` werden direkt aus dem Sichtkegel bezogen; sie sind die Entfernung vom Ursprung zum nächstgelegenen Punkt auf der nahen Clipping-Ebene und der fernen Clipping-Ebene. Das Seitenverhältnis ist der Wert, der durch Teilen der Breite des Sichtfeldes durch seine Höhe erhalten wird. Wenn das Ziel-Display ein Seitenverhältnis von 16:9 verwendet, sollte der für `aspectRatio` verwendete Wert `16/9` oder 1.7777777778 sein.
+Die Werte von `near` und `far` werden direkt aus dem Frustum abgeleitet; sie sind der Abstand vom Ursprung zum nächsten Punkt auf der nahen Clipping-Ebene und zur fernen Clipping-Ebene. Das Seitenverhältnis ist der Wert, der sich aus der Division der Breite des Sichtfelds durch seine Höhe ergibt. Wenn das Ziel-Display ein 16:9-Seitenverhältnis verwendet, sollte der für `aspectRatio` verwendete Wert `16/9` oder 1,7777777778 sein.
 
-Wenn Sie eine Bibliothek oder ein Framework verwenden, das Matrix-Mathematik-Funktionen bietet, wird es fast sicher eine ähnliche Funktion enthalten. Zum Beispiel finden Sie in der beliebten [glMatrix](https://glmatrix.net/) Bibliothek diese Funktion in [`mat4.perspective()`](https://glmatrix.net/docs/module-mat4.html#.perspective).
+Wenn Sie eine Bibliothek oder ein Framework verwenden, das Matrix-Mathematik-Funktionen bereitstellt, wird es mit Sicherheit eine ähnliche Funktion enthalten. Beispielsweise finden Sie im beliebten [glMatrix](https://glmatrix.net/) Library diese Funktion unter [`mat4.perspective()`](https://glmatrix.net/docs/module-mat4.html#.perspective).
 
-Egal, woher sie kommt, sobald Sie die Projektionsmatrix haben, können Sie sie verwenden, wenn Sie WebGL aufrufen, um Ihre Szene zu rendern.
+Unabhängig von der Quelle, sobald Sie die Projektionsmatrix haben, können Sie sie beim Aufrufen von WebGL verwenden, um Ihre Szene zu rendern.
 
 ## Anpassung an die Realität
 
-In Augmented Reality (AR)-Anwendungen werden die von Ihnen gerenderten Inhalte über die reale Welt gelegt. Um dies gut zu machen, müssen Ihre Perspektivenberechnungen mit der Perspektive des Betrachters auf die umgebende Welt übereinstimmen. Wenn Sie dies nicht tun, werden Ihre Objekte nicht korrekt mit der Realität übereinstimmen.
+In Augmented-Reality-Anwendungen (AR) werden die Inhalte, die Sie rendern, über die reale Welt gelegt. Um dies gut zu machen, müssen Ihre Perspektivberechnungen mit der Perspektive des Betrachters der Umgebung übereinstimmen. Wenn nicht, werden Ihre Objekte nicht korrekt mit der Realität übereinstimmen.
 
-Wenn die Perspektivprojektionsmatrix Ihrer virtuellen Kamera nicht dazu führt, dass virtuelle Objekte denselben scheinbaren Perspektive wie die reale Welt haben, könnte die Diskrepanz zwischen der virtuellen und der physischen Welt irritierend oder, schlimmer noch, Schwindel, Motion Sickness oder andere Unannehmlichkeiten bei den Benutzern Ihrer App verursachen.
+Wenn die Perspektivprojektionsmatrix Ihrer virtuellen Kamera nicht dazu führt, dass virtuelle Objekte die gleiche scheinbare Perspektive wie die reale Welt haben, könnte die Diskrepanz zwischen den virtuellen und physischen Welten verwirrend sein oder, noch schlimmer, Schwindel, Bewegungsübelkeit oder andere Formen von Unbehagen bei den Benutzern Ihrer App hervorrufen.
 
-Ein verwandtes Problem ist, dass, wenn Sie Ihre Perspektivmatrix verwenden, um zu bestimmen, wo Objekte platziert werden sollen, eine Diskrepanz zwischen Ihrer Perspektivprojektionsmatrix und der physischen Perspektive des Benutzers auf die Welt dazu führen könnte, dass die Objekte nicht genau positioniert werden. Wenn Ihre App es dem Benutzer ermöglicht, virtuelle Gemälde an ihren Wänden aufzuhängen, die Perspektivmatrix jedoch nicht übereinstimmt, könnten die platzierten Gemälde letztendlich nicht tatsächlich an der Wand sein, teilweise die Wand durchdringen oder mit einem Ende näher an der Wand als das andere, anstatt ordnungsgemäß parallel zur Wand zu sein.
+Ein damit verbundenes Problem ist, dass wenn Sie Ihre Perspektivmatrix verwenden, um festzulegen, wo Objekte platziert werden sollen, eine Diskrepanz zwischen Ihrer Perspektivprojektionsmatrix und der physischen Perspektive des Benutzers auf die Welt dazu führen könnte, dass die Objekte nicht genau positioniert sind. Wenn Ihre App dem Benutzer ermöglicht, virtuelle Gemälde an die Wände zu hängen, beispielsweise, aber die Perspektivmatrix nicht übereinstimmt, könnten die platzierten Gemälde am Ende nicht richtig an der Wand hängen, teilweise mit der Wand verschwimmen oder ein Ende näher an der Wand sein als das andere, anstatt parallel zur Wand zu sein.
 
 ## Siehe auch
 
-- [WebGL Modellansichtsprojektion](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection)
-- [Ansichten und Betrachter: Kamerasimulationen in WebXR](/de/docs/Web/API/WebXR_Device_API/Cameras)
+- [WebGL-Projektionsmodelle](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection)
+- [Ansichten und Betrachter: Kamerasimulation in WebXR](/de/docs/Web/API/WebXR_Device_API/Cameras)

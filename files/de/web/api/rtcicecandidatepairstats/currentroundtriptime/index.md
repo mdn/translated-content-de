@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`currentRoundTripTime`** des {{domxref("RTCIceCandidatePairStats")}} ist ein Gleitkommawert, der die Anzahl der Sekunden angibt, die es dauert, bis Daten von diesem Peer zum entfernten Peer gesendet und über die Verbindung, die durch dieses Paar von {{Glossary("ICE")}}-Kandidaten beschrieben wird, zurückgesendet werden.
+Die [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Eigenschaft **`currentRoundTripTime`** ist ein Fließkommawert, der die Anzahl der Sekunden angibt, die es dauert, bis Daten von diesem Peer zum entfernten Peer und zurück über die Verbindung gesendet werden, die durch dieses Paar von [ICE](/de/docs/Glossary/ICE)-Kandidaten beschrieben wird.
 
 ## Syntax
 
@@ -18,14 +18,14 @@ rtt = rtcIceCandidatePairStats.currentRoundTripTime
 
 ### Wert
 
-Ein Gleitkommawert, der die Round-Trip-Zeit in Sekunden für die Verbindung angibt, die durch das Paar von Kandidaten beschrieben wird, für das dieses `RTCIceCandidatePairStats`-Objekt Statistiken bietet.
+Ein Fließkommawert, der die Rundlaufzeit in Sekunden für die Verbindung angibt, die durch das Paar von Kandidaten beschrieben wird, für das dieses `RTCIceCandidatePairStats`-Objekt Statistiken liefert.
 
-Dieser Wert wird ermittelt, indem die Zeit beobachtet wird, die zwischen dem Versand der letzten {{Glossary("STUN")}}-Anfrage an den entfernten Peer und dem Eintreffen der Antwort auf diese Anfrage vergangen ist. Diese Information kann sowohl von laufenden STUN-Verbindungsprüfungen als auch von Zustimmungsgesuchen stammen, die beim anfänglichen Öffnen der Verbindung gemacht wurden.
+Dieser Wert wird berechnet, indem die Zeit beobachtet wird, die zwischen dem Senden der letzten [STUN](/de/docs/Glossary/STUN)-Anfrage an den entfernten Peer und dem Eintreffen der Antwort auf diese Anfrage vergangen ist. Diese Informationen können sowohl aus laufenden STUN-Konnektivitätschecks als auch aus Zustimmungserklärungen stammen, die bei der anfänglichen Verbindungsherstellung gemacht wurden.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

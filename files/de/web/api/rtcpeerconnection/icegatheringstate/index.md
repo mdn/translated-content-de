@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`iceGatheringState`** der {{domxref("RTCPeerConnection")}}-Schnittstelle gibt einen String zurück, der den aktuellen ICE-Sammelstatus dieser Verbindung beschreibt. Dadurch können Sie beispielsweise erkennen, wann das Sammeln von ICE-Kandidaten abgeschlossen ist.
+Die schreibgeschützte Eigenschaft **`iceGatheringState`** des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces gibt einen String zurück, der den gesamten ICE-Sammlungstatus für diese Verbindung beschreibt. Dies ermöglicht es Ihnen beispielsweise zu erkennen, wann die Sammlung von ICE-Kandidaten abgeschlossen ist.
 
-Sie können erkennen, wann sich der Wert dieser Eigenschaft ändert, indem Sie auf ein Ereignis vom Typ {{domxref("RTCPeerConnection/icegatheringstatechange_event", "icegatheringstatechange")}} achten.
+Sie können erkennen, wann sich der Wert dieser Eigenschaft ändert, indem Sie ein Ereignis vom Typ [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event) beobachten.
 
-Beachten Sie, dass **`iceGatheringState`** den gesamten Sammelstatus der Verbindung repräsentiert, einschließlich jedes verwendeten {{domxref("RTCIceTransport")}} durch jeden {{domxref("RTCRtpSender")}} und jede {{domxref("RTCRtpReceiver")}} in der gesamten Verbindung. Dies steht im Gegensatz zu {{domxref("RTCIceTransport.gatheringState")}}, das den Sammelstatus für einen einzelnen Transport darstellt.
+Beachten Sie, dass **`iceGatheringState`** den gesamten Sammelstatus der Verbindung darstellt, einschließlich jedes [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport), das von jedem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) und jedem [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) in der gesamten Verbindung verwendet wird. Dies steht im Gegensatz zu [`RTCIceTransport.gatheringState`](/de/docs/Web/API/RTCIceTransport/gatheringState), das den Sammelstatus für einen einzelnen Transport darstellt.
 
 ## Wert
 
@@ -24,7 +24,7 @@ Die möglichen Werte sind:
   - : Der ICE-Agent sammelt derzeit Kandidaten für die Verbindung.
 - `complete`
   - : Der ICE-Agent hat das Sammeln von Kandidaten abgeschlossen.
-    Wenn etwas passiert, das das Sammeln neuer Kandidaten erfordert, wie das Hinzufügen einer neuen Schnittstelle oder eines neuen ICE-Servers, wechselt der Status wieder zu `gathering`, um diese Kandidaten zu sammeln.
+    Wenn etwas passiert, das das Sammeln neuer Kandidaten erfordert, wie z. B. das Hinzufügen einer neuen Schnittstelle oder das Hinzufügen eines neuen ICE-Servers, wird der Status auf `gathering` zurückgesetzt, um diese Kandidaten zu sammeln.
 
 ## Beispiel
 
@@ -37,11 +37,11 @@ const state = pc.iceGatheringState;
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{DOMxRef("RTCPeerConnection/icegatheringstatechange_event", "icegatheringstatechange")}}
+- [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event)
 - [WebRTC](/de/docs/Web/API/WebRTC_API)

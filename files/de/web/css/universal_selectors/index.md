@@ -7,20 +7,20 @@ l10n:
 
 {{CSSRef}}
 
-Der CSS **universelle Selektor** (`*`) wählt Elemente jeglichen Typs aus.
+Der CSS **universelle Selektor** (`*`) passt zu Elementen jeglichen Typs.
 
 ```css
-/* Wählt alle Elemente aus */
+/* Selects all elements */
 * {
   color: green;
 }
 ```
 
-Der universelle Selektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Type_selectors) und kann daher mit einem Namensraum versehen werden, wenn Sie {{CSSXref("@namespace")}} verwenden. Dies ist nützlich, wenn Sie mit Dokumenten arbeiten, die mehrere Namensräume beinhalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
+Der universelle Selektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Type_selectors) und kann daher mit {{CSSXref("@namespace")}} namespaced werden. Dies ist nützlich, wenn man mit Dokumenten umgeht, die mehrere Namespaces enthalten, wie HTML mit inline SVG oder MathML oder XML, das mehrere Vokabulare mischt.
 
-- `ns|*` - wählt alle Elemente im Namensraum _ns_ aus
-- `*|*` - wählt alle Elemente aus
-- `|*` - wählt alle Elemente ohne einen erklärten Namensraum aus
+- `ns|*` - entspricht allen Elementen im Namespace _ns_
+- `*|*` - entspricht allen Elementen
+- `|*` - entspricht allen Elementen ohne einen deklarierten Namespace
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Der universelle Selektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Type_
 * { style properties }
 ```
 
-Das Sternchen ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warning` und `.warning` gleichwertig.
+Das Sternchen ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warning` und `.warning` äquivalent.
 
 ## Beispiele
 
@@ -51,7 +51,7 @@ Das Sternchen ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warnin
   float: left;
 }
 
-/* automatisch das nächste Geschwisterelement nach einem schwebenden Element löschen */
+/* automatically clear the next sibling after a floating element */
 .floating + * {
   clear: left;
 }
@@ -61,10 +61,10 @@ Das Sternchen ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warnin
 
 ```html
 <p class="warning">
-  <span lang="en-us">Ein grüner Span</span> in einem roten Absatz.
+  <span lang="en-us">A green span</span> in a red paragraph.
 </p>
 <p id="maincontent" lang="en-gb">
-  <span class="warning">Ein roter Span</span> in einem grünen Absatz.
+  <span class="warning">A red span</span> in a green paragraph.
 </p>
 ```
 
@@ -72,9 +72,9 @@ Das Sternchen ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warnin
 
 {{EmbedLiveSample('Examples')}}
 
-### Namensräume
+### Namespaces
 
-In diesem Beispiel wird der Selektor nur Elemente im Beispiel-Namensraum auswählen.
+In diesem Beispiel wird der Selektor nur Elemente im Beispiel-Namespace ansprechen.
 
 ```css
 @namespace example url(http://www.example.com/);
@@ -93,5 +93,5 @@ example|* {
 
 ## Siehe auch
 
-- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
-- [CSS Lernen: Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors)
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
+- [CSS lernen: Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors)

@@ -9,18 +9,18 @@ l10n:
 
 In Mozilla-Anwendungen bestimmt **`-moz-user-input`**, ob ein Element Benutzereingaben akzeptiert.
 
-Ab Firefox 60 kann diese Eigenschaft einem Element nicht mehr die Fähigkeit verleihen, Benutzereingaben zu akzeptieren, wenn es dies normalerweise nicht tut. Sie kann nur verwendet werden, um Benutzereingaben zu deaktivieren.
+Ab Firefox 60 kann diese Eigenschaft einem Element nicht mehr die Fähigkeit verleihen, Benutzereingaben zu akzeptieren, wenn es normalerweise keine akzeptiert. Sie kann nur noch verwendet werden, um Benutzereingaben zu deaktivieren.
 
-> **Hinweis:** `-moz-user-input` war einer der Vorschläge, die zur vorgeschlagenen CSS 3 {{cssxref("user-input")}} Eigenschaft führten, die noch nicht den Status "Candidate Recommendation" (Aufruf zur Implementierung) erreicht hat. Eine ähnliche Eigenschaft, `user-focus`, wurde in [frühen Entwürfen eines Vorläufers der User Interface für CSS3-Spezifikation](https://www.w3.org/TR/2000/WD-css3-userint-20000216) vorgeschlagen, aber von der Arbeitsgruppe abgelehnt.
+> **Note:** `-moz-user-input` war einer der Vorschläge, die zur vorgeschlagenen CSS 3 {{cssxref("user-input")}} Eigenschaft führten, die noch nicht den Candidate Recommendation Status erreicht hat (Aufforderung zur Implementierung). Eine ähnliche Eigenschaft, `user-focus`, wurde in [frühen Entwürfen eines Vorgängers der Benutzeroberfläche für CSS3-Spezifikation](https://www.w3.org/TR/2000/WD-css3-userint-20000216) vorgeschlagen, aber von der Arbeitsgruppe abgelehnt.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 -moz-user-input: auto;
 -moz-user-input: none;
 
-/* Globale Werte */
+/* Global values */
 -moz-user-input: inherit;
 -moz-user-input: initial;
 -moz-user-input: unset;
@@ -29,9 +29,9 @@ Ab Firefox 60 kann diese Eigenschaft einem Element nicht mehr die Fähigkeit ver
 ### Werte
 
 - `auto`
-  - : Das Element reagiert auf Benutzereingaben, wenn es normalerweise Benutzereingaben akzeptiert, wie ein {{HTMLElement("textarea")}}.
+  - : Das Element reagiert auf Benutzereingaben, wenn es normalerweise Benutzereingaben entgegennimmt, wie ein {{HTMLElement("textarea")}}.
 - `none`
-  - : Das Element reagiert nicht auf Benutzereingaben und wird nicht {{CSSxRef(":active")}}.
+  - : Das Element reagiert nicht auf Benutzereingaben und wird nicht zu {{CSSxRef(":active")}}.
 
 ## Formale Definition
 
@@ -50,7 +50,7 @@ Ab Firefox 60 kann diese Eigenschaft einem Element nicht mehr die Fähigkeit ver
 
 ```css
 input.example {
-  /* Der Benutzer kann den Text auswählen, ihn aber nicht ändern. */
+  /* The user will be able to select the text, but not change it. */
   -moz-user-input: none;
 }
 ```

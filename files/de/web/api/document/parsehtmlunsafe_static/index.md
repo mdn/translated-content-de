@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die statische Methode **`parseHTMLUnsafe()`** des {{domxref("Document")}} Objekts wird verwendet, um einen HTML-String zu parsen, der [deklarative Schattenwurzeln](/de/docs/Web/HTML/Element/template#declarative_shadow_dom) enthalten kann, um eine neue {{domxref("Document")}} Instanz zu erstellen.
+Die **`parseHTMLUnsafe()`**-statische Methode des [`Document`](/de/docs/Web/API/Document)-Objekts wird verwendet, um einen HTML-String zu parsen, der [deklarative Schattenwurzeln](/de/docs/Web/HTML/Element/template#declarative_shadow_dom) enthalten kann, um eine neue [`Document`](/de/docs/Web/API/Document)-Instanz zu erstellen.
 
-Das Suffix "Unsafe" im Methodennamen weist darauf hin, dass, obwohl `<script>`-Elemente beim Parsen nicht ausgewertet werden, die Methode andere potenziell unsichere XSS-relevante Eingaben nicht sanitisiert.
+Der Suffix "Unsafe" im Methodennamen deutet darauf hin, dass, obwohl `<script>`-Elemente während des Parsings nicht ausgeführt werden, die Methode andere potenziell unsichere, XSS-relevante Eingaben nicht bereinigt.
 
-Das resultierende `Document` wird einen [Inhaltstyp](/de/docs/Web/API/Document/contentType) von "text/html", eine [Zeichenkodierung](/de/docs/Web/API/Document/characterSet) von UTF-8 und eine URL von "about:blank" haben.
+Das resultierende `Document` hat einen [Inhaltstyp](/de/docs/Web/API/Document/contentType) von "text/html", eine [Zeichenkodierung](/de/docs/Web/API/Document/characterSet) von UTF-8 und eine URL von "about:blank".
 
 ## Syntax
 
@@ -23,11 +23,11 @@ Document.parseHTMLUnsafe(input)
 ### Parameter
 
 - `html`
-  - : Ein zu parsenden HTML-String.
+  - : Ein HTML-String, der geparst werden soll.
 
 ### Rückgabewert
 
-Ein {{domxref("Document")}}.
+Ein [`Document`](/de/docs/Web/API/Document).
 
 ### Ausnahmen
 
@@ -43,5 +43,5 @@ Keine.
 
 ## Siehe auch
 
-- {{domxref("DOMParser.parseFromString()")}} zum Parsen von HTML oder XML in einen DOM-Baum
-- {{domxref("Element.setHTMLUnsafe")}}
+- [`DOMParser.parseFromString()`](/de/docs/Web/API/DOMParser/parseFromString) zum Parsen von HTML oder XML in einen DOM-Baum
+- [`Element.setHTMLUnsafe`](/de/docs/Web/API/Element/setHTMLUnsafe)

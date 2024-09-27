@@ -1,5 +1,5 @@
 ---
-title: SchlüsselPunkte
+title: keyPoints
 slug: Web/SVG/Attribute/keyPoints
 l10n:
   sourceCommit: 32d1c9ff83019f8efae3e7987a55e83035e4b926
@@ -53,7 +53,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample("Beispiel", "200", "120")}}
+{{EmbedLiveSample("Example", "200", "120")}}
 
 ## Verwendungshinweise
 
@@ -76,13 +76,13 @@ svg {
 
 - `<number> [; <number>] ;?`
 
-  - : Dieser Wert definiert eine durch Semikolon getrennte Liste von Gleitkommawerten zwischen 0 und 1 und gibt an, wie weit entlang des Bewegungspfades das Objekt zum durch den entsprechenden {{SVGAttr("keyTimes")}}-Wert angegebenen Zeitpunkt bewegt werden soll. Die Distanz wird entlang des durch das {{SVGAttr("path")}}-Attribut spezifizierten Pfades berechnet. Jeder Fortschrittswert in der Liste entspricht einem Wert in der Liste des `keyTimes`-Attributs.
+  - : Dieser Wert definiert eine durch Semikolons getrennte Liste von Gleitkommawerten zwischen 0 und 1 und gibt an, wie weit entlang des Bewegungspfads das Objekt sich zu dem in {{SVGAttr("keyTimes")}} angegebenen Zeitpunkt bewegen soll. Die Entfernung wird entlang des Pfads berechnet, der durch das {{SVGAttr("path")}}-Attribut angegeben wird. Jeder Fortschrittswert in der Liste entspricht einem Wert in der `keyTimes`-Werteliste.
 
-    Wenn eine Liste von Schlüsselpunkten angegeben wird, muss die Anzahl der Werte in der `keyPoints`-Liste genau der in der `keyTimes`-Liste entsprechen.
+    Wenn eine Liste von Schlüsselpunkten angegeben wird, müssen genau so viele Werte in der `keyPoints`-Liste wie in der `keyTimes`-Liste vorhanden sein.
 
-    Wenn sich ein Semikolon am Ende des Wertes befindet, optional gefolgt von Leerzeichen, werden sowohl das Semikolon als auch die nachfolgenden Leerzeichen ignoriert.
+    Wenn sich ein Semikolon am Ende des Wertes befindet, das optional von einem Leerzeichen gefolgt wird, werden sowohl das Semikolon als auch das Leerzeichen ignoriert.
 
-    Wenn es Fehler in der Wertangabe gibt (z.B. falsche Werte, zu viele oder zu wenige Werte), dann ist das ein Fehler.
+    Falls es Fehler in der Wertangabe gibt (z.B. ungültige Werte, zu viele oder zu wenige Werte), stellt dies einen Fehler dar.
 
 ## Spezifikationen
 

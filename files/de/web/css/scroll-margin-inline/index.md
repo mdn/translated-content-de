@@ -7,13 +7,13 @@ l10n:
 
 {{CSSRef}}
 
-Die `scroll-margin-inline` [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt die Scroll-Margen eines Elements in der Inline-Dimension fest.
+Die `scroll-margin-inline` [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) setzt die Scroll-Außenabstände eines Elements in der Inline-Dimension.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-inline.html")}}
 
-## Zusammengesetzte Eigenschaften
+## Bestandeigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - [`scroll-margin-inline-end`](/de/docs/Web/CSS/scroll-margin-inline-end)
 - [`scroll-margin-inline-start`](/de/docs/Web/CSS/scroll-margin-inline-start)
@@ -21,11 +21,11 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 ## Syntax
 
 ```css
-/* <length>-Werte */
+/* <length> values */
 scroll-margin-inline: 10px;
 scroll-margin-inline: 1em 0.5em;
 
-/* Globale Werte */
+/* Global values */
 scroll-margin-inline: inherit;
 scroll-margin-inline: initial;
 scroll-margin-inline: revert;
@@ -36,11 +36,11 @@ scroll-margin-inline: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Abstand von der entsprechenden Kante des Scroll-Containers.
+  - : Ein Abstand vom entsprechenden Rand des Scroll-Containers.
 
 ## Beschreibung
 
-Die scroll-margin-Werte stellen Abstände dar, die den Scroll-Snap-Bereich definieren, der verwendet wird, um diese Box an den Snapport auszurichten. Der Scroll-Snap-Bereich wird ermittelt, indem man die transformierte Randbox nimmt, ihre rechteckige Begrenzungsbox (achsenausgerichtet im Koordinatenraum des Scroll-Containers) findet und dann die angegebenen Abstände hinzufügt.
+Die scroll-margin-Werte stellen Abstände dar, die den Scroll-Snap-Bereich definieren, der zum Einrasten dieser Box in das Snapport verwendet wird. Der Scroll-Snap-Bereich wird durch die Umwandlung der Border-Box, das Finden seiner rechteckigen Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) und das Hinzufügen der festgelegten Abstände bestimmt.
 
 ## Formale Definition
 
@@ -54,9 +54,9 @@ Die scroll-margin-Werte stellen Abstände dar, die den Scroll-Snap-Bereich defin
 
 ### Einfache Demonstration
 
-Dieses Beispiel implementiert etwas sehr Ähnliches wie das oben interaktive Beispiel, wobei wir Ihnen hier erklären, wie es implementiert wird.
+Dieses Beispiel implementiert etwas sehr Ähnliches wie das interaktive Beispiel oben, mit dem Unterschied, dass wir Ihnen hier erklären, wie es implementiert wird.
 
-Das Ziel hier ist es, vier horizontal scrollende Blöcke zu erstellen, wobei sich der zweite und dritte Block fast, aber nicht ganz, am rechten Rand jedes Blocks einrasten.
+Das Ziel hier ist es, vier horizontal scrollende Blöcke zu erstellen, von denen der zweite und dritte einrasten, nahe, aber nicht ganz am rechten Rand jedes Blocks.
 
 #### HTML
 
@@ -73,7 +73,7 @@ Das HTML, das die Blöcke darstellt, ist sehr einfach:
 
 #### CSS
 
-Werfen wir einen Blick auf das CSS. Der äußere Container ist wie folgt gestylt:
+Gehen wir den CSS durch. Der äußere Container wird wie folgt gestylt:
 
 ```css
 .scroller {
@@ -88,9 +88,9 @@ Werfen wir einen Blick auf das CSS. Der äußere Container ist wie folgt gestylt
 }
 ```
 
-Die Hauptteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, was sicherstellt, dass der Inhalt scrollt und nicht versteckt wird, und `scroll-snap-type: x mandatory`, das vorschreibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrollen immer an einem Snap-Punkt zum Stillstand kommt.
+Die Hauptteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, das sicherstellt, dass die Inhalte scrollen und nicht versteckt werden, und `scroll-snap-type: x mandatory`, das angibt, dass Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrollen immer auf einem Snap-Punkt enden wird.
 
-Die Kindelemente sind wie folgt gestylt:
+Die Kindelemente werden folgendermaßen gestylt:
 
 ```css
 .scroller > div {
@@ -111,9 +111,9 @@ Die Kindelemente sind wie folgt gestylt:
 }
 ```
 
-Der relevanteste Teil hier ist `scroll-snap-align: end`, welcher angibt, dass die rechten Kanten (die "Enden" entlang der x-Achse, in unserem Fall) die festgelegten Einrastpunkte sind.
+Der relevanteste Teil hier ist `scroll-snap-align: end`, das angibt, dass die rechten Kanten (die "Enden" entlang der x-Achse in unserem Fall) die vorgesehenen Snap-Punkte sind.
 
-Zuletzt spezifizieren wir die Scroll-Margin-Werte, einen anderen für das zweite und dritte Kindelement:
+Zuletzt legen wir die Scroll-Margin-Werte fest, jeweils einen anderen für das zweite und dritte Kindelement:
 
 ```css
 .scroller > div:nth-child(2) {
@@ -125,10 +125,10 @@ Zuletzt spezifizieren wir die Scroll-Margin-Werte, einen anderen für das zweite
 }
 ```
 
-Das bedeutet, dass beim Scrollen an den mittleren Kindelementen vorbei, das Scrollen an `1rem` außerhalb des Inline-Endrandes des zweiten `<div>` und `2rems` außerhalb des Inline-Endrandes des dritten `<div>` stoppt.
+Das bedeutet, dass beim Scrollen über die mittleren Kindelemente das Scrollen `1rem` außerhalb des Inline-End-Randes des zweiten `<div>` und `2rems` außerhalb des Inline-End-Randes des dritten `<div>` einrastet.
 
 > [!NOTE]
-> Hier setzen wir `scroll-margin` am Anfang _und_ Ende der Inline-Achse (x in unserem Fall), aber nur die Endkante ist wirklich relevant. Es würde hier genauso gut funktionieren, nur eine Scroll-Marge an dieser einen Kante zu setzen, zum Beispiel mit `scroll-margin-inline: 0 1rem` oder `scroll-margin-inline-end: 1rem`.
+> Hier setzen wir `scroll-margin` an Anfang _und_ Ende der Inline-Achse (x in unserem Fall), aber nur der Endrand ist wirklich relevant. Es würde ebenso gut funktionieren, hier nur einen Scroll-Außenabstand an diesem einen Rand zu setzen, beispielsweise mit `scroll-margin-inline: 0 1rem` oder `scroll-margin-inline-end: 1rem`.
 
 #### Ergebnis
 
@@ -140,7 +140,7 @@ Probieren Sie es selbst aus:
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

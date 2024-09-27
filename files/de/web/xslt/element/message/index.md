@@ -2,12 +2,12 @@
 title: <xsl:message>
 slug: Web/XSLT/Element/message
 l10n:
-  sourceCommit: 91bf979a73463798a0c4bb9045d2d86180cd0a1d
+  sourceCommit: 9df96dcad40bf97f66b317ef6b6bbe64444569eb
 ---
 
 {{XsltSidebar}}
 
-Das `<xsl:message>`-Element gibt eine Nachricht (in die JavaScript-Konsole in NS) aus und kann optional die Ausführung des Stylesheets beenden. Es kann nützlich für das Debugging sein.
+Das `<xsl:message>`-Element gibt eine Nachricht aus (in der JavaScript-Konsole in NS) und beendet optional die Ausführung des Stylesheets. Es kann nützlich für das Debugging sein.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 ### Optionale Attribute
 
 - `terminate`
-  - : Wenn auf "`yes`" gesetzt, zeigt dies an, dass die Ausführung beendet werden soll. Der Standardwert ist "`no`", in diesem Fall wird die Nachricht ausgegeben und die Ausführung fortgesetzt.
+  - : Wenn auf `yes` gesetzt, bedeutet das, dass die Ausführung beendet werden soll. Der Standardwert ist `no`, in welchem Fall die Nachricht ausgegeben wird und die Ausführung fortgesetzt wird.
 
 ### Typ
 

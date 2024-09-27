@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.bindAttribLocation()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) verbindet einen generischen Vertex-Index mit einer Attributvariablen.
+Die **`WebGLRenderingContext.bindAttribLocation()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) bindet einen generischen Vertex-Index an eine Attributvariable.
 
 ## Syntax
 
@@ -19,12 +19,11 @@ bindAttribLocation(program, index, name)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}-Objekt, das gebunden werden soll.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram)-Objekt, das gebunden werden soll.
 - `index`
-  - : Ein {{domxref("WebGL_API/Types", "GLuint")}}, der den Index des zu bindenden generischen Vertexes angibt.
+  - : Ein [`GLuint`](/de/docs/Web/API/WebGL_API/Types), der den Index des generischen Vertex angibt, der gebunden werden soll.
 - `name`
-  - : Ein String, der den Namen der zu bindenden Variable an den
-    generischen Vertex-Index angibt. Dieser Name darf nicht mit `"webgl_"` oder `"_webgl_"` beginnen, da diese für die Verwendung durch WebGL reserviert sind.
+  - : Ein String, der den Namen der Variable angibt, die an den generischen Vertex-Index gebunden werden soll. Dieser Name darf nicht mit `"webgl_"` oder `"_webgl_"` beginnen, da diese für die Verwendung durch WebGL reserviert sind.
 
 ### Rückgabewert
 
@@ -46,6 +45,6 @@ gl.bindAttribLocation(program, colorLocation, "vColor");
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getActiveAttrib()")}}
-- {{domxref("WebGLRenderingContext.getAttribLocation()")}}
-- {{domxref("WebGLRenderingContext.getVertexAttrib()")}}
+- [`WebGLRenderingContext.getActiveAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getActiveAttrib)
+- [`WebGLRenderingContext.getAttribLocation()`](/de/docs/Web/API/WebGLRenderingContext/getAttribLocation)
+- [`WebGLRenderingContext.getVertexAttrib()`](/de/docs/Web/API/WebGLRenderingContext/getVertexAttrib)

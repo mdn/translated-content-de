@@ -7,33 +7,33 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`ReadableStreamDefaultController`**-Schnittstelle der [Streams API](/de/docs/Web/API/Streams_API) repräsentiert einen Controller, der die Kontrolle über den Zustand und die interne Warteschlange eines {{domxref("ReadableStream")}}s ermöglicht. Standard-Controller sind für Streams, die keine Byte-Streams sind.
+Das **`ReadableStreamDefaultController`**-Interface der [Streams-API](/de/docs/Web/API/Streams_API) repräsentiert einen Controller, der die Steuerung des Zustands und der internen Warteschlange eines [`ReadableStream`](/de/docs/Web/API/ReadableStream) ermöglicht. Standardcontroller sind für Streams, die keine Bytestreams sind.
 
 ## Konstruktor
 
-Kein. `ReadableStreamDefaultController`-Instanzen werden automatisch während der Konstruktion von `ReadableStream` erzeugt.
+Keine. `ReadableStreamDefaultController`-Instanzen werden automatisch während der Konstruktion eines `ReadableStream` erstellt.
 
 ## Instanzeigenschaften
 
-- {{domxref("ReadableStreamDefaultController.desiredSize")}} {{ReadOnlyInline}}
+- [`ReadableStreamDefaultController.desiredSize`](/de/docs/Web/API/ReadableStreamDefaultController/desiredSize) {{ReadOnlyInline}}
   - : Gibt die gewünschte Größe zurück, die erforderlich ist, um die interne Warteschlange des Streams zu füllen.
 
 ## Instanzmethoden
 
-- {{domxref("ReadableStreamDefaultController.close()")}}
+- [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close)
   - : Schließt den zugehörigen Stream.
-- {{domxref("ReadableStreamDefaultController.enqueue()")}}
-  - : Stellt einen gegebenen Datenblock in der zugehörigen Warteschlange des Streams ein.
-- {{domxref("ReadableStreamDefaultController.error()")}}
+- [`ReadableStreamDefaultController.enqueue()`](/de/docs/Web/API/ReadableStreamDefaultController/enqueue)
+  - : Fügt einen gegebenen Abschnitt in die zugehörige Stream-Warteschlange ein.
+- [`ReadableStreamDefaultController.error()`](/de/docs/Web/API/ReadableStreamDefaultController/error)
   - : Verursacht, dass alle zukünftigen Interaktionen mit dem zugehörigen Stream fehlschlagen.
 
 ## Beispiele
 
-Im folgenden einfachen Beispiel wird ein benutzerdefinierter `ReadableStream` mithilfe eines Konstruktors erstellt (sehen Sie sich das vollständige [einfache Zufallsdatenstrom-Beispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) an). Die `start()`-Funktion generiert jede Sekunde einen zufälligen Textstring und fügt ihn in den Stream ein. Eine `cancel()`-Funktion wird ebenfalls zur Verfügung gestellt, um die Generierung zu stoppen, wenn {{domxref("ReadableStream.cancel()")}} aus irgendeinem Grund aufgerufen wird.
+Im folgenden einfachen Beispiel wird ein benutzerdefinierter `ReadableStream` mithilfe eines Konstruktors erstellt (siehe unser [einfaches Zufallsstream-Beispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/) für den vollständigen Code). Die `start()`-Funktion erzeugt jede Sekunde eine zufällige Textzeichenfolge und fügt sie in den Stream ein. Eine `cancel()`-Funktion wird ebenfalls bereitgestellt, um die Erzeugung zu stoppen, falls [`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel) aus irgendeinem Grund aufgerufen wird.
 
 Beachten Sie, dass ein `ReadableStreamDefaultController`-Objekt als Parameter der `start()`- und `pull()`-Funktionen bereitgestellt wird.
 
-Wenn eine Schaltfläche gedrückt wird, wird die Generierung gestoppt, der Stream wird mit {{domxref("ReadableStreamDefaultController.close()")}} geschlossen und eine andere Funktion wird ausgeführt, die die Daten aus dem Stream liest.
+Wenn eine Taste gedrückt wird, wird die Erzeugung gestoppt, der Stream wird mithilfe von [`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) geschlossen, und eine weitere Funktion wird ausgeführt, die die Daten aus dem Stream ausliest.
 
 ```js
 let interval;
@@ -78,8 +78,8 @@ const stream = new ReadableStream({
 
 ## Siehe auch
 
-- [Streams API Konzepte](/de/docs/Web/API/Streams_API)
-- [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)
-- {{domxref("ReadableStream")}}
+- [Streams-API-Konzepte](/de/docs/Web/API/Streams_API)
+- [Verwendung lesbarer Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)
+- [`ReadableStream`](/de/docs/Web/API/ReadableStream)
 - [WHATWG Stream Visualizer](https://whatwg-stream-visualizer.glitch.me/), für eine grundlegende Visualisierung von lesbaren, schreibbaren und transformierenden Streams.
 - [Web-streams-polyfill](https://github.com/MattiasBuelens/web-streams-polyfill) oder [sd-streams](https://github.com/stardazed/sd-streams) - Polyfills

@@ -7,37 +7,37 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLHRElement`**-Schnittstelle bietet spezielle Eigenschaften (zusätzlich zu denen, die sie durch Vererbung von der {{domxref("HTMLElement")}}-Schnittstelle verfügbar hat) zur Manipulation von {{HTMLElement("hr")}}-Elementen.
+Das **`HTMLHRElement`**-Interface bietet spezielle Eigenschaften (über die hinaus, die das [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interface durch Vererbung ebenfalls zur Verfügung hat) zur Manipulation von {{HTMLElement("hr")}}-Elementen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, {{domxref("HTMLElement")}}._
+_Erbt Eigenschaften von seinem Eltern-Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
-- {{domxref("HTMLHRElement.align")}} {{deprecated_inline}}
-  - : Ein String, ein enumeriertes Attribut, das die Ausrichtung der Linie im Verhältnis zum umgebenden Kontext angibt.
-- {{domxref("HTMLHRElement.color")}} {{deprecated_inline}}
+- [`HTMLHRElement.align`](/de/docs/Web/API/HTMLHRElement/align) {{deprecated_inline}}
+  - : Ein String, ein aufgezähltes Attribut, das die Ausrichtung der Linie im Verhältnis zum umgebenden Kontext angibt.
+- [`HTMLHRElement.color`](/de/docs/Web/API/HTMLHRElement/color) {{deprecated_inline}}
   - : Ein String, der den Namen der Farbe der Linie darstellt.
-- {{domxref("HTMLHRElement.noShade")}} {{deprecated_inline}}
-  - : Ein boolescher Wert, der festlegt, dass die Linie keine Schattierung haben soll.
-- {{domxref("HTMLHRElement.size")}} {{deprecated_inline}}
+- [`HTMLHRElement.noShade`](/de/docs/Web/API/HTMLHRElement/noShade) {{deprecated_inline}}
+  - : Ein boolescher Wert, der festlegt, dass die Linie keine Schattierung hat.
+- [`HTMLHRElement.size`](/de/docs/Web/API/HTMLHRElement/size) {{deprecated_inline}}
   - : Ein String, der die Höhe der Linie darstellt.
-- {{domxref("HTMLHRElement.width")}} {{deprecated_inline}}
+- [`HTMLHRElement.width`](/de/docs/Web/API/HTMLHRElement/width) {{deprecated_inline}}
   - : Ein String, der die Breite der Linie auf der Seite darstellt.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von ihrem Elternteil, {{domxref("HTMLElement")}}_.
+_Keine spezifische Methode; erbt Methoden von seinem Eltern-Element, [`HTMLElement`](/de/docs/Web/API/HTMLElement)_.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("hr")}}
+- Das HTML-Element, das dieses Interface implementiert: {{HTMLElement("hr")}}

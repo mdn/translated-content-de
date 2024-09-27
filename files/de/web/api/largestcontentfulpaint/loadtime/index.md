@@ -8,22 +8,22 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`loadTime`**-Eigenschaft nur-lesbar der {{domxref("LargestContentfulPaint")}}-Schnittstelle gibt die Zeit zurück, zu der das Element geladen wurde.
+Die schreibgeschützte **`loadTime`**-Eigenschaft der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-Schnittstelle gibt die Zeit zurück, zu der das Element geladen wurde.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp","Zeitstempel")}}, der die Zeit in Millisekunden darstellt, zu der das Element geladen wurde.
+Ein [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit in Millisekunden darstellt, zu der das Element geladen wurde.
 
 ## Beispiele
 
-### Protokollierung der loadTime der größten inhaltlichen Darstellung
+### Ausgeben von loadTime des größten inhaltsreichen Elements
 
-Dieses Beispiel verwendet einen {{domxref("PerformanceObserver")}}, der über neue `largest-contentful-paint`-Leistungseinträge informiert wird, sobald sie in der Leistungszeitachse des Browsers aufgezeichnet werden. Die `buffered`-Option wird verwendet, um auf Einträge zuzugreifen, die vor der Erstellung des Beobachters vorhanden sind.
+Dieses Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um über neue `largest-contentful-paint`-Leistungseinträge zu benachrichtigen, während sie in der Leistungstimeline des Browsers aufgezeichnet werden. Die `buffered`-Option wird verwendet, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden sind.
 
 ```js
 const observer = new PerformanceObserver((list) => {
   const entries = list.getEntries();
-  const lastEntry = entries[entries.length - 1]; // Verwenden Sie den neuesten LCP-Kandidaten
+  const lastEntry = entries[entries.length - 1]; // Use the latest LCP candidate
   console.log(lastEntry.loadTime);
 });
 observer.observe({ type: "largest-contentful-paint", buffered: true });

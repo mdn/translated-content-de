@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Der **`Uint16Array()`** Konstruktor erstellt {{jsxref("Uint16Array")}} Objekte. Der Inhalt wird auf `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
+Der **`Uint16Array()`** Konstruktor erstellt {{jsxref("Uint16Array")}} Objekte. Der Inhalt wird mit `0` initialisiert, es sei denn, es werden explizit Initialisierungsdaten bereitgestellt.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ new Uint16Array(buffer, byteOffset)
 new Uint16Array(buffer, byteOffset, length)
 ```
 
-> **Note:** `Uint16Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) konstruiert werden. Ein Versuch, es ohne `new` aufzurufen, löst einen {{jsxref("TypeError")}} aus.
+> **Note:** `Uint16Array()` kann nur mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) erstellt werden. Ein Aufruf ohne `new` führt zu einem {{jsxref("TypeError")}}.
 
 ### Parameter
 
@@ -34,30 +34,30 @@ Siehe [`TypedArray`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
 ## Beispiele
 
-### Verschiedene Arten, ein Uint16Array zu erstellen
+### Verschiedene Methoden zur Erstellung einer Uint16Array
 
 ```js
-// Aus einer Länge
+// From a length
 const uint16 = new Uint16Array(2);
 uint16[0] = 42;
 console.log(uint16[0]); // 42
 console.log(uint16.length); // 2
 console.log(uint16.BYTES_PER_ELEMENT); // 2
 
-// Aus einem Array
+// From an array
 const x = new Uint16Array([21, 31]);
 console.log(x[1]); // 31
 
-// Aus einem anderen TypedArray
+// From another TypedArray
 const y = new Uint16Array(x);
 console.log(y[0]); // 21
 
-// Aus einem ArrayBuffer
+// From an ArrayBuffer
 const buffer = new ArrayBuffer(16);
 const z = new Uint16Array(buffer, 2, 4);
 console.log(z.byteOffset); // 2
 
-// Aus einem iterierbaren Objekt
+// From an iterable
 const iterable = (function* () {
   yield* [1, 2, 3];
 })();
@@ -77,7 +77,7 @@ console.log(uint16FromIterable);
 ## Siehe auch
 
 - [Polyfill von `Uint16Array` in `core-js`](https://github.com/zloirock/core-js#ecmascript-typed-arrays)
-- JavaScript-Leitfaden für [typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
+- [JavaScript typed arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) Leitfaden
 - {{jsxref("TypedArray")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

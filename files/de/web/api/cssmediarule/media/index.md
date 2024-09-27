@@ -1,6 +1,6 @@
 ---
-title: "CSSMediaRule: Media-Eigenschaft"
-short-title: Medien
+title: "CSSMediaRule: media-Eigenschaft"
+short-title: media
 slug: Web/API/CSSMediaRule/media
 l10n:
   sourceCommit: 93e261e5ac12505ce7a8654d158e42482ee14f5f
@@ -9,17 +9,18 @@ l10n:
 {{ APIRef("CSSOM") }}
 
 Die schreibgeschützte **`media`**-Eigenschaft der
-{{domxref("CSSMediaRule")}}-Schnittstelle gibt eine {{domxref("MediaList")}} zurück, die das vorgesehene Zielmedium für Stilinformationen darstellt.
+[`CSSMediaRule`](/de/docs/Web/API/CSSMediaRule)-Schnittstelle gibt eine [`MediaList`](/de/docs/Web/API/MediaList) zurück, die das vorgesehene Zielmedium für Style-Informationen darstellt.
 
 ## Wert
 
-eine {{domxref("MediaList")}}
+eine [`MediaList`](/de/docs/Web/API/MediaList)
 
 ## Beispiele
 
-Das CSS enthält eine Medienabfrage mit einer Stilregel. Dies wird die erste
-{{domxref("CSSRule")}} sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
-Der Aufruf von `myRules[0].media` gibt daher ein {{domxref("MediaList")}}-Objekt zurück, das die Medienabfrage darstellt.
+Der CSS enthält eine Medienabfrage mit einer Stilregel. Diese wird die erste
+[`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
+Der Aufruf von `myRules[0].media` gibt daher ein [`MediaList`](/de/docs/Web/API/MediaList)-
+Objekt zurück, das die Medienabfrage darstellt.
 
 ```css
 @media (min-width: 500px) {

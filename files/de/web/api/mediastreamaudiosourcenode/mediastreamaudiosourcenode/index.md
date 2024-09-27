@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Der **`MediaStreamAudioSourceNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt und gibt ein neues {{domxref("MediaStreamAudioSourceNode")}}-Objekt zurück, das die erste Audiospur eines angegebenen {{domxref("MediaStream")}} als Quelle verwendet.
+Der **`MediaStreamAudioSourceNode()`** Konstruktor der [Web Audio API](/de/docs/Web/API/Web_Audio_API) erstellt und gibt ein neues [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)-Objekt zurück, das die erste Audiospur eines gegebenen [`MediaStream`](/de/docs/Web/API/MediaStream) als Quelle verwendet.
 
 > [!NOTE]
 > Eine andere Möglichkeit, einen
-> `MediaStreamAudioSourceNode` zu erstellen, besteht darin, die Methode {{domxref("AudioContext.createMediaStreamSource()")}} aufzurufen und den Stream anzugeben, aus dem Sie Audio erhalten möchten.
+> `MediaStreamAudioSourceNode` zu erstellen, ist, die Methode [`AudioContext.createMediaStreamSource()`](/de/docs/Web/API/AudioContext/createMediaStreamSource) aufzurufen, wobei Sie den Stream angeben, von dem Sie Audio erhalten möchten.
 
 ## Syntax
 
@@ -23,37 +23,37 @@ new MediaStreamAudioSourceNode(context, options)
 ### Parameter
 
 - `context`
-  - : Ein {{domxref("AudioContext")}}, der den Audiokontext darstellt, mit dem der Knoten verknüpft werden soll.
+  - : Ein [`AudioContext`](/de/docs/Web/API/AudioContext), der den Audiokontext darstellt, mit dem der Knoten verbunden werden soll.
 - `options`
 
-  - : Ein Objekt, das die Eigenschaften definiert, die der `MediaStreamAudioSourceNode` haben soll:
+  - : Ein Objekt, das die Eigenschaften definiert, welche der `MediaStreamAudioSourceNode` haben soll:
 
     - `mediaStream`
-      - : Eine erforderliche Eigenschaft, die den {{domxref("MediaStream")}} angibt, aus dem Audio für den Knoten bezogen werden soll.
+      - : Eine erforderliche Eigenschaft, die den [`MediaStream`](/de/docs/Web/API/MediaStream) spezifiziert, von dem das Audio für den Knoten bezogen werden soll.
 
 ### Rückgabewert
 
-Ein neues {{domxref("MediaStreamAudioSourceNode")}}-Objekt, das den Audioknoten darstellt, dessen Medien aus dem angegebenen Quellstream bezogen werden.
+Ein neues [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)-Objekt, das den Audionode darstellt, dessen Medien aus dem angegebenen Quellstream bezogen werden.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der angegebene {{domxref("MediaStream")}} keine Audiospuren enthält.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der angegebene [`MediaStream`](/de/docs/Web/API/MediaStream) keine Audiospuren enthält.
 
 ## Beispiele
 
-Dieses Beispiel verwendet {{domxref("MediaDevices.getUserMedia", "getUserMedia()")}}, um Zugriff auf die Kamera des Benutzers zu erhalten, und erstellt dann einen neuen {{domxref("MediaStreamAudioSourceNode")}} aus seinem {{domxref("MediaStream")}}.
+Dieses Beispiel verwendet [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia), um Zugriff auf die Kamera des Benutzers zu erhalten, und erstellt dann einen neuen [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode) aus dem betreffenden [`MediaStream`](/de/docs/Web/API/MediaStream).
 
 ```js
-// Variablen definieren
+// define variables
 const audioCtx = new AudioContext();
 
-// getUserMedia Block - Stream erfassen
-// in einen MediaStreamAudioSourceNode einfügen
+// getUserMedia block - grab stream
+// put it into a MediaStreamAudioSourceNode
 if (navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices
     .getUserMedia(
-      // Einschränkungen: Audio und Video für diese App
+      // constraints: audio and video for this app
       {
         audio: true,
         video: false,
@@ -68,10 +68,10 @@ if (navigator.mediaDevices.getUserMedia) {
       source.connect(audioCtx.destination);
     })
     .catch((err) => {
-      console.error(`Der folgende gUM-Fehler ist aufgetreten: ${err}`);
+      console.error(`The following gUM error occurred: ${err}`);
     });
 } else {
-  console.log("Neues getUserMedia wird von Ihrem Browser nicht unterstützt!");
+  console.log("new getUserMedia not supported on your browser!");
 }
 ```
 

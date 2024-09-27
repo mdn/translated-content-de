@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Die **`<feOffset>`** SVG Filterprimitiv erlaubt es, das Eingabebild zu verschieben. Das gesamte Eingabebild wird um die in den {{SVGAttr("dx")}} und {{SVGAttr("dy")}} Attributen angegebenen Werte verschoben.
+Das **`<feOffset>`** SVG-Filter-Primitiv ermöglicht das Verschieben des Eingabebildes. Das Eingabebild als Ganzes wird durch die in den Attributen {{SVGAttr("dx")}} und {{SVGAttr("dy")}} angegebenen Werte verschoben.
 
-## Anwendungsbereich
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -21,7 +21,7 @@ Die **`<feOffset>`** SVG Filterprimitiv erlaubt es, das Eingabebild zu verschieb
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die {{domxref("SVGFEOffsetElement")}} Schnittstelle.
+Dieses Element implementiert das [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOffsetElement)-Interface.
 
 ## Beispiel
 

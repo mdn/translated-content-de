@@ -7,23 +7,23 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Um WebAssembly in JavaScript zu verwenden, müssen Sie zuerst Ihr Modul in den Speicher laden, bevor es kompiliert/instanziiert wird. Dieser Artikel bietet eine Referenz für die verschiedenen Mechanismen, die zum Abrufen von WebAssembly-Bytecode verwendet werden können, sowie dafür, wie man es dann kompiliert/instanziiert und ausführt.
+Um WebAssembly in JavaScript zu verwenden, müssen Sie zunächst Ihr Modul in den Speicher laden, bevor Sie es kompilieren bzw. instanziieren. Dieser Artikel bietet eine Referenz zu den verschiedenen Mechanismen, mit denen Sie WebAssembly-Bytecode abrufen sowie kompilieren/instanziieren und ausführen können.
 
 ## Welche Optionen gibt es?
 
-WebAssembly ist noch nicht mit `<script type='module'>` oder `import`-Anweisungen integriert, daher gibt es keinen Weg, wie der Browser Module für Sie mittels Imports abruft.
+WebAssembly ist noch nicht mit `<script type='module'>` oder `import`-Anweisungen integriert, daher gibt es keinen Weg, um dem Browser bei Verwendung von Imports das Abrufen von Modulen zu überlassen.
 
-Die älteren Methoden [`WebAssembly.compile`](/de/docs/WebAssembly/JavaScript_interface/compile_static)/[`WebAssembly.instantiate`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static) erfordern, dass Sie einen {{jsxref("ArrayBuffer")}} erstellen, der Ihr WebAssembly-Modul-Binär nach dem Abrufen der Rohbytes enthält, und dann kompilieren/instanziieren. Dies ist analog zu `new Function(string)`, außer dass wir eine Zeichenkette (JavaScript-Quellcode) durch einen Arrayspeicher von Bytes (WebAssembly-Quellcode) ersetzen.
+Die älteren Methoden [`WebAssembly.compile`](/de/docs/WebAssembly/JavaScript_interface/compile_static)/[`WebAssembly.instantiate`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static) erfordern, dass Sie einen {{jsxref("ArrayBuffer")}} erstellen, der Ihr WebAssembly-Modul-Binärdaten enthält, nachdem Sie die Rohbytes abgerufen haben, und dann kompilieren/instanziieren Sie es. Dies ist analog zu `new Function(string)`, außer dass wir eine Zeichenfolge von Zeichen (JavaScript-Quellcode) durch einen Array-Puffer von Bytes (WebAssembly-Quellcode) ersetzen.
 
-Die neueren Methoden [`WebAssembly.compileStreaming`](/de/docs/WebAssembly/JavaScript_interface/compileStreaming_static)/[`WebAssembly.instantiateStreaming`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static) sind wesentlich effizienter — sie führen ihre Aktionen direkt auf dem Rohdatenstrom von Bytes aus, der aus dem Netzwerk kommt, und sparen so den Schritt des {{jsxref("ArrayBuffer")}}.
+Die neueren Methoden [`WebAssembly.compileStreaming`](/de/docs/WebAssembly/JavaScript_interface/compileStreaming_static)/[`WebAssembly.instantiateStreaming`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static) sind wesentlich effizienter — sie führen ihre Aktionen direkt auf dem Rohdatenstrom von Bytes aus, der aus dem Netzwerk kommt, und sparen sich den Schritt des {{jsxref("ArrayBuffer")}}.
 
-Wie bringen wir also diese Bytes in einen Array-Buffer und kompilieren sie? Die folgenden Abschnitte erklären dies.
+Wie bekommen wir also diese Bytes in einen Array-Puffer und kompilieren sie? Die folgenden Abschnitte erklären es.
 
 ## Verwendung von Fetch
 
-[Fetch](/de/docs/Web/API/Fetch_API) ist eine bequeme, moderne API zum Abrufen von Netzwerkressourcen.
+[Fetch](/de/docs/Web/API/Fetch_API) ist eine bequeme, moderne API zum Abrufen von Netzwerkrressourcen.
 
-Der schnellste und effizienteste Weg, ein Wasm-Modul abzurufen, ist die Verwendung der neueren Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static), die einen `fetch()`-Aufruf als erstes Argument nutzen kann und das Abrufen, Kompilieren und Instanziieren des Moduls in einem Schritt erledigt, während sie den Rohbytecode streamt:
+Der schnellste und effizienteste Weg, ein Wasm-Modul abzurufen, ist die Verwendung der neueren Methode [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static), die einen `fetch()`-Aufruf als erstes Argument annehmen kann und das Abrufen, Kompilieren und Instanziieren des Moduls in einem Schritt behandelt, indem der Rohbytecode direkt vom Server gestreamt wird:
 
 ```js
 WebAssembly.instantiateStreaming(fetch("simple.wasm"), importObject).then(
@@ -33,7 +33,7 @@ WebAssembly.instantiateStreaming(fetch("simple.wasm"), importObject).then(
 );
 ```
 
-Wenn wir die ältere Methode [`WebAssembly.instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static) verwenden würden, die nicht direkt auf dem Stream funktioniert, bräuchten wir einen zusätzlichen Schritt, um den abgerufenen Bytecode in einen {{jsxref("ArrayBuffer")}} zu konvertieren, wie unten gezeigt:
+Wenn wir die ältere Methode [`WebAssembly.instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static) verwenden, die nicht mit dem direkten Stream arbeitet, müssten wir einen zusätzlichen Schritt machen, um den abgerufenen Bytecode in einen {{jsxref("ArrayBuffer")}} zu konvertieren, so wie folgt:
 
 ```js
 fetch("module.wasm")
@@ -44,37 +44,37 @@ fetch("module.wasm")
   });
 ```
 
-### Hinweis zu Überladungen von instantiate()
+### Ein Exkurs zu `instantiate()` Overloads
 
-Die Funktion [`WebAssembly.instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static) hat zwei Überladungsformen: die oben gezeigte nimmt den zu kompilierenden Bytecode als Argument und gibt ein Promise zurück, das zu einem Objekt aufgelöst wird, das sowohl das kompilierte Modulobjekt als auch eine instanziierte Instanz davon enthält. Das Objekt sieht so aus:
+Die Funktion [`WebAssembly.instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static) hat zwei Überladungsformen — die obige Form nimmt den zu kompilierenden Bytecode als Argument und gibt ein `Promise` zurück, das sich in ein Objekt auflöst, das sowohl das kompilierte Modulobjekt als auch eine instanziierte Instanz davon enthält. Das Objekt sieht folgendermaßen aus:
 
 ```js-nolint
 {
-  module: Module, // Das neu kompilierte WebAssembly.Module-Objekt,
-  instance: Instance, // Eine neue WebAssembly.Instance des Modulobjekts
+  module: Module, // The newly compiled WebAssembly.Module object,
+  instance: Instance, // A new WebAssembly.Instance of the module object
 }
 ```
 
 > [!NOTE]
-> Normalerweise interessieren wir uns nur für die Instanz, aber es ist nützlich, das Modul zu haben, falls wir es zwischenspeichern, mit einem anderen Worker oder Fenster über [`postMessage()`](/de/docs/Web/API/MessagePort/postMessage) teilen oder mehr Instanzen erstellen möchten.
+> Gewöhnlich interessiert uns nur die Instanz, aber es ist nützlich, das Modul zu haben, falls wir es cachen, mit einem anderen Worker oder Fenster über [`postMessage()`](/de/docs/Web/API/MessagePort/postMessage) teilen oder mehr Instanzen erstellen möchten.
 
 > [!NOTE]
-> Die zweite Überladungsform nimmt ein [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module)-Objekt als Argument und gibt ein Promise zurück, das direkt das Instanzobjekt als Ergebnis enthält. Siehe das [Beispiel zur zweiten Überladung](/de/docs/WebAssembly/JavaScript_interface/instantiate_static#second_overload_example).
+> Die zweite Überladungsform nimmt ein [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module)-Objekt als Argument und gibt direkt ein Promise zurück, das die Instanz als Ergebnis enthält. Sehen Sie sich das [Beispiel zur zweiten Überladung](/de/docs/WebAssembly/JavaScript_interface/instantiate_static#second_overload_example) an.
 
 ### Ausführen Ihres WebAssembly-Codes
 
-Sobald Sie Ihre WebAssembly-Instanz in Ihrem JavaScript verfügbar haben, können Sie beginnen, Funktionen zu nutzen, die über die Eigenschaft [`WebAssembly.Instance.exports`](/de/docs/WebAssembly/JavaScript_interface/Instance/exports) exportiert wurden. Ihr Code könnte folgendermaßen aussehen:
+Sobald Sie Ihre WebAssembly-Instanz in Ihrem JavaScript verfügbar haben, können Sie mit der Nutzung der Funktionen beginnen, die über die [`WebAssembly.Instance.exports`](/de/docs/WebAssembly/JavaScript_interface/Instance/exports)-Eigenschaft exportiert wurden. Ihr Code könnte folgendermaßen aussehen:
 
 ```js
 WebAssembly.instantiateStreaming(fetch("myModule.wasm"), importObject).then(
   (obj) => {
-    // Eine exportierte Funktion aufrufen:
+    // Call an exported function:
     obj.instance.exports.exported_func();
 
-    // oder die Pufferinhalte eines exportierten Speichers zugreifen:
+    // or access the buffer contents of an exported memory:
     const dv = new DataView(obj.instance.exports.memory.buffer);
 
-    // oder die Elemente einer exportierten Tabelle zugreifen:
+    // or access the elements of an exported table:
     const table = obj.instance.exports.table;
     console.log(table.get(0)());
   },
@@ -82,18 +82,18 @@ WebAssembly.instantiateStreaming(fetch("myModule.wasm"), importObject).then(
 ```
 
 > [!NOTE]
-> Für mehr Informationen darüber, wie das Exportieren eines WebAssembly-Moduls funktioniert, lesen Sie bitte [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API) und [Verständnis des WebAssembly-Textformats](/de/docs/WebAssembly/Understanding_the_text_format).
+> Für weitere Informationen darüber, wie das Exportieren aus einem WebAssembly-Modul funktioniert, lesen Sie [Using the WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API) und [Understanding WebAssembly text format](/de/docs/WebAssembly/Understanding_the_text_format).
 
 ## Verwendung von XMLHttpRequest
 
-[`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) ist etwas älter als Fetch, kann aber immer noch gut verwendet werden, um ein typisiertes Array zu erhalten. Wiederum vorausgesetzt, unser Modul heißt `simple.wasm`:
+[`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) ist etwas älter als Fetch, kann aber dennoch gut verwendet werden, um ein typisiertes Array zu erhalten. Angenommen, unser Modul heißt `simple.wasm`:
 
-1. Erstellen Sie eine neue {{domxref("XMLHttpRequest()")}}-Instanz und verwenden Sie deren Methode {{domxref("XMLHttpRequest.open","open()")}}, um eine Anfrage zu öffnen, indem Sie die Anfragemethode auf `GET` setzen und den Pfad zur Datei angeben, die Sie abrufen möchten.
-2. Der Schlüsselschritt ist, den Antworttyp auf `'arraybuffer'` mit der Eigenschaft {{domxref("XMLHttpRequest.responseType","responseType")}} festzulegen.
-3. Senden Sie anschließend die Anfrage mittels {{domxref("XMLHttpRequest.send()")}}.
-4. Verwenden Sie den Ereignishandler {{domxref("XMLHttpRequest.load_event", "load")}}, um eine Funktion aufzurufen, wenn das Herunterladen der Antwort abgeschlossen ist — in dieser Funktion holen wir den Arraypuffer aus der Eigenschaft {{domxref("XMLHttpRequest.response", "response")}}, und geben diesen in unsere Methode [`WebAssembly.instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static) ein, wie wir es mit Fetch getan haben.
+1. Erstellen Sie eine neue Instanz von [`XMLHttpRequest()`](/de/docs/Web/API/XMLHttpRequest) und verwenden Sie ihre Methode [`open()`](/de/docs/Web/API/XMLHttpRequest/open), um eine Anforderung zu öffnen, setzen Sie die Anforderungsmethode auf `GET`, und deklarieren Sie den Pfad zur Datei, die wir abrufen möchten.
+2. Der entscheidende Teil ist, den Antworttyp auf `'arraybuffer'` mit der Eigenschaft [`responseType`](/de/docs/Web/API/XMLHttpRequest/responseType) zu setzen.
+3. Senden Sie als nächstes die Anfrage mit [`XMLHttpRequest.send()`](/de/docs/Web/API/XMLHttpRequest/send).
+4. Dann verwenden wir den [`load`](/de/docs/Web/API/XMLHttpRequest/load_event)-Ereignishandler, um eine Funktion aufzurufen, wenn der Download der Antwort abgeschlossen ist — in dieser Funktion erhalten wir den Array-Puffer aus der Eigenschaft [`response`](/de/docs/Web/API/XMLHttpRequest/response) und leiten ihn dann, wie bei Fetch, in unsere Methode [`WebAssembly.instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static) ein.
 
-Der endgültige Code sieht so aus:
+Der endgültige Code sieht folgendermaßen aus:
 
 ```js
 const request = new XMLHttpRequest();
@@ -110,4 +110,4 @@ request.onload = () => {
 ```
 
 > [!NOTE]
-> Sie können ein Beispiel hierfür in Aktion sehen in [xhr-wasm.html](https://mdn.github.io/webassembly-examples/js-api-examples/xhr-wasm.html).
+> Ein Beispiel hierzu finden Sie in [xhr-wasm.html](https://mdn.github.io/webassembly-examples/js-api-examples/xhr-wasm.html).

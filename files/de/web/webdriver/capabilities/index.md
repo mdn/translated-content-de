@@ -7,25 +7,25 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver")}}
 
-WebDriver **_Fähigkeiten_** werden verwendet, um die von einer [Session](/de/docs/Web/WebDriver) unterstützten Funktionen zu kommunizieren. Ein Client kann auch Fähigkeiten nutzen, um zu definieren, welche Funktionen der Treiber bei der [Erstellung einer neuen Session](/de/docs/Web/WebDriver/Commands/NewSession) erfüllen muss.
+WebDriver **_Fähigkeiten_** werden verwendet, um die von einer [Session](/de/docs/Web/WebDriver) unterstützten Funktionen zu kommunizieren. Ein Client kann auch Fähigkeiten nutzen, um festzulegen, welche Funktionen der Treiber beim [Erstellen einer neuen Session](/de/docs/Web/WebDriver/Commands/NewSession) erfüllen muss.
 
-Wenn eine WebDriver-Session erstellt wird, gibt sie eine Reihe von Fähigkeiten zurück, die die verhandelten, effektiven Fähigkeiten der Session beschreiben. Einige der in diesem Set enthaltenen Fähigkeiten sind [standardisiert und bei allen Browsern gleich](#liste_der_fähigkeiten), aber das Set kann auch [browser-spezifische Fähigkeiten](#anbieter-spezifische_fähigkeiten) enthalten, die immer mit einem Präfix versehen sind.
+Wenn eine WebDriver-Session erstellt wird, gibt sie eine Reihe von Fähigkeiten zurück, die die ausgehandelten, effektiven Fähigkeiten der Sitzung beschreiben. Einige der in diesem Satz enthaltenen Fähigkeiten sind [standardisiert und werden von allen Browsern geteilt](#liste_der_fähigkeiten), aber der Satz kann auch [browser-spezifische Fähigkeiten](#anbieter-spezifische_fähigkeiten) enthalten, die immer vorangestellt sind.
 
-## Fähigkeiten-Verhandlung
+## Aushandlung von Fähigkeiten
 
-Fähigkeiten können verwendet werden, um einen Treiber zu verlangen, der eine bestimmte Teilmenge von Funktionen unterstützt. Dies kann verwendet werden, um bestimmte Browser-Funktionen, wie die [Möglichkeit, die Fensterabmessungen anzupassen](/de/docs/Web/WebDriver/Capabilities/setWindowRect), zu verlangen, wird aber auch in verteilten Umgebungen eingesetzt, um eine bestimmte Browser-Konfiguration aus einer Auswahlmatrix auszuwählen.
+Fähigkeiten können verwendet werden, um einen Treiber anzufordern, der eine bestimmte Teilmenge von Funktionen unterstützt. Dies kann verwendet werden, um bestimmte Browser-Funktionen zu erfordern, z.B. die [Fähigkeit, die Fensterabmessungen zu ändern](/de/docs/Web/WebDriver/Capabilities/setWindowRect), wird aber auch in verteilten Umgebungen verwendet, um eine bestimmte Browser-Konfiguration aus einer Vielzahl von Optionen auszuwählen.
 
-Die Auswahl eines bestimmten Webbrowsers oder einer Plattform ist nur sinnvoll, wenn Sie einen Remote-WebDriver verwenden. In diesem Fall tritt der Client über einen oder mehrere Zwischenknoten mit dem WebDriver in Kontakt, die darüber verhandeln, welchen Treiber sie Ihnen auf Basis der empfangenen Fähigkeiten zurückgeben.
+Die Auswahl eines bestimmten Webbrowsers oder einer Plattform macht nur Sinn, wenn Sie einen Remote-WebDriver verwenden. In diesem Fall kontaktiert der Client WebDriver über einen oder mehrere Vermittlungsknoten, die aushandeln, welchen Treiber sie Ihnen basierend auf den empfangenen Fähigkeiten zurückgeben.
 
-Das Fähigkeiten-Objekt ist ein Auswahlmechanismus, der begrenzt, welche Treiberkonfigurationen der Server zurückgibt. Wenn Sie eine Firefox-Instanz mit `browserName` anfordern und Firefox auf dem Remote-Server nicht installiert ist, oder macOS von einem Remote-Server anfordern, der nur Linux unterstützt, haben Sie möglicherweise kein Glück. Aber manchmal kann es Ihnen egal sein, welches spezifische Betriebssystem oder welcher Webbrowser Ihre Session hat: Sie wollen einfach nur eine Session, die eine bestimmte _Fähigkeit_ hat.
+Das Fähigkeitenobjekt ist ein Auswahlmechanismus, der begrenzt, welche Treiberkonfigurationen der Server zurückgibt. Wenn Sie eine Firefox-Instanz unter Verwendung von `browserName` anfordern und Firefox ist auf dem Remote nicht installiert, oder macOS von einem Remote, das nur Linux unterstützt, haben Sie möglicherweise Pech. Aber gelegentlich ist es Ihnen vielleicht egal, welches spezifische Betriebssystem oder welcher Webbrowser Ihre Sitzung hat: Sie möchten nur eine Sitzung, die eine bestimmte _Fähigkeit_ hat.
 
-Der Auswahlprozess, oder die _Fähigkeiten-Verhandlung_, wird durch `alwaysMatch` und `firstMatch` durchgeführt.
+Der Auswahlprozess oder die _Aushandlung der Fähigkeiten_ erfolgt durch `alwaysMatch` und `firstMatch`.
 
 ### `alwaysMatch`
 
-Wie der Name schon sagt, sind Fähigkeiten, die im Fähigkeiten-Objekt `alwaysMatch` beschrieben werden, Funktionen, die Sie _verlangen_, dass die Session sie hat. Wenn der Server nicht bereitstellen kann, was Sie verlangen, schlägt die Erzeugung der Session fehl.
+Wie der Name schon sagt, sind die innerhalb des `alwaysMatch` Fähigkeitenobjekts beschriebenen Fähigkeiten Eigenschaften, die Sie _erfordern_, dass die Session sie hat. Wenn der Server nicht bieten kann, was Sie benötigen, wird er fehlschlagen.
 
-Wenn Sie beispielsweise Firefox Version 62 auf einem System anfordern, das nur Version 60 installiert hat, wird die Session-Erstellung fehlschlagen:
+Wenn Sie zum Beispiel Firefox Version 62 auf einem System anfordern, das nur 60 installiert hat, wird die Sitzungerstellung fehlschlagen:
 
 ```json
 {
@@ -40,7 +40,7 @@ Wenn Sie beispielsweise Firefox Version 62 auf einem System anfordern, das nur V
 
 ### `firstMatch`
 
-Das Feld `firstMatch` akzeptiert _ein Array_ von Fähigkeiten-Objekten, die nacheinander geprüft werden, bis eines mit dem übereinstimmt, was der Server bereitstellen kann, oder es wird fehlschlagen.
+Das `firstMatch`-Feld akzeptiert _ein Array_ von Fähigkeitenobjekten, die nacheinander abgeglichen werden, bis eines das trifft, was der Server bieten kann, oder es wird fehlschlagen.
 
 Dies kann nützlich sein, wenn Sie einen Treiber wollen, der auf macOS oder Linux läuft, aber nicht auf Windows:
 
@@ -54,7 +54,7 @@ Dies kann nützlich sein, wenn Sie einen Treiber wollen, der auf macOS oder Linu
 
 ### Kombination von `alwaysMatch` und `firstMatch`
 
-`firstMatch` kann natürlich mit `alwaysMatch` kombiniert werden, um die Auswahl einzugrenzen. Wenn Sie beispielsweise einen Treiber benötigen, der auf macOS oder Linux läuft, aber es muss _Firefox_ sein:
+`firstMatch` kann natürlich mit `alwaysMatch` kombiniert werden, um die Auswahl einzugrenzen. Wenn Sie zum Beispiel einen Treiber möchten, der auf macOS oder Linux läuft, aber es _muss_ Firefox sein:
 
 ```json
 {
@@ -67,7 +67,7 @@ Dies kann nützlich sein, wenn Sie einen Treiber wollen, der auf macOS oder Linu
 }
 ```
 
-Das vorhergehende Beispiel ist genau gleichwertig damit, die Firefox-Anforderung in jedem `firstMatch`-Teil zu setzen:
+Das vorherige Beispiel ist genau gleichwertig dazu, die Firefox-Anforderung in jedem `firstMatch` Zweig zu platzieren:
 
 ```json
 {
@@ -80,7 +80,7 @@ Das vorhergehende Beispiel ist genau gleichwertig damit, die Firefox-Anforderung
 }
 ```
 
-Welche der beiden vorhergehenden Beispiele Sie wählen, ist nicht wichtig, aber es kann von Bedeutung sein, wenn Sie Konfigurationen für den Browser übergeben. Um zu vermeiden, dass Daten unnötig wiederholt werden, wie z. B. Profile, ist es ratsam, `alwaysMatch` zu verwenden, sodass diese Daten nur einmal übertragen werden:
+Welche Sie von den zwei vorhergehenden Beispielen wählen, ist nicht wichtig, aber es kann von Bedeutung sein, wenn Sie Browser-Konfigurationen weitergeben. Um unnötige Datenwiederholungen, wie Profile, zu vermeiden, ist es ratsam, `alwaysMatch` zu verwenden, damit diese Daten nur einmal übertragen werden:
 
 ```json
 {
@@ -104,7 +104,7 @@ Welche der beiden vorhergehenden Beispiele Sie wählen, ist nicht wichtig, aber 
 - [`browserName`](/de/docs/Web/WebDriver/Capabilities/browserName)
 - [`browserVersion`](/de/docs/Web/WebDriver/Capabilities/browserVersion)
 - [`platformName`](/de/docs/Web/WebDriver/Capabilities/platformName)
-- [`acceptInsecureCerts`](/de/docs/Web/WebDriver/Capabilities/acceptInsecureCerts): Diese Fähigkeit teilt mit, ob abgelaufene oder ungültige [TLS-Zertifikate](/de/docs/Glossary/TLS) beim [Navigieren](/de/docs/Web/WebDriver/Commands/NavigateTo) überprüft werden. Wenn die Fähigkeit false ist, wird ein [unsicheres Zertifikat](/de/docs/Web/WebDriver/Errors/InsecureCertificate) Fehler zurückgegeben, wenn die Navigation auf Domains mit Zertifikatsproblemen trifft. Andernfalls werden selbstsignierte oder anderweitig ungültige Zertifikate während der Navigation vom Browser implizit vertraut. Die Fähigkeit hat Auswirkungen für die Dauer der Session.
+- [`acceptInsecureCerts`](/de/docs/Web/WebDriver/Capabilities/acceptInsecureCerts): Diese Fähigkeit kommuniziert, ob abgelaufene oder ungültige [TLS-Zertifikate](/de/docs/Glossary/TLS) beim [Navigieren](/de/docs/Web/WebDriver/Commands/NavigateTo) überprüft werden. Falls die Fähigkeit auf falsch gesetzt ist, wird als Navigation ein [unsichere Zertifikat](/de/docs/Web/WebDriver/Errors/InsecureCertificate) Fehler zurückgegeben, wenn Domains mit Zertifikatsproblemen angetroffen werden. Andernfalls werden selbstsignierte oder anderweitig ungültige Zertifikate bei der Navigation implizit vom Browser vertraut. Die Fähigkeit hat Auswirkungen für die Lebensdauer der Sitzung.
 - [`pageLoadStrategy`](/de/docs/Web/WebDriver/Capabilities/pageLoadStrategy)
 - [`proxy`](/de/docs/Web/WebDriver/Capabilities/proxy)
 - [`setWindowRect`](/de/docs/Web/WebDriver/Capabilities/setWindowRect)
@@ -114,30 +114,30 @@ Welche der beiden vorhergehenden Beispiele Sie wählen, ist nicht wichtig, aber 
 
 ## Anbieter-spezifische Fähigkeiten
 
-Zusätzlich zu den [Standardfähigkeiten](#liste_der_fähigkeiten) erlaubt es WebDriver Drittanbietern, den Satz von Fähigkeiten zu _erweitern_, um ihren Bedürfnissen gerecht zu werden. Browseranbieter und Treiberlieferanten nutzen Erweiterungsfähigkeiten typischerweise, um Konfigurationen für den Browser bereitzustellen, aber sie können auch von Zwischenknoten für beliebige Informationsblobs verwendet werden.
+Zusätzlich zu den [standardisierten Fähigkeiten](#liste_der_fähigkeiten) ermöglicht WebDriver Drittanbietern die _Erweiterung_ der Fähigkeiten, um ihren Bedürfnissen gerecht zu werden. Browser-Anbieter und Lieferanten von Treibern nutzen in der Regel Erweiterungsfähigkeiten, um Konfigurationen im Browser zu ermöglichen, sie können jedoch auch von Vermittlern für beliebige Informationsblöcke verwendet werden.
 
 - [Firefox-Fähigkeiten](/de/docs/Web/WebDriver/Capabilities/firefoxOptions) (`moz:firefoxOptions`)
 - [Chrome-Fähigkeiten](/de/docs/Web/WebDriver/Capabilities/goog/chromeOptions) (`goog:chromeOptions`)
 
 ## Veraltete Fähigkeiten
 
-Die Mehrheit der Selenium-Clients verwendet `desiredCapabilities` und `requiredCapabilities`, um die neue Session zu konfigurieren. Diese sind den oben beschriebenen `firstMatch` und `alwaysMatch` sehr ähnlich. Einige Treiber unterstützen diese veralteten Fähigkeiten, aber sie sind veraltet und sollten vermieden werden.
+Die Mehrheit der Selenium-Clients verwenden `desiredCapabilities` und `requiredCapabilities`, um die neue Sitzung zu konfigurieren. Diese sind sehr ähnlich zu den oben beschriebenen `firstMatch` und `alwaysMatch`. Einige Treiber unterstützen diese veralteten Fähigkeiten, sie sind jedoch veraltet und sollten vermieden werden.
 
-Das Umwandeln eines veralteten Fähigkeiten-Objekts in den neuen Stil ist einfach. Das Erste, was Sie wissen müssen, ist, dass `alwaysMatch`/`firstMatch` _immer_ in einem `capabilities` JSON-Objekt eingeschlossen ist, während `desiredCapabilities`/`requiredCapabilities` auf der obersten Ebene existieren. Im Allgemeinen sollte alles, was zuvor in `desiredCapabilities` enthalten war, in ein `firstMatch`-Anzweigungsarm integriert werden, um denselben Effekt zu erzielen.
+Das Konvertieren eines veralteten Fähigkeitenobjekts in den neuen Stil ist einfach. Das Erste, das Sie wissen müssen, ist, dass `alwaysMatch`/`firstMatch` _immer_ in ein `capabilities` JSON-Objekt eingebettet ist, während `desiredCapabilities`/`requiredCapabilities` auf der obersten Ebene existiert. Allgemein gesagt, alles, was bisher in `desiredCapabilities` verwendet wurde, sollte in einen `firstMatch` Zweig kommen, um den gleichen Effekt zu erzielen.
 
-Nehmen Sie dieses veraltete Fähigkeiten-Objekt:
+Nehmen Sie dieses veraltete Fähigkeitenobjekt:
 
 ```json
 { "desiredCapabilities": { "browserName": "firefox" } }
 ```
 
-Dies wäre im neuen Stil funktional gleichwertig:
+Dies wäre funktional gleichwertig im neuen Stil:
 
 ```json
 { "capabilities": { "firstMatch": [{ "browserName": "firefox" }] } }
 ```
 
-Aber da es nur einen `firstMatch`-Arm gibt und wir wissen, dass die Session-Erstellung fehlschlagen wird, wenn der Server kein Firefox installiert hat, ist es auch gleichwertig mit diesem:
+Aber da es nur einen `firstMatch` Zweig gibt und wir wissen, dass die Sitzungserstellung fehlschlägt, wenn der Server keinen Firefox installiert hat, ist es auch gleichwertig zu diesem:
 
 ```json
 { "capabilities": { "alwaysMatch": { "browserName": "firefox" } } }
@@ -145,5 +145,5 @@ Aber da es nur einen `firstMatch`-Arm gibt und wir wissen, dass die Session-Erst
 
 ## Siehe auch
 
-- [New Session](/de/docs/Web/WebDriver/Commands/NewSession) Befehl
-- [Delete Session](/de/docs/Web/WebDriver/Commands/NewSession) Befehl
+- [Neuer Session](/de/docs/Web/WebDriver/Commands/NewSession) Befehl
+- [Session löschen](/de/docs/Web/WebDriver/Commands/NewSession) Befehl

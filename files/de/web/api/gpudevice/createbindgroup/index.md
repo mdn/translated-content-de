@@ -1,14 +1,14 @@
 ---
-title: "GPUDevice: createBindGroup()-Methode"
+title: "GPUDevice: Methode createBindGroup()"
 short-title: createBindGroup()
 slug: Web/API/GPUDevice/createBindGroup
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createBindGroup()`**-Methode der {{domxref("GPUDevice")}}-Schnittstelle erstellt eine {{domxref("GPUBindGroup")}} basierend auf einem {{domxref("GPUBindGroupLayout")}}, das eine Menge von Ressourcen definiert, die in einer Gruppe zusammengebunden werden und wie diese Ressourcen in Shader-Stufen verwendet werden.
+Die **`createBindGroup()`** Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice) Schnittstelle erstellt eine [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup) basierend auf einem [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout), das eine Menge von Ressourcen definiert, die in einer Gruppe zusammengebunden werden sollen, und wie diese in Shader-Stufen verwendet werden.
 
 ## Syntax
 
@@ -21,73 +21,73 @@ createBindGroup(descriptor)
 - `descriptor`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `entries`
-      - : Ein Array von Eintragsobjekten, die die Ressourcen beschreiben, die dem Shader zur Verfügung gestellt werden sollen. Es wird für jeden entsprechenden Eintrag geben, der im `layout` referenzierten {{domxref("GPUBindGroupLayout")}} beschrieben wird. Jedes Eintragsobjekt hat die folgenden Eigenschaften:
+      - : Ein Array von Eintragsobjekten, die die Ressourcen beschreiben, die dem Shader zugänglich gemacht werden sollen. Es gibt eins für jeden entsprechenden Eintrag, der vom [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) in `layout` beschrieben wird. Jedes Eintragsobjekt hat die folgenden Eigenschaften:
         - `binding`
-          - : Eine Zahl, die eine eindeutige Kennung für diese Ressourcenbindung darstellt, die dem `binding`-Wert eines entsprechenden {{domxref("GPUBindGroupLayout")}}-Eintrags entspricht. Zusätzlich entspricht sie dem `n`-Indexwert des entsprechenden [`@binding(n)`](https://gpuweb.github.io/gpuweb/wgsl/#attribute-binding)-Attributs im Shader ({{domxref("GPUShaderModule")}}), der in der zugehörigen Pipeline verwendet wird.
+          - : Eine Zahl, die eine eindeutige Kennung für diese Ressourcenbindung darstellt, die dem `binding`-Wert eines entsprechenden Eintrags im [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) entspricht. Darüber hinaus entspricht es dem `n`-Indexwert des entsprechenden [`@binding(n)`](https://gpuweb.github.io/gpuweb/wgsl/#attribute-binding) Attributs im Shader ([`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)), das in der zugehörigen Pipeline verwendet wird.
         - `resource`
-          - : Die zu bindende Ressource. Dies kann eine der folgenden sein:
-            - `GPUBufferBinding` (die einen {{domxref("GPUBuffer")}} umschließt; siehe [GPUBufferBinding objects](#gpubufferbinding-objekte) für eine Definition)
-            - {{domxref("GPUExternalTexture")}}
-            - {{domxref("GPUSampler")}}
-            - {{domxref("GPUTextureView")}}
+          - : Die Ressource, die gebunden werden soll. Dies kann eines der folgenden sein:
+            - `GPUBufferBinding` (das einen [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) umschließt; siehe [GPUBufferBinding-Objekte](#gpubufferbinding-objekte) für eine Definition)
+            - [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)
+            - [`GPUSampler`](/de/docs/Web/API/GPUSampler)
+            - [`GPUTextureView`](/de/docs/Web/API/GPUTextureView)
     - `label` {{optional_inline}}
-      - : Eine Zeichenkette, die ein Label bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in {{domxref("GPUError")}}-Meldungen oder Konsolenwarnungen.
+      - : Ein String, der ein Label bereitstellt, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError) Nachrichten oder Konsolenwarnungen.
     - `layout`
-      - : Das {{domxref("GPUBindGroupLayout")}}, dem die `entries` dieser Bindungsgruppe entsprechen werden.
+      - : Das [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout), dem die `entries` dieser Bindgruppe entsprechen.
 
 ### GPUBufferBinding-Objekte
 
 Ein `GPUBufferBinding`-Objekt kann die folgenden Eigenschaften enthalten:
 
 - `buffer`
-  - : Das {{domxref("GPUBuffer")}}-Objekt, das Sie binden möchten.
+  - : Das [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) Objekt, das Sie binden möchten.
 - `offset` {{optional_inline}}
-  - : Der Offset in Bytes vom Anfang des `buffer` bis zum Anfang des Bereichs, der durch die Pufferbindung dem Shader zugänglich gemacht wird. Wenn er weggelassen wird, ist der `offset` standardmäßig 0.
+  - : Der Offset in Bytes vom Beginn des `buffer` bis zum Beginn des Bereichs, der dem Shader durch die Pufferbindung zugänglich gemacht wird. Wenn nicht angegeben, ist `offset` standardmäßig 0.
 - `size` {{optional_inline}}
-  - : Die Größe in Bytes der Pufferbindung. Wenn sie weggelassen wird, ist `size` der Bereich, der am `offset` beginnt und am Ende des `buffer` endet. Wenn sowohl `offset` als auch `size` weggelassen werden, wird der gesamte Puffer dem Shader zugänglich gemacht.
+  - : Die Größe in Bytes der Pufferbindung. Wenn nicht angegeben, ist `size` der Bereich, der bei `offset` beginnt und am Ende des `buffer` endet. Wenn sowohl `offset` als auch `size` nicht angegeben sind, wird der gesamte Puffer dem Shader zugänglich gemacht.
 
 ### Rückgabewert
 
-Eine Instanz des {{domxref("GPUBindGroup")}}-Objekts.
+Eine [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup) Objektinstanz.
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`createBindGroup()`** aufgerufen wird, andernfalls wird ein {{domxref("GPUValidationError")}} generiert und ein ungültiges {{domxref("GPUBindGroup")}}-Objekt zurückgegeben:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`createBindGroup()`** aufgerufen wird, da sonst ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert wird und ein ungültiges [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup) Objekt zurückgegeben wird:
 
-- Die Anzahl der Einträge im `layout`-{{domxref("GPUBindGroupLayout")}} entspricht der Anzahl der Eintragsobjekte in `entries`.
-- Für jeden Eintrag im `layout`-{{domxref("GPUBindGroupLayout")}} bindet das entsprechende Eintragsobjekt in `entries` den richtigen Ressourcentyp. Zum Beispiel hat ein `buffer`-Ressourcenlayoutobjekt ein `GPUBufferBinding`-Objekt, das in der entsprechenden Bindung spezifiziert ist.
-- Wenn das Ressourcenlayoutobjekt ein `buffer` ist:
-  - Der entsprechende gebundene {{domxref("GPUBuffer")}}:
-    - Hat seinen gesamten gebundenen Teil (wie durch `offset` und `size` spezifiziert) vollständig in sich enthalten, mit einer nicht-null Größe.
-    - Hat eine Größe, die größer ist als die `minBindingSize` des `buffer`-Ressourcenlayout.
-  - Wenn der `type` des Ressourcenlayoutobjekts `"uniform"` ist:
-    - Hat der gebundene {{domxref("GPUBuffer")}} eine `usage`, die `GPUBufferUsage.UNIFORM` enthält.
-    - Die effektive Größe des gebundenen Puffersegments ist kleiner oder gleich dem `maxUniformBufferBindingSize` des {{domxref("GPUDevice")}}-{{domxref("GPUSupportedLimits", "limit", "", "nocode")}}.
-    - Der angegebene `GPUBufferBinding`-`offset` ist ein Vielfaches des `minUniformBufferOffsetAlignment` des {{domxref("GPUDevice")}}-{{domxref("GPUSupportedLimits", "limit", "", "nocode")}}.
-  - Wenn der `type` des Ressourcenlayoutobjekts `"storage"` oder `"read-only-storage"` ist:
-    - Hat der gebundene {{domxref("GPUBuffer")}} eine `usage`, die `GPUBufferUsage.STORAGE` enthält.
-    - Die effektive Größe des gebundenen Puffersegments ist kleiner oder gleich dem `maxStorageBufferBindingSize` des {{domxref("GPUDevice")}}-{{domxref("GPUSupportedLimits", "limit", "", "nocode")}}.
-    - Die effektive Größe des gebundenen Puffersegments ist ein Vielfaches von 4.
-    - Der angegebene `GPUBufferBinding`-`offset` ist ein Vielfaches des `minStorageBufferOffsetAlignment` des {{domxref("GPUDevice")}}-{{domxref("GPUSupportedLimits", "limit", "", "nocode")}}.
-- Wenn das Ressourcenlayoutobjekt ein `storageTexture` ist, der entsprechende gebundene {{domxref("GPUTextureView")}}:
-  - Hat eine `dimension`, die gleich der `viewDimension` des Ressourcenlayoutobjekts ist (siehe {{domxref("GPUTexture.createView()")}} für mehr Details zu den Einstellungen einer Texturansicht).
-  - Hat ein `format`, das dem `sampleType` des Ressourcenlayoutobjekts entspricht.
-  - Hat eine `mipLevelCount` gleich 1.
-  - Ist eine Ansicht einer {{domxref("GPUTexture")}} mit einer `usage`, die `GPUTextureUsage.STORAGE_BINDING` enthält.
-- Wenn das Ressourcenlayoutobjekt ein `texture` ist, der entsprechende gebundene {{domxref("GPUTextureView")}}:
-  - Hat eine `dimension`, die gleich der `viewDimension` des Ressourcenlayoutobjekts ist (siehe {{domxref("GPUTexture.createView()")}} für mehr Details zu den Einstellungen einer Texturansicht).
-  - Hat ein `format`, das mit dem `sampleType` des Ressourcenlayoutobjekts kompatibel ist.
-  - Ist eine Ansicht einer {{domxref("GPUTexture")}} mit einer `usage`, die `GPUTextureUsage.TEXTURE_BINDING` enthält.
-  - Ist eine Ansicht einer {{domxref("GPUTexture")}} mit einer `sampleCount`, die größer als 1 ist, wenn das `multisampled`-Eigenschaft des Ressourcenlayoutobjekts `true` ist, oder gleich 1, wenn es `false` ist.
+- Die Anzahl der Einträge im `layout` [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) entspricht der Anzahl der Eintragsobjekte in `entries`.
+- Für jeden Eintrag im `layout` [`GPUBindGroupLayout`](/de/docs/Web/API/GPUBindGroupLayout) bindet das entsprechende Eintragsobjekt in `entries` den korrekten Ressourcentyp. Ein Beispiel wäre, dass ein `buffer`-Ressourcen-Layout-Objekt ein `GPUBufferBinding`-Objekt im entsprechenden Binding spezifiziert hat.
+- Wenn das Ressourcen-Layout-Objekt ein `buffer` ist:
+  - Der entsprechende gebundene [`GPUBuffer`](/de/docs/Web/API/GPUBuffer):
+    - Hat seinen gebundenen Teil (wie durch `offset` und `size` angegeben) vollständig innerhalb von ihm enthalten, mit einer nicht-null Größe.
+    - Hat eine Größe, die größer ist als die `minBindingSize` des `buffer`-Ressourcen-Layout.
+  - Wenn das `type` des Ressourcen-Layout-Objekts `"uniform"` ist:
+    - Der gebundene [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) hat eine `usage`, die `GPUBufferUsage.UNIFORM` einschließt.
+    - Die effektive Größe des gebundenen Pufferausschnitts ist kleiner oder gleich der `maxUniformBufferBindingSize` [Grenze](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+    - Der angegebene `GPUBufferBinding`-`offset` ist ein Vielfaches der `minUniformBufferOffsetAlignment` [Grenze](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+  - Wenn das `type` des Ressourcen-Layout-Objekts `"storage"` oder `"read-only-storage"` ist:
+    - Der gebundene [`GPUBuffer`](/de/docs/Web/API/GPUBuffer) hat eine `usage`, die `GPUBufferUsage.STORAGE` einschließt.
+    - Die effektive Größe des gebundenen Pufferausschnitts ist kleiner oder gleich der `maxStorageBufferBindingSize` [Grenze](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+    - Die effektive Größe des gebundenen Pufferausschnitts ist ein Vielfaches von 4.
+    - Der angegebene `GPUBufferBinding`-`offset` ist ein Vielfaches der `minStorageBufferOffsetAlignment` [Grenze](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+- Wenn das Ressourcen-Layout-Objekt ein `storageTexture` ist, hat die entsprechende gebundene [`GPUTextureView`](/de/docs/Web/API/GPUTextureView):
+  - Eine `dimension`, die dem `viewDimension` des Ressourcen-Layout-Objekts entspricht (siehe [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) für weitere Details zu den Einstellungen einer Textursicht).
+  - Ein `format`, das dem `sampleType` des Ressourcen-Layout-Objekts entspricht.
+  - Eine `mipLevelCount` von 1.
+  - Eine Sicht auf eine [`GPUTexture`](/de/docs/Web/API/GPUTexture), die eine `usage` hat, welche `GPUTextureUsage.STORAGE_BINDING` einschließt.
+- Wenn das Ressourcen-Layout-Objekt eine `texture` ist, hat die entsprechende gebundene [`GPUTextureView`](/de/docs/Web/API/GPUTextureView):
+  - Eine `dimension`, die `viewDimension` des Ressourcen-Layout-Objekts entspricht (siehe [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) für weitere Details zu den Einstellungen einer Textursicht).
+  - Ein mit dem `sampleType` des Ressourcen-Layout-Objekts kompatibles `format`.
+  - Eine Sicht auf eine [`GPUTexture`](/de/docs/Web/API/GPUTexture) mit einer `usage`, die `GPUTextureUsage.TEXTURE_BINDING` einschließt.
+  - Eine Sicht auf eine [`GPUTexture`](/de/docs/Web/API/GPUTexture) mit einer `sampleCount` größer als 1, wenn die `multisampled`-Eigenschaft des Ressourcen-Layout-Objekts `true` ist, oder gleich 1, wenn sie `false` ist.
 
 ## Beispiele
 
 > [!NOTE]
 > Die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/) bieten viele weitere Beispiele.
 
-### Einfaches Beispiel
+### Grundlegendes Beispiel
 
-Unser [grundlegendes Compute-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) zeigt ein Beispiel für das Erstellen eines Bindungsgruppenlayouts und dessen Verwendung als Vorlage beim Erstellen einer Bindungsgruppe.
+Unser [grundlegendes Berechnungs-Demo](https://mdn.github.io/dom-examples/webgpu-compute-demo/) zeigt ein Beispiel für das Erstellen eines Bind-Group-Layouts und dessen Verwendung als Vorlage beim Erstellen einer Bindgruppe.
 
 ```js
 // ...

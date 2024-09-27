@@ -1,5 +1,5 @@
 ---
-title: "AbortSignal: Methode any() (statisch)"
+title: "AbortSignal: any() statische Methode"
 short-title: any()
 slug: Web/API/AbortSignal/any_static
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **statische Methode `AbortSignal.any()`** nimmt ein iterierbares Objekt von Abbruchsignalen und gibt ein {{domxref("AbortSignal")}} zurück. Das zurückgegebene Abbruchsignal wird abgebrochen, wenn eines der Eingabe-Abbruchsignale abgebrochen wird. Der {{domxref("AbortSignal.reason", "Abbruchgrund","","true")}} wird auf den Grund des ersten Signals gesetzt, das abgebrochen wird. Wenn eines der angegebenen Abbruchsignale bereits abgebrochen ist, wird auch das zurückgegebene {{domxref("AbortSignal")}} abgebrochen.
+Die **`AbortSignal.any()`** statische Methode nimmt ein iterierbares Objekt von Abbruchsignalen und gibt ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück. Das zurückgegebene Abbruchsignal wird abgebrochen, wenn eines der Eingangssignale im iterierbaren Objekt abgebrochen wird. Der [Abbruchgrund](/de/docs/Web/API/AbortSignal/reason) wird auf den Grund des ersten Signals gesetzt, das abgebrochen wird. Wenn eines der gegebenen Abbruchsignale bereits abgebrochen ist, wird auch das zurückgegebene [`AbortSignal`](/de/docs/Web/API/AbortSignal) abgebrochen.
 
 ## Syntax
 
@@ -23,16 +23,16 @@ AbortSignal.any(iterable)
 
 ### Rückgabewert
 
-Ein {{domxref("AbortSignal")}}, das:
+Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal), das:
 
-- **Bereits abgebrochen** ist, wenn eines der angegebenen Abbruchsignale bereits abgebrochen ist. Der Grund des zurückgegebenen {{domxref("AbortSignal")}} wird bereits auf den {{domxref("AbortSignal.reason", "Grund")}} des ersten Abbruchsignals gesetzt, das bereits abgebrochen wurde.
-- **Asynchron abgebrochen** wird, wenn ein Abbruchsignal in `iterable` abbricht. Der {{domxref("AbortSignal.reason", "Grund")}} wird auf den Grund des ersten Abbruchsignals gesetzt, das abgebrochen wird.
+- **Bereits abgebrochen** ist, wenn eines der gegebenen Abbruchsignale bereits abgebrochen ist. Der Grund des zurückgegebenen [`AbortSignal`](/de/docs/Web/API/AbortSignal) wird bereits auf den [`reason`](/de/docs/Web/API/AbortSignal/reason) des ersten Abbruchsignals gesetzt, das bereits abgebrochen war.
+- **Asynchron abgebrochen** wird, wenn eines der Abbruchsignale im `iterable` abgebrochen wird. Der [`reason`](/de/docs/Web/API/AbortSignal/reason) wird auf den Grund des ersten abgebrochenen Abbruchsignals gesetzt.
 
 ## Beispiele
 
 ### Verwendung von `AbortSignal.any()`
 
-Dieses Beispiel zeigt die Kombination eines Signals von einem {{domxref("AbortController")}} und eines Timeout-Signals von {{domxref("AbortSignal/timeout_static", "AbortSignal.timeout")}}.
+Dieses Beispiel zeigt die Kombination eines Signals von einem [`AbortController`](/de/docs/Web/API/AbortController) und eines Timeout-Signals von [`AbortSignal.timeout`](/de/docs/Web/API/AbortSignal/timeout_static).
 
 ```js
 const cancelDownloadButton = document.getElementById("cancelDownloadButton");
@@ -43,11 +43,11 @@ cancelDownloadButton.addEventListener("click", () => {
   userCancelController.abort();
 });
 
-// Timeout nach 5 Minuten
+// Timeout after 5 minutes
 const timeoutSignal = AbortSignal.timeout(1_000 * 60 * 5);
 
-// Dieses Signal wird abgebrochen, wenn entweder der Benutzer den Abbrechen-Button klickt oder 5 Minuten verstrichen sind,
-// je nachdem, was zuerst eintritt
+// This signal will abort when either the user clicks the cancel button or 5 minutes is up
+// whichever is sooner
 const combinedSignal = AbortSignal.any([
   userCancelController.signal,
   timeoutSignal,
@@ -55,19 +55,19 @@ const combinedSignal = AbortSignal.any([
 
 try {
   const res = await fetch(someUrlToDownload, {
-    // Stoppen Sie den Abruf, wenn eines der Signale abbricht
+    // Stop the fetch when any of the signals aborts
     signal: combinedSignal,
   });
   const body = await res.blob();
-  // Machen Sie etwas mit dem heruntergeladenen Inhalt:
+  // Do something with downloaded content:
   // ...
 } catch (e) {
   if (e.name === "AbortError") {
-    // Vom Benutzer abgebrochen
+    // Cancelled by the user
   } else if (e.name === "TimeoutError") {
-    // Zeigen Sie dem Benutzer, dass der Download abgelaufen ist
+    // Show user that download timed out
   } else {
-    // Anderer Fehler, z.B. Netzwerkfehler
+    // Other error, e.g. network error
   }
 }
 ```

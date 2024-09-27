@@ -8,9 +8,9 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`databases`** Methode der {{domxref("IDBFactory")}} Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von Objekten erfüllt wird, die den Namen und die Version aller verfügbaren Datenbanken enthalten.
+Die **`databases`**-Methode der [`IDBFactory`](/de/docs/Web/API/IDBFactory)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von Objekten erfüllt wird, die den Namen und die Version aller verfügbaren Datenbanken enthalten.
 
-Dies ist eine Momentaufnahme der Datenbanken, die hauptsächlich dazu dient, es Webanwendungen zu ermöglichen, zu überprüfen, welche Datenbanken erstellt wurden – zum Beispiel, um Datenbanken zu bereinigen, die von früheren Versionen des Anwendungscodes erstellt wurden.
+Dies ist ein Schnappschuss der Datenbanken, der hauptsächlich dazu dient, es Webanwendungen zu ermöglichen, zu überprüfen, welche Datenbanken erstellt wurden — um beispielsweise Datenbanken zu bereinigen, die durch frühere Versionen der Anwendung erstellt wurden.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem Array von Objekten erfüllt wird, die eine Momentaufnahme der verfügbaren Datenbanken darstellen (oder mit den unten aufgeführten Fehlern/Ausnahmen abgelehnt wird).
+Ein {{jsxref("Promise")}}, das mit einem Array von Objekten erfüllt wird, die einen Schnappschuss der verfügbaren Datenbanken darstellen (oder mit den unten beschriebenen Fehlern/Ausnahmen abgelehnt wird).
 
 Jedes Array-Objekt hat die folgenden Eigenschaften:
 
@@ -37,19 +37,19 @@ Beachten Sie, dass die Reihenfolge der zurückgegebenen Objekte nicht definiert 
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DOMException")}}
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Ausgelöst, wenn die Methode von einem [intransparenten Ursprung](https://stackoverflow.com/questions/42239643/when-do-browsers-send-the-origin-header-when-do-browsers-set-the-origin-to-null/42242802#42242802) aufgerufen wird oder der Benutzer den Speicher deaktiviert hat.
+  - : Wird ausgelöst, wenn die Methode von einem [undurchsichtigen Ursprung](https://stackoverflow.com/questions/42239643/when-do-browsers-send-the-origin-header-when-do-browsers-set-the-origin-to-null/42242802#42242802) aufgerufen wird oder der Benutzer den Speicher deaktiviert hat.
 
-- `UnknownError` {{domxref("DOMException")}}
-  - : Ausgelöst, wenn die Menge der verfügbaren Datenbanken aus irgendeinem Grund nicht bestimmt werden kann.
+- `UnknownError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn aus irgendeinem Grund die Menge der verfügbaren Datenbanken nicht bestimmt werden kann.
 
 ## Beispiele
 
-### Erstellen und Auflisten von Datenbanken
+### Erstellen und Listen von Datenbanken
 
-Dieses Beispiel erstellt/öffnet mehrere Datenbanken.
-Bei erfolgreicher Initialisierung jeder Datenbank werden alle verfügbaren Datenbanken aufgelistet.
+Dieses Beispiel erstellt/öffnet eine Anzahl von Datenbanken.
+Nach erfolgreicher Initialisierung jeder Datenbank listet es alle verfügbaren Datenbanken auf.
 
 ```html hidden
 <pre id="log"></pre>
@@ -75,7 +75,7 @@ function log(text) {
 #### JavaScript
 
 Zuerst definieren wir die Funktion, die verwendet wird, um die verfügbaren Datenbanken abzurufen und zu protokollieren.
-Diese wartet auf das Versprechen, das von `indexedDB.databases()` zurückgegeben wird, und durchläuft dann das Array und listet die Werte jedes Elements auf:
+Diese wartet auf das Promise, das von `indexedDB.databases()` zurückgegeben wird, und iteriert dann das Array und listet die Werte jedes Elements auf:
 
 ```js
 async function getDb() {
@@ -88,11 +88,11 @@ async function getDb() {
 ```
 
 Um zu demonstrieren, wie die obige Funktion verwendet wird, erstellen wir unten zwei Datenbanken.
-Für jede Datenbank protokollieren wir, kurz bevor die Datenbank geöffnet wird.
-Wir protokollieren auch bei erfolgreicher Initialisierung (oder Fehler) und anschließend auch die verfügbaren Datenbanken.
+Für jede Datenbank protokollieren wir direkt vor dem Öffnen der Datenbank.
+Wir protokollieren auch bei erfolgreicher Initialisierung (oder Fehler) und protokollieren dann auch die verfügbaren Datenbanken.
 
 ```js
-// Erstellen Sie eine Datenbank mit dem Namen toDoList mit der Standardversion (1)
+// Create a database named toDoList with default version (1)
 const dbName1 = "toDoList";
 log(`Opening: ${dbName1}`);
 let DBOpenRequest = window.indexedDB.open(dbName1);
@@ -107,7 +107,7 @@ DBOpenRequest.addEventListener("success", (event) => {
   getDb();
 });
 
-// Erstellen Sie die Datenbank "AnotherDb"
+// Create database "AnotherDb"
 const dbName2 = "AnotherDb";
 log(`Opening ${dbName2}`);
 DBOpenRequest = window.indexedDB.open(dbName2, 2);
@@ -125,7 +125,7 @@ DBOpenRequest.addEventListener("success", (event) => {
 
 #### Ergebnis
 
-Das Ergebnis wird unten angezeigt. Beachten Sie, dass die Zeit, die benötigt wird, um die Datenbanken zu erhalten, und deren Reihenfolge nicht definiert sind.
+Das Ergebnis wird unten gezeigt. Beachten Sie, dass die Zeit, die benötigt wird, um die Datenbanken zu erhalten, und deren Reihenfolge undefiniert sind.
 
 {{EmbedLiveSample('Create and list databases', '100%', '280px')}}
 
@@ -140,9 +140,9 @@ Das Ergebnis wird unten angezeigt. Beachten Sie, dass die Zeit, die benötigt wi
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Verwendung von Transaktionen: {{domxref("IDBTransaction")}}
-- Festlegung eines Schlüsselbereichs: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Verwendung von Cursoren: {{domxref("IDBCursor")}}
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Transaktionen verwenden: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
 - Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

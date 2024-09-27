@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte **`sampleRate`**-Eigenschaft des {{domxref("AudioData")}}-Interfaces gibt die Abtastrate in Hz zurück.
+Die schreibgeschützte **`sampleRate`**-Eigenschaft des [`AudioData`](/de/docs/Web/API/AudioData)-Interfaces gibt die Abtastrate in Hz zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein Dezimalwert.
 
 ## Beispiele
 
-Das folgende Beispiel gibt den Wert von `sampleRate` in der Konsole aus.
+Das unten stehende Beispiel gibt den Wert von `sampleRate` in der Konsole aus.
 
 ```js
 console.log(audioData.sampleRate);

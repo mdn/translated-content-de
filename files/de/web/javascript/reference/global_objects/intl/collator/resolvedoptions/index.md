@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`resolvedOptions()`** von {{jsxref("Intl.Collator")}} Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die Locale und die Kollationsoptionen widerspiegeln, die während der Initialisierung dieses Collator-Objekts berechnet wurden.
+Die **`resolvedOptions()`**-Methode von {{jsxref("Intl.Collator")}}-Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses Collator-Objekts berechneten Sprach- und Sortieroptionen widerspiegeln.
 
 {{EmbedInteractiveExample("pages/js/intl-collator-prototype-resolvedoptions.html")}}
 
@@ -23,20 +23,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die die Locale und die Kollationsoptionen widerspiegeln, die während der Initialisierung des gegebenen {{jsxref("Intl.Collator")}} Objekts berechnet wurden.
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung des gegebenen {{jsxref("Intl.Collator")}}-Objekts berechneten Sprach- und Sortieroptionen widerspiegeln.
 
 ## Beschreibung
 
 Das resultierende Objekt hat die folgenden Eigenschaften:
 
 - `locale`
-  - : Der BCP 47-Sprachtag für die tatsächlich verwendete Locale. Wenn im Eingabe-BCP 47-Sprachtag Unicode-Erweiterungswerte angefordert wurden, die zu dieser Locale führten, sind die angeforderten und für diese Locale unterstützten Schlüssel-Wert-Paare in `locale` enthalten.
+  - : Das BCP 47-Sprachtag für die tatsächlich verwendete Sprache. Wenn im Eingabe-BCP 47-Sprachtag angeforderte Unicode-Erweiterungswerte zu dieser Sprache führten, sind die angeforderten und für diese Sprache unterstützten Schlüssel-Wert-Paare in `locale` enthalten.
 - `usage`, `sensitivity`, `ignorePunctuation`
-  - : Die Werte, die für diese Eigenschaften im `options` Argument angegeben oder als Standardwerte ausgefüllt wurden.
+  - : Die für diese Eigenschaften im `options`-Argument angegebenen oder als Standardwerte eingesetzten Werte.
 - `collation`
-  - : Der Wert, der mit dem Unicode-Erweiterungsschlüssel `"co"` angefordert wurde, wenn er für `locale` unterstützt wird, oder `"default"`.
+  - : Der mit dem Unicode-Erweiterungsschlüssel `"co"` angeforderte Wert, sofern er für `locale` unterstützt wird, oder `"default"`.
 - `numeric`, `caseFirst`
-  - : Die Werte, die für diese Eigenschaften im `options` Argument oder mit den Unicode-Erweiterungsschlüsseln `"kn"` und `"kf"` angefordert oder als Standardwerte ausgefüllt wurden. Wenn die Implementierung diese Eigenschaften nicht unterstützt, werden sie weggelassen.
+  - : Die für diese Eigenschaften im `options`-Argument oder mithilfe der Unicode-Erweiterungsschlüssel `"kn"` und `"kf"` angeforderten oder als Standardwerte eingesetzten Werte. Wenn die Implementierung diese Eigenschaften nicht unterstützt, werden sie weggelassen.
 
 ## Beispiele
 

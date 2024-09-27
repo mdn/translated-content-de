@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: getBufferParameter()-Methode"
+title: "WebGLRenderingContext: Methode getBufferParameter()"
 short-title: getBufferParameter()
 slug: Web/API/WebGLRenderingContext/getBufferParameter
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.getBufferParameter()`**-Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) gibt Informationen über den
+Die **`WebGLRenderingContext.getBufferParameter()`** Methode der
+[WebGL-API](/de/docs/Web/API/WebGL_API) gibt Informationen über den
 Puffer zurück.
 
 ## Syntax
@@ -22,17 +22,17 @@ getBufferParameter(target, pname)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der das Ziel des Pufferobjekts angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Zielpufferobjekt angibt. Mögliche Werte:
 
     - `gl.ARRAY_BUFFER`
-      - : Puffer, der Vertex-Attribute enthält, wie
+      - : Puffer, der Vertex-Attribute enthält, wie z. B.
         Vertex-Koordinaten, Texturkoordinatendaten oder Vertex-Farbdaten.
     - `gl.ELEMENT_ARRAY_BUFFER`
 
-      - : Puffer, der für Elementindizes verwendet wird.
+      - : Puffer, der für Element-Indizes verwendet wird.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontext", "", 1)}}
-    sind zusätzlich die folgenden Werte verfügbar:
+    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontexts", "", 1)}}
+    stehen zusätzlich folgende Werte zur Verfügung:
 
     - `gl.COPY_READ_BUFFER`
       - : Puffer zum Kopieren von einem Pufferobjekt zu einem anderen.
@@ -41,7 +41,7 @@ getBufferParameter(target, pname)
     - `gl.TRANSFORM_FEEDBACK_BUFFER`
       - : Puffer für Transform-Feedback-Operationen.
     - `gl.UNIFORM_BUFFER`
-      - : Puffer, der zum Speichern von Uniform-Blöcken verwendet wird.
+      - : Puffer, der zur Speicherung von Uniform-Blöcken verwendet wird.
     - `gl.PIXEL_PACK_BUFFER`
       - : Puffer, der für Pixel-Transfer-Operationen verwendet wird.
     - `gl.PIXEL_UNPACK_BUFFER`
@@ -49,22 +49,22 @@ getBufferParameter(target, pname)
 
 - `pname`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der die abzufragende Information angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die abzufragenden Informationen angibt. Mögliche Werte:
 
     - `gl.BUFFER_SIZE`
-      - : Gibt ein {{domxref("WebGL_API/Types", "GLint")}} zurück, das die Größe
+      - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Größe
         des Puffers in Bytes angibt.
     - `gl.BUFFER_USAGE`
 
-      - : Gibt ein {{domxref("WebGL_API/Types", "GLenum")}} zurück, das das
-        Verwendungsmuster des Puffers angibt. Einer der folgenden Werte:
+      - : Gibt ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das das
+        Nutzungsmuster des Puffers angibt. Einer der folgenden Werte:
 
         - `gl.STATIC_DRAW`
         - `gl.DYNAMIC_DRAW`
         - `gl.STREAM_DRAW`
 
-        Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontext", "", 1)}}
-        sind zusätzlich die folgenden Werte verfügbar:
+        Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontexts", "", 1)}}
+        stehen zusätzlich folgende Werte zur Verfügung:
 
         - `gl.STATIC_READ`
         - `gl.DYNAMIC_READ`
@@ -75,8 +75,8 @@ getBufferParameter(target, pname)
 
 ### Rückgabewert
 
-Abhängig von den angeforderten Informationen (wie mit `pname` angegeben). Entweder ein
-{{domxref("WebGL_API/Types", "GLint")}} oder ein {{domxref("WebGL_API/Types", "GLenum")}}.
+Hängt von den angeforderten Informationen ab (wie mit `pname` angegeben). Entweder ein
+[`GLint`](/de/docs/Web/API/WebGL_API/Types) oder ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types).
 
 ## Beispiele
 
@@ -94,8 +94,8 @@ gl.getBufferParameter(gl.ARRAY_BUFFER, gl.BUFFER_SIZE);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.bindBuffer()")}}
-- {{domxref("WebGLRenderingContext.createBuffer()")}}
-- {{domxref("WebGLRenderingContext.deleteBuffer()")}}
-- {{domxref("WebGLRenderingContext.bufferData()")}}
-- Andere Puffer: {{domxref("WebGLFramebuffer")}}, {{domxref("WebGLRenderbuffer")}}
+- [`WebGLRenderingContext.bindBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindBuffer)
+- [`WebGLRenderingContext.createBuffer()`](/de/docs/Web/API/WebGLRenderingContext/createBuffer)
+- [`WebGLRenderingContext.deleteBuffer()`](/de/docs/Web/API/WebGLRenderingContext/deleteBuffer)
+- [`WebGLRenderingContext.bufferData()`](/de/docs/Web/API/WebGLRenderingContext/bufferData)
+- Andere Puffer: [`WebGLFramebuffer`](/de/docs/Web/API/WebGLFramebuffer), [`WebGLRenderbuffer`](/de/docs/Web/API/WebGLRenderbuffer)

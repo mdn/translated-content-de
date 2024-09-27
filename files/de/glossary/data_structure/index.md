@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Datenstruktur** ist eine spezielle Art der Organisation von _Daten_, sodass sie effizient verwendet werden können.
+**Datenstruktur** ist eine besondere Art, _Daten_ zu organisieren, sodass sie effizient verwendet werden können.
 
 ## Siehe auch
 

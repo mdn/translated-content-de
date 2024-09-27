@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die Methode **`handler.isExtensible()`** ist eine Falle für die `[[IsExtensible]]` [interne Objektsmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.isExtensible()")}} verwendet wird.
+Die Methode **`handler.isExtensible()`** ist ein Fang für die `[[IsExtensible]]` [interne Objektmethode](/de/docs/Web/JavaScript/Reference/Global_Objects/Proxy#object_internal_methods), die von Operationen wie {{jsxref("Object.isExtensible()")}} verwendet wird.
 
 {{EmbedInteractiveExample("pages/js/proxyhandler-isextensible.html", "taller")}}
 
@@ -29,13 +29,13 @@ Der folgende Parameter wird an die Methode `isExtensible()` übergeben. `this` i
 
 ### Rückgabewert
 
-Die Methode `isExtensible()` muss einen {{jsxref("Boolean")}} zurückgeben, der angibt, ob das Zielobjekt erweiterbar ist oder nicht. Andere Werte werden [zu Booleans gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
+Die Methode `isExtensible()` muss einen {{jsxref("Boolean")}} zurückgeben, der anzeigt, ob das Zielobjekt erweiterbar ist oder nicht. Andere Werte werden [zu Booleans gezwungen](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion).
 
 ## Beschreibung
 
-### Abfangen von Operationen
+### Abfangvorgänge
 
-Diese Falle kann die folgenden Operationen abfangen:
+Dieser Fang kann diese Operationen abfangen:
 
 - {{jsxref("Object.isExtensible()")}}
 - {{jsxref("Reflect.isExtensible()")}}
@@ -46,7 +46,7 @@ Oder jede andere Operation, die die `[[IsExtensible]]` [interne Methode](/de/doc
 
 Die `[[IsExtensible]]` interne Methode des Proxys wirft einen {{jsxref("TypeError")}}, wenn die Handler-Definition eine der folgenden Invarianten verletzt:
 
-- Das Ergebnis muss dasselbe wie bei {{jsxref("Reflect.isExtensible()")}} auf dem Zielobjekt sein.
+- Das Ergebnis muss mit dem von {{jsxref("Reflect.isExtensible()")}} auf dem Zielobjekt übereinstimmen.
 
 ## Beispiele
 
@@ -82,7 +82,7 @@ const p = new Proxy(
   },
 );
 
-Object.isExtensible(p); // TypeError wird ausgelöst
+Object.isExtensible(p); // TypeError is thrown
 ```
 
 ## Spezifikationen

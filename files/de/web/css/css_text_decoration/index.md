@@ -1,5 +1,5 @@
 ---
-title: CSS-Textdekoration
+title: CSS Textdekoration
 slug: Web/CSS/CSS_text_decoration
 l10n:
   sourceCommit: e1b6d7d2d02a07f7e86268c81678713fad4d9a5d
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Textdekoration**-Modul definiert Funktionen im Zusammenhang mit Textdekorationen, wie Unterstreichungen, Textschatten und Betonungszeichen.
+Das **CSS Text-Dekorationsmodul** definiert Funktionen, die sich auf Textdekorationen beziehen, wie zum Beispiel Unterstreichungen, Textschatten und Betonungszeichen.
 
 ## Referenz
 
@@ -60,22 +60,20 @@ Das **CSS-Textdekoration**-Modul definiert Funktionen im Zusammenhang mit Textde
 ```
 
 ```html
-<p class="under">Dieser Text hat eine Linie darunter.</p>
-<p class="over">Dieser Text hat eine Linie darüber.</p>
-<p class="line">Dieser Text hat eine Linie, die ihn durchkreuzt.</p>
+<p class="under">This text has a line underneath it.</p>
+<p class="over">This text has a line over it.</p>
+<p class="line">This text has a line going through it.</p>
 <p>
-  Dieser <a class="plain" href="#">Link wird nicht unterstrichen</a>, wie es
-  normalerweise bei Links der Fall ist. Seien Sie vorsichtig, wenn Sie die
-  Textdekoration bei Ankern entfernen, da Benutzer oft auf die Unterstreichung
-  als Hinweis für Hyperlinks angewiesen sind.
+  This <a class="plain" href="#">link will not be underlined</a>, as links
+  generally are by default. Be careful when removing the text decoration on
+  anchors since users often depend on the underline to denote hyperlinks.
 </p>
-<p class="underover">Dieser Text hat Linien über <em>und</em> unter ihm.</p>
+<p class="underover">This text has lines above <em>and</em> below it.</p>
 <p class="thick">
-  Dieser Text hat eine wirklich dicke lila Unterstreichung in unterstützenden
-  Browsern.
+  This text has a really thick purple underline in supporting browsers.
 </p>
 <p class="blink">
-  Dieser Text könnte für Sie blinken, je nachdem, welchen Browser Sie verwenden.
+  This text might blink for you, depending on the browser you use.
 </p>
 ```
 

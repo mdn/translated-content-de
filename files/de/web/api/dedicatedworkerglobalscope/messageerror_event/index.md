@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("dedicated")}}
 
-Das `messageerror`-Ereignis wird auf einem {{domxref('DedicatedWorkerGlobalScope')}}-Objekt ausgelöst, wenn eine Nachricht empfangen wird, die nicht deserialisiert werden kann.
+Das `messageerror`-Ereignis wird auf einem [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)-Objekt ausgelöst, wenn es eine Nachricht erhält, die nicht deserialisiert werden kann.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach oben gebubbelt.
+Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("messageerror", (event) => {});
@@ -24,24 +24,24 @@ onmessageerror = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("MessageEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MessageEvent")}}
 
 ## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten Objekt, {{domxref("Event")}}._
+_Diese Schnittstelle erbt auch Eigenschaften von ihrem übergeordneten Objekt, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("MessageEvent.data")}} {{ReadOnlyInline}}
-  - : Die von dem Nachrichtensender gesendeten Daten.
-- {{domxref("MessageEvent.origin")}} {{ReadOnlyInline}}
+- [`MessageEvent.data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
+  - : Die vom Nachrichtensender gesendeten Daten.
+- [`MessageEvent.origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
   - : Ein String, der den Ursprung des Nachrichtensenders darstellt.
-- {{domxref("MessageEvent.lastEventId")}} {{ReadOnlyInline}}
+- [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
-- {{domxref("MessageEvent.source")}} {{ReadOnlyInline}}
-  - : Eine `MessageEventSource` (die ein {{glossary("WindowProxy")}}, {{domxref("MessagePort")}}, oder {{domxref("ServiceWorker")}} Objekt sein kann), die den Nachrichtensender darstellt.
-- {{domxref("MessageEvent.ports")}} {{ReadOnlyInline}}
-  - : Ein Array von {{domxref("MessagePort")}}-Objekten, die die mit dem Kanal verbundenen Ports darstellen, über den die Nachricht gesendet wird (wo zutreffend, z.B. bei Kanalnachrichtenübermittlung oder beim Senden einer Nachricht an einen geteilten Worker).
+- [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
+  - : Eine `MessageEventSource` (die ein [WindowProxy](/de/docs/Glossary/WindowProxy), [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), die den Nachrichtensender darstellt.
+- [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die mit dem Kanal, durch den die Nachricht gesendet wird, verbundenen Ports darstellen (wo zutreffend, z. B. beim Channel Messaging oder beim Senden einer Nachricht an einen Shared Worker).
 
 ## Beispiele
 
@@ -56,7 +56,7 @@ self.addEventListener("messageerror", (event) => {
 });
 ```
 
-Das gleiche, aber unter Verwendung der `onmessageerror`-Ereignis-Handler-Eigenschaft:
+Dasselbe, aber mit der `onmessageerror`-Ereignishandler-Eigenschaft:
 
 ```js
 // worker.js
@@ -77,8 +77,8 @@ self.onmessageerror = (event) => {
 
 ## Siehe auch
 
-- {{domxref("DedicatedWorkerGlobalScope")}}
-- {{domxref("WorkerGlobalScope")}}
+- [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)
+- [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
 - Verwandte Ereignisse: [`message`](/de/docs/Web/API/DedicatedWorkerGlobalScope/message_event)
 - [`Worker.postMessage()`](/de/docs/Web/API/Worker/postMessage)
-- [Verwendung der Kanalnachrichtenübermittlung](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
+- [Verwendung des Channel Messaging](/de/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)

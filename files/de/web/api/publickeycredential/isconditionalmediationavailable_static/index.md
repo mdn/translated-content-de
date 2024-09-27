@@ -8,19 +8,19 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`isConditionalMediationAvailable()`** statische Methode der {{domxref("PublicKeyCredential")}} Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das auf `true` aufgelöst wird, wenn die konditionale Vermittlung verfügbar ist.
+Die **`isConditionalMediationAvailable()`** statische Methode des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) Interfaces gibt ein {{jsxref("Promise")}} zurück, das zu `true` aufgelöst wird, wenn die bedingte Vermittlung verfügbar ist.
 
-Die konditionale Vermittlung, falls verfügbar, führt dazu, dass alle gefundenen Anmeldedaten dem Benutzer in einem nicht-modalen Dialogfenster zusammen mit einer Angabe des Ursprungs präsentiert werden, der die Anmeldedaten anfordert. Dies wird angefordert, indem `mediation: 'conditional'` in Ihrem `get()`-Aufruf enthalten ist. In der Praxis bedeutet dies das automatische Ausfüllen verfügbarer Anmeldedaten; Sie müssen `autocomplete="webauthn"` in Ihre Formularfelder aufnehmen, damit sie die WebAuthn-Anmeldeoptionen anzeigen.
+Bedingte Vermittlung bewirkt, dass entdeckte Anmeldeinformationen dem Benutzer in einem nicht-modalen Dialog mit einem Hinweis auf den Ursprung, der die Anmeldeinformationen anfordert, angezeigt werden, falls verfügbar. Dies wird durch Einschließen von `mediation: 'conditional'` in Ihrem `get()` Aufruf angefordert. In der Praxis bedeutet dies das automatische Ausfüllen verfügbarer Anmeldeinformationen; Sie müssen `autocomplete="webauthn"` in Ihre Formularelemente aufnehmen, damit diese die WebAuthn-Anmeldeoptionen anzeigen.
 
-Ein konditionaler `get()`-Aufruf zeigt nicht die Benutzeroberfläche des Browsers an und bleibt ausstehend, bis der Benutzer ein Konto aus den verfügbaren AutoFill-Vorschlägen auswählt, um sich anzumelden:
+Ein bedingter `get()` Aufruf zeigt die Browser-Benutzeroberfläche nicht an und bleibt ausstehend, bis der Benutzer ein Konto aus den verfügbaren automatischen Ausfüllvorschlägen auswählt, um sich anzumelden:
 
-- Wenn der Benutzer eine Geste außerhalb des Dialogs macht, schließt er sich ohne Auflösung oder Ablehnung des Versprechens und ohne ein für den Benutzer sichtbaren Fehlerzustand zu verursachen.
-- Wenn der Benutzer eine Anmeldedaten auswählt, wird diese dem Aufrufer zurückgegeben.
+- Wenn der Benutzer eine Geste außerhalb des Dialogs macht, schließt dieser sich, ohne das Promise aufzulösen oder abzulehnen, und ohne einen für den Benutzer sichtbaren Fehlerzustand zu verursachen.
+- Wenn der Benutzer ein Anmeldeinformation auswählt, wird diese an den Aufrufer zurückgegeben.
 
-Das Verhindern-Des-Stillen-Zugriff-Flag (siehe {{domxref("CredentialsContainer.preventSilentAccess()")}}) wird unabhängig von seinem tatsächlichen Wert als `true` behandelt: Das konditionale Verhalten beinhaltet immer eine Form der Benutzervermittlung, falls anwendbare Anmeldedaten entdeckt werden.
+Das Flag Silent Access verhindern (siehe [`CredentialsContainer.preventSilentAccess()`](/de/docs/Web/API/CredentialsContainer/preventSilentAccess)) wird als `true` behandelt, unabhängig von seinem tatsächlichen Wert: das bedingte Verhalten umfasst immer eine Benutzervermittlung, wenn anwendbare Anmeldeinformationen entdeckt werden.
 
 > [!NOTE]
-> Wenn keine Anmeldedaten gefunden werden, ist der nicht-modale Dialog nicht sichtbar, und der Benutzeragent kann den Benutzer auffordern, auf eine Weise zu handeln, die vom Typ der Anmeldedaten abhängt (zum Beispiel, um ein Gerät einzufügen, das Anmeldedaten enthält).
+> Wenn keine Anmeldeinformationen entdeckt werden, wird der nicht-modale Dialog nicht sichtbar sein, und der Benutzeragent kann den Benutzer auf eine Weise auffordern, die vom Anmeldetyp abhängt (zum Beispiel, um ein Gerät mit Anmeldeinformationen einzufügen).
 
 ## Syntax
 
@@ -34,36 +34,36 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf einen Booleschen Wert aufgelöst wird, der angibt, ob die konditionale Vermittlung verfügbar ist oder nicht.
+Ein {{jsxref("Promise")}}, das sich zu einem booleschen Wert auflöst, der angibt, ob die bedingte Vermittlung verfügbar ist oder nicht.
 
 ## Beispiele
 
-Bevor Sie einen konditionalen WebAuthn-API-Aufruf tätigen, überprüfen Sie, ob:
+Bevor Sie einen bedingten WebAuthn API-Aufruf vornehmen, prüfen Sie, ob:
 
 - Der Browser die Web Authentication API unterstützt.
-- Der Browser die konditionale WebAuthn-Benutzeroberfläche unterstützt.
+- Der Browser die WebAuthn bedingte Benutzeroberfläche unterstützt.
 
 ```js
-// Die Verfügbarkeit von `window.PublicKeyCredential` bedeutet, dass WebAuthn nutzbar ist.
+// Availability of `window.PublicKeyCredential` means WebAuthn is usable.
 if (
   window.PublicKeyCredential &&
   PublicKeyCredential.isConditionalMediationAvailable
 ) {
-  // Überprüfen, ob die konditionale Vermittlung verfügbar ist.
+  // Check if conditional mediation is available.
   const isCMA = await PublicKeyCredential.isConditionalMediationAvailable();
   if (isCMA) {
-    // WebAuthn-Authentifizierung aufrufen
+    // Call WebAuthn authentication
     const publicKeyCredentialRequestOptions = {
-      // Vom Server erzeugte Herausforderung
+      // Server generated challenge
       challenge: ****,
-      // Die gleiche RP-ID wie bei der Registrierung verwendet
+      // The same RP ID as used during registration
       rpId: "example.com",
     };
 
     const credential = await navigator.credentials.get({
       publicKey: publicKeyCredentialRequestOptions,
       signal: abortController.signal,
-      // 'conditional' angeben, um die konditionale Benutzeroberfläche zu aktivieren
+      // Specify 'conditional' to activate conditional UI
       mediation: "conditional",
     });
   }
@@ -71,7 +71,7 @@ if (
 ```
 
 > [!NOTE]
-> Weitere Informationen zur Verwendung der konditionalen Vermittlung finden Sie unter [Anmeldung mit einem Passkey über AutoFill-Formular](https://web.dev/articles/passkey-form-autofill).
+> Siehe [Sign in with a passkey through form autofill](https://web.dev/articles/passkey-form-autofill) für weitere Informationen über die Verwendung der bedingten Vermittlung.
 
 ## Spezifikationen
 

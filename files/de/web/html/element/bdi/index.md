@@ -1,52 +1,52 @@
 ---
-title: "<bdi>: Das Bidirektionale-Isolat-Element"
+title: "<bdi>: Das Bidirectional Isolate-Element"
 slug: Web/HTML/Element/bdi
 l10n:
-  sourceCommit: 75326725db2daa924618e58ae31a43345c7a16dc
+  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
 ---
 
 {{HTMLSidebar}}
 
-Das **`<bdi>`**-[HTML](/de/docs/Web/HTML)-Element weist den bidirektionalen Algorithmus des Browsers an, den enthaltenen Text isoliert von dem umgebenden Text zu behandeln. Es ist besonders nützlich, wenn eine Website dynamisch Text einfügt und die Richtung des eingefügten Textes unbekannt ist.
+Das **`<bdi>`** [HTML](/de/docs/Web/HTML)-Element weist den bidirektionalen Algorithmus des Browsers an, den enthaltenen Text isoliert von seinem umgebenden Text zu behandeln. Es ist besonders nützlich, wenn eine Website dynamisch Text einfügt und die Richtung des eingefügten Textes nicht bekannt ist.
 
 {{EmbedInteractiveExample("pages/tabbed/bdi.html", "tabbed-standard")}}
 
-Bidirektionaler Text ist Text, der sowohl Zeichenfolgen enthalten kann, die von links nach rechts (LTR) angeordnet sind, als auch solche, die von rechts nach links (RTL) angeordnet sind, wie zum Beispiel ein arabisches Zitat, das in eine englische Zeichenkette eingebettet ist. Browser implementieren den [Unicode Bidirectional Algorithmus](https://www.w3.org/International/articles/inline-bidi-markup/uba-basics), um dies zu handhaben. In diesem Algorithmus wird den Zeichen eine implizite Richtung zugewiesen: Zum Beispiel werden lateinische Zeichen als LTR behandelt, während arabische Zeichen als RTL behandelt werden. Einige andere Zeichen (wie Leerzeichen und einige Interpunktionen) werden als neutral behandelt und ihre Richtung basierend auf den umgebenden Zeichen zugewiesen.
+Bidirektionaler Text ist Text, der sowohl Zeichenfolgen enthalten kann, die von links nach rechts (LTR) als auch von rechts nach links (RTL) angeordnet sind, wie z.B. ein arabisches Zitat in einer englischen Zeichenfolge. Browser implementieren den [Unicode Bidirectional Algorithmus](https://www.w3.org/International/articles/inline-bidi-markup/uba-basics), um dies zu handhaben. In diesem Algorithmus erhalten Zeichen eine implizite Richtung: Zum Beispiel werden lateinische Zeichen als LTR behandelt, während arabische Zeichen als RTL betrachtet werden. Einige andere Zeichen (wie Leerzeichen und einige Satzzeichen) werden als neutral betrachtet und erhalten ihre Richtung basierend auf den umgebenden Zeichen.
 
-Normalerweise erledigt der bidirektionale Algorithmus die richtige Arbeit, ohne dass der Autor spezielles Markup bereitstellen muss, aber gelegentlich benötigt der Algorithmus Unterstützung. Hier kommt `<bdi>` ins Spiel.
+Normalerweise macht der bidirektionale Algorithmus das Richtige, ohne dass der Autor spezielles Markup bereitstellen muss, aber gelegentlich benötigt der Algorithmus Hilfe. Hier kommt `<bdi>` ins Spiel.
 
-Das `<bdi>`-Element wird verwendet, um einen Textbereich zu umschließen und den bidirektionalen Algorithmus anzuweisen, diesen Text isoliert von seiner Umgebung zu behandeln. Dies wirkt sich in zwei Richtungen aus:
+Das `<bdi>`-Element wird verwendet, um einen Textabschnitt zu umschließen und den bidirektionalen Algorithmus anzuweisen, diesen Text isoliert von seiner Umgebung zu behandeln. Dies funktioniert auf zwei Arten:
 
 - Die Richtung des in `<bdi>` eingebetteten Textes _beeinflusst nicht_ die Richtung des umgebenden Textes.
 - Die Richtung des in `<bdi>` eingebetteten Textes _wird nicht von_ der Richtung des umgebenden Textes beeinflusst.
 
-Zum Beispiel, betrachten Sie einen Text wie:
+Zum Beispiel betrachten Sie einen Text wie:
 
 ```plain
 EMBEDDED-TEXT - 1st place
 ```
 
-Wenn `EMBEDDED-TEXT` LTR ist, funktioniert dies einwandfrei. Aber wenn `EMBEDDED-TEXT` RTL ist, wird `- 1` als RTL-Text behandelt (weil es aus neutralen und schwachen Zeichen besteht). Das Ergebnis wird unleserlich sein:
+Falls `EMBEDDED-TEXT` LTR ist, funktioniert dies gut. Aber wenn `EMBEDDED-TEXT` RTL ist, wird `- 1` als RTL-Text behandelt (da es aus neutralen und schwachen Zeichen besteht). Das Ergebnis wird durcheinander sein:
 
 ```plain
 1 - EMBEDDED-TEXTst place
 ```
 
-Wenn Sie die Richtung von `EMBEDDED-TEXT` im Voraus kennen, können Sie dieses Problem beheben, indem Sie `EMBEDDED-TEXT` in einen {{HTMLElement("span")}} mit dem [`dir`](/de/docs/Web/HTML/Global_attributes#dir)-Attribut einschließen, das auf die bekannte Richtung gesetzt ist. Wenn Sie jedoch die Richtung nicht kennen - zum Beispiel, weil `EMBEDDED-TEXT` aus einer Datenbank gelesen oder vom Benutzer eingegeben wird - sollten Sie `<bdi>` verwenden, um zu verhindern, dass die Richtung von `EMBEDDED-TEXT` seine Umgebung beeinflusst.
+Wenn Sie die Richtung von `EMBEDDED-TEXT` im Voraus kennen, können Sie dieses Problem lösen, indem Sie `EMBEDDED-TEXT` in ein {{HTMLElement("span")}} mit dem [`dir`](/de/docs/Web/HTML/Global_attributes#dir)-Attribut, das auf die bekannte Richtung gesetzt ist, einfügen. Aber wenn Sie die Richtung nicht kennen - zum Beispiel, weil `EMBEDDED-TEXT` aus einer Datenbank gelesen oder vom Benutzer eingegeben wird - sollten Sie `<bdi>` verwenden, um zu verhindern, dass die Richtung von `EMBEDDED-TEXT` seine Umgebung beeinflusst.
 
-Obwohl derselbe visuelle Effekt mit der CSS-Regel {{cssxref("unicode-bidi", "unicode-bidi: isolate")}} auf einem {{HTMLElement("span")}} oder einem anderen Textformatierungselement erreicht werden kann, sollten HTML-Autoren diesen Ansatz nicht verwenden, da er nicht semantisch ist und Browsern erlaubt ist, CSS-Stile zu ignorieren.
+Obwohl derselbe visuelle Effekt mit der CSS-Regel {{cssxref("unicode-bidi", "unicode-bidi: isolate")}} auf einem {{HTMLElement("span")}} oder einem anderen Textformatierungselement erzielt werden kann, sollten HTML-Autoren diesen Ansatz nicht verwenden, da er nicht semantisch ist und Browser CSS-Stil ignorieren dürfen.
 
 Das Einbetten der Zeichen in `<span dir="auto">` hat denselben Effekt wie die Verwendung von `<bdi>`, aber seine Semantik ist weniger klar.
 
 ## Attribute
 
-Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribute](/de/docs/Web/HTML/Global_attributes), außer dass das [`dir`](/de/docs/Web/HTML/Global_attributes#dir)-Attribut anders funktioniert als normal: Es hat als Standardwert `auto`, was bedeutet, dass sein Wert niemals vom Elternelement geerbt wird. Das bedeutet, dass, wenn Sie keinen Wert von entweder `rtl` oder `ltr` für `dir` angeben, der {{Glossary("user agent")}} die richtige Richtung basierend auf dem Inhalt des `<bdi>` bestimmt.
+Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribute](/de/docs/Web/HTML/Global_attributes), mit der Ausnahme, dass das [`dir`](/de/docs/Web/HTML/Global_attributes#dir)-Attribut anders als normal verhält: Es standardmäßig auf `auto` gesetzt ist, was bedeutet, dass sein Wert nie vom übergeordneten Element geerbt wird. Das bedeutet, dass Sie, sofern Sie keinen Wert von entweder `rtl` oder `ltr` für `dir` angeben, der [User-Agent](/de/docs/Glossary/user_agent) basierend auf dem Inhalt des `<bdi>` die richtige Richtung bestimmt.
 
 ## Beispiele
 
 ### Kein bdi mit nur LTR
 
-Dieses Beispiel listet die Gewinner eines Wettbewerbs auf, wobei nur {{HTMLElement("span")}}-Elemente verwendet werden. Wenn die Namen nur LTR-Text enthalten, sehen die Ergebnisse in Ordnung aus:
+Dieses Beispiel listet die Gewinner eines Wettbewerbs unter Verwendung von {{HTMLElement("span")}}-Elementen auf. Wenn die Namen nur LTR-Text enthalten, sehen die Ergebnisse gut aus:
 
 ```html
 <ul>
@@ -69,7 +69,7 @@ body {
 
 ### Kein bdi mit RTL-Text
 
-Dieses Beispiel listet die Gewinner eines Wettbewerbs auf, wobei nur {{HTMLElement("span")}}-Elemente verwendet werden, und einer der Gewinner hat einen Namen, der aus RTL-Text besteht. In diesem Fall wird das "`- 1`", das aus Zeichen mit neutraler oder schwacher Richtung besteht, die Richtung des RTL-Textes übernehmen, und das Ergebnis wird unleserlich sein:
+Dieses Beispiel listet die Gewinner eines Wettbewerbs unter Verwendung von {{HTMLElement("span")}}-Elementen auf, wobei einer der Gewinner einen Namen mit RTL-Text hat. In diesem Fall wird das `- 1`, das aus Zeichen mit neutraler oder schwacher Richtung besteht, die Richtung des RTL-Textes übernehmen, und das Ergebnis wird durcheinander:
 
 ```html
 <ul>
@@ -90,9 +90,9 @@ body {
 
 {{ EmbedLiveSample('No_bdi_with_RTL_text','','120') }}
 
-### Verwendung von bdi mit LTR- und RTL-Text
+### Verwenden von bdi mit LTR- und RTL-Text
 
-Dieses Beispiel listet die Gewinner eines Wettbewerbs auf und verwendet `<bdi>`-Elemente. Diese Elemente weisen den Browser an, den Namen isoliert von seinem Einbettungskontext zu behandeln, sodass die Beispielausgabe korrekt geordnet ist:
+Dieses Beispiel listet die Gewinner eines Wettbewerbs unter Verwendung von `<bdi>`-Elementen auf. Diese Elemente weisen den Browser an, den Namen isoliert von seinem Einbettungskontext zu behandeln, so dass die Beispielausgabe korrekt geordnet ist:
 
 ```html
 <ul>
@@ -125,31 +125,31 @@ body {
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flow-Inhalt</a
+          >Fließende Inhalte</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
-        >, greifbarer Inhalt.
+          >Zeichensatz-Inhalte</a
+        >, greifbare Inhalte.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >Zeichensatz-Inhalte</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
+      <td>Keine, sowohl die Start- als auch die End-Tags sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >Zeichensatz-Inhalte</a
         > akzeptiert.
       </td>
     </tr>
@@ -164,12 +164,12 @@ body {
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebig</td>
+      <th scope="row">Zulässige ARIA-Rollen</th>
+      <td>beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLElement")}}</td>
+      <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
 </table>
@@ -178,14 +178,14 @@ body {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Inline-Markup und Bidirektionaler Text in HTML](https://www.w3.org/International/articles/inline-bidi-markup/)
-- [Grundlagen des Unicode-Bidirektionalen-Algorithmus](https://www.w3.org/International/articles/inline-bidi-markup/uba-basics)
-- {{Glossary("Localization")}}
+- [Inline-Markup und bidirektionaler Text in HTML](https://www.w3.org/International/articles/inline-bidi-markup/)
+- [Grundlagen des Unicode Bidirectional Algorithmus](https://www.w3.org/International/articles/inline-bidi-markup/uba-basics)
+- [Lokalisierung](/de/docs/Glossary/Localization)
 - Verwandtes HTML-Element: {{HTMLElement("bdo")}}
 - Verwandte CSS-Eigenschaften: {{cssxref("direction")}}, {{cssxref("unicode-bidi")}}

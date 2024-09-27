@@ -1,97 +1,96 @@
 ---
-title: Reporting-API
+title: Reporting API
 slug: Web/API/Reporting_API
 l10n:
-  sourceCommit: f430d277573ba0b06b1ac33ae8017fd90f170bef
+  sourceCommit: 51b1250b1d51c2e0837c4d59798457a1261eb2af
 ---
 
 {{SeeCompatTable}}{{DefaultAPISidebar("Reporting API")}}
 
-Die Reporting-API bietet einen generischen Berichtsmechanismus für Webanwendungen, um Berichte basierend auf verschiedenen Plattformfunktionen (zum Beispiel [Content Security Policy](/de/docs/Web/HTTP/CSP), [Permissions-Policy](/de/docs/Web/HTTP/Headers/Permissions-Policy) oder Berichte über das Veralten von Funktionen) auf konsistente Weise verfügbar zu machen.
+Die Reporting API bietet einen generischen Mechanismus für Webanwendungen, um Berichte basierend auf verschiedenen Plattformfunktionen (z.B. [Content Security Policy](/de/docs/Web/HTTP/CSP), [Permissions-Policy](/de/docs/Web/HTTP/Headers/Permissions-Policy) oder Berichte über veraltete Funktionen) auf konsistente Weise bereitzustellen.
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-Es gibt mehrere unterschiedliche Funktionen und Probleme auf der Webplattform, die Informationen generieren, die für Webentwickler nützlich sind, wenn sie versuchen, Fehler zu beheben oder ihre Websites auf andere Weise zu verbessern. Solche Informationen können umfassen:
+Es gibt mehrere verschiedene Funktionen und Probleme auf der Webplattform, die Informationen generieren, die für Webentwickler nützlich sind, wenn sie versuchen, Fehler zu beheben oder ihre Websites anderweitig zu verbessern. Solche Informationen können umfassen:
 
 - Verstöße gegen die [Content Security Policy](/de/docs/Web/HTTP/CSP).
 - Verstöße gegen die [Permissions-Policy](/de/docs/Web/HTTP/Headers/Permissions-Policy).
-- Nutzung veralteter Funktionen (wenn Sie etwas verwenden, das bald in Browsern nicht mehr funktionieren wird).
+- Verwendung veralteter Funktionen (wenn Sie etwas verwenden, das bald in Browsern nicht mehr funktioniert).
 - Auftreten von Abstürzen.
-- Auftreten von Benutzer-Agent-Interventionen (wenn der Browser etwas blockiert, das Ihr Code auszuführen versucht, da es beispielsweise als Sicherheitsrisiko angesehen wird oder einfach nur störend ist, wie automatisch abgespielte Audioinhalte).
+- Auftreten von Benutzeragenten-Interventionen (wenn der Browser etwas blockiert, das Ihr Code ausführen möchte, weil es beispielsweise als Sicherheitsrisiko eingestuft wird oder einfach nur störend ist, wie automatisches Abspielen von Audio).
 
-Der Zweck der Reporting-API besteht darin, einen konsistenten Berichtsmechanismus bereitzustellen, der verwendet werden kann, um solche Informationen Entwicklern in Form von Berichten zur Verfügung zu stellen, die durch JavaScript-Objekte repräsentiert werden. Es gibt einige Möglichkeiten, sie zu verwenden, die in den folgenden Abschnitten detailliert beschrieben werden.
+Der Zweck der Reporting API ist es, einen konsistenten Berichtmechanismus bereitzustellen, der verwendet werden kann, um solche Informationen Entwicklern in Form von Berichten, die durch JavaScript-Objekte dargestellt werden, verfügbar zu machen. Es gibt mehrere Möglichkeiten, sie zu verwenden, die in den folgenden Abschnitten detailliert behandelt werden.
 
-### Berichtsserver-Endpunkte
+### Bericht-Server-Endpunkte
 
-Jeder eindeutigen Quelle, für die Sie Berichte erhalten möchten, kann eine Reihe von "Endpunkten" zugewiesen werden, bei denen es sich um benannte URLs (oder Gruppen von URLs) handelt, an die Berichte von einem Benutzer-Agent gesendet werden können. Ein Berichtsserver an diesen Endpunkten kann die Berichte sammeln, verarbeiten und nach Bedarf für Ihre Anwendung anzeigen.
+Jeder eindeutigen Herkunft, für die Sie Berichte erhalten möchten, kann eine Reihe von "Endpunkten" zugewiesen werden, bei denen es sich um benannte URLs (oder Gruppen von URLs) handelt, an die Berichte von einem Benutzeragenten gesendet werden können. Ein Bericht-Server an diesen Endpunkten kann die Berichte sammeln und sie nach Bedarf für Ihre Anwendung verarbeiten und präsentieren.
 
-Der {{httpheader("Reporting-Endpoints")}} HTTP-Header wird verwendet, um Details zu den verschiedenen Endpunkten anzugeben, die einem Benutzer-Agenten für die Bereitstellung von Berichten zur Verfügung stehen. Die `report-to`-Direktive kann dann in bestimmten HTTP-Antwortheadern verwendet werden, um den spezifischen Endpunkt anzuzeigen, der für den zugehörigen Bericht verwendet wird. Zum Beispiel kann die CSP-Direktive {{CSP("report-to")}} auf den HTTP-Headern {{HTTPHeader("Content-Security-Policy")}} oder {{HTTPHeader("Content-Security-Policy-Report-Only")}} verwendet werden, um den Endpunkt festzulegen, an den CSP-Verstoßberichte gesendet werden sollen.
+Der {{httpheader("Reporting-Endpoints")}} HTTP-Header wird verwendet, um Details zu den verschiedenen Endpunkten anzugeben, die einem Benutzeragenten für die Übertragung von Berichten zur Verfügung stehen. Die `report-to` Direktive kann dann auf bestimmten HTTP-Antwort-Headern verwendet werden, um den spezifischen Endpunkt anzugeben, der für den zugehörigen Bericht verwendet wird. Zum Beispiel kann die {{CSP("report-to")}} Direktive auf den {{HTTPHeader("Content-Security-Policy")}} oder {{HTTPHeader("Content-Security-Policy-Report-Only")}} HTTP-Headern verwendet werden, um den Endpunkt anzugeben, an den CSP-Verstöße gesendet werden sollten.
 
 > [!NOTE]
-> Es gibt keine absolute Garantie für die Zustellung von Berichten — ein Bericht könnte immer noch fehlschlagen, wenn ein schwerwiegender Fehler auftritt.
+> Es gibt keine absolute Garantie für die Berichtsübermittlung — ein Bericht könnte dennoch nicht erfasst werden, wenn ein schwerwiegender Fehler auftritt.
 
-Die Berichte selbst werden vom Benutzer-Agenten in einer `POST`-Operation mit einem {{HTTPHeader("Content-Type")}} von `application/reports+json` an den Zielendpunkt gesendet. Sie sind Serialisierungen von {{domxref("Report")}}-Objekten, wobei der `type` den Berichtstyp angibt, die `url` den Ursprung des Berichts angibt und der `body` eine Serialisierung der API-Schnittstelle enthält, die dem Berichtstyp entspricht. Zum Beispiel haben CSP-Verstoßberichte einen `type` von `csp-violation` und einen `body`, der eine Serialisierung eines {{domxref("CSPViolationReportBody")}}-Objekts ist.
+Die Berichte selbst werden von dem Benutzeragenten in einer `POST`-Operation mit einem {{HTTPHeader("Content-Type")}} von `application/reports+json` an den Zielendpunkt gesendet. Sie sind Serialisierungen von [`Report`](/de/docs/Web/API/Report) Objekten, wobei der `type` den Berichtstyp angibt, die `url` die Herkunft des Berichts angibt und der `body` eine Serialisierung der API-Schnittstelle enthält, die dem Berichtstyp entspricht. Zum Beispiel haben CSP-Verstöße einen `type` von `csp-violation` und einen `body`, der eine Serialisierung eines [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody) Objekts ist.
 
-Berichte, die an Endpunkte gesendet werden, können unabhängig vom Betrieb der damit verbundenen Websites abgerufen werden, was nützlich ist — ein Absturz zum Beispiel könnte eine Website lahmlegen und alles stoppen, aber ein Bericht könnte immer noch erhalten werden, um dem Entwickler Hinweise zu geben, warum es passiert ist.
+Berichte, die an Endpunkte gesendet werden, können unabhängig vom Betrieb der Websites, auf die sie sich beziehen, abgerufen werden, was nützlich ist — ein Absturz könnte beispielsweise eine Website lahmlegen und alles stoppen, aber ein Bericht könnte dennoch erhalten werden, um dem Entwickler einige Hinweise zu geben, warum es passiert ist.
 
-### Reporting-Observer
+### Reporting-Beobachter
 
-Berichte können auch über {{domxref("ReportingObserver")}}-Objekte abgerufen werden, die über JavaScript innerhalb der Website erstellt werden, auf der Sie Berichte erhalten möchten. Diese Methode ist nicht so ausfallsicher wie das Senden von Berichten an den Server, da ein Seitenabsturz verhindern könnte, dass Sie die Berichte abrufen — aber es ist einfacher einzurichten und flexibler.
+Berichte können auch über [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) Objekte abgerufen werden, die über JavaScript innerhalb der Website erstellt werden, für die Sie Berichte erhalten möchten. Diese Methode ist nicht so zuverlässig wie das Senden von Berichten an den Server, da ein Seitenabsturz das Abrufen der Berichte stoppen könnte — aber es ist einfacher einzurichten und flexibler.
 
-Ein `ReportingObserver`-Objekt wird unter Verwendung des {{domxref("ReportingObserver.ReportingObserver", "ReportingObserver()")}}-Konstruktors erstellt, dem zwei Parameter übergeben werden:
+Ein `ReportingObserver` Objekt wird mit dem [`ReportingObserver()`](/de/docs/Web/API/ReportingObserver/ReportingObserver) Konstruktor erstellt, der zwei Parameter erhält:
 
-- Eine Rückruffunktion mit zwei Parametern — einem Array der Berichte, die sich in der Berichtswarteschlange des Beobachters befinden, und einer Kopie desselben `ReportingObserver`-Objekts, wodurch die Beobachtung direkt von innerhalb des Rückrufs gesteuert werden kann. Der Rückruf wird ausgeführt, wenn die Beobachtung beginnt.
-- Ein Optionswörterbuch, mit dem Sie den Typ der zu sammelnden Berichte und ob Berichte, die vor der Erstellung des Beobachters generiert wurden, beobachtbar sein sollen (`buffered: true`), angeben können.
+- Eine Callback-Funktion mit zwei Parametern — ein Array der in der Berichtwarteschlange des Beobachters verfügbaren Berichte und eine Kopie desselben `ReportingObserver` Objekts, die es ermöglicht, die Beobachtung direkt aus der Callback-Funktion zu steuern. Die Callback-Funktion wird aufgerufen, wenn die Beobachtung beginnt.
+- Ein Optionswörterbuch, das es Ihnen ermöglicht, den Typ der zu sammelnden Berichte anzugeben und ob Berichte, die vor der Erstellung des Beobachters generiert wurden, beobachtbar sein sollen (`buffered: true`).
 
-Anschließend stehen Methoden am Beobachter zur Verfügung, um Berichte zu sammeln ({{domxref("ReportingObserver.observe()")}}), die Berichte abzurufen, die sich derzeit in der Berichtswarteschlange befinden ({{domxref("ReportingObserver.takeRecords()")}}), und den Beobachter zu trennen, sodass er keine Aufzeichnungen mehr sammeln kann ({{domxref("ReportingObserver.disconnect()")}}).
+Methoden stehen dann am Beobachter zur Verfügung, um Berichte zu sammeln ([`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe)), die derzeit in der Berichtwarteschlange vorhandenen Berichte abzurufen ([`ReportingObserver.takeRecords()`](/de/docs/Web/API/ReportingObserver/takeRecords)) und den Beobachter zu trennen, sodass er keine Aufzeichnungen mehr sammeln kann ([`ReportingObserver.disconnect()`](/de/docs/Web/API/ReportingObserver/disconnect)).
 
 ### Berichtstypen
 
-Berichte, die an Berichts-Endpunkte und Berichts-Observer gesendet werden, sind im Wesentlichen die gleichen: Sie haben einen Ursprung `url`, einen `type` und einen `body`, der eine Instanz der Schnittstelle ist, die diesem Typ entspricht. Der einzige Unterschied besteht darin, dass Serverberichte JSON-Serialisierungen der Objekte sind.
+Berichte, die an Berichtendpunkte und Berichtbeobachter gesendet werden, sind im Wesentlichen gleich: sie haben eine Herkunfts-`url`, einen `type` und einen `body`, der eine Instanz der Schnittstelle ist, die diesem Typ entspricht. Der einzige Unterschied besteht darin, dass Serverberichte JSON-Serialisierungen der Objekte sind.
 
-Die Zuordnung von `type` zu `body` ist unten dargestellt.
+Die Zuordnung von Bericht-`type` zu `body` wird unten gezeigt.
 
-| `type`          | `body`                                | Gemeldete Elemente                                                                  |
-| --------------- | ------------------------------------- | ---------------------------------------------------------------------------------- |
-| `deprecation`   | {{domxref("DeprecationReportBody")}}  | Veraltete Funktionen, die von der Website verwendet werden.                        |
-| `intervention`  | {{domxref("InterventionReportBody")}} | Vom Benutzer-Agent blockierte Funktionen, zum Beispiel, wenn keine Berechtigungen erteilt werden. |
-| `csp-violation` | {{domxref("CSPViolationReportBody")}} | Verstöße gegen die CSP-Richtlinie der Website.                                      |
+| `type`          | `body`                                                              | Berichtete Elemente                                                                       |
+| --------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `deprecation`   | [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)   | Auf der Website verwendete, veraltete Funktionen.                                         |
+| `intervention`  | [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody) | Vom Benutzeragenten blockierte Funktionen, z.B. wenn Berechtigungen nicht erteilt werden. |
+| `csp-violation` | [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody) | Verstöße gegen die CSP-Richtlinie der Website.                                            |
 
 ### Berichte über WebDriver generieren
 
-Die Reporting-API-Spezifikation definiert auch eine Erweiterung zur Erzeugung von Testberichten für [WebDriver](/de/docs/Web/WebDriver), die es ermöglicht, die Berichterstellung während der Automatisierung zu simulieren. Berichte, die über WebDriver generiert werden, werden von allen registrierten `ReportObserver`-Objekten beobachtet, die in der geladenen Website vorhanden sind. Dies ist noch nicht dokumentiert.
+Die Reporting API-Spezifikation definiert auch eine Generate Test Report [WebDriver](/de/docs/Web/WebDriver) Erweiterung, die es ermöglicht, die Berichterstellung während der Automatisierung zu simulieren. Berichte, die über WebDriver generiert werden, werden von allen registrierten `ReportObserver` Objekten, die auf der geladenen Website vorhanden sind, beobachtet. Dies ist noch nicht dokumentiert.
 
 ## Schnittstellen
 
-- {{domxref("DeprecationReportBody")}}
+- [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)
   - : Enthält Details zu veralteten Webplattform-Funktionen, die eine Website verwendet.
-- {{domxref("InterventionReportBody")}}
-  - : Enthält Details zu einem Interventionsbericht, der generiert wird, wenn eine von der Website gestellte Anfrage vom Browser abgelehnt wurde; z. B. aus Sicherheitsgründen.
-- {{domxref("Report")}}
+- [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)
+  - : Enthält Details zu einem Eingriff-Bericht, der generiert wird, wenn eine von der Website gestellte Anfrage vom Browser abgelehnt wird; z.B. aus Sicherheitsgründen.
+- [`Report`](/de/docs/Web/API/Report)
   - : Ein Objekt, das einen einzelnen Bericht darstellt.
-- {{domxref("ReportingObserver")}}
-  - : Ein Objekt, das verwendet werden kann, um Berichte zu sammeln und darauf zuzugreifen, sobald sie generiert werden.
+- [`ReportingObserver`](/de/docs/Web/API/ReportingObserver)
+  - : Ein Objekt, das verwendet werden kann, um Berichte zu sammeln und auf sie zuzugreifen, sobald sie generiert werden.
 
 ### Verwandte Schnittstellen
 
-Diese Schnittstellen sind Teil der HTTP- [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Spezifikationen definiert:
+Diese Schnittstellen sind Teil der HTTP [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) Spezifikationen definiert:
 
-- {{domxref("CSPViolationReportBody")}}
+- [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)
   - : Enthält Details zu einem CSP-Verstoß.
-- {{domxref("SecurityPolicyViolationEvent")}}
-  - : Repräsentiert das Ereignisobjekt eines `securitypolicyviolation`-Ereignisses, das ausgelöst wird, wenn seine CSP auf einem Element, Dokument oder Worker verletzt wird.
+- [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)
+  - : Stellt das Ereignisobjekt eines `securitypolicyviolation` Ereignisses dar, das auf ein Element, Dokument oder Worker abgefeuert wird, wenn seine CSP verletzt wird.
 
 ## Verwandte HTTP-Header
 
-Diese HTTP-Antwortheader definieren die Endpunkte, an welche Berichte gesendet werden.
+Diese HTTP-Antwort-Header definieren die Endpunkte, an die Berichte gesendet werden.
 
 - {{HTTPHeader("Reporting-Endpoints")}}
-  - : Legt den Namen und die URL von Berichts-Endpunkten fest.
-    Diese können in der `report-to`-Direktive verwendet werden, die mit einer Reihe von HTTP-Headern einschließlich {{httpheader("Content-Security-Policy")}} verwendet werden kann.
+  - : Legt den Namen und die URL der Berichtendpunkte fest. Diese Endpunkte können in der `report-to` Direktive verwendet werden, die mit einer Anzahl von HTTP-Headern einschließlich {{httpheader("Content-Security-Policy")}} oder {{HTTPHeader("Content-Security-Policy-Report-Only")}} verwendet werden kann.
 - {{HTTPHeader("Report-To")}} {{deprecated_inline}}
-  - : Legt den Namen und die URL von Berichts-Endpunktgruppen fest, die mit einer Reihe von HTTP-Headern einschließlich `Content-Security-Policy` verwendet werden können.
+  - : Legt den Namen und die URL von Berichtendpunktgruppen fest, die mit einer Anzahl von HTTP-Headern einschließlich `Content-Security-Policy` verwendet werden können.
 
-Berichts-Endpunkte können für die folgenden Berichte unter Verwendung der `report-to`-Direktive auf den entsprechenden Headern festgelegt werden:
+Berichtsendpunkte können für die folgenden Berichte mithilfe der `report-to` Direktive auf den entsprechenden Headern gesetzt werden:
 
 - CSP-Verstöße
 
@@ -99,9 +98,9 @@ Berichts-Endpunkte können für die folgenden Berichte unter Verwendung der `rep
 
 ## Beispiele
 
-### Veraltete Funktionen melden
+### Berichte über veraltete Funktionen
 
-In unserem [deprecation_report.html](https://mdn.github.io/dom-examples/reporting-api/deprecation_report.html)-Beispiel erstellen wir einen einfachen Reporting-Observer, um die Verwendung veralteter Funktionen auf unserer Webseite zu beobachten:
+In unserem [deprecation_report.html](https://mdn.github.io/dom-examples/reporting-api/deprecation_report.html) Beispiel erstellen wir einen einfachen Berichtsbeobachter, um die Verwendung veralteter Funktionen auf unserer Webseite zu beobachten:
 
 ```js
 const options = {
@@ -114,13 +113,13 @@ const observer = new ReportingObserver((reports, observer) => {
 }, options);
 ```
 
-Wir sagen ihm dann, dass er beginnen soll, Berichte zu beobachten, indem wir {{domxref("ReportingObserver.observe()")}} verwenden; dies teilt dem Beobachter mit, dass er beginnen soll, Berichte in seiner Berichtswarteschlange zu sammeln, und führt die im Konstruktor angegebene Rückruffunktion aus:
+Wir sagen ihm dann, dass er damit beginnen soll, Berichte mit [`ReportingObserver.observe()`](/de/docs/Web/API/ReportingObserver/observe) zu beobachten; dies teilt dem Beobachter mit, dass er Berichte in seiner Berichtwarteschlange sammeln und die im Konstruktor angegebene Callback-Funktion ausführen soll:
 
 ```js
 observer.observe();
 ```
 
-Später verwenden wir absichtlich die veraltete Version von {{domxref("MediaDevices.getUserMedia()")}}:
+Später im Beispiel verwenden wir absichtlich die veraltete Version von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia):
 
 ```js
 if (navigator.mozGetUserMedia) {
@@ -130,25 +129,22 @@ if (navigator.mozGetUserMedia) {
 }
 ```
 
-Dies führt dazu, dass ein Veralterungsbericht generiert wird; aufgrund des Ereignishandlers, den wir im `ReportingObserver()`-Konstruktor eingerichtet haben, können wir nun den Button klicken, um die Berichtsdetails anzuzeigen.
+Dies führt dazu, dass ein Bericht über veraltete Funktionen generiert wird; aufgrund des Ereignis-Handlers, den wir im `ReportingObserver()` Konstruktor eingerichtet haben, können wir jetzt auf die Schaltfläche klicken, um die Berichtdetails anzuzeigen.
 
-![Bild eines fröhlichen bärtigen Mannes mit verschiedenen angezeigten Statistiken über eine veraltete Funktion](reporting_api_example.png)
+![Bild eines fröhlichen bärtigen Mannes mit verschiedenen unten angezeigten Statistiken über eine veraltete Funktion](reporting_api_example.png)
 
 > [!NOTE]
-> Wenn Sie sich den [vollständigen Quellcode](https://github.com/mdn/dom-examples/blob/main/reporting-api/deprecation_report.html) ansehen, werden Sie feststellen, dass wir die veraltete `getUserMedia()`-Methode tatsächlich zweimal aufrufen. Nach dem ersten Mal rufen wir {{domxref("ReportingObserver.takeRecords()")}} auf, was den ersten generierten Bericht zurückgibt und die Warteschlange leert. Aus diesem Grund wird nur der zweite Bericht aufgelistet, wenn der Button gedrückt wird.
+> Wenn Sie sich den [vollständigen Quellcode](https://github.com/mdn/dom-examples/blob/main/reporting-api/deprecation_report.html) ansehen, werden Sie feststellen, dass wir tatsächlich die veraltete `getUserMedia()` Methode zweimal aufrufen. Nach dem ersten Mal rufen wir [`ReportingObserver.takeRecords()`](/de/docs/Web/API/ReportingObserver/takeRecords) auf, das den ersten generierten Bericht zurückgibt und die Warteschlange leert. Aufgrund dessen wird, wenn die Schaltfläche gedrückt wird, nur der zweite Bericht aufgelistet.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
-Die Unterstützung befindet sich derzeit in einem frühen Stadium. Firefox unterstützt die JavaScript-API und den `Report-To`-Header hinter den Einstellungen:
+Die API wird von Chromium-Browsern und von Firefox hinter einer Einstellung (`dom.reporting.enabled`) unterstützt.
 
-- JavaScript-API: `dom.reporting.enabled` (nur in Nightly aktiviert)
-- HTTP-Header: `dom.reporting.header.enabled`
-
-Chrome arbeitet ebenfalls an einer Implementierung: [Informationen zur Chrome-Implementierung](https://developer.chrome.com/docs/capabilities/web-apis/reporting-api).
+Sehen Sie sich die spezifischen Schnittstellen für detailliertere Informationen zur Unterstützung an.
 
 ## Siehe auch
 

@@ -1,5 +1,5 @@
 ---
-title: "Element: afterscriptexecute Ereignis"
+title: "Element: afterscriptexecute-Event"
 short-title: afterscriptexecute
 slug: Web/API/Element/afterscriptexecute_event
 l10n:
@@ -11,15 +11,15 @@ l10n:
 > [!WARNING]
 > Dieses Ereignis war ein Vorschlag in einer frühen Version der Spezifikation. Verlassen Sie sich nicht darauf.
 
-Das **`afterscriptexecute`** Ereignis wird ausgelöst, nachdem ein Skript ausgeführt wurde.
+Das **`afterscriptexecute`**-Ereignis wird ausgelöst, nachdem ein Skript ausgeführt wurde.
 
 Es handelt sich um ein proprietäres Ereignis, das spezifisch für Gecko (Firefox) ist.
 
-Dieses Ereignis ist nicht abbruchbar.
+Dieses Ereignis ist nicht abbrechbar.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("afterscriptexecute", (event) => {});
@@ -29,11 +29,11 @@ onafterscriptexecute = (event) => {};
 
 ## Ereignistyp
 
-Ein generisches {{domxref("Event")}}.
+Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Spezifikationen
 
-Gehört zu keiner Spezifikation.
+Nicht Teil einer Spezifikation.
 
 ## Browser-Kompatibilität
 
@@ -41,4 +41,4 @@ Gehört zu keiner Spezifikation.
 
 ## Siehe auch
 
-- [`beforescriptexecute`](/de/docs/Web/API/Element/beforescriptexecute_event) Ereignis
+- [`beforescriptexecute`](/de/docs/Web/API/Element/beforescriptexecute_event)-Ereignis

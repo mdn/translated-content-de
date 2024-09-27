@@ -1,5 +1,5 @@
 ---
-title: "URL: toJSON()-Methode"
+title: "URL: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/URL/toJSON
 l10n:
@@ -8,7 +8,10 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Die **`toJSON()`**-Methode des {{domxref("URL")}}-Interfaces gibt einen String zurück, der eine serialisierte Version der URL enthält. In der Praxis scheint sie jedoch den gleichen Effekt wie {{domxref("URL.toString()")}} zu haben.
+Die **`toJSON()`** Methode der [`URL`](/de/docs/Web/API/URL) Schnittstelle
+gibt einen String zurück, der eine serialisierte Version der URL enthält,
+obwohl sie in der Praxis denselben Effekt wie
+[`URL.toString()`](/de/docs/Web/API/URL/toString) zu haben scheint.
 
 ## Syntax
 
@@ -28,9 +31,9 @@ Ein String.
 
 ```js
 const url = new URL(
-  "https://developer.mozilla.org/de/docs/Web/API/URL/toString",
+  "https://developer.mozilla.org/en-US/docs/Web/API/URL/toString",
 );
-url.toJSON(); // sollte die URL als String zurückgeben
+url.toJSON(); // should return the URL as a string
 ```
 
 ## Spezifikationen

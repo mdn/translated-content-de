@@ -8,18 +8,18 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`max`**-Eigenschaft des {{domxref("HTMLInputElement")}}-Interfaces spiegelt das {{HTMLElement("input")}}-Element-Attribut [`max`](/de/docs/Web/HTML/Element/input#max) wider, das im Allgemeinen den maximal gültigen Wert für eine numerische oder datumsbezogene Eingabe definiert. Wenn das Attribut nicht explizit gesetzt ist, ist die `max`-Eigenschaft ein leerer String.
+Die **`max`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Interfaces spiegelt das [`max`](/de/docs/Web/HTML/Element/input#max)-Attribut des {{HTMLElement("input")}}-Elements wider, das im Allgemeinen den maximal gültigen Wert für eine numerische oder Datum-Uhrzeit-Eingabe definiert. Wenn das Attribut nicht explizit gesetzt ist, ist die `max`-Eigenschaft ein leerer String.
 
 ## Wert
 
-Ein String, der den `max`-Wert des Elements repräsentiert oder ein leerer String, wenn kein `max` explizit gesetzt ist.
+Ein String, der den `max`-Wert des Elements darstellt, oder ein leerer String, wenn kein `max` explizit gesetzt wurde.
 
 ## Beispiel
 
 ```js
 const inputElement = document.querySelector("#time");
-console.log(inputElement.max); // der aktuelle Wert des max-Attributs
-inputElement.max = "18:00:00"; // setzt den max-Wert auf 18:00 Uhr
+console.log(inputElement.max); // the current value of the max attribute
+inputElement.max = "18:00:00"; // sets the max value to 6pm
 ```
 
 ## Spezifikationen
@@ -33,6 +33,6 @@ inputElement.max = "18:00:00"; // setzt den max-Wert auf 18:00 Uhr
 ## Siehe auch
 
 - {{HTMLElement("input")}} vom Typ {{HTMLElement("input/range", "range")}}, {{HTMLElement("input/number", "number")}}, {{HTMLElement("input/date", "date")}}, {{HTMLElement("input/month", "month")}}, {{HTMLElement("input/week", "week")}}, und {{HTMLElement("input/time", "time")}}
-- {{domxref("HTMLInputElement.min")}}
-- {{domxref("HTMLInputElement.value")}}
-- {{domxref("HTMLInputElement.type")}}
+- [`HTMLInputElement.min`](/de/docs/Web/API/HTMLInputElement/min)
+- [`HTMLInputElement.value`](/de/docs/Web/API/HTMLInputElement/value)
+- [`HTMLInputElement.type`](/de/docs/Web/API/HTMLInputElement/type)

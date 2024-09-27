@@ -7,15 +7,15 @@ l10n:
 
 {{AddonSidebar}}
 
-Fügt ein neues Feld zur Seitenleiste im HTML/CSS-Inspektor hinzu.
+Fügt ein neues Paneel zur Seitenleiste im HTML/CSS-Inspektor hinzu.
 
-Der HTML/CSS-Inspektor, der in Firefox als [Page Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) und in Chrome als [Elements panel](https://developer.chrome.com/docs/devtools/css/) bezeichnet wird, zeigt das Seiten-DOM im Hauptteil seines Fensters an und hat eine Seitenleiste, die verschiedene andere Aspekte des Seiten-HTML/CSS in einer Registerkarten-Oberfläche anzeigt. Beispielsweise kann in Firefox die Seitenleiste die CSS-Regeln für das ausgewählte Element, dessen Schriftarten oder dessen Box-Modell anzeigen.
+Der HTML/CSS-Inspektor, der in Firefox [Page Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html) und in Chrome [Elements panel](https://developer.chrome.com/docs/devtools/css/) genannt wird, zeigt im Hauptbereich seines Fensters das DOM der Seite an und hat eine Seitenleiste, die in einer Tab-Ansicht verschiedene andere Aspekte des HTML/CSS der Seite anzeigt. In Firefox kann die Seitenleiste beispielsweise die CSS-Regeln für das ausgewählte Element, dessen Schriftarten oder dessen Box-Modell anzeigen.
 
-Die Funktion `createSidebarPane()` fügt der Seitenleiste ein neues Feld hinzu. Zum Beispiel zeigt der untenstehende Screenshot ein neues Feld mit dem Titel „My pane“, das ein JSON-Objekt anzeigt:
+Die Funktion `createSidebarPane()` fügt ein neues Paneel zur Seitenleiste hinzu. Das nachfolgende Bildschirmfoto zeigt beispielsweise ein neues Paneel mit dem Titel "My pane", das ein JSON-Objekt anzeigt:
 
-![Bild zeigt ein neues Feld mit dem Titel "My pane", das ein JSON-Objekt anzeigt](inspector-sidebar.png)
+![Bild, das ein neues Paneel mit dem Titel "My pane" zeigt, das ein JSON-Objekt anzeigt](inspector-sidebar.png)
 
-Diese Funktion nimmt ein Argument entgegen, das ein String ist und den Titel des Feldes repräsentiert. Sie gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das zu einem [`ExtensionSidebarPane`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane)-Objekt aufgelöst wird, das das neue Feld repräsentiert. Sie können dieses Objekt verwenden, um den Inhalt und das Verhalten des Feldes zu definieren.
+Diese Funktion nimmt ein Argument entgegen, das ein String ist und den Titel des Paneels darstellt. Sie gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das mit einem [`ExtensionSidebarPane`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane)-Objekt aufgelöst wird, das das neue Paneel darstellt. Sie können dieses Objekt verwenden, um den Inhalt und das Verhalten des Paneels zu definieren.
 
 ## Syntax
 
@@ -28,11 +28,11 @@ let creating = browser.devtools.panels.elements.createSidebarPane(
 ### Parameter
 
 - `title`
-  - : `string`. Der Titel des Feldes. Dieser wird in der Zeile der Registerkarten oben in der Seitenleiste angezeigt und ist die Hauptmöglichkeit, wie der Benutzer Ihr Feld identifizieren kann.
+  - : `string`. Der Titel des Paneels. Dieser erscheint in der Zeile der Tabs oben in der Seitenleiste und ist die Hauptmethode, mit der der Benutzer Ihr Paneel identifizieren kann.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem [`ExtensionSidebarPane`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane)-Objekt erfüllt wird, welches das neue Feld repräsentiert.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das mit einem [`ExtensionSidebarPane`](/de/docs/Mozilla/Add-ons/WebExtensions/API/devtools/panels/ExtensionSidebarPane)-Objekt erfüllt wird, das das neue Paneel darstellt.
 
 ## Browser-Kompatibilität
 
@@ -40,7 +40,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das m
 
 ## Beispiele
 
-Erstellen Sie ein neues Feld und füllen Sie es mit einem JSON-Objekt. Sie könnten diesen Code in einem Script ausführen, das von der [devtools page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) Ihrer Erweiterung geladen wird.
+Erstellen Sie ein neues Paneel und füllen Sie es mit einem JSON-Objekt. Sie könnten diesen Code in einem Skript ausführen, das von der [devtools page](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) Ihrer Erweiterung geladen wird.
 
 ```js
 function onCreated(sidebarPane) {

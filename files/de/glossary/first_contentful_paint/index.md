@@ -1,5 +1,5 @@
 ---
-title: Erste inhaltsvolle Darstellung
+title: First Contentful Paint
 slug: Glossary/First_contentful_paint
 l10n:
   sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-**First Contentful Paint** (FCP) ist, wenn der Browser das erste Stück Inhalt aus dem DOM rendert und somit dem Benutzer das erste Feedback gibt, dass die Seite tatsächlich lädt. Die Frage "Passiert etwas?" wird mit "Ja" beantwortet, wenn die erste inhaltsvolle Darstellung abgeschlossen ist.
+**First Contentful Paint** (FCP) ist der Zeitpunkt, an dem der Browser das erste Inhaltselement aus dem DOM rendert und somit dem Benutzer das erste Feedback gibt, dass die Seite tatsächlich geladen wird. Die Frage "Passiert etwas?" wird mit "ja" beantwortet, wenn die erste inhaltsvolle Darstellung abgeschlossen ist.
 
-_Der Zeitpunkt der ersten inhaltsvollen Darstellung_ ist, wenn der Browser erstmals Text, Bilder (einschließlich Hintergrundbilder), Videos, ein Canvas, das gezeichnet wurde, oder ein nicht leeres SVG rendert. Dies schließt Inhalte von iframes aus, beinhaltet jedoch Text mit noch zu ladenden Web-Fonts. Dies ist das erste Mal, dass Benutzer mit dem Konsumieren von Seiteninhalten beginnen könnten.
+_Der First Contentful Paint_ Zeitstempel ist, wenn der Browser das erste Mal jeglichen Text, Bild (einschließlich Hintergrundbildern), Video, `<canvas>`, das gezeichnet wurde, oder nicht-leere SVGs gerendert hat. Dies schließt den Inhalt von iframes aus, umfasst aber Text mit ausstehenden Webfonts. Dies ist das erste Mal, dass Benutzer anfangen könnten, Seiteninhalte zu konsumieren.
 
 ## Siehe auch
 
 - [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("First paint")}}
-  - {{Glossary("Largest contentful paint")}}
-  - {{Glossary("First meaningful paint")}}
+  - [First paint](/de/docs/Glossary/First_paint)
+  - [Largest contentful paint](/de/docs/Glossary/Largest_contentful_paint)
+  - [First meaningful paint](/de/docs/Glossary/First_meaningful_paint)
 - [First Contentful Paint](https://web.dev/articles/fcp) auf web.dev

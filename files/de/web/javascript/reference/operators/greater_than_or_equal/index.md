@@ -1,5 +1,5 @@
 ---
-title: Größer als oder gleich (>=)
+title: Greater than or equal (>=)
 slug: Web/JavaScript/Reference/Operators/Greater_than_or_equal
 l10n:
   sourceCommit: f616cb604af851f77f8cd59368e94ee3e43a8838
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Größer als oder gleich (`>=`)** Operator gibt `true` zurück, wenn der linke Operand größer oder gleich dem rechten Operand ist, und `false` andernfalls.
+Der **"greater than or equal" (`>=`)** Operator gibt `true` zurück, wenn der linke Operand größer oder gleich dem rechten Operand ist, und `false` andernfalls.
 
 {{EmbedInteractiveExample("pages/js/expressions-greater-than-or-equal.html")}}
 
@@ -19,21 +19,21 @@ x >= y
 
 ## Beschreibung
 
-Die Operanden werden mit demselben Algorithmus wie der [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) Operator verglichen, wobei das Ergebnis negiert wird. `x >= y` ist im Allgemeinen äquivalent zu `!(x < y)`, außer in zwei Fällen, bei denen sowohl `x >= y` als auch `x < y` `false` sind:
+Die Operanden werden nach demselben Algorithmus verglichen wie beim [Less than](/de/docs/Web/JavaScript/Reference/Operators/Less_than) Operator, wobei das Ergebnis negiert wird. `x >= y` ist im Allgemeinen gleichbedeutend mit `!(x < y)`, mit Ausnahme von zwei Fällen, in denen sowohl `x >= y` als auch `x < y` `false` sind:
 
-- Wenn einer der Operanden in einen BigInt konvertiert wird, während der andere in einen String konvertiert wird, der nicht in einen BigInt-Wert umgewandelt werden kann (es wird ein [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Invalid_BigInt_syntax) ausgelöst, wenn er an [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) übergeben wird).
-- Wenn einer der Operanden in `NaN` konvertiert wird. (Zum Beispiel Strings, die nicht in Zahlen konvertiert werden können, oder `undefined`.)
+- Wenn einer der Operanden in einen BigInt konvertiert wird, während der andere in einen String konvertiert wird, der nicht in einen BigInt-Wert umgewandelt werden kann (es wird ein [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Invalid_BigInt_syntax) ausgelöst, wenn es an [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) übergeben wird).
+- Wenn einer der Operanden in `NaN` konvertiert wird. (Beispielsweise Strings, die nicht in Zahlen konvertiert werden können, oder `undefined`.)
 
-`x >= y` ist im Allgemeinen äquivalent zu `x > y || x == y`, außer in einigen Fällen:
+`x >= y` ist im Allgemeinen gleichbedeutend mit `x > y || x == y`, mit Ausnahme einiger weniger Fälle:
 
-- Wenn einer von `x` oder `y` `null` ist und der andere etwas ist, das nicht `null` ist und bei der [numerischen Konvertierung](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) 0 wird (einschließlich `0`, `0n`, `false`, `""`, `"0"`, `new Date(0)`, etc.): `x >= y` ist `true`, während `x > y || x == y` `false` ist.
-- Wenn einer von `x` oder `y` `undefined` ist und der andere `null` oder `undefined` ist: `x >= y` ist `false`, während `x == y` `true` ist.
-- Wenn `x` und `y` dasselbe Objekt sind, das nach dem ersten Schritt von [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) `NaN` wird (wie `new Date(NaN)`): `x >= y` ist `false`, während `x == y` `true` ist.
-- Wenn `x` und `y` unterschiedliche Objekte sind, die nach dem ersten Schritt von [Kleiner als](/de/docs/Web/JavaScript/Reference/Operators/Less_than) denselben Wert erhalten: `x >= y` ist `true`, während `x > y || x == y` `false` ist.
+- Wenn eines von `x` oder `y` `null` ist und das andere etwas ist, das nicht `null` ist und bei [Zwang zur numerischen Form](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) 0 wird (einschließlich `0`, `0n`, `false`, `""`, `"0"`, `new Date(0)`, etc.): `x >= y` ist `true`, während `x > y || x == y` `false` ist.
+- Wenn eines von `x` oder `y` `undefined` ist und das andere `null` oder `undefined` ist: `x >= y` ist `false`, während `x == y` `true` ist.
+- Wenn `x` und `y` dasselbe Objekt sind, das nach dem ersten Schritt von [Less than](/de/docs/Web/JavaScript/Reference/Operators/Less_than) `NaN` wird (wie `new Date(NaN)`): `x >= y` ist `false`, während `x == y` `true` ist.
+- Wenn `x` und `y` unterschiedliche Objekte sind, die nach dem ersten Schritt von [Less than](/de/docs/Web/JavaScript/Reference/Operators/Less_than) denselben Wert ergeben: `x >= y` ist `true`, während `x > y || x == y` `false` ist.
 
 ## Beispiele
 
-### Zeichenfolgenvergleich
+### String zu String Vergleich
 
 ```js
 "a" >= "b"; // false
@@ -41,7 +41,7 @@ Die Operanden werden mit demselben Algorithmus wie der [Kleiner als](/de/docs/We
 "a" >= "3"; // true
 ```
 
-### Vergleich von Zeichenfolgen und Zahlen
+### String zu Zahl Vergleich
 
 ```js
 "5" >= 3; // true
@@ -52,7 +52,7 @@ Die Operanden werden mit demselben Algorithmus wie der [Kleiner als](/de/docs/We
 5 >= "hello"; // false
 ```
 
-### Vergleich von Zahlen
+### Zahl zu Zahl Vergleich
 
 ```js
 5 >= 3; // true
@@ -60,7 +60,7 @@ Die Operanden werden mit demselben Algorithmus wie der [Kleiner als](/de/docs/We
 3 >= 5; // false
 ```
 
-### Vergleich von Zahlen und BigInt
+### Zahl zu BigInt Vergleich
 
 ```js
 5n >= 3; // true
@@ -68,7 +68,7 @@ Die Operanden werden mit demselben Algorithmus wie der [Kleiner als](/de/docs/We
 3 >= 5n; // false
 ```
 
-### Vergleich von Booleschen, null, undefined, NaN
+### Vergleich von Boolean, null, undefined, NaN
 
 ```js
 true >= false; // true
@@ -92,12 +92,12 @@ NaN >= 3; // false
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Größer als (`>`)](/de/docs/Web/JavaScript/Reference/Operators/Greater_than)
-- [Kleiner als (`<`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than)
-- [Kleiner als oder gleich (`<=`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal)
+- [Greater than (`>`)](/de/docs/Web/JavaScript/Reference/Operators/Greater_than)
+- [Less than (`<`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than)
+- [Less than or equal (`<=`)](/de/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal)

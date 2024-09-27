@@ -1,5 +1,5 @@
 ---
-title: "Node: Methode normalize()"
+title: "Node: normalize() Methode"
 short-title: normalize()
 slug: Web/API/Node/normalize
 l10n:
@@ -8,8 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`normalize()`**-Methode der {{domxref("Node")}}-Schnittstelle bringt den angegebenen Knoten und seinen gesamten Unterbaum in eine _normalisierte_ Form.
-In einem normalisierten Unterbaum sind keine Textknoten leer, und es gibt keine angrenzenden Textknoten.
+Die **`normalize()`**-Methode des [`Node`](/de/docs/Web/API/Node)-Interfaces bringt den angegebenen Knoten
+und dessen gesamten Unterbaum in eine _normalisierte_ Form.
+In einem normalisierten Unterbaum gibt es keine leeren Textknoten und keine zusammenhängenden Textknoten.
 
 ## Syntax
 
@@ -69,4 +70,4 @@ output.innerText = result;
 
 ## Siehe auch
 
-- {{domxref("Text.splitText()")}}, das Gegenteil.
+- [`Text.splitText()`](/de/docs/Web/API/Text/splitText), das Gegenteil davon.

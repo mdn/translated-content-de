@@ -1,5 +1,5 @@
 ---
-title: "<audio>: Das Einbetten von Audiodateien"
+title: "<audio>: Das Embed Audio-Element"
 slug: Web/HTML/Element/audio
 l10n:
   sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
@@ -7,13 +7,13 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<audio>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um Toninhalte in Dokumente einzubetten. Es kann eine oder mehrere Audioquellen enthalten, die über das `src`-Attribut oder das {{HTMLElement("source")}}-Element dargestellt werden: der Browser wird die am besten geeignete auswählen. Es kann auch das Ziel für gestreamte Medien sein, indem ein {{domxref("MediaStream")}} verwendet wird.
+Das **`<audio>`**-[HTML](/de/docs/Web/HTML)-Element wird verwendet, um Toninhalte in Dokumente einzubetten. Es kann eine oder mehrere Audioquellen enthalten, die durch das Attribut `src` oder das {{HTMLElement("source")}}-Element repräsentiert werden: der Browser wählt die am besten geeignete aus. Es kann auch als Ziel für gestreamte Medien verwendet werden, unter Verwendung eines [`MediaStream`](/de/docs/Web/API/MediaStream).
 
 {{EmbedInteractiveExample("pages/tabbed/audio.html","tabbed-standard")}}
 
-Das obige Beispiel zeigt eine einfache Verwendung des `<audio>`-Elements. In ähnlicher Weise wie das {{htmlelement("img")}}-Element geben wir einen Pfad zu dem Medium an, das wir im `src`-Attribut einbetten möchten; wir können weitere Attribute hinzufügen, um Informationen zu spezifizieren, wie z.B. ob es automatisch abgespielt und wiederholt werden soll, ob wir die standardmäßigen Audiosteuerungen des Browsers anzeigen möchten usw.
+Das obige Beispiel zeigt eine einfache Verwendung des `<audio>`-Elements. Ähnlich wie beim {{htmlelement("img")}}-Element fügen wir einen Pfad zu dem Medium ein, das wir im `src`-Attribut einbetten möchten; wir können andere Attribute hinzufügen, um Informationen wie z.B. anzugeben, ob es automatisch abgespielt und wiederholt werden soll, ob wir die Standard-Audiosteuerungen des Browsers anzeigen möchten usw.
 
-Der Inhalt innerhalb der öffnenden und schließenden `<audio></audio>`-Tags wird als Fallback in Browsern angezeigt, die das Element nicht unterstützen.
+Der Inhalt zwischen dem öffnenden und schließenden `<audio></audio>`-Tag wird als Fallback in Browsern angezeigt, die das Element nicht unterstützen.
 
 ## Attribute
 
@@ -21,60 +21,60 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 - `autoplay`
 
-  - : Ein Boolean-Attribut: wenn angegeben, beginnt die Audio automatisch mit der Wiedergabe, sobald dies möglich ist, ohne darauf zu warten, dass die gesamte Audiodatei heruntergeladen ist.
+  - : Ein Boolean-Attribut: Wenn angegeben, beginnt die Wiedergabe des Audios automatisch, sobald es möglich ist, ohne darauf zu warten, dass die gesamte Audiodatei vollständig heruntergeladen ist.
 
     > [!NOTE]
-    > Websites, die automatisch Audio abspielen (oder Videos mit einem Audiotrack), können eine unangenehme Erfahrung für Benutzer sein und sollten nach Möglichkeit vermieden werden. Wenn Sie zwingend eine Autoplay-Funktion anbieten müssen, sollten Sie sie opt-in gestalten (indem der Benutzer sie speziell aktivieren muss). Dies kann jedoch nützlich sein, wenn Medienelemente erstellt werden, deren Quelle zu einem späteren Zeitpunkt unter der Kontrolle des Benutzers festgelegt wird. Weitere Informationen zur richtigen Nutzung von Autoplay finden Sie in unserem [Leitfaden für Autoplay](/de/docs/Web/Media/Autoplay_guide).
+    > Websites, die automatisch Audio (oder Videos mit einer Tonspur) abspielen, können für Nutzer eine unangenehme Erfahrung sein und sollten nach Möglichkeit vermieden werden. Wenn Sie dennoch Autoplay-Funktionalität anbieten müssen, sollte diese opt-in sein (das Erfordernis, dass ein Nutzer sie speziell aktiviert). Dies kann jedoch nützlich sein, wenn Medienelemente erstellt werden, deren Quelle später unter der Kontrolle des Nutzers festgelegt wird. Siehe unseren [Autoplay-Leitfaden](/de/docs/Web/Media/Autoplay_guide) für zusätzliche Informationen zur korrekten Verwendung von Autoplay.
 
 - `controls`
 
-  - : Wenn dieses Attribut vorhanden ist, bietet der Browser Steuerungen an, mit denen der Benutzer die Audiowiedergabe steuern kann, einschließlich Lautstärke, Suchen und Anhalten/Fortsetzen der Wiedergabe.
+  - : Wenn dieses Attribut vorhanden ist, bietet der Browser Steuerungen, die dem Nutzer das Steuern der Audiowiedergabe ermöglichen, einschließlich Lautstärke, Suche und Pause/Fortsetzung der Wiedergabe.
 
 - `controlslist`
 
-  - : Das [`controlslist`](https://wicg.github.io/controls-list/explainer.html)-Attribut hilft dem Browser, auszuwählen, welche Steuerungen für das `audio`-Element angezeigt werden sollen, wenn der Browser sein eigenes Set an Steuerungen zeigt (d.h. wenn das `controls`-Attribut angegeben ist).
+  - : Das [`controlslist`](https://wicg.github.io/controls-list/explainer.html)-Attribut, wenn angegeben, hilft dem Browser auszuwählen, welche Steuerungen für das `audio`-Element angezeigt werden sollen, wann immer der Browser seine eigenen Steuerungen anzeigt (d.h. wenn das `controls`-Attribut angegeben ist).
 
-    Erlaubte Werte sind `nodownload`, `nofullscreen` und `noremoteplayback`.
+    Die erlaubten Werte sind `nodownload`, `nofullscreen` und `noremoteplayback`.
 
 - [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)
 
-  - : Dieses [enumerierte](/de/docs/Glossary/Enumerated) Attribut gibt an, ob CORS verwendet werden soll, um die zugehörige Audiodatei abzurufen. [CORS-aktivierte Ressourcen](/de/docs/Web/HTML/CORS_enabled_image) können im {{HTMLElement("canvas")}}-Element verwendet werden, ohne _verfälscht_ zu werden. Erlaubte Werte sind:
+  - : Dieses [aufgezählte](/de/docs/Glossary/Enumerated) Attribut gibt an, ob CORS verwendet werden soll, um die zugehörige Audiodatei abzurufen. [CORS-aktivierte Ressourcen](/de/docs/Web/HTML/CORS_enabled_image) können im {{HTMLElement("canvas")}}-Element wiederverwendet werden, ohne _verunreinigt_ zu werden. Die erlaubten Werte sind:
 
     - `anonymous`
-      - : Sendet eine cross-origin Anfrage ohne eine Berechtigung. Mit anderen Worten, es sendet den `Origin:` HTTP-Header ohne ein Cookie, X.509-Zertifikat oder Durchführung von HTTP-Basic-Authentifizierung. Wenn der Server keine Berechtigungen an die Ursprungsseite gibt (durch Nichtsetzen des `Access-Control-Allow-Origin:` HTTP-Headers), wird die Ressource _verfälscht_, und ihre Nutzung eingeschränkt.
+      - : Sendet eine bereichsübergreifende Anfrage ohne Anmeldeinformationen. Anders gesagt, sendet es den `Origin:` HTTP-Header ohne Cookie, X.509-Zertifikat oder Durchführung der HTTP-Basic-Authentifizierung. Wenn der Server keine Anmeldeinformationen an die Ursprungsseite weitergibt (indem er den `Access-Control-Allow-Origin:` HTTP-Header nicht setzt), wird die Ressource _verunreinigt_ und ihre Nutzung eingeschränkt.
     - `use-credentials`
-      - : Sendet eine cross-origin Anfrage mit einer Berechtigung. Mit anderen Worten, es sendet den `Origin:` HTTP-Header mit einem Cookie, einem Zertifikat oder Durchführung von HTTP-Basic-Authentifizierung. Wenn der Server keine Berechtigungen an die Ursprungsseite gibt (durch den `Access-Control-Allow-Credentials:` HTTP-Header), wird die Ressource _verfälscht_ und ihre Nutzung eingeschränkt.
+      - : Sendet eine bereichsübergreifende Anfrage mit Anmeldeinformationen. Anders gesagt, sendet es den `Origin:` HTTP-Header mit einem Cookie, einem Zertifikat oder führt die HTTP-Basic-Authentifizierung durch. Wenn der Server keine Anmeldeinformationen an die Ursprungsseite weitergibt (durch den `Access-Control-Allow-Credentials:` HTTP-Header), wird die Ressource _verunreinigt_ und ihre Nutzung eingeschränkt.
 
-    Wenn nicht vorhanden, wird die Ressource ohne eine CORS-Anfrage abgerufen (d.h. ohne den `Origin:` HTTP-Header zu senden), was ihre nicht-verfälschte Nutzung in {{HTMLElement('canvas')}}-Elementen verhindert. Wenn ungültig, wird es behandelt, als ob das enumerierte Schlüsselwort **anonymous** verwendet wurde. Siehe [CORS-Einstellungen-Attribute](/de/docs/Web/HTML/Attributes/crossorigin) für zusätzliche Informationen.
+    Wenn nicht vorhanden, wird die Ressource ohne eine CORS-Anfrage abgerufen (d.h. ohne den `Origin:` HTTP-Header zu senden), was ihre nicht-verunreinigte Nutzung in {{HTMLElement('canvas')}}-Elementen verhindert. Wenn ungültig, wird sie behandelt, als wäre das aufgezählte Schlüsselwort **anonymous** verwendet worden. Siehe [CORS Einstellungen Attribute](/de/docs/Web/HTML/Attributes/crossorigin) für zusätzliche Informationen.
 
 - `disableremoteplayback`
 
-  - : Ein Boolean-Attribut, das verwendet wird, um die Fähigkeit der Fernwiedergabe auf Geräten, die über kabelgebundene (HDMI, DVI, etc.) und kabellose Technologien (Miracast, Chromecast, DLNA, AirPlay, etc.) angeschlossen sind, zu deaktivieren. Siehe [diese vorgeschlagene Spezifikation](https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute) für weitere Informationen.
+  - : Ein Boolean-Attribut, das die Fähigkeit zur Fernwiedergabe in Geräten deaktiviert, die mit kabelgebundenen (HDMI, DVI, etc.) und drahtlosen Technologien (Miracast, Chromecast, DLNA, AirPlay, etc.) verbunden sind. Siehe [diese vorgeschlagene Spezifikation](https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute) für weitere Informationen.
 
     In Safari können Sie [`x-webkit-airplay="deny"`](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html) als Fallback verwenden.
 
 - `loop`
-  - : Ein Boolean-Attribut: wenn angegeben, springt der Audioplayer beim Erreichen des Endes der Audio automatisch zurück zum Anfang.
+  - : Ein Boolean-Attribut: Wenn angegeben, sucht der Audioplayer automatisch zurück zum Anfang, wenn das Ende des Audios erreicht ist.
 - `muted`
-  - : Ein Boolean-Attribut, das angibt, ob die Audio anfänglich stummgeschaltet wird. Sein Standardwert ist `false`.
+  - : Ein Boolean-Attribut, das angibt, ob das Audio anfänglich stummgeschaltet wird. Sein Standardwert ist `false`.
 - `preload`
 
-  - : Dieses {{Glossary("enumerated")}}-Attribut soll dem Browser einen Hinweis geben, was der Autor denkt, was zu der besten Benutzererfahrung führen wird. Es kann einen der folgenden Werte haben:
+  - : Dieses [aufgezählte](/de/docs/Glossary/enumerated) Attribut soll dem Browser einen Hinweis geben, was der Autor für die beste Benutzererfahrung hält. Es kann einen der folgenden Werte haben:
 
-    - `none`: Gibt an, dass die Audio nicht vorgeladen werden soll.
-    - `metadata`: Gibt an, dass nur die Audio-Metadaten (z.B. Länge) abgerufen werden.
-    - `auto`: Gibt an, dass die gesamte Audiodatei heruntergeladen werden kann, selbst wenn der Benutzer nicht erwartet wird, sie zu verwenden.
+    - `none`: Gibt an, dass das Audio nicht vorab geladen werden soll.
+    - `metadata`: Gibt an, dass nur Audiodaten-Metadaten (z.B. Länge) abgerufen werden.
+    - `auto`: Gibt an, dass die gesamte Audiodatei heruntergeladen werden kann, selbst wenn der Benutzer sie wahrscheinlich nicht verwenden wird.
     - _leerer String_: Ein Synonym für den `auto`-Wert.
 
-    Der Standardwert ist für jeden Browser unterschiedlich. Die Spezifikation rät, ihn auf `metadata` zu setzen.
+    Der Standardwert ist in jedem Browser unterschiedlich. Die Spezifikation empfiehlt, ihn auf `metadata` zu setzen.
 
     > [!NOTE]
     >
-    > - Das `autoplay`-Attribut hat Vorrang vor `preload`. Wenn `autoplay` angegeben ist, muss der Browser offensichtlich die Audio zum Abspielen herunterladen.
-    > - Der Browser ist durch die Spezifikation nicht gezwungen, dem Wert dieses Attributs zu folgen; es ist nur ein Hinweis.
+    > - Das `autoplay`-Attribut hat Vorrang vor `preload`. Wenn `autoplay` angegeben ist, muss der Browser offensichtlich das Audio für die Wiedergabe herunterladen.
+    > - Der Browser ist durch die Spezifikation nicht gezwungen, dem Wert dieses Attributs zu folgen; es ist lediglich ein Hinweis.
 
 - `src`
-  - : Die URL der einzubettenden Audio. Dies unterliegt [HTTP-Zugriffskontrollen](/de/docs/Web/HTTP/CORS). Dies ist optional; Sie können stattdessen das {{htmlelement("source")}}-Element innerhalb des Audio-Blocks verwenden, um die einzubettende Audio anzugeben.
+  - : Die URL des einzubettenden Audios. Dies unterliegt [HTTP-Zugriffskontrollen](/de/docs/Web/HTTP/CORS). Dies ist optional; stattdessen können Sie das {{htmlelement("source")}}-Element innerhalb des Audio-Blocks verwenden, um die einzubettende Audioquelle anzugeben.
 
 ## Ereignisse
 
@@ -87,210 +87,200 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
   </thead>
   <tbody>
     <tr>
-      <td>{{domxref("ScriptProcessorNode/audioprocess_event", "audioprocess")}}</td>
+      <td>[`audioprocess`](/de/docs/Web/API/ScriptProcessorNode/audioprocess_event)</td>
       <td>
-        Der Eingabepuffer eines {{DOMxRef("ScriptProcessorNode")}} ist bereit
-        zur Verarbeitung.
+        Der Eingabepuffer eines [`ScriptProcessorNode`](/de/docs/Web/API/ScriptProcessorNode) ist bereit zur Verarbeitung.
       </td>
     </tr>
     <tr>
       <td>
-        {{domxref("HTMLMediaElement.canplay_event", 'canplay')}}
+        [`canplay`](/de/docs/Web/API/HTMLMediaElement/canplay_event)
       </td>
       <td>
-        Der Browser kann das Medium abspielen, schätzt aber, dass nicht
-        genügend Daten geladen wurden, um das Medium bis zum Ende abzuspielen,
-        ohne für weiteres Puffern von Inhalten anhalten zu müssen.
+        Der Browser kann das Medium abspielen, schätzt jedoch, dass nicht genügend Daten geladen wurden, um das Medium bis zu seinem Ende abzuspielen, ohne für zusätzliches Puffern von Inhalten anhalten zu müssen.
       </td>
     </tr>
     <tr>
       <td>
-        {{domxref("HTMLMediaElement.canplaythrough_event", 'canplaythrough')}}
+        [`canplaythrough`](/de/docs/Web/API/HTMLMediaElement/canplaythrough_event)
       </td>
       <td>
-        Der Browser schätzt, dass er das Medium bis zu seinem Ende abspielen
-        kann, ohne für das Puffern von Inhalten anhalten zu müssen.
-      </td>
-    </tr>
-    <tr>
-      <td>{{domxref("OfflineAudioContext/complete_event", "complete")}}</td>
-      <td>
-        Das Rendering eines {{DOMxRef("OfflineAudioContext")}} ist beendet.
+        Der Browser schätzt, dass er das Medium bis zu seinem Ende abspielen kann, ohne für das Puffern von Inhalten anhalten zu müssen.
       </td>
     </tr>
     <tr>
+      <td>[`complete`](/de/docs/Web/API/OfflineAudioContext/complete_event)</td>
       <td>
-        {{domxref("HTMLMediaElement.durationchange_event", 'durationchange')}}
+        Die Wiedergabe eines [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) ist abgeschlossen.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        [`durationchange`](/de/docs/Web/API/HTMLMediaElement/durationchange_event)
       </td>
       <td>Das <code>duration</code>-Attribut wurde aktualisiert.</td>
     </tr>
     <tr>
       <td>
-        {{domxref("HTMLMediaElement.emptied_event", 'emptied')}}
+        [`emptied`](/de/docs/Web/API/HTMLMediaElement/emptied_event)
       </td>
       <td>
-        Das Medium ist leer geworden; zum Beispiel wird dieses Ereignis gesendet,
-        wenn das Medium bereits geladen (oder teilweise geladen) wurde, und die
-        {{domxref("HTMLMediaElement.load")}}-Methode aufgerufen wird, um es
-        neu zu laden.
+        Das Medium ist leer geworden; zum Beispiel wird dieses Ereignis gesendet, wenn das Medium bereits geladen (oder teilweise geladen) wurde und die [`HTMLMediaElement.load`](/de/docs/Web/API/HTMLMediaElement/load)-Methode aufgerufen wird, um es neu zu laden.
       </td>
     </tr>
     <tr>
       <td>
-        {{domxref("HTMLMediaElement.ended_event", 'ended')}}
+        [`ended`](/de/docs/Web/API/HTMLMediaElement/ended_event)
       </td>
       <td>Die Wiedergabe wurde gestoppt, weil das Ende des Mediums erreicht wurde.</td>
     </tr>
     <tr>
       <td>
-        {{domxref("HTMLMediaElement.loadeddata_event", 'loadeddata')}}
+        [`loadeddata`](/de/docs/Web/API/HTMLMediaElement/loadeddata_event)
       </td>
-      <td>Der erste Frame des Mediums wurde fertig geladen.</td>
+      <td>Der erste Frame des Mediums wurde geladen.</td>
     </tr>
     <tr>
       <td>
-        {{domxref("HTMLMediaElement.loadedmetadata_event", 'loadedmetadata')}}
+        [`loadedmetadata`](/de/docs/Web/API/HTMLMediaElement/loadedmetadata_event)
       </td>
       <td>Die Metadaten wurden geladen.</td>
     </tr>
     <tr>
       <td>
-        {{domxref("HTMLMediaElement.loadstart_event", 'loadstart')}}
+        [`loadstart`](/de/docs/Web/API/HTMLMediaElement/loadstart_event)
       </td>
       <td>Ausgelöst, wenn der Browser begonnen hat, die Ressource zu laden.</td>
     </tr>
     <tr>
       <td>
-        {{domxref("HTMLMediaElement.pause_event", 'pause')}}
+        [`pause`](/de/docs/Web/API/HTMLMediaElement/pause_event)
       </td>
       <td>Die Wiedergabe wurde pausiert.</td>
     </tr>
     <tr>
       <td>
-        {{domxref("HTMLMediaElement.play_event", 'play')}}
+        [`play`](/de/docs/Web/API/HTMLMediaElement/play_event)
       </td>
       <td>Die Wiedergabe hat begonnen.</td>
     </tr>
     <tr>
       <td>
-        {{domxref("HTMLMediaElement.playing_event", 'playing')}}
+        [`playing`](/de/docs/Web/API/HTMLMediaElement/playing_event)
       </td>
       <td>
-        Die Wiedergabe ist bereit zu starten, nachdem sie pausiert oder aufgrund
-        von Datenmangel verzögert wurde.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        {{domxref("HTMLMediaElement.ratechange_event", 'ratechange')}}
-      </td>
-      <td>Die Wiedergabegeschwindigkeit hat sich geändert.</td>
-    </tr>
-    <tr>
-      <td>
-        {{domxref("HTMLMediaElement.seeked_event", 'seeked')}}
-      </td>
-      <td>Ein <em>Such</em>-Vorgang wurde abgeschlossen.</td>
-    </tr>
-    <tr>
-      <td>
-        {{domxref("HTMLMediaElement.seeking_event", 'seeking')}}
-      </td>
-      <td>Ein <em>Such</em>-Vorgang begann.</td>
-    </tr>
-    <tr>
-      <td>
-        {{domxref("HTMLMediaElement.stalled_event", 'stalled')}}
-      </td>
-      <td>
-        Der Benutzeragent versucht, Mediendaten abzurufen, aber die Daten
-        kommen unerwartet nicht.
+        Die Wiedergabe ist bereit zu starten, nachdem sie pausiert oder wegen Datenmangel verzögert wurde.
       </td>
     </tr>
     <tr>
       <td>
-        {{domxref("HTMLMediaElement.suspend_event", 'suspend')}}
+        [`ratechange`](/de/docs/Web/API/HTMLMediaElement/ratechange_event)
+      </td>
+      <td>Die Wiedergabegeschwindigkeit wurde geändert.</td>
+    </tr>
+    <tr>
+      <td>
+        [`seeked`](/de/docs/Web/API/HTMLMediaElement/seeked_event)
+      </td>
+      <td>Eine <em>Such</em>-Operation wurde abgeschlossen.</td>
+    </tr>
+    <tr>
+      <td>
+        [`seeking`](/de/docs/Web/API/HTMLMediaElement/seeking_event)
+      </td>
+      <td>Eine <em>Such</em>-Operation hat begonnen.</td>
+    </tr>
+    <tr>
+      <td>
+        [`stalled`](/de/docs/Web/API/HTMLMediaElement/stalled_event)
+      </td>
+      <td>
+        Der Benutzeragent versucht Mediendaten abzurufen, aber Daten kommen unerwartet nicht.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        [`suspend`](/de/docs/Web/API/HTMLMediaElement/suspend_event)
       </td>
       <td>Das Laden von Mediendaten wurde ausgesetzt.</td>
     </tr>
     <tr>
       <td>
-        {{domxref("HTMLMediaElement.timeupdate_event", 'timeupdate')}}
+        [`timeupdate`](/de/docs/Web/API/HTMLMediaElement/timeupdate_event)
       </td>
       <td>
-        Die durch das <code>currentTime</code>-Attribut angezeigte Zeit wurde
-        aktualisiert.
+        Die durch das <code>currentTime</code>-Attribut angezeigte Zeit wurde aktualisiert.
       </td>
     </tr>
     <tr>
       <td>
-        {{domxref("HTMLMediaElement.volumechange_event", 'volumechange')}}
+        [`volumechange`](/de/docs/Web/API/HTMLMediaElement/volumechange_event)
       </td>
-      <td>Die Lautstärke hat sich geändert.</td>
+      <td>Die Lautstärke wurde geändert.</td>
     </tr>
     <tr>
       <td>
-        {{domxref("HTMLMediaElement.waiting_event", 'waiting')}}
+        [`waiting`](/de/docs/Web/API/HTMLMediaElement/waiting_event)
       </td>
-      <td>Die Wiedergabe wurde aufgrund eines vorübergehenden Datenmangels gestoppt</td>
+      <td>Die Wiedergabe wurde wegen eines vorübergehenden Datenmangels gestoppt.</td>
     </tr>
   </tbody>
 </table>
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Browser unterstützen nicht alle die gleichen [Dateitypen](/de/docs/Web/Media/Formats/Containers) und [Audio-Codecs](/de/docs/Web/Media/Formats/Audio_codecs); Sie können mehrere Quellen innerhalb verschachtelter {{htmlelement("source")}}-Elemente bereitstellen, und der Browser wird dann die erste verwenden, die er versteht:
+Browser unterstützen nicht alle die gleichen [Dateitypen](/de/docs/Web/Media/Formats/Containers) und [Audio-Codecs](/de/docs/Web/Media/Formats/Audio_codecs); Sie können mehrere Quellen innerhalb verschachtelter {{htmlelement("source")}}-Elemente bereitstellen, und der Browser wird dann die erste, die er versteht, verwenden:
 
 ```html
 <audio controls>
   <source src="myAudio.mp3" type="audio/mpeg" />
   <source src="myAudio.ogg" type="audio/ogg" />
   <p>
-    Downloaden Sie <a href="myAudio.mp3" download="myAudio.mp3">MP3</a> oder
-    <a href="myAudio.ogg" download="myAudio.ogg">OGG</a> Audio.
+    Download <a href="myAudio.mp3" download="myAudio.mp3">MP3</a> or
+    <a href="myAudio.ogg" download="myAudio.ogg">OGG</a> audio.
   </p>
 </audio>
 ```
 
-Wir bieten einen umfassenden und ausführlichen [Leitfaden zu Medien-Dateitypen](/de/docs/Web/Media/Formats) und den [Audio-Codecs, die in diesen verwendet werden können](/de/docs/Web/Media/Formats/Audio_codecs). Auch verfügbar ist [ein Leitfaden zu den unterstützten Codecs für Videos](/de/docs/Web/Media/Formats/Video_codecs).
+Wir bieten einen umfassenden und gründlichen [Leitfaden zu Medientypen](/de/docs/Web/Media/Formats) und den [Audio-Codecs, die in ihnen verwendet werden können](/de/docs/Web/Media/Formats/Audio_codecs). Zusätzlich, ist auch [ein Leitfaden zu den unterstützten Video-Codecs](/de/docs/Web/Media/Formats/Video_codecs) verfügbar.
 
-Weitere Nutzungshinweise:
+Weitere Verwendungshinweise:
 
-- Wenn Sie das `controls`-Attribut nicht angeben, enthält der Audioplayer nicht die standardmäßigen Steuerungselemente des Browsers. Sie können jedoch Ihre eigenen benutzerdefinierten Steuerungselemente mit JavaScript und der {{domxref("HTMLMediaElement")}}-API erstellen.
-- Um eine genaue Kontrolle über Ihre Audiowiedergabe zu haben, senden `HTMLMediaElement`s viele verschiedene [Ereignisse](/de/docs/Web/API/HTMLMediaElement#events). Dies bietet auch eine Möglichkeit, den Abruf der Audio zu überwachen, sodass Sie Fehler erkennen oder feststellen können, wann genug verfügbar ist, um mit der Wiedergabe zu beginnen oder diese zu manipulieren.
-- Sie können auch die [Web Audio API](/de/docs/Web/API/Web_Audio_API) verwenden, um Audio-Streams direkt aus JavaScript-Code zu erzeugen und zu manipulieren, anstatt vorab vorhandene Audiodateien zu streamen.
-- `<audio>`-Elemente können keine Untertitel oder Bildunterschriften verknüpfen, wie `<video>`-Elemente es können. Siehe [WebVTT und Audio](https://www.iandevlin.com/blog/2015/12/html5/webvtt-and-audio/) von Ian Devlin für einige nützliche Informationen und Workarounds.
-- Um den Fallback-Inhalt in Browsern zu testen, die das Element unterstützen, können Sie `<audio>` durch ein nicht vorhandenes Element wie `<notanaudio>` ersetzen.
+- Wenn Sie das `controls`-Attribut nicht angeben, enthält der Audioplayer nicht die Standardsteuerungen des Browsers. Sie können jedoch Ihre eigenen benutzerdefinierten Steuerungen mithilfe von JavaScript und der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-API erstellen.
+- Um eine präzise Kontrolle über Ihre Audioinhalte zu ermöglichen, feuern `HTMLMediaElement`s viele verschiedene [Ereignisse](/de/docs/Web/API/HTMLMediaElement#events). Dies bietet auch eine Möglichkeit, den Abrufprozess des Audios zu überwachen, sodass Sie Fehler erkennen oder feststellen können, wann genug verfügbar ist, um mit der Wiedergabe zu beginnen oder es zu manipulieren.
+- Sie können die [Web Audio API](/de/docs/Web/API/Web_Audio_API) auch verwenden, um direkt Audio-Streams aus JavaScript-Code zu erzeugen und zu manipulieren, anstatt bereits vorhandene Audiodateien zu streamen.
+- `<audio>`-Elemente können keine Untertitel oder Beschriftungen auf die gleiche Weise wie `<video>`-Elemente haben. Siehe [WebVTT und Audio](https://www.iandevlin.com/blog/2015/12/html5/webvtt-and-audio/) von Ian Devlin für einige nützliche Informationen und Workarounds.
+- Um den Fallback-Inhalt in Browsern zu testen, die das Element unterstützen, können Sie `<audio>` durch ein nicht existierendes Element wie `<notanaudio>` ersetzen.
 
-Eine gute allgemeine Informationsquelle zur Verwendung von HTML `<audio>` ist das [Video- und Audiomaterial](/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content) Anfänger-Tutorial.
+Eine gute allgemeine Informationsquelle zur Verwendung von HTML `<audio>` ist das Einsteiger-Tutorial [Video- und Audioinhalte](/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content).
 
-### CSS-Styling
+### Styling mit CSS
 
-Das `<audio>`-Element hat keine eigene visuelle Ausgabe, es sei denn, das `controls`-Attribut ist angegeben; in diesem Fall werden die standardmäßigen Steuerungselemente des Browsers angezeigt.
+Das `<audio>`-Element selbst hat keine eigene visuelle Ausgabe, es sei denn, das `controls`-Attribut ist angegeben, in welchem Fall die Standardsteuerungen des Browsers angezeigt werden.
 
-Die Standardsteuerungen haben einen {{cssxref("display")}}-Wert von `inline` standardmäßig, und es ist oft eine gute Idee, den Wert auf `block` zu setzen, um die Positionierung und das Layout zu verbessern, es sei denn, Sie möchten, dass es innerhalb eines Textblocks oder Ähnlichem sitzt.
+Die Standardsteuerungen haben standardmäßig einen {{cssxref("display")}}-Wert von `inline`, und es ist oft eine gute Idee, den Wert auf `block` zu setzen, um die Kontrolle über Positionierung und Layout zu verbessern, es sei denn, Sie möchten, dass es innerhalb eines Textblocks oder Ähnlichem sitzt.
 
-Sie können die Standardsteuerungen mit Eigenschaften gestalten, die den Block als Einheit betreffen, sodass Sie ihm zum Beispiel eine {{cssxref("border")}} und {{cssxref("border-radius")}}, {{cssxref("padding")}}, {{cssxref("margin")}} usw. geben können. Sie können jedoch nicht die einzelnen Komponenten innerhalb des Audioplayers stylen (z.B. die Größe der Schaltflächen oder Symbole ändern, die Schriftart ändern usw.), und die Steuerungen sind zwischen den verschiedenen Browsern unterschiedlich.
+Sie können die Standardsteuerungen mit Eigenschaften stylen, die den gesamten Block als Einheit beeinflussen. Zum Beispiel können Sie ihm einen {{cssxref("border")}} und {{cssxref("border-radius")}}, {{cssxref("padding")}}, {{cssxref("margin")}} usw. geben. Sie können jedoch die einzelnen Komponenten innerhalb des Audioplayers nicht stylen (z. B. die Schaltflächengröße oder Symbole ändern, die Schriftart ändern usw.), und die Steuerungen sind in den verschiedenen Browsern unterschiedlich.
 
-Um in allen Browsern ein konsistentes Aussehen und Verhalten zu erhalten, müssen Sie benutzerdefinierte Steuerungselemente erstellen; diese können Sie in beliebiger Weise auszeichnen und gestalten, und dann kann JavaScript zusammen mit der {{domxref("HTMLMediaElement")}}-API verwendet werden, um ihre Funktionalität zu verbinden.
+Um ein einheitliches Erscheinungsbild über alle Browser hinweg zu erreichen, müssen Sie benutzerdefinierte Steuerungen erstellen; diese können auf beliebige Weise ausgearbeitet und gestylt werden, und dann kann JavaScript verwendet werden, um zusammen mit der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-API deren Funktionalität zu verknüpfen.
 
-[Grundlagen des Styling von Videoplayern](/de/docs/Web/Media/Audio_and_video_delivery/Video_player_styling_basics) bietet einige nützliche Stylingtechniken — es ist im Kontext von `<video>` geschrieben, aber vieles davon gilt genauso für `<audio>`.
+[Grundlagen der Videoplayer-Stilgestaltung](/de/docs/Web/Media/Audio_and_video_delivery/Video_player_styling_basics) bietet einige nützliche Stilgestaltungstechniken – es wird im Kontext von `<video>` geschrieben, aber vieles davon ist genauso auf `<audio>` anwendbar.
 
-### Erkennung von Hinzufügen und Entfernen von Spuren
+### Erkennung von Hinzufügung und Entfernung von Spuren
 
-Sie können erkennen, wann Spuren zu einem `<audio>`-Element hinzugefügt oder daraus entfernt werden, indem Sie die Ereignisse {{domxref("AudioTrackList/addtrack_event", "addtrack")}} und {{domxref("AudioTrackList/removetrack_event", "removetrack")}} verwenden. Diese Ereignisse werden jedoch nicht direkt an das `<audio>`-Element selbst gesendet. Stattdessen werden sie an das Tracklistenobjekt innerhalb des `<audio>`-Elements gesendet, das dem Typ der Spur entspricht, die dem Element hinzugefügt wurde:
+Sie können erkennen, wann Spuren zu einem `<audio>`-Element hinzugefügt und von ihm entfernt werden, indem Sie die Ereignisse [`addtrack`](/de/docs/Web/API/AudioTrackList/addtrack_event) und [`removetrack`](/de/docs/Web/API/AudioTrackList/removetrack_event) verwenden. Diese Ereignisse werden jedoch nicht direkt an das `<audio>`-Element selbst gesendet. Stattdessen werden sie an das Track-Listen-Objekt innerhalb des [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) des `<audio>`-Elements gesendet, das dem hinzugefügten Spurtyp entspricht:
 
-- {{domxref("HTMLMediaElement.audioTracks")}}
-  - : Eine {{domxref("AudioTrackList")}}, die alle Audiotracks des Medienelements enthält. Sie können einen Listener für `addtrack` an dieses Objekt hinzufügen, um benachrichtigt zu werden, wenn neue Audiotracks zum Element hinzugefügt werden.
-- {{domxref("HTMLMediaElement.videoTracks")}}
-  - : Fügen Sie diesem {{domxref("VideoTrackList")}}-Objekt einen `addtrack`-Listener hinzu, um informiert zu werden, wenn Videotracks zum Element hinzugefügt werden.
-- {{domxref("HTMLMediaElement.textTracks")}}
-  - : Fügen Sie diesem {{domxref("TextTrackList")}}-Objekt einen `addtrack`-Ereignislistener hinzu, um benachrichtigt zu werden, wenn neue Texttracks zum Element hinzugefügt werden.
+- [`HTMLMediaElement.audioTracks`](/de/docs/Web/API/HTMLMediaElement/audioTracks)
+  - : Eine [`AudioTrackList`](/de/docs/Web/API/AudioTrackList), die alle Audiospuren des Medienelements enthält. Sie können einen Listener für `addtrack` zu diesem Objekt hinzufügen, um benachrichtigt zu werden, wenn neue Audiospuren zu dem Element hinzugefügt werden.
+- [`HTMLMediaElement.videoTracks`](/de/docs/Web/API/HTMLMediaElement/videoTracks)
+  - : Fügen Sie diesem [`VideoTrackList`](/de/docs/Web/API/VideoTrackList)-Objekt einen `addtrack`-Listener hinzu, um informiert zu werden, wenn Video-Spuren dem Element hinzugefügt werden.
+- [`HTMLMediaElement.textTracks`](/de/docs/Web/API/HTMLMediaElement/textTracks)
+  - : Fügen Sie dieser [`TextTrackList`](/de/docs/Web/API/TextTrackList) einen `addtrack`-Event-Listener hinzu, um benachrichtigt zu werden, wenn neue Textspuren dem Element hinzugefügt werden.
 
 > [!NOTE]
-> Selbst wenn es ein `<audio>`-Element ist, hat es immer noch Video- und Texttracklisten und kann in der Tat verwendet werden, um Video zu präsentieren, obwohl die Benutzeroberfläche möglicherweise seltsam ist.
+> Auch wenn es ein `<audio>`-Element ist, hat es dennoch Video- und Text-Track-Listen und kann tatsächlich verwendet werden, um Video zu präsentieren, obwohl die Benutzeroberflächenimplikationen merkwürdig sein können.
 
-Zum Beispiel, um zu erkennen, wann Audiotracks zu oder von einem `<audio>`-Element hinzugefügt werden, können Sie Code wie diesen verwenden:
+Um z.B. zu erkennen, wann Audiospuren zu einem `<audio>`-Element hinzugefügt oder von ihm entfernt werden, können Sie Code wie diesen verwenden:
 
 ```js
 const elem = document.querySelector("audio");
@@ -304,82 +294,82 @@ elem.audioTrackList.onremovetrack = (event) => {
 };
 ```
 
-Dieser Code beobachtet, wann Audiotracks im Element hinzugefügt oder entfernt werden und ruft eine hypothetische Funktion auf einem Trackeditor auf, um den Track zur Liste der verfügbaren Tracks des Editors hinzuzufügen oder zu entfernen.
+Dieser Code beobachtet, wann Audiospuren zu dem Element hinzugefügt oder von ihm entfernt werden, und ruft eine hypothetische Funktion in einem Track-Editor auf, um den Track in der Liste der verfügbaren Tracks des Editors zu registrieren und zu entfernen.
 
-Sie können auch {{domxref("EventTarget.addEventListener", "addEventListener()")}} verwenden, um auf die Ereignisse {{domxref("AudioTrackList/addtrack_event", "addtrack")}} und {{domxref("AudioTrackList/removetrack_event", "removetrack")}} zu hören.
+Sie können auch [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) verwenden, um auf die Ereignisse [`addtrack`](/de/docs/Web/API/AudioTrackList/addtrack_event) und [`removetrack`](/de/docs/Web/API/AudioTrackList/removetrack_event) zu hören.
 
 ## Barrierefreiheit
 
-Audio mit gesprochenen Dialogen sollte sowohl Untertitel als auch Transkripte bereitstellen, die seinen Inhalt genau beschreiben. Untertitel, die mit [WebVTT](/de/docs/Web/API/WebVTT_API) angegeben sind, ermöglichen es Menschen mit Hörbehinderung, den Inhalt einer Audioaufnahme zu verstehen, während die Aufnahme abgespielt wird, während Transkripte Menschen, die mehr Zeit benötigen, ermöglichen, den Inhalt der Aufnahme in einem Tempo und Format zu überprüfen, das ihnen angenehm ist.
+Audio mit gesprochenem Dialog sollte sowohl Untertitel als auch Transkripte enthalten, die seinen Inhalt genau beschreiben. Untertitel, die mit [WebVTT](/de/docs/Web/API/WebVTT_API) angegeben werden, ermöglichen es Menschen mit Hörbehinderungen, den Inhalt einer Audioaufnahme zu verstehen, während die Aufnahme abgespielt wird, während Transkripte es Menschen, die mehr Zeit benötigen, ermöglichen, den Inhalt der Aufnahme in einem Tempo und Format zu überprüfen, das für sie angenehm ist.
 
-Wenn automatisierte Untertitel-Dienste verwendet werden, ist es wichtig, den generierten Inhalt zu überprüfen, um sicherzustellen, dass er die originale Audio korrekt wiedergibt.
+Wenn automatische Untertitelungsdienste verwendet werden, ist es wichtig, den erzeugten Inhalt zu überprüfen, um sicherzustellen, dass er den Quellaudio genau repräsentiert.
 
-Das `<audio>`-Element unterstützt WebVTT nicht direkt. Sie müssen eine Bibliothek oder ein Framework finden, das Ihnen die Fähigkeit bietet, oder selbst den Code schreiben, um Untertitel anzuzeigen. Eine Option besteht darin, Ihre Audio mit einem {{HTMLElement("video")}}-Element abzuspielen, das WebVTT unterstützt.
+Das `<audio>`-Element unterstützt WebVTT nicht direkt. Sie müssen eine Bibliothek oder ein Framework finden, das diese Funktionalität bietet, oder den Code selbst schreiben, um die Untertitel anzuzeigen. Eine Möglichkeit ist, Ihr Audio in einem {{HTMLElement("video")}}-Element abzuspielen, das WebVTT unterstützt.
 
-Zusätzlich zu gesprochenen Dialogen sollten Untertitel und Transkripte auch Musik und Soundeffekte identifizieren, die wichtige Informationen kommunizieren. Dies schließt Emotion und Ton ein. Zum Beispiel wird in dem unten stehenden WebVTT die Verwendung von eckigen Klammern bemerkt, um den Zuschauern tonale und emotionale Einblicke zu geben; dies kann helfen, die Stimmung zu erzeugen, die sonst durch Musik, nonverbale Geräusche und entscheidende Soundeffekte vermittelt wird usw.
+Zusätzlich zum gesprochenen Dialog sollten Untertitel und Transkripte auch Musik und Soundeffekte identifizieren, die wichtige Informationen kommunizieren. Dies umfasst Emotionen und Ton. Beispielsweise wird im WebVTT unten die Verwendung von eckigen Klammern zur Bereitstellung von Ton- und Gefühlsinformationen für den Betrachter bemerkt; dies kann helfen, die Stimmung herzustellen, die sonst durch Musik, nonverbale Geräusche und entscheidende Soundeffekte vermittelt würde usw.
 
 ```plain
 1
 00:00:00 --> 00:00:45
-[Energetische Techno-Musik]
+[Energetic techno music]
 
 2
 00:00:46 --> 00:00:51
-Willkommen beim Podcast des Zeitwächters! In dieser Folge diskutieren wir, welche Schweizer Uhr eine Umschaltuhr ist?
+Welcome to the Time Keeper's podcast! In this episode we're discussing which Swisswatch is a wrist switchwatch?
 
 16
 00:00:52 --> 00:01:02
-[Lachen] Entschuldigung! Ich meine, welche Armbanduhr eine Schweizer Armbanduhr ist?
+[Laughing] Sorry! I mean, which wristwatch is a Swiss wristwatch?
 ```
 
-Es ist auch eine gute Praxis, einigen Inhalt (wie den direkten Download-Link) als Fallback für Betrachter bereitzustellen, die einen Browser verwenden, in dem das `<audio>`-Element nicht unterstützt wird:
+Es ist auch eine gute Praxis, etwas Inhalt (wie den direkten Download-Link) als Fallback für Betrachter anzubieten, die einen Browser verwenden, in dem das `<audio>`-Element nicht unterstützt wird:
 
 ```html
 <audio controls>
   <source src="myAudio.mp3" type="audio/mpeg" />
   <source src="myAudio.ogg" type="audio/ogg" />
   <p>
-    Downloaden Sie <a href="myAudio.mp3">MP3</a> oder
-    <a href="myAudio.ogg" download="myAudio.ogg">OGG</a> Audio.
+    Download <a href="myAudio.mp3">MP3</a> or
+    <a href="myAudio.ogg" download="myAudio.ogg">OGG</a> audio.
   </p>
 </audio>
 ```
 
-- [Web Video Textspuren-Format (WebVTT)](/de/docs/Web/API/WebVTT_API)
+- [Web Video Text Tracks Format (WebVTT)](/de/docs/Web/API/WebVTT_API)
 - [WebAIM: Untertitel, Transkripte und Audiobeschreibungen](https://webaim.org/techniques/captions/)
-- [MDN Verständnis der WCAG-Richtlinie 1.2-Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.2_—_Providing_text_alternatives_for_time-based_media)
-- [Verständnis des Erfolgskriteriums 1.2.1 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-av-only-alt.html)
-- [Verständnis des Erfolgskriteriums 1.2.2 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-captions.html)
+- [MDN Understanding WCAG, Richtlinie 1.2 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.2_—_providing_text_alternatives_for_time-based_media)
+- [Verständnis der Erfolgskriterien 1.2.1 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-av-only-alt.html)
+- [Verständnis der Erfolgskriterien 1.2.2 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-captions.html)
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Das folgende Beispiel zeigt eine einfache Verwendung des `<audio>`-Elements, um eine OGG-Datei abzuspielen. Es wird durch das `autoplay`-Attribut automatisch abgespielt — wenn die Seite die Erlaubnis dazu hat — und enthält auch Fallback-Inhalt.
+Das folgende Beispiel zeigt eine einfache Verwendung des `<audio>`-Elements zum Abspielen einer OGG-Datei. Es wird automatisch abgespielt aufgrund des `autoplay`-Attributs - wenn die Seite die Berechtigung dazu hat - und enthält auch Fallback-Inhalt.
 
 ```html
-<!-- Einfache Audio-Wiedergabe -->
+<!-- Simple audio playback -->
 <audio src="AudioTest.ogg" autoplay>
-  <a href="AudioTest.ogg" download="AudioTest.ogg">OGG Audio herunterladen</a>.
+  <a href="AudioTest.ogg" download="AudioTest.ogg">Download OGG audio</a>.
 </audio>
 ```
 
-Für Details darüber, wann Autoplay funktioniert, wie man die Erlaubnis für die Nutzung von Autoplay erhält und wann es angemessen ist, Autoplay zu verwenden, siehe unseren [Autoplay-Leitfaden](/de/docs/Web/Media/Autoplay_guide).
+Für Details darüber, wann Autoplay funktioniert, wie man die Erlaubnis zur Nutzung von Autoplay erhält und wie und wann es angemessen ist, Autoplay zu verwenden, siehe unseren [Autoplay-Leitfaden](/de/docs/Web/Media/Autoplay_guide).
 
 ### \<audio>-Element mit \<source>-Element
 
-Dieses Beispiel spezifiziert, welcher Audiotrack eingebettet werden soll, indem das `src`-Attribut auf einem verschachtelten `<source>`-Element anstelle direkt auf dem `<audio>`-Element verwendet wird. Es ist immer nützlich, den MIME-Typ der Datei im `type`-Attribut anzugeben, da der Browser sofort feststellen kann, ob er diese Datei abspielen kann, und keine Zeit damit vergeuden muss, wenn nicht.
+Dieses Beispiel gibt an, welche Audiospur eingebettet werden soll, indem das `src`-Attribut auf einem verschachtelten `<source>`-Element und nicht direkt auf dem `<audio>`-Element verwendet wird. Es ist immer sinnvoll, den MIME-Typ der Datei im Attribut `type` anzugeben, da der Browser sofort erkennen kann, ob er die Datei abspielen kann, und keine Zeit damit verschwendet.
 
 ```html
 <audio controls>
   <source src="foo.wav" type="audio/wav" />
-  <a href="foo.wav" download="foo.wav">WAV Audio herunterladen</a>.
+  <a href="foo.wav" download="foo.wav">Download WAV audio</a>.
 </audio>
 ```
 
 ### \<audio> mit mehreren \<source>-Elementen
 
-Dieses Beispiel enthält mehrere `<source>`-Elemente. Der Browser versucht, das erste Quell-Element (Opus) zu laden, wenn er es abspielen kann; wenn nicht, fällt er zurück auf das zweite (Vorbis) und schließlich auf MP3:
+Dieses Beispiel enthält mehrere `<source>`-Elemente. Der Browser versucht, das erste Quellelement (Opus) zu laden, wenn er es abspielen kann; falls nicht, fällt er auf das zweite (Vorbis) zurück und schließlich auf MP3:
 
 ```html
 <audio controls>
@@ -401,28 +391,29 @@ Dieses Beispiel enthält mehrere `<source>`-Elemente. Der Browser versucht, das 
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
-        >, Phrasing-Inhalt, eingebetteter Inhalt. Wenn es ein
+          >Fließendes Inhalt</a
+        >, Phraseninhalt, eingebetteter Inhalt. Wenn es ein
         <a href="#controls"><code>controls</code></a>-Attribut hat: interaktiver
-        Inhalt und tastbarer Inhalt.
+        Inhalt und greifbarer Inhalt.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
-        Wenn das Element ein <a href="#src"><code>src</code></a>-Attribut
-        hat: null oder mehr {{HTMLElement("track")}}-Elemente gefolgt von
-        transparentem Inhalt, der keine <code>&lt;audio&gt;</code> oder
-        {{HTMLElement("video")}}-Medien-Elemente enthält.<br />Sonst: null oder
-        mehr {{HTMLElement("source")}}-Elemente gefolgt von null oder mehr
-        {{HTMLElement("track")}}-Elementen gefolgt von transparentem
-        Inhalt, der keine <code>&lt;audio&gt;</code> oder
-        {{HTMLElement("video")}}-Medien-Elemente enthält.
+        Wenn das Element ein <a href="#src"><code>src</code></a>-Attribut hat:
+        null oder mehr {{HTMLElement("track")}}-Elemente gefolgt von
+        transparentem Inhalt, der keine
+        <code>&lt;audio&gt;</code> oder {{HTMLElement("video")}}
+        Medienelemente enthält.<br />Sonst: null oder mehr {{HTMLElement("source")}}
+        Elemente gefolgt von null oder mehr {{HTMLElement("track")}}
+        Elementen gefolgt von transparentem Inhalt, der keine
+        <code>&lt;audio&gt;</code> oder {{HTMLElement("video")}}
+        Medienelemente enthält.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Anfangs- als auch das End-Tag sind obligatorisch.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
@@ -442,7 +433,7 @@ Dieses Beispiel enthält mehrere `<source>`-Elemente. Der Browser versucht, das 
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLAudioElement")}}</td>
+      <td>[`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement)</td>
     </tr>
   </tbody>
 </table>
@@ -451,20 +442,20 @@ Dieses Beispiel enthält mehrere `<source>`-Elemente. Der Browser versucht, das 
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Webmedien-Technologien](/de/docs/Web/Media)
+- [Web-Medientechnologien](/de/docs/Web/Media)
 
-  - [Medien-Containerformate (Dateitypen)](/de/docs/Web/Media/Formats/Containers)
-  - [Leitfaden zu Audiocodecs, die im Web verwendet werden](/de/docs/Web/Media/Formats/Audio_codecs)
+  - [Mediencontainerformate (Dateitypen)](/de/docs/Web/Media/Formats/Containers)
+  - [Leitfaden zu Audio-Codecs im Web](/de/docs/Web/Media/Formats/Audio_codecs)
 
 - [Web Audio API](/de/docs/Web/API/Web_Audio_API)
-- {{domxref("HTMLAudioElement")}}
+- [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement)
 - {{htmlelement("source")}}
 - {{htmlelement("video")}}
-- [Lernbereich: Video- und Audiomaterial](/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content)
-- [Grundlagen der plattformübergreifenden Audiowiedergabe](/de/docs/Web/Media/Audio_and_video_delivery/Cross-browser_audio_basics)
+- [Lernbereich: Video- und Audioinhalte](/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content)
+- [Grundlagen der plattformübergreifenden Audio-Technik](/de/docs/Web/Media/Audio_and_video_delivery/Cross-browser_audio_basics)

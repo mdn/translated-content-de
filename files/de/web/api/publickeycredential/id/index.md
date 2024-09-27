@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`id`**-Eigenschaft des {{domxref("PublicKeyCredential")}}-Interfaces ist eine schreibgeschützte Zeichenkette, die von {{domxref("Credential")}} geerbt wird und den Bezeichner der aktuellen `PublicKeyCredential`-Instanz darstellt.
+Die schreibgeschützte **`id`**-Eigenschaft der [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle ist eine Zeichenkette, die von [`Credential`](/de/docs/Web/API/Credential) geerbt wird und den Bezeichner der aktuellen `PublicKeyCredential`-Instanz darstellt.
 
-Diese Eigenschaft ist eine [base64url-codierte](/de/docs/Glossary/Base64) Version von {{domxref("PublicKeyCredential.rawId")}}.
+Diese Eigenschaft ist eine [base64url-kodierte](/de/docs/Glossary/Base64) Version von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId).
 
 > [!NOTE]
-> Diese Eigenschaft kann nur in obersten Kontextebenen verwendet werden und steht beispielsweise in einem {{HTMLElement("iframe")}} nicht zur Verfügung.
+> Diese Eigenschaft kann nur in obersten Kontexten verwendet werden und ist beispielsweise in einem {{HTMLElement("iframe")}} nicht verfügbar.
 
 ## Wert
 
-Eine Zeichenkette, die die [base64url-codierte](/de/docs/Glossary/Base64) Version von {{domxref("PublicKeyCredential.rawId")}} darstellt.
+Eine Zeichenkette, die die [base64url-kodierte](/de/docs/Glossary/Base64) Version von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId) ist.
 
 ## Beispiele
 
@@ -66,4 +66,4 @@ navigator.credentials
 
 ## Siehe auch
 
-- {{domxref("Credential.id")}}
+- [`Credential.id`](/de/docs/Web/API/Credential/id)

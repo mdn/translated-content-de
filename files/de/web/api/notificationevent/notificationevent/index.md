@@ -1,5 +1,5 @@
 ---
-title: "NotificationEvent: NotificationEvent()-Konstruktor"
+title: "NotificationEvent: NotificationEvent() Konstruktor"
 short-title: NotificationEvent()
 slug: Web/API/NotificationEvent/NotificationEvent
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{AvailableInWorkers("service")}}
 
-Der **`NotificationEvent()`**-Konstruktor erstellt ein neues {{domxref("NotificationEvent")}}-Objekt.
+Der **`NotificationEvent()`** Konstruktor erstellt ein neues [`NotificationEvent`](/de/docs/Web/API/NotificationEvent) Objekt.
 
 ## Syntax
 
@@ -20,17 +20,17 @@ new NotificationEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist groß-/kleinschreibungssensitiv und Browser setzen ihn auf `notificationclick` oder `notificationclose`.
+    Er ist case-sensitive und Browser setzen ihn auf `notificationclick` oder `notificationclose`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in {{domxref("ExtendableEvent/ExtendableEvent", "ExtendableEvent()")}} definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `notification`
-      - : Ein {{domxref("Notification")}}-Objekt, das als Benachrichtigung verwendet wird, auf der das Ereignis ausgelöst wird.
+      - : Ein [`Notification`](/de/docs/Web/API/Notification) Objekt, das als Benachrichtigung verwendet werden soll, auf der das Ereignis ausgelöst wird.
     - `action` {{optional_inline}}
-      - : Eine mit der Benachrichtigung verknüpfte Aktion. Standardmäßig ist es `""`.
+      - : Eine Aktion, die mit der Benachrichtigung verbunden ist. Standardmäßig `""`.
 
 ### Rückgabewert
 
-Ein neues {{domxref("NotificationEvent()")}}-Objekt.
+Ein neues [`NotificationEvent()`](/de/docs/Web/API/NotificationEvent) Objekt.
 
 ## Beispiele
 

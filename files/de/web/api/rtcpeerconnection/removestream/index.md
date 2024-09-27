@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: Methode removeStream()"
+title: "RTCPeerConnection: removeStream() Methode"
 short-title: removeStream()
 slug: Web/API/RTCPeerConnection/removeStream
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("WebRTC")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`removeStream()`**-Methode der Schnittstelle {{domxref("RTCPeerConnection")}} entfernt einen {{domxref("MediaStream")}} als lokale Quelle für Audio oder Video.
-Wenn die Aushandlung bereits stattgefunden hat, ist eine neue erforderlich, damit der entfernte Peers sie verwenden kann.
-Da diese Methode veraltet ist, sollten Sie stattdessen {{domxref("RTCPeerConnection.removeTrack", "removeTrack()")}} verwenden, wenn Ihre Zielbrowser-Versionen dies implementiert haben.
+Die **`removeStream()`** Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Interfaces entfernt einen [`MediaStream`](/de/docs/Web/API/MediaStream) als lokale Quelle für Audio oder Video.
+Wenn die Verhandlung bereits stattgefunden hat, wird eine neue notwendig sein, damit der entfernte Teilnehmer sie verwenden kann.
+Da diese Methode veraltet ist, sollten Sie stattdessen [`removeTrack()`](/de/docs/Web/API/RTCPeerConnection/removeTrack) verwenden, wenn Ihre Zielbrowser-Versionen sie implementiert haben.
 
-Wenn der {{domxref("RTCPeerConnection.signalingState", "signalingState")}} auf `"closed"` gesetzt ist, wird ein `InvalidStateError` ausgelöst.
-Wenn der {{domxref("RTCPeerConnection.signalingState", "signalingState")}} auf `"stable"` gesetzt ist, wird das Ereignis {{DOMxRef("RTCPeerConnection/negotiationneeded_event", "negotiationneeded")}} auf der {{domxref("RTCPeerConnection")}} gesendet.
+Wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) auf `"closed"` gesetzt ist, wird ein `InvalidStateError` ausgelöst.
+Wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) auf `"stable"` gesetzt ist, wird das Ereignis [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) auf der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ removeStream(mediaStream)
 ### Parameter
 
 - `mediaStream`
-  - : Ein {{domxref("MediaStream")}}, der den Stream angibt, der aus der Verbindung entfernt werden soll.
+  - : Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der den zu entfernenden Stream aus der Verbindung festlegt.
 
 ### Rückgabewert
 
@@ -57,6 +57,6 @@ document.getElementById("closeButton").addEventListener(
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCPeerConnection.removeTrack()")}}
-- {{domxref("RTCPeerConnection.addTrack()")}}
-- {{domxref("RTCPeerConnection.addStream()")}}
+- [`RTCPeerConnection.removeTrack()`](/de/docs/Web/API/RTCPeerConnection/removeTrack)
+- [`RTCPeerConnection.addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack)
+- [`RTCPeerConnection.addStream()`](/de/docs/Web/API/RTCPeerConnection/addStream)

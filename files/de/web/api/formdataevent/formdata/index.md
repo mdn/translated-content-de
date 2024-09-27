@@ -8,41 +8,41 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft `formData` des {{domxref("FormDataEvent")}}-Interfaces enthält das {{domxref("FormData")}}-Objekt, das die Daten darstellt, die im Formular enthalten waren, als das Ereignis ausgelöst wurde.
+Die schreibgeschützte `formData`-Eigenschaft des [`FormDataEvent`](/de/docs/Web/API/FormDataEvent)-Interfaces enthält das [`FormData`](/de/docs/Web/API/FormData)-Objekt, das die Daten repräsentiert, die im Formular enthalten sind, als das Ereignis ausgelöst wurde.
 
 ## Wert
 
-Ein {{domxref("FormData")}}-Objekt.
+Ein [`FormData`](/de/docs/Web/API/FormData)-Objekt.
 
 ## Beispiele
 
 ```js
-// Bezug zum Formular herstellen
+// grab reference to form
 
 const formElem = document.querySelector("form");
 
-// Behandlungsroutine für das Absenden
+// submit handler
 
 formElem.addEventListener("submit", (e) => {
-  // beim Absenden des Formulars Standardverhalten verhindern
+  // on form submission, prevent default
   e.preventDefault();
 
-  // ein FormData-Objekt erstellen, das das formdata-Ereignis auslöst
+  // construct a FormData object, which fires the formdata event
   new FormData(formElem);
 });
 
-// formdata-Behandlungsroutine zum Abrufen der Daten
+// formdata handler to retrieve data
 
 formElem.addEventListener("formdata", (e) => {
-  console.log("formdata ausgelöst");
+  console.log("formdata fired");
 
-  // Die Formulardaten aus dem Ereignisobjekt abrufen
+  // Get the form data from the event object
   let data = e.formData;
   for (const value of data.values()) {
     console.log(value);
   }
 
-  // die Daten über XHR senden
+  // submit the data via XHR
   const request = new XMLHttpRequest();
   request.open("POST", "/formHandler");
   request.send(data);
@@ -53,13 +53,13 @@ formElem.addEventListener("formdata", (e) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("XMLHTTPRequest")}}
-- [Using XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)
-- [Using FormData objects](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
+- [`XMLHTTPRequest`](/de/docs/Web/API/XMLHTTPRequest)
+- [Verwendung von XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)
+- [Verwendung von FormData-Objekten](/de/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
 - {{HTMLElement("Form")}}

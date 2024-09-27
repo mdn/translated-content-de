@@ -1,5 +1,5 @@
 ---
-title: "StorageAccessHandle: Eigenschaft getDirectory()"
+title: "StorageAccessHandle: getDirectory()-Eigenschaft"
 short-title: getDirectory()
 slug: Web/API/StorageAccessHandle/getDirectory
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Siehe {{domxref("StorageManager.getDirectory()")}}, um die Verwendung zu verstehen.
+> Siehe [`StorageManager.getDirectory()`](/de/docs/Web/API/StorageManager/getDirectory), um die Verwendung zu verstehen.
 
 ## Syntax
 
@@ -23,14 +23,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einem unpartitionierten {{domxref("FileSystemDirectoryHandle")}}-Objekt erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit einem nicht partitionierten [`FileSystemDirectoryHandle`](/de/docs/Web/API/FileSystemDirectoryHandle)-Objekt erfüllt wird.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DomException")}}
+- `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
   - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
-Siehe {{domxref("StorageManager.getDirectory()")}}
+Siehe [`StorageManager.getDirectory()`](/de/docs/Web/API/StorageManager/getDirectory)
 
 ## Beispiele
 
@@ -47,7 +47,7 @@ document.requestStorageAccess({ getDirectory: true }).then(
 ```
 
 > [!NOTE]
-> Siehe [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein ausführlicheres Beispiel.
+> Siehe [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
 
 ## Spezifikationen
 
@@ -59,5 +59,5 @@ document.requestStorageAccess({ getDirectory: true }).then(
 
 ## Siehe auch
 
-- {{domxref("Document.requestStorageAccess()")}}
+- [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
 - [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)

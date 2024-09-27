@@ -9,8 +9,7 @@ l10n:
 {{APIRef("WebGL")}}
 
 Die **`EXT_disjoint_timer_query.getQueryEXT()`** Methode der
-[WebGL API](/de/docs/Web/API/WebGL_API) gibt Informationen über ein Abfrageziel
-zurück.
+[WebGL API](/de/docs/Web/API/WebGL_API) liefert Informationen über ein Query-Ziel.
 
 ## Syntax
 
@@ -21,10 +20,10 @@ getQueryEXT(target, pname)
 ### Parameter
 
 - `target`
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der das Ziel der Zeitabfrage angibt. Muss
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der das Ziel der Zeitabfrage spezifiziert. Muss
     `ext.TIMESTAMP_EXT` oder `ext.TIME_ELAPSED_EXT` sein.
 - `pname`
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der angibt, welche Informationen zurückgegeben werden sollen. Muss
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welche Information zurückgegeben werden soll. Muss
     `ext.CURRENT_QUERY_EXT` oder `ext.QUERY_COUNTER_BITS_EXT` sein.
 
 ### Rückgabewert
@@ -32,11 +31,11 @@ getQueryEXT(target, pname)
 Abhängig von `pname`:
 
 - Wenn `pname` `ext.CURRENT_QUERY_EXT` ist: Ein
-  {{domxref("WebGLQuery")}} Objekt, welches die aktuell aktive Abfrage für das
-  gegebene Ziel ist.
+  [`WebGLQuery`](/de/docs/Web/API/WebGLQuery) Objekt, welches die aktuell aktive Abfrage für das
+  angegebene Ziel ist.
 - Wenn `pname` `ext.QUERY_COUNTER_BITS_EXT` ist: Ein
-  {{domxref("WebGL_API/Types", "GLint")}}, der die Anzahl der Bits angibt, die zum Halten des Abfrageergebnisses für
-  das gegebene Ziel verwendet werden.
+  [`GLint`](/de/docs/Web/API/WebGL_API/Types), der die Anzahl der Bits angibt, die zur Speicherung des Abfrageergebnisses für das
+  angegebene Ziel verwendet werden.
 
 ## Beispiele
 
@@ -58,6 +57,6 @@ const currentQuery = ext.getQueryEXT(ext.TIMESTAMP_EXT, ext.CURRENT_QUERY_EXT);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
-- {{domxref("WebGLQuery")}}
-- {{domxref("EXT_disjoint_timer_query")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)
+- [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)
+- [`EXT_disjoint_timer_query`](/de/docs/Web/API/EXT_disjoint_timer_query)

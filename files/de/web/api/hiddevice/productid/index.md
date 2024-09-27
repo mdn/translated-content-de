@@ -8,15 +8,15 @@ l10n:
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
 
-Die **`productId`** schreibgeschützte Eigenschaft des {{domxref("HIDDevice")}}-Interfaces gibt die Produkt-ID des verbundenen HID-Geräts zurück.
+Die schreibgeschützte Eigenschaft **`productId`** des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces gibt die Produkt-ID des angeschlossenen HID-Geräts zurück.
 
 ## Wert
 
-Ein ganzzahliger Wert. Wenn das Gerät keine Produkt-ID hat oder die Produkt-ID nicht zugänglich ist, wird `0` zurückgegeben.
+Ein Ganzzahlwert. Wenn das Gerät keine Produkt-ID hat oder die Produkt-ID nicht abgerufen werden kann, wird `0` zurückgegeben.
 
 ## Beispiele
 
-Das folgende Beispiel ruft Geräte mit {{domxref("HID.getDevices()")}} ab und protokolliert den Wert von `productId` in die Konsole.
+Im folgenden Beispiel werden Geräte mit [`HID.getDevices()`](/de/docs/Web/API/HID/getDevices) abgerufen und der Wert von `productId` in die Konsole protokolliert.
 
 ```js
 document.addEventListener("DOMContentLoaded", async () => {

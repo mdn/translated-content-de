@@ -1,6 +1,6 @@
 ---
-title: "RTCIceCandidatePairStats: Eigenschaft ausgewählt"
-short-title: ausgewählt
+title: "RTCIceCandidatePairStats: selected-Eigenschaft"
+short-title: selected
 slug: Web/API/RTCIceCandidatePairStats/selected
 l10n:
   sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}{{non-standard_header}}
 
-Die _nicht standardisierte_, Firefox-spezifische {{domxref("RTCIceCandidatePairStats")}}-Eigenschaft **`selected`** gibt an, ob das durch das Objekt beschriebene Kandidatenpaar dasjenige ist, das derzeit zur Kommunikation mit dem entfernten Peer verwendet wird.
+Die _nicht standardisierte_, Firefox-spezifische [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) Eigenschaft **`selected`** gibt an, ob das vom Objekt beschriebene Kandidatenpaar das aktuell verwendete ist, um mit dem entfernten Partner zu kommunizieren.
 
 ## Syntax
 
@@ -18,15 +18,15 @@ icpStats.selected
 
 ### Wert
 
-Ein Firefox-spezifischer boolescher Wert, der `true` ist, wenn das durch dieses Objekt beschriebene Kandidatenpaar dasjenige ist, das gerade verwendet wird.
+Ein Firefox-spezifischer Boolean-Wert, der `true` ist, wenn das von diesem Objekt beschriebene Kandidatenpaar das aktuell verwendete ist.
 
-In jedem anderen Browser können Sie das ausgewählte Kandidatenpaar ermitteln, indem Sie nach einem Statistikobjekt vom Typ `transport` suchen, das ein {{domxref("RTCTransportStats")}}-Objekt ist. Die {{domxref("RTCTransportStats.selectedCandidatePairId", "selectedCandidatePairId")}}-Eigenschaft dieses Objekts gibt an, ob der angegebene Transport verwendet wird.
+In allen anderen Browsern können Sie das ausgewählte Kandidatenpaar ermitteln, indem Sie nach einem Statistikobjekt vom Typ `transport` suchen, das ein [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats) Objekt ist. Die [`selectedCandidatePairId`](/de/docs/Web/API/RTCTransportStats/selectedCandidatePairId) Eigenschaft dieses Objekts zeigt an, ob der angegebene Transport der aktuell verwendete ist.
 
 ## Beispiel
 
-Die in diesem Beispiel gezeigte Funktion identifiziert das gerade ausgewählte Kandidatenpaar aus einem Statistikbericht, indem sie zuerst über jeden Bericht iteriert und nach einem `transport`-Bericht sucht; wenn einer gefunden wird, wird die {{domxref("RTCTransportStats.selectedCandidatePairId", "selectedCandidatePairId")}} dieses Transports verwendet, um das {{domxref("RTCIceCandidatePair")}}, das die Verbindung beschreibt, zu erhalten.
+Die in diesem Beispiel gezeigte Funktion identifiziert das aktuell ausgewählte Kandidatenpaar aus einem Statistikenbericht, indem sie zuerst über jeden Bericht iteriert und nach einem `transport` Bericht sucht; wenn einer gefunden wird, wird die [`selectedCandidatePairId`](/de/docs/Web/API/RTCTransportStats/selectedCandidatePairId) dieses Transports verwendet, um das [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair) zu erhalten, das die Verbindung beschreibt.
 
-Falls dies fehlschlägt, durchläuft der zweite Abschnitt die Berichte und sucht nach einem `candidate-pair`-Datensatz, dessen Firefox-spezifische `selected`-Eigenschaft `true` ist. Dieses Kandidatenpaar wird dann als das derzeit ausgewählte zurückgegeben.
+Wenn dies fehlschlägt, durchläuft der zweite Abschnitt die Berichte und sucht nach einem `candidate-pair` Datensatz, dessen Firefox-spezifische `selected` Eigenschaft `true` ist. Dieses Kandidatenpaar wird dann als das aktuell ausgewählte zurückgegeben.
 
 ```js
 function getCurrentCandidatePair(statsResults) {
@@ -50,7 +50,7 @@ function getCurrentCandidatePair(statsResults) {
 
 ## Spezifikationen
 
-Teil keiner Spezifikation. Diese Eigenschaft ist einzigartig für Firefox.
+Nicht Teil einer Spezifikation. Diese Eigenschaft ist einzigartig für Firefox.
 
 ## Browser-Kompatibilität
 

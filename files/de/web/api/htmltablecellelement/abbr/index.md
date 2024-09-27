@@ -1,5 +1,5 @@
 ---
-title: "HTMLTableCellElement: abbr-Eigenschaft"
+title: "HTMLTableCellElement: Abkürzungseigenschaft"
 short-title: abbr
 slug: Web/API/HTMLTableCellElement/abbr
 l10n:
@@ -8,13 +8,12 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`abbr`**-Eigenschaft des {{domxref("HTMLTableCellElement")}}-Interfaces
-zeigt eine Abkürzung an, die mit der Zelle verbunden ist. Wenn die Zelle keine Kopfzelle {{HTMLElement("th")}} darstellt, wird sie ignoriert.
+Die **`abbr`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces zeigt eine mit der Zelle verbundene Abkürzung an. Wenn die Zelle keine Kopfzelle {{HTMLElement("th")}} darstellt, wird sie ignoriert.
 
 Sie spiegelt das `abbr`-Attribut des {{HTMLElement("th")}}-Elements wider.
 
 > [!NOTE]
-> Diese Eigenschaft hat keinen visuellen Effekt in Browsern. Sie fügt Informationen hinzu, die unterstützende Technologien wie Bildschirmleser nutzen können, um diese Abkürzung zu verwenden.
+> Diese Eigenschaft hat keine visuelle Wirkung in Browsern. Sie fügt Informationen hinzu, um assistive Technologien wie Bildschirmleser zu unterstützen, die diese Abkürzung verwenden können.
 
 ## Wert
 
@@ -22,7 +21,7 @@ Ein String.
 
 ## Beispiele
 
-Dieses Beispiel fügt Präfixe mit der Abkürzung hinzu, die mit der Kopfzelle in der ersten Zelle jeder Zeile verbunden ist.
+Dieses Beispiel fügt den Präfixen die mit dem Zeilenkopf der ersten Zelle verbundene Abkürzung hinzu.
 
 ### HTML
 
@@ -30,8 +29,8 @@ Dieses Beispiel fügt Präfixe mit der Abkürzung hinzu, die mit der Kopfzelle i
 <table>
   <thead>
     <tr>
-      <th abbr="Maker">Hersteller</th>
-      <th abbr="Model">Automodell</th>
+      <th abbr="Maker">Manufacturer</th>
+      <th abbr="Model">Car model</th>
     </tr>
   </thead>
   <tbody>

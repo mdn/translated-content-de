@@ -1,5 +1,5 @@
 ---
-title: "RTCPeerConnection: iceConnectionState-Eigenschaft"
+title: "RTCPeerConnection: iceConnectionState Eigenschaft"
 short-title: iceConnectionState
 slug: Web/API/RTCPeerConnection/iceConnectionState
 l10n:
@@ -8,35 +8,30 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`iceConnectionState`** der Schnittstelle {{domxref("RTCPeerConnection")}} gibt einen Zeichenfolgenwert zurück, der den Zustand des mit der {{domxref("RTCPeerConnection")}} verbundenen {{Glossary("ICE")}}-Agenten angibt: `new`, `checking`, `connected`, `completed`, `failed`, `disconnected` und `closed`.
+Die **`iceConnectionState`** schreibgeschützte Eigenschaft der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle gibt einen String zurück, der den Status des mit der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) assoziierten [ICE](/de/docs/Glossary/ICE)-Agents angibt: `new`, `checking`, `connected`, `completed`, `failed`, `disconnected` und `closed`.
 
-Sie beschreibt den aktuellen Zustand des ICE-Agenten und dessen Verbindung zum ICE-Server; das heißt, dem {{Glossary("STUN")}}- oder {{Glossary("TURN")}}-Server.
+Sie beschreibt den aktuellen Status des ICE-Agents und dessen Verbindung zum ICE-Server, das heißt, dem [STUN](/de/docs/Glossary/STUN)- oder [TURN](/de/docs/Glossary/TURN)-Server.
 
-Sie können erkennen, wann sich dieser Wert geändert hat, indem Sie das {{DOMxRef("RTCPeerConnection.iceconnectionstatechange_event", "iceconnectionstatechange")}}-Ereignis beobachten.
+Sie können erkennen, wann sich dieser Wert geändert hat, indem Sie das [`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event)-Ereignis beobachten.
 
 ## Wert
 
-Der aktuelle Zustand des ICE-Agenten und seine Verbindung. Der Wert ist eine der folgenden Zeichenfolgen:
+Der aktuelle Status des ICE-Agents und dessen Verbindung. Der Wert ist einer der folgenden Strings:
 
 - `new`
-  - : Der ICE-Agent sammelt Adressen oder wartet darauf, durch Aufrufe von {{domxref("RTCPeerConnection.addIceCandidate()")}} (oder beides) mit Remote-Kandidaten versorgt zu werden.
+  - : Der ICE-Agent sammelt Adressen oder wartet darauf, dass ihm durch Aufrufe von [`RTCPeerConnection.addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) Remote-Kandidaten bereitgestellt werden (oder beides).
 - `checking`
-  - : Dem ICE-Agenten wurden ein oder mehrere Remote-Kandidaten gegeben, und es werden Paare von lokalen und Remote-Kandidaten überprüft, um zu versuchen, eine kompatible Übereinstimmung zu finden. Es wurde jedoch noch kein Paar gefunden, das die Peer-Verbindung ermöglicht.
-    Es ist möglich, dass das Sammeln von Kandidaten auch noch im Gange ist.
+  - : Dem ICE-Agent wurden ein oder mehrere Remote-Kandidaten zur Verfügung gestellt, und er überprüft Paare von lokalen und Remote-Kandidaten, um eine kompatible Übereinstimmung zu finden, hat jedoch noch kein Paar gefunden, das die Peer-Verbindung ermöglichen würde. Es ist möglich, dass das Sammeln von Kandidaten noch im Gange ist.
 - `connected`
-  - : Eine nutzbare Paarung von lokalen und Remote-Kandidaten wurde für alle Komponenten der Verbindung gefunden, und die Verbindung wurde hergestellt.
-    Es ist möglich, dass das Sammeln noch im Gange ist, und es ist auch möglich, dass der ICE-Agent noch Kandidaten gegeneinander prüft, um eine bessere Verbindung zu finden.
+  - : Eine brauchbare Paarung von lokalen und Remote-Kandidaten wurde für alle Komponenten der Verbindung gefunden, und die Verbindung wurde hergestellt. Es ist möglich, dass das Sammeln noch im Gange ist, und ebenfalls möglich, dass der ICE-Agent weiterhin Kandidaten überprüft, um eine bessere Verbindung zu finden.
 - `completed`
-  - : Der ICE-Agent hat das Sammeln von Kandidaten abgeschlossen, alle Paare gegeneinander geprüft und eine Verbindung für alle Komponenten gefunden.
+  - : Der ICE-Agent hat das Sammeln von Kandidaten abgeschlossen, alle Paare überprüft und eine Verbindung für alle Komponenten gefunden.
 - `failed`
-  - : Der ICE-Agent hat alle Kandidatenpaare gegeneinander geprüft und konnte keine kompatiblen Übereinstimmungen für alle Komponenten der Verbindung finden.
-    Es ist jedoch möglich, dass der ICE-Agent für einige Komponenten kompatible Verbindungen gefunden hat.
+  - : Der ICE-Agent hat alle Kandidatenpaare überprüft und konnte für alle Komponenten keine kompatiblen Übereinstimmungen finden. Es ist jedoch möglich, dass der ICE-Agent für einige Komponenten kompatible Verbindungen gefunden hat.
 - `disconnected`
-  - : Überprüfungen zur Sicherstellung, dass Komponenten noch verbunden sind, schlugen für mindestens eine Komponente der {{domxref("RTCPeerConnection")}} fehl.
-    Dies ist ein weniger strenger Test als `failed` und kann in unzuverlässigeren Netzwerken oder bei temporären Unterbrechungen gelegentlich ausgelöst werden und ebenso spontan gelöst werden.
-    Wenn das Problem behoben ist, kann die Verbindung in den `connected`-Zustand zurückkehren.
+  - : Überprüfungen, um sicherzustellen, dass Komponenten weiterhin verbunden sind, sind für mindestens eine Komponente der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) fehlgeschlagen. Dies ist ein weniger strenger Test als `failed` und kann in weniger zuverlässigen Netzwerken oder während vorübergehender Verbindungsunterbrechungen zeitweise auftreten und sich ebenso spontan lösen. Wenn das Problem behoben ist, kann die Verbindung in den `connected`-Status zurückkehren.
 - `closed`
-  - : Der ICE-Agent für diese {{domxref("RTCPeerConnection")}} wurde heruntergefahren und bearbeitet keine Anfragen mehr.
+  - : Der ICE-Agent für diese [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) wurde heruntergefahren und bearbeitet keine Anfragen mehr.
 
 ## Beispiele
 
@@ -56,5 +51,5 @@ const state = pc.iceConnectionState;
 ## Siehe auch
 
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)
-- {{DOMxRef("RTCPeerConnection.iceconnectionstatechange_event", "iceconnectionstatechange")}}
-- {{domxref("RTCPeerConnection")}}
+- [`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event)
+- [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)

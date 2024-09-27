@@ -23,23 +23,23 @@ let forgettingTab = browser.sessions.forgetClosedTab(
 ### Parameter
 
 - `windowId`
-  - : `Integer`. Die ID des Fensters, das den zu vergessenden Tab gehostet hat.
+  - : `Integer`. Die ID des Fensters, das den Tab beherbergte, den Sie vergessen möchten.
 - `sessionId`
   - : `String`. Die ID der Sitzung, die Sie vergessen möchten.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn die Sitzung entfernt wurde.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise). Dieses wird ohne Argumente erfüllt, wenn die Sitzung entfernt wurde.
 
 Wenn ein Fehler auftritt, wird das Promise mit einer Fehlermeldung abgelehnt.
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Beispiele
 
-Dieser Code vergisst die zuletzt geschlossene Sitzung, unabhängig davon, ob es sich um einen Tab oder ein Fenster handelt:
+Dieser Code vergisst die am kürzesten zurückliegende geschlossene Sitzung, egal ob es sich um einen Tab oder ein Fenster handelt:
 
 ```js
 function forgetMostRecent(sessionInfos) {

@@ -1,5 +1,5 @@
 ---
-title: "ReadableStreamDefaultReader: cancel()-Methode"
+title: "ReadableStreamDefaultReader: cancel() Methode"
 short-title: cancel()
 slug: Web/API/ReadableStreamDefaultReader/cancel
 l10n:
@@ -8,15 +8,16 @@ l10n:
 
 {{APIRef("Streams")}}{{AvailableInWorkers}}
 
-Die **`cancel()`**-Methode der
-{{domxref("ReadableStreamDefaultReader")}}-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird. Das Aufrufen dieser Methode signalisiert einen Verlust des Interesses an dem Stream durch einen Verbraucher.
+Die **`cancel()`** Methode der
+[`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn der Stream abgebrochen wird. Das Aufrufen dieser Methode signalisiert, dass ein Verbraucher das Interesse am Stream verloren hat.
 
-Cancel wird verwendet, wenn Sie mit dem Stream vollständig fertig sind und keine weiteren Daten daraus benötigen, selbst wenn Datenblöcke in die Warteschlange gestellt sind, die darauf warten, gelesen zu werden. Diese Daten gehen verloren, nachdem der Cancel-Befehl aufgerufen wurde, und der Stream ist nicht mehr lesbar. Um diese Datenblöcke dennoch zu lesen und den Stream nicht vollständig loszuwerden, würden Sie {{domxref("ReadableStreamDefaultController.close()")}} verwenden.
+Cancel wird verwendet, wenn Sie mit dem Stream vollständig fertig sind und keine weiteren Daten von ihm benötigen, selbst wenn noch Datenblöcke zur Lektüre in der Warteschlange stehen. Diese Daten gehen verloren, nachdem cancel aufgerufen wurde, und der Stream ist nicht mehr lesbar. Um diese Datenblöcke dennoch zu lesen und den Stream nicht vollständig zu entfernen, würde man
+[`ReadableStreamDefaultController.close()`](/de/docs/Web/API/ReadableStreamDefaultController/close) verwenden.
 
 > [!NOTE]
-> Ist der Reader aktiv, verhält sich die
-> `cancel()`-Methode genauso wie die des zugehörigen Streams
-> ({{domxref("ReadableStream.cancel()")}}).
+> Wenn der Leser aktiv ist, verhält sich die
+> `cancel()` Methode genauso wie bei dem zugehörigen Stream
+> ([`ReadableStream.cancel()`](/de/docs/Web/API/ReadableStream/cancel)).
 
 ## Syntax
 
@@ -28,7 +29,7 @@ cancel(reason)
 ### Parameter
 
 - `reason` {{optional_inline}}
-  - : Ein menschenlesbarer Grund für die Stornierung. Dieser Wert kann verwendet werden oder auch nicht.
+  - : Ein für Menschen lesbarer Grund für den Abbruch. Dieser Wert kann verwendet werden oder nicht.
 
 ### Rückgabewert
 
@@ -37,25 +38,29 @@ Ein {{jsxref("Promise")}}, das mit dem im `reason`-Parameter angegebenen Wert er
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Das Quellobjekt ist kein `ReadableStreamDefaultReader` oder der Stream hat keinen Besitzer.
+  - : Das Quellobjekt ist kein `ReadableStreamDefaultReader`, oder der Stream
+    hat keinen Besitzer.
 
 ## Beispiele
 
-Im folgenden einfachen Beispiel wird ein zuvor erstellter benutzerdefinierter `ReadableStream` mithilfe eines {{domxref("ReadableStreamDefaultReader")}} gelesen, der mit `getReader()` erstellt wurde. (dieser Code basiert auf unserem [Einfachen Zufallsstream-Beispiel](https://mdn.github.io/dom-examples/streams/simple-random-stream/)). Jeder Block wird nacheinander gelesen und an die Benutzeroberfläche ausgegeben, bis der Stream vollständig gelesen wurde, woraufhin wir aus der rekursiven Funktion zurückkehren und den gesamten Stream an einem anderen Teil der Benutzeroberfläche ausgeben.
+Im folgenden einfachen Beispiel wird ein zuvor erstellter benutzerdefinierter
+`ReadableStream` mit einem [`ReadableStreamDefaultReader`](/de/docs/Web/API/ReadableStreamDefaultReader)
+gelesen, der mithilfe von `getReader()` erstellt wurde. (Dieser Code basiert auf unserem [Beispiel für einen einfachen zufälligen Stream](https://mdn.github.io/dom-examples/streams/simple-random-stream/)). Jeder Datenblock wird nacheinander gelesen und in die Benutzeroberfläche ausgegeben, bis der Stream vollständig gelesen wurde. An diesem Punkt verlassen wir die rekursive Funktion und drucken den gesamten Stream in einem anderen Teil der Benutzeroberfläche aus.
 
-Wenn der Stream abgeschlossen ist (`if (done)`), führen wir `reader.cancel()` aus, um den Stream abzubrechen und zu signalisieren, dass wir ihn nicht mehr benötigen.
+Wenn der Stream fertig ist (`if (done)`), führen wir `reader.cancel()`
+aus, um den Stream abzubrechen und zu signalisieren, dass wir ihn nicht mehr verwenden müssen.
 
 ```js
 function fetchStream() {
   const reader = stream.getReader();
   let charsReceived = 0;
 
-  // read() gibt ein Versprechen zurück, das aufgelöst wird,
-  // wenn ein Wert empfangen wurde
+  // read() returns a promise that resolves
+  // when a value has been received
   reader.read().then(function processText({ done, value }) {
-    // Ergebnisobjekte enthalten zwei Eigenschaften:
-    // done  - true, wenn der Stream bereits alle seine Daten geliefert hat.
-    // value - einige Daten. Immer undefiniert, wenn done wahr ist.
+    // Result objects contain two properties:
+    // done  - true if the stream has already given you all its data.
+    // value - some data. Always undefined when done is true.
     if (done) {
       console.log("Stream complete");
       reader.cancel();
@@ -63,7 +68,7 @@ function fetchStream() {
       return;
     }
 
-    // Der Wert für Abrufstreams ist ein Uint8Array
+    // value for fetch streams is a Uint8Array
     charsReceived += value.length;
     const chunk = value;
     let listItem = document.createElement("li");
@@ -72,7 +77,7 @@ function fetchStream() {
 
     result += chunk;
 
-    // Lesen Sie noch etwas mehr und rufen Sie diese Funktion erneut auf
+    // Read some more, and call this function again
     return reader.read().then(processText);
   });
 }
@@ -88,5 +93,5 @@ function fetchStream() {
 
 ## Siehe auch
 
-- {{domxref("ReadableStreamDefaultReader.ReadableStreamDefaultReader", "ReadableStreamDefaultReader()")}} Konstruktor
+- [`ReadableStreamDefaultReader()`](/de/docs/Web/API/ReadableStreamDefaultReader/ReadableStreamDefaultReader) Konstruktor
 - [Verwendung von lesbaren Streams](/de/docs/Web/API/Streams_API/Using_readable_streams)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`canvas`**-Eigenschaft des {{domxref("CanvasCaptureMediaStreamTrack")}}-Interfaces gibt das {{domxref("HTMLCanvasElement")}} zurück, von dem die Frames erfasst werden.
+Die schreibgeschützte **`canvas`**-Eigenschaft der [`CanvasCaptureMediaStreamTrack`](/de/docs/Web/API/CanvasCaptureMediaStreamTrack)-Schnittstelle gibt das [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) zurück, von dem die Frames erfasst werden.
 
 ## Wert
 
@@ -17,16 +17,16 @@ Ein `HTMLCanvasElement`, das die Canvas angibt, die die Quelle der erfassten Fra
 ## Beispiel
 
 ```js
-// Suchen Sie das Canvas-Element, das erfasst werden soll
+// Find the canvas element to capture
 const canvasElt = document.querySelector("canvas");
 
-// Holen Sie den Stream
+// Get the stream
 const stream = canvasElt.captureStream(25); // 25 FPS
 
-// Führen Sie Dinge mit dem Stream aus
+// Do things to the stream
 // …
 
-// Erhalten Sie die Canvas, die mit dem Stream verbunden ist
+// Obtain the canvas associated with the stream
 const canvas = stream.canvas;
 ```
 
@@ -40,6 +40,5 @@ const canvas = stream.canvas;
 
 ## Siehe auch
 
-- {{domxref("HTMLCanvasElement.captureStream()")}} zum Erstellen eines Streams, um ein
-  bestimmtes Canvas-Element zu erfassen.
+- [`HTMLCanvasElement.captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream), um einen Stream zu erstellen, der ein bestimmtes Canvas-Element erfasst.
 - {{HTMLElement("canvas")}}

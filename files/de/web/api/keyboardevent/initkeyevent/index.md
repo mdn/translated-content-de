@@ -1,5 +1,5 @@
 ---
-title: "KeyboardEvent: Methode initKeyEvent()"
+title: "KeyboardEvent: initKeyEvent() Methode"
 short-title: initKeyEvent()
 slug: Web/API/KeyboardEvent/initKeyEvent
 l10n:
@@ -9,14 +9,17 @@ l10n:
 {{APIRef("UI Events")}}
 
 > [!WARNING]
-> Verwenden Sie diese Methode NICHT; verwenden Sie stattdessen den {{domxref("KeyboardEvent.KeyboardEvent", "KeyboardEvent()")}} Konstruktor!
+> Verwenden Sie diese Methode NICHT; Nutzen Sie stattdessen den [`KeyboardEvent()`](/de/docs/Web/API/KeyboardEvent/KeyboardEvent) Konstruktor!
 >
 > Die Methode wurde aus der DOM-Spezifikation entfernt und wird von keinem aktuellen Browser unterstützt.
-> Firefox versteckt diese Methode hinter der Einstellung (`dom.keyboardevent.init_key_event.enabled`) ab Version 93 und plant, sie kurz darauf zu entfernen.
+> Firefox versteckt diese Methode hinter der Einstellung (`dom.keyboardevent.init_key_event.enabled`) ab Version 93 und plant, sie kurz danach zu entfernen.
 
 {{deprecated_header}}
 
-Die **`KeyboardEvent.initKeyEvent()`** Methode wird verwendet, um den Wert eines Ereignisses zu initialisieren, das mit {{domxref("document.createEvent")}} `("KeyboardEvent")` erstellt wurde. Ereignisse, die auf diese Weise initialisiert werden, müssen mit der Methode {{domxref("document.createEvent")}} `("KeyboardEvent")` erstellt worden sein. `initKeyEvent()` muss aufgerufen werden, um das Ereignis zu setzen, bevor es [ausgelöst](/de/docs/Web/API/EventTarget/dispatchEvent) wird.
+Die **`KeyboardEvent.initKeyEvent()`** Methode wird verwendet, um den Wert eines über
+[`document.createEvent`](/de/docs/Web/API/Document/createEvent) `("KeyboardEvent")` erstellten Ereignisses zu initialisieren. Ereignisse, die auf diese Weise initialisiert werden, müssen mit der
+[`document.createEvent`](/de/docs/Web/API/Document/createEvent) `("KeyboardEvent")` Methode erstellt worden sein.
+`initKeyEvent()` muss aufgerufen werden, um das Ereignis einzustellen, bevor es [ausgelöst](/de/docs/Web/API/EventTarget/dispatchEvent) wird.
 
 ## Syntax
 
@@ -31,30 +34,23 @@ initKeyEvent (type, bubbles, cancelable, view,
 - `type`
   - : Ein String, der den Typ des Ereignisses repräsentiert.
 - `bubbles`
-  - : Ein boolescher Wert, der angibt, ob das Ereignis durch die
-    Ereigniskette aufsteigen soll oder nicht (siehe [bubbles](/de/docs/Web/API/Event/bubbles)).
+  - : Ein boolescher Wert, der angibt, ob das Ereignis in der Ereigniskette aufsteigen soll oder nicht (siehe [bubbles](/de/docs/Web/API/Event/bubbles)).
 - `cancelable`
   - : Ein boolescher Wert, der angibt, ob das Ereignis abgebrochen werden kann (siehe [cancelable](/de/docs/Web/API/Event/cancelable)).
 - `view`
-  - : Gibt die {{domxref("UIEvent.view")}} an; dieser Wert kann `null` sein.
+  - : Gibt das [`UIEvent.view`](/de/docs/Web/API/UIEvent/view) an; dieser Wert kann `null` sein.
 - `ctrlKey`
-  - : Ein boolescher Wert, der `true` ist, wenn die virtuelle Taste, die
-    erzeugt werden soll, eine Kombination von Tasten mit der <kbd>Ctrl</kbd>-Taste ist.
+  - : Ein boolescher Wert, der `true` ist, wenn die zu generierende virtuelle Taste eine Kombination von Tasten enthält, die die <kbd>Ctrl</kbd>-Taste beinhalten.
 - `altKey`
-  - : Ein boolescher Wert, der `true` ist, wenn die virtuelle Taste, die
-    erzeugt werden soll, eine Kombination von Tasten mit der <kbd>Alt</kbd>-Taste ist.
+  - : Ein boolescher Wert, der `true` ist, wenn die zu generierende virtuelle Taste eine Kombination von Tasten enthält, die die <kbd>Alt</kbd>-Taste beinhalten.
 - `shiftKey`
-  - : Ein boolescher Wert, der `true` ist, wenn die virtuelle Taste, die erzeugt werden soll,
-    eine Kombination von Tasten mit der <kbd>Shift</kbd>-Taste ist.
+  - : Ein boolescher Wert, der `true` ist, wenn die zu generierende virtuelle Taste eine Kombination von Tasten enthält, die die <kbd>Shift</kbd>-Taste beinhalten.
 - `metaKey`
-  - : Ein boolescher Wert, der `true` ist, wenn die virtuelle Taste, die
-    erzeugt werden soll, eine Kombination von Tasten mit der <kbd>Meta</kbd>-Taste ist.
+  - : Ein boolescher Wert, der `true` ist, wenn die zu generierende virtuelle Taste eine Kombination von Tasten enthält, die die <kbd>Meta</kbd>-Taste beinhalten.
 - `keyCode`
-  - : Ein `unsigned long`, der den virtuellen Tastenwert der
-    gedrückten Taste repräsentiert, andernfalls `0`. Siehe {{domxref("KeyboardEvent.keyCode")}} für die Liste der Tasten-Codes.
+  - : Ein `unsigned long`, der den virtuellen Schlüsselcode der gedrückten Taste repräsentiert, ansonsten `0`. Siehe [`KeyboardEvent.keyCode`](/de/docs/Web/API/KeyboardEvent/keyCode) für die Liste der Schlüsselcodes.
 - `charCode`
-  - : Ein `unsigned long`, der das Unicode-Zeichen repräsentiert, das
-    der gedrückten Taste zugeordnet ist, andernfalls `0`.
+  - : Ein `unsigned long`, der das Unicode-Zeichen repräsentiert, das mit der gedrückten Taste assoziiert ist, ansonsten `0`.
 
 ### Rückgabewert
 
@@ -63,18 +59,18 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 ```js
-const event = document.createEvent("KeyboardEvent"); // Ein Tastaturereignis erstellen
-// Das Ereignis definieren
+const event = document.createEvent("KeyboardEvent"); // create a key event
+// define the event
 event.initKeyEvent(
-  "keypress", // typeArg
-  true, // canBubbleArg
-  true, // cancelableArg
-  null, // viewArg, specifies UIEvent.view. This value may be null.
+  "keypress", // typeArg,
+  true, // canBubbleArg,
+  true, // cancelableArg,
+  null, // viewArg, Specifies UIEvent.view. This value may be null.
   false, // ctrlKeyArg,
   false, // altKeyArg,
   false, // shiftKeyArg,
   false, // metaKeyArg,
-  9, // keyCodeArg
+  9, // keyCodeArg,
   0,
 ); // charCodeArg);
 
@@ -83,4 +79,5 @@ document.getElementById("blah").dispatchEvent(event);
 
 ## Spezifikationen
 
-Diese Implementierung von Tastaturereignissen basiert auf der Tastenereignis-Spezifikation in den [frühen Versionen von DOM 2 Events](https://www.w3.org/TR/1999/WD-DOM-Level-2-19990923/events.html), die später aus dieser Spezifikation entfernt wurde zugunsten von {{domxref("KeyboardEvent.KeyboardEvent", "KeyboardEvent()")}}, die stattdessen verwendet werden sollte.
+Diese Implementierung von Tastaturereignissen basiert auf der Spezifikation der Tastenereignisse in den [frühen Versionen von DOM 2 Events](https://www.w3.org/TR/1999/WD-DOM-Level-2-19990923/events.html), die später zugunsten von
+[`KeyboardEvent()`](/de/docs/Web/API/KeyboardEvent/KeyboardEvent) aus dieser Spezifikation entfernt wurde, welche stattdessen verwendet werden sollte.

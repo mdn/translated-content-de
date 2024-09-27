@@ -8,10 +8,9 @@ l10n:
 
 {{APIRef("Screen Orientation")}}
 
-Die **`lock()`** Methode der {{domxref("ScreenOrientation")}} Schnittstelle sperrt die Ausrichtung des enthaltenen Dokuments auf die angegebene Ausrichtung.
+Die **`lock()`** Methode der [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation) Schnittstelle sperrt die Orientierung des umgebenden Dokuments auf die angegebene Orientierung.
 
-In der Regel ist die Sperrung der Ausrichtung nur auf mobilen Geräten aktiviert und wenn der Browser-Kontext im Vollbildmodus ist.
-Wenn die Sperrung unterstützt wird, muss sie für alle unten aufgeführten Parameterwerte funktionieren.
+In der Regel ist das Sperren der Orientierung nur auf mobilen Geräten und wenn der Browserkontext im Vollbildmodus ist, aktiviert. Wenn das Sperren unterstützt wird, muss es für alle unten aufgelisteten Parameterwerte funktionieren.
 
 ## Syntax
 
@@ -23,62 +22,62 @@ lock(orientation)
 
 - `orientation`
 
-  - : Ein Ausrichtungssperrtyp. Einer der folgenden:
+  - : Ein Orientierungssperrtyp. Einer der folgenden:
 
     - `"any"`
-      - : Entweder `portrait-primary`, `portrait-secondary`, `landscape-primary` oder `landscape-secondary`.
+      - : Jede der folgenden: `portrait-primary`, `portrait-secondary`, `landscape-primary` oder `landscape-secondary`.
     - `"natural"`
-      - : Die natürliche Ausrichtung des Bildschirms vom zugrunde liegenden Betriebssystem: entweder `portrait-primary` oder `landscape-primary`.
+      - : Die natürliche Ausrichtung des Bildschirms aus dem zugrundeliegenden Betriebssystem: entweder `portrait-primary` oder `landscape-primary`.
     - `"landscape"`
       - : Eine Ausrichtung, bei der die Bildschirmbreite größer ist als die Bildschirmhöhe.
-        Abhängig von der Plattformkonvention kann dies `landscape-primary`, `landscape-secondary` oder beides sein.
+        Je nach Plattformkonvention kann dies `landscape-primary`, `landscape-secondary` oder beides sein.
     - `"portrait"`
       - : Eine Ausrichtung, bei der die Bildschirmhöhe größer ist als die Bildschirmbreite.
-        Abhängig von der Plattformkonvention kann dies `portrait-primary`, `portrait-secondary` oder beides sein.
+        Je nach Plattformkonvention kann dies `portrait-primary`, `portrait-secondary` oder beides sein.
     - `"portrait-primary"`
-      - : Der „primäre“ Porträtmodus.
-        Wenn die natürliche Ausrichtung ein Porträtmodus ist (Bildschirmhöhe ist größer als die Breite), entspricht dies der natürlichen Ausrichtung und entspricht einem Winkel von 0 Grad.
-        Wenn die natürliche Ausrichtung ein Landschaftsmodus ist, kann der Benutzeragent entweder die Porträtausrichtung als `portrait-primary` und `portrait-secondary` wählen; einer davon wird dem Winkel von 90 Grad und der andere einem Winkel von 270 Grad zugeordnet.
+      - : Der "primäre" Hochformat-Modus.
+        Wenn die natürliche Ausrichtung ein Hochformat ist (Bildschirmhöhe ist größer als die Breite), entspricht dies der natürlichen Ausrichtung und einem Winkel von 0 Grad.
+        Wenn die natürliche Ausrichtung ein Querformat ist, kann der Benutzeragent entweder die Porträtausrichtung als `portrait-primary` und `portrait-secondary` wählen; eine der beiden wird mit einem Winkel von 90 Grad und die andere mit einem Winkel von 270 Grad zugewiesen.
     - `"portrait-secondary"`
-      - : Die sekundäre Porträtausrichtung.
-        Wenn die natürliche Ausrichtung ein Porträtmodus ist, hat dies einen Winkel von 180 Grad (mit anderen Worten, das Gerät ist im Vergleich zu seiner natürlichen Ausrichtung umgedreht).
-        Wenn die natürliche Ausrichtung ein Landschaftsmodus ist, kann dies entweder die vom Benutzeragent gewählte Ausrichtung sein: welche auch immer nicht für `portrait-primary` ausgewählt wurde.
+      - : Der sekundäre Hochformat-Modus.
+        Wenn die natürliche Ausrichtung ein Hochformat ist, hat dies einen Winkel von 180 Grad (mit anderen Worten, das Gerät ist relativ zur natürlichen Ausrichtung umgedreht).
+        Wenn die natürliche Ausrichtung ein Querformat ist, kann dies entweder die vom Benutzeragent gewählte Orientierung sein: welche auch immer nicht für `portrait-primary` ausgewählt wurde.
     - `"landscape-primary"`
-      - : Der „primäre“ Landschaftsmodus.
-        Wenn die natürliche Ausrichtung ein Landschaftsmodus ist (Bildschirmbreite ist größer als die Höhe), entspricht dies der natürlichen Ausrichtung und entspricht einem Winkel von 0 Grad.
-        Wenn die natürliche Ausrichtung ein Porträtmodus ist, kann der Benutzeragent entweder die Landschaftsausrichtung als `landscape-primary` mit einem Winkel von entweder 90 oder 270 Grad wählen (`landscape-secondary` wird die andere Ausrichtung und Winkel sein).
+      - : Der "primäre" Querformat-Modus.
+        Wenn die natürliche Ausrichtung ein Querformat ist (Bildschirmbreite ist größer als die Höhe), entspricht dies der natürlichen Ausrichtung und einem Winkel von 0 Grad.
+        Wenn die natürliche Ausrichtung ein Hochformat ist, kann der Benutzeragent entweder die Querformatausrichtung als `landscape-primary` mit einem Winkel von entweder 90 oder 270 Grad (`landscape-secondary` wird die andere Orientierung und der andere Winkel sein) wählen.
     - `"landscape-secondary"`
-      - : Der sekundäre Landschaftsmodus.
-        Wenn die natürliche Ausrichtung ein Landschaftsmodus ist, ist diese Ausrichtung im Vergleich zur natürlichen Ausrichtung umgedreht und hat einen Winkel von 180 Grad.
-        Wenn die natürliche Ausrichtung ein Porträtmodus ist, kann dies entweder die vom Benutzeragent gewählte Ausrichtung sein: welche auch immer nicht für `landscape-primary` ausgewählt wurde.
+      - : Der sekundäre Querformat-Modus.
+        Wenn die natürliche Ausrichtung ein Querformat ist, ist diese Orientierung relativ zur natürlichen Ausrichtung umgedreht und hat einen Winkel von 180 Grad.
+        Wenn die natürliche Ausrichtung ein Hochformat ist, kann dies entweder die Orientierung sein, die vom Benutzeragent ausgewählt wurde: welche auch immer nicht für `landscape-primary` ausgewählt wurde.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das aufgelöst wird, nachdem die Sperrung erfolgreich war.
+Ein {{jsxref("Promise")}}, das aufgelöst wird, nachdem das Sperren erfolgreich war.
 
 ### Ausnahmen
 
 Das Versprechen kann mit den folgenden Ausnahmen abgelehnt werden:
 
-- `InvalidStateError` {{domxref("DOMException")}}
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
 
   - : Wird ausgelöst, wenn das Dokument nicht vollständig aktiv ist.
 
-- `SecurityError` {{domxref("DOMException")}}
+- `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird ausgelöst, wenn der Sichtbarkeitsstatus des Dokuments verborgen ist oder wenn dem Dokument die Nutzung der Funktion untersagt ist (zum Beispiel durch das Auslassen des Schlüsselworts `allow-orientation-lock` des `sandbox` Attributs des `iframe` Elements).
+  - : Wird ausgelöst, wenn der Sichtbarkeitsstatus des Dokuments verborgen ist oder wenn dem Dokument die Nutzung der Funktion verboten ist (beispielsweise durch Auslassung des Schlüsselworts `allow-orientation-lock` des `sandbox` Attributs des `iframe` Elements).
 
-- `NotSupportedError` {{domxref("DOMException")}}
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Wird ausgelöst, wenn der Benutzeragent das Sperren der Bildschirmausrichtung für die bestimmte Ausrichtung nicht unterstützt.
+  - : Wird ausgelöst, wenn der Benutzeragent das Sperren der Bildschirmausrichtung auf die spezifische Ausrichtung nicht unterstützt.
 
-- `AbortError` {{domxref("DOMException")}}
+- `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
 
   - : Wird ausgelöst, wenn eine andere `lock()` Methode aufgerufen wird.
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie der Bildschirm auf die entgegengesetzte Ausrichtung des aktuellen gesperrt wird.
+Dieses Beispiel zeigt, wie man den Bildschirm auf die entgegengesetzte Ausrichtung der aktuellen sperrt.
 Beachten Sie, dass dieses Beispiel nur auf mobilen Geräten und anderen Geräten funktioniert, die Ausrichtungsänderungen unterstützen.
 
 ```html
@@ -130,7 +129,7 @@ fullscreen_btn.addEventListener("click", () => {
 ```
 
 Um das Beispiel zu testen, drücken Sie zuerst die Vollbild-Taste.
-Sobald das Beispiel im Vollbildmodus ist, drücken Sie die Sperrtaste, um die Ausrichtung zu wechseln, und entsperren Sie, um zur natürlichen Ausrichtung zurückzukehren.
+Sobald das Beispiel im Vollbildmodus ist, drücken Sie die Sperr-Taste, um die Ausrichtung zu wechseln und die Entsperr-Taste, um zur natürlichen Ausrichtung zurückzukehren.
 
 {{EmbedLiveSample('Examples')}}
 

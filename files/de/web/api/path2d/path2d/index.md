@@ -9,8 +9,8 @@ l10n:
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
 Der **`Path2D()`** Konstruktor gibt ein neu instanziiertes
-`Path2D` Objekt zurück, optional mit einem anderen Pfad als Argument (erstellt eine
-Kopie), oder optional mit einem String, der aus [SVG-Pfad](/de/docs/Web/SVG/Tutorial/Paths) Daten besteht.
+`Path2D`-Objekt zurück, optional mit einem anderen Pfad als Argument (erstellt eine
+Kopie) oder optional mit einem String, der aus [SVG-Pfad](/de/docs/Web/SVG/Tutorial/Paths)-Daten besteht.
 
 ## Syntax
 
@@ -23,17 +23,17 @@ new Path2D(d)
 ### Parameter
 
 - `path` {{optional_inline}}
-  - : Wenn der Konstruktor mit einem anderen `Path2D` Objekt aufgerufen wird, wird eine Kopie des
-    `path` Arguments erstellt.
+  - : Bei Aufruf mit einem anderen `Path2D`-Objekt wird eine Kopie des
+    `path`-Arguments erstellt.
 - `d` {{optional_inline}}
-  - : Wenn der Konstruktor mit einem String, der aus [SVG-Pfad](/de/docs/Web/SVG/Tutorial/Paths) Daten besteht, aufgerufen wird, wird ein neuer Pfad
+  - : Bei Aufruf mit einem String, der aus [SVG-Pfad](/de/docs/Web/SVG/Tutorial/Paths)-Daten besteht, wird ein neuer Pfad
     aus dieser Beschreibung erstellt.
 
 ## Beispiele
 
 ### Erstellen und Kopieren von Pfaden
 
-Dieses Beispiel erstellt und kopiert einen `Path2D` Pfad.
+Dieses Beispiel erstellt und kopiert einen `Path2D`-Pfad.
 
 ```html hidden
 <canvas id="canvas"></canvas>
@@ -57,10 +57,10 @@ ctx.stroke(path2);
 
 ### Verwendung von SVG-Pfaden
 
-Dieses Beispiel erstellt einen `Path2D` Pfad unter Verwendung von [SVG-Pfad Daten](/de/docs/Web/SVG/Tutorial/Paths). Der Pfad wird sich zu
-Punkt (`M10 10`) bewegen und dann 80 Punkte horizontal nach rechts
+Dieses Beispiel erstellt einen `Path2D`-Pfad unter Verwendung von [SVG-Pfaddaten](/de/docs/Web/SVG/Tutorial/Paths). Der Pfad bewegt sich zum
+Punkt (`M10 10`) und bewegt sich dann horizontal 80 Punkte nach rechts
 (`h 80`), dann 80 Punkte nach unten (`v 80`), dann 80 Punkte nach links
-(`h -80`), und dann zurück zum Anfang (`Z`) bewegen.
+(`h -80`), und dann zurück zum Start (`Z`).
 
 ```html hidden
 <canvas id="canvas"></canvas>
@@ -86,4 +86,4 @@ ctx.fill(p);
 
 ## Siehe auch
 
-- {{domxref("Path2D")}}, die Schnittstelle, zu der dieser Konstruktor gehört
+- [`Path2D`](/de/docs/Web/API/Path2D), das Interface, zu dem dieser Konstruktor gehört

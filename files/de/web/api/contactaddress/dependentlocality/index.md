@@ -8,13 +8,13 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Contact Picker API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`dependentLocality`**-Eigenschaft des {{domxref("ContactAddress")}}-Interfaces ist ein String, der eine Orts- oder Unterortbezeichnung innerhalb einer Stadt enthält, wie z. B. ein Viertel, ein Bezirk oder, im Vereinigten Königreich, eine abhängige Örtlichkeit. Auch bekannt als _Poststadt_.
+Die schreibgeschützte **`dependentLocality`**-Eigenschaft der [`ContactAddress`](/de/docs/Web/API/ContactAddress)-Schnittstelle ist eine Zeichenkette, die eine Lokalität oder Sublokalität innerhalb einer Stadt enthält, wie zum Beispiel ein Viertel, eine Borough, ein Stadtteil oder im Vereinigten Königreich eine abhängige Lokalität. Auch bekannt als _Post town_.
 
 ## Wert
 
-Ein String, der den Unterortsteil der Adresse angibt. Dies kann ein leerer String sein, falls kein Unterort verfügbar oder erforderlich ist. Er wird zur Klärung verwendet, wenn eine Stadt Bereiche enthalten kann, die Straßennamen duplizieren.
+Eine Zeichenkette, die den Sublokalitätsteil der Adresse angibt. Diese kann eine leere Zeichenkette sein, wenn keine Sublokalität verfügbar oder erforderlich ist. Sie wird verwendet, um eine Unterscheidung zu ermöglichen, wenn eine Stadt Bereiche mit doppelten Straßennamen umfasst.
 
-Ein Unterort ist ein Bereich innerhalb einer Stadt, wie ein Viertel, Bezirk oder Distrikt. Im Vereinigten Königreich wird dies verwendet, um die **Poststadt** im Vereinigten Königreich anzugeben (offiziell von der Royal Mail als **abhängige Örtlichkeit** bekannt). Dies ist ein klärendes Merkmal von Adressen in Orten, in denen eine Stadt Bereiche haben kann, die Straßennamen duplizieren.
+Eine Sublokalität ist ein Bereich innerhalb einer Stadt, wie zum Beispiel ein Viertel, eine Borough oder ein Stadtteil. Im Vereinigten Königreich wird dies verwendet, um den **Post town** anzugeben (offiziell bekannt bei der Royal Mail als die **dependent locality**). Dies ist eine Unterscheidungsfunktion von Adressen an Orten, an denen eine Stadt Bereiche mit doppelten Straßennamen haben kann.
 
 ## Spezifikationen
 

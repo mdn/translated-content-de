@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.wordSpacing`**-Eigenschaft der [Canvas-API](/de/docs/Web/API/Canvas_API) bestimmt den Abstand zwischen Wörtern beim Zeichnen von Text.
+Die **`CanvasRenderingContext2D.wordSpacing`**-Eigenschaft der [Canvas API](/de/docs/Web/API/Canvas_API) legt den Abstand zwischen Wörtern fest, wenn Text gezeichnet wird.
 
 Dies entspricht der CSS-Eigenschaft [`word-spacing`](/de/docs/Web/CSS/word-spacing).
 
@@ -18,12 +18,12 @@ Der Wortabstand als Zeichenkette im CSS-Datenformat {{cssxref("length")}}.
 Der Standardwert ist `0px`.
 
 Die Eigenschaft kann verwendet werden, um den Abstand zu erhalten oder festzulegen.
-Der Eigenschaftswert bleibt unverändert, wenn ein ungültiger/nicht interpretierbarer Wert festgelegt wird.
+Der Eigenschaftswert bleibt unverändert, wenn er auf einen ungültigen/nicht interpretierbaren Wert gesetzt wird.
 
 ## Beispiele
 
-In diesem Beispiel zeigen wir den Text "Hello World" dreimal an, wobei die `wordSpacing`-Eigenschaft verwendet wird, um den Abstand in jedem Fall zu ändern.
-Der Abstand wird auch für jeden Fall angezeigt, unter Verwendung des Werts der Eigenschaft.
+In diesem Beispiel werden der Text "Hello World" dreimal angezeigt, wobei die `wordSpacing`-Eigenschaft verwendet wird, um den Abstand in jedem Fall zu ändern.
+Der Abstand wird auch für jeden Fall angezeigt, unter Verwendung des Wertes der Eigenschaft.
 
 ### HTML
 
@@ -39,14 +39,14 @@ const ctx = canvas.getContext("2d");
 
 ctx.font = "30px serif";
 
-// Standard Wortabstand
+// Default word spacing
 ctx.fillText(`Hello world (default: ${ctx.wordSpacing})`, 10, 40);
 
-// Benutzerdefinierter Wortabstand: 10px
+// Custom word spacing: 10px
 ctx.wordSpacing = "10px";
 ctx.fillText(`Hello world (${ctx.wordSpacing})`, 10, 90);
 
-// Benutzerdefinierter Wortabstand: 30px
+// Custom word spacing: 30px
 ctx.wordSpacing = "30px";
 ctx.fillText(`Hello world (${ctx.wordSpacing})`, 10, 140);
 ```
@@ -65,4 +65,4 @@ ctx.fillText(`Hello world (${ctx.wordSpacing})`, 10, 140);
 
 ## Siehe auch
 
-- {{domxref("CanvasRenderingContext2D.letterSpacing")}}
+- [`CanvasRenderingContext2D.letterSpacing`](/de/docs/Web/API/CanvasRenderingContext2D/letterSpacing)

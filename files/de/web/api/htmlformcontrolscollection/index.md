@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormControlsCollection`**-Schnittstelle stellt eine _Sammlung_ von HTML-Formularsteuerelementen dar, die durch die `{{domxref("HTMLFormElement")}}` Schnittstelle über die `{{domxref("HTMLFormElement.elements", "elements")}}` Eigenschaft zurückgegeben werden.
+Die **`HTMLFormControlsCollection`** Schnittstelle repräsentiert eine _Sammlung_ von HTML-_Formularsteuerelementen_, die durch die [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) Schnittstelleseigenschaft [`elements`](/de/docs/Web/API/HTMLFormElement/elements) zurückgegeben wird.
 
-Diese Schnittstelle ersetzt eine Methode von der `{{domxref("HTMLCollection")}}`, auf der sie basiert.
+Diese Schnittstelle ersetzt eine Methode der [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), auf der sie basiert.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle erbt die Eigenschaften ihres Elternteils, `{{domxref("HTMLCollection")}}`._
+_Diese Schnittstelle erbt die Eigenschaften ihrer Elternschnittstelle, [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)._
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_Diese Schnittstelle erbt die Methoden ihres Elternteils, `{{domxref("HTMLCollection")}}`._
+_Diese Schnittstelle erbt die Methoden ihrer Elternschnittstelle, [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)._
 
-- `{{domxref("HTMLFormControlsCollection.namedItem()")}}`
-  - : Gibt die `{{domxref("RadioNodeList")}}` oder das `{{domxref("Element")}}` in der Sammlung zurück, dessen `name` oder `id` mit dem angegebenen Namen übereinstimmt, oder `null`, wenn keine Knoten übereinstimmen. Beachten Sie, dass diese Version von `namedItem()` die von `{{domxref("HTMLCollection")}}` geerbte Methode verdeckt. Ähnlich wie bei dieser Methode ist die Verwendung der JavaScript-Array-Klammer-Syntax mit einem `{{jsxref("String")}}`, wie in `collection["value"]`, äquivalent zu `collection.namedItem("value")`.
+- [`HTMLFormControlsCollection.namedItem()`](/de/docs/Web/API/HTMLFormControlsCollection/namedItem)
+  - : Gibt die [`RadioNodeList`](/de/docs/Web/API/RadioNodeList) oder das [`Element`](/de/docs/Web/API/Element) in der Sammlung zurück, dessen `name` oder `id` mit dem angegebenen Namen übereinstimmt, oder `null`, wenn keine Knoten übereinstimmen. Beachten Sie, dass diese Version von `namedItem()` die von [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) geerbte Version verbirgt. Wie diese Methode entspricht die Verwendung der JavaScript-Arrayklammernsyntax mit einem {{jsxref("String")}}, wie in `collection["value"]`, der Verwendung von `collection.namedItem("value")`.
 
 ## Spezifikationen
 
@@ -34,4 +34,4 @@ _Diese Schnittstelle erbt die Methoden ihres Elternteils, `{{domxref("HTMLCollec
 
 ## Siehe auch
 
-- `{{domxref("HTMLCollection")}}`, `{{domxref("RadioNodeList")}}`, `{{domxref("HTMLOptionsCollection")}}`
+- [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), [`RadioNodeList`](/de/docs/Web/API/RadioNodeList), [`HTMLOptionsCollection`](/de/docs/Web/API/HTMLOptionsCollection)

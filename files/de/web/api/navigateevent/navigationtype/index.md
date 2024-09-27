@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`navigationType`** schreibgeschützte Eigenschaft der
-{{domxref("NavigateEvent")}}-Schnittstelle gibt den Typ der Navigation zurück — `push`, `reload`, `replace` oder `traverse`.
+Die schreibgeschützte **`navigationType`**-Eigenschaft des [`NavigateEvent`](/de/docs/Web/API/NavigateEvent)-Interfaces gibt den Typ der Navigation zurück — `push`, `reload`, `replace` oder `traverse`.
 
 ## Wert
 
@@ -17,26 +16,26 @@ Ein aufgezählter Wert, der den Typ der Navigation darstellt.
 
 Die möglichen Werte sind:
 
-- `push`: Ein neuer Ort wird navigiert, wodurch ein neuer Eintrag zur Verlaufsliste hinzugefügt wird.
-- `reload`: Der {{domxref("Navigation.currentEntry")}} wird neu geladen.
-- `replace`: Der {{domxref("Navigation.currentEntry")}} wird durch einen neuen Verlaufs-Eintrag ersetzt. Dieser neue Eintrag wird denselben {{domxref("NavigationHistoryEntry.key", "key")}} wiederverwenden, aber eine andere {{domxref("NavigationHistoryEntry.id", "id")}} zugewiesen bekommen.
-- `traverse`: Der Browser navigiert von einem vorhandenen Verlaufs-Eintrag zu einem anderen vorhandenen Verlaufs-Eintrag.
+- `push`: Es wird zu einem neuen Ort navigiert, wodurch ein neuer Eintrag in die Verlaufsliste eingefügt wird.
+- `reload`: Der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird neu geladen.
+- `replace`: Der [`Navigation.currentEntry`](/de/docs/Web/API/Navigation/currentEntry) wird durch einen neuen Verlaufseintrag ersetzt. Dieser neue Eintrag wird denselben [`key`](/de/docs/Web/API/NavigationHistoryEntry/key) wiederverwenden, aber eine andere [`id`](/de/docs/Web/API/NavigationHistoryEntry/id) zugewiesen bekommen.
+- `traverse`: Der Browser navigiert von einem vorhandenen Verlaufseintrag zu einem anderen vorhandenen Verlaufseintrag.
 
 ## Beispiele
 
-### Asynchrone Übergänge mit spezieller Vor-/Zurück-Navigation
+### Asynchrone Übergänge mit spezieller Zurück-/Vorwärts-Behandlung
 
-Manchmal ist es wünschenswert, Vor-/Zurück-Navigationen speziell zu behandeln, z.B. durch das Wiederverwenden von zwischengespeicherten Ansichten, indem sie auf den Bildschirm überführt werden. Dies kann folgendermaßen verzweigt werden:
+Manchmal ist es wünschenswert, Zurück-/Vorwärts-Navigationen speziell zu behandeln, z. B. indem zwischengespeicherte Ansichten wiederverwendet werden, indem sie auf den Bildschirm gebracht werden. Dies kann durch folgende Verzweigung erreicht werden:
 
 ```js
 navigation.addEventListener("navigate", (event) => {
-  // Einige Navigationen, z.B. Cross-Origin-Navigationen,
-  // können wir nicht abfangen. Lassen Sie den Browser diese normal handhaben.
+  // Some navigations, e.g. cross-origin navigations, we
+  // cannot intercept. Let the browser handle those normally.
   if (!event.canIntercept) {
     return;
   }
 
-  // Keine Fragment-Navigationen oder Downloads abfangen.
+  // Don't intercept fragment navigations or downloads.
   if (event.hashChange || event.downloadRequest !== null) {
     return;
   }
@@ -55,8 +54,8 @@ navigation.addEventListener("navigate", (event) => {
       ) {
         await myFramework.previousPages.get(key).transitionIn();
       } else {
-        // Dies wird wahrscheinlich dazu führen, dass myFramework
-        // die gerenderte Seite in myFramework.previousPages speichert.
+        // This will probably result in myFramework storing
+        // the rendered page in myFramework.previousPages.
         await myFramework.renderPage(event.destination);
       }
     },
@@ -74,6 +73,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Erklärer der Navigation API](https://github.com/WICG/navigation-api/blob/main/README.md)
+- [Moderne Client-seitige Routing: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
 - Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)

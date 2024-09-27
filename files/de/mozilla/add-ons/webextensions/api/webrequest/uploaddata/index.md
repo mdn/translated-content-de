@@ -16,7 +16,7 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 - `bytes` {{optional_inline}}
   - : `any`. Ein ArrayBuffer mit einer Kopie der Daten.
 - `file` {{optional_inline}}
-  - : `string`. Ein String mit dem Dateipfad und -namen.
+  - : `string`. Ein String mit dem Pfad und Namen der Datei.
 
 ## Browser-Kompatibilität
 

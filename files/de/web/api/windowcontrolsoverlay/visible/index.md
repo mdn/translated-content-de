@@ -1,6 +1,6 @@
 ---
-title: "WindowControlsOverlay: sichtbare Eigenschaft"
-short-title: sichtbar
+title: "WindowControlsOverlay: visible-Eigenschaft"
+short-title: visible
 slug: Web/API/WindowControlsOverlay/visible
 l10n:
   sourceCommit: 195edecd7c4a1205562d2a984bea9e2f8895c479
@@ -8,24 +8,24 @@ l10n:
 
 {{APIRef("Window Controls Overlay API")}}{{SeeCompatTable}}
 
-Die **`visible`** schreibgeschützte Eigenschaft der {{domxref("WindowControlsOverlay")}}-Schnittstelle gibt ein {{Glossary("Boolean")}} zurück, das anzeigt, ob das Fenstersteuerung-Overlay sichtbar ist oder nicht.
+Die **`visible`** schreibgeschützte Eigenschaft des [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Interfaces gibt einen [Boolean](/de/docs/Glossary/Boolean) zurück, der angibt, ob die Fenstersteuerungüberlagerung sichtbar ist oder nicht.
 
-Das Fenstersteuerung-Overlay ist nicht sichtbar, wenn:
+Die Fenstersteuerungüberlagerung ist nicht sichtbar, wenn:
 
-- Das `display_override`-Mitglied des Web App Manifest nicht auf `window-controls-overlay` gesetzt ist.
-- Oder, wenn der Benutzer sich von der Funktion abgemeldet hat.
+- Das Mitglied [`display_override`](/de/docs/Web/Manifest/display_override) des Web-App-Manifests nicht auf `window-controls-overlay` gesetzt ist.
+- Oder, wenn der Benutzer die Funktion deaktiviert hat.
 
 ## Wert
 
-Ein boolean.
+Ein Boolean.
 
 ## Beispiele
 
 ```js
 if (navigator.windowControlsOverlay.visible) {
-  // Code ausführen, wenn das Steuerung-Overlay sichtbar ist.
+  // Execute code if the controls overlay is visible.
 } else {
-  // Etwas anderes tun, wenn es nicht sichtbar ist.
+  // Do something else when it isn't visible.
 }
 ```
 
@@ -39,4 +39,4 @@ if (navigator.windowControlsOverlay.visible) {
 
 ## Siehe auch
 
-- Die {{domxref("WindowControlsOverlay")}}-Schnittstelle, zu der es gehört.
+- Das [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Interface, zu dem es gehört.

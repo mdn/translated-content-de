@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaChecked`**-Eigenschaft der {{domxref("ElementInternals")}}-Schnittstelle spiegelt den Wert des [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-checked)-Attributs wider, das den aktuellen "ausgewählten" Zustand von Kontrollkästchen, Optionsfeldern und anderen Widgets anzeigt, die einen ausgewählten Zustand haben.
+Die **`ariaChecked`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-checked)-Attributs wider, welches den aktuellen "Checked"-Zustand von Kontrollkästchen, Optionsfeldern und anderen Widgets, die einen Checked-Zustand haben, angibt.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` erlaubt es, Standardsemantiken in einem benutzerdefinierten Element zu definieren. Diese können durch vom Entwickler festgelegte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken erhalten bleiben, falls der Entwickler diese Attribute löscht oder sie überhaupt nicht hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von ARIA-Attributen auf `ElementInternals` ermöglicht es, in einem benutzerdefinierten Element standardmäßige Semantik zu definieren. Diese können von Autor-definierten Attributen überschrieben werden, stellen aber sicher, dass die Standardsemantik beibehalten wird, sollte der Autor diese Attribute löschen oder sie überhaupt nicht hinzufügen. Weitere Informationen finden Sie im [Accessibility Object Model explainer](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
-Eine Zeichenkette mit einem der folgenden Werte:
+Ein String mit einem der folgenden Werte:
 
 - `"true"`
-  - : Das Element ist ausgewählt.
+  - : Das Element ist aktiviert.
 - `"mixed"`
-  - : Gibt einen gemischten Moduswert für ein Drei-Zustand-Kontrollkästchen oder MenuItemCheckbox an.
+  - : Gibt einen gemischten Moduswert für ein Drei-Zustand-Kontrollkästchen oder Menüelementkontrollkästchen an.
 - `"false"`
-  - : Das Element kann ausgewählt werden, ist aber derzeit nicht ausgewählt.
+  - : Das Element unterstützt das Aktiviert-Sein, ist aber derzeit nicht aktiviert.
 - `"undefined"`
-  - : Das Element unterstützt das Auswählen nicht.
+  - : Das Element unterstützt das Aktiviert-Sein nicht.
 
 ## Beispiele
 
@@ -38,10 +38,10 @@ this.internals_.ariaChecked = "true";
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [ARIA: checkbox role](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role)
+- [ARIA: Rolle des Kontrollkästchens](/de/docs/Web/Accessibility/ARIA/Roles/checkbox_role)

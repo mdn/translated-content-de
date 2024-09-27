@@ -22,9 +22,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Hört auf, auf dieses Ereignis zu hören. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüfen, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn darauf gehört wird, `false` andernfalls.
+  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -32,31 +32,31 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden folgende Argumente übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion werden diese Argumente übergeben:
 
     - `tabId`
-      - : `integer`. ID des Tabs, der geschlossen wurde.
+      - : `integer`. ID des geschlossenen Tabs.
     - `removeInfo`
-      - : `object`. Die Fenster-ID des Tabs und ein boolescher Wert, der angibt, ob das Fenster ebenfalls geschlossen wird. Weitere Details finden Sie im Abschnitt [removeInfo](#removeinfo_2).
+      - : `object`. Die Fenster-ID des Tabs und ein Boolean, der angibt, ob das Fenster ebenfalls geschlossen wird. Siehe den Abschnitt [removeInfo](#removeinfo_2) für mehr Details.
 
 ## Zusätzliche Objekte
 
 ### removeInfo
 
 - `windowId`
-  - : `integer`. Das Fenster, dessen Tab geschlossen wurde.
+  - : `integer`. Das Fenster, dessen Tab geschlossen wird.
 - `isWindowClosing`
   - : `boolean`. `true`, wenn der Tab geschlossen wird, weil sein Fenster geschlossen wird.
 
 ## Beispiele
 
-Auf Schließereignisse hören und die Informationen protokollieren:
+Hören Sie auf Schließereignisse und protokollieren Sie die Informationen:
 
 ```js
 function handleRemoved(tabId, removeInfo) {
-  console.log(`Tab: ${tabId} wird geschlossen`);
-  console.log(`Fenster-ID: ${removeInfo.windowId}`);
-  console.log(`Fenster wird geschlossen: ${removeInfo.isWindowClosing}`);
+  console.log(`Tab: ${tabId} is closing`);
+  console.log(`Window ID: ${removeInfo.windowId}`);
+  console.log(`Window is closing: ${removeInfo.isWindowClosing}`);
 }
 
 browser.tabs.onRemoved.addListener(handleRemoved);
@@ -69,7 +69,7 @@ browser.tabs.onRemoved.addListener(handleRemoved);
 {{Compat}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onRemoved) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#event-onRemoved) API. Diese Dokumentation ist abgeleitet von [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

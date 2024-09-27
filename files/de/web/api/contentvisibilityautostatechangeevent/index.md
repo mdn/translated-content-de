@@ -7,25 +7,25 @@ l10n:
 
 {{APIRef("CSS Containment")}}
 
-Das **`ContentVisibilityAutoStateChangeEvent`**-Interface ist das Ereignisobjekt für das {{domxref("element/contentvisibilityautostatechange_event", "contentvisibilityautostatechange")}}-Ereignis, das bei jedem Element mit {{cssxref("content-visibility", "content-visibility: auto")}} ausgelöst wird, wenn es beginnt oder aufhört, für den [Benutzer relevant zu sein](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#relevant_to_the_user) und seine [Inhalte zu überspringen](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#skips_its_contents).
+Die **`ContentVisibilityAutoStateChangeEvent`**-Schnittstelle ist das Ereignisobjekt für das [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event)-Ereignis, das bei jedem Element mit {{cssxref("content-visibility", "content-visibility: auto")}} ausgelöst wird, wenn es beginnt oder aufhört, [für den Benutzer relevant zu sein](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#relevant_to_the_user) und [seine Inhalte zu überspringen](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#skips_its_contents).
 
-Während das Element nicht relevant ist (zwischen den Start- und Endereignissen), überspringt der Benutzeragent das Rendering eines Elements, einschließlich Layout und Malen. Dies kann die Geschwindigkeit des Seiten-Renderings erheblich verbessern. Das {{domxref("element/contentvisibilityautostatechange_event", "contentvisibilityautostatechange")}}-Ereignis bietet eine Möglichkeit, dass der Code einer App auch Render-Prozesse starten oder stoppen kann (z.B. Zeichnen auf einem {{htmlelement("canvas")}}), wenn sie nicht benötigt werden, um so Rechenleistung zu sparen.
+Während das Element nicht relevant ist (zwischen Start- und Endereignis), überspringt der Benutzeragent das Rendering eines Elements, einschließlich Layout und Malen. Dies kann die Geschwindigkeit des Seiten-Renderings erheblich verbessern. Das [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event)-Ereignis bietet eine Möglichkeit für den Code einer App, auch die Rendering-Prozesse zu starten oder zu stoppen (z.B. Zeichnungen auf einem {{htmlelement("canvas")}}), wenn sie nicht benötigt werden, und somit Rechenleistung zu sparen.
 
-Beachten Sie, dass selbst wenn der Inhalt nicht sichtbar ist, er semantisch relevant bleibt (z.B. für Benutzer von unterstützender Technologie), sodass dieses Signal nicht verwendet werden sollte, um bedeutende semantische DOM-Updates zu überspringen.
+Beachten Sie, dass auch wenn sie nicht sichtbar sind, die Inhalte der Elemente semantisch relevant bleiben (z.B. für Benutzer von unterstützenden Technologien). Dieses Signal sollte daher nicht verwendet werden, um bedeutende semantische DOM-Aktualisierungen zu überspringen.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("ContentVisibilityAutoStateChangeEvent.ContentVisibilityAutoStateChangeEvent", "ContentVisibilityAutoStateChangeEvent()")}}
-  - : Erstellt eine neue Instanz des `ContentVisibilityAutoStateChangeEvent`-Objekts.
+- [`ContentVisibilityAutoStateChangeEvent()`](/de/docs/Web/API/ContentVisibilityAutoStateChangeEvent/ContentVisibilityAutoStateChangeEvent)
+  - : Erstellt eine neue Instanz eines `ContentVisibilityAutoStateChangeEvent`-Objekts.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem übergeordneten Objekt, {{DOMxRef("Event")}}._
+_Erbt Eigenschaften von seinem übergeordneten Element, [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref("ContentVisibilityAutoStateChangeEvent.skipped", "skipped")}} {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn der Benutzeragent das Rendern des Elements überspringt, oder `false`, wenn nicht.
+- [`skipped`](/de/docs/Web/API/ContentVisibilityAutoStateChangeEvent/skipped) {{ReadOnlyInline}}
+  - : Gibt `true` zurück, wenn der Benutzeragent das Rendering des Elements überspringt, oder `false` andernfalls.
 
 ## Beispiele
 
@@ -64,7 +64,7 @@ function stopCanvasUpdates(canvas) {
 
 ## Siehe auch
 
-- Das {{domxref("element/contentvisibilityautostatechange_event", "contentvisibilityautostatechange")}}-Ereignis
+- Das [`contentvisibilityautostatechange`](/de/docs/Web/API/Element/contentvisibilityautostatechange_event)-Ereignis
 - [CSS Containment](/de/docs/Web/CSS/CSS_containment)
 - Die {{cssxref("content-visibility")}}-Eigenschaft
 - Die {{cssxref("contain")}}-Eigenschaft

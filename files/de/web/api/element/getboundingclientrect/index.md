@@ -1,5 +1,5 @@
 ---
-title: "Element: Methode getBoundingClientRect()"
+title: "Element: getBoundingClientRect()-Methode"
 short-title: getBoundingClientRect()
 slug: Web/API/Element/getBoundingClientRect
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Element.getBoundingClientRect()`**-Methode gibt ein {{domxref("DOMRect")}}-Objekt zurück, das Informationen über die Größe eines Elements und dessen Position relativ zum [Viewport](/de/docs/Glossary/Viewport) bereitstellt.
+Die **`Element.getBoundingClientRect()`**-Methode gibt ein
+[`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt zurück, das Informationen über die Größe eines Elements und seine Position relativ zum [Viewport](/de/docs/Glossary/Viewport) bereitstellt.
 
 ## Syntax
 
@@ -22,25 +23,25 @@ Keine.
 
 ### Rückgabewert
 
-Der zurückgegebene Wert ist ein {{domxref("DOMRect")}}-Objekt, das das kleinste Rechteck ist, das das gesamte Element einschließlich seines Paddings und der Rahmenbreite enthält. Die Eigenschaften `left`, `top`, `right`, `bottom`, `x`, `y`, `width` und `height` beschreiben die Position und Größe des gesamten Rechtecks in Pixeln. Eigenschaften außer `width` und `height` sind relativ zur oberen linken Ecke des Viewports.
+Der zurückgegebene Wert ist ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt, welches das kleinste Rechteck darstellt, das das gesamte Element einschließlich seines Abstands und seiner Rahmenbreite enthält. Die Eigenschaften `left`, `top`, `right`, `bottom`, `x`, `y`, `width` und `height` beschreiben die Position und Größe des gesamten Rechtecks in Pixeln. Andere Eigenschaften als `width` und `height` sind relativ zur oberen linken Ecke des Viewports.
 
-![DOMRect-Objekt, das das kleinste Rechteck ist, das das gesamte Element enthält.](element-box-diagram.png)
+![DOMRect-Objekt, das das kleinste Rechteck enthält, das das gesamte Element abdeckt.](element-box-diagram.png)
 
-Die Eigenschaften `width` und `height` des {{domxref("DOMRect")}}-Objekts, das von der Methode zurückgegeben wird, umfassen das `padding` und die `border-width`, nicht nur die Inhaltsbreite/-höhe. Im Standard-Boxmodell wäre dies gleich der `width`- oder `height`-Eigenschaft des Elements + `padding` + `border-width`. Aber wenn [`box-sizing: border-box`](/de/docs/Web/CSS/box-sizing) für das Element gesetzt ist, wäre dies direkt gleich seiner `width` oder `height`.
+Die Eigenschaften `width` und `height` des [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekts, das von der Methode zurückgegeben wird, beinhalten das `padding` und die `border-width`, nicht nur die Breite/Höhe des Inhalts. Im Standard-Box-Modell wäre dies gleich der `width`- oder `height`-Eigenschaft des Elements + `padding` + `border-width`. Wenn allerdings [`box-sizing: border-box`](/de/docs/Web/CSS/box-sizing) für das Element gesetzt ist, entspricht dies direkt seiner `width` oder `height`.
 
-Der zurückgegebene Wert kann als Vereinigung der von {{domxref("Element.getClientRects", "getClientRects()")}} für das Element zurückgegebenen Rechtecke betrachtet werden, d. h. die CSS-Rahmen-Boxen, die mit dem Element verbunden sind.
+Der zurückgegebene Wert kann als Vereinigung der Rechtecke betrachtet werden, die von [`getClientRects()`](/de/docs/Web/API/Element/getClientRects) für das Element zurückgegeben werden, d.h. die CSS-Rahmen-Boxen, die mit dem Element verbunden sind.
 
-Leere Rahmen-Boxen werden vollständig ignoriert. Wenn alle Rahmen-Boxen des Elements leer sind, wird ein Rechteck mit einer `width` und `height` von null zurückgegeben, wobei `top` und `left` die obere linke Ecke der Rahmen-Box für die erste CSS-Box (nach Inhaltsreihenfolge) des Elements sind.
+Leere Rahmen-Boxen werden vollständig ignoriert. Wenn alle Rahmen-Boxen des Elements leer sind, wird ein Rechteck mit einer `width` und `height` von null zurückgegeben, wobei `top` und `left` die obere linke Ecke der Rahmen-Box für die erste CSS-Box (in Inhaltsreihenfolge) für das Element sind.
 
-Beim Berechnen des Begrenzungsrechtecks wird die Menge des Scrollens berücksichtigt, die im Viewport-Bereich (oder einem anderen scrollbaren Element) erfolgt ist. Das bedeutet, dass sich die Grenzkanten des Rechtecks (`top`, `right`, `bottom`, `left`) jedes Mal ändern, wenn sich die Scrollposition ändert (weil ihre Werte relativ zum Viewport und nicht absolut sind).
+Die Menge des Scrollens, die im Viewport-Bereich (oder einem anderen scrollbaren Element) durchgeführt wurde, wird bei der Berechnung des Begrenzungsrechtecks berücksichtigt. Das bedeutet, dass die Begrenzungskanten des Rechtecks (`top`, `right`, `bottom`, `left`) ihre Werte jedes Mal ändern, wenn sich die Scrollposition ändert (weil ihre Werte relativ zum Viewport und nicht absolut sind).
 
-Wenn Sie das Begrenzungsrechteck relativ zur oberen linken Ecke des Dokuments benötigen, fügen Sie einfach die aktuelle Scrollposition zu den Eigenschaften `top` und `left` hinzu (diese können mit {{domxref("window.scrollY")}} und {{domxref("window.scrollX")}} ermittelt werden), um ein Begrenzungsrechteck zu erhalten, das unabhängig von der aktuellen Scrollposition ist.
+Wenn Sie das Begrenzungsrechteck relativ zur oberen linken Ecke des Dokuments benötigen, addieren Sie einfach die aktuelle Scrollposition zu den Eigenschaften `top` und `left` (diese können mit [`window.scrollY`](/de/docs/Web/API/Window/scrollY) und [`window.scrollX`](/de/docs/Web/API/Window/scrollX) erhalten werden), um ein Begrenzungsrechteck zu erhalten, das unabhängig von der aktuellen Scrollposition ist.
 
 ## Beispiele
 
-### Grundlegend
+### Einfach
 
-Dieses einfache Beispiel ruft das `DOMRect`-Objekt ab, das das Begrenzungsrechteck eines einfachen `<div>`-Elements darstellt, und druckt seine Eigenschaften darunter aus.
+Dieses einfache Beispiel ruft das `DOMRect`-Objekt ab, das das Begrenzungsrechteck eines einfachen `<div>`-Elements darstellt, und gibt seine Eigenschaften darunter aus.
 
 ```html
 <div></div>
@@ -70,9 +71,9 @@ for (const key in rect) {
 
 {{EmbedLiveSample('Basic', '100%', 640)}}
 
-Beachten Sie, wie die `width`/`height` gleich ihrer `width`/`height` + `padding` sind.
+Beachten Sie, wie `width`/`height` gleich ihrem `width`/`height` + `padding` sind.
 
-Beachten Sie auch, wie die Werte von `x`/`left`, `y`/`top`, `right` und `bottom` gleich dem absoluten Abstand von der entsprechenden Kante des Viewports zu dieser Seite des Elements sind, in jedem Fall.
+Beachten Sie auch, wie die Werte von `x`/`left`, `y`/`top`, `right` und `bottom` dem absoluten Abstand von der jeweiligen Kante des Viewports bis zu dieser Seite des Elements entsprechen.
 
 ### Scrollen
 
@@ -132,4 +133,4 @@ update();
 
 ## Siehe auch
 
-- {{domxref("Element.getClientRects", "getClientRects()")}}
+- [`getClientRects()`](/de/docs/Web/API/Element/getClientRects)

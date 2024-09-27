@@ -7,17 +7,17 @@ l10n:
 
 {{AddonSidebar}}
 
-Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet werden kann, um zu verhindern, dass Websites Benachrichtigungen über die [`Notifications`](/de/docs/Web/API/Notifications_API) Web-API anzeigen.
+Ein {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}}-Objekt, das verwendet werden kann, um zu verhindern, dass Websites Benachrichtigungen mit der [`Notifications`](/de/docs/Web/API/Notifications_API) Web API anzeigen.
 
-Die `Notifications`-API wird verwendet, um Desktop-Benachrichtigungen für den Benutzer anzuzeigen. Es gibt drei Berechtigungsstufen für Benachrichtigungen: _allow_, _deny_ und _prompt_. Benutzer können diese Berechtigung für jede Website festlegen. Wenn der Benutzer keine Berechtigung für eine bestimmte Website festgelegt hat, verwendet der Browser eine globale Berechtigung, die standardmäßig auf _prompt_ gesetzt ist.
+Die `Notifications` API wird verwendet, um Desktop-Benachrichtigungen für den Benutzer anzuzeigen. Es gibt drei Berechtigungsstufen für Benachrichtigungen: _erlauben_, _verweigern_ und _nachfragen_. Benutzer können diese Berechtigung für jede Website festlegen. Wenn der Benutzer keine Berechtigung für eine bestimmte Website festgelegt hat, wird der Browser auf eine globale Berechtigung zurückgreifen, die standardmäßig auf _nachfragen_ gesetzt ist.
 
-Das Setzen von `browserSettings.webNotificationsDisabled` auf `true` ändert die globale Berechtigung auf _deny_.
+Das Setzen von `browserSettings.webNotificationsDisabled` auf `true` schaltet die globale Berechtigung auf _verweigern_ um.
 
-Beachten Sie, dass dies keine Auswirkungen auf Websites hat, für die der Benutzer eine spezielle Einstellung getroffen hat. Zum Beispiel, wenn der Benutzer <https://example.org> auf _allow_ setzt und eine Erweiterung dann `browserSettings.webNotificationsDisabled` auf `true` setzt, dürfen Seiten unter [https://example.org](https://example.org) weiterhin Benachrichtigungen anzeigen.
+Beachten Sie, dass dies keine Auswirkungen auf Seiten hat, für die der Benutzer eine spezifische Präferenz festgelegt hat. Wenn der Benutzer beispielsweise <https://example.org> auf _erlauben_ setzt und eine Erweiterung dann `browserSettings.webNotificationsDisabled` auf `true` setzt, können Seiten unter [https://example.org](https://example.org) weiterhin Benachrichtigungen anzeigen.
 
-Das Setzen von `browserSettings.webNotificationsDisabled` auf `false` setzt die globale Standardberechtigung auf ihren Standardwert zurück.
+Das Setzen von `browserSettings.webNotificationsDisabled` auf `false` schaltet den globalen Standardwert zurück auf den Standardwert.
 
-Beachten Sie, dass diese Einstellung keinen Einfluss auf Benachrichtigungen hat, die von Erweiterungen mit der [`notifications`](/de/docs/Mozilla/Add-ons/WebExtensions/API/notifications)-API erstellt wurden.
+Beachten Sie, dass diese Einstellung keine Auswirkungen auf Benachrichtigungen hat, die von Erweiterungen mit der [`notifications`](/de/docs/Mozilla/Add-ons/WebExtensions/API/notifications) API erstellt werden.
 
 ## Browser-Kompatibilität
 
@@ -25,7 +25,7 @@ Beachten Sie, dass diese Einstellung keinen Einfluss auf Benachrichtigungen hat,
 
 ## Beispiele
 
-Schalten Sie die Einstellung um:
+Die Einstellung umschalten:
 
 ```js
 async function toggleWebNotifications() {

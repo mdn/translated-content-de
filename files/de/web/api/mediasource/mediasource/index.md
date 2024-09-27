@@ -1,16 +1,16 @@
 ---
-title: "MediaSource: MediaSource() Konstruktor"
+title: "MediaSource: MediaSource()-Konstruktor"
 short-title: MediaSource()
 slug: Web/API/MediaSource/MediaSource
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
 ---
 
-{{APIRef("Media Source Extensions")}}
+{{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`MediaSource()`** Konstruktor des
-{{domxref("MediaSource")}} Interfaces erstellt und gibt ein neues
-`MediaSource` Objekt ohne zugeordnete Quellpuffer zurück.
+Der **`MediaSource()`**-Konstruktor der
+[`MediaSource`](/de/docs/Web/API/MediaSource)-Schnittstelle erstellt und gibt ein neues
+`MediaSource`-Objekt ohne zugehörige Quellpuffer zurück.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 ## Beispiele
 
-Das folgende Snippet stammt aus einem einfachen Beispiel von Nick Desaulniers ([sehen Sie sich das vollständige Demo live an](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html), oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen).
+Der folgende Code-Schnipsel stammt aus einem einfachen Beispiel von Nick Desaulniers ([sehen Sie sich die vollständige Demo live an](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html), oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen).
 
 ```js
 const video = document.querySelector("video");
@@ -56,5 +56,5 @@ if ("MediaSource" in window && MediaSource.isTypeSupported(mimeCodec)) {
 
 ## Siehe auch
 
-- {{domxref("SourceBuffer")}}
-- {{domxref("SourceBufferList")}}
+- [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)
+- [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)

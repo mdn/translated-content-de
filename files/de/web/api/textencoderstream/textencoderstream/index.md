@@ -1,14 +1,14 @@
 ---
-title: "TextEncoderStream: TextEncoderStream()-Konstruktor"
+title: "TextEncoderStream: TextEncoderStream() Konstruktor"
 short-title: TextEncoderStream()
 slug: Web/API/TextEncoderStream/TextEncoderStream
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
 ---
 
-{{APIRef("Encoding API")}}
+{{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Der **`TextEncoderStream()`**-Konstruktor erstellt ein neues {{domxref("TextEncoderStream")}}-Objekt, das verwendet wird, um einen Strom von Zeichenfolgen in Bytes unter Verwendung der UTF-8-Codierung zu konvertieren.
+Der **`TextEncoderStream()`** Konstruktor erstellt ein neues [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream)-Objekt, das verwendet wird, um einen Strom von Zeichenketten in Bytes mittels UTF-8-Codierung zu konvertieren.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ## Beispiele
 
-In diesem Beispiel wird ein `TextEncoderStream` erstellt und verwendet, um einen Textstrom hochzuladen.
+In diesem Beispiel wird ein `TextEncoderStream` erstellt und verwendet, um einen Strom von Text hochzuladen.
 
 ```js
 const body = textStream.pipeThrough(new TextEncoderStream());

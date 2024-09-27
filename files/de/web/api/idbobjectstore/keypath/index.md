@@ -8,10 +8,9 @@ l10n:
 
 {{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
-Die **`keyPath`** schreibgeschützte Eigenschaft des
-{{domxref("IDBObjectStore")}}-Interfaces gibt den [key path](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_path) dieses Objektspeichers zurück.
+Die schreibgeschützte **`keyPath`**-Eigenschaft des [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)-Interfaces gibt den [Key Path](/de/docs/Web/API/IndexedDB_API/Basic_Terminology#key_path) dieses Objektspeichers zurück.
 
-Ist diese Eigenschaft null, muss die Anwendung für jede Modifikationsoperation einen Schlüssel bereitstellen.
+Wenn diese Eigenschaft null ist, muss die Anwendung einen Schlüssel für jede Änderungsoperation bereitstellen.
 
 ## Wert
 
@@ -19,28 +18,26 @@ Jeder Werttyp.
 
 ## Beispiele
 
-Im folgenden Codebeispiel öffnen wir eine Lese-/Schreibtransaktion auf unserer Datenbank und fügen dem Objektspeicher mit `add()` einige Daten hinzu. Nachdem der Objektspeicher erstellt wurde, loggen wir `objectStore.keyPath` in
-die Konsole. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App
-([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+Im folgenden Code-Snippet öffnen wir eine Lese-/Schreib-Transaktion auf unserer Datenbank und fügen mit `add()` einige Daten zu einem Objektspeicher hinzu. Nachdem der Objektspeicher erstellt wurde, protokollieren wir `objectStore.keyPath` in der Konsole. Für ein vollständiges funktionierendes Beispiel siehe unsere [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications)-App ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
-// Lassen Sie uns unsere Datenbank öffnen
+// Let us open our database
 const DBOpenRequest = window.indexedDB.open("toDoList", 4);
 
 DBOpenRequest.onsuccess = (event) => {
   note.appendChild(document.createElement("li")).textContent =
-    "Datenbank initialisiert.";
+    "Database initialized.";
 
-  // Speichern Sie das Ergebnis des Öffnens der Datenbank in der db-Variable.
-  // Dies wird unten häufig verwendet
+  // store the result of opening the database in the db variable.
+  // This is used a lot below
   db = DBOpenRequest.result;
 
-  // Führen Sie die addData()-Funktion aus, um die Daten zur Datenbank hinzuzufügen
+  // Run the addData() function to add the data to the database
   addData();
 };
 
 function addData() {
-  // Erstellen Sie ein neues Objekt, das in die IDB eingefügt werden soll
+  // Create a new object ready to insert into the IDB
   const newItem = [
     {
       taskTitle: "Walk dog",
@@ -53,31 +50,31 @@ function addData() {
     },
   ];
 
-  // Öffnen Sie eine Lese-/Schreibtransaktion der Datenbank, bereit zum Hinzufügen der Daten
+  // open a read/write db transaction, ready for adding the data
   const transaction = db.transaction(["toDoList"], "readwrite");
 
-  // Bericht über den Erfolg des Abschlusses der Transaktion, wenn alles erledigt ist
+  // report on the success of the transaction completing, when everything is done
   transaction.oncomplete = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion abgeschlossen.";
+      "Transaction completed.";
   };
 
   transaction.onerror = (event) => {
     note.appendChild(document.createElement("li")).textContent =
-      "Transaktion aufgrund eines Fehlers nicht geöffnet. Doppelte Elemente sind nicht erlaubt.";
+      "Transaction not opened due to error. Duplicate items not allowed.";
   };
 
-  // Erstellen Sie einen Objektspeicher auf der Transaktion
+  // create an object store on the transaction
   const objectStore = transaction.objectStore("toDoList");
   console.log(objectStore.keyPath);
 
-  // Stellen Sie einen Antrag, unser newItem-Objekt dem Objektspeicher hinzuzufügen
+  // Make a request to add our newItem object to the object store
   const objectStoreRequest = objectStore.add(newItem[0]);
 
   objectStoreRequest.onsuccess = (event) => {
-    // Bericht über den Erfolg unseres Antrags
+    // report the success of our request
     note.appendChild(document.createElement("li")).textContent =
-      "Anfrage erfolgreich.";
+      "Request successful.";
   };
 }
 ```
@@ -92,10 +89,10 @@ function addData() {
 
 ## Siehe auch
 
-- [IndexedDB verwenden](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: {{domxref("IDBDatabase")}}
-- Transaktionen verwenden: {{domxref("IDBTransaction")}}
-- Einen Schlüsselbereich festlegen: {{domxref("IDBKeyRange")}}
-- Abrufen und Ändern Ihrer Daten: {{domxref("IDBObjectStore")}}
-- Cursors verwenden: {{domxref("IDBCursor")}}
-- Beispielreferenz: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- [Using IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Verwenden von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
+- Einstellen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
+- Verwenden von Kursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

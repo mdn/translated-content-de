@@ -1,5 +1,5 @@
 ---
-title: Unterliniendicke
+title: underline-thickness
 slug: Web/SVG/Attribute/underline-thickness
 l10n:
   sourceCommit: 052d4c77d0346c43351c50de9ea5e834af365779
@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut `underline-thickness` repräsentiert die ideale Dicke der Unterstreichung. Die Unterliniendicke wird im Koordinatensystem der Schriftart ausgedrückt.
+Das `underline-thickness` Attribut repräsentiert die ideale Dicke der Unterstreichung. Die Dicke der Unterstreichung wird im Koordinatensystem der Schriftart ausgedrückt.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 

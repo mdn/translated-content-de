@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`newURL`** schreibgeschützte Eigenschaft der
-{{domxref("HashChangeEvent")}}-Schnittstelle gibt die neue URL zurück, zu der das Fenster navigiert.
+Die **`newURL`**-Eigenschaft des [`HashChangeEvent`](/de/docs/Web/API/HashChangeEvent)-Interfaces ist eine schreibgeschützte Eigenschaft, die die neue URL zurückgibt, zu der das Fenster navigiert.
 
 ## Wert
 
@@ -19,7 +18,7 @@ Ein String.
 
 ```js
 window.addEventListener("hashchange", (event) => {
-  console.log(`Hash geändert zu ${event.newURL}`);
+  console.log(`Hash changed to ${event.newURL}`);
 });
 ```
 
@@ -27,6 +26,6 @@ window.addEventListener("hashchange", (event) => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

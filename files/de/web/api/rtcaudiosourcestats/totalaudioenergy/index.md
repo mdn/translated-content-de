@@ -8,26 +8,27 @@ l10n:
 
 {{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`totalAudioEnergy`**-Eigenschaft des {{domxref("RTCAudioSourceStats")}}-Dictionary stellt die gesamte Audioenergie der Medienquelle über die Lebensdauer dieses Statistikobjekts dar.
+Die **`totalAudioEnergy`**-Eigenschaft des [`RTCAudioSourceStats`](/de/docs/Web/API/RTCAudioSourceStats) Dictionary repräsentiert die gesamte Audioenergie der Medienquelle über die Lebensdauer dieses Statistik-Objekts.
 
-Die gesamte Energie über einen bestimmten Zeitraum kann ermittelt werden, indem der Wert dieser Eigenschaft, der durch zwei verschiedene `getStats()`-Aufrufe zurückgegeben wird, subtrahiert wird.
+Die Gesamtenergie über eine bestimmte Dauer kann bestimmt werden, indem der Wert dieser Eigenschaft, der durch zwei verschiedene `getStats()`-Aufrufe zurückgegeben wird, subtrahiert wird.
 
 > [!NOTE]
-> Für die Audioenergie von Remote-Quellen-Tracks siehe {{domxref("RTCInboundRtpStreamStats.totalAudioEnergy")}}.
+> Für Audioenergie von extern bezogenen Tracks siehe [`RTCInboundRtpStreamStats.totalAudioEnergy`](/de/docs/Web/API/RTCInboundRtpStreamStats/totalAudioEnergy).
 
 ## Wert
 
-Eine Zahl, die durch die Summierung der Energie jeder Probe über die Lebensdauer dieses Statistikobjekts produziert wird.
+Eine Zahl, die durch Summieren der Energie jeder Probe über die Lebensdauer dieses Statistik-Objekts erzeugt wird.
 
-Die Energie jeder Probe wird berechnet, indem der Wert der Probe durch den am höchsten kodierbaren Intensitätswert geteilt, das Ergebnis quadriert und dann mit der Dauer der Probe in Sekunden multipliziert wird. Dies wird unten als Gleichung dargestellt:
+Die Energie jeder Probe wird berechnet, indem der Wert der Probe durch den höchstmöglichen, codierbaren Wert geteilt, das Ergebnis quadriert und dann mit der Dauer der Probe in Sekunden multipliziert wird.
+Dies wird als Gleichung unten dargestellt:
 
 <!-- prettier-ignore-start -->
 <math display="block">
-  <semantics><mrow><mi>Dauer</mi><mo>×</mo><msup><mrow><mo>(</mo><mfrac><mi>sample_level</mi><mi>max_level</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="TeX">Dauer \times⁢ \left(\left(\right. \frac{sample{\_}level}{max{\_}level} \left.\right)\right)^{2}</annotation></semantics>
+  <semantics><mrow><mi>duration</mi><mo>×</mo><msup><mrow><mo>(</mo><mfrac><mi>sample_level</mi><mi>max_level</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="TeX">duration \times⁢ \left(\left(\right. \frac{sample{\_}level}{max{\_}level} \left.\right)\right)^{2}</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
-Beachten Sie, dass bei Verwendung mehrerer Audiokanäle die Audioenergie einer Probe die höchste Energie eines beliebigen Kanals bezeichnet.
+Beachten Sie, dass bei Verwendung mehrerer Audiokanäle die Audioenergie einer Probe sich auf die höchste Energie eines Kanals bezieht.
 
 ## Spezifikationen
 

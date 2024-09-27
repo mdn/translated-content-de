@@ -1,5 +1,5 @@
 ---
-title: "Document: Methode replaceChildren()"
+title: "Document: replaceChildren() Methode"
 short-title: replaceChildren()
 slug: Web/API/Document/replaceChildren
 l10n:
@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Document.replaceChildren()`**-Methode ersetzt die
-vorhandenen Kinder eines `Document` durch eine angegebene neue Menge von Kindern.
+Die **`Document.replaceChildren()`** Methode ersetzt die
+bestehenden Kinder eines `Dokument` durch einen angegebenen neuen Satz von Kindern.
 
 ## Syntax
 
@@ -22,8 +22,7 @@ replaceChildren(param1, param2, /* …, */ paramN)
 ### Parameter
 
 - `param1`, …, `paramN`
-  - : Eine Reihe von {{domxref("Node")}}-Objekten oder Strings, mit denen die
-    vorhandenen Kinder des `Document` ersetzt werden. Wenn keine Ersetzungsobjekte angegeben sind, wird das `Document` von allen Kindknoten geleert.
+  - : Ein Satz von [`Node`](/de/docs/Web/API/Node) Objekten oder Strings, um die bestehenden Kinder des `Documents` zu ersetzen. Wenn keine Ersetzungsobjekte angegeben sind, wird das `Document` von allen Kindknoten geleert.
 
 ### Rückgabewert
 
@@ -31,14 +30,14 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- `HierarchyRequestError` {{DOMxRef("DOMException")}}
-  - : Wird ausgelöst, wenn die [Einschränkungen des Knotenbaums](https://dom.spec.whatwg.org/#concept-node-tree) verletzt werden.
+- `HierarchyRequestError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die [Einschränkungen des Knotendiagramms](https://dom.spec.whatwg.org/#concept-node-tree) verletzt werden.
 
 ## Beispiele
 
 ### Ein Dokument leeren
 
-`replaceChildren()` bietet einen sehr praktischen Mechanismus, um ein Dokument von all seinen Kindern zu leeren. Es wird auf das Dokument ohne angegebenes Argument aufgerufen:
+`replaceChildren()` bietet eine sehr bequeme Möglichkeit, ein Dokument von allen seinen Kindern zu leeren. Sie rufen es ohne Argumente auf dem Dokument auf:
 
 ```js
 document.replaceChildren();
@@ -55,5 +54,5 @@ document.children; // HTMLCollection []
 
 ## Siehe auch
 
-- {{domxref("Document.prepend()")}}
-- {{domxref("Document.append()")}}
+- [`Document.prepend()`](/de/docs/Web/API/Document/prepend)
+- [`Document.append()`](/de/docs/Web/API/Document/append)

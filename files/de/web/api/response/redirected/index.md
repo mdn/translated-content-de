@@ -1,5 +1,5 @@
 ---
-title: "Response: Eigenschaft redirected"
+title: "Response: redirected-Eigenschaft"
 short-title: redirected
 slug: Web/API/Response/redirected
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte **`redirected`** Eigenschaft der {{domxref("Response")}} Schnittstelle zeigt an, ob die Antwort das Ergebnis einer von Ihnen getätigten Anfrage ist, die umgeleitet wurde.
+Die schreibgeschützte **`redirected`**-Eigenschaft der [`Response`](/de/docs/Web/API/Response)-Schnittstelle zeigt an, ob die Antwort das Ergebnis einer Anforderung ist, die Sie gestellt haben und die umgeleitet wurde.
 
 > [!NOTE]
-> Sich auf `redirected` zu verlassen, um Umleitungen herauszufiltern, erleichtert es, dass eine gefälschte Umleitung verhindert, dass Ihr Inhalt wie erwartet funktioniert.
-> Stattdessen sollten Sie das Filtern durchführen, wenn Sie {{domxref("Window/fetch", "fetch()")}} aufrufen.
-> Siehe das Beispiel [Umleitungen nicht erlauben](#umleitungen_nicht_erlauben), das dies zeigt.
+> Sich auf `redirected` zu verlassen, um Weiterleitungen herauszufiltern, macht es einfach für eine gefälschte Weiterleitung, Ihr Inhalt daran zu hindern, wie erwartet zu funktionieren.
+> Stattdessen sollten Sie die Filterung vornehmen, wenn Sie [`fetch()`](/de/docs/Web/API/Window/fetch) aufrufen.
+> Siehe das Beispiel [Weiterleitungen nicht zulassen](#weiterleitungen_nicht_zulassen), das zeigt, wie dies gemacht wird.
 
 ## Wert
 
@@ -21,20 +21,20 @@ Ein boolescher Wert, der `true` ist, wenn die Antwort anzeigt, dass Ihre Anfrage
 
 ## Beispiele
 
-### Umleitungen erkennen
+### Weiterleitungen erkennen
 
-Zu überprüfen, ob die Antwort aus einer umgeleiteten Anfrage stammt, ist so einfach wie das Prüfen dieses Flags auf dem {{domxref("Response")}} Objekt.
-Im folgenden Code wird eine Textnachricht in ein Element eingefügt, wenn während der Fetch-Operation eine Umleitung aufgetreten ist.
-Beachten Sie jedoch, dass dies nicht so sicher ist wie die direkte Ablehnung von Umleitungen, wenn sie nicht erwartet werden, wie unter [Umleitungen nicht erlauben](#umleitungen_nicht_erlauben) unten beschrieben.
+Zu überprüfen, ob die Antwort von einer umgeleiteten Anfrage stammt, ist so einfach wie das Überprüfen dieses Flags auf dem [`Response`](/de/docs/Web/API/Response)-Objekt.
+Im untenstehenden Code wird eine Textnachricht in ein Element eingefügt, wenn während der Abrufoperation eine Umleitung stattgefunden hat.
+Beachten Sie jedoch, dass dies nicht so sicher ist, wie das direkte Ablehnen von Weiterleitungen, wenn diese unerwartet sind, wie im Abschnitt [Weiterleitungen nicht zulassen](#weiterleitungen_nicht_zulassen) unten beschrieben.
 
-Die {{domxref("Response.url", "url")}} Eigenschaft gibt die endgültige URL nach Umleitungen zurück.
+Die [`url`](/de/docs/Web/API/Response/url)-Eigenschaft gibt die endgültige URL nach Weiterleitungen zurück.
 
 ```js
 fetch("awesome-picture.jpg")
   .then((response) => {
     const elem = document.getElementById("warning-message-box");
-    elem.textContent = response.redirected ? "Unerwartete Umleitung" : "";
-    // endgültige URL nach Umleitungen erhalten
+    elem.textContent = response.redirected ? "Unexpected redirect" : "";
+    // final url obtained after redirects
     console.log(response.url);
     return response.blob();
   })
@@ -44,9 +44,9 @@ fetch("awesome-picture.jpg")
   });
 ```
 
-### Umleitungen nicht erlauben
+### Weiterleitungen nicht zulassen
 
-Da die Verwendung von `redirected`, um Umleitungen manuell herauszufiltern, die Fälschung von Umleitungen ermöglichen kann, sollten Sie stattdessen den Umleitungsmodus auf `"error"` im `init` Parameter einstellen, wenn Sie {{domxref("Window/fetch", "fetch()")}} aufrufen, wie folgt:
+Da es durch das manuelle Filtern von Weiterleitungen mittels `redirected` möglich ist, gefälschte Weiterleitungen zuzulassen, sollten Sie stattdessen den Weiterleitungsmodus auf `"error"` im `init`-Parameter setzen, wenn Sie [`fetch()`](/de/docs/Web/API/Window/fetch) aufrufen, wie folgt:
 
 ```js
 fetch("awesome-picture.jpg", { redirect: "error" })

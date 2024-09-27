@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`toJSON()`**-Methode ist ein {{Glossary("Serialization","Serializer")}}; sie gibt eine JSON-Darstellung des {{domxref("PerformanceEntry")}}-Objekts zurück.
+Die **`toJSON()`**-Methode ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekts zurück.
 
 ## Syntax
 
@@ -22,13 +22,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des {{domxref("PerformanceEntry")}}-Objekts darstellt.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekts darstellt.
 
 ## Beispiele
 
-### Verwenden der toJSON-Methode
+### Verwendung der toJSON-Methode
 
-In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des {{domxref("PerformanceMark")}}-Objekts zurück.
+In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekts zurück.
 
 ```js
 performance.mark("debug-marker", {
@@ -55,9 +55,9 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Beachten Sie, dass es die {{domxref("PerformanceMark.detail", "detail")}}-Eigenschaft von `PerformanceMark` nicht enthält.
+Beachten Sie, dass es nicht die [`detail`](/de/docs/Web/API/PerformanceMark/detail)-Eigenschaft von `PerformanceMark` enthält.
 
-Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; es ruft automatisch `toJSON()` auf.
+Um eine JSON-Zeichenkette zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; es wird automatisch `toJSON()` aufrufen.
 
 ## Spezifikationen
 

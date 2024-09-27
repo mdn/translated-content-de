@@ -7,12 +7,12 @@ l10n:
 
 {{CSSRef}}
 
-Der **`font-display`** Deskriptor für die [`@font-face`](/de/docs/Web/CSS/@font-face) Regel bestimmt, wie ein Schriftschnitt angezeigt wird, basierend darauf, ob und wann er heruntergeladen und einsatzbereit ist.
+Der **`font-display`** Deskriptor für die [`@font-face`](/de/docs/Web/CSS/@font-face) At-Regel bestimmt, wie ein Schriftschnitt angezeigt wird, basierend darauf, ob und wann er heruntergeladen und einsatzbereit ist.
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 font-display: auto;
 font-display: block;
 font-display: swap;
@@ -23,15 +23,15 @@ font-display: optional;
 ### Werte
 
 - `auto`
-  - : Die Strategie zur Schriftanzeige wird durch den Benutzeragenten definiert.
+  - : Die Schriftanzeigestrategie wird vom Benutzeragenten definiert.
 - `block`
-  - : Gibt dem Schriftschnitt eine kurze Blockperiode und eine unendliche Swap-Periode.
+  - : Verleiht dem Schriftschnitt eine kurze Blockperiode und eine unendliche Wechselperiode.
 - `swap`
-  - : Gibt dem Schriftschnitt eine extrem kurze Blockperiode und eine unendliche Swap-Periode.
+  - : Verleiht dem Schriftschnitt eine extrem kurze Blockperiode und eine unendliche Wechselperiode.
 - `fallback`
-  - : Gibt dem Schriftschnitt eine extrem kurze Blockperiode und eine kurze Swap-Periode.
+  - : Verleiht dem Schriftschnitt eine extrem kurze Blockperiode und eine kurze Wechselperiode.
 - `optional`
-  - : Gibt dem Schriftschnitt eine extrem kurze Blockperiode und keine Swap-Periode.
+  - : Verleiht dem Schriftschnitt eine extrem kurze Blockperiode und keine Wechselperiode.
 
 > [!NOTE]
 > In Firefox geben die Einstellungen `gfx.downloadable_fonts.fallback_delay`
@@ -39,11 +39,11 @@ font-display: optional;
 
 ## Beschreibung
 
-Der Zeitablauf für die Schriftanzeige basiert auf einem Timer, der startet, sobald der Benutzeragent versucht, einen heruntergeladenen Schriftschnitt zu verwenden. Der Zeitablauf ist in die drei unten aufgeführten Perioden unterteilt, die das Renderverhalten aller Elemente bestimmen, die den Schriftschnitt verwenden:
+Der Zeitverlauf der Schriftanzeige basiert auf einem Timer, der beginnt, sobald der Benutzeragent versucht, einen heruntergeladenen Schriftschnitt zu verwenden. Der Zeitverlauf ist in die folgenden drei Perioden unterteilt, die das Rendering-Verhalten von Elementen diktieren, die den Schriftschnitt verwenden:
 
-- Schriftblockperiode: Ist der Schriftschnitt nicht geladen, muss jedes Element, das ihn verwenden möchte, eine _unsichtbare_ Ausweichschriftart rendern. Wenn der Schriftschnitt während dieser Periode erfolgreich geladen wird, wird er normal verwendet.
-- Schriftwechselperiode: Ist der Schriftschnitt nicht geladen, muss jedes Element, das ihn verwenden möchte, eine Ausweichschriftart rendern. Wenn der Schriftschnitt während dieser Periode erfolgreich geladen wird, wird er normal verwendet.
-- Schriftfehlerperiode: Ist der Schriftschnitt nicht geladen, behandelt der Benutzeragent dies als fehlgeschlagenen Ladevorgang, was zu einem normalen Schriftfalleback führt.
+- Schriftblockperiode: Wenn der Schriftschnitt nicht geladen ist, muss jedes Element, das ihn verwenden möchte, eine _unsichtbare_ Ersatzschrift anzeigen. Wenn der Schriftschnitt während dieser Periode erfolgreich geladen wird, wird er normal verwendet.
+- Schriftwechselperiode: Wenn der Schriftschnitt nicht geladen ist, muss jedes Element, das ihn verwenden möchte, eine Ersatzschrift anzeigen. Wenn der Schriftschnitt während dieser Periode erfolgreich geladen wird, wird er normal verwendet.
+- Schriftfehlerperiode: Wenn der Schriftschnitt nicht geladen ist, behandelt der Benutzeragent ihn als fehlgeschlagenen Ladevorgang und löst ein normales Schrift-Fallback aus.
 
 ## Formale Definition
 
@@ -55,7 +55,7 @@ Der Zeitablauf für die Schriftanzeige basiert auf einem Timer, der startet, sob
 
 ## Beispiele
 
-### Fallback font-display festlegen
+### Fallback font-display spezifizieren
 
 ```css
 @font-face {

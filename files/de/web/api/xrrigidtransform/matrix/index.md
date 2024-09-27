@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte {{domxref("XRRigidTransform")}}-Eigenschaft **`matrix`** gibt die durch das Objekt dargestellte Transformationsmatrix zurück. Die zurückgegebene Matrix kann dann mit einem Spaltenvektor multipliziert werden, um den Vektor durch die durch die {{domxref("XRRigidTransform.orientation", "orientation")}} spezifizierte 3D-Rotation zu drehen und ihn dann durch die {{domxref("XRRigidTransform.position", "position")}} zu verschieben.
+Die schreibgeschützte [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Eigenschaft **`matrix`** gibt die Transformationsmatrix zurück, die durch das Objekt dargestellt wird. Die zurückgegebene Matrix kann dann mit einem Spaltenvektor vorkombiniert werden, um den Vektor durch die 3D-Rotation zu drehen, die durch die [`orientation`](/de/docs/Web/API/XRRigidTransform/orientation) angegeben wird, und dann durch die [`position`](/de/docs/Web/API/XRRigidTransform/position) zu verschieben.
 
 ## Wert
 
-Ein {{jsxref("Float32Array")}} mit 16 Einträgen, das die 4x4-Transformationsmatrix darstellt, die durch die Eigenschaften {{domxref("XRRigidTransform.position", "position")}} und {{domxref("XRRigidTransform.orientation", "orientation")}} beschrieben wird.
+Ein {{jsxref("Float32Array")}} mit 16 Einträgen, das die 4x4-Transformationsmatrix darstellt, die durch die [`position`](/de/docs/Web/API/XRRigidTransform/position)- und [`orientation`](/de/docs/Web/API/XRRigidTransform/orientation)-Eigenschaften beschrieben wird.
 
 ## Verwendungshinweise
 
-### Matrix-Format
+### Matrixformat
 
-Alle 4x4-Transformationsmatrizen, die in WebGL verwendet werden, werden in 16-Element-{{jsxref("Float32Array")}}s gespeichert. Die Werte werden in Spalten-Major-Reihenfolge im Array gespeichert; das heißt, jede Spalte wird von oben nach unten in das Array geschrieben, bevor zur nächsten Spalte rechts gewechselt und diese in das Array geschrieben wird. Daher sieht die Matrix für das Array `[a0, a1, a2, …, a13, a14, a15]` so aus:
+Alle 4x4-Transformationsmatrizen, die in WebGL verwendet werden, sind in 16-elementigen {{jsxref("Float32Array")}}s gespeichert. Die Werte werden in Spalten-Major-Order im Array gespeichert; das heißt, jede Spalte wird von oben nach unten in das Array geschrieben, bevor man zur nächsten Spalte rechts übergeht und diese in das Array schreibt. Deshalb sieht die Matrix für das Array `[a0, a1, a2, …, a13, a14, a15]` so aus:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -30,7 +30,7 @@ Bei der ersten Anfrage wird die `matrix` berechnet. Danach sollte sie aus Leistu
 
 ### Erstellung der Matrix
 
-In diesem Abschnitt, der für fortgeschrittene Leser gedacht ist, behandeln wir, wie die API die Matrix für die angegebene Transformation berechnet. Es beginnt mit der Zuweisung einer neuen Matrix und dem Schreiben einer 4x4-Identitätsmatrix hinein:
+In diesem Abschnitt, der für fortgeschrittenere Leser gedacht ist, behandeln wir, wie die API die Matrix für die angegebene Transformation berechnet. Es beginnt damit, eine neue Matrix zuzuweisen und eine 4x4-Identitätsmatrix darin zu schreiben:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -38,9 +38,9 @@ In diesem Abschnitt, der für fortgeschrittene Leser gedacht ist, behandeln wir,
 </math>
 <!-- prettier-ignore-end -->
 
-Dies ist eine Transformation, die weder die Ausrichtung noch die Position eines Punktes, Vektors oder Objekts ändert, auf das sie angewendet wird.
+Dies ist eine Transformation, die weder die Orientierung noch die Position eines Punktes, Vektors oder Objekts ändert, auf das sie angewendet wird.
 
-Als Nächstes wird die `position` in die rechte Spalte eingefügt, was zu einer Translationsmatrix führt, die ein Koordinatensystem um die angegebene Entfernung in jeder Dimension ohne Rotationsänderung transformiert. Hier sind _p<sub>x</sub>_, _p<sub>y</sub>_ und _p<sub>z</sub>_ die Werte der `x`, `y` und `z` Mitglieder des {{domxref("DOMPointReadOnly")}} `position`.
+Als nächstes wird die `position` in die rechte Spalte platziert, wie hier gezeigt, was zu einer Translationsmatrix führt, die ein Koordinatensystem um die angegebene Entfernung in jeder Dimension transformiert, ohne dass eine Drehung erfolgt. Hierbei sind _p<sub>x</sub>_, _p<sub>y</sub>_, und _p<sub>z</sub>_ die Werte der `x`-, `y`- und `z`-Mitglieder der [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) `position`.
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -48,7 +48,7 @@ Als Nächstes wird die `position` in die rechte Spalte eingefügt, was zu einer 
 </math>
 <!-- prettier-ignore-end -->
 
-Dann wird eine Rotationsmatrix durch Berechnung einer Spaltenvektor-Rotationsmatrix aus dem durch `orientation` angegebenen Einheitsquaternion erstellt:
+Dann wird eine Rotationsmatrix erstellt, indem eine Spaltenvektor-Rotationsmatrix aus dem Einheitsquaternion berechnet wird, das durch `orientation` angegeben ist:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -56,7 +56,7 @@ Dann wird eine Rotationsmatrix durch Berechnung einer Spaltenvektor-Rotationsmat
 </math>
 <!-- prettier-ignore-end -->
 
-Die finale Transformationsmatrix `matrix` wird durch Multiplikation der Translationsmatrix mit der Rotationsmatrix in der Reihenfolge `(translation * rotation)` berechnet. Dies ergibt die endgültige Transformationsmatrix, die von `matrix` zurückgegeben wird:
+Die endgültige Transformations-`matrix` wird berechnet, indem die Translationsmatrix mit der Rotationsmatrix multipliziert wird, in der Reihenfolge `(translation * rotation)`. Dies ergibt die endgültige Transformationsmatrix, wie sie von `matrix` zurückgegeben wird:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -66,7 +66,7 @@ Die finale Transformationsmatrix `matrix` wird durch Multiplikation der Translat
 
 ## Beispiele
 
-In diesem Beispiel wird eine Transformation erstellt, um eine Matrix zu erzeugen, die als Transformation während der Darstellung von WebGL-Objekten verwendet werden kann, um Objekte passend zu einem gegebenen Offset und einer gegebenen Orientierung zu platzieren. Die `matrix` wird dann in eine Bibliotheksfunktion übergeben, die WebGL verwendet, um ein Objekt mit einem gegebenen Namen unter Verwendung der angegebenen Transformationsmatrix zu rendern, die das Objekt positioniert und orientiert.
+In diesem Beispiel wird eine Transformation erstellt, um eine Matrix zu erzeugen, die als Transformationsmatrix während des Renderns von WebGL-Objekten verwendet werden kann, um Objekte so zu platzieren, dass sie einem bestimmten Versatz und einer bestimmten Orientierung entsprechen. Die `matrix` wird dann an eine Bibliotheksfunktion übergeben, die mithilfe von WebGL ein Objekt mit dem angegebenen Namen rendert und die spezifizierte Transformationsmatrix verwendet, um es zu positionieren und zu orientieren.
 
 ```js
 let transform = new XRRigidTransform(

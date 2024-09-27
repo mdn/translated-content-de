@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Payment Request API")}}{{Deprecated_Header}}{{SecureContext_Header}}
 
-Die {{domxref("MerchantValidationEvent")}}-Eigenschaft **`validationURL`** ist ein schreibgeschützter Zeichenfolgenwert, der die URL angibt, von der die zahlungsspezifischen Daten abgerufen werden müssen, die zur Validierung des Händlers benötigt werden.
+Die [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent)-Eigenschaft **`validationURL`** ist ein schreibgeschützter String-Wert, der die URL bereitstellt, von der die zahlungsspezifischen Daten abgerufen werden müssen, um den Händler zu validieren.
 
-Diese Daten sollten in die {{domxref("MerchantValidationEvent.complete", "complete()")}}-Methode übergeben werden, um dem Benutzeragenten zu ermöglichen, die Transaktion abzuschließen.
+Diese Daten sollten in die [`complete()`](/de/docs/Web/API/MerchantValidationEvent/complete)-Methode übernommen werden, um dem Nutzeragenten das Abschließen der Transaktion zu ermöglichen.
 
 ## Wert
 
-Eine schreibgeschützte Zeichenfolge, die die URL angibt, von der die zahlungsspezifischen Daten geladen werden müssen, die für den Abschluss des Händlerverifizierungsprozesses erforderlich sind. Sobald diese geladen sind, sollten sie entweder direkt oder unter Verwendung eines Promises in {{domxref("MerchantValidationEvent.complete", "complete()")}} übergeben werden.
+Ein schreibgeschützter String, der die URL angibt, von der zahlungsspezifische Daten geladen werden müssen, um den Händler-Verifikationsprozess abzuschließen. Sobald diese geladen sind, sollten sie in [`complete()`](/de/docs/Web/API/MerchantValidationEvent/complete) übergeben werden, entweder direkt oder mittels eines Promises.
 
 Siehe [Händler-Validierung](/de/docs/Web/API/Payment_Request_API/Concepts#merchant_validation), um mehr über den Prozess zu erfahren.
 
@@ -26,4 +26,4 @@ Siehe [Händler-Validierung](/de/docs/Web/API/Payment_Request_API/Concepts#merch
 
 - [Payment Request API](/de/docs/Web/API/Payment_Request_API)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)
+- [Zahlungsabwicklungskonzepte](/de/docs/Web/API/Payment_Request_API/Concepts)

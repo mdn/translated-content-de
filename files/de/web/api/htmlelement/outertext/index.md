@@ -1,5 +1,5 @@
 ---
-title: "HTMLElement: outerText-Eigenschaft"
+title: "HTMLElement: outerText Eigenschaft"
 short-title: outerText
 slug: Web/API/HTMLElement/outerText
 l10n:
@@ -8,27 +8,27 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`outerText`**-Eigenschaft des {{domxref("HTMLElement")}}-Interfaces liefert denselben Wert wie {{domxref("HTMLElement.innerText")}}.
+Die **`outerText`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces gibt denselben Wert zurück wie [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText).
 Wenn sie als Setter verwendet wird, ersetzt sie den gesamten aktuellen Knoten durch den angegebenen Text (dies unterscheidet sich von `innerText`, welches den Inhalt _innerhalb_ des aktuellen Knotens ersetzt).
 
-Weitere Informationen und Beispiele, die zeigen, wie beide Eigenschaften als Getter verwendet werden, finden Sie unter {{domxref("HTMLElement.innerText")}}.
+Siehe [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText) für weitere Informationen und Beispiele, die zeigen, wie beide Eigenschaften als Getter verwendet werden.
 
 ## Wert
 
-Ein String, der den gerenderten Textinhalt eines Elements und seiner Nachkommen darstellt.
+Ein String, der den angezeigten Textinhalt eines Elements und seiner Nachkommen darstellt.
 
-Wenn das Element selbst nicht [gerendert wird](https://html.spec.whatwg.org/multipage/rendering.html#being-rendered) (zum Beispiel, wenn es vom Dokument gelöst oder aus der Ansicht verborgen ist), entspricht der zurückgegebene Wert der {{domxref("Node.textContent")}}-Eigenschaft.
+Wenn das Element selbst nicht [gerendert wird](https://html.spec.whatwg.org/multipage/rendering.html#being-rendered) (zum Beispiel, wenn es vom Dokument getrennt oder aus der Ansicht ausgeblendet ist), ist der zurückgegebene Wert derselbe wie die [`Node.textContent`](/de/docs/Web/API/Node/textContent)-Eigenschaft.
 
-Wenn sie als Setter verwendet wird, ersetzt sie den aktuellen Knoten durch den angegebenen Text und konvertiert dabei etwaige Zeilenumbrüche in {{HTMLElement("br")}}-Elemente.
+Bei Verwendung als Setter ersetzt sie den aktuellen Knoten durch den angegebenen Text und wandelt dabei alle Zeilenumbrüche in {{HTMLElement("br")}}-Elemente um.
 
 ## Beispiele
 
-Dieses Beispiel hebt den grundlegenden Unterschied hervor, wenn `outerText` und `innerText` als Setter verwendet werden (sie sind gleich, wenn sie als Getter verwendet werden).
+Dieses Beispiel hebt den grundlegenden Unterschied zwischen `outerText` und `innerText` hervor, wenn sie als Setter verwendet werden (sie sind gleich, wenn sie als Getter verwendet werden).
 
 > [!NOTE]
-> Das Beispiel ist eine modifizierte Version von [What is the difference between innerText and outerText?](https://stackoverflow.com/questions/18481382/what-is-the-difference-between-innertext-and-outertext/18481435#18481435) (Stack Overflow) von [codingintrigue](https://stackoverflow.com/users/571194/codingintrigue) und ist lizenziert unter [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
+> Das Beispiel ist eine modifizierte Version von [What is the difference between innerText and outerText?](https://stackoverflow.com/questions/18481382/what-is-the-difference-between-innertext-and-outertext/18481435#18481435) (Stack Overflow) von [codingintrigue](https://stackoverflow.com/users/571194/codingintrigue), lizenziert unter [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
 
-Betrachten Sie eine Seite, die das folgende HTML enthält:
+Betrachten Sie eine Seite, die den folgenden HTML-Code enthält:
 
 ```html
 <div>
@@ -60,5 +60,5 @@ Im Gegensatz dazu ersetzt `p.innerText = "Content inside element replaced"` den 
 
 ## Siehe auch
 
-- {{domxref("HTMLElement.innerText")}}
-- {{domxref("Element.outerHTML")}}
+- [`HTMLElement.innerText`](/de/docs/Web/API/HTMLElement/innerText)
+- [`Element.outerHTML`](/de/docs/Web/API/Element/outerHTML)

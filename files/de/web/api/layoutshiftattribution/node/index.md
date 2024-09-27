@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`node`**-Eigenschaft der {{domxref("LayoutShiftAttribution")}}-Schnittstelle gibt einen {{domxref("Node")}} zurück, der das Objekt darstellt, das sich verschoben hat.
+Die **`node`** schreibgeschützte Eigenschaft des [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution)-Interfaces gibt ein [`Node`](/de/docs/Web/API/Node) zurück, das das Objekt darstellt, das sich verschoben hat.
 
 ## Wert
 
-Ein {{domxref("Node")}}.
+Ein [`Node`](/de/docs/Web/API/Node).
 
 ## Beispiele
 
-Das folgende Beispiel druckt das `node` des ersten Elements in {{domxref("LayoutShift.sources")}} in die Konsole.
+Das folgende Beispiel gibt das `node` des ersten Elements in [`LayoutShift.sources`](/de/docs/Web/API/LayoutShift/sources) in der Konsole aus.
 
 ```js
 new PerformanceObserver((list) => {
@@ -32,6 +32,6 @@ new PerformanceObserver((list) => {
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

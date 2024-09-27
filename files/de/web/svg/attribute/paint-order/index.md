@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das **`paint-order`**-Attribut legt die Reihenfolge fest, in der die Füllung, der Umriss und die Markierungen eines bestimmten Form- oder Textelements gemalt werden.
+Das Attribut **`paint-order`** legt die Reihenfolge fest, in der die Füllung, der Umriss und die Markierungen eines bestimmten Form- oder Textelements gezeichnet werden.
 
 > [!NOTE]
-> Als Präsentationsattribut kann `paint-order` als CSS-Eigenschaft verwendet werden.
+> Als Präsentationsattribut kann `paint-order` auch als CSS-Eigenschaft verwendet werden.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -25,7 +25,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("textPath")}}
 - {{SVGElement("tspan")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -48,9 +48,9 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - normal
-  - : Dieser Wert gibt an, dass zuerst die Füllung, dann der Umriss und schließlich die Markierungen gemalt werden.
+  - : Dieser Wert gibt an, dass zuerst die Füllung, dann der Umriss und schließlich die Markierungen gezeichnet werden.
 - \[ fill || stroke || markers ]
-  - : Die Reihenfolge dieser drei Schlüsselwörter gibt die Reihenfolge an, in der das Malen erfolgt, von links nach rechts. Wenn eine der drei Mal-Komponenten weggelassen wird, werden sie in ihrer Standardreihenfolge nach den angegebenen Komponenten gemalt. Zum Beispiel entspricht `stroke` der Reihenfolge `stroke fill markers`.
+  - : Die Anordnung dieser drei Schlüsselwörter gibt die Reihenfolge an, in der die Zeichnung erfolgt, von links nach rechts. Wenn eine der drei Zeichnungskomponenten weggelassen wird, werden sie in ihrer Standardreihenfolge nach den angegebenen Komponenten gezeichnet. Zum Beispiel entspricht die Verwendung von `stroke` der Reihenfolge `stroke fill markers`.
 
 ## Beispiel
 
@@ -78,11 +78,11 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </svg>
 ```
 
-Das Beispiel würde wie folgt gerendert:
+Das Beispiel würde wie folgt gerendert werden:
 
 ![Ein Bild, das zeigt, wie das paint-order-Beispiel in einem UA aussieht, der die paint-order-Eigenschaft unterstützt.](paint-order-2.png)
 
-Der Effekt "stroke under" könnte durch die folgende CSS-Eigenschaft erreicht werden:
+Der Effekt des unteren Umrisses könnte durch die folgende CSS-Eigenschaft erreicht werden:
 
 ```css
 #stroke-under {
@@ -94,6 +94,6 @@ Der Effekt "stroke under" könnte durch die folgende CSS-Eigenschaft erreicht we
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

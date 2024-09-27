@@ -1,5 +1,5 @@
 ---
-title: DokumentBildInBild
+title: DocumentPictureInPicture
 slug: Web/API/DocumentPictureInPicture
 l10n:
   sourceCommit: 4bb7edfa824ee4790abe60637b7876acd3eb827d
@@ -7,26 +7,26 @@ l10n:
 
 {{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`DocumentPictureInPicture`**-Schnittstelle der {{domxref("Document Picture-in-Picture API", "Document Picture-in-Picture API", "", "nocode")}} ist der Einstiegspunkt zum Erstellen und Verwalten von Dokument-Bild-in-Bild-Fenstern.
+Die **`DocumentPictureInPicture`**-Schnittstelle der [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API) ist der Einstiegspunkt zum Erstellen und Verwalten von Dokumenten im Bild-im-Bild-Fenster.
 
-Sie wird über die Eigenschaft {{domxref("Window.documentPictureInPicture")}} aufgerufen.
+Sie wird über die [`Window.documentPictureInPicture`](/de/docs/Web/API/Window/documentPictureInPicture)-Eigenschaft aufgerufen.
 
 {{InheritanceDiagram}}
 
 ## Instanzeigenschaften
 
-- {{domxref("DocumentPictureInPicture.window", "window")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt eine {{domxref("Window")}}-Instanz zurück, die den Browsing-Kontext innerhalb des Bild-in-Bild-Fensters darstellt.
+- [`window`](/de/docs/Web/API/DocumentPictureInPicture/window) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt eine [`Window`](/de/docs/Web/API/Window)-Instanz zurück, die den Browsing-Kontext innerhalb des Bild-im-Bild-Fensters darstellt.
 
 ## Instanzmethoden
 
-- {{domxref("DocumentPictureInPicture.requestWindow", "requestWindow()")}} {{Experimental_Inline}}
-  - : Öffnet das Bild-in-Bild-Fenster für den aktuellen Haupt-Browsing-Kontext. Gibt ein {{jsxref("Promise")}} zurück, das mit einer {{domxref("Window")}}-Instanz erfüllt wird, die den Browsing-Kontext im Bild-in-Bild-Fenster darstellt.
+- [`requestWindow()`](/de/docs/Web/API/DocumentPictureInPicture/requestWindow) {{Experimental_Inline}}
+  - : Öffnet das Bild-im-Bild-Fenster für den aktuellen Haupt-Browsing-Kontext. Gibt ein {{jsxref("Promise")}} zurück, das mit einer [`Window`](/de/docs/Web/API/Window)-Instanz erfüllt wird, die den Browsing-Kontext innerhalb des Bild-im-Bild-Fensters darstellt.
 
 ## Ereignisse
 
-- {{domxref("DocumentPictureInPicture/enter_event", "enter")}} {{Experimental_Inline}}
-  - : Wird ausgelöst, wenn das Bild-in-Bild-Fenster erfolgreich geöffnet wurde.
+- [`enter`](/de/docs/Web/API/DocumentPictureInPicture/enter_event) {{Experimental_Inline}}
+  - : Wird ausgelöst, wenn das Bild-im-Bild-Fenster erfolgreich geöffnet wurde.
 
 ## Beispiele
 
@@ -35,7 +35,7 @@ const videoPlayer = document.getElementById("player");
 
 // ...
 
-// Öffnen eines Bild-in-Bild-Fensters.
+// Open a Picture-in-Picture window.
 const pipWindow = await window.documentPictureInPicture.requestWindow({
   width: videoPlayer.clientWidth,
   height: videoPlayer.clientHeight,
@@ -44,7 +44,7 @@ const pipWindow = await window.documentPictureInPicture.requestWindow({
 // ...
 ```
 
-Sehen Sie sich das [Dokument Bild-in-Bild API Beispiel](https://mdn.github.io/dom-examples/document-picture-in-picture/) für eine vollständige Demo an (siehe auch den vollständigen [Quellcode](https://github.com/chrisdavidmills/dom-examples/tree/main/document-picture-in-picture)).
+Siehe [Document Picture-in-Picture API Beispiel](https://mdn.github.io/dom-examples/document-picture-in-picture/) für eine vollständige funktionierende Demo (siehe auch den vollständigen [Quellcode](https://github.com/chrisdavidmills/dom-examples/tree/main/document-picture-in-picture)).
 
 ## Spezifikationen
 
@@ -56,5 +56,5 @@ Sehen Sie sich das [Dokument Bild-in-Bild API Beispiel](https://mdn.github.io/do
 
 ## Siehe auch
 
-- {{domxref("Document Picture-in-Picture API", "Document Picture-in-Picture API", "", "nocode")}}
+- [Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API)
 - [Verwendung der Document Picture-in-Picture API](/de/docs/Web/API/Document_Picture-in-Picture_API/Using)

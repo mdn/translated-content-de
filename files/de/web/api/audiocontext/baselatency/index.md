@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("Web Audio API")}}
 
-Die **`baseLatency`** schreibgeschützte Eigenschaft des {{domxref("AudioContext")}}-Interfaces gibt einen Gleitkommawert zurück, der die Anzahl der Sekunden der Verarbeitungsverzögerung darstellt, die durch den Übergang eines Audiopuffers vom `AudioContext` vom {{domxref("AudioDestinationNode")}} — d.h. das Ende des Audiographen — in das Audiosubsystem des Hosts bereit zum Abspielen verursacht wird.
+Die schreibgeschützte Eigenschaft **`baseLatency`** des [`AudioContext`](/de/docs/Web/API/AudioContext)-Interfaces gibt einen Double-Wert zurück, der die Anzahl der Sekunden Prozesslatenz darstellt, die auftreten, wenn der `AudioContext` einen Audio-Buffer von dem [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) — d.h. dem Ende des Audiografen — in das Audiosubsystem des Hosts zur Wiedergabe überträgt.
 
 > [!NOTE]
-> Sie können eine bestimmte Latenz während der {{domxref("AudioContext.AudioContext()", "Konstruktionszeit", "", "true")}} mit der Option `latencyHint` anfordern, aber der Browser kann die Option ignorieren.
+> Sie können während der [Konstruktionszeit](/de/docs/Web/API/AudioContext/AudioContext) mit der `latencyHint`-Option eine bestimmte Latenz anfordern, aber der Browser kann die Option ignorieren.
 
 ## Wert
 
-Ein Gleitkommawert, der die Basislatenz in Sekunden darstellt.
+Ein Double-Wert, der die Basenlatenz in Sekunden repräsentiert.
 
 ## Beispiele
 
 ```js
-// Standardlatenz ("interaktiv")
+// default latency ("interactive")
 const audioCtx1 = new AudioContext();
 console.log(audioCtx1.baseLatency); // 0.00
 
-// Höhere Latenz ("Wiedergabe")
+// higher latency ("playback")
 const audioCtx2 = new AudioContext({ latencyHint: "playback" });
 console.log(audioCtx2.baseLatency); // 0.15
 ```

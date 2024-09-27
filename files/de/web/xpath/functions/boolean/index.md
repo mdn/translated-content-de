@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Die `boolean` Funktion wertet einen Ausdruck aus und gibt true oder false zurück.
+Die Funktion `boolean` wertet einen Ausdruck aus und gibt `true` oder `false` zurück.
 
 ## Syntax
 
@@ -26,10 +26,10 @@ Boolean `true` oder `false` nach der Auswertung von `expression`.
 
 ## Beschreibung
 
-- Eine Zahl wird als false ausgewertet, wenn sie positiv oder negativ null oder `NaN` ist. Andernfalls wird sie als true ausgewertet.
-- Eine Knotenmenge wird als true ausgewertet, wenn sie nicht leer ist.
-- Ein String wird als false ausgewertet, wenn es ein leerer String ist. Andernfalls wird er als true ausgewertet.
-- Ein Objekt eines anderen Typs als die vier Grundtypen wird in einer vom Typ abhängigen Weise in ein Boolean umgewandelt.
+- Eine Zahl wird zu false, wenn sie positiv oder negativ Null oder `NaN` ist. Andernfalls wird sie zu true ausgewertet.
+- Eine Knotenmenge wird zu true ausgewertet, wenn sie nicht leer ist.
+- Ein String wird zu false ausgewertet, wenn er ein leerer String ist. Andernfalls wird er zu true ausgewertet.
+- Ein Objekt eines anderen Typs als den vier grundlegenden Typen wird in Abhängigkeit von diesem Typ in ein Boolean umgewandelt.
 
 ## Spezifikationen
 

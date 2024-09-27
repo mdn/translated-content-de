@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Das **`timeout`**-Ereignis wird ausgelöst, wenn der Fortschritt aufgrund eines abgelaufenen voreingestellten Zeitlimits beendet wird.
+Das **`timeout`**-Ereignis wird ausgelöst, wenn der Fortschritt aufgrund eines abgelaufenen Zeitnachlaufs beendet wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandlereigenschaft.
 
 ```js
 addEventListener("timeout", (event) => {});
@@ -22,32 +22,32 @@ ontimeout = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ProgressEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`ProgressEvent`](/de/docs/Web/API/ProgressEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("ProgressEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der Elternschnittstelle {{domxref("Event")}} verfügbar._
+_Neben den unten aufgeführten Eigenschaften sind auch Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref("ProgressEvent.lengthComputable", "lengthComputable")}} {{ReadOnlyInline}}
-  - : Ein boolesches Flag, das anzeigt, ob die Gesamtmenge der zu erledigenden Arbeit und die Menge der bereits geleisteten Arbeit durch den zugrunde liegenden Prozess berechenbar ist. Mit anderen Worten, es zeigt, ob der Fortschritt messbar ist oder nicht.
-- {{domxref("ProgressEvent.loaded", "loaded")}} {{ReadOnlyInline}}
-  - : Ein 64-Bit-Integer-Wert, der die Menge der bereits vom zugrunde liegenden Prozess geleisteten Arbeit angibt. Das Verhältnis der erledigten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Körper der HTTP-Nachricht und schließt keine Header und anderen Overhead ein.
-- {{domxref("ProgressEvent.total", "total")}} {{ReadOnlyInline}}
-  - : Ein 64-Bit-Integer, der die Gesamtsumme der Arbeit repräsentiert, die der zugrunde liegende Prozess gerade ausführt. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Nachrichtenkörpers) und schließt die Header und anderen Overhead nicht ein.
+- [`lengthComputable`](/de/docs/Web/API/ProgressEvent/lengthComputable) {{ReadOnlyInline}}
+  - : Ein boolesches Flag, das angibt, ob die gesamte zu leistende Arbeit und der bereits vom zugrunde liegenden Prozess geleistete Arbeitsaufwand berechenbar sind. Mit anderen Worten, es zeigt an, ob der Fortschritt messbar ist oder nicht.
+- [`loaded`](/de/docs/Web/API/ProgressEvent/loaded) {{ReadOnlyInline}}
+  - : Ein 64-Bit-Integerwert ohne Vorzeichen, der die Menge der bereits vom zugrunde liegenden Prozess geleisteten Arbeit angibt. Das Verhältnis der geleisteten Arbeit kann berechnet werden, indem `total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Hauptteil der HTTP-Nachricht und schließt Header und anderen Overhead nicht ein.
+- [`total`](/de/docs/Web/API/ProgressEvent/total) {{ReadOnlyInline}}
+  - : Ein 64-Bit-Integerwert ohne Vorzeichen, der die Gesamtmenge der Arbeit darstellt, die der zugrunde liegende Prozess gerade ausführt. Beim Herunterladen einer Ressource über HTTP ist dies die `Content-Length` (die Größe des Hauptteils der Nachricht) und schließt die Header und anderen Overhead nicht ein.
 
 ## Beispiele
 
 ### Verwendung des `timeout`-Ereignisses
 
-Sie können das `timeout`-Ereignis verwenden, um einen Upload zu erkennen, der gestoppt wurde, weil er zu langsam war. Ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige zeigt, finden Sie auf der Hauptseite von {{domxref("XMLHttpRequestUpload")}}.
+Sie können das `timeout`-Ereignis verwenden, um einen Upload zu erkennen, der gestoppt wurde, weil er zu langsam war. Für ein vollständiges Codebeispiel, das eine Datei hochlädt und eine Fortschrittsanzeige anzeigt, lesen Sie die Hauptseite [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload).
 
-Das Zeitlimit wird auf dem {{domxref("XMLHttpRequest")}}-Objekt mit der Eigenschaft {{domxref("XMLHttpRequest.timeout")}} gesetzt.
+Der Zeitnachlass wird am [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekt über die [`XMLHttpRequest.timeout`](/de/docs/Web/API/XMLHttpRequest/timeout)-Eigenschaft gesetzt.
 
 ```js
-// Im Falle eines Timeouts blenden wir die Fortschrittsanzeige aus
-// Beachten Sie, dass dieses Ereignis auch am xhr-Objekt abgehört werden kann
+// In case of an timeout we hide the progress bar
+// Note that this event can be listened to on the xhr object too
 function errorAction(event) {
   progressBar.classList.remove("visible");
   log.textContent = `Upload failed: ${event.type}`;
@@ -65,6 +65,6 @@ xhr.upload.addEventListener("timeout", errorAction);
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("XMLHttpRequestUpload/loadstart_event", "loadstart")}}, {{domxref("XMLHttpRequestUpload/load_event", "load")}}, {{domxref("XMLHttpRequestUpload/progress_event", "progress")}}, {{domxref("XMLHttpRequestUpload/error_event", "error")}}, {{domxref("XMLHttpRequestUpload/loadend_event", "loadend")}}, {{domxref("XMLHttpRequestUpload/abort_event", "abort")}}
-- {{domxref("XMLHttpRequestUpload")}}
-- {{domxref("XMLHttpRequest.timeout")}}
+- Verwandte Ereignisse: [`loadstart`](/de/docs/Web/API/XMLHttpRequestUpload/loadstart_event), [`load`](/de/docs/Web/API/XMLHttpRequestUpload/load_event), [`progress`](/de/docs/Web/API/XMLHttpRequestUpload/progress_event), [`error`](/de/docs/Web/API/XMLHttpRequestUpload/error_event), [`loadend`](/de/docs/Web/API/XMLHttpRequestUpload/loadend_event), [`abort`](/de/docs/Web/API/XMLHttpRequestUpload/abort_event)
+- [`XMLHttpRequestUpload`](/de/docs/Web/API/XMLHttpRequestUpload)
+- [`XMLHttpRequest.timeout`](/de/docs/Web/API/XMLHttpRequest/timeout)

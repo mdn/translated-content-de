@@ -8,32 +8,32 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`contentHint`**-Eigenschaft der {{domxref("MediaStreamTrack")}}-Schnittstelle ist ein Zeichenfolge, die einen Hinweis auf die Art des Inhalts gibt, den der Track enthält. Erlaubte Werte hängen vom Wert der {{domxref("MediaStreamTrack.kind")}}-Eigenschaft ab.
+Die **`contentHint`**-Eigenschaft der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle ist ein String, der einen Hinweis auf die Art des Inhalts gibt, den der Track enthält. Zulässige Werte hängen vom Wert der [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Eigenschaft ab.
 
 ## Wert
 
-Eine Zeichenfolge mit einem der folgenden Werte:
+Ein String mit einem der folgenden Werte:
 
 - `""`
-  - : Es wurde kein `contentHint` gesetzt.
+  - : Kein `contentHint` wurde gesetzt.
 - `"speech"`
-  - : Der Track sollte so behandelt werden, als ob er Sprachdaten enthält. Beim Setzen dieses Werts muss der Wert von {{domxref("MediaStreamTrack.kind")}} `"audio"` sein.
+  - : Der Track sollte behandelt werden, als ob er Sprachdaten enthält. Beim Setzen dieses Wertes muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"audio"` sein.
 - `"speech-recognition"`
-  - : Der Track sollte so behandelt werden, als ob er Daten zur Spracherkennung durch eine Maschine enthält. Beim Setzen dieses Werts muss der Wert von {{domxref("MediaStreamTrack.kind")}} `"audio"` sein.
+  - : Der Track sollte behandelt werden, als ob er Daten für die maschinelle Spracherkennung enthält. Beim Setzen dieses Wertes muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"audio"` sein.
 - `"music"`
-  - : Der Track sollte so behandelt werden, als ob er Musik enthält. Beim Setzen dieses Werts muss der Wert von {{domxref("MediaStreamTrack.kind")}} `"audio"` sein.
+  - : Der Track sollte behandelt werden, als ob er Musik enthält. Beim Setzen dieses Wertes muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"audio"` sein.
 - `"motion"`
-  - : Der Track sollte so behandelt werden, als ob er Video enthält, bei dem Bewegung wichtig ist. Zum Beispiel Webcam-Video, Filme oder Videospiele. Beim Setzen dieses Werts muss der Wert von {{domxref("MediaStreamTrack.kind")}} `"video"` sein.
+  - : Der Track sollte behandelt werden, als ob er Video enthält, bei dem Bewegung wichtig ist. Zum Beispiel Webcam-Videos, Filme oder Videospiele. Beim Setzen dieses Wertes muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"video"` sein.
 - `"detail"`
-  - : Der Track sollte so behandelt werden, als ob Videodetails besonders wichtig sind. Zum Beispiel Präsentationen oder Webseiten mit Textinhalt, Gemälde oder Strichzeichnungen. Beim Setzen dieses Werts muss der Wert von {{domxref("MediaStreamTrack.kind")}} `"video"` sein.
+  - : Der Track sollte behandelt werden, als ob Videodetails besonders wichtig sind. Zum Beispiel Präsentationen oder Webseiten mit Textinhalten, Malereien oder Strichzeichnungen. Beim Setzen dieses Wertes muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"video"` sein.
 - `"text"`
-  - : Der Track sollte so behandelt werden, als ob Videodetails besonders wichtig sind, und dass scharfe Kanten und Bereiche mit konsistenter Farbe häufig vorkommen können. Zum Beispiel Präsentationen oder Webseiten mit Textinhalt. Beim Setzen dieses Werts muss der Wert von {{domxref("MediaStreamTrack.kind")}} `"video"` sein.
+  - : Der Track sollte behandelt werden, als ob Videodetails besonders wichtig sind und dass signifikante scharfe Kanten und Bereiche mit konsistenter Farbe häufig auftreten können. Zum Beispiel Präsentationen oder Webseiten mit Textinhalten. Beim Setzen dieses Wertes muss der Wert von [`MediaStreamTrack.kind`](/de/docs/Web/API/MediaStreamTrack/kind) `"video"` sein.
 
 ## Beispiele
 
-### Eine Funktion, die den contentHint setzt
+### Eine Funktion, die das contentHint setzt
 
-Diese Funktion nimmt einen Stream und einen `contentHint`-Wert und wendet den Hinweis auf jeden Track an. [Siehe das vollständige Beispiel hier](https://webrtc.github.io/samples/src/content/capture/video-contenthint/), das zeigt, wie verschiedene `contentHint`-Werte die Darstellung der Tracks verändern.
+Diese Funktion nimmt einen Stream und einen `contentHint`-Wert und wendet den Hinweis auf jeden Track an. [Sehen Sie das vollständige Beispiel hier](https://webrtc.github.io/samples/src/content/capture/video-contenthint/), um zu sehen, wie unterschiedliche `contentHint`-Werte die Anzeige der Tracks verändern.
 
 ```js
 function setVideoTrackContentHints(stream, hint) {
@@ -55,6 +55,6 @@ function setVideoTrackContentHints(stream, hint) {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Rechtsverschiebungszuweisungsoperator (`>>=`)** führt eine [Rechtsverschiebung](/de/docs/Web/JavaScript/Reference/Operators/Right_shift) auf die beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
+Der **Rechtsverschiebungszuweisungsoperator (`>>=`)** führt eine [Rechtsverschiebung](/de/docs/Web/JavaScript/Reference/Operators/Right_shift) auf den beiden Operanden aus und weist das Ergebnis dem linken Operanden zu.
 
 {{EmbedInteractiveExample("pages/js/expressions-right-shift-assignment.html")}}
 
@@ -19,7 +19,7 @@ x >>= y
 
 ## Beschreibung
 
-`x >>= y` ist äquivalent zu `x = x >> y`, mit der Ausnahme, dass der Ausdruck `x` nur einmal ausgewertet wird.
+`x >>= y` ist äquivalent zu `x = x >> y`, außer dass der Ausdruck `x` nur einmal ausgewertet wird.
 
 ## Beispiele
 

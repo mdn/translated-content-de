@@ -1,5 +1,5 @@
 ---
-title: "ServiceWorkerGlobalScope: messageerror Ereignis"
+title: "ServiceWorkerGlobalScope: messageerror-Event"
 short-title: messageerror
 slug: Web/API/ServiceWorkerGlobalScope/messageerror_event
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{SecureContext_Header}}{{AvailableInWorkers("service")}}
 
-Das **`messageerror`** Ereignis der {{domxref("ServiceWorkerGlobalScope")}} Schnittstelle tritt auf, wenn eingehende Nachrichten nicht deserialisiert werden können.
+Das **`messageerror`**-Event der Schnittstelle [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) tritt auf, wenn eingehende Nachrichten nicht deserialisiert werden können.
 
-Dieses Ereignis ist nicht abbrechbar und wird nicht weitergeleitet.
+Dieses Ereignis ist nicht abbrechbar und wird nicht nach oben weitergereicht.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Event-Handler-Eigenschaft.
 
 ```js
 addEventListener("messageerror", (event) => {});
@@ -24,28 +24,28 @@ onmessageerror = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("ExtendableMessageEvent")}}. Erbt von {{domxref("ExtendableEvent")}}.
+Ein [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent). Erbt von [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent).
 
 {{InheritanceDiagram("ExtendableMessageEvent")}}
 
 ## Ereigniseigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{domxref("ExtendableEvent")}}_.
+_Erbt Eigenschaften von seinem übergeordneten Objekt, [`ExtendableEvent`](/de/docs/Web/API/ExtendableEvent)_.
 
-- {{domxref("ExtendableMessageEvent.data")}} {{ReadOnlyInline}}
-  - : Gibt die Daten des Ereignisses zurück. Es kann sich um jeden Datentyp handeln. Wenn im `messageerror` Ereignis ausgelöst, wird die Eigenschaft `null` sein.
-- {{domxref("ExtendableMessageEvent.origin")}} {{ReadOnlyInline}}
-  - : Gibt den Ursprung des {{domxref("Client")}} zurück, der die Nachricht gesendet hat.
-- {{domxref("ExtendableMessageEvent.lastEventId")}} {{ReadOnlyInline}}
-  - : Repräsentiert, bei [server-sent events](/de/docs/Web/API/Server-sent_events/Using_server-sent_events), die letzte Ereignis-ID der Ereignisquelle.
-- {{domxref("ExtendableMessageEvent.source")}} {{ReadOnlyInline}}
-  - : Gibt eine Referenz auf das {{domxref("Client")}} Objekt zurück, das die Nachricht gesendet hat.
-- {{domxref("ExtendableMessageEvent.ports")}} {{ReadOnlyInline}}
-  - : Gibt das Array zurück, das die {{domxref("MessagePort")}} Objekte enthält, die die Ports des zugehörigen Nachrichtenkanals darstellen.
+- [`ExtendableMessageEvent.data`](/de/docs/Web/API/ExtendableMessageEvent/data) {{ReadOnlyInline}}
+  - : Gibt die Daten des Ereignisses zurück. Dies kann jeder Datentyp sein. Wenn es im `messageerror`-Event ausgelöst wird, ist die Eigenschaft `null`.
+- [`ExtendableMessageEvent.origin`](/de/docs/Web/API/ExtendableMessageEvent/origin) {{ReadOnlyInline}}
+  - : Gibt den Ursprung des [`Client`](/de/docs/Web/API/Client) zurück, der die Nachricht gesendet hat.
+- [`ExtendableMessageEvent.lastEventId`](/de/docs/Web/API/ExtendableMessageEvent/lastEventId) {{ReadOnlyInline}}
+  - : Repräsentiert bei [Server-Sent Events](/de/docs/Web/API/Server-sent_events/Using_server-sent_events) die letzte Ereignis-ID der Ereignisquelle.
+- [`ExtendableMessageEvent.source`](/de/docs/Web/API/ExtendableMessageEvent/source) {{ReadOnlyInline}}
+  - : Gibt eine Referenz auf das [`Client`](/de/docs/Web/API/Client)-Objekt zurück, das die Nachricht gesendet hat.
+- [`ExtendableMessageEvent.ports`](/de/docs/Web/API/ExtendableMessageEvent/ports) {{ReadOnlyInline}}
+  - : Gibt das Array zurück, das die [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekte enthält, die die Ports des zugehörigen Nachrichtenkanals repräsentieren.
 
 ## Beispiele
 
-Im folgenden Beispiel erhält eine Seite einen Zugriff auf das {{domxref("ServiceWorker")}} Objekt über {{domxref("ServiceWorkerRegistration.active")}} und ruft dann seine `postMessage()` Funktion auf.
+Im folgenden Beispiel erhält eine Seite einen Zugriff auf das [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt über [`ServiceWorkerRegistration.active`](/de/docs/Web/API/ServiceWorkerRegistration/active) und ruft dann die Funktion `postMessage()` auf.
 
 ```js
 // main.js
@@ -53,8 +53,8 @@ if (navigator.serviceWorker) {
   navigator.serviceWorker.register("service-worker.js");
 
   navigator.serviceWorker.addEventListener("message", (event) => {
-    // event ist ein MessageEvent Objekt
-    console.log(`Der Service Worker hat mir eine Nachricht gesendet: ${event.data}`);
+    // event is a MessageEvent object
+    console.log(`The service worker sent me a message: ${event.data}`);
   });
 
   navigator.serviceWorker.ready.then((registration) => {
@@ -63,23 +63,23 @@ if (navigator.serviceWorker) {
 }
 ```
 
-Der Service Worker kann den Deserialisierungsfehler der Nachricht erkennen, indem er auf das `messageerror` Ereignis hört:
+Der Service Worker kann auf den Deserialisierungsfehler der Nachricht achten, indem er das `messageerror`-Event überwacht:
 
 ```js
 // service-worker.js
 self.addEventListener("messageerror", (event) => {
-  // event ist ein ExtendableMessageEvent Objekt
-  console.error("Deserialisierung der Nachricht fehlgeschlagen");
+  // event is an ExtendableMessageEvent object
+  console.error("Message deserialization failed");
 });
 ```
 
-Alternativ kann das Skript den Deserialisierungsfehler der Nachricht mithilfe von `onmessageerror` erfassen:
+Alternativ kann das Skript den Deserialisierungsfehler der Nachricht mithilfe von `onmessageerror` überwachen:
 
 ```js
 // service-worker.js
 self.onmessageerror = (event) => {
-  // event ist ein ExtendableMessageEvent Objekt
-  console.error("Deserialisierung der Nachricht fehlgeschlagen");
+  // event is an ExtendableMessageEvent object
+  console.error("Message deserialization failed");
 };
 ```
 
@@ -93,8 +93,8 @@ self.onmessageerror = (event) => {
 
 ## Siehe auch
 
-- {{domxref("ServiceWorkerGlobalScope/message_event", "message")}}
-- {{domxref("ServiceWorker.postMessage()")}}
-- [Service Workers verwenden](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-- [Grundlegendes Codebeispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
-- [Web Worker verwenden](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [`message`](/de/docs/Web/API/ServiceWorkerGlobalScope/message_event)
+- [`ServiceWorker.postMessage()`](/de/docs/Web/API/ServiceWorker/postMessage)
+- [Verwendung von Service Workern](/de/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+- [Basis-Codebeispiel für Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker)
+- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

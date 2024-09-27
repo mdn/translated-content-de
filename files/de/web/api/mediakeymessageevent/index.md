@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`MediaKeyMessageEvent`**-Schnittstelle der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) enthält den Inhalt und die zugehörigen Daten, wenn das Inhaltsentschlüsselungsmodul eine Nachricht für die Sitzung generiert.
+Das **`MediaKeyMessageEvent`** Interface der [Encrypted Media Extensions API](/de/docs/Web/API/Encrypted_Media_Extensions_API) enthält den Inhalt und die zugehörigen Daten, wenn das Inhaltsentschlüsselungsmodul eine Nachricht für die Sitzung generiert.
 
 {{InheritanceDiagram}}
 
@@ -18,16 +18,16 @@ Die **`MediaKeyMessageEvent`**-Schnittstelle der [Encrypted Media Extensions API
 
 ## Instanzeigenschaften
 
-Erbt Eigenschaften von seinem übergeordneten Element, [`Event`](/de/docs/Web/API/Event).
+Erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event).
 
 - [`MediaKeyMessageEvent.message`](/de/docs/Web/API/MediaKeyMessageEvent/message) {{ReadOnlyInline}}
   - : Gibt einen {{jsxref("ArrayBuffer")}} mit einer Nachricht vom Inhaltsentschlüsselungsmodul zurück. Nachrichten variieren je nach Schlüsselsystem.
 - [`MediaKeyMessageEvent.messageType`](/de/docs/Web/API/MediaKeyMessageEvent/messageType) {{ReadOnlyInline}}
-  - : Gibt den Typ der Nachricht an. Kann `license-request`, `license-renewal`, `license-release` oder `individualization-request` sein.
+  - : Gibt den Nachrichtentyp an. Kann einer von `license-request`, `license-renewal`, `license-release` oder `individualization-request` sein.
 
 ## Instanzmethoden
 
-Erbt Methoden von seinem übergeordneten Element, [`Event`](/de/docs/Web/API/Event).
+Erbt Methoden von seinem Elternteil, [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 

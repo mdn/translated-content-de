@@ -1,5 +1,5 @@
 ---
-title: "StylePropertyMapReadOnly: keys()-Methode"
+title: "StylePropertyMapReadOnly: keys() Methode"
 short-title: keys()
 slug: Web/API/StylePropertyMapReadOnly/keys
 l10n:
@@ -9,8 +9,7 @@ l10n:
 {{APIRef("CSS Typed Object Model API")}}
 
 Die **`StylePropertyMapReadOnly.keys()`**-Methode gibt einen neuen
-_Array-Iterator_ zurück, der die Schlüssel für jedes Element
-in `StylePropertyMapReadOnly` enthält.
+_Array-Iterator_ zurück, der die Schlüssel für jedes Element in `StylePropertyMapReadOnly` enthält.
 
 ## Syntax
 
@@ -28,19 +27,19 @@ Ein neues {{jsxref("Array")}}.
 
 ## Beispiele
 
-In diesem Beispiel verwenden wir die `keys()`-Methode, um Zugriff auf die
-Eigenschaften innerhalb unseres {{domxref('Element.computedStyleMap()')}} zu erhalten.
+In diesem Beispiel verwenden wir die `keys()`-Methode, um auf die
+Eigenschaften innerhalb unseres [`Element.computedStyleMap()`](/de/docs/Web/API/Element/computedStyleMap) zuzugreifen.
 
 ```js
-// ein Button-Element abrufen
+// get a button element
 const buttonEl = document.querySelector("button");
 
-// wir können alle berechneten Stile mit `computedStyleMap` abrufen
+// we can retrieve all computed styles with `computedStyleMap`
 const allComputedStyles = buttonEl.computedStyleMap();
 
-// keys gibt eine iterierbare Liste von Eigenschaften zurück
+// keys returns an iterable list of properties
 const props = allComputedStyles.keys();
-console.log(props.next().value); // gibt align-content zurück
+console.log(props.next().value); // returns align-content
 ```
 
 ## Spezifikationen

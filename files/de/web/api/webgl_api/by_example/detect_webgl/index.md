@@ -7,19 +7,19 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example","Learn/WebGL/By_example/Clearing_with_colors")}}
 
-Dieses Beispiel demonstriert, wie Sie einen {{Glossary("WebGL")}}-Rendering-Kontext erkennen und das Ergebnis dem Benutzer mitteilen.
+Dieses Beispiel demonstriert, wie man einen [WebGL](/de/docs/Glossary/WebGL)-Rendering-Kontext erkennt und das Ergebnis an den Benutzer meldet.
 
-## WebGL Feature-Erkennung
+## WebGL als Funktionalität erkennen
 
 {{EmbedLiveSample("Feature-detecting_WebGL",660,150)}}
 
-In diesem ersten Beispiel prüfen wir, ob der Browser {{Glossary("WebGL")}} unterstützt. Zu diesem Zweck versuchen wir, den {{domxref("WebGLRenderingContext","WebGL rendering context","",1)}} von einem {{domxref("HTMLCanvasElement","canvas")}}-Element zu erhalten. Der {{domxref("WebGLRenderingContext","WebGL rendering context", "", 1)}} ist eine Schnittstelle, über die Sie den Status der Grafikmaschine einstellen und abfragen, Daten an das WebGL senden und Zeichenbefehle ausführen können.
+In diesem ersten Beispiel werden wir überprüfen, ob der Browser [WebGL](/de/docs/Glossary/WebGL) unterstützt. Zu diesem Zweck werden wir versuchen, den {{domxref("WebGLRenderingContext","WebGL rendering context","",1)}} von einem [`canvas`](/de/docs/Web/API/HTMLCanvasElement)-Element zu erhalten. Der {{domxref("WebGLRenderingContext","WebGL rendering context", "", 1)}} ist eine Schnittstelle, über die Sie den Zustand der Grafikmaschine einstellen und abfragen, Daten an WebGL senden und Zeichenbefehle ausführen können.
 
-Das Speichern des Status der Grafikmaschine innerhalb einer einzelnen Kontextschnittstelle ist nicht einzigartig für {{Glossary("WebGL")}}. Dies wird auch in anderen Grafik-{{Glossary("API")}} durchgeführt, wie dem {{domxref("CanvasRenderingContext2D","canvas 2D rendering context", "", 1)}}. Die Eigenschaften und Variablen, die Sie anpassen können, unterscheiden sich jedoch je nach {{Glossary("API")}}.
+Das Speichern des Zustands der Grafikmaschine innerhalb einer einzigen Kontextschnittstelle ist nicht einzigartig für [WebGL](/de/docs/Glossary/WebGL). Dies wird auch in anderen Grafik-[API](/de/docs/Glossary/API) gemacht, wie z.B. dem {{domxref("CanvasRenderingContext2D","canvas 2D rendering context", "", 1)}}. Die Eigenschaften und Variablen, die Sie anpassen können, unterscheiden sich jedoch für jede [API](/de/docs/Glossary/API).
 
 ```html
-<p>[ Hier würde das Ergebnis der WebGL-Feature-Erkennung angezeigt ]</p>
-<button>Hier drücken, um WebGLRenderingContext zu erkennen</button>
+<p>[ Here would go the result of WebGL feature detection ]</p>
+<button>Press here to detect WebGLRenderingContext</button>
 ```
 
 ```css
@@ -35,31 +35,31 @@ button {
 ```
 
 ```js
-// Führen Sie alles innerhalb des Fensterladeereignis-Handlers aus, um sicherzustellen,
-// dass der DOM vollständig geladen und gestylt ist, bevor Sie versuchen, ihn zu manipulieren.
+// Run everything inside window load event handler, to make sure
+// DOM is fully loaded and styled before trying to manipulate it.
 window.addEventListener(
   "load",
   () => {
     const paragraph = document.querySelector("p");
     const button = document.querySelector("button");
 
-    // Klickenereignis-Handler zum Button hinzufügen.
+    // Adding click event handler to button.
     button.addEventListener("click", detectWebGLContext, false);
     function detectWebGLContext() {
-      // Canvas-Element erstellen. Das Canvas wird nicht in das
-      // Dokument selbst hinzugefügt und wird daher nie im
-      // Browserfenster angezeigt.
+      // Create canvas element. The canvas is not added to the
+      // document itself, so it is never displayed in the
+      // browser window.
       const canvas = document.createElement("canvas");
 
-      // WebGLRenderingContext vom Canvas-Element abrufen.
+      // Get WebGLRenderingContext from canvas element.
       const gl =
         canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
 
-      // Ergebnis berichten.
+      // Report the result.
       paragraph.textContent =
         gl instanceof WebGLRenderingContext
-          ? "Glückwunsch! Ihr Browser unterstützt WebGL."
-          : "Fehlgeschlagen. Ihr Browser oder Gerät unterstützt möglicherweise kein WebGL.";
+          ? "Congratulations! Your browser supports WebGL."
+          : "Failed. Your browser or device may not support WebGL.";
     }
   },
   false,

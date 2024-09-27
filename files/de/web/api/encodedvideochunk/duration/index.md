@@ -1,5 +1,5 @@
 ---
-title: "EncodedVideoChunk: Eigenschaft duration"
+title: "EncodedVideoChunk: duration-Eigenschaft"
 short-title: duration
 slug: Web/API/EncodedVideoChunk/duration
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`duration`** der {{domxref("EncodedVideoChunk")}}-Schnittstelle gibt eine ganze Zahl zurück, die die Dauer des Videos in Mikrosekunden angibt.
+Die **`duration`**-Eigenschaft des schreibgeschützten [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)-Interfaces gibt eine ganze Zahl zurück, die die Dauer des Videos in Mikrosekunden angibt.
 
 ## Wert
 

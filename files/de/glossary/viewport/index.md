@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein Viewport repräsentiert ein polygonales (normalerweise rechteckiges) Gebiet in der Computergrafik, das derzeit angesehen wird. In der Webbrowser-Terminologie bezieht es sich auf den Teil des Dokuments, den Sie anzeigen und der derzeit im Fenster sichtbar ist (oder auf dem Bildschirm, wenn das Dokument im Vollbildmodus angezeigt wird). Inhalte außerhalb des Viewports sind erst dann auf dem Bildschirm sichtbar, wenn sie in den sichtbaren Bereich gescrollt werden.
+Ein Viewport stellt in der Computergrafik einen polygonalen (normalerweise rechteckigen) Bereich dar, der derzeit betrachtet wird. In Bezug auf Webbrowser bezeichnet er den Teil des Dokuments, den Sie sich ansehen und der aktuell in seinem Fenster sichtbar ist (oder auf dem Bildschirm, wenn das Dokument im Vollbildmodus betrachtet wird). Inhalte außerhalb des Viewports sind erst sichtbar, wenn sie in den Sichtbereich gescrollt werden.
 
-Der Teil des Viewports, der derzeit sichtbar ist, wird als **{{Glossary("visual viewport")}}** bezeichnet. Dieser kann kleiner sein als der Layout-Viewport, beispielsweise wenn der Benutzer durch Pinch-Zooming verkleinert hat. Der {{Glossary("layout viewport")}} bleibt derselbe, aber der visuelle Viewport wird kleiner.
+Der momentan sichtbare Teil des Viewports wird als **[visual viewport](/de/docs/Glossary/visual_viewport)** bezeichnet. Dieser kann kleiner sein als der Layout-Viewport, beispielsweise wenn der Benutzer hineingezoomt hat. Der [layout viewport](/de/docs/Glossary/layout_viewport) bleibt gleich, aber der visuelle Viewport wird kleiner.
 
 ## Siehe auch
 
@@ -17,5 +17,5 @@ Der Teil des Viewports, der derzeit sichtbar ist, wird als **{{Glossary("visual 
 - [Viewport](https://en.wikipedia.org/wiki/Viewport) auf Wikipedia
 - [A tale of two viewports](https://www.quirksmode.org/mobile/viewports.html) (Quirksmode)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("Visual viewport")}}
-  - {{Glossary("Layout viewport")}}
+  - [Visual viewport](/de/docs/Glossary/Visual_viewport)
+  - [Layout viewport](/de/docs/Glossary/Layout_viewport)

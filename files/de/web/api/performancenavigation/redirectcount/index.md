@@ -1,5 +1,5 @@
 ---
-title: "PerformanceNavigation: redirectCount-Eigenschaft"
+title: "PerformanceNavigation: Eigenschaft redirectCount"
 short-title: redirectCount
 slug: Web/API/PerformanceNavigation/redirectCount
 l10n:
@@ -8,13 +8,14 @@ l10n:
 
 {{APIRef("Performance API")}}{{Deprecated_Header}}
 
-Die veraltete, schreibgeschützte Eigenschaft
+Die veraltete
 **`PerformanceNavigation.redirectCount`**
-gibt einen `unsigned short` zurück, der die Anzahl der REDIRECTs darstellt, die durchgeführt wurden, bevor die Seite erreicht wurde.
+schreibgeschützte Eigenschaft gibt einen `unsigned short` zurück, der die Anzahl der
+Weiterleitungen darstellt, die vor dem Erreichen der Seite durchgeführt wurden.
 
 > [!WARNING]
 > Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet.
-> Bitte verwenden Sie stattdessen die {{domxref("PerformanceNavigationTiming")}} Schnittstelle.
+> Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Schnittstelle.
 
 ## Wert
 
@@ -30,4 +31,4 @@ Ein `unsigned short`.
 
 ## Siehe auch
 
-- Die {{domxref("PerformanceNavigation")}}-Schnittstelle, zu der sie gehört.
+- Die [`PerformanceNavigation`](/de/docs/Web/API/PerformanceNavigation) Schnittstelle, zu der es gehört.

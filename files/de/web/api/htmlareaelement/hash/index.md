@@ -8,19 +8,19 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die Eigenschaft **`HTMLAreaElement.hash`** gibt eine Zeichenfolge zurück, die ein `'#'` gefolgt von dem Fragmentbezeichner der URL enthält.
+Die **`HTMLAreaElement.hash`**-Eigenschaft gibt eine Zeichenkette zurück, die einen `'#'` gefolgt von dem Fragmentbezeichner der URL enthält.
 
-Das Fragment ist nicht {{Glossary("Percent-encoding", "percent-codiert")}}. Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft eine leere Zeichenfolge, `""`.
+Das Fragment ist nicht [percent-encoded](/de/docs/Glossary/Percent-encoding). Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft eine leere Zeichenkette, `""`.
 
 ## Wert
 
-Eine Zeichenfolge.
+Eine Zeichenkette.
 
 ## Beispiele
 
-### Den Hash eines Bereiche-Links abrufen
+### Das Hash von einem Bereichslink abrufen
 
-Gegebenes HTML
+Angenommen, dieses HTML
 
 ```html
 <map name="infographic">
@@ -38,7 +38,7 @@ Gegebenes HTML
   alt="MDN infographic" />
 ```
 
-Sie können den Hash des Bereiche-Links wie folgt abrufen:
+Sie können das Hash des Bereichslinks wie folgt abrufen:
 
 ```js
 const area = document.getElementById("mdn-circle");
@@ -55,4 +55,4 @@ area.hash; // '#ExampleSection'
 
 ## Siehe auch
 
-- Das Interface {{domxref("HTMLAreaElement")}}, zu dem es gehört.
+- Das [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement)-Interface zu dem es gehört.

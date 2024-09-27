@@ -7,11 +7,11 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Alt-Used`** HTTP-Header wird in Anfragen verwendet, um den in Gebrauch befindlichen alternativen Dienst zu identifizieren, genauso wie das {{HTTPHeader("Host")}} HTTP-Header-Feld den Host und Port des Ursprungs identifiziert.
+Der **`Alt-Used`** HTTP-Header wird in Anfragen verwendet, um den alternativen Dienst zu identifizieren, der verwendet wird, ähnlich wie das {{HTTPHeader("Host")}} HTTP-Header-Feld den Host und Port des Ursprungs identifiziert.
 
-Er ist dazu gedacht, alternativen Diensten das Erkennen von Schleifen zu ermöglichen, den Verkehr zwecks Lastverteilung zu differenzieren und generell sicherzustellen, dass es möglich ist, das beabsichtigte Ziel des Verkehrs zu identifizieren, da die Einführung dieser Information nach der Verwendung eines Protokolls sich als problematisch erwiesen hat.
+Dieser ist dazu gedacht, alternativen Diensten zu ermöglichen, Schleifen zu erkennen, den Datenverkehr zu Lastverteilungszwecken zu differenzieren und generell sicherzustellen, dass es möglich ist, das beabsichtigte Ziel des Datenverkehrs zu identifizieren, da es sich als problematisch erwiesen hat, diese Informationen einzuführen, nachdem ein Protokoll verwendet wird.
 
-Wenn ein Client für eine Anfrage einen alternativen Dienst verwendet, kann er dies dem Server über den **`Alt-Used`** HTTP-Header mitteilen.
+Wenn ein Client einen alternativen Dienst für eine Anfrage verwendet, kann er dies dem Server mittels des **`Alt-Used`** HTTP-Headers anzeigen.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ Alt-Used: <host>:<port>
 ## Direktiven
 
 - \<host>
-  - : der Domainname des Servers.
+  - : Der Domain-Name des Servers.
 - \<port> {{optional_inline}}
-  - : TCP-Portnummer, an der der Server lauscht.
+  - : TCP-Portnummer, auf dem der Server lauscht.
 
 ## Beispiele
 

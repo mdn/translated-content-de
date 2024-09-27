@@ -7,14 +7,14 @@ l10n:
 
 {{SVGRef}}
 
-Das **`color`**-Attribut wird verwendet, um einen möglichen indirekten Wert, `currentcolor`, für die Attribute {{SVGAttr("fill")}}, {{SVGAttr("stroke")}}, {{SVGAttr("stop-color")}}, {{SVGAttr("flood-color")}} und {{SVGAttr("lighting-color")}} bereitzustellen.
+Das **`color`**-Attribut wird verwendet, um einen potenziellen indirekten Wert, `currentcolor`, für die Attribute {{SVGAttr("fill")}}, {{SVGAttr("stroke")}}, {{SVGAttr("stop-color")}}, {{SVGAttr("flood-color")}} und {{SVGAttr("lighting-color")}} bereitzustellen.
 
 > [!NOTE]
-> Als Präsentations-Attribut kann `color` als CSS-Eigenschaft verwendet werden. Siehe [CSS-Farbe](/de/docs/Web/CSS/color) für weitere Informationen.
+> Als Präsentationsattribut kann `color` als CSS-Eigenschaft verwendet werden. Siehe [CSS color](/de/docs/Web/CSS/color) für weitere Informationen.
 
-Als Präsentations-Attribut kann es auf jedes Element angewendet werden, aber wie oben erwähnt, hat es keinen direkten Effekt auf SVG-Elemente.
+Als Präsentationsattribut kann es auf jedes Element angewendet werden, hat jedoch, wie oben erwähnt, keinen direkten Effekt auf SVG-Elemente.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>

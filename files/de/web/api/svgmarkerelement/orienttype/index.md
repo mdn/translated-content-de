@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die **`orientType`** schreibgeschützte Eigenschaft der {{domxref("SVGMarkerElement")}}-Schnittstelle gibt ein {{domxref("SVGAnimatedEnumeration")}}-Objekt zurück, das anzeigt, ob das {{SVGattr("orient")}}-Attribut `auto`, ein Winkelwert oder etwas anderes ist.
+Die **`orientType`**-Eigenschaft des [`SVGMarkerElement`](/de/docs/Web/API/SVGMarkerElement)-Interfaces gibt ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt zurück, das angibt, ob das {{SVGattr("orient")}}-Attribut `auto`, ein Winkelwert oder etwas anderes ist.
 
-Dieses _etwas anderes_ ist höchstwahrscheinlich das Schlüsselwort `auto-start-reverse`, jedoch lässt die Spezifikation offen, dass es andere Werte sein können. Nicht unterstützte Werte werden in der Regel vom Parser verworfen, wobei der Wert standardmäßig auf `auto` gesetzt wird.
+Dieses _etwas anderes_ ist höchstwahrscheinlich das Schlüsselwort `auto-start-reverse`, jedoch lässt die Spezifikation auch andere Werte zu. Nicht unterstützte Werte werden in der Regel vom Parser verworfen, wodurch der Wert auf den Standard `auto` zurückgesetzt wird.
 
 ## Wert
 
-Ein {{domxref("SVGAnimatedEnumeration")}}-Objekt. Es enthält einen der folgenden Werte:
+Ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt. Dies enthält einen der folgenden Werte:
 
 - `0`
-  - : `SVG_MARKER_ORIENT_UNKNOWN`, was bedeutet, dass das {{SVGattr("orient")}}-Attribut einen anderen Wert als `auto` oder einen Winkel hat.
+  - : `SVG_MARKER_ORIENT_UNKNOWN`, was bedeutet, dass das {{SVGattr("orient")}}-Attribut einen Wert hat, der weder `auto` noch ein Winkel ist.
 - `1`
   - : `SVG_MARKERUNITS_ORIENT_AUTO`, was bedeutet, dass das {{SVGattr("orient")}}-Attribut den Schlüsselwortwert `auto` hat.
 - `2`
@@ -25,7 +25,7 @@ Ein {{domxref("SVGAnimatedEnumeration")}}-Objekt. Es enthält einen der folgende
 
 ## Beispiele
 
-Die `orientType`-Eigenschaft gibt ein {{domxref("SVGAnimatedEnumeration")}}-Objekt zurück. Da der Wert des {{SVGattr("orient")}}-Attributs ein Winkel ist, gibt die Rückgabe von `SVGAnimatedEnumeration.baseVal` `2` zurück.
+Die `orientType`-Eigenschaft gibt ein [`SVGAnimatedEnumeration`](/de/docs/Web/API/SVGAnimatedEnumeration)-Objekt zurück. Da der Wert des {{SVGattr("orient")}}-Attributs ein Winkel ist, wird beim Zurückgeben von `SVGAnimatedEnumeration.baseVal` der Wert `2` zurückgegeben.
 
 ```html
 <svg id="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">

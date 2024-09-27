@@ -8,9 +8,9 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.selectNodeContents()`**-Methode setzt den {{domxref("Range")}} so, dass er den Inhalt eines {{domxref("Node")}} enthält.
+Die **`Range.selectNodeContents()`**-Methode setzt das [`Range`](/de/docs/Web/API/Range), um den Inhalt eines [`Node`](/de/docs/Web/API/Node) zu umfassen.
 
-Der übergeordnete `Node` des Anfangs und Endes des `Range` wird der Referenzknoten sein. Der `startOffset` ist 0 und der `endOffset` ist die Anzahl der enthaltenen untergeordneten `Node`s oder die Anzahl der Zeichen, die im Referenzknoten enthalten sind.
+Der übergeordnete `Node` des Anfangs und Endes des `Range` wird der Referenz-Knoten sein. Der `startOffset` ist 0, und der `endOffset` ist die Anzahl der Kind-`Node`s oder die Anzahl der Zeichen, die im Referenz-Knoten enthalten sind.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ selectNodeContents(referenceNode)
 ### Parameter
 
 - `referenceNode`
-  - : Der {{domxref("Node")}}, dessen Inhalt innerhalb einer {{domxref("Range")}} ausgewählt wird.
+  - : Der [`Node`](/de/docs/Web/API/Node), dessen Inhalt innerhalb eines [`Range`](/de/docs/Web/API/Range) ausgewählt wird.
 
 ### Rückgabewert
 
@@ -37,16 +37,19 @@ range.selectNodeContents(referenceNode);
 
 ### Live-Beispiel
 
-Dieses Beispiel ermöglicht es dem Benutzer, einen Absatz mit Schaltflächen auszuwählen und abzuwählen. {{domxref("Document.createRange()")}}, `Range.selectNodeContents()`, und {{domxref("Selection.addRange()")}} werden verwendet, um den Inhalt auszuwählen. {{domxref("Window.getSelection()")}} und {{domxref("Selection.removeAllRanges()")}} werden verwendet, um ihn abzuwählen.
+Dieses Beispiel ermöglicht es dem Benutzer, einen Absatz mit Schaltflächen auszuwählen und die Auswahl aufzuheben. [`Document.createRange()`](/de/docs/Web/API/Document/createRange), `Range.selectNodeContents()` und
+[`Selection.addRange()`](/de/docs/Web/API/Selection/addRange) werden verwendet, um den Inhalt auszuwählen.
+[`Window.getSelection()`](/de/docs/Web/API/Window/getSelection) und [`Selection.removeAllRanges()`](/de/docs/Web/API/Selection/removeAllRanges) werden verwendet, um die Auswahl aufzuheben.
 
 #### HTML
 
 ```html
 <p id="p">
-  <strong>Nutzen Sie die Schaltflächen unten</strong>, um den Inhalt dieses Absatzes auszuwählen oder abzuwählen.
+  <strong>Use the buttons below</strong> to select or deselect the contents of
+  this paragraph.
 </p>
-<button id="select-button">Absatz auswählen</button>
-<button id="deselect-button">Absatz abwählen</button>
+<button id="select-button">Select paragraph</button>
+<button id="deselect-button">Deselect paragraph</button>
 ```
 
 #### JavaScript
@@ -57,11 +60,11 @@ const selectButton = document.getElementById("select-button");
 const deselectButton = document.getElementById("deselect-button");
 
 selectButton.addEventListener("click", (e) => {
-  // Aktuelle Auswahl löschen
+  // Clear any current selection
   const selection = window.getSelection();
   selection.removeAllRanges();
 
-  // Absatz auswählen
+  // Select paragraph
   const range = document.createRange();
   range.selectNodeContents(p);
   selection.addRange(range);
@@ -87,4 +90,4 @@ deselectButton.addEventListener("click", (e) => {
 
 ## Siehe auch
 
-- [Das Index der DOM-Schnittstellen](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenindex](/de/docs/Web/API/Document_Object_Model)

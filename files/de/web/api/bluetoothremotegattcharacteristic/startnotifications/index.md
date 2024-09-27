@@ -8,8 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`BluetoothRemoteGATTCharacteristic.startNotifications()`**-Methode
-gibt ein {{jsxref("Promise")}} an die BluetoothRemoteGATTCharacteristic-Instanz zurück, wenn eine aktive Benachrichtigung darauf besteht.
+Die Methode **`BluetoothRemoteGATTCharacteristic.startNotifications()`** gibt ein {{jsxref("Promise")}} an die `BluetoothRemoteGATTCharacteristic`-Instanz zurück, wenn eine aktive Benachrichtigung darauf vorliegt.
 
 ## Syntax
 
@@ -23,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}} an die BluetoothRemoteGATTCharacteristic-Instanz.
+Ein {{jsxref("Promise")}} an die `BluetoothRemoteGATTCharacteristic`-Instanz.
 
 ## Spezifikationen
 

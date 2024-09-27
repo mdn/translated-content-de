@@ -7,32 +7,32 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}} {{PreviousNext("Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL", "Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL")}}
 
-Wie Sie mittlerweile erkannt haben sollten, hat WebGL nicht viel eingebautes Wissen. Es führt lediglich zwei Funktionen aus, die Sie bereitstellen — einen Vertex-Shader und einen Fragment-Shader — und erwartet von Ihnen, kreative Funktionen zu schreiben, um die gewünschten Ergebnisse zu erzielen. Anders gesagt: Wenn Sie Beleuchtung wünschen, müssen Sie sie selbst berechnen. Glücklicherweise ist das nicht allzu schwer und dieser Artikel behandelt einige der Grundlagen.
+Wie mittlerweile klar sein sollte, hat WebGL nicht viel eingebautes Wissen. Es führt lediglich zwei von Ihnen bereitgestellte Funktionen aus — einen Vertex-Shader und einen Fragment-Shader — und erwartet, dass Sie kreative Funktionen schreiben, um die gewünschten Ergebnisse zu erzielen. Mit anderen Worten, wenn Sie eine Beleuchtung wünschen, müssen Sie diese selbst berechnen. Glücklicherweise ist dies nicht allzu schwer zu tun, und dieser Artikel wird einige der Grundlagen behandeln.
 
-## Simulation von Licht und Schattierung in 3D
+## Simulation von Beleuchtung und Schattierung in 3D
 
-Obwohl es weit über den Rahmen dieses Artikels hinausgeht, die Theorie hinter der simulierten Beleuchtung in 3D-Grafiken ausführlich zu erläutern, ist es hilfreich, ein wenig darüber zu wissen, wie sie funktioniert. Statt es hier im Detail zu besprechen, werfen Sie einen Blick auf den Artikel über [Phong-Shading](https://en.wikipedia.org/wiki/Phong_shading) bei Wikipedia, der einen guten Überblick über das am häufigsten verwendete Beleuchtungsmodell bietet, oder wenn Sie eine WebGL-basierte Erklärung sehen möchten, [sehen Sie sich diesen Artikel](https://webglfundamentals.org/webgl/lessons/webgl-3d-lighting-point.html) an.
+Obwohl es weit über den Rahmen dieses Artikels hinausgeht, sich mit der Theorie der simulierten Beleuchtung in 3D-Grafiken zu beschäftigen, ist es hilfreich, ein wenig darüber zu wissen, wie sie funktioniert. Anstatt das hier ausführlich zu diskutieren, sehen Sie sich den Artikel über [Phong-Shading](https://en.wikipedia.org/wiki/Phong_shading) bei Wikipedia an, der einen guten Überblick über das am häufigsten verwendete Beleuchtungsmodell bietet, oder wenn Sie eine WebGL-basierte Erklärung sehen möchten, [lesen Sie diesen Artikel](https://webglfundamentals.org/webgl/lessons/webgl-3d-lighting-point.html).
 
 Es gibt drei grundlegende Arten von Beleuchtung:
 
-**Umgebungslicht** ist das Licht, das die Szene durchdringt; es ist ungerichtet und beeinflusst jede Fläche in der Szene gleichermaßen, unabhängig davon, wohin sie zeigt.
+**Umgebungslicht** ist das Licht, das die Szene durchdringt; es ist ungerichtet und beeinflusst jede Fläche in der Szene gleichermaßen, unabhängig davon, in welche Richtung sie zeigt.
 
-**Richtungslicht** ist Licht, das aus einer bestimmten Richtung ausgestrahlt wird. Dies ist Licht, das von so weit entfernt kommt, dass jedes Photon parallel zu jedem anderen Photon verläuft. Sonnenlicht beispielsweise gilt als Richtungslicht.
+**Richtungslicht** ist Licht, das aus einer bestimmten Richtung emittiert wird. Dies ist Licht, das so weit entfernt ist, dass jedes Photon parallel zu jedem anderen Photon verläuft. Sonnenlicht wird beispielsweise als Richtungslicht betrachtet.
 
-**Punktlicht** ist Licht, das von einem Punkt aus in alle Richtungen ausgestrahlt wird. So funktionieren viele reale Lichtquellen in der Regel. Eine Glühbirne emittiert zum Beispiel Licht in alle Richtungen.
+**Punktlicht** ist Licht, das von einem Punkt in alle Richtungen abstrahlt. So funktionieren viele reale Lichtquellen. Eine Glühbirne emittiert beispielsweise Licht in alle Richtungen.
 
-Für unsere Zwecke werden wir das Beleuchtungsmodell vereinfachen, indem wir nur einfaches Richtungs- und Umgebungslicht in Betracht ziehen; wir werden keine [Spiegellichter](https://en.wikipedia.org/wiki/Specular_highlights) oder Punktlichtquellen in dieser Szene haben. Stattdessen werden wir unser Umgebungslicht zusammen mit einer einzigen Richtungslichtquelle haben, die auf den rotierenden Würfel aus dem [vorhergehenden Beispiel](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL) gerichtet ist.
+Für unsere Zwecke werden wir das Beleuchtungsmodell vereinfachen, indem wir nur einfaches Richtungs- und Umgebungslicht betrachten; wir werden keine [spekularen Highlights](https://en.wikipedia.org/wiki/Specular_highlights) oder Punktlichtquellen in dieser Szene haben. Stattdessen werden wir unser Umgebungslicht und eine einzige Richtungslichtquelle haben, die auf den rotierenden Würfel aus der [vorherigen Demo](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL) gerichtet ist.
 
-Sobald Sie das Konzept der Punktquellen und der spekularen Beleuchtung weglassen, gibt es zwei Informationen, die wir zur Implementierung unserer Richtungsbeleuchtung benötigen:
+Sobald Sie das Konzept der Punktquellen und der spekularen Beleuchtung weglassen, gibt es zwei Informationen, die wir benötigen, um unsere Richtungsbeleuchtung zu implementieren:
 
-1. Wir müssen jedem Vertex eine **Flächennormale** zuordnen. Dies ist ein Vektor, der senkrecht zur Fläche an diesem Vertex steht.
-2. Wir müssen die Richtung kennen, in die das Licht reist; dies wird durch den **Richtungsvector** definiert.
+1. Wir müssen jedem Scheitelpunkt eine **Oberflächennormalen** zuordnen. Dies ist ein Vektor, der senkrecht zur Fläche an diesem Scheitelpunkt steht.
+2. Wir müssen die Richtung kennen, in die das Licht reist; diese wird durch den **Richtungsvektor** definiert.
 
-Dann aktualisieren wir den Vertex-Shader, um die Farbe jedes Vertexes anzupassen, indem wir das Umgebungslicht sowie den Effekt der Richtungsbeleuchtung unter Berücksichtigung des Winkels berücksichtigen, in dem sie auf die Fläche trifft. Wir werden sehen, wie man das macht, wenn wir uns den Code für den Shader ansehen.
+Dann aktualisieren wir den Vertex-Shader, um die Farbe jedes Scheitelpunktes anzupassen, wobei sowohl das Umgebungslicht als auch die Wirkung des Richtungslichts unter Berücksichtigung des Winkels, in dem es auf die Fläche trifft, berücksichtigt werden. Wir werden sehen, wie das geht, wenn wir den Code für den Shader betrachten.
 
-## Aufbau der Normalen für die Vertices
+## Aufbau der Normalen für die Scheitelpunkte
 
-Das Erste, was wir tun müssen, ist, das Array der Normalen für alle Vertices zu generieren, die unseren Würfel bilden. Da ein Würfel ein sehr einfaches Objekt ist, ist dies leicht zu tun; offensichtlich wird die Berechnung der Normalen für komplexere Objekte aufwändiger sein.
+Das Erste, was wir tun müssen, ist das Erstellen des Arrays von Normalen für alle Scheitelpunkte, aus denen unser Würfel besteht. Da ein Würfel ein sehr einfaches Objekt ist, ist dies einfach zu tun; offensichtlich ist die Berechnung der Normalen für kompliziertere Objekte aufwendiger.
 
 > [!NOTE]
 > Fügen Sie diese Funktion zu Ihrem "init-buffer.js"-Modul hinzu:
@@ -43,22 +43,22 @@ function initNormalBuffer(gl) {
   gl.bindBuffer(gl.ARRAY_BUFFER, normalBuffer);
 
   const vertexNormals = [
-    // Vorderseite
+    // Front
     0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0,
 
-    // Rückseite
+    // Back
     0.0, 0.0, -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, -1.0,
 
-    // Oberseite
+    // Top
     0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0,
 
-    // Unterseite
+    // Bottom
     0.0, -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, -1.0, 0.0,
 
-    // Rechte Seite
+    // Right
     1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0,
 
-    // Linke Seite
+    // Left
     -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, -1.0, 0.0, 0.0, -1.0, 0.0, 0.0,
   ];
 
@@ -72,12 +72,12 @@ function initNormalBuffer(gl) {
 }
 ```
 
-Das sollte mittlerweile ziemlich vertraut aussehen; wir erstellen einen neuen Puffer, binden ihn als den Puffer, mit dem wir arbeiten, und senden dann unser Array von Vertex-Normalen in den Puffer, indem wir `bufferData()` aufrufen.
+Das sollte mittlerweile ziemlich vertraut aussehen; wir erstellen einen neuen Buffer, binden ihn als den Buffer, mit dem wir arbeiten, und senden dann unser Array von Vertex-Normalen in den Buffer, indem wir `bufferData()` aufrufen.
 
-Wie zuvor haben wir `initBuffers()` aktualisiert, um unsere neue Funktion aufzurufen und den von ihr erstellten Puffer zurückzugeben.
+Wie zuvor haben wir `initBuffers()` aktualisiert, um unsere neue Funktion aufzurufen und den von ihr erstellten Buffer zurückzugeben.
 
 > [!NOTE]
-> Fügen Sie am Ende Ihrer `initBuffers()`-Funktion den folgenden Code hinzu und ersetzen Sie die vorhandene `return`-Anweisung:
+> Fügen Sie am Ende Ihrer `initBuffers()`-Funktion den folgenden Code hinzu und ersetzen Sie die bestehende `return`-Anweisung:
 
 ```js
 const normalBuffer = initNormalBuffer(gl);
@@ -90,14 +90,14 @@ return {
 };
 ```
 
-Dann fügen wir den Code dem "draw-scene.js"-Modul hinzu, um das Normalen-Array an ein Shader-Attribut zu binden, damit der Shader-Code darauf zugreifen kann.
+Dann fügen wir den Code zum "draw-scene.js"-Modul hinzu, um das Normalen-Array an ein Shader-Attribut zu binden, damit der Shader-Code auf es zugreifen kann.
 
 > [!NOTE]
 > Fügen Sie diese Funktion zu Ihrem "draw-scene.js"-Modul hinzu:
 
 ```js
-// Sagt WebGL, wie die Normalen aus dem
-// Normalenpuffer in das vertexNormal-Attribut extrahiert werden.
+// Tell WebGL how to pull out the normals from
+// the normal buffer into the vertexNormal attribute.
 function setNormalAttribute(gl, buffers, programInfo) {
   const numComponents = 3;
   const type = gl.FLOAT;
@@ -124,7 +124,7 @@ function setNormalAttribute(gl, buffers, programInfo) {
 setNormalAttribute(gl, buffers, programInfo);
 ```
 
-Schließlich müssen wir den Code aktualisieren, der die Uniform-Matrizen erstellt, um eine **Normalenmatrix** zu generieren und an den Shader zu übertragen, die verwendet wird, um die Normalen zu transformieren, wenn es um die aktuelle Orientierung des Würfels in Bezug auf die Lichtquelle geht.
+Schließlich müssen wir den Code aktualisieren, der die uniformen Matrizen erstellt, um eine **Normalmatrix** zu generieren und an den Shader zu übergeben. Diese wird verwendet, um die Normalen bei der Betrachtung der aktuellen Orientierung des Würfels in Bezug auf die Lichtquelle zu transformieren.
 
 > [!NOTE]
 > Fügen Sie den folgenden Code zur `drawScene()`-Funktion Ihres "draw-scene.js"-Moduls hinzu, direkt nach den drei `mat4.rotate()`-Aufrufen:
@@ -136,7 +136,7 @@ mat4.transpose(normalMatrix, normalMatrix);
 ```
 
 > [!NOTE]
-> Fügen Sie den folgenden Code zur `drawScene()`-Funktion Ihres "draw-scene.js"-Moduls hinzu, direkt nach den beiden vorherigen `gl.uniformMatrix4fv()`-Aufrufen:
+> Fügen Sie den folgenden Code zur `drawScene()`-Funktion Ihres "draw-scene.js"-Moduls hinzu, direkt nach den zwei vorherigen `gl.uniformMatrix4fv()`-Aufrufen:
 
 ```js
 gl.uniformMatrix4fv(
@@ -146,13 +146,13 @@ gl.uniformMatrix4fv(
 );
 ```
 
-## Aktualisierung der Shader
+## Aktualisieren der Shader
 
-Da nun alle Daten, die die Shader benötigen, verfügbar sind, müssen wir den Code in den Shadern selbst aktualisieren.
+Da nun alle Daten, die die Shader benötigen, ihnen zur Verfügung stehen, müssen wir den Code in den Shadern selbst aktualisieren.
 
 ### Der Vertex-Shader
 
-Zuerst müssen wir den Vertex-Shader aktualisieren, damit er einen Schattierungswert für jeden Vertex basierend auf der Umgebungsbeleuchtung sowie der Richtungsbeleuchtung generiert.
+Das Erste, was zu tun ist, ist den Vertex-Shader so zu aktualisieren, dass er für jeden Scheitelpunkt einen Shading-Wert basierend auf dem Umgebungslicht und dem Richtungslicht generiert.
 
 > [!NOTE]
 > Aktualisieren Sie die `vsSource`-Deklaration in Ihrer `main()`-Funktion wie folgt:
@@ -174,7 +174,7 @@ const vsSource = `
       gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
       vTextureCoord = aTextureCoord;
 
-      // Beleuchtungseffekt anwenden
+      // Apply lighting effect
 
       highp vec3 ambientLight = vec3(0.3, 0.3, 0.3);
       highp vec3 directionalLightColor = vec3(1, 1, 1);
@@ -188,15 +188,15 @@ const vsSource = `
   `;
 ```
 
-Sobald die Position des Vertexes berechnet ist, und wir die Koordinaten des {{Glossary("texel")}}, die dem Vertex entsprechen, an den Fragment-Shader weitergeben, können wir damit beginnen, die Schattierung für den Vertex zu berechnen.
+Sobald die Position des Scheitelpunkts berechnet ist und wir die Koordinaten des [Texel](/de/docs/Glossary/texel), die dem Scheitelpunkt entsprechen, an den Fragment-Shader übergeben, können wir am Shading für den Scheitelpunkt arbeiten.
 
-Das Erste, was wir tun, ist, die Normale basierend auf der aktuellen Orientierung des Würfels zu transformieren, indem wir die Normale des Vertexes mit der Normalenmatrix multiplizieren. Dann können wir die Menge an Richtungsbeleuchtung, die auf den Vertex angewendet werden muss, berechnen, indem wir das Skalarprodukt der transformierten Normale und des Richtungsvektors (das heißt, die Richtung, aus der das Licht kommt) berechnen. Wenn dieser Wert kleiner als null ist, setzen wir den Wert auf null, da es nicht weniger als null Licht geben kann.
+Das Erste, was wir tun, ist die Normalen basierend auf der aktuellen Orientierung des Würfels zu transformieren, indem wir die Normale des Scheitelpunkts mit der Normalmatrix multiplizieren. Dann können wir die Menge des Richtungslichts berechnen, das auf den Scheitelpunkt angewendet werden muss, indem wir das Skalarprodukt der transformierten Normale und des Richtungsvektors (das heißt, die Richtung, aus der das Licht kommt) berechnen. Wenn dieser Wert kleiner als null ist, begrenzen wir den Wert auf null, da es nicht weniger als null Licht geben kann.
 
-Sobald die Menge an Richtungsbeleuchtung berechnet ist, können wir den Beleuchtungswert generieren, indem wir das Umgebungslicht nehmen und das Produkt der Farbe des Richtungslichts und der Menge an Richtungsbeleuchtung hinzufügen. Dadurch haben wir nun einen RGB-Wert, der vom Fragment-Shader verwendet wird, um die Farbe jedes Pixels zu bearbeiten, das wir rendern.
+Sobald die Menge des Richtungslichts berechnet ist, können wir den Lichtwert generieren, indem wir das Umgebungslicht nehmen und das Produkt der Farbe des Richtungslichts und der Menge des bereitzustellenden Richtungslichts hinzufügen. Das Ergebnis ist ein RGB-Wert, der vom Fragment-Shader verwendet wird, um die Farbe jedes von uns gerenderten Pixels anzupassen.
 
 ### Der Fragment-Shader
 
-Der Fragment-Shader muss nun aktualisiert werden, um den durch den Vertex-Shader berechneten Beleuchtungswert zu berücksichtigen.
+Der Fragment-Shader muss jetzt aktualisiert werden, um den vom Vertex-Shader berechneten Lichtwert zu berücksichtigen.
 
 > [!NOTE]
 > Aktualisieren Sie die `fsSource`-Deklaration in Ihrer `main()`-Funktion wie folgt:
@@ -216,9 +216,9 @@ const fsSource = `
   `;
 ```
 
-Hier holen wir die Farbe des Texels, wie wir es im vorhergehenden Beispiel getan haben, aber bevor wir die Farbe des Fragments setzen, multiplizieren wir die Farbe des Texels mit dem Beleuchtungswert, um die Farbe des Texels an die Wirkung unserer Lichtquellen anzupassen.
+Hier holen wir uns die Farbe des Texels, genau wie im vorherigen Beispiel, aber bevor wir die Farbe des Fragments setzen, multiplizieren wir die Farbe des Texels mit dem Lichtwert, um die Farbe des Texels anzupassen und den Effekt unserer Lichtquellen zu berücksichtigen.
 
-Das Einzige, was noch zu tun bleibt, ist das Nachschlagen des Attributs `aVertexNormal` und des Uniforms `uNormalMatrix`.
+Das Einzige, was noch zu tun ist, ist das Suchen der Position des `aVertexNormal`-Attributs und der `uNormalMatrix` Uniform.
 
 > [!NOTE]
 > Aktualisieren Sie die `programInfo`-Deklaration in Ihrer `main()`-Funktion wie folgt:
@@ -244,12 +244,12 @@ Und das war's!
 
 {{EmbedGHLiveSample('dom-examples/webgl-examples/tutorial/sample7/index.html', 670, 510) }}
 
-[Den vollständigen Code ansehen](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample7) | [Dieses Beispiel auf einer neuen Seite öffnen](https://mdn.github.io/dom-examples/webgl-examples/tutorial/sample7/)
+[Vollständigen Code anzeigen](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample7) | [Dieses Demo in einem neuen Fenster öffnen](https://mdn.github.io/dom-examples/webgl-examples/tutorial/sample7/)
 
-## Übungen für den Leser
+## Übungen für die Leser
 
-Offensichtlich ist dies ein einfaches Beispiel, das grundlegende per-Vertex-Beleuchtung implementiert. Für fortgeschrittenere Grafiken werden Sie Beleuchtung pro Pixel implementieren wollen, aber dies bringt Sie auf den richtigen Weg.
+Offensichtlich ist dies ein einfaches Beispiel, das grundlegende per-Vertex Beleuchtung implementiert. Für fortgeschrittenere Grafiken möchten Sie per-Pixel Beleuchtung implementieren, aber das wird Ihnen den richtigen Weg weisen.
 
-Sie könnten auch experimentieren mit der Richtung der Lichtquelle, den Farben der Lichtquellen und ähnlichem.
+Sie könnten auch mit der Richtung der Lichtquelle, den Farben der Lichtquellen und so weiter experimentieren.
 
 {{PreviousNext("Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL", "Web/API/WebGL_API/Tutorial/Animating_textures_in_WebGL")}}

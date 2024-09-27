@@ -1,5 +1,5 @@
 ---
-title: "Navigation: navigate Ereignis"
+title: "Navigation: navigate Event"
 short-title: navigate
 slug: Web/API/Navigation/navigate_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Das **`navigate`** Ereignis der {{domxref("Navigation")}} Schnittstelle wird ausgelöst, wenn [jede Art von Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) initiiert wird, sodass Sie nach Bedarf eingreifen können.
+Das **`navigate`**-Ereignis der [`Navigation`](/de/docs/Web/API/Navigation)-Schnittstelle wird ausgelöst, wenn [jede Art von Navigation](https://github.com/WICG/navigation-api#appendix-types-of-navigations) initiiert wird, sodass Sie bei Bedarf eingreifen können.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("navigate", (event) => {});
@@ -22,7 +22,7 @@ onnavigate = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("NavigateEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`NavigateEvent`](/de/docs/Web/API/NavigateEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("NavigateEvent")}}
 
@@ -32,8 +32,8 @@ Ein {{domxref("NavigateEvent")}}. Erbt von {{domxref("Event")}}.
 
 ```js
 navigation.addEventListener("navigate", (event) => {
-  // Beenden Sie frühzeitig, wenn diese Navigation nicht abgefangen werden sollte,
-  // z. B. wenn die Navigation Cross-Origin ist oder eine Download-Anfrage
+  // Exit early if this navigation shouldn't be intercepted,
+  // e.g. if the navigation is cross-origin, or a download request
   if (shouldNotIntercept(event)) {
     return;
   }
@@ -43,11 +43,11 @@ navigation.addEventListener("navigate", (event) => {
   if (url.pathname.startsWith("/articles/")) {
     event.intercept({
       async handler() {
-        // Die URL hat sich bereits geändert, daher zeigen Sie einen Platzhalter,
-        // z. B. einen Spinner oder eine Lade-Seite, während der neue Inhalt geladen wird.
+        // The URL has already changed, so show a placeholder while
+        // fetching the new content, such as a spinner or loading page
         renderArticlePagePlaceholder();
 
-        // Laden Sie den neuen Inhalt und zeigen Sie ihn an, wenn er bereit ist.
+        // Fetch the new content and display when ready
         const articleContent = await getArticleContent(url.pathname);
         renderArticlePage(articleContent);
       },
@@ -57,11 +57,11 @@ navigation.addEventListener("navigate", (event) => {
 ```
 
 > [!NOTE]
-> Bevor die Navigation API verfügbar war, hätte man etwas Ähnliches erreichen müssen, indem man auf alle Klickereignisse auf Links hörte, `event.preventDefault()` ausführte, den entsprechenden {{domxref("History.pushState()")}} Aufruf durchführte und dann die Seitenansicht basierend auf der neuen URL einrichtete. Und dies würde nicht alle Navigationen behandeln — nur vom Benutzer initiierte Linkklicks.
+> Bevor die Navigation API verfügbar war, hätte man, um etwas Ähnliches zu tun, alle Klickereignisse auf Links überwachen, `event.preventDefault()` ausführen, den entsprechenden [`History.pushState()`](/de/docs/Web/API/History/pushState)-Aufruf durchführen müssen, und die Seitenansicht basierend auf der neuen URL einrichten. Und dies hätte nicht alle Navigationen behandelt — nur von Benutzern initiierte Link-Klicks.
 
 ### Umgang mit Scrollen mittels `scroll()`
 
-In diesem Beispiel des Abfangens einer Navigation beginnt die `handler()` Funktion mit dem Abrufen und Angeben des Hauptartikelinhalts, um dann sekundäre Inhalte nachzuladen und anzuzeigen. Es macht Sinn, die Seite so bald wie möglich zum Hauptartikelinhalt zu scrollen, damit der Benutzer damit interagieren kann, anstatt darauf zu warten, dass auch die sekundären Inhalte gerendert sind. Um dies zu erreichen, haben wir einen {{domxref("NavigateEvent.scroll", "scroll()")}} Aufruf zwischen den beiden eingefügt.
+In diesem Beispiel zur Abfangung einer Navigation beginnt die `handler()`-Funktion damit, einige Artikelinhalte abzurufen und darzustellen, ruft dann aber im Anschluss einige sekundäre Inhalte ab und stellt diese dar. Es ist sinnvoll, die Seite zu den Hauptartikelinhalten zu scrollen, sobald diese verfügbar sind, damit der Benutzer damit interagieren kann, anstatt zu warten, bis auch die sekundären Inhalte dargestellt sind. Um dies zu erreichen, haben wir einen [`scroll()`](/de/docs/Web/API/NavigateEvent/scroll)-Aufruf zwischen die beiden eingefügt.
 
 ```js
 navigation.addEventListener("navigate", (event) => {
@@ -96,6 +96,6 @@ navigation.addEventListener("navigate", (event) => {
 
 ## Siehe auch
 
-- [Moderne clientseitige Routings: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
-- [Navigation API Erklärer](https://github.com/WICG/navigation-api/blob/main/README.md)
-- Domenic Denicolas [Navigation API Live-Demo](https://gigantic-honored-octagon.glitch.me/)
+- [Moderne clientseitige Routenführung: die Navigation API](https://developer.chrome.com/docs/web-platform/navigation-api/)
+- [Navigation API Erklärung](https://github.com/WICG/navigation-api/blob/main/README.md)
+- Domenic Denicolas [Live-Demo der Navigation API](https://gigantic-honored-octagon.glitch.me/)

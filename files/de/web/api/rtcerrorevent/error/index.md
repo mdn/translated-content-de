@@ -1,6 +1,6 @@
 ---
 title: "RTCErrorEvent: error-Eigenschaft"
-short-title: Fehler
+short-title: error
 slug: Web/API/RTCErrorEvent/error
 l10n:
   sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
@@ -8,15 +8,17 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`error`** des {{domxref("RTCErrorEvent")}} enthält ein {{domxref("RTCError")}}-Objekt, das die Details des Fehlers beschreibt, den das Ereignis ankündigt.
+Die schreibgeschützte [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent)-Eigenschaft **`error`**
+enthält ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, das die Details des Fehlers beschreibt, den das
+Ereignis ankündigt.
 
 ## Wert
 
-Ein {{domxref("RTCError")}}-Objekt, dessen Eigenschaften Details über den aufgetretenen Fehler im Kontext einer {{Glossary("WebRTC")}}-Operation bereitstellen.
+Ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, dessen Eigenschaften Details über den aufgetretenen Fehler im Kontext einer [WebRTC](/de/docs/Glossary/WebRTC)-Operation bereitstellen.
 
 ## Beispiele
 
-In diesem Beispiel wird ein Handler für das {{domxref("RTCDataChannel")}}'s {{domxref("RTCDataChannel.error_event", "error")}}-Ereignis eingerichtet.
+In diesem Beispiel wird ein Handler für das [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)-[`error`](/de/docs/Web/API/RTCDataChannel/error_event)-Ereignis eingerichtet.
 
 ```js
 dataChannel.addEventListener("error", (event) => {
@@ -34,17 +36,17 @@ dataChannel.addEventListener("error", (event) => {
 });
 ```
 
-Wenn der Fehler ein SDP-Syntaxfehler ist—angezeigt durch seine {{domxref("RTCError.errorDetail", "errorDetail")}}-Eigenschaft als `sdp-syntax-error`—, wird eine Nachrichtenzeichenfolge erstellt, um die Fehlermeldung und die Zeilennummer innerhalb des SDP anzuzeigen, in der der Fehler aufgetreten ist. Diese Nachricht wird dann mit einer Funktion namens `showMyAlertMessage()` angezeigt, die für den verwendeten Ausgabemechanismus steht.
+Falls der Fehler ein SDP-Syntaxfehler ist – was durch die [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail)-Eigenschaft als `sdp-syntax-error` angezeigt wird – wird eine Nachrichtenkette erstellt, um die Fehlermeldung und die Zeilennummer innerhalb des SDP, an der der Fehler aufgetreten ist, anzuzeigen. Diese Nachricht wird dann mittels einer Funktion namens `showMyAlertMessage()` angezeigt, die als Platzhalter für welchen Ausgabemechanismus auch immer das Code-Snippet verwendet wird.
 
-Andere Fehler werden als tödlich behandelt und verursachen das Aufrufen einer `terminateMyConnection()`-Funktion.
+Jeder andere Fehler wird als terminal behandelt, wodurch eine Funktion namens `terminateMyConnection()` aufgerufen wird.
 
-Im obigen Beispiel wird {{domxref("EventTarget.addEventListener", "addEventListener()")}} verwendet, um den Handler für `error`-Ereignisse hinzuzufügen. Sie können auch die {{domxref("RTCDataChannel.error_event", "onerror")}} Ereignis-Handler-Eigenschaft des `RTCDataChannel` Objekts verwenden, so:
+Das obige Beispiel verwendet [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um den Handler für `error`-Ereignisse hinzuzufügen. Sie können auch die `RTCDataChannel`-Objekt-Eigenschaft [`onerror`](/de/docs/Web/API/RTCDataChannel/error_event) für den Ereignishandler verwenden, wie hier:
 
 ```js
 dataChannel.onerror = (event) => {
   let error = event.error;
 
-  /* und so weiter */
+  /* and so forth */
 };
 ```
 

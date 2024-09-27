@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`Reflect.has()`** statische Methode ist wie der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator, jedoch als Funktion.
+Die statische Methode **`Reflect.has()`** ist ähnlich dem [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator, jedoch als Funktion.
 
 {{EmbedInteractiveExample("pages/js/reflect-has.html")}}
 
@@ -22,11 +22,11 @@ Reflect.has(target, propertyKey)
 - `target`
   - : Das Zielobjekt, in dem nach der Eigenschaft gesucht werden soll.
 - `propertyKey`
-  - : Der Name der zu überprüfenden Eigenschaft.
+  - : Der Name der Eigenschaft, die überprüft werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, der angibt, ob das `target` die Eigenschaft hat oder nicht.
+Ein {{jsxref("Boolean")}}, das anzeigt, ob das `target` die Eigenschaft hat oder nicht.
 
 ### Ausnahmen
 
@@ -35,7 +35,7 @@ Ein {{jsxref("Boolean")}}, der angibt, ob das `target` die Eigenschaft hat oder 
 
 ## Beschreibung
 
-`Reflect.has()` bietet die reflexive Semantik zur Überprüfung, ob eine Eigenschaft in einem Objekt vorhanden ist. Das heißt, `Reflect.has(target, propertyKey)` ist semantisch gleichbedeutend mit:
+`Reflect.has()` bietet die reflektive Semantik der Überprüfung, ob sich eine Eigenschaft in einem Objekt befindet. Das heißt, `Reflect.has(target, propertyKey)` ist semantisch äquivalent zu:
 
 ```js
 propertyKey in target;
@@ -51,10 +51,10 @@ propertyKey in target;
 Reflect.has({ x: 0 }, "x"); // true
 Reflect.has({ x: 0 }, "y"); // false
 
-// gibt true für Eigenschaften in der Prototypkette zurück
+// returns true for properties in the prototype chain
 Reflect.has({ x: 0 }, "toString");
 
-// Proxy mit .has() Handler-Methode
+// Proxy with .has() handler method
 obj = new Proxy(
   {},
   {
@@ -67,13 +67,13 @@ Reflect.has(obj, "doorbell"); // true
 Reflect.has(obj, "dormitory"); // false
 ```
 
-`Reflect.has` gibt `true` für alle geerbten Eigenschaften zurück, wie der [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator:
+`Reflect.has` gibt `true` für alle geerbten Eigenschaften zurück, ähnlich dem [`in`](/de/docs/Web/JavaScript/Reference/Operators/in)-Operator:
 
 ```js
 const a = { foo: 123 };
 const b = { __proto__: a };
 const c = { __proto__: b };
-// Die Prototypkette ist: c -> b -> a
+// The prototype chain is: c -> b -> a
 Reflect.has(c, "foo"); // true
 ```
 
@@ -81,7 +81,7 @@ Reflect.has(c, "foo"); // true
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -7,23 +7,23 @@ l10n:
 
 {{CSSRef}}
 
-Die **`offset-distance`**-Eigenschaft ([CSS](/de/docs/Web/CSS)) gibt eine Position entlang eines {{CSSxRef("offset-path")}} an, an der ein Element platziert werden soll.
+Die **`offset-distance`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt eine Position entlang eines {{CSSxRef("offset-path")}} an, an der ein Element platziert werden soll.
 
 {{EmbedInteractiveExample("pages/css/offset-distance.html")}}
 
 ## Syntax
 
 ```css
-/* Standardwert */
+/* Default value */
 offset-distance: 0;
 
-/* die Mitte des offset-path */
+/* the middle of the offset-path */
 offset-distance: 50%;
 
-/* eine feste Länge entlang des Pfads positioniert */
+/* a fixed length positioned along the path */
 offset-distance: 40px;
 
-/* Globale Werte */
+/* Global values */
 offset-distance: inherit;
 offset-distance: initial;
 offset-distance: revert;
@@ -35,7 +35,7 @@ offset-distance: unset;
 
   - : Eine Länge, die angibt, wie weit das Element entlang des Pfades (definiert mit {{cssxref('offset-path')}}) ist.
 
-    100% repräsentiert die Gesamtlänge des Pfades (wenn der `offset-path` als Grundform oder mit `path()` definiert ist).
+    100% repräsentiert die gesamte Länge des Pfades (wenn der `offset-path` als Grundform oder `path()` definiert ist).
 
 ## Formale Definition
 
@@ -49,7 +49,7 @@ offset-distance: unset;
 
 ### Verwendung von offset-distance in einer Animation
 
-Der Bewegungsaspekt im CSS Motion Path kommt typischerweise durch die Animation der `offset-distance`-Eigenschaft. Wenn Sie ein Element entlang seines gesamten Pfades animieren möchten, sollten Sie seinen {{cssxref('offset-path')}} definieren und dann eine Animation einrichten, die die `offset-distance` von `0%` auf `100%` ändert.
+Der Bewegungseffekt in CSS Motion Path stammt typischerweise aus der Animation der `offset-distance` Eigenschaft. Wenn Sie ein Element entlang seines gesamten Pfades animieren möchten, würden Sie seinen {{cssxref('offset-path')}} definieren und dann eine Animation einrichten, die die `offset-distance` von `0%` auf `100%` bringt.
 
 #### HTML
 

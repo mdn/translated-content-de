@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.frontFace()`** Methode der [WebGL API](/de/docs/Web/API/WebGL_API) legt fest, ob Polygone vorder- oder rückseitig sind, indem sie eine Windungsrichtung bestimmt.
+Die **`WebGLRenderingContext.frontFace()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt an, ob Polygone vorne oder hinten liegen, indem eine Wicklungsorientierung festgelegt wird.
 
 ## Syntax
 
@@ -20,11 +20,10 @@ frontFace(mode)
 
 - `mode`
 
-  - : Ein [GLenum](/de/docs/Web/API/WebGL_API/Types) Typ für die Windungsrichtung.
-    Der Standardwert ist `gl.CCW`. Mögliche Werte:
+  - : Ein [GLenum](/de/docs/Web/API/WebGL_API/Types)-Typ für die Wicklungsorientierung. Der Standardwert ist `gl.CCW`. Mögliche Werte:
 
-    - `gl.CW`: Uhrzeigersinn-Windung.
-    - `gl.CCW`: Gegen den Uhrzeigersinn-Windung.
+    - `gl.CW`: Uhrzeigersinn-Wicklung.
+    - `gl.CCW`: Gegen den Uhrzeigersinn-Wicklung.
 
 ### Rückgabewert
 
@@ -46,4 +45,4 @@ gl.frontFace(gl.CW);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.cullFace()")}}
+- [`WebGLRenderingContext.cullFace()`](/de/docs/Web/API/WebGLRenderingContext/cullFace)

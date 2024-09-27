@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die **`start()`**-Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) startet den Spracherkennungsdienst, der auf eingehende Audiodaten hört, um die Grammatiken zu erkennen, die mit der aktuellen {{domxref("SpeechRecognition")}} verbunden sind.
+Die **`start()`**-Methode der [Web Speech API](/de/docs/Web/API/Web_Speech_API) startet den Spracherkennungsdienst, der eingehendem Audio zuhört, mit dem Ziel, die mit der aktuellen [`SpeechRecognition`](/de/docs/Web/API/SpeechRecognition) verbundenen Grammatiken zu erkennen.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
@@ -57,7 +57,7 @@ recognition.onspeechend = () => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

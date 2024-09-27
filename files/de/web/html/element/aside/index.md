@@ -7,34 +7,34 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<aside>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Abschnitt eines Dokuments, dessen Inhalt nur indirekt mit dem Hauptinhalt des Dokuments in Zusammenhang steht. Asides werden häufig als Seitenleisten oder hervorgehobene Boxen präsentiert.
+Das **`<aside>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Abschnitt eines Dokuments, dessen Inhalt nur indirekt mit dem Hauptinhalt des Dokuments in Zusammenhang steht. Asides werden häufig als Seitenleisten oder Hervorhebungen präsentiert.
 
 {{EmbedInteractiveExample("pages/tabbed/aside.html", "tabbed-standard")}}
 
 ## Attribute
 
-Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-- Verwenden Sie das `<aside>`-Element nicht, um eingeklammerte Texte zu markieren, da diese Art von Text als Teil des Hauptinhaltsflusses betrachtet wird.
+- Verwenden Sie das `<aside>`-Element nicht, um in Klammern stehenden Text zu kennzeichnen, da dieser Text als Teil des Hauptflusses betrachtet wird.
 
 ## Beispiele
 
 ### Verwendung von \<aside>
 
-Dieses Beispiel benutzt `<aside>`, um einen Absatz in einem Artikel zu markieren. Der Absatz steht nur indirekt im Zusammenhang mit dem Hauptinhalt des Artikels:
+Dieses Beispiel verwendet `<aside>` zur Auszeichnung eines Absatzes in einem Artikel. Der Absatz steht nur indirekt im Zusammenhang mit dem Hauptinhalt des Artikels:
 
 ```html
 <article>
   <p>
-    Der Disney-Film <cite>Arielle, die Meerjungfrau</cite> wurde erstmals 1989
-    in die Kinos gebracht.
+    The Disney movie <cite>The Little Mermaid</cite> was first released to
+    theatres in 1989.
   </p>
   <aside>
-    <p>Der Film brachte während seiner ersten Veröffentlichung 87 Millionen Dollar ein.</p>
+    <p>The movie earned $87 million during its initial release.</p>
   </aside>
-  <p>Mehr Informationen über den Film…</p>
+  <p>More info about the movie…</p>
 </article>
 ```
 
@@ -54,14 +54,14 @@ Dieses Beispiel benutzt `<aside>`, um einen Absatz in einem Artikel zu markieren
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >,
         <a
           href="/de/docs/Web/HTML/Content_categories#sectioning_content"
-          >Strukturierungsinhalt</a
+          >Abschnittsinhalte</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#palpable_content"
-          >fühlbarer Inhalt</a
+          >greifbarer Inhalt</a
         >.
       </td>
     </tr>
@@ -69,26 +69,25 @@ Dieses Beispiel benutzt `<aside>`, um einen Absatz in einem Artikel zu markieren
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind verpflichtend.</td>
+      <th scope="row">Auslassen von Tags</th>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
-        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;aside></code>-Element
-        kein Nachkomme eines {{HTMLElement("address")}}-Elements sein darf.
+          >fließenden Inhalt</a
+        > akzeptiert. Beachten Sie, dass ein <code>&#x3C;aside></code>-Element kein Nachkomme eines {{HTMLElement("address")}}-Elements sein darf.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/complementary_role"
@@ -107,7 +106,7 @@ Dieses Beispiel benutzt `<aside>`, um einen Absatz in einem Artikel zu markieren
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
-      <td>{{domxref("HTMLElement")}}</td>
+      <td>[`HTMLElement`](/de/docs/Web/API/HTMLElement)</td>
     </tr>
   </tbody>
 </table>
@@ -122,6 +121,6 @@ Dieses Beispiel benutzt `<aside>`, um einen Absatz in einem Artikel zu markieren
 
 ## Siehe auch
 
-- Andere strukturbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("nav")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
+- Andere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("article")}}, {{HTMLElement("section")}}, {{HTMLElement("nav")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("footer")}}, {{HTMLElement("address")}};
 - [Verwendung von HTML-Abschnitten und Umrissen](/de/docs/Web/HTML/Element/Heading_Elements)
-- [ARIA: Complementary Rolle](/de/docs/Web/Accessibility/ARIA/Roles/complementary_role)
+- [ARIA: Complementary role](/de/docs/Web/Accessibility/ARIA/Roles/complementary_role)

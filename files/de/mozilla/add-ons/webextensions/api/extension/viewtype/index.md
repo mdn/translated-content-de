@@ -11,7 +11,7 @@ Der Typ der Erweiterungsansicht.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind: `"tab"`, `"popup"`, `"sidebar"`.
+Werte dieses Typs sind Zeichenketten. Mögliche Werte sind: `"tab"`, `"popup"`, `"sidebar"`.
 
 ## Browser-Kompatibilität
 
@@ -20,7 +20,7 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind: `"tab"`, `"popup"`, 
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der Chromium-API [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#type-ViewType). Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
+> Diese API basiert auf Chromiums [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#type-ViewType) API. Diese Dokumentation ist abgeleitet von [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef("Web Components")}}
 
-Die **`ariaLevel`**-Eigenschaft der {{domxref("ElementInternals")}}-Schnittstelle spiegelt den Wert des [`aria-level`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-level)-Attributs wider, welches die hierarchische Ebene eines Elements innerhalb einer Struktur definiert.
+Die **`ariaLevel`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-level`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-level)-Attributs wider, das die hierarchische Ebene eines Elements innerhalb einer Struktur definiert.
 
 > [!NOTE]
-> Das Festlegen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken für ein benutzerdefiniertes Element zu definieren. Diese können durch vom Autor definierte Attribute überschrieben werden, aber stellen Sie sicher, dass die Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder diese gar nicht erst hinzufügt. Für weitere Informationen siehe das [Accessibility Object Model Erklärungsdokument](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Festlegen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen jedoch sicher, dass die Standardsemantiken erhalten bleiben, sollte der Autor diese Attribute löschen oder überhaupt nicht hinzufügen. Weitere Informationen finden Sie im [Accessibility Object Model Erklärungsdokument](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
-Ein String, der eine ganze Zahl enthält.
+Ein String, der eine Ganzzahl enthält.
 
 ## Beispiele
 

@@ -7,17 +7,17 @@ l10n:
 
 {{GamesSidebar}}
 
-Diese Seite listet wesentliche Kerntechniken für alle auf, die Spiele mit offenen Webtechnologien entwickeln möchten.
+Diese Seite listet essentielle Kerntechniken für alle auf, die Spiele mit offenen Webtechnologien entwickeln möchten.
 
-- [Verwendung von asynchronen Skripten für asm.js](/de/docs/Games/Techniques/Async_scripts)
-  - : Besonders beim Erstellen von mittelgroßen bis großen Spielen sind asynchrone Skripte eine wesentliche Technik, die Sie nutzen sollten, damit das JavaScript Ihres Spiels außerhalb des Hauptthreads kompiliert und für zukünftige Spieldurchläufe zwischengespeichert werden kann, was zu einer erheblichen Leistungsverbesserung für Ihre Nutzer führt. Dieser Artikel erklärt, wie.
+- [Verwendung von async scripts für asm.js](/de/docs/Games/Techniques/Async_scripts)
+  - : Insbesondere beim Erstellen von mittelgroßen bis großen Spielen sind async scripts eine grundlegende Technik, die Sie nutzen sollten, damit das JavaScript Ihres Spiels außerhalb des Hauptthreads kompiliert und für zukünftige Spielstarts zwischengespeichert werden kann, was zu einer signifikanten Leistungsverbesserung für Ihre Benutzer führt. Dieser Artikel erklärt, wie das funktioniert.
 - [Optimierung der Startleistung](/de/docs/Web/Performance/Optimizing_startup_performance)
-  - : Wie Sie sicherstellen, dass Ihr Spiel schnell, glatt und ohne den Anschein eines Einfrierens des Browsers oder Geräts des Benutzers startet.
+  - : Wie Sie sicherstellen, dass Ihr Spiel schnell, reibungslos und ohne einen Einfrieren Ihres Browsers oder Geräts startet.
 - [Verwendung von WebRTC Peer-to-Peer-Datenkanälen](/de/docs/Games/Techniques/WebRTC_data_channels)
-  - : Neben der Unterstützung für Audio- und Videokommunikation ermöglicht WebRTC Ihnen die Einrichtung von Peer-to-Peer-Datenkanälen, um Text- oder Binärdaten aktiv zwischen Ihren Spielern auszutauschen. Dieser Artikel erklärt, was dies für Sie leisten kann, und zeigt, wie Sie Bibliotheken nutzen, die dies einfach machen.
+  - : WebRTC bietet zusätzlich zur Unterstützung für Audio- und Videokommunikation die Möglichkeit, Peer-to-Peer-Datenkanäle einzurichten, um Text- oder Binärdaten aktiv zwischen Ihren Spielern auszutauschen. Dieser Artikel erklärt, was dies für Sie tun kann, und zeigt, wie Sie Bibliotheken verwenden, die dies erleichtern.
 - [Audio für Web-Spiele](/de/docs/Games/Techniques/Audio_for_Web_Games)
-  - : Audio ist ein wichtiger Bestandteil jedes Spiels – es bietet Feedback und Atmosphäre. Webbasiertes Audio entwickelt sich schnell weiter, jedoch gibt es immer noch viele Unterschiede zwischen den Browsern. Dieser Artikel bietet einen detaillierten Leitfaden zur Implementierung von Audio für Web-Spiele, wobei untersucht wird, was derzeit auf einer möglichst breiten Palette von Plattformen funktioniert.
+  - : Audio ist ein wichtiger Bestandteil jedes Spiels — es bietet Feedback und Atmosphäre. Webbasierte Audio-Technologien entwickeln sich rasant weiter, es gibt jedoch immer noch viele Unterschiede zwischen Browsern, die es zu berücksichtigen gilt. Dieser Artikel bietet einen detaillierten Leitfaden zur Implementierung von Audio für Web-Spiele und untersucht, was derzeit plattformübergreifend funktioniert.
 - [2D-Kollisionserkennung](/de/docs/Games/Techniques/2D_collision_detection)
-  - : Eine prägnante Einführung in die Kollisionserkennung in 2D-Spielen.
+  - : Eine knappe Einführung in die Kollisionserkennung in 2D-Spielen.
 - [Tilemaps](/de/docs/Games/Techniques/Tilemaps)
-  - : Kacheln sind eine sehr beliebte Technik in 2D-Spielen zum Aufbau der Spielwelt. Diese Artikel bieten eine Einführung in Tilemaps und deren Implementierung mit der Canvas-API.
+  - : Tiles sind eine sehr beliebte Technik in 2D-Spielen zur Erstellung der Spielwelt. Diese Artikel bieten eine Einführung in Tilemaps und deren Implementierung mit der `Canvas` API.

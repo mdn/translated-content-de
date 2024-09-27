@@ -8,18 +8,17 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`id`**-Eigenschaft der schreibgeschützten
-{{domxref("NotRestoredReasons")}}-Schnittstelle gibt einen String zurück, der den Wert des `id`-Attributs des {{htmlelement("iframe")}} darstellt, in dem sich das Dokument befindet (zum Beispiel `<iframe id="foo" src="...">`).
+Die **`id`**-Schreibgeschützte Eigenschaft des [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Interfaces gibt einen String zurück, der den `id`-Attributwert des {{htmlelement("iframe")}} darstellt, in dem sich das Dokument befindet (zum Beispiel `<iframe id="foo" src="...">`).
 
 ## Wert
 
 Ein String.
 
-Wenn sich das Dokument nicht in einem `<iframe>` befindet oder das `<iframe>` keine `id` gesetzt hat, wird `id` `null` zurückgeben.
+Wenn sich das Dokument nicht in einem `<iframe>` befindet oder das `<iframe>` keine `id` gesetzt hat, gibt `id` `null` zurück.
 
 ## Beispiele
 
-Siehe [Überwachung von bfcache-Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) für Beispiele.
+Siehe [Überwachung der Gründe für das Blockieren des bfcache](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) für Beispiele.
 
 ## Spezifikationen
 
@@ -31,5 +30,5 @@ Siehe [Überwachung von bfcache-Blockierungsgründen](/de/docs/Web/API/Performan
 
 ## Siehe auch
 
-- [Überwachung von bfcache-Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
-- {{domxref("PerformanceNavigationTiming.notRestoredReasons")}}
+- [Überwachung der Gründe für das Blockieren des bfcache](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons)
+- [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons)

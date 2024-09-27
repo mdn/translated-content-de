@@ -14,18 +14,18 @@ Die `Plugin`-Schnittstelle bietet Informationen über ein Browser-Plugin.
 
 ## Instanzeigenschaften
 
-- {{domxref("Plugin.description")}} {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Eine lesbare Beschreibung des Plugins.
-- {{domxref("Plugin.filename")}} {{ReadOnlyInline}} {{Deprecated_Inline}}
+- [`Plugin.description`](/de/docs/Web/API/Plugin/description) {{ReadOnlyInline}} {{Deprecated_Inline}}
+  - : Eine menschenlesbare Beschreibung des Plugins.
+- [`Plugin.filename`](/de/docs/Web/API/Plugin/filename) {{ReadOnlyInline}} {{Deprecated_Inline}}
   - : Der Dateiname der Plugin-Datei.
-- {{domxref("Plugin.name")}} {{ReadOnlyInline}} {{Deprecated_Inline}}
+- [`Plugin.name`](/de/docs/Web/API/Plugin/name) {{ReadOnlyInline}} {{Deprecated_Inline}}
   - : Der Name des Plugins.
 
 ## Instanzmethoden
 
-- {{domxref("Plugin.item")}} {{Deprecated_Inline}}
+- [`Plugin.item`](/de/docs/Web/API/Plugin/item) {{Deprecated_Inline}}
   - : Gibt den MIME-Typ eines unterstützten Inhaltstyps zurück, basierend auf der Indexnummer in einer Liste unterstützter Typen.
-- {{domxref("Plugin.namedItem")}} {{Deprecated_Inline}}
+- [`Plugin.namedItem`](/de/docs/Web/API/Plugin/namedItem) {{Deprecated_Inline}}
   - : Gibt den MIME-Typ eines unterstützten Elements zurück.
 
 ## Spezifikationen

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`entries()`**-Methode der {{domxref("HighlightRegistry")}}-Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)-Objekt zurück, das die `[name, highlight]`-Paare für jedes Element im `HighlightRegistry`-Objekt in der Einfügereihenfolge enthält.
+Die **`entries()`**-Methode der [`HighlightRegistry`](/de/docs/Web/API/HighlightRegistry)-Schnittstelle gibt ein neues [Iterator](/de/docs/Web/JavaScript/Guide/Iterators_and_generators)-Objekt zurück, das die `[name, highlight]` Paare für jedes Element im `HighlightRegistry`-Objekt in der Einfügereihenfolge enthält.
 
 `HighlightRegistry` ist ein {{jsxref("Map")}}-ähnliches Objekt, daher ist dies ähnlich wie die Verwendung von {{jsxref("Map.entries()")}}.
 
@@ -20,11 +20,11 @@ entries()
 
 ### Rückgabewert
 
-Ein neues Iterator-Objekt, das ein Array von `[name, highlight]` für jedes `Highlight`-Objekt im `HighlightRegistry` in Einfügereihenfolge enthält.
+Ein neues Iterator-Objekt, das ein Array von `[name, highlight]` für jedes `Highlight`-Objekt in der `HighlightRegistry` in Einfügereihenfolge enthält.
 
 ## Beispiele
 
-Der folgende Code-Schnipsel erstellt und registriert zwei neue Highlights und gibt dann die Highlights und deren Namen aus, indem er den Iterator verwendet, der von der `entries()`-Methode zurückgegeben wird:
+Der folgende Code-Snippet erstellt und registriert zwei neue Hervorhebungen und protokolliert dann die Hervorhebungen und ihre Namen mithilfe des Iterators, der von der `entries()`-Methode zurückgegeben wird:
 
 ```js
 const myHighlight1 = new Highlight();
@@ -39,7 +39,7 @@ console.log(iter.next().value); // ['first-highlight', Highlight]
 console.log(iter.next().value); // ['second-highlight', Highlight]
 ```
 
-Das folgende Codebeispiel zeigt, wie man über die Highlights im Register mit einer [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife iteriert:
+Das folgende Codebeispiel zeigt, wie man mit einer [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife über die Hervorhebungen im Registry iteriert:
 
 ```js
 const myHighlight1 = new Highlight();
@@ -63,5 +63,5 @@ for (const [name, highlight] of CSS.highlights.entries()) {
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "Die CSS Custom Highlight API", "", "nocode")}}
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
 - [CSS Custom Highlight API: The Future of Highlighting Text Ranges on the Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

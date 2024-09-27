@@ -1,6 +1,6 @@
 ---
-title: "CSSNumericArray: Länge-Eigenschaft"
-short-title: Länge
+title: "CSSNumericArray: length-Eigenschaft"
+short-title: length
 slug: Web/API/CSSNumericArray/length
 l10n:
   sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
@@ -8,18 +8,15 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die schreibgeschützte **`length`**-Eigenschaft der
-{{domxref("CSSNumericArray")}}-Schnittstelle gibt die Anzahl der
-{{domxref("CSSNumericValue")}}-Objekte in der Liste zurück.
+Die schreibgeschützte **`length`**-Eigenschaft des [`CSSNumericArray`](/de/docs/Web/API/CSSNumericArray)-Interfaces gibt die Anzahl der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte in der Liste zurück.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der {{domxref("CSSNumericValue")}}-Objekte in der
-Liste darstellt.
+Ein Ganzzahlwert, der die Anzahl der [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekte in der Liste darstellt.
 
 ## Beispiele
 
-To Do
+Zu erledigen
 
 ## Spezifikationen
 

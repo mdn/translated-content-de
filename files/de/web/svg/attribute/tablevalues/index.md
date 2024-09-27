@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`tableValues`**-Attribut definiert eine Liste von Zahlen, die eine Lookup-Tabelle von Werten für eine Farbkomponenten-Transferfunktion festlegt.
+Das **`tableValues`**-Attribut definiert eine Liste von Zahlen, die eine Nachschlagetabelle von Werten für eine Farbkomponenten-Übertragungsfunktion definiert.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("feFuncA")}}
 - {{SVGElement("feFuncB")}}
@@ -103,7 +103,7 @@ svg {
 
 - `<list-of-numbers>`
 
-  - : Dieser Wert hält eine durch Kommas und/oder Leerzeichen getrennte Liste von {{cssxref("number")}}s, die eine Lookup-Tabelle für die Farbkomponenten-Transferfunktion definieren. Jede Zahl kann zwischen `0` und `1` liegen.
+  - : Dieser Wert enthält eine durch Kommas und/oder Leerzeichen getrennte Liste von {{cssxref("number")}}s, die eine Nachschlagetabelle für die Farbkomponenten-Übertragungsfunktion definieren. Jede Zahl kann zwischen `0` und `1` liegen.
 
     Eine leere Liste führt zu einer Identitätsübertragungsfunktion.
 

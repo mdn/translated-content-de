@@ -9,11 +9,11 @@ l10n:
 
 Verwenden Sie diese Funktion, um detaillierte Informationen über die [TLS](/de/docs/Glossary/TLS)-Verbindung zu erhalten, die mit einer bestimmten Anfrage verbunden ist.
 
-Sie übergeben dieser Funktion die `requestId` der betreffenden Anfrage und einige optionale zusätzliche Parameter. Sie gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das zu einem {{WebExtAPIRef("webRequest.SecurityInfo", "SecurityInfo")}}-Objekt aufgelöst wird.
+Sie übergeben dieser Funktion die `requestId` der betreffenden Anfrage sowie einige optionale zusätzliche Parameter. Sie gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das auf ein {{WebExtAPIRef("webRequest.SecurityInfo", "SecurityInfo")}}-Objekt aufgelöst wird.
 
-Sie können diese Funktion nur innerhalb des {{WebExtAPIRef("webRequest.onHeadersReceived")}}-Listeners aufrufen. Die `requestId` kann im `details`-Objekt gefunden werden, das an den Listener übergeben wird.
+Sie können diese Funktion nur innerhalb des {{WebExtAPIRef("webRequest.onHeadersReceived")}}-Listeners aufrufen. Die `requestId` kann im `details`-Objekt gefunden werden, das in den Listener übergeben wird.
 
-Sie müssen auch die Option "blocking" an `webRequest.onHeadersReceived.addListener()` übergeben. Um diese API nutzen zu können, müssen Sie die API-Berechtigung "webRequestBlocking" sowie die normalen Berechtigungen für die Verwendung von `webRequest`-Listenern besitzen (die "webRequest"-Berechtigung und die [Host-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für den Host).
+Sie müssen auch die Option "blocking" an `webRequest.onHeadersReceived.addListener()` übergeben. Um diese API zu verwenden, benötigen Sie die "webRequestBlocking"-[API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) sowie die normalen Berechtigungen, die für die Verwendung von `webRequest`-Listenern erforderlich sind (die "webRequest"-Berechtigung und die [Hostberechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) für den Host).
 
 ## Syntax
 
@@ -27,19 +27,19 @@ let gettingInfo = browser.webRequest.getSecurityInfo(
 ### Parameter
 
 - `requestId`
-  - : `string`. ID der Anfrage, für die Sie Sicherheitsinformationen erhalten möchten. Sie können diese aus dem `details`-Objekt erhalten, das an jeden `webRequest`-Ereignislistener übergeben wird.
+  - : `string`. ID der Anfrage, für die Sie Sicherheitsinformationen wünschen. Sie können diese aus dem `details`-Objekt erhalten, das an alle `webRequest`-Ereignis-Listener übergeben wird.
 - `options` {{optional_inline}}
 
-  - : `object`. Ein Objekt, das eine beliebige dieser Eigenschaften enthalten kann:
+  - : `object`. Ein Objekt, das eine der folgenden Eigenschaften enthalten kann:
 
     - `certificateChain` {{optional_inline}}
-      - : `boolean`. Wenn `true`, enthält das zurückgegebene {{WebExtAPIRef("webRequest.SecurityInfo", "SecurityInfo")}}-Objekt die gesamte Zertifikatkette bis zum Vertrauensanker. Wenn `false`, enthält es nur das Serverzertifikat. Standardmäßig ist `false`.
+      - : `boolean`. Wenn `true`, wird das zurückgegebene {{WebExtAPIRef("webRequest.SecurityInfo", "SecurityInfo")}}-Objekt die gesamte Zertifikatskette bis hin zur Vertrauenswurzel enthalten. Wenn `false`, wird nur das Serverzertifikat enthalten sein. Standard ist `false`.
     - `rawDER` {{optional_inline}}
-      - : `boolean`. Wenn `true`, enthält jeder {{WebExtAPIRef("webRequest.CertificateInfo", "CertificateInfo")}} in der {{WebExtAPIRef("webRequest.SecurityInfo", "SecurityInfo.certificates")}}-Eigenschaft eine Eigenschaft `rawDER`. Diese enthält das DER-codierte ASN.1, das die Zertifikatsdaten umfasst.
+      - : `boolean`. Wenn true, wird jedes {{WebExtAPIRef("webRequest.CertificateInfo", "CertificateInfo")}} im {{WebExtAPIRef("webRequest.SecurityInfo", "SecurityInfo.certificates")}}-Eigenschaft eine Eigenschaft `rawDER` enthalten. Diese enthält das DER-kodierte ASN.1, das die Zertifikatsdaten umfasst.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das zu einem {{WebExtAPIRef("webRequest.SecurityInfo", "SecurityInfo")}}-Objekt aufgelöst wird.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das auf ein {{WebExtAPIRef("webRequest.SecurityInfo", "SecurityInfo")}}-Objekt aufgelöst wird.
 
 ## Browser-Kompatibilität
 
@@ -47,7 +47,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das z
 
 ## Beispiele
 
-Dieses Beispiel hört auf alle HTTPS-Anfragen an "mozilla.org" oder deren Subdomains und protokolliert den Betreibernamen im Serverzertifikat:
+Dieses Beispiel lauscht auf alle HTTPS-Anfragen an "mozilla.org" oder seine Subdomains und protokolliert den Subjektnamen im Serverzertifikat:
 
 ```js
 async function logSubject(details) {
@@ -72,7 +72,7 @@ browser.webRequest.onHeadersReceived.addListener(
 );
 ```
 
-Dieses Beispiel hört auf alle HTTPS-Anfragen an "mozilla.org" oder deren Subdomains und protokolliert den Namen im vertrauenswürdigen Stammzertifikat:
+Dieses Beispiel lauscht auf alle HTTPS-Anfragen an "mozilla.org" oder seine Subdomains und protokolliert den Namen im Vertrauenswurzel-Zertifikat:
 
 ```js
 async function logRoot(details) {

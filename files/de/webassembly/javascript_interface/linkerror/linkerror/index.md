@@ -7,7 +7,10 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Der **`WebAssembly.LinkError()`** Konstruktor erstellt ein neues WebAssembly `LinkError` Objekt, das auf einen Fehler während der Modulerstellung hinweist (außer [Traps](https://webassembly.github.io/simd/core/intro/overview.html#trap) aus der Startfunktion).
+Der **`WebAssembly.LinkError()`** Konstruktor erzeugt ein neues
+WebAssembly `LinkError` Objekt, das auf einen Fehler während der Modul-
+Instanziierung hinweist (abgesehen von [traps](https://webassembly.github.io/simd/core/intro/overview.html#trap)
+von der Startfunktion).
 
 ## Syntax
 
@@ -22,11 +25,12 @@ new WebAssembly.LinkError(message, fileName, lineNumber)
 ### Parameter
 
 - `message` {{optional_inline}}
-  - : Eine menschenlesbare Beschreibung des Fehlers.
+  - : Menschlich lesbare Beschreibung des Fehlers.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das die folgenden Eigenschaften hat:
+  - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `cause` {{optional_inline}}
-      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt. Beim Auffangen und erneuten Auslösen eines Fehlers mit einer genaueren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler weiterzugeben.
+      - : Eine Eigenschaft, die die spezifische Ursache des Fehlers angibt.
+        Beim Auffangen und erneuten Werfen eines Fehlers mit einer spezifischeren oder nützlicheren Fehlermeldung kann diese Eigenschaft verwendet werden, um den ursprünglichen Fehler zu übergeben.
 - `fileName` {{optional_inline}} {{non-standard_inline}}
   - : Der Name der Datei, die den Code enthält, der die Ausnahme verursacht hat.
 - `lineNumber` {{optional_inline}} {{non-standard_inline}}
@@ -36,7 +40,8 @@ new WebAssembly.LinkError(message, fileName, lineNumber)
 
 ### Erstellen einer neuen LinkError-Instanz
 
-Das folgende Beispiel erstellt eine neue `LinkError`-Instanz und protokolliert ihre Details in der Konsole:
+Das folgende Snippet erstellt eine neue `LinkError`-Instanz und loggt deren
+Details in die Konsole:
 
 ```js
 try {
@@ -48,7 +53,7 @@ try {
   console.log(e.fileName); // "someFile"
   console.log(e.lineNumber); // 10
   console.log(e.columnNumber); // 0
-  console.log(e.stack); // gibt den Ort zurück, wo der Code ausgeführt wurde
+  console.log(e.stack); // returns the location where the code was run
 }
 ```
 
@@ -62,6 +67,6 @@ try {
 
 ## Siehe auch
 
-- [WebAssembly](/de/docs/WebAssembly) Übersichtsseite
+- [Überblick über WebAssembly](/de/docs/WebAssembly)
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
 - [Verwendung der WebAssembly JavaScript API](/de/docs/WebAssembly/Using_the_JavaScript_API)

@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `microphone`-Direktive steuert, ob das aktuelle Dokument Audioeingabegeräte verwenden darf.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} `microphone`-Direktive steuert, ob das aktuelle Dokument berechtigt ist, Audioeingabegeräte zu verwenden.
 
-Konkret, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von {{domxref("MediaDevices.getUserMedia()")}} ein {{jsxref("Promise")}} zurückgeben, das mit einem `NotAllowedError`-{{domxref("DOMException")}} abgelehnt wird.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieses Features blockiert, werden Aufrufe von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) ein {{jsxref("Promise")}} zurückgeben, das mit einem `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) abgelehnt wird.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ Permissions-Policy: microphone=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung erteilt wird, die Funktion zu verwenden. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wird, die Funktion zu nutzen. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
@@ -28,11 +28,11 @@ Die standardmäßige Erlaubnisliste für `microphone` ist `self`.
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
 - {{HTTPHeader("Permissions-Policy")}}-Header
-- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)
+- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

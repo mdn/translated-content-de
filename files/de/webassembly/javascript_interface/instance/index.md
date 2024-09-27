@@ -7,23 +7,23 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Ein **`WebAssembly.Instance`** Objekt ist eine zustandsbehaftete, ausführbare Instanz eines [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module). `Instance` Objekte enthalten alle [Exportierten WebAssembly-Funktionen](/de/docs/WebAssembly/Exported_functions), die es ermöglichen, aus JavaScript auf WebAssembly-Code zuzugreifen.
+Ein **`WebAssembly.Instance`**-Objekt ist eine zustandsbehaftete, ausführbare Instanz eines [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module). `Instance`-Objekte enthalten alle [exportierten WebAssembly-Funktionen](/de/docs/WebAssembly/Exported_functions), die es ermöglichen, aus JavaScript auf WebAssembly-Code zuzugreifen.
 
 ## Konstruktor
 
 - [`WebAssembly.Instance()`](/de/docs/WebAssembly/JavaScript_interface/Instance/Instance)
-  - : Erstellt ein neues `Instance` Objekt.
+  - : Erstellt ein neues `Instance`-Objekt.
 
 ## Instanzeigenschaften
 
 - [`exports`](/de/docs/WebAssembly/JavaScript_interface/Instance/exports)
-  - : Gibt ein Objekt zurück, das alle aus der WebAssembly-Modulinstanz exportierten Funktionen als seine Mitglieder enthält, um sie für den Zugriff und die Nutzung durch JavaScript bereitzustellen. Schreibgeschützt.
+  - : Gibt ein Objekt zurück, das alle aus der WebAssembly-Modulinstanz exportierten Funktionen als Mitglieder enthält, damit sie von JavaScript aus aufgerufen und genutzt werden können. Schreibgeschützt.
 
 ## Beispiele
 
 ### Synchrones Instanziieren eines WebAssembly-Moduls
 
-Die `WebAssembly.Instance()` Konstruktorfunktion kann aufgerufen werden, um ein gegebenes [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module) Objekt synchron zu instanziieren, zum Beispiel:
+Die Konstruktorfunktion `WebAssembly.Instance()` kann aufgerufen werden, um ein gegebenes [`WebAssembly.Module`](/de/docs/WebAssembly/JavaScript_interface/Module)-Objekt synchron zu instanziieren, zum Beispiel:
 
 ```js
 const importObject = {
@@ -43,7 +43,7 @@ fetch("simple.wasm")
   });
 ```
 
-Die bevorzugte Methode, um eine `Instance` zu erhalten, ist asynchron, zum Beispiel mit der [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static) Funktion, wie hier gezeigt:
+Die bevorzugte Methode, um eine `Instance` zu erhalten, ist asynchron, beispielsweise unter Verwendung der Funktion [`WebAssembly.instantiateStreaming()`](/de/docs/WebAssembly/JavaScript_interface/instantiateStreaming_static):
 
 ```js
 const importObject = {
@@ -59,7 +59,7 @@ WebAssembly.instantiateStreaming(fetch("simple.wasm"), importObject).then(
 );
 ```
 
-Dies zeigt auch, wie die `exports` Eigenschaft verwendet wird, um auf exportierte Funktionen zuzugreifen.
+Dies zeigt auch, wie die `exports`-Eigenschaft verwendet wird, um auf exportierte Funktionen zuzugreifen.
 
 ## Spezifikationen
 

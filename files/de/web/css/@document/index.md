@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Deprecated_header}}{{Non-standard_header}}
 
-Die **`@document`** [CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/At-rule) schränkt die darin enthaltenen Stilregeln basierend auf der URL des Dokuments ein. Sie ist hauptsächlich für benutzerdefinierte Stylesheets konzipiert, kann jedoch auch in autorendefinierten Stylesheets verwendet werden.
+Die **`@document`** [CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/At-rule) schränkt die darin enthaltenen Stilregeln basierend auf der URL des Dokuments ein. Sie wurde hauptsächlich für benutzerdefinierte Stylesheets entwickelt, kann jedoch auch in autorenspezifischen Stylesheets verwendet werden.
 
 ```css
 @document url("https://www.example.com/")
@@ -20,29 +20,29 @@ Die **`@document`** [CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/At-rule) 
 
 ## Syntax
 
-Eine `@document`-Regel kann eine oder mehrere Übereinstimmungsfunktionen spezifizieren. Wenn eine der Funktionen auf eine gegebene URL zutrifft, wird die Regel auf diese URL angewendet. Die verfügbaren Funktionen sind:
+Eine `@document`-Regel kann eine oder mehrere übereinstimmende Funktionen spezifizieren. Wenn eine der Funktionen auf eine gegebene URL zutrifft, wird die Regel für diese URL wirksam. Die verfügbaren Funktionen sind:
 
 - `url()`
-  - : Passt zu einer exakten URL.
+  - : Passt auf eine genaue URL.
 - `url-prefix()`
   - : Passt, wenn die Dokument-URL mit dem angegebenen Wert beginnt.
 - `domain()`
-  - : Passt, wenn die Dokument-URL auf der angegebenen Domain (oder einer Subdomain davon) ist.
+  - : Passt, wenn die Dokument-URL auf der angegebenen Domain (oder einer Subdomain davon) liegt.
 - `media-document()`
-  - : Passt das Medium gemäß dem Parameterstring, einer von `video`, `image`, `plugin` oder `all`.
+  - : Passt die Medien gemäß dem im Parameter angegebenen String, einer von `video`, `image`, `plugin` oder `all`.
 - `regexp()`
   - : Passt, wenn die Dokument-URL mit dem angegebenen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) übereinstimmt. Der Ausdruck muss mit der gesamten URL übereinstimmen.
 
-Die an die Funktionen `url()`, `url-prefix()`, `domain()` und `media-document()` übergebenen Werte können optional in einfachen oder doppelten Anführungszeichen eingeschlossen werden. Die an die Funktion `regexp()` übergebenen Werte _müssen_ in Anführungszeichen eingeschlossen werden.
+Die Werte, die den Funktionen `url()`, `url-prefix()`, `domain()` und `media-document()` übergeben werden, können optional von einfachen oder doppelten Anführungszeichen umschlossen werden. Die Werte, die der Funktion `regexp()` übergeben werden, _müssen_ in Anführungszeichen gesetzt sein.
 
-Entkommene Werte, die an die Funktion `regexp()` übergeben werden, müssen zusätzlich aus dem CSS entkommen werden. Zum Beispiel, ein `.` (Punkt) passt auf jedes Zeichen in regulären Ausdrücken. Um einen literalen Punkt zu matchen, müssten Sie ihn zuerst mit regulären Ausdrucksregeln entkommen (zu `\.`), dann diesen String mit CSS-Regeln entkommen (zu `\\.`).
+Escape-Zeichen, die der Funktion `regexp()` übergeben werden, müssen zusätzlich aus dem CSS heraus entzogen werden. Beispielsweise entspricht ein `.` (Punkt) in regulären Ausdrücken jedem Zeichen. Um einen tatsächlichen Punkt zu matchen, müssen Sie ihn zuerst mit den Regeln für reguläre Ausdrücke entziehen (zu `\.`) und dann diesen String mit CSS-Regeln entziehen (zu `\\.`).
 
-`@document` wird derzeit nur in Firefox unterstützt; wenn Sie versuchen möchten, eine solche Funktionalität in Ihrem eigenen Nicht-Firefox-Browser zu replizieren, könnten Sie versuchen, [diese Polyfill](https://github.com/An-Error94/Handy-Scripts/tree/master/%40document-polyfill) von @An-Error94 zu verwenden, die eine Kombination aus einem Benutzer-Script, [data-\* Attributen](/de/docs/Web/HTML/Global_attributes/data-*), und [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) verwendet.
+`@document` wird derzeit nur in Firefox unterstützt; wenn Sie versuchen möchten, diese Funktionalität in Ihrem eigenen Nicht-Firefox-Browser zu replizieren, könnten Sie [dieses Polyfill](https://github.com/An-Error94/Handy-Scripts/tree/master/%40document-polyfill) von @An-Error94 verwenden, das eine Kombination aus einem Benutzerskript, [data-\* Attributen](/de/docs/Web/HTML/Global_attributes/data-*) und [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) nutzt.
 
 > [!NOTE]
-> Es gibt eine -moz-Präfixversion dieser Eigenschaft — `@-moz-document`. Diese wurde in Firefox 59 in Nightly und Beta darauf beschränkt, nur in Benutzer- und UA-Stilen verwendet zu werden – ein Experiment, um potenzielle CSS-Injektionen zu mildern (Siehe [Firefox Bug 1035091](https://bugzil.la/1035091)).
+> Es gibt eine -moz-präfixierte Version dieser Eigenschaft — `@-moz-document`. Diese wurde in Firefox 59 in Nightly und Beta auf die Verwendung in Benutzer- und UA-Sheets beschränkt — ein Experiment, das darauf abzielt, potenzielle CSS-Injektionsangriffe zu entschärfen (Siehe [Firefox bug 1035091](https://bugzil.la/1035091)).
 
-## Formale Syntax
+## Formal syntax
 
 ```plain
 @document [ <url>                    |
@@ -57,7 +57,7 @@ Entkommene Werte, die an die Funktion `regexp()` übergeben werden, müssen zus�
 
 ## Beispiele
 
-### Dokument für CSS-Regel spezifizieren
+### Spezifizierung eines Dokuments für eine CSS-Regel
 
 ```css
 @document url("http://www.w3.org/"),
@@ -65,15 +65,15 @@ Entkommene Werte, die an die Funktion `regexp()` übergeben werden, müssen zus�
           domain("mozilla.org"),
           media-document("video"),
           regexp("https:.*") {
-  /* CSS-Regeln hier gelten für:
-     - Die Seite "http://www.w3.org/"
-     - Jede Seite, deren URL mit "http://www.w3.org/Style/" beginnt
-     - Jede Seite, deren URL-Host "mozilla.org" ist
-       oder mit ".mozilla.org" endet
-     - Jedes eigenständige Video
-     - Jede Seite, deren URL mit "https:" beginnt */
+  /* CSS rules here apply to:
+     - The page "http://www.w3.org/"
+     - Any page whose URL begins with "http://www.w3.org/Style/"
+     - Any page whose URL's host is "mozilla.org"
+       or ends with ".mozilla.org"
+     - Any standalone video
+     - Any page whose URL starts with "https:" */
 
-  /* Machen Sie die oben genannten Seiten wirklich hässlich */
+  /* Make the above-mentioned pages really ugly */
   body {
     color: purple;
     background: yellow;
@@ -83,7 +83,7 @@ Entkommene Werte, die an die Funktion `regexp()` übergeben werden, müssen zus�
 
 ## Spezifikationen
 
-[Ursprünglich](https://www.w3.org/TR/2012/WD-css3-conditional-20120911/#at-document) in Level 3 wurde `@document` [verschoben](https://www.w3.org/TR/2012/WD-css3-conditional-20121213/#changes) zu Level 4, aber dann anschließend entfernt.
+[Ursprünglich](https://www.w3.org/TR/2012/WD-css3-conditional-20120911/#at-document) in Level 3, wurde `@document` zu Level 4 [verschoben](https://www.w3.org/TR/2012/WD-css3-conditional-20121213/#changes), jedoch anschließend entfernt.
 
 ## Browser-Kompatibilität
 
@@ -91,4 +91,4 @@ Entkommene Werte, die an die Funktion `regexp()` übergeben werden, müssen zus�
 
 ## Siehe auch
 
-- [Per-site user style sheet rules](https://lists.w3.org/Archives/Public/www-style/2004Aug/0135) auf der www-style-Mailingliste.
+- [Regeln für benutzerdefinierte Stylesheets pro Website](https://lists.w3.org/Archives/Public/www-style/2004Aug/0135) auf der www-style-Mailingliste.

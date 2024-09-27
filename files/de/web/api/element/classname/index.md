@@ -1,5 +1,5 @@
 ---
-title: "Element: className Eigenschaft"
+title: "Element: className-Eigenschaft"
 short-title: className
 slug: Web/API/Element/className
 l10n:
@@ -8,11 +8,13 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`className`**-Eigenschaft des {{domxref("Element")}}-Interfaces ruft den Wert des [`class`-Attributs](/de/docs/Web/HTML/Global_attributes/class) des angegebenen Elements ab und setzt diesen.
+Die **`className`**-Eigenschaft der
+[`Element`](/de/docs/Web/API/Element)-Schnittstelle liest und setzt den Wert des [`class`-Attributs](/de/docs/Web/HTML/Global_attributes/class)
+des angegebenen Elements.
 
 ## Wert
 
-Eine Zeichenfolgenvariable, die die Klasse oder klassenweise getrennte Klassen des aktuellen Elements darstellt.
+Eine String-Variable, die die Klasse oder durch Leerzeichen getrennte Klassen des aktuellen Elements darstellt.
 
 ## Beispiele
 
@@ -21,18 +23,27 @@ const el = document.getElementById("item");
 el.className = el.className === "active" ? "inactive" : "active";
 ```
 
-## Hinweise
+## Anmerkungen
 
-Der Name `className` wird für diese Eigenschaft verwendet, anstelle von `class`, aufgrund von Konflikten mit dem "class"-Schlüsselwort in vielen Sprachen, die für die DOM-Manipulation genutzt werden.
+Der Name `className` wird für diese Eigenschaft verwendet anstelle von `class`,
+aufgrund von Konflikten mit dem "class"-Schlüsselwort in vielen Sprachen, die zur
+Manipulation des DOM verwendet werden.
 
-`className` kann auch eine Instanz von {{domxref("SVGAnimatedString")}} sein, wenn das `element` ein {{domxref("SVGElement")}} ist. Es ist besser, die `className` eines Elements mit {{domxref("Element.getAttribute")}} und {{domxref("Element.setAttribute")}} zu holen/setzen, wenn Sie mit SVG-Elementen arbeiten. Beachten Sie jedoch, dass {{domxref("Element.getAttribute")}} [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurückgibt anstelle von `""`, wenn das `element` ein leeres [`class`-Attribut](/de/docs/Web/HTML/Global_attributes/class) hat.
+`className` kann auch eine Instanz von [`SVGAnimatedString`](/de/docs/Web/API/SVGAnimatedString) sein, wenn
+das `element` ein [`SVGElement`](/de/docs/Web/API/SVGElement) ist. Es ist besser, die
+`className` eines Elements mit [`Element.getAttribute`](/de/docs/Web/API/Element/getAttribute) und
+[`Element.setAttribute`](/de/docs/Web/API/Element/setAttribute) zu lesen/setzen, wenn Sie mit SVG-Elementen arbeiten. Beachten Sie jedoch,
+dass [`Element.getAttribute`](/de/docs/Web/API/Element/getAttribute)
+[`null`](/de/docs/Web/JavaScript/Reference/Operators/null)
+anstatt `""` zurückgibt, wenn das `element` ein leeres [`class`-Attribut](/de/docs/Web/HTML/Global_attributes/class) hat.
 
 ```js
 elm.setAttribute("class", elm.getAttribute("class"));
 ```
 
 > [!NOTE]
-> `class` ist ein **HTML-Attribut**, während `className` eine **DOM-Eigenschaft** ist.
+> Das `class` ist ein **HTML-Attribut**, während das
+> `className` eine **DOM-Eigenschaft** ist.
 
 ## Spezifikationen
 
@@ -44,4 +55,4 @@ elm.setAttribute("class", elm.getAttribute("class"));
 
 ## Siehe auch
 
-- {{domxref("element.classList")}}
+- [`element.classList`](/de/docs/Web/API/Element/classList)

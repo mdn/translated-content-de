@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebVR API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`hasPosition`** der {{domxref("GamepadPose")}}-Schnittstelle gibt einen booleschen Wert zurück, der angibt, ob das {{domxref("Gamepad")}} in der Lage ist, Positionsinformationen zu verfolgen und zurückzugeben.
+Die schreibgeschützte Eigenschaft **`hasPosition`** der [`GamepadPose`](/de/docs/Web/API/GamepadPose)-Schnittstelle gibt einen booleschen Wert aus, der angibt, ob das [`Gamepad`](/de/docs/Web/API/Gamepad) in der Lage ist, Positionsinformationen zu verfolgen und zurückzugeben.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein boolescher Wert.
 
 ## Beispiele
 
-TBD
+Wird noch bearbeitet
 
 ## Spezifikationen
 

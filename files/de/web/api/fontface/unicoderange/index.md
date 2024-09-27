@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`unicodeRange`**-Eigenschaft des {{domxref("FontFace")}}-Interfaces ruft den Bereich der Unicode-Codepunkte ab, die die Schriftart umfassen, oder legt diesen fest.
+Die **`unicodeRange`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces ruft den Bereich der Unicode-Code-Punkte ab, die die Schriftart umfassen, oder setzt diesen.
 
-Diese Eigenschaft entspricht dem {{cssxref("@font-face/unicode-range", "unicode-range")}} Deskriptor.
+Diese Eigenschaft entspricht dem {{cssxref("@font-face/unicode-range", "unicode-range")}}-Deskriptor.
 
 ## Wert
 
-Ein String, der einen Deskriptor enthält, wie er in der `@font-face` Regel eines Stylesheets erscheinen würde.
+Ein String, der einen Deskriptor enthält, wie er in einer Typblattregel `@font-face` erscheinen würde.
 
 ## Spezifikationen
 

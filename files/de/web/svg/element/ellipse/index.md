@@ -7,10 +7,10 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<ellipse>`**-Element ist eine SVG-Grundform, die verwendet wird, um Ellipsen basierend auf einem Mittelpunkt sowie deren x- und y-Radius zu erstellen.
+Das **`<ellipse>`**-Element ist eine SVG-Grundform, die verwendet wird, um Ellipsen basierend auf einem Mittelpunkt und deren x- und y-Radius zu erstellen.
 
 > [!NOTE]
-> Es ist nicht möglich, die genaue Ausrichtung der Ellipse anzugeben (zum Beispiel, wenn Sie eine um 45 Grad geneigte Ellipse zeichnen möchten), aber sie kann mit dem {{SVGAttr("transform")}}-Attribut gedreht werden.
+> Ellipsen können die genaue Ausrichtung der Ellipse nicht angeben (wenn Sie beispielsweise eine Ellipse zeichnen möchten, die um 45 Grad geneigt ist), aber sie kann durch Verwendung des {{SVGAttr("transform")}}-Attributs gedreht werden.
 
 ## Beispiel
 
@@ -34,24 +34,24 @@ svg {
 
 - {{SVGAttr("cx")}}
   - : Die x-Position des Mittelpunkts der Ellipse.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage); _Standardwert_: `0`; _Animierbar_: **ja**
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("cy")}}
   - : Die y-Position des Mittelpunkts der Ellipse.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage); _Standardwert_: `0`; _Animierbar_: **ja**
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("rx")}}
   - : Der Radius der Ellipse auf der x-Achse.
-    _Wertetyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage); _Standardwert_: `auto`; _Animierbar_: **ja**
+    _Wertetyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("ry")}}
   - : Der Radius der Ellipse auf der y-Achse.
-    _Wertetyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage); _Standardwert_: `auto`; _Animierbar_: **ja**
+    _Wertetyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Dieses Attribut ermöglicht es, die Gesamtlänge des Pfades in Benutzereinheiten festzulegen.
-    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number); _Standardwert_: _none_; _Animierbar_: **ja**
+  - : Dieses Attribut ermöglicht es, die Gesamtlänge des Pfades in Benutzereinheiten anzugeben.
+    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
 
 > [!NOTE]
 > Ab SVG2 sind `cx`, `cy`, `rx` und `ry` _Geometrie-Eigenschaften_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften für dieses Element verwendet werden können.
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -59,7 +59,7 @@ svg {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

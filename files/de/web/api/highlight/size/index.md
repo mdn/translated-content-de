@@ -1,5 +1,5 @@
 ---
-title: "Highlight: Eigenschaft size"
+title: "Highlight: size-Eigenschaft"
 short-title: size
 slug: Web/API/Highlight/size
 l10n:
@@ -8,12 +8,12 @@ l10n:
 
 {{APIRef("CSS Custom Highlight API")}}
 
-Die **`size`**-Eigenschaft gibt die Anzahl der {{domxref("Range")}}-Objekte in einem
-{{domxref("Highlight")}}-Objekt zurück.
+Die **`size`**-Eigenschaft gibt die Anzahl der [`Range`](/de/docs/Web/API/Range)-Objekte in einem
+[`Highlight`](/de/docs/Web/API/Highlight)-Objekt zurück.
 
 ## Wert
 
-Der Wert von `size` ist eine schreibgeschützte Ganzzahl, die angibt, wie viele Einträge das Highlight-Objekt besitzt.
+Der Wert von `size` ist eine schreibgeschützte Ganzzahl, die angibt, wie viele Einträge das Highlight-Objekt hat.
 
 ## Beispiele
 
@@ -38,5 +38,5 @@ console.log(highlight.size); // 3
 
 ## Siehe auch
 
-- {{domxref("css_custom_highlight_api", "Die CSS Custom Highlight API", "", "nocode")}}
+- [Die CSS Custom Highlight API](/de/docs/Web/API/Css_custom_highlight_api)
 - [CSS Custom Highlight API: Die Zukunft des Hervorhebens von Textbereichen im Web](https://css-tricks.com/css-custom-highlight-api-early-look/)

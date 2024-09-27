@@ -7,111 +7,111 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Das `PerformanceEventTiming`-Interface der Event Timing API bietet Einblicke in die Latenz bestimmter Ereignistypen, die durch Benutzerinteraktionen ausgelöst werden.
+Das `PerformanceEventTiming`-Interface der Event Timing API bietet Einblicke in die Latenz bestimmter Ereignistypen, die durch Benutzerinteraktion ausgelöst werden.
 
 ## Beschreibung
 
-Diese API ermöglicht es, langsame Ereignisse sichtbar zu machen, indem sie Zeitstempel von Ereignissen und die Dauer für bestimmte Ereignistypen bereitstellt ([siehe unten](#exponierte_ereignisse)). Beispielsweise können Sie die Zeit zwischen einer Benutzeraktion und dem Start Ihres Ereignis-Handlers oder die Zeit, die ein Ereignis-Handler benötigt, um ausgeführt zu werden, überwachen.
+Diese API ermöglicht die Sichtbarkeit langsamer Ereignisse, indem sie Ereigniszeitstempel und Dauer für bestimmte Ereignistypen bereitstellt ([siehe unten](#exponierte_ereignisse)). Zum Beispiel können Sie die Zeit zwischen einer Benutzeraktion und dem Start ihres Ereignishandlers oder die Zeit, die ein Ereignishandler zum Ausführen benötigt, überwachen.
 
-Diese API ist besonders nützlich zur Messung der {{Glossary("first input delay")}} (FID): die Zeit von dem Moment, in dem ein Benutzer erstmals mit Ihrer App interagiert, bis zu dem Punkt, an dem der Browser tatsächlich auf diese Interaktion reagieren kann.
+Diese API ist besonders nützlich zur Messung der [First Input Delay](/de/docs/Glossary/first_input_delay) (FID): der Zeit von dem Punkt, an dem ein Benutzer das erste Mal mit Ihrer App interagiert, bis zu dem Punkt, an dem der Browser tatsächlich auf diese Interaktion reagieren kann.
 
-Normalerweise arbeiten Sie mit `PerformanceEventTiming`-Objekten, indem Sie eine {{domxref("PerformanceObserver")}}-Instanz erstellen und dann ihre [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode mit dem Wert `"event"` oder `"first-input"` als Wert der [`type`](/de/docs/Web/API/PerformanceEntry/entryType)-Option aufrufen. Der Callback des `PerformanceObserver`-Objekts wird dann mit einer Liste von `PerformanceEventTiming`-Objekten aufgerufen, die Sie analysieren können. Siehe das [Beispiel unten](#abrufen_von_ereignistiming-informationen) für mehr Informationen.
+In der Regel arbeiten Sie mit `PerformanceEventTiming`-Objekten, indem Sie eine Instanz von [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) erstellen und dann die Methode [`observe()`](/de/docs/Web/API/PerformanceObserver/observe) aufrufen, wobei Sie `"event"` oder `"first-input"` als Wert der Option [`type`](/de/docs/Web/API/PerformanceEntry/entryType) übergeben. Der Rückruf des `PerformanceObserver`-Objekts wird dann mit einer Liste von `PerformanceEventTiming`-Objekten aufgerufen, die Sie analysieren können. Siehe das [Beispiel unten](#abrufen_von_ereigniszeit-informationen) für mehr.
 
-Standardmäßig werden `PerformanceEventTiming`-Einträge exponiert, wenn ihre `duration` 104ms oder größer ist. Untersuchungen zeigen, dass Benutzerinput, der nicht innerhalb von 100ms verarbeitet wird, als langsam angesehen wird, und 104ms ist das erste Vielfache von 8, das größer als 100ms ist (aus Sicherheitsgründen wird diese API auf das nächste Vielfache von 8ms gerundet). Sie können jedoch den {{domxref("PerformanceObserver")}} auf einen anderen Schwellenwert mit der `durationThreshold`-Option in der [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode setzen.
+Standardmäßig werden `PerformanceEventTiming`-Einträge angezeigt, wenn ihre `duration` 104 ms oder mehr beträgt. Forschungen deuten darauf hin, dass Benutzereingaben, die nicht innerhalb von 100 ms verarbeitet werden, als langsam angesehen werden, und 104 ms ist das erste Vielfache von 8, das größer als 100 ms ist (aus Sicherheitsgründen wird diese API auf das nächste Vielfache von 8 ms gerundet). Sie können den [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) jedoch auf einen anderen Schwellenwert einstellen, indem Sie die Option `durationThreshold` in der Methode [`observe()`](/de/docs/Web/API/PerformanceObserver/observe) verwenden.
 
-Dieses Interface erbt Methoden und Eigenschaften von seinem Elternteil, {{domxref("PerformanceEntry")}}:
+Dieses Interface erbt Methoden und Eigenschaften von seinem übergeordneten Element, [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry):
 
 {{InheritanceDiagram}}
 
 ### Exponierte Ereignisse
 
-Die folgenden Ereignistypen werden von der Event Timing API bereitgestellt:
+Die folgenden Ereignistypen werden von der Event Timing API offengelegt:
 
 <table>
   <tbody>
     <tr>
-      <th scope="row">Klick-Ereignisse</th>
+      <th scope="row">Klickevents</th>
       <td>
-        {{domxref("Element/auxclick_event", "auxclick")}},
-        {{domxref("Element/click_event", "click")}},
-        {{domxref("Element/contextmenu_event", "contextmenu")}},
-        {{domxref("Element/dblclick_event", "dblclick")}}
+        [`auxclick`](/de/docs/Web/API/Element/auxclick_event),
+        [`click`](/de/docs/Web/API/Element/click_event),
+        [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event),
+        [`dblclick`](/de/docs/Web/API/Element/dblclick_event)
       </td>
     </tr>
     <tr>
-      <th scope="row">Kompositionsereignisse</th>
+      <th scope="row">Zusammensetzungsereignisse</th>
       <td>
-        {{domxref("Element/compositionend_event", "compositionend")}},
-        {{domxref("Element/compositionstart_event", "compositionstart")}},
-        {{domxref("Element/compositionupdate_event", "compositionupdate")}}
+        [`compositionend`](/de/docs/Web/API/Element/compositionend_event),
+        [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event),
+        [`compositionupdate`](/de/docs/Web/API/Element/compositionupdate_event)
       </td>
     </tr>
     <tr>
-      <th scope="row">Drag &amp; Drop-Ereignisse</th>
+      <th scope="row">Drag &amp; Drop Events</th>
       <td>
-        {{domxref("HTMLElement/dragend_event", "dragend")}},
-        {{domxref("HTMLElement/dragenter_event", "dragenter")}},
-        {{domxref("HTMLElement/dragleave_event", "dragleave")}},
-        {{domxref("HTMLElement/dragover_event", "dragover")}},
-        {{domxref("HTMLElement/dragstart_event", "dragstart")}},
-        {{domxref("HTMLElement/drop_event", "drop")}}
+        [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event),
+        [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event),
+        [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event),
+        [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event),
+        [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event),
+        [`drop`](/de/docs/Web/API/HTMLElement/drop_event)
       </td>
     </tr>
     <tr>
-      <th scope="row">Eingabeereignisse</th>
+      <th scope="row">Eingabereignisse</th>
       <td>
-        {{domxref("Element/beforeinput_event", "beforeinput")}},
-        {{domxref("Element/input_event", "input")}}
+        [`beforeinput`](/de/docs/Web/API/Element/beforeinput_event),
+        [`input`](/de/docs/Web/API/Element/input_event)
       </td>
     </tr>
     <tr>
       <th scope="row">Tastaturereignisse</th>
       <td>
-        {{domxref("Element/keydown_event", "keydown")}},
-        {{domxref("Element/keypress_event", "keypress")}},
-        {{domxref("Element/keyup_event", "keyup")}}
+        [`keydown`](/de/docs/Web/API/Element/keydown_event),
+        [`keypress`](/de/docs/Web/API/Element/keypress_event),
+        [`keyup`](/de/docs/Web/API/Element/keyup_event)
       </td>
     </tr>
     <tr>
       <th scope="row">Mausereignisse</th>
       <td>
-        {{domxref("Element/mousedown_event", "mousedown")}},
-        {{domxref("Element/mouseenter_event", "mouseenter")}},
-        {{domxref("Element/mouseleave_event", "mouseleave")}},
-        {{domxref("Element/mouseout_event", "mouseout")}},
-        {{domxref("Element/mouseover_event", "mouseover")}},
-        {{domxref("Element/mouseup_event", "mouseup")}}
+        [`mousedown`](/de/docs/Web/API/Element/mousedown_event),
+        [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event),
+        [`mouseleave`](/de/docs/Web/API/Element/mouseleave_event),
+        [`mouseout`](/de/docs/Web/API/Element/mouseout_event),
+        [`mouseover`](/de/docs/Web/API/Element/mouseover_event),
+        [`mouseup`](/de/docs/Web/API/Element/mouseup_event)
       </td>
     </tr>
     <tr>
-      <th scope="row">Zeigerereignisse</th>
+      <th scope="row">Zapfenereignisse</th>
       <td>
-        {{domxref("Element/pointerover_event", "pointerover")}},
-        {{domxref("Element/pointerenter_event", "pointerenter")}},
-        {{domxref("Element/pointerdown_event", "pointerdown")}},
-        {{domxref("Element/pointerup_event", "pointerup")}},
-        {{domxref("Element/pointercancel_event", "pointercancel")}},
-        {{domxref("Element/pointerout_event", "pointerout")}},
-        {{domxref("Element/pointerleave_event", "pointerleave")}},
-        {{domxref("Element/gotpointercapture_event", "gotpointercapture")}},
-        {{domxref("Element/lostpointercapture_event", "lostpointercapture")}}
+        [`pointerover`](/de/docs/Web/API/Element/pointerover_event),
+        [`pointerenter`](/de/docs/Web/API/Element/pointerenter_event),
+        [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event),
+        [`pointerup`](/de/docs/Web/API/Element/pointerup_event),
+        [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event),
+        [`pointerout`](/de/docs/Web/API/Element/pointerout_event),
+        [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event),
+        [`gotpointercapture`](/de/docs/Web/API/Element/gotpointercapture_event),
+        [`lostpointercapture`](/de/docs/Web/API/Element/lostpointercapture_event)
       </td>
     </tr>
     <tr>
-      <th scope="row">Touch-Ereignisse</th>
+      <th scope="row">Berührungsereignisse</th>
       <td>
-        {{domxref("Element/touchstart_event", "touchstart")}},
-        {{domxref("Element/touchend_event", "touchend")}},
-        {{domxref("Element/touchcancel_event", "touchcancel")}}
+        [`touchstart`](/de/docs/Web/API/Element/touchstart_event),
+        [`touchend`](/de/docs/Web/API/Element/touchend_event),
+        [`touchcancel`](/de/docs/Web/API/Element/touchcancel_event)
       </td>
     </tr>
   </tbody>
 </table>
 
-Beachten Sie, dass die folgenden Ereignisse nicht in der Liste enthalten sind, da sie kontinuierliche Ereignisse sind und derzeit keine aussagekräftigen Ereigniszählungen oder Leistungsmetriken erzielt werden können: {{domxref("Element/mousemove_event", "mousemove")}}, {{domxref("Element/pointermove_event", "pointermove")}},
-{{domxref("Element/pointerrawupdate_event", "pointerrawupdate")}}, {{domxref("Element/touchmove_event", "touchmove")}}, {{domxref("Element/wheel_event", "wheel")}}, {{domxref("HTMLElement/drag_event", "drag")}}.
+Beachten Sie, dass die folgenden Ereignisse nicht in die Liste aufgenommen sind, da sie kontinuierliche Ereignisse sind und keine aussagekräftigen Ereigniszählungen oder Leistungskennzahlen zu diesem Zeitpunkt erhalten werden können: [`mousemove`](/de/docs/Web/API/Element/mousemove_event), [`pointermove`](/de/docs/Web/API/Element/pointermove_event),
+[`pointerrawupdate`](/de/docs/Web/API/Element/pointerrawupdate_event), [`touchmove`](/de/docs/Web/API/Element/touchmove_event), [`wheel`](/de/docs/Web/API/Element/wheel_event), [`drag`](/de/docs/Web/API/HTMLElement/drag_event).
 
-Um eine Liste aller exponierten Ereignisse zu erhalten, können Sie auch Schlüssel im {{domxref("performance.eventCounts")}}-Map nachschlagen:
+Um eine Liste aller offengelegten Ereignisse zu erhalten, können Sie auch die Schlüssel in der [`performance.eventCounts`](/de/docs/Web/API/Performance/eventCounts)-Karte nachschlagen:
 
 ```js
 const exposedEventsList = [...performance.eventCounts.keys()];
@@ -119,82 +119,82 @@ const exposedEventsList = [...performance.eventCounts.keys()];
 
 ## Konstruktor
 
-Dieses Interface hat keinen eigenen Konstruktor. Sehen Sie sich das [Beispiel unten](#abrufen_von_ereignistiming-informationen) an, um zu erfahren, wie Sie normalerweise die Informationen erhalten, die das `PerformanceEventTiming`-Interface enthält.
+Dieses Interface hat keinen eigenen Konstruktor. Siehe das [Beispiel unten](#abrufen_von_ereigniszeit-informationen), wie Sie typischerweise die Informationen erhalten, die das `PerformanceEventTiming`-Interface enthält.
 
-## Instanz-Eigenschaften
+## Eigenschaften der Instanz
 
-Dieses Interface erweitert die folgenden {{domxref("PerformanceEntry")}}-Eigenschaften für Ereignisleistungs-Eintragsarten, indem es sie wie folgt qualifiziert:
+Dieses Interface erweitert die folgenden [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Eigenschaften für Ereigniszeit-Leistungseintragstypen, indem sie wie folgt qualifiziert werden:
 
-- {{domxref("PerformanceEntry.duration")}} {{ReadOnlyInline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die Zeit von `startTime` bis zum nächsten Rendering-Paint darstellt (auf das nächste Vielfache von 8ms gerundet).
-- {{domxref("PerformanceEntry.entryType")}} {{ReadOnlyInline}}
+- [`PerformanceEntry.duration`](/de/docs/Web/API/PerformanceEntry/duration) {{ReadOnlyInline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit von `startTime` bis zum nächsten Rendering-Paint darstellt (auf das nächste Vielfache von 8 ms gerundet).
+- [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) {{ReadOnlyInline}}
   - : Gibt `"event"` (für lange Ereignisse) oder `"first-input"` (für die erste Benutzerinteraktion) zurück.
-- {{domxref("PerformanceEntry.name")}} {{ReadOnlyInline}}
-  - : Gibt den zugehörigen Ereignistyp zurück.
-- {{domxref("PerformanceEntry.startTime")}} {{ReadOnlyInline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die [`timestamp`](/de/docs/Web/API/Event/timeStamp)-Eigenschaft des zugehörigen Ereignisses darstellt. Dies ist die Zeit, zu der das Ereignis erstellt wurde und kann als Proxy für die Uhrzeit der Benutzerinteraktion betrachtet werden.
+- [`PerformanceEntry.name`](/de/docs/Web/API/PerformanceEntry/name) {{ReadOnlyInline}}
+  - : Gibt den Typ des zugeordneten Ereignisses zurück.
+- [`PerformanceEntry.startTime`](/de/docs/Web/API/PerformanceEntry/startTime) {{ReadOnlyInline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die [`timestamp`](/de/docs/Web/API/Event/timeStamp)-Eigenschaft des zugehörigen Ereignisses darstellt. Dies ist die Zeit, zu der das Ereignis erstellt wurde und kann als Proxy für die Zeit betrachtet werden, zu der die Benutzerinteraktion stattfand.
 
 Dieses Interface unterstützt auch die folgenden Eigenschaften:
 
-- {{domxref("PerformanceEventTiming.cancelable")}} {{ReadOnlyInline}}
+- [`PerformanceEventTiming.cancelable`](/de/docs/Web/API/PerformanceEventTiming/cancelable) {{ReadOnlyInline}}
   - : Gibt die [`cancelable`](/de/docs/Web/API/Event/cancelable)-Eigenschaft des zugehörigen Ereignisses zurück.
-- {{domxref("PerformanceEventTiming.interactionId")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt die ID zurück, die die Benutzerinteraktion, die das zugehörige Ereignis ausgelöst hat, eindeutig identifiziert.
-- {{domxref("PerformanceEventTiming.processingStart")}} {{ReadOnlyInline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die Zeit darstellt, zu der die Ereignisdisposition begann. Um die Zeit zwischen einer Benutzeraktion und der Zeit zu messen, in der das Ereignis-Handler zu laufen beginnt, berechnen Sie `processingStart-startTime`.
-- {{domxref("PerformanceEventTiming.processingEnd")}} {{ReadOnlyInline}}
-  - : Gibt einen {{domxref("DOMHighResTimeStamp")}} zurück, der die Zeit darstellt, zu der die Ereignisdisposition endete. Um die Zeit zu messen, die der Ereignis-Handler benötigt hat, berechnen Sie `processingEnd-processingStart`.
-- {{domxref("PerformanceEventTiming.target")}} {{ReadOnlyInline}}
-  - : Gibt das letzte Ziel des zugehörigen Ereignisses zurück, sofern es nicht entfernt wurde.
+- [`PerformanceEventTiming.interactionId`](/de/docs/Web/API/PerformanceEventTiming/interactionId) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Gibt die ID zurück, die die Benutzerinteraktion eindeutig identifiziert, die das zugehörige Ereignis ausgelöst hat.
+- [`PerformanceEventTiming.processingStart`](/de/docs/Web/API/PerformanceEventTiming/processingStart) {{ReadOnlyInline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit darstellt, zu der der Ereignisversand begann. Um die Zeit zwischen einer Benutzeraktion und dem Beginn der Ausführung des Ereignishandlers zu messen, berechnen Sie `processingStart-startTime`.
+- [`PerformanceEventTiming.processingEnd`](/de/docs/Web/API/PerformanceEventTiming/processingEnd) {{ReadOnlyInline}}
+  - : Gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit darstellt, zu der der Ereignisversand endete. Um die Zeit zu messen, die der Ereignishandler zum Ausführen benötigte, berechnen Sie `processingEnd-processingStart`.
+- [`PerformanceEventTiming.target`](/de/docs/Web/API/PerformanceEventTiming/target) {{ReadOnlyInline}}
+  - : Gibt das letzte Ziel des zugehörigen Ereignisses zurück, falls es nicht entfernt wird.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{domxref("PerformanceEventTiming.toJSON()")}}
+- [`PerformanceEventTiming.toJSON()`](/de/docs/Web/API/PerformanceEventTiming/toJSON)
   - : Gibt eine JSON-Darstellung des `PerformanceEventTiming`-Objekts zurück.
 
 ## Beispiele
 
-### Abrufen von Ereignistiming-Informationen
+### Abrufen von Ereigniszeit-Informationen
 
-Um Ereignistiming-Informationen zu erhalten, erstellen Sie eine {{domxref("PerformanceObserver")}}-Instanz und rufen dann ihre [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode mit dem Wert `"event"` oder `"first-input"` als Wert der [`type`](/de/docs/Web/API/PerformanceEntry/entryType)-Option auf. Sie müssen `buffered` auf `true` setzen, um Zugriff auf Ereignisse zu erhalten, die der Benutzer-Agent beim Erstellen des Dokuments gepuffert hat. Der Callback des `PerformanceObserver`-Objekts wird dann mit einer Liste von `PerformanceEventTiming`-Objekten aufgerufen, die Sie analysieren können.
+Um Ereigniszeit-Informationen zu erhalten, erstellen Sie eine Instanz von [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) und rufen dann seine Methode [`observe()`](/de/docs/Web/API/PerformanceObserver/observe) auf, wobei Sie `"event"` oder `"first-input"` als Wert der Option [`type`](/de/docs/Web/API/PerformanceEntry/entryType) übergeben. Sie müssen auch `buffered` auf `true` setzen, um Zugriff auf Ereignisse zu erhalten, die der Benutzeragent beim Erstellen des Dokuments gepuffert hat. Der Rückruf des `PerformanceObserver`-Objekts wird dann mit einer Liste von `PerformanceEventTiming`-Objekten aufgerufen, die Sie analysieren können.
 
 ```js
 const observer = new PerformanceObserver((list) => {
   list.getEntries().forEach((entry) => {
-    // Gesamtdauer
+    // Full duration
     const duration = entry.duration;
 
-    // Eingabeverzögerung (vor der Verarbeitung des Ereignisses)
+    // Input delay (before processing event)
     const delay = entry.processingStart - entry.startTime;
 
-    // Dauer der synchronen Ereignisverarbeitung
-    // (zwischen Start und Ende der Disposition)
+    // Synchronous event processing time
+    // (between start and end dispatch)
     const eventHandlerTime = entry.processingEnd - entry.processingStart;
-    console.log(`Gesamtdauer: ${duration}`);
-    console.log(`Ereignisverzögerung: ${delay}`);
-    console.log(`Dauer des Ereignis-Handlers: ${eventHandlerTime}`);
+    console.log(`Total duration: ${duration}`);
+    console.log(`Event delay: ${delay}`);
+    console.log(`Event handler duration: ${eventHandlerTime}`);
   });
 });
 
-// Registrieren Sie den Observer für Ereignisse
+// Register the observer for events
 observer.observe({ type: "event", buffered: true });
 ```
 
-Sie können auch einen anderen [`durationThreshold`](/de/docs/Web/API/PerformanceObserver/observe#durationthreshold) setzen. Der Standardwert ist 104ms und die minimale mögliche Dauergrenze beträgt 16ms.
+Sie können auch einen anderen [`durationThreshold`](/de/docs/Web/API/PerformanceObserver/observe#durationthreshold) festlegen. Der Standardwert beträgt 104 ms und die minimale mögliche Dauergrenze ist 16 ms.
 
 ```js
 observer.observe({ type: "event", durationThreshold: 16, buffered: true });
 ```
 
-### Berichterstattung über die First Input Delay (FID)
+### Anmeldung der First Input Delay (FID)
 
-Die {{Glossary("first input delay")}} oder FID misst die Zeit von dem Moment, in dem ein Benutzer erstmals mit einer Seite interagiert (z.B. wenn er/sie auf einen Link klickt oder auf eine Schaltfläche tippt), bis zu dem Zeitpunkt, an dem der Browser tatsächlich in der Lage ist, mit der Verarbeitung von Ereignis-Handlern als Reaktion auf diese Interaktion zu beginnen.
+Die [First Input Delay](/de/docs/Glossary/first_input_delay) oder FID misst die Zeit vom Zeitpunkt, an dem ein Benutzer erstmals mit einer Seite interagiert (d.h. wenn er auf einen Link klickt oder eine Taste drückt), bis zu dem Zeitpunkt, an dem der Browser tatsächlich mit der Verarbeitung von Ereignishandlern als Reaktion auf diese Interaktion beginnen kann.
 
 ```js
-// Verfolgen Sie, ob (und wann) die Seite zuerst versteckt wurde, siehe:
+// Keep track of whether (and when) the page was first hidden, see:
 // https://github.com/w3c/page-visibility/issues/29
-// HINWEIS: Idealerweise würde diese Überprüfung im <head>-Element des Dokuments durchgeführt,
-// um Fälle zu vermeiden, in denen sich der Sichtbarkeitsstatus ändert, bevor dieser Code ausgeführt wird.
+// NOTE: ideally this check would be performed in the document <head>
+// to avoid cases where the visibility state changes before this code runs.
 let firstHiddenTime = document.visibilityState === "hidden" ? 0 : Infinity;
 document.addEventListener(
   "visibilitychange",
@@ -204,46 +204,46 @@ document.addEventListener(
   { once: true },
 );
 
-// Sendet die übergebenen Daten an einen Analyse-Endpunkt. Dieser Code
-// verwendet `/analytics`; Sie können es durch Ihre eigene URL ersetzen.
+// Sends the passed data to an analytics endpoint. This code
+// uses `/analytics`; you can replace it with your own URL.
 function sendToAnalytics(data) {
   const body = JSON.stringify(data);
-  // Verwenden Sie `navigator.sendBeacon()`, falls verfügbar,
-// und greifen Sie andernfalls auf `fetch()` zurück.
+  // Use `navigator.sendBeacon()` if available,
+  // falling back to `fetch()`.
   (navigator.sendBeacon && navigator.sendBeacon("/analytics", body)) ||
     fetch("/analytics", { body, method: "POST", keepalive: true });
 }
 
-// Verwenden Sie einen try/catch-Block anstelle von Feature-Detection für `first-input`-
-// Unterstützung, da einige Browser beim Verwenden der neuen `type`-Option einen Fehler werfen.
+// Use a try/catch instead of feature detecting `first-input`
+// support, since some browsers throw when using the new `type` option.
 // https://webkit.org/b/209216
 try {
   function onFirstInputEntry(entry) {
-    // Melden Sie FID nur, wenn die Seite nicht ausgeblendet war, bevor
-    // der Eintrag verarbeitet wurde. Dies tritt typischerweise auf, wenn eine
-    // Seite in einem Hintergrund-Tab geladen wird.
+    // Only report FID if the page wasn't hidden prior to
+    // the entry being dispatched. This typically happens when a
+    // page is loaded in a background tab.
     if (entry.startTime < firstHiddenTime) {
       const fid = entry.processingStart - entry.startTime;
 
-      // Melden Sie den FID-Wert an einen Analyse-Endpunkt.
+      // Report the FID value to an analytics endpoint.
       sendToAnalytics({ fid });
     }
   }
 
-  // Erstellen Sie einen PerformanceObserver, der
-  // `onFirstInputEntry` für jeden Eintrag aufruft.
+  // Create a PerformanceObserver that calls
+  // `onFirstInputEntry` for each entry.
   const po = new PerformanceObserver((entryList) => {
     entryList.getEntries().forEach(onFirstInputEntry);
   });
 
-  // Beachten Sie Einträge vom Typ `first-input`, einschließlich gepufferter Einträge,
-  // d.h. Einträge, die aufgetreten sind, bevor `observe()` unten aufgerufen wurde.
+  // Observe entries of type `first-input`, including buffered entries,
+  // i.e. entries that occurred before calling `observe()` below.
   po.observe({
     type: "first-input",
     buffered: true,
   });
 } catch (e) {
-  // Tun Sie nichts, wenn der Browser diese API nicht unterstützt.
+  // Do nothing if the browser doesn't support this API.
 }
 ```
 

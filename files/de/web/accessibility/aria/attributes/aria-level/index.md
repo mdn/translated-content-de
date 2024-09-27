@@ -11,41 +11,41 @@ Das `aria-level` Attribut definiert die hierarchische Ebene eines Elements inner
 
 ## Beschreibung
 
-Hierarchieebenen treten in Überschriften, Bäumen, verschachtelten Gittern, verschachtelten Reitern und mehr auf. Wenn die DOM-Vorfahrenstruktur die Ebene nicht genau widerspiegelt, sollte das `aria-level` Attribut verwendet werden, um die hierarchische Ebene von Elementen innerhalb ihrer hierarchischen Strukturen zu definieren. Die Ebenen nehmen mit der Tiefe zu. Der Wert für aria-level ist eine Ganzzahl größer oder gleich `1`.
+Hierarchieebenen erscheinen in Überschriften, Bäumen, verschachtelten Rastern, verschachtelten Registerkartenlisten und mehr. Wenn die DOM-Vorfahren die Ebene nicht genau darstellen, sollte das `aria-level` Attribut verwendet werden, um die hierarchische Ebene der Elemente innerhalb ihrer hierarchischen Strukturen zu definieren. Die Ebenen nehmen mit der Tiefe zu. Der Wert für aria-level ist eine ganze Zahl, die größer oder gleich `1` ist.
 
-Im Hinblick auf die Überschriften in einer Dokumentstruktur können Sie erste, zweite, dritte usw. Ebene von Überschriften haben. In Bäumen gibt es das Stamm-Element, seine Kinder, die Kindeskinder (oder Enkel), und so weiter.
+Bei den Überschriften in einer Dokumentstruktur gibt es Überschriften erster Ebene, Überschriften zweiter Ebene, Überschriften dritter Ebene usw. In Baumstrukturen gibt es das Wurzelelement, dessen Kinder, die Kinder der Kinder (oder Enkelkinder) usw.
 
-Das `aria-level` Attribut macht die Hierarchie für unterstützende Technologien sichtbar, damit sie den Benutzern kommuniziert werden kann. Wie alle ARIA-Attribute hat es keinen Einfluss auf den Benutzeragenten und daher auch keinen Einfluss auf die Bestimmung der Dokumentstruktur durch den Benutzeragenten.
+Das `aria-level` Attribut macht die Hierarchie für unterstützende Technologien sichtbar, sodass diese den Nutzern mitgeteilt werden kann. Wie alle ARIA-Attribute hat es keinen Einfluss auf das Benutzeragent und damit keinen Einfluss auf die Bestimmung der Dokumentstruktur durch das Benutzeragent.
 
-Wenn die DOM-Vorfahrenstruktur die Ebene genau darstellt, kann der Benutzeragent die Ebene eines Elements aus der Dokumentstruktur berechnen, was `aria-level` nicht nur überflüssig, sondern ein Risiko für die Schaffung von Fehlinformationen macht. `aria-level` sollte wirklich nur verwendet werden, um eine explizite Angabe der Ebene zu geben, wenn es nicht möglich ist, diese aus der Dokumentstruktur zu berechnen. Prüfen Sie, ob dieses Attribut benötigt wird. Wenn der Benutzeragent die Ebene berechnen kann, ist es am besten, das `aria-level` Attribut wegzulassen.
+Wenn die DOM-Vorfahren die Ebene genau darstellen, kann das Benutzeragent die Ebene eines Elements aus der Dokumentstruktur berechnen, wodurch `aria-level` nicht nur überflüssig, sondern ein Risiko für die Erzeugung falscher Informationen wird. `Aria-level` sollte wirklich nur verwendet werden, um eine explizite Angabe der Ebene zu geben, wenn es nicht möglich ist, diese aus der Dokumentstruktur zu berechnen. Testen Sie, ob dieses Attribut benötigt wird. Wenn das Benutzeragent die Ebene berechnen kann, ist es am besten, auf das `aria-level` Attribut zu verzichten.
 
 ### Mit `heading` Rolle
 
-Das `aria-level` Attribut ist ein erforderliches Attribut der [`heading`](/de/docs/Web/Accessibility/ARIA/Roles/heading_role) Rolle, die unterstützenden Technologien anzeigt, dass das Element als Überschrift behandelt werden soll. `<div role="heading" aria-level="1">` definiert das `<div>` als die Hauptüberschrift der Seite. Eine Überschrift der Ebene 2, definiert mit `aria-level="2"`, wäre die erste Untersektion, eine Überschrift der Ebene 3 ist eine Untersektion davon, und so weiter.
+Das `aria-level` Attribut ist ein erforderliches Attribut der [`heading`](/de/docs/Web/Accessibility/ARIA/Roles/heading_role) Rolle, die unterstützenden Technologien signalisiert, dass das Element als Überschrift behandelt werden sollte. `<div role="heading" aria-level="1">` definiert das `<div>` als die Hauptüberschrift der Seite. Eine Überschrift der Ebene 2, definiert mit `aria-level="2"`, wäre der erste Unterabschnitt, eine Ebene 3 ist ein Unterabschnitt davon, und so weiter.
 
 ```html
 <div role="heading" aria-level="3">Heading for this sub section</div>
 ```
 
-Es ist vorzuziehen, die {{htmlelement("Heading_Elements", "h1")}} bis {{htmlelement("Heading_Elements", "h6")}} Elemente zu verwenden.
+Wählen Sie stattdessen die Verwendung der {{htmlelement("Heading_Elements", "h1")}} bis {{htmlelement("Heading_Elements", "h6")}} Elemente.
 
 ### Innerhalb der `treegrid` Rolle
 
-Im Fall eines [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role) wird `aria-level` bei Elementen mit der Rolle [`row`](/de/docs/Web/Accessibility/ARIA/Roles/row_role) unterstützt, nicht bei Elementen mit der Rolle [`gridcell`](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role). Zeilen agieren als Blattknoten innerhalb der vertikalen Orientierung des Gitters. Gitterzellen sind Blattknoten innerhalb der horizontalen Orientierung jeder Zeile. `Aria-level` wird nicht bei Zellen innerhalb von Zeilen unterstützt. In Baumgittern wird das `aria-level` Attribut auf das Element mit der Rolle `row` angewendet.
+Im Fall einer [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role) ist `aria-level` auf Elementen mit der Rolle [`row`](/de/docs/Web/Accessibility/ARIA/Roles/row_role) und nicht auf Elementen mit der Rolle [`gridcell`](/de/docs/Web/Accessibility/ARIA/Roles/gridcell_role) unterstützt. Reihen agieren als Blattknoten innerhalb der vertikalen Orientierung des Rasters. Gridcells sind Blattknoten innerhalb der horizontalen Orientierung jeder Zeile. `Aria-level` wird nicht auf Zellen innerhalb von Reihen unterstützt. In Baumrastern wird daher das `aria-level` Attribut auf das Element mit der Rolle `row` angewendet.
 
-Wenn eine vollständige Menge verfügbarer Knoten aufgrund des dynamischen Ladens beim Verschieben des Fokus oder Scrollen im Baum nicht im DOM vorhanden ist, hat jeder Knoten `aria-level`, [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize) und [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-posinset) eingeschlossen.
+Wenn ein vollständiger Satz verfügbarer Knoten nicht im DOM vorhanden ist, da während des Scrollens oder der Fokussierung des Benutzers dynamisch geladen wird, hat jeder Knoten `aria-level`, [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize) und [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-posinset) enthalten.
 
 ## Werte
 
 - `<integer>`
-  - : Eine Ganzzahl, die größer oder gleich 1 ist
+  - : Eine ganze Zahl größer oder gleich 1
 
 ## Zugehörige Schnittstellen
 
-- {{domxref("Element.ariaLevel")}}
-  - : Die [`ariaLevel`](/de/docs/Web/API/Element/ariaLevel) Eigenschaft, Teil der {{domxref("Element")}} Schnittstelle, spiegelt den Wert des `aria-level` Attributs wider.
-- {{domxref("ElementInternals.ariaLevel")}}
-  - : Die [`ariaLevel`](/de/docs/Web/API/ElementInternals/ariaLevel) Eigenschaft, Teil der {{domxref("ElementInternals")}} Schnittstelle, spiegelt den Wert des `aria-level` Attributs wider.
+- [`Element.ariaLevel`](/de/docs/Web/API/Element/ariaLevel)
+  - : Die [`ariaLevel`](/de/docs/Web/API/Element/ariaLevel) Eigenschaft, die Teil der [`Element`](/de/docs/Web/API/Element) Schnittstelle ist, spiegelt den Wert des `aria-level` Attributs wider.
+- [`ElementInternals.ariaLevel`](/de/docs/Web/API/ElementInternals/ariaLevel)
+  - : Die [`ariaLevel`](/de/docs/Web/API/ElementInternals/ariaLevel) Eigenschaft, die Teil der [`ElementInternals`](/de/docs/Web/API/ElementInternals) Schnittstelle ist, spiegelt den Wert des `aria-level` Attributs wider.
 
 ## Zugehörige Rollen
 

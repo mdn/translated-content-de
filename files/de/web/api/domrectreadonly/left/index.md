@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Die **`left`** Eigenschaft der **`DOMRectReadOnly`** Schnittstelle gibt den linken Koordinatenwert des `DOMRect` zurück. (Hat denselben Wert wie `x` oder `x + width`, wenn `width` negativ ist.)
+Die **`left`** schreibgeschützte Eigenschaft des **`DOMRectReadOnly`**-Interfaces gibt den linken Koordinatenwert des `DOMRect` zurück. (Hat denselben Wert wie `x` oder `x + width`, falls `width` negativ ist.)
 
 ## Wert
 
-Ein Doppelwert.
+Ein Double.
 
 ## Spezifikationen
 
@@ -24,4 +24,4 @@ Ein Doppelwert.
 
 ## Siehe auch
 
-- {{domxref("DOMRect")}}
+- [`DOMRect`](/de/docs/Web/API/DOMRect)

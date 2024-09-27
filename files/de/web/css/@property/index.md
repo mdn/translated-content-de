@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Die **`@property`** [CSS](/de/docs/Web/CSS) [at-rule](/de/docs/Web/CSS/At-rule) ist Teil der [CSS Houdini](/de/docs/Web/API/Houdini_APIs) APIs. Sie ermöglicht es Entwicklern, ihre [CSS Custom Properties](/de/docs/Web/CSS/--*) explizit zu definieren, was die Überprüfung und Einschränkung von Eigenschaftstypen ermöglicht, Standardwerte setzt und definiert, ob eine benutzerdefinierte Eigenschaft Werte erben kann oder nicht.
+Die **`@property`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) ist Teil des [CSS Houdini](/de/docs/Web/API/Houdini_APIs) Rahmens von APIs. Sie ermöglicht es Entwicklern, ihre [CSS-Benutzerdefinierten Eigenschaften](/de/docs/Web/CSS/--*) explizit zu definieren. Dadurch können Eigenschaften-Typprüfungen und Einschränkungen vorgenommen, Standardwerte festgelegt und definiert werden, ob eine benutzerdefinierte Eigenschaft Werte erben kann oder nicht.
 
-Die `@property`-Regel stellt eine Registrierung benutzerdefinierter Eigenschaften direkt in einem Stylesheet dar, ohne dass JavaScript ausgeführt werden muss. Gültige `@property`-Regeln führen zu einer registrierten benutzerdefinierten Eigenschaft, als ob {{domxref('CSS.registerProperty_static', 'registerProperty()')}} mit gleichwertigen Parametern aufgerufen worden wäre.
+Die `@property`-Regel stellt eine Registrierung einer benutzerdefinierten Eigenschaft direkt in einem Stylesheet dar, ohne dass dafür JS ausgeführt werden muss. Gültige `@property`-Regeln resultieren in einer registrierten benutzerdefinierten Eigenschaft, so als ob [`registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) mit äquivalenten Parametern aufgerufen worden wäre.
 
 ## Syntax
 
@@ -23,23 +23,24 @@ Die `@property`-Regel stellt eine Registrierung benutzerdefinierter Eigenschafte
 
 ### Deskriptoren
 
-- {{cssxref("@property/syntax","syntax")}}
+- {{cssxref("@property/syntax","Syntax")}}
 
   - : Beschreibt die zulässige Syntax für die Eigenschaft. Kann ein `<length>`, `<number>`, `<percentage>`, `<length-percentage>`, `<color>`, `<image>`, `<url>`, `<integer>`, `<angle>`, `<time>`, `<resolution>`, `<transform-function>` oder `<custom-ident>` sein oder eine Liste von Datentypen und Schlüsselwortwerten.
 
-    Die Multiplikatoren `+` (durch Leerzeichen getrennt) und `#` (durch Kommas getrennt) zeigen an, dass eine Liste von Werten erwartet wird. Zum Beispiel bedeutet `<color>#`, dass eine durch Kommas getrennte Liste von `<color>`-Werten die erwartete Syntax ist.
+    Die Multiplikatoren `+` (durch Leerzeichen getrennt) und `#` (durch Kommas getrennt) geben an, dass eine Liste von Werten erwartet wird. Zum Beispiel bedeutet `<color>#`, dass eine durch Kommas getrennte Liste von `<color>`-Werten die erwartete Syntax ist.
 
-    Vertikale Linien (`|`) können "oder"-Bedingungen für die erwartete Syntax erstellen. Zum Beispiel akzeptiert `<length> | auto` entweder ein `<length>` oder `auto`, und `<color># | <integer>#` erwartet eine durch Kommas getrennte Liste von `<color>`-Werten oder eine durch Kommas getrennte Liste von `<integer>`-Werten.
+    Vertikale Linien (`|`) können "oder"-Bedingungen für die erwartete Syntax erstellen, zum Beispiel akzeptiert `<length> | auto` entweder eine `<length>` oder `auto`, und `<color># | <integer>#` erwartet eine durch Kommas getrennte Liste von `<color>`-Werten oder eine durch Kommas getrennte Liste von `<integer>`-Werten.
 
 - {{cssxref("@property/inherits","inherits")}}
-  - : Bestimmt, ob die durch `@property` spezifizierte Registrierung der benutzerdefinierten Eigenschaft standardmäßig vererbt wird.
+  - : Steuert, ob die durch `@property` spezifizierte benutzerdefinierte Eigenschaft standardmäßig vererbt wird.
 - {{cssxref("@property/initial-value","initial-value")}}
-  - : Legt den Standardwert für die Eigenschaft fest.
+  - : Legt den Anfangswert für die Eigenschaft fest.
 
-Die `@property`-Regel muss sowohl den {{cssxref("@property/syntax","syntax")}}- als auch den {{cssxref("@property/inherits","inherits")}}-Deskriptor enthalten; wenn einer fehlt, ist die gesamte `@property`-Regel ungültig und wird ignoriert. Der {{cssxref("@property/initial-value","initial-value")}}-Deskriptor ist ebenfalls erforderlich, es sei denn, die Syntax ist die [`*` universelle Syntaxdefinition](https://drafts.css-houdini.org/css-properties-values-api/#universal-syntax-definition) (z. B. `syntax: "*"`).
-Wenn der `initial-value`-Deskriptor erforderlich und weggelassen wird, ist die gesamte `@property`-Regel ungültig und wird ignoriert.
+Die `@property`-Regel muss sowohl den {{cssxref("@property/syntax","Syntax")}}-Deskriptor als auch den {{cssxref("@property/inherits","inherits")}}-Deskriptor enthalten; wenn einer von beiden fehlt, ist die gesamte `@property`-Regel ungültig und wird ignoriert.
+Der {{cssxref("@property/initial-value","initial-value")}}-Deskriptor ist ebenfalls erforderlich, es sei denn, die Syntax ist die [`*` universelle Syntaxdefinition](https://drafts.css-houdini.org/css-properties-values-api/#universal-syntax-definition) (z.B. `syntax: "*"`).
+Wenn der `initial-value`-Deskriptor erforderlich und ausgelassen ist, ist die gesamte `@property`-Regel ungültig und wird ignoriert.
 
-Unbekannte Deskriptoren sind ungültig und werden ignoriert, machen die `@property`-Regel jedoch nicht ungültig.
+Unbekannte Deskriptoren sind ungültig und werden ignoriert, machen jedoch die `@property`-Regel nicht ungültig.
 
 ## Formale Syntax
 
@@ -47,7 +48,7 @@ Unbekannte Deskriptoren sind ungültig und werden ignoriert, machen die `@proper
 
 ## Beispiele
 
-In diesem Beispiel definieren wir zwei benutzerdefinierte Eigenschaften, `--item-size` und `--item-color`, die wir verwenden, um die Größe (Breite und Höhe) und die Hintergrundfarbe der drei folgenden Elemente festzulegen.
+In diesem Beispiel definieren wir zwei benutzerdefinierte Eigenschaften, `--item-size` und `--item-color`, die wir nutzen werden, um die Größe (Breite und Höhe) und die Hintergrundfarbe der drei folgenden Elemente zu definieren.
 
 ```html
 <div class="container">
@@ -57,7 +58,7 @@ In diesem Beispiel definieren wir zwei benutzerdefinierte Eigenschaften, `--item
 </div>
 ```
 
-Der folgende Code verwendet die CSS `@property` at-rule, um eine benutzerdefinierte Eigenschaft namens `--item-size` zu definieren. Die Eigenschaft setzt den Anfangswert auf `40%` und beschränkt gültige Werte auf {{cssxref("percentage")}}-Werte. Das bedeutet, wenn sie als Wert für die Größe eines Elements verwendet wird, ist ihre Größe immer relativ zur Größe des Elternelements. Die Eigenschaft ist vererbbar.
+Der folgende Code verwendet die CSS-`@property`-Regel, um eine benutzerdefinierte Eigenschaft namens `--item-size` zu definieren. Die Eigenschaft setzt den Anfangswert auf `40%` und begrenzt gültige Werte nur auf {{cssxref("percentage")}}-Werte. Das bedeutet, wenn diese als Wert für die Größe eines Elements verwendet wird, ist die Größe immer relativ zur Größe des übergeordneten Elements. Die Eigenschaft ist vererbbar.
 
 ```css
 @property --item-size {
@@ -67,7 +68,7 @@ Der folgende Code verwendet die CSS `@property` at-rule, um eine benutzerdefinie
 }
 ```
 
-Wir definieren eine zweite benutzerdefinierte Eigenschaft, `--item-color`, mit [JavaScript](/de/docs/Web/JavaScript) anstelle von CSS. Die JavaScript-Methode {{domxref('CSS.registerProperty_static', 'registerProperty()')}} ist äquivalent zur `@property` at-rule. Die Eigenschaft ist definiert mit einem Anfangswert von `aqua`, akzeptiert nur [`<color>`](/de/docs/Web/CSS/color_value)-Werte und wird nicht vererbt.
+Wir definieren eine zweite benutzerdefinierte Eigenschaft, `--item-color`, mit [JavaScript](/de/docs/Web/JavaScript) anstatt mit CSS. Die JavaScript-Methode [`registerProperty()`](/de/docs/Web/API/CSS/registerProperty_static) ist äquivalent zur `@property`-Regel. Die Eigenschaft wird definiert mit einem Anfangswert `aqua`, um nur [`<color>`](/de/docs/Web/CSS/color_value)-Werte zu akzeptieren, und wird nicht vererbt.
 
 ```js
 window.CSS.registerProperty({
@@ -78,7 +79,7 @@ window.CSS.registerProperty({
 });
 ```
 
-Wir verwenden die beiden benutzerdefinierten Eigenschaften, um die Elemente zu gestalten:
+Wir verwenden die zwei benutzerdefinierten Eigenschaften, um die Elemente zu stylen:
 
 ```css
 .container {
@@ -86,26 +87,26 @@ Wir verwenden die beiden benutzerdefinierten Eigenschaften, um die Elemente zu g
   height: 200px;
   border: 1px dashed black;
 
-  /* Benutzerdefinierte Eigenschaftswerte am Elternteil setzen */
+  /* set custom property values on parent */
   --item-size: 20%;
   --item-color: orange;
 }
 
-/* Benutzerdefinierte Eigenschaften verwenden, um Elementgröße und Hintergrundfarbe zu setzen */
+/* use custom properties to set item size and background color */
 .item {
   width: var(--item-size);
   height: var(--item-size);
   background-color: var(--item-color);
 }
 
-/* Benutzerdefinierte Eigenschaftswerte am Element selbst setzen */
+/* set custom property values on element itself */
 .two {
   --item-size: initial;
   --item-color: inherit;
 }
 
 .three {
-  /* Ungültige Werte */
+  /* invalid values */
   --item-size: 1000px;
   --item-color: xyz;
 }
@@ -113,19 +114,19 @@ Wir verwenden die beiden benutzerdefinierten Eigenschaften, um die Elemente zu g
 
 {{ EmbedLiveSample('examples', '100%', '250px') }}
 
-Die zwei benutzerdefinierten Eigenschaften, `--item-size: 20%` und `--item-color: orange;` werden am darüberliegenden `container` gesetzt und überschreiben die `40%` und `aqua` Standardwerte, die beim Definieren dieser benutzerdefinierten Eigenschaften festgelegt wurden. Die Größe ist so eingestellt, dass sie vererbbar ist; die Farbe nicht.
+Die zwei benutzerdefinierten Eigenschaften, `--item-size: 20%` und `--item-color: orange;` werden auf das `container`-Elternelement gesetzt, wodurch die Standardwerte `40%` und `aqua`, die beim Definieren dieser benutzerdefinierten Eigenschaften festgelegt wurden, überschrieben werden. Die Größe ist so eingestellt, dass sie vererbbar ist; die Farbe nicht.
 
-Für Element eins sind keine dieser benutzerdefinierten Eigenschaften gesetzt. Da `--item-size` vererbbar ist, wird der Wert `20%`, der am Elternelement `container` gesetzt wurde, verwendet. Andererseits ist die Eigenschaft `--item-color` nicht vererbbar, daher wird der als Standard festgelegte Initialwert `aqua` verwendet.
+Für Element eins wurden keine dieser benutzerdefinierten Eigenschaften gesetzt. Das `--item-size` ist vererbbar, sodass der Wert `20%`, der auf seinen übergeordneten `container` gesetzt wurde, verwendet wird. Andererseits wird die Eigenschaft `--item-color` nicht vererbt, sodass der auf das Elternelement gesetzte Wert `orange` nicht berücksichtigt wird. Stattdessen wird der Standardanfgangswert `aqua` verwendet.
 
-Für Element zwei sind globale CSS-Schlüsselwörter für beide benutzerdefinierten Eigenschaften festgelegt, die gültige Werte für alle Werttypen sind und daher unabhängig vom `syntax`-Deskriptorwert gültig sind. `--item-size` ist auf `initial` eingestellt und verwendet den `initial-value: 40%;` aus der `@property`-Deklaration. Der Wert `initial` bedeutet, dass der `initialValue`-Wert der Eigenschaft verwendet wird. `--item-color` ist auf `inherit` gesetzt und erbt dadurch explizit den `orange`-Wert vom Elternelement, obwohl die benutzerdefinierte Eigenschaft standardmäßig so eingestellt ist, dass sie nicht vererbt wird. Deshalb ist Element zwei orange.
+Für Element zwei sind CSS-Globale Schlüsselwörter für beide benutzerdefinierten Eigenschaften gesetzt, die gültige Werte für alle Werttypen sind und daher gültig, unabhängig vom `syntax`-Deskriptorwert. Das `--item-size` ist auf `initial` gesetzt und verwendet den `initial-value: 40%;`, der in der `@property`-Deklaration gesetzt wurde. Der `initial`-Wert bedeutet, dass der `initialValue`-Wert für die Eigenschaft verwendet wird. Das `--item-color` ist auf `inherit` gesetzt, was den `orange`-Wert explizit vom übergeordneten Objekt erbt, obwohl die benutzerdefinierte Eigenschaft ansonsten nicht vererbt wird. Aus diesem Grund ist Element zwei orange.
 
-Für Element drei wird der Wert `--item-size` auf `1000px` gesetzt. Während `1000px` ein {{cssxref("length")}}-Wert ist, erfordert die `@property`-Deklaration, dass der Wert ein `<percentage>` ist, sodass die Deklaration ungültig ist und ignoriert wird, was bedeutet, dass das vererbbare `20%`, das am Elternelement gesetzt wurde, verwendet wird. Der `xyz`-Wert ist ebenfalls ungültig. Da `registerProperty()` `--item-color` so eingestellt hat, dass es nicht vererbt wird, wird der Standardinitialwert `aqua` verwendet und nicht der `orange`-Wert des Elternelements.
+Für Element drei wird der Wert `--item-size` auf `1000px` gesetzt. Während `1000px` ein {{cssxref("length")}}-Wert ist, erfordert die `@property`-Deklaration, dass der Wert ein `<percentage>` ist, daher ist die Deklaration ungültig und wird ignoriert, was bedeutet, dass das vererbbare `20%`, das auf das übergeordnete Element gesetzt wurde, verwendet wird. Der `xyz`-Wert ist ebenfalls ungültig. Da `registerProperty()` `--item-color` so eingestellt hat, dass es nicht vererbt wird, wird der Standard-Anfangswert `aqua` verwendet und nicht der `orange`-Wert des Eltern.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -136,5 +137,5 @@ Für Element drei wird der Wert `--item-size` auf `1000px` gesetzt. Während `10
 - [CSS Painting API](/de/docs/Web/API/CSS_Painting_API)
 - [CSS Typed Object Model](/de/docs/Web/API/CSS_Typed_OM_API)
 - [Houdini APIs](/de/docs/Web/API/Houdini_APIs)
-- [Leitfaden zur Verwendung von benutzerdefinierten CSS-Eigenschaften (Variablen)](/de/docs/Web/CSS/Using_CSS_custom_properties)
-- [CSS custom properties for cascading variables](/de/docs/Web/CSS/CSS_cascading_variables) Modul
+- [Verwendung von benutzerdefinierten CSS-Eigenschaften (Variablen)](/de/docs/Web/CSS/Using_CSS_custom_properties) Leitfaden
+- [CSS-Benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul

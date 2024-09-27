@@ -7,9 +7,9 @@ l10n:
 
 {{AddonSidebar}}
 
-Entfernt alle Menüeinträge, die von der Erweiterung hinzugefügt wurden.
+Entfernt alle von der Erweiterung hinzugefügten Menüpunkte.
 
-Für die Kompatibilität mit anderen Browsern stellt Firefox diese Methode über den `contextMenus`-Namespace sowie über den `menus`-Namespace zur Verfügung.
+Zur Kompatibilität mit anderen Browsern stellt Firefox diese Methode sowohl über den Namespace `contextMenus` als auch über den Namespace `menus` zur Verfügung.
 
 Dies ist eine asynchrone Funktion, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt.
 
@@ -25,7 +25,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn alle Einträge entfernt wurden.
+Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das ohne Argumente erfüllt wird, wenn alle Elemente entfernt wurden.
 
 ## Browser-Kompatibilität
 
@@ -33,7 +33,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Dieses Beispiel fügt zwei Menüeinträge hinzu. Wenn der Benutzer auf das mit "Remove all!" beschriftete Element klickt, entfernt die Erweiterung beide Einträge mit `removeAll()`.
+Dieses Beispiel fügt zwei Menüpunkte hinzu. Wenn der Benutzer auf den mit "Remove all!" beschrifteten Punkt klickt, entfernt die Erweiterung beide Punkte mit `removeAll()`.
 
 ```js
 function onRemoved() {
@@ -63,34 +63,25 @@ browser.menus.onClicked.addListener((info, tab) => {
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#method-removeAll) API von Chromium. Diese Dokumentation stammt aus [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
+> Diese API basiert auf Chromium's [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#method-removeAll) API. Diese Dokumentation ist abgeleitet von [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) im Chromium-Code.
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+Urheberrecht 2015 The Chromium Authors. Alle Rechte vorbehalten.
+
+Weiterverbreitung und Nutzung in sowohl Quell- als auch Binärformen, mit oder ohne
+Änderung, sind unter den folgenden Bedingungen zulässig:
+
+   * Weiterverbreitungen des Quellcodes müssen das obige Urheberrecht
+     sowie diese Liste von Bedingungen und den folgenden Haftungsausschluss enthalten.
+   * Weiterverbreitungen in binärer Form müssen das oben stehende
+     Urheberrecht, diese Liste von Bedingungen und den folgenden Haftungsausschluss
+     in der Dokumentation und/oder anderen Materialien, die mit der
+     Distribution bereitgestellt werden, enthalten.
+   * Weder der Name von Google Inc. noch die Namen seiner
+     Beitragenden dürfen verwendet werden, um Produkte, die von dieser Software abgeleitet
+     wurden, ohne spezifische vorherige schriftliche Genehmigung zu kennzeichnen oder zu
+     bewerben.
+
+DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND BEITRAGENDEN
+"WIE BESEHEN" UND OHNE JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE GARANTIEN ZUR VERFÜGUNG GESTELLT, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE IMPLIZIERTEN GARANTIEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK. IN KEINEM FALL HAFTEN DIE URHEBERRECHTSINHABER ODER BEITRAGENDEN FÜR JEGLICHE DIREKTE, INDIREKTE, ZUFÄLLIGE, SPEZIELLE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSSCHÄDEN, DATENVERLUST ODER GEWINNAUSFALL; ODER GESCHÄFTSUNTERBRECHUNG) WIE AUCH IMMER VERURSACHT UND UNTER WELCHER HAFTUNGSTHEORIE AUCH IMMER, SEI ES IN VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE IN IRGENDEINER WEISE AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

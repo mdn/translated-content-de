@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`concat()`** Methode der {{jsxref("String")}}-Werte verknüpft die Zeichenfolgenargumente mit dieser Zeichenfolge und gibt eine neue Zeichenfolge zurück.
+Die **`concat()`**-Methode von {{jsxref("String")}}-Werten verknüpft die übergebenen Zeichenfolgen mit dieser Zeichenfolge und gibt eine neue Zeichenfolge zurück.
 
 {{EmbedInteractiveExample("pages/js/string-concat.html")}}
 
@@ -27,15 +27,15 @@ concat(str1, str2, /* …, */ strN)
 
 ### Rückgabewert
 
-Eine neue Zeichenfolge, die den kombinierten Text der bereitgestellten Zeichenfolgen enthält.
+Eine neue Zeichenfolge, die den kombinierten Text der übergebenen Zeichenfolgen enthält.
 
 ## Beschreibung
 
 Die `concat()`-Funktion verknüpft die Zeichenfolgenargumente mit der aufrufenden Zeichenfolge und gibt eine neue Zeichenfolge zurück.
 
-Wenn die Argumente nicht vom Typ Zeichenfolge sind, werden sie vor der Verkettung in Zeichenfolgenwerte umgewandelt.
+Wenn die Argumente nicht vom Typ Zeichenfolge sind, werden sie vor dem Verknüpfen in Zeichenfolgenwerte umgewandelt.
 
-Die `concat()`-Methode ist der Verwendung der [Addition/Zeichenfolgenverkettungsoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Addition) (`+`, `+=`) sehr ähnlich, außer dass `concat()` [seine Argumente direkt in Zeichenfolgen umwandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), während die Addition ihre Operanden zuerst in primitive Werte umwandelt. Weitere Informationen finden Sie auf der Referenzseite des [`+` Operators](/de/docs/Web/JavaScript/Reference/Operators/Addition).
+Die `concat()`-Methode ähnelt stark den [Addition/String-Verknüpfungs-Operatoren](/de/docs/Web/JavaScript/Reference/Operators/Addition) (`+`, `+=`), mit dem Unterschied, dass `concat()` [seine Argumente direkt in Zeichenfolgen umwandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), während die Addition ihre Operanden zuerst in Primitive umwandelt. Weitere Informationen finden Sie auf der Referenzseite des [`+`-Operators](/de/docs/Web/JavaScript/Reference/Operators/Addition).
 
 ## Beispiele
 

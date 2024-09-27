@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCCertificateStats`**-Wörterbuch der [WebRTC-API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Informationen über ein von einem {{domxref("RTCDtlsTransport")}} und seinem zugrunde liegenden {{domxref("RTCIceTransport")}} verwendetes Zertifikat zu berichten.
+Das **`RTCCertificateStats`**-Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Informationen über ein Zertifikat zu berichten, das von einem [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) und dessen zugrunde liegenden [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) verwendet wird.
 
-Der Bericht kann erhalten werden, indem Sie den {{domxref("RTCStatsReport")}} durchlaufen, der von {{domxref("RTCPeerConnection.getStats()")}} zurückgegeben wird, bis Sie einen Eintrag mit dem [`type`](#type) von `certificate` finden.
+Der Bericht kann erhalten werden, indem der [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) durchiteriert wird, der von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, bis Sie einen Eintrag mit dem [`type`](#type) von `certificate` finden.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("RTCCertificateStats.fingerprint", "fingerprint")}}
-  - : Ein String, der den Zertifikatsfingerabdruck enthält, der unter Verwendung der in [`fingerprintAlgorithm`](#fingerprintalgorithm) angegebenen Hash-Funktion berechnet wird.
-- {{domxref("RTCCertificateStats.fingerprintAlgorithm", "fingerprintAlgorithm")}}
-  - : Ein String, der die Hash-Funktion enthält, die zur Berechnung des Zertifikat-[`fingerprint`](#fingerprint) verwendet wird, wie zum Beispiel "sha-256".
-- {{domxref("RTCCertificateStats.base64Certificate", "base64Certificate")}}
+- [`fingerprint`](/de/docs/Web/API/RTCCertificateStats/fingerprint)
+  - : Ein String, der den Fingerabdruck des Zertifikats enthält, der mit der in [`fingerprintAlgorithm`](#fingerprintalgorithm) angegebenen Hash-Funktion berechnet wird.
+- [`fingerprintAlgorithm`](/de/docs/Web/API/RTCCertificateStats/fingerprintAlgorithm)
+  - : Ein String, der die Hash-Funktion enthält, die zur Berechnung des Zertifikats-`fingerprint` verwendet wird, wie zum Beispiel "sha-256".
+- [`base64Certificate`](/de/docs/Web/API/RTCCertificateStats/base64Certificate)
   - : Ein String, der die Base-64-Darstellung des DER-kodierten Zertifikats enthält.
 
 ### Gemeinsame Instanz-Eigenschaften
@@ -26,17 +26,17 @@ Die folgenden Eigenschaften sind allen WebRTC-Statistikobjekten gemeinsam (siehe
 
 <!-- RTCStats -->
 
-- {{domxref("RTCCertificateStats.id", "id")}}
-  - : Ein String, der das Objekt, das überwacht wird, um diesen Satz von Statistiken zu erzeugen, eindeutig identifiziert.
-- {{domxref("RTCCertificateStats.timestamp", "timestamp")}}
-  - : Ein {{domxref("DOMHighResTimeStamp")}}-Objekt, das anzeigt, zu welchem Zeitpunkt die Probe für dieses Statistikobjekt genommen wurde.
-- {{domxref("RTCCertificateStats.type", "type")}}
+- [`id`](/de/docs/Web/API/RTCCertificateStats/id)
+  - : Ein String, der das Objekt, das überwacht wird, um diesen Satz von Statistiken zu erstellen, eindeutig identifiziert.
+- [`timestamp`](/de/docs/Web/API/RTCCertificateStats/timestamp)
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das den Zeitpunkt angibt, zu dem die Probe für dieses Statistikobjekt genommen wurde.
+- [`type`](/de/docs/Web/API/RTCCertificateStats/type)
   - : Ein String mit dem Wert `"certificate"`, der den Typ der Statistiken angibt, die das Objekt enthält.
 
 ## Beispiele
 
-Angenommen, eine Variable `myPeerConnection`, die eine Instanz von {{domxref("RTCPeerConnection")}} ist, verwendet der folgende Code `await`, um auf den Statistikbericht zu warten, und iteriert ihn dann mit `RTCStatsReport.forEach()`.
-Anschließend filtert er die Wörterbücher nur für diejenigen Berichte, die den Typ `certificate` haben, und protokolliert das Ergebnis.
+Gegeben eine Variable `myPeerConnection`, die eine Instanz von [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ist, verwendet der unten stehende Code `await`, um auf den Statistikbericht zu warten, und iteriert dann mit `RTCStatsReport.forEach()` darüber.
+Er filtert dann die Wörterbücher nur für diejenigen Berichte, die den Typ `certificate` haben, und protokolliert das Ergebnis.
 
 ```js
 const stats = await myPeerConnection.getStats();
@@ -59,5 +59,5 @@ stats.forEach((report) => {
 
 ## Siehe auch
 
-- {{domxref("RTCStatsReport")}}
-- {{domxref("RTCCertificate")}}
+- [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)
+- [`RTCCertificate`](/de/docs/Web/API/RTCCertificate)

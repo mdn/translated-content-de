@@ -1,5 +1,5 @@
 ---
-title: "Location: protocol-Eigenschaft"
+title: "Location: Eigenschaft protocol"
 short-title: protocol
 slug: Web/API/Location/protocol
 l10n:
@@ -8,9 +8,7 @@ l10n:
 
 {{ApiRef("Location")}}
 
-Die **`protocol`**-Eigenschaft des {{domxref("Location")}}
-Interfaces ist ein String, der das Protokollschema der URL repräsentiert,
-einschließlich des abschließenden `':'`.
+Die **`protocol`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces ist ein String, der das Protokollschema der URL darstellt, einschließlich des abschließenden `':'`.
 
 ## Wert
 
@@ -19,9 +17,9 @@ Ein String.
 ## Beispiele
 
 ```js
-// Angenommen, ein <a id="myAnchor" href="https://developer.mozilla.org/en-US/Location.protocol"> Element befindet sich im Dokument
+// Let's an <a id="myAnchor" href="https://developer.mozilla.org/en-US/Location.protocol"> element be in the document
 const anchor = document.getElementById("myAnchor");
-const result = anchor.protocol; // Gibt zurück: 'https:'
+const result = anchor.protocol; // Returns:'https:'
 ```
 
 ## Spezifikationen

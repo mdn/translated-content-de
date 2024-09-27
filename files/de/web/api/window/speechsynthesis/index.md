@@ -1,5 +1,5 @@
 ---
-title: "Window: speechSynthesis-Eigenschaft"
+title: "Fenster: speechSynthesis-Eigenschaft"
 short-title: speechSynthesis
 slug: Web/API/Window/speechSynthesis
 l10n:
@@ -8,18 +8,17 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Die schreibgeschützte Eigenschaft `speechSynthesis` des Window-Objekts gibt ein {{domxref("SpeechSynthesis")}}-Objekt zurück, welches den Einstiegspunkt zur Nutzung der Sprachsynthesefunktionalität der [Web Speech API](/de/docs/Web/API/Web_Speech_API) darstellt.
+Die schreibgeschützte `speechSynthesis`-Eigenschaft des Window-Objekts gibt ein [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Objekt zurück, das den Einstiegspunkt für die Nutzung der Sprachsynthesefunktionen der [Web Speech API](/de/docs/Web/API/Web_Speech_API) darstellt.
 
 ## Wert
 
-Ein {{domxref("SpeechSynthesis")}}-Objekt.
+Ein [`SpeechSynthesis`](/de/docs/Web/API/SpeechSynthesis)-Objekt.
 
 ## Beispiele
 
-In unserem grundlegenden [Speech Synthesizer-Demo](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speak-easy-synthesis) holen wir zunächst eine Referenz zum SpeechSynthesis-Controller mit `window.speechSynthesis`.
-Nach der Definition einiger notwendiger Variablen rufen wir eine Liste der verfügbaren Stimmen mit {{domxref("SpeechSynthesis.getVoices()")}} ab und füllen ein Auswahlmenü mit ihnen, sodass der Benutzer die gewünschte Stimme auswählen kann.
+In unserem grundlegenden [Sprachsynthesizer-Demo](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speak-easy-synthesis) greifen wir zuerst mit `window.speechSynthesis` auf den SpeechSynthesis-Controller zu. Nachdem wir einige notwendige Variablen definiert haben, rufen wir eine Liste der verfügbaren Stimmen mit [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) ab und füllen ein Auswahlmenü damit, damit der Benutzer die gewünschte Stimme auswählen kann.
 
-Innerhalb des `inputForm.onsubmit`-Handlers verhindern wir das Absenden des Formulars mit [preventDefault()](/de/docs/Web/API/Event/preventDefault), erstellen eine neue {{domxref("SpeechSynthesisUtterance")}}-Instanz, die den Text aus dem Text-{{htmlelement("input")}} enthält, setzen die Stimme der Sprachäußerung auf die im {{htmlelement("select")}}-Element ausgewählte Stimme und starten das Sprechen der Äußerung über die {{domxref("SpeechSynthesis.speak()")}}-Methode.
+Innerhalb des `inputForm.onsubmit`-Handlers verhindern wir das Absenden des Formulars mit [preventDefault()](/de/docs/Web/API/Event/preventDefault), erstellen eine neue Instanz von [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance), die den Text aus dem Text-{{htmlelement("input")}} enthält, setzen die Stimme der Äußerung auf die im {{htmlelement("select")}}-Element ausgewählte Stimme und beginnen das Sprechen der Äußerung über die Methode [`SpeechSynthesis.speak()`](/de/docs/Web/API/SpeechSynthesis/speak).
 
 ```js
 const synth = window.speechSynthesis;

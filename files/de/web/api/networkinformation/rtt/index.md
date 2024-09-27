@@ -1,5 +1,5 @@
 ---
-title: "NetworkInformation: rtt-Eigenschaft"
+title: "NetworkInformation: Eigenschaft rtt"
 short-title: rtt
 slug: Web/API/NetworkInformation/rtt
 l10n:
@@ -8,10 +8,7 @@ l10n:
 
 {{apiref("Network Information API")}} {{AvailableInWorkers}}
 
-Die **`rtt`**-Nur-Leseeigenschaft der {{domxref("NetworkInformation")}}-Schnittstelle gibt die geschätzte effektive Round-Trip-Time der aktuellen Verbindung zurück, gerundet auf das nächste Vielfache von 25 Millisekunden.
-Dieser Wert basiert auf kürzlich beobachteten RTT-Messungen auf Anwendungsebene über kürzlich aktive Verbindungen.
-Er schließt Verbindungen zu einem privaten Adressraum aus.
-Wenn keine aktuellen Messdaten verfügbar sind, basiert der Wert auf den Eigenschaften der zugrunde liegenden Verbindungstechnologie.
+Die schreibgeschützte Eigenschaft **`rtt`** des [`NetworkInformation`](/de/docs/Web/API/NetworkInformation)-Interfaces gibt die geschätzte effektive Rundreisezeit (Round Trip Time, RTT) der aktuellen Verbindung zurück, gerundet auf das nächste Vielfache von 25 Millisekunden. Dieser Wert basiert auf kürzlich beobachteten Anwendungs-Ebene-RTT-Messungen über kürzlich aktive Verbindungen hinweg. Er schließt Verbindungen zu einem privaten Adressraum aus. Wenn keine aktuellen Messdaten verfügbar sind, basiert der Wert auf den Eigenschaften der zugrunde liegenden Verbindungstechnologie.
 
 ## Wert
 

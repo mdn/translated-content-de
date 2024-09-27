@@ -1,5 +1,5 @@
 ---
-title: seiten-orientierung
+title: page-orientation
 slug: Web/CSS/@page/page-orientation
 l10n:
   sourceCommit: a9868df9a022eb5a58a4f255702092cbf6d03da8
@@ -7,26 +7,26 @@ l10n:
 
 {{CSSRef}}
 
-Der **`page-orientation`** [CSS](/de/docs/Web/CSS) Deskriptor für die {{cssxref("@page")}} At-Regel kontrolliert die Drehung einer gedruckten Seite. Er verwaltet den Fluss des Inhalts über mehrere Seiten, wenn sich die Orientierung einer Seite ändert. Dieses Verhalten unterscheidet sich von dem des [`size`](/de/docs/Web/CSS/@page/size) Deskriptors, da ein Benutzer die Richtung festlegen kann, in der die Seite gedreht werden soll.
+Der **`page-orientation`** [CSS](/de/docs/Web/CSS) Deskriptor für die {{cssxref("@page")}} At-Regel steuert die Rotation einer gedruckten Seite. Er behandelt den Fluss von Inhalten über die Seiten, wenn die Ausrichtung einer Seite geändert wird. Dieses Verhalten unterscheidet sich vom [`size`](/de/docs/Web/CSS/@page/size) Deskriptor, da ein Benutzer die Richtung definieren kann, in der die Seite gedreht wird.
 
-Dieser Deskriptor hilft bei der Gestaltung und Ausrichtung gedruckter Dokumente, insbesondere wenn Dokumente doppelseitig gedruckt werden. Ein Benutzer kann festlegen, wie die Seiten beim Drucken gedreht werden. Dies ist besonders nützlich, um Inhalte wie Tabellen, die möglicherweise breiter sind als der restliche Inhalt, in einer anderen Ausrichtung anzuordnen.
+Dieser Deskriptor hilft bei der Gestaltung und Ausrichtung von Druckdokumenten, insbesondere wenn Dokumente beidseitig gedruckt werden. Ein Benutzer kann festlegen, wie die Seiten beim Drucken gedreht werden sollen. Dies ist besonders nützlich, um Inhalte wie Tabellen, die möglicherweise breiter als der Rest des Inhalts sind, in einer anderen Ausrichtung darzustellen.
 
-> **Hinweis:** [Randkästen](/de/docs/Web/CSS/@page#margin_at-rules) und andere positionale Elemente haben keine besondere Interaktion mit diesem Deskriptor. Ränder werden wie gewohnt auf der nicht gedrehten Seite angeordnet und dann zusammen mit allem anderen gedreht.
+> **Note:** [Randboxen](/de/docs/Web/CSS/@page#margin_at-rules) und andere Positionselemente haben keine spezielle Interaktion mit diesem Deskriptor. Ränder werden normal auf der ungedrehten Seite gestaltet und dann zusammen mit allem anderen gedreht.
 
 ## Syntax
 
 ```css
-/* Zeigt den Druckinhalt in aufrechter Position an */
+/* Displays the print content in an upright position */
 @page {
   page-orientation: upright;
 }
 
-/* Zeigt den Druckinhalt gegen den Uhrzeigersinn gedreht an */
+/* Displays the print content rotated counter-clockwise */
 @page {
   page-orientation: rotate-left;
 }
 
-/* Zeigt den Druckinhalt im Uhrzeigersinn gedreht an */
+/* Displays the print content rotated clockwise */
 @page {
   page-orientation: rotate-right;
 }
@@ -35,11 +35,11 @@ Dieser Deskriptor hilft bei der Gestaltung und Ausrichtung gedruckter Dokumente,
 ## Werte
 
 - `upright`
-  - : Es wird keine Orientierung angewendet und die Seite wird normal angeordnet und formatiert.
+  - : Es wird keine Ausrichtung angewendet und die Seite wird normal layoutet und formatiert.
 - `rotate-left`
-  - : Nachdem eine Seite angeordnet wurde, muss die Seite eine Vierteldrehung nach links (gegen den Uhrzeigersinn) angezeigt werden.
+  - : Nachdem eine Seite layoutet wurde, muss die Seite um eine Vierteldrehung nach links (gegen den Uhrzeigersinn) gedreht angezeigt werden.
 - `rotate-right`
-  - : Nachdem eine Seite angeordnet wurde, muss die Seite eine Vierteldrehung nach rechts (im Uhrzeigersinn) angezeigt werden.
+  - : Nachdem die Seite layoutet wurde, muss die Seite um eine Vierteldrehung nach rechts (im Uhrzeigersinn) gedreht angezeigt werden.
 
 ## Formale Definition
 
@@ -51,21 +51,21 @@ Dieser Deskriptor hilft bei der Gestaltung und Ausrichtung gedruckter Dokumente,
 
 ## Beispiele
 
-### Gedrehte Druckseiten
+### Gedruckte Seiten drehen
 
-Dieses Beispiel zeigt, wie die Inhalte eines Druckdokuments gedreht werden können, um dem Seiteninhalt und der Seitenposition gerecht zu werden.
+Dieses Beispiel zeigt, wie der Inhalt eines Druckdokuments gedreht werden kann, um dem Seiteninhalt und der Seitenposition zu entsprechen.
 
 ```html hidden
 <fieldset id="printStyle">
   <legend>
-    Klicken Sie auf Drucken. Die Seite wird in der definierten Ausrichtung angeordnet.
+    Click Print. The page will be laid out in the defined orientation.
   </legend>
-  <button id="print">Drucken</button>
+  <button id="print">Print</button>
 </fieldset>
 <div id="print-area">
   <section class="upright">
-    <h2>Abschnitt im Hochformat/Aufrecht</h2>
-    <p>Dieser Abschnitt wird im Hochformat und aufrecht gedruckt:</p>
+    <h2>Section in Portrait/Upright</h2>
+    <p>This section will be printed in portrait and upright with:</p>
     <pre>
 .upright {
   size: portrait;
@@ -97,8 +97,8 @@ Dieses Beispiel zeigt, wie die Inhalte eines Druckdokuments gedreht werden könn
     </p>
   </section>
   <section class="left">
-    <h2>Abschnitt im Querformat/Links</h2>
-    <p>Dieser Abschnitt wird im Querformat und nach links gedreht gedruckt:</p>
+    <h2>Section in Landscape/Left</h2>
+    <p>This section will be printed in landscape and rotated left with:</p>
     <pre>
 .left {
   size: landscape;
@@ -111,11 +111,11 @@ Dieses Beispiel zeigt, wie die Inhalte eines Druckdokuments gedreht werden könn
           <th></th>
           <th>100m</th>
           <th>1500m</th>
-          <th>Hürden</th>
-          <th>Weitsprung</th>
-          <th>Hochsprung</th>
-          <th>Speerwurf</th>
-          <th>Diskuswurf</th>
+          <th>Hurdles</th>
+          <th>Long Jump</th>
+          <th>High Jump</th>
+          <th>Javelin</th>
+          <th>Discus</th>
         </tr>
       </thead>
       <tbody>
@@ -193,8 +193,8 @@ Dieses Beispiel zeigt, wie die Inhalte eines Druckdokuments gedreht werden könn
     </table>
   </section>
   <section class="right">
-    <h2>Abschnitt im Querformat/Rechts</h2>
-    <p>Dieser Abschnitt wird im Querformat und nach rechts gedreht gedruckt:</p>
+    <h2>Section in Landscape/Right</h2>
+    <p>This section will be printed in landscape and rotated right with:</p>
     <pre>
 .right {
   size: landscape;
@@ -207,11 +207,11 @@ Dieses Beispiel zeigt, wie die Inhalte eines Druckdokuments gedreht werden könn
           <th></th>
           <th>100m</th>
           <th>1500m</th>
-          <th>Hürden</th>
-          <th>Weitsprung</th>
-          <th>Hochsprung</th>
-          <th>Speerwurf</th>
-          <th>Diskuswurf</th>
+          <th>Hurdles</th>
+          <th>Long Jump</th>
+          <th>High Jump</th>
+          <th>Javelin</th>
+          <th>Discus</th>
         </tr>
       </thead>
       <tbody>
@@ -293,7 +293,7 @@ Dieses Beispiel zeigt, wie die Inhalte eines Druckdokuments gedreht werden könn
 
 #### CSS
 
-Im ersten Teil des CSS-Codes werden [benannte Seiten](/de/docs/Web/CSS/@page#named_pages) eingerichtet, um die Richtung festzulegen, in der der Inhalt gedreht werden soll.
+In diesem ersten Teil des CSS-Codes werden [benannte Seiten](/de/docs/Web/CSS/@page#named_pages) eingerichtet, um die Richtung zu definieren, in der der Inhalt gedreht wird.
 
 ```css
 @page upright {
@@ -334,7 +334,7 @@ p {
 }
 ```
 
-Der folgende zweite Teil des CSS-Codes erklärt eine oben definierte benannte Seitenregel für die Selektoren, wie `<section class="left">…</section>`.
+Im folgenden zweiten Teil des CSS-Codes wird eine definierte benannte Seitenregel für die Selektoren, wie `<section class="left">…</section>`, deklariert.
 
 ```css
 @media print {
@@ -359,7 +359,7 @@ printButton.addEventListener("click", () => {
 
 ### Ergebnis
 
-Klicken Sie auf die Drucktaste, um die gedrehten Seiten zu sehen.
+Klicken Sie auf die Schaltfläche "Drucken", um die Seiten gedreht zu sehen.
 
 {{ EmbedLiveSample('Rotating_printed_pages', '100%', 520) }}
 

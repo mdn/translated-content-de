@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Speech API")}}{{ SeeCompatTable() }}
 
-Der **`item`**-Getter der {{domxref("SpeechGrammarList")}}-Schnittstelle ist ein Standard-Getter – er ermöglicht das Abrufen einzelner {{domxref("SpeechGrammar")}}-Objekte aus der `SpeechGrammarList` mit Hilfe der Array-Syntax.
+Die **`item`**-Getter-Methode des [`SpeechGrammarList`](/de/docs/Web/API/SpeechGrammarList)-Interfaces ist ein standardmäßiger Getter — sie ermöglicht die Abfrage einzelner [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekte aus der `SpeechGrammarList` mit Array-Syntax.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ item(index)
 
 ### Rückgabewert
 
-Ein {{domxref("SpeechGrammar")}}-Objekt.
+Ein [`SpeechGrammar`](/de/docs/Web/API/SpeechGrammar)-Objekt.
 
 ## Beispiele
 

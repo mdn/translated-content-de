@@ -7,22 +7,22 @@ l10n:
 
 {{APIRef("SVG")}}{{deprecated_header}}
 
-Die **`SVGGlyphElement`**-Schnittstelle entspricht dem {{SVGElement("glyph")}}-Element.
+Die **`SVGGlyphElement`** Schnittstelle entspricht dem {{SVGElement("glyph")}} Element.
 
-Objektorientierter Zugriff auf die Attribute des `<glyph>`-Elements über das SVG-DOM ist nicht möglich.
+Ein objektorientierter Zugriff auf die Attribute des `<glyph>` Elements über das SVG DOM ist nicht möglich.
 
 {{InheritanceDiagram}}
 
 > [!WARNING]
-> Diese Schnittstelle wurde in der SVG 2-Spezifikation entfernt.
+> Diese Schnittstelle wurde in der SVG 2 Spezifikation entfernt.
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, erbt jedoch Eigenschaften von ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Eigenschaften, sondern erbt Eigenschaften von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifischen Methoden, erbt jedoch Methoden von ihrer übergeordneten Schnittstelle, {{domxref("SVGElement")}}._
+_Diese Schnittstelle implementiert keine spezifischen Methoden, sondern erbt Methoden von ihrer Elternschnittstelle, [`SVGElement`](/de/docs/Web/API/SVGElement)._
 
 ## Spezifikationen
 

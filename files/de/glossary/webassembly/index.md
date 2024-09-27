@@ -7,10 +7,10 @@ l10n:
 
 {{GlossarySidebar}}
 
-**WebAssembly** (Abk. _Wasm_) ist ein offenes {{Glossary("binary")}} Programmierformat, das in modernen Web{{Glossary("Browser", "browsern")}} ausgeführt werden kann, um Leistung zu gewinnen und/oder neue Funktionen für Webseiten bereitzustellen.
+**WebAssembly** (Abk. _Wasm_) ist ein offenes [binäres](/de/docs/Glossary/binary) Programmierformat, das in modernen Web[browsern](/de/docs/Glossary/Browser) ausgeführt werden kann, um die Leistung zu steigern und/oder neue Funktionen für Webseiten bereitzustellen.
 
 ## Siehe auch
 
 - [WebAssembly](https://en.wikipedia.org/wiki/WebAssembly) auf Wikipedia
-- [Offizielle Website](https://webassembly.org/)
+- [Offizielle Webseite](https://webassembly.org/)
 - [WebAssembly](/de/docs/WebAssembly) auf MDN

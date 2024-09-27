@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn ein von der Erweiterung gesetzter Alarm abläuft.
+Wird ausgelöst, wenn ein von der Erweiterung gesetzter Alarm ausgelöst wird.
 
 ## Syntax
 
@@ -22,9 +22,9 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Beendet die Beobachtung dieses Ereignisses. Das Argument `listener` ist der zu entfernende Listener.
+  - : Beendet das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zugehört wird, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es aktiv ist, andernfalls `false`.
 
 ## addListener-Syntax
 
@@ -32,14 +32,14 @@ Ereignisse haben drei Funktionen:
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `alarm`
       - : {{WebExtAPIRef('alarms.Alarm')}}. Der Alarm, der ausgelöst wurde. Verwenden Sie `Alarm.name`, um festzustellen, welcher Alarm ausgelöst wurde.
 
 ## Beispiele
 
-Behandeln eines ablaufenden Alarms:
+Einen Alarm behandeln, der ausgelöst wird:
 
 ```js
 function handleAlarm(alarmInfo) {
@@ -51,7 +51,7 @@ browser.alarms.onAlarm.addListener(handleAlarm);
 
 {{WebExtExamples}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

@@ -3,12 +3,12 @@ title: "TextDecoderStream: TextDecoderStream() Konstruktor"
 short-title: TextDecoderStream()
 slug: Web/API/TextDecoderStream/TextDecoderStream
 l10n:
-  sourceCommit: 58ad1df59f2ffb9ecab4e27fe1bdf1eb5a55f89b
+  sourceCommit: 4094b9256ace2d7d805abb6b536e23079aaf9170
 ---
 
-{{APIRef("Encoding API")}}
+{{APIRef("Encoding API")}}{{AvailableInWorkers}}
 
-Der **`TextDecoderStream()`**-Konstruktor erstellt ein neues {{domxref("TextDecoderStream")}}-Objekt, das verwendet wird, um einen Textstrom in einer binären Kodierung in Zeichenfolgen umzuwandeln.
+Der **`TextDecoderStream()`**-Konstruktor erstellt ein neues [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream)-Objekt, das verwendet wird, um einen Strom von Text in einer binären Kodierung in Strings umzuwandeln.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ new TextDecoderStream(label, options)
 ### Parameter
 
 - `label`
-  - : Eine Zeichenfolge, die standardmäßig auf `utf-8` gesetzt ist.
+  - : Ein String, der standardmäßig `utf-8` ist.
     Dies kann [jedes gültige Label](/de/docs/Web/API/Encoding_API/Encodings) sein.
 - `options` {{optional_inline}}
 
@@ -28,21 +28,21 @@ new TextDecoderStream(label, options)
 
     - `fatal` {{optional_inline}}
 
-      - : Ein boolescher Wert, der angibt, ob die Methode {{DOMxRef("TextDecoder.decode()")}} einen {{jsxref("TypeError")}} erzeugen muss, wenn ungültige Daten dekodiert werden.
-        Standardmäßig ist dieser Wert `false`, was bedeutet, dass der Dekodierer fehlerhafte Daten durch ein Ersatzzeichen ersetzt.
+      - : Ein boolescher Wert, der angibt, ob die Methode [`TextDecoder.decode()`](/de/docs/Web/API/TextDecoder/decode) einen {{jsxref("TypeError")}} auslösen muss, wenn ungültige Daten dekodiert werden.
+        Der Standardwert ist `false`, was bedeutet, dass der Decoder fehlerhafte Daten durch ein Ersatzzeichen ersetzt.
 
     - `ignoreBOM` {{optional_inline}}
-      - : Ein boolescher Wert, der angibt, ob das [Byte Order Mark](https://www.w3.org/International/questions/qa-byte-order-mark) in die Ausgabe einbezogen oder übersprungen wird.
-        Standardmäßig ist dieser Wert `false`, was bedeutet, dass das Byte Order Mark beim Dekodieren übersprungen und nicht im dekodierten Text enthalten wird.
+      - : Ein boolescher Wert, der angibt, ob das [Byte-Order-Mark](https://www.w3.org/International/questions/qa-byte-order-mark) in die Ausgabe einbezogen oder übersprungen wird.
+        Der Standardwert ist `false`, was bedeutet, dass das Byte-Order-Mark beim Dekodieren übersprungen und nicht im dekodierten Text enthalten sein wird.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn der Wert von `label` unbekannt ist oder einer der Werte ist, die zu einem `'replacement'` Dekodierungsalgorithmus führen (`"iso-2022-cn"` oder `"iso-2022-cn-ext"`).
+  - : Wird ausgelöst, wenn der Wert von `label` unbekannt ist oder zu den Werten gehört, die zu einem „Ersatz“-Dekodierungsalgorithmus führen (`"iso-2022-cn"` oder `"iso-2022-cn-ext"`).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie binäre Daten, die von einem {{domxref("Window/fetch", "fetch()")}}-Aufruf abgerufen wurden, dekodiert werden.
+Das folgende Beispiel zeigt, wie binäre Daten dekodiert werden, die mit einem [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf abgerufen wurden.
 Die Daten werden als UTF-8 interpretiert, da kein `label` übergeben wurde.
 
 ```js

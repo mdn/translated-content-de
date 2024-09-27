@@ -1,5 +1,5 @@
 ---
-title: "Document: Document()-Konstruktor"
+title: "Document: Document() Konstruktor"
 short-title: Document()
 slug: Web/API/Document/Document
 l10n:
@@ -8,9 +8,8 @@ l10n:
 
 {{APIRef}}
 
-Der **`Document`**-Konstruktor erstellt ein neues
-{{domxref("Document")}}-Objekt, das eine im Browser geladene Webseite darstellt und als
-Einstiegspunkt in die Inhalte der Seite dient.
+Der **`Document`** Konstruktor erstellt ein neues
+[`Document`](/de/docs/Web/API/Document) Objekt, das eine im Browser geladene Webseite ist und als Einstiegspunkt in den Inhalt der Seite dient.
 
 ## Syntax
 

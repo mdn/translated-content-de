@@ -1,5 +1,5 @@
 ---
-title: "PaymentMethodChangeEvent: Eigenschaft methodName"
+title: "PaymentMethodChangeEvent: methodName-Eigenschaft"
 short-title: methodName
 slug: Web/API/PaymentMethodChangeEvent/methodName
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die schreibgeschützte **`methodName`**-Eigenschaft der {{domxref("PaymentMethodChangeEvent")}}-Schnittstelle ist ein Zeichenfolge, die den aktuell vom Benutzer ausgewählten Zahlungsdienstanbieter eindeutig identifiziert. Der Zahlungsdienstanbieter kann eine Zahlungstechnologie wie Apple Pay oder Android Pay sein, und jeder Zahlungsdienstanbieter kann mehrere Zahlungsmethoden unterstützen; Änderungen der Zahlungsmethode innerhalb des Zahlungsdienstanbieters werden durch das `PaymentMethodChangeEvent` beschrieben.
+Die schreibgeschützte **`methodName`**-Eigenschaft des [`PaymentMethodChangeEvent`](/de/docs/Web/API/PaymentMethodChangeEvent)-Interfaces ist ein String, der den aktuell vom Benutzer ausgewählten Zahlungsanbieter eindeutig identifiziert. Der Zahlungsanbieter kann eine Zahlungstechnologie wie Apple Pay oder Android Pay sein, und jeder Zahlungsanbieter kann mehrere Zahlungsmethoden unterstützen; Änderungen an der Zahlungsmethode innerhalb des Zahlungsanbieters werden durch das `PaymentMethodChangeEvent` beschrieben.
 
 ## Wert
 
-Eine Zeichenfolge, die den aktuell ausgewählten Zahlungsdienstanbieter eindeutig identifiziert. Dies kann eine Zeichenfolge aus der Liste der standardisierten Zahlungsmethoden-Identifikatoren sein oder eine URL, die vom Zahlungsbearbeitungsdienst verwendet wird. Weitere Informationen finden Sie unter [Payment method identifiers](/de/docs/Web/API/Payment_Request_API/Concepts#payment_method_identifiers).
+Ein String, der den aktuell ausgewählten Zahlungsanbieter eindeutig identifiziert. Dies kann ein String aus der Liste der standardisierten Zahlungsmethoden-Identifikatoren sein oder eine URL, die vom Zahlungsdienstleister verwendet wird. Weitere Informationen finden Sie unter [Payment method identifiers](/de/docs/Web/API/Payment_Request_API/Concepts#payment_method_identifiers).
 
-Der Standardwert ist die leere Zeichenfolge, `""`.
+Der Standardwert ist der leere String, `""`.
 
 ## Beispiele
 
-Dieses Beispiel verwendet das {{domxref("PaymentRequest.paymentmethodchange_event", "paymentmethodchange")}}-Ereignis, um Änderungen der für Apple Pay ausgewählten Zahlungsmethode zu überwachen, um einen Rabatt zu berechnen, wenn der Benutzer sich entscheidet, eine Visa-Karte als Zahlungsmethode zu verwenden.
+Dieses Beispiel verwendet das [`paymentmethodchange`](/de/docs/Web/API/PaymentRequest/paymentmethodchange_event)-Ereignis, um Änderungen an der für Apple Pay ausgewählten Zahlungsmethode zu überwachen, um einen Rabatt zu berechnen, falls der Benutzer sich entscheidet, eine Visa-Karte als Zahlungsmethode zu verwenden.
 
 ```js
 request.onpaymentmethodchange = (ev) => {
@@ -27,21 +27,21 @@ request.onpaymentmethodchange = (ev) => {
   if (ev.methodName === "https://apple.com/apple-pay") {
     switch (cardType) {
       case "visa": {
-        // spezifische Handhabung für Visa-Karten bei Apple Pay…
-        // methodDetails enthält die Karteninformationen
+        // do Apple Pay specific handling for Visa card…
+        // methodDetails contains the card information
         const discount = calculateDiscount(ev.methodDetails);
         Object.assign(newStuff, discount);
         break;
       }
     }
   }
-  // schließlich…
+  // finally…
   ev.updateWith(newStuff);
 };
 const response = await request.show();
 ```
 
-Beachten Sie, dass die `methodDetails`-Eigenschaft von der `calculateDiscount()`-Funktion verwendet wird, um etwaige Zahlungsrabatte zu berechnen. Danach wird {{domxref("PaymentRequestUpdateEvent.updateWith", "updateWith()")}} aufgerufen, um das Ereignis mit dem berechneten Update zu aktualisieren.
+Beachten Sie, dass die `methodDetails`-Eigenschaft von der `calculateDiscount()`-Funktion verwendet wird, um einen Zahlungsrabatt zu berechnen, und dann [`updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith) aufgerufen wird, um das Ereignis mit dem berechneten Update zu aktualisieren.
 
 ## Spezifikationen
 

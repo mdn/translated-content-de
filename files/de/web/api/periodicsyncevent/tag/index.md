@@ -8,12 +8,7 @@ l10n:
 
 {{APIRef("Periodic Background Sync")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`tag`**-Eigenschaft, eine schreibgeschützte Eigenschaft der
-{{domxref("PeriodicSyncEvent")}}-Schnittstelle, gibt den vom Entwickler definierten Bezeichner für
-das {{domxref('PeriodicSyncEvent')}} zurück. Dieser wird angegeben, wenn die
-{{domxref('PeriodicSyncManager.register()')}}-Methode der
-{{domxref('PeriodicSyncManager')}}-Schnittstelle aufgerufen wird. Mehrere Tags können von der Web-App
-verwendet werden, um verschiedene periodische Aufgaben mit unterschiedlichen Frequenzen auszuführen.
+Die schreibgeschützte **`tag`**-Eigenschaft des [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent)-Interfaces gibt den benutzerdefinierten Bezeichner für das [`PeriodicSyncEvent`](/de/docs/Web/API/PeriodicSyncEvent) zurück. Dieser wird festgelegt, wenn die [`PeriodicSyncManager.register()`](/de/docs/Web/API/PeriodicSyncManager/register)-Methode des [`PeriodicSyncManager`](/de/docs/Web/API/PeriodicSyncManager)-Interfaces aufgerufen wird. Mehrere Tags können von der Webanwendung verwendet werden, um verschiedene periodische Aufgaben mit unterschiedlichen Frequenzen auszuführen.
 
 ## Wert
 
@@ -21,8 +16,7 @@ Gibt einen {{jsxref('String')}} des definierten Bezeichners zurück.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt das Abhören eines periodischen Synchronisierungsereignisses im Service
-Worker und den Zugriff auf die `tag`-Eigenschaft.
+Das folgende Beispiel zeigt das Abhören eines periodischen Synchronisationsereignisses im Service Worker und den Zugriff auf die `tag`-Eigenschaft.
 
 ```js
 self.addEventListener("periodicsync", (event) => {
@@ -40,5 +34,5 @@ self.addEventListener("periodicsync", (event) => {
 
 ## Siehe auch
 
-- [Richer offline experiences with the Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
-- [Eine Demo-App für die Periodic Background Sync](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)
+- [Reichhaltigere Offline-Erlebnisse mit der Periodic Background Sync API](https://developer.chrome.com/docs/capabilities/periodic-background-sync)
+- [Eine Periodic Background Sync Demo-App](https://webplatformapis.com/periodic_sync/periodicSync_improved.html)

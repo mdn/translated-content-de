@@ -1,5 +1,5 @@
 ---
-title: "XRJointPose: radius-Eigenschaft"
+title: "XRJointPose: Eigenschaft radius"
 short-title: radius
 slug: Web/API/XRJointPose/radius
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}
 
-Die schreibgeschützte **`radius`**-Eigenschaft des {{domxref("XRJointPose")}}-Interfaces gibt den Radius (Abstand von der Haut) für ein Gelenk an.
+Die schreibgeschützte Eigenschaft **`radius`** der Schnittstelle [`XRJointPose`](/de/docs/Web/API/XRJointPose) gibt den Radius (Entfernung von der Haut) eines Gelenks an.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine Zahl, die den Radius in Metern angibt.
 
 ### Abrufen des `radius` für ein Handgelenk
 
-Rufen Sie {{domxref("XRFrame.getJointPose()")}} mit einem {{domxref("XRJointSpace")}} und einem {{domxref("XRReferenceSpace")}} auf, um ein `XRJointPose`-Objekt zu erhalten, das die Radius-Eigenschaft bereitstellt.
+Rufen Sie [`XRFrame.getJointPose()`](/de/docs/Web/API/XRFrame/getJointPose) mit einem [`XRJointSpace`](/de/docs/Web/API/XRJointSpace) und einem [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) auf, um ein `XRJointPose`-Objekt zu erhalten, das die Eigenschaft radius bereitstellt.
 
 ```js
 navigator.xr
@@ -50,7 +50,7 @@ function renderFrame(session, frame) {
 
 ## Siehe auch
 
-- {{domxref("XRHand")}}
-- {{domxref("XRReferenceSpace")}}
-- {{domxref("XRJointSpace")}}
-- {{domxref("XRFrame.getJointPose()")}}
+- [`XRHand`](/de/docs/Web/API/XRHand)
+- [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)
+- [`XRJointSpace`](/de/docs/Web/API/XRJointSpace)
+- [`XRFrame.getJointPose()`](/de/docs/Web/API/XRFrame/getJointPose)

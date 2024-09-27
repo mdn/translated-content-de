@@ -1,5 +1,5 @@
 ---
-title: "PerformanceObserver: Methode takeRecords()"
+title: "PerformanceObserver: takeRecords()-Methode"
 short-title: takeRecords()
 slug: Web/API/PerformanceObserver/takeRecords
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`takeRecords()`**-Methode des {{domxref('PerformanceObserver')}}-Interfaces gibt die aktuelle Liste von {{domxref("PerformanceEntry")}}-Objekten zurück, die im Performance-Observer gespeichert sind, und leert diesen.
+Die **`takeRecords()`**-Methode der [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Schnittstelle gibt die aktuelle Liste der [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte zurück, die im Performance-Observer gespeichert sind, und leert ihn.
 
 ## Syntax
 
@@ -22,18 +22,18 @@ Keine.
 
 ### Rückgabewert
 
-Eine Liste von {{domxref("PerformanceEntry")}}-Objekten.
+Eine Liste von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten.
 
 ## Beispiele
 
-### Aufnehmen von Datensätzen
+### Aufzeichnungen übernehmen
 
-Das folgende Beispiel speichert die aktuelle Liste der Performance-Einträge in `records` und leert den Performance-Observer.
+Im folgenden Beispiel wird die aktuelle Liste der Performance-Einträge in `records` gespeichert und der Performance-Observer geleert.
 
 ```js
 const observer = new PerformanceObserver((list, obj) => {
   list.getEntries().forEach((entry) => {
-    // Verarbeiten von "mark" und "measure" Ereignissen
+    // Process "mark" and "measure" events
   });
 });
 observer.observe({ entryTypes: ["mark", "measure"] });

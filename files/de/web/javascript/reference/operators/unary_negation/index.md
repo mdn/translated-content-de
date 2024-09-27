@@ -19,27 +19,27 @@ Der **unäre Negationsoperator (`-`)** steht vor seinem Operanden und negiert ih
 
 ## Beschreibung
 
-Der `-` Operator ist für zwei Arten von Operanden überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er zwingt zunächst [den Operanden zu einem numerischen Wert](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und testet den Typ davon. Er führt eine BigInt-Negation durch, wenn der Operand zu einem BigInt wird; andernfalls führt er eine Zahlen-Negation durch.
+Der `-` Operator ist für zwei Operandentypen überladen: Zahl und [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Er [erzwingt zuerst die Umwandlung des Operanden in einen numerischen Wert](/de/docs/Web/JavaScript/Data_structures#numeric_coercion) und überprüft dessen Typ. Er führt eine BigInt-Negation durch, wenn der Operand ein BigInt wird; andernfalls führt er eine Zahlennegation durch.
 
 ## Beispiele
 
-### Negation von Zahlen
+### Zahlen negieren
 
 ```js
 const x = 3;
 const y = -x;
-// y ist -3; x ist 3
+// y is -3; x is 3
 ```
 
-### Negation von Nicht-Zahlen
+### Nicht-Zahlen negieren
 
-Der unäre Negationsoperator kann eine Nicht-Zahl in eine Zahl konvertieren.
+Der unäre Negationsoperator kann eine Nicht-Zahl in eine Zahl umwandeln.
 
 ```js
 const x = "4";
 const y = -x;
 
-// y ist -4
+// y is -4
 ```
 
 BigInts können mit dem unären Negationsoperator negiert werden.
@@ -48,7 +48,7 @@ BigInts können mit dem unären Negationsoperator negiert werden.
 const x = 4n;
 const y = -x;
 
-// y ist -4n
+// y is -4n
 ```
 
 ## Spezifikationen
@@ -66,7 +66,7 @@ const y = -x;
 - [Division (`/`)](/de/docs/Web/JavaScript/Reference/Operators/Division)
 - [Multiplikation (`*`)](/de/docs/Web/JavaScript/Reference/Operators/Multiplication)
 - [Rest (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder)
-- [Exponentialrechnung (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+- [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 - [Inkrement (`++`)](/de/docs/Web/JavaScript/Reference/Operators/Increment)
 - [Dekrement (`--`)](/de/docs/Web/JavaScript/Reference/Operators/Decrement)
 - [Unäres Plus (`+`)](/de/docs/Web/JavaScript/Reference/Operators/Unary_plus)

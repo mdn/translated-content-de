@@ -1,5 +1,5 @@
 ---
-title: "XMLHttpRequest: Eigenschaft responseText"
+title: "XMLHttpRequest: responseText-Eigenschaft"
 short-title: responseText
 slug: Web/API/XMLHttpRequest/responseText
 l10n:
@@ -8,30 +8,20 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die schreibgeschützte {{domxref("XMLHttpRequest")}}-Eigenschaft
-**`responseText`** gibt den vom Server empfangenen Text zurück,
-nachdem eine Anfrage gesendet wurde.
+Die schreibgeschützte [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) Eigenschaft **`responseText`** gibt den vom Server empfangenen Text zurück, nachdem eine Anfrage gesendet wurde.
 
 ## Wert
 
-Ein String, der entweder die textuellen Daten enthält, die mit dem
-`XMLHttpRequest` empfangen wurden, oder `""`, falls die Anfrage fehlgeschlagen ist oder noch kein Inhalt empfangen wurde.
+Ein String, der entweder die mithilfe des `XMLHttpRequest` empfangenen Textdaten enthält oder `""`, wenn die Anfrage fehlgeschlagen ist oder noch keine Inhalte empfangen wurden.
 
-Bei der Bearbeitung einer asynchronen Anfrage hat der Wert von `responseText` immer
-den aktuellen vom Server empfangenen Inhalt, selbst wenn dieser unvollständig ist, da die
-Daten noch nicht vollständig empfangen wurden.
+Bei der Bearbeitung einer asynchronen Anfrage hat der Wert von `responseText` immer den aktuellen Inhalt vom Server, auch wenn dieser unvollständig ist, weil die Daten noch nicht vollständig empfangen wurden.
 
-Sie wissen, dass der gesamte Inhalt empfangen wurde, wenn der Wert von
-{{domxref("XMLHttpRequest.readyState", "readyState")}} zu
-`XMLHttpRequest.DONE` (`4`) wird und
-{{domxref("XMLHttpRequest.status", "status")}} 200 (`"OK"`) ergibt.
+Sie wissen, dass der gesamte Inhalt empfangen wurde, wenn der Wert von [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) zu `XMLHttpRequest.DONE` (`4`) wird und [`status`](/de/docs/Web/API/XMLHttpRequest/status) 200 (`"OK"`) erreicht.
 
 ### Ausnahmen
 
-- `InvalidStateError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die {{domxref("XMLHttpRequest.responseType")}} nicht entweder auf den leeren
-    String oder `"text"` gesetzt ist. Da die `responseText`-Eigenschaft
-    nur für Textinhalte gültig ist, ist jeder andere Wert eine Fehlbedingung.
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird geworfen, wenn [`XMLHttpRequest.responseType`](/de/docs/Web/API/XMLHttpRequest/responseType) nicht auf entweder den leeren String oder `"text"` gesetzt ist. Da die `responseText`-Eigenschaft nur für Textinhalte gültig ist, ist jeder andere Wert eine Fehlerbedingung.
 
 ## Beispiele
 
@@ -39,7 +29,7 @@ Sie wissen, dass der gesamte Inhalt empfangen wurde, wenn der Wert von
 const xhr = new XMLHttpRequest();
 xhr.open("GET", "/server", true);
 
-// Wenn angegeben, muss responseType leerer String oder "text" sein
+// If specified, responseType must be empty string or "text"
 xhr.responseType = "text";
 
 xhr.onload = () => {

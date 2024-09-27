@@ -8,11 +8,14 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Die schreibgeschützte **`visibilityState`**-Eigenschaft des {{domxref("WindowClient")}}-Interfaces gibt die Sichtbarkeit des aktuellen Clients an. Dieser Wert kann `"hidden"`, `"visible"` oder `"prerender"` sein.
+Die schreibgeschützte Eigenschaft **`visibilityState`** des
+[`WindowClient`](/de/docs/Web/API/WindowClient)-Interfaces zeigt die Sichtbarkeit des aktuellen Clients an.
+Dieser Wert kann einer der folgenden sein: `"hidden"`, `"visible"` oder
+`"prerender"`.
 
 ## Wert
 
-Ein String (siehe {{domxref("Document.visibilityState")}} für Werte).
+Ein String (siehe [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState) für Werte).
 
 ## Beispiele
 

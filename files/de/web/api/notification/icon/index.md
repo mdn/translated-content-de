@@ -1,6 +1,6 @@
 ---
 title: "Benachrichtigung: Icon-Eigenschaft"
-short-title: Icon
+short-title: icon
 slug: Web/API/Notification/icon
 l10n:
   sourceCommit: e4c0939929e1b3e1fa3fd3da82b827fca3ed4c79
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Notifications")}}{{securecontext_header}} {{AvailableInWorkers}}
 
-Die **`icon`** schreibgeschützte Eigenschaft des {{domxref("Notification")}}-Interfaces enthält die URL eines Icons, das als Teil der Benachrichtigung angezeigt werden soll, wie im `icon`-Parameter des {{domxref("Notification.Notification","Notification()")}}-Konstruktors angegeben.
+Die schreibgeschützte Eigenschaft **`icon`** des [`Notification`](/de/docs/Web/API/Notification)-Interfaces enthält die URL eines Icons, das als Teil der Benachrichtigung angezeigt wird, wie im `icon`-Parameter des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-In unserer [To-Do-Listen-App](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([die App live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)) verwenden wir den {{domxref("Notification.Notification","Notification()")}}-Konstruktor, um eine Benachrichtigung auszulösen. Wir übergeben dabei Argumente, um den gewünschten Text, das Icon und den Titel anzugeben.
+In unserer [To-do-Liste-App](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([die App live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)) verwenden wir den [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktor, um eine Benachrichtigung auszulösen. Wir übergeben Argumente, um den Text, das Icon und den Titel zu spezifizieren, den wir möchten.
 
 ```js
 const notification = new Notification("To do list", {

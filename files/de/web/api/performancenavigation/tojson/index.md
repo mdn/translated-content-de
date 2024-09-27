@@ -9,10 +9,10 @@ l10n:
 {{APIRef("Performance API")}} {{deprecated_header}}
 
 > [!WARNING]
-> Diese Schnittstelle dieser Eigenschaft ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die {{domxref("PerformanceNavigationTiming")}}
+> Diese Schnittstelle dieser Eigenschaft ist in der [Navigation Timing Level 2 Spezifikation](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)
 > Schnittstelle.
 
-Die **`toJSON()`**-Methode der {{domxref("PerformanceNavigation")}}-Schnittstelle ist ein {{Glossary("Serialization","serializer")}}; sie gibt eine JSON-Darstellung des {{domxref("PerformanceNavigation")}}-Objekts zurück.
+Die **`toJSON()`**-Methode der [`PerformanceNavigation`](/de/docs/Web/API/PerformanceNavigation)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PerformanceNavigation`](/de/docs/Web/API/PerformanceNavigation)-Objekts zurück.
 
 ## Syntax
 
@@ -26,13 +26,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des {{domxref("PerformanceNavigation")}}-Objekts darstellt.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceNavigation`](/de/docs/Web/API/PerformanceNavigation)-Objekts ist.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 

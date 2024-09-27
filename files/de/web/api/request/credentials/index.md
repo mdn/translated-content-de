@@ -8,26 +8,26 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte **`credentials`**-Eigenschaft des {{domxref("Request")}}-Interfaces spiegelt den Wert wider, der dem {{domxref("Request.Request()", "Request()")}}-Konstruktor in der [`credentials`](/de/docs/Web/API/RequestInit#credentials)-Option übergeben wurde. Sie bestimmt, ob der Browser Anmeldedaten mit der Anfrage sendet, sowie ob neue **`Set-Cookie`**-Antwortheader beachtet werden.
+Die schreibgeschützte **`credentials`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle spiegelt den Wert wider, der dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor in der [`credentials`](/de/docs/Web/API/RequestInit#credentials)-Option übergeben wurde. Sie bestimmt, ob der Browser Anmeldeinformationen mit der Anfrage sendet und ob **`Set-Cookie`**-Antwortheader beachtet werden.
 
-Anmeldedaten sind Cookies, {{glossary("TLS")}}-Clientzertifikate oder Authentifizierungsheader, die einen Benutzernamen und ein Passwort enthalten.
+Anmeldeinformationen sind Cookies, [TLS](/de/docs/Glossary/TLS)-Clientzertifikate oder Authentifizierungsheader, die einen Benutzernamen und ein Passwort enthalten.
 
-Siehe [Anmeldedaten einbeziehen](/de/docs/Web/API/Fetch_API/Using_Fetch#including_credentials) für weitere Details.
+Weitere Details finden Sie unter [Anmeldeinformationen einbeziehen](/de/docs/Web/API/Fetch_API/Using_Fetch#including_credentials).
 
 ## Wert
 
 Ein String mit einem der folgenden Werte:
 
 - `omit`
-  - : Niemals Anmeldedaten in der Anfrage senden oder in der Antwort einbeziehen.
+  - : Anmeldeinformationen werden niemals in der Anfrage gesendet oder in der Antwort aufgenommen.
 - `same-origin`
-  - : Nur Anmeldedaten für Anfragen aus derselben Quelle senden und einbeziehen.
+  - : Anmeldeinformationen werden nur für gleich-originierte Anfragen gesendet und aufgenommen.
 - `include`
-  - : Immer Anmeldedaten einbeziehen, auch für Cross-Origin-Anfragen.
+  - : Anmeldeinformationen werden immer aufgenommen, auch für Cross-Origin-Anfragen.
 
 ## Beispiele
 
-Im folgenden Codebeispiel erstellen wir eine neue Anfrage mittels des {{domxref("Request.Request", "Request()")}}-Konstruktors (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und speichern die Anmeldedaten der Anfrage in einer Variable:
+Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern dann die Anmeldeinformationen der Anfrage in einer Variablen:
 
 ```js
 const request = new Request("flowers.jpg");
@@ -38,7 +38,7 @@ const request = request.request; // returns "same-origin" by default
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

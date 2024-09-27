@@ -8,13 +8,15 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.search`**-Eigenschaft ist eine Suchzeichenfolge, auch bekannt als _Abfragezeichenfolge_, die eine Zeichenfolge ist, die ein `'?'` enthält, gefolgt von den Parametern der URL.
+Die **`HTMLAreaElement.search`**-Eigenschaft ist ein Suchstring,
+auch _Abfragezeichenfolge_ genannt, der eine Zeichenkette ist, die
+ein `'?'` enthält, gefolgt von den Parametern der URL.
 
-Moderne Browser bieten
+Moderne Browser stellen
 [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples)
 und
-[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples),
-um das Analysieren der Parameter aus der Abfragezeichenfolge zu erleichtern.
+[`URL.searchParams`](/de/docs/Web/API/URL/searchParams#examples)
+bereit, um das Parsen der Parameter aus dem Abfragezeichenfolge zu erleichtern.
 
 ## Wert
 
@@ -22,21 +24,21 @@ Eine Zeichenkette.
 
 ## Beispiele
 
-### Abrufen der Suchzeichenfolge von einem Bereichslink
+### Abrufen des Suchstrings von einem Bereichslink
 
 ```js
-// Ein <area id="myArea" href="/de/docs/HTMLAreaElement?q=123">-Element ist im Dokument
+// An <area id="myArea" href="/en-US/docs/HTMLAreaElement?q=123"> element is in the document
 const area = document.getElementById("myArea");
-area.search; // gibt '?q=123' zurück
+area.search; // returns '?q=123'
 ```
 
-### Erweiterte Analyse mit URLSearchParams
+### Fortgeschrittenes Parsen mit URLSearchParams
 
 Alternativ kann [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get#examples) verwendet werden:
 
 ```js
 let params = new URLSearchParams(queryString);
-let q = parseInt(params.get("q")); // gibt die Zahl 123 zurück
+let q = parseInt(params.get("q")); // returns the number 123
 ```
 
 ## Spezifikationen
@@ -49,4 +51,4 @@ let q = parseInt(params.get("q")); // gibt die Zahl 123 zurück
 
 ## Siehe auch
 
-- Das {{domxref("HTMLAreaElement")}}-Interface, zu dem es gehört.
+- Die [`HTMLAreaElement`](/de/docs/Web/API/HTMLAreaElement) Schnittstelle, zu der es gehört.

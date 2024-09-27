@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Die **`setShelfEnabled()`** Funktion der {{WebExtAPIRef("downloads")}} API aktiviert oder deaktiviert das graue Ablagefach am unteren Rand jedes Fensters, das mit dem aktuellen Browserprofil verbunden ist. Das Ablagefach bleibt deaktiviert, solange mindestens eine Erweiterung es deaktiviert hat.
+Die **`setShelfEnabled()`** Funktion der {{WebExtAPIRef("downloads")}} API aktiviert oder deaktiviert das graue Regal am unteren Rand jedes Fensters, das mit dem aktuellen Browserprofil verbunden ist. Das Regal wird deaktiviert bleiben, solange mindestens eine Erweiterung es deaktiviert hat.
 
-Wenn Sie versuchen, das Ablagefach zu aktivieren, während mindestens eine andere Erweiterung es bereits deaktiviert hat, wird der Aufruf fehlschlagen und {{WebExtAPIRef("runtime.lastError")}} wird mit einer entsprechenden Fehlermeldung gesetzt.
+Wenn Sie versuchen, das Regal zu aktivieren, während es von mindestens einer anderen Erweiterung bereits deaktiviert wurde, schlägt der Aufruf fehl und {{WebExtAPIRef("runtime.lastError")}} wird mit einer entsprechenden Fehlermeldung gesetzt.
 
 > [!NOTE]
-> Um diese Funktion in Ihrer Erweiterung zu verwenden, müssen Sie die Berechtigung `"downloads.shelf"` im [Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) sowie die Berechtigung `"downloads"` anfordern.
+> Um diese Funktion in Ihrer Erweiterung verwenden zu können, müssen Sie sowohl die Berechtigung `"downloads.shelf"` als auch die Berechtigung `"downloads"` im [Manifest](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) anfordern.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ Diese API ist auch als `browser.downloads.setShelfEnabled()` verfügbar.
 ### Parameter
 
 - `enabled`
-  - : Ein `boolean`, der den Zustand darstellt, den Sie für `setShelfEnabled()` setzen möchten — `true` für aktivieren und `false` für deaktivieren.
+  - : Ein `boolean`, der den Zustand darstellt, den Sie für `setShelfEnabled()` festlegen möchten — `true` für aktivieren und `false` für deaktivieren.
 
 ## Browser-Kompatibilität
 
@@ -34,4 +34,34 @@ Diese API ist auch als `browser.downloads.setShelfEnabled()` verfügbar.
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-setShelfEnabled) API.
+> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-setShelfEnabled) API von Chromium.
+
+<!--
+// Copyright 2015 The Chromium Authors. All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->

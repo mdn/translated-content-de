@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`contains()`**-Methode gibt einen Boolean-Wert zurück, der angibt, ob der angegebene String in der Liste enthalten ist.
+Die **`contains()`**-Methode gibt einen booleschen Wert zurück, der angibt, ob der angegebene String in der Liste enthalten ist.
 
 ## Syntax
 
@@ -19,16 +19,16 @@ contains(string)
 ### Parameter
 
 - `string`
-  - : Ein String, dessen Existenz in der Liste Sie überprüfen möchten.
+  - : Ein String, dessen Existenz Sie in der Liste überprüfen möchten.
 
 ### Rückgabewert
 
-Ein Boolean, der angibt, ob der angegebene String in der Liste enthalten ist.
+Ein boolescher Wert, der angibt, ob der angegebene String in der Liste enthalten ist.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn kein Argument übergeben wird.
+  - : Wird ausgelöst, wenn kein Argument bereitgestellt wird.
 
 ## Spezifikationen
 

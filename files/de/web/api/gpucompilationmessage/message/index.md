@@ -3,12 +3,12 @@ title: "GPUCompilationMessage: message-Eigenschaft"
 short-title: message
 slug: Web/API/GPUCompilationMessage/message
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
-{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`message`**-Eigenschaft der {{domxref("GPUCompilationMessage")}}-Schnittstelle ist ein String, der menschenlesbaren Nachrichtentext repräsentiert.
+Die **`message`** schreibgeschützte Eigenschaft der [`GPUCompilationMessage`](/de/docs/Web/API/GPUCompilationMessage)-Schnittstelle ist ein String, der einen menschenlesbaren Nachrichtentext darstellt.
 
 ## Wert
 
@@ -29,7 +29,7 @@ Ein String.
 }
 ```
 
-Siehe die Hauptseite von [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein detaillierteres Beispiel.
+Siehe die Hauptseite [`GPUCompilationInfo`](/de/docs/Web/API/GPUCompilationInfo#examples) für ein ausführlicheres Beispiel.
 
 ## Spezifikationen
 

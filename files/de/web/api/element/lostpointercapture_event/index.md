@@ -1,5 +1,5 @@
 ---
-title: "Element: lostpointercapture-Ereignis"
+title: "Element: lostpointercapture Ereignis"
 short-title: lostpointercapture
 slug: Web/API/Element/lostpointercapture_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef}}
 
-Das **`lostpointercapture`**-Ereignis wird ausgelöst, wenn ein [erfasster Zeiger](/de/docs/Web/API/Pointer_events#pointer_capture) freigegeben wird.
+Das **`lostpointercapture`** Ereignis wird ausgelöst, wenn ein [erfasster Zeiger](/de/docs/Web/API/Pointer_events#pointer_capture) freigegeben wird.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignisbehandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignisbehandlungseigenschaft.
 
 ```js
 addEventListener("lostpointercapture", (event) => {});
@@ -22,44 +22,44 @@ onlostpointercapture = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("PointerEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`PointerEvent`](/de/docs/Web/API/PointerEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("PointerEvent")}}
 
-## Eigenschaften des Ereignisses
+## Ereigniseigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von {{domxref("MouseEvent")}} und {{domxref("Event")}}._
+_Diese Schnittstelle erbt Eigenschaften von [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`Event`](/de/docs/Web/API/Event)._
 
-- {{domxref('PointerEvent.altitudeAngle')}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Repräsentiert den Winkel zwischen einer Transducer-Achse (einem Zeiger oder Stylus) und der X-Y-Ebene eines Bildschirmgeräts.
-- {{domxref('PointerEvent.azimuthAngle')}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Repräsentiert den Winkel zwischen der Y-Z-Ebene und der Ebene, die sowohl die Transducer-Achse (einem Zeiger oder Stylus) als auch die Y-Achse enthält.
-- {{domxref('PointerEvent.persistentDeviceId')}} {{ReadOnlyInline}} {{experimental_inline}}
-  - : Eine eindeutige Kennung für das Zeigegerät, das das `PointerEvent` erzeugt.
-- {{domxref('PointerEvent.pointerId')}} {{ReadOnlyInline}}
+- [`PointerEvent.altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Stellt den Winkel zwischen einer Transducer-Achse (einem Zeiger oder Stift) und der X-Y-Ebene eines Geräteschirms dar.
+- [`PointerEvent.azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Stellt den Winkel zwischen der Y-Z-Ebene und der Ebene dar, die sowohl die Transducer-Achse (einem Zeiger oder Stift) als auch die Y-Achse enthält.
+- [`PointerEvent.persistentDeviceId`](/de/docs/Web/API/PointerEvent/persistentDeviceId) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Eine eindeutige Kennung für das Eingabegerät, das das `PointerEvent` erzeugt.
+- [`PointerEvent.pointerId`](/de/docs/Web/API/PointerEvent/pointerId) {{ReadOnlyInline}}
   - : Eine eindeutige Kennung für den Zeiger, der das Ereignis verursacht.
-- {{domxref('PointerEvent.width')}} {{ReadOnlyInline}}
-  - : Die Breite (Ausdehnung auf der X-Achse), in CSS-Pixeln, der Kontaktgeometrie des Zeigers.
-- {{domxref('PointerEvent.height')}} {{ReadOnlyInline}}
-  - : Die Höhe (Ausdehnung auf der Y-Achse), in CSS-Pixeln, der Kontaktgeometrie des Zeigers.
-- {{domxref('PointerEvent.pressure')}} {{ReadOnlyInline}}
-  - : Der normalisierte Druck der Zeigereingabe im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen bzw. maximalen Druck darstellen, den die Hardware erkennen kann.
-- {{domxref('PointerEvent.tangentialPressure')}} {{ReadOnlyInline}}
-  - : Der normalisierte Gleitdruck der Zeigereingabe (auch bekannt als Laufdruck oder [Zylinderbelastung](https://en.wikipedia.org/wiki/Cylinder_stress)) im Bereich von `-1` bis `1`, wobei `0` die neutrale Position der Steuerung ist.
-- {{domxref('PointerEvent.tiltX')}} {{ReadOnlyInline}}
-  - : Der Winkel in der Ebene (in Grad, im Bereich von `-90` bis `90`) zwischen der Y–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z. B. Stift-Stylus) als auch die Y-Achse enthält.
-- {{domxref('PointerEvent.tiltY')}} {{ReadOnlyInline}}
-  - : Der Winkel in der Ebene (in Grad, im Bereich von `-90` bis `90`) zwischen der X–Z-Ebene und der Ebene, die sowohl die Zeigerachse (z. B. Stift-Stylus) als auch die X-Achse enthält.
-- {{domxref('PointerEvent.twist')}} {{ReadOnlyInline}}
-  - : Die Drehung des Zeigers (z. B. Stift-Stylus) im Uhrzeigersinn um seine Hauptachse in Grad, mit einem Wert im Bereich von `0` bis `359`.
-- {{domxref('PointerEvent.pointerType')}} {{ReadOnlyInline}}
-  - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Touch usw.).
-- {{domxref('PointerEvent.isPrimary')}} {{ReadOnlyInline}}
+- [`PointerEvent.width`](/de/docs/Web/API/PointerEvent/width) {{ReadOnlyInline}}
+  - : Die Breite (Größe auf der X-Achse), in CSS-Pixeln, der Kontaktgeometrie des Zeigers.
+- [`PointerEvent.height`](/de/docs/Web/API/PointerEvent/height) {{ReadOnlyInline}}
+  - : Die Höhe (Größe auf der Y-Achse), in CSS-Pixeln, der Kontaktgeometrie des Zeigers.
+- [`PointerEvent.pressure`](/de/docs/Web/API/PointerEvent/pressure) {{ReadOnlyInline}}
+  - : Der normalisierte Druck der Zeigereingabe im Bereich von `0` bis `1`, wobei `0` und `1` den minimalen und maximalen Druck darstellen, den die Hardware erkennen kann.
+- [`PointerEvent.tangentialPressure`](/de/docs/Web/API/PointerEvent/tangentialPressure) {{ReadOnlyInline}}
+  - : Der normalisierte tangentiale Druck der Zeigereingabe (auch bekannt als Laufdruck oder [Zylinderbelastung](https://en.wikipedia.org/wiki/Cylinder_stress)) im Bereich von `-1` bis `1`, wobei `0` die neutrale Position der Steuerung ist.
+- [`PointerEvent.tiltX`](/de/docs/Web/API/PointerEvent/tiltX) {{ReadOnlyInline}}
+  - : Der plane Winkel (in Grad, im Bereich von `-90` bis `90`) zwischen der Y-Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. ein Stift) als auch die Y-Achse enthält.
+- [`PointerEvent.tiltY`](/de/docs/Web/API/PointerEvent/tiltY) {{ReadOnlyInline}}
+  - : Der plane Winkel (in Grad, im Bereich von `-90` bis `90`) zwischen der X-Z-Ebene und der Ebene, die sowohl die Zeigerachse (z.B. ein Stift) als auch die X-Achse enthält.
+- [`PointerEvent.twist`](/de/docs/Web/API/PointerEvent/twist) {{ReadOnlyInline}}
+  - : Die Drehung des Zeigers (z.B. ein Stift) im Uhrzeigersinn um seine Hauptachse in Grad, mit einem Wert im Bereich von `0` bis `359`.
+- [`PointerEvent.pointerType`](/de/docs/Web/API/PointerEvent/pointerType) {{ReadOnlyInline}}
+  - : Gibt den Gerätetyp an, der das Ereignis verursacht hat (Maus, Stift, Berührung usw.).
+- [`PointerEvent.isPrimary`](/de/docs/Web/API/PointerEvent/isPrimary) {{ReadOnlyInline}}
   - : Gibt an, ob der Zeiger den primären Zeiger dieses Zeigertyps darstellt.
 
 ## Beispiele
 
-Dieses Beispiel hört auf das `lostpointercapture`-Ereignis eines Elements und erfasst den Zeiger für das Element bei `pointerdown`. Wenn der Benutzer anschließend den Zeiger freigibt, wird das `lostpointercapture`-Ereignis ausgelöst.
+Dieses Beispiel hört auf das `lostpointercapture` Ereignis für ein Element und erfasst den Zeiger für das Element bei `pointerdown`. Wenn der Benutzer den Zeiger anschließend freigibt, wird das `lostpointercapture` Ereignis ausgelöst.
 
 ```js
 const para = document.querySelector("p");
@@ -73,7 +73,7 @@ para.addEventListener("pointerdown", (event) => {
 });
 ```
 
-Dasselbe Beispiel, aber unter Verwendung der `onlostpointercapture`-Ereignisbehandler-Eigenschaft:
+Dasselbe Beispiel, jedoch mit der `onlostpointercapture` Ereignisbehandlungseigenschaft:
 
 ```js
 const para = document.querySelector("p");
@@ -91,7 +91,7 @@ para.addEventListener("pointerdown", (event) => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
@@ -99,13 +99,13 @@ para.addEventListener("pointerdown", (event) => {
 
 - Verwandte Ereignisse
 
-  - {{domxref('Element/gotpointercapture_event', 'gotpointercapture')}}
-  - {{domxref('Element/pointerover_event', 'pointerover')}}
-  - {{domxref('Element/pointerenter_event', 'pointerenter')}}
-  - {{domxref('Element/pointerdown_event', 'pointerdown')}}
-  - {{domxref('Element/pointermove_event', 'pointermove')}}
-  - {{domxref('Element/pointerup_event', 'pointerup')}}
-  - {{domxref('Element/pointercancel_event', 'pointercancel')}}
-  - {{domxref('Element/pointerout_event', 'pointerout')}}
-  - {{domxref('Element/pointerleave_event', 'pointerleave')}}
-  - {{domxref('Element/pointerrawupdate_event', 'pointerrawupdate')}}
+  - [`gotpointercapture`](/de/docs/Web/API/Element/gotpointercapture_event)
+  - [`pointerover`](/de/docs/Web/API/Element/pointerover_event)
+  - [`pointerenter`](/de/docs/Web/API/Element/pointerenter_event)
+  - [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event)
+  - [`pointermove`](/de/docs/Web/API/Element/pointermove_event)
+  - [`pointerup`](/de/docs/Web/API/Element/pointerup_event)
+  - [`pointercancel`](/de/docs/Web/API/Element/pointercancel_event)
+  - [`pointerout`](/de/docs/Web/API/Element/pointerout_event)
+  - [`pointerleave`](/de/docs/Web/API/Element/pointerleave_event)
+  - [`pointerrawupdate`](/de/docs/Web/API/Element/pointerrawupdate_event)

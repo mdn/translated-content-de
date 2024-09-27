@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`glyph-orientation-horizontal`** Attribut beeinflusst die Menge, um die die aktuelle Textposition verschoben wird, während jedes {{Glossary("glyph")}} gerendert wird.
+Das Attribut **`glyph-orientation-horizontal`** beeinflusst den Fortschritt der aktuellen Textposition, wenn jedes [Glyphe](/de/docs/Glossary/glyph) gerendert wird.
 
-Wenn die Referenzorientierungsrichtung horizontal ist und `glyph-orientation-horizontal` zu einem Orientierungswinkel führt, der ein Vielfaches von 180 Grad ist, wird die aktuelle Textposition gemäß den horizontalen Metriken des Glyphs erhöht. Andernfalls, wenn der Wert dieses Attributs kein Vielfaches von 180 Grad ist, wird die aktuelle Textposition gemäß den vertikalen Metriken des Glyphs erhöht.
+Wenn die Referenzausrichtungsrichtung horizontal ist und die `glyph-orientation-horizontal` in einem Ausrichtungswinkel resultiert, der ein Vielfaches von 180 Grad ist, wird die aktuelle Textposition entsprechend der horizontalen Metriken der Glyphe erhöht. Andernfalls, wenn der Wert dieses Attributs kein Vielfaches von 180 Grad ist, wird die aktuelle Textposition entsprechend der vertikalen Metriken der Glyphe erhöht.
 
 Dieses Attribut wird nur auf Text angewendet, der in einem horizontalen {{SVGAttr("writing-mode")}} geschrieben ist.
 
@@ -49,7 +49,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 </table>
 
 - `<angle>`
-  - : Der Wert des Winkels ist auf 0, 90, 180 und 270 Grad beschränkt. Wenn ein anderer Winkel angegeben wird, wird er auf den nächstgelegenen der zulässigen Werte gerundet. Ein Wert von `0deg` gibt an, dass alle Glyphen so ausgerichtet sind, dass die Oberseite der Glyphen in Richtung der Referenzorientierung zeigt. Ein Wert von `90deg` gibt eine Ausrichtung von 90 Grad im Uhrzeigersinn von der Referenzorientierung an.
+  - : Der Wert des Winkels ist auf 0, 90, 180 und 270 Grad beschränkt. Wenn ein anderer Winkel angegeben wird, wird er auf den nächsten der zulässigen Werte gerundet. Ein Wert von `0deg` bedeutet, dass alle Glyphen mit der Oberseite der Glyphen auf die Referenzausrichtung ausgerichtet sind. Ein Wert von `90deg` bedeutet eine Ausrichtung von 90 Grad im Uhrzeigersinn von der Referenzausrichtung.
 
 ## Spezifikationen
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`respondWith()`**-Methode der {{domxref("PaymentRequestEvent")}}-Schnittstelle verhindert die standardmäßige Ereignisbehandlung und ermöglicht es Ihnen, selbst ein {{jsxref("Promise")}} für ein Zahlungsabwickler-Antwortobjekt bereitzustellen.
+Die **`respondWith()`** Methode der [`PaymentRequestEvent`](/de/docs/Web/API/PaymentRequestEvent)-Schnittstelle verhindert die Standard-Ereignisbehandlung und ermöglicht es Ihnen, selbst ein {{jsxref("Promise")}} für ein Zahlungsabwickler-Antwortobjekt bereitzustellen.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ respondWith(promise)
 ### Parameter
 
 - `promise`
-  - : Ein Zahlungsabwickler-Antwortobjekt oder ein {{jsxref('Promise')}}, das zu einem solchen aufgelöst wird. Dieses Objekt sollte die folgenden Eigenschaften enthalten:
+  - : Ein Zahlungsabwickler-Antwortobjekt oder ein {{jsxref('Promise')}}, das zu einem solchen Objekt aufgelöst wird. Dieses Objekt sollte die folgenden Eigenschaften enthalten:
     - `methodName`
-      - : Der Zahlungsverkehrskennzeichen für die vom Benutzer ausgewählte Zahlungsmethode, um die Transaktion durchzuführen.
+      - : Der Zahlungsarten-Identifikator für die vom Benutzer ausgewählte Zahlungsmethode zur Durchführung der Transaktion.
     - `details`
-      - : Ein JSON-serialisierbares Objekt, das eine zahlungsspezifische Nachricht bereitstellt, die vom Händler verwendet wird, um die Transaktion zu verarbeiten und einen erfolgreichen Geldtransfer zu bestimmen. Siehe [7.1.2 Details-Attribut](https://w3c.github.io/payment-handler/#details-attribute) für mehr Details.
+      - : Ein JSON-serialisierbares Objekt, das eine zahlungsartspezifische Nachricht enthält, die vom Händler verwendet wird, um die Transaktion zu verarbeiten und einen erfolgreichen Geldtransfer zu bestimmen. Siehe [7.1.2 details attribute](https://w3c.github.io/payment-handler/#details-attribute) für weitere Details.
 
 ### Rückgabewert
 
@@ -31,25 +31,25 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das untenstehende Beispiel ist von [Öffnen des Zahlungsabwicklerfensters zur Anzeige des webbasierten Zahlungssystem-Frontends](https://web.dev/articles/orchestrating-payment-transactions#open-payment-handler-window) entnommen. Lesen Sie den Artikel, um den Kontext des Codes zu verstehen.
+Das folgende Beispiel stammt aus [Öffnen Sie das Zahlungsabwickler-Fenster, um die webbasierte Zahlungs-App-Oberfläche anzuzeigen](https://web.dev/articles/orchestrating-payment-transactions#open-payment-handler-window). Lesen Sie den Artikel, um den Kontext des Codes zu verstehen.
 
 ```js
 self.addEventListener("paymentrequest", async (e) => {
-  // Beibehaltung eines Versprechens für zukünftige Auflösungen
+  // Retain a promise for future resolution
   resolver = new PromiseResolver();
 
-  // Übergebe ein Versprechen, das aufgelöst wird, wenn die Zahlung abgeschlossen ist.
+  // Pass a promise that resolves when payment is done.
   e.respondWith(resolver.promise);
-  // Öffne die Checkout-Seite.
+  // Open the checkout page.
   try {
-    // Öffne das Fenster und bewahre den Client auf
+    // Open the window and preserve the client
     client = await e.openWindow(checkoutURL);
     if (!client) {
-      // Ablehnung, wenn das Fenster nicht geöffnet werden kann
+      // Reject if the window fails to open
       throw "Failed to open window";
     }
   } catch (err) {
-    // Ablehnung des Versprechens im Falle eines Fehlers
+    // Reject the promise on failure
     resolver.reject(err);
   }
 });
@@ -59,14 +59,14 @@ self.addEventListener("paymentrequest", async (e) => {
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- [Überblick über webbasierte Zahlungssysteme](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Übersicht über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
+- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Leben eines Zahlungsvorgangs](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
-- [Konzept der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)
+- [Konzepte zur Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

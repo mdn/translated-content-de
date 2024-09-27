@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Der `DownloadTime`-Typ der {{WebExtAPIRef("downloads")}} API repräsentiert die Zeit, die ein Download benötigt hat, um abgeschlossen zu werden.
+Der Typ `DownloadTime` der {{WebExtAPIRef("downloads")}} API repräsentiert die Zeit, die ein Download benötigt, um abgeschlossen zu werden.
 
 ## Typ
 
@@ -16,10 +16,10 @@ Ein `DownloadTime` kann einer von drei verschiedenen Typen sein:
 - ein JavaScript [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date)-Objekt.
 - ein String:
 
-  - wenn dieser nur Ziffern enthält, wird er als Anzahl der Millisekunden seit dem UNIX-Epoch interpretiert.
-  - andernfalls wird er als ein [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-String interpretiert.
+  - Wenn dieser nur Ziffern enthält, wird er als die Anzahl der Millisekunden seit dem UNIX-Epochenbeginn interpretiert.
+  - Andernfalls wird er als ein [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-String interpretiert.
 
-- eine Zahl: Diese wird als die Anzahl der Millisekunden seit dem UNIX-Epoch interpretiert.
+- eine Zahl: Diese wird als die Anzahl der Millisekunden seit dem UNIX-Epochenbeginn interpretiert.
 
 ## Browser-Kompatibilität
 
@@ -28,4 +28,4 @@ Ein `DownloadTime` kann einer von drei verschiedenen Typen sein:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-DownloadTime) API von Chromium.
+> Diese API basiert auf Chromiums [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#type-DownloadTime) API.

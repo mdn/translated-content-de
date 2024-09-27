@@ -1,5 +1,5 @@
 ---
-title: "ImageCapture: ImageCapture() Konstruktor"
+title: "ImageCapture: `ImageCapture()` Konstruktor"
 short-title: ImageCapture()
 slug: Web/API/ImageCapture/ImageCapture
 l10n:
@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Image Capture API")}}{{SeeCompatTable}}
 
 Der **`ImageCapture()`** Konstruktor
-erstellt ein neues {{domxref("ImageCapture")}}-Objekt.
+erstellt ein neues [`ImageCapture`](/de/docs/Web/API/ImageCapture)-Objekt.
 
 ## Syntax
 
@@ -20,25 +20,25 @@ new ImageCapture(videoTrack)
 ### Parameter
 
 - `videoTrack`
-  - : Ein {{domxref("MediaStreamTrack")}}, von dem die Standbilder aufgenommen werden. Dies
+  - : Ein [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), aus dem die Standbilder aufgenommen werden sollen. Dies
     kann jede Quelle sein, wie ein eingehender Stream einer Videokonferenz, ein laufender Film
     oder der Stream einer Webcam.
 
 ### Rückgabewert
 
-Ein neues `ImageCapture`-Objekt, das zum Aufnehmen von Standbildern aus
-dem angegebenen Videotrack verwendet werden kann.
+Ein neues `ImageCapture`-Objekt, das verwendet werden kann, um Standbilder von
+der angegebenen Videospur aufzunehmen.
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die `kind`-Eigenschaft des `videoTrack`-Parameters nicht `video` ist.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie ein Aufruf von
-{{domxref("MediaDevices.getUserMedia()")}} verwendet wird, um den
-erforderlichen {{domxref("MediaStreamTrack")}} für den `ImageCapture()`-Konstruktor zu erhalten.
+Das folgende Beispiel zeigt, wie Sie einen Aufruf von
+[`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) verwenden können, um die
+[`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) abzurufen, die vom `ImageCapture()`-Konstruktor benötigt wird.
 
 ```js
 navigator.mediaDevices

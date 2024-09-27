@@ -1,5 +1,5 @@
 ---
-title: "ContentIndex: getAll()-Methode"
+title: "ContentIndex: Methode getAll()"
 short-title: getAll()
 slug: Web/API/ContentIndex/getAll
 l10n:
@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("Content Index API")}}{{SeeCompatTable}}{{AvailableInWorkers}}
 
-Die **`getAll()`**-Methode der {{domxref("ContentIndex")}}-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit einer iterierbaren Liste von Inhaltverzeichnis-Einträgen aufgelöst wird.
+Die **`getAll()`** Methode des
+[`ContentIndex`](/de/docs/Web/API/ContentIndex)-Interfaces gibt ein {{jsxref('Promise')}} zurück, das mit einer iterierbaren Liste von Content-Index-Einträgen aufgelöst wird.
 
 ## Syntax
 
@@ -22,26 +23,27 @@ Keine.
 
 ### Rückgabewert
 
-Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{jsxref('Array')}} von `contentDescription`-Elementen aufgelöst wird.
+Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{jsxref('Array')}} von
+`contentDescription`-Elementen aufgelöst wird.
 
 - `contentDescription`
 
   - : Jedes zurückgegebene Element ist ein {{jsxref('Object')}}, das die folgenden Daten enthält:
 
     - `id`
-      - : Eine eindeutige {{jsxref('String')}}-Kennung.
+      - : Ein eindeutiger {{jsxref('String')}}-Bezeichner.
     - `title`
       - : Ein {{jsxref('String')}}-Titel des Elements.
-        Wird in benutzerverfügbaren Listen von Inhalten verwendet.
+        Wird in benutzerfreundlichen Inhaltslisten verwendet.
     - `description`
       - : Eine {{jsxref('String')}}-Beschreibung des Elements.
-        Wird in benutzerverfügbaren Listen von Inhalten verwendet.
+        Wird in benutzerfreundlichen Inhaltslisten verwendet.
     - `url`
       - : Ein {{jsxref('String')}} mit der URL des entsprechenden HTML-Dokuments.
-        Muss unter dem Scope des aktuellen [Service Workers](/de/docs/Web/API/ServiceWorker) liegen.
+        Muss unter dem Gültigkeitsbereich des aktuellen [Service Workers](/de/docs/Web/API/ServiceWorker) liegen.
     - `category` {{Optional_Inline}}
 
-      - : Eine {{jsxref('String')}}-Definition der Inhaltskategorie.
+      - : Ein {{jsxref('String')}}, das die Kategorie des Inhalts definiert.
         Kann sein:
 
         - `''` Ein leerer {{jsxref('String')}}, dies ist der Standardwert.
@@ -55,43 +57,45 @@ Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{jsxref('Array')}} von `c
       - : Ein {{jsxref('Array')}} von Bildressourcen, definiert als ein {{jsxref('Object')}} mit den folgenden Daten:
 
         - `src`
-          - : Eine URL-{{jsxref('String')}} der Quellbilddatei.
+          - : Eine URL-{{jsxref('String')}} der Quellgrafik.
         - `sizes` {{Optional_Inline}}
           - : Eine {{jsxref('String')}}-Darstellung der Bildgröße.
         - `type` {{Optional_Inline}}
-          - : Der {{Glossary("MIME type")}} des Bildes.
+          - : Der [MIME-Typ](/de/docs/Glossary/MIME_type) des Bildes.
         - `label` {{Optional_Inline}}
-          - : Ein String, der den zugänglichen Namen des Symbols darstellt.
+          - : Eine Zeichenkette, die den zugänglichen Namen des Icons darstellt.
 
 ### Ausnahmen
 
-Es werden keine Ausnahmen ausgelöst. Wenn keine Elemente im Inhaltsverzeichnis vorhanden sind, wird ein leeres {{jsxref('Array')}} zurückgegeben.
+Es werden keine Ausnahmen ausgelöst. Wenn keine Elemente im Content Index vorhanden sind, wird ein leeres
+{{jsxref('Array')}} zurückgegeben.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine asynchrone Funktion, die Elemente innerhalb des [Content Index](/de/docs/Web/API/Content_Index_API) abruft und über jedes Element iteriert, um eine Liste für die Schnittstelle zu erstellen.
+Das folgende Beispiel zeigt eine asynchrone Funktion, die Elemente innerhalb des
+[Content Index](/de/docs/Web/API/Content_Index_API) abruft und über jeden Eintrag iteriert, um eine Liste für die Benutzeroberfläche zu erstellen.
 
 ```js
 async function createReadingList() {
-  // auf unsere Service-Worker-Registrierung zugreifen
+  // access our service worker registration
   const registration = await navigator.serviceWorker.ready;
 
-  // unsere Indexeinträge abrufen
+  // get our index entries
   const entries = await registration.index.getAll();
 
-  // ein enthaltendes Element erstellen
+  // create a containing element
   const readingListElem = document.createElement("div");
 
-  // auf Einträge testen
+  // test for entries
   if (entries.length === 0) {
-    // wenn keine Einträge vorhanden sind, eine Nachricht anzeigen
+    // if there are no entries, display a message
     const message = document.createElement("p");
     message.innerText =
-      "Sie haben derzeit keine Artikel für das Offline-Lesen gespeichert.";
+      "You currently have no articles saved for offline reading.";
 
     readingListElem.append(message);
   } else {
-    // wenn Einträge vorhanden sind, in einer Liste von Links zum Inhalt anzeigen
+    // if entries are present, display in a list of links to the content
     const listElem = document.createElement("ul");
 
     for (const entry of entries) {
@@ -119,5 +123,5 @@ async function createReadingList() {
 
 ## Siehe auch
 
-- [Einführender Artikel zur Content Index API](https://developer.chrome.com/docs/capabilities/web-apis/content-indexing-api)
+- [Ein einführender Artikel zur Content Index API](https://developer.chrome.com/docs/capabilities/web-apis/content-indexing-api)
 - [Service Worker API, zusammen mit Informationen über Cache und CacheStorage](/de/docs/Web/API/Service_Worker_API)

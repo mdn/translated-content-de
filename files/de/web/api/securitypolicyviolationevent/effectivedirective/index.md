@@ -1,20 +1,20 @@
 ---
-title: "SecurityPolicyViolationEvent: effectiveDirective Eigenschaft"
+title: "SecurityPolicyViolationEvent: effectiveDirective-Eigenschaft"
 short-title: effectiveDirective
 slug: Web/API/SecurityPolicyViolationEvent/effectiveDirective
 l10n:
-  sourceCommit: 1a7695e13c51d85a81e3e5d85feedbc5dbd2a379
+  sourceCommit: 701ac4440432ac215713b6b7f274291ca643c49a
 ---
 
-{{APIRef("Reporting API")}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`effectiveDirective`** des {{domxref("SecurityPolicyViolationEvent")}}-Interfaces ist eine Zeichenfolge, die die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Richtlinie darstellt, die verletzt wurde.
+Die schreibgeschützte Eigenschaft **`effectiveDirective`** des Interfaces [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent) ist ein String, der die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)-Direktive darstellt, die verletzt wurde.
 
-Diese ersetzt {{domxref("SecurityPolicyViolationEvent.violatedDirective")}}, das historische Alias.
+Dies ersetzt [`SecurityPolicyViolationEvent.violatedDirective`](/de/docs/Web/API/SecurityPolicyViolationEvent/violatedDirective), seinen historischen Alias.
 
 ## Wert
 
-Eine Zeichenfolge, die die bestimmte [Richtlinie der `Content-Security-Policy`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#directives) darstellt, die verletzt wurde.
+Ein String, der die spezifische [`Content-Security-Policy`-Direktive](/de/docs/Web/HTTP/Headers/Content-Security-Policy#directives) darstellt, die verletzt wurde.
 
 ## Beispiele
 
@@ -34,4 +34,4 @@ document.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- [`CSPViolationReportBody.effectiveDirective`](/de/docs/Web/API/CSPViolationReportBody#cspviolationreportbody.effectivedirective)
+- [`CSPViolationReportBody.effectiveDirective`](/de/docs/Web/API/CSPViolationReportBody/effectiveDirective)

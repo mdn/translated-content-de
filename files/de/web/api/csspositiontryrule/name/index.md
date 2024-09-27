@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM") }}{{SeeCompatTable}}
 
-Die **`name`**-Eigenschaft (nur lesbar) des {{domxref("CSSPositionTryRule")}}-Interfaces repräsentiert den Namen der Fallback-Option für die Positionsbestimmung, die durch die `@position-try`-Regel mittels {{cssxref("dashed-ident")}} festgelegt ist.
+Die **`name`** schreibgeschützte Eigenschaft der [`CSSPositionTryRule`](/de/docs/Web/API/CSSPositionTryRule)-Schnittstelle repräsentiert den Namen der Fallback-Option für die Positionierung, die durch die `@position-try` At-Regel mit {{cssxref("dashed-ident")}} angegeben wird.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Das CSS beinhaltet eine `@position-try`-Regel mit einem Namen `--custom-bottom` und drei Deskriptoren.
+Das CSS enthält eine `@position-try` At-Regel mit dem Namen `--custom-bottom` und drei Deskriptoren.
 
 ```css
 @position-try --custom-bottom {
@@ -36,15 +36,15 @@ console.log(tryOption.name); // "--custom-bottom"
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{DOMxRef("CSSPositionTryDescriptors")}}
+- [`CSSPositionTryDescriptors`](/de/docs/Web/API/CSSPositionTryDescriptors)
 - {{cssxref("@position-try")}}
 - {{cssxref("position-try-fallbacks")}}
-- [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [Verwendung der CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
-- [Umgang mit Überlauf: Versuch-Optionen und bedingtes Verbergen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
+- [CSS Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
+- [CSS Ankerpositionierung verwenden](/de/docs/Web/CSS/CSS_anchor_positioning/Using)
+- [Umgang mit Überlauf: Try-Optionen und bedingtes Verstecken](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)

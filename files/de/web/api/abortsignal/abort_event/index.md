@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Das **`abort`** Ereignis des {{domxref("AbortSignal")}} wird ausgelöst, wenn die zugehörige Anfrage abgebrochen wird, z.B. durch die Verwendung von {{domxref("AbortController.abort()")}}.
+Das **`abort`**-Ereignis des [`AbortSignal`](/de/docs/Web/API/AbortSignal) wird ausgelöst, wenn die zugehörige Anfrage abgebrochen wird, z. B. durch die Verwendung von [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort).
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js-nolint
 addEventListener('abort', (event) => { })
@@ -22,13 +22,13 @@ onabort = (event) => { }
 
 ## Ereignistyp
 
-Ein generisches {{DOMxRef("Event")}} ohne hinzugefügte Eigenschaften.
+Ein generisches [`Event`](/de/docs/Web/API/Event) ohne zusätzliche Eigenschaften.
 
 ## Beispiele
 
-In den folgenden Code-Schnipseln erstellen wir ein neues `AbortController`-Objekt und erhalten dessen {{domxref("AbortSignal")}} (verfügbar über die `signal`-Eigenschaft). Später prüfen wir, ob das Signal über eine Ereignishandler-Eigenschaft abgebrochen wurde.
+In den folgenden Snippets erstellen wir ein neues `AbortController`-Objekt und erhalten dessen [`AbortSignal`](/de/docs/Web/API/AbortSignal) (verfügbar über die `signal`-Eigenschaft). Später überprüfen wir, ob das Signal abgebrochen wurde, indem wir eine Ereignishandler-Eigenschaft verwenden.
 
-Sie können das `abort` Ereignis mit einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode erfassen:
+Sie können das `abort`-Ereignis mit einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode erkennen:
 
 ```js
 const controller = new AbortController();
@@ -54,6 +54,6 @@ signal.onabort = () => {
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

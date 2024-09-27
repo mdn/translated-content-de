@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`unregister()`**-Methode von {{jsxref("FinalizationRegistry")}}-Instanzen hebt die Registrierung eines Zielwertes in diesem `FinalizationRegistry` auf.
+Die **`unregister()`**-Methode von {{jsxref("FinalizationRegistry")}}-Instanzen entfernt einen Zielwert aus diesem `FinalizationRegistry`.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ unregister(unregisterToken)
 ### Parameter
 
 - `unregisterToken`
-  - : Das Token, das mit der {{jsxref("FinalizationRegistry/register", "register()")}}-Methode beim Registrieren des Zielwertes verwendet wurde. Mehrere Zellen, die mit demselben `unregisterToken` registriert sind, werden zusammen abgemeldet.
+  - : Der Token, der mit der Methode {{jsxref("FinalizationRegistry/register", "register()")}} verwendet wurde, um den Zielwert zu registrieren. Mehrere Zellen, die mit demselben `unregisterToken` registriert sind, werden zusammen entfernt.
 
 ### Rückgabewert
 
-Ein boolescher Wert, der `true` ist, wenn mindestens eine Zelle abgemeldet wurde, und `false`, wenn keine Zelle abgemeldet wurde.
+Ein boolescher Wert, der `true` ist, wenn mindestens eine Zelle entfernt wurde, und `false`, wenn keine Zelle entfernt wurde.
 
 ### Ausnahmen
 
@@ -31,39 +31,38 @@ Ein boolescher Wert, der `true` ist, wenn mindestens eine Zelle abgemeldet wurde
 
 ## Beschreibung
 
-Wenn ein Zielwert zurückgewonnen wurde, ist er nicht mehr im Registry registriert.
-Es ist nicht erforderlich, `unregister` in Ihrem Bereinigungs-Callback aufzurufen. Rufen Sie `unregister` nur auf, wenn Sie kein Bereinigungs-Callback erhalten haben und auch keins mehr benötigen.
+Wenn ein Zielwert zurückgewonnen wurde, ist er nicht mehr im Registry registriert. Es ist nicht nötig, `unregister` in Ihrem Bereinigungs-Callback aufzurufen. Rufen Sie `unregister` nur dann auf, wenn Sie kein Bereinigungs-Callback erhalten haben und auch keines mehr benötigen.
 
 ## Beispiele
 
 ### Verwendung von unregister
 
-Dieses Beispiel zeigt, wie ein Zielobjekt registriert wird, indem dasselbe Objekt als Unregister-Token verwendet wird und später über `unregister` abgemeldet wird:
+Dieses Beispiel zeigt, wie ein Zielobjekt registriert wird, indem dasselbe Objekt als Token verwendet wird und es später über `unregister` entfernt wird:
 
 ```js
 class Thingy {
   static #cleanup = (label) => {
-    //               ^^^^^−−−−− gehaltene Wert
+    //               ^^^^^−−−−− held value
     console.error(
-      `Die "release"-Methode wurde nie für das Objekt mit der Bezeichnung "${label}" aufgerufen`,
+      `The "release" method was never called for the object with the label "${label}"`,
     );
   };
   #registry = new FinalizationRegistry(Thingy.#cleanup);
 
   /**
-   * Konstruiert eine `Thingy`-Instanz.
-   * Achten Sie darauf, `release` aufzurufen, wenn Sie damit fertig sind.
+   * Constructs a `Thingy` instance.
+   * Be sure to call `release` when you're done with it.
    *
-   * @param label Eine Bezeichnung für das `Thingy`.
+   * @param label A label for the `Thingy`.
    */
   constructor(label) {
-    //                            vvvvv−−−−− gehaltene Wert
+    //                            vvvvv−−−−− held value
     this.#registry.register(this, label, this);
     //          target −−−−−^^^^         ^^^^−−−−− unregister token
   }
 
   /**
-   * Gibt die von dieser `Thingy`-Instanz gehaltenen Ressourcen frei.
+   * Releases resources held by this `Thingy` instance.
    */
   release() {
     this.#registry.unregister(this);
@@ -72,34 +71,34 @@ class Thingy {
 }
 ```
 
-Dieses Beispiel zeigt, wie ein Zielobjekt registriert wird, indem ein anderes Objekt als Unregister-Token verwendet wird:
+Dieses Beispiel zeigt die Registrierung eines Zielobjekts mit einem anderen Objekt als Token für die Deregistrierung:
 
 ```js
 class Thingy {
   static #cleanup = (file) => {
-    //               ^^^^−−−−− gehaltene Wert
+    //               ^^^^−−−−− held value
     console.error(
-      `Die "release"-Methode wurde nie für das "Thingy" für die Datei "${file.name}" aufgerufen`,
+      `The "release" method was never called for the "Thingy" for the file "${file.name}"`,
     );
   };
   #registry = new FinalizationRegistry(Thingy.#cleanup);
   #file;
 
   /**
-   * Konstruiert eine `Thingy`-Instanz für die angegebene Datei.
-   * Achten Sie darauf, `release` aufzurufen, wenn Sie damit fertig sind.
+   * Constructs a `Thingy` instance for the given file.
+   * Be sure to call `release` when you're done with it.
    *
-   * @param filename Der Name der Datei.
+   * @param filename The name of the file.
    */
   constructor(filename) {
     this.#file = File.open(filename);
-    //                            vvvvv−−−−− gehaltene Wert
+    //                            vvvvv−−−−− held value
     this.#registry.register(this, label, this.#file);
     //          target −−−−−^^^^         ^^^^^^^^^^−−−−− unregister token
   }
 
   /**
-   * Gibt die von dieser `Thingy`-Instanz gehaltenen Ressourcen frei.
+   * Releases resources held by this `Thingy` instance.
    */
   release() {
     if (this.#file) {

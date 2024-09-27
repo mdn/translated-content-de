@@ -1,6 +1,6 @@
 ---
-title: "ShadowRoot: serialisierbare Eigenschaft"
-short-title: serialisierbar
+title: "ShadowRoot: serializable-Eigenschaft"
+short-title: serializable
 slug: Web/API/ShadowRoot/serializable
 l10n:
   sourceCommit: 4558d208395a5b1df4db44b0c8ef4e9a0f8adbbf
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("Shadow DOM")}}
 
-Die **`serializable`** schreibgeschützte Eigenschaft der {{domxref("ShadowRoot")}}-Schnittstelle gibt `true` zurück, wenn der Shadow Root serialisierbar ist.
+Die **`serializable`** schreibgeschützte Eigenschaft der [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle gibt `true` zurück, wenn die Shadow-Root serialisierbar ist.
 
-Wenn gesetzt, kann der Shadow Root serialisiert werden, indem die {{DOMxRef('Element.getHTML()')}} oder {{DOMxRef('ShadowRoot.getHTML()')}}-Methoden mit dem Parameter `options.serializableShadowRoots` auf `true` aufgerufen werden.
+Falls gesetzt, kann die Shadow-Root durch Aufruf der Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) mit dem Parameter `options.serializableShadowRoots` auf `true` serialisiert werden.
 
-Die serialisierbare Eigenschaft eines Shadow Roots wird festgelegt, wenn der Shadow Root erstellt wird, entweder deklarativ durch Hinzufügen des [`shadowrootserializable`](/de/docs/Web/HTML/Element/template#shadowrootserializable)-Attributs auf einem `<template>`-Element (zusammen mit einem zulässigen [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode)-Wert), oder durch Setzen des [`options.serializable`](/de/docs/Web/API/Element/attachShadow#serializable)-Parameters auf `true` bei der Verwendung von [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow).
+Die serializable-Eigenschaft einer Shadow-Root wird festgelegt, wenn die Shadow-Root erstellt wird, entweder deklarativ durch Hinzufügen des [`shadowrootserializable`](/de/docs/Web/HTML/Element/template#shadowrootserializable)-Attributs auf einem `<template>`-Element (zusammen mit einem erlaubten [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode)-Wert) oder durch Setzen des [`options.serializable`](/de/docs/Web/API/Element/attachShadow#serializable)-Parameters auf `true` bei der Nutzung von [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow).
 
 ## Wert
 
-`true`, wenn der Shadow Root serialisierbar ist; `false` andernfalls.
+`true`, wenn die Shadow-Root serialisierbar ist; `false` andernfalls.
 
 ## Beispiele
 
@@ -26,7 +26,7 @@ let shadow = customElem.shadowRoot;
 
 // ...
 
-// Ist er serialisierbar?
+// Is it serializable?
 let hostElem = shadow.serializable;
 ```
 

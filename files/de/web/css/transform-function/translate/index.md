@@ -11,16 +11,16 @@ Die **`translate()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Fu
 
 {{EmbedInteractiveExample("pages/css/function-translate.html")}}
 
-Diese Transformation wird durch einen zweidimensionalen Vektor [tx, ty] charakterisiert. Seine Koordinaten definieren, wie weit sich das Element in jede Richtung bewegt.
+Diese Transformation wird durch einen zweidimensionalen Vektor [tx, ty] beschrieben. Ihre Koordinaten definieren, wie weit sich das Element in jede Richtung bewegt.
 
 ## Syntax
 
 ```css
-/* Einzelne <length-percentage> Werte */
+/* Single <length-percentage> values */
 transform: translate(200px);
 transform: translate(50%);
 
-/* Doppelte <length-percentage> Werte */
+/* Double <length-percentage> values */
 transform: translate(100px, 200px);
 transform: translate(100px, 50%);
 transform: translate(30%, 200px);
@@ -30,24 +30,24 @@ transform: translate(30%, 50%);
 ### Werte
 
 - Einzelne `<length-percentage>` Werte
-  - : Dieser Wert ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Abszisse (horizontal, x-Komponente) des verschiebenden Vektors [tx, 0] darstellt. Die Ordinate (vertikal, y-Komponente) des verschiebenden Vektors wird auf `0` gesetzt. Zum Beispiel ist `translate(2px)` äquivalent zu `translate(2px, 0)`. Ein Prozentwert bezieht sich auf die Breite des durch die Eigenschaft {{cssxref("transform-box")}} definierten Bezugsrahmens.
+  - : Dieser Wert ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Abszisse (horizontal, x-Komponente) des Übersetzungsvektors [tx, 0] darstellt. Die Ordinate (vertikal, y-Komponente) des Übersetzungsvektors wird auf `0` gesetzt. Beispielsweise entspricht `translate(2px)` `translate(2px, 0)`. Ein Prozentwert bezieht sich auf die Breite des durch die {{cssxref("transform-box")}} Eigenschaft definierten Referenzrahmens.
 - Doppelte `<length-percentage>` Werte
-  - : Dieser Wert beschreibt zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Werte, die sowohl die Abszisse (horizontal, x-Komponente) als auch die Ordinate (vertikal, y-Komponente) des verschiebenden Vektors [tx, ty] darstellen. Ein Prozentwert als erster Wert bezieht sich auf die Breite, als zweiter Teil auf die Höhe des durch die Eigenschaft {{cssxref("transform-box")}} definierten Bezugsrahmens.
+  - : Dieser Wert beschreibt zwei {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} Werte, die sowohl die Abszisse (horizontal, x-Komponente) als auch die Ordinate (vertikal, y-Komponente) des Übersetzungsvektors [tx, ty] darstellen. Ein Prozentsatz als erster Wert bezieht sich auf die Breite, als zweiter Teil auf die Höhe des durch die {{cssxref("transform-box")}} Eigenschaft definierten Referenzrahmens.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
-      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://de.wikipedia.org/wiki/Euklidischer_Raum">ℝ^2</a></th>
+      <th scope="col"><a href="https://de.wikipedia.org/wiki/Homogene_Koordinaten">Homogene Koordinaten</a> auf <a href="https://de.wikipedia.org/wiki/Projektive_Ebene">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten auf <a href="https://de.wikipedia.org/wiki/Euklidischer_Raum">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten auf <a href="https://de.wikipedia.org/wiki/Projektiver_Raum">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td rowspan="2">
         <p>
-          Eine Translation ist keine lineare Transformation in ℝ^2 und kann nicht durch eine kartesische Koordinatenmatrix dargestellt werden.
+          Eine Übersetzung ist keine lineare Transformation in ℝ^2 und kann nicht mittels einer Matrix in kartesischen Koordinaten dargestellt werden.
         </p>
       </td>
       <td>
@@ -80,14 +80,14 @@ translate({{cssxref("&lt;length-percentage&gt;")}}, {{cssxref("&lt;length-percen
 
 ## Beispiele
 
-### Verwendung einer einachsigen Verschiebung
+### Verwendung einer einachsigen Übersetzung
 
 #### HTML
 
 ```html
-<div>Statisch</div>
-<div class="moved">Verschoben</div>
-<div>Statisch</div>
+<div>Static</div>
+<div class="moved">Moved</div>
+<div>Static</div>
 ```
 
 #### CSS
@@ -100,7 +100,7 @@ div {
 }
 
 .moved {
-  /* Entspricht: translateX(10px) oder translate(10px, 0) */
+  /* Equal to: translateX(10px) or translate(10px, 0) */
   transform: translate(10px);
   background-color: pink;
 }
@@ -110,14 +110,14 @@ div {
 
 {{EmbedLiveSample("Using_a_single-axis_translation", 250, 250)}}
 
-### Kombination von y-Achsen- und x-Achsen-Verschiebung
+### Kombination von y-Achsen- und x-Achsen-Übersetzung
 
 #### HTML
 
 ```html
-<div>Statisch</div>
-<div class="moved">Verschoben</div>
-<div>Statisch</div>
+<div>Static</div>
+<div class="moved">Moved</div>
+<div>Static</div>
 ```
 
 #### CSS

@@ -1,5 +1,5 @@
 ---
-title: "XRSessionEvent: XRSessionEvent() Konstruktor"
+title: "XRSessionEvent: XRSessionEvent()-Konstruktor"
 short-title: XRSessionEvent()
 slug: Web/API/XRSessionEvent/XRSessionEvent
 l10n:
@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Der WebXR Device API
-**`XRSessionEvent()`** Konstruktor erstellt und gibt ein neues
-{{domxref("XRSessionEvent")}} Objekt zurück. Diese Objekte repräsentieren Ereignisse, die
-Zustandsänderungen in einer {{domxref("XRSession")}} ankündigen, die eine erweiterte oder virtuelle
+Der Konstruktor der WebXR Device API
+**`XRSessionEvent()`** erstellt und gibt ein neues
+[`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent)-Objekt zurück. Diese Objekte repräsentieren Ereignisse, die
+Zustandsänderungen in einer [`XRSession`](/de/docs/Web/API/XRSession) ankündigen, welche eine erweiterte oder virtuelle
 Realitätssitzung darstellt.
 
 ## Syntax
@@ -24,16 +24,15 @@ new XRSessionEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Es ist Groß- und Kleinschreibung beachtend und Browser setzen es auf `end` oder `visibilitychange`.
+    Es ist groß-/kleinschreibungssensitiv und Browser setzen es auf `end` oder `visibilitychange`.
 - `options`
-  - : Ein Objekt, das, _zusätzlich zu den in {{domxref("Event/Event", "Event()")}} definierten Eigenschaften_, die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `session`
-      - : Die {{domxref("XRSession")}}, an die das Ereignis gesendet werden soll.
+      - : Die [`XRSession`](/de/docs/Web/API/XRSession), an die das Ereignis übermittelt werden soll.
 
 ### Rückgabewert
 
-Ein neues {{domxref("XRSessionEvent")}} Objekt, das ein Objekt des
-angegebenen Typs darstellt und gemäß dem `options` Parameter konfiguriert ist.
+Ein neues [`XRSessionEvent`](/de/docs/Web/API/XRSessionEvent)-Objekt, das einen Objekttyp repräsentiert und wie im `options`-Parameter beschrieben konfiguriert ist.
 
 ## Beispiele
 

@@ -7,18 +7,18 @@ l10n:
 
 {{CSSRef}}
 
-Die **`translateY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) positioniert ein Element vertikal auf der zweidimensionalen Ebene neu. Ihr Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`translateY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) verschiebt ein Element vertikal in der 2D-Ebene. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-translateY.html")}}
 
-> **Note:** `translateY(ty)` ist gleichwertig mit
+> **Note:** `translateY(ty)` ist äquivalent zu
 > `translate(0, ty)` oder
 > `translate3d(0, ty, 0)`.
 
 ## Syntax
 
 ```css
-/* <length-percentage> Werte */
+/* <length-percentage> values */
 transform: translateY(200px);
 transform: translateY(50%);
 ```
@@ -26,22 +26,22 @@ transform: translateY(50%);
 ### Werte
 
 - `<length-percentage>`
-  - : Der Wert ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Ordinate (vertikal, y-Koordinate) des Verschiebungsvektors [0, ty] darstellt. Im [kartesischen Koordinatensystem](/de/docs/Web/CSS/transform-function#cartesian_coordinates) stellt er die Verschiebung entlang der y-Achse dar. Ein Prozentwert bezieht sich auf die Höhe des durch die {{cssxref("transform-box")}} Eigenschaft definierten Referenzrahmens.
+  - : Der Wert ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Ordinate (vertikal, y-Koordinate) des Verschiebungsvektors [0, ty] darstellt. Im [kartesischen Koordinatensystem](/de/docs/Web/CSS/transform-function#cartesian_coordinates) steht es für die Verschiebung entlang der y-Achse. Ein prozentualer Wert bezieht sich auf die Höhe des durch die {{cssxref("transform-box")}} Eigenschaft definierten Bezugsrahmens.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://de.wikipedia.org/wiki/Euklidischer_Raum">ℝ^2</a></th>
-      <th scope="col"><a href="https://de.wikipedia.org/wiki/Homogene_Koordinaten">Homogene Koordinaten</a> auf <a href="https://de.wikipedia.org/wiki/Reelle_projektive_Ebene">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten auf <a href="https://de.wikipedia.org/wiki/Euklidischer_Raum">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten auf <a href="https://de.wikipedia.org/wiki/Reeller_projektiver_Raum">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
+      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td rowspan="2">
         <p>
-          Eine Translation ist keine lineare Transformation in ℝ^2 und kann nicht durch eine kartesische Koordinatenmatrix dargestellt werden.
+          Eine Translation ist keine lineare Transformation in ℝ^2 und kann nicht mithilfe einer kartesischen Koordinatenmatrix dargestellt werden.
         </p>
       </td>
       <td>
@@ -77,9 +77,9 @@ translateY({{cssxref("&lt;length-percentage&gt;")}})
 ### HTML
 
 ```html
-<div>Statisch</div>
-<div class="moved">Verschoben</div>
-<div>Statisch</div>
+<div>Static</div>
+<div class="moved">Moved</div>
+<div>Static</div>
 ```
 
 ### CSS

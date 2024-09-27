@@ -1,5 +1,5 @@
 ---
-title: Optionales Chaining (?.)
+title: Optional chaining (?.)
 slug: Web/JavaScript/Reference/Operators/Optional_chaining
 l10n:
   sourceCommit: 8cb0caef8175e1772f13ef7bc761f9616e2c5a4b
@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **operator für Optionales Chaining (`?.`)** greift auf eine Eigenschaft eines Objekts zu oder ruft eine Funktion auf. Wenn das mit diesem Operator angesprochene Objekt oder die Funktion {{jsxref("undefined")}} oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist, wird der Ausdruck unterbrochen und ergibt {{jsxref("undefined")}} anstelle eines Fehlers.
+Der **Optional Chaining (`?.`)**-Operator greift auf die Eigenschaft eines Objekts zu oder ruft eine Funktion auf. Wenn das mittels dieses Operators aufgerufene Objekt oder die Funktion {{jsxref("undefined")}} oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) ist, wird der Ausdruck abgebrochen und ergibt {{jsxref("undefined")}} anstelle eines Fehlers.
 
 {{EmbedInteractiveExample("pages/js/expressions-optionalchainingoperator.html", "taller")}}
 
@@ -21,13 +21,12 @@ obj.func?.(args)
 
 ## Beschreibung
 
-Der `?.`-Operator ist wie der `.`-Verkettungsoperator, außer dass statt eines Fehlers, wenn eine Referenz [nullish](/de/docs/Glossary/Nullish) ([`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}}) ist, der Ausdruck kurzgeschlossen mit einem Rückgabewert von `undefined`. Bei Funktionsaufrufen gibt er `undefined` zurück, wenn die gegebene Funktion nicht existiert.
+Der `?.`-Operator ähnelt dem `.`-Verkettungsoperator, außer dass er keinen Fehler verursacht, wenn eine Referenz [nullish](/de/docs/Glossary/Nullish) ([`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}}) ist. Stattdessen wird der Ausdruck mit einem Rückgabewert von `undefined` abgebrochen. Bei Funktionsaufrufen gibt er `undefined` zurück, wenn die angegebene Funktion nicht existiert.
 
-Dies führt zu kürzeren und einfacheren Ausdrücken beim Zugriff auf verkettete Eigenschaften, wenn die Möglichkeit besteht, dass eine Referenz fehlt. Es kann auch hilfreich sein, den Inhalt eines Objekts zu erkunden, wenn keine bekannte Garantie dafür besteht, welche Eigenschaften erforderlich sind.
+Dies führt zu kürzeren und einfacheren Ausdrücken beim Zugriff auf verkettete Eigenschaften, wenn die Möglichkeit besteht, dass eine Referenz fehlt. Es kann auch hilfreich sein, den Inhalt eines Objekts zu erkunden, wenn nicht garantiert ist, welche Eigenschaften erforderlich sind.
 
-Betrachten Sie beispielsweise ein Objekt `obj`, das eine verschachtelte Struktur aufweist. Ohne
-optionales Chaining erfordert das Nachschlagen einer tief verschachtelten Untereigenschaft die Überprüfung der
-dazwischenliegenden Referenzen, wie zum Beispiel:
+Zum Beispiel, betrachten Sie ein Objekt `obj`, das eine verschachtelte Struktur hat. Ohne
+Optional Chaining erfordert das Suchen eines tief verschachtelten Untereigenschafts das Validieren der Referenzen dazwischen, wie zum Beispiel:
 
 ```js
 const nestedProp = obj.first && obj.first.second;
@@ -35,27 +34,19 @@ const nestedProp = obj.first && obj.first.second;
 
 Der Wert von `obj.first` wird als nicht-`null` (und
 nicht-`undefined`) bestätigt, bevor auf den Wert von
-`obj.first.second` zugegriffen wird. Dies verhindert den Fehler, der auftreten würde, wenn Sie
-`obj.first.second` direkt ohne Überprüfung von `obj.first` aufrufen würden.
+`obj.first.second` zugegriffen wird. Dies verhindert den Fehler, der auftreten würde, wenn Sie direkt auf `obj.first.second` zugreifen würden, ohne `obj.first` zu testen.
 
-Dies ist ein idiomatisches Muster in JavaScript, wird jedoch umständlich, wenn die Kette lang ist, und es ist nicht sicher. Zum Beispiel, wenn `obj.first` ein {{Glossary("Falsy")}} Wert ist, der nicht `null` oder `undefined` ist, wie `0`, würde es trotzdem kurzgeschlossen und `nestedProp` wird `0`, was möglicherweise nicht wünschenswert ist.
+Dies ist ein idiomatisches Muster in JavaScript, aber es wird umständlich, wenn die Kette lang ist, und es ist nicht sicher. Zum Beispiel, wenn `obj.first` ein [Falsy](/de/docs/Glossary/Falsy) Wert ist, der nicht `null` oder `undefined` ist, wie `0`, würde es dennoch abkürzen und `nestedProp` zu `0` machen, was möglicherweise nicht wünschenswert ist.
 
-Mit dem Operator für optionales Chaining (`?.`) müssen Sie jedoch nicht
-explizit testen und basierend auf dem Zustand von `obj.first` kurzschließen, bevor Sie versuchen,
-auf `obj.first.second` zuzugreifen:
+Mit dem Optional Chaining Operator (`?.`) müssen Sie jedoch nicht explizit den Zustand von `obj.first` testen und abbrechen, bevor Sie versuchen, auf `obj.first.second` zuzugreifen:
 
 ```js
 const nestedProp = obj.first?.second;
 ```
 
-Durch die Verwendung des `?.`-Operators anstelle von nur `.`, weiß JavaScript
-implizit zu überprüfen, ob `obj.first` nicht `null` oder
-`undefined` ist, bevor versucht wird, auf `obj.first.second` zuzugreifen. Wenn
-`obj.first` `null` oder `undefined` ist, wird der Ausdruck
-automatisch kurzgeschlossen und gibt `undefined` zurück.
+Durch die Verwendung des `?.`-Operators anstelle von nur `.`, weiß JavaScript, dass es implizit prüfen soll, dass `obj.first` nicht `null` oder `undefined` ist, bevor versucht wird, auf `obj.first.second` zuzugreifen. Wenn `obj.first` `null` oder `undefined` ist, wird der Ausdruck automatisch abgebrochen und gibt `undefined` zurück.
 
-Dies entspricht dem Folgenden, außer dass die temporäre Variable nicht tatsächlich
-erstellt wird:
+Dies entspricht dem Folgenden, außer dass die temporäre Variable tatsächlich nicht erstellt wird:
 
 ```js
 const temp = obj.first;
@@ -63,45 +54,43 @@ const nestedProp =
   temp === null || temp === undefined ? undefined : temp.second;
 ```
 
-Optionales Chaining kann nicht auf einem nicht deklarierten Stammobjekt verwendet werden, aber es kann mit einem Stammobjekt mit dem Wert `undefined` verwendet werden.
+Optional Chaining kann nicht auf einem nicht deklarierten Root-Objekt verwendet werden, aber kann mit einem Root-Objekt mit Wert `undefined` verwendet werden.
 
 ```js example-bad
 undeclaredVar?.prop; // ReferenceError: undeclaredVar is not defined
 ```
 
-### Optionales Chaining bei Funktionsaufrufen
+### Optional Chaining bei Funktionsaufrufen
 
-Optionales Chaining kann verwendet werden, wenn versucht wird, eine Methode aufzurufen, die möglicherweise nicht existiert.
-Dies kann hilfreich sein, zum Beispiel wenn Sie eine API verwenden, bei der eine Methode möglicherweise nicht verfügbar ist, entweder aufgrund des Alters der Implementierung oder weil ein Feature auf dem Gerät des Benutzers nicht verfügbar ist.
+Sie können Optional Chaining verwenden, wenn Sie versuchen, eine Methode aufzurufen, die möglicherweise nicht existiert. Dies kann hilfreich sein, zum Beispiel bei der Verwendung einer API, bei der eine Methode möglicherweise nicht verfügbar ist, sei es aufgrund des Alters der Implementierung oder weil eine Funktion auf dem Gerät des Benutzers nicht verfügbar ist.
 
-Wenn optionales Chaining bei Funktionsaufrufen verwendet wird, bewirkt dies, dass der Ausdruck automatisch
-`undefined` zurückgibt, anstatt eine Ausnahme auszulösen, wenn die Methode nicht
-gefunden wird:
+Die Verwendung von Optional Chaining bei Funktionsaufrufen bewirkt, dass der Ausdruck automatisch `undefined` zurückgibt, anstatt eine Ausnahme auszulösen, wenn die Methode nicht gefunden wird:
 
 ```js
 const result = someInterface.customMethod?.();
 ```
 
-Wenn jedoch eine Eigenschaft mit einem solchen Namen existiert, die keine Funktion ist, wird durch die Verwendung von `?.` dennoch eine {{jsxref("TypeError")}}-Ausnahme "someInterface.customMethod is not a function" ausgelöst.
+Wenn jedoch eine Eigenschaft mit einem solchen Namen existiert, die keine Funktion ist, wird die Verwendung von `?.` weiterhin eine {{jsxref("TypeError")}}-Ausnahme "someInterface.customMethod is not a function" auslösen.
 
 > [!NOTE]
 > Wenn `someInterface` selbst `null` oder
-> `undefined` ist, wird dennoch eine {{jsxref("TypeError")}}-Ausnahme ausgelöst ("someInterface is null"). Wenn Sie erwarten, dass
-> `someInterface` selbst möglicherweise `null` oder `undefined`
-> ist, müssen Sie `?.` auch an dieser Stelle verwenden:
+> `undefined` ist, wird eine {{jsxref("TypeError")}}-Ausnahme dennoch
+> ausgelöst ("someInterface is null"). Wenn Sie erwarten, dass
+> `someInterface` selbst `null` oder `undefined`
+> sein kann, müssen Sie `?.` auch an dieser Stelle verwenden:
 > `someInterface?.customMethod?.()`.
 
-`eval?.()` ist die kürzeste Möglichkeit, in den [_indirekten eval_](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#direct_and_indirect_eval) Modus zu wechseln.
+`eval?.()` ist die kürzeste Möglichkeit, den [_indirect eval_](/de/docs/Web/JavaScript/Reference/Global_Objects/eval#direct_and_indirect_eval)-Modus zu betreten.
 
-### Optionales Chaining mit Ausdrücken
+### Optional Chaining mit Ausdrücken
 
-Der Operator für Optionales Chaining kann auch mit [Bracket-Notation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) verwendet werden, die das Übergeben eines Ausdrucks als Eigenschaftsnamen ermöglicht:
+Sie können den Optional Chaining Operator auch mit der [Bracket Notation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation) verwenden, die es ermöglicht, einen Ausdruck als Eigenschaftsnamen zu übergeben:
 
 ```js
 const nestedProp = obj?.["prop" + "Name"];
 ```
 
-Dies ist besonders nützlich für Arrays, da Array-Indizes mit eckigen Klammern angesprochen werden müssen.
+Dies ist besonders nützlich für Arrays, da Array-Indizes mit eckigen Klammern zugegriffen werden müssen.
 
 ```js
 function printMagicIndex(arr) {
@@ -109,42 +98,42 @@ function printMagicIndex(arr) {
 }
 
 printMagicIndex([0, 1, 2, 3, 4, 5]); // undefined
-printMagicIndex(); // undefined; wenn ?. nicht verwendet wird, würde dies einen Fehler werfen: "Cannot read properties of undefined (reading '42')"
+printMagicIndex(); // undefined; if not using ?., this would throw an error: "Cannot read properties of undefined (reading '42')"
 ```
 
-### Ungültiges optionales Chaining
+### Ungültiges Optional Chaining
 
-Es ist ungültig, zu versuchen, das Ergebnis eines optionalen Chaining-Ausdrucks zuzuweisen:
+Es ist ungültig, dem Ergebnis eines Optional Chaining-Ausdrucks einen Wert zuzuweisen:
 
 ```js-nolint example-bad
 const object = {};
 object?.property = 1; // SyntaxError: Invalid left-hand side in assignment
 ```
 
-[Template Literal Tags](/de/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) können nicht als optionales Chaining verwendet werden (siehe [SyntaxError: tagged template cannot be used with optional chain](/de/docs/Web/JavaScript/Reference/Errors/Bad_optional_template)):
+[Template literal tags](/de/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) können keine optionale Kette sein (siehe [SyntaxError: tagged template cannot be used with optional chain](/de/docs/Web/JavaScript/Reference/Errors/Bad_optional_template)):
 
 ```js-nolint example-bad
 String?.raw`Hello, world!`;
 String.raw?.`Hello, world!`; // SyntaxError: Invalid tagged template on optional chain
 ```
 
-Der Konstruktor von {{jsxref("Operators/new", "new")}}-Ausdrücken kann nicht als optionales Chaining verwendet werden (siehe [SyntaxError: new keyword cannot be used with an optional chain](/de/docs/Web/JavaScript/Reference/Errors/Bad_new_optional)):
+Der Konstruktor von {{jsxref("Operators/new", "new")}}-Ausdrücken kann keine optionale Kette sein (siehe [SyntaxError: new keyword cannot be used with an optional chain](/de/docs/Web/JavaScript/Reference/Errors/Bad_new_optional)):
 
 ```js-nolint example-bad
 new Intl?.DateTimeFormat(); // SyntaxError: Invalid optional chain from new expression
 new Map?.();
 ```
 
-### Kurzschließen
+### Short-Circuiting
 
-Bei der Verwendung von optionalem Chaining mit Ausdrücken, wenn der linke Operand `null` oder `undefined` ist, wird der Ausdruck nicht ausgewertet. Zum Beispiel:
+Bei Verwendung von Optional Chaining mit Ausdrücken wird der Ausdruck nicht ausgewertet, wenn der linke Operand `null` oder `undefined` ist. Zum Beispiel:
 
 ```js
 const potentiallyNullObj = null;
 let x = 0;
 const prop = potentiallyNullObj?.[x++];
 
-console.log(x); // 0, da x nicht inkrementiert wurde
+console.log(x); // 0 as x was not incremented
 ```
 
 Nachfolgende Eigenschaftszugriffe werden ebenfalls nicht ausgewertet.
@@ -152,8 +141,8 @@ Nachfolgende Eigenschaftszugriffe werden ebenfalls nicht ausgewertet.
 ```js
 const potentiallyNullObj = null;
 const prop = potentiallyNullObj?.a.b;
-// Dies löst keinen Fehler aus, da die Auswertung bereits beim
-// ersten optionalen Chaining gestoppt wurde
+// This does not throw, because evaluation has already stopped at
+// the first optional chain
 ```
 
 Dies entspricht:
@@ -166,7 +155,7 @@ const prop =
     : potentiallyNullObj.a.b;
 ```
 
-Dieses Kurzschlussverhalten tritt jedoch nur entlang einer durchgehenden "Verkettung" von Eigenschaftszugriffen auf. Wenn Sie einen Teil der Kette [gruppieren](/de/docs/Web/JavaScript/Reference/Operators/Grouping), werden nachfolgende Eigenschaftszugriffe trotzdem ausgewertet.
+Diese Short-Circuiting-Verhaltensweise tritt jedoch nur entlang einer durchgehenden "Kette" von Eigenschaftszugriffen auf. Wenn Sie einen Teil der Kette [gruppieren](/de/docs/Web/JavaScript/Reference/Operators/Grouping), werden nachfolgende Eigenschaftszugriffe dennoch ausgewertet.
 
 ```js
 const potentiallyNullObj = null;
@@ -182,14 +171,14 @@ const temp = potentiallyNullObj?.a;
 const prop = temp.b;
 ```
 
-Außer, dass die `temp`-Variable nicht erstellt wird.
+Außer dass die `temp`-Variable nicht erstellt wird.
 
 ## Beispiele
 
 ### Einfaches Beispiel
 
-Dieses Beispiel sucht den Wert der `name`-Eigenschaft für das Mitglied
-`bar` in einer Map, wenn ein solches Mitglied nicht existiert. Das Ergebnis ist daher
+Dieses Beispiel sucht nach dem Wert der `name`-Eigenschaft für das Mitglied
+`bar` in einer Map, wenn es ein solches Mitglied nicht gibt. Das Ergebnis ist daher
 `undefined`.
 
 ```js
@@ -199,19 +188,19 @@ myMap.set("foo", { name: "baz", desc: "inga" });
 const nameBar = myMap.get("bar")?.name;
 ```
 
-### Umgang mit optionalen Rückrufen oder Ereignis-Handlern
+### Umgang mit optionalen Rückruffunktionen oder Ereignis-Handlern
 
-Wenn Sie Rückrufe oder Methoden aus einem Objekt mit
-[einer Destrukturierungszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring) verwenden, können Sie nicht existierende Werte haben, die Sie nicht als
-Funktionen aufrufen können, es sei denn, Sie haben deren Existenz getestet. Mit dem `?.` können Sie diesen zusätzlichen Test vermeiden:
+Wenn Sie Rückruffunktionen verwenden oder Methoden aus einem Objekt mit
+[einem destructuring-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring) abrufen, können Sie nicht vorhandene Werte haben, die Sie nicht als
+Funktionen aufrufen können, es sei denn, Sie haben ihre Existenz getestet. Mit `?.` können Sie diesen zusätzlichen Test vermeiden:
 
 ```js
-// Code geschrieben ohne optionales Chaining
+// Code written without optional chaining
 function doSomething(onContent, onError) {
   try {
-    // Etwas mit den Daten machen
+    // Do something with the data
   } catch (err) {
-    // Überprüfen, ob onError wirklich existiert
+    // Testing if onError really exists
     if (onError) {
       onError(err.message);
     }
@@ -220,41 +209,41 @@ function doSomething(onContent, onError) {
 ```
 
 ```js
-// Verwendung von optionalem Chaining bei Funktionsaufrufen
+// Using optional chaining with function calls
 function doSomething(onContent, onError) {
   try {
-    // Etwas mit den Daten machen
+    // Do something with the data
   } catch (err) {
-    onError?.(err.message); // Keine Ausnahme, wenn onError undefined ist
+    onError?.(err.message); // No exception if onError is undefined
   }
 }
 ```
 
-### Stapelweise Verwendung des optionalen Chaining-Operators
+### Stacking des Optional Chaining Operators
 
-Bei verschachtelten Strukturen ist es möglich, optionales Chaining mehrfach zu verwenden:
+Bei verschachtelten Strukturen ist es möglich, Optional Chaining mehrere Male zu verwenden:
 
 ```js
 const customer = {
   name: "Carl",
   details: {
     age: 82,
-    location: "Paradise Falls", // Detaillierte Adresse ist unbekannt
+    location: "Paradise Falls", // Detailed address is unknown
   },
 };
 const customerCity = customer.details?.address?.city;
 
-// Dies funktioniert auch mit optionalem Chaining bei Funktionsaufrufen
-const customerName = customer.name?.getName?.(); // Methode existiert nicht, customerName ist undefined
+// This also works with optional chaining function call
+const customerName = customer.name?.getName?.(); // Method does not exist, customerName is undefined
 ```
 
 ### Kombination mit dem Nullish Coalescing Operator
 
-Der [Nullish Coalescing Operator](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) kann nach optionalem Chaining verwendet werden, um einen Standardwert zu erstellen, wenn keiner gefunden wurde:
+Der [nullish coalescing operator](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) kann nach dem Optional Chaining verwendet werden, um einen Standardwert zu erstellen, wenn keiner gefunden wurde:
 
 ```js
 function printCustomerCity(customer) {
-  const customerCity = customer?.city ?? "Unbekannte Stadt";
+  const customerCity = customer?.city ?? "Unknown city";
   console.log(customerCity);
 }
 
@@ -265,7 +254,7 @@ printCustomerCity({
 printCustomerCity({
   name: "Carl",
   details: { age: 82 },
-}); // "Unbekannte Stadt"
+}); // "Unknown city"
 ```
 
 ## Spezifikationen

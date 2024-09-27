@@ -7,57 +7,57 @@ l10n:
 
 {{DefaultAPISidebar("Device Orientation Events")}}{{securecontext_header}}
 
-Bei der Verwendung von Orientierungs- und Bewegungsevents ist es wichtig zu verstehen, was die vom Browser bereitgestellten Werte bedeuten. Dieser Artikel bietet Details zu den verwendeten Koordinatensystemen und wie Sie diese nutzen können.
+Wenn Sie Orientierungs- und Bewegungsereignisse nutzen, ist es wichtig zu verstehen, welche Bedeutung die vom Browser gelieferten Werte haben. Dieser Artikel erklärt die zugrundeliegenden Koordinatensysteme und deren Verwendung.
 
 ## Über Koordinatenrahmen
 
-Ein **Koordinatenrahmen** ist ein System, in dem die Ausrichtung der drei Achsen (X, Y und Z) in Bezug auf ein Objekt definiert ist. Beim Einsatz von Orientierungs- und Bewegungsevents sind zwei Koordinatenrahmen zu berücksichtigen:
+Ein **Koordinatenrahmen** ist ein System, bei dem die Ausrichtung der drei Achsen (X, Y und Z) in Bezug auf ein Objekt definiert ist. Es gibt zwei Koordinatenrahmen, die bei der Verwendung von Orientierungs- und Bewegungsereignissen zu berücksichtigen sind:
 
-### Erdkoordinatenrahmen
+### Erdkoordianatenrahmen
 
-Der Erdkoordinatenrahmen ist der auf das Zentrum der Erde fixierte Koordinatenrahmen; das heißt, die Achsen sind basierend auf der Schwerkraft und der standardmäßigen magnetischen Nordausrichtung ausgerichtet. Wir verwenden Großbuchstaben ("X", "Y" und "Z"), um die Achsen des Erdkoordinatenrahmens zu beschreiben.
+Der Erdkoordinatenrahmen ist auf das Erdzentrum fixiert; das bedeutet, die Achsen sind anhand der Schwerkraft und der Standardausrichtung des magnetischen Nordens ausgerichtet. Wir verwenden Großbuchstaben ("X", "Y" und "Z"), um die Achsen des Erdkoordinatenrahmens zu beschreiben.
 
-- Die **X**-Achse verläuft entlang der Erdoberfläche, senkrecht zur Y-Achse und positiv nach Osten (und daher negativ nach Westen).
-- Die **Y**-Achse verläuft entlang der Erdoberfläche, ist positiv nach Norden (d. h. zum Nordpol, nicht zum magnetischen Norden) und negativ nach Süden.
-- Die **Z**-Achse ist senkrecht zur Erdoberfläche; man kann sich diese als eine Linie zwischen dem Gerät und dem Zentrum der Erde vorstellen. Der Wert der Z-Koordinate ist positiv nach oben (vom Zentrum der Erde weg) und negativ nach unten (zum Zentrum der Erde hin).
+- Die **X**-Achse verläuft entlang der Erdoberfläche, senkrecht zur Y-Achse, und ist positiv nach Osten und damit negativ nach Westen.
+- Die **Y**-Achse verläuft entlang der Erdoberfläche und ist positiv in Richtung des geografischen Nordpols (nicht des magnetischen Nordens) und negativ gen Süden.
+- Die **Z**-Achse ist senkrecht zur Erdoberfläche; denken Sie an sie als eine Linie zwischen dem Gerät und dem Erdzentrum. Der Wert der Z-Koordinate ist positiv nach oben (weg vom Erdzentrum) und negativ nach unten (zum Erdzentrum hin).
 
 ### Gerätekoordinatenrahmen
 
-Der Gerätekoordinatenrahmen ist der Koordinatenrahmen, der auf das Zentrum des Geräts fixiert ist. Wir verwenden Kleinbuchstaben ("x", "y" und "z"), um die Achsen des Gerätekoordinatenrahmens zu beschreiben.
+Der Gerätekoordinatenrahmen ist der auf das Gerätezentrum fixierte Koordinatenrahmen. Wir verwenden Kleinbuchstaben ("x", "y" und "z"), um die Achsen des Gerätekoordinatenrahmens zu beschreiben.
 
 ![Zeichnung, die die drei Achsen eines mobilen Geräts darstellt](axes.png)
 
-- Die **x**-Achse liegt in der Ebene des Bildschirms und ist positiv nach rechts und negativ nach links.
-- Die **y**-Achse liegt in der Ebene des Bildschirms und ist positiv nach oben und negativ nach unten.
-- Die **z**-Achse ist senkrecht zum Bildschirm oder zur Tastatur und ist positiv nach außen vom Bildschirm weg.
+- Die **x**-Achse befindet sich in der Ebene des Bildschirms und ist positiv nach rechts und negativ nach links.
+- Die **y**-Achse befindet sich ebenfalls in der Ebene des Bildschirms und ist positiv nach oben und negativ nach unten.
+- Die **z**-Achse ist senkrecht zum Bildschirm oder zur Tastatur und ist positiv, wenn sie sich vom Bildschirm weg erstreckt.
 
 > [!NOTE]
-> Auf einem Telefon oder Tablet wird die Ausrichtung des Geräts immer im Verhältnis zur Standardorientierung des Bildschirms betrachtet; dies ist die "Portrait"-Ausrichtung bei den meisten Geräten. Auf einem Laptop-Computer wird die Ausrichtung im Verhältnis zur Tastatur betrachtet. Wenn Sie Änderungen in der Geräteausrichtung erfassen möchten, um dies auszugleichen, können Sie das [`change`](/de/docs/Web/API/ScreenOrientation/change_event)-Ereignis verwenden.
+> Bei einem Telefon oder Tablet wird die Ausrichtung des Geräts stets in Bezug auf die Standardausrichtung des Bildschirms betrachtet; diese ist bei den meisten Geräten die Hochformatausrichtung. Bei einem Laptop wird die Ausrichtung in Bezug auf die Tastatur betrachtet. Wenn Sie Änderungen der Geräteausrichtung erkennen möchten, um diese auszugleichen, können Sie das [`change`](/de/docs/Web/API/ScreenOrientation/change_event)-Ereignis verwenden.
 
-## Über Rotation
+## Über Drehungen
 
-Die Rotation wird um eine gegebene Achse in Bezug auf den Gradunterschied zwischen dem Gerätekoordinatenrahmen und dem Erdkoordinatenrahmen beschrieben und in Grad gemessen.
+Drehungen werden in Bezug auf eine gegebene Achse als Anzahl der Gradangaben zwischen dem Koordinatenrahmen des Geräts und dem Erdkoordinatenrahmen beschrieben und in Grad gemessen.
 
 ### Alpha
 
-Die Rotation um die z-Achse – also das Verdrehen des Geräts – führt zur Änderung des **Alpha**-Rotationswinkels:
+Die Drehung um die z-Achse – also das Verdrehen des Geräts – bewirkt eine Änderung des **Alpha**-Drehwinkels:
 
-![Positiver Alpha-Wert dreht das Gerät gegen den Uhrzeigersinn.](alpha.png)
+![Positives Alpha dreht das Gerät gegen den Uhrzeigersinn.](alpha.png)
 
-Der Alpha-Winkel beträgt 0°, wenn die Oberseite des Geräts direkt auf den Nordpol der Erde zeigt, und erhöht sich, wenn das Gerät gegen den Uhrzeigersinn gedreht wird. Somit entspricht 90° Westen, 180° Süden und 270° Osten.
+Der Alpha-Winkel beträgt 0°, wenn die Oberseite des Geräts direkt zum geografischen Nordpol zeigt und nimmt zu, wenn das Gerät gegen den Uhrzeigersinn gedreht wird. So entspricht 90° dem Westen, 180° dem Süden und 270° dem Osten.
 
 ### Beta
 
-Die Rotation um die x-Achse – also das Neigen des Geräts weg vom oder zum Benutzer hin – führt zur Änderung des **Beta**-Rotationswinkels:
+Die Drehung um die x-Achse – das Neigen des Geräts weg vom oder zum Nutzer – bewirkt eine Änderung des **Beta**-Drehwinkels:
 
-![Positiver Beta-Wert kippt das Gerät nach vorne zum Benutzer hin.](beta2.png)
+![Positives Beta neigt das Gerät nach vorne zum Benutzer hin.](beta2.png)
 
-Der Beta-Winkel beträgt 0°, wenn die Ober- und Unterseite des Geräts den gleichen Abstand zur Erdoberfläche haben; er erhöht sich auf 180°, wenn das Gerät nach vorne zum Benutzer hin gekippt wird, und verringert sich auf -180°, wenn es nach hinten vom Benutzer weg gekippt wird.
+Der Beta-Winkel beträgt 0°, wenn die Ober- und Unterseite des Geräts denselben Abstand zur Erdoberfläche haben; er nimmt in Richtung 180° zu, wenn das Gerät nach vorne zum Benutzer geneigt wird, und ab in Richtung -180°, wenn das Gerät nach hinten weg vom Benutzer geneigt wird.
 
 ### Gamma
 
-Die Rotation um die y-Achse – also das Kippen des Geräts nach links oder rechts – führt zur Änderung des **Gamma**-Rotationswinkels:
+Die Drehung um die y-Achse – das Neigen des Geräts nach links oder rechts – bewirkt eine Änderung des **Gamma**-Drehwinkels:
 
-![Positiver Gamma-Wert kippt das Gerät nach rechts.](gamma.png)
+![Positives Gamma neigt das Gerät nach rechts.](gamma.png)
 
-Der Gamma-Winkel beträgt 0°, wenn die linke und rechte Seite des Geräts den gleichen Abstand zur Erdoberfläche haben, und erhöht sich auf 90°, wenn das Gerät nach rechts gekippt wird, und auf -90°, wenn es nach links gekippt wird.
+Der Gamma-Winkel beträgt 0°, wenn die linke und rechte Seite des Geräts denselben Abstand zur Erdoberfläche haben, und nimmt in Richtung 90° zu, wenn das Gerät nach rechts geneigt wird, und in Richtung -90°, wenn es nach links geneigt wird.

@@ -7,19 +7,19 @@ l10n:
 
 {{CSSRef}}
 
-Die **`shape-image-threshold`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt den Alpha-Kanal-Schwellenwert fest, der verwendet wird, um die Form unter Verwendung eines Bildes als Wert für {{cssxref("shape-outside")}} zu extrahieren.
+Die **`shape-image-threshold`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Alphakanal-Schwellenwert fest, der verwendet wird, um die Form zu extrahieren, wenn ein Bild als Wert für {{cssxref("shape-outside")}} verwendet wird.
 
 {{EmbedInteractiveExample("pages/css/shape-image-threshold.html")}}
 
-Alle Pixel, deren Alpha-Wert den Schwellenwert überschreitet, werden als Teil der Form betrachtet, um deren Grenzen zu bestimmen. Beispielsweise bedeutet ein Wert von `0.5`, dass die Form alle Pixel einschließt, die mehr als 50 % Deckkraft haben.
+Alle Pixel, deren Alpha-Komponente einen Wert größer als der Schwellenwert hat, werden als Teil der Form betrachtet, um deren Grenzen zu bestimmen. Ein Wert von `0.5` bedeutet beispielsweise, dass die Form alle Pixel einschließt, die mehr als 50% undurchsichtig sind.
 
 ## Syntax
 
 ```css
-/* <number> Wert */
+/* <number> value */
 shape-image-threshold: 0.7;
 
-/* Globale Werte */
+/* Global values */
 shape-image-threshold: inherit;
 shape-image-threshold: initial;
 shape-image-threshold: revert;
@@ -30,7 +30,7 @@ shape-image-threshold: unset;
 ### Werte
 
 - {{cssxref("&lt;alpha-value&gt;")}}
-  - : Legt den Schwellenwert fest, der zum Extrahieren einer Form aus einem Bild verwendet wird. Die Form wird durch die Pixel definiert, deren Alpha-Wert den Schwellenwert überschreitet. Werte außerhalb des Bereichs von 0,0 (vollständig transparent) bis 1,0 (vollständig undurchsichtig) werden auf diesen Bereich begrenzt.
+  - : Legt den Schwellenwert fest, der verwendet wird, um eine Form aus einem Bild zu extrahieren. Die Form wird durch die Pixel definiert, deren Alphawert größer als der Schwellenwert ist. Werte außerhalb des Bereichs von 0.0 (vollständig transparent) bis 1.0 (vollständig undurchsichtig) werden auf diesen Bereich begrenzt.
 
 ## Formale Definition
 
@@ -42,9 +42,9 @@ shape-image-threshold: unset;
 
 ## Beispiele
 
-### Text an einen Verlauf anpassen
+### Text an einen Farbverlauf ausrichten
 
-Dieses Beispiel erstellt einen {{HTMLElement("div")}}-Block mit einem Verlaufshintergrundbild. Der Verlauf wird als CSS-Form mithilfe von `shape-outside` festgelegt, sodass Pixel innerhalb des Verlaufs, die mindestens 20 % Deckkraft haben (d. h. Pixel mit einem Alpha-Wert größer als 0,2), als Teil der Form betrachtet werden.
+Dieses Beispiel erstellt einen {{HTMLElement("div")}} Block mit einem Hintergrundbild, das ein Farbverlauf ist. Der Farbverlauf wird als CSS-Form unter Verwendung von `shape-outside` festgelegt, sodass Pixel innerhalb des Farbverlaufs, die mindestens 20% undurchsichtig sind (also diejenigen Pixel mit einer Alpha-Komponente größer als 0.2), als Teil der Form betrachtet werden.
 
 #### HTML
 
@@ -78,9 +78,9 @@ Dieses Beispiel erstellt einen {{HTMLElement("div")}}-Block mit einem Verlaufshi
 }
 ```
 
-Die Form wird hier mit {{cssxref("background-image")}} mit einem linearen Verlauf anstelle einer Bilddatei festgelegt. Derselbe Verlauf wird auch als das Bild verwendet, aus dem die Form abgeleitet wird, um den Flussbereich mit der {{cssxref("shape-outside")}}-Eigenschaft festzulegen.
+Die Form wird hier mit {{cssxref("background-image")}} unter Verwendung eines linearen Farbverlaufs anstelle einer Bilddatei festgelegt. Der gleiche Farbverlauf wird auch als das Bild verwendet, aus dem die Form für den festgelegten Schweberaum abgeleitet wird, unter Verwendung der Eigenschaft {{cssxref("shape-outside")}}.
 
-Der 20 %-Deckschwellenwert für die Behandlung von Verlaufs-Pixeln als Teil der Form wird dann mithilfe von `shape-image-threshold` mit einem Wert von `0.2` festgelegt.
+Der 20%ige Opazitätsschwellenwert, um Verlaufspixel als Teil der Form zu betrachten, wird dann unter Verwendung von `shape-image-threshold` mit einem Wert von `0.2` festgelegt.
 
 #### Ergebnis
 
@@ -97,7 +97,7 @@ Der 20 %-Deckschwellenwert für die Behandlung von Verlaufs-Pixeln als Teil der 
 ## Siehe auch
 
 - [CSS Shapes](/de/docs/Web/CSS/CSS_shapes)
-- [Überblick über CSS Shapes](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
+- [Übersicht über CSS Shapes](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
 - {{cssxref("&lt;basic-shape&gt;")}}
 - {{cssxref("shape-outside")}}
 - {{cssxref("shape-margin")}}

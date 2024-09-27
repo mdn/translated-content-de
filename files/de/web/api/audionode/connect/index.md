@@ -1,5 +1,5 @@
 ---
-title: "AudioNode: Methode connect()"
+title: "AudioNode: connect() Methode"
 short-title: connect()
 slug: Web/API/AudioNode/connect
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("Web Audio API") }}
 
-Die `connect()`-Methode der {{ domxref("AudioNode") }}-Schnittstelle ermöglicht es Ihnen, einen der Ausgänge des Knotens mit einem Ziel zu verbinden. Dieses Ziel kann entweder ein anderer `AudioNode` sein (wodurch die Schallwellen an den angegebenen Knoten geleitet werden) oder ein {{domxref("AudioParam")}}, sodass die Ausgabedaten des Knotens automatisch verwendet werden, um den Wert dieses Parameters im Laufe der Zeit zu ändern.
+Die `connect()` Methode der [`AudioNode`](/de/docs/Web/API/AudioNode) Schnittstelle ermöglicht es Ihnen, einen der Ausgänge des Knotens mit einem Ziel zu verbinden, das entweder ein weiterer `AudioNode` sein kann (wodurch die Audiodaten an den angegebenen Knoten geleitet werden) oder ein [`AudioParam`](/de/docs/Web/API/AudioParam), sodass die Ausgangsdaten des Knotens automatisch verwendet werden, um den Wert dieses Parameters im Laufe der Zeit zu ändern.
 
 ## Syntax
 
@@ -21,35 +21,34 @@ connect(destination, outputIndex, inputIndex)
 ### Parameter
 
 - `destination`
-  - : Der {{domxref("AudioNode")}} oder {{domxref("AudioParam")}}, mit dem die Verbindung hergestellt werden soll.
+  - : Der [`AudioNode`](/de/docs/Web/API/AudioNode) oder [`AudioParam`](/de/docs/Web/API/AudioParam), zu dem die Verbindung hergestellt werden soll.
 - `outputIndex` {{optional_inline}}
-  - : Ein Index, der angibt, welcher Ausgang des aktuellen `AudioNode` mit dem Ziel verbunden werden soll. Die Indexnummern sind entsprechend der Anzahl der Ausgangskanäle definiert (siehe [Audio-Kanäle](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#audio_channels)).
-    Obwohl Sie einen gegebenen Ausgang nur einmal mit einem gegebenen Eingang verbinden können (wiederholte Versuche werden ignoriert), können Sie einen Ausgang mit mehreren Eingängen verbinden, indem Sie `connect()` mehrmals aufrufen. Dies ermöglicht [Fan-out](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#fan-in_and_fan-out). Der Standardwert ist 0.
+  - : Ein Index, der angibt, welcher Ausgang des aktuellen `AudioNode` mit dem Ziel verbunden werden soll. Die Indexzahlen sind entsprechend der Anzahl der Ausgangskanäle definiert (siehe [Audiokanäle](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#audio_channels)). Während man nur einen bestimmten Ausgang einmal mit einem bestimmten Eingang verbinden kann (wiederholte Versuche werden ignoriert), kann man einen Ausgang mit mehreren Eingängen verbinden, indem man `connect()` wiederholt aufruft. Dies macht [Fan-out](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#fan-in_and_fan-out) möglich. Der Standardwert ist 0.
 - `inputIndex` {{optional_inline}}
-  - : Ein Index, der beschreibt, welcher Eingang des Ziels mit dem aktuellen `AudioNode` verbunden werden soll; der Standardwert ist 0. Die Indexnummern sind entsprechend der Anzahl der Eingangskanäle definiert (siehe [Audio-Kanäle](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#audio_channels)). Es ist möglich, einen `AudioNode` mit einem anderen `AudioNode` zu verbinden, der wiederum zurück zum ersten `AudioNode` verbindet und damit einen Kreislauf bildet.
+  - : Ein Index, der beschreibt, welcher Eingang des Ziels mit dem aktuellen `AudioNode` verbunden werden soll; der Standard ist 0. Die Indexzahlen sind entsprechend der Anzahl der Eingangskanäle definiert (siehe [Audiokanäle](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#audio_channels)). Es ist möglich, einen `AudioNode` mit einem anderen `AudioNode` zu verbinden, der wiederum zurück zum ersten `AudioNode` verbindet, wodurch ein Zyklus entsteht.
 
 ### Rückgabewert
 
-Wenn das Ziel ein Knoten ist, gibt `connect()` eine Referenz auf das Ziel-{{domxref("AudioNode")}}-Objekt zurück, wodurch es Ihnen ermöglicht wird, mehrere `connect()`-Aufrufe zu verketten. In einigen Browsern geben ältere Implementierungen dieser Schnittstelle {{jsxref("undefined")}} zurück.
+Wenn das Ziel ein Knoten ist, gibt `connect()` eine Referenz auf das Ziel [`AudioNode`](/de/docs/Web/API/AudioNode) Objekt zurück, das es Ihnen ermöglicht, mehrere `connect()` Aufrufe zu verketten. In einigen Browsern geben ältere Implementierungen dieser Schnittstelle {{jsxref("undefined")}} zurück.
 
 Wenn das Ziel ein `AudioParam` ist, gibt `connect()` `undefined` zurück.
 
 ### Ausnahmen
 
-- `IndexSizeError` {{domxref("DOMException")}}
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der als `outputIndex` oder `inputIndex` angegebene Wert keinem vorhandenen Eingang oder Ausgang entspricht.
-- `InvalidAccessError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn der Zielknoten nicht Teil des gleichen Audiokontexts wie der Quellknoten ist.
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn die angegebene Verbindung einen Kreislauf bilden würde (bei dem das Audio die gleichen Knoten wiederholt durchläuft) und es keine {{domxref("DelayNode")}}-Objekte im Kreislauf gibt, um zu verhindern, dass die resultierende Wellenform ständig denselben Audioframe konstruiert. Wird auch ausgelöst, wenn der `inputIndex`-Parameter verwendet wird, während das Ziel ein {{domxref("AudioParam")}} ist.
+- `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn der Zielknoten nicht Teil desselben Audio-Kontexts wie der Quellknoten ist.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn die angegebene Verbindung einen Zyklus erzeugen würde (in dem das Audio wiederholt durch dieselben Knoten zurückgeführt wird) und es keine [`DelayNode`](/de/docs/Web/API/DelayNode) Objekte im Zyklus gibt, um zu verhindern, dass die resultierende Wellenform dauerhaft dasselbe Audio-Frame konstruiert. Außerdem wird dies ausgelöst, wenn der `inputIndex` Parameter verwendet wird, während das Ziel ein [`AudioParam`](/de/docs/Web/API/AudioParam) ist.
 
 ## Beispiele
 
 ### Verbindung zu einem Audioeingang
 
-Die offensichtlichste Verwendung der `connect()`-Methode besteht darin, die Audioausgabe von einem Knoten in den Audioeingang eines anderen Knotens zur Weiterverarbeitung zu leiten. Zum Beispiel könnten Sie das Audio von einem {{domxref("MediaElementAudioSourceNode")}}, also dem Audio eines HTML-Medienelements wie {{HTMLElement("audio")}}, durch einen Bandpassfilter leiten, der mit einem {{domxref("BiquadFilterNode")}} implementiert ist, um Rauschen zu reduzieren, bevor das Audio dann an die Lautsprecher gesendet wird.
+Die offensichtlichste Verwendung der `connect()` Methode besteht darin, den Audioausgang eines Knotens in den Audioeingang eines anderen Knotens zur weiteren Verarbeitung zu leiten. Beispielsweise könnten Sie das Audio von einem [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode) — also dem Audio von einem HTML-Mediaelement wie {{HTMLElement("audio")}} — durch ein Bandpassfilter leiten, das mit einem [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) implementiert ist, um Geräusche zu reduzieren, bevor das Audio an die Lautsprecher gesendet wird.
 
-Dieses Beispiel erstellt einen Oszillator und verbindet ihn mit einem Verstärkungs-Knoten, sodass der Verstärkungs-Knoten die Lautstärke des Oszillator-Knotens steuert.
+Dieses Beispiel erstellt einen Oszillator und verbindet ihn dann mit einem Verstärker-Knoten, sodass der Verstärker-Knoten die Lautstärke des Oszillator-Knotens steuert.
 
 ```js
 const audioCtx = new AudioContext();
@@ -61,50 +60,50 @@ oscillator.connect(gainNode);
 gainNode.connect(audioCtx.destination);
 ```
 
-### Beispiel für AudioParam
+### AudioParam Beispiel
 
-In diesem Beispiel werden wir den Verstärkungswert eines {{domxref("GainNode")}} mithilfe eines {{domxref("OscillatorNode")}} mit einer niedrigen Frequenz ändern. Diese Technik ist bekannt als ein _LFO_-gesteuertes Parameter.
+In diesem Beispiel werden wir den Verstärkungswert eines [`GainNode`](/de/docs/Web/API/GainNode) mit einem [`OscillatorNode`](/de/docs/Web/API/OscillatorNode) mit einer langsamen Frequenz ändern. Diese Technik ist als _LFO_-gesteuerte Parameter bekannt.
 
 ```js
 const audioCtx = new AudioContext();
 
-// Erstellen Sie einen normalen Oszillator, um Ton zu erzeugen
+// create an normal oscillator to make sound
 const oscillator = audioCtx.createOscillator();
 
-// Erstellen Sie einen zweiten Oszillator, der als LFO (Low-frequency
-// oscillator) verwendet wird und einen Parameter steuern wird
+// create a second oscillator that will be used as an LFO (Low-frequency
+// oscillator), and will control a parameter
 const lfo = audioCtx.createOscillator();
 
-// Setzen Sie die Frequenz des zweiten Oszillators auf eine niedrige Zahl
-lfo.frequency.value = 2.0; // 2Hz: zwei Oszillationen pro Sekunde
+// set the frequency of the second oscillator to a low number
+lfo.frequency.value = 2.0; // 2Hz: two oscillations per second
 
-// Erstellen Sie eine Verstärkung, deren Gain-AudioParam vom LFO gesteuert wird
+// create a gain whose gain AudioParam will be controlled by the LFO
 const gain = audioCtx.createGain();
 
-// Verbinden Sie den LFO mit dem Gain-AudioParam. Das bedeutet, dass der Wert des LFO
-// keinen Ton erzeugt, sondern stattdessen den Wert der Verstärkung ändert
+// connect the LFO to the gain AudioParam. This means the value of the LFO
+// will not produce any audio, but will change the value of the gain instead
 lfo.connect(gain.gain);
 
-// Verbinden Sie den Oszillator, der Ton erzeugen wird, mit der Verstärkung
+// connect the oscillator that will produce audio to the gain
 oscillator.connect(gain);
 
-// Verbinden Sie die Verstärkung mit dem Ziel, damit wir Ton hören
+// connect the gain to the destination so we hear sound
 gain.connect(audioCtx.destination);
 
-// Starten Sie den Oszillator, der Ton erzeugen wird
+// start the oscillator that will produce audio
 oscillator.start();
 
-// Starten Sie den Oszillator, der den Verstärkungswert ändern wird
+// start the oscillator that will modify the gain value
 lfo.start();
 ```
 
-#### Anmerkungen zu AudioParam
+#### AudioParam Hinweise
 
-Es ist möglich, einen `AudioNode`-Ausgang mit mehr als einem {{domxref("AudioParam")}} und mehr als einen AudioNode-Ausgang mit einem einzigen {{domxref("AudioParam")}} zu verbinden, mit mehreren Aufrufen von `connect()`. [Fan-in und Fan-out](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#fan-in_and_fan-out) werden daher unterstützt.
+Es ist möglich, den Ausgang eines `AudioNode` mit mehr als einem [`AudioParam`](/de/docs/Web/API/AudioParam) zu verbinden und mehr als einen Ausgang eines AudioNode mit einem einzigen [`AudioParam`](/de/docs/Web/API/AudioParam), mit mehreren Aufrufen von `connect()`. [Fan-in und Fan-out](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#fan-in_and_fan-out) werden daher unterstützt.
 
-Ein {{ domxref("AudioParam") }} nimmt die gerenderten Audiodaten von jedem `AudioNode`-Ausgang auf, der damit verbunden ist, und konvertiert sie durch [Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) in Mono (falls es nicht schon Mono ist). Anschließend werden sie mit allen anderen Ausgängen und dem intrinsischen Parameterwert (dem Wert, den das {{ domxref("AudioParam") }} normalerweise ohne Audioverbindungen hätte) sowie mit allen Zeitplanänderungen für den Parameter gemischt.
+Ein [`AudioParam`](/de/docs/Web/API/AudioParam) übernimmt die gerenderten Audiodaten von jedem verbundenen `AudioNode` Ausgang und konvertiert sie zu Mono durch [Down-Mixing](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) (sofern sie nicht bereits Mono sind). Anschließend wird es mit anderen solchen Ausgängen und dem intrinsischen Parameterwert (dem Wert, den das [`AudioParam`](/de/docs/Web/API/AudioParam) normalerweise ohne Audioverbindungen hätte), einschließlich aller geplanten Zeitachsenänderungen für den Parameter, gemischt.
 
-Daher ist es möglich den Bereich auszuwählen, in dem sich ein {{domxref("AudioParam")}} ändern wird, indem man den Wert des {{domxref("AudioParam")}} auf die zentrale Frequenz einstellt und ein {{domxref("GainNode")}} zwischen der Audioquelle und dem {{domxref("AudioParam")}} verwendet, um den Bereich der Änderungen des {{domxref("AudioParam")}} anzupassen.
+Daher ist es möglich, den Bereich auszuwählen, in dem ein [`AudioParam`](/de/docs/Web/API/AudioParam) sich ändern wird, indem der Wert des [`AudioParam`](/de/docs/Web/API/AudioParam) auf die zentrale Frequenz gesetzt wird und ein [`GainNode`](/de/docs/Web/API/GainNode) zwischen der Audioquelle und dem [`AudioParam`](/de/docs/Web/API/AudioParam) verwendet wird, um den Bereich der Änderungen des [`AudioParam`](/de/docs/Web/API/AudioParam) anzupassen.
 
 ## Spezifikationen
 

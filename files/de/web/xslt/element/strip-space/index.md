@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:strip-space>`-Element definiert die Elemente im Quelldokument, für die der Leerraum entfernt werden soll.
+Das `<xsl:strip-space>`-Element definiert die Elemente im Quelldokument, für die Leerzeichen entfernt werden sollen.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ Das `<xsl:strip-space>`-Element definiert die Elemente im Quelldokument, für di
 ### Erforderliche Attribute
 
 - `elements`
-  - : Gibt eine durch Leerzeichen getrennte Liste von Elementen im Quellcode an, deren nur aus Leerzeichen bestehende Textknoten entfernt werden sollen.
+  - : Gibt eine durch Leerzeichen getrennte Liste von Elementen in der Quelle an, deren ausschließlich aus Leerzeichen bestehenden Textknoten entfernt werden sollen.
 
 ### Optionale Attribute
 
@@ -26,7 +26,7 @@ Keine.
 
 ### Typ
 
-Top-Level, muss ein Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
+Oberste Ebene, muss ein Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
 
 ## Spezifikationen
 

@@ -9,7 +9,7 @@ l10n:
 
 RTF (Rich Text Format) ist ein auf einfachem Text basierendes Dateiformat mit Unterstützung für Formatierungsanweisungen (wie fett oder kursiv).
 
-Drei Programmierer im Microsoft Word-Team entwickelten RTF in den 1980er Jahren, und Microsoft entwickelte das Format bis 2008 weiter. Viele Textverarbeitungsprogramme können jedoch immer noch RTF lesen und schreiben.
+Drei Programmierer im Microsoft Word-Team entwickelten RTF in den 1980er Jahren, und Microsoft entwickelte das Format bis 2008 weiter. Viele Textverarbeitungsprogramme können jedoch weiterhin RTF lesen und schreiben.
 
 ## Siehe auch
 

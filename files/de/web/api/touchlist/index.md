@@ -7,25 +7,25 @@ l10n:
 
 {{APIRef("Touch Events")}}
 
-Die **`TouchList`**-Schnittstelle repräsentiert eine Liste von Berührungspunkten auf einer berührbaren Oberfläche. Wenn der Benutzer beispielsweise drei Finger auf der Oberfläche (wie einem Bildschirm oder Trackpad) hat, würde das entsprechende `TouchList`-Objekt ein {{domxref("Touch")}}-Objekt für jeden Finger enthalten, insgesamt also drei Einträge.
+Die **`TouchList`**-Schnittstelle repräsentiert eine Liste von Kontaktpunkten auf einer Touch-Oberfläche. Zum Beispiel, wenn der Benutzer drei Finger auf der Touch-Oberfläche (wie einem Bildschirm oder Trackpad) hat, würde das entsprechende `TouchList`-Objekt ein [`Touch`](/de/docs/Web/API/Touch)-Objekt für jeden Finger haben, insgesamt drei Einträge.
 
-Diese Schnittstelle war ein [Versuch, eine unveränderliche Liste zu erstellen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) und wird nur weiterhin unterstützt, um bestehenden Code nicht zu brechen, der sie verwendet. Moderne APIs repräsentieren Listenstrukturen mittels Datentypen, die auf JavaScript-[Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) basieren, womit viele Array-Methoden verfügbar sind und gleichzeitig zusätzliche Semantiken auf ihre Verwendung angewendet werden (wie beispielsweise, dass ihre Elemente schreibgeschützt sind).
+Diese Schnittstelle war ein [Versuch, eine nicht veränderbare Liste zu erstellen](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) und wird weiterhin unterstützt, um vorhandenen Code nicht zu beeinträchtigen, der sie bereits verwendet. Moderne APIs repräsentieren Listenstrukturen mit Typen, die auf JavaScript-[Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) basieren, wodurch viele Array-Methoden verfügbar werden und gleichzeitig zusätzliche Semantiken bei der Verwendung auferlegen (wie etwa das Festlegen ihrer Elemente auf schreibgeschützt).
 
-Diese historischen Gründe bedeuten nicht, dass Sie als Entwickler `TouchList` meiden sollten. Sie erstellen keine `TouchList`-Objekte selbst, sondern erhalten sie von APIs wie {{domxref("TouchEvent.targetTouches")}}, und diese APIs sind nicht veraltet. Seien Sie jedoch vorsichtig bezüglich der semantischen Unterschiede zu einem echten Array.
+Diese historischen Gründe bedeuten nicht, dass Sie als Entwickler `TouchList` vermeiden sollten. Sie erstellen `TouchList`-Objekte nicht selbst, sondern erhalten sie von APIs wie [`TouchEvent.targetTouches`](/de/docs/Web/API/TouchEvent/targetTouches), und diese APIs sind nicht veraltet. Seien Sie jedoch vorsichtig mit den semantischen Unterschieden zu einem echten Array.
 
 ## Instanzeigenschaften
 
-- {{domxref("TouchList.length")}} {{ReadOnlyInline}}
-  - : Die Anzahl der {{domxref("Touch")}}-Objekte in der `TouchList`.
+- [`TouchList.length`](/de/docs/Web/API/TouchList/length) {{ReadOnlyInline}}
+  - : Die Anzahl der [`Touch`](/de/docs/Web/API/Touch)-Objekte in der `TouchList`.
 
 ## Instanzmethoden
 
-- {{domxref("TouchList.item()")}}
-  - : Gibt das {{domxref("Touch")}}-Objekt an dem angegebenen Index in der Liste zurück.
+- [`TouchList.item()`](/de/docs/Web/API/TouchList/item)
+  - : Gibt das [`Touch`](/de/docs/Web/API/Touch)-Objekt am angegebenen Index in der Liste zurück.
 
 ## Beispiel
 
-Sehen Sie sich das [Beispiel im Hauptartikel zu den Touch-Ereignissen](/de/docs/Web/API/Touch_events#example) an.
+Siehe das [Beispiel im Hauptartikel zu Touch-Ereignissen](/de/docs/Web/API/Touch_events#example).
 
 ## Spezifikationen
 
@@ -38,4 +38,4 @@ Sehen Sie sich das [Beispiel im Hauptartikel zu den Touch-Ereignissen](/de/docs/
 ## Siehe auch
 
 - [Touch-Ereignisse](/de/docs/Web/API/Touch_events)
-- {{domxref("Document.createTouchList()")}}
+- [`Document.createTouchList()`](/de/docs/Web/API/Document/createTouchList)

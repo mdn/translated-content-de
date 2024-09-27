@@ -8,18 +8,18 @@ l10n:
 
 {{SeeCompatTable}}{{APIRef("Performance API")}}
 
-Die schreibgeschützte **`windowAttribution`**-Eigenschaft des {{domxref("PerformanceScriptTiming")}}-Interfaces gibt einen enumerierten Wert zurück, der die Beziehung der Umgebung (d. h. entweder des Top-Level-Dokuments oder eines {{htmlelement("iframe")}}), in der das Skript ausgeführt wurde, das einen langen Animationsrahmen (LoAF) verursacht hat, relativ zum Fenster des aktuellen Dokuments beschreibt.
+Die schreibgeschützte **`windowAttribution`**-Eigenschaft des [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Interfaces liefert einen enumerierten Wert, der das Verhältnis des Containers (d.h. entweder das oberste Dokument oder ein {{htmlelement("iframe")}}), in dem das Skript, das den langen Animationsrahmen (LoAF) verursacht hat, ausgeführt wurde, relativ zum Fenster beschreibt, in dem das aktuelle Dokument läuft.
 
 ## Wert
 
 Ein enumerierter Wert, der einer der folgenden sein kann:
 
 - `"ancestor"`
-  - : Das aktuelle Dokument ist ein Nachfahre des Dokuments, in dem das Skript ausgeführt wurde, eingebettet in einem `<iframe>`.
+  - : Das aktuelle Dokument ist ein Nachkomme des Dokuments, in dem das Skript ausgeführt wurde, eingebettet in einem `<iframe>`.
 - `"descendant"`
-  - : Das Skript wurde in einem Nachfahrendokument ausgeführt, das in das aktuelle Dokument in einem `<iframe>` eingebettet ist.
+  - : Das Skript wurde in einem Nachkomme-Dokument ausgeführt, das im aktuellen Dokument in einem `<iframe>` eingebettet ist.
 - `"other"`
-  - : Der Ort des Dokuments, in dem das Skript ausgeführt wurde, konnte nicht bestimmt werden.
+  - : Der Speicherort des Dokuments, in dem das Skript ausgeführt wurde, konnte nicht bestimmt werden.
 - `"same-page"`
   - : Das Skript wurde in einer Version des aktuellen Dokuments ausgeführt, die innerhalb des aktuellen Dokuments in einem `<iframe>` eingebettet ist.
 - `"self"`
@@ -27,7 +27,7 @@ Ein enumerierter Wert, der einer der folgenden sein kann:
 
 ## Beispiele
 
-Sehen Sie sich [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API an.
+Siehe [Timing von langen Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#examples) für Beispiele im Zusammenhang mit der Long Animation Frames API.
 
 ## Spezifikationen
 
@@ -39,5 +39,5 @@ Sehen Sie sich [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API
 
 ## Siehe auch
 
-- [Timing langer Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
-- {{domxref("PerformanceLongAnimationFrameTiming")}}
+- [Timing von langen Animationsrahmen](/de/docs/Web/API/Performance_API/Long_animation_frame_timing)
+- [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)

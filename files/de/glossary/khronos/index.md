@@ -1,5 +1,5 @@
 ---
-title: Die Khronos Group
+title: The Khronos Group
 slug: Glossary/Khronos
 l10n:
   sourceCommit: 998a4e6fc713678381e6bc31130e3a0a53158d69
@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Die Khronos Group** ist ein offenes, gemeinnütziges Konsortium, das von über 150 führenden Unternehmen der Branche getragen wird. Ihr Ziel ist es, fortschrittliche, lizenzfreie Interoperabilitätsstandards für 3D-Grafik, erweiterte und virtuelle Realität, Parallelprogrammierung, Beschleunigung der Bildverarbeitung und maschinelles Lernen zu schaffen.
+**Die Khronos Group** ist ein offenes, gemeinnütziges, mitgliedergeführtes Konsortium von über 150 führenden Unternehmen der Branche. Ihr Zweck ist die Schaffung fortschrittlicher, lizenzfreier Interoperabilitätsstandards für 3D-Grafik, erweiterte und virtuelle Realität, parallele Programmierung, Visionsbeschleunigung und maschinelles Lernen.
 
-Die Organisation pflegt Standards wie {{Glossary("OpenGL")}} und die [WebGL API](/de/docs/Web/API/WebGL_API).
+Die Organisation verwaltet Standards wie [OpenGL](/de/docs/Glossary/OpenGL) und die [WebGL API](/de/docs/Web/API/WebGL_API).
 
 ## Siehe auch
 
 - [Die Khronos Group](https://en.wikipedia.org/wiki/Khronos_Group) auf Wikipedia
-- [Die Khronos Group Webseite](https://www.khronos.org/)
+- [Die Website der Khronos Group](https://www.khronos.org/)

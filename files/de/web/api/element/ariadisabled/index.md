@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaDisabled`**-Eigenschaft des {{domxref("Element")}}-Interfaces spiegelt den Wert des [`aria-disabled`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-disabled)-Attributs wider, welches anzeigt, dass das Element wahrnehmbar, aber deaktiviert ist, sodass es nicht bearbeitet oder anderweitig bedient werden kann.
+Die **`ariaDisabled`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-disabled`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-disabled)-Attributs wider, das angibt, dass das Element wahrnehmbar, aber deaktiviert ist, sodass es nicht bearbeitet oder anderweitig bedienbar ist.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit das {{htmlelement("input")}} Element mit `type="button"` oder das {{htmlelement("button")}} Element — da diese Elemente eingebaute Semantik haben und keine ARIA-Attribute benötigen.
+> Verwenden Sie nach Möglichkeit das {{htmlelement("input")}}-Element mit `type="button"` oder das {{htmlelement("button")}}-Element — da diese Elemente eingebaute Semantik haben und keine ARIA-Attribute benötigen.
 
 ## Wert
 
@@ -24,10 +24,10 @@ Ein String mit einem der folgenden Werte:
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-disabled`-Attribut auf dem Element mit der ID `saveChanges` auf "true" gesetzt, was darauf hindeutet, dass diese Eingabe derzeit deaktiviert ist. Mit `ariaDisabled` aktualisieren wir den Wert auf "false".
+In diesem Beispiel wird das `aria-disabled`-Attribut des Elements mit der ID `saveChanges` auf "true" gesetzt, was darauf hinweist, dass diese Eingabe derzeit deaktiviert ist. Mit `ariaDisabled` aktualisieren wir den Wert auf "false".
 
 ```html
-<div id="saveChanges" tabindex="0" role="button" aria-disabled="true">Speichern</div>
+<div id="saveChanges" tabindex="0" role="button" aria-disabled="true">Save</div>
 ```
 
 ```js

@@ -1,5 +1,5 @@
 ---
-title: "Dokument: head-Eigenschaft"
+title: "Document: head-Eigenschaft"
 short-title: head
 slug: Web/API/Document/head
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`head`**-Eigenschaft des {{domxref("Document")}}-Interfaces gibt das {{HTMLElement("head")}}-Element des aktuellen Dokuments zurück.
+Die **`head`**-Eigenschaft des schreibgeschützten [`Document`](/de/docs/Web/API/Document)-Interfaces gibt das {{HTMLElement("head")}}-Element des aktuellen Dokuments zurück.
 
 ## Wert
 
-Ein {{domxref("HTMLHeadElement")}}.
+Ein [`HTMLHeadElement`](/de/docs/Web/API/HTMLHeadElement).
 
 ## Beispiele
 
 ```html
 <!doctype html>
 <head id="my-document-head">
-  <title>Beispiel: Verwendung von document.head</title>
+  <title>Example: using document.head</title>
 </head>
 
 <script>
@@ -31,9 +31,9 @@ Ein {{domxref("HTMLHeadElement")}}.
 </script>
 ```
 
-## Anmerkungen
+## Hinweise
 
-`document.head` ist schreibgeschützt. Versuche, dieser Eigenschaft einen Wert zuzuweisen, schlagen entweder stillschweigend fehl oder führen im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) zu einem {{jsxref("TypeError")}}.
+`document.head` ist schreibgeschützt. Der Versuch, dieser Eigenschaft einen Wert zuzuweisen, schlägt stillschweigend fehl oder löst im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) einen {{jsxref("TypeError")}} aus.
 
 ## Spezifikationen
 
@@ -45,4 +45,4 @@ Ein {{domxref("HTMLHeadElement")}}.
 
 ## Siehe auch
 
-- {{domxref("document.body")}}
+- [`document.body`](/de/docs/Web/API/Document/body)

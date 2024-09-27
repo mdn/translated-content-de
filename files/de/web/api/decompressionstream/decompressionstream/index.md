@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Compression Streams API")}}{{AvailableInWorkers}}
 
-Der **`DecompressionStream()`** Konstruktor erstellt ein neues {{domxref("DecompressionStream")}} Objekt, das einen Datenstrom dekomprimiert.
+Der **`DecompressionStream()`** Konstruktor erstellt ein neues [`DecompressionStream`](/de/docs/Web/API/DecompressionStream) Objekt, das einen Datenstrom dekomprimiert.
 
 ## Syntax
 
@@ -20,20 +20,20 @@ new DecompressionStream(format)
 
 - `format`
 
-  - : Eines der folgenden Kompressionsformate:
+  - : Einer der folgenden Kompressionsformate:
 
     - `"gzip"`
-      - : Dekomprimieren Sie den Stream mit dem [GZIP](https://www.rfc-editor.org/rfc/rfc1952) Format.
+      - : Dekomprimieren Sie den Strom mit dem [GZIP](https://www.rfc-editor.org/rfc/rfc1952) Format.
     - `"deflate"`
-      - : Dekomprimieren Sie den Stream mit dem [DEFLATE](https://www.rfc-editor.org/rfc/rfc1950) Algorithmus im ZLIB-Komprimierte-Daten-Format.
-        Das ZLIB-Format enthält einen Header mit Informationen über die Komprimierungsmethode und die unkomprimierte Größe der Daten sowie eine abschließende Prüfsumme zur Überprüfung der Integrität der Daten.
+      - : Dekomprimieren Sie den Strom mit dem [DEFLATE](https://www.rfc-editor.org/rfc/rfc1950) Algorithmus im ZLIB-komprimierten Datenformat.
+        Das ZLIB-Format enthält einen Header mit Informationen über die Kompressionsmethode und die unkomprimierte Größe der Daten sowie eine abschließende Prüfsumme zur Überprüfung der Integrität der Daten
     - `"deflate-raw"`
-      - : Dekomprimieren Sie den Stream mit dem [DEFLATE](https://www.rfc-editor.org/rfc/rfc1951) Algorithmus ohne Header und abschließende Prüfsumme.
+      - : Dekomprimieren Sie den Strom mit dem [DEFLATE](https://www.rfc-editor.org/rfc/rfc1951) Algorithmus ohne Header und abschließende Prüfsumme.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn das dem Konstruktor übergebene Format nicht unterstützt wird.
+  - : Wird geworfen, wenn das an den Konstruktor übergebene Format nicht unterstützt wird.
 
 ## Beispiele
 

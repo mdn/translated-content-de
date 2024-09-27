@@ -7,24 +7,24 @@ l10n:
 
 {{APIRef("WebXR Device API")}} {{secureContext_header}}{{SeeCompatTable}}
 
-Das **`XRMediaBinding`** Interface wird verwendet, um Layer zu erstellen, die den Inhalt eines {{domxref("HTMLVideoElement")}} anzeigen.
+Die **`XRMediaBinding`** Schnittstelle wird verwendet, um Ebenen zu erstellen, die den Inhalt eines [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) anzeigen.
 
 > [!NOTE]
-> Nur die Video-Frames werden im Layer angezeigt. Videosteuerungen müssen separat implementiert und in einem anderen Layer gezeichnet werden.
+> Nur die Videoframes werden in der Ebene angezeigt. Videosteuerungen müssen separat implementiert und in einer anderen Ebene gezeichnet werden.
 
 ## Konstruktor
 
-- {{domxref("XRMediaBinding.XRMediaBinding", "XRMediaBinding()")}} {{Experimental_Inline}}
-  - : Erstellt ein neues `XRMediaBinding` Objekt für die angegebene {{domxref("XRSession")}}.
+- [`XRMediaBinding()`](/de/docs/Web/API/XRMediaBinding/XRMediaBinding) {{Experimental_Inline}}
+  - : Erstellt ein neues `XRMediaBinding` Objekt für die angegebene [`XRSession`](/de/docs/Web/API/XRSession).
 
 ## Instanzmethoden
 
-- {{domxref("XRMediaBinding.createCylinderLayer()")}} {{Experimental_Inline}}
-  - : Gibt ein {{domxref("XRCylinderLayer")}} Objekt zurück, das an ein {{domxref("HTMLVideoElement")}} gebunden ist.
-- {{domxref("XRMediaBinding.createEquirectLayer()")}} {{Experimental_Inline}}
-  - : Gibt ein {{domxref("XREquirectLayer")}} Objekt zurück, das an ein {{domxref("HTMLVideoElement")}} gebunden ist.
-- {{domxref("XRMediaBinding.createQuadLayer()")}} {{Experimental_Inline}}
-  - : Gibt ein {{domxref("XRQuadLayer")}} Objekt zurück, das an ein {{domxref("HTMLVideoElement")}} gebunden ist.
+- [`XRMediaBinding.createCylinderLayer()`](/de/docs/Web/API/XRMediaBinding/createCylinderLayer) {{Experimental_Inline}}
+  - : Gibt ein [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer) Objekt zurück, das an ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) gebunden ist.
+- [`XRMediaBinding.createEquirectLayer()`](/de/docs/Web/API/XRMediaBinding/createEquirectLayer) {{Experimental_Inline}}
+  - : Gibt ein [`XREquirectLayer`](/de/docs/Web/API/XREquirectLayer) Objekt zurück, das an ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) gebunden ist.
+- [`XRMediaBinding.createQuadLayer()`](/de/docs/Web/API/XRMediaBinding/createQuadLayer) {{Experimental_Inline}}
+  - : Gibt ein [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer) Objekt zurück, das an ein [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement) gebunden ist.
 
 ## Spezifikationen
 
@@ -36,5 +36,5 @@ Das **`XRMediaBinding`** Interface wird verwendet, um Layer zu erstellen, die de
 
 ## Siehe auch
 
-- {{domxref("HTMLVideoElement")}}
-- {{domxref("XRCylinderLayer")}}, {{domxref("XREquirectLayer")}}, {{domxref("XRQuadLayer")}}
+- [`HTMLVideoElement`](/de/docs/Web/API/HTMLVideoElement)
+- [`XRCylinderLayer`](/de/docs/Web/API/XRCylinderLayer), [`XREquirectLayer`](/de/docs/Web/API/XREquirectLayer), [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer)

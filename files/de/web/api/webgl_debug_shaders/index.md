@@ -8,30 +8,30 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WEBGL_debug_shaders`**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und stellt eine Methode bereit, um Shader aus privilegierten Kontexten zu debuggen.
+Die **`WEBGL_debug_shaders`**-Erweiterung ist Teil der [WebGL-API](/de/docs/Web/API/WebGL_API) und bietet eine Methode zum Debuggen von Shadern aus privilegierten Kontexten.
 
-Diese Erweiterung ist nicht direkt für Websites verfügbar, da die Art und Weise, wie der Shader übersetzt wird, persönlich identifizierbare Informationen über die Art der Grafikkarte im Computer des Nutzers an die Webseite preisgeben könnte.
+Diese Erweiterung ist nicht direkt auf Webseiten verfügbar, da die Art und Weise, wie der Shader übersetzt wird, der Webseite persönlich identifizierbare Informationen über die Art der Grafikkarte im Computer des Benutzers offenbaren könnte.
 
-WebGL-Erweiterungen sind verfügbar über die Methode {{domxref("WebGLRenderingContext.getExtension()")}}. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe auch [Erweiterungen verwenden](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Je nach den Datenschutzeinstellungen des Browsers könnte diese Erweiterung nur in privilegierten Kontexten verfügbar sein.
+> Abhängig von den Datenschutzeinstellungen des Browsers könnte diese Erweiterung nur in privilegierten Kontexten verfügbar sein.
 >
-> Diese Erweiterung ist sowohl für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} als auch {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} Kontexte verfügbar.
+> Diese Erweiterung ist sowohl in {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}}- als auch in {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}}-Kontexten verfügbar.
 
 ## Instanzmethoden
 
-- {{domxref("WEBGL_debug_shaders.getTranslatedShaderSource()")}}
+- [`WEBGL_debug_shaders.getTranslatedShaderSource()`](/de/docs/Web/API/WEBGL_debug_shaders/getTranslatedShaderSource)
   - : Gibt die übersetzte Shader-Quelle zurück.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getExtension()")}}
+- [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension)

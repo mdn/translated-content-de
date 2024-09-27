@@ -1,5 +1,5 @@
 ---
-title: "CSSKeywordValue: Eigenschaft value"
+title: "CSSKeywordValue: value-Eigenschaft"
 short-title: value
 slug: Web/API/CSSKeywordValue/value
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`value`**-Eigenschaft der
-{{domxref("CSSKeywordValue")}}-Schnittstelle gibt den Wert der
-`CSSKeywordValue` zurück oder legt ihn fest.
+Die **`value`**-Eigenschaft des
+[`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)-Interfaces gibt den Wert des
+`CSSKeywordValue` zurück oder setzt ihn.
 
 ## Wert
 
-Ein Zeichenfolge.
+Ein String.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die `value`-Eigenschaft eine leere {{jsxref('String')}} ist, wenn sie gesetzt wird.
+  - : Wird ausgelöst, wenn die `value`-Eigenschaft ein leerer {{jsxref('String')}} ist, während sie gesetzt wird.
 
 ## Beispiele
 

@@ -1,5 +1,5 @@
 ---
-title: "MutationRecord: Eigenschaft attributeName"
+title: "MutationRecord: attributeName-Eigenschaft"
 short-title: attributeName
 slug: Web/API/MutationRecord/attributeName
 l10n:
@@ -8,31 +8,31 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte Eigenschaft **`attributeName`** von {{domxref("MutationRecord")}} enthält den Namen eines geänderten Attributs, das zu einem Knoten gehört, der von einem {{domxref("MutationObserver")}} beobachtet wird.
+Die schreibgeschützte Eigenschaft **`attributeName`** des [`MutationRecord`](/de/docs/Web/API/MutationRecord) enthält den Namen eines geänderten Attributs, das zu einem Knoten gehört, der von einem [`MutationObserver`](/de/docs/Web/API/MutationObserver) beobachtet wird.
 
 ## Wert
 
-Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Records `attributes` ist, handelt es sich um einen String, der den Namen des mutierten Attributs des Mutationsziels darstellt.
+Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Eintrags `attributes` ist, ist dies ein String, der den Namen des veränderten Attributs des Mutationsziels darstellt.
 
-Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) des Records nicht `attributes` ist, ist dieser `null`.
+Wenn der [`type`](/de/docs/Web/API/MutationRecord/type) nicht `attributes` ist, ist dies `null`.
 
 ## Beispiele
 
 ### Namen des zuletzt aktualisierten Attributs abrufen
 
-Im folgenden Beispiel gibt es vier Schaltflächen: Zwei ändern das `style`-Attribut des `h1`-Elements, und zwei ändern das `class`-Attribut des `h1`-Elements. Das Skript verwendet einen {{domxref("MutationObserver")}}, um die Änderungen zu erkennen und den untenstehenden Text auf den Namen des zuletzt geänderten Attributs zu aktualisieren.
+Im folgenden Beispiel gibt es vier Schaltflächen: zwei ändern das `style`-Attribut des `h1`-Elements, und zwei ändern das `class`-Attribut des `h1`-Elements. Das Skript verwendet einen [`MutationObserver`](/de/docs/Web/API/MutationObserver), um die Änderungen zu erkennen und aktualisiert den Text darunter auf den Namen des zuletzt geänderten Attributs.
 
 #### HTML
 
 ```html
 <h1 class="blue" style="color:black;" id="hiMom">Hi, Mom!</h1>
 
-<button id="redButton">Setze Klasse auf "red"</button>
-<button id="blueButton">Setze Klasse auf "blue"</button>
-<button id="whiteButton">Setze Stil auf "color:white;"</button>
-<button id="blackButton">Setze Stil auf "color:black;"</button>
+<button id="redButton">Set class to "red"</button>
+<button id="blueButton">Set class to "blue"</button>
+<button id="whiteButton">Set style to "color:white;"</button>
+<button id="blackButton">Set style to "color:black;"</button>
 
-<p id="log">Aktualisierter Attributname:</p>
+<p id="log">Updated attribute name:</p>
 ```
 
 #### CSS
@@ -78,7 +78,7 @@ blackButton.addEventListener("click", () => {
 function logLastAttr(mutationRecordArray) {
   for (const record of mutationRecordArray) {
     if (record.type === "attributes") {
-      log.textContent = `Aktualisierter Attributname: ${record.attributeName}`;
+      log.textContent = `Updated attribute name: ${record.attributeName}`;
     }
   }
 }

@@ -8,14 +8,14 @@ l10n:
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.createLinearGradient()`**-Methode der Canvas 2D API erstellt einen Farbverlauf entlang der Linie, die zwei gegebene Koordinaten verbindet.
+Die Methode **`CanvasRenderingContext2D.createLinearGradient()`** der Canvas-2D-API erstellt einen Farbverlauf entlang der Linie, die zwei gegebene Koordinaten verbindet.
 
-![Der Farbverlauf wechselt die Farben entlang der Farbverlaufs-Linie, beginnend am Punkt x0, y0 und verlaufend bis x1, y1, selbst wenn diese Punkte den Verlauf über die Ränder des Elements hinaus erstrecken, auf dem der Verlauf gezeichnet wird.](mdn-canvas-lineargradient.png)
+![Der Farbverlauf wechselt die Farben entlang der Verlaufslinie, beginnend bei Punkt x0, y0 und fortlaufend bis x1, y1, selbst wenn diese Punkte die Verlaufslinie über die Ränder des Elements hinauserstrecken, auf dem der Farbverlauf gezeichnet wird.](mdn-canvas-lineargradient.png)
 
-Diese Methode gibt ein lineares {{domxref("CanvasGradient")}} zurück. Um auf eine Form angewendet zu werden, muss der Verlauf zuerst den Eigenschaften {{domxref("CanvasRenderingContext2D.fillStyle", "fillStyle")}} oder {{domxref("CanvasRenderingContext2D.strokeStyle", "strokeStyle")}} zugewiesen werden.
+Diese Methode gibt einen linearen [`CanvasGradient`](/de/docs/Web/API/CanvasGradient) zurück. Damit der Farbverlauf auf eine Form angewendet wird, muss er zuerst den Eigenschaften [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) oder [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) zugewiesen werden.
 
 > [!NOTE]
-> Farbverlaufkoordinaten sind global, d.h., relativ zum aktuellen Koordinatensystem. Wenn auf eine Form angewendet, sind die Koordinaten NICHT relativ zu den Koordinaten der Form.
+> Farbverlaufskoordinaten sind global, d.h. relativ zum aktuellen Koordinatenraum. Wenn sie auf eine Form angewendet werden, sind die Koordinaten NICHT relativ zu den Koordinaten der Form.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Diese Methode gibt ein lineares {{domxref("CanvasGradient")}} zurück. Um auf ei
 createLinearGradient(x0, y0, x1, y1)
 ```
 
-Die Methode `createLinearGradient()` wird durch vier Parameter definiert, die die Start- und Endpunkte der Farbverlaufs-Linie festlegen.
+Die Methode `createLinearGradient()` wird durch vier Parameter spezifiziert, die die Start- und Endpunkte der Verlaufslinie definieren.
 
 ### Parameter
 
@@ -38,18 +38,18 @@ Die Methode `createLinearGradient()` wird durch vier Parameter definiert, die di
 
 ### Rückgabewert
 
-Ein lineares {{domxref("CanvasGradient")}}, initialisiert mit der angegebenen Linie.
+Ein linearer [`CanvasGradient`](/de/docs/Web/API/CanvasGradient), initialisiert mit der angegebenen Linie.
 
 ### Ausnahmen
 
-- `NotSupportedError` {{domxref("DOMException")}}
-  - : Wird ausgelöst, wenn nicht-finite Werte als Parameter übergeben werden.
+- `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wird ausgelöst, wenn nicht-finanzielle Werte als Parameter übergeben werden.
 
 ## Beispiele
 
 ### Ein Rechteck mit einem linearen Farbverlauf füllen
 
-Dieses Beispiel initialisiert einen linearen Farbverlauf mittels der `createLinearGradient()`-Methode. Drei Farbverlaufstopps werden dann zwischen den Start- und Endpunkten des Farbverlaufs erstellt. Schließlich wird der Farbverlauf dem Canvas-Kontext zugewiesen und zu einem gefüllten Rechteck gerendert.
+Dieses Beispiel initialisiert einen linearen Farbverlauf mit der Methode `createLinearGradient()`. Drei Farbstopps zwischen den Start- und Endpunkten des Farbverlaufs werden dann erstellt. Schließlich wird der Farbverlauf dem Canvas-Kontext zugewiesen und auf ein gefülltes Rechteck gezeichnet.
 
 #### HTML
 
@@ -63,17 +63,17 @@ Dieses Beispiel initialisiert einen linearen Farbverlauf mittels der `createLine
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// Einen linearen Farbverlauf erstellen
-// Der Startpunkt des Farbverlaufs ist bei x=20, y=0
-// Der Endpunkt des Farbverlaufs ist bei x=220, y=0
+// Create a linear gradient
+// The start gradient point is at x=20, y=0
+// The end gradient point is at x=220, y=0
 const gradient = ctx.createLinearGradient(20, 0, 220, 0);
 
-// Drei Farbstopps hinzufügen
+// Add three color stops
 gradient.addColorStop(0, "green");
 gradient.addColorStop(0.5, "cyan");
 gradient.addColorStop(1, "green");
 
-// Den Füllstil setzen und ein Rechteck zeichnen
+// Set the fill style and draw a rectangle
 ctx.fillStyle = gradient;
 ctx.fillRect(20, 20, 200, 100);
 ```
@@ -92,6 +92,6 @@ ctx.fillRect(20, 20, 200, 100);
 
 ## Siehe auch
 
-- Die Schnittstelle, die diese Methode definiert: {{domxref("CanvasRenderingContext2D")}}
-- {{domxref("CanvasRenderingContext2D.createRadialGradient()")}}
-- {{domxref("CanvasRenderingContext2D.createConicGradient()")}}
+- Das Interface, das diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- [`CanvasRenderingContext2D.createRadialGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createRadialGradient)
+- [`CanvasRenderingContext2D.createConicGradient()`](/de/docs/Web/API/CanvasRenderingContext2D/createConicGradient)

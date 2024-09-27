@@ -1,5 +1,5 @@
 ---
-title: "NavigationActivation: Eigenschaft navigationType"
+title: "NavigationActivation: navigationType-Eigenschaft"
 short-title: navigationType
 slug: Web/API/NavigationActivation/navigationType
 l10n:
@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`navigationType`** des {{domxref("NavigationActivation")}}-Interfaces enthält einen String, der den Typ der Navigation angibt.
+Die **`navigationType`** schreibgeschützte Eigenschaft des [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Interfaces enthält einen String, der den Navigations-Typ angibt.
 
 ## Wert
 
-Ein String, der den Typ der Navigation beschreibt, auf den sich das {{domxref("NavigationActivation")}} bezieht. Mögliche Werte sind:
+Ein String, der den Navigations-Typ repräsentiert, auf den sich die [`NavigationActivation`](/de/docs/Web/API/NavigationActivation) bezieht. Mögliche Werte sind:
 
-- `push`: Zu einem neuen Ort wurde navigiert, wodurch ein neuer Eintrag in die Verlaufsliste eingefügt wurde.
-- `reload`: Der {{domxref("NavigationActivation.entry")}} wurde neu geladen.
-- `replace`: Der {{domxref("NavigationActivation.entry")}} wurde durch einen neuen Verlaufseintrag ersetzt. Dieser neue Eintrag verwendet denselben {{domxref("NavigationHistoryEntry.key", "key")}}, erhält jedoch eine andere {{domxref("NavigationHistoryEntry.id", "id")}}.
+- `push`: Ein neuer Ort wurde navigiert, wodurch ein neuer Eintrag in die Verlaufsliste hinzugefügt wurde.
+- `reload`: Die [`NavigationActivation.entry`](/de/docs/Web/API/NavigationActivation/entry) wurde neu geladen.
+- `replace`: Die [`NavigationActivation.entry`](/de/docs/Web/API/NavigationActivation/entry) wurde durch einen neuen Verlaufseintrag ersetzt. Dieser neue Eintrag wird denselben [`key`](/de/docs/Web/API/NavigationHistoryEntry/key) verwenden, aber eine andere [`id`](/de/docs/Web/API/NavigationHistoryEntry/id) zugewiesen bekommen.
 - `traverse`: Der Browser navigierte von einem bestehenden Verlaufseintrag zu einem anderen bestehenden Verlaufseintrag.
 
 ## Beispiele
 
 ```js
 window.addEventListener("pageswap", (event) => {
-  // Zum Beispiel, die Seite wurde versteckt oder die Navigation ist dokumentübergreifend.
+  // For example, the page was hidden, or the navigation is cross-document.
   if (!event.viewTransition) return;
 
-  // Überspringen Sie die Ansichtstransition für Vorwärts-/Rückwärtsnavigationen.
+  // Skip the view transition for back/forward navigations.
   if (event.activation.navigationType === "traverse") {
     event.viewTransition.skipTransition();
   }

@@ -1,5 +1,5 @@
 ---
-title: "HTMLLabelElement: Eigenschaft control"
+title: "HTMLLabelElement: control-Eigenschaft"
 short-title: control
 slug: Web/API/HTMLLabelElement/control
 l10n:
@@ -8,14 +8,19 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`HTMLLabelElement.control`** Eigenschaft gibt eine Referenz zu dem Steuerelement zurück (in der Form eines Objekts vom Typ {{domxref("HTMLElement")}} oder einem seiner Derivate), mit dem das {{HTMLElement("label")}} Element assoziiert ist, oder `null` falls das Label nicht mit einem Steuerelement verbunden ist.
+Die schreibgeschützte **`HTMLLabelElement.control`**-Eigenschaft gibt eine
+Referenz zu dem Steuerelement zurück (in Form eines Objekts vom Typ [`HTMLElement`](/de/docs/Web/API/HTMLElement) oder
+eines seiner Derivate), mit dem das {{HTMLElement("label")}}-Element verknüpft ist,
+oder `null`, wenn das Label keinem Steuerelement zugeordnet ist.
 
 ## Wert
 
-Ein von {{domxref("HTMLElement")}} abgeleitetes Objekt, das das mit dem {{HTMLElement("label")}} verbundene Steuerelement darstellt, oder `null`, wenn das Label alleine steht.
+Ein vom [`HTMLElement`](/de/docs/Web/API/HTMLElement) abgeleitetes Objekt, das das Steuerelement darstellt, mit dem das
+{{HTMLElement("label")}} verknüpft ist, oder `null`, wenn das Label allein steht.
 
 > [!NOTE]
-> Wenn diese Eigenschaft einen Wert hat und {{domxref("HTMLLabelElement.htmlFor")}} ebenfalls einen Wert hat, muss die {{domxref("HTMLLabelElement.htmlFor")}} Eigenschaft auf dasselbe Steuerelement verweisen.
+> Wenn diese Eigenschaft einen Wert hat und [`HTMLLabelElement.htmlFor`](/de/docs/Web/API/HTMLLabelElement/htmlFor) ebenfalls einen Wert hat,
+> muss die [`HTMLLabelElement.htmlFor`](/de/docs/Web/API/HTMLLabelElement/htmlFor)-Eigenschaft auf dasselbe Steuerelement verweisen.
 
 ## Spezifikationen
 
@@ -27,7 +32,7 @@ Ein von {{domxref("HTMLElement")}} abgeleitetes Objekt, das das mit dem {{HTMLEl
 
 ## Siehe auch
 
-- {{domxref("HTMLLabelElement")}}
-- {{domxref("HTMLElement")}}
+- [`HTMLLabelElement`](/de/docs/Web/API/HTMLLabelElement)
+- [`HTMLElement`](/de/docs/Web/API/HTMLElement)
 - {{HTMLElement("label")}}
-- [HTML-Formulare Leitfaden](/de/docs/Learn/Forms)
+- [Leitfaden zu HTML-Formularen](/de/docs/Learn/Forms)

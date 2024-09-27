@@ -7,25 +7,26 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Clearing_by_clicking","Learn/WebGL/By_example/Color_masking")}}
 
-Eine sehr grundlegende Farbanimation, erstellt mit {{Glossary("WebGL")}}, durchgeführt durch das Löschen des Zeichenpuffers mit einer anderen zufälligen Farbe jede Sekunde.
+Eine sehr einfache Farbanimation, erstellt mit [WebGL](/de/docs/Glossary/WebGL), die durch das Löschen des Zeichenpuffers jede Sekunde in einer anderen zufälligen Farbe durchgeführt wird.
 
-## Farbanimation mit Löschen
+## Farbanimation mit Clear
 
 {{EmbedLiveSample("Color_animation_with_clear",660,425)}}
 
-Dieses Beispiel bietet eine einfache Veranschaulichung der Farbanimation mit {{Glossary("WebGL")}} sowie der Benutzerinteraktion. Der Nutzer kann die Animation durch Klicken auf die Schaltfläche starten, stoppen und neu starten.
+Dieses Beispiel bietet eine einfache Darstellung der Farbanimation mit [WebGL](/de/docs/Glossary/WebGL) sowie die Benutzerinteraktion. Der Benutzer kann die Animation starten, stoppen und neu starten, indem er auf den Button klickt.
 
-Diesmal platzieren wir die {{Glossary("WebGL")}} Funktionsaufrufe innerhalb eines Timer-Ereignishandlers. Ein Klick-Ereignishandler ermöglicht zusätzlich die grundlegende Benutzerinteraktion zum Starten und Stoppen der Animation. Der Timer und die Timer-Handler-Funktion etablieren die Animationsschleife, eine Reihe von Zeichenbefehlen, die in regelmäßigen Abständen ausgeführt werden (typischerweise jedes Frame; in diesem Fall einmal pro Sekunde).
+Dieses Mal haben wir die [WebGL](/de/docs/Glossary/WebGL) Funktionsaufrufe in einen Timer-Ereignishandler eingefügt. Ein Klick-Ereignishandler ermöglicht zusätzlich die grundlegende Benutzerinteraktion zum Starten und Stoppen der Animation. Der Timer und die Timer-Handlerfunktion etablieren die Animationsschleife, einen Satz von Zeichenbefehlen, die in regelmäßigen Abständen ausgeführt werden (typischerweise jedes Bild; in diesem Fall einmal pro Sekunde).
 
 ```html
-<p>Ein einfaches WebGL-Programm, das Farbanimation zeigt.</p>
-<p>Sie können unten auf die Schaltfläche klicken, um die Farbanimation ein- oder auszuschalten.</p>
+<p>A simple WebGL program that shows color animation.</p>
+<p>You can click the button below to toggle the color animation on or off.</p>
 <canvas id="canvas-view">
-  Ihr Browser scheint HTML-Canvas nicht zu unterstützen.
+  Your browser does not seem to support HTML canvas.
 </canvas>
 <button id="animation-onoff">
-  Drücken Sie hier, um die Animation
-  <strong>[Verb hier einfügen]</strong>
+  Press here to
+  <strong>[verb goes here]</strong>
+  the animation
 </button>
 ```
 
@@ -57,31 +58,31 @@ window.addEventListener(
     "use strict";
     window.removeEventListener(evt.type, setupAnimation, false);
 
-    // Eine Variable, um einen Timer zu halten, der die Animation antreibt.
+    // A variable to hold a timer that drives the animation.
     let timer;
 
-    // Klick-Ereignishandler.
+    // Click event handlers.
     const button = document.querySelector("#animation-onoff");
     const verb = document.querySelector("strong");
     function startAnimation(evt) {
       button.removeEventListener(evt.type, startAnimation, false);
       button.addEventListener("click", stopAnimation, false);
-      verb.textContent = "stoppen";
-      // Animationsschleife einrichten, indem jede Sekunde neu gezeichnet wird.
+      verb.textContent = "stop";
+      // Setup animation loop by redrawing every second.
       timer = setInterval(drawAnimation, 1000);
-      // Sofortiges Feedback an den Benutzer nach dem Klicken, durch
-      // Zeichnen eines Animationsframes.
+      // Give immediate feedback to user after clicking, by
+      // drawing one animation frame.
       drawAnimation();
     }
     function stopAnimation(evt) {
       button.removeEventListener(evt.type, stopAnimation, false);
       button.addEventListener("click", startAnimation, false);
-      verb.textContent = "starten";
-      // Animation stoppen, indem der Timer gelöscht wird.
+      verb.textContent = "start";
+      // Stop animation by clearing the timer.
       clearInterval(timer);
     }
-    // Einmal stopAnimation() aufrufen, um die initialen Ereignishandler
-    // für das Canvas und den Button einzurichten.
+    // Call stopAnimation() once to set up the initial event
+    // handlers for canvas and button.
     stopAnimation({ type: "click" });
 
     let gl;
@@ -93,24 +94,24 @@ window.addEventListener(
         if (!gl) {
           clearInterval(timer);
           alert(
-            "WebGL-Kontext konnte nicht abgerufen werden.\n" +
-              "Ihr Browser oder Gerät unterstützt möglicherweise kein WebGL.",
+            "Failed to get WebGL context.\n" +
+              "Your browser or device may not support WebGL.",
           );
           return;
         }
         gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
       }
 
-      // Einen zufälligen Farbwert mithilfe einer Hilfsfunktion erhalten.
+      // Get a random color value using a helper function.
       const color = getRandomColor();
-      // Die clear-Farbe des WebGLRenderingContext auf die
-      // zufällige Farbe setzen.
+      // Set the WebGLRenderingContext clear color to the
+      // random color.
       gl.clearColor(color[0], color[1], color[2], 1.0);
-      // Den Kontext mit der neu gesetzten Farbe löschen.
+      // Clear the context with the newly set color.
       gl.clear(gl.COLOR_BUFFER_BIT);
     }
 
-    // Hilfsfunktion für zufällige Farben.
+    // Random color helper function.
     function getRandomColor() {
       return [Math.random(), Math.random(), Math.random()];
     }

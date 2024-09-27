@@ -1,5 +1,5 @@
 ---
-title: "WebGLRenderingContext: Methode getShaderParameter()"
+title: "WebGLRenderingContext: getShaderParameter()-Methode"
 short-title: getShaderParameter()
 slug: Web/API/WebGLRenderingContext/getShaderParameter
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGLRenderingContext.getShaderParameter()`**-Methode des [WebGL APIs](/de/docs/Web/API/WebGL_API) gibt Informationen über den gegebenen Shader zurück.
+Die **`WebGLRenderingContext.getShaderParameter()`**-Methode der [WebGL API](/de/docs/Web/API/WebGL_API) gibt Informationen über den angegebenen Shader zurück.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ getShaderParameter(shader, pname)
 ### Parameter
 
 - `shader`
-  - : Ein {{domxref("WebGLShader")}}, von dem Parameterinformationen abgerufen werden sollen.
+  - : Ein [`WebGLShader`](/de/docs/Web/API/WebGLShader), von dem Parameterinformationen abgerufen werden sollen.
 - `pname`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, der die abzufragenden Informationen angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der die abzufragenden Informationen angibt. Mögliche Werte:
 
     - `gl.DELETE_STATUS`
-      - : Gibt ein {{domxref("WebGL_API/Types", "GLboolean")}} zurück, das angibt, ob der Shader zur Löschung markiert ist.
+      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das angibt, ob der Shader zum Löschen markiert ist oder nicht.
     - `gl.COMPILE_STATUS`
-      - : Gibt ein {{domxref("WebGL_API/Types", "GLboolean")}} zurück, das angibt, ob die letzte Shader-Kompilierung erfolgreich war.
+      - : Gibt ein [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, das angibt, ob die letzte Shader-Kompilierung erfolgreich war oder nicht.
     - `gl.SHADER_TYPE`
-      - : Gibt ein {{domxref("WebGL_API/Types", "GLenum")}} zurück, das angibt, ob der Shader ein Vertex-Shader (`gl.VERTEX_SHADER`) oder Fragment-Shader (`gl.FRAGMENT_SHADER`) Objekt ist.
+      - : Gibt ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types) zurück, das angibt, ob der Shader ein Vertex-Shader (`gl.VERTEX_SHADER`) oder ein Fragment-Shader (`gl.FRAGMENT_SHADER`) Objekt ist.
 
 ### Rückgabewert
 
@@ -51,4 +51,4 @@ gl.getShaderParameter(shader, gl.SHADER_TYPE);
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getProgramParameter()")}}
+- [`WebGLRenderingContext.getProgramParameter()`](/de/docs/Web/API/WebGLRenderingContext/getProgramParameter)

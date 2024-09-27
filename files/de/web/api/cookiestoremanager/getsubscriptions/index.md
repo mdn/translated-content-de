@@ -1,5 +1,5 @@
 ---
-title: "CookieStoreManager: Methode getSubscriptions()"
+title: "CookieStoreManager: getSubscriptions()-Methode"
 short-title: getSubscriptions()
 slug: Web/API/CookieStoreManager/getSubscriptions
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Cookie Store API")}}{{AvailableInWorkers("window_and_service")}}
 
-Die **`getSubscriptions()`** Methode des {{domxref("CookieStoreManager")}} Interface gibt eine Liste aller Cookie-Änderungs-Abonnements für diese {{domxref("ServiceWorkerRegistration")}} zurück.
+Die **`getSubscriptions()`**-Methode des [`CookieStoreManager`](/de/docs/Web/API/CookieStoreManager)-Interfaces gibt eine Liste aller Cookie-Änderungsabonnements für diese [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) zurück.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer Liste von Objekten aufgelöst wird, von denen jedes Folgendes enthält:
+Ein {{jsxref("Promise")}}, der mit einer Liste von Objekten aufgelöst wird, die jeweils enthalten:
 
 - `name`
   - : Ein String mit dem Namen eines Cookies.
@@ -31,7 +31,7 @@ Ein {{jsxref("Promise")}}, das mit einer Liste von Objekten aufgelöst wird, von
 
 ## Beispiele
 
-Wenn die {{domxref("ServiceWorkerRegistration")}}, die von `registration` repräsentiert wird, auf irgendwelche Cookie-Änderungsereignisse abonniert ist, wird `subscriptions` zu einer Liste von Objekten aufgelöst, die den Namen und die URL dieser Cookies enthalten.
+Wenn die [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration), die durch `registration` repräsentiert wird, auf Cookie-Änderungsereignisse abonniert ist, wird `subscriptions` zu einer Liste von Objekten aufgelöst, die den Namen und die URL dieser Cookies enthalten.
 
 ```js
 const subscriptions = await self.registration.cookies.getSubscriptions();

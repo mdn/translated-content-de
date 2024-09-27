@@ -8,25 +8,25 @@ l10n:
 
 {{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte **`type`**-Eigenschaft des {{domxref("RTCEncodedVideoFrame")}} Interfaces gibt an, ob dieser Frame ein Schlüsselbild, ein Delta-Frame oder ein leerer Frame ist.
+Die readonly **`type`**-Eigenschaft des [`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame)-Interfaces gibt an, ob es sich bei diesem Frame um einen Key-Frame, Delta-Frame oder leeren Frame handelt.
 
 ## Wert
 
 Der Typ kann einen der folgenden Werte haben:
 
 - `key`
-  - : Dies ist ein "Schlüsselbild", das alle Informationen enthält, die erforderlich sind, um ein Bild darzustellen.
-    Es kann ohne Bezugnahme auf andere Frames dekodiert werden.
+  - : Dies ist ein "Key-Frame", der alle Informationen enthält, die benötigt werden, um ein Bild darzustellen.
+    Er kann ohne Bezug auf andere Frames dekodiert werden.
 - `delta`
-  - : Dies ist ein "Delta-Frame", das Änderungen an einem Bild relativ zu einem vorherigen Frame enthält.
+  - : Dies ist ein "Delta-Frame", der Änderungen an einem Bild im Vergleich zu einem vorherigen Frame enthält.
     Der Frame kann nicht dekodiert werden, ohne Zugriff auf die referenzierten Frame(s) zu haben.
 - `empty`
   - : Dieser Frame enthält keine Daten.
-    Dieser Wert ist unerwartet und kann darauf hindeuten, dass die Transformation nach der Transformation noch eine Referenz zu Frames hält und an {{domxref("RTCRtpScriptTransformer.writable")}} übergeben wurde (nach der Rückübertragung in die Haupt-Thread-WebRTC-Pipeline wird das Worker-Seiten-Frame-Objekt keine Daten haben).
+    Dieser Wert ist unerwartet und kann darauf hinweisen, dass die Transformation eine Referenz auf Frames hält, nachdem sie transformiert und an [`RTCRtpScriptTransformer.writable`](/de/docs/Web/API/RTCRtpScriptTransformer/writable) übergeben wurden (nach der Rückübertragung in die Haupt-Thread-WebRTC-Pipeline hat das Worker-Seiten-Frame-Objekt keine Daten mehr).
 
 ## Beispiele
 
-Die Implementierung einer `transform()`-Funktion in einer [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) kann den `type` betrachten und den Transformationscode basierend darauf modifizieren, ob es sich um ein Schlüsselbild oder ein Delta-Frame handelt:
+Die Implementierung einer `transform()`-Funktion in einem [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) kann den `type` berücksichtigen und den Transformationscode basierend darauf ändern, ob es sich um einen Key-Frame oder Delta-Frame handelt:
 
 ```js
 const transformer = new TransformStream({

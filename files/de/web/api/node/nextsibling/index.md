@@ -8,28 +8,20 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`nextSibling`** Eigenschaft der {{domxref("Node")}}-Schnittstelle
-gibt das direkt folgende Knoten im übergeordneten {{domxref("Node.childNodes","childNodes")}}-Knoten zurück oder `null`, wenn der angegebene Knoten das letzte Kind im übergeordneten Element ist.
+Die schreibgeschützte **`nextSibling`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces gibt den Knoten zurück, der unmittelbar dem angegebenen Knoten in der [`childNodes`](/de/docs/Web/API/Node/childNodes)-Liste des übergeordneten Elements folgt, oder `null`, wenn der angegebene Knoten das letzte Kind im übergeordneten Element ist.
 
 > [!NOTE]
-> Browser fügen {{domxref("Text")}}-Knoten in ein Dokument ein, um Leerzeichen im Quellmarkup darzustellen.
-> Daher kann ein Knoten, der zum Beispiel mit [`Node.firstChild`](/de/docs/Web/API/Node/firstChild)
-> oder [`Node.previousSibling`](/de/docs/Web/API/Node/previousSibling) erhalten wird,
-> auf einen Leerzeichentextknoten verweisen, anstatt auf das tatsächliche Element, das der Autor
-> erhalten wollte.
+> Browser fügen [`Text`](/de/docs/Web/API/Text)-Knoten in ein Dokument ein, um Leerzeichen im Quellmarkup darzustellen. Daher kann ein Knoten, der zum Beispiel mit [`Node.firstChild`](/de/docs/Web/API/Node/firstChild) oder [`Node.previousSibling`](/de/docs/Web/API/Node/previousSibling) erhalten wurde, auf einen Leerzeichen-Textknoten verweisen, anstatt auf das tatsächliche Element, das der Autor beabsichtigt hat zu erhalten.
 >
-> Der Artikel [Leerzeichen im DOM](/de/docs/Web/API/Document_Object_Model/Whitespace)
-> enthält weitere Informationen über dieses Verhalten.
+> Der Artikel [Whitespace in the DOM](/de/docs/Web/API/Document_Object_Model/Whitespace) enthält mehr Informationen zu diesem Verhalten.
 >
-> Sie können {{domxref("Element.nextElementSibling")}} verwenden, um das nächste Element zu erhalten,
-> wobei Leerzeicheneinträge, andere Texte zwischen Elementen oder Kommentare übersprungen werden.
+> Sie können [`Element.nextElementSibling`](/de/docs/Web/API/Element/nextElementSibling) verwenden, um das nächste Element zu erhalten, wobei alle Leerzeichenknoten, anderer zwischen Elementen befindlicher Text oder Kommentare übersprungen werden.
 >
-> Um in die entgegengesetzte Richtung durch die Liste der Knoten zu navigieren, verwenden Sie [Node.previousSibling](/de/docs/Web/API/Node/previousSibling).
+> Um in die entgegengesetzte Richtung durch die Liste der Kindknoten zu navigieren, verwenden Sie [Node.previousSibling](/de/docs/Web/API/Node/previousSibling).
 
 ## Wert
 
-Ein {{domxref("Node")}}, der das nächste Geschwister des aktuellen Knotens darstellt,
-oder `null`, wenn es keine gibt.
+Ein [`Node`](/de/docs/Web/API/Node), der das nächste Geschwister des aktuellen Knotens darstellt, oder `null`, wenn es keines gibt.
 
 ## Beispiel
 
@@ -68,5 +60,5 @@ output.innerText = result;
 
 ## Siehe auch
 
-- {{domxref("Element.nextElementSibling")}}
-- {{domxref("Node.previousSibling")}}
+- [`Element.nextElementSibling`](/de/docs/Web/API/Element/nextElementSibling)
+- [`Node.previousSibling`](/de/docs/Web/API/Node/previousSibling)

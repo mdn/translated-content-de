@@ -1,6 +1,6 @@
 ---
 title: "CSSMathInvert: value-Eigenschaft"
-short-title: Wert
+short-title: value
 slug: Web/API/CSSMathInvert/value
 l10n:
   sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
@@ -8,15 +8,15 @@ l10n:
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die schreibgeschützte Eigenschaft CSSMathInvert.value der {{domxref("CSSMathInvert")}}-Schnittstelle gibt ein {{domxref('CSSNumericValue')}}-Objekt zurück.
+Die schreibgeschützte `value`-Eigenschaft von der [`CSSMathInvert`](/de/docs/Web/API/CSSMathInvert)-Schnittstelle gibt ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue)-Objekt zurück.
 
 ## Wert
 
-Ein {{domxref('CSSNumericValue')}}.
+Ein [`CSSNumericValue`](/de/docs/Web/API/CSSNumericValue).
 
 ## Beispiele
 
-In Bearbeitung
+Zu tun
 
 ## Spezifikationen
 

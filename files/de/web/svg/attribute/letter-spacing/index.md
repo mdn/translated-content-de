@@ -1,5 +1,5 @@
 ---
-title: Zeichenabstand
+title: letter-spacing
 slug: Web/SVG/Attribute/letter-spacing
 l10n:
   sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`letter-spacing`** steuert den Abstand zwischen Textzeichen.
+Das **`letter-spacing`** Attribut steuert den Abstand zwischen Textzeichen.
 
-Wenn der Attributwert eine zahl ohne Einheit (wie `128`) ist, verarbeitet der Browser es als {{cssxref("length")}} im aktuellen Koordinatensystem des Benutzers.
+Wenn der Attributwert eine einheitenlose Zahl ist (wie `128`), verarbeitet der Browser diese als {{cssxref("length")}} im aktuellen Benutzerskoordinatensystem.
 
-Hat der Attributwert eine Einheitenangabe, wie `.25em` oder `1%`, konvertiert der Browser die \<length> in den entsprechenden Wert im aktuellen Koordinatensystem des Benutzers.
+Wenn der Attributwert einen Einheitenbezeichner hat, wie `.25em` oder `1%`, wandelt der Browser die \<length> in ihren entsprechenden Wert im aktuellen Benutzerskoordinatensystem um.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `letter-spacing` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("letter-spacing")}}.
@@ -35,8 +35,8 @@ svg {
 
 ```html
 <svg viewBox="0 0 400 30" xmlns="http://www.w3.org/2000/svg">
-  <text y="20" letter-spacing="2">Größerer Zeichenabstand</text>
-  <text x="200" y="20" letter-spacing="-0.5">Kleinerer Zeichenabstand</text>
+  <text y="20" letter-spacing="2">Bigger letter-spacing</text>
+  <text x="200" y="20" letter-spacing="-0.5">Smaller letter-spacing</text>
 </svg>
 ```
 
@@ -61,7 +61,7 @@ svg {
   </tbody>
 </table>
 
-Für eine Beschreibung der Werte, siehe die [CSS `letter-spacing`](/de/docs/Web/CSS/letter-spacing#values) Eigenschaft.
+Für eine Beschreibung der Werte sehen Sie bitte die [CSS `letter-spacing`](/de/docs/Web/CSS/letter-spacing#values) Eigenschaft ein.
 
 ## Spezifikationen
 

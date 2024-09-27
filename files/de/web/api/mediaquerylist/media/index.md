@@ -8,8 +8,8 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`media`**-Eigenschaft des schreibgeschützten
-{{DOMxRef("MediaQueryList")}}-Interfaces ist ein String, der eine
+Die **`media`** schreibgeschützte Eigenschaft der
+[`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Schnittstelle ist ein String, der eine
 serialisierte Media Query darstellt.
 
 ## Wert
@@ -30,7 +30,7 @@ let mql = window.matchMedia("(max-width: 600px)");
 document.querySelector(".mq-value").innerText = mql.media;
 ```
 
-Der JavaScript-Code übergibt die zu prüfende Media Query an {{DOMxRef("Window.matchMedia", "matchMedia()")}}, um sie zu kompilieren, und setzt dann den {{DOMxRef("HTMLElement.innerText", "innerText")}} des `<span>` auf den Wert der `media`-Eigenschaft des Ergebnisses.
+Der JavaScript-Code übergibt die Media Query an [`matchMedia()`](/de/docs/Web/API/Window/matchMedia), um sie zu erstellen, und setzt dann das [`innerText`](/de/docs/Web/API/HTMLElement/innerText) des `<span>` auf den Wert der `media`-Eigenschaft des Ergebnisses.
 
 ### HTML
 
@@ -38,7 +38,7 @@ Der JavaScript-Code übergibt die zu prüfende Media Query an {{DOMxRef("Window.
 <span class="mq-value"></span>
 ```
 
-Ein einfaches `<span>` zur Aufnahme der Ausgabe.
+Ein einfaches `<span>`, um die Ausgabe zu empfangen.
 
 ```css hidden
 .mq-value {
@@ -67,7 +67,7 @@ Ein einfaches `<span>` zur Aufnahme der Ausgabe.
 ## Siehe auch
 
 - [Media Queries](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [Verwendung von Media Queries im Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
-- {{DOMxRef("window.matchMedia()")}}
-- {{DOMxRef("MediaQueryList")}}
-- {{DOMxRef("MediaQueryListEvent")}}
+- [Verwendung von Media Queries aus Code](/de/docs/Web/CSS/CSS_media_queries/Testing_media_queries)
+- [`window.matchMedia()`](/de/docs/Web/API/Window/matchMedia)
+- [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)
+- [`MediaQueryListEvent`](/de/docs/Web/API/MediaQueryListEvent)

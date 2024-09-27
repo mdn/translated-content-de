@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("Payment Handler API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}
 
-Die **`CanMakePaymentEvent`**-Schnittstelle der {{domxref("Payment Handler API", "", "", "nocode")}} ist das Event-Objekt für das {{domxref("ServiceWorkerGlobalScope.canmakepayment_event", "canmakepayment")}}-Ereignis, das im Service Worker einer Zahlungs-App ausgelöst wird, um zu überprüfen, ob sie bereit ist, eine Zahlung zu bearbeiten. Es wird ausgelöst, wenn die Händler-Website den {{domxref("PaymentRequest.PaymentRequest", "PaymentRequest()")}}-Konstruktor aufruft.
+Das **`CanMakePaymentEvent`** Interface der [Payment Handler API](/de/docs/Web/API/Payment_Handler_API) ist das Ereignisobjekt für das [`canmakepayment`](/de/docs/Web/API/ServiceWorkerGlobalScope/canmakepayment_event) Ereignis, das im Service Worker einer Zahlungs-App ausgelöst wird, um zu überprüfen, ob es bereit ist, eine Zahlung zu bearbeiten. Insbesondere wird es ausgelöst, wenn die Händler-Website den [`PaymentRequest()`](/de/docs/Web/API/PaymentRequest/PaymentRequest) Konstruktor aufruft.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("CanMakePaymentEvent.CanMakePaymentEvent", "CanMakePaymentEvent()")}} {{Experimental_Inline}}
-  - : Erstellt eine neue Instanz des `CanMakePaymentEvent`-Objekts.
+- [`CanMakePaymentEvent()`](/de/docs/Web/API/CanMakePaymentEvent/CanMakePaymentEvent) {{Experimental_Inline}}
+  - : Erstellt eine neue Instanz des `CanMakePaymentEvent` Objekts.
 
 ## Instanzmethoden
 
-- {{domxref("CanMakePaymentEvent.respondWith", "respondWith()")}} {{Experimental_Inline}}
-  - : Ermöglicht es dem Service Worker, angemessen zu antworten, um anzuzeigen, ob er bereit ist, Zahlungen zu bearbeiten.
+- [`respondWith()`](/de/docs/Web/API/CanMakePaymentEvent/respondWith) {{Experimental_Inline}}
+  - : Ermöglicht dem Service Worker, angemessen zu reagieren, um zu signalisieren, ob er bereit ist, Zahlungen zu bearbeiten.
 
 ## Beispiele
 
@@ -49,9 +49,9 @@ self.addEventListener("canmakepayment", (e) => {
 
 ## Siehe auch
 
-- {{domxref("Payment Handler API", "Payment Handler API", "", "nocode")}}
+- [Payment Handler API](/de/docs/Web/API/Payment_Handler_API)
 - [Überblick über webbasierte Zahlungs-Apps](https://web.dev/articles/web-based-payment-apps-overview)
-- [Einrichten einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
-- [Ablauf einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
+- [Einrichtung einer Zahlungsmethode](https://web.dev/articles/setting-up-a-payment-method)
+- [Der Lebenszyklus einer Zahlungstransaktion](https://web.dev/articles/life-of-a-payment-transaction)
 - [Verwendung der Payment Request API](/de/docs/Web/API/Payment_Request_API/Using_the_Payment_Request_API)
 - [Konzepte der Zahlungsabwicklung](/de/docs/Web/API/Payment_Request_API/Concepts)

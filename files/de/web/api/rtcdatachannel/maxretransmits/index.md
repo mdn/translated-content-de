@@ -9,14 +9,12 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die schreibgeschützte `RTCDataChannel`-Eigenschaft
-**`maxRetransmits`** gibt die maximale Anzahl an, wie oft der
-Browser versuchen soll, eine Nachricht neu zu übertragen, bevor er aufgibt, wie bei der Erstellung des Datenkanals festgelegt, oder `null`, was anzeigt, dass es kein Maximum gibt. Dies kann nur festgelegt werden, wenn das {{domxref("RTCDataChannel")}} durch den Aufruf von {{domxref("RTCPeerConnection.createDataChannel()")}} erstellt wird, unter Verwendung des `maxRetransmits`-Felds in den angegebenen `options`.
+**`maxRetransmits`** gibt die maximale Anzahl von Wiederholungsversuchen an, die der Browser unternehmen sollte, um eine Nachricht erneut zu senden, bevor er aufgibt, wie sie beim Erstellen des Datenkanals festgelegt wurde, oder `null`, was anzeigt, dass es kein Maximum gibt. Dies kann nur festgelegt werden, wenn das [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) durch den Aufruf von [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) erstellt wird, unter Verwendung des `maxRetransmits`-Feldes in den angegebenen `options`.
 
 ## Wert
 
-Die maximale Anzahl, wie oft der Browser versuchen wird, eine Nachricht neu zu übertragen, bevor er aufgibt, oder `null`, wenn nicht festgelegt, als
-{{domxref("RTCPeerConnection.createDataChannel()")}} aufgerufen wurde. Der Standardwert ist
-`null`.
+Die maximale Anzahl von Wiederholungsversuchen, die der Browser unternehmen wird, um eine Nachricht erneut zu senden, bevor er aufgibt, oder `null`, wenn dies bei Aufruf von
+[`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) nicht festgelegt wurde. Der Standardwert ist `null`.
 
 ## Spezifikationen
 
@@ -29,6 +27,6 @@ Die maximale Anzahl, wie oft der Browser versuchen wird, eine Nachricht neu zu �
 ## Siehe auch
 
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
-- {{domxref("RTCDataChannel")}}
-- {{domxref("RTCDataChannel.maxPacketLifetime")}}
-- {{domxref("RTCPeerConnection.createDataChannel()")}}
+- [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
+- [`RTCDataChannel.maxPacketLifetime`](/de/docs/Web/API/RTCDataChannel/maxPacketLifetime)
+- [`RTCPeerConnection.createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel)

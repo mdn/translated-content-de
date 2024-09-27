@@ -7,12 +7,12 @@ l10n:
 
 {{APIRef("DOM XPath")}}{{Deprecated_Header}}
 
-Im [DOM XPath API](/de/docs/Web/XPath) stellt das **`XPathException`**-Interface Ausnahmebedingungen dar, die bei der Durchführung von XPath-Operationen auftreten können.
+Im [DOM XPath API](/de/docs/Web/XPath) repräsentiert die **`XPathException`**-Schnittstelle Ausnahmebedingungen, die bei der Durchführung von XPath-Operationen auftreten können.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- {{domxref("XPathException.code")}} {{ReadOnlyInline}}
-  - : Gibt ein `short` zurück, das eine der [Fehlercode-Konstanten](#konstanten) enthält.
+- [`XPathException.code`](/de/docs/Web/API/XPathException/code) {{ReadOnlyInline}}
+  - : Gibt einen `short` zurück, der einen der [Fehlercode-Konstanten](#konstanten) enthält.
 
 ## Konstanten
 
@@ -29,7 +29,10 @@ Im [DOM XPath API](/de/docs/Web/XPath) stellt das **`XPathException`**-Interface
       <td><code>INVALID_EXPRESSION_ERR</code></td>
       <td><code>51</code></td>
       <td>
-        Wenn der Ausdruck einen Syntaxfehler hat oder auf andere Weise kein zulässiger Ausdruck gemäß den Regeln des spezifischen {{domxref("XPathEvaluator")}} ist oder spezielle Erweiterungsfunktionen oder Variablen enthält, die von dieser Implementierung nicht unterstützt werden.
+        Wenn der Ausdruck einen Syntaxfehler enthält oder anderweitig kein legaler
+        Ausdruck gemäß den Regeln des spezifischen
+        [`XPathEvaluator`](/de/docs/Web/API/XPathEvaluator) ist oder spezialisierte
+        Erweiterungsfunktionen oder Variablen enthält, die von dieser Implementierung nicht unterstützt werden.
       </td>
     </tr>
     <tr>
@@ -46,11 +49,11 @@ Im [DOM XPath API](/de/docs/Web/XPath) stellt das **`XPathException`**-Interface
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{DOMxRef("Document.createExpression()")}}
-- {{DOMxRef("XPathExpression")}}
+- [`Document.createExpression()`](/de/docs/Web/API/Document/createExpression)
+- [`XPathExpression`](/de/docs/Web/API/XPathExpression)

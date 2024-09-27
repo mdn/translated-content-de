@@ -1,5 +1,5 @@
 ---
-title: "SpeechRecognition: result Ereignis"
+title: "SpeechRecognition: result-Ereignis"
 short-title: result
 slug: Web/API/SpeechRecognition/result_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Web Speech API")}}
 
-Das **`result`** Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Spracherkennungsdienst ein Ergebnis zurückgibt – ein Wort oder eine Phrase wurde positiv erkannt und dies wurde der Anwendung zurückgemeldet.
+Das **`result`**-Ereignis der [Web Speech API](/de/docs/Web/API/Web_Speech_API) wird ausgelöst, wenn der Spracherkennungsdienst ein Ergebnis liefert – ein Wort oder eine Phrase wurde positiv erkannt und dies wurde an die App zurückgemeldet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignisbehandlungs-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignisbehandlereigenschaft fest.
 
 ```js
 addEventListener("result", (event) => {});
@@ -22,28 +22,28 @@ onresult = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("SpeechRecognitionEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`SpeechRecognitionEvent`](/de/docs/Web/API/SpeechRecognitionEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("SpeechRecognitionEvent")}}
 
 ## Ereigniseigenschaften
 
-_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle, {{domxref("Event")}}, verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
-- {{domxref("SpeechRecognitionEvent.emma")}} {{ReadOnlyInline}}
-  - : Gibt eine Extensible MultiModal Annotation Markupsprache (EMMA) — XML — Darstellung des Ergebnisses zurück.
-- {{domxref("SpeechRecognitionEvent.interpretation")}} {{ReadOnlyInline}}
+- [`SpeechRecognitionEvent.emma`](/de/docs/Web/API/SpeechRecognitionEvent/emma) {{ReadOnlyInline}}
+  - : Gibt eine Extensible MultiModal Annotation Markup Language (EMMA) — XML — Darstellung des Ergebnisses zurück.
+- [`SpeechRecognitionEvent.interpretation`](/de/docs/Web/API/SpeechRecognitionEvent/interpretation) {{ReadOnlyInline}}
   - : Gibt die semantische Bedeutung dessen zurück, was der Benutzer gesagt hat.
-- {{domxref("SpeechRecognitionEvent.resultIndex")}} {{ReadOnlyInline}}
-  - : Gibt den niedrigsten Indexwert zurück, der sich tatsächlich im {{domxref("SpeechRecognitionResultList")}} „Array“ geändert hat.
-- {{domxref("SpeechRecognitionEvent.results")}} {{ReadOnlyInline}}
-  - : Gibt ein {{domxref("SpeechRecognitionResultList")}} Objekt zurück, das alle Spracherkennungsergebnisse für die aktuelle Sitzung darstellt.
+- [`SpeechRecognitionEvent.resultIndex`](/de/docs/Web/API/SpeechRecognitionEvent/resultIndex) {{ReadOnlyInline}}
+  - : Gibt den niedrigsten Indexwert innerhalb des [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-„Arrays“ zurück, der tatsächlich geändert wurde.
+- [`SpeechRecognitionEvent.results`](/de/docs/Web/API/SpeechRecognitionEvent/results) {{ReadOnlyInline}}
+  - : Gibt ein [`SpeechRecognitionResultList`](/de/docs/Web/API/SpeechRecognitionResultList)-Objekt zurück, das alle Spracherkennungsergebnisse für die aktuelle Sitzung darstellt.
 
 ## Beispiele
 
-Dieser Code ist ein Auszug aus unserem [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js) Beispiel.
+Dieser Code stammt aus unserem Beispiel [Speech color changer](https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js).
 
-Sie können das `result` Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener) Methode verwenden:
+Sie können das `result`-Ereignis in einer [`addEventListener`](/de/docs/Web/API/EventTarget/addEventListener)-Methode verwenden:
 
 ```js
 const recognition = new SpeechRecognition();
@@ -55,7 +55,7 @@ recognition.addEventListener("result", (event) => {
 });
 ```
 
-Oder verwenden Sie die `onresult` Ereignisseigenschaft:
+Oder verwenden Sie die `onresult`-Ereignisbehandlereigenschaft:
 
 ```js
 recognition.onresult = (event) => {

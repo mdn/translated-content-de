@@ -1,5 +1,5 @@
 ---
-title: Verwendung der Topics API
+title: Using the Topics API
 slug: Web/API/Topics_API/Using
 l10n:
   sourceCommit: f430d277573ba0b06b1ac33ae8017fd90f170bef
@@ -8,61 +8,61 @@ l10n:
 {{DefaultAPISidebar("Topics API")}}
 
 > [!WARNING]
-> Dieses Feature wird derzeit von zwei Browser-Anbietern abgelehnt. Siehe den Abschnitt [Standpunkt der Standards](/de/docs/Web/API/Topics_API#standards_positions) unten für Details zur Ablehnung.
+> Dieses Feature wird derzeit von zwei Browser-Anbietern abgelehnt. Einzelheiten zur Ablehnung finden Sie im Abschnitt [Standards-Positionen](/de/docs/Web/API/Topics_API#standards_positions) unten.
 
 > [!NOTE]
-> Ein [Registrierungsprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) ist erforderlich, um die Topics-API in Ihren Anwendungen zu nutzen. Siehe den Abschnitt [Registrierung](/de/docs/Web/API/Topics_API#enrollment) für Details, welche Unterfunktionen durch die Registrierung eingeschränkt sind.
+> Ein [Anmeldeverfahren](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) ist erforderlich, um die Topics API in Ihren Anwendungen zu nutzen. Siehe den Abschnitt [Anmeldung](/de/docs/Web/API/Topics_API#enrollment) für Details, welche Unterfunktionen durch die Anmeldung gesperrt sind.
 
-Diese Seite erklärt, wie die Topics API funktioniert und wie sie verwendet werden kann, um eine lösung für interessenbasierte Werbung (IBA) zu erstellen.
+Diese Seite erklärt, wie die Topics API funktioniert und wie sie zur Erstellung einer **interessenbasierten Werbungslösung (IBA)** verwendet werden kann.
 
 ## Übersicht auf hoher Ebene
 
-Angenommen, wir haben eine Ad-Tech-Plattform `ad-tech1.example`, die Werbeanzeigen über {{htmlelement("iframe")}}s in den folgenden Publisher-Webseiten einbettet:
+Angenommen, wir haben eine Ad-Tech-Plattform, `ad-tech1.example`, die Anzeigen über {{htmlelement("iframe")}}s in die folgenden Publisher-Seiten einbettet:
 
 - `yoga.example`
 - `knitting.example`
 - `football.example`
 
-Wenn der `<iframe>`-Inhalt von `ad-tech1.example` ein [Feature implementiert, das die Topics-API aktiviert](#what_api_features_enable_the_topics_api), wird der Browser bei jedem Laden der Seiten:
+Wenn der `<iframe>` Inhalt von `ad-tech1.example` ein [Feature implementiert, das die Topics API aktiviert](#what_api_features_enable_the_topics_api), wird der Browser beim Laden jeder dieser Seiten:
 
-1. **Interessens-Themen** aus der URL der Seite ableiten. Die Themen stammen aus einer [standardisierten Taxonomie](/de/docs/Web/API/Topics_API#what_topics_are_there); für die obigen URL-Beispiele wären das "Fitness", "Faser- & Textilkunst" und "Fußball".
-2. **Die Themen als beobachtet markieren**, was das Aufzeichnen eines **Themen-Verlaufseintrags** für jedes Thema in einem privaten Themenverlaufsspeicher beinhaltet. Jeder Themen-Verlaufseintrag enthält folgende Informationen:
-   - Eine Dokument-ID (d.h. ein Identifikator für die aktuelle Seite).
-   - Eingabedaten zur Themenberechnung (d.h. den Seitendomainnamen).
-   - Die Zeit (seit dem Unix-Epoch), zu der die Seite erstmals beobachtet wurde.
-   - Die Domänen, auf denen das Thema beobachtet wurde (bekannt als **Themen-Abruf-Domänen**).
+1. **Interessante Themen** aus der Seiten-URL ableiten. Die Themen werden aus einer [standardisierten Taxonomie](/de/docs/Web/API/Topics_API#what_topics_are_there) entnommen; für die obigen URL-Beispiele wären dies "Fitness", "Faserkunst & Textilkunst" und "Fußball".
+2. **Die Themen als beobachtet markieren**, was das Aufzeichnen eines **Themenverlaufseintrags** für jedes Thema in einem privaten Themenverlaufspeicher beinhaltet. Jeder Themenverlaufseintrag enthält die folgenden Informationen:
+   - Eine Dokument-ID (d.h. ein Bezeichner für die aktuelle Seite).
+   - Eingabedaten zur Themenberechnung (d.h. den Hostnamen der Seite).
+   - Die Zeit (seit dem Unix-Epochenbeginn), als die Seite erstmals beobachtet wurde.
+   - Die Domänen, auf denen das Thema beobachtet wurde (bekannt als **Topic Caller Domains**).
 
-### Auswahl interessanter Themen zur Beeinflussung der Anzeigenwahl
+### Auswahl interessanter Themen zur Einflussnahme auf die Anzeigenauswahl
 
 > [!NOTE]
-> Verschiedene Browser-Implementierungen können Themen auf unterschiedliche Weise auswählen. Der nachfolgende Text basiert darauf, wie Chrome derzeit Themen auswählt, zum Demonstrationszweck.
+> Unterschiedliche Browserimplementierungen können Themen auf unterschiedliche Weise auswählen. Der untenstehende Text basiert darauf, wie Chrome derzeit Themen auswählt, zu Demonstrationszwecken.
 
 Fortlaufend wird der Browser:
 
-1. Verfolgen, wie oft der Benutzer jedes Thema während jeder neuen **Epoche** beobachtet. Eine Epoche ist standardmäßig eine Woche, aber die Länge kann zu Testzwecken geändert werden (siehe [Testhinweise](#testhinweise)).
+1. Verfolgen, wie oft der Nutzer jedes Thema während jeder neuen **Epoche** beobachtet. Eine Epoche ist standardmäßig eine Woche, aber die Länge kann für Testzwecke verändert werden (siehe [Testhinweise](#testhinweise)).
 
-   Chrome ordnet jedem der 22 Wurzeltopics (die ohne Vorfahren) aus der Taxonomie [einen von zwei Buckets zu](https://github.com/patcg-individual-drafts/topics/blob/main/topics-utility-buckets-v1.md), die eine höhere oder standardmäßige Nützlichkeit für das gesamte Ad-Tech-Ökosystem anzeigen. Alle Nachkommen der Wurzeltopics erben die gleiche Bucket-Zuweisung von ihren Eltern. Die Zuweisung der Wurzeltopics zu Buckets basiert auf Informationen über die Nützlichkeit, die Google von Unternehmen im gesamten Ökosystem erhalten hat.
+   Chrome ordnet jedem der 22 Hauptthemen (Themen ohne Vorläufer) aus der Taxonomie [einen von zwei Buckets](https://github.com/patcg-individual-drafts/topics/blob/main/topics-utility-buckets-v1.md) zu, die eine höhere oder eine normale Nützlichkeit für das gesamte Ad-Tech-Ökosystem anzeigen. Alle Nachkommen der Hauptthemen erben dieselbe Bucket-Zuordnung von ihrem Elternthema. Die Zuordnung der Hauptthemen zu Buckets basiert auf Eingaben zur Nützlichkeit, die Google von Unternehmen aus dem Ökosystem erhalten hat.
 
-2. Am Ende jeder Epoche die wichtigsten Themen für jeden Benutzer auswählen:
+2. Top-Themen für jeden Nutzer am Ende jeder Epoche auswählen:
 
-   1. Chrome konvertiert die Caller-Domain-Hostnamen aus dem Browserverlauf des Benutzers in Themen.
-   2. Diese Themen werden zuerst nach Bucket und dann nach Häufigkeit sortiert (wie oft sie in einem Hostnamen übereinstimmten). Das heißt, wenn zwei Themen im gleichen Bucket, aber mit unterschiedlichen Frequenzen sind, wird das Thema mit der höheren Frequenz höher eingestuft.
-   3. Chrome wählt die fünf wichtigsten Themen als die Top-Themen des Benutzers für diese Epoche aus, die mit den Callern geteilt werden können.
+   1. Chrome konvertiert die Hostnamen der Caller-Domains aus dem Browserverlauf des Nutzers in Themen.
+   2. Diese Themen werden zuerst nach Bucket und dann nach Häufigkeit (wie oft sie in einem Hostnamen übereinstimmten) sortiert. Wenn zwei Themen im selben Bucket sind, aber unterschiedliche Häufigkeiten haben, wird das häufiger auftretende Thema höher eingeordnet.
+   3. Chrome wählt die fünf wichtigsten Themen als Top-Themen des Nutzers für diese Epoche aus, die mit den Callern geteilt werden können.
 
-3. Die wichtigsten Themen werden nur dann an `ad-tech1.example` zurückgegeben, wenn `ad-tech1.example` in der Liste der Caller-Domänen für jedes Thema erscheint, wie sie im Verlaufseintrag des Themas gespeichert sind.
+3. Die Top-Themen werden nur dann an `ad-tech1.example` zurückgegeben, wenn `ad-tech1.example` in der Liste der Caller-Domains für jedes Thema enthalten ist, wie sie im Themenverlaufseintrag gespeichert sind.
 
    > [!NOTE]
-   > Anfangs werden keine Themen zurückgegeben, so dass der `<iframe>` wahrscheinlich eine Standardeinstellung mit nicht zielgerichteter Werbung anzeigt. Sobald jedoch das Ende der ersten Epoche erreicht ist, beginnt die API, Themen zurückzugeben, und `ad-tech1.example` kann relevantere Anzeigen basierend auf den beobachteten Themen für den aktuellen Benutzer anzeigen.
+   > Anfangs werden keine Themen zurückgegeben, so dass das `<iframe>` wahrscheinlich eine Standardanzeige ohne Targeting anzeigt. Sobald jedoch das Ende der ersten Epoche erreicht ist, beginnt die API mit der Rückgabe von Themen, und `ad-tech1.example` kann damit beginnen, relevantere Anzeigen basierend auf den beobachteten Themen für den aktuellen Nutzer zu zeigen.
 
-`ad-tech1.example` wählt dann eine relevante Anzeige aus, die dem Benutzer basierend auf den zurückgegebenen Themen angezeigt werden soll.
+`ad-tech1.example` wählt dann eine relevante Anzeige aus, um sie dem Nutzer basierend auf den zurückgegebenen Themen anzuzeigen.
 
-## Welche API-Features aktivieren die Topics-API?
+## Welche API-Features ermöglichen die Topics API?
 
-Die folgenden Funktionen dienen einem doppelten Zweck — sie geben die Top-Themen des Benutzers an den Anrufer zurück und lösen den Browser aus, den aktuellen Seitenbesuch als vom Anrufer beobachtet aufzuzeichnen, sodass der Seitenhostname später in der Themenberechnung verwendet werden kann. Dazu müssen sie in ein `<iframe>` der Ad-Tech-Aufrufe eingefügt werden; das `<iframe>` muss dann auf den Seiten eingebettet werden, auf denen Sie Themen beobachten möchten.
+Die folgenden Features dienen einem doppelten Zweck — sie geben die Top-Themen des Nutzers an den Caller zurück und veranlassen den Browser, den aktuellen Seitenbesuch als vom Caller beobachtet zu markieren, damit der Hostname der Seite später in der Themenberechnung verwendet werden kann. Hierzu müssen sie in einem aufrufenden Ad-Tech-`<iframe>` enthalten sein; das `<iframe>` muss dann auf den Seiten eingebettet werden, auf denen Sie beobachtete Themen wünschen.
 
-- Sie können in das options-Objekt eines {{domxref("Window/fetch", "fetch()")}}-Aufrufs zur Ad-Tech-Plattform eine Option `browsingTopics: true` hinzufügen.
-- Sie könnten auch `browsingTopics: true` in das options-Objekt eines Aufrufs des {{domxref("Request.Request", "Request()")}}-Konstruktors einfügen und das resultierende {{domxref("Request")}}-Objekt in den {{domxref("Window/fetch", "fetch()")}}-Aufruf übergeben.
-- Sie können ein `browsingtopics`-Attribut auf dem `<iframe>` setzen, gleichzeitig oder bevor Sie das `src`-Attribut setzen, um die Quelle zu laden. Dies könnte geschehen:
+- Sie können eine `browsingTopics: true` Option im Optionsobjekt eines [`fetch()`](/de/docs/Web/API/Window/fetch) Aufrufs an die Ad-Tech-Plattform angeben.
+- Sie könnten auch `browsingTopics: true` in das Optionsobjekt eines [`Request()`](/de/docs/Web/API/Request/Request) Konstruktors übergeben und das resultierende [`Request`](/de/docs/Web/API/Request) Objekt in den [`fetch()`](/de/docs/Web/API/Window/fetch) Aufruf übergeben.
+- Sie können ein `browsingtopics` Attribut auf dem `<iframe>` setzen, gleichzeitig oder bevor Sie das `src` Attribut laden, um die Quelle zu laden. Dies könnte erfolgen:
 
   - Deklarativ im HTML:
 
@@ -70,49 +70,49 @@ Die folgenden Funktionen dienen einem doppelten Zweck — sie geben die Top-Them
   <iframe browsingtopics src="ad-tech1.example"> ... </iframe>
   ```
 
-  - Programmgesteuert durch Setzen der entsprechenden {{domxref("HTMLIFrameElement.browsingTopics")}}-Eigenschaft auf `true`:
+  - Programmatisch durch Setzen der entsprechenden [`HTMLIFrameElement.browsingTopics`](/de/docs/Web/API/HTMLIFrameElement/browsingTopics) Eigenschaft auf `true`:
 
   ```js
   const iframeElem = document.querySelector("iframe");
   iframeElem.browsingTopics = true;
   ```
 
-Wenn die Anfrage, die mit einem der oben genannten Features verbunden ist, gesendet wird:
+Wenn die mit einem der obigen Features verbundene Anforderung gesendet wird:
 
-1. Ein {{httpheader("Sec-Browsing-Topics")}}-Header wird zusammen mit der Anfrage gesendet, der die Top-Themen für den aktuellen Benutzer enthält.
-2. Der Ad-Tech-Server wählt eine relevante Anzeige zur Anzeige im `<iframe>` basierend auf diesen Themen aus und sendet die erforderlichen Daten, um sie in der Antwort anzuzeigen.
-3. Ein {{httpheader("Observe-Browsing-Topics")}}-Header sollte in der Antwort auf die Anfrage gesetzt sein — dies hat zur Folge, dass der Browser den aktuellen Seitenbesuch als von dem anrufenden Ad-Tech-Anbieter beobachtet aufzeichnet, so dass die zugehörigen Themen in einem Themenverlaufseintrag erfasst und anschließend in der [Themenselektion](#auswahl_interessanter_themen_zur_beeinflussung_der_anzeigenwahl) verwendet werden.
+1. Ein {{httpheader("Sec-Browsing-Topics")}} Header wird zusammen mit der Anforderung gesendet, der die Top-Themen für den aktuellen Nutzer enthält.
+2. Der Ad-Tech-Server wählt eine relevante Anzeige zur Darstellung im `<iframe>` basierend auf diesen Themen aus und sendet die erforderlichen Daten zur Darstellung in der Antwort.
+3. Ein {{httpheader("Observe-Browsing-Topics")}} Header sollte in der Antwort auf die Anforderung gesetzt werden — dies bewirkt, dass der Browser den aktuellen Seitenbesuch als vom aufrufenden Ad-Tech-Anbieter beobachtet aufzeichnet, so dass das zugehörige Thema in einem Themenverlaufseintrag aufgezeichnet und anschließend in der [Themenauswahl](#auswahl_interessanter_themen_zur_einflussnahme_auf_die_anzeigenauswahl) verwendet wird.
 
    > [!NOTE]
-   > Es ist wichtig klarzustellen, dass die im `Sec-Browsing-Topics`-Header gesendeten Top-Themen nicht als beobachtet aufgezeichnet werden. Es werden die von der URL der aufrufenden Seite abgeleiteten Themen (d.h. die Seite, auf der das Ad-Tech-`<iframe>` eingebettet ist) als beobachtet aufgezeichnet.
+   > Es ist wichtig zu klären, dass dies nicht die im `Sec-Browsing-Topics` Header gesendeten Top-Themen als beobachtet aufzeichnet. Es zeichnet die Themen als beobachtet auf, die aus der URL der aufrufenden Seite abgeleitet wurden (d.h. der Seite, auf der das Ad-Tech-`<iframe>` eingebettet ist).
 
 ### Die Methode `browsingTopics()`
 
-Alternativ kann das eingebettete `<iframe>` {{domxref("Document.browsingTopics()")}} aufrufen, um die aktuellen Top-Themen eines Benutzers zurückzugeben, die dann in einem nachfolgenden Fetch-Anfrage an die Ad-Tech-Plattform zurückgegeben werden können. Dies hängt nicht von den HTTP-Headern ab, ist jedoch etwas weniger leistungsfähig. Es wird empfohlen, eine der oben aufgeführten HTTP-Header-Methoden zu verwenden und nur auf `browsingTopics()` zurückzugreifen, wenn die Header nicht geändert werden können.
+Alternativ kann das eingebettete `<iframe>` [`Document.browsingTopics()`](/de/docs/Web/API/Document/browsingTopics) aufrufen, um die aktuellen Top-Themen eines Nutzers zurückzugeben, die dann in einer späteren Abrufanforderung an die Ad-Tech-Plattform zurückgegeben werden können. Dies hängt nicht von den HTTP-Headern ab, ist jedoch etwas weniger performant. Es wird empfohlen, eine der oben genannten HTTP-Header-Methoden zu verwenden, wobei `browsingTopics()` nur in Situationen als Fallback genutzt wird, in denen die Header nicht geändert werden können.
 
 > [!NOTE]
-> Da die Methode `browsingTopics()` nicht von den HTTP-Headern abhängt, wird der {{httpheader("Observe-Browsing-Topics")}}-Header nicht verwendet, um die Themen als beobachtet zu setzen und Themenverlaufseinträge zu erfassen/aktualisieren; der Browser erledigt dies automatisch, wenn die Methode aufgerufen wird.
+> Da die Methode `browsingTopics()` nicht von den HTTP-Headern abhängt, wird der {{httpheader("Observe-Browsing-Topics")}} Header nicht verwendet, um die Themen als beobachtet zu markieren und Themenverlaufseinträge aufzuzeichnen/aktualisieren; der Browser erledigt dies automatisch, wenn die Methode aufgerufen wird.
 
 ## Private Themen-Sets
 
-Ein Anrufer kann nur auf Themen zugreifen, die er selbst für einen Benutzer beobachtet hat — und nicht auf Themen, die von anderen Anrufern beobachtet wurden. Zum Beispiel:
+Ein Caller kann nur Themen abrufen, die er selbst für einen Nutzer beobachtet hat — und nicht die Themen, die von anderen Callern beobachtet wurden. Beispielsweise:
 
-- Wenn die `ad-tech1.example`-Plattform ein `<iframe>` auf `tennis.example` eingebettet hat, das ein Topics-API-Feature enthält, würden sie für einen Benutzer, der diese Seite besucht, Themen wie "Sport" und "Tennis" beobachten.
-- Wenn eine andere Ad-Tech-Plattform, `ad-tech2.example`, ein Topics-API-`<iframe>` auf "gardening.example" eingebettet hat, würden sie das Thema "Gartenarbeit" beobachten.
+- Wenn die Plattform `ad-tech1.example` ein `<iframe>` auf `tennis.example` eingebettet hat, das ein Topics API Feature enthält, würden sie Themen wie "Sport" und "Tennis" für einen Nutzer beobachten, der diese Seite besucht.
+- Wenn eine andere Ad-Tech-Plattform, `ad-tech2.example`, ein Topics API `<iframe>` auf "gardening.example" eingebettet hat, würden sie das Thema "Gartenarbeit" beobachten.
 
-Diese Ad-Tech-Plattformen werden nur Themen für einen Benutzer erhalten, die sie beobachtet haben. In diesem Beispiel erhält `ad-tech1.example` kein "Gartenarbeit" und `ad-tech2.example` kein "Tennis".
+Diese Ad-Tech-Plattformen erhalten nur Themen für einen Nutzer, die sie selbst beobachtet haben. In diesem Beispiel wird `ad-tech1.example` nicht "Gartenarbeit" erhalten und `ad-tech2.example` nicht "Tennis".
 
-Mit anderen Worten: Anrufer wie Ad-Tech-Plattformen erhalten nur Themen für Seiten, auf denen sie eine Präsenz haben. Wichtiger ist noch, dass die aufgezeichneten Themen von Interesse die einzigen Informationen sind, die über diese API zugänglich sind — im Gegensatz zu Tracking-Cookies können keine weiteren Informationen preisgegeben werden.
+Mit anderen Worten: Caller wie Ad-Tech-Plattformen erhalten nur Themen für Seiten, auf denen sie präsent sind. Wichtiger noch: Die aufgezeichneten Interessenthemen sind die einzige Information, die über diese API zugänglich ist — im Gegensatz zu Tracking-Cookies kann keine andere Information durchsickern.
 
 ## Beispiele
 
-### Verwendung von `Document.browsingTopics()`
+### Verwenden von `Document.browsingTopics()`
 
 ```js
-// Holen Sie ein Array von Themen für diesen Benutzer
+// Get an array of topics for this user
 const topics = await document.browsingTopics();
 
-// Fordern Sie ein Anzeigemittel an
+// Request an ad creative
 const response = await fetch("https://ads.example/get-creative", {
   method: "POST",
   headers: {
@@ -121,27 +121,27 @@ const response = await fetch("https://ads.example/get-creative", {
   body: JSON.stringify(topics),
 });
 
-// Holen Sie das JSON aus der Antwort
+// Get the JSON from the response
 const creative = await response.json();
 
-// Anzeige anzeigen
+// Display ad
 ```
 
-### Übergeben der `browsingTopics`-Option in `fetch()`
+### Übergeben der `browsingTopics` Option an `fetch()`
 
 ```js
-// Fordern Sie ein Anzeigemittel an
+// Request an ad creative
 const response = await fetch("https://ads.example/get-creative", {
   browsingTopics: true,
 });
 
-// Holen Sie das JSON aus der Antwort
+// Get the JSON from the response
 const creative = await response.json();
 
-// Anzeige anzeigen
+// Display ad
 ```
 
-### Einschließen des `browsingtopics`-Attributs in ein `<iframe>`
+### Einfügen des `browsingtopics` Attributs in ein `<iframe>`
 
 ```html
 <iframe browsingtopics src="ad-tech1.example"> ... </iframe>
@@ -149,22 +149,22 @@ const creative = await response.json();
 
 ### Vollständige Beispiele
 
-- [Topics API-Demo](https://topics-demo.glitch.me/): Demonstriert, wie `document.browsingTopics()`-Aufrufe verwendet werden können, um Themen zu beobachten und dann darauf zuzugreifen ([siehe Quellcode](https://glitch.com/edit/#!/topics-demo)).
-- [Topics API-Header-Demo](https://topics-fetch-demo.glitch.me/): Demonstriert, wie eine `fetch()`-Anfrage mit einem {{httpheader("Sec-Browsing-Topics")}}-Header verwendet werden kann, um Themen zu beobachten und dann darauf zuzugreifen ([siehe Quellcode](https://glitch.com/edit/#!/topics-fetch-demo)).
+- [Topics API Demo](https://topics-demo.glitch.me/): Zeigt, wie `document.browsingTopics()` Aufrufe verwendet werden können, um Themen zu beobachten und dann darauf zuzugreifen ([siehe Quelltext](https://glitch.com/edit/#!/topics-demo)).
+- [Topics API Header Demo](https://topics-fetch-demo.glitch.me/): Zeigt einen `fetch()`-Anfrage mit einem {{httpheader("Sec-Browsing-Topics")}} Header, der verwendet werden kann, um Themen zu beobachten und darauf zuzugreifen ([siehe Quelltext](https://glitch.com/edit/#!/topics-fetch-demo)).
 
 ## Testhinweise
 
 ### Chrome
 
-Die Standardepoche zur Beobachtung der Themen beträgt eine Woche, was viel zu lang ist, um Code zu testen, der die Topics API verwendet. Um dies zu Testzwecken zu verkürzen, können Sie Chrome mit einem Feature-Flag wie dem folgenden öffnen:
+Die standardmäßige Epochendauer zur Beobachtung von Themen beträgt eine Woche, was viel zu lang ist, um Code zu testen, der die Topics API verwendet. Um dies für Testzwecke zu verkürzen, können Sie Chrome mit einem Feature-Flag in etwa folgender Weise öffnen:
 
 ```bash
 BrowsingTopicsParameters:time_period_per_epoch/15s/max_epoch_introduction_delay/3s
 ```
 
-Siehe [Chromium mit Befehlszeilen-Switches ausführen](https://www.chromium.org/developers/how-tos/run-chromium-with-flags/) für weitere Informationen, wie das gemacht wird.
+Siehe [Chromium mit Befehlszeilen-Schaltern ausführen](https://www.chromium.org/developers/how-tos/run-chromium-with-flags/) für weitere Informationen, wie dies klappt.
 
-Sie können Ihren Topics API-Code auch lokal ohne [Registrierung](/de/docs/Web/API/Topics_API#enrollment) testen, indem Sie das folgende Chrome-Entwicklerflag aktivieren:
+Sie können auch Ihren Topics API Code lokal testen, ohne die [Anmeldung](/de/docs/Web/API/Topics_API#enrollment) durchzuführen, indem Sie das folgende Chrome-Entwickler-Flag aktivieren:
 
 `chrome://flags/#privacy-sandbox-enrollment-overrides`
 

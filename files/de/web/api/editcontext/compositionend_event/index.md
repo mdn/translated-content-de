@@ -1,5 +1,5 @@
 ---
-title: "EditContext: Ereignis compositionend"
+title: "EditContext: compositionend-Ereignis"
 short-title: compositionend
 slug: Web/API/EditContext/compositionend_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das `compositionend`-Ereignis der {{domxref("EditContext")}}-Schnittstelle wird ausgelöst, wenn die Eingabe über einen {{glossary("Input Method Editor")}} (IME)-Fenster endet.
+Das `compositionend`-Ereignis der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird ausgelöst, wenn die Komposition mit einem [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster endet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
 ```js
 addEventListener("compositionend", (event) => {});
@@ -22,9 +22,9 @@ oncompositionend = (event) => {};
 
 ## Beispiele
 
-### Verwendung von `compositionend`, um den Rand des bearbeitbaren Bereichs zu ändern
+### Verwendung von `compositionend`, um den Rand des editierbaren Bereichs zu ändern
 
-Im folgenden Beispiel wird der Rand des bearbeitbaren Bereichs auf rot gesetzt, wenn das `compositionstart`-Ereignis ausgelöst wird, und zurück auf schwarz, wenn das `compositionend`-Ereignis ausgelöst wird. Beachten Sie, dass die Ereignislistener-Rückruffunktionen in diesem Beispiel nur aufgerufen werden, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungs-UI-Oberflächen verwendet werden, um Text zu erstellen.
+Im folgenden Beispiel wird der Rand des editierbaren Bereichs auf Rot gesetzt, wenn das `compositionstart`-Ereignis ausgelöst wird, und zurück auf Schwarz, wenn das `compositionend`-Ereignis ausgelöst wird. Beachten Sie, dass die Rückruffunktionen der Ereignislistener in diesem Beispiel nur aufgerufen werden, wenn ein IME-Fenster oder andere plattformspezifische Bearbeitungs-UI-Oberflächen verwendet werden, um Text zu komponieren.
 
 ```css
 #text-editor {

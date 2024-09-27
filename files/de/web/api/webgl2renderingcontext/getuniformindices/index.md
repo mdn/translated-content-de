@@ -1,5 +1,5 @@
 ---
-title: "WebGL2RenderingContext: getUniformIndices() Methode"
+title: "WebGL2RenderingContext: Methode getUniformIndices()"
 short-title: getUniformIndices()
 slug: Web/API/WebGL2RenderingContext/getUniformIndices
 l10n:
@@ -8,7 +8,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.getUniformIndices()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) ruft die Indizes einer Reihe von Uniforms innerhalb eines {{domxref("WebGLProgram")}} ab.
+Die **Methode `WebGL2RenderingContext.getUniformIndices()`** der
+[WebGL 2 API](/de/docs/Web/API/WebGL_API) ruft die Indizes einer
+Anzahl von Uniforms innerhalb eines [`WebGLProgram`](/de/docs/Web/API/WebGLProgram) ab.
 
 ## Syntax
 
@@ -19,13 +21,14 @@ getUniformIndices(program, uniformNames)
 ### Parameter
 
 - `program`
-  - : Ein {{domxref("WebGLProgram")}}, das Uniforms enthält, deren Indizes abgefragt werden sollen.
+  - : Ein [`WebGLProgram`](/de/docs/Web/API/WebGLProgram), das Uniforms enthält, deren Indizes abgefragt werden sollen.
 - `uniformNames`
-  - : Ein {{jsxref("Array")}} von Strings, die die Namen der abzufragenden Uniforms spezifizieren.
+  - : Ein {{jsxref("Array")}} von Zeichenfolgen, die die Namen der
+    abzufragenden Uniforms angeben.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von {{domxref("WebGL_API/Types", "GLuint")}}, das die Uniform-Indizes enthält.
+Ein {{jsxref("Array")}} von [`GLuint`](/de/docs/Web/API/WebGL_API/Types), das die Uniform-Indizes enthält.
 
 ## Beispiele
 
@@ -41,10 +44,10 @@ const uniformIndices = gl.getUniformIndices(program, [
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- {{domxref("WebGL2RenderingContext.getUniformBlockIndex()")}}
+- [`WebGL2RenderingContext.getUniformBlockIndex()`](/de/docs/Web/API/WebGL2RenderingContext/getUniformBlockIndex)

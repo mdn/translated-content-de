@@ -1,5 +1,5 @@
 ---
-title: "BroadcastChannel: message Ereignis"
+title: "BroadcastChannel: message-Ereignis"
 short-title: message
 slug: Web/API/BroadcastChannel/message_event
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("BroadCastChannel API")}}{{AvailableInWorkers}}
 
-Das **`message`** Ereignis der {{domxref("BroadcastChannel")}} Schnittstelle wird ausgelöst, wenn eine Nachricht auf diesem Kanal eintrifft.
+Das **`message`**-Ereignis des [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Interfaces tritt auf, wenn eine Nachricht auf diesem Kanal eintrifft.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js-nolint
 addEventListener("message", (event) => { })
@@ -21,36 +21,36 @@ onmessage = (event) => { }
 
 ## Ereignistyp
 
-Ein {{domxref("MessageEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`MessageEvent`](/de/docs/Web/API/MessageEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("MessageEvent")}}
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle {{domxref("Event")}} verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
-- {{domxref("MessageEvent.data", "data")}} {{ReadOnlyInline}}
-  - : Die Daten, die vom Nachrichtensender gesendet wurden.
-- {{domxref("MessageEvent.origin", "origin")}} {{ReadOnlyInline}}
-  - : Ein String, der die Herkunft des Nachrichtensenders repräsentiert.
-- {{domxref("MessageEvent.lastEventId", "lastEventId")}} {{ReadOnlyInline}}
+- [`data`](/de/docs/Web/API/MessageEvent/data) {{ReadOnlyInline}}
+  - : Die vom Nachrichtensender gesendeten Daten.
+- [`origin`](/de/docs/Web/API/MessageEvent/origin) {{ReadOnlyInline}}
+  - : Ein String, der den Ursprung des Nachrichtensenders repräsentiert.
+- [`lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
-- {{domxref("MessageEvent.source", "source")}} {{ReadOnlyInline}}
-  - : Eine _Nachrichtenereignisquelle_, die entweder ein {{glossary("WindowProxy")}}, ein {{domxref("MessagePort")}} oder ein {{domxref("ServiceWorker")}} Objekt darstellt, das den Nachrichtensender repräsentiert.
-- {{domxref("MessageEvent.ports", "ports")}} {{ReadOnlyInline}}
-  - : Ein Array von {{domxref("MessagePort")}} Objekten, die die Ports darstellen, die mit dem Kanal assoziiert sind, durch den die Nachricht gesendet wird (wo zutreffend, z.B. im Kanalnachrichtenverkehr oder beim Senden einer Nachricht an einen gemeinsamen Worker).
+- [`source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
+  - : Eine _message event source_, die entweder ein [WindowProxy](/de/docs/Glossary/WindowProxy), ein [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt ist, das den Nachrichtensender darstellt.
+- [`ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
+  - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die mit dem Kanal assoziierten Ports repräsentieren, über die die Nachricht gesendet wird (wo zutreffend, z.B. bei der Kanalnachrichtenübermittlung oder beim Senden einer Nachricht an einen Shared Worker).
 
 ## Beispiele
 
-In diesem Beispiel gibt es einen "Sender" {{HTMLElement("iframe")}}, der den Inhalt einer {{HTMLElement("textarea")}} überträgt, wenn der Benutzer auf eine Schaltfläche klickt. Es gibt zwei "Empfänger"-Iframes, die auf die Broadcast-Nachricht hören und das Ergebnis in ein {{HTMLElement("div")}} Element schreiben.
+In diesem Beispiel gibt es einen "Sender" {{HTMLElement("iframe")}}, der den Inhalt eines {{HTMLElement("textarea")}} überträgt, wenn der Benutzer auf eine Schaltfläche klickt. Es gibt zwei "Empfänger"-Iframes, die der gesendeten Nachricht lauschen und das Ergebnis in ein {{HTMLElement("div")}}-Element schreiben.
 
 ### Sender
 
 ```html hidden
 <h1>Sender</h1>
-<label for="message">Geben Sie eine Nachricht ein, die gesendet werden soll:</label><br />
+<label for="message">Type a message to broadcast:</label><br />
 <textarea id="message" name="message" rows="1" cols="40">Hello</textarea>
-<button id="broadcast-message" type="button">Nachricht senden</button>
+<button id="broadcast-message" type="button">Broadcast message</button>
 ```
 
 ```css hidden
@@ -96,7 +96,7 @@ broadcastMessageButton.addEventListener("click", () => {
 ### Empfänger 1
 
 ```html hidden
-<h1>Empfänger 1</h1>
+<h1>Receiver 1</h1>
 <div id="received"></div>
 ```
 
@@ -126,7 +126,7 @@ channel.addEventListener("message", (event) => {
 ### Empfänger 2
 
 ```html hidden
-<h1>Empfänger 2</h1>
+<h1>Receiver 2</h1>
 <div id="received"></div>
 ```
 
@@ -171,4 +171,4 @@ channel.addEventListener("message", (event) => {
 
 ## Siehe auch
 
-- Verwandte Ereignisse: {{domxref("BroadcastChannel/messageerror_event", "messageerror")}}.
+- Verwandte Ereignisse: [`messageerror`](/de/docs/Web/API/BroadcastChannel/messageerror_event).

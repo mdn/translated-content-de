@@ -7,25 +7,25 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`BluetoothRemoteGATTServer`**-Schnittstelle der [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API) repräsentiert einen GATT-Server auf einem entfernten Gerät.
+Das **`BluetoothRemoteGATTServer`**-Interface der [Web Bluetooth API](/de/docs/Web/API/Web_Bluetooth_API) repräsentiert einen GATT-Server auf einem entfernten Gerät.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-- {{DOMxRef("BluetoothRemoteGATTServer.connected")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein boolescher Wert, der true zurückgibt, solange diese Skriptausführungsumgebung mit `this.device` verbunden ist. Es kann false sein, während der Benutzeragent physisch verbunden ist.
-- {{DOMxRef("BluetoothRemoteGATTServer.device")}} {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Eine Referenz auf das {{DOMxRef("BluetoothDevice")}}, das den Server ausführt.
+- [`BluetoothRemoteGATTServer.connected`](/de/docs/Web/API/BluetoothRemoteGATTServer/connected) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Ein boolescher Wert, der `true` zurückgibt, während diese Skriptausführungsumgebung mit `this.device` verbunden ist. Er kann `false` sein, während der Nutzeragent physisch verbunden ist.
+- [`BluetoothRemoteGATTServer.device`](/de/docs/Web/API/BluetoothRemoteGATTServer/device) {{ReadOnlyInline}} {{Experimental_Inline}}
+  - : Eine Referenz auf das [`BluetoothDevice`](/de/docs/Web/API/BluetoothDevice), das den Server betreibt.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-- {{DOMxRef("BluetoothRemoteGATTServer.connect()")}} {{Experimental_Inline}}
+- [`BluetoothRemoteGATTServer.connect()`](/de/docs/Web/API/BluetoothRemoteGATTServer/connect) {{Experimental_Inline}}
   - : Veranlasst die Skriptausführungsumgebung, sich mit `this.device` zu verbinden.
-- {{DOMxRef("BluetoothRemoteGATTServer.disconnect()")}} {{Experimental_Inline}}
+- [`BluetoothRemoteGATTServer.disconnect()`](/de/docs/Web/API/BluetoothRemoteGATTServer/disconnect) {{Experimental_Inline}}
   - : Veranlasst die Skriptausführungsumgebung, die Verbindung zu `this.device` zu trennen.
-- {{DOMxRef("BluetoothRemoteGATTServer.getPrimaryService()")}} {{Experimental_Inline}}
-  - : Gibt ein Versprechen auf den primären {{DOMxRef("BluetoothRemoteGATTService")}} zurück, der vom Bluetooth-Gerät für eine bestimmte `BluetoothServiceUUID` angeboten wird.
-- {{DOMxRef("BluetoothRemoteGATTServer.getPrimaryServices()")}} {{Experimental_Inline}}
-  - : Gibt ein Versprechen auf eine Liste von primären {{DOMxRef("BluetoothRemoteGATTService")}}-Objekten zurück, die vom Bluetooth-Gerät für eine bestimmte `BluetoothServiceUUID` angeboten werden.
+- [`BluetoothRemoteGATTServer.getPrimaryService()`](/de/docs/Web/API/BluetoothRemoteGATTServer/getPrimaryService) {{Experimental_Inline}}
+  - : Gibt ein Promise auf den primären [`BluetoothRemoteGATTService`](/de/docs/Web/API/BluetoothRemoteGATTService) zurück, der vom Bluetooth-Gerät für eine angegebene `BluetoothServiceUUID` angeboten wird.
+- [`BluetoothRemoteGATTServer.getPrimaryServices()`](/de/docs/Web/API/BluetoothRemoteGATTServer/getPrimaryServices) {{Experimental_Inline}}
+  - : Gibt ein Promise auf eine Liste von primären [`BluetoothRemoteGATTService`](/de/docs/Web/API/BluetoothRemoteGATTService)-Objekten zurück, die vom Bluetooth-Gerät für eine angegebene `BluetoothServiceUUID` angeboten werden.
 
 ## Spezifikationen
 

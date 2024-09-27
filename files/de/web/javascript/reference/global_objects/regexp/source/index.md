@@ -7,13 +7,13 @@ l10n:
 
 {{JSRef}}
 
-Die **`source`** Zugriffs-Eigenschaft von {{jsxref("RegExp")}} Instanzen gibt eine Zeichenkette zurück, die den Quelltext dieses regulären Ausdrucks enthält, ohne die beiden Schrägstriche auf beiden Seiten oder irgendwelche Flags.
+Die **`source`** Accessor-Eigenschaft von {{jsxref("RegExp")}} Instanzen gibt einen String zurück, der den Quelltext dieses regulären Ausdrucks enthält, ohne die beiden Schrägstriche auf beiden Seiten oder irgendwelche Flags.
 
 {{EmbedInteractiveExample("pages/js/regexp-prototype-source.html")}}
 
 ## Beschreibung
 
-Konzepterweise ist die `source` Eigenschaft der Text zwischen den beiden Schrägstrichen im regulären Ausdrucks-Literal. Die Sprache verlangt, dass die zurückgegebene Zeichenkette ordnungsgemäß maskiert ist, so dass, wenn die `source` am Ende mit einem Schrägstrich an beiden Enden verkettet wird, ein parsbares Regex-Literal ergibt. Zum Beispiel, für `new RegExp("/")`, ist die `source` `\\/`, weil wenn es `/` erzeugt, das resultierende Literal `///` wird, was ein Zeilenkommentar ist. Ebenso werden alle [Zeilenabschlusszeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) maskiert, da Zeilenabschluss _Zeichen_ das Regex-Literal aufbrechen würden. Es gibt keine Anforderung für andere Zeichen, solange das Ergebnis parsierbar ist. Für leere reguläre Ausdrücke wird die Zeichenkette `(?:)` zurückgegeben.
+Konzepthafterweise ist die `source` Eigenschaft der Text zwischen den beiden Schrägstrichen im regulären Ausdrucksliteral. Die Sprache verlangt, dass der zurückgegebene String korrekt maskiert wird, sodass, wenn das `source` mit einem Schrägstrich auf beiden Enden verbunden wird, ein analysierbares Regex-Literal entsteht. Zum Beispiel ist für `new RegExp("/")` das `source` `\\/`, weil, wenn es `/` generiert, das resultierende Literal `///` wird, was einem Kommentar für die Zeile entspricht. Ebenso werden alle [Zeilenendzeichen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) maskiert, weil Zeichen von Zeilenendzeichen das Regex-Literal zerbrechen würden. Es gibt keine Anforderung für andere Zeichen, solange das Ergebnis analysierbar ist. Für leere reguläre Ausdrücke wird der String `(?:)` zurückgegeben.
 
 ## Beispiele
 
@@ -22,7 +22,7 @@ Konzepterweise ist die `source` Eigenschaft der Text zwischen den beiden Schräg
 ```js
 const regex = /fooBar/gi;
 
-console.log(regex.source); // "fooBar", enthält nicht /.../ und "gi".
+console.log(regex.source); // "fooBar", doesn't contain /.../ and "gi".
 ```
 
 ### Leere reguläre Ausdrücke und Maskierung
@@ -30,14 +30,14 @@ console.log(regex.source); // "fooBar", enthält nicht /.../ und "gi".
 ```js
 new RegExp().source; // "(?:)"
 
-new RegExp("\n").source === "\\n"; // true, beginnend mit ES5
+new RegExp("\n").source === "\\n"; // true, starting with ES5
 ```
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Browserkompatibilität
+## Browser-Kompatibilität
 
 {{Compat}}
 

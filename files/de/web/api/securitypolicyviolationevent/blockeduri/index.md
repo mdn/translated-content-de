@@ -3,12 +3,12 @@ title: "SecurityPolicyViolationEvent: blockedURI-Eigenschaft"
 short-title: blockedURI
 slug: Web/API/SecurityPolicyViolationEvent/blockedURI
 l10n:
-  sourceCommit: a5c1400a03d86162ea5c4342a93c2d96df470630
+  sourceCommit: 701ac4440432ac215713b6b7f274291ca643c49a
 ---
 
-{{APIRef("Reporting API")}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`blockedURI`** des {{domxref("SecurityPolicyViolationEvent")}}-Interfaces ist ein String, der die URI der Ressource darstellt, die blockiert wurde, weil sie gegen eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) verstößt.
+Die schreibgeschützte Eigenschaft **`blockedURI`** des [`SecurityPolicyViolationEvent`](/de/docs/Web/API/SecurityPolicyViolationEvent)-Interfaces ist ein String, der die URI der Ressource darstellt, die blockiert wurde, weil sie gegen eine [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP) verstößt.
 
 ## Wert
 
@@ -32,4 +32,4 @@ document.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- [`CSPViolationReportBody.blockedURL`](/de/docs/Web/API/CSPViolationReportBody#cspviolationreportbody.blockedurl)
+- [`CSPViolationReportBody.blockedURL`](/de/docs/Web/API/CSPViolationReportBody/blockedURL)

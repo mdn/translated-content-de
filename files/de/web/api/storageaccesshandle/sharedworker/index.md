@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Storage Access API")}}
 
 > [!NOTE]
-> Siehe {{domxref("SharedWorker.SharedWorker", "SharedWorker()")}}, um die Verwendung zu verstehen.
+> Lesen Sie [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker), um die Nutzung zu verstehen.
 
 ## Syntax
 
@@ -22,24 +22,24 @@ handle.SharedWorker(aURL, options)
 ### Parameter
 
 - `aURL`
-  - : Siehe {{domxref("SharedWorker.SharedWorker", "SharedWorker()")}}.
+  - : Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker).
 - `name` {{optional_inline}}
-  - : Siehe {{domxref("SharedWorker.SharedWorker", "SharedWorker()")}}.
+  - : Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker).
 - `options` {{optional_inline}}
-  - : Siehe {{domxref("SharedWorker.SharedWorker", "SharedWorker()")}}.
+  - : Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker).
 
 > **Hinweis:** `options.sameSiteCookies` unterstützt nur den Wert "none", welcher der Standardwert ist.
 
 ### Rückgabewert
 
-Ein nicht partitioniertes {{domxref("SharedWorker")}}-Objekt.
+Ein unpartitioniertes [`SharedWorker`](/de/docs/Web/API/SharedWorker) Objekt.
 
 ### Ausnahmen
 
-- `SecurityError` {{domxref("DomException")}}
-  - : Ausgelöst, wenn der Zugriff nicht gewährt wurde.
+- `SecurityError` [`DomException`](/de/docs/Web/API/DomException)
+  - : Wird ausgelöst, wenn der Zugriff nicht gewährt wurde.
 
-Siehe {{domxref("SharedWorker.SharedWorker", "SharedWorker()")}}
+Siehe [`SharedWorker()`](/de/docs/Web/API/SharedWorker/SharedWorker)
 
 ## Beispiele
 
@@ -56,7 +56,7 @@ document.requestStorageAccess({ SharedWorker: true }).then(
 ```
 
 > [!NOTE]
-> Siehe [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein vollständigeres Beispiel.
+> Siehe [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using) für ein umfassenderes Beispiel.
 
 ## Spezifikationen
 
@@ -68,5 +68,5 @@ document.requestStorageAccess({ SharedWorker: true }).then(
 
 ## Siehe auch
 
-- {{domxref("Document.requestStorageAccess()")}}
-- [Using the Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)
+- [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
+- [Verwendung der Storage Access API](/de/docs/Web/API/Storage_Access_API/Using)

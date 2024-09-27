@@ -7,19 +7,19 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Das **`ImageBitmapRenderingContext`**-Interface ist ein Canvas-Rendering-Kontext, der die Funktionalität bietet, den Inhalt des Canvas mit dem gegebenen {{domxref("ImageBitmap")}} zu ersetzen. Seine Kontext-ID (das erste Argument von {{domxref("HTMLCanvasElement.getContext()")}} oder {{domxref("OffscreenCanvas.getContext()")}}) ist `"bitmaprenderer"`.
+Das **`ImageBitmapRenderingContext`** Interface ist ein Canvas-Rendering-Kontext, der die Funktionalität bereitstellt, den Inhalt des Canvas durch das gegebene [`ImageBitmap`](/de/docs/Web/API/ImageBitmap) zu ersetzen. Seine Kontext-ID (das erste Argument von [`HTMLCanvasElement.getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) oder [`OffscreenCanvas.getContext()`](/de/docs/Web/API/OffscreenCanvas/getContext)) ist `"bitmaprenderer"`.
 
-Dieses Interface ist sowohl im Window-Kontext als auch im [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar.
+Dieses Interface ist sowohl im Fenster- als auch im [Worker](/de/docs/Web/API/Web_Workers_API) Kontext verfügbar.
 
 ## Instanz-Eigenschaften
 
-- {{domxref("ImageBitmapRenderingContext.canvas")}} {{ReadOnlyInline}}
-  - : Ein schreibgeschützter Verweis auf das {{domxref("HTMLCanvasElement")}} oder {{domxref("OffscreenCanvas")}}-Objekt, das mit dem gegebenen Kontext verknüpft ist.
+- [`ImageBitmapRenderingContext.canvas`](/de/docs/Web/API/ImageBitmapRenderingContext/canvas) {{ReadOnlyInline}}
+  - : Eine schreibgeschützte Referenz auf das [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement)- oder [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt, das mit dem gegebenen Kontext assoziiert ist.
 
 ## Instanz-Methoden
 
-- {{domxref("ImageBitmapRenderingContext.transferFromImageBitmap()")}}
-  - : Zeigt das gegebene `ImageBitmap` im Canvas an, das mit diesem Rendering-Kontext verknüpft ist. Das Eigentum des `ImageBitmap` wird an das Canvas übertragen. Dies wurde zuvor `transferImageBitmap()` genannt, aber in einer Spezifikationsänderung umbenannt. Der alte Name wird als Alias beibehalten, um Codebrüche zu vermeiden.
+- [`ImageBitmapRenderingContext.transferFromImageBitmap()`](/de/docs/Web/API/ImageBitmapRenderingContext/transferFromImageBitmap)
+  - : Zeigt das gegebene `ImageBitmap` im Canvas an, das mit diesem Rendering-Kontext verbunden ist. Das Eigentum am `ImageBitmap` wird auf das Canvas übertragen. Dies wurde zuvor `transferImageBitmap()` genannt, aber in einer Spezifikationsänderung umbenannt. Der alte Name wird als Alias beibehalten, um Codebrüche zu vermeiden.
 
 ## Spezifikationen
 
@@ -31,4 +31,4 @@ Dieses Interface ist sowohl im Window-Kontext als auch im [Worker-Kontext](/de/d
 
 ## Siehe auch
 
-- {{domxref("OffscreenCanvas")}}
+- [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)

@@ -7,31 +7,31 @@ l10n:
 
 {{WebAssemblySidebar}}
 
-Die **`lt`**-Instruktionen, kurz für _kleiner als_, prüfen, ob eine Zahl kleiner als eine andere Zahl ist. Wenn die erste Zahl kleiner als die zweite Zahl ist, wird `1` auf den Stapel gelegt, andernfalls wird `0` auf den Stapel gelegt.
+Die **`lt`** Anweisungen, kurz für _kleiner als_, überprüfen, ob eine Zahl kleiner als eine andere Zahl ist. Wenn die erste Zahl kleiner als die zweite Zahl ist, wird `1` auf den Stapel geschoben, andernfalls wird `0` auf den Stapel geschoben.
 
-Die ganzzahligen Typen haben separate "kleiner als" Instruktionen für vorzeichenbehaftete (**`lt_s`**) und vorzeichenlose (**`lt_u`**) Zahlen.
+Die Ganzzahltypen haben separate Anweisungen für kleinere Zahlen, unterschieden nach vorzeichenbehaftet (**`lt_s`**) und vorzeichenlos (**`lt_u`**).
 
 {{EmbedInteractiveExample("pages/wat/lt.html", "tabbed-taller")}}
 
 ## Syntax
 
 ```wasm
-;; lade 2 Zahlen auf den Stapel
+;; load 2 numbers on to the stack
 local.get $num
 i32.const 2
 
-;; prüfe, ob $num kleiner als '2' ist
+;; check if $num is less then '2'
 i32.lt_u
 
-;; wenn $num kleiner als die `2` ist, wird `1` auf den Stapel gelegt,
-;; andernfalls wird `0` auf den Stapel gelegt.
+;; if $num is less than the `2`, `1` will be pushed on to the stack,
+;; otherwise `0` will be pushed on to the stack.
 ```
 
-| Instruktion | Binärer Opcode |
-| ----------- | -------------- |
-| `i32.lt_s`  | `0x48`         |
-| `i32.lt_u`  | `0x49`         |
-| `i64.lt_s`  | `0x53`         |
-| `i64.lt_u`  | `0x54`         |
-| `f32.lt`    | `0x5d`         |
-| `f64.lt`    | `0x63`         |
+| Anweisung  | Binäroperanden |
+| ---------- | -------------- |
+| `i32.lt_s` | `0x48`         |
+| `i32.lt_u` | `0x49`         |
+| `i64.lt_s` | `0x53`         |
+| `i64.lt_u` | `0x54`         |
+| `f32.lt`   | `0x5d`         |
+| `f64.lt`   | `0x63`         |

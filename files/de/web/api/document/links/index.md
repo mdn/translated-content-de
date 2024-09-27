@@ -1,5 +1,5 @@
 ---
-title: "Document: links Eigenschaft"
+title: "Document: links-Eigenschaft"
 short-title: links
 slug: Web/API/Document/links
 l10n:
@@ -8,11 +8,11 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die **`links`** schreibgeschützte Eigenschaft des {{domxref("Document")}} Interfaces gibt eine Sammlung aller {{HTMLElement("area")}} Elementen und {{HTMLElement("a")}} Elementen in einem Dokument zurück, die einen Wert für das [href](/de/docs/Web/HTML/Element/a#href) Attribut haben.
+Die **`links`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces ist eine schreibgeschützte Eigenschaft, die eine Sammlung aller {{HTMLElement("area")}}-Elemente und {{HTMLElement("a")}}-Elemente in einem Dokument zurückgibt, die einen Wert für das [href](/de/docs/Web/HTML/Element/a#href)-Attribut haben.
 
 ## Wert
 
-Ein {{domxref("HTMLCollection")}}.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
 
 ## Beispiele
 

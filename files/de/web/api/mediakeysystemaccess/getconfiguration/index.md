@@ -1,5 +1,5 @@
 ---
-title: "MediaKeySystemAccess: getConfiguration() Methode"
+title: "MediaKeySystemAccess: getConfiguration()-Methode"
 short-title: getConfiguration()
 slug: Web/API/MediaKeySystemAccess/getConfiguration
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`getConfiguration()`**-Methode der {{domxref("MediaKeySystemAccess")}}-Schnittstelle gibt ein Objekt mit der unterstützten Kombination der folgenden Konfigurationsoptionen zurück:
+Die **`getConfiguration()`**-Methode der [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess)-Schnittstelle gibt ein Objekt mit der unterstützten Kombination der folgenden Konfigurationsoptionen zurück:
 
 - `initDataTypes` {{ReadOnlyInline}}
-  - : Gibt eine Liste von unterstützten Initialisierungsdatentyp-Namen zurück. Ein Initialisierungsdatentyp ist eine Zeichenkette, die das Format der Initialisierungsdaten angibt.
+  - : Gibt eine Liste der unterstützten Initialisierungsdatentypnamen zurück. Ein Initialisierungsdatentyp ist ein String, der das Format der Initialisierungsdaten angibt.
 - `audioCapabilities` {{ReadOnlyInline}}
-  - : Gibt eine Liste von unterstützten Audio-Typen und Fähigkeits-Paaren zurück.
+  - : Gibt eine Liste der unterstützten Audiotyp- und Fähigkeitspaare zurück.
 - `videoCapabilities` {{ReadOnlyInline}}
-  - : Gibt eine Liste von unterstützten Video-Typen und Fähigkeits-Paaren zurück.
+  - : Gibt eine Liste der unterstützten Videotyp- und Fähigkeitspaare zurück.
 - `distinctiveIdentifier` {{ReadOnlyInline}}
-  - : Gibt an, ob eine persistente einzigartige Kennung erforderlich ist.
+  - : Gibt an, ob ein eindeutiger, dauerhafter Bezeichner erforderlich ist.
 - `persistentState` {{ReadOnlyInline}}
-  - : Gibt an, ob die Fähigkeit zur Statuspersistenz erforderlich ist.
+  - : Gibt an, ob die Fähigkeit, den Zustand zu speichern, erforderlich ist.
 
 ## Syntax
 

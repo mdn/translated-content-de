@@ -8,20 +8,20 @@ l10n:
 
 {{APIRef("Gamepad API")}}{{SecureContext_Header}}
 
-Die **`Gamepad.buttons`**-Eigenschaft des {{domxref("Gamepad")}}-Interfaces gibt ein Array von {{domxref("gamepadButton")}}-Objekten zurück, die die auf dem Gerät vorhandenen Tasten repräsentieren.
+Die **`Gamepad.buttons`**-Eigenschaft des [`Gamepad`](/de/docs/Web/API/Gamepad)-Interfaces gibt ein Array von [`gamepadButton`](/de/docs/Web/API/GamepadButton)-Objekten zurück, die die auf dem Gerät vorhandenen Tasten darstellen.
 
-Jeder Eintrag im Array ist 0, wenn die Taste nicht gedrückt ist, und ungleich null (typischerweise 1.0), wenn die Taste gedrückt ist. Jedes {{domxref("gamepadButton")}}-Objekt hat zwei Eigenschaften: `pressed` und `value`:
+Jeder Eintrag im Array ist 0, wenn die Taste nicht gedrückt ist, und ungleich null (typischerweise 1.0), wenn die Taste gedrückt ist. Jedes [`gamepadButton`](/de/docs/Web/API/GamepadButton)-Objekt verfügt über zwei Eigenschaften: `pressed` und `value`:
 
-- Die `pressed`-Eigenschaft ist ein Boolean, der angibt, ob die Taste momentan gedrückt (`true`) oder nicht gedrückt (`false`) ist.
-- Die `value`-Eigenschaft ist ein Gleitkommawert, der zur Darstellung von analogen Tasten verwendet wird, wie z. B. die Trigger bei vielen modernen Gamepads. Die Werte sind auf den Bereich 0.0 – 1.0 normiert, wobei 0.0 für eine nicht gedrückte Taste und 1.0 für eine vollständig gedrückte Taste steht.
+- Die `pressed`-Eigenschaft ist ein boolescher Wert, der angibt, ob die Taste derzeit gedrückt (`true`) oder ungedrückt (`false`) ist.
+- Die `value`-Eigenschaft ist ein Gleitkommawert, der verwendet wird, um analoge Tasten darzustellen, wie z. B. die Trigger vieler moderner Gamepads. Die Werte sind auf den Bereich 0.0 – 1.0 normiert, wobei 0.0 eine Taste darstellt, die nicht gedrückt ist, und 1.0 eine Taste, die vollständig gedrückt ist.
 
 ## Wert
 
-Ein Array von {{domxref("gamepadButton")}}-Objekten.
+Ein Array von [`gamepadButton`](/de/docs/Web/API/GamepadButton)-Objekten.
 
 ## Beispiele
 
-Der folgende Code ist aus meinem Gamepad-API-Button-Demo entnommen (Sie können sich das [Demo live ansehen](https://chrisdavidmills.github.io/gamepad-buttons/), und den [Quellcode auf GitHub finden](https://github.com/chrisdavidmills/gamepad-buttons/tree/master). Beachten Sie den Code-Fork — in Chrome benötigt {{domxref("Navigator.getGamepads")}} ein `webkit`-Präfix und die Tastenwerte werden als Array von Doppelwerten gespeichert, während in Firefox {{domxref("Navigator.getGamepads")}} kein Präfix benötigt wird und die Tastenwerte als Array von {{domxref("GamepadButton")}}-Objekten gespeichert werden; es sind die {{domxref("GamepadButton.value")}} oder {{domxref("GamepadButton.pressed")}} Eigenschaften, auf die wir zugreifen müssen, abhängig davon, welche Art von Tasten sie sind. In diesem einfachen Beispiel habe ich beide Optionen erlaubt.
+Der folgende Code stammt aus meinem Gamepad-API-Tasten-Demo (Sie können [das Demo live ansehen](https://chrisdavidmills.github.io/gamepad-buttons/) und [den Quellcode finden](https://github.com/chrisdavidmills/gamepad-buttons/tree/master) auf GitHub.) Beachten Sie den Fork im Code — in Chrome benötigt [`Navigator.getGamepads`](/de/docs/Web/API/Navigator/getGamepads) ein `webkit`-Präfix und die Tastendrücke werden als ein Array von Doppelwerten gespeichert, während in Firefox [`Navigator.getGamepads`](/de/docs/Web/API/Navigator/getGamepads) kein Präfix benötigt wird und die Tastendrücke als ein Array von [`GamepadButton`](/de/docs/Web/API/GamepadButton)-Objekten gespeichert werden; wir müssen auf die [`GamepadButton.value`](/de/docs/Web/API/GamepadButton/value) oder [`GamepadButton.pressed`](/de/docs/Web/API/GamepadButton/pressed) Eigenschaften dieser Objekte zugreifen, abhängig davon, was für Tasten es sind. In diesem einfachen Beispiel habe ich einfach beide Optionen zugelassen.
 
 ```js
 function gameLoop() {

@@ -7,23 +7,23 @@ l10n:
 
 {{CSSRef}}
 
-Die **`column-rule-width`**-Eigenschaft in [CSS](/de/docs/Web/CSS) legt die Breite der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
+Die **`column-rule-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
 
 {{EmbedInteractiveExample("pages/css/column-rule-width.html")}}
 
 ## Syntax
 
 ```css
-/* Schlüsselwortwerte */
+/* Keyword values */
 column-rule-width: thin;
 column-rule-width: medium;
 column-rule-width: thick;
 
-/* <Längen>-Werte */
+/* <length> values */
 column-rule-width: 1px;
 column-rule-width: 2.5em;
 
-/* Globale Werte */
+/* Global values */
 column-rule-width: inherit;
 column-rule-width: initial;
 column-rule-width: revert;
@@ -31,12 +31,12 @@ column-rule-width: revert-layer;
 column-rule-width: unset;
 ```
 
-Die `column-rule-width`-Eigenschaft wird als einzelner `<'border-width'>` Wert angegeben.
+Die Eigenschaft `column-rule-width` wird als einzelner `<'border-width'>` Wert angegeben.
 
 ### Werte
 
 - `<'border-width'>`
-  - : Ist ein Schlüsselwort definiert durch {{ cssxref("border-width") }}, das die Breite der Linie beschreibt. Es kann entweder eine {{cssxref("&lt;length&gt;")}} oder eines der Schlüsselwörter `thin`, `medium` oder `thick` sein.
+  - : Ist ein durch {{ cssxref("border-width") }} definiertes Schlüsselwort, das die Breite der Linie beschreibt. Es kann entweder eine {{cssxref("&lt;length&gt;")}} oder eines der Schlüsselwörter `thin`, `medium` oder `thick` sein.
 
 ## Formale Definition
 
@@ -48,16 +48,15 @@ Die `column-rule-width`-Eigenschaft wird als einzelner `<'border-width'>` Wert a
 
 ## Beispiele
 
-### Eine dicke Spaltenlinie setzen
+### Eine dicke Spaltenlinie festlegen
 
 #### HTML
 
 ```html
 <p>
-  Dies ist ein Absatz von Text, der in drei Spalten aufgeteilt ist. Die
-  `column-rule-width`-Eigenschaft wird verwendet, um die Breite der Linie zu
-  ändern, die zwischen den Spalten gezeichnet wird. Finden Sie das nicht
-  wunderbar?
+  This is a bunch of text split into three columns. The `column-rule-width`
+  property is used to change the width of the line that is drawn between
+  columns. Don't you think that's wonderful?
 </p>
 ```
 
@@ -85,7 +84,7 @@ p {
 
 ## Siehe auch
 
-- [Mehrspalten-Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout)
+- [Mehrspaltiges Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout)
 - {{CSSXref("column-rule-style")}}
 - {{CSSXref("column-rule-color")}}
 - {{CSSXref("column-rule")}}

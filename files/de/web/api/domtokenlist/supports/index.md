@@ -8,8 +8,9 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`supports()`**-Methode der {{domxref("DOMTokenList")}}-Schnittstelle
-gibt `true` zurück, wenn ein gegebener `token` in den unterstützten Tokens des zugehörigen Attributs enthalten ist. Diese Methode ist zur Unterstützung der Feature-Erkennung vorgesehen.
+Die **`supports()`**-Methode der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList) Schnittstelle
+gibt `true` zurück, wenn ein gegebener `token` in den unterstützten Tokens des zugehörigen Attributs enthalten ist.
+Diese Methode ist dazu gedacht, die Funktionsfeature-Erkennung zu unterstützen.
 
 ## Syntax
 
@@ -20,7 +21,7 @@ supports(token)
 ### Parameter
 
 - `token`
-  - : Ein String, der den zu überprüfenden Token enthält.
+  - : Ein String, der den zu prüfenden Token enthält.
 
 ### Rückgabewert
 
@@ -32,15 +33,15 @@ Ein boolescher Wert, der anzeigt, ob der Token gefunden wurde.
 const iframe = document.getElementById("display");
 
 if (iframe.sandbox.supports("an-upcoming-feature")) {
-  // Unterstützungscode für ein zukünftiges Feature
+  // support code for mystery future feature
 } else {
-  // Fallback-Code
+  // fallback code
 }
 
 if (iframe.sandbox.supports("allow-scripts")) {
-  // Anweisung an die Frame, JavaScript auszuführen
+  // instruct frame to run JavaScript
   //
-  // (HINWEIS: Diese Funktion wird gut unterstützt; dies ist nur ein Beispiel!)
+  // (NOTE: This feature is well-supported; this is just an example!)
   //
 }
 ```

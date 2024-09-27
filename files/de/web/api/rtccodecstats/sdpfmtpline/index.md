@@ -1,5 +1,5 @@
 ---
-title: "RTCCodecStats: sdpFmtpLine-Eigenschaft"
+title: "RTCCodecStats: Eigenschaft sdpFmtpLine"
 short-title: sdpFmtpLine
 slug: Web/API/RTCCodecStats/sdpFmtpLine
 l10n:
@@ -8,23 +8,23 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`sdpFmtpLine`**-Eigenschaft des {{domxref("RTCCodecStats")}}-Wörterbuchs ist ein Zeichenfolgenwert, der die formatspezifischen Parameter des Codecs enthält.
+Die **`sdpFmtpLine`**-Eigenschaft des [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Wörterbuchs ist ein Zeichenkette, die die format-spezifischen Parameter des Codecs enthält.
 
-Dies sind die Werte in der `"a=fmtp"`-Zeile im {{Glossary("SDP")}} des Codecs (falls vorhanden) nach der Payload-Typ-Nummer (siehe [Abschnitt 5.8 der IETF-Spezifikation für JSEP](https://datatracker.ietf.org/doc/html/draft-ietf-rtcweb-jsep-24#section-5.8)).
+Diese sind die Werte in der `"a=fmtp"`-Zeile im [SDP](/de/docs/Glossary/SDP) des Codecs (falls vorhanden) nach der Nutzlasttypenummer (siehe [Abschnitt 5.8 der IETF-Spezifikation für JSEP](https://datatracker.ietf.org/doc/html/draft-ietf-rtcweb-jsep-24#section-5.8)).
 
 ## Werte
 
-Eine Zeichenfolge, die die formatspezifischen Parameter des Codecs enthält.
+Eine Zeichenkette, die die format-spezifischen Parameter des Codecs enthält.
 
 ## Beschreibung
 
-Die `"a=fmtp"`-Zeile in der {{Glossary("SDP")}}-Zeile des Codecs hat folgendes Format, wobei der Payload-Typ (siehe {{domxref("RTCCodecStats.payloadType")}}) und die Parameter vom Codec abhängen:
+Die `"a=fmtp"`-Zeile in der [SDP](/de/docs/Glossary/SDP)-Zeile des Codecs hat das folgende Format, wobei der Nutzlasttyp (siehe [`RTCCodecStats.payloadType`](/de/docs/Web/API/RTCCodecStats/payloadType)) und die Parameter codec-abhängig sind:
 
 ```plain
 a=fmtp:<payload_type_number> param1=value1; ...; paramN=valueN
 ```
 
-Zum Beispiel würde die folgende Zeile anzeigen, dass der "opus"-Codec, der einen `payloadType` von 99 hat, die formatspezifischen Parameter `maxplaybackrate` und `stereo` hat:
+Zum Beispiel würde die folgende Zeile darauf hinweisen, dass der "opus"-Codec, der einen `payloadType` von 99 hat, die format-spezifischen Parameter `maxplaybackrate` und `stereo` besitzt:
 
 ```plain
 a=fmtp:99 maxplaybackrate=16000; stereo=1;

@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef}}
 
-Das **`animationcancel`**-Ereignis wird ausgelöst, wenn eine [CSS-Animation](/de/docs/Web/CSS/CSS_animations) unerwartet abbricht. Mit anderen Worten, jedes Mal, wenn sie stoppt, ohne ein {{domxref("Element/animationend_event", "animationend")}}-Ereignis zu senden. Dies kann passieren, wenn der Wert von {{cssxref("animation-name")}} so geändert wird, dass die Animation entfernt wird, oder wenn das animierende Element mit CSS versteckt wird. Dies kann entweder direkt geschehen oder weil eines der enthaltenen Elemente versteckt ist.
+Das **`animationcancel`**-Ereignis wird ausgelöst, wenn eine [CSS-Animation](/de/docs/Web/CSS/CSS_animations) unerwartet abbricht. Mit anderen Worten: immer dann, wenn sie aufhört zu laufen, ohne ein [`animationend`](/de/docs/Web/API/Element/animationend_event)-Ereignis zu senden. Dies kann passieren, wenn das {{cssxref("animation-name")}} so geändert wird, dass die Animation entfernt wird, oder wenn der animierende Knoten mittels CSS versteckt wird. Dies geschieht also entweder direkt oder weil einer seiner enthaltenen Knoten versteckt wird.
 
-Ein Ereignishandler für dieses Ereignis kann hinzugefügt werden, indem die `onanimationcancel`-Eigenschaft gesetzt wird oder {{domxref("EventTarget.addEventListener", "addEventListener()")}} verwendet wird.
+Ein Ereignishandler für dieses Ereignis kann durch Setzen der `onanimationcancel`-Eigenschaft oder mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) hinzugefügt werden.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie {{domxref("EventTarget.addEventListener", "addEventListener()")}}, oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("animationcancel", (event) => {});
@@ -24,24 +24,24 @@ onanimationcancel = (event) => {};
 
 ## Ereignistyp
 
-Ein {{domxref("AnimationEvent")}}. Erbt von {{domxref("Event")}}.
+Ein [`AnimationEvent`](/de/docs/Web/API/AnimationEvent). Erbt von [`Event`](/de/docs/Web/API/Event).
 
 {{InheritanceDiagram("AnimationEvent")}}
 
 ## Ereigniseigenschaften
 
-_Erbt auch Eigenschaften von seinem übergeordneten {{domxref("Event")}}_.
+_Erbt auch Eigenschaften von seinem Eltern-[`Event`](/de/docs/Web/API/Event)_.
 
-- {{domxref("AnimationEvent.animationName")}} {{ReadOnlyInline}}
-  - : Ein String, der den Wert von {{cssxref("animation-name")}} enthält, der die Animation erzeugt hat.
-- {{domxref("AnimationEvent.elapsedTime")}} {{ReadOnlyInline}}
-  - : Ein `float`, der die Zeit in Sekunden angibt, die die Animation gelaufen ist, als dieses Ereignis ausgelöst wurde, ohne die Zeit, in der die Animation pausiert war. Für ein `animationstart`-Ereignis ist `elapsedTime` `0.0`, es sei denn, es gab einen negativen Wert für {{cssxref("animation-delay")}}, in diesem Fall wird das Ereignis ausgelöst mit `elapsedTime`, das `(-1 * delay)` enthält.
-- {{domxref("AnimationEvent.pseudoElement")}} {{ReadOnlyInline}}
-  - : Ein String, der mit `'::'` beginnt und den Namen des [Pseudoelements](/de/docs/Web/CSS/Pseudo-elements) enthält, auf dem die Animation läuft. Wenn die Animation nicht auf einem Pseudoelement, sondern auf dem Element läuft, ein leerer String: `''`.
+- [`AnimationEvent.animationName`](/de/docs/Web/API/AnimationEvent/animationName) {{ReadOnlyInline}}
+  - : Ein String, der den Wert des {{cssxref("animation-name")}} enthält, der die Animation erzeugt hat.
+- [`AnimationEvent.elapsedTime`](/de/docs/Web/API/AnimationEvent/elapsedTime) {{ReadOnlyInline}}
+  - : Ein `float`, das die Zeit angibt, wie lange die Animation gelaufen ist, in Sekunden, als dieses Ereignis ausgelöst wurde, wobei Pausenzeiten ausgeschlossen sind. Für ein `animationstart`-Ereignis ist `elapsedTime` `0.0`, es sei denn, es gab einen negativen Wert für {{cssxref("animation-delay")}}, in diesem Fall wird das Ereignis mit `elapsedTime` ausgelöst, das `(-1 * delay)` enthält.
+- [`AnimationEvent.pseudoElement`](/de/docs/Web/API/AnimationEvent/pseudoElement) {{ReadOnlyInline}}
+  - : Ein String, beginnend mit `'::'`, der den Namen des [Pseudo-Elements](/de/docs/Web/CSS/Pseudo-elements) enthält, auf dem die Animation läuft. Wenn die Animation nicht auf einem Pseudo-Element, sondern auf dem Element läuft, ein leerer String: `''`.
 
 ## Beispiele
 
-Dieses Code-Beispiel nimmt ein derzeit animiertes Element und fügt einen Listener für das `animationcancel`-Ereignis hinzu. Es setzt dann die {{cssxref("display")}}-Eigenschaft des Elements auf `none`, was das `animationcancel`-Ereignis auslösen wird.
+Dieser Code erhält ein Element, das gerade animiert wird, und fügt einen Listener für das `animationcancel`-Ereignis hinzu. Danach wird die {{cssxref("display")}}-Eigenschaft des Elements auf `none` gesetzt, was das `animationcancel`-Ereignis auslösen wird.
 
 ```js
 const animated = document.querySelector(".animated");
@@ -53,7 +53,7 @@ animated.addEventListener("animationcancel", () => {
 animated.style.display = "none";
 ```
 
-Das gleiche, aber unter Verwendung der `onanimationcancel`-Eigenschaft anstelle von `addEventListener()`:
+Dasselbe, aber mit Verwendung der `onanimationcancel`-Eigenschaft anstatt `addEventListener()`:
 
 ```js
 const animated = document.querySelector(".animated");
@@ -167,5 +167,5 @@ applyAnimation.addEventListener("click", () => {
 
 - [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)
 - [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
-- {{domxref("AnimationEvent")}}
-- Verwandte Ereignisse: {{domxref("Element/animationstart_event", "animationstart")}}, {{domxref("Element/animationend_event", "animationend")}}, {{domxref("Element/animationiteration_event", "animationiteration")}}
+- [`AnimationEvent`](/de/docs/Web/API/AnimationEvent)
+- Verwandte Ereignisse: [`animationstart`](/de/docs/Web/API/Element/animationstart_event), [`animationend`](/de/docs/Web/API/Element/animationend_event), [`animationiteration`](/de/docs/Web/API/Element/animationiteration_event)

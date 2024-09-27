@@ -3,18 +3,18 @@ title: "WorkerNavigator: platform-Eigenschaft"
 short-title: platform
 slug: Web/API/WorkerNavigator/platform
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
 ---
 
 {{ APIRef("HTML DOM") }} {{Deprecated_Header}}{{AvailableInWorkers("worker")}}
 
-Gibt einen String zurück, der die Plattform des Browsers darstellt. Die Spezifikation erlaubt es Browsern, immer den leeren String zurückzugeben. Verlassen Sie sich daher nicht auf diese Eigenschaft, um eine verlässliche Antwort zu erhalten.
+Gibt einen String zurück, der die Plattform des Browsers darstellt. Die Spezifikation erlaubt es, dass Browser immer den leeren String zurückgeben, daher sollten Sie sich nicht darauf verlassen, dass diese Eigenschaft eine zuverlässige Antwort liefert.
 
 ## Wert
 
-Ein String, der die Plattform identifiziert, auf der der Browser läuft, oder ein leerer String, wenn der Browser sich entscheidet (oder nicht in der Lage ist), die Plattform zu identifizieren. `platform` ist ein String, der entweder ein leerer String oder ein String sein muss, der die Plattform darstellt, auf der der Browser ausgeführt wird.
+Ein String, der die Plattform identifiziert, auf der der Browser ausgeführt wird, oder ein leerer String, wenn der Browser es ablehnt (oder nicht in der Lage ist), die Plattform zu identifizieren. `platform` ist ein String, der ein leerer String sein muss oder einen String, der die Plattform darstellt, auf der der Browser ausgeführt wird.
 
-Zum Beispiel: "`MacIntel`", "`Win32`", "`FreeBSD i386`", "`WebTV OS`".
+Zum Beispiel: `"MacIntel"`, `"Win32"`, `"FreeBSD i386"`, `"WebTV OS"`.
 
 ## Beispiele
 
@@ -22,9 +22,9 @@ Zum Beispiel: "`MacIntel`", "`Win32`", "`FreeBSD i386`", "`WebTV OS`".
 console.log(navigator.platform);
 ```
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Unter Windows geben moderne Browser `"Win32"` zurück, auch wenn sie auf einer 64-Bit-Version von Windows ausgeführt werden.
+Unter Windows geben moderne Browser `"Win32"` zurück, selbst wenn sie auf einer 64-Bit-Version von Windows laufen.
 
 ## Spezifikationen
 

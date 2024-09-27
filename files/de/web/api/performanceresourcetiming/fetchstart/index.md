@@ -8,27 +8,27 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`fetchStart`** schreibgeschützte Eigenschaft stellt einen {{domxref("DOMHighResTimeStamp","Zeitstempel")}} unmittelbar bevor der Browser beginnt, die Ressource abzurufen, dar.
+Die schreibgeschützte Eigenschaft **`fetchStart`** repräsentiert einen [`Timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Browser beginnt, die Ressource abzurufen.
 
-Bei HTTP-Weiterleitungen gibt die Eigenschaft die Zeit unmittelbar bevor der Benutzeragent beginnt, die endgültige Ressource in der Weiterleitung abzurufen, zurück.
+Falls es HTTP-Weiterleitungen gibt, gibt die Eigenschaft die Zeit unmittelbar bevor der User-Agent beginnt, die endgültige Ressource in der Weiterleitung abzurufen, zurück.
 
-Im Gegensatz zu vielen anderen `PerformanceResourceTiming`-Eigenschaften ist die `fetchStart`-Eigenschaft für Cross-Origin-Anfragen verfügbar, ohne dass der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header erforderlich ist.
+Im Gegensatz zu vielen anderen `PerformanceResourceTiming`-Eigenschaften ist die `fetchStart`-Eigenschaft für Cross-Origin-Anfragen verfügbar, ohne dass der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Response-Header erforderlich ist.
 
 ## Wert
 
-Ein {{domxref("DOMHighResTimeStamp")}} unmittelbar bevor der Browser beginnt, die Ressource abzurufen.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar bevor der Browser beginnt, die Ressource abzurufen.
 
 ## Beispiele
 
-### Zeitmessung beim Abrufen (ohne Weiterleitungen)
+### Zeitmessung für das Abrufen (ohne Weiterleitungen)
 
-Die Eigenschaften `fetchStart` und {{domxref("PerformanceResourceTiming.responseEnd", "responseEnd")}} können verwendet werden, um die Gesamtzeit zu messen, die benötigt wurde, um die endgültige Ressource (ohne Weiterleitungen) abzurufen. Wenn Sie Weiterleitungen einbeziehen möchten, wird die Gesamtzeit zum Abrufen in der {{domxref("PerformanceEntry.duration", "duration")}}-Eigenschaft angegeben.
+Die `fetchStart`- und [`responseEnd`](/de/docs/Web/API/PerformanceResourceTiming/responseEnd)-Eigenschaften können verwendet werden, um die Gesamtzeit, die benötigt wurde, um die endgültige Ressource abzurufen (ohne Weiterleitungen), zu messen. Wenn Sie Weiterleitungen einschließen möchten, wird die Gesamtzeit zum Abrufen in der [`duration`](/de/docs/Web/API/PerformanceEntry/duration)-Eigenschaft angegeben.
 
 ```js
 const timeToFetch = entry.responseEnd - entry.fetchStart;
 ```
 
-Beispiel mit einem {{domxref("PerformanceObserver")}}, der über neue `resource`-Performance-Einträge benachrichtigt, während sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Beobachters zuzugreifen.
+Beispiel unter Verwendung eines [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Leistungseinträge benachrichtigt, wenn sie in der Leistungszeitachse des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge von vor der Erstellung des Beobachters zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -43,7 +43,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel mit {{domxref("Performance.getEntriesByType()")}}, das nur `resource`-Performance-Einträge anzeigt, die in der Performance-Zeitleiste des Browsers vorhanden sind, wenn Sie diese Methode aufrufen:
+Beispiel unter Verwendung von [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), die nur `resource`-Leistungseinträge anzeigen, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungszeitachse des Browsers vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");

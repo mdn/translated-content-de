@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Der **`Image()`**-Konstruktor erstellt eine neue Instanz von {{DOMxRef("HTMLImageElement")}}. Er ist funktional äquivalent zu {{DOMxRef("Document.createElement()", "document.createElement('img')")}}.
+Der **`Image()`**-Konstruktor erstellt eine neue Instanz von [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement). Er ist funktional
+äquivalent zu [`document.createElement('img')`](/de/docs/Web/API/Document/createElement).
 
 > [!NOTE]
 > Diese Funktion sollte nicht mit der CSS-Funktion [`image()`](/de/docs/Web/CSS/image/image) verwechselt werden.
@@ -24,13 +25,13 @@ new Image(width, height)
 ### Parameter
 
 - `width` {{optional_inline}}
-  - : Die Breite des Bildes (d.h. der Wert für das [`width`](/de/docs/Web/HTML/Element/img#width)-Attribut).
+  - : Die Breite des Bildes (d. h. der Wert für das [`width`](/de/docs/Web/HTML/Element/img#width)-Attribut).
 - `height` {{optional_inline}}
-  - : Die Höhe des Bildes (d.h. der Wert für das [`height`](/de/docs/Web/HTML/Element/img#height)-Attribut).
+  - : Die Höhe des Bildes (d. h. der Wert für das [`height`](/de/docs/Web/HTML/Element/img#height)-Attribut).
 
-## Hinweis zur Nutzung
+## Nutzungshinweis
 
-Das gesamte Bitmap wird ungeachtet der im Konstruktor angegebenen Größen geladen. Die im Konstruktor angegebene Größe spiegelt sich in den Eigenschaften {{DOMxRef("HTMLImageElement.width")}} und {{DOMxRef("HTMLImageElement.height")}} der resultierenden Instanz wider. Die intrinsische Breite und Höhe des Bildes in CSS-Pixeln werden durch die Eigenschaften {{DOMxRef("HTMLImageElement.naturalWidth")}} und {{DOMxRef("HTMLImageElement.naturalHeight")}} wiedergegeben. Wenn im Konstruktor keine Größe angegeben ist, haben beide Eigenschaftspaare die gleichen Werte.
+Das gesamte Bitmap wird unabhängig von den im Konstruktor angegebenen Größen geladen. Die im Konstruktor angegebene Größe wird durch die Eigenschaften [`HTMLImageElement.width`](/de/docs/Web/API/HTMLImageElement/width) und [`HTMLImageElement.height`](/de/docs/Web/API/HTMLImageElement/height) der resultierenden Instanz widergespiegelt. Die intrinsische Breite und Höhe des Bildes in CSS-Pixeln werden durch die Eigenschaften [`HTMLImageElement.naturalWidth`](/de/docs/Web/API/HTMLImageElement/naturalWidth) und [`HTMLImageElement.naturalHeight`](/de/docs/Web/API/HTMLImageElement/naturalHeight) wiedergegeben. Wenn im Konstruktor keine Größe angegeben ist, haben beide Paare von Eigenschaften die gleichen Werte.
 
 ## Beispiele
 
@@ -40,7 +41,7 @@ myImage.src = "picture.jpg";
 document.body.appendChild(myImage);
 ```
 
-Dies wäre äquivalent zur Definition des folgenden HTML-Tags innerhalb des {{HTMLElement("body")}}:
+Dies wäre das Äquivalent zur Definition des folgenden HTML-Tags innerhalb des {{HTMLElement("body")}}:
 
 ```html
 <img width="100" height="200" src="picture.jpg" />

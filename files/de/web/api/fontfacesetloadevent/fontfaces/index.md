@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die **`fontfaces`** schreibgeschützte Eigenschaft der {{domxref("FontFaceSetLoadEvent")}}-Schnittstelle gibt ein Array von {{domxref("FontFace")}}-Instanzen zurück, von denen jede eine einzelne verwendbare Schriftart darstellt.
+Die schreibgeschützte **`fontfaces`**-Eigenschaft der [`FontFaceSetLoadEvent`](/de/docs/Web/API/FontFaceSetLoadEvent)-Schnittstelle gibt ein Array von [`FontFace`](/de/docs/Web/API/FontFace)-Instanzen zurück, von denen jede eine einzeln nutzbare Schriftart darstellt.
 
 ## Wert
 
-Ein Array von {{domxref("FontFace")}}-Instanzen.
+Ein Array von [`FontFace`](/de/docs/Web/API/FontFace)-Instanzen.
 
 ## Spezifikationen
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}

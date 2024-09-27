@@ -7,19 +7,19 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-**`Strict-Transport-Security`**-Antwortheader (oft abgekürzt als {{Glossary("HSTS")}}) informiert Browser darüber, dass auf die Website nur über HTTPS zugegriffen werden soll und dass alle zukünftigen Versuche, über HTTP darauf zuzugreifen, automatisch in HTTPS umgewandelt werden sollen.
+Der HTTP **`Strict-Transport-Security`** Response-Header (oft als [HSTS](/de/docs/Glossary/HSTS) abgekürzt) informiert Browser, dass die Seite nur über HTTPS erreichbar sein sollte, und dass jeder zukünftige Versuch, darauf über HTTP zuzugreifen, automatisch in HTTPS umgewandelt werden sollte.
 
 > [!NOTE]
-> Dies ist sicherer als einfach nur eine HTTP-zu-HTTPS-Weiterleitung (301) auf Ihrem Server zu konfigurieren, bei der die anfängliche HTTP-Verbindung weiterhin anfällig für einen Man-in-the-Middle-Angriff ist.
+> Dies ist sicherer als einfach nur eine HTTP zu HTTPS (301) Weiterleitung auf Ihrem Server zu konfigurieren, bei der die anfängliche HTTP-Verbindung trotzdem anfällig für einen Man-in-the-Middle-Angriff ist.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response header")}}</td>
+      <th scope="row">Headertyp</th>
+      <td>[Response-Header](/de/docs/Glossary/Response_header)</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
+      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -36,52 +36,52 @@ Strict-Transport-Security: max-age=<expire-time>; includeSubDomains; preload
 ## Direktiven
 
 - `max-age=<expire-time>`
-  - : Die Zeit in Sekunden, für die der Browser sich merken soll, dass eine Website nur mit HTTPS aufgerufen werden darf.
+  - : Die Dauer in Sekunden, die der Browser sich merken soll, dass eine Seite nur über HTTPS zugänglich sein soll.
 - `includeSubDomains` {{optional_inline}}
-  - : Wenn dieser optionale Parameter angegeben ist, gilt diese Regel auch für alle Subdomains der Website.
+  - : Wenn dieser optionale Parameter angegeben ist, gilt diese Regel auch für alle Subdomains der Seite.
 - `preload` {{optional_inline}} {{non-standard_inline}}
-  - : Siehe [Vorladen von Strict Transport Security](#vorladen_von_strict_transport_security) für Details. Bei der Verwendung von `preload` muss die `max-age`-Direktive mindestens `31536000` (1 Jahr) sein und die `includeSubDomains`-Direktive muss vorhanden sein.
-    Nicht Teil der Spezifikation.
+  - : Siehe [Vorladen von Strict Transport Security](#vorladen_von_strict_transport_security) für Details. Bei der Verwendung von `preload` muss die `max-age`-Direktive mindestens `31536000` (1 Jahr) betragen, und die `includeSubDomains`-Direktive muss vorhanden sein.
+    Gehört nicht zur Spezifikation.
 
 ## Beschreibung
 
-Wenn eine Website eine Verbindung über HTTP akzeptiert und zu HTTPS umleitet, können Besucher zunächst mit der nicht verschlüsselten Version der Website kommunizieren, bevor sie weitergeleitet werden, beispielsweise wenn der Besucher `http://www.foo.com/` oder sogar nur foo.com eingibt.
-Dies schafft eine Gelegenheit für einen Man-in-the-Middle-Angriff.
-Die Weiterleitung könnte ausgenutzt werden, um Besucher auf eine bösartige Website anstelle der sicheren Version der Originalseite zu leiten.
+Wenn eine Website eine Verbindung über HTTP akzeptiert und zu HTTPS weiterleitet, können Besucher zunächst mit der nicht verschlüsselten Version der Seite kommunizieren, bevor sie weitergeleitet werden, wenn beispielsweise der Besucher `http://www.foo.com/` oder einfach nur foo.com eingibt.
+Dies bietet eine Gelegenheit für einen Man-in-the-Middle-Angriff.
+Die Weiterleitung könnte ausgenutzt werden, um Besucher zu einer bösartigen Seite anstelle der sicheren Version der ursprünglichen Seite zu leiten.
 
-Der HTTP Strict Transport Security-Header informiert den Browser, dass er niemals eine Site über HTTP laden soll und automatisch alle Versuche, auf die Site über HTTP zuzugreifen, in HTTPS-Anfragen umwandeln soll.
+Der HTTP Strict Transport Security-Header informiert den Browser, dass er nie eine Seite über HTTP laden soll und alle Versuche, auf die Seite über HTTP zuzugreifen, automatisch in HTTPS-Anfragen umgewandelt werden sollen.
 
 > [!NOTE]
-> Der `Strict-Transport-Security`-Header wird vom Browser _ignoriert_, wenn Ihre Website nur über HTTP aufgerufen wurde.
-> Sobald Ihre Website über HTTPS ohne Zertifikatsfehler aufgerufen wird, erkennt der Browser, dass Ihre Website HTTPS-fähig ist und beachtet den `Strict-Transport-Security`-Header.
-> Browser tun dies, da Angreifer HTTP-Verbindungen zur Site abfangen und den Header injizieren oder entfernen könnten.
+> Der `Strict-Transport-Security`-Header wird vom Browser _ignoriert_, wenn Ihre Seite nur über HTTP aufgerufen wurde.
+> Sobald Ihre Seite über HTTPS aufgerufen wird, ohne dass es zu Zertifikatsfehlern kommt, weiß der Browser, dass Ihre Seite HTTPS-fähig ist, und wird den `Strict-Transport-Security`-Header beachten.
+> Browser tun dies, da Angreifer HTTP-Verbindungen zur Seite abfangen und den Header einfügen oder entfernen könnten.
 
 ### Ein Beispiel-Szenario
 
-Sie loggen sich in einen kostenfreien WLAN-Zugangspunkt an einem Flughafen ein und beginnen im Internet zu surfen, besuchen Ihren Online-Banking-Service, um Ihr Guthaben zu überprüfen und ein paar Rechnungen zu bezahlen.
-Leider ist der Zugangspunkt, den Sie verwenden, in Wirklichkeit der Laptop eines Hackers, und dieser fängt Ihre ursprüngliche HTTP-Anfrage ab und leitet Sie zu einer Kopie der Website Ihrer Bank anstelle der echten Seite weiter. Jetzt sind Ihre privaten Daten dem Hacker ausgesetzt.
+Sie loggen sich an einem kostenfreien WLAN-Zugangspunkt auf einem Flughafen ein und starten das Surfen im Web, indem Sie Ihren Online-Banking-Dienst besuchen, um Ihr Guthaben zu überprüfen und einige Rechnungen zu bezahlen.
+Leider ist der Zugangspunkt, den Sie nutzen, tatsächlich der Laptop eines Hackers, der Ihre ursprüngliche HTTP-Anfrage abfängt und Sie zu einer Kopie der Seite Ihrer Bank anstelle des Originals umleitet. Jetzt sind Ihre privaten Daten dem Hacker ausgesetzt.
 
-Strict Transport Security löst dieses Problem; solange Sie die Website Ihrer Bank einmal mit HTTPS aufgerufen haben und die Website Ihrer Bank Strict Transport Security verwendet, weiß Ihr
-Browser, dass er automatisch nur HTTPS verwenden soll, was verhindert, dass Hacker diesen Man-in-the-Middle-Angriff ausführen.
+Strict Transport Security löst dieses Problem; solange Sie die Website Ihrer Bank einmal über HTTPS aufgerufen haben und die Website der Bank Strict Transport Security verwendet, weiß Ihr
+Browser, dass er nur HTTPS verwenden soll, was verhindert, dass Hacker diese Art von Man-in-the-Middle-Angriff ausführen.
 
-### Wie der Browser damit umgeht
+### Wie der Browser es handhabt
 
-Das erste Mal, wenn Ihre Site über HTTPS aufgerufen wird und den `Strict-Transport-Security`-Header zurückgibt, speichert der Browser diese Informationen, sodass zukünftige Versuche, die Site über HTTP zu laden, automatisch stattdessen HTTPS verwenden.
+Das erste Mal, wenn Ihre Seite über HTTPS aufgerufen wird und den `Strict-Transport-Security`-Header zurückgibt, speichert der Browser diese Information, sodass zukünftige Versuche, die Seite über HTTP zu laden, automatisch stattdessen HTTPS verwenden.
 
-Wenn die im `Strict-Transport-Security`-Header angegebene Ablaufzeit endet, wird der nächste Versuch, die Site über HTTP zu laden, wie gewohnt fortgesetzt, anstatt automatisch HTTPS zu verwenden.
+Wenn die im `Strict-Transport-Security`-Header angegebene Ablaufzeit abgelaufen ist, wird der nächste Versuch, die Seite über HTTP zu laden, normal verlaufen, anstatt automatisch HTTPS zu verwenden.
 
-Immer wenn der Strict-Transport-Security-Header an den Browser übermittelt wird, aktualisiert er die Ablaufzeit für diese Site, sodass Websites diese Informationen aktualisieren und verhindern können, dass die Zeitbeschränkung abläuft.
-Sollte es notwendig sein, Strict Transport Security zu deaktivieren, wird das Setzen von `max-age` auf 0 (über eine HTTPS-Verbindung) den `Strict-Transport-Security`-Header sofort ablaufen lassen und den Zugriff über HTTP erlauben.
+Jedes Mal, wenn der Strict-Transport-Security-Header an den Browser geliefert wird, wird die Ablaufzeit für diese Seite aktualisiert, sodass Seiten diese Informationen aktualisieren und das Ablaufdatum verhindern können.
+Sollte es notwendig sein, Strict Transport Security zu deaktivieren, kann das Setzen von `max-age` auf 0 (über eine HTTPS-Verbindung) den `Strict-Transport-Security`-Header sofort ablaufen lassen und den Zugriff über HTTP erlauben.
 
 ## Vorladen von Strict Transport Security
 
-Google betreibt einen [HSTS Preload Dienst](https://hstspreload.org/).
-Indem Sie die Richtlinien befolgen und Ihre Domain erfolgreich einreichen, können Sie sicherstellen, dass Browser nur über sichere Verbindungen mit Ihrer Domain verbinden.
-Obwohl der Dienst von Google gehostet wird, verwenden alle Browser diese Preload-Liste.
-Sie ist jedoch nicht Teil der HSTS-Spezifikation und sollte nicht als offiziell betrachtet werden.
+Google betreibt einen [HSTS-Preload-Service](https://hstspreload.org/).
+Durch Befolgen der Richtlinien und erfolgreiche Einreichung Ihrer Domain können Sie sicherstellen, dass Browser nur über sichere Verbindungen mit Ihrer Domain verbunden werden.
+Obwohl der Dienst von Google betrieben wird, verwenden alle Browser diese Preload-Liste.
+Es ist jedoch nicht Teil der HSTS-Spezifikation und sollte nicht als offiziell betrachtet werden.
 
 - Informationen zur HSTS-Preload-Liste in Chrome: <https://www.chromium.org/hsts/>
-- Konsultation der Firefox-HSTS-Preload-Liste: [nsSTSPreloadList.inc](https://searchfox.org/mozilla-central/source/security/manager/ssl/nsSTSPreloadList.inc)
+- Konsultation der Firefox HSTS-Preload-Liste: [nsSTSPreloadList.inc](https://searchfox.org/mozilla-central/source/security/manager/ssl/nsSTSPreloadList.inc)
 
 ## Beispiele
 
@@ -92,9 +92,9 @@ Dies blockiert den Zugriff auf Seiten oder Subdomains, die nur über HTTP bereit
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 ```
 
-Obwohl eine `max-age` von 1 Jahr für eine Domain akzeptabel ist, sind zwei Jahre der empfohlene Wert, wie auf <https://hstspreload.org> erklärt.
+Obwohl eine `max-age` von 1 Jahr für eine Domain akzeptabel ist, wird ein Wert von zwei Jahren wie auf <https://hstspreload.org> erläutert empfohlen.
 
-Im folgenden Beispiel ist `max-age` auf 2 Jahre gesetzt und wird mit `preload` ergänzt, was für die Aufnahme in die HSTS-Preload-Listen aller wichtigen Webbrowser notwendig ist, wie Chromium, Edge und Firefox.
+Im folgenden Beispiel ist `max-age` auf 2 Jahre eingestellt und mit `preload` versehen, was für die Aufnahme in die HSTS-Preload-Listen aller großen Webbrowser, wie Chromium, Edge und Firefox, erforderlich ist.
 
 ```http
 Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
@@ -104,15 +104,15 @@ Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 
 {{Specifications}}
 
-## Kompatibilität der Browser
+## Browser-Kompatibilität
 
 {{Compat}}
 
 ## Siehe auch
 
-- Blogpost: [HTTP Strict Transport Security has landed!](https://blog.sidstamm.com/2010/08/http-strict-transport-security-has.html)
-- Blogpost: [HTTP Strict Transport Security (force HTTPS)](https://hacks.mozilla.org/2010/08/firefox-4-http-strict-transport-security-force-https/)
-- OWASP-Artikel: [HTTP Strict Transport Security](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html)
+- Blogbeitrag: [HTTP Strict Transport Security hat Einzug gehalten!](https://blog.sidstamm.com/2010/08/http-strict-transport-security-has.html)
+- Blogbeitrag: [HTTP Strict Transport Security (erzwingt HTTPS)](https://hacks.mozilla.org/2010/08/firefox-4-http-strict-transport-security-force-https/)
+- OWASP Artikel: [HTTP Strict Transport Security](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html)
 - Wikipedia: [HTTP Strict Transport Security](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security)
-- [HSTS Preload Dienst](https://hstspreload.org/)
+- [HSTS Preload-Service](https://hstspreload.org/)
 - [Funktionen, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts)

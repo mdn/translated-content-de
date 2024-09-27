@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`width`**-Eigenschaft gibt die Breite eines {{domxref("OffscreenCanvas")}}-Objekts zurück und legt sie fest.
+Die **`width`**-Eigenschaft gibt die Breite eines [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekts zurück und setzt diese.
 
 ## Wert
 
 ## Beispiele
 
-Erstellung einer neuen Offscreen-Leinwand und Zurückgeben oder Festlegen der Breite der Offscreen-Leinwand:
+Erstellen einer neuen Offscreen-Leinwand und Zurückgeben oder Festlegen der Breite der Offscreen-Leinwand:
 
 ```js
 const offscreen = new OffscreenCanvas(256, 256);
@@ -32,4 +32,4 @@ offscreen.width = 512;
 
 ## Siehe auch
 
-- {{domxref("OffscreenCanvas")}}, die Schnittstelle, zu der diese Eigenschaft gehört.
+- [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas), die Schnittstelle, zu der diese Eigenschaft gehört.

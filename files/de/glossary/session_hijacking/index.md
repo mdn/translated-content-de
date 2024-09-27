@@ -1,5 +1,5 @@
 ---
-title: Sitzungsübernahme
+title: Session Hijacking
 slug: Glossary/Session_Hijacking
 l10n:
   sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
@@ -7,37 +7,37 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Session Hijacking** tritt auf, wenn ein Angreifer eine gültige Sitzung zwischen zwei Computern übernimmt. Der Angreifer stiehlt eine gültige Sitzungs-ID, um in das System einzubrechen und Daten auszuspionieren.
+**Session Hijacking** tritt auf, wenn ein Angreifer eine gültige Sitzung zwischen zwei Computern übernimmt. Der Angreifer stiehlt eine gültige Sitzungs-ID, um in das System einzubrechen und Daten auszuspähen.
 
-Die meisten Authentifizierungen erfolgen nur zu Beginn einer {{glossary("TCP")}}-Sitzung. Bei einer TCP-Situationsübernahme erhält ein Angreifer Zugriff, indem er eine TCP-Sitzung zwischen zwei Maschinen in der laufenden Sitzung übernimmt.
+Die meisten Authentifizierungen erfolgen nur zu Beginn einer [TCP](/de/docs/Glossary/TCP)-Sitzung. Bei einem TCP-Sitzungshijacking verschafft sich ein Angreifer Zugang, indem er eine TCP-Sitzung zwischen zwei Maschinen während einer bestehenden Sitzung übernimmt.
 
-![Der Angreifer schnüffelt und greift auf eine legitime Sitzungs-ID eines Nutzers zu, der mit einem Webserver interagiert, und verwendet dann diese Sitzungskennung, um die Sitzung zwischen dem regulären Nutzer und dem Server zu fälschen, um die Sitzung des Nutzers auszunutzen und direkt auf den Server zuzugreifen.](session_hijacking_3.jpg)
+![Der Angreifer schnüffelt und greift eine legitime Sitzungs-ID von einem Benutzer ab, der mit einem Webserver interagiert, und verwendet dann diese Sitzungskennung, um die Sitzung zwischen dem regulären Benutzer und dem Server zu fälschen, um die Sitzung des Benutzers auszunutzen und direkt auf den Server zuzugreifen.](session_hijacking_3.jpg)
 
-### Die Sitzungsübernahme erfolgt aufgrund von
+### Session Hijacking tritt auf, weil
 
-- keinem Kontosperrung für ungültige Sitzungs-IDs
-- schwachem Sitzungs-ID-Generierungsalgorithmus
-- unsicherer Handhabung
-- unbegrenzter Sitzungsablaufzeit
-- kurzen Sitzungs-IDs
-- Übertragung in Klartext
+- kein Kontosperren für ungültige Sitzungs-IDs vorhanden ist
+- schwacher Sitzungs-ID-Generierungsalgorithmus
+- unsichere Handhabung
+- unbestimmte Ablaufzeit der Sitzung
+- kurze Sitzungs-IDs
+- Übertragung im Klartext
 
-### Prozess der Sitzungsübernahme
+### Prozess des Session Hijackings
 
-1. **Sniff**, also führen Sie einen Man-in-the-Middle (MITM) Angriff durch und platzieren Sie sich zwischen Opfer und Server.
-2. **Überwachen** Sie die zwischen Server und Benutzer fließenden Pakete.
-3. **Unterbrechen** Sie die Verbindung des Opfercomputers.
-4. **Übernehmen** Sie die Kontrolle über die Sitzung.
-5. **Injizieren** Sie neue Pakete an den Server unter Verwendung der Sitzungs-ID des Opfers.
+1. **Schnüffeln**, das heißt, einen Man-in-the-Middle (MITM) Angriff durchführen, sich zwischen Opfer und Server platzieren.
+2. **Überwachen** der zwischen Server und Benutzer fließenden Pakete.
+3. **Unterbrechen** der Verbindung der Opfermaschine.
+4. **Kontrolle** der Sitzung übernehmen.
+5. **Einfügen** neuer Pakete zum Server unter Verwendung der Sitzungs-ID des Opfers.
 
-### Schutz gegen Sitzungsübernahme
+### Schutz vor Session Hijacking
 
-- einen sicheren Kommunikationskanal mit SSH (Secure Shell) erstellen
-- Authentifizierungscookies über eine HTTPS-Verbindung übertragen
-- Abmeldefunktion implementieren, sodass der Nutzer die Sitzung beenden kann
-- Sitzungs-ID nach erfolgreicher Anmeldung generieren
-- verschlüsselte Daten zwischen Benutzern und dem Webserver übertragen
-- verwenden Sie eine Zeichenkette oder eine lange Zufallszahl als Sitzungsschlüssel
+- einen sicheren Kommunikationskanal mit SSH (Secure Shell) schaffen
+- Authentifizierungs-Cookies über eine HTTPS-Verbindung senden
+- Abmeldefunktion implementieren, damit der Benutzer die Sitzung beenden kann
+- die Sitzungs-ID nach erfolgreichem Login generieren
+- verschlüsselte Daten zwischen den Benutzern und dem Webserver austauschen
+- einen String oder eine lange Zufallszahl als Sitzungs-Schlüssel verwenden
 
 ## Siehe auch
 

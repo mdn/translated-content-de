@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-IPv4 ist die vierte Version des Kommunikations{{Glossary("protocol")}}, das dem {{glossary("Internet")}} zugrunde liegt, und die erste Version, die weit verbreitet eingesetzt wurde.
+IPv4 ist die vierte Version des Kommunikations[protokolls](/de/docs/Glossary/protocol), das dem [Internet](/de/docs/Glossary/Internet) zugrunde liegt, und die erste Version, die weit verbreitet eingeführt wurde.
 
-Erstmals 1981 formell festgelegt, hat IPv4 seine Wurzeln in der ursprünglichen Entwicklungsarbeit für ARPAnet. IPv4 ist ein verbindungsloses Protokoll zur Nutzung in paketvermittelten Link-Layer-Netzwerken (Ethernet). {{glossary("IPv6")}} ersetzt allmählich IPv4 aufgrund der Sicherheitsprobleme und der Beschränkungen im Adressfeld von IPv4. (Die Versionsnummer 5 wurde 1979 dem experimentellen Internet Stream Protocol zugewiesen, das jedoch nie als IPv5 bezeichnet wurde.)
+Erstmals 1981 formalisiert, hat IPv4 seine Wurzeln in der ursprünglichen Entwicklungsarbeit für ARPAnet. IPv4 ist ein verbindungsloses Protokoll, das auf paketvermittelten Netzen der Sicherungsschicht (Ethernet) eingesetzt werden soll. [IPv6](/de/docs/Glossary/IPv6) ersetzt allmählich IPv4 aufgrund der Sicherheitsprobleme von IPv4 und der Begrenzungen seines Adressfeldes. (Die Versionsnummer 5 wurde 1979 dem experimentellen Internet Stream Protocol zugewiesen, das jedoch nie als IPv5 bezeichnet wurde.)
 
 ## Siehe auch
 

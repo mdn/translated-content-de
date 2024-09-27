@@ -8,15 +8,15 @@ l10n:
 
 {{SecureContext_Header}}{{APIRef("Web Serial API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`readable`**-Schreibgeschützte Eigenschaft des {{domxref("SerialPort")}}-Interfaces gibt einen {{domxref("ReadableStream")}} zurück, um Daten vom an den Port angeschlossenen Gerät zu empfangen. Die aus diesem Stream gelesenen Blöcke sind Instanzen von {{jsxref("Uint8Array")}}. Diese Eigenschaft ist nicht null, solange der Port geöffnet und kein schwerwiegender Fehler aufgetreten ist.
+Die **`readable`** schreibgeschützte Eigenschaft des [`SerialPort`](/de/docs/Web/API/SerialPort) Interface liefert einen [`ReadableStream`](/de/docs/Web/API/ReadableStream), um Daten vom mit dem Port verbundenen Gerät zu empfangen. Die von diesem Stream gelesenen Blöcke sind Instanzen von {{jsxref("Uint8Array")}}. Diese Eigenschaft ist nicht null, solange der Port geöffnet ist und kein schwerwiegender Fehler aufgetreten ist.
 
 ## Wert
 
-Ein {{domxref("ReadableStream")}}.
+Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream).
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie Daten von einem Port gelesen werden. Die äußere Schleife behandelt nicht-kritische Fehler, indem sie einen neuen Leser erstellt, bis ein schwerwiegender Fehler auftritt und `readable` null wird.
+Das folgende Beispiel zeigt, wie man Daten von einem Port liest. Die äußere Schleife behandelt nicht-schwerwiegende Fehler und erstellt einen neuen Leser, bis ein schwerwiegender Fehler auftritt und `readable` null wird.
 
 ```js
 while (port.readable) {
@@ -25,13 +25,13 @@ while (port.readable) {
     while (true) {
       const { value, done } = await reader.read();
       if (done) {
-        // |reader| wurde abgebrochen.
+        // |reader| has been canceled.
         break;
       }
-      // Machen Sie etwas mit |value|…
+      // Do something with |value|…
     }
   } catch (error) {
-    // Behandeln Sie |error|…
+    // Handle |error|…
   } finally {
     reader.releaseLock();
   }

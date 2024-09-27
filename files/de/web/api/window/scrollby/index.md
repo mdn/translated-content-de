@@ -1,5 +1,5 @@
 ---
-title: "Fenster: scrollBy()-Methode"
+title: "Window: scrollBy() Methode"
 short-title: scrollBy()
 slug: Web/API/Window/scrollBy
 l10n:
@@ -30,7 +30,7 @@ scrollBy(options)
     - `left`
       - : Gibt die Anzahl der Pixel entlang der X-Achse an, um die das Fenster oder Element gescrollt werden soll.
     - `behavior`
-      - : Gibt an, ob das Scrollen sanft animiert (`smooth`), sofort in einem Sprung (`instant`) erfolgen soll oder der Browser wählen kann (`auto`, Standard).
+      - : Gibt an, ob das Scrollen sanft animiert werden soll (`smooth`), sofort in einem Sprung erfolgen soll (`instant`) oder dem Browser die Wahl gelassen wird (`auto`, Standard).
 
 ### Rückgabewert
 
@@ -50,7 +50,7 @@ Um nach oben zu scrollen:
 window.scrollBy(0, -window.innerHeight);
 ```
 
-Nutzung von `options`:
+Verwendung von `options`:
 
 ```js
 window.scrollBy({
@@ -60,11 +60,9 @@ window.scrollBy({
 });
 ```
 
-## Anmerkungen
+## Hinweise
 
-`window.scrollBy()` scrollt um einen bestimmten Betrag, während
-{{domxref("window.scroll()")}} zu einer absoluten Position im Dokument scrollt. Siehe auch
-{{domxref("window.scrollByLines()")}} und {{domxref("window.scrollByPages()")}}.
+`window.scrollBy()` scrollt um einen bestimmten Betrag, während [`window.scroll()`](/de/docs/Web/API/Window/scroll) zu einer absoluten Position im Dokument scrollt. Siehe auch [`window.scrollByLines()`](/de/docs/Web/API/Window/scrollByLines) und [`window.scrollByPages()`](/de/docs/Web/API/Window/scrollByPages).
 
 ## Spezifikationen
 

@@ -1,5 +1,5 @@
 ---
-title: "WebTransport: incomingBidirectionalStreams-Eigenschaft"
+title: "WebTransport: incomingBidirectionalStreams Eigenschaft"
 short-title: incomingBidirectionalStreams
 slug: Web/API/WebTransport/incomingBidirectionalStreams
 l10n:
@@ -8,17 +8,17 @@ l10n:
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`incomingBidirectionalStreams`** der {{domxref("WebTransport")}}-Schnittstelle repräsentiert einen oder mehrere bidirektionale Streams, die vom Server geöffnet wurden. Sie gibt einen {{domxref("ReadableStream")}} von {{domxref("WebTransportBidirectionalStream")}}-Objekten zurück. Jeder einzelne kann verwendet werden, um Daten zuverlässig vom Server zu lesen und Daten zurückzuschreiben.
+Die **`incomingBidirectionalStreams`** schreibgeschützte Eigenschaft des [`WebTransport`](/de/docs/Web/API/WebTransport)-Interfaces repräsentiert einen oder mehrere bidirektionale Streams, die vom Server geöffnet wurden. Sie gibt einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekten zurück. Jeder davon kann verwendet werden, um zuverlässig Daten vom Server zu lesen und Daten zurückzuschreiben.
 
-"Zuverlässig" bedeutet, dass die Übertragung und Reihenfolge der Daten garantiert sind. Dies bietet eine langsamere Zustellung (wenn auch schneller als mit WebSockets) als {{domxref("WebTransport.datagrams", "Datagramme")}}, wird jedoch in Situationen benötigt, in denen Zuverlässigkeit und Ordnung wichtig sind, wie bei Chat-Anwendungen.
+"Zuverlässig" bedeutet, dass Übertragung und Reihenfolge der Daten garantiert sind. Dies sorgt für eine langsamere Übermittlung (wenn auch schneller als mit WebSockets) als bei [`datagrams`](/de/docs/Web/API/WebTransport/datagrams), ist jedoch in Situationen erforderlich, in denen Zuverlässigkeit und Reihenfolge wichtig sind, wie in Chat-Anwendungen.
 
 ## Wert
 
-Ein {{domxref("ReadableStream")}} von {{domxref("WebTransportBidirectionalStream")}}-Objekten.
+Ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) von [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekten.
 
 ## Beispiele
 
-Eine anfängliche Funktion wird verwendet, um die {{domxref("WebTransportBidirectionalStream")}}-Objekte aus dem {{domxref("ReadableStream")}} zu lesen. Für jedes wird die {{domxref("WebTransportBidirectionalStream.readable")}}- und {{domxref("WebTransportBidirectionalStream.writable")}}-Werte an andere Funktionen übergeben, um aus diesen Streams zu lesen und zu schreiben.
+Eine anfängliche Funktion wird verwendet, um die [`WebTransportBidirectionalStream`](/de/docs/Web/API/WebTransportBidirectionalStream)-Objekte aus dem [`ReadableStream`](/de/docs/Web/API/ReadableStream) zu lesen. Für jedes dieser Objekte werden die Werte [`WebTransportBidirectionalStream.readable`](/de/docs/Web/API/WebTransportBidirectionalStream/readable) und [`WebTransportBidirectionalStream.writable`](/de/docs/Web/API/WebTransportBidirectionalStream/writable) an andere Funktionen übergeben, um von diesen Streams zu lesen und in diese zu schreiben.
 
 ```js
 async function receiveBidirectional() {
@@ -29,7 +29,7 @@ async function receiveBidirectional() {
     if (done) {
       break;
     }
-    // value ist eine Instanz von WebTransportBidirectionalStream
+    // value is an instance of WebTransportBidirectionalStream
     await readData(value.readable);
     await writeData(value.writable);
   }
@@ -42,7 +42,7 @@ async function readData(readable) {
     if (done) {
       break;
     }
-    // value ist ein Uint8Array
+    // value is a Uint8Array.
     console.log(value);
   }
 }
@@ -66,7 +66,7 @@ async function writeData(writable) {
 
 ## Siehe auch
 
-- [Using WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
-- {{domxref("WebSockets API", "WebSockets API", "", "nocode")}}
-- {{domxref("Streams API", "Streams API", "", "nocode")}}
+- [Verwendung von WebTransport](https://developer.chrome.com/docs/capabilities/web-apis/webtransport)
+- [WebSockets API](/de/docs/Web/API/WebSockets_API)
+- [Streams API](/de/docs/Web/API/Streams_API)
 - [WebTransport über HTTP/3](https://datatracker.ietf.org/doc/html/draft-ietf-webtrans-http3/)

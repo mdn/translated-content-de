@@ -7,32 +7,32 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`LinearAccelerationSensor`**-Schnittstelle der [Sensor-APIs](/de/docs/Web/API/Sensor_APIs) liefert bei jeder Messung die auf das Gerät in allen drei Achsen angewandte Beschleunigung, jedoch ohne den Beitrag der Schwerkraft.
+Das **`LinearAccelerationSensor`**-Interface der [Sensor APIs](/de/docs/Web/API/Sensor_APIs) liefert bei jeder Messung die auf das Gerät wirkende Beschleunigung entlang aller drei Achsen, jedoch ohne den Einfluss der Schwerkraft.
 
-Um diesen Sensor zu verwenden, muss der Benutzer die Berechtigung für den Gerätesensor `'accelerometer'` über die [Permissions API](/de/docs/Web/API/Permissions_API) erteilen. Darüber hinaus kann diese Funktion durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden, die auf Ihrem Server eingestellt ist.
+Um diesen Sensor zu verwenden, muss der Benutzer die Berechtigung für den `'accelerometer'`-Gerätesensor über die [Permissions API](/de/docs/Web/API/Permissions_API) erteilen. Außerdem kann diese Funktion durch eine auf Ihrem Server festgelegte [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("LinearAccelerationSensor.LinearAccelerationSensor", "LinearAccelerationSensor()")}}
+- [`LinearAccelerationSensor()`](/de/docs/Web/API/LinearAccelerationSensor/LinearAccelerationSensor)
   - : Erstellt ein neues `LinearAccelerationSensor`-Objekt.
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinen Vorfahren, {{domxref('Accelerometer')}}, {{domxref("Sensor")}}, und {{domxref("EventTarget")}}._
+_Erbt Eigenschaften von seinen Vorfahren, [`Accelerometer`](/de/docs/Web/API/Accelerometer), [`Sensor`](/de/docs/Web/API/Sensor), und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Instanz-Methoden
 
-_`LinearAccelerationSensor` hat keine eigenen Methoden. Es erbt jedoch Methoden von seinen Elternschnittstellen, {{domxref("Sensor")}} und {{domxref("EventTarget")}}._
+_`LinearAccelerationSensor` hat keine eigenen Methoden. Es erbt jedoch Methoden von seinen übergeordneten Schnittstellen, [`Sensor`](/de/docs/Web/API/Sensor) und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Ereignisse
 
-_`LinearAccelerationSensor` hat keine eigenen Ereignisse. Es erbt jedoch Ereignisse von seiner Elternschnittstelle, {{domxref('Sensor')}}._
+_`LinearAccelerationSensor` hat keine eigenen Ereignisse. Es erbt jedoch Ereignisse von seiner übergeordneten Schnittstelle, [`Sensor`](/de/docs/Web/API/Sensor)._
 
 ## Beispiel
 
-Lineare Beschleunigung wird typischerweise im {{domxref('Sensor.reading_event', 'Lese')}}-Ereignis-Callback abgerufen. Im untenstehenden Beispiel geschieht dies sechzigmal pro Sekunde.
+Die lineare Beschleunigung wird typischerweise im [`reading`](/de/docs/Web/API/Sensor/reading_event)-Ereignis-Callback erfasst. Im folgenden Beispiel geschieht dies sechzigmal pro Sekunde.
 
 ```js
 let laSensor = new LinearAccelerationSensor({ frequency: 60 });

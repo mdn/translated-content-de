@@ -7,47 +7,47 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`VideoEncoder`**-Schnittstelle der {{domxref('WebCodecs API', '', '', 1)}} kodiert {{domxref("VideoFrame")}} Objekte in {{domxref("EncodedVideoChunk")}}s.
+Die **`VideoEncoder`**-Schnittstelle der {{domxref('WebCodecs API', '', '', 1)}} kodiert [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekte in [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)s.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- {{domxref("VideoEncoder.VideoEncoder", "VideoEncoder()")}}
-  - : Erstellt ein neues `VideoEncoder` Objekt.
+- [`VideoEncoder()`](/de/docs/Web/API/VideoEncoder/VideoEncoder)
+  - : Erstellt ein neues `VideoEncoder`-Objekt.
 
 ## Instanzeigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, {{DOMxRef("EventTarget")}}._
+_Erbt Eigenschaften von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("VideoEncoder.encodeQueueSize")}} {{ReadOnlyInline}}
-  - : Eine ganze Zahl, die die Anzahl der Anfragen in der Kodierungsschlange darstellt.
-- {{domxref("VideoEncoder.state")}} {{ReadOnlyInline}}
-  - : Repräsentiert den Zustand des zugrunde liegenden Codecs und ob er für die Kodierung konfiguriert ist.
+- [`VideoEncoder.encodeQueueSize`](/de/docs/Web/API/VideoEncoder/encodeQueueSize) {{ReadOnlyInline}}
+  - : Eine ganze Zahl, die die Anzahl der Anfragen in der Kodierungswarteschlange darstellt.
+- [`VideoEncoder.state`](/de/docs/Web/API/VideoEncoder/state) {{ReadOnlyInline}}
+  - : Repräsentiert den Status des zugrunde liegenden Codecs und ob er für die Kodierung konfiguriert ist.
 
 ### Ereignisse
 
-- {{domxref("VideoEncoder.dequeue_event", "dequeue")}}
-  - : Wird ausgelöst, um eine Verringerung von {{domxref("VideoEncoder.encodeQueueSize")}} zu signalisieren.
+- [`dequeue`](/de/docs/Web/API/VideoEncoder/dequeue_event)
+  - : Wird ausgelöst, um eine Verringerung der [`VideoEncoder.encodeQueueSize`](/de/docs/Web/API/VideoEncoder/encodeQueueSize) zu signalisieren.
 
 ## Statische Methoden
 
-- {{domxref("VideoEncoder.isConfigSupported_static", "VideoEncoder.isConfigSupported()")}}
-  - : Gibt ein Versprechen zurück, das anzeigt, ob die bereitgestellte `VideoEncoderConfig` unterstützt wird.
+- [`VideoEncoder.isConfigSupported()`](/de/docs/Web/API/VideoEncoder/isConfigSupported_static)
+  - : Gibt ein Promise zurück, das anzeigt, ob die angegebene `VideoEncoderConfig` unterstützt wird.
 
 ## Instanzmethoden
 
-_Erbt Methoden von seinem Elternteil, {{DOMxRef("EventTarget")}}._
+_Erbt Methoden von seinem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
-- {{domxref("VideoEncoder.configure()")}}
-  - : Bereitet den Encoder asynchron darauf vor, Videoframes zur Kodierung mit den angegebenen Parametern zu akzeptieren.
-- {{domxref("VideoEncoder.encode()")}}
-  - : Kodiert asynchron ein {{domxref("VideoFrame")}}.
-- {{domxref("VideoEncoder.flush()")}}
-  - : Gibt ein Versprechen zurück, das sich auflöst, sobald alle ausstehenden Kodierungen abgeschlossen sind.
-- {{domxref("VideoEncoder.reset()")}}
-  - : Bricht alle ausstehenden Kodierungen und Rückrufe ab.
-- {{domxref("VideoEncoder.close()")}}
+- [`VideoEncoder.configure()`](/de/docs/Web/API/VideoEncoder/configure)
+  - : Bereitet den Encoder asynchron vor, um Videoframes mit den angegebenen Parametern zur Kodierung zu akzeptieren.
+- [`VideoEncoder.encode()`](/de/docs/Web/API/VideoEncoder/encode)
+  - : Kodiert asynchron ein [`VideoFrame`](/de/docs/Web/API/VideoFrame).
+- [`VideoEncoder.flush()`](/de/docs/Web/API/VideoEncoder/flush)
+  - : Gibt ein Promise zurück, das aufgelöst wird, sobald alle ausstehenden Kodierungen abgeschlossen sind.
+- [`VideoEncoder.reset()`](/de/docs/Web/API/VideoEncoder/reset)
+  - : Bricht alle ausstehenden Kodierungen und Callbacks ab.
+- [`VideoEncoder.close()`](/de/docs/Web/API/VideoEncoder/close)
   - : Beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
 
 ## Spezifikationen

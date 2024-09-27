@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-Die **`WebGL2RenderingContext.getInternalformatParameter()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) liefert Informationen über implementierungsabhängige Unterstützung für interne Formate.
+Die **`WebGL2RenderingContext.getInternalformatParameter()`** Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) gibt Informationen über die implementierungsabhängige Unterstützung von internen Formaten zurück.
 
 ## Syntax
 
@@ -20,23 +20,23 @@ getInternalformatParameter(target, internalformat, pname)
 
 - `target`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das das Ziel-Renderbuffer-Objekt angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das Ziel-Renderpuffer-Objekt angibt. Mögliche Werte:
 
     - `gl.RENDERBUFFER`
-      - : Pufferspeicher für einzelne Bilder in einem renderbaren internen Format.
+      - : Pufferdatenspeicher für einzelne Bilder in einem darstellbaren internen Format.
 
 - `internalformat`
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das das interne Format angibt, zu dem Informationen abgerufen werden sollen (muss ein farb-renderbares, tiefen-renderbares oder stencil-renderbares Format sein).
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das das interne Format angibt, über das Informationen abgerufen werden sollen (muss ein farb-darstellbares, tiefend-darstellbares oder schablonen-darstellbares Format sein).
 - `pname`
 
-  - : Ein {{domxref("WebGL_API/Types", "GLenum")}}, das die Art der abzufragenden Information angibt. Mögliche Werte:
+  - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das den Typ der abzufragenden Informationen angibt. Mögliche Werte:
 
     - `gl.SAMPLES`
-      - : Gibt ein {{jsxref("Int32Array")}} zurück, das die unterstützten Sample-Anzahlen für `internalformat` in absteigender Reihenfolge enthält.
+      - : Gibt ein {{jsxref("Int32Array")}} zurück, das in absteigender Reihenfolge die unterstützten Abtastziehlen für `internalformat` enthält.
 
 ### Rückgabewert
 
-Hängt von den angeforderten Informationen ab (wie mit `pname` angegeben). Es ist ein {{jsxref("Int32Array")}} wenn `pname` `gl.SAMPLES` ist.
+Hängt von den angeforderten Informationen ab (wie durch `pname` spezifiziert). Es handelt sich um ein {{jsxref("Int32Array")}}, wenn `pname` `gl.SAMPLES` ist.
 
 ## Beispiele
 
@@ -58,4 +58,4 @@ const samples = gl.getInternalformatParameter(
 
 ## Siehe auch
 
-- {{domxref("WebGLRenderingContext.getRenderbufferParameter()")}}
+- [`WebGLRenderingContext.getRenderbufferParameter()`](/de/docs/Web/API/WebGLRenderingContext/getRenderbufferParameter)

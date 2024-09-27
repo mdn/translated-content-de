@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-**First Meaningful Paint** (FMP) ist der Zeitpunkt, nachdem die größte Layoutänderung oberhalb der Falzlinie stattgefunden hat und Web-Schriftarten geladen sind. Es ist der Moment, an dem die Antwort auf die Frage "Ist es nützlich?" zu "ja" wird, nach Abschluss des ersten bedeutungsvollen Anstrichs.
+**First Meaningful Paint** (FMP) ist der Punkt, an dem die größte Änderung des Layouts oberhalb der Falte erfolgt ist und Webschriftarten geladen wurden. Es ist der Moment, in dem die Antwort auf die Frage "Ist es nützlich?" nach dem Abschluss des bedeutungsvollen ersten Paints "ja" lautet.
 
-FMP ist sehr empfindlich gegenüber kleinen Unterschieden im Seitenladen. Dies kann zu inkonsistenten (bimodalen) Ergebnissen führen. Die Definition der Metrik hängt von browserspezifischen Implementierungsdetails ab, was bedeutet, dass sie nicht standardisiert werden kann und nicht in allen Webbrowsern implementiert ist.
+FMP ist sehr empfindlich gegenüber kleinen Unterschieden beim Seitenladen. Dies kann zu inkonsistenten (bimodalen) Ergebnissen führen. Die Definition der Metrik hängt von browser-spezifischen Implementierungsdetails ab, was bedeutet, dass sie nicht standardisiert werden kann und nicht in allen Webbrowsern implementiert ist.
 
 > [!WARNING]
-> First Meaningful Paint (FMP) ist in Lighthouse 6.0 veraltet. Zukünftig sollten Sie stattdessen die [LargestContentfulPaint API](https://wicg.github.io/largest-contentful-paint/) verwenden.
+> First Meaningful Paint (FMP) ist in Lighthouse 6.0 veraltet. Zukünftig sollten Sie die [LargestContentfulPaint API](https://wicg.github.io/largest-contentful-paint/) in Betracht ziehen.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - {{Glossary("First contentful paint")}}
-  - {{Glossary("Largest contentful paint")}}
+  - [First contentful paint](/de/docs/Glossary/First_contentful_paint)
+  - [Largest contentful paint](/de/docs/Glossary/Largest_contentful_paint)

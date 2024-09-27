@@ -7,15 +7,15 @@ l10n:
 
 {{SVGRef}}
 
-Das **`stop-color`** Attribut gibt an, welche Farbe an einem Verlaufspunkt verwendet werden soll.
+Das Attribut **`stop-color`** gibt an, welche Farbe an einem Farbverlauf-Stopp verwendet werden soll.
 
 > [!NOTE]
-> Im Hinblick auf Verläufe behandelt SVG das Schlüsselwort `transparent` anders als CSS. SVG berechnet Verläufe nicht in vormultipliziertem Raum, daher bedeutet `transparent` wirklich transparentes Schwarz. Das Festlegen einer `stop-color` mit dem Wert `transparent` ist gleichbedeutend mit dem Festlegen einer `stop-color` mit dem Wert `black` und einer {{SVGAttr("stop-opacity")}} mit dem Wert `0`.
+> In Bezug auf Verläufe behandelt SVG das Schlüsselwort `transparent` anders als CSS. SVG berechnet Verläufe nicht im vorab multiplizierten Raum, daher bedeutet `transparent` tatsächlich transparentes Schwarz. Das Spezifizieren eines `stop-color`-Werts mit `transparent` entspricht dem Spezifizieren eines `stop-color`-Werts mit `black` und einem {{SVGAttr("stop-opacity")}}-Wert von `0`.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `stop-color` als CSS-Eigenschaft verwendet werden.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("stop")}}
 
@@ -47,7 +47,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `currentcolor`
-  - : Dieses Schlüsselwort bezeichnet die aktuelle Füllfarbe und kann ebenso angegeben werden wie innerhalb einer [`<paint>`](/de/docs/Web/SVG/Content_type#paint) Spezifikation für die {{SVGAttr("fill")}} und {{SVGAttr("stroke")}} Attribute.
+  - : Dieses Schlüsselwort bezeichnet die aktuelle Füllfarbe und kann in gleicher Weise angegeben werden wie in einer [`<paint>`](/de/docs/Web/SVG/Content_type#paint) Spezifikation für die {{SVGAttr("fill")}} und {{SVGAttr("stroke")}} Attribute.
 - `<color>`
   - : Dieser Wert gibt einen Farbwert an.
 - `<icccolor>`

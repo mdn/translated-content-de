@@ -7,12 +7,12 @@ l10n:
 
 {{AddonSidebar}}
 
-Öffnet das Popup der Browser-Aktion.
+Öffnen Sie das Popup der Browser-Aktion.
 
 > [!NOTE]
 > Diese API ist in Manifest V3 oder höher verfügbar.
 
-In den stabilen Versionen von Firefox können Sie diese Funktion nur innerhalb des Handlers für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen. Weitere Informationen finden Sie unter [Browser-Kompatibilität](#browser-kompatibilität).
+In stabilen Versionen von Firefox können Sie diese Funktion nur aus dem Handler für eine [Benutzeraktion](/de/docs/Mozilla/Add-ons/WebExtensions/User_actions) aufrufen. Siehe [Browser-Kompatibilität](#browser-kompatibilität) für Details.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ browser.action.openPopup(
   - : Ein Objekt mit den folgenden Eigenschaften:
 
     - `windowId` {{optional_inline}}
-      - : `integer`. Fenster, für das das Popup geöffnet werden soll. Standardmäßig wird das aktuelle Fenster verwendet.
+      - : `integer`. Fenster, für das das Popup geöffnet werden soll. Standardmäßig das aktuelle Fenster.
 
 ### Rückgabewert
 
@@ -37,7 +37,7 @@ Ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise), das o
 
 ## Beispiele
 
-Öffnen Sie das Popup, wenn der Benutzer ein Kontextmenüelement auswählt:
+Öffnen Sie das Popup, wenn der Benutzer ein Element im Kontextmenü auswählt:
 
 ```js
 browser.menus.create({

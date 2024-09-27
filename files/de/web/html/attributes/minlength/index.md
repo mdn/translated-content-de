@@ -8,26 +8,26 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`minlength`**-Attribut definiert die minimale [Zeichenlänge](/de/docs/Web/JavaScript/Reference/Global_Objects/String/length), die der Benutzer in ein {{htmlelement('input')}} oder {{htmlelement('textarea')}} eingeben kann. Das Attribut muss einen ganzzahligen Wert von 0 oder höher haben.
+Das **`minlength`** Attribut definiert die minimale [Zeichenlänge](/de/docs/Web/JavaScript/Reference/Global_Objects/String/length), die der Benutzer in ein {{htmlelement('input')}} oder {{htmlelement('textarea')}} eingeben kann. Das Attribut muss einen ganzzahligen Wert von 0 oder höher haben.
 
-Die Länge wird in UTF-16-Codeeinheiten gemessen, was ([für die meisten Schriften](/de/docs/Web/JavaScript/Reference/Global_Objects/String/length#strings_with_length_not_equal_to_the_number_of_characters)) der Anzahl der Zeichen entspricht. Wenn kein `minlength` angegeben oder ein ungültiger Wert spezifiziert wird, hat die Eingabe keine Mindestlänge. Dieser Wert muss kleiner oder gleich dem Wert von [maxlength](/de/docs/Web/HTML/Attributes/maxlength) sein, andernfalls wird der Wert niemals gültig, da es unmöglich ist, beide Kriterien zu erfüllen.
+Die Länge wird in UTF-16 Code-Einheiten gemessen, was ([für die meisten Skripte](/de/docs/Web/JavaScript/Reference/Global_Objects/String/length#strings_with_length_not_equal_to_the_number_of_characters)) der Anzahl der Zeichen entspricht. Wenn kein `minlength` angegeben ist oder ein ungültiger Wert angegeben wird, hat die Eingabe keine Mindestlänge. Dieser Wert muss kleiner oder gleich dem Wert von [maxlength](/de/docs/Web/HTML/Attributes/maxlength) sein, andernfalls wird der Wert niemals gültig sein, da es unmöglich ist, beide Kriterien zu erfüllen.
 
-Die Eingabe wird die Einschränkungsvalidierung nicht bestehen, wenn die Länge des Textwerts des Feldes kürzer ist als die Mindestlänge von UTF-16-Codeeinheiten, mit {{domxref('validityState.tooShort')}} gibt `true` zurück. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird. Wenn die Übermittlung fehlschlägt, zeigen einige Browser eine Fehlermeldung an, die die erforderliche Mindestlänge und die aktuelle Länge angibt.
+Die Eingabe wird die Einschränkungsvalidierung nicht bestehen, wenn die Länge des Textwerts des Feldes weniger als die `minlength` UTF-16 Code-Einheiten beträgt, wobei [`validityState.tooShort`](/de/docs/Web/API/ValidityState/tooShort) `true` zurückgibt. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird. Wenn die Überprüfung fehlschlägt, zeigen einige Browser eine Fehlermeldung an, die die erforderliche Mindestlänge und die aktuelle Länge angibt.
 
-`minlength` impliziert nicht [`required`](/de/docs/Web/HTML/Attributes/required); eine Eingabe verletzt nur dann eine `minlength`-Einschränkung, wenn der Benutzer einen Wert eingegeben hat. Ist eine Eingabe nicht `required`, kann ein leerer String übermittelt werden, auch wenn `minlength` festgelegt ist.
+`minlength` impliziert nicht [`required`](/de/docs/Web/HTML/Attributes/required); eine Eingabe verstößt nur gegen eine `minlength`-Einschränkung, wenn der Benutzer einen Wert eingegeben hat. Wenn eine Eingabe nicht `required` ist, kann ein leerer String übermittelt werden, auch wenn `minlength` gesetzt ist.
 
 {{EmbedInteractiveExample("pages/tabbed/attribute-minlength.html", "tabbed-shorter")}}
 
 ## Beispiele
 
-Durch das Hinzufügen von `minlength="5"` muss der Wert entweder leer oder fünf Zeichen oder länger sein, um gültig zu sein.
+Indem `minlength="5"` hinzugefügt wird, muss der Wert entweder leer oder fünf Zeichen oder länger sein, um gültig zu sein.
 
 ```html
-<label for="fruit">Geben Sie einen Fruchtnamen ein, der mindestens 5 Buchstaben lang ist</label>
+<label for="fruit">Enter a fruit name that is at least 5 letters long</label>
 <input type="text" minlength="5" id="fruit" />
 ```
 
-Wir können Pseudoklassen verwenden, um das Element basierend darauf zu stylen, ob der Wert gültig ist. Der Wert ist gültig, solange er entweder null (leer) oder fünf oder mehr Zeichen lang ist. _Limett_ ist ungültig, _Zitrone ist gültig_.
+Wir können Pseudoklassen verwenden, um das Element basierend darauf zu stylen, ob der Wert gültig ist. Der Wert ist gültig, solange er entweder null (leer) oder fünf oder mehr Zeichen lang ist. _Lime_ ist ungültig, _lemon ist gültig_.
 
 ```css
 input {
@@ -56,6 +56,6 @@ input:invalid:focus {
 - [`maxlength`](/de/docs/Web/HTML/Attributes/maxlength)
 - [`size`](/de/docs/Web/HTML/Attributes/size)
 - [`pattern`](/de/docs/Web/HTML/Attributes/pattern)
-- [Einschränkungen bei der Validierung](/de/docs/Web/HTML/Constraint_validation)
+- [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
 - [Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
 - {{htmlelement('input')}}

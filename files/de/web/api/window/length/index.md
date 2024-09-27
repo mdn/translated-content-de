@@ -1,5 +1,5 @@
 ---
-title: "Fenster: length-Eigenschaft"
+title: "Window: length-Eigenschaft"
 short-title: length
 slug: Web/API/Window/length
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Gibt die Anzahl der Frames (entweder {{HTMLElement("frame")}}- oder {{HTMLElement("iframe")}}-Elemente) im Fenster zurück.
+Gibt die Anzahl der Rahmen (entweder {{HTMLElement("frame")}}- oder {{HTMLElement("iframe")}}-Elemente) im Fenster zurück.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Eine Zahl.
 
 ```js
 if (window.length) {
-  // dies ist ein Dokument mit Unterrahmen
+  // this is a document with subframes
 }
 ```
 

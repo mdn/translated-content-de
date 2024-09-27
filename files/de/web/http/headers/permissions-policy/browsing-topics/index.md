@@ -9,7 +9,7 @@ l10n:
 
 Der HTTP-{{HTTPHeader("Permissions-Policy")}}-Header `browsing-topics`-Direktive steuert den Zugriff auf die [Topics API](/de/docs/Web/API/Topics_API).
 
-Wenn eine Richtlinie die Nutzung der Topics API ausdrücklich untersagt, schlägt jeder Versuch, die Methode {{domxref("Document.browsingTopics()")}} aufzurufen oder eine Anfrage mit einem {{httpheader("Sec-Browsing-Topics")}}-Header zu senden, mit einem `NotAllowedError` {{domxref("DOMException")}} fehl.
+Wenn eine Richtlinie die Nutzung der Topics API ausdrücklich verbietet, schlägt jeder Versuch, die Methode [`Document.browsingTopics()`](/de/docs/Web/API/Document/browsingTopics) aufzurufen oder eine Anfrage mit einem {{httpheader("Sec-Browsing-Topics")}}-Header zu senden, mit einem `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) fehl.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Permissions-Policy: browsing-topics=<allowlist>;
 
 ## Standardrichtlinie
 
-Die Standard-Allowliste für `browsing-topics` ist `*`.
+Die Standard-`allowlist` für `browsing-topics` ist `*`.
 
 ## Spezifikationen
 
-Dieses Feature ist Teil eines inoffiziellen Standards und wird im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert.
+Diese Funktion ist nicht Teil eines offiziellen Standards, obwohl sie im [Topics API Unofficial Proposal Draft](https://patcg-individual-drafts.github.io/topics/) spezifiziert ist.
 
 ## Browser-Kompatibilität
 
@@ -37,4 +37,4 @@ Dieses Feature ist Teil eines inoffiziellen Standards und wird im [Topics API Un
 - {{HTTPHeader("Permissions-Policy")}}-Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)
 - [Topics API](/de/docs/Web/API/Topics_API)
-- {{domxref("Document.browsingTopics()")}}
+- [`Document.browsingTopics()`](/de/docs/Web/API/Document/browsingTopics)

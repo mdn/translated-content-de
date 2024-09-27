@@ -11,24 +11,24 @@ Das Betriebssystem, auf dem der Browser läuft.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 
 - `"mac"`
-  - : Das zugrundeliegende Betriebssystem ist macOS.
+  - : Das zugrunde liegende Betriebssystem ist macOS.
 - `"ios"`
-  - : Das zugrundeliegende Betriebssystem ist iOS/iPadOS.
+  - : Das zugrunde liegende Betriebssystem ist iOS/iPadOS.
 - `"win"`
-  - : Das zugrundeliegende Betriebssystem ist Windows.
+  - : Das zugrunde liegende Betriebssystem ist Windows.
 - `"android"`
-  - : Das zugrundeliegende Betriebssystem ist Android.
+  - : Das zugrunde liegende Betriebssystem ist Android.
 - `"cros"`
-  - : Das zugrundeliegende Betriebssystem ist ChromeOS.
+  - : Das zugrunde liegende Betriebssystem ist ChromeOS.
 - `"linux"`
-  - : Das zugrundeliegende Betriebssystem ist Linux.
+  - : Das zugrunde liegende Betriebssystem ist Linux.
 - `"openbsd"`
-  - : Das zugrundeliegende Betriebssystem ist Open/FreeBSD.
+  - : Das zugrunde liegende Betriebssystem ist Open/FreeBSD.
 - `"fuchsia"`
-  - : Das zugrundeliegende Betriebssystem ist Fuchsia.
+  - : Das zugrunde liegende Betriebssystem ist Fuchsia.
 
 ## Browser-Kompatibilität
 
@@ -37,7 +37,7 @@ Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf Chromiums [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#type-PlatformOs) API. Diese Dokumentation stammt aus [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
+> Diese API basiert auf der `chrome.runtime`-API von Chromium. Diese Dokumentation ist abgeleitet von [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) im Chromium-Code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

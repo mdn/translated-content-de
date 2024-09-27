@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die statische Methode **`Atomics.add()`** addiert einen angegebenen Wert an einer bestimmten Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass kein anderer Schreibvorgang stattfindet, bis der modifizierte Wert zurückgeschrieben wird.
+Die statische Methode **`Atomics.add()`** addiert einen gegebenen Wert an einer gegebenen Position im Array und gibt den alten Wert an dieser Position zurück. Diese atomare Operation garantiert, dass kein anderer Schreibvorgang erfolgt, bis der modifizierte Wert zurückgeschrieben wird.
 
 {{EmbedInteractiveExample("pages/js/atomics-add.html")}}
 
@@ -20,25 +20,20 @@ Atomics.add(typedArray, index, value)
 ### Parameter
 
 - `typedArray`
-  - : Ein ganzzahliges getyptes Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}},
-    {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}},
-    {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}}, oder
-    {{jsxref("BigUint64Array")}}.
+  - : Ein Integer-getyptes Array. Eines von {{jsxref("Int8Array")}}, {{jsxref("Uint8Array")}}, {{jsxref("Int16Array")}}, {{jsxref("Uint16Array")}}, {{jsxref("Int32Array")}}, {{jsxref("Uint32Array")}}, {{jsxref("BigInt64Array")}} oder {{jsxref("BigUint64Array")}}.
 - `index`
-  - : Die Position im `typedArray`, an der ein
-    `value` hinzugefügt werden soll.
+  - : Die Position im `typedArray`, zu dem ein `value` hinzugefügt wird.
 - `value`
-  - : Die Zahl, die hinzugefügt werden soll.
+  - : Die Zahl, die addiert werden soll.
 
 ### Rückgabewert
 
-Der alte Wert an der angegebenen Position
-(`typedArray[index]`).
+Der alte Wert an der gegebenen Position (`typedArray[index]`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten ganzzahligen Typen ist.
+  - : Wird ausgelöst, wenn `typedArray` nicht einer der erlaubten Integer-Typen ist.
 - {{jsxref("RangeError")}}
   - : Wird ausgelöst, wenn `index` außerhalb der Grenzen im `typedArray` liegt.
 
@@ -50,7 +45,7 @@ Der alte Wert an der angegebenen Position
 const sab = new SharedArrayBuffer(1024);
 const ta = new Uint8Array(sab);
 
-Atomics.add(ta, 0, 12); // gibt 0 zurück, den alten Wert
+Atomics.add(ta, 0, 12); // returns 0, the old value
 Atomics.load(ta, 0); // 12
 ```
 

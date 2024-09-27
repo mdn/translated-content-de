@@ -1,5 +1,5 @@
 ---
-title: "DOMRectReadOnly: top-Eigenschaft"
+title: "DOMRectReadOnly: top Eigenschaft"
 short-title: top
 slug: Web/API/DOMRectReadOnly/top
 l10n:
@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Geometry Interfaces")}}
 
-Die **`top`**-Eigenschaft der **`DOMRectReadOnly`**-Schnittstelle ist eine schreibgeschützte Eigenschaft, die den oberen Koordinatenwert des `DOMRect` zurückgibt. (Hat denselben Wert wie `y`, oder `y + height`, wenn `height` negativ ist.)
+Die **`top`**-Eigenschaft des **`DOMRectReadOnly`**-Interfaces ist eine schreibgeschützte Eigenschaft, die den oberen Koordinatenwert des `DOMRect` zurückgibt. (Hat denselben Wert wie `y`, oder `y + height`, wenn `height` negativ ist.)
 
 ## Wert
 
 Ein Double.
 
-## Spezifikationen
+## Specifications
 
 {{Specifications}}
 
@@ -24,4 +24,4 @@ Ein Double.
 
 ## Siehe auch
 
-- {{domxref("DOMRect")}}
+- [`DOMRect`](/de/docs/Web/API/DOMRect)

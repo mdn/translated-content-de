@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-Ausnahme "parameter after rest parameter" tritt auf, wenn ein [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) in einer Parameterliste von etwas anderem gefolgt wird, einschließlich eines weiteren Rest-Parameters, eines formellen Parameters oder eines [nachgestellten Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas).
+Die JavaScript-Ausnahme "parameter after rest parameter" tritt auf, wenn in einer Parameterliste ein [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) von etwas anderem gefolgt wird, einschließlich eines anderen Rest-Parameters, eines formalen Parameters oder eines [nachgestellten Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas).
 
 ## Meldung
 
@@ -17,13 +17,13 @@ SyntaxError: parameter after rest parameter (Firefox)
 SyntaxError: Unexpected token ','. Rest parameter should be the last parameter in a function declaration. (Safari)
 ```
 
-## Fehlertyp
+## Fehlerart
 
 {{jsxref("SyntaxError")}}
 
 ## Was ist schiefgelaufen?
 
-Ein Rest-Parameter muss der letzte Parameter in einer Funktionsdefinition sein. Dies liegt daran, dass der Rest-Parameter alle verbleibenden Argumente sammelt, die an die Funktion übergeben werden, sodass es keinen Sinn ergibt, danach noch Parameter zu haben. Das nächste Zeichen nach dem Rest-Parameter muss die schließende Klammer der Parameterliste sein.
+Ein Rest-Parameter muss der letzte Parameter in einer Funktionsdefinition sein. Dies liegt daran, dass der Rest-Parameter alle verbleibenden Argumente sammelt, die an die Funktion übergeben werden. Es macht also keinen Sinn, danach noch Parameter zu haben. Das nächste nicht-leere Zeichen muss die schließende Klammer der Parameterliste sein.
 
 ## Beispiele
 
@@ -35,7 +35,7 @@ function replacer(match, ...groups, offset, string) {}
 function doSomething(
   arg1,
   arg2,
-  ...otherArgs, // Versehentliches nachgestelltes Komma
+  ...otherArgs, // Accidental trailing comma
 ) {}
 ```
 

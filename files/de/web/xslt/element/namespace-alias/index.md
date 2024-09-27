@@ -7,7 +7,7 @@ l10n:
 
 {{XsltSidebar}}
 
-Das `<xsl:namespace-alias>`-Element ist ein selten genutztes Instrument, das einen Namensraum im Stylesheet einem anderen Namensraum im Ausgabebaum zuordnet. Der häufigste Anwendungsfall für dieses Element ist die Erzeugung eines Stylesheets aus einem anderen Stylesheet. Um zu verhindern, dass ein normalerweise mit `xsl:`-Präfix versehenes, wörtliches Ergebniselement (das unverändert in den Ergebnisknoten kopiert werden soll) vom Prozessor missverstanden wird, wird ihm ein temporärer Namensraum zugewiesen, der im Ausgabebaum entsprechend in den XSLT-Namensraum zurückkonvertiert wird.
+Das `<xsl:namespace-alias>`-Element ist ein selten genutztes Mittel, das einen Namensraum im Stylesheet einem anderen Namensraum im Ausgabebaum zuordnet. Die häufigste Verwendung dieses Elements liegt im Generieren eines Stylesheets aus einem anderen Stylesheet. Um zu verhindern, dass ein normalerweise mit `xsl:`-Präfix versehenes Literal-Resultatelement (das unverändert in den Resultatbaum kopiert werden sollte) vom Prozessor missverstanden wird, wird ihm ein temporärer Namensraum zugewiesen, der im Ausgabebaum wieder passend in den XSLT-Namensraum konvertiert wird.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Keine.
 
 ### Typ
 
-Oberste Ebene, muss ein Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
+Oberste Ebene, muss Kind von `<xsl:stylesheet>` oder `<xsl:transform>` sein.
 
 ## Spezifikationen
 
@@ -36,4 +36,4 @@ XSLT, Abschnitt 7.1.1
 
 ## Gecko-Unterstützung
 
-Derzeit nicht unterstützt.
+Zurzeit nicht unterstützt.

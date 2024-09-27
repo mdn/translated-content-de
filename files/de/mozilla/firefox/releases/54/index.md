@@ -11,84 +11,84 @@ Firefox 54 wurde am 13. Juni 2017 veröffentlicht. Dieser Artikel listet wichtig
 
 ## Änderungen für Webentwickler
 
-### Entwickler-Tools
+### Entwicklerwerkzeuge
 
-- Die Zusammenfassung der Netzwerk-Anfragen beinhaltet jetzt die tatsächlich übertragene Datenmenge ("transferred size"), ebenso wie die Ansicht der Leistungsanalyse ([Firefox Fehler 1168376](https://bugzil.la/1168376)).
-- Die Kopfzeilenansicht der Netzwerk-Anfragen verlinkt jetzt zur zugehörigen Dokumentation auf MDN ([Firefox Fehler 1320233](https://bugzil.la/1320233)).
+- Die Zusammenfassung der Netzwerkabfragen umfasst nun auch die tatsächlich übertragene Datenmenge ("transferred size"), ebenso wie die Leistungsanalyseansicht ([Firefox-Bug 1168376](https://bugzil.la/1168376)).
+- Die Kopfzeilenansicht der Netzwerkabfragen verlinkt nun zur zugehörigen Dokumentation auf MDN ([Firefox-Bug 1320233](https://bugzil.la/1320233)).
 
 ### CSS
 
-- {{cssxref("clip-path")}} unterstützt nun [Grundformen](/de/docs/Web/CSS/CSS_shapes) ([Firefox Fehler 1247229](https://bugzil.la/1247229)).
-- Firefox's Implementierungen von CSS Flexbox und CSS-Ausrichtung implementieren nun die aktualisierte Spezifikationssprache für Interaktionen zwischen den Eigenschaften {{cssxref("align-items")}} und {{cssxref("align-self")}} sowie zwischen {{cssxref("justify-items")}} und {{cssxref("justify-self")}} ([Firefox Fehler 1340309](https://bugzil.la/1340309)).
-- {{htmlelement("input")}}-Elemente der Typen `checkbox` und `radio` mit {{cssxref("appearance", "-moz-appearance")}}`: none;` werden jetzt, zum Ausgleich mit anderen Browsern, als nicht-ersetzte Elemente behandelt ([Firefox Fehler 605985](https://bugzil.la/605985)).
-- Zuvor hatte ein Element, das mit {{cssxref("display")}}: `inline-block` gestylt war und ein Kind-Element vom Typ {{domxref("HTMLInputElement")}}, das mit `display:block` gestylt war, eine falsche Basislinie ([Firefox Fehler 1330962](https://bugzil.la/1330962)). Dies ist jetzt behoben.
-- Als Mozilla dedizierte Inhalts-Threads zu Firefox einführte (durch das Electrolysis oder e10s Projekt), wurde die Unterstützung für das Styling von {{HTMLElement("option")}}-Elementen vorübergehend entfernt. Ab Firefox 54 können Sie Vorder- und Hintergrundfarben auf `<option>`-Elemente anwenden, mithilfe der {{cssxref("color")}} und {{cssxref("background-color")}}-Attribute. Weitere Informationen finden Sie unter [Firefox Fehler 910022](https://bugzil.la/910022). Beachten Sie, dass dies aufgrund mangelnden Kontrasts in Linux immer noch deaktiviert ist (siehe [Firefox Fehler 1338283](https://bugzil.la/1338283) für Fortschritte hierzu).
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) senden nun das {{domxref("Element/animationcancel_event", "animationcancel")}}-Event wie erwartet, wenn eine Animation vorzeitig abbricht ([Firefox Fehler 1302648](https://bugzil.la/1302648)).
-- Transparente Farben (d.h. solche mit einem Alpha-Kanal von 0) wurden unter bestimmten Umständen zur [`transparent`-Farbwert](/de/docs/Web/CSS/color_value) serialisiert; dies wurde korrigiert, sodass Firefox der Spezifikation folgt (sowie den Implementierungen anderer Browser). Weitere Informationen siehe ([Firefox Fehler 1339394](https://bugzil.la/1339394)).
-- Die proprietäre Pseudoklasse `:-moz-table-border-nonzero` ist für Web-Inhalte nicht mehr verfügbar; sie ist jetzt auf Firefox's internes UA-Stylesheet beschränkt ([Firefox Fehler 1341925](https://bugzil.la/1341925)).
-- \[css-grid] Inhalt mit Überlauf:auto überlappt sich im Raster ([Firefox Fehler 1348857](https://bugzil.la/1348857)).
-- \[css-grid] Übertragene Mindestgröße von prozentual großen Raster-Elementen mit einem inneren Verhältnis ([Firefox Fehler 1349320](https://bugzil.la/1349320)).
+- {{cssxref("clip-path")}} unterstützt jetzt [Grundformen](/de/docs/Web/CSS/CSS_shapes) ([Firefox-Bug 1247229](https://bugzil.la/1247229)).
+- Firefox' Implementierungen von CSS Flexbox und CSS-Ausrichtung setzen nun aktualisierte Spezifikationssprache für die Interaktionen zwischen den Eigenschaften {{cssxref("align-items")}} und {{cssxref("align-self")}} sowie zwischen {{cssxref("justify-items")}} und {{cssxref("justify-self")}} um ([Firefox-Bug 1340309](https://bugzil.la/1340309)).
+- {{htmlelement("input")}}-Elemente der Typen `checkbox` und `radio` mit {{cssxref("appearance", "-moz-appearance")}}`: none;` gelten nun als nicht ersetzte Elemente, um die Kompatibilität mit anderen Browsern zu gewährleisten ([Firefox-Bug 605985](https://bugzil.la/605985)).
+- Zuvor hatte ein Element, das mit {{cssxref("display")}}: `inline-block` gestylt war, mit einem Kindelement vom Typ [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement), das mit `display:block` gestylt war, eine falsche Basislinie ([Firefox-Bug 1330962](https://bugzil.la/1330962)). Dies ist nun behoben.
+- Als Mozilla dedizierte Inhalts-Threads in Firefox eingeführt hat (durch das Electrolysis- oder e10s-Projekt), wurde die Unterstützung für die Gestaltung von {{HTMLElement("option")}}-Elementen vorübergehend entfernt. Ab Firefox 54 können Sie wieder Vordergrund- und Hintergrundfarben auf `<option>`-Elemente anwenden, indem Sie die Attribute {{cssxref("color")}} und {{cssxref("background-color")}} verwenden. Weitere Informationen finden Sie im [Firefox-Bug 910022](https://bugzil.la/910022). Beachten Sie, dass dies auf Linux aufgrund mangelnden Kontrasts nach wie vor deaktiviert ist (siehe [Firefox-Bug 1338283](https://bugzil.la/1338283) für Fortschritte dazu).
+- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) senden nun das [`animationcancel`](/de/docs/Web/API/Element/animationcancel_event)-Ereignis wie erwartet, wenn eine Animation vorzeitig abbricht ([Firefox-Bug 1302648](https://bugzil.la/1302648)).
+- Transparente Farben (d. h. solche mit einem Alpha-Kanal von 0) wurden in bestimmten Situationen zum [`transparent`-Farbkeyword](/de/docs/Web/CSS/color_value) serialisiert; dies wurde behoben, sodass Firefox die Spezifikation (sowie die Implementierungen anderer Browser) einhält. Weitere Informationen finden Sie im [Firefox-Bug 1339394](https://bugzil.la/1339394).
+- Die proprietäre `:-moz-table-border-nonzero` Pseudoklasse ist nicht länger für Web-Inhalte verfügbar; sie ist jetzt nur noch auf Firefox' internem UA-Stylesheet zugelassen ([Firefox-Bug 1341925](https://bugzil.la/1341925)).
+- \[css-grid] Intrinsischer Inhalt mit overflow:auto überlappt in einem Raster ([Firefox-Bug 1348857](https://bugzil.la/1348857)).
+- \[css-grid] Übertragener Mindestgrößenbeitrag eines Prozentgrößen-Rasterelements mit einem intrinsischen Verhältnis ([Firefox-Bug 1349320](https://bugzil.la/1349320)).
 
 ### JavaScript
 
-- `\b` und `\B` in {{jsxref("RegExp")}} mit den Flags `"u"` (Unicode) und `"i"` (Groß- und Kleinschreibung ignorieren) behandeln nun U+017F (LATIN SMALL LETTER LONG S) und U+212A (KELVIN SIGN) als Wortzeichen ([Firefox Fehler 1338373](https://bugzil.la/1338373)).
-- Der {{jsxref("DataView")}}-Konstruktor wirft jetzt einen {{jsxref("RangeError")}}, wenn der `byteOffset`-Parameter außerhalb von {{jsxref("Number.MAX_SAFE_INTEGER")}} (>= 2 \*\* 53) liegt ([Firefox Fehler 1317382](https://bugzil.la/1317382)).
-- Die Methode {{jsxref("Date.UTC()")}} wurde aktualisiert, um ECMAScript 2017 zu entsprechen, wenn weniger als zwei Argumente übergeben werden ([Firefox Fehler 1050755](https://bugzil.la/1050755)).
-- Die Methode {{jsxref("Function.prototype.toString()")}} wurde aktualisiert, um der neuesten [vorgeschlagenen Spezifikation](https://tc39.es/Function-prototype-toString-revision/) zu entsprechen ([Firefox Fehler 1317400](https://bugzil.la/1317400)).
+- `\b` und `\B` in {{jsxref("RegExp")}} mit den Flags „u“ (Unicode) und „i“ (Groß-/Kleinschreibung ignorieren) behandeln jetzt U+017F (LATIN SMALL LETTER LONG S) und U+212A (KELVIN SIGN) als Wortzeichen ([Firefox-Bug 1338373](https://bugzil.la/1338373)).
+- Der {{jsxref("DataView")}}-Konstruktor wirft jetzt einen {{jsxref("RangeError")}}, wenn der `byteOffset`-Parameter außerhalb von {{jsxref("Number.MAX_SAFE_INTEGER")}} (>= 2 \*\* 53) liegt ([Firefox-Bug 1317382](https://bugzil.la/1317382)).
+- Die Methode {{jsxref("Date.UTC()")}} wurde aktualisiert, um mit ECMAScript 2017 konform zu sein, wenn weniger als zwei Argumente angegeben werden ([Firefox-Bug 1050755](https://bugzil.la/1050755)).
+- Die Methode {{jsxref("Function.prototype.toString()")}} wurde aktualisiert, um dem neuesten [vorgeschlagenen Standard](https://tc39.es/Function-prototype-toString-revision/) zu entsprechen ([Firefox-Bug 1317400](https://bugzil.la/1317400)).
 
 ### DOM & HTML DOM
 
-- Die Methode {{domxref("URL.toJSON()")}} wurde implementiert ([Firefox Fehler 1337702](https://bugzil.la/1337702)).
-- Der {{domxref("URLSearchParams.URLSearchParams", "URLSearchParams()")}}-Konstruktor akzeptiert nun ein Record mit Strings als Init-Objekt ([Firefox Fehler 1331580](https://bugzil.la/1331580)).
-- Werte, die unter {{domxref("KeyboardEvent.key")}} für druckbare Tasten zurückgegeben werden, wenn die Steuertaste ebenfalls gedrückt ist, wurden auf macOS korrigiert (außer wenn die Befehlstaste gedrückt wird) ([Firefox Fehler 1342865](https://bugzil.la/1342865)).
-- Die `dom.workers.latestJSVersion`-Einstellung, die hauptsächlich implementiert wurde, um Probleme mit der Verwendung von [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) in Workern zu umgehen (aufgrund von [Firefox Fehler 855665](https://bugzil.la/855665), der inzwischen behoben wurde), wurde entfernt (siehe [Firefox Fehler 1219523](https://bugzil.la/1219523)).
-- Die Eigenschaft {{domxref("event.timeStamp")}} gibt jetzt eine hochauflösende monotone Zeit ({{domxref("DOMHighResTimeStamp")}}) zurück anstelle eines Werts, der die [Unixzeit](/de/docs/Glossary/Unix_time) in Millisekunden darstellt.
+- Die Methode [`URL.toJSON()`](/de/docs/Web/API/URL/toJSON) wurde implementiert ([Firefox-Bug 1337702](https://bugzil.la/1337702)).
+- Der Konstruktor [`URLSearchParams()`](/de/docs/Web/API/URLSearchParams/URLSearchParams) akzeptiert jetzt einen Datensatz, der Zeichenfolgen als Initialisierungsobjekt enthält ([Firefox-Bug 1331580](https://bugzil.la/1331580)).
+- Die in [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) für druckbare Tasten zurückgegebenen Werte wurden auf macOS korrigiert, wenn die Steuerungstaste zusätzlich gedrückt wird (außer wenn die Befehlstaste gedrückt wird) ([Firefox-Bug 1342865](https://bugzil.la/1342865)).
+- Die Präferenz `dom.workers.latestJSVersion`, die hauptsächlich implementiert wurde, um Probleme bei der Verwendung von [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) in Workern zu umgehen (aufgrund von [Firefox-Bug 855665](https://bugzil.la/855665), der mittlerweile behoben wurde), wurde entfernt (siehe [Firefox-Bug 1219523](https://bugzil.la/1219523)).
+- Die Eigenschaft [`event.timeStamp`](/de/docs/Web/API/Event/timeStamp) gibt jetzt eine hochauflösende monotone Zeit ([`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) statt eines Wertes, der die [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden repräsentiert, zurück.
 
 ### Web Workers und Service Workers
 
-- `WorkerGlobalScope.close` ist jetzt stattdessen auf {{domxref("DedicatedWorkerGlobalScope.close", "DedicatedWorkerGlobalScope")}} und {{domxref("SharedWorkerGlobalScope.close", "SharedWorkerGlobalScope")}} verfügbar. Diese Änderung wurde vorgenommen, um `close()` in Service Workern nicht verfügbar zu machen, da es dort nicht verwendet werden soll und immer eine Ausnahme auslöst, wenn es aufgerufen wird (siehe [Firefox Fehler 1336043](https://bugzil.la/1336043)).
-- Die Eigenschaft {{domxref("Window.origin")}} und die {{domxref("WorkerGlobalScope.origin")}} wurden implementiert (siehe [Firefox Fehler 1306170](https://bugzil.la/1306170)).
-- Die Eigenschaft {{domxref("Client.type")}} wurde implementiert (siehe [Firefox Fehler 1339844](https://bugzil.la/1339844)).
-- {{domxref("Clients.matchAll()")}} gibt jetzt {{domxref("Client")}}-Objekte in der zuletzt fokussierten Reihenfolge zurück (siehe [Firefox Fehler 1266747](https://bugzil.la/1266747)).
-- Einige Änderungen wurden an dem beobachteten Verhalten vorgenommen, wenn der {{domxref("Request.Request","Request()")}}-Konstruktor eine bestehende {{domxref("Request")}}-Objektinstanz übergeben bekommt, um eine neue Instanz zu erstellen. Die folgenden neuen Verhaltensweisen sollen Sicherheit erhalten, während der Konstruktor weniger wahrscheinlich Ausnahmen auslöst:
+- `WorkerGlobalScope.close` ist jetzt stattdessen auf [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope/close) und [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope/close) verfügbar. Diese Änderung wurde vorgenommen, um zu verhindern, dass `close()` bei Service-Workern verfügbar ist, da es dort nicht verwendet werden soll und immer eine Ausnahme auslöst, wenn es aufgerufen wird (siehe [Firefox-Bug 1336043](https://bugzil.la/1336043)).
+- Die Eigenschaft [`Window.origin`](/de/docs/Web/API/Window/origin) und der [`WorkerGlobalScope.origin`](/de/docs/Web/API/WorkerGlobalScope/origin) wurden implementiert (siehe [Firefox-Bug 1306170](https://bugzil.la/1306170)).
+- Die Eigenschaft [`Client.type`](/de/docs/Web/API/Client/type) wurde implementiert (siehe [Firefox-Bug 1339844](https://bugzil.la/1339844)).
+- [`Clients.matchAll()`](/de/docs/Web/API/Clients/matchAll) gibt jetzt [`Client`](/de/docs/Web/API/Client)-Objekte in der Reihenfolge ihrer letzten Fokussierung zurück (siehe [Firefox-Bug 1266747](https://bugzil.la/1266747)).
+- Einige Änderungen wurden am beobachteten Verhalten vorgenommen, wenn der [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor ein vorhandenes [`Request`](/de/docs/Web/API/Request)-Objektinstanz übergeben bekommt, um eine neue Instanz zu erstellen. Die folgenden neuen Verhaltensweisen sollen die Sicherheit gewährleisten und den Konstruktor weniger dazu veranlassen, Ausnahmen zu werfen:
 
-  - Wenn dieses Objekt auf einem anderen Ursprung als der Konstruktoraufruf existiert, wird das {{domxref("Request.referrer")}} entfernt.
-  - Wenn dieses Objekt ein {{domxref("Request.mode")}} von `navigate` hat, wird der `mode`-Wert in `same-origin` umgewandelt.
+  - Wenn dieses Objekt auf einem anderen Ursprung als der Konstruktoraufruf existiert, wird der [`Request.referrer`](/de/docs/Web/API/Request/referrer) entfernt.
+  - Wenn dieses Objekt einen [`Request.mode`](/de/docs/Web/API/Request/mode) von `navigate` hat, wird der `mode`-Wert in `same-origin` umgewandelt.
 
 ### Audio/Video
 
 #### Allgemein
 
-- Die Wiedergabe von 5.1 Surround Sound ist jetzt standardmäßig auf Windows, macOS und Linux aktiviert ([Firefox Fehler 1334508](https://bugzil.la/1334508), [Firefox Fehler 1321502](https://bugzil.la/1321502) und [Firefox Fehler 1323659](https://bugzil.la/1323659)).
+- 5.1 Surround Sound ist jetzt standardmäßig unter Windows, macOS und Linux aktiviert ([Firefox-Bug 1334508](https://bugzil.la/1334508), [Firefox-Bug 1321502](https://bugzil.la/1321502) und [Firefox-Bug 1323659](https://bugzil.la/1323659)).
 
 #### Media Capture und Streams API
 
-- Die Verwendung eines {{domxref("MediaStream")}}-Objekts als Eingabeparameter für {{domxref("URL.createObjectURL_static", "URL.createObjectURL()")}} wurde abgelehnt — die Konsole zeigt nun eine Warnung an (siehe [Firefox Fehler 1334564](https://bugzil.la/1334564)). Es wird empfohlen, {{domxref("HTMLMediaElement.srcObject")}} stattdessen zu verwenden.
+- Die Verwendung eines [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekts als Eingabeparameter für [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) wurde als veraltet markiert — die Konsole zeigt jetzt eine Warnung an (siehe [Firefox-Bug 1334564](https://bugzil.la/1334564)). Es wird empfohlen, stattdessen [`HTMLMediaElement.srcObject`](/de/docs/Web/API/HTMLMediaElement/srcObject) zu verwenden.
 
 #### Web Audio API
 
-- Die Methode {{domxref("AnalyserNode.getFloatFrequencyData()")}} repräsentiert nun korrekt stille Proben im zurückgegebenen Puffer mit dem Wert `-Infinity` ([Firefox Fehler 1336098](https://bugzil.la/1336098)).
-- {{domxref("AudioParam.setValueCurveAtTime()")}} wirft nun eine `TypeError`-Ausnahme, wenn einer der angegebenen Werte nicht endlich ist ([Firefox Fehler 1308437](https://bugzil.la/1308437)).
+- Die Methode [`AnalyserNode.getFloatFrequencyData()`](/de/docs/Web/API/AnalyserNode/getFloatFrequencyData) stellt jetzt stumme Samples im zurückgegebenen Puffer korrekt mit dem Wert `-Infinity` dar ([Firefox-Bug 1336098](https://bugzil.la/1336098)).
+- [`AudioParam.setValueCurveAtTime()`](/de/docs/Web/API/AudioParam/setValueCurveAtTime) wirft jetzt eine `TypeError`-Ausnahme, wenn einer der angegebenen Werte nicht endlich ist ([Firefox-Bug 1308437](https://bugzil.la/1308437)).
 
-#### Encrypted MediaExtensions API
+#### Verschlüsselte Medienerweiterungen API
 
-- Der `MediaKeySession.keySystem`-String wurde aus der Spezifikation entfernt, und dementsprechend haben wir ihn in Firefox 54 entfernt ([Firefox Fehler 1335555](https://bugzil.la/1335555)).
-- Unterstützung für den VP9-Codec in verschlüsselten Streams, die [Clear Key](https://www.w3.org/TR/encrypted-media/#clear-key) und [Widevine](https://www.widevine.com/) verwenden, wurde hinzugefügt ([Firefox Fehler 1338064](https://bugzil.la/1338064)).
-- Bisher durfte MSE nur WebM/VP8-Video verwenden, wenn das System als "schnell genug" angesehen wurde. Jetzt wird die Wiedergabe von VP8-kodierten `webm/video`-Medien immer unterstützt, unabhängig von der Systemleistung.
+- Der `MediaKeySession.keySystem`-String wurde aus der Spezifikation entfernt und daher aus Firefox 54 entfernt ([Firefox-Bug 1335555](https://bugzil.la/1335555)).
+- Unterstützung für den VP9-Codec in verschlüsselten Streams mit [Clear Key](https://www.w3.org/TR/encrypted-media/#clear-key) und [Widevine](https://www.widevine.com/) wurde hinzugefügt ([Firefox-Bug 1338064](https://bugzil.la/1338064)).
+- Zuvor war MSE nur erlaubt, WebM/VP8-Video zu verwenden, wenn das System als "schnell genug" angesehen wurde. Jetzt wird die Wiedergabe von VP8-codierten `webm/video`-Medien immer unterstützt, unabhängig von der Systemleistung.
 
 #### WebRTC
 
-- Unterstützt werden TCP ICE-Kandidaten, die ursprünglich in Firefox 41 hinzugefügt wurden und jetzt standardmäßig aktiviert sind. Dadurch kann die ICE-Schicht Kandidaten berücksichtigen, die TCP anstelle des bevorzugten UDP für die Übertragung verwenden. Dies kann in Umgebungen nützlich sein, in denen UDP blockiert ist ([Firefox Fehler 1176382](https://bugzil.la/1176382)). Dieser [Blog-Post](https://blog.mozilla.org/webrtc/active-ice-tcp-punch-firewalls-directly/) erklärt das Feature im Detail.
+- TCP ICE-Kandidatenunterstützung, die ursprünglich in Firefox 41 hinzugefügt wurde, ist jetzt standardmäßig aktiviert. Dies ermöglicht es der ICE-Schicht, Kandidaten zu berücksichtigen, die TCP anstelle des bevorzugten UDP für die Übertragung verwenden. Dies kann in Umgebungen nützlich sein, in denen UDP blockiert ist ([Firefox-Bug 1176382](https://bugzil.la/1176382)). Dieser [Blogeintrag](https://blog.mozilla.org/webrtc/active-ice-tcp-punch-firewalls-directly/) erklärt die Funktion detaillierter.
 
 ## Entfernungen aus der Web-Plattform
 
 ### CSS
 
-- Entfernt wurden die `-moz`-präfixierten Versionen der `isolate`, `isolate-override` und `plaintext`-Werte für die {{cssxref("unicode-bidi")}}-Eigenschaft ([Firefox Fehler 1333675](https://bugzil.la/1333675)).
+- Entfernt wurden die `-moz`-Präfixe der Werte `isolate`, `isolate-override` und `plaintext` für die {{cssxref("unicode-bidi")}}-Eigenschaft ([Firefox-Bug 1333675](https://bugzil.la/1333675)).
 
 ### HTTP
 
-- Die Unterstützung für HTTP/1 Pipelining wurde in Firefox 54 entfernt. Angesichts der Kompatibilitäts- und Leistungsprobleme von Pipelining ist es nicht sinnvoll, es beizubehalten, während wir in eine neue Welt voller HTTP/2 und anderer wesentlicher, standardisierter Verbesserungen der Netzwerkleistung wechseln. Die `network.http.pipelining`-Einstellung (sowie die anderen Einstellungen, die mit "network.http.pipelining" beginnen) wird jetzt ignoriert. Weitere Informationen siehe [Firefox Fehler 1340655](https://bugzil.la/1340655).
+- Die Unterstützung für HTTP/1 Pipelining wurde in Firefox 54 entfernt. Es ist nicht vorteilhaft, Pipelining aufrechtzuerhalten, während wir den Wechsel in eine neue Welt voller HTTP/2 und anderer substanzieller, standardisierter Verbesserungen der Netzwerkleistung vollziehen, da Pipelining mit Kompatibilitäts- und Leistungsproblemen behaftet ist. Die Präferenz `network.http.pipelining` (sowie die anderen Präferenzen, die mit "network.http.pipelining" beginnen) wird jetzt ignoriert. Weitere Informationen finden Sie im [Firefox-Bug 1340655](https://bugzil.la/1340655).
 
 ## Ältere Versionen
 

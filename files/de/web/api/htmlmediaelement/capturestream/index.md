@@ -1,5 +1,5 @@
 ---
-title: "HTMLMediaElement: captureStream() Methode"
+title: "HTMLMediaElement: captureStream()-Methode"
 short-title: captureStream()
 slug: Web/API/HTMLMediaElement/captureStream
 l10n:
@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`captureStream()`** Methode der {{domxref("HTMLMediaElement")}} Schnittstelle gibt ein {{domxref('MediaStream')}} Objekt zurück, welches eine Echtzeitaufnahme des Inhalts streamt, der im Media-Element wiedergegeben wird.
+Die **`captureStream()`**-Methode der [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement)-Schnittstelle gibt ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt zurück, das eine Echtzeitaufnahme des Inhalts streamt, der im Medien-Element wiedergegeben wird.
 
-Dies kann zum Beispiel als Quelle für eine [WebRTC](/de/docs/Web/API/WebRTC_API) {{domxref("RTCPeerConnection")}} verwendet werden.
+Dies kann beispielsweise als Quelle für eine [WebRTC](/de/docs/Web/API/WebRTC_API)-[`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verwendet werden.
 
 ## Syntax
 
@@ -24,11 +24,14 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{domxref('MediaStream')}} Objekt, das als Quelle für Audio- und/oder Videodaten von anderen Medienverarbeitungscodes oder als Quelle für [WebRTC](/de/docs/Glossary/WebRTC) verwendet werden kann.
+Ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt, das von anderem Medienverarbeitungscode als Quelle für Audio- und/oder
+Videodaten verwendet werden kann, oder als Quelle für [WebRTC](/de/docs/Glossary/WebRTC).
 
 ## Beispiele
 
-In diesem Beispiel wird ein Ereignishandler eingerichtet, der beim Klicken auf eine Schaltfläche mit der Aufnahme der Inhalte eines Media-Elements mit der ID `"playback"` in einen {{domxref("MediaStream")}} beginnt. Der Stream kann dann für andere Zwecke verwendet werden, z.B. als Quelle für das Streaming über WebRTC, um eine vorab aufgezeichnete Videowiedergabe mit einer anderen Person während eines Videoanrufs zu teilen.
+In diesem Beispiel wird ein Ereignishandler eingerichtet, sodass beim Klicken auf einen Button die Inhalte eines Medien-Elements mit der ID `"playback"` in einen
+[`MediaStream`](/de/docs/Web/API/MediaStream) aufgenommen werden. Der Stream kann dann für andere Zwecke genutzt werden - wie z.B. als Quelle
+für das Streamen über WebRTC, um vorab aufgenommene Videos während eines Videoanrufs mit einer anderen Person zu teilen.
 
 ```js
 document.querySelector(".playAndRecord").addEventListener("click", () => {
@@ -38,7 +41,7 @@ document.querySelector(".playAndRecord").addEventListener("click", () => {
 });
 ```
 
-Siehe [Aufzeichnung eines Media-Elements](/de/docs/Web/API/MediaStream_Recording_API/Recording_a_media_element) für ein längeres und aufwendigeres Beispiel und Erklärung.
+Sehen Sie sich [Aufnahme eines Medien-Elements](/de/docs/Web/API/MediaStream_Recording_API/Recording_a_media_element) für ein längeres und komplexeres Beispiel und Erklärung an.
 
 ## Spezifikationen
 
@@ -50,21 +53,26 @@ Siehe [Aufzeichnung eines Media-Elements](/de/docs/Web/API/MediaStream_Recording
 
 ### Firefox-spezifische Hinweise
 
-Vor Firefox 51 konnten Sie `captureStream()` nicht auf ein Media-Element anwenden, dessen Quelle selbst ein {{domxref("MediaStream")}} ist (wie ein {{HTMLElement("video")}} Element, das einen Stream über eine {{domxref("RTCPeerConnection")}} wiedergibt). Ab Firefox 51 funktioniert das. Das bedeutet, dass Sie einen Stream vom Videoelement erfassen und {{domxref("MediaRecorder")}} verwenden können, um ihn aufzunehmen. Siehe [Firefox Bug 1259788](https://bugzil.la/1259788) für Details.
+Vor Firefox 51 konnte `captureStream()` nicht auf ein Medien-Element angewendet werden, dessen Quelle selbst ein [`MediaStream`](/de/docs/Web/API/MediaStream) ist (wie ein {{HTMLElement("video")}}-Element, das einen Stream über eine
+[`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) empfängt). Ab Firefox 51 funktioniert dies. Das bedeutet, dass Sie einen Stream aus dem Video-Element erfassen und mit [`MediaRecorder`](/de/docs/Web/API/MediaRecorder) aufnehmen können. Siehe [Firefox Bug 1259788](https://bugzil.la/1259788) für Details.
 
-Allerdings ist `captureStream()` immer noch als `mozCaptureStream()` in Firefox mit einem Präfix versehen, und das aus gutem Grund: Es gibt einige Eigenheiten in der aktuellen Implementierung, die beachtenswert sind:
+Allerdings ist `captureStream()` in Firefox weiterhin als `mozCaptureStream()` mit einem Präfix versehen, aus gutem Grund: Es gibt einige Eigenheiten in der
+aktuellen Implementierung, die beachtet werden sollten:
 
-- Die Firefox-Implementierung funktioniert nur wie in der Spezifikation beschrieben, wenn die Quelle des Media-Elements selbst ein {{domxref("MediaStream")}} ist.
-- Wenn die Quelle des Media-Elements kein `MediaStream` ist, ist die Ausgabe dieser Methode nicht kompatibel mit der Spezifikation, und wenn Sie die Quelle nach Beginn der Aufnahme ändern, kann der Ausgabeaufnahme-Stream die neuen Quelldaten aufgrund dieser Inkompatibilität nicht akzeptieren, sodass keine {{domxref("MediaStreamTrack")}}s aus der neuen Quelle dem aufgenommenen Stream hinzugefügt werden, was zu einer Ausgabe führt, die die aktualisierte Quelle nicht erfasst.
-- Wird die Quelle wieder auf einen `MediaStream` umgeschaltet, werden Spuren wieder zum Stream hinzugefügt und es funktioniert erneut erwartungsgemäß.
-- Ein Aufruf von `mozCaptureMediaStream()` auf einem Element mit einer `MediaStream`-Quelle gibt einen Stream zurück, der nur während der Wiedergabe eines `MediaStream`-Elements Spuren enthält.
-- Wenn Sie `mozCaptureMediaStream()` auf ein Media-Element ohne Quellmedien aufrufen, basiert der Kompatibilitätsmodus auf der ersten hinzugefügten Quelle; wenn es z.B. ein `MediaStream` ist, wird der Aufnahmestrom nur mit `MediaStream`-Quellen arbeiten von da an.
-- Dieses spezielle Verhalten wird entfernt, sobald die Unterstützung für Nicht-`MediaStream`-Quellen gemäß der Spezifikation umgesetzt und die Methode nicht mehr mit einem Präfix versehen ist. Details finden Sie im [Firefox Bug 1259788](https://bugzil.la/1259788).
+- Die Firefox-Implementierung funktioniert derzeit nur wie in der Spezifikation beschrieben, wenn die Quelle des Medien-Elements selbst ein [`MediaStream`](/de/docs/Web/API/MediaStream) ist.
+- Wenn die Quelle des Medien-Elements kein `MediaStream` ist, entspricht die Ausgabe dieser Methode nicht der Spezifikation, und wenn Sie die Quelle nach Beginn der Aufnahme ändern, kann der erfasste Stream die neuen Quelldaten aufgrund dieser Inkompatibilität nicht akzeptieren, sodass keine [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)s aus der neuen Quelle
+  `MediaStream` dem erfassten Stream hinzugefügt werden, was zu einer Ausgabe führt, die die aktualisierte Quelle nicht erfasst.
+- Wenn die Quelle wieder auf ein `MediaStream` umgeschaltet wird, werden die Tracks zum Stream zurückgeführt und es funktioniert wieder wie erwartet.
+- Ein Aufruf von `mozCaptureMediaStream()` auf einem Element mit einer `MediaStream`-Quelle gibt einen Stream zurück, der nur Tracks enthält, während das
+  Element ein `MediaStream` abspielt.
+- Wenn Sie `mozCaptureMediaStream()` auf einem Medien-Element ohne Quellenmedien aufrufen, wird der Kompatibilitätsmodus auf der ersten hinzugefügten Quelle basieren; zum Beispiel, wenn es ein `MediaStream` ist, wird der erfasste Stream nur mit `MediaStream`-Quellen ab dann funktionieren.
+- Dieses spezielle Verhalten wird entfernt, sobald die Unterstützung für Nicht-`MediaStream`-Quellen auf den Spezifikationsstand gebracht und die Methode nicht mehr mit einem Präfix versehen ist. Siehe
+  [Firefox Bug 1259788](https://bugzil.la/1259788) für Details.
 
 ## Siehe auch
 
-- [Aufzeichnung eines Media-Elements](/de/docs/Web/API/MediaStream_Recording_API/Recording_a_media_element)
+- [Aufnahme eines Medien-Elements](/de/docs/Web/API/MediaStream_Recording_API/Recording_a_media_element)
 - [MediaStream Recording API](/de/docs/Web/API/MediaStream_Recording_API)
-- {{domxref("HTMLCanvasElement.captureStream()")}}
-- {{domxref("MediaStream")}}
+- [`HTMLCanvasElement.captureStream()`](/de/docs/Web/API/HTMLCanvasElement/captureStream)
+- [`MediaStream`](/de/docs/Web/API/MediaStream)
 - [WebRTC API](/de/docs/Web/API/WebRTC_API)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Pointer Events")}}
 
-Der **`PointerEvent()`** Konstruktor erstellt eine neue synthetische und nicht vertrauenswürdige {{domxref("PointerEvent")}}-Objektinstanz.
+Der **`PointerEvent()`** Konstruktor erstellt eine neue synthetische und nicht vertrauenswürdige [`PointerEvent`](/de/docs/Web/API/PointerEvent) Objektinstanz.
 
 ## Syntax
 
@@ -20,39 +20,39 @@ new PointerEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Namen des Events darstellt (siehe [PointerEvent Eventtypen](/de/docs/Web/API/PointerEvent#pointer_event_types)).
+  - : Ein String, der den Namen des Ereignisses repräsentiert (siehe [PointerEvent-Ereignistypen](/de/docs/Web/API/PointerEvent#pointer_event_types)).
 - `options` {{optional_inline}}
 
-  - : Ein Objekt, das, _zusätzlich zu den Eigenschaften, die in {{domxref("MouseEvent/MouseEvent", "MouseEvent()")}} definiert sind_, die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das zusätzlich zu den Eigenschaften, die in [`MouseEvent()`](/de/docs/Web/API/MouseEvent/MouseEvent) definiert sind, die folgenden Eigenschaften haben kann:
 
     - `pointerId`
-      - : Eine Zahl, die standardmäßig auf `0` gesetzt ist und den Wert der Instanz von {{domxref("PointerEvent.pointerId")}} festlegt.
+      - : Eine Zahl, die standardmäßig `0` ist und den Wert der Instanz [`PointerEvent.pointerId`](/de/docs/Web/API/PointerEvent/pointerId) festlegt.
     - `width`
-      - : Eine Zahl, die standardmäßig auf `1` gesetzt ist und den Wert der Instanz von {{domxref("PointerEvent.width")}} festlegt.
+      - : Eine Zahl, die standardmäßig `1` ist und den Wert der Instanz [`PointerEvent.width`](/de/docs/Web/API/PointerEvent/width) festlegt.
     - `height`
-      - : Eine Zahl, die standardmäßig auf `1` gesetzt ist und den Wert der Instanz von {{domxref("PointerEvent.height")}} festlegt.
+      - : Eine Zahl, die standardmäßig `1` ist und den Wert der Instanz [`PointerEvent.height`](/de/docs/Web/API/PointerEvent/height) festlegt.
     - `pressure`
-      - : Eine Zahl, die standardmäßig auf `0` gesetzt ist und den Wert der Instanz von {{domxref("PointerEvent.pressure")}} festlegt.
+      - : Eine Zahl, die standardmäßig `0` ist und den Wert der Instanz [`PointerEvent.pressure`](/de/docs/Web/API/PointerEvent/pressure) festlegt.
     - `tangentialPressure`
-      - : Eine Zahl, die standardmäßig auf `0` gesetzt ist und den Wert der Instanz von {{domxref("PointerEvent.tangentialPressure")}} festlegt.
+      - : Eine Zahl, die standardmäßig `0` ist und den Wert der Instanz [`PointerEvent.tangentialPressure`](/de/docs/Web/API/PointerEvent/tangentialPressure) festlegt.
     - `altitudeAngle`
-      - : Eine Zahl, die den Wert der Instanz von {{domxref("PointerEvent.altitudeAngle")}} festlegt.
+      - : Eine Zahl, die den Wert der Instanz [`PointerEvent.altitudeAngle`](/de/docs/Web/API/PointerEvent/altitudeAngle) festlegt.
     - `azimuthAngle`
-      - : Eine Zahl, die den Wert der Instanz von {{domxref("PointerEvent.azimuthAngle")}} festlegt.
+      - : Eine Zahl, die den Wert der Instanz [`PointerEvent.azimuthAngle`](/de/docs/Web/API/PointerEvent/azimuthAngle) festlegt.
     - `tiltX`
-      - : Eine Zahl, die den Wert der Instanz von {{domxref("PointerEvent.tiltX")}} festlegt.
+      - : Eine Zahl, die den Wert der Instanz [`PointerEvent.tiltX`](/de/docs/Web/API/PointerEvent/tiltX) festlegt.
     - `tiltY`
-      - : Eine Zahl, die den Wert der Instanz von {{domxref("PointerEvent.tiltY")}} festlegt.
+      - : Eine Zahl, die den Wert der Instanz [`PointerEvent.tiltY`](/de/docs/Web/API/PointerEvent/tiltY) festlegt.
     - `twist`
-      - : Eine Zahl, die standardmäßig auf `0` gesetzt ist und den Wert der Instanz von {{domxref("PointerEvent.twist")}} festlegt.
+      - : Eine Zahl, die standardmäßig `0` ist und den Wert der Instanz [`PointerEvent.twist`](/de/docs/Web/API/PointerEvent/twist) festlegt.
     - `pointerType`
-      - : Ein String, der standardmäßig `""` ist und den Wert der Instanz von {{domxref("PointerEvent.pointerType")}} festlegt.
+      - : Ein String, der standardmäßig `""` ist und den Wert der Instanz [`PointerEvent.pointerType`](/de/docs/Web/API/PointerEvent/pointerType) festlegt.
     - `isPrimary`
-      - : Ein boolescher Wert, der standardmäßig `false` ist und den Wert der Instanz von {{domxref("PointerEvent.isPrimary")}} festlegt.
+      - : Ein boolescher Wert, der standardmäßig `false` ist und den Wert der Instanz [`PointerEvent.isPrimary`](/de/docs/Web/API/PointerEvent/isPrimary) festlegt.
 
 ### Rückgabewert
 
-Ein neues {{domxref("PointerEvent")}}-Objekt.
+Ein neues [`PointerEvent`](/de/docs/Web/API/PointerEvent) Objekt.
 
 ## Beispiele
 

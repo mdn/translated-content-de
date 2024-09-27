@@ -8,15 +8,17 @@ l10n:
 
 {{APIRef("URL Pattern API")}}{{SeeCompatTable}} {{AvailableInWorkers}}
 
-Die **`search`**-Eigenschaft der schreibgeschützten {{domxref("URLPattern")}}-Schnittstelle ist ein String, der das Muster enthält, das verwendet wird, um den Suchteil einer URL zu matchen. Dieser Wert kann sich aufgrund von Normalisierung von der Eingabe des Konstruktors unterscheiden.
+Die **`search`**-Eigenschaft des [`URLPattern`](/de/docs/Web/API/URLPattern)-Interfaces ist eine
+schreibgeschützte Zeichenkette, die das Muster enthält, das für den Abgleich des Suchteils einer URL verwendet wird. Dieser Wert kann sich von der Eingabe des Konstruktors aufgrund der Normalisierung unterscheiden.
 
 ## Wert
 
-Ein String.
+Eine Zeichenkette.
 
 ## Beispiele
 
-Das folgende Beispiel erstellt ein {{domxref("URLPattern")}}-Objekt mit `*` für den `search`-Teil. Dieses Muster ist ein Platzhalter und matcht daher jeden Suchteil.
+Das folgende Beispiel erstellt ein [`URLPattern`](/de/docs/Web/API/URLPattern)-Objekt mit `*` für den
+`search`-Teil. Dieses Muster ist ein Platzhalter und passt somit auf jeden Suchteil.
 
 ```js
 const pattern = new URLPattern("https://example.com?*");

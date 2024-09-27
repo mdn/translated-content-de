@@ -8,18 +8,18 @@ l10n:
 
 {{APIRef("CSS Font Loading API")}}
 
-Die schreibgeschützte **`status`**-Eigenschaft der {{domxref("FontFaceSet")}}-Schnittstelle gibt den Ladezustand der Schriften im Set zurück.
+Die schreibgeschützte **`status`**-Eigenschaft der [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle gibt den Ladezustand der Schriften in der Menge zurück.
 
 ## Wert
 
-Einer der folgenden:
+Einer von:
 
 - `"loading"`
 - `"loaded"`
 
 ## Beispiele
 
-Im folgenden Beispiel wird der `status` des `FontFaceSet` in die Konsole ausgegeben.
+Im folgenden Beispiel wird der `status` des `FontFaceSet` in der Konsole ausgegeben.
 
 ```js
 console.log(document.fonts.status);
@@ -29,6 +29,6 @@ console.log(document.fonts.status);
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}

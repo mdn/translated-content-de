@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`facingMode`**-Attribut des {{domxref("MediaTrackSupportedConstraints")}}-Wörterbuchs ist ein schreibgeschützter Boolean-Wert, der nur dann im von {{domxref("MediaDevices.getSupportedConstraints()")}} zurückgegebenen Objekt vorhanden ist (und auf `true` gesetzt ist), wenn der {{Glossary("user agent")}} die `facingMode`-Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, wird sie nicht in die Liste aufgenommen, sodass dieser Wert niemals `false` sein wird.
+Das **`facingMode`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Dictionaries ist ein schreibgeschützter Boolean-Wert, der in dem Objekt vorhanden ist (und auf `true` gesetzt wird), das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, wenn und nur wenn der [User-Agent](/de/docs/Glossary/user_agent) die `facingMode`-Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, sodass dieser Wert niemals `false` sein wird.
 
-Sie können auf das unterstützte Einschränkungswörterbuch zugreifen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
+Sie können auf das unterstützte Einschränkungs-Dictionary zugreifen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
 
 ## Wert
 
-Dieses Attribut ist im Wörterbuch vorhanden (und sein Wert ist immer `true`), wenn der User-Agent die `facingMode`-Einschränkung unterstützt. Wenn das Attribut nicht vorhanden ist, fehlt dieses Attribut im unterstützten Einschränkungswörterbuch, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, auf seinen Wert zuzugreifen.
+Diese Eigenschaft ist im Dictionary präsent (und ihr Wert ist immer `true`), wenn der User-Agent die `facingMode`-Einschränkung unterstützt. Wenn die Eigenschaft nicht vorhanden ist, fehlt diese Eigenschaft im unterstützten Einschränkungen-Dictionary, und Sie erhalten {{jsxref("undefined")}}, wenn Sie versuchen, ihren Wert abzurufen.
 
 ## Beispiele
 
@@ -51,6 +51,6 @@ result.textContent = supported ? "Supported!" : "Not supported!";
 ## Siehe auch
 
 - [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API)
-- {{domxref("MediaDevices.getSupportedConstraints()")}}
-- {{domxref("MediaTrackSupportedConstraints")}}
-- {{domxref("MediaStreamTrack")}}
+- [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints)
+- [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
+- [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)

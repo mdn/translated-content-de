@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`attributeType`** Attribut gibt den Namensraum an, in dem das Zielattribut und seine zugehörigen Werte definiert sind.
+Das **`attributeType`** Attribut gibt den Namensraum an, in dem das Zielattribut und dessen zugehörige Werte definiert sind.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("animate")}}
 - {{SVGElement("animateTransform")}}
@@ -63,9 +63,9 @@ svg {
 - `CSS`
   - : Dieser Wert gibt an, dass der Wert von {{SVGAttr("attributeName")}} der Name einer CSS-Eigenschaft ist, die als animierbar definiert ist.
 - `XML`
-  - : Dieser Wert gibt an, dass der Wert von {{SVGAttr("attributeName")}} der Name eines XML-Attributs ist, das als animierbar im Standard-XML-Namensraum für das Ziel-Element definiert ist.
+  - : Dieser Wert gibt an, dass der Wert von {{SVGAttr("attributeName")}} der Name eines XML-Attributs ist, das im Standard-XML-Namensraum des Ziel-Elements als animierbar definiert ist.
 - `auto`
-  - : Dieser Wert gibt an, dass die Implementierung {{SVGAttr("attributeName")}} mit einem Attribut für das Ziel-Element vergleichen sollte. Benutzeragenten durchsuchen zuerst die Liste der CSS-Eigenschaften nach einem übereinstimmenden Eigenschaftsnamen und durchsuchen bei Nichterfolg den Standard-XML-Namensraum des Elements.
+  - : Dieser Wert gibt an, dass die Implementierung {{SVGAttr("attributeName")}} einem Attribut des Ziel-Elements zuordnen sollte. Benutzeragenten durchsuchen zunächst die Liste der CSS-Eigenschaften nach einem übereinstimmenden Eigenschaftsnamen und suchen, falls keiner gefunden wird, im Standard-XML-Namensraum des Elements.
 
 ## Spezifikationen
 
@@ -73,4 +73,4 @@ svg {
 
 ## Siehe auch
 
-- [SMIL-Animations-Spezifikation](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#AccumulateAttribute)
+- [SMIL Animationsspezifikation](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#AccumulateAttribute)

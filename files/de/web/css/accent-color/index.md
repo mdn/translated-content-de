@@ -1,5 +1,5 @@
 ---
-title: Akzentfarbe
+title: accent-color
 slug: Web/CSS/accent-color
 l10n:
   sourceCommit: 5f13cbe7517ce96deeb521d4c8e6923266a22913
@@ -7,32 +7,32 @@ l10n:
 
 {{CSSRef}}
 
-Die **`accent-color`** [CSS](/de/docs/Web/CSS) Eigenschaft setzt die {{Glossary("accent")}}-Farbe für Benutzeroberflächensteuerungen, die von einigen Elementen generiert werden.
+Die **`accent-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die [Akzentfarbe](/de/docs/Glossary/accent) für Benutzeroberflächensteuerungen fest, die von einigen Elementen generiert werden.
 
 {{EmbedInteractiveExample("pages/css/accent-color.html")}}
 
-Browser, die `accent-color` unterstützen, wenden diese derzeit auf die folgenden HTML-Elemente an:
+Browser, die `accent-color` unterstützen, wenden es derzeit auf die folgenden HTML-Elemente an:
 
 - [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox)
 - [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio)
 - [`<input type="range">`](/de/docs/Web/HTML/Element/input/range)
 - [`<progress>`](/de/docs/Web/HTML/Element/progress)
 
-Jeder User Agent hat eine Akzentfarbe mit Variationen, um Lesbarkeit und Kontrast zu gewährleisten. Diese Akzentfarbe wird nicht von jeder Benutzeroberflächensteuerung oder in jedem Zustand der Steuerung verwendet. Die `accent-color` wird nur auf Benutzeroberflächensteuerungen angewendet, die eine Akzentfarbe in den Zuständen verwenden, in denen sie anwendbar ist.
+Jeder Benutzeragent hat eine Akzentfarbe mit Variationen, um die Lesbarkeit und den Kontrast sicherzustellen. Diese Akzentfarbe wird nicht von jeder Benutzeroberflächensteuerung oder in jedem Zustand der Steuerung verwendet. Die `accent-color` wird nur auf Benutzeroberflächensteuerungen angewendet, die eine Akzentfarbe in den Zuständen verwenden, in denen sie anwendbar ist.
 
 ## Syntax
 
 ```css
-/* Keyword-Werte */
+/* Keyword values */
 accent-color: auto;
 
-/* <color> Werte */
+/* <color> values */
 accent-color: darkred;
 accent-color: #5729e9;
 accent-color: rgb(0 200 0);
 accent-color: hsl(228 4% 24%);
 
-/* Globale Werte */
+/* Global values */
 accent-color: inherit;
 accent-color: initial;
 accent-color: revert;
@@ -43,7 +43,7 @@ accent-color: unset;
 ### Werte
 
 - `auto`
-  - : Stellt eine vom UA gewählte Farbe dar, die der Akzentfarbe der Plattform entsprechen sollte, falls vorhanden.
+  - : Repräsentiert eine von der Benutzeroberfläche gewählte Farbe, die der Akzentfarbe der Plattform entsprechen sollte, falls vorhanden.
 - {{cssxref("&lt;color&gt;")}}
   - : Gibt die Farbe an, die als Akzentfarbe verwendet werden soll.
 
@@ -57,7 +57,7 @@ accent-color: unset;
 
 ## Beispiele
 
-### Einstellen einer benutzerdefinierten Akzentfarbe
+### Eine benutzerdefinierte Akzentfarbe festlegen
 
 #### HTML
 

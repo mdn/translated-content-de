@@ -7,17 +7,17 @@ l10n:
 
 {{APIRef("SVG")}}
 
-Die `SVGAnimateTransformElement`-Schnittstelle entspricht dem {{SVGElement("animateTransform")}}-Element.
+Die `SVGAnimateTransformElement` Schnittstelle entspricht dem {{SVGElement("animateTransform")}} Element.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von ihrem übergeordneten Element, {{domxref("SVGAnimationElement")}}._
+_Diese Schnittstelle hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von ihrem Elternteil, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
 
 ## Instanz-Methoden
 
-_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch Methoden von ihrem übergeordneten Element, {{domxref("SVGAnimationElement")}}._
+_Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch Methoden von ihrem Elternteil, [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement)._
 
 ## Spezifikationen
 

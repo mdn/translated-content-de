@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebUSB API")}}{{SecureContext_Header}}
 
-Die **`usb`**-Eigenschaft des {{domxref("Navigator")}}-Interfaces ist eine schreibgeschützte Eigenschaft, die ein {{domxref("USB")}}-Objekt für das aktuelle Dokument zurückgibt. Dieses Objekt bietet Zugriff auf die Funktionalität der [WebUSB API](/de/docs/Web/API/WebUSB_API).
+Die schreibgeschützte **`usb`**-Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces liefert ein [`USB`](/de/docs/Web/API/USB)-Objekt für das aktuelle Dokument und ermöglicht den Zugriff auf die Funktionalitäten der [WebUSB API](/de/docs/Web/API/WebUSB_API).
 
 ## Wert
 
-Ein {{domxref('USB')}}-Objekt.
+Ein [`USB`](/de/docs/Web/API/USB)-Objekt.
 
 ## Spezifikationen
 

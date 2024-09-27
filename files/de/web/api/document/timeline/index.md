@@ -1,5 +1,5 @@
 ---
-title: "Dokument: timeline-Eigenschaft"
+title: "Document: timeline-Eigenschaft"
 short-title: timeline
 slug: Web/API/Document/timeline
 l10n:
@@ -8,18 +8,18 @@ l10n:
 
 {{ APIRef("Web Animations") }}
 
-Die schreibgeschützte Eigenschaft `timeline` des {{domxref("Document")}}-Interfaces repräsentiert die Standard-Zeitachse des aktuellen Dokuments. Diese Zeitachse ist eine spezielle Instanz von {{domxref("DocumentTimeline")}}.
+Die `timeline` schreibgeschützte Eigenschaft der [`Document`](/de/docs/Web/API/Document) Schnittstelle repräsentiert die Standard-Zeitleiste des aktuellen Dokuments. Diese Zeitleiste ist eine spezielle Instanz von [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline).
 
-Diese Zeitachse ist einzigartig für jedes `document` und bleibt während der gesamten Lebensdauer des `document`, einschließlich Aufrufen von {{domxref("Document.open()")}}, bestehen.
+Diese Zeitleiste ist für jedes `document` einzigartig und bleibt für die gesamte Lebensdauer des `document` bestehen, einschließlich Aufrufen von [`Document.open()`](/de/docs/Web/API/Document/open).
 
-Diese Zeitachse drückt die Zeit in Millisekunden seit {{domxref("Performance.timeOrigin")}} aus. Vor dem Zeitursprung ist die Zeitachse inaktiv, und ihre {{domxref("AnimationTimeline.currentTime","currentTime")}} ist `null`.
+Diese Zeitleiste drückt die Zeit in Millisekunden seit [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) aus. Vor dem Zeitursprung ist die Zeitleiste inaktiv und ihre [`currentTime`](/de/docs/Web/API/AnimationTimeline/currentTime) ist `null`.
 
 > [!NOTE]
-> Eine Dokumenten-Zeitachse, die einem nicht-aktiven Dokument zugeordnet ist (ein {{domxref("Document")}} ohne Zuordnung zu einem {{domxref("Window")}}, {{htmlelement("iframe")}} oder {{htmlelement("frame")}}), wird ebenfalls als inaktiv betrachtet.
+> Eine Dokumenten-Zeitleiste, die mit einem inaktiven Dokument (einem [`Document`](/de/docs/Web/API/Document), das nicht mit einem [`Window`](/de/docs/Web/API/Window), {{htmlelement("iframe")}}, oder {{htmlelement("frame")}} assoziiert ist) verknüpft ist, wird ebenfalls als inaktiv betrachtet.
 
 ## Wert
 
-Ein {{domxref("DocumentTimeline")}}-Objekt.
+Ein [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline) Objekt.
 
 ## Spezifikationen
 
@@ -32,6 +32,6 @@ Ein {{domxref("DocumentTimeline")}}-Objekt.
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- {{domxref("AnimationTimeline")}}
-- {{domxref("AnimationTimeline.currentTime")}}
-- {{domxref("DocumentTimeline")}}
+- [`AnimationTimeline`](/de/docs/Web/API/AnimationTimeline)
+- [`AnimationTimeline.currentTime`](/de/docs/Web/API/AnimationTimeline/currentTime)
+- [`DocumentTimeline`](/de/docs/Web/API/DocumentTimeline)

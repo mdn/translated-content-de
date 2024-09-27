@@ -1,5 +1,5 @@
 ---
-title: "TrustedScript: toString() Methode"
+title: "TrustedScript: toString()-Methode"
 short-title: toString()
 slug: Web/API/TrustedScript/toString
 l10n:
@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **`toString()`**-Methode des {{domxref("TrustedScript")}}-Interfaces gibt einen String zurück, der sicher in ein [Injection-Empfänger](/de/docs/Web/API/Trusted_Types_API#injection_sinks) eingefügt werden kann.
+Die **`toString()`**-Methode der [`TrustedScript`](/de/docs/Web/API/TrustedScript)-Schnittstelle gibt einen String zurück, der sicher in ein [Injection Sink](/de/docs/Web/API/Trusted_Types_API#injection_sinks) eingefügt werden kann.
 
 ## Syntax
 
@@ -26,7 +26,7 @@ Ein String, der das bereinigte Skript enthält.
 
 ## Beispiele
 
-Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types-Richtlinie erstellt wurde. Die `toString()`-Methode gibt einen String zurück, der sicher als Skript ausgeführt werden kann.
+Die Konstante `sanitized` ist ein Objekt, das über eine Trusted Types-Policy erstellt wurde. Die `toString()`-Methode gibt einen String zurück, der sicher als Skript ausgeführt werden kann.
 
 ```js
 const sanitized = scriptPolicy.createScript("eval('2 + 2')");
@@ -37,6 +37,6 @@ console.log(sanitized.toString());
 
 {{Specifications}}
 
-## Kompatibilität mit Browsern
+## Browser-Kompatibilität
 
 {{Compat}}
